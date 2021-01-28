@@ -19,8 +19,8 @@
         "/blog": "blog"
     },
     "executable": {
-        "python": "python",
-        "pip": "pip"
+        "python": "python3",
+        "pip": "pip3"
     },
     "plugins": {
         "teedoc-plugin-markdown-parser":{
