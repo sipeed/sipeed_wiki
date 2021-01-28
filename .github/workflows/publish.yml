@@ -40,9 +40,15 @@ jobs:
           git init
           git config user.name ${{ secrets.GIT_NAME }}
           git config user.email ${{ secrets.GIT_EMAIL }}
-          git remote add upstream "https://${{ secrets.ACCESSS_KEY }}@github.com/${{ secrets.REPO }}.git"
+          git remote add upstream "git@github.com:${{ secrets.REPO }}.git"
           git add -A
           git commit -m "rebuild website ad $GITHUB_REF"
+          SSHPATH="$HOME/.ssh"
+          rm -rf "$SSHPATH"
+          mkdir -p "$SSHPATH"
+          echo "${{ secrets.ACCESSS_KEY }}" > "$SSHPATH/id_rsa"
+          chmod 600 "$SSHPATH/id_rsa"
+          sudo sh -c "echo StrictHostKeyChecking no >>/etc/ssh/ssh_config"
           git push upstream HEAD:gh-pages --force
           
           
