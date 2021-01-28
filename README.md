@@ -9,7 +9,7 @@ visit: [teedoc.github.io](https://teedoc.github.io)
 * Install teedoc
 
 ```
-pip install teedoc
+pip3 install teedoc
 ```
 
 * Get site source files
