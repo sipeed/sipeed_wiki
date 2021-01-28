@@ -33,6 +33,7 @@ jobs:
         run: |
           pip3 install teedoc
           ls -al ~/.local/bin/
+          export PATH=~/.local/bin/:$PATH
           teedoc install
           teedoc build
           cd out
