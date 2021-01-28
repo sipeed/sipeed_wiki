@@ -9,13 +9,13 @@
             "file": "install/README.md"
         },
         {
+            "label": "开始写文档",
+            "file": "usage/start.md"
+        },
+        {
             "label": "插件",
             "file": "plugins/README.md",
             "items":[
-                {
-                    "label": "默认插件",
-                    "file": "plugins/defaults.md"
-                },
                 {
                     "label": "主题插件",
                     "file": "plugins/themes.md"
