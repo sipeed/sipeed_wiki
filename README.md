@@ -15,13 +15,13 @@ pip3 install teedoc
 * Get site source files
 
 ```
-git clone https://github.com/teedoc/teedoc_site
+git clone https://github.com/teedoc/teedoc.github.io my_site
 ```
 
 * Install plugins
 
 ```
-cd teedoc_site
+cd my_site
 teedoc install
 ```
 
