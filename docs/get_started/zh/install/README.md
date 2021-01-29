@@ -7,7 +7,7 @@ desc: teedoc， 将 markdown 或者 jupyter notbook 转换成 html 静态网页�
 
 ## 使用方法
 
-需要先安装`Python3` （仅仅支持 `Python3`）
+需要先安装`Python3` （仅支持 `Python3`）
 
 比如在`Ubuntu`上：
 ```
@@ -65,5 +65,19 @@ teedoc serve
 
 
 同时可以看到目录下多了一个`out`目录，里面就是生成的静态网站内容，直接拷贝到服务器使用`nginx`或者`apache`进行部署即可
+
+
+### 在 github 上基于模板仓库创建新仓库
+
+
+访问 [https://github.com/teedoc/teedoc.github.io](https://github.com/teedoc/teedoc.github.io)
+
+点击 `Use this template`
+
+![github use template](../../assets/images/github_use_template.jpg)
+
+然后填写新的仓库名称和描述，基于这个仓库新建一个你自己的仓库，现在你获得了和 `teedoc`官网一模一样的仓库了
+
+然后使用`git clone 你的仓库地址`就可以克隆到本地了
 
 
