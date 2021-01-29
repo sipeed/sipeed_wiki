@@ -206,7 +206,7 @@ desc: teedoc， 将 markdown 或者 jupyter notbook 转换成 html 静态网页�
 
 文件路径使用相对路径，填文件名即可， `README.md` 会被自动转换成`index.html`
 
-另外也可以不写`file`路径，直接`url`， 比如`"url": "/get_started/zh"`
+另外也可以不写`file`路径，直接`url`， 比如`"url": "/get_started/zh"`, 同时可以设置`"target":"_blank"` 在新窗口打开，不设置则在当前窗口打开
 
 比如：
 
@@ -250,7 +250,6 @@ desc: teedoc， 将 markdown 或者 jupyter notbook 转换成 html 静态网页�
         {
             "label": "更多样例",
             "items":[
-                
                 {
                     "label": "二级子目录样例",
                     "items":[
@@ -268,6 +267,11 @@ desc: teedoc， 将 markdown 或者 jupyter notbook 转换成 html 静态网页�
                             "file": "more/example_docs/doc2.md"
                         }
                     ]
+                },
+                {
+                    "label": "这是一个链接",
+                    "url": "https://github.com/teedoc/teedoc",
+                    "target": "_blank"
                 }
             ]
         }
