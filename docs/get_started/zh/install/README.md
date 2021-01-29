@@ -26,7 +26,7 @@ sudo apt install python3 python3-pip
 pip3 install teedoc
 ```
 
-使用以下命令来更新软件：
+以后使用以下命令来更新软件：
 ```
 pip3 install teedoc --upgrade
 ```
@@ -64,5 +64,6 @@ teedoc serve
 打开浏览器访问: [http://127.0.0.1:2333](http://127.0.0.1:2333)
 
 
+同时可以看到目录下多了一个`out`目录，里面就是生成的静态网站内容，直接拷贝到服务器使用`nginx`或者`apache`进行部署即可
 
 
