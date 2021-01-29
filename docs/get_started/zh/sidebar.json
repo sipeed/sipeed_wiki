@@ -31,6 +31,24 @@
             "file": "syntax/syntax_markdown.md"
         },
         {
+            "label": "部署",
+            "file": "usage/deploy.md",
+            "items":[
+                {
+                    "label": "部署到 github",
+                    "file": "usage/deploy_github_pages.md"
+                },
+                {
+                    "label": "使用 nginx 部署到服务器",
+                    "file": "usage/deploy_nginx.md"
+                },
+                {
+                    "label": "使用 CDN 加速网站",
+                    "file": "usage/deploy_cdn.md"
+                }
+            ]
+        },
+        {
             "label": "使用了 teedoc 的网站",
             "file": "usage/sites.md"
         },

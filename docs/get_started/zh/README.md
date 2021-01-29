@@ -6,6 +6,7 @@ desc: teedoc， 将 markdown 或者 jupyter notbook 转换成 html 静态网页
 
 
 官网: [teedoc.github.io](https://teedoc.github.io/)
+本文档源文件: [github.com/teedoc/teedoc.github.io](https://github.com/teedoc/teedoc.github.io)
 
 将 `Markdown` 或者 `Jupyter Notebook` 格式的文档转换为 `HTML` 网页
 
