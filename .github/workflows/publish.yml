@@ -46,7 +46,7 @@ jobs:
           SSHPATH="$HOME/.ssh"
           rm -rf "$SSHPATH"
           mkdir -p "$SSHPATH"
-          echo "${{ secrets.ACCESSS_KEY }}" > "$SSHPATH/id_rsa"
+          echo "${{ secrets.ACCESS_KEY }}" > "$SSHPATH/id_rsa"
           chmod 600 "$SSHPATH/id_rsa"
           sudo sh -c "echo StrictHostKeyChecking no >>/etc/ssh/ssh_config"
           git push upstream HEAD:gh-pages --force
