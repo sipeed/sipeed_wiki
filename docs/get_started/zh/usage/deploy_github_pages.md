@@ -49,7 +49,7 @@ ssh-keygen -t rsa -f key.txt
 然后在设置里面找到 `pages` 服务设置，打开即可，然后访问对应的域名，
 比如这里是`https://teedoc.github.io/`
 
->! 注意如果跟路径不是`/`，比如`https://teedoc.github.io/my_site/`， 则需要在`site_config.json`中配置`"site_root_url":"/my_site/"`
+>! 注意如果跟路径不是`/`，而且没有自定义域名，比如`https://teedoc.github.io/my_site/`， 则需要在`site_config.json`中配置`"site_root_url":"/my_site/"`
 
 ![](../../assets/images/github_pages.jpg)
 
