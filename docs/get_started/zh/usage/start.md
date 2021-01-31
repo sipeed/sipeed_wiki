@@ -108,7 +108,7 @@ desc: teedoc， 将 markdown 或者 jupyter notbook 转换成 html 静态网页�
 名字可以在[github](https://github.com) 搜索`teedoc-plugin`来找到开源的插件，也欢迎你参与编写插件（只需要动 `Python` 语法即可）； 
 `from`字段填`pypi`即可，如果插件下载到了本地也可以填写文件夹路径，也可以直接填`git`路径比如`git+https://github.com/*****/******.git`
 配置项则由具体的插件决定，比如`teedoc-plugin-theme-default`就有`dark`选项来选择是否启用暗黑主题
-
+* `rebuild_changes_delay`: 检测到文件更改后，延迟多少秒自动重新生成该文档
 
 
 
