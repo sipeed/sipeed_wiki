@@ -36,7 +36,8 @@ jobs:
           export PATH=~/.local/bin/:$PATH
           teedoc install
           teedoc build
-          cd out
+          out_dir=out`python3 -c 'import json; f=open("site_config.json");config=json.load(f);print(config["site_root_url"])'`
+          cd $out_dir
           git init
           git config user.name ${{ secrets.GIT_NAME }}
           git config user.email ${{ secrets.GIT_EMAIL }}
@@ -46,7 +47,7 @@ jobs:
           SSHPATH="$HOME/.ssh"
           rm -rf "$SSHPATH"
           mkdir -p "$SSHPATH"
-          echo "${{ secrets.ACCESSS_KEY }}" > "$SSHPATH/id_rsa"
+          echo "${{ secrets.ACCESS_KEY }}" > "$SSHPATH/id_rsa"
           chmod 600 "$SSHPATH/id_rsa"
           sudo sh -c "echo StrictHostKeyChecking no >>/etc/ssh/ssh_config"
           git push upstream HEAD:gh-pages --force

@@ -1,6 +1,6 @@
 ---
 title: teedoc 插件
-keywords: teedoc, markdown, jupyter notebook, html, 文档生成, 替代gitbook, 网站生成, 静态网站, 插件
+keywords: teedoc, 插件
 desc: teedoc， 将 markdown 或者 jupyter notbook 转换成 html 静态网页， 介绍了 teedoc 的的插件
 ---
 
@@ -41,5 +41,6 @@ teedoc 使用了插件系统，方便扩充功能
 以及设置自定义`css`文件和`js`文件，值是`url`，不是文件路径（文件路径和`url`的映射请看前面的`route`（路由）介绍， 通过设置这个`css`文件，可以覆盖主题插件默认的样式，实现简单的自定义功能
 
 
-
+*  [主题插件](./themes.md)
+*  [其它插件](./others.md)
 
