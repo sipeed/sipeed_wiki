@@ -1,6 +1,7 @@
 {
     "site_name": "teedoc",
     "site_slogon": "happy to write",
+    "site_root_url": "/",
     "route": {
         "docs": {
             "/get_started/zh": "docs/get_started/zh",
@@ -26,6 +27,7 @@
         "teedoc-plugin-markdown-parser":{
             "from": "pypi",
             "config": {
+                "toc_depth": 3
             }
         },
         "teedoc-plugin-theme-default":{
