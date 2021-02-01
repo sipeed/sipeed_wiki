@@ -5,6 +5,43 @@ desc: teedoc， 将 markdown 或者 jupyter notbook 转换成 html 静态网页�
 ---
 
 
+## 构建与预览
+
+在有`site_config.json`的文档目录下执行
+```
+teedoc serve
+```
+
+在显示 `Starting server at 0.0.0.0:2333 ....` 后，就可以了
+
+打开浏览器访问: [http://127.0.0.1:2333](http://127.0.0.1:2333)
+
+
+实时修改文件，保存文件后，默认过`3`秒后，会自动重新构建这个文件，然后浏览器会自动刷新
+> 自动刷新的延迟时间可以设置，可以加 `-t` 参数， 比如`teedoc -t 0 serve`设置为`0`秒延迟，
+> 另外也可以在文档配置中设置，见后面配置参数`rebuild_changes_delay`的说明
+
+
+如果只需要构建生成`HTML`页面，只需要执行
+
+```
+teedoc build
+```
+
+
+另外，也可以指定参数`-d`或者`--dir` 来指定文档目录，这样就不用在文档目录下面执行命令了，比如
+```
+teedoc -d /home/teedoc/my_doc build
+```
+
+
+## 构建文档删除
+
+
+构建好的文档会被放到`out`目录下，程序不会主动删除，如果需要清除，请手动删除
+
+
+
 ## 文档目录结构
 
 ```
@@ -110,7 +147,7 @@ desc: teedoc， 将 markdown 或者 jupyter notbook 转换成 html 静态网页�
 名字可以在[github](https://github.com) 搜索`teedoc-plugin`来找到开源的插件，也欢迎你参与编写插件（只需要动 `Python` 语法即可）； 
 `from`字段填`pypi`即可，如果插件下载到了本地也可以填写文件夹路径，也可以直接填`git`路径比如`git+https://github.com/*****/******.git`
 配置项则由具体的插件决定，比如`teedoc-plugin-theme-default`就有`dark`选项来选择是否启用暗黑主题
-* `rebuild_changes_delay`: 检测到文件更改后，延迟多少秒自动重新生成该文档
+* `rebuild_changes_delay`: 检测到文件更改后，延迟多少秒自动重新生成该文档， 浏览器中会自动刷新页面，默认为`3`秒，最短可以设置为`0`秒, 可以使用`teedoc -t 3 serve` 或者 `teedoc --delay serve` 来覆盖这个设置
 
 ## config.json 文档配置
 
