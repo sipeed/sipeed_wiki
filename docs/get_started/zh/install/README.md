@@ -47,6 +47,8 @@ git clone https://github.com/teedoc/teedoc.github.io my_site
 
 * 安装插件
 
+这会根据`site_config.sjon`中的`plugins`的插件设置安装插件
+
 ```
 cd my_site
 teedoc install
@@ -55,9 +57,16 @@ teedoc install
 * 构建 `HTML` 页面并起一个`HTTP`服务
 
 ```
-teedoc build
 teedoc serve
 ```
+
+这个命令会先构建所有`HTML`页面以及拷贝资源文件，然后起一个`HTTP`服务
+如果只需要生成页面，使用
+
+```
+teedoc build
+```
+
 
 在显示 `Starting server at 0.0.0.0:2333 ....` 后，就可以了
 
