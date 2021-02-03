@@ -1,0 +1,38 @@
+
+#navbar h2 {
+    display: none;
+}
+
+#home_page h1 {
+    width: 100%;
+    font-size: 6em;
+    text-align: center;
+    font-family: sans-serif;
+    color: #4caf7d;
+}
+#home_page h3 {
+    width: 100%;
+    text-align: center;
+}
+#big_btn_wrapper {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 5em 1em;
+}
+#home_page .big_btn a {
+    padding: 2em;
+    background-color: #f7f7f9;
+    font-size: 1.3em;
+    border-radius: 10px;
+    transition: 0.4s;
+    display: flex;
+}
+#home_page .big_btn a:hover {
+    background-color: #f1f1f1;
+}
+.dark #home_page .big_btn a {
+    background-color: #2d2d2d;
+}
+.dark #home_page .big_btn a:hover {
+    background-color: #1f1f1f;
+}

@@ -10,11 +10,19 @@ desc: teedoc， 将 markdown 或者 jupyter notbook 转换成 html 静态网页
 
 将 `Markdown` 或者 `Jupyter Notebook` 格式的文档转换为 `HTML` 网页
 
+以下场景可使用`teedoc`：
+* 建文档网站，并且最好支持放多份文档，和自定义页面
+* 建`WiKi`网站
+* 建个人或者企业知识库
+* 建个人或者企业网站
 
 
-## Features
+
+
+## 特性
 
 - [x] 使用简单， 跨平台，只依赖 `Python3`
+- [x] 部署简单， 生成的网站是全静态页面，直接拷贝到服务器或者上传到三方机构即可部署
 - [x] 书写简单，使用 Markdown 语法编写
 - [ ] Jupyter notebook 支持
 - [x] 多文档支持
