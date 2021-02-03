@@ -13,6 +13,7 @@ desc: teedoc， 将 markdown 或者 jupyter notbook 转换成 html 静态网页�
 这样我们在`md`文件中写相对路径比如`../assets/image/screenshot.png`就会转换为`/get_started/assets/image/screenshot.png`
 如果是`/get_started/zh`， 浏览器就会解析为`/assets/image/screenshot.png`，就是错误的地址，就会找不到图片！
 
+当然，你也可以选择使用绝对路径
 
 
 
