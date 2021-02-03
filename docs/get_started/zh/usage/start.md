@@ -28,6 +28,8 @@ teedoc serve
 teedoc build
 ```
 
+>! 注意，如果是最终生成发布版本的文档， 一定要用`build`命令来生成网站页面，`serve`命令生成的页面只能用于本地预览，会有多余的预览相关的代码，不适合用在生产环境部署
+
 
 另外，也可以指定参数`-d`或者`--dir` 来指定文档目录，这样就不用在文档目录下面执行命令了，比如
 ```
@@ -153,7 +155,7 @@ teedoc -d /home/teedoc/my_doc build
 
 这是针对每个文档的配置，放在每个文档的根目录， 比如`docs/get_started/zh/config.json`， 各个文档相互独立，可以设置一样的来保持网站导航栏一致
 
-在这里面可以配置每个文档的导航栏， 以及页尾（`footer`）的内容
+在这里面可以配置每个文档的导航栏， 以及页尾（`footer`）的内容, 也可以设置插件的`config`项，在当前文档会覆盖`site_config.json`中的配置，从而实现不同文档不同语言（国际化/i18n）或者样式等
 
 比如：
 
@@ -232,6 +234,18 @@ teedoc -d /home/teedoc/my_doc build
                 "position": "middle"
             }
         ]
+    },
+    "plugins": {
+        "teedoc-plugin-search":{
+            "config": {
+                "search_hint": "搜索",
+                "input_hint": "输入关键词，多关键词空格隔开",
+                "loading_hint": "正在加载，请稍候。。。",
+                "download_err_hint": "下载文件失败，请刷新重试或检查网络",
+                "other_docs_result_hint": "来自其它文档的结果",
+                "curr_doc_result_hint": "当前文档搜索结果"
+            }
+        }
     }
 }
 ```
