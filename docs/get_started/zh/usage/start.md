@@ -87,20 +87,20 @@ teedoc -d /home/teedoc/my_doc build
     "site_slogon": "happy to write",
     "route": {
         "docs": {
-            "/get_started/zh": "docs/get_started/zh",
-            "/get_started/en": "docs/get_started/en",
-            "/develop/zh": "docs/develop/zh",
-            "/develop/en": "docs/develop/en"
+            "/get_started/zh/": "docs/get_started/zh",
+            "/get_started/en/": "docs/get_started/en",
+            "/develop/zh/": "docs/develop/zh",
+            "/develop/en/": "docs/develop/en"
         },
         "pages": {
             "/": "pages/index/zh",
-            "/en": "pages/index/en"
+            "/en/": "pages/index/en"
         },
         "assets": {
-            "/static": "static",
-            "/get_started/assets": "docs/get_started/assets"
+            "/static/": "static",
+            "/get_started/assets/": "docs/get_started/assets"
         },
-        "/blog": "blog"
+        "/blog/": "blog"
     },
     "executable": {
         "python": "python3",
@@ -133,10 +133,10 @@ teedoc -d /home/teedoc/my_doc build
 * `route`: 网页路由，包含了文档和页面以及资源文件的路由，比如文档的路由
 ```json
 "docs": {
-    "/get_started/zh": "docs/get_started/zh",
-    "/get_started/en": "docs/get_started/en",
-    "/develop/zh": "docs/develop/zh",
-    "/develop/en": "docs/develop/en"
+    "/get_started/zh/": "docs/get_started/zh",
+    "/get_started/en/": "docs/get_started/en",
+    "/develop/zh/": "docs/develop/zh",
+    "/develop/en/": "docs/develop/en"
 },
 ```
 `key`代表了最终生成的网站中文档的`url`, 后面的值则是对应的源文档路径，
@@ -170,12 +170,12 @@ teedoc -d /home/teedoc/my_doc build
         "home_url": "/",
         "items": [
             {
-                "url": "/get_started/zh",
+                "url": "/get_started/zh/",
                 "label": "安装使用",
                 "position": "left"
             },
             {
-                "url": "/develop/zh",
+                "url": "/develop/zh/",
                 "label": "开发",
                 "position": "left"
             },
@@ -190,11 +190,11 @@ teedoc -d /home/teedoc/my_doc build
                 "position": "right",
                 "items": [
                     {
-                        "url": "/get_started/zh",
+                        "url": "/get_started/zh/",
                         "label": "中文"
                     },
                     {
-                        "url": "/get_started/en",
+                        "url": "/get_started/en/",
                         "label": "English"
                     }
                 ]
@@ -348,10 +348,10 @@ teedoc -d /home/teedoc/my_doc build
 {
     "route": {
         "docs": {
-            "/get_started/zh": "docs/get_started/zh",
+            "/get_started/zh/": "docs/get_started/zh",
         },
         "assets": {
-            "/get_started/assets": "docs/get_started/assets"
+            "/get_started/assets/": "docs/get_started/assets"
         }
     }
 }
