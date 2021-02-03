@@ -53,6 +53,10 @@
             ]
         },
         {
+            "label": "SEO(为搜索引擎优化)",
+            "file": "syntax/seo.md"
+        },
+        {
             "label": "使用了 teedoc 的网站",
             "file": "usage/sites.md"
         },
