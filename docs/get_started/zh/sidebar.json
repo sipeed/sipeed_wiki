@@ -13,6 +13,10 @@
             "file": "usage/start.md"
         },
         {
+            "label": "写文档时需注意",
+            "file": "usage/write_attention.md"
+        },
+        {
             "label": "插件",
             "file": "plugins/README.md",
             "items":[
