@@ -25,14 +25,16 @@ desc: teedoc 其它插件
 
 让网站和文档支持搜索功能，支持所搜当前文档和全站搜索
 
-要使用，在`site_config.json`中添加：
+要使用，在`site_config.json`中的`plugins`关键词中添加：
 ```json
+"plugins": {
     "teedoc-plugin-search":{
         "from": "pypi",
         "config": {
             "search_hint": "Search"
         }
     }
+}
 ```
 
 
@@ -59,6 +61,39 @@ desc: teedoc 其它插件
 * `download_err_hint`: 下载搜索所需的文件失败提示，需要用户刷新浏览器重试或者网络环境无法下载文件， 默认`Download error, please check network and refresh again`
 * `other_docs_result_hint`: 搜索结果提示，其它文档中的搜索结果， 默认`Result from other docs`
 * `curr_doc_result_hint`: 搜索结果提示，当前浏览的文档中的搜索结果， 默认`Result from current doc`
+
+
+## 百度统计
+
+在每个页面添加[百度统计](https://tongji.baidu.com/)的代码，将访问信息发送到百度，就可以在后台看到访问统计信息了
+
+在百度统计注册登录后，在管理页面添加网站，然后会有一个代码获取页面，里面会有如下的代码
+```js
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?90c693aa2************c14a50bb49";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+```
+
+这里有一串密钥`90c693aa2************c14a50bb49`，将这一串密钥复制，然后在`site_config.json`中的`plugins`关键词中添加：
+```json
+"plugins": {
+    "teedoc-plugin-baidu-tongji":{
+        "from": "pypi",
+        "config": {
+            "code": "这里填访问密钥"
+        }
+    }
+}
+```
+
+部署好网站后，就可以在百度统计后台实时访客页面看到反问信息了
+
 
 
 
