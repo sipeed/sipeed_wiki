@@ -11,7 +11,7 @@ desc: teedoc 生成的网站部署到服务器
 访问 [https://github.com/teedoc/teedoc.github.io](https://github.com/teedoc/teedoc.github.io)
 点击 `Use this template`
 ![github use template](../../assets/images/github_use_template.jpg)
-然后填写新的仓库名称和描述，基于这个仓库新建一个你自己的仓库，现在你获得了和 `teedoc`官网一模一样的仓库了
+然后填写新的仓库名称（仓库名字最好是`teedoc.github.io`将`teedoc`替换成你的用户名或者组织名）和描述，基于这个仓库新建一个你自己的仓库，现在你获得了和 `teedoc`官网一模一样的仓库了
 > 会发现有一个`.github/workflows`的目录，这个就是`github action`的配置文件，我们利用这个功能来实现：
 > 当我们更新仓库的源文件时， `github action`自动根据这个配置文件的命令构建生成静态网页，然后推送到这个仓库的`gh-pages`分支
 
