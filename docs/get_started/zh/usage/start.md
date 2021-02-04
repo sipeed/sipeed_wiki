@@ -73,6 +73,30 @@ teedoc -d /home/teedoc/my_doc build
 * `config.json`: 除了`site_config.json`外，每个文档目录下都可以有`config.json`用来配置文档相关页面
 * `sidebar.json`: 文档目录
 
+## 配置文件
+
+配置文件可以是 `json` 或者 `yaml` 格式的文件，选择你喜欢使用的即可
+
+如果你的文档目录内容很多，建议使用`yaml`格式，看起来会更加简洁
+
+`teedoc` 提供了 `json` 和 `yaml` 格式互相转换的命令
+
+### 从 json 转到 yaml
+
+```
+teedoc -f ./config.json json2yaml
+```
+
+### 从 yaml 转到 json
+
+
+```
+teedoc -f ./config.json yaml2json
+```
+
+
+
+
 ## site_config.json 网站配置
 
 网站的配置项，比如网站名称，页面路由，插件配置等等
