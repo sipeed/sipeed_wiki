@@ -21,18 +21,21 @@
 }
 #home_page .big_btn a {
     padding: 2em;
-    background-color: #f7f7f9;
+    background-color: #4caf7d;
     font-size: 1.3em;
     border-radius: 10px;
     transition: 0.4s;
     display: flex;
+    color: white;
 }
 #home_page .big_btn a:hover {
-    background-color: #f1f1f1;
+    box-shadow: 6px 4px 20px #0000002e;
 }
 .dark #home_page .big_btn a {
-    background-color: #2d2d2d;
+    background-color: #1b5638;
+    color: #d2f9e5;
 }
 .dark #home_page .big_btn a:hover {
-    background-color: #1f1f1f;
+    box-shadow: 6px 4px 20px #000000;
+    background-color: #2a7d53;
 }
