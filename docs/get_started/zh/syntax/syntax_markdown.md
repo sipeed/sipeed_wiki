@@ -7,6 +7,54 @@ desc: teedoc 的 markdown 语法介绍和实例
 
 本文是使用`Markdown`编写的文档，使用`teedoc`生成的页面效果， `Markdown`文件见[这里](https://github.com/teedoc/teedoc.github.io/blob/main/docs/get_started/zh/syntax/syntax_markdown.md)
 
+## Markdown 基本文件内容格式
+
+需要先在`site_config.json`中确认有`markdown`解析插件启用了，比如`teedoc-plugin-markdown-parser`。
+
+在`config.json`对应的目录下建立文件夹或者文件， 比如`get_started/zh/syntax/syntax_markdown.md` (`README.md`最终会生成`index.html`)， 然后编写内容：
+
+### Markdown 文件头
+
+添加一个头
+
+```markdown
+---
+title: markdown 语法
+tags: teedoc, markdown, 语法
+keywords: teedoc, markdown, 语法
+desc: teedoc 的 markdown 语法介绍和实例
+---
+```
+
+通过这些键值来设置文章信息：
+* `title`: 文章的标题
+* `keywords`: 关键词，多个关键词用英文逗号`,` 隔开，会被添加到`html`头中，方便搜索引擎爬取
+* `desc`: 页面描述，会被添加到`html`头中，方便搜索引擎爬取
+* `id`: 页面`id`， 会被添加到`html`标签中，比如`<html id="zh_readme">...</html>`, 可以不设置，会覆盖`config.json`中的设置
+* `class`: 页面`class`,多个用英文逗号`,`隔开，可以不设置，会覆盖`config.json`中的设置。比如可以通过设置这个值来达到设置特定页面的`css`样式
+
+### Markdown 文件内容
+
+内容就是使用`Markdown`语法进行编写，因为标题会被转成`<h1>`标签，所以内容中建议从二级标题开始，这样一个页面只有一个`<h1>`标签，方便搜索引擎爬取，比如
+```markdown
+---
+title: teedoc
+keywords: teedoc, markdown, jupyter notebook, html, 文档生成, 替代gitbook, 网站生成, 静态网站
+desc: teedoc， 将 markdown 或者 jupyter notbook 转换成 html 静态网页
+id: zh_readme
+class: zh_readme
+---
+
+
+## 标题一
+
+内容。。。
+
+## 标题二
+
+内容。。。
+```
+
 
 一级标题（`#`）最好不要使用， 因为上面的`title`会自动生成一个一级标题（`<h1>`标签），一个页面最好只有一个一级标题，方便搜索引擎爬取收录
 

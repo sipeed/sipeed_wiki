@@ -185,6 +185,8 @@ teedoc -f ./config.json yaml2json
 
 ```json
 {
+    "id": "teedoc_page",
+    "class": "language_zh",
     "navbar": {
         "title": "teedoc",
         "logo": {
@@ -286,6 +288,11 @@ teedoc -f ./config.json yaml2json
 }
 ```
 
+* `id`: 文档的 `id`， 一般情况下不需要写，会将`id`设置到`config.json` 目录下所有页面的`<html>`标签上。 比如这里设置了`teedoc_page`， 那么这个目录下所有页面都会变成`<html id="teedoc_page"> ... </html>`。 如果`markdown`文件设置了`id`，则会覆盖这个值，即每个页面只能有一个`id`。
+* `class`: 文档的 `class`， 一般情况下不需要写，会将`class`设置到`config.json` 目录下所有页面的`<html>`标签上， 多个`class`用空格隔开。 比如这里设置了`language_zh`， 那么这个目录下所有页面都会变成`<html class="language_zh"> ... </html>`。 如果`markdown`文件设置了`class`，则会追加，比如`config.json`中设置了`language_zh`， 在`README.md`中设置了`class: zh_readme`， 则最终是`class="language_zh zh_readme"`。 这个功能方便自定义每个页面的样式，或者不同文档的样式。
+* `navbar`: 导航栏设置，每个文档都可以单独设置导航栏，要想保持整个网站统一，修改每个配置相同即可
+* `footer`: 网站页脚，分为上下两个部分，上部又可以添加多个栏目，每个栏目里面可以有多个值
+* `plugins`: 配置插件的配置项，如果`site_config.json`中已经设置了，会覆盖，即子`config`的优先级更高
 
 ## sidebar.json 文档目录（侧边栏）设置
 
@@ -365,6 +372,58 @@ teedoc -f ./config.json yaml2json
     ]
 }
 ```
+
+## Markdown 文档
+
+需要先在`site_config.json`中确认有`markdown`解析插件启用了，比如`teedoc-plugin-markdown-parser`。
+
+在`config.json`对应的目录下建立文件夹或者文件， 比如`get_started/README.md` (`README.md`最终会生成`index.html`)， 然后编写内容：
+
+### Markdown 文件头
+
+添加一个头
+
+```markdown
+---
+title: teedoc
+keywords: teedoc, markdown, jupyter notebook, html, 文档生成, 替代gitbook, 网站生成, 静态网站
+desc: teedoc， 将 markdown 或者 jupyter notbook 转换成 html 静态网页
+id: zh_readme
+class: zh_readme
+---
+```
+
+通过这些键值来设置文章信息：
+* `title`: 文章的标题
+* `keywords`: 关键词，多个关键词用英文逗号`,` 隔开，会被添加到`html`头中，方便搜索引擎爬取
+* `desc`: 页面描述，会被添加到`html`头中，方便搜索引擎爬取
+* `id`: 页面`id`， 会被添加到`html`标签中，比如`<html id="zh_readme">...</html>`, 可以不设置，会覆盖`config.json`中的设置
+* `class`: 页面`class`,多个用英文逗号`,`隔开，可以不设置，会覆盖`config.json`中的设置。比如可以通过设置这个值来达到设置特定页面的`css`样式
+
+### Markdown 文件内容
+
+内容就是使用`Markdown`语法进行编写，因为标题会被转成`<h1>`标签，所以内容中建议从二级标题开始，这样一个页面只有一个`<h1>`标签，方便搜索引擎爬取，比如
+```markdown
+---
+title: teedoc
+keywords: teedoc, markdown, jupyter notebook, html, 文档生成, 替代gitbook, 网站生成, 静态网站
+desc: teedoc， 将 markdown 或者 jupyter notbook 转换成 html 静态网页
+id: zh_readme
+class: zh_readme
+---
+
+
+## 标题一
+
+内容。。。
+
+## 标题二
+
+内容。。。
+```
+
+
+
 
 ## 链接、图片等资源文件
 

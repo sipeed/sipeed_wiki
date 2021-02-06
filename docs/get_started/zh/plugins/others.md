@@ -12,13 +12,13 @@ desc: teedoc 其它插件
         "teedoc-plugin-markdown-parser":{
             "from": "pypi",
             "config": {
-                "link_abs_path": true
+                "toc_depth": 3
             }
         },
     }
 ```
 
-* `link_abs_path`: 将链接转换为绝对路径
+* `toc_depth`: 文章目录（右边栏）的深度， 默认 `3`， 代表到`h3` 即 `markdown` 中的`### 三级标题`
 
 
 ## `teedoc-plugin-search`: 网站搜索插件
