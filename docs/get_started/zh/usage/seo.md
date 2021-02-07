@@ -40,9 +40,10 @@ desc: 使用 teedoc 如何做 SEO（加速搜索引擎收录网站和页面）
 
 ## 网站地图
 
-TODO:
-
 会生成一份网站地图到`/sitemap.xml`，以及一份机器人爬取规则到`/robots.txt`中，可以到搜索引擎的站长后台中提交这个`sitemap`的`url`，这样搜索引擎就会来抓取信息了
+
+可以在 `site_config.json` 中设置`robots`键值来阻止爬虫爬取某些文件或内容， 格式参见[使用说明](./start.md)中对`robots`键值的说明
+
 
 
 ## 页尾备案信息
