@@ -109,6 +109,9 @@ teedoc -f ./config.json yaml2json
 {
     "site_name": "teedoc",
     "site_slogon": "happy to write",
+    "site_root_url": "/",
+    "site_domain": "teedoc.github.io",
+    "site_protocol": "https",
     "route": {
         "docs": {
             "/get_started/zh/": "docs/get_started/zh",
@@ -154,6 +157,9 @@ teedoc -f ./config.json yaml2json
 
 * `site_name`: 网站名
 * `site_slogon`: 网站标语
+* `site_root_url`: 网站根目录路径， 使用默认值`/`即可; 如果需要将生成的内容放到网站的文件夹中（不是根目录的文件夹），可以设置
+* `site_domain`: 网站域名，目前用到的地方：生成`sitemap.xml` 和 `robots.txt`
+* `site_protocol`: 网站协议，`http`或者`https`，目前用到的地方：生成`sitemap.xml` 和 `robots.txt`
 * `route`: 网页路由，包含了文档和页面以及资源文件的路由，比如文档的路由
 ```json
 "docs": {
@@ -174,6 +180,7 @@ teedoc -f ./config.json yaml2json
 `from`字段填`pypi`即可，如果插件下载到了本地也可以填写文件夹路径，也可以直接填`git`路径比如`git+https://github.com/*****/******.git`
 配置项则由具体的插件决定，比如`teedoc-plugin-theme-default`就有`dark`选项来选择是否启用暗黑主题
 * `rebuild_changes_delay`: 检测到文件更改后，延迟多少秒自动重新生成该文档， 浏览器中会自动刷新页面，默认为`3`秒，最短可以设置为`0`秒, 可以使用`teedoc -t 3 serve` 或者 `teedoc --delay serve` 来覆盖这个设置
+* `robots`: 自定义`robots.txt`的内容， 比如 `"User-agent": "*"`代表允许所有客户端爬取， 这对 `SEO` 会有影响。 比如不允许爬取`JPEG`图片：`"Disallow": "/.jpeg$"`， 不允许访问`admin`目录:`"Disallow": "/admin"`, 具体和`robots.txt`的格式要求相同
 
 ## config.json 文档配置
 

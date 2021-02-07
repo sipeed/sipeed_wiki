@@ -53,6 +53,10 @@
                         "label": "Copyright © 2021 Neucrack",
                         "url": "https://neucrack.com",
                         "target": "_blank"
+                    },
+                    {
+                        "label": "Sitemap",
+                        "url": "/sitemap.xml"
                     }
                 ]
             },
