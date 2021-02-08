@@ -25,20 +25,20 @@ Convert documents in `Markdown` or `Jupyter Notebook` format to `HTML` web pages
 - [x] Simple to use, cross-platform, only dependent on `Python3`
 - [x] The deployment is simple, the generated website is a fully static page, which can be deployed directly by copying to the server or uploading to a third party organization
 - [x] Easy to write, using Markdown syntax
-- [] Jupyter notebook support
+- [ ] Jupyter notebook support
 - [x] Multi-document support
 - [x] Plug-in support
 - [x] Multi-theme support (implemented by plugin)
 - [x] Control the style accurate to the page through css (implemented by customizing the id and class of each page)
 - [x] Multi-level directory support
 - [x] Multi-language support (manual translation) (Internationalization/i18n)
-- [] Multilingual support (automatic translation)
+- [ ] Multilingual support (automatic translation)
 - [x] Multi-version support (implementation method is the same as multi-language)
 - [x] Search support
 - [x] SEO friendly
 - [x] Real-time preview of changes
 - [x] Multi-threaded construction, faster construction speed
-- [] Blog support
+- [ ] Blog support
 
 
 ## Similar tools
