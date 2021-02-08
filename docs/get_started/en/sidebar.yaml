@@ -39,6 +39,6 @@ items:
                 file: more/example_docs/doc1.md
         -   label: Article 2
             file: more/example_docs/doc2.md
-    -   label: This is a link
+    -   label: This is a external link
         url: https://github.com/teedoc/teedoc
         target: _blank

@@ -193,7 +193,7 @@ I am~~Tenjin~~ Assault worker
 
 ## task list
 
--[x] Task 1
--[x] Mission 2
--[] Mission 3
--[] Mission 4
+- [x] Task 1
+- [x] Mission 2
+- [] Mission 3
+- [] Mission 4
