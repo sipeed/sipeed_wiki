@@ -195,5 +195,5 @@ I am~~Tenjin~~ Assault worker
 
 - [x] Task 1
 - [x] Mission 2
-- [] Mission 3
-- [] Mission 4
+- [ ] Mission 3
+- [ ] Mission 4
