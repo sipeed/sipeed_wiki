@@ -35,7 +35,7 @@ iframe {
 .dark #home_page .big_btn a:hover {
     background-color: #1f1f1f;
 }
-#sidebar .active > a, #navbar .active > a {
+#sidebar .active > a, #navbar .active > a, #navbar .active_parent > a {
     background-color: #ff6b63;
     color: #ffffff;
 }
