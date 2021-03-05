@@ -8,6 +8,11 @@
         "home_url": "/",
         "items": [
             {
+                "url": "/",
+                "label": "首页",
+                "position": "left"
+            },
+            {
                 "url": "https://www.sipeed.com",
                 "label": "矽速首页",
                 "target": "_blank",
