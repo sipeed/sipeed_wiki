@@ -168,6 +168,20 @@
                 ]
             },
             {
+                "label": "网站统计",
+                "items": [
+                    {
+                        "label": "百度统计",
+                        "url": "https://tongji.baidu.com/web/welcome/ico?s=9cb07365544a53067c56c346c838181a",
+                        "target": "_blank"
+                    },
+                    {
+                        "label": "网站地图",
+                        "url": "/sitemap.xml"
+                    }
+                ]
+            },
+            {
                 "label": "源码",
                 "items": [
                     {
@@ -183,16 +197,44 @@
                 ]
             },
             {
-                "label": "网站统计",
+                "label": "关注我们",
                 "items": [
                     {
-                        "label": "百度统计",
-                        "url": "https://tongji.baidu.com/web/welcome/ico?s=9cb07365544a53067c56c346c838181a",
-                        "target": "_blank"
+                        "label": "github",
+                        "url": "https://github.com/sipeed",
+                        "target":"_blank"
                     },
                     {
-                        "label": "网站地图",
-                        "url": "/sitemap.xml"
+                        "label": "twitter",
+                        "url": "https://twitter.com/SipeedIO",
+                        "target":"_blank"
+                    },
+                    {
+                        "label": "淘宝",
+                        "url": "https://sipeed.taobao.com/",
+                        "target":"_blank"
+                    },
+                    {
+                        "label": "更多",
+                        "url": "/social_group.html"
+                    }
+                ]
+            },
+            {
+                "label": "联系我们",
+                "items": [
+                    {
+                        "label": "电话: +86 0755-27808509"
+                    },
+                    {
+                        "label": "商业支持: support@sipeed.com"
+                    },
+                    {
+                        "label": "地址: 深圳市宝安区新湖路华美居B区1号楼713-715"
+                    },
+                    {
+                        "label": "加入我们",
+                        "url": "/join_us.html"
                     }
                 ]
             }
