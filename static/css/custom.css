@@ -3,10 +3,6 @@ iframe {
     height: 34vw;
     min-width: 90%;
 }
-#navbar h2 {
-    display: none;
-}
-
 #home_page h1 {
     width: 100%;
     font-size: 6em;
@@ -97,8 +93,9 @@ th {
     }
 }
 #navbar .site_logo {
-    max-height: 2em;
+    height: 2em;
 }
-#navbar_menu {
-    padding-right: 2em;
+
+#navbar h2 {
+    padding-left: 2px;
 }

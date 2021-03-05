@@ -2,7 +2,7 @@
     "navbar": {
         "title": "wiki",
         "logo": {
-            "alt": "MaixPy logo",
+            "alt": "sipeed wiki logo",
             "src": "/static/image/logo.svg"
         },
         "home_url": "/",
@@ -103,17 +103,17 @@
                         "target": "_blank"
                     },
                     {
-                        "url": "/social_group",
+                        "url": "/social_group.html",
                         "label": "群聊"
                     },
                     {
-                        "url": "/social_others",
+                        "url": "/social_others.html",
                         "label": "其它"
                     }
                 ]
             },
             {
-                "url": "/store",
+                "url": "/store.html",
                 "label": "商城",
                 "position": "left"
             },
