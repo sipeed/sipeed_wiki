@@ -1,0 +1,255 @@
+{
+    "navbar": {
+        "title": "wiki",
+        "logo": {
+            "alt": "sipeed wiki logo",
+            "src": "/static/image/logo.svg"
+        },
+        "home_url": "/",
+        "items": [
+            {
+                "url": "https://www.sipeed.com",
+                "label": "Sipeed",
+                "target": "_blank",
+                "position": "left"
+            },
+            {
+                "label": "software",
+                "position": "left",
+                "type": "list",
+                "items": [
+                    {
+                        "url": "https://maixpy.sipeed.com/maixpy/zh/",
+                        "label": "Maixpy"
+                    },
+                    {
+                        "url": "https://maixpy.sipeed.com/maixpy3/zh/",
+                        "label": "Maixpy3"
+                    },
+                    {
+                        "url": "/licheeos/zh/",
+                        "label": "Lichee OS"
+                    }
+                ]
+            },
+            {
+                "label": "Hardware",
+                "position": "left",
+                "type": "list",
+                "items": [
+                    {
+                        "url": "/hardware/maix/zh/",
+                        "label": "Maix"
+                    },
+                    {
+                        "url": "/hardware/maixii/zh/",
+                        "label": "Maix II"
+                    },
+                    {
+                        "url": "/hardware/lichee/zh/",
+                        "label": "Lichee Pi"
+                    },
+                    {
+                        "url": "/hardware/tang/zh/",
+                        "label": "Tang"
+                    },
+                    {
+                        "url": "/hardware/logan/zh/",
+                        "label": "Longan"
+                    }
+                ]
+            },
+            {
+                "label": "Commercial products",
+                "position": "left",
+                "type": "list",
+                "items": [
+                    {
+                        "url": "/mf/zh",
+                        "label": "Maix Face"
+                    }
+                ]
+            },
+            {
+                "label": "Platform",
+                "position": "left",
+                "type": "list",
+                "items": [
+                    {
+                        "url": "https://www.maixhub.com",
+                        "label": "Maixhub",
+                        "target": "_blank"
+                    },
+                    {
+                        "url": "https://www.maixhub.com/compile",
+                        "label": "Firmware online compile",
+                        "target": "_blank"
+                    }
+                ]
+            },
+            {
+                "label": "Community",
+                "position": "left",
+                "type": "list",
+                "items": [
+                    {
+                        "url": "https://github.com/sipeed",
+                        "label": "github",
+                        "target": "_blank"
+                    },
+                    {
+                        "url": "https://bbs.sipeed.com",
+                        "label": "BBS",
+                        "target": "_blank"
+                    },
+                    {
+                        "url": "/social_group.html",
+                        "label": "IM groups"
+                    },
+                    {
+                        "url": "/social_others.html",
+                        "label": "Others"
+                    }
+                ]
+            },
+            {
+                "url": "/store.html",
+                "label": "Store",
+                "position": "left"
+            },
+            {
+                "id": "language",
+                "label": "Language: ",
+                "position": "right",
+                "type": "selection",
+                "items": [
+                    {
+                        "url": "/",
+                        "label": "中文"
+                    },
+                    {
+                        "url": "/en/",
+                        "label": "English"
+                    }
+                ]
+            }
+        ]
+    },
+    "footer":{
+        "top":[
+            {
+                "label": "Links",
+                "items": [
+                    {
+                        "label": "Sipeed",
+                        "url": "https://www.sipeed.com",
+                        "target": "_blank"
+                    },
+                    {
+                        "label": "BBS",
+                        "url": "https://bbs.sipeed.com/",
+                        "target": "_blank"
+                    },
+                    {
+                        "label": "Maixhub",
+                        "url": "https://maixhub.sipeed.com/",
+                        "target": "_blank"
+                    },
+                    {
+                        "label": "Sipeed Taobao",
+                        "url": "https://sipeed.taobao.com/",
+                        "target": "_blank"
+                    },
+                    {
+                        "label": "Site build with teedoc",
+                        "url": "https://github.com/neutree/teedoc",
+                        "target": "_blank"
+                    }
+                ]
+            },
+            {
+                "label": "Site and analytics",
+                "items": [
+                    {
+                        "label": "Baidu analytics",
+                        "url": "https://tongji.baidu.com/web/welcome/ico?s=9cb07365544a53067c56c346c838181a",
+                        "target": "_blank"
+                    },
+                    {
+                        "label": "Sitemap",
+                        "url": "/sitemap.xml"
+                    }
+                ]
+            },
+            {
+                "label": "Source code",
+                "items": [
+                    {
+                        "label": "Wiki source code",
+                        "url": "https://github.com/sipeed/sipeed_wiki",
+                        "target": "_blank"
+                    },
+                    {
+                        "label": "Open source projects",
+                        "url": "https://github.com/sipeed",
+                        "target": "_blank"
+                    }
+                ]
+            },
+            {
+                "label": "Fllow us",
+                "items": [
+                    {
+                        "label": "github",
+                        "url": "https://github.com/sipeed",
+                        "target":"_blank"
+                    },
+                    {
+                        "label": "twitter",
+                        "url": "https://twitter.com/SipeedIO",
+                        "target":"_blank"
+                    },
+                    {
+                        "label": "Taobao store",
+                        "url": "https://sipeed.taobao.com/",
+                        "target":"_blank"
+                    },
+                    {
+                        "label": "More",
+                        "url": "/social_group.html"
+                    }
+                ]
+            },
+            {
+                "label": "Contact",
+                "items": [
+                    {
+                        "label": "Phone: +86 0755-27808509"
+                    },
+                    {
+                        "label": "Commercial support: support@sipeed.com"
+                    },
+                    {
+                        "label": "Address: 深圳市宝安区新湖路华美居B区1号楼713-715"
+                    },
+                    {
+                        "label": "Join us",
+                        "url": "/join_us.html"
+                    }
+                ]
+            }
+        ],
+        "bottom": [
+            {
+                "label": "©2018-2021 Sipeed Ltd",
+                "url": "https://www.sipeed.com",
+                "target": "_blank"
+            },
+            {
+                "label": "粤ICP备19015433号-1",
+                "url": "https://beian.miit.gov.cn/#/Integrated/index",
+                "target": "_blank"
+            }
+        ]
+    }
+}
