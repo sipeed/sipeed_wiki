@@ -1,20 +1,20 @@
 {
     "class": "language_zh",
     "navbar": {
-        "title": "teedoc",
+        "title": "Sipeed Hardware WIKI",
         "logo": {
-            "alt": "teedoc logo",
-            "src": "/static/image/logo.png"
+            "alt": "Sipeed logo",
+            "src": "/hardware/assets/sipeed_logo1.png"
         },
         "home_url": "/",
         "items": [
             {
-                "url": "/get_started/zh/",
-                "label": "安装使用",
+                "url": "/hardware/zh/",
+                "label": "硬件 WIKI",
                 "position": "left"
             },
             {
-                "url": "/develop/zh/",
+                "url": "/hardware/zh/",
                 "label": "开发",
                 "position": "left"
             },
@@ -29,11 +29,11 @@
                 "position": "right",
                 "items": [
                     {
-                        "url": "/get_started/zh/",
+                        "url": "/hardware/zh/",
                         "label": "中文"
                     },
                     {
-                        "url": "/get_started/en/",
+                        "url": "/hardware/en/",
                         "label": "English"
                     }
                 ]
