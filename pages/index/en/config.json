@@ -8,12 +8,12 @@
         "home_url": "/en/",
         "items": [
             {
-                "url": "/get_started/en/",
+                "url": "/hardware/en/",
                 "label": "Install",
                 "position": "left"
             },
             {
-                "url": "/develop/en/",
+                "url": "/hardware/en/",
                 "label": "Develop",
                 "position": "left"
             },
