@@ -8,12 +8,12 @@
         "home_url": "/",
         "items": [
             {
-                "url": "/get_started/zh/",
+                "url": "/hardware/zh/",
                 "label": "安装使用",
                 "position": "left"
             },
             {
-                "url": "/develop/zh/",
+                "url": "/hardware/zh/",
                 "label": "开发",
                 "position": "left"
             },
@@ -50,8 +50,8 @@
                         "target": "_blank"
                     },
                     {
-                        "label": "Copyright © 2021 Neucrack",
-                        "url": "https://neucrack.com",
+                        "label": "Copyright © 2021 Sipeed",
+                        "url": "https://www.sipeed.com",
                         "target": "_blank"
                     },
                     {
@@ -78,12 +78,12 @@
         ],
         "bottom": [
             {
-                "label": "*ICP备********号-1",
-                "url": "https://beian.miit.gov.cn",
+                "label": "©2019 深圳矽速科技有限公司",
+                "url": "https://www.sipeed.com",
                 "target": "_blank"
             },
             {
-                "label": "*公网安备**************号",
+                "label": "粤ICP备19015433号-1",
                 "url": "https://beian.miit.gov.cn/#/Integrated/index",
                 "target": "_blank"
             }
