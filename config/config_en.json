@@ -8,6 +8,11 @@
         "home_url": "/",
         "items": [
             {
+                "url": "/",
+                "label": "Home",
+                "position": "left"
+            },
+            {
                 "url": "https://www.sipeed.com",
                 "label": "Sipeed",
                 "target": "_blank",
