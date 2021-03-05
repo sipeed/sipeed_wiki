@@ -39,3 +39,9 @@
     box-shadow: 6px 4px 20px #000000;
     background-color: #2a7d53;
 }
+#navbar .site_logo {
+    max-height: 2em;
+}
+#navbar_menu {
+    padding-right: 2em;
+}

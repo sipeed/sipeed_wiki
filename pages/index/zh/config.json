@@ -1,31 +1,126 @@
 {
     "navbar": {
-        "title": "teedoc",
+        "title": "wiki",
         "logo": {
-            "alt": "teedoc logo",
-            "src": "/static/image/logo.png"
+            "alt": "MaixPy logo",
+            "src": "/static/image/logo.svg"
         },
         "home_url": "/",
         "items": [
             {
-                "url": "/get_started/zh/",
-                "label": "安装使用",
-                "position": "left"
-            },
-            {
-                "url": "/develop/zh/",
-                "label": "开发",
-                "position": "left"
-            },
-            {
-                "url": "https://github.com/neutree/teedoc",
-                "label": "github",
+                "url": "https://www.sipeed.com",
+                "label": "矽速首页",
                 "target": "_blank",
-                "position": "right"
+                "position": "left"
+            },
+            {
+                "label": "开源软件",
+                "position": "left",
+                "type": "list",
+                "items": [
+                    {
+                        "url": "https://maixpy.sipeed.com/maixpy/zh/",
+                        "label": "Maixpy"
+                    },
+                    {
+                        "url": "https://maixpy.sipeed.com/maixpy3/zh/",
+                        "label": "Maixpy3"
+                    },
+                    {
+                        "url": "/licheeos/zh/",
+                        "label": "Lichee OS"
+                    }
+                ]
+            },
+            {
+                "label": "开源硬件",
+                "position": "left",
+                "type": "list",
+                "items": [
+                    {
+                        "url": "/hardware/maix/zh/",
+                        "label": "Maix"
+                    },
+                    {
+                        "url": "/hardware/maixii/zh/",
+                        "label": "Maix II"
+                    },
+                    {
+                        "url": "/hardware/lichee/zh/",
+                        "label": "Lichee Pi"
+                    },
+                    {
+                        "url": "/hardware/tang/zh/",
+                        "label": "Tang"
+                    },
+                    {
+                        "url": "/hardware/logan/zh/",
+                        "label": "Longan"
+                    }
+                ]
+            },
+            {
+                "label": "商业产品",
+                "position": "left",
+                "type": "list",
+                "items": [
+                    {
+                        "url": "/mf/zh",
+                        "label": "Maix Face"
+                    }
+                ]
+            },
+            {
+                "label": "平台",
+                "position": "left",
+                "type": "list",
+                "items": [
+                    {
+                        "url": "https://www.maixhub.com",
+                        "label": "Maixhub",
+                        "target": "_blank"
+                    },
+                    {
+                        "url": "https://www.maixhub.com/compile",
+                        "label": "固件在线编译",
+                        "target": "_blank"
+                    }
+                ]
+            },
+            {
+                "label": "社区",
+                "position": "left",
+                "type": "list",
+                "items": [
+                    {
+                        "url": "https://github.com/sipeed",
+                        "label": "github",
+                        "target": "_blank"
+                    },
+                    {
+                        "url": "https://bbs.sipeed.com",
+                        "label": "论坛",
+                        "target": "_blank"
+                    },
+                    {
+                        "url": "/social_group",
+                        "label": "群聊"
+                    },
+                    {
+                        "url": "/social_others",
+                        "label": "其它"
+                    }
+                ]
+            },
+            {
+                "url": "/store",
+                "label": "商城",
+                "position": "left"
             },
             {
                 "label": "Language: ",
                 "position": "right",
+                "type": "selection",
                 "items": [
                     {
                         "url": "/",
@@ -45,18 +140,29 @@
                 "label": "链接",
                 "items": [
                     {
+                        "label": "Sipeed",
+                        "url": "https://www.sipeed.com",
+                        "target": "_blank"
+                    },
+                    {
+                        "label": "BBS 论坛",
+                        "url": "https://bbs.sipeed.com/",
+                        "target": "_blank"
+                    },
+                    {
+                        "label": "Maixhub",
+                        "url": "https://maixhub.sipeed.com/",
+                        "target": "_blank"
+                    },
+                    {
+                        "label": "Sipeed 淘宝",
+                        "url": "https://sipeed.taobao.com/",
+                        "target": "_blank"
+                    },
+                    {
                         "label": "使用 teedoc 构建",
                         "url": "https://github.com/neutree/teedoc",
                         "target": "_blank"
-                    },
-                    {
-                        "label": "Copyright © 2021 Neucrack",
-                        "url": "https://neucrack.com",
-                        "target": "_blank"
-                    },
-                    {
-                        "label": "网站地图",
-                        "url": "/sitemap.xml"
                     }
                 ]
             },
@@ -64,27 +170,41 @@
                 "label": "源码",
                 "items": [
                     {
-                        "label": "github",
-                        "url": "https://github.com/neutree/teedoc",
+                        "label": "文档源文件",
+                        "url": "https://github.com/sipeed/sipeed_wiki",
                         "target": "_blank"
                     },
                     {
-                        "label": "本网站源文件",
-                        "url": "https://github.com/teedoc/teedoc.github.io",
+                        "label": "开源项目源码",
+                        "url": "https://github.com/sipeed",
                         "target": "_blank"
+                    }
+                ]
+            },
+            {
+                "label": "网站统计",
+                "items": [
+                    {
+                        "label": "百度统计",
+                        "url": "https://tongji.baidu.com/web/welcome/ico?s=9cb07365544a53067c56c346c838181a",
+                        "target": "_blank"
+                    },
+                    {
+                        "label": "网站地图",
+                        "url": "/sitemap.xml"
                     }
                 ]
             }
         ],
         "bottom": [
             {
-                "label": "*ICP备********号-1",
-                "url": "https://beian.miit.gov.cn",
+                "label": "Copyright © 2018-2021 Sipeed Ltd",
+                "url": "https://www.sipeed.com",
                 "target": "_blank"
             },
             {
-                "label": "*公网安备**************号",
-                "url": "https://beian.miit.gov.cn/#/Integrated/index",
+                "label": "粤ICP备19015433号",
+                "url": "https://beian.miit.gov.cn",
                 "target": "_blank"
             }
         ]
