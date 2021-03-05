@@ -4,6 +4,7 @@
     "site_root_url": "/",
     "site_domain": "wiki.sipeed.com",
     "site_protocol": "https",
+    "config_template_dir": "config",
     "route": {
         "docs": {
             "/hardware/zh/": "docs/hardware/zh",
