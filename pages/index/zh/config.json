@@ -9,10 +9,12 @@
                 "type": "selection",
                 "items": [
                     {
+                        "id": "zh",
                         "url": "/",
                         "label": "中文"
                     },
                     {
+                        "id": "en",
                         "url": "/en/",
                         "label": "English"
                     }
