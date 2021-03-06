@@ -14,7 +14,7 @@
             },
             {
                 "url": "https://www.sipeed.com",
-                "label": "矽速首页",
+                "label": "矽速官网",
                 "target": "_blank",
                 "position": "left"
             },
@@ -76,13 +76,13 @@
                 ]
             },
             {
-                "label": "平台",
+                "label": "云平台",
                 "position": "left",
                 "type": "list",
                 "items": [
                     {
                         "url": "https://www.maixhub.com",
-                        "label": "Maixhub",
+                        "label": "Maixhub 模型训练平台",
                         "target": "_blank"
                     },
                     {
@@ -94,28 +94,8 @@
             },
             {
                 "label": "社区",
-                "position": "left",
-                "type": "list",
-                "items": [
-                    {
-                        "url": "https://github.com/sipeed",
-                        "label": "github",
-                        "target": "_blank"
-                    },
-                    {
-                        "url": "https://bbs.sipeed.com",
-                        "label": "论坛",
-                        "target": "_blank"
-                    },
-                    {
-                        "url": "/social_group.html",
-                        "label": "群聊"
-                    },
-                    {
-                        "url": "/social_others.html",
-                        "label": "其它"
-                    }
-                ]
+                "url": "/community.html",
+                "position": "left"
             },
             {
                 "url": "/store.html",
