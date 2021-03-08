@@ -8,7 +8,10 @@
     "route": {
         "docs": {
             "/hardware/maix/zh/": "docs/hardware/maix/zh",
-            "/hardware/maix/en/": "docs/hardware/maix/en"
+            "/hardware/maix/en/": "docs/hardware/maix/en",
+            "/hardware/longan/zh/": "docs/hardware/longan/zh",
+            "/hardware/longan/en/": "docs/hardware/longan/en"
+
         },
         "pages": {
             "/": "pages/index/zh",
@@ -16,7 +19,8 @@
         },
         "assets": {
             "/static/": "static",
-            "/hardware/assets/": "docs/hardware/assets"
+            "/hardware/assets/": "docs/hardware/assets",
+            "/hardware/longan/assets/": "docs/hardware/longan/assets"
         },
         "/blog/": "blog"
     },
