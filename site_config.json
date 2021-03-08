@@ -7,8 +7,8 @@
     "config_template_dir": "config",
     "route": {
         "docs": {
-            "/hardware/zh/": "docs/hardware/zh",
-            "/hardware/en/": "docs/hardware/en"
+            "/hardware/maix/zh/": "docs/hardware/maix/zh",
+            "/hardware/maix/en/": "docs/hardware/maix/en"
         },
         "pages": {
             "/": "pages/index/zh",
