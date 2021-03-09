@@ -19,7 +19,7 @@
         },
         "assets": {
             "/static/": "static",
-            "/hardware/assets/": "docs/hardware/assets",
+            "/hardware/assets/": "docs/hardware/maix/assets",
             "/hardware/longan/assets/": "docs/hardware/longan/assets"
         },
         "/blog/": "blog"
