@@ -70,4 +70,4 @@ MF0: https://dl.sipeed.com/MAIX/HDK/Sipeed-MF0/MF0-2802
 
 ## MF PCB 注意事项
 
-使用 K210(M1/M1W) 自行设计人脸识别产品，请参考 [《MF 人脸识别模块 PCB 设计注意事项》](./zh/mf_ml_module/mf_precautions.md)
+使用 K210(M1/M1W) 自行设计人脸识别产品，请参考 [《MF 人脸识别模块 PCB 设计注意事项》](../mf_ml_module/mf_precautions.md)

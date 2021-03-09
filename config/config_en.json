@@ -70,7 +70,7 @@
                 "type": "list",
                 "items": [
                     {
-                        "url": "/mf/zh",
+                        "url": "/hardware/maixface/zh/",
                         "label": "Maix Face"
                     }
                 ]

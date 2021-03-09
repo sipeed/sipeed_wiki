@@ -4,15 +4,9 @@ keywords: Sipeed, Hardware, 矽速, 硬件资料, 文档, 资料下载
 desc: 矽速科技的硬件资料站
 ---
 
-Longan 文档
-======
-
 <div class="title_pic">
     <img src="../assets/sipeed_longan_logo.jpg" height="60">  <img src="../assets/icon_sipeed2.png"  height="60">
 </div>
-
-
-
 
 ## 什么是 Longan
 
