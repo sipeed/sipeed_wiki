@@ -14,21 +14,6 @@ desc: 矽速科技的硬件资料站
     - [M1/M1w](./core_modules/k210_core_modules.md)
     - [M1n](./core_modules/k210_core_modules.md)
 
-## MF 人脸识别模块
-
-> MF 系列产品面向于商业开发应用
-
-* [MF 人脸识别模块](./)
-  - [MF0&&MF0 Dock](./mf_ml_module/mf0_ml_module.md)
-  - [MF1 && MF2](./mf_ml_module/mf1_ml_module.md)
-  - [MF4 && MF5](./mf_ml_module/mf5_product.md)
-
-- [MF 人脸识别模块 PCB 设计注意事项](./mf_ml_module/mf_precautions.md)
-- [MF 更新固件说明](./mf_ml_module/mf_update_firmwave.md)
-
------
-
-
 ## MaixPy 系列开发板
 
 * [MaixPy 开发板](./maixpy_develop_kit_board/develop_kit_board.md)
@@ -41,24 +26,6 @@ desc: 矽速科技的硬件资料站
   - [Maix Amigo](./maixpy_develop_kit_board/maix_Amigo.md)
 
 
-
-## LicheePi (Linux)
-
-- [LicheePi Zero](./)
-- [LicheePi Zero Plus](./)
-
-- [LicheePi Nano](./)
-
-## Lichee Tang(FPGA)
-
-- [Lichee Tang Primer](./)
-- [Lichee Tang Nano](./)
-
-## Longan (MCU)
-
-- [longan Nano](./)
-
------
 
 ### MaixPy 外设模块
 
