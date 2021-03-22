@@ -1,0 +1,90 @@
+{
+    "title": "Tang Nano DOC",
+    "description": "Tang Nano documentation",
+    "author":"sipeed",
+    "plugins": [
+        "my-toolbar",
+        "-lunr",
+        "-search",
+        "search-title",
+        "anchor-navigation-ex",
+        "anchorjs",
+        "sharing",
+        "splitter",
+        "edit-link",
+        "ga",
+        "expandable-chapters-small@git+https://github.com/sipeed/gitbook-plugin-expandable-chapters-small.git"
+    ],
+    "styles": {
+        "website": "./styles/website.css"
+    },
+    "pluginsConfig": {
+        "github": {
+            "url": "https://github.com/sipeed/"
+        },
+        "my-toolbar": {
+            "buttons": [
+                {
+                    "label": "Github",
+                    "text":" ",
+                    "icon": "fa fa-github",
+                    "position": "left",
+                    "target": "_blank",
+                    "url": "https://github.com/sipeed/"
+                }
+            ]
+        },
+        "search": {
+            "maxIndexSize": 1000000000
+        },
+        
+        "lunr": {
+            "maxIndexSize": 1000000000
+        },
+        "edit-link": {
+            "base": "https://github.com/sipeed/Tang-Nano-DOC/blob/master",
+            "label": ""
+        },
+        "sharing": {
+            "douban": false,
+            "facebook": true,
+            "google": true,
+            "hatenaBookmark": false,
+            "instapaper": false,
+            "line": false,
+            "linkedin": false,
+            "messenger": false,
+            "pocket": false,
+            "qq": false,
+            "qzone": false,
+            "stumbleupon": false,
+            "twitter": true,
+            "viber": false,
+            "vk": false,
+            "weibo": true,
+            "whatsapp": false,
+            "all": [
+                "weibo",
+                "facebook",
+                "google",
+                "twitter",
+                "vk"
+            ]
+        },
+        "anchor-navigation-ex": {
+            "associatedWithSummary": false,
+            "showLevel": true,
+            "multipleH1": false,
+            "mode": "float",
+            "pageTop": {
+                "showLevelIcon": true,
+                "level1Icon": "fa fa-angle-double-right",
+                "level2Icon": "fa fa-angle-double-right",
+                "level3Icon": "fa fa-angle-double-right"
+            }
+        },
+        "ga": {
+            "token": "UA-119047820-3"
+        }
+    }
+}

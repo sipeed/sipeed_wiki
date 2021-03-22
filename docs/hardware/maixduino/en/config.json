@@ -1,0 +1,23 @@
+{
+    "import": "config_zh",
+    "class": "language_zh",
+    "navbar": {
+        "items": [
+            {
+                "id": "language",
+                "items": [
+                    {
+                        "id": "zh",
+                        "url": "/maixpy/zh/",
+                        "label": "中文"
+                    },
+                    {
+                        "id": "en",
+                        "url": "/maixpy/en/",
+                        "label": "English"
+                    }
+                ]
+            }
+        ]
+    }
+}

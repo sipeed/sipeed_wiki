@@ -1,0 +1,31 @@
+{
+  "name": "Tang-Nano-DOC",
+  "version": "1.0.0",
+  "description": "This repo is for hosting Tang Nano documents.",
+  "main": "index.js",
+  "dependencies": {
+    "commander": "^2.12.2",
+    "del": "^3.0.0",
+    "globby": "^7.1.1",
+    "gulp": "^3.9.1",
+    "gulp-sequence": "^0.4.6",
+    "lodash": "^4.17.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "build": "gulp restore-ignore && gulp prebuild && gitbook build && gulp postbuild",
+    "preview": "gulp preview",
+    "upload": "gulp publish --dest /Volumes/Tang-Nano/manual",
+    "publish": "npm run build && npm run upload"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sipeed/Tang-Nano-DOC.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sipeed/Tang-Nano-DOC/issues"
+  },
+  "homepage": "https://github.com/sipeed/Tang-Nano-DOC"
+}

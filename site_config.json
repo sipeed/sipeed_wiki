@@ -16,7 +16,11 @@
             "/hardware/lichee/zh/": "docs/hardware/lichee/zh",
             "/hardware/lichee/en/": "docs/hardware/lichee/en",
             "/hardware/tang/zh/": "docs/hardware/tang/zh",
-            "/hardware/tang/en/": "docs/hardware/tang/en"
+            "/hardware/tang/en/": "docs/hardware/tang/en",
+            "/soft/maixpy/zh/": "docs/soft/maixpy/zh",
+            "/soft/maixpy/en/": "docs/soft/maixpy/en",
+            "/soft/maixpy3/zh/": "docs/soft/maixpy3/zh",
+            "/soft/maixpy3/en/": "docs/soft/maixpy3/en"
         },
         "pages": {
             "/": "pages/index/zh",
@@ -28,7 +32,9 @@
             "/hardware/longan/assets/": "docs/hardware/longan/assets",
             "/hardware/maixface/assets/": "docs/hardware/maixface/assets",
             "/hardware/lichee/assets/": "docs/hardware/lichee/assets",
-            "/hardware/tang/assets/": "docs/hardware/tang/assets"
+            "/hardware/tang/assets/": "docs/hardware/tang/assets",
+            "/soft/maixpy/assets/": "docs/soft/maixpy/assets",
+            "/soft/maixpy3/assets/": "docs/soft/maixpy3/assets"
         },
         "/blog/": "blog"
     },
@@ -48,7 +54,7 @@
             "config": {
                 "dark": true,
                 "env":{
-                    "main_color": "#4caf7d"
+                    "main_color": "#FF6B63"
                 },
                 "css": "/static/css/custom.css",
                 "js": "/static/js/custom.js"

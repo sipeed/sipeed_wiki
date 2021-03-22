@@ -24,17 +24,26 @@
                 "type": "list",
                 "items": [
                     {
-                        "url": "https://maixpy.sipeed.com/maixpy/zh/",
+                        "url": "/soft/maixpy/zh/index.html",
                         "label": "Maixpy"
                     },
                     {
-                        "url": "https://maixpy.sipeed.com/maixpy3/zh/",
+                        "url": "/soft/maixpy3/zh/",
                         "label": "Maixpy3"
                     },
                     {
                         "url": "/licheeos/zh/",
                         "label": "Lichee OS"
+                    },
+                    {
+                        "url": "/LonganOS/zh/",
+                        "label": "Longan OS"
+                    },
+                    {
+                        "url": "/TangOs/zh/",
+                        "label": "Tang OS"
                     }
+
                 ]
             },
             {
@@ -47,8 +56,16 @@
                         "label": "Maix"
                     },
                     {
-                        "url": "/hardware/maixii/zh/",
+                        "url": "/hardware/maixII/zh/",
                         "label": "Maix II"
+                    },
+                    {
+                        "url": "/hardware/maixIII/zh/",
+                        "label": "Maix III"
+                    },
+                    {
+                        "url": "/hardware/maixIV/zh/",
+                        "label": "Maix IV"
                     },
                     {
                         "url": "/hardware/lichee/zh/",
@@ -86,7 +103,7 @@
                         "target": "_blank"
                     },
                     {
-                        "url": "https://www.maixhub.com/compile",
+                        "url": "https://www.maixhub.com/onlinecompiler",
                         "label": "固件在线编译",
                         "target": "_blank"
                     }
@@ -98,7 +115,7 @@
                 "position": "left"
             },
             {
-                "url": "/store.html",
+                "url": "https://shop365481095.taobao.com/?spm=a230r.7195193.1997079397.2.8384341c2zZ5uZ",
                 "label": "商城",
                 "position": "left"
             },
