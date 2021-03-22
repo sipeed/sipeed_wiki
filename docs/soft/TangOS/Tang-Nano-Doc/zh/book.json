@@ -1,0 +1,49 @@
+{
+    "title": "Tang Nano 文档",
+    "description": "Tang Nano 文档",
+    "language" : "zh-hans",
+    "structure": {
+        "summary": "SUMMARY.md",
+        "readme": "README.md"
+    },
+    "variables": {
+        "items": [
+            {
+                "name": "博客",
+                "link": "http://blog.sipeed.com"
+            },
+            {
+                "name": "论坛",
+                "link": "https://bbs.sipeed.com/"
+            },
+            {
+                "name": "反馈",
+                "links": [
+                    {
+                        "name": "文档",
+                        "link": "https://github.com/sipeed/Tang-Nano-DOC/issues"
+                    },
+                    {
+                        "name": "源码",
+                        "link": "https://github.com/sipeed/Tang-Nano-DOC/issues"
+                    }
+                ]
+            }
+        ],
+        "version": [
+            {
+                "name": "<i class='fa fa-angle-down'></i>",
+                "links": [
+                    {
+                        "name": "master",
+                        "link": "/zh/"
+                    },
+                    {
+                        "name": "dev",
+                        "link": "/dev/zh/"
+                    }
+                ]
+            }
+        ]
+    }
+}

@@ -1,0 +1,22 @@
+{
+    "import": "config_en",
+    "navbar": {
+        "items": [
+            {
+                "id": "language",
+                "items": [
+                    {
+                        "id": "zh",
+                        "url": "/maixpy3/zh/",
+                        "label": "中文"
+                    },
+                    {
+                        "id": "en",
+                        "url": "/maixpy3/en/",
+                        "label": "English"
+                    }
+                ]
+            }
+        ]
+    }
+}

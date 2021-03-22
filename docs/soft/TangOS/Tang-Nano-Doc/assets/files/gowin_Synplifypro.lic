@@ -1,0 +1,69 @@
+#siteid=29247
+#cclist=jinfeng@gowinsemi.com,changhui@gowinsemi.com,zhangru@gowinsemi.com
+#licensemode=UN
+#server_hostid1=   94C691A91EB6
+#material=A804-0
+#quantity=1
+#onsupport=X
+#
+#Date: 08/07/2019
+#SNPS ID: PRD
+#                                                                        SYNOPSYS INC. KEY CERTIFICATE
+#                                                                        Site ID: 29247
+#                                                                        Melody Semiconductor LLC
+#                                                                        4677 Old Ironsides Drive, Suite 300
+#                                                                        Santa Clara
+#                                                                        CA 95054-1826
+#                                                                        US
+#--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+#Use of the license keys provided herewith is governed by your Synopsys End User Software License Agreement, including any applicable supplements and addenda thereto.
+#
+#If you feel that keys are missing (or incorrect), please contact your Synopsys account manager.
+#
+#License keys will be transmitted in clear text, over public and private networks. Synopsys does not warrant or guarantee that these networks provide privacy and accepts no liability of
+#any kind if a third party intercepts the transmission.
+#
+#Synopsys products are export controlled. It is the responsibility of the addressee to comply with U.S. Export Regulations where applicable.
+#
+#--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+#Server Config: 9999999999
+#----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+#
+#For Synopsys licensing setup and installation help, go to http://www.synopsys.com/licensing
+#
+#IMPORTANT: Starting December 10, 2018, Synopsys license files will be enabled with Tamper Resistant Licensing (TRL) functionality. TRL-format license files
+#require SCL version 2018.06 or higher.
+#
+#For further details, go to http://www.synopsys.com/licensing/trl
+#
+#For product download instructions and help, go to https://solvnet.synopsys.com/efthelp
+#
+#----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Synopsys License file created by CVDKIF 5.4 on August 07, 2019 at 20:30:02 for daemon snpslmd
+INCREMENT SSST snpslmd 1.0 06-Aug-2020 uncounted 6E3EEE278426228E2183 \
+        VENDOR_STRING="79797 02ec6 e5dde a241b ef9ff 43582 04241 bef9f f4358 20411 \
+        01020 08838 f82b6 38da4 e0ec3 7bcbd a9220 fb7d5 ef56e 706fe \
+        01ede a6e7a 8f7a1 b70fc caff9 192d9 e7446 5fc0e 60474 124e0 \
+        4923e 4d212 e494c 0d246 f52ec 217a0 86cfd a138f e066e 2a05c \
+        c2c81 f3421 dc547 6e197 8b245 62506 667f9 062d1 a9b35 b1f45 \
+        7faa1 dd391 9d4b1 81a62 ccb96 af04a 0666c 6c7ac 521ba f1fc6 \
+        fb42e 78389 bd65c 08146 17fd7 d4abc 0e06c f5b39 46e1a 61aaf \
+        227de 47c0b 620d6 e2304 6725d f22fa 1c749 59362 7e190 b774e \
+        8cbe0 4ed44 0e528 85894 dc867 1fb23 cf282 2f916 4c524 b02ea \
+        7a17d 82e92 6e3aa 606d7 aae0e 28954 46860 03bbe 32381 65ab5 \
+        dfa09 328a6 615f7 32dbe 685b7 f8083 48ce2 1a43e c0c51 52c04 \
+        77560 86064 38e27 073" \
+        NOTICE="Licensed to Melody Semiconductor LLC [DO NOT DELETE/MODIFY SSST \
+        OR ANY OTHER KEYS IN THIS FILE]" \
+        SN=TK:0:0:0 ISSUER="Synopsys, Inc. [8/7/2019 20:30:02 29247 5.3]" \
+        START=07-Aug-2019 \
+        SIGN="029F 2AE9 1613 7BBF 26DE 1670 C76D 0D70 74CA E61B C130 5E8B \
+        A6F2 961E C022 0C7D 6241 5002 FB7D FBFD 6D8F 86F6 3449 CD3C \
+        2751 2614 1511 1D13 BCD4 DC95"  HOSTID=94c691a91eb6
+INCREMENT synplifypro_gowin snpslmd 2019.03 06-aug-2020 uncounted \
+        2E0E7E77207C313DDE1A VENDOR_STRING=^1+S HOSTID=94c691a91eb6 \
+        ISSUED=07-aug-2019 ck=45 SN=TK:A804-0:1383576:121973 \
+        START=07-aug-2019 SIGN="03CB 2C45 112C 2CF7 25C8 BA1F 3533 \
+        3F4D 464D E272 97A9 510B 3144 5F9D 5926 0D38 689C 3459 85A2 \
+        92C6 46F1 ECBA 1C66 CBE3 CE52 441E 8F9E 1B9D C9DB 9C44"
+#----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
