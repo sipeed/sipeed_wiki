@@ -1,0 +1,79 @@
+{
+    "items": [
+        {
+            "label": "LicheePi",
+            "items": [
+                {
+                    "label": "简介",
+                    "items": [
+                        {
+                            "label": "LicheePI Nano",
+                            "items": [
+                                {
+                                    "label":"上手体验",
+                                    "items":[
+                                        {
+                                            "label": "初见",
+                                            "file": "Nano-Doc-Backup/get_started/first_eye.md"
+                                        },
+                                        {
+                                            "label":"前言",
+                                            "file":"Nano-Doc-Backup/get_started/first_eat.md"
+                                        }
+
+                                    ]
+                                },
+                                {
+                                    "label":"系统适配篇",
+                                    "items":[
+                                        {
+                                            "label":"总述",
+                                            "file":"Nano-Doc-Backup/build_sys/build_index.md"
+                                        },
+                                        {
+                                            "label":"镜像包一键烧录",
+                                            "file":"Nano-Doc-Backup/build_sys/onekey.md"
+                                        },
+                                        {
+                                            "label":"docker快速搭建环境",
+                                            "file":"Nano-Doc-Backup/build_sys/docker.md"
+                                        },
+                                        {
+                                            "label":"uboot传递参数",
+                                            "file":"Nano-Doc-Backup/build_sys/bootargs.md"
+                                        },
+                                        {
+                                            "label":"主线linux编译",
+                                            "file":"Nano-Doc-Backup/build_sys/kernel.md"
+                                        },
+                                        {
+                                            "label":"设备树添加节点",
+                                            "file":"Nano-Doc-Backup/build_sys/devicetree.md"
+                                        },
+                                        {
+                                            "label":"根文件系统编译",
+                                            "file":"Nano-Doc-Backup/build_sys/rootfs.md"
+                                        },
+                                        {
+                                            "label":"SPI-Flash系统编译",
+                                            "file":"Nano-Doc-Backup/build_sys/build_flash.md"
+                                        }
+                                    ] 
+                                }
+                            ]
+                        },
+                        {
+                            "label": "LicheePI Zero",
+                            "items": [
+                                {
+                                    "label": "LicheePI Zero 简介",
+                                    "file": null
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
