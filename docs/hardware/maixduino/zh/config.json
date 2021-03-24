@@ -1,22 +1,19 @@
 {
     "import": "config_zh",
-    "class": "md_page",
+    "class": "language_zh",
     "navbar": {
         "items": [
             {
                 "id": "language",
-                "label": "Language: ",
-                "position": "right",
-                "type": "selection",
                 "items": [
                     {
                         "id": "zh",
-                        "url": "/",
+                        "url": "hardware/maixduino/zh/",
                         "label": "中文"
                     },
                     {
                         "id": "en",
-                        "url": "/en/",
+                        "url": "/maixpy/en/",
                         "label": "English"
                     }
                 ]

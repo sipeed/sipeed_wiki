@@ -2,7 +2,7 @@ Maixduino 文档
 ======
 
 <div class="title_pic">
-    <img src="./../assets/arduino.png" height="60">  <img src="./../assets/icon_sipeed_arduino.png"  height="60">
+    <img src="./../maixduino/assets/arduino.png" height="60">  <img src="./../maixduino/assets/icon_sipeed_arduino.png"  height="60">
 </div>
 
 
