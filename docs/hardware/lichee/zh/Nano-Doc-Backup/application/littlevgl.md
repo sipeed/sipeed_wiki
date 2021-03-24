@@ -14,14 +14,14 @@ Nano来说十分适合。
 
 ![](https://littlevgl.com/home/main_cover.png)
 
-具体的编写指导，请参考 [littlevGL
-官方文档](https://littlevgl.com/basics)
+具体的编写指导，请参考 [littlevGL官方文档](https://littlevgl.com/basics)
 
 LittlevGL 下载
 --------------
 
-``` {.sourceCode .bash
- :caption: 建立LittlevGL工程文件夹，在此文件夹下进行以下操作：}
+建立LittlevGL工程文件夹，在此文件夹下进行以下操作:
+``` 
+
 git clone https://github.com/littlevgl/lvgl.git
 git clone https://github.com/littlevgl/lv_drivers.git
 git clone https://github.com/littlevgl/lv_examples.git
@@ -44,7 +44,7 @@ LittlevGL 工程配置
 
 添加 main.c 文件
 
-``` {.sourceCode .c}
+``` 
 #include "lvgl/lvgl.h"
 
 /* 添加 fb 支持 */
@@ -88,9 +88,9 @@ LittlevGL 板级配置
 ### lv\_conf.h
 
 首先在 lv\_conf.h 中找到屏幕的定义，并进行修改；
+此处修改为 800X480 或 480X272:
 
-``` {.sourceCode .c
- :caption: 此处修改为 800X480 或 480X272}
+```
 #define LV_HOR_RES (800)
 #define LV_VER_RES (480)
 ```
@@ -101,17 +101,17 @@ LittlevGL 板级配置
 
 main.c 中已经调用了 linux 下 framebuffer 设备，需要修改：
 
-> `#define USE_FBDEV 1`
+ `#define USE_FBDEV 1`
 
 若有触摸屏，定义为从event0中解析触摸数据：
 
-> `#define USE_EVDEV 1`
+ `#define USE_EVDEV 1`
 
 ### lv\_ex\_conf.h
 
 此配置文件定义你将要编译哪个应用示例：
 
-``` {.sourceCode .c}
+```
 #define USE_LV_BENCHMARK   0
 #define USE_LV_DEMO        0
 #define USE_LV_SYSMON      0
@@ -122,10 +122,9 @@ main.c 中已经调用了 linux 下 framebuffer 设备，需要修改：
 选择一个示例，修改为 **1**;
 
 对应的，我们要在 main.c 中进行修改，这里以demo作为示例：
-
-> 1.  查看 lv\_examples --\> lv\_apps --\> demo --\> demo.c
-> 2.  可以看到其创建函数为 **demo\_creat()**
-> 3.  修改 main.c 中 while(1)循环前的一句为 **demo\_creat()**
+1.  查看 lv\_examples --\> lv\_apps --\> demo --\> demo.c
+2.  可以看到其创建函数为 **demo\_creat()**
+3.  修改 main.c 中 while(1)循环前的一句为 **demo\_creat()**
 
 配置完成。
 
@@ -135,7 +134,7 @@ lv\_drv\_conf.h 中我们要先配置为从 event0 中读取数据；
 
 此时要添加 event输入支持所需的结构体；
 
-``` {.sourceCode .c}
+```
 void demo_create(void)
 {
     lv_indev_drv_t indev_drv;
@@ -157,10 +156,7 @@ LittlevGL 编译
 LittlevGL
 示例程序需要自行编写Makefile或直接使用IDE自动寻找依赖关系进行编译；
 
-> **hint**
->
-> Nano
-> 提供了docker镜像包，可通过docker直接使用cmake编译，编译具体步骤请看cmake部分；
+> Nano提供了docker镜像包，可通过docker直接使用cmake编译，编译具体步骤请看cmake部分；
 
 笔者本处使用了Clion进行了交叉编译尝试，并附上仅使用cmake来进行编译的步骤；
 
@@ -168,12 +164,11 @@ LittlevGL
 
 Clion的安装配置本处不再赘述，此处描述交叉编译相关步骤
 
-Clion配置工程后，会自动生成 **CMakeLists.txt** ,此文件为 cmake
-编译配置文件(Clion使用了cmake来进行构建)；
+Clion配置工程后，会自动生成 **CMakeLists.txt** ,此文件为 cmake 编译配置文件(Clion使用了cmake来进行构建)；
 
 修改此文件配置，使其使用交叉编译工具进行编译；
 
-``` {.sourceCode .cmake}
+```
 cmake_minimum_required(VERSION 3.10)        # cmake 版本要高于或等于 3.10
 project(Ui C)                               # 输出的二进制文件名
 
@@ -195,23 +190,19 @@ link_directories(/home/biglion/project/buildroot/rootfs/lib)          # 根文�
 
 ### Cmake 配置
 
-若您在本地构建，请下载
-[CMakeLists.txt](https://fdvad021asfd8q.oss-cn-hangzhou.aliyuncs.com/migrate/CMakeLists.txt)
-并自行修改lib/include/编译链等目录,确认您的cmake版本高于或等于 3.10
-(要从官网下载编译安装)
+若您在本地构建，请下载[CMakeLists.txt](https://fdvad021asfd8q.oss-cn-hangzhou.aliyuncs.com/migrate/CMakeLists.txt)并自行修改lib/include/编译链等目录,确认您的cmake版本高于或等于 3.10 (要从官网下载编译安装)
 
 在docker镜像中，已配置好 cmake；只需修改 CMakeLists.txt 中，rootfs的 lib
 的目录地址；
 
-> （比如先用 buildroot 构建好了根文件系统，
->
-> > 1.  rootfs.tar中包含了 lib ，可将rootfs.tar解压到某处或只取出lib
-> >     再进行指定
-> > 2.  或者在 buildroot-\>output-\>target 目录下,也包含了lib）
+>（比如先用 buildroot 构建好了根文件系统，
+> 1.  rootfs.tar中包含了 lib ，可将rootfs.tar解压到某处或只取出lib
+>     再进行指定
+> 2.  或者在 buildroot-\>output-\>target 目录下,也包含了lib）
 
 只需：
 
-``` {.sourceCode .bash}
+```
 cd xxx           # 进入工程目录
 mkdir build      # 将生成信息等放进新建的目录，令目录结构更为清爽
 cd build
@@ -219,18 +210,11 @@ cmake ..         # cmake 生成 makefile
 make             # 执行编译
 ```
 
-生成可执行二进制文件就在 build
-文件夹下，将其放进tf卡的根文件系统所在位置下，运行即可。
+生成可执行二进制文件就在 build 文件夹下，将其放进tf卡的根文件系统所在位置下，运行即可。
 
-也可使用 [pc\_simulator](https://github.com/littlevgl/pc_simulator)
-进行效果预览；
+也可使用 [pc\_simulator](https://github.com/littlevgl/pc_simulator)进行效果预览；
 
-> **note**
->
-> 若在编译过程中有依赖缺失、函数未定义等情况，请自行寻找对应函数，并添加头文件
-> : )
+> 若在编译过程中有依赖缺失、函数未定义等情况，请自行寻找对应函数，并添加头文件: )
 
 > **交流与答疑**
->
-> 对于本节内容，如有疑问，欢迎到 [GUI
-> 交流帖](http://bbs.lichee.pro/d/25-gui) 提问或分享经验。
+> 对于本节内容，如有疑问，欢迎到 [GUI交流帖](http://bbs.lichee.pro/d/25-gui) 提问或分享经验。

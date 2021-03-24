@@ -136,11 +136,11 @@ Markdown语句较为简明，互联网上也有大量的辅助工具与教程；
 
 个人推荐您使用 vscode配合插件Markdown All in One，或使用 `typora <https://www.typora.io/>`_ ，笔者使用体验较为舒适
 
-.. admonition:: 一点小提醒
+一点小提醒
 
     若您单纯使用Markdown书写，无需注意以下所有内容；
 
-    若您 **想用Markdown而不涉及rst及其语法** 构建您的 **个人文档** 时，建议您使用 `Mkdocs <http://www.mkdocs.org/>`_ 替代sphinx，参阅 `readthedocs build process <http://docs.readthedocs.io/en/latest/builds.html#mkdocs>`_ ；
+    若您 **想用Markdown而不涉及rst及其语法** 构建您的 **个人文档** 时，建议您使用 `Mkdocs <http://www.mkdocs.org/>`_ 替代sphinx，参阅 (readthedocs build process)[http://docs.readthedocs.io/en/latest/builds.html#mkdocs]；
 
     若您将Markdown文件加入sphinx的构建行列，请注意以下两条：
 
