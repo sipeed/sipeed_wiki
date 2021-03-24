@@ -7,37 +7,34 @@
 本地构建
 --------
 
-### 1. 拉取文档
+### 拉取文档
 
 若您是阅读者：
 
-> 打开终端，运行以下命令:
->
-> > `git clone https://github.com/Lichee-Pi/xxx.git`
+打开终端，运行以下命令:
+
+    git clone https://github.com/Lichee-Pi/xxx.git
 
 若您是文档贡献者：
 
-> 建议您 fork 我们github上的文档项目后拉取到本地，便于发起 Pull
-> Request。
+> 建议您 fork 我们github上的文档项目后拉取到本地，便于发起 Pull Request。
 
 ### 2. 安装依赖
 
 -   首先我们需要通过pip安装Sphinx
 
-    > `pip install Sphinx`
-    >
-    > 若您没有安装pip，请参照 [pip
-    > 安装](http://pip.readthedocs.io/en/stable/installing/)
+    > pip install Sphinx
+    > 若您没有安装pip，请参照 [pip 安装](http://pip.readthedocs.io/en/stable/installing/)
 
 -   接着安装本文档的模块依赖
 
-    > `pip install sphinx_rtd_theme` 用于支持文档主题
-    >
-    > `pip install recommonmark` 用于支持Markdown文本格式
+    > pip install sphinx_rtd_theme 
+    > 用于支持文档主题
+    > pip install recommonmark 用于支持Markdown文本格式
 
 ### 3. 构建
 
-``` {.sourceCode .bash}
+```
 cd Lichee-Zero-Doc-zh-CN
 
 # windows
@@ -71,19 +68,13 @@ make html
 > 2.  RST格式更为丰富，Markdown更为简洁
 > 3.  RST格式要求稍高于Markdown
 
-reStructuredText语法请参考 [quick
-reStructuredText](http://docutils.sourceforge.net/docs/user/rst/quickref.html#doctest-blocks)
+reStructuredText语法请参考 [quick reStructuredText](http://docutils.sourceforge.net/docs/user/rst/quickref.html#doctest-blocks)
 
-个人建议您也可以通过查看 [Read the
-Docs主题示例](https://sphinx-rtd-theme.readthedocs.io/en/latest/demo/demo.html#id27)
-，配合其
-[github](https://github.com/rtfd/sphinx_rtd_theme/edit/master/docs/demo/demo.rst)
-的编辑源码模式，可更直观地进行对照、借鉴。
+个人建议您也可以通过查看 [Read theDocs主题示例](https://sphinx-rtd-theme.readthedocs.io/en/latest/demo/demo.html#id27)，配合其[github](https://github.com/rtfd/sphinx_rtd_theme/edit/master/docs/demo/demo.rst)的编辑源码模式，可更直观地进行对照、借鉴。
 
--   另： RST的表格对于中文支持不好，个人推荐借助
-    [pytablewriter](http://pytablewriter.rtfd.io) 来生成中文表格
+-   另： RST的表格对于中文支持不好，个人推荐借助 [pytablewriter](http://pytablewriter.rtfd.io) 来生成中文表格
 
-``` {.sourceCode .python}
+```
 # coding: utf-8
 import pytablewriter
 
@@ -102,9 +93,7 @@ writer.write_table()
 
 > **渲染为：**
 
-``` {.sourceCode .rst
-   :caption: 转换结果：
-   :linenos:}
+``` 
 .. table:: 
 
 
@@ -132,24 +121,19 @@ Markdown语句较为简明，互联网上也有大量的辅助工具与教程；
 > 若您单纯使用Markdown书写，无需注意以下所有内容；
 >
 > 若您 **想用Markdown而不涉及rst及其语法** 构建您的 **个人文档**
-> 时，建议您使用 [Mkdocs](http://www.mkdocs.org/) 替代sphinx，参阅
-> [readthedocs build
-> process](http://docs.readthedocs.io/en/latest/builds.html#mkdocs) ；
+> 时，建议您使用 [Mkdocs](http://www.mkdocs.org/) 替代sphinx，参阅 [readthedocs buildprocess](http://docs.readthedocs.io/en/latest/builds.html#mkdocs)；
 >
 > 若您将Markdown文件加入sphinx的构建行列，请注意以下两条：
 >
 > -   要使用sphinx所提供的特性时，如：
 >
->     > > **tip**
->     > >
->     > > 15% if the service is good.
->     >
->     > > **error**
->     > >
->     > > Does not compute.
->     >
->     > 请将其标为代码片段，代码类型为：
->     > **eval\_rst**，sphinx将会将此片段作为rst文本进行解析：
+>      >**Tip**
+>      >15% if the service is good.
+>     
+>     >**Error**
+>     >Does not compute.
+>     
+>     > 请将其标为代码片段，代码类型为：**eval\_rst**，sphinx将会将此片段作为rst文本进行解析：
 >     >
 >     >     ```eval_rst
 >     >

@@ -58,7 +58,72 @@
                                             "label":"SPI-Flash系统编译",
                                             "file":"Nano-Doc-Backup/build_sys/build_flash.md"
                                         }
-                                    ] 
+                                    ]
+                                     
+                                },
+                                {
+                                    "label":"驱动开发",
+                                    "items":[
+                                        {
+                                            "label":"电容触摸屏适配",
+                                            "file":"Nano-Doc-Backup/driver/touchscreen.md"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "label":"从挖坑到填坑",
+                                    "items":[
+                                        {
+                                            "label":"开箱介绍",
+                                            "file":"Nano-Doc-Backup/step_by_step/one_openbox.md"
+                                        },
+                                        {
+                                            "label":"编译使用sunxi-tools",
+                                            "file":"Nano-Doc-Backup/step_by_step/two_sunxi-tools.md"
+                                        },
+                                        {
+                                            "label":"编译使用uboot",
+                                            "file":"Nano-Doc-Backup/step_by_step/three_uboot.md"
+                                        },
+                                        {
+                                            "label":"编译测试linux",
+                                            "file":"Nano-Doc-Backup/step_by_step/four_linux.md"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "label":"应用开发",
+                                    "items":[
+                                        {
+                                            "label":"littlevGL的使用",
+                                            "file":"Nano-Doc-Backup/application/littlevgl.md"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "label":"奉献投稿",
+                                    "items":[
+                                        {
+                                            "label":"前言",
+                                            "file":"Nano-Doc-Backup/contribution/introduction.md"
+                                        },
+                                        {
+                                            "label":"Todolist",
+                                            "file":"Nano-Doc-Backup/contribution/todolist.md"
+                                        },
+                                        {
+                                            "label":"快餐任务相关小事项",
+                                            "file":"Nano-Doc-Backup/contribution/task_tips.md"
+                                        },
+                                        {
+                                            "label":"文档任务相关小事项",
+                                            "file":"Nano-Doc-Backup/contribution/doc_tips.md"
+                                        },
+                                        {
+                                            "label":"文档构建",
+                                            "file":"Nano-Doc-Backup/contribution/build_doc.md"
+                                        }
+                                    ]
                                 }
                             ]
                         },
