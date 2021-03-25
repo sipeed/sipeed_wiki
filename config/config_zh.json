@@ -78,6 +78,10 @@
                     {
                         "url": "/hardware/longan/zh/",
                         "label": "Longan"
+                    },
+                    {
+                        "url": "/hardware/maixduino/zh/",
+                        "label": "maixduino"
                     }
                 ]
             },

@@ -10,6 +10,6 @@ desc: maixpy doc: 机器视觉/听觉
 * [lcd](./lcd.md)
 * [sensor](./sensor.md)
 * [image](./image/image.md)
-* [video](./video.md)
+* [video](./../media/video.md)
 * [isolated_word](./isolated_word.md)
 * [maix_asr](./maix_asr.md)

@@ -41,7 +41,7 @@ from board import board_info
 from fpioa_manager import fm
 
 tim = Timer(Timer.TIMER0, Timer.CHANNEL0, mode=Timer.MODE_PWM)
-ch = PWM(tim, freq=500000, duty=50, pin=boad_info.LED_G)
+ch = PWM(tim, freq=500000, duty=50, pin=board_info.LED_G)
 duty=0
 dir = True
 while True:

@@ -55,7 +55,7 @@ from machine import SPI
 from fpioa_manager import fm
 from Maix import GPIO
 
-m.register(25,fm.fpioa.GPIOHS10, force=True)#cs
+fm.register(25,fm.fpioa.GPIOHS10, force=True)#cs
 cs = GPIO(GPIO.GPIOHS10, GPIO.OUT)
 
 fm.register(28,fm.fpioa.SPI1_D0, force=True)#mosi

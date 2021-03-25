@@ -12,7 +12,7 @@ desc: maixpy doc: 获得图像
 
 这部分已经在前面的教程有提过
 
-```
+``` python
 import sensor, lcd
 
 sensor.reset()
