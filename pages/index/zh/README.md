@@ -8,7 +8,7 @@ id: wiki_home
 
 # Sipeed Wiki - 资料和文档
 
-[![](/static/image/MaixPy.png)](./soft/maixpy/zh/readme.md) [![](/static/image/licheepi.png)](http://zero.lichee.pro/)[![](/static/image/tang.png)](https://tang.sipeed.com/)
+[![](/static/image/MaixPy.png)](./soft/maixpy/zh/readme.md) [![](/static/image/licheepi.png)](./hardware/lichee/zh/)[![](/static/image/tang.png)](https://tang.sipeed.com/)
 [![](/static/image/longan.png)](http://longan.sipeed.com/) [![](/static/image/DOWNLOAD.png)](https://dl.sipeed.com/) [![](/static/image/BBS.png)](https://bbs.sipeed.com/)
 
 

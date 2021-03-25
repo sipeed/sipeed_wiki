@@ -128,5 +128,5 @@ xxxx:这个镜像适用于什么分辨率的lcd上
 - pull_br.sh       ——  从docker环境中拉取rootfs与配置文件到原生环境
   
 >交流与答疑
->对于本节内容，如有疑问，欢迎到 [镜像烧录交流帖](http://bbs.lichee.pro/d/32--) 提问或分享经验。
+>对于本节内容，如有疑问，欢迎到 [社区](https://wiki.sipeed.com/community.html) 提问或分享经验。
 

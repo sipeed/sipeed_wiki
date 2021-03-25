@@ -89,22 +89,42 @@ desc: maixpy doc: video（视频）
 
 ### 例程 1： 播放 `avi` 视频
 
-首先保证视频是 `320x240` 大小， 视频压缩格式为 `mjpeg`， 音频压缩格式位 `PCM`， 还需要接入扬声器。
+首先保证视频是 `320x240` 大小， 视频压缩格式为 `mjpeg`， 音频压缩格式位 `PCM`， 还需要接入扬声器和LCD。
 
 可以在这里下载测试可以用的视频： [badapple.avi](http://api.dl.sipeed.com/shareURL/MAIX/MaixPy/assets)
 
 ```python
-import video,time
-from Maix import GPIO
+from Maix import GPIO, I2S
 
-fm.register(34,  fm.fpioa.I2S0_OUT_D1)
-fm.register(35,  fm.fpioa.I2S0_SCLK)
-fm.register(33,  fm.fpioa.I2S0_WS)
-fm.register(8,  fm.fpioa.GPIO0)
-wifi_en=GPIO(GPIO.GPIO0,GPIO.OUT)
-wifi_en.value(0)
+from fpioa_manager import fm
+import lcd
+import video
+import time
 
-v = video.open("/sd/badapple.avi")
+lcd.init()
+
+# AUDIO_PA_EN_PIN = None  # Bit Dock and old MaixGo
+AUDIO_PA_EN_PIN = 32      # Maix Go(version 2.20)
+# AUDIO_PA_EN_PIN = 2     # Maixduino
+
+# init i2s(i2s0)
+i2s = I2S(I2S.DEVICE_0)
+
+# config i2s according to audio info
+i2s.channel_config(i2s.CHANNEL_1, I2S.TRANSMITTER, resolution=I2S.RESOLUTION_16_BIT,
+                       cycles=I2S.SCLK_CYCLES_32, align_mode=I2S.RIGHT_JUSTIFYING_MODE)
+
+# open audio PA
+if AUDIO_PA_EN_PIN:
+    fm.register(AUDIO_PA_EN_PIN, fm.fpioa.GPIO1, force=True)
+    wifi_en = GPIO(GPIO.GPIO1, GPIO.OUT)
+    wifi_en.value(1)
+
+fm.register(34,  fm.fpioa.I2S0_OUT_D1, force=True)
+fm.register(35,  fm.fpioa.I2S0_SCLK, force=True)
+fm.register(33,  fm.fpioa.I2S0_WS, force=True)
+
+v = video.open("/sd/badapple_320_240_15fps.avi")
 print(v)
 v.volume(50)
 while True:

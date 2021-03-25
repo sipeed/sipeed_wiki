@@ -61,7 +61,7 @@ git branch -a
 git checkout nano-v2018.01
 ```
 
-u-boot对于新手来说目录层级稍显复杂，您可参考下表进行快速的熟悉和目标文件定位（搬运并修改自[荔枝派One](http://one.lichee.pro/linux%E9%80%82%E9%85%8D/2.1.2%20u-boot-sunxi%E8%B5%B0%E8%AF%BB.html)）
+u-boot对于新手来说目录层级稍显复杂，您可参考下表进行快速的熟悉和目标文件定位
 
     .
     ├── api             //封装一些平台无关的操作，如字符串打印，显示，网络，内存
