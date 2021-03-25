@@ -10,11 +10,15 @@
                             "label": "LicheePI Nano",
                             "items": [
                                 {
+                                    "label":"简介",
+                                    "file":"Nano-Doc-Backup/index.md"
+                                },
+                                {
                                     "label":"上手体验",
                                     "items":[
                                         {
                                             "label": "初见",
-                                            "file": "Nano-Doc-Backup/get_started/first_eye.md"
+                                            "file": "./Nano-Doc-Backup/get_started/first_eye.md"
                                         },
                                         {
                                             "label":"前言",
@@ -131,9 +135,17 @@
                             "label": "LicheePI Zero",
                             "items": [
                                 {
-                                    "label": "LicheePI Zero 简介",
-                                    "file": null
+                                    "label": "初来乍到",
+                                    "items":[
+                                        {
+                                            "label":"荔枝派与创作者的自我介绍",
+                                            "file":""
+                                        }
+                                    ]
                                 }
+                                
+
+                                
                             ]
                         }
                     ]

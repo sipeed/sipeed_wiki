@@ -87,6 +87,7 @@ while True:
 
 > 如果使用了镜头，画面会有扭曲，需要矫正画面
 > 使用 `lens_corr` 函数来矫正， 比如 `2.8`mm， `img.lens_corr(1.8)`
+> 无法识别二维码的时候需要用sensor.set_hmirror(1)来调整摄像头的镜像画面
 
 
 

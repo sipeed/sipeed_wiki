@@ -6,7 +6,7 @@ desc: maixpy doc: video（视频）
 
 
 
-支持播放和录制 `avi` 视频
+支持播放和录制 `avi` 视频，需要烧录 [标准固件](https://dl.sipeed.com/shareURL/MAIX/MaixPy/release/master/maixpy_v0.6.2_41_g02d12688e) ，才能使用
 
 ## 全局函数
 
@@ -89,7 +89,7 @@ desc: maixpy doc: video（视频）
 
 ### 例程 1： 播放 `avi` 视频
 
-首先保证视频是 `320x240` 大小， 视频压缩格式为 `mjpeg`， 音频压缩格式位 `PCM`。
+首先保证视频是 `320x240` 大小， 视频压缩格式为 `mjpeg`， 音频压缩格式位 `PCM`， 还需要接入扬声器。
 
 可以在这里下载测试可以用的视频： [badapple.avi](http://api.dl.sipeed.com/shareURL/MAIX/MaixPy/assets)
 

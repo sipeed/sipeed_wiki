@@ -4,25 +4,12 @@
 荔枝派 Nano，开启你的极客之心。这是一款仅有2.54cm X
 3.3cm大小的精致小板，相当于一张SD卡大小，只要您愿意，即可将一颗极客芯随身携带。
 
-![](https://fdvad021asfd8q.oss-cn-hangzhou.aliyuncs.com/migrate/DSC_0455.png)
+![](https://fdvad021asfd8q.oss-cn-hangzhou.aliyuncs.com/migrate/DSC_0455.png
+-  实物图
 
-> width
-> :   500px
->
-> align
-> :   center
->
-> 实物图
+![](https://fdvad021asfd8q.oss-cn-hangzhou.aliyuncs.com/migrate/DSC_0459-min%20(1).JPG
 
-![](https://fdvad021asfd8q.oss-cn-hangzhou.aliyuncs.com/migrate/DSC_0459-min%20(1).JPG)
-
-> width
-> :   500px
->
-> align
-> :   center
->
-> 与SD卡对比
+- 与SD卡对比
 
 荔枝派Nano以不可能的价格，提供了尽可能的能力：
 
@@ -55,38 +42,20 @@ I-Cache，支持从SPI Flash或TF卡启动，支持USB OTG载入更新。
 
 ![](https://fdvad021asfd8q.oss-cn-hangzhou.aliyuncs.com/migrate/Pin%20Map.png)
 
-> width
-> :   500px
->
-> align
-> :   center
->
-> Pin Map
+- Pin Map
 
 此外，荔枝派自从初代One以来，不断适配外设，已有TF-Wifi、RGB to VGA、40
 pin RGB、 LCD、RGB to GPIO、Camera等经过广泛实践验证过的成熟模块。
 
 ![](https://fdvad021asfd8q.oss-cn-hangzhou.aliyuncs.com/migrate/module.png)
 
-> width
-> :   500px
->
-> align
-> :   center
->
-> 部分模块
+- 部分模块
 
 荔枝派Nano 现已可选 TF版 与 wifi版：
 
 ![](https://img.alicdn.com/imgextra/i4/272610009/TB2L22ihQKWBuNjy1zjXXcOypXa_!!272610009.png)
 
-> width
-> :   500px
->
-> align
-> :   center
->
-> 对比图
+- 对比图
 
 荔枝派
 Nano现已获得RT-Thread的官方支持，您可应用RT-Thread丰富的生态资源，快速高效地进行原型设计；
@@ -100,10 +69,4 @@ Nano现已获得RT-Thread的官方支持，您可应用RT-Thread丰富的生态�
 
 ![](https://fdvad021asfd8q.oss-cn-hangzhou.aliyuncs.com/migrate/QQ_Group_2.jpg)
 
-> maxdepth
-> :   2
->
-> caption
-> :   应用开发篇
->
-> littlevGL的使用 \<application/littlevgl\>
+- [littlevGL的使用](./application/littlevgl.md)
