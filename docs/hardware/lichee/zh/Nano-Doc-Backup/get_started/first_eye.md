@@ -19,7 +19,7 @@ Nano 延续并发展了Zero精巧的PCB设计，使得开发和使用非常方�
 
 ### Nano 实物图集
 
-![Nano 实物图](http://odfef978i.bkt.clouddn.com/thething.png)
+
 
 ![Nano
 包装](https://img.alicdn.com/imgextra/i2/272610009/TB2ZC3ehH9YBuNjy0FgXXcxcXXa_!!272610009.jpg)
