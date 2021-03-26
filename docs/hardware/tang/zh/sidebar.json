@@ -1,10 +1,6 @@
 {
     "items": [
         {
-            "label":"test",
-            "file":"None"
-        },
-        {
             "label": "Tang",
             "items": [
                 {
