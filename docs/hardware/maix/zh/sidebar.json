@@ -20,11 +20,10 @@
                 },
                 {
                     "label":"安装开发环境",
-                    "file":"maixduino/zh/get_started/install.md",
                     "items":[
                         {
                             "label":"Arduino IDE",
-                            "file":"maixduino/zh/get_started/arduinoide.md"
+                            "file":"maixduino/zh/get_started/install.md"
                         },
                         {
                             "label":"Platform IO",

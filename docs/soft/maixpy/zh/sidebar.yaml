@@ -7,7 +7,7 @@ items:
     file: maixpy_history.md
 -   label: 致谢
     file: thanks.md
--   label: 入门必看指南
+-   label: 入门指南
     items:
     -   label: 如何正确阅读本文 (重要！！！)
         file: how_to_read.md
@@ -112,7 +112,7 @@ items:
             file: firmware/online_compile.md
         -   label: 源码编译
             file: firmware/compile.md
--   label: MaixPy 手把手教程
+-   label: 进阶教程
     items:
     -   label: 教程说明
         file: course/readme.md
