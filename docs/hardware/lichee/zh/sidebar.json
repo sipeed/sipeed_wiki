@@ -139,7 +139,92 @@
                                     "items":[
                                         {
                                             "label":"荔枝派与创作者的自我介绍",
-                                            "file":""
+                                            "file":"Zero-Doc/Start/intro_cn.md"
+                                        },
+                                        {
+                                            "label":"Linux使用小贴士",
+                                            "file":"Zero-Doc/Start/tips.md"
+                                        },
+                                        {
+                                            "label":"认识zero的硬件",
+                                            "file":"Zero-Doc/Start/board_intro.md"
+                                        },
+                                        {
+                                            "label":"Docker环境简明教程",
+                                            "file":"Zero-Doc/Start/docker_index.md",
+                                            "items":[
+                                                {
+                                                    "label":"Docker开发环境",
+                                                    "file":"Zero-Doc/Start/docker_env.md"
+                                                },
+                                                {
+                                                    "label":"Docker命令速查",
+                                                    "file":"Zero-Doc/Start/docker_command.md"
+                                                },
+                                                {
+                                                    "label":"基础ubuntu系统配置",
+                                                    "file":"Zero-Doc/Start/docker_ubuntu.md"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "label":"Zero的开发环境分类",
+                                            "file":"Zero-Doc/System_Development/type.md"
+                                        },
+                                        {
+                                            "label":"主线Uboot",
+                                            "items":[
+                                                {
+                                                    "label":"Uboot 编译",
+                                                    "file":"Zero-Doc/System_Development/uboot_build.md"
+                                                },
+                                                {
+                                                    "label":"Uboot 配置",
+                                                    "file":"Zero-Doc/System_Development/uboot_conf.md"
+                                                },
+                                                {
+                                                    "label":"开机logo替换",
+                                                    "file":"Zero-Doc/System_Development/uboot_logo.md"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "label":"主线Kernel",
+                                            "items":[
+                                                {
+                                                    "label":"主线Kernel基础编译",
+                                                    "file":"Zero-Doc/System_Development/kernel_build.md"
+                                                },
+                                                {
+                                                    "label":"内核printk等级设置",
+                                                    "file":"Zero-Doc/System_Development/kernel_printk.md"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "label":"BSP内核编译",
+                                            "items":[
+                                                {
+                                                    "label":"BSP源码下载与编译",
+                                                    "file":"Zero-Doc/System_Development/bsp_build.md"
+                                                },
+                                                {
+                                                    "label":" BSP内核构建走读",
+                                                    "file":"Zero-Doc/System_Development/bsp_review.md"
+                                                },
+                                                {
+                                                    "label":"BSP内核的摄像头使用",
+                                                    "file":"Zero-Doc/System_Development/bsp_cam.md"
+                                                },
+                                                {
+                                                    "label":"bsp内核中的保留内存",
+                                                    "file":"Zero-Doc/System_Development/bsp_mem.md"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "label":"根文件系统编译",
+                                            "items":[]
                                         }
                                     ]
                                 }

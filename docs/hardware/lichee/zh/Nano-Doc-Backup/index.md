@@ -4,10 +4,10 @@
 荔枝派 Nano，开启你的极客之心。这是一款仅有2.54cm X
 3.3cm大小的精致小板，相当于一张SD卡大小，只要您愿意，即可将一颗极客芯随身携带。
 
-![](https://fdvad021asfd8q.oss-cn-hangzhou.aliyuncs.com/migrate/DSC_0455.png
+![](https://fdvad021asfd8q.oss-cn-hangzhou.aliyuncs.com/migrate/DSC_0455.png)
 -  实物图
 
-![](https://fdvad021asfd8q.oss-cn-hangzhou.aliyuncs.com/migrate/DSC_0459-min%20(1).JPG
+![](https://fdvad021asfd8q.oss-cn-hangzhou.aliyuncs.com/migrate/DSC_0459-min%20(1).JPG)
 
 - 与SD卡对比
 
@@ -47,7 +47,7 @@ I-Cache，支持从SPI Flash或TF卡启动，支持USB OTG载入更新。
 此外，荔枝派自从初代One以来，不断适配外设，已有TF-Wifi、RGB to VGA、40
 pin RGB、 LCD、RGB to GPIO、Camera等经过广泛实践验证过的成熟模块。
 
-![](https://fdvad021asfd8q.oss-cn-hangzhou.aliyuncs.com/migrate/module.png)
+![1](https://fdvad021asfd8q.oss-cn-hangzhou.aliyuncs.com/migrate/module.png)
 
 - 部分模块
 
