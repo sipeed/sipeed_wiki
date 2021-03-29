@@ -10,14 +10,14 @@ flash上启动系统，这需要对Uboot和系统镜像做些适配。
 Flash分区规划
 =============
 
-这里 使用 MX25L25645G, **32M SPI flash** 作为启动介质，规划分区如下：
+这里 使用 xt25f128b, **16M SPI flash** 作为启动介质，规划分区如下：
 
 Uboot编译配置
 =============
 
 由于目前Uboot环境变量固定存放在1MB位置之内，所有留给uboot的空间固定到flash前1MB的位置不变。
 
-每个分区的大小必须是擦除块大小的整数倍，MX25L25645G的擦除块大小是64KB。
+每个分区的大小必须是擦除块大小的整数倍，xt25f128b的擦除块大小是64KB。
 
 准备uboot
 ---------
@@ -32,11 +32,61 @@ Uboot编译配置
 执行 `make ARCH=arm menuconfig` 打开uboot菜单配置，进入到
 Device Drivers --\> SPI Flash Support
 
-注意看一下自己flash的厂家名称，例如选上Macronix SPI flash
-support用来支持测试用的flash：MX25L25645G。
+注意看一下自己flash的厂家名称，例如选上winbond SPI flash support
+support用来支持测试用的flash：xt25f128b。
 
 如果使用的是16MB以上的flash，需要勾选flash
 bank支持选项，否则最多只能读到16MB： **CONFIG\_SPI\_FLASH\_BAR**
+
+配置uboot支持xt25f128b
+---------------------
+由于需要移植的 flash 芯片特性和 w25qxxx 系列的 flash 相似，所以可以直接复制过来，修改后如下
+uboot工程：drivers/mtd/spi/spi_flash_ids.c
+添加参数：
+~~~~ {.sourceCode .cpp}
+onst struct spi_flash_info spi_flash_ids[] = {
+    ...
+    {"w25q128fw",      INFO(0xef6018, 0x0,  64 * 1024,   256, RD_FULL | WR_QPP | SECT_4K) },
+    {"xt25f128b",      INFO(0x0b4018, 0x0,  64 * 1024,   256, RD_FULL | WR_QPP | SECT_4K) },
+    ...
+};
+~~~~
+上面的数据格式为：
+~~~~ {.sourceCode .cpp}
+/* Used when the "_ext_id" is two bytes at most */
+#define INFO(_jedec_id, _ext_id, _sector_size, _n_sectors, _flags)    \
+        .id = {                         \
+            ...
+        .id_len = (!(_jedec_id) ? 0 : (3 + ((_ext_id) ? 2 : 0))),   \
+        .sector_size = (_sector_size),              \
+        .n_sectors = (_n_sectors),              \
+        .page_size = 256,                   \
+        .flags = (_flags),
+~~~~
+修改之后的文件
+~~~~ {.sourceCode .cpp}
+#ifdef CONFIG_SPI_FLASH_WINBOND     /* WINBOND */
+    {"w25p80",     INFO(0xef2014, 0x0,  64 * 1024,    16, 0) },
+    {"w25p16",     INFO(0xef2015, 0x0,  64 * 1024,    32, 0) },
+    {"w25p32",     INFO(0xef2016, 0x0,  64 * 1024,    64, 0) },
+    {"w25x40",     INFO(0xef3013, 0x0,  64 * 1024,     8, SECT_4K) },
+    {"w25x16",     INFO(0xef3015, 0x0,  64 * 1024,    32, SECT_4K) },
+    {"w25x32",     INFO(0xef3016, 0x0,  64 * 1024,    64, SECT_4K) },
+    {"w25x64",     INFO(0xef3017, 0x0,  64 * 1024,   128, SECT_4K) },
+    {"w25q80bl",       INFO(0xef4014, 0x0,  64 * 1024,    16, RD_FULL | WR_QPP | SECT_4K) },
+    {"w25q16cl",       INFO(0xef4015, 0x0,  64 * 1024,    32, RD_FULL | WR_QPP | SECT_4K) },
+    {"w25q32bv",       INFO(0xef4016, 0x0,  64 * 1024,    64, RD_FULL | WR_QPP | SECT_4K) },
+    {"w25q64cv",       INFO(0xef4017, 0x0,  64 * 1024,   128, RD_FULL | WR_QPP | SECT_4K) },
+    {"w25q128bv",      INFO(0xef4018, 0x0,  64 * 1024,   256, RD_FULL | WR_QPP | SECT_4K) },
+    {"w25q256",    INFO(0xef4019, 0x0,  64 * 1024,   512, RD_FULL | WR_QPP | SECT_4K) },
+    {"w25q80bw",       INFO(0xef5014, 0x0,  64 * 1024,    16, RD_FULL | WR_QPP | SECT_4K) },
+    {"w25q16dw",       INFO(0xef6015, 0x0,  64 * 1024,    32, RD_FULL | WR_QPP | SECT_4K) },
+    {"w25q32dw",       INFO(0xef6016, 0x0,  64 * 1024,    64, RD_FULL | WR_QPP | SECT_4K) },
+    {"w25q64dw",       INFO(0xef6017, 0x0,  64 * 1024,   128, RD_FULL | WR_QPP | SECT_4K) },
+    {"w25q128fw",      INFO(0xef6018, 0x0,  64 * 1024,   256, RD_FULL | WR_QPP | SECT_4K) },
+    {"xt25f128b",      INFO(0x0b4018, 0x0,  64 * 1024,   256, RD_FULL | WR_QPP | SECT_4K) },
+#endif
+~~~~
 
 配置uboot默认环境变量
 ---------------------
@@ -81,6 +131,9 @@ bank支持选项，否则最多只能读到16MB： **CONFIG\_SPI\_FLASH\_BAR**
 ---------
 
 ~~~~ {.sourceCode .bash}
+make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- LicheePi_Zero_defconfig
+#or make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- LicheePi_Zero_800x480LCD_defconfig
+#or make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- LicheePi_Zero480x272LCD_defconfig
 time make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- 2>&1 | tee build.log
 ~~~~
 
@@ -93,8 +146,9 @@ linux内核基于github上的版本https://github.com/Lichee-Pi/linux.git，分�
 
 内核选项配置
 ------------
+首先执行`make ARCH=arm licheepi_zero_defconfig`定义常量菜单
 
-执行 `make ARCH=arm menuconfig` 打开内核菜单配置，
+然后执行 `make ARCH=arm menuconfig` 打开内核菜单配置，
 
 进入到 Device Drivers --\> Memory Technology Device (MTD) support ，
 
@@ -129,7 +183,7 @@ File systems --\> Miscellaneous filesystems --\> Journalling Flash File System v
 > &spi0 {
 >         status ="okay";
 >
->         mx25l25635e:mx25l25635e@0 {
+>         xt25f128b:xt25f128b@0 {
 >                 compatible = "jedec,spi-nor";
 >                 reg = <0x0>;
 >                 spi-max-frequency = <50000000>;
@@ -145,6 +199,7 @@ File systems --\> Miscellaneous filesystems --\> Journalling Flash File System v
 > align
 > :   center
 >
+型号列表在drivers/mtd/devices/m25p80.c文件中
 这里的flash型号需要在下表之中，否则将无法识别：（注意容量也一定要对应）
 
 ~~~~ {.sourceCode .c}
@@ -192,6 +247,283 @@ static const struct spi_device_id m25p_ids[] = {
 };
 ~~~~
 
+在上面我们没有找到相应的型号，所以我们需要手动添加上去。添加完如下
+
+~~~~ {.sourceCode .c}
+static const struct spi_device_id m25p_ids[] = {
+        /*
+        * Allow non-DT platform devices to bind to the "spi-nor" modalias, and
+        * hack around the fact that the SPI core does not provide uevent
+        * matching for .of_match_table
+        */
+        {"spi-nor"},
+
+        /*
+        * Entries not used in DTs that should be safe to drop after replacing
+        * them with "spi-nor" in platform data.
+        */
+        {"s25sl064a"},  {"w25x16"},     {"m25p10"},     {"m25px64"},
+
+        /*
+        * Entries that were used in DTs without "jedec,spi-nor" fallback and
+        * should be kept for backward compatibility.
+        */
+        {"at25df321a"}, {"at25df641"},  {"at26df081a"},
+        {"mx25l4005a"}, {"mx25l1606e"}, {"mx25l6405d"}, {"mx25l12805d"},
+        {"mx25l25635e"},{"mx66l51235l"},
+        {"n25q064"},    {"n25q128a11"}, {"n25q128a13"}, {"n25q512a"},
+        {"s25fl256s1"}, {"s25fl512s"},  {"s25sl12801"}, {"s25fl008k"},
+        {"s25fl064k"},
+        {"sst25vf040b"},{"sst25vf016b"},{"sst25vf032b"},{"sst25wf040"},
+        {"m25p40"},     {"m25p80"},     {"m25p16"},     {"m25p32"},
+        {"m25p64"},     {"m25p128"},
+        {"w25x80"},     {"w25x32"},     {"w25q32"},     {"w25q32dw"},
+        {"w25q80bl"},   {"w25q128"},    {"xt25f128b"},  {"w25q256"},
+
+        /* Flashes that can't be detected using JEDEC */
+        {"m25p05-nonjedec"},    {"m25p10-nonjedec"},    {"m25p20-nonjedec"},
+        {"m25p40-nonjedec"},    {"m25p80-nonjedec"},    {"m25p16-nonjedec"},
+        {"m25p32-nonjedec"},    {"m25p64-nonjedec"},    {"m25p128-nonjedec"},
+
+        /* Everspin MRAMs (non-JEDEC) */
+        { "mr25h256" }, /* 256 Kib, 40 MHz */
+        { "mr25h10" },  /*   1 Mib, 40 MHz */
+        { "mr25h40" },  /*   4 Mib, 40 MHz */
+
+        { },
+};
+~~~~
+然后我们添加xt25f128b flash的相关信息。
+编辑drivers/mtd/spi-nor/spi-nor.c文件
+添加信息如下：
+>    {"xt25f128b",INFO(0x0b4018, 0x0,  64 * 1024,   256, SPI_NOR_DUAL_READ | SPI_NOR_QUAD_READ) },
+~~~~ {.sourceCode .bash}
+static const struct flash_info spi_nor_ids[] = {
+	/* Atmel -- some are (confusingly) marketed as "DataFlash" */
+	{ "at25fs010",  INFO(0x1f6601, 0, 32 * 1024,   4, SECT_4K) },
+	{ "at25fs040",  INFO(0x1f6604, 0, 64 * 1024,   8, SECT_4K) },
+
+	{ "at25df041a", INFO(0x1f4401, 0, 64 * 1024,   8, SECT_4K) },
+	{ "at25df321",  INFO(0x1f4700, 0, 64 * 1024,  64, SECT_4K) },
+	{ "at25df321a", INFO(0x1f4701, 0, 64 * 1024,  64, SECT_4K) },
+	{ "at25df641",  INFO(0x1f4800, 0, 64 * 1024, 128, SECT_4K) },
+
+	{ "at26f004",   INFO(0x1f0400, 0, 64 * 1024,  8, SECT_4K) },
+	{ "at26df081a", INFO(0x1f4501, 0, 64 * 1024, 16, SECT_4K) },
+	{ "at26df161a", INFO(0x1f4601, 0, 64 * 1024, 32, SECT_4K) },
+	{ "at26df321",  INFO(0x1f4700, 0, 64 * 1024, 64, SECT_4K) },
+
+	{ "at45db081d", INFO(0x1f2500, 0, 64 * 1024, 16, SECT_4K) },
+
+	/* EON -- en25xxx */
+	{ "en25f32",    INFO(0x1c3116, 0, 64 * 1024,   64, SECT_4K) },
+	{ "en25p32",    INFO(0x1c2016, 0, 64 * 1024,   64, 0) },
+	{ "en25q32b",   INFO(0x1c3016, 0, 64 * 1024,   64, 0) },
+	{ "en25p64",    INFO(0x1c2017, 0, 64 * 1024,  128, 0) },
+	{ "en25q64",    INFO(0x1c3017, 0, 64 * 1024,  128, SECT_4K) },
+	{ "en25qh128",  INFO(0x1c7018, 0, 64 * 1024,  256, 0) },
+	{ "en25qh256",  INFO(0x1c7019, 0, 64 * 1024,  512, 0) },
+	{ "en25s64",	INFO(0x1c3817, 0, 64 * 1024,  128, SECT_4K) },
+
+	/* ESMT */
+	{ "f25l32pa", INFO(0x8c2016, 0, 64 * 1024, 64, SECT_4K) },
+
+	/* Everspin */
+	{ "mr25h256", CAT25_INFO( 32 * 1024, 1, 256, 2, SPI_NOR_NO_ERASE | SPI_NOR_NO_FR) },
+	{ "mr25h10",  CAT25_INFO(128 * 1024, 1, 256, 3, SPI_NOR_NO_ERASE | SPI_NOR_NO_FR) },
+	{ "mr25h40",  CAT25_INFO(512 * 1024, 1, 256, 3, SPI_NOR_NO_ERASE | SPI_NOR_NO_FR) },
+
+	/* Fujitsu */
+	{ "mb85rs1mt", INFO(0x047f27, 0, 128 * 1024, 1, SPI_NOR_NO_ERASE) },
+
+	/* GigaDevice */
+	{
+		"gd25q32", INFO(0xc84016, 0, 64 * 1024,  64,
+			SECT_4K | SPI_NOR_DUAL_READ | SPI_NOR_QUAD_READ |
+			SPI_NOR_HAS_LOCK | SPI_NOR_HAS_TB)
+	},
+	{
+		"gd25q64", INFO(0xc84017, 0, 64 * 1024, 128,
+			SECT_4K | SPI_NOR_DUAL_READ | SPI_NOR_QUAD_READ |
+			SPI_NOR_HAS_LOCK | SPI_NOR_HAS_TB)
+	},
+	{
+		"gd25lq64c", INFO(0xc86017, 0, 64 * 1024, 128,
+			SECT_4K | SPI_NOR_DUAL_READ | SPI_NOR_QUAD_READ |
+			SPI_NOR_HAS_LOCK | SPI_NOR_HAS_TB)
+	},
+	{
+		"gd25q128", INFO(0xc84018, 0, 64 * 1024, 256,
+			SECT_4K | SPI_NOR_DUAL_READ | SPI_NOR_QUAD_READ |
+			SPI_NOR_HAS_LOCK | SPI_NOR_HAS_TB)
+	},
+
+	/* Intel/Numonyx -- xxxs33b */
+	{ "160s33b",  INFO(0x898911, 0, 64 * 1024,  32, 0) },
+	{ "320s33b",  INFO(0x898912, 0, 64 * 1024,  64, 0) },
+	{ "640s33b",  INFO(0x898913, 0, 64 * 1024, 128, 0) },
+
+	/* ISSI */
+	{ "is25cd512", INFO(0x7f9d20, 0, 32 * 1024,   2, SECT_4K) },
+
+	/* Macronix */
+	{ "mx25l512e",   INFO(0xc22010, 0, 64 * 1024,   1, SECT_4K) },
+	{ "mx25l2005a",  INFO(0xc22012, 0, 64 * 1024,   4, SECT_4K) },
+	{ "mx25l4005a",  INFO(0xc22013, 0, 64 * 1024,   8, SECT_4K) },
+	{ "mx25l8005",   INFO(0xc22014, 0, 64 * 1024,  16, 0) },
+	{ "mx25l1606e",  INFO(0xc22015, 0, 64 * 1024,  32, SECT_4K) },
+	{ "mx25l3205d",  INFO(0xc22016, 0, 64 * 1024,  64, SECT_4K) },
+	{ "mx25l3255e",  INFO(0xc29e16, 0, 64 * 1024,  64, SECT_4K) },
+	{ "mx25l6405d",  INFO(0xc22017, 0, 64 * 1024, 128, SECT_4K) },
+	{ "mx25u6435f",  INFO(0xc22537, 0, 64 * 1024, 128, SECT_4K) },
+	{ "mx25l12805d", INFO(0xc22018, 0, 64 * 1024, 256, 0) },
+	{ "mx25l12855e", INFO(0xc22618, 0, 64 * 1024, 256, 0) },
+	{ "mx25l25635e", INFO(0xc22019, 0, 64 * 1024, 512, 0) },
+	{ "mx25u25635f", INFO(0xc22539, 0, 64 * 1024, 512, SECT_4K) },
+	{ "mx25l25655e", INFO(0xc22619, 0, 64 * 1024, 512, 0) },
+	{ "mx66l51235l", INFO(0xc2201a, 0, 64 * 1024, 1024, SPI_NOR_QUAD_READ) },
+	{ "mx66l1g55g",  INFO(0xc2261b, 0, 64 * 1024, 2048, SPI_NOR_QUAD_READ) },
+
+	/* Micron */
+	{ "n25q016a",	 INFO(0x20bb15, 0, 64 * 1024,   32, SECT_4K | SPI_NOR_QUAD_READ) },
+	{ "n25q032",	 INFO(0x20ba16, 0, 64 * 1024,   64, SPI_NOR_QUAD_READ) },
+	{ "n25q032a",	 INFO(0x20bb16, 0, 64 * 1024,   64, SPI_NOR_QUAD_READ) },
+	{ "n25q064",     INFO(0x20ba17, 0, 64 * 1024,  128, SECT_4K | SPI_NOR_QUAD_READ) },
+	{ "n25q064a",    INFO(0x20bb17, 0, 64 * 1024,  128, SECT_4K | SPI_NOR_QUAD_READ) },
+	{ "n25q128a11",  INFO(0x20bb18, 0, 64 * 1024,  256, SECT_4K | SPI_NOR_QUAD_READ) },
+	{ "n25q128a13",  INFO(0x20ba18, 0, 64 * 1024,  256, SECT_4K | SPI_NOR_QUAD_READ) },
+	{ "n25q256a",    INFO(0x20ba19, 0, 64 * 1024,  512, SECT_4K | SPI_NOR_QUAD_READ) },
+	{ "n25q512a",    INFO(0x20bb20, 0, 64 * 1024, 1024, SECT_4K | USE_FSR | SPI_NOR_QUAD_READ) },
+	{ "n25q512ax3",  INFO(0x20ba20, 0, 64 * 1024, 1024, SECT_4K | USE_FSR | SPI_NOR_QUAD_READ) },
+	{ "n25q00",      INFO(0x20ba21, 0, 64 * 1024, 2048, SECT_4K | USE_FSR | SPI_NOR_QUAD_READ) },
+	{ "n25q00a",     INFO(0x20bb21, 0, 64 * 1024, 2048, SECT_4K | USE_FSR | SPI_NOR_QUAD_READ) },
+
+	/* PMC */
+	{ "pm25lv512",   INFO(0,        0, 32 * 1024,    2, SECT_4K_PMC) },
+	{ "pm25lv010",   INFO(0,        0, 32 * 1024,    4, SECT_4K_PMC) },
+	{ "pm25lq032",   INFO(0x7f9d46, 0, 64 * 1024,   64, SECT_4K) },
+
+	/* Spansion -- single (large) sector size only, at least
+	 * for the chips listed here (without boot sectors).
+	 */
+	{ "s25sl032p",  INFO(0x010215, 0x4d00,  64 * 1024,  64, SPI_NOR_DUAL_READ | SPI_NOR_QUAD_READ) },
+	{ "s25sl064p",  INFO(0x010216, 0x4d00,  64 * 1024, 128, SPI_NOR_DUAL_READ | SPI_NOR_QUAD_READ) },
+	{ "s25fl256s0", INFO(0x010219, 0x4d00, 256 * 1024, 128, 0) },
+	{ "s25fl256s1", INFO(0x010219, 0x4d01,  64 * 1024, 512, SPI_NOR_DUAL_READ | SPI_NOR_QUAD_READ) },
+	{ "s25fl512s",  INFO(0x010220, 0x4d00, 256 * 1024, 256, SPI_NOR_DUAL_READ | SPI_NOR_QUAD_READ) },
+	{ "s70fl01gs",  INFO(0x010221, 0x4d00, 256 * 1024, 256, 0) },
+	{ "s25sl12800", INFO(0x012018, 0x0300, 256 * 1024,  64, 0) },
+	{ "s25sl12801", INFO(0x012018, 0x0301,  64 * 1024, 256, 0) },
+	{ "s25fl128s",	INFO6(0x012018, 0x4d0180, 64 * 1024, 256, SPI_NOR_DUAL_READ | SPI_NOR_QUAD_READ) },
+	{ "s25fl129p0", INFO(0x012018, 0x4d00, 256 * 1024,  64, SPI_NOR_DUAL_READ | SPI_NOR_QUAD_READ) },
+	{ "s25fl129p1", INFO(0x012018, 0x4d01,  64 * 1024, 256, SPI_NOR_DUAL_READ | SPI_NOR_QUAD_READ) },
+	{ "s25sl004a",  INFO(0x010212,      0,  64 * 1024,   8, 0) },
+	{ "s25sl008a",  INFO(0x010213,      0,  64 * 1024,  16, 0) },
+	{ "s25sl016a",  INFO(0x010214,      0,  64 * 1024,  32, 0) },
+	{ "s25sl032a",  INFO(0x010215,      0,  64 * 1024,  64, 0) },
+	{ "s25sl064a",  INFO(0x010216,      0,  64 * 1024, 128, 0) },
+	{ "s25fl004k",  INFO(0xef4013,      0,  64 * 1024,   8, SECT_4K | SPI_NOR_DUAL_READ | SPI_NOR_QUAD_READ) },
+	{ "s25fl008k",  INFO(0xef4014,      0,  64 * 1024,  16, SECT_4K | SPI_NOR_DUAL_READ | SPI_NOR_QUAD_READ) },
+	{ "s25fl016k",  INFO(0xef4015,      0,  64 * 1024,  32, SECT_4K | SPI_NOR_DUAL_READ | SPI_NOR_QUAD_READ) },
+	{ "s25fl064k",  INFO(0xef4017,      0,  64 * 1024, 128, SECT_4K) },
+	{ "s25fl116k",  INFO(0x014015,      0,  64 * 1024,  32, SECT_4K | SPI_NOR_DUAL_READ | SPI_NOR_QUAD_READ) },
+	{ "s25fl132k",  INFO(0x014016,      0,  64 * 1024,  64, SECT_4K) },
+	{ "s25fl164k",  INFO(0x014017,      0,  64 * 1024, 128, SECT_4K) },
+	{ "s25fl204k",  INFO(0x014013,      0,  64 * 1024,   8, SECT_4K | SPI_NOR_DUAL_READ) },
+	{ "s25fl208k",  INFO(0x014014,      0,  64 * 1024,  16, SECT_4K | SPI_NOR_DUAL_READ) },
+
+	/* SST -- large erase sizes are "overlays", "sectors" are 4K */
+	{ "sst25vf040b", INFO(0xbf258d, 0, 64 * 1024,  8, SECT_4K | SST_WRITE) },
+	{ "sst25vf080b", INFO(0xbf258e, 0, 64 * 1024, 16, SECT_4K | SST_WRITE) },
+	{ "sst25vf016b", INFO(0xbf2541, 0, 64 * 1024, 32, SECT_4K | SST_WRITE) },
+	{ "sst25vf032b", INFO(0xbf254a, 0, 64 * 1024, 64, SECT_4K | SST_WRITE) },
+	{ "sst25vf064c", INFO(0xbf254b, 0, 64 * 1024, 128, SECT_4K) },
+	{ "sst25wf512",  INFO(0xbf2501, 0, 64 * 1024,  1, SECT_4K | SST_WRITE) },
+	{ "sst25wf010",  INFO(0xbf2502, 0, 64 * 1024,  2, SECT_4K | SST_WRITE) },
+	{ "sst25wf020",  INFO(0xbf2503, 0, 64 * 1024,  4, SECT_4K | SST_WRITE) },
+	{ "sst25wf020a", INFO(0x621612, 0, 64 * 1024,  4, SECT_4K) },
+	{ "sst25wf040b", INFO(0x621613, 0, 64 * 1024,  8, SECT_4K) },
+	{ "sst25wf040",  INFO(0xbf2504, 0, 64 * 1024,  8, SECT_4K | SST_WRITE) },
+	{ "sst25wf080",  INFO(0xbf2505, 0, 64 * 1024, 16, SECT_4K | SST_WRITE) },
+
+	/* ST Microelectronics -- newer production may have feature updates */
+	{ "m25p05",  INFO(0x202010,  0,  32 * 1024,   2, 0) },
+	{ "m25p10",  INFO(0x202011,  0,  32 * 1024,   4, 0) },
+	{ "m25p20",  INFO(0x202012,  0,  64 * 1024,   4, 0) },
+	{ "m25p40",  INFO(0x202013,  0,  64 * 1024,   8, 0) },
+	{ "m25p80",  INFO(0x202014,  0,  64 * 1024,  16, 0) },
+	{ "m25p16",  INFO(0x202015,  0,  64 * 1024,  32, 0) },
+	{ "m25p32",  INFO(0x202016,  0,  64 * 1024,  64, 0) },
+	{ "m25p64",  INFO(0x202017,  0,  64 * 1024, 128, 0) },
+	{ "m25p128", INFO(0x202018,  0, 256 * 1024,  64, 0) },
+
+	{ "m25p05-nonjedec",  INFO(0, 0,  32 * 1024,   2, 0) },
+	{ "m25p10-nonjedec",  INFO(0, 0,  32 * 1024,   4, 0) },
+	{ "m25p20-nonjedec",  INFO(0, 0,  64 * 1024,   4, 0) },
+	{ "m25p40-nonjedec",  INFO(0, 0,  64 * 1024,   8, 0) },
+	{ "m25p80-nonjedec",  INFO(0, 0,  64 * 1024,  16, 0) },
+	{ "m25p16-nonjedec",  INFO(0, 0,  64 * 1024,  32, 0) },
+	{ "m25p32-nonjedec",  INFO(0, 0,  64 * 1024,  64, 0) },
+	{ "m25p64-nonjedec",  INFO(0, 0,  64 * 1024, 128, 0) },
+	{ "m25p128-nonjedec", INFO(0, 0, 256 * 1024,  64, 0) },
+
+	{ "m45pe10", INFO(0x204011,  0, 64 * 1024,    2, 0) },
+	{ "m45pe80", INFO(0x204014,  0, 64 * 1024,   16, 0) },
+	{ "m45pe16", INFO(0x204015,  0, 64 * 1024,   32, 0) },
+
+	{ "m25pe20", INFO(0x208012,  0, 64 * 1024,  4,       0) },
+	{ "m25pe80", INFO(0x208014,  0, 64 * 1024, 16,       0) },
+	{ "m25pe16", INFO(0x208015,  0, 64 * 1024, 32, SECT_4K) },
+
+	{ "m25px16",    INFO(0x207115,  0, 64 * 1024, 32, SECT_4K) },
+	{ "m25px32",    INFO(0x207116,  0, 64 * 1024, 64, SECT_4K) },
+	{ "m25px32-s0", INFO(0x207316,  0, 64 * 1024, 64, SECT_4K) },
+	{ "m25px32-s1", INFO(0x206316,  0, 64 * 1024, 64, SECT_4K) },
+	{ "m25px64",    INFO(0x207117,  0, 64 * 1024, 128, 0) },
+	{ "m25px80",    INFO(0x207114,  0, 64 * 1024, 16, 0) },
+
+	/* Winbond -- w25x "blocks" are 64K, "sectors" are 4KiB */
+	{ "w25x05", INFO(0xef3010, 0, 64 * 1024,  1,  SECT_4K) },
+	{ "w25x10", INFO(0xef3011, 0, 64 * 1024,  2,  SECT_4K) },
+	{ "w25x20", INFO(0xef3012, 0, 64 * 1024,  4,  SECT_4K) },
+	{ "w25x40", INFO(0xef3013, 0, 64 * 1024,  8,  SECT_4K) },
+	{ "w25x80", INFO(0xef3014, 0, 64 * 1024,  16, SECT_4K) },
+	{ "w25x16", INFO(0xef3015, 0, 64 * 1024,  32, SECT_4K) },
+	{ "w25x32", INFO(0xef3016, 0, 64 * 1024,  64, SECT_4K) },
+	{ "w25q32", INFO(0xef4016, 0, 64 * 1024,  64, SECT_4K) },
+	{
+		"w25q32dw", INFO(0xef6016, 0, 64 * 1024,  64,
+			SECT_4K | SPI_NOR_DUAL_READ | SPI_NOR_QUAD_READ |
+			SPI_NOR_HAS_LOCK | SPI_NOR_HAS_TB)
+	},
+	{ "w25x64", INFO(0xef3017, 0, 64 * 1024, 128, SECT_4K) },
+	{ "w25q64", INFO(0xef4017, 0, 64 * 1024, 128, SECT_4K) },
+	{
+		"w25q64dw", INFO(0xef6017, 0, 64 * 1024, 128,
+			SECT_4K | SPI_NOR_DUAL_READ | SPI_NOR_QUAD_READ |
+			SPI_NOR_HAS_LOCK | SPI_NOR_HAS_TB)
+	},
+	{
+		"w25q128fw", INFO(0xef6018, 0, 64 * 1024, 256,
+			SECT_4K | SPI_NOR_DUAL_READ | SPI_NOR_QUAD_READ |
+			SPI_NOR_HAS_LOCK | SPI_NOR_HAS_TB)
+	},
+	{ "w25q80", INFO(0xef5014, 0, 64 * 1024,  16, SECT_4K) },
+	{ "w25q80bl", INFO(0xef4014, 0, 64 * 1024,  16, SECT_4K) },
+	{ "w25q128", INFO(0xef4018, 0, 64 * 1024, 256, SECT_4K) },
+	{"xt25f128b",INFO(0x0b4018, 0x0,  64 * 1024,   256, SPI_NOR_DUAL_READ | SPI_NOR_QUAD_READ) },
+	{ "w25q256", INFO(0xef4019, 0, 64 * 1024, 512, SECT_4K) },
+
+	/* Catalyst / On Semiconductor -- non-JEDEC */
+	{ "cat25c11", CAT25_INFO(  16, 8, 16, 1, SPI_NOR_NO_ERASE | SPI_NOR_NO_FR) },
+	{ "cat25c03", CAT25_INFO(  32, 8, 16, 2, SPI_NOR_NO_ERASE | SPI_NOR_NO_FR) },
+	{ "cat25c09", CAT25_INFO( 128, 8, 32, 2, SPI_NOR_NO_ERASE | SPI_NOR_NO_FR) },
+	{ "cat25c17", CAT25_INFO( 256, 8, 32, 2, SPI_NOR_NO_ERASE | SPI_NOR_NO_FR) },
+	{ "cat25128", CAT25_INFO(2048, 8, 64, 2, SPI_NOR_NO_ERASE | SPI_NOR_NO_FR) },
+	{ },
+};
+~~~~
+开始编译
 ~~~~ {.sourceCode .bash}
 make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- -j32
 make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- dtbs
@@ -223,30 +555,30 @@ Flash支持jffs2文件系统格式，所以需要使用此该rootfs制作jffs2�
 
 > `tar xzvf rootfs-brmin.tar.gz`
 
-计算好jffs的大小，可以使用zero\_imager里的 **make\_jffs2.sh 32** 生成
+计算好jffs的大小，可以使用zero\_imager里的 **make\_jffs2.sh 16** 生成
 
-总空间是32M-1M-64K-4M=0x1AF0000
+总空间是16M-1M-64K-4M=0xAF0000
 
-> `mkfs.jffs2 -s 0x100 -e 0x10000 -p 0x1AF0000 -d rootfs/ -o jffs2.img`
+> `mkfs.jffs2 -s 0x100 -e 0x10000 -p 0xAF0000 -d rootfs/ -o jffs2.img`
 
 -   页大小0x100 256字节
 -   块大小0x10000 64k
--   jffs2分区总空间0x1AF0000
+-   jffs2分区总空间0xAF0000
 -   jffs2.img是生成的文件系统镜像。
 
 最后将uboot，dtb，kernel，rootfs打包成一个系统镜像，命令如下；
-:   （即zero\_imager里的 *make\_spiflash.sh 32 dock*）
+
 
 ~~~~ {.sourceCode .bash}
 #!/bin/sh
-dd if=/dev/zero of=flashimg.bin bs=1M count=$1
-dd if=u-boot-sunxi-with-spl-$2.bin of=flashimg.bin bs=1K conv=notrunc
-dd if=sun8i-v3s-licheepi-zero-$2.dtb of=flashimg.bin bs=1K seek=1024  conv=notrunc
+dd if=/dev/zero of=flashimg.bin bs=1M count=16
+dd if=u-boot-sunxi-with-spl.bin of=flashimg.bin bs=1K conv=notrunc
+dd if=sun8i-v3s-licheepi-zero.dtb of=flashimg.bin bs=1K seek=1024  conv=notrunc
 dd if=zImage of=flashimg.bin bs=1K seek=1088  conv=notrunc
 dd if=jffs2.img of=flashimg.bin  bs=1K seek=5184  conv=notrunc
 ~~~~
 
-第一步： 生成一个空文件，大小是32MB\
+第一步： 生成一个空文件，大小是16MB\
 第二步： 将uboot添加到文件开头\
 第三步： 将dtb放到1M偏移处\
 第四步： 将kernel放到1M+64K偏移处
@@ -333,415 +665,220 @@ flash下载速度约50KB/s，等待5分钟（16MB）或者10分钟（32MB），�
 附录： 启动日志
 ===============
 
-    U-Boot SPL 2017.01-rc2-00073-gdd6e874-dirty (Oct 14 2017 - 16:33:01)
+    U-Boot SPL 2017.01-rc2-00073-gdd6e8740dc-dirty (Mar 28 2021 - 01:54:30)
     DRAM: 64 MiB
     Trying to boot from sunxi SPI
 
-    U-Boot 2017.01-rc2-00073-gdd6e874-dirty (Oct 14 2017 - 16:33:01 +0000) Allwinner Technology
+    U-Boot 2017.01-rc2-00073-gdd6e8740dc-dirty (Mar 28 2021 - 01:54:30 +0800) Allwinner Technology
 
     CPU:   Allwinner V3s (SUN8I 1681)
     Model: Lichee Pi Zero
     DRAM:  64 MiB
     MMC:   SUNXI SD/MMC: 0
-    SF: Detected mx25l25635f with page size 256 Bytes, erase size 64 KiB, total 32 MiB
+    SF: Detected xt25f128b with page size 256 Bytes, erase size 4 KiB, total 16 MiB
     *** Warning - bad CRC, using default environment
 
-    Setting up a 800x480 lcd console (overscan 0x0)
-    dotclock: 33000kHz = 33000kHz: (1 * 3MHz * 66) / 6
     In:    serial@01c28000
     Out:   serial@01c28000
     Err:   serial@01c28000
 
 
-    U-Boot 2017.01-rc2-00073-gdd6e874-dirty (Oct 14 2017 - 16:33:01 +0000) Allwinner Technology
+    U-Boot 2017.01-rc2-00073-gdd6e8740dc-dirty (Mar 28 2021 - 01:54:30 +0800) Allwinner Technology
 
     CPU:   Allwinner V3s (SUN8I 1681)
     Model: Lichee Pi Zero
     DRAM:  64 MiB
     MMC:   SUNXI SD/MMC: 0
-    SF: Detected mx25l25635f with page size 256 Bytes, erase size 64 KiB, total 32 MiB
+    SF: Detected xt25f128b with page size 256 Bytes, erase size 4 KiB, total 16 MiB
     *** Warning - bad CRC, using default environment
 
-    Setting up a 800x480 lcd console (overscan 0x0)
-    dotclock: 33000kHz = 33000kHz: (1 * 3MHz * 66) / 6
     In:    serial@01c28000
     Out:   serial@01c28000
     Err:   serial@01c28000
     Net:   No ethernet found.
-    starting USB---
+    starting USB...
     No controllers found
     Hit any key to stop autoboot:  0 
-    SF: Detected mx25l25635f with page size 256 Bytes, erase size 64 KiB, total 32 MiB
+    SF: Detected xt25f128b with page size 256 Bytes, erase size 4 KiB, total 16 MiB
     device 0 offset 0x100000, size 0x10000
     SF: 65536 bytes @ 0x100000 Read: OK
     device 0 offset 0x110000, size 0x400000
     SF: 4194304 bytes @ 0x110000 Read: OK
     ## Flattened Device Tree blob at 41800000
-    Booting using the fdt blob at 0x41800000
-    Loading Device Tree to 42dfa000, end 42dffc48 --- OK
+       Booting using the fdt blob at 0x41800000
+       Loading Device Tree to 42dfa000, end 42dff206 ... OK
 
-    Starting kernel ---
+    Starting kernel ...
+
     [    0.000000] Booting Linux on physical CPU 0x0
-    [    0.000000] Linux version 4.13.0-licheepi-zero+ (root@bf756b445919) (gcc version 6.3.1 20170404 (Linaro GCC 6.3-2017.05)) #10 SMP Sat Oct 14 16:59:37 UTC 2017
+    [    0.000000] Linux version 4.10.15-licheepi-zero+ (nihao@nihao-XiaoXin) (gcc version 6.3.1 20170404 (Linaro GCC 6.3-2017.05) ) #6 SMP Sun Mar 28 08:51:06 CST     2021
     [    0.000000] CPU: ARMv7 Processor [410fc075] revision 5 (ARMv7), cr=10c5387d
     [    0.000000] CPU: div instructions available: patching division code
     [    0.000000] CPU: PIPT / VIPT nonaliasing data cache, VIPT aliasing instruction cache
-    [    0.000000] OF: fdt: Machine model: Lichee Pi Zero XFJ
+    [    0.000000] OF: fdt:Machine model: Lichee Pi Zero
     [    0.000000] Memory policy: Data cache writealloc
-    [    0.000000] percpu: Embedded 16 pages/cpu @c3de6000 s33868 r8192 d23476 u65536
-    [    0.000000] Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 15883
-    [    0.000000] Kernel command line: console=ttyS0,115200 earlyprintk panic=5 rootwait mtdparts=spi32766.0:1M(uboot)ro,64k(dtb)ro,4M(kernel)ro,-(rootfs) root=31:03 rw rootfstype=jffs2
+    [    0.000000] percpu: Embedded 14 pages/cpu @c3f63000 s24716 r8192 d24436 u57344
+    [    0.000000] Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 16256
+    [    0.000000] Kernel command line: console=ttyS0,115200 earlyprintk panic=5 rootwait mtdparts=spi32766.0:1M(uboot)ro,64k(dtb)ro,4M(kernel)ro,-(rootfs)     root=31:03 rw rootfstype=jffs2
     [    0.000000] PID hash table entries: 256 (order: -2, 1024 bytes)
     [    0.000000] Dentry cache hash table entries: 8192 (order: 3, 32768 bytes)
     [    0.000000] Inode-cache hash table entries: 4096 (order: 2, 16384 bytes)
-    [    0.000000] Memory: 53576K/64036K available (6144K kernel code, 229K rwdata, 1512K rodata, 1024K init, 265K bss, 10460K reserved, 0K cma-reserved, 0K highmem)
+    [    0.000000] Memory: 55152K/65536K available (6144K kernel code, 199K rwdata, 1412K rodata, 1024K init, 262K bss, 10384K reserved, 0K cma-reserved, 0K highmem)
     [    0.000000] Virtual kernel memory layout:
     [    0.000000]     vector  : 0xffff0000 - 0xffff1000   (   4 kB)
     [    0.000000]     fixmap  : 0xffc00000 - 0xfff00000   (3072 kB)
-    [    0.000000]     vmalloc : 0xc4000000 - 0xff800000   ( 952 MB)
-    [    0.000000]     lowmem  : 0xc0000000 - 0xc3e89000   (  62 MB)
+    [    0.000000]     vmalloc : 0xc4800000 - 0xff800000   ( 944 MB)
+    [    0.000000]     lowmem  : 0xc0000000 - 0xc4000000   (  64 MB)
     [    0.000000]     pkmap   : 0xbfe00000 - 0xc0000000   (   2 MB)
     [    0.000000]     modules : 0xbf000000 - 0xbfe00000   (  14 MB)
     [    0.000000]       .text : 0xc0008000 - 0xc0700000   (7136 kB)
     [    0.000000]       .init : 0xc0900000 - 0xc0a00000   (1024 kB)
-    [    0.000000]       .data : 0xc0a00000 - 0xc0a39580   ( 230 kB)
-    [    0.000000]        .bss : 0xc0a3f65c - 0xc0a81b54   ( 266 kB)
+    [    0.000000]       .data : 0xc0a00000 - 0xc0a31f00   ( 200 kB)
+    [    0.000000]        .bss : 0xc0a33000 - 0xc0a7484c   ( 263 kB)
     [    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=1, Nodes=1
     [    0.000000] Hierarchical RCU implementation.
-    [    0.000000]  RCU event tracing is enabled.
-    [    0.000000]  RCU restricting CPUs from NR_CPUS=8 to nr_cpu_ids=1.
-    [    0.000000] RCU: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=1
-    [    0.000000] NR_IRQS: 16, nr_irqs: 16, preallocated irqs: 16
-    [    0.000000] arch_timer: cp15 timer(s) running at 24.00MHz (virt).
+    [    0.000000] 	Build-time adjustment of leaf fanout to 32.
+    [    0.000000] 	RCU restricting CPUs from NR_CPUS=8 to nr_cpu_ids=1.
+    [    0.000000] RCU: Adjusting geometry for rcu_fanout_leaf=32, nr_cpu_ids=1
+    [    0.000000] NR_IRQS:16 nr_irqs:16 16
+    [    0.000000] arm_arch_timer: Architected cp15 timer(s) running at 24.00MHz (virt).
     [    0.000000] clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0x588fe9dc0, max_idle_ns: 440795202592 ns
-    [    0.000008] sched_clock: 56 bits at 24MHz, resolution 41ns, wraps every 4398046511097ns
-    [    0.000019] Switching to timer-based delay loop, resolution 41ns
-    [    0.000187] clocksource: timer: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 79635851949 ns
-    [    0.000420] Console: colour dummy device 80x30
-    [    0.000457] Calibrating delay loop (skipped), value calculated using timer frequency.. 48.00 BogoMIPS (lpj=240000)
-    [    0.000475] pid_max: default: 32768 minimum: 301
-    [    0.000604] Mount-cache hash table entries: 1024 (order: 0, 4096 bytes)
-    [    0.000619] Mountpoint-cache hash table entries: 1024 (order: 0, 4096 bytes)
-    [    0.001213] CPU: Testing write buffer coherency: ok
-    [    0.001589] /cpus/cpu@0 missing clock-frequency property
-    [    0.001612] CPU0: thread -1, cpu 0, socket 0, mpidr 80000000
-    [    0.002074] Setting up static identity map for 0x40100000 - 0x40100060
-    [    0.002259] Hierarchical SRCU implementation.
-    [    0.002765] smp: Bringing up secondary CPUs ---
+    [    0.000007] sched_clock: 56 bits at 24MHz, resolution 41ns, wraps every 4398046511097ns
+    [    0.000018] Switching to timer-based delay loop, resolution 41ns
+    [    0.000138] clocksource: timer: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 79635851949 ns
+    [    0.000343] Console: colour dummy device 80x30
+    [    0.000379] Calibrating delay loop (skipped), value calculated using timer frequency.. 48.00 BogoMIPS (lpj=240000)
+    [    0.000393] pid_max: default: 32768 minimum: 301
+    [    0.000528] Mount-cache hash table entries: 1024 (order: 0, 4096 bytes)
+    [    0.000539] Mountpoint-cache hash table entries: 1024 (order: 0, 4096 bytes)
+    [    0.001231] CPU: Testing write buffer coherency: ok
+    [    0.001634] /cpus/cpu@0 missing clock-frequency property
+    [    0.001658] CPU0: thread -1, cpu 0, socket 0, mpidr 80000000
+    [    0.002018] Setting up static identity map for 0x40100000 - 0x40100058
+    [    0.002763] smp: Bringing up secondary CPUs ...
     [    0.002781] smp: Brought up 1 node, 1 CPU
     [    0.002790] SMP: Total of 1 processors activated (48.00 BogoMIPS).
     [    0.002797] CPU: All CPU(s) started in SVC mode.
-    [    0.003559] devtmpfs: initialized
-    [    0.006668] VFP support v0.3: implementor 41 architecture 2 part 30 variant 7 rev 5
-    [    0.006932] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
-    [    0.006967] futex hash table entries: 256 (order: 2, 16384 bytes)
-    [    0.007136] pinctrl core: initialized pinctrl subsystem
-    [    0.008026] random: get_random_u32 called from bucket_table_alloc+0xf4/0x244 with crng_init=0
-    [    0.008162] NET: Registered protocol family 16
-    [    0.008655] DMA: preallocated 256 KiB pool for atomic coherent allocations
-    [    0.009800] hw-breakpoint: found 5 (+1 reserved) breakpoint and 4 watchpoint registers.
-    [    0.009817] hw-breakpoint: maximum watchpoint size is 8 bytes.
-    [    0.023260] SCSI subsystem initialized
-    [    0.023562] usbcore: registered new interface driver usbfs
-    [    0.023652] usbcore: registered new interface driver hub
-    [    0.023747] usbcore: registered new device driver usb
-    [    0.023983] Linux video capture interface: v2.00
-    [    0.024036] pps_core: LinuxPPS API ver. 1 registered
-    [    0.024044] pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
-    [    0.024064] PTP clock support registered
-    [    0.024282] Advanced Linux Sound Architecture Driver Initialized.
-    [    0.024955] Bluetooth: Core ver 2.22
-    [    0.025029] NET: Registered protocol family 31
-    [    0.025037] Bluetooth: HCI device and connection manager initialized
-    [    0.025056] Bluetooth: HCI socket layer initialized
-    [    0.025066] Bluetooth: L2CAP socket layer initialized
-    [    0.025097] Bluetooth: SCO socket layer initialized
-    [    0.026313] clocksource: Switched to clocksource arch_sys_counter
-    [    0.037157] NET: Registered protocol family 2
-    [    0.037746] TCP established hash table entries: 1024 (order: 0, 4096 bytes)
-    [    0.037780] TCP bind hash table entries: 1024 (order: 1, 8192 bytes)
-    [    0.037803] TCP: Hash tables configured (established 1024 bind 1024)
-    [    0.037937] UDP hash table entries: 256 (order: 1, 8192 bytes)
-    [    0.037985] UDP-Lite hash table entries: 256 (order: 1, 8192 bytes)
-    [    0.038205] NET: Registered protocol family 1
-    [    0.038812] RPC: Registered named UNIX socket transport module.
-    [    0.038833] RPC: Registered udp transport module.
-    [    0.038840] RPC: Registered tcp transport module.
-    [    0.038846] RPC: Registered tcp NFSv4.1 backchannel transport module.
-    [    0.040940] workingset: timestamp_bits=30 max_order=14 bucket_order=0
-    [    0.048568] NFS: Registering the id_resolver key type
-    [    0.048618] Key type id_resolver registered
-    [    0.048627] Key type id_legacy registered
-    [    0.048672] jffs2: version 2.2. (NAND) © 2001-2006 Red Hat, Inc.
-    [    0.050140] random: fast init done
-    [    0.053091] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 249)
-    [    0.053111] io scheduler noop registered
-    [    0.053118] io scheduler deadline registered
-    [    0.053358] io scheduler cfq registered (default)
-    [    0.053368] io scheduler mq-deadline registered
-    [    0.053376] io scheduler kyber registered
-    [    0.057981] sun8i-v3s-pinctrl 1c20800.pinctrl: initialized sunXi PIO driver
-    [    0.058417] name=allwinner,sun7i-a20-pwm
-    [    0.058432] npwm=2
-    [    0.127969] Serial: 8250/16550 driver, 8 ports, IRQ sharing disabled
-    [    0.131445] console [ttyS0] disabled
-    [    0.151721] 1c28000.serial: ttyS0 at MMIO 0x1c28000 (irq = 33, base_baud = 1500000) is a U6_16550A
-    [    0.780269] console [ttyS0] enabled
-    [    0.805297] 1c28400.serial: ttyS1 at MMIO 0x1c28400 (irq = 34, base_baud = 1500000) is a U6_16550A
-    [    0.835807] 1c28800.serial: ttyS2 at MMIO 0x1c28800 (irq = 35, base_baud = 1500000) is a U6_16550A
-    [    0.848508] libphy: Fixed MDIO Bus: probed
-    [    0.853001] usbcore: registered new interface driver r8152
-    [    0.858614] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
-    [    0.865135] ehci-platform: EHCI generic platform driver
-    [    0.870676] ehci-platform 1c1a000.usb: EHCI Host Controller
-    [    0.876350] ehci-platform 1c1a000.usb: new USB bus registered, assigned bus number 1
-    [    0.884288] ehci-platform 1c1a000.usb: irq 25, io mem 0x01c1a000
-    [    0.916344] ehci-platform 1c1a000.usb: USB 2.0 started, EHCI 1.00
-    [    0.923490] hub 1-0:1.0: USB hub found
-    [    0.927421] hub 1-0:1.0: 1 port detected
-    [    0.931878] ohci_hcd: USB 1.1 'Open' Host Controller (OHCI) Driver
-    [    0.938171] ohci-platform: OHCI generic platform driver
-    [    0.943713] ohci-platform 1c1a400.usb: Generic Platform OHCI controller
-    [    0.950433] ohci-platform 1c1a400.usb: new USB bus registered, assigned bus number 2
-    [    0.958360] ohci-platform 1c1a400.usb: irq 26, io mem 0x01c1a400
-    [    1.031375] hub 2-0:1.0: USB hub found
-    [    1.035198] hub 2-0:1.0: 1 port detected
-    [    1.042745] udc-core: couldn't find an available UDC - added [g_ether] to list of pending drivers
-    [    1.052618] sun6i-rtc 1c20400.rtc: rtc core: registered rtc-sun6i as rtc0
-    [    1.059513] sun6i-rtc 1c20400.rtc: RTC enabled
-    [    1.064048] i2c /dev entries driver
-    [    1.069222] usbcore: registered new interface driver uvcvideo
-    [    1.074974] USB Video Class driver (1.1.1)
-    [    1.079833] sunxi-wdt 1c20ca0.watchdog: Watchdog enabled (timeout=16 sec, nowayout=0)
-    [    1.087825] Bluetooth: HCI UART driver ver 2.3
-    [    1.092273] Bluetooth: HCI UART protocol Three-wire (H5) registered
-    [    1.156357] sunxi-mmc 1c0f000.mmc: base:0xc407b000 irq:23
-    [    1.162805] usbcore: registered new interface driver usbhid
-    [    1.168456] usbhid: USB HID core driver
-    [    1.174122] NET: Registered protocol family 17
-    [    1.178794] Key type dns_resolver registered
-    [    1.183228] Registering SWP/SWPB emulation handler
-    [    1.193806] simple-framebuffer 43e89000.framebuffer: framebuffer at 0x43e89000, 0x177000 bytes, mapped to 0xc4400000
-    [    1.204454] simple-framebuffer 43e89000.framebuffer: format=x8r8g8b8, mode=800x480x32, linelength=3200
-    [    1.222854] Console: switching to colour frame buffer device 100x30
-    [    1.235317] simple-framebuffer 43e89000.framebuffer: fb0: simplefb registered!
-    [    1.243916] usb_phy_generic usb_phy_generic.0.auto: usb_phy_generic.0.auto supply vcc not found, using dummy regulator
-    [    1.255346] musb-hdrc musb-hdrc.1.auto: MUSB HDRC host driver
-    [    1.261186] musb-hdrc musb-hdrc.1.auto: new USB bus registered, assigned bus number 3
-    [    1.270315] hub 3-0:1.0: USB hub found
-    [    1.274184] hub 3-0:1.0: 1 port detected
-    [    1.279498] using random self ethernet address
-    [    1.283985] using random host ethernet address
-    [    1.289160] usb0: HOST MAC 8e:ca:5f:61:47:a8
-    [    1.293475] usb0: MAC f2:57:f4:ad:74:af
-    [    1.297416] using random self ethernet address
-    [    1.301858] using random host ethernet address
-    [    1.306400] g_ether gadget: Ethernet Gadget, version: Memorial Day 2008
-    [    1.313010] g_ether gadget: g_ether ready
-    [    1.317402] sun6i-rtc 1c20400.rtc: setting system clock to 1970-01-01 00:56:52 UTC (3412)
-    [    1.325834] vcc3v0: disabling
-    [    1.328911] vcc5v0: disabling
-    [    1.331879] ALSA device list:
-    [    1.334841]   No soundcards found.
-    [    1.339241] VFS: Cannot open root device "31:03" or unknown-block(31,3): error -19
-    [    1.346938] Please append a correct "root=" boot option; here are the available partitions:
-    [    1.355286] Kernel panic - not syncing: VFS: Unable to mount root fs on unknown-block(31,3)
-    [    1.363630] CPU: 0 PID: 1 Comm: swapper/0 Not tainted 4.13.0-licheepi-zero+ #10
-    [    1.370926] Hardware name: Allwinner sun8i Family
-    [    1.375664] [<c010e58c>] (unwind_backtrace) from [<c010b2b0>] (show_stack+0x10/0x14)
-    [    1.383408] [<c010b2b0>] (show_stack) from [<c06923dc>] (dump_stack+0x84/0x98)
-    [    1.390632] [<c06923dc>] (dump_stack) from [<c011b728>] (panic+0xdc/0x248)
-    [    1.397507] [<c011b728>] (panic) from [<c09011d0>] (mount_block_root+0x188/0x25c)
-    [    1.404985] [<c09011d0>] (mount_block_root) from [<c09013c4>] (mount_root+0x120/0x128)
-    [    1.412894] [<c09013c4>] (mount_root) from [<c090151c>] (prepare_namespace+0x150/0x194)
-    [    1.420891] [<c090151c>] (prepare_namespace) from [<c0900e20>] (kernel_init_freeable+0x1bc/0x1cc)
-    [    1.429755] [<c0900e20>] (kernel_init_freeable) from [<c06a514c>] (kernel_init+0x8/0x108)
-    [    1.437927] [<c06a514c>] (kernel_init) from [<c0107638>] (ret_from_fork+0x14/0x3c)
-    [    1.445499] Rebooting in 5 seconds..
-
-    U-Boot SPL 2017.01-rc2-00073-gdd6e874-dirty (Nov 26 2017 - 15:10:41)
-    DRAM: 64 MiB
-    Trying to boot from sunxi SPICPU:   Allwinner V3s (SUN8I 1681)
-    Model: Lichee Pi Zero
-    DRAM:  64 MiB
-    MMC:   SUNXI SD/MMC: 0
-    SF: Detected w25q128bv with page size 256 Bytes, erase size 64 KiB, total 16 MiB
-    *** Warning - bad CRC, using default environment
-
-    Setting up a 800x480 lcd console (overscan 0x0)
-    dotclock: 27000kHz = 27000kHz: (1 * 3MHz * 54) / 6
-    beep 0
-    beep 1
-    beep 0
-    beep 1
-    beep 0
-    beep 1
-    In:    serial@01c28000
-    Out:   serial@01c28000
-    Err:   serial@01c28000
-    CPU:   Allwinner V3s (SUN8I 1681)
-    Model: Lichee Pi Zero
-    DRAM:  64 MiB
-    MMC:   SUNXI SD/MMC: 0
-    SF: Detected w25q128bv with page size 256 Bytes, erase size 64 KiB, total 16 MiB
-    *** Warning - bad CRC, using default environment
-
-    Setting up a 800x480 lcd console (overscan 0x0)
-    dotclock: 27000kHz = 27000kHz: (1 * 3MHz * 54) / 6
-    beep 0
-    beep 1
-    beep 0
-    beep 1
-    beep 0
-    beep 1
-    In:    serial@01c28000
-    Out:   serial@01c28000
-    Err:   serial@01c28000
-    Net:   No ethernet found.
-    starting USB---
-    No controllers found
-    Hit any key to stop autoboot:  0 
-    SF: Detected w25q128bv with page size 256 Bytes, erase size 64 KiB, total 16 MiB
-    device 0 offset 0x100000, size 0x10000
-    SF: 65536 bytes @ 0x100000 Read: OK
-    device 0 offset 0x110000, size 0x400000
-    SF: 4194304 bytes @ 0x110000 Read: OK
-    ## Flattened Device Tree blob at 41800000
-    Booting using the fdt blob at 0x41800000
-    Loading Device Tree to 42dfa000, end 42dffbfa --- OK
-
-    Starting kernel ---
-
-    [    0.000000] Booting Linux on physical CPU 0x0
-    [    0.000000] Linux version 4.13.0-licheepi-zero+ (root@bf756b445919) (gcc version 6.3.1 20170404 (Linaro GCC 6.3-2017.05)) #95 SMP Mon Nov 27 01:20:31 UTC 2017
-    [    0.000000] CPU: ARMv7 Processor [410fc075] revision 5 (ARMv7), cr=10c5387d
-    [    0.000000] CPU: div instructions available: patching division code
-    [    0.000000] CPU: PIPT / VIPT nonaliasing data cache, VIPT aliasing instruction cache
-    [    0.000000] OF: fdt: Machine model: Lichee Pi Zero XFJ
-    [    0.000000] Memory policy: Data cache writealloc
-    [    0.000000] percpu: Embedded 15 pages/cpu @c3de7000 s32588 r8192 d20660 u61440
-    [    0.000000] Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 15883
-    [    0.000000] Kernel command line: console=ttyS0,115200 earlyprintk panic=5 rootwait mtdparts=spi32766.0:1M(uboot)ro,64k(dtb)ro,4M(kernel)ro,-(rootfs) root=31:03 rw rootfstype=jffs2
-    [    0.000000] PID hash table entries: 256 (order: -2, 1024 bytes)
-    [    0.000000] Dentry cache hash table entries: 8192 (order: 3, 32768 bytes)
-    [    0.000000] Inode-cache hash table entries: 4096 (order: 2, 16384 bytes)
-    [    0.000000] Memory: 55708K/64036K available (4096K kernel code, 187K rwdata, 1144K rodata, 1024K init, 232K bss, 8328K reserved, 0K cma-reserved, 0K highmem)
-    [    0.000000] Virtual kernel memory layout:
-    [    0.000000]     vector  : 0xffff0000 - 0xffff1000   (   4 kB)
-    [    0.000000]     fixmap  : 0xffc00000 - 0xfff00000   (3072 kB)
-    [    0.000000]     vmalloc : 0xc4000000 - 0xff800000   ( 952 MB)
-    [    0.000000]     lowmem  : 0xc0000000 - 0xc3e89000   (  62 MB)
-    [    0.000000]     pkmap   : 0xbfe00000 - 0xc0000000   (   2 MB)
-    [    0.000000]     modules : 0xbf000000 - 0xbfe00000   (  14 MB)
-    [    0.000000]       .text : 0xc0008000 - 0xc0500000   (5088 kB)
-    [    0.000000]       .init : 0xc0700000 - 0xc0800000   (1024 kB)
-    [    0.000000]       .data : 0xc0800000 - 0xc082ee00   ( 188 kB)
-    [    0.000000]        .bss : 0xc08332d0 - 0xc086d584   ( 233 kB)
-    [    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=1, Nodes=1
-    [    0.000000] Hierarchical RCU implementation.
-    [    0.000000]  RCU event tracing is enabled.
-    [    0.000000]  RCU restricting CPUs from NR_CPUS=8 to nr_cpu_ids=1.
-    [    0.000000] RCU: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=1
-    [    0.000000] NR_IRQS: 16, nr_irqs: 16, preallocated irqs: 16
-    [    0.000000] arch_timer: cp15 timer(s) running at 24.00MHz (virt).
-    [    0.000000] clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0x588fe9dc0, max_idle_ns: 440795202592 ns
-    [    0.000009] sched_clock: 56 bits at 24MHz, resolution 41ns, wraps every 4398046511097ns
-    [    0.000024] Switching to timer-based delay loop, resolution 41ns
-    [    0.000214] clocksource: timer: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 79635851949 ns
-    [    0.000465] Console: colour dummy device 80x30
-    [    0.000506] Calibrating delay loop (skipped), value calculated using timer frequency.. 48.00 BogoMIPS (lpj=240000)
-    [    0.000525] pid_max: default: 32768 minimum: 301
-    [    0.000672] Mount-cache hash table entries: 1024 (order: 0, 4096 bytes)
-    [    0.000692] Mountpoint-cache hash table entries: 1024 (order: 0, 4096 bytes)
-    [    0.001393] CPU: Testing write buffer coherency: ok
-    [    0.001817] /cpus/cpu@0 missing clock-frequency property
-    [    0.001842] CPU0: thread -1, cpu 0, socket 0, mpidr 80000000
-    [    0.002345] Setting up static identity map for 0x40100000 - 0x40100060
-    [    0.002541] Hierarchical SRCU implementation.
-    [    0.003148] smp: Bringing up secondary CPUs ---
-    [    0.003163] smp: Brought up 1 node, 1 CPU
-    [    0.003175] SMP: Total of 1 processors activated (48.00 BogoMIPS).
-    [    0.003184] CPU: All CPU(s) started in SVC mode.
-    [    0.004066] devtmpfs: initialized
-    [    0.007259] VFP support v0.3: implementor 41 architecture 2 part 30 variant 7 rev 5
-    [    0.007578] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
-    [    0.007614] futex hash table entries: 256 (order: 2, 16384 bytes)
-    [    0.007813] pinctrl core: initialized pinctrl subsystem
-    [    0.008896] DMA: preallocated 256 KiB pool for atomic coherent allocations
-    [    0.010158] hw-breakpoint: found 5 (+1 reserved) breakpoint and 4 watchpoint registers.
-    [    0.010179] hw-breakpoint: maximum watchpoint size is 8 bytes.
-    [    0.022957] SCSI subsystem initialized
-    [    0.023159] usbcore: registered new interface driver usbfs
-    [    0.023235] usbcore: registered new interface driver hub
-    [    0.023362] usbcore: registered new device driver usb
-    [    0.023474] Linux video capture interface: v2.00
-    [    0.023517] pps_core: LinuxPPS API ver. 1 registered
-    [    0.023526] pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
-    [    0.023695] Advanced Linux Sound Architecture Driver Initialized.
-    [    0.024215] clocksource: Switched to clocksource arch_sys_counter
-    [    0.039085] workingset: timestamp_bits=30 max_order=14 bucket_order=0
-    [    0.046435] squashfs: version 4.0 (2009/01/31) Phillip Lougher
-    [    0.046808] jffs2: version 2.2. (NAND) ? 2001-2006 Red Hat, Inc.
-    [    0.048756] random: fast init done
-    [    0.052407] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 250)
-    [    0.052432] io scheduler noop registered
-    [    0.052442] io scheduler deadline registered
-    [    0.052669] io scheduler cfq registered (default)
-    [    0.052681] io scheduler mq-deadline registered
-    [    0.052690] io scheduler kyber registered
-    [    0.057653] sun8i-v3s-pinctrl 1c20800.pinctrl: initialized sunXi PIO driver
-    [    0.058150] name=allwinner,sun7i-a20-pwm
-    [    0.058168] npwm=2
-    [    0.139525] Serial: 8250/16550 driver, 8 ports, IRQ sharing disabled
-    [    0.143224] console [ttyS0] disabled
-    [    0.163532] 1c28000.serial: ttyS0 at MMIO 0x1c28000 (irq = 33, base_baud = 1500000) is a U6_16550A
-    [    0.676919] console [ttyS0] enabled
-    [    0.702093] 1c28400.serial: ttyS1 at MMIO 0x1c28400 (irq = 34, base_baud = 1500000) is a U6_16550A
-    [    0.732771] 1c28800.serial: ttyS2 at MMIO 0x1c28800 (irq = 35, base_baud = 1500000) is a U6_16550A
-    [    0.747219] m25p80 spi32766.0: w25q128 (16384 Kbytes)
-    [    0.752288] in cmdline partion
-    [    0.755486] p4 : size=100000
-    [    0.758369] p4 : size=10000
-    [    0.761160] p4 : size=400000
-    [    0.764037] p4 : size=ffffffff
-    [    0.767126] spi32766.0: parser cmdlinepart: 4
-    [    0.771481] 4 cmdlinepart partitions found on MTD device spi32766.0
-    [    0.777758] Creating 4 MTD partitions on "spi32766.0":
-    [    0.782904] 0x000000000000-0x000000100000 : "uboot"
-    [    0.789535] 0x000000100000-0x000000110000 : "dtb"
-    [    0.795874] 0x000000110000-0x000000510000 : "kernel"
-    [    0.802292] 0x000000510000-0x000001000000 : "rootfs"
-    [    0.809706] sun6i-rtc 1c20400.rtc: rtc core: registered rtc-sun6i as rtc0
-    [    0.816602] sun6i-rtc 1c20400.rtc: RTC enabled
-    [    0.821153] i2c /dev entries driver
-    [    0.826715] sunxi-wdt 1c20ca0.watchdog: Watchdog enabled (timeout=16 sec, nowayout=0)
-    [    0.835775] usbcore: registered new interface driver usbhid
-    [    0.841355] usbhid: USB HID core driver
-    [    0.846926] Registering SWP/SWPB emulation handler
-    [    0.856875] simple-framebuffer 43e89000.framebuffer: framebuffer at 0x43e89000, 0x177000 bytes, mapped to 0xc4400000
-    [    0.867547] simple-framebuffer 43e89000.framebuffer: format=x8r8g8b8, mode=800x480x32, linelength=3200
-    [    0.885830] Console: switching to colour frame buffer device 100x30
-    [    0.900736] simple-framebuffer 43e89000.framebuffer: fb0: simplefb registered!
-    [    0.908121] sun6i-rtc 1c20400.rtc: setting system clock to 1970-01-01 02:33:59 UTC (9239)
-    [    0.916575] vcc3v0: disabling
-    [    0.919554] vcc3v3: disabling
-    [    0.922519] vcc5v0: disabling
-    [    0.925539] ALSA device list:
-    [    0.928507]   No soundcards found.
-    [    0.994326] random: crng init done
-    [    1.519199] VFS: Mounted root (jffs2 filesystem) on device 31:3.
-    [    1.526365] devtmpfs: mounted
-    [    1.530825] Freeing unused kernel memory: 1024K
+    [    0.003584] devtmpfs: initialized
+    [    0.006342] VFP support v0.3: implementor 41 architecture 2 part 30 variant 7 rev 5
+    [    0.006638] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
+    [    0.006665] futex hash table entries: 256 (order: 2, 16384 bytes)
+    [    0.006819] pinctrl core: initialized pinctrl subsystem
+    [    0.007825] NET: Registered protocol family 16
+    [    0.008277] DMA: preallocated 256 KiB pool for atomic coherent allocations
+    [    0.009494] hw-breakpoint: found 5 (+1 reserved) breakpoint and 4 watchpoint registers.
+    [    0.009510] hw-breakpoint: maximum watchpoint size is 8 bytes.
+    [    0.020909] SCSI subsystem initialized
+    [    0.021188] usbcore: registered new interface driver usbfs
+    [    0.021249] usbcore: registered new interface driver hub
+    [    0.021344] usbcore: registered new device driver usb
+    [    0.021581] pps_core: LinuxPPS API ver. 1 registered
+    [    0.021591] pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+    [    0.021614] PTP clock support registered
+    [    0.021817] Advanced Linux Sound Architecture Driver Initialized.
+    [    0.023618] clocksource: Switched to clocksource arch_sys_counter
+    [    0.034049] NET: Registered protocol family 2
+    [    0.034678] TCP established hash table entries: 1024 (order: 0, 4096 bytes)
+    [    0.034710] TCP bind hash table entries: 1024 (order: 1, 8192 bytes)
+    [    0.034734] TCP: Hash tables configured (established 1024 bind 1024)
+    [    0.034821] UDP hash table entries: 256 (order: 1, 8192 bytes)
+    [    0.034868] UDP-Lite hash table entries: 256 (order: 1, 8192 bytes)
+    [    0.035077] NET: Registered protocol family 1
+    [    0.035696] RPC: Registered named UNIX socket transport module.
+    [    0.035716] RPC: Registered udp transport module.
+    [    0.035721] RPC: Registered tcp transport module.
+    [    0.035727] RPC: Registered tcp NFSv4.1 backchannel transport module.
+    [    0.037888] workingset: timestamp_bits=30 max_order=14 bucket_order=0
+    [    0.046839] NFS: Registering the id_resolver key type
+    [    0.046892] Key type id_resolver registered
+    [    0.046899] Key type id_legacy registered
+    [    0.046946] jffs2: version 2.2. (NAND) © 2001-2006 Red Hat, Inc.
+    [    0.051417] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 249)
+    [    0.051438] io scheduler noop registered
+    [    0.051445] io scheduler deadline registered
+    [    0.051651] io scheduler cfq registered (default)
+    [    0.055818] sun8i-v3s-pinctrl 1c20800.pinctrl: initialized sunXi PIO driver
+    [    0.123327] Serial: 8250/16550 driver, 8 ports, IRQ sharing disabled
+    [    0.126634] console [ttyS0] disabled
+    [    0.146912] 1c28000.serial: ttyS0 at MMIO 0x1c28000 (irq = 31, base_baud = 1500000) is a U6_16550A
+    [    0.711492] console [ttyS0] enabled
+    [    0.715681] [drm] Initialized
+    [    0.721398] m25p80 spi32766.0: xt25f128b (16384 Kbytes)
+    [    0.726750] 4 cmdlinepart partitions found on MTD device spi32766.0
+    [    0.733012] Creating 4 MTD partitions on "spi32766.0":
+    [    0.738182] 0x000000000000-0x000000100000 : "uboot"
+    [    0.743783] 0x000000100000-0x000000110000 : "dtb"
+    [    0.748907] 0x000000110000-0x000000510000 : "kernel"
+    [    0.754338] 0x000000510000-0x000001000000 : "rootfs"
+    [    0.760036] libphy: Fixed MDIO Bus: probed
+    [    0.764482] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+    [    0.771009] ehci-platform: EHCI generic platform driver
+    [    0.776367] ohci_hcd: USB 1.1 'Open' Host Controller (OHCI) Driver
+    [    0.782564] ohci-platform: OHCI generic platform driver
+    [    0.788269] udc-core: couldn't find an available UDC - added [g_cdc] to list of pending drivers
+    [    0.797943] sun6i-rtc 1c20400.rtc: rtc core: registered rtc-sun6i as rtc0
+    [    0.804824] sun6i-rtc 1c20400.rtc: RTC enabled
+    [    0.809359] i2c /dev entries driver
+    [    0.814225] input: ns2009_ts as /devices/platform/soc/1c2ac00.i2c/i2c-0/0-0048/input/input0
+    [    0.823891] sunxi-wdt 1c20ca0.watchdog: Watchdog enabled (timeout=16 sec, nowayout=0)
+    [    0.883660] sunxi-mmc 1c0f000.mmc: base:0xc48ae000 irq:23
+    [    0.889996] usbcore: registered new interface driver usbhid
+    [    0.895655] usbhid: USB HID core driver
+    [    0.901162] NET: Registered protocol family 17
+    [    0.905844] Key type dns_resolver registered
+    [    0.910261] Registering SWP/SWPB emulation handler
+    [    0.921360] usb_phy_generic.0.auto supply vcc not found, using dummy regulator
+    [    0.929304] musb-hdrc musb-hdrc.1.auto: MUSB HDRC host driver
+    [    0.935148] musb-hdrc musb-hdrc.1.auto: new USB bus registered, assigned bus number 1
+    [    0.946351] hub 1-0:1.0: USB hub found
+    [    0.950215] hub 1-0:1.0: 1 port detected
+    [    0.955007] using random self ethernet address
+    [    0.959500] using random host ethernet address
+    [    0.965051] usb0: HOST MAC 0a:4c:0a:fb:ad:c7
+    [    0.969383] usb0: MAC 36:23:1c:5c:34:1c
+    [    0.973259] g_cdc gadget: CDC Composite Gadget, version: King Kamehameha Day 2008
+    [    0.980840] g_cdc gadget: g_cdc ready
+    [    0.984859] sun6i-rtc 1c20400.rtc: setting system clock to 1970-01-01 00:00:23 UTC (23)
+    [    0.993097] vcc3v0: disabling
+    [    0.996144] vcc5v0: disabling
+    [    0.999113] ALSA device list:
+    [    1.002075]   No soundcards found.
+    [    1.007541] random: fast init done
+    [    1.049938] random: crng init done
+    [    1.580278] VFS: Mounted root (jffs2 filesystem) on device 31:3.
+    [    1.587278] devtmpfs: mounted
+    [    1.591420] Freeing unused kernel memory: 1024K
     Starting logging: OK
-    Starting mdev---
+    Starting mdev...
     modprobe: can't change directory to '/lib/modules': No such file or directory
-    Initializing random number generator--- done.
-    Starting network: ip: socket: Function not implemented
-    ip: socket: Function not implemented
-    FAIL
+    [    5.688048] ------------[ cut here ]------------
+    [    5.692711] WARNING: CPU: 0 PID: 86 at drivers/mtd/spi-nor/spi-nor.c:1183 spi_nor_write+0x138/0x1b4
+    [    5.701820] Writing at offset 216 into a NOR page. Writing partial pages may decrease reliability and increase wear of NOR flash.
+    [    5.701825] Modules linked in:
+    [    5.716550] CPU: 0 PID: 86 Comm: touch Not tainted 4.10.15-licheepi-zero+ #6
+    [    5.723585] Hardware name: Allwinner sun8i Family
+    [    5.728313] [<c010e2fc>] (unwind_backtrace) from [<c010b098>] (show_stack+0x10/0x14)
+    [    5.736055] [<c010b098>] (show_stack) from [<c03465c4>] (dump_stack+0x84/0x98)
+    [    5.743277] [<c03465c4>] (dump_stack) from [<c011b634>] (__warn+0xe8/0x100)
+    [    5.750235] [<c011b634>] (__warn) from [<c011b684>] (warn_slowpath_fmt+0x38/0x48)
+    [    5.757715] [<c011b684>] (warn_slowpath_fmt) from [<c0452fbc>] (spi_nor_write+0x138/0x1b4)
+    [    5.765973] [<c0452fbc>] (spi_nor_write) from [<c044b454>] (mtd_writev+0xa4/0xec)
+    [    5.773456] [<c044b454>] (mtd_writev) from [<c02fbec8>] (jffs2_flash_writev+0x414/0x4b0)
+    [    5.781541] [<c02fbec8>] (jffs2_flash_writev) from [<c02f4d48>] (jffs2_write_dnode+0xd4/0x328)
+    [    5.790145] [<c02f4d48>] (jffs2_write_dnode) from [<c02f9458>] (jffs2_do_setattr+0x280/0x558)
+    [    5.798661] [<c02f9458>] (jffs2_do_setattr) from [<c02f9754>] (jffs2_setattr+0x24/0x48)
+    [    5.806660] [<c02f9754>] (jffs2_setattr) from [<c020d990>] (notify_change+0x1c4/0x3d0)
+    [    5.814572] [<c020d990>] (notify_change) from [<c021e65c>] (utimes_common+0xa8/0x170)
+    [    5.822394] [<c021e65c>] (utimes_common) from [<c021e7d4>] (do_utimes+0xb0/0x144)
+    [    5.829869] [<c021e7d4>] (do_utimes) from [<c021ea10>] (SyS_futimesat+0xd0/0xfc)
+    [    5.837259] [<c021ea10>] (SyS_futimesat) from [<c0107580>] (ret_fast_syscall+0x0/0x3c)
+    [    5.845234] ---[ end trace d947ef19d0d7cd8d ]---
+    Initializing random number generator... done.
+    Starting network: OK
 
     Welcome to Lichee Pi
     Lichee login: 
+
 
 附录：sunxi-fel帮助说明
 =======================
@@ -799,3 +936,4 @@ Usage: sunxi-fel [options] command arguments--- [command---]
 ========
 
 <http://blog.sina.com.cn/s/blog_5ed5a1f40100f3qq.html>
+
