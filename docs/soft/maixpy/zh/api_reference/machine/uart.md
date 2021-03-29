@@ -140,7 +140,7 @@ from machine import UART
 from board import board_info
 from fpioa_manager import fm
 
-# maixduino board_info PIN10/PIN11/PIN12/PIN13 or other hardware IO 12/11/10/3
+# maixduino board_info PIN10/PIN11/PIN12/PIN13 or other hardware IO 10/11/4/3
 fm.register(board_info.PIN10, fm.fpioa.UART1_TX, force=True)
 fm.register(board_info.PIN11, fm.fpioa.UART1_RX, force=True)
 fm.register(board_info.PIN3, fm.fpioa.UART2_TX, force=True)

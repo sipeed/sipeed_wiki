@@ -38,4 +38,4 @@ print("Static IP: ", nic.ifconfig())
 * 创建 SPI 并使用 SPI 创建 WIZNET5K 有线网卡
 * 打印当前 IP 信息
 
-相关 API 参考: [wiznet5k API](../../api_reference/machine/network.md#WIZNET5K_Module)
+相关 API 参考: [wiznet5k API](../../api_reference/machine/network.html#wiznet5k)
