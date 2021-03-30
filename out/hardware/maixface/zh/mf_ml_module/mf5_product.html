@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html  class="md_page">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="">
+    <meta name="description" content="[]">
+    <meta name="generator" content="teedoc">
+    <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        <link rel="stylesheet" href="/static/css/theme_default/prism.min.css" type="text/css"/>
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?9cb07365544a53067c56c346c838181a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <title>Sipeed Wiki</title>
+</head>
+<body>
+    
+            <div id="navbar">
+                <div id="navbar_menu">
+                    <a class="site_title" href="/"><img class="site_logo" src="/static/image/logo.svg" alt="sipeed wiki logo"><h2>wiki</h2></a>
+                    <a id="navbar_menu_btn"></a>
+                </div>
+                <div id="navbar_items">
+                    <div>
+                        <ul id="nav_left">
+<li class=""><a  href="/">首页</a></li>
+<li class=""><a target="_blank" href="https://www.sipeed.com">矽速官网</a></li>
+<li class="sub_items "><a>开源软件</a><ul><li class=""><a  href="/soft/maixpy/zh/index.html">Maixpy</a></li>
+<li class=""><a  href="/soft/maixpy3/zh/">Maixpy3</a></li>
+<li class=""><a  href="/licheeos/zh/">Lichee OS</a></li>
+<li class=""><a  href="/LonganOS/zh/">Longan OS</a></li>
+<li class=""><a  href="/TangOs/zh/">Tang OS</a></li>
+</ul>
+</li>
+<li class="sub_items "><a>开源硬件</a><ul><li class=""><a  href="/hardware/maix/zh/">Maix</a></li>
+<li class=""><a  href="/hardware/maixII/zh/">Maix II</a></li>
+<li class=""><a  href="/hardware/maixIII/zh/">Maix III</a></li>
+<li class=""><a  href="/hardware/maixIV/zh/">Maix IV</a></li>
+<li class=""><a  href="/hardware/lichee/zh/">Lichee Pi</a></li>
+<li class=""><a  href="/hardware/tang/zh/">Tang</a></li>
+<li class=""><a  href="/hardware/longan/zh/">Longan</a></li>
+</ul>
+</li>
+<li class="sub_items active_parent"><a>商业产品</a><ul><li class="active"><a  href="/hardware/maixface/zh/">Maix Face</a></li>
+</ul>
+</li>
+<li class="sub_items "><a>云平台</a><ul><li class=""><a target="_blank" href="https://www.maixhub.com">Maixhub 模型训练平台</a></li>
+<li class=""><a target="_blank" href="https://www.maixhub.com/onlinecompiler">固件在线编译</a></li>
+</ul>
+</li>
+<li class=""><a  href="/community.html">社区</a></li>
+<li class=""><a  href="https://shop365481095.taobao.com/?spm=a230r.7195193.1997079397.2.8384341c2zZ5uZ">商城</a></li>
+</ul>
+
+                    </div>
+                    <div>
+                        <ul id="nav_right">
+<li class="sub_items "><a  href="">Language: </a><ul><li class=""><a  href="/">中文</a></li>
+<li class=""><a  href="/en/">English</a></li>
+</ul></li>
+</ul>
+
+                        <ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">输入关键词，多关键词空格隔开</span>
+                                <span id="search_loading_hint">正在加载，请稍候。。。</span>
+                                <span id="search_download_err_hint">下载文件失败，请刷新重试或检查网络</span>
+                                <span id="search_other_docs_result_hint">来自其它文档的结果</span>
+                                <span id="search_curr_doc_result_hint">当前文档搜索结果</span>
+                            </div></a></li></ul>
+                    </div>
+                </div>
+            </div>
+    
+        <div id="wrapper">
+            
+            <div id="sidebar_wrapper">
+                <div id="sidebar">
+                    <div id="sidebar_title">
+                        
+                    </div>
+                    <ul class="show">
+<li class="active_parent no_link"><a><span class="label">MF 人脸识别模块</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/maixface/zh/mf_ml_module/mf0_ml_module.html"><span class="label">MF0&&MF0 Dock</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/maixface/zh/mf_ml_module/mf1_ml_module.html"><span class="label">MF1 && MF2</span><span class=""></span></a></li>
+<li class="active with_link"><a href="/hardware/maixface/zh/mf_ml_module/mf5_product.html"><span class="label">MF4 && MF5</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/maixface/zh/mf_ml_module/mf_precautions.html"><span class="label">MF 人脸识别模块 PCB 设计注意事项</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/maixface/zh/mf_ml_module/mf_update_firmwave.html"><span class="label">MF 更新固件说明</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+
+                </div>
+            </div>
+            <div id="menu_wrapper">
+                                    <div id="menu">
+                                    </div>
+                                </div>
+            <div id="article">
+                <div id="content_wrapper">
+                    <div id="content_body">
+                        <div id="article_head">
+                            <div id="article_title">
+                                <h1></h1>
+                            </div>
+                            <div id="article_tags">
+                                <ul></ul>
+                            </div>
+                            <div id="article_info">
+                            <div>
+                                <span class="article_author"></span><span class="article_date"></span>
+                            </div>
+                            <div>
+                                
+                            </div>
+                            </div>
+                        </div>
+                        <div id="article_content">
+                            <h1 id="mf5">MF5</h1>
+
+<h2 id="mf5-2">MF5 外观一览</h2>
+
+<h2 id="mf5-3">MF5 板载接口</h2>
+
+<table border="2">
+    <tr>
+        <th colspan=6>MaixFace 5 引脚信息</th>
+    </tr>
+    <tr>
+        <td colspan=3><img src="../../assets/mf_module/mf5/mf5_if_1.png" height=400></td>
+        <td colspan=3><img src="../../assets/mf_module/mf5/mf5_if_2.png" height=400></td>
+    </tr>
+    <tr>
+        <td>Maix Face Slik</td>
+        <td>K210 IO</td>
+        <td>ESP8285 IO</td>
+        <td>Function</td>
+        <td>Remark</td>
+        <td>IO Voltage</td>
+    </tr>
+    <tr>
+        <td>VIN</td>
+        <td>-</td>
+        <td>-</td>
+        <td>电源输入正极</td>
+        <td>12V</td>
+        <td rowspan=22>3.3V</td>
+    </tr>
+    <tr>
+        <td>GND</td>
+        <td>-</td>
+        <td>-</td>
+        <td>电源输入负极</td>
+        <td>电源GND</td>
+    </tr>
+    <tr>
+        <td>NC</td>
+        <td>-</td>
+        <td>-</td>
+        <td>继电器常闭触点</td>
+        <td rowspan=3>继电器</td>
+    </tr>
+    <tr>
+        <td>COM</td>
+        <td>-</td>
+        <td>-</td>
+        <td>继电器公共触点</td>
+    </tr>
+    <tr>
+        <td>NO</td>
+        <td>-</td>
+        <td>-</td>
+        <td>继电器常开触点</td>
+    </tr>
+    <tr>
+        <td>GND</td>
+        <td>-</td>
+        <td>-</td>
+        <td>韦根接口RETURN</td>
+        <td rowspan=3>韦根接口</td>
+    </tr>
+    <tr>
+        <td>WGD0</td>
+        <td>IO14</td>
+        <td>-</td>
+        <td>韦根接口 D0</td>
+    </tr>
+    <tr>
+        <td>WGD1</td>
+        <td>IO15</td>
+        <td>-</td>
+        <td>韦根接口 D1</td>
+    </tr>
+    <tr>
+        <td>GND</td>
+        <td>-</td>
+        <td>-</td>
+        <td>开门信号地</td>
+        <td rowspan=2>开门信号 低电平: Open</td>
+    </tr>
+    <tr>
+        <td>OPEN</td>
+        <td>IO16</td>
+        <td>-</td>
+        <td>开门信号输入</td>
+    </tr>
+    <tr>
+        <td>3V3</td>
+        <td>-</td>
+        <td>-</td>
+        <td>3.3V</td>
+        <td rowspan=6>以太网/刷卡接口</td>
+    </tr>
+    <tr>
+        <td>CS</td>
+        <td>IO24</td>
+        <td>-</td>
+        <td>SPI CS</td>
+    </tr>
+    <tr>
+        <td>MISO</td>
+        <td>IO2</td>
+        <td>-</td>
+        <td>SPI MISO</td>
+    </tr>
+    <tr>
+        <td>SCLK</td>
+        <td>IO1</td>
+        <td>-</td>
+        <td>SPI SCLK</td>
+    </tr>
+    <tr>
+        <td>MOSI</td>
+        <td>IO3</td>
+        <td>-</td>
+        <td>SPI MOSI</td>
+    </tr>
+    <tr>
+        <td>GND</td>
+        <td>-</td>
+        <td>-</td>
+        <td>GND</td>
+    </tr>
+    <tr>
+        <td>5V</td>
+        <td>-</td>
+        <td>-</td>
+        <td>5V</td>
+        <td rowspan=6>串口/K210下载</td>
+    </tr>
+    <tr>
+        <td>RST</td>
+        <td>IO54</td>
+        <td>-</td>
+        <td>K210复位</td>
+    </tr>
+    <tr>
+        <td>BOOT</td>
+        <td>IO16</td>
+        <td>-</td>
+        <td>K210进入ISP模式</td>
+    </tr>
+    <tr>
+        <td>ISPTX</td>
+        <td>IO5</td>
+        <td>-</td>
+        <td>ISPTX</td>
+    </tr>
+    <tr>
+        <td>ISPRX</td>
+        <td>IO4</td>
+        <td>-</td>
+        <td>ISPRX</td>
+    </tr>
+    <tr>
+        <td>GND</td>
+        <td>-</td>
+        <td>-</td>
+        <td>GND</td>
+    </tr>
+</table>
+
+<h2 id="mf5-4">MF5 固件说明</h2>
+
+<p>MF5 为人脸识别门禁成品，默认烧录的固件不支持串口协议；</p>
+
+<p>在烧录串口协议固件之后，协议串口为 WGD0-IO14(RX)，WGD1-1O15(TX)。</p>
+
+                        </div>
+                    </div>
+                    <div id="previous_next">
+                        <div id="previous">
+                            <a href="/hardware/maixface/zh/mf_ml_module/mf1_ml_module.html"><span class="icon"></span><span class="label">MF1 && MF2</span></a>
+                        </div>
+                        <div id="next">
+                            <a href="/hardware/maixface/zh/mf_ml_module/mf_precautions.html"><span class="label">MF 人脸识别模块 PCB 设计注意事项</span><span class="icon"></span></a>
+                        </div>
+                    </div>
+                </div>
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a id="to_top" href="#"></a>
+        <div id="doc_footer">
+                        
+            <div id="footer">
+                <div id="footer_top">
+                    <ul>
+<li><a>链接</a><ul><li><a target="_blank" href="https://www.sipeed.com">Sipeed</a></li>
+<li><a target="_blank" href="https://bbs.sipeed.com/">BBS 论坛</a></li>
+<li><a target="_blank" href="https://maixhub.sipeed.com/">Maixhub</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">Sipeed 淘宝</a></li>
+<li><a target="_blank" href="https://github.com/neutree/teedoc">使用 teedoc 构建</a></li>
+</ul>
+</li>
+<li><a>网站统计</a><ul><li><a target="_blank" href="https://tongji.baidu.com/web/welcome/ico?s=9cb07365544a53067c56c346c838181a">百度统计</a></li>
+<li><a  href="/sitemap.xml">网站地图</a></li>
+</ul>
+</li>
+<li><a>源码</a><ul><li><a target="_blank" href="https://github.com/sipeed/sipeed_wiki">文档源文件</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">开源项目源码</a></li>
+</ul>
+</li>
+<li><a>关注我们</a><ul><li><a target="_blank" href="https://github.com/sipeed">github</a></li>
+<li><a target="_blank" href="https://twitter.com/SipeedIO">twitter</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">淘宝</a></li>
+<li><a  href="/social_group.html">更多</a></li>
+</ul>
+</li>
+<li><a>联系我们</a><ul><li><a>电话: +86 0755-27808509</a>
+</li>
+<li><a>商业支持: support@sipeed.com</a>
+</li>
+<li><a>地址: 深圳市宝安区新湖路华美居B区1号楼713-715</a>
+</li>
+<li><a  href="/join_us.html">加入我们</a></li>
+</ul>
+</li>
+</ul>
+
+                </div>
+                <div id="footer_bottom">
+                    <ul>
+<li><a target="_blank" href="https://www.sipeed.com">©2018-2021 深圳矽速科技有限公司</a></li>
+<li><a target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index">粤ICP备19015433号-1</a></li>
+</ul>
+
+                </div>
+            </div>
+                    </div>
+</body>
+<script src="/static/js/theme_default/tocbot.min.js"></script>
+<script src="/static/js/theme_default/main.js"></script>
+<script src="/static/css/theme_default/prism.min.js"></script>
+<script src="/static/js/custom.js"></script>
+<script src="/static/js/search/search_main.js"></script>
+<script type="text/javascript" src="/static/js/live.js"></script>
+</html>

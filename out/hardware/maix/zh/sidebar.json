@@ -1,0 +1,389 @@
+{
+    "items": [
+        {
+            "label": "Sipeed 硬件资料导航",
+            "file": "README.md"
+        },
+        {
+            "label":"MaixDuino",
+            "items":[
+            {
+                "label": "MaixDuino简介",
+                "file": "maixduino/zh/README.md"
+            },
+            {
+                "label": "准备",
+                "items":[
+                {
+                    "label":"获得开发板",
+                    "file":"maixduino/zh/get_started/get_hardware.md"
+                },
+                {
+                    "label":"安装开发环境",
+                    "items":[
+                        {
+                            "label":"Arduino IDE",
+                            "file":"maixduino/zh/get_started/install.md"
+                        },
+                        {
+                            "label":"Platform IO",
+                            "file":"maixduino/zh/get_started/platformio.md"
+                        }
+                    ]
+                }
+                ]
+            },
+            {
+                "label": "基础功能",
+                "items": [
+                    {
+                        "label":"数字 I/O",
+                        "file":"maixduino/zh/cores/digital.md"
+                    },
+                    {
+                        "label":"模拟 I/O",
+                        "file":"maixduino/zh/cores/analog.md"
+                    },
+                    {
+                        "label":"高级 I/O",
+                        "file":"maixduino/zh/cores/advanced.md"
+                    },
+                    {
+                        "label":"时间",
+                        "file":"maixduino/zh/cores/time.md"
+                    },
+                    {
+                        "label":"中断",
+                        "file":"maixduino/zh/cores/interrupts.md"
+                    },
+                    {
+                        "label":"串口",
+                        "file":"maixduino/zh/cores/serial.md"
+                    },
+                    {
+                        "label":"常量",
+                        "file":"maixduino/zh/cores/constants.md"
+                    }
+                ]
+            },
+            {
+                "label":"库",
+                "items":[
+                    {
+                        "label":"Camera",
+                        "file":"maixduino/zh/libs/camera.md"
+                    },
+                    {
+                        "label":"LittlevGL",
+                        "file":"maixduino/zh/libs/littlevgl.md"
+                    },
+                    {
+                        "label":"Maix_KPU",
+                        "file":"maixduino/zh/libs/maix_kpu.md"
+                    },
+                    {
+                        "label":"Maix_Speech_Recognition",
+                        "file":"maixduino/zh/libs/speechrecg.md"
+                    },
+                    {
+                        "label":"MSA300 Accelerometer",
+                        "file":"maixduino/zh/libs/msa300.md"
+                    },
+                    {
+                        "label":"NS2009 Touchscreen",
+                        "file":"maixduino/zh/libs/ns2009.md"
+                    },
+                    {
+                        "label":"SD",
+                        "file":"maixduino/zh/libs/sd.md"
+                    },
+                    {
+                        "label":"Sipeed_OV2640 Camera",
+                        "file":"maixduino/zh/libs/sipeed_ov2640.md"
+                    },
+                    {
+                        "label":"Sipeed_ST7789 Display",
+                        "file":"maixduino/zh/libs/sipeed_st7789.md"
+                    },
+                    {
+                        "label":"SPI",
+                        "file":"maixduino/zh/libs/spi.md"
+                    },
+                    {
+                        "label":"Ticker",
+                        "file":"maixduino/zh/libs/ticker.md"
+                    },
+                    {
+                        "label":"WiFiEsp",
+                        "file":"maixduino/zh/libs/wifiesp.md"
+                    },
+                    {
+                        "label":"Wire",
+                        "file":"maixduino/zh/libs/wire.md"
+                    }         
+                ]
+            },
+            {
+                "label":"其他",
+                "items":[
+                    {
+                        "label":"贡献",
+                        "file":"maixduino/zh/contribute/README.md"
+                    },
+                    {
+                        "label":"文档风格",
+                        "file":"maixduino/zh/contribute/doc_convention.md"
+                    },
+                    {
+                        "label":"代码风格",
+                        "file":"maixduino/zh/contribute/code_convention.md"
+                    }
+                ]
+            }
+            ]
+        },
+
+        {
+            "label": "K210 核心模块",
+            "items": [
+                {
+                    "label": "M1/M1w",
+                    "file": "core_modules/k210_core_modules.md"
+                },
+                {
+                    "label": "M1n",
+                    "file": "core_modules/k210_core_modules.md"
+                }
+            ]
+        },
+        {
+            "label": "MaixPy 系列开发板",
+            "items": [
+                {
+                    "label": "MaixPy 开发板",
+                    "file": "maixpy_develop_kit_board/develop_kit_board.md"
+                },
+                {
+                    "label": "Maix Go",
+                    "file": "maixpy_develop_kit_board/maix_go.md"
+                },
+                {
+                    "label": "Maix Dock(M1/M1W",
+                    "file": "maixpy_develop_kit_board/maix_dock.md"
+                },
+                {
+                    "label": "Maix Bit",
+                    "file": "maixpy_develop_kit_board/maix_bit.md"
+                },
+                {
+                    "label": "Maix Duino",
+                    "file": "maixpy_develop_kit_board/maix_duino.md"
+                },
+                {
+                    "label": "Maix Nano",
+                    "file": "maixpy_develop_kit_board/maix_nano.md"
+                },
+                {
+                    "label": "Maix Cube",
+                    "file": "zh/maixpy_develop_kit_board/maix_cube.md"
+                },
+                {
+                    "label": "Maix Amigo",
+                    "file": "maixpy_develop_kit_board/maix_Amigo.md"
+                }
+            ]
+        },
+        {
+            "label": "LicheePi (Linux)",
+            "item": [
+                {
+                    "label": "LicheePi Zero",
+                    "file": null
+                },
+                {
+                    "label": "LicheePi Zero Plus",
+                    "file": null
+                },
+                {
+                    "label": "LicheePi Nano",
+                    "file": null
+                }
+            ]
+        },
+        {
+            "label": "Lichee Tang(FPGA",
+            "item": [
+                {
+                    "label": "Lichee Tang Primer",
+                    "file": null
+                },
+                {
+                    "label": "Lichee Tang Nano",
+                    "file": null
+                }
+            ]
+        },
+        {
+            "label": "MaixPy 外设模块",
+            "item": [
+                {
+                    "label": "扩展接口 Grove",
+                    "item": [
+                        {
+                            "label": "Grove-RGB LED",
+                            "file": null
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "扩展接口 SP-MOD",
+            "item": [
+                {
+                    "label": "转接板类",
+                    "file": null
+                },
+                {
+                    "label": "SP-Extender",
+                    "file": "modules_spmod/spmod_extender.md"
+                },
+                {
+                    "label": "SP-Grove",
+                    "file": "modules_spmod/spmod_grove.md"
+                },
+                {
+                    "label": "SP-FPC",
+                    "file": "modules_spmod/spmod_fpc.md"
+                },
+                {
+                    "label": "SP-MicArray",
+                    "file": "modules_spmod/spmod_micarray.md"
+                },
+                {
+                    "label": "SP-JoyStick",
+                    "file": "modules_spmod/spmod_joystick.md"
+                },
+                {
+                    "label": "SP-JoyStick2",
+                    "file": "zh/modules_spmod/spmod_joystick.md"
+                },
+                {
+                    "label": "SP-Servo",
+                    "file": "modules_spmod/spmod_servo.md"
+                },
+                {
+                    "label": "SP-Type-C",
+                    "file": null
+                },
+                "传感器类",
+                {
+                    "label": "SP-Weather",
+                    "file": "modules_spmod/spmod_weather.md"
+                },
+                {
+                    "label": "SP-TOF-1P",
+                    "file": "modules_spmod/spmod_tof.md"
+                },
+                "通信类",
+                {
+                    "label": "SP-BLE",
+                    "file": "modules_spmod/spmod_bt.md"
+                },
+                {
+                    "label": "SP-LoRa",
+                    "file": "modules_spmod/spmod_lora.md"
+                },
+                {
+                    "label": "SP-PSRAM",
+                    "file": "modules_spmod/spmod_psram.md"
+                },
+                {
+                    "label": "SP-RFID",
+                    "file": "modules_spmod/spmod_rfid.md"
+                },
+                {
+                    "label": "SP-Ethernet",
+                    "file": "modules_spmod/spmod_ethernet.md"
+                },
+                "显示类",
+                {
+                    "label": "SP-LCD 1.14",
+                    "file": "modules_spmod/spmod_lcd1.14.md"
+                },
+                {
+                    "label": "SP-Eink",
+                    "file": "modules_spmod/spmod_eink.md"
+                }
+            ]
+        },
+        {
+            "label": "模块&&调试器",
+            "item": [
+                {
+                    "label": "调试器",
+                    "item": [
+                        {
+                            "label": "Sipeed RV Debugger",
+                            "file": null
+                        }
+                    ]
+                },
+                {
+                    "label": "模块",
+                    "item": [
+                        {
+                            "label": "双串口 USB 模块",
+                            "file": null
+                        },
+                        {
+                            "label": "麦克风模块",
+                            "file": null
+                        },
+                        {
+                            "label": "单麦克风模块",
+                            "file": null
+                        },
+                        {
+                            "label": "麦克风阵列",
+                            "file": null
+                        }
+                    ]
+                },
+                {
+                    "label": "Camera (Sensor)",
+                    "item": [
+                        {
+                            "label": "OV2640",
+                            "file": null
+                        },
+                        {
+                            "label": "OV2640-M12",
+                            "file": null
+                        },
+                        {
+                            "label": "双摄像头模块(OV2640",
+                            "file": null
+                        },
+                        {
+                            "label": "GC0328",
+                            "file": null
+                        },
+                        {
+                            "label": "双摄像头模块(GC0328",
+                            "file": null
+                        },
+                        {
+                            "label": "OV7740",
+                            "file": null
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "LCD 1.3/2.4/2.8/4.3/5 寸",
+            "file": null
+        }
+    ]
+}

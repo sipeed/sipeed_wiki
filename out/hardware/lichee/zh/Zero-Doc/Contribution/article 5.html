@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html  class="md_page">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="">
+    <meta name="description" content="[]">
+    <meta name="generator" content="teedoc">
+    <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        <link rel="stylesheet" href="/static/css/theme_default/prism.min.css" type="text/css"/>
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?9cb07365544a53067c56c346c838181a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <title>TF WiFi使用方法 - Sipeed Wiki</title>
+</head>
+<body>
+    
+            <div id="navbar">
+                <div id="navbar_menu">
+                    <a class="site_title" href="/"><img class="site_logo" src="/static/image/logo.svg" alt="sipeed wiki logo"><h2>wiki</h2></a>
+                    <a id="navbar_menu_btn"></a>
+                </div>
+                <div id="navbar_items">
+                    <div>
+                        <ul id="nav_left">
+<li class=""><a  href="/">首页</a></li>
+<li class=""><a target="_blank" href="https://www.sipeed.com">矽速官网</a></li>
+<li class="sub_items "><a>开源软件</a><ul><li class=""><a  href="/soft/maixpy/zh/index.html">Maixpy</a></li>
+<li class=""><a  href="/soft/maixpy3/zh/">Maixpy3</a></li>
+<li class=""><a  href="/licheeos/zh/">Lichee OS</a></li>
+<li class=""><a  href="/LonganOS/zh/">Longan OS</a></li>
+<li class=""><a  href="/TangOs/zh/">Tang OS</a></li>
+</ul>
+</li>
+<li class="sub_items active_parent"><a>开源硬件</a><ul><li class=""><a  href="/hardware/maix/zh/">Maix</a></li>
+<li class=""><a  href="/hardware/maixII/zh/">Maix II</a></li>
+<li class=""><a  href="/hardware/maixIII/zh/">Maix III</a></li>
+<li class=""><a  href="/hardware/maixIV/zh/">Maix IV</a></li>
+<li class="active"><a  href="/hardware/lichee/zh/">Lichee Pi</a></li>
+<li class=""><a  href="/hardware/tang/zh/">Tang</a></li>
+<li class=""><a  href="/hardware/longan/zh/">Longan</a></li>
+</ul>
+</li>
+<li class="sub_items "><a>商业产品</a><ul><li class=""><a  href="/hardware/maixface/zh/">Maix Face</a></li>
+</ul>
+</li>
+<li class="sub_items "><a>云平台</a><ul><li class=""><a target="_blank" href="https://www.maixhub.com">Maixhub 模型训练平台</a></li>
+<li class=""><a target="_blank" href="https://www.maixhub.com/onlinecompiler">固件在线编译</a></li>
+</ul>
+</li>
+<li class=""><a  href="/community.html">社区</a></li>
+<li class=""><a  href="https://shop365481095.taobao.com/?spm=a230r.7195193.1997079397.2.8384341c2zZ5uZ">商城</a></li>
+</ul>
+
+                    </div>
+                    <div>
+                        <ul id="nav_right">
+<li class="sub_items "><a  href="">Language: </a><ul><li class=""><a  href="/">中文</a></li>
+<li class=""><a  href="/en/">English</a></li>
+</ul></li>
+</ul>
+
+                        <ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">输入关键词，多关键词空格隔开</span>
+                                <span id="search_loading_hint">正在加载，请稍候。。。</span>
+                                <span id="search_download_err_hint">下载文件失败，请刷新重试或检查网络</span>
+                                <span id="search_other_docs_result_hint">来自其它文档的结果</span>
+                                <span id="search_curr_doc_result_hint">当前文档搜索结果</span>
+                            </div></a></li></ul>
+                    </div>
+                </div>
+            </div>
+    
+        <div id="wrapper">
+            
+            <div id="sidebar_wrapper">
+                <div id="sidebar">
+                    <div id="sidebar_title">
+                        
+                    </div>
+                    <ul class="">
+<li class="not_active no_link"><a><span class="label">LicheePi</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">简介</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">LicheePI Nano</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/index.html"><span class="label">简介</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">上手体验</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/./Nano-Doc-Backup/get_started/first_eye.html"><span class="label">初见</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/get_started/first_eat.html"><span class="label">前言</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">系统适配篇</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/build_sys/build_index.html"><span class="label">总述</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/build_sys/onekey.html"><span class="label">镜像包一键烧录</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/build_sys/docker.html"><span class="label">docker快速搭建环境</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/build_sys/bootargs.html"><span class="label">uboot传递参数</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/build_sys/kernel.html"><span class="label">主线linux编译</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/build_sys/devicetree.html"><span class="label">设备树添加节点</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/build_sys/rootfs.html"><span class="label">根文件系统编译</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/build_sys/build_flash.html"><span class="label">SPI-Flash系统编译</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">驱动开发</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/driver/touchscreen.html"><span class="label">电容触摸屏适配</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">从挖坑到填坑</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/step_by_step/one_openbox.html"><span class="label">开箱介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/step_by_step/two_sunxi-tools.html"><span class="label">编译使用sunxi-tools</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/step_by_step/three_uboot.html"><span class="label">编译使用uboot</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/step_by_step/four_linux.html"><span class="label">编译测试linux</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">应用开发</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/application/littlevgl.html"><span class="label">littlevGL的使用</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">奉献投稿</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/contribution/introduction.html"><span class="label">前言</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/contribution/todolist.html"><span class="label">Todolist</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/contribution/task_tips.html"><span class="label">快餐任务相关小事项</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/contribution/doc_tips.html"><span class="label">文档任务相关小事项</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/contribution/build_doc.html"><span class="label">文档构建</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">LicheePI Zero</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">初来乍到</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/Start/intro_cn.html"><span class="label">荔枝派与创作者的自我介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/Start/tips.html"><span class="label">Linux使用小贴士</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/Start/board_intro.html"><span class="label">认识zero的硬件</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/Start/docker_index.html"><span class="label">Docker环境简明教程</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/Start/docker_env.html"><span class="label">Docker开发环境</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/Start/docker_command.html"><span class="label">Docker命令速查</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/Start/docker_ubuntu.html"><span class="label">基础ubuntu系统配置</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/System_Development/type.html"><span class="label">Zero的开发环境分类</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">主线Uboot</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/System_Development/uboot_build.html"><span class="label">Uboot 编译</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/System_Development/uboot_conf.html"><span class="label">Uboot 配置</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/System_Development/uboot_logo.html"><span class="label">开机logo替换</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">主线Kernel</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/System_Development/kernel_build.html"><span class="label">主线Kernel基础编译</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/System_Development/kernel_printk.html"><span class="label">内核printk等级设置</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">BSP内核编译</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/System_Development/bsp_build.html"><span class="label">BSP源码下载与编译</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/System_Development/bsp_review.html"><span class="label"> BSP内核构建走读</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/System_Development/bsp_cam.html"><span class="label">BSP内核的摄像头使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/System_Development/bsp_mem.html"><span class="label">bsp内核中的保留内存</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">根文件系统编译</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+                </div>
+            </div>
+            <div id="menu_wrapper">
+                                    <div id="menu">
+                                    </div>
+                                </div>
+            <div id="article">
+                <div id="content_wrapper">
+                    <div id="content_body">
+                        <div id="article_head">
+                            <div id="article_title">
+                                <h1>TF WiFi使用方法</h1>
+                            </div>
+                            <div id="article_tags">
+                                <ul></ul>
+                            </div>
+                            <div id="article_info">
+                            <div>
+                                <span class="article_author"></span><span class="article_date"></span>
+                            </div>
+                            <div>
+                                
+                            </div>
+                            </div>
+                        </div>
+                        <div id="article_content">
+                            <h1 id="tf-wifi">TF WiFi的硬件安装</h1>
+
+<p>TF WiFi可以使用插卡形式或者堆叠形式。</p>
+
+<h2 id="-1">插卡形式安装</h2>
+
+<p>直接在Zero上插卡形式安装，会占用SDC0接口，所以只能从SPI Flash启动。</p>
+
+<p>此时，仅能使用WiFi功能，BT由于未接线而无法使用。</p>
+
+<p><img src="https://box.kancloud.cn/7fbc4fa97325397229005658b7ff5822_1116x854.png" alt="" /></p>
+
+<blockquote>
+  <p>width<br />
+  :   500px</p>
+  
+  <p>align<br />
+  :   center</p>
+  
+  <h2 id="-2">堆叠形式安装</h2>
+</blockquote>
+
+<p>对于小体积应用，推荐使用堆叠形式安装，有多种安装方式：</p>
+
+<h3 id="-3">前置步骤</h3>
+
+<p>注意，初版Zero有一个阻值错误，导致WiFi无法启用，为下图红圈处电阻。<br />
+修复方法为： <strong>去除该电阻（推荐）</strong> ，或者更换成510欧电阻。</p>
+
+<p><img src="https://box.kancloud.cn/337af04ad7b806e06cf6aaf906d1af41_654x427.png" alt="" /></p>
+
+<blockquote>
+  <p>width<br />
+  :   500px</p>
+  
+  <p>align<br />
+  :   center</p>
+  
+  <h3 id="-4">堆叠焊接于顶部</h3>
+</blockquote>
+
+<p>此为默认的安装形式如图所示，焊接上方SDIO<br />
+WiFi的8个引脚，下方BT的4个引脚。</p>
+
+<p><img src="https://box.kancloud.cn/12bd3ae7fa89edd264ff5e19109076ee_1024x768.jpg" alt="" /></p>
+
+<blockquote>
+  <p>width<br />
+  :   500px</p>
+  
+  <p>align<br />
+  :   center</p>
+  
+  <p>TF WiFi 2.54间距的焊盘，可以直接插入插针焊接。</p>
+</blockquote>
+
+<p>BT有2个1.27偏移的焊盘，建议焊接方法如下所示：</p>
+
+<p>取2Pin<br />
+排针，插入焊盘，接于半孔上，焊接上下两侧，最后用剪刀或者钳子去除多余部分。</p>
+
+<p><img src="https://box.kancloud.cn/b75f78d370c6938e3923442b267407c1_1024x768.jpg" alt="" /></p>
+
+<blockquote>
+  <p>width<br />
+  :   500px</p>
+  
+  <p>align<br />
+  :   center</p>
+  
+  <p>此焊接方式，可使得板子最为紧凑，但缺点是发热大户CPU和WiFi直接贴合在一起，可导致温度达到60度以上。</p>
+</blockquote>
+
+<h3 id="-5">堆叠焊接于底部</h3>
+
+<p>堆叠焊于底部，可使散热情况优于前者，但需要注意两点:</p>
+
+<blockquote>
+  <ol>
+  <li>下图红圈处需要剪断，否则无法插屏幕</li>
+  <li>天线要弯过来，或者重新焊接到背面。</li>
+  </ol>
+</blockquote>
+
+<p><img src="https://box.kancloud.cn/7eac090889135ebbfd7c749252f57e86_584x968.png" alt="" /></p>
+
+<blockquote>
+  <p>width<br />
+  :   500px</p>
+  
+  <p>align<br />
+  :   center</p>
+  
+  <h3 id="-6">堆叠插拔形式</h3>
+</blockquote>
+
+<p>如果不想把TF WiFi焊死上去，可以使用排座焊接到TF WiFi上，插拔使用：</p>
+
+<p><img src="https://box.kancloud.cn/2930b42d1bb14685b34e7aab276e0629_1163x757.png" alt="" /></p>
+
+<blockquote>
+  <p>width<br />
+  :   500px</p>
+  
+  <p>align<br />
+  :   center</p>
+  
+  <h1 id="wifi">WiFi使用方法</h1>
+</blockquote>
+
+<p>网盘中提供的镜像的root目录下提供了r8723bs.ko, 开机后，执行</p>
+
+<pre><code>insmod r8723bs.ko
+ifconfig wlan0 up
+</code></pre>
+
+<p>来启动无线接口</p>
+
+<p>编辑好 <code>/etc/wpa_supplicant.conf</code> 后，执行 <em>connect_wx.sh</em> 来连接网络。</p>
+
+<h1 id="-7">蓝牙使用方法</h1>
+
+<p>下载或clone下面的源码，编译<br />
+<a href="https://github.com/NextThingCo/rtl8723bs_bt">https://github.com/NextThingCo/rtl8723bs_bt</a></p>
+
+<p>首先在dts里使能UART：</p>
+
+<p><strike>~~ {.sourceCode .bash}<br />
+uart0_pins_a: uart0@0 { pins = "PB8", "PB9";function = "uart0";bias-pull-up; };<br />
+uart1_pins_a: uart1@0 { pins = "PE21", "PE22";function = "uart1";bias-pull-up; };<br />
+uart2_pins_a: uart2@0 { pins = "PB0", "PB1";function = "uart2";bias-pull-up; };<br />
+sun8i-v3s-licheepi-zero.dts:<br />
+&amp;uart0 { pinctrl-0 = &lt;&amp;uart0_pins_a>;pinctrl-names = "default";status = "okay"; };<br />
+&amp;uart1 { pinctrl-0 = &lt;&amp;uart1_pins_a>;pinctrl-names = "default";status = "okay"; };<br />
+&amp;uart2 { pinctrl-0 = &lt;&amp;uart2_pins_a>;pinctrl-names = "default";status = "okay"; };<br />
+~</strike>~</p>
+
+<p>再在内核里使能蓝牙功能：</p>
+
+<pre><code>[]Networking support-&gt;Bluetooth subsystem support
+[]Networking support-&gt;Bluetooth subsystem support-&gt;Bluetooth device-&gt;
+HC UART driver-&gt;Three-wire UART (H5) protocol support
+</code></pre>
+
+<p>最后就可以在终端里开启蓝牙，扫描使用设备了：</p>
+
+<p><strike>~~ {.sourceCode .bash}<br />
+./start_bt.sh ttyS2<br />
+hciconfig -a<br />
+hciconfig hci0 up<br />
+hcitool scan<br />
+~</strike>~</p>
+
+<h1 id="wifi-2">常见WiFi错误排查</h1>
+
+<h2 id="wifiifconfig-awlan0">wifi驱动加载成功，但是ifconfig -a没有wlan0</h2>
+
+<p>~~~~ {.sourceCode .bash}<br />
+root@LicheePi:~# insmod r8723bs.ko<br />
+[   37.054004] r8723bs: loading out-of-tree module taints kernel.<br />
+[   37.090084] RTL8723BS: module init start<br />
+[   37.094173] RTL8723BS: rtl8723bs v4.3.5.5_12290.20140916_BTCOEX20140507-4E40<br />
+[   37.101496] RTL8723BS: rtl8723bs BT-Coex version = BTCOEX20140507-4E40<br />
+[   37.108377] RTL8723BS: module init ret =0<br />
+root@LicheePi:~# ifconfig -a<br />
+lo        Link encap:Local Loopback<br />
+        inet addr:127.0.0.1  Mask:255.0.0.0<br />
+        UP LOOPBACK RUNNING  MTU:65536  Metric:1<br />
+        RX packets:0 errors:0 dropped:0 overruns:0 frame:0<br />
+        TX packets:0 errors:0 dropped:0 overruns:0 carrier:0<br />
+        collisions:0 txqueuelen:1000<br />
+        RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)</p>
+
+<p>usb0      Link encap:Ethernet  HWaddr 96:c0:f5:f1:ab:22<br />
+        BROADCAST MULTICAST  MTU:1500  Metric:1<br />
+        RX packets:0 errors:0 dropped:0 overruns:0 frame:0<br />
+        TX packets:0 errors:0 dropped:0 overruns:0 carrier:0<br />
+        collisions:0 txqueuelen:1000<br />
+        RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)<br />
+~~~~</p>
+
+<p>检查第一分区中的boot.scr是否正确：</p>
+
+<p><strike>~~ {.sourceCode .bash}<br />
+root@LicheePi:~# mount /dev/mmcblk0p1 /mnt/<br />
+root@LicheePi:~# ls /mnt/<br />
+boot.scr             sun8i-v3s-licheepi-zero-dock.dtb  zImage<br />
+sun8i-v3s-licheepi-zero-ctc.dtb  sun8i-v3s-licheepi-zero.dtb<br />
+root@LicheePi:~# cat /mnt/boot.scr<br />
+'V·z?Xցܣ]Mڳetenv bootargs console=ttyS0,115200 panic=5 console=tty0 rootwait root=/dev/mmcblk0p2 earlyprintk rw<br />
+load mmc 0:1 0x41000000 zImage<br />
+load mmc 0:1 0x41800000 sun8i-v3s-licheepi-zero-ctc.dtb   &lt;--这里使用了错误的dtb<br />
+bootz 0x41000000 - 0x41800000<br />
+~</strike>~</p>
+
+<p>从网盘中获取正确的dtb来覆盖，具有wifi功能的dtb是sun8i-v3s-licheepi-zero-dock.dtb</p>
+
+<h2 id="wifi-3">wifi驱动加载失败</h2>
+
+<p><strike>~~ {.sourceCode .bash}<br />
+root@LicheePi:~# insmod r8723bs.ko<br />
+insmod: ERROR: could not insert module r8723bs.ko: Invalid module format<br />
+~</strike>~</p>
+
+<p>使用了错误内核的wifi模块，请到网盘或者qq群文件里重新下载最新的ko文件加载。</p>
+
+<h2 id="1ssdio-rto-0x52">间隔1s左右打印sdio RTO 0x52之类的信息</h2>
+
+<p>wifi模块焊接不良，或者没有去除之前提到的电阻。</p>
+
+                        </div>
+                    </div>
+                    <div id="previous_next">
+                        <div id="previous">
+                            
+                        </div>
+                        <div id="next">
+                            
+                        </div>
+                    </div>
+                </div>
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a id="to_top" href="#"></a>
+        <div id="doc_footer">
+                        
+            <div id="footer">
+                <div id="footer_top">
+                    <ul>
+<li><a>链接</a><ul><li><a target="_blank" href="https://www.sipeed.com">Sipeed</a></li>
+<li><a target="_blank" href="https://bbs.sipeed.com/">BBS 论坛</a></li>
+<li><a target="_blank" href="https://maixhub.sipeed.com/">Maixhub</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">Sipeed 淘宝</a></li>
+<li><a target="_blank" href="https://github.com/neutree/teedoc">使用 teedoc 构建</a></li>
+</ul>
+</li>
+<li><a>网站统计</a><ul><li><a target="_blank" href="https://tongji.baidu.com/web/welcome/ico?s=9cb07365544a53067c56c346c838181a">百度统计</a></li>
+<li><a  href="/sitemap.xml">网站地图</a></li>
+</ul>
+</li>
+<li><a>源码</a><ul><li><a target="_blank" href="https://github.com/sipeed/sipeed_wiki">文档源文件</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">开源项目源码</a></li>
+</ul>
+</li>
+<li><a>关注我们</a><ul><li><a target="_blank" href="https://github.com/sipeed">github</a></li>
+<li><a target="_blank" href="https://twitter.com/SipeedIO">twitter</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">淘宝</a></li>
+<li><a  href="/social_group.html">更多</a></li>
+</ul>
+</li>
+<li><a>联系我们</a><ul><li><a>电话: +86 0755-27808509</a>
+</li>
+<li><a>商业支持: support@sipeed.com</a>
+</li>
+<li><a>地址: 深圳市宝安区新湖路华美居B区1号楼713-715</a>
+</li>
+<li><a  href="/join_us.html">加入我们</a></li>
+</ul>
+</li>
+</ul>
+
+                </div>
+                <div id="footer_bottom">
+                    <ul>
+<li><a target="_blank" href="https://www.sipeed.com">©2018-2021 深圳矽速科技有限公司</a></li>
+<li><a target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index">粤ICP备19015433号-1</a></li>
+</ul>
+
+                </div>
+            </div>
+                    </div>
+</body>
+<script src="/static/js/theme_default/tocbot.min.js"></script>
+<script src="/static/js/theme_default/main.js"></script>
+<script src="/static/css/theme_default/prism.min.js"></script>
+<script src="/static/js/custom.js"></script>
+<script src="/static/js/search/search_main.js"></script>
+<script type="text/javascript" src="/static/js/live.js"></script>
+</html>

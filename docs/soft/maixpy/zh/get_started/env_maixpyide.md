@@ -104,6 +104,8 @@ chmod +x setup.sh
   * 请检查是否开发板型号选择错误；
   * 观察开发板屏幕是否有变化，如果没有反应可能是串口选择错误；
   * 尝试升级到最新的 [master 分支固件](http://cn.dl.sipeed.com/MAIX/MaixPy/release/master)， 以及最新的 MaixPy IDE 软件
+* 运行代码后获取不到图像
+  * 请换个USB口，比较老旧的电脑会出现这个问题
 
 
 ## 根据错误提示寻找原因

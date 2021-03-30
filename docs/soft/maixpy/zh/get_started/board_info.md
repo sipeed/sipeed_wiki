@@ -26,6 +26,7 @@ led_r.value(0)
 ## board 的配置方法
 
 将以下链接对应的 python 代码复制出来（如 config_maix_bit.py），放到 IDE 编辑框中运行，即可完成对『你的硬件』配置项（config.json）的导入，它会在 flash 上存储该配置文件。
+选择自己对应的开发板类型
 
 1. Maix Bit
 [config_maix_bit.py](https://github.com/sipeed/MaixPy_scripts/tree/master/board/config_maix_bit.py)

@@ -1,0 +1,14 @@
+items:
+-   label: LicheePi
+    items:
+    -   label: 简介
+        file: readme.md
+        items:
+        -   label: LicheePI Nano
+            items:
+            -   label: LicheePI Nano 简介
+                file:
+        -   label: LicheePI Zero
+            items:
+            -   label: LicheePI Zero 简介
+                file:

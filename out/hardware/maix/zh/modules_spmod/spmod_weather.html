@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html  class="md_page">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="">
+    <meta name="description" content="[]">
+    <meta name="generator" content="teedoc">
+    <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        <link rel="stylesheet" href="/static/css/theme_default/prism.min.css" type="text/css"/>
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?9cb07365544a53067c56c346c838181a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <title>Sipeed Wiki</title>
+</head>
+<body>
+    
+            <div id="navbar">
+                <div id="navbar_menu">
+                    <a class="site_title" href="/"><img class="site_logo" src="/static/image/logo.svg" alt="sipeed wiki logo"><h2>wiki</h2></a>
+                    <a id="navbar_menu_btn"></a>
+                </div>
+                <div id="navbar_items">
+                    <div>
+                        <ul id="nav_left">
+<li class=""><a  href="/">首页</a></li>
+<li class=""><a target="_blank" href="https://www.sipeed.com">矽速官网</a></li>
+<li class="sub_items "><a>开源软件</a><ul><li class=""><a  href="/soft/maixpy/zh/index.html">Maixpy</a></li>
+<li class=""><a  href="/soft/maixpy3/zh/">Maixpy3</a></li>
+<li class=""><a  href="/licheeos/zh/">Lichee OS</a></li>
+<li class=""><a  href="/LonganOS/zh/">Longan OS</a></li>
+<li class=""><a  href="/TangOs/zh/">Tang OS</a></li>
+</ul>
+</li>
+<li class="sub_items active_parent"><a>开源硬件</a><ul><li class="active"><a  href="/hardware/maix/zh/">Maix</a></li>
+<li class=""><a  href="/hardware/maixII/zh/">Maix II</a></li>
+<li class=""><a  href="/hardware/maixIII/zh/">Maix III</a></li>
+<li class=""><a  href="/hardware/maixIV/zh/">Maix IV</a></li>
+<li class=""><a  href="/hardware/lichee/zh/">Lichee Pi</a></li>
+<li class=""><a  href="/hardware/tang/zh/">Tang</a></li>
+<li class=""><a  href="/hardware/longan/zh/">Longan</a></li>
+</ul>
+</li>
+<li class="sub_items "><a>商业产品</a><ul><li class=""><a  href="/hardware/maixface/zh/">Maix Face</a></li>
+</ul>
+</li>
+<li class="sub_items "><a>云平台</a><ul><li class=""><a target="_blank" href="https://www.maixhub.com">Maixhub 模型训练平台</a></li>
+<li class=""><a target="_blank" href="https://www.maixhub.com/onlinecompiler">固件在线编译</a></li>
+</ul>
+</li>
+<li class=""><a  href="/community.html">社区</a></li>
+<li class=""><a  href="https://shop365481095.taobao.com/?spm=a230r.7195193.1997079397.2.8384341c2zZ5uZ">商城</a></li>
+</ul>
+
+                    </div>
+                    <div>
+                        <ul id="nav_right">
+<li class="sub_items "><a  href="">Language: </a><ul><li class=""><a  href="/">中文</a></li>
+<li class=""><a  href="/en/">English</a></li>
+</ul></li>
+</ul>
+
+                        <ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">输入关键词，多关键词空格隔开</span>
+                                <span id="search_loading_hint">正在加载，请稍候。。。</span>
+                                <span id="search_download_err_hint">下载文件失败，请刷新重试或检查网络</span>
+                                <span id="search_other_docs_result_hint">来自其它文档的结果</span>
+                                <span id="search_curr_doc_result_hint">当前文档搜索结果</span>
+                            </div></a></li></ul>
+                    </div>
+                </div>
+            </div>
+    
+        <div id="wrapper">
+            
+            <div id="sidebar_wrapper">
+                <div id="sidebar">
+                    <div id="sidebar_title">
+                        
+                    </div>
+                    <ul class="">
+<li class="not_active with_link"><a href="/hardware/maix/zh/index.html"><span class="label">Sipeed 硬件资料导航</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">MaixDuino</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/maix/zh/maixduino/zh/index.html"><span class="label">MaixDuino简介</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">准备</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/maix/zh/maixduino/zh/get_started/get_hardware.html"><span class="label">获得开发板</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">安装开发环境</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/maix/zh/maixduino/zh/get_started/install.html"><span class="label">Arduino IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/maix/zh/maixduino/zh/get_started/platformio.html"><span class="label">Platform IO</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">基础功能</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/maix/zh/maixduino/zh/cores/digital.html"><span class="label">数字 I/O</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/maix/zh/maixduino/zh/cores/analog.html"><span class="label">模拟 I/O</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/maix/zh/maixduino/zh/cores/advanced.html"><span class="label">高级 I/O</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/maix/zh/maixduino/zh/cores/time.html"><span class="label">时间</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/maix/zh/maixduino/zh/cores/interrupts.html"><span class="label">中断</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/maix/zh/maixduino/zh/cores/serial.html"><span class="label">串口</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/maix/zh/maixduino/zh/cores/constants.html"><span class="label">常量</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">库</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/maix/zh/maixduino/zh/libs/camera.html"><span class="label">Camera</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/maix/zh/maixduino/zh/libs/littlevgl.html"><span class="label">LittlevGL</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/maix/zh/maixduino/zh/libs/maix_kpu.html"><span class="label">Maix_KPU</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/maix/zh/maixduino/zh/libs/speechrecg.html"><span class="label">Maix_Speech_Recognition</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/maix/zh/maixduino/zh/libs/msa300.html"><span class="label">MSA300 Accelerometer</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/maix/zh/maixduino/zh/libs/ns2009.html"><span class="label">NS2009 Touchscreen</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/maix/zh/maixduino/zh/libs/sd.html"><span class="label">SD</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/maix/zh/maixduino/zh/libs/sipeed_ov2640.html"><span class="label">Sipeed_OV2640 Camera</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/maix/zh/maixduino/zh/libs/sipeed_st7789.html"><span class="label">Sipeed_ST7789 Display</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/maix/zh/maixduino/zh/libs/spi.html"><span class="label">SPI</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/maix/zh/maixduino/zh/libs/ticker.html"><span class="label">Ticker</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/maix/zh/maixduino/zh/libs/wifiesp.html"><span class="label">WiFiEsp</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/maix/zh/maixduino/zh/libs/wire.html"><span class="label">Wire</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">其他</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/maix/zh/maixduino/zh/contribute/index.html"><span class="label">贡献</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/maix/zh/maixduino/zh/contribute/doc_convention.html"><span class="label">文档风格</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/maix/zh/maixduino/zh/contribute/code_convention.html"><span class="label">代码风格</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">K210 核心模块</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/maix/zh/core_modules/k210_core_modules.html"><span class="label">M1/M1w</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/maix/zh/core_modules/k210_core_modules.html"><span class="label">M1n</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">MaixPy 系列开发板</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/maix/zh/maixpy_develop_kit_board/develop_kit_board.html"><span class="label">MaixPy 开发板</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/maix/zh/maixpy_develop_kit_board/maix_go.html"><span class="label">Maix Go</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/maix/zh/maixpy_develop_kit_board/maix_dock.html"><span class="label">Maix Dock(M1/M1W</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/maix/zh/maixpy_develop_kit_board/maix_bit.html"><span class="label">Maix Bit</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/maix/zh/maixpy_develop_kit_board/maix_duino.html"><span class="label">Maix Duino</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/maix/zh/maixpy_develop_kit_board/maix_nano.html"><span class="label">Maix Nano</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/maix/zh/zh/maixpy_develop_kit_board/maix_cube.html"><span class="label">Maix Cube</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/maix/zh/maixpy_develop_kit_board/maix_Amigo.html"><span class="label">Maix Amigo</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link sidebar_category"><span class="label">LicheePi (Linux)</span></li>
+<li class="not_active no_link sidebar_category"><span class="label">Lichee Tang(FPGA</span></li>
+<li class="not_active no_link sidebar_category"><span class="label">MaixPy 外设模块</span></li>
+<li class="not_active no_link sidebar_category"><span class="label">扩展接口 SP-MOD</span></li>
+<li class="not_active no_link sidebar_category"><span class="label">模块&&调试器</span></li>
+<li class="not_active no_link sidebar_category"><span class="label">LCD 1.3/2.4/2.8/4.3/5 寸</span></li>
+</ul>
+
+                </div>
+            </div>
+            <div id="menu_wrapper">
+                                    <div id="menu">
+                                    </div>
+                                </div>
+            <div id="article">
+                <div id="content_wrapper">
+                    <div id="content_body">
+                        <div id="article_head">
+                            <div id="article_title">
+                                <h1></h1>
+                            </div>
+                            <div id="article_tags">
+                                <ul></ul>
+                            </div>
+                            <div id="article_info">
+                            <div>
+                                <span class="article_author"></span><span class="article_date"></span>
+                            </div>
+                            <div>
+                                
+                            </div>
+                            </div>
+                        </div>
+                        <div id="article_content">
+                            <h1 id="spmod-weather">SPMOD - Weather</h1>
+
+<h2 id="-1">概述</h2>
+
+<p><img src="../../assets/spmod/spmod_weather/demo.gif" align="right" width="500" /></p>
+
+<p>SPMOD - Weather (气象站模块), 集成三轴传感器 QMC7983,与温湿度气压传感器 BME280。</p>
+
+<h2 id="spmod-weather-2">SPMOD - Weather 介绍</h2>
+
+<p>特性：</p>
+
+<ul>
+<li>采用 <strong>Sipeed-SPMOD</strong> 接口(2*4PIN 2.54mm 排针)，统一 MaixPy 开发板接口</li>
+<li>通过SP-MOD I2C接口连接</li>
+<li>磁性传感器：QMC7983是一个内置灵敏度补偿与NTC的三轴磁性传感器，I2C接口输出（最高频率400KHz），具有出色的动态范围和精度以及超低的功耗</li>
+<li>磁感应量程：±30 高斯</li>
+<li>温湿度气压传感器：BME280是同时集成了温湿度与气压传感器的数字传感器</li>
+<li>模块尺寸：25.0*10*2.9mm</li>
+</ul>
+
+<h2 id="-2">传感器特性：</h2>
+
+<table>
+<thead>
+<tr>
+  <th>磁性传感器</th>
+  <th>QMC7983</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>工作电压</td>
+  <td>2.6V~3.6V</td>
+</tr>
+<tr>
+  <td>工作电流</td>
+  <td>70uA</td>
+</tr>
+<tr>
+  <td>休眠电流</td>
+  <td>&lt;1uA</td>
+</tr>
+<tr>
+  <td>磁感应量程</td>
+  <td>±30 高斯</td>
+</tr>
+<tr>
+  <td>精度</td>
+  <td>每 LSB 1mG</td>
+</tr>
+<tr>
+  <td>RMS 噪声</td>
+  <td>2 mG</td>
+</tr>
+<tr>
+  <td>对外接口</td>
+  <td>I2C，默认地址 0x2C,可通过选择电阻调节</td>
+</tr>
+</tbody>
+</table>
+
+<hr />
+
+<table>
+<thead>
+<tr>
+  <th>温湿度气压传感器</th>
+  <th>BME280</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>工作电压</td>
+  <td>1.71V~3.6V</td>
+</tr>
+<tr>
+  <td>工作电流</td>
+  <td>&lt;633uA</td>
+</tr>
+<tr>
+  <td>休眠电流</td>
+  <td>&lt;5uA</td>
+</tr>
+<tr>
+  <td>湿度传感器的关键参数：</td>
+  <td>---</td>
+</tr>
+<tr>
+  <td>响应时间（𝜏63％）</td>
+  <td>1s</td>
+</tr>
+<tr>
+  <td>精度公差</td>
+  <td>±3％ 相对湿度</td>
+</tr>
+<tr>
+  <td>磁滞</td>
+  <td>&lt; 2％ 相对湿度</td>
+</tr>
+<tr>
+  <td>气压力传感器的关键参数：</td>
+  <td>---</td>
+</tr>
+<tr>
+  <td>RMS 噪声</td>
+  <td>0.2 Pa（等效 到海拔 1.7 厘米）</td>
+</tr>
+<tr>
+  <td>偏移温度系数</td>
+  <td>±1.5 Pa/K（等效温度变化 1°C 时，达到海拔 ±12.6 cm1s）</td>
+</tr>
+<tr>
+  <td>对外接口</td>
+  <td>I2C，默认地址 0x76, 可通过选择电阻调节</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="spmod_weather">SPMOD_Weather 模块引脚定义：</h3>
+
+<table>
+<thead>
+<tr>
+  <th>引脚序号</th>
+  <th>引脚名称</th>
+  <th>类型</th>
+  <th>引脚说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>1</td>
+  <td>GND</td>
+  <td>G</td>
+  <td>模块电源地</td>
+</tr>
+<tr>
+  <td>2</td>
+  <td>NC</td>
+  <td>NC</td>
+  <td>悬空引脚，无功能</td>
+</tr>
+<tr>
+  <td>3</td>
+  <td>NC</td>
+  <td>NC</td>
+  <td>悬空引脚，无功能</td>
+</tr>
+<tr>
+  <td>4</td>
+  <td>SDA</td>
+  <td>I/O</td>
+  <td>模块I2C串行数据引脚</td>
+</tr>
+<tr>
+  <td>5</td>
+  <td>3V3</td>
+  <td>V</td>
+  <td>模块电源输入正</td>
+</tr>
+<tr>
+  <td>6</td>
+  <td>NC</td>
+  <td>NC</td>
+  <td>悬空引脚，无功能</td>
+</tr>
+<tr>
+  <td>7</td>
+  <td>NC</td>
+  <td>NC</td>
+  <td>悬空引脚，无功能</td>
+</tr>
+<tr>
+  <td>8</td>
+  <td>SCL</td>
+  <td>I</td>
+  <td>模块I2C串行时钟引脚</td>
+</tr>
+</tbody>
+</table>
+
+<p><img src="../../assets/spmod/spmod_weather/back.png" width="300" /></p>
+
+<h2 id="-3">接线方式</h2>
+
+<p><img src="../../assets/spmod/spmod_weather/connection.png" height="250"></p>
+
+<table>
+<thead>
+<tr>
+  <th style="text-align:center;">MCU:FUN(IO)</th>
+  <th style="text-align:center;">SP_RFID</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td style="text-align:center;">I2C:SDA(IO_7)</td>
+  <td style="text-align:center;">SDA</td>
+</tr>
+<tr>
+  <td style="text-align:center;">NC(IO_15)</td>
+  <td style="text-align:center;">NC</td>
+</tr>
+<tr>
+  <td style="text-align:center;">NC(IO_20)</td>
+  <td style="text-align:center;">IRQ</td>
+</tr>
+<tr>
+  <td style="text-align:center;">NC(IO_21)</td>
+  <td style="text-align:center;">NC</td>
+</tr>
+<tr>
+  <td style="text-align:center;">GPIOHS(IO_8)</td>
+  <td style="text-align:center;">SHT</td>
+</tr>
+<tr>
+  <td style="text-align:center;">I2C:SCL(IO_6)</td>
+  <td style="text-align:center;">SCL</td>
+</tr>
+<tr>
+  <td style="text-align:center;">2.8~3.5V</td>
+  <td style="text-align:center;">3.3V</td>
+</tr>
+<tr>
+  <td style="text-align:center;">GND</td>
+  <td style="text-align:center;">GND</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="-4">使用例程</h2>
+
+<ul>
+<li>流程<br />
+<ol><br />
+<li>初始化  weather=SPWeather(i2c=i2c_bus) # create sp_weather<br /><br />
+while 1:<br /><br />
+time.sleep_ms(500)<br /><br />
+print(weather.qmc_read_xyz) # QMC7983 read data<br /><br />
+print(weather.bme_values) # BME280 read data</li><br />
+<li>校准(可选)</li><br />
+<li>读取距离(多种模式可选)</li><br />
+</ol></li>
+</ul>
+
+<h3 id="c">C 示例：</h3>
+
+<p>```c</p>
+
+<pre><code>fpioa_set_function(Weather_SCL, FUNC_I2C0_SCLK + Weather_I2C_DEVICE * 2); // Weather_SCL: 6;
+fpioa_set_function(Weather_SDA, FUNC_I2C0_SDA + Weather_I2C_DEVICE * 2); // Weather_SDA: 7;
+
+maix_i2c_init(Weather_I2C_DEVICE, 7, 400000); // Weather_I2C_DEVICE: 0;
+
+rslt = qmc_init(); // Magnetic sensor QMC7983 init
+rslt = bme280_init(&amp;dev); // Temperature, humidity and pressure sensors BME280 init
+stream_sensor_data_normal_mode(&amp;dev); // read and print sensor data
+</code></pre>
+
+<p>```</p>
+
+<h3 id="maixpy">MaixPy 例程：</h3>
+
+<p>```python</p>
+
+<pre><code>i2c_bus = I2C(I2C.I2C0, freq=100*1000, scl=6, sda=7) # scl: io_6, sda: io_7
+
+weather=SPWeather(i2c=i2c_bus) # create sp_weather
+while 1:
+    time.sleep_ms(500)
+    print(weather.qmc_read_xyz) # QMC7983 read data
+    print(weather.bme_values) # BME280 read data
+</code></pre>
+
+<p>```</p>
+
+<h2 id="-5">运行环境</h2>
+
+<table>
+<thead>
+<tr>
+  <th style="text-align:center;">语言</th>
+  <th style="text-align:center;">开发板</th>
+  <th style="text-align:left;">SDK/固件版本</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td style="text-align:center;">C</td>
+  <td style="text-align:center;">MaixCube</td>
+  <td style="text-align:left;">kendryte-standalone-sdk v0.5.6</td>
+</tr>
+<tr>
+  <td style="text-align:center;">MaixPy</td>
+  <td style="text-align:center;">MaixCube</td>
+  <td style="text-align:left;">maixpy v0.5.1</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="-6">运行结果</h2>
+
+<ul>
+<li><p>C</p>
+
+<p><img src="../../assets/spmod/spmod_weather/log_c.png" height="200"></p></li>
+<li><p>MaixPy</p>
+
+<p><img src="../../assets/spmod/spmod_weather/log_py.png" height="200"></p></li>
+</ul>
+
+<h2 id="-7">参考设计</h2>
+
+<ul>
+<li>SPMOD_Weather 尺寸图：</li>
+</ul>
+
+<p><img src="../../assets/spmod/spmod_weather/sipeed_spmod_weather.png" height="250" /></p>
+
+<hr />
+
+<h2 id="-8">资源链接</h2>
+
+<table>
+<thead>
+<tr>
+  <th>资源</th>
+  <th>---</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>官网</td>
+  <td>www.sipeed.com</td>
+</tr>
+<tr>
+  <td>SIPEED 官方淘宝店</td>
+  <td><a href="sipeed.taobao.com">sipeed.taobao.com</a></td>
+</tr>
+<tr>
+  <td>Github</td>
+  <td><a href="https://github.com/sipeed">https://github.com/sipeed</a></td>
+</tr>
+<tr>
+  <td>BBS</td>
+  <td><a href="http://bbs.sipeed.com">http://bbs.sipeed.com</a></td>
+</tr>
+<tr>
+  <td>MaixPy 文档官网</td>
+  <td><a href="http://maixpy.sipeed.com">http://maixpy.sipeed.com</a></td>
+</tr>
+<tr>
+  <td>Sipeed 模型平台</td>
+  <td><a href="https://maixhub.com">https://maixhub.com</a></td>
+</tr>
+<tr>
+  <td>SDK 相关信息</td>
+  <td><a href="https://dl.sipeed.com/MAIX/SDK">https://dl.sipeed.com/MAIX/SDK</a></td>
+</tr>
+<tr>
+  <td>HDK 相关信息</td>
+  <td><a href="https://dl.sipeed.com/MAIX/HDK">https://dl.sipeed.com/MAIX/HDK</a></td>
+</tr>
+<tr>
+  <td>E-mail(技术支持和商业合作)</td>
+  <td><a href="mailto:support@sipeed.com">Support@sipeed.com</a></td>
+</tr>
+<tr>
+  <td>telgram link</td>
+  <td>https://t.me/sipeed</td>
+</tr>
+<tr>
+  <td>MaixPy AI QQ 交流群</td>
+  <td>878189804</td>
+</tr>
+<tr>
+  <td>MaixPy AI QQ 交流群(二群)</td>
+  <td>1129095405</td>
+</tr>
+</tbody>
+</table>
+
+                        </div>
+                    </div>
+                    <div id="previous_next">
+                        <div id="previous">
+                            
+                        </div>
+                        <div id="next">
+                            
+                        </div>
+                    </div>
+                </div>
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a id="to_top" href="#"></a>
+        <div id="doc_footer">
+                        
+            <div id="footer">
+                <div id="footer_top">
+                    <ul>
+<li><a>链接</a><ul><li><a target="_blank" href="https://www.sipeed.com">Sipeed</a></li>
+<li><a target="_blank" href="https://bbs.sipeed.com/">BBS 论坛</a></li>
+<li><a target="_blank" href="https://maixhub.sipeed.com/">Maixhub</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">Sipeed 淘宝</a></li>
+<li><a target="_blank" href="https://github.com/neutree/teedoc">使用 teedoc 构建</a></li>
+</ul>
+</li>
+<li><a>网站统计</a><ul><li><a target="_blank" href="https://tongji.baidu.com/web/welcome/ico?s=9cb07365544a53067c56c346c838181a">百度统计</a></li>
+<li><a  href="/sitemap.xml">网站地图</a></li>
+</ul>
+</li>
+<li><a>源码</a><ul><li><a target="_blank" href="https://github.com/sipeed/sipeed_wiki">文档源文件</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">开源项目源码</a></li>
+</ul>
+</li>
+<li><a>关注我们</a><ul><li><a target="_blank" href="https://github.com/sipeed">github</a></li>
+<li><a target="_blank" href="https://twitter.com/SipeedIO">twitter</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">淘宝</a></li>
+<li><a  href="/social_group.html">更多</a></li>
+</ul>
+</li>
+<li><a>联系我们</a><ul><li><a>电话: +86 0755-27808509</a>
+</li>
+<li><a>商业支持: support@sipeed.com</a>
+</li>
+<li><a>地址: 深圳市宝安区新湖路华美居B区1号楼713-715</a>
+</li>
+<li><a  href="/join_us.html">加入我们</a></li>
+</ul>
+</li>
+</ul>
+
+                </div>
+                <div id="footer_bottom">
+                    <ul>
+<li><a target="_blank" href="https://www.sipeed.com">©2018-2021 深圳矽速科技有限公司</a></li>
+<li><a target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index">粤ICP备19015433号-1</a></li>
+</ul>
+
+                </div>
+            </div>
+                    </div>
+</body>
+<script src="/static/js/theme_default/tocbot.min.js"></script>
+<script src="/static/js/theme_default/main.js"></script>
+<script src="/static/css/theme_default/prism.min.js"></script>
+<script src="/static/js/custom.js"></script>
+<script src="/static/js/search/search_main.js"></script>
+<script type="text/javascript" src="/static/js/live.js"></script>
+</html>

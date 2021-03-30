@@ -1,7 +1,7 @@
 
 * [twitter](twitter.com/SipeedIO)
 * [Telegram](t.me/sipeed)
-* [官方社区](bbs.sipeed.com)
+* [官方社区](https://bbs.sipeed.com)
   * [dfrobot MaixPy 社区](https://mc.dfrobot.com.cn/forum-maixpy-1.html)
   * [whycan 荔枝派 社区](https://whycan.com/f_17.html)
 * Sipeed 官方群：826307240

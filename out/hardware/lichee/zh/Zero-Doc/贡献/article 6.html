@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html  class="md_page">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="">
+    <meta name="description" content="[]">
+    <meta name="generator" content="teedoc">
+    <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        <link rel="stylesheet" href="/static/css/theme_default/prism.min.css" type="text/css"/>
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?9cb07365544a53067c56c346c838181a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <title>Licheepi Zero Ethernet适配指南 - Sipeed Wiki</title>
+</head>
+<body>
+    
+            <div id="navbar">
+                <div id="navbar_menu">
+                    <a class="site_title" href="/"><img class="site_logo" src="/static/image/logo.svg" alt="sipeed wiki logo"><h2>wiki</h2></a>
+                    <a id="navbar_menu_btn"></a>
+                </div>
+                <div id="navbar_items">
+                    <div>
+                        <ul id="nav_left">
+<li class=""><a  href="/">首页</a></li>
+<li class=""><a target="_blank" href="https://www.sipeed.com">矽速官网</a></li>
+<li class="sub_items "><a>开源软件</a><ul><li class=""><a  href="/soft/maixpy/zh/index.html">Maixpy</a></li>
+<li class=""><a  href="/soft/maixpy3/zh/">Maixpy3</a></li>
+<li class=""><a  href="/licheeos/zh/">Lichee OS</a></li>
+<li class=""><a  href="/LonganOS/zh/">Longan OS</a></li>
+<li class=""><a  href="/TangOs/zh/">Tang OS</a></li>
+</ul>
+</li>
+<li class="sub_items active_parent"><a>开源硬件</a><ul><li class=""><a  href="/hardware/maix/zh/">Maix</a></li>
+<li class=""><a  href="/hardware/maixII/zh/">Maix II</a></li>
+<li class=""><a  href="/hardware/maixIII/zh/">Maix III</a></li>
+<li class=""><a  href="/hardware/maixIV/zh/">Maix IV</a></li>
+<li class="active"><a  href="/hardware/lichee/zh/">Lichee Pi</a></li>
+<li class=""><a  href="/hardware/tang/zh/">Tang</a></li>
+<li class=""><a  href="/hardware/longan/zh/">Longan</a></li>
+</ul>
+</li>
+<li class="sub_items "><a>商业产品</a><ul><li class=""><a  href="/hardware/maixface/zh/">Maix Face</a></li>
+</ul>
+</li>
+<li class="sub_items "><a>云平台</a><ul><li class=""><a target="_blank" href="https://www.maixhub.com">Maixhub 模型训练平台</a></li>
+<li class=""><a target="_blank" href="https://www.maixhub.com/onlinecompiler">固件在线编译</a></li>
+</ul>
+</li>
+<li class=""><a  href="/community.html">社区</a></li>
+<li class=""><a  href="https://shop365481095.taobao.com/?spm=a230r.7195193.1997079397.2.8384341c2zZ5uZ">商城</a></li>
+</ul>
+
+                    </div>
+                    <div>
+                        <ul id="nav_right">
+<li class="sub_items "><a  href="">Language: </a><ul><li class=""><a  href="/">中文</a></li>
+<li class=""><a  href="/en/">English</a></li>
+</ul></li>
+</ul>
+
+                        <ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">输入关键词，多关键词空格隔开</span>
+                                <span id="search_loading_hint">正在加载，请稍候。。。</span>
+                                <span id="search_download_err_hint">下载文件失败，请刷新重试或检查网络</span>
+                                <span id="search_other_docs_result_hint">来自其它文档的结果</span>
+                                <span id="search_curr_doc_result_hint">当前文档搜索结果</span>
+                            </div></a></li></ul>
+                    </div>
+                </div>
+            </div>
+    
+        <div id="wrapper">
+            
+            <div id="sidebar_wrapper">
+                <div id="sidebar">
+                    <div id="sidebar_title">
+                        
+                    </div>
+                    <ul class="">
+<li class="not_active no_link"><a><span class="label">LicheePi</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">简介</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">LicheePI Nano</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/index.html"><span class="label">简介</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">上手体验</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/./Nano-Doc-Backup/get_started/first_eye.html"><span class="label">初见</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/get_started/first_eat.html"><span class="label">前言</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">系统适配篇</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/build_sys/build_index.html"><span class="label">总述</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/build_sys/onekey.html"><span class="label">镜像包一键烧录</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/build_sys/docker.html"><span class="label">docker快速搭建环境</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/build_sys/bootargs.html"><span class="label">uboot传递参数</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/build_sys/kernel.html"><span class="label">主线linux编译</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/build_sys/devicetree.html"><span class="label">设备树添加节点</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/build_sys/rootfs.html"><span class="label">根文件系统编译</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/build_sys/build_flash.html"><span class="label">SPI-Flash系统编译</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">驱动开发</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/driver/touchscreen.html"><span class="label">电容触摸屏适配</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">从挖坑到填坑</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/step_by_step/one_openbox.html"><span class="label">开箱介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/step_by_step/two_sunxi-tools.html"><span class="label">编译使用sunxi-tools</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/step_by_step/three_uboot.html"><span class="label">编译使用uboot</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/step_by_step/four_linux.html"><span class="label">编译测试linux</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">应用开发</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/application/littlevgl.html"><span class="label">littlevGL的使用</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">奉献投稿</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/contribution/introduction.html"><span class="label">前言</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/contribution/todolist.html"><span class="label">Todolist</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/contribution/task_tips.html"><span class="label">快餐任务相关小事项</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/contribution/doc_tips.html"><span class="label">文档任务相关小事项</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/contribution/build_doc.html"><span class="label">文档构建</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">LicheePI Zero</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">初来乍到</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/Start/intro_cn.html"><span class="label">荔枝派与创作者的自我介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/Start/tips.html"><span class="label">Linux使用小贴士</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/Start/board_intro.html"><span class="label">认识zero的硬件</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/Start/docker_index.html"><span class="label">Docker环境简明教程</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/Start/docker_env.html"><span class="label">Docker开发环境</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/Start/docker_command.html"><span class="label">Docker命令速查</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/Start/docker_ubuntu.html"><span class="label">基础ubuntu系统配置</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/System_Development/type.html"><span class="label">Zero的开发环境分类</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">主线Uboot</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/System_Development/uboot_build.html"><span class="label">Uboot 编译</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/System_Development/uboot_conf.html"><span class="label">Uboot 配置</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/System_Development/uboot_logo.html"><span class="label">开机logo替换</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">主线Kernel</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/System_Development/kernel_build.html"><span class="label">主线Kernel基础编译</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/System_Development/kernel_printk.html"><span class="label">内核printk等级设置</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">BSP内核编译</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/System_Development/bsp_build.html"><span class="label">BSP源码下载与编译</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/System_Development/bsp_review.html"><span class="label"> BSP内核构建走读</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/System_Development/bsp_cam.html"><span class="label">BSP内核的摄像头使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/System_Development/bsp_mem.html"><span class="label">bsp内核中的保留内存</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">根文件系统编译</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+                </div>
+            </div>
+            <div id="menu_wrapper">
+                                    <div id="menu">
+                                    </div>
+                                </div>
+            <div id="article">
+                <div id="content_wrapper">
+                    <div id="content_body">
+                        <div id="article_head">
+                            <div id="article_title">
+                                <h1>Licheepi Zero Ethernet适配指南</h1>
+                            </div>
+                            <div id="article_tags">
+                                <ul></ul>
+                            </div>
+                            <div id="article_info">
+                            <div>
+                                <span class="article_author"></span><span class="article_date"></span>
+                            </div>
+                            <div>
+                                
+                            </div>
+                            </div>
+                        </div>
+                        <div id="article_content">
+                            <h1 id="1-u-bootethernet">1. U-Boot适配Ethernet</h1>
+
+<p>U-Boot<br />
+2017已经支持了sun8i-emac的驱动，只需要在编译时选上并且修改dts就行。</p>
+
+<ul>
+<li>进入u-boot源码目录：</li>
+</ul>
+
+<p><strike>~~ {.sourceCode .bash}<br />
+$ make LicheePi_Zero_defconfig<br />
+$ make menuconfig<br />
+~</strike>~</p>
+
+<p><img src="https://box.kancloud.cn/b23c8b14ce63d6f887aa2372e68db411_972x582.png" alt="" /></p>
+
+<blockquote>
+  <p>width<br />
+  :   500px</p>
+  
+  <p>align<br />
+  :   center</p>
+  
+  <ul>
+  <li>选择 <strong>Device Drivers ---></strong></li>
+  </ul>
+</blockquote>
+
+<p><img src="https://box.kancloud.cn/a2fa42f1f4fad923ac8734b2e1626a0a_972x582.png" alt="" /></p>
+
+<blockquote>
+  <p>width<br />
+  :   500px</p>
+  
+  <p>align<br />
+  :   center</p>
+  
+  <ul>
+  <li>选择 <strong>Network device support ---></strong> 并选中 <strong>Allwinner Sun8i<br />
+  Ethernet MAC support</strong></li>
+  </ul>
+</blockquote>
+
+<p><img src="https://box.kancloud.cn/a4718b669f8b9bd3daa750d3a5095e26_972x582.png" alt="" /></p>
+
+<blockquote>
+  <p>width<br />
+  :   500px</p>
+  
+  <p>align<br />
+  :   center</p>
+  
+  <ul>
+  <li>修改dts</li>
+  </ul>
+</blockquote>
+
+<p>~~~~ {.sourceCode .bash}<br />
+diff --git a/arch/arm/dts/sun8i-v3s-licheepi-zero.dts b/arch/arm/dts/sun8i-v3s-licheepi-zero.dts<br />
+index 3d9168c..b8b9fc3 100644<br />
+--- a/arch/arm/dts/sun8i-v3s-licheepi-zero.dts<br />
++++ b/arch/arm/dts/sun8i-v3s-licheepi-zero.dts<br />
+@@ -49,6 +49,7 @@<br />
+        compatible = "licheepi,licheepi-zero", "allwinner,sun8i-v3s";</p>
+
+<pre><code>    aliases {
+</code></pre>
+
+<p></p>
+
+<ul>
+<li>ethernet0 = &emac;<br />
+            serial0 = &uart0;<br />
+    };</li>
+</ul>
+
+<p>@@ -81,3 +82,14 @@<br />
+        usb0_id_det-gpio = &lt;&amp;pio 5 6 GPIO_ACTIVE_HIGH>;<br />
+        status = "okay";<br />
+ };<br />
++<br />
++&amp;emac {</p>
+
+<ul>
+<li>phy = &lt;&amp;phy0>;</li>
+<li>phy-mode = "mii";</li>
+<li>allwinner,use-internal-phy;</li>
+<li>allwinner,leds-active-low;</li>
+<li>status = "okay";</li>
+<li>phy0: ethernet-phy@0 {</li>
+<li>reg = &lt;1>;</li>
+<li>};<br />
++};<br />
+~~~~</li>
+</ul>
+
+<p>~~~~ {.sourceCode .bash}<br />
+diff --git a/arch/arm/dts/sun8i-v3s.dtsi b/arch/arm/dts/sun8i-v3s.dtsi<br />
+index ebefc0f..cb81dd5 100644<br />
+--- a/arch/arm/dts/sun8i-v3s.dtsi<br />
++++ b/arch/arm/dts/sun8i-v3s.dtsi<br />
+@@ -96,6 +96,11 @@<br />
+                #size-cells = &lt;1>;<br />
+                ranges;</p>
+
+<ul>
+<li>syscon: syscon@01c00000 {</li>
+<li>compatible = "allwinner,sun8i-h3-syscon","syscon";</li>
+<li>reg = &lt;0x01c00000 0x34>;</li>
+<li><p>};<br />
++<br />
+            mmc0: mmc@01c0f000 {<br />
+                    compatible = "allwinner,sun7i-a20-mmc";<br />
+                    reg = &lt;0x01c0f000 0x1000>;<br />
+@@ -208,6 +213,17 @@<br />
+                    interrupt-controller;<br />
+                    #interrupt-cells = &lt;3>;</p></li>
+<li><p>emac_rgmii_pins: emac0@0 {</p></li>
+<li>allwinner,pins = "PD0", "PD1", "PD2", "PD3",</li>
+<li>"PD4", "PD5", "PD7",</li>
+<li>"PD8", "PD9", "PD10",</li>
+<li>"PD12", "PD13", "PD15",</li>
+<li>"PD16", "PD17";</li>
+<li>allwinner,function = "emac";</li>
+<li>allwinner,drive = <SUN4I_PINCTRL_40_MA>;</li>
+<li>allwinner,pull = <SUN4I_PINCTRL_NO_PULL>;</li>
+<li><p>};<br />
++<br />
+                    uart0_pins_a: uart0@0 {<br />
+                            pins = "PB8", "PB9";<br />
+                            function = "uart0";<br />
+@@ -270,6 +286,20 @@<br />
+                    status = "disabled";<br />
+            };</p></li>
+<li><p>emac: ethernet@1c30000 {</p></li>
+<li>compatible = "allwinner,sun8i-h3-emac";</li>
+<li>reg = &lt;0x01c30000 0x104>, &lt;0x01c00030 0x4>;</li>
+<li>reg-names = "emac", "syscon";</li>
+<li>interrupts = <GIC_SPI 82 IRQ_TYPE_LEVEL_HIGH>;</li>
+<li>resets = &lt;&amp;ccu RST_BUS_EMAC>, &lt;&amp;ccu RST_BUS_EPHY>;</li>
+<li>reset-names = "ahb", "ephy";</li>
+<li>clocks = &lt;&amp;ccu CLK_BUS_EMAC>, &lt;&amp;ccu CLK_BUS_EPHY>;</li>
+<li>clock-names = "ahb", "ephy";</li>
+<li>#address-cells = &lt;1>;</li>
+<li>#size-cells = &lt;0>;</li>
+<li>status = "disabled";</li>
+<li><p>};<br />
++<br />
+            gic: interrupt-controller@01c81000 {<br />
+                    compatible = "arm,cortex-a7-gic", "arm,cortex-a15-gic";<br />
+                    reg = &lt;0x01c81000 0x1000>,<br />
+~~~~</p></li>
+<li><p>编译：</p>
+
+<blockquote>
+  <p><code>$ make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf-</code></p>
+</blockquote></li>
+<li><p>烧写：</p>
+
+<blockquote>
+  <p><code>$ dd if=u-boot-sunxi-with-spl.bin of=${card} bs=1024 seek=8</code></p>
+</blockquote></li>
+<li><p>使用Ethernet：</p></li>
+</ul>
+
+<p><img src="https://box.kancloud.cn/e0b2b778262db0e1b19e3316d39ac9cb_1054x417.png" alt="" /></p>
+
+<blockquote>
+  <p>align<br />
+  :   center</p>
+  
+  <h1 id="2-kernelethernet">2. Kernel适配Ethernet</h1>
+</blockquote>
+
+<p>目前Linux<br />
+4.12还没又对sun8i-emac进行支持，所以Kernel要使用V3s的以太网要打sun8i-emac的补丁还有修改dts文件。</p>
+
+<ul>
+<li>打上sun8i-emac补丁：</li>
+</ul>
+
+<p>拉下我已经适配好的内核源码：https://github.com/techping/linux/tree/licheepi-zero</p>
+
+<ul>
+<li>修改dts(上面git仓库是已经修改完的)：</li>
+</ul>
+
+<p>~~~~ {.sourceCode .bash}<br />
+index 387fc2a..904e60e 100644<br />
+--- a/arch/arm/boot/dts/sun8i-v3s-licheepi-zero.dts<br />
++++ b/arch/arm/boot/dts/sun8i-v3s-licheepi-zero.dts<br />
+@@ -50,6 +50,7 @@</p>
+
+<pre><code>    aliases {
+            serial0 = &amp;uart0;
+</code></pre>
+
+<p></p>
+
+<ul>
+<li>ethernet0 = &emac;<br />
+    };</li>
+</ul>
+
+<pre><code>    chosen {
+</code></pre>
+
+<p>@@ -101,3 +102,10 @@<br />
+        usb0_id_det-gpio = &lt;&amp;pio 5 6 GPIO_ACTIVE_HIGH>;<br />
+        status = "okay";<br />
+};<br />
++<br />
++&amp;emac {</p>
+
+<ul>
+<li>phy-handle = &lt;&amp;int_mii_phy>;</li>
+<li>phy-mode = "mii";</li>
+<li>allwinner,leds-active-low;</li>
+<li>status = "okay";<br />
++};<br />
+~~~~</li>
+</ul>
+
+<p>~~~~ {.sourceCode .bash}<br />
+diff --git a/arch/arm/boot/dts/sun8i-v3s.dtsi b/arch/arm/boot/dts/sun8i-v3s.dtsi<br />
+index 7107596..65be2ab 100644<br />
+--- a/arch/arm/boot/dts/sun8i-v3s.dtsi<br />
++++ b/arch/arm/boot/dts/sun8i-v3s.dtsi<br />
+@@ -40,7 +40,10 @@</p>
+
+<ul>
+<li>OTHER DEALINGS IN THE SOFTWARE.<br />
+*/</li>
+</ul>
+
+<p>+#include <dt-bindings/clock/sun8i-v3s-ccu.h><br />
++#include <dt-bindings/reset/sun8i-v3s-ccu.h></p>
+
+<h1 id="include-dt-bindingsinterrupt-controllerarm-gich">include <dt-bindings/interrupt-controller/arm-gic.h></h1>
+
+<p>+#include <dt-bindings/pinctrl/sun4i-a10.h></p>
+
+<p>/ {<br />
+        #address-cells = &lt;1>;<br />
+@@ -93,6 +96,12 @@<br />
+                #size-cells = &lt;1>;<br />
+                ranges;</p>
+
+<ul>
+<li>syscon: syscon@1c00000 {</li>
+<li>compatible = "allwinner,sun8i-h3-system-controller",</li>
+<li>"syscon";</li>
+<li>reg = &lt;0x01c00000 0x1000>;</li>
+<li><p>};<br />
++<br />
+            mmc0: mmc@01c0f000 {<br />
+                    compatible = "allwinner,sun7i-a20-mmc";<br />
+                    reg = &lt;0x01c0f000 0x1000>;<br />
+@@ -205,6 +214,17 @@<br />
+                    interrupt-controller;<br />
+                    #interrupt-cells = &lt;3>;</p></li>
+<li><p>emac_rgmii_pins: emac0@0 {</p></li>
+<li>allwinner,pins = "PD0", "PD1", "PD2", "PD3",</li>
+<li>"PD4", "PD5", "PD7",</li>
+<li>"PD8", "PD9", "PD10",</li>
+<li>"PD12", "PD13", "PD15",</li>
+<li>"PD16", "PD17";</li>
+<li>allwinner,function = "emac";</li>
+<li>allwinner,drive = <SUN4I_PINCTRL_40_MA>;</li>
+<li>allwinner,pull = <SUN4I_PINCTRL_NO_PULL>;</li>
+<li><p>};<br />
++<br />
+                    i2c0_pins: i2c0 {<br />
+                            pins = "PB6", "PB7";<br />
+                            function = "i2c0";<br />
+@@ -295,6 +315,31 @@<br />
+                    #size-cells = &lt;0>;<br />
+            };</p></li>
+<li><p>emac: ethernet@1c30000 {</p></li>
+<li>compatible = "allwinner,sun8i-h3-emac";</li>
+<li>syscon = &lt;&amp;syscon>;</li>
+<li>reg = &lt;0x01c30000 0x104>;</li>
+<li>interrupts = <GIC_SPI 82 IRQ_TYPE_LEVEL_HIGH>;</li>
+<li>interrupt-names = "macirq";</li>
+<li>resets = &lt;&amp;ccu RST_BUS_EMAC>;</li>
+<li>reset-names = "stmmaceth";</li>
+<li>clocks = &lt;&amp;ccu CLK_BUS_EMAC>;</li>
+<li>clock-names = "stmmaceth";</li>
+<li>#address-cells = &lt;1>;</li>
+<li>#size-cells = &lt;0>;</li>
+<li>status = "disabled";<br />
++</li>
+<li>mdio: mdio {</li>
+<li>#address-cells = &lt;1>;</li>
+<li>#size-cells = &lt;0>;</li>
+<li>int_mii_phy: ethernet-phy@0 {</li>
+<li>compatible = "ethernet-phy-ieee802.3-c22";</li>
+<li>reg = &lt;1>;</li>
+<li>clocks = &lt;&amp;ccu CLK_BUS_EPHY>;</li>
+<li>resets = &lt;&amp;ccu RST_BUS_EPHY>;</li>
+<li>};</li>
+<li>};</li>
+<li><p>};<br />
+            gic: interrupt-controller@01c81000 {<br />
+                    compatible = "arm,cortex-a7-gic", "arm,cortex-a15-gic";<br />
+                    reg = &lt;0x01c81000 0x1000>,<br />
+~~~~</p></li>
+<li><p>进入内核目录：</p></li>
+</ul>
+
+<p><strike>~~ {.sourceCode .bash}<br />
+$ make sunxi_defconfig ARCH=arm<br />
+$ make menuconfig ARCH=arm<br />
+~</strike>~</p>
+
+<p><img src="https://box.kancloud.cn/49566fbdf9bdafecf00d32984956e0bd_972x582.png" alt="" /></p>
+
+<blockquote>
+  <p>width<br />
+  :   500px</p>
+  
+  <p>align<br />
+  :   center</p>
+  
+  <ul>
+  <li>选择 <strong>Device Drivers ---></strong></li>
+  </ul>
+</blockquote>
+
+<p><img src="https://box.kancloud.cn/f2f193f4fe0609e120d1d2863135b6d5_972x582.png" alt="" /></p>
+
+<blockquote>
+  <p>width<br />
+  :   500px</p>
+  
+  <p>align<br />
+  :   center</p>
+  
+  <ul>
+  <li>选择 <strong>Network device support ---></strong></li>
+  </ul>
+</blockquote>
+
+<p><img src="https://box.kancloud.cn/c167d76a317803d860fe4f27e76331ae_972x582.png" alt="" /></p>
+
+<blockquote>
+  <p>width<br />
+  :   500px</p>
+  
+  <p>align<br />
+  :   center</p>
+  
+  <ul>
+  <li>选择 <strong>Ethernet driver support ---></strong></li>
+  </ul>
+</blockquote>
+
+<p><img src="https://box.kancloud.cn/d11a354dbc48c1ea12d6a30c69e5b668_972x582.png" alt="" /></p>
+
+<blockquote>
+  <p>width<br />
+  :   500px</p>
+  
+  <p>align<br />
+  :   center</p>
+  
+  <ul>
+  <li>选中 <strong>Allwinner sun8i EMAC support</strong> 和 <strong>Use dwmac-sun8i<br />
+  bindings</strong></li>
+  </ul>
+</blockquote>
+
+<p><img src="https://box.kancloud.cn/5b505c36e4f002099b88e65f9682b8d0_972x582.png" alt="" /></p>
+
+<blockquote>
+  <p>width<br />
+  :   500px</p>
+  
+  <p>align<br />
+  :   center</p>
+  
+  <ul>
+  <li>编译</li>
+  </ul>
+</blockquote>
+
+<pre><code>&gt; `$ make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf-`
+</code></pre>
+
+<p>得到 zImage 和 sun8i-v3s-licheepi-zero.dtb</p>
+
+<ul>
+<li>烧写</li>
+</ul>
+
+<p>将内核、dtb、rootfs刷入sd卡中，启动：</p>
+
+<blockquote>
+  <p><code>$ ifup eth0</code></p>
+</blockquote>
+
+<p><img src="https://box.kancloud.cn/d7b86a2a5f8686786fb155528c0d09d0_1465x250.png" alt="" /></p>
+
+<blockquote>
+  <p>align<br />
+  :   center</p>
+  
+  <p>eth0启动成功！</p>
+</blockquote>
+
+<p><img src="https://box.kancloud.cn/8f807f27c88c2bff281629f8e7874398_1802x264.png" alt="" /></p>
+
+<blockquote>
+  <p>align<br />
+  :   center</p>
+  
+  <p><strong>Ethernet驱动适配成功！</strong></p>
+</blockquote>
+
+                        </div>
+                    </div>
+                    <div id="previous_next">
+                        <div id="previous">
+                            
+                        </div>
+                        <div id="next">
+                            
+                        </div>
+                    </div>
+                </div>
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a id="to_top" href="#"></a>
+        <div id="doc_footer">
+                        
+            <div id="footer">
+                <div id="footer_top">
+                    <ul>
+<li><a>链接</a><ul><li><a target="_blank" href="https://www.sipeed.com">Sipeed</a></li>
+<li><a target="_blank" href="https://bbs.sipeed.com/">BBS 论坛</a></li>
+<li><a target="_blank" href="https://maixhub.sipeed.com/">Maixhub</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">Sipeed 淘宝</a></li>
+<li><a target="_blank" href="https://github.com/neutree/teedoc">使用 teedoc 构建</a></li>
+</ul>
+</li>
+<li><a>网站统计</a><ul><li><a target="_blank" href="https://tongji.baidu.com/web/welcome/ico?s=9cb07365544a53067c56c346c838181a">百度统计</a></li>
+<li><a  href="/sitemap.xml">网站地图</a></li>
+</ul>
+</li>
+<li><a>源码</a><ul><li><a target="_blank" href="https://github.com/sipeed/sipeed_wiki">文档源文件</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">开源项目源码</a></li>
+</ul>
+</li>
+<li><a>关注我们</a><ul><li><a target="_blank" href="https://github.com/sipeed">github</a></li>
+<li><a target="_blank" href="https://twitter.com/SipeedIO">twitter</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">淘宝</a></li>
+<li><a  href="/social_group.html">更多</a></li>
+</ul>
+</li>
+<li><a>联系我们</a><ul><li><a>电话: +86 0755-27808509</a>
+</li>
+<li><a>商业支持: support@sipeed.com</a>
+</li>
+<li><a>地址: 深圳市宝安区新湖路华美居B区1号楼713-715</a>
+</li>
+<li><a  href="/join_us.html">加入我们</a></li>
+</ul>
+</li>
+</ul>
+
+                </div>
+                <div id="footer_bottom">
+                    <ul>
+<li><a target="_blank" href="https://www.sipeed.com">©2018-2021 深圳矽速科技有限公司</a></li>
+<li><a target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index">粤ICP备19015433号-1</a></li>
+</ul>
+
+                </div>
+            </div>
+                    </div>
+</body>
+<script src="/static/js/theme_default/tocbot.min.js"></script>
+<script src="/static/js/theme_default/main.js"></script>
+<script src="/static/css/theme_default/prism.min.js"></script>
+<script src="/static/js/custom.js"></script>
+<script src="/static/js/search/search_main.js"></script>
+<script type="text/javascript" src="/static/js/live.js"></script>
+</html>

@@ -22,9 +22,9 @@ desc: maixpy doc: 使用串口工具
 
 ### Windows
 
-Windows 常用的串口终端软件有 [putty](https://www.putty.org/)，[mobaxterm](https://mobaxterm.mobatek.net/)，[xshell](https://xshell.en.softonic.com/) 等工具
+Windows 常用的串口终端软件有 [putty](https://www.putty.org/)，[mobaxterm](https://mobaxterm.mobatek.net/)，[xshell](https://xshell.en.softonic.com/)，[mpfshell-lite](./mpfshell-lite/mpfshell-lite.md) 等工具
 
-- Putty
+#### Putty
 
 然后选择串口模式， 然后设置串口和波特率，打开串口。
 
@@ -38,12 +38,15 @@ Windows 常用的串口终端软件有 [putty](https://www.putty.org/)，[mobaxt
 
 > 上图来源： [laurentopia 的上手教程](https://github.com/laurentopia/Learning-AI/wiki/MaixPy)
 
-- Mobaxterm
+#### Mobaxterm
 
 [MobaXterm](https://mobaxterm.mobatek.net/) 是 Windows 下一款非常好用的多功能终端软件（当然也包括串口终端）
 
 ![Mobaxterm](../../assets/get_started/mobaxterm_serail_port.png)
 ![Mobaxterm](../../assets/get_started/mobaxterm.png)
+
+#### mpfshell-lite
+[mpfshell-lite](./mpfshell-lite/mpfshell-lite.md)是一款体积迷你，功能齐全的 MicroPython 管理工具，可以对flash、sd卡的文件进行管理，也可以进行micropython的编写。
 
 
 ### Linux

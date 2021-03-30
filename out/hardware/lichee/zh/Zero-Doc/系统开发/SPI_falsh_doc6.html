@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html  class="md_page">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="">
+    <meta name="description" content="[]">
+    <meta name="generator" content="teedoc">
+    <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        <link rel="stylesheet" href="/static/css/theme_default/prism.min.css" type="text/css"/>
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?9cb07365544a53067c56c346c838181a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <title>关于系统reboot - Sipeed Wiki</title>
+</head>
+<body>
+    
+            <div id="navbar">
+                <div id="navbar_menu">
+                    <a class="site_title" href="/"><img class="site_logo" src="/static/image/logo.svg" alt="sipeed wiki logo"><h2>wiki</h2></a>
+                    <a id="navbar_menu_btn"></a>
+                </div>
+                <div id="navbar_items">
+                    <div>
+                        <ul id="nav_left">
+<li class=""><a  href="/">首页</a></li>
+<li class=""><a target="_blank" href="https://www.sipeed.com">矽速官网</a></li>
+<li class="sub_items "><a>开源软件</a><ul><li class=""><a  href="/soft/maixpy/zh/index.html">Maixpy</a></li>
+<li class=""><a  href="/soft/maixpy3/zh/">Maixpy3</a></li>
+<li class=""><a  href="/licheeos/zh/">Lichee OS</a></li>
+<li class=""><a  href="/LonganOS/zh/">Longan OS</a></li>
+<li class=""><a  href="/TangOs/zh/">Tang OS</a></li>
+</ul>
+</li>
+<li class="sub_items active_parent"><a>开源硬件</a><ul><li class=""><a  href="/hardware/maix/zh/">Maix</a></li>
+<li class=""><a  href="/hardware/maixII/zh/">Maix II</a></li>
+<li class=""><a  href="/hardware/maixIII/zh/">Maix III</a></li>
+<li class=""><a  href="/hardware/maixIV/zh/">Maix IV</a></li>
+<li class="active"><a  href="/hardware/lichee/zh/">Lichee Pi</a></li>
+<li class=""><a  href="/hardware/tang/zh/">Tang</a></li>
+<li class=""><a  href="/hardware/longan/zh/">Longan</a></li>
+</ul>
+</li>
+<li class="sub_items "><a>商业产品</a><ul><li class=""><a  href="/hardware/maixface/zh/">Maix Face</a></li>
+</ul>
+</li>
+<li class="sub_items "><a>云平台</a><ul><li class=""><a target="_blank" href="https://www.maixhub.com">Maixhub 模型训练平台</a></li>
+<li class=""><a target="_blank" href="https://www.maixhub.com/onlinecompiler">固件在线编译</a></li>
+</ul>
+</li>
+<li class=""><a  href="/community.html">社区</a></li>
+<li class=""><a  href="https://shop365481095.taobao.com/?spm=a230r.7195193.1997079397.2.8384341c2zZ5uZ">商城</a></li>
+</ul>
+
+                    </div>
+                    <div>
+                        <ul id="nav_right">
+<li class="sub_items "><a  href="">Language: </a><ul><li class=""><a  href="/">中文</a></li>
+<li class=""><a  href="/en/">English</a></li>
+</ul></li>
+</ul>
+
+                        <ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">输入关键词，多关键词空格隔开</span>
+                                <span id="search_loading_hint">正在加载，请稍候。。。</span>
+                                <span id="search_download_err_hint">下载文件失败，请刷新重试或检查网络</span>
+                                <span id="search_other_docs_result_hint">来自其它文档的结果</span>
+                                <span id="search_curr_doc_result_hint">当前文档搜索结果</span>
+                            </div></a></li></ul>
+                    </div>
+                </div>
+            </div>
+    
+        <div id="wrapper">
+            
+            <div id="sidebar_wrapper">
+                <div id="sidebar">
+                    <div id="sidebar_title">
+                        
+                    </div>
+                    <ul class="">
+<li class="not_active no_link"><a><span class="label">LicheePi</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">简介</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">LicheePI Nano</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/index.html"><span class="label">简介</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">上手体验</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/./Nano-Doc-Backup/get_started/first_eye.html"><span class="label">初见</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/get_started/first_eat.html"><span class="label">前言</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">系统适配篇</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/build_sys/build_index.html"><span class="label">总述</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/build_sys/onekey.html"><span class="label">镜像包一键烧录</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/build_sys/docker.html"><span class="label">docker快速搭建环境</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/build_sys/bootargs.html"><span class="label">uboot传递参数</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/build_sys/kernel.html"><span class="label">主线linux编译</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/build_sys/devicetree.html"><span class="label">设备树添加节点</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/build_sys/rootfs.html"><span class="label">根文件系统编译</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/build_sys/build_flash.html"><span class="label">SPI-Flash系统编译</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">驱动开发</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/driver/touchscreen.html"><span class="label">电容触摸屏适配</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">从挖坑到填坑</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/step_by_step/one_openbox.html"><span class="label">开箱介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/step_by_step/two_sunxi-tools.html"><span class="label">编译使用sunxi-tools</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/step_by_step/three_uboot.html"><span class="label">编译使用uboot</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/step_by_step/four_linux.html"><span class="label">编译测试linux</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">应用开发</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/application/littlevgl.html"><span class="label">littlevGL的使用</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">奉献投稿</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/contribution/introduction.html"><span class="label">前言</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/contribution/todolist.html"><span class="label">Todolist</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/contribution/task_tips.html"><span class="label">快餐任务相关小事项</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/contribution/doc_tips.html"><span class="label">文档任务相关小事项</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/contribution/build_doc.html"><span class="label">文档构建</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">LicheePI Zero</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">初来乍到</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/Start/intro_cn.html"><span class="label">荔枝派与创作者的自我介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/Start/tips.html"><span class="label">Linux使用小贴士</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/Start/board_intro.html"><span class="label">认识zero的硬件</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/Start/docker_index.html"><span class="label">Docker环境简明教程</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/Start/docker_env.html"><span class="label">Docker开发环境</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/Start/docker_command.html"><span class="label">Docker命令速查</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/Start/docker_ubuntu.html"><span class="label">基础ubuntu系统配置</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/System_Development/type.html"><span class="label">Zero的开发环境分类</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">主线Uboot</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/System_Development/uboot_build.html"><span class="label">Uboot 编译</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/System_Development/uboot_conf.html"><span class="label">Uboot 配置</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/System_Development/uboot_logo.html"><span class="label">开机logo替换</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">主线Kernel</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/System_Development/kernel_build.html"><span class="label">主线Kernel基础编译</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/System_Development/kernel_printk.html"><span class="label">内核printk等级设置</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">BSP内核编译</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/System_Development/bsp_build.html"><span class="label">BSP源码下载与编译</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/System_Development/bsp_review.html"><span class="label"> BSP内核构建走读</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/System_Development/bsp_cam.html"><span class="label">BSP内核的摄像头使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/System_Development/bsp_mem.html"><span class="label">bsp内核中的保留内存</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">根文件系统编译</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+                </div>
+            </div>
+            <div id="menu_wrapper">
+                                    <div id="menu">
+                                    </div>
+                                </div>
+            <div id="article">
+                <div id="content_wrapper">
+                    <div id="content_body">
+                        <div id="article_head">
+                            <div id="article_title">
+                                <h1>关于系统reboot</h1>
+                            </div>
+                            <div id="article_tags">
+                                <ul></ul>
+                            </div>
+                            <div id="article_info">
+                            <div>
+                                <span class="article_author"></span><span class="article_date"></span>
+                            </div>
+                            <div>
+                                
+                            </div>
+                            </div>
+                        </div>
+                        <div id="article_content">
+                            <p>在使用spi flash时，执行reboot命令，有时会无法重启，这里追查下原因。</p>
+
+<h1 id="-1">正常重启信息</h1>
+
+<pre><code># reboot 
+# Stopping network: OK
+Saving random seed--- done.
+Stopping logging: OK
+umount: devtmpfs busy - remounted read-only
+[   16.812893] EXT4-fs (mmcblk0p2): re-mounted. Opts: (null)
+Sent SIGTERM to all processes
+Sent SIGKILL to all processes
+Requesting system reboot
+[   18.830716] reboot: Restarting system
+</code></pre>
+
+<p><strike>~~ {.sourceCode .c}<br />
+void kernel_restart(char *cmd)<br />
+{<br />
+        kernel_restart_prepare(cmd);<br />
+        migrate_to_reboot_cpu();<br />
+        syscore_shutdown();<br />
+        if (!cmd)<br />
+                pr_emerg("Restarting system\n");<br />
+        else<br />
+                pr_emerg("Restarting system with command '%s'\n", cmd);<br />
+        kmsg_dump(KMSG_DUMP_RESTART);<br />
+        machine_restart(cmd);<br />
+}<br />
+~</strike>~</p>
+
+<p>arch/arm/kernel/setup.c: <code>arm_pm_restart = mdesc-&gt;restart;</code></p>
+
+<h1 id="-2">重启失败</h1>
+
+<p>~~~~ {.sourceCode .c}<br />
+void machine_restart(char *cmd)<br />
+{<br />
+        local_irq_disable();<br />
+        smp_send_stop();</p>
+
+<pre><code>    if (arm_pm_restart)
+            arm_pm_restart(reboot_mode, cmd);
+    else    
+            do_kernel_restart(cmd);
+    //正常来说不会走到这里
+    /* Give a grace period for failure to restart of 1s */
+    mdelay(1000);
+
+    /* Whoops - the platform was unable to reboot. Tell the user! */
+    printk("Reboot failed -- System halted\n");
+    while (1);
+</code></pre>
+
+<p>}<br />
+~~~~</p>
+
+<p><strike>~~ {.sourceCode .c}<br />
+void do_kernel_restart(char *cmd)<br />
+{<br />
+        atomic_notifier_call_chain(&amp;restart_handler_list, reboot_mode, cmd);<br />
+}<br />
+register_restart_handler<br />
+~</strike>~</p>
+
+<p><strike>~~ {.sourceCode .c}<br />
+int atomic_notifier_call_chain(struct atomic_notifier_head *nh,<br />
+                unsigned long val, void *v)<br />
+{<br />
+    return __atomic_notifier_call_chain(nh, val, v, -1, NULL);<br />
+}<br />
+~</strike>~</p>
+
+<p>spi flash问题</p>
+
+<pre><code>[  312.719945] INFO: trying to register non-static key.
+[  312.724967] the code is fine but needs lockdep annotation.
+[  312.730448] turning off the locking correctness validator.
+[  312.735943] CPU: 0 PID: 162 Comm: sync Not tainted 4.13.0-licheepi-zero+ #55
+[  312.742981] Hardware name: Allwinner sun8i Family
+[  312.747734] [&lt;c010e8a8&gt;] (unwind_backtrace) from [&lt;c010b594&gt;] (show_stack+0x10/0x14)
+[  312.755483] [&lt;c010b594&gt;] (show_stack) from [&lt;c048ec4c&gt;] (dump_stack+0x84/0x98)
+[  312.762711] [&lt;c048ec4c&gt;] (dump_stack) from [&lt;c015e698&gt;] (register_lock_class+0x3f8/0x624)
+[  312.770886] [&lt;c015e698&gt;] (register_lock_class) from [&lt;c015fb0c&gt;] (__lock_acquire.constprop.7+0x60/0x954)
+[  312.780358] [&lt;c015fb0c&gt;] (__lock_acquire.constprop.7) from [&lt;c0160468&gt;] (lock_acquire+0x68/0x84)
+[  312.789143] [&lt;c0160468&gt;] (lock_acquire) from [&lt;c0132498&gt;] (flush_work+0x50/0x290)
+[  312.796624] [&lt;c0132498&gt;] (flush_work) from [&lt;c0133f00&gt;] (__cancel_work_timer+0xec/0x1c4)
+[  312.804722] [&lt;c0133f00&gt;] (__cancel_work_timer) from [&lt;c028d1b4&gt;] (jffs2_sync_fs+0x14/0x38)
+[  312.812995] [&lt;c028d1b4&gt;] (jffs2_sync_fs) from [&lt;c0207e30&gt;] (iterate_supers+0xc0/0x120)
+[  312.820912] [&lt;c0207e30&gt;] (iterate_supers) from [&lt;c0233708&gt;] (sys_sync+0x44/0xa4)
+[  312.828310] [&lt;c0233708&gt;] (sys_sync) from [&lt;c0107620&gt;] (ret_fast_syscall+0x0/0x3c)
+</code></pre>
+
+<p>~~~~ {.sourceCode .c}<br />
+static int jffs2_sync_fs(struct super_block *sb, int wait)<br />
+{<br />
+        struct jffs2_sb_info *c = JFFS2_SB_INFO(sb);</p>
+
+<h1 id="ifdef-config_jffs2_fs_writebuffer">ifdef CONFIG_JFFS2_FS_WRITEBUFFER</h1>
+
+<pre><code>    cancel_delayed_work_sync(&amp;c-&gt;wbuf_dwork);
+</code></pre>
+
+<h1 id="endif">endif</h1>
+
+<pre><code>    mutex_lock(&amp;c-&gt;alloc_sem);
+    jffs2_flush_wbuf_pad(c);
+    mutex_unlock(&amp;c-&gt;alloc_sem);
+    return 0;
+</code></pre>
+
+<p>}</p>
+
+<p>bool cancel_delayed_work_sync(struct delayed_work *dwork)<br />
+{<br />
+    return __cancel_work_timer(&amp;dwork->work, true);<br />
+}<br />
+EXPORT_SYMBOL(cancel_delayed_work_sync);<br />
+~~~~</p>
+
+<p><em>CONFIG_JFFS2_FS_WRITEBUFFER</em> 去掉，可以不出现oops信息</p>
+
+<h1 id="-3">原因</h1>
+
+<p>是使用了32M<br />
+flash，在重启的时候，没有退出4-byte地址模式导致。（因为板子上没有PMU，没有对flash进行复位）</p>
+
+<p>~~~~ {.sourceCode .c}<br />
+static void spi_nor_set_4byte_opcodes(struct spi_nor <em>nor,<br />
+                                    const struct flash_info *info)<br />
+{<br />
+        /</em> Do some manufacturer fixups first <em>/<br />
+        switch (JEDEC_MFR(info)) {<br />
+        case SNOR_MFR_SPANSION:<br />
+                /</em> No small sector erase for 4-byte command set */<br />
+                nor->erase_opcode = SPINOR_OP_SE;<br />
+                nor->mtd.erasesize = info->sector_size;<br />
+                break;</p>
+
+<pre><code>    default:
+            break;
+    }
+
+    nor-&gt;read_opcode = spi_nor_convert_3to4_read(nor-&gt;read_opcode);
+    nor-&gt;program_opcode = spi_nor_convert_3to4_program(nor-&gt;program_opcode);
+    nor-&gt;erase_opcode = spi_nor_convert_3to4_erase(nor-&gt;erase_opcode);
+</code></pre>
+
+<p>}</p>
+
+<p>/* Enable/disable 4-byte addressing mode. */<br />
+static inline int set_4byte(struct spi_nor *nor, const struct flash_info *info,<br />
+                            int enable)<br />
+{<br />
+        int status;<br />
+        bool need_wren = false;<br />
+        u8 cmd;</p>
+
+<pre><code>    switch (JEDEC_MFR(info)) {
+    case SNOR_MFR_MICRON:
+            /* Some Micron need WREN command; all will accept it */
+            need_wren = true;
+    case SNOR_MFR_MACRONIX:
+    case SNOR_MFR_WINBOND:
+            if (need_wren)
+                    write_enable(nor);   //nor-&gt;write_reg(nor, SPINOR_OP_WREN, NULL, 0);
+
+            cmd = enable ? SPINOR_OP_EN4B : SPINOR_OP_EX4B;
+            status = nor-&gt;write_reg(nor, cmd, NULL, 0);
+            if (need_wren)
+                    write_disable(nor);
+
+            return status;
+    default:
+            /* Spansion style */
+            nor-&gt;cmd_buf[0] = enable &lt;&lt; 7;
+            return nor-&gt;write_reg(nor, SPINOR_OP_BRWR, nor-&gt;cmd_buf, 1);
+    }
+</code></pre>
+
+<p>}<br />
+~~~~</p>
+
+<p><strike>~~ {.sourceCode .c}<br />
+struct m25p {<br />
+        struct spi_device       *spi;<br />
+        struct spi_nor          spi_nor;<br />
+        u8                      command[MAX_CMD_SIZE];<br />
+};<br />
+~</strike>~</p>
+
+<p>~~~~ {.sourceCode .c}<br />
+static int m25p_remove(struct spi_device *spi)<br />
+{<br />
+        struct m25p     *flash = spi_get_drvdata(spi);<br />
+//add to exit 4-byte address mode</p>
+
+<pre><code>    /* Clean up MTD stuff. */
+    return mtd_device_unregister(&amp;flash-&gt;spi_nor.mtd);
+</code></pre>
+
+<p>}<br />
+~~~~</p>
+
+<h1 id="-4">新增关机接口</h1>
+
+<p><strike>~~ {.sourceCode .c}<br />
+static void m25p_shutdown(struct spi_device <em>spi)<br />
+{<br />
+        struct m25p     *flash = spi_get_drvdata(spi);<br />
+        struct spi_nor nor = flash->spi_nor;<br />
+int status;<br />
+//add to exit 4-byte address mode<br />
+nor.write_reg(&amp;nor, SPINOR_OP_WREN, NULL, 0);<br />
+status = nor.write_reg(&amp;nor, SPINOR_OP_EX4B, NULL, 0);<br />
+printk("remove spi flash!\n");<br />
+        /</em> Clean up MTD stuff. */<br />
+        mtd_device_unregister(&amp;flash->spi_nor.mtd);<br />
+        return;<br />
+}<br />
+~</strike>~</p>
+
+<p><strike>~~ {.sourceCode .c}<br />
+static struct spi_driver m25p80_driver = {<br />
+        .driver = {<br />
+                .name   = "m25p80",<br />
+                .of_match_table = m25p_of_table,<br />
+        },<br />
+        .id_table       = m25p_ids,<br />
+        .probe  = m25p_probe,<br />
+        .remove = m25p_remove,<br />
+        .shutdown = m25p_shutdown,<br />
+        /* REVISIT: many of these chips have deep power-down modes, which<br />
+        * should clearly be entered on suspend() to minimize power use.<br />
+        * And also when they're otherwise idle---<br />
+        */<br />
+};<br />
+~</strike>~</p>
+
+<p><strong>CONFIG_SPI_FLASH_BAR</strong></p>
+
+<h1 id="-5">参考资料</h1>
+
+<p><a href="http://www.wowotech.net/linux_kenrel/reboot.html">http://www.wowotech.net/linux_kenrel/reboot.html</a></p>
+
+<blockquote>
+  <p><a href="http://blog.csdn.net/manfeel/article/details/43530817">http://blog.csdn.net/manfeel/article/details/43530817</a></p>
+</blockquote>
+
+                        </div>
+                    </div>
+                    <div id="previous_next">
+                        <div id="previous">
+                            
+                        </div>
+                        <div id="next">
+                            
+                        </div>
+                    </div>
+                </div>
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a id="to_top" href="#"></a>
+        <div id="doc_footer">
+                        
+            <div id="footer">
+                <div id="footer_top">
+                    <ul>
+<li><a>链接</a><ul><li><a target="_blank" href="https://www.sipeed.com">Sipeed</a></li>
+<li><a target="_blank" href="https://bbs.sipeed.com/">BBS 论坛</a></li>
+<li><a target="_blank" href="https://maixhub.sipeed.com/">Maixhub</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">Sipeed 淘宝</a></li>
+<li><a target="_blank" href="https://github.com/neutree/teedoc">使用 teedoc 构建</a></li>
+</ul>
+</li>
+<li><a>网站统计</a><ul><li><a target="_blank" href="https://tongji.baidu.com/web/welcome/ico?s=9cb07365544a53067c56c346c838181a">百度统计</a></li>
+<li><a  href="/sitemap.xml">网站地图</a></li>
+</ul>
+</li>
+<li><a>源码</a><ul><li><a target="_blank" href="https://github.com/sipeed/sipeed_wiki">文档源文件</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">开源项目源码</a></li>
+</ul>
+</li>
+<li><a>关注我们</a><ul><li><a target="_blank" href="https://github.com/sipeed">github</a></li>
+<li><a target="_blank" href="https://twitter.com/SipeedIO">twitter</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">淘宝</a></li>
+<li><a  href="/social_group.html">更多</a></li>
+</ul>
+</li>
+<li><a>联系我们</a><ul><li><a>电话: +86 0755-27808509</a>
+</li>
+<li><a>商业支持: support@sipeed.com</a>
+</li>
+<li><a>地址: 深圳市宝安区新湖路华美居B区1号楼713-715</a>
+</li>
+<li><a  href="/join_us.html">加入我们</a></li>
+</ul>
+</li>
+</ul>
+
+                </div>
+                <div id="footer_bottom">
+                    <ul>
+<li><a target="_blank" href="https://www.sipeed.com">©2018-2021 深圳矽速科技有限公司</a></li>
+<li><a target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index">粤ICP备19015433号-1</a></li>
+</ul>
+
+                </div>
+            </div>
+                    </div>
+</body>
+<script src="/static/js/theme_default/tocbot.min.js"></script>
+<script src="/static/js/theme_default/main.js"></script>
+<script src="/static/css/theme_default/prism.min.js"></script>
+<script src="/static/js/custom.js"></script>
+<script src="/static/js/search/search_main.js"></script>
+<script type="text/javascript" src="/static/js/live.js"></script>
+</html>

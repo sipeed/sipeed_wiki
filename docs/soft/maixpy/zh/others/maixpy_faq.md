@@ -207,3 +207,6 @@ kflash_gui 配置选项
   - 烧录空间选错
 - 波特率&下载速度模式
   - 下载波特率过高
+
+## 出现type object 'board_info' has no attribute 'XX'
+请看[开发板配置文件](./../get_started/board_info.md),对开发板进行重新配置
