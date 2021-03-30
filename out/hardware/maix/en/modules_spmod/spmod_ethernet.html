@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html  class="md_page">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="">
+    <meta name="description" content="[]">
+    <meta name="generator" content="teedoc">
+    <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        <link rel="stylesheet" href="/static/css/theme_default/prism.min.css" type="text/css"/>
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?9cb07365544a53067c56c346c838181a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <title>Sipeed Wiki</title>
+</head>
+<body>
+    
+            <div id="navbar">
+                <div id="navbar_menu">
+                    <a class="site_title" href="/"><img class="site_logo" src="/static/image/logo.svg" alt="sipeed wiki logo"><h2>wiki</h2></a>
+                    <a id="navbar_menu_btn"></a>
+                </div>
+                <div id="navbar_items">
+                    <div>
+                        <ul id="nav_left">
+<li class=""><a  href="/">Home</a></li>
+<li class=""><a target="_blank" href="https://www.sipeed.com">Sipeed</a></li>
+<li class="sub_items "><a>software</a><ul><li class=""><a  href="https://maixpy.sipeed.com/maixpy/zh/">Maixpy</a></li>
+<li class=""><a  href="https://maixpy.sipeed.com/maixpy3/zh/">Maixpy3</a></li>
+<li class=""><a  href="/licheeos/zh/">Lichee OS</a></li>
+</ul>
+</li>
+<li class="sub_items "><a>Hardware</a><ul><li class=""><a  href="/hardware/maix/zh/">Maix</a></li>
+<li class=""><a  href="/hardware/maixii/zh/">Maix II</a></li>
+<li class=""><a  href="/hardware/lichee/zh/">Lichee Pi</a></li>
+<li class=""><a  href="/hardware/tang/zh/">Tang</a></li>
+<li class=""><a  href="/hardware/longan/zh/">Longan</a></li>
+</ul>
+</li>
+<li class="sub_items "><a>Commercial products</a><ul><li class=""><a  href="/hardware/maixface/zh/">Maix Face</a></li>
+</ul>
+</li>
+<li class="sub_items "><a>Platform</a><ul><li class=""><a target="_blank" href="https://www.maixhub.com">Maixhub model training platform</a></li>
+<li class=""><a target="_blank" href="https://www.maixhub.com/compile">Firmware online compile</a></li>
+</ul>
+</li>
+<li class="sub_items "><a>Community</a><ul><li class=""><a target="_blank" href="https://github.com/sipeed">github</a></li>
+<li class=""><a target="_blank" href="https://bbs.sipeed.com">BBS</a></li>
+<li class=""><a  href="/social_group.html">IM groups</a></li>
+<li class=""><a  href="/social_others.html">Others</a></li>
+</ul>
+</li>
+<li class=""><a  href="/store.html">Store</a></li>
+</ul>
+
+                    </div>
+                    <div>
+                        <ul id="nav_right">
+<li class="sub_items "><a  href="">Language: </a><ul><li class=""><a  href="/">中文</a></li>
+<li class=""><a  href="/en/">English</a></li>
+</ul></li>
+</ul>
+
+                        <ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">Search</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">Keywords separated by space</span>
+                                <span id="search_loading_hint">Loading, wait please ...</span>
+                                <span id="search_download_err_hint">Download error, please check network and refresh again</span>
+                                <span id="search_other_docs_result_hint">Result from other docs</span>
+                                <span id="search_curr_doc_result_hint">Result from current doc</span>
+                            </div></a></li></ul>
+                    </div>
+                </div>
+            </div>
+    
+        <div id="wrapper">
+            
+            <div id="sidebar_wrapper">
+                <div id="sidebar">
+                    <div id="sidebar_title">
+                        
+                    </div>
+                    <ul class="">
+<li class="not_active with_link"><a href="/hardware/maix/en/index.html"><span class="label">Sipeed Hardware</span><span class=""></span></a></li>
+</ul>
+
+                </div>
+            </div>
+            <div id="menu_wrapper">
+                                    <div id="menu">
+                                    </div>
+                                </div>
+            <div id="article">
+                <div id="content_wrapper">
+                    <div id="content_body">
+                        <div id="article_head">
+                            <div id="article_title">
+                                <h1></h1>
+                            </div>
+                            <div id="article_tags">
+                                <ul></ul>
+                            </div>
+                            <div id="article_info">
+                            <div>
+                                <span class="article_author"></span><span class="article_date"></span>
+                            </div>
+                            <div>
+                                
+                            </div>
+                            </div>
+                        </div>
+                        <div id="article_content">
+                            <h1 id="spmod-ethernet">SPMOD - Ethernet</h1>
+
+<h2 id="overview">Overview</h2>
+
+<p><img src="../../assets/spmod/spmod_ethernet/sp_ethernet.png" align="right" width="" height="500" /></p>
+
+<p>SPMOD_Ethernet(Ethernet module) uses W5500 chip.</p>
+
+<h2 id="spmod-ethernet-introduction">SPMOD - Ethernet Introduction</h2>
+
+<ul>
+<li>Using <strong>Sipeed-SPMOD</strong> interface(2.54mm * 8PIN )，unified MaixPy board interface</li>
+<li>Connect to the board through the SP-MOD SPI interface</li>
+<li>Master chip:The W5500 chip is a Hardwired TCP/IP embedded Ethernet controller</li>
+<li>The theoretical SPI design speed is 80MHz</li>
+<li>10BaseT/100BaseTX Ethernet PHY embedded, Supports Auto Negotiation (Full and half duplex, 10 and 100-based )</li>
+<li>Size:35.76*19.74*8.7mm</li>
+</ul>
+
+<h3 id="w5500-chip-introduction">W5500 chip Introduction</h3>
+
+<table>
+<thead>
+<tr>
+  <th>Features:</th>
+  <th>---</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Supply voltage of external power supply</td>
+  <td>2.97V~3.63V</td>
+</tr>
+<tr>
+  <td>Supply current of external power supply</td>
+  <td>&lt;132mA</td>
+</tr>
+<tr>
+  <td>Range of working temperature</td>
+  <td>-40℃~85℃</td>
+</tr>
+<tr>
+  <td>Sleep Status of Current</td>
+  <td>&lt;15mA</td>
+</tr>
+<tr>
+  <td>SPI Clock</td>
+  <td>The theoretical design speed is 80MHz</td>
+</tr>
+<tr>
+  <td>TCP/IP protocol</td>
+  <td>Support TCP,UDP,ICMP,IPv4,ARP,IGMP,PPPoE protocols</td>
+</tr>
+</tbody>
+</table>
+
+<blockquote>
+  <ul>
+  <li>Supports 8 independent sockets simultaneously<br />
+  ,Internal 32Kbytes Memory for TX/RX Buffers<br />
+  ,Supports Wake on LAN over UDP<br />
+  ,10BaseT/100BaseTX Ethernet PHY embedded<br />
+  ,Support Auto Negotiation (Full and half duplex, 10 and 100-based )<br />
+  ,Not support auto-MDIX feature</li>
+  </ul>
+</blockquote>
+
+<h3 id="spmod_ethernet-pin-description">SPMOD_Ethernet pin description:</h3>
+
+<table>
+<thead>
+<tr>
+  <th>Pin</th>
+  <th>Name</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>1</td>
+  <td>GND</td>
+  <td>G</td>
+  <td>Ground</td>
+</tr>
+<tr>
+  <td>2</td>
+  <td>CS</td>
+  <td>I</td>
+  <td>Chip Select input pin</td>
+</tr>
+<tr>
+  <td>3</td>
+  <td>SO</td>
+  <td>I/0</td>
+  <td>Master In Slave Out</td>
+</tr>
+<tr>
+  <td>4</td>
+  <td>NC</td>
+  <td>NC</td>
+  <td>Not connected</td>
+</tr>
+<tr>
+  <td>5</td>
+  <td>3V3</td>
+  <td>V</td>
+  <td>Power supply(3.3V)</td>
+</tr>
+<tr>
+  <td>6</td>
+  <td>SCK</td>
+  <td>I</td>
+  <td>SPI clock pin</td>
+</tr>
+<tr>
+  <td>7</td>
+  <td>SI</td>
+  <td>I/0</td>
+  <td>Master Out Slave In</td>
+</tr>
+<tr>
+  <td>8</td>
+  <td>NC</td>
+  <td>NC</td>
+  <td>Not connected</td>
+</tr>
+</tbody>
+</table>
+
+<p><img src="" width="300" /></p>
+
+<h2 id="usage">Usage</h2>
+
+<ul>
+<li>待更新</li>
+</ul>
+
+<h2 id="outlook">Outlook</h2>
+
+<ul>
+<li>SPMOD_Ethernet Size drawing:</li>
+</ul>
+
+<p><img src="../../assets/spmod/spmod_ethernet/sipeed_spmod_ethernet.png" height="250" /></p>
+
+<hr />
+
+<h2 id="resource-link">Resource Link</h2>
+
+<table>
+<thead>
+<tr>
+  <th>Resource</th>
+  <th>---</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Website</td>
+  <td>www.sipeed.com</td>
+</tr>
+<tr>
+  <td>Github</td>
+  <td><a href="https://github.com/sipeed">https://github.com/sipeed</a></td>
+</tr>
+<tr>
+  <td>BBS</td>
+  <td><a href="http://bbs.sipeed.com">http://bbs.sipeed.com</a></td>
+</tr>
+<tr>
+  <td>Wiki</td>
+  <td><a href="http://maixpy.sipeed.com">http://maixpy.sipeed.com</a></td>
+</tr>
+<tr>
+  <td>Sipeed model shop</td>
+  <td><a href="https://maixhub.com/">https://maixhub.com/</a></td>
+</tr>
+<tr>
+  <td>SDK Relevant information</td>
+  <td><a href="dl.sipeed.com/MAIX/SDK">dl.sipeed.com/MAIX/SDK</a></td>
+</tr>
+<tr>
+  <td>HDK Relevant information</td>
+  <td><a href="dl.sipeed.com/MAIX/HDK">dl.sipeed.com/MAIX/HDK</a></td>
+</tr>
+<tr>
+  <td>E-mail(Technical Support and Business Cooperation)</td>
+  <td><a href="mailto:support@sipeed.com">Support@sipeed.com</a></td>
+</tr>
+<tr>
+  <td>telgram link</td>
+  <td><a href="https://t.me/sipeed">https://t.me/sipeed</a></td>
+</tr>
+</tbody>
+</table>
+
+                        </div>
+                    </div>
+                    <div id="previous_next">
+                        <div id="previous">
+                            
+                        </div>
+                        <div id="next">
+                            
+                        </div>
+                    </div>
+                </div>
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a id="to_top" href="#"></a>
+        <div id="doc_footer">
+                        
+            <div id="footer">
+                <div id="footer_top">
+                    <ul>
+<li><a>Links</a><ul><li><a target="_blank" href="https://www.sipeed.com">Sipeed</a></li>
+<li><a target="_blank" href="https://bbs.sipeed.com/">BBS</a></li>
+<li><a target="_blank" href="https://maixhub.sipeed.com/">Maixhub</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">Sipeed Taobao</a></li>
+<li><a target="_blank" href="https://github.com/neutree/teedoc">Site build with teedoc</a></li>
+</ul>
+</li>
+<li><a>Site and analytics</a><ul><li><a target="_blank" href="https://tongji.baidu.com/web/welcome/ico?s=9cb07365544a53067c56c346c838181a">Baidu analytics</a></li>
+<li><a  href="/sitemap.xml">Sitemap</a></li>
+</ul>
+</li>
+<li><a>Source code</a><ul><li><a target="_blank" href="https://github.com/sipeed/sipeed_wiki">Wiki source code</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">Open source projects</a></li>
+</ul>
+</li>
+<li><a>Fllow us</a><ul><li><a target="_blank" href="https://github.com/sipeed">github</a></li>
+<li><a target="_blank" href="https://twitter.com/SipeedIO">twitter</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">Taobao store</a></li>
+<li><a  href="/social_group.html">More</a></li>
+</ul>
+</li>
+<li><a>Contact</a><ul><li><a>Phone: +86 0755-27808509</a>
+</li>
+<li><a>Commercial support: support@sipeed.com</a>
+</li>
+<li><a>Address: 深圳市宝安区新湖路华美居B区1号楼713-715</a>
+</li>
+<li><a  href="/join_us.html">Join us</a></li>
+</ul>
+</li>
+</ul>
+
+                </div>
+                <div id="footer_bottom">
+                    <ul>
+<li><a target="_blank" href="https://www.sipeed.com">©2018-2021 Sipeed Ltd</a></li>
+<li><a target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index">粤ICP备19015433号-1</a></li>
+</ul>
+
+                </div>
+            </div>
+                    </div>
+</body>
+<script src="/static/js/theme_default/tocbot.min.js"></script>
+<script src="/static/js/theme_default/main.js"></script>
+<script src="/static/css/theme_default/prism.min.js"></script>
+<script src="/static/js/custom.js"></script>
+<script src="/static/js/search/search_main.js"></script>
+<script type="text/javascript" src="/static/js/live.js"></script>
+</html>

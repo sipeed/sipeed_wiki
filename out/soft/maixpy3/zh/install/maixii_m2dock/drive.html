@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html  class="language_zh">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="MaixII, MaixPy3, Python, Python3, M2dock">
+    <meta name="description" content="maixpy doc: 安装 USB 串口驱动">
+    <meta name="generator" content="teedoc">
+    <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        <link rel="stylesheet" href="/static/css/theme_default/prism.min.css" type="text/css"/>
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?9cb07365544a53067c56c346c838181a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <title>安装 USB 串口驱动 - Sipeed Wiki</title>
+</head>
+<body>
+    
+            <div id="navbar">
+                <div id="navbar_menu">
+                    <a class="site_title" href="/"><img class="site_logo" src="/static/image/logo.svg" alt="sipeed wiki logo"><h2>wiki</h2></a>
+                    <a id="navbar_menu_btn"></a>
+                </div>
+                <div id="navbar_items">
+                    <div>
+                        <ul id="nav_left">
+<li class=""><a  href="/">首页</a></li>
+<li class=""><a target="_blank" href="https://www.sipeed.com">矽速官网</a></li>
+<li class="sub_items active_parent"><a>开源软件</a><ul><li class=""><a  href="/soft/maixpy/zh/index.html">Maixpy</a></li>
+<li class="active"><a  href="/soft/maixpy3/zh/">Maixpy3</a></li>
+<li class=""><a  href="/licheeos/zh/">Lichee OS</a></li>
+<li class=""><a  href="/LonganOS/zh/">Longan OS</a></li>
+<li class=""><a  href="/TangOs/zh/">Tang OS</a></li>
+</ul>
+</li>
+<li class="sub_items "><a>开源硬件</a><ul><li class=""><a  href="/hardware/maix/zh/">Maix</a></li>
+<li class=""><a  href="/hardware/maixII/zh/">Maix II</a></li>
+<li class=""><a  href="/hardware/maixIII/zh/">Maix III</a></li>
+<li class=""><a  href="/hardware/maixIV/zh/">Maix IV</a></li>
+<li class=""><a  href="/hardware/lichee/zh/">Lichee Pi</a></li>
+<li class=""><a  href="/hardware/tang/zh/">Tang</a></li>
+<li class=""><a  href="/hardware/longan/zh/">Longan</a></li>
+</ul>
+</li>
+<li class="sub_items "><a>商业产品</a><ul><li class=""><a  href="/hardware/maixface/zh/">Maix Face</a></li>
+</ul>
+</li>
+<li class="sub_items "><a>云平台</a><ul><li class=""><a target="_blank" href="https://www.maixhub.com">Maixhub 模型训练平台</a></li>
+<li class=""><a target="_blank" href="https://www.maixhub.com/onlinecompiler">固件在线编译</a></li>
+</ul>
+</li>
+<li class=""><a  href="/community.html">社区</a></li>
+<li class=""><a  href="https://shop365481095.taobao.com/?spm=a230r.7195193.1997079397.2.8384341c2zZ5uZ">商城</a></li>
+</ul>
+
+                    </div>
+                    <div>
+                        <ul id="nav_right">
+<li class="sub_items "><a  href="">Language: </a><ul><li class=""><a  href="/maixpy3/zh/">中文</a></li>
+<li class=""><a  href="/maixpy3/en/">English</a></li>
+</ul></li>
+</ul>
+
+                        <ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">输入关键词，多关键词空格隔开</span>
+                                <span id="search_loading_hint">正在加载，请稍候。。。</span>
+                                <span id="search_download_err_hint">下载文件失败，请刷新重试或检查网络</span>
+                                <span id="search_other_docs_result_hint">来自其它文档的结果</span>
+                                <span id="search_curr_doc_result_hint">当前文档搜索结果</span>
+                            </div></a></li></ul>
+                    </div>
+                </div>
+            </div>
+    
+        <div id="wrapper">
+            
+            <div id="sidebar_wrapper">
+                <div id="sidebar">
+                    <div id="sidebar_title">
+                        
+                    </div>
+                    <ul class="show">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/index.html"><span class="label">什么是 MaixPy3 ？</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/origin/python.html"><span class="label">什么是 Python 编程语言？</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/origin/difference.html"><span class="label">MaixPy 与 MaixPy3 的区别</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">新手上路</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/guide/project.html"><span class="label">项目使用说明</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/guide/feedback.html"><span class="label">如何反馈问题</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/guide/participate.html"><span class="label">如何参与项目</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="active_parent with_link"><a href="/soft/maixpy3/zh/install/index.html"><span class="label">如何安装 MaixPy3 </span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/install/linux_x86_64/index.html"><span class="label">Linux x86_64</span><span class=""></span></a></li>
+<li class="active_parent with_link"><a href="/soft/maixpy3/zh/install/maixii_m2dock/index.html"><span class="label">MaixII M2dock</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/install/maixii_m2dock/introduce.html"><span class="label">芯片平台介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/install/maixii_m2dock/resources.html"><span class="label">板级资源介绍</span><span class=""></span></a></li>
+<li class="active_parent with_link"><a href="/soft/maixpy3/zh/install/maixii_m2dock/verify.html"><span class="label">产品开箱验证</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/install/maixii_m2dock/flash.html"><span class="label">烧录系统</span><span class=""></span></a></li>
+<li class="active with_link"><a href="/soft/maixpy3/zh/install/maixii_m2dock/drive.html"><span class="label">访问串口</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/install/maixii_m2dock/config.html"><span class="label">配置系统</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/install/maixii_m2dock/usage.html"><span class="label">上手使用</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">除此之外？</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/install/others/develop.html"><span class="label">MaixPy3开发文档</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/install/others/platform.html"><span class="label">如何适配更多产品</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/install/others/platform/develop_linux_x86_64.html"><span class="label">linux_x86_64</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/install/others/platform/develop_v831.html"><span class="label">v831</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/install/others/platform/develop_rv1126.html"><span class="label">rv1126</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/install/others/product.html"><span class="label">如何提交你的产品</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">常用的开发工具</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/tools/mobaxterm.html"><span class="label">MobaXterm</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/tools/jupyter.html"><span class="label">Jupyter</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/tools/vscode.html"><span class="label">VSCode</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/tools/pyqt_rtsp.html"><span class="label">pyqt_rtsp</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/index.html"><span class="label">一些使用案例</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/00_hello_world.html"><span class="label">[00] 你好，世界。</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/01_loop_python.html"><span class="label">[01] 写好 Python 代码</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/02_blink_led.html"><span class="label">[02] 闪烁 LED 吧！</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/03_key_led.html"><span class="label">[03] 按下按键开关灯</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/04_display_screen.html"><span class="label">[04] 把图片显示到屏幕</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/05_camera_capture.html"><span class="label">[05] 捕获摄像头一帧图片</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/06_training_model.html"><span class="label">[06] 训练 AI 模型</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/07_verify_model.html"><span class="label">[07] 输入图像验证模型</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">内置模块说明</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Maix 模块</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/module/maix/display.html"><span class="label">display</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/module/maix/camera.html"><span class="label">camera</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/module/maix/rpycs.html"><span class="label">rpycs</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Linux 模块</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/module/linux/gpio.html"><span class="label">GPIO</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/module/linux/i2c.html"><span class="label">I2C</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/module/linux/spi.html"><span class="label">SPI</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/module/linux/input.html"><span class="label">Iuput</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/module/linux/pwm.html"><span class="label">PWM</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/module/linux/uart.html"><span class="label">UART</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/module/linux/bluetooth.html"><span class="label">Bluetooth</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/module/linux/audio.html"><span class="label">Audio</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/module/linux/usb.html"><span class="label">USB</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">C 扩展模块</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">libmaix</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/module/ext/_maix.html"><span class="label">_maix</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/module/ext/_maix_display.html"><span class="label">_maix_display</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/module/ext/_maix_camera.html"><span class="label">_maix_camera</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/module/ext/_maix_nn.html"><span class="label">_maix_nn</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/module/ext/libi2c.html"><span class="label">libi2c</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="https://docs.python.org/3/library/" ><span class="label">Python3 标准库</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">常见问题</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/question/how_to_ask.html"><span class="label">如何提交你的问题?</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/question/driver_issue.html"><span class="label">驱动安装 常见问题集合</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/question/jupyter_issue.html"><span class="label">Jupyter 常见问题集合</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/question/maixpy3_issue.html"><span class="label">MaixPy3 常见问题集合</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+
+                </div>
+            </div>
+            <div id="menu_wrapper">
+                                    <div id="menu">
+                                    </div>
+                                </div>
+            <div id="article">
+                <div id="content_wrapper">
+                    <div id="content_body">
+                        <div id="article_head">
+                            <div id="article_title">
+                                <h1>安装 USB 串口驱动</h1>
+                            </div>
+                            <div id="article_tags">
+                                <ul></ul>
+                            </div>
+                            <div id="article_info">
+                            <div>
+                                <span class="article_author"></span><span class="article_date"></span>
+                            </div>
+                            <div>
+                                
+                            </div>
+                            </div>
+                        </div>
+                        <div id="article_content">
+                            <blockquote>
+  <p>请将 USB 口插入到 USB UART 口从而获得串口。</p>
+</blockquote>
+
+<h2 id="linux-macos">Linux &amp; macOS</h2>
+
+<p>Linux &amp; macOS 系统自带驱动不需要安装，使用 <code>ls /dev/ttyUSB*</code> 即可看到设备号。</p>
+
+<pre><code class="bash language-bash">juwan@juwan-N85-N870HL:~$ ls /dev/ttyUSB*
+/dev/ttyUSB0  /dev/ttyUSB1
+juwan@juwan-N85-N870HL:~$ 
+</code></pre>
+
+<h2 id="windows">Windows</h2>
+
+<blockquote>
+  <p>不想手动安装就去下载安装<a href="http://www.drivergenius.com/">驱动精灵</a>自动完成串口驱动安装。</p>
+</blockquote>
+
+<p>开发板使用 <code>GD32</code> 模拟 <code>FT2232</code>，<code>Windows</code> 用户需要安装 <code>FT2232</code> 的串口驱动。</p>
+
+<ul>
+<li>USB 串口驱动: <strong>FT2232</strong> -><a href="https://dl.sipeed.com/MAIX/tools/ftdi_vcp_driver">[下载链接点这里](https://dl.sipeed.com/MAIX/tools/ftdi_vcp_driver)</a></li>
+</ul>
+
+<p>在拿到开发板并连接到电脑的时候, 可以打开设备管理器查看串口驱动是否已经安装,打开设备管理器的方法有:</p>
+
+<ul>
+<li>此电脑(右键) -> 属性 -> 设备管理器</li>
+<li>开始菜单(右键) -> 设备管理器</li>
+<li>控制面板 -> (搜索)设备管理器</li>
+</ul>
+
+<p><img src="../../assets/get_started/win_device_1.png" height="400"></p>
+
+<h3 id="windows-10-win7win8-usb">当我们的系统是 Windows 10 系统,系统则会帮我们自动安装驱动，而如果是旧版 Win7，win8 系统，我们就需要自己手动安装 USB 驱动:</h3>
+
+<p><img src="../../assets/get_started/win_device_2.png" alt="" /></p>
+
+<h3 id="-1">打开上一节的的链接下载驱动</h3>
+
+<p><img src="../../assets/get_started/win_device_3.png" alt="" /></p>
+
+<h3 id="-2">点击安装</h3>
+
+<p><img src="../../assets/get_started/drives.gif" alt="" /></p>
+
+<h3 id="-3">安装完成之后,可以在设备管理器看到已经识别到两个串口设备了(其中只有一个串口可用)</h3>
+
+<p><img src="../../assets/get_started/win_device_4.png" alt="" /></p>
+
+<h2 id="-4"><strong>注意！如果只看到一个串口</strong></h2>
+
+<p><img src="../../assets/get_started/only_one_serial.png" alt="" /></p>
+
+<p>在设备管理器中对该 USB 设备勾选 VCP 选项。</p>
+
+<p><img src="../../assets/get_started/load_vcp.png" alt="" /></p>
+
+<h2 id="usb">关于 USB 串口的疑难杂症排查</h2>
+
+<p>如果安装驱动后仍然没有看到串口，请按如下顺序排查硬件问题。</p>
+
+<ul>
+<li>插入电脑，是否存在叮咚一声，如插入 U 盘时USB 驱动加载的声音，没有表示硬件上的串口芯片出问题了。</li>
+<li>更换线材重试，更换电脑 USB 口重试，仍然加载不出来，更换电脑确认。</li>
+</ul>
+
+<p>如果没有办法烧录固件，请按如下顺序排查硬件问题。</p>
+
+<ul>
+<li>使用串口工具设置 115200 波特率连接串口查看硬件当中是否有返回数据，按复位键（RST）接收到芯片的数据，不管是什么数据都表示串口芯片工作正常，如果没有数据则表示硬件异常。</li>
+<li>如果到这里了，还是不能解决问题，则硬件确实存在缺陷，可能是芯片程序上出了问题。</li>
+</ul>
+
+                        </div>
+                    </div>
+                    <div id="previous_next">
+                        <div id="previous">
+                            <a href="/soft/maixpy3/zh/install/maixii_m2dock/flash.html"><span class="icon"></span><span class="label">烧录系统</span></a>
+                        </div>
+                        <div id="next">
+                            <a href="/soft/maixpy3/zh/install/maixii_m2dock/config.html"><span class="label">配置系统</span><span class="icon"></span></a>
+                        </div>
+                    </div>
+                </div>
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a id="to_top" href="#"></a>
+        <div id="doc_footer">
+                        
+            <div id="footer">
+                <div id="footer_top">
+                    <ul>
+<li><a>链接</a><ul><li><a target="_blank" href="https://www.sipeed.com">Sipeed</a></li>
+<li><a target="_blank" href="https://bbs.sipeed.com/">BBS 论坛</a></li>
+<li><a target="_blank" href="https://maixhub.sipeed.com/">Maixhub</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">Sipeed 淘宝</a></li>
+<li><a target="_blank" href="https://github.com/neutree/teedoc">使用 teedoc 构建</a></li>
+</ul>
+</li>
+<li><a>网站统计</a><ul><li><a target="_blank" href="https://tongji.baidu.com/web/welcome/ico?s=9cb07365544a53067c56c346c838181a">百度统计</a></li>
+<li><a  href="/sitemap.xml">网站地图</a></li>
+</ul>
+</li>
+<li><a>源码</a><ul><li><a target="_blank" href="https://github.com/sipeed/sipeed_wiki">文档源文件</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">开源项目源码</a></li>
+</ul>
+</li>
+<li><a>关注我们</a><ul><li><a target="_blank" href="https://github.com/sipeed">github</a></li>
+<li><a target="_blank" href="https://twitter.com/SipeedIO">twitter</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">淘宝</a></li>
+<li><a  href="/social_group.html">更多</a></li>
+</ul>
+</li>
+<li><a>联系我们</a><ul><li><a>电话: +86 0755-27808509</a>
+</li>
+<li><a>商业支持: support@sipeed.com</a>
+</li>
+<li><a>地址: 深圳市宝安区新湖路华美居B区1号楼713-715</a>
+</li>
+<li><a  href="/join_us.html">加入我们</a></li>
+</ul>
+</li>
+</ul>
+
+                </div>
+                <div id="footer_bottom">
+                    <ul>
+<li><a target="_blank" href="https://www.sipeed.com">©2018-2021 深圳矽速科技有限公司</a></li>
+<li><a target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index">粤ICP备19015433号-1</a></li>
+</ul>
+
+                </div>
+            </div>
+                    </div>
+</body>
+<script src="/static/js/theme_default/tocbot.min.js"></script>
+<script src="/static/js/theme_default/main.js"></script>
+<script src="/static/css/theme_default/prism.min.js"></script>
+<script src="/static/js/custom.js"></script>
+<script src="/static/js/search/search_main.js"></script>
+<script type="text/javascript" src="/static/js/live.js"></script>
+</html>

@@ -52,14 +52,9 @@ SP_Weather 气象模块拥有两颗传感器, 磁性传感器 QMC7983, 这是一
 
 2. 运行: 连接模块, 修改[示例代码](https://github.com/sipeed/MaixPy_scripts/tree/master/modules/spmod/sp_weather)中 config 包围的配置, 运行后可看到终端打印的磁性传感器和气压温湿度传感器数据
 
-程序如下:
+输出结果如下:
 
 ```python
-weather=SPWEATHER(i2c=i2c_bus) # create sp_weather
-while 1:
-    time.sleep_ms(500)
-    print(weather.qmc_read_xyz) # QMC7983 read data
-    print(weather.bme_values) # BME280 read data
 
 '''output
 >>> I2C devices:[44, 118]

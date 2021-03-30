@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html  class="md_page">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="">
+    <meta name="description" content="[]">
+    <meta name="generator" content="teedoc">
+    <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        <link rel="stylesheet" href="/static/css/theme_default/prism.min.css" type="text/css"/>
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?9cb07365544a53067c56c346c838181a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <title>JFFS2文件系统简介 - Sipeed Wiki</title>
+</head>
+<body>
+    
+            <div id="navbar">
+                <div id="navbar_menu">
+                    <a class="site_title" href="/"><img class="site_logo" src="/static/image/logo.svg" alt="sipeed wiki logo"><h2>wiki</h2></a>
+                    <a id="navbar_menu_btn"></a>
+                </div>
+                <div id="navbar_items">
+                    <div>
+                        <ul id="nav_left">
+<li class=""><a  href="/">首页</a></li>
+<li class=""><a target="_blank" href="https://www.sipeed.com">矽速官网</a></li>
+<li class="sub_items "><a>开源软件</a><ul><li class=""><a  href="/soft/maixpy/zh/index.html">Maixpy</a></li>
+<li class=""><a  href="/soft/maixpy3/zh/">Maixpy3</a></li>
+<li class=""><a  href="/licheeos/zh/">Lichee OS</a></li>
+<li class=""><a  href="/LonganOS/zh/">Longan OS</a></li>
+<li class=""><a  href="/TangOs/zh/">Tang OS</a></li>
+</ul>
+</li>
+<li class="sub_items active_parent"><a>开源硬件</a><ul><li class=""><a  href="/hardware/maix/zh/">Maix</a></li>
+<li class=""><a  href="/hardware/maixII/zh/">Maix II</a></li>
+<li class=""><a  href="/hardware/maixIII/zh/">Maix III</a></li>
+<li class=""><a  href="/hardware/maixIV/zh/">Maix IV</a></li>
+<li class="active"><a  href="/hardware/lichee/zh/">Lichee Pi</a></li>
+<li class=""><a  href="/hardware/tang/zh/">Tang</a></li>
+<li class=""><a  href="/hardware/longan/zh/">Longan</a></li>
+</ul>
+</li>
+<li class="sub_items "><a>商业产品</a><ul><li class=""><a  href="/hardware/maixface/zh/">Maix Face</a></li>
+</ul>
+</li>
+<li class="sub_items "><a>云平台</a><ul><li class=""><a target="_blank" href="https://www.maixhub.com">Maixhub 模型训练平台</a></li>
+<li class=""><a target="_blank" href="https://www.maixhub.com/onlinecompiler">固件在线编译</a></li>
+</ul>
+</li>
+<li class=""><a  href="/community.html">社区</a></li>
+<li class=""><a  href="https://shop365481095.taobao.com/?spm=a230r.7195193.1997079397.2.8384341c2zZ5uZ">商城</a></li>
+</ul>
+
+                    </div>
+                    <div>
+                        <ul id="nav_right">
+<li class="sub_items "><a  href="">Language: </a><ul><li class=""><a  href="/">中文</a></li>
+<li class=""><a  href="/en/">English</a></li>
+</ul></li>
+</ul>
+
+                        <ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">输入关键词，多关键词空格隔开</span>
+                                <span id="search_loading_hint">正在加载，请稍候。。。</span>
+                                <span id="search_download_err_hint">下载文件失败，请刷新重试或检查网络</span>
+                                <span id="search_other_docs_result_hint">来自其它文档的结果</span>
+                                <span id="search_curr_doc_result_hint">当前文档搜索结果</span>
+                            </div></a></li></ul>
+                    </div>
+                </div>
+            </div>
+    
+        <div id="wrapper">
+            
+            <div id="sidebar_wrapper">
+                <div id="sidebar">
+                    <div id="sidebar_title">
+                        
+                    </div>
+                    <ul class="">
+<li class="not_active no_link"><a><span class="label">LicheePi</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">简介</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">LicheePI Nano</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/index.html"><span class="label">简介</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">上手体验</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/./Nano-Doc-Backup/get_started/first_eye.html"><span class="label">初见</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/get_started/first_eat.html"><span class="label">前言</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">系统适配篇</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/build_sys/build_index.html"><span class="label">总述</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/build_sys/onekey.html"><span class="label">镜像包一键烧录</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/build_sys/docker.html"><span class="label">docker快速搭建环境</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/build_sys/bootargs.html"><span class="label">uboot传递参数</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/build_sys/kernel.html"><span class="label">主线linux编译</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/build_sys/devicetree.html"><span class="label">设备树添加节点</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/build_sys/rootfs.html"><span class="label">根文件系统编译</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/build_sys/build_flash.html"><span class="label">SPI-Flash系统编译</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">驱动开发</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/driver/touchscreen.html"><span class="label">电容触摸屏适配</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">从挖坑到填坑</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/step_by_step/one_openbox.html"><span class="label">开箱介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/step_by_step/two_sunxi-tools.html"><span class="label">编译使用sunxi-tools</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/step_by_step/three_uboot.html"><span class="label">编译使用uboot</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/step_by_step/four_linux.html"><span class="label">编译测试linux</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">应用开发</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/application/littlevgl.html"><span class="label">littlevGL的使用</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">奉献投稿</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/contribution/introduction.html"><span class="label">前言</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/contribution/todolist.html"><span class="label">Todolist</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/contribution/task_tips.html"><span class="label">快餐任务相关小事项</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/contribution/doc_tips.html"><span class="label">文档任务相关小事项</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/contribution/build_doc.html"><span class="label">文档构建</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">LicheePI Zero</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">初来乍到</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/Start/intro_cn.html"><span class="label">荔枝派与创作者的自我介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/Start/tips.html"><span class="label">Linux使用小贴士</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/Start/board_intro.html"><span class="label">认识zero的硬件</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/Start/docker_index.html"><span class="label">Docker环境简明教程</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/Start/docker_env.html"><span class="label">Docker开发环境</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/Start/docker_command.html"><span class="label">Docker命令速查</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/Start/docker_ubuntu.html"><span class="label">基础ubuntu系统配置</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/System_Development/type.html"><span class="label">Zero的开发环境分类</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">主线Uboot</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/System_Development/uboot_build.html"><span class="label">Uboot 编译</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/System_Development/uboot_conf.html"><span class="label">Uboot 配置</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/System_Development/uboot_logo.html"><span class="label">开机logo替换</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">主线Kernel</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/System_Development/kernel_build.html"><span class="label">主线Kernel基础编译</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/System_Development/kernel_printk.html"><span class="label">内核printk等级设置</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">BSP内核编译</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/System_Development/bsp_build.html"><span class="label">BSP源码下载与编译</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/System_Development/bsp_review.html"><span class="label"> BSP内核构建走读</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/System_Development/bsp_cam.html"><span class="label">BSP内核的摄像头使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/System_Development/bsp_mem.html"><span class="label">bsp内核中的保留内存</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">根文件系统编译</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+                </div>
+            </div>
+            <div id="menu_wrapper">
+                                    <div id="menu">
+                                    </div>
+                                </div>
+            <div id="article">
+                <div id="content_wrapper">
+                    <div id="content_body">
+                        <div id="article_head">
+                            <div id="article_title">
+                                <h1>JFFS2文件系统简介</h1>
+                            </div>
+                            <div id="article_tags">
+                                <ul></ul>
+                            </div>
+                            <div id="article_info">
+                            <div>
+                                <span class="article_author"></span><span class="article_date"></span>
+                            </div>
+                            <div>
+                                
+                            </div>
+                            </div>
+                        </div>
+                        <div id="article_content">
+                            <p>JFFS2 是一个日志结构(log-structured)的文件系统，包含数据 和<br />
+原数据(meta-data)的节点在闪存上顺序的存储。</p>
+
+<p>JFFS2 之所以选择日志结构的存储方式，是因为对闪存的更新应该是<br />
+out-of-place 的更新方式，而不是对磁盘的 in-place 的更新方式。在闪存上<br />
+in-place 更新方式的问题我们已经在闪存转换层一节描述过了。</p>
+
+<h1 id="jffs2">JFFS2介绍</h1>
+
+<h2 id="-1">节点头部定义和兼容性</h2>
+
+<p>JFFS2<br />
+将文件系统的数据和原数据以节点的形式存储在闪存上，具体来说节点头部的定义如下：</p>
+
+<p><img src="http://www.ibm.com/developerworks/cn/linux/l-jffs2/images/image002.gif" alt="" /></p>
+
+<blockquote>
+  <p>align<br />
+  :   center</p>
+  
+  <p>width<br />
+  :   500px</p>
+  
+  <ul>
+  <li>幻数屏蔽位：0x1985 用来标识 JFFS2 文件系统。</li>
+  <li>节点类型：JFFS2<br />
+  自身定义了三种节点类型，但是考虑到文件系统可扩展性和兼容性，JFFS2从<br />
+  ext2<br />
+  借鉴了经验，节点类型的最高两位被用来定义节点的兼容属性，具体来说有下面几种兼容属性：</li>
+  </ul>
+</blockquote>
+
+<pre><code>&gt; JFFS2\_FEATURE\_INCOMPAT：当 JFFS2
+&gt; 发现了一个不能识别的节点类型，并且它的兼容属性是
+&gt; JFFS2\_FEATURE\_INCOMPAT，那么 JFFS2
+&gt; 必须拒绝挂载(mount)文件系统。\
+&gt; JFFS2\_FEATURE\_ROCOMPAT：当 JFFS2
+&gt; 发现了一个不能识别的节点类型，并且它的兼容属性是
+&gt; JFFS2\_FEATURE\_ROCOMPAT，那么 JFFS2
+&gt; 必须以只读的方式挂载文件系统。\
+&gt; JFFS2\_FEATURE\_RWCOMPAT\_DELETE：当 JFFS2
+&gt; 发现了一个不能识别的节点类型，并且它的兼容属性是
+&gt; JFFS2\_FEATURE\_RWCOMPAT\_DELETE，那么在垃圾回收的时候，这个节点可以被删除。
+&gt;
+&gt; JFFS2\_FEATURE\_RWCOMPAT\_COPY：当 JFFS2
+&gt; 发现了一个不能识别的节点类型，并且它的兼容属性是
+&gt; JFFS2\_FEATURE\_RWCOMPAT\_COPY，那么在垃圾回收的时候，这个节点要被拷贝到新的位置。
+</code></pre>
+
+<ul>
+<li>节点总长度：包括节点头和数据的长度。</li>
+<li>节点头部 CRC<br />
+校验：包含节点头部的校验码，为文件系统的可靠性提供了支持。</li>
+</ul>
+
+<h2 id="-2">节点类型</h2>
+
+<p>JFFS2 定义了三种节点类型：</p>
+
+<p>JFFS2_NODETYPE_INODE： INODE<br />
+节点包含了i-节点的原数据(i节点号，文件的组 ID, 属主 id,<br />
+访问时间，偏移，长度等)，文件数据被附在 INODE 节点之后。除此之外，每个<br />
+INODE 节点还有一个版本号，它被用来维护属于一个i-节点的所有 INODE<br />
+节点的全序关系。下面举例来说明这个全序关系在 JFFS2 的使用：</p>
+
+<p><img src="http://www.ibm.com/developerworks/cn/linux/l-jffs2/images/image003.gif" alt="" /></p>
+
+<blockquote>
+  <p>align<br />
+  :   center</p>
+  
+  <p>width<br />
+  :   500px</p>
+  
+  <p>因此，当文件系统从闪存上读节点信息后，会生成下面的映射信息：</p>
+</blockquote>
+
+<p><img src="http://www.ibm.com/developerworks/cn/linux/l-jffs2/images/image004.gif" alt="" /></p>
+
+<blockquote>
+  <p>align<br />
+  :   center</p>
+  
+  <p>width<br />
+  :   500px</p>
+  
+  <p>根据这个映射信息表，文件系统就知道到相应的 INODE<br />
+  节点去读取相应的文件内容。最后要说明的是，JFFS2<br />
+  支持文件数据的压缩存储，因此在 INODE<br />
+  节点中还包含了所使用的压缩算法，在读取数据的时候选择相应的压缩算法来解压缩。<br />
+  JFFS2_NODETYPE_DIRENT：DIRENT 节点就是把文件名与 i 节点对应起来。在<br />
+  DIRENT节点中也有一个版本号，这个版本号的作用主要是用来删除一个<br />
+  dentry。具体来说，当我们要从一个目录中删除一个 dentry 时，我们要写一个<br />
+  DIRENT 节点，节点中的文件名与被删除的 dentry 中的文件名相同，i<br />
+  节点号置为 0，同时设置一个更高的版本号。<br />
+  JFFS2_NODETYPE_CLEANMARKER：当一个擦写块被擦写完毕后，CLEANMARKER<br />
+  节点会被写在 NOR flash 的开头，或 NAND flash 的 OOB(Out-Of-Band)<br />
+  区域来表明这是一个干净，可写的擦写块。在 JFFS v1 中，如果扫描到开头的 1K<br />
+  都是 0xFF<br />
+  就认为这个擦写块是干净的。但是在实际的测试中发现，如果在擦写的过程中突然掉电，擦写块上也可能会有大块连续<br />
+  0xFF，但是这并不表明这个擦写块是干净的。于是我们需要 CLEANMARKER<br />
+  节点来确切的标识一个干净的擦写块。</p>
+</blockquote>
+
+<h2 id="jffs2-2">JFFS2节点，擦写块在内存中的表示和操作</h2>
+
+<p>JFFS2<br />
+维护了几个链表来管理擦写块，根据擦写块上的内容，一个擦写块会在不同的链表上。具体来说，当一个擦写块上都是合法(valid)的节点时，它会在<br />
+clean_list 上；当一个擦写块包含至少一个过时(obsolete)的节点时，它会在<br />
+dirty_list 上；当一个擦写块被擦写完毕，并被写入 CLEANMARKER<br />
+节点后，它会在 free_list 上。</p>
+
+<p>通常情况下，JFFS2<br />
+顺序的在擦写块上写入不同的节点，直到一个擦写块被写满。此时 JFFS2 从<br />
+free_list 上取下一个擦写块，继续从擦写块的开头开始写入节点。当<br />
+free_list<br />
+上擦写块的数量逐渐减少到一个预先设定的阀值的时候，垃圾回收就被触发了，为文件系统清理出更多的可用擦写块。为了减少对内存的占用，JFFS2<br />
+并没有把 i<br />
+节点所有的信息都保留在内存中，而只是把那些在请求到来时不能很快获得的信息保留在内存中。具体来说，对于在闪存上的每个<br />
+i 节点，在内存里都有一个 struct jffs2_inode_cache<br />
+与之对应，这个结构里保存了 i 节点号，指向 i<br />
+节点的连接数，以及一个指向属于这个 i 节点的物理节点链表的指针。所有的<br />
+struct jffs2_inode_cache<br />
+存储在一个哈希表中。闪存上的每个节点在内存中由一个 struct<br />
+jffs2_raw_node_ref<br />
+表示，这个结构里保存了此节点的物理偏移，总长度，以及两个指向 struct<br />
+jffs2_raw_node_ref<br />
+的指针。一个指针指向此节点在物理擦写块上的下一个节点，另一个指针指向属于同一个<br />
+i-节点的物理节点链表的下一个节点。</p>
+
+<p><img src="http://www.ibm.com/developerworks/cn/linux/l-jffs2/images/image006.gif" alt="" /></p>
+
+<blockquote>
+  <p>align<br />
+  :   center</p>
+  
+  <p>width<br />
+  :   500px</p>
+  
+  <p>在闪存上的节点的起始偏移都是 4 字节对齐的，所以 struct<br />
+  jffs2_inode_cache 中flash_offset 的最低两位没有被用到。JFFS2<br />
+  正好利用最低位作为此节点是否过时的标记。</p>
+</blockquote>
+
+<p>下面举一例来说明 JFFS2 是如何使用这些数据结构的。VFS 调用 iget()<br />
+来得到一个 i 节点的信息，当这个 i 节点不在缓存中的时候，VFS 就会调用<br />
+JFFS2 的 read_inode() 回调函数来得到 i 节点信息。传给 read_inode()<br />
+的参数是 i 节点号，JFFS2 用这个 i 节点号从哈希表中查找相应的 struct<br />
+jffs2_inode_cache，然后利用属于这个 i<br />
+节点的节点链表从闪存上读入节点信息，建立类似于表三的映射信息。</p>
+
+<h2 id="jffs2-3">JFFS2 挂载过程</h2>
+
+<p>JFFS2 的挂载过程分为四个阶段：</p>
+
+<ol>
+<li>JFFS2 扫描闪存介质，检查每个节点 CRC 校验码的合法性，同时分配了<br />
+struct jffs2_inode_cache 和 struct jffs2_raw_node_ref</li>
+<li>扫描每个 i 节点的物理节点链表，标识出过时的物理节点；对每一个合法的<br />
+dentry 节点，将相应的 jffs2_inode_cache 中的 nlink 加一。</li>
+<li>找出 nlink 为 0 的 jffs2_inode_cache，释放相应的节点。</li>
+<li>释放在扫描过程中使用的临时信息。</li>
+</ol>
+
+<h2 id="jffs2-4">JFFS2 垃圾回收机制</h2>
+
+<p>当 free_list<br />
+上的擦写块数太少了，垃圾回收就会被触发。垃圾回收主要的任务就是回收那些已经过时的节点，但是除此之外它还要考虑磨损平衡的问题。因为如果一味的从<br />
+dirty_list上选取擦写块进行垃圾回收，那么 dirty_list 上的擦写块将先于<br />
+clean_list 上的擦写块被磨损坏。JFFS2 的处理方式是以 99% 的概率从<br />
+dirty_list，1% 的概率从 clean_list 上取一个擦写块下来。由此可以看出<br />
+JFFS2<br />
+的设计思想是偏向于性能，同时兼顾磨损平衡。对这个块上每一个没有过时的节点执行相同的操作：</p>
+
+<ol>
+<li>找出这个节点所属的 i 节点号(见图五)。</li>
+<li>调用 iget()，建立这个 i 节点的文件映射表。</li>
+<li>找出这个节点上没有过时的数据内容，并且如果合法的数据太少，JFFS2<br />
+还会合并相邻的节点。</li>
+<li>将数据读入倒缓存里，然后将它拷贝到新的擦写块上。</li>
+<li>将回收的节点置为过时。</li>
+</ol>
+
+<p>当擦写块上所有的节点都被置为过时，就可以擦写这个擦写块，回收使用它。</p>
+
+<h1 id="jffs2-5">JFFS2 的不足之处</h1>
+
+<h2 id="-3">挂载时间过长</h2>
+
+<p>JFFS2<br />
+的挂载过程需要对闪存从头到尾的扫描，这个过程是很慢的，我们在测试中发现，挂载一个<br />
+16M 的闪存有时需要半分钟以上的时间。</p>
+
+<h2 id="random-nature">磨损平衡的随意性(random nature)</h2>
+
+<p>JFFS2<br />
+对磨损平衡是用概率的方法来解决的，这很难保证磨损平衡的确定性。在某些情况下，可能造成对擦写块不必要的擦写操作；在某些情况下，又会引起对磨损平衡调整的不及时。</p>
+
+<h2 id="-4">很差的扩展性</h2>
+
+<p>JFFS2 中有两个地方的处理是 O(N) 的，这使得它的扩展性很差。</p>
+
+<p>首先，挂载时间同闪存的大小，闪存上节点数目成正比。</p>
+
+<p>其次，虽然 JFFS2 尽可能的减少内存的占用，但通过上面对 JFFS2<br />
+的介绍我们可以知道实际上它对内存的占用量是同 i<br />
+节点数和闪存上的节点数成正比的。</p>
+
+<p>因此在实际应用中，JFFS2 最大能用在 128M 的闪存上。</p>
+
+<h1 id="jffs2-6">JFFS2 的新特性</h1>
+
+<p>最近加入到 JFFS2<br />
+中的两个补丁程序分别解决了上面提到的挂载时间过长和磨损平衡随意性的问题。</p>
+
+<h2 id="erase-block-summary-patch">磨损块小结补丁程序(erase block summary patch)</h2>
+
+<p>这个补丁程序最基本的思想就是用空间来换时间。具体来说，就是将每个擦写块每个节点的原数据信息写在这个擦写块的最后，当<br />
+JFFS2<br />
+挂载的时候，对每个擦写块只需要读一次来读取这个小结节点，因此大大减少了挂载时间。使用了磨损块小结补丁程序，一个擦写块的结构就像下面这样：</p>
+
+<p><img src="http://www.ibm.com/developerworks/cn/linux/l-jffs2/images/image007.gif" alt="" /></p>
+
+<blockquote>
+  <p>align<br />
+  :   center</p>
+  
+  <p>width<br />
+  :   500px</p>
+  
+  <p>根据我们的测试，使用磨损块小结补丁程序，挂载一个 12M 的闪存需要 2\~3<br />
+  秒，挂载一个 16M 的闪存需要 3\~4 秒。</p>
+</blockquote>
+
+<h2 id="-5">改进的磨损平衡补丁程序</h2>
+
+<p>这个补丁程序的基本思想是，记录每个擦写块的擦写次数，当闪存上各个擦写块的擦写次数的差距超过某个预定的阀值，开始进行磨损平衡的调整。调整的策略是，在垃圾回收时将擦写次数小的擦写块上的数据迁移到擦写次数大的擦写块上。这样一来我们提高了磨损平衡的确定性，我们可以知道什么时候开始磨损平衡的调整，也可以知道选取哪些擦写块进行磨损平衡的调整。</p>
+
+<h2 id="-6">擦写块头部补丁程序</h2>
+
+<p>在写改进的磨损平衡补丁程序的过程之中，我们需要记录每个擦写块的擦写次数，这个信息需要记录在各自的擦写块上。可是我们发现<br />
+JFFS2<br />
+中缺少一种灵活的对每个擦写块的信息进行扩展的机制。于是我们为每个擦写块引入了擦写块头部(header)，这个头部负责纪录每个擦写块的信息(比如说擦写次数)，并且它提供了灵活的扩展机制，将来如果有新的信息需要记录，可以很容易的加入到头部之中。</p>
+
+<h1 id="jffs3">JFFS3 简介</h1>
+
+<p>虽然不断有新的补丁程序来提高 JFFS2<br />
+的性能，但是不可扩展性是它最大的问题，但是这是它自身设计的先天缺陷，是没有办法靠后天来弥补的。因此我们需要一个全新的文件系统，而<br />
+JFFS3 就是这样的一个文件系统，JFFS3<br />
+的设计目标是支持大容量闪存(>1TB)的文件系统。JFFS3 与 JFFS2<br />
+在设计上根本的区别在于，JFFS3 将索引信息存放在闪存上，而<br />
+JFFS2将索引信息保存在内存中。比如说，由给定的文件内的偏移定位到存储介质上的物理偏移地址所需的信息，查找某个目录下所有的目录项所需的信息都是索引信息的一种。<br />
+JFFS3 现在还处于设计阶段，文件系统的基本结构借鉴了 Reiser4<br />
+的设计思想，整个文件系统就是一个 B+ 树。JFFS3<br />
+的发起者正工作于垃圾回收机制的设计，这是 JFFS3<br />
+中最复杂，也是最富有挑战性的部分。JFFS3<br />
+的设计文档可以在http://www.linux-mtd.infradead.org/doc/jffs3.html<br />
+得到，有兴趣的读者可以积极参与到 JFFS3<br />
+的设计中，发表自己的见解，参与讨论。</p>
+
+<blockquote>
+  <p>---------------节选自：<br />
+  <a href="http://blog.csdn.net/harhy/article/details/50637488">http://blog.csdn.net/harhy/article/details/50637488</a></p>
+</blockquote>
+
+                        </div>
+                    </div>
+                    <div id="previous_next">
+                        <div id="previous">
+                            
+                        </div>
+                        <div id="next">
+                            
+                        </div>
+                    </div>
+                </div>
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a id="to_top" href="#"></a>
+        <div id="doc_footer">
+                        
+            <div id="footer">
+                <div id="footer_top">
+                    <ul>
+<li><a>链接</a><ul><li><a target="_blank" href="https://www.sipeed.com">Sipeed</a></li>
+<li><a target="_blank" href="https://bbs.sipeed.com/">BBS 论坛</a></li>
+<li><a target="_blank" href="https://maixhub.sipeed.com/">Maixhub</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">Sipeed 淘宝</a></li>
+<li><a target="_blank" href="https://github.com/neutree/teedoc">使用 teedoc 构建</a></li>
+</ul>
+</li>
+<li><a>网站统计</a><ul><li><a target="_blank" href="https://tongji.baidu.com/web/welcome/ico?s=9cb07365544a53067c56c346c838181a">百度统计</a></li>
+<li><a  href="/sitemap.xml">网站地图</a></li>
+</ul>
+</li>
+<li><a>源码</a><ul><li><a target="_blank" href="https://github.com/sipeed/sipeed_wiki">文档源文件</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">开源项目源码</a></li>
+</ul>
+</li>
+<li><a>关注我们</a><ul><li><a target="_blank" href="https://github.com/sipeed">github</a></li>
+<li><a target="_blank" href="https://twitter.com/SipeedIO">twitter</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">淘宝</a></li>
+<li><a  href="/social_group.html">更多</a></li>
+</ul>
+</li>
+<li><a>联系我们</a><ul><li><a>电话: +86 0755-27808509</a>
+</li>
+<li><a>商业支持: support@sipeed.com</a>
+</li>
+<li><a>地址: 深圳市宝安区新湖路华美居B区1号楼713-715</a>
+</li>
+<li><a  href="/join_us.html">加入我们</a></li>
+</ul>
+</li>
+</ul>
+
+                </div>
+                <div id="footer_bottom">
+                    <ul>
+<li><a target="_blank" href="https://www.sipeed.com">©2018-2021 深圳矽速科技有限公司</a></li>
+<li><a target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index">粤ICP备19015433号-1</a></li>
+</ul>
+
+                </div>
+            </div>
+                    </div>
+</body>
+<script src="/static/js/theme_default/tocbot.min.js"></script>
+<script src="/static/js/theme_default/main.js"></script>
+<script src="/static/css/theme_default/prism.min.js"></script>
+<script src="/static/js/custom.js"></script>
+<script src="/static/js/search/search_main.js"></script>
+<script type="text/javascript" src="/static/js/live.js"></script>
+</html>

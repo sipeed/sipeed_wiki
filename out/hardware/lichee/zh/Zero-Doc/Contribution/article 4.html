@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html  class="md_page">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="">
+    <meta name="description" content="[]">
+    <meta name="generator" content="teedoc">
+    <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        <link rel="stylesheet" href="/static/css/theme_default/prism.min.css" type="text/css"/>
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?9cb07365544a53067c56c346c838181a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <title>'Zero u-boot编译和使用指南' - Sipeed Wiki</title>
+</head>
+<body>
+    
+            <div id="navbar">
+                <div id="navbar_menu">
+                    <a class="site_title" href="/"><img class="site_logo" src="/static/image/logo.svg" alt="sipeed wiki logo"><h2>wiki</h2></a>
+                    <a id="navbar_menu_btn"></a>
+                </div>
+                <div id="navbar_items">
+                    <div>
+                        <ul id="nav_left">
+<li class=""><a  href="/">首页</a></li>
+<li class=""><a target="_blank" href="https://www.sipeed.com">矽速官网</a></li>
+<li class="sub_items "><a>开源软件</a><ul><li class=""><a  href="/soft/maixpy/zh/index.html">Maixpy</a></li>
+<li class=""><a  href="/soft/maixpy3/zh/">Maixpy3</a></li>
+<li class=""><a  href="/licheeos/zh/">Lichee OS</a></li>
+<li class=""><a  href="/LonganOS/zh/">Longan OS</a></li>
+<li class=""><a  href="/TangOs/zh/">Tang OS</a></li>
+</ul>
+</li>
+<li class="sub_items active_parent"><a>开源硬件</a><ul><li class=""><a  href="/hardware/maix/zh/">Maix</a></li>
+<li class=""><a  href="/hardware/maixII/zh/">Maix II</a></li>
+<li class=""><a  href="/hardware/maixIII/zh/">Maix III</a></li>
+<li class=""><a  href="/hardware/maixIV/zh/">Maix IV</a></li>
+<li class="active"><a  href="/hardware/lichee/zh/">Lichee Pi</a></li>
+<li class=""><a  href="/hardware/tang/zh/">Tang</a></li>
+<li class=""><a  href="/hardware/longan/zh/">Longan</a></li>
+</ul>
+</li>
+<li class="sub_items "><a>商业产品</a><ul><li class=""><a  href="/hardware/maixface/zh/">Maix Face</a></li>
+</ul>
+</li>
+<li class="sub_items "><a>云平台</a><ul><li class=""><a target="_blank" href="https://www.maixhub.com">Maixhub 模型训练平台</a></li>
+<li class=""><a target="_blank" href="https://www.maixhub.com/onlinecompiler">固件在线编译</a></li>
+</ul>
+</li>
+<li class=""><a  href="/community.html">社区</a></li>
+<li class=""><a  href="https://shop365481095.taobao.com/?spm=a230r.7195193.1997079397.2.8384341c2zZ5uZ">商城</a></li>
+</ul>
+
+                    </div>
+                    <div>
+                        <ul id="nav_right">
+<li class="sub_items "><a  href="">Language: </a><ul><li class=""><a  href="/">中文</a></li>
+<li class=""><a  href="/en/">English</a></li>
+</ul></li>
+</ul>
+
+                        <ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">输入关键词，多关键词空格隔开</span>
+                                <span id="search_loading_hint">正在加载，请稍候。。。</span>
+                                <span id="search_download_err_hint">下载文件失败，请刷新重试或检查网络</span>
+                                <span id="search_other_docs_result_hint">来自其它文档的结果</span>
+                                <span id="search_curr_doc_result_hint">当前文档搜索结果</span>
+                            </div></a></li></ul>
+                    </div>
+                </div>
+            </div>
+    
+        <div id="wrapper">
+            
+            <div id="sidebar_wrapper">
+                <div id="sidebar">
+                    <div id="sidebar_title">
+                        
+                    </div>
+                    <ul class="">
+<li class="not_active no_link"><a><span class="label">LicheePi</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">简介</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">LicheePI Nano</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/index.html"><span class="label">简介</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">上手体验</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/./Nano-Doc-Backup/get_started/first_eye.html"><span class="label">初见</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/get_started/first_eat.html"><span class="label">前言</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">系统适配篇</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/build_sys/build_index.html"><span class="label">总述</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/build_sys/onekey.html"><span class="label">镜像包一键烧录</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/build_sys/docker.html"><span class="label">docker快速搭建环境</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/build_sys/bootargs.html"><span class="label">uboot传递参数</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/build_sys/kernel.html"><span class="label">主线linux编译</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/build_sys/devicetree.html"><span class="label">设备树添加节点</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/build_sys/rootfs.html"><span class="label">根文件系统编译</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/build_sys/build_flash.html"><span class="label">SPI-Flash系统编译</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">驱动开发</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/driver/touchscreen.html"><span class="label">电容触摸屏适配</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">从挖坑到填坑</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/step_by_step/one_openbox.html"><span class="label">开箱介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/step_by_step/two_sunxi-tools.html"><span class="label">编译使用sunxi-tools</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/step_by_step/three_uboot.html"><span class="label">编译使用uboot</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/step_by_step/four_linux.html"><span class="label">编译测试linux</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">应用开发</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/application/littlevgl.html"><span class="label">littlevGL的使用</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">奉献投稿</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/contribution/introduction.html"><span class="label">前言</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/contribution/todolist.html"><span class="label">Todolist</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/contribution/task_tips.html"><span class="label">快餐任务相关小事项</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/contribution/doc_tips.html"><span class="label">文档任务相关小事项</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/contribution/build_doc.html"><span class="label">文档构建</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">LicheePI Zero</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">初来乍到</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/Start/intro_cn.html"><span class="label">荔枝派与创作者的自我介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/Start/tips.html"><span class="label">Linux使用小贴士</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/Start/board_intro.html"><span class="label">认识zero的硬件</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/Start/docker_index.html"><span class="label">Docker环境简明教程</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/Start/docker_env.html"><span class="label">Docker开发环境</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/Start/docker_command.html"><span class="label">Docker命令速查</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/Start/docker_ubuntu.html"><span class="label">基础ubuntu系统配置</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/System_Development/type.html"><span class="label">Zero的开发环境分类</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">主线Uboot</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/System_Development/uboot_build.html"><span class="label">Uboot 编译</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/System_Development/uboot_conf.html"><span class="label">Uboot 配置</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/System_Development/uboot_logo.html"><span class="label">开机logo替换</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">主线Kernel</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/System_Development/kernel_build.html"><span class="label">主线Kernel基础编译</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/System_Development/kernel_printk.html"><span class="label">内核printk等级设置</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">BSP内核编译</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/System_Development/bsp_build.html"><span class="label">BSP源码下载与编译</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/System_Development/bsp_review.html"><span class="label"> BSP内核构建走读</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/System_Development/bsp_cam.html"><span class="label">BSP内核的摄像头使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/System_Development/bsp_mem.html"><span class="label">bsp内核中的保留内存</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">根文件系统编译</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+                </div>
+            </div>
+            <div id="menu_wrapper">
+                                    <div id="menu">
+                                    </div>
+                                </div>
+            <div id="article">
+                <div id="content_wrapper">
+                    <div id="content_body">
+                        <div id="article_head">
+                            <div id="article_title">
+                                <h1>'Zero u-boot编译和使用指南'</h1>
+                            </div>
+                            <div id="article_tags">
+                                <ul></ul>
+                            </div>
+                            <div id="article_info">
+                            <div>
+                                <span class="article_author"></span><span class="article_date"></span>
+                            </div>
+                            <div>
+                                
+                            </div>
+                            </div>
+                        </div>
+                        <div id="article_content">
+                            <h1 id="1-uboot">1. Uboot的基本结构</h1>
+
+<ul>
+<li>下面来看看该uboot中的目录结构</li>
+</ul>
+
+<!-- -->
+
+<pre><code>├── api                存放uboot提供的API接口函数
+├── arch               平台相关的部分我们只需要关心这个目录下的ARM文件夹
+│   ├──arm
+│   │   └──cpu
+│   │   │   └──armv7
+│   │   └──dts  
+│   │   │   └──*.dts 存放设备的dts,也就是设备配置相关的引脚信息
+├── board              对于不同的平台的开发板对应的代码
+├── cmd                顾名思义，大部分的命令的实现都在这个文件夹下面。
+├── common             公共的代码
+├── configs            各个板子的对应的配置文件都在里面，我们的Lichee配置也在里面
+├── disk               对磁盘的一些操作都在这个文件夹里面，例如分区等。
+├── doc                参考文档，这里面有很多跟平台等相关的使用文档。
+├── drivers            各式各样的驱动文件都在这里面
+├── dts                一种树形结构（device tree）这个应该是uboot新的语法
+├── examples           官方给出的一些样例程序
+├── fs                 文件系统，uboot会用到的一些文件系统
+├── include            头文件，所有的头文件都在这个文件夹下面
+├── lib                一些常用的库文件在这个文件夹下面  
+├── Licenses           这个其实跟编译无关了，就是一些license的声明
+├── net                网络相关的，需要用的小型网络协议栈
+├── post              上电自检程序
+├── scripts           编译脚本和Makefile文件
+├── spl               second program loader，即相当于二级uboot启动。
+├── test              小型的单元测试程序。
+└── tools             里面有很多uboot常用的工具。
+</code></pre>
+
+<p>了解了uboot的基本结构，我们可以知道一些相关的配置在什么地方了。</p>
+
+<ul>
+<li>lichee的uboot配置文件放在confgs文件目录下面，名称为</li>
+</ul>
+
+<!-- -->
+
+<pre><code>LicheePi_Zero_480x272LCD_defconfig 
+LicheePi_Zero_800x480LCD_defconfig 
+LicheePi_Zero_defconfig
+</code></pre>
+
+<p>这3个配置是根据不同的Zero显示设备进行的配置，使用其中之一即可，可以在uboot目录下执行命令</p>
+
+<blockquote>
+  <p><code>make LicheePi_Zero_defconfig</code></p>
+</blockquote>
+
+<p>这样配置就生效了。</p>
+
+<ul>
+<li>关于设备的配置引脚信息可以在arch/arm/dts的设备树下面进行查找。</li>
+</ul>
+
+<p>通过查看arch/arm/dts/Makefile我们看到下面这段关于v3s的代码：</p>
+
+<p><strike>~~ {.sourceCode .bash}<br />
+dtb-$(CONFIG_MACH_SUN8I_V3S) += \<br />
+    sun8i-v3s-licheepi-zero.dtb<br />
+~</strike>~</p>
+
+<p>我们基本可以找到对应的dtb文件就是sun8i-v3s-licheepi-zero.dtb</p>
+
+<p>打开 <strong>sun8i-v3s-licheepi-zero.dts</strong> （dtb是object文件，相当于*.o,<br />
+dts相当于*.c）文件</p>
+
+<p>~~~~ {.sourceCode .c}</p>
+
+<h1 id="include-sun8i-v3sdtsi-sun8i-v3s">include "sun8i-v3s.dtsi"                  //这个文件包含了sun8i-v3s系列的配置</h1>
+
+<h1 id="include-sunxi-common-regulatorsdtsi">include "sunxi-common-regulators.dtsi"</h1>
+
+<p>/ {<br />
+        model = "Lichee Pi Zero";<br />
+        compatible = "licheepi,licheepi-zero", "allwinner,sun8i-v3s";</p>
+
+<pre><code>    aliases {
+            serial0 = &amp;uart0;
+    };
+
+    chosen {
+            stdout-path = "serial0:115200n8";
+    };
+</code></pre>
+
+<p>};<br />
+&amp;mmc0 {<br />
+        pinctrl-0 = &lt;&amp;mmc0_pins_a>;<br />
+        pinctrl-names = "default";<br />
+        broken-cd;<br />
+        bus-width = &lt;4>;<br />
+        vmmc-supply = &lt;&amp;reg_vcc3v3>;<br />
+        status = "okay";<br />
+};</p>
+
+<p>&amp;uart0 {<br />
+        pinctrl-0 = &lt;&amp;uart0_pins_a>;<br />
+        pinctrl-names = "default";<br />
+        status = "okay";<br />
+};</p>
+
+<p>&amp;usb_otg {<br />
+        dr_mode = "otg";<br />
+        status = "okay";<br />
+};</p>
+
+<p>&amp;usbphy {<br />
+        usb0_id_det-gpio = &lt;&amp;pio 5 6 GPIO_ACTIVE_HIGH>;<br />
+        status = "okay";<br />
+};<br />
+~~~~</p>
+
+<p>从这个配置文件中可以看出，我们所用的stdout输出是用的uart0</p>
+
+<p>波特率115200，mmc的配置， uart0的引脚采用的是uart0_pins_a 等。</p>
+
+<p>如若需要修改对应的输出，可以在这个文件中修改。</p>
+
+<h1 id="2-menuconfig">2. menuconfig里的常见配置选项</h1>
+
+<p>编译uboot的需要生成.config文件来将该配置生效。配置的生效有两步：</p>
+
+<p><strong>第一步，先将Zero默认的配置加载进来：</strong></p>
+
+<p>Zero已经将配置定制好了，执行相应的命令就可以生成了。下面是生成配置的命令</p>
+
+<blockquote>
+  <p><code>make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- LicheePi_Zero_800x480LCD_defconfig</code></p>
+</blockquote>
+
+<p>这个命令可以分为3个部分</p>
+
+<p>设置变量ARCH值为arm\<br />
+设置变量CROSS_COMPILE值为arm-linux-gnueabihf-\<br />
+make LicheePi_Zero_800x480LCD_defconfig</p>
+
+<p>最后一个 <strong>make LicheePi_Zero_800x480LCD_defconfig</strong><br />
+才是重点，执行这条命令就可以对应生成一个编译所需要的配置文件.config</p>
+
+<p><strong>第二步，对于配置文件可以通过是图形界面的方式修改某一个特定配置选项</strong></p>
+
+<p>有了配置文件，需要的时候我们可以对其进行修改，linux提供了一种图形界面的方式，这种方式一般在后期需要改某些编译选项的时候，用户交互比较方便，现在我们可以来看看有哪些配置。</p>
+
+<blockquote>
+  <p><code>make ARCH=arm menuconfig</code></p>
+</blockquote>
+
+<p>执行这个命令就可以出现一个UI交互比较好的配置文件选项，可以看下面的截图：</p>
+
+<p><img src="https://box.kancloud.cn/c0bc403f54d5c23409af3dda76c6eb1e_1167x606.png" alt="" /></p>
+
+<blockquote>
+  <p>width<br />
+  :   500px</p>
+  
+  <p>align<br />
+  :   center</p>
+  
+  <p>---按回车，即选择当前菜单\<br />
+  ------- 按Y 代表该config选项选中\<br />
+  ------- 按N 代表不选中该选项\<br />
+  -------- 按M<br />
+  代表该驱动编译成*.ko的方式，在系统起来之后，当驱动需要的时候加载\<br />
+  \</>---------按/ 可以查找某个选项\<br />
+  ---------退出</p>
+</blockquote>
+
+<blockquote>
+  <p>\<*> ----------按Y选中后的状态</p>
+</blockquote>
+
+<p><strong>这里面有几个常见的配置选项我们可以看下：</strong></p>
+
+<ol>
+<li>第一个Architecture select架构选择，不用质疑这个是ARM架构</li>
+<li>第二个ARM architecture<br />
+这个选项比较重要，主要配置ARM框架下的常用的配置函数以及LCD等参数</li>
+</ol>
+
+<p><img src="https://box.kancloud.cn/e6935388a45eb157a0267b5e0f566414_654x362.png" alt="" /></p>
+
+<blockquote>
+  <p>width<br />
+  :   500px</p>
+  
+  <p>align<br />
+  :   center</p>
+  
+  <h2 id="sourcecode-bash">~~~~ {.sourceCode .bash}</h2>
+</blockquote>
+
+<h2 id="target-select-support-sunxi-allwinner-socs-sunxi-soc">Target select (Support sunxi (Allwinner) SoCs)   进去之后可以选择sunxi Soc系列芯片</h2>
+
+<p>[<em>] Sunxi SoC Variant     这个就是对芯片Soc 的选择，我们可以看到配置选择了`sun8i (Allwinner V3s)<br />
+(360) sunxi dram clock speed          配置dram的时钟速率<br />
+(14779) sunxi dram zq value             配置dram的ZQ值，是用来动态加强DDR3的<br />
+-</em>- Board uses DDR2 DRAM             使用DDR2 DRAM<br />
+~~~~</p>
+
+<p><img src="https://box.kancloud.cn/e3c46cc8756651c4cd7943b824939964_745x364.png" alt="" /></p>
+
+<blockquote>
+  <p>width<br />
+  :   500px</p>
+  
+  <p>align<br />
+  :   center</p>
+  
+  <p><strike>~~ {.sourceCode .bash}<br />
+  [<em>] Enable graphical uboot console on HDMI, LCD or VGA   这个就是在显示设备上使能串口控制<br />
+  [ ] VGA via LCD controller support             使能支持VGA通过LCD的控制器，就是LCD和VAG转换需要的控制器<br />
+  (x:800,y:480,depth:18,pclk_khz:33000,le:87,ri:40,up:31,lo:13,hs:1,vs:1,sync:3,vmode:0) LCD pane<br />
+  该选项就是配置LCD的分辨率的配置选项可以看到x是800 y是480 等等一些关于LCD的配置内容，点击回车进去可以对其进行修改。<br />
+  (1)   LCD panel display clock phase               这个是LCD的显示时钟相位<br />
+  ()    LCD panel power enable pin               LCD的电源使能引脚<br />
+  ()    LCD panel reset pin                                             LCD的复位引脚<br />
+  (PB4) LCD panel backlight pwm pin                    背光PWN引脚 这个应该是调节亮度的引脚PB4<br />
+  [</em>]   LCD panel backlight pwm is inverted            反转PWN背光引脚<br />
+  [ ]   LCD panel needs to be configured via i2c<br />
+      LCD panel support (Generic parallel interface LCD panel)  --->     这个选择支持的LCDpanel<br />
+              (X) Generic parallel interface LCD panel                   这里选择支持通用的并行的LCD接口<br />
+              ( ) Generic lvds interface LCD panel                       这个是LVDS接口<br />
+              ( ) MIPI 4-lane, 513Mbps LCD panel via SSD2828 bridge chip<br />
+              ( ) eDP 4-lane, 1.62G LCD panel via ANX9804 bridge chip<br />
+              ( ) Hitachi tx18d42vm LCD panel<br />
+              ( ) tl059wv5c0 LCD panel<br />
+  (0) GMAC Transmit Clock Delay Chain<br />
+  ~</strike>~</p>
+</blockquote>
+
+<ol>
+<li>General setup --->(0x400) Size of malloc() pool before relocation<br />
+这个我们就看下malloc的栈池分配了0x400大小</li>
+<li>Boot images --->(1008000000) CPU clock frequency<br />
+这里设置了CPU的时钟频率</li>
+<li>delay in seconds before automatically<br />
+booting这个是uboot开机的时候的一个等待时间的秒数，可以改大一点，默认是2s</li>
+<li>Console ---> 这个就是串口打印的一些配置</li>
+<li>Display information about the CPU during start up<br />
+开机的时候显示CPU信息。</li>
+<li>Display information about the board during start up<br />
+开机的时候显示BOARD的信息</li>
+<li>SPL / TPL ---> 这个就是SPL相关的配置了</li>
+</ol>
+
+<p><strike>~~ {.sourceCode .bash}<br />
+[<em>]   MMC raw mode: by sector                       按扇区<br />
+(0x50)  Address on the MMC to load U-Boot from  mmc加载uboot的地址<br />
+[</em>] Support GPIO                                 支持GPIO<br />
+[<em>] Support I2C                                 支持I2C<br />
+[</em>] Support common libraries                    支持通用lib<br />
+[<em>] Support disk paritions                      支持分区<br />
+[</em>] Support generic libraries                   支持一般lib库<br />
+[<em>] Support MMC                                 支持MMC<br />
+[</em>] Support power drivers                  支持电源驱动<br />
+[*] Support serial                               支持串口<br />
+~</strike>~</p>
+
+<ol>
+<li>Command line interface --->这里存放的是u-boot启动的时候支持的cmd</li>
+</ol>
+
+<p>基本常用的就是上述配置，其他配置都可以采用官方配置就可以了。</p>
+
+<h1 id="3">3. 编译步骤</h1>
+
+<p>上面已经讲述了如何把配置文件进行生成.config文件。做好这两件事情之后就可以编译了。</p>
+
+<p>官方git上给的命令是：</p>
+
+<blockquote>
+  <p><code>time make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- 2&gt;&amp;1 | tee build.log</code></p>
+</blockquote>
+
+<p>第一个time命令完全可以去掉，time主要为了计算该编译需要花费的时间</p>
+
+<blockquote>
+  <p><code>make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf-</code></p>
+</blockquote>
+
+<p>这个之前的config也说了，其实就是给变量ARCH赋值arm</p>
+
+<p>给CROSS_COMPILE赋值arm-linux-gnueabihf-</p>
+
+<p>也可以先省去，剩下的： <code>make 2&gt;&amp;1 | tee build.log</code></p>
+
+<p>tee<br />
+这个命令是把make生成的log写入到build.log文件中，这样编译之后的log文件可以保留存有备份，也可以省去。</p>
+
+<blockquote>
+  <p><code>make 2&gt;&amp;1</code></p>
+</blockquote>
+
+<p>查了下资料 数字2对应stderr 数字1对应stdout</p>
+
+<p>这里即将标准err输出<br />
+&amp;作为连接符表示‘与’的意思，即标准输出和标准error输出都进行输出。</p>
+
+<p>其实真正执行编译的是下面的命令：</p>
+
+<blockquote>
+  <p><code>make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf-</code></p>
+</blockquote>
+
+<p>小伙伴可以试下，该命令是否可以编译出 <strong>u-boot-sunxi-with-spl.bin</strong><br />
+文件，其他的命令都是辅助编译的命令，用于调试的时候开启。亲测直接<br />
+<code>make CROSS_COMPILE=arm-linux-gnueabihf-</code> 也是可以的。</p>
+
+<p><strong>FAQ：下面的内容可能其他章节会讲到，所以下面就大致讲下编译环境的搭建</strong></p>
+
+<p>本文所描述的uboot是基于Lichee_Pi/uboot.git的版本</p>
+
+<p>先下载代码，执行下面的命令。</p>
+
+<blockquote>
+  <ul>
+  <li>git clone <a href="https://github.com/Lichee-Pi/u-boot.git">https://github.com/Lichee-Pi/u-boot.git</a></li>
+  <li>git checkout -b v3s-current origin/v3s-current</li>
+  <li>export ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf-</li>
+  <li>make LicheePi_Zero_defconfig</li>
+  </ul>
+</blockquote>
+
+<p>先要配置好编译环境可以参照<br />
+<a href="https://github.com/Zepan/ilichee/blob/master/%E8%BF%9E%E8%BD%BD%E5%B8%96/2.1.1%20%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.md">开发环境搭建</a></p>
+
+<p>操作系统官方默认是在Ubuntu 14.04 64bit的环境下编译的。</p>
+
+<p>我试了下在Ubuntu16.04.1的ubuntu的版本下进行编译。</p>
+
+<p>装好虚拟机操作系统之后，我们先安装一些依赖包</p>
+
+<p><strike>~~ {.sourceCode .bash}<br />
+sudo apt-get install git-core gnupg flex bison gperf build-essential zip curl zlib1g-dev libc6-dev lib32ncurses5-dev gcc-multilib x11proto-core-dev libx11-dev lib32z1-dev libgl1-mesa-dev g++-multilib mingw32 tofrodos python-markdown libxml2-utils<br />
+sudo apt-get install gcc-arm-linux-gnueabihf<br />
+~</strike>~</p>
+
+<p>执行完这两条命令之后，如果安装成功，应该是可以编译的，当然我在尝试的时候最后mingw32会出现一些问题。</p>
+
+<p>可能对于ubuntu16.04版本还要根据</p>
+
+<p>git上<br />
+<a href="https://github.com/Zepan/ilichee/blob/master/%E9%82%A3%E4%BA%9B%E5%B9%B4%E6%88%91%E4%BB%AC%E8%B8%A9%E7%9A%84%E5%9D%91/%E7%BC%96%E8%AF%91%E5%9D%91_Ubuntu%2016.04%E7%BC%96%E8%AF%91%E8%BF%87%E7%A8%8B%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95.md">编译坑_Ubuntu16.04编译过程踩坑记录</a><br />
+来修改gcc的版本.然后呢根据</p>
+
+<p><a href="https://github.com/Zepan/ilichee/blob/master/%E9%82%A3%E4%BA%9B%E5%B9%B4%E6%88%91%E4%BB%AC%E8%B8%A9%E7%9A%84%E5%9D%91/%E7%BC%96%E8%AF%91%E5%9D%91_Ubuntu16.04%E7%BC%96%E8%AF%91%E8%BF%87%E7%A8%8B%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95%E4%BA%8C.md">编译坑_Ubuntu16.04编译过程踩坑记录二</a></p>
+
+<p>来修改部分的mingw32相关的编译选项，对了后面编译uboot的时候还会遇到dtc编译版本低的问题，所以在此还要执行<br />
+<code>sudo apt-get install device-tree-compiler</code><br />
+的命令升级dtc。至此编译环境基本搭建好了。</p>
+
+<p>这些都是楼主踩过的坑，感谢楼主，我们应该不需要踩了。还是挺有用的。</p>
+
+<p>接着就可以下载uboot的源代码： <a href="https://github.com/Lichee-Pi/u-boot.git">https://github.com/Lichee-Pi/u-boot.git</a></p>
+
+<p>执行这段命令uboot的源代码就下下来了。</p>
+
+                        </div>
+                    </div>
+                    <div id="previous_next">
+                        <div id="previous">
+                            
+                        </div>
+                        <div id="next">
+                            
+                        </div>
+                    </div>
+                </div>
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a id="to_top" href="#"></a>
+        <div id="doc_footer">
+                        
+            <div id="footer">
+                <div id="footer_top">
+                    <ul>
+<li><a>链接</a><ul><li><a target="_blank" href="https://www.sipeed.com">Sipeed</a></li>
+<li><a target="_blank" href="https://bbs.sipeed.com/">BBS 论坛</a></li>
+<li><a target="_blank" href="https://maixhub.sipeed.com/">Maixhub</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">Sipeed 淘宝</a></li>
+<li><a target="_blank" href="https://github.com/neutree/teedoc">使用 teedoc 构建</a></li>
+</ul>
+</li>
+<li><a>网站统计</a><ul><li><a target="_blank" href="https://tongji.baidu.com/web/welcome/ico?s=9cb07365544a53067c56c346c838181a">百度统计</a></li>
+<li><a  href="/sitemap.xml">网站地图</a></li>
+</ul>
+</li>
+<li><a>源码</a><ul><li><a target="_blank" href="https://github.com/sipeed/sipeed_wiki">文档源文件</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">开源项目源码</a></li>
+</ul>
+</li>
+<li><a>关注我们</a><ul><li><a target="_blank" href="https://github.com/sipeed">github</a></li>
+<li><a target="_blank" href="https://twitter.com/SipeedIO">twitter</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">淘宝</a></li>
+<li><a  href="/social_group.html">更多</a></li>
+</ul>
+</li>
+<li><a>联系我们</a><ul><li><a>电话: +86 0755-27808509</a>
+</li>
+<li><a>商业支持: support@sipeed.com</a>
+</li>
+<li><a>地址: 深圳市宝安区新湖路华美居B区1号楼713-715</a>
+</li>
+<li><a  href="/join_us.html">加入我们</a></li>
+</ul>
+</li>
+</ul>
+
+                </div>
+                <div id="footer_bottom">
+                    <ul>
+<li><a target="_blank" href="https://www.sipeed.com">©2018-2021 深圳矽速科技有限公司</a></li>
+<li><a target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index">粤ICP备19015433号-1</a></li>
+</ul>
+
+                </div>
+            </div>
+                    </div>
+</body>
+<script src="/static/js/theme_default/tocbot.min.js"></script>
+<script src="/static/js/theme_default/main.js"></script>
+<script src="/static/css/theme_default/prism.min.js"></script>
+<script src="/static/js/custom.js"></script>
+<script src="/static/js/search/search_main.js"></script>
+<script type="text/javascript" src="/static/js/live.js"></script>
+</html>

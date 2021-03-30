@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html  class="md_page">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="">
+    <meta name="description" content="[]">
+    <meta name="generator" content="teedoc">
+    <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        <link rel="stylesheet" href="/static/css/theme_default/prism.min.css" type="text/css"/>
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?9cb07365544a53067c56c346c838181a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <title>jffs2文件系统挂载不上的常见原因 - Sipeed Wiki</title>
+</head>
+<body>
+    
+            <div id="navbar">
+                <div id="navbar_menu">
+                    <a class="site_title" href="/"><img class="site_logo" src="/static/image/logo.svg" alt="sipeed wiki logo"><h2>wiki</h2></a>
+                    <a id="navbar_menu_btn"></a>
+                </div>
+                <div id="navbar_items">
+                    <div>
+                        <ul id="nav_left">
+<li class=""><a  href="/">首页</a></li>
+<li class=""><a target="_blank" href="https://www.sipeed.com">矽速官网</a></li>
+<li class="sub_items "><a>开源软件</a><ul><li class=""><a  href="/soft/maixpy/zh/index.html">Maixpy</a></li>
+<li class=""><a  href="/soft/maixpy3/zh/">Maixpy3</a></li>
+<li class=""><a  href="/licheeos/zh/">Lichee OS</a></li>
+<li class=""><a  href="/LonganOS/zh/">Longan OS</a></li>
+<li class=""><a  href="/TangOs/zh/">Tang OS</a></li>
+</ul>
+</li>
+<li class="sub_items active_parent"><a>开源硬件</a><ul><li class=""><a  href="/hardware/maix/zh/">Maix</a></li>
+<li class=""><a  href="/hardware/maixII/zh/">Maix II</a></li>
+<li class=""><a  href="/hardware/maixIII/zh/">Maix III</a></li>
+<li class=""><a  href="/hardware/maixIV/zh/">Maix IV</a></li>
+<li class="active"><a  href="/hardware/lichee/zh/">Lichee Pi</a></li>
+<li class=""><a  href="/hardware/tang/zh/">Tang</a></li>
+<li class=""><a  href="/hardware/longan/zh/">Longan</a></li>
+</ul>
+</li>
+<li class="sub_items "><a>商业产品</a><ul><li class=""><a  href="/hardware/maixface/zh/">Maix Face</a></li>
+</ul>
+</li>
+<li class="sub_items "><a>云平台</a><ul><li class=""><a target="_blank" href="https://www.maixhub.com">Maixhub 模型训练平台</a></li>
+<li class=""><a target="_blank" href="https://www.maixhub.com/onlinecompiler">固件在线编译</a></li>
+</ul>
+</li>
+<li class=""><a  href="/community.html">社区</a></li>
+<li class=""><a  href="https://shop365481095.taobao.com/?spm=a230r.7195193.1997079397.2.8384341c2zZ5uZ">商城</a></li>
+</ul>
+
+                    </div>
+                    <div>
+                        <ul id="nav_right">
+<li class="sub_items "><a  href="">Language: </a><ul><li class=""><a  href="/">中文</a></li>
+<li class=""><a  href="/en/">English</a></li>
+</ul></li>
+</ul>
+
+                        <ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">输入关键词，多关键词空格隔开</span>
+                                <span id="search_loading_hint">正在加载，请稍候。。。</span>
+                                <span id="search_download_err_hint">下载文件失败，请刷新重试或检查网络</span>
+                                <span id="search_other_docs_result_hint">来自其它文档的结果</span>
+                                <span id="search_curr_doc_result_hint">当前文档搜索结果</span>
+                            </div></a></li></ul>
+                    </div>
+                </div>
+            </div>
+    
+        <div id="wrapper">
+            
+            <div id="sidebar_wrapper">
+                <div id="sidebar">
+                    <div id="sidebar_title">
+                        
+                    </div>
+                    <ul class="">
+<li class="not_active no_link"><a><span class="label">LicheePi</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">简介</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">LicheePI Nano</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/index.html"><span class="label">简介</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">上手体验</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/./Nano-Doc-Backup/get_started/first_eye.html"><span class="label">初见</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/get_started/first_eat.html"><span class="label">前言</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">系统适配篇</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/build_sys/build_index.html"><span class="label">总述</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/build_sys/onekey.html"><span class="label">镜像包一键烧录</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/build_sys/docker.html"><span class="label">docker快速搭建环境</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/build_sys/bootargs.html"><span class="label">uboot传递参数</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/build_sys/kernel.html"><span class="label">主线linux编译</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/build_sys/devicetree.html"><span class="label">设备树添加节点</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/build_sys/rootfs.html"><span class="label">根文件系统编译</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/build_sys/build_flash.html"><span class="label">SPI-Flash系统编译</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">驱动开发</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/driver/touchscreen.html"><span class="label">电容触摸屏适配</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">从挖坑到填坑</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/step_by_step/one_openbox.html"><span class="label">开箱介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/step_by_step/two_sunxi-tools.html"><span class="label">编译使用sunxi-tools</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/step_by_step/three_uboot.html"><span class="label">编译使用uboot</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/step_by_step/four_linux.html"><span class="label">编译测试linux</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">应用开发</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/application/littlevgl.html"><span class="label">littlevGL的使用</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">奉献投稿</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/contribution/introduction.html"><span class="label">前言</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/contribution/todolist.html"><span class="label">Todolist</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/contribution/task_tips.html"><span class="label">快餐任务相关小事项</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/contribution/doc_tips.html"><span class="label">文档任务相关小事项</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/contribution/build_doc.html"><span class="label">文档构建</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">LicheePI Zero</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">初来乍到</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/Start/intro_cn.html"><span class="label">荔枝派与创作者的自我介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/Start/tips.html"><span class="label">Linux使用小贴士</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/Start/board_intro.html"><span class="label">认识zero的硬件</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/Start/docker_index.html"><span class="label">Docker环境简明教程</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/Start/docker_env.html"><span class="label">Docker开发环境</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/Start/docker_command.html"><span class="label">Docker命令速查</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/Start/docker_ubuntu.html"><span class="label">基础ubuntu系统配置</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/System_Development/type.html"><span class="label">Zero的开发环境分类</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">主线Uboot</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/System_Development/uboot_build.html"><span class="label">Uboot 编译</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/System_Development/uboot_conf.html"><span class="label">Uboot 配置</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/System_Development/uboot_logo.html"><span class="label">开机logo替换</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">主线Kernel</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/System_Development/kernel_build.html"><span class="label">主线Kernel基础编译</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/System_Development/kernel_printk.html"><span class="label">内核printk等级设置</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">BSP内核编译</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/System_Development/bsp_build.html"><span class="label">BSP源码下载与编译</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/System_Development/bsp_review.html"><span class="label"> BSP内核构建走读</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/System_Development/bsp_cam.html"><span class="label">BSP内核的摄像头使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/System_Development/bsp_mem.html"><span class="label">bsp内核中的保留内存</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">根文件系统编译</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+                </div>
+            </div>
+            <div id="menu_wrapper">
+                                    <div id="menu">
+                                    </div>
+                                </div>
+            <div id="article">
+                <div id="content_wrapper">
+                    <div id="content_body">
+                        <div id="article_head">
+                            <div id="article_title">
+                                <h1>jffs2文件系统挂载不上的常见原因</h1>
+                            </div>
+                            <div id="article_tags">
+                                <ul></ul>
+                            </div>
+                            <div id="article_info">
+                            <div>
+                                <span class="article_author"></span><span class="article_date"></span>
+                            </div>
+                            <div>
+                                
+                            </div>
+                            </div>
+                        </div>
+                        <div id="article_content">
+                            <h1 id="-1">内核命令行不正确</h1>
+
+<pre><code>[ 0.000000] Kernel command line: console=ttyS0,115200 earlyprintk panic=5 rootwait mtdparts=spi32766.0:1M(uboot)ro,64k(dtb)ro,4M(kernel)ro,3008k(rootfs) root=31:03 rw rootfstype=jffs2
+</code></pre>
+
+<p>内核命令行应正确显示分区信息，如果分区信息不正确则无法正确挂载。</p>
+
+<p>分区信息在 <em>include/configs/sun8i.h</em> 里修改</p>
+
+<p>~~~~ {.sourceCode .c}<br />
+#define CONFIG_BOOTCOMMAND   "sf probe 0; "                           \<br />
+                            "sf read 0x41800000 0x100000 0x10000; "  \<br />
+                            "sf read 0x41000000 0x110000 0x400000; " \<br />
+                            "bootz 0x41000000 - 0x41800000"</p>
+
+<p>#define CONFIG_BOOTARGS      "console=ttyS0,115200 earlyprintk panic=5 rootwait " \<br />
+                            "mtdparts=spi32766.0:1M(uboot)ro,64k(dtb)ro,4M(kernel)ro,-(rootfs) root=31:03 rw rootfstype=jffs2"<br />
+~~~~</p>
+
+<h1 id="-2">识别不到分区</h1>
+
+<p>正常识别到分区，应该报以下信息：</p>
+
+<pre><code>[    0.862858] m25p80 spi32766.0: w25q128 (16384 Kbytes)
+[    0.867927] in cmdline partion
+[    0.871123] p4 : size=100000
+[    0.874005] p4 : size=10000
+[    0.876796] p4 : size=400000
+[    0.879714] p4 : size=2f0000
+[    0.882596] spi32766.0: parser cmdlinepart: 4
+[    0.886949] 4 cmdlinepart partitions found on MTD device spi32766.0
+[    0.893230] Creating 4 MTD partitions on "spi32766.0":
+[    0.898374] 0x000000000000-0x000000100000 : "uboot"
+[    0.904828] 0x000000100000-0x000000110000 : "dtb"
+[    0.910973] 0x000000110000-0x000000510000 : "kernel"
+[    0.917258] 0x000000510000-0x000000800000 : "rootfs"
+</code></pre>
+
+<p>如果没有显示以上信息，则需要确认有无勾选相关驱动</p>
+
+<p>进入到 Device Drivers --> Memory Technology Device (MTD) support ，</p>
+
+<p>确保选择上mtd的 <em>*\&lt;</em>> Command line partition table parsing**<br />
+支持，该项目用来解析uboot传递过来的flash分区信息。</p>
+
+<p>以及SPI-NOR 设备的支持。</p>
+
+<p>添加对jffs2文件系统的支持，路径在<br />
+File systems --> Miscellaneous filesystems --> Journalling Flash File System v2 (JFFS2) support</p>
+
+<h1 id="jffs2-magic-bitmask">jffs2 Magic bitmask 错误</h1>
+
+<pre><code>jffs2: Node at 0x00000f6c with length 0x00000144 would run over the end of the erase block
+[    1.133830] jffs2: Perhaps the file system was created with the wrong erase size?
+[    1.141435] jffs2: jffs2_scan_eraseblock(): Magic bitmask 0x1985 not found at 0x00000f70: 0x0144 instead
+[    1.150994] jffs2: jffs2_scan_eraseblock(): Magic bitmask 0x1985 not found at 0x00000f74: 0x912a instead
+[    1.160547] jffs2: jffs2_scan_eraseblock(): Magic bitmask 0x1985 not found at 0x00000f78: 0x0002 instead
+[    1.170127] jffs2: jffs2_scan_eraseblock(): Magic bitmask 0x1985 not found at 0x00000f7c: 0x000d instead
+[    1.180689] jffs2: jffs2_scan_eraseblock(): Magic bitmask 0x1985 not found at 0x00000f80: 0x81a4 instead
+[    1.190183] jffs2: jffs2_scan_eraseblock(): Magic bitmask 0x1985 not found at 0x00000f84: 0x03e8 instead
+[    1.199668] jffs2: jffs2_scan_eraseblock(): Magic bitmask 0x1985 not found at 0x00000f88: 0x11d8 instead
+[    1.209151] jffs2: jffs2_scan_eraseblock(): Magic bitmask 0x1985 not found at 0x00000f8c: 0xdec2 instead
+[    1.218634] jffs2: jffs2_scan_eraseblock(): Magic bitmask 0x1985 not found at 0x00000f90: 0xdec2 instead
+[    1.228102] jffs2: jffs2_scan_eraseblock(): Magic bitmask 0x1985 not found at 0x00000f94: 0xdec2 instead
+[    1.237581] jffs2: Further such events for this erase block will not be printed
+[    1.245110] jffs2: jffs2_scan_eraseblock(): Magic bitmask 0x1985 not found at 0x00001000: 0x3fb1 instead
+[    1.254615] jffs2: jffs2_scan_eraseblock(): Magic bitmask 0x1985 not found at 0x00001004: 0x1a28 instead
+[    1.264102] jffs2: jffs2_scan_eraseblock(): Magic bitmask 0x1985 not found at 0x00001008: 0x7f01 instead
+[    1.273586] jffs2: jffs2_scan_eraseblock(): Magic bitmask 0x1985 not found at 0x0000100c: 0x505d instead
+[    1.283098] jffs2: jffs2_scan_eraseblock(): Magic bitmask 0x1985 not found at 0x00001010: 0x84c8 instead
+[    1.292588] jffs2: jffs2_scan_eraseblock(): Magic bitmask 0x1985 not found at 0x00001014: 0xd8d1 instead
+[    1.302072] jffs2: jffs2_scan_eraseblock(): Magic bitmask 0x1985 not found at 0x00001018: 0x4001 instead
+[    1.311555] jffs2: jffs2_scan_eraseblock(): Magic bitmask 0x1985 not found at 0x0000101c: 0x8485 instead
+[    1.321033] jffs2: jffs2_scan_eraseblock(): Magic bitmask 0x1985 not found at 0x00001020: 0x65b1 instead
+[    1.330514] jffs2: jffs2_scan_eraseblock(): Magic bitmask 0x1985 not found at 0x00001024: 0x5d81 instead
+</code></pre>
+
+<p>该错误有若干种可能：</p>
+
+<ol>
+<li><p>jffs2镜像生成错误</p>
+
+<p><code>mkfs.jffs2 -s 0x100 -e 0x10000 -p 0xAF0000 -d rootfs-brmin -o jffs2-brmin.img</code></p>
+
+<ul>
+<li>这里-s代表页大小，普通spi nor flash的页大小是256字节，即0x100</li>
+<li>-e表示擦除的块大小，普通spi nor<br />
+flash的块大小是64K字节，即0x10000</li>
+<li><p>-p表示分区大小，在生成时会擦除分区大小的flash初始化。</p></li>
+<li><p>这里必须和uboot里指定的分区大小一致，否则会出现脏页。</p></li>
+</ul></li>
+<li>内核使用了扇区擦除<br />
+<ul><br />
+<li>mkfs.jffs2 使用的最小擦除尺寸是8KB，而spi<br /><br />
+flash的扇区大小是4KB，所以按照扇区擦除的话，会无法使用，所以必须使用块擦除。</li><br />
+<li>编译内核前先确认下drivers/mtd/spi-nor/spi-nor.c里，自己使用的flash的相关信息</li><br />
+<li><code>#define SECT_4K BIT(0) /* SPINOR_OP_BE_4K works uniformly */</code></li><br />
+<li>如果发现信息里有SECT_4K，则会导致jffs2不能正常擦除（64KB），需要去掉该flag。</li><br />
+</ul></li>
+</ol>
+
+<h1 id="-3">其它摘录</h1>
+
+<pre><code>Question1：JFFS2 error: (1) jffs2_build_inode_pass1: child dir "alsa" (ino #1159) of dir ino #1074 appears to be a hard link
+JFFS2 error: (1) jffs2_build_inode_pass1: child dir "l" (ino #1170) of dir ino #1075 appears to be a hard link
+原由 : flash没有erase彻底.
+VFS: Mounted root (jffs2 filesystem) on device 31:1. Freeing init memory: 136K
+JFFS2 notice: (1) check_node_data: wrong data CRC in data node at 0x0f0a7f78: read 0x4462b066, calculated 0x48ea177f.
+JFFS2 error: (488) jffs2_do_read_inode_internal: Argh. Special inode #139 with mode 0x61b0 had more than one node iget() failed for ino #139 mknod: /dev/null: File exists
+Populating /dev using udev: udevd (499): /proc/499/oom_adj is deprecated, please use /proc/499/oom_score_adj instead.
+JFFS2 error: (500) jffs2_do_read_inode_internal: Argh. Special inode #1123 with mode 0x21b0 had more than one node iget() failed for ino #1123
+Question2：jffs2_scan_eraseblock(): Magic bitmask 0x1985 not found at 0x00000024: 0x2b10 instead
+mkfs.jffs2 -s 的参数问题 对照FLASH的大小再重新生成镜像文件过即可 The answer this means that the data on your flash device is not a valid JFFS2 file system.
+There is no single solution for this problem, but we will try to provide you some ideas how to fix this.
+The first question you should try to answer is "why the data on my flash device is incorrect so that JFFS2 rejects to deal with it?". There are may be a plenty of reasons, e.g.:
+you flash driver is severely buggy so it reads trash instead of valid data;
+you flashed some trash instead of a valid JFFS2 image;
+you did not manage to flash JFFS2 image correctly so that you ended up with
+garbage on your flash, although the original image was perfectly fine;
+you forgot to erase your flash before flashing it, etc.
+Anyways, JFFS2 wouldn't complain if it was able to find correct data. As it does complain, there is something wrong with the data it reads.
+One common mistake is to use /dev/mtdX or /dev/mtdblockX devices to flash JFFS2 images on NAND flashes. E.g.
+cp jffs2_fs.img /dev/mtd2
+This is incorrect because when dealing with NAND flashes one has to skip bad
+eraseblocks and write only in NAND page size chunks. Please, use the nandwrite utility instead.
+Also please, do not forget to erase your flash before flashing the image. You may use the
+flash_eraseall utility for this. And it makes sense to make sure the erase functionality
+actually works by reading the erased MTD device back and checking that only 0xFF bytes were read.
+You may try to check if your flash driver works correctly and if you flashed the file system image correctly by means of reading the flash back after you have flashed your image, and compare the read image with the original one. Please, use the nandread utility to read from NAND flashes.
+You can also do the following experiment to make sure JFFS2 works well. Erase your MTD device and mount it to JFFS2. You will end up with an empty file system. Copy some files to the JFFS2 file system and unmount it. Then mount it again and see if it mounts without problems. If it does, this is most probably not a JFFS2 bug.
+Question3：Empty flash at 0xXXXXXXXX ends at 0xXXXXXXXX
+This message is generated if a block of data is partially written. It is generally not a sign of any problem.
+Question4：Name CRC failed on node at 0x00b620c8: Read 0x640c8ca3, calculated 0x795111fe
+重启，则不会有如上CRC错误信息。 问题原因：
+我在烧写jffs2 img之前，使用fis init -f 来擦除flash。fis init -f 命令执行完以后，flash空间就都是0xFF了！即使在mkfs.jffs2的时候使用'-p'参数指定最终输出img的大小，但是超出文件系统的部分也会被填充为0xFF!但这可不是jffs2的格式！
+我用fis create分了5M多（0x590000）的分区，但是jffs2fs.img只有不到3M（0x250000），那么把它烧写到flash以后，分区中除了jffs2 img之外剩余的flash空间（大概2M）全是0xFF，这不是jffs2要求的格式，所以，会发出CRC错误的信息。假如有一种工具，他可以将flash format为jffs2的格式，那么就不会出现这个问题了。目前我还没有找到这种工具，但是，可以确信的是：上面的CRC错误是不影响jffs2文件系统的使用
+http://blog.chinaunix.net/space.php?uid=20727076&amp;do=blog&amp;id=1885384
+
+Question5: VFS: Mounted root (jffs2 filesystem) readonly.
+Freeing unused kernel memory: 304k freed Error -3 while decompressing! 804878c4(1884)-&gt;81200000(16384)
+Failed to execute /linuxrc. Attempting defaults---
+Kernel panic - not syncing: No init found. Try passing init= option to kernel.
+原由 : 没有仔细看 mkfs.jffs2 的手册, 须要指定-b参数, 大小与PAGE_SIZE一样 (查看.config文件 CONFIG_PAGE_SIZE_16KB=y).
+Question6:
+共提示以下几种错误：
+Empty flash at 0x00258c88 ends at 0x00258c8c
+jffs2_scan_inode_node(): CRC failed on node at 0x002873f0: Read 0x50dc72ec, calculated 0xafbffd1d
+jffs2_scan_eraseblock(): Magic bitmask 0x1985 not found at 0x002d24ac: 0x000d instead JFFS2 notice: (1) jffs2_build_xattr_subsystem: complete building xattr subsystem, 0 of xdatum (0 unchecked, 0 orphan) and 0 of xref (0 dead, 0 orphan) found. VFS: Mounted root (jffs2 filesystem). Freeing init memory: 124K
+JFFS2 notice: (1) check_node_data: wrong data CRC in data node at 0x00012000: read 0x1a9bfab2, calculated 0xdc27bef6.
+JFFS2 notice: (728) read_dnode: wrong data CRC in data node at 0x0000e438: read 0x3dcf6001, calculated 0xcb81f1ee.
+JFFS2 warning: (1) jffs2_do_read_inode_internal: no data nodes found for ino #14 JFFS2 notice: (1) jffs2_do_read_inode_internal: but it has children so we fake some modes for it
+Failed to execute /linuxrc. Attempting defaults---
+Kernel panic - not syncing: No init found. Try passing init= option to kernel. 分析：
+记得JFFS2是采用自己的ECC算法，但是在内核中又打开了S3C2410_HARDWARE_ECC 解决方案： 去掉硬件ECC
+</code></pre>
+
+                        </div>
+                    </div>
+                    <div id="previous_next">
+                        <div id="previous">
+                            
+                        </div>
+                        <div id="next">
+                            
+                        </div>
+                    </div>
+                </div>
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a id="to_top" href="#"></a>
+        <div id="doc_footer">
+                        
+            <div id="footer">
+                <div id="footer_top">
+                    <ul>
+<li><a>链接</a><ul><li><a target="_blank" href="https://www.sipeed.com">Sipeed</a></li>
+<li><a target="_blank" href="https://bbs.sipeed.com/">BBS 论坛</a></li>
+<li><a target="_blank" href="https://maixhub.sipeed.com/">Maixhub</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">Sipeed 淘宝</a></li>
+<li><a target="_blank" href="https://github.com/neutree/teedoc">使用 teedoc 构建</a></li>
+</ul>
+</li>
+<li><a>网站统计</a><ul><li><a target="_blank" href="https://tongji.baidu.com/web/welcome/ico?s=9cb07365544a53067c56c346c838181a">百度统计</a></li>
+<li><a  href="/sitemap.xml">网站地图</a></li>
+</ul>
+</li>
+<li><a>源码</a><ul><li><a target="_blank" href="https://github.com/sipeed/sipeed_wiki">文档源文件</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">开源项目源码</a></li>
+</ul>
+</li>
+<li><a>关注我们</a><ul><li><a target="_blank" href="https://github.com/sipeed">github</a></li>
+<li><a target="_blank" href="https://twitter.com/SipeedIO">twitter</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">淘宝</a></li>
+<li><a  href="/social_group.html">更多</a></li>
+</ul>
+</li>
+<li><a>联系我们</a><ul><li><a>电话: +86 0755-27808509</a>
+</li>
+<li><a>商业支持: support@sipeed.com</a>
+</li>
+<li><a>地址: 深圳市宝安区新湖路华美居B区1号楼713-715</a>
+</li>
+<li><a  href="/join_us.html">加入我们</a></li>
+</ul>
+</li>
+</ul>
+
+                </div>
+                <div id="footer_bottom">
+                    <ul>
+<li><a target="_blank" href="https://www.sipeed.com">©2018-2021 深圳矽速科技有限公司</a></li>
+<li><a target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index">粤ICP备19015433号-1</a></li>
+</ul>
+
+                </div>
+            </div>
+                    </div>
+</body>
+<script src="/static/js/theme_default/tocbot.min.js"></script>
+<script src="/static/js/theme_default/main.js"></script>
+<script src="/static/css/theme_default/prism.min.js"></script>
+<script src="/static/js/custom.js"></script>
+<script src="/static/js/search/search_main.js"></script>
+<script type="text/javascript" src="/static/js/live.js"></script>
+</html>

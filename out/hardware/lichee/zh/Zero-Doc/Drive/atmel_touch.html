@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html  class="md_page">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="">
+    <meta name="description" content="[]">
+    <meta name="generator" content="teedoc">
+    <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        <link rel="stylesheet" href="/static/css/theme_default/prism.min.css" type="text/css"/>
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?9cb07365544a53067c56c346c838181a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <title>atmel触摸屏驱动分析 - Sipeed Wiki</title>
+</head>
+<body>
+    
+            <div id="navbar">
+                <div id="navbar_menu">
+                    <a class="site_title" href="/"><img class="site_logo" src="/static/image/logo.svg" alt="sipeed wiki logo"><h2>wiki</h2></a>
+                    <a id="navbar_menu_btn"></a>
+                </div>
+                <div id="navbar_items">
+                    <div>
+                        <ul id="nav_left">
+<li class=""><a  href="/">首页</a></li>
+<li class=""><a target="_blank" href="https://www.sipeed.com">矽速官网</a></li>
+<li class="sub_items "><a>开源软件</a><ul><li class=""><a  href="/soft/maixpy/zh/index.html">Maixpy</a></li>
+<li class=""><a  href="/soft/maixpy3/zh/">Maixpy3</a></li>
+<li class=""><a  href="/licheeos/zh/">Lichee OS</a></li>
+<li class=""><a  href="/LonganOS/zh/">Longan OS</a></li>
+<li class=""><a  href="/TangOs/zh/">Tang OS</a></li>
+</ul>
+</li>
+<li class="sub_items active_parent"><a>开源硬件</a><ul><li class=""><a  href="/hardware/maix/zh/">Maix</a></li>
+<li class=""><a  href="/hardware/maixII/zh/">Maix II</a></li>
+<li class=""><a  href="/hardware/maixIII/zh/">Maix III</a></li>
+<li class=""><a  href="/hardware/maixIV/zh/">Maix IV</a></li>
+<li class="active"><a  href="/hardware/lichee/zh/">Lichee Pi</a></li>
+<li class=""><a  href="/hardware/tang/zh/">Tang</a></li>
+<li class=""><a  href="/hardware/longan/zh/">Longan</a></li>
+</ul>
+</li>
+<li class="sub_items "><a>商业产品</a><ul><li class=""><a  href="/hardware/maixface/zh/">Maix Face</a></li>
+</ul>
+</li>
+<li class="sub_items "><a>云平台</a><ul><li class=""><a target="_blank" href="https://www.maixhub.com">Maixhub 模型训练平台</a></li>
+<li class=""><a target="_blank" href="https://www.maixhub.com/onlinecompiler">固件在线编译</a></li>
+</ul>
+</li>
+<li class=""><a  href="/community.html">社区</a></li>
+<li class=""><a  href="https://shop365481095.taobao.com/?spm=a230r.7195193.1997079397.2.8384341c2zZ5uZ">商城</a></li>
+</ul>
+
+                    </div>
+                    <div>
+                        <ul id="nav_right">
+<li class="sub_items "><a  href="">Language: </a><ul><li class=""><a  href="/">中文</a></li>
+<li class=""><a  href="/en/">English</a></li>
+</ul></li>
+</ul>
+
+                        <ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">输入关键词，多关键词空格隔开</span>
+                                <span id="search_loading_hint">正在加载，请稍候。。。</span>
+                                <span id="search_download_err_hint">下载文件失败，请刷新重试或检查网络</span>
+                                <span id="search_other_docs_result_hint">来自其它文档的结果</span>
+                                <span id="search_curr_doc_result_hint">当前文档搜索结果</span>
+                            </div></a></li></ul>
+                    </div>
+                </div>
+            </div>
+    
+        <div id="wrapper">
+            
+            <div id="sidebar_wrapper">
+                <div id="sidebar">
+                    <div id="sidebar_title">
+                        
+                    </div>
+                    <ul class="">
+<li class="not_active no_link"><a><span class="label">LicheePi</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">简介</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">LicheePI Nano</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/index.html"><span class="label">简介</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">上手体验</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/./Nano-Doc-Backup/get_started/first_eye.html"><span class="label">初见</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/get_started/first_eat.html"><span class="label">前言</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">系统适配篇</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/build_sys/build_index.html"><span class="label">总述</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/build_sys/onekey.html"><span class="label">镜像包一键烧录</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/build_sys/docker.html"><span class="label">docker快速搭建环境</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/build_sys/bootargs.html"><span class="label">uboot传递参数</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/build_sys/kernel.html"><span class="label">主线linux编译</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/build_sys/devicetree.html"><span class="label">设备树添加节点</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/build_sys/rootfs.html"><span class="label">根文件系统编译</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/build_sys/build_flash.html"><span class="label">SPI-Flash系统编译</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">驱动开发</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/driver/touchscreen.html"><span class="label">电容触摸屏适配</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">从挖坑到填坑</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/step_by_step/one_openbox.html"><span class="label">开箱介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/step_by_step/two_sunxi-tools.html"><span class="label">编译使用sunxi-tools</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/step_by_step/three_uboot.html"><span class="label">编译使用uboot</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/step_by_step/four_linux.html"><span class="label">编译测试linux</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">应用开发</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/application/littlevgl.html"><span class="label">littlevGL的使用</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">奉献投稿</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/contribution/introduction.html"><span class="label">前言</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/contribution/todolist.html"><span class="label">Todolist</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/contribution/task_tips.html"><span class="label">快餐任务相关小事项</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/contribution/doc_tips.html"><span class="label">文档任务相关小事项</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/contribution/build_doc.html"><span class="label">文档构建</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">LicheePI Zero</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">初来乍到</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/Start/intro_cn.html"><span class="label">荔枝派与创作者的自我介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/Start/tips.html"><span class="label">Linux使用小贴士</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/Start/board_intro.html"><span class="label">认识zero的硬件</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/Start/docker_index.html"><span class="label">Docker环境简明教程</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/Start/docker_env.html"><span class="label">Docker开发环境</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/Start/docker_command.html"><span class="label">Docker命令速查</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/Start/docker_ubuntu.html"><span class="label">基础ubuntu系统配置</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/System_Development/type.html"><span class="label">Zero的开发环境分类</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">主线Uboot</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/System_Development/uboot_build.html"><span class="label">Uboot 编译</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/System_Development/uboot_conf.html"><span class="label">Uboot 配置</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/System_Development/uboot_logo.html"><span class="label">开机logo替换</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">主线Kernel</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/System_Development/kernel_build.html"><span class="label">主线Kernel基础编译</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/System_Development/kernel_printk.html"><span class="label">内核printk等级设置</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">BSP内核编译</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/System_Development/bsp_build.html"><span class="label">BSP源码下载与编译</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/System_Development/bsp_review.html"><span class="label"> BSP内核构建走读</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/System_Development/bsp_cam.html"><span class="label">BSP内核的摄像头使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/System_Development/bsp_mem.html"><span class="label">bsp内核中的保留内存</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">根文件系统编译</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+                </div>
+            </div>
+            <div id="menu_wrapper">
+                                    <div id="menu">
+                                    </div>
+                                </div>
+            <div id="article">
+                <div id="content_wrapper">
+                    <div id="content_body">
+                        <div id="article_head">
+                            <div id="article_title">
+                                <h1>atmel触摸屏驱动分析</h1>
+                            </div>
+                            <div id="article_tags">
+                                <ul></ul>
+                            </div>
+                            <div id="article_info">
+                            <div>
+                                <span class="article_author"></span><span class="article_date"></span>
+                            </div>
+                            <div>
+                                
+                            </div>
+                            </div>
+                        </div>
+                        <div id="article_content">
+                            <p>最新代码在：https://github.com/atmel-maxtouch/linux 3847行</p>
+
+<p>从下往上走读：</p>
+
+<p>版权信息</p>
+
+<p><strike>~~ {.sourceCode .c}<br />
+/* Module information */<br />
+MODULE_AUTHOR("Joonyoung Shim <a href="&#x6d;&#97;&#x69;&#108;&#116;&#x6f;&#58;&#x6a;&#x79;0&#57;&#50;&#x32;&#46;&#115;&#104;&#x69;&#x6d;&#x40;&#115;&#x61;&#x6d;&#x73;&#x75;n&#103;&#46;&#x63;&#111;&#109;">&#x6a;&#x79;0&#57;&#50;&#x32;&#46;&#115;&#104;&#x69;&#x6d;&#x40;&#115;&#x61;&#x6d;&#x73;&#x75;n&#103;&#46;&#x63;&#111;&#109;</a>");<br />
+MODULE_DESCRIPTION("Atmel maXTouch Touchscreen driver");<br />
+MODULE_LICENSE("GPL");<br />
+~</strike>~</p>
+
+<p>设备树匹配的名称：</p>
+
+<p><strike>~~ {.sourceCode .c}<br />
+static const struct i2c_device_id mxt_id[] = {<br />
+    { "qt602240_ts", 0 },<br />
+    { "atmel_mxt_ts", 0 },<br />
+    { "atmel_mxt_tp", 0 },<br />
+    { "maxtouch", 0 },<br />
+    { "mXT224", 0 },<br />
+    { }<br />
+};<br />
+~</strike>~</p>
+
+<p>待机模式操作</p>
+
+<p>~~~~ {.sourceCode .c}<br />
+static SIMPLE_DEV_PM_OPS(mxt_pm_ops, mxt_suspend, mxt_resume);</p>
+
+<h1 id="define-simple_dev_pm_opsname-suspend_fn-resume_fn">define SIMPLE_DEV_PM_OPS(name, suspend_fn, resume_fn) \</h1>
+
+<p>const struct dev_pm_ops name = { \<br />
+    SET_SYSTEM_SLEEP_PM_OPS(suspend_fn, resume_fn) \<br />
+}<br />
+~~~~</p>
+
+<p>移除操作</p>
+
+<p>~~~~ {.sourceCode .c}<br />
+static int mxt_remove(struct i2c_client *client)<br />
+{<br />
+    struct mxt_data *data = i2c_get_clientdata(client);</p>
+
+<pre><code>sysfs_remove_group(&amp;client-&gt;dev.kobj, &amp;mxt_fw_attr_group);
+mxt_debug_msg_remove(data);
+mxt_sysfs_remove(data);
+</code></pre>
+
+<h1 id="ifndef-__poll">ifndef __POLL</h1>
+
+<pre><code>if (data-&gt;irq)
+    free_irq(data-&gt;irq, data);
+</code></pre>
+
+<h1 id="endif">endif</h1>
+
+<pre><code>regulator_put(data-&gt;reg_avdd);
+regulator_put(data-&gt;reg_vdd);
+mxt_free_input_device(data);
+mxt_free_object_table(data);
+kfree(data);
+
+return 0;
+</code></pre>
+
+<p>}<br />
+~~~~</p>
+
+<p>插入操作</p>
+
+<p>~~~~ {.sourceCode .c}<br />
+static int mxt_probe(struct i2c_client *client, const struct i2c_device_id *id)<br />
+{<br />
+    struct mxt_data *data;<br />
+    const struct mxt_platform_data *pdata;<br />
+    int error;</p>
+
+<pre><code>pdata = mxt_get_platform_data(client);  //获取平台数据
+if (IS_ERR(pdata))
+    return PTR_ERR(pdata);
+
+data = kzalloc(sizeof(struct mxt_data), GFP_KERNEL);
+if (!data)
+    return -ENOMEM;
+
+snprintf(data-&gt;phys, sizeof(data-&gt;phys), "i2c-%u-%04x/input0",
+    client-&gt;adapter-&gt;nr, client-&gt;addr);
+
+data-&gt;client = client;
+data-&gt;pdata = pdata;
+i2c_set_clientdata(client, data);   //保存数据
+
+if (data-&gt;pdata-&gt;cfg_name)  //配置文件名
+    mxt_update_file_name(&amp;data-&gt;client-&gt;dev,
+                &amp;data-&gt;cfg_name,
+                data-&gt;pdata-&gt;cfg_name,
+                strlen(data-&gt;pdata-&gt;cfg_name));
+
+init_completion(&amp;data-&gt;chg_completion);
+init_completion(&amp;data-&gt;reset_completion);
+init_completion(&amp;data-&gt;crc_completion);
+mutex_init(&amp;data-&gt;debug_msg_lock);
+
+if (pdata-&gt;suspend_mode == MXT_SUSPEND_REGULATOR) {
+    __D;
+    error = mxt_acquire_irq(data);
+    if (error)
+        goto err_free_mem;
+
+    error = mxt_probe_regulators(data);
+    if (error)
+        goto err_free_irq;
+
+    disable_irq(data-&gt;irq);
+}
+
+error = sysfs_create_group(&amp;client-&gt;dev.kobj, &amp;mxt_fw_attr_group);
+if (error) {
+    dev_err(&amp;client-&gt;dev, "Failure %d creating fw sysfs group\n",
+        error);
+    return error;
+}
+
+error = mxt_initialize(data);
+if (error)
+    goto err_free_irq;
+
+return 0;
+</code></pre>
+
+<p>err_free_irq:<br />
+    if (data->irq)<br />
+        free_irq(data->irq, data);<br />
+err_free_mem:<br />
+    kfree(data);<br />
+    return error;<br />
+}<br />
+~~~~</p>
+
+<p>获取平台数据</p>
+
+<p>~~~~ {.sourceCode .c}<br />
+static const struct mxt_platform_data *<br />
+mxt_get_platform_data(struct i2c_client *client)<br />
+{<br />
+    const struct mxt_platform_data *pdata;</p>
+
+<pre><code>pdata = dev_get_platdata(&amp;client-&gt;dev);  //已经获取过就直接返回
+if (pdata)
+    return pdata;
+
+pdata = mxt_parse_dt(client);       //解析dts//初始化gpio_reset，cfg_name，input_name，gpio-keymap，suspend_mode
+if (!IS_ERR(pdata) || PTR_ERR(pdata) != -ENOENT)
+    return pdata;
+
+pdata = mxt_parse_acpi(client);
+if (!IS_ERR(pdata) || PTR_ERR(pdata) != -ENOENT)
+    return pdata;
+
+pdata = mxt_default_pdata(client);
+if (!IS_ERR(pdata))
+    return pdata;
+
+dev_err(&amp;client-&gt;dev, "No platform data specified\n");
+return ERR_PTR(-EINVAL);
+</code></pre>
+
+<p>}<br />
+~~~~</p>
+
+<p>获取中断</p>
+
+<p>~~~~ {.sourceCode .c}<br />
+static int mxt_acquire_irq(struct mxt_data *data)<br />
+{<br />
+    int error;</p>
+
+<h1 id="ifndef-__poll-2">ifndef __POLL</h1>
+
+<pre><code>if (!data-&gt;irq) {   //没有中断的话申请中断线程
+    error = request_threaded_irq(data-&gt;client-&gt;irq, NULL,
+            mxt_interrupt,
+            data-&gt;pdata-&gt;irqflags | IRQF_ONESHOT,
+            data-&gt;client-&gt;name, data);
+    if (error) {
+        dev_err(&amp;data-&gt;client-&gt;dev, "Error requesting irq\n");
+        return error;
+    }
+
+    /* Presence of data-&gt;irq means IRQ initialised */
+    data-&gt;irq = data-&gt;client-&gt;irq;
+} else {    //存在中断，则使能
+    enable_irq(data-&gt;irq);
+}
+</code></pre>
+
+<h1 id="endif-2">endif</h1>
+
+<pre><code>if (data-&gt;object_table &amp;&amp; data-&gt;use_retrigen_workaround) {
+    error = mxt_process_messages_until_invalid(data);
+    if (error)
+        return error;
+}
+
+return 0;
+</code></pre>
+
+<p>}<br />
+~~~~</p>
+
+<p>中断服务例程</p>
+
+<p>~~~~ {.sourceCode .c}<br />
+static irqreturn_t mxt_interrupt(int irq, void *dev_id)<br />
+{<br />
+    struct mxt_data *data = dev_id;</p>
+
+<pre><code>complete(&amp;data-&gt;chg_completion);
+
+if (data-&gt;in_bootloader) {
+    if (data-&gt;flash &amp;&amp; &amp;data-&gt;flash-&gt;work)
+        cancel_delayed_work_sync(&amp;data-&gt;flash-&gt;work);
+
+    return IRQ_RETVAL(mxt_check_bootloader(data));
+}
+
+if (!data-&gt;object_table)
+    return IRQ_HANDLED;
+
+if (data-&gt;T44_address) {    //有T44地址
+    return mxt_process_messages_t44(data);
+} else {
+    return mxt_process_messages(data);
+}
+</code></pre>
+
+<p>}<br />
+~~~~</p>
+
+<p>处理消息</p>
+
+<p>~~~~ {.sourceCode .c}<br />
+static irqreturn_t mxt_process_messages(struct mxt_data *data)<br />
+{<br />
+    int total_handled, num_handled;<br />
+    u8 count = data->last_message_count;</p>
+
+<pre><code>if (count &lt; 1 || count &gt; data-&gt;max_reportid)
+    count = 1;
+
+/* include final invalid message */
+total_handled = mxt_read_and_process_messages(data, count + 1);
+if (total_handled &lt; 0)
+    return IRQ_NONE;
+/* if there were invalid messages, then we are done */
+else if (total_handled &lt;= count)
+    goto update_count;
+
+/* keep reading two msgs until one is invalid or reportid limit */
+do {
+    num_handled = mxt_read_and_process_messages(data, 2);
+    if (num_handled &lt; 0)
+        return IRQ_NONE;
+
+    total_handled += num_handled;
+
+    if (num_handled &lt; 2)
+        break;
+} while (total_handled &lt; data-&gt;num_touchids);
+</code></pre>
+
+<p>update_count:<br />
+    data->last_message_count = total_handled;</p>
+
+<pre><code>if (data-&gt;update_input) {
+    mxt_input_sync(data);
+    data-&gt;update_input = false;
+}
+
+return IRQ_HANDLED;
+</code></pre>
+
+<p>}<br />
+~~~~</p>
+
+                        </div>
+                    </div>
+                    <div id="previous_next">
+                        <div id="previous">
+                            
+                        </div>
+                        <div id="next">
+                            
+                        </div>
+                    </div>
+                </div>
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a id="to_top" href="#"></a>
+        <div id="doc_footer">
+                        
+            <div id="footer">
+                <div id="footer_top">
+                    <ul>
+<li><a>链接</a><ul><li><a target="_blank" href="https://www.sipeed.com">Sipeed</a></li>
+<li><a target="_blank" href="https://bbs.sipeed.com/">BBS 论坛</a></li>
+<li><a target="_blank" href="https://maixhub.sipeed.com/">Maixhub</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">Sipeed 淘宝</a></li>
+<li><a target="_blank" href="https://github.com/neutree/teedoc">使用 teedoc 构建</a></li>
+</ul>
+</li>
+<li><a>网站统计</a><ul><li><a target="_blank" href="https://tongji.baidu.com/web/welcome/ico?s=9cb07365544a53067c56c346c838181a">百度统计</a></li>
+<li><a  href="/sitemap.xml">网站地图</a></li>
+</ul>
+</li>
+<li><a>源码</a><ul><li><a target="_blank" href="https://github.com/sipeed/sipeed_wiki">文档源文件</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">开源项目源码</a></li>
+</ul>
+</li>
+<li><a>关注我们</a><ul><li><a target="_blank" href="https://github.com/sipeed">github</a></li>
+<li><a target="_blank" href="https://twitter.com/SipeedIO">twitter</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">淘宝</a></li>
+<li><a  href="/social_group.html">更多</a></li>
+</ul>
+</li>
+<li><a>联系我们</a><ul><li><a>电话: +86 0755-27808509</a>
+</li>
+<li><a>商业支持: support@sipeed.com</a>
+</li>
+<li><a>地址: 深圳市宝安区新湖路华美居B区1号楼713-715</a>
+</li>
+<li><a  href="/join_us.html">加入我们</a></li>
+</ul>
+</li>
+</ul>
+
+                </div>
+                <div id="footer_bottom">
+                    <ul>
+<li><a target="_blank" href="https://www.sipeed.com">©2018-2021 深圳矽速科技有限公司</a></li>
+<li><a target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index">粤ICP备19015433号-1</a></li>
+</ul>
+
+                </div>
+            </div>
+                    </div>
+</body>
+<script src="/static/js/theme_default/tocbot.min.js"></script>
+<script src="/static/js/theme_default/main.js"></script>
+<script src="/static/css/theme_default/prism.min.js"></script>
+<script src="/static/js/custom.js"></script>
+<script src="/static/js/search/search_main.js"></script>
+<script type="text/javascript" src="/static/js/live.js"></script>
+</html>

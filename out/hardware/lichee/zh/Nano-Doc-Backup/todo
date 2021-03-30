@@ -1,0 +1,35 @@
+        File Name                 which one
+
+    contribution/todolist        github link
+    _templates/footer.html       github link
+    contribution/todolist        the todolist table need to be update 
+    get_started/first_eye        which things  Nano can do
+    contribution/doc_tips        update kancloud url
+    
+
+/*  for the task in Line 6
+    荔枝派Nano 可以做的，比如还有：
+
+.. figure:: http://xxxxx-wait-to-add.photo
+   :width: 500px
+   :align: center
+  
+   经典GB游戏再现
+
+.. figure:: http://xxxxx-wait-to-add.photo
+   :width: 500px
+   :align: center
+  
+   各类脚本轻松开发
+
+.. figure:: http://xxxxx-wait-to-add.photo
+   :width: 500px
+   :align: center
+  
+   驱动编写学习
+
+再比如说～车载MP5、虚拟无线电、视效收音机、移动卡拉ok 以及 唱戏机！ :-D
+*/
+
+没了
+

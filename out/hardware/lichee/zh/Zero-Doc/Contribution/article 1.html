@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html  class="md_page">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="">
+    <meta name="description" content="[]">
+    <meta name="generator" content="teedoc">
+    <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        <link rel="stylesheet" href="/static/css/theme_default/prism.min.css" type="text/css"/>
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?9cb07365544a53067c56c346c838181a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <title>荔枝派zero开箱指南 - Sipeed Wiki</title>
+</head>
+<body>
+    
+            <div id="navbar">
+                <div id="navbar_menu">
+                    <a class="site_title" href="/"><img class="site_logo" src="/static/image/logo.svg" alt="sipeed wiki logo"><h2>wiki</h2></a>
+                    <a id="navbar_menu_btn"></a>
+                </div>
+                <div id="navbar_items">
+                    <div>
+                        <ul id="nav_left">
+<li class=""><a  href="/">首页</a></li>
+<li class=""><a target="_blank" href="https://www.sipeed.com">矽速官网</a></li>
+<li class="sub_items "><a>开源软件</a><ul><li class=""><a  href="/soft/maixpy/zh/index.html">Maixpy</a></li>
+<li class=""><a  href="/soft/maixpy3/zh/">Maixpy3</a></li>
+<li class=""><a  href="/licheeos/zh/">Lichee OS</a></li>
+<li class=""><a  href="/LonganOS/zh/">Longan OS</a></li>
+<li class=""><a  href="/TangOs/zh/">Tang OS</a></li>
+</ul>
+</li>
+<li class="sub_items active_parent"><a>开源硬件</a><ul><li class=""><a  href="/hardware/maix/zh/">Maix</a></li>
+<li class=""><a  href="/hardware/maixII/zh/">Maix II</a></li>
+<li class=""><a  href="/hardware/maixIII/zh/">Maix III</a></li>
+<li class=""><a  href="/hardware/maixIV/zh/">Maix IV</a></li>
+<li class="active"><a  href="/hardware/lichee/zh/">Lichee Pi</a></li>
+<li class=""><a  href="/hardware/tang/zh/">Tang</a></li>
+<li class=""><a  href="/hardware/longan/zh/">Longan</a></li>
+</ul>
+</li>
+<li class="sub_items "><a>商业产品</a><ul><li class=""><a  href="/hardware/maixface/zh/">Maix Face</a></li>
+</ul>
+</li>
+<li class="sub_items "><a>云平台</a><ul><li class=""><a target="_blank" href="https://www.maixhub.com">Maixhub 模型训练平台</a></li>
+<li class=""><a target="_blank" href="https://www.maixhub.com/onlinecompiler">固件在线编译</a></li>
+</ul>
+</li>
+<li class=""><a  href="/community.html">社区</a></li>
+<li class=""><a  href="https://shop365481095.taobao.com/?spm=a230r.7195193.1997079397.2.8384341c2zZ5uZ">商城</a></li>
+</ul>
+
+                    </div>
+                    <div>
+                        <ul id="nav_right">
+<li class="sub_items "><a  href="">Language: </a><ul><li class=""><a  href="/">中文</a></li>
+<li class=""><a  href="/en/">English</a></li>
+</ul></li>
+</ul>
+
+                        <ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">输入关键词，多关键词空格隔开</span>
+                                <span id="search_loading_hint">正在加载，请稍候。。。</span>
+                                <span id="search_download_err_hint">下载文件失败，请刷新重试或检查网络</span>
+                                <span id="search_other_docs_result_hint">来自其它文档的结果</span>
+                                <span id="search_curr_doc_result_hint">当前文档搜索结果</span>
+                            </div></a></li></ul>
+                    </div>
+                </div>
+            </div>
+    
+        <div id="wrapper">
+            
+            <div id="sidebar_wrapper">
+                <div id="sidebar">
+                    <div id="sidebar_title">
+                        
+                    </div>
+                    <ul class="">
+<li class="not_active no_link"><a><span class="label">LicheePi</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">简介</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">LicheePI Nano</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/index.html"><span class="label">简介</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">上手体验</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/./Nano-Doc-Backup/get_started/first_eye.html"><span class="label">初见</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/get_started/first_eat.html"><span class="label">前言</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">系统适配篇</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/build_sys/build_index.html"><span class="label">总述</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/build_sys/onekey.html"><span class="label">镜像包一键烧录</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/build_sys/docker.html"><span class="label">docker快速搭建环境</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/build_sys/bootargs.html"><span class="label">uboot传递参数</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/build_sys/kernel.html"><span class="label">主线linux编译</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/build_sys/devicetree.html"><span class="label">设备树添加节点</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/build_sys/rootfs.html"><span class="label">根文件系统编译</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/build_sys/build_flash.html"><span class="label">SPI-Flash系统编译</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">驱动开发</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/driver/touchscreen.html"><span class="label">电容触摸屏适配</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">从挖坑到填坑</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/step_by_step/one_openbox.html"><span class="label">开箱介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/step_by_step/two_sunxi-tools.html"><span class="label">编译使用sunxi-tools</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/step_by_step/three_uboot.html"><span class="label">编译使用uboot</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/step_by_step/four_linux.html"><span class="label">编译测试linux</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">应用开发</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/application/littlevgl.html"><span class="label">littlevGL的使用</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">奉献投稿</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/contribution/introduction.html"><span class="label">前言</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/contribution/todolist.html"><span class="label">Todolist</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/contribution/task_tips.html"><span class="label">快餐任务相关小事项</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/contribution/doc_tips.html"><span class="label">文档任务相关小事项</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Nano-Doc-Backup/contribution/build_doc.html"><span class="label">文档构建</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">LicheePI Zero</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">初来乍到</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/Start/intro_cn.html"><span class="label">荔枝派与创作者的自我介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/Start/tips.html"><span class="label">Linux使用小贴士</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/Start/board_intro.html"><span class="label">认识zero的硬件</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/Start/docker_index.html"><span class="label">Docker环境简明教程</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/Start/docker_env.html"><span class="label">Docker开发环境</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/Start/docker_command.html"><span class="label">Docker命令速查</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/Start/docker_ubuntu.html"><span class="label">基础ubuntu系统配置</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/System_Development/type.html"><span class="label">Zero的开发环境分类</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">主线Uboot</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/System_Development/uboot_build.html"><span class="label">Uboot 编译</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/System_Development/uboot_conf.html"><span class="label">Uboot 配置</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/System_Development/uboot_logo.html"><span class="label">开机logo替换</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">主线Kernel</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/System_Development/kernel_build.html"><span class="label">主线Kernel基础编译</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/System_Development/kernel_printk.html"><span class="label">内核printk等级设置</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">BSP内核编译</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/System_Development/bsp_build.html"><span class="label">BSP源码下载与编译</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/System_Development/bsp_review.html"><span class="label"> BSP内核构建走读</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/System_Development/bsp_cam.html"><span class="label">BSP内核的摄像头使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/lichee/zh/Zero-Doc/System_Development/bsp_mem.html"><span class="label">bsp内核中的保留内存</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">根文件系统编译</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+                </div>
+            </div>
+            <div id="menu_wrapper">
+                                    <div id="menu">
+                                    </div>
+                                </div>
+            <div id="article">
+                <div id="content_wrapper">
+                    <div id="content_body">
+                        <div id="article_head">
+                            <div id="article_title">
+                                <h1>荔枝派zero开箱指南</h1>
+                            </div>
+                            <div id="article_tags">
+                                <ul></ul>
+                            </div>
+                            <div id="article_info">
+                            <div>
+                                <span class="article_author"></span><span class="article_date"></span>
+                            </div>
+                            <div>
+                                
+                            </div>
+                            </div>
+                        </div>
+                        <div id="article_content">
+                            <h1 id="1-zero">1. Zero各部分简介</h1>
+
+<h2 id="-1">正面：</h2>
+
+<p><img src="https://box.kancloud.cn/81ef02fb6e5e3d8325011cce1d0b8e3d_1472x833.jpg" alt="" /></p>
+
+<blockquote>
+  <p>width<br />
+  :   500px</p>
+  
+  <p>align<br />
+  :   center</p>
+  
+  <ol>
+  <li>主控v3s芯片，Allwinner V3s (ARM Cortex-A7 CPU, 1.2GHz, 512Mbit DDR2<br />
+  integrated)</li>
+  <li>tf卡插槽，tf卡金手指朝下插入。</li>
+  <li>micro usb口,可以用来给板子供电，也可以通过micro usb<br />
+  otg转接线转成标准usb大口然后连接各种usb外设，比如usb无线网卡。也可以接一个usb<br />
+  hub方便插多个usb设备。</li>
+  <li>一个RGB灯。</li>
+  <li>板子3.3V输出，注意方形焊盘是正。</li>
+  <li>板子5V供电输入，也可以接3.7v锂电池给板子供电，注意方形焊盘是正。</li>
+  <li>UART0扩展接口，主要用来通过串口工具连接PC调试使用。</li>
+  <li>上边两排分别有两排2.54排针焊接孔和两排1.27排针焊接孔（是邮票半孔），方便扩展，一般扩展只需焊接上下两排2.54排针即可。</li>
+  </ol>
+</blockquote>
+
+<h2 id="-2">反面：</h2>
+
+<p><img src="https://box.kancloud.cn/459b696c9d632f0c658408cb7cf2cebf_1441x785.jpg" alt="" /></p>
+
+<blockquote>
+  <p>width<br />
+  :   500px</p>
+  
+  <p>align<br />
+  :   center</p>
+  
+  <ol>
+  <li>40P 通用RGB屏幕接口</li>
+  <li>spi flash焊盘，默认没有焊接。</li>
+  </ol>
+</blockquote>
+
+<h2 id="-3">焊接好排针：</h2>
+
+<p><img src="https://box.kancloud.cn/385410f0100a42e7b295a44a7b207f5c_778x461.jpg" alt="" /></p>
+
+<blockquote>
+  <p>width<br />
+  :   500px</p>
+  
+  <p>align<br />
+  :   center</p>
+  
+  <h1 id="2">2. 启动方式介绍</h1>
+</blockquote>
+
+<p>最常用的启动方式是sd卡启动，网盘有可以直接使用的linux系统镜像，直接烧入sd卡后便可以启动并使用linux系统。也支持其他启动方式spi<br />
+flash、网络启动、usb下载启动等。</p>
+
+<h1 id="3">3. 系统镜像组成部分介绍</h1>
+
+<p>SD卡中的系统镜像一般分为三个区，第一个区称为boot区或者引导区，该部分没有文件系统而是直接将二进制的bootloader(uboot)文件直接写入。第二个区可以被称为linux内核区，fat文件系统，存放linux内核、内核参数文件还有设备数dtb文件。第三个区是root分区，用来存放根文件系统和用户数据等，一般是ext4文件分区格式。</p>
+
+<p>系统镜像下载地址链接: <a href="https://pan.baidu.com/s/1nv7Fq2X">https://pan.baidu.com/s/1nv7Fq2X</a> 密码: 5gec</p>
+
+<h1 id="4">4. 镜像烧录及简单演示</h1>
+
+<h2 id="tf">在tf卡上创建分区文件系统</h2>
+
+<p>首先需要一台linux操作系统的电脑或者在vmware虚拟机上安装linux系统，推荐ubuntu14<br />
+64位版本，ubuntu系统默认安装即可。</p>
+
+<p>我使用的是vmware虚拟机的形式，在vmware上安装完毕ubuntu后推荐安装vmware<br />
+tools工具，安装这个工具后可以在windows和ubuntu桌面之间直接无缝复制粘贴文件。</p>
+
+<p>下面制作tf卡启动系统，需要一张大于8g的tf卡和一个读卡器，将tf卡插入读卡器并插入电脑。如果是虚拟机请检查下虚拟机右下角这个图标的状态，如下图</p>
+
+<p><img src="https://box.kancloud.cn/8a73d6817530e644b7554623eba98b42_517x274.jpg" alt="" /></p>
+
+<blockquote>
+  <p>width<br />
+  :   500px</p>
+  
+  <p>align<br />
+  :   center</p>
+  
+  <p>如果是这种灰色的表示读卡器的操作权在windows系统，需要点击一个这个图标，选择链接（断开与主机连接），这样读卡器的控制器才能到虚拟机linux系统中。</p>
+</blockquote>
+
+<p><img src="https://box.kancloud.cn/f3e1c9f518571e27b822a691d15716e6_551x276.jpg" alt="" /></p>
+
+<blockquote>
+  <p>width<br />
+  :   500px</p>
+  
+  <p>align<br />
+  :   center</p>
+  
+  <p>在桌面环境搜索gparted分区编辑器并打开。</p>
+</blockquote>
+
+<p><img src="https://box.kancloud.cn/c53e6753317919ced72cec043d0971c0_695x606.jpg" alt="" /></p>
+
+<blockquote>
+  <p>width<br />
+  :   500px</p>
+  
+  <p>align<br />
+  :   center</p>
+  
+  <p>输入超级用户密码</p>
+</blockquote>
+
+<p><img src="https://box.kancloud.cn/115c141bf031efe81f421e4b4cbbfe60_570x304.jpg" alt="" /></p>
+
+<blockquote>
+  <p>width<br />
+  :   500px</p>
+  
+  <p>align<br />
+  :   center</p>
+  
+  <p>在右上角中选择tf卡对应的设备</p>
+</blockquote>
+
+<p><img src="https://box.kancloud.cn/c5242b6da29fffef89467df8fb1c7684_495x283.jpg" alt="" /></p>
+
+<blockquote>
+  <p>width<br />
+  :   500px</p>
+  
+  <p>align<br />
+  :   center</p>
+  
+  <p>依次选中tf卡上已经存在的分区，右键【删除】来删除分区</p>
+</blockquote>
+
+<p><img src="https://box.kancloud.cn/b17ecf1f8f745ade851a58b13fe1e671_641x466.jpg" alt="" /></p>
+
+<blockquote>
+  <p>width<br />
+  :   500px</p>
+  
+  <p>align<br />
+  :   center</p>
+  
+  <p>如果只有【卸载】选择，那么需要先点击卸载，然后再删除分区。</p>
+</blockquote>
+
+<p><img src="https://box.kancloud.cn/b67a250dc1c03e7959b9840714d22968_725x480.jpg" alt="" /></p>
+
+<blockquote>
+  <p>width<br />
+  :   500px</p>
+  
+  <p>align<br />
+  :   center</p>
+  
+  <p>所有分区删除完毕后，点击右上角对勾，将操作应用到磁盘。</p>
+</blockquote>
+
+<p><img src="https://box.kancloud.cn/05fe5db20051a1c487b8ced77cdf2c60_731x394.jpg" alt="" /></p>
+
+<blockquote>
+  <p>width<br />
+  :   500px</p>
+  
+  <p>align<br />
+  :   center</p>
+  
+  <p>点击左上角加号创建新分区，之前剩余空间输入2MB(主要用来存放uboot)，新大小输入20，文件系选择fat16，点击添加。</p>
+</blockquote>
+
+<p><img src="https://box.kancloud.cn/110b374f4c265f63e7b2d0683e5a1292_746x571.jpg" alt="" /></p>
+
+<blockquote>
+  <p>width<br />
+  :   500px</p>
+  
+  <p>align<br />
+  :   center</p>
+  
+  <p>再次点击左上角加号创建新分区，这次使用所有的默认参数如下图所示，分区大小将使用tf卡剩余的所有空间，文件系统是ext4.</p>
+</blockquote>
+
+<p><img src="https://box.kancloud.cn/110b374f4c265f63e7b2d0683e5a1292_746x571.jpg" alt="" /></p>
+
+<blockquote>
+  <p>width<br />
+  :   500px</p>
+  
+  <p>align<br />
+  :   center</p>
+  
+  <p>点击对勾，应用创建分区到tf卡。</p>
+</blockquote>
+
+<p><img src="https://box.kancloud.cn/466d58aee7d33489daf143c9dde03979_733x572.jpg" alt="" /></p>
+
+<blockquote>
+  <p>width<br />
+  :   500px</p>
+  
+  <p>align<br />
+  :   center</p>
+  
+  <p>打开linux终端，输入命令sudo fdisk –l 可以看到刚才我们创建的两个分区。</p>
+</blockquote>
+
+<p><img src="https://box.kancloud.cn/855ef93f1a7537e209de7e0d1f8490ee_711x481.jpg" alt="" /></p>
+
+<blockquote>
+  <p>width<br />
+  :   500px</p>
+  
+  <p>align<br />
+  :   center</p>
+  
+  <p>/dev/sdb即代表tf卡，/dev/sdb1代表的是tf的第一个分区，/dev/sdb2代表的是tf的第二个分区</p>
+</blockquote>
+
+<h2 id="-4">烧写镜像：</h2>
+
+<p>从百度网盘镜像及SDK：链接: <a href="https://pan.baidu.com/s/1nv7Fq2X">https://pan.baidu.com/s/1nv7Fq2X</a> 密码: 5gec<br />
+下载镜像文件，zero_imager.zip包含内核启动文件、内核镜像和烧写脚本。rootfs-xxxx.tar.gz是根文件系统，根据不同的需求打包制作出了多个根文件系统</p>
+
+<p>rootfs-brmin.tar.gz是最精简的根文件系统只有1.5M\<br />
+rootfs-brpy.tar.gz 在brmin基础上包含python环境\<br />
+rootfs-minmin.tar.gz debian(包含 apt, network)\<br />
+rootfs-mindb.tar.gz debian(包含apt, network, gcc, python---)\<br />
+rootfs-minX.tar.gz debian(包含桌面系统)</p>
+
+<p>将zero_imager.zip解压到某个目录下，并将需要的根文件系统放到这个目录下，本例以rootfs-minX.tar.gz为例子。打开终端，执行如下命令</p>
+
+<p><strike>~~ {.sourceCode .bash}<br />
+unzip zero_imager.zip（解压）<br />
+cp rootfs-minX.tar.gz  zero_imager/（将rootfs-minX.tar.gz复制到zero_imager目录）<br />
+cd zero_imager/（切换当前路径到zero_imager）<br />
+~</strike>~</p>
+
+<p>第一步，将uboot写入到sd卡8k偏移处。</p>
+
+<p><strike>~~ {.sourceCode .bash}<br />
+sudo dd if=u-boot-sunxi-with-spl_480800.bin of=/dev/sdb bs=1024 seek=8<br />
+~</strike>~</p>
+
+<p><img src="https://box.kancloud.cn/09d5b5dfb9c780875fa9468033e2102e_722x109.jpg" alt="" /></p>
+
+<blockquote>
+  <p>width<br />
+  :   500px</p>
+  
+  <p>align<br />
+  :   center</p>
+  
+  <p>第二步，将内核文件，启动参数文件，dtb写入到tf卡的第一分区。</p>
+</blockquote>
+
+<p><strike>~~ {.sourceCode .bash}<br />
+sudo mount /dev/sdb1 mnt/<br />
+sudo cp zImage mnt/<br />
+sudo cp sun8i-v3s-licheepi-zero*.dtb mnt/<br />
+sudo cp boot.scr mnt/<br />
+sync<br />
+sudo umount /dev/sdb1<br />
+~</strike>~</p>
+
+<p><img src="https://box.kancloud.cn/d71557d71082e65d5a6a0af5060f2aa6_676x129.jpg" alt="" /></p>
+
+<blockquote>
+  <p>width<br />
+  :   500px</p>
+  
+  <p>align<br />
+  :   center</p>
+  
+  <p>第三步，将根文件系统内容写入到tf卡的第二分区。</p>
+</blockquote>
+
+<p><strike>~~ {.sourceCode .bash}<br />
+sudo mount /dev/sdb2 mnt/<br />
+sudo rm -rf mnt/*<br />
+sudo tar xzvf rootfs-minX.tar.gz -C mnt/<br />
+sudo cp -r overlay_rootfs-base/* mnt/<br />
+sudo cp -r overlay_rootfs-minX/* mnt/<br />
+sudo dd if=/dev/zero of=mnt/swap bs=1M count=128<br />
+sudo mkswap mnt/swap<br />
+sudo echo "/swap swap swap defaults 0 0" &gt;&gt; mnt/etc/fstab<br />
+sync<br />
+sudo umount /dev/sdb2<br />
+~</strike>~</p>
+
+<h2 id="-5">启动系统：</h2>
+
+<p>使用串口工具连接LicheePiZero,注意rx接tx，tx接rx，插入电脑，打开串口工具，我使用的是PuTTY_0.67.0.0.exe。有屏幕的插入屏幕。</p>
+
+<p><img src="https://box.kancloud.cn/7a8728436e5decf4813a54e407bd5489_1194x620.jpg" alt="" /></p>
+
+<blockquote>
+  <p>width<br />
+  :   500px</p>
+  
+  <p>align<br />
+  :   center</p>
+  
+  <p><img src="https://box.kancloud.cn/6daaa82f6d0b7f626195b4814f7fd978_674x330.jpg" alt="" /></p>
+</blockquote>
+
+<blockquote>
+  <p>width<br />
+  :   500px</p>
+  
+  <p>align<br />
+  :   center</p>
+  
+  <p><img src="https://box.kancloud.cn/9d03405f1227e42ca4cd918e695b0c5c_984x571.jpg" alt="" /></p>
+</blockquote>
+
+<blockquote>
+  <p>width<br />
+  :   500px</p>
+  
+  <p>align<br />
+  :   center</p>
+  
+  <p>输入账号root密码licheepi，登陆到系统。</p>
+</blockquote>
+
+                        </div>
+                    </div>
+                    <div id="previous_next">
+                        <div id="previous">
+                            
+                        </div>
+                        <div id="next">
+                            
+                        </div>
+                    </div>
+                </div>
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a id="to_top" href="#"></a>
+        <div id="doc_footer">
+                        
+            <div id="footer">
+                <div id="footer_top">
+                    <ul>
+<li><a>链接</a><ul><li><a target="_blank" href="https://www.sipeed.com">Sipeed</a></li>
+<li><a target="_blank" href="https://bbs.sipeed.com/">BBS 论坛</a></li>
+<li><a target="_blank" href="https://maixhub.sipeed.com/">Maixhub</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">Sipeed 淘宝</a></li>
+<li><a target="_blank" href="https://github.com/neutree/teedoc">使用 teedoc 构建</a></li>
+</ul>
+</li>
+<li><a>网站统计</a><ul><li><a target="_blank" href="https://tongji.baidu.com/web/welcome/ico?s=9cb07365544a53067c56c346c838181a">百度统计</a></li>
+<li><a  href="/sitemap.xml">网站地图</a></li>
+</ul>
+</li>
+<li><a>源码</a><ul><li><a target="_blank" href="https://github.com/sipeed/sipeed_wiki">文档源文件</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">开源项目源码</a></li>
+</ul>
+</li>
+<li><a>关注我们</a><ul><li><a target="_blank" href="https://github.com/sipeed">github</a></li>
+<li><a target="_blank" href="https://twitter.com/SipeedIO">twitter</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">淘宝</a></li>
+<li><a  href="/social_group.html">更多</a></li>
+</ul>
+</li>
+<li><a>联系我们</a><ul><li><a>电话: +86 0755-27808509</a>
+</li>
+<li><a>商业支持: support@sipeed.com</a>
+</li>
+<li><a>地址: 深圳市宝安区新湖路华美居B区1号楼713-715</a>
+</li>
+<li><a  href="/join_us.html">加入我们</a></li>
+</ul>
+</li>
+</ul>
+
+                </div>
+                <div id="footer_bottom">
+                    <ul>
+<li><a target="_blank" href="https://www.sipeed.com">©2018-2021 深圳矽速科技有限公司</a></li>
+<li><a target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index">粤ICP备19015433号-1</a></li>
+</ul>
+
+                </div>
+            </div>
+                    </div>
+</body>
+<script src="/static/js/theme_default/tocbot.min.js"></script>
+<script src="/static/js/theme_default/main.js"></script>
+<script src="/static/css/theme_default/prism.min.js"></script>
+<script src="/static/js/custom.js"></script>
+<script src="/static/js/search/search_main.js"></script>
+<script type="text/javascript" src="/static/js/live.js"></script>
+</html>
