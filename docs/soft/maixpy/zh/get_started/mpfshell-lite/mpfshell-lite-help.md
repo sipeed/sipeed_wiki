@@ -6,7 +6,7 @@
 
 在 python3.5 以上使用命令 `pip install mpfshell-lite` 即可安装，接着输入 `mpfshell-lite` 即可打开运行。
 
-![](./mpfshell_install.png)
+
 
 ##### 0. 了解不同的支持版本
 

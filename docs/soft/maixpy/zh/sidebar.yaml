@@ -64,7 +64,7 @@ items:
                 file: get_started/install_driver/ai_hat.md
         -   label: 更新 MaixPy 固件
             file: get_started/upgrade_maixpy_firmware.md
-        -   label: 使用串口终端工具
+        -   label: 串口终端工具
             file: get_started/env_serial_tools.md
          
             items:
