@@ -30,9 +30,9 @@ Windows 常用的串口终端软件有 [putty](https://www.putty.org/)，[mobaxt
 
 ![](../../assets/get_started/putty.png)
 
-然后点击回车键，即可看到 MaixPy 的交互界面了
+然后按下复位键，即可看到 MaixPy 的交互界面了
 
-`>>>`
+![](../../assets/get_started/putty1.png)
 
 输入 `help()`，可以查看帮助
 
