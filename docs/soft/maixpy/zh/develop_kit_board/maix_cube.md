@@ -77,9 +77,9 @@ MaixCube  板载 I2C 传感器/IC
 
 软件准备:
 
-  - USB 驱动：**FT2232** ->[[下载链接点这里](https://dl.sipeed.com/MAIX/tools/ftdi_vcp_driver)](https://dl.sipeed.com/MAIX/tools/ftdi_vcp_driver)
-  - Kflash_gui：[https://dl.sipeed.com/MAIX/tools/kflash_gui](https://dl.sipeed.com/MAIX/tools/kflash_gui)
-  - MaixPy IDE ：[https://dl.sipeed.com/MAIX/MaixPy/ide/_/v0.2.5](https://dl.sipeed.com/MAIX/MaixPy/ide/_/v0.2.5)
+  - USB 驱动：**FT2232** ->[[下载链接点这里](https://dl.sipeed.com/shareURL/MAIX/tools/ftdi_vcp_driver)](https://dl.sipeed.com/shareURL/MAIX/tools/ftdi_vcp_driver)
+  - Kflash_gui：[https://dl.sipeed.com/shareURL/MAIX/tools/kflash_gui](https://dl.sipeed.com/shareURL/MAIX/tools/kflash_gui)
+  - MaixPy IDE ：[https://dl.sipeed.com/shareURL/MAIX/MaixPy/ide/_/v0.2.5](https://dl.sipeed.com/shareURL/MAIX/MaixPy/ide/_/v0.2.5)
   - 例程程序库：[https://github.com/sipeed/MaixPy_scripts](https://github.com/sipeed/MaixPy_scripts)
 
 ###  安装驱动
@@ -144,8 +144,6 @@ while(True):
 
 Sipeed-Maix-Cube 资料下载：[Sipeed-Maix-Cube](https://dl.sipeed.com/shareURL/MAIX/HDK/Sipeed-Maix-Cube)
 
-Sipeed-Maix-Cube 规格书下载：[Sipeed-Maix-Cube](https://dl.sipeed.com/fileList/MAIX/HDK/Sipeed-Maix-Cube/ProductSpecification/Sipeed%20Maix%20Cube%20Datasheet%20V1.0.pdf)
+Sipeed-Maix-Cube 规格书下载：[Sipeed-Maix-Cube](https://dl.sipeed.com/shareURL/MAIX/HDK/Sipeed-Maix-Cube/ProductSpecification/Sipeed%20Maix%20Cube%20Datasheet%20V1.0.pdf)
 
-Sipeed-Maix-Cube 原理图下载：[Sipeed-Maix-Cube][Sipeed-Maix-Cube]
-
-[Sipeed-Maix-Cube]: https://dl.sipeed.com/fileList/MAIX/HDK/Sipeed-Maix-Cube/Maix-Cube-2757/Maix-Cube-2757(Schematic).pdf
+Sipeed-Maix-Cube 原理图下载：[Sipeed-Maix-Cube](https://dl.sipeed.com/shareURL/MAIX/HDK/Sipeed-Maix-Cube/Maix-Cube-2757/Maix-Cube-2757(Schematic).pdf)
