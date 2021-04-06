@@ -33,9 +33,9 @@ desc: maixpy doc: 文档贡献规范
 文档使用 gitbook 进行构建， 并使用简单高效的 Markdown 编写内容, 这里推荐使用 `Typora` 或者 `VS Code` 搭配 `MarkDown Preview Enhanced` 插件作为文档编辑器
 
 
-文档源码托管在 [github](https://github.com/sipeed/MaixPy_DOC)
+文档源码托管在 [github](https://github.com/sipeed/sipeed_wiki/tree/main/docs/soft/maixpy)
 
-本地预览方法见 文档源码的 [README.md](https://github.com/sipeed/MaixPy_DOC/blob/master/README.md)
+本地预览方法见 文档源码的 [README.md](https://github.com/sipeed/sipeed_wiki/README.md)
 
 文档有两种语言， 中文和英文，分别放在`zh`和`en`文件夹中， 其中的`SUMMARY.md`是文档左边的目录项，其它`md`文件时具体的文档文件，根目录下的`assets`目录放两种语言公用的图片资源文件
 

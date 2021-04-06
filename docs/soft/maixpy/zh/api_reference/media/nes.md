@@ -88,18 +88,38 @@ finally:
 
 ```python
 import nes, lcd
-lcd.init(freq=15000000)
+from machine import I2C
+from fpioa_manager import fm
+# 两个手柄分别通过 i2c 传输按键信息
+i2c = I2C(I2C.I2C_SOFT, freq=60*1000, sda=27, scl=24, gscl=fm.fpioa.GPIOHS7,gsda=fm.fpioa.GPIOHS8)
+i2c2 = I2C(I2C.I2C_SOFT, freq=60*1000, scl=23, sda=20, gscl=fm.fpioa.GPIOHS9,gsda=fm.fpioa.GPIOHS10) # software i2c
+print(i2c.scan())
+print(i2c2.scan())
+
+lcd.init()
+lcd.bgr_to_rgb(False)
+
+# B A SEL START UP DOWN LEFT RIGHT
+# 1 2 4   8     16  32   64   128
 try:
   nes.init(nes.INPUT)
   nes.load("mario.nes")
-  while True:
-    # p1 = i2c.readfrom(66, 1) # handle i2c addr
-    # p2 = i2c.readfrom(74, 1) # handle i2c addr
-    # nes.input(p1, p2, 0)
+  for i in range(20000):
     nes.loop()
+  for i in range(500):
+    nes.loop()
+    nes.input(8, 0, 0)
+    nes.loop()
+    nes.input(0, 0, 0)
+  while True:
+    p1 = i2c.readfrom(66, 1)
+    for i in range(10):
+      nes.loop()
+    nes.input(p1[0], 0, 0)
+    for i in range(10):
+      nes.loop()
 finally:
   nes.free()
-
 ```
 
 ## 例 1： 键盘（串口）
@@ -135,7 +155,6 @@ while True:
     nes.loop()
 
 ```
-
 
 
 

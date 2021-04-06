@@ -27,4 +27,4 @@ MaixDuino pin diagram
 
 ### Information related links
 
--[MaixDuino schematic](https://dl.sipeed.com/MAIX/HDK/Sipeed-Maixduino)
+-[MaixDuino schematic](https://dl.sipeed.com/shareURL/MAIX/HDK/Sipeed-Maixduino)
