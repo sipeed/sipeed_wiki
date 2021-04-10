@@ -18,7 +18,7 @@ Blink 闪灯程序
 
 * 我们首先需要编辑工程配置文件 `platformio.ini` 根据自己的开发板型号，删掉其他开发板环境。
 
-![](zh/assets/../../../assets/pio_ini_cfg.png)
+![](./../../assets/pio_ini_cfg.png)
 
 配置示例
 ```ini

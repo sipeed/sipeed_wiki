@@ -9,7 +9,7 @@
 
 ### 外观一览
 
-![maixcube_product_appearance](../../../hardware/assets/maixcube_product_appearance.png)
+![maixcube_product_appearance](./../../assets/dk_board/maix_cube/maixcube_product_appearance.png)
 
 - 1.3 寸 **IPS** 屏幕: 分辨率** 240*240**
 - 复位按键
@@ -23,7 +23,7 @@
 
 ### 板载功能介绍
 
-![maixcube_resources](../../../hardware/assets/dk_board/maix_cube/maixcube_resources.png)
+![maixcube_resources](../../../assets/dk_board/maix_cube/maixcube_resources.png)
 
 - 电源管理控制单元: AXP173
   - 板载 200mAh 锂电池,支持用户充放电控制
@@ -47,8 +47,8 @@ SP-MOD 即为 sipeed module, simplify PMOD, super module
 
 | 接口 | 接口描述 |
 |---|---|
-|SP-MODE 接口描述|![spmod_interface_1](../../../hardware/assets/spmod_interface_1-1595819569921.png)|
-|硬件接口|![spmod_interface_2](../../../hardware/assets/spmod_interface_2.png)|
+|SP-MODE 接口描述|![spmod_interface_1](../../../assets/spmod/spmod_interface_1.png)|
+|硬件接口|![spmod_interface_2](../../../assets/spmod/spmod_interface_2.png)|
 
 #### Grove 接口
 
@@ -56,7 +56,7 @@ SP-MOD 即为 sipeed module, simplify PMOD, super module
 
 Grove 接口的线缆有 4 种颜色, 用户可以根据颜色快速区别
 
-![grove_interface](../../../hardware/assets/interface_grove/grove_interface.jpg)
+![grove_interface](../../../assets/interface_grove/grove_interface.jpg)
 
 | --- | 颜色 | 描述 |
 | --- | --- | --- |
