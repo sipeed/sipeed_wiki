@@ -49,6 +49,7 @@
             {
                 "label": "开源硬件",
                 "position": "left",
+                "url": "/hardware/maix/zh/",
                 "type": "list",
                 "items": [
                     {

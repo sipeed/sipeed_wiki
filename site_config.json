@@ -28,7 +28,7 @@
         },
         "assets": {
             "/static/": "static",
-            "/hardware/assets/": "docs/hardware/maix/assets",
+            "/hardware/maix/assets/": "docs/hardware/maix/assets",
             "/hardware/longan/assets/": "docs/hardware/longan/assets",
             "/hardware/maixface/assets/": "docs/hardware/maixface/assets",
             "/hardware/lichee/assets/": "docs/hardware/lichee/assets",
