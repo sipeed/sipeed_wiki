@@ -28,4 +28,6 @@ MaixDuino 引脚图
 ### 资料相关链接
 
 - [MaixDuino 原理图](https://dl.sipeed.com/shareURL/MAIX/HDK/Sipeed-Maixduino)
+- [MaixPy](./../../../../soft/maixpy/zh/readme.md)
+- [arduino](./../maixduino/zh/readme.md)
 

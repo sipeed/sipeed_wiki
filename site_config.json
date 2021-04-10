@@ -8,6 +8,7 @@
     "route": {
         "docs": {
             "/hardware/maix/zh/": "docs/hardware/maix/zh",
+            "/hardware/maix/zh/maixduino/zh/": "docs/hardware/maix/zh/maixduino/zh",
             "/hardware/maix/en/": "docs/hardware/maix/en",
             "/hardware/longan/zh/": "docs/hardware/longan/zh",
             "/hardware/longan/en/": "docs/hardware/longan/en",
