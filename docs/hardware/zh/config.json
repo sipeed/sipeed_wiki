@@ -1,0 +1,26 @@
+{
+    "import": "config_zh",
+    "class": "md_page",
+    "navbar": {
+        "items": [
+            {
+                "id": "language",
+                "label": "Language: ",
+                "position": "right",
+                "type": "selection",
+                "items": [
+                    {
+                        "id": "zh",
+                        "url": "/hardware/zh/",
+                        "label": "中文"
+                    },
+                    {
+                        "id": "en",
+                        "url": "/en/",
+                        "label": "English"
+                    }
+                ]
+            }
+        ]
+    }
+}
