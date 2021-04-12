@@ -32,16 +32,20 @@
                         "label": "Maixpy3"
                     },
                     {
+                        "url":"/soft/maixduino/zh/index.html",
+                        "label":"MaixDuino"
+                    },
+                    {
                         "url": "/soft/Lichee/zh/",
                         "label": "Lichee"
                     },
                     {
-                        "url": "/LonganOS/zh/",
-                        "label": "Longan OS"
+                        "url": "/soft/longan/zh/",
+                        "label": "Longan"
                     },
                     {
-                        "url": "/TangOs/zh/",
-                        "label": "Tang OS"
+                        "url": "/soft/Tang/zh/",
+                        "label": "Tang"
                     }
 
                 ]
@@ -49,31 +53,30 @@
             {
                 "label": "开源硬件",
                 "position": "left",
-                "url": "/hardware/maix/zh/",
                 "type": "list",
                 "items": [
                     {
-                        "url": "/hardware/maix/zh/",
+                        "url": "/hardware/zh/maix/index.html",
                         "label": "Maix"
                     },
                     {
-                        "url": "/hardware/maixII/zh/",
+                        "url": "/hardware/zh/maixII/zh/",
                         "label": "Maix II"
                     },
                     {
-                        "url": "/hardware/maixIII/zh/",
+                        "url": "/hardware/zh/maixIII/zh/",
                         "label": "Maix III"
                     },
                     {
-                        "url": "/hardware/maixIV/zh/",
+                        "url": "/hardware/zh/maixIV/zh/",
                         "label": "Maix IV"
                     },
                     {
-                        "url": "/hardware/lichee/zh/",
+                        "url": "/hardware/zh/lichee/zh/",
                         "label": "Lichee Pi"
                     },
                     {
-                        "url": "/hardware/tang/zh/",
+                        "url": "/hardware/zh/tang/zh/",
                         "label": "Tang"
                     },
                     {

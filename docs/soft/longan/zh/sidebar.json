@@ -1,0 +1,68 @@
+{
+    "items": [
+        {
+            "label": "Sipeed Longan",
+            "file": "README.md"
+        },
+        {
+            "label": "Longan Nano",
+            "items": [
+                {
+                    "label": "简介",
+                    "items": [
+                        {
+                            "label": "关于Longan",
+                            "file": "README.md"
+                        }
+                    ]
+                },
+                {
+                    "label": "准备",
+                    "items": [
+                        {
+                            "label": "PIO 配置",
+                            "file": "get_started/pio.md"
+                        },
+                        {
+                            "label": "Blink闪灯",
+                            "file": "get_started/blink.md"
+                        },
+                        {
+                            "label": "DEBUG 调试",
+                            "file": "get_started/debug.md",
+                            "items": [
+                                {
+                                    "label": "使用 Sipeed 调试器",
+                                    "file": "get_started/sipeed-debugger.md"
+                                },
+                                {
+                                    "label": "使用 RV-LINK",
+                                    "file": "get_started/rv-link.md"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "label": "示例",
+                    "items": [
+                        {
+                            "label": "串口输出",
+                            "file": "examples/printf.md"
+                        },
+                        {
+                            "label": "播放 Badapple",
+                            "file": "examples/badapple.md"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label":"Longan Zreo"
+        },
+        {
+            "label":"Longan One"
+        }
+    ]
+}
