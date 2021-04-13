@@ -6,7 +6,7 @@
         },
 
         {
-            "label": "Maix",
+            "label": "Maix-I",
             
             "items": [
         
@@ -56,7 +56,7 @@
             ]
         },
         {
-            "label": "MaixII",
+            "label": "Maix-II",
             "items": [
                 {
                     "label": "M2"
@@ -81,7 +81,7 @@
             ]
         },
         {
-            "label": "MaixIII",
+            "label": "Maix-III",
             "items": [
                 {
                     "label": "M3-lite"
@@ -94,7 +94,7 @@
             ]
         },
         {
-            "label": "MaixIV",
+            "label": "Maix-IV",
             "items": [
                 {
                     "label": "M4"
