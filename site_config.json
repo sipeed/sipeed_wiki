@@ -5,6 +5,7 @@
     "site_domain": "wiki.sipeed.com",
     "site_protocol": "https",
     "config_template_dir": "config",
+    "source": "https://github.com/sipeed/sipeed_wiki/blob/main",
     "route": {
         "docs": {
             "/hardware/zh/": "docs/hardware/zh",
