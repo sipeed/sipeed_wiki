@@ -24,7 +24,7 @@
                 "type": "list",
                 "items": [
                     {
-                        "url": "/soft/maixpy/zh/index.html",
+                        "url": "/soft/maixpy/zh/",
                         "label": "Maixpy"
                     },
                     {
@@ -32,7 +32,7 @@
                         "label": "Maixpy3"
                     },
                     {
-                        "url":"/soft/maixduino/zh/index.html",
+                        "url":"/soft/maixduino/zh/",
                         "label":"MaixDuino"
                     },
                     {
@@ -56,7 +56,7 @@
                 "type": "list",
                 "items": [
                     {
-                        "url": "/hardware/zh/maix/index.html",
+                        "url": "/hardware/zh/maix/",
                         "label": "Maix-I"
                     },
                     {
@@ -271,5 +271,6 @@
                 "curr_doc_result_hint": "当前文档搜索结果"
             }
         }
-    }
+    },
+    "show_source": "编辑本页"
 }
