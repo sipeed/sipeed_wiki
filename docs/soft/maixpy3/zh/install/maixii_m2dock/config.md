@@ -38,8 +38,8 @@ Retype password:
 passwd: password for root changed by root
 
 config your wifi... [Ctrl + C > Exit] 
-input your wifi name... Sipeed_2.4G
-input your wifi password... Sipeed123.
+input your wifi name... Sipeed
+input your wifi password... 1234567890
 
 [wifi] path: /etc/wpa_supplicant.conf
 
@@ -47,8 +47,8 @@ input your wifi password... Sipeed123.
 update_config=1
 
 network={
-	ssid="Sipeed_2.4G"
-	psk="Sipeed123."
+	ssid="Sipeed"
+	psk="1234567890"
 }
 /etc/init.d/S40network restart
 Stopping network...

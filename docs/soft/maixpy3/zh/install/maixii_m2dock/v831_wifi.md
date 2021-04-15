@@ -14,8 +14,8 @@ ctrl_interface=/tmp/wpa_supplicant
 update_config=1
 
 network={
-    ssid="Sipeed_2.4G"
-    psk="Sipeed123."
+    ssid="Sipeed"
+    psk="123456789"
 }
 # 自己可以配置多个 wifi
 network={
@@ -61,8 +61,8 @@ ctrl_interface=/tmp/wpa_supplicant
 update_config=1
 
 network={
-    ssid="Sipeed_2.4G"
-    psk="Sipeed123."
+    ssid="Sipeed"
+    psk="1234567890"
 }
 # 自己可以配置多个 wifi
 network={
