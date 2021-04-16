@@ -227,7 +227,8 @@
                             "label":"通信类",
                             "items":[
                                 {
-                                    "label":"SP-BLE"
+                                    "label":"SP-BT",
+                                    "file":"./modules_spmod/spmod_bt.md"
                                     
                                 },
                                 {
