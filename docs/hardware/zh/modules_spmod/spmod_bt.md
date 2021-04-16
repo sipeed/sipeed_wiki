@@ -3,11 +3,11 @@
 
 ## 概述
 
-<img src="../../assets/spmod/spmod_bt/sp_bt.png" alt="XXX" style="zoom:40%;" />
+![](./../../assets/spmod/spmod_bt/sipeed_spmod_BT.jpg)
 
 SPMOD-BT(蓝牙 模块)采用 YDJ-23。
 
-## SPMOD - BLE 介绍
+## SPMOD - BT 介绍
 
 - 采用 **Sipeed-SPMOD** 接口(2.54mm * 8PIN 排针)，统一 MaixPy 开发板接口
 - 利用 SP-MOD UART 和蓝牙模块通讯
