@@ -3,7 +3,7 @@
 
 ## 概述
 
-<img src="../../assets/spmod/spmod_ethernet/sp_ethernet.png" align="right" width="" height="500" />
+![](../../assets/spmod/spmod_ethernet/sp_ethernet.png)
 
 SPMOD_Ethernet(网络扩展模块)采用 W5500 以太网主控芯片。
 

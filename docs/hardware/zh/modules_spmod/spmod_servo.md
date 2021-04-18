@@ -3,7 +3,7 @@
 
 ## 概述
 
-<img src="../../assets/spmod/spmod_servo/sp_servo.png" align="right" width="" height="500" />
+<img src="../../assets/spmod/spmod_servo/sp_servo.png"  width="" height="300" />
 
 SPMOD_SERVO (SERVO模块)。
 

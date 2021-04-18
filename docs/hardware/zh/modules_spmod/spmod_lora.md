@@ -3,7 +3,7 @@
 
 ## 概述
 
-<img src="../../assets/spmod/spmod_lora/sp_lora.png" align="right" width="" height="500" />
+<img src="../../assets/spmod/spmod_lora/sp_lora.png"  width="" height="300" />
 
 SPMOD_LoRa(LoRa 模块)采用 M-XL8 模块。
 

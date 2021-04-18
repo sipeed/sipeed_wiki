@@ -3,7 +3,7 @@
 
 ## 概述
 
-<img src="../../assets/spmod/spmod_rfid/sp_rfid.png" style="padding-right:100px;" align="right" width="" height="500" />
+<img src="../../assets/spmod/spmod_rfid/sp_rfid.png" style="padding-right:100px;" width="" height="300" />
 
 SPMOD_RFID (NFC 模块)采用复旦微电子 FM17510 高度集成的非接触式（13Mhz）的读写芯片。
 
@@ -90,7 +90,7 @@ FM17510 具有低电压、低功耗、 单端驱动等特点。适用于低功�
 
 ### C 示例：
 
-  ```c
+```c
 
   fpioa_set_function(RFID_CS_PIN, FUNC_GPIOHS0 + RFID_CS_HSNUM); // RFID_CS_PIN: 20;
   fpioa_set_function(RFID_CK_PIN, FUNC_GPIOHS0 + RFID_CK_HSNUM); // RFID_CK_PIN: 21;
@@ -111,11 +111,11 @@ FM17510 具有低电压、低功耗、 单端驱动等特点。适用于低功�
   PcdWrite(0x11, w_buf)
   PcdRead(0x11, &r_buf)
 
-  ```
+```
 
 ### MaixPy 例程：
 
-  ```python
+```python
 
   # 20: CS_NUM;
   fm.register(20, fm.fpioa.GPIOHS20, force=True)
@@ -135,7 +135,7 @@ FM17510 具有低电压、低功耗、 单端驱动等特点。适用于低功�
   MIFAREReader.MFRC522_Write(0x11, data)
   MIFAREReader.MFRC522_Read(0x11)
 
-  ```
+```
 ### 运行环境
 
 |  语言  | 开发板   | SDK/固件版本                   |

@@ -3,7 +3,7 @@
 
 ## 概述
 
-<img src="../../assets/spmod/spmod_joystick/sp_joystick.png" align="right" width="" height="500" />
+<img src="../../assets/spmod/spmod_joystick/sp_joystick.png"  width="" height="300" />
 
 SPMOD_JoyStick (JoyStick模块)。
 

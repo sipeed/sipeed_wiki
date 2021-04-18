@@ -3,7 +3,7 @@
 
 ## 概述
 
-<img src="../../assets/spmod/spmod_tof/sp_tof.png" style="padding-right:100px;" align="right" width="" height="500" />
+<img src="../../assets/spmod/spmod_tof/sp_tof.png" style="padding-right:100px;" width="" height="300" />
 
 SPMOD_TOF(TOF 模块) 采用 VL53L0X 模块。
 
@@ -74,7 +74,7 @@ SPMOD_TOF(TOF 模块) 采用 VL53L0X 模块。
 
 ### C 示例：
 
-  ```c
+```c
 
   //set io mux
     fpioa_set_function(VL53L0X_SCL, FUNC_I2C0_SCLK + VL53L0X_I2C_DEVICE * 2);
@@ -101,11 +101,11 @@ SPMOD_TOF(TOF 模块) 采用 VL53L0X 模块。
     printf("VL53L0X start work\r\n");
     vl53l0x_general_test(&vl53l0x_dev);
 
-  ```
+```
 
 ### MaixPy 例程：
 
-  ```python
+```python
 
     fm.register(VL53L0X_SHT, fm.fpioa.GPIOHS0, force=True)
     XSHUT = GPIO(GPIO.GPIOHS0, GPIO.OUT)
@@ -119,7 +119,7 @@ SPMOD_TOF(TOF 模块) 采用 VL53L0X 模块。
       utime.sleep_ms(100)
       print(mm)
 
-  ```
+```
 ### 运行环境
 
 |  语言  | 开发板   | SDK/固件版本 |

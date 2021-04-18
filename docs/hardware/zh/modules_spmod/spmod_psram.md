@@ -3,7 +3,7 @@
 
 ## 概述
 
-<img src="../../assets/spmod/spmod_psram/sp_psram.png" align="right" width="" height="500" />
+<img src="../../assets/spmod/spmod_psram/sp_psram.png" width="" height="300" />
 
 SPMOD_PSRAM(PSRAM模块)采用 IPS6404L-SQ 芯片。
 

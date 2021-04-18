@@ -3,7 +3,7 @@
 
 ## 概述
 
-<img src="../../assets/spmod/spmod_extender/sp_extender.png" align="right" width="" height="300" />
+![](../../assets/spmod/spmod_extender/sp_extender.png)
 
 
 SPMOD_Extender(8PIN扩展模块)

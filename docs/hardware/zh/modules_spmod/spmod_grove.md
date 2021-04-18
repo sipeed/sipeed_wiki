@@ -3,7 +3,7 @@
 
 ## 概述
 
-<img src="../../assets/spmod/spmod_grove/sp_grove.png" align="right" width="" height="400" />
+<img src="../../assets/spmod/spmod_grove/sp_grove.png"  width="" height="400" />
 
 
 SPMOD_Grove(GROVE 模块)

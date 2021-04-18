@@ -3,7 +3,7 @@
 
 ## 概述
 
-<img src="../../assets/spmod/spmod_lcd1.14//sp_lcd.png" align="right" width="" height="500" />
+![](../../assets/spmod/spmod_lcd1.14//sp_lcd.png)
 
 SPMOD_LCD1.14(1.14寸 LCD 屏幕模块)采用 ST7735S TFT LCD屏。
 
@@ -70,7 +70,7 @@ SPMOD_LCD1.14(1.14寸 LCD 屏幕模块)采用 ST7735S TFT LCD屏。
 
 ### C 示例：
 
-  ```c
+```c
 
   fpioa_set_function(SPI_IPS_LCD_CS_PIN_NUM, FUNC_SPI1_SS0);   // SPI_IPS_LCD_CS_PIN_NUM: 20;
   fpioa_set_function(SPI_IPS_LCD_SCK_PIN_NUM, FUNC_SPI1_SCLK); // SPI_IPS_LCD_SCK_PIN_NUM: 21;
@@ -88,12 +88,11 @@ SPMOD_LCD1.14(1.14寸 LCD 屏幕模块)采用 ST7735S TFT LCD屏。
 
   ips_lcd_init(); // init
   LCD_ShowPicture(0, 0, LCD_W, LCD_H, gImage_nanke); // display
-
-  ```
+```
 
 ### MaixPy 例程：
 
-  ```python
+```python
 
   # 20: SPI_LCD_CS_PIN_NUM;
   fm.register(SPI_LCD_CS_PIN_NUM, fm.fpioa.GPIOHS20, force=True)
@@ -124,7 +123,7 @@ SPMOD_LCD1.14(1.14寸 LCD 屏幕模块)采用 ST7735S TFT LCD屏。
   ips.display(img)
 
 
-  ```
+```
 
 ### 运行环境
 
