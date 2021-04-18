@@ -25,7 +25,7 @@ SPMOD_Eink(墨水屏模块)采用 GDEW0154M09 电子墨水屏。
 | 工作温度范围 | -40℃~85℃ |
 | 休眠电流 | <5uA |
 | 屏幕大小 | 1.54英寸 |
-| 有效显示区域 | 27.6mm | 27.6mm |
+| 有效显示区域 | 27.6mm |
 | 分辨率 | 200*200 |
 | 色彩 | 1 bit 黑/白显示 |
 | 对外接口 | 24P FPC (0.5mm间距) |
@@ -70,7 +70,7 @@ SPMOD_Eink(墨水屏模块)采用 GDEW0154M09 电子墨水屏。
 | 0x13  | 开始发送红白图像 |
 | 0x12  |  刷新图像到屏幕  |
 
-*更多指令信息参考[GDEW0154M09.pdf](https://cn.dl.sipeed.com/shareURL/MAIX/HDK/sp_mod/sp_eink)*
+*更多指令信息参考[GDEW0154M09.pdf](https://dl.sipeed.com/shareURL/MAIX/HDK/Spmod_CN/sp_eink)*
 
 ## 使用例程
 
@@ -82,7 +82,7 @@ SPMOD_Eink(墨水屏模块)采用 GDEW0154M09 电子墨水屏。
 
 ### C 示例：
 
-  ```c
+```c
 
   spi_init(1, SPI_WORK_MODE_0, SPI_FF_STANDARD, DATALENGTH, 0);
 
@@ -117,11 +117,11 @@ SPMOD_Eink(墨水屏模块)采用 GDEW0154M09 电子墨水屏。
   Paint_DrawString_EN(0, 80, "sipeed", &Font24, WHITE, BLACK); //17*24
   EPD_FullDisplay(BlackImage, BlackImage, 0);                  //display image
 
-  ```
+```
 
 ### MaixPy 例程：
 
-  ```python
+```python
 
   spi1 = SPI(SPI.SPI1, mode=SPI.MODE_MASTER, baudrate=600 * 1000,
               polarity=0, phase=0, bits=8, firstbit=SPI.MSB, sck=21, mosi=8)
@@ -145,7 +145,7 @@ SPMOD_Eink(墨水屏模块)采用 GDEW0154M09 电子墨水屏。
 
   epd.display(img)
 
-  ```
+```
 
 ### 运行环境
 
@@ -204,6 +204,7 @@ SPMOD_Eink(墨水屏模块)采用 GDEW0154M09 电子墨水屏。
     SPI_Eink_MOSI_PIN_NUM = const(8)
     SPI_Eink_FREQ_KHZ = const(600)
   ##############################################
+  ```
 
 
 ## 参考设计

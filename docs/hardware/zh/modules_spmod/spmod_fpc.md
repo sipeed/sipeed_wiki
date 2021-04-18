@@ -3,7 +3,7 @@
 
 ## 概述
 
-<img src="../../assets/spmod/spmod_fpc/sp_fpc.png" align="right" width="" height="300" />
+![](../../assets/spmod/spmod_fpc/sp_fpc.png)
 
 
 SPMOD_FPC(FPC 转接线模块)

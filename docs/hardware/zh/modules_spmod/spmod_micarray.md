@@ -3,7 +3,7 @@
 
 ## 概述
 
-<img src="../../assets/spmod/spmod_micarray/sp_micarray.png" align="right" width="" height="500" />
+<img src="../../assets/spmod/spmod_micarray/sp_micarray.png"  width="" height="300" />
 
 SPMOD_MicArray(麦克风阵列模块)采用 RY3708(DC-DC)升压模块
 

@@ -3,7 +3,7 @@
 
 ## 概述
 
-<img src="../../assets/spmod/spmod_weather/demo.gif" align="right" width="500" />
+<img src="../../assets/spmod/spmod_weather/demo.gif"  width="500" />
 
 SPMOD - Weather (气象站模块), 集成三轴传感器 QMC7983,与温湿度气压传感器 BME280。
 
@@ -91,7 +91,7 @@ SPMOD - Weather (气象站模块), 集成三轴传感器 QMC7983,与温湿度气
 
 ### C 示例：
 
-  ```c
+```c
 
     fpioa_set_function(Weather_SCL, FUNC_I2C0_SCLK + Weather_I2C_DEVICE * 2); // Weather_SCL: 6;
     fpioa_set_function(Weather_SDA, FUNC_I2C0_SDA + Weather_I2C_DEVICE * 2); // Weather_SDA: 7;
@@ -102,11 +102,11 @@ SPMOD - Weather (气象站模块), 集成三轴传感器 QMC7983,与温湿度气
     rslt = bme280_init(&dev); // Temperature, humidity and pressure sensors BME280 init
     stream_sensor_data_normal_mode(&dev); // read and print sensor data
 
-  ```
+```
 
 ### MaixPy 例程：
 
-  ```python
+```python
 
     i2c_bus = I2C(I2C.I2C0, freq=100*1000, scl=6, sda=7) # scl: io_6, sda: io_7
 
@@ -116,7 +116,7 @@ SPMOD - Weather (气象站模块), 集成三轴传感器 QMC7983,与温湿度气
         print(weather.qmc_read_xyz) # QMC7983 read data
         print(weather.bme_values) # BME280 read data
 
-  ```
+```
 
 ## 运行环境
 

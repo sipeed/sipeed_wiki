@@ -85,7 +85,9 @@ SPMOD-BT(蓝牙 模块)采用 YDJ-23。
 
 ### C 示例：
 
-  ```c
+
+```c
+
   // set uart rx/tx func to io_6/7
   fpioa_set_function(6, FUNC_UART1_RX + UART_NUM * 2);
   fpioa_set_function(7, FUNC_UART1_TX + UART_NUM * 2);
@@ -109,11 +111,12 @@ SPMOD-BT(蓝牙 模块)采用 YDJ-23。
   {
      printk(LOG_COLOR_W "get name success!\r\n");
   }
-  ```
+
+```
 
 ### MaixPy 例程：
 
-  ```python
+```python
     # set uart rx/tx func to io_6/7
   fm.register(6,fm.fpioa.UART1_RX)
   fm.register(7,fm.fpioa.UART1_TX)
@@ -138,7 +141,7 @@ SPMOD-BT(蓝牙 模块)采用 YDJ-23。
       count = read_str.count("NAME")
       if count != 0:
           uart.write("get name success\r\n")
-  ```
+```
 
 *注意发送AT指令后一定要加上\r\n*
 
