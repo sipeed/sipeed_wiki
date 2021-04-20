@@ -18,7 +18,7 @@
 - lichee-pi-nano F(8M) :
     ![](./../_static/step_by_step/nanoF(8).jpg)
 - lichee-pi-nano (9.9) :
-    ![](./../_static/step_by_step/nanoF(9.9).jpg)
+    ![](./../_static/step_by_step/nano(9.9).jpg)
 - LCDC(带电容触摸) :
     ![](./../_static/step_by_step/LCDC.jpg)
 - LCD :
