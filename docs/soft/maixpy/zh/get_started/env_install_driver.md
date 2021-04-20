@@ -19,10 +19,10 @@ desc: maixpy doc: 安装 USB 驱动
 | Maix Dock  | CH340                   |                       |[Dock](./install_driver/dock.md)|
 | Maix Duino | CH552                   | CH552 模拟 FT2232     |[Duino](./install_driver/duino.md)|
 | Maix Bit   | CH552(新版)/CH340(旧版)  | CH552 模拟 FT2232     |[Bit](./install_driver/bit.md)|
-| Maix Cube  | GD32(新版)/CH552(旧版)   | CH552 模拟 FT2232     |[Cube](./install_driver/ft2232.md)|
-| Maix Amigo | GD32                    | GD32 模拟 FT2232      |[Amigo](./install_driver/ft2232.md)|
+| Maix Cube  | GD32(新版)/CH552(旧版)   | CH552 模拟 FT2232     |[Cube](./install_driver/cube.md)|
+| Maix Amigo | GD32                    | GD32 模拟 FT2232      |[Amigo](./install_driver/amigo.md)|
 | Maix Nano  | CH552                   | CH552 模拟 FT2232     |[Nano](./install_driver/nano.md)|
-| Grove AI HAT | GD32                    | GD32 模拟 FT2232      |[Grove AI HAT](./install_driver/ft2232.md)|
+| Grove AI HAT | GD32                    | GD32 模拟 FT2232      |[Grove AI HAT](./install_driver/ai_hat.md)|
 
 > 使用 CH340 IC 的板子直接装 CH340 的驱动即可，其他的均使用 FT2232 的驱动程序。
 
