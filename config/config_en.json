@@ -112,13 +112,14 @@
                         "label": "IM groups"
                     },
                     {
-                        "url": "/social_others.html",
-                        "label": "Others"
+                        
+                        "label": "Others",
+                        "url": "/en/community_en.html"
                     }
                 ]
             },
             {
-                "url": "/store.html",
+                "url": "/en/store_en.html",
                 "label": "Store",
                 "position": "left"
             },

@@ -21,17 +21,13 @@ Nano 延续并发展了Zero精巧的PCB设计，使得开发和使用非常方�
 
 
 
-![Nano
-包装](https://img.alicdn.com/imgextra/i2/272610009/TB2ZC3ehH9YBuNjy0FgXXcxcXXa_!!272610009.jpg)
+![Nano包装](./../static/get_started/TB2ZC3.jpg)
 
-![tf版 与 wifi版 Nano
-对比](https://img.alicdn.com/imgextra/i3/272610009/TB2svAfhQCWBuNjy0FaXXXUlXXa_!!272610009.jpg)
+![tf版 与 wifi版 Nano对比](./../static/get_started/TB2sv.jpg)
 
-![Nano
-底板正面图](https://img.alicdn.com/imgextra/i4/272610009/TB2L22ihQKWBuNjy1zjXXcOypXa_!!272610009.png)
+![Nano 底板正面图](./../static/get_started/TB2L22.png)
 
-![Nano
-底板正面图](https://img.alicdn.com/imgextra/i1/272610009/TB2NigshNGYBuNjy0FnXXX5lpXa_!!272610009.png)
+![Nano 底板正面图](./../static/get_started/TB2N.png)
 
 ### Nano 硬件参数
 
@@ -73,21 +69,19 @@ Nano 延续并发展了Zero精巧的PCB设计，使得开发和使用非常方�
 -   存储温度 -40\~125℃，运行温度 -20\~70℃
 
 **发热情况**
-   ![运行linux压力测试时候的温度，仅稍高于体温，摸着温手不烫手](https://img.alicdn.com/imgextra/i1/272610009/TB2bXXgh9tYBeNjSspaXXaOOFXa_!!272610009.jpg%0A%20:width:%20500px%0A%20:align:%20center)
+   ![运行linux压力测试时候的温度，仅稍高于体温，摸着温手不烫手](./../static/get_started/hot.jpeg)
 
 ### Nano 手册资料
 
-国内下载：
+#### 国内下载：
 
-> Nano 数据手册:
-> <https://fdvad021asfd8q.oss-cn-hangzhou.aliyuncs.com/migrate/Nano%20F600%20User%20Manual.pdf>
->
-> 原理图：
-> <https://fdvad021asfd8q.oss-cn-hangzhou.aliyuncs.com/migrate/Lichee_nano.pdf>
->
-> 百度云盘资料包： <https://pan.baidu.com/s/1smzuGS9>
->
-> RT-Thread SDK : <https://github.com/RT-Thread/rt-thread>
+ [Nano 数据手册](http://dl.sipeed.com/shareURL/LICHEE/Nano/Documentf)
+
+ [原理图](http://dl.sipeed.com/shareURL/LICHEE/Nano/Document)
+
+ [百度云盘资料包](https://pan.baidu.com/s/1smzuGS9)
+
+ [RT-Thread SDK](https://github.com/RT-Thread/rt-thread)
 
 ### Nano 管脚定义
 
@@ -96,11 +90,10 @@ Nano 的管脚定义，可由下图简略说明：
 > -   靠近 2.54mm 插针的两排，列出了其引脚功能与常见复用
 > -   中间两排，分别对应着两边 1.27mm 邮票空插针的引脚功能
 
-![Pin
-Map](https://fdvad021asfd8q.oss-cn-hangzhou.aliyuncs.com/migrate/Pin%20Map.png)
+![Pin Map](https://fdvad021asfd8q.oss-cn-hangzhou.aliyuncs.com/migrate/Pin%20Map.png)
 
 具体的引脚定义与可用重映射信息，还请参阅
-[原理图](https://fdvad021asfd8q.oss-cn-hangzhou.aliyuncs.com/migrate/Lichee_nano.pdf)
+[原理图](http://dl.sipeed.com/shareURL/LICHEE/Nano/Document)
 
 说点软的
 --------
@@ -108,14 +101,11 @@ Map](https://fdvad021asfd8q.oss-cn-hangzhou.aliyuncs.com/migrate/Pin%20Map.png)
 荔枝派Nano
 支持多个系统，可自由使用Linux、RT-Thread、Xboot或裸机等进行操作。
 
-![linux 下运行 littlevgl
-Demo](https://img.alicdn.com/imgextra/i4/272610009/TB29Aj_hH1YBuNjSszhXXcUsFXa_!!272610009.jpg)
+![linux 下运行 littlevgl Demo](https://img.alicdn.com/imgextra/i4/272610009/TB29Aj_hH1YBuNjSszhXXcUsFXa_!!272610009.jpg)
 
-![RT-Thread UI
-示例](https://img.alicdn.com/imgextra/i3/272610009/TB274cjbY3nBKNjSZFMXXaUSFXa_!!272610009.jpg)
+![RT-Thread UI示例](https://img.alicdn.com/imgextra/i3/272610009/TB274cjbY3nBKNjSZFMXXaUSFXa_!!272610009.jpg)
 
-![Xboot
-示例](https://img.alicdn.com/imgextra/i4/272610009/TB2D2Y7hH1YBuNjSszhXXcUsFXa_!!272610009.jpg)
+![Xboot 示例](https://img.alicdn.com/imgextra/i4/272610009/TB2D2Y7hH1YBuNjSszhXXcUsFXa_!!272610009.jpg)
 
 荔枝派Nano 支持从SPI Flash中启动系统，便于降低成本，适宜商用开发。
 
@@ -134,8 +124,8 @@ Demo](https://img.alicdn.com/imgextra/i4/272610009/TB29Aj_hH1YBuNjSszhXXcUsFXa_!
 **上手小说明**
 --------------
 
--   `请在插拔 Micro-USB 时尽量小心注意，建议您在到手后，向 USB母座的两个固定脚上堆锡`
--   `Nano 需要插卡启动（或者焊接spi flash），只插上 USB基本是无反应，屏幕无输出状态，但可在不插卡无 flash 状态下通过 USB 启动 U-boot`
+-   请在插拔 Micro-USB 时尽量小心注意，建议您在到手后，向 USB母座的两个固定脚上堆锡
+-   Nano 需要插卡启动（或者焊接spi flash），只插上 USB基本是无反应，屏幕无输出状态，但可在不插卡无 flash 状态下通过 USB 启动 U-boot
 -   Nano 的系统调试串口是 UART0 ，即板子丝印上的的 “U0：Tx Rx” 标识的两个引脚
 -   简单的可用性测试请参考 `下一节内容` ，需要您提前准备 
     -   1.一个 usb转ttl 的工具 
