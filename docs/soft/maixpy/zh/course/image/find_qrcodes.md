@@ -49,7 +49,7 @@ lcd.init()
 sensor.reset()
 sensor.set_pixformat(sensor.RGB565)
 sensor.set_framesize(sensor.QVGA)
-sensor.set_vflip(1)
+sensor.set_vflip(0)
 sensor.run(1)
 sensor.skip_frames(30)
 while True:

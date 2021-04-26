@@ -4,12 +4,10 @@
 荔枝派 Nano，开启你的极客之心。这是一款仅有2.54cm X
 3.3cm大小的精致小板，相当于一张SD卡大小，只要您愿意，即可将一颗极客芯随身携带。
 
-![](https://fdvad021asfd8q.oss-cn-hangzhou.aliyuncs.com/migrate/DSC_0455.png)
+![](./static/Lichee.jpeg)
 -  实物图
 
-![](https://fdvad021asfd8q.oss-cn-hangzhou.aliyuncs.com/migrate/DSC_0459-min%20(1).JPG)
 
-- 与SD卡对比
 
 荔枝派Nano以不可能的价格，提供了尽可能的能力：
 
@@ -47,7 +45,6 @@ I-Cache，支持从SPI Flash或TF卡启动，支持USB OTG载入更新。
 此外，荔枝派自从初代One以来，不断适配外设，已有TF-Wifi、RGB to VGA、40
 pin RGB、 LCD、RGB to GPIO、Camera等经过广泛实践验证过的成熟模块。
 
-![1](https://fdvad021asfd8q.oss-cn-hangzhou.aliyuncs.com/migrate/module.png)
 
 - 部分模块
 
@@ -62,10 +59,11 @@ Nano现已获得RT-Thread的官方支持，您可应用RT-Thread丰富的生态�
 
 荔枝派提倡开发者协同开发，即将推出有偿外设驱动适配任务，以及提供快餐式外包项目，欢迎各位技术大神为开发者们贡献技术力量！
 
-欢迎各位加入
-[荔枝派交流群826307240](https://jq.qq.com/?_wv=1027&k=52cCEVU) |
-[荔枝派Telegram电报群](https://t.me/sipeed) |
-[荔枝派社区](http://bbs.lichee.pro)。
+| 欢迎各位加入 |
+| ---- |
+|[荔枝派交流群826307240](https://jq.qq.com/?_wv=1027&k=52cCEVU) | 
+| [荔枝派Telegram电报群](https://t.me/sipeed) | 
+| [荔枝派社区](http://bbs.lichee.pro) |
 
 ![](https://fdvad021asfd8q.oss-cn-hangzhou.aliyuncs.com/migrate/QQ_Group_2.jpg)
 

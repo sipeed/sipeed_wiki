@@ -17,8 +17,7 @@ Nano 完好~
 
 > -   ubuntu 16.04 LTS 64位
 
-对于本节内容，如有疑问，欢迎到 [Bootloader 与 RTOS
-使用交流帖](http://bbs.lichee.pro/d/21-bootloader-rtos) 提问或分享经验。
+对于本节内容，如有疑问，欢迎到 [Bootloader 与 RTOS 使用交流帖](http://bbs.lichee.pro/d/21-bootloader-rtos) 提问或分享经验。
 
 u-boot 初体验
 -------------
@@ -117,18 +116,15 @@ make ARCH=arm CROSS_COMPILE=arm-linux-gnueabi- licheepi_nano_spiflash_defconfig
 make ARCH=arm menuconfig
 ```
 
-若要在套餐中附带的LCD上输出显示，请通过配置 ARM architecture --\> Enable graphical uboot console on HDMI, LCD or VGA 为 **Y**
-
+若要在套餐中附带的LCD上输出显示，请通过配置 ARM architecture --> Enable graphical uboot console on HDMI, LCD or VGA 为 **Y**
 接着配置同级的 **LCD panel timing details** 为：
+**x:800,y:480,depth:18,pclk\_khz:33000,le:87,ri:40,up:31,lo:13,hs:1,vs:1,sync:3,vmode:0**
 
-> *x:800,y:480,depth:18,pclk\_khz:33000,le:87,ri:40,up:31,lo:13,hs:1,vs:1,sync:3,vmode:0*
->
-> 注：此块屏为为 800\*480 规格，如为 480\*272 请尝试如下配置
-> *x:480,y:272,depth:18,pclk\_khz:10000,le:42,ri:8,up:11,lo:4,hs:1,vs:1,sync:3,vmode:0*
+注：此块屏为为 800\*480 规格，如为 480\*272 请尝试如下配置:
+**x:480,y:272,depth:18,pclk\_khz:10000,le:42,ri:8,up:11,lo:4,hs:1,vs:1,sync:3,vmode:0**
 
 并将 **LCD panel backlight pwm pin** 设为：
-
-> PE6 （查自 Nano 原理图）
+PE6 （查自 Nano 原理图）
 
 ![LCD简单配置](../_static/get_started/LCD_set.png)
 
@@ -150,7 +146,7 @@ cd sunxi-tools
 make && sudo make install
 ```
 
-如果出现：\*fel\_lib.c:26:20: fatal error: libusb.h: No such file or directory\*，那需要安装libusb：
+如果出现：* fel_lib.c:26:20: fatal error: libusb.h: No such file or directory *，那需要安装libusb：
 
 ```
 sudo apt-get install libusb-1.0-0-dev
@@ -166,7 +162,8 @@ sudo apt-get install libusb-1.0-0-dev
 
 ``` 
 # 1.以 uboot file-with-spl形式进行（单次运行，测试时个人推荐） 
-sunxi-fel uboot /your/path/to/u-boot-sunxi-with-spl.bin  # 请自行修改到本机地址
+sunxi-fel uboot /your/path/to/u-boot-sunxi-with-spl.bin  
+# 请自行修改到本机地址
 
 # 2.烧进 spi-flash （开机自启）
 sunxi-fel -p spiflash-write 0 /your/path/to/u-boot-sunxi-with-spl.bin
@@ -225,7 +222,7 @@ sunxi-fel exec 0x80000000;
 sunxi-fel -p spiflash-write 0 xboot.bin
 ```
 
-![](../_static/get_started/xboot1.jpg)
+![](../static/get_started/xboot1.jpg)
 ```
     _                   _
  _  _ | |___ _____ _____ _| |_
@@ -368,10 +365,9 @@ sudo sunxi-fel exec 0x80000000
 开箱常见问题&结语
 -----------------
 
-> **Caution:** 问题待收集...
+**Caution:** 问题待收集...
 
-如您有任何疑问，或有想要荔枝派提供某个方面的教程，请在
-[荔枝派社区](bbs.lichee.pro) 留言；
+如您有任何疑问，或有想要荔枝派提供某个方面的教程，请在[荔枝派社区](bbs.lichee.pro) 留言；
 
 荔枝派3000人QQ交流大群：488268051
 
