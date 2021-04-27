@@ -7,12 +7,12 @@
                 "items": [
                     {
                         "id": "zh",
-                        "url": "/maixpy3/zh/",
+                        "url": "/soft/maixpy/zh/",
                         "label": "中文"
                     },
                     {
                         "id": "en",
-                        "url": "/maixpy3/en/",
+                        "url": "/soft/maixpy/en/",
                         "label": "English"
                     }
                 ]

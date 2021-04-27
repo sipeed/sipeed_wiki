@@ -12,7 +12,7 @@
         
                 {
                     "label": "M1/M1w",
-                    "file":"./maix/readme.md"
+                    "file":"maix/readme.md"
                 },
                 {
                     "label": "M1n"
@@ -20,7 +20,7 @@
                 },
                 {
                     "label": "MaixPy 开发板",
-                    "file": "maixpy_develop_kit_board/develop_kit_board.md",
+                    "file": "maix/maixpy_develop_kit_board/develop_kit_board.md",
                     "items":[
                 
                 {
@@ -37,7 +37,7 @@
                 },
                 {
                     "label": "Maix Duino",
-                    "file": "maixpy_develop_kit_board/maix_duino.md"
+                    "file": "maix/maixpy_develop_kit_board/maix_duino.md"
                 },
                 {
                     "label": "Maix Nano",
@@ -45,11 +45,11 @@
                 },
                 {
                     "label": "Maix Cube",
-                    "file": "maixpy_develop_kit_board/maix_cube.md"
+                    "file": "maix/maixpy_develop_kit_board/maix_cube.md"
                 },
                 {
                     "label": "Maix Amigo",
-                    "file": "maixpy_develop_kit_board/maix_Amigo.md"
+                    "file": "maix/maixpy_develop_kit_board/maix_Amigo.md"
                 }
                     ]
             }
