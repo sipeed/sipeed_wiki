@@ -59,16 +59,17 @@
                         "url": "/hardware/zh/maix/",
                         "label": "Maix-I"
                     },
+                    
                     {
-                        "url": "/hardware/zh/maixII/zh/",
+                        "url": "/hardware/zh/maixII/",
                         "label": "Maix-II"
                     },
                     {
-                        "url": "/hardware/zh/maixIII/zh/",
+                        "url": "/hardware/zh/maixIII/",
                         "label": "Maix-III"
                     },
                     {
-                        "url": "/hardware/zh/maixIV/zh/",
+                        "url": "/hardware/zh/maixIV/",
                         "label": "Maix-IV"
                     },
                     {

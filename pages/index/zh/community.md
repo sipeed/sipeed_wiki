@@ -1,19 +1,63 @@
 
+<div class="title_store">
+<img src="/static/image/sipeed_logo_4.svg" alt="sipeed_logo">
+</div>
 
-| 交流方式| 地址 |
-| ---- | ---- |
-|Sipeed 官方群 | **826307240**|
-|MaixPy 交流群 | **① 878189804**|
-| |**② 1129095405**|
-| Maixpy3 交流群 | **756313869** |
-|Linux-Lichee(荔枝)交流群|**488268051**|
-|FPGA-Tang(糖)交流群|**834585530**|
-|Mcu-Longan(龙眼)交流群|**816177882**|
-|官方社区 | [**https://bbs.sipeed.com**](https://bbs.sipeed.com) |
-|twitter| [**https://twitter.com/SipeedIO**](https://twitter.com/SipeedIO) |
-|Telegram | [**https://t.me/sipeed**](https://t.me/sipeed) |
-|dfrobot MaixPy 社区 | [**https://mc.dfrobot.com.cn/forum-maixpy-1.html**](https://mc.dfrobot.com.cn/forum-maixpy-1.html) |
-|whycan 荔枝派 社区 | [**https://whycan.com/f_17.html**](https://whycan.com/f_17.html) |
+<table role="table" class="center_table">
+    <thead>
+        <tr>
+            <th>交流方式</th>
+            <th>地址</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><span class="limit_width"></span><strong>Sipeed 官方群</strong></td>
+            <td><span class="limit_width"></span><strong>QQ:826307240</strong></td>
+        </tr>
+        <tr>
+            <td><span class="limit_width"></span><strong>MaixPy 交流群</strong></td>
+            <td><strong><span class="limit_width"></span><span class="limit_width">①878189804</span></strong><br><span class="limit_width"></span><span class="limit_width"><strong>② 1129095405</strong></span></td>
+        </tr>
+        <tr>
+            <td><span class="limit_width"></span><strong>Maixpy3 交流群</strong></td>
+            <td><span class="limit_width"></span><span class=""><strong>756313869</strong></span></td>
+        </tr>
+        <tr>
+            <td><span class="limit_width"></span><strong>Linux-Lichee交流群</strong></td>
+            <td><span class="limit_width"></span><span class=""><strong>488268051</strong></span></td>
+        </tr>
+        <tr>
+            <td><span class="limit_width"></span><strong>FPGA-Tang交流群</strong></td>
+            <td><span class="limit_width"></span><span class=""><strong>834585530</strong></span></td>
+        </tr>
+		<tr>
+			<td><span class="limit_width"></span><strong>Mcu-Longan交流群</strong></td>
+			<td><span class="limit_width"></span><span class=""><strong>816177882</strong></span></td>
+		</tr>
+		<tr>
+			<td><span class="limit_width"></span><strong>官方社区</strong></td>
+			<td><span class="limit_width"></span><span class=""><a href="https://bbs.sipeed.com" target="_blank"><strong>https://bbs.sipeed.com</strong></a></span></td>
+		</tr>
+		<tr><td><span class="limit_width"></span><strong>whycan 荔枝派 社区</strong></td>
+			<td><span class="limit_width"></span><span class=""><a href="https://whycan.com/f_17.html" target="_blank"><strong>https://whycan.com/f_17.html</strong></a></span</td>
+		</tr>
+        <tr>
+			<td><span class="limit_width"></span><strong>dfrobot MaixPy 社区</strong></td>
+			<td><span class="limit_width"></span><span class=""><a href="https://mc.dfrobot.com.cn/forum-maixpy-1.html" target="_blank"><strong>https://mc.dfrobot.com.cn/forum-maixpy-1.html</strong></a></span</td>
+		</tr>
+		<tr>
+			<td><span class="limit_width"></span><strong>twitter</strong></td>
+			<td><span class="limit_width"></span><span class=""><a href="https://twitter.com/SipeedIO" target="_blank"><strong>https://twitter.com/SipeedIO</strong></a></span</td>
+		</tr>
+		<tr>
+			<td><span class="limit_width"></span><strong>Telegram</strong></td>
+			<td><span class="limit_width"></span><span class=""><a href="https://t.me/sipeed" target="_blank"><strong>https://t.me/sipeed</strong></a></span</td>
+		</tr>				
+    </tbody>
+</table>
+
+
 
 
 
