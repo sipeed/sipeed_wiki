@@ -25,11 +25,11 @@ desc: maixpy doc: 更新 MaixPy 固件
 
 ## 获得升级工具
 
-* 下载 [kflash_gui](https://github.com/sipeed/kflash_gui/releases), 会得到一个压缩包
+* 下载 <a href = "https://github.com/sipeed/kflash_gui/releases" target = "_break">kflash_gui</a>, 会得到一个压缩包
 > kflash_gui 是跨平台的，可以在多个系统下工作（包括 Windows、Linux、MacOS、甚至树莓派）
 > 使用勘智（Kendryte）的`Windows`版本可能部分开发版无法下载成功，请使用 `kflash_gui` 这个软件来下载
 
-* 解压到一个文件夹，双击 `kflash_gui.exe`(/`kflsh_gui`) 即可运行, `Windows`下建议右键`固定到开始页面` 或者`固定到任务栏`, `Linux` 下可以自己新建一个[kflash_gui.desktop](https://github.com/sipeed/kflash_gui/blob/master/kflash_gui.desktop), 修改文件地址, 使用管理员身份复制到`/usr/share/application`目录，然后在系统菜单界面就可以看到`kflash_gui`这款应用了
+* 解压到一个文件夹，双击 `kflash_gui.exe`(/`kflsh_gui`) 即可运行, `Windows`下建议右键`固定到开始页面` 或者`固定到任务栏`, `Linux` 下可以自己新建一个<a href="https://github.com/sipeed/kflash_gui/blob/master/kflash_gui.desktop" target="_break">kflash_gui.desktop</a>, 修改文件地址, 使用管理员身份复制到`/usr/share/application`目录，然后在系统菜单界面就可以看到`kflash_gui`这款应用了
 
 * 另外也可以使用命令行版本下载
 
@@ -41,13 +41,13 @@ kflash -p /dev/ttyUSB0 -b 1500000 -B goE maixpy.bin
 
 ## 获得固件
 
-* 发布版本的固件从 [github](https://github.com/sipeed/MaixPy/releases) 页面下载
-* 最新提交的代码自动构建生成的固件下载： [master 分支](http://dl.sipeed.com/MAIX/MaixPy/release/master/)
+* 发布版本的固件从 <a href ="https://github.com/sipeed/MaixPy/releases" target="_break">github</a> 页面下载
+* 在Sipeed官方下载站获取：<a href ="http://dl.sipeed.com/MAIX/MaixPy/release/master/" target="_break">下载站</a>
 
 
 
 固件为 `.bin` 结尾或者 `.kfpkg` 的文件
->`.kfpkg`其实就是多个`.bin`文件的打包版本, 可以使用`kflash_gui`打包或者[手动打包](http://blog.sipeed.com/p/390.html)
+>`.kfpkg`其实就是多个`.bin`文件的打包版本, 可以使用`kflash_gui`打包或者<a href="http://blog.sipeed.com/p/390.html" target="_break" >[手动打包](http://blog.sipeed.com/p/390.html)</a>
 
 ![MaixPy Firmware Type](../../assets/maixpy/firmware_type.png)
 
@@ -69,7 +69,7 @@ kflash -p /dev/ttyUSB0 -b 1500000 -B goE maixpy.bin
 
 * 打开 `kflash_gui` 应用
 
-* 然后选择固件、设置选项, 点击下载即可, 更多特性介绍、使用说明见 [kflash_gui 项目主页](https://github.com/sipeed/kflash_gui)
+* 然后选择固件、设置选项, 点击下载即可, 更多特性介绍、使用说明见 <a herf="https://github.com/sipeed/kflash_gui">kflash_gui 项目主页</a>
 
 使用时注意串口不能被其它软件占用，选择正确的开发板和串口号，可以适当降低波特率和使用低速模式来提高下载成功率
 
@@ -82,7 +82,7 @@ kflash -p /dev/ttyUSB0 -b 1500000 -B goE maixpy.bin
 
 ### Sipeed RV JATG 调试器
 
-[Sipeed USB-JTAG/TTL RISC-V调试器 STLINK V2 STM8/STM32模拟器](https://item.taobao.com/item.htm?spm=a1z10.3-c.w4002-21231188706.40.505a5d544ooyDY&id=595953803239)
+<a herf="https://github.com/sipeed/kflash_gui">Sipeed USB-JTAG/TTL RISC-V调试器 STLINK V2 STM8/STM32模拟器</a>
 
 
 **烧录常见问题FAQ**
