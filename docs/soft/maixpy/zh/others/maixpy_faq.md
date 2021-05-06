@@ -210,3 +210,23 @@ kflash_gui 配置选项
 
 ## 出现type object 'board_info' has no attribute 'XX'
 请看[开发板配置文件](./../get_started/board_info.md),对开发板进行重新配置
+
+## TF卡格式没有问题，但是无法读取TF卡，挂载失败
+请使用
+```python
+from machine import SDCard
+SDCard.remount()
+```
+进行重新挂载
+使用
+```python
+def sd_check():
+    import os
+    try:
+        os.listdir("/sd/.")
+    except Exception as e:
+        return False
+    return True
+print(sd_check())
+```
+进行检测是否挂载成功

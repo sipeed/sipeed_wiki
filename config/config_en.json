@@ -108,13 +108,8 @@
                         "target": "_blank"
                     },
                     {
-                        "url": "/social_group.html",
+                        "url": "/en/community_en.html",
                         "label": "IM groups"
-                    },
-                    {
-                        
-                        "label": "Others",
-                        "url": "/en/community_en.html"
                     }
                 ]
             },
@@ -238,7 +233,7 @@
                         "label": "Commercial support: support@sipeed.com"
                     },
                     {
-                        "label": "Address: 深圳市宝安区新湖路华美居B区1号楼713-715"
+                        "label": "Address: 深圳市宝安区新湖路4008号蘅芳科技办公大厦A座-2101C"
                     },
                     {
                         "label": "Join us",

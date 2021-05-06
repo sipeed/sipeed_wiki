@@ -25,11 +25,11 @@
                 "items": [
                     {
                         "url": "/soft/maixpy/zh/",
-                        "label": "Maixpy"
+                        "label": "MaixPy"
                     },
                     {
                         "url": "/soft/maixpy3/zh/",
-                        "label": "Maixpy3"
+                        "label": "MaixPy3"
                     },
                     {
                         "url":"/soft/maixduino/zh/",
@@ -56,7 +56,7 @@
                 "type": "list",
                 "items": [
                     {
-                        "url": "/hardware/zh/maix/",
+                        "url": "/hardware/zh/maix/index.html",
                         "label": "Maix-I"
                     },
                     
@@ -225,7 +225,7 @@
                     },
                     {
                         "label": "更多",
-                        "url": "/social_group.html"
+                        "url": "/community.html"
                     }
                 ]
             },
@@ -239,7 +239,7 @@
                         "label": "商业支持: support@sipeed.com"
                     },
                     {
-                        "label": "地址: 深圳市宝安区新湖路华美居B区1号楼713-715"
+                        "label": "地址: 深圳市宝安区新湖路4008号蘅芳科技办公大厦A座-2101C"
                     },
                     {
                         "label": "加入我们",
