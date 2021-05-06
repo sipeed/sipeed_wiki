@@ -393,9 +393,9 @@ items:
         file: others/maixpy_faq.md
     -   label: MaixHub 平台 FAQ
         file: others/maixhub_faq.md
--   label: 进阶
+-   label: 开发与贡献
     items:
-    -   label: 进阶开发
+    -   label: 开发
         items:
         -   label: 源码目录结构
             file: course/advance/project_framework.md
@@ -405,7 +405,7 @@ items:
             file: course/advance/add_c_module.md
         -   label: 打包文件系统
             file: course/advance/pack_fs.md
-    -   label: 参与贡献
+    -   label: 贡献
         items:
         -   label: 参与文档编写（规范）
             file: contribute/doc_convention.md
