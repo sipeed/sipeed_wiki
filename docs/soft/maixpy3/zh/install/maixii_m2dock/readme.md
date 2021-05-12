@@ -12,4 +12,4 @@ desc: maixpy doc: MaixII M2dock
 - 板级资源介绍
 - 产品开箱验证
 
-> 2021年02月03日后的系统开机自带 AI + UI 的应用 [MaixPy3/examples/maix_v831/demo/app.py](https://github.com/sipeed/MaixPy3/blob/main/examples/maix_v831/demo/app.py)。
+> 2021年02月03日后的系统开机自带 AI + UI 的应用 [MaixPy3/examples/maix_v831/demo/app.py](https://github.com/sipeed/MaixPy3/blob/main/examples/maix_v831/demo/app.py)，请记得退出开机程序喔！不然摄像头会被一直占用的。
