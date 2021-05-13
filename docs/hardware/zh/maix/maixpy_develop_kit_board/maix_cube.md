@@ -9,7 +9,7 @@
 
 ### 外观一览
 
-![maixcube_product_appearance](./../../assets/dk_board/maix_cube/maixcube_product_appearance.png)
+![maixcube_product_appearance](./../assets/dk_board/maix_cube/maixcube_product_appearance.png)
 
 - 1.3 寸 **IPS** 屏幕: 分辨率** 240*240**
 - 复位按键
@@ -23,7 +23,7 @@
 
 ### 板载功能介绍
 
-![maixcube_resources](../../../assets/dk_board/maix_cube/maixcube_resources.png)
+![maixcube_resources](./../assets/dk_board/maix_cube/maixcube_resources.png)
 
 - 电源管理控制单元: AXP173
   - 板载 200mAh 锂电池,支持用户充放电控制
@@ -47,8 +47,8 @@ SP-MOD 即为 sipeed module, simplify PMOD, super module
 
 | 接口 | 接口描述 |
 |---|---|
-|SP-MODE 接口描述|![spmod_interface_1](../../../assets/spmod/spmod_interface_1.png)|
-|硬件接口|![spmod_interface_2](../../../assets/spmod/spmod_interface_2.png)|
+|SP-MODE 接口描述|![spmod_interface_1](./../assets/spmod/spmod_interface_1.png)|
+|硬件接口|![spmod_interface_2](./../assets/spmod/spmod_interface_2.png)|
 
 #### Grove 接口
 
@@ -56,7 +56,7 @@ SP-MOD 即为 sipeed module, simplify PMOD, super module
 
 Grove 接口的线缆有 4 种颜色, 用户可以根据颜色快速区别
 
-![grove_interface](../../../assets/interface_grove/grove_interface.jpg)
+![grove_interface](./../assets/interface_grove/grove_interface.jpg)
 
 | --- | 颜色 | 描述 |
 | --- | --- | --- |
@@ -72,8 +72,8 @@ Grove模块主要有 4 种接口:
     两条信号线通常称为 D0 和 D1 .<br/>
     大多数模块只使用 D0, 但有些(像LED Bar Grove显示屏)使用两者.通常核心板会将板卡上的第一个Grove连接头称为 D0, 第二个称为 D1.第一个接头会连接到主控芯片的 DO/D1 管脚, 第二个连接头会连接到主控芯片的D1/D2引脚, 后面的连接头以此类推.
 
-|pin  |Function | Note |
-| ---|---|---|
+|pin  |Function | 
+| ---|---|
 |pin1 | Dn 第一个数字输入 |
 |pin2 | Dn+1 第二个数字输入 |
 |pin3 | VCC 供电引脚 5V/3.3V |
@@ -86,12 +86,12 @@ Grove模块主要有 4 种接口:
     引脚1是 RX 线(用于接收数据, 因此是输入),
     其中引脚 2 是 TX 线(用于向 Grove 模块传输数据).
 
-|pin  |Function|Note|
-| ---|---|---|
-|pin1 |RX|串行接收|
-|pin2 |TX|串行发送|
-|pin3 |VCC|供电引脚 5V/3.3V|
-|pin4 |GND |地|
+|pin  |Function| Note |
+| --- | --- | --- |
+| pin1 | RX | 串行接收 |
+| pin2 | TX | 串行发送 |
+| pin3 | VCC | 供电引脚 5V/3.3V |
+| pin4 | GND | 地 |
 
 1. Grove I2C:<br/>
     有许多类型的I2C Grove 传感器可用.<br/>MaixCube 上的 Grove 只支持 3.3V 传感器
