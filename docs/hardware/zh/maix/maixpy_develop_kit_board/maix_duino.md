@@ -9,9 +9,9 @@
 
 ### 外观一览
 
-![MaixDuino](../../assets/dk_board/maix_duino/maixduino_0.png)
-![MaixDuino](../../assets/dk_board/maix_duino/maixduino_1.png)
-![MaixDuino](../../assets/dk_board/maix_duino/maixduino_2.png)
+![MaixDuino](./../assets/dk_board/maix_duino/maixduino_0.png)
+![MaixDuino](./../assets/dk_board/maix_duino/maixduino_1.png)
+![MaixDuino](./../assets/dk_board/maix_duino/maixduino_2.png)
 
 ### 板载功能介绍
 

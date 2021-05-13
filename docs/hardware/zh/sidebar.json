@@ -12,7 +12,7 @@
         
                 {
                     "label": "M1/M1w",
-                    "file":"maix/readme.md"
+                    "file":"maix/core_module.md"
                 },
                 {
                     "label": "M1n"
@@ -29,7 +29,8 @@
                 },
                 {
                     "label": "Maix Dock(M1/M1W)",
-                    "file": "maix/maixpy_develop_kit_board/maix_Dock.md"
+                    "file": "maix/maixpy_develop_kit_board/Maix_Dock.md"
+
                 },
                 {
                     "label": "Maix Bit",
