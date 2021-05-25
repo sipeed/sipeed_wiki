@@ -1,7 +1,7 @@
 ---
-title: Sipeed 商城
-keywords: Sipeed, 矽速, 商店, 淘宝, 商城, 购买maix, 购买k210, 购买v831, 购买v833
-desc: 矽速科技(Sipeed)商城导航, AI 硬件购买
+title: Sipeed Shop
+keywords: Sipeed, buy maix, buy k210, buy v831, buy v833
+desc: Sipeed official shop
 id: store
 ---
 
@@ -26,8 +26,8 @@ id: store
 <table role="table" class="center_table">
     <thead>
         <tr>
-            <th>国内官方旗舰店</th>
-            <th>国外官方旗舰店</th>
+            <th>In China</th>
+            <th>In other countries</th>
         </tr>
     </thead>
     <tbody>
@@ -38,3 +38,4 @@ id: store
         </tr>		
     </tbody>
 </table>
+
