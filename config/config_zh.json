@@ -61,27 +61,27 @@
                     },
                     
                     {
-                        "url": "/hardware/zh/maixII/",
+                        "url": "/hardware/zh/maixII/index.html",
                         "label": "Maix-II"
                     },
                     {
-                        "url": "/hardware/zh/maixIII/",
+                        "url": "/hardware/zh/maixIII/index.html",
                         "label": "Maix-III"
                     },
                     {
-                        "url": "/hardware/zh/maixIV/",
+                        "url": "/hardware/zh/maixIV/index.html",
                         "label": "Maix-IV"
                     },
                     {
-                        "url": "/hardware/zh/lichee/zh/",
+                        "url": "/hardware/zh/lichee/index.html",
                         "label": "Lichee Pi"
                     },
                     {
-                        "url": "/hardware/zh/tang/zh/",
+                        "url": "/hardware/zh/tang/index.html",
                         "label": "Tang"
                     },
                     {
-                        "url": "/hardware/longan/zh/",
+                        "url": "/hardware/zh/longan/index.html",
                         "label": "Longan"
                     }
                 ]
@@ -170,7 +170,7 @@
                         "target": "_blank"
                     },
                     {
-                        "label": "使用 teedoc 构建",
+                        "label": "网站使用 teedoc 生成",
                         "url": "https://github.com/neutree/teedoc",
                         "target": "_blank"
                     }
