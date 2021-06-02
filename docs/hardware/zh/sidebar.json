@@ -29,12 +29,8 @@
                 },
                 {
                     "label": "Maix Dock(M1/M1W)",
-<<<<<<< Updated upstream
                     "file": "maix/maixpy_develop_kit_board/maix_Dock.md"
-=======
-                    "file": "maix/maixpy_develop_kit_board/Maix_Dock.md"
 
->>>>>>> Stashed changes
                 },
                 {
                     "label": "Maix Bit",
