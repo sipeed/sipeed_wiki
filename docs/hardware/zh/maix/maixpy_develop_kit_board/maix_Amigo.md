@@ -9,7 +9,7 @@
 
 ### 外观一览
 
-![MaixAmigo](./../../assets/dk_board/maxi_amigo/image-20200730120223557.png)
+![MaixAmigo](./../assets/dk_board/maxi_amigo/image-20200730120223557.png)
 
 ### 板载硬件功能介绍
 
@@ -43,15 +43,15 @@ SP-MOD 即为 sipeed module, simplify PMOD, super module
 
 | 接口 | 接口描述 |
 |---|---|
-|SP-MODE 接口描述|![spmod_interface_1](./../../assets/spmod/spmod_interface_1.png)|
-|硬件接口|![spmod_interface_2](./../../assets/spmod/spmod_interface_2.png)|
+|SP-MODE 接口描述|![spmod_interface_1](./../assets/spmod/spmod_interface_1.png)|
+|硬件接口|![spmod_interface_2](./../assets/spmod/spmod_interface_2.png)|
 
 #### Grove 接口
 
 - Grove 模块接口
 
 Grove 接口的线缆有 4 种颜色, 用户可以根据颜色快速区别
-![grove_interface](./../../assets/interface_grove/grove_interface.jpg)
+![grove_interface](./../assets/interface_grove/grove_interface.jpg)
 
 | --- | 颜色 | 描述 |
 | --- | --- | --- |
