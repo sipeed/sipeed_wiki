@@ -1,7 +1,7 @@
 # Maix Dock
 
 ## 教程&快速上手
-[MaixPy](./../../../soft/maixpy/zh/readme.md)
+
 <a href="./../../../../soft/maixpy/zh/" target="_blank"> MaixPy </a>
 
 ## 描述
@@ -61,7 +61,7 @@ MaixDock 开发是以M1W AI模块作为核心单元，功能非常强大。模�
     </tr>
     <tr>
         <td>深度学习框架</td>
-        <td>支持TensorFlow \ Keras \ Darknet \ Caffe 等主流框架<td>
+        <td>支持TensorFlow \ Keras \ Darknet \ Caffe 等主流框架</td>
     </tr>
     <tr>
         <td>外设</td>
