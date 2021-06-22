@@ -1,24 +1,19 @@
-# Maix Dock
+# Maix Bit
 
 ## 教程&快速上手
 
 <a href="./../../../../soft/maixpy/zh/" target="_blank"> MaixPy </a>
 
 ## 描述
-MAIX Dock开发板是SiPEED公司MAIX产品线的一员，基于嘉楠堪智科技的边缘智能计算芯片K210(RISC-V架构 64位双核)设计的一款AIOT开发板。开发板使用模块+底板方式设计，整洁小巧，板载Type-C接口和USB-UART电路，用户可以直接通过USB Type-C线连接电脑进行开发，配置128Mbit Flash、LCD、DVP、Micro SD卡等接口并把所有IO引出，方便用户扩展。
-> 上电即可开机，不需要开机操作
-
-<img src="./../assets/dk_board/maix_dock/Maix_Dock.jpg" alt="11" width="300">
-
-
+MAIX Bit开发板是SiPEED公司MAIX产品线的一员，基于嘉楠堪智科技的边缘智能计算芯片K210(RISC-V架构 64位双核)设计的一款AIOT开发板。开发板使用模块+底板方式设计，整洁小巧，板载Type-C接口和USB-UART电路，用户可以直接通过USB Type-C线连接电脑进行开发，配置128Mbit Flash、LCD、DVP、Micro SD卡等接口并把所有IO引出，方便用户扩展。
 
 ## 外观
-<img src="./../assets/dk_board/maix_dock/Maix_Dock_3.png" alt="11" >
-<img src="./../assets/dk_board/maix_dock/Maix_Dock_2.png" alt="11" >
+<img src="./../assets/dk_board/maix_bit/Bit.png" alt="Maxi bit" >
 
 ## 特性
 
-MaixDock 开发是以M1W AI模块作为核心单元，功能非常强大。模块内置64位双核处理器芯片，拥有8M的片上SRAM，在AI机器视觉、听觉性能方面表现突出，内置多种硬件加速单元（KPU、FPU、FFT等），总算力最高可达1TOPS，可以方便地实现各类应用场景的机器视觉/听觉算法，也可以进行语言方向扫描和语言数据输出的前置处理工作。
+MaixBit开发板以K210作为核心单元，功能非常很强大，芯片内置64位双核处理器，拥有8M的片上SRAM，在Al机器视觉、听觉性能方便表现突出，内置多种硬件加速单元(KPU、FPU，FFT等)，总算力最高可达1TOPS，可以方便地实现各类应用场景的机器视觉/听觉算法,也可以进行语音方向扫描和语音数据输出的前置处理工作。
+
 
 ## 应用
 智能家居，机器人清洁器，智能扬声器，电子门锁，家庭监控等;
@@ -85,11 +80,11 @@ MaixDock 开发是以M1W AI模块作为核心单元，功能非常强大。模�
     </tr>
     <tr>
         <td>板载接口</td>
-        <td><li>USB Type-C接口<li>24PIN DVP摄像头接口<li>24PIN LCD接口<li>MicroSD卡槽<li>音频接口(支持外接2x3W扬声器)<li>所有IO排针引脚引出</td>
+        <td><li>USB Type-C接口<li>24PIN DVP摄像头接口<li>24PIN LCD接口<li>MicroSD卡槽<li>所有IO排针引脚引出</td>
     </tr>
     <tr>
         <td>尺寸</td>
-        <td>52.3*37.3mm</td>
+        <td>53.3*25.4mm</td>
     </tr>
     <tr>
         <td>供电电压</td>
@@ -121,9 +116,9 @@ MaixDock 开发是以M1W AI模块作为核心单元，功能非常强大。模�
     </tr>
 </table>
 
-## 资料
-Sipeed-Maix-Dock 资料下载：[Sipeed-Maix-Dock](https://dl.sipeed.com/shareURL/MAIX/HDK/Sipeed-Maix-Dock)
+## 资料下载
+Sipeed-Maix-Bit 资料下载：[Sipeed-Maix-Bit](https://dl.sipeed.com/shareURL/MAIX/HDK/Sipeed-Maix-Bit)
 
-Sipeed-Maix-Dock 规格书下载：[Sipeed-Maix-Dock](https://dl.sipeed.com/shareURL/MAIX/HDK/Sipeed-Maix-Dock/Specifications)
+Sipeed-Maix-Bit 规格书下载：[Sipeed-Maix-Bit](https://dl.sipeed.com/fileList/MAIX/HDK/Sipeed-Maix-Bit/Specifications/Sipeed%20Maix-Bit%20%E8%A7%84%E6%A0%BC%E4%B9%A6%20V2.0.pdf)
 
-Sipeed-Maix-Dock 原理图下载：[Sipeed-Maix-Dock](https://dl.sipeed.com/fileList/MAIX/HDK/Sipeed-Maix-Dock/Maix-Dock_11.27/Maix-Dock_11.27(Schematic).pdf)
+Sipeed-Maix-Bit 原理图下载：[Sipeed-Maix-Bit](https://dl.sipeed.com/fileList/MAIX/HDK/Sipeed-Maix-Bit/Maix-Bit%20V2.0(with%20MEMS%20microphone)/Maix-Bit%20V2.0(Schematic).pdf)

@@ -25,7 +25,7 @@
                 
                 {
                     "label": "Maix Go",
-                    "file": null
+                    "file": "maix/maixpy_develop_kit_board/maix_go.md"
                 },
                 {
                     "label": "Maix Dock(M1/M1W)",
@@ -34,7 +34,7 @@
                 },
                 {
                     "label": "Maix Bit",
-                    "file": null
+                    "file": "maix/maixpy_develop_kit_board/maix_bit.md"
                 },
                 {
                     "label": "Maix Duino",
