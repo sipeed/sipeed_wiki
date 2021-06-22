@@ -54,7 +54,7 @@ V831 为全志的 SOC， 所以 Windwos 使用 **PhoenixSuit**, Linux 上使用 
 
 ### 安装烧录工具 Livesuit 
 
-> **每次更新系统 linux kernel 之后需要重新按照软件**
+> **每次更新系统 linux kernel 之后需要重新安装软件**
 
 1. 安装依赖 dkms
 
