@@ -1,13 +1,13 @@
 ---
-title: Sipeed M1/M1W
-keywords: maixpy, k210, AIOT, 边缘计算, M1/M1W
+title: Sipeed M1n
+keywords: maixpy, k210, AIOT, 边缘计算, M1n
 desc: maixpy doc: Sipeed M1/M1W 
 ---
 
-## M1/M1W
+## M1n
 
-M1/M1W模块是基于嘉楠堪智科技的边缘智能计算芯片 K210 (RISC-V架构) 设计的一款AIOT模块。主控芯片内置64位双核高性能低功耗处理器，每个核都有浮点运算单元(FPU) ,具备卷积人工神经网络硬件加速器(KPU)和快速傅里叶变换加速器(FFT)、搭载现场可编程IO阵列(FPIOA)，支持多种主流Al编程框架。M1W模块内置标准802.11 b/g/n协议的ESP8285 WiFi芯片，可让模块轻松联网。
-![M1/M1W](./assets/m1_m1w/M1_Dan.png)s
+SiPEEDM1n是基于基于嘉楠堪智科技的边缘智能计算芯片K210(RISC-v架构64位双核)设计的一款AIOT开发板。板载DVP双摄像头接口、Flash、并把大部分IO通过金手指方式引出，模块设计小巧精致、布局走线合理规范，用户可直接应用于商用产品，也可以通过转接板对此模块进行开发。A
+![M1n](./assets/m1n/M1n_1.png)
 ## 应用
 智能家居，机器人清洁器，智能扬声器，电子门锁，家庭监控等;
 医学行业应用，如辅助诊断，医学图像识别;
@@ -16,13 +16,10 @@ M1/M1W模块是基于嘉楠堪智科技的边缘智能计算芯片 K210 (RISC-V�
 农业应用，如农业监测，病虫害监测，自动控制等
 
 
-## M1/M1W 参数
-M1/M1W Al模块系统主要由电源(3 Channel DC-DC)、Flash芯片(16M)电路、K210芯片和WiFi芯片四部分组成。K210作为核心单元，功能非常很强大，芯片内置64位双核处理器，拥有8M的片上SRAM。模块在Al机器视觉、听觉性能方便表现突出，芯片总算力可达1TOPS，芯片内置多种硬件加速单元(KPU、FPU，FFT等)，可以方便地实现各类应用场景的机器视觉/听觉算法,也可以进行语音方向扫描和语音数据输出的前置处理工作。M1W模块嵌入无线WiFi功能，可轻松实现联网控制。
+## M1n 参数
+M1n模块以K210作为核心单元，功能非常很强大，芯片内置64位双核处理器，拥有8M的片上SRAM，在Al机器视觉、听觉性能方便表现突出，内置多种硬件加速单元(KPU、FPU，FFT等)，总算力最高可达1TOPs ,可以方便地实现各类应用场景的机器视觉/听觉算法,也可以进行语音方向扫描和语音数据输出的前置处理工作。
 
-
-<p><img loading="M1/M1W" src="./assets/m1_m1w/M1_vs_M1W.png" width = 500 ></p>
-<p><img loading="M1/M1W" src="./assets/m1_m1w/M1_pin.png" width = 500 ></p>
-<p><img loading="M1/M1W" src="./assets/m1_m1w/M1W_2.png" width=500 ></p>
+<p><img loading="M1/M1W" src="./assets/m1n/M1n.png" width = 500 ></p>
 
 <table role="table" class="center_table">
     <thead>
@@ -100,10 +97,10 @@ M1/M1W Al模块系统主要由电源(3 Channel DC-DC)、Flash芯片(16M)电路�
         </tr>
     </thead>
     <tr>
-    <td>尺寸</td><td>25.4*25.4*3.3mm</td>
+    <td>尺寸</td><td>22.0*25.0mm</td>
     </tr>
     <tr>
-        <td>引脚</td><td>72 PIN全引脚引出</td>
+        <td>引脚</td><td>部分引脚金手指引出</td>
     </tr>
     <tr>
         <td>供电电压</td><td>5.0V @ 300mA（供电电流需大于300mA)</td>
@@ -113,33 +110,11 @@ M1/M1W Al模块系统主要由电源(3 Channel DC-DC)、Flash芯片(16M)电路�
     </tr>
 </table>
 
-<table role="table" class="center_table">
-    <thead>
-        <tr>
-            <th colspan = "2">Wi-Fi功能参数</th>
-        </tr>
-    </thead>
-    <tr>
-        <td>主控</td>
-        <td>ESP8285</td>
-    </tr>
-    <tr>
-    <td>无线标准</td><td>802.11 b/g/n</td>
-    </tr>
-    <tr>
-    <td>频率范围</td><td>2400Mhz - 2483.5Mhz</td>
-    </tr>
-    <tr>
-    <td>天线</td><td>标准IPEX接口天线</td>
-    </tr>
-    <tr>
-    <td>Wi-Fi模式</td><td>支持Station / SoftAP /SoftAP+Station</td>
-    </tr>
-</table>
 
-> 为了让Al模块能应用于更多场合，Sipeed团队还推出了无WiFi功能版本的M1模块，如果用户无需使用无线联网的功能，可以选择我们的M1模块。M1模块和M1W模块的AI功能一致，使用方法基本相同，主要区别就是M1W模块比M1模块多了WiFi功能。
+
 
 ## 资料下载
 
 芯片 K210 Datasheet: [Kendryte 官网](https://canaan-creative.com/)
 M1W 资料下载: [dl.sipeed.com](https://dl.sipeed.com/shareURL/MAIX/HDK/Sipeed-M1&M1W)
+M1n 原理图下载：[Sipeed M1n Datasheet V1.0.pdf](https://dl.sipeed.com/fileList/MAIX/HDK/Sipeed-M1n/Sipeed%20M1n%20Datasheet%20V1.0.pdf)

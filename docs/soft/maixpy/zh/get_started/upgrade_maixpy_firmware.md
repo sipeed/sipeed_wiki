@@ -102,3 +102,6 @@ kflash -p /dev/ttyUSB0 -b 1500000 -B goE maixpy.bin
 >
 > * 只有其中一个串口端口有效，用于串口通信与ISP下载程序。
 > * Maix Bit与PC采用串口通信，通过CH552T芯片实现USB虚拟串口功能，而该芯片可以虚拟出两个串口，在Maix Bit（M1n模块底板）中，我们只用到了一个串口，不过有些k210产品两个串口都使用了。
+
+## 最新标准固件下载
+2021/6/18更新：[标准固件下载](https://dl.sipeed.com/fileList/MAIX/MaixPy/release/master/maixpy_v0.6.2_54_g897214100/maixpy_v0.6.2_54_g897214100.bin)

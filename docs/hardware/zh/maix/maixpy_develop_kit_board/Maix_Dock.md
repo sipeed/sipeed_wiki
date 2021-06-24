@@ -1,4 +1,4 @@
-# Maix Dock
+# Maix Dock(M1/M1W)
 
 ## 教程&快速上手
 

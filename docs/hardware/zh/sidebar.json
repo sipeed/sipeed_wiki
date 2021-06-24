@@ -7,7 +7,7 @@
 
         {
             "label": "Maix-I",
-            
+            "file":"maix/readme.md",
             "items": [
         
                 {
@@ -15,8 +15,8 @@
                     "file":"maix/core_module.md"
                 },
                 {
-                    "label": "M1n"
-                    
+                    "label": "M1n",
+                    "file":"maix/M1n.md"
                 },
                 {
                     "label": "MaixPy 开发板",
@@ -29,7 +29,7 @@
                 },
                 {
                     "label": "Maix Dock(M1/M1W)",
-                    "file": "maix/maixpy_develop_kit_board/maix_Dock.md"
+                    "file": "maix/maixpy_develop_kit_board/Maix_dock.md"
 
                 },
                 {
@@ -42,7 +42,7 @@
                 },
                 {
                     "label": "Maix Nano",
-                    "file": null
+                    "file": "maix/maixpy_develop_kit_board/maix_nano.md"
                 },
                 {
                     "label": "Maix Cube",
@@ -52,7 +52,7 @@
                     "label": "Maix Amigo",
                     "file": "maix/maixpy_develop_kit_board/maix_Amigo.md"
                 }
-                    ]
+                ]
             }
             ]
         },
@@ -116,19 +116,19 @@
             "items": [
                 {
                     "label": "LicheePi Zero",
-                    "file": null
+                    "file": "lichee/Zero/readme.md"
                 },
                 {
                     "label": "LicheePi One",
-                    "file": null
+                    "file": "lichee/One/readme.md"
                 },
                 {
                     "label": "LicheePi Nano",
-                    "file": null
+                    "file": "lichee/Nano/readme.md"
                 },
                 {
                     "label": "LicheePi ZeroPlus",
-                    "file": null
+                    "file": "lichee/ZeroPlus/readme.md"
                 }
             ]
         },
@@ -157,21 +157,21 @@
             "label": "Longon",
             "items": [
                 {
-                    "label": "Longon Nano"
-                    
+                    "label": "Longon Nano",
+                    "file":"longan/Nano/readme.md"
                 },
                 {
-                    "label": "Longon Zero"
-                    
+                    "label": "Longon Zero",
+                    "file":"longan/Zero/readme.md"
                 },
                 {
-                    "label": "Longon One"
-                    
+                    "label": "Longon One",
+                    "file":"longan/One/readme.md"
                 }               
             ]
         },
         {
-            "label": "扩展接口 SP-MOD",
+            "label": "SP-MOD外设模组",
             "items": [
                 {
                     "label":"扩张接口 Grove",

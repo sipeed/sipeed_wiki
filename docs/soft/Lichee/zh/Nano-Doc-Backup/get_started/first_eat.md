@@ -4,15 +4,8 @@
 前言
 ----
 
-此篇为少量或无需配置的开发，可帮助您快速上手，串口输出、点屏等操作确认
-Nano 完好~
-
-具体详细配置与解释说明，将在后文进行较为详细的介绍；
-
-如果您和笔者一样是个小白萌新，希望能给您的学习提供一点小小的tips；
-
-如果您已熟悉此流程，快速浏览即可 :)
-
+此篇为少量或无需配置的开发，可帮助您快速上手，串口输出、点屏等操作确认 Nano 完好~
+具体详细配置与解释说明，将在后文进行较为详细的介绍；如果您和笔者一样是个小白萌新，希望能给您的学习提供一点小小的tips；如果您已熟悉此流程，快速浏览即可 :)
 笔者所用环境为：
 
 > -   ubuntu 16.04 LTS 64位
@@ -26,22 +19,27 @@ u-boot 初体验
 
 首先需要安装交叉编译链：
 
-```
-# 此处为获取7.2.1版本，您可获取其他版本或者通过链接直接下载
-wget http://releases.linaro.org/components/toolchain/binaries/7.2-2017.11/arm-linux-gnueabi/gcc-linaro-7.2.1-2017.11-x86_64_arm-linux-gnueabi.tar.xz
 
-tar -vxJf gcc-linaro-7.2.1-2017.11-x86_64_arm-linux-gnueabi.tar.xz
-sudo cp -r ./gcc-linaro-7.2.1-2017.11-x86_64_arm-linux-gnueabi /opt/
+此处为获取7.2.1版本，您可获取其他版本或者通过链接直接下载
 
-sudo vim /etc/bash.bashrc
+    wget http://releases.linaro.org/components/toolchain/binaries/7.2-2017.11/arm-linux-gnueabi/gcc-linaro-7.2.1-2017.11-x86_64_arm-linux-gnueabi.tar.xz
 
-# 在文件末尾 添加以下内容
-PATH="$PATH:/opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-linux-gnueabi/bin"
-# 添加完毕
+    tar -vxJf gcc-linaro-7.2.1-2017.11-x86_64_arm-linux-gnueabi.tar.xz
+    sudo cp -r ./gcc-linaro-7.2.1-2017.11-x86_64_arm-linux-gnueabi /opt/
 
-# 使路径生效
-source /etc/bash.bashrc
-```
+    sudo vim /etc/bash.bashrc
+
+在文件末尾 添加以下内容
+
+    PATH="$PATH:/opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-linux-gnueabi/bin"
+
+添加完毕
+
+使路径生效
+
+    source /etc/bash.bashrc
+
+
 
 此时可用 `arm-linux-gnueabi-gcc -v`进行测试；若普通用户状态下没有成功，通过 `sudo su`切换到root用户再尝试；
 
@@ -118,10 +116,10 @@ make ARCH=arm menuconfig
 
 若要在套餐中附带的LCD上输出显示，请通过配置 ARM architecture --> Enable graphical uboot console on HDMI, LCD or VGA 为 **Y**
 接着配置同级的 **LCD panel timing details** 为：
-**x:800,y:480,depth:18,pclk\_khz:33000,le:87,ri:40,up:31,lo:13,hs:1,vs:1,sync:3,vmode:0**
+**x:800,y:480,depth:18,pclk\khz:33000,le:87,ri:40,up:31,lo:13,hs:1,vs:1,sync:3,vmode:0**
 
 注：此块屏为为 800\*480 规格，如为 480\*272 请尝试如下配置:
-**x:480,y:272,depth:18,pclk\_khz:10000,le:42,ri:8,up:11,lo:4,hs:1,vs:1,sync:3,vmode:0**
+**x:480,y:272,depth:18,pclk\khz:10000,le:42,ri:8,up:11,lo:4,hs:1,vs:1,sync:3,vmode:0**
 
 并将 **LCD panel backlight pwm pin** 设为：
 PE6 （查自 Nano 原理图）
@@ -196,9 +194,7 @@ sunxi-fel -p spiflash-write 0 /your/path/to/u-boot-sunxi-with-spl.bin
 Xboot 初体验
 ------------
 
-xboot秉持一次编写到处运行的理念，集成各类驱动支持，支持lua虚拟机，是一款优秀的bootloader；
-
-xboot无需额外配置直接上手！
+xboot秉持一次编写到处运行的理念，集成各类驱动支持，支持lua虚拟机，是一款优秀的bootloader；xboot无需额外配置直接上手！
 
 > **Note:**请到 [xboot](https://github.com/xboot) 下载README中给出的官方交叉编译器；请下载5.3.1版本，其5.3.0版本貌似不支持软浮点配置命令。
 
@@ -320,9 +316,8 @@ popd
 
 当正确编译产生出rtthread.bin映像文件后可以使用下面的方式来烧写到设备中。
 
-1)  编译初始化引导文件
-
-编译依赖 arm-eabi-gcc
+#### 编译初始化引导文件
+ 编译依赖 arm-eabi-gcc
 
 ``` 
 pushd ../../..
@@ -334,12 +329,11 @@ popd
 popd
 ```
 
-1)  下载并运行
-
-    > 1)  短接flash 1、4脚(当flash中无可引导代码时无需此步骤)
-    > 2)  连接USB
-    > 3)  松开短接的引脚
-    > 4)  输入下列指令
+#### 下载并运行
+1.  短接flash 1、4脚(当flash中无可引导代码时无需此步骤)
+2.  连接USB
+3.  松开短接的引脚
+4.  输入下列指令
 
 ```
 sudo sunxi-fel -p write  0x00000000 tina-spl.bin
@@ -348,7 +342,7 @@ sudo sunxi-fel -p write  0x80000000 rtthread.bin
 sudo sunxi-fel exec 0x80000000
 ```
 
-1)  运行结果
+#### 运行结果
 
 如果编译 & 烧写无误，会在串口0上看到RT-Thread的启动logo信息：
 
