@@ -6,7 +6,7 @@ desc: 矽速科技的硬件资料站
 
 # Sipeed HardWare WIKI
 
-[[English](./README_en.md)|中文]
+[English](./README_en.md)
 
 ## K210 核心模组
 

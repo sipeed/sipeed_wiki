@@ -151,6 +151,6 @@ Maixduino开发板以M1Al模块作为核心单元，功能非常很强大，模�
 ## 资料相关链接
 
 - [MaixDuino 原理图](https://dl.sipeed.com/shareURL/MAIX/HDK/Sipeed-Maixduino)
-- [MaixPy](./../../../../soft/maixpy/zh/readme.md)
-- [arduino](./../maixduino/zh/readme.md)
+<a href="./../../../../soft/maixpy/zh/" target="_blank"> MaixPy的使用教程入口 </a>
+<a href="./../../../../soft/maixduino/zh/" target="_blank"> arduino的使用教程入口 </a>
 

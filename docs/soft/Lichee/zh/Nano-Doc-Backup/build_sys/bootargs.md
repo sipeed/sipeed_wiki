@@ -1,5 +1,4 @@
-uboot传递参数
-=============
+# uboot传递参数
 
 ## 再探 Uboot
 
@@ -15,7 +14,7 @@ uboot传递参数
     bootcmd = run distro_bootcmd
     cpu = arm926ejs
 
-通过此命令我们可以看到 uboot 自动配置了一些启动命令与参数，其中变量boot\_scripts 指定了启动时要加载哪个命令文本文件，依据此处，我们进行boot.scr 的构建；
+通过此命令我们可以看到 uboot 自动配置了一些启动命令与参数，其中变量boot_scripts 指定了启动时要加载哪个命令文本文件，依据此处，我们进行boot.scr 的构建；
 
 ## 建立 boot.cmd 并确认参数
 
@@ -38,9 +37,7 @@ bootz 0x80008000 - 0x80C00000
 第四行为从加载地址启动内核的命令
 
 ## 生成 boot.scr
-
-
-uboot --\> tools --\>mkimage ，通过该程序生成boot.scr
+uboot --> tools -->mkimage ，通过该程序生成boot.scr
 
 为使用方便，建议将其：
 
