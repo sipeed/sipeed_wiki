@@ -1,6 +1,6 @@
 ---
 title: Grove - Chainable RGB LED(可链接 LED 灯)
-keywords: maixpy, k210, AIOT, 边缘计算
+keywords: maixpy, k210, AIOT, 边缘计算, RGB LED
 desc: maixpy doc: Grove - Chainable RGB LED(可链接 LED 灯)
 ---
 

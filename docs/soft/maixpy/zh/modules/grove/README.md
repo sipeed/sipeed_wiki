@@ -1,6 +1,6 @@
 ---
 title: Grove
-keywords: maixpy, k210, AIOT, 边缘计算
+keywords: maixpy, k210, AIOT, 边缘计算, Grove介绍
 desc: maixpy doc: Grove
 ---
 

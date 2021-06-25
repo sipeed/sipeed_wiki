@@ -1,6 +1,6 @@
 ---
 title: MicroPython 背景知识
-keywords: maixpy, k210, AIOT, 边缘计算
+keywords: maixpy, k210, AIOT, 边缘计算, maixpy入门, 人工智能
 desc: maixpy doc: MicroPython 背景知识
 ---
 

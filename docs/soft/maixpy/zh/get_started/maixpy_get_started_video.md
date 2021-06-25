@@ -1,6 +1,6 @@
 ---
 title: MaixPy 视频入门教程
-keywords: maixpy, k210, AIOT, 边缘计算
+keywords: maixpy, k210, AIOT, 边缘计算, maixpy入门, 人工智能
 desc: maixpy doc: MaixPy 视频入门教程
 ---
 

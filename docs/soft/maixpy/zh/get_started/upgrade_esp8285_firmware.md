@@ -1,6 +1,6 @@
 ---
 title: 更新板载 ESP8285 固件
-keywords: maixpy, k210, AIOT, 边缘计算
+keywords: maixpy, k210, AIOT, ESP8285, 边缘计算
 desc: maixpy doc: 更新板载 ESP8285 固件
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: 安装 USB 驱动
-keywords: maixpy, k210, AIOT, 边缘计算
+keywords: maixpy, k210, AIOT, 边缘计算, maixpy入门
 desc: maixpy doc: 安装 USB 驱动
 ---
 

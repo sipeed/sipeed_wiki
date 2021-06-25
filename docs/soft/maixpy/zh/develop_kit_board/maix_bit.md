@@ -1,6 +1,6 @@
 ---
 title: Maix Bit
-keywords: maixpy, k210, AIOT, 边缘计算
+keywords: maixpy, k210, AIOT, 边缘计算, Maix Bit
 desc: maixpy doc: Maix Bit
 ---
 
