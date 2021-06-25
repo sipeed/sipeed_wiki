@@ -1,6 +1,6 @@
 ---
 title: modules.htpa（HTPA 热红外测温模组）
-keywords: maixpy, k210, AIOT, 边缘计算
+keywords: maixpy, k210, AIOT, 边缘计算, 深度学习, 人工智能
 desc: maixpy doc: modules.htpa（HTPA 热红外测温模组）
 ---
 
