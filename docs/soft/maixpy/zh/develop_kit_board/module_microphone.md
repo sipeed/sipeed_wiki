@@ -1,6 +1,6 @@
 ---
 title: Sipeed Microphone
-keywords: maixpy, k210, AIOT, 边缘计算
+keywords: maixpy, k210, AIOT, 边缘计算, Sipeed Microphone
 desc: maixpy doc: Sipeed Microphone
 ---
 

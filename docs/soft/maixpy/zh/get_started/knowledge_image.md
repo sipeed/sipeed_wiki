@@ -1,6 +1,6 @@
 ---
 title: 图像处理背景知识
-keywords: maixpy, k210, AIOT, 边缘计算
+keywords: maixpy, k210, AIOT, 边缘计算, maixpy入门, 人工智能
 desc: maixpy doc: 图像处理背景知识
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: 第一个程序: 使用屏幕和摄像头
-keywords: maixpy, k210, AIOT, 边缘计算
+keywords: maixpy, k210, AIOT, 边缘计算, maixpy入门
 desc: maixpy doc: 第一个程序: 使用屏幕和摄像头
 ---
 

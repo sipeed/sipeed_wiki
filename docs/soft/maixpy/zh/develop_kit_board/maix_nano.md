@@ -1,6 +1,6 @@
 ---
 title: Maix Nano
-keywords: maixpy, k210, AIOT, 边缘计算
+keywords: maixpy, k210, AIOT, 边缘计算, Maix Nano
 desc: maixpy doc: Maix Nano
 ---
 

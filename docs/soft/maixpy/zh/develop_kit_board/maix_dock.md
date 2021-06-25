@@ -1,6 +1,6 @@
 ---
 title: Maix Dock
-keywords: maixpy, k210, AIOT, 边缘计算
+keywords: maixpy, k210, AIOT, 边缘计算,  Maix Dock
 desc: maixpy doc: Maix Dock
 ---
 
