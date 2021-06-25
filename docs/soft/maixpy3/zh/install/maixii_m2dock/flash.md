@@ -115,3 +115,5 @@ sudo ./livesuit_installer.run
 系统烧录步骤严格按照文档要求，先打开软件，拔 SD 卡后插入电脑，等待提示确认后再插入 SD 卡自动完成安装。
 
 《[error while loading shared libraries: libpng12.so.0](https://askubuntu.com/questions/895897/error-while-loading-shared-libraries-libpng12-so-0)》
+
+>目前暂时不支持使用etcher进行系统的烧录，会出现烧录之后无法进入系统，推荐使用dd命令进行烧录 ——— 21.06.24 

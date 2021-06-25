@@ -230,3 +230,4 @@ def sd_check():
 print(sd_check())
 ```
 进行检测是否挂载成功
+
