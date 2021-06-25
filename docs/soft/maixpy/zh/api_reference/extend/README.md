@@ -1,6 +1,6 @@
 ---
 title: 外设模块
-keywords: maixpy, k210, AIOT, 边缘计算, 深度学习, 人工智能
+keywords: maixpy, k210, AIOT, spmod
 desc: maixpy doc: 外设模块
 ---
 
