@@ -208,8 +208,8 @@
                                     "file":"modules_spmod/spmod_joystick.md"
                                 },
                                 {
-                                    "label":"SP-JotStick2",
-                                    "file":"modules_spmod/spmod_joystick2.md"
+                                    "label":"SP-JotStick2"
+                                    
                                 },
                                 {
                                     "label":"SP-Servo",

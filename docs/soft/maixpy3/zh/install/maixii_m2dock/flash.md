@@ -8,8 +8,9 @@ desc: maixpy doc: MaixII M2dock 烧录系统
 
 V831 为全志的 SOC， 所以 Windwos 使用 **PhoenixSuit**, Linux 上使用 **Livesuit** 烧录镜像文件。
 
-- 从下载站获取最新的 V831 系统镜像 [SDK_MaixII/release](http://dl.sipeed.com/shareURL/MAIX/SDK_MaixII/release) ，找不到就搜索 V831 获取最新的镜像。
+- 从下载站获取最新的 V831 系统镜像 [SDK_MaixII/release](https://dl.sipeed.com/shareURL/MaixII/SDK/release) ，找不到就搜索 V831 获取最新的镜像。
 
+- 下载站中有连个同版本不同大小的镜像系统，文件较大的镜像是需要使用dd命令进行系统的烧录。（目前只能在linux系统上进行系统的烧录--2021.06.26）
 - 解压 V831 镜像压缩包，得到一个 xxxx.img 文件。
 
 - 从网上获取 PhoenixSuit(Windows) 烧录工具。
@@ -110,10 +111,27 @@ sudo ./livesuit_installer.run
 
 ![](./asserts/flash_21.png)
 
+> 以上烧录方式适合在镜像文件较小的那个（非dd版本）
+
+## Linux(Ubuntu) 使用 dd镜像 烧录
+
+使用dd命令之前，通过命令 `fdisk` 查看tf卡的名称
+
+dd命令烧录
+
+```
+dd if=镜像名称 of=tf卡名称
+```
+
+出现为烧录成功
+
+或者直接使用镜像恢复软件打开dd镜像文件
+
+
 ## 常见问题：
 
 系统烧录步骤严格按照文档要求，先打开软件，拔 SD 卡后插入电脑，等待提示确认后再插入 SD 卡自动完成安装。
 
 《[error while loading shared libraries: libpng12.so.0](https://askubuntu.com/questions/895897/error-while-loading-shared-libraries-libpng12-so-0)》
 
->目前暂时不支持使用etcher进行系统的烧录，会出现烧录之后无法进入系统，推荐使用dd命令进行烧录 ——— 21.06.24 
+>经过测试，目前支持在windows上使用phoenixsuit进行系统烧录，不支持在windows上使用镜像烧录工具dd镜像系统包的烧录，建议在linux上使用dd命令进行烧录 ——— 21.06.24 
