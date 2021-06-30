@@ -115,23 +115,33 @@ sudo ./livesuit_installer.run
 
 ## Linux(Ubuntu) 使用 dd镜像 烧录
 
-使用dd命令之前，通过命令 `fdisk` 查看tf卡的名称
+[下载dd镜像](https://dl.sipeed.com/shareURL/MaixII/SDK/release)带有xx-dd.img文件即可
+
+>经过测试，目前支持在windows上使用phoenixsuit进行系统烧录，不支持在windows上使用镜像烧录工具dd镜像系统包的烧录，建议在linux上使用dd命令进行烧录 ——— 21.06.24 
+
+使用dd命令之前，通过命令 `fdisk -l` 查看tf卡的名称
+
+![dd_1](./../../../assets/images/dd_1.png)
 
 dd命令烧录
 
+```base
+dd if=sipedd-v8310-210606-dd.img of=/dev/sdd
 ```
-dd if=镜像名称 of=tf卡名称
-```
-
+![dd_2](./../../../assets/images/dd_2.png)
 出现为烧录成功
 
 或者直接使用镜像恢复软件打开dd镜像文件
 
+右键打开dd镜像，选择用其他应用程序打开，选择镜像恢复
 
+![dd_3](./../../../assets/images/dd_3.png)
+![dd_3](./../../../assets/images/dd_4.png)
+
+点击开始恢复，即可烧录成功
 ## 常见问题：
 
 系统烧录步骤严格按照文档要求，先打开软件，拔 SD 卡后插入电脑，等待提示确认后再插入 SD 卡自动完成安装。
 
 《[error while loading shared libraries: libpng12.so.0](https://askubuntu.com/questions/895897/error-while-loading-shared-libraries-libpng12-so-0)》
 
->经过测试，目前支持在windows上使用phoenixsuit进行系统烧录，不支持在windows上使用镜像烧录工具dd镜像系统包的烧录，建议在linux上使用dd命令进行烧录 ——— 21.06.24 
