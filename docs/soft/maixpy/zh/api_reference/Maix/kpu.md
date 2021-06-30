@@ -200,8 +200,9 @@ task = kpu.load(offset or file_path)
 anchor = (1.889, 2.5245, 2.9465, 3.94056, 3.99987, 5.3658, 5.155437, 6.92275, 6.718375, 9.01025)
 kpu.init_yolo2(task, 0.5, 0.3, 5, anchor)
 img = image.Image()
-kpu.run_yolo2(task, img) #此处不对，请参考例程
+kpu.run_yolo2(task, img) 
 ```
+> 以上为节选代码，并不是完整部分，详细请看[人脸检测](https://github.com/sipeed/MaixPy_scripts/blob/master/machine_vision/face_find/demo_find_face.py)具体的代码
 
 #### 参数
 
