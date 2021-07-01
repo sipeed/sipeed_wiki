@@ -15,7 +15,7 @@
                             "items":[
                                 {
                                     "label":"安装TD驱动",
-                                    "file":"get_started/driver.md"
+                                    "file":"get_started/install_TD_win.md"
                                 },
                                 {
                                     "label":"安装TD驱动——Linux",
