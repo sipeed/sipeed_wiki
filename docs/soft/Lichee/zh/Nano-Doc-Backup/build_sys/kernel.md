@@ -23,21 +23,20 @@ sudo vim /etc/hosts
 
     git clone --depth=1 -b f1c100s-480272lcd-test https://github.com/Icenowy/linux.git
 
-配置
-----
+## 配置
 
 下载 [.config](http://dl.sipeed.com/LICHEE/Nano/SDK/config)文件，放入源码主目录进行替换 (若下载时文件名有变，请重命名回 .config );
 
-进行编译
---------
+## 进行编译
 
-> **Tip** 编译工具链为 arm-linux-gnueabi，工具链的安装请参考 uboot 编译部分
+
+> 编译工具链为 arm-linux-gnueabi，工具链的安装请参考 uboot 编译部分
 
 ``` 
 make ARCH=arm menuconfig
 make ARCH=arm CROSS_COMPILE=arm-linux-gnueabi- -j4    #请自行修改编译线程数
 ```
 
-生成的 zImage 在 arch --\> arm --\> boot 目录下；将其放入第一分区。
+生成的 zImage 在 arch --> arm --> boot 目录下；将其放入第一分区。
 
 > **交流与答疑:** 对于本节内容，如有疑问，欢迎到 [主线linux编译交流帖](http://bbs.lichee.pro/d/22-linux) 提问或分享经验。

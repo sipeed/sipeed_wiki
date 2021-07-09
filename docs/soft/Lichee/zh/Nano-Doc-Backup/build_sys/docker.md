@@ -1,12 +1,10 @@
 # Docker开发环境
 
-
 ## docker安装
-
 
 ### 什么是docker？
 
-Docker 是一个开源的应用容器引擎，基于 Go 语言 并遵从Apache2.0协议开源。Docker 可以让开发者打包他们的应用以及依赖包到一个轻量级、可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口（类似 iPhone 的 app）,更重要的是容器性能开销极低。本节只简单介绍docker开发环境的搭建，想要详细了解docker，可以查看“[Docker 命令速查](http://zero.lichee.pro/%E5%85%A5%E9%97%A8/docker_command.html)”。简而言之，我帮你搞好了docker镜像，你就不用自己再费力搭建啦。
+Docker 是一个开源的应用容器引擎，基于 Go 语言 并遵从Apache2.0协议开源。Docker 可以让开发者打包他们的应用以及依赖包到一个轻量级、可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口（类似 iPhone 的 app）,更重要的是容器性能开销极低。本节只简单介绍docker开发环境的搭建，想要详细了解docker，可以查看“[Docker 命令速查](./../../Zero-Doc/Start/docker_command.md)”。简而言之，我帮你搞好了docker镜像，你就不用自己再费力搭建啦。
 
 ### docker下载安装
 
@@ -48,14 +46,11 @@ FATA[0000] Get http:///var/run/docker.sock/v1.18/version: dial unix /var/run/doc
 
 ## 安装荔枝派开发镜像
 
-
 可通过两种方式导入lichee-nano编译环境镜像
 
 ### 通过百度网盘下载并导入lichee-nano编译环境镜像
 
-首先通过百度网盘下载
-[docker镜像](https://pan.baidu.com/s/1aYcGfzyz-g4CbxGSsVREGQ) ；
-
+首先通过百度网盘下载[docker镜像](https://pan.baidu.com/s/1aYcGfzyz-g4CbxGSsVREGQ) ；
 再将镜像加载到 docker：
 
 ``` 
@@ -71,12 +66,9 @@ docker pull zepan/licheepi-nano
 
 ### 镜像使用
 
->  载入镜像后查看镜像ID docker images
->
->  通过 id 运行某个命令 docker run xxxx-IMAGE-ID-xxx ls
->
->  后台运行 docker 并使用 ssh 去连接到镜像(6666端口) docker run -d -p
-> 6666:22 xxxx-IMAGE-ID-xxx /usr/sbin/sshd -D
+- 载入镜像后查看镜像ID docker images
+- 通过 id 运行某个命令 docker run xxxx-IMAGE-ID-xxx ls
+- 后台运行 docker 并使用 ssh 去连接到镜像(6666端口) docker run -d -p 6666:22 xxxx-IMAGE-ID-xxx /usr/sbin/sshd -D
 
 这样就安装并开启的容器ssh服务，只需连接主机的6666端口，以root用户，licheepi密码登录即可进行开发操作。
 

@@ -8,5 +8,4 @@ desc: 矽速科技的硬件资料站
 
 - [LicheePi Zero](./)
 - [LicheePi Zero Plus](./)
-
 - [LicheePi Nano](./)

@@ -1,15 +1,11 @@
-入手lichee-pi-nano
-==================
+# 入手lichee-pi-nano
 
-* * * * *
-
-到荔枝淘宝购买
------------------
+## 到荔枝淘宝购买
 
 [此处购买](https://item.taobao.com/item.htm?spm=a230r.1.14.7.2a311bf5BmOgwm&id=584657396198&ns=1&abbucket=8#detail)
 
-拆箱
--------
+## 拆箱
+
 
 - lichee-pi-nano kit套餐 :
     ![](./../static/step_by_step/nano_kit.jpg)
@@ -24,8 +20,8 @@
 - LCD :
     ![](./../static/step_by_step/LCD.jpg)
 
-准备工具
------------
+## 准备工具
+
 
 - 准备一个usb转ttl,用于查看console打印:
     ![](./../static/step_by_step/usb_to_ttl.jpg)
@@ -37,19 +33,16 @@
 - 焊接
     ![](./../static/step_by_step/seal.jpg)
 
-测试板子是否正常
--------------------
+## 测试板子是否正常
+
 
 -   使用一键镜像包构建启动固件并下载到spiflash或tf卡
 
     教程地址:
     [一键烧录镜像包](./../build_sys/onekey.md)
-    固件下载完后是使用杜邦线连接nano和电脑, 在终端输入sudo minicom
-    -s,配置好串口参数(115200 8N1).
+    固件下载完后是使用杜邦线连接nano和电脑, 在终端输入sudo minicom -s,配置好串口参数(115200 8N1).
 
 -   正常运行的打印截图
-
-![](../static/step_by_step/console_run_is_ok.png)
-
+    ![](../static/step_by_step/console_run_is_ok.png)
 -   正常运行的液晶显示
-![](../static/step_by_step/lcd_run_is_ok.jpg)
+    ![](../static/step_by_step/lcd_run_is_ok.jpg)

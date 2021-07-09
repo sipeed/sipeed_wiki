@@ -2,11 +2,10 @@
 ==============
 
 本篇需要启动linux系统，所需用到的工具：
-
- -   ts-lib
-    -   ts\_test
-    -   ts\_calibrate
- -   evtest
+ - ts-lib
+    - ts_test
+    - ts_calibrate
+ - evtest
 
 在前文设备树中，我们就已经对i2c接口的电容触摸屏做了初始化，以下是进行电容触摸屏的调整与测试：
 
@@ -17,8 +16,7 @@ ls /dev/input   # 查看是否存在input/event0
 insmod goodix.ko   
 # 如根文件系统未找到goodix.ko，请在linux源码的output目录下查找并放入根文件系统下
 
-# 若存在
-evtest /dev/input/event0  # 使用evtest测试输入的xy坐标数据
+# 若存在 evtest /dev/input/event0  # 使用evtest测试输入的xy坐标数据
 
 # 直观的测试
 ts_test
@@ -27,9 +25,9 @@ ts_test
 ts_calibrate
 ```
 
-但是 ts\_calibrate 仅仅是将校准参数写到 /etc/pointcrl文件中，适用于微调，tslib下的工具如 ts\_test将会读取此校准文件而表现的触摸正常；而 evtest 读取原始数据、littlevGL程序调用 event0的输入时，并未去解析该参数文件。同样也有一定可能是该触摸屏内置参数即为错误的，难以进行校准。
+但是 ts_calibrate 仅仅是将校准参数写到 /etc/pointcrl文件中，适用于微调，tslib下的工具如 ts_test将会读取此校准文件而表现的触摸正常；而 evtest 读取原始数据、littlevGL程序调用 event0的输入时，并未去解析该参数文件。同样也有一定可能是该触摸屏内置参数即为错误的，难以进行校准。
 
-测试时，发现xy轴输出互相调换了，请添加或去掉 gt911节点下 的 *touchscreen-swapped-x-y* 属性
+测试时，发现xy轴输出互相调换了，请添加或去掉 gt911节点下 的 `touchscreen-swapped-x-y` 属性
 
 若是发现触摸屏输出跳动大，屏幕上有些地方检测不到输出，此处采取修改驱动的办法进行解决：通过 i2c 向 电容触摸芯片GT911 写入固定的参数(相当于重刷GT911的固件)；
 
@@ -84,7 +82,7 @@ static void goodix_read_config(struct goodix_ts_data *ts)
 
 将此驱动编译成模块，使用 `insmod`加载模块后作为修正屏幕参数所用，控制台将会输出gt911各寄存器的参数；修改完毕后使用`rmmod goodix.ko` 卸载模块，重新加载正常的驱动。
 
-若再测试时，发现xy轴输出互相调换了，请添加或去掉gt911节点下的*touchscreen-swapped-x-y* 属性
+若再测试时，发现xy轴输出互相调换了，请添加或去掉gt911节点下的`touchscreen-swapped-x-y` 属性
 
 > **交流与答疑**
 > 对于本节内容，如有疑问，欢迎到 [模组使用交流帖](http://bbs.lichee.pro/d/24--) 提问或分享经验。

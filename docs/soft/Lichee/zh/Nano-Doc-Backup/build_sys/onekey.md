@@ -2,10 +2,10 @@
 
 
 材料准备：    
-    内存卡+读卡器+荔枝派Nano+支持完整指令集的x86设备一台（电脑）
+- 内存卡+读卡器+荔枝派Nano+支持完整指令集的x86设备一台（电脑）
 
 镜像下载地址：
-    [https://pan.baidu.com/s/1smzuGS9](https://pan.baidu.com/s/1smzuGS9)
+- [https://pan.baidu.com/s/1smzuGS9](https://pan.baidu.com/s/1smzuGS9)
 
 ## 一键烧录镜像命名规则
 
@@ -22,7 +22,6 @@ xxxx:这个镜像适用于什么分辨率的LCD上
 ## 一键烧录镜像(Linux环境---TF卡启动)
 
 镜像包中的image文件夹下的dd文件，已包含了相应的Bootloader、Kernel、文件系统等等，只需简单两步即可完成烧录；
-
 1. 插上tf卡后，命令行执行 `sudo fdisk -l` 查看tf卡盘号；
 2. 执行 `sudo dd if=/path/to/your-dd-image of=/your/tf-card && sync` 即可完成烧录
 
@@ -55,11 +54,11 @@ xxxx:这个镜像适用于什么分辨率的LCD上
 
 根据提示，前5个变量需要我们进行修改，分别是：
 
-- _TOP_DIR          ---  镜像包所在的一级目录
-- _KERNEL_MAINDIR   ---  主线Linux源码所在目录
-- _UBOOT_DEVDIR     ---  Uboot源码所在目录
-- _BR_DEVDIR        ---  Buildroot所在目录
-- _CP_CMD           ---  复制命令(默认为docker拉取)
+- _TOP_DIR ---  镜像包所在的一级目录
+- _KERNEL_MAINDIR ---  主线Linux源码所在目录
+- _UBOOT_DEVDIR  ---  Uboot源码所在目录
+- _BR_DEVDIR  ---  Buildroot所在目录
+- _CP_CMD  ---  复制命令(默认为docker拉取)
 
 再来看configs文件夹下的脚本文件 ： **env-xxxxx.sh**
 
@@ -113,9 +112,7 @@ xxxx:这个镜像适用于什么分辨率的LCD上
 
 镜像生成最简单的方法是借助tf卡，手动或使用脚本向tf写入完结构，再dd出来，但手动生成较为琐碎且不灵活，所以我们在这里提供了脚本文件： **pack_tf_img.sh** 和 **pack_flash_img.sh**，能够判断镜像大小是否符合启动要求，且借助loop模拟创建设备，快速高效。
 
-使用方法： **sh pack_tf_img.sh** 或 **sh pack_flash_img.sh** 即可
-
-生成的镜像在 ./image 目录下；
+使用方法： **sh pack_tf_img.sh** 或 **sh pack_flash_img.sh** 即可生成的镜像在 ./image 目录下；
 
 ### docker环境下拉取资源到本地
 

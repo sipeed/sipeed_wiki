@@ -2,7 +2,6 @@
 
 ## 再探 Uboot
 
-
 首先进入 uboot，控制台输入 `printenv` ，可看到控制台输出以下信息：
 
     arch = arm
