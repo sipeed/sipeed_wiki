@@ -1,15 +1,12 @@
-编译和配置uboot
-===============
+# 编译和配置uboot
 
-* * * * *
+## 克隆uboot
 
-1. 克隆uboot
-------------
 
     git clone https://github.com/Lichee-Pi/u-boot.git -b nano-v2018.01
 
-2. 载入默认配置
----------------
+## 载入默认配置
+
 
 如果需要生成在sdram里启动的uboot
 
@@ -19,8 +16,8 @@
 
     make ARCH=arm licheepi_nano_spiflash_defconfig
 
-1. 编译时可能遇到的问题以及解决办法
------------------------------------
+## 编译时可能遇到的问题以及解决办法
+
 
 **/bin/sh: 1: cc: not found**
 
@@ -28,11 +25,11 @@
 
 **\*\*\* Configuration file ".config" not found!**
 
-    请检查当前用户是否有当前文件夹的读写权限,然后再次载入默认配置.
+请检查当前用户是否有当前文件夹的读写权限,然后再次载入默认配置.
 
 **/bin/sh: 1: python: not found**
 
-    `sudo apt install python`
+    sudo apt install python
 
 **unable to execute 'swig': No such file or directory**
 **error: command 'swig' failed with exit status 1**
@@ -48,5 +45,4 @@
 
     apt install bc
 
-测试uboot
-------------
+## 测试uboot

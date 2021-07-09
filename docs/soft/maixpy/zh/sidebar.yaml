@@ -62,6 +62,8 @@ items:
                 file: get_started/install_driver/nano.md
             -   label: Grove AI HAT
                 file: get_started/install_driver/ai_hat.md
+            -   label: Maix Duino
+                file: get_started/install_driver/duino.md
         -   label: 更新 MaixPy 固件
             file: get_started/upgrade_maixpy_firmware.md
         -   label: 串口终端工具

@@ -1,25 +1,16 @@
-编译和配置linux
-===============
+# 编译和配置linux
 
-* * * * *
-
-1. 克隆linux
-------------
-
+## 克隆linux
     git clone https://github.com/Lichee-Pi/linux.git --depth=1 -b nano-4.14-exp
 
-2. 载入默认配置
----------------
+## 载入默认配置
 
 下载配置文件
-
     wget http://nano.lichee.pro/_static/step_by_step/lichee_nano_linux.config
 
 修改下载的配置文件名为.config
 
     mv lichee_nano_linux.config ./config
-
-* * * * *
 
 编译
 

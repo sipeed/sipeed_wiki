@@ -1,15 +1,12 @@
-编译和使用sunxi-tools
-=====================
+# 编译和使用sunxi-tools
 
-* * * * *
+## 克隆sunxi-tools
 
-克隆sunxi-tools
-------------------
 
     git clone https://github.com/Icenowy/sunxi-tools.git -b f1c100s-spiflash
 
-编译sunxi-tools
-------------------
+## 编译sunxi-tools
+
 
 安装sunxi-tools依赖库
   
@@ -27,8 +24,8 @@
     make install
 
 
-使用sunxi-tools
-------------------
+## 使用sunxi-tools
+
 
 查看芯片信息
 
@@ -45,7 +42,7 @@
 
     sudo sunxi-fel spl 文件名
 
-把文件内容写入内存指定地址(-p是显示写入进度) \`\`sudo sunxi-fel -p
+把文件内容写入内存指定地址(-p是显示写入进度)  sudo sunxi-fel -p
 
     write 地址 文件名
 

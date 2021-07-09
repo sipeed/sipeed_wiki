@@ -1,13 +1,9 @@
-荔枝派Nano 全流程指南
-=====================
+# 荔枝派Nano 全流程指南
+
 
 荔枝派 Nano，开启你的极客之心。这是一款仅有2.54cm * 3.3cm大小的精致小板，相当于一张SD卡大小，只要您愿意，即可将一颗极客芯随身携带。
 
 ![](./static/Lichee.jpeg)
-
-
-
-
 荔枝派Nano以不可能的价格，提供了尽可能的能力：
 -   3 X TWI
 -   2 X SPI
@@ -31,10 +27,7 @@
 -   SD/eMMc
 
 这都得益于荔枝派Nano的主芯片---全志F1C100s；Arm9架构，16KB D-Cache，32KB I-Cache，支持从SPI Flash或TF卡启动，支持USB OTG载入更新。
-
 荔枝派 Nano 延续了前一代的巧妙设计，2.54mm普通插针焊孔+1.27mm邮票孔贴片设计，方便您自己动手DIY的同时，也支持贴片生产，制作更为复杂的应用。
-
-![](https://fdvad021asfd8q.oss-cn-hangzhou.aliyuncs.com/migrate/Pin%20Map.png)
 
 - Pin Map
 
@@ -45,7 +38,7 @@
 
 荔枝派Nano 现已可选 TF版 与 wifi版：
 
-![](https://img.alicdn.com/imgextra/i4/272610009/TB2L22ihQKWBuNjy1zjXXcOypXa_!!272610009.png)
+![](./assets/index_1.png)
 
 - 对比图
 
@@ -54,10 +47,10 @@
 
 | 欢迎各位加入 |
 | ---- |
-|[荔枝派交流群826307240](https://jq.qq.com/?_wv=1027&k=52cCEVU) | 
+|[荔枝派交流群826307240](https://jq.qq.com/?_wv=1027&k=52Zn9VJ1) | 
 | [荔枝派Telegram电报群](https://t.me/sipeed) | 
 | [荔枝派社区](http://bbs.lichee.pro) |
 
-![](https://fdvad021asfd8q.oss-cn-hangzhou.aliyuncs.com/migrate/QQ_Group_2.jpg)
+![QQ](./static/QQ.png)
 
 - [littlevGL的使用](./application/littlevgl.md)

@@ -1,19 +1,19 @@
 
 
 
-前言
-----
+# 前言
+
 
 此篇为少量或无需配置的开发，可帮助您快速上手，串口输出、点屏等操作确认 Nano 完好~
 具体详细配置与解释说明，将在后文进行较为详细的介绍；如果您和笔者一样是个小白萌新，希望能给您的学习提供一点小小的tips；如果您已熟悉此流程，快速浏览即可 :)
 笔者所用环境为：
 
-> -   ubuntu 16.04 LTS 64位
+> ubuntu 16.04 LTS 64位
 
-对于本节内容，如有疑问，欢迎到 [Bootloader 与 RTOS 使用交流帖](http://bbs.lichee.pro/d/21-bootloader-rtos) 提问或分享经验。
+对于本节内容，如有疑问，欢迎到 [Bootloader 与 RTOS 使用交流帖 ](http://bbs.lichee.pro/d/21-bootloader-rtos) 提问或分享经验。
 
-u-boot 初体验
--------------
+## u-boot 初体验
+
 
 ### 安装交叉编译链
 
@@ -21,25 +21,21 @@ u-boot 初体验
 
 
 此处为获取7.2.1版本，您可获取其他版本或者通过链接直接下载
-
-    wget http://releases.linaro.org/components/toolchain/binaries/7.2-2017.11/arm-linux-gnueabi/gcc-linaro-7.2.1-2017.11-x86_64_arm-linux-gnueabi.tar.xz
-
-    tar -vxJf gcc-linaro-7.2.1-2017.11-x86_64_arm-linux-gnueabi.tar.xz
-    sudo cp -r ./gcc-linaro-7.2.1-2017.11-x86_64_arm-linux-gnueabi /opt/
-
-    sudo vim /etc/bash.bashrc
-
+```
+wget http://releases.linaro.org/components/toolchainbinaries/7.2-2017.11/arm-linux-gnueabi/gcc-linaro-7.21-2017.11-x86_64_arm-linux-gnueabi.tar.xz
+tar -vxJf gcc-linaro-7.2.1-2017.11-x86_64_arm-linux-gnueabitar.xz
+sudo cp -r ./gcc-linaro-7.2.1-201711-x86_64_arm-linux-gnueabi /opt/
+sudo vim /etc/bash.bashrc
+```
 在文件末尾 添加以下内容
-
-    PATH="$PATH:/opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-linux-gnueabi/bin"
-
+```
+PATH="$PATH:/opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-linux-gnueabi/bin"
+```
 添加完毕
 
 使路径生效
 
     source /etc/bash.bashrc
-
-
 
 此时可用 `arm-linux-gnueabi-gcc -v`进行测试；若普通用户状态下没有成功，通过 `sudo su`切换到root用户再尝试；
 
@@ -124,7 +120,7 @@ make ARCH=arm menuconfig
 并将 **LCD panel backlight pwm pin** 设为：
 PE6 （查自 Nano 原理图）
 
-![LCD简单配置](../_static/get_started/LCD_set.png)
+![LCD简单配置](./../static/get_started/LCD_set.png)
 
 ```
 # 开始编译
@@ -144,7 +140,7 @@ cd sunxi-tools
 make && sudo make install
 ```
 
-如果出现：* fel_lib.c:26:20: fatal error: libusb.h: No such file or directory *，那需要安装libusb：
+如果出现：`fel_lib.c:26:20: fatal error: libusb.h: No such file or directory`，那需要安装libusb：
 
 ```
 sudo apt-get install libusb-1.0-0-dev
@@ -152,21 +148,23 @@ sudo apt-get install libusb-1.0-0-dev
 
 准备完软件，可以准备一下硬件:) 串口默认为 **UART0**
 
-### 不插卡上电~
+### 不插卡上电
 
 新到的一片 Nano ，基本上是上电无反应的，LCD亮但无内容，此时 Nano 自动进入fel下载模式，可以通过命令 `sudo sunxi-fel ver` 来确认有无成功进入fel模式。
 
 此时有两种方式进行程序下载：
 
-``` 
-# 1.以 uboot file-with-spl形式进行（单次运行，测试时个人推荐） 
-sunxi-fel uboot /your/path/to/u-boot-sunxi-with-spl.bin  
-# 请自行修改到本机地址
 
-# 2.烧进 spi-flash （开机自启）
-sunxi-fel -p spiflash-write 0 /your/path/to/u-boot-sunxi-with-spl.bin
-# note: 重新烧录或重进fel模式时，请在上电时拉低SPI flash 的 CS引脚
-```
+1.以 uboot file-with-spl形式进行（单次运行，测试时个人推荐） 
+
+    sunxi-fel uboot /your/path/to/u-boot-sunxi-with-spl.bin 
+
+请自行修改到本机地址
+
+2.烧进 spi-flash （开机自启）
+
+    sunxi-fel -p spiflash-write 0 /your/path/to/u-boot-sunxi-with-spl.bin
+> note: 重新烧录或重进fel模式时，请在上电时拉低SPI flash 的 CS引脚
 
 下载结束后，即可看到串口输出信息，LCD显示图标与简单信息。
 
@@ -177,8 +175,8 @@ sunxi-fel -p spiflash-write 0 /your/path/to/u-boot-sunxi-with-spl.bin
     arch_number = 0x00000000                                                                                   
     boot_params = 0x80000100                                                                                   
     DRAM bank   = 0x00000000                                                                                   
-    -> start    = 0x80000000                                                                                   
-    -> size     = 0x02000000                                                                                   
+    start    = 0x80000000                                                                                   
+    size     = 0x02000000                                                                                   
     baudrate    = 115200 bps                                                                                   
     TLB addr    = 0x80FF0000                                                                                   
     relocaddr   = 0x80F72000                                                                                   
@@ -191,12 +189,11 @@ sunxi-fel -p spiflash-write 0 /your/path/to/u-boot-sunxi-with-spl.bin
 
 愉快地完成了 u-boot 的初体验~
 
-Xboot 初体验
-------------
+## Xboot 初体验
 
 xboot秉持一次编写到处运行的理念，集成各类驱动支持，支持lua虚拟机，是一款优秀的bootloader；xboot无需额外配置直接上手！
 
-> **Note:**请到 [xboot](https://github.com/xboot) 下载README中给出的官方交叉编译器；请下载5.3.1版本，其5.3.0版本貌似不支持软浮点配置命令。
+> 请到 [xboot](https://github.com/xboot) 下载README中给出的官方交叉编译器；请下载5.3.1版本，其5.3.0版本貌似不支持软浮点配置命令。
 
 ```
 git clone https://github.com/xboot/xboot.git
@@ -219,6 +216,7 @@ sunxi-fel -p spiflash-write 0 xboot.bin
 ```
 
 ![](../static/get_started/xboot1.jpg)
+
 ```
     _                   _
  _  _ | |___ _____ _____ _| |_
@@ -234,14 +232,14 @@ sunxi-fel -p spiflash-write 0 xboot.bin
 
 xboot: /$
 ```
-> **Tip:**进入命令行后输入地址 /application/examples 将启动lua虚拟机运行Demo，可以算是xboot的酷炫小惊喜~
+> 进入命令行后输入地址 /application/examples 将启动lua虚拟机运行Demo，可以算是xboot的酷炫小惊喜~
 
 RTT 初体验
 ----------
 
 荔枝派 Nano 也得到了优秀国产物联网操作系统 **RT-Thread** 的官方支持，有rtt相关知识或经验，我们就可以对 Nano 进行快速高效的开发；
 
-首先我们来看 RT-Thread 的目录结构；
+首先我们来看 RT-Thread 的目录结构:
 
     .
     ├── bsp                         // 板级支持包
@@ -262,17 +260,15 @@ RTT 初体验
 
 此处我们进行 RTT固件 的编译尝试；
 
-RTT官方已经给出由 [uestczyh222](mailto:lymz@foxmail.com) 所维护的 Nano
-固件
-[详细的编译、烧录过程](https://github.com/RT-Thread/rt-thread/blob/master/bsp/allwinner_tina/README.md)，搬运至此：
+RTT官方已经给出由 [uestczyh222](mailto:lymz@foxmail.com) 所维护的 Nano固件[详细的编译、烧录过程](https://github.com/RT-Thread/rt-thread/blob/master/bsp/allwinner_tina/README.md)，搬运至此：
 
 ### 编译说明
 
-  环境         |说明
-  ------------ |-----
-  PC操作系统   |Linux/MacOS
-  编译器       |arm-none-eabi-gcc version 6.3.1 20170620 (release)
-  构建工具    | scons
+| 环境         |说明 |
+| ------------ |----- |
+| PC操作系统   |Linux/MacOS |
+| 编译器       |arm-none-eabi-gcc version 6.3.1 20170620 (release) |
+| 构建工具    | scons |
  
 
 1)  下载源码
@@ -281,7 +277,7 @@ RTT官方已经给出由 [uestczyh222](mailto:lymz@foxmail.com) 所维护的 Nan
 git clone https://github.com/RT-Thread/rt-thread.git
 ```
 
-1)  配置工程并准备env
+2)  配置工程并准备env
 
 ``` 
 cd rt-thread/bsp/allwinner_tina
@@ -290,7 +286,7 @@ source ~/.env/env.sh
 pkgs --upgrade
 ```
 
-1)  编译安装下载工具
+3  编译安装下载工具
 
 ``` 
 pushd /tmp
@@ -303,10 +299,9 @@ popd
 popd
 ```
 
-1)  编译
+4)  编译
 
     scons
-
 
 如果编译正确无误，会产生rtthread.elf、rtthread.bin文件。其中rtthread.bin需要烧写到设备中进行运行。
 
@@ -318,7 +313,6 @@ popd
 
 #### 编译初始化引导文件
  编译依赖 arm-eabi-gcc
-
 ``` 
 pushd ../../..
 git clone https://github.com/uestczyh222/tina-spl.git
@@ -330,10 +324,10 @@ popd
 ```
 
 #### 下载并运行
-1.  短接flash 1、4脚(当flash中无可引导代码时无需此步骤)
-2.  连接USB
-3.  松开短接的引脚
-4.  输入下列指令
+1. 短接flash 1、4脚(当flash中无可引导代码时无需此步骤)
+2. 连接USB
+3. 松开短接的引脚
+4. 输入下列指令
 
 ```
 sudo sunxi-fel -p write  0x00000000 tina-spl.bin
@@ -356,12 +350,10 @@ sudo sunxi-fel exec 0x80000000
     apb_get_clk:100000000
     msh />
 
-开箱常见问题&结语
------------------
+## 开箱常见问题&结语
+> 问题待收集...
 
-**Caution:** 问题待收集...
-
-如您有任何疑问，或有想要荔枝派提供某个方面的教程，请在[荔枝派社区](bbs.lichee.pro) 留言；
+如您有任何疑问，或有想要荔枝派提供某个方面的教程，请在[Sipeed社区](bbs.sipeed.com) 留言；
 
 荔枝派3000人QQ交流大群：488268051
 
