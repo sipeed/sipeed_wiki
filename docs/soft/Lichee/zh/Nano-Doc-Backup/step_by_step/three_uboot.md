@@ -34,7 +34,7 @@
 **unable to execute 'swig': No such file or directory**
 **error: command 'swig' failed with exit status 1**
 
-    apt install swig
+    apt install swig 
 
 **scripts/dtc/pylibfdt/libfdt\_wrap.c:149:11: fatal error: Python.h:**
     **No such file or directory**
