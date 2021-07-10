@@ -2,8 +2,8 @@
 title: Zero i2c oled使用指南
 ---
 
-1. 硬件连接
-===========
+## 硬件连接
+
 
 一般市面上买到的单色oled屏幕模块一般都是同时支持spi和i2c接口的，而默认一般都是spi接口模式，需要根据说明书调整模模块上电阻的位置来转换到i2c模式。我手中这个模块一般比较常见，分辨率是128\*64，需要焊接R1和R4，注意下方那个电阻位置要短接。
 
@@ -13,8 +13,8 @@ title: Zero i2c oled使用指南
 
 然后连接到zero的i2c0的位置，reset引脚我连接到了uart2的tx脚位置。我手中暂时没有dock，如果是使用dock，请根据实际情况插到对应位置。
 
-2. ssd1307fb驱动配置
-====================
+## ssd1307fb驱动配置
+
 
 Oled使用的控制芯片是
 ssd1306，最新版本的linux中包含Ssd1306的i2c驱动，驱动加载后会注册成功linux
@@ -29,7 +29,7 @@ framebuffer，驱动文件路径是： `/drivers/video/fbdev/ssd1307fb.c`
 /linux-zero-4.10.y$ make ARCH=arm menuconfig
 ~~~~
 
-选中 \<\*\> Solomon SSD1307 framebuffer support
+选中 \<*> Solomon SSD1307 framebuffer support
 
 ![](https://box.kancloud.cn/aa91247dad30974e7c3058c7e5e28dea_850x391.jpg)
 
