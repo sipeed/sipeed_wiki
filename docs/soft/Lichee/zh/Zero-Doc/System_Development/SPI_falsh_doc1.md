@@ -1,20 +1,19 @@
 ---
-title: 'sunxi-fel增加对16M以上Flash的支持'
+title: sunxi-fel增加对16M以上Flash的支持
 ---
 
 由于SPI flash 的地址是24bit，也就是最大16M 地址空间，所以对于32M
 flash，需要增加bank切换支持。
 
-uboot中有 *CONFIG\_SPI\_FLASH\_BAR* 选项可以使能bank切换。
+uboot中有 **CONFIG\_SPI\_FLASH\_BAR** 选项可以使能bank切换。
 
 但是sunxi-fel中尚未支持，所以下载的时候超出16M会循环覆盖掉。
 
 这里介绍对sunxi-fel增加16M以上flash支持的方法。
 
-u-boot的支持
-============
+## u-boot的支持
 
-~~~~ {.sourceCode .c}
+```
 static int write_bar(struct spi_flash *flash, u32 offset)
 {
     u8 cmd, bank_sel;
@@ -35,12 +34,12 @@ bar_end:
     flash->bank_curr = bank_sel;
     return flash->bank_curr;
 }
-~~~~
+```
 
-sunxi-fel的支持
-===============
+## sunxi-fel的支持
 
-~~~~ {.sourceCode .c}
+
+```
 #define CMD_WRITE_ENABLE 0x06
 #define SPI_FLASH_16MB_BOUN  0x1000000
 # define CMD_BANKADDR_BRWR              0x17    //only SPANSION flash use it
@@ -93,6 +92,6 @@ void aw_fel_spiflash_write_helper(feldev_handle *dev,
     }
 
     cmd_idx = 0;
-~~~~
+```
 
 重新编译sunxi-fel后就可以烧录32M flash了\~

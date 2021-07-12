@@ -4,7 +4,7 @@ title: uboot 对SPI flash 的识别
 
 flash信息在
 
-~~~~ {.sourceCode .c}
+```
 const struct spi_flash_info spi_flash_ids[] = {
         {"w25p80",         INFO(0xef2014, 0x0,  64 * 1024,    16, 0) },
         {"w25p16",         INFO(0xef2015, 0x0,  64 * 1024,    32, 0) },
@@ -75,4 +75,4 @@ struct spi_flash_info {
 #define RD_DUALIO               BIT(7)  /* use Dual IO Read */
 #define RD_FULL                 (RD_QUAD | RD_DUAL | RD_QUADIO | RD_DUALIO)
 };
-~~~~
+```

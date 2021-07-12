@@ -2,8 +2,8 @@
 title: BSP内核构建走读
 ---
 
-camdriod中对lichee的构建过程
-============================
+## camdriod中对lichee的构建过程
+
 
 使用BSP内核的话，需要使用官方sdk编译camdriod并从中取出uImage。
 
@@ -11,7 +11,7 @@ camdriod中对lichee的构建过程
 
 camdriod的构建脚本：
 
-~~~~ {.sourceCode .bash}
+```
 #!/bin/bash
 source build/envsetup.sh &&
 lunch &&
@@ -19,17 +19,17 @@ mklichee &&
 extract-bsp &&
 make -j8 &&
 pack
-~~~~
+```
 
-*source build/envsetup.sh* 这里是include各种环境变量，比如就添加了
-*tiger\_cdr-eng* 选项，这里先不管它。
+**source build/envsetup.sh** 这里是include各种环境变量，比如就添加了
+**tiger_cdr-eng** 选项，这里先不管它。
 
-lunch就是选择目标板配置了，是在 *build/envsetup.sh* 中的函数。
+lunch就是选择目标板配置了，是在 **build/envsetup.sh** 中的函数。
 
-接着就是关键的mklichee了，在 *device/softwinner/common/vendorsetup.sh*
+接着就是关键的mklichee了，在 **device/softwinner/common/vendorsetup.sh**
 里，深入看下：
 
-~~~~ {.sourceCode .bash}
+```
 function set_environment()
 {
         LICHEE_CHIP="sun8iw8p1"
@@ -47,9 +47,9 @@ function set_environment()
         export LICHEE_TOOLS_DIR=${LICHEE_DIR}/tools
         export LICHEE_UBOOT_DIR=${LICHEE_DIR}/brandy/u-boot-2011.09
 }
-~~~~
+```
 
-~~~~ {.sourceCode .bash}
+```
 function mklichee()
 {
     mksetting       #显示目前的配置信息
@@ -59,11 +59,11 @@ function mklichee()
     [ $? -ne 0 ] && return 1
         return 0
 }
-~~~~
+```
 
 mkbr是运行了 `buildroot/scripts/build.sh buildroot linux sun8iw8p1`
 
-~~~~ {.sourceCode .bash}
+```
 function mkbr()
 {
     mk_info "build buildroot ---"
@@ -75,20 +75,20 @@ function mkbr()
     [ $? -ne 0 ] && mk_error "build buildroot Failed" && return 1
     mk_info "build buildroot OK."
 }
-~~~~
+```
 
-~~~~ {.sourceCode .bash}
+```
 if [ "x${LICHEE_PLATFORM}" = "xlinux" ] ; then
     build_buildroot
     export PATH=${LICHEE_BR_OUT}/external-toolchain/bin:$PATH
     build_external
 else
     build_toolchain
-~~~~
+```
 
 LICHEE\_PLATFORM并没有被传入，实际执行的是下面这个build\_toolchain：
 
-~~~~ {.sourceCode .bash}
+```
 build_toolchain()
 {
     local tooldir="${LICHEE_BR_OUT}/external-toolchain"
@@ -106,11 +106,11 @@ build_toolchain()
 
     export PATH=${tooldir}/bin:${PATH}
 }
-~~~~
+```
 
-这里LICHEE\_BR\_OUT是 *lichee/out/sun8iw8p1/linux/common/buildroot*
+这里LICHEE_BR_OUT是 **lichee/out/sun8iw8p1/linux/common/buildroot**
 
-LICHEE\_BR\_DIR是lichee/buildroot, 需要先导入。
+LICHEE_BR_DIR是lichee/buildroot, 需要先导入。
 
 这里使用的linaro版本比较老。注意如果使用较新的gcc反而会出错。
 
@@ -118,7 +118,7 @@ LICHEE\_BR\_DIR是lichee/buildroot, 需要先导入。
 
 mkbr看完了，接下来看mkkernel。
 
-~~~~ {.sourceCode .bash}
+```
 function mkkernel()
 {
 local platformdef=$tdevice
@@ -134,7 +134,7 @@ local platformdef=$tdevice
 echo "Make the kernel finish"
     return 0
 }
-~~~~
+```
 
 执行的是lichee/linux-3.4/build.sh, 跟下去是执行了：
 
@@ -155,18 +155,17 @@ echo "Make the kernel finish"
     build_tiger-standard.sh
 
 就是代表的可以构建的板子型号。我们实际编译的时候只需要执行
-*build\_tiger-cdr.sh* 即可。
+**build_tiger-cdr.sh** 即可。
 
 综上所述，需要剥离camdriod所用的lichee内核，只需要：
 
 > 1.  解压buildroot/dl/gcc-linarno.tar.gz
 >     到lichee/out/sun8iw8p1/linux/common/buildroot/external-toolchain，并加入环境变量（这步其实在下一步里包含了）
-> 2.  执行build\_tiger-cdr.sh
+> 2.  执行build_tiger-cdr.sh
 
-启动信息
-========
+## 启动信息
 
-~~~~ {.sourceCode .python}
+```
 Starting kernel ---
 
 [sun8i_fixup]: From boot, get meminfo:
@@ -598,4 +597,4 @@ ager.
 Debian GNU/Linux 8 LicheePi ttyS0
 
 LicheePi login: root
-~~~~
+```

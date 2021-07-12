@@ -2,16 +2,16 @@
 title: jffs2文件系统挂载不上的常见原因
 ---
 
-内核命令行不正确
-================
+## 内核命令行不正确
+
 
     [ 0.000000] Kernel command line: console=ttyS0,115200 earlyprintk panic=5 rootwait mtdparts=spi32766.0:1M(uboot)ro,64k(dtb)ro,4M(kernel)ro,3008k(rootfs) root=31:03 rw rootfstype=jffs2
 
 内核命令行应正确显示分区信息，如果分区信息不正确则无法正确挂载。
 
-分区信息在 *include/configs/sun8i.h* 里修改
+分区信息在 **include/configs/sun8i.h** 里修改
 
-~~~~ {.sourceCode .c}
+```
 #define CONFIG_BOOTCOMMAND   "sf probe 0; "                           \
                             "sf read 0x41800000 0x100000 0x10000; "  \
                             "sf read 0x41000000 0x110000 0x400000; " \
@@ -19,10 +19,10 @@ title: jffs2文件系统挂载不上的常见原因
 
 #define CONFIG_BOOTARGS      "console=ttyS0,115200 earlyprintk panic=5 rootwait " \
                             "mtdparts=spi32766.0:1M(uboot)ro,64k(dtb)ro,4M(kernel)ro,-(rootfs) root=31:03 rw rootfstype=jffs2"
-~~~~
+```
 
-识别不到分区
-============
+## 识别不到分区
+
 
 正常识别到分区，应该报以下信息：
 
@@ -42,18 +42,14 @@ title: jffs2文件系统挂载不上的常见原因
 
 如果没有显示以上信息，则需要确认有无勾选相关驱动
 
-进入到 Device Drivers --\> Memory Technology Device (MTD) support ，
-
-确保选择上mtd的 **\<*\> Command line partition table parsing*\*
+进入到 Device Drivers --> Memory Technology Device (MTD) support ，确保选择上mtd的 **< * > Command line partition table parsing**
 支持，该项目用来解析uboot传递过来的flash分区信息。
 
 以及SPI-NOR 设备的支持。
 
-添加对jffs2文件系统的支持，路径在
-File systems --\> Miscellaneous filesystems --\> Journalling Flash File System v2 (JFFS2) support
+添加对jffs2文件系统的支持，路径在File systems --> Miscellaneous filesystems --> Journalling Flash File System v2 (JFFS2) support
 
-jffs2 Magic bitmask 错误
-========================
+## jffs2 Magic bitmask 错误
 
     jffs2: Node at 0x00000f6c with length 0x00000144 would run over the end of the erase block
     [    1.133830] jffs2: Perhaps the file system was created with the wrong erase size?
@@ -83,23 +79,19 @@ jffs2 Magic bitmask 错误
 
 1.  jffs2镜像生成错误
 
-    `mkfs.jffs2 -s 0x100 -e 0x10000 -p 0xAF0000 -d rootfs-brmin -o jffs2-brmin.img`
+`mkfs.jffs2 -s 0x100 -e 0x10000 -p 0xAF0000 -d rootfs-brmin -o jffs2-brmin.img`
+-   这里-s代表页大小，普通spi nor flash的页大小是256字节，即0x100
+-   -e表示擦除的块大小，普通spi nor flash的块大小是64K字节，即0x10000
+-   -p表示分区大小，在生成时会擦除分区大小的flash初始化。
+- 这里必须和uboot里指定的分区大小一致，否则会出现脏页。
 
-    -   这里-s代表页大小，普通spi nor flash的页大小是256字节，即0x100
-    -   -e表示擦除的块大小，普通spi nor
-        flash的块大小是64K字节，即0x10000
-    -   -p表示分区大小，在生成时会擦除分区大小的flash初始化。
+2.内核使用了扇区擦除
+-   mkfs.jffs2 使用的最小擦除尺寸是8KB，而spi flash的扇区大小是4KB，所以按照扇区擦除的话，会无法使用，所以必须使用块擦除。
+-   编译内核前先确认下drivers/mtd/spi-nor/spi-nor.c里，自己使用的flash的相关信息
+-   `#define SECT_4K BIT(0) /* SPINOR_OP_BE_4K works uniformly */`
+-   如果发现信息里有SECT\_4K，则会导致jffs2不能正常擦除（64KB），需要去掉该flag。
 
-    - 这里必须和uboot里指定的分区大小一致，否则会出现脏页。
-2.  内核使用了扇区擦除
-    -   mkfs.jffs2 使用的最小擦除尺寸是8KB，而spi
-        flash的扇区大小是4KB，所以按照扇区擦除的话，会无法使用，所以必须使用块擦除。
-    -   编译内核前先确认下drivers/mtd/spi-nor/spi-nor.c里，自己使用的flash的相关信息
-    -   `#define SECT_4K BIT(0) /* SPINOR_OP_BE_4K works uniformly */`
-    -   如果发现信息里有SECT\_4K，则会导致jffs2不能正常擦除（64KB），需要去掉该flag。
-
-其它摘录
-========
+## 其它摘录
 
     Question1：JFFS2 error: (1) jffs2_build_inode_pass1: child dir "alsa" (ino #1159) of dir ino #1074 appears to be a hard link
     JFFS2 error: (1) jffs2_build_inode_pass1: child dir "l" (ino #1170) of dir ino #1075 appears to be a hard link

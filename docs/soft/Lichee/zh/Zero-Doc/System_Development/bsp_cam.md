@@ -2,38 +2,45 @@
 title: BSP内核的摄像头使用
 ---
 
-    Device Drivers -> 
-     <*> Multimedia support  --->        
-      <*>   sunxi video encoder and decoder support     //视频编码器，包括h264/mpeg4/mpeg2/vc1/rmvb.  以模块形式编译，cedar_ve.ko
+```
+Device Drivers -> 
+<*> Multimedia support  --->        
+ <*>   sunxi video encoder and decoder support     //视频编码器，包括h264/mpeg4/mpeg2/vc1/rmvb.  以模块形式编译，cedar_ve.ko
+```
 
-    [*]   Video capture adapters  --->  
-    [*]   V4L platform devices  --->  
+```
+[*]   Video capture adapters  --->  
+[*]   V4L platform devices  --->  
+```
 
-    --- V4L platform devices                                                                        
-    < >   Support for timberdale Video In/LogiWIN                                                   
-    <*>   SoC camera support                                                                        
-    < >     imx074 support                                                                          
-    < >     mt9m001 support                                                                         
-    < >     mt9m111, mt9m112 and mt9m131 support                                                    
-    < >     mt9t031 support                                                                         
-    < >     mt9t112 support                                                                         
-    < >     mt9v022 support                                                                         
-    < >     rj54n1cb0c support                                                                      
-    < >     tw9910 support                                                                          
-    < >     platform camera support                                                                 
-    <M>     ov2640 camera support                                                                   
-    <M>     ov5642 camera support                                                                   
-    < >     ov6650 sensor support                                                                   
-    < >     ov772x camera support                                                                   
-    < >     ov9640 camera support                                                                   
-    < >     ov9740 camera support                                                                   
-    < >   SuperH Mobile MIPI CSI-2 Interface driver                                                 
-    < >   SuperH Mobile CEU Interface driver                                                        
-    <*>   sunxi video front end (camera and etc)driver                                              
-    <*>     v4l2 driver for SUNXI                                                                   
-    Sensor CSI  ---> 
+```
+--- V4L platform devices                                                                        
+< >   Support for timberdale Video In/LogiWIN                                                   
+<*>   SoC camera support                                                                        
+< >     imx074 support                                                                          
+< >     mt9m001 support                                                                         
+< >     mt9m111, mt9m112 and mt9m131 support                                                    
+< >     mt9t031 support                                                                         
+< >     mt9t112 support                                                                         
+< >     mt9v022 support                                                                         
+< >     rj54n1cb0c support                                                                      
+< >     tw9910 support                                                                          
+< >     platform camera support                                                                 
+<M>     ov2640 camera support                                                                   
+<M>     ov5642 camera support                                                                   
+< >     ov6650 sensor support                                                                   
+< >     ov772x camera support                                                                   
+< >     ov9640 camera support                                                                   
+< >     ov9740 camera support                                                                   
+< >   SuperH Mobile MIPI CSI-2 Interface driver                                                 
+< >   SuperH Mobile CEU Interface driver                                                        
+<*>   sunxi video front end (camera and etc)driver                                              
+<*>     v4l2 driver for SUNXI                                                                   
+Sensor CSI  ---> 
+```
 
-~~~~ {.sourceCode .bash}
+
+```
 < > ov2710_mipi                                                                                 
 < > ov4689                                                                                      
 < > ov4689 60fps                                                                                
@@ -42,11 +49,11 @@ title: BSP内核的摄像头使用
 < > gc1004_mipi                                                                                 
 <M> h22_mipi                                                                                    
 < > nt99231_mipi
-~~~~
+```
 
 查看编译后的ko：
 
-~~~~ {.sourceCode .python}
+```
 //触摸屏
 aw5306_ts.ko
 gt818_ts.ko
@@ -87,7 +94,9 @@ h22_mipi.ko    //media/video/sunxi-vfe/device/h22_mipi.ko
 
 //cedar  视频编码
 cedar_ve.ko   //media/cedar-ve/cedar_ve.ko
-~~~~
+```
+
+
 
 实际可以使用的是 *media/video/sunxi-vfe/* 下的摄像头驱动
 
@@ -140,21 +149,20 @@ cedar_ve.ko   //media/cedar-ve/cedar_ve.ko
 
 但是他们不在menuconfig中，所以在上层的Kconfig中加入：
 
-~~~~ {.sourceCode .bash}
+```
 config OV2640
         tristate "ov2640"
         default n
 config OV5647_MIPI
         tristate "ov5647_mipi"
         default n
-~~~~
-
+```
 在本层的Makefile中加入：
 
-~~~~ {.sourceCode .sh}
+```
 obj-$(CONFIG_OV2640)            += ov2640.o
 obj-$(CONFIG_OV5647_MIPI)       += ov5647_mipi.o
-~~~~
+```
 
 重新在menuconfig中勾选，编译，即可得到：
 
@@ -163,7 +171,7 @@ obj-$(CONFIG_OV5647_MIPI)       += ov5647_mipi.o
 
 将ko文件放入系统中，手动加载，然后使用fswebcam尝试拍照：
 
-~~~~ {.sourceCode .sh}
+```
 root@LicheePi:~# fswebcam -d /dev/video0 --no-banner -r 320x240 capture.jpg
 [  255.199106] [VFE]vfe_open
 --- Opening /dev/video0---
@@ -179,23 +187,23 @@ Unable to qu[  255.245365] [VFE]------------------------..vfe clk close!--------
 ery input 0.
 VIDIOC_EN[  255.256556] [VFE]vfe_close end
 UMINPUT: Invalid argument
-~~~~
+```
 
 跟踪相关信息，是在vfe.c,
 
-函数 *static int vidioc\_enum\_input(struct file*file, void *priv,
-struct v4l2\_input*inp)\* 中：
+函数 **static int vidioc_enum_input(struct file\*file, void \*priv,struct v4l2_input \*inp)** 中：
 
-~~~~ {.sourceCode .c}
+```
 2807         if (0 == dev->device_valid_flag[inp->index]) {
 2808                 vfe_err("input index(%d) > dev->dev_qty(%d)-1 invalid!, device_valid_flag[%d] = %d\n", inp->index, dev->dev_     qty,inp->index, dev->device_valid_flag[inp->index]);
 2809                 return -EINVAL;
 2810         }
-~~~~
+```
 
-即枚举摄像头时，发现device\_valid\_flag标志位不对，该标志位是在：
 
-~~~~ {.sourceCode .c}
+即枚举摄像头时，发现device_valid_flag标志位不对，该标志位是在：
+
+```
 static void probe_work_handle(struct work_struct *work)
 if(vfe_sensor_register_check(dev,&dev->v4l2_dev,dev->ccm_cfg[input_num],&dev->dev_sensor[input_num],input_nu     m) == NULL)
 5126                 {
@@ -206,16 +214,16 @@ if(vfe_sensor_register_check(dev,&dev->v4l2_dev,dev->ccm_cfg[input_num],&dev->de
 5131                 else{
 5132                         dev->device_valid_flag[input_num] = 1;
 5133                 }
-~~~~
+```
 
-这个函数是在vfe\_probe中调用，也即初始化时检测的。
+这个函数是在vfe_probe中调用，也即初始化时检测的。
 
 vfe驱动加载过程：
 
--   csi\_cci/cci\_platform\_drv.c 加载cci.ko
--   vfe.c vfe\_os.ko加载
--   vfe\_subdev.ko
--   vfe\_v4l2.ko //media/video/sunxi-vfe
+- csi_cci/cci_platform_drv.c 加载cci.ko
+- vfe.c vfe_os.ko加载
+- vfe_subdev.ko
+- vfe_v4l2.ko //media/video/sunxi-vfe
 
 查看开机启动信息：
 
@@ -298,7 +306,7 @@ vfe驱动加载过程：
     [    5.282919] [VFE]vfe_close end
     [    5.282919] [VFE]vfe_close end
 
-~~~~ {.sourceCode .cpp}
+```
 static struct v4l2_subdev *vfe_sensor_register_check(struct vfe_dev *dev,struct v4l2_device *v4l2_dev,struct ccm_config  *ccm_cfg,
                     struct i2c_board_info *sensor_i2c_board,int input_num )
 {
@@ -369,4 +377,4 @@ static struct v4l2_subdev *vfe_sensor_register_check(struct vfe_dev *dev,struct 
     }
     return ccm_cfg->sd;
 }
-~~~~
+```

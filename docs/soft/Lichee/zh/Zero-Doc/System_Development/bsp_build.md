@@ -2,8 +2,8 @@
 title: BSP源码下载与编译
 ---
 
-BSP内核剥离
-===========
+## BSP内核剥离
+
 
 BSP内核对摄像头驱动支持较好，所以在摄像头应用中有必要使用BSP内核。
 
@@ -13,10 +13,10 @@ linux内核，而抛弃camdriod代码。
 
 单独使用lichee linux的方法是：（构建走读见后一节）
 
-解压 *buildroot/dl/gcc-linarno.tar.gz* 到
-*lichee/out/sun8iw8p1/linux/common/buildroot/external-toolchain*，并加入环境变量（这步其实在下一步里包含了）
+解压 **buildroot/dl/gcc-linarno.tar.gz** 到
+**lichee/out/sun8iw8p1/linux/common/buildroot/external-toolchain**，并加入环境变量（这步其实在下一步里包含了）
 
-执行 *build\_tiger-cdr.sh*
+执行 **build_tiger-cdr.sh**
 
 执行过程中会生成内核文件：
 
@@ -36,8 +36,8 @@ linux内核，而抛弃camdriod代码。
 
 从主线uboot启动内核，一般使用uImage。
 
-BSP内核配置
-===========
+## BSP内核配置
+
 
 BSP内核源码在lichee/linux-3.4下。
 
@@ -45,15 +45,15 @@ BSP内核源码在lichee/linux-3.4下。
 
 我们可以使能摄像头需要修改的一些内核配置：
 
-~~~~ {.sourceCode .sh}
+```
 -> Device Drivers                     
   x       -> Multimedia support (MEDIA_SUPPORT [=y])                                                            
   x         -> Video capture adapters (VIDEO_CAPTURE_DRIVERS [=y])                                     
   x           -> V4L USB devices (V4L_USB_DRIVERS [=y])  
   x              -><M>   USB Video Class (UVC)  CONFIG_USB_VIDEO_CLASS
-~~~~
+```
 
-~~~~ {.sourceCode .sh}
+```
 -> Device Drivers                                                                  
   x       -> Multimedia support (MEDIA_SUPPORT [=y])                                                            
   x         -> Video capture adapters (VIDEO_CAPTURE_DRIVERS [=y])                                    
@@ -64,12 +64,12 @@ BSP内核源码在lichee/linux-3.4下。
   x x                          <M>   sunxi video front end (camera and etc)driver                            
   x x                          <M>     v4l2 driver for SUNXI
    <*>   sunxi video encoder and decoder support 
-~~~~
+```
 
 由于camdriod原始的内核配置是为了在spi nor
 flash上运行而配置的，没有ext4支持，所以需要额外添加ext4支持：
 
-~~~~ {.sourceCode .sh}
+```
 <*> The Extended 4 (ext4) filesystem                                                            
   x x                          [*]   Use ext4 for ext2/ext3 file systems (NEW)                                         
   x x                          [*]   Ext4 extended attributes (NEW)                                                         
@@ -77,21 +77,21 @@ flash上运行而配置的，没有ext4支持，所以需要额外添加ext4支�
   x x                          [ ]     Ext4 Security Labels (NEW)                                                              
   x x                          [ ]   EXT4 debugging support (NEW)                                                         
   x x                          [ ] JBD2 (ext4) debugging support (NEW) 
-~~~~
+```
 
-另外还要加上CONFIG\_LBDAF（大文件支持，否则无法挂载文件系统）
+另外还要加上CONFIG_LBDAF（大文件支持，否则无法挂载文件系统）
 
-~~~~ {.sourceCode .sh}
+```
 -> Enable the block layer (BLOCK [=y])  
 [*]   Support for large (2TB+) block devices and files
-~~~~
+```
 
 再加上CGROUPS支持：
 
-~~~~ {.sourceCode .sh}
+```
 -> General setup
  [*] Control Group support  ---> 
-~~~~
+```
 
 如果在文件系统（如debian）中使用了SWAP等特性，则还需要在内核中开启SWAP。
 
@@ -100,41 +100,40 @@ debian下还需要开启 FHANDLE 特性，否则会出现以下错误
     A start job is running for dev-ttyS0.device
     timeout
 
-如果需要使用wifi功能，则还需要勾选RTL8723BS的支持（注意需要选择模块方式），和AW\_RF\_PM选项。
+如果需要使用wifi功能，则还需要勾选RTL8723BS的支持（注意需要选择模块方式），和AW_RF_PM选项。
 
 以及下节所说的fex修改。
 
-uboot启动BSP内核
-================
+## uboot启动BSP内核
 
 使用主线uboot启动BSP内核，需要修改下启动脚本，放入BSP内核需要的
-*script.bin* 配置文件（相当于主线linux的dtb）
+**script.bin** 配置文件（相当于主线linux的dtb）
 
-~~~~ {.sourceCode .sh}
+```
 setenv bootargs console=ttyS0,115200 panic=5 rootwait root=/dev/mmcblk0p2 earlyprintk rw
 setenv bootm_boot_mode sec
 setenv machid 1029
 load mmc 0:1 0x41000000 uImage
 load mmc 0:1 0x41d00000 script.bin
 bootm 0x41000000
-~~~~
+```
 
 重新生成boot.scr:
 
-> `mkimage -C none -A arm -T script -d boot.cmd boot.scr`
+`mkimage -C none -A arm -T script -d boot.cmd boot.scr`
 
 将boot.scr放入第一分区。
 
 再配置生成script.bin.
 
 复制一份
-*lichee/tools/pack/chips/sun8iw8p1/configs/tiger-cdr/sys\_config.fex*
+**lichee/tools/pack/chips/sun8iw8p1/configs/tiger-cdr/sys_config.fex**
 
 修改其中的摄像头配置：
 
 首先修改SD卡检测策略，设置为不检测，默认插入
 
-> `sdc_detmode=3`
+`sdc_detmode=3`
 
 使能RTL8723bs无线网卡的话，需要使能mmc1，也设置为不检测sd卡。
 
@@ -142,7 +141,7 @@ bootm 0x41000000
 
 这里默认以mipi摄像头为ov5647, dvp摄像头为ov2640 为例。
 
-~~~~ {.sourceCode .dts}
+```
 ;--------------------------------------------------------------------------------
 ;vip (video input port) configuration
 ;vip_used: 0:disable 1:enable
@@ -378,11 +377,11 @@ vip_dev1_pwdn            =
 vip_dev1_flash_en        =
 vip_dev1_flash_mode      =
 vip_dev1_af_pwdn         =
-~~~~
+```
 
-将其中的摄像头信息改成自己使用的摄像头信息。\
+将其中的摄像头信息改成自己使用的摄像头信息。
 保存，并使用 `fex2bin sys_config.fex script.bin` 生成script.bin文件。
-
+ 
 > 将script.bin也放入第一分区。
 
 再将前面编译的uImage放入第一分区。

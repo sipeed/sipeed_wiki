@@ -4,8 +4,7 @@ title: 关于系统reboot
 
 在使用spi flash时，执行reboot命令，有时会无法重启，这里追查下原因。
 
-正常重启信息
-============
+## 正常重启信息
 
     # reboot 
     # Stopping network: OK
@@ -18,7 +17,7 @@ title: 关于系统reboot
     Requesting system reboot
     [   18.830716] reboot: Restarting system
 
-~~~~ {.sourceCode .c}
+```
 void kernel_restart(char *cmd)
 {
         kernel_restart_prepare(cmd);
@@ -31,14 +30,14 @@ void kernel_restart(char *cmd)
         kmsg_dump(KMSG_DUMP_RESTART);
         machine_restart(cmd);
 }
-~~~~
+```
 
 arch/arm/kernel/setup.c: `arm_pm_restart = mdesc->restart;`
 
-重启失败
-========
+## 重启失败
 
-~~~~ {.sourceCode .c}
+
+```
 void machine_restart(char *cmd)
 {       
         local_irq_disable();
@@ -56,23 +55,23 @@ void machine_restart(char *cmd)
         printk("Reboot failed -- System halted\n");
         while (1);
 }
-~~~~
+```
 
-~~~~ {.sourceCode .c}
+```
 void do_kernel_restart(char *cmd)
 {
         atomic_notifier_call_chain(&restart_handler_list, reboot_mode, cmd);
 }
 register_restart_handler
-~~~~
+```
 
-~~~~ {.sourceCode .c}
+```
 int atomic_notifier_call_chain(struct atomic_notifier_head *nh,
                 unsigned long val, void *v)
 {
     return __atomic_notifier_call_chain(nh, val, v, -1, NULL);
 }
-~~~~
+```
 
 spi flash问题
 
@@ -93,7 +92,7 @@ spi flash问题
     [  312.820912] [<c0207e30>] (iterate_supers) from [<c0233708>] (sys_sync+0x44/0xa4)
     [  312.828310] [<c0233708>] (sys_sync) from [<c0107620>] (ret_fast_syscall+0x0/0x3c)
 
-~~~~ {.sourceCode .c}
+```
 static int jffs2_sync_fs(struct super_block *sb, int wait)
 {
         struct jffs2_sb_info *c = JFFS2_SB_INFO(sb);
@@ -113,17 +112,16 @@ bool cancel_delayed_work_sync(struct delayed_work *dwork)
     return __cancel_work_timer(&dwork->work, true);
 }
 EXPORT_SYMBOL(cancel_delayed_work_sync);
-~~~~
+```
 
-*CONFIG\_JFFS2\_FS\_WRITEBUFFER* 去掉，可以不出现oops信息
+**CONFIG_JFFS2_FS_WRITEBUFFER** 去掉，可以不出现oops信息
 
-原因
-====
+## 原因
 
-是使用了32M
-flash，在重启的时候，没有退出4-byte地址模式导致。（因为板子上没有PMU，没有对flash进行复位）
 
-~~~~ {.sourceCode .c}
+是使用了32Mflash，在重启的时候，没有退出4-byte地址模式导致。（因为板子上没有PMU，没有对flash进行复位）
+
+```
 static void spi_nor_set_4byte_opcodes(struct spi_nor *nor,
                                     const struct flash_info *info)
 {
@@ -173,17 +171,17 @@ static inline int set_4byte(struct spi_nor *nor, const struct flash_info *info,
                 return nor->write_reg(nor, SPINOR_OP_BRWR, nor->cmd_buf, 1);
         }
 }
-~~~~
+```
 
-~~~~ {.sourceCode .c}
+```
 struct m25p {
         struct spi_device       *spi;
         struct spi_nor          spi_nor;
         u8                      command[MAX_CMD_SIZE];
 };
-~~~~
+```
 
-~~~~ {.sourceCode .c}
+```
 static int m25p_remove(struct spi_device *spi)
 {
         struct m25p     *flash = spi_get_drvdata(spi);
@@ -192,12 +190,12 @@ static int m25p_remove(struct spi_device *spi)
         /* Clean up MTD stuff. */
         return mtd_device_unregister(&flash->spi_nor.mtd);
 }
-~~~~
+```
 
-新增关机接口
-============
+## 新增关机接口
 
-~~~~ {.sourceCode .c}
+
+```
 static void m25p_shutdown(struct spi_device *spi)
 {               
         struct m25p     *flash = spi_get_drvdata(spi);
@@ -211,9 +209,9 @@ printk("remove spi flash!\n");
         mtd_device_unregister(&flash->spi_nor.mtd);
         return;         
 }   
-~~~~
+```
 
-~~~~ {.sourceCode .c}
+```
 static struct spi_driver m25p80_driver = {
         .driver = {
                 .name   = "m25p80",
@@ -228,13 +226,13 @@ static struct spi_driver m25p80_driver = {
         * And also when they're otherwise idle---
         */
 };
-~~~~
+```
 
 **CONFIG\_SPI\_FLASH\_BAR**
 
-参考资料
-========
+## 参考资料
 
-<http://www.wowotech.net/linux_kenrel/reboot.html>
 
-> <http://blog.csdn.net/manfeel/article/details/43530817>
+<a href="http://www.wowotech.net/linux_kenrel/reboot.html" target="_black">http://www.wowotech.net/linux_kenrel/reboot.html</a>
+
+<a href="http://blog.csdn.net/manfeel/article/details/43530817" target="_black">http://blog.csdn.net/manfeel/article/details/43530817</a>
