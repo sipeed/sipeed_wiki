@@ -10,8 +10,7 @@ buildroot中可以方便地加入第三方软件包（其实已经内置了很�
 
 美中不足的是不支持包管理系统，没有gcc等。
 
-下载安装：
-==========
+## 下载安装：
 
 首先安装一些依赖，比如linux头文件：
 
@@ -19,63 +18,59 @@ buildroot中可以方便地加入第三方软件包（其实已经内置了很�
 
 然后下载安装：
 
-~~~~ {.sourceCode .bash}
+```
 wget https://buildroot.org/downloads/buildroot-2017.08.tar.gz
 tar xvf buildroot-2017.08.tar.gz
 cd buildroot-2017.08/
 make menuconfig
-~~~~
+```
 
-配置
-====
+## 配置
 
 首先配置工具链，因为之前开发uboot和内核都用到了自己下载的工具链，所以这里也配置成外部工具链。
 
 -   在本机上外部工具链配置为：
-    */opt/gcc-linaro-6.3.1-2017.05-x86\_64\_arm-linux-gnueabihf/*
--   工具链前缀是： *arm-linux-gnueabihf*
+    **/opt/gcc-linaro-6.3.1-2017.05-x86\_64\_arm-linux-gnueabihf/**
+-   工具链前缀是： **arm-linux-gnueabihf**
 -   外部工具链gcc版本：我们使用的是最新的6.3版本
 -   外部工具链内核头文件：是在
-    *arm-linux-gnueabi/libc/usr/include/linux/version.h*
+    **arm-linux-gnueabi/libc/usr/include/linux/version.h**
     里读取内核版本信息。本机的版本是4.6
 -   C库还是选择传统的glibc。需要小体积可以选uclibc（需要自行编译安装）。
 -   再在system 设置下主机名，root密码等。
 -   最后就是配置自己需要的软件包，在menuconfig中选中即可。
 -   有时候下载速度慢，可以复制下载链接，使用迅雷等下载好后，拷贝到dl目录下，会自动识别。
 
-编译
-====
+## 编译
 
 `make`
 
-\>\>\> 有时候构建会出现莫名其妙的错误，make clean下会ok？
+>  有时候构建会出现莫名其妙的错误，make clean下会ok？
 
-编译完成后，会生成 *output/images/rootfs.tar*，此即所需的根文件系统
+编译完成后，会生成 **output/images/rootfs.tar**，此即所需的根文件系统
 
-默认失能串口登录，需要修改 */etc/inittab* :
+默认失能串口登录，需要修改 **/etc/inittab** :
 
-> `ttyS0::respawn:/sbin/getty -L ttyS0 115200 vt100 # GENERIC_SERIAL`
+    tyS0::respawn:/sbin/getty -L ttyS0 115200 vt100 # GENERIC_SERIAL
 
-删除软件包
-==========
+## 删除软件包
+
 
 buildroot在menuconfig里去掉软件包后，并不会在打包的镜像里去掉。
 
 需要手动在output/target/usr/bin/里移除
 
-> `make xxx-clean`
+> make xxx-clean
 
 清理 output/build/xxx, 包含
 
-重新编译软件包
-==============
+## 重新编译软件包
 
-删除这个目录下的 *.stamp\_built和.stamp\_target\_installed*
-。然后回到buildroot根目录下
-`make`。buildroot会自动重新编译对应软件包并且拷贝到文件系统。
 
-加入软件包
-==========
+删除这个目录下的 **.stamp\_built和.stamp\_target\_installed** 。然后回到buildroot根目录下 `make`。buildroot会自动重新编译对应软件包并且拷贝到文件系统。
+
+## 加入软件包
+
 
 1.  在package/Config.in 中对应位置添加 source "package//Config.in"
 2.  package/下添加Config.in, 使用kconfig编写，描述该软件包的状态(Y/N/M)
@@ -84,13 +79,11 @@ buildroot在menuconfig里去掉软件包后，并不会在打包的镜像里去�
     在编译前给源代码打补丁
 
 Config.in写法
+    config BR2\_PACKAGE\_ bool "pkg name" depends on
+    BR2\_PACKAGE\_XXX select BR2\_PACKAGE\_XXX help pkg help content
 
-::
-:   config BR2\_PACKAGE\_ bool "pkg name" depends on BR2\_PACKAGE\_XXX
-    select BR2\_PACKAGE\_XXX help pkg help content
+## 网络下载的软件包
 
-网络下载的软件包
-================
 
 一般软件包写法,需要指定软件包的基本信息(版本、下载地址等)，依赖关系，
 
@@ -103,14 +96,14 @@ Config.in写法
 
 定义一般软件包generic-package的动作
 
-::
-:   \<pkg\>\_CONFIGURE\_CMDS, 配置命令， 总是调用 \<pkg\>\_BUILD\_CMDS,
-    编译命令，总是调用 \<pkg\>\_INSTALL\_TARGET\_CMDS, //如上节所示调用
-    \<pkg\>\_INSTALL\_STAGING\_CMDS, \<pkg\>\_INSTALL\_IMAGES\_CMDS,
-    \<pkg\>\_INSTALL\_CMDS, 主机软件包总是调用 \<pkg\>\_CLEAN\_CMDS
-    //清理命令 \<pkg\>\_UNINSTALL\_TARGET\_CMDS
-    \<pkg\>\_UNINSTALL\_STAGING\_CMDS
-
+```
+   <pkg\>_CONFIGURE_CMDS, 配置命令， 总是调用 <pkg\>_BUILD\_CMDS,
+    编译命令，总是调用 <pkg\>_INSTALL_TARGET_CMDS, //如上节所示调用
+    <pkg\>_INSTALL_STAGING_CMDS, <pkg\>_INSTALL_IMAGES\_CMDS,
+    <pkg\>\_INSTALL_CMDS, 主机软件包总是调用 <pkg\>_CLEAN_CMDS
+    //清理命令 <pkg\>_UNINSTALL_TARGET_CMDS
+    <pkg\>_UNINSTALL_STAGING_CMDS
+```
 常用软件包信息
 
     LIBFOO_VERSION         版本号，如LIBFOO_VERSION = 0.1.2
@@ -188,11 +181,9 @@ GENTARGETS需要三个参数
     BR2\_PACKAGE\_LIBFOO.
 3.  可选，缺省是target，标识为host则为主机包
 
-autotools-based软件包的mk写法
-=============================
+## autotools-based软件包的mk写法
 
-::
-:   ### \# libfoo
+    ### \# libfoo
 
     LIBFOO\_VERSION = 1.0 LIBFOO\_SOURCE =
     libfoo-\$(LIBFOO\_VERSION).tar.gz LIBFOO\_SITE =
@@ -202,8 +193,8 @@ autotools-based软件包的mk写法
 
     \$(eval \$(call AUTOTARGETS,package,libfoo))
 
-CMake-based软件包mk写法
-=======================
+## CMake-based软件包mk写法
+
 
     #############################################################
     # libfoo
@@ -218,8 +209,8 @@ CMake-based软件包mk写法
 
     $(eval $(call CMAKETARGETS,package,libfoo))
 
-.mk写法之本地软件包
-===================
+## .mk写法之本地软件包
+
 
 常用变量 :
 

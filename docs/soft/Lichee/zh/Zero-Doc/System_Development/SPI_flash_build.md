@@ -7,27 +7,27 @@ flash上启动系统，这需要对Uboot和系统镜像做些适配。
 
 本文介绍SPI Flash镜像的制作过程。
 
-Flash分区规划
-=============
+## Flash分区规划
+
 
 这里 使用 MX25L25645G, **32M SPI flash** 作为启动介质，规划分区如下：
 
-Uboot编译配置
-=============
+## Uboot编译配置
+
 
 由于目前Uboot环境变量固定存放在1MB位置之内，所有留给uboot的空间固定到flash前1MB的位置不变。
 
 每个分区的大小必须是擦除块大小的整数倍，MX25L25645G的擦除块大小是64KB。
 
-准备uboot
----------
+### 准备uboot
+
 
 下载包含spi驱动的体验版本uboot，该驱动目前尚未合并到主线
 
 > `git clone -b v3s-spi-experimental https://github.com/Lichee-Pi/u-boot.git`
 
-配置Flash支持型号
------------------
+### 配置Flash支持型号
+
 
 执行 `make ARCH=arm menuconfig` 打开uboot菜单配置，进入到
 Device Drivers --\> SPI Flash Support
@@ -38,19 +38,16 @@ support用来支持测试用的flash：MX25L25645G。
 如果使用的是16MB以上的flash，需要勾选flash
 bank支持选项，否则最多只能读到16MB： **CONFIG\_SPI\_FLASH\_BAR**
 
-配置uboot默认环境变量
----------------------
+### 配置uboot默认环境变量
 
-在文件 *include/configs/sun8i.h*
-中添加默认bootcmd和bootargs的环境变量设置，注意添加的位置在“ *\#include
-\<configs/sunxi-common.h\>* ”的前边。
 
-![](https://box.kancloud.cn/b4cce3d6f353a3aabb326dab402d58a3_1642x622.jpg)
+在文件 **include/configs/sun8i.h**
+中添加默认bootcmd和bootargs的环境变量设置，注意添加的位置在“#include &#60;configs/sunxi-common.h&#62; ”的前边。
 
-> align
-> :   center
->
-~~~~ {.sourceCode .cpp}
+![](./../_static/System_Development/uboot_conf_4.jpg)
+
+
+```
 #define CONFIG_BOOTCOMMAND   "sf probe 0; "                           \
                             "sf read 0x41800000 0x100000 0x10000; "  \
                             "sf read 0x41000000 0x110000 0x400000; " \
@@ -58,66 +55,55 @@ bank支持选项，否则最多只能读到16MB： **CONFIG\_SPI\_FLASH\_BAR**
 
 #define CONFIG_BOOTARGS      "console=ttyS0,115200 earlyprintk panic=5 rootwait " \
                             "mtdparts=spi32766.0:1M(uboot)ro,64k(dtb)ro,4M(kernel)ro,-(rootfs) root=31:03 rw rootfstype=jffs2"
-~~~~
+```
 
 环境命令解析：
-:   -   sf probe 0; //初始化Flash设备（CS拉低）
-    -   sf read 0x41800000 0x100000 0x10000;
-        //从flash0x100000（1MB）位置读取dtb放到内存0x41800000偏移处。
-        //如果是bsp的bin，则是0x41d00000
-    -   sf read 0x41000000 0x110000 0x400000;
-        //从flash0x110000（1MB+64KB）位置读取dtb放到内存0x41000000偏移处。
-    -   bootz 0x41000000 （内核地址）- 0x41800000（dtb地址） 启动内核
 
-启动参数解析
-:   -   console=ttyS0,115200 earlyprintk panic=5 rootwait
-        //在串口0上输出信息
-    -   mtdparts=spi32766.0:1M(uboot)ro,64k(dtb)ro,4M(kernel)ro,-(rootfs)
-        root=31:03 rw rootfstype=jffs2
-        //spi32766.0是设备名，后面是分区大小，名字，读写属性。
-    -   root=31:03表示根文件系统是mtd3；jffs2格式
+- sf probe 0; //初始化Flash设备（CS拉低）
+- sf read 0x41800000 0x100000 0x10000;//从flash0x100000（1MB）位置读取dtb放到内存0x41800000偏移处。//如果是bsp的bin，则是0x41d00000
+- sf read 0x41000000 0x110000 0x400000;//从flash0x110000（1MB+64KB）位置读取dtb放到内存0x41000000偏移处。
+- bootz 0x41000000 （内核地址）- 0x41800000（dtb地址） 启动内核
 
-编译uboot
----------
+启动参数解析:
+-   console=ttyS0,115200 earlyprintk panic=5 rootwait//在串口0上输出信息
+-   mtdparts=spi32766.0:1M(uboot)ro,64k(dtb)ro,4M(kernel)ro,-(rootfs) root=31:03 rw rootfstype=jffs2 //spi32766.0是设备名，后面是分区大小，名字，读写属性。
+-   root=31:03表示根文件系统是mtd3；jffs2格式
 
-~~~~ {.sourceCode .bash}
+### 编译uboot
+
+
+```
 time make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- 2>&1 | tee build.log
-~~~~
+```
 
 会在目录下生成 *u-boot-sunxi-with-spl.bin*
 
-linux内核编译配置
-=================
+## linux内核编译配置
 
-linux内核基于github上的版本https://github.com/Lichee-Pi/linux.git，分支为最新的zero-4.13.y
+linux内核基于github上的版<a href="https://github.com/Lichee-Pi/linux.git" target="_blank">https://github.com/Lichee-Pi/linux.git</a>，分支为最新的zero-4.13.y
 
-内核选项配置
-------------
+### 内核选项配置
 
 执行 `make ARCH=arm menuconfig` 打开内核菜单配置，
 
-进入到 Device Drivers --\> Memory Technology Device (MTD) support ，
+进入到 Device Drivers --> Memory Technology Device (MTD) support ，
 
-确保选择上mtd的 **\<*\> Command line partition table parsing*\*
+确保选择上mtd的 **<*> Command line partition table parsing**
 支持，该项目用来解析uboot传递过来的flash分区信息。
 
 以及SPI-NOR 设备的支持。
 
-![](https://box.kancloud.cn/3ed4fd5d601aceb7f896521ba4c67cf6_1430x862.jpg)
+![](./../_static/System_Development/uboot_conf_5.jpg)
 
-> align
-> :   center
->
+
 添加对jffs2文件系统的支持，路径在
 File systems --\> Miscellaneous filesystems --\> Journalling Flash File System v2 (JFFS2) support
 
-![](https://box.kancloud.cn/3be64c60667c0aa3a906f095171d1fda_1396x746.png)
+![](./../_static/System_Development/uboot_conf_6.png)
 
-> align
-> :   center
->
-设备树配置
-----------
+
+### 设备树配置
+
 
 修改dts配置添加spi flash节点
 
@@ -125,29 +111,25 @@ File systems --\> Miscellaneous filesystems --\> Journalling Flash File System v
 
 添加spi节点配置:
 
-> ~~~~ {.sourceCode .bash}
-> &spi0 {
->         status ="okay";
->
->         mx25l25635e:mx25l25635e@0 {
->                 compatible = "jedec,spi-nor";
->                 reg = <0x0>;
->                 spi-max-frequency = <50000000>;
->                 #address-cells = <1>;
->                 #size-cells = <1>;
->         };
->
-> };
-> ~~~~
+```
+&spi0 {
+        status ="okay";
+        mx25l25635e:mx25l25635e@0 {
+                compatible = "jedec,spi-nor";
+                reg = <0x0>;
+                spi-max-frequency = <50000000>;
+                #address-cells = <1>;
+                #size-cells = <1>;
+        };
+};
+```
 
-![](https://box.kancloud.cn/611c8c327abb212991c3d0c02b0cf6d8_954x809.jpg)
+![](./../_static/System_Development/uboot_conf_7.jpg)
 
-> align
-> :   center
->
+
 这里的flash型号需要在下表之中，否则将无法识别：（注意容量也一定要对应）
 
-~~~~ {.sourceCode .c}
+```
 static const struct spi_device_id m25p_ids[] = {
         /*
         * Allow non-DT platform devices to bind to the "spi-nor" modalias, and
@@ -190,18 +172,18 @@ static const struct spi_device_id m25p_ids[] = {
 
         { },
 };
-~~~~
+```
 
-~~~~ {.sourceCode .bash}
+```
 make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- -j32
 make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- dtbs
-~~~~
+```
 
-准备镜像文件
-============
+## 准备镜像文件
 
-下载根文件系统
---------------
+
+### 下载根文件系统
+
 
 首先选择rootfs文件系统，我是用的是群朋提供的最小根文件系统
 *rootfs-brmin.tar.gz*，大小只有3M左右，下载地址在
@@ -210,8 +192,8 @@ make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- dtbs
     shareid=1432204556&uk=3658413294#list/path=%2F
     Lichee Zero>zero_imager.zip
 
-制作jffs2文件系统
------------------
+### 制作jffs2文件系统
+
 
 Flash支持jffs2文件系统格式，所以需要使用此该rootfs制作jffs2文件系统镜像、
 
@@ -229,109 +211,94 @@ Flash支持jffs2文件系统格式，所以需要使用此该rootfs制作jffs2�
 
 > `mkfs.jffs2 -s 0x100 -e 0x10000 -p 0x1AF0000 -d rootfs/ -o jffs2.img`
 
--   页大小0x100 256字节
--   块大小0x10000 64k
--   jffs2分区总空间0x1AF0000
--   jffs2.img是生成的文件系统镜像。
+- 页大小0x100 256字节
+- 块大小0x10000 64k
+- jffs2分区总空间0x1AF0000
+- jffs2.img是生成的文件系统镜像。
 
-最后将uboot，dtb，kernel，rootfs打包成一个系统镜像，命令如下；
-:   （即zero\_imager里的 *make\_spiflash.sh 32 dock*）
+最后将uboot，dtb，kernel，rootfs打包成一个系统镜像，命令如下;（即zero_imager里的 *make_spiflash.sh 32 dock*）
 
-~~~~ {.sourceCode .bash}
+```
 #!/bin/sh
 dd if=/dev/zero of=flashimg.bin bs=1M count=$1
 dd if=u-boot-sunxi-with-spl-$2.bin of=flashimg.bin bs=1K conv=notrunc
 dd if=sun8i-v3s-licheepi-zero-$2.dtb of=flashimg.bin bs=1K seek=1024  conv=notrunc
 dd if=zImage of=flashimg.bin bs=1K seek=1088  conv=notrunc
 dd if=jffs2.img of=flashimg.bin  bs=1K seek=5184  conv=notrunc
-~~~~
+```
 
 第一步： 生成一个空文件，大小是32MB\
 第二步： 将uboot添加到文件开头\
 第三步： 将dtb放到1M偏移处\
 第四步： 将kernel放到1M+64K偏移处
-
-> 第五步： 将rootfs放到1M+64K+4M偏移处
+第五步： 将rootfs放到1M+64K+4M偏移处
 
 偏移大小是seek，单位是KB。
 
-执行完毕后生成镜像文件 *flashimg.bin*
+执行完毕后生成镜像文件 **flashimg.bin**
 
-烧写镜像
-========
+## 烧写镜像
 
-下载sunxiflash烧写工具
-----------------------
 
-> `git clone -b spi-rebase https://github.com/Icenowy/sunxi-tools.git`
+### 下载sunxiflash烧写工具
 
-> **note**
->
+    git clone -b spi-rebase https://github.com/Icenowy/sunxi-tools.git
+
 > 注意是spi-rebase分支。
 
 进入工具目录执行 `make && sudo make install`
 
-如果出现：\*fel\_lib.c:26:20: fatal error: libusb.h: No such file or
-directory\*，那需要安装libusb：
+如果出现：\*fel\_lib.c:26:20: fatal error: libusb.h: No such file or directory\*，那需要安装libusb：
 
-> `sudo apt-get install libusb-1.0-0-dev`
+`sudo apt-get install libusb-1.0-0-dev`
 
-进入fel模式
------------
+### 进入fel模式
+
 
 Zero有一个usb下载模式称为fel模式，进入fel模式有下面几种方式：
 
-1.  TF卡和spi flash 同时没有可启动镜像;
-    :   也就是说你不插卡，且焊接的是新的或者没有有效镜像的spi
-        flash，那就上电自动进入fel下载模式
+1. TF卡和spi flash 同时没有可启动镜像
+也就是说你不插卡，且焊接的是新的或者没有有效镜像的spi flash，那就上电自动进入fel下载模式
 
-2.  TF卡中有进入fel模式的特殊固件 *fel-sdboot.sunxi*
-    :   如果你的spiflash已经有了启动镜像，那么需要在TF卡中烧入一个sunxi提供的
-        启动工具 （
-        `dd if=fel-sdboot.sunxi of=/dev/mmcblk0 bs=1024 seek=8` ），
-        那么插入该TF卡启动会进入fel模式；
+2.  TF卡中有进入fel模式的特殊固件 **fel-sdboot.sunxi**
+如果你的spiflash已经有了启动镜像，那么需要在TF卡中烧入一个sunxi提供的启动工具 （`dd if=fel-sdboot.sunxi of=/dev/mmcblk0 bs=1024 seek=8` ），那么插入该TF卡启动会进入fel模式；
 
-3.  上电时SPI\_MISO拉低到地
-    :   该引脚为boot引脚，上电时出于低电平即会进入fel下载模式。
+3.  上电时SPI_MISO拉低到地
+该引脚为boot引脚，上电时出于低电平即会进入fel下载模式。
 
-sunxi-fel的操作
----------------
+### sunxi-fel的操作
+
 
 进入fel模式后使用usb数据线连接pc和zero,即可进行操作。
 
-~~~~ {.sourceCode .bash}
+```
 sudo sunxi-fel version      #查看连接的cpu信息
 AWUSBFEX soc=00001681(V3s) 00000001 ver=0001 44 08 scratchpad=00007e00 00000000 00000000
 sudo sunxi-fel spiflash-info    #显示flash信息
 Manufacturer: Unknown (C2h), model: 20h, size: 33554432 bytes.
-~~~~
+```
 
 执行如下命令烧入我们前边制作好的镜像文件
 
-~~~~ {.sourceCode .bash}
+```
 sudo sunxi-fel -p spiflash-write 0 flashimg.bin
 # -p 显示进度条
 #   spiflash-info           Retrieves basic information
 #   spiflash-hex[dump] addr length  Dumps SPI flash region in hex
 #   spiflash-read addr length file  Write SPI flash contents into file
 #   spiflash-write addr file    Store file contents into SPI flash
-~~~~
+```
 
-![](https://box.kancloud.cn/30a15ac70a49ffa8e966700b72d91478_1088x83.jpg)
+![](./../_static/System_Development/uboot_conf_8.jpg)
 
-> align
-> :   center
->
+
 SPI
 flash下载速度约50KB/s，等待5分钟（16MB）或者10分钟（32MB），烧写完成，如果一切顺利，重新上电zero那么就会进入linux系统了，账号是root没有密码。
 
-![](https://box.kancloud.cn/94cba1c9e4539c2e54836d28a8bbe12b_1281x1002.jpg)
+![](./../_static/System_Development/uboot_conf_9.jpg)
 
-> align
-> :   center
->
-附录： 启动日志
-===============
+
+## 附录： 启动日志
 
     U-Boot SPL 2017.01-rc2-00073-gdd6e874-dirty (Oct 14 2017 - 16:33:01)
     DRAM: 64 MiB
@@ -743,10 +710,10 @@ flash下载速度约50KB/s，等待5分钟（16MB）或者10分钟（32MB），�
     Welcome to Lichee Pi
     Lichee login: 
 
-附录：sunxi-fel帮助说明
-=======================
+## 附录：sunxi-fel帮助说明
 
-~~~~ {.sourceCode .bash}
+
+```
 sunxi-fel v1.4.1-87-g78a7566
 
 Usage: sunxi-fel [options] command arguments--- [command---]
@@ -793,9 +760,7 @@ Usage: sunxi-fel [options] command arguments--- [command---]
     spiflash-hex[dump] addr length  Dumps SPI flash region in hex
     spiflash-read addr length file  Write SPI flash contents into file
     spiflash-write addr file    Store file contents into SPI flash
-~~~~
+```
 
-参考资料
-========
-
-<http://blog.sina.com.cn/s/blog_5ed5a1f40100f3qq.html>
+## 参考资料
+<a href="http://blog.sina.com.cn/s/blog_5ed5a1f40100f3qq.html" target="_black">http://blog.sina.com.cn/s/blog_5ed5a1f40100f3qq.html</a>

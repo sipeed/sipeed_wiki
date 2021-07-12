@@ -2,17 +2,17 @@
 title: Uboot 编译
 ---
 
-基础编译
-========
+## 基础编译
 
-安装交叉编译器
---------------
 
-网盘地址：http://pan.baidu.com/s/1hsf22fq
+### 安装交叉编译器
 
-国外用户：https://releases.linaro.org/components/toolchain/binaries/latest/arm-linux-gnueabihf/
 
-~~~~ {.sourceCode .bash}
+网盘地址：[https://pan.baidu.com/s/1hsf22fq](https://pan.baidu.com/s/1hsf22fq)
+
+国外用户：[https://releases.linaro.org/components/toolchain/binaries/latest/arm-linux-gnueabihf/](https://releases.linaro.org/components/toolchain/binaries/latest/arm-linux-gnueabihf/)
+
+```
 wget https://releases.linaro.org/components/toolchain/binaries/latest/arm-linux-gnueabihf/gcc-linaro-6.3.1-2017.05-x86_64_arm-linux-gnueabihf.tar.xz
 tar xvf gcc-linaro-6.3.1-2017.05-x86_64_arm-linux-gnueabihf.tar.xz
 mv gcc-linaro-6.3.1-2017.05-x86_64_arm-linux-gnueabihf /opt/
@@ -21,12 +21,11 @@ vim /etc/bash.bashrc
 source /etc/bash.bashrc
 arm-linux-gnueabihf-gcc -v
 sudo apt-get install device-tree-compiler
-~~~~
+```
 
-下载编译Uboot
--------------
+### 下载编译Uboot
 
-~~~~ {.sourceCode .bash}
+```
 git clone https://github.com/Lichee-Pi/u-boot.git -b v3s-current
 #or git clone https://github.com/Lichee-Pi/u-boot.git -b v3s-spi-experimental
 cd u-boot
@@ -35,12 +34,11 @@ make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- LicheePi_Zero_800x480LCD_defcon
 #or make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- LicheePi_Zero_defconfig
 make ARCH=arm menuconfig
 time make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- 2>&1 | tee build.log
-~~~~
-
+```
 编译完成后，在当前目录下生成了u-boot-sunxi-with-spl.bin，可以烧录到8K偏移处启动。
 
-Uboot结构简介
-=============
+## Uboot结构简介
+
 
 下面来看看该uboot中的目录结构
 
@@ -73,16 +71,13 @@ Uboot结构简介
 
 了解了uboot的基本结构，我们可以知道一些相关的配置在什么地方了。
 
--   lichee的uboot配置文件放在confgs文件目录下面，名称为
-
-<!-- -->
-
-    LicheePi_Zero_480x272LCD_defconfig 
-    LicheePi_Zero_800x480LCD_defconfig 
-    LicheePi_Zero_defconfig
+- lichee的uboot配置文件放在confgs文件目录下面，名称为
+    - LicheePi_Zero_480x272LCD_defconfig 
+    - LicheePi_Zero_800x480LCD_defconfig 
+    - LicheePi_Zero_defconfig
 
 这3个配置是根据不同的Zero显示设备进行的配置，使用其中之一即可，可在uboot目录下执行命令
 
-> `make LicheePi_Zero_defconfig`
+    make LicheePi_Zero_defconfig
 
 这样配置就生效了。

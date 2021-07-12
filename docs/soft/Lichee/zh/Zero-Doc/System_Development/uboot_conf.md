@@ -2,27 +2,23 @@
 title: Uboot 配置
 ---
 
-内容整理自： 贡献投稿篇 --\> 投稿文章精选 --\> Zero u-boot编译和使用指南
+> 内容整理自： 贡献投稿篇 --> 投稿文章精选 --> Zero u-boot编译和使用指南
 
-Uboot配置命令
-=============
+## Uboot配置命令
 
-> `make ARCH=arm menuconfig`
 
-![](https://box.kancloud.cn/c0bc403f54d5c23409af3dda76c6eb1e_1167x606.png)
+ `make ARCH=arm menuconfig`
 
-> align
-> :   center
->
----按回车，即选择当前菜单\
-------- 按Y 代表该config选项选中\
-------- 按N 代表不选中该选项\
+![](./../_static/System_Development/uboot_conf_1.png)
+
+---按回车，即选择当前菜单
+------- 按Y 代表该config选项选中
+------- 按N 代表不选中该选项
 -------- 按M
-代表该驱动编译成\*.ko的方式，在系统起来之后，当驱动需要的时候加载\
-\</\>---------按/ 可以查找某个选项\
+代表该驱动编译成*.ko的方式，在系统起来之后，当驱动需要的时候加载
+</>---------按/ 可以查找某个选项
 ---------退出
-
-> \<\*\> ----------按Y选中后的状态
+    < * > ----------按Y选中后的状态
 
 **这里面有几个常见的配置选项我们可以看下：**
 
@@ -30,39 +26,27 @@ Uboot配置命令
 2.  第二个ARM architecture
     这个选项比较重要，主要配置ARM框架下的常用的配置函数以及LCD等参数
 
-![](https://box.kancloud.cn/e6935388a45eb157a0267b5e0f566414_654x362.png)
+![](./../_static/System_Development/uboot_conf_2.png)
 
-> width
-> :   500px
->
-> align
-> :   center
->
-DDR配置
-=======
 
-~~~~ {.sourceCode .bash}
----
-Target select (Support sunxi (Allwinner) SoCs)   进去之后可以选择sunxi Soc系列芯片
----
-[*] Sunxi SoC Variant     这个就是对芯片Soc 的选择，我们可以看到配置选择了`sun8i (Allwinner V3s)
-(360) sunxi dram clock speed          配置dram的时钟速率
-(14779) sunxi dram zq value             配置dram的ZQ值，是用来动态加强DDR3的
--*- Board uses DDR2 DRAM             使用DDR2 DRAM
-~~~~
+## DDR配置
 
-LCD配置
-=======
 
-![](https://box.kancloud.cn/e3c46cc8756651c4cd7943b824939964_745x364.png)
+```
+···
+Target select (Support sunxi (Allwinner) SoCs)   #进去之后可以选择sunxi Soc系列芯片
+···
+[*] Sunxi SoC Variant    # 这个就是对芯片Soc 的选择，我们可以看到配置选择了`sun8i (Allwinner V3s)
+(360) sunxi dram clock speed     # 配置dram的时钟速率
+(14779) sunxi dram zq value     #  配置dram的ZQ值，是用来动态加强DDR3的
+-*- Board uses DDR2 DRAM     #   使用DDR2 DRAM
+```
 
-> width
-> :   500px
->
-> align
-> :   center
->
-~~~~ {.sourceCode .bash}
+## LCD配置
+
+![](./../_static/System_Development/uboot_conf_3.png)
+
+```
 [*] Enable graphical uboot console on HDMI, LCD or VGA   这个就是在显示设备上使能串口控制                                    
 [ ] VGA via LCD controller support             使能支持VGA通过LCD的控制器，就是LCD和VAG转换需要的控制器       
 (x:800,y:480,depth:18,pclk_khz:33000,le:87,ri:40,up:31,lo:13,hs:1,vs:1,sync:3,vmode:0) LCD pane
@@ -81,26 +65,25 @@ LCD配置
             ( ) Hitachi tx18d42vm LCD panel                            
             ( ) tl059wv5c0 LCD panel         
 (0) GMAC Transmit Clock Delay Chain        
-~~~~
+```
 
-时钟频率配置
-============
+## 时钟频率配置
+
 
 `Boot images --->(1008000000) CPU clock frequency`
 
 这里设置了CPU的时钟频率
 
-开机延时设置
-============
+## 开机延时设置
 
 `delay in seconds before automatically booting`
 
 这个是uboot开机的时候的一个等待时间的秒数，可以改大一点，默认是2s
 
-SPL配置
-=======
+## SPL配置
 
-~~~~ {.sourceCode .bash}
+
+```
 SPL / TPL ---> 这个就是SPL相关的配置了
 [*]   MMC raw mode: by sector                       按扇区      
 (0x50)  Address on the MMC to load U-Boot from  mmc加载uboot的地址
@@ -112,4 +95,4 @@ SPL / TPL ---> 这个就是SPL相关的配置了
 [*] Support MMC                                 支持MMC
 [*] Support power drivers                  支持电源驱动
 [*] Support serial                               支持串口
-~~~~
+```

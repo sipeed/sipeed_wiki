@@ -6,26 +6,25 @@ title: emdebian根文件系统
 flash了，只能使用tf卡或者emmc。优点是有包管理系统，可以直接apt-get
 install来安装新软件包。
 
-环境搭建
-========
+## 环境搭建
 
-安装依赖包
-----------
 
-`sudo apt-get install multistrap qemu qemu-user-static binfmt-support dpkg-cross`
+### 安装依赖包
 
-建立工作目录：
---------------
 
-~~~~ {.sourceCode .bash}
+    sudo apt-get install multistrap qemu qemu-user-static binfmt-support dpkg-cross
+
+### 建立工作目录：
+
+
+```
 mkdir emdebian
 cd emdebian
 mkdir mindb
 cd mindb
-~~~~
+```
 
-编辑multistrap\_mindb.conf配置文件
-----------------------------------
+### 编辑multistrap_mindb.conf配置文件
 
 示例如下：
 
@@ -33,7 +32,7 @@ cd mindb
 
 这里使用了较快的清华大学的镜像站，身在国外的朋友可以视情况更改。
 
-~~~~ {.sourceCode .conf}
+```
 [General]
 directory=target-rootfs
 cleanup=true
@@ -58,34 +57,33 @@ source=http://ftp2.cn.debian.org/debian/
 #General purpose utilities
 packages=locales adduser vim less wget dialog usbutils
 source=http://ftp2.cn.debian.org/debian/
-~~~~
+```
 
-创建根文件系统
---------------
+### 创建根文件系统
 
 `sudo multistrap -a armhf -f multistrap_mindb.conf`
 
 执行完成后，target-rootfs即是所需的根文件系统。
 
-配置软件包
-----------
+### 配置软件包
+
 
 使用QEMU来配置软件包，将target-rootfs作为root挂载来操作。
 
-~~~~ {.sourceCode .bash}
+```
 sudo cp /usr/bin/qemu-arm-static target-rootfs/usr/bin
 sudo mount -o bind /dev/ target-rootfs/dev/
 sudo LC_ALL=C LANGUAGE=C LANG=C chroot target-rootfs dpkg --configure -a
 #这里就可以模拟板子情况执行相关命令，比如安装额外的软件包
 sudo umount target-rootfs/dev/  #最后记得卸载
-~~~~
+```
 
 其中出现选择系统shell的提示框，选否，即不使用dash。
 
-做最后的一些配置
-----------------
+### 做最后的一些配置
 
-~~~~ {.sourceCode .bash}
+
+```
 #!/bin/sh
 #Directory contains the target rootfs
 TARGET_ROOTFS_DIR="target-rootfs"
@@ -118,16 +116,16 @@ echo proc /proc proc defaults 0 0 >> $filename
 #closed source firmware (i.e. WiFi dongle firmware)
 filename=$TARGET_ROOTFS_DIR/etc/apt/sources.list
 echo deb http://http.debian.net/debian/ stretch main contrib non-free > $filename
-~~~~
+```
 
-设置密码和其它操作
-------------------
+### 设置密码和其它操作
 
-~~~~ {.sourceCode .bash}
+
+```
 sudo chroot target-rootfs passwd
 sudo LC_ALL=C LANGUAGE=C LANG=C chroot target-rootfs apt-get install packagename
-~~~~
+```
 
-修改 target-rootfs/etc/ssh/sshd\_config来使能root登录
+修改 target-rootfs/etc/ssh/sshd_config来使能root登录
 
-*PermitRootLogin yes*
+**PermitRootLogin yes**
