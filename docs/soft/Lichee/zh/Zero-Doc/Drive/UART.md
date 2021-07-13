@@ -19,8 +19,8 @@ title: UART操作
 
 再使用常见串口软件就能使用
 
-波特率分频问题
-==============
+## 波特率分频问题
+
 
 为了串口通信稳定，一般要求波特率误差在2.5%以内。
 
@@ -28,9 +28,9 @@ V3S的uart是挂在APB2下，而APB2时钟是24M，所以对一些高速率的�
 
 以921600为例，下面进行修改：
 
-进入 *uboot的arch/arm/mach-sunxi/clock\_sun6i.c*，修改uart时钟：
+进入 **uboot的arch/arm/mach-sunxi/clock_sun6i.c**，修改uart时钟：
 
-~~~~ {.sourceCode .c}
+```
 void clock_init_uart(void)
 {
 #if CONFIG_CONS_INDEX < 5
@@ -42,16 +42,16 @@ void clock_init_uart(void)
             APB2_CLK_RATE_N_1|               //这里预分频不变
             APB2_CLK_RATE_M(1),
             &ccm->apb2_div);
-~~~~
+```
 
 pll6时钟默认为600MHz，可以分出比较高的串口波特率。
 
 600/0.9216/16=40.69， 舍入为41，相对误差为0.75%
 
-~~~~ {.sourceCode .c}
+```
 /* ns16550 reg in the low bits of cpu reg */
 #define CONFIG_SYS_NS16550_CLK          24000000    //这里改为600000000
 #ifndef CONFIG_DM_SERIAL
-~~~~
+```
 
 剩余的就是按照原有方法修改波特率了。

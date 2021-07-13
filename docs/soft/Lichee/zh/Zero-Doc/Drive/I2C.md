@@ -2,10 +2,9 @@
 title: I2C操作
 ---
 
-使能设备树节点
-==============
+## 使能设备树节点
 
-~~~~ {.sourceCode .bash}
+```
 &i2c0 {
         status = "okay";
 
@@ -24,10 +23,9 @@ title: I2C操作
                 interrupts = <6 5 IRQ_TYPE_LEVEL_LOW>;*/ //省引脚，使用轮训方式
         };
 };
-~~~~
+```
 
-使用i2c-tools
-=============
+## 使用i2c-tools
 
     root@LicheePi:~# i2cdetect -l     #查看系统使能的i2c总线，这里只有i2c0一个
     i2c-0   i2c         mv64xxx_i2c adapter                 I2C adapter
@@ -42,20 +40,19 @@ title: I2C操作
     60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
     70: -- -- -- -- -- -- -- --
 
-这里的40,48,4a
-分别是sht21温湿度传感器，ns2009电阻式触摸传感器，mxt336T电容式触摸传感器。
+这里的40,48,4a 分别是sht21温湿度传感器，ns2009电阻式触摸传感器，mxt336T电容式触摸传感器。
 
 i2c上读写数据：
 
-~~~~ {.sourceCode .bash}
+```
 i2cset -y 1 0x40 0x00 0x13
 i2cget -y 1 0x40 0x00  
-~~~~
+```
 
-sht21 传感器使用
-================
+## sht21 传感器使用
 
-~~~~ {.sourceCode .bash}
+
+```
 insmod sht21.ko
 echo sht21 0x40 > /sys/bus/i2c/devices/i2c-0/new_device
 ls /sys/class/hwmon/hwmon0
@@ -65,12 +62,12 @@ cat /sys/class/hwmon/hwmon0/temp1_input
     25201       #毫摄氏度，即25.201摄氏度
 cat /sys/class/hwmon/hwmon0/humidity1_input
     58872       #毫百分之1，即58.872%RH
-~~~~
+```
 
-参考文档
-========
+## 参考文档
 
-<https://blog.dbrgn.ch/2017/2/6/read-sht21-sensor-from-linux-raspberry-pi/>\
+
+<https://blog.dbrgn.ch/2017/2/6/read-sht21-sensor-from-linux-raspberry-pi/>
 <http://www.360doc.com/content/14/1008/11/7775902_415207889.shtml>
 
-> <http://blog.csdn.net/AJ_chenrui/article/details/51202689>
+<http://blog.csdn.net/AJ_chenrui/article/details/51202689>

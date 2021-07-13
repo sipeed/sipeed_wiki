@@ -360,7 +360,7 @@
                                     "items":[
                                         {
                                             "label":"GPU/DRM驱动",
-                                            "file":"Zero-Doc/Drive/GPU&DRM.md"
+                                            "file":"Zero-Doc/Drive/GPUandDRM.md"
                                         },
                                         {
                                             "label":"atmel触摸屏驱动分析",
@@ -451,10 +451,6 @@
                         {
                             "label":"贡献投稿",
                             "items":[
-                                {
-                                    "label":"荔枝派任务领取",
-                                    "file":"Zero-Doc/Contribution/todolist.md"
-                                },
                                 {
                                     "label":"投稿文章精选",
                                     "items":[

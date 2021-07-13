@@ -2,29 +2,29 @@
 title: 以太网使用指南
 ---
 
-U-Boot适配Ethernet
-==================
+## U-Boot适配Ethernet
+
 
 U-Boot
 2017已经支持了sun8i-emac的驱动，只需要在编译时选上并且修改dts就行。
 
--   进入u-boot源码目录：
+- 进入u-boot源码目录：
 
-~~~~ {.sourceCode .bash}
+```
 make LicheePi_Zero_defconfig
 make menuconfig
-~~~~
+```
 
-![](https://box.kancloud.cn/b23c8b14ce63d6f887aa2372e68db411_972x582.png)
+![](./../_static/Drive/Ethernet_1.png)
 
 -   选择 **Device Drivers ---\>**
 
-![](https://box.kancloud.cn/a2fa42f1f4fad923ac8734b2e1626a0a_972x582.png)
+![](./../_static/Drive/Ethernet_2.png)
 
 -   选择 **Network device support ---\>** 并选中 **Allwinner Sun8i
     Ethernet MAC support**
 
-![](https://box.kancloud.cn/a4718b669f8b9bd3daa750d3a5095e26_972x582.png)
+![](./../_static/Drive/Ethernet_3.png)
 
 -   修改dts
 
@@ -116,38 +116,37 @@ sun8i-v3s.dtsi：
                             compatible = "arm,cortex-a7-gic", "arm,cortex-a15-gic";
                             reg = <0x01c81000 0x1000>,
 
--   编译：
-
-~~~~ {.sourceCode .bash}
+- 编译：
+```
 make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf-
-~~~~
+```
 
--   烧写：
+- 烧写：
 
-~~~~ {.sourceCode .bash}
+```
 dd if=u-boot-sunxi-with-spl.bin of=${card} bs=1024 seek=8
-~~~~
+```
 
--   使用Ethernet：
+- 使用Ethernet：
 
-![](https://box.kancloud.cn/e0b2b778262db0e1b19e3316d39ac9cb_1054x417.png)
+![](./../_static/Drive/Ethernet_4.png)
 
 如果出现： `*** ERROR:ipaddr' not set` ，就需要设置下自己的ip：
 `setenv ipaddr 192.168.1.111`
 
-Kernel适配Ethernet
-==================
+## Kernel适配Ethernet
+
 
 在最新的linux 4.14内核中，已经增加了对以太网的支持。
 
 目前Linux
 4.12还没又对sun8i-emac进行支持，所以Kernel要使用V3s的以太网要打sun8i-emac的补丁还有修改dts文件。
 
--   打上sun8i-emac补丁：
+- 打上sun8i-emac补丁：
 
-拉下我已经适配好的内核源码：https://github.com/techping/linux/tree/licheepi-zero
+拉下我已经适配好的内核源码：<https://github.com/techping/linux/tree/licheepi-zero>
 
--   修改dts(上面git仓库是已经修改完的)：
+- 修改dts(上面git仓库是已经修改完的)：
 
 sun8i-v3s-licheepi-zero.dts：
 
@@ -257,40 +256,40 @@ sun8i-v3s.dtsi：
 
 -   进入内核目录：
 
-~~~~ {.sourceCode .bash}
+```
 make sunxi_defconfig ARCH=arm
 make menuconfig ARCH=arm
-~~~~
+```
 
--   选择 Device Drivers ---\>
--   选择 Network device support ---\>
--   选择 Ethernet driver support ---\>
--   选择
+- 选择 Device Drivers ---\>
+- 选择 Network device support ---\>
+- 选择 Ethernet driver support ---\>
+- 选择
 
-    >     [*]   STMicroelectronics devices                                                         x x  
-    >     <*>     STMicroelectronics 10/100/1000/EQOS Ethernet driver                       
-    >     <*>       STMMAC Platform bus support                                                    x x  
-    >     < >         Support for snps,dwc-qos-ethernet.txt DT binding.                            
-    >     <*>         Generic driver for DWMAC                                                     x x  
-    >     <*>         Allwinner GMAC support                                                       x x  
-    >     <*>         Allwinner sun8i GMAC support
+        [*]   STMicroelectronics devices                                                         x x  
+        <*>     STMicroelectronics 10/100/1000/EQOS Ethernet driver                       
+        <*>       STMMAC Platform bus support                                                    x x  
+        < >         Support for snps,dwc-qos-ethernet.txt DT binding.                            
+        <*>         Generic driver for DWMAC                                                     x x  
+        <*>         Allwinner GMAC support                                                       x x  
+        <*>         Allwinner sun8i GMAC support
 
--   编译
+- 编译
 
-    > `make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf-`
+`make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf-`
 
 得到zImage和sun8i-v3s-licheepi-zero.dtb
 
--   烧写
+- 烧写
 
 将内核、dtb、rootfs刷入sd卡中，启动：
 
-> `ifup eth0`
+`ifup eth0`
 
-![](https://box.kancloud.cn/d7b86a2a5f8686786fb155528c0d09d0_1465x250.png)
+![](./../_static/Drive/Ethernet_5.png)
 
 eth0启动成功！
 
-![](https://box.kancloud.cn/8f807f27c88c2bff281629f8e7874398_1802x264.png)
+![](./../_static/Drive/Ethernet_6.png)
 
 **Ethernet驱动适配成功！**

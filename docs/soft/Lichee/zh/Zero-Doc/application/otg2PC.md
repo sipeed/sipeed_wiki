@@ -2,29 +2,28 @@
 title: Zero通过otg与PC共享网络
 ---
 
-在内核选项中勾选上：composite gadget: Serial and Ethernet.
-就可以让Zero与PC通过usb共享网络。
+在内核选项中勾选上：composite gadget: Serial and Ethernet, 就可以让Zero与PC通过usb共享网络。
 
 **确认usb虚拟网口被使能**
 
 使用usb线连接Zero和PC，在Zero和PC上查看网络接口：
 
-~~~~ {.sourceCode .bash}
+```
 zp@ubuntu64:~$ ifconfig 
----
+```
 usb0 Link encap:Ethernet HWaddr 66:36:e9:13:fd:44
 
 root@Lichee:~# ifconfig 
----
+```
 usb0 Link encap:Ethernet HWaddr 2e:cf:e1:3f:ad:61
-~~~~
+```
 
 **确认有usb0接口后，手工设置两者在同一网段下：**
 
-~~~~ {.sourceCode .bash}
+```
 on PC: sudo ifconfig usb0 192.168.2.1
 on Zero: sudo ifconfig usb0 192.168.2.100
-~~~~
+```
 
     Test PC ping Zero:
 

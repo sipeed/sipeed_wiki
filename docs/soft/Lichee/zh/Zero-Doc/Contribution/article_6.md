@@ -2,51 +2,33 @@
 title: Licheepi Zero Ethernet适配指南
 ---
 
-1. U-Boot适配Ethernet
-=====================
+## U-Boot适配Ethernet
+
 
 U-Boot
 2017已经支持了sun8i-emac的驱动，只需要在编译时选上并且修改dts就行。
 
--   进入u-boot源码目录：
+- 进入u-boot源码目录：
 
-~~~~ {.sourceCode .bash}
+```
 $ make LicheePi_Zero_defconfig
 $ make menuconfig
-~~~~
+```
 
-![](https://box.kancloud.cn/b23c8b14ce63d6f887aa2372e68db411_972x582.png)
+![](./../_static/Contribution/article_39.png)
 
-> width
-> :   500px
->
-> align
-> :   center
->
 -   选择 **Device Drivers ---\>**
 
-![](https://box.kancloud.cn/a2fa42f1f4fad923ac8734b2e1626a0a_972x582.png)
+![](./../_static/Contribution/article_40.png)
 
-> width
-> :   500px
->
-> align
-> :   center
->
 -   选择 **Network device support ---\>** 并选中 **Allwinner Sun8i
     Ethernet MAC support**
 
-![](https://box.kancloud.cn/a4718b669f8b9bd3daa750d3a5095e26_972x582.png)
+![](./../_static/Contribution/article_41.png)
 
-> width
-> :   500px
->
-> align
-> :   center
->
 -   修改dts
 
-~~~~ {.sourceCode .bash}
+```
 diff --git a/arch/arm/dts/sun8i-v3s-licheepi-zero.dts b/arch/arm/dts/sun8i-v3s-licheepi-zero.dts
 index 3d9168c..b8b9fc3 100644
 --- a/arch/arm/dts/sun8i-v3s-licheepi-zero.dts
@@ -74,9 +56,9 @@ index 3d9168c..b8b9fc3 100644
 +               reg = <1>;
 +       };
 +};
-~~~~
+```
 
-~~~~ {.sourceCode .bash}
+```
 diff --git a/arch/arm/dts/sun8i-v3s.dtsi b/arch/arm/dts/sun8i-v3s.dtsi
 index ebefc0f..cb81dd5 100644
 --- a/arch/arm/dts/sun8i-v3s.dtsi
@@ -132,7 +114,7 @@ index ebefc0f..cb81dd5 100644
                 gic: interrupt-controller@01c81000 {
                         compatible = "arm,cortex-a7-gic", "arm,cortex-a15-gic";
                         reg = <0x01c81000 0x1000>,
-~~~~
+```
 
 -   编译：
 
@@ -144,24 +126,21 @@ index ebefc0f..cb81dd5 100644
 
 -   使用Ethernet：
 
-![](https://box.kancloud.cn/e0b2b778262db0e1b19e3316d39ac9cb_1054x417.png)
+![](./../_static/Contribution/article_42.png)
 
-> align
-> :   center
->
-2. Kernel适配Ethernet
-=====================
+
+## Kernel适配Ethernet
 
 目前Linux
 4.12还没又对sun8i-emac进行支持，所以Kernel要使用V3s的以太网要打sun8i-emac的补丁还有修改dts文件。
 
--   打上sun8i-emac补丁：
+- 打上sun8i-emac补丁：
 
 拉下我已经适配好的内核源码：https://github.com/techping/linux/tree/licheepi-zero
 
--   修改dts(上面git仓库是已经修改完的)：
+-  修改dts(上面git仓库是已经修改完的)：
 
-~~~~ {.sourceCode .bash}
+```
 index 387fc2a..904e60e 100644
 --- a/arch/arm/boot/dts/sun8i-v3s-licheepi-zero.dts
 +++ b/arch/arm/boot/dts/sun8i-v3s-licheepi-zero.dts
@@ -184,9 +163,9 @@ index 387fc2a..904e60e 100644
 +       allwinner,leds-active-low;
 +       status = "okay";
 +};
-~~~~
+```
 
-~~~~ {.sourceCode .bash}
+```
 diff --git a/arch/arm/boot/dts/sun8i-v3s.dtsi b/arch/arm/boot/dts/sun8i-v3s.dtsi
 index 7107596..65be2ab 100644
 --- a/arch/arm/boot/dts/sun8i-v3s.dtsi
@@ -265,86 +244,55 @@ index 7107596..65be2ab 100644
                 gic: interrupt-controller@01c81000 {
                         compatible = "arm,cortex-a7-gic", "arm,cortex-a15-gic";
                         reg = <0x01c81000 0x1000>,
-~~~~
-
+```
 -   进入内核目录：
 
-~~~~ {.sourceCode .bash}
+```
 $ make sunxi_defconfig ARCH=arm
 $ make menuconfig ARCH=arm
-~~~~
+```
 
-![](https://box.kancloud.cn/49566fbdf9bdafecf00d32984956e0bd_972x582.png)
+![](./../_static/Contribution/article_43.png)
 
-> width
-> :   500px
->
-> align
-> :   center
->
+
 -   选择 **Device Drivers ---\>**
 
-![](https://box.kancloud.cn/f2f193f4fe0609e120d1d2863135b6d5_972x582.png)
+![](./../_static/Contribution/article_44.png)
 
-> width
-> :   500px
->
-> align
-> :   center
->
+
 -   选择 **Network device support ---\>**
 
-![](https://box.kancloud.cn/c167d76a317803d860fe4f27e76331ae_972x582.png)
+![](./../_static/Contribution/article_45.png)
 
-> width
-> :   500px
->
-> align
-> :   center
->
+
 -   选择 **Ethernet driver support ---\>**
 
-![](https://box.kancloud.cn/d11a354dbc48c1ea12d6a30c69e5b668_972x582.png)
+![](./../_static/Contribution/article_46.png)
 
-> width
-> :   500px
->
-> align
-> :   center
->
+
 -   选中 **Allwinner sun8i EMAC support** 和 **Use dwmac-sun8i
     bindings**
 
-![](https://box.kancloud.cn/5b505c36e4f002099b88e65f9682b8d0_972x582.png)
+![](./../_static/Contribution/article_47.png)
 
-> width
-> :   500px
->
-> align
-> :   center
->
+
 -   编译
 
-    > `$ make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf-`
+`$ make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf-`
 
 得到 zImage 和 sun8i-v3s-licheepi-zero.dtb
 
--   烧写
+-  烧写
 
 将内核、dtb、rootfs刷入sd卡中，启动：
 
-> `$ ifup eth0`
+`$ ifup eth0`
 
-![](https://box.kancloud.cn/d7b86a2a5f8686786fb155528c0d09d0_1465x250.png)
+![](./../_static/Contribution/article_48.png)
 
-> align
-> :   center
->
+
 eth0启动成功！
 
-![](https://box.kancloud.cn/8f807f27c88c2bff281629f8e7874398_1802x264.png)
+![](./../_static/Contribution/article_49.png)
 
-> align
-> :   center
->
 **Ethernet驱动适配成功！**

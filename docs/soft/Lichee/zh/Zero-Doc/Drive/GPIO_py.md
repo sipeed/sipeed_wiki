@@ -6,7 +6,7 @@ title: Python 操作GPIO
 
 接口名与C的函数库相同，这里是一个简单的使用示例：
 
-~~~~ {.sourceCode .Python}
+```
 import lpi_gpio
 import signal
 import time
@@ -26,4 +26,4 @@ while True:     #闪烁PG0 绿灯
         time.sleep(0.5)
         lpi_gpio.w(6,0,1)
         time.sleep(0.5)
-~~~~
+```

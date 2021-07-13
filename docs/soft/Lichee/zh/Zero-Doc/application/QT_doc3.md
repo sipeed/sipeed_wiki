@@ -1,43 +1,42 @@
 ---
-title: '移植QT4.8.7'
+title: 移植QT4.8.7
 ---
 
 之前移植了QT5.9.1，这里移植QT4.8.7就简单介绍下
 
-下载QT4.8.7
-===========
+## 下载QT4.8.7
 
-~~~~ {.sourceCode .bash}
+
+```
 wget http://download.qt.io/official_releases/qt/4.8/4.8.7/qt-everywhere-opensource-src-4.8.7.tar.gz
 tar xf qt-everywhere-opensource-src-4.8.7.tar.gz
 cd qt-everywhere-opensource-src-4.8.7
 ./configure --help >help.txt   #QT的配置较为复杂，进来先看看帮助文档，在本节最后附录里有翻译
-~~~~
+```
 
 一般来说，我们需要编译主机和目标板两个版本的qt：
 
 主机版可以用于前期的gui的设计调试；目标板用于实际产品的验证。
 
-编译X11版本
-===========
+## 编译X11版本
+
 
 主机版一般是X11，配置如下：
 
-~~~~ {.sourceCode .bash}
+```
 #!/bin/bash
 ./configure -prefix /opt/qt-4.8.7-x11 -opensource -make tools   
 #安装位置，开源版本，编译qt工具（makeqpf,qtconfig）
 make -j32       #约10分钟
 sudo make install
-~~~~
+```
 
 安装完成后在 */opt/qt-4.8.7-x11* 下可见安装的文件。
 
-交叉编译arm版本
-===============
+## 交叉编译arm版本
 
-注意，在第二次编译前，先 `make clean`
-下。如果编译时候仍有错误，可以重新解压编译。
+
+注意，在第二次编译前，先 `make clean` 下。如果编译时候仍有错误，可以重新解压编译。
 
 交叉编译，需要配置
 xplatform选项，比如要在arm-linux平台上移植Qt的话，就在配置项中加上
@@ -45,23 +44,23 @@ xplatform选项，比如要在arm-linux平台上移植Qt的话，就在配置项
 ，这个是平台名字，Qt5支持的交叉平台都可在源码顶层目录中的 mkspecs/
 下找到。
 
-首先我们需要编辑 *mkspecs/qws/linux-arm-gnueabi-g++/qmake.conf* ：
+首先我们需要编辑 **mkspecs/qws/linux-arm-gnueabi-g++/qmake.conf** ：
 
 加上：（注意，和tslib类似，这里要加上其它什么支持的话，也是交叉编译的库的路径）
 
-~~~~ {.sourceCode .bash}
+```
 QT_QPA_DEFAULT_PLATFORM = linuxfb
 QMAKE_CFLAGS_RELEASE += -O2 -march=armv7-a -lts
 QMAKE_CXXFLAGS_RELEASE += -O2 -march=armv7-a -lts
 QMAKE_INCDIR += /opt/tslib/include /opt/sqlite3/include
 QMAKE_LIBDIR += /opt/tslib/lib /opt/sqlite3/lib
-~~~~
+```
 
 把 *arm-linux-gnueabihf-gcc* 改成 *arm-linux-gnueabi-gcc* 等。
 
 然后再编辑配置脚本cfg\_arm.sh
 
-~~~~ {.sourceCode .bash}
+```
 #/bin/sh
 ./configure -verbose \
 -opensource \
@@ -100,27 +99,25 @@ QMAKE_LIBDIR += /opt/tslib/lib /opt/sqlite3/lib
 
 make -j32
 sudo make install
-~~~~
+```
 
-完成后，相关文件在 */opt/qt4.8.7-arm* 下。
+完成后，相关文件在 **/opt/qt4.8.7-arm** 下。
 
-常见编译错误
-============
+## 常见编译错误
+
 
 配置QT的时候，如果指定了-webkit，编译的时候会报错：
 
-> ../3rdpartyjavascriptcoreJavaScriptCore/wtf/TypeTraits.h:173:69:error:
-> 'std::tr1' has not been declared
+> ../3rdpartyjavascriptcoreJavaScriptCore/wtf/TypeTraits.h:173:69:error: 'std::tr1' has not been declared
 
 解决方法：
 
-> 修改QT源码目录下mkspecs/qws/linux-arm-gnueabi-g++/qmake.conf文件，加上一行：QMAKE\_CXXFLAGS
-> = \$\$QMAKE\_CFLAGS -std=gnu++98
+- 修改QT源码目录下mkspecs/qws/linux-arm-gnueabi-g++/qmake.conf文件，加上一行：QMAKE_CXXFLAGS = \$\$QMAKE_CFLAGS -std=gnu++98
 
 \>\>\>
-/opt/gcc-linaro-6.3.1-2017.05-x86\_64\_arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/6.3.1/../../../../arm-linux-gnueabihf/bin/ld:
+/opt/gcc-linaro-6.3.1-2017.05-x86_64_arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/6.3.1/../../../../arm-linux-gnueabihf/bin/ld:
 warning: libts.so.0, needed by
-/home/wcz/qt-everywhere-opensource-src-4.8.7\_arm/lib/libQtGui.so, not
+/home/wcz/qt-everywhere-opensource-src-4.8.7_arm/lib/libQtGui.so, not
 found (try using -rpath or -rpath-link)
 
 提示没有tslib的库，当然了，提示中也清楚的说了(try using -rpath or
@@ -141,22 +138,22 @@ found (try using -rpath or -rpath-link)
 
 进入到出错目录的顶层，如上示例，我们进入到examples。
 
-> `cd examples`
->
-> `find . -name Makefile | xargs grep rpath-link | grep -v tslib | awk -F: '{fname[NR]=$1} END {for (i=1;i<=NR;i++){print fname[i]}}' | xargs sed -i 's/LFLAGS.*/& -Wl,-rpath,\/opt\/tslib\/lib/'`
+    cd examples
 
-\<注意，这个命令会直接修改目录中最底层的每一个Makefile，请试验成功后再使用。\>
+    find . -name Makefile | xargs grep rpath-link | grep -v tslib | awk -F: '{fname[NR]=$1} END {for (i=1;i<=NR;i++){print fname[i]}}' | xargs sed -i 's/LFLAGS.*/& -Wl,-rpath,\/opt\/tslib\/lib/'
 
-向开发板添加Qt库
-================
+<注意，这个命令会直接修改目录中最底层的每一个Makefile，请试验成功后再使用.>
 
-首先将 */opt/qt5.9.1-arm和/opt/tslib* 复制到开发板的对应目录下
+## 向开发板添加Qt库
+
+
+首先将 **/opt/qt5.9.1-arm和/opt/tslib** 复制到开发板的对应目录下
 
 然后设置开发板 Qt 环境变量， `vi /etc/bash.bashrc`
 
 添加下面内容：
 
-~~~~ {.sourceCode .bash}
+```
 export TSLIB_CONSOLEDEVICE=none
 export TSLIB_FBDEVICE=/dev/fb0
 export TSLIB_TSDEVICE=/dev/input/event1
@@ -171,13 +168,13 @@ export QT_QPA_FONTDIR=/opt/qt5.9.1-arm/lib/fonts
 export QT_QPA_GENERIC_PLUGINS=tslib:$TSLIB_TSDEVICE
 export QWS_MOUSE_PROTO=Tslib:/dev/input/event0
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/optslib/lib:/opt/qt5.9.1-arm/lib:/usr/lib/arm-linux-gnueabihf/lib
-~~~~
+```
 
 保存后生效上述内容： `source /etc/bash.bashrc`
 
 br生成的文件系统则为：
 
-~~~~ {.sourceCode .bash}
+```
 export TSLIB_CONSOLEDEVICE=none
 export TSLIB_FBDEVICE=/dev/fb0
 export TSLIB_TSDEVICE=/dev/input/event1
@@ -191,10 +188,9 @@ export QT_QPA_PLATFORM=linuxfb:tty=/dev/fb0
 export QT_QPA_FONTDIR=/usr/lib/qt/lib/fonts
 export QT_QPA_GENERIC_PLUGINS=tslib:$TSLIB_TSDEVICE
 export QWS_MOUSE_PROTO=Tslib:/dev/input/event1
-~~~~
+```
 
-参考资料
-========
+## 参考资料
 
 <http://blog.csdn.net/armfpga123/article/details/52921558>
 

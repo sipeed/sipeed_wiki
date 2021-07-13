@@ -5,38 +5,33 @@ title: Segment Fault调试
 在调试linux程序时经常会出现段错误，这里介绍常规的段错误定位方法，即使用core
 dump文件。
 
-配置core dump
-=============
+## 配置core dump
+
 
 先设置允许的core dump文件大小。
 
-~~~~ {.sourceCode .bash}
+```
 echo "ulimit -c 102400" >> /etc/profile     #ulimit -c unlimited 可以设置为无限
 source /etc/profile     #生效
-~~~~
+```
 
 使用 `ulimit -c` 来查看当前的core文件大小。
 
-配置core 文件名
-===============
+## 配置core 文件名
 
-**/proc/sys/kernel/core\_uses\_pid** 可以控制产生的 core
-文件的文件名中是否添加 pid 作为扩展 ，如果添加则文件内容为 1 ，否则为 0
+**/proc/sys/kernel/core\_uses\_pid** 可以控制产生的 core 文件的文件名中是否添加 pid 作为扩展 ，如果添加则文件内容为 1 ，否则为 0
 
-配置core保存位置
-================
+## 配置core保存位置
 
 core保存位置默认为当前目录下core名字
 
-*proc/sys/kernel/core\_pattern* 可以设置格式化的 core
-文件保存位置或文件名 ，比如原来文件内容是 core-%e
+*proc/sys/kernel/core\_pattern* 可以设置格式化的 core 文件保存位置或文件名 ，比如原来文件内容是 core-%e
 
 可以这样修改 :
 
-> `echo "/corefile/core-%e-%p-%t" > core_pattern`
+`echo "/corefile/core-%e-%p-%t" > core_pattern`
 
-将会控制所产生的 core 文件会存放到 /corefile 目录下，产生的文件名为
-core- 命令名 -pid- 时间戳
+将会控制所产生的 core 文件会存放到 /corefile 目录下，产生的文件名为 core- 命令名 -pid- 时间戳
 
 以下是参数列表 :
 

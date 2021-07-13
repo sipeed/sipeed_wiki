@@ -4,14 +4,14 @@ title: atmel触摸屏中断改轮询
 
 普通电容式触摸屏是中断方式的，由于v3s引脚较少，所以尝试改为轮询方式驱动，节省一个IO。
 
-~~~~ {.sourceCode .c}
+```
 static int __devexit mxt_remove(struct i2c_client *client)
 #ifndef _TS_POLL
     free_irq(data->irq, data);
 #endif
-~~~~
+```
 
-~~~~ {.sourceCode .c}
+```
 static int __devinit mxt_probe(struct i2c_client *client,
         const struct i2c_device_id *id)
 err_free_irq:
@@ -88,9 +88,9 @@ end:
     return;
 }
 #endif
-~~~~
+```
 
-~~~~ {.sourceCode .c}
+```
 #ifndef _FLIP_X
 input_report_abs(input_dev, ABS_MT_POSITION_X, finger[id].x);
 #else
@@ -101,4 +101,4 @@ input_report_abs(input_dev, ABS_MT_POSITION_Y, finger[id].y);
 #else
 input_report_abs(input_dev, ABS_MT_POSITION_Y, 480-finger[id].y);
 #endif
-~~~~
+```

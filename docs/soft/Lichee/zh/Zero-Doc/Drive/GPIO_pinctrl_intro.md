@@ -1,5 +1,5 @@
 ---
-title: 'pinctrl-sunxi介绍'
+title: pinctrl-sunxi介绍
 ---
 
 drivers/pinctrl/sunxi/pinctrl-sunxi.c
