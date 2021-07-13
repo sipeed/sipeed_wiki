@@ -7,77 +7,74 @@ title: Zero i2c oled使用指南
 
 一般市面上买到的单色oled屏幕模块一般都是同时支持spi和i2c接口的，而默认一般都是spi接口模式，需要根据说明书调整模模块上电阻的位置来转换到i2c模式。我手中这个模块一般比较常见，分辨率是128\*64，需要焊接R1和R4，注意下方那个电阻位置要短接。
 
-![](https://box.kancloud.cn/b5224472a382d668d6cf0c12f0892538_739x557.jpg)
+![](./../_static/Contribution/article_17.jpg)
 
-![](https://box.kancloud.cn/ce7036790bfaf95c2cf550c4bdac079b_833x431.jpg)
+![](./../_static/Contribution/article_18.jpg)
 
 然后连接到zero的i2c0的位置，reset引脚我连接到了uart2的tx脚位置。我手中暂时没有dock，如果是使用dock，请根据实际情况插到对应位置。
 
 ## ssd1307fb驱动配置
 
 
-Oled使用的控制芯片是
-ssd1306，最新版本的linux中包含Ssd1306的i2c驱动，驱动加载后会注册成功linux
-framebuffer，驱动文件路径是： `/drivers/video/fbdev/ssd1307fb.c`
-，该驱动可以通过配置支持ssd130x系列芯片。
+Oled使用的控制芯片是 ssd1306，最新版本的linux中包含Ssd1306的i2c驱动，驱动加载后会注册成功linux framebuffer，驱动文件路径是： `/drivers/video/fbdev/ssd1307fb.c` ，该驱动可以通过配置支持ssd130x系列芯片。
 
 所以要使用oled只需要在dts配置好就可以了
 
 进入linux目录调出配置菜单
 
-~~~~ {.sourceCode .bash}
+```
 /linux-zero-4.10.y$ make ARCH=arm menuconfig
-~~~~
+```
 
 选中 \<*> Solomon SSD1307 framebuffer support
 
-![](https://box.kancloud.cn/aa91247dad30974e7c3058c7e5e28dea_850x391.jpg)
+![](./../_static/Contribution/article_19.jpg)
 
-![](https://box.kancloud.cn/7d224ee935d3bd91da53556f8af4a5ed_918x404.jpg)
+![](./../_static/Contribution/article_20.jpg)
 
 修改dts资源文件
 
-~~~~ {.sourceCode .bash}
+```
 vi arch/arm/boot/dts/sun8i-v3s-licheepi-zero.dts
-~~~~
+```
 
 添加 `ssd1306fb-i2c` 节点，`0x3c`
 是i2c设备的地址，reset-getio是复位脚我选择的是\**PB0*\*
 
-![](https://box.kancloud.cn/0f551b1cb47649be68f5dd5629a7ea90_755x450.jpg)
+![](./../_static/Contribution/article_21.jpg)
 
 接下来编译内核和编译dtb
 
-~~~~ {.sourceCode .bash}
+```
 make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- -j24 uImage
 make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- dtbs
-~~~~
+```
 
 然后将内核和dtbs更新到zero上，插入串口上电。
 
 我是将驱动直接编译到内核里，可以在内核日志中看到驱动加载成功。
 
-![](https://box.kancloud.cn/eafc995e356935d537d55d8599a5b62c_1512x268.jpg)
+![](./../_static/Contribution/article_22.jpg)
 
 并且屏幕被点亮，该驱动默认不清空屏幕ram中内容，屏幕初始化后默认是花屏内容是正常的。如下状态。
 
-![](https://box.kancloud.cn/c0bb555e7e7bfd8dc0a27cc56fc19514_630x545.jpg)
+![](./../_static/Contribution/article_23.jpg)
 
 驱动注册后一般会挂载为/dev/fb0或者/dev/fb1设备文件。
 
 写一个简单的oled模块测试程序，读取屏幕信息，并刷将荔枝派logo显示上去效果如下：
 
-![](https://box.kancloud.cn/5331e69baa77045940264e9f4c7d70ca_760x586.jpg)
+![](./../_static/Contribution/article_24.jpg)
 
 首先用photoshop做出目标图片，然后保存成bmp格式，然后使用windows自带的画图工具打开bmp，然后点击另存为保存为1位位图格式。使用字模软件将bmp转换成程序用的字节序列，我用的是zimo221这款字模工具软件
 
-![](https://box.kancloud.cn/66d0a0ff9a97c502f5e989765e2b921f_1196x802.jpg)
+![](./../_static/Contribution/article_25.jpg)
 
 注意在参数设置中要勾选字节倒叙选项。
 
 下面写一个测试程序，加载驱动并把图像显示到屏幕上
 
-~~~~ {.sourceCode .c}
+```
 #include <unistd.h>
 #include <stdio.h>
 #include <fcntl.h>
@@ -220,24 +217,23 @@ int main ()
     munmap (fbp, screensize);
     close (fp);
 }
-~~~~
-
+```
 将字节序在程序中定义为数组在荔枝板中，编译程序并执行。
 
-![](https://box.kancloud.cn/533e4d22e84e1eaa42218f37d0b43dbd_648x299.jpg)
+![](./../_static/Contribution/article_26.jpg)
 
-3. 单片机驱动一直为i2c驱动
-==========================
+## 单片机驱动一直为i2c驱动
+
 
 一般情况下使用ssb1307fb这个驱动就很完美了了，我在发现ssd1307fb这个驱动程序之前，我将显示屏厂家提供的stm8
 i2c测试代码移植到了linux上实现了一个驱动，加载驱动后效果如下
 
-![](https://box.kancloud.cn/0bff0424a51d86f32442b91c374174d1_703x631.jpg)
+![](./../_static/Contribution/article_27.jpg)
 
 我将此驱动也发出来供参考，该驱动程序直接在linux
 i2c设备注册中实现了oled的测试显示，该驱动包含一个基本ascii的字库和字符串显示逻辑。
 
-~~~~ {.sourceCode .c}
+```
 #include <linux/kernel.h>
 #include <linux/init.h>
 #include <linux/module.h>
@@ -618,8 +614,8 @@ static struct i2c_driver ssd1306_ts_driver = {
 };
 module_i2c_driver(ssd1306_ts_driver);
 MODULE_LICENSE("GPL");
-~~~~
+```
 
 相应dts配置如下：
 
-![](https://box.kancloud.cn/9a68c7be1bf1c3b3b9b9809cf18c156c_537x310.jpg)
+![](./../_static/Contribution/article_28.jpg)

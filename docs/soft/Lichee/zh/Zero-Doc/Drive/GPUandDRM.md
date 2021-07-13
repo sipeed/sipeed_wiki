@@ -17,11 +17,11 @@ DRM暴露API，用户空间的程序可以发送命令和数据给GPU。
 
 如果没有DRM：
 
-![](http://odfef978i.bkt.clouddn.com/Free-Converter.com-access_to_video_card_without_drm-85644921.png)
+![找不到了](http://odfef978i.bkt.clouddn.com/Free-Converter.com-access_to_video_card_without_drm-85644921.png)
 
 使用DRM：
 
-![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Access_to_video_card_with_DRM.svg/1200px-Access_to_video_card_with_DRM.svg.png)
+![](./../_static/Drive/GPUandDRM.png)
 
 查看DRM驱动代码：
 
@@ -77,15 +77,15 @@ sun5i-a13-q8-tablet.dts
             };
     };
 
-这里引用了 *compatible = "urt,umsh-8596md-t", "simple-panel"*;
+这里引用了 **compatible = "urt,umsh-8596md-t", "simple-panel"**;
 
-在 *drivers/gpu/drm/panel/panel-simple.c*
+在 **drivers/gpu/drm/panel/panel-simple.c**
 里有很多屏幕型号，选取合适的屏幕型号即可
 
 开启DRM还需要使能以下内核
 
 1.  support for simple panels
 2.  CMA
-3.  DMA\_CMA
+3.  DMA_CMA
 
 然后需要失能（注释）掉原来的simplefb在dts中的节点

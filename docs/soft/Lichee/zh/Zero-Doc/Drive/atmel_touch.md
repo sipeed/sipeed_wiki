@@ -2,22 +2,22 @@
 title: atmel触摸屏驱动分析
 ---
 
-最新代码在：https://github.com/atmel-maxtouch/linux 3847行
+最新代码在：<https://github.com/atmel-maxtouch/linux> 3847行
 
 从下往上走读：
 
 版权信息
 
-~~~~ {.sourceCode .c}
+```
 /* Module information */
 MODULE_AUTHOR("Joonyoung Shim <jy0922.shim@samsung.com>");
 MODULE_DESCRIPTION("Atmel maXTouch Touchscreen driver");
 MODULE_LICENSE("GPL");
-~~~~
+```
 
 设备树匹配的名称：
 
-~~~~ {.sourceCode .c}
+```
 static const struct i2c_device_id mxt_id[] = {
     { "qt602240_ts", 0 },
     { "atmel_mxt_ts", 0 },
@@ -26,22 +26,22 @@ static const struct i2c_device_id mxt_id[] = {
     { "mXT224", 0 },
     { }
 };
-~~~~
+```
 
 待机模式操作
 
-~~~~ {.sourceCode .c}
+```
 static SIMPLE_DEV_PM_OPS(mxt_pm_ops, mxt_suspend, mxt_resume);
 
 #define SIMPLE_DEV_PM_OPS(name, suspend_fn, resume_fn) \  
 const struct dev_pm_ops name = { \  
     SET_SYSTEM_SLEEP_PM_OPS(suspend_fn, resume_fn) \  
 }  
-~~~~
+```
 
 移除操作
 
-~~~~ {.sourceCode .c}
+```
 static int mxt_remove(struct i2c_client *client)
 {
     struct mxt_data *data = i2c_get_clientdata(client);
@@ -63,11 +63,11 @@ static int mxt_remove(struct i2c_client *client)
 
     return 0;
 }
-~~~~
+```
 
 插入操作
 
-~~~~ {.sourceCode .c}
+```
 static int mxt_probe(struct i2c_client *client, const struct i2c_device_id *id)
 {
     struct mxt_data *data;
@@ -133,11 +133,11 @@ err_free_mem:
     kfree(data);
     return error;
 }
-~~~~
+```
 
 获取平台数据
 
-~~~~ {.sourceCode .c}
+```
 static const struct mxt_platform_data *
 mxt_get_platform_data(struct i2c_client *client)
 {
@@ -162,11 +162,11 @@ mxt_get_platform_data(struct i2c_client *client)
     dev_err(&client->dev, "No platform data specified\n");
     return ERR_PTR(-EINVAL);
 }
-~~~~
+```
 
 获取中断
 
-~~~~ {.sourceCode .c}
+```
 static int mxt_acquire_irq(struct mxt_data *data)
 {
     int error;
@@ -195,11 +195,11 @@ static int mxt_acquire_irq(struct mxt_data *data)
 
     return 0;
 }
-~~~~
+```
 
 中断服务例程
 
-~~~~ {.sourceCode .c}
+```
 static irqreturn_t mxt_interrupt(int irq, void *dev_id)
 {
     struct mxt_data *data = dev_id;
@@ -222,11 +222,11 @@ static irqreturn_t mxt_interrupt(int irq, void *dev_id)
         return mxt_process_messages(data);
     }
 }
-~~~~
+```
 
 处理消息
 
-~~~~ {.sourceCode .c}
+```
 static irqreturn_t mxt_process_messages(struct mxt_data *data)
 {
     int total_handled, num_handled;
@@ -265,4 +265,4 @@ update_count:
 
     return IRQ_HANDLED;
 }
-~~~~
+```

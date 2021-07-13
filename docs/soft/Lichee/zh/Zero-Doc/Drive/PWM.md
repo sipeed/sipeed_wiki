@@ -2,8 +2,8 @@
 title: PWM输出
 ---
 
-PWM驱动
-=======
+## PWM驱动
+
 
 dtsi: 增加PWM0，1的引脚
 
@@ -53,14 +53,13 @@ sysfs里使能：
 
 注意V3S的PWM由24M分频而来，无法生成太高频的pwm。
 
-PWM驱动分析
-===========
+## PWM驱动分析
 
 PWM驱动在 *drivers/pwm/pwm-sun4i.c* 中。
 
 插入驱动：
 
-~~~~ {.sourceCode .c}
+```
 static int sun4i_pwm_probe(struct platform_device *pdev)
 {
     struct sun4i_pwm_chip *pwm;
@@ -103,4 +102,4 @@ static int sun4i_pwm_probe(struct platform_device *pdev)
 
     return 0;
 }   
-~~~~
+```

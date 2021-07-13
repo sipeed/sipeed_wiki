@@ -3,24 +3,21 @@ title: 点屏之RGB屏
 ---
 
 Zero默认支持800x480和480x272这两种常见分辨率的的RGB屏幕。
-
 这两种分辨率的屏幕，直接在编译时候选择对应的分辨率即可。
-
 Zero还可以接RGB2VGA小板或者RGB2LVDS小板来驱动VGA液晶屏或者LVDS屏幕，这时候就需要自己改动屏幕参数了。
 
-Uboot屏幕参数
-=============
+## Uboot屏幕参数
+
 
 修改FB大小
 
 FB大小为 分辨率x4：
 
-> 800x480x4=1.5M 800x600x4=1.8M 1024x600x4=2.4M 1024x768x4=3M
-> 1024x1024x4=4M
+> 800x480x4=1.5M 800x600x4=1.8M 1024x600x4=2.4M 1024x768x4=3M 1024x1024x4=4M
 
 默认uboot里预留了2M的FB，对于1024x600以上的屏幕无法显示。
 
-需要修改 *u-boot/include/configs/sunxi-common.h* 文件
+需要修改 **u-boot/include/configs/sunxi-common.h** 文件
 
 `296 #define CONFIG_SUNXI_MAX_FB_SIZE (2 << 20)`
 
@@ -32,19 +29,18 @@ FB大小为 分辨率x4：
 
 默认配置文件在u-boot/configs/LicheePi\_Zero\_800x480LCD\_defconfig等，可以根据自己的需要来新增文件，比如：
 
-*u-boot/configs/LicheePi\_Zero\_1024x768LCD\_defconfig*
+`u-boot/configs/LicheePi_Zero_1024x768LCD_defconfig`
 
-*7CONFIG\_VIDEO\_LCD\_MODE="x:800,y:480,depth:18,pclk\_khz:33000,le:87,ri:40,up:31,lo:13,hs:1,vs:1,sync:3,vmode:0"*
-
+`7CONFIG_VIDEO_LCD_MODE="x:800,y:480,depth:18,pclk_khz:33000,le:87,ri:40,up:31,lo:13,hs:1,vs:1,sync:3,vmode:0"`
 改为
 
-*CONFIG\_VIDEO\_LCD\_MODE="x:1024,y:768,depth:24,pclk\_khz:32000,le:198,ri:120,up:21,lo:821,hs:2,vs:2,sync:3,vmode:0"*
+`CONFIG_VIDEO_LCD_MODE="x:1024,y:768,depth:24,pclk_khz:32000,le:198,ri:120,up:21,lo:821,hs:2,vs:2,sync:3,vmode:0"`
 
 （时钟太高\>60M貌似会hang？）
 
 这里有个小脚本可以把fex文件的时序转换成uboot的时序：
 
-~~~~ {.sourceCode .bash}
+```
 #!/usr/bin/env ruby
 
 if !ARGV[0] || !File.exists?(ARGV[0]) then
@@ -91,4 +87,4 @@ print_video_lcd_mode(lcd0_para, 2)
 
 printf("\n== for sun[68]i ==\n")
 print_video_lcd_mode(lcd0_para, 1)
-~~~~
+```

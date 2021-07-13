@@ -1,37 +1,37 @@
 ---
-title: '移植QT5.9.1'
+title: 移植QT5.9.1
 ---
 
 移植完成tslib之后，就可以进行QT本体的移植了，目前最新版本为5.9.1。
 
 注意QT本体编译时间较长，笔记本上会耗时2\~3小时，我使用的32线程服务器的编译时间为9分钟左右。
 
-下载QT5.9.1
-===========
+## 下载QT5.9.1
 
-~~~~ {.sourceCode .bash}
+
+```
 wget http://download.qt.io/official_releases/qt/5.9/5.9.1/single/qt-everywhere-opensource-src-5.9.1.tar.xz
 tar xf qt-everywhere-opensource-src-5.9.1.tar.xz    #这里解压也需要30s左右，别以为死机了。。
 cd qt-everywhere-opensource-src-5.9.1
 ./configure --help >help.txt   #QT的配置较为复杂，进来先看看帮助文档，在本节最后附录里有翻译
-~~~~
+```
 
 一般来说，我们需要编译主机和目标板两个版本的qt：
 
 > 主机版可以用于前期的gui的设计调试；目标板用于实际产品的验证。
 
-编译X11版本
-===========
+## 编译X11版本
+
 
 主机版一般是X11，配置如下：
 
-~~~~ {.sourceCode .bash}
+```
 #!/bin/bash
 ./configure -prefix /opt/qt-5.9.1-x11 -opensource -make tools   
 #安装位置，开源版本，编译qt工具（makeqpf,qtconfig）
 make -j32
 sudo make install
-~~~~
+```
 
 运行该脚本，首次配置用时1分钟左右。编译一次参考时间：
 
@@ -45,35 +45,30 @@ sudo make install
 
 安装完成后在/opt/qt-5.9.1-x11下可见安装的文件。
 
-交叉编译arm版本
-===============
+## 交叉编译arm版本
 
-注意，在第二次编译前，先 `make clean`
-下。如果编译时候仍有错误，可以重新解压编译。
 
-交叉编译，需要配置
-xplatform选项，比如要在arm-linux平台上移植Qt的话，就在配置项中加上
-`-xplatform linux-arm-gnueabi-g++`
-，这个是平台名字，Qt5支持的交叉平台都可在源码顶层目录中的
-*/qtbase/mkspecs/* 下找到。
+注意，在第二次编译前，先 `make clean` 下。如果编译时候仍有错误，可以重新解压编译。
 
-首先我们需要编辑 *qtbase/mkspecs/linux-arm-gnueabi-g++/qmake.conf*：
+交叉编译，需要配置 xplatform选项，比如要在arm-linux平台上移植Qt的话，就在配置项中加上 `-xplatform linux-arm-gnueabi-g++` ，这个是平台名字，Qt5支持的交叉平台都可在源码顶层目录中的 **/qtbase/mkspecs/** 下找到。
+
+首先我们需要编辑 **qtbase/mkspecs/linux-arm-gnueabi-g++/qmake.conf**：
 
 加上：（注意，和tslib类似，这里要加上其它什么支持的话，也是交叉编译的库的路径）
 
-~~~~ {.sourceCode .bash}
+```
 QT_QPA_DEFAULT_PLATFORM = linuxfb
 QMAKE_CFLAGS_RELEASE += -O2 -march=armv7-a -lts
 QMAKE_CXXFLAGS_RELEASE += -O2 -march=armv7-a -lts
 QMAKE_INCDIR += /opt/tslib/include /opt/sqlite3/include
 QMAKE_LIBDIR += /opt/tslib/lib /opt/sqlite3/lib
-~~~~
+```
 
-把 *arm-linux-gnueabihf-gcc* 改成 *arm-linux-gnueabi-gcc* 等。
+把 **arm-linux-gnueabihf-gcc** 改成 **arm-linux-gnueabi-gcc** 等。
 
-然后再编辑配置脚本cfg\_arm.sh
+然后再编辑配置脚本cfg_arm.sh
 
-~~~~ {.sourceCode .bash}
+```
 #!/bin/sh
 ./configure -verbose \
 -prefix /opt/qt5.9.1-arm \
@@ -99,25 +94,25 @@ QMAKE_LIBDIR += /opt/tslib/lib /opt/sqlite3/lib
 -no-separate-debug-info \
 -I/opt/tslib/include -L/opt/tslib/lib \
 -make examples -make tools -nomake tests -no-iconv
-~~~~
+```
 
-~~~~ {.sourceCode .bash}
+```
 make -j32
 sudo make install
-~~~~
+```
 
-完成后，相关文件在 */opt/qt5.9.1-arm* 下。
+完成后，相关文件在 **/opt/qt5.9.1-arm** 下。
 
-向开发板添加Qt库
-================
+## 向开发板添加Qt库
 
-首先将 */opt/qt5.9.1-arm* 和 */opt/tslib* 复制到开发板的对应目录下
+
+首先将 **/opt/qt5.9.1-arm** 和 **/opt/tslib** 复制到开发板的对应目录下
 
 然后设置开发板 Qt 环境变量， `vi /etc/bash.bashrc`
 
 添加下面内容：
 
-~~~~ {.sourceCode .bash}
+```
 export TSLIB_CONSOLEDEVICE=none
 export TSLIB_FBDEVICE=/dev/fb0
 export TSLIB_TSDEVICE=/dev/input/event1
@@ -130,19 +125,19 @@ export QT_QPA_PLATFORM_PLUGIN_PATH=/opt/qt5.9.1-arm/plugins
 export QT_QPA_PLATFORM=linuxfb:tty=/dev/fb0
 export QT_QPA_FONTDIR=/opt/qt5.9.1-arm/lib/fonts
 export QT_QPA_GENERIC_PLUGINS=tslib:$TSLIB_TSDEVICE
-~~~~
+```
 
 保存后生效上述内容： `source /etc/bash.bashrc`
 
-参考资料
-========
+## 参考资料
+
 
 <http://blog.csdn.net/newthinker_wei/article/details/39560109>
 
 <http://www.linuxidc.com/Linux/2014-03/98079.htm>
 
-附录：QT配置帮助文件 翻译
-=========================
+## 附录：QT配置帮助文件 翻译
+
 
 Usage: configure [options] [assignments]
 
@@ -154,8 +149,8 @@ Usage: configure [options] [assignments]
     _LIBS, and - on Windows and Darwin - _LIBS_DEBUG and _LIBS_RELEASE. E.g.,
     ICU_PREFIX=/opt/icu42 ICU_LIBS="-licui18n -licuuc -licudata".
 
-同时支持操作 QMAKE\_\*
-变量，来修改mkspec里指定的值，比如QMAKE\_CXXFLAGS+=-g3.
+同时支持操作 QMAKE_*
+变量，来修改mkspec里指定的值，比如QMAKE_CXXFLAGS+=-g3.
 
 **顶层安装路径：**
 
@@ -171,7 +166,7 @@ Usage: configure [options] [assignments]
     system, i.e., to make a Canadian Cross Build.
 
 **微调安装路径的分布** ，注意除了-sysconfdir外的所有目录需要在
-*-prefix/-hostprefix* 下。
+**-prefix/-hostprefix** 下。
 
 （这里基本可以不配置）
 

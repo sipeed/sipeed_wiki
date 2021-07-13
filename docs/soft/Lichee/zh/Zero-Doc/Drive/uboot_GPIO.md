@@ -2,15 +2,15 @@
 title: uboot下gpio操作
 ---
 
-~~~~ {.sourceCode .c}
+```
 #define endtick(seconds) (get_ticks() + (uint64_t)(seconds) * get_tbclk())
-~~~~
+```
 
-arch/arm/mach-sunxi/cpu\_info.c
+arch/arm/mach-sunxi/cpu_info.c
 
 arch/arm/lib/bootm.c
 
-~~~~ {.sourceCode .c}
+```
 #include <asm/arch/cpu.h>
 #include <asm/arch/clock.h>
 #include <cli.h>
@@ -43,4 +43,4 @@ while(get_ticks()<t1);
 t1=get_ticks()+get_tbclk()/10;
 }
 *data_reg=tmp0;
-~~~~
+```

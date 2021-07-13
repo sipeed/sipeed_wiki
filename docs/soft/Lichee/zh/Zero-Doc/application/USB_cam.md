@@ -2,21 +2,21 @@
 title: USB摄像头使用
 ---
 
-内核选项
-========
+## 内核选项
+
 
 插入USB摄像头，lsusb 可见：（摄像头PID:VID视你插入的USB摄像头型号而定）
 
-> `Bus 001 Device 003: ID 1908:2311 GEMBIRD`
+ `Bus 001 Device 003: ID 1908:2311 GEMBIRD`
 
-在dev下可见 *video0* 设备。
+在dev下可见 **video0** 设备。
 
-fswebcam
-========
+## fswebcam
+
 
 fswebcam可以用来抓取摄像头图片。可以通过apt-get直接安装。
 
-> `fswebcam -d /dev/video0 --no-banner -r 320x240 capture.jpg`
+`fswebcam -d /dev/video0 --no-banner -r 320x240 capture.jpg`
 
 抓取一帧图片。
 
@@ -81,31 +81,31 @@ fswebcam可以用来抓取摄像头图片。可以通过apt-get直接安装。
         --save <filename>        Save image to file.
         --exec <command>         Execute a command and wait for it to complete.
 
-mjpeg-streamer
-==============
+## mjpeg-streamer
+
 
 前置软件：
 
-~~~~ {.sourceCode .bash}
+```
 sudo apt-get update
 sudo apt-get install g++ libjpeg62-turbo-dev imagemagick libv4l-dev cmake git
 sudo git clone https://github.com/jacksonliam/mjpg-streamer.git
 cd mjpg-streamer/mjpg-streamer-experimental
 make all
 sudo make install
-~~~~
+```
 
 设置环境变量
 
-> `export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib/mjpg-streamer`
+`export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib/mjpg-streamer`
 
 开启web服务器
 
-> `mjpg_streamer -i "input_uvc.so -d /dev/video0 -r 640x480" -o "output_http.so -p 8080 -w /usr/local/share/mjpg-streamer/www"`
+`mjpg_streamer -i "input_uvc.so -d /dev/video0 -r 640x480" -o "output_http.so -p 8080 -w /usr/local/share/mjpg-streamer/www"`
 
 然后在同个局域网内的电脑的浏览器上访问 zero ip:8080即可看到图像。
 
-~~~~ {.sourceCode .bash}
+```
 mjpg_streamer -i "input_uvc.so -f 10 -r 320*240 -y" -o "output_http.so -c "ruoyun:liufeng" -w www -p 8888" -o "output_file.so -d 1000 -f /mnt "  
 -i 输入
 "input_uvc.so -f 10 -r 320*240 -y"
@@ -125,11 +125,11 @@ input_uvc.so：UVC输入组件
     output_file.so                  ：图片输出组件
     -d 1000                                   ： 时间1S
     -f /mnt                                       ：输出图片放在哪，我是开机直接把/mnu挂载到本地文件夹了
-~~~~
+```
 
 总体帮助
 
-~~~~ {.sourceCode .bash}
+```
 root@LicheePi:~# mjpg_streamer --help
 -----------------------------------------------------------------------
 Usage: mjpg_streamer
@@ -159,11 +159,11 @@ export LD_LIBRARY_PATH=/path/to/plugins,
 path and filename:
 mjpg_streamer -i "/path/to/modules/input_uvc.so"
 -----------------------------------------------------------------------
-~~~~
+```
 
 输入插件帮助
 
-~~~~ {.sourceCode .bash}
+```
 root@LicheePi:~# mjpg_streamer -i "input_uvc.so --help"
 MJPG Streamer Version.: 2.0
 ---------------------------------------------------------------
@@ -215,11 +215,11 @@ Optional parameters (may not be supported by all cameras):
 ---------------------------------------------------------------
 
 input_init() return value signals to exit
-~~~~
+```
 
 输出插件帮助
 
-~~~~ {.sourceCode .bash}
+```
 root@LicheePi:~# mjpg_streamer -o "output_http.so --help"
 MJPG Streamer Version.: 2.0
 ---------------------------------------------------------------
@@ -235,4 +235,4 @@ The following parameters can be passed to this plugin:
 [-n | --nocommands ]---.: disable execution of commands
 ---------------------------------------------------------------
 output_init() return value signals to exit
-~~~~
+```

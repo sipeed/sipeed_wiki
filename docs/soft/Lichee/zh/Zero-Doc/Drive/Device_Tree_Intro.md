@@ -6,14 +6,14 @@ Device Tree是一种描述硬件的数据结构，
 
 DTS(Device Tree Source)就是用来描述目标板硬件信息的源文件。
 
-设备树基本数据格式
-==================
+## 设备树基本数据格式
+
 
 device
 tree是一个简单的节点和属性树，属性是键值对，节点可以包含属性和子节点。下面是一个.dts格式的简单设备树。
 
-~~~~ {.sourceCode .bash}
-/ {  
+```
+{  
     node1 {  
         a-string-property = "A string";  
         a-string-list-property = "first string", "second string";  
@@ -33,20 +33,20 @@ tree是一个简单的节点和属性树，属性是键值对，节点可以包�
         };  
     };  
 };  
-~~~~
+```
 
 编译设备树后，可以使用
 
-> `dtc -I dtb -O dts xxx.dtb -o xxx.dts`
+`dtc -I dtb -O dts xxx.dtb -o xxx.dts`
 
 来查看实际生成的设备树文件
 
 在运行系统时，\*/sys/firmware/devicetree\* 可以查看实际使用的是设备树
 
-设备树常用操作
-==============
+## 设备树常用操作
 
-~~~~ {.sourceCode .bash}
+
+```
 / {
     --- ---
     demo1: demo1 {
@@ -62,9 +62,9 @@ tree是一个简单的节点和属性树，属性是键值对，节点可以包�
     /delete-property/property2;
     /delete-property/property3;
 };
-~~~~
+```
 
-~~~~ {.sourceCode .bash}
+```
 memory_DDR1@c0000000 {
         device_type = "memory";
         reg = <0 0xc0000000 0 0x40000000>;
@@ -74,14 +74,14 @@ memory_DDR1@c0000000 {
 / {
     /delete-node/ memory_DDR1@c0000000;
 };
-~~~~
+```
 
-设备树实例解析
-==============
+## 设备树实例解析
+
 
 下面解析sun8i-v3s.dtsi设备树实例
 
-~~~~ {.sourceCode .cpp}
+```
 #include <dt-bindings/interrupt-controller/arm-gic.h>
 #include <dt-bindings/clock/sun8i-v3s-ccu.h>
 #include <dt-bindings/reset/sun8i-v3s-ccu.h>
@@ -505,11 +505,11 @@ memory_DDR1@c0000000 {
         };
     };
 };
-~~~~
+```
 
 系统中的每个设备由device tree的一个节点来表示；
 
-~~~~ {.sourceCode .c}
+```
 static struct of_device_id beep_table[] = {  
     {.compatible = "fs4412,beep"},  
 };  
@@ -522,21 +522,21 @@ static struct platform_driver beep_driver=
         .of_match_table = beep_table,  
     },  
 };
-~~~~
+```
 
-~~~~ {.sourceCode .c}
+```
 fs4412-beep{  
         compatible = "fs4412,beep";  
         reg = <0x114000a0 0x4 0x139D0000 0x14>;  
 };  
-~~~~
+```
 
-**compatible**，关键属性，驱动中使用of\_match\_table，即of\_device\_id列表，其中就使用compatible字段来匹配设备。
-:   简单地说就是，内核启动后会把设备树加载到树状结构体中，当insmod的时候，就会在树中查找匹配的设备节点来加载。
+**compatible**，关键属性，驱动中使用of_match_table，即of_device_id列表，其中就使用compatible字段来匹配设备。
+   简单地说就是，内核启动后会把设备树加载到树状结构体中，当insmod的时候，就会在树中查找匹配的设备节点来加载。
 
 **reg**，描述寄存器基址和长度，可以有多个。
 
-~~~~ {.sourceCode .bash}
+```
 pwm: pwm@01c21400 {
             compatible = "allwinner,sun8i-h3-pwm";  
             reg = <0x01c21400 0x8>;
@@ -544,7 +544,7 @@ pwm: pwm@01c21400 {
             #pwm-cells = <3>;
             status = "okay";
     };
-~~~~
+```
 
     实例 : 类 @ 地址 {
     compatible： “供应商, 设备id”
@@ -552,10 +552,10 @@ pwm: pwm@01c21400 {
     clocks
     }
 
-基于设备树的driver的结构体的填充
-================================
+## 基于设备树的driver的结构体的填充
 
-~~~~ {.sourceCode .c}
+
+```
 static struct of_device_id beep_table[] = {  
     {.compatible = "fs4412,beep"},  
 };  
@@ -568,16 +568,15 @@ static struct platform_driver beep_driver=
         .of_match_table = beep_table,  
     },  
 };
-~~~~
+```
 
 make dtbs 在内核根目录
 
-sys下设备树查看
-===============
+## sys下设备树查看
 
-*/sys/firmware/devicetree* 可以查看实际使用的是设备树
 
-参考资料
-========
+**/sys/firmware/devicetree** 可以查看实际使用的是设备树
+
+## 参考资料
 
 <http://e76103db.wiz03.com/share/s/3Dogfr2DXA6Q27Og6x2QoKY92Bk9at14FABh21OAAE28lAme>
