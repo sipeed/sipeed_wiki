@@ -40,7 +40,8 @@ Zero的引脚布局示意图如下：
 
 > “1.27mm”标识的是较为不常用或者不方便手工接线的引脚，一般在贴片时使用，或者也可以用2.54插针偏移半个针位使用。
 
-![](./../_static/start/intro_1.png)
+
+![](./../_static/start/zero_4.jpg)
 
 话不多说，下面开始曝照！
 
@@ -48,13 +49,13 @@ Zero的引脚布局示意图如下：
 
 正面：从左往右为：RGB LED；主芯片；tf卡槽；LCD背光电路；micro usb otg。
 
-![](./../_static/start/intro_2.jpg)
+![](./../_static/start/zero_2.jpg)
 
 背面：从左往右为：电阻屏控制器；DCDC芯片；预留的SPI flash接口，兼容SOP8和WSON8封装的SPI flash（16/32MB）；FPC40接口。
-![](./../_static/start/intro_3.jpg)
+![](./../_static/start/zero_1.jpg)
 正反面一起看：
 
-![](./../_static/start/intro_4.jpg)
+![](./../_static/start/lichee-zero.jpg)
 
 插针引出演示：
 直插面包板：双列插针间距900mil，可直插面包板！
@@ -142,7 +143,7 @@ Zero采用了和One兼容的通用40P RGB液晶屏（含触摸屏），并且板
 
 下图是5寸 480x800高清液晶屏，另有480x272的4.3寸普清液晶屏。
 
-![](./../_static/start/intro_12.jpg)
+![](./../_static/start/zero_7.jpg)
 ### RGB转VGA模块
 
 去年年中以来，液晶屏价格暴涨，如果无法接受目前液晶屏价格的话，可以选择RGB转VGA模块，可接普通显示器使用。
@@ -315,4 +316,4 @@ Zero畅玩经典游戏DOOM！
 ## 未完待续
 
 配件全家福（貌似还漏了个别配件）
-![](./../_static/start/intro_37.jpg)
+![](./../_static/start/zero_8.jpg)

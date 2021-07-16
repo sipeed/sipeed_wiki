@@ -1,11 +1,8 @@
 {
-    "items": [
-        {
-            "label": "LicheePi",
-            "file": null
-        },    
+    "items": [    
                 {
                     "label": "LicheePI Nano",
+                    "collapsed": false,
                     "items": [
                         {
                             "label":"简介",
@@ -99,40 +96,17 @@
                                     "file":"Nano-Doc-Backup/application/littlevgl.md"
                                 }
                             ]
-                        },
-                        {
-                            "label":"奉献投稿",
-                            "items":[
-                                {
-                                    "label":"前言",
-                                    "file":"Nano-Doc-Backup/contribution/introduction.md"
-                                },
-                                {
-                                    "label":"Todolist",
-                                    "file":"Nano-Doc-Backup/contribution/todolist.md"
-                                },
-                                {
-                                    "label":"快餐任务相关小事项",
-                                    "file":"Nano-Doc-Backup/contribution/task_tips.md"
-                                },
-                                {
-                                    "label":"文档任务相关小事项",
-                                    "file":"Nano-Doc-Backup/contribution/doc_tips.md"
-                                },
-                                {
-                                    "label":"文档构建",
-                                    "file":"Nano-Doc-Backup/contribution/build_doc.md"
-                                }
-                            ]
                         }
                     ]
                 },
                 {
                     "label": "LicheePI Zero",
+                    "collapsed": false,
                     "items": [
                         {
-                            "label": "初来乍到"
-                        },    
+                            "label": "初来乍到",
+                            "items":[
+                           
                                 {
                                     "label":"荔枝派与创作者的自我介绍",
                                     "file":"Zero-Doc/Start/intro_cn.md"
@@ -162,7 +136,8 @@
                                             "file":"Zero-Doc/Start/docker_ubuntu.md"
                                         }
                                     ]
-                                
+                                }
+                            ]   
                         },
                         {
                                 "label":"系统开发",
@@ -499,8 +474,6 @@
                             ]
                         }  
                     ]
-                }    
-            
-        
+                }        
     ]
 }
