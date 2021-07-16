@@ -6,6 +6,5 @@ desc: 矽速科技的硬件资料站
 
 ## LicheePi (Linux)
 
-- [LicheePi Zero](./)
-- [LicheePi Zero Plus](./)
-- [LicheePi Nano](./)
+- [LicheePi Zero](./Zero-Doc/Start/intro_cn.md)
+- [LicheePi Nano](./Nano-Doc-Backup/index.md)
