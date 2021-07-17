@@ -55,7 +55,7 @@ kflash -p /dev/ttyUSB0 -b 1500000 -B goE maixpy.bin
 
 | 文件名                                              | 说明                                                         | 备注                       |
 | --------------------------------------------------- | ------------------------------------------------------------ | -------------------------- |
-| `maixpy_vx.y.z_x_xxx*.bin`                          | 默认版本的 MaixPy 固件，包含了大多数功能, 支持连接 `MaixPy IDE`, | 出厂默认固件版本           |
+| `maixpy_vx.y.z_x_xxx*.bin`                          | 默认版本的 MaixPy 固件，包含了大多数功能, 支持连接 `MaixPy IDE`, | -           |
 | `maixpy_vx.y.z_x_xxx*_m5stickv.bin`                 | 针对 M5Stickv 定制的固件, 支持连接 `MaixPy IDE`              | —                          |
 | `maixpy_vx.y.z_x_xxx*_with_lvgl.bin`                | MaixPy 固件, 支持连接 `MaixPy IDE`, 带 LVGL 版本.(LVGL是嵌入式 GUI 框架, 写界面的时候需要用到) | —                          |
 | `maixpy_vx.y.z_x_xxx*_minimum.bin`                  | MaixPy 固件最小集合，不支持 `MaixPy IDE`, 不包含`OpenMV`的相关算法和各种外设模块 | —                          |
@@ -63,6 +63,7 @@ kflash -p /dev/ttyUSB0 -b 1500000 -B goE maixpy.bin
 | `elf_maixpy_vx.y.z_x_xxx*.7z`                       | elf 文件，普通用户不用关心，用于死机调试                     | —                          |
 | `face_model_at_0x300000.kfpkg`                      | 人脸模型，放置在地址位 0x300000, 可以和`.bin`分开多次下载，不冲突 | —                          |
 
+出厂的固件是不一样的，不同的开发板，固件不一样，所以出现无法链接ide和屏幕白屏的时候，需要替换固件
 
 
 ## 下载固件到开发板

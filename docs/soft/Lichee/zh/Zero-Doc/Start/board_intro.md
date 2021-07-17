@@ -23,23 +23,16 @@ Zero提供了 **主线Linux** 支持 和
 
 1.  Zero需要插卡启动（或者焊接spi flash），请不要问为什么插上usb没反应
 2.  TF卡槽是下图中荔枝派logo上方的长方形插槽
-3.  收到Zero后看到主芯片上有连锡请不要慌张，这是设计如此（相同的电源管脚），请参阅
-    [原理图](https://dl.sipeed.com/shareURL/LICHEE/Zero/HDK)
+3.  收到Zero后看到主芯片上有连锡请不要慌张，这是设计如此（相同的电源管脚），请参阅[原理图](https://dl.sipeed.com/shareURL/LICHEE/Zero/HDK)
 4.  Zero的系统调试串口是UART0，即下图右下方的“U0T R”标识的两个引脚
 5.  Zero正面的led不是上电就闪烁的，请不要认为上电后led不亮就是坏的
-6.  Zero的usb是OTG usb，既可以供电，又能通信（比如作为usb虚拟网口
-    [与电脑共享网络](http://bbs.ilichee.cc/t/tutorial-pc-share-network-to-zero-via-usb/55)）
-7.  Zero usb口下方的“G
-    5V”插针可以作为电源输入，使用串口小板的5V或者锂电池均可供电。
+6.  Zero的usb是OTG usb，既可以供电，又能通信（比如作为usb虚拟网口[与电脑共享网络](http://bbs.ilichee.cc/t/tutorial-pc-share-network-to-zero-via-usb/55)）
+7.  Zero usb口下方的“GND 5V”可以作为电源输入，使用串口小板的5V或者锂电池均可供电。
 8.  推荐的两边排针焊接方式是向下焊接。“G 5V”插针推荐向上焊接。
 9.  推荐的底层调试接法是：usb转串口小板接“U0T R”和“G 5V”。
-10. 推荐的联网方式是：[usb虚拟网口](http://bbs.ilichee.cc/t/tutorial-pc-share-network-to-zero-via-usb/55)
-    或者 [tf wifi](https://www.kancloud.cn/lichee/lpi0/327885)
-    ；或者使用淘宝店里的
-    [usb转网口HUB](https://item.taobao.com/item.htm?id=538814529688) 。
+10. 推荐的联网方式是：[usb虚拟网口](http://bbs.ilichee.cc/t/tutorial-pc-share-network-to-zero-via-usb/55)或者 [tf wifi](https://www.kancloud.cn/lichee/lpi0/327885)；或者使用淘宝店里的[usb转网口HUB](https://item.taobao.com/item.htm?id=538814529688) 。
 11. Zero毕竟是上G主频的Cortex-A7处理器，运行时温度在40\~60℃，请不要认为芯片在此范围内的发热是短路。
-12. Zero
-    运行Linux空载电流约100mA，满载电流约150\~180mA，插上LCD电流约200\~300mA。不插卡上电电流约50\~60mA。
+12. Zero运行Linux空载电流约100mA，满载电流约150\~180mA，插上LCD电流约200\~300mA。不插卡上电电流约50\~60mA。
 
 如果收到板子后还有其他疑问，请加 **官方交流QQ群：573832310** 。
 入群验证答案是---请拿起板子看下上面芯片的丝印标识，谢谢。
@@ -54,9 +47,9 @@ Zero提供了 **主线Linux** 支持 和
 ## Zero实物图
 
 
-![](./../_static/start/board_intro_2.jpg)
+![](./../_static/start/zero_1.jpg)
 
-![](./../_static/start/board_intro_3.jpg)
+![](./../_static/start/zero_2.jpg)
 
 ## 硬件资料
 
