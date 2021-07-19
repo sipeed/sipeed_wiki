@@ -40,7 +40,6 @@ read_data = uart.read()
 将串口接收到的数据发送回去
 
 ```python
-from fpioa_manager import fm
 from machine import UART
 from board import board_info
 from fpioa_manager import fm
