@@ -231,3 +231,5 @@ print(sd_check())
 ```
 进行检测是否挂载成功
 
+## 出现ValueError:[MAIXPY]kpu: load error:2002, ERR_KMODEL_VERSION: onlysupport kmodel V3/V4 now
+更新固件，更新固件，更新到最新版本支持v3/v4的MaixPy固件，具体更新方法看前面的文档
