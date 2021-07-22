@@ -29,7 +29,7 @@ desc: maixpy doc: MaixPy 文档简介
     <tbody>
         <tr>
             <td><strong>MaixPy</strong> 唯一官方文档官网</td>
-            <td><span class="limit_width">官网:</span> <span class=""><a href="https://maixpy.sipeed.com" rel="nofollow"><strong>maixpy.sipeed.com</strong></a></span><br><span class="limit_width">中文站: </span><span class=""><a href="https://cn.maixpy.sipeed.com" rel="nofollow"><strong>cn.maixpy.sipeed.com</strong></a></span></td>
+            <td><span class="limit_width">官网:</span> <span class=""><a href="https://maixpy.sipeed.com" rel="nofollow"><strong>maixpy.sipeed.com</strong></a></span><br><span class="limit_width">中文站: </span><span class=""><a href="https://wiki.sipeed.com/soft/maixpy/zh/" rel="nofollow"><strong>wiki.sipeed.com/soft/maixpy/zh/</strong></a></span></td>
         </tr>
         <tr>
             <td><strong>MaixPy</strong> 例程仓库</td>
