@@ -132,7 +132,7 @@ MaixPy3 使用面向模块接口开发，链接跨平台的 Python 或 C 包，�
 
 - [PC x86_64 的 Pyhon3 环境](https://www.python.org/downloads/release/python-380/)
 
-- [Sipeed v831 的 Python3 交叉编译环境](https://github.com/sipeed/MaixPy3/releases/tag/20210613)
+- [Sipeed v831 的 Python3 交叉编译环境](https://github.com/sipeed/MaixPy3/releases/tag/20210613) (需要使用 source toolchain_v83x_linux_x86/envsetup.sh 获得链接 V831 编译链的 python3.8 环境，注意这不是本机的 Python3 环境！！！)
 
 通常拿到一个 Python 模块，对它的 `setup.py` 执行 `python setup.py build` 即可进行构建，它的内容通常有如下示例（只是举例）。
 
