@@ -4,7 +4,7 @@ keywords: maixpy, k210, AIOT, 边缘计算
 desc: maixpy doc: 本地模型训练
 ---
 
-
+windows10上使用本地训练教程看[这里](https://bbs.sipeed.com/thread/932)
 
 本地模型训练使用 [sipeed/maix_train](https://github.com/sipeed/maix_train) 这份代码进行， 使用了 Tensorflow 作为训练框架
 
