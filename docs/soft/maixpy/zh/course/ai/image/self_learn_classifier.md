@@ -11,7 +11,7 @@ desc: maixpy doc: 自学习分类器（self learning classifier）
 
 ## 使用方法
 
-* [在这里](https://dl.sipeed.com/MAIX/MaixPy/release/master/maixpy_v0.5.0_33_gfcd6d8a) 下载版本 >= v0.5.0-33 的固件
+* [在这里](https://dl.sipeed.com/shareURL/MAIX/MaixPy/release/master) 下载版本 >= v0.5.0-33 的固件
 * [下载 kmodel](https://maixhub.com/modelInfo?modelId=16)
 * 使用 [kflash_gui](https://github.com/sipeed/kflash_gui) 下载固件和模型
 * 运行 [示例脚本](https://github.com/sipeed/MaixPy_scripts/blob/master/machine_vision/self_learning_classifier/self_learning_classifier.py)
