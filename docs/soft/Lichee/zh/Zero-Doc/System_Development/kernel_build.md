@@ -6,14 +6,15 @@ title: 主线Kernel基础编译
 
 网盘地址：<http://pan.baidu.com/s/1hsf22fq>
 
-国外用户：<https://releases.linaro.org/components/toolchain/binaries/latest/arm-linux-gnueabihf/>
+国外用户：<https://releases.linaro.org/components/toolchain/binaries/6.3-2017.05/arm-linux-gnueabihf/>
 
 ```
-wget https://releases.linaro.org/components/toolchain/binaries/latest/arm-linux-gnueabihf/gcc-linaro-6.3.1-2017.05-x86_64_arm-linux-gnueabihf.tar.xz
+wget https://releases.linaro.org/components/toolchain/binaries/6.3-2017.05/arm-linux-gnueabihf/gcc-linaro-6.3.1-2017.05-x86_64_arm-linux-gnueabihf.tar.xz
 tar xvf gcc-linaro-6.3.1-2017.05-x86_64_arm-linux-gnueabihf.tar.xz
 mv gcc-linaro-6.3.1-2017.05-x86_64_arm-linux-gnueabihf /opt/
 vim /etc/bash.bashrc
 # add: PATH="$PATH:/opt/gcc-linaro-6.3.1-2017.05-x86_64_arm-linux-gnueabihf/bin"
+source /etc/bash.bashrc
 arm-linux-gnueabihf-gcc -v
 ```
 
