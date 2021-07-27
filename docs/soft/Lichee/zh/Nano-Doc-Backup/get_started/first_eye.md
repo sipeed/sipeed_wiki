@@ -13,14 +13,9 @@ Nano 延续并发展了Zero精巧的PCB设计，使得开发和使用非常方�
 4. 可配合使用使用堆叠式的WiFi 模块联网
 5. 可直接贴片
 
-### Nano 实物图集
-![Nano包装](./../static/get_started/TB2ZC3.jpg)
+### Nano 实物图
 
-![tf版 与 wifi版 Nano对比](./../static/get_started/TB2sv.jpg)
-
-![Nano 底板正面图](./../static/get_started/TB2L22.png)
-
-![Nano 底板正面图](./../static/get_started/TB2N.png)
+![](./../static/get_started/nano.jpg)
 
 ### Nano 硬件参数
 
@@ -83,7 +78,7 @@ Nano 的管脚定义，可由下图简略说明：
 > 靠近 2.54mm 插针的两排，列出了其引脚功能与常见复用
 > 中间两排，分别对应着两边 1.27mm 邮票空插针的引脚功能
 
-![Pin Map](https://fdvad021asfd8q.oss-cn-hangzhou.aliyuncs.com/migrate/Pin%20Map.png)
+![Pin Map](./../static/lichee-nano_1.jpg)
 
 具体的引脚定义与可用重映射信息，还请参阅
 [原理图](http://dl.sipeed.com/shareURL/LICHEE/Nano/Document)
@@ -93,11 +88,11 @@ Nano 的管脚定义，可由下图简略说明：
 
 荔枝派 Nano 支持多个系统，可自由使用Linux、RT-Thread、Xboot或裸机等进行操作。
 
-![linux 下运行 littlevgl Demo](https://img.alicdn.com/imgextra/i4/272610009/TB29Aj_hH1YBuNjSszhXXcUsFXa_!!272610009.jpg)
+![linux 下运行 littlevgl Demo](./../static/get_started/TB29Aj_hH1YBuNjSszhXXcUsFXa_!!272610009.jpg)
 
-![RT-Thread UI示例](https://img.alicdn.com/imgextra/i3/272610009/TB274cjbY3nBKNjSZFMXXaUSFXa_!!272610009.jpg)
+![RT-Thread UI示例](./../static/get_started/TB274cjbY3nBKNjSZFMXXaUSFXa_!!272610009.jpg)
 
-![Xboot 示例](https://img.alicdn.com/imgextra/i4/272610009/TB2D2Y7hH1YBuNjSszhXXcUsFXa_!!272610009.jpg)
+![Xboot 示例](./../static/get_started/TB2D2Y7hH1YBuNjSszhXXcUsFXa_!!272610009.jpg)
 
 荔枝派Nano 支持从SPI Flash中启动系统，便于降低成本，适宜商用开发。
 

@@ -4,10 +4,10 @@ keywords: maixpy, k210, AIOT, 边缘计算
 desc: maixpy doc: 本地模型训练
 ---
 
-
+windows10上使用本地训练教程看[这里](https://bbs.sipeed.com/thread/932)
 
 本地模型训练使用 [sipeed/maix_train](https://github.com/sipeed/maix_train) 这份代码进行， 使用了 Tensorflow 作为训练框架
-
+以下所有的训练使用的代码都是在linux下进行使用的，不是在windows下使用的！
 主要支持：
 * 物体分类模型（使用 Mobilenet V1）： 只识别图片中的物体是什么
 * 物体检测模型（使用 YOLO V2）： 找到图片中认识的图体，并同时找到其坐标和大小

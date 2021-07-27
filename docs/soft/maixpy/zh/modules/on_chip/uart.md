@@ -5,7 +5,7 @@ desc: maixpy doc: UART 的使用
 ---
 
 
-关于 UART 详细介绍请参考[UART-API 文档](../../api_reference/machine/uart.md).
+关于 UART 详细介绍请参考[UART-API 文档](./../api_reference/machine/uart.md).
 
 ## 使用方法
 
@@ -40,7 +40,6 @@ read_data = uart.read()
 将串口接收到的数据发送回去
 
 ```python
-from fpioa_manager import fm
 from machine import UART
 from board import board_info
 from fpioa_manager import fm
