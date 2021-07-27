@@ -10,7 +10,7 @@ title: Uboot 编译
 
 网盘地址：[https://pan.baidu.com/s/1hsf22fq](https://pan.baidu.com/s/1hsf22fq)
 
-国外用户：[https://releases.linaro.org/components/toolchain/binaries/latest/arm-linux-gnueabihf/](https://releases.linaro.org/components/toolchain/binaries/latest/arm-linux-gnueabihf/)
+国外用户：[https://releases.linaro.org/components/toolchain/binaries/6.3-2017.05/arm-linux-gnueabihf/](hhttps://releases.linaro.org/components/toolchain/binaries/6.3-2017.05/arm-linux-gnueabihf/)
 
 ```
 wget https://releases.linaro.org/components/toolchain/binaries/latest/arm-linux-gnueabihf/gcc-linaro-6.3.1-2017.05-x86_64_arm-linux-gnueabihf.tar.xz
