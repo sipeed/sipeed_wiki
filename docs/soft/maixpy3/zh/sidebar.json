@@ -184,6 +184,10 @@
                         {
                             "label": "rpycs",
                             "file": "module/maix/rpycs.md"
+                        },
+                        {
+                            "label": "nn",
+                            "file": "module/maix/nn.md"
                         }
                     ]
                 },
