@@ -19,7 +19,7 @@ desc: MaixPy3 nn模块 API文档, 以及使用说明
 其中最重要的就是`m = nn.load`和`m.forward()`两个函数, 即加载模型, 和进行模型前向推理
 
 ```python
-from maix import nn
+from maix import nn, display
 from PIL import Image
 import numpy as np
 
@@ -32,7 +32,6 @@ model = {
 
 input_size = (224, 224, 3)
 output_size = (222, 222, 3)
-camera.config(size=input_size[:2])
 
 options = {
     "model_type":  "awnn",
@@ -59,7 +58,7 @@ out = out.astype(np.float32).reshape(output_size)
 out = (np.abs(out) * 255 / out.max()).astype(np.uint8)
 img2 = Image.fromarray(out, mode="RGB")
 
-display.show(img2)enc
+display.show(img2)
 ```
 
 ## maix.nn.load()
