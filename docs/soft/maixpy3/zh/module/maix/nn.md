@@ -109,7 +109,7 @@ display.show(img2)
 
 #### 参数
 
-* `inputs`: 输入, 但输入层直接输入数据对象, 多层输入使用`list`
+* `inputs`: 输入, 但输入层直接输入数据对象, 可以是`Pillow`的`Image`对象, 也可以是`HWC`排列的`bytes`对象, 也可以是`numpy.ndarray`对象, 多层输入使用`list`
 * `quantize`: 为`True`, 会使用 `load()` 时 `opt` 的`mean norm`参数对数据进行归一化, 并进行`int8`量化； `False`则不会对输入数据进行处理, 则输入需要先自己手动规范量化到`-128~127`范围.  
 >! 这个参数未来可能会进行优化, 将归一化和量化分开
 
