@@ -61,7 +61,7 @@ img2 = Image.fromarray(out, mode="RGB")
 display.show(img2)
 ```
 
-## maix.nn.load()
+## 方法 maix.nn.load()
 
 加载模型, 返回 `maix.Model` 对象
 
@@ -99,7 +99,7 @@ display.show(img2)
 返回 `maix.Model` 对象
 
 
-## maix.Model
+## 类 maix.Model
 
 包含了一系列神经网络操作,  `maix.nn.load()` 会返回其对象
 
@@ -127,5 +127,53 @@ display.show(img2)
 del m
 ```
 
+## 模块 maix.nn.decoder
 
+`nn` 后处理模块, 集成了常见的模型的后处理, 使用 `forward` 进行模型推理后得到特征图输出, 使用这个模块下的方法对输出的特征图进行后处理
+
+### 类 maix.nn.decoder.Yolo2
+
+`YOLO V2` 的后处理模块, 使用时需要创建一个对象,调用`run`方法对模型推理输出进行解码得到物体的坐标和类别.
+
+等价于如下`python`伪代码:
+
+```python
+class Yolo2:
+    def __init__(self, anchors):
+        pass
+
+    def run(self, fmap, nms = 0.3, thresh = 0.5, img_size = None):
+        boxes = []
+        probs = []
+        for x, y, w, h, _probs in valid_results:
+            if img:
+                x = (x - w/2) * img_size[0]
+                y = (y - h/2) * img_size[1]
+                w *= img_size[0]
+                h *= img_size[1]
+                x, y, w, h = int(x), int(y), int(w), int(h)
+            boxes.append((x, y, w, h))  # item type is float if img_size == 0, else int type
+            probs.append(_probs)        # probs is list type, item type is float
+        return [np.array(boxes), np.array(probs)]
+
+```
+
+使用时:
+
+```python
+from maix.nn.decoder import Yolo2
+
+labels = ["A", "B", "C"]
+anchors = [1.19, 1.98, 2.79, 4.59, 4.53, 8.92, 8.06, 5.29, 10.32, 10.65]
+
+yolo2_decoder = Yolo2(anchors)
+...
+out = m.forwar(img, layout="hwc")
+boxes, probs = yolo2_decoder.run(out, thres=0.5, nms=0.3, img_size=(img.width, img.height))
+for i, box in enumerate(boxes):
+    class_id = probs[i].argmax()
+    disp_str = "{}:{:.2f}%".format(labels[class_id], probs[i][class_id]*100)
+    print("final box: {}, {}".format(box, disp_str))
+
+```
 
