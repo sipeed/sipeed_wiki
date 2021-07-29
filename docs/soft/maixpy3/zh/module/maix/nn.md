@@ -147,8 +147,8 @@ class Yolo2:
         probs = []
         for x, y, w, h, _probs in valid_results:
             if img:
-                x = (x - w/2) * img_size[0]
-                y = (y - h/2) * img_size[1]
+                x *= img_size[0]
+                y *= img_size[1]
                 w *= img_size[0]
                 h *= img_size[1]
                 x, y, w, h = int(x), int(y), int(w), int(h)
