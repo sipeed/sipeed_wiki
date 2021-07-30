@@ -114,6 +114,7 @@ display.show(img2)
 >! 这个参数未来可能会进行优化, 将归一化和量化分开
 
 * `layout`: `"hwc"` 或者 `"chw"`(默认, 推荐)
+* `debug`: 输出`debug`信息, 包含了底层`forward`用时等
 
 #### 返回值
 
