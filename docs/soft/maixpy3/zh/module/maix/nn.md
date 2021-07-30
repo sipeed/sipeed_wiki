@@ -61,7 +61,7 @@ img2 = Image.fromarray(out, mode="RGB")
 display.show(img2)
 ```
 
-## maix.nn.load()
+## 方法 maix.nn.load()
 
 加载模型, 返回 `maix.Model` 对象
 
@@ -99,7 +99,7 @@ display.show(img2)
 返回 `maix.Model` 对象
 
 
-## maix.Model
+## 类 maix.Model
 
 包含了一系列神经网络操作,  `maix.nn.load()` 会返回其对象
 
@@ -109,7 +109,7 @@ display.show(img2)
 
 #### 参数
 
-* `inputs`: 输入, 但输入层直接输入数据对象, 多层输入使用`list`
+* `inputs`: 输入, 但输入层直接输入数据对象, 可以是`Pillow`的`Image`对象, 也可以是`HWC`排列的`bytes`对象, 也可以是`numpy.ndarray`对象, 多层输入使用`list`
 * `quantize`: 为`True`, 会使用 `load()` 时 `opt` 的`mean norm`参数对数据进行归一化, 并进行`int8`量化； `False`则不会对输入数据进行处理, 则输入需要先自己手动规范量化到`-128~127`范围.  
 >! 这个参数未来可能会进行优化, 将归一化和量化分开
 
@@ -126,6 +126,95 @@ display.show(img2)
 ```python
 del m
 ```
+
+## 模块 maix.nn.decoder
+
+`nn` 后处理模块, 集成了常见的模型的后处理, 使用 `forward` 进行模型推理后得到特征图输出, 使用这个模块下的方法对输出的特征图进行后处理
+
+### 类 maix.nn.decoder.Yolo2
+
+`YOLO V2` 的后处理模块, 使用时需要创建一个对象,调用`run`方法对模型推理输出进行解码得到物体的坐标和类别.
+
+等价于如下`python`伪代码:
+
+```python
+class Yolo2:
+    def __init__(self, class_num, anchors, net_in_size=(224, 244), net_out_size=(7, 7)):
+        pass
+
+    def run(self, fmap, nms = 0.3, threshold = 0.5, img_size = None):
+        boxes = []
+        probs = []
+        for x, y, w, h, _probs in valid_results:
+            if img:
+                x *= img_size[0]
+                y *= img_size[1]
+                w *= img_size[0]
+                h *= img_size[1]
+                x, y, w, h = int(x), int(y), int(w), int(h)
+            boxes.append([x, y, w, h])  # item type is float if img_size == 0, else int type
+            probs.append([max_probs_index, _probs]) # probs is list type, item type is float
+        return [boxes, probs]
+
+```
+
+使用时:
+
+```python
+from maix.nn import decoder
+
+labels = ["A", "B", "C"]
+anchors = [1.19, 1.98, 2.79, 4.59, 4.53, 8.92, 8.06, 5.29, 10.32, 10.65]
+
+yolo2_decoder = decoder.Yolo2(len(labels), anchors)
+yolo2_decoder.run(bytes([0]*10))
+
+...
+
+out = m.forwar(img, layout="hwc")
+boxes, probs = yolo2_decoder.run(out, thres=0.5, nms=0.3, img_size=(img.width, img.height))
+for i, box in enumerate(boxes):
+    class_id = probs[i][0]
+    prob = probs[i][1][class_id]
+    disp_str = "{}:{:.2f}%".format(labels[class_id], prob*100)
+    print("final box: {}, {}".format(box, disp_str))
+
+```
+
+#### maix.nn.decoder.Yolo2.__init__()
+
+构造对象时会自动调用
+
+##### 参数
+
+
+* `class_num`: 类别数量
+* `anchors`: 预选框, `list` 类型, 数量为偶数, 必须要和训练时使用的`anchors` 相同, 也就是说跟模型绑定的参数, 如果你不知道, 请找提供模型的人提供
+* `net_in_size`: 网络输入层分辨率, 默认`(224, 244)`
+* `net_out_size`: 网络输出层分辨率, 默认 `(7, 7)`
+
+
+
+#### maix.nn.decoder.Yolo2.run()
+
+执行解码(后处理), 只能对象进行调用, 不能类直接调用
+
+##### 参数
+
+* `fmap`: 网路输出的特征图, 一般是`forward` 函数的结果
+* `nms`: 非极大值抑制(Non-Maximum Suppression), 用来去掉重复的框, `IOU`(两个框的重叠区域)大于这个值就只取概率大的一个, 取值范围:`[0, 1]`, 默认值为 `0.3`
+* `threshold`: 置信度阈值, 大于这个值才认为物体有效, 取值范围:`[0, 1]`, 默认 `0.5`
+* `img_size`: 源图像大小, `tuple`类型, 比如`(320, 240)`, 这会使返回值的`box` 坐标自动计算为相对于源图的坐标, 并且类型为整型, 默认`None` 则不会计算, `box` 返回相对值(百分比), 浮点类型, 范围:`[0, 1]`
+
+
+##### 返回值
+
+`[boxes, probs]`, `list` 类型, 可以参考上面的使用例子, 其中:
+
+* `boxes`: `list` 类型, 每个元素也是一个`list`, 包含`[x, y, w, h]`, 分别代表了框左上角坐标, 以及框的宽高
+* `probs`: `list` 类型, 每个元素也是一个`list`, 包含`[max_prob_idx, all_classes_probs]`
+  * `all_classes_probs`: `list` 类型, 包含了该框所有类别的置信度
+  * `max_prob_idx`: 整型, 代表了`all_classes_probs`中最大值的下标, 取值范围: `[0, classes_num - 1]`
 
 
 
