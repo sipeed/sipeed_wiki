@@ -6,6 +6,8 @@ desc: maixpy doc: 板级资源介绍
 
 MaixII M2dock 是基于 V831 芯片设计的一款【板卡】+【底板】的开发板产品。
 
+> 这个不是Maix Dock的升级版，这两款开发板是完全不一样的开发环境和使用方式的，不要有惯性思维
+
 ## 板卡
 
 细节请看[淘宝商品介绍](https://item.taobao.com/item.htm?id=635874427363)，可同步最新讯息。
@@ -32,6 +34,7 @@ MaixII M2dock 是基于 V831 芯片设计的一款【板卡】+【底板】的�
 | Ethernet | None | 10/100 Mbit/s Ethernet port with RMII interface |
 | ADC | None | 1-ch 6bit LRADC for key |
 | Audio | None | LINEOUTP + MICIN1P/N |
+| 开发环境 | Maixpy/C | Maixpy3/linux |
 
 ## 底板
 
@@ -69,9 +72,10 @@ MaixII M2dock 是基于 V831 芯片设计的一款【板卡】+【底板】的�
 | 21|扬声器*1 | 8Ω1W 1609复合铝膜扬声器  | 出厂已连接 |
 | 22|麦克风*1| 模拟驻极体麦克风 | --- |
 
+
 ## 屏幕转接板
 
-待上架，补张图。
+已上架，请到淘宝上[购买](https://item.taobao.com/item.htm?spm=a1z10.5-c-s.w4002-21410578033.11.53793c62PXvb9N&id=635874427363)
 
 ![](./asserts/lcd_rgb.jpg)
 
