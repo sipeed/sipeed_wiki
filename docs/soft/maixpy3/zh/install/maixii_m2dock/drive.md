@@ -22,7 +22,7 @@ juwan@juwan-N85-N870HL:~$
 
 开发板使用 `GD32` 模拟 `FT2232`，`Windows` 用户需要安装 `FT2232` 的串口驱动。
 
-- USB 串口驱动: **FT2232** ->[[下载链接点这里](https://dl.sipeed.com/MAIX/tools/ftdi_vcp_driver)](https://dl.sipeed.com/MAIX/tools/ftdi_vcp_driver)
+- USB 串口驱动: **FT2232** ->[下载链接](https://dl.sipeed.com/MAIX/tools/ftdi_vcp_driver)
 
 在拿到开发板并连接到电脑的时候, 可以打开设备管理器查看串口驱动是否已经安装,打开设备管理器的方法有:
 - 此电脑(右键) -> 属性 -> 设备管理器

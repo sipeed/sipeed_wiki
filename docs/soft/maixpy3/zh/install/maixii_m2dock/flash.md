@@ -19,6 +19,26 @@ V831 为全志的 SOC， 所以 Windwos 使用 **PhoenixSuit**, Linux 上使用 
   - [github-PhoenixSuit](https://github.com/colorfulshark/PhoenixSuit)
   - [lo4d-PhoenixSuit](https://phoenixsuit.en.lo4d.com/windows)
 
+## 镜像文件命名方式
+
+对于V831的镜像文件名字是有对应的规则，以后大家可以根据自己的需求来进行下载
+
+就拿`maixpy3-v831-800m-64m-512m-sp230530_240240_20210729`这镜像文件来说
+
+| 名称 | 含义 |
+| --- | --- |
+| maixpy3 | 支持MaixPy3进行开发 |
+| v831 | 支持的V831芯片上运行 |
+| 800m | 主频为800MHz |
+| 64m | RAM为64MB |
+| 512m | 对于tf卡容量的最低要求 |
+| sp230530 | 适用于型号为sp2305的摄像头，运行帧率为30帧 |
+| 240240 | 屏幕的输出分辨率为240*240 |
+| 20210729 | 镜像的发布时间 |
+
+> 如果是适合使用dd进行烧录，会在最前面多个dd
+
+
 ## Windows 上使用 PhoenixSuit 烧录
 
 解压 PhoenixSuit(Windows) 工具压缩包，不插入 SD 卡，将 V831 USB OTG 接口连接到 PC， 打开设备管理器， 安装驱动文件
@@ -31,13 +51,10 @@ V831 为全志的 SOC， 所以 Windwos 使用 **PhoenixSuit**, Linux 上使用 
 
 ![](./asserts/flash_05.png)
 
-重新插拔板子（上电不插入 SD 卡），软件提示是否要清空烧录，提示是否需要升级，点击 `YES` 
+重新插拔板子（上电不插入 SD 卡），当软件出现提示信息是否进入格式化升级模式，这时插入sd卡，点击 `YES` ，出现几次点几次，一般时出现2次
 
 ![](./asserts/flash_07.png)
 
-插入 sd 卡，提示是否强制格式化，再次点击 `YES`开始烧录（大约 40S）
-
-![](./asserts/flash_09.png)
 
 可能需要等待几秒才会更新状态，然后等待提示“固件升级成功”，即可断开 USB ，至此固件烧录完毕
 
