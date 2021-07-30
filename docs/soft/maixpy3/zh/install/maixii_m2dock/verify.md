@@ -33,4 +33,5 @@ desc: maixpy doc: 产品开箱验证
 
 ## 其他讯息
 
+> 现在出厂的MaixII M2dock都是已经组装好了，如果你想知道组装过程的可以看下面的链接
 > [MaixII M2dock 产品组装流程](./pack_flow.md)
