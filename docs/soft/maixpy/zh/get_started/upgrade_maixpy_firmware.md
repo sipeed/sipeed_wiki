@@ -106,3 +106,8 @@ kflash -p /dev/ttyUSB0 -b 1500000 -B goE maixpy.bin
 
 ## 最新标准固件下载
 2021/6/18更新：[标准固件下载](https://dl.sipeed.com/fileList/MAIX/MaixPy/release/master/maixpy_v0.6.2_54_g897214100/maixpy_v0.6.2_54_g897214100.bin)
+
+## 固件更新信息
+| 日期 | 版本号 | 备注 |
+| --- | --- | --- |
+| 2021/7/27 | 固件版本 0.6.2_57 | 加入了安装教程视频中的测试模式，可以开机检测sd卡是否挂载 |
