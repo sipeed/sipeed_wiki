@@ -29,7 +29,7 @@ desc: maixpy doc: MaixPy 文档简介
     <tbody>
         <tr>
             <td><strong>MaixPy</strong> 唯一官方文档官网</td>
-            <td><span class="limit_width">官网:</span> <span class=""><a href="https://maixpy.sipeed.com" rel="nofollow"><strong>maixpy.sipeed.com</strong></a></span><br><span class="limit_width">中文站: </span><span class=""><a href="https://wiki.sipeed.com/soft/maixpy/zh/" rel="nofollow"><strong>wiki.sipeed.com/soft/maixpy/zh/</strong></a></span></td>
+            <td><span class="limit_width">中文站: </span><span class=""><a href="https://wiki.sipeed.com/soft/maixpy/zh/" rel="nofollow"><strong>wiki.sipeed.com</strong></a></span></td>
         </tr>
         <tr>
             <td><strong>MaixPy</strong> 例程仓库</td>
@@ -50,7 +50,9 @@ desc: maixpy doc: MaixPy 文档简介
     </tbody>
 </table>
 
-
+| 文档最新更新时间 | 更新内容 | 历史更新 |
+| ---- | ----- | ---- |
+| 2021/8/2 | 更新了本地训练（windows）使用教程 | [历史](./update_history.md) |
 
 
 

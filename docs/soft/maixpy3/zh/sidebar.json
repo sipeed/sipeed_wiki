@@ -34,6 +34,7 @@
         {
             "label": "如何安装 MaixPy3 ",
             "file": "install/readme.md",
+            "collapsed": false,
             "items": [
                 {
                     "label": "Linux x86_64",
@@ -131,7 +132,6 @@
         },
         {
             "label": "一些使用案例",
-            "file": "usage/readme.md",
             "items": [
                 {
                     "label": "[00] 你好，世界。",
