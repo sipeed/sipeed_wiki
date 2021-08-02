@@ -164,8 +164,12 @@ items:
             items:
             -   label: MaixHub 云端训练
                 file: course/ai/train/maixhub.md
-            -   label: 本地训练
+            -   label: 本地训练——Linux
                 file: course/ai/train/local.md
+            -   label: 本地训练Windows环境配置
+                file: course/ai/train/local_windows_1.md
+            -   label: 本地训练Windows使用教程
+                file: course/ai/train/local_windows_2.md
     -   label: 传统算法
         items:
         -   label: 图像处理
@@ -423,3 +427,5 @@ items:
         items:
         -   label: 参与经验分享/分享模板
             file: share/my_share/README.md
+-   label: 更新历史
+    file: update_history.md

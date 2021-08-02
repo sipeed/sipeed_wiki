@@ -23,7 +23,7 @@ V831 为全志的 SOC， 所以 Windwos 使用 **PhoenixSuit**, Linux 上使用 
 
 对于V831的镜像文件名字是有对应的规则，以后大家可以根据自己的需求来进行下载
 
-就拿`maixpy3-v831-800m-64m-512m-sp230530_240240_20210729`这镜像文件来说
+就拿`maixpy3-v831-800m-64m-512m-sp2305_240240_20210729`这镜像文件来说
 
 | 名称 | 含义 |
 | --- | --- |
@@ -32,35 +32,40 @@ V831 为全志的 SOC， 所以 Windwos 使用 **PhoenixSuit**, Linux 上使用 
 | 800m | 主频为800MHz |
 | 64m | RAM为64MB |
 | 512m | 对于tf卡容量的最低要求 |
-| sp230530 | 适用于型号为sp2305的摄像头，运行帧率为30帧 |
+| sp2305 | 适用于型号为sp2305的摄像头 |
 | 240240 | 屏幕的输出分辨率为240*240 |
 | 20210729 | 镜像的发布时间 |
 
 > 如果是适合使用dd进行烧录，会在最前面多个dd
 
 
-## Windows 上使用 PhoenixSuit 烧录
+## Windows 上使用 PhoenixCard烧录镜像
 
-解压 PhoenixSuit(Windows) 工具压缩包，不插入 SD 卡，将 V831 USB OTG 接口连接到 PC， 打开设备管理器， 安装驱动文件
+PhoenixSuit和PhoenixCard是全志芯片常用的两种烧录工具，一个是USB烧录，另一个是sd卡烧录。对于需要烧录到flash中的，常用PhoenixSuit，而使用sd卡的在用PhoenixSuit需要安装USB驱动等一系列的麻烦操作，就可以使用PhoenixCard进行烧录。
 
-![](./asserts/flash_01.png)
+### 获取烧录工具
 
-![](./asserts/flash_03.png)
+PhoenixCard下载站连接：[下载站 - Sipeed](https://dl.sipeed.com/shareURL/MaixII/SDK/tools)
 
-打开烧录软件,  并浏览打开镜像文件
+系统镜像下载站连接：[下载站 - Sipeed](https://dl.sipeed.com/shareURL/MaixII/SDK/release)
 
-![](./asserts/flash_05.png)
+SD Card Formatter下载连接：[SD Card Formatter](https://www.sdcard.org/downloads/formatter/eula_windows/SDCardFormatterv5_WinEN.zip)
 
-重新插拔板子（上电不插入 SD 卡），当软件出现提示信息是否进入格式化升级模式，这时插入sd卡，点击 `YES` ，出现几次点几次，一般时出现2次
+### 系统烧录
 
-![](./asserts/flash_07.png)
+插入sd卡，打开SD Card Formatter
 
+![image-20210802102810041](https://raw.githubusercontent.com/USTHzhanglu/picture/main/img/image-20210802102810041.png)
 
-可能需要等待几秒才会更新状态，然后等待提示“固件升级成功”，即可断开 USB ，至此固件烧录完毕
+Refresh后点击Format后格式化，注意选中对应的sd卡；
 
-![](./asserts/flash_11.png)
+打开PhoenixSuit,固件处选择对应镜像包（下载镜像后需要先解压），然后刷新盘符，如果未找到可以尝试重新插拔下SD卡，勾选启动卡，点击烧卡。
 
-![](./asserts/flash_13.png)
+![image-20210802104155132](https://raw.githubusercontent.com/USTHzhanglu/picture/main/img/image-20210802104155132.png)
+
+大概30s后，烧录完成。
+
+![image-20210802104608721](https://raw.githubusercontent.com/USTHzhanglu/picture/main/img/image-20210802104608721.png)
 
 ## Linux(Ubuntu) 使用 Livesuit 烧录
 
