@@ -127,7 +127,7 @@ munmap(gpio_base, 0x32);
     lpi-gpio test PG0   //测试PG0用函数翻转IO的最大速率，结果为1.85MHz
     lpi-gpio tfast PG0  //测试PG0用软件翻转IO的最大速率，结果为10MHz
 
-为方便在C语言里调用，我生成了gpio操作的动态库 [libgpio.so](http://libgpio.so/)，大家可以在c程序中调用。
+为方便在C语言里调用，我生成了gpio操作的动态库 [libgpio.so](https://libgpio.so/)，大家可以在c程序中调用。
 
 这里是一个简单的使用例程：
 

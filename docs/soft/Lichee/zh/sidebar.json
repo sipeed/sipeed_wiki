@@ -297,11 +297,8 @@
                                                 {
                                                     "label":"Python 操作GPIO",
                                                     "file":"Zero-Doc/Drive/GPIO_py.md"
-                                                },
-                                                {
-                                                    "label":"pinctrl-sunxi介绍",
-                                                    "file":"Zero-Doc/Drive/GPIO_pinctrl_intro.md"
                                                 }
+                                                
                                             ]
                                         },
                                         {
@@ -473,6 +470,15 @@
                                 }
                             ]
                         }  
+                    ]
+                },
+                {
+                    "label":"Lichee Maix-S",
+                    "file":"MaixSense/readme.md",
+                    "items":[
+                        {
+                            
+                        }
                     ]
                 }        
     ]
