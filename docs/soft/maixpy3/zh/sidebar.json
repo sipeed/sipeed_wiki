@@ -288,6 +288,10 @@
                     "file": "question/maixpy3_issue.md"
                 }
             ]
+        },
+        {
+            "label":"更新历史",
+            "file":"update_history.md"
         }
     ]
 }

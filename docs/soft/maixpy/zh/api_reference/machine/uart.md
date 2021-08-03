@@ -134,12 +134,8 @@ uart.deinit()
 
 运行程序后，可以在终端看到 `baudrate:115200 bits:8 parity:0 stop:0 ---check Successfully` 的打印信息
 
-<<<<<<< Updated upstream
-> 此例程不适合MaixBit开发板
-=======
-> 此例程不适合在MaixBit开发板上进行使用
+> 以下例程对于Bit开发是不能直接进行使用，需要修改对应可用的PIN脚，可自行尝试
 
->>>>>>> Stashed changes
 ```python
 from fpioa_manager import fm
 from machine import UART
@@ -177,9 +173,8 @@ del uart_B
 ### 例程 2
 
 AT模块串口
-> 此例程不适合在MaixBit开发板上进行使用
+> 以下例程对于Bit开发是不能直接进行使用，需要修改对应可用的PIN脚，可自行尝试
 
-> 此例程不适合MaixBit开发板
 
 ```python
 fm.register(board_info.WIFI_RX,fm.fpioa.UART2_TX)
@@ -189,9 +184,8 @@ uart = machine.UART(machine.UART.UART2,115200,timeout=1000, read_buf_len=4096)
 ### 例程 3
 
 修改 REPL 串口波特率
-> 此例程不适合在MaixBit开发板上进行使用
+> 以下例程对于Bit开发是不能直接进行使用，需要修改对应可用的PIN脚，可自行尝试
 
-> 此例程不适合MaixBit开发板
 
 ```python
 from machine import UART
@@ -202,9 +196,8 @@ repl.init(1500000, 8, None, 1, read_buf_len=2048)
 ### 例程 3
 
 修改 REPL 串口
-> 此例程不适合在MaixBit开发板上进行使用
+> 以下例程对于Bit开发是不能直接进行使用，需要修改对应可用的PIN脚，可自行尝试
 
-> 此例程不适合MaixBit开发板
 
 ```python
 from machine import UART
