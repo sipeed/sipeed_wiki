@@ -1,37 +1,84 @@
-# MaixSense开发板介绍
-MaixSense开发板是Sipeed基于[全志MaixSense芯片](https://aijishu.armchina.com/blog/allwinnertech)设计的开发板，它通过内置的周易AIPU处理器同时支持智能语音和视频图像处理，开发者可以直接在开发板上跑通相关CV,NLP等AI模型。下面是产品相关介绍。
-![3052168180-60ed58fc4ace8.png](https://bbs.sipeed.com/storage/attachments/2021/07/28/XrtkR7aqKOEkZj8eMo9EDyazZTJDqRveKS8qDzmY_thumb.png "1522")
+# MaixSense 简介
 
-![3771179095-60d4495544991.png](https://bbs.sipeed.com/storage/attachments/2021/07/28/DUt7moHKhYn7mK6yXU9V8n0sK1qwfVNGYCoB3RZF_thumb.png "1523")
+这个系列和之前的Maix-i系列不同，它不仅仅是一个带AI加速的MCU，还是可以运行Linux系统的开发板。
 
-## 特性
 
-* 主模块:Maix-II A模块(R239 主芯片+ Wi-Fi & BLE+预留SPI Flash焊盘)
-* 搭载两个USB-C接口: 1个USB转TTL, 1个USB OTG
-* 搭载以太网PHY接口，(以24P 0.5mm间距FPC的形式引出)
-* 丰富的外设: LCD接口+模拟双Mic+3W扬声器+4P MX1.25接口
-* 1.5英寸LCD+USB HD 720P摄像头(USB-C OTG形式，支持正反插)
-* 按键:底板:1个复位按键和4个用户按键;核心板: 1个烧录按键
-* 两侧2.54mm间距排母:引出26个I0引脚和4个电源引脚
-* 搭载TF卡槽，使用TF卡作为主存储器(可自行焊接使用SPI NAND)
-* 较为小巧的体积
+## MaixSense开发板介绍
 
-**注意**:所有电源域所能承受的反向电压不能超过_-0.3V
-**警告!** 表中列出为额定值。高于上表中列出的值可能会对设备造成久性损坏。
-  在额定值最大以上或最小以下的条件下，设备的运行可能会出现不可预期的偏差。
-  长时间在绝对最大值下运行可能会降低设备寿命。
-  ![1647796359-60ed3510295d5.png](https://bbs.sipeed.com/storage/attachments/2021/07/28/KVFWeBP1Kg8WCvpsjOG90eBYLzOv01XY2GDNkZ5K_thumb.png "1531")
-  产品框图
+MaixSense开发板可能是市面上最小的Linux卡片电脑, 本套件包含一个搭载全志R329的高度集成SOM核心板，以及一个多功能IO扩展底板，可以运行Linux系统, 并具备出色的扩展功能。您可以将它用于搭建个人服务器、开发智能语音助手、设计机器人等场景。它通过内置的周易AIPU处理器同时支持智能语音和视频图像处理，开发者可以直接在开发板上跑通相关CV,NLP等AI模型。
 
-![1658277296-60ed353c0b084.png](https://bbs.sipeed.com/storage/attachments/2021/07/28/AbBCGuT72yHrHr1NxIFRNAQMNRu0hlcGLILgbQ5M_thumb.png "1532")
-核心板概览
+**Tina Linux**：全志科技基于Linux内核开发的针对智能硬件类产品的嵌入式软件系统。Tina Linux基于openwrt-14.07版本的软件开发包,包含了Linux系统开发用到的内核源码、驱动、工具、系统中间件与应用程序包。
 
-![2430576215-60ed3558a6a35.png](https://bbs.sipeed.com/storage/attachments/2021/07/28/pdbG0FnEFIi8vHKmjd0qg4jSruLQeNzezAAPdWFj_thumb.png "1533")
-底板概览
+但是MaixSense不只是可以运行Tina，还可以运行**armbian**，这是一个真正**完整**的linux系统，armbian是基于debian/ubuntu进行开发的。
 
-![1703240212-60ed357c419e5.png](https://bbs.sipeed.com/storage/attachments/2021/07/28/rdP8FQSfUk3wBjbXWMrsYXoCWzpOah3MofMNFfgp_thumb.png "1534")![3636190839-60ed35d5d04bb.png](https://bbs.sipeed.com/storage/attachments/2021/07/28/zq9WtHLDNXZzWTJMd6bPLImm2JqSwWqSd9SDJCij_thumb.png "1535")![863027303-60ed35ed4b39a.png](https://bbs.sipeed.com/storage/attachments/2021/07/28/qfHAEcE2vzJDOfiyqEV36mEYhj8y0eGgPjxbuNeE_thumb.png "1536")![989767600-60ed35ff6dade.png](https://bbs.sipeed.com/storage/attachments/2021/07/28/2ZLyWFvARkShsm1IKihypthgzvJKmFa8y8FPzRXl_thumb.png "1537")
+|   名称   |               armbian               |               Tina               |
+| ------ | --------------------------------- | ------------------------------ |
+|   简介   | 专门用于`ARM`开发板的`Debian` |    全志深度修改OpenWRT1404的系统     |
+|   特点   |        主线化Linux，功能丰富        |        厂商深度修改，软硬件契合度高        |
+| 适用人群 |       极客，嵌入式入门玩家等        | 深度开发，需要自行定制等开发人员 |
+<img src="./assets/M2S_1.png" width="270">
 
-底板下方1.2mm 4Pin连接器
-![937914899-60ed360dba9d0.png](https://bbs.sipeed.com/storage/attachments/2021/07/28/lCUDvXdTp9FH6wjVcoZDJEKkR9G7OmbB9N4Hyibs_thumb.png "1538")
 
-> 更多关于R932的教程请到MaixSense分区
+## MaixSense外观预览
+<div align="center">
+<br><img src="./assets/M2A-1.gif">
+
+</div>
+
+
+## MaixSense基本参数
+
+<table role="table" class="center_table">
+    <thead>
+        <tr>
+            <th colspan = "2">MaixSense基本参数</th>   
+        </tr>
+    </thead>
+    <tbody>
+    <tr>    
+        <td>处理器<br>CPU</td>
+        <td>双核 ARM CortexTM-A53, ARM v8 架构,z</td>
+    </tr>
+    <tr>
+        <td>AIPU(NPU)</td>
+        <td>搭载周易TZ1AIPU，最大支持0.25TOPS@600MHz</td>
+    </tr>
+    <tr>
+        <td>DRAM</td>
+        <td>SIP 256MB DDR3</td>
+    </tr>
+    <tr>
+        <td>存储</td>
+        <td>可使用核心板搭载的 SPINAND (默认空贴)存储<br>可使用底板搭载的SD卡座</td>
+    </tr>
+    <tr>
+        <td>video Encoder<br>视频编码器</td>
+        <td>H264/5 &JPEG,最大720p@30fps</td>
+    </tr>
+    <tr>
+        <td>摄像头</td>
+        <td>出厂默认OV9732，最高支持720P@30fps HD<br>采用USB-C连接器,支持正反插(可分别用作前后摄)</td>
+    </tr>
+    <tr>
+        <td>麦克风</td>
+        <td>两个模拟MEMS麦克风，平均灵敏度91dB SPL@1kHz</td>
+    </tr>
+    <tr>
+        <td>屏幕</td>
+        <td>1.5寸SPI总线屏幕,屏幕接口采用0.5mm 12P FPC，分辨率240*240</td>
+    </tr>
+    <tr>
+        <td>按键</td>
+        <td>1个复位按键和4个用户按键(ADC按键)，1个下载按键(FEL)</td>
+    </tr>
+    <tr>
+        <td>IO引出</td>
+        <td>3*10P 2.54mm 引出4个电源引脚(5V/GND)11个GPIO引脚<br>1个4PMX1.25插座(引出2*GPIO和5V/GND)s</td>
+    </tr>
+    <tr>
+        <td>以太网接口</td>
+        <td>在核心板以24P 0.5mm间距FPC的形式引出，用于连接相应PHY</td>
+    </tr>
+    </tbody>
+</table>
+

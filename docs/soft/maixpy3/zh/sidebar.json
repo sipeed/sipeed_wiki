@@ -33,7 +33,6 @@
         },
         {
             "label": "如何安装 MaixPy3 ",
-            "file": "install/readme.md",
             "collapsed": false,
             "items": [
                 {
@@ -42,7 +41,7 @@
                 },
                 {
                     "label": "MaixII M2dock",
-                    "file": "install/maixii_m2dock/readme.md",
+                    
                     "items": [
                         {
                             "label": "芯片平台介绍",
@@ -54,7 +53,7 @@
                         },
                         {
                             "label": "产品开箱验证",
-                            "file": "install/maixii_m2dock/verify.md",
+                            
                             "items": [
                                 {
                                     "label": "烧录系统",
