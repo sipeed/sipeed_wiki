@@ -65,14 +65,6 @@
                         "label": "Maix-II"
                     },
                     {
-                        "url": "/hardware/zh/maixIII/index.html",
-                        "label": "Maix-III"
-                    },
-                    {
-                        "url": "/hardware/zh/maixIV/index.html",
-                        "label": "Maix-IV"
-                    },
-                    {
                         "url": "/hardware/zh/lichee/index.html",
                         "label": "Lichee Pi"
                     },

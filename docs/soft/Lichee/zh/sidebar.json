@@ -472,25 +472,7 @@
                             ]
                         }  
                     ]
-                },
-                {
-                    "label":"MaixSense",
-                    "items":[
-                        {
-                            "label":"简介",
-                            "file":"MaixSense/readme.md"
-                        },
-                        {
-                            "label":"上手教程",
-                            "items":[
-                                {
-                                    "label":"烧录系统",
-                                    "file":"MaixSense/start/start.md"
-                                }
-                            ]
-                        }
-                    ]
-                }        
+                }    
     ]
 }
 
