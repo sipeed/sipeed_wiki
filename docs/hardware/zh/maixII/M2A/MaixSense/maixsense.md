@@ -19,6 +19,7 @@ MaixSense开发板可能是市面上最小的Linux卡片电脑, 本套件包含�
 <img src="./assets/M2S_1.png" width="270">
 
 
+
 ## MaixSense外观预览
 <div align="center">
 <br><img src="./assets/M2A-1.gif">

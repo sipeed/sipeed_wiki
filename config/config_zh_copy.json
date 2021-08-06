@@ -1,0 +1,277 @@
+{
+    "navbar": {
+        "title": "wiki",
+        "logo": {
+            "alt": "sipeed wiki logo",
+            "src": "/static/image/logo.svg"
+        },
+        "home_url": "/",
+        "items": [
+            {
+                "url": "/",
+                "label": "首页",
+                "position": "left"
+            },
+            {
+                "url": "https://www.sipeed.com",
+                "label": "矽速官网",
+                "target": "_blank",
+                "position": "left"
+            },
+            {
+                "label": "开源软件",
+                "position": "left",
+                "type": "list",
+                "items": [
+                    {
+                        "url": "/soft/maixpy/zh/",
+                        "label": "MaixPy"
+                    },
+                    {
+                        "url": "/soft/maixpy3/zh/",
+                        "label": "MaixPy3"
+                    },
+                    {
+                        "url":"/soft/maixduino/zh/",
+                        "label":"MaixDuino"
+                    },
+                    {
+                        "url": "/soft/Lichee/zh/",
+                        "label": "Lichee"
+                    },
+                    {
+                        "url": "/soft/longan/zh/index.html",
+                        "label": "Longan"
+                    },
+                    {
+                        "url": "/soft/Tang/zh/index_bak.html",
+                        "label": "Tang"
+                    }
+
+                ]
+            },
+            {
+                "label": "开源硬件",
+                "position": "left",
+                "type": "list",
+                "items": [
+                    {
+                        "url": "/hardware/zh/maix/index.html",
+                        "label": "Maix-I"
+                    },
+                    
+                    {
+                        "url": "/hardware/zh/maixII/index.html",
+                        "label": "Maix-II"
+                    },
+                    {
+                        "url": "/hardware/zh/maixIII/index.html",
+                        "label": "Maix-III"
+                    },
+                    {
+                        "url": "/hardware/zh/maixIV/index.html",
+                        "label": "Maix-IV"
+                    },
+                    {
+                        "url": "/hardware/zh/lichee/index.html",
+                        "label": "Lichee Pi"
+                    },
+                    {
+                        "url": "/hardware/zh/tang/index.html",
+                        "label": "Tang"
+                    },
+                    {
+                        "url": "/hardware/zh/longan/index.html",
+                        "label": "Longan"
+                    }
+                ]
+            },
+            {
+                "label": "商业产品",
+                "position": "left",
+                "type": "list",
+                "items": [
+                    {
+                        "url": "/hardware/maixface/zh/",
+                        "label": "Maix Face"
+                    }
+                ]
+            },
+            {
+                "label": "云平台",
+                "position": "left",
+                "type": "list",
+                "items": [
+                    {
+                        "url": "https://www.maixhub.com",
+                        "label": "Maixhub 模型训练平台",
+                        "target": "_blank"
+                    },
+                    {
+                        "url": "https://www.maixhub.com/onlinecompiler",
+                        "label": "固件在线编译",
+                        "target": "_blank"
+                    }
+                ]
+            },
+            {
+                "label": "社区",
+                "url": "/community.html",
+                "position": "left"
+            },
+            {
+                "url": "/store.html",
+                "label": "商城",
+                "position": "left"
+            },
+            {
+                "id": "language",
+                "label": "Language: ",
+                "position": "right",
+                "type": "selection",
+                "items": [
+                    {
+                        "id": "zh",
+                        "url": "/",
+                        "label": "中文"
+                    },
+                    {
+                        "id": "en",
+                        "url": "/en/",
+                        "label": "English"
+                    }
+                ]
+            }
+        ]
+    },
+    "footer":{
+        "top":[
+            {
+                "label": "链接",
+                "items": [
+                    {
+                        "label": "Sipeed",
+                        "url": "https://www.sipeed.com",
+                        "target": "_blank"
+                    },
+                    {
+                        "label": "BBS 论坛",
+                        "url": "https://bbs.sipeed.com/",
+                        "target": "_blank"
+                    },
+                    {
+                        "label": "Maixhub",
+                        "url": "https://maixhub.sipeed.com/",
+                        "target": "_blank"
+                    },
+                    {
+                        "label": "Sipeed 淘宝",
+                        "url": "https://sipeed.taobao.com/",
+                        "target": "_blank"
+                    },
+                    {
+                        "label": "网站使用 teedoc 生成",
+                        "url": "https://github.com/neutree/teedoc",
+                        "target": "_blank"
+                    }
+                ]
+            },
+            {
+                "label": "网站统计",
+                "items": [
+                    {
+                        "label": "百度统计",
+                        "url": "https://tongji.baidu.com/web/welcome/ico?s=9cb07365544a53067c56c346c838181a",
+                        "target": "_blank"
+                    },
+                    {
+                        "label": "网站地图",
+                        "url": "/sitemap.xml"
+                    }
+                ]
+            },
+            {
+                "label": "源码",
+                "items": [
+                    {
+                        "label": "文档源文件",
+                        "url": "https://github.com/sipeed/sipeed_wiki",
+                        "target": "_blank"
+                    },
+                    {
+                        "label": "开源项目源码",
+                        "url": "https://github.com/sipeed",
+                        "target": "_blank"
+                    }
+                ]
+            },
+            {
+                "label": "关注我们",
+                "items": [
+                    {
+                        "label": "github",
+                        "url": "https://github.com/sipeed",
+                        "target":"_blank"
+                    },
+                    {
+                        "label": "twitter",
+                        "url": "https://twitter.com/SipeedIO",
+                        "target":"_blank"
+                    },
+                    {
+                        "label": "淘宝",
+                        "url": "https://sipeed.taobao.com/",
+                        "target":"_blank"
+                    },
+                    {
+                        "label": "更多",
+                        "url": "/community.html"
+                    }
+                ]
+            },
+            {
+                "label": "联系我们",
+                "items": [
+                    {
+                        "label": "电话: +86 0755-27808509"
+                    },
+                    {
+                        "label": "商业支持: support@sipeed.com"
+                    },
+                    {
+                        "label": "地址: 深圳市宝安区新湖路4008号蘅芳科技办公大厦A座-2101C"
+                    },
+                    {
+                        "label": "加入我们",
+                        "url": "/join_us.html"
+                    }
+                ]
+            }
+        ],
+        "bottom": [
+            {
+                "label": "©2018-2021 深圳矽速科技有限公司",
+                "url": "https://www.sipeed.com",
+                "target": "_blank"
+            },
+            {
+                "label": "粤ICP备19015433号-1",
+                "url": "https://beian.miit.gov.cn/#/Integrated/index",
+                "target": "_blank"
+            }
+        ]
+    },
+    "plugins": {
+        "teedoc-plugin-search":{
+            "config": {
+                "search_hint": "搜索",
+                "input_hint": "输入关键词，多关键词空格隔开",
+                "loading_hint": "正在加载，请稍候。。。",
+                "download_err_hint": "下载文件失败，请刷新重试或检查网络",
+                "other_docs_result_hint": "来自其它文档的结果",
+                "curr_doc_result_hint": "当前文档搜索结果"
+            }
+        }
+    },
+    "show_source": "编辑本页"
+}

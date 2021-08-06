@@ -66,5 +66,5 @@ Linux 不需要装驱动，系统自带了，使用 `ls /dev/ttyUSB*` 即可看�
 
 Windows 下载 [ch340 ch341 driver](https://api.dl.sipeed.com/shareURL/MAIX/tools/ch340_ch341_driver) 安装即可，然后可以在 `设备管理器` 中看到串口设备
 
-## 配置系统
+
 

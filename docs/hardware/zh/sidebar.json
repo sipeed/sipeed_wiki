@@ -60,55 +60,63 @@
             "label": "Maix-II",
             "items": [
                 {
-                    "label": "M2"
-                    
+                    "label": "M2",
+                    "file":"maixII/M2/introduce.md",
+                    "items":[
+                        {
+                            "label":"MaixII-Dock",
+                            "file":"maixII/M2/resources.md",
+                            "items":[
+                                {
+                                    "label":"烧录系统",
+                                    "file":"maixII/M2/flash.md"
+                                },
+                                {
+                                    "label":"访问串口",
+                                    "file":"maixII/M2/drive.md"
+                                },
+                                {
+                                    "label":"配置系统",
+                                    "file":"maixII/M2/config.md"
+                                },
+                                {
+                                    "label":"上手使用",
+                                    "file":"maixII/M2/usage.md"
+                                }
+                            ]
+                        }
+                    ]
                 },
                 {
                     "label": "M2S"
                     
                 },
                 {
-                    "label": "M2A"
-                    
-                },
-                {
-                    "label": "M2W"
-                    
-                },
-                {
-                    "label": "M2WS"
+                    "label": "M2A",
+                    "file":"maixII/M2A/readme.md",
+                    "items":[
+                        {
+                            "label":"MaixSense简介",
+                            "file":"maixII/M2A/MaixSense/maixsense.md",
+                            "items":[
+                                {
+                                    "label":"烧录系统",
+                                    "file":"maixII/M2A/MaixSense/start/start.md"
+                                },
+                                {
+                                    "label":"配置系统",
+                                    "file":"maixII/M2A/MaixSense/start/buildsystem.md"
+                                },
+                                {
+                                    "label":"上手使用",
+                                    "file":"maixII/M2A/MaixSense/start/first.md"
+                                }
+                            ]
+                        }
+                    ]
                     
                 }
-            ]
-        },
-        {
-            "label": "Maix-III",
-            "items": [
-                {
-                    "label": "M3-lite"
-                    
-                },
-                {
-                    "label": "M3"
-                    
-                }               
-            ]
-        },
-        {
-            "label": "Maix-IV",
-            "items": [
-                {
-                    "label": "M4"
-                    
-                },
-                {
-                    "label": "M4S"
-                    
-                },
-                {
-                    "label": "M4P"
-                    
-                }               
+               
             ]
         },
         {
@@ -142,15 +150,8 @@
                 {
                     "label": "Tang Nano",
                     "file": null
-                },
-                {
-                    "label": "Tang Pico/AI",
-                    "file": null
-                },
-                {
-                    "label": "Tang Sweety",
-                    "file": null
-                }                                                
+                }
+                                                       
             ]
         },
         {
@@ -163,11 +164,7 @@
                 {
                     "label": "Longon Zero",
                     "file":"longan/Zero/readme.md"
-                },
-                {
-                    "label": "Longon One",
-                    "file":"longan/One/readme.md"
-                }               
+                }           
             ]
         },
         {

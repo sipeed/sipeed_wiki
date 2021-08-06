@@ -16,15 +16,7 @@
 - Maix Cube
 
 - Maix Amigo
-<style>
-        img{
-            transform:scale(2);//设置缩放比例
-            -ms-transform:scale(2);
-            -webkit-transform:scale(2);
-            -o-transform:scale(2);
-            -moz-transform:scale(2);
-        }
-</style>
+
 
 ## 差异对比
 <table>
@@ -35,7 +27,7 @@
       <th width="226" scope="col"><a href="maix_bit.html"><img src="../assets/dk_board/maix_bit/Bit.png" width="200"  alt="Bit"/></a></th>
       <th width="226" scope="col"><a href="maix_cube.html"><img src="../assets/dk_board/maix_cube/maix_cube.png" width="200"  alt="maix_cube"/></a></th>
       <th width="226" scope="col"><a href="Maix_dock.html"><img src="../assets/dk_board/maix_dock/Dan_Dock.png" width="200"  alt=""/></a></th>
-      <th width="226" scope="col"><a href="maix_duino.html"><img src="../assets/dk_board/maix_duino/maixduino_2.png" width="200"  alt=""/></a> </th>    
+      <th width="226" scope="col"><a href="maix_duino.html"><img src="../assets/dk_board/maix_duino/maixduino_2.png" width="200"  alt=""/></a></th>    
       <th width="226" scope="col"><a href="maix_Amigo.html"><img src="../assets/dk_board/maxi_amigo/image-20200730120223557.png" width="200"   alt=""/></a> </th>  
     </tr>
     <tr>
