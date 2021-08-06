@@ -6,9 +6,48 @@ id: wiki_home
 ---
 
 
-# Sipeed Wiki - Documentation
+<div>
+    <script src="/static/js/jquery.fullpage.min.js"></script>
+    <link rel="stylesheet" href="/static/css/jquery.fullpage.min.css" type="text/css"/>
+</div>
 
-[![](/static/image/MaixPy.png)](https://maixpy.sipeed.com/) [![](/static/image/licheepi.png)](http://zero.lichee.pro/)[![](/static/image/tang.png)](https://tang.sipeed.com/)
-[![](/static/image/longan.png)](http://longan.sipeed.com/) [![](/static/image/DOWNLOAD.png)](https://wiki.sipeed.com/#) [![](/static/image/BBS.png)](https://bbs.sipeed.com/)
+<div id="fullpage">
+    <div class="section">
+        <div>
+            <h1>Sipeed Wiki - Documentation</h1>
+        </div>
+        <div>
+            <a href="./soft/maixpy/zh/readme.md"><img src="/static/image/MaixPy.png"></a>
+            <a href="./soft/Lichee/zh/readme.md"><img src="/static/image/licheepi.png"></a>
+            <a href="./soft/Tang/zh/index_bak.md"><img src="/static/image/tang.png"></a><br/>
+            <a href="./soft/longan/zh/readme.md"><img src="/static/image/longan.png"></a>
+            <a href="https://dl.sipeed.com/" target="_blank"><img src="/static/image/DOWNLOAD.png"></a>
+            <a href="https://bbs.sipeed.com/" target="_blank"><img src="/static/image/BBS.png"></a>
+        </div>
+    </div>
+</div>
+
+<div>
+<script type='text/javascript'>
+    $(document).ready(function () {
+        var html = $("#page_footer").html();
+        $("#page_footer").remove();
+        $("#fullpage").append('<div id="page_footer" class="section fp-auto-height">' + html + "</div>");
+        var nav_height = $("#navbar").height();
+        $('#fullpage').fullpage({
+            menu: '#navbar',
+            navigation: true,
+            css3: true,
+            dragAndMove: true,
+            paddingBottom: nav_height + "px"
+            // fixedElements: "#navbar"
+        });
+        $("#to_top").on("click", function(){
+            $.fn.fullpage.moveTo(1);
+        });
+    });
+</script>
+</div>
+
 
 
