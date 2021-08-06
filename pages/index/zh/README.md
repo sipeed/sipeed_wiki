@@ -12,7 +12,7 @@ id: wiki_home
 </div>
 
 <div id="fullpage">
-    <div class="section">
+    <div class="section" style="height: 100vh;">
         <div>
             <h1>Sipeed Wiki - 资料和文档</h1>
         </div>
