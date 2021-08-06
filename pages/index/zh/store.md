@@ -7,34 +7,34 @@ id: store
 
 
 
-<div class="title_store">
-<img src="/static/image/sipeed_logo_4.svg" alt="sipeed_logo">
+<div class="center_content_small">
+    <div class="title_store">
+    <img src="/static/image/sipeed_logo_4.svg" alt="sipeed_logo">
+    </div>
+    <div>
+        <style>
+            table {
+                text-align: center;
+            }
+            table td {
+                height: 10em;
+            }
+        </style>
+    </div>
+    <table role="table" class="center_table">
+        <thead>
+            <tr>
+                <th>国内官方旗舰店</th>
+                <th>国外官方旗舰店</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td rowspan="1"><a href="https://shop365481095.taobao.com/"  target="_blank"><img src="/static/image/taobao.png" alt="sipeed taobao shop"></a></td>
+                <td><a href="https://www.aliexpress.com/store/911876460" target="_blank"><img src="/static/image/aliexpress.png" alt="sipeed aliexpress shop"></a>
+                </td>
+            </tr>		
+        </tbody>
+    </table>
 </div>
 
-<div>
-<style>
-	table {
-		text-align: center;
-	}
-	table td {
-		height: 10em;
-	}
-</style>
-</div>
-
-
-<table role="table" class="center_table">
-    <thead>
-        <tr>
-            <th>国内官方旗舰店</th>
-            <th>国外官方旗舰店</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td rowspan="1"><a href="https://shop365481095.taobao.com/"  target="_blank"><img src="/static/image/taobao.png" alt="sipeed taobao shop"></a></td>
-            <td><a href="https://www.aliexpress.com/store/911876460" target="_blank"><img src="/static/image/aliexpress.png" alt="sipeed aliexpress shop"></a>
-			</td>
-        </tr>		
-    </tbody>
-</table>

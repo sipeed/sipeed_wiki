@@ -84,6 +84,11 @@ th {
     background-color: #ff6b63;
     border: 2px solid #d8524b;
 }
+.center_content_small {
+    width: 60%;
+    margin: auto;
+    line-height: 2em;
+}
 #navbar .site_logo {
     height: 2em;
 }
