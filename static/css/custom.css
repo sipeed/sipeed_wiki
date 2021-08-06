@@ -20,6 +20,10 @@ iframe {
     z-index: 98;
     box-shadow: 0px 0px 5px 0px #acc4d8;
 }
+#wiki_home .md_page #page_content > div {
+    width: 100%;
+    max-width: 100%;
+}
 #big_btn_wrapper {
     display: flex;
     justify-content: space-evenly;
@@ -83,11 +87,6 @@ blockquote {
 th {
     background-color: #ff6b63;
     border: 2px solid #d8524b;
-}
-.center_content_small {
-    width: 60%;
-    margin: auto;
-    line-height: 2em;
 }
 #navbar .site_logo {
     height: 2em;
