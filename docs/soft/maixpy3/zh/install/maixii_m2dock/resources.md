@@ -20,13 +20,13 @@ MaixII M2dock 是基于 V831 芯片设计的一款【板卡】+【底板】的�
 
 | 项目 | MAIX-I (K210) | MAIX-II (V831) |
 | --- | --- | --- |
-| 主控芯片</br> CPU | 400~600Mhz  | 800~1000Mhz (优势项目标红，下同)  |
-| 视频编码器 </br>Video encoder | None | H.264, up to 1080p@30fps</br>H265, up to 1080p@30fps</br>JPEG, up to 1080p@30fps |
-| AI加速器</br>NPU | 0.23TOPS</br>support Conv+BN+ACT+POOL | 0.2TOPS (NVDLA)</br>support Conv,Inner_Product,Pool,Eltwise,ACT,BN,Split,Concat |
-| 内存</br>Memory | 8MB SRAM | SIP 64MB DDR2 |
-| 存储</br>Storage | 16MB SPI Nor Flash | 可选的16M flash(默认空贴)  |
-| 摄像头</br>Camera | DVP, 最高输入30W像素 | 2lane MIPI, 最高支持1080P@60fps |
-| 显示</br>Display | 8bit MCU LCD | 8bit MCU LCD, 配转接板可接最大10寸RGB LCD |
+| 主控芯片<br> CPU | 400~600Mhz  | 800~1000Mhz (优势项目标红，下同)  |
+| 视频编码器 <br>Video encoder | None | H.264, up to 1080p@30fps<br>H265, up to 1080p@30fps<br>JPEG, up to 1080p@30fps |
+| AI加速器<br>NPU | 0.23TOPS<br>support Conv+BN+ACT+POOL | 0.2TOPS (NVDLA)<br>support Conv,Inner_Product,Pool,Eltwise,ACT,BN,Split,Concat |
+| 内存<br>Memory | 8MB SRAM | SIP 64MB DDR2 |
+| 存储<br>Storage | 16MB SPI Nor Flash | 可选的16M flash(默认空贴)  |
+| 摄像头<br>Camera | DVP, 最高输入30W像素 | 2lane MIPI, 最高支持1080P@60fps |
+| 显示<br>Display | 8bit MCU LCD | 8bit MCU LCD, 配转接板可接最大10寸RGB LCD |
 | SDIO | None |SMHC x2 (SDC0, SDC1) |
 | SPI | SPIx3 |SPI x2 (SPI0, SPI1) |
 | I2C | I2C x3 | I2C x4 (TWI0, TWI1, TWI2, TWI3) |
