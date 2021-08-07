@@ -113,7 +113,7 @@ c = gpiod.chip("gpiochip1")
 # pylint: disable=missing-docstring
 import sys
 import time
-import pytest
+#import pytest
 from gpiod import chip, line, line_request
 
 try:
@@ -186,5 +186,5 @@ while True:
 ```
 
 ```python
-python test_blink.py gpiochip0 238
+python test_blink.py gpiochip1 238
 ```
