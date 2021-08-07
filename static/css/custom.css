@@ -192,10 +192,11 @@ th {
         display: flex;
         flex-direction: column;
     }
-    #wiki_home #page_content a {
-        width: min-content;
-    }
     #wiki_home #page_content a:hover {
         background-color: transparent;
     }
+    #navbar #navbar_items {
+        display: none;
+    }
 }
+
