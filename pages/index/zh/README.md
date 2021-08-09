@@ -7,6 +7,7 @@ id: wiki_home
 
 
 <div>
+    <script src="/static/js/scrolloverflow.min.js"></script>
     <script src="/static/js/jquery.fullpage.min.js"></script>
     <link rel="stylesheet" href="/static/css/jquery.fullpage.min.css" type="text/css"/>
 </div>
@@ -39,6 +40,8 @@ id: wiki_home
             navigation: true,
             css3: true,
             dragAndMove: true,
+            scrollOverflow: true,
+	        scrollOverflowReset: true,
             paddingBottom: nav_height + "px"
             // fixedElements: "#navbar"
         });
