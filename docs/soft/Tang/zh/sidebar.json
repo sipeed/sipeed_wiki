@@ -38,51 +38,9 @@
                                 {
                                     "label":"LED",
                                     "file":"fpga/led.md"
-                                },
-                                {
-                                    "label":"FPGA驱动DVP"
-                                },
-                                {
-                                    "label":"PFGA外接常用显示接口"
-                                },
-                                {
-                                    "label":"FPGA驱动SDRAM"
-                                },
-                                {
-                                    "label":"FPGA驱动其他IC"
-                                },
-                                {
-                                    "label":"FPGA运行其他软核"
                                 }
                             ] 
-                        },
-                        {
-                            "label":"蜂鸟例程",
-                            "items":[
-                                {
-                                    "label":"FT2232使用简明教程"
-                                },
-                                {
-                                    "label":"蜂鸟外设简介"
-                                },
-                                {
-                                    "label":"蜂鸟点灯"
-                                },
-                                {
-                                    "label":"蜂鸟驱动屏幕"
-                                },
-                                {
-                                    "label":"蜂鸟的中断"
-                                },
-                                {
-                                    "label":"蜂鸟外挂传感器"
-                                },
-                                {
-                                    "label":"蜂鸟添加外设"
-                                }
-                    ]
-                }
-                
+                        }                
                     ]
                 },
                 {
@@ -90,14 +48,24 @@
                     "items":[
                         {
                             "label":"简介",
-                            "file":"./Tang-Nano-zh/zh/readme.md"
+                            "file":"./Tang-Nano-Doc/readme.md"
                         },
                         {
                             "label":"准备",
-                            "file":"./Tang-Nano-zh/zh/get_started/install-the-ide.md"
+                            "file":"./Tang-Nano-Doc/get_started/install-the-ide.md"
                         },
                         {
-                            "label":"Tang Nano"
+                            "label":"示例",
+                            "items":[
+                                {
+                                    "label":"点灯教程",
+                                    "file":"./Tang-Nano-Doc/examples/1_led.md"
+                                },
+                                {
+                                    "label":"点LCD教程",
+                                    "file":"./Tang-Nano-Doc/examples/2_lcd.md"
+                                }
+                            ]
                         }
                     ]
                 }  

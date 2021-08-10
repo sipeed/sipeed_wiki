@@ -17,11 +17,14 @@ armbian内置了ffmpeg，可以快速捕捉sensor数据并输出到屏幕上
 
 ![image-20210805165654537](https://raw.githubusercontent.com/USTHzhanglu/picture/main/img/image-20210805165654537.png)
 
-## 连接网络
+## 测试网络
 
-使用 nmtui 指令可以进入可视化的配网界面，选择 Activate a connection ， 选择对应的SSID，输入连接密码，确认即可。
+使用 nmtui 指令可以进入可视化的配网界面，
+选择 Activate a connection ， 选择对应的SSID，输入连接密码，确认即可。
 
 ![202108051626](https://raw.githubusercontent.com/USTHzhanglu/picture/main/img/202108051626.gif)
+
+
 
 设置完毕后使用ifconfig查看本机操作，然后就可以使用ssh等操作了。
 
@@ -29,10 +32,30 @@ armbian内置了ffmpeg，可以快速捕捉sensor数据并输出到屏幕上
 
 也可以使用apt下载各种应用
 
-    sudo apt install neofetch
+```
+sudo apt install neofetch
+```
 
 ![image-20210805165620823](https://raw.githubusercontent.com/USTHzhanglu/picture/main/img/image-20210805165620823.png)
 
 如果遇到终端显示错位，还需要`sudo apt-get install xterm`安装下xterm，然后`resize`即可。
 
 ![202108061015](https://raw.githubusercontent.com/USTHzhanglu/picture/main/img/202108061015.gif)
+
+## 测试AIPU
+
+获取1000类物体分类模型
+
+下载站链接[zhouyi_test.tar.xz](https://dl.sipeed.com/shareURL/MaixII-A/example),使用任意方式上传到板子中
+
+```
+##解压压缩包
+tar -xvf zhouyi_test.tar.xz
+##授予执行权限
+cd zhouyi_test
+chmod 777 run.sh
+##执行1000类物体分类
+./run.sh
+##后台执行1000类物体分类
+./run.sh < /dev/null > /dev/null 2> 1 
+```
