@@ -93,7 +93,7 @@
                 },
                 {
                     "label": "M2A",
-                    "file":"maixII/M2A/readme.md",
+                    "file":"maixII/M2A/R329.md",
                     "items":[
                         {
                             "label":"MaixSense简介",
@@ -108,8 +108,12 @@
                                     "file":"maixII/M2A/MaixSense/start/buildsystem.md"
                                 },
                                 {
-                                    "label":"上手使用",
+                                    "label":"开箱测试",
                                     "file":"maixII/M2A/MaixSense/start/first.md"
+                                },
+                                {
+                                    "label":"上手使用",
+                                    "file":"maixII/M2A/MaixSense/start/user.md"
                                 }
                             ]
                         }
@@ -150,6 +154,24 @@
                 {
                     "label": "Tang Nano",
                     "file": null
+                },
+                {
+                    "label":"Nano 4K",
+                    "file":"tang/Tang-Nano-4K/Nano-4K.md",
+                    "items":[
+                        {
+                            "label":"IDE安装",
+                            "file":"../../soft/Tang/zh/Tang-Nano-Doc/get_started/install-the-ide.md"
+                        },
+                        {
+                            "label":"点灯测试",
+                            "file":"../../soft/Tang/zh/Tang-Nano-Doc/examples/4K_led.md"
+                        },
+                        {
+                            "label":"摄像头和HDIM屏幕显示",
+                            "file":"tang/Tang-Nano-4K/start.md"
+                        }
+                    ]
                 }
                                                        
             ]
