@@ -16,19 +16,24 @@
 - Maix Cube
 
 - Maix Amigo
-
+<style type="text/css">
+th {
+    background-color: #fbfbfb;
+    border: 2px solid #f1f1f1;
+}
+</style>
 
 ## 差异对比
 <table>
   <tbody>
     <tr>
-      <th width="226" scope="col">&nbsp;</th>
-      <th width="226" scope="col"><a href="maix_go.html"><img src="../assets/dk_board/maix_go/Go.jpg" width="200"  alt=""/></a></th>
+      <th width="226" scope="col" >&nbsp;</th>
+      <th width="226" scope="col" ><a href="maix_go.html"><img src="../assets/dk_board/maix_go/Go.jpg" width="200"  alt=""/></a></th>
       <th width="226" scope="col"><a href="maix_bit.html"><img src="../assets/dk_board/maix_bit/Bit.png" width="200"  alt="Bit"/></a></th>
-      <th width="226" scope="col"><a href="maix_cube.html"><img src="../assets/dk_board/maix_cube/maix_cube.png" width="200"  alt="maix_cube"/></a></th>
+      <th width="226" scope="col"><a href="maix_cube.html"><img src="../assets/dk_board/maix_cube/maix_cube_1.png" width="200"  alt="maix_cube"/></a></th>
       <th width="226" scope="col"><a href="Maix_dock.html"><img src="../assets/dk_board/maix_dock/Dan_Dock.png" width="200"  alt=""/></a></th>
-      <th width="226" scope="col"><a href="maix_duino.html"><img src="../assets/dk_board/maix_duino/maixduino_2.png" width="200"  alt=""/></a></th>    
-      <th width="226" scope="col"><a href="maix_Amigo.html"><img src="../assets/dk_board/maxi_amigo/image-20200730120223557.png" width="200"   alt=""/></a> </th>  
+      <th width="226" scope="col"><a href="maix_duino.html"><img src="../assets/dk_board/maix_duino/DSC_08141.png" width="200"  alt=""/></a></th>    
+      <th width="226" scope="col"><a href="maix_Amigo.html"><img src="../assets/dk_board/maxi_amigo/amigo.png" width="200"   alt=""/></a> </th>  
     </tr>
     <tr>
       <td>型号 </td>
