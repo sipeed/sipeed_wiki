@@ -715,11 +715,3 @@ pip 在安装的时候就会通过 `from pip._internal.utils.compatibility_tags 
 
 - `./python3.7 get-pip.py Cython --target=../usr/lib/python3.7/site-packages/`
 
-## 后记
-
-|  时间   | 备注  |
-|  ----  | ----  |
-| 2021年01月10日  | 初稿 |
-| 2021年01月11日  | 重审 |
-| 2021年02月21日  | 修订 |
-|    |   |

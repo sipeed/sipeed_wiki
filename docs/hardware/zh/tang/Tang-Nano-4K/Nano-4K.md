@@ -24,7 +24,7 @@ Lichee Tang Nano 4K开发板板载的GW1NSR-LV4C，是一款系统级封装芯�
 
 特别注意：
 使用ide的时候版本需要>= v1.9.7.01 Beta
-
+![](Tang_nano_4K_20210810_mod7.SVG)
 ## 开发环境
 Lichee Tang Nano使用Gowin云源软件IDE进行开发软件支持通用的硬件描述语言，可以快速实现 FPGA开发过程中的代码综合、布局布线、比特流文件生成下载、生产集成IP核等相关工作。
 
