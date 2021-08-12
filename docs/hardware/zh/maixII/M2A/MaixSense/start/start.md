@@ -39,17 +39,17 @@ armbian使用的烧录方式为dd，windows下推荐使用Etcher，linux下推�
 
 首先解压镜像，得到 .img镜像文件，然后使用SD Card Formatter格式化sd卡，打开Etcher，点击`Flash from file`,选中dd镜像包，然后点击`Select target`选中sd卡，最后点击`Flash`烧录。 
 
-![95133](https://raw.githubusercontent.com/USTHzhanglu/picture/main/img/95133.gif)
+![95133](./../assets/95133.gif)
 
 ### linux下系统烧录
 
 首先解压镜像，得到 .img镜像文件，然后格式化sd卡，打开Terminal，输入  `sudo dd if = xxx.img of=/dev/sdx bs=1M status=progress oflag=direct`烧录。注意xxx.img为文件名，  `/dev/sdx`为sd卡实挂载位置。
 
-![2021-08-05-11-44-49](https://raw.githubusercontent.com/USTHzhanglu/picture/main/img/2021-08-05-11-44-49.gif)
+![2021-08-05-11-44-49](./../assets/2021-08-05-11-44-49.gif)
 
 同时也可以直接使用Disks进行更便捷的烧录（需要Ubuntu桌面版)：
 
-![2021080511-46-53](https://raw.githubusercontent.com/USTHzhanglu/picture/main/img/2021080511-46-53.gif)
+![2021080511-46-53](./../assets/2021080511-46-53.gif)
 
 烧录完毕后，即可放入Lichee MaixSense中运行。
 

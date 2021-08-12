@@ -4,7 +4,7 @@
 
 `nmtui`
 
-![202108051626](https://raw.githubusercontent.com/USTHzhanglu/picture/main/img/202108051626.gif)
+![202108051626](./../assets/202108051626.gif)
 
 
 
@@ -16,25 +16,25 @@
 
 打开`armbian-config`，选中Personal，选择Mirrors，找到合适的apt源，按住TAB键切换到ok，保存即可。		
 
-![202108061955](https://raw.githubusercontent.com/USTHzhanglu/picture/main/img/202108061955.gif)
+![202108061955](./../assets/202108061955.gif)
 
 ## 设置时区
 
 打开`armbian-config`，选中Personal，选择Timezone > Asia >Shanghai设置上海时间（不用找，Debian没有北京时间），按住TAB键切换到ok，保存即可。		
 
-![202108062005](https://raw.githubusercontent.com/USTHzhanglu/picture/main/img/202108062005.gif)
+![202108062005](./../assets/202108062005.gif)
 
 ## 设置中文显示
 
 打开`armbian-config`，选中Personal >Locales>下滑到最下面，空格选中zh.GBK和zh.UTF-8,，然后勾选zh_CN.UTF8设置为系统默认语言，按住TAB键切换到ok，保存，exit退出，下载中文字体，`apt-get install fonts-wqy-zenhei`，重启后系统环境就变成中文的了。
 
-![202108062054](https://raw.githubusercontent.com/USTHzhanglu/picture/main/img/202108062054.gif)
+![202108062054](./../assets/202108062054.gif)
 
 ## 配置蓝牙
 
 打开`armbian-config`，选中Network，选择BTinstall安装蓝牙支持包。
 
-![202108071034](https://raw.githubusercontent.com/USTHzhanglu/picture/main/img/202108071034.gif)
+![202108071034](./../assets/202108071034.gif)
 
 然后安装RT8723ds的蓝牙驱动
 
@@ -80,7 +80,7 @@ connect XX:XX:XX:XX #连接设备
 
 
 
-![202108071610](https://raw.githubusercontent.com/USTHzhanglu/picture/main/img/202108071610.gif)
+![202108071610](./../assets/202108071610.gif)
 
 ### 设置蓝牙音频输入/输出
 
@@ -114,7 +114,7 @@ maixsense:~:# pactl list short sinks
 maixsense:~:# pactl set-default-sink 2 
 ```
 
-![202108071726](https://raw.githubusercontent.com/USTHzhanglu/picture/main/img/202108071726.gif)
+![202108071726](./../assets/202108071726.gif)
 
 然后就可以播放音频到蓝牙设备，或者通过蓝牙连接手机当作蓝牙音箱使用。
 
@@ -122,7 +122,7 @@ maixsense:~:# pactl set-default-sink 2
 
 `alsamixer`
 
-![202108071440](https://raw.githubusercontent.com/USTHzhanglu/picture/main/img/202108071440.gif)
+![202108071440](./../assets/202108071440.gif)
 
 常用命令
 
@@ -191,7 +191,7 @@ apt下载mplayer`apt install mplayer`
 
 在后面加上`< /dev/null > /dev/null 2>1 &`以便在后台播放
 
-![202108091128](https://raw.githubusercontent.com/USTHzhanglu/picture/main/img/202108091128.gif)
+![202108091128](./../assets/202108091128.gif)
 
 
 
@@ -212,7 +212,7 @@ gcc hello.c -o hello.o
 ./hello.o
 ```
 
-![202108091201](https://raw.githubusercontent.com/USTHzhanglu/picture/main/img/202108091201.gif)
+![202108091201](./../assets/202108091201.gif)
 
 ## 编写python代码
 
@@ -225,7 +225,7 @@ esc
 python3 helloworld.py
 ```
 
-![202108091339](https://raw.githubusercontent.com/USTHzhanglu/picture/main/img/202108091339.gif)
+![202108091339](./../assets/202108091339.gif)
 
 ## 运行神经网络实例
 
@@ -290,7 +290,7 @@ while led:
 
 效果如下：
 
-![202108091956](https://raw.githubusercontent.com/USTHzhanglu/picture/main/img/202108091956.gif)
+![202108091956](./../assets/202108091956.gif)
 
 ## 设置开机启动
 

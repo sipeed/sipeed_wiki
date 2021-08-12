@@ -1,0 +1,141 @@
+{
+    "items": [
+        {
+            "label": "Tang",
+            "file": null
+        },
+        {
+                
+            "label": "Tang Primer",
+            "collapsed": false,
+            "items": [
+                {
+                    "label": "Tang Primer",
+                    "file": "content/readme.md"
+                },
+                {
+                    "label":"Getting Started",
+                    "collapsed": false,
+                    "items":[
+                        {
+                            "label":"Requirements",
+                            "file":"content/getting-started/requirements.md"
+                        },
+                        {
+                            "label":"Installing Tang Dynasty IDE on Linux",
+                            "file":"content/getting-started/installing-TD-IDE/linux.md"
+                        },
+                        {
+                            "label":"Installing Tang Dynasty IDE on Windows",
+                            "file":"content/getting-started/installing-TD-IDE/windows.md"
+                        },
+                        {
+                            "label":"Installing USB Driver on Linux",
+                            "file":"content/getting-started/installing-USB-Driver/linux.md"
+                        },
+                        {
+                            "label":"Installing USB Driver on Windows",
+                            "file":"content/getting-started/installing-USB-Driver/windows.md"
+                        },
+                        {
+                            "label":"Getting to Blinky",
+                            "file":"content/getting-started/Getting-to-Blinky/Getting-to-Blinky.md"
+                        }
+                    ]
+                },
+                {
+                    "label":"Hardware Overview",
+                    "collapsed":false,
+                    "items":[
+                        {
+                            "label":"Tang Primer board",
+                            "file":"content/hardware-overview/lichee-tang.md"
+                        },
+                        {
+                            "label":"OV2640 Camera Module",
+                            "file":"content/hardware-overview/OV2640-camera.md"
+                        },
+                        {
+                            "label":"LCD Display module",
+                            "file":"content/hardware-overview/LCD-display.md"
+                        },
+                        {
+                            "label":"RV Debugger",
+                            "file":"content/hardware-overview/RV-debugger.md"
+                        }
+                    ]
+                },
+                {
+                    "label":"Using Tang Perimer",
+                    "collapsed":false,
+                    "items":[
+                        {
+                            "label":"Using Tang GPIO",
+                            "file":"content/using-tang/using-gpio/using-gpio.md"
+                        }
+                    ]
+                },
+                {
+                    "label":"Working with RISC-V",
+                    "collapsed":false,
+                    "items":[
+                        {
+                            "label":"Hummingbrid Core",
+                            "file":"content/risc-v-core/hummingbird/_index.en.md"
+                        }
+                    ]
+                },
+                {
+                    "label":"Developer Guide",
+                    "collapsed":false,
+                    "items":[
+                        {
+                            "label":"Using Yosys with Primer",
+                            "file":"content/dev-guide/using-yosys/_index.en.md"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "Tang Nano",
+            "items": [
+                {
+                    "label": "INTRODUCTION",
+                    "collapsed": false,
+                    "items":[
+                        {
+                            "label":"About Tang Nano",
+                            "file":"Tang-Nano-Doc/README.md"
+                        }
+                    ]
+                },
+                {
+                    "label":"REDAY",
+                    "collapsed": false,
+                    "items":[
+                        {
+                            "label":"IDE installation",
+                            "file":"Tang-Nano-Doc/get_started/install-the-ide.md"
+                        }
+                    ]
+                },
+                {
+                    "label":"EXAMPLE",
+                    "collapsed":false,
+                    "items":[
+                        {
+                            "label":"Lighting tutorial",
+                            "file":"Tang-Nano-Doc/examples/1_led.md"
+                        },
+                        {
+                            "label":"Point LCD tutorial",
+                            "file":"Tang-Nano-Doc/examples/2_lcd.md"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+            
