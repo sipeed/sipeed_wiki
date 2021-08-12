@@ -30,6 +30,10 @@
                     {
                         "url": "/soft/maixpy3/en/",
                         "label": "Maixpy3"
+                    },
+                    {
+                        "url":"/soft/Tang/en/",
+                        "label":"Tang"
                     }
                 ]
             },
