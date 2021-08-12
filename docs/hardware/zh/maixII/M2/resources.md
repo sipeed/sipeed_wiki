@@ -22,7 +22,7 @@ MaixII M2dock 是基于 V831 芯片设计的一款【板卡】+【底板】的�
 | --- | --- | --- |
 | 主控芯片<br> CPU | 400~600Mhz  | 800~1000Mhz (优势项目标红，下同)  |
 | 视频编码器 <br>Video encoder | None | H.264, up to 1080p@30fps<br>H265, up to 1080p@30fps<br>JPEG, up to 1080p@30fps |
-| AI加速器<br>NPU | 0.23TOPS<br>support Conv+BN+ACT+POOL | 0.2TOPS (NVDLA)<br>support Conv,Inner_Product,Pool,Eltwise,ACT,BN,Split,Concat |
+| AI加速器<br>NPU | 0.23TOPS<br>support Conv+BN+ACT+POOL | 0.2TOPS<br>support Conv,Inner_Product,Pool,Eltwise,ACT,BN,Split,Concat |
 | 内存<br>Memory | 8MB SRAM | SIP 64MB DDR2 |
 | 存储<br>Storage | 16MB SPI Nor Flash | 可选的16M flash(默认空贴)  |
 | 摄像头<br>Camera | DVP, 最高输入30W像素 | 2lane MIPI, 最高支持1080P@60fps |

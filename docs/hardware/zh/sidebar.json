@@ -58,6 +58,7 @@
         },
         {
             "label": "Maix-II",
+            "file":"maixII/readme.md",
             "items": [
                 {
                     "label": "M2",
