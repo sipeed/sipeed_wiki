@@ -36,14 +36,6 @@
 
 ![202108071034](./../assets/202108071034.gif)
 
-然后安装RT8723ds的蓝牙驱动
-
-> https://github.com/Icenowy/armbian-firmware/tree/8723ds_bt/rtl_bt
-> 8723ds 蓝牙固件是这里面 rtl8723ds 开头的
-> [rtl8723ds_config.bin](https://github.com/Icenowy/armbian-firmware/blob/8723ds_bt/rtl_bt/rtl8723ds_config.bin)和[rtl8723ds_fw.bin](https://github.com/Icenowy/armbian-firmware/blob/8723ds_bt/rtl_bt/rtl8723ds_fw.bin)
->
-> 放到 /lib/firmware/rtl_bt
-
 可以使用Xftp传输，安装完毕后断电重启即可。
 
 然后就可以使用Bluetoothctl配置蓝牙。
