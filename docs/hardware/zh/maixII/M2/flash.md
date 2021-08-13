@@ -8,7 +8,7 @@ desc: maixpy doc: MaixII M2dock 烧录系统
 
 V831 为全志的 SOC， 所以 Windwos 使用 **PhoenixSuit**, Linux 上使用 **Livesuit** 烧录镜像文件。
 
-- 从下载站获取最新的 V831 系统镜像 [SDK_MaixII/release](https://dl.sipeed.com/shareURL/MaixII/SDK/release) ，找不到就搜索 V831 获取最新的镜像。
+- 从下载站获取最新的 V831 系统镜像 [SDK_MaixII/release](https://dl.sipeed.com/shareURL/MaixII/MaixII-Dock/SDK/release) ，找不到就搜索 V831 获取最新的镜像。
 
 - 下载站中有连个同版本不同大小的镜像系统，文件较大的镜像是需要使用dd命令进行系统的烧录。（目前只能在linux系统上进行系统的烧录--2021.06.26）
 - 解压 V831 镜像压缩包，得到一个 xxxx.img 文件。
@@ -45,9 +45,9 @@ PhoenixSuit和PhoenixCard是全志芯片常用的两种烧录工具，一个是U
 
 ### 获取烧录工具
 
-PhoenixCard下载站连接：[下载站 - Sipeed](https://dl.sipeed.com/shareURL/MaixII/SDK/tools)
+PhoenixCard下载站连接：[下载站 - Sipeed](https://dl.sipeed.com/shareURL/MaixII/MaixII-Dock/SDK/tools)
 
-系统镜像下载站连接：[下载站 - Sipeed](https://dl.sipeed.com/shareURL/MaixII/SDK/release)
+系统镜像下载站连接：[下载站 - Sipeed](https://dl.sipeed.com/shareURL/MaixII/MaixII-Dock/SDK/release)
 
 SD Card Formatter下载连接：[SD Card Formatter](https://www.sdcard.org/downloads/formatter/eula_windows/SDCardFormatterv5_WinEN.zip)
 
@@ -137,7 +137,7 @@ sudo ./livesuit_installer.run
 
 ## Windows使用dd烧录
 
-[下载dd镜像](https://dl.sipeed.com/shareURL/MaixII/SDK/release)带有xx-dd文件即可
+[下载dd镜像](https://dl.sipeed.com/shareURL/MaixII/MaixII-Dock/SDK/release)带有xx-dd文件即可
 
 下载[Etcher](https://www.balena.io/etcher/ "Etcher")
 
@@ -234,7 +234,7 @@ Number  Start (sector)    End (sector)  Size Name
 
 ## Linux(Ubuntu) 使用 dd镜像 烧录
 
-[下载dd镜像](https://dl.sipeed.com/shareURL/MaixII/SDK/release)带有xx-dd.img文件即可
+[下载dd镜像](https://dl.sipeed.com/shareURL/MaixII/MaixII-Dock/SDK/release)带有xx-dd.img文件即可
 
 使用dd命令之前，通过命令 `fdisk -l` 查看tf卡的名称
 
