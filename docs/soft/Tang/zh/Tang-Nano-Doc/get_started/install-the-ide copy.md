@@ -66,6 +66,31 @@ setx LM_LICENSE_FILE path_to_the_file
 
 ![3-6](./../../../assets/lic_remote_1.png)
 
+synopsys 高级功能的激活需要在系统中添加环境变量 `LM_LICENSE_FILE=27020@45.33.107.56`
+
+**Windows** 用户在键盘上按 win+r 键，在弹出的运行窗口输入 `cmd`，点击确定后会弹出黑色命令行窗口，在里面输入下面命令
+
+```
+setx LM_LICENSE_FILE 27020@45.33.107.56
+```
+
+Windows 除了命令行的方式添加，也可以通过 右键电脑->属性->环境变量 ，然后如下图进行添加
+
+![3-7](./../../../assets/lic_remote_2.png)
+
+**Linux** 用户需要在 `~/.bashrc` 中添加
+
+```
+export LM_LICENSE_FILE 27020@45.33.107.56
+```
+
+进入 IDE 后，点击 Tools 中的 `Synplify Pro`
+
+![3-8](./../../../assets/lic_remote_3.png)
+
+随后会弹出界面如下图，这时需要等待一小会，等 licence 初始化完毕就可以使用
+
+![3-9](./../../../assets/lic_remote_4.png)
 
 # 使用方法
 
