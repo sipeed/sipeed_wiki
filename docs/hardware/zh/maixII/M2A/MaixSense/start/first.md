@@ -46,7 +46,7 @@ sudo apt install neofetch
 
 获取1000类物体分类模型
 
-下载站链接[zhouyi_test.tar.xz](https://dl.sipeed.com/shareURL/MaixII-A/example),使用任意方式上传到板子中
+下载站链接[zhouyi_test.tar.xz](https://dl.sipeed.com/shareURL/MaixII/MaixII-A/example),使用任意方式上传到板子中
 
 ```
 ##解压压缩包
