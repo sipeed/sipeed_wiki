@@ -42,7 +42,7 @@
 
 常用命令：
 
-```
+```bash
 devices             		列出活动的蓝牙设备
 paired-devices      		列出已配对蓝牙设备
 pairable <on/off>   		是否允许配对
@@ -62,7 +62,7 @@ help          				查看帮助
 
 使用`bluetoothctl`连接蓝牙设备。
 
-```
+```bash
 scan on #扫描设备
 scan off #停止扫描
 trust XX:XX:XX:XX # 信任设备
@@ -78,26 +78,26 @@ connect XX:XX:XX:XX #连接设备
 
 启用蓝牙音频前，需要先安装`pulseaudio`即及蓝牙组件
 
-```
+```bash
 apt install pulseaudio
 apt install pulseaudio-module-bluetooth
 ```
 
 然后使用pactl查看是否有蓝牙输出设备
 
-```
+```bash
 pactl list short sinks
 ```
 
 切换音频输出到蓝牙
 
-```
+```bash
 pactl set-default-sink <dev>
 ```
 
 log如下：
 
-```
+```bash
 maixsense:~:# apt install pulseaudio
 maixsense:~:# apt install pulseaudio-module-bluetooth
 maixsense:~:# pactl list short sinks
@@ -148,18 +148,18 @@ xx; '        切换左/右捕获                     ▒x
 
 如果需要控制蓝牙设备音量，需要使用`pactl` ，并且`pcatl`也支持控制声卡，所以推荐使用此app控制音量。
 
-```
-查看输入/输出设备索引
+```bash
+##查看输入/输出设备索引
 pactl list short sources/sinks
 ##设置输入/输出音量
 pactl set-source/sink-volume index volume
 pactl set-default-source/sink
-设置默认输入/输出
+##设置默认输入/输出
 ```
 
 示例，设置蓝牙耳机为输出设备，音量为10%,然后增加20%，最后减少30%
 
-```
+```bash
 maixsense:~:# pactl list short sinks
 0	alsa_output.platform-7032000.codec.stereo-fallback	module-alsa-card.c	s16le 2ch 44100Hz	SUSPENDED
 2	bluez_sink.00_26_04_00_73_B1.a2dp_sink	module-bluez5-device.c	s16le 2ch 44100Hz	RUNNING
@@ -189,7 +189,7 @@ apt下载mplayer`apt install mplayer`
 
 ## 编写c代码
 
-```
+```c
 vim helloworld.c
 i
 #include <stdio.h>
@@ -208,7 +208,7 @@ gcc hello.c -o hello.o
 
 ## 编写python代码
 
-```
+```bash
 vim helloworld.py
 i
 print("hello world!\n")
@@ -225,7 +225,7 @@ python3 helloworld.py
 
 下载站链接[zhouyi_test.tar.xz](https://dl.sipeed.com/shareURL/MaixII/MaixII-A/example),使用任意方式上传到板子中
 
-```
+```bash
 ##解压压缩包
 tar -xvf zhouyi_test.tar.xz
 ##授予执行权限
@@ -241,7 +241,7 @@ chmod 777 run.sh
 
 安装GPIO的python支持库
 
-```
+```bash
 pip install gpiod
 ```
 
@@ -249,13 +249,13 @@ pip install gpiod
 
 编写代码
 
-``` 
+``` bash
 vim led.py
 ```
 
 复制代码进去
 
-```
+```python
 import time
 import gpiod as gpio
 PH_BASE = (8-1)*32 # "PH"
@@ -276,7 +276,7 @@ while led:
 
 执行代码
 
- ```
+ ```bash
  python3 led.py
  ```
 
@@ -288,13 +288,13 @@ while led:
 
 启用开机自启动脚本
 
-```
+```bash
 vim /lib/systemd/system/rc-local.service
 ```
 
 在最后面添加
 
-```
+```bash
 [Install]
 WantedBy=multi-user.target
 Alias=rc.local.service
@@ -302,13 +302,13 @@ Alias=rc.local.service
 
 编辑自启动脚本
 
- ```vim
+ ```bash
  vim /etc/rc.local
  ```
 
 在`exit 0`前面添加需要启动的服务
 
-```
+```bash
 mplayer /root/badapple_240p.mp4 -vo fbdev2  < /dev/null > /dev/null 2>1 &
 python3 /root/helloworld.py
 ```
@@ -317,7 +317,7 @@ python3 /root/helloworld.py
 
 注意，此脚本会在用户登录前执行，执行日志如下
 
-```
+```bash
 [  OK  ] Finished Permit User Sessions.
 [   38.569457] rc.local[1322]: hello world!
 ```

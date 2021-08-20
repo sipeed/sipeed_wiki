@@ -45,13 +45,13 @@ PATH="$PATH:/opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-linux-gnueabi/bin"
 
 ``` 
 sudo apt-get install git
-git clone https://github.com/Lichee-Pi/u-boot.git
+git clone https://gitee.com/LicheePiNano/u-boot.git
 cd u-boot
 
 # 查看分支
 git branch -a
 # 切换到 Nano 分支
-git checkout nano-v2018.01
+git checkout nano-lcd800480
 ```
 
 u-boot对于新手来说目录层级稍显复杂，您可参考下表进行快速的熟悉和目标文件定位
@@ -102,7 +102,7 @@ u-boot对于新手来说目录层级稍显复杂，您可参考下表进行快�
 
 ```
 # 此处告知make采用arm-linux-gnueabi下的所有交叉编译工具，目标架构为Arm，设定各项默认配置为 nano 的spiflash支持版
-make ARCH=arm CROSS_COMPILE=arm-linux-gnueabi- licheepi_nano_spiflash_defconfig
+make ARCH=arm CROSS_COMPILE=arm-linux-gnueabi- f1c100s_nano_uboot_defconfig
 
 # 若不带spi-flash的板子，请换成 licheepi_nano_defconfig
 
@@ -172,20 +172,20 @@ sudo apt-get install libusb-1.0-0-dev
 
 将列出各种板子信息，如：
 
-    arch_number = 0x00000000                                                                                   
-    boot_params = 0x80000100                                                                                   
-    DRAM bank   = 0x00000000                                                                                   
-    start    = 0x80000000                                                                                   
-    size     = 0x02000000                                                                                   
-    baudrate    = 115200 bps                                                                                   
-    TLB addr    = 0x80FF0000                                                                                   
-    relocaddr   = 0x80F72000                                                                                   
-    reloc off   = 0xFF872000                                                                                   
-    irq_sp      = 0x80E67D90                                                                                   
-    sp start    = 0x80E67D80                                                                                   
-    FB base     = 0x81E89000                                                                                   
-    Early malloc usage: 118 / 400                                                                              
-    fdt_blob = 80e67da8
+    arch_number = 0x00000000
+    boot_params = 0x80000100
+    DRAM bank   = 0x00000000
+    -> start    = 0x80000000
+    -> size     = 0x02000000
+    baudrate    = 115200 bps
+    TLB addr    = 0x80FF0000
+    relocaddr   = 0x80F14000
+    reloc off   = 0xFF814000
+    irq_sp      = 0x80E09D90
+    sp start    = 0x80E09D80
+    FB base     = 0x81E89000
+    Early malloc usage: 118 / 400
+    fdt_blob = 80e09da8
 
 愉快地完成了 u-boot 的初体验~
 

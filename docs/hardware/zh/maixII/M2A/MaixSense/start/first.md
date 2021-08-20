@@ -32,7 +32,7 @@ armbian内置了ffmpeg，可以快速捕捉sensor数据并输出到屏幕上
 
 也可以使用apt下载各种应用
 
-```
+```bash
 sudo apt install neofetch
 ```
 
@@ -48,7 +48,7 @@ sudo apt install neofetch
 
 下载站链接[zhouyi_test.tar.xz](https://dl.sipeed.com/shareURL/MaixII/MaixII-A/example),使用任意方式上传到板子中
 
-```
+```bash
 ##解压压缩包
 tar -xvf zhouyi_test.tar.xz
 ##授予执行权限
