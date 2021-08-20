@@ -18,27 +18,33 @@ buildroot中可以方便地加入第三方软件包（其实已经内置了很�
 
 然后下载安装：
 
-``` 
-wget https://buildroot.org/downloads/buildroot-2017.08.tar.gz
-tar xvf buildroot-2017.08.tar.gz
-cd buildroot-2017.08/
+```
+wget https://buildroot.org/downloads/buildroot-2021.02.4.tar.gz
+tar xvf buildroot-2021.02.4.tar.gz
+cd buildroot-2021.02.4/
 make menuconfig
 ```
 
 ### 配置
 
-此处为免去另外配置工具链的步骤，使用了 buildroot自动下载工具链执行的选项；
+```
+make menuconfig
 
-同内核编译一样，请下载 buildroot 的 [.config](https://fdvad021asfd8q.oss-cn-hangzhou.aliyuncs.com/migrate/buildroot.config)文件，重命名为 .config 后放到 buildroot目录下；
+以下选项为基础配置：
 
+- Target options
+  - Target Architecture (ARM (little endian))
+  - Target Variant arm926t
+- Toolchain
+  - C library (musl) # 使用musl减小最终体积
+- System configuration
+  - Use syslinks to /usr .... # 启用/bin, /sbin, /lib的链接
+  - Enable root login # 启用root登录
+  - Run a getty after boot # 启用登录密码输入窗口
+  - (licheepi) Root password #　默认账户为root 密码为licheepi
 
-> 若编译时，buildroot下载软件包速度太慢，请下载[dl.zip](https://pan.baidu.com/s/1_tBdX9K7fOkH9JdXZ_MdiQ)，将其中的软件包解压至 buildroot --\> dl 下；
-
-使用：
-
-    make menuconfig
-
-进行配置，添加或删除指定的软件包；
+另可自行添加或删除指定的软件包
+```
 
 #### 一些配置的简单说明
 
@@ -63,8 +69,8 @@ make menuconfig
 
 编译的过程如果带上下载软件包的时间比较漫长，很适合喝杯茶睡个午觉；(buildroot不能进行多线程编译)
 
-编译完成的镜像包，是在
-buildroot-2017.08 --\> output --\>images --\> rootfs.tar 中找到；
+编译完成的镜像包，是
+buildroot-2021.02.4/output/images/rootfs.tar
 
 ### 安装到第二分区
 

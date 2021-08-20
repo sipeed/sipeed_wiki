@@ -6,37 +6,37 @@
 
 完整下载命令为：
 
-    git clone https://github.com/Icenowy/linux.git
+    git clone https://gitee.com/LicheePiNano/Linux.git
 
 git拉取有时速度很慢，建议做如下配置：
 
-```
-sudo vim /etc/hosts
-# 添加下面两行
-192.30.253.112  github.com
-151.101.73.194 github.global.ssl.fastly.net
-# 添加完成
-# 可自行通过dns检测网站检测github.global.ssl.fastly.net，更换为更快的ip地址
-```
 
 完整拉取linux极大，建议只拉取单层分支，减少等待时间：
 
-    git clone --depth=1 -b f1c100s-480272lcd-test https://github.com/Icenowy/linux.git
+    git clone --depth=1 -b master https://gitee.com/LicheePiNano/Linux.git
 
 ## 配置
 
-下载 [.config](http://dl.sipeed.com/LICHEE/Nano/SDK/config)文件，放入源码主目录进行替换 (若下载时文件名有变，请重命名回 .config );
+使用./arch/arm/configs/f1c100s_nano_linux_defconfig配置文件
+
+	make ARCH=arm f1c100s_nano_linux_defconfig
+
 
 ## 进行编译
 
 
 > 编译工具链为 arm-linux-gnueabi，工具链的安装请参考 uboot 编译部分
 
-``` 
-make ARCH=arm menuconfig
-make ARCH=arm CROSS_COMPILE=arm-linux-gnueabi- -j4    #请自行修改编译线程数
+```
+make ARCH=arm CROSS_COMPILE=arm-linux-gnueabi- -j8	#请自行修改编译线程数
+make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- -j8 INSTALL_MOD_PATH=out modules	#请自行修改编译线程数
+make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- -j8 INSTALL_MOD_PATH=out modules_install	#请自行修改编译线程数
 ```
 
-生成的 zImage 在 arch --> arm --> boot 目录下；将其放入第一分区。
+编译成功后，生成文件所在位置：
++ 内核img文件：./arch/arm/boot/zImage
++ 设备树dtb文件:./arch/arm/boot/dts/suniv-f1c100s-licheepi-nano.dtb
++ modules文件夹：./out/lib/modules
 
-> **交流与答疑:** 对于本节内容，如有疑问，欢迎到 [主线linux编译交流帖](http://bbs.lichee.pro/d/22-linux) 提问或分享经验。
+将zImage与dtb文件放入nano第一分区．
+

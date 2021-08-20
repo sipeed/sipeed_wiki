@@ -15,7 +15,7 @@ R329可以通过otg外接HID设备直接在屏幕上启动控制台进行操作�
 
 初始化结束后，需要输入登录密码，密码复杂度要求较高，请多次尝试
 
-```
+```bash
 New to Armbian? Documentation: https://docs.armbian.com Support: https://forum.armbian.com
 
 New root password: **********
@@ -24,7 +24,7 @@ Repeat password: **********
 
 然后设置默认shell,一般选择bash
 
-```
+```bash
 Choose default system command shell:
 
 1) bash
@@ -35,7 +35,7 @@ Shell: BASH
 
 然后可以设置一个非root用户日常操作用
 
-```
+```bash
 Creating a new user account. Press <Ctrl-C> to abort
 
 Please provide a username (eg. your forename): ll

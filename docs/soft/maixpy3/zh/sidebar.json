@@ -40,42 +40,6 @@
                     "file": "install/linux_x86_64/readme.md"
                 },
                 {
-                    "label": "MaixII M2dock",
-                    
-                    "items": [
-                        {
-                            "label": "芯片平台介绍",
-                            "file": "install/maixii_m2dock/introduce.md"
-                        },
-                        {
-                            "label": "板级资源介绍",
-                            "file": "install/maixii_m2dock/resources.md"
-                        },
-                        {
-                            "label": "产品开箱验证",
-                            
-                            "items": [
-                                {
-                                    "label": "烧录系统",
-                                    "file": "install/maixii_m2dock/flash.md"
-                                },
-                                {
-                                    "label": "访问串口",
-                                    "file": "install/maixii_m2dock/drive.md"
-                                },
-                                {
-                                    "label": "配置系统",
-                                    "file": "install/maixii_m2dock/config.md"
-                                },
-                                {
-                                    "label": "上手使用",
-                                    "file": "install/maixii_m2dock/usage.md"
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
                     "label": "除此之外？",
                     "items": [
                         {
