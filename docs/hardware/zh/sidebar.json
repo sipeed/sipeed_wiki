@@ -89,7 +89,14 @@
                     ]
                 },
                 {
-                    "label": "M2S"
+                    "label": "M2S",
+                    "file":"maixII/M2S/V833.md",
+                    "items":[
+                        {
+                            "label":"板级资源介绍",
+                            "file":"maixII/M2S/reources.md"
+                        }
+                    ]
                     
                 },
                 {
