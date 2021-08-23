@@ -1,8 +1,5 @@
 {
     "items": [
-        {
-            "label": "Tang",
-            "items": [
                 {
                     "label":"Tang Permier",
                     "items":[
@@ -69,7 +66,7 @@
                         }
                     ]
                 }  
-            ]
-        }
+            
+        
     ]
 }
