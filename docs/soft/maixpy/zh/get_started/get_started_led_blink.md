@@ -40,7 +40,7 @@ fm.register(28, fm.fpioa.GPIO0)
 
 我们控制 LED 需要使用到 GPIO
 
-> `board_info` 与板卡相关，不同板卡配置不同，使用前需要[手动配置](./api_reference/builtin_py/board_info.md)。
+> `board_info` 与板卡相关，不同板卡配置不同，使用前需要[手动配置](./../api_reference/builtin_py/board_info.md)。
 
 程序如下：
 

@@ -127,6 +127,14 @@
                 {
                     "label": "[07] 输入图像验证模型",
                     "file": "usage/07_verify_model.md"
+                },
+                {
+                    "label":"[08]V831使用resnet18模型",
+                    "file":"usage/08_V831_resnet.md"
+                },
+                {
+                    "label":"[09]边缘检测",
+                    "file":"usage/09_Edge_detection.md"
                 }
             ]
         },
