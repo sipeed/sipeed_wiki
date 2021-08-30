@@ -14,6 +14,7 @@ https://pytorch.org/hub/pytorch_vision_resnet/
 import os
 import torch
 from torchsummary import summary
+torch.hub._validate_not_a_forked_repo=lambda a,b,c: True
 ## model
 model = torch.hub.load('pytorch/vision:v0.6.0', 'resnet18', pretrained=True)
 model.eval()
