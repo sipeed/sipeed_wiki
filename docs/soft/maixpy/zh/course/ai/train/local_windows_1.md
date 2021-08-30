@@ -79,4 +79,6 @@ win+r，输入cmd，打开命令行
 
 再将这个文件夹的复制到maix_train/tools/ncc文件夹下面。（如果没有ncc这个文件夹就创建一个，路径一定要对的上）
 
+![maix_train_windows](./../../../../assets/get_started/maix_train_windows.gif)
+
 不会科学上网的同学可能会下载很慢，我已经下载好，上传到[gitee](https://gitee.com/Rui_worker/asdadasda)上了(里面也有ncc的文件了)。

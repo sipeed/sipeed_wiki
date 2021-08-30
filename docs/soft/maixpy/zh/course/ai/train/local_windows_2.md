@@ -36,6 +36,7 @@
 开始训练之前，我们需要将自己本地训练的参数进行修改，在instance/config.py中进行修改对应的参数，否则就会出现错误，再进行训练
 
 将数据集放到本地训练源码中的datasets文件夹中，然后在有train.py文件层级上启动命令行界面，和安装依赖的时的启动方法一样。
+> 小白不知道怎么改的可以不用去修改
 
 ![5.png](https://bbs.sipeed.com/storage/attachments/2021/07/21/CkW1EwXQiKCLsouz5mPJzhVK6S6zn1vcxH1ZcQTA_thumb.png "1461")
 
