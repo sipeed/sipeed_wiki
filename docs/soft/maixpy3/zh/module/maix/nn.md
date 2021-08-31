@@ -4,7 +4,7 @@ keywords: MaixPy3, maix.nn, MaixPy3运行模型, maix.nn API
 desc: MaixPy3 nn模块 API文档, 以及使用说明
 ---
 
->! API 仍处于非稳定状态, 可能在未来会有小幅改动
+>! API 仍处于非稳定状态, 可能在未来会有小幅改动, 如果你遇到了语法错误， 记得回来看更新哦~
 
 ## maix.nn 基本使用介绍
 
@@ -63,7 +63,7 @@ display.show(img2)
 
 ## 方法 maix.nn.load()
 
-加载模型, 返回 `maix.Model` 对象
+加载模型, 返回 `maix.nn.Model` 对象
 
 ### 参数
 
@@ -96,20 +96,20 @@ display.show(img2)
 
 ### 返回值
 
-返回 `maix.Model` 对象
+返回 `maix.nn.Model` 对象
 
 
-## 类 maix.Model
+## 类 maix.nn.Model
 
 包含了一系列神经网络操作,  `maix.nn.load()` 会返回其对象
 
-### maix.Model.forward()
+### maix.nn.Model.forward()
 
 只能由具体的对象调用, 不能类直接调用
 
 #### 参数
 
-* `inputs`: 输入, 可以是`Pillow`的`Image`对象, 也可以是`HWC`排列的`bytes`对象, 也可以是`numpy.ndarray`对象, 多层输入使用`list`(还未支持)
+* `inputs`: 输入, 可以是`Pillow`的`Image`对象, 也可以是`HWC`排列的`bytes`对象, 也可以是`HWC`排列的`numpy.ndarray`对象(还未支持), 多层输入使用`list`(还未支持)
 >! 这个参数未来可能会进行优化
 * `quantize`: 为`True`, 会使用 `load()` 时 `opt` 的`mean norm`参数对数据进行归一化, 并进行`int8`量化； `False`则不会对输入数据进行处理, 则输入需要先自己手动规范量化到`-128~127`范围.  
 >! 这个参数未来可能会进行优化, 将归一化和量化分开
@@ -122,7 +122,7 @@ display.show(img2)
 特征图, 如果是单层输出, 是一个浮点类型的 `numpy.ndarray` 对象, 如果是多层输出, 会是一个`list`对象, 包含了多个`numpy.ndarray`对象.
 
 
-### maix.Model.__del__()
+### maix.nn.Model.__del__()
 
 删除对象, 内存回收时会自动调用这个函数, 会释放模型占用的资源
 ```python
@@ -218,5 +218,123 @@ for i, box in enumerate(boxes):
   * `all_classes_probs`: `list` 类型, 包含了该框所有类别的置信度
   * `max_prob_idx`: 整型, 代表了`all_classes_probs`中最大值的下标, 取值范围: `[0, classes_num - 1]`
 
+
+
+
+
+## 模块 maix.nn.app
+
+应用模块， 包含了一些有意思的应用模块
+
+### 模块 maix.nn.app.classifier
+
+自学习分类器（视觉）， 无需训练模型， 只使用特征提取模型， 在运行时学习多个物体特征，然后即可对物体进行分类识别。 适用于简单的分类场景。
+
+`maix.nn.app.classifier`的`python`伪代码:
+
+```python
+class Classifier:
+    def __init__(self, model, class_num, sample_num, feature_len):
+        pass
+
+    def add_class_img(self, img):
+        return idx
+
+    def add_sample_img(self, img):
+        return idx
+
+    def train(self):
+        pass
+
+    def predict(self, img):
+        return idx, min_dist
+
+    def save(self, path):
+        pass
+
+def load(model, path):
+    return Classifier()
+
+```
+
+#### 类 Classifier
+
+使用时需要指定类别数量，通过`add_class_img`函数传入物体图像来获得物体的特征值， 然后通过`add_sample_img`获取这几个类别的图像，用以对开始采集的图像特征值进行优化， `sample`的图像和开始采集的类别图像可以有一定的差异， 但是不要相差太大， 采集的顺序无所谓；
+然后调用`train`方法进行训练(其实就是`kmeans` 聚类)， 就可以得到使用`sample`图像特征值优化过后的几个分类的特征值；
+最后使用`predict`就可以对输入图像的类别进行识别
+
+##### 构造方法： __init__(self, model, class_num, sample_num, feature_len)
+
+* 参数：
+  * `model`: `maix.nn.Model`对象， 用于获得图片的特征值
+  * `class_num`: 要学习的物体类别数量， 比如 `3`
+  * `sample_num`: 用以学习特征的物体数量， 比如`3*5 => 15`
+  * `feature_len`: 特征值的长度， 取决于特征提取模型的输出形状， 比如例程使用`resnet18 1000 分类`模型， 倒数第二层输出长度是`512`
+
+##### 方法: add_class_img(self, img)
+
+添加分类图片， 会自动调用模型推理获取图片的特征值
+
+* 参数：
+  * `img`: 输入图像， 可以是`Pillow`的`Image`对象, 也可以是`HWC`排列的`bytes`对象
+
+* 返回值： `int` 类型, 代表返回成功添加第几个类别的特征值， 取值∈`[0, class_num)`
+
+* 抛出错误： 如果出现错误， 比如添加图片超过类别数量等， 会抛出错误信息
+
+
+##### 方法: add_sample_img(self, img)
+
+添加样本图片， 会自动调用模型推理获取图片的特征值
+
+* 参数：
+  * `img`: 输入图像， 可以是`Pillow`的`Image`对象, 也可以是`HWC`排列的`bytes`对象
+
+* 返回值： `int` 类型, 代表返回成功添加第几个样本图片的特征值， 取值∈`[0, sample_num)`
+
+* 抛出错误： 如果出现错误， 比如添加图片超过设置的样本数量等， 会抛出错误信息
+
+
+##### 方法: train(self)
+
+训练样本（本质上是聚类分类）， 需要在`add_class_img`和`add_sample_img`完成后才能调用，否则会出现误差
+
+
+* 抛出错误： 如果出现错误， 比如类别或者样本采集未完成， 会抛出错误信息
+
+
+##### 方法： predict(self, img)
+
+预测给定的图片所属的类别
+
+* 参数：
+  * `img`: 输入图像， 可以是`Pillow`的`Image`对象, 也可以是`HWC`排列的`bytes`对象
+
+* 返回值：
+  * `idx`: `int` 类型, 代表给定的图片的特征和这个分类最接近， 取值∈`[0, sample_num)`
+  * `min_dist`: 图片的特征和`idx`类别的特征的距离， 距离越小则代表和该类越相似
+
+* 抛出错误： 如果出现错误， 比如参数错误等， 会抛出错误
+
+
+##### 方法： save(self, path)
+
+保存当前的特征值参数到文件， 方便断电保存并下次加载使用
+
+* 参数：
+  * `path`: 保存的路径， 字符串
+
+* 抛出错误： 保存出错， 会抛出错误信息
+
+
+#### 方法 load(model, path)
+
+加载保存的特征值参数文件， 获得[类 Classifier](#类-Classifier)的对象， 加载完成后可直接使用`predict`函数
+
+* 参数：
+  * `model`: `maix.nn.Model`对象， 用于获得图片的特征值， 需要和保存的时候使用的模型相同
+  * `path`: 保存参数的路径
+
+* 返回值： 获得[类 Classifier](#类-Classifier)的对象
 
 
