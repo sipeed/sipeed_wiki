@@ -28,8 +28,9 @@ desc: maixpy doc: Maix Bit
 
 ## 资料下载
 
-Sipeed-Maix-Bit 资料下载：[Sipeed-Maix-Bit](https://dl.sipeed.com/shareURL/MAIX/HDK/Sipeed-Maix-Bit)
+Sipeed-Maix-Bit 资料[下载](https://dl.sipeed.com/shareURL/MAIX/HDK/Sipeed-Maix-Bit/Maix-Bit%20V2.0%28with%20MEMS%20microphone%29)
 
-Sipeed-Maix-Bit 规格书下载：[Sipeed-Maix-Bit](https://dl.sipeed.com/fileList/MAIX/HDK/Sipeed-Maix-Bit/Specifications/Sipeed%20Maix-Bit%20%E8%A7%84%E6%A0%BC%E4%B9%A6%20V2.0.pdf)
+Sipeed-Maix-Bit 规格书[下载](https://dl.sipeed.com/fileList/MAIX/HDK/Sipeed-Maix-Bit/Specifications/Sipeed%20Maix-Bit%20%E8%A7%84%E6%A0%BC%E4%B9%A6%20V2.0.pdf)
 
-Sipeed-Maix-Bit 原理图下载：[Sipeed-Maix-Bit](https://dl.sipeed.com/fileList/MAIX/HDK/Sipeed-Maix-Bit/Maix-Bit%20V2.0(with%20MEMS%20microphone)/Maix-Bit%20V2.0(Schematic).pdf)
+Sipeed-Maix-Bit 原理图[下载](https://dl.sipeed.com/fileList/MAIX/HDK/Sipeed-Maix-Bit/Maix-Bit%20V2.0%28with%20MEMS%20microphone%29/Maix-Bit%20V2.0%28Schematic%29.pdf)
+

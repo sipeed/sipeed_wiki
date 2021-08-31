@@ -146,4 +146,4 @@ Sipeed-Maix-Cube 资料下载：[Sipeed-Maix-Cube](https://dl.sipeed.com/shareUR
 
 Sipeed-Maix-Cube 规格书下载：[Sipeed-Maix-Cube](https://dl.sipeed.com/shareURL/MAIX/HDK/Sipeed-Maix-Cube/ProductSpecification/Sipeed%20Maix%20Cube%20Datasheet%20V1.0.pdf)
 
-Sipeed-Maix-Cube 原理图下载：[Sipeed-Maix-Cube](https://dl.sipeed.com/shareURL/MAIX/HDK/Sipeed-Maix-Cube/Maix-Cube-2757/Maix-Cube-2757(Schematic).pdf)
+Sipeed-Maix-Cube 原理图下载：[Sipeed-Maix-Cube](https://dl.sipeed.com/shareURL/MAIX/HDK/Sipeed-Maix-Cube/Maix-Cube-2757/Maix-Cube-2757%28Schematic%29.pdf)
