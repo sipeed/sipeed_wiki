@@ -2,71 +2,125 @@
 title: Zero通过otg与PC共享网络
 ---
 
-在内核选项中勾选上：composite gadget: Serial and Ethernet, 就可以让Zero与PC通过usb共享网络。
+## 修改内核
 
-**确认usb虚拟网口被使能**
-
-使用usb线连接Zero和PC，在Zero和PC上查看网络接口：
+在内核选项中勾选上`Ethernet Gadget`, 就可以让Zero与PC通过usb共享网络。
 
 ```
-zp@ubuntu64:~$ ifconfig 
-```
-usb0 Link encap:Ethernet HWaddr 66:36:e9:13:fd:44
-
-root@Lichee:~# ifconfig 
-```
-usb0 Link encap:Ethernet HWaddr 2e:cf:e1:3f:ad:61
+Location:
+-> Device Drivers
+	-> USB support (USB_SUPPORT [=y])
+		-> USB Gadget Support (USB_GADGET [=y])
+			<*>   USB Gadget precomposed configurations (Ethernet Gadget (with CDC Ethernet support))
 ```
 
-**确认有usb0接口后，手工设置两者在同一网段下：**
+## 配置zero网卡
+
+### on zero
+
+#### 打开usb0网卡
+
+`ifconfig usb0 up`
+
+#### 设置usb0 ip
+
+  `usb0 192.168.2.100 netmask 255.255.255.0`
+
+由于usb网卡默认关闭，所以建议将该文件写入开机脚本，上电即可使用ssh连接。
+
+修改/etc/init.d/S40network
 
 ```
-on PC: sudo ifconfig usb0 192.168.2.1
-on Zero: sudo ifconfig usb0 192.168.2.100
+  start)
+        printf "Starting network: "
+        /sbin/ifup -a
+        /sbin/ifconfig usb0 up
+        /sbin/ifconfig usb0 192.168.2.100 netmask 255.255.255.0
+        [ $? = 0 ] && echo "OK" || echo "FAIL"
+        ;;
+  stop)
+        printf "Stopping network: "
+        /sbin/ifdown -a
+        /sbin/ifconfig usb0 down              
+        [ $? = 0 ] && echo "OK" || echo "FAIL"
+        ;;   
 ```
 
-    Test PC ping Zero:
+### on pc(linux)
 
-    zp@ubuntu64:~$ ping 192.168.2.100
-    PING 192.168.2.100 (192.168.2.100) 56(84) bytes of data.
-    64 bytes from 192.168.2.100: icmp_seq=1 ttl=64 time=2.74 ms
-    64 bytes from 192.168.2.100: icmp_seq=2 ttl=64 time=2.19 ms
-    ---
-    Everything is ok now, let's edit network config(/etc/network/interfaces) to save it:
-    On PC add:
-    allow-hotplug usb0
-    auto usb0
-    iface usb0 inet static
-    address 192.168.2.1
-    netmask 255.255.255.0
-    On Zero add:
-    allow-hotplug usb0
-    auto usb0
-    iface usb0 inet static
-    address 192.168.2.100
-    netmask 255.255.255.0
-    gateway 192.168.2.1
-    Share Network from PC
-    Enable forwarding on your PC:
-    echo 1 | sudo tee /proc/sys/net/ipv4/ip_forward > /dev/null
-    sudo iptables -P FORWARD ACCEPT
-    sudo iptables -A POSTROUTING -t nat -j MASQUERADE -s 192.168.2.0/24
-    test Ping google (if you are in china, ping baidu.com please---)
-    ping google.com
+`ifconfig -a`
 
-    If everything goes ok, your Zero is online now~
+`usb0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500`
 
-    You can ssh to Zero on your PC or any PC in the local net.
+如果出现：
 
-    zp@ubuntu64:~$ ssh root@192.168.2.100
-    root@192.168.2.100's password:
-    Linux Lichee 4.10.2-licheepi-zero+ #12 SMP Wed Mar 15 23:22:13 CST 2017 armv7l
-    The programs included with the Debian GNU/Linux system are free software;
-    the exact distribution terms for each program are described in the
-    individual files in /usr/share/doc/*/copyright.
-    Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
-    permitted by applicable law.
-    Last login: Wed Feb 15 23:39:33 2017 from 192.168.2.1
-    root@Lichee:~#
-    And you can execute any command on Zero via ssh.
-    Zero is used as a "headless" board now.
+`enx1288194be3c3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500`
+
+可以尝试重启ubuntu，然后就可以正确识别。如果还不行，也可以以`enx1288194be3c3`代替`usb0`继续执行后面操作。
+
+#### 为usb网卡分配ip
+
+`ifconfig usb0 192.168.2.1 netmask 255.255.255.0`
+
+然后就可以ping通了
+
+```
+lithromantic@ubuntu ~
+☺  ping 192.168.2.100                                                          
+PING 192.168.2.100 (192.168.2.100) 56(84) bytes of data.
+64 bytes from 192.168.2.100: icmp_seq=1 ttl=64 time=1.45 ms
+64 bytes from 192.168.2.100: icmp_seq=2 ttl=64 time=1.08 ms
+64 bytes from 192.168.2.100: icmp_seq=3 ttl=64 time=0.920 ms
+64 bytes from 192.168.2.100: icmp_seq=4 ttl=64 time=0.721 ms
+64 bytes from 192.168.2.100: icmp_seq=5 ttl=64 time=0.713 ms
+^C
+--- 192.168.2.100 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4026ms
+rtt min/avg/max/mdev = 0.713/0.976/1.454/0.274 ms
+```
+
+```
+# ping 192.168.2.1
+PING 192.168.2.1 (192.168.2.1): 56 data bytes
+64 bytes from 192.168.2.1: seq=0 ttl=64 time=1.227 ms
+64 bytes from 192.168.2.1: seq=1 ttl=64 time=0.941 ms
+64 bytes from 192.168.2.1: seq=2 ttl=64 time=0.880 ms
+64 bytes from 192.168.2.1: seq=3 ttl=64 time=0.953 ms
+64 bytes from 192.168.2.1: seq=4 ttl=64 time=1.165 ms
+^C
+--- 192.168.2.1 ping statistics ---
+5 packets transmitted, 5 packets received, 0% packet loss
+round-trip min/avg/max = 0.880/1.033/1.227 ms
+```
+
+需要注意的是，此时Licheepi Zero只能访问主机ip地址，所以是无法正常上网的。
+
+on pc (Windows)
+
+Windows不能很好的识别Licheepi Zero的usb网络，需要手动安装驱动，详情参考[测试测试 g_serial / g_ether USB Gadget (RNDIS) / 全志 V3S/F1C100s/X3/D1/R329/AIC800 / WhyCan Forum(哇酷开发者社区)](https://whycan.com/t_2401.html)
+
+### SSH连接
+
+在linux中，可以直接在终端中ssh连接
+
+ ```
+ lithromantic@ubuntu: ~
+ $ ssh root@192.168.2.100        [20:41:18]
+ root@192.168.2.100's password: 
+ # ls
+ badapple.mp4  demo
+ ```
+
+如果需要移动文件等操作，可以使用scp，或者在文件管理器中添加`sftp://192.168.2.100` 以文件夹形式打开Licheepi Zero的磁盘。
+
+![image-20210901115013624](https://raw.githubusercontent.com/USTHzhanglu/picture/main/img/image-20210901115013624.png)
+
+![image-20210901115115780](https://raw.githubusercontent.com/USTHzhanglu/picture/main/img/image-20210901115115780.png)
+
+对于windows，如果驱动安装失败，可以通过ssh桥接的方式连接LicheepiZero（需要linux虚拟机）。
+
+参考连接：[烂泥：学习ssh之ssh隧道应用-烂泥行天下 (ilanni.com)](https://www.ilanni.com/?p=10425)
+
+操作如下
+
+![202109011224](https://raw.githubusercontent.com/USTHzhanglu/picture/main/img/202109011224.gif)
