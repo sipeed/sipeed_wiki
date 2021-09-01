@@ -1,66 +1,15 @@
-# V831上部署resnet18分类网络
+# resnet18分类
 
-## 前期准备
-在V831上使用resnet18分类网络，我们需要在linux环境下进行。windows系统可以使用虚拟机，或者是使用WSL，具体的安装教程请自行百度，这里就不过多的进行描述
+在V831上（awnn）跑 pytorch resnet18 模型， 模型转换方法
 
-### 安装pytorch环境
+## 直接使用 pytorch hub 的与训练模型
+这里省略了模型定义和训练过程， 直接使用 pytorch hub 的 resnet18 预训练模型进行简单介绍：
+https://pytorch.org/hub/pytorch_vision_resnet/
 
-我们需要在系统中安装pytorch，通过在pytorch官网上可以知道安装pytorch需要执行
+## 在 PC 端测试模型推理
+根据上面链接的使用说明， 使用如下代码可以运行模型
 
-    pip3 install torch==1.9.0+cpu torchvision==0.10.0+cpu torchaudio==0.9.0 -f https://download.pytorch.org/whl/torch_stable.html
-
-或者是通过conda环境进行安装
-
-    conda install pytorch torchvision torchaudio cpuonly -c pytorch
-
-我们还需要安装一个`torchsummary`库来进行神经网络的可视化
-
-    pip3 install torchsummary
-
-### 编译ncnn转换工具
-
-通过 `git clone https://github.com/Tencent/ncnn.git` 将ncnn的仓库拉取到本地，进行编译
-
-安装编译环境的依赖
-
-```bash
-sudo apt update
-sudo apt install build-essential git cmake libprotobuf-dev protobuf-compiler libvulkan-dev vulkan-utils libopencv-dev
-```
-编译ncnn需要使用到 Vulkan 后端
-要使用 Vulkan 后端，请安装 Vulkan 头文件、一个 vulkan 驱动程序加载器、GLSL 到 SPIR-V 编译器和 vulkaninfo 工具。或者从<https://vulkan.lunarg.com/sdk/home>下载并安装完整的 Vulkan SDK（大约 200MB；它包含所有头文件、文档和预构建的加载程序，以及一些额外的工具和所有源代码）
-
-```bash
-wget https://sdk.lunarg.com/sdk/download/1.2.182.0/linux/vulkansdk-linux-x86_64-1.2.182.0.tar.gz
-tar xvf vulkansdk-linux-x86_64-1.2.182.0.tar.gz
-export VULKAN_SDK=$(pwd)/1.2.182.0/x86_64
-```
-
-拉取ncnn的子仓库
-
-```bash
-cd ncnn
-git submodule update --init
-```
-
-开始编译ncnn
-```bash
-mkdir -p build
-cd build
-cmake -DCMAKE_BUILD_TYPE=Release -DNCNN_VULKAN=ON -DNCNN_SYSTEM_GLSLANG=ON -DNCNN_BUILD_EXAMPLES=ON ..
-make -j$(nproc)
-```
-
-编译结束之后会在build/tools/onnx/下的到onnx2ncnn可执行文件，这个是就用ncnn的转换工具
-
-## 获取模型并进行推理
-
-> 以下代码建议在jupyter中运行
-
-通过pytorch hub来获取resnet18的预训练模型，这里并不细说训练的过程和模型定义
-
-label[下载](https://raw.githubusercontent.com/pytorch/hub/master/imagenet_classes.txt)
-使用以下代码进行模型的下载和推理
+其中， label 下载： https://raw.githubusercontent.com/pytorch/hub/master/imagenet_classes.txt
 ```python
 import os
 import torch
@@ -113,9 +62,9 @@ with open("imagenet_classes.txt") as f:
     labels = f.read().split("\n")
 print("result: idx:{}, name:{}".format(max_idx, labels[max_idx]))
 ```
+运行后 结果：
 
-运行后得到结果:
-```python
+```bash
 Using cache found in /home/neucrack/.cache/torch/hub/pytorch_vision_v0.6.0
 ----------------------------------------------------------------
         Layer (type)               Output Shape         Param #
@@ -201,16 +150,14 @@ Estimated Total Size (MB): 107.96
 out/dog.jpg
 tensor(2.6400) tensor(-2.1008)
 idx:258, name:Samoyed, Samoyede
-
 ```
+
 可以看到模型有 11,689,512的参数， 即 11MiB左右， 这个大小也就几乎是实际在 831 上运行的模型的大小了
 
-## 模型转换
+## 将模型转换为 V831 能使用的模型文件
+转换过程如下：
 
-### pth转onnx
-通过pytorch hub获取到的resnet18 模型是pth格式的，需要转换成onnx格式的模型
-
-转换代码
+使用 Pytorch 将模型导出为 onnx模型， 得到onnx文件
 ```python
 def torch_to_onnx(net, input_shape, out_name="out/model.onnx", input_names=["input0"], output_names=["output0"], device="cpu"):
     batch_size = 1
@@ -228,14 +175,12 @@ ncnn_out_param = "out/resnet_1000.param"
 ncnn_out_bin = "out/resnet_1000.bin"
 input_img = filename
 torch_to_onnx(model, input_shape, onnx_out, device="cuda:0")
-
 ```
-在out文件夹中得到onnx格式模型文件
 
-### onnx转ncnn
+如果你不是使用 pytorch 转换的, 而是使用了现成的 ncnn 模型, 不知道输出层的名字, 可以在 https://netron.app/ 打开模型查看输出层的名字
 
-然后再利用前面编译出来的onnx2ncnn转换工具进行ncnn格式的转换
-
+## 使用 onnx2ncnn 工具将onnx转成ncnn模型，得到一个.param文件和一个.bin文件
+按照ncnn项目的编译说明编译，在build/tools/onnx目录下得到onnx2ncnn可执行文件
 ```python
 def onnx_to_ncnn(input_shape, onnx="out/model.onnx", ncnn_param="out/conv0.param", ncnn_bin = "out/conv0.bin"):
     import os
@@ -253,11 +198,7 @@ def onnx_to_ncnn(input_shape, onnx="out/model.onnx", ncnn_param="out/conv0.param
         f.write(content)
 onnx_to_ncnn(input_shape, onnx=onnx_out, ncnn_param=ncnn_out_param, ncnn_bin=ncnn_out_bin)
 ```
-
-### ncnn量化到int8模型
-
-通过maixhub将ncnn模型进行量化到int8模型
-
+## 使用全志提供的awnn工具将ncnn模型进行量化到int8模型
 在 maixhub 模型转换 将 ncnn 模型转换为 awnn 支持的 int8 模型 （网页在线转换很方便人为操作，另一个方面因为全志要求不开放 awnn 所以暂时只能这样做）
 
 阅读转换说明，可以获得更多详细的转换说明
@@ -278,7 +219,6 @@ RGB 格式： 如果训练输入的图片是 RGB 就选 RGB
 
 ## 使用模型，在v831上推理
 可以使用 python 或者 C 写代码，以下两种方式
-python的是需要在终端下运行的，不要使用jupyter，建议使用ssh，这样放文件什么都比较方便
 
 ### MaixPy3
 python 请看MaixPy3
@@ -289,74 +229,57 @@ python 请看MaixPy3
 
 然后在终端使用 python 运行脚本（可能需要根据你的文件名参数什么的改一下代码）：
 
-https://github.com/sipeed/MaixPy3_scripts/blob/main/basic/v1.0/resnet.py
+https://github.com/sipeed/MaixPy3/blob/main/ext_modules/_maix_nn/example/load_forward_camera.py
 
 label 在这里： https://github.com/sipeed/MaixPy3/blob/main/ext_modules/_maix_nn/example/classes_label.py
-
-baars.ttf 在这里：https://github.com/sipeed/MaixPy3_scripts/blob/main/application/base/res/baars.ttf
 ```python
 from maix import nn
-from PIL import Image, ImageFont, ImageDraw
-from maix import display
+from PIL import Image, ImageDraw
+from maix import camera, display
+test_jpg = "/root/test_input/input.jpg"
+model = {
+    "param": "/root/models/resnet_awnn.param",
+    "bin": "/root/models/resnet_awnn.bin"
+}
+camera.config(size=(224, 224))
+options = {
+    "model_type":  "awnn",
+    "inputs": {
+        "input0": (224, 224, 3)
+    },
+    "outputs": {
+        "output0": (1, 1, 1000)
+    },
+    "first_layer_conv_no_pad": False,
+    "mean": [127.5, 127.5, 127.5],
+    "norm": [0.00784313725490196, 0.00784313725490196, 0.00784313725490196],
+}
+print("-- load model:", model)
+m = nn.load(model, opt=options)
+print("-- load ok")
+print("-- read image")
+img = Image.open(test_jpg)
+print("-- read image ok")
+print("-- forward model with image as input")
+out = m.forward(img, quantize=True)
+print("-- read image ok")
+print("-- out:", out.shape)
+out = nn.F.softmax(out)
+print(out.max(), out.argmax())
 from classes_label import labels
-import time
-from maix import camera
-
-class funation:
-    model = None
-    options = None
-    m = None
-    font = None
-    def __init__(self):
-        camera.config(size=(224, 224))
-        self.model = {
-            "param": "/root/res/resnet.param",
-            "bin": "/root/res/resnet.bin"
-        }
-        self.options = {
-            "model_type":  "awnn",
-            "inputs": {
-                "input0": (224, 224, 3)
-            },
-            "outputs": {
-                "output0": (1, 1, 1000)
-            },
-            "first_layer_conv_no_pad": False,
-            "mean": [127.5, 127.5, 127.5],
-            "norm": [0.00784313725490196, 0.00784313725490196, 0.00784313725490196],
-        }
-        print("-- load model:", self.model)
-        self.m = nn.load(self.model, opt=self.options)
-        print("-- load ok")
-        self.font = ImageFont.truetype("/root/res/baars.ttf",20, encoding="unic")
-
-    def run(self):
-        img = camera.capture()
-        t = time.time()
-        out = self.m.forward(img, quantize=True)
-        t = time.time() - t
-        print("-- forward time: {}s".format(t))
-        t = time.time()
-        out2 = nn.F.softmax(out)
-        t = time.time() - t
-        print("-- softmax time: {}s".format(t))
-        msg = "{:.2f}: {}".format(out.max(), labels[out.argmax()])
-        print(msg)
-        img = Image.new("RGBA", (240, 240), "#00000000")
-        draw = ImageDraw.Draw(img)
-        draw.text((0, 0), msg, (255, 0, 0), self.font)
-        display.show(img)
-
-
-
-if __name__ == "__main__":
-    start = funation()
-    while True:
-        start.run()
+while 1:
+    img = camera.capture()
+    if not img:
+        time.sleep(0.02)
+        continue
+    out = m.forward(img, quantize=True)
+    out = nn.F.softmax(out)
+    msg = "{:.2f}: {}".format(out.max(), labels[out.argmax()])
+    print(msg)
+    draw = ImageDraw.Draw(img)
+    draw.text((0, 0), msg, fill=(255, 0, 0))
+    display.show(img)
 ```
-> 如果运行报错了，请更新maixpy3再运行
-
-
 
 ### C语言 SDK， libmaix
 访问这里，按照 https://github.com/sipeed/libmaix 的说明克隆仓库，并编译 https://github.com/sipeed/libmaix/tree/master/examples/nn_resnet
