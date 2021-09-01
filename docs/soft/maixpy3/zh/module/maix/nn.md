@@ -234,7 +234,7 @@ for i, box in enumerate(boxes):
 
 ```python
 class Classifier:
-    def __init__(self, model, class_num, sample_num, feature_len):
+    def __init__(self, model, class_num, sample_num, feature_len, input_w, input_h):
         pass
 
     def add_class_img(self, img):
@@ -263,13 +263,15 @@ def load(model, path):
 然后调用`train`方法进行训练(其实就是`kmeans` 聚类)， 就可以得到使用`sample`图像特征值优化过后的几个分类的特征值；
 最后使用`predict`就可以对输入图像的类别进行识别
 
-##### 构造方法： __init__(self, model, class_num, sample_num, feature_len)
+##### 构造方法： __init__(self, model, class_num, sample_num, feature_len, input_w, input_h)
 
 * 参数：
   * `model`: `maix.nn.Model`对象， 用于获得图片的特征值
   * `class_num`: 要学习的物体类别数量， 比如 `3`
   * `sample_num`: 用以学习特征的物体数量， 比如`3*5 => 15`
   * `feature_len`: 特征值的长度， 取决于特征提取模型的输出形状， 比如例程使用`resnet18 1000 分类`模型， 倒数第二层输出长度是`512`
+  * `input_w`: 输入的图像的宽度
+  * `input_h`: 输入的图像的高度
 
 ##### 方法: add_class_img(self, img)
 
