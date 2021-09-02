@@ -51,7 +51,7 @@ V3s框架
 
 ### Lichee Zero 拓展板
 
-| 项目 | 参数 | 
+| 项目 | 参数 |
 | ---- | ---- |
 | CPU | V3s |
 | 内存 | 64MB DDR2 |
@@ -61,6 +61,9 @@ V3s框架
 | 其他接口 | <br>PWM x2<br>LRADC x1<br>Speakerx2+ Mic x1 |
 | 板载外设 | 以太网接口<br>3.5mm耳机接口<br>驻极体麦克风<br>额外TF卡卡槽<br>4个按键<br>MIPI接口 |
 | 电气特性 | Micro USB 5V供电<br>2.54mm插针3.3V~5V供电<br>1.27mm邮票孔供电 |
+
+
+
 
 ![](./../assets/Zero/Zero_9.png)
 
