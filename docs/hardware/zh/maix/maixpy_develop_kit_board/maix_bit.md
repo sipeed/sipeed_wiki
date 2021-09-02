@@ -122,3 +122,6 @@ Sipeed-Maix-Bit 资料下载：[Sipeed-Maix-Bit](https://dl.sipeed.com/shareURL/
 Sipeed-Maix-Bit 规格书下载：[Sipeed-Maix-Bit](https://dl.sipeed.com/fileList/MAIX/HDK/Sipeed-Maix-Bit/Specifications/Sipeed%20Maix-Bit%20%E8%A7%84%E6%A0%BC%E4%B9%A6%20V2.0.pdf)
 
 Sipeed-Maix-Bit 原理图下载：[Sipeed-Maix-Bit](https://dl.sipeed.com/fileList/MAIX/HDK/Sipeed-Maix-Bit/Maix-Bit%20V2.0(with%20MEMS%20microphone)/Maix-Bit%20V2.0(Schematic).pdf)
+
+## 产品技术支持
+Maix系列产品可以在多种场景实现客户不同方面的需要，在AIoT上已经广泛的使用，品质和性能在行业内已经有非常好的口碑，专业的技术团队为广大客户解决硬件设计和软件功能上的各种各样问题。专业技术支持和更详细资料请联系商务<support@sipeed.com>。
