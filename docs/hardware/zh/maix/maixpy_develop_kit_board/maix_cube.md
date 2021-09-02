@@ -216,3 +216,7 @@ Sipeed-Maix-Cube 资料下载：[Sipeed-Maix-Cube](https://dl.sipeed.com/shareUR
 Sipeed-Maix-Cube 规格书下载：[Sipeed-Maix-Cube](https://dl.sipeed.com/shareURL/MAIX/HDK/Sipeed-Maix-Cube/ProductSpecification/Sipeed%20Maix%20Cube%20Datasheet%20V1.0.pdf)
 
 Sipeed-Maix-Cube 原理图下载：[Sipeed-Maix-Cube.pdf](https://dl.sipeed.com/shareURL/MAIX/HDK/Sipeed-Maix-Cube/Maix-Cube-2757)
+
+
+## 产品技术支持
+Maix系列产品可以在多种场景实现客户不同方面的需要，在AIoT上已经广泛的使用，品质和性能在行业内已经有非常好的口碑，专业的技术团队为广大客户解决硬件设计和软件功能上的各种各样问题。专业技术支持和更详细资料请联系商务<support@sipeed.com>。
