@@ -75,6 +75,18 @@
             "config": {
                 "code": "9cb07365544a53067c56c346c838181a"
             }
+        },
+        "teedoc-plugin-gitalk": {
+            "from": "pypi",
+            "config": {
+                "env": {
+                    "clientID": "13d7605e4abe8192405c",
+                    "clientSecret": "105f1bf3dee8f3b8c0cecfcfbdb1c273a3babb12",
+                    "repo": "sipeed_wiki",
+                    "owner": "sipeed",
+                    "admin": ["Neutree", "STRfarfar"]
+                }
+            }
         }
     },
     "rebuild_changes_delay": 1,
