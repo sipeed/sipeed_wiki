@@ -226,3 +226,6 @@ Maix-Amigo 规格书下载：[Sipeed-Amigo](https://dl.sipeed.com/shareURL/MAIX/
 Maix-Amigo IPS 版本 原理图下载：[Maix_Amigo_2970(Schematic).pdf](https://dl.sipeed.com/fileList/MAIX/HDK/Sipeed-Amigo/2970/Maix_Amigo_2970(Schematic).pdf)
 
 Maix-Amigo TFT 版本 原理图下载：[Maix_Amigo_2960(Schematic).pdf](https://dl.sipeed.com/fileList/MAIX/HDK/Sipeed-Amigo/2960/Maix_Amigo_2960(Schematic).pdf)
+
+## 产品技术支持
+Maix系列产品可以在多种场景实现客户不同方面的需要，在AIoT上已经广泛的使用，品质和性能在行业内已经有非常好的口碑，专业的技术团队为广大客户解决硬件设计和软件功能上的各种各样问题。专业技术支持和更详细资料请联系商务<support@sipeed.com>。

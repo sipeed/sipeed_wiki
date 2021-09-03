@@ -108,7 +108,7 @@ ARM instruction set (ARM)  --->
 
 - 配置文件保存位置，将配置文件保存的好处是，在重新构建时，只需要调用make <xxx_defconfig>然后make,而不必重新全部配置。
 
-  示例：`$(CONFIG_DIR)/condigs/LicheePi_Zero_defconfig `,。然后`make savedefconfig`保存配置文件。
+  示例：`$(CONFIG_DIR)/configs/LicheePi_Zero_defconfig `,。然后`make savedefconfig`保存配置文件。
 
 - 配置下载位置，因为系统构建的时候需要从网络上抓起很多软件报的代码进行编译构建。这个一般不需要修改。
 
@@ -221,7 +221,13 @@ arm-linux-gnueabihf-gcc: error: unrecognized argument in option '-march=i586'
 
 默认失能串口登录，需要修改 **/etc/inittab** :
 
-```none
-tyS0::respawn:/sbin/getty -L ttyS0 115200 vt100 # GE
 ```
+#console::respawn:/sbin/getty -L  console 0 vt100 # GENERIC_SERIAL
+ttyS0::respawn:/sbin/getty -L ttyS0 115200 vt100 # GE
+```
+如果需要免密码登录，直接
+```
+#console::respawn:/sbin/getty -L  console 0 vt100 # GENERIC_SERIAL
+ttyS0::respawn:/bin/sh
 
+```

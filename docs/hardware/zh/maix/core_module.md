@@ -7,7 +7,9 @@ desc: maixpy doc: Sipeed M1/M1W
 ## M1/M1W
 
 M1/M1W模块是基于嘉楠堪智科技的边缘智能计算芯片 K210 (RISC-V架构) 设计的一款AIOT模块。主控芯片内置64位双核高性能低功耗处理器，每个核都有浮点运算单元(FPU) ,具备卷积人工神经网络硬件加速器(KPU)和快速傅里叶变换加速器(FFT)、搭载现场可编程IO阵列(FPIOA)，支持多种主流Al编程框架。M1W模块内置标准802.11 b/g/n协议的ESP8285 WiFi芯片，可让模块轻松联网。
+
 ![M1/M1W](./assets/m1_m1w/M1_Dan.png)
+
 ## 应用
 智能家居，机器人清洁器，智能扬声器，电子门锁，家庭监控等;
 医学行业应用，如辅助诊断，医学图像识别;
@@ -143,3 +145,7 @@ M1/M1W Al模块系统主要由电源(3 Channel DC-DC)、Flash芯片(16M)电路�
 
 芯片 K210 Datasheet: [Kendryte 官网](https://canaan-creative.com/)
 M1W 资料下载: [dl.sipeed.com](https://dl.sipeed.com/shareURL/MAIX/HDK/Sipeed-M1&M1W)
+
+
+## 产品技术支持
+Maix系列产品可以在多种场景实现客户不同方面的需要，在AIoT上已经广泛的使用，品质和性能在行业内已经有非常好的口碑，专业的技术团队为广大客户解决硬件设计和软件功能上的各种各样问题。专业技术支持和更详细资料请联系商务<support@sipeed.com>。
