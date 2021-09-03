@@ -59,9 +59,7 @@
                 "dark": true,
                 "env":{
                     "main_color": "#FF6B63"
-                },
-                "css": "/static/css/custom.css",
-                "js": "/static/js/custom.js"
+                }
             }
         },
         "teedoc-plugin-search":{
@@ -84,7 +82,24 @@
                     "clientSecret": "105f1bf3dee8f3b8c0cecfcfbdb1c273a3babb12",
                     "repo": "sipeed_wiki",
                     "owner": "sipeed",
-                    "admin": ["Neutree", "STRfarfar"]
+                    "admin": ["Neutree", "STRfarfar"],
+                    "main_color": "#FF6B63",
+                    "second_color": "#e25d55"
+                }
+            }
+        },
+        "teedoc-plugin-assets": {
+            "from": "pypi",
+            "config": {
+                "header_items": [
+                    "/static/css/custom.css"
+                ],
+                "footer_items": [
+                    "/static/js/custom.js"
+                ],
+                "env":{
+                    "main_color": "#FF6B63",
+                    "second_color": "#e25d55"
                 }
             }
         }
