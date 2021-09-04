@@ -74,7 +74,7 @@
                 "code": "9cb07365544a53067c56c346c838181a"
             }
         },
-        "teedoc-plugin-gitalk": {
+        "teedoc-plugin-comments-gitalk": {
             "from": "pypi",
             "config": {
                 "env": {
