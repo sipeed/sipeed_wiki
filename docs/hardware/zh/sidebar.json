@@ -136,11 +136,7 @@
             "items": [
                 {
                     "label": "LicheePi Zero",
-                    "file": "lichee/Zero/readme.md"
-                },
-                {
-                    "label": "LicheePi One",
-                    "file": "lichee/One/readme.md"
+                    "file": "lichee/Zero/Zero.md"
                 },
                 {
                     "label": "LicheePi Nano",
@@ -154,10 +150,11 @@
         },
         {
             "label": " Tang",
+            "file":"tang/readme.md",
             "items": [
                 {
                     "label": "Tang Premier",
-                    "file": null
+                    "file": "tang/Tang-primer/Tang-primer.md"
                 },
                 {
                     "label": "Tang Nano",
