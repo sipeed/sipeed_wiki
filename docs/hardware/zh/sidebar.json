@@ -132,7 +132,7 @@
             ]
         },
         {
-            "label": "LicheePi (Linux)",
+            "label": "LicheePi",
             "items": [
                 {
                     "label": "LicheePi Zero",
@@ -140,7 +140,7 @@
                 },
                 {
                     "label": "LicheePi Nano",
-                    "file": "lichee/Nano/readme.md"
+                    "file": "lichee/Nano/Nano.md"
                 },
                 {
                     "label": "LicheePi ZeroPlus",
