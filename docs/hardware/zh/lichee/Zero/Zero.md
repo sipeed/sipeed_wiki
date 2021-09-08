@@ -48,6 +48,7 @@ V3s框架
 | 电气特性 | Micro USB 5V供电<br>2.54mm插针3.3V~5V供电<br>1.27mm邮票孔供电 |
 
 ![](./../assets/Zero/Zero_8.png)
+![](./../assets/Zero/Zero_10.png)
 
 ### Lichee Zero 拓展板
 
