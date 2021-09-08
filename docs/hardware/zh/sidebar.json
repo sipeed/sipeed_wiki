@@ -1,9 +1,5 @@
 {
     "items": [
-        {
-            "label": "Sipeed 硬件资料导航",
-            "file": "README.md"
-        },
 
         {
             "label": "Maix-I",
@@ -144,7 +140,7 @@
                 },
                 {
                     "label": "LicheePi ZeroPlus",
-                    "file": "lichee/ZeroPlus/readme.md"
+                    "file": "lichee/ZeroPlus/ZeroPlus.md"
                 }
             ]
         },
@@ -158,10 +154,10 @@
                 },
                 {
                     "label": "Tang Nano",
-                    "file": null
+                    "file": "tang/Tang-Nano/Tang-Nano.md"
                 },
                 {
-                    "label":"Nano 4K",
+                    "label":"Tang Nano 4K",
                     "file":"tang/Tang-Nano-4K/Nano-4K.md",
                     "items":[
                         {

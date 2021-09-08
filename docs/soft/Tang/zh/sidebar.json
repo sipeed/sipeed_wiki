@@ -2,6 +2,7 @@
     "items": [
                 {
                     "label":"Tang Permier",
+                    "collapsed": false,
                     "items":[
                         {
                             "label": "简介",
@@ -42,25 +43,26 @@
                 },
                 {
                     "label":"Tang Nano",
+                    "collapsed": false,
                     "items":[
                         {
                             "label":"简介",
-                            "file":"./Tang-Nano-Doc/readme.md"
+                            "file":"Tang-Nano-Doc/readme.md"
                         },
                         {
                             "label":"准备",
-                            "file":"./Tang-Nano-Doc/get_started/install-the-ide.md"
+                            "file":"Tang-Nano-Doc/get_started/install-the-ide.md"
                         },
                         {
                             "label":"示例",
                             "items":[
                                 {
                                     "label":"点灯教程",
-                                    "file":"./Tang-Nano-Doc/examples/1_led.md"
+                                    "file":"Tang-Nano-Doc/examples/1_led.md"
                                 },
                                 {
                                     "label":"点LCD教程",
-                                    "file":"./Tang-Nano-Doc/examples/2_lcd.md"
+                                    "file":"Tang-Nano-Doc/examples/2_lcd.md"
                                 }
                             ]
                         }
