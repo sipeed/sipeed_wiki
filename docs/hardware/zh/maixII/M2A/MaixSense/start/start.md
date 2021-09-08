@@ -13,23 +13,23 @@ Lichee MaixSense（以下简称R329）提供了以下两种系统镜像
 
 > ！！！一定要严格按照步骤操作！！！armbian系统请使用大于 4G 的 TF/SD 卡进行烧录，tina系统请使用大于 1G 的 TF/SD 卡进行烧录
 
-R329为全志的SOC，所以Windows使用PhoenixCard，Linux 上使用Livesuit烧录镜像文件。
+R329 为全志的 SOC，所以 Windows 使用 PhoenixCard，Linux 上使用 Livesuit 烧录镜像文件。
 
-## Tina系统烧录
+## Tina 系统烧录
 
-Tina系统需要自己进行编译，具体编译方式参考<https://github.com/sipeed/R329-Tina-jishu>
+Tina 系统需要自己进行编译，具体编译方式参考<https://github.com/sipeed/R329-Tina-jishu>
 
-Tina系统的烧录方式和Maix Ⅱ dock通用，可参考[MaixII M2dock 烧录系统 - Sipeed Wiki](https://wiki.sipeed.com/soft/maixpy3/zh/install/maixii_m2dock/flash.html#windows-phoenixcard)，这里不多做介绍
+Tina 系统的烧录方式和 MaixII dock通用，可参考[MaixII M2dock 烧录系统 - Sipeed Wiki](https://wiki.sipeed.com/soft/maixpy3/zh/install/maixii_m2dock/flash.html#windows-phoenixcard)，这里不多做介绍
 
-## armbian系统烧录
+## armbian 系统烧录
 
-armbian镜像获取：
+armbian 镜像获取：
 
 > 链接：<https://eyun.baidu.com/s/3jJjRFJg> 密码：F55Z
 
-armbian使用的烧录方式为dd，windows下推荐使用Etcher，linux下推荐使用Terminal。
+armbian 使用的烧录方式为 dd，windows下推荐使用 Etcher，linux 下推荐使用 Terminal。
 
-### windows下系统烧录
+### windows 下系统烧录
 
 资源获取：
 
@@ -37,17 +37,17 @@ armbian使用的烧录方式为dd，windows下推荐使用Etcher，linux下推�
 
 ​	下载[SD Card Formatter](https://www.sdcard.org/downloads/formatter/eula_windows/SDCardFormatterv5_WinEN.zip "SDCardFormatter")
 
-首先解压镜像，得到 .img镜像文件，然后使用SD Card Formatter格式化sd卡，打开Etcher，点击`Flash from file`,选中dd镜像包，然后点击`Select target`选中sd卡，最后点击`Flash`烧录。 
+首先解压镜像，得到 .img 镜像文件，然后使用 SD Card Formatter 格式化sd卡，打开Etcher，点击 `Flash from file` ,选中dd镜像包，然后点击 `Select target` 选中sd卡，最后点击 `Flash` 烧录。 
 
 ![95133](./../assets/95133.gif)
 
 ### linux下系统烧录
 
-首先解压镜像，得到 .img镜像文件，然后格式化sd卡，打开Terminal，输入  `sudo dd if = xxx.img of=/dev/sdx bs=1M status=progress oflag=direct`烧录。注意xxx.img为文件名，  `/dev/sdx`为sd卡实挂载位置。
+首先解压镜像，得到 .img 镜像文件，然后格式化 sd 卡，打开 Terminal ，输入  `sudo dd if = xxx.img of=/dev/sdx bs=1M status=progress oflag=direct`烧录。注意xxx.img为文件名，  `/dev/sdx`为sd卡实挂载位置。
 
 ![2021-08-05-11-44-49](./../assets/2021-08-05-11-44-49.gif)
 
-同时也可以直接使用Disks进行更便捷的烧录（需要Ubuntu桌面版)：
+同时也可以直接使用 Disks 进行更便捷的烧录（需要Ubuntu桌面版)：
 
 ![2021080511-46-53](./../assets/2021080511-46-53.gif)
 

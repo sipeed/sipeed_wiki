@@ -1,9 +1,5 @@
 {
     "items": [
-        {
-            "label": "Sipeed 硬件资料导航",
-            "file": "README.md"
-        },
 
         {
             "label": "Maix-I",
@@ -132,39 +128,36 @@
             ]
         },
         {
-            "label": "LicheePi (Linux)",
+            "label": "LicheePi",
             "items": [
                 {
                     "label": "LicheePi Zero",
-                    "file": "lichee/Zero/readme.md"
-                },
-                {
-                    "label": "LicheePi One",
-                    "file": "lichee/One/readme.md"
+                    "file": "lichee/Zero/Zero.md"
                 },
                 {
                     "label": "LicheePi Nano",
-                    "file": "lichee/Nano/readme.md"
+                    "file": "lichee/Nano/Nano.md"
                 },
                 {
                     "label": "LicheePi ZeroPlus",
-                    "file": "lichee/ZeroPlus/readme.md"
+                    "file": "lichee/ZeroPlus/ZeroPlus.md"
                 }
             ]
         },
         {
             "label": " Tang",
+            "file":"tang/readme.md",
             "items": [
                 {
                     "label": "Tang Premier",
-                    "file": null
+                    "file": "tang/Tang-primer/Tang-primer.md"
                 },
                 {
                     "label": "Tang Nano",
-                    "file": null
+                    "file": "tang/Tang-Nano/Tang-Nano.md"
                 },
                 {
-                    "label":"Nano 4K",
+                    "label":"Tang Nano 4K",
                     "file":"tang/Tang-Nano-4K/Nano-4K.md",
                     "items":[
                         {
@@ -190,11 +183,7 @@
                 {
                     "label": "Longon Nano",
                     "file":"longan/Nano/Longan_nano.md"
-                },
-                {
-                    "label": "Longon Zero",
-                    "file":"longan/Zero/readme.md"
-                }           
+                }          
             ]
         },
         {

@@ -89,8 +89,102 @@ while True:
 > 使用 `lens_corr` 函数来矫正， 比如 `2.8`mm， `img.lens_corr(1.8)`
 > 无法识别二维码的时候需要用sensor.set_hmirror(1)来调整摄像头的镜像画面
 
+### 例程4 寻找矩阵
+
+```python
+# Find Rects Example
+#
+# 这个例子展示了如何使用april标签代码中的四元检测代码在图像中找到矩形。 四元检测算法以非常稳健的方式检测矩形，并且比基于Hough变换的方法好得多。 例如，即使镜头失真导致这些矩形看起来弯曲，它仍然可以检测到矩形。 圆角矩形是没有问题的！
+# (但是，这个代码也会检测小半径的圆)...
+
+import sensor, image, time
+
+sensor.reset()
+sensor.set_pixformat(sensor.RGB565) 
+sensor.set_framesize(sensor.QQVGA)
+sensor.skip_frames(time = 2000)
+sensor.set_vflip(1)
+
+clock = time.clock()
+
+while(True):
+    clock.tick()
+    img = sensor.snapshot()
+
+    # 下面的`threshold`应设置为足够高的值，以滤除在图像中检测到的具有
+    # 低边缘幅度的噪声矩形。最适用与背景形成鲜明对比的矩形。
+
+    for r in img.find_rects(threshold = 10000):
+        img.draw_rectangle(r.rect(), color = (255, 0, 0))
+        for p in r.corners(): img.draw_circle(p[0], p[1], 5, color = (0, 255, 0))
+        print(r)
+
+    print("FPS %f" % clock.fps())
+
+```
+
+### 例程5 寻找Apriltag
+```python
+# AprilTags 示例
+#
+# 此示例显示了OpenMV Cam在OpenMV Cam M7上检测April标签的强大功能。
+# OpenMV2 M4版本无法检测April标签。
+
+import sensor, image, time, math
+
+sensor.reset()
+sensor.set_pixformat(sensor.RGB565)
+sensor.set_framesize(sensor.QQVGA) # 如果分辨率更大，我们的内存会耗尽...
+sensor.skip_frames(time = 2000)
+sensor.set_auto_gain(False)  # 必须关闭此功能，以防止图像冲洗…
+sensor.set_auto_whitebal(False)  # 必须关闭此功能，以防止图像冲洗…
+clock = time.clock()
+
+# 注意！与find_qrcodes不同，find_apriltags方法不需要对图像进行镜头校正
+
+# apriltag代码最多支持可以同时处理6种tag家族。
+# 返回的tag标记对象，将有其tag标记家族及其在tag标记家族内的id。
+
+tag_families = 0
+tag_families |= image.TAG16H5 # 注释掉，禁用这个家族
+tag_families |= image.TAG25H7 # 注释掉，禁用这个家族
+tag_families |= image.TAG25H9 # 注释掉，禁用这个家族
+tag_families |= image.TAG36H10 # 注释掉，禁用这个家族
+tag_families |= image.TAG36H11 # 注释掉以禁用这个家族(默认家族)
+tag_families |= image.ARTOOLKIT # 注释掉，禁用这个家族
+
+#标签系列有什么区别？ 那么，例如，TAG16H5家族实际上是一个4x4的方形标签。 
+#所以，这意味着可以看到比6x6的TAG36H11标签更长的距离。 
+#然而，较低的H值（H5对H11），意味着4x4标签的假阳性率远高于6x6标签。 
+#所以，除非你有理由使用其他标签系列，否则使用默认族TAG36H11。
 
 
+
+def family_name(tag):
+    if(tag.family() == image.TAG16H5):
+        return "TAG16H5"
+    if(tag.family() == image.TAG25H7):
+        return "TAG25H7"
+    if(tag.family() == image.TAG25H9):
+        return "TAG25H9"
+    if(tag.family() == image.TAG36H10):
+        return "TAG36H10"
+    if(tag.family() == image.TAG36H11):
+        return "TAG36H11"
+    if(tag.family() == image.ARTOOLKIT):
+        return "ARTOOLKIT"
+
+while(True):
+    clock.tick()
+    img = sensor.snapshot()
+    for tag in img.find_apriltags(families=tag_families): # 如果没有给出家族，默认TAG36H11。
+        img.draw_rectangle(tag.rect(), color = (255, 0, 0))
+        img.draw_cross(tag.cx(), tag.cy(), color = (0, 255, 0))
+        print_args = (family_name(tag), tag.id(), (180 * tag.rotation()) / math.pi)
+        print("Tag Family %s, Tag ID %d, rotation %f (degrees)" % print_args)
+    print(clock.fps())
+
+```
 
 ## 函数
 
