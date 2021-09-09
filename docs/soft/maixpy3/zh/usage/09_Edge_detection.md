@@ -221,4 +221,4 @@ plt.show()
 - [How to implement Sobel edge detection using Python from scratch](http://www.adeveloperdiary.com/data-science/computer-vision/how-to-implement-sobel-edge-detection-using-python-from-scratch/)
 - [梯度和Sobel导数](https://blog.csdn.net/lzhf1122/article/details/71752644)
 
-
+> 以上内容出至于：https://neucrack.com/p/377

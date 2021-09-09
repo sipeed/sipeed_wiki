@@ -112,5 +112,10 @@
     "rebuild_changes_delay": 1,
     "robots":{
         "User-agent": "*"
+    },
+    "teedoc-plugin-google-translate": {
+        "from": "pypi",
+        "config": {
+        }
     }
 }

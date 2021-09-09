@@ -18,10 +18,10 @@ id: wiki_home
             <h1>Sipeed Wiki - Documentation</h1>
         </div>
         <div>
-            <a href="./soft/maixpy/zh/index.html"><img src="/static/image/MaixPy.png"></a>
-            <a href="./soft/Lichee/zh/index.html"><img src="/static/image/licheepi.png"></a>
-            <a href="./soft/Tang/zh/index_bak.html"><img src="/static/image/tang.png"></a><br/>
-            <a href="./soft/longan/zh/index.html"><img src="/static/image/longan.png"></a>
+            <a href="./soft/maixpy/en/index.html"><img src="/static/image/MaixPy.png"></a>
+            <a href="./soft/Lichee/en/index.html"><img src="/static/image/licheepi.png"></a>
+            <a href="./soft/Tang/en/index_bak.html"><img src="/static/image/tang.png"></a><br/>
+            <a href="./soft/longan/en/index.html"><img src="/static/image/longan.png"></a>
             <a href="https://dl.sipeed.com/" target="_blank"><img src="/static/image/DOWNLOAD.png"></a>
             <a href="https://bbs.sipeed.com/" target="_blank"><img src="/static/image/BBS.png"></a>
         </div>
