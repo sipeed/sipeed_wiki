@@ -53,6 +53,11 @@
                 "toc_depth": 3
             }
         },
+        "teedoc-plugin-google-translate": {
+            "from": "pypi",
+            "config": {
+            }
+        },
         "teedoc-plugin-theme-default":{
             "from": "pypi",
             "config": {
