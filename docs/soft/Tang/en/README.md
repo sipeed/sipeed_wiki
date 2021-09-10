@@ -1,12 +1,13 @@
 ---
-title: Sipeed Hardware
-keywords: Sipeed, Hardware, 矽速, 硬件资料, 文档, 资料下载
-desc: 矽速科技的硬件资料站
+title: Tang Primer Documentation
 ---
 
-## LicheePi (Linux)
+# Tang Primer Docs
 
-- [LicheePi Zero](./)
-- [LicheePi Zero Plus](./)
+Tang Primer, an extremely polished open source RISC-V development board.
 
-- [LicheePi Nano](./)
+Tang Primer was born in the wake of RISC-V. After three months of development and iterations, it finally releases as an Open Source board in 2018.
+
+Tang Primer not only takes on the expectations of open source developers, but also promotes the development and education related to RISC-V architecture in China, and introduces an excellent development board in China to the world.
+
+![Tang](./content/images/tang.jpg)
