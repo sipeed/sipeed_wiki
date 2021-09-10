@@ -76,6 +76,10 @@
                     {
                         "url": "/hardware/zh/longan/Nano/Longan_nano.html",
                         "label": "Longan"
+                    },
+                    {
+                        "url":"/hardware/zh/modules_spmod/spmod_extender.html",
+                        "label":"SP-Mod"
                     }
                 ]
             },

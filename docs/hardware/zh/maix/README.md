@@ -35,7 +35,7 @@ desc: 矽速科技的硬件资料站
     </tr>
     <tr>
       <td>Maix Bit</td>
-      <td> <a href="./maixpy_develop_kit_board/maix_bit.html" target="_blank"><img src="./assets/dk_board/maix_bit/BiT.png" width="260"></a> </td>
+      <td> <a href="./maixpy_develop_kit_board/maix_bit.html" target="_blank"><img src="./assets/dk_board/maix_bit/Bit.png" width="260"></a> </td>
     </tr>
     <tr>
       <td>Maix Cube</td>
