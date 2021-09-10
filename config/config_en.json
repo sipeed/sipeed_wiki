@@ -75,7 +75,7 @@
                 "type": "list",
                 "items": [
                     {
-                        "url": "/hardware/maixface/zh/",
+                        "url": "/hardware/maixface/en/",
                         "label": "Maix Face"
                     }
                 ]
@@ -111,19 +111,7 @@
                 "id": "language",
                 "label": "Language: ",
                 "position": "right",
-                "type": "selection",
-                "items": [
-                    {
-                        "id": "zh",
-                        "url": "/",
-                        "label": "中文"
-                    },
-                    {
-                        "id": "en",
-                        "url": "/en/",
-                        "label": "English"
-                    }
-                ]
+                "type": "language"
             }
         ]
     },

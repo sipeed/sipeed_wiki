@@ -1,6 +1,5 @@
 {
     "import": "config_zh",
-    "class": "md_page",
     "navbar": {
         "items": [
             {
@@ -11,12 +10,12 @@
                 "items": [
                     {
                         "id": "zh",
-                        "url": "/",
+                        "url": "/soft/Tang/zh/",
                         "label": "中文"
                     },
                     {
                         "id": "en",
-                        "url": "/en/",
+                        "url": "/soft/Tang/en/",
                         "label": "English"
                     }
                 ]

@@ -11,7 +11,7 @@
             "items": [
                 {
                     "label": "Tang Primer",
-                    "file": "content/readme.md"
+                    "file": "README.md"
                 },
                 {
                     "label":"Getting Started",
