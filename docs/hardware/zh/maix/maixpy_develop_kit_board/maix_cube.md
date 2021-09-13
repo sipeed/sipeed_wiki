@@ -174,7 +174,7 @@ MaixCube  板载 I2C 传感器/IC
         </tr>
     </thead>
         <td> 板载资源</td>
-        <td><li>按键*3<li>摄像头*1<li>RGB LED*2<li>1.3寸TFT屏幕<li>Electret Microphone*1<li>128Mbit Flash*1<li>加速度传感器*1<li>0.5W扬声器</td>
+        <td><li>按键*3<li>摄像头*1<li>RGB LED*2 <li>1.3寸TFT屏幕<li>Electret Microphone*1<li>128Mbit Flash*1<li>加速度传感器*1<li>0.5W扬声器</td>
     </tr>
     <tr>
         <td>板载接口</td>
