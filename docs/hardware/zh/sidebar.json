@@ -182,8 +182,18 @@
             "items": [
                 {
                     "label": "Longon Nano",
-                    "file":"longan/Nano/Longan_nano.md"
-                }          
+                    "file":"longan/Nano/Longan_nano.md",
+                    "items":[
+                        {
+                            "label":"环境配置",
+                            "file":"longan/Nano/pio.md"
+                        },
+                        {
+                            "label":"点灯测试",
+                            "file":"longan/Nano/blink.md"
+                        }
+                    ]
+                }
             ]
         },
         {
@@ -327,7 +337,7 @@
                             ]
                         },
                         {
-                            "label":"amigo 手柄",
+                            "label":"Sipeed Gamepad",
                             "file":"modules/amigo_handle.md"
                         }
                     ]

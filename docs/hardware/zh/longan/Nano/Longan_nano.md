@@ -21,13 +21,18 @@ Longan Nano是基于兆易创新(GigaDevice)的GD32VF103CBT6(RISC-V架构)芯片
 | 晶振 | 8MHz 无源晶振 + 32.768KHz RTC 无源晶振 |
 | LED | 板载 1 个 RGB LED |
 | GPIO 数量 | 2 引出 28 个 GPIO 到排针 |
-
+### 新版照片
 ![](./../../../assets/Longan/nano/Longan-nano_PINOUT.svg)
  
 ![](./../../../assets/Longan/nano/longan-nano-1.png)
+### 旧版照片
+![](./../../../assets/Longan/nano/longan_nano_pinout_old.png)
+
+![](./../../../assets/Longan/nano/longan-nano-old.png)
 
 ## 使用
-[Longan使用](./../../../../soft/longan/zh/readme.md)
+
+[Longan使用](/soft/longan/zh/readme.md)
 
 ## 产品技术支持
 Longan Nano 开发板可以在多种场景实现客户不同方面的需要，在 AIoT 上已经广泛的使用，品质和性能在行业内已经有非常好的口碑，专业的技术团队为广大客户解决硬件设计和软件功能上的各种各样问题。专业技术支持和更详细资料请联系商务 <support@sipeed.com>。

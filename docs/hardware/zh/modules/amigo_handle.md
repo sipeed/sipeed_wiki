@@ -1,8 +1,8 @@
-# Amigo 手柄
+# Sipeed Gamepad
 
 ## 概述
 
-![](./../../assets/spmod/spmod_amigo_hendle/amigo_handle.jpg)
+![](./../../assets/spmod/spmod_amigo_hendle/Gamepad141.jpg)
 
 采用主控芯片： GD32F150G
 
@@ -25,6 +25,7 @@
 | LED | 板载1个电源指示灯和2个LED |
 | USB接口 | 板载1个USB TYPE-C 母座（连接到MCU的USB） |
 
+![](./../../assets/spmod/spmod_amigo_hendle/amigo_handle_5.png)
 
 ## 手柄接口
 
@@ -46,13 +47,21 @@
 链接方式
 
 单手柄：
-![](./../../assets/spmod/spmod_amigo_hendle/amigo_handle_1.jpg)
+![](./../../assets/spmod/spmod_amigo_hendle/Gamepad.143.jpg)
 
 双手柄：
 
 ![等待完善]()
+## 软件描述
+| 项目| 参数 |
+| --- | --- |
+| 开发环境 | Maixpy IDE、 PlatformIO IDE |
+| 开发语言 | C语言、 python |
+| 通讯协议 | IIC |
 
-## 手柄测试
+> GD32F150G源码和例程 [https://github.com/sipeed/GD32F150-I2C-Handle](https://github.com/sipeed/GD32F150-I2C-Handle)
+
+### 手柄测试
 
 单手手柄输入测试
 ```python 
@@ -140,6 +149,11 @@ while True:
     0-253       #按下 Y 键
 ```
 
-## 游戏测试
+### 游戏测试
 
 [MaixPy-NES](/soft/maixpy/zh/api_reference/media/nes.md)
+
+
+## 资料下载
+
+[Gamepad](https://dl.sipeed.com/shareURL/MAIX/HDK/Sipeed-Gamepad)
