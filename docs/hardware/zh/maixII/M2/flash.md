@@ -4,20 +4,18 @@ keywords: MaixII, MaixPy3, Python, Python3, M2dock
 desc: maixpy doc: MaixII M2dock 烧录系统
 ---
 
+
+
 > ！！！一定要严格按照步骤操作！！！请使用大于 1G 的 TF/SD 卡进行烧录，开源版本要求使用 TF/SD 卡来启动系统。
 
-V831 为全志的 SOC， 所以 Windwos 使用 **PhoenixSuit**, Linux 上使用 **Livesuit** 烧录镜像文件。
+V831 为全志的 SOC， 所以 Windwos 使用 **PhoenixCard**, Linux 上使用 **Livesuit** 烧录镜像文件。
 
 - 从下载站获取最新的 V831 系统镜像 [SDK_MaixII/release](https://dl.sipeed.com/shareURL/MaixII/MaixII-Dock/SDK/release) ，找不到就搜索 V831 获取最新的镜像。
 
 - 下载站中有连个同版本不同大小的镜像系统，文件较大的镜像是需要使用dd命令进行系统的烧录。（目前只能在linux系统上进行系统的烧录--2021.06.26）
 - 解压 V831 镜像压缩包，得到一个 xxxx.img 文件。
 
-- 从网上获取 PhoenixSuit(Windows) 烧录工具。
-  - [baidu-PhoenixSuit](https://www.baidu.com/s?wd=PhoenixSuit)
-  - [bing-PhoenixSuit](https://www.bing.com/search?q=PhoenixSuit&FORM=BESBTB&mkt=zh-CN) 
-  - [github-PhoenixSuit](https://github.com/colorfulshark/PhoenixSuit)
-  - [lo4d-PhoenixSuit](https://phoenixsuit.en.lo4d.com/windows)
+
 
 ## 镜像文件命名方式
 
@@ -256,9 +254,15 @@ dd if=sipedd-v8310-210606-dd.img of=/dev/sdd
 ![dd_3](./asserts/dd_4.png)
 
 点击开始恢复，即可烧录成功
+
+## 无 sd/tf 卡烧录方式
+
+[烧录方式](./no_sd_flash.md)
+
 ## 常见问题：
 
 系统烧录步骤严格按照文档要求，先打开软件，拔 SD 卡后插入电脑，等待提示确认后再插入 SD 卡自动完成安装。
 
 《[error while loading shared libraries: libpng12.so.0](https://askubuntu.com/questions/895897/error-while-loading-shared-libraries-libpng12-so-0)》
+
 
