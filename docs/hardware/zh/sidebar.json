@@ -338,7 +338,7 @@
                         },
                         {
                             "label":"Sipeed Gamepad",
-                            "file":"modules/amigo_handle.md"
+                            "file":"modules/Gamepad.md"
                         }
                     ]
                 }
