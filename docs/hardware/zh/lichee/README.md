@@ -1,10 +1,23 @@
 # Lichee Pi
 
 ## Lichee Zero 
-[<img src="./assets/Zero/Zero_1.png" width=400>](./Zero/Zero.md)
+<div align="center">
+<a href="./Zero/Zero.html" ><img src="./assets/Zero/Zero_1.png" width=400></a>
+</div>
 
 ## Lichee Nano 
-[<img src="./assets/Nano/Nano_2.png" width=400>](./Nano/Nano.md)
+
+<div align="center">
+
+<a href="./Nano/Nano.html" ><img src="./assets/Nano/Nano_2.png" width=400></a>
+
+</div>
 
 ## Lichee Zero Plus
-[<img src="./assets/Zero-Plus/Plus_1.jpg" width=400>](./ZeroPlus/ZeroPlus.md)
+
+<div align="center">
+
+<a href="./ZeroPlus/ZeroPlus.html"><img src="./assets/Zero-Plus/Plus_1.jpg" width=400></a>
+
+</div>
+
