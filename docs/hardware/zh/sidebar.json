@@ -129,6 +129,7 @@
         },
         {
             "label": "LicheePi",
+            "file":"lichee/readme.md",
             "items": [
                 {
                     "label": "LicheePi Zero",
