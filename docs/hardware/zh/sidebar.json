@@ -129,7 +129,7 @@
         },
         {
             "label": "LicheePi",
-            "file":"lichee/readme.md",
+            "file":"lichee/README.md",
             "items": [
                 {
                     "label": "LicheePi Zero",
@@ -147,7 +147,7 @@
         },
         {
             "label": " Tang",
-            "file":"tang/readme.md",
+            "file":"tang/README.md",
             "items": [
                 {
                     "label": "Tang Premier",
