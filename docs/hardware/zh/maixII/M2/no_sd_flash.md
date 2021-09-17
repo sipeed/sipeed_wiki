@@ -10,6 +10,7 @@
 ## Windows 上使用 PhoenixSuit 烧录
 
 获取系统镜像（.img） 和烧录工具（.exe） 解压到你知道的地方。
+
 ![](./../img/no_sd_flash.png)
 
 解压后打开 PhoenixSuit_V1.10 烧录工具 PhoenixSuit.exe 选择烧录的 .img 镜像。
