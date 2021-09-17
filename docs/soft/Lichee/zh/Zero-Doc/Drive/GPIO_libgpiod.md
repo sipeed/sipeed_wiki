@@ -10,14 +10,14 @@ title: C语言方式(libgpiod)
 #include <unistd.h>
 #include <gpiod.h>
 #define msleep(t) usleep((t)*1000)
-#define PH_BASE (7-1)*32
-#define PH5 PH_BASE+5
 int main(int argc, char const *argv[])
 {
     struct gpiod_chip *chip;
     struct gpiod_line *line;
     struct gpiod_line_request_config config;
     int req;
+    /* PH0=(H-1)*32+0=(7-1)*32+0=192 */
+    int PH0=192;
     
     /* 打开 GPIO 控制器 */
     gpiochip0 = gpiod_chip_open("/dev/gpiochip0");
@@ -66,14 +66,14 @@ int main(int argc, char const *argv[])
 #include <unistd.h>
 #include <gpiod.h>
 #define msleep(t) usleep((t)*1000)
-#define PH_BASE (7-1)*32
-#define PH5 PH_BASE+5
 int main(int argc, char const *argv[])
 {
     struct gpiod_chip *gpiochip0;
     struct gpiod_line *led;
     struct gpiod_line_request_config config;
     int req;
+    /* PH0=(H-1)*32+0=(7-1)*32+0=192 */
+    int PH0=192;
     
     /* 打开 GPIO 控制器 */
     gpiochip0 = gpiod_chip_open("/dev/gpiochip0");
