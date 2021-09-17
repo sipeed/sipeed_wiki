@@ -51,7 +51,7 @@
 
 双手柄：
 
-![等待完善]()
+![等待完善](./../../assets/spmod/spmod_amigo_hendle/amigo_handle_6.png)
 ## 软件描述
 | 项目| 参数 |
 | --- | --- |
