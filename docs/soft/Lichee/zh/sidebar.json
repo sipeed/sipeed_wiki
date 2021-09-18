@@ -296,6 +296,10 @@
                                                     "file":"Zero-Doc/Drive/GPIO_mmap.md"
                                                 },
                                                 {
+                                                    "label":"C语言方式(libgpiod)",
+                                                    "file":"Zero-Doc/Drive/GPIO_libgpiod.md"
+                                                },
+                                                {
                                                     "label":"Python 操作GPIO",
                                                     "file":"Zero-Doc/Drive/GPIO_py.md"
                                                 }
