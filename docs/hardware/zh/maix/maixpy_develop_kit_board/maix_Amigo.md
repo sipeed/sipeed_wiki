@@ -1,7 +1,7 @@
 # MaixAmigo
 
 ## 使用教程
-<a href="./../../../../soft/maixpy/zh/" target="_blank"> MaixPy </a>
+<a href="/soft/maixpy/zh/" target="_blank"> MaixPy </a>
 
 ## 概述
 
