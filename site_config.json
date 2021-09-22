@@ -96,7 +96,12 @@
         "teedoc-plugin-search":{
             "from": "pypi",
             "config": {
-                "search_hint": "Search"
+                "search_hint": "Search",
+                "env":{
+                    "main_color": "#FF6B63",
+                    "main_color_dark": "#923732",
+                    "hint_shadow_color": "rgba(146, 55, 50, 0.38)"
+                }
             }
         },
         "teedoc-plugin-baidu-tongji":{

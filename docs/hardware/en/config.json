@@ -1,3 +1,4 @@
 {
-    "import": "config_en"
+    "import": "config_en",
+    "name": "Open Source Hardware Doc"
 }

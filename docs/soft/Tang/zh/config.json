@@ -1,25 +1,4 @@
 {
     "import": "config_zh",
-    "navbar": {
-        "items": [
-            {
-                "id": "language",
-                "label": "Language: ",
-                "position": "right",
-                "type": "selection",
-                "items": [
-                    {
-                        "id": "zh",
-                        "url": "/soft/Tang/zh/",
-                        "label": "中文"
-                    },
-                    {
-                        "id": "en",
-                        "url": "/soft/Tang/en/",
-                        "label": "English"
-                    }
-                ]
-            }
-        ]
-    }
+    "name": "Tang 中文文档"
 }
