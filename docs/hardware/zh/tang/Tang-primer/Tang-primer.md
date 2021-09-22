@@ -36,5 +36,5 @@ Lichee Tang Primer是基于安路科技的EG4S20BG256 FPGA芯片设计的简约�
 Tang Permier开发板可以在多种场景实现客户不同方面的需要，在AIoT上已经广泛的使用，品质和性能在行业内已经有非常好的口碑，专业的技术团队为广大客户解决硬件设计和软件功能上的各种各样问题。专业技术支持和更详细资料请联系商务support@sipeed.com。
 
 ## 资料
-[烧录相关使用](./../../../../soft/Tang/zh/index_bak.md)
+[烧录相关使用](/soft/Tang/zh/index_bak.md)
 [资料下载](https://dl.sipeed.com/shareURL/TANG/Primer)

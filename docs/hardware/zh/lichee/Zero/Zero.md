@@ -70,7 +70,7 @@ V3s框架
 
 ## 使用教程
 
-[Lichee Zero](./../../../../soft/Lichee/zh/Zero-Doc/Start/intro_cn.md)
+[Lichee Zero](/soft/Lichee/zh/Zero-Doc/Start/intro_cn.md)
 
 ## 产品技术支持
 
