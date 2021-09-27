@@ -29,8 +29,8 @@ git拉取有时速度很慢，建议做如下配置：
 
 ```
 make ARCH=arm CROSS_COMPILE=arm-linux-gnueabi- -j8	#请自行修改编译线程数
-make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- -j8 INSTALL_MOD_PATH=out modules	#请自行修改编译线程数
-make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- -j8 INSTALL_MOD_PATH=out modules_install	#请自行修改编译线程数
+make ARCH=arm CROSS_COMPILE=arm-linux-gnueabi- -j8 INSTALL_MOD_PATH=out modules	#请自行修改编译线程数
+make ARCH=arm CROSS_COMPILE=arm-linux-gnueabi- -j8 INSTALL_MOD_PATH=out modules_install	#请自行修改编译线程数
 ```
 
 编译成功后，生成文件所在位置：
