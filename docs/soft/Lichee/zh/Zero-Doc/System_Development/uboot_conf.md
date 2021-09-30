@@ -9,7 +9,7 @@ title: Uboot 配置
 
  `make ARCH=arm menuconfig`
 
-![](./../_static/System_Development/uboot_conf_1.png)
+![](./../static/System_Development/uboot_conf_1.png)
 
 ---按回车，即选择当前菜单
 ------- 按Y 代表该config选项选中
@@ -26,7 +26,7 @@ title: Uboot 配置
 2.  第二个ARM architecture
     这个选项比较重要，主要配置ARM框架下的常用的配置函数以及LCD等参数
 
-![](./../_static/System_Development/uboot_conf_2.png)
+![](./../static/System_Development/uboot_conf_2.png)
 
 
 ## DDR配置
@@ -44,7 +44,7 @@ Target select (Support sunxi (Allwinner) SoCs)   #进去之后可以选择sunxi 
 
 ## LCD配置
 
-![](./../_static/System_Development/uboot_conf_3.png)
+![](./../static/System_Development/uboot_conf_3.png)
 
 ```
 [*] Enable graphical uboot console on HDMI, LCD or VGA   这个就是在显示设备上使能串口控制                                    

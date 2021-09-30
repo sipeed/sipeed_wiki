@@ -15,16 +15,16 @@ $ make LicheePi_Zero_defconfig
 $ make menuconfig
 ```
 
-![](./../_static/Contribution/article_39.png)
+![](./../static/Contribution/article_39.png)
 
 -   选择 **Device Drivers ---\>**
 
-![](./../_static/Contribution/article_40.png)
+![](./../static/Contribution/article_40.png)
 
 -   选择 **Network device support ---\>** 并选中 **Allwinner Sun8i
     Ethernet MAC support**
 
-![](./../_static/Contribution/article_41.png)
+![](./../static/Contribution/article_41.png)
 
 -   修改dts
 
@@ -126,7 +126,7 @@ index ebefc0f..cb81dd5 100644
 
 -   使用Ethernet：
 
-![](./../_static/Contribution/article_42.png)
+![](./../static/Contribution/article_42.png)
 
 
 ## Kernel适配Ethernet
@@ -252,28 +252,28 @@ $ make sunxi_defconfig ARCH=arm
 $ make menuconfig ARCH=arm
 ```
 
-![](./../_static/Contribution/article_43.png)
+![](./../static/Contribution/article_43.png)
 
 
 -   选择 **Device Drivers ---\>**
 
-![](./../_static/Contribution/article_44.png)
+![](./../static/Contribution/article_44.png)
 
 
 -   选择 **Network device support ---\>**
 
-![](./../_static/Contribution/article_45.png)
+![](./../static/Contribution/article_45.png)
 
 
 -   选择 **Ethernet driver support ---\>**
 
-![](./../_static/Contribution/article_46.png)
+![](./../static/Contribution/article_46.png)
 
 
 -   选中 **Allwinner sun8i EMAC support** 和 **Use dwmac-sun8i
     bindings**
 
-![](./../_static/Contribution/article_47.png)
+![](./../static/Contribution/article_47.png)
 
 
 -   编译
@@ -288,11 +288,11 @@ $ make menuconfig ARCH=arm
 
 `$ ifup eth0`
 
-![](./../_static/Contribution/article_48.png)
+![](./../static/Contribution/article_48.png)
 
 
 eth0启动成功！
 
-![](./../_static/Contribution/article_49.png)
+![](./../static/Contribution/article_49.png)
 
 **Ethernet驱动适配成功！**

@@ -31,7 +31,7 @@ title: 一键镜像烧录指南
     - 点击`Select target`选中sd卡
     - 点击`Flash`烧录
     - 待烧录完成
-    ![95133](https://raw.githubusercontent.com/USTHzhanglu/picture/main/img/95133.gif)
+    ![95133](./../static/System_Development/95133.gif)
 
 3.  插卡
 

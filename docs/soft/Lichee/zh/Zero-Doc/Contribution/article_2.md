@@ -7,9 +7,9 @@ title: Zero i2c oled使用指南
 
 一般市面上买到的单色oled屏幕模块一般都是同时支持spi和i2c接口的，而默认一般都是spi接口模式，需要根据说明书调整模模块上电阻的位置来转换到i2c模式。我手中这个模块一般比较常见，分辨率是128\*64，需要焊接R1和R4，注意下方那个电阻位置要短接。
 
-![](./../_static/Contribution/article_17.jpg)
+![](./../static/Contribution/article_17.jpg)
 
-![](./../_static/Contribution/article_18.jpg)
+![](./../static/Contribution/article_18.jpg)
 
 然后连接到zero的i2c0的位置，reset引脚我连接到了uart2的tx脚位置。我手中暂时没有dock，如果是使用dock，请根据实际情况插到对应位置。
 
@@ -28,9 +28,9 @@ Oled使用的控制芯片是 ssd1306，最新版本的linux中包含Ssd1306的i2
 
 选中 \<*> Solomon SSD1307 framebuffer support
 
-![](./../_static/Contribution/article_19.jpg)
+![](./../static/Contribution/article_19.jpg)
 
-![](./../_static/Contribution/article_20.jpg)
+![](./../static/Contribution/article_20.jpg)
 
 修改dts资源文件
 
@@ -41,7 +41,7 @@ vi arch/arm/boot/dts/sun8i-v3s-licheepi-zero.dts
 添加 `ssd1306fb-i2c` 节点，`0x3c`
 是i2c设备的地址，reset-getio是复位脚我选择的是\**PB0*\*
 
-![](./../_static/Contribution/article_21.jpg)
+![](./../static/Contribution/article_21.jpg)
 
 接下来编译内核和编译dtb
 
@@ -54,21 +54,21 @@ make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- dtbs
 
 我是将驱动直接编译到内核里，可以在内核日志中看到驱动加载成功。
 
-![](./../_static/Contribution/article_22.jpg)
+![](./../static/Contribution/article_22.jpg)
 
 并且屏幕被点亮，该驱动默认不清空屏幕ram中内容，屏幕初始化后默认是花屏内容是正常的。如下状态。
 
-![](./../_static/Contribution/article_23.jpg)
+![](./../static/Contribution/article_23.jpg)
 
 驱动注册后一般会挂载为/dev/fb0或者/dev/fb1设备文件。
 
 写一个简单的oled模块测试程序，读取屏幕信息，并刷将荔枝派logo显示上去效果如下：
 
-![](./../_static/Contribution/article_24.jpg)
+![](./../static/Contribution/article_24.jpg)
 
 首先用photoshop做出目标图片，然后保存成bmp格式，然后使用windows自带的画图工具打开bmp，然后点击另存为保存为1位位图格式。使用字模软件将bmp转换成程序用的字节序列，我用的是zimo221这款字模工具软件
 
-![](./../_static/Contribution/article_25.jpg)
+![](./../static/Contribution/article_25.jpg)
 
 注意在参数设置中要勾选字节倒叙选项。
 
@@ -220,7 +220,7 @@ int main ()
 ```
 将字节序在程序中定义为数组在荔枝板中，编译程序并执行。
 
-![](./../_static/Contribution/article_26.jpg)
+![](./../static/Contribution/article_26.jpg)
 
 ## 单片机驱动一直为i2c驱动
 
@@ -228,7 +228,7 @@ int main ()
 一般情况下使用ssb1307fb这个驱动就很完美了了，我在发现ssd1307fb这个驱动程序之前，我将显示屏厂家提供的stm8
 i2c测试代码移植到了linux上实现了一个驱动，加载驱动后效果如下
 
-![](./../_static/Contribution/article_27.jpg)
+![](./../static/Contribution/article_27.jpg)
 
 我将此驱动也发出来供参考，该驱动程序直接在linux
 i2c设备注册中实现了oled的测试显示，该驱动包含一个基本ascii的字库和字符串显示逻辑。
@@ -618,4 +618,4 @@ MODULE_LICENSE("GPL");
 
 相应dts配置如下：
 
-![](./../_static/Contribution/article_28.jpg)
+![](./../static/Contribution/article_28.jpg)

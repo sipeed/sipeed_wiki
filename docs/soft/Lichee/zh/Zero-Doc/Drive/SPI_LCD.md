@@ -124,7 +124,7 @@ linux内核启动时会加载fbtft驱动，注册framebuffer设备，打印如�
 
 显示效果如下图：
 
-![](./../_static/Drive/SPI_LCD.jpg)
+![](./../static/Drive/SPI_LCD.jpg)
 
 使用mplayer播放视频效果如下, 还是很流畅的。
 

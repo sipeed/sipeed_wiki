@@ -29,7 +29,7 @@ title: Zero Spi Nor Flash启动系统制作指南
 
 配置uboot默认环境变量，在文件 `include/configs/sun8i.h` 中添加默认bootcmd和bootargs的环境变量设置，注意添加的位置在 **“\#include &#60;configs/sunxi-common.h&#62;”** 的前边。
 
-![](./../_static/Contribution/article_50.jpg)
+![](./../static/Contribution/article_50.jpg)
 
 ```
 #define CONFIG_BOOTCOMMAND   "sf probe 0; "                           \
@@ -65,7 +65,7 @@ Device Drivers --\> Memory Technology Device (MTD) support，确保选择上mtd�
 \<\*\> Command line partition table parsing
 支持，该项目用来解析uboot传递过来的flash分区信息。
 
-![](./../_static/Contribution/article_51.jpg)
+![](./../static/Contribution/article_51.jpg)
 
 修改dts配置添加spi flash节点
 
@@ -88,13 +88,13 @@ Device Drivers --\> Memory Technology Device (MTD) support，确保选择上mtd�
 };
 ```
 
-![](./../_static/Contribution/article_52.jpg)
+![](./../static/Contribution/article_52.jpg)
 
 添加对jffs2文件系统的支持，路径在
 
 File systems --\> Miscellaneous filesystems --\> Journalling Flash File System v2 (JFFS2) support
 
-![](./../_static/Contribution/article_53.png)
+![](./../static/Contribution/article_53.png)
 
 退出菜单配置并编译内核和dts
 
@@ -177,8 +177,8 @@ Zero有一个usb下载模式称为fel模式。zero的启动顺序是先sd卡然�
 
 `sudo ./sunxi-fel -p spiflash-write 0 ../bootimg/flashimg.bin`
 
-![](./../_static/Contribution/article_54.jpg)
+![](./../static/Contribution/article_54.jpg)
 
 等待大概5分钟，烧写完成，如果没有意外重新上电zero那么就会进入linux系统了，账号是root没有密码。
 
-![](./../_static/Contribution/article_55.jpg)
+![](./../static/Contribution/article_55.jpg)

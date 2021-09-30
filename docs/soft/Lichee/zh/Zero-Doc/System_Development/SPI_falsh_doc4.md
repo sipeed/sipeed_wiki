@@ -18,7 +18,7 @@ in-place 更新方式的问题我们已经在闪存转换层一节描述过了�
 JFFS2
 将文件系统的数据和原数据以节点的形式存储在闪存上，具体来说节点头部的定义如下：
 
-![这个图不见了！！！！](./../_static/System_Development/uboot_conf_9.gif)
+![这个图不见了！！！！](./../static/System_Development/uboot_conf_9.gif)
 
 
 -   幻数屏蔽位：0x1985 用来标识 JFFS2 文件系统。

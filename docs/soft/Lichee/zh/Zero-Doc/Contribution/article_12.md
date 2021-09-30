@@ -9,7 +9,7 @@ title: TF WIFI 小白编
 ## 旧版的首先要把这电阻去了
 
 
-![](./../_static/Contribution/article_56.png)
+![](./../static/Contribution/article_56.png)
 
 
 ## 焊接
@@ -21,7 +21,7 @@ title: TF WIFI 小白编
 4.  下图红圈处需要剪断，否则无法插屏幕
 5.  天线要弯过来，或者重新焊接到背面。
 
-![](./../_static/Contribution/article_57.png)
+![](./../static/Contribution/article_57.png)
 
 
 ## 下载驱动
@@ -102,7 +102,7 @@ bootz 0x41000000 - 0x4180000
 zero\_imager 里面有正确的boot.scr直接在电脑里面换上去就行了再把
 `sun8i-v3s-licheepi-zero-dock.dtb` 复制到root目录
 
-![](./../_static/Contribution/article_58.png)
+![](./../static/Contribution/article_58.png)
 
 
 ## 开机自动连网
@@ -128,7 +128,7 @@ ifconfig wlan0 up
 
 会显示这个
 
-![](./../_static/Contribution/article_59.png)
+![](./../static/Contribution/article_59.png)
 
 
 然后把你的wifi自启脚本以绝对路径形式输入 `exit 0` 上面的一行中，如果路径太长,一行写不完，就在这一行的最后面输入然后按下enter键
