@@ -40,16 +40,16 @@ Zero提供了 **主线Linux** 支持 和
 ## 设计框图
 
 
-![](./../_static/start/board_intro_1.png)
+![](./../static/start/board_intro_1.png)
 
 
 
 ## Zero实物图
 
 
-![](./../_static/start/zero_1.jpg)
+![](./../static/start/zero_1.jpg)
 
-![](./../_static/start/zero_2.jpg)
+![](./../static/start/zero_2.jpg)
 
 ## 硬件资料
 
@@ -98,6 +98,6 @@ Zero提供了 **主线Linux** 支持 和
 
 ## 管脚定义
 
-![](./../_static/start/board_intro_4.png)
+![](./../static/start/board_intro_4.png)
 
 > 图中UART0的TX RX画反了，以板子上的丝印为准。

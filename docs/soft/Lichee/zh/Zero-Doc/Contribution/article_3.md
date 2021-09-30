@@ -133,5 +133,5 @@ linux内核启动时会加载fbtft驱动，注册framebuffer设备，打印如�
 
 显示效果如下图：
 
-![](./../_static/Contribution/article_29.jpg)
+![](./../static/Contribution/article_29.jpg)
 

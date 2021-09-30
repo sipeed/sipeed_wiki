@@ -53,17 +53,17 @@ SD Card Formatter下载连接：[SD Card Formatter](https://www.sdcard.org/downl
 
 插入sd卡，打开SD Card Formatter
 
-![image-20210802102810041](https://raw.githubusercontent.com/USTHzhanglu/picture/main/img/image-20210802102810041.png)
+![image-20210802102810041](./../../../assets/maixII/V831/image-20210802102810041.png)
 
 Refresh后点击Format后格式化，注意选中对应的sd卡；
 
 打开PhoenixCard,固件处选择对应镜像包（下载镜像后需要先解压），然后刷新盘符，如果未找到可以尝试重新插拔下SD卡，勾选启动卡，点击烧卡。
 
-![image-20210802104155132](https://raw.githubusercontent.com/USTHzhanglu/picture/main/img/image-20210802104155132.png)
+![image-20210802104155132](./../../../assets/maixII/V831/image-20210802104155132.png)
 
 大概30s后，烧录完成。
 
-![image-20210802104608721](https://raw.githubusercontent.com/USTHzhanglu/picture/main/img/image-20210802104608721.png)
+![image-20210802104608721](./../../../assets/maixII/V831/image-20210802104608721.png)
 
 ## Linux(Ubuntu) 使用 Livesuit 烧录
 
@@ -143,7 +143,7 @@ sudo ./livesuit_installer.run
 
 首先使用SD Card Formatter[格式化](#-2)sd卡，然后打开软件，点击`Flash from file`,选中dd镜像包，然后点击Select target选中sd卡，最后点击Flash烧录。
 
-![image-20210803140304732](https://raw.githubusercontent.com/USTHzhanglu/picture/main/img/image-20210803140304732.png) 
+![image-20210803140304732](./../../../assets/maixII/V831/image-20210803140304732.png) 
 
 烧录完毕后，即可放入M2 dock中运行。
 

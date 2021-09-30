@@ -22,15 +22,15 @@ wget http://download.qt.io/official_releases/qtcreator/4.4/4.4.1/qt-creator-open
 
 首先配置Qt版本，这里需要用到前面编译好的qmake，点击add，把前面编译好的qmake指给它
 
-![](./../_static/Drive/QT_1.jpg)
+![](./../static/Drive/QT_1.jpg)
 
 然后配置工具链，把我们使用的linaro工具链指给它
 
-![](./../_static/Drive/QT_2.jpg)
+![](./../static/Drive/QT_2.jpg)
 
 最后配置 构建套件（Kit），就是组合Qt版本和工具链版本，我们这里新建 arm v7套件。
 
-![](./../_static/Drive/QT_3.jpg)
+![](./../static/Drive/QT_3.jpg)
 
 保存应用退出即可。
 
@@ -39,11 +39,11 @@ wget http://download.qt.io/official_releases/qtcreator/4.4/4.4.1/qt-creator-open
 
 新建工程，一路默认下去（选择arm v7套件），完成。
 
-![](./../_static/Drive/QT_4.jpg)
+![](./../static/Drive/QT_4.jpg)
 
 随便拉些控件：
 
-![](./../_static/Drive/QT_5.jpg)
+![](./../static/Drive/QT_5.jpg)
 
 然后点左下角运行按键就会自动构建，在工程目录下生成对应二进制文件。
 
@@ -84,7 +84,7 @@ CXXABI_ARM_1.3.3
 于是下载任意字体，如simsun.ttf,放到 **/opt/qt5.9.1-arm/lib/fonts**
 下，再重新运行，就有字体显示了。
 
-![](./../_static/Drive/QT_6.jpg)
+![](./../static/Drive/QT_6.jpg)
 
 此时会发现无法触摸，于是运行下触摸校准程序：
 

@@ -44,7 +44,7 @@ bank支持选项，否则最多只能读到16MB： **CONFIG\_SPI\_FLASH\_BAR**
 在文件 **include/configs/sun8i.h**
 中添加默认bootcmd和bootargs的环境变量设置，注意添加的位置在“#include &#60;configs/sunxi-common.h&#62; ”的前边。
 
-![](./../_static/System_Development/uboot_conf_4.jpg)
+![](./../static/System_Development/uboot_conf_4.jpg)
 
 
 ```
@@ -93,13 +93,13 @@ linux内核基于github上的版<a href="https://github.com/Lichee-Pi/linux.git"
 
 以及SPI-NOR 设备的支持。
 
-![](./../_static/System_Development/uboot_conf_5.jpg)
+![](./../static/System_Development/uboot_conf_5.jpg)
 
 
 添加对jffs2文件系统的支持，路径在
 File systems --\> Miscellaneous filesystems --\> Journalling Flash File System v2 (JFFS2) support
 
-![](./../_static/System_Development/uboot_conf_6.png)
+![](./../static/System_Development/uboot_conf_6.png)
 
 
 ### 设备树配置
@@ -124,7 +124,7 @@ File systems --\> Miscellaneous filesystems --\> Journalling Flash File System v
 };
 ```
 
-![](./../_static/System_Development/uboot_conf_7.jpg)
+![](./../static/System_Development/uboot_conf_7.jpg)
 
 
 这里的flash型号需要在下表之中，否则将无法识别：（注意容量也一定要对应）
@@ -289,13 +289,13 @@ sudo sunxi-fel -p spiflash-write 0 flashimg.bin
 #   spiflash-write addr file    Store file contents into SPI flash
 ```
 
-![](./../_static/System_Development/uboot_conf_8.jpg)
+![](./../static/System_Development/uboot_conf_8.jpg)
 
 
 SPI
 flash下载速度约50KB/s，等待5分钟（16MB）或者10分钟（32MB），烧写完成，如果一切顺利，重新上电zero那么就会进入linux系统了，账号是root没有密码。
 
-![](./../_static/System_Development/uboot_conf_9.jpg)
+![](./../static/System_Development/uboot_conf_9.jpg)
 
 
 ## 附录： 启动日志

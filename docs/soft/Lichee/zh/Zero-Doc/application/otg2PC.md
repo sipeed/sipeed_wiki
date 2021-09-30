@@ -113,9 +113,9 @@ Windows不能很好的识别Licheepi Zero的usb网络，需要手动安装驱动
 
 如果需要移动文件等操作，可以使用scp，或者在文件管理器中添加`sftp://192.168.2.100` 以文件夹形式打开Licheepi Zero的磁盘。
 
-![image-20210901115013624](https://raw.githubusercontent.com/USTHzhanglu/picture/main/img/image-20210901115013624.png)
+![image-20210901115013624](./../static/Drive/image-20210901115013624.png)
 
-![image-20210901115115780](https://raw.githubusercontent.com/USTHzhanglu/picture/main/img/image-20210901115115780.png)
+![image-20210901115115780](./../static/Drive/image-20210901115115780.png)
 
 对于windows，如果驱动安装失败，可以通过ssh桥接的方式连接LicheepiZero（需要linux虚拟机）。
 
@@ -123,4 +123,4 @@ Windows不能很好的识别Licheepi Zero的usb网络，需要手动安装驱动
 
 操作如下
 
-![202109011224](https://raw.githubusercontent.com/USTHzhanglu/picture/main/img/202109011224.gif)
+![202109011224](./../static/Drive/202109011224.gif)
