@@ -1,0 +1,21 @@
+{
+    "items":[
+        {
+            "label":"什么是maixpy3" 
+        },
+        {
+            "label":"maixpy和maixpy3的区别"
+        },
+        {
+            "label":"使用maixpy3进行开发",
+            "items":[
+                {
+                    "label":"前置知识——python"
+                },
+                {
+                    "label":"使用环境"
+                }
+            ]
+        }
+    ]
+}

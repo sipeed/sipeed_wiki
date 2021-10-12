@@ -48,7 +48,20 @@
 
 杜邦线接法
 
-使用10pin线接线法
+| 麦克风阵列 | 开发板上的对应管脚 | 代码中所对应的参数 |
+| ---- | ---- | ---- |
+| VIN | 3.3v/5v | —— |
+| GND | GND | —— |
+| LED_CK | I/O 口 | sk9822_clk |
+| LED_DA | I/O 口 | sk9822_dat |
+| MIC_D0 | I/O 口 | i2s_d0 |
+| MIC_D1 | I/O 口 | i2s_d1 |
+| MIC_D2 | I/O 口 | i2s_d2 |
+| MIC_D3 | I/O 口 | i2s_d3 |
+| MIC_WS | I/O 口 | i2s_ws |
+| MIC_CK | I/O 口 | i2s_sclk |
+
+> 根据以上的表格来接线，然后将参数中的数字修改成所接的 I/O 引脚号，如果不知道什么是 I/O 管脚号就自己去百度，不要问！
 
 ### python代码
 ```python
@@ -71,6 +84,17 @@ mic.deinit()
 ```
 > 需要自行根据自己的接的管脚号，进行mic.init()的参数配置
 
+## 资料
+[麦克风阵列硬件资料](https://dl.sipeed.com/shareURL/MAIX/HDK/Sipeed-R6+1_MicArray)
+
 ## 更多使用方法
 
 请移步到[论坛](https://bbs.sipeed.com)上查看
+
+## 常见问题
+
+### 出现报错信息
+
+![报错信息](./../../assets/spmod/spmod_micarray/spmod_micarray_err.png)
+
+更换其他IO管脚即可
