@@ -14,6 +14,34 @@
                 },
                 {
                     "label":"使用环境"
+                },
+                {
+                    "label":"开发环境配置",
+                    "items":[
+                        {
+                            "label":"jupyter IDE 开发"
+                        },
+                        {
+                            "label":"串口连接"
+                        },
+                        {
+                            "label":"ssh 连接"
+                        },
+                        {
+                            "label":"adb 连接"
+                        }
+                    ]
+                },
+                {
+                    "label":"入门教程",
+                    "items":[
+                        {
+                            "label":"启用摄像头并进行拍摄"
+                        },
+                        {
+                            "label":""
+                        }
+                    ]
                 }
             ]
         }
