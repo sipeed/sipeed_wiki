@@ -150,9 +150,9 @@ desc: maixpy doc: 如何选购开发板
 
 | 硬件型号                               | 测试通过的单目或双目摄像头             |
 | -------------------------------------- | -------------------------------------- |
-| M1/M1W 模组系列（Maixduino、Dock、Go） | OV2640、GC0328、OV7740、GC2145、OV5640 |
-| M1n 模组系列（Nano、Cube）             | OV2640、GC0328、OV7740、GC2145、OV5640 |
-| MaixBit                                | OV2640、GC0328、OV7740、GC2145、OV5640 |
+| M1/M1W 模组系列（Maixduino、Dock、Go） | OV2640、GC0328、OV7740、GC2145、OV5640、OV5642 |
+| M1n 模组系列（Nano、Cube）             | OV2640、GC0328、OV7740、GC2145、OV5640、OV5642 |
+| MaixBit                                | OV2640、GC0328、OV7740、GC2145、OV5640、OV5642 |
 | Maix Amigo                             | OV7740（后摄）、GC0328（前摄）         |
 
 - 目前摄像头的颜色模式
