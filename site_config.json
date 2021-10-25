@@ -110,6 +110,12 @@
                 "code": "9cb07365544a53067c56c346c838181a"
             }
         },
+        "teedoc-plugin-google-analytics":{
+            "from": "pypi",
+            "config": {
+                "id": "UA-119047820-5"
+            }
+        },
         "teedoc-plugin-comments-gitalk": {
             "from": "pypi",
             "config": {
