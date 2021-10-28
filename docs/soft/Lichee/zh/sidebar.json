@@ -22,6 +22,28 @@
                                     "file":"Zero-Doc/Start/board_intro.md"
                                 },
                                 {
+                                    "label":"Zero系统烧录",
+                                    "items":
+                                    [
+                                        {
+                                            "label":"dd镜像烧录",
+                                            "file":"Zero-Doc/System_Development/download_dd.md"
+                                        },
+                                        {
+                                            "label":"分区镜像烧录",
+                                            "file":"Zero-Doc/System_Development/download_LL.md"
+                                        },
+                                        {
+                                            "label":"SPI Flash系统烧录",
+                                            "file":"Zero-Doc/System_Development/download_SPI.md"
+                                        },
+                                        {
+                                            "label":"一键镜像烧录指南",
+                                            "file":"Zero-Doc/System_Development/download_onekey.md"
+                                        }                                       
+                                    ]
+                                },
+                                {
                                     "label":"Docker环境简明教程",
                                     "file":"Zero-Doc/Start/docker_index.md",
                                     "items":[
@@ -147,28 +169,7 @@
                                         }
                                     ]
                                 },
-                                {
-                                    "label":"Zero系统烧录",
-                                    "items":
-                                    [
-                                        {
-                                            "label":"dd镜像烧录",
-                                            "file":"Zero-Doc/System_Development/download_dd.md"
-                                        },
-                                        {
-                                            "label":"分区镜像烧录",
-                                            "file":"Zero-Doc/System_Development/download_LL.md"
-                                        },
-                                        {
-                                            "label":"SPI Flash系统烧录",
-                                            "file":"Zero-Doc/System_Development/download_SPI.md"
-                                        },
-                                        {
-                                            "label":"一键镜像烧录指南",
-                                            "file":"Zero-Doc/System_Development/download_onekey.md"
-                                        }                                       
-                                    ]
-                                },
+                                
                                 {
                                     "label":"Zero Imager",
                                     "file":"Zero-Doc/System_Development/Imager.md"
