@@ -25,7 +25,7 @@ Tina 系统的烧录方式和 MaixII dock通用，可参考[MaixII M2dock 烧录
 
 armbian 镜像获取：
 
-> 链接：<https://eyun.baidu.com/s/3jJjRFJg> 密码：F55Z
+> 链接：https://eyun.baidu.com/s/3i7j4iqT 密码：sipeed
 
 armbian 使用的烧录方式为 dd，windows下推荐使用 Etcher，linux 下推荐使用 Terminal。
 
