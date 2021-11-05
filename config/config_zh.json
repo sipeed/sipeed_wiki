@@ -25,19 +25,19 @@
                 "type": "list",
                 "items": [
                     {
-                        "url": "/soft/maixpy/zh/",
+                        "url": "/soft/maixpy/zh/index.html",
                         "label": "MaixPy"
                     },
                     {
-                        "url": "/soft/maixpy3/zh/",
+                        "url": "/soft/maixpy3/zh/index.html",
                         "label": "MaixPy3"
                     },
                     {
-                        "url":"/soft/maixduino/zh/",
+                        "url":"/soft/maixduino/zh/index.html",
                         "label":"MaixDuino"
                     },
                     {
-                        "url": "/soft/Lichee/zh/",
+                        "url": "/soft/Lichee/zh/index.html",
                         "label": "Lichee"
                     },
                     {

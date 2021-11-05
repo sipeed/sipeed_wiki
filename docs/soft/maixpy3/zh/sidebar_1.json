@@ -1,0 +1,268 @@
+{
+    "items": [
+        {
+            "label": "什么是 MaixPy3 ？",
+            "file": "readme.md",
+            "items": [
+                {
+                    "label": "什么是 Python 编程语言？",
+                    "file": "origin/python.md"
+                },
+                {
+                    "label": "MaixPy 与 MaixPy3 的区别",
+                    "file": "origin/difference.md"
+                }
+            ]
+        },
+        {
+            "label": "新手上路",
+            "items": [
+                {
+                    "label": "项目使用说明",
+                    "file": "guide/project.md"
+                },
+                {
+                    "label": "如何反馈问题",
+                    "file": "guide/feedback.md"
+                },
+                {
+                    "label": "如何参与项目",
+                    "file": "guide/participate.md"
+                }
+            ]
+        },
+        {
+            "label": "如何安装 MaixPy3 ",
+            "collapsed": false,
+            "items": [
+                {
+                    "label": "Linux x86_64",
+                    "file": "install/linux_x86_64/readme.md"
+                },
+                {
+                    "label": "除此之外？",
+                    "items": [
+                        {
+                            "label": "MaixPy3开发文档",
+                            "file": "install/others/develop.md"
+                        },
+                        {
+                            "label": "如何适配更多产品",
+                            "file": "install/others/platform.md",
+                            "items": [
+                                {
+                                    "label": "linux_x86_64",
+                                    "file": "install/others/platform/develop_linux_x86_64.md"
+                                },
+                                {
+                                    "label": "v831",
+                                    "file": "install/others/platform/develop_v831.md"
+                                },
+                                {
+                                    "label": "rv1126",
+                                    "file": "install/others/platform/develop_rv1126.md"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "如何提交你的产品",
+                            "file": "install/others/product.md"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "常用的开发工具",
+            "items": [
+                {
+                    "label": "MobaXterm",
+                    "file": "tools/mobaxterm.md"
+                },
+                {
+                    "label": "Jupyter",
+                    "file": "tools/jupyter.md"
+                },
+                {
+                    "label": "VSCode",
+                    "file": "tools/vscode.md"
+                },
+                {
+                    "label": "pyqt_rtsp",
+                    "file": "tools/pyqt_rtsp.md"
+                }
+            ]
+        },
+        {
+            "label": "一些使用案例",
+            "items": [
+                {
+                    "label": "[00] 你好，世界。",
+                    "file": "usage/00_hello_world.md"
+                },
+                {
+                    "label": "[01] 写好 Python 代码",
+                    "file": "usage/01_loop_python.md"
+                },
+                {
+                    "label": "[02] 闪烁 LED 吧！",
+                    "file": "usage/02_blink_led.md"
+                },
+                {
+                    "label": "[03] 按下按键开关灯",
+                    "file": "usage/03_key_led.md"
+                },
+                {
+                    "label": "[04] 把图片显示到屏幕",
+                    "file": "usage/04_display_screen.md"
+                },
+                {
+                    "label": "[05] 捕获摄像头一帧图片",
+                    "file": "usage/05_camera_capture.md"
+                },
+                {
+                    "label": "[06] 训练 AI 模型",
+                    "file": "usage/06_training_model.md"
+                },
+                {
+                    "label": "[07] 输入图像验证模型",
+                    "file": "usage/07_verify_model.md"
+                },
+                {
+                    "label":"[08]V831使用resnet18模型",
+                    "file":"usage/08_V831_resnet.md"
+                },
+                {
+                    "label":"[09]边缘检测",
+                    "file":"usage/09_Edge_detection.md"
+                }
+            ]
+        },
+        {
+            "label": "内置模块说明",
+            "items": [
+                {
+                    "label": "Maix 模块",
+                    "items": [
+                        {
+                            "label": "display",
+                            "file": "module/maix/display.md"
+                        },
+                        {
+                            "label": "camera",
+                            "file": "module/maix/camera.md"
+                        },
+                        {
+                            "label": "rpycs",
+                            "file": "module/maix/rpycs.md"
+                        },
+                        {
+                            "label": "nn",
+                            "file": "module/maix/nn.md"
+                        }
+                    ]
+                },
+                {
+                    "label": "Linux 模块",
+                    "items": [
+                        {
+                            "label": "GPIO",
+                            "file": "module/linux/gpio.md"
+                        },
+                        {
+                            "label": "I2C",
+                            "file": "module/linux/i2c.md"
+                        },
+                        {
+                            "label": "SPI",
+                            "file": "module/linux/spi.md"
+                        },
+                        {
+                            "label": "Iuput",
+                            "file": "module/linux/input.md"
+                        },
+                        {
+                            "label": "PWM",
+                            "file": "module/linux/pwm.md"
+                        },
+                        {
+                            "label": "UART",
+                            "file": "module/linux/uart.md"
+                        },
+                        {
+                            "label": "Bluetooth",
+                            "file": "module/linux/bluetooth.md"
+                        },
+                        {
+                            "label": "Audio",
+                            "file": "module/linux/audio.md"
+                        },
+                        {
+                            "label": "USB",
+                            "file": "module/linux/usb.md"
+                        }
+                    ]
+                },
+                {
+                    "label": "C 扩展模块",
+                    "items": [
+                        {
+                            "label": "libmaix",
+                            "items": [
+                                {
+                                    "label": "_maix",
+                                    "file": "module/ext/_maix.md"
+                                },
+                                {
+                                    "label": "_maix_display",
+                                    "file": "module/ext/_maix_display.md"
+                                },
+                                {
+                                    "label": "_maix_camera",
+                                    "file": "module/ext/_maix_camera.md"
+                                },
+                                {
+                                    "label": "_maix_nn",
+                                    "file": "module/ext/_maix_nn.md"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "libi2c",
+                            "file": "module/ext/libi2c.md"
+                        }
+                    ]
+                },
+                {
+                    "label": "Python3 标准库",
+                    "url": "https://docs.python.org/3/library/"
+                }
+            ]
+        },
+        {
+            "label": "常见问题",
+            "items": [
+                {
+                    "label": "如何提交你的问题?",
+                    "file": "question/how_to_ask.md"
+                },
+                {
+                    "label": "驱动安装 常见问题集合",
+                    "file": "question/driver_issue.md"
+                },
+                {
+                    "label": "Jupyter 常见问题集合",
+                    "file": "question/jupyter_issue.md"
+                },
+                {
+                    "label": "MaixPy3 常见问题集合",
+                    "file": "question/maixpy3_issue.md"
+                }
+            ]
+        },
+        {
+            "label":"更新历史",
+            "file":"update_history.md"
+        }
+    ]
+}

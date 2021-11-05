@@ -1,0 +1,64 @@
+{
+    "items": [
+        {
+            "label": "Tang",
+            "items": [
+                {
+                    "label": "简介",
+                    "file": "readme.md"
+                },
+                {
+                    "label":"准备",
+                    "items":[
+                        {
+                            "label":"安装TD驱动",
+                            "file":"get_started/driver.md"
+                        },
+                        {
+                            "label":"安装TD驱动——Linux",
+                            "file":"get_started/driver_linux_en.md"
+                        },
+                        {
+                            "label":"搭建蜂鸟开发环境",
+                            "file":"get_started/E203.md"
+                        },
+                        {
+                            "label":"FPGA码流烧录",
+                            "file":"get_started/fpga_download.md"
+                        }    
+                    ]
+
+                },
+                {
+                    "label":"FPGA",
+                    "items":[
+                        {
+                            "label":"LED",
+                            "file":"fpga/led.md"
+                        }
+                    ] 
+                }
+                     
+                     
+                     
+                     
+                     
+                     
+                     
+                     
+                     
+                     
+                     
+                     
+                     
+                     
+                     
+                     
+                     
+                     
+                    
+                
+            ]
+        }
+    ]
+}

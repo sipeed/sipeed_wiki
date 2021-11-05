@@ -1,0 +1,48 @@
+{
+    "title": "Tang Nano DOC",
+    "description": "Tang Nano documentation",
+    "structure": {
+        "summary": "SUMMARY.md",
+        "readme": "README.md"
+    },
+    "variables": {
+        "items": [
+            {
+                "name": "Blog",
+                "link": "http://blog.sipeed.com"
+            },
+            {
+                "name": "BBS",
+                "link": "https://bbs.sipeed.com/"
+            },
+            {
+                "name": "Feedback",
+                "links": [
+                    {
+                        "name": "doc",
+                        "link": "https://github.com/sipeed/Tang-Nano-DOC/issues"
+                    },
+                    {
+                        "name": "Source code",
+                        "link": "https://github.com/sipeed/Tang-Nano-DOC/issues"
+                    }
+                ]
+            }
+        ],
+        "version": [
+            {
+                "name": "<i class='fa fa-angle-down'></i>",
+                "links": [
+                    {
+                        "name": "master",
+                        "link": "/en/"
+                    },
+                    {
+                        "name": "dev",
+                        "link": "/dev/en/"
+                    }
+                ]
+            }
+        ]
+    }
+}
