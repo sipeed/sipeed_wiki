@@ -1,0 +1,65 @@
+languageCode = "en-us"
+defaultContentLanguage = "en"
+title = "Documentation for Lichee Hex"
+theme = "hugo-theme-learn"
+
+metaDataFormat = "yaml"
+defaultContentLanguageInSubdir= true
+
+[params]
+  editURL = "https://github.com/sipeed/Tang-Hex-Doc/tree/master/content/"
+  description = "Documentation for Lichee Hex"
+  author = "Kali Prasad"
+  showVisitedLinks = true
+  disableBreadcrumb = false
+  disableNextPrev = false
+  themeVariant = "red"
+
+[outputs]
+home = [ "HTML", "RSS", "JSON"]
+
+[Languages]
+[Languages.en]
+title = "Documentation for Lichee Hex"
+weight = 1
+languageName = "English"
+
+[[Languages.en.menu.shortcuts]]
+name = "<i class='fab fa-fw fa-github'></i> Github repo"
+identifier = "ds"
+url = "https://github.com/sipeed"
+weight = 10
+
+[[Languages.en.menu.shortcuts]]
+name = "<i class='fas fa-fw fa-shopping-bag'></i> Store"
+identifier = "shop"
+url = "https://shop365481095.taobao.com/index.htm"
+weight = 20
+
+[[Languages.en.menu.shortcuts]]
+name = "<i class='fas fa-fw fa-bullhorn'></i> Credits"
+url = "/credits"
+weight = 30
+
+[Languages.cn]
+title = "Lichee Hex的文档"
+weight = 2
+languageName = "中文"
+
+[[Languages.cn.menu.shortcuts]]
+name = "<i class='fab fa-fw fa-github'></i> Github回购"
+identifier = "ds"
+url = "https://github.com/sipeed"
+weight = 10
+
+[[Languages.cn.menu.shortcuts]]
+name = "<i class='fas fa-fw fa-shopping-bag'></i> 商店"
+identifier = "shop"
+url = "https://shop365481095.taobao.com/index.htm"
+weight = 20
+
+[[Languages.cn.menu.shortcuts]]
+name = "<i class='fas fa-fw fa-bullhorn'></i> 积分"
+url = "/credits"
+weight = 30
+

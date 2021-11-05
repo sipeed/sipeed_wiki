@@ -1,0 +1,29 @@
+dist: xenial
+language: go
+go:
+- 1.11.x
+
+# before_install
+# install - install any dependencies required
+install:
+    - wget -O /tmp/hugo.deb https://github.com/gohugoio/hugo/releases/download/v0.55.5/hugo_0.55.5_Linux-64bit.deb
+    - sudo dpkg -i /tmp/hugo.deb
+
+before_script:
+    - rm -rf public 2> /dev/null
+
+# script - run the build script
+script:
+    - hugo
+    - echo "$CNAME_URL" > public/CNAME
+
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN  # Set in travis-ci.org dashboard, marked secure
+  email: $GITHUB_EMAIL
+  name: $GITHUB_USERNAME
+  verbose: true
+  local-dir: public
+  on:
+    branch: master  

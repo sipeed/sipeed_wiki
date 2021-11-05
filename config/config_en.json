@@ -29,8 +29,16 @@
                         "label": "Maixpy"
                     },
                     {
-                        "url": "/soft/maixpy3/en/",
+                        "url": "/soft/maixpy3/zh/",
                         "label": "Maixpy3"
+                    },
+                    {
+                        "url":"/soft/maixduino/zh/index.html",
+                        "label":"MaixDuino"
+                    },
+                    {
+                        "url":"/soft/Lichee/zh/",
+                        "label":"Lichee Pi"
                     },
                     {
                         "url":"/soft/Tang/en/",
