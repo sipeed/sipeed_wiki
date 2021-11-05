@@ -81,4 +81,4 @@ win+r，输入cmd，打开命令行
 
 ![maix_train_windows](./../../../../assets/get_started/maix_train_windows.gif)
 
-不会科学上网的同学可能会下载很慢，我已经下载好，上传到[gitee](https://gitee.com/Rui_worker/asdadasda)上了(里面也有ncc的文件了)。
+不会科学上网的同学可能会下载很慢，我已经下载好，上传到[gitee](https://gitee.com/Rui_worker/maix_train)上了(里面也有ncc的文件了)。
