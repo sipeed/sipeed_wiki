@@ -36,16 +36,18 @@
                     "items":[
                         {
                             "label":"启动摄像头！",
-                            
                             "items":[
                                 {
-                                    "label":"使用摄像头拍摄图片"
+                                    "label":"使用摄像头拍摄图片",
+                                    "file":"usage/camera/camera.md"
                                 },
                                 {
-                                    "label":"色块识别"
+                                    "label":"色块识别",
+                                    "file":"usage/camera/color.md"
                                 },
                                 {
-                                    "label":"寻线"
+                                    "label":"寻线",
+                                    "file":"usage/camera/link.md"
                                 }
                             ]
                         },
@@ -54,32 +56,37 @@
                             
                             "items":[
                                 {
-                                    "label":"GPIO"
+                                    "label":"GPIO",
+                                    "file":"usage/hardware/GPIO.md"
                                 },
                                 {
-                                    "label":"I2C"
+                                    "label":"I2C",
+                                    "file":"usage/hardware/I2C.md"
                                 },
                                 {
-                                    "label":"PWM"
+                                    "label":"PWM",
+                                    "file":"usage/hardware/PWM.md"
                                 },
                                 {
-                                    "label":"UART"
+                                    "label":"UART",
+                                    "file":"usage/hardware/UART.md"
                                 },
                                 {
-                                    "label":"SPI"
+                                    "label":"SPI",
+                                    "file":"usage/hardware/SPI.md"
                                 }
                             ]
                         },
                         {
                             "label":"神经网络，启动！",
-                            "file":"usage/color.md",
-                            
                             "items":[
                                 {
-                                    "label":"1000种物品分类"
+                                    "label":"1000种物品分类",
+                                    "file":"usage/AI_net/resnet.md"
                                 },
                                 {
-                                    "label":"边缘检测"
+                                    "label":"边缘检测",
+                                    "file":"usage/AI_net/Edge_detection.md"
                                 },
                                 {
                                     "label":"人脸识别网络"
