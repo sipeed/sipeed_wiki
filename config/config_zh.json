@@ -122,6 +122,11 @@
                 "position": "left"
             },
             {
+                "label": "Github ",
+                "position": "right",
+                "url": "https://github.com/sipeed"  
+            },
+            {
                 "id": "language",
                 "label": "Language: ",
                 "position": "right",

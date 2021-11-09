@@ -1,6 +1,6 @@
 # 摄像头
 
-MaixPy3 目前所兼容的摄像头有 sp2305 和 ov9732，别的摄像头是没有进行兼容配置的，如果有需要的可以进行商务定制，联系方式<support@sipeed.com>
+MaixPy3 目前所兼容的摄像头是依赖硬件平台，不能进行随意切换，如果有需要的可以进行商务定制，联系方式<support@sipeed.com>
 
 ## 使用摄像头拍摄一张图并显示
 
@@ -11,7 +11,7 @@ display.show(camera.capture())
 ```
 
 屏幕上就会打印出摄像头所拍摄到的第一帧画面
-![](./asserts/camera_test.jpg)
+![](./../asserts/camera_test.jpg)
 
 ## 屏幕实时显示摄像头拍摄画面
 ```python
@@ -19,11 +19,14 @@ from maix import display, camera
 while True:
     display.show(camera.capture())
 ```
-![](./asserts/camera_1.gif)
+![](./../asserts/camera_1.gif)
 
 可以通过 Ctrl + C 将其停止下来
 
 ## 拍摄图片并保存下来
+
+上面介绍了摄像头的一些基本操作，其实使用一个摄像头并不难。我们还可以通过按键来实现拍摄到得图片保存到 sd 卡中，就像类似于照相机的功能
+
 ```python
 from PIL import Image, ImageFont, ImageDraw
 from maix import display,camera

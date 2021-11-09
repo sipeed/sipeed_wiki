@@ -46,13 +46,13 @@
                                     "file":"usage/camera/color.md"
                                 },
                                 {
-                                    "label":"寻线",
+                                    "label":"巡线识别",
                                     "file":"usage/camera/link.md"
                                 }
                             ]
                         },
                         {
-                            "label":"启动外设！",
+                            "label":"启动外设通信！",
                             
                             "items":[
                                 {
@@ -74,11 +74,15 @@
                                 {
                                     "label":"SPI",
                                     "file":"usage/hardware/SPI.md"
+                                },
+                                {
+                                    "label":"事件输入",
+                                    "file":"usage/hardware/key.md"
                                 }
                             ]
                         },
                         {
-                            "label":"神经网络，启动！",
+                            "label":"启动神经网络！",
                             "items":[
                                 {
                                     "label":"1000种物品分类",
@@ -93,6 +97,24 @@
                                 },
                                 {
                                     "label":"训练属于自己的神经网络（分类）"
+                                }
+                            ]
+                        },
+                        {
+                            "label":"启动网络服务",
+                            "file":""
+                        },
+                        {
+                            "label":"启动多媒体",
+                            "items":[
+                                {
+                                    "label":"视频操作"
+                                },
+                                {
+                                    "label":"音频操作"
+                                },
+                                {
+                                    "label":"语音识别"
                                 }
                             ]
                         }
