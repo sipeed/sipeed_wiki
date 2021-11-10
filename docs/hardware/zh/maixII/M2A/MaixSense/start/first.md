@@ -8,9 +8,9 @@
 
 ## 测试摄像头
 
-armbian内置了ffmpeg，可以快速捕捉sensor数据并输出到屏幕上
+armbian 内置了 ffmpeg ，可以快速捕捉 sensor 数据并输出到屏幕上
 
-使用如下命令快速捕捉sensor并输出到屏幕上
+使用如下命令快速捕捉 sensor 并输出到屏幕上
 
     ffmpeg -i /dev/video0 -vframes 1  -s 240*240 -pix_fmt rgb565le  -vf transpose=2,transpose=2 -f fbdev /dev/fb0
 
@@ -20,13 +20,13 @@ armbian内置了ffmpeg，可以快速捕捉sensor数据并输出到屏幕上
 ## 测试网络
 
 使用 nmtui 指令可以进入可视化的配网界面，
-选择 Activate a connection ， 选择对应的SSID，输入连接密码，确认即可。
+选择 Activate a connection ， 选择对应的 SSID ，输入连接密码，确认即可。
 
 ![202108051626](./../assets/202108051626.gif)
 
 
 
-设置完毕后使用ifconfig查看本机操作，然后就可以使用ssh等操作了。
+设置完毕后使用 ifconfig 查看本机操作，然后就可以使用 ssh 等操作了。
 
 ![image-20210805162936212](./../assets/image-20210805162936212.png)
 

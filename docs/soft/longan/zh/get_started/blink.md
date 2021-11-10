@@ -78,15 +78,7 @@ upload_protocol = dfu
 
 ![](../../assets/pio_upload.png)
 
-## 使用Zadig安装驱动
-PIO 内置 dfu-util 下载工具，使用此工具需要为开发板安装 libusb 驱动。（注意： 与 GD 官方驱动不同）
 
-建议通过 Zadig 安装 winusb 驱动。[下载地址](https://github.com/pbatard/libwdi/releases/download/b721/zadig-2.4.exe)
-
-下载成功后打开 Zadig
-
-在下拉栏中选择 GD32V， 替换驱动选择 WinUSB, 点击替换按钮，即可替换成功。
-![](../../assets/dfu_zadig.png)
 ## DFU 图形界面下载
 
 下载DFU工具：http://dl.sipeed.com/LONGAN/Nano/Tools/GD32_MCU_Dfu_Tool_V3.8.1.5784_1.rar
@@ -108,3 +100,13 @@ GD32 MCU Dfu Drivers_v1.0.1.2316  和 GD32 MCU Dfu Tool_v3.8.1.5784
 烧录完成之后不会自动复位，需要自己手工按下复位按键，查看运行效果
 
 ![](../../assets/examples/how_to_use_dfu.png)
+
+## 使用Zadig安装驱动
+PIO 内置 dfu-util 下载工具，使用此工具需要为开发板安装 libusb 驱动。（注意： 与 GD 官方驱动不同）
+
+建议通过 Zadig 安装 winusb 驱动。[下载地址](https://github.com/pbatard/libwdi/releases/download/b721/zadig-2.4.exe)
+
+下载成功后打开 Zadig
+
+在下拉栏中选择 GD32V， 替换驱动选择 WinUSB, 点击替换按钮，即可替换成功。
+![](../../assets/dfu_zadig.png)

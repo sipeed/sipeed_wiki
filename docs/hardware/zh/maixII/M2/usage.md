@@ -153,5 +153,5 @@ display.show(camera.capture())
 
 ## 相关参考资料
 
-请查阅[maixpy3](./../../../../soft/maixpy3/zh/readme.md)
+请查阅[maixpy3](/soft/maixpy3/zh/readme.md)
 

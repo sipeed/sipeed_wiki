@@ -40,16 +40,16 @@ Zero提供了 **主线Linux** 支持 和
 ## 设计框图
 
 
-![](./../_static/start/board_intro_1.png)
+![](./../static/start/board_intro_1.png)
 
 
 
 ## Zero实物图
 
 
-![](./../_static/start/zero_1.jpg)
+![](./../static/start/zero_1.jpg)
 
-![](./../_static/start/zero_2.jpg)
+![](./../static/start/zero_2.jpg)
 
 ## 硬件资料
 
@@ -93,13 +93,11 @@ Zero提供了 **主线Linux** 支持 和
 ## 手册资料
 
 国内下载链接：
-网盘地址：[http://pan.baidu.com/s/1eR6uIsy](http://pan.baidu.com/s/1eR6uIsy)
-芯片手册：[http://lichee.jicm.cn/doc/V3S/Allwinner_V3s_Datasheet_V1.0.pdf](http://lichee.jicm.cn/doc/V3S/Allwinner_V3s_Datasheet_V1.0.pdf)
-原理图：[http://lichee.jicm.cn/doc/SCH_PCB/lichee_zero.pdf](http://lichee.jicm.cn/doc/SCH_PCB/lichee_zero.pdf)
-封装库：[http://lichee.jicm.cn/doc/SCH_PCB/Zero.IntLib](http://lichee.jicm.cn/doc/SCH_PCB/Zero.IntLib)
+网盘地址：[https://eyun.baidu.com/s/3pLZ8hBH](https://eyun.baidu.com/s/3pLZ8hBH)
+下载站：[dl.sipeed.com/shareURL/LICHEE/Zero/HDK](https://dl.sipeed.com/shareURL/LICHEE/Zero/HDK)
 
 ## 管脚定义
 
-![](./../_static/start/board_intro_4.png)
+![](./../static/start/board_intro_4.png)
 
 > 图中UART0的TX RX画反了，以板子上的丝印为准。

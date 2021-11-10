@@ -1,4 +1,5 @@
 {
+    "locale": "zh_CN",
     "navbar": {
         "title": "wiki",
         "logo": {
@@ -24,19 +25,19 @@
                 "type": "list",
                 "items": [
                     {
-                        "url": "/soft/maixpy/zh/",
+                        "url": "/soft/maixpy/zh/index.html",
                         "label": "MaixPy"
                     },
                     {
-                        "url": "/soft/maixpy3/zh/",
+                        "url": "/soft/maixpy3/zh/index.html",
                         "label": "MaixPy3"
                     },
                     {
-                        "url":"/soft/maixduino/zh/",
+                        "url":"/soft/maixduino/zh/index.html",
                         "label":"MaixDuino"
                     },
                     {
-                        "url": "/soft/Lichee/zh/",
+                        "url": "/soft/Lichee/zh/index.html",
                         "label": "Lichee"
                     },
                     {
@@ -73,8 +74,12 @@
                         "label": "Tang"
                     },
                     {
-                        "url": "/hardware/zh/longan/index.html",
+                        "url": "/hardware/zh/longan/Nano/Longan_nano.html",
                         "label": "Longan"
+                    },
+                    {
+                        "url":"/hardware/zh/modules_spmod/spmod_extender.html",
+                        "label":"SP-Mod"
                     }
                 ]
             },
@@ -117,22 +122,15 @@
                 "position": "left"
             },
             {
+                "label": "Github ",
+                "position": "right",
+                "url": "https://github.com/sipeed"  
+            },
+            {
                 "id": "language",
                 "label": "Language: ",
                 "position": "right",
-                "type": "selection",
-                "items": [
-                    {
-                        "id": "zh",
-                        "url": "/",
-                        "label": "中文"
-                    },
-                    {
-                        "id": "en",
-                        "url": "/en/",
-                        "label": "English"
-                    }
-                ]
+                "type": "language"
             }
         ]
     },

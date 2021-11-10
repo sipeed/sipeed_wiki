@@ -13,7 +13,7 @@ TF WiFi可以使用插卡形式或者堆叠形式。
 
 此时，仅能使用WiFi功能，BT由于未接线而无法使用。
 
-![](./../_static/Contribution/article_33.png)
+![](./../static/Contribution/article_33.png)
 
 
 ### 堆叠形式安装
@@ -25,7 +25,7 @@ TF WiFi可以使用插卡形式或者堆叠形式。
 注意，初版Zero有一个阻值错误，导致WiFi无法启用，为下图红圈处电阻。
 修复方法为： **去除该电阻（推荐）** ，或者更换成510欧电阻。
 
-![](./../_static/Contribution/article_34.png)
+![](./../static/Contribution/article_34.png)
 
 
 ### 堆叠焊接于顶部
@@ -33,7 +33,7 @@ TF WiFi可以使用插卡形式或者堆叠形式。
 此为默认的安装形式如图所示，焊接上方SDIO
 WiFi的8个引脚，下方BT的4个引脚。
 
-![](./../_static/Contribution/article_35.jpg)
+![](./../static/Contribution/article_35.jpg)
 
 
 TF WiFi 2.54间距的焊盘，可以直接插入插针焊接。
@@ -43,7 +43,7 @@ BT有2个1.27偏移的焊盘，建议焊接方法如下所示：
 取2Pin
 排针，插入焊盘，接于半孔上，焊接上下两侧，最后用剪刀或者钳子去除多余部分。
 
-![](./../_static/Contribution/article_36.jpg)
+![](./../static/Contribution/article_36.jpg)
 
 
 此焊接方式，可使得板子最为紧凑，但缺点是发热大户CPU和WiFi直接贴合在一起，可导致温度达到60度以上。
@@ -55,14 +55,14 @@ BT有2个1.27偏移的焊盘，建议焊接方法如下所示：
 1.  下图红圈处需要剪断，否则无法插屏幕
 2.  天线要弯过来，或者重新焊接到背面。
 
-![](./../_static/Contribution/article_37.png)
+![](./../static/Contribution/article_37.png)
 
 
 ### 堆叠插拔形式
 
 如果不想把TF WiFi焊死上去，可以使用排座焊接到TF WiFi上，插拔使用：
 
-![](./../_static/Contribution/article_38.png)
+![](./../static/Contribution/article_38.png)
 
 
 ## WiFi使用方法

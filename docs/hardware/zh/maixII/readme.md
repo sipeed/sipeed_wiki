@@ -11,12 +11,12 @@
 ## MaixII S
 <div align="center">
 
-<a href="./M2S/V833.md"><img src="./M2S/assets/M2s_Dock.jpg"></a>
+<a href="./M2S/V833.html"><img src="./M2S/assets/M2s_Dock.jpg"></a>
 </div>
 
 
 ## Maix Sense
 <div align="center">
 
-<a href="./maixII/M2A/R329.md"><img src="./M2A/MaixSense/assets/M2A-1.gif"></a>
+<a href="./M2A/R329.html"><img src="./M2A/MaixSense/assets/M2A-1.gif"></a>
 </div>

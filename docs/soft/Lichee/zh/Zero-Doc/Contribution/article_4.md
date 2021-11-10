@@ -139,7 +139,7 @@ make LicheePi_Zero_800x480LCD_defconfig
 
 执行这个命令就可以出现一个UI交互比较好的配置文件选项，可以看下面的截图：
 
-![](./../_static/Contribution/article_30.png)
+![](./../static/Contribution/article_30.png)
 
 
 ---按回车，即选择当前菜单\
@@ -158,7 +158,7 @@ make LicheePi_Zero_800x480LCD_defconfig
 2.  第二个ARM architecture
     这个选项比较重要，主要配置ARM框架下的常用的配置函数以及LCD等参数
 
-    ![](./../_static/Contribution/article_31.png)
+    ![](./../static/Contribution/article_31.png)
 
 
     ```
@@ -170,7 +170,7 @@ make LicheePi_Zero_800x480LCD_defconfig
     (14779) sunxi dram zq value             配置dram的ZQ值，是用来动态加强DDR3的
     -*- Board uses DDR2 DRAM             使用DDR2 DRAM
     ```
-    ![](./../_static/Contribution/article_32.png)
+    ![](./../static/Contribution/article_32.png)
 
 
     ```

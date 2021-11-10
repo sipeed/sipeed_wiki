@@ -6,7 +6,7 @@ title: 荔枝派zero开箱指南
 
 ### 正面：
 
-![](./../_static/Contribution/article_1.jpg)
+![](./../static/Contribution/article_1.jpg)
 
 
 1.  主控v3s芯片，Allwinner V3s (ARM Cortex-A7 CPU, 1.2GHz, 512Mbit DDR2 integrated)
@@ -21,7 +21,7 @@ title: 荔枝派zero开箱指南
 ### 反面：
 
 
-![](./../_static/Contribution/article_2.jpg)
+![](./../static/Contribution/article_2.jpg)
 
 
 1.  40P 通用RGB屏幕接口
@@ -30,7 +30,7 @@ title: 荔枝派zero开箱指南
 ### 焊接好排针：
 
 
-![](./../_static/Contribution/article_3.jpg)
+![](./../static/Contribution/article_3.jpg)
 
 ## 启动方式介绍
 
@@ -58,62 +58,62 @@ tools工具，安装这个工具后可以在windows和ubuntu桌面之间直接�
 
 下面制作tf卡启动系统，需要一张大于8g的tf卡和一个读卡器，将tf卡插入读卡器并插入电脑。如果是虚拟机请检查下虚拟机右下角这个图标的状态，如下图
 
-![](./../_static/Contribution/article_4.jpg)
+![](./../static/Contribution/article_4.jpg)
 
 
 如果是这种灰色的表示读卡器的操作权在windows系统，需要点击一个这个图标，选择链接（断开与主机连接），这样读卡器的控制器才能到虚拟机linux系统中。
 
-![](./../_static/Contribution/article_5.jpg)
+![](./../static/Contribution/article_5.jpg)
 
 
 在桌面环境搜索gparted分区编辑器并打开。
 
-![](./../_static/Contribution/article_6.jpg)
+![](./../static/Contribution/article_6.jpg)
 
 
 输入超级用户密码
 
-![](./../_static/Contribution/article_7.jpg)
+![](./../static/Contribution/article_7.jpg)
 
 
 在右上角中选择tf卡对应的设备
 
-![](./../_static/Contribution/article_8.jpg)
+![](./../static/Contribution/article_8.jpg)
 
 
 依次选中tf卡上已经存在的分区，右键【删除】来删除分区
 
-![](./../_static/Contribution/article_56.jpg)
+![](./../static/Contribution/article_56.jpg)
 
 
 如果只有【卸载】选择，那么需要先点击卸载，然后再删除分区。
 
-![](./../_static/Contribution/article_57.jpg)
+![](./../static/Contribution/article_57.jpg)
 
 
 所有分区删除完毕后，点击右上角对勾，将操作应用到磁盘。
 
-![](./../_static/Contribution/article_58.jpg)
+![](./../static/Contribution/article_58.jpg)
 
 
 点击左上角加号创建新分区，之前剩余空间输入2MB(主要用来存放uboot)，新大小输入20，文件系选择fat16，点击添加。
 
-![](./../_static/Contribution/article_59.jpg)
+![](./../static/Contribution/article_59.jpg)
 
 
 再次点击左上角加号创建新分区，这次使用所有的默认参数如下图所示，分区大小将使用tf卡剩余的所有空间，文件系统是ext4.
 
-![](./../_static/Contribution/article_9.jpg)
+![](./../static/Contribution/article_9.jpg)
 
 
 点击对勾，应用创建分区到tf卡。
 
-![](./../_static/Contribution/article_10.jpg)
+![](./../static/Contribution/article_10.jpg)
 
 
 打开linux终端，输入命令sudo fdisk –l 可以看到刚才我们创建的两个分区。
 
-![](./../_static/Contribution/article_11.jpg)
+![](./../static/Contribution/article_11.jpg)
 
 
 /dev/sdb即代表tf卡，/dev/sdb1代表的是tf的第一个分区，/dev/sdb2代表的是tf的第二个分区
@@ -144,7 +144,7 @@ cd zero_imager/（切换当前路径到zero_imager）
 sudo dd if=u-boot-sunxi-with-spl_480800.bin of=/dev/sdb bs=1024 seek=8
 ```
 
-![](./../_static/Contribution/article_12.jpg)
+![](./../static/Contribution/article_12.jpg)
 
 
 第二步，将内核文件，启动参数文件，dtb写入到tf卡的第一分区。
@@ -158,7 +158,7 @@ sync
 sudo umount /dev/sdb1
 ```
 
-![](./../_static/Contribution/article_13.jpg)
+![](./../static/Contribution/article_13.jpg)
 
 第三步，将根文件系统内容写入到tf卡的第二分区。
 
@@ -180,13 +180,13 @@ sudo umount /dev/sdb2
 
 使用串口工具连接LicheePiZero,注意rx接tx，tx接rx，插入电脑，打开串口工具，我使用的是PuTTY\_0.67.0.0.exe。有屏幕的插入屏幕。
 
-![](./../_static/Contribution/article_14.jpg)
+![](./../static/Contribution/article_14.jpg)
 
 
-![](./../_static/Contribution/article_15.jpg)
+![](./../static/Contribution/article_15.jpg)
 
 
-![](./../_static/Contribution/article_16.jpg)
+![](./../static/Contribution/article_16.jpg)
 
 
 输入账号root密码licheepi，登陆到系统。

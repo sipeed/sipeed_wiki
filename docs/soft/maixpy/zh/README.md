@@ -19,40 +19,8 @@ desc: maixpy doc: MaixPy 文档简介
 </div>
 
 
-<table role="table" class="center_table">
-    <thead>
-        <tr>
-            <th>网站导航</th>
-            <th>地址</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><strong>MaixPy</strong> 唯一官方文档官网</td>
-            <td><span class="limit_width">中文站: </span><span class=""><a href="https://wiki.sipeed.com/soft/maixpy/zh/" rel="nofollow"><strong>wiki.sipeed.com</strong></a></span></td>
-        </tr>
-        <tr>
-            <td><strong>MaixPy</strong> 例程仓库</td>
-            <td><span class="limit_width">github：</span> <span class=""><a href="https://github.com/sipeed/MaixPy_scripts"><strong>github/maixpy_script</strong></a></span> <br><span class="limit_width">国内：</span><span class=""><a href="https://gitee.com/Sipeed/maixpy_scripts" rel="nofollow"><strong>gitee/maixpy_scripts</strong></a></span></td>
-        </tr>
-        <tr>
-            <td>MaixPy 源码</td>
-            <td><span class="limit_width"></span><span class=""><a href="https://github.com/sipeed/MaixPy"><strong>github: MaixPy</strong></a></span></td>
-        </tr>
-        <tr>
-            <td>开发板资料下载</td>
-            <td><span class="limit_width"></span><span class=""><a href="http://dl.sipeed.com/MAIX/HDK" rel="nofollow"><strong>dl.sipeed.com</strong></a></span></td>
-        </tr>
-        <tr>
-            <td>Sipeed WIKI</td>
-            <td><span class="limit_width"></span><span class=""><a href="https://wiki.sipeed.com" rel="nofollow"><strong>wiki.sipeed.com</strong></a></span></td>
-        </tr>
-    </tbody>
-</table>
 
-| 文档最新更新时间 | 更新内容 | 历史更新 |
-| ---- | ----- | ---- |
-| 2021/8/2 | 更新了本地训练（windows）使用教程 | [历史](./update_history.md) |
+
 
 
 
@@ -231,6 +199,35 @@ please read doc before run it!
     </tbody>
 </table>
 
-
+<table role="table" class="center_table">
+    <thead>
+        <tr>
+            <th>网站导航</th>
+            <th>地址</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><strong>MaixPy</strong> 唯一官方文档官网</td>
+            <td><span class="limit_width">中文站: </span><span class=""><a href="https://wiki.sipeed.com/soft/maixpy/zh/" rel="nofollow"><strong>wiki.sipeed.com</strong></a></span></td>
+        </tr>
+        <tr>
+            <td><strong>MaixPy</strong> 例程仓库</td>
+            <td><span class="limit_width">github：</span> <span class=""><a href="https://github.com/sipeed/MaixPy_scripts"><strong>github/maixpy_script</strong></a></span> <br><span class="limit_width">国内：</span><span class=""><a href="https://gitee.com/Sipeed/maixpy_scripts" rel="nofollow"><strong>gitee/maixpy_scripts</strong></a></span></td>
+        </tr>
+        <tr>
+            <td>MaixPy 源码</td>
+            <td><span class="limit_width"></span><span class=""><a href="https://github.com/sipeed/MaixPy"><strong>github: MaixPy</strong></a></span></td>
+        </tr>
+        <tr>
+            <td>开发板资料下载</td>
+            <td><span class="limit_width"></span><span class=""><a href="http://dl.sipeed.com/MAIX/HDK" rel="nofollow"><strong>dl.sipeed.com</strong></a></span></td>
+        </tr>
+        <tr>
+            <td>Sipeed WIKI</td>
+            <td><span class="limit_width"></span><span class=""><a href="https://wiki.sipeed.com" rel="nofollow"><strong>wiki.sipeed.com</strong></a></span></td>
+        </tr>
+    </tbody>
+</table>
 
 ------------

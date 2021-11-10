@@ -15,16 +15,16 @@ make LicheePi_Zero_defconfig
 make menuconfig
 ```
 
-![](./../_static/Drive/Ethernet_1.png)
+![](./../static/Drive/Ethernet_1.png)
 
 -   选择 **Device Drivers ---\>**
 
-![](./../_static/Drive/Ethernet_2.png)
+![](./../static/Drive/Ethernet_2.png)
 
 -   选择 **Network device support ---\>** 并选中 **Allwinner Sun8i
     Ethernet MAC support**
 
-![](./../_static/Drive/Ethernet_3.png)
+![](./../static/Drive/Ethernet_3.png)
 
 -   修改dts
 
@@ -129,7 +129,7 @@ dd if=u-boot-sunxi-with-spl.bin of=${card} bs=1024 seek=8
 
 - 使用Ethernet：
 
-![](./../_static/Drive/Ethernet_4.png)
+![](./../static/Drive/Ethernet_4.png)
 
 如果出现： `*** ERROR:ipaddr' not set` ，就需要设置下自己的ip：
 `setenv ipaddr 192.168.1.111`
@@ -286,10 +286,10 @@ make menuconfig ARCH=arm
 
 `ifup eth0`
 
-![](./../_static/Drive/Ethernet_5.png)
+![](./../static/Drive/Ethernet_5.png)
 
 eth0启动成功！
 
-![](./../_static/Drive/Ethernet_6.png)
+![](./../static/Drive/Ethernet_6.png)
 
 **Ethernet驱动适配成功！**
