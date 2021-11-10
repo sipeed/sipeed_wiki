@@ -182,8 +182,6 @@ items:
                 file: course/image/find_qrcodes.md
         -   label: 音频处理
             items:
-            -   label: FFT
-                file: course/speech/fft.md
             -   label: FFT 瀑布图
                 file: course/speech/fft_waterfall.md
             -   label: 关键词识别

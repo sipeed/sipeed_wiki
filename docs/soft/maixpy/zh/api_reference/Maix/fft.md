@@ -13,7 +13,7 @@ FFT快速傅里叶变换模块，对输入数据进行傅里叶变换并返回�
 输入时域数据并进行傅里叶变换
 
 ```
-import FFT
+from maix import FFT
 res = FFT.run(data, points, shift)
 ```
 
@@ -66,7 +66,8 @@ amp = FFT.amplitude(FFT_res)
 
 ### 例程
 
-采集声音并进行FFT运算，将运算后的数据在屏幕上显示为柱状图
+采集声音并进行 FFT 运算，将运算后的数据在屏幕上显示为柱状图: [demo_fft_spectrum](https://github.com/sipeed/MaixPy_scripts/blob/master/hardware/demo_fft_spectrum.py)
 
-例示代码： https://github.com/sipeed/MaixPy_scripts/blob/master/hardware/demo_fft_spectrum.py
+效果：
+<iframe width="600" height="350"  src="//player.bilibili.com/player.html?aid=44617696&cid=78104545&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
