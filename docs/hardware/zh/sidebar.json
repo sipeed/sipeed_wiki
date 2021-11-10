@@ -1,13 +1,9 @@
 {
     "items": [
-        {
-            "label": "Sipeed 硬件资料导航",
-            "file": "README.md"
-        },
 
         {
             "label": "Maix-I",
-            "file":"maix/readme.md",
+            "file":"maix/README.md",
             "items": [
         
                 {
@@ -132,39 +128,37 @@
             ]
         },
         {
-            "label": "LicheePi (Linux)",
+            "label": "LicheePi",
+            "file":"lichee/README.md",
             "items": [
                 {
                     "label": "LicheePi Zero",
-                    "file": "lichee/Zero/readme.md"
-                },
-                {
-                    "label": "LicheePi One",
-                    "file": "lichee/One/readme.md"
+                    "file": "lichee/Zero/Zero.md"
                 },
                 {
                     "label": "LicheePi Nano",
-                    "file": "lichee/Nano/readme.md"
+                    "file": "lichee/Nano/Nano.md"
                 },
                 {
                     "label": "LicheePi ZeroPlus",
-                    "file": "lichee/ZeroPlus/readme.md"
+                    "file": "lichee/ZeroPlus/ZeroPlus.md"
                 }
             ]
         },
         {
             "label": " Tang",
+            "file":"tang/README.md",
             "items": [
                 {
                     "label": "Tang Premier",
-                    "file": null
+                    "file": "tang/Tang-primer/Tang-primer.md"
                 },
                 {
                     "label": "Tang Nano",
-                    "file": null
+                    "file": "tang/Tang-Nano/Tang-Nano.md"
                 },
                 {
-                    "label":"Nano 4K",
+                    "label":"Tang Nano 4K",
                     "file":"tang/Tang-Nano-4K/Nano-4K.md",
                     "items":[
                         {
@@ -189,12 +183,18 @@
             "items": [
                 {
                     "label": "Longon Nano",
-                    "file":"longan/Nano/Longan_nano.md"
-                },
-                {
-                    "label": "Longon Zero",
-                    "file":"longan/Zero/readme.md"
-                }           
+                    "file":"longan/Nano/Longan_nano.md",
+                    "items":[
+                        {
+                            "label":"环境配置",
+                            "file":"longan/Nano/pio.md"
+                        },
+                        {
+                            "label":"点灯测试",
+                            "file":"longan/Nano/blink.md"
+                        }
+                    ]
+                }
             ]
         },
         {
@@ -330,9 +330,7 @@
                         {
                             "label":"麦克风模块",
                             "items":[
-                                {
-                                    "label":"单麦克风模块"
-                                },
+                    
                                 {
                                     "label":"麦克风阵列",
                                     "file":"modules/micarray.md"
@@ -340,7 +338,8 @@
                             ]
                         },
                         {
-                            "label":"LCD 1.3/2.4/2.8/4.3/5 寸"
+                            "label":"Sipeed Gamepad",
+                            "file":"modules/Gamepad.md"
                         }
                     ]
                 }

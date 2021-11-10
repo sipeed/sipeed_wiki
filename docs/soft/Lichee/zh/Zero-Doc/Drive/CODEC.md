@@ -38,9 +38,9 @@ controlC0  pcmC0D0c   pcmC0D0p   timer
 
 alsamixer是图形化的amixer工具,如下图所示
 
-![](./../_static/Drive/CODEC_1.jpg)
+![](./../static/Drive/CODEC_1.jpg)
 
-![](./../_static/Drive/CODEC_2.jpg)
+![](./../static/Drive/CODEC_2.jpg)
 
 从左到右是：耳机音量，耳机输出源，Mic增益，mic1 boost, DAC增益。
 

@@ -43,16 +43,6 @@ items:
                 file: modules/grove/README.md
             -   label: Other
                 file: modules/others/README.md
-    -   label: Basic knowledge
-        items:
-        -   label: MaixPy Grammar Basics
-            file: get_started/knowledge_micropython.md
-        -   label: git and github
-            file: get_started/knowledge_git_github.md
-        -   label: MaixPy Image Basics
-            file: get_started/knowledge_image.md
-        -   label: MaixPy audio basics
-            file: get_started/knowledge_audio.md
     -   label: Environment Preparation
         items:
         -   label: Install Driver
@@ -63,19 +53,27 @@ items:
             -   label: Maix Bit
                 file: get_started/install_driver/bit.md
             -   label: Maix Amigo
-                file: get_started/install_driver/ft2232.md
+                file: get_started/install_driver/amigo.md
             -   label: Maix Cube
-                file: get_started/install_driver/ft2232.md
+                file: get_started/install_driver/cube.md
             -   label: Maix Go
                 file: get_started/install_driver/go.md
             -   label: Maix Nano
                 file: get_started/install_driver/nano.md
             -   label: Grove AI HAT
-                file: get_started/install_driver/ft2232.md
+                file: get_started/install_driver/ai_hat.md
+            -   label: Maix Duino
+                file: get_started/install_driver/duino.md
         -   label: Update MaixPy firmware
             file: get_started/upgrade_maixpy_firmware.md
         -   label: Use serial terminal tool
             file: get_started/env_serial_tools.md
+
+            items:
+            -   label: mpfshell-lite工具介绍
+                file: get_started/mpfshell-lite/mpfshell-lite.md
+            -   label: Mpfshell-lite 使用手册
+                file: get_started/mpfshell-lite/mpfshell-lite-help.md
         -   label: MaixPy IDE Instructions
             file: get_started/env_maixpyide.md
         -   label: Update WIFI module firmware
@@ -92,6 +90,16 @@ items:
             file: get_started/get_started_cam_lcd.md
         -   label: 'Second program: LED'
             file: get_started/get_started_led_blink.md
+        -   label: Basic knowledge
+            items:
+            -   label: MaixPy Grammar Basics
+                file: get_started/knowledge_micropython.md
+            -   label: git and github
+                file: get_started/knowledge_git_github.md
+            -   label: MaixPy Image Basics
+                file: get_started/knowledge_image.md
+            -   label: MaixPy audio basics
+                file: get_started/knowledge_audio.md
         -   label: Introduction to Storage System
             file: get_started/get_started_fs.md
         -   label: Edit and run scripts
@@ -101,7 +109,7 @@ items:
         -   label: Auto-run when booting
             file: get_started/get_started_boot.md
         -   label: Board configuration file
-            file: api_reference/builtin_py/board_info.md
+            file: get_started/board_info.md
         -   label: Video tutorial
             file: get_started/maixpy_get_started_video.md
     -   label: Firmware customization
@@ -158,6 +166,10 @@ items:
                 file: course/ai/train/maixhub.md
             -   label: Local Training
                 file: course/ai/train/local.md
+            -   label: 本地训练Windows环境配置
+                file: course/ai/train/local_windows_1.md
+            -   label: 本地训练Windows使用教程
+                file: course/ai/train/local_windows_2.md
     -   label: Traditional Algorithm
         items:
         -   label: Image Processing
@@ -195,7 +207,6 @@ items:
             -   label: WDT
                 file: modules/on_chip/wdt.md
         -   label: SP-MOD
-            file: modules/sp_mod/README.md
             items:
             -   label: BT Bluetooth transparent transmission
                 file: modules/sp_mod/sp_bt.md
@@ -417,3 +428,5 @@ items:
         items:
         -   label: Participate in experience sharing/sharing template
             file: share/my_share/README.md
+-   label: Update history
+    file: update_history.md

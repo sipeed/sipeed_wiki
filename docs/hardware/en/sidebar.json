@@ -1,260 +1,277 @@
 {
     "items": [
-        {
-            "label": "Sipeed 硬件资料导航",
-            "file": "README.md"
-        },
 
         {
-            "label": "Maix",
+            "label": "Maix-I",
+            "file":"maix/readme.md",
             "items": [
         
                 {
-                    "label": "M1/M1w"
-                    
+                    "label": "M1/M1w",
+                    "file":"maix/core_module.md"
                 },
                 {
-                    "label": "M1n"
-                    
+                    "label": "M1n",
+                    "file":"maix/M1n.md"
                 },
                 {
                     "label": "MaixPy 开发板",
-                    "file": "maixpy_develop_kit_board/develop_kit_board.md",
+                    "file": "maix/maixpy_develop_kit_board/develop_kit_board.md",
                     "items":[
                 
                 {
                     "label": "Maix Go",
-                    "file": null
+                    "file": "maix/maixpy_develop_kit_board/maix_go.md"
                 },
                 {
-                    "label": "Maix Dock(M1/M1W",
-                    "file": null
+                    "label": "Maix Dock(M1/M1W)",
+                    "file": "maix/maixpy_develop_kit_board/Maix_dock.md"
+
                 },
                 {
                     "label": "Maix Bit",
-                    "file": null
+                    "file": "maix/maixpy_develop_kit_board/maix_bit.md"
                 },
                 {
                     "label": "Maix Duino",
-                    "file": "maixpy_develop_kit_board/maix_duino.md"
+                    "file": "maix/maixpy_develop_kit_board/maix_duino.md"
                 },
                 {
                     "label": "Maix Nano",
-                    "file": null
+                    "file": "maix/maixpy_develop_kit_board/maix_nano.md"
                 },
                 {
                     "label": "Maix Cube",
-                    "file": "maixpy_develop_kit_board/maix_cube.md"
+                    "file": "maix/maixpy_develop_kit_board/maix_cube.md"
                 },
                 {
                     "label": "Maix Amigo",
-                    "file": "maixpy_develop_kit_board/maix_Amigo.md"
+                    "file": "maix/maixpy_develop_kit_board/maix_Amigo.md"
                 }
-                    ]
+                ]
             }
             ]
         },
         {
-            "label": "MaixII",
+            "label": "Maix-II",
+            "file":"maixII/readme.md",
             "items": [
                 {
-                    "label": "M2"
+                    "label": "M2",
+                    "file":"maixII/M2/introduce.md",
+                    "items":[
+                        {
+                            "label":"MaixII-Dock",
+                            "file":"maixII/M2/resources.md",
+                            "items":[
+                                {
+                                    "label":"烧录系统",
+                                    "file":"maixII/M2/flash.md"
+                                },
+                                {
+                                    "label":"访问串口",
+                                    "file":"maixII/M2/drive.md"
+                                },
+                                {
+                                    "label":"配置系统",
+                                    "file":"maixII/M2/config.md"
+                                },
+                                {
+                                    "label":"上手使用",
+                                    "file":"maixII/M2/usage.md"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "label": "M2S",
+                    "file":"maixII/M2S/V833.md",
+                    "items":[
+                        {
+                            "label":"板级资源介绍",
+                            "file":"maixII/M2S/reources.md"
+                        }
+                    ]
                     
                 },
                 {
-                    "label": "M2S"
-                    
-                },
-                {
-                    "label": "M2A"
-                    
-                },
-                {
-                    "label": "M2W"
-                    
-                },
-                {
-                    "label": "M2WS"
+                    "label": "M2A",
+                    "file":"maixII/M2A/R329.md",
+                    "items":[
+                        {
+                            "label":"MaixSense简介",
+                            "file":"maixII/M2A/MaixSense/maixsense.md",
+                            "items":[
+                                {
+                                    "label":"烧录系统",
+                                    "file":"maixII/M2A/MaixSense/start/start.md"
+                                },
+                                {
+                                    "label":"配置系统",
+                                    "file":"maixII/M2A/MaixSense/start/buildsystem.md"
+                                },
+                                {
+                                    "label":"开箱测试",
+                                    "file":"maixII/M2A/MaixSense/start/first.md"
+                                },
+                                {
+                                    "label":"上手使用",
+                                    "file":"maixII/M2A/MaixSense/start/user.md"
+                                }
+                            ]
+                        }
+                    ]
                     
                 }
+               
             ]
         },
         {
-            "label": "MaixIII",
-            "items": [
-                {
-                    "label": "M3-lite"
-                    
-                },
-                {
-                    "label": "M3"
-                    
-                }               
-            ]
-        },
-        {
-            "label": "MaixIV",
-            "items": [
-                {
-                    "label": "M4"
-                    
-                },
-                {
-                    "label": "M4S"
-                    
-                },
-                {
-                    "label": "M4P"
-                    
-                }               
-            ]
-        },
-        {
-            "label": "LicheePi (Linux)",
+            "label": "LicheePi",
             "items": [
                 {
                     "label": "LicheePi Zero",
-                    "file": null
-                },
-                {
-                    "label": "LicheePi One",
-                    "file": null
+                    "file": "lichee/Zero/Zero.md"
                 },
                 {
                     "label": "LicheePi Nano",
-                    "file": null
+                    "file": "lichee/Nano/Nano.md"
                 },
                 {
                     "label": "LicheePi ZeroPlus",
-                    "file": null
+                    "file": "lichee/ZeroPlus/ZeroPlus.md"
                 }
             ]
         },
         {
             "label": " Tang",
+            "file":"tang/readme.md",
             "items": [
                 {
                     "label": "Tang Premier",
-                    "file": null
+                    "file": "tang/Tang-primer/Tang-primer.md"
                 },
                 {
                     "label": "Tang Nano",
-                    "file": null
+                    "file": "tang/Tang-Nano/Tang-Nano.md"
                 },
                 {
-                    "label": "Tang Pico/AI",
-                    "file": null
-                },
-                {
-                    "label": "Tang Sweety",
-                    "file": null
-                }                                                
+                    "label":"Tang Nano 4K",
+                    "file":"tang/Tang-Nano-4K/Nano-4K.md",
+                    "items":[
+                        {
+                            "label":"IDE安装",
+                            "file":"../../soft/Tang/zh/Tang-Nano-Doc/get_started/install-the-ide.md"
+                        },
+                        {
+                            "label":"点灯测试",
+                            "file":"../../soft/Tang/zh/Tang-Nano-Doc/examples/4K_led.md"
+                        },
+                        {
+                            "label":"摄像头和HDIM屏幕显示",
+                            "file":"tang/Tang-Nano-4K/start.md"
+                        }
+                    ]
+                }
+                                                       
             ]
         },
         {
             "label": "Longon",
             "items": [
                 {
-                    "label": "Longon Nano"
-                    
-                },
-                {
-                    "label": "Longon Zero"
-                    
-                },
-                {
-                    "label": "Longon One"
-                    
-                }               
+                    "label": "Longon Nano",
+                    "file":"longan/Nano/Longan_nano.md"
+                }          
             ]
         },
         {
-            "label": "扩展接口 SP-MOD",
+            "label": "SP-MOD外设模组",
             "items": [
                 {
-                    "label":"扩张接口 Grove",
+                    "label":"转接板类",
                     "items":[
                         {
-                            "label":"Grove-RGB LED"
+                            "label":"SP-Extender",
+                            "file":"modules_spmod/spmod_extender.md"
+                        },
+                        {
+                            "label":"SP-Grove",
+                            "file":"modules_spmod/spmod_grove.md"
+                        },
+                        {
+                            "label":"SP-FPC",
+                            "file":"modules_spmod/spmod_fpc.md"
+                        },
+                        {
+                            "label":"SP-MicArray",
+                            "file":"modules_spmod/spmod_micarray.md"
+                        },
+                        {
+                            "label":"SP-JotStick",
+                            "file":"modules_spmod/spmod_joystick.md"
+                        },
+                        {
+                            "label":"SP-Servo",
+                            "file":"modules_spmod/spmod_servo.md"
+                        },
+                        {
+                            "label":"SP-TypeC",
+                            "file":""
                         }
                     ]
                 },
                 {
-                    "label":"扩展接口SP-MOD",
+                    "label":"传感器类",
                     "items":[
                         {
-                            "label":"转接板类",
-                            "items":[
-                                {
-                                    "label":"SP-Extender"
-                                },
-                                {
-                                    "label":"SP-Grove"
-                                },
-                                {
-                                    "label":"SP-FRC"
-                                },
-                                {
-                                    "label":"SP-MicArray"
-                                },
-                                {
-                                    "label":"SP-JotStick"
-                                },
-                                {
-                                    "label":"SP-JotStick2"
-                                },
-                                {
-                                    "label":"SP-Servo"
-                                },
-                                {
-                                    "label":"SP-Type-C"
-                                }
-                            ]
+                            "label":"SP-Weather",
+                            "file":"modules_spmod/spmod_weather.md"
                         },
                         {
-                            "label":"传感器类",
-                            "items":[
-                                {
-                                    "label":"SP-Weather"
-                                },
-                                {
-                                    "label":"SP-TOF-1P"
-                                }
-                            ]
-                        },
-                        {
-                            "label":"通信类",
-                            "items":[
-                                {
-                                    "label":"SP-BLE"
-                                    
-                                },
-                                {
-                                    "label":"SP-LoRa"
-                                },
-                                {
-                                    "label":"SP-PSRAM"
-                                },
-                                {
-                                    "label":"SP-RFID"
-                                },
-                                {
-                                    "label":"SP-Ethernet"
-                                }
-                            ]
-                        },
-                        {
-                            "label":"显示类",
-                            "items":[
-                                {
-                                    "label":"SP-LCD 1.14"
-                                },
-                                {
-                                    "label":"SP-Eink"
-                                }
-                            ]
+                            "label":"SP-TOF-1P",
+                            "file":"modules_spmod/spmod_tof.md"
                         }
-
+                    ]
+                },
+                {
+                    "label":"通信类",
+                    "items":[
+                        {
+                            "label":"SP-BT",
+                            "file":"modules_spmod/spmod_bt.md"
+                            
+                        },
+                        {
+                            "label":"SP-LoRa",
+                            "file":"modules_spmod/spmod_lora.md"
+                        },
+                        {
+                            "label":"SP-PSRAM",
+                            "file":"modules_spmod/spmod_psram.md"
+                        },
+                        {
+                            "label":"SP-RFID",
+                            "file":"modules_spmod/spmod_rfid.md"
+                        },
+                        {
+                            "label":"SP-Ethernet",
+                            "file":"modules_spmod/spmod_ethernet.md"
+                        }
+                    ]
+                },
+                {
+                    "label":"显示类",
+                    "items":[
+                        {
+                            "label":"SP-LCD 1.14",
+                            "file":"modules_spmod/spmod_lcd1.14.md"
+                        },
+                        {
+                            "label":"SP-Eink",
+                            "file":"modules_spmod/spmod_eink.md"
+                        }
                     ]
                 }
             ]
@@ -302,16 +319,16 @@
                         {
                             "label":"麦克风模块",
                             "items":[
+                    
                                 {
-                                    "label":"单麦克风模块"
-                                },
-                                {
-                                    "label":"麦克风阵列"
+                                    "label":"麦克风阵列",
+                                    "file":"modules/micarray.md"
                                 }
                             ]
                         },
                         {
-                            "label":"LCD 1.3/2.4/2.8/4.3/5 寸"
+                            "label":"amigo 手柄",
+                            "file":"modules/amigo_handle.md"
                         }
                     ]
                 }

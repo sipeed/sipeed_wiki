@@ -40,4 +40,4 @@ Longan Nano 支持基于 VS CODE 的 PlatformIO IDE 环境下的开发， 支持
 
 ## 引脚定义
 
-![](../assets/longan_nano_pinout_v1.1.0_w5676_h4000_large.png)
+![](../assets/Longan-nano_PINOUT.svg)

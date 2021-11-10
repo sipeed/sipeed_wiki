@@ -9,15 +9,13 @@ desc: maixpy doc: network
 
 使用`WiFi`请确保已经接上了天线
 
-**[esp8285](##network.ESP8285(uart))**
+**esp8285**
 在部分开发板上带了 一个 使用`AT`方式交互的网卡模块，比如`esp8285`，与`k210`通过串口连接
 
-引脚`8`是使能脚，可以创建一个`GPIO`对象来控制它的高低电平来实现使能和失能，也可以用它复位（先低后高），复位后需要等待一小段时间才能操作，
-可以查看例程[network_espat.py](https://github.com/sipeed/MaixPy_scripts/blob/79a5485ec983e67bb8861305a52418b29e0dc205/network/network_espat.py)
+引脚`8`是使能脚，可以创建一个`GPIO`对象来控制它的高低电平来实现使能和失能，也可以用它复位（先低后高），复位后需要等待一小段时间才能操作，可以查看例程[network_espat.py](https://github.com/sipeed/MaixPy_scripts/blob/79a5485ec983e67bb8861305a52418b29e0dc205/network/network_espat.py)
 
- **[esp32](##network.ESP32_SPI(cs,rst,rdy,mosi,miso,sclk))**
-目前在`MaixDuino`开发板中有一个 `esp32` 模块通过 `spi` 与`k210`相连
-同时也有单独的`TF`插卡式模块
+ **esp32**
+目前在`MaixDuino`开发板中有一个 `esp32` 模块通过 `spi` 与`k210`相连，同时也有单独的`TF`插卡式模块
 
 
 ## network.ESP8285(uart)
@@ -50,7 +48,7 @@ desc: maixpy doc: network
 
 无， 如果发生错误会抛出异常
 
-### 2.2. ifconfig
+### 2.2. ifconfig()
 
 查看wifi连接信息，目前network不支持设置网卡配置
 
@@ -67,7 +65,7 @@ nic.ifconfig()
 `tuple` 类型， 元素都是字符串：`(ip, netmask, gateway, dns_server, dhcp_server, mac, ssid)`， 如果没有查询到或者无效，值为`"0"`
 
 
-### isconnected
+### isconnected()
 
 查看wifi是否连接
 
@@ -84,7 +82,7 @@ nic.isconnected()
 `True`: 已经连接
 `False`: 断开连接
 
-### disconnect
+### disconnect()
 
 断开 wifi 连接
 
@@ -96,7 +94,7 @@ nic.isconnected()
 
 无
 
-### scan
+### scan()
 
 扫描周围的热点信息
 

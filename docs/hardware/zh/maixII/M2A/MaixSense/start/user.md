@@ -323,4 +323,4 @@ python3 /root/helloworld.py
 ```
 
 ## 更多的使用方法
-请到[MaixPy3](./../../../../../../soft/maixpy3/zh/readme.md)和[极术社区](https://aijishu.com/a/1060000000221780)中自行查看
+请到[MaixPy3](/soft/maixpy3/zh/readme.md)和[极术社区](https://aijishu.com/a/1060000000221780)中自行查看

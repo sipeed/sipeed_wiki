@@ -9,25 +9,18 @@
     "route": {
         "docs": {
             "/hardware/zh/": "docs/hardware/zh",
-            "/hardware/en/": "docs/hardware/en",
             "/soft/longan/zh/": "docs/soft/longan/zh",
-            "/soft/longan/en/": "docs/soft/longan/en",
             "/hardware/maixface/zh/": "docs/hardware/maixface/zh",
-            "/hardware/maixface/en/": "docs/hardware/maixface/en",
             "/soft/Lichee/zh/": "docs/soft/Lichee/zh",
-            "/soft/Lichee/en/": "docs/soft/Lichee/en",
             "/soft/Tang/zh/": "docs/soft/Tang/zh",
             "/soft/Tang/en/": "docs/soft/Tang/en",
             "/soft/maixpy/zh/": "docs/soft/maixpy/zh",
-            "/soft/maixpy/en/": "docs/soft/maixpy/en",
             "/soft/maixpy3/zh/": "docs/soft/maixpy3/zh",
-            "/soft/maixpy3/en/": "docs/soft/maixpy3/en",
             "/soft/maixduino/zh/":"docs/soft/maixduino/zh"
             
         },
         "pages": {
-            "/": "pages/index/zh",
-            "/en/": "pages/index/en"
+            "/": "pages/index/zh"
         },
         "assets": {
             "/static/": "static",
@@ -42,6 +35,39 @@
         },
         "/blog/": "blog"
     },
+    "translate": {
+        "docs": {
+            "/hardware/zh/": [
+                {
+                    "url": "/hardware/en/",
+                    "src": "docs/hardware/en"
+                }
+            ],
+            "/soft/longan/zh/": [{
+                    "url": "/soft/longan/en/",
+                    "src": "docs/soft/longan/en"
+                }
+            ],
+            "/hardware/maixface/zh/": [{
+                    "url": "/hardware/maixface/en/",
+                    "src": "docs/hardware/maixface/en"
+                }
+            ],
+            "/soft/maixpy/zh/": [{
+                    "url": "/soft/maixpy/en/",
+                    "src" : "docs/soft/maixpy/en"
+                }
+            ]
+        },
+        "pages": {
+            "/": [
+                {
+                    "url": "/en/",
+                    "src": "pages/index/en"
+                }
+            ]
+        }
+    },
     "executable": {
         "python": "python3",
         "pip": "pip3"
@@ -51,6 +77,11 @@
             "from": "pypi",
             "config": {
                 "toc_depth": 3
+            }
+        },
+        "teedoc-plugin-google-translate": {
+            "from": "pypi",
+            "config": {
             }
         },
         "teedoc-plugin-theme-default":{
@@ -65,7 +96,12 @@
         "teedoc-plugin-search":{
             "from": "pypi",
             "config": {
-                "search_hint": "Search"
+                "search_hint": "Search",
+                "env":{
+                    "main_color": "#FF6B63",
+                    "main_color_dark": "#923732",
+                    "hint_shadow_color": "rgba(146, 55, 50, 0.38)"
+                }
             }
         },
         "teedoc-plugin-baidu-tongji":{
@@ -74,7 +110,21 @@
                 "code": "9cb07365544a53067c56c346c838181a"
             }
         },
-        "teedoc-plugin-gitalk": {
+        "teedoc-plugin-google-analytics":{
+            "from": "pypi",
+            "config": {
+                "id": "UA-119047820-5"
+            }
+        },
+        "teedoc-plugin-ad-hint": {
+            "from": "pypi",
+            "config": {
+                "type": "new",
+                "content": "<a target=\"_blank\" href=\"https://github.com/sipeed/Maix-Speech\">Maix-Speech</a> ASR lib now is available, welcome to use and star</br><a target=\"_blank\" href=\"https://github.com/sipeed/Maix-Speech\">Maix-Speech</a> 语音识别库 现在可以获取到啦！欢迎使用并 star",
+                "show_after_s": 432000
+            }
+        },
+        "teedoc-plugin-comments-gitalk": {
             "from": "pypi",
             "config": {
                 "env": {
@@ -107,5 +157,10 @@
     "rebuild_changes_delay": 1,
     "robots":{
         "User-agent": "*"
+    },
+    "teedoc-plugin-google-translate": {
+        "from": "pypi",
+        "config": {
+        }
     }
 }

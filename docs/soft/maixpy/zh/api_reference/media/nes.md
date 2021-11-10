@@ -82,47 +82,50 @@ finally:
 
 > "mario.nes" 游戏文件请自行搜索下载
 
-## 例 0： 代码输入
+### Gamepad测试
 
-> 2021年01月28日：现在建议使用 Maix handle （I2C 设备）进行游玩，如下代码注释 `nes.input(p1, p2, 0)` 表示输入两个手柄的数据。
+以下为双手柄输入测试代码，具体的接线和测试方式请看[Gamgpad测试](/hardware/zh/modules/amigo_handle.html#手柄测试)
 
 ```python
-import nes, lcd
 from machine import I2C
+import nes, lcd
+from sound import CubeAudio
+import sys, time
 from fpioa_manager import fm
-# 两个手柄分别通过 i2c 传输按键信息
-i2c = I2C(I2C.I2C_SOFT, freq=60*1000, sda=27, scl=24, gscl=fm.fpioa.GPIOHS7,gsda=fm.fpioa.GPIOHS8)
-i2c2 = I2C(I2C.I2C_SOFT, freq=60*1000, scl=23, sda=20, gscl=fm.fpioa.GPIOHS9,gsda=fm.fpioa.GPIOHS10) # software i2c
-print(i2c.scan())
-print(i2c2.scan())
+from Maix import FPIOA, GPIO
 
-lcd.init()
-lcd.bgr_to_rgb(False)
 
-# B A SEL START UP DOWN LEFT RIGHT
-# 1 2 4   8     16  32   64   128
-try:
-  nes.init(nes.INPUT)
-  nes.load("mario.nes")
-  for i in range(20000):
-    nes.loop()
-  for i in range(500):
-    nes.loop()
-    nes.input(8, 0, 0)
-    nes.loop()
-    nes.input(0, 0, 0)
-  while True:
-    p1 = i2c.readfrom(66, 1)
-    for i in range(10):
-      nes.loop()
-    nes.input(p1[0], 0, 0)
-    for i in range(10):
-      nes.loop()
-finally:
-  nes.free()
+# B A SEL START UP DOWN LEFT RIGHT  X   Y
+# 1 2 4   8     16  32   64   128  254 253
+i2c = I2C(I2C.I2C2, freq=400*1000, sda=27, scl=24)
+lcd.init(freq=15000000)
+lcd.register(0x36, 0x20
+state = 0
+import time
+i = 0
+while True:
+    dev = i2c1.scan()
+    print(dev)
+    dev = i2c2.scan()
+    print(dev)
+    time.sleep(0.5)
+    try:
+        #i2c.writeto(0x4A, b'0')
+        tmp = (i2c1.readfrom(0x4A, 2))
+        print('{}-{}'.format(int(tmp[0]), int(tmp[1])))
+    except Exception as e:
+        print(e)
+    try:
+        #i2c.writeto(0x42, b'0')
+        tmp = (i2c2.readfrom(0x42, 2))
+        print('{}-{}'.format(int(tmp[0]), int(tmp[1])))
+    except Exception as e:
+        print(e)
+
 ```
 
-## 例 1： 键盘（串口）
+
+### 键盘（串口）
 
 ```python
 import nes, lcd
@@ -136,7 +139,7 @@ while True:
     
 ```
 
-## 例 2： PS2 手柄
+### PS2 手柄
 
 ```python
 import nes, lcd
@@ -156,6 +159,78 @@ while True:
 
 ```
 
+### 双手柄玩游戏(Amigo)
+```python
+from machine import I2C
+import nes, lcd
+from sound import CubeAudio
+import sys, time
+from fpioa_manager import fm
+from Maix import FPIOA, GPIO
+import time
+i2c = I2C(I2C.I2C3, freq=400*1000, sda=27, scl=24) 
+CubeAudio.init(i2c)
+tmp = CubeAudio.check()
+print(tmp)
 
+CubeAudio.ready(volume=100)
+
+
+fm.fpioa.set_function(13,fm.fpioa.I2S0_MCLK)
+fm.fpioa.set_function(21,fm.fpioa.I2S0_SCLK)
+fm.fpioa.set_function(18,fm.fpioa.I2S0_WS)
+fm.fpioa.set_function(35,fm.fpioa.I2S0_IN_D0)
+fm.fpioa.set_function(34,fm.fpioa.I2S0_OUT_D2)
+
+
+
+i2c1 = I2C(I2C.I2C1, freq=400*1000, sda=9, scl=7) #P1手柄I2C设置
+i2c = I2C(I2C.I2C2, freq=400*1000, sda=27, scl=24) #P2手柄I2C设置
+
+lcd.init(freq=15000000)
+lcd.register(0x36, 0x20) # amigo
+
+
+state = 0
+
+try:
+  nes.init(nes.INPUT)
+
+
+  nes.load("mario.nes") #游戏文件名
+  nes.load("/sd/mario.nes") #读取sd卡游戏文件
+
+
+
+  for i in range(20000):
+    nes.loop()
+  for i in range(500):
+    nes.loop()
+    nes.input(8, 0, 0)
+    nes.loop()
+    nes.input(0, 0, 0)
+    nes.loop()
+  while True:
+
+    #这是P1手柄输入
+    try:
+        left = (i2c1.readfrom(0x4A, 1))
+    except Exception as e:
+        print(e)
+    nes.loop()
+
+    #这是P2手柄输入
+    try:
+        right = (i2c.readfrom(0x42, 1))
+    except Exception as e:
+        print(e)
+    #nes.input(right[0], 0, 0) #单个手柄输入 
+    nes.input(right[0], left[0], 0) #双手柄输入
+    for i in range(100):
+      nes.loop()
+    nes.loop()
+finally:
+  nes.free()
+```
 
 

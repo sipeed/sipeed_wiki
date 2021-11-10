@@ -4,7 +4,7 @@ keywords: maixpy3, linux, AIOT, 边缘计算
 desc: maixpy doc: MaixPy 是什么？能做什么？
 ---
 
-![MIT](https://img.shields.io/badge/license-MIT-blue.svg) [![PyPI version](https://badge.fury.io/py/MaixPy3.svg)](https://badge.fury.io/py/MaixPy3) ![Python](https://img.shields.io/badge/Python-3.5↗-ff69b4.svg) [![issue](https://img.shields.io/github/issues/sipeed/maixpy3.svg)](https://github.com/sipeed/maixpy3/issues)
+![MIT](https://img.shields.io/badge/license-MIT-blue.svg) [![PyPI version](https://badge.fury.io/py/maixpy3.svg)](https://badge.fury.io/py/maixpy3) ![Python](https://img.shields.io/badge/Python-3.5↗-ff69b4.svg) [![issue](https://img.shields.io/github/issues/sipeed/maixpy3.svg)](https://github.com/sipeed/maixpy3/issues)
 
 > 最近的一次更新时间 2021/8/2
 

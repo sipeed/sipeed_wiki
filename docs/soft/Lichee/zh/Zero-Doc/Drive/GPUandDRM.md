@@ -21,7 +21,7 @@ DRM暴露API，用户空间的程序可以发送命令和数据给GPU。
 
 使用DRM：
 
-![](./../_static/Drive/GPUandDRM.png)
+![](./../static/Drive/GPUandDRM.png)
 
 查看DRM驱动代码：
 

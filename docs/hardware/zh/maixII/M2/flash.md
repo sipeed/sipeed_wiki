@@ -4,39 +4,18 @@ keywords: MaixII, MaixPy3, Python, Python3, M2dock
 desc: maixpy doc: MaixII M2dock 烧录系统
 ---
 
+
+
 > ！！！一定要严格按照步骤操作！！！请使用大于 1G 的 TF/SD 卡进行烧录，开源版本要求使用 TF/SD 卡来启动系统。
 
-V831 为全志的 SOC， 所以 Windwos 使用 **PhoenixSuit**, Linux 上使用 **Livesuit** 烧录镜像文件。
 
-- 从下载站获取最新的 V831 系统镜像 [SDK_MaixII/release](https://dl.sipeed.com/shareURL/MaixII/MaixII-Dock/SDK/release) ，找不到就搜索 V831 获取最新的镜像。
+## 获取镜像文件
 
-- 下载站中有连个同版本不同大小的镜像系统，文件较大的镜像是需要使用dd命令进行系统的烧录。（目前只能在linux系统上进行系统的烧录--2021.06.26）
-- 解压 V831 镜像压缩包，得到一个 xxxx.img 文件。
+从下载站获取最新的 V831 系统镜像 [SDK_MaixII/release](https://dl.sipeed.com/shareURL/MaixII/MaixII-Dock/SDK/release) ，找不到就搜索 V831 获取最新的镜像。得到一个压缩包，解压之后就得到一个 .img 文件，这个就是系统镜像文件
 
-- 从网上获取 PhoenixSuit(Windows) 烧录工具。
-  - [baidu-PhoenixSuit](https://www.baidu.com/s?wd=PhoenixSuit)
-  - [bing-PhoenixSuit](https://www.bing.com/search?q=PhoenixSuit&FORM=BESBTB&mkt=zh-CN) 
-  - [github-PhoenixSuit](https://github.com/colorfulshark/PhoenixSuit)
-  - [lo4d-PhoenixSuit](https://phoenixsuit.en.lo4d.com/windows)
+> dd烧录方式的镜像是可以不进行解压的，直接就可以使用。
 
-## 镜像文件命名方式
-
-对于V831的镜像文件名字是有对应的规则，以后大家可以根据自己的需求来进行下载
-
-就拿`maixpy3-v831-800m-64m-512m-sp2305_240240_20210729`这镜像文件来说
-
-| 名称 | 含义 |
-| --- | --- |
-| maixpy3 | 支持MaixPy3进行开发 |
-| v831 | 支持的V831芯片上运行 |
-| 800m | 主频为800MHz |
-| 64m | RAM为64MB |
-| 512m | 对于tf卡容量的最低要求 |
-| sp2305 | 适用于型号为sp2305的摄像头 |
-| 240240 | 屏幕的输出分辨率为240*240 |
-| 20210729 | 镜像的发布时间 |
-
-> 如果是适合使用dd进行烧录，会在最前面多个dd
+> 如果下载站下载的很慢，建议使用百度网盘进行下载，下载站的下载带宽有限。链接：<https://eyun.baidu.com/s/3jKgelh0> 密码：kzcM
 
 
 ## Windows 上使用 PhoenixCard烧录镜像
@@ -55,17 +34,17 @@ SD Card Formatter下载连接：[SD Card Formatter](https://www.sdcard.org/downl
 
 插入sd卡，打开SD Card Formatter
 
-![image-20210802102810041](https://raw.githubusercontent.com/USTHzhanglu/picture/main/img/image-20210802102810041.png)
+![image-20210802102810041](./../../../assets/maixII/V831/image-20210802102810041.png)
 
 Refresh后点击Format后格式化，注意选中对应的sd卡；
 
 打开PhoenixCard,固件处选择对应镜像包（下载镜像后需要先解压），然后刷新盘符，如果未找到可以尝试重新插拔下SD卡，勾选启动卡，点击烧卡。
 
-![image-20210802104155132](https://raw.githubusercontent.com/USTHzhanglu/picture/main/img/image-20210802104155132.png)
+![image-20210802104155132](./../../../assets/maixII/V831/image-20210802104155132.png)
 
 大概30s后，烧录完成。
 
-![image-20210802104608721](https://raw.githubusercontent.com/USTHzhanglu/picture/main/img/image-20210802104608721.png)
+![image-20210802104608721](./../../../assets/maixII/V831/image-20210802104608721.png)
 
 ## Linux(Ubuntu) 使用 Livesuit 烧录
 
@@ -145,7 +124,7 @@ sudo ./livesuit_installer.run
 
 首先使用SD Card Formatter[格式化](#-2)sd卡，然后打开软件，点击`Flash from file`,选中dd镜像包，然后点击Select target选中sd卡，最后点击Flash烧录。
 
-![image-20210803140304732](https://raw.githubusercontent.com/USTHzhanglu/picture/main/img/image-20210803140304732.png) 
+![image-20210803140304732](./../../../assets/maixII/V831/image-20210803140304732.png) 
 
 烧录完毕后，即可放入M2 dock中运行。
 
@@ -256,9 +235,15 @@ dd if=sipedd-v8310-210606-dd.img of=/dev/sdd
 ![dd_3](./asserts/dd_4.png)
 
 点击开始恢复，即可烧录成功
+
+## 无 sd/tf 卡烧录方式
+
+[烧录方式](./no_sd_flash.md)
+
 ## 常见问题：
 
 系统烧录步骤严格按照文档要求，先打开软件，拔 SD 卡后插入电脑，等待提示确认后再插入 SD 卡自动完成安装。
 
 《[error while loading shared libraries: libpng12.so.0](https://askubuntu.com/questions/895897/error-while-loading-shared-libraries-libpng12-so-0)》
+
 

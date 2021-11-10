@@ -1,4 +1,5 @@
 {
+    "locale": "en",
     "navbar": {
         "title": "wiki",
         "logo": {
@@ -28,12 +29,24 @@
                         "label": "Maixpy"
                     },
                     {
-                        "url": "/soft/maixpy3/en/",
+                        "url": "/soft/maixpy3/zh/",
                         "label": "Maixpy3"
+                    },
+                    {
+                        "url":"/soft/maixduino/zh/index.html",
+                        "label":"MaixDuino"
+                    },
+                    {
+                        "url":"/soft/Lichee/zh/",
+                        "label":"Lichee Pi"
                     },
                     {
                         "url":"/soft/Tang/en/",
                         "label":"Tang"
+                    },
+                    {
+                        "url":"/soft/longan/en/",
+                        "label":"Longan"
                     }
                 ]
             },
@@ -49,14 +62,6 @@
                     {
                         "url": "/hardware/en/maixII/index.html",
                         "label": "Maix-II"
-                    },
-                    {
-                        "url": "/hardware/en/maixIII/index.html",
-                        "label": "Maix-III"
-                    },
-                    {
-                        "url": "/hardware/en/maixIV/index.html",
-                        "label": "Maix-IV"
                     },
                     {
                         "url": "/hardware/en/lichee/index.html",
@@ -78,7 +83,7 @@
                 "type": "list",
                 "items": [
                     {
-                        "url": "/hardware/maixface/zh/",
+                        "url": "/hardware/maixface/en/",
                         "label": "Maix Face"
                     }
                 ]
@@ -114,19 +119,7 @@
                 "id": "language",
                 "label": "Language: ",
                 "position": "right",
-                "type": "selection",
-                "items": [
-                    {
-                        "id": "zh",
-                        "url": "/",
-                        "label": "中文"
-                    },
-                    {
-                        "id": "en",
-                        "url": "/en/",
-                        "label": "English"
-                    }
-                ]
+                "type": "language"
             }
         ]
     },

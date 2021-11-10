@@ -4,7 +4,7 @@ keywords: MaixPy3, maix.nn, MaixPy3运行模型, maix.nn API
 desc: MaixPy3 nn模块 API文档, 以及使用说明
 ---
 
->! API 仍处于非稳定状态, 可能在未来会有小幅改动, 如果你遇到了语法错误， 记得回来看更新哦~
+>! API 仍处于非完全稳定状态, 可能在未来会有小幅改动, 如果你遇到了语法错误， 记得回来看更新哦~
 
 ## maix.nn 基本使用介绍
 
@@ -338,5 +338,71 @@ def load(model, path):
   * `path`: 保存参数的路径
 
 * 返回值： 获得[类 Classifier](#类-Classifier)的对象
+
+
+### 模块 maix.nn.app.face
+
+人脸识别模块， [这里](https://github.com/sipeed/MaixPy3/blob/main/ext_modules/_maix_nn/example/face_recognize.py)有一个`Face_Recognizer`类提供了人脸识别的简单封装， 推荐使用
+
+#### 类 FaceRecognize
+
+伪代码：
+
+```python
+class FaceRecognize:
+  def __init__(self, model_detect, model_fea, fea_len, input_shape, threshold, nms, max_face_num)
+    pass
+
+  def get_faces(self, img, std_img = False):
+    return [ prob, [x,y,w,h], [[x,y], [x,y], [x,y], [x,y], [x,y]], feature ]
+
+  def compare(self, feature_a, feature_b):
+    return score
+```
+
+[这里](https://github.com/sipeed/MaixPy3/blob/main/ext_modules/_maix_nn/example/face_recognize.py)有一个`Face_Recognizer`类提供了人脸识别的简单封装， 推荐使用
+
+使用的模型可以到[这里下载](https://maixhub.com/modelInfo?modelId=29)
+
+##### 构造方法: __init__(self, model_detect, model_fea, fea_len, input_shape, threshold, nms, max_face_num)
+
+
+* 参数
+  * `model_detect`: 检测模型， [maix.nn.Model](#类-maix.nn.Model) 对象
+  * `model_fea`: 特征提取模型， [maix.nn.Model](#类-maix.nn.Model) 对象
+  * `fea_len`: 人脸特征的长度，比如 `256`
+  * `input_shape`: 输入图像的形状，`(w, h, c)`格式， 比如`(224, 224, 3)`
+  * `threshold`: 人脸检测阈值， 默认`0.5`
+  * `nms`: 人脸检测非极大值抑制值，即用来防止重复框一个人脸， 默认`0.3`
+  * `max_face_num`: 支持的同时框的人脸数量，取`1`或者更多
+
+##### 获取人脸信息: get_faces(self, img, std_img = False)
+
+获取人脸信息， 包括位置和特征值等
+
+* 参数
+  * `img`: 输入图像， 分辨率需要和检测模型的输入相同，  比如`224 x 224`， 可以是`PIL.Image.Image`对象， 或者`bytes`对象
+  * `std_img`: 取值`True`或者`False`, 选择是否返回纠正过的标准人脸图片
+
+* 返回值: 返回一个 `list` 对象，`[ prob, box, landmarks, feature, std_img ]`，其中`std_img`根据构造函数的参数`std_img`决定是否存在
+  * `prob`: 检测到人脸的概率， 比设置的`threshold`大
+  * `box`: 人脸框， 值为`[x,y,w,h]` ， 分别代表左上角坐标和框的宽高
+  * `landmarks`: 人脸关键点， 共`5`个点, 格式`[[x,y], [x,y], [x,y], [x,y], [x,y]]`，分别代表了左眼、右眼、鼻子、左嘴角、右嘴角的坐标
+  * `feature`: 人物脸的特征值， 一个`list`，`list`中的项目值类型为`float`（未来有可能会有`feature`为`bytes`的可选项）
+  * `std_img`: 人脸图像，`PIL.Image.Image`对象， 只有当构造函数的参数`std_img`为`True`时才会有这个返回值
+
+##### 对比人脸特征: compare(self, feature_a, feature_b)
+
+对比两个人脸特征值相似度，并返回相似度百分比
+
+* 参数
+  * `feature_a`: `get_faces`函数的返回值, 一个`list`对象或者`bytes`对象
+  * `feature_b`: `get_faces`函数的返回值, 一个`list`对象或者`bytes`对象
+
+* 返回值： 返回两个人脸特征值的对比相似度分数（百分比），取值范围 `∈` `[0.0, 100.0]`
+
+
+
+
 
 

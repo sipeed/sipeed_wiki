@@ -12,6 +12,7 @@ desc: maixpy doc: MaixPy 能做哪些事
 
 <iframe style src="//player.bilibili.com/player.html?aid=48648880&cid=85194253&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
+
 ## MobileNet 物体识别
 
 <iframe src="//player.bilibili.com/player.html?aid=46664014&cid=81743560&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
