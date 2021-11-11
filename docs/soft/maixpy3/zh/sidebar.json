@@ -1,157 +1,193 @@
 {
-    "items":[
+    "items": [
         {
-            "label":"什么是 MaixPy3",
+            "label": "什么是 MaixPy3",
             "file": "readme.md"
         },
         {
-            "label":"MaixPy 和 MaixPy3 的区别",
+            "label": "MaixPy 和 MaixPy3 的区别",
             "file": "origin/difference.md"
         },
         {
-            "label":"使用 MaixPy3 进行开发",
+            "label": "使用 MaixPy3 进行开发",
             "collapsed": false,
-            "items":[
+            "items": [
                 {
-                    "label":"前置知识——Python",
+                    "label": "前置知识——Python",
                     "file": "origin/python.md",
-                    "items":[
+                    "items": [
                         {
-                            "label":"Python 入门教程 [1]",
-                            "file":"python/hello_world.md"
+                            "label": "Python 入门教程 [1]",
+                            "file": "python/hello_world.md"
                         },
                         {
-                            "label":"Python 入门教程 [2]",
-                            "file":"python/loop_python.md"
+                            "label": "Python 入门教程 [2]",
+                            "file": "python/loop_python.md"
                         }
                     ]
                 },
                 {
-                    "label":" MaixPy3 开发环境配置",
+                    "label": " MaixPy3 开发环境配置",
                     "file": "install/install.md"
                 },
                 {
-                    "label":"基础使用教程",
+                    "label": "基础使用教程",
                     "collapsed": false,
-                    "items":[
+                    "items": [
                         {
-                            "label":"启动摄像头！",
-                            "items":[
+                            "label": "启动摄像头！",
+                            "items": [
                                 {
-                                    "label":"使用摄像头拍摄图片",
-                                    "file":"usage/camera/camera.md"
+                                    "label": "使用摄像头拍摄图片",
+                                    "file": "usage/camera/camera.md"
                                 },
                                 {
-                                    "label":"色块识别",
-                                    "file":"usage/camera/color.md"
+                                    "label": "色块识别",
+                                    "file": "usage/camera/color.md"
                                 },
                                 {
-                                    "label":"巡线识别",
-                                    "file":"usage/camera/link.md"
+                                    "label": "巡线识别",
+                                    "file": "usage/camera/link.md"
                                 }
                             ]
                         },
                         {
-                            "label":"启动外设通信！",
-                            
-                            "items":[
+                            "label": "启动外设通信！",
+                            "items": [
                                 {
-                                    "label":"GPIO",
-                                    "file":"usage/hardware/GPIO.md"
+                                    "label": "GPIO",
+                                    "file": "usage/hardware/GPIO.md"
                                 },
                                 {
-                                    "label":"I2C",
-                                    "file":"usage/hardware/I2C.md"
+                                    "label": "I2C",
+                                    "file": "usage/hardware/I2C.md"
                                 },
                                 {
-                                    "label":"PWM",
-                                    "file":"usage/hardware/PWM.md"
+                                    "label": "PWM",
+                                    "file": "usage/hardware/PWM.md"
                                 },
                                 {
-                                    "label":"UART",
-                                    "file":"usage/hardware/UART.md"
+                                    "label": "UART",
+                                    "file": "usage/hardware/UART.md"
                                 },
                                 {
-                                    "label":"SPI",
-                                    "file":"usage/hardware/SPI.md"
+                                    "label": "SPI",
+                                    "file": "usage/hardware/SPI.md"
                                 },
                                 {
-                                    "label":"事件输入",
-                                    "file":"usage/hardware/key.md"
+                                    "label": "事件输入",
+                                    "file": "usage/hardware/key.md"
                                 }
                             ]
                         },
                         {
-                            "label":"启动神经网络！",
-                            "items":[
+                            "label": "启动神经网络！",
+                            "items": [
                                 {
-                                    "label":"1000种物品分类",
-                                    "file":"usage/AI_net/resnet.md"
+                                    "label": "1000种物品分类",
+                                    "file": "usage/AI_net/resnet.md"
                                 },
                                 {
-                                    "label":"边缘检测",
-                                    "file":"usage/AI_net/Edge_detection.md"
+                                    "label": "边缘检测",
+                                    "file": "usage/AI_net/Edge_detection.md"
                                 },
                                 {
-                                    "label":"人脸识别网络"
+                                    "label": "人脸识别网络"
                                 },
                                 {
-                                    "label":"训练属于自己的神经网络（分类）"
+                                    "label": "训练属于自己的神经网络（分类）",
+                                    "file": "usage/AI_net/train_resnet.md"
                                 }
                             ]
                         },
                         {
-                            "label":"启动网络服务",
-                            "file":"usage/net.md"
+                            "label": "启动网络服务",
+                            "file": "usage/net.md"
                         },
                         {
-                            "label":"启动多媒体",
-                            "items":[
+                            "label": "启动多媒体",
+                            "items": [
                                 {
-                                    "label":"视频操作",
-                                    "file":"usage/Audio/play_mp4.md"
+                                    "label": "视频操作",
+                                    "file": "usage/Audio/play_mp4.md"
                                 },
                                 {
-                                    "label":"音频操作",
-                                    "file":"usage/Audio/audio.md"
+                                    "label": "音频操作",
+                                    "file": "usage/Audio/audio.md"
                                 },
                                 {
-                                    "label":"语音识别",
-                                    "file":"usage/Audio/speech.md"
+                                    "label": "语音识别",
+                                    "file": "usage/Audio/speech.md"
                                 }
                             ]
                         }
                     ]
                 },
                 {
-                    "label":"API 手册",
-                    "items":[
+                    "label": "API 手册",
+                    "items": [
                         {
-
+                            "label": "maix",
+                            "items": [
+                                {
+                                    "label": "camera"
+                                },
+                                {
+                                    "label": "display"
+                                },
+                                {
+                                    "label": "event"
+                                },
+                                {
+                                    "label": "gpio",
+                                    "file": "api/maix/gpio.md"
+                                },
+                                {
+                                    "label": "i2c",
+                                    "file": "api/maix/i2c.md"
+                                },
+                                {
+                                    "label": "spi"
+                                },
+                                {
+                                    "label": "video"
+                                },
+                                {
+                                    "label": "PWM",
+                                    "file": "api/maix/PWM.md"
+                                },
+                                {
+                                    "label": "serial"
+                                },
+                                {
+                                    "label": "nn",
+                                    "file": "api/maix/nn.md"
+                                }
+                            ]
                         }
                     ]
                 }
             ]
         },
         {
-            "label":"常见问题与解决办法",
-            "items":[
+            "label": "常见问题与解决办法",
+            "items": [
                 {
-                    "label":"MaixPy3 常见问题（内含常见报错）"
+                    "label": "MaixPy3 常见问题（内含常见报错）"
                 },
                 {
-                    "label":" Jupyter 常见问题"
+                    "label": " Jupyter 常见问题"
                 }
             ]
         },
         {
-            "label":"如何开发 MaixPy3"
+            "label": "如何开发 MaixPy3"
         },
         {
-            "label":"遇到问题如何反馈"
+            "label": "遇到问题如何反馈"
         },
         {
-            "label":"附录"
+            "label": "附录"
         }
     ]
 }
