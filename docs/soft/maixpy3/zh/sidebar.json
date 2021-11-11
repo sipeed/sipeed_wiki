@@ -102,21 +102,32 @@
                         },
                         {
                             "label":"启动网络服务",
-                            "file":""
+                            "file":"usage/net.md"
                         },
                         {
                             "label":"启动多媒体",
                             "items":[
                                 {
-                                    "label":"视频操作"
+                                    "label":"视频操作",
+                                    "file":"usage/Audio/play_mp4.md"
                                 },
                                 {
-                                    "label":"音频操作"
+                                    "label":"音频操作",
+                                    "file":"usage/Audio/audio.md"
                                 },
                                 {
-                                    "label":"语音识别"
+                                    "label":"语音识别",
+                                    "file":"usage/Audio/speech.md"
                                 }
                             ]
+                        }
+                    ]
+                },
+                {
+                    "label":"API 手册",
+                    "items":[
+                        {
+
                         }
                     ]
                 }

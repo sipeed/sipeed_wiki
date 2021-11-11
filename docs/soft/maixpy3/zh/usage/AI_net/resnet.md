@@ -53,6 +53,8 @@ make -j$(nproc)
 
 编译结束之后会在build/tools/onnx/下的到onnx2ncnn可执行文件，这个是就用ncnn的转换工具
 
+> 将编译出来的 onnx2ncnn 添加到系统的环境变量中
+
 ## 获取模型并进行推理
 
 > 以下代码建议在jupyter中运行
@@ -253,6 +255,10 @@ def onnx_to_ncnn(input_shape, onnx="out/model.onnx", ncnn_param="out/conv0.param
         f.write(content)
 onnx_to_ncnn(input_shape, onnx=onnx_out, ncnn_param=ncnn_out_param, ncnn_bin=ncnn_out_bin)
 ```
+
+> 这里需要确定 onnx2ncnn 是可以使用的命令，否则会无法使用这个函数进行模型转换
+
+
 
 ### ncnn量化到int8模型
 

@@ -6,7 +6,7 @@ desc: maixpy doc: MaixPy 是什么？能做什么？
 
 ![MIT](https://img.shields.io/badge/license-MIT-blue.svg) [![PyPI version](https://badge.fury.io/py/maixpy3.svg)](https://badge.fury.io/py/maixpy3) ![Python](https://img.shields.io/badge/Python-3.5↗-ff69b4.svg) [![issue](https://img.shields.io/github/issues/sipeed/maixpy3.svg)](https://github.com/sipeed/maixpy3/issues)
 
-> 最近的一次更新时间 2021/8/2
+> 文档在不断的更新中，可能个边代码运行的时候会有错误，这个就到论坛中反馈，我们看到了，有空就去弄的
 
 MaixPy3 是基于 [cpython](https://github.com/python/cpython) 的 Python3 工具包，意在通过 Python 编程语言简化在 Linux 边缘设备上开发 AIoT （人工智能物联网） = AI（人工智能） + IoT（物联网）应用。
 
