@@ -59,6 +59,27 @@ packages=locales adduser vim less wget dialog usbutils
 source=http://ftp2.cn.debian.org/debian/
 ```
 
+如果出现
+```
+W: GPG error: http://mirrors.huaweicloud.com/repository/debian stretch Release: The following signatures couldn't be verified because the public key is not available: NO_PUBKEY XXXX
+E: The repository 'http://mirrors.huaweicloud.com/repository/debian stretch Release' is not signed.
+```
+
+将：$config_str .= " -o Acquire::AllowInsecureRepositories=true"; 写入到320行
+
+```
+vim /usr/sbin/multistrap
+ 
+$config_str = '';
+$config_str .= " -o Apt::Architecture=" . shellescape($arch);
+$config_str .= " -o Dir::Etc::TrustedParts=" . shellescape("${dir}${etcdir}trusted.gpg.d");
+$config_str .= " -o Dir::Etc::Trusted=" . shellescape("${dir}${etcdir}trusted.gpg");
+$config_str .= " -o Acquire::AllowInsecureRepositories=true";
+$config_str .= " -o Apt::Get::AllowUnauthenticated=true"
+        if (defined $noauth);
+
+```
+
 ### 创建根文件系统
 
 `sudo multistrap -a armhf -f multistrap_mindb.conf`
