@@ -4,6 +4,30 @@ keywords: maixpy3, GPIO
 desc: maixpy3 doc: GPIO
 ---
 
+## 如何使用 GPIO 输出高低电平
+
+GPIO 是可以复用成别的通信接口，对于 Maixpy3 来说并不需要那么麻烦，GPIO 就用来输出高低电平，别的用法后面再说。
+
+下面以 MaixII-Dock 开发板为例子讲述如果使用 maixpy3 输出高低电平。
+
+通过查看 MaixII-Dock 的引出管脚图可以知道，那些管脚可以直接用来当 GPIO 口使用
+
+![](./../asserts/M2Dock_pin.png)
+
+```python
+from maix import GPIO
+import time
+led =GPIO.pin("PH", 14)             # 设置使用 PH 14 管脚
+while led:
+    led.set_value(0)                # 设置低电平
+    time.sleep(0.5)
+    print("0", led.get_value())     # 获取管脚当前状态
+    led.set_value(1)                # 设置高电平
+    time.sleep(0.5)
+    print("1", led.get_value())     # 获取管脚当前状态
+
+```
+
 ## 什么是 GPIO 
 GPIO（英语：General-purpose input/output），通用型之输入输出的简称，功能类似8051的P0—P3，其接脚可以供使用者由程控自由使用，PIN脚依现实考量可作为通用输入（GPI）或通用输出（GPO）或通用输入与输出（GPIO），如当clk generator, chip select等。
 
@@ -23,47 +47,7 @@ GPIO（英语：General-purpose input/output），通用型之输入输出的简
 
 > 原则[电子发烧友论坛](http://www.elecfans.com/emb/jiekou/20171206595752.html)
 
-## 如何使用 GPIO 输出高低电平
 
-GPIO 是可以复用成别的通信接口，对于 Maixpy3 来说并不需要那么麻烦，GPIO 就用来输出高低电平，别的用法后面再说。
-
-下面以 MaixII-Dock 开发板为例子讲述如果使用 maixpy3 输出高低电平。
-
-通过查看 MaixII-Dock 的引出管脚图可以知道，那些管脚可以直接用来当 GPIO 口使用
-
-![](./../asserts/M2Dock_pin.png)
-
-```python
-
-from gpiod import chip, line, line_request
-gpiochip1 = chip("gpiochip1")
-
-def pin(gpio="PD", pos=11):
-  return 32 * (ord(gpio.lower()[1]) - ord('a')) + pos
-
-def gpio(line_offset=(224 + 14), line_mode = line_request.DIRECTION_OUTPUT): # "default PH14 OUTPUT"
-  try:
-    tmp = None
-    tmp = gpiochip1.get_line(line_offset)
-    config = line_request() # led.active_state == line.ACTIVE_LOW
-    config.request_type = line_mode # line.DIRECTION_INPUT
-    tmp.request(config)
-  except Exception as e:
-      print(e)
-  finally:
-    return tmp
-
-import time
-led = gpio(pin("PH", 14))
-while led:
-    led.set_value(0)
-    time.sleep(0.5)
-    print("0", led.get_value())
-    led.set_value(1)
-    time.sleep(0.5)
-    print("1", led.get_value())
-
-```
 
 只需要修改对应的管脚口即可进行高低电平输出，对于图中别的通信使用方式会在后面讲述
 

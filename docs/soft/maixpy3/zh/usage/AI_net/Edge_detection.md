@@ -214,8 +214,6 @@ out = np.sqrt(np.square(out_v) + np.square(out_h))
 plt.imshow(out)
 plt.show()
 ```
-## 更多
-如何部署到 V831/ V833 上可以参考: [在V831上（awnn）跑 pytorch resnet18 模型](./08_V831_resnet.md)
 
 ## 参考
 - [How to implement Sobel edge detection using Python from scratch](http://www.adeveloperdiary.com/data-science/computer-vision/how-to-implement-sobel-edge-detection-using-python-from-scratch/)
