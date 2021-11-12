@@ -8,6 +8,8 @@ desc: maixpy3 doc: PWM
 
 当需要使用 PWM 驱动一些外设的时候，可以通过以下的代码进行驱动，对于不同的 Linux 开发板来说，PWM 信号输出的管脚号是不一样的，只需要修改 PWM 输出口
 
+> 以下代码由于 Maixpy3 还在优化中，可能不能运行，具体的代码到 [github](https://github.com/sipeed/MaixPy3) 上查看
+
 ```python
 from maix import pwm
 import time

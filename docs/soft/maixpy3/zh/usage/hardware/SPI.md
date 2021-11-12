@@ -6,6 +6,7 @@ desc: maixpy3 doc: SPI
 
 ## 使用 SPI
 
+> 以下代码由于 Maixpy3 还在优化中，可能不能运行，具体的代码到 [github](https://github.com/sipeed/MaixPy3) 上查看
 
 ```python
 import spidev, time

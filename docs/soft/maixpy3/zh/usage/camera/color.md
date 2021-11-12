@@ -43,6 +43,8 @@ if __name__ == "__main__":
 
 寻找色块是需要通过设置 HSV 的阈值进行寻找色块，但是对于一些没有内置 HSV 阈值的颜色，可以通过使用识别色块来进行颜色 HSV 阈值识别，这样就不需要进行手动阈值设置，使用以下例程代码，就可以返回在框选中颜色的 HSV 阈值。
 
+> 以下代码由于 Maixpy3 还在优化中，可能不能运行，具体的代码到 [github](https://github.com/sipeed/MaixPy3) 上查看
+
 ```python
 from maix import camera
 from maix import vision

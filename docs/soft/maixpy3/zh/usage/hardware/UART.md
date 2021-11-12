@@ -10,6 +10,8 @@ desc: maixpy3 doc: UART
 
 根据所接的串口号进行修改以下代码，
 
+> 以下代码由于 Maixpy3 还在优化中，可能不能运行，具体的代码到 [github](https://github.com/sipeed/MaixPy3) 上查看
+
 ```python
 import serial
 

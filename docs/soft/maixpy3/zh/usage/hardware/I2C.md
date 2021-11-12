@@ -10,6 +10,8 @@ desc: maixpy3 doc: I2C
 
 ![](./../asserts/M2Dock_pin.png)
 
+> 以下代码由于 Maixpy3 还在优化中，可能不能运行，具体的代码到 [github](https://github.com/sipeed/MaixPy3) 上查看
+
 ```python
 from maix import i2c
 i2c_address = i2c.I2CSecan('/dev/i2c-2')            # 获取设备在 I2C 的地址数据
