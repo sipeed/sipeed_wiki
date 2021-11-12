@@ -14,6 +14,8 @@ GPIO 是可以复用成别的通信接口，对于 Maixpy3 来说并不需要那
 
 ![](./../asserts/M2Dock_pin.png)
 
+> 以下代码由于 Maixpy3 还在优化中，可能不能运行，具体的代码到 [github](https://github.com/sipeed/MaixPy3) 上查看
+
 ```python
 from maix import GPIO
 import time

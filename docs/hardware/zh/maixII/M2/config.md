@@ -32,16 +32,16 @@ desc: maixpy doc: MaixII M2dock 配置系统
 ```shell
 root@sipeed:/# maixpy3_config.py 
 
+config your wifi... [Ctrl + C > Exit] 
+input your wifi name... Sipeed
+input your wifi password... 1234567890
+
 need config your password?(passwd) [Ctrl + C > Exit] 
 Changing password for root
 New password: 
 Bad password: too short
 Retype password: 
 passwd: password for root changed by root
-
-config your wifi... [Ctrl + C > Exit] 
-input your wifi name... Sipeed
-input your wifi password... 1234567890
 
 [wifi] path: /etc/wpa_supplicant.conf
 

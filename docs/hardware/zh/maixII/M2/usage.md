@@ -147,9 +147,7 @@ display.show(camera.capture())
 
 > 注意！！！！ MaixPy M2dock 不支持在本机安装 Jupyter ！！！
 
-请看左侧目录的【常用的开发工具】>>>【Jupyter】 学习安装和使用。
-
-在配置系统后会开机启动远程调用服务（RPyC），你可以在 `ps` 命令中得知是否开启了 rpyc 远程调用服务，如：`python3 -c from maix import rpycs; rpycs.start()` 命令。
+关于 jupyter 的使用和安装请到 MaixPy3 中的[开发环境配置](/soft/maixpy3/zh/install/install.html#jupyter-安装)中查看
 
 ## 相关参考资料
 
