@@ -96,6 +96,10 @@
                                             "file": "maixII/M2/tools/pyqt_rtsp.md"
                                         }
                                     ]
+                                },
+                                {
+                                    "label":"其他事项",
+                                    "file":"maixII/M2/other.md"
                                 }
                             ]
                         }
