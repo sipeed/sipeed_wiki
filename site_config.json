@@ -120,8 +120,9 @@
             "from": "pypi",
             "config": {
                 "type": "new",
-                "content": "<a target=\"_blank\" href=\"https://github.com/sipeed/Maix-Speech\">Maix-Speech</a> ASR lib now is available, welcome to use and star</br><a target=\"_blank\" href=\"https://github.com/sipeed/Maix-Speech\">Maix-Speech</a> 语音识别库 现在可以获取到啦！欢迎使用并 star",
-                "show_after_s": 432000
+                "content": "<a target=\"_blank\" href=\"https://github.com/sipeed/Maix-Speech\">Maix-Speech</a> ASR lib now is available, designed for embedded, light but high-precision, multi-platform support! Welcome to use and ☆star",
+                "show_after_s": 432000,
+                "date": "2021-11-16 14:00:00"
             }
         },
         "teedoc-plugin-comments-gitalk": {

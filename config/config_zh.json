@@ -261,6 +261,13 @@
                 "other_docs_result_hint": "来自其它文档的结果",
                 "curr_doc_result_hint": "当前文档搜索结果"
             }
+        },
+        "teedoc-plugin-ad-hint": {
+            "from": "pypi",
+            "config": {
+                "label": "新",
+                "content": "<a target=\"_blank\" href=\"https://github.com/sipeed/Maix-Speech/blob/master/README_ZH.md\">Maix-Speech</a> 为嵌入式设计的语音识别库， 小巧且精度高，多平台支持！欢迎使用并 ☆star"
+            }
         }
     },
     "show_source": "编辑本页"
