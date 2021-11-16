@@ -31,7 +31,7 @@ while True:
 from maix import camera, dispaly
 img = camera.capture()
 img.save('/mnt/UDISK/123.jpg')
-display(img)
+display.show(img)
 ```
 
 拍摄后的照片会保存在 /mnt/UDISK 文件下，可以通过 SSH、FTP、ADB 等链接方式将文件取出来。

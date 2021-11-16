@@ -92,7 +92,12 @@
                                     "file": "usage/AI_net/Edge_detection.md"
                                 },
                                 {
-                                    "label": "人脸识别网络"
+                                    "label":"人脸检测",
+                                    "file":"usage/AI_net/find_face.md"
+                                },
+                                {
+                                    "label": "人脸识别网络",
+                                    "file":"usage/AI_net/face_recognize.md"
                                 },
                                 {
                                     "label": "训练属于自己的神经网络（分类）",
