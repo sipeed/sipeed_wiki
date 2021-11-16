@@ -2,6 +2,8 @@
 
 Pytorch 使用模型(卷积/conv)实现 sobel(索贝尔) 边缘检测实现源码
 
+> 目前只能在 V831 上进行部署使用，R329 后续会更新上来
+
 ## 边缘检测效果
 ![](./../asserts/test.jpg)
 ![](./../asserts/sobel_edge2.jpg)
