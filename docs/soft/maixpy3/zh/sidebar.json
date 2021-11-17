@@ -92,12 +92,12 @@
                                     "file": "usage/AI_net/Edge_detection.md"
                                 },
                                 {
-                                    "label":"人脸检测",
-                                    "file":"usage/AI_net/find_face.md"
+                                    "label": "人脸检测",
+                                    "file": "usage/AI_net/find_face.md"
                                 },
                                 {
                                     "label": "人脸识别网络",
-                                    "file":"usage/AI_net/face_recognize.md"
+                                    "file": "usage/AI_net/face_recognize.md"
                                 },
                                 {
                                     "label": "训练属于自己的神经网络（分类）",
@@ -132,49 +132,44 @@
                     "label": "API 手册",
                     "items": [
                         {
-                            "label": "maix",
-                            "items": [
-                                {
-                                    "label": "camera"
-                                },
-                                {
-                                    "label": "display"
-                                },
-                                {
-                                    "label": "event"
-                                },
-                                {
-                                    "label": "gpio",
-                                    "file": "api/maix/gpio.md"
-                                },
-                                {
-                                    "label": "i2c",
-                                    "file": "api/maix/i2c.md"
-                                },
-                                {
-                                    "label": "spi"
-                                },
-                                {
-                                    "label": "video"
-                                },
-                                {
-                                    "label": "PWM",
-                                    "file": "api/maix/PWM.md"
-                                },
-                                {
-                                    "label": "serial"
-                                },
-                                {
-                                    "label": "nn",
-                                    "file": "api/maix/nn.md"
-                                }
-                            ]
+                            "label": "Camera"
+                        },
+                        {
+                            "label": "Display"
+                        },
+                        {
+                            "label": "Event"
+                        },
+                        {
+                            "label": "GPIO",
+                            "file": "api/maix/gpio.md"
+                        },
+                        {
+                            "label": "I2C",
+                            "file": "api/maix/i2c.md"
+                        },
+                        {
+                            "label": "SPI"
+                        },
+                        {
+                            "label": "Video"
+                        },
+                        {
+                            "label": "PWM",
+                            "file": "api/maix/PWM.md"
+                        },
+                        {
+                            "label": "Serial"
+                        },
+                        {
+                            "label": "nn",
+                            "file": "api/maix/nn.md"
                         }
                     ]
                 }
             ]
         },
-        { 
+        {
             "label": "常见问题与解决办法",
             "items": [
                 {

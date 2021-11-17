@@ -1,6 +1,6 @@
 ---
 title: Hello World
-keywords: Hello World, MaixPy3, Python, Python3
+keywords: Hello World, MaixPy3
 desc: maixpy doc: Hello World
 ---
 

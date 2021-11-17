@@ -22,6 +22,8 @@ desc: maixpy doc: MaixII M2dock 烧录系统
 
 PhoenixSuit和PhoenixCard是全志芯片常用的两种烧录工具，一个是USB烧录，另一个是sd卡烧录。对于需要烧录到flash中的，常用PhoenixSuit，而使用sd卡的在用PhoenixSuit需要安装USB驱动等一系列的麻烦操作，就可以使用PhoenixCard进行烧录。
 
+> 使用的是没有带有 dd 后缀的镜像文件
+
 ### 获取烧录工具
 
 PhoenixCard下载站连接：[下载站 - Sipeed](https://dl.sipeed.com/shareURL/MaixII/MaixII-Dock/SDK/tools)
@@ -47,6 +49,8 @@ Refresh后点击Format后格式化，注意选中对应的sd卡；
 ![image-20210802104608721](./../../../assets/maixII/V831/image-20210802104608721.png)
 
 ## Linux(Ubuntu) 使用 Livesuit 烧录
+
+> 使用的是没有带有 dd 后缀的镜像文件
 
 > [https://linux-sunxi.org/LiveSuit](https://linux-sunxi.org/LiveSuit)
 
