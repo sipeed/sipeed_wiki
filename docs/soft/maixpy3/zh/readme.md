@@ -1,7 +1,7 @@
 ---
 title: 什么是 MaixPy3 ？
-keywords: maixpy3, linux, AIOT, 边缘计算
-desc: maixpy doc: MaixPy 是什么？能做什么？
+keywords: Maixpy3官方文档
+desc: maixpy doc: MaixPy3 是什么？能做什么？
 ---
 
 ![MIT](https://img.shields.io/badge/license-MIT-blue.svg) [![PyPI version](https://badge.fury.io/py/maixpy3.svg)](https://badge.fury.io/py/maixpy3) ![Python](https://img.shields.io/badge/Python-3.5↗-ff69b4.svg) [![issue](https://img.shields.io/github/issues/sipeed/maixpy3.svg)](https://github.com/sipeed/maixpy3/issues)
