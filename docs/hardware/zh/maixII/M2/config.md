@@ -14,9 +14,9 @@ desc: maixpy doc: MaixII M2dock 配置系统
 
 ![](./asserts/moba_serial.png)
 
-~~在烧录镜像后第一次进入系统需要进行比较久的系统初始化（取决于 SD 卡速度），如果长达 10 分钟没有反应可以按复位键重新进入系统，若是一直不成功请通过【新手上路】【如何反馈问题】解决。~~
 
-2021年8月19日 现在第一次开机需要差不多 5 ~ 10 秒进入系统。
+
+
 
 > 系统已经内置了 ssh 和 ftp 并在开机后自动启动，服务配置于 `/etc/init.d/S40network` 。
 
@@ -27,7 +27,6 @@ desc: maixpy doc: MaixII M2dock 配置系统
 
 > WIFI 配置文件位于 `/etc/wpa_supplicant.conf` 。
 
-确认存在上述配置通过后，会进行网络连接并直到获得了 IP 地址，接着就会进行 `pip install maixpy3` 包安装，以及最后的 `opkg update` 软件源更新。
 
 ```shell
 root@sipeed:/# maixpy3_config.py 
@@ -167,6 +166,10 @@ tcpsvd: bind: Address in use
 root@sipeed:/# 
 
 ```
+
+确认存在上述配置通过后，会进行网络连接并直到获得了 IP 地址，也可以通过 `ifconfig` 进行 IP 地址的查询
+
+> 现在新的镜像是内置好了 Maixpy3 ，不需要手动进行安装，只需要更新就好了，`pip install -U maixpy3`，如果使用的是旧的镜像则需要手动安装 Maixpy3 ， `pip install maixpy3` ,以及最后的 `opkg update` 软件源更新。(如果是使用上面的配置的文件)
 
 > 上述每个步骤不想配置就可以用 [Ctrl + C] 跳过。
 

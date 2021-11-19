@@ -143,13 +143,15 @@ display.show(camera.capture())
 
 > 如果发现屏幕没有亮起显示摄像头内容，确保系统是最新的，排查硬件接线与通电方面的问题，通常产品出厂前都会做外设硬件测试的。
 
-## **使用 Jupyter 开发**
+## 入门教程
+
+本设备是支持使用 [Maixpy3](/soft/maixpy3/zh/index.html) 进行开发使用，请好好阅读 Maixpy3 的使用文档
+
+### **使用 Jupyter IDE 开发**
 
 > 注意！！！！ MaixPy M2dock 不支持在本机安装 Jupyter ！！！
 
 关于 jupyter 的使用和安装请到 MaixPy3 中的[开发环境配置](/soft/maixpy3/zh/install/install.html#jupyter-安装)中查看
 
-## 相关参考资料
 
-请查阅[maixpy3](/soft/maixpy3/zh/readme.md)
 

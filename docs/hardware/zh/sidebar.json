@@ -53,31 +53,20 @@
             "file": "maixII/readme.md",
             "items": [
                 {
-                    "label": "M2",
-                    "file": "maixII/M2/introduce.md",
+                    "label": "MaixII-Dock",
+                    "file": "maixII/M2/resources.md",
                     "items": [
                         {
-                            "label": "MaixII-Dock",
-                            "file": "maixII/M2/resources.md",
+                            "label": "M2",
+                            "file": "maixII/M2/introduce.md",
                             "items": [
                                 {
                                     "label": "烧录系统",
                                     "file": "maixII/M2/flash.md"
                                 },
                                 {
-                                    "label": "访问串口",
-                                    "file": "maixII/M2/drive.md"
-                                },
-                                {
-                                    "label": "配置系统",
-                                    "file": "maixII/M2/config.md"
-                                },
-                                {
-                                    "label": "上手使用",
-                                    "file": "maixII/M2/usage.md"
-                                },
-                                {
-                                    "label": "更多连接工具",
+                                    "label": "连接开发板",
+                                    "file": "maixII/M2/drive.md",
                                     "items": [
                                         {
                                             "label": "adb 连接",
@@ -96,6 +85,14 @@
                                             "file": "maixII/M2/tools/pyqt_rtsp.md"
                                         }
                                     ]
+                                },
+                                {
+                                    "label": "配置系统",
+                                    "file": "maixII/M2/config.md"
+                                },
+                                {
+                                    "label": "上手使用",
+                                    "file": "maixII/M2/usage.md"
                                 },
                                 {
                                     "label":"其他事项",
