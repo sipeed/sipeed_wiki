@@ -16,6 +16,16 @@ MaixII M2dock 是基于 V831 芯片设计的一款【板卡】+【底板】的�
 
 > 板卡参考资料下载 [MaixII_V831_v3100](https://api.dl.sipeed.com/shareURL/MaixII/MaixII-Dock/HDK/Sipeed_MaixII_V831/MaixII_V831_v3100)
 
+### V831 芯片介绍
+
+从 2019 年至今的时间，可以开始看到几个相机 SoC 与一个内置的转专业或 SIMD 指令加快人脸检测、物体检测等等，从低分辨率 Kendryte K210 处理器 2.5 k Ingenic T31 MIPS 视频处理器，甚至 4k 能力 iCatch V37 相机 SoC 。 Allwinner 过去推出了几个摄像头处理器(V3， V316， S3…)，但没有一个包含 NPU (又名 AI 加速器)。现在这已经改变了，Allwinner V831 Cortex-A7 全高清摄像头 SoC 还包括一个小的 200 GOPS NPU 。
+
+> 取自 [allwinner-v831-ai-full-hd-camera-soc-powers-sochip-v831-development-board](https://www.cnx-software.com/2020/04/28/allwinner-v831-ai-full-hd-camera-soc-powers-sochip-v831-development-board/)
+
+![V831_struct.png](./asserts/V831_struct.png)
+
+[V833／V831 Datasheet V1.0.pdf](https://linux-sunxi.org/images/b/b9/V833%EF%BC%8FV831_Datasheet_V1.0.pdf)
+
 ### 资源
 
 | 项目 | MAIX-I (K210) | MAIX-II (V831) |
