@@ -56,49 +56,44 @@
                     "label": "MaixII-Dock",
                     "file": "maixII/M2/resources.md",
                     "items": [
+                        
                         {
-                            "label": "M2",
-                            "file": "maixII/M2/introduce.md",
+                            "label": "烧录系统",
+                            "file": "maixII/M2/flash.md"
+                        },
+                        {
+                            "label": "连接开发板",
+                            "file": "maixII/M2/drive.md",
                             "items": [
                                 {
-                                    "label": "烧录系统",
-                                    "file": "maixII/M2/flash.md"
+                                    "label": "adb 连接",
+                                    "file": "maixII/M2/tools/adb.md"
                                 },
                                 {
-                                    "label": "连接开发板",
-                                    "file": "maixII/M2/drive.md",
-                                    "items": [
-                                        {
-                                            "label": "adb 连接",
-                                            "file": "maixII/M2/tools/adb.md"
-                                        },
-                                        {
-                                            "label": "mobaxterm 连接",
-                                            "file": "maixII/M2/tools/mobaxterm.md"
-                                        },
-                                        {
-                                            "label": "VScode 连接",
-                                            "file": "maixII/M2/tools/vscode.md"
-                                        },
-                                        {
-                                            "label": "pyqt_rtsp",
-                                            "file": "maixII/M2/tools/pyqt_rtsp.md"
-                                        }
-                                    ]
+                                    "label": "mobaxterm 连接",
+                                    "file": "maixII/M2/tools/mobaxterm.md"
                                 },
                                 {
-                                    "label": "配置系统",
-                                    "file": "maixII/M2/config.md"
+                                    "label": "VScode 连接",
+                                    "file": "maixII/M2/tools/vscode.md"
                                 },
                                 {
-                                    "label": "上手使用",
-                                    "file": "maixII/M2/usage.md"
-                                },
-                                {
-                                    "label":"其他事项",
-                                    "file":"maixII/M2/other.md"
+                                    "label": "pyqt_rtsp",
+                                    "file": "maixII/M2/tools/pyqt_rtsp.md"
                                 }
                             ]
+                        },
+                        {
+                            "label": "配置系统",
+                            "file": "maixII/M2/config.md"
+                        },
+                        {
+                            "label": "上手使用",
+                            "file": "maixII/M2/usage.md"
+                        },
+                        {
+                            "label": "其他事项",
+                            "file": "maixII/M2/other.md"
                         }
                     ]
                 },

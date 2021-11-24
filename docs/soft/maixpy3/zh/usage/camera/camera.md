@@ -28,7 +28,7 @@ while True:
 运行一下代码可以直接
 
 ```python
-from maix import camera, dispaly
+from maix import camera, display
 img = camera.capture()
 img.save('/mnt/UDISK/123.jpg')
 display.show(img)
