@@ -5,7 +5,7 @@
 ## MaixII Dock
 <div align="center">
 
-<a href="./M2/introduce.html"><img src="./M2/asserts/m2dock.jpg"></a>
+<a href="./M2/resources.html"><img src="./M2/asserts/m2dock.jpg"></a>
 </div>
 
 ## MaixII S
