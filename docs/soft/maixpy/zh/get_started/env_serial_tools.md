@@ -53,42 +53,26 @@ Windows 常用的串口终端软件有 [putty](https://www.putty.org/)，[mobaxt
 
 ### Linux
 
-使用`minicom`（推荐） 或者 `screen`等工具即可
+使用 python 中的 pyserial 进行开发板的连接
 
-#### minicom
+- 安装 pyserial 
 
-```
-sudo apt update
-sudo apt install minicom
-sudo minicom -s
-# 然后根据提示设置串口号以及波特率为 115200 等，不懂可以利用搜索工具搜索
-# 设置 Backspace 为 DEL 功能
-# 设置 linewrap 为 Yes
-sudo minicom
-```
 
-注意 minicom 的默认配置文件保存需要 sudo 权限，所以使用`sudo minicom -s`
+    sudo python3 -m pip install pyserial
 
-![minicom setting](../../assets/get_started/minicom_setting.png)
+- 连接开发板
 
-![minicom setting2](../../assets/get_started/minicom_setting2.png)
 
-这里按 `A` 即可设置设备
+    sudo python3 -m serial.tools.miniterm --raw --dtr 0 --rts 0 /dev/ttyUSB0 115200
 
-按 `E` 即可设置波特率， 波特率需要设置为 `115200`
+![](../../assets/get_started/linux-python.png)
 
-![minicom setting3](../../assets/get_started/minicom_setting3.png)
+- 复位开发板
 
-这里按 `A` 和 `R` 将设置切换为图中的设置一样， 第一个是为了后面使用 `pye` 编辑器快捷键不冲突， 第二个自动换行的设置是为了能显示完全输出
+通过按两次键盘上的，CTRL+T 和 CTRL+R，可实现复位
 
-设置完后保存退出，下次就不需要再设置了，只需要执行 `sudo minicom` 即可， 如果不想每次都使用`sudo`命令， 执行`sudo usermod -a -G dialout $(whoami)` 将自己添加到`dialout`用户组即可，可能需要注销或者重启才能生效，注意`sudo minicom -s` 如果需要修改默认配置文件还是需要 `sudo`
+- 退出串口
 
-进入`minicom`后点击回车键或者开发板的复位按钮，即可看到 MaixPy 的交互界面了
+按键盘上的 CTRL + ]
 
-![minicom](../../assets/get_started/minicom.png)
-
-输入 `help()`，可以查看帮助
-
-要退出`minicom`， 按 `Ctrl+A` `X`，按 `Enter` 确认退出即可
-
-> 另外，在开发过程中可能串口号会变， 可以在执行 minicom 的时候指定串口号，这样就不用每次串口号变了都设置一遍了，比如：` minicom -D /dev/ttyUSB1 -b 115200`
+> 可以通过运行 `sudo usermod -a -G dialout $(whoami)` ，添加用户的使用权限，然后重启系统，后面使用 pyserial 打开串口就可以不使用 sudo 权限了
