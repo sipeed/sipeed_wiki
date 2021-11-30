@@ -66,7 +66,7 @@ setx LM_LICENSE_FILE path_to_the_file
 
 ![3-6](./../../../assets/lic_remote_1.png)
 
-
+> 在线许可服务器仅适用于 GoWin V1.9.8 及更低版本，推荐使用 V1.9.6
 # 使用方法
 
 参考官方文档[Gowin云源软件用户指南](http://cdn.gowinsemi.com.cn/SUG100-1.8_Gowin%E4%BA%91%E6%BA%90%E8%BD%AF%E4%BB%B6%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97.pdf)，第5章 云源软件使用

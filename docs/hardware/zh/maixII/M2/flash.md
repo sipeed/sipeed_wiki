@@ -21,24 +21,19 @@ desc: maixpy doc: MaixII M2dock 烧录系统
 
 对于V831的镜像文件名字是有对应的规则，以后大家可以根据自己的需求来进行下载
 
-就拿`maixpy3-v831-800m-64m-512m-sp2305_240240_20210729`这镜像文件来说
+就拿`maixpy3_0.3.4_V831_20211119.img.zip`这镜像文件来说
 
 | 名称 | 含义 |
 | --- | --- |
-| maixpy3 | 支持MaixPy3进行开发 |
-| v831 | 支持的V831芯片上运行 |
-| 800m | 主频为800MHz |
-| 64m | RAM为64MB |
-| 512m | 对于tf卡容量的最低要求 |
-| sp2305 | 适用于型号为sp2305的摄像头 |
-| 240240 | 屏幕的输出分辨率为240*240 |
-| 20210729 | 镜像的发布时间 |
-
-> 如果是适合使用dd进行烧录，会在最前面多个dd
+| maixpy3 | 内置 MaixPy3 |
+| 0.3.4 | 内置 MaixPy3 0.3.4版本 |
+| V831 | 支持 V831 芯片 |
+| 20211119 | 镜像更新日期 |
+| img | 不支持 dd 烧录版本|
+| dd | 支持 dd 烧录版本 |
 
 
 ## Windows 上使用 PhoenixCard烧录镜像
-
 PhoenixSuit和PhoenixCard是全志芯片常用的两种烧录工具，一个是USB烧录，另一个是sd卡烧录。对于需要烧录到flash中的，常用PhoenixSuit，而使用sd卡的在用PhoenixSuit需要安装USB驱动等一系列的麻烦操作，就可以使用PhoenixCard进行烧录。
 
 > 使用的是没有带有 dd 后缀的镜像文件
@@ -262,11 +257,5 @@ dd if=sipedd-v8310-210606-dd.img of=/dev/sdd
 ## 无 sd/tf 卡烧录方式
 
 [烧录方式](./no_sd_flash.md)
-
-## 常见问题：
-
-系统烧录步骤严格按照文档要求，先打开软件，拔 SD 卡后插入电脑，等待提示确认后再插入 SD 卡自动完成安装。
-
-《[error while loading shared libraries: libpng12.so.0](https://askubuntu.com/questions/895897/error-while-loading-shared-libraries-libpng12-so-0)》
 
 
