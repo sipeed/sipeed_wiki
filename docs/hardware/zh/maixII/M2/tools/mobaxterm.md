@@ -34,7 +34,7 @@ desc: maixpy doc: 如何使用 mobaxterm
 
 在 Linux 系统输入 ifconfig 查看自己 ip 地址（192.168.1.185），然后输入自己名称和密码，常见有 root / root 。
 
-> 如果没有设置密码，root 的连接密码是 123 。
+> 如果没有设置密码，root 的连接密码是 root 。
 
 ![](./asserts/mobaxterm_ssh.jpg)
 
