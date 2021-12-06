@@ -91,7 +91,7 @@ conv_rgb_core_sobel = [
 
 ![](./../asserts/sobel_v831.jpg)
 
-V831 部署[源码]()在 github， 模型在 maixhub 上可以下载
+V831 部署[源码](https://github.com/sipeed/MaixPy3/blob/master/ext_modules/_maix_nn/example/load_forward_sobel_edge_camera.py)在 github， 模型在 maixhub 上可以下载
 
 ## 边缘检测源码
 
@@ -226,4 +226,4 @@ plt.show()
 - [How to implement Sobel edge detection using Python from scratch](http://www.adeveloperdiary.com/data-science/computer-vision/how-to-implement-sobel-edge-detection-using-python-from-scratch/)
 - [梯度和Sobel导数](https://blog.csdn.net/lzhf1122/article/details/71752644)
 
-> 以上内容出至于：https://neucrack.com/p/377
+> 以上内容出至于：<https://neucrack.com/p/377>

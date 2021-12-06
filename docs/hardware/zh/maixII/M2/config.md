@@ -24,8 +24,11 @@ desc: maixpy doc: MaixII M2dock 配置系统
 
 - 配置你的 root 用户的密码（默认:`123`），与 ssh & ftp 共用。
 - 配置你的 WIFI 热点账号（ssid）密码（pasw）
+- 只能连接 2.4G 频段的 WIFI，但是有的网络环境可能也会连接不上。
 
-> WIFI 配置文件位于 `/etc/wpa_supplicant.conf` 。
+> WIFI 配置文件位于 `/etc/wpa_supplicant.conf` ,可以使用 vi 编辑器进行修改，不建议小白使用。
+
+也可以直接在命令行中运行 `maixpy3_config.py ` 进入网络配置和用户名密码配置
 
 
 ```shell

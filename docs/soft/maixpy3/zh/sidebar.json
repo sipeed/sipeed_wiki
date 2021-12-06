@@ -132,34 +132,16 @@
                     "label": "API 手册",
                     "items": [
                         {
-                            "label": "Camera"
+                            "label": "Camera",
+                            "file":"api/maix/camera.md"
                         },
                         {
-                            "label": "Display"
+                            "label": "Display",
+                            "file":"api/maix/display.md"
                         },
                         {
-                            "label": "Event"
-                        },
-                        {
-                            "label": "GPIO",
-                            "file": "api/maix/gpio.md"
-                        },
-                        {
-                            "label": "I2C",
-                            "file": "api/maix/i2c.md"
-                        },
-                        {
-                            "label": "SPI"
-                        },
-                        {
-                            "label": "Video"
-                        },
-                        {
-                            "label": "PWM",
-                            "file": "api/maix/PWM.md"
-                        },
-                        {
-                            "label": "Serial"
+                            "label":"Image",
+                            "file":"api/maix/image.md"
                         },
                         {
                             "label": "nn",
