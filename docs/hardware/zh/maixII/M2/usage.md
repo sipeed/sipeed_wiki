@@ -1,8 +1,10 @@
 ---
-title: MaixII M2dock 上手使用
+title: 进阶使用
 keywords: MaixII, MaixPy3, Python, Python3, M2dock
 desc: maixpy doc: MaixII M2dock 上手使用
 ---
+
+> 没有 Linux 系统使用基础的同学，不推荐以下的使用方式
 
 ## 认识 openwrt 系统
 
@@ -29,7 +31,6 @@ e2fsprogs - 1.42.12-1
 eyesee-mpp-external - 1.0-1
 eyesee-mpp-middleware - 1.0-1
 eyesee-mpp-system - 1.0-1
-......
 ```
 
 #### 常用命令

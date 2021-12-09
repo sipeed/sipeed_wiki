@@ -1,6 +1,6 @@
 ---
-title: MaixPy3 可运行的环境
-keywords: linux, MaixII-Dock, MaixSense
+title: 安装 MaixPy3
+keywords: linux, MaixII-Dock, MaixSense, 安装MaixPy3
 desc: maixpy doc: linux_x86_64 如何安装？
 ---
 
@@ -12,12 +12,12 @@ desc: maixpy doc: linux_x86_64 如何安装？
 
 ### MaixII-Dock 上安装 MaixPy3
 
-在 MaixII-Dock 的最新[镜像](https://dl.sipeed.com/shareURL/MaixII/MaixII-Dock/SDK/release)中是会在第一次开机时自动进行安装，如果在安装过程中途断电，安装会自动取消，而且 Maixpy3 的安装包也会被删除，这时则需要进行手动安装 Maixpy3 包，或者重新[安装镜像](/hardware/zh/maixII/M2/flash.html)
+在 MaixII-Dock 的最新[镜像](https://dl.sipeed.com/shareURL/MaixII/MaixII-Dock/SDK/release)中是已已经将 MaixPy3 安装好，烧录即可使用。不一定是最新版本的 MaixPy3，需要手动[更新 MaixPy3](/hardware/zh/maixII/M2/tools/0.MaixII-Dock.html#%E6%9B%B4%E6%96%B0-MaixPy3).
 
-手动安装需要在连接网络之后，通过 `pip install maixpy3` 进行安装，或者通过 `pip install -U Maixpy3` 进行更新
+也可以在[连接网络](/hardware/zh/maixII/M2/tools/0.MaixII-Dock.html#%E8%BF%9E%E6%8E%A5%E7%BD%91%E7%BB%9C)之后进行更新，通过 `pip install maixpy3` 进行安装，或者通过 `pip install -U Maixpy3` 进行更新
 
 ```shell
-root@sipeed:/# pip install maixpy3
+root@sipeed:/# pip install maixpy3 -U
 pip install maixpy3
 Requirement already satisfied: maixpy3 in /usr/lib/python3.8/site-packages (0.3.2)
 Requirement already satisfied: evdev in /usr/lib/python3.8/site-packages (from maixpy3) (1.4.0)
@@ -111,87 +111,3 @@ display.show(camera.capture())
 > 它借助了 opencv-python 和 PIL 的接口功能实现的。
 
 
-## jupyter 安装
-
-jupyter 是一个可以进行可视化运行代码的平台，可以将代码和运行之后得到的结果保留下来，非常适合新手学习使用，而且还支持 markdown 语法编写文本
-
-想在 linux 单片机平台上使用 jupyter 进行编程，需要对平台和电脑进行环境的配置使用
-
-### 电脑端安装
-
-电脑端需要安装好 python 环境才能进行下面的步骤，如果没有安装 python 请自行通过右上角搜索自行查找，或者自行百度查找 python 安装教程
-
-需要在电脑端上安装 jupyter 和 RPyC 内核
-
-    pip install jupyter  rpyc_ikernel
-
-如果安装下载比较慢的时候可以通过添加中科大源来进行加速
-
-    pip install -i https://mirrors.ustc.edu.cn/pypi/ jupyter  rpyc_ikernel
-
-出现以下提示，则说明安装结束
-```bash
-Installing collected packages: rpyc-ikernel, jupyter
-Successfully installed jupyter-1.0.0 rpyc-ikernel-0.3.5
-```
-
-运行 `python -m rpyc_ikernel.install` 进行rpyc 测试，输出以下信息则说明了安装成功了
-
-```bash
-Installing IPython kernel spec of RPyc
-C:\Users\STR\AppData\Local\Programs\Python\Python38\lib\site-packages\rpyc_ikernel\install.py:30: DeprecationWarning: replace is ignored. Installing a kernelspec always replaces an existing installation
-  k.install_kernel_spec(td, 'RPyc', user=user,
-...into C:\Users\STR\AppData\Roaming\jupyter\kernels\rpyc
-```
-
-### 平台安装教程
-
-Linux 开发板平台通过安装 MaixPy3 的时候会自动安装 RPyc ,但是可能需要进行手动的更新
-
-pip install -U RPyc 进行更新即可
-
-### Jupyter 启动！
-
-安装好 Jupyter 后就可以开始使用了，由于 jupyter 是没有快捷方式启动的，需要在系统的命令行中启动
-
-通过键盘上的 win + R，打开`运行`,输出 cmd 进入命令行中，输入 jupyter-notebook ，就可自动运行并在默认的浏览器中打开 jupyter
-> 建议使用谷歌浏览器打开，或者 win10 系统自带的 Edge 中打开
->
-> 打开 jupyter 之后命令行窗口不要关闭
-
-
-```bash
-[I 13:46:55.487 NotebookApp] Serving notebooks from local directory: D:\jupyter
-[I 13:46:55.487 NotebookApp] Jupyter Notebook 6.4.4 is running at:
-[I 13:46:55.488 NotebookApp] http://localhost:8888/?token=2d5ef1957ac331137cc92561ebbc14b8f4700e5a76b89d63
-[I 13:46:55.488 NotebookApp]  or http://127.0.0.1:8888/?token=2d5ef1957ac331137cc92561ebbc14b8f4700e5a76b89d63
-[I 13:46:55.488 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
-[C 13:46:55.539 NotebookApp]
-
-    To access the notebook, open this file in a browser:
-        file:///C:/Users/STR/AppData/Roaming/jupyter/runtime/nbserver-4216-open.html
-    Or copy and paste one of these URLs:
-        http://localhost:8888/?token=2d5ef1957ac331137cc92561ebbc14b8f4700e5a76b89d63
-     or http://127.0.0.1:8888/?token=2d5ef1957ac331137cc92561ebbc14b8f4700e5a76b89d63
-c:\users\str\appdata\local\programs\python\python38\lib\json\encoder.py:257: UserWarning: date_default is deprecated since jupyter_client 7.0.0. Use jupyter_client.jsonutil.json_default.
-  return _iterencode(o, 0)
-
-```
-
-![jupyter](./asserts/jupyter.png)
-
-点击右边的 new 可以看到两个内核选项，一个是 python3， 一个是 rpyc-python，说明环境安装成功，选择 rpyc-python 进新建一个 jupyter 文件，然后输入并运行，可以得到平台信息，即可开始运行使用 Maixpy3 进行调试开发了
-
-```python
-$connect("192.168.0.42")
-import platform
-print(platform.uname())
-```
-```shell
-[ rpyc-kernel ]( running at Thu Oct 28 16:46:43 2021 )
-uname_result(system='Linux', node='sipeed', release='4.9.118', version='#2369 PREEMPT Tue Oct 26 08:46:44 UTC 2021', machine='armv7l', processor='')
-```
-
-
-
-> 想要了解更多关于 jupyter 的可以看附录中的《[如何使用 jupyter]()》

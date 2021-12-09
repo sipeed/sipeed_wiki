@@ -79,6 +79,12 @@
                 "toc_depth": 3
             }
         },
+        "teedoc-plugin-jupyter-notebook-parser": {
+            "from": "pypi",
+            "config": {
+
+            }
+        },
         "teedoc-plugin-google-translate": {
             "from": "pypi",
             "config": {
