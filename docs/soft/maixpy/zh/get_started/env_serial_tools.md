@@ -24,21 +24,7 @@ desc: maixpy doc: 使用串口工具
 
 ### Windows
 
-Windows 常用的串口终端软件有 [putty](https://www.putty.org/)，[mobaxterm](https://mobaxterm.mobatek.net/)，[xshell](https://xshell.en.softonic.com/)，[mpfshell-lite](./mpfshell-lite/mpfshell-lite.md) 等工具
-
-#### Putty
-
-然后选择串口模式， 然后设置串口和波特率，打开串口。
-
-![](../../assets/get_started/putty.png)
-
-然后按下复位键，即可看到 MaixPy 的交互界面了
-
-![](../../assets/get_started/putty1.png)
-
-输入 `help()`，可以查看帮助
-
-> 上图来源： [laurentopia 的上手教程](https://github.com/laurentopia/Learning-AI/wiki/MaixPy)
+Windows 常用的串口终端软件有 [mobaxterm](https://mobaxterm.mobatek.net/)，[xshell](https://xshell.en.softonic.com/)，[mpfshell-lite](./mpfshell-lite/mpfshell-lite.md) 等工具
 
 #### Mobaxterm
 
@@ -49,6 +35,17 @@ Windows 常用的串口终端软件有 [putty](https://www.putty.org/)，[mobaxt
 
 #### mpfshell-lite
 [mpfshell-lite](./mpfshell-lite/mpfshell-lite.md)是一款体积迷你，功能齐全的 MicroPython 管理工具，可以对flash、sd卡的文件进行管理，也可以进行micropython的编写。
+
+
+#### MaixPy IDE终端工具
+
+打开 MaixPy IDE，在 IDE 没有连接板子的时候选择通过串口终端进入开发板
+
+![](./../../assets/get_started/IDE_1.png)
+![](./../../assets/get_started/IDE_2.png)
+![](./../../assets/get_started/IDE_3.png)
+![](./../../assets/get_started/IDE_4.png)
+![](./../../assets/get_started/IDE_5.png)
 
 
 ### Linux

@@ -27,8 +27,12 @@
                     ]
                 },
                 {
-                    "label": " MaixPy3 开发环境配置",
+                    "label": "安装 MaixPy3",
                     "file": "install/install.md"
+                },
+                {
+                    "label":"MaixPy3 IDE 介绍",
+                    "file":"MaixPy3_IDE.md"
                 },
                 {
                     "label": "基础使用教程",
@@ -158,18 +162,30 @@
                     "label": "MaixPy3 常见问题（内含常见报错）"
                 },
                 {
-                    "label": " Jupyter 常见问题"
+                    "label": " IDE 常见问题",
+                    "file":"question/Maixpy3_IDE.ipynb"
                 }
             ]
         },
         {
-            "label": "如何开发 MaixPy3"
+            "label": "如何开发 MaixPy3",
+            "items":[
+                {
+                    "label":"开发 MaixPy3",
+                    "file":"others/develop.md"
+                },
+                {
+                    "label":"适配平台",
+                    "file":"others/platform.md"
+                },
+                {
+                    "label":"共享开发成果",
+                    "file":"others/product.md"
+                }
+            ]
         },
         {
             "label": "遇到问题如何反馈"
-        },
-        {
-            "label": "附录"
         }
     ]
 }
