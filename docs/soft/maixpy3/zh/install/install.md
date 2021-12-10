@@ -18,29 +18,26 @@ desc: maixpy doc: linux_x86_64 如何安装？
 
 ```shell
 root@sipeed:/# pip install maixpy3 -U
-pip install maixpy3
-Requirement already satisfied: maixpy3 in /usr/lib/python3.8/site-packages (0.3.2)
-Requirement already satisfied: evdev in /usr/lib/python3.8/site-packages (from maixpy3) (1.4.0)
-Requirement already satisfied: pyserial in /usr/lib/python3.8/site-packages (from maixpy3) (3.4)
-Requirement already satisfied: Pillow in /usr/lib/python3.8/site-packages (from maixpy3) (7.2.0)
-Requirement already satisfied: spidev in /usr/lib/python3.8/site-packages (from maixpy3) (3.5)
-Requirement already satisfied: zbarlight in /usr/lib/python3.8/site-packages (from maixpy3) (3.0)
-Requirement already satisfied: rpyc in /usr/lib/python3.8/site-packages (from maixpy3) (5.0.1)
-Requirement already satisfied: gpiod in /usr/lib/python3.8/site-packages (from maixpy3) (1.4.0)
-Requirement already satisfied: plumbum in /usr/lib/python3.8/site-packages (from rpyc->maixpy3) (1.6.9)
-root@sipeed:/# python
-Python 3.8.5 (default, Sep 17 2021, 03:45:02)
-[GCC 6.4.1] on linux
-Type "help", "copyright", "credits" or "license" for more information.
->>> import maix
->>> 
+Requirement already up-to-date: maixpy3 in /usr/lib/python3.8/site-packages (0.3.5)
+Requirement already satisfied, skipping upgrade: Pillow in /usr/lib/python3.8/site-packages (from maixpy3) (7.2.0)
+Requirement already satisfied, skipping upgrade: evdev in /usr/lib/python3.8/site-packages (from maixpy3) (1.4.0)
+Requirement already satisfied, skipping upgrade: gpiod in /usr/lib/python3.8/site-packages (from maixpy3) (1.4.0)
+Requirement already satisfied, skipping upgrade: pyserial in /usr/lib/python3.8/site-packages (from maixpy3) (3.4)
+Requirement already satisfied, skipping upgrade: rpyc in /usr/lib/python3.8/site-packages (from maixpy3) (5.0.1)
+Requirement already satisfied, skipping upgrade: spidev in /usr/lib/python3.8/site-packages (from maixpy3) (3.5)
+Requirement already satisfied, skipping upgrade: zbarlight in /usr/lib/python3.8/site-packages (from maixpy3) (3.0)
+Requirement already satisfied, skipping upgrade: plumbum in /usr/lib/python3.8/site-packages (from rpyc->maixpy3) (1.6.9)
+WARNING: You are using pip version 20.1.1; however, version 21.3.1 is available.
+You should consider upgrading via the '/usr/bin/python3 -m pip install --upgrade pip' command.
+root@sipeed:/#
 ```
 
 输出以上信息则是代表安装好了
 
 ### MaixSense 安装 MaixPy3
 
-MaixSense 在最新的镜像中已经内置了 MaixPy3，但是随着 MaixPy3 的更新会导致镜像中的 MaixPy3 不是最新的版本，则需要进行手动更新
+MaixSense 需要是烧录官方提供最新的 Armbian 镜像，旧的镜像在安装 MaixPy3 的时候会缺很多文件而导致的报错。
+> MaixSense 的 Tina 没有做 MaixPy3 的移植，有需要的可以自行移植
 
 ```shell
 root@maixsense:~# pip install maixpy3
@@ -59,12 +56,7 @@ Python 3.9.2 (default, Feb 28 2021, 17:03:44)
 Type "help", "copyright", "credits" or "license" for more information.
 >>> import maix
 >>>
-
-
 ```
-
-> 如果不是使用最新的系统镜像是无法进行 MaixPy3 的安装的
-
 
 ### Linux 上安装MaixPy3
 
