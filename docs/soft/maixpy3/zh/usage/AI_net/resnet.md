@@ -302,64 +302,43 @@ label 在这里： https://github.com/sipeed/MaixPy3/blob/main/ext_modules/_maix
 
 baars.ttf 在这里：https://github.com/sipeed/MaixPy3_scripts/blob/main/application/base/res/baars.ttf
 ```python
-from maix import nn
-from PIL import Image, ImageFont, ImageDraw
-from maix import display
-from classes_label import labels
-import time
-from maix import camera
-
-class funation:
-    model = None
-    options = None
-    m = None
-    font = None
+from maix import camera, nn, display
+from home.res.classes_label import labels
+class Resnset:
+    m = {
+        "param": "/home/model/resnet18_1000_awnn.param",
+        "bin": "/home/model/resnet18_1000_awnn.bin"
+    }
+    options = {
+        "model_type":  "awnn",
+        "inputs": {
+            "input0": (224, 224, 3)
+        },
+        "outputs": {
+            "output0": (1, 1, 1000)
+        },
+        "first_layer_conv_no_pad": False,
+        "mean": [127.5, 127.5, 127.5],
+        "norm": [0.00784313725490196, 0.00784313725490196, 0.00784313725490196],
+    }
     def __init__(self):
-        camera.config(size=(224, 224))
-        self.model = {
-            "param": "/root/res/resnet.param",
-            "bin": "/root/res/resnet.bin"
-        }
-        self.options = {
-            "model_type":  "awnn",
-            "inputs": {
-                "input0": (224, 224, 3)
-            },
-            "outputs": {
-                "output0": (1, 1, 1000)
-            },
-            "first_layer_conv_no_pad": False,
-            "mean": [127.5, 127.5, 127.5],
-            "norm": [0.00784313725490196, 0.00784313725490196, 0.00784313725490196],
-        }
-        print("-- load model:", self.model)
-        self.m = nn.load(self.model, opt=self.options)
-        print("-- load ok")
-        self.font = ImageFont.truetype("/root/res/baars.ttf",20, encoding="unic")
-
-    def run(self):
-        img = camera.capture()
-        t = time.time()
-        out = self.m.forward(img, quantize=True)
-        t = time.time() - t
-        print("-- forward time: {}s".format(t))
-        t = time.time()
-        out2 = nn.F.softmax(out)
-        t = time.time() - t
-        print("-- softmax time: {}s".format(t))
-        msg = "{:.2f}: {}".format(out.max(), labels[out.argmax()])
-        print(msg)
-        img = Image.new("RGBA", (240, 240), "#00000000")
-        draw = ImageDraw.Draw(img)
-        draw.text((0, 0), msg, (255, 0, 0), self.font)
-        display.show(img)
+        from maix import nn
+        self.model = nn.load(self.m, opt=self.options)
+       
+    def __del__(self):
+        del self.model
 
 
 
-if __name__ == "__main__":
-    start = funation()
-    while True:
-        start.run()
+
+while True:
+    img = camera.capture().resize(224, 224)
+    tmp = img.tobytes()
+    out = resnset.model.forward(tmp, quantize=True)
+    out2 = nn.F.softmax(out)
+    msg = "{:.2f}: {}".format(out2.max(), labels[out.argmax()])
+    img.draw_string(0, 0, str(msg), 0.5, (255, 0, 0), 1)
+    display.show(img)
 ```
 > 如果运行报错了，请更新maixpy3再运行
 

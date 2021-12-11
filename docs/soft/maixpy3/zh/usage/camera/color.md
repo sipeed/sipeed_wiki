@@ -11,59 +11,35 @@
     white = [(41,6,-32,74,11,-12)]  #白色
     black = [(10,-3,-28,50,10,-4)]  #黑色
 
-
+> 以下代码由于 Maixpy3 还在优化中，可能不能运行，具体的代码到 [github](https://github.com/sipeed/MaixPy3) 上查看
 
 ```python
-from maix import camera
-from maix import vision
-from PIL import Image, ImageDraw
-from maix import display
+from maix import camera, image, display
 
-def find_blob():
-    while True:
-        tmp = camera.read()
-        ma = vision.find_blob(tmp, (95, 219, 0, 255, 255, 255))
-        # ma = cv.find_blob(tmp, (95, 219, 0, 255, 255, 255),tilt=1)
-        print(ma)
-        draw = display.get_draw()
-        if ma:
-            for i in ma:
-                draw.rectangle((i["x"], i["y"], i["x"] + i["w"], i["y"] + i["h"]), outline='red', width=1)
-            display.show()
-        else:
-            display.clear()
-
-        
-if __name__ == "__main__":
-  find_blob()
+while True:
+    tmp = camera.capture()
+    ma = tmp.find_blobs([(28,-36,-14,68,-5,15)]) # 传入需要寻找颜色的 HSV 值
+    for i in ma:
+        tmp.draw_rectangle(i["x"], i["y"], i["x"] + i["w"], i["y"] + i["h"], (255, 0, 0), 1)
+    display.show(tmp)
 ```
 
 
-## 识别色块
+## 获取颜色值
 
-寻找色块是需要通过设置 HSV 的阈值进行寻找色块，但是对于一些没有内置 HSV 阈值的颜色，可以通过使用识别色块来进行颜色 HSV 阈值识别，这样就不需要进行手动阈值设置，使用以下例程代码，就可以返回在框选中颜色的 HSV 阈值。
+上述寻找颜色的值，可以通过一下的办法进行识别。
 
 > 以下代码由于 Maixpy3 还在优化中，可能不能运行，具体的代码到 [github](https://github.com/sipeed/MaixPy3) 上查看
 
 ```python
-from maix import camera
-from maix import vision
-from PIL import Image, ImageDraw
-from maix import display
+from maix import camera, image, display
 
-def get_blob_hsv():
-    while True:
-        tmp = camera.read()
-        ma = vision.get_blob_hsv(tmp,[110,110,20,20],5)
-        print(ma)
-        draw = display.get_draw()
-        draw.rectangle((110,110, 130, 130), outline='red', width=1) 
-        display.show()
-
-        
-if __name__ == "__main__":
-  get_blob_hsv()
-
+while True:
+    img = camera.capture()
+    ma = img.get_blob_color((110,110,20,20),1)
+    img.draw_string(10, 10, str(ma), 0.5)
+    img.draw_rectangle(110,110, 130, 130, (255, 0, 0), 1) 
+    display.show(img)
 ```
 
 ![缺示例图片]()

@@ -10,6 +10,9 @@ MaixPy3 是通过对 Jupyter 进行修改所得到的，这是方便新入门的
 
 在[下载站](https://dl.sipeed.com/shareURL/MaixII/MaixPy3-IDE)中获得 MaixPy3 IDE 安装，双击打开并安装，安装结束之后，会以网页的形式在电脑默认浏览器中打开。
 
+> 下载站下载会比较慢，推荐百度云下载：链接：<https://pan.baidu.com/s/1C7Jl3rXticeJsCgH-fIcbQ>  提取码：2333 
+
+
 ![IDE_1](./assets/IDE_1.png)
 
 ## 界面介绍
@@ -35,9 +38,9 @@ MaixPy3 是通过对 Jupyter 进行修改所得到的，这是方便新入门的
 3. 显示当前文档运行代码属性单元格时所使用的内核
 4. 显示蓝色是为选中单元格，绿色为当前处于编辑的单元格
 
-![](./asserts/IDE_4.png)
+![](./assets/IDE_4.png)
 
-![](./asserts/IDE_5.png)
+![](./assets/IDE_5.png)
 
 
 ## 常见问题
