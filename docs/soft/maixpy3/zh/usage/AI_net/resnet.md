@@ -267,7 +267,7 @@ onnx_to_ncnn(input_shape, onnx=onnx_out, ncnn_param=ncnn_out_param, ncnn_bin=ncn
 在 maixhub 模型转换 将 ncnn 模型转换为 awnn 支持的 int8 模型 （网页在线转换很方便人为操作，另一个方面因为全志要求不开放 awnn 所以暂时只能这样做）
 
 阅读转换说明，可以获得更多详细的转换说明
-![](./asserts/maixhub.jpg)
+![](./../asserts/maixhub.jpg)
 
 这里有几组参数：
 
