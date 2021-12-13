@@ -46,12 +46,8 @@
                                     "file": "usage/camera/camera.md"
                                 },
                                 {
-                                    "label": "色块识别",
-                                    "file": "usage/camera/color.md"
-                                },
-                                {
-                                    "label": "巡线识别",
-                                    "file": "usage/camera/link.md"
+                                    "label": "图像处理",
+                                    "file": "usage/camera/image.md"
                                 }
                             ]
                         },
