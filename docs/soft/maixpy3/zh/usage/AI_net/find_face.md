@@ -10,9 +10,9 @@ desc: maixpy doc: 人脸检测
 
 > 最新的镜像已经将模型存放在 /home/model 文件夹下
 
+
+进行人脸检测之前，需要先对模型进行部署
 ```python
-from maix import camera, display, nn, image
-from maix.nn import decoder
 class face:
     labels = ["person"]
     anchors = [1.19, 1.98, 2.79, 4.59, 4.53, 8.92, 8.06, 5.29, 10.32, 10.65]
@@ -40,7 +40,16 @@ class face:
     def __del__(self):
         del self.model
         del self.yolo
+        
+global Face
+Face = face()
+```
 
+部署结束之后才能进行识别
+
+```python
+from maix import camera, display, nn, image
+from maix.nn import decoder
 labels = ["person"]
 while True:
     img = camera.capture().resize(224,224)
@@ -52,6 +61,5 @@ while True:
         display.show(img)
     else:
         display.show(img)
-
 ```
 
