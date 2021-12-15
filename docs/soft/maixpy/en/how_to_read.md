@@ -10,8 +10,8 @@ desc: maixpy ​​doc: how to read this article correctly
 
 ## First, please read carefully the directory structure on the left sidebar to take a look at the contents of the document
 
-* **Introduction**: MiaxPy's introduction, works display, and development history, etc.
-* **Getting Started**: The introductory tutorial for using MaxiPy, including the basic knowledge, must be read to avoid many problems and save a lot of time for subsequent development
+* **Introduction**: MaixPy's introduction, works display, and development history, etc.
+* **Getting Started**: The introductory tutorial for using MaixPy, including the basic knowledge, must be read to avoid many problems and save a lot of time for subsequent development
 * **Hand-in-hand tutorial**: Here is a step-by-step teaching of the use of various functions. It is useful for students who are just getting started and don’t know what to do. Read carefully.
 * **API Manual**: API manuals of each functional module, convenient to refer to during programming
   * **Standard Library**: micropython standard library, many APIs are compatible with python3 APIs
@@ -47,9 +47,9 @@ desc: maixpy ​​doc: how to read this article correctly
 
 * If the web page loads slowly, please try to refresh or wait, or change the line (try using a proxy or changing mobile phone data)
 
-* This document has two domain names: `https://maixpy.sipeed.com` and `https://cn.maixpy.sipeed.com`, you can visit the other if you can’t access one
+* This document has two domain names: [`https://maixpy.sipeed.com`](https://maixpy.sipeed.com) and [`https://cn.maixpy.sipeed.com`](https://cn.maixpy.sipeed.com), you can visit the other if you can’t access one
 
-* The document uses gitbook to automatically generate static pages from markdown. If you encounter some pages that cannot be accessed, please check whether the URL (path) is correct, and you can return to the home page (`maixpy.sipeed.com`) and enter again.
+* The document uses gitbook to automatically generate static pages from markdown. If you encounter some pages that cannot be accessed, please check whether the URL (path) is correct, and you can return to the home page ([`maixpy.sipeed.com`](https://maixpy.sipeed.com)) and enter again.
 
 For example, this URL is caused by a poor network condition and a quick click:
 ```
