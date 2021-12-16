@@ -1,7 +1,7 @@
-# MaixPy 开发板
+# Maix 系列开发板
 
 
-## MaixPy 开发板
+##  Maix 系列开发板
 
 目前 MaixPy 系列开发板有一下这几款型号:
 

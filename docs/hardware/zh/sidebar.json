@@ -13,8 +13,7 @@
                     "file": "maix/M1n.md"
                 },
                 {
-                    "label": "MaixPy 开发板",
-                    "file": "maix/maixpy_develop_kit_board/develop_kit_board.md",
+                    "label": "Maix 开发板",
                     "items": [
                         {
                             "label": "Maix Go",
@@ -119,16 +118,30 @@
             "file": "lichee/README.md",
             "items": [
                 {
-                    "label": "LicheePi Zero",
+                    "label": "Lichee Zero",
                     "file": "lichee/Zero/Zero.md"
                 },
                 {
-                    "label": "LicheePi Nano",
+                    "label": "Lichee Nano",
                     "file": "lichee/Nano/Nano.md"
                 },
                 {
-                    "label": "LicheePi ZeroPlus",
+                    "label": "Lichee ZeroPlus",
                     "file": "lichee/ZeroPlus/ZeroPlus.md"
+                },
+                {
+                    "label":"Lichee RV",
+                    "file":"lichee/RV/RV.md",
+                    "items":[
+                        {
+                            "label":"烧录系统",
+                            "file":"lichee/RV/flash.md"
+                        },
+                        {
+                            "label":"基础上手",
+                            "file":"lichee/RV/user.md"
+                        }
+                    ]
                 }
             ]
         },

@@ -12,7 +12,7 @@ desc: 矽速科技的硬件资料站
 - [M1/M1w](./core_module.md)
 - [M1n](./core_modules/k210_core_modules.md)
 
-## MaixPy 系列开发板
+## Maix 系列开发板
 
 
 <table role="table" class="center_table">
