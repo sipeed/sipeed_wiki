@@ -62,39 +62,39 @@ PhoenixSuit和PhoenixCard是全志芯片常用的两种烧录工具，一个是U
 
 1. 安装依赖 dkms
 
-```shell
-sudo apt install dkms
-```
+     ```shell
+     sudo apt install dkms
+     ```
 
 1. 安装 libpng1.2（一定要使用这个版本）
 
-```shell
-wget http://archive.ubuntu.com/ubuntu/pool/main/libp/libpng/libpng_1.2.54.orig.tar.xz
-tar xvf  libpng_1.2.54.orig.tar.xz
-```
+     ```shell
+     wget http://archive.ubuntu.com/ubuntu/pool/main/libp/libpng/libpng_1.2.54.orig.tar.xz
+     tar xvf  libpng_1.2.54.orig.tar.xz
+     ```
 
-```shell
-cd libpng-1.2.54
-./autogen.sh
-./configure
-make -j8
-sudo make install
-```
+     ```shell
+     cd libpng-1.2.54
+     ./autogen.sh
+     ./configure
+     make -j8
+     sudo make install
+     ```
 
-更新链接库:
+     更新链接库:
 
-```shell
-sudo ldconfig
-```
+     ```shell
+     sudo ldconfig
+     ```
 
 1. 安装 **livesuit**
 
-```shell
-git clone --recursive https://github.com/QinYUN575/allwinner-livesuit.git
-cd allwinner-livesuit
-chmod +x livesuit_installer.run
-sudo ./livesuit_installer.run
-```
+     ```shell
+     git clone --recursive https://github.com/QinYUN575/allwinner-livesuit.git
+     cd allwinner-livesuit
+     chmod +x livesuit_installer.run
+     sudo ./livesuit_installer.run
+     ```
 
 
 
