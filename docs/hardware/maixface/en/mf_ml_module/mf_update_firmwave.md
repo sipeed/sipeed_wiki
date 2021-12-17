@@ -86,9 +86,9 @@ Use the USB Type-C data cable to connect the **MF face recognition module** to t
 
 Open Kflash_gui, select the file to be burned, select the version (default is `automatic selection`, if the burn fails, select `MaixDuino`), select the serial port number (CH522 has two serial ports, try the other one if it fails), configure the wave Special rate (default is `150000`, if programming fails, reduce the baud rate appropriately, such as `115200`)
 
-![image-20200806103433410](../../assets/kflash_gui/image-20200806103433410.png)
+![image-20200806103433410](../../../en/maix/assets/kflash_gui/image-20200806103433410.png)
 
-![image-20200806105056527](../../assets/kflash_gui/image-20200806105056527.png)
+![image-20200806105056527](../../../en/maix/assets/kflash_gui/image-20200806105056527.png)
 
 ## How to get Key (Machine Code)
 
@@ -99,16 +99,16 @@ The recommended email format is as follows:
 
 First download [key_gen.bin](https://fdvad021asfd8q.oss-cn-hangzhou.aliyuncs.com/Sipeed_M1/firmware/key_gen_v1.2.bin)
 
-After using the `kflash_gui` to burn the firmware `ken_gen.bin` into the module, open the serial port and the baud rate is `115200,8,N,1`
+After using the `kflash_gui` to burn the firmware `key_gen.bin` into the module, open the serial port and the baud rate is `115200,8,N,1`
 
-> **[kflash_gui](https://github.com/Sipeed/kflash_gui/releases)** is K210 firmware burning tool, source code: [**Sipeed/kflash_gui**](https://github.com/ Sipeed/kflash_gui)
+> **[kflash_gui](https://github.com/Sipeed/kflash_gui/releases)** is K210 firmware burning tool, source code: [**Sipeed/kflash_gui**](https://github.com/Sipeed/kflash_gui)
 
 It is recommended to use [`XCOM`](tools/XCOM_V2.2.exe) to view the serial port information
 
 Tap `DTR` and release it to reset the module and see the startup information
 
 <center class="half">
-<img src="../../assets/other/how_to_get_key.png" height = 50% width = 80% />
+<img src="../../../en/maix/assets/other/how_to_get_key.png" height = 50% width = 80% />
 </center>
 
 

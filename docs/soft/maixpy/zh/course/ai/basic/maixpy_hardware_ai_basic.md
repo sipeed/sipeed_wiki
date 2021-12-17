@@ -103,7 +103,7 @@ KPU 实现了 卷积、批归一化、激活、池化 这 4 种基础操作的�
  比如：
 
  ```python
-    img = image.Imag("/sd/test.jpg")   # 从 sd 卡读取 test.jpg 作为输入
+    img = image.Image("/sd/test.jpg")   # 从 sd 卡读取 test.jpg 作为输入
     img.pix_to_ai()                    # 同步 `RGB888` 内存块
  ```
  

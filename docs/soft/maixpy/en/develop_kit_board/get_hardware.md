@@ -191,7 +191,7 @@ If you buy a `Maix Go`, a `STM32` chip is integrated on it to simulate the `USB 
 
 - **Note:**
 
-**!!! After burning ken_gen.bin, the JTAG debugging function of K210 will be permanently disabled**
+**!!! After burning key_gen.bin, the JTAG debugging function of K210 will be permanently disabled**
 
 `K210` This chip supports `JTAG` debugging. If you need the debugging function, you need to use the `JTAG` debugger. Please consult and purchase at the official Taobao store of `Sipeed`.
 
