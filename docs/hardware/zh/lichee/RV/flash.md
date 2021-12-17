@@ -44,3 +44,15 @@ BusyBox v1.27.2 () built-in shell (ash)
  Maix Linux (Neptune, 5C1C9C53)
  ----------------------------------------------
 ```
+
+TIPS：
+如果在烧录时提示格式化失败，或者烧过卡之后电脑上没有了盘符，可以按以下操作恢复执行：
+
+1. 在此下载磁盘处理软件： https://www.diskgenius.cn/
+2. 电脑上显示不出的盘符，会在该软件里显示出来，使用该软件进行快速分区：
+    ![attachmentId-2788](https://bbs.sipeed.com/storage/attachments/2021/12/17/K9SdDOalmpgIwFopjoUU7sV2zgp26E1d85EMwgXf.png)
+3. 分区完成后，电脑上就能够看到盘符，PhoenixCard 里也能看到，在 PhoenixCard 里点击恢复卡即可恢复卡到正常状态
+4. 按之前步骤继续烧录即可
+
+> Tina 系统登录用户名：root  密码：tina
+> Debian 系统登录用户名：sipeed 密码：licheepi
