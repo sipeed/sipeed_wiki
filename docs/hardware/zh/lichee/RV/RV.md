@@ -39,6 +39,8 @@ Lichee RV - Nezha CM是模块化设计的核心计算模组，搭载全志D1主�
 
 ![](./../assets/RV/D1-1.png)![](./../assets/RV/D1-2.png)![](./../assets/RV/D1-3.png)
 
+> 目前 1.14 显示屏是点不亮的，需要等待后续的更新
+
 ## 系统烧录
 
 [烧录教程]()
@@ -62,3 +64,8 @@ Lichee RV - Nezha CM是模块化设计的核心计算模组，搭载全志D1主�
 
 ![](./../assets/RV/D1Core2.png)
 
+
+## 资料下载
+[硬件资料下载](https://dl.sipeed.com/shareURL/LICHEE/D1/Lichee_RV/HDK)
+
+[系统镜像](https://dl.sipeed.com/shareURL/LICHEE/D1/Lichee_RV/SDK)

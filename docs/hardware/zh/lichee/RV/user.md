@@ -3,11 +3,11 @@
 ## 点灯教程
 
 当我们成功进入系统后，就可以进行基础的点灯操作啦！
-（注：该教程不适用于86-panel，因为对应引脚连接了外设，86panel用户可以拆下核心板来操作实验）
+（注：该教程不适用于 `86-panel`，因为对应引脚连接了外设，`86-panel` 用户可以拆下核心板来操作实验）
 
-核心板的螺丝固定焊盘旁有一颗LED，查看原理图：https://dl.sipeed.com/shareURL/LICHEE/D1/HDK/Lichee_RV/2_Schematic
+核心板的螺丝固定焊盘旁有一颗 LED ，查看原理图：https://dl.sipeed.com/shareURL/LICHEE/D1/HDK/Lichee_RV/2_Schematic
 
-可知该LED连接的是PC1，换算该IO的数字标号为：2*32+1=65，或者查看IO复用情况表：
+可知该 LED 连接的是 PC1，换算该 IO 的数字标号为：2*32+1=65，或者查看 IO 复用情况表：
 
 ```
 cat /sys/kernel/debug/pinctrl/2000000.pinctrl/pinmux-pins
@@ -23,14 +23,14 @@ pin 71 (PC7): UNCLAIMED
 
 ```
 
-我们先导出该GPIO：
+我们先导出该 GPIO：
 
 ```
 echo 65 > /sys/class/gpio/export
-cd /sys/class/gpio/gpio65
+cd /sys/class/gpio/gpio65s
 ```
 
-然后再将该IO置为输出状态，即可操作其电平：
+然后再将该 IO 置为输出状态，即可操作其电平：
 
 ```
 echo out>direction
@@ -38,7 +38,7 @@ echo 1 > value  #LED点亮
 echo 0 > value  #LED熄灭
 ```
 
-至此我们就成功在RISC-V 64 D1上点灯啦~
+至此我们就成功在 RISC-V 64 D1上点灯啦~
 
 你也可以对 串行RGB LED WS2812 进行花式点灯：
 
@@ -96,7 +96,9 @@ aplay -D hw:0,0 t.wav
 ### USB功能
 
 默认内核支持外挂U盘的驱动，插上U盘后可以使用 fdisk -l 查看到新增的 /dev/sda
+
 如果U盘没有被格式化，可以使用mkfs.vfat指令来格式化U盘，再使用mount指令挂载
+
 默认Tina固件里的 /dev/mmcblk0p8 分区即可使用上述方式格式化后挂载，来提升可用空间
 
 ### 有线网络
@@ -110,14 +112,15 @@ udhcpc -ieth0
 
 ### 无线网络
 
-LicheeRV 底板默认使用XR829或者RTL8723BS wifi模块，可以使用以下指令进行联网操作：
+LicheeRV 底板默认使用XR829或者RTL8723BS wifi模块，可以使用以下指令进行联网操作
+
 先配置热点信息：
 
 ```
 vim /etc/wifi/wpa_supplicant.conf
 network={  
-    ssid="Sipeed_2.4G"  
-    psk="XXXX"  
+    ssid="WiFi_name"  
+    psk="WiFi_password"  
 } 
 ```
 
@@ -127,16 +130,16 @@ network={
 ### 屏显触摸
 
 LicheeRV系列支持以下显示屏：
+- SPI屏		1.14寸屏(TODO)
+- RGB屏		4.3寸 480x272；5.0寸 800x480；
+- RGB+SPI屏	4.0寸 480x480(st7701s); 4.0寸 720x720(nv3052c)
+- MIPI屏		8.0寸 1280x720(ILI9881C)
 
-```
-SPI屏		1.14寸屏(TODO)
-RGB屏		4.3寸 480x272；5.0寸 800x480；
-RGB+SPI屏	4.0寸 480x480(st7701s); 4.0寸 720x720(nv3052c)
-MIPI屏		8.0寸 1280x720(ILI9881C)
-```
 
 Tina下可以通过以下指令测试屏幕显示：
-fbviewer xxx.jpg
+
+  fbviewer xxx.jpg
+
 如果需要调试屏幕驱动，可以使用以下指令查看屏幕驱动信息：
 
 ```
@@ -155,13 +158,17 @@ dmabuf: cache[0] cache max[0] umap skip[0] overflow[0]
 屏幕彩条测试：echo 1 > /sys/class/disp/disp/attr/colorbar
 
 如果你购买的是86面板套餐，可以使用 ts_test进行触摸测试
-（注意触摸驱动有瑕疵，ts_test测试时松开后，光标会不动，但是终端仍会正常打印信息）
+
+> 注意触摸驱动有瑕疵，ts_test测试时松开后，光标会不动，但是终端仍会正常打印信息
 
 ### 视频播放
 
-最终我们可以尝试在LicheeRV上播放BadApple啦~
+最终我们可以尝试在LicheeRV上播放BadApple啦~[视频下载](https://dl.sipeed.com/shareURL/LICHEE/D1/Lichee_RV/MP4)
+
 Tina镜像中内置了ffmpeg软件包，ffmpeg是强大的多媒体库，可以用于录屏或者播放
+
 录屏指令：ffmpeg -f fbdev -framerate 10 -i /dev/fb0 record.avi
+
 播放指令（分别是扬声器播放音频和hdmi播放音频）：
 
 ```
@@ -176,7 +183,9 @@ ffmpeg -i /mnt/UDISK/badapple_640480_xvid.mp4 -pix_fmt bgra -f fbdev /dev/fb0 -f
 ### 麦克风阵列
 
 如果你使用的是dock板，那么还可以外接麦克风阵列版进行声场成像演示：
+
 直接执行debian系统下内置的micarr_0609指令即可
+
 有麦克风阵列相关的二次开发需求，可以联系support@sipeed.com
 
 <iframe src="https://player.bilibili.com/player.html?aid=849734125&bvid=BV1HL4y1H7nv&cid=457750392&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
@@ -184,9 +193,13 @@ ffmpeg -i /mnt/UDISK/badapple_640480_xvid.mp4 -pix_fmt bgra -f fbdev /dev/fb0 -f
 ## Debian镜像体验
 
 对于只接触过桌面级系统的开发者，推荐使用Debian镜像，可在上面的网盘里下载
+
 LicheeRV_Debian_86_480p 为 480p的86盒板卡的debian镜像
+
 LicheeRV_Debian_hdmi 为 dock的hdmi输出的debian镜像
+
 如果是其他板卡或者屏幕，请自行使用对应的fex覆盖板级配置。
+
 烧录完成后，插卡启动，稍等2分钟左右，屏幕上就会显示登录界面
 
 ![attachmentId-2734](https://bbs.sipeed.com/storage/attachments/2021/12/09/z8QlbfdC11GLaT5dis9epd1DdfbRPpRsa6XEi2AU.png)
@@ -212,9 +225,11 @@ LicheeRV_Debian_hdmi 为 dock的hdmi输出的debian镜像
 ## BSP SDK 开发指南
 
 为了方便用户自行开发，矽速整理发布了 LicheeRV 的bsp开发docker镜像，大家使用该镜像可以快速开始D1的系统级开发。
-在网盘中下载对应的docker文件后，解压到tar文件，
-docker import licheerv_d1_compile.tar licheerv_d1_compile:lastest
+
+在网盘中下载对应的docker文件后，解压到tar文件，docker import licheerv_d1_compile.tar licheerv_d1_compile:lastest
+
 然后即可run该容器，用户名为nihao，密码为sipeed123
+
 进入容器后的基础编译操作为：
 
 ```
