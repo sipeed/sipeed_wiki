@@ -184,7 +184,7 @@ Phenomenon: Using bare metal to develop K210, JTAG debugger has been unable to c
 
 possible reason:
   1. There is a problem with the OpenOCD debugging environment (the details are not explained here)
-  2. After burning ken_gen.bin, the JTAG debugging function of K210 will be permanently disabled
+  2. After burning key_gen.bin, the JTAG debugging function of K210 will be permanently disabled
 
 ## After downloading and saving the script to MaixPy internal flash, the board cannot update the firmware and cannot start the script
 

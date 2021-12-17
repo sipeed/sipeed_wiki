@@ -180,7 +180,7 @@ lcd.mirror(invert)
 
 可能的原因：
   1. OpenOCD 调试环境搭建有问题（细节这里不说明）
-  2. 烧录过 ken_gen.bin 之后，将永久禁用 K210 的 JTAG 调试功能
+  2. 烧录过 key_gen.bin 之后，将永久禁用 K210 的 JTAG 调试功能
 
 ## 下载，保存脚本到 MaixPy 内部flash 之后，板子无法更新固件，无法启动运行脚本
 
