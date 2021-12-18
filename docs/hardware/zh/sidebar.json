@@ -134,6 +134,10 @@
                     "file":"lichee/RV/RV.md",
                     "items":[
                         {
+                            "label":"Lichee RV 86 Panel",
+                            "file":"lichee/RV/86_panel.md"
+                        },
+                        {
                             "label":"烧录系统",
                             "file":"lichee/RV/flash.md"
                         },
