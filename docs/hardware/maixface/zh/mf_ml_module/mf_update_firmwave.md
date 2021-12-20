@@ -90,9 +90,9 @@
 
 打开 Kflash_gui 选择需要烧录的文件，选择版型(默认选择`自动选择`， 如果烧录失败则选择 `MaixDuino`)，选择串口号(CH522 有两个串口，失败则尝试另外一个)，配置波特率(默认选择 `150000`, 如果烧录失败则适当减低波特率,如 `115200`)
 
-![image-20200806103433410](../../assets/kflash_gui/image-20200806103433410.png)
+![image-20200806103433410](../../../zh/maix/assets/kflash_gui/image-20200806103433410.png)
 
-![image-20200806105056527](../../assets/kflash_gui/image-20200806105056527.png)
+![image-20200806105056527](../../../zh/maix/assets/kflash_gui/image-20200806105056527.png)
 
 ## 怎么获取 Key(机器码)
 
@@ -103,7 +103,7 @@
 
 首先下载 [key_gen.bin](https://fdvad021asfd8q.oss-cn-hangzhou.aliyuncs.com/Sipeed_M1/firmware/key_gen_v1.2.bin)
 
-使用 `kflash_gui` 将固件 `ken_gen.bin` 烧录到模块中之后,打开串口,波特率为`115200,8,N,1`
+使用 `kflash_gui` 将固件 `key_gen.bin` 烧录到模块中之后,打开串口,波特率为`115200,8,N,1`
 
 > **[kflash_gui](https://github.com/Sipeed/kflash_gui/releases)** 为 K210 固件烧录工具, 源码: [**Sipeed/kflash_gui**](https://github.com/Sipeed/kflash_gui)
 
@@ -112,7 +112,7 @@
 轻点 `DTR` ,再松开,即可使模块复位,看到启动信息
 
 <center class="half">
-<img src="../../assets/other/how_to_get_key.png" height = 50% width = 80% />
+<img src="../../../zh/maix/assets/other/how_to_get_key.png" height = 50% width = 80% />
 </center>
 
 ## MF 固件横竖版说明

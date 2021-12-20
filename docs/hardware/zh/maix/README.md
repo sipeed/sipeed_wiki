@@ -43,7 +43,7 @@ desc: 矽速科技的硬件资料站
     </tr>
     <tr>
       <td>Maix Amigo</td>
-      <td><a href="./maixpy_develop_kit_board/maix_amigo.html" target="_blank"><img src="./assets/dk_board/maxi_amigo/maix_amigo_0.png" width="260"></a></td>
+      <td><a href="./maixpy_develop_kit_board/maix_Amigo.html" target="_blank"><img src="./assets/dk_board/maxi_amigo/maix_amigo_0.png" width="260"></a></td>
     </tr>
     <tr>
     <td>Maix nano</td>
