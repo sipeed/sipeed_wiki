@@ -120,6 +120,9 @@ PhoenixSuit和PhoenixCard是全志芯片常用的两种烧录工具，一个是U
 
 [烧录方式](./no_sd_flash.md)
 
+### 无读卡器烧录方式
+
+[烧录方式](./PhoenixSuit.md)
 
 ### 使用 dd 烧录
 
