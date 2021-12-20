@@ -108,7 +108,7 @@ img.pix_to_ai()
 ```
 
 ```python
-img = image.Imag("/sd/test.jpg")
+img = image.Image("/sd/test.jpg")
 img.pix_to_ai()
 ```
 
