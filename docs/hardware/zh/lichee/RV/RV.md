@@ -29,11 +29,24 @@ Lichee RV - Nezha CM是模块化设计的核心计算模组，搭载全志D1主�
 
 ![](./../assets/RV/D1-pin.png)
 
-## 可使用底板
+## 底板之间的对比
 
-### Lichee RV 86 Panel
+| 项目 | Lichee RV Dock | Lichee RV Panel |
+| :---: | --- | --- |
+| SOC | 全志D1（XuanTie C906 RISC-V） | 全志D1（XuanTie C906 RISC-V） |
+| 内存 | 1GByte | 1GByte |
+| 线网络 | 可选择：<br>-2.4G WIFI+BT<br>-无（可以自行焊接其他型号的WIFI模块调试）	| 2.4G WIFI+BT |
+| 有线网络 | 无	| 支持100M以太网 |
+| 影像输出 | HDMI连接器 <br>SPI接口屏幕连接器 <br>连接屏幕转接板，可以实现：<br>-  常用RGB接口屏幕连接器（含TP引脚）（支持我们店铺的4.3寸/5.0寸屏）<br>-  MIPI接口屏幕连接器（兼容Nezha开发板适配的8寸屏） | sRGB接口屏幕连接器（含TP引脚）（支持标配的4寸IPS屏带TP） <br>MIPI接口屏幕连接器（兼容Nezha开发板适配的8寸屏）|
+| USB端口 | "1个USB OTG(核心板板载的USB-C座子) <br> 1个USB Host(底板板载的USB-A座子) | 1个USB OTG(核心板板载的USB-C座子) <br>1个USB Host(底板板载的USB-C座子) |  
+| 拓展接口 | 支持麦克风阵列板<br>大部分GPIO通过2x20P直插焊盘引出 | 小部分GPIO通过直插焊盘引出 |
+| 音频 | 板载3W音频功放 <br>板载驻极体麦克风电路 | 板载3W音频功放 <br>板载2个MEMS数字麦克风 |
+| 按键	| 1个FEL按键（进入下载模式）<br>1个RST按键（复位）<br>1个用户按键 | 1个FEL按键（进入下载模式） |
+| LED | 1个电源指示灯<br>1个2812 RGB LED | 1个电源指示灯 |
+| 外壳 | 无 | 有3D打印外壳 |
+| 尺寸 | 65.0mm x 40.0mm | 86.0mm x 86.0mm |
 
-![](./../assets/RV/Rendering2.png)
+
 
 ## 连接1.14寸屏幕
 

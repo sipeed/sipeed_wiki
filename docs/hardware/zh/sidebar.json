@@ -138,6 +138,10 @@
                             "file":"lichee/RV/86_panel.md"
                         },
                         {
+                            "label":"Lichee RV Dock",
+                            "file":"lichee/RV/Dock.md"
+                        },
+                        {
                             "label":"烧录系统",
                             "file":"lichee/RV/flash.md"
                         },
