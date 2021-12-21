@@ -25,12 +25,13 @@ Lichee RV-86 Panel是为智能家居中控应用场景而设计的开发套件�
 | 系统支持 | 支持 OpenWRT及 Debian系统 |
 | 开发资源 | 提供原厂SDK的 Docker开发镜像 |
 
-![](./../RV/86_pin.png)
+![](./../assets/RV/86_pin.png)
 
 ## 资料下载
 
 [下载站](https://dl.sipeed.com/shareURL/LICHEE/D1/Lichee_RV_86_panel)
 
+![](./../assets/RV/RV-Dock.jpg)
 
 ## 产品技术支持
 
