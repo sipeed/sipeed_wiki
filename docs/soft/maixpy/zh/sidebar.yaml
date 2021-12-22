@@ -66,9 +66,10 @@ items:
                 file: get_started/install_driver/duino.md
         -   label: 更新 MaixPy 固件
             file: get_started/upgrade_maixpy_firmware.md
+        -   label: MaixPy IDE 使用说明
+            file: get_started/env_maixpyide.md
         -   label: 串口连接
-            file: get_started/uart.md
-         
+            file: get_started/uart.md 
             items:
             -   label: 串口连接工具介绍
                 file: get_started/env_serial_tools.md
@@ -76,8 +77,7 @@ items:
                 file: get_started/mpfshell-lite/mpfshell-lite.md
             -   label: Mpfshell-lite 使用手册
                 file: get_started/mpfshell-lite/mpfshell-lite-help.md
-        -   label: MaixPy IDE 使用说明
-            file: get_started/env_maixpyide.md
+        
         -   label: 更新 WIFI 模块固件
             items:
             -   label: 更新板载 ESP32 固件
