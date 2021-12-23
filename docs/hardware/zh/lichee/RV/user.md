@@ -27,7 +27,7 @@ pin 71 (PC7): UNCLAIMED
 
 ```
 echo 65 > /sys/class/gpio/export
-cd /sys/class/gpio/gpio65s
+cd /sys/class/gpio/gpio65
 ```
 
 然后再将该 IO 置为输出状态，即可操作其电平：
