@@ -1,5 +1,5 @@
 ---
-title: net
+title: MaixPy3 网络服务
 keywords: MaixPy3,net, Python3
 desc: maixpy doc: net
 ---
