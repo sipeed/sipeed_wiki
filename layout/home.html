@@ -1,0 +1,160 @@
+{% extends "page_base.html" %}
+
+
+{% block content %}
+
+<script src="/static/js/vue.js"></script>
+<script src="https://unpkg.com/vue-i18n@8"></script>
+
+<div id="products">
+    <h1>{[ $t("Sipeed Wiki") ]}</h1>
+    <ul>
+        <li v-for="product in products">
+            <img v-bind:src="product.img">
+            <div class="product_head">
+                <div class="product_head_content">
+                    <h2>{[ product.title ]}</h2>
+                    <div>
+                        {[ product.brief ]}
+                    </div>
+                </div>
+            </div>
+            <div class="product_body">
+                <ul>
+                    <li class="left_lable">{[ product.left_label ]}</li>
+                    <li v-for="left in product.left">
+                        <a v-bind:href="left.url">{[ left.name ]}</a>
+                        <span class="brief">{[ left.brief ]}</span>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="right_lable">{[ product.right_label ]}</li>
+                    <li v-for="right in product.right">
+                        <a v-bind:href="right.url">{[ right.name ]}</a>
+                        <span class="brief">{[ right.brief ]}</span>
+                    </li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+</div>
+<script>
+    const messages = {
+        en: {
+            "Sipeed Wiki": "Sipeed Wiki - Documentation",
+            maix_title: "Maix AI",
+            maix_brief: "Easier AI for edge devices! Maix means Matrix",
+
+            maixhub_title: "",
+            maixhub_brief: "",
+
+            licheepi_title: "",
+            licheepi_brief: "",
+
+            tang_title: "",
+            tang_brief: "",
+
+            longan_title: "",
+            longan_brief: "",
+
+            module_title: "",
+            module_brief: "",
+
+            community_title: "",
+            community_brief: "",
+        },
+        zh: {
+            "Sipeed Wiki": "Sipeed Wiki - 文档和资料",
+            maix_title: "Maix AI",
+            maix_brief: "边缘 AI， 如此简单！ Maix 是 Matrix（矩阵）的缩写",
+            maix_i_brief: "带算力单片机, 极致性价比",
+            maixpy_brief: "MicroPython 开发嵌入式 AI， 简单快速",
+            maixpy3_brief: "Python3 开发嵌入式 AI， 简单快速跨平台",
+
+            maixhub_title: "Maixhub",
+            maixhub_brief: "模型在线训练、转换、分享，固件在线生成等",
+
+            licheepi_title: "Lichee Pi",
+            licheepi_brief: "荔枝派， 高性价比和小巧的 Linux SBC 开发板",
+
+            tang_title: "Tang",
+            tang_brief: "精致的 FGPA 开发板",
+
+            longan_title: "Longan",
+            longan_brief: "精致小巧的 MCU（单片机） 开发板",
+
+            module_title: "外设模块",
+            module_brief: "补充主控功能，外设不能少",
+
+            community_title: "社区",
+            community_brief: "活跃的社区，一起让开源变得更好，一起当创造者",
+        }
+    }
+    // var locale = document.getElementsByTagName("html")[0]
+    var locale =(navigator.language || navigator.browserLanguage).toLowerCase().split("-")[0];
+    const i18n = new VueI18n({
+        locale: locale,
+        messages: messages,
+        fallbackLocale: "en",
+        silentFallbackWarn: true
+    })
+    var app = new Vue({
+        i18n,
+        delimiters:['{[', ']}'],
+        el: '#products',
+        data: {
+          products: [{
+            title: i18n.t("maix_title"),
+            brief: i18n.t("maix_brief"),
+            img: "/static/image/maixduino.jpg",
+            left_label: i18n.t("Hardware"),
+            right_label: i18n.t("Software"),
+            left: [{
+                    name: "Maix-I",
+                    url: "#",
+                    brief: i18n.t("maix_i_brief")
+                }
+            ],
+            right: [{
+                    name: "MaixPy",
+                    url: "#",
+                    brief: i18n.t("maixpy_brief")
+                },{
+                    name: "MaixPy3",
+                    url: "#",
+                    brief: i18n.t("maixpy3_brief")
+                }
+            ]
+          },{
+            title: i18n.t("maixhub_title"),
+            brief: i18n.t("maixhub_brief"),
+            left: [{
+                    name: i18n.t("maixhub_train"),
+                    url: "#",
+                    brief: i18n.t("maixhub_train_brief")
+                }
+            ]
+          },{
+            title: i18n.t("licheepi_title"),
+            brief: i18n.t("licheepi_brief")
+          },{
+            title: i18n.t("tang_title"),
+            brief: i18n.t("tang_brief")
+          },{
+            title: i18n.t("longan_title"),
+            brief: i18n.t("longan_brief")
+          },{
+            title: i18n.t("module_title"),
+            brief: i18n.t("module_brief")
+          },{
+            title: i18n.t("community_title"),
+            brief: i18n.t("community_brief")
+          }
+          ]
+        }
+    }).$mount('#products')
+</script>
+
+{{ body|safe }}
+
+{% endblock%}
