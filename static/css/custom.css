@@ -58,9 +58,8 @@
 }
 #home #products > ul > li > img {
     flex-grow: 1;
-    width: 400px;
+    max-width: 400px;
     align-self: center;
-    height: 260px;
     object-fit: cover;
 }
 #home #products .product_info {
