@@ -6,23 +6,87 @@
 #page_footer {
     margin-top: 0;
 }
-#wiki_home h1 {
-    width: 100%;
-    text-align: center;
-    font-family: sans-serif;
+#home #navbar {
+    background: #ffffff;
+    box-shadow: 0px 0px 5px 0px #dfecf7;
 }
-#wiki_home h3 {
-    width: 100%;
-    text-align: center;
+#home #page_content h1, #home #page_content h2, #home #page_content h3 {
+    font-size: revert;
 }
-#wiki_home #navbar {
-    background: #d8edff;
-    z-index: 98;
-    box-shadow: 0px 0px 5px 0px #acc4d8;
-}
-#wiki_home #page_content > div {
+#home #page_content > div {
     width: 100%;
     max-width: 100%;
+}
+#home #page_content ul {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: left;
+    padding: 0;
+}
+#home #page_content #products > ul {
+    justify-content: center;
+}
+#home #page_content li {
+    list-style: none;
+    text-align: left;
+}
+#home #products > ul > li {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    background-size: cover;
+    background-color: white;
+    color: #cecece;
+    margin: 2em;
+    padding: 0;
+    background: #fff;
+    color: #747992;
+    box-shadow: 0px 14px 55px rgb(60 0 189 / 15%);
+    border-radius: 5px;
+    overflow: hidden;
+    transition: 0.4s;
+}
+#home #products > ul > li:hover {
+    box-shadow: 0px 14px 55px rgb(60 0 189 / 24%);
+    -webkit-transform: scale(1.015);
+    transform: scale(1.015);
+}
+#home #products > ul > li > img {
+    flex-grow: 1;
+    width: 100%;
+    align-self: center;
+}
+#home #products .product_head {
+    padding: 1em;
+}
+#home #products .product_body {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+#home #products .product_body > ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+#home #products .product_body > ul > li {
+    padding: 1em;
+}
+#home #products .product_body .left_lable {
+    background-color: #ff6b63;
+    color: white;
+    text-align: center;
+}
+#home #products .product_body .right_lable {
+    background-color: #ff6b63;
+    color: white;
+    text-align: center;
+}
+#home #products .product_head_content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
 #big_btn_wrapper {
     display: flex;
