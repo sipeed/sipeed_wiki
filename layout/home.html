@@ -1,0 +1,422 @@
+<!-- 
+    修改指南： 
+        添加或修改产品卡片只需要修改 products 变量
+        修改或这添加翻译，只需要修改 messages 变量
+        保存此文件后如果需要立刻看到使用了这个模板的文件的效果，可以打开那个文件保存一次就会触发 teedoc 构建,
+        比如 README.md 使用了此layout，要想此修改生效，转到 README.md 按 Ctrl+S 保存一次 README.md 即可
+ -->
+
+{% extends "page_base.html" %}
+
+
+{% block content %}
+
+<script src="/static/js/vue.js"></script>
+<script src="/static/js/vue_i18n.js"></script>
+
+<div id="products">
+    <h1>{[ $t("Sipeed Wiki") ]}</h1>
+    <ul>
+        <li v-for="product in products" v-bind:style="{ backgroundColor: product.bg }">
+            <video v-if="product.video" v-bind:poster="product.img" preload muted autoplay loop x5-playsinline="" playsinline="" webkit-playsinline="" x5-video-player-type="h5" >
+                <source v-bind:src="product.video" type="video/mp4" />
+                Your brower not support video play!
+            </video>
+            <img v-else v-bind:src="product.img">
+            <div class="product_info">
+                <div class="product_head">
+                    <div class="product_head_content">
+                        <h2>{[ product.title ]}</h2>
+                        <div>
+                            {[ product.brief ]}
+                        </div>
+                    </div>
+                </div>
+                <div class="product_body" v-if="product.left && product.right">
+                    <ul class="left">
+                        <li class="left_lable category" v-if="product.left_label"><h3>{[ product.left_label ]}</h3></li>
+                        <li class="info_item" v-for="left in product.left">
+                            <a v-bind:href="left.url" v-new_tab="left.new_tab">
+                                <h3 class="title">{[ left.name ]}</h3>
+                                <span class="brief">{[ left.brief ]}</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="right">
+                        <li class="right_lable category" v-if="product.right_label"><h3>{[ product.right_label ]}</h3></li>
+                        <li class="info_item" v-for="right in product.right">
+                            <a v-bind:href="right.url" v-new_tab="right.new_tab">
+                                <h3 class="title">{[ right.name ]}</h3>
+                                <span class="brief">{[ right.brief ]}</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div v-else class="product_body product_body_single">
+                    <ul v-if="product.left" class="left">
+                        <li class="left_lable category" v-if="product.left_label"><h3>{[ product.left_label ]}</h3></li>
+                        <li class="info_item" v-for="left in product.left">
+                            <a v-bind:href="left.url" v-new_tab="left.new_tab">
+                                <h3 class="title">{[ left.name ]}</h3>
+                                <span class="brief">{[ left.brief ]}</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul v-if="product.right" class="right">
+                        <li class="right_lable category" v-if="product.right_label"><h3>{[ product.right_label ]}</h3></li>
+                        <li class="info_item" v-for="right in product.right">
+                            <a v-bind:href="right.url" v-new_tab="right.new_tab">
+                                <h3 class="title">{[ right.name ]}</h3>
+                                <span class="brief">{[ right.brief ]}</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+<script>
+    var pageLanguages = ["en", "zh"] // languages user can select in pages
+    const messages = {
+        en: {
+            "Sipeed Wiki": "Sipeed Wiki - Documentation",
+            Hardware: "Hardware",
+            Software: "Software",
+
+            maix_title: "Maix AI",
+            maix_brief: "边缘 AI， 如此简单！ Maix 是 Matrix（矩阵）的缩写",
+            maix_i_brief: "带 AI 算力 MCU, 极致性价比",
+            maix_ii_brief: "带 AI 算力 SOC, 能跑 Linux 系统",
+            maixpy_brief: "MicroPython 开发嵌入式 AI， 简单快速",
+            maixpy3_brief: "Python3 开发嵌入式 AI， 简单快速跨平台",
+            maixpy_speech_brief: "为嵌入式设计的实时语音识别库，小巧且精度高，多平台支持",
+            maix_i_url: "/hardware/zh/maix/index.html",
+            maix_ii_url: "/hardware/zh/maixII/index.html",
+            maixpy_url: "/soft/maixpy/zh/index.html",
+            maixpy3_url: "/soft/maixpy3/zh/index.html",
+
+            maixhub_title: "Maixhub",
+            maixhub_brief: "模型在线训练、转换、分享，固件在线生成等",
+            maixhub_models: "模型中心",
+            maixhub_models_brief: "模型下载、分享",
+            maixhub_train: "训练",
+            maixhub_train_brief: "在线训练模型，只需简单整理数据集",
+            maixhub_compile: "固件编译",
+            maixhub_compile_brief: "在线定制编译固件",
+            maixhub_convert: "模型转换",
+            maixhub_convert_brief: "在线转换模型",
+
+            licheepi_title: "Lichee Pi",
+            licheepi_brief: "荔枝派， 高性价比和小巧的 Linux SBC 开发板",
+            lichee_zero: "Lichee Zero",
+            lichee_zero_brief: "Cortex-A7 1GHz V3s 经典迷你 主线Linux SBC",
+            lichee_nano: "Lichee Nano",
+            lichee_nano_brief: "ARM9 400MHz F1C100s 超值超小 主线Linux SBC",
+            lichee_rv: "Lichee RV",
+            lichee_rv_brief: "玄铁C906 1GHz D1 入门尝鲜 RISC-V Linux SBC",
+            lichee_zero_url: "/hardware/zh/lichee/Zero/Zero.html",
+            lichee_nano_url: "/hardware/zh/lichee/Nano/Nano.html",
+            lichee_rv_url: "/hardware/zh/lichee/RV/RV.html",
+
+            tang_title: "Tang",
+            tang_brief: "精致 FGPA 开发板",
+            tang_premier: "Tang Premier",
+            tang_premier_brief: "20K Lut 安陆 经典RISC-V软核 FPGA 验证板",
+            tang_nano: "Tang Nano 1K",
+            tang_nano_brief: "1K Lut 高云 超值入门型 FPGA开发板",
+            tang_nano_4k: "Tang Nano 4K",
+            tang_nano_4k_brief: "4K Lut+CM3硬核+PSRAM+HDMI 高云 超值多功能",
+            tang_nano_9k: "Tang Nano 9K",
+            tang_nano_9k_brief: "9K Lut+PSRAM+HDMI 高云 入门级 RISC-V 软核",
+            tang_premier_url: "/hardware/zh/tang/Tang-primer/Tang-primer.html",
+            tang_nano_url: "/hardware/zh/tang/Tang-Nano/Tang-Nano.html",
+            tang_nano_4k_url: "/hardware/zh/tang/Tang-Nano-4K/Nano-4K.html",
+            tang_nano_9k_url: "/hardware/zh/tang/Tang-Nano-9K/Nano-9K.html",
+
+            longan_title: "Longan",
+            longan_brief: "精致小巧的 MCU（单片机） 开发板",
+            longan_nano: "Longan Naono",
+            longan_nano_brief: "GD32VF103 经典 RISC-V 普及型单片机开发板",
+            longan_nano_url: "/hardware/zh/longan/Nano/Longan_nano.html",
+
+            module_title: "外设模块",
+            module_brief: "补充主控功能，外设不能少",
+            module_spmod: "SP-MOD",
+            module_spmod_brief: "Sipeed 通用 8Pin 扩展模块",
+            module_debuger: "调试器",
+            module_debuger_brief: "实用调试器，USB 转串口、RV 调试器 ...",
+            module_spmod_url: "/hardware/zh/modules_spmod/spmod_extender.html",
+            module_debuger_url: "/hardware/zh/",
+
+            community_title: "社区",
+            community_brief: "活跃的社区，一起让开源变得更好，一起当创造者",
+            community_github: "github",
+            community_github_brief: "开源代码组织，欢迎 star 你喜欢的项目",
+            community_bbs: "BBS",
+            community_bbs_brief: "技术交流、项目分享、结交技术好友 ...",
+            community_more: "更多",
+            community_more_brief: "Twitter Telegram QQ群 ...",
+        },
+        zh: {
+            "Sipeed Wiki": "Sipeed Wiki - 文档和资料",
+            Hardware: "硬件",
+            Software: "软件",
+
+            maix_title: "Maix AI",
+            maix_brief: "边缘 AI， 如此简单！ Maix 是 Matrix（矩阵）的缩写",
+            maix_i_brief: "带 AI 算力 MCU, 极致性价比",
+            maix_ii_brief: "带 AI 算力 SOC, 能跑 Linux 系统",
+            maixpy_brief: "MicroPython 开发嵌入式 AI， 简单快速",
+            maixpy3_brief: "Python3 开发嵌入式 AI， 简单快速跨平台",
+            maixpy_speech_brief: "为嵌入式设计的实时语音识别库，小巧且精度高，多平台支持",
+            maix_i_url: "/hardware/zh/maix/index.html",
+            maix_ii_url: "/hardware/zh/maixII/index.html",
+            maixpy_url: "/soft/maixpy/zh/index.html",
+            maixpy3_url: "/soft/maixpy3/zh/index.html",
+
+            maixhub_title: "Maixhub",
+            maixhub_brief: "模型在线训练、转换、分享，固件在线生成等",
+            maixhub_models: "模型中心",
+            maixhub_models_brief: "模型下载、分享",
+            maixhub_train: "训练",
+            maixhub_train_brief: "在线训练模型，只需简单整理数据集",
+            maixhub_compile: "固件编译",
+            maixhub_compile_brief: "在线定制编译固件",
+            maixhub_convert: "模型转换",
+            maixhub_convert_brief: "在线转换模型",
+
+            licheepi_title: "Lichee Pi",
+            licheepi_brief: "荔枝派， 高性价比和小巧的 Linux SBC 开发板",
+            lichee_zero: "Lichee Zero",
+            lichee_zero_brief: "Cortex-A7 1GHz V3s 经典迷你 主线Linux SBC",
+            lichee_nano: "Lichee Nano",
+            lichee_nano_brief: "ARM9 400MHz F1C100s 超值超小 主线Linux SBC",
+            lichee_rv: "Lichee RV",
+            lichee_rv_brief: "玄铁C906 1GHz D1 入门尝鲜 RISC-V Linux SBC",
+            lichee_zero_url: "/hardware/zh/lichee/Zero/Zero.html",
+            lichee_nano_url: "/hardware/zh/lichee/Nano/Nano.html",
+            lichee_rv_url: "/hardware/zh/lichee/RV/RV.html",
+
+            tang_title: "Tang",
+            tang_brief: "精致 FGPA 开发板",
+            tang_premier: "Tang Premier",
+            tang_premier_brief: "20K Lut 安陆 经典RISC-V软核 FPGA 验证板",
+            tang_nano: "Tang Nano 1K",
+            tang_nano_brief: "1K Lut 高云 超值入门型 FPGA开发板",
+            tang_nano_4k: "Tang Nano 4K",
+            tang_nano_4k_brief: "4K Lut+CM3硬核+PSRAM+HDMI 高云 超值多功能",
+            tang_nano_9k: "Tang Nano 9K",
+            tang_nano_9k_brief: "9K Lut+PSRAM+HDMI 高云 入门级 RISC-V 软核",
+            tang_premier_url: "/hardware/zh/tang/Tang-primer/Tang-primer.html",
+            tang_nano_url: "/hardware/zh/tang/Tang-Nano/Tang-Nano.html",
+            tang_nano_4k_url: "/hardware/zh/tang/Tang-Nano-4K/Nano-4K.html",
+            tang_nano_9k_url: "/hardware/zh/tang/Tang-Nano-9K/Nano-9K.html",
+
+            longan_title: "Longan",
+            longan_brief: "精致小巧的 MCU（单片机） 开发板",
+            longan_nano: "Longan Naono",
+            longan_nano_brief: "GD32VF103 经典 RISC-V 普及型单片机开发板",
+            longan_nano_url: "/hardware/zh/longan/Nano/Longan_nano.html",
+
+            module_title: "外设模块",
+            module_brief: "补充主控功能，外设不能少",
+            module_spmod: "SP-MOD",
+            module_spmod_brief: "Sipeed 通用 8Pin 扩展模块",
+            module_debuger: "调试器",
+            module_debuger_brief: "实用调试器，USB 转串口、RV 调试器 ...",
+            module_spmod_url: "/hardware/zh/modules_spmod/spmod_extender.html",
+            module_debuger_url: "/hardware/zh/",
+
+            community_title: "社区",
+            community_brief: "活跃的社区，一起让开源变得更好，一起当创造者",
+            community_github: "github",
+            community_github_brief: "开源代码组织，欢迎 star 你喜欢的项目",
+            community_bbs: "BBS",
+            community_bbs_brief: "技术交流、项目分享、结交技术好友 ...",
+            community_more: "更多",
+            community_more_brief: "Twitter Telegram QQ群 ...",
+        }
+    }
+    // get page locale
+    var locale = document.getElementsByTagName("html")[0].lang
+    if (locale){
+        locale = locale.toLowerCase().split("-")[0]
+    }
+    // get browser locale
+    var localeBrowser =(navigator.language || navigator.browserLanguage).toLowerCase().split("-")[0];
+    // brower locale not in page lanuage list, use browser locale
+    if (!localeBrowser in pageLanguages){
+        locale = localeBrowser
+    }
+    const i18n = new VueI18n({
+        locale: locale,
+        messages: messages,
+        fallbackLocale: "en",
+        silentFallbackWarn: true
+    })
+    Vue.directive('new_tab', {
+        bind: function (el, binding, vnode) {
+            if (binding.value){
+                el.setAttribute("target", "_blank")
+            }
+        }
+    })
+    var app = new Vue({
+        i18n,
+        delimiters:['{[', ']}'],
+        el: '#products',
+        data: {
+          products: [{
+            title: i18n.t("maix_title"),
+            brief: i18n.t("maix_brief"),
+            video: "/hardware/zh/maixII/M2A/MaixSense/assets/M2A-1.mp4",
+            bg: "#dbdbdb",
+            left_label: i18n.t("Hardware"),
+            right_label: i18n.t("Software"),
+            left: [{
+                    name: "Maix-I",
+                    url: i18n.t("maix_i_url"),
+                    brief: i18n.t("maix_i_brief")
+                },
+                {
+                    name: "Maix-II",
+                    url: i18n.t("maix_ii_url"),
+                    brief: i18n.t("maix_ii_brief")
+                }
+            ],
+            right: [{
+                    name: "MaixPy",
+                    url: i18n.t("maixpy_url"),
+                    brief: i18n.t("maixpy_brief")
+                },{
+                    name: "MaixPy3",
+                    url: i18n.t("maixpy3_url"),
+                    brief: i18n.t("maixpy3_brief")
+                },{
+                    name: "Maix-Speech",
+                    url: "https://github.com/sipeed/Maix-Speech",
+                    brief: i18n.t("maixpy_speech_brief"),
+                    new_tab: true
+                }
+            ]
+          },{
+            title: i18n.t("maixhub_title"),
+            brief: i18n.t("maixhub_brief"),
+            img: "/soft/maixpy3/zh/assets/images/main.png",
+            bg: "white",
+            left: [{
+                    name: i18n.t("maixhub_models"),
+                    url: "https://maixhub.com/",
+                    brief: i18n.t("maixhub_models_brief"),
+                    new_tab: true
+                },{
+                    name: i18n.t("maixhub_train"),
+                    url: "https://maixhub.com/ModelTraining",
+                    brief: i18n.t("maixhub_train_brief"),
+                    new_tab: true
+                },{
+                    name: i18n.t("maixhub_compile"),
+                    url: "https://maixhub.com/onlineCompiler",
+                    brief: i18n.t("maixhub_compile_brief"),
+                    new_tab: true
+                },{
+                    name: i18n.t("maixhub_convert"),
+                    url: "https://maixhub.com/modelConvert",
+                    brief: i18n.t("maixhub_convert_brief"),
+                    new_tab: true
+                }
+            ]
+          },{
+            title: i18n.t("licheepi_title"),
+            brief: i18n.t("licheepi_brief"),
+            img: "/static/image/licheeRV_dock.jpg",
+            bg: "#f5fbfb",
+            left: [{
+                name: i18n.t("lichee_zero"),
+                url: i18n.t("lichee_zero_url"),
+                brief: i18n.t("lichee_zero_brief")
+            },{
+                name: i18n.t("lichee_nano"),
+                url: i18n.t("lichee_nano_url"),
+                brief: i18n.t("lichee_nano_brief")
+            },{
+                name: i18n.t("lichee_rv"),
+                url: i18n.t("lichee_rv_url"),
+                brief: i18n.t("lichee_rv_brief")
+            },
+        ]
+          },{
+            title: i18n.t("tang_title"),
+            brief: i18n.t("tang_brief"),
+            img: "/static/image/tang.jpg",
+            bg: "#fafafa",
+            left: [{
+                    name: i18n.t("tang_premier"),
+                    url: i18n.t("tang_premier_url"),
+                    brief: i18n.t("tang_premier_brief")
+                },{
+                    name: i18n.t("tang_nano"),
+                    url: i18n.t("tang_nano_url"),
+                    brief: i18n.t("tang_nano_brief")
+                },{
+                    name: i18n.t("tang_nano_4k"),
+                    url: i18n.t("tang_nano_4k_url"),
+                    brief: i18n.t("tang_nano_4k_brief")
+                },{
+                    name: i18n.t("tang_nano_9k"),
+                    url: i18n.t("tang_nano_9k_url"),
+                    brief: i18n.t("tang_nano_9k_brief")
+                }
+            ]
+          },{
+            title: i18n.t("longan_title"),
+            brief: i18n.t("longan_brief"),
+            img: "/static/image/longan.jpg",
+            left: [{
+                    name: i18n.t("longan_nano"),
+                    url: i18n.t("longan_nano_url"),
+                    brief: i18n.t("longan_nano_brief")
+                }
+            ]
+          },{
+            title: i18n.t("module_title"),
+            brief: i18n.t("module_brief"),
+            img: "/static/image/spmod.jpg",
+            left: [{
+                    name: i18n.t("module_spmod"),
+                    url: i18n.t("module_spmod_url"),
+                    brief: i18n.t("module_spmod_brief")
+                },{
+                    name: i18n.t("module_debuger"),
+                    url: i18n.t("module_debuger_url"),
+                    brief: i18n.t("module_debuger_brief")
+                },
+            ]
+          },{
+            title: i18n.t("community_title"),
+            brief: i18n.t("community_brief"),
+            img: "/static/image/community.jpg",
+            left: [{
+                    name: i18n.t("community_github"),
+                    url: "https://github.com/sipeed",
+                    brief: i18n.t("community_github_brief")
+                },{
+                    name: i18n.t("community_bbs"),
+                    url: "https://bbs.sipeed.com",
+                    brief: i18n.t("community_bbs_brief")
+                },{
+                    name: i18n.t("community_more"),
+                    url: "/community.html",
+                    brief: i18n.t("community_more_brief")
+                }
+            ]
+          }
+          ]
+        }
+    })
+</script>
+
+{{ body|safe }}
+
+{% endblock%}
