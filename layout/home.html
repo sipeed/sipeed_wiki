@@ -18,8 +18,9 @@
     <h1>{[ $t("Sipeed Wiki") ]}</h1>
     <ul>
         <li v-for="product in products" v-bind:style="{ backgroundColor: product.bg }">
-            <video v-if="product.video" v-bind:src="product.video" autoplay loop>
-                <img v-bind:src="product.img">
+            <video v-if="product.video" preload muted autoplay loop>
+                <source v-bind:src="product.video" type="video/mp4" />
+                Your brower not support video play!
             </video>
             <img v-else v-bind:src="product.img">
             <div class="product_info">
