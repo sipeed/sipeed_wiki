@@ -9,7 +9,7 @@
 3. 烧录工具 [PhoenixCard](https://dl.sipeed.com/shareURL/LICHEE/D1/Lichee_RV/tool)
 4. 系统镜像
     [Tina](https://dl.sipeed.com/shareURL/LICHEE/D1/Lichee_RV/SDK/image) 系统镜像或者 Debian 系统镜像(链接：https://pan.baidu.com/s/1QJTaDw6kkTM4c_GAlmG0hg 提取码：wbef)
-    最新的系统镜像（链接：https://pan.baidu.com/s/1BAK2N7_pz3BHwYYpt0VKEg 提取码：2333 ）
+    国外用户：<https://mega.nz/folder/lx4CyZBA#PiFhY7oSVQ3gp2ZZ_AnwYA>
 
 | 镜像名 | 含义 | 备注 |
 | --- | --- | --- |

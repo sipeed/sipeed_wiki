@@ -1,3 +1,3 @@
 <head>
-<meta http-equiv="refresh" content="0.1;url=/soft/longan/zh/index.html">
+<meta http-equiv="refresh" content="url=/soft/longan/zh/index.html">
 </head>
