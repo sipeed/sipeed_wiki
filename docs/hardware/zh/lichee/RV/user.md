@@ -1,5 +1,7 @@
 # 基础上手
 
+
+
 ## 点灯教程
 
 当我们成功进入系统后，就可以进行基础的点灯操作啦！
@@ -44,12 +46,15 @@ echo 0 > value  #LED熄灭
 
 ```
 cd /sys/class/leds/
-echo 255 > sunxi_led0r/brightness;echo 0 > sunxi_led0g/brightness;echo 0 > sunxi_led0b/brightness;
-echo 0 > sunxi_led0r/brightness;echo 255 > sunxi_led0g/brightness;echo 0 > sunxi_led0b/brightness;
-echo 0 > sunxi_led0r/brightness;echo 0 > sunxi_led0g/brightness;echo 255 > sunxi_led0b/brightness;
+echo 255 > /sys/class/leds/sunxi_led0r/brightness;echo 0 > /sys/class/leds/sunxi_led0g/brightness;echo 0 > /sys/class/leds/sunxi_led0b/brightness;
+echo 0 > /sys/class/leds/sunxi_led0r/brightness;echo 255 > /sys/class/leds/sunxi_led0g/brightness;echo 0 > /sys/class/leds/sunxi_led0b/brightness;
+echo 0 > /sys/class/leds/sunxi_led0r/brightness;echo 0 > /sys/class/leds/sunxi_led0g/brightness;echo 255 > /sys/class/leds/sunxi_led0b/brightness;
 ```
 
 ## 外设功能验证
+
+> 注意！！！
+> 目前在 debian 系统下，蓝牙暂时不可以用！！
 
 ### 音频功能
 
