@@ -12,13 +12,13 @@
 {% block content %}
 
 <script src="/static/js/vue.js"></script>
-<script src="https://unpkg.com/vue-i18n@8"></script>
+<script src="/static/js/vue_i18n.js"></script>
 
 <div id="products">
     <h1>{[ $t("Sipeed Wiki") ]}</h1>
     <ul>
         <li v-for="product in products" v-bind:style="{ backgroundColor: product.bg }">
-            <video v-if="product.video" preload muted autoplay loop>
+            <video v-if="product.video" v-bind:poster="product.img" preload muted autoplay loop>
                 <source v-bind:src="product.video" type="video/mp4" />
                 Your brower not support video play!
             </video>
