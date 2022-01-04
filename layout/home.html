@@ -18,66 +18,80 @@
     <h1>{[ $t("Sipeed Wiki") ]}</h1>
     <ul>
         <li v-for="product in products" v-bind:style="{ backgroundColor: product.bg }">
-            <video v-if="product.video" v-bind:poster="product.img" preload muted autoplay loop x5-playsinline="" playsinline="" webkit-playsinline="" x5-video-player-type="h5" >
-                <source v-bind:src="product.video" type="video/mp4" />
-                Your brower not support video play!
-            </video>
+            <div class="video_wrapper" v-if="product.video">
+                <video class="video_player" v-bind:src="product.video" v-bind:poster="product.img" preload muted autoplay loop="-1" x5-playsinline="" x5-video-player-fullscreen="true" playsinline="" webkit-playsinline="" x5-video-player-type="h5" >
+                    Your brower not support video play!
+                </video>
+                <div class="play_mask" v-on:click="playVideo"></div>
+            </div>
             <img v-else v-bind:src="product.img">
             <div class="product_info">
                 <div class="product_head">
                     <div class="product_head_content">
-                        <h2>{[ product.title ]}</h2>
+                        <h2>{[ $t(product.title) ]}</h2>
                         <div>
-                            {[ product.brief ]}
+                            {[ $t(product.brief) ]}
                         </div>
                     </div>
                 </div>
                 <div class="product_body" v-if="product.left && product.right">
                     <ul class="left">
-                        <li class="left_lable category" v-if="product.left_label"><h3>{[ product.left_label ]}</h3></li>
+                        <li class="left_lable category" v-if="product.left_label"><h3>{[ $t(product.left_label) ]}</h3></li>
                         <li class="info_item" v-for="left in product.left">
-                            <a v-bind:href="left.url" v-new_tab="left.new_tab">
-                                <h3 class="title">{[ left.name ]}</h3>
-                                <span class="brief">{[ left.brief ]}</span>
+                            <a v-bind:href="$t(left.url)" v-new-tab="left.new_tab">
+                                <h3 class="title">{[ $t(left.name) ]}</h3>
+                                <span class="brief">{[ $t(left.brief) ]}</span>
                             </a>
+                            <span v-if="left.new" class="new" v-on:click="newInfo"><span class="new_info">{[ left.new ]}</span></span>
                         </li>
                     </ul>
                     <ul class="right">
-                        <li class="right_lable category" v-if="product.right_label"><h3>{[ product.right_label ]}</h3></li>
+                        <li class="right_lable category" v-if="product.right_label"><h3>{[ $t(product.right_label) ]}</h3></li>
                         <li class="info_item" v-for="right in product.right">
-                            <a v-bind:href="right.url" v-new_tab="right.new_tab">
-                                <h3 class="title">{[ right.name ]}</h3>
-                                <span class="brief">{[ right.brief ]}</span>
+                            <a v-bind:href="$t(right.url)" v-new-tab="right.new_tab">
+                                <h3 class="title">{[ $t(right.name) ]}</h3>
+                                <span class="brief">{[ $t(right.brief) ]}</span>
                             </a>
+                            <span v-if="right.new" class="new" v-on:click="newInfo"><span class="new_info">{[ right.new ]}</span></span>
                         </li>
                     </ul>
                 </div>
                 <div v-else class="product_body product_body_single">
                     <ul v-if="product.left" class="left">
-                        <li class="left_lable category" v-if="product.left_label"><h3>{[ product.left_label ]}</h3></li>
+                        <li class="left_lable category" v-if="product.left_label"><h3>{[ $t(product.left_label) ]}</h3></li>
                         <li class="info_item" v-for="left in product.left">
-                            <a v-bind:href="left.url" v-new_tab="left.new_tab">
-                                <h3 class="title">{[ left.name ]}</h3>
-                                <span class="brief">{[ left.brief ]}</span>
+                            <a v-bind:href="$t(left.url)" v-new-tab="left.new_tab">
+                                <h3 class="title">{[ $t(left.name) ]}</h3>
+                                <span class="brief">{[ $t(left.brief) ]}</span>
                             </a>
+                            <span v-if="left.new" class="new" v-on:click="newInfo"><span class="new_info">{[ left.new ]}</span></span>
                         </li>
                     </ul>
                     <ul v-if="product.right" class="right">
-                        <li class="right_lable category" v-if="product.right_label"><h3>{[ product.right_label ]}</h3></li>
+                        <li class="right_lable category" v-if="product.right_label"><h3>{[ $t(product.right_label) ]}</h3></li>
                         <li class="info_item" v-for="right in product.right">
-                            <a v-bind:href="right.url" v-new_tab="right.new_tab">
-                                <h3 class="title">{[ right.name ]}</h3>
-                                <span class="brief">{[ right.brief ]}</span>
+                            <a v-bind:href="$t(right.url)" v-new-tab="right.new_tab">
+                                <h3 class="title">{[ $t(right.name) ]}</h3>
+                                <span class="brief">{[ $t(right.brief) ]}</span>
                             </a>
+                            <span v-if="right.new" class="new" v-on:click="newInfo"><span class="new_info">{[ right.new ]}</span></span>
                         </li>
                     </ul>
                 </div>
             </div>
         </li>
     </ul>
+    <div id="msg">
+        <div id="msg_mask" v-on:click="msgCLose"></div>
+        <div id="msg_close" v-on:click="msgCLose">x</div>
+        <div id="msg_content_wrapper">
+            <div id="msg_content"></div>
+        </div>
+    </div>
 </div>
 <script>
     var pageLanguages = ["en", "zh"] // languages user can select in pages
+    ///////////////////// translate start /////////////////////
     const messages = {
         en: {
             "Sipeed Wiki": "Sipeed Wiki - Documentation",
@@ -85,7 +99,7 @@
             Software: "Software",
 
             maix_title: "Maix AI",
-            maix_brief: "边缘 AI， 如此简单！ Maix 是 Matrix（矩阵）的缩写",
+            maix_brief: "边缘 AI, 如此简单！快速地在各种硬件平台部署 AI 程序",
             maix_i_brief: "带 AI 算力 MCU, 极致性价比",
             maix_ii_brief: "带 AI 算力 SOC, 能跑 Linux 系统",
             maixpy_brief: "MicroPython 开发嵌入式 AI， 简单快速",
@@ -164,7 +178,7 @@
             Software: "软件",
 
             maix_title: "Maix AI",
-            maix_brief: "边缘 AI， 如此简单！ Maix 是 Matrix（矩阵）的缩写",
+            maix_brief: "边缘 AI, 如此简单！快速地在各种硬件平台部署 AI 程序",
             maix_i_brief: "带 AI 算力 MCU, 极致性价比",
             maix_ii_brief: "带 AI 算力 SOC, 能跑 Linux 系统",
             maixpy_brief: "MicroPython 开发嵌入式 AI， 简单快速",
@@ -215,7 +229,7 @@
 
             longan_title: "Longan",
             longan_brief: "精致小巧的 MCU（单片机） 开发板",
-            longan_nano: "Longan Naono",
+            longan_nano: "Longan Nano",
             longan_nano_brief: "GD32VF103 经典 RISC-V 普及型单片机开发板",
             longan_nano_url: "/hardware/zh/longan/Nano/Longan_nano.html",
 
@@ -238,6 +252,8 @@
             community_more_brief: "Twitter Telegram QQ群 ...",
         }
     }
+    ///////////////////// translate end /////////////////////
+
     // get page locale
     var locale = document.getElementsByTagName("html")[0].lang
     if (locale){
@@ -249,172 +265,260 @@
     if (!localeBrowser in pageLanguages){
         locale = localeBrowser
     }
-    const i18n = new VueI18n({
+    const i18n = VueI18n.createI18n({
         locale: locale,
         messages: messages,
         fallbackLocale: "en",
         silentFallbackWarn: true
     })
-    Vue.directive('new_tab', {
-        bind: function (el, binding, vnode) {
+
+    ///////////////////// config start /////////////////////
+    const products = [{
+        title: "maix_title",
+        brief: "maix_brief",
+        img: "/soft/maixpy3/zh/assets/images/main.png",
+        video: "/hardware/zh/maixII/M2A/MaixSense/assets/M2A-1.mp4",
+        bg: "#dbdbdb",
+        left_label: "Hardware",
+        right_label: "Software",
+        left: [{
+                name: "Maix-I",
+                url: "maix_i_url",
+                brief: "maix_i_brief"
+            },
+            {
+                name: "Maix-II",
+                url: "maix_ii_url",
+                brief: "maix_ii_brief",
+                new: true
+            }
+        ],
+        right: [{
+                name: "MaixPy",
+                url: "maixpy_url",
+                brief: "maixpy_brief"
+            },{
+                name: "MaixPy3",
+                url: "maixpy3_url",
+                brief: "maixpy3_brief",
+                new: true
+            },{
+                name: "Maix-Speech",
+                url: "https://github.com/sipeed/Maix-Speech",
+                brief: "maixpy_speech_brief",
+                new_tab: true,
+                new: true
+            }
+        ]
+      },{
+        title: "maixhub_title",
+        brief: "maixhub_brief",
+        img: "/soft/maixpy3/zh/assets/images/main.png",
+        bg: "white",
+        left: [{
+                name: "maixhub_models",
+                url: "https://maixhub.com/",
+                brief: "maixhub_models_brief",
+                new_tab: true
+            },{
+                name: "maixhub_train",
+                url: "https://maixhub.com/ModelTraining",
+                brief: "maixhub_train_brief",
+                new_tab: true
+            },{
+                name: "maixhub_compile",
+                url: "https://maixhub.com/onlineCompiler",
+                brief: "maixhub_compile_brief",
+                new_tab: true
+            },{
+                name: "maixhub_convert",
+                url: "https://maixhub.com/modelConvert",
+                brief: "maixhub_convert_brief",
+                new_tab: true
+            }
+        ]
+      },{
+        title: "licheepi_title",
+        brief: "licheepi_brief",
+        img: "/static/image/licheeRV_dock.jpg",
+        bg: "#f5fbfb",
+        left: [{
+                name: "lichee_zero",
+                url: "lichee_zero_url",
+                brief: "lichee_zero_brief"
+            },{
+                name: "lichee_nano",
+                url: "lichee_nano_url",
+                brief: "lichee_nano_brief"
+            },{
+                name: "lichee_rv",
+                url: "lichee_rv_url",
+                brief: "lichee_rv_brief",
+                new: true
+            },
+        ]
+      },{
+        title: "tang_title",
+        brief: "tang_brief",
+        img: "/static/image/tang.jpg",
+        bg: "#fafafa",
+        left: [{
+                name: "tang_premier",
+                url: "tang_premier_url",
+                brief: "tang_premier_brief"
+            },{
+                name: "tang_nano",
+                url: "tang_nano_url",
+                brief: "tang_nano_brief"
+            },{
+                name: "tang_nano_4k",
+                url: "tang_nano_4k_url",
+                brief: "tang_nano_4k_brief",
+                new: true
+            },{
+                name: "tang_nano_9k",
+                url: "tang_nano_9k_url",
+                brief: "tang_nano_9k_brief",
+                new: true
+            }
+        ]
+      },{
+        title: "longan_title",
+        brief: "longan_brief",
+        img: "/static/image/longan.jpg",
+        left: [{
+                name: "longan_nano",
+                url: "longan_nano_url",
+                brief: "longan_nano_brief"
+            }
+        ]
+      },{
+        title: "module_title",
+        brief: "module_brief",
+        img: "/static/image/spmod.jpg",
+        left: [{
+                name: "module_spmod",
+                url: "module_spmod_url",
+                brief: "module_spmod_brief"
+            },{
+                name: "module_debuger",
+                url: "module_debuger_url",
+                brief: "module_debuger_brief"
+            },
+        ]
+      },{
+        title: "community_title",
+        brief: "community_brief",
+        img: "/static/image/community.jpg",
+        left: [{
+                name: "community_github",
+                url: "https://github.com/sipeed",
+                brief: "community_github_brief"
+            },{
+                name: "community_bbs",
+                url: "https://bbs.sipeed.com",
+                brief: "community_bbs_brief"
+            },{
+                name: "community_more",
+                url: "/community.html",
+                brief: "community_more_brief"
+            }
+        ]
+      }
+    ]
+    ///////////////////// config end /////////////////////
+    function isLimitedNetwork(){
+        var connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection || { tyep: 'unknown' };
+        const notLimitTypes = ["ethernet", "wifi", "wimax"]
+        const limitTypes = ["bluetooth", "cellular"]
+
+        var system = { 
+            win: false, 
+            mac: false, 
+            x11: false, 
+            ipad:false 
+        }; 
+        var p = navigator.platform; 
+        system.win = p.indexOf("Win") == 0; 
+        system.mac = p.indexOf("Mac") == 0; 
+        system.x11 = (p == "X11") || (p.indexOf("Linux") == 0); 
+        system.ipad = (navigator.userAgent.match(/iPad/i) != null)?true:false; 
+        if(connection.type in notLimitTypes){
+            return false
+        }
+        if((system.win || system.mac || system.x11 || system.ipad ) && !(connection.type in limitTypes)) {
+            return false
+        }
+        return true
+    }
+    function showNew(info){
+        var el = document.getElementById("msg_content")
+        el.innerText = info
+        el = document.getElementById("msg")
+        el.style.display = "block"
+    }
+    const allHandling = {
+        compilerOptions: {
+            delimiters:['{[', ']}'],
+        },
+        data(){
+            return {
+                products: products
+            }
+        },
+        mounted() {
+            if(isLimitedNetwork()){
+                var players_mask = document.getElementsByClassName("play_mask")
+                for(var i=0; i < players_mask.length; ++i){
+                    players_mask[i].style.display = "block"
+                }
+            }else{
+                var players = document.getElementsByClassName("video_player")
+                for(var i=0; i < players.length; ++i){
+                    players[i].play();
+                }
+            }
+            // check new info
+            var news = document.getElementsByClassName("new_info")
+            for(var i=0; i<news.length; ++i){
+                info = news[i].innerText
+                if(info == "true" || info == "false" || info.trim() == ""){
+                    news[i].parentElement.style.cursor = "auto"
+                }
+            }
+        },
+        methods: {
+            playVideo(event) {
+                // remove play button and paly video
+                el = event.target
+                el.style.display="none"
+                player = el.parentElement.getElementsByTagName("video")[0]
+                player.play()
+            },
+            newInfo(event) {
+                el = event.target
+                info = el.getElementsByClassName("new_info")[0].innerText
+                if(info != "true" && info != "false" && info.trim() != ""){
+                    showNew(info)
+                }
+            },
+            msgCLose(event) {
+                console.log("close")
+                var el = document.getElementById("msg")
+                el.style.display = "none"
+            }
+        }
+    }
+    var app = Vue.createApp(allHandling)
+    app.use(i18n)
+    app.directive('new-tab', {
+        mounted(el, binding) {
             if (binding.value){
                 el.setAttribute("target", "_blank")
             }
         }
     })
-    var app = new Vue({
-        i18n,
-        delimiters:['{[', ']}'],
-        el: '#products',
-        data: {
-          products: [{
-            title: i18n.t("maix_title"),
-            brief: i18n.t("maix_brief"),
-            video: "/hardware/zh/maixII/M2A/MaixSense/assets/M2A-1.mp4",
-            bg: "#dbdbdb",
-            left_label: i18n.t("Hardware"),
-            right_label: i18n.t("Software"),
-            left: [{
-                    name: "Maix-I",
-                    url: i18n.t("maix_i_url"),
-                    brief: i18n.t("maix_i_brief")
-                },
-                {
-                    name: "Maix-II",
-                    url: i18n.t("maix_ii_url"),
-                    brief: i18n.t("maix_ii_brief")
-                }
-            ],
-            right: [{
-                    name: "MaixPy",
-                    url: i18n.t("maixpy_url"),
-                    brief: i18n.t("maixpy_brief")
-                },{
-                    name: "MaixPy3",
-                    url: i18n.t("maixpy3_url"),
-                    brief: i18n.t("maixpy3_brief")
-                },{
-                    name: "Maix-Speech",
-                    url: "https://github.com/sipeed/Maix-Speech",
-                    brief: i18n.t("maixpy_speech_brief"),
-                    new_tab: true
-                }
-            ]
-          },{
-            title: i18n.t("maixhub_title"),
-            brief: i18n.t("maixhub_brief"),
-            img: "/soft/maixpy3/zh/assets/images/main.png",
-            bg: "white",
-            left: [{
-                    name: i18n.t("maixhub_models"),
-                    url: "https://maixhub.com/",
-                    brief: i18n.t("maixhub_models_brief"),
-                    new_tab: true
-                },{
-                    name: i18n.t("maixhub_train"),
-                    url: "https://maixhub.com/ModelTraining",
-                    brief: i18n.t("maixhub_train_brief"),
-                    new_tab: true
-                },{
-                    name: i18n.t("maixhub_compile"),
-                    url: "https://maixhub.com/onlineCompiler",
-                    brief: i18n.t("maixhub_compile_brief"),
-                    new_tab: true
-                },{
-                    name: i18n.t("maixhub_convert"),
-                    url: "https://maixhub.com/modelConvert",
-                    brief: i18n.t("maixhub_convert_brief"),
-                    new_tab: true
-                }
-            ]
-          },{
-            title: i18n.t("licheepi_title"),
-            brief: i18n.t("licheepi_brief"),
-            img: "/static/image/licheeRV_dock.jpg",
-            bg: "#f5fbfb",
-            left: [{
-                name: i18n.t("lichee_zero"),
-                url: i18n.t("lichee_zero_url"),
-                brief: i18n.t("lichee_zero_brief")
-            },{
-                name: i18n.t("lichee_nano"),
-                url: i18n.t("lichee_nano_url"),
-                brief: i18n.t("lichee_nano_brief")
-            },{
-                name: i18n.t("lichee_rv"),
-                url: i18n.t("lichee_rv_url"),
-                brief: i18n.t("lichee_rv_brief")
-            },
-        ]
-          },{
-            title: i18n.t("tang_title"),
-            brief: i18n.t("tang_brief"),
-            img: "/static/image/tang.jpg",
-            bg: "#fafafa",
-            left: [{
-                    name: i18n.t("tang_premier"),
-                    url: i18n.t("tang_premier_url"),
-                    brief: i18n.t("tang_premier_brief")
-                },{
-                    name: i18n.t("tang_nano"),
-                    url: i18n.t("tang_nano_url"),
-                    brief: i18n.t("tang_nano_brief")
-                },{
-                    name: i18n.t("tang_nano_4k"),
-                    url: i18n.t("tang_nano_4k_url"),
-                    brief: i18n.t("tang_nano_4k_brief")
-                },{
-                    name: i18n.t("tang_nano_9k"),
-                    url: i18n.t("tang_nano_9k_url"),
-                    brief: i18n.t("tang_nano_9k_brief")
-                }
-            ]
-          },{
-            title: i18n.t("longan_title"),
-            brief: i18n.t("longan_brief"),
-            img: "/static/image/longan.jpg",
-            left: [{
-                    name: i18n.t("longan_nano"),
-                    url: i18n.t("longan_nano_url"),
-                    brief: i18n.t("longan_nano_brief")
-                }
-            ]
-          },{
-            title: i18n.t("module_title"),
-            brief: i18n.t("module_brief"),
-            img: "/static/image/spmod.jpg",
-            left: [{
-                    name: i18n.t("module_spmod"),
-                    url: i18n.t("module_spmod_url"),
-                    brief: i18n.t("module_spmod_brief")
-                },{
-                    name: i18n.t("module_debuger"),
-                    url: i18n.t("module_debuger_url"),
-                    brief: i18n.t("module_debuger_brief")
-                },
-            ]
-          },{
-            title: i18n.t("community_title"),
-            brief: i18n.t("community_brief"),
-            img: "/static/image/community.jpg",
-            left: [{
-                    name: i18n.t("community_github"),
-                    url: "https://github.com/sipeed",
-                    brief: i18n.t("community_github_brief")
-                },{
-                    name: i18n.t("community_bbs"),
-                    url: "https://bbs.sipeed.com",
-                    brief: i18n.t("community_bbs_brief")
-                },{
-                    name: i18n.t("community_more"),
-                    url: "/community.html",
-                    brief: i18n.t("community_more_brief")
-                }
-            ]
-          }
-          ]
-        }
-    })
+    var vm = app.mount('#products')
 </script>
 
 {{ body|safe }}

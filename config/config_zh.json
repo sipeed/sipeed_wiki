@@ -266,7 +266,7 @@
             "from": "pypi",
             "config": {
                 "label": "新",
-                "content": "<a target=\"_blank\" href=\"https://github.com/sipeed/Maix-Speech/blob/master/README_ZH.md\">Maix-Speech</a> 为嵌入式设计的语音识别库， 小巧且精度高，多平台支持！欢迎使用并 ☆star</br>由于未知原因，4群被封了，现在新建一个新的4群，群号：256336487"
+                "content": "<a target=\"_blank\" href=\"https://github.com/sipeed/Maix-Speech/blob/master/README_ZH.md\">Maix-Speech</a> 为嵌入式设计的语音识别库， 小巧且精度高，多平台支持！欢迎使用并 ☆star"
             }
         }
     },

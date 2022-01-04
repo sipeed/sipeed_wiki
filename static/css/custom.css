@@ -65,11 +65,27 @@
     -webkit-transform: scale(1.005);
     transform: scale(1.005);
 }
+#home #products > ul > li .video_wrapper,
 #home #products > ul > li > img {
     flex-grow: 1;
     max-width: 400px;
     align-self: center;
     object-fit: cover;
+}
+#home #products > ul > li .video_wrapper {
+    position: relative;
+}
+#home #products > ul > li .play_mask {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: url("/static/image/play.svg");
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 #home #products .product_info {
     min-height: 260px;
@@ -109,6 +125,21 @@
     border: 1px solid #263238;
     background-color: #152127;
     padding: 0 1em;
+    position: relative;
+}
+#home #products .product_body > ul > li .new {
+    background-image: url("/static/image/new.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 3em;
+    height: 3em;
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+}
+#home #products .product_body > ul > li .new_info {
+    display: none;
 }
 #home #products .product_body > ul > li:hover {
     background-color: #000f15;
@@ -137,6 +168,52 @@
 }
 #home .product_body .brief {
     color: #93989a;
+}
+#home #msg {
+    display: none;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgb(0, 0, 0, 0.72);
+    color: #dbdeec;
+    z-index: 99;
+}
+#home #msg_mask {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+#home #msg_content_wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+#home #msg_content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1em;
+    background-color: #263238;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px 0px #000000;
+    min-width: 50%;
+    min-height: 30%;
+    z-index: 199;
+}
+#home #msg_close {
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    width: 2em;
+    height: 2em;
+    border-radius: 100%;
+    background-color: #cf3d3d;
 }
 #big_btn_wrapper {
     display: flex;
