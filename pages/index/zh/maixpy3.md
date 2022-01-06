@@ -1,3 +1,4 @@
-<head>
-<meta http-equiv="refresh" content="0;url=/soft/maixpy3/zh/">
-</head>
+---
+layout: redirect
+redirect_url: /soft/maixpy3/zh/
+---

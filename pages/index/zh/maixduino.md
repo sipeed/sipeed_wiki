@@ -1,3 +1,4 @@
-<head>
-<meta http-equiv="refresh" content="0;url=/soft/maixduino/zh/">
-</head>
+---
+layout: redirect
+redirect_url: /soft/maixduino/zh/
+---

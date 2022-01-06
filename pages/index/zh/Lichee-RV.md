@@ -1,3 +1,4 @@
-<head>
-<meta http-equiv="refresh" content="0;url=/hardware/zh/lichee/RV/RV.html">
-</head>
+---
+layout: redirect
+redirect_url: /hardware/zh/lichee/RV/RV.html
+---
