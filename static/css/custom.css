@@ -136,8 +136,19 @@
     position: absolute;
     top: 0;
     right: 0;
+    filter: drop-shadow(-4px 4px 6px black);
+}
+#home #products .product_body > ul > li .new_with_info {
+    background-image: url("/static/image/new.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 3em;
+    height: 3em;
+    position: absolute;
+    top: 0;
+    right: 0;
     cursor: pointer;
-    filter: drop-shadow(2px 4px 6px black);
+    filter: drop-shadow(-4px 4px 6px black);
 }
 #home #products .product_body > ul > li .new_info {
     display: none;
