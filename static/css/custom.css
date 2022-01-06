@@ -72,6 +72,9 @@
     align-self: center;
     object-fit: cover;
 }
+#home #products > ul > li .video_player {
+    max-width: 400px;
+}
 #home #products > ul > li .video_wrapper {
     position: relative;
 }
