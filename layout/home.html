@@ -43,7 +43,8 @@
                                 <h3 class="title">{[ $t(left.name) ]}</h3>
                                 <span class="brief">{[ $t(left.brief) ]}</span>
                             </a>
-                            <span v-if="left.new" class="new" v-on:click="newInfo"><span class="new_info">{[ left.new ]}</span></span>
+                            <span v-if="typeof(left.new)=='string' && left.new != ''" class="new_with_info" v-on:click="newInfo"><span class="new_info">{[ left.new ]}</span></span>
+                            <span v-else-if="left.new" class="new"></span>
                         </li>
                     </ul>
                     <ul class="right">
@@ -53,7 +54,8 @@
                                 <h3 class="title">{[ $t(right.name) ]}</h3>
                                 <span class="brief">{[ $t(right.brief) ]}</span>
                             </a>
-                            <span v-if="right.new" class="new" v-on:click="newInfo"><span class="new_info">{[ right.new ]}</span></span>
+                            <span v-if="typeof(right.new)=='string' && right.new != ''" class="new_with_info" v-on:click="newInfo"><span class="new_info">{[ right.new ]}</span></span>
+                            <span v-else-if="right.new" class="new"></span>
                         </li>
                     </ul>
                 </div>
@@ -65,7 +67,8 @@
                                 <h3 class="title">{[ $t(left.name) ]}</h3>
                                 <span class="brief">{[ $t(left.brief) ]}</span>
                             </a>
-                            <span v-if="left.new" class="new" v-on:click="newInfo"><span class="new_info">{[ left.new ]}</span></span>
+                            <span v-if="typeof(left.new)=='string' && left.new != ''" class="new_with_info" v-on:click="newInfo"><span class="new_info">{[ left.new ]}</span></span>
+                            <span v-else-if="left.new" class="new"></span>
                         </li>
                     </ul>
                     <ul v-if="product.right" class="right">
@@ -75,7 +78,8 @@
                                 <h3 class="title">{[ $t(right.name) ]}</h3>
                                 <span class="brief">{[ $t(right.brief) ]}</span>
                             </a>
-                            <span v-if="right.new" class="new" v-on:click="newInfo"><span class="new_info">{[ right.new ]}</span></span>
+                            <span v-if="typeof(right.new)=='string' && right.new != ''" class="new_with_info" v-on:click="newInfo"><span class="new_info">{[ right.new ]}</span></span>
+                            <span v-else-if="right.new" class="new"></span>
                         </li>
                     </ul>
                 </div>
@@ -137,41 +141,43 @@
             tang_title: "Tang",
             tang_brief: "Exquisite FGPA development board",
             tang_premier: "Tang Premier",
-            tang_premier_brief: "20K Lut 安路 经典RISC-V软核 FPGA 验证板",
+            tang_premier_brief: "20K Lut Anlogic Classic RISC-V soft core FPGA verification board",
             tang_nano: "Tang Nano 1K",
-            tang_nano_brief: "1K Lut 高云 超值入门型 FPGA开发板",
+            tang_nano_brief: "1K Lut Gowin Value entry FPGA development board",
             tang_nano_4k: "Tang Nano 4K",
-            tang_nano_4k_brief: "4K Lut+CM3硬核+PSRAM+HDMI 高云 超值多功能",
+            tang_nano_4k_brief: "4K Lut + CM3 hard core + PSRAM + HDMI Gowin, Great value, multi-function",
             tang_nano_9k: "Tang Nano 9K",
-            tang_nano_9k_brief: "9K Lut+PSRAM+HDMI 高云 入门级 RISC-V 软核",
+            tang_nano_9k_brief: "9K Lut+PSRAM+HDMI Gowin entry-level RISC-V soft core",
             tang_premier_url: "/hardware/zh/tang/Tang-primer/Tang-primer.html",
             tang_nano_url: "/hardware/zh/tang/Tang-Nano/Tang-Nano.html",
             tang_nano_4k_url: "/hardware/zh/tang/Tang-Nano-4K/Nano-4K.html",
             tang_nano_9k_url: "/hardware/zh/tang/Tang-Nano-9K/Nano-9K.html",
 
             longan_title: "Longan",
-            longan_brief: "精致小巧的 MCU（单片机） 开发板",
-            longan_nano: "Longan Naono",
-            longan_nano_brief: "GD32VF103 经典 RISC-V 普及型单片机开发板",
+            longan_brief: "Exquisite and small MCU Development Board",
+            longan_nano: "Longan Nano",
+            longan_nano_brief: "GD32VF103 classic RISC-V MCU Development Board for universal usage",
             longan_nano_url: "/hardware/zh/longan/Nano/Longan_nano.html",
 
-            module_title: "外设模块",
-            module_brief: "补充主控功能，无限创意，外设不能少",
+            module_title: "Peripheral Module",
+            module_brief: "Let peripherals meet your various creativity",
             module_spmod: "SP-MOD",
-            module_spmod_brief: "Sipeed 通用 8Pin 扩展模块",
-            module_debuger: "调试器",
-            module_debuger_brief: "实用调试器，USB 转串口、RV 调试器 ...",
+            module_spmod_brief: "Sipeed universal 8Pin expansion module",
+            module_debuger: "Debuger",
+            module_debuger_brief: "Practical debugger, USB to serial port, RV debugger...",
             module_spmod_url: "/hardware/zh/modules_spmod/spmod_extender.html",
-            module_debuger_url: "/hardware/zh/",
+            module_debuger_url: "/hardware/en/",
 
-            community_title: "社区",
-            community_brief: "活跃的社区，一起让开源变得更好，一起当创造者",
+            community_title: "Community",
+            community_brief: "Active community, make open source better together, and be creators together",
             community_github: "github",
-            community_github_brief: "开源代码组织，欢迎 star 你喜欢的项目和参与贡献",
+            community_github_brief: "Open source code organization, welcome to star projects you like, and contribute together",
             community_bbs: "BBS",
-            community_bbs_brief: "技术交流、项目分享、结交技术好友 ...",
-            community_more: "更多",
-            community_more_brief: "Twitter Telegram QQ群 ...",
+            community_bbs_brief: "Technical exchanges, project sharing, making technical friends ...",
+            community_twitter: "Twitter",
+            community_twitter_brief: "Blog and news ...",
+            community_more: "More",
+            community_more_brief: "Telegram、 QQ Group ..."
         },
         zh: {
             "Sipeed Wiki": "Sipeed Wiki - 文档和资料",
@@ -216,43 +222,41 @@
             tang_title: "Tang",
             tang_brief: "精致 FGPA 开发板",
             tang_premier: "Tang Premier",
-            tang_premier_brief: "20K Lut Anlogic Classic RISC-V soft core FPGA verification board",
+            tang_premier_brief: "20K Lut 安路 经典RISC-V软核 FPGA 验证板",
             tang_nano: "Tang Nano 1K",
-            tang_nano_brief: "1K Lut Gowin Value entry FPGA development board",
+            tang_nano_brief: "1K Lut 高云 超值入门型 FPGA开发板",
             tang_nano_4k: "Tang Nano 4K",
-            tang_nano_4k_brief: "4K Lut + CM3 hard core + PSRAM + HDMI Gowin, Great value, multi-function",
+            tang_nano_4k_brief: "4K Lut+CM3硬核+PSRAM+HDMI 高云 超值多功能",
             tang_nano_9k: "Tang Nano 9K",
-            tang_nano_9k_brief: "9K Lut+PSRAM+HDMI Gowin entry-level RISC-V soft core",
+            tang_nano_9k_brief: "9K Lut+PSRAM+HDMI 高云 入门级 RISC-V 软核",
             tang_premier_url: "/hardware/zh/tang/Tang-primer/Tang-primer.html",
             tang_nano_url: "/hardware/zh/tang/Tang-Nano/Tang-Nano.html",
             tang_nano_4k_url: "/hardware/zh/tang/Tang-Nano-4K/Nano-4K.html",
             tang_nano_9k_url: "/hardware/zh/tang/Tang-Nano-9K/Nano-9K.html",
 
             longan_title: "Longan",
-            longan_brief: "Exquisite and small MCU Development Board",
-            longan_nano: "Longan Nano",
-            longan_nano_brief: "GD32VF103 classic RISC-V MCU Development Board for universal usage",
+            longan_brief: "精致小巧的 MCU（单片机） 开发板",
+            longan_nano: "Longan Naono",
+            longan_nano_brief: "GD32VF103 经典 RISC-V 普及型单片机开发板",
             longan_nano_url: "/hardware/zh/longan/Nano/Longan_nano.html",
 
-            module_title: "Peripheral Module",
-            module_brief: "Let peripherals meet your various creativity",
+            module_title: "外设模块",
+            module_brief: "补充主控功能，无限创意，外设不能少",
             module_spmod: "SP-MOD",
-            module_spmod_brief: "Sipeed universal 8Pin expansion module",
-            module_debuger: "Debuger",
-            module_debuger_brief: "Practical debugger, USB to serial port, RV debugger...",
+            module_spmod_brief: "Sipeed 通用 8Pin 扩展模块",
+            module_debuger: "调试器",
+            module_debuger_brief: "实用调试器，USB 转串口、RV 调试器 ...",
             module_spmod_url: "/hardware/zh/modules_spmod/spmod_extender.html",
-            module_debuger_url: "/hardware/en/",
+            module_debuger_url: "/hardware/zh/",
 
-            community_title: "Community",
-            community_brief: "Active community, make open source better together, and be creators together",
+            community_title: "社区",
+            community_brief: "活跃的社区，一起让开源变得更好，一起当创造者",
             community_github: "github",
-            community_github_brief: "Open source code organization, welcome to star projects you like, and contribute together",
+            community_github_brief: "开源代码组织，欢迎 star 你喜欢的项目和参与贡献",
             community_bbs: "BBS",
-            community_bbs_brief: "Technical exchanges, project sharing, making technical friends ...",
-            community_twitter: "Twitter",
-            community_twitter_brief: "Blog and news ...",
-            community_more: "More",
-            community_more_brief: "Telegram、 QQ Group ...",
+            community_bbs_brief: "技术交流、项目分享、结交技术好友 ...",
+            community_more: "更多",
+            community_more_brief: "Twitter Telegram QQ群 ...",
         }
     }
     ///////////////////// translate end /////////////////////
@@ -460,7 +464,7 @@
     }
     function showNew(info){
         var el = document.getElementById("msg_content")
-        el.innerText = info
+        el.innerHTML = info
         el = document.getElementById("msg")
         el.style.display = "block"
     }
@@ -492,14 +496,6 @@
                 var players = document.getElementsByClassName("video_player")
                 for(var i=0; i < players.length; ++i){
                     players[i].play();
-                }
-            }
-            // check new info
-            var news = document.getElementsByClassName("new_info")
-            for(var i=0; i<news.length; ++i){
-                info = news[i].innerText
-                if(info == "true" || info == "false" || info.trim() == ""){
-                    news[i].parentElement.style.cursor = "auto"
                 }
             }
         },
