@@ -33,7 +33,9 @@
             "/soft/maixpy3/assets/": "docs/soft/maixpy3/assets",
             "/soft/maixduino/assets/":"docs/soft/maixduino/assets"
         },
-        "/blog/": "blog"
+        "blog": {
+            "/blog/": "blog"
+        }
     },
     "translate": {
         "docs": {
