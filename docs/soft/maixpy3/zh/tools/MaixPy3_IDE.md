@@ -1,8 +1,21 @@
 ---
-title: MaixPy3 IDE 基本介绍
+title: 安装 MaixPy3 IDE
 keywords: MaixPy3 IDE
-desc: maixpy doc: 如何连接 MaixII-Dock?
+desc: maixpy doc: 如何连接并使用 MaixPy3 的 IDE
 ---
+
+## 为什么要使用 MaixPy3 IDE ？
+
+> 所谓的 IDE 是留给第一次接触的同学所使用的，它处于刚推出的阶段，所以会十分不稳定，或者说不同的系统上表现不同，安装方法和注意事项要严格看本文说明。
+
+MaixPy3 IDE 的构成主要如下：
+
+
+
+
+
+
+
 
 MaixPy3 是通过对 Jupyter 进行修改所得到的，这是方便新入门的同学进行学习。Jupyter 可以单步运行代码，并保留输出的结果，还能将屏幕显示的内容保留下来。
 
@@ -10,7 +23,7 @@ MaixPy3 是通过对 Jupyter 进行修改所得到的，这是方便新入门的
 
 在[下载站](https://dl.sipeed.com/shareURL/MaixII/MaixPy3-IDE)中获得 MaixPy3 IDE 安装，双击打开并安装，安装结束之后，会以网页的形式在电脑默认浏览器中打开。
 
-> 下载站下载会比较慢，推荐百度云下载：链接：<https://pan.baidu.com/s/1C7Jl3rXticeJsCgH-fIcbQ>  提取码：2333 
+> 下载站下载会比较慢，推荐百度云下载：链接：<https://pan.baidu.com/s/1C7Jl3rXticeJsCgH-fIcbQ>  提取码：2333
 
 
 ![IDE_1](./assets/IDE_1.png)

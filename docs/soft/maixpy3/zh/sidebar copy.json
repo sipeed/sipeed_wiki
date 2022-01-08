@@ -1,0 +1,30 @@
+{
+    "items": [
+        {
+            "label": "MaixPy3 是什么？",
+            "file": "readme.md"
+        },
+        {
+            "label": "MaixPy 和 MaixPy3 的区别",
+            "file": "origin/difference.md"
+        },
+        {
+            "label": "一些 Python 的前置知识",
+            "file": "origin/python.md",
+            "items": [
+                {
+                    "label": "Python 入门教程 [1]",
+                    "file": "origin/hello_world.md"
+                },
+                {
+                    "label": "Python 入门教程 [2]",
+                    "file": "origin/loop_python.md"
+                }
+            ]
+        },
+        {
+            "label": "安装 MaixPy3 环境",
+            "file": "install/install.md"
+        }
+    ]
+}

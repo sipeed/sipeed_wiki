@@ -1,12 +1,12 @@
 ---
-title: 事件输入
-keywords: maixpy3, 事件输入
-desc: maixpy3 doc: 事件输入
+title: 按键输入
+keywords: maixpy3, 按键输入
+desc: maixpy3 doc: 按键输入
 ---
 
-## 使用事件输入
+## 使用教程
 
-> 以下代码由于 Maixpy3 还在优化中，可能不能运行，具体的代码到 [github](https://github.com/sipeed/MaixPy3) 上查看
+这里的按键输入，只是适合用于 MaixII-Dock 开发板，
 
 ```python
 from evdev import InputDevice
