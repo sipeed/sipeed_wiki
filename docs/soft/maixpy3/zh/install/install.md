@@ -1,16 +1,20 @@
 ---
-title: 安装 MaixPy3
+title: 安装 MaixPy3 环境
 keywords: linux, MaixII-Dock, MaixSense, 安装MaixPy3
 desc: maixpy doc: linux_x86_64 如何安装？
 ---
 
 ## 可适配平台
 
-目前 MaixPy3 所能兼容的平台有 [MaixII-Dock](/hardware/zh/maixII/M2/introduce.html)、[MaixSense](/hardware/zh/maixII/M2A/R329.html)、Linux，后续会推出更加多可适配的平台
+目前 MaixPy3 支持的平台主要如下，未来会进一步适配其他低端嵌入式 Linux 平台。
 
+- [MaixII-Dock](/hardware/zh/maixII/M2/introduce.html)
 
+- [MaixSense](/hardware/zh/maixII/M2A/R329.html)
 
-### MaixII-Dock 上安装 MaixPy3
+- [Linux Desktop](https://github.com/sipeed/MaixPy3)
+
+## MaixII-Dock 上安装 MaixPy3
 
 在 MaixII-Dock 的最新[镜像](https://dl.sipeed.com/shareURL/MaixII/MaixII-Dock/SDK/release)中是已已经将 MaixPy3 安装好，烧录即可使用。不一定是最新版本的 MaixPy3，需要手动[更新 MaixPy3](/hardware/zh/maixII/M2/tools/0.MaixII-Dock.html#%E6%9B%B4%E6%96%B0-MaixPy3).
 
@@ -32,9 +36,11 @@ You should consider upgrading via the '/usr/bin/python3 -m pip install --upgrade
 root@sipeed:/#
 ```
 
-输出以上信息则是代表安装好了
+输出以上信息则是代表安装好了，以下为实拍图。
 
-### MaixSense 安装 MaixPy3
+![](./asserts/V831.jpg)
+
+## MaixSense 安装 MaixPy3
 
 MaixSense 需要是烧录官方提供最新的 Armbian 镜像，旧的镜像在安装 MaixPy3 的时候会缺很多文件而导致的报错。
 > MaixSense 的 Tina 没有做 MaixPy3 的移植，有需要的可以自行移植
@@ -58,9 +64,11 @@ Type "help", "copyright", "credits" or "license" for more information.
 >>>
 ```
 
-### Linux 上安装MaixPy3
+输出以上信息则是代表安装好了，以下为实拍图。
+![](./asserts/R329.jpg)
+## Linux Desktop 安装 MaixPy3
 
-> 2021年02月21日 在 ubuntu20 与 manjaro20 上测试通过。
+> 2021年02月21日 在 RaspberryPi 、 ubuntu20 与 manjaro20 上测试通过。
 
 通过 `pip3 install maixpy3` 安装。
 
@@ -89,17 +97,10 @@ Installing collected packages: MaixPy3
 Successfully installed MaixPy3-0.2.9
 ```
 
-现在你安装好后，可以在 python3 中复制粘贴如下代码运行。
+输出以上信息则是代表安装好了，下面为实拍图。
 
-```python
-from maix import display, camera
-display.show(camera.capture())
-```
+![](./asserts/ubuntu.png)
 
-现在你可以看到系统唤起了图像浏览器显示的摄像头捕获的图像。
+通常来说，像树莓派 2B 这类拥有桌面环境面（DE）的 linux 硬件也是可以通过 pip 进行安装 Linux Desktop 分支的，效果都是一样的。
 
-![./asserts/dalaoshu.png](./asserts/dalaoshu.png)
-
-> 它借助了 opencv-python 和 PIL 的接口功能实现的。
-
-
+![](./asserts/rpi2b.png)

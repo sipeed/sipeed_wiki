@@ -1,7 +1,7 @@
 {
     "items": [
         {
-            "label": "什么是 MaixPy3",
+            "label": "MaixPy3 是什么？",
             "file": "readme.md"
         },
         {
@@ -9,145 +9,143 @@
             "file": "origin/difference.md"
         },
         {
-            "label": "使用 MaixPy3 进行开发",
+            "label": "一些 Python 的前置知识",
+            "file": "origin/python.md",
+            "items": [
+                {
+                    "label": "Python 入门教程 [1]",
+                    "file": "origin/hello_world.md"
+                },
+                {
+                    "label": "Python 入门教程 [2]",
+                    "file": "origin/loop_python.md"
+                }
+            ]
+        },
+        {
+            "label": "安装 MaixPy3 环境",
+            "file": "install/install.md"
+        },
+        {
+            "label":"安装 MaixPy3 IDE",
+            "file":"tools/MaixPy3_IDE.md"
+        },
+        {
+            "label": "基本使用方法",
             "collapsed": false,
             "items": [
                 {
-                    "label": "前置知识——Python",
-                    "file": "origin/python.md",
+                    "label": "摄像头相关操作",
                     "items": [
                         {
-                            "label": "Python 入门教程 [1]",
-                            "file": "python/hello_world.md"
+                            "label": "使用摄像头拍摄图片",
+                            "file": "usage/camera/camera.md"
                         },
                         {
-                            "label": "Python 入门教程 [2]",
-                            "file": "python/loop_python.md"
+                            "label": "图像处理",
+                            "file": "usage/camera/image.md"
+                        },
+                        {
+                            "label":"图像操作",
+                            "file":""
                         }
                     ]
                 },
                 {
-                    "label": "安装 MaixPy3",
-                    "file": "install/install.md"
-                },
-                {
-                    "label":"MaixPy3 IDE 介绍",
-                    "file":"tools/MaixPy3_IDE.md"
-                },
-                {
-                    "label": "基础使用教程",
-                    "collapsed": false,
+                    "label": "基础外设的使用",
                     "items": [
                         {
-                            "label": "启动摄像头！",
-                            "items": [
-                                {
-                                    "label": "使用摄像头拍摄图片",
-                                    "file": "usage/camera/camera.md"
-                                },
-                                {
-                                    "label": "图像处理",
-                                    "file": "usage/camera/image.md"
-                                }
-                            ]
+                            "label": "GPIO",
+                            "file": "usage/hardware/GPIO.ipynb"
                         },
                         {
-                            "label": "启动外设通信！",
-                            "items": [
-                                {
-                                    "label": "GPIO",
-                                    "file": "usage/hardware/GPIO.md"
-                                },
-                                {
-                                    "label": "I2C",
-                                    "file": "usage/hardware/I2C.md"
-                                },
-                                {
-                                    "label": "PWM",
-                                    "file": "usage/hardware/PWM.md"
-                                },
-                                {
-                                    "label": "UART",
-                                    "file": "usage/hardware/UART.md"
-                                },
-                                {
-                                    "label": "SPI",
-                                    "file": "usage/hardware/SPI.md"
-                                },
-                                {
-                                    "label": "事件输入",
-                                    "file": "usage/hardware/key.md"
-                                }
-                            ]
+                            "label": "I2C",
+                            "file": "usage/hardware/I2C.ipynb"
                         },
                         {
-                            "label": "启动神经网络！",
-                            "items": [
-                                {
-                                    "label": "1000种物品分类",
-                                    "file": "usage/AI_net/resnet.md"
-                                },
-                                {
-                                    "label": "边缘检测",
-                                    "file": "usage/AI_net/Edge_detection.md"
-                                },
-                                {
-                                    "label": "人脸检测",
-                                    "file": "usage/AI_net/find_face.md"
-                                },
-                                {
-                                    "label": "人脸识别网络",
-                                    "file": "usage/AI_net/face_recognize.md"
-                                },
-                                {
-                                    "label": "训练属于自己的神经网络（分类）",
-                                    "file": "usage/AI_net/train_resnet.md"
-                                }
-                            ]
+                            "label": "PWM",
+                            "file": "usage/hardware/PWM.ipynb"
                         },
                         {
-                            "label": "启动网络服务",
-                            "file": "usage/net.md"
+                            "label": "UART",
+                            "file": "usage/hardware/UART.ipynb"
                         },
                         {
-                            "label": "启动多媒体",
-                            "items": [
-                                {
-                                    "label": "视频操作",
-                                    "file": "usage/Audio/play_mp4.md"
-                                },
-                                {
-                                    "label": "音频操作",
-                                    "file": "usage/Audio/audio.md"
-                                },
-                                {
-                                    "label": "语音识别",
-                                    "file": "usage/Audio/speech.md"
-                                }
-                            ]
+                            "label": "SPI",
+                            "file": "usage/hardware/SPI.ipynb"
+                        },
+                        {
+                            "label": "按键输入",
+                            "file": "usage/hardware/key.md"
                         }
                     ]
                 },
                 {
-                    "label": "API 手册",
+                    "label": "神经网络的使用方法",
                     "items": [
                         {
-                            "label": "Camera",
-                            "file":"api/maix/camera.md"
+                            "label": "1000种物品分类",
+                            "file": "usage/AI_net/resnet.md"
                         },
                         {
-                            "label": "Display",
-                            "file":"api/maix/display.md"
+                            "label": "边缘检测",
+                            "file": "usage/AI_net/Edge_detection.md"
                         },
                         {
-                            "label":"Image",
-                            "file":"api/maix/image.md"
+                            "label": "人脸检测",
+                            "file": "usage/AI_net/find_face.md"
                         },
                         {
-                            "label": "nn",
-                            "file": "api/maix/nn.md"
+                            "label": "人脸识别网络",
+                            "file": "usage/AI_net/face_recognize.md"
+                        },
+                        {
+                            "label": "训练属于自己的神经网络（分类）",
+                            "file": "usage/AI_net/train_resnet.md"
                         }
                     ]
+                },
+                {
+                    "label": "启动网络服务",
+                    "file": "usage/net.md"
+                },
+                {
+                    "label": "启动多媒体",
+                    "items": [
+                        {
+                            "label": "视频操作",
+                            "file": "usage/Audio/play_mp4.md"
+                        },
+                        {
+                            "label": "音频操作",
+                            "file": "usage/Audio/audio.md"
+                        },
+                        {
+                            "label": "语音识别",
+                            "file": "usage/Audio/speech.md"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "API 手册",
+            "items": [
+                {
+                    "label": "Camera",
+                    "file":"api/maix/camera.md"
+                },
+                {
+                    "label": "Display",
+                    "file":"api/maix/display.md"
+                },
+                {
+                    "label":"Image",
+                    "file":"api/maix/image.md"
+                },
+                {
+                    "label": "nn",
+                    "file": "api/maix/nn.md"
                 }
             ]
         },

@@ -15,11 +15,11 @@
 print('Hello World')
 ```
 
-![](./asserts/win_python.png)
+![](./../usage/asserts/win_python.png)
 
 而嵌入式设备上的 python 是通过串口（serial）传出来。
 
-![](./asserts/maix_python.png)
+![](./../usage/asserts/maix_python.png)
 
 当写完了第一行 `Hello World` 的 `print` 函数，总不能一直复制、粘贴代码吧。
 

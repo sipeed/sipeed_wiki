@@ -166,6 +166,10 @@
                     "file": "tang/Tang-Nano/Tang-Nano.md"
                 },
                 {
+                    "label": "Tang Nano 1K",
+                    "file": "tang/Tang-Nano-1K/Tang-Nano-1K.md"
+                },
+                {
                     "label": "Tang Nano 4K",
                     "file": "tang/Tang-Nano-4K/Nano-4K.md",
                     "items": [
