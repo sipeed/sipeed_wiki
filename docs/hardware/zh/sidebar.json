@@ -89,25 +89,23 @@
                     "items": [
                         {
                             "label": "MaixSense简介",
-                            "file": "maixII/M2A/MaixSense/maixsense.md",
-                            "items": [
-                                {
-                                    "label": "烧录系统",
-                                    "file": "maixII/M2A/MaixSense/start/start.md"
-                                },
-                                {
-                                    "label": "配置系统",
-                                    "file": "maixII/M2A/MaixSense/start/buildsystem.md"
-                                },
-                                {
-                                    "label": "开箱测试",
-                                    "file": "maixII/M2A/MaixSense/start/first.md"
-                                },
-                                {
-                                    "label": "上手使用",
-                                    "file": "maixII/M2A/MaixSense/start/user.md"
-                                }
-                            ]
+                            "file": "maixII/M2A/maixsense.md"
+                        },
+                        {
+                            "label": "烧录系统",
+                            "file": "maixII/M2A/start.md"
+                        },
+                        {
+                            "label": "配置系统",
+                            "file": "maixII/M2A/buildsystem.md"
+                        },
+                        {
+                            "label": "开箱测试",
+                            "file": "maixII/M2A/first.md"
+                        },
+                        {
+                            "label": "上手使用",
+                            "file": "maixII/M2A/user.md"
                         }
                     ]
                 }

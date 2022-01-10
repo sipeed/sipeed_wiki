@@ -81,6 +81,9 @@ Lichee RV - Nezha CM是模块化设计的核心计算模组，搭载全志D1主�
 ## 资料下载
 [硬件资料下载](https://dl.sipeed.com/shareURL/LICHEE/D1/Lichee_RV/HDK)
 
-[系统镜像](https://dl.sipeed.com/shareURL/LICHEE/D1/Lichee_RV/SDK)
+Debian 系统镜像请到百度网盘上下载：链接：<https://pan.baidu.com/s/1QJTaDw6kkTM4c_GAlmG0hg>  提取码：wbef
+
+Please download the Debian system image from Baidu Netdisk: Link: <https://pan.baidu.com/s/1QJTaDw6kkTM4c_GAlmG0hg> Extraction code: wbef
+or Mega netdisk: <https://mega.nz/folder/lx4CyZBA#PiFhY7oSVQ3gp2ZZ_AnwYA>
 
 [源码获取](/hardware/zh/lichee/RV/user.html#BSP-SDK-开发指南)

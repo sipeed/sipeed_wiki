@@ -8,7 +8,7 @@ desc: maixpy doc: linux_x86_64 如何安装？
 
 目前 MaixPy3 支持的平台主要如下，未来会进一步适配其他低端嵌入式 Linux 平台。
 
-- [MaixII-Dock](/hardware/zh/maixII/M2/introduce.html)
+- [MaixII-Dock](/hardware/zh/maixII/M2/resources.html)
 
 - [MaixSense](/hardware/zh/maixII/M2A/R329.html)
 
