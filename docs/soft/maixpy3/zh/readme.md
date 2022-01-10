@@ -12,7 +12,9 @@ desc: maixpy doc: MaixPy3 是什么？能做什么？
 
 [![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE) [![PyPI version](https://badge.fury.io/py/maixpy3.svg)](https://badge.fury.io/py/maixpy3) ![Python](https://img.shields.io/badge/Python-3.5↗-ff69b4.svg) ![issue](https://img.shields.io/github/issues/sipeed/maixpy3.svg)
 
-2020 年由 [Sipeed](https://www.sipeed.com/) 推出的 MaixPy3 开源软件是基于 [cpython](https://github.com/python/cpython) 的 Python3 集成环境包，意在借助 Python 编程语言，简化和统一 Linux 嵌入式设备上开发 AIoT （人工智能物联网） = AI（人工智能） + IoT（物联网）应用的流程，产品的特色主要侧重于视觉或听觉的 AI 应用评估和落地。
+## 如何让初学者轻松开发嵌入式 AI 应用？
+
+为了解决这个问题 [Sipeed](https://www.sipeed.com/) 在 2020 年末的时候推出了 [MaixPy3](https://github.com/sipeed/MaixPy3) 开源软件，这是一款基于 [cpython](https://github.com/python/cpython) 的 Python3 软件开发工具包（SDK），意在借助 Python 编程语言，统一和简化 Linux 嵌入式设备上开发 AIoT （人工智能物联网） = AI（人工智能） + IoT（物联网）应用的流程，该开源产品的主要用途侧重于视觉或听觉的 AI 应用的评估与落地。
 
 ## 以往嵌入式 Linux 设备是如何编程的？
 
@@ -78,7 +80,7 @@ print('1 + 1 = ?', 1 + 1)
 - 访问硬件外设的 Python 驱动代码，支持常见的各类传感器。
 - 在 GitHub 开源的 [MaixPy3](https://github.com/sipeed/MaixPy3) 仓库。
 
-说了这么多，不妨来看一下产品的介绍吧！（目前先占个坑）
+说了这么多，不妨来看一下产品的介绍吧！（2022年01月10日目前还没有拍，别急）
 
 <iframe src="//player.bilibili.com/player.html?aid=549271067&bvid=BV1Uq4y1u7R4&cid=444211683&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 

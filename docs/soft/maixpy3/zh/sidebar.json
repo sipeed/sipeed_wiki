@@ -24,7 +24,153 @@
         },
         {
             "label": "安装 MaixPy3 环境",
-            "file": "install/install.md"
+            "file": "install/install.md",
+            "items":[
+                    {
+                    "label":"安装 MaixPy3 IDE",
+                    "file":"tools/MaixPy3_IDE.md"
+                    },
+                    {
+                        "label":"通过 IDE 连接 MaixII-Dock",
+                        "file":"tools/maixii-dock.md"
+                    },
+                    {
+                        "label":"通过 IDE 连接 MaixSense",
+                        "file":"tools/maixsense.md"
+                    }
+            ]
+        },
+        {
+            "label": "基础使用方法",
+            "collapsed": false,
+            "items": [
+                {
+                    "label": "视觉功能",
+                    "items": [
+                        {
+                            "label": "摄像头用法",
+                            "file": "usage/camera/camera.md"
+                        },
+                        {
+                            "label": "图像处理",
+                            "file": "usage/camera/image.md"
+                        }
+                    ]
+                },
+                {
+                    "label": "外设功能",
+                    "items": [
+                        {
+                            "label": "GPIO",
+                            "file": "usage/hardware/GPIO.ipynb"
+                        },
+                        {
+                            "label": "I2C",
+                            "file": "usage/hardware/I2C.ipynb"
+                        },
+                        {
+                            "label": "PWM",
+                            "file": "usage/hardware/PWM.ipynb"
+                        },
+                        {
+                            "label": "UART",
+                            "file": "usage/hardware/UART.ipynb"
+                        },
+                        {
+                            "label": "SPI",
+                            "file": "usage/hardware/SPI.ipynb"
+                        },
+                        {
+                            "label": "EVENT",
+                            "file": "usage/hardware/key.md"
+                        }
+                    ]
+                },
+                {
+                    "label": "网络服务功能",
+                    "file": "usage/net.md"
+                },
+                {
+                    "label": "多媒体功能",
+                    "items": [
+                        {
+                            "label": "视频播放",
+                            "file": "usage/Audio/play_mp4.md"
+                        },
+                        {
+                            "label": "录音与播放",
+                            "file": "usage/Audio/audio.md"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label":"MaixPy3 AI 功能",
+            "items":[
+                {
+                    "label": "1000种物品分类",
+                    "file": "usage/AI_net/resnet.md"
+                },
+                {
+                    "label": "边缘检测",
+                    "file": "usage/AI_net/Edge_detection.md"
+                },
+                {
+                    "label": "人脸检测",
+                    "file": "usage/AI_net/find_face.md"
+                },
+                {
+                    "label": "人脸识别网络",
+                    "file": "usage/AI_net/face_recognize.md"
+                },
+                {
+                    "label": "训练属于自己的神经网络（分类）",
+                    "file": "usage/AI_net/train_resnet.md"
+                }
+            ]
+        },
+        {
+            "label": "核心 API 手册",
+            "items": [
+                {
+                    "label": "Camera",
+                    "file":"api/maix/camera.md"
+                },
+                {
+                    "label": "Display",
+                    "file":"api/maix/display.md"
+                },
+                {
+                    "label":"Image",
+                    "file":"api/maix/image.md"
+                },
+                {
+                    "label": "nn",
+                    "file": "api/maix/nn.md"
+                }
+            ]
+        },
+        {
+            "label": "MaixPy3 常见问题与解决方法",
+            "file":"question/maixpy3_faq.ipynb"
+        },
+        {
+            "label": "让你的硬件加入 MaixPy3 吧！",
+            "items":[
+                {
+                    "label":"如何开发 MaixPy3",
+                    "file":"others/develop.md"
+                },
+                {
+                    "label":"如何适配你的硬件平台",
+                    "file":"others/platform.md"
+                },
+                {
+                    "label":"一同分享开发成果吧",
+                    "file":"others/product.md"
+                }
+            ]
         }
     ]
 }
