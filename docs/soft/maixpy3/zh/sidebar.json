@@ -48,11 +48,10 @@
                     "label": "视觉功能",
                     "items": [
                         {
-                            "label": "摄像头用法",
-                            "file": "usage/camera/camera.md"
+                            "label": "图像的获取与显示"
                         },
                         {
-                            "label": "图像处理",
+                            "label": "常用的图像处理方法",
                             "file": "usage/camera/image.md"
                         }
                     ]
@@ -87,11 +86,11 @@
                     ]
                 },
                 {
-                    "label": "网络服务功能",
+                    "label": "网络功能",
                     "file": "usage/net.md"
                 },
                 {
-                    "label": "多媒体功能",
+                    "label": "媒体功能",
                     "items": [
                         {
                             "label": "视频播放",
@@ -165,10 +164,6 @@
                 {
                     "label":"如何适配你的硬件平台",
                     "file":"others/platform.md"
-                },
-                {
-                    "label":"一同分享开发成果吧",
-                    "file":"others/product.md"
                 }
             ]
         }

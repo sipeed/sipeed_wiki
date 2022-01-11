@@ -165,7 +165,17 @@
                 },
                 {
                     "label": "Tang Nano 1K",
-                    "file": "tang/Tang-Nano-1K/Tang-Nano-1K.md"
+                    "file": "tang/Tang-Nano-1K/Tang-Nano-1k.md",
+                    "items":[
+                        {
+                            "label":"安装 IDE",
+                            "file":"../../soft/Tang/zh/Tang-Nano-Doc/get_started/install-the-ide.md"
+                        },
+                        {
+                            "label":"一些例程",
+                            "file":"tang/Tang-Nano-1K/user.md"
+                        }
+                    ]
                 },
                 {
                     "label": "Tang Nano 4K",
