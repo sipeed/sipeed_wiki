@@ -4,6 +4,8 @@ keywords: 人脸识别, MaixPy3, Python, Python3
 desc: maixpy doc: 人脸识别
 ---
 
+
+> 2022年01月11日 以下代码由于 Maixpy3 还在施工中，此处代码仅供参考和示范，功能已在 github 和 社区供其他同学使用和参考。
 人脸识别的模型，可以通过 maixhub 中下载，将下载之后得到的模型，通过 ssh 等连接方式，存放到开发板中
 
 具体的部署代码在 [Github](https://github.com/sipeed/MaixPy3/blob/master/ext_modules/_maix_nn/example/face_recognize.py) 中，将代码复制出来，需要修改脚本中读取模型的位置，运行代码即可进行人脸识别

@@ -19,6 +19,10 @@
                 {
                     "label": "Python 入门教程 [2]",
                     "file": "origin/loop_python.md"
+                },
+                {
+                    "label":"Python 教程视频",
+                    "file":"origin/video.md"
                 }
             ]
         },
@@ -48,11 +52,12 @@
                     "label": "视觉功能",
                     "items": [
                         {
-                            "label": "图像的获取与显示"
+                            "label": "图像基础用法",
+                            "file": "usage/vision/image_base.ipynb"
                         },
                         {
-                            "label": "常用的图像处理方法",
-                            "file": "usage/camera/image.md"
+                            "label": "传统视觉算法",
+                            "file": "usage/vision/image.md"
                         }
                     ]
                 },
@@ -130,39 +135,18 @@
             ]
         },
         {
-            "label": "核心 API 手册",
-            "items": [
-                {
-                    "label": "Camera",
-                    "file":"api/maix/camera.md"
-                },
-                {
-                    "label": "Display",
-                    "file":"api/maix/display.md"
-                },
-                {
-                    "label":"Image",
-                    "file":"api/maix/image.md"
-                },
-                {
-                    "label": "nn",
-                    "file": "api/maix/nn.md"
-                }
-            ]
-        },
-        {
             "label": "MaixPy3 常见问题与解决方法",
             "file":"question/maixpy3_faq.ipynb"
         },
         {
-            "label": "让你的硬件加入 MaixPy3 吧！",
+            "label": "让更多硬件加入 MaixPy3 吧!",
             "items":[
                 {
-                    "label":"如何开发 MaixPy3",
+                    "label":"如何开发 MaixPy3 （过时）",
                     "file":"others/develop.md"
                 },
                 {
-                    "label":"如何适配你的硬件平台",
+                    "label":"如何适配其他硬件平台（过时）",
                     "file":"others/platform.md"
                 }
             ]

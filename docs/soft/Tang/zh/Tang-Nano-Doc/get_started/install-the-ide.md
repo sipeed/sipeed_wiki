@@ -5,7 +5,7 @@
 
 1. 用户安装请根据自己电脑系统进行IDE选择，例如Windows系统的用户用选择带有Win版本的IDE。
 2. 不推荐使用教育版本，教育版本安装之后可选芯片仅包含教育使用芯片型号，可选型号稀少。
-3. 1.9.8之前的版本已经进行了单机版和联网版license的申请，用户可以直接按照Tang nano 4K说明的步骤进行操作：[Tang nano 4K](https://wiki.sipeed.com/soft/Tang/zh/Tang-Nano-Doc/get_started/install-the-ide.html),若安装1.9.8之后的版本现阶段需用户自行进行申请。
+3. 1.9.8之前的版本已经进行了单机版和联网版license的申请
 
 
 ## 安装软件
