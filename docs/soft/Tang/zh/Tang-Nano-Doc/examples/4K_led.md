@@ -103,7 +103,7 @@ endmodule
 
 LED对应的IO10默认是mode Pin，无法直接约束，需要打开Project>Configuration>Dual-Purpose Pin,勾选 Use MODE as regular IO,如下图
 
-<img src="(./../../../assets/Nano-4K/4K-led-2.png)" alt="image-20210810161934170" style="zoom:50%;" />
+<img src="./../../../Nano-4K/4K-led-2.png" alt="image-20210810161934170" style="zoom:50%;" />
 
 ## 综合
 

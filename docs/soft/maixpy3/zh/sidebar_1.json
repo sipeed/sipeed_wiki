@@ -25,6 +25,27 @@
         {
             "label": "安装 MaixPy3 环境",
             "file": "install/install.md"
+        },
+        {
+            "label": "核心 API 手册",
+            "items": [
+                {
+                    "label": "Camera",
+                    "file":"api/maix/camera.md"
+                },
+                {
+                    "label": "Display",
+                    "file":"api/maix/display.md"
+                },
+                {
+                    "label":"Image",
+                    "file":"api/maix/image.md"
+                },
+                {
+                    "label": "nn",
+                    "file": "api/maix/nn.md"
+                }
+            ]
         }
     ]
 }
