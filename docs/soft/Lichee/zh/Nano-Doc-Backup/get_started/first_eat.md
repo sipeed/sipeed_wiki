@@ -41,7 +41,7 @@ PATH="$PATH:/opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-linux-gnueabi/bin"
 
 ### 编译 u-boot
 
-然后从github上拉取对 Nano 进行了适配的 u-boot：
+然后从gitee上拉取对 Nano 进行了适配的 u-boot：
 
 ``` 
 sudo apt-get install git
