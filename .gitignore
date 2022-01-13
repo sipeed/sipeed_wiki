@@ -2,3 +2,4 @@ out
 __pycache__
 temp
 .vscode
+.ipynb_checkpoints

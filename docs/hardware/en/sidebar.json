@@ -173,8 +173,11 @@
                             "file":"tang/Tang-Nano-4K/start.md"
                         }
                     ]
-                }
-                                                       
+                },
+                {
+                    "label": "Tang Nano 9K",
+                    "file": "tang/Tang-Nano-9K/Nano-9K.md"
+                }                                       
             ]
         },
         {
