@@ -28,6 +28,7 @@
         },
         {
             "label": "安装 MaixPy3 环境",
+            "collapsed": false,
             "file": "install/install.md",
             "items":[
                     {
@@ -111,6 +112,7 @@
         },
         {
             "label":"MaixPy3 AI 功能",
+            "collapsed": false,
             "items":[
                 {
                     "label": "1000种物品分类",
