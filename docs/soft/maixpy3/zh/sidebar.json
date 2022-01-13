@@ -51,20 +51,17 @@
             "items": [
                 {
                     "label": "视觉功能",
+                    "file": "usage/vision/image.md",
                     "items": [
                         {
-                            "label": "机器视觉背景知识"
+                            "label": "背景知识"
                         },
                         {
-                            "label": "图像基础用法",
+                            "label": "基础用法",
                             "file": "usage/vision/image_base.ipynb"
                         },
                         {
-                            "label": "传统视觉算法",
-                            "file": "usage/vision/image.md"
-                        },
-                        {
-                            "label": "视觉应用案例讲解"
+                            "label": "经典案例"
                         }
                     ]
                 },
