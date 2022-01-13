@@ -11,3 +11,7 @@
 ## Tang Nano 4K
 
 [![Tang Nano 4K](./../../assets/Tang/Nano_4K/Nano_4K.png)](./Tang-Nano-4K/Nano-4K.md)
+
+## Tang Nano 9K
+
+[![Tang Nano 9K](./../../assets/Tang/Nano_9K/Nano_9K.png)](./Tang-Nano-9K/Nano-9K.md)
