@@ -56,10 +56,6 @@
                     "file": "maixII/M2/resources.md",
                     "items": [
                         {
-                            "label": "连接开发板",
-                            "file": "maixII/M2/tools/0.MaixII-Dock.ipynb"
-                        },
-                        {
                             "label": "烧录系统",
                             "file": "maixII/M2/flash.md"
                         },
