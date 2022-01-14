@@ -11,14 +11,18 @@
     [Tina](https://dl.sipeed.com/shareURL/LICHEE/D1/Lichee_RV/SDK/image) 系统镜像或者 Debian 系统镜像(链接：https://pan.baidu.com/s/1QJTaDw6kkTM4c_GAlmG0hg 提取码：wbef)
     国外用户：<https://mega.nz/folder/lx4CyZBA#PiFhY7oSVQ3gp2ZZ_AnwYA>
 
-| 镜像名 | 含义 | 备注 |
+| 镜像词缀说明 | 含义 | 备注 |
 | --- | --- | --- |
-| LicheeRV_Tina_86_waft.img | 在 LicheeRV 上运行 Tina 系统，支持 LicheeRV 86 底板，内置 waft 软件 | --- |
-| LicheeRV_Tina_86_480p.img | 在 LicheeRV 上运行 Tina 系统，支持 86 底板，支持480p分辨率的屏幕 | --- |
-| LicheeRV_Tina_86_800480.img |  在 LicheeRV 上运行 Tina 系统，支持 LicheeRV Dock 底板，分辨率为 800 * 480 | --- |
-| LicheeRV_Debian_hdmi.img | 在 LicheeRV 上运行 Debian 系统，支持 LicheeRV Dock 底板，支持 HDMI 接口 | --- |
-| LicheeRV_Debian_86_480p.img | 在 LicheeRV 上运行 Debian 系统，支持 LicheeRV 86 底板，支持 480p 分辨率 | --- |
-
+| LicheeRV | Sipeed 专用的 RISCV D1 Linux 系列系统。 | --- |
+| Tina | 标记为 tina openwrt 系统。 | --- |
+| debian | 标记为 riscv debian 系统。 | --- |
+| 86panel | [taobao 86panel](https://item.taobao.com/item.htm?spm=a230r.1.14.18.30b534187YMsRx&id=663345415205&ns=1&abbucket=7#detail) | --- |
+| dock | [taobao dock](https://item.taobao.com/item.htm?spm=a1z10.3-c-s.w4002-21410578028.20.35765d54K9XCOt&id=666274331852) | --- |
+| hdmi | 表示屏幕默认输出到 HDMI 屏幕上。 |  |
+| 800480 / 480P | 表示屏幕默认输出到 LCD 屏幕上，分辨率可以是 800*480 或 480P (640X480)。 |  |
+| 8723ds | 表示该镜像支持 8723ds WIFI / BLE 驱动。 |  |
+| xr829 | 表示该镜像支持 xr829 WIFI / BLE 驱动。 |  |
+| waft | 是否内置 waft 软件。 |  |
 
 
 ## 烧录镜像
