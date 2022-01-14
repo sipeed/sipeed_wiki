@@ -37,11 +37,7 @@
                     },
                     {
                         "label":"通过 IDE 连接 MaixII-Dock",
-                        "file":"tools/maixii-dock.md"
-                    },
-                    {
-                        "label":"通过 IDE 连接 MaixSense",
-                        "file":"tools/maixsense.md"
+                        "file":"tools/0.MaixII-Dock.ipynb"
                     }
             ]
         },
@@ -136,6 +132,27 @@
                 {
                     "label": "训练属于自己的神经网络（分类）",
                     "file": "usage/AI_net/train_resnet.md"
+                }
+            ]
+        },
+        {
+            "label": "核心 API 手册",
+            "items": [
+                {
+                    "label": "Camera",
+                    "file":"api/maix/camera.md"
+                },
+                {
+                    "label": "Display",
+                    "file":"api/maix/display.md"
+                },
+                {
+                    "label":"Image",
+                    "file":"api/maix/image.md"
+                },
+                {
+                    "label": "nn",
+                    "file": "api/maix/nn.md"
                 }
             ]
         },

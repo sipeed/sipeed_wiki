@@ -80,7 +80,7 @@ print('1 + 1 = ?', 1 + 1)
 - 访问硬件外设的 Python 驱动代码，支持常见的各类传感器。
 - 在 GitHub 开源的 [MaixPy3](https://github.com/sipeed/MaixPy3) 仓库。
 
-说了这么多，不妨来看一下产品的介绍吧！（2022年01月10日目前还没有拍，别急）
+说了这么多，不妨来看一下产品的介绍吧！（2022年01月10日目前还没有拍，下面视频占坑用的）
 
 <iframe src="//player.bilibili.com/player.html?aid=549271067&bvid=BV1Uq4y1u7R4&cid=444211683&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
