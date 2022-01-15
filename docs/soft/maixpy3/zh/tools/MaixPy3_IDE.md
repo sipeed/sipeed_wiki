@@ -53,11 +53,15 @@ MaixPy3 IDE 的构成主要如下：
 
 **只支持 Windows7 或 Windows10 32位以上的系统，需要自带安装了支持谷歌内核浏览器的系统，Windows11 测试样本极少，需要慎重选用**
 
-为了节约用户自己配置的操作，我们提供了开箱即用的绿色软件，它是借助 pyinstaller 将 ipython 、 jupyter 、 rpyc_ikernel 合并导出的 Python 程序，你可以在[下载站](https://dl.sipeed.com/shareURL/MaixII/MaixPy3-IDE)中获得 MaixPy3 IDE exe 安装包，安装程序结束之后，它会调用系统默认的浏览器以网页的形式打开，运行的浏览器需要 chrome 内核支持，不能是 IE 浏览器。
+为了节约用户自己配置的操作，我们提供了开箱即用的绿色软件，它是借助 pyinstaller 将 ipython 、 jupyter 、 rpyc_ikernel 合并导出的 Python 程序，你可以在[下载站](https://dl.sipeed.com/shareURL/MaixII/MaixPy3-IDE)中获得 MaixPy3 IDE exe 安装包，安装程序结束之后，它会调用系统默认的浏览器以网页的形式打开，运行的浏览器需要 chrome 内核支持，不能是 IE 浏览器，旧版的 Edge 加载 8M 以上的页面会卡死，不是特别推荐。
 
 ![IDE_1](./assets/IDE_1.png)
 
 > 若是下载站很慢，可以在[百度云](https://pan.baidu.com/s/1C7Jl3rXticeJsCgH-fIcbQ)下载，提取码：2333 。
+
+2022年1月15日收到用户的反馈点
+
+曾经有自己手动配置过环境的同学，需要在删除你系统的 `C:\Users\（改成你电脑的用户名）\AppData\Roaming\jupyter\kernels\rpyc` 防止调用核心时调用了过去的旧核心导致错误发生。
 
 ### 关于 Mac 和 linux 其他平台的安装方法
 
@@ -68,7 +72,7 @@ pip install rpyc_ikernel
 python -m rpyc_ikernel.install
 ```
 
-此时运行 jupyter notebook 或 lab 即可，注意 Windows 平台也同理。
+此时运行 jupyter notebook 或 lab 即可，注意 Windows 的 adb.exe 可以从 IDE 中提取或官方下载得到，然后自行配置到环境变量中，若是其他平台则自带。
 
 ## MaixPy3 IDE 界面介绍
 
