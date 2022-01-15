@@ -38,8 +38,9 @@ Lichee Nano开发板板载的F1C100s芯片功能很强大，芯片内置32MBDDR�
 ### 软件参数
 | 开发环境 | 参数 |
 | --- | --- |
-| Linux | 支持3.10 BSP Linux<br>支持4.19 主持 Linux |
+| Linux | 支持3.10 BSP Linux<br>支持4.19 主线 Linux |
 | 裸机 | Xboot |
+| 裸机 | RT-Thread |
 
 ## 使用教程
 [Lichee Nano](/soft/Lichee/zh/Nano-Doc-Backup/index.md)
