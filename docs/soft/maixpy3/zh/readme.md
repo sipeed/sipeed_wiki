@@ -12,76 +12,45 @@ desc: maixpy doc: MaixPy3 是什么？能做什么？
 
 [![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE) [![PyPI version](https://badge.fury.io/py/maixpy3.svg)](https://badge.fury.io/py/maixpy3) ![Python](https://img.shields.io/badge/Python-3.5↗-ff69b4.svg) ![issue](https://img.shields.io/github/issues/sipeed/maixpy3.svg)
 
-## 如何让初学者轻松开发嵌入式 AI 应用？
+## 怎么才让初学者轻松地学会【应用】与【开发】嵌入式 AI 应用呢？
 
-为了解决这个问题 [Sipeed](https://www.sipeed.com/) 在 2020 年末的时候推出了 [MaixPy3](https://github.com/sipeed/MaixPy3) 开源软件，这是一款基于 [cpython](https://github.com/python/cpython) 的 Python3 软件开发工具包（SDK），意在借助 Python 编程语言，统一和简化 Linux 嵌入式设备上开发 AIoT （人工智能物联网） = AI（人工智能） + IoT（物联网）应用的流程，该开源产品的主要用途侧重于视觉或听觉的 AI 应用的评估与落地。
+为了解决这个问题 [Sipeed](https://www.sipeed.com/) 在 2020 年末的时候推出了 [MaixPy3](https://github.com/sipeed/MaixPy3) 开源软件，这是一款基于 [cpython](https://github.com/python/cpython) 的 Python3 软件开发工具包（SDK），意在借助 Python 编程语言，跨平台统一和简化 Linux 嵌入式设备上开发 AIoT （人工智能物联网） = AI（人工智能） + IoT（物联网）应用的流程。
 
-## 以往嵌入式 Linux 设备是如何编程的？
-
-当拿到一台嵌入式 Linux 边缘设备（例如：手机），与一台桌面计算机不同的是无法进行软件编译活动，那么要如何对它编程呢？
-
-- 准备对应平台的交叉编译链
-- 编写一段经典的 `hello world` 的 C 代码进行编译
-- 链接各种依赖库
-- 将编译好的程序送到目标设备上进行调试。
-
-```c
-#include <stdio.h>
-int main()
-{
-    printf("Hello, world\n");
-    return 0
-}
 ```
-
-不出意外的话，你应该要花费不少时间学习如下内容。
-
-- 学习如何编译程序
-- 学习 C 语言语法
-- 学习调试程序 Bug
-
-那现在呢？
-
-## “人生苦短，我用 Python 。”
-
-如果你是下述人群，那么 Python 将会非常适合你。
-
-- 对编程感兴趣却无从下手的
-- 想轻松入门 AIoT 开发的
-- 不了解，也不关心底层的
-- 想愉快写代码（偷懒）的
-- 想快速验证软硬件功能的
-- 使用过同类评估或开发板的
-
-让我们使用 Python 编写一段经典的 `hello world` 程序吧！
-
-```python
-print('hello world')
-print('1 + 1 = ?', 1 + 1)
-```
-
-### 体验一下？
-
-<div align="center" >
-    <iframe src="https://tool.lu/coderunner/embed/awD.html" style="width:90%; height:320px;" frameborder="0" mozallowfullscreen webkitallowfullscreen allowfullscreen></iframe>
-</div>
-
-> 在线 Python 编程 [runoob-python](https://www.runoob.com/try/runcode.php?filename=HelloWorld&type=python3) [google-colab](https://colab.research.google.com) 备用地址。
-
-没错，现在你已经开始 Python 编程了。
-
-## 就这？就这？？？
-
-基于上述事实使用 MaixPy3 会给你带来如下编程体验。
-
-- 使用 Python3 标准编程环境，而非 MicroPython 解释器。
-- 提供专为 AIoT 应用开发有关的底层拓展模块。
-- 支持不同芯片的 Linux 平台，自底向上的优化 Python 性能。
-- 访问硬件外设的 Python 驱动代码，支持常见的各类传感器。
-- 在 GitHub 开源的 [MaixPy3](https://github.com/sipeed/MaixPy3) 仓库。
-
-说了这么多，不妨来看一下产品的介绍吧！（2022年01月10日目前还没有拍，下面视频占坑用的）
-
+此处应有视频，那么 什么是 maixpy3 呢？ （文案待整理，待编辑）
+- 介绍视频
+  - 项目背景
+    - 我们是什么，在做什么
+    - 我们想要达到什么程度
+  - 项目进展
+    - 目前支持的情况
+    - 目前的特色应用案例
+  - 项目未来
+    - 我们将会提供在线服务
+    - 我们将会建立应用生态
+    - 我们将会帮助更多人的项目落地
 <iframe src="//player.bilibili.com/player.html?aid=549271067&bvid=BV1Uq4y1u7R4&cid=444211683&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+```
 
-> “Life is short. You need Python.”
+## 使用本开源项目建议具备的背景知识
+
+> 并不是说具备了背景知识才能使用，而是当你有这些基础概念后，可以减少很多犯错的次数，避免踩到一些不必要的坑。
+
+- 有过 Python 语言编程基础，了解基本语法，如面向对象、交互解释等概念。
+
+- 有过嵌入式、单片机的基本概念，了解 IO 口、电压、串口、外设等概念。
+
+- 有使用过 maixpy K210 AI 开发板的基础（与上代[MaixPy](https://github.com/sipeed/MaixPy)开源产品联动）。
+
+## 本开源项目适用于以下人群：
+
+1. 想要了解与学习应用视觉 AI 开发的学生、爱好者、创客等。
+2. 想要应用视觉 AI 功能解决问题，但不想浪费生命在底层原理实现的同学们。
+3. 需要对 Python AI 教学、电赛毕设、视觉应用等功能评估与验证的同行们。
+4. 有过 opencv 、openmv 、 maixpy 使用基础的老朋友们！！！
+
+## 【Sipeed】开源理念
+
+意在打造可落地的 AI 开源应用生态，帮助更多人了解与使用 AI 技术来解决实际问题，推进全球边缘 AI 的落地化进程。
+
+> “Life is short. You need Sipeed.”
