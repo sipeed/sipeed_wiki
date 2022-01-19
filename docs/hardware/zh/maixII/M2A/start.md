@@ -34,9 +34,9 @@ armbian 使用的烧录方式为 dd，windows下推荐使用 Etcher，linux 下�
 
 资源获取：
 
-​	下载[Etcher](https://www.balena.io/etcher/ "Etcher")
+下载[Etcher](https://www.balena.io/etcher/ "Etcher")
 
-​	下载[SD Card Formatter](https://www.sdcard.org/downloads/formatter/eula_windows/SDCardFormatterv5_WinEN.zip "SDCardFormatter")
+下载[SD Card Formatter](https://www.sdcard.org/downloads/formatter/eula_windows/SDCardFormatterv5_WinEN.zip "SDCardFormatter")
 
 首先解压镜像，得到 .img 镜像文件，然后使用 SD Card Formatter 格式化sd卡，打开Etcher，点击 `Flash from file` ,选中dd镜像包，然后点击 `Select target` 选中sd卡，最后点击 `Flash` 烧录。 
 

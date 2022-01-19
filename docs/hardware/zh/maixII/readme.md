@@ -18,5 +18,5 @@
 ## Maix Sense
 <div align="center">
 
-<a href="./M2A/R329.html"><img src="./M2A/MaixSense/assets/M2A-1.gif"></a>
+<a href="./M2A/R329.html"><img src="./M2A/assets/M2A-1.gif"></a>
 </div>

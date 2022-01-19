@@ -80,13 +80,9 @@
                     ]
                 },
                 {
-                    "label": "M2A",
-                    "file": "maixII/M2A/R329.md",
+                    "label": "MaixSense",
+                    "file": "maixII/M2A/maixsense.md",
                     "items": [
-                        {
-                            "label": "MaixSense简介",
-                            "file": "maixII/M2A/maixsense.md"
-                        },
                         {
                             "label": "烧录系统",
                             "file": "maixII/M2A/start.md"

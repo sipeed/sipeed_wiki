@@ -4,8 +4,9 @@ keywords: 音频操作, MaixPy3, Python, Python3
 desc: maixpy doc: 音频操作
 ---
 
-MaixPy3 整合了 pyaudio 库，可以通过使用 pyaudio 库进行音频播放，录音等操作
+MaixPy3 关于音频相关操作采用的是 库，PyAudio 库，PyAudio 为跨平台音频 I/O 库 PortAudio 提供了 Python 绑定，帮助用户轻松地在各种平台上播放和录制音频。
 
+[pyaudio 官方文档](http://people.csail.mit.edu/hubert/pyaudio/docs/)
 
 ## 录音操作
 
@@ -66,7 +67,7 @@ if len(sys.argv) < 2:
     sys.exit(-1)
 
 # 只读方式打开wav文件
-wf = wave.open(r'D:\\Python\\Lib\\site-packages\\PyQt4\\uic\\test.wav', 'rb')#(sys.argv[1], 'rb')
+wf = wave.open(r'test.wav', 'rb')#(sys.argv[1], 'rb')
 
 p = pyaudio.PyAudio()
 
@@ -79,19 +80,15 @@ stream = p.open(format=p.get_format_from_width(wf.getsampwidth()),
 # 读取数据
 data = wf.readframes(CHUNK)
 
-# 播放  
+# 播放
 while data != '':
     stream.write(data)
     data = wf.readframes(CHUNK)
 
-# 停止数据流  
+# 停止数据流
 stream.stop_stream()
 stream.close()
 
-# 关闭 PyAudio  
-p.terminate() 
+# 关闭 PyAudio
+p.terminate()
 ```
-
-## 更多的使用
-
-想了解更多关于 pyaudio 的使用方法，自行百度 pyaudio 的使用教程，这是一个 python 的标准库，网上有很多教程

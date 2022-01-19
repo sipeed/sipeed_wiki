@@ -4,7 +4,10 @@ keywords: MaixPy3,net, Python3
 desc: maixpy doc: net
 ---
 
-> 本文讲述用户常问的实际需求所写的经验文，对于知道这些知识的用户可以忽略本节内容，至于如何联网不再本文赘述。
+
+| 更新时间 | 负责人 | 内容 | 备注 |
+| --- | --- | --- | --- |
+| 2021年1月17日 | dalaoshu | 编写文档 | 本文讲述用户常问的实际需求所写的经验文，有经验的可以忽略本节内容，至于如何联网、配网请看类似于 [MaixII-Dock 连接网络](http://wiki.sipeed.com/soft/maixpy3/zh/tools/0.MaixII-Dock.html#%E5%A6%82%E4%BD%95%E8%BF%9E%E6%8E%A5%E7%BD%91%E7%BB%9C) 的产品说明|
 
 ## 关于 Python 网络应用的一些常用例子。
 
@@ -22,7 +25,7 @@ desc: maixpy doc: net
 
 而 MQTT 让用户忽略对服务器的部署和开发，将其作为数据中转服务，将两个设备的链接行为描述成互相通信行为，而非请求服务行为，让用户只需要关注客户端的发送行为即可，而不需要考虑服务端的接收。
 
-简化的背后是需要很多逻辑维持的，同时还存在一些安全隐患问题，如早期的 HTTP 是命文传输，MQTT 是公共服务用途。
+简化的背后是需要很多逻辑维持的，同时还存在一些安全隐患问题，如早期的 HTTP 是明文传输，MQTT 是公开通信，如果要商用就需要配置相关的安全功能。
 
 ## HTTP 有什么用？怎么用？
 
@@ -48,7 +51,7 @@ u'{"type":"User"...'
 {u'private_gists': 419, u'total_private_repos': 77, ...}
 ```
 
-参见 未使用 Requests 的相似代码.
+[参见 未使用 Requests 的相似代码.](https://gist.github.com/kennethreitz/973705)
 
 Requests 允许你发送纯天然，植物饲养的 HTTP/1.1 请求，无需手工劳动。你不需要手动为 URL 添加查询字串，也不需要对 POST 数据进行表单编码。Keep-alive 和 HTTP 连接池的功能是 100% 自动化的，一切动力都来自于根植在 Requests 内部的 urllib3。
 
@@ -70,8 +73,6 @@ Requests 允许你发送纯天然，植物饲养的 HTTP/1.1 请求，无需手�
 >>> publish.single("paho/test/single", "boo123", hostname="mqtt.eclipseprojects.io")
 >>>
 ```
-
-这是最简单的一种用法。
 
 ### 如何订阅？
 

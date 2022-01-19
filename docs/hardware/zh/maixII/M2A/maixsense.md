@@ -19,7 +19,7 @@ M2A 板卡以全志 R329 为核心，集成电源芯片、FEL烧录按键、
 | CPU | Dual-core ARM Cortex™-A53@1.5GHz<br>32KB L1 I-cache + 32KB L1 D-cache per core<br>256KB L2 cache |
 | DSP | Dual-core HiFi4@400MHz<br> 32KB L1 I-cache + 32KB L1 D-cache per core<br> 2MB SRAM |
 | NPU | 搭载周易™Z1 AIPU，最大支持0.25TOPS@600MHz |
-| 内存<br>Memory |内置 DDR3 128MB<br> 支持 SPI Nand/Nor/eMMC |
+| 内存<br>Memory |内置 DDR3 256MB<br> 支持 SPI Nand/Nor/eMMC |
 | Audio | Supports 5 audio ADC and 2 audio DAC<br>Supports 5 analog audio inputs and 2 analog audio output<br>Up to 3 I2S/PCM controllers for Bluetooth and external audio codec<br>Integrated digital microphone, supports maximum 8 digital microphones |
 | Enthernet | 10/100/1000 Mbps |
 | USB | OTG \* 1<br>Host \* 1|
@@ -119,7 +119,7 @@ MaixSense 开发板可能是市面上最小的 Linux 卡片电脑, 本套件包�
 ![R329-pin](./assets/R329-pin.png)
 
 ## 资料
-[MaixSense](https://dl.sipeed.com/shareURL/MaixII/MaixII-A)
+[MaixSense 资料库](https://dl.sipeed.com/shareURL/MaixII/MaixII-A)
 
 ## 产品技术支持
 M2A 开发板可以在多种场景实现客户不同方面的需要，在 AIoT 上已经广泛的使用，品质和性能在行业内已经有非常好的口碑，专业的技术团队为广大客户解决硬件设计和软件功能上的各种各样问题。专业技术支持和更详细资料请联系商务。
