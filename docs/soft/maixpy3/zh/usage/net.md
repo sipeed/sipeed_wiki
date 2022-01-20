@@ -7,7 +7,7 @@ desc: maixpy doc: net
 
 | 更新时间 | 负责人 | 内容 | 备注 |
 | --- | --- | --- | --- |
-| 2021年1月17日 | dalaoshu | 编写文档 | 本文讲述用户常问的实际需求所写的经验文，有经验的可以忽略本节内容，至于如何联网、配网请看类似于 [MaixII-Dock 连接网络](http://wiki.sipeed.com/soft/maixpy3/zh/tools/0.MaixII-Dock.html#%E5%A6%82%E4%BD%95%E8%BF%9E%E6%8E%A5%E7%BD%91%E7%BB%9C) 的产品说明|
+| 2022年1月17日 | dalaoshu | 编写文档 | 本文讲述用户常问的实际需求所写的经验文，有经验的可以忽略本节内容，至于如何联网、配网请看类似于 [MaixII-Dock 连接网络](http://wiki.sipeed.com/soft/maixpy3/zh/tools/0.MaixII-Dock.html#%E5%A6%82%E4%BD%95%E8%BF%9E%E6%8E%A5%E7%BD%91%E7%BB%9C) 的产品说明|
 
 ## 关于 Python 网络应用的一些常用例子。
 
