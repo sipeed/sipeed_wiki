@@ -142,7 +142,7 @@
                     "file": "usage/AI_net/find_face.ipynb"
                 },
                 {
-                    "label": "数字检测",
+                    "label": "数字识别",
                     "file":"usage/AI_net/number_recognize.ipynb"
                 },
                 {
