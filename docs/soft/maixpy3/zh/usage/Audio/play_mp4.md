@@ -17,7 +17,9 @@ https://pyav.org/docs/develop/
 
 目前测试的视频格式有 mp4 和 avi，其他格式还没有进行测试，以下是我们提供的测试视频供确认效果。
 
-<iframe src="//player.bilibili.com/player.html?aid=717126108&bvid=BV1dQ4y1f7RN&cid=385731209&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+<p align="center">
+  <iframe src="//player.bilibili.com/player.html?aid=717126108&bvid=BV1dQ4y1f7RN&cid=385731209&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="max-width:640px; max-height:480px;"> </iframe>
+</p>
 
 共有3个[测试视频](https://dl.sipeed.com/shareURL/MaixII/MaixII-Dock/example),将这里得到的视频存放到 Linux 系统的 root 目录中，将 `path_to_video` 的参数修改成所存放视频路径。
 

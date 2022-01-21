@@ -1,6 +1,6 @@
 ---
-title: 什么是 MaixPy3 ？
-keywords: Maixpy3官方文档
+title: What is MaixPy3?
+keywords: Maixpy3 官方文档
 desc: maixpy doc: MaixPy3 是什么？能做什么？
 ---
 
@@ -8,32 +8,15 @@ desc: maixpy doc: MaixPy3 是什么？能做什么？
     <img src="./assets/images/main.png" style="width:480px; height:320px;" />
 </p>
 
-# MaixPy3 ![GitHub forks](https://img.shields.io/github/forks/sipeed/maixpy3.svg?style=social) ![GitHub stars](https://img.shields.io/github/stars/sipeed/maixpy3.svg?style=social) ![GitHub watchers](https://img.shields.io/github/watchers/sipeed/maixpy3.svg?style=social)
+中国的 [Sipeed 开源组织](https://github.com/sipeed) 在 2020 年底推出了 [MaixPy3](https://github.com/sipeed/MaixPy3) 开源软件，这是一款基于 [linux cpython](https://github.com/python/cpython) 的 Python3 软件开发工具包（SDK），借助开源 Python 编程语言实现跨平台统一和简化 Linux 嵌入式设备上开发 AIoT （人工智能物联网） = AI（人工智能） + IoT（物联网）应用，意在打造可落地的视觉 AI 应用生态，帮助更多人了解、使用 AI 技术来解决实际问题，推进全球边缘 AI 的落地化进程。
 
-[![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE) [![PyPI version](https://badge.fury.io/py/maixpy3.svg)](https://badge.fury.io/py/maixpy3) ![Python](https://img.shields.io/badge/Python-3.5↗-ff69b4.svg) ![issue](https://img.shields.io/github/issues/sipeed/maixpy3.svg)
+> **自言自语：怎样才能让初学者轻松地【学会视觉 AI 应用】和【开发出可落地的产品】呢？**
 
-## MaixPy3 の 起 源
+<p align="center">
+    <iframe src="//player.bilibili.com/player.html?aid=465792152&bvid=BV1ZL411c7kc&cid=489256831&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="max-width:640px; max-height:480px;"> </iframe>
+</p>
 
-> **怎样才能让初学者轻松地学会【应用】与【开发】边缘 AI 应用到产品落地呢？**
-
-为了解决这个问题，中国的 [Sipeed 开源组织](https://github.com/sipeed) 在 2020 年末的时候推出了 [MaixPy3](https://github.com/sipeed/MaixPy3) 开源软件，这是一款基于 [cpython](https://github.com/python/cpython) 的 Python3 软件开发工具包（SDK），借助开源 Python 编程语言实现跨平台统一和简化 Linux 嵌入式设备上开发 AIoT （人工智能物联网） = AI（人工智能） + IoT（物联网）应用，意在打造可落地的 AI 应用生态，帮助更多人了解与使用 AI 技术来解决实际问题，推进全球边缘 AI 的落地化进程。
-
-```
-此处应有视频，关于 maixpy3 的介绍的项目定位。
-- 介绍视频
-  - 项目背景
-    - 我们是什么，在做什么？
-    - 介绍 maixpy 开源项目
-    - 介绍学习 AI 技术对技术人来说，有什么意义。
-  - 项目定位
-    - 我们期望达到什么程度
-  - 项目进展
-    - 目前支持的情况
-    - 目前的特色应用
-  - 项目预期
-    - 我们将会提供在线服务与建立应用生态
-    - 我们将会帮助更多人学习和掌握 AI 应用技术。
-```
+> 2022年01月21日 粗剪版视频还缺少【训练模型流程】和【产品特色亮点】
 
 ## 本开源项目适用于以下人群：
 
@@ -52,9 +35,9 @@ desc: maixpy doc: MaixPy3 是什么？能做什么？
 
 当你有这些基础概念后，你可以减少很多犯错的次数，避免踩到一些不必要的坑。
 
-## [MaixPy3](https://github.com/sipeed/MaixPy3) 项目 star 统计
+## [MaixPy3](https://github.com/sipeed/MaixPy3) star-history
 
-欢迎 star 和提 issue 喔，球球了！！！！orz
+![GitHub forks](https://img.shields.io/github/forks/sipeed/maixpy3.svg?style=social) ![GitHub stars](https://img.shields.io/github/stars/sipeed/maixpy3.svg?style=social) ![GitHub watchers](https://img.shields.io/github/watchers/sipeed/maixpy3.svg?style=social)
 
 <iframe style="width:100%;height:auto;min-width:600px;min-height:400px;" src="https://star-history.com/embed?secret=#sipeed/MaixPy3&Date" frameBorder="0"></iframe>
 

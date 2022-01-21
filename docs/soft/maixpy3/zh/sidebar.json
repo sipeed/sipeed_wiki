@@ -195,7 +195,7 @@
                     "file": "develop/self_yolo.md"
                 },
                 {
-                    "label": "omv 传统视觉算法（待测试）",
+                    "label": "omv 传统视觉算法（在做了）",
                     "file": "develop/opmv_cv.md"
                 },
                 {
@@ -207,7 +207,7 @@
                     "file": "develop/maix_speech.md"
                 },
                 {
-                    "label": "R329 YOLO 训练教程（待公开）",
+                    "label": "R329 YOLO 训练教程（在想了）",
                     "file": "develop/r329_yolo.md"
                 },
                 {
@@ -215,11 +215,11 @@
                     "file": "develop/maixpy3_mfcc.md"
                 },
                 {
-                    "label": "M2DOCK 摄像头 ISP 调试（待公开）",
+                    "label": "M2DOCK 摄像头 ISP 调试（已公开）",
                     "file": "develop/v83x_isp.md"
                 },
                 {
-                    "label": "R329 人脸识别（待测试）",
+                    "label": "R329 人脸识别（在写了）",
                     "file": "develop/face_reco.md"
                 }
             ]
