@@ -266,7 +266,7 @@
             "from": "pypi",
             "config": {
                 "label": "新",
-                "content": "<a target=\"_blank\" href=\"https://github.com/sipeed/Maix-Speech/blob/master/README_ZH.md\">Maix-Speech</a> 为嵌入式设计的语音识别库， 小巧且精度高，多平台支持！欢迎使用并 ☆star"
+                "content": "2022年 Sipeed 开源社区 <a target=\"_blank\" href=\"https://github.com/sipeed/Maix-Speech/blob/master/README_ZH.md\">MaixPy3</a> 正式版更新！全新的产品体验！ <br> 详细 AI 模型训练方法！快来看看它有什么不同吧！"
             }
         }
     },
