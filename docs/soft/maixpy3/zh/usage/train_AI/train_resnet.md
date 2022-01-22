@@ -160,7 +160,7 @@ python classifier_resnet_train.py
 
 准备好你的测试图片，注意和数据集中的图片尺寸一样。新建一个 test 目录，并放在该目录下。   
 
-运行 `python classifier_resnet_test.py images_folder_path model_param_path` 命令进行测试。  .
+运行 `python classifier_resnet_test.py images_folder_path model_param_path` 命令进行测试。
 
 在该命令中会调用用户环境中的 ncnn 工具，请确保已经安装好并加入环境变量。  
 
@@ -257,6 +257,6 @@ while True:
 ~~~
 
 运行效果：  
-![](./restnet_img.jpeg)
+![](./dnn/restnet_img.jpeg)
 
-分类训练说明到此结束.
+分类训练说明到此结束。
