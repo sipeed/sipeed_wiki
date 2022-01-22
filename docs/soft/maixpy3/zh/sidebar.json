@@ -161,14 +161,20 @@
                             "file":"usage/train_AI/information.md"
                         },
                         {
-                            "label": "训练边缘检测模型"
+                            "label":"训练环境搭建"
                         },
                         {
-                            "label": "训练物体分类模型"
+                            "label": "训练边缘检测模型",
+                            "file":"usage/train_AI/v831_sobel.ipynb"
+                        },
+                        {
+                            "label": "训练物体分类模型",
+                            "file":"usage/train_AI/train_resnet.md"
                             
                         },
                         {
-                            "label": "训练物体检测模型"
+                            "label": "训练物体检测模型",
+                            "file":"usage/train_AI/train_yolov2.md"
                         }
                     ]
                 }

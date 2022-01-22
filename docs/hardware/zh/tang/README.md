@@ -1,8 +1,8 @@
 # Tang系列开发板
 
-## Tang permier 
+## Tang Primer 
 
-[![Tang permier](./../../assets/Tang/permier/Tang_permier.jpg)](./Tang-primer/Tang-primer.md)
+[![Tang Primer](./../../assets/Tang/permier/Tang_permier.jpg)](./Tang-primer/Tang-primer.md)
 
 ## Tang Nano
 
@@ -14,4 +14,4 @@
 
 ## Tang Nano 9K
 
-[![Tang Nano 9K](./../../assets/Tang/Nano_9K/Nano_9K.png)](./Tang-Nano-9K/Nano-9K.md)
+[![Tang Nano 9K](./../../assets/Tang/Nano-9K/9K.png)](./Tang-Nano-9K/Nano-9K.md)
