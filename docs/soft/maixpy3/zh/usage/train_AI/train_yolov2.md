@@ -5,73 +5,31 @@
 | 2022年1月22日 | dianjixz | 编写初稿文档 | 训练教程只能在 Linux 系统中运行，<br>并只能部署到 MaixII-Dock 开发板上运行，<br>文档还需要二次整理 |
 
 > Windows 系统暂不支持！
+> 临时工程文件获取：https://github.com/dianjixz/v831_yolo
 
-## 训练环境搭建
+## 基本概念
+目标检测（Object Detection）的任务是找出图像中所有感兴趣的目标（物体），确定它们的类别和位置，是计算机视觉领域的核心问题之一。由于各类物体有不同的外观、形状和姿态，加上成像时光照、遮挡等因素的干扰，目标检测一直是计算机视觉领域最具有挑战性的问题。
 
-由于训练需要用到显卡，关于安装显卡驱动、CUDA、CUDNN、OpenCv 请自行百度查阅安装，本文不做详细说明。本文章是在 Ubuntu 环境下，使用英伟达 GTX1080 显卡所编写完成的，请以该环境为参考。
+计算机视觉中关于图像识别有四大类任务：
 
-需要安装的软件包介绍：
-- PyTorch ：基础训练框架。
-- onnx2ncnn ：模型转换工具。
-- torchsummary ： 格式化打印模型信息。
+（1）分类-Classification：解决“是什么？”的问题，即给定一张图片或一段视频判断里面包含什么类别的目标。
 
-文章参考：
+（2）定位-Location：解决“在哪里？”的问题，即定位出这个目标的的位置。
 
-* 显卡驱动安装：https://neucrack.com/p/252
-* opencv 多版本共存：https://neucrack.com/p/349
+（3）检测-Detection：解决“在哪里？是什么？”的问题，即定位出这个目标的位置并且知道目标物是什么。
 
+（4）分割-Segmentation：分为实例的分割（Instance-level）和场景分割（Scene-level），解决“每一个像素属于哪个目标物或场景”的问题。
 
-### 安装pytorch 、torchsummary、pycocotools
+![](./dnn/yolo.png)
 
-进入 Pytorch 下载帮助[网页](https://pytorch.org/get-started/locally/)，根据自己所用系统的环境情况，选择对应的 CUDA 版本和安装包的类型，这里所选用的是 CUDA 10.2、Linux 系统、稳定版、pip包
-```python
-pip3 install torch torchvision torchaudio
-```
+> 了解更多可以查看 CSDN 博文：<https://blog.csdn.net/yegeli/article/details/109861867>
 
-然后再通过 pip 进行安装 torchsummary、pycocotools
+## 模型训练
 
-```python 
-pip3 install torchsummary pycocotools
-```
-
-
-### 编译 onnx2ncnn 工具
-
-安装编译环境所需要用到的软件包
-
-    sudo apt install build-essential git cmake libprotobuf-dev protobuf-compiler libvulkan-dev vulkan-utils libopencv-dev
-
-需要先拉取整个 ncnn 转换工具的工程，在任意的文件夹位置中
-
-    git clone https://github.com/Tencent/ncnn.git
-
-工程编译初始化
-
-    cd ncnn
-    git submodule update --init
-
-开始编译 onnx2ncnn 工具
-
-    mkdir build
-    cd build
-    cmake -DCMAKE_BUILD_TYPE=Release -DNCNN_VULKAN=ON -DNCNN_SYSTEM_GLSLANG=OFF -DNCNN_BUILD_EXAMPLES=ON ..
-    make
-
-编译结束之后，可以在 ncnn/build/tools/onnx 目录下，能得到 **onnx2ncnn** 模型转换工具，将该可执行文件加入到环境变量中方便使用。
-
-在 ~/.bashrc 中添加下面内容，将 **onnx2ncnn** 加入环境变量：
-~~~
-#!/bin/bash
-
-export PATH=$PATH:`pwd`/tools/onnx
-~~~
-
-
-## 图像检测
-
-图像检测主要采用的模型是 YOLOv2 ，由 PyTorch 平台训练完成，经由网络模型转换后部署到 MaixII-Dock 上。  
-
-### 数据集准备  
+| 网络结构 | 训练平台 | 部署平台 | 模型转换工具 |
+| --- | --- | --- | -- | 
+| YOLOv2 | PyTorch | MaixII-Dock | ncnn + MaixHub 在线转换工具 |
+### 数据集制作与使用  
 
 YOLOv2 默认使用 voc 格式的数据集,文件夹取名为 custom 放到 data 目录下, 比如:
 ~~~ bash
@@ -100,7 +58,7 @@ CUSTOM_CLASSES = [
 ]
 ~~~
 
-### 使用显卡训练
+### 训练开始
 
 ~~~ bash
 python train.py -d custom --cuda -v slim_yolo_v2 -hr -ms
@@ -181,4 +139,6 @@ while True:
 
 ![](./dnn/yolo_test.jpg)
 
-检测说明到此结束。
+
+> 参考：
+>csdn 博客：https://blog.csdn.net/yegeli/article/details/109861867

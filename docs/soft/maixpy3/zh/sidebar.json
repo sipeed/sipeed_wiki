@@ -161,7 +161,8 @@
                             "file":"usage/train_AI/information.md"
                         },
                         {
-                            "label":"训练环境搭建(待编辑)"
+                            "label":"训练环境搭建(待编辑)",
+                            "file":"usage/train_AI/ready.md"
                         },
                         {
                             "label": "训练边缘检测模型",

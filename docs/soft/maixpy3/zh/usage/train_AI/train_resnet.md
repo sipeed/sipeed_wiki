@@ -1,78 +1,20 @@
-# 这是用于训练 v831 分类模型的仓库
+# 图像分类模型训练过程
 
 | 时间 | 负责人 | 更新内容 | 备注 |
 | --- | --- | --- | :---: |
 | 2022年1月22日 | dianjixz | 编写初稿文档 | 训练教程只能在 Linux 系统中运行，<br>并只能部署到 MaixII-Dock 开发板上运行，<br>文档还需要二次整理 |
 
-
-## 训练环境搭建
-
-由于训练需要用到显卡，关于安装显卡驱动、CUDA、CUDNN、OpenCv 请自行百度查阅安装，本文不做详细说明。本文章是在 Ubuntu 环境下，使用英伟达 GTX1080 显卡所编写完成的，请以该环境为参考。
-
-需要安装的软件包介绍：
-- PyTorch ：基础训练框架。
-- onnx2ncnn ：模型转换工具。
-- torchsummary ： 格式化打印模型信息。
-
-文章参考：
-
-* 显卡驱动安装：https://neucrack.com/p/252
-* opencv 多版本共存：https://neucrack.com/p/349
+> Windows 系统暂不支持！
+> 临时工程文件获取：https://github.com/dianjixz/v831_restnet18
 
 
-### 安装pytorch 、torchsummary
+图像分类主要采用 resnet18 网络结构，使用 Pytorch 框架进行训练，再将经过量化后的模型文件部署到 MaixII-Dock 上。
 
-进入 Pytorch 下载帮助[网页](https://pytorch.org/get-started/locally/)，根据自己所用系统的环境情况，选择对应的 CUDA 版本和安装包的类型，这里所选用的是 CUDA 10.2、Linux 系统、稳定版、pip包
-```python
-pip3 install torch torchvision torchaudio
-```
+总结**流程**为： PyTorch 训练 → 导出 onnx 模型 → 转换成 ncnn 模型 → 使用 MaixHub 在线量化 → 部署模型
 
-然后再通过 pip 进行安装 torchsummary
+## 准备
 
-```python 
-pip install torchsummary
-```
-
-### 编译 onnx2ncnn 工具
-
-安装编译环境所需要用到的软件包
-
-    sudo apt install build-essential git cmake libprotobuf-dev protobuf-compiler libvulkan-dev vulkan-utils libopencv-dev
-
-需要先拉取整个 ncnn 转换工具的工程，在任意的文件夹位置中
-
-    git clone https://github.com/Tencent/ncnn.git
-
-工程编译初始化
-
-    cd ncnn
-    git submodule update --init
-
-开始编译 onnx2ncnn 工具
-
-    mkdir build
-    cd build
-    cmake -DCMAKE_BUILD_TYPE=Release -DNCNN_VULKAN=ON -DNCNN_SYSTEM_GLSLANG=OFF -DNCNN_BUILD_EXAMPLES=ON ..
-    make
-
-编译结束之后，可以在 ncnn/build/tools/onnx 目录下，能得到 **onnx2ncnn** 模型转换工具，将该可执行文件加入到环境变量中方便使用。
-
-在 ~/.bashrc 中添加下面内容，将 **onnx2ncnn** 加入环境变量：
-~~~
-#!/bin/bash
-
-export PATH=$PATH:`pwd`/tools/onnx
-~~~
-
-## 图像分类模型训练过程
-
-图像分类主要采用的模型是 resnet18 ，由 PyTorch 架构训练完成，经由网络模型转换后部署到 v831 上。
-
-**流程**是： PyTorch 训练 → onnx 模型 → ncnn 模型 → 在线工具量化 → v831 模型
-
-### 准备
-
-#### 获取训练工程文件
+### 获取训练工程文件
 
 可以在 GitHub 上下载压缩包或者是通过 git 克隆到本地
 
@@ -100,47 +42,53 @@ export PATH=$PATH:`pwd`/tools/onnx
 ~~~
 
 
-#### 数据集的制作与使用
+### 数据集的制作与使用
 
+使用手机或者 MaixII-Dock 来对物品进行拍摄，将拍摄的图片进行导出，并按照类别分类到文件夹中，文件夹名为类别的名字。图片最好是以数字进行命名，这样可以减少一些奇怪的 BUG。
 
-
-打开 resnet18 工程中的 classifier_resnet_train.py 文件。以下是训练时需要注意的一些参数。
-
-修改 classes_label.py 文件中的 labels 值和 data 文件夹中的目录对应
-
-~~~ python
-dataset_path = "data/datasets"		#训练集的路径（保持默认）
-val_split_from_data = 0.1 # 10%		#学习率（保持默认）
-batch_size = 4						#训练批次，不需要改动（保持默认）
-learn_rate = 0.001	                #学习率，不需要改动（保持默认）
-total_epoch = 100					#训练循环，总共需要训练100个循环（保持默认）
-eval_every_epoch = 5				#每个循环训练次数（保持默认）
-save_every_epoch = 20				#多少个循环保存一次（保持默认）
-dataload_num_workers = 2			#（保持默认）
-input_shape = (3, 224, 224)			#输入尺寸（保持默认）
-cards_id = [0]					#使用的训练卡（保持默认）
-param_save_path = './out/classifier_{}.pth'	#参数保存路径（保持默认）
-~~~
-
-data 文件是训练数据集，test 文件是测试数据。注意两个数据集中不要有重复的图片。
-
-训练数据集：一个分类一个文件夹， 文件夹名字就是分类的名字。
+> 注意！数据集中图片的分辨率需要是 224*224 ，有能力的可以自行修改源码来适配别的分辨率，我们并不提供这样的服务！
 
 ~~~ c
 数据集文件夹结构
 ── mouse
-│   ├── 20026.jpg
+│   ├── 1.jpg
 ...
 ├── sipeed_logo
-│   ├── 19418.jpg
+│   ├── 2.jpg
 ...
 ...
 ~~~
 
+将整理好的数据集，复制到训练工程文件中的 data 文件夹下，将 classes_label.py 里面的 labels 值修改成 data 下的文件夹名字。
+
+- 例如：data文件夹内为
+![resnet-data](./dnn/resnet-data.png)
+则 `classes_label.py` 需要修改成
+    ```python
+labels = ["mouse","sipeed_logo"]
+    ```
+
+## 训练:
+
+训练的相关参数，在工程中的 classifier_resnet_train.py 文件里面，可以根据自己的需要进行修改，不懂怎么修改的，就保持默认就好了
 
 
-### 训练:
 
+~~~ python
+dataset_path = "data/datasets"		#训练集的路径
+val_split_from_data = 0.1 # 10%		#学习率
+batch_size = 4						#训练批次
+learn_rate = 0.001	                #学习率
+total_epoch = 100					#训练循环，总共需要训练100个循环
+eval_every_epoch = 5				#每个循环训练次数
+save_every_epoch = 20				#多少个循环保存一次
+dataload_num_workers = 2			
+input_shape = (3, 224, 224)			#输入尺寸
+cards_id = [0]					#使用的训练卡
+param_save_path = './out/classifier_{}.pth'	#参数保存路径
+~~~
+
+开始训练，在 resnet18 工程文件夹目录下运行
 
 ~~~ bash
 python classifier_resnet_train.py  
@@ -156,17 +104,17 @@ python classifier_resnet_train.py
 └── classifier.onnx               #生成的onnx深度学习网络文件
 ~~~
 
-### 测试  
+## 测试  
 
 准备好你的测试图片，注意和数据集中的图片尺寸一样。新建一个 test 目录，并放在该目录下。   
 
 运行 `python classifier_resnet_test.py images_folder_path model_param_path` 命令进行测试。
 
-在该命令中会调用用户环境中的 ncnn 工具，请确保已经安装好并加入环境变量。  
+在该命令中会调用用户环境中的 ncnn 工具，请确保[训练环境](./ready.md)已经搭建好了。  
 
 模型测试并生成 ncnn 模型文件：  
 ~~~ bash 
-python classifier_resnet_test.py ./test ./out/classifier_final.pth
+python3 classifier_resnet_test.py ./test ./out/classifier_final.pth
 ~~~
 
 
@@ -178,52 +126,33 @@ classifier_1.pth  classifier.onnx  opt.param
 classifier_3.pth  classifier.param  opt.table
 ~~~
 
-生成的 ncnn 模型此时还无法被 v831 直接使用，需要经过在线 maixhub 量化为 int8 模型才可以被使用。
+在线 maixhub 量化为 int8 模型才可以被使用。
 
-### 模型转换  
+## 模型转换 
 
-在线转换需要上传一个压缩包文件.  
-- 该功能只能支持上传一个无密码的 zip 压缩包  
-- 压缩包内需要包含一个 images 目录，一个 xxx.bin，一个 xxx.param  
-- 需要将矫正图片放入 images 目录内；矫正图片集可考虑直接采用训练中的验证数据集，并务必保证矫正时图像的预处理方式与训练和部署时一致。  
+生成的 ncnn 模型此时还无法被 v831 直接使用，需要使用 [MaixHub](https://maixhub.com/modelConvert) 在线模型转换工具进行量化模型，转换成 MaixII-Dock 可以直接使用的 awnn 模型
+将一下内容整合到一个压缩包中：
+- 创建为 images 的文件夹，内容一些较正图片，可考虑直接采用训练中的验证数据集，并务必保证矫正时图像的预处理方式与训练和部署时一致。（数量在50张左右）
+- 将训练结束之后得到的模型文件一个 xxx.bin 和一个 xxx.param。
+- 压缩包内文件结构如图：
+    ![resnet-zip](./dnn/resnet-zip.png)
 > 注意：确保 images 目录内没有混入其他文件，否则会导致模型量化错误。
 
-zip 压缩包目录结构
-~~~ bash
-└─xxxx.zip
-    |─ images
-    |    |- xxx.jpg
-    |    |- ...
-    |    ...
-    |
-    |- xxx.bin
-    └─ xxx.param
-~~~
+注册登录并激活账号后,上传你的压缩包等待模型转换任务完成。
 
-制作好压缩包后打开网址: [https://maixhub.com/modelConvert](https://maixhub.com/modelConvert) 查看使用说明。  
+## 模型部署  
 
-![](https://neucrack.com/image/1/358/maixhub.jpg)  
+等待模型转换完成,下载转换好的模型文件。将得到的 *.param 、 *.bin 和训练工程中 classes_label.py 文件上传到 MaixII-Dock 上。
 
-登陆后,上传你的压缩包等待模型转换任务完成。    
-
-### 分类模型部署  
-
-等待模型转换完成,下载转换好的模型文件。得到的 *.param 和 *.bin 文件就是部署在 v831 上的文件。 
-
-将模型文件上传到 v831 上。
-
-打开示例代码,替换模型文件名,分类标签和模型加载参数,然后运行即可。
+将以下代码复制到开发板上即可使用
 
 ~~~ python
-#!/usr/bin/python3
-#在v831运行的1000分类事例代码
 from maix import nn, display, camera, image
-from classes_label import labels    #分类标签,需要替换
+from root.classes_label import labels    #分类标签,需要替换
 import time
 
-
 model = {
-    "param": "/root/restnet18_int8.param",        #模型文件,需要替换成自己训练的模型
+    "param": "/root/restnet18_int8.param",        #模型文件,需要替换成自己训练的模型路劲
     "bin": "/root/restnet18_int8.bin"
 }
 options = {
@@ -232,7 +161,7 @@ options = {
         "input0": (224, 224, 3)
     },
     "outputs": {
-        "output0": (1, 1, len(labels))           #模型输出宽度,请输入你自己的类别数量,1000分类为(1,1,1000),10分类为(1,1,10)
+        "output0": (1, 1, len(labels))           
     },
     "first_layer_conv_no_pad": False,
     "mean": [127.5, 127.5, 127.5],
@@ -259,4 +188,3 @@ while True:
 运行效果：  
 ![](./dnn/restnet_img.jpeg)
 
-分类训练说明到此结束。
