@@ -13,7 +13,6 @@
             "/hardware/maixface/zh/": "docs/hardware/maixface/zh",
             "/soft/Lichee/zh/": "docs/soft/Lichee/zh",
             "/soft/Tang/zh/": "docs/soft/Tang/zh",
-            "/soft/Tang/en/": "docs/soft/Tang/en",
             "/soft/maixpy/zh/": "docs/soft/maixpy/zh",
             "/soft/maixpy3/zh/": "docs/soft/maixpy3/zh",
             "/soft/maixduino/zh/":"docs/soft/maixduino/zh"
@@ -58,6 +57,11 @@
             "/soft/maixpy/zh/": [{
                     "url": "/soft/maixpy/en/",
                     "src" : "docs/soft/maixpy/en"
+                }
+            ],
+            "/soft/Tang/zh/": [{
+                "url": "/soft/Tang/en/",
+                "src" : "docs/soft/Tang/en"
                 }
             ]
         },
