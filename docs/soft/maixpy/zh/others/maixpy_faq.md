@@ -232,9 +232,62 @@ print(sd_check())
 进行检测是否挂载成功
 
 ## 出现ValueError:[MAIXPY]kpu: load error:2002, ERR_KMODEL_VERSION: onlysupport kmodel V3/V4 now
+
 1、更新固件，更新固件，更新到最新版本支持v3/v4的MaixPy固件，具体更新方法看前面的文档
 2、检查存放模型的位置是否与读取的位置是否一致，如果将模型放到sd上，然后读取的位置为flash的0x300000时就会出现这样的错误
-3、有可能不是模型本身的问题
+3、如果是使用以 smodel 为后缀模型，必需使用自己开发板上的机器码来获取模型。
 
 ## 在MaixPyIDE上运行boot.py文件时，卡死，没有显示，没有报错
 如果你的模型是烧录到flash上，你需要在串口终端上运行boot.py里面的代码，输出一段红色的报错信息为`Out of memory`，这时你需要将模型放到sd上，然后再进行读取（一定要可以挂载的sd卡，否则都是白干）
+
+## 运行模型的时候报 ValueError: [MAIXPY]kpu: load error:2006, ERR. NO_ MEM: memory not enough
+
+同上 Out of memory ，请使用更小的固件获得更多的运行内存，标准固件大于 2m 剩余 1m 多，同理选用 600kb 可以获得 3m 多的运行内存，查看剩余运行内存看 [demo_view_mem.py](https://github.com/sipeed/MaixPy_scripts/blob/master/basic/demo_view_mem.py)。
+这是内存不足了，不是 flash 或者是 sd 内存不够，是运行内存不够了。解决办法：
+
+1. 这时需要跟换 mini 固件得以解决，如果还是不行，那就要减少训练的是时候使用的数据集
+2. 或者通过查看【[内存管理](/soft/maixpy/zh/course/others/mem.md)】这篇教程进行对内存和 GC 进行调整
+
+## 出现 OSEerror: [Errno 2] ENOENT
+
+所需要读取的文件不存在对应的路径上，如果这个文件是在sd卡上的话，建议查看sd卡是否挂载了
+
+使用一下代码判断内存是否挂载上，如果挂载不上会放回False，可能是卡不兼容，或者是卡没有格式化好，如果不是在官方店买的卡，不能保证能用(`官方卡出现不能使用的及时与客服反馈`)
+```python
+def sd_check():
+    import os
+    try:
+        os.listdir("/sd/.")
+    except Exception as e:
+        return False
+    return True
+print(sd_check())
+```
+可以使用下面代码进行重新挂载
+```python
+from machine import SDCard
+SDCard.remount()
+```
+
+## 串口终端打不开板子，但是ide可以运行
+
+1、检查串口是不是被ide占用了，因为串口只能用一个软件进行打开。
+2、使用 ide 中软件菜单的串口终端打开
+
+## 出现 ValueError: [MAIXPY]kpu: load error:2005,ERR_READ_FILE: read filefailed
+检查sd卡上的模型模型和代码中的名字，路径是不是一样的。
+检查模型下载地址是不是和程序一样
+
+## 烧录了 key_gen.bin 之后的操作
+烧录刻 key_gen.bin 之后，通过串口软件来连接开发板，然后按下 reset 按键，重启开发板，可以看到机器码打印到串口的接收区中。也可以通过 MaixPy IDE 中的 [串口终端](/soft/maixpy/zh/get_started/env_serial_tools.html#MaixPy-IDE终端工具)来连接开发板查看机器码。
+
+获取到机器码之后，需要重新烧录需要使用的固件才能运行对应的代码。否则是连 IDE 都无法连接的
+
+## 摄像头拍摄的模糊
+
+使用 OV5642 摄像头拍摄出来的画面模糊，可以通过扭动摄像头来进行调整焦距。如果使用其他的摄像头拍摄的模糊也是同理，但有些摄像头特性就是如此，只能通过更改摄像头来进行修改
+
+## 烧录模型或者固件，出现花屏、屏幕颜色不对、屏幕颜色单一
+
+这时需要使用，使用 kflash 来对 flash 整片擦除，然后再重新进行对应的 固件 和 模型烧录。烧录模型到 flsah 的时候一定要注意烧录的位置，是否正确（数清楚对应 0 的个数）。
+

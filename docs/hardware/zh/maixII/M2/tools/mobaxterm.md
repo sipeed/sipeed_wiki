@@ -34,13 +34,19 @@ desc: maixpy doc: 如何使用 mobaxterm
 
 在 Linux 系统输入 ifconfig 查看自己 ip 地址（192.168.1.185），然后输入自己名称和密码，常见有 root / root 。
 
-> 如果没有设置密码，root 的连接密码是 root 。
+> 如果没有设置密码，root 的连接密码是 root 。输入密码的时候是看不到的，在输入结束之后，按回车即可
 
 ![](./asserts/mobaxterm_ssh.jpg)
 
 就可以看到 Linux 的登录会话终端了。
 
 ![](./asserts/mobaxterm_ssh_view.jpg)
+
+> 以下连接方式只是合适在 MaixII-Dock 上使用的，需要使用 MaixPy3 IDE 版本 0.4.1以上的版本
+
+MaixII-Dock 可以通过 OTG 接口转发到 127.0.0.1 的 22 端口，但是每次烧录系统之后，都需要运行一次 IDE ，进行 ssh 端口转发服务的开启。
+
+具体的连接方式和上面的 ssh 方式一样，只需要将 ip 地址修改成 127.0.0.1 即可，默认用户名和密码都是 root。
 
 ## 连接 FTP
 

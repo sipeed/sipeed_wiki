@@ -59,5 +59,17 @@ TIPS：
 3. 分区完成后，电脑上就能够看到盘符，PhoenixCard 里也能看到，在 PhoenixCard 里点击恢复卡即可恢复卡到正常状态
 4. 按之前步骤继续烧录即可
 
+## 注意！
+
+> 以下操作是在 Linux 系统中进行
+
+如果烧录的镜像后缀与板子实际型号不符，下载对应的 boot_package_XXX.fex 来覆盖板级配置
+
+覆盖指令为：
+
+    sudo dd if=boot_package_XXX.fex of=/dev/sdX bs=1K seek=16400
+    
+前面的镜像烧录，建议使用USB3.0的读卡器烧录，此时烧录100MB的Tina镜像约用时半分钟，烧录4GB的Debian镜像，约用时10分钟。
+
 > Tina 系统登录用户名：root  密码：tina
 > Debian 系统登录用户名：sipeed 密码：licheepi

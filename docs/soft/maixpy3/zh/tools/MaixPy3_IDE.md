@@ -4,6 +4,9 @@ keywords: MaixPy3 IDE
 desc: maixpy doc: 如何连接并使用 MaixPy3 的 IDE
 ---
 
+>[下载 MaixPy3 IDE ](https://dl.sipeed.com/shareURL/MaixII/MaixPy3-IDE)
+>百度网盘下载连接：<https://pan.baidu.com/s/1C7Jl3rXticeJsCgH-fIcbQ> 提取码：2333
+
 ## 为什么要使用 IDE ？
 
 在没有 IDE 的时候，我们是这样编程的，这是每一只远古程序猿都必备的开发技能。
@@ -18,7 +21,7 @@ desc: maixpy doc: 如何连接并使用 MaixPy3 的 IDE
 
 ## 那么 MaixPy3 IDE 是什么?
 
-它是一套基于 [jupyter](https://jupyter.org/) 实现的 Python3 集成开发环境（IDE，Integrated Development Environment ），意在帮助用户通过电脑编写 Python 语言代码后，用户运行开发者提供的 jupyter notebook 文档后，接上硬件后点击【运行 ▶】可以实时呈现如下效果图。
+它是一套基于 [jupyter](https://jupyter.org/) 实现的 Python3 集成开发环境（IDE，Integrated Development Environment ），意在帮助用户通过电脑编写 Python 语言代码后，用户运行开发者提供的 jupyter notebook 文档后，接上硬件后点击【▶ 运行】可以实时呈现如下效果图。
 
 ![index.png](./assets/index.png)
 
