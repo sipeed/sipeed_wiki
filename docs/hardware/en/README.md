@@ -1,6 +1,6 @@
 ---
 title: Sipeed Hardware
-keywords: Sipeed, Hardware, 矽速, 硬件资料, 文档, 资料下载, 深度学习, 人工智能, K210
+keywords: Sipeed, Hardware, Clockspeed, Hardware specifications, Documentation, Downloaden, Deeplearning, Artificial Intelligence, K210
 desc: 矽速科技的硬件资料站
 ---
 
