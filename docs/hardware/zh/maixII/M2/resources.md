@@ -6,7 +6,7 @@ desc: maixpy doc: 板级资源介绍
 
 MaixII M2dock 是基于 V831 芯片设计的一款【板卡】+【底板】的开发板产品。
 
-> 这个不是Maix Dock的升级版，这两款开发板是完全不一样的开发环境和使用方式的，不要有惯性思维
+> 与 Maix-Dock 开发方式有所不同，内置了 Tina-Linux 系统，可以使用 [MaixPy3](/maixpy3) 进行开发
 
 ## M2板卡
 
@@ -30,7 +30,7 @@ MaixII M2dock 是基于 V831 芯片设计的一款【板卡】+【底板】的�
 
 | 项目 | MAIX-I (K210) | MAIX-II (V831) |
 | --- | --- | --- |
-| 主控芯片<br> CPU | 400~600Mhz  | 800~1000Mhz (优势项目标红，下同)  |
+| 主控芯片<br> CPU | 400~600Mhz  | 800~1000Mhz |
 | 视频编码器 <br>Video encoder | None | H.264, up to 1080p@30fps<br>H265, up to 1080p@30fps<br>JPEG, up to 1080p@30fps |
 | AI加速器<br>NPU | 0.23TOPS<br>support Conv+BN+ACT+POOL | 0.2TOPS<br>support Conv,Inner_Product,Pool,Eltwise,ACT,BN,Split,Concat |
 | 内存<br>Memory | 8MB SRAM | SIP 64MB DDR2 |
@@ -44,7 +44,7 @@ MaixII M2dock 是基于 V831 芯片设计的一款【板卡】+【底板】的�
 | Ethernet | None | 10/100 Mbit/s Ethernet port with RMII interface |
 | ADC | None | 1-ch 6bit LRADC for key |
 | Audio | None | LINEOUTP + MICIN1P/N |
-| 开发环境 | Maixpy/C | Maixpy3/linux |
+| 开发软件 | Maixpy/C | Maixpy3/linux |
 
 ## 底板
 
@@ -94,4 +94,6 @@ MaixII M2dock 是基于 V831 芯片设计的一款【板卡】+【底板】的�
 
 ### 资源
 
-[MaixII_V831_v3100资料库](https://api.dl.sipeed.com/shareURL/MaixII/MaixII-Dock/HDK/Sipeed_MaixII_V831/MaixII_V831_v3100)
+[MaixII_V831_v3100 硬件资料库](https://api.dl.sipeed.com/shareURL/MaixII/MaixII-Dock/HDK/Sipeed_MaixII_V831/MaixII_V831_v3100)
+
+[MaixPy3 软件文档](/maixpy3)

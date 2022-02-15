@@ -31,7 +31,7 @@
             ]
         },
         {
-            "label": "安装 MaixPy3 环境",
+            "label": "MaixPy3 使用环境",
             "collapsed": false,
             "file": "install/install.md",
             "items":[
@@ -40,11 +40,12 @@
                         "file":"tools/MaixPy3_IDE.md"
                     },
                     {
-                        "label":"通过 IDE 连接 MaixII-Dock",
+                        "label":"在 MaixII-Dock 平台上使用",
                         "file":"tools/0.MaixII-Dock.ipynb"
                     },
                     {
-                        "label":"通过 IDE 连接 MaixII-Sense （没写）"
+                        "label":"在 MaixII-Sense 平台上使用",
+                        "file":"tools/maixsense.md"
                     }
             ]
         },
