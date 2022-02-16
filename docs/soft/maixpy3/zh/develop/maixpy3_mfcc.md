@@ -9,6 +9,7 @@
 ## 进度
 
 https://github.com/junhuanchen/speech-recognition
+
 linux 通用的简易 VAD + MFCC 关键词识别，使用方法如下：
 1. 输入 n 等待人说话，输入序号保存录音。
 2. 输入 l 查看 waves words 目录下保存的语音段。
