@@ -8,9 +8,12 @@
 
 ## 进度
 
-等待大佬鼠移植哈哈哈
-
-https://github.com/sipeed/MaixPy/tree/master/components/micropython/port/src/speech/isolated_word
+https://github.com/junhuanchen/speech-recognition
+linux 通用的简易 VAD + MFCC 关键词识别，使用方法如下：
+1. 输入 n 等待人说话，输入序号保存录音。
+2. 输入 l 查看 waves words 目录下保存的语音段。
+3. 输入 d 后说话，给出识别的保存的语音段可能的结果。
+4. 输入 e 退出。
 
 ## 相关视频
 
