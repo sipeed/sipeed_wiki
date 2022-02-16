@@ -1,7 +1,7 @@
 ---
 title: Sipeed Hardware
-keywords: Sipeed, Hardware, Clockspeed, Hardware specifications, Documentation, Downloaden, Deeplearning, Artificial Intelligence, K210
-desc: 矽速科技的硬件资料站
+keywords: Sipeed, Hardware, Sipeed, Hardware specifications, Documentation, Downloaden, Deeplearning, Artificial Intelligence, K210
+desc: Sipeed hardware documentation website
 ---
 
 # Sipeed HardWare WIKI
