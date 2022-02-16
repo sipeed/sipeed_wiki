@@ -94,13 +94,12 @@ Refer to the official documentation [Gowin Source Software User Guide] (http://c
 
 + [Gowin Software Introduction and Installation](http://cdn.gowinsemi.com.cn/%E9%AB%98%E4%BA%91%E8%BD%AF%E4%BB%B6%E7%AE%80%E4%BB%8B%E5%92%8C%E5%AE%89%E8%A3%85.pdf)
 
-## Linux 烧录教程
+## How to Flash Tang FPGA in Linux
 
+We suggest use **openFPGALoader** flash Tang boards in Ubuntu, here is the steps:
 
-在Ubuntu系统下我们建议使用**openFPGALoader**烧写，以下为具体步骤
-
-### 安装openFPGALoader
-参考：https://trabucayre.github.io/openFPGALoader/guide/install.html
+### install openFPGALoader
+refer to：https://trabucayre.github.io/openFPGALoader/guide/install.html
 ```
 # preprocess
 sudo apt-get install libftdi1-2 libftdi1-dev libhidapi-hidraw0 \
@@ -120,8 +119,8 @@ cmake --build .
 sudo make install
 ```
 
-### 烧录方法
-检测板卡
+### Flash method
+detect board
 ```
 $ ./openFPGALoader --detect
 Jtag frequency : requested 6.00MHz   -> real 6.00MHz  
@@ -134,7 +133,7 @@ index 0:
 detach error -5
 
 ```
-下载码流
+download bitstreams
 ```
 $ ./openFPGALoader -b tangnano9k -f ../../nano9k_lcd/impl/pnr/Tang_nano_9K_LCD.fs
 write to flash
@@ -152,7 +151,7 @@ detach error -5
 
 ```
 
-其中-b表示目标板型，可以使用以下取值：
+the -b indicate target board, it can be the value of:
 
 |Board name|FPGA|Memory|Flash|
 |--|--|--|--|
