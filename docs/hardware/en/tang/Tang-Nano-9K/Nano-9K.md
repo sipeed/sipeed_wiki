@@ -1,103 +1,137 @@
 # Tang Nano 9K
 
-## Brief introduction
-Tang nano 9K is an exquisite development board based on Gowin GW1NR-9 FPGA chip.It is equipped with HDMI connector, RGB interface screen connector, SPI screen connector, 32Mbit SPI flash and 6 LEDs, so that users can easily and quickly carry out FPGA verification, risc-v soft core verification and functional prototype verification.The 8640 LUT4 logic unit built in GW1NR-9 can not only be used to design various complex logic circuits, but also run a complete PicoRV soft core. It meets various needs of users, such as learning FPGA, verifying soft core and in-depth design.
+>  编辑时间 2022年1月13日
 
-![](./assets/9K.png)
+## **简介**
 
-## Contrast
-Tang Nano 9K is the 5th product of Sipeed Tang series. Before purchase, you can choose according to your needs and the following table:
+Tang Nano 9K是基于高云GW1NR-9 FPGA芯片设计的精简型开发板。它搭载的HDMI连接器、RGB接口屏幕连接器、SPI屏幕连接器、SPI FLASH和6个LED使得用户可以方便且快速地进行FPGA验证，RISC-V软核验证和功能样机验证。GW1NR-9拥有的8640 LUT4 逻辑单元除了可以用来设计各种复杂的逻辑电路，还可以运行完整的PicoRV软核，满足了用户学习FPGA、验证软核和深度设计的各种需求。
 
-| Moedel | Tang Nano 1K | Tang Nano 4K | Tang Nano 9K |
-| --- | --- | --- | --- |
-| Appearance | ![](./assets/1K.png) | ![](./assets/4K.png) | ![](./assets/9K.png) |
-| Logic Units（LUT4） | 1152 | 4608 | 8640 |
-| Hard core processor | / | Cortex-M3 | / |
-| Crystal oscillator | 27Mhz | 27Mhz | 27Mhz |
-| Display interface | Common RGB screen interfaces | HDMI | HDMI,<br>Common RGB screen interfaces,<br>SPI screen interface |
-| Camera | / | Support OV2640 | / |
-| External SPI FLASH | Reserved pads only | 32Mbit SPI flash | 32Mbit SPI flash |
-| TF card slot | / | / | Yes |
-| Downloader | Onboard USB-JTAG Downloader | Onboard USB-JTAG Downloader | Onboard USB-JTAG&UART Downloader |
+## **横向对比**
 
-## Characteristic
+Tang Nano 9K是Sipeed的Tang系列的第五款产品，用户在购买之前，可以根据自己的需要和下方的表格进行合理选购：
 
-| Features | Parameter |
-| --- | --- |
-| Logical unit (LUT4) | 8640 |
-| Flip-Flop (FF) | 6480 |
-| Shadow SRAM <br>SSRAM(bits) | 17280 |
-| Block SRAM <br>BSRAM | 468K |
-| BSRAM quantity<br>BSRAM | 26 |
-| User Flash(bits) | 608K |
-| PSRAM(bits) | 64M |
-| High performance DSP | Support 9x9,18x18,36x36bits multiplier and 54bits accumulator |
-| 18 x 18 Multiplier | 20 |
-| SPI FLASH | 32M-bit |
-| PLLs | 2 |
-| Display interface | Screen connector, RGB interface connector, SPI interface connector |
-| Debugger | Onboard BL702，which provides USB-JTAG and USB-UART for GW1NR-9 |
-| IO |  •  Support 4mA, 8mA, 16mA, 24mA and other driving capabilities <br> • Independent bus keeper, pull-up / pull-down resistor and open drain utput options are provided for each I/O |
-| Connector | TF card slot , 2x24P 2.54mm IO pad |
-| Button | Onboard 2 user buttons |
-| LED | Onboard 6 LEDs |
+| 型号             | Tang Nano 1K                                                 | Tang Nano 4K                                                 | Tang Nano 9K                                                 |
+| ---------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 图片             | ![Generated](.\assets\clip_image002.gif) | ![Generated](.\assets\clip_image004.gif) | ![Generated](.\assets\clip_image006.gif) |
+| 逻辑单元（LUT4） | 1152                                                         | 4608                                                         | 8640                                                         |
+| 硬核处理器       | 无                                                           | Cortex-M3                                                    | 无                                                           |
+| 有源晶振         | 27Mhz                                                        | 27Mhz                                                        | 27Mhz                                                        |
+| 显示接口         | 常见RGB屏幕接口                                              | HDMI                                                         | HDMI，  常见RGB屏幕接口，  SPI屏幕接口                       |
+| 摄像头           | 无                                                           | 可选OV2640                                                   | 无                                                           |
+| 外置SPI FLASH    | 仅预留焊盘                                                   | 默认焊接32Mbit SPI FLASH                                     | 默认焊接32Mbit SPI FLASH                                     |
+| TF卡座           | 无                                                           | 无                                                           | 有                                                           |
+| 下载器           | 板载USB-JTAG下载器                                           | 板载USB-JTAG下载器                                           | 板载USB-JTAG&UART下载器                                      |
 
-![](./assets/Tang nano 9K.jpg)
+## **产品参数**
 
-![](./assets/Tang_nano_9K_pin.png)
+| 逻辑单元(LUT4)                    | 8640                                                         |
+| --------------------------------- | ------------------------------------------------------------ |
+| 寄存器(FF)                        | 6480                                                         |
+| 分布式静态随机存储器  SSRAM(bits) | 17280                                                        |
+| 块状静态随机存储器  B-SRAM(bits)  | 468K                                                         |
+| 块状静态随机存储器数目BSRAM（个） | 26                                                           |
+| 用户闪存(bits)                    | 608K                                                         |
+| PSRAM(bits)                       | 64M                                                          |
+| 高性能DSP模块                     | 支持9x9,18x18,36x36bit的乘法运算和54bit累加器                |
+| 乘法器  (18 x 18 Multiplier)      | 20                                                           |
+| SPI FLASH                         | 32M-bit                                                      |
+| 灵活的PLL资源                     | 2个锁相环（PLLs）                                            |
+| 显示屏幕接口                      | HDMI接口, SPI屏幕接口和RGB屏幕接口                           |
+| 调试器                            | 板载BL702芯片，为GW1NR-9提供USB-JTAG下载和USB-UART串口打印功能 |
+| IO                                | • 支持4mA、8mA、16mA、24mA等驱动能力   • 对每个I/O提供独立的Bus Keeper、上拉/下拉电阻及Open Drain输出选项 |
+| 连接器                            | TF卡座子, 2x24P  2.54mm 排针焊盘                             |
+| 按键                              | 2个用户可编程按键                                            |
+| LED                               | 板载6个可编程LED                                             |
 
-## Applicable users
 
-| Usage | FPGA | MCU | FPGA+MCU |
-| --- | --- | --- | --- |
-| Language | Verilog HDL/Verilog | C/C++ | Verilog HDL/Verilog ，C/C++ |
-| Brief introduction | Users use hardware description language to design logic circuits | Users can download the hardware bitstream file of PicoRV to GW1NR-9 and use GW1NR-9 as a common MCU. It can run risc-v code and carry out risc-v soft core experiment | Based on PicoRV's IP core, users use Verilog to write custom hardware functions, and use C language to write the code running on PicoRV core |
-| Applicable person | Beginner,FPGA developer | RISC-V developer,Embedded Engineer | Senior Engineer |
+![Generated](.\assets\clip_image008.jpg)
 
-## User Guide
-1. Download our packaged user guide document : [Click here](https://dl.sipeed.com/shareURL/TANG) (The PDFs mentioned below are all here)
+![Generated](.\assets\clip_image010.gif)
 
-2. Install IDE (V1.9.6.02 to avoid download errors) and correctly configure license:[Click here](https://wiki.sipeed.com/soft/Tang/zh/Tang-Nano-Doc/get_started/install-the-ide.html)
+## **适用人群**
 
-3. Read this file (in the file downloaded in step 1) : SUG100-2.6E_Gowin Software User Guide.pdf
+| 用途     | FPGA                             | MCU                                                          | FPGA+MCU                                                     |
+| -------- | -------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 语言     | Verilog HDL/Verilog              | C/C++                                                        | Verilog HDL/Verilog ，  C/C++                                |
+| 简介     | 用户使用硬件描述语言设计逻辑电路 | 用户将PicoRV的硬件码流文件下载到GW1NR-9，即可把GW1NR-9当做常见的MCU来使用。它可以运行RISC-V 代码、进行RISC-V软核实验 | 用户在PicoRV的IP core基础上使用Verilog编写自定义的硬件功能，与此同时使用C语言编写PicoRV核上运行的代码 |
+| 适用人群 | 初学者，FPGA开发者               | RISC-V开发者，嵌入式工程师                                   | 资深软硬件工程师                                             |
 
-4. Read this [tutorial](https://wiki.sipeed.com/soft/Tang/zh/Tang-Nano-Doc/examples/1_led.html) (LED lighting experiment).Note that the schematic of 9K and 1K are different, so you need to modify the floorplaner.It is recommended that novices download our [9K example](https://github.com/sipeed/TangNano-9K-example) directly without any modification. After the project is opened, the firmware can be obtained by synthesis / place & route. Then we download the firmware to the board, and we can observe the effect.
-    Note: in the synthesis step, if you encounter "license check failed", you need to right-click synthesis, select configurations, and then select synthesis tool as GowinSynthesis.
-    It is suggested that after completing this step, novices should independently create new projects, write code, complete this experiment, and modify the lighting program according to your ideas. This can enhance our understanding of FPGA and hardware description language.
+## **上手指引**
 
-    We recommended that you read the following documents during this process:
-    Verilog code specifications (please search by yourself. It is very necessary to cultivate good code specifications from the beginning)
-    SUG949-1.1E_Gowin HDL Coding User Guide.pdf
-    UG286-1.9.1E_Gowin Clock User Guide.pdf
-    SUG114-2.5E_Gowin Analyzer Oscilloscope User Guide.pdf
-    FPGA related books
-    Online tutorial:  [Verilog language](https://www.asic-world.com/verilog/index.html)
+1. 下载我们打包好的用户指南文档：[下载站](https://dl.sipeed.com/shareURL/TANG) （下文提到的所有pdf文件都在这里）
 
-5. Read this [tutorial](https://wiki.sipeed.com/soft/Tang/zh/Tang-Nano-Doc/examples/1_led.html) (RGB screen Display experiment). If you really can't complete this experiment by yourself, you can download our [9K routine (adapted to 9K + 5-inch screen)](https://github.com/sipeed/TangNano-9K-example) to see which steps are not done correctly
-    Note: for screen wiring, pay attention to the 1-pin silk screen next to the connector corresponding to 1-pin of the cable
-    Documents to read:
-    SUG284-2.1E_Gowin IP Core Generator User Guide.pdf (Page 28)
-    Datasheet of 5inch screen:[Click AT050TN43***.pdf](https://dl.sipeed.com/shareURL/LICHEE/Zero/HDK/) (mainly to obtain the information that CLK is 33.3mhz)
+2. 安装IDE（强烈建议下载历史版本：V1.9.6.02，避免下载出错）和填写正确的License：[点击这里](https://wiki.sipeed.com/soft/Tang/zh/Tang-Nano-Doc/get_started/install-the-ide.html)
 
-6. Explanation of  HDMI display (to be updated)
+3. 阅读第一步下载的文件里面的：SUG100-2.6_Gowin云源软件用户指南.pdf
 
-7. PicoRV soft core test (to be updated, users can also follow the official guide in the PicoRV folder in the guide document downloaded in the first step)
+4. 阅读这个[教程](https://wiki.sipeed.com/soft/Tang/zh/Tang-Nano-Doc/examples/1_led.html)（LED点灯实验），需要注意的是，9K跟1K的原理图是不同的，所以需要修改FloorPlanner。建议新手直接下载我们的9K例程，无需任何修改，打开进行Synthesize/Place&Route即可下载到板子上观察效果
+
+    注意：Synthesize那一步如果遇到License check failed，需要右键Synthesize，选择Configurations,然后选择Synthesis Tool为GowinSynthesis即可
+
+    建议新手在完成这一步之后，自己重新独立新建项目、编写代码，完成这个实验，并且按自己的想法修改点灯程序，增强对FPGA和硬件描述语言的理解
+
+    建议在这个过程阅读以下文档，阅读完才进入下一步：
+
+    Verilog代码规范（自行搜索，从初学就培养良好的代码规范是非常必要的）
+
+    SUG949-1.1_Gowin_HDL编码风格用户指南.pdf
+
+    UG286-1.9.1_Gowin时钟资源(Clock)用户指南.pdf
+
+    SUG114-2.5_Gowin在线逻辑分析仪用户指南.pdf
+
+    书籍《FPGA应用开和仿真》
+
+    在线免费教程：[菜鸟教程](https://www.runoob.com/w3cnote/verilog-tutorial.html)（学习Verilog语言）
+
+    在线免费FPGA教程：[Verilog](https://www.asic-world.com/verilog/index.html)
+
+    在线高云官方视频教程：[点击这里](http://www.gowinsemi.com.cn/video_complex.aspx?FId=n15:15:26)
+
+5. 按照这个[教程](https://wiki.sipeed.com/soft/Tang/zh/Tang-Nano-Doc/examples/2_lcd.html)进行RGB屏驱动实验。如果用户自行实在无法完成这个实验，可以下载我们9K例程（适配9K板子+5寸屏）查看哪个步骤没做正确
+
+    注意：屏幕接线需要注意排线的1脚对应连接器旁的1脚丝印
+
+    需要阅读的文档：
+
+    rPLL IP核的说明文档：在IDE里>Tools>IP Core Generator>Hard Module>CLOCK>rPLL>点击弹出界面右下角的Help按键就会弹出说明文档
+
+    SUG284-2.1E_Gowin IP Core Generator User Guide.pdf（第28页）
+
+    5寸屏规格书：[点击这里（再点击AT050TN43***.pdf）](https://dl.sipeed.com/shareURL/LICHEE/Zero/HDK/) (主要是获取CLK是33.3Mhz这个信息)
+
+6. 驱HDMI屏讲解（待更新）
+
+7. PicoRV软核实验（待更新，用户也可以按照第一步下载的指南文档里的PicoRV文件夹内的官方指南进行）
+
+## **例程汇总**
+
+LED drive / RGB LCD display : https://github.com/sipeed/TangNano-9K-example 
+
+GameBOY HDMI : https://github.com/Martoni/GbHdmi 
+
+PicoRV源工程 : https://github.com/YosysHQ/picorv32 
+
+PicoRV 在9K上运行的例程：即将更新
+
+HDMI显示例程：即将更新
+
+## **硬件资料汇总**
+
+规格书、官方手册、原理图、尺寸图、位号图、3D文件：[点击这里](https://dl.sipeed.com/shareURL/TANG/Nano%209K)
+
+## **注意事项**
+
+1. 建议使用以下版本的IDE：1.9.6.02 (43263) ，避免出现无法下载的情况。下载链接在高云官网=>开发者专区=>高云云源软件=>云源软件历史版本=>V1.9.6.02Beta
+
+2. 避免使用JTAG、MODE、DONE等引脚。如果一定要使用这些引脚，请查看《UG292-1.0原理图指导手册》
+
+3. 请注意避免静电打到PCBA上；接触PCBA之前请把手的静电释放掉
+
+4. 每个GPIO的工作电压已经在原理图中标注出来，请不要让GPIO的实际工作的电压超过额定值，否则会引起PCBA的永久性损坏
+
+5. 在连接FPC软排线的时候，请确保排线无偏移、完整地插入到排线中
+
+6. 请在上电过程中，避免任何液体和金属触碰到PCBA上的元件的焊盘，否则会导致短路，烧毁PCBA
+
  
-
-## Reference code summary
-LED drive / RGB LCD display : <https://github.com/sipeed/TangNano-9K-example>
-GameBOY HDMI : <https://github.com/Martoni/GbHdmi> 
-PicoRV : <https://github.com/YosysHQ/picorv32> 
-PicoRV project running on Tang Nano 9K : coming soon
-HDMI Display : coming soon
-
-## Summary of hardware files
-Datasheet,  User Guide, Schemaitc, Size, Designator, 3D file : [Click here](https://dl.sipeed.com/shareURL/TANG/Nano%209K)
-
-## Matters needing attention
-1. It is recommended to use the following version of IDE: 1.9.6.02 (43263) to avoid failure to download.Download link on Gowin official website = > Support = > GOWIN EDA home = >Download GOWIN EDA = > V1.9.6
-2. Avoid using JTAG, MODE0/1 and DONE pins. If you must use these pins, please refer to the <UG284-1.8E : schematic manual.pdf>
-3. Please pay attention to avoid static electricity hitting PCBA; Please release the static electricity from the hand before contacting PCBA
-4. The working voltage of each GPIO has been marked in the schematic . Please do not let the actual working voltage of GPIO exceed the rated value, otherwise it will cause permanent damage to PCBA
-5. When connecting FPC flexible cable, please ensure that the cable is completely inserted into the cable without offset
-6. Please avoid any liquid or metal touching the pads of components on PCBA during power on, otherwise it will cause short circuit and burn PCBA

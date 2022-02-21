@@ -60,6 +60,10 @@
                             "file": "maixII/M2/flash.md"
                         },
                         {
+                            "label":"连接开发板",
+                            "file":"../../soft/maixpy3/zh/tools/0.MaixII-Dock.ipynb"
+                        },
+                        {
                             "label": "进阶使用",
                             "file": "maixII/M2/usage.md"
                         },

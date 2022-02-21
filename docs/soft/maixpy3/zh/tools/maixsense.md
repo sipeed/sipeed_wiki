@@ -1,8 +1,11 @@
 ---
-title: 如何使用 mobaxterm 
+title: 在 MaixII-Sense 平台上使用 
 keywords: Jupyter, MaixPy3, Python, Python3
-desc: maixpy doc: 如何使用 mobaxterm 
+desc: maixpy doc: 在 MaixII-Sense 平台上使用 
 ---
+
+在 MaixII-Sense 上使用 MaixPy3 ，需要烧录内置 MaixPy3 的 armbian 系统，通过数据线连接
+
 ## 串口连接
 
 使用串口连接软件，以 mobaxterm 为例
@@ -42,6 +45,7 @@ MaixPy3 IDE 连接 MaixSense 只能使用远程连接，不能使用有线连接
 在板子上运行 python -c "import maix.mjpg;maix.mjpg.start()" 启动板子上的远程 RPyc 服务
 
 在 IDE 中新建代码区，运行下面的连接代码
+
 ```python
 $connect("192.168.43.44") # 此处填入开发板的 IP 地址
 import platform

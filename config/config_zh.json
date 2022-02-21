@@ -122,6 +122,11 @@
                 "position": "left"
             },
             {
+                "label":"修改文档",
+                "url":"/change_doc.html",
+                "position": "left"
+            },
+            {
                 "label": "Github ",
                 "position": "right",
                 "url": "https://github.com/sipeed"  

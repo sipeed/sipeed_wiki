@@ -1,7 +1,5 @@
 # 基础上手
 
-
-
 ## 点灯教程
 
 当我们成功进入系统后，就可以进行基础的点灯操作啦！
@@ -117,20 +115,30 @@ udhcpc -ieth0
 
 ### 无线网络
 
-LicheeRV 底板默认使用XR829或者RTL8723BS wifi模块，可以使用以下指令进行联网操作
+- **使用 Tina 系统**
+  LicheeRV 底板默认使用XR829或者RTL8723BS wifi模块，可以使用以下指令进行联网操作
 
-先配置热点信息：
+  先配置热点信息：
 
-```
-vim /etc/wifi/wpa_supplicant.conf
-network={  
-    ssid="WiFi_name"  
-    psk="WiFi_password"  
-} 
-```
+  ```
+  vim /etc/wifi/wpa_supplicant.conf
+  network={  
+      ssid="WiFi_name"  
+      psk="WiFi_password"  
+  } 
+  ```
 
-配置完成后重启，ifconfig wlan0 up; udhcpc -iwlan0 即可连上对应的wifi。
-连上网络后，你就可以使用ssh远程登录板卡，或者使用scp来进行文件传输啦~
+  配置完成后重启，ifconfig wlan0 up; udhcpc -iwlan0 即可连上对应的wifi。连上网络后，你就可以使用ssh远程登录板卡，或者使用scp来进行文件传输啦~
+
+- **使用 debian 系统**
+  点击系统菜单--Preferenes--Connman Settings，打开 Network Settings ，查看网络属性中的 Interface 是否为 wlan0。双击网络名称，并输入 WiFi 密码进行连接
+
+  ![](./../assets/RV/wifi-1.jpg)
+
+  连接网络成功之后，通过系统系统菜单--Preferenes--Connman Settings，查看网络属性查看网络的 IP 地址
+
+  ![](./../assets/RV/wifi-2.jpg)
+
 
 ### 屏显触摸
 

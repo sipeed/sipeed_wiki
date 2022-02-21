@@ -31,31 +31,30 @@
             ]
         },
         {
-            "label": "MaixPy3 使用环境",
+            "label": "MaixPy3 使用的平台",
+            "file": "install/install.md"
+        },
+        {
+            "label":"MaixPy3 IDE是什么",
             "collapsed": false,
-            "file": "install/install.md",
+            "file":"tools/MaixPy3_IDE.md",
             "items":[
                     {
-                        "label":"安装 MaixPy3 IDE",
-                        "file":"tools/MaixPy3_IDE.md"
-                    },
-                    {
-                        "label":"在 MaixII-Dock 平台上使用",
+                        "label":"在 MaixII-Dock 上使用",
                         "file":"tools/0.MaixII-Dock.ipynb"
                     },
                     {
-                        "label":"在 MaixII-Sense 平台上使用",
+                        "label":"在 MaixII-Sense 上使用",
                         "file":"tools/maixsense.md"
                     }
             ]
         },
         {
-            "label": "基础使用方法",
+            "label": "MaixPy3 基础库的使用方法",
             "collapsed": false,
             "items": [
                 {
                     "label": "视觉功能",
-                    "file": "usage/vision/preamble.ipynb",
                     "items": [
                         {
                             "label": "背景知识",

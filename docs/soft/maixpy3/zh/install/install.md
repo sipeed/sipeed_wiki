@@ -1,5 +1,5 @@
 ---
-title: 安装 MaixPy3 环境
+title: MaixPy3 使用的平台
 keywords: linux, MaixII-Dock, MaixSense, 安装MaixPy3
 desc: maixpy doc: linux_x86_64 如何安装？
 ---

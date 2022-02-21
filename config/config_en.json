@@ -74,6 +74,10 @@
                     {
                         "url": "/hardware/en/longan/index.html",
                         "label": "Longan"
+                    },
+                    {
+                        "url":"/hardware/en/modules_spmod/spmod_extender.html",
+                        "label":"SP-Mod"
                     }
                 ]
             },

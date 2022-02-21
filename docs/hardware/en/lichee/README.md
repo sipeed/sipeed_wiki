@@ -1,8 +1,31 @@
----
-title: Sipeed LicheePi series hardware
-keywords: Sipeed, Hardware, 矽速, 硬件资料, 文档, 资料下载, Maix系列
-desc: 矽速科技(Sipeed) Maix 系列开源硬件产品
----
+# Lichee Pi
 
+## Lichee Zero 
+<div align="center">
+<a href="./Zero/Zero.html" ><img src="./assets/Zero/Zero_1.png" width=400></a>
+</div>
 
-Currently Only have Chinese version, see [LicheePi series hardware Chinese doc](/hardware/zh/lichee/index.html), you can install google tranlate plugin to tranlate pages
+## Lichee Nano 
+
+<div align="center">
+
+<a href="./Nano/Nano.html" ><img src="./assets/Nano/Nano_2.png" width=400></a>
+
+</div>
+
+## Lichee Zero Plus
+
+<div align="center">
+
+<a href="./ZeroPlus/ZeroPlus.html"><img src="./assets/Zero-Plus/Plus_1.jpg" width=400></a>
+
+</div>
+
+## Lichee RV
+
+<div align="center">
+
+<a href="./RV/RV.html"><img src="./assets/RV/D1-4.png" width=400></a>
+
+</div>
+
