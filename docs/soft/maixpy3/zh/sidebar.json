@@ -44,7 +44,7 @@
                         "file":"tools/0.MaixII-Dock.ipynb"
                     },
                     {
-                        "label":"在 MaixII-Sense 上使用",
+                        "label":"在 MaixSense 上使用",
                         "file":"tools/maixsense.md"
                     }
             ]
