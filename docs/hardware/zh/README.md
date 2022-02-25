@@ -4,76 +4,28 @@ keywords: Sipeed, Hardware, 矽速, 硬件资料, 文档, 资料下载, 深度�
 desc: 矽速科技的硬件资料站
 ---
 
-# Sipeed HardWare WIKI
+## Maix 系列
 
-[English](./README_en.md)[中文]
+推出一系列以 **K210** 为核心的开发板，满足不同人群对于开发板的需求
 
-## K210 核心模组
-
-* [K210 核心模块](./core_modules/k210_core_modules.md)
-    - [M1/M1w](./core_modules/k210_core_modules.md)
-    - [M1n](./core_modules/k210_core_modules.md)
-
-## MaixPy 系列开发板
-
-* [MaixPy 开发板](./maixpy_develop_kit_board/develop_kit_board.md)
-  - [Maix Go](./maixpy_develop_kit_board/maix_go.md)
-  - [Maix Dock(M1/M1W)](./maixpy_develop_kit_board/maix_dock.md)
-  - [Maix Bit](./maixpy_develop_kit_board/maix_bit.md)
-  - [Maix Duino](./maixpy_develop_kit_board/maix_duino.md)
-  - [Maix Nano](./maixpy_develop_kit_board/maix_nano.md)
-  - [Maix Cube](./zh/maixpy_develop_kit_board/maix_cube.md)
-  - [Maix Amigo](./maixpy_develop_kit_board/maix_Amigo.md)
+[![](./../assets/maix.jpg)](./maix/readme.md)
 
 
+## MaixII Linux AI 开发板系列
 
-### MaixPy 外设模块
+[![](./../assets/maixii.jpg)](./maixII/readme.md)
 
-* [扩展接口 Grove](./)
-    - [Grove-RGB LED](./)
-* [扩展接口 SP-MOD](./)
-    - [转接板类](./)
-    - [SP-Extender](./modules_spmod/spmod_extender.md)
-    - [SP-Grove](./modules_spmod/spmod_grove.md)
-    - [SP-FPC](./modules_spmod/spmod_fpc.md)
-    - [SP-MicArray](./modules_spmod/spmod_micarray.md)
-    - [SP-JoyStick](./modules_spmod/spmod_joystick.md)
-    - [SP-JoyStick2](./zh/modules_spmod/spmod_joystick.md)
-    - [SP-Servo](./modules_spmod/spmod_servo.md)
-    - [SP-Type-C](./)
-    - 传感器类
-    - [SP-Weather](./modules_spmod/spmod_weather.md)
-    - [SP-TOF-1P](./modules_spmod/spmod_tof.md)
-    - 通信类
-    - [SP-BLE](./modules_spmod/spmod_bt.md)
-    - [SP-LoRa](./modules_spmod/spmod_lora.md)
-    - [SP-PSRAM](./modules_spmod/spmod_psram.md)
-    - [SP-RFID](./modules_spmod/spmod_rfid.md)
-    - [SP-Ethernet](./modules_spmod/spmod_ethernet.md)
-    - 显示类
-    - [SP-LCD 1.14](./modules_spmod/spmod_lcd1.14.md)
-    - [SP-Eink](./modules_spmod/spmod_eink.md)
+## Lichee Linux 开发板系列
 
-## 模块&&调试器
+[![](./../assets/lichee.jpg)](./lichee/readme.md)
 
-### 调试器
+## Tang 系列
+FPGA 开发板
 
-- [Sipeed RV Debugger](./)
-- [双串口 USB 模块](./)
+[![](./../assets/tang.jpg)](./tang/readme.md)
 
-### 模块
+## Longon 系列
 
-- Camera(Sensor)
+[![](./../assets/longan nano.jpg)](./longan/readme/md)
 
-    - [OV2640](./)
-    - [OV2640-M12](./)
-    - [双摄像头模块(OV2640)](./)
-    - [GC0328](./)
-    - [双摄像头模块(GC0328)](./)
-    - [OV7740](./)
 
-- [麦克风模块](./)
-  - [单麦克风模块](./)
-  - [麦克风阵列](./)
-
-- [LCD 1.3/2.4/2.8/4.3/5 寸](./)

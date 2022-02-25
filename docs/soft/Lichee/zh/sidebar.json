@@ -477,7 +477,23 @@
                     ]
                 }
             ]
-        }    
+        },
+        {
+            "label":"MaixSense",
+            "items":[
+                {
+                    "label":"简介"
+                }
+            ]
+        },
+        {
+            "label":"Lichee RV",
+            "items":[
+                {
+                    "label":"简介"
+                }
+            ]
+        }
     ]
 }
 

@@ -34,7 +34,7 @@
         </tr>
         <tr>
             <td><span class="limit_width"></span><strong>Linux-Lichee交流QQ群</strong></td>
-            <td><span class="limit_width"></span><span class=""><strong>488268051</strong></span></td>
+            <td><span class="limit_width"></span><span class=""><strong>712961164</strong></span></td>
         </tr>
         <tr>
             <td><span class="limit_width"></span><strong>FPGA-Tang交流QQ群</strong></td>

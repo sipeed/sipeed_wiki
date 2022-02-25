@@ -42,3 +42,4 @@ desc: maixpy doc: MaixPy3 是什么？能做什么？
 <iframe style="width:100%;height:auto;min-width:600px;min-height:400px;" src="https://star-history.com/embed?secret=#sipeed/MaixPy3&Date" frameBorder="0"></iframe>
 
 > 快来与我们一起同行吧！ “Life is short. You need Sipeed.”
+

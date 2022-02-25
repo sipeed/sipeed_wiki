@@ -9,52 +9,10 @@
         "home_url": "/",
         "items": [
             {
-                "url": "/",
-                "label": "首页",
-                "position": "left"
-            },
-            {
-                "url": "https://www.sipeed.com",
-                "label": "矽速官网",
-                "target": "_blank",
-                "position": "left"
-            },
-            {
-                "label": "开源软件",
+                "label": "产品",
                 "position": "left",
                 "type": "list",
-                "items": [
-                    {
-                        "url": "/soft/maixpy/zh/index.html",
-                        "label": "MaixPy"
-                    },
-                    {
-                        "url": "/soft/maixpy3/zh/index.html",
-                        "label": "MaixPy3"
-                    },
-                    {
-                        "url":"/soft/maixduino/zh/index.html",
-                        "label":"MaixDuino"
-                    },
-                    {
-                        "url": "/soft/Lichee/zh/index.html",
-                        "label": "Lichee"
-                    },
-                    {
-                        "url": "/soft/longan/zh/index.html",
-                        "label": "Longan"
-                    },
-                    {
-                        "url": "/soft/Tang/zh/index_bak.html",
-                        "label": "Tang"
-                    }
-
-                ]
-            },
-            {
-                "label": "开源硬件",
-                "position": "left",
-                "type": "list",
+                "url":"/hardware/zh/",
                 "items": [
                     {
                         "url": "/hardware/zh/maix/index.html",
@@ -84,52 +42,63 @@
                 ]
             },
             {
-                "label": "商业产品",
+                "label": "技术支持",
                 "position": "left",
                 "type": "list",
                 "items": [
                     {
-                        "url": "/hardware/maixface/zh/",
-                        "label": "Maix Face"
+                        "url": "/soft/maixpy/zh/index.html",
+                        "label": "MaixPy"
+                    },
+                    {
+                        "url": "/soft/maixpy3/zh/index.html",
+                        "label": "MaixPy3"
+                    },
+                    {
+                        "url": "/soft/Lichee/zh/index.html",
+                        "label": "Lichee"
                     }
+
                 ]
             },
+            
             {
-                "label": "云平台",
+                "label": "云服务平台",
                 "position": "left",
-                "type": "list",
-                "items": [
+                "type":"list",
+                "items":[
                     {
-                        "url": "https://www.maixhub.com",
-                        "label": "Maixhub 模型训练平台",
+                        "label":"在线训练平台",
+                        "url":"https://www.maixhub.com",
                         "target": "_blank"
                     },
                     {
-                        "url": "https://www.maixhub.com/onlinecompiler",
-                        "label": "固件在线编译",
+                        "label":"下载中心",
+                        "url":"https://dl.sipeed.com/",
                         "target": "_blank"
                     }
                 ]
             },
             {
-                "label": "社区",
+                "label": "在线社区",
                 "url": "/community.html",
                 "position": "left"
             },
             {
                 "url": "/store.html",
-                "label": "商城",
+                "label": "线上商城",
                 "position": "left"
             },
             {
-                "label":"修改文档",
+                "label":"编辑文档",
                 "url":"/change_doc.html",
                 "position": "left"
             },
             {
                 "label": "Github ",
                 "position": "right",
-                "url": "https://github.com/sipeed"  
+                "url": "https://github.com/sipeed",
+                "target": "_blank"
             },
             {
                 "id": "language",
@@ -270,7 +239,7 @@
         "teedoc-plugin-ad-hint": {
             "from": "pypi",
             "config": {
-                "label": "新",
+                "label": "新闻",
                 "content": "2022年 Sipeed 开源社区 <a target=\"_blank\" href=\"https://wiki.sipeed.com/soft/maixpy3/zh/index.html\">MaixPy3</a> 正式版更新！全新的产品体验！ <br> 详细 AI 模型训练方法！快来看看它有什么不同吧！"
             }
         }
