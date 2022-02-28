@@ -58,7 +58,7 @@ V3s框架
 | 内存 | 64MB DDR2 |
 | 存储 | 预留 SOP8 SPI Flash焊盘 <br>板载TF卡座 |
 | 显示 | 通用40P RGB LCD FPC座<br>可直插常见的40P 4.3/5/7寸屏幕（板载背光驱动)，通过转接板可插50P 7/9寸屏<br>支持常见的272x480,480x800,1024x600等分辨率板载电阻式触摸屏芯片，支持电阻屏<br>板载RGB LED |
-| 通讯接口 | SDIO x2，可搭配配套SDIO WiFi+BT模块<br>SPl x1<br>12C x2<br>UART x3<br>100M Ether x1(含EPHY)<br>OTG USB x1<br>MIPI CSI x1 |
+| 通讯接口 | SDIO x2，可搭配配套SDIO WiFi+BT模块<br>SPI x1<br>I2C x2<br>UART x3<br>100M Ether x1(含EPHY)<br>OTG USB x1<br>MIPI CSI x1 |
 | 其他接口 | <br>PWM x2<br>LRADC x1<br>Speakerx2+ Mic x1 |
 | 板载外设 | 以太网接口<br>3.5mm耳机接口<br>驻极体麦克风<br>额外TF卡卡槽<br>4个按键<br>MIPI接口 |
 | 电气特性 | Micro USB 5V供电<br>2.54mm插针3.3V~5V供电<br>1.27mm邮票孔供电 |
