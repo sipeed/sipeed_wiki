@@ -42,7 +42,7 @@
                 ]
             },
             {
-                "label": "贡献文档",
+                "label": "软件文档",
                 "position": "left",
                 "type": "list",
                 "items": [
@@ -90,7 +90,7 @@
                 "position": "left"
             },
             {
-                "label":"常见问题",
+                "label":"贡献文档",
                 "url":"/change_doc.html",
                 "position": "left"
             },
