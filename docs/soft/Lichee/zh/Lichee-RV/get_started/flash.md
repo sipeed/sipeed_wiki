@@ -8,8 +8,8 @@
 2. TF 内存卡（建议使用官方店上的内存卡，别的卡可能存在烧录失败和烧录之后不能启动的问题）
 3. 烧录工具 [PhoenixCard](https://dl.sipeed.com/shareURL/LICHEE/D1/Lichee_RV/tool)
 4. 系统镜像
-    [Tina](https://dl.sipeed.com/shareURL/LICHEE/D1/Lichee_RV/SDK/image) 系统镜像或者 Debian 系统镜像(链接：https://pan.baidu.com/s/1QJTaDw6kkTM4c_GAlmG0hg 提取码：wbef)
-    国外用户：<https://mega.nz/folder/lx4CyZBA#PiFhY7oSVQ3gp2ZZ_AnwYA>
+    国内用户：[Tina](https://dl.sipeed.com/shareURL/LICHEE/D1/Lichee_RV/SDK/image) 系统镜像或者 Debian 系统镜像   ([百度网盘](https://pan.baidu.com/s/1QJTaDw6kkTM4c_GAlmG0hg) 提取码：wbef)
+    国外用户：[Mega](https://mega.nz/folder/lx4CyZBA#PiFhY7oSVQ3gp2ZZ_AnwYA)
 
 | 镜像词缀说明 | 含义 | 备注 |
 | --- | --- | --- |
@@ -29,7 +29,7 @@
 
 打开烧录软件 PhoenixCard，选择烧录的固件，将内存卡通过读卡器插入电脑中
 
-![](./../assets/RV/flash.png)
+![](./../assets/flash.png)
 
 > 并不能保证每台电脑和每个人的内存卡都是可以烧录的，推荐烧录失败的时候直接购买官方的镜像卡。（全志的）
 
@@ -63,8 +63,7 @@ TIPS：
 
 > 以下操作是在 Linux 系统中进行
 
-如果烧录的镜像后缀与板子实际型号不符，下载对应的 boot_package_XXX.fex 来覆盖板级配置
-
+如果烧录的镜像后缀与板子实际型号不符，下载对应的 boot_package_XXX.fex 来覆盖板级配置，
 覆盖指令为：
 
     sudo dd if=boot_package_XXX.fex of=/dev/sdX bs=1K seek=16400

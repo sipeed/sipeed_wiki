@@ -19,7 +19,7 @@ R329 为全志的 SOC，所以 Windows 使用 PhoenixCard，Linux 上使用 Live
 
 Tina 系统需要自己进行编译，具体编译方式参考<https://github.com/sipeed/R329-Tina-jishu>
 
-Tina 系统的烧录方式和 MaixII dock通用，可参考[MaixII M2dock 烧录系统 - Sipeed Wiki](https://wiki.sipeed.com/soft/maixpy3/zh/install/maixii_m2dock/flash.html#windows-phoenixcard)，这里不多做介绍
+Tina 系统的烧录方式和 MaixII dock通用，可参考[MaixII M2dock 烧录系统 - Sipeed Wiki](./../M2/flash.md)，这里不多做介绍
 
 ## armbian 系统烧录
 

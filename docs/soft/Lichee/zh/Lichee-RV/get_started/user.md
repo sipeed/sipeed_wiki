@@ -215,19 +215,18 @@ LicheeRV_Debian_hdmi 为 dock的hdmi输出的debian镜像
 
 烧录完成后，插卡启动，稍等2分钟左右，屏幕上就会显示登录界面
 
-![attachmentId-2734](https://bbs.sipeed.com/storage/attachments/2021/12/09/z8QlbfdC11GLaT5dis9epd1DdfbRPpRsa6XEi2AU.png)
+![登录界面](./../assets/LicheeRV_login_picture.png "登录界面")
 
 输入用户名 sipeed，密码 licheepi，即可进入桌面 （使用USB HOST口外接键鼠输入）
 
-![attachmentId-2735](https://bbs.sipeed.com/storage/attachments/2021/12/09/2uBMvAjSuX8VLL3kVVKmBCUIxqOPJgVyYsl7MTge.png)
-
+![桌面样式](./../assets/desktop_appearance.png "桌面样式")
 进入桌面后可以进行一些基础操作
 
-![attachmentId-2736](https://bbs.sipeed.com/storage/attachments/2021/12/09/jtKDz9H3AvMrfmLCSwQW3QR8sRXQEDjAJFMG9KaI.png)
+![基础操作](./../assets/Basic_operation.png "基础操作")
 
 接下来让我们尝试在Debian下跑一下Hello World:
 
-![attachmentId-2737](https://bbs.sipeed.com/storage/attachments/2021/12/09/vuluuJDdW5sJm2dSy60HmqUvpYJ6YJMuIinX3Y0N.png)
+![运行自制程序](./../assets/Run_HelloWorld.png "运行自制程序")
 
 另有720P高清屏的效果对比，有米的同学可以考虑入手：
 
@@ -239,18 +238,19 @@ LicheeRV_Debian_hdmi 为 dock的hdmi输出的debian镜像
 
 为了方便用户自行开发，矽速整理发布了 LicheeRV 的bsp开发docker镜像，大家使用该镜像可以快速开始D1的系统级开发。
 
-在网盘中下载对应的docker文件后，解压到tar文件，docker import licheerv_d1_compile.tar licheerv_d1_compile:lastest
+在网盘中下载对应的docker文件后，解压到tar文件后导入到docker
+>docker import licheerv_d1_compile.tar licheerv_d1_compile:lastest
 
-然后即可run该容器，用户名为nihao，密码为sipeed123
+然后即可run该容器。用户名为`nihao`，密码为`sipeed123`
 
 进入容器后的基础编译操作为：
 
 ```
 cd ~/sdk/tina-d1-open_new/
 source build/envsetup.sh
-lunch   //选1
-make menuconfig //去掉里面的 alsa-plugin选项，否则编译不过
-make -j96 #按实际核数编译
+lunch   #选1
+make menuconfig  #去掉里面的 alsa-plugin选项，否则编译不过
+make -j8  #按实际CPU性能编译
 pack  #打包
 ```
 
