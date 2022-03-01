@@ -4,21 +4,22 @@
 | --- | --- | --- | :---: |
 | 2022年1月22日 | Rui | 编写初稿文档 | ------------------------------------- |
 
-由于训练需要用到显卡，关于安装显卡驱动、CUDA、CUDNN、OpenCv 请自行百度查阅安装，本文不做详细说明。本文章是在 Ubuntu 环境下，使用英伟达 GTX1080 显卡所编写完成的，请以该环境为参考。（使用 AMD 显卡请自行百度对应的教程）
+> 现在只能在 Linux 系统上进行训练
 
-
-
+由于训练需要用到显卡，关于安装显卡驱动、CUDA、CUDNN、OpenCv 请自行百度查阅安装，本文不做详细说明。本文章是在 Ubuntu 环境下，使用英伟达 GTX1080 显卡所编写完成的，请以该环境为参考。（ADM 显卡或者无显卡的，可以使用 CPU 进行训练）
 
 ## 安装 Python 软件包
 
-软件包介绍：
+本地训练时使用 Python 进行搭建的，需要在电脑上安装 Python，请自行[百度 Python ](https://www.baidu.com/s?ie=UTF-8&wd=python)如何安装。我们所有的训练工程都是使用 PyTorch 框架进行搭建 
+
+需要安装以下 Python 软件包：
 - PyTorch ：基础训练框架。
 - torchsummary ： 格式化打印模型信息。
 - pycocotools : 数据集相关工具
 
 ### 安装 PyToch
 
-进入 Pytorch 下载帮助[网页](https://pytorch.org/get-started/locally/)，根据自己所用系统的环境情况，选择对应的 CUDA 版本和安装包的类型，这里所选用的是 CUDA 10.2、Linux 系统、稳定版、pip包
+进入 Pytorch 下载帮助[网页](https://pytorch.org/get-started/locally/)，根据自己所用系统的环境情况，选择对应的 CUDA 版本和安装包的类型，这里所选用的是 CUDA 10.2、Linux 系统、稳定版、pip包（30 系列显卡只能使用11.2以上的版本）
 
     pip3 install torch torchvision torchaudio
 
@@ -38,9 +39,9 @@
 
 ##  onnx2ncnn 模型转换工具
 
-因为 onnx2ncnn 模型准换工具是没有现成的可执行文件，需要同学们自行去编译出对应的可执行文件,具体的编译如下
+PyTorch 不能直接将模型导出成 ncnn 格式，需要使用 onnx2ncnn 转换工具进行转换，需要用户自行去编译出对应的可执行文件,具体的编译步骤如下
 
-1. 安装编译环境所需要用到的软件包
+1. 安装编译环境所需要用到的软件
     ```shell
     sudo apt install build-essential git cmake libprotobuf-dev protobuf-compiler libvulkan-dev vulkan-utils libopencv-dev
     ```
@@ -53,7 +54,7 @@
     cd ncnn
     git submodule update --init
     ```
-4. 开始编译 onnx2ncnn 工具
+4. 开始编译
     ```shell
     mkdir build
     cd build

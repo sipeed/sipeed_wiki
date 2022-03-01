@@ -8,9 +8,7 @@
 > 临时工程文件获取：https://github.com/dianjixz/v831_restnet18
 
 
-图像分类主要采用 resnet18 网络结构，使用 Pytorch 框架进行训练，再将经过量化后的模型文件部署到 MaixII-Dock 上。
-
-总结**流程**为： PyTorch 训练 → 导出 onnx 模型 → 转换成 ncnn 模型 → 使用 MaixHub 在线量化 → 部署模型
+图像分类主要采用 resnet18 网络结构，使用 Pytorch 框架进行搭建，再将经过**训练、转换和量化**后的模型文件部署到 MaixII-Dock 上。
 
 ## 准备
 
@@ -21,26 +19,16 @@
     git clone https://github.com/dianjixz/v831_restnet18
 
 工程文件结构介绍：
-~~~ bash
+```shell
 ├── classes_label.py                            #分类标签
 ├── classifier_resnet_test.py                   #测试程序
 ├── classifier_resnet_train.py                  #训练程序
 ├── convert.py                                  #模型转换程序
-├── convs_data                                  #上传文件夹
-├── convs_data.zip                              #上传的压缩包
+├── convs_data                                  #存放经过 onnx2ncnn 转换之后的模型文件
 ├── data                                        #训练数据文件夹
-│   ├── mouse                                  #分类文件夹
-│   └── sipeed_logo
 ├── out                                         #训练模型输出文件夹，每隔一定训练周期输出一个模型参数
-│   ├── classifier_19.pth
-│   ├── classifier_39.pth
-│   └── classifier_59.pth
-├── restnet_img.jpeg
 └── test                                        #测试数据集文件夹（不分类别）
-7 directories, 921 files
-
-~~~
-
+```
 
 ### 数据集的制作与使用
 
@@ -48,8 +36,8 @@
 
 > 注意！数据集中图片的分辨率需要是 224*224 ，有能力的可以自行修改源码来适配别的分辨率，我们并不提供这样的服务！
 
+数据集 data 文件夹结构
 ~~~ c
-数据集文件夹结构
 ── mouse
 │   ├── 1.jpg
 ...
@@ -63,7 +51,7 @@
 
 - 例如：data文件夹内为
 ![resnet-data](./dnn/resnet-data.png)
-则 `classes_label.py` 需要修改成
+则需要将 `classes_label.py` 修改成
     ```python
 labels = ["mouse","sipeed_logo"]
     ```
@@ -72,10 +60,8 @@ labels = ["mouse","sipeed_logo"]
 
 训练的相关参数，在工程中的 classifier_resnet_train.py 文件里面，可以根据自己的需要进行修改，不懂怎么修改的，就保持默认就好了
 
-
-
 ~~~ python
-dataset_path = "data/datasets"		#训练集的路径
+dataset_path = "data"		#训练集的路径
 val_split_from_data = 0.1 # 10%		#学习率
 batch_size = 4						#训练批次
 learn_rate = 0.001	                #学习率
@@ -91,7 +77,7 @@ param_save_path = './out/classifier_{}.pth'	#参数保存路径
 开始训练，在 resnet18 工程文件夹目录下运行
 
 ~~~ bash
-python classifier_resnet_train.py  
+python classifier_resnet_train.py
 ~~~
 
 训练完成后，会在工程目录下生成一个 out 文件夹，在 out 文件夹下存放着训练过程中保存的训练参数。
