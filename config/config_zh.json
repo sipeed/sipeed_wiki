@@ -42,7 +42,7 @@
                 ]
             },
             {
-                "label": "技术支持",
+                "label": "软件文档",
                 "position": "left",
                 "type": "list",
                 "items": [
@@ -63,12 +63,12 @@
             },
             
             {
-                "label": "云服务平台",
+                "label": "云服务",
                 "position": "left",
                 "type":"list",
                 "items":[
                     {
-                        "label":"在线训练平台",
+                        "label":"AI 训练平台",
                         "url":"https://www.maixhub.com",
                         "target": "_blank"
                     },
@@ -80,7 +80,7 @@
                 ]
             },
             {
-                "label": "在线社区",
+                "label": "在线社群",
                 "url": "/community.html",
                 "position": "left"
             },
@@ -90,7 +90,7 @@
                 "position": "left"
             },
             {
-                "label":"编辑文档",
+                "label":"常见问题",
                 "url":"/change_doc.html",
                 "position": "left"
             },

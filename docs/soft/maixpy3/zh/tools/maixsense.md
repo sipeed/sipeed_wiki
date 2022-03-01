@@ -1,8 +1,13 @@
 ---
-title: 在 MaixSense 平台上使用 
+title: 使用 MaixPy3 IDE 连接 MaixSense 
 keywords: Jupyter, MaixPy3, Python, Python3
 desc: maixpy doc: 在 MaixII-Sense 平台上使用 
 ---
+
+
+| 时间 | 负责人 | 更新内容 |
+| --- | --- | --- |
+| 2022年2月28日 | Rui | 编写连接文档 |
 
 在 MaixSense 上使用 MaixPy3 ，需要烧录内置 MaixPy3 的 armbian 系统，通过数据线连接
 

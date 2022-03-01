@@ -31,22 +31,24 @@
             ]
         },
         {
-            "label": "MaixPy3 使用的平台",
+            "label": "MaixPy3 支持的平台",
             "file": "install/install.md"
         },
         {
-            "label":"MaixPy3 IDE是什么",
-            "collapsed": false,
-            "file":"tools/MaixPy3_IDE.md",
+            "label":"MaixPy3 IDE 介绍",
+            "file":"tools/MaixPy3_IDE.md"
+        },
+        {
+            "label":"连接开发板",
             "items":[
-                    {
-                        "label":"在 MaixII-Dock 上使用",
-                        "file":"tools/0.MaixII-Dock.ipynb"
-                    },
-                    {
-                        "label":"在 MaixSense 上使用",
-                        "file":"tools/maixsense.md"
-                    }
+                {
+                    "label":"MaixII-Dock (V831)",
+                    "file":"tools/0.MaixII-Dock.ipynb"
+                },
+                {
+                    "label":"MaixSense (R329)",
+                    "file":"tools/maixsense.md"
+                }
             ]
         },
         {
@@ -154,7 +156,7 @@
                     "file":"usage/AI_net/self_learn.ipynb"
                 },
                 {
-                    "label": "训练自己的神经网络模型（待整理）",
+                    "label": "训练 AI 模型",
                     "items":[
                         {
                             "label": "深度神经网络基础知识（必看）",

@@ -1,5 +1,5 @@
 ---
-title: 安装 MaixPy3 IDE
+title: MaixPy3 IDE
 keywords: MaixPy3 IDE
 desc: maixpy doc: 如何连接并使用 MaixPy3 的 IDE
 ---
