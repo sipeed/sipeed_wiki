@@ -8,3 +8,5 @@ desc: 矽速科技的硬件资料站
 
 - [LicheePi Zero](./Zero-Doc/Start/intro_cn.md)
 - [LicheePi Nano](./Nano-Doc-Backup/index.md)
+- [MaixSense](./MaixSense/intro_cn.md)
+- [Lichee RV](./Lichee-RV/intro_cn.md)

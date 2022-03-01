@@ -255,11 +255,11 @@ pack  #打包
 ```
 
 SDK内置了一些版型的dts，你可以自行选择编辑：
-device/config/chips/d1/configs/nezha/board_xxx.dts
+`device/config/chips/d1/configs/nezha/board_xxx.dts`
 
 其他SDK的开发说明，可以参见全志开发平台上下载的相关文档
 https://open.allwinnertech.com/
-也可以加全志交流QQ群：498263967
+也可以加全志交流QQ群：`498263967`
 
 如果需要自己下载SDK开发，参考全志在线相关网页：https://d1.docs.aw-ol.com/en/
 
