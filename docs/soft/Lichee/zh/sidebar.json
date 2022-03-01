@@ -489,9 +489,16 @@
         {
             "label":"Lichee RV",
             "items":[
-                {
-                    "label":"简介"
-                }
+                    {
+                    
+                        "label":"烧录系统",
+                        "file":"Lichee-RV/get_started/flash.md"
+                    },
+                    {
+                        "label":"基础上手",
+                        "file":"Lichee-RV/get_started/user.md"
+                    
+                    }
             ]
         }
     ]

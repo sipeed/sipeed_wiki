@@ -35,7 +35,7 @@ Lichee RV - Nezha CM是模块化设计的核心计算模组，搭载全志D1主�
 | :---: | --- | --- |
 | SOC | 全志D1（XuanTie C906 RISC-V） | 全志D1（XuanTie C906 RISC-V） |
 | 内存 | 1GByte | 1GByte |
-| 线网络 | 可选择：<br>-2.4G WIFI+BT<br>-无（可以自行焊接其他型号的WIFI模块调试）	| 2.4G WIFI+BT |
+| 无线网络 | 可选择：<br>-2.4G WIFI+BT<br>-无（可以自行焊接其他型号的WIFI模块调试）	| 2.4G WIFI+BT |
 | 有线网络 | 无	| 支持100M以太网 |
 | 影像输出 | HDMI连接器 <br>SPI接口屏幕连接器 <br>连接屏幕转接板，可以实现：<br>-  常用RGB接口屏幕连接器（含TP引脚）（支持我们店铺的4.3寸/5.0寸屏）<br>-  MIPI接口屏幕连接器（兼容Nezha开发板适配的8寸屏） | sRGB接口屏幕连接器（含TP引脚）（支持标配的4寸IPS屏带TP） <br>MIPI接口屏幕连接器（兼容Nezha开发板适配的8寸屏）|
 | USB端口 | "1个USB OTG(核心板板载的USB-C座子) <br> 1个USB Host(底板板载的USB-A座子) | 1个USB OTG(核心板板载的USB-C座子) <br>1个USB Host(底板板载的USB-C座子) |  
@@ -81,9 +81,10 @@ Lichee RV - Nezha CM是模块化设计的核心计算模组，搭载全志D1主�
 ## 资料下载
 [硬件资料下载](https://dl.sipeed.com/shareURL/LICHEE/D1/Lichee_RV/HDK)
 
-Debian 系统镜像请到百度网盘上下载：链接：<https://pan.baidu.com/s/1QJTaDw6kkTM4c_GAlmG0hg>  提取码：wbef
+Debian 系统镜像请到[百度网盘](https://pan.baidu.com/s/1QJTaDw6kkTM4c_GAlmG0hg)( 提取码：`wbef`)下载
 
-Please download the Debian system image from Baidu Netdisk: Link: <https://pan.baidu.com/s/1QJTaDw6kkTM4c_GAlmG0hg> Extraction code: wbef
-or Mega netdisk: <https://mega.nz/folder/lx4CyZBA#PiFhY7oSVQ3gp2ZZ_AnwYA>
+Download the Debian system image from 
+>[Baidu Netdisk](https://pan.baidu.com/s/1QJTaDw6kkTM4c_GAlmG0hg>)(Extraction code: `wbef`)
+>[Mega netdisk](https://mega.nz/folder/lx4CyZBA#PiFhY7oSVQ3gp2ZZ_AnwYA)
 
 [源码获取](/hardware/zh/lichee/RV/user.html#BSP-SDK-开发指南)
