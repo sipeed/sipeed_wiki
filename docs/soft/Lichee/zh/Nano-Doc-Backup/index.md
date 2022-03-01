@@ -39,15 +39,13 @@
 
 ![](./static/WIFI.png)
 
-荔枝派 Nano 现已获得RT-Thread的官方支持，您可应用RT-Thread丰富的生态资源，快速高效地进行原型设计；
+荔枝派 Nano 现已获得RT-Thread的官方支持，您可应用RT-Thread丰富的生态资源，快速高效地进行原型设计。
 荔枝派提倡开发者协同开发，即将推出有偿外设驱动适配任务，以及提供快餐式外包项目，欢迎各位技术大神为开发者们贡献技术力量！
 
 | 欢迎各位加入 |
 | ---- |
-|[荔枝派交流群826307240](https://jq.qq.com/?_wv=1027&k=52Zn9VJ1) | 
+|[荔枝派交流群`712961164`](https://jq.qq.com/?_wv=1027&k=2ymSdiUL) | 
 | [荔枝派Telegram电报群](https://t.me/sipeed) | 
 | [荔枝派社区](http://bbs.lichee.pro) |
 
-![QQ](./static/QQ.png)
-
-- [littlevGL的使用](./application/littlevgl.md)
+  [littlevGL的使用](./application/littlevgl.md)

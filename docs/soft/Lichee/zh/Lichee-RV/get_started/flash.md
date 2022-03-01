@@ -5,7 +5,7 @@
 ## 准备
 
 1. Lichee RV 核心板
-2. TF 内存卡（建议使用官方店上的内存卡，别的卡可能存在烧录失败和烧录之后不能启动的问题）
+2. TF 内存卡（建议使用[官方店](https://shop365481095.taobao.com/)的的内存卡，其他的卡可能会有各种奇怪的问题）
 3. 烧录工具 [PhoenixCard](https://dl.sipeed.com/shareURL/LICHEE/D1/Lichee_RV/tool)
 4. 系统镜像
     国内用户：[Tina](https://dl.sipeed.com/shareURL/LICHEE/D1/Lichee_RV/SDK/image) 系统镜像或者 Debian 系统镜像   ([百度网盘](https://pan.baidu.com/s/1QJTaDw6kkTM4c_GAlmG0hg) 提取码：wbef)
