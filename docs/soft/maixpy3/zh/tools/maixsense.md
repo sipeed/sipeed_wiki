@@ -9,7 +9,7 @@ desc: maixpy doc: 在 MaixII-Sense 平台上使用
 | --- | --- | --- |
 | 2022年2月28日 | Rui | 编写连接文档 |
 
-在 MaixSense 上使用 MaixPy3 ，需要烧录内置 MaixPy3 的 armbian 系统，通过数据线连接
+> 在 MaixSense 上使用 MaixPy3 ，需要烧录内置 MaixPy3 的 armbian 系统，通过数据线连接
 
 ## 串口连接
 
@@ -37,9 +37,10 @@ desc: maixpy doc: 在 MaixII-Sense 平台上使用
 
 ![](./assets/mobaxterm_ssh_view.jpg)
 
+
 ## MaixPy3 IDE 连接
 
-MaixPy3 IDE 连接 MaixSense 只能使用远程连接，不能使用有线连接，而且每个人的网络环境都存在差异，可能存在连接不上的情况出现。
+MaixPy3 IDE 连接 MaixSense 只能使用远程连接，不能像 MaixII-Dock 可以通过 adb 进行有线连接，而且每个人的网络环境都存在差异，可能存在连接不上的情况出现。
 
 ### 准备
 - 烧录好带有 MaixPy3 的 Armbian 系统
@@ -47,12 +48,12 @@ MaixPy3 IDE 连接 MaixSense 只能使用远程连接，不能使用有线连接
 - 运行 ifconfig 获取开发板的 IP 地址
 
 ### 连接
-在板子上运行 python -c "import maix.mjpg;maix.mjpg.start()" 启动板子上的远程 RPyc 服务
-
-在 IDE 中新建代码区，运行下面的连接代码
+在板子上运行 python -c "import maix.mjpg;maix.mjpg.start()" 启动板子上的远程 RPyc 服务，启动 MaixPy3 IDE，新建代码区，运行下面的连接代码。
 
 ```python
-$connect("192.168.43.44") # 此处填入开发板的 IP 地址
+$connect("192.168.43.44")   # 此处填入开发板的 IP 地址
 import platform
 print(platform.uname())
 ```
+
+> 启动 IDE 的时候，会打开一个 adb 终端窗口，可以直接关闭无视它
