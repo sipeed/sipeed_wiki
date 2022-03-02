@@ -19,8 +19,8 @@ armbian 内置了 ffmpeg ，可以快速捕捉 sensor 数据并输出到屏幕�
 
 ## 测试网络
 
-使用 nmtui 指令可以进入可视化的配网界面，
-选择 Activate a connection ， 选择对应的 SSID ，输入连接密码，确认即可。
+使用 `nmtui` 指令可以进入可视化的配网界面，
+选择 Activate a connection ， 选择对应的 WIFI名称 ，输入连接密码，确认即可。
 
 ![202108051626](./assets/202108051626.gif)
 
@@ -49,13 +49,11 @@ sudo apt install neofetch
 下载站链接[zhouyi_test.tar.xz](https://dl.sipeed.com/shareURL/MaixII/MaixII-A/example),使用任意方式上传到板子中
 
 ```bash
-##解压压缩包
-tar -xvf zhouyi_test.tar.xz
-##授予执行权限
-cd zhouyi_test
-chmod 777 run.sh
-##执行1000类物体分类
-./run.sh
-##后台执行1000类物体分类
-./run.sh < /dev/null > /dev/null 2> 1 
+tar -Jxvf zhouyi_test.tar.xz #解压压缩包
+cd zhouyi_test #打开解压后的文件目录
+chmod 777 run.sh #授予执行权限
+./run.sh #执行1000类物体分类
 ```
+识别出鼠标
+<img src="./assets/recognize_mouse.jpg" alt="识别鼠标" style="zoom:65%;"> <br>
+对于linux命令行，使用`Ctrl + C`来退出当前程序。

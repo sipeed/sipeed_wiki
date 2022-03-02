@@ -251,15 +251,10 @@ python3 helloworld.py
 下载站链接[zhouyi_test.tar.xz](https://dl.sipeed.com/shareURL/MaixII/MaixII-A/example),使用任意方式上传到板子中
 
 ```bash
-##解压压缩包
-tar -xvf zhouyi_test.tar.xz
-##授予执行权限
-cd zhouyi_test
-chmod 777 run.sh
-##执行1000类物体分类
-./run.sh
-##后台执行1000类物体分类
-./run.sh < /dev/null > /dev/null 2> 1 
+tar -Jxvf zhouyi_test.tar.xz #解压压缩包
+cd zhouyi_test #打开解压后的文件目录
+chmod 777 run.sh #授予执行权限
+./run.sh #执行1000类物体分类
 ```
 
 ## 使用python点亮第一个灯
@@ -344,7 +339,7 @@ python3 /root/helloworld.py
 
 ```bash
 [  OK  ] Finished Permit User Sessions.
-[   38.569457] rc.local[1322]: hello world!
+[  38.569457] rc.local[1322]: hello world!
 ```
 
 ## 更多的使用方法
