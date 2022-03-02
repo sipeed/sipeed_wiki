@@ -476,39 +476,13 @@
             ]
         },
         {
-            "label":"MaixSense",
-            "items":[
-                {
-                    "label":"烧录系统",
-                    "file":"MaixSense/get_started/flash_system.md"
-                },
-                {
-                    "label":"配置系统",
-                    "file":"MaixSense/build_sys/config_system.md"
-                },
-                {
-                    "label":"硬件测试",
-                    "file":"MaixSense/application/Hardware_test.md"
-                },
-                {
-                    "label":"高级玩法",
-                    "file":"MaixSense/application/Usages.md"
-                }
-            ]
+            "label":"MaixSense",            
+            "file":"MaixSense/intro_cn.md"
+            
         },
         {
             "label":"Lichee RV",
-            "items":[
-                    {
-                    
-                        "label":"烧录系统",
-                        "file":"Lichee-RV/get_started/flash.md"
-                    },
-                    {
-                        "label":"基础上手",
-                        "file":"Lichee-RV/get_started/user.md"                    
-                    }
-            ]
+            "file":"Lichee-RV/intro_cn.md"
         }
     ]
 }
