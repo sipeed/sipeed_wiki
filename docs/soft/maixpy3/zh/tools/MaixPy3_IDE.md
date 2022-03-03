@@ -97,7 +97,7 @@ MaixPy IDE （jupyter） 在创建代码文档的时候，可以选择多个 Pyt
 
 2. 选择 RPyc-python ，此时会连接开发板再运行代码并输出结果，此时代码运行在开发板里。
 
-### jupyter notebo 文档界面
+### jupyter notebook 文档界面
 
 ![](./assets/IDE_3.png)
 
