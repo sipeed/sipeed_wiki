@@ -477,9 +477,14 @@
         },
         {
             "label":"MaixSense",            
-            "file":"MaixSense/intro_cn.md"
-            
-        },
+            "file":"MaixSense/intro_cn.md",
+            "items": [
+                {
+                "label": "R329主线armbian内核，系统，驱动开发方法",
+                "file":"MaixSense/contribution/Build_R329.md"
+                }  
+            ]
+        },          
         {
             "label":"Lichee RV",
             "file":"Lichee-RV/intro_cn.md",
