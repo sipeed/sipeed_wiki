@@ -54,7 +54,15 @@
 
 ### 使用单机版 license (需要自己申请 license)
 
-发送申请邮件到 `Support@sipeed.com` ，标题为 `【Apply Tang Lic】MAC: xxxxxx`，内容模板如下：
+* 通过高云官方来得到license
+  
+<http://www.gowinsemi.com.cn/faq_view.aspx>
+
+![Gowin_Official_license_request](./assets/Gowin_Official_license_request.png)
+
+* 通过sipeed来得到license
+  
+发送申请邮件到 `support@sipeed.com` ，标题为 `[Apply Tang Lic]MAC: xxxxxx`，内容模板如下：
 
 ```
 公司名称:
