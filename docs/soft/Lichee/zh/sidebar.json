@@ -482,7 +482,14 @@
         },
         {
             "label":"Lichee RV",
-            "file":"Lichee-RV/intro_cn.md"
+            "file":"Lichee-RV/intro_cn.md",
+            "items": [
+                {
+                "label": "D1上Kubernetes相关软件编译",
+                "file":"Lichee-Rv/contribution/D1_Kubernetes.md"
+                }
+
+            ]
         }
     ]
 }
