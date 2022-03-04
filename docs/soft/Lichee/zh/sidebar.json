@@ -478,7 +478,7 @@
         {
             "label":"MaixSense",            
             "collapsed": false,
-            "items": [
+            "items": [ 
                 {
                 "label": "R329主线armbian内核，系统，驱动开发方法",
                 "file":"MaixSense/contribution/Build_R329.md"
@@ -486,6 +486,10 @@
                 {
                 "label": "Tina R329 swupdate OTA 步骤 ",
                 "file":"MaixSense/contribution/Tina_R329_swupdate_OTA.md"
+                },  
+                {
+                "label": "Maix-Speech 在R329上的应用 ",
+                "file":"MaixSense/application/Speech.md"
                 }
             ]
         },          
