@@ -62,7 +62,7 @@ CUSTOM_CLASSES = [
 ### 训练开始
 
 ~~~ bash
-python train.py -d custom --cuda -v slim_yolo_v2 -hr -ms
+python3 train.py -d custom --cuda -v slim_yolo_v2 -hr -ms
 ~~~
 
 [//]: # "或者安装好horovod, 然后多卡训练"
