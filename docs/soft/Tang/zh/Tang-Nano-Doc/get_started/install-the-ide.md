@@ -1,4 +1,7 @@
-# 安装IDE 
+---
+title : 安装IDE 
+keywords : Sipeed, Gowin, Tang, Nano, fpga, 矽速
+---
 
 高云云源软件是专门为高云半导体芯片配套的集成电路设计与实现工具。覆盖了FPGA芯片全类型的设计功能，具体功能可以自行到高云官网进行查阅，在此不进行赘述。附上文档链接：<http://www.gowinsemi.com.cn/down.aspx?FId=n14:14:26>
 
@@ -66,7 +69,7 @@
 联系人省份:
 计算机MAC地址:
 license类型:共享型 仅本机
-操作系统类型:Windows Linus
+操作系统类型:Windows Linux
 代理商推荐:群策电子 致远达科技 算科电子 欣华隆科技 北高智科技 晶立达科技 其他
 ```
 
