@@ -52,17 +52,9 @@
 
 接下来是进行 **license** 的申请，有两种方式：
 
-### 使用单机版 license (需要自己申请 license)
+- 使用单机版 license (需要自己申请 license)
 
-* 通过高云官方来得到license
-  
-<http://www.gowinsemi.com.cn/faq_view.aspx>
-
-![Gowin_Official_license_request](./assets/Gowin_Official_license_request.png)
-
-* 通过sipeed来得到license
-  
-发送申请邮件到 `support@sipeed.com` ，标题为 `[Apply Tang Lic]MAC: xxxxxx`，内容模板如下：
+发送申请邮件到 `support@sipeed.com` 来申请license，标题为 `[Apply Tang Lic]MAC: xxxxxx`，内容模板如下：
 
 ```
 公司名称:
@@ -82,9 +74,9 @@ license类型:共享型 仅本机
 
 ![IDE](./assets/IDE-13.png)
 
-下面只简单的介绍一种添加方法，在 [使用 sipeed 的 license 服务器联网激活](#使用-sipeed-的-license-服务器联网激活) 中，有更详细的介绍
+下面是另一种添加方法， 使用 sipeed 的 license 服务器联网激活
 
-### 使用 sipeed 的 license 服务器联网激活
+- 使用 sipeed 的 license 服务器联网激活
 
 这种方式配置起来简单，不过没有网络的情况下无法使用软件
 
