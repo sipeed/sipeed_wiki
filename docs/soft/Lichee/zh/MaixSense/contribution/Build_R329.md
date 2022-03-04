@@ -18,13 +18,13 @@ keywords: R329, maixsnse, MaixSense, Maixsense, armbian, build, kkernel
 
 ##Linux 内核、驱动、设备树的相关用法方法
 可以参考[Lichee Pi](https://wiki.sipeed.com/soft/Lichee/zh/index.html)(特别详细)，armbian编译没有那么繁琐因此不再赘述。
-准备环境`sudo apt install git wget make gcc flex bison libssl-dev bc kmod`
+准备环境`sudo apt install -y git wget make gcc flex bison libssl-dev bc kmod`
 相关方法 
 * [主线Kernel基础编译](https://wiki.sipeed.com/soft/Lichee/zh/Zero-Doc/System_Development/kernel_build.html)
 * [主线Linux编译](https://wiki.sipeed.com/soft/Lichee/zh/Nano-Doc-Backup/build_sys/kernel.html)
 
 ##修改设备树配置的方法
-使用`git clone https://github.com/sipeed/linux.git` #完成后切到 `r329-wip` 分支
+使用`git clone -b r329-wip https://github.com/sipeed/linux.git` #完成后切到 `r329-wip` 分支
 编译链工具可以用系统自带的`通用编译链`或`gcc-linaro`，本文使用的是`gcc-arm-8.3-2019.03-x86_64-aarch64-linux-gnu.tar.xz` [点我下载](https://armkeil.blob.core.windows.net/developer/Files/downloads/gnu-a/8.3-2019.03/binrel/gcc-arm-8.3-2019.03-x86_64-aarch64-linux-gnu.tar.xz)。
 [设备树简介：](https://wiki.sipeed.com/soft/Lichee/zh/Zero-Doc/Drive/Device_Tree_Intro.html)用户在设备树里定义并启用的树结点，就可以使用相应驱动。
 MaixSense的设备树在`linux/arch/arm64/boot/dts/allwinner/`路径下，和r329相关的设备树有
@@ -78,7 +78,7 @@ config RTL8723DS
 
 有需要的可以看文档 https://docs.armbian.com/Developer-Guide_Build-Preparation 说明。
 
-安装 `apt install dialog psmisc acl uuid-runtime curl gnupg gawk` 准备环境
+安装 `apt install -y dialog psmisc acl uuid-runtime curl gnupg gawk` 准备环境
 获取 `https://github.com/sipeed/armbian-build.git` 切到 r329-wip 分支，然后通过 `compile.sh` 完成编译。
 
 将根据以下配置在 armbian-build 中进行编译。
@@ -188,7 +188,7 @@ sudo systemctl status rc-local.service #查看服务运行状态
 使用 `echo 0 > /sys/class/graphics/fbcon/cursor_blink` 关闭终端的光标闪烁`cursor_blink`，对应实现 `drivers/video/console/fbcon.c` 。
 
 ### 编译 aipu.ko 主线模块并加入 armbian 系统
-```2022年02月28日 待编辑，需要结合上下两节食用。没有 linux 外部编译模块基础的，要先简单看过这篇 https://www.kernel.org/doc/Documentation/kbuild/modules.txt 来知道怎么添加外部模块参与编译（*.ko）。```
+需要结合上下两节食用。没有 linux 外部编译模块基础的，要先简单看过这篇 https://www.kernel.org/doc/Documentation/kbuild/modules.txt 来知道怎么添加外部模块参与编译（*.ko）。
 
 这里提供了一份包含编译 aipu 的分支，你也可以在 linux 目录下外部编译 aipu.ko 模块出来。
 将 `armbian-build/config/sources/families/sun50iw11.conf` 里的 KERNELSOURCE="`https://github.com/sipeed/linux`" 链接替换为`https://github.com/junhuanchen/linux/commits/r329-wip` 。即可采用新源进行 armbian 的编译。
