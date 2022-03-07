@@ -1,4 +1,4 @@
-## maix 串口固件应用
+## maix 二次开发串口固件
 
 开发原型时间： maixpy3 0.4.0 以上
 
@@ -6,7 +6,7 @@
 
 开发目标：将开发的成果打包转换成用户直接可用的串口固件。
 
-项目命名：还未正式命名
+项目地址：https://github.com/sipeed/MaixSmart
 
 ## 相关视频
 
@@ -14,12 +14,12 @@
 
 ## 进度
 
-- 下位机 https://github.com/Neutree/maix-mm
+- 下位机原型 https://github.com/Neutree/maix-mm
 
-- 上位机 https://github.com/Neutree/COMTool
+- 上位机原型 https://github.com/Neutree/COMTool
 
-- 云服务 https://maixhub.com/
+- 云服务支持 https://maixhub.com/
 
 ## 开发情况
 
-采用 maixpy3 0.3.2 版本完成项目原型与流程已经形成，具体功能还未整理，待重构更新。
+初版已经提交，待公开。
