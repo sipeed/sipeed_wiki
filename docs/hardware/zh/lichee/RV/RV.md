@@ -52,7 +52,7 @@ Lichee RV - Nezha CM是模块化设计的核心计算模组，搭载全志D1主�
 
 ![](./../assets/RV/D1-1.png)![](./../assets/RV/D1-2.png)![](./../assets/RV/D1-3.png)
 
-> 目前 1.14 显示屏是点不亮的，需要等待后续的更新;
+> 目前 1.14 显示屏是点不亮的，需要等待后续的更新; 
 
 ## 系统烧录
 
@@ -88,3 +88,7 @@ Download the Debian system image from
 >[Mega netdisk](https://mega.nz/folder/lx4CyZBA#PiFhY7oSVQ3gp2ZZ_AnwYA)
 
 [源码获取](/hardware/zh/lichee/RV/user.html#BSP-SDK-开发指南)
+
+## 相关问题
+
+[licheeRV debian镜像相关问题](./Armbian_img_apt.md)

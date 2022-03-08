@@ -2,7 +2,7 @@
 
 ## Tina系统配置
 
-Lichee MaixSense 的 Tina 系统配置和 M2dock 基本相同，这里不另作赘述。
+Lichee MaixSense 的 Tina 系统配置和 [M2dock](./../M2/usage.md) 基本相同，这里不另作赘述。
 
 ## armbian系统配置
 

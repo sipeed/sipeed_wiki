@@ -55,7 +55,7 @@ keywords : Sipeed, Gowin, Tang, Nano, fpga, 矽速
 
 接下来是进行 **license** 的申请，有两种方式：
 
-- 使用单机版 license (需要自己申请 license)
+### 使用单机版 license (需要自己申请 license)
 
 发送申请邮件到 `support@sipeed.com` 来申请license，标题为 `[Apply Tang Lic]MAC: xxxxxx`，内容模板如下：
 

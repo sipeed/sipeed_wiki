@@ -26,14 +26,25 @@
 
 
 ## 烧录镜像
+使用前最好先把内存卡格式化
 
 打开烧录软件 PhoenixCard，选择烧录的固件，将内存卡通过读卡器插入电脑中
 
-![](./../assets/flash.png)
+![](./../assets/RV/flash.png)
 
-> 并不能保证每台电脑和每个人的内存卡都是可以烧录的，推荐烧录失败的时候直接购买官方的镜像卡。（全志的）
+> 并不能保证每台电脑和每个人的内存卡都是可以烧录的，烧录失败的话建议购买官方的镜像卡。
 
-等待烧录结束，烧录 Tina 系统镜像会比较快，但是烧录 Debian 系统镜像是将会长一些，可能需要10多分钟。
+等待烧录结束；烧录 Tina 系统镜像会比较快，烧录 Debian 系统镜像将会久一点，大概多用10分钟。
+
+- TIPS：
+  
+如果在烧录时提示格式化失败，或者烧过卡之后电脑上没有了盘符，可以按以下操作恢复执行：
+
+1. 在此下载磁盘处理软件： https://www.diskgenius.cn/
+2. 电脑上显示不出的盘符，会在该软件里显示出来，使用该软件进行快速分区：
+    ![attachmentId-2788](https://bbs.sipeed.com/storage/attachments/2021/12/17/K9SdDOalmpgIwFopjoUU7sV2zgp26E1d85EMwgXf.png)
+3. 分区完成后，电脑上就能够看到盘符，PhoenixCard 里也能看到，在 PhoenixCard 里点击恢复卡即可恢复卡到正常状态
+4. 按之前步骤继续烧录即可
 
 ## 启动
 插卡启动，可以在串口工具中查看到启动信息
@@ -50,25 +61,21 @@ BusyBox v1.27.2 () built-in shell (ash)
  ----------------------------------------------
 ```
 
-TIPS：
-如果在烧录时提示格式化失败，或者烧过卡之后电脑上没有了盘符，可以按以下操作恢复执行：
+## 相关问题
 
-1. 在此下载磁盘处理软件： https://www.diskgenius.cn/
-2. 电脑上显示不出的盘符，会在该软件里显示出来，使用该软件进行快速分区：
-    ![attachmentId-2788](https://bbs.sipeed.com/storage/attachments/2021/12/17/K9SdDOalmpgIwFopjoUU7sV2zgp26E1d85EMwgXf.png)
-3. 分区完成后，电脑上就能够看到盘符，PhoenixCard 里也能看到，在 PhoenixCard 里点击恢复卡即可恢复卡到正常状态
-4. 按之前步骤继续烧录即可
+- 以下操作是在 Linux 系统中进行
 
-## 注意！
-
-> 以下操作是在 Linux 系统中进行
-
-如果烧录的镜像后缀与板子实际型号不符，下载对应的 boot_package_XXX.fex 来覆盖板级配置，
-覆盖指令为：
+如果烧录的镜像后缀与板子实际型号不符，下载对应的 boot_package_XXX.fex 来覆盖板级配置，覆盖指令为：
 
     sudo dd if=boot_package_XXX.fex of=/dev/sdX bs=1K seek=16400
     
-前面的镜像烧录，建议使用USB3.0的读卡器烧录，此时烧录100MB的Tina镜像约用时半分钟，烧录4GB的Debian镜像，约用时10分钟。
+- 前面的镜像烧录，建议使用USB3.0的读卡器烧录，此时烧录100MB的Tina镜像约用时半分钟，烧录4GB的Debian镜像，约用时10分钟。
 
 > Tina 系统登录用户名：root  密码：tina
+
 > Debian 系统登录用户名：sipeed 密码：licheepi
+
+
+## 其他问题
+
+[licheeRV debian镜像相关问题](./Armbian_img_apt.md)

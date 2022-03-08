@@ -19,7 +19,7 @@
     然后使用 VSCODE 打开源码文件夹
 
     如下图所示：
-    ![](../../assets/pio_open_rvlink.png)
+    ![](./../assets/pio_open_rvlink.png)
 
     通常使用 DFU 方式烧录固件，**不需要**修改配置文件。(使用 DFU 方式下载请安装 libusb 驱动, 参考[使用Zadig安装驱动](blink.md/#使用zadig安装驱动))
 
