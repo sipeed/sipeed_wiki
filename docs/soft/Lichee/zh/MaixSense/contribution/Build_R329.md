@@ -1,8 +1,8 @@
 ---
 title: R329主线armbian内核，系统，驱动开发方法
-keywords: R329, maixsnse, MaixSense, Maixsense, armbian, build, kkernel
+keywords: R329, maixsnse, MaixSense, Maixsense, armbian, build, kernel
 ---
-本文需要一些[前置基础](https://www.cnblogs.com/juwan/p/14650733.html)
+本文需要一些[前置基础](./R329_SDK_编译与烧录.md)
 
 准备环境:
 * Ubuntu20.04

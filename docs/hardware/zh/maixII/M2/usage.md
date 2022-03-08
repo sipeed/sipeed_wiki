@@ -1,16 +1,16 @@
 ---
 title: 进阶使用
-keywords: MaixII, MaixPy3, Python, Python3, M2dock
+keywords: MaixII, MaixPy3, Python, Python3, M2dock, Tina, Openwrt
 desc: maixpy doc: MaixII M2dock 上手使用
 ---
 
-> 没有 Linux 系统使用基础的同学，不推荐以下的使用方式
+- 没有 Linux 系统使用基础的同学，不推荐以下的使用方式
 
 ## 认识 openwrt 系统
 
 > 全志 V831 使用 Tina Linux 系统，移植自 openwrt 。
 
-OpenWrt 可以被描述为一个嵌入式的 Linux 发行版，可见 [官方网址](https://openwrt.org) & [官方开源仓库](https://github.com/openwrt/openwrt)。
+OpenWrt 可以被描述为一个嵌入式的 Linux 发行版，详情可看 [官方网址](https://openwrt.org) 和 [官方开源仓库](https://github.com/openwrt/openwrt)。
 
 OpenWRT 是一个高度模块化、高度自动化的嵌入式 Linux 系统，拥有强大的网络组件和扩展性，常常被用于工控设备、电话、小型机器人、智能家居、路由器以及 VOIP 设备中。 同时，它还提供了 100 多个已编译好的软件，而且数量还在不断增加，而 OpenWrt SDK 更简化了开发软件的工序。
 
