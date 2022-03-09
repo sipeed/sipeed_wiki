@@ -28,7 +28,7 @@
 ## 烧录镜像
 使用前最好先把内存卡格式化
 
-打开烧录软件 PhoenixCard，选择烧录的固件，将内存卡通过读卡器插入电脑中
+打开烧录软件 [PhoenixCard](https://dl.sipeed.com/shareURL/LICHEE/D1/Lichee_RV/tool)，选择烧录的固件，将内存卡通过读卡器插入电脑中
 
 ![](./../assets/RV/flash.png)
 
@@ -65,7 +65,7 @@ BusyBox v1.27.2 () built-in shell (ash)
 
 - 以下操作是在 Linux 系统中进行
 
-如果烧录的镜像后缀与板子实际型号不符，下载对应的 boot_package_XXX.fex 来覆盖板级配置，覆盖指令为：
+如果烧录的镜像后缀与板子实际型号不符，下载对应的 boot_package_XXX.fex (可以到<https://dl.sipeed.com/shareURL/LICHEE/D1/Lichee_RV/SDK/board> 链接来选择下载)来覆盖板级配置，覆盖指令为：
 
     sudo dd if=boot_package_XXX.fex of=/dev/sdX bs=1K seek=16400
     
@@ -76,6 +76,3 @@ BusyBox v1.27.2 () built-in shell (ash)
 > Debian 系统登录用户名：sipeed 密码：licheepi
 
 
-## 其他问题
-
-[licheeRV debian镜像相关问题](./Armbian_img_apt.md)

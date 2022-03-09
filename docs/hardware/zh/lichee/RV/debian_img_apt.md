@@ -1,6 +1,6 @@
 ---
 title: licheeRV debian镜像相关问题
-keywords: Armbian, Rv, Problam, apt, img, sipeed
+keywords: debian, Rv, Problam, apt, img, sipeed
 ---
 
 ## apt 相关

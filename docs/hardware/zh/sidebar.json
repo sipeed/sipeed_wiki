@@ -142,6 +142,10 @@
                         {
                             "label":"基础上手",
                             "file":"lichee/RV/user.md"                    
+                        },
+                        {
+                            "label":"apt问题",
+                            "file":"lichee/RV/debian_img_apt.md"
                         }
                     ]
                 }

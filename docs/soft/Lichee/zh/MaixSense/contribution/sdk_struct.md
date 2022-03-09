@@ -27,7 +27,7 @@ Tina-SDK/
 
 以下将对主要目录中包含的内容进行简单介绍。
 
-### build
+## build
   
 build 目录存放 Tina Linux 的构建系统文件，此目录结构下主要是一系列基于 Makefile 规格编写的 .mk 文件，主要的功能有：
 1. 检测当前的编译环境是否满足 Tina Linux 的构建需求；
@@ -37,17 +37,17 @@ build 目录存放 Tina Linux 的构建系统文件，此目录结构下主要�
 5. 生成 linux kernel 的编译规则；
 6. 生成系统固件的生成规则。
 
-### config
+## config
   
 config 目录主要存放 Tina Linux 中配置菜单的界面以及一些固定的配置项，该配置菜单基于内核的 mconf 规格编写。
 
-### device
+## device
   
 devices 目录用于存放方案的配置文件，包括内核配置、env 配置、分区表配置、sys_config.fex（全志定制板级配置文件）、board.dts（linux标准设备树文件） 等。
 
 > 这些配置在旧版本Tina（Tina3.0以前）上是保存于 target 目录下，现新版本均移到了 device 目录下，但 defconfig 仍保存在 target 目录下
 
-### lichee
+## lichee
   
 lichee 目录主要存放 bootloader、linux内核、DSP等代码，其中DSP代码及编译环境因涉及DSP供应商科声讯版权，需单独申请。lichee目录下结构如下：
 ```
@@ -59,11 +59,11 @@ Tina-SDK
     └── linux-4.9
 ```
 
-### package
+## package
   
 package 目录存放Tina系统支持的软件包源码和编译规则，目录按照目标软件包的功能进行分类，该目录包含了Tina系统全平台（包括全志R/H/F/V/T系列）的软件包，但是并不是所有软件包都适配了R329方案，部分软件包需要开发者自行适配。
 
-### prebuild
+## prebuild
   
 prebuild 目录存放预编译用的交叉编译器，主要包括aarch64的glibc和musl以及arm的glibc和musl。prebuild目录下结构如下：
 ```
@@ -80,23 +80,23 @@ Tina-SDK
     └── host
         └── host-toolchain.txt
 ```
-### scripts
+## scripts
   
 scripts 目录用于存放设备开发中用到的一些脚本。
 
-### target
+## target
   
 target目录用于存放开发板相关的配置以及 sdk 和 toolchain 生产的规格。
 
-### toolchain
+## toolchain
   
 toolchain 目录用于存放交叉工具链构建配置、规则。
 
-### tools
+## tools
   
 tools 目录用于存放 host 端工具的编译规则。
 
-### out
+## out
   
 out 目录用于保存编译相关的临时文件和最终镜像文件，编译后自动生成此目录，并生成对应的方案out目录，如开发板对应的R329-evb5方案目录结构如下：
 ```

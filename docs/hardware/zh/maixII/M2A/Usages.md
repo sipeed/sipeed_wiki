@@ -10,10 +10,11 @@
 
 ## 配置SSH连接
 
-系统已默认开启了ssh和ftp，需要在串口使用 `passwd root` 进行账号密码设置，才能使用 root 账号进行 SSH 连接。
+系统已默认开启了ssh和ftp，需要在串口使用 `passwd root` 设置密码后，才能使用 root 用户进行 SSH 连接。
+再或者新建一个用户也可以进行SSH登录，具体新建用户方法自行搜索。
 
 ## MaixPy3 IDE 连接
-MaixPy3 IDE 连接 MaixSense 只能使用远程连接，不能使用有线连接，而且每个人的网络环境都存在差异，可能存在连接不上的情况出现。
+只能通过远程连接来用 MaixPy3 IDE 连接 MaixSense ，使用有线连接会连接不上。每个人的网络环境都存在差异，都可能存在连接不上的情况。
 
 ### 准备
 
@@ -23,9 +24,9 @@ MaixPy3 IDE 连接 MaixSense 只能使用远程连接，不能使用有线连接
 
 ### 连接
 
-在板子上运行 `python -c "import maix.mjpg;maix.mjpg.start()"` 启动板子上的远程 RPyc 服务
+在MaixSense上运行 `python -c "import maix.mjpg;maix.mjpg.start()"` 启动板子上的远程 RPyc 服务
 
-在 IDE 中新建代码区，运行下面的连接代码
+在电脑 IDE 中新建代码区，运行下面的代码来连接开发板
 
 ```python 
 $connect("192.168.43.44") # 此处填入开发板的 IP 地址
@@ -37,21 +38,16 @@ print(platform.uname())
 ![MaixPy3 IDE](./assets/MaixPy3-IDE.jpg)
 
 
-## 配置APT源
-
-打开`armbian-config`，选中Personal，选择Mirrors，找到合适的apt源，按住TAB键切换到ok，保存即可。		
-
-![202108061955](./assets/202108061955.gif)
 
 ## 设置时区
 
-打开`armbian-config`，选中Personal，选择Timezone > Asia >Shanghai设置上海时间（不用找，Debian没有北京时间），按住TAB键切换到ok，保存即可。		
+命令行中输入`armbian-config`，选中Personal，再选择Timezone -> Asia ->Shanghai设置上海时间（Debian中没有北京时间），按住TAB键切换到ok，保存即可。		
 
 ![202108062005](./assets/202108062005.gif)
 
 ## 设置中文显示
 
-打开`armbian-config`，选中Personal >Locales>下滑到最下面，空格选中zh.GBK和zh.UTF-8,，然后勾选zh_CN.UTF8设置为系统默认语言，按住TAB键切换到ok，保存，exit退出，下载中文字体，`apt-get install fonts-wqy-zenhei`，重启后系统环境就变成中文的了。
+命令行中输入`armbian-config`，选中Personal -> Locales -> 下滑到最下面，空格选中zh.GBK和zh.UTF-8,，然后勾选zh_CN.UTF8设置为系统默认语言，按住TAB键切换到ok，保存，exit退出，下载中文字体，`apt-get install fonts-wqy-zenhei`，重启后系统环境就变成中文的了。
 
 ![202108062054](./assets/202108062054.gif)
 
@@ -104,8 +100,8 @@ connect XX:XX:XX:XX #连接设备
 启用蓝牙音频前，需要先安装`pulseaudio`即及蓝牙组件
 
 ```bash
-apt install pulseaudio
-apt install pulseaudio-module-bluetooth
+sudo apt install pulseaudio
+sudo apt install pulseaudio-module-bluetooth
 ```
 
 然后使用pactl查看是否有蓝牙输出设备
@@ -199,12 +195,10 @@ maixsense:~:# pactl set-sink-volume 2 -0x3000
 ## 媒体播放
 
 媒体播放常用mplayer
-
-apt下载mplayer`apt install mplayer`
-
-然后执行`mplayer badapple_240p.mp4 -vo fbdev2`播放视频
-
-或者`mplayer G.E.M.邓紫棋\ -\ 光年之外.flac`播放音频
+- 下载mplayer `sudo apt install mplayer`
+  
+然后执行 `sudo mplayer badapple_240p.mp4 -vo fbdev2` 播放视频
+或者`sudo mplayer G.E.M.邓紫棋\ -\ 光年之外.flac`播放音频
 
 在后面加上`< /dev/null > /dev/null 2>1 &`以便在后台播放
 
@@ -214,25 +208,30 @@ apt下载mplayer`apt install mplayer`
 
 ## 编写c代码
 
+```bash
+vim helloworld.c  #使用 vim 创建一个文件并打开
+i                 #在vim中这个指令的意思是输入，之后就可以敲代码了
+```
+可以将下面的代码输入到刚刚新创建的文件中
 ```c
-vim helloworld.c
-i
 #include <stdio.h>
 int main()
 {
-            printf("Hello, world\n");
-            return 0;
+    printf("Hello, world\n");
+    return 0;
 }
-esc
-:wq
-gcc hello.c -o hello.o
-./hello.o
+```
+输完上面的代码后需要按下 esc 键来退出编辑模式
+就这再输入 `:wq` 来保存文件且退出vim
+```bash
+gcc hello.c -o hello.o #编译C文件
+./hello.o              #运行编译出来的C文件
 ```
 
 ![202108091201](./assets/202108091201.gif)
 
 ## 编写python代码
-
+- 详细解释看上面的C代码样例
 ```bash
 vim helloworld.py
 i
@@ -243,19 +242,6 @@ python3 helloworld.py
 ```
 
 ![202108091339](./assets/202108091339.gif)
-
-## 运行神经网络实例
-
-获取1000类物体分类模型
-
-下载站链接[zhouyi_test.tar.xz](https://dl.sipeed.com/shareURL/MaixII/MaixII-A/example),使用任意方式上传到板子中
-
-```bash
-tar -Jxvf zhouyi_test.tar.xz #解压压缩包
-cd zhouyi_test #打开解压后的文件目录
-chmod 777 run.sh #授予执行权限
-./run.sh #执行1000类物体分类
-```
 
 ## 使用python点亮第一个灯
 
@@ -304,6 +290,21 @@ while led:
 
 ![202108091956](./assets/202108091956.gif)
 
+
+## 运行神经网络实例
+
+获取1000类物体分类模型
+
+下载站链接[zhouyi_test.tar.xz](https://dl.sipeed.com/shareURL/MaixII/MaixII-A/example),使用任意方式上传到板子中
+
+```bash
+tar -Jxvf zhouyi_test.tar.xz #解压压缩包
+cd zhouyi_test #打开解压后的文件目录
+chmod 777 run.sh #授予执行权限
+./run.sh #执行1000类物体分类
+```
+
+
 ## 设置开机启动
 
 启用开机自启动脚本
@@ -341,6 +342,14 @@ python3 /root/helloworld.py
 [  OK  ] Finished Permit User Sessions.
 [  38.569457] rc.local[1322]: hello world!
 ```
+
+## 配置APT源
+
+选择合适的APT源能节省我们的下载时间。
+命令行中输入`armbian-config`，选中Personal，再选择Mirrors，选择合适的apt源，按住TAB键切换到ok，保存即可。		
+
+![202108061955](./assets/202108061955.gif)
+
 
 ## 更多的使用方法
 请到[MaixPy3](/soft/maixpy3/zh/readme.md)和[极术社区](https://aijishu.com/a/1060000000221780)中自行查看
