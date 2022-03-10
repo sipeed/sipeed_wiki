@@ -1,5 +1,12 @@
-# Tang系列开发板
+---
+title: Tang 系列开发板
 
+---
+
+> 编辑于2022年3月10日
+
+Tang 系列开发板主要分为 Tang nano 和 Tang Primer 两个系列。
+其产品图分别下所示：
 
 ## Tang Nano 4K
 
@@ -10,7 +17,7 @@
 [![Tang Nano 9K](./../../assets/Tang/Nano-9K/9K.png)](./Tang-Nano/Nano-9K.md)
 ## Tang Nano 1K
 
-[![Tang Nano 1K](./Tang-Nano/assets/1k-1.jpg)](./Tang-Nano/Tang-Nano-1k.md)
+[![Tang Nano 1K](./../../assets/Tang/Nano-1K/1K.png)](./Tang-Nano/Tang-Nano-1k.md)
 
 
 ## Tang Primer 

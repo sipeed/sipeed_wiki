@@ -18,7 +18,7 @@ Verilog 的基本设计单元是模块，每个 Verilog 程序包括 4个 主要
 
 一个模块长成这样
 
-```
+```verilog
 module block (input a, output b);
 reg [width-1:0] R_1;
 
@@ -35,21 +35,21 @@ endmodule
 
 模块内部有时候会使用内部的信号，内部信号有 wire 和 reg 类型
 
-功能的定义可以通过 assign 和 always块 完成。 assign 是描述组合逻辑最常用的方法之一； always 块机可用于描述组合逻辑，也可描述时序逻辑
+功能的定义可以通过 assign 和 always块 完成。 assign 是描述组合逻辑最常用的方法之一； always 可用于描述组合逻辑，也可描述时序逻辑
 
 ## 引脚使用情况
 
 板载的是一颗红色LED 灯，原理图如下
 
-<img src="https://raw.githubusercontent.com/USTHzhanglu/picture/main/img/image-20210810160224782.png" alt="image-20210810160224782" style="zoom:50%;" />
+<img src="./../assets/nano_4k/LED_Pin.png" alt="image-20210810160224782" style="zoom:50%;" />
 
 整个程序使用到的引脚分布如下
 
 | port      | I/O    | pin  | desc       |
 | --------- | ------ | ---- | ---------- |
-| sys_clk   | input  | 45   | 时钟输入脚 |
-| sys_rst_n | input  | 15   | 系统复位脚 |
-| led       | output | 15   | 红灯       |
+| sys_clk   | input  | 45   | 时钟输入脚  |
+| sys_rst_n | input  | 15   | 系统复位脚  |
+| led       | output | 10   | 红灯        |
 
 ## 程序设计
 
@@ -57,7 +57,7 @@ endmodule
 
 在程序中通过 counter 计算 13500000 个时钟周期，实现 0.5s 的等待，等时间到了之后将 counter 置 0，并改变 LED 的状态
 
-```
+```v
 module led (
     input sys_clk,
     input sys_rst_n,        // reset input
@@ -67,7 +67,7 @@ reg [23:0] counter;
 always @(posedge sys_clk or negedge sys_rst_n) begin
     if (!sys_rst_n)
         counter <= 24'd0;
-    else if (counter < 24'd1350_0000)       // 0.5s delay
+    else if (counter < 24'd1349_9999)       // 0.5s delay
         counter <= counter + 1;
     else
         counter <= 24'd0;
@@ -85,35 +85,35 @@ endmodule
 
 ## 引脚约束
 
-要想让 fpga 实现代码的功能，还需要将代码中涉及的引脚操作约束到 fpga 实际的引脚上
-
-如下图，在左边的工作区点击 process，然后双击 FloorPlanner
+要想让 fpga 实现代码的功能，还需要将代码中涉及的引脚操作约束到 fpga 实际的引脚上。
+- 进行引脚约束操作前需要向进行一次综合，即双击 process 页面的 Synthesize
+  
+接着就可以进行管脚约束了。如下图，在左边的工作区点击 process，然后双击 FloorPlanner
 
 ![](./../../assets/examples/led_pjt_2.png)
 
 在工程中第一次点击，可能会提示说创建文件，点击确定即可
-
-在弹出窗口中，切换到 Package View ，将 Ports 下的端口拖到 fpga 对应的引脚上，保存即可，如下图
-
-![image-20210810161650281](./../../assets/Nano-4K/4K-led-1.png)
+对于管脚约束有下图中的两种方法
+- 将对应的端口拖拽到芯片引脚上
+- 在IO约束中输入端口对应的引脚编号
+![Led floorplanner](./../assets/nano_4k/LED_FloorPlanner.png)
 
 LED对应的IO10默认是mode Pin，无法直接约束，需要打开Project>Configuration>Dual-Purpose Pin,勾选 Use MODE as regular IO,如下图
 
-<img src="./../../../Nano-4K/4K-led-2.png" alt="image-20210810161934170" style="zoom:50%;" />
+<img src="./../tang/assets/../../../assets/Nano-4K/4K-led-2.png" alt="image-20210810161934170" style="zoom:50%;" />
 
-## 综合
+## 布局布线
 
-在左侧的工作区中，右键 Synthesize 或 Place&Route 时，会有 run 的选项，点击即可
+在左侧的工作区中，双击 Place&Route ，即可进行布局布线。
 
-![](./../../assets/examples/led_pjt_4.png)
 
 ## 烧录到开发板
 
 有两种选择，一种是烧录到 sram 中，一种是烧录到 flash 中
 
-烧录到 sram 中比较快，但是掉电后 fpga 中就没有固件了；烧录到 flash 中可以在系统掉电后保存之前烧录的固件
+烧录到 sram 中比较快，但是掉电后 fpga 中就没有固件了；烧录到 flash 中可以在系统掉电后保存之前烧录的固件。
 
-烧录是通过 Programer 完成的
+烧录是通过 Programer 完成的，此处仅介绍烧入到sram中。
 
 双击左侧工作区的 Program Device 就可以打开 Programer
 
@@ -126,22 +126,6 @@ LED对应的IO10默认是mode Pin，无法直接约束，需要打开Project>Con
 Linux 用户需要注意
 
 > Linux 安装包中的编程器适用于 Linux 版本 Red Hat 5.10，如需 Red Hat 6/7 版本的编程器，请到官网上下载安装后，将安装包替换为 Gowin 云源软件安装包中的文件夹“Programmer”。
-
-### 更改烧录位置
-
-要选择固件烧录的位置，可以在选中芯片的情况下，点击 Edit -> Configure Device
-
-![](./../../assets/examples/led_pjt_7.png)
-
-在弹出窗口中选择自己需要烧录到的位置，这里选择的是 flash ，默认烧录位置是 sram
-
-![image-20210810162149938](./../../assets/Nano-4K/4K-led-3.png)
-
-### 烧录
-
-在选择好烧录位置后，就可以烧录固件了，点击菜单栏的烧录即可
-
-![](./../../assets/examples/led_pjt_9.png) 
 
 <p id="back">
     <a href="#" onClick="javascript :history.back(-1);">返回上一页(Back)</a>

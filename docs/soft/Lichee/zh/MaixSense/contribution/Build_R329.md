@@ -19,9 +19,9 @@ keywords: R329, maixsnse, MaixSense, Maixsense, armbian, build, kernel
 ##Linux 内核、驱动、设备树的相关用法方法
 可以参考[Lichee Pi](https://wiki.sipeed.com/soft/Lichee/zh/index.html)(特别详细)，armbian编译没有那么繁琐因此不再赘述。
 准备环境`sudo apt install -y git wget make gcc flex bison libssl-dev bc kmod`
-相关方法 
-* [主线Kernel基础编译](https://wiki.sipeed.com/soft/Lichee/zh/Zero-Doc/System_Development/kernel_build.html)
-* [主线Linux编译](https://wiki.sipeed.com/soft/Lichee/zh/Nano-Doc-Backup/build_sys/kernel.html)
+其他相关教程 
+* [licheepi zero主线Kernel基础编译](https://wiki.sipeed.com/soft/Lichee/zh/Zero-Doc/System_Development/kernel_build.html)
+* [licheepi nano主线Linux编译](https://wiki.sipeed.com/soft/Lichee/zh/Nano-Doc-Backup/build_sys/kernel.html)
 
 ##修改设备树配置的方法
 使用`git clone -b r329-wip https://github.com/sipeed/linux.git` #完成后切到 `r329-wip` 分支

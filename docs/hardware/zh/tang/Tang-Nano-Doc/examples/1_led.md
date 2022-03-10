@@ -17,7 +17,7 @@ Verilog 的基本设计单元是模块，每个 Verilog 程序包括 4个 主要
 
 一个模块长成这样
 
-```
+```verilog
 module block (input a, output b);
 reg [width-1:0] R_1;
 
@@ -34,7 +34,7 @@ endmodule
 
 模块内部有时候会使用内部的信号，内部信号有 wire 和 reg 类型
 
-功能的定义可以通过 assign 和 always块 完成。 assign 是描述组合逻辑最常用的方法之一； always 块机可用于描述组合逻辑，也可描述时序逻辑
+功能的定义可以通过 assign 和 always块 完成。 assign 是描述组合逻辑最常用的方法之一； always 可用于描述组合逻辑，也可描述时序逻辑
 
 ## 引脚使用情况
 
@@ -90,9 +90,10 @@ endmodule
 
 ## 引脚约束
 
-要想让 fpga 实现代码的功能，还需要将代码中涉及的引脚操作约束到 fpga 实际的引脚上
-
-如下图，在左边的工作区点击 process，然后双击 FloorPlanner
+要想让 fpga 实现代码的功能，还需要将代码中涉及的引脚操作约束到 fpga 实际的引脚上。
+- 进行引脚约束操作前需要向进行一次综合，即双击 process 页面的 Synthesize
+  
+接着就可以进行管脚约束了。在左边的工作区点击 process，然后双击 FloorPlanner
 
 ![](./../../assets/examples/led_pjt_2.png)
 
@@ -102,11 +103,11 @@ endmodule
 
 ![](./../../assets/examples/led_pjt_3.png)
 
-## 综合
+## 布局布线
 
-在左侧的工作区中，右键 Synthesize 或 Place&Route 时，会有 run 的选项，点击即可
+在左侧的工作区中，右键  Place&Route 时，会有 run 的选项，点击即可
 
-![](./../../assets/examples/led_pjt_4.png)
+![](./../../Tang-Nano/assets/nano_9k/nano_9k_synthsize.png)
 
 ## 烧录到开发板
 
@@ -143,5 +144,6 @@ Linux 用户需要注意
 在选择好烧录位置后，就可以烧录固件了，点击菜单栏的烧录即可
 
 ![](./../../assets/examples/led_pjt_9.png)
+
 
 
