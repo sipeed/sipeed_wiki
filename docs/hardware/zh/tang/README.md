@@ -19,11 +19,10 @@ Tang 系列开发板主要分为 Tang nano 和 Tang Primer 两个系列。
 
 [![Tang Nano 1K](./../../assets/Tang/Nano-1K/1K.png)](./Tang-Nano/Tang-Nano-1k.md)
 
-
-## Tang Primer 
-[![Tang Primer](./../../assets/Tang/permier/Tang_permier.jpg)](./Tang-primer/Tang-primer.md)
-
 ## Tang Nano
 
 [![Tang Nano](./../../assets/Tang/Nano/Tang_Nano.jpg)](./Tang-Nano/Tang-Nano.md)
+
+## Tang Primer 
+[![Tang Primer](./../../assets/Tang/permier/Tang_permier.jpg)](./Tang-primer/Tang-primer.md)
 

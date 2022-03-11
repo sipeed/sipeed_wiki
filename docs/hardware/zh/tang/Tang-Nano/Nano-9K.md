@@ -72,15 +72,21 @@ Tang Nano 9K是基于高云GW1NR-9 FPGA芯片设计的精简型开发板。它�
 
 7. PicoRV软核实验（待更新，用户也可以按照第一步下载的指南文档里的PicoRV文件夹内的官方指南进行）
 
-## **例程汇总**
+## 例程汇总
 
-LED drive / RGB LCD display : https://github.com/sipeed/TangNano-9K-example 
+- LED drive ：[点我](./Nano_9K_examples/LED.md) 
 
-PicoRV源工程 : https://github.com/YosysHQ/picorv32 
+- RGB LCD display : [点我](./Nano_9K_examples/LCD.md)
 
-PicoRV 在9K上运行的例程：即将更新
+- PicoRV源工程 : https://github.com/YosysHQ/picorv32 
 
-HDMI显示例程：即将更新
+- litex在9K上使用示例：即将更新
+
+- FPGA驱动SPI屏幕：待更新
+
+- PicoRV 在9K上运行的例程：即将更新
+
+- HDMI显示例程：即将更新
 
 ## **硬件资料汇总**
 

@@ -3,6 +3,8 @@ title: RISCV64架构下 Kubernetes相关软件编译
 keywords: Sipeed, Kubernetes, RISCV, D1, docker
 ---
 
+转载自知乎用户 [在路上](https://www.zhihu.com/people/zai-lu-shang-8-7)
+原文链接 ： <https://zhuanlan.zhihu.com/p/443777923>
 ## 编译环境
 
 * OS ：openEuler Linux 5.4.61 （openEuler镜像[下载地址](https://mirror.iscas.ac.cn/plct/openEuler-D1-wifi-hdmi-docker-20210826.img.bz2))
@@ -180,7 +182,3 @@ GOOS=linux GOARCH=riscv64 ARCH=riscv64 GO_BUILD_FLAGS='-v -mod=readonly' ./build
 ## 编译flannel
 尚未进行RISCV移植，目前只支持二进制编译。
 
-
-<br><br><br>
-转载自知乎用户 [在路上](https://www.zhihu.com/people/zai-lu-shang-8-7)
-原文链接 ： <https://zhuanlan.zhihu.com/p/443777923>

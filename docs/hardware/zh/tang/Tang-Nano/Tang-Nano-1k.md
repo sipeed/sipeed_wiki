@@ -1,5 +1,5 @@
 ---
-title: 一些例程
+title: Tang nano 1k 一些例程
 ---
 
 - [点灯例程](./Nano_1K_examples/LED.md)
