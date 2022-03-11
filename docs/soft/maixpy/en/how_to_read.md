@@ -5,7 +5,7 @@ desc: maixpy ​​doc: how to read this article correctly
 ---
 
 
-**Note: Currently the only official document website: [maixpy.sipeed.com](https://maixpy.sipeed.com)**
+**Note: Currently the only official document website: [maixpy.sipeed.com](https://wiki.sipeed.com/maixpy)**
 
 
 ## First, please read carefully the directory structure on the left sidebar to take a look at the contents of the document
@@ -47,9 +47,9 @@ desc: maixpy ​​doc: how to read this article correctly
 
 * If the web page loads slowly, please try to refresh or wait, or change the line (try using a proxy or changing mobile phone data)
 
-* This document has two domain names: [`https://maixpy.sipeed.com`](https://maixpy.sipeed.com) and [`https://cn.maixpy.sipeed.com`](https://cn.maixpy.sipeed.com), you can visit the other if you can’t access one
+* This document has two domain names: [`https://maixpy.sipeed.com`](https://wiki.sipeed.com/maixpy) and [`https://cn.maixpy.sipeed.com`](https://wiki.sipeed.com/maixpy), you can visit the other if you can’t access one
 
-* The document uses gitbook to automatically generate static pages from markdown. If you encounter some pages that cannot be accessed, please check whether the URL (path) is correct, and you can return to the home page ([`maixpy.sipeed.com`](https://maixpy.sipeed.com)) and enter again.
+* The document uses gitbook to automatically generate static pages from markdown. If you encounter some pages that cannot be accessed, please check whether the URL (path) is correct, and you can return to the home page ([`maixpy.sipeed.com`](https://wiki.sipeed.com/maixpy)) and enter again.
 
 For example, this URL is caused by a poor network condition and a quick click:
 ```

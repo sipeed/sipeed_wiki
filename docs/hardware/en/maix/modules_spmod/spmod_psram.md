@@ -66,7 +66,7 @@ SPMOD_PSRAM(PSRAM module) uses IPS6404L-SQ PSRAM.
 | Website | www.sipeed.com |
 | Github | [https://github.com/sipeed](https://github.com/sipeed) |
 | BBS | [http://bbs.sipeed.com](http://bbs.sipeed.com) |
-| Wiki | [http://maixpy.sipeed.com](http://maixpy.sipeed.com) |
+| Wiki | [http://maixpy.sipeed.com](http://wiki.sipeed.com/maixpy) |
 | Sipeed model shop | [https://maixhub.com/](https://maixhub.com/) |
 | SDK Relevant information | [dl.sipeed.com/MAIX/SDK](dl.sipeed.com/MAIX/SDK) |
 | HDK Relevant information | [dl.sipeed.com/MAIX/HDK](dl.sipeed.com/MAIX/HDK) |

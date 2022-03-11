@@ -5,33 +5,7 @@
             "file": "readme.md"
         },
         {
-            "label": "MaixPy 和 MaixPy3 的区别",
-            "file": "origin/difference.md"
-        },
-        {
-            "label": "一些开源社区里的学习资料（♂）",
-            "file": "origin/python.md",
-            "items": [
-                {
-                    "label":"收录国内 Python 基础教程",
-                    "file":"origin/video.md"
-                },
-                {
-                    "label": "大佬鼠の嵌入式 Python 入门教程 [1]",
-                    "file": "origin/hello_world.md"
-                },
-                {
-                    "label": "大佬鼠の嵌入式 Python 入门教程 [2]",
-                    "file": "origin/loop_python.md"
-                },
-                {
-                    "label":"如何正确反馈问题并得到解决的方法",
-                    "file":"origin/helper.md"
-                }
-            ]
-        },
-        {
-            "label": "MaixPy3 支持的平台",
+            "label": "支持的开发板&平台",
             "file": "install/install.md"
         },
         {
@@ -48,6 +22,42 @@
                 {
                     "label":"MaixSense (R329)",
                     "file":"tools/maixsense.md"
+                }
+            ]
+        },
+        {
+            "label": "一些开源社区里的学习资料（♂）",
+            
+            "items": [
+                {
+                    "label":"Python 的一些教程",
+                    "file": "origin/python.md",
+                    "items":[
+                        {
+                            "label":"收录国内 Python 基础教程",
+                            "file":"origin/video.md"
+                        },
+                        {
+                            "label": "大佬鼠の嵌入式 Python 入门教程 [1]",
+                            "file": "origin/hello_world.md"
+                        },
+                        {
+                            "label": "大佬鼠の嵌入式 Python 入门教程 [2]",
+                            "file": "origin/loop_python.md"
+                        }
+                    ]
+                },
+                {
+                    "label":"咸鱼菌の MaiII-Dock 上手系列教程",
+                    "url":"https://bbs.sipeed.com/user/909"
+                },
+                {
+                    "label":"喏呐の 【攻城狮成长记】",
+                    "file":"origin/xiaoxu.md"
+                },
+                {
+                    "label":"如何正确反馈问题并得到解决的方法",
+                    "file":"origin/helper.md"
                 }
             ]
         },
@@ -128,7 +138,7 @@
             ]
         },
         {
-            "label":"MaixPy3 视觉 AI 功能",
+            "label":"MaixPy3 视觉 AI ",
             "collapsed": false,
             "items":[
                 {
@@ -163,11 +173,11 @@
                             "file":"usage/train_AI/information.md"
                         },
                         {
-                            "label":"训练环境搭建(待编辑)",
+                            "label":"训练环境搭建",
                             "file":"usage/train_AI/ready.md"
                         },
                         {
-                            "label": "训练边缘检测模型",
+                            "label": "边缘检测模型搭建过程",
                             "file":"usage/train_AI/v831_sobel.ipynb"
                         },
                         {
@@ -189,14 +199,6 @@
             "collapsed": true,
             "items":[
                 {
-                    "label":"边缘检测开发过程",
-                    "file": "develop/Edge_detection.md"
-                },
-                {
-                    "label": "物品分类详解",
-                    "file": "develop/resnet.md"
-                },
-                {
                     "label": "AprilTag 标签定位（待公开）",
                     "file": "develop/apriltag.md"
                 },
@@ -205,7 +207,7 @@
                     "file": "develop/self_yolo.md"
                 },
                 {
-                    "label": "omv 传统视觉算法（在做了）",
+                    "label": "omv 传统视觉算法（待公开）",
                     "file": "develop/opmv_cv.md"
                 },
                 {
@@ -217,19 +219,19 @@
                     "file": "develop/maix_speech.md"
                 },
                 {
-                    "label": "R329 YOLO 训练教程（在想了）",
+                    "label": "R329 YOLO 训练教程（待公开）",
                     "file": "develop/r329_yolo.md"
                 },
                 {
-                    "label": "MFCC 关键词检测（待移植）",
+                    "label": "MFCC 关键词检测（待公开）",
                     "file": "develop/maixpy3_mfcc.md"
                 },
                 {
-                    "label": "M2DOCK 摄像头 ISP 调试（已公开）",
+                    "label": "M2DOCK 摄像头 ISP 调试（待公开）",
                     "file": "develop/v83x_isp.md"
                 },
                 {
-                    "label": "R329 人脸识别（在写了）",
+                    "label": "R329 人脸识别（待公开）",
                     "file": "develop/face_reco.md"
                 }
             ]
@@ -246,6 +248,10 @@
         {
             "label": "MaixPy3 常见问题与解决方法",
             "file":"question/maixpy3_faq.ipynb"
+        },
+        {
+            "label": "MaixPy 和 MaixPy3 的区别",
+            "url": "/blog/maix/difference.html"
         },
         {
             "label": "让更多硬件加入 MaixPy3 吧!",
