@@ -57,6 +57,10 @@
                     {
                         "url": "/soft/Lichee/zh/index.html",
                         "label": "Lichee"
+                    },
+                    {
+                        "url": "/soft/Tang/zh/index.html",
+                        "label": "Tang"
                     }
 
                 ]

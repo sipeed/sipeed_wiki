@@ -1,13 +1,16 @@
 ---
-title: Tang Primer Documentation
+title: Sipeed Hardware
+keywords: Sipeed, Hardware, 矽速, 硬件资料, 文档, 资料下载
+desc: 矽速科技的硬件资料站
 ---
+> Edit at 2022.3.12
 
-# Tang Primer Docs
+**Tang series development board is designed and prduced by Sipeed using Chinese FPGA chips, dedicating for students or amateurs to use high qualitied FPGA development board at a low price.**
 
-Tang Primer, an extremely polished open source RISC-V development board.
+*The main products are as shown below：*
 
-Tang Primer was born in the wake of RISC-V. After three months of development and iterations, it finally releases as an Open Source board in 2018.
-
-Tang Primer not only takes on the expectations of open source developers, but also promotes the development and education related to RISC-V architecture in China, and introduces an excellent development board in China to the world.
-
-![Tang](./content/images/tang.jpg)
+- [Tang nano 1K](./Wait.md) (Article will come soon)
+- [Tang nano 4K](./Wait.md) (Article will come soon)
+- [Tang nano 9K](./Wait.md) (Article will come soon)
+- [Tang Primer](./Analogic/Tang_primer/Readme.md)
+- [Tang nano](./Gowin/Tang_nano/README.md)

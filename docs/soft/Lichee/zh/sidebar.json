@@ -505,6 +505,15 @@
                 }
 
             ]
+        },
+        {
+            "label":"V83x",
+            "item":[
+                {
+                "label":"V83X sdk开发方法",
+                "file":"MaixII/V83X/contribution/v83x_sdk_compile/V83x_sdk_kernel_compile.md"
+                }
+            ]
         }
     ]
 }

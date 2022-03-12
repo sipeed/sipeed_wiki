@@ -148,49 +148,85 @@
             "file": "tang/README.md",
             "items": [
                 {
-                    "label": "Tang Premier",
-                    "file": "tang/Tang-primer/Tang-primer.md"
-                },
-                {
-                    "label": "Tang Nano",
-                    "file": "tang/Tang-Nano/Tang-Nano.md"
-                },
-                {
-                    "label": "Tang Nano 1K",
-                    "file": "tang/Tang-Nano-1K/Tang-Nano-1k.md",
+                    "label":"Tang Nano series",
+                    "file":"tang/Tang-Nano-Doc/Summary.md",
                     "items":[
                         {
-                            "label":"安装 IDE",
-                            "file":"../../soft/Tang/zh/Tang-Nano-Doc/get_started/install-the-ide.md"
+                            "label":"Tang Nano",
+                            "file": "tang/Tang-Nano/Nano.md"
                         },
                         {
-                            "label":"一些例程",
-                            "file":"tang/Tang-Nano-1K/user.md"
+                            "label": "Tang Nano 1K",
+                            "file": "tang/Tang-Nano/Nano-1k.md"
+                        },
+                        {
+                            "label":"Tang Nano 4k",
+                            "file": "tang/Tang-Nano/Nano-4K.md"
+                        },
+                        {
+                            "label":"Tang Nano 9K",
+                            "file": "tang/Tang-Nano/Nano-9K.md"
+                        },
+                        {
+                            "label":"Install IDE",
+                            "file":"tang/Tang-Nano-Doc/get_started/install-the-ide.md"
+                        },
+                        {
+                            "label":"Some examples",
+                            "items":[                                
+                                {
+                                    "label":"Examples about Tang Nano ",
+                                    "file": "tang/Tang-Nano/Tang-nano.md"
+                                },
+                                {
+                                    "label":"Examples about Tang Nano 1k ",
+                                    "file": "tang/Tang-Nano/Tang-nano-1k.md"
+                                },
+                                {
+                                    "label":"Examples about Tang Nano 4k ",
+                                    "file": "tang/Tang-Nano/Tang-nano-4k.md"
+                                },
+                                {
+                                    "label":"Examples about Tang Nano 9k ",
+                                    "file":"tang/Tang-Nano/Tang-nano-9k.md"
+                                }
+                            ]
                         }
+                        
                     ]
                 },
                 {
-                    "label": "Tang Nano 4K",
-                    "file": "tang/Tang-Nano-4K/Nano-4K.md",
-                    "items": [
+                    "label": "Tang Premier",
+                    "file": "tang/Tang-primer/Tang-primer.md",
+                    "items":[
                         {
-                            "label": "IDE安装",
-                            "file": "../../soft/Tang/zh/Tang-Nano-Doc/get_started/install-the-ide.md"
+                            "label": "Description",
+                            "file": "tang/Tang-primer/readme.md"
                         },
                         {
-                            "label": "点灯测试",
-                            "file": "../../soft/Tang/zh/Tang-Nano-Doc/examples/4K_led.md"
-                        },
-                        {
-                            "label": "摄像头和HDIM屏幕显示",
-                            "file": "tang/Tang-Nano-4K/start.md"
+                            "label":"Start",
+                            "items":[
+                                {
+                                    "label":"Install TD",
+                                    "file":"tang/Tang-primer/get_started/install_TD_win.md"
+                                },
+                                {
+                                    "label":"Install TD in Linux",
+                                    "file":"tang/Tang-primer/get_started/driver_linux_en.md"
+                                },
+                                {
+                                    "label":"搭建蜂鸟开发环境",
+                                    "file":"tang/Tang-primer/get_started/E203.md"
+                                },
+                                {
+                                    "label":"Flash FPGA bitstream",
+                                    "file":"tang/Tang-primer/get_started/fpga_download.md"
+                                }    
+                            ]
+        
                         }
                     ]
-                },
-                {
-                    "label": "Tang Nano 9K",
-                    "file": "tang/Tang-Nano-9K/Nano-9K.md"
-                }
+                }                
             ]
         },
         {
