@@ -57,6 +57,10 @@
                     {
                         "url": "/soft/Lichee/zh/index.html",
                         "label": "Lichee"
+                    },
+                    {
+                        "url": "/soft/Tang/zh/index.html",
+                        "label": "Tang"
                     }
 
                 ]
@@ -93,6 +97,11 @@
                 "label":"贡献文档",
                 "url":"/change_doc.html",
                 "position": "left"
+            },
+            {
+                "label":"最新动态",
+                "url":"/blog/",
+                "position":"left"
             },
             {
                 "label": "Github ",
@@ -235,14 +244,8 @@
                 "other_docs_result_hint": "来自其它文档的结果",
                 "curr_doc_result_hint": "当前文档搜索结果"
             }
-        },
-        "teedoc-plugin-ad-hint": {
-            "from": "pypi",
-            "config": {
-                "label": "新闻",
-                "content": "2022年 Sipeed 开源社区 <a target=\"_blank\" href=\"https://wiki.sipeed.com/soft/maixpy3/zh/index.html\">MaixPy3</a> 正式版更新！全新的产品体验！ <br> 详细 AI 模型训练方法！快来看看它有什么不同吧！"
-            }
         }
+        
     },
     "show_source": "编辑本页"
 }

@@ -43,7 +43,7 @@ root@sipeed:/#
 ## MaixSense 安装 MaixPy3
 
 MaixSense 需要是烧录官方提供最新的 Armbian 镜像，旧的镜像在安装 MaixPy3 的时候会缺很多文件而导致的报错。
-> MaixSense 的 Tina 没有做 MaixPy3 的移植，有需要的可以自行移植
+> MaixSense 的 Tina 系统并支持使用
 
 ```shell
 root@maixsense:~# pip install maixpy3
@@ -73,7 +73,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 通过 `pip3 install maixpy3` 安装。
 
 ```bash
-juwan@juwan-N85-N870HL:~/Desktop/v831_toolchain_linux_x86/MaixPy3$ pip3 install .Looking in indexes: https://pypi.tuna.tsinghua.edu.cn/simple
+juwan@juwan-N85-N870HL:~$ pip3 install .Looking in indexes: https://pypi.tuna.tsinghua.edu.cn/simple
 Processing /home/juwan/Desktop/v831_toolchain_linux_x86/MaixPy3
 Requirement already satisfied: Pillow in /usr/lib/python3/dist-packages (from MaixPy3==0.2.9) (7.0.0)
 Requirement already satisfied: evdev in /home/juwan/.local/lib/python3.8/site-packages (from MaixPy3==0.2.9) (1.4.0)
@@ -102,5 +102,7 @@ Successfully installed MaixPy3-0.2.9
 ![](./asserts/ubuntu.png)
 
 通常来说，像树莓派 2B 这类拥有桌面环境面（DE）的 linux 硬件也是可以通过 pip 进行安装 Linux Desktop 分支的，效果都是一样的。
+
+    pip install maixpy3
 
 ![](./asserts/rpi2b.png)

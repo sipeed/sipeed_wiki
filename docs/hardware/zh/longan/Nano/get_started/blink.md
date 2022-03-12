@@ -90,22 +90,24 @@ PIO 内置 dfu-util 下载工具，使用此工具需要为开发板安装 libus
 ![](./../assets/dfu_zadig.png)
 ### DFU 图形界面下载
 
-下载DFU工具：`http://dl.sipeed.com/LONGAN/Nano/Tools/GD32_MCU_Dfu_Tool_V3.8.1.5784_1.rar`
+下载DFU工具：<https://dl.sipeed.com/shareURL/LONGAN/Nano/Tools>
+在里面找到 `GD32_MCU_Dfu_Tool_V3.8.1.5784_1.rar` 文件并下载
 
 解压出两个文件夹：
 
-GD32 MCU Dfu Drivers_v1.0.1.2316  和 GD32 MCU Dfu Tool_v3.8.1.5784
+- GD32 MCU Dfu Drivers_v1.0.1.2316 
+- GD32 MCU Dfu Tool_v3.8.1.5784
 
 先进入driver文件夹，安装对应的驱动文件，注意使用管理员权限运行
 
 ![](./../assets/examples/how_to_install_dfu.png)
 
-运行 GD32 MCU Dfu Tool.exe
-将 Longan Nano 插到电脑，按住 Boot0 键，短按 Reset 键，再松开 Boot0 键，
-可以看到 DFU 工具中识别到了 GD32VF 芯片
+再回到Tools目录下运行 GD32 MCU Dfu Tool.exe
+将 Longan Nano 插到电脑，按住板子上 Boot0 键的时候按下 reset 键。
+就可以看到 DFU 工具中识别到了 GD32VF 芯片
 
 选择对应的固件文件，并勾选烧录后校验，点击OK，即可进行烧录
 
-烧录完成之后不会自动复位，需要自己手工按下复位按键，查看运行效果
+- 烧录完成之后不会自动复位，需要自己手工按下复位按键(按下reset)。
 
 ![](./../assets/examples/how_to_use_dfu.png)

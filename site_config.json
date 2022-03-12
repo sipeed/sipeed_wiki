@@ -96,6 +96,11 @@
             "config": {
             }
         },
+        "teedoc-plugin-blog": {
+            "from": "pypi",
+            "config": {
+            }
+        },
         "teedoc-plugin-theme-default":{
             "from": "pypi",
             "config": {
@@ -126,15 +131,6 @@
             "from": "pypi",
             "config": {
                 "id": "UA-119047820-5"
-            }
-        },
-        "teedoc-plugin-ad-hint": {
-            "from": "pypi",
-            "config": {
-                "type": "new",
-                "content": "Currently there are only Chinese documents, English documents are being translated",
-                "show_after_s": 432000,
-                "date": "2022-2-21 14:00:00"
             }
         },
         "teedoc-plugin-comments-gitalk": {

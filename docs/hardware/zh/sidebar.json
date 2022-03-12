@@ -142,6 +142,10 @@
                         {
                             "label":"基础上手",
                             "file":"lichee/RV/user.md"                    
+                        },
+                        {
+                            "label":"apt问题",
+                            "file":"lichee/RV/debian_img_apt.md"
                         }
                     ]
                 }
@@ -153,14 +157,15 @@
             "items": [
                 {
                     "label":"Tang Nano 系列",
+                    "file":"tang/Tang-Nano-Doc/Summary.md",
                     "items":[
                         {
                             "label":"Tang Nano",
-                            "file": "tang/Tang-Nano/Tang-Nano.md"
+                            "file": "tang/Tang-Nano/Nano.md"
                         },
                         {
                             "label": "Tang Nano 1K",
-                            "file": "tang/Tang-Nano/Tang-Nano-1k.md"
+                            "file": "tang/Tang-Nano/Nano-1k.md"
                         },
                         {
                             "label":"Tang Nano 4k",
@@ -175,28 +180,19 @@
                             "file":"tang/Tang-Nano-Doc/get_started/install-the-ide.md"
                         },
                         {
-                            "label":"一些例程",
-                            "items":[
+                            "label":"相关例程",
+                            "items":[                                
                                 {
-                                    "label":"点灯例程",
-                                    "items":[
-                                        {
-                                            "label":"1K",
-                                            "file": "tang/Tang-Nano-Doc/examples/1_led.md"
-                                        },
-                                        {
-                                            "label":"4K",
-                                            "file": "tang/Tang-Nano-Doc/examples/4K_led.md"
-                                        }
-                                    ]
+                                    "label":"Tang Nano 的一些例程",
+                                    "file": "tang/Tang-Nano/Tang-nano.md"
                                 },
                                 {
-                                    "label":"驱屏例程",
-                                    "file": "tang/Tang-Nano-Doc/examples/2_lcd.md"
+                                    "label":"Tang Nano 1k 的一些例程",
+                                    "file": "tang/Tang-Nano/Tang-nano-1k.md"
                                 },
                                 {
-                                    "label":"摄像头 + HMDI 例程",
-                                    "file": "tang/Tang-Nano/start.md"
+                                    "label":"Tang Nano 4k 的一些例程",
+                                    "file": "tang/Tang-Nano/Tang-nano-4k.md"
                                 },
                                 {
                                     "label":"Tang Nano 9k 的一些例程",

@@ -5,7 +5,7 @@ desc: maixpy doc: 如何正确 阅读 本文
 ---
 
 
-**注意： 目前唯一文档官网： [maixpy.sipeed.com](https://maixpy.sipeed.com)**
+**注意： 目前唯一文档官网： [maixpy.sipeed.com](https://wiki.sipeed.com/maixpy)**
 
 
 ## 首先请仔细阅读一遍左边侧边栏的目录结构看一看文档有那些内容
@@ -43,13 +43,13 @@ desc: maixpy doc: 如何正确 阅读 本文
 
 ## 本文档常见问题
 
-* 文档加了 PDF 生成， 但是尽量不要传播 PDF 版本， 因为内容更新后 PDF 得不到及时更新， 尽量访问此网站([`https://maixpy.sipeed.com`](https://maixpy.sipeed.com))查看文档
+* 文档加了 PDF 生成， 但是尽量不要传播 PDF 版本， 因为内容更新后 PDF 得不到及时更新， 尽量访问此网站([`https://maixpy.sipeed.com`](https://wiki.sipeed.com/maixpy))查看文档
 
 * 如果网页加载比较慢， 请尝试刷新或者等待， 或者换个线路（使用代理或者换手机流量试试）
 
-* 本文档有两个域名： [`https://maixpy.sipeed.com`](https://maixpy.sipeed.com) 和 [`https://cn.maixpy.sipeed.com`](https://cn.maixpy.sipeed.com)， 一个访问不了时可以访问另一个
+* 本文档有两个域名： [`https://maixpy.sipeed.com`](https://wiki.sipeed.com/maixpy) 和 [`https://cn.maixpy.sipeed.com`](https://wiki.sipeed.com/maixpy)， 一个访问不了时可以访问另一个
 
-* 文档使用 gitbook 从 markdown 自动生成为静态页面， 如果遇到有些页面无法访问， 请检查一下网址（路径）是否正确， 可以回到首页 ([`maixpy.sipeed.com`](https://maixpy.sipeed.com)) 重新进入即可。
+* 文档使用 gitbook 从 markdown 自动生成为静态页面， 如果遇到有些页面无法访问， 请检查一下网址（路径）是否正确， 可以回到首页 ([`maixpy.sipeed.com`](https://wiki.sipeed.com/maixpy)) 重新进入即可。
 
 比如这个网址就是由于网络情况不佳点击过快导致的：
 ```

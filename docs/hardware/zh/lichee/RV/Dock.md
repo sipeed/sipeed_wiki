@@ -25,7 +25,7 @@ Lichee RV Dock 是为开源开发者而设计的一款功能**集成度高**、*
 
 [下载站](https://dl.sipeed.com/shareURL/LICHEE/D1/Lichee_RV-Dock)
 
-[使用教程](/soft/Lichee/zh/Lichee-RV/get_started/flash.md)
+[使用教程](./flash.md)
 
 ## 产品技术支持
 Lichee RV Dock 可以在多种场景实现客户不同方面的需要，品质和性能在行业内已经有非常好的口碑，专业的技术团队为广大客户解决硬件设计和软件功能上的各种各样问题。专业技术支持和更详细资料请联系商务 support@sipeed.com。

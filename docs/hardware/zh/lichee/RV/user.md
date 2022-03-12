@@ -215,18 +215,18 @@ LicheeRV_Debian_hdmi 为 dock的hdmi输出的debian镜像
 
 烧录完成后，插卡启动，稍等2分钟左右，屏幕上就会显示登录界面
 
-![登录界面](./../assets/LicheeRV_login_picture.png "登录界面")
+![登录界面](./../assets/RV/LicheeRV_login_picture.png "登录界面")
 
 输入用户名 sipeed，密码 licheepi，即可进入桌面 （使用USB HOST口外接键鼠输入）
 
-![桌面样式](./../assets/desktop_appearance.png "桌面样式")
+![桌面样式](./../assets/RV/desktop_appearance.png "桌面样式")
 进入桌面后可以进行一些基础操作
 
-![基础操作](./../assets/Basic_operation.png "基础操作")
+![基础操作](./../assets/RV/Basic_operation.png "基础操作")
 
 接下来让我们尝试在Debian下跑一下Hello World:
 
-![运行自制程序](./../assets/Run_HelloWorld.png "运行自制程序")
+![运行自制程序](./../assets/RV/Run_HelloWorld.png "运行自制程序")
 
 另有720P高清屏的效果对比，有米的同学可以考虑入手：
 

@@ -476,7 +476,8 @@
             ]
         },
         {
-            "label":"MaixSense",            
+            "label":"MaixSense",  
+            "file":"./MaixSense/intro_cn.md",          
             "collapsed": false,
             "items": [ 
                 {
@@ -495,6 +496,7 @@
         },          
         {
             "label":"Lichee RV",
+            "file":"./Lichee-RV/intro_cn.md",
             "collapsed": false,
             "items": [
                 {
@@ -502,6 +504,15 @@
                 "file":"Lichee-Rv/contribution/D1_Kubernetes.md"
                 }
 
+            ]
+        },
+        {
+            "label":"V83x",
+            "item":[
+                {
+                "label":"V83X sdk开发方法",
+                "file":"MaixII/V83X/contribution/v83x_sdk_compile/V83x_sdk_kernel_compile.md"
+                }
             ]
         }
     ]

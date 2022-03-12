@@ -84,7 +84,7 @@ mic.deinit()
 | SIPEED 官方淘宝店 |[sipeed.taobao.com](sipeed.taobao.com) |
 |Github | [https://github.com/sipeed](https://github.com/sipeed) |
 |BBS | [http://bbs.sipeed.com](http://bbs.sipeed.com) |
-|MaixPy 文档官网 | [http://maixpy.sipeed.com](http://maixpy.sipeed.com) |
+|MaixPy 文档官网 | [http://maixpy.sipeed.com](http://wiki.sipeed.com/maixpy) |
 |Sipeed 模型平台 | [https://maixhub.com](https://maixhub.com) |
 |SDK 相关信息 | [https://dl.sipeed.com/MAIX/SDK](https://dl.sipeed.com/MAIX/SDK) |
 |HDK 相关信息 | [https://dl.sipeed.com/MAIX/HDK](https://dl.sipeed.com/MAIX/HDK) |

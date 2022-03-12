@@ -44,5 +44,3 @@
 另外，TD 亦可在如下网址下载：
 [https://eyun.baidu.com/s/3i6FbQzr](https://eyun.baidu.com/s/3i6FbQzr)
 下载站文件->TANG->Primer->IDE
-
-![](./../assets/QQ_Group_2.jpg)

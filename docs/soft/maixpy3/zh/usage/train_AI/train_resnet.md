@@ -162,7 +162,7 @@ while True:
     img = camera.capture()
     AI_img = img.copy().resize(224, 224)
     t = time.time()
-    out = m.forward(AI_img.tobytes(), quantize=True)
+    out,  = m.forward(AI_img, quantize=True)
     t = time.time() - t
     print("-- forward time: {}s".format(t))
     msg = "{}%: {}".format(int(out.max() * 10), labels[out.argmax()])

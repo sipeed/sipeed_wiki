@@ -9,11 +9,14 @@ Lichee Tang Nano 4K是基于高云半导体的小蜜蜂系列 GW1NSR-LV4C 设计
 ## 产品参数
 Lichee Tang Nano 4K开发板板载的GW1NSR-LV4C，是一款系统级封装芯片，内部集成了 GW1NS系列可编辑逻辑器件产品和PSRAM存储芯片。包括GW1NSR-2C器件和GW1NSR-2器件，GW1NSR-2C器件内嵌ARMCortex-M3硬核处理器。板载32Mbit Nor Flash，提供存储资源。
 
-| 项目 | Tang Nano | Tang Nano 4K |
+- 下表为与前代同系列产品对比图
+
+| 型号 | Tang Nano | Tang Nano 4K |
 | --- | --- | --- |
 | FPGA芯片 | GW1N-1-LV | GW1NSR-LV4C |
 | 逻辑单元 | 1152 | 4608 |
 | 寄存器 | 864 | 3456 |
+| 硬核处理器 | 无 | Coetex m3 |
 | Block SRAM(bits) | 72K | 180K |
 | 用户闪存(bits) | 96K | 256K |
 | 锁相环PLL | 1 | 2 |
@@ -29,11 +32,10 @@ Lichee Tang Nano 4K开发板板载的GW1NSR-LV4C，是一款系统级封装芯�
 使用ide的时候版本需要>= v1.9.7.01 Beta
 ![](./assets/Tang_nano_4K_0813.svg)
 ## 开发环境
-Lichee Tang Nano使用Gowin云源软件IDE进行开发软件支持通用的硬件描述语言，可以快速实现 FPGA开发过程中的代码综合、布局布线、比特流文件生成下载、生产集成IP核等相关工作。
+- 参考[安装IDE](./../Tang-Nano-Doc/get_started/install-the-ide.md)
 
 ## 下载方式
-Lichee Tang Nano开发板板载BL702芯片，为GW1NSR提供JTAG调试功能，开发板可以直接连接电脑进行开发，而不需要外部的调试器和时钟输入。
-
+- Lichee Tang Nano开发板板载BL702芯片，为GW1NSR提供JTAG调试功能，开发板可以直接连接电脑使用GOWIN programmer进行下载比特流，不需要额外的调试器。
 
 ## 资料
 [Tang nano 4K 资料库](https://dl.sipeed.com/shareURL/TANG/Nano%204K)
