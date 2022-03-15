@@ -6,10 +6,10 @@ title: FPGA点灯
 
 
 请到github下载，地址为
-[\<<https://github.com/Lichee-Pi/Tang_FPGA_Examples/tree/master/0.LED>\>](<https://github.com/Lichee-Pi/Tang_FPGA_Examples/tree/master/0.LED>)
+[https://github.com/Lichee-Pi/Tang_FPGA_Examples/tree/master/0.LED](<https://github.com/Lichee-Pi/Tang_FPGA_Examples/tree/master/0.LED>)
 
-# 代码简析
-```
+# Verilog代码
+```v
 module led
 (
     input wire CLK_IN, //时钟输入，24MHz
@@ -57,5 +57,5 @@ end
 assign RGB_LED = rledout;
 endmodule
 ```
-将代码综合，下载码流到fpga，可以看到板上的rgb led会移位闪烁。（emmm，闪烁效果太差，如果你有更好的可以发过来。(╯︵╰)
+上面的代码输入完且保存后，综合一下，接着自己对照板子原理图进行管脚约束。在生成比特流下载到fpga，可以看到板上的rgb led会移位闪烁。（emmm，闪烁效果太差，如果你有更好的可以发过来。(╯︵╰)
 

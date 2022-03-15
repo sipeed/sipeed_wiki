@@ -35,12 +35,13 @@
 2018年8月15日之前收到的板子预烧录的码流为旧版本IO分配，需要烧录[新版本码流](./../assets/LicheeTangNewIoMap_BitStream.bit)
 
 您可能需要这些来进一步了解荔枝糖： 
-[EG4S20Datasheet](https://dl.sipeed.com/shareURL/TANG/Premier/HDK/Datasheet/EG4S20_DataSheet_V1.4.pdf)|[荔枝糖原理图](https://dl.sipeed.com/fileList/TANG/Premier/HDK/LicheeTang_RV(Schematic).pdf)
+- EG4S20Datasheet [点我](https://dl.sipeed.com/shareURL/TANG/Premier/HDK/Datasheet/)里面的`EG4S20_DataSheet_V1.4.pdf`
+- 荔枝糖原理图 [点我](https://dl.sipeed.com/fileList/TANG/Premier/HDK/)里面的`LicheeTang_RV(Schematic).pdf`
 
-荔枝糖仍在不断地成长，对于外观、电路设计、文档内容甚至于荔枝糖的发展方向，我们欢迎您到[荔枝糖 | 建议与讨论帖](https://bbs.sipeed.com/category/3?search_ids=3&search_ids=36&search_ids=28&search_ids=31&search_ids=30) 提出您宝贵的建议。
+荔枝糖仍在不断地成长，对于外观、电路设计、文档内容甚至于荔枝糖的发展方向，我们欢迎您到[荔枝糖 | 建议与讨论帖](https://bbs.sipeed.com/cate/30/seq/1) 提出您宝贵的建议。
 
-同时欢迎各位加入[荔枝派交流群826307240](https://jq.qq.com/?_wv=1027&k=5uWO21P) | [荔枝派Telegram电报群](https://t.me/sipeed)与众多开发者、爱好者即时交流，并获取 FPGA 开发环境 TD (Tang Dynasty)，其中 TD 软件自带全系列的参考文档。
+同时欢迎各位加入荔枝派交流群 `834585530` 或者 [荔枝派Telegram电报群](https://t.me/sipeed)与众多开发者、爱好者即时交流。
 
-另外，TD 亦可在如下网址下载：
-[https://eyun.baidu.com/s/3i6FbQzr](https://eyun.baidu.com/s/3i6FbQzr)
-下载站文件->TANG->Primer->IDE
+另外，FPGA开发环境TD (Tang Dynasty) 可在如下网址下载：
+- [https://eyun.baidu.com/s/3i6FbQzr](https://eyun.baidu.com/s/3i6FbQzr)
+- [https://dl.sipeed.com/shareURL/TANG/Premier/IDE](https://dl.sipeed.com/shareURL/TANG/Premier/IDE)
