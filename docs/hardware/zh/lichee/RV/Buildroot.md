@@ -3,7 +3,7 @@ title: 使用Buildroot
 keywords: debian, Rv, Problam, buildroot, img, sipeed
 ---
 
-## 方式一：使用韦东山提供的Buildroot（比较省事）
+## 方式一：使用韦东山提供的Buildroot
 ### 准备工作
 克隆Buildroot
 ```
@@ -44,7 +44,7 @@ INFO: hdimage(sdcard.img): adding partition 'rootfs' (in MBR) from 'rootfs.ext4'
 INFO: hdimage(sdcard.img): writing GPT
 INFO: hdimage(sdcard.img): writing hybrid MBR
 ```
-恭喜你，固件编译成功了，这时候就可以使用Etcher来将该固件烧入SD卡里了。
+恭喜你，固件编译成功，这时候就可以使用Etcher来将该固件烧入SD卡里了。
 ### 调试
 然后将开发板和串口模块连接起来，并使用串口调试软件进行调试。
 **注意：只需要接RX、TX和GND即可，RX接TX，TX接RX，别接错了。**
