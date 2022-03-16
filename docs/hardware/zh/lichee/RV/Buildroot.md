@@ -32,7 +32,7 @@ make all
 ```
 make all -j2
 ```
-（视情况输入或调整使用的线程数，性能好一点的电脑可以试试`-j4`甚至更多）
+（视情况输入或调整使用的线程数，如果您的电脑性能较好可以试试`-j4`甚至更多）
 如果出现以下内容:
 ```
 INFO: hdimage(sdcard.img): adding partition 'boot0' from 'boot0_sdcard.fex' ...
