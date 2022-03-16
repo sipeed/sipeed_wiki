@@ -2,10 +2,6 @@
 title: 使用Buildroot
 keywords: debian, Rv, Problam, buildroot, img, sipeed
 ---
-## Buildroot和Tina的区别
-使用Buildroot相比于Tina，有以下优点：
-1. 无需注册全志客户服务平台账号，只需要git clone或者通过浏览器下载就行
-2. 软件包相比于全志官方Tina比较新（当然如果是自己改的Tina另谈）
 
 ## 方式一：使用韦东山提供的Buildroot（比较省事）
 ### 准备工作
