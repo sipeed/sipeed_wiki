@@ -139,6 +139,10 @@
                             "label": "烧录系统",
                             "file": "lichee/RV/flash.md"
                         },
+                        {                    
+                            "label":"使用Buildroot",
+                            "file":"lichee/RV/Buildroot.md"
+                        },
                         {
                             "label": "基础上手",
                             "file": "lichee/RV/user.md"
