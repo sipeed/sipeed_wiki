@@ -60,8 +60,8 @@
                             "file": "maixII/M2/flash.md"
                         },
                         {
-                            "label":"连接开发板",
-                            "file":"../../soft/maixpy3/zh/tools/0.MaixII-Dock.ipynb"
+                            "label": "连接开发板",
+                            "file": "../../soft/maixpy3/zh/tools/0.MaixII-Dock.ipynb"
                         },
                         {
                             "label": "进阶使用",
@@ -86,22 +86,22 @@
                 {
                     "label": "MaixSense",
                     "file": "maixII/M2A/maixsense.md",
-                    "items":[                        
+                    "items": [
                         {
-                            "label":"烧录系统",
-                            "file":"maixII/M2A/flash_system.md"
+                            "label": "烧录系统",
+                            "file": "maixII/M2A/flash_system.md"
                         },
                         {
-                            "label":"配置系统",
-                            "file":"maixII/M2A/config_system.md"
+                            "label": "配置系统",
+                            "file": "maixII/M2A/config_system.md"
                         },
                         {
-                            "label":"硬件测试",
-                            "file":"maixII/M2A/Hardware_test.md"
+                            "label": "硬件测试",
+                            "file": "maixII/M2A/Hardware_test.md"
                         },
                         {
-                            "label":"基本使用",
-                            "file":"maixII/M2A/Usages.md"
+                            "label": "基本使用",
+                            "file": "maixII/M2A/Usages.md"
                         }
                     ]
                 }
@@ -124,28 +124,28 @@
                     "file": "lichee/ZeroPlus/ZeroPlus.md"
                 },
                 {
-                    "label":"Lichee RV",
-                    "file":"lichee/RV/RV.md",
-                    "items":[
+                    "label": "Lichee RV",
+                    "file": "lichee/RV/RV.md",
+                    "items": [
                         {
-                            "label":"Lichee RV 86 Panel",
-                            "file":"lichee/RV/86_panel.md"
+                            "label": "Lichee RV 86 Panel",
+                            "file": "lichee/RV/86_panel.md"
                         },
                         {
-                            "label":"Lichee RV Dock",
-                            "file":"lichee/RV/Dock.md"
-                        },
-                        {                    
-                            "label":"烧录系统",
-                            "file":"lichee/RV/flash.md"
+                            "label": "Lichee RV Dock",
+                            "file": "lichee/RV/Dock.md"
                         },
                         {
-                            "label":"基础上手",
-                            "file":"lichee/RV/user.md"                    
+                            "label": "烧录系统",
+                            "file": "lichee/RV/flash.md"
                         },
                         {
-                            "label":"apt问题",
-                            "file":"lichee/RV/debian_img_apt.md"
+                            "label": "基础上手",
+                            "file": "lichee/RV/user.md"
+                        },
+                        {
+                            "label": "apt问题",
+                            "file": "lichee/RV/debian_img_apt.md"
                         }
                     ]
                 }
@@ -156,85 +156,82 @@
             "file": "tang/README.md",
             "items": [
                 {
-                    "label":"Tang Nano 系列",
-                    "file":"tang/Tang-Nano-Doc/Summary.md",
-                    "items":[
+                    "label": "Tang Nano 系列",
+                    "file": "tang/Tang-Nano-Doc/Summary.md",
+                    "items": [
                         {
-                            "label":"Tang Nano",
+                            "label": "Tang Nano",
                             "file": "tang/Tang-Nano/Nano.md"
                         },
                         {
                             "label": "Tang Nano 1K",
-                            "file": "tang/Tang-Nano/Nano-1k.md"
+                            "file": "tang/Tang-Nano-1K/Nano-1k.md"
                         },
                         {
-                            "label":"Tang Nano 4k",
-                            "file": "tang/Tang-Nano/Nano-4K.md"
+                            "label": "Tang Nano 4k",
+                            "file": "tang/Tang-Nano-4K/Nano-4K.md"
                         },
                         {
-                            "label":"Tang Nano 9K",
-                            "file": "tang/Tang-Nano/Nano-9K.md"
+                            "label": "Tang Nano 9K",
+                            "file": "tang/Tang-Nano-9K/Nano-9K.md"
                         },
                         {
-                            "label":"安装 IDE",
-                            "file":"tang/Tang-Nano-Doc/get_started/install-the-ide.md"
+                            "label": "安装 IDE",
+                            "file": "tang/Tang-Nano-Doc/get_started/install-the-ide.md"
                         },
                         {
-                            "label":"相关例程",
-                            "items":[                                
+                            "label": "相关例程",
+                            "items": [
                                 {
-                                    "label":"Tang Nano 的一些例程",
+                                    "label": "Tang Nano 的一些例程",
                                     "file": "tang/Tang-Nano/Tang-nano.md"
                                 },
                                 {
-                                    "label":"Tang Nano 1k 的一些例程",
-                                    "file": "tang/Tang-Nano/Tang-nano-1k.md"
+                                    "label": "Tang Nano 1k 的一些例程",
+                                    "file": "tang/Tang-Nano-1k/Tang-nano-1k.md"
                                 },
                                 {
-                                    "label":"Tang Nano 4k 的一些例程",
-                                    "file": "tang/Tang-Nano/Tang-nano-4k.md"
+                                    "label": "Tang Nano 4k 的一些例程",
+                                    "file": "tang/Tang-Nano-4k/Tang-nano-4k.md"
                                 },
                                 {
-                                    "label":"Tang Nano 9k 的一些例程",
-                                    "file":"tang/Tang-Nano/Tang-nano-9k.md"
+                                    "label": "Tang Nano 9k 的一些例程",
+                                    "file": "tang/Tang-Nano-9k/Tang-nano-9k.md"
                                 }
                             ]
                         }
-                        
                     ]
                 },
                 {
                     "label": "Tang Premier",
                     "file": "tang/Tang-primer/Tang-primer.md",
-                    "items":[
+                    "items": [
                         {
-                            "label": "简介",
+                            "label": "前言",
                             "file": "tang/Tang-primer/readme.md"
                         },
                         {
-                            "label":"准备",
-                            "items":[
-                                {
-                                    "label":"安装TD驱动",
-                                    "file":"tang/Tang-primer/get_started/install_TD_win.md"
-                                },
-                                {
-                                    "label":"安装TD驱动——Linux",
-                                    "file":"tang/Tang-primer/get_started/driver_linux_en.md"
-                                },
-                                {
-                                    "label":"搭建蜂鸟开发环境",
-                                    "file":"tang/Tang-primer/get_started/E203.md"
-                                },
-                                {
-                                    "label":"FPGA码流烧录",
-                                    "file":"tang/Tang-primer/get_started/fpga_download.md"
-                                }    
-                            ]
-        
+                            "label": "安装TD驱动",
+                            "file": "tang/Tang-primer/get_started/install_TD_win.md"
+                        },
+                        {
+                            "label": "安装TD驱动——Linux",
+                            "file": "tang/Tang-primer/get_started/driver_linux_en.md"
+                        },
+                        {
+                            "label": "使用FPGA点灯",
+                            "file": "tang/Tang-primer/fpga/led.md"
+                        },
+                        {
+                            "label": "搭建蜂鸟开发环境",
+                            "file": "tang/Tang-primer/get_started/E203.md"
+                        },
+                        {
+                            "label": "FPGA码流烧录",
+                            "file": "tang/Tang-primer/get_started/fpga_download.md"
                         }
                     ]
-                }                
+                }
             ]
         },
         {
@@ -253,58 +250,61 @@
                             "file": "longan/Nano/get_started/blink.md"
                         },
                         {
-                            "label":"DEBUG 调试",
-                            "file":"longan/Nano/get_started/debug.md",
-                            "items":[
+                            "label": "DEBUG 调试",
+                            "file": "longan/Nano/get_started/debug.md",
+                            "items": [
                                 {
-                                    "label":"使用 Sipeed 调试器",
-                                    "file":"longan/Nano/get_started/sipeed-debugger.md"
+                                    "label": "使用 Sipeed 调试器",
+                                    "file": "longan/Nano/get_started/sipeed-debugger.md"
                                 },
                                 {
-                                    "label":"使用 RV-LINK",
-                                    "file":"longan/Nano/get_started/rv-link.md"
+                                    "label": "使用 RV-LINK",
+                                    "file": "longan/Nano/get_started/rv-link.md"
                                 }
                             ]
                         },
                         {
-                            "label":"示例",
-                            "items":[
+                            "label": "示例",
+                            "items": [
                                 {
-                                    "label":"串口输出",
-                                    "file":"longan/Nano/examples/printf.md"
+                                    "label": "串口输出",
+                                    "file": "longan/Nano/examples/printf.md"
                                 },
                                 {
-                                    "label":"播放 Badapple",
-                                    "file":"longan/Nano/examples/badapple.md"
+                                    "label": "播放 Badapple",
+                                    "file": "longan/Nano/examples/badapple.md"
                                 }
                             ]
                         }
                     ]
+                },
+                {
+                    "label": "Coming soon"
                 }
             ]
         },
         {
-            "label":"MF 人脸识别模块",
-            "items":[
+            "label": "MF 人脸识别模块",
+            "items": [
                 {
-                    "label":"MF0&&MF0 Dock",
-                    "file":"maixface/mf_ml_module/mf0_ml_module.md"
+                    "label": "MF0&&MF0 Dock",
+                    "file": "maixface/mf_ml_module/mf0_ml_module.md"
                 },
                 {
-                    "label":"MF1 && MF2",
-                    "file":"maixface/mf_ml_module/mf1_ml_module.md"
+                    "label": "MF1 && MF2",
+                    "file": "maixface/mf_ml_module/mf1_ml_module.md"
                 },
                 {
-                    "label":"MF4 && MF5",
-                    "file":"maixface/mf_ml_module/mf5_product.md"
+                    "label": "MF4 && MF5",
+                    "file": "maixface/mf_ml_module/mf5_product.md"
                 },
                 {
-                    "label":"MF 人脸识别模块 PCB 设计注意事项",
-                    "file":"maixface/mf_ml_module/mf_precautions.md"
+                    "label": "MF 人脸识别模块 PCB 设计注意事项",
+                    "file": "maixface/mf_ml_module/mf_precautions.md"
                 },
                 {
-                    "label":"MF 更新固件说明",
-                    "file":"maixface/mf_ml_module/mf_update_firmwave.md"
+                    "label": "MF 更新固件说明",
+                    "file": "maixface/mf_ml_module/mf_update_firmwave.md"
                 }
             ]
         },

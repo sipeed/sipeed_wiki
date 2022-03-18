@@ -499,6 +499,10 @@
             "file":"./Lichee-RV/intro_cn.md",
             "collapsed": false,
             "items": [
+                {                    
+                    "label":"使用Buildroot",
+                    "file":"Lichee-RV/build_sys/Buildroot.md"
+                },
                 {
                 "label": "D1上Kubernetes相关软件编译",
                 "file":"Lichee-Rv/contribution/D1_Kubernetes.md"

@@ -28,9 +28,9 @@ Tang Nano 9K是基于高云GW1NR-9 FPGA芯片设计的精简型开发板。它�
 | LED                               | 板载6个可编程LED                                             |
 
 
-![Generated](.\assets\clip_image008.jpg)
+![Generated](./assets/clip_image008.jpg)
 
-![Generated](.\assets\clip_image010.gif)
+![Generated](./assets/clip_image010.gif)
 
 ## **适用人群**
 
@@ -84,9 +84,9 @@ Tang Nano 9K是基于高云GW1NR-9 FPGA芯片设计的精简型开发板。它�
 
 - FPGA驱动SPI屏幕：待更新
 
-- PicoRV 在9K上运行的例程：即将更新
+- PicoRV 在9K上运行的工程：<https://github.com/sipeed/TangNano-9K-example/tree/main/picotiny>
 
-- HDMI显示例程：即将更新
+- HDMI显示工程：<https://github.com/sipeed/TangNano-9K-example/tree/main/picotiny>
 
 ## **硬件资料汇总**
 
