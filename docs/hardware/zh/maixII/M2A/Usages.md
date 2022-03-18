@@ -24,7 +24,7 @@
 
 ### 连接
 
-在MaixSense上运行 `python -c "import maix.mjpg;maix.mjpg.start()"` 启动板子上的远程 RPyc 服务
+在MaixSense上运行 `python3 -c "import maix.mjpg;maix.mjpg.start()"` 启动板子上的远程 RPyc 服务
 
 在电脑 IDE 中新建代码区，运行下面的代码来连接开发板
 

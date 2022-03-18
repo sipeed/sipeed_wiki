@@ -5,6 +5,7 @@ desc: maixpy doc: net
 ---
 
 
+
 | 更新时间 | 负责人 | 内容 | 备注 |
 | --- | --- | --- | --- |
 | 2022年1月17日 | dalaoshu | 编写文档 | 本文讲述用户常问的实际需求所写的经验文，有经验的可以忽略本节内容，至于如何联网、配网请看类似于 [MaixII-Dock 连接网络](http://wiki.sipeed.com/soft/maixpy3/zh/tools/0.MaixII-Dock.html#%E5%A6%82%E4%BD%95%E8%BF%9E%E6%8E%A5%E7%BD%91%E7%BB%9C) 的产品说明|
@@ -91,6 +92,37 @@ b'boo123'
 >>>
 ```
 
+
 这两个逻辑，在任何设备上都是一样的代码，用户不需要写服务端的代码，而服务端的任务就是负责转发数据和保护整个传输内容的安全、可靠性。
 
 > 关于 MQTT 的官网 [MQTT: The Standard for IoT Messaging](https://mqtt.org/)。
+
+## 网络图传 怎么用？
+
+想通过网络来接收摄像头拍摄到画面，可以使用在 MaixPy3 中内置的 mjpg 包。
+
+让电脑和硬件平台连接到同一个局域网内，运行以下代码，在浏览器中输入 `http://localhost:18811`，localhost 为硬件平台的 IP 地址。
+
+```python
+from maix import camera, mjpg, utils, display
+
+queue = mjpg.Queue(maxsize=8)
+mjpg.MjpgServerThread(
+    "0.0.0.0", 18811, mjpg.BytesImageHandlerFactory(q=queue)).start()
+
+while True:
+    img = camera.capture()
+    jpg = utils.rgb2jpg(img.convert("RGB").tobytes(),
+                        img.width, img.height)
+    print(len(jpg))
+    queue.put(mjpg.BytesImage(jpg))
+    display.show(img)
+```
+
+- 如果使用 MaixII-Dock 开发板，连接 OTG 接口可以实现通过有线实时显示摄像头画面。打开 MaixPy3 IDE，在图片的右键菜单中将 maixpy3_notebook 停止，然后在 adb 终端的 进入 python 环境，运行以上代码，可以直接在下面的中显示画面、
+
+    > <img src="http://127.0.0.1:18811"> 图传画面（没有成功运行代码是不会显示出来的）
+
+    或者在浏览器中打开 <http://127.0.0.1:18811>
+
+> MaixPy3 IDE 中的画面回传也是基于此功能实现的

@@ -150,7 +150,7 @@
                     "file": "usage/AI_net/resnet.ipynb"
                 },
                 {
-                    "label": "人脸检测",
+                    "label": "物品检测",
                     "file": "usage/AI_net/find_face.ipynb"
                 },
                 {
