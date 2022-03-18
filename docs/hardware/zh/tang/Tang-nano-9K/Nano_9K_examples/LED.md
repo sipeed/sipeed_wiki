@@ -65,7 +65,7 @@ endmodule
     因此在打开的界面中按照序号的顺序来进行相应的操作
     ![](./../nano_9k/LED_FloorPlanner.png)
 
-11. 到“Process”下运行“Place&Route”，即运行管脚布局布线，运行结果如下图所示：
+11. 到“Process”下运行“Place&Route”，即运行布局布线，运行结果如下图所示：
     ![](./../nano_9k/LED_Place&Route.png)
 
 12. 接下来是进行连接板子，烧录固件，可参照下图选择版型：
