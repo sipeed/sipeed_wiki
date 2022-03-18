@@ -1,13 +1,19 @@
 # Windows的开发环境配置
 
+  
 ## 安装TD
 
-想要进行FPGA开发需要安装TD，可以通过[下载站](https://dl.sipeed.com/shareURL/TANG/Premier/IDE)，下载TD安装包和license，如果下载速度过慢的时候，建议使用[百度网盘](https://eyun.baidu.com/s/3i6FbQzr)进行下载
+想要进行FPGA开发需要安装TD，可以通过[下载站](https://dl.sipeed.com/shareURL/TANG)，下载TD安装包和license，如果下载速度过慢，建议使用[百度网盘](https://eyun.baidu.com/s/3i6FbQzr)进行下载
 
-![TD_1](./../../assets/get_started/TD_1.png)
-![TD_2](./../../assets/get_started/TD_2.png)
+![安装包](./../../assets/get_started/TD_1.png)
+![Lic](./../../assets/get_started/TD_2.png)
 
-双击打开第一个文件进行安装，建议使用默认的安装路径，安装结束之后，将 Anlogic_20220130.lic 修改成Anlogic.lic放到C:\Anlogic\TD5.0.27252\license中
+双击打开第一个文件进行安装，安装结束之后将 Anlogic_20220703.lic 修改成Anlogic.lic放到C:\Anlogic\TD5.0.27252\license中
+
+- 上图中的安装包文件在<https://dl.sipeed.com/shareURL/TANG/Primer/IDE>里面
+- Lic文件在<https://dl.sipeed.com/shareURL/TANG/Primer/IDE>里
+
+**注意：license持续时间截止到2022年七月三日**
 
 然后打开TD就可以了
 

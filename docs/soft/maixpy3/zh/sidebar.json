@@ -146,11 +146,11 @@
                     "file": "usage/AI_net/Edge_detection.ipynb"
                 },
                 {
-                    "label": "物品分类",
+                    "label": "物体分类",
                     "file": "usage/AI_net/resnet.ipynb"
                 },
                 {
-                    "label": "人脸检测",
+                    "label": "物体检测",
                     "file": "usage/AI_net/find_face.ipynb"
                 },
                 {

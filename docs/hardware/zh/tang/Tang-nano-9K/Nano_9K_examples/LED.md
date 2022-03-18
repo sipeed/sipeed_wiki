@@ -3,19 +3,19 @@ title: 点灯LED
 ---
 
 1. 新建工程：File-->NEW-->FPGA Dsign Project-->OK
-    ![](./../assets/LED-1.png)
+    ![](./../../Tang-nano/assets/LED-1.png)
 
 2. 弹出的选项框选择存储路径和工程名称（路径和文件名称要求是英文路径）
-    ![](./../assets/LED-2.png)
+    ![](./../../Tang-nano/assets/LED-2.png)
 
 3. 选择合适的型号：
-    ![Tang_nano_9k_device_choose](./../assets/nano_9k/Tang_nano_9k_Device_choose.png)
+    ![Tang_nano_9k_device_choose](./../nano_9k/Tang_nano_9k_Device_choose.png)
     
 4. 新建好工程之后接下来进行代码编辑，在Design工作栏内新建“Verilog File”,如下图所示：
-    ![](./../assets/LED-5.png)
+    ![](./../../Tang-nano/assets/LED-5.png)
 5. 为文件命名（要求写英文名，不然后续综合很容易报错）
-    ![](./../assets/LED-6.png)
-    ![](./../assets/LED-7.png)
+    ![](./../../Tang-nano/assets/LED-6.png)
+    ![](./../../Tang-nano/assets/LED-7.png)
 6. 双击文件，可以在右侧的编辑框中进行代码的编写。以编辑流水灯为例，将下方的“LED例程代码”粘贴到自己的文件中，也可以自己编写自己的代码，例程代码地址：<https://github.com/sipeed/TangNano-9K-example>
 使用git clone后可以在 led/src/LED.v 文件夹内找到代码
 
@@ -51,34 +51,34 @@ endmodule
  ```
 
 7. 上面代码完成后需要在 Project->Configuration->Place&Route->Dual-Purpose Pin 中将`Use DONE as regular IO`勾选上，不然下面的综合会报错。
-   ![img_configuration](./../assets/nano_9k/LED_Configuration.png)
+   ![img_configuration](./../nano_9k/LED_Configuration.png)
 
 8. 代码编辑结束后转到“Process”界面下，对编辑好的代码进行综合，即运行“Systhesize”
-    ![](./../assets/nano_9k/nano_9k_synthsize.png)
-    运行的结果如上图出现 ![](./../assets/LED.png) 的形状，且下方结果栏不出现任何从报错，说明前面编辑的代码无误，如果有错，根据错误提示进行改正即可。
+    ![](./../nano_9k/nano_9k_synthsize.png)
+    运行的结果如上图出现 ![](./../../Tang-nano/assets/LED.png) 的形状，且下方结果栏不出现任何从报错，说明前面编辑的代码无误，如果有错，根据错误提示进行改正即可。
 
 9.  接下来通过  双击Process界面里的FloorPlanner来设置管脚约束（前面的综合如果运行失败，这一步无法进行），第一次打开会弹出缺少.cst文件.选择“OK”即可；
-    ![](./../assets/LED-9.png)
+    ![](./../../Tang-nano/assets/LED-9.png)
 
 10. nano 9k的led电路图如下所示
-    ![](./../assets/nano_9k/LED_Pins.png "nano 9k led pins")
+    ![](./../nano_9k/LED_Pins.png "nano 9k led pins")
     因此在打开的界面中按照序号的顺序来进行相应的操作
-    ![](./../assets/nano_9k/LED_FloorPlanner.png)
+    ![](./../nano_9k/LED_FloorPlanner.png)
 
-11. 到“Process”下运行“Place&Route”，即运行管脚布局布线，运行结果如下图所示：
-    ![](./../assets/nano_9k/LED_Place&Route.png)
+11. 到“Process”下运行“Place&Route”，即运行布局布线，运行结果如下图所示：
+    ![](./../nano_9k/LED_Place&Route.png)
 
 12. 接下来是进行连接板子，烧录固件，可参照下图选择版型：
-    ![](./../assets/nano_9k/nano_9k_device_scan.png)
+    ![](./../nano_9k/nano_9k_device_scan.png)
 
 13. 以烧录进SRAM为例进行说明，如下图：
     设置下载方式：
-    ![](./../assets/nano_9k/nano_9k_sram_program.png "设置sram下载方式")
+    ![](./../nano_9k/nano_9k_sram_program.png "设置sram下载方式")
     进行下载：
-    ![](./../assets/nano_9k/nano_9k_sram_download.png "进行sram下载")
+    ![](./../nano_9k/nano_9k_sram_download.png "进行sram下载")
 
 14. 结果显示：
-    ![](./../assets/nano_9k/blink.gif)
+    ![](./../nano_9k/blink.gif)
 
 点灯验证到此结束。
 
@@ -87,5 +87,5 @@ endmodule
 说明：
 > 01、只测试过下载站下载的版本以及1.9.8版本测试正常，其他版本需用户自行确认。
 > 02、不要使用中文路径，会导致错误：
-> ![](./../assets/LED-23.png)
+> ![](./../../Tang-nano/assets/LED-23.png)
 

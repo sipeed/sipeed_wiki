@@ -6,6 +6,5 @@ title: Tang nano 一些例程
 
 
 ## 例程
-- [点灯例程](./../Tang-Nano-Doc/examples/1_led.md)
-- [驱屏教程](./../Tang-Nano-Doc/examples/2_lcd.md)
-- [使用PSRAM存储](./../Tang-Nano-Doc/examples/3_psram.md)
+- [点灯例程](./examples/1_led.md)
+- [驱屏教程](./examples/2_lcd.md)

@@ -48,7 +48,7 @@ MaixPy3 IDE 连接 MaixSense 只能使用远程连接，不能像 MaixII-Dock �
 - 运行 ifconfig 获取开发板的 IP 地址
 
 ### 连接
-在板子上运行 python -c "import maix.mjpg;maix.mjpg.start()" 启动板子上的远程 RPyc 服务，启动 MaixPy3 IDE，新建代码区，运行下面的连接代码。
+在板子上运行 python3 -c "import maix.mjpg;maix.mjpg.start()" 启动板子上的远程 RPyc 服务，启动 MaixPy3 IDE，新建代码区，运行下面的连接代码。
 
 ```python
 $connect("192.168.43.44")   # 此处填入开发板的 IP 地址
