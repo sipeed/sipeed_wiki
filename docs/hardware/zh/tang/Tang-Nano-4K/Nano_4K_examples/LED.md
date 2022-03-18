@@ -41,7 +41,7 @@ endmodule
 
 板载的是一颗红色LED 灯，原理图如下
 
-<img src="./../assets/nano_4k/LED_Pin.png" alt="image-20210810160224782" style="zoom:50%;" />
+<img src="./../nano_4k/LED_Pin.png" alt="image-20210810160224782" style="zoom:50%;" />
 
 整个程序使用到的引脚分布如下
 
@@ -96,7 +96,7 @@ endmodule
 对于管脚约束有下图中的两种方法
 - 将对应的端口拖拽到芯片引脚上
 - 在IO约束中输入端口对应的引脚编号
-![Led floorplanner](./../assets/nano_4k/LED_FloorPlanner.png)
+![Led floorplanner](./../nano_4k/LED_FloorPlanner.png)
 
 LED对应的IO10默认是mode Pin，无法直接约束，需要打开Project>Configuration>Dual-Purpose Pin,勾选 Use MODE as regular IO,如下图
 
