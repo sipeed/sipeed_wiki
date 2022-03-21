@@ -291,6 +291,10 @@ SDCard.remount()
 
 这时需要使用，使用 kflash 来对 flash 整片擦除，然后再重新进行对应的 固件 和 模型烧录。烧录模型到 flsah 的时候一定要注意烧录的位置，是否正确（数清楚对应 0 的个数）。
 
+## 使用 IDE 的时候出现 TypeError: Can't convert to type 错误
+
+maixpy ide 挂着运行时内存不足，就会出现的常见错误，解决方法，换成菜单的打开终端运行，或让内存有一定预留就不会出现了。
+
 ## 出现 kpu:check img format err!
 
 注意看终端输出提示，特别强调！！！
