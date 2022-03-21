@@ -44,37 +44,17 @@ desc: maixpy doc: 上传脚本&模块到开发板
 
 点击上面的 `View -> terminal ` 可以打开终端 用来查看运行时的输出或者发送命令
 
+## 使用命令行工具
 
-## 使用工具 rshell
-
-正如使用 `linux` 终端一样， 使用 [rshell](https://github.com/dhylands/rshell) 的 `cp` 命令即可简单地复制文件到开发板
-
-按照 `rshell` 项目主页的说明安装好 `rshell`
-
-```python
-sudo apt-get install python3-pip
-sudo pip3 install rshell
-rshell -p /dev/ttyUSB1 # 这里根据实际情况选择串口
-```
-
-```python
-ls /flash
-cp ./test.py /flash/ #复制电脑当前目录的文件 test.py 到开发板 flash 根目录
-```
-
-当然， 还有其它更多功能， 详情请访问其 [项目主页](https://github.com/dhylands/rshell)
-
-
-## 使用命令行工具 ampy
-
-[ampy](https://github.com/pycampers/ampy) 是一个简单易用的命令行上传、下载、执行文件 的工具， 而且开源
+[mpfshell-lite](https://github.com/junhuanchen/mpfshell-lite) 是一个简单易用的命令行上传、下载、执行文件 的工具， 而且开源
 
 注意这个工具是运行在电脑端的，而不是运行在板子上的
 
-使用 `ampy --help` 来查看帮助信息
+使用 `mpfs --help` 来查看帮助信息
 
-使用 `ampy run file_in_PC.py` 命令还可以不上传脚本到板子而是直接在板子上运行该脚本
+使用 `mpfs put file_in_PC.py` 命令还可以不上传脚本到板子而是直接在板子上运行该脚本
 
+除此之外还有 ampy rshell 这些。
 
 ## SD（TF） 直接运行
 
