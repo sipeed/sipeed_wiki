@@ -1,36 +1,45 @@
 # Tang Nano
 
-## 概述
+> Edit on 2022.03.23
 
-Lichee Tang Nano是基于高云半导体的小蜜蜂系列GW1N-1 FPGA设计的简约型开发板。开发板设计小巧精致，将芯片的所有资源都引出，板载Type-C、USB-JTAG、PSRAM、RGB(可接LCD屏、VGA等外设)等，并把所有IO资源引出，方便开发者拓展使用，非常适用于小型数字逻辑的设计和实验。
+## Summary
+
+Lichee Tang Nano is a simple development board based on the GW1N-1 fpga chip which belongs to the Gowin little bee series. The development board is Small and delicate, and all resources of the chip are pulled out. There are Type-C interface, RGB Interface(this can be used to connect peripherals like LCD screen or VGB interface), PSRAM and Onboard USB-JTAG on this development board. All IO resources are pulled out, which is convenient for developers to use or extend. 
+It's reallys suitable for about small digital logic designs or experiments . 
 
 ![](./../../../assets/Tang/Nano/Tang_Nano.jpg)
 
-## 参数
+## Parameters
 
-Lichee Tang Nano开发板板载的GW1N-1 FPGA芯片功能非常强大，具有较丰富的逻辑资源，支持多种I/O电平标准，内嵌块状静态随机存储器、锁相环、Flash等资源，是一款具有非易失性的FPGA产品;另外，板载64Mbits PSRAM，为FPGA提供了丰富的存储资源。
+Lichee Tang Nano development board onboard GW1N-1 FPGA chip is very powerful, which contains many logic resources and supports many I/O vlotage standards. There are also many resources like SRAM, PLL or flash, it's a non-volatile fpga product. Besides, the onboard 64Mbits PSRAM is also a excellent storage resources.。
 
 ![Nano](./../../../assets/Tang/Nano/Tang-Nano-4.png)
+**Note** :
+- The Numeric number matches PIN number
+- Numeric number with dot matches gclk pins
 
-| 项目 | 参数 |
+
+| Items | Parameters |
 | --- | --- |
-| 核心 | GW1N-1 FPGA |
-| 逻辑单元(LUT4) | 1152 |
-| 寄存器(FF) | 864 |
+| Core | GW1N-1 FPGA |
+| Logic units(LUT4) | 1152 |
+| Registers(FF) | 864 |
 | Block SRAM(bits) | 72K
-| B-SRAM块个数| 4 |
-| 用户闪存(bits) | 96K |
-| 锁相环PLL | 1 |
-| I/O Bank总数 | 4 |
-| 最多用户I/O数 | 41 |
-| 核电压 | 1.2V |
+| B-SRAM block| 4 |
+| User flash(bits) | 96K |
+| PLL | 1 |
+| I/O Bank | 4 |
+| I/O numbers | 41 |
+| Core quantity | 1.2V |
 
 
 ![Nano-Pin](./../../../assets/Tang/Nano/Tang-Nano-Pin.png)
 
-## 产品技术支持
-Tang Nano开发板可以在多种场景实现客户不同方面的需要，在AIoT上已经广泛的使用，品质和性能在行业内已经有非常好的口碑，专业的技术团队为广大客户解决硬件设计和软件功能上的各种各样问题。专业技术支持和更详细资料请联系商务<support@sipeed.com>
+## Support
+Tang Nano development board can realize the different needs of customers in a variety of scenarios. It has been widely used on AIoT, and its quality and performance has gained very good reputation in the industry has a very good reputation. The professional technical team solves various problems in hardware design or software functions for customers.  
 
-## 资料
-[烧录相关使用](/soft/Tang/zh/Tang-Nano-Doc/readme.md)
-[资料下载](https://dl.sipeed.com/shareURL/TANG/Nano)
+For professional technical support and more details, please contact Commerce <support@sipeed.com>
+
+## literature
+[usage](./Tang-Nano.md)
+[download center](https://dl.sipeed.com/shareURL/TANG/Nano)
