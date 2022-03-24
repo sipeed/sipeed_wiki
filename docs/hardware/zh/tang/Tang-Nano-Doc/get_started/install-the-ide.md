@@ -14,7 +14,9 @@ keywords: Sipeed, Gowin, Tang, Nano, fpga, 矽速
 
 ## 安装软件
 
-此处以安装 **Gowin_V1.9.8_win** 为例进行说明：
+此处以安装 **Gowin_V1.9.8_win** 为例进行安装示范。
+其他版本用户根据需要自己选择安装。
+- 下文中有关联网激活ide的方式仅限于1.9.8之前的版本
 
 按照文档对IDE有了初步了解之后根据文档说明可自行进行IDE的安装。云源软件链接 http://www.gowinsemi.com.cn/faq.aspx
 
@@ -58,7 +60,7 @@ keywords: Sipeed, Gowin, Tang, Nano, fpga, 矽速
 
 ### 使用单机版 license (需要自己申请 license)
 
-发送申请邮件到 `support@sipeed.com` 来申请license，标题为 `[Apply Tang Lic]MAC: xxxxxx`，内容模板如下：
+发送申请邮件到 support@sipeed.com 来申请license，标题为 [Apply Tang Lic]MAC: xxxxxx ，内容模板如下：
 
 ```
 公司名称:
@@ -82,14 +84,15 @@ license类型:共享型 仅本机
 
 ### 使用 sipeed 的 license 服务器联网激活
 
-这种方式配置起来简单，不过没有网络的情况下无法使用软件
+> 在线许可服务器仅适用于 GoWin V1.9.8 及更低版本，推荐使用 V1.9.6
+
+这种方式配置简单，不过没有网络的情况下无法使用软件。
 
 安装好软件并打开后，软件会提示需要 license，在弹出框中填入服务器地址 `45.33.107.56` 即可，端口：10559
 
 ![IDE](./assets/IDE-14.png)
 
-> 在线许可服务器仅适用于 GoWin V1.9.8 及更低版本，推荐使用 V1.9.6
-双击打开“Gowin_V1.9.8”会看到
+
 
 
 
