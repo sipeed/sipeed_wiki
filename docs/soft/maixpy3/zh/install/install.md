@@ -10,33 +10,14 @@ desc: maixpy doc: linux_x86_64 如何安装？
 
 - [MaixII-Dock](/hardware/zh/maixII/M2/resources.html)
 
-- [MaixSense](/hardware/zh/maixII/M2A/R329.html)
+- [MaixSense](/hardware/zh/maixII/M2A/maixsense.html)
 
 - [Linux Desktop](https://github.com/sipeed/MaixPy3)
 
-## MaixII-Dock 上安装 MaixPy3
+## MaixII-Dock 安装与更新 MaixPy3
 
-在 MaixII-Dock 的最新[镜像](https://dl.sipeed.com/shareURL/MaixII/MaixII-Dock/SDK/release)中是已已经将 MaixPy3 安装好，烧录即可使用。不一定是最新版本的 MaixPy3，需要手动[更新 MaixPy3](/hardware/zh/maixII/M2/tools/0.MaixII-Dock.html#%E6%9B%B4%E6%96%B0-MaixPy3).
-
-也可以在[连接网络](/hardware/zh/maixII/M2/tools/0.MaixII-Dock.html#%E8%BF%9E%E6%8E%A5%E7%BD%91%E7%BB%9C)之后进行更新，通过 `pip install maixpy3` 进行安装，或者通过 `pip install -U Maixpy3` 进行更新
-
-```shell
-root@sipeed:/# pip install maixpy3 -U
-Requirement already up-to-date: maixpy3 in /usr/lib/python3.8/site-packages (0.3.5)
-Requirement already satisfied, skipping upgrade: Pillow in /usr/lib/python3.8/site-packages (from maixpy3) (7.2.0)
-Requirement already satisfied, skipping upgrade: evdev in /usr/lib/python3.8/site-packages (from maixpy3) (1.4.0)
-Requirement already satisfied, skipping upgrade: gpiod in /usr/lib/python3.8/site-packages (from maixpy3) (1.4.0)
-Requirement already satisfied, skipping upgrade: pyserial in /usr/lib/python3.8/site-packages (from maixpy3) (3.4)
-Requirement already satisfied, skipping upgrade: rpyc in /usr/lib/python3.8/site-packages (from maixpy3) (5.0.1)
-Requirement already satisfied, skipping upgrade: spidev in /usr/lib/python3.8/site-packages (from maixpy3) (3.5)
-Requirement already satisfied, skipping upgrade: zbarlight in /usr/lib/python3.8/site-packages (from maixpy3) (3.0)
-Requirement already satisfied, skipping upgrade: plumbum in /usr/lib/python3.8/site-packages (from rpyc->maixpy3) (1.6.9)
-WARNING: You are using pip version 20.1.1; however, version 21.3.1 is available.
-You should consider upgrading via the '/usr/bin/python3 -m pip install --upgrade pip' command.
-root@sipeed:/#
-```
-
-输出以上信息则是代表安装好了，以下为实拍图。
+- 可以通过烧录内置最新版本 MaixPy3 的系统镜像
+- [手动更新](/soft/maixpy3/zh/tools/0.MaixII-Dock.html#如何更新-MaixPy3-包) MaixPy3 软件包。
 
 ![](./asserts/V831.jpg)
 
