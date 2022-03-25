@@ -30,7 +30,7 @@
             
             "items": [
                 {
-                    "label":"Python 的一些教程",
+                    "label":"Python 的相关教程",
                     "file": "origin/python.md",
                     "items":[
                         {
@@ -48,7 +48,7 @@
                     ]
                 },
                 {
-                    "label":"咸鱼菌の MaiII-Dock 上手系列教程",
+                    "label":"咸鱼菌の MaixII-Dock 上手系列教程",
                     "url":"https://bbs.sipeed.com/user/909"
                 },
                 {
@@ -62,11 +62,11 @@
             ]
         },
         {
-            "label": "MaixPy3 基础库的使用方法",
+            "label": "基本功能的使用",
             "collapsed": false,
             "items": [
                 {
-                    "label": "视觉功能",
+                    "label": "传统视觉",
                     "items": [
                         {
                             "label": "背景知识",
@@ -82,14 +82,14 @@
                     ]
                 },
                 {
-                    "label": "外设功能",
+                    "label": "基础外设",
                     "items": [
                         {
                             "label": "GPIO （点灯）",
                             "file": "usage/hardware/GPIO.ipynb"
                         },
                         {
-                            "label": "I2C",
+                            "label": "I2C(与外设通讯)",
                             "file": "usage/hardware/I2C.ipynb"
                         },
                         {
