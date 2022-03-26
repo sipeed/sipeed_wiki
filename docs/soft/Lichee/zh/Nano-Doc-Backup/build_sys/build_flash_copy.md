@@ -51,7 +51,10 @@ sudo apt-get install mtd-utils
 
 查看分支
 
-    git branch -a
+```
+cd sunxi-tools
+git branch -a
+```
 
 切换到 Nano 分支
 
@@ -59,11 +62,7 @@ sudo apt-get install mtd-utils
 
 ## 编译并安装工具
 
-```
-cd sunxi-tools
-
-make && sudo make install
-```
+    make && sudo make install
 
 ## 编译UBOOT
 
@@ -121,14 +120,14 @@ cd ~/LicheePi_Nano/buildroot-2021.02.4
 
 ### Buildroot安装依赖
 
-sudo apt-get install linux-headers-$(uname -r)
+    sudo apt-get install linux-headers-$(uname -r)
 
 ### Buildroot编译
 
-make menuconfig
+    make menuconfig
 
 ### Buildroot配置
-
+```
 - Target options
   - Target Architecture (ARM (little endian))
   - Target Variant arm926t
@@ -140,7 +139,7 @@ make menuconfig
   - Run a getty after boot # 启用登录密码输入窗口
 
 make
-
+```
 ## 制作烧录镜像
 
 下载脚本[nano_flash_dd.sh](https://dl.sipeed.com/shareURL/LICHEE/Nano/SDK)
@@ -154,8 +153,8 @@ chmod +x nano_flash_dd.sh
 ```
 启动脚本
 
-./nano_flash_dd.sh
+    ./nano_flash_dd.sh
 
 执行烧录
 
-sudo sunxi-fel -p spiflash-write 0 flashimg.bin
+    sudo sunxi-fel -p spiflash-write 0 flashimg.bin
