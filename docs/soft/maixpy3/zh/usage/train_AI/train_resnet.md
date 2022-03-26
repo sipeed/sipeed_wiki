@@ -4,7 +4,7 @@
 | --- | --- | --- | :---: |
 | 2022年1月22日 | dianjixz | 编写初稿文档 | 训练教程只能在 Linux 系统中运行，<br>并只能部署到 MaixII-Dock 开发板上运行，<br>文档还需要二次整理 |
 
-> Windows 系统暂不支持！
+> Windows 系统下均将 python3 修改成 python 再运行
 > 临时工程文件获取：https://github.com/dianjixz/v831_restnet18
 
 
@@ -16,7 +16,7 @@
 
 可以在 GitHub 上下载压缩包或者是通过 git 克隆到本地
 
-    git clone https://github.com/dianjixz/v831_restnet18
+    git clone https://github.com/dianjixz/v831_restnet18.git
 
 工程文件结构介绍：
 ```shell
@@ -32,9 +32,9 @@
 
 ### 数据集的制作与使用
 
-使用手机或者 MaixII-Dock 来对物品进行拍摄，将拍摄的图片进行导出，并按照类别分类到文件夹中，文件夹名为类别的名字。图片最好是以数字进行命名，这样可以减少一些奇怪的 BUG。
+使用手机或者 MaixII-Dock 来对物品进行拍摄，将拍摄的图片进行导出，按照类别分类到文件夹中，并以类别名来命名对应的文件夹。图片最好是以数字进行命名，这样可以减少一些奇怪的 BUG。
 
-> 注意！数据集中图片的分辨率需要是 224*224 ，有能力的可以自行修改源码来适配别的分辨率，我们并不提供这样的服务！
+> 注意！数据集中图片的分辨率需要是 224*224
 
 数据集 data 文件夹结构
 ~~~ c
@@ -42,7 +42,7 @@
 │   ├── 1.jpg
 ...
 ├── sipeed_logo
-│   ├── 2.jpg
+│   ├── 1.jpg
 ...
 ...
 ~~~
@@ -77,7 +77,7 @@ param_save_path = './out/classifier_{}.pth'	#参数保存路径
 开始训练，在 resnet18 工程文件夹目录下运行
 
 ~~~ bash
-python classifier_resnet_train.py
+python3 classifier_resnet_train.py
 ~~~
 
 训练完成后，会在工程目录下生成一个 out 文件夹，在 out 文件夹下存放着训练过程中保存的训练参数。
@@ -90,35 +90,28 @@ python classifier_resnet_train.py
 └── classifier.onnx               #生成的onnx深度学习网络文件
 ~~~
 
-## 测试  
+## 测试
+
+> 到这里，windows 的用户就需要在训练工程文件夹中打开 wsl
 
 准备好你的测试图片，注意和数据集中的图片尺寸一样。新建一个 test 目录，并放在该目录下。   
 
-运行 `python classifier_resnet_test.py images_folder_path model_param_path` 命令进行测试。
+进行模型测试
 
-在该命令中会调用用户环境中的 ncnn 工具，请确保[训练环境](./ready.md)已经搭建好了。  
+    python3 classifier_resnet_test.py images_folder_path model_param_path
 
-模型测试并生成 ncnn 模型文件：  
-~~~ bash 
-python3 classifier_resnet_test.py ./test ./out/classifier_final.pth
-~~~
+- images_folder_path ：测试图片文件夹的路径
+- model_param_path ：模型文件的路径，一般都是在 out 文件夹下
 
+> 在该命令中会调用用户环境中的 onnx2ncnn 转换工具，请确保[训练环境](./ready.md)已经搭建好了。  
 
 运行完测试后，会生成 ncnn 模型和 ncnn 模型参数。
-~~~
-nihao@nihao:~/work/work_space/v831_restnet18/out$ ls
-classifier_2.pth  classifier.bin  opt.bin
-classifier_1.pth  classifier.onnx  opt.param
-classifier_3.pth  classifier.param  opt.table
-~~~
 
-在线 maixhub 量化为 int8 模型才可以被使用。
-
-## 模型转换 
+## 模型量化 
 
 生成的 ncnn 模型此时还无法被 v831 直接使用，需要使用 [MaixHub](https://maixhub.com/modelConvert) 在线模型转换工具进行量化模型，转换成 MaixII-Dock 可以直接使用的 awnn 模型
 将一下内容整合到一个压缩包中：
-- 创建为 images 的文件夹，内容一些较正图片，可考虑直接采用训练中的验证数据集，并务必保证矫正时图像的预处理方式与训练和部署时一致。（数量在50张左右）
+- 创建为 images 的文件夹，内容一些校正图片，可考虑直接采用训练中的验证数据集，并务必保证校正时图像的预处理方式与训练和部署时一致。（数量在50张左右）
 - 将训练结束之后得到的模型文件一个 xxx.bin 和一个 xxx.param。
 - 压缩包内文件结构如图：
     ![resnet-zip](./dnn/resnet-zip.png)
@@ -128,13 +121,13 @@ classifier_3.pth  classifier.param  opt.table
 
 ## 模型部署  
 
-等待模型转换完成,下载转换好的模型文件。将得到的 *.param 、 *.bin 和训练工程中 classes_label.py 文件上传到 MaixII-Dock 上。
+等待模型转换完成,下载转换好的模型文件。将得到的 *.param 、 *.bin 和训练工程中 classes_label.py 文件放传到 MaixII-Dock 的 U盘中。
 
 将以下代码复制到开发板上即可使用
 
 ~~~ python
 from maix import nn, display, camera, image
-from root.classes_label import labels    #分类标签,需要替换
+from root.classes_label import labels    #分类标签,根据个人需求自行替换
 import time
 
 model = {
