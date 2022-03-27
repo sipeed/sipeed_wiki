@@ -20,4 +20,4 @@ desc: maixpy doc: MaixPy 精选文章
 
 文章链接全部收录进以下帖子以方便更新：
 
-[【精选文章导航】](https://cn.bbs.sipeed.com/d/481)
+[【精选文章导航】](https://bbs.sipeed.com/thread/492)

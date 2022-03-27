@@ -25,11 +25,11 @@
 
 > 了解更多可以查看 CSDN 博文：<https://blog.csdn.net/yegeli/article/details/109861867>
 
-## 模型训练
+## 准备
 
-| 网络结构 | 训练平台 | 部署平台 | 模型转换工具 |
-| --- | --- | --- | -- | 
-| YOLOv2 | PyTorch | MaixII-Dock | ncnn + MaixHub 在线转换工具 |
+获取训练工程文件
+
+    git clone https://github.com/dianjixz/v831_yolo.git
 
 ### 数据集制作与使用  
 
