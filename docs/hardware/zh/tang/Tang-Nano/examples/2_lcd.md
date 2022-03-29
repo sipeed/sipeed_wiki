@@ -255,7 +255,9 @@ endmodule
 ```
 ## 管脚约束
 进行管脚约束前需要先将工程综合一次，即在 Process 界面双击一下 Synthesize，然后选择Process 里的 User Constrains -> FloorPlanner。
-对应的管脚约束如下；如果感觉麻烦的话也可以直接复制准备好的[文件(点我)](./lcd_constrains.md)
+对应的管脚约束如下表格；
+关于管脚约束可以参考[自建点灯文章(点我)](./led/self_create.md)里面的约束方法
+如果感觉麻烦的话也可以直接复制准备好的[文件(点我)](./lcd_constrains.md)，将页面里的内容复制到工程目录里 .cst 文件中（如果没有.cst 文件那么自己新建一个）**物理管脚约束文件** 即可。
 
 |   PORT   |    PIN   |   PORT   |    PIN   |  
 |   :---:  |   :---:  |  :---:  |   :---:  |  
