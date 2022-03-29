@@ -151,7 +151,7 @@
                 },
                 {
                     "label": "物体检测",
-                    "file": "usage/AI_net/find_face.ipynb"
+                    "file": "usage/AI_net/yolo.ipynb"
                 },
                 {
                     "label": "数字识别",
@@ -179,6 +179,10 @@
                         {
                             "label": "边缘检测模型搭建过程",
                             "file":"usage/train_AI/v831_sobel.ipynb"
+                        },
+                        {
+                            "label":"制作数据集",
+                            "file":"usage/train_AI/data.md"
                         },
                         {
                             "label": "训练物体分类模型",

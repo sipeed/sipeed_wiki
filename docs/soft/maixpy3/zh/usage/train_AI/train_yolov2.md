@@ -41,7 +41,7 @@ YOLOv2 默认使用 voc 格式的数据集,文件夹取名为 custom 放到 data
 │   ├── ImageSets		#训练参数划分
 │   │    └── Main
 │   │         ├── train.txt
-│   │         └── val.txt
+│   │         └── val.txt/
 │   ├── JPEGImages		#训练图片
 ~~~
 
