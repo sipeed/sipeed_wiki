@@ -4,7 +4,7 @@
 | --- | --- | --- | :---: |
 | 2022年1月22日 | dianjixz | 编写初稿文档 | 训练教程只能在 Linux 系统中运行，<br>并只能部署到 MaixII-Dock 开发板上运行，<br>文档还需要二次整理 |
 
-> Windows 系统下均将 python3 修改成 python 再运行
+
 > 临时工程文件获取：https://github.com/dianjixz/v831_restnet18
 
 
@@ -51,7 +51,7 @@
 
 - 例如：data文件夹内为
 ![resnet-data](./dnn/resnet-data.png)
-则需要将 `classes_label.py` 修改成
+则将 `classes_label.py` 修改成
     ```python
 labels = ["mouse","sipeed_logo"]
     ```

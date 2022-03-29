@@ -3,10 +3,7 @@
 | 时间 | 负责人 | 更新内容 | 备注 |
 | --- | --- | --- | :---: |
 | 2022年1月22日 | Rui | 编写初稿文档 | ---- |
-| 2022年3月26日 | Rui | 添加 windows 10 训练环境配置过程 | ---- |
 
-> **注意**：
->  windows10 的训练环境需要配合 wsl 进行使用，关于 wsl 的安装和使用，在这里不进行说明，请自行百度查询相关教程
 
 由于训练需要用到显卡，关于安装显卡驱动、CUDA、CUDNN 请自行百度查阅安装，本文不做详细说明。（ADM 显卡或者无显卡的，可以使用 CPU 进行训练）
 
@@ -20,31 +17,29 @@
 - pycocotools
 - opencv
 
-> 下载安装包，可以通过在安装指令后面添加 `-i https://mirrors.ustc.edu.cn/pypi/web/simple` 来使用中科大源进行加速
+> 下载安装包，可以通过在安装指令后面添加 `-i https://mirrors.ustc.edu.cn/pypi/web/simple` 来使用中科大 pypi 源进行加速
 
 ### 安装 PyToch
 
-进入 Pytorch 下载帮助[页面](https://pytorch.org/get-started/locally/)，根据自己所用系统的环境情况，选择对应的 CUDA 版本和安装包的类型，这里所选用的是 CUDA 11.3、windows 系统、稳定版、pip包（30 系列显卡只能使用11.2以上的版本）
+进入 Pytorch 下载帮助[页面](https://pytorch.org/get-started/locally/)，根据自己所用系统的环境情况，选择对应的 CUDA 版本和安装包的类型，这里所选用的是 CUDA 10.2、 Linux 系统、稳定版、pip包（30 系列显卡只能使用11.2以上的版本）
 ![pytoch-install](./../asserts/pytorch-install.png)
 
-    pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu113
+    pip3 install torch torchvision torchaudio
 
 
 ### 安装 torchsummary、pycocotools
 
 然后再通过 pip 进行安装 torchsummary
 
-    pip install torchsummary pycocotools
-
-> 如果 windows 系统下安装报错时，则需要使用 pip 安装 cython
+    pip3 install torchsummary pycocotools
 
 ### 安装 Opencv
 
-    pip install opencv-python opencv-contrib-python
+    pip3 install opencv-python opencv-contrib-python
 
 ##  onnx2ncnn 模型转换工具
 
-PyTorch 不能直接将模型导出成 ncnn 格式，需要使用 onnx2ncnn 转换工具进行转换，需要用户自行去编译出对应的可执行文件。windows 的用户需要通过使用 WSL 来进行编译，可以自行学习[如何使用 vs2017](https://github.com/Tencent/ncnn/wiki/how-to-build#build-for-windows-x64-using-visual-studio-community-2017) 进行编译。具体的编译步骤如下
+PyTorch 不能直接将模型导出成 ncnn 格式，需要使用 onnx2ncnn 转换工具进行转换，需要用户自行去编译出对应的可执行文件。具体的编译步骤如下
 
 1. 安装编译环境所需要用到的软件
 

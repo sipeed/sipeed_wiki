@@ -62,26 +62,18 @@
 
 ## 常见问题
 
-### 训练过程中发现没有使用GPU进行训练的
+### 训练过程中判断是否使用 GPU
 
-在命令行中输入python，然后再输入
+1. 启动训练的查看是否出现答应出这些信息，并都是和下图框出来的一样的
+    ![6.png](./../../../../assets/AI/GPU.png)
+    如果没有，则说明你的前面的cuda和cudnn环境没有安装好，请将所有关于英伟达的软件驱动进行卸载，是卸载！！！不是将文件删除。然后再重新进行cuda和cudnn的环境配置。
+2. 在任务管理器中查看，GPU 的显存有没有被使用到，而不是看显卡的利用率
 
-```python
-import tensorflow as tf
-tf.test.is_gpu_available()
-```
-
-![6.png](https://bbs.sipeed.com/storage/attachments/2021/07/21/i7d0N1b4QdKbXFI74qbDpkoOpSPP64EotABFrXUE_thumb.png "1462")
-
-检查一下这些文件有没有找到，和最后一行是否打印出True
-![]()
-如果没有，则说明你的前面的cuda和cudnn环境没有安装好，请将所有关于英伟达的软件驱动进行卸载，是卸载！！！不是将文件删除。然后再重新进行cuda和cudnn的环境配置。
+3. 训练刚开始出现的 no GPU，will use CPU 只是一个提示信息而已，并不是没有使用到
 
 ### 训练中出现Internal: no kernel image is available for execution on the device
 
-手动安装kernel可以解决
-
-    pip install kernel
+环境需要重新安装，tensorflow安装版本没有对上
 
 ### 出现failed: TrainFailReason.ERROR_PARAM, datasets not valid: datasets format error: datasets error, not support format, please check
 
