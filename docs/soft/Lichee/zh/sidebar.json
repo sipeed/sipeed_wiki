@@ -504,6 +504,10 @@
                     "file":"Lichee-RV/build_sys/Buildroot.md"
                 },
                 {
+                    "label":"86 Panel RGB 与 SPI 双屏显示",
+                    "file":"Lichee-RV/contribution/Dual_screen_display/Dual_screen_display.md"
+                },
+                {
                 "label": "D1上Kubernetes相关软件编译",
                 "file":"Lichee-Rv/contribution/D1_Kubernetes.md"
                 }
