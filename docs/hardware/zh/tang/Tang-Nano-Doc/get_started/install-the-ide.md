@@ -3,7 +3,7 @@ title: 安装IDE
 keywords: Sipeed, Gowin, Tang, Nano, fpga, 矽速
 ---
 
-使用高云的FPGA需要用到GOWIN这个软件，附上文档链接：
+使用高云的FPGA需要用到GOWIN这个软件，对应的软件文档链接：
 <http://www.gowinsemi.com.cn/down.aspx?FId=n14:14:26>
 
 
@@ -18,7 +18,7 @@ keywords: Sipeed, Gowin, Tang, Nano, fpga, 矽速
 其他版本用户根据需要自己选择安装。
 - 下文中有关联网激活ide的方式仅限于1.9.8之前的版本
 
-按照文档对IDE有了初步了解之后根据文档说明可自行进行IDE的安装。云源软件链接 http://www.gowinsemi.com.cn/faq.aspx
+云源软件链接 http://www.gowinsemi.com.cn/faq.aspx
 
 ![IDE](./assets/IDE-1.png)
 
