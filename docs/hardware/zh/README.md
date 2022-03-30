@@ -26,6 +26,6 @@ FPGA 开发板
 
 ## Longon 系列
 
-[![](./../assets/longan nano.jpg)](./longan/readme/md)
+[![](./../assets/longan_nano.jpg)](./longan/readme.md)
 
 
