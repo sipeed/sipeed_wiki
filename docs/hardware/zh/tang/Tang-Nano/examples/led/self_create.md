@@ -52,11 +52,13 @@ endmodule
 
  ```
 ## 综合、约束、布局布线
+### 综合
 7. 代码编辑保存后转到“Process”界面下，对编辑好的代码进行综合，即双击“Systhesize”
     ![](./../../../Tang-Nano-9K/nano_9k/nano_9k_synthsize.png)
         
     显示 xxxxxxx finish 后即可进行下一步
 
+### 约束
 8.  接下来通过  双击 Process 界面里的FloorPlanner来设置管脚约束。第一次打开会弹出缺少.cst文件.选择“OK”即可；
     ![](./../../assets/LED-9.png)
 
@@ -78,10 +80,13 @@ endmodule
 ![](./assets/pin_constrain_1.png)
 ![](./assets/pin_constrain_2.png)
 
-- 直接编写约束文件希望用户自行研究
+- 直接编写约束文件方法用户自行研究
+
+### 布局布线
 
 10. 到“Process”下运行“Place&Route”，即运行管脚布局布线，运行结果如下图所示：
     ![](./assets/RGB_LED_Place&Route.png)
+    
 ## 烧录
 
 11. 接下来是进行连接板子，烧录固件。在Process界面双击`Program Device` 后打开烧录工具
