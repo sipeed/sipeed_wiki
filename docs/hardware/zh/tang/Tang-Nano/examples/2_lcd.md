@@ -280,5 +280,7 @@ endmodule
 管脚约束之后，可以进行布局布线，生成比特流，烧录开发板了。
 
 
+## 结束
+上面差不多叙述了所需要的代码。
 整个工程可以参考 [这里](https://github.com/sipeed/Tang-Nano-examples/tree/master/example_lcd) 
 
