@@ -3,11 +3,7 @@ title: python3调用c/cpp的方法
 keywords: python, c, cpp,
 desc: python调用so
 date: 2022-03-31
-<<<<<<< HEAD
 tags: python, c, cpp
-=======
-tags: python, c
->>>>>>> e975a230002439e957de65cce31ef66fc3c1d471
 ---
 
 
