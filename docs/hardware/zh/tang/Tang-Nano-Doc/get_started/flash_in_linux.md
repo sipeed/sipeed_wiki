@@ -9,8 +9,7 @@ keyeords: Linux, FPGA, Gowin
 参考：https://trabucayre.github.io/openFPGALoader/guide/install.html
 ```bash
 # preprocess
-sudo apt-get install libftdi1-2 libftdi1-dev libhidapi-hidraw0 \
-  libhidapi-dev libudev-dev zlib1g-dev cmake pkg-config make g++
+sudo apt-get install libftdi1-2 libftdi1-dev libhidapi-hidraw0 libhidapi-dev libudev-dev zlib1g-dev cmake pkg-config make g++
 # compile
 git clone https://github.com/trabucayre/openFPGALoader.git
 cd openFPGALoader

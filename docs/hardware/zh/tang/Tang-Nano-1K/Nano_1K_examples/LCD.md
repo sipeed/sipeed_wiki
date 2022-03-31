@@ -32,6 +32,11 @@ RGB LCD 显示图像的原理和 VGA 类似，都是在计算机内部以数字�
 
 从时序图中看出，这块屏幕可以不用设置前后沿，可以只设置消影(blanking)时间，通过实际的程序证明，两种方式都是可以的
 
+## 新建工程
+
+新建工程方法参考[自建点灯文章(点我)](./led/self_create.md)
+
+
 ## 生成屏幕时钟
 
 - 这里需要用到高云官方的IP核
@@ -289,5 +294,5 @@ endmodule
 ## 结束
 
 上面差不多叙述了所需要的代码。
-整个工程可以参考 [这里](https://github.com/sipeed/Tang-Nano-examples/tree/master/example_lcd) 
+整个工程可以参考 [这里](https://github.com/sipeed/TangNano-1K-examples/tree/main/example_lcd/) 
 
