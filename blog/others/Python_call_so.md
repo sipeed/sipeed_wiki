@@ -34,10 +34,7 @@ ctypes中的变量类型与C中对应如下：
 
 使用方法：
 - 编写c++代码
-<<<<<<< HEAD
 
-=======
->>>>>>> e975a230002439e957de65cce31ef66fc3c1d471
 ```cpp
 #include <iostream>
 #include <string>
@@ -83,19 +80,11 @@ extern "C"{
 
 ```
 - 将上面的代码编译成so文件
-<<<<<<< HEAD
-
 
 > g++ -shared -Wl,-soname,test -o test.so -fPIC test.cpp
 
 - 使用python调用so文件
 
-
-=======
-> g++ -shared -Wl,-soname,test -o test.so -fPIC test.cpp
-
-- 使用python调用so文件
->>>>>>> e975a230002439e957de65cce31ef66fc3c1d471
 ```python
 # -*- coding: utf-8 -*-
 import ctypes
