@@ -6,6 +6,8 @@ date: 2022-03-28
 tags: RV, ncnn
 ---
 
+<!-- more -->
+
 转载自知乎用户 [nihui](https://www.zhihu.com/people/nihui-2) [原文链接](https://zhuanlan.zhihu.com/p/386312071)，原文写于 2021-07-03
 
 在全志d1开发板上玩ncnn
