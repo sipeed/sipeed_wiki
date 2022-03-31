@@ -1,7 +1,7 @@
 # 自己点灯
 
 ## 新建项目
-1. 新建工程：File-->NEW-->FPGA Dsign Project-->OK
+1. 新建工程：File-->NEW-->FPGA Design Project-->OK
     ![](./../../assets/LED-1.png)
 
 2. 弹出的选项框选择存储路径和工程名称（路径和文件名称要求是英文路径）
@@ -55,8 +55,10 @@ endmodule
 ### 综合
 7. 代码编辑保存后转到“Process”界面下，对编辑好的代码进行综合，即双击“Systhesize”
     ![](./../../../Tang-Nano-9K/nano_9k/nano_9k_synthsize.png)
+    运行之后如没有报错而且 Synthesize 变成下图里的图标
+    ![](./../../../Tang-Nano/assets/LED.png) 
+    说明前面编辑的代码无误；如果有错，根据错误提示进行改正即可。
         
-    显示 xxxxxxx finish 后即可进行下一步
 
 ### 约束
 8.  接下来通过  双击 Process 界面里的FloorPlanner来设置管脚约束。第一次打开会弹出缺少.cst文件.选择“OK”即可；

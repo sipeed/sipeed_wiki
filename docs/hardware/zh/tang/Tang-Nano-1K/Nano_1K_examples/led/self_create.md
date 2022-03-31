@@ -3,7 +3,7 @@ title: 点灯LED RGB
 ---
 
 ## 新建项目
-1. 新建工程：File-->NEW-->FPGA Dsign Project-->OK
+1. 新建工程：File-->NEW-->FPGA Design Project-->OK
     ![](./../../../Tang-Nano/assets/LED-1.png)
 
 2. 弹出的选项框选择存储路径和工程名称（路径和文件名称要求是英文路径）
@@ -59,13 +59,14 @@ endmodule
 ### 综合
 7. 代码编辑结束后转到“Process”界面下，对编辑好的代码进行综合，即运行“Systhesize”
     ![](./../../../Tang-Nano-9K/nano_9k/nano_9k_synthsize.png)
-    运行的结果如上图出现 ![](./../../../Tang-Nano/assets/LED.png) 的形状，且下方结果栏不出现任何从报错，说明前面编辑的代码无误，如果有错，根据错误提示进行改正即可。
+    运行之后如没有报错而且 Synthesize 变成下图里的图标
+    ![](./../../../Tang-Nano/assets/LED.png) 
+    说明前面编辑的代码无误；如果有错，根据错误提示进行改正即可。
 
 ### 约束
 8.  接下来通过  双击Process界面里的FloorPlanner来设置管脚约束（前面的综合如果运行失败，这一步无法进行），第一次打开会弹出缺少.cst文件.选择“OK”即可；
     ![](./../../../Tang-Nano/assets/LED-9.png)
 
-### 布局布线
 9. nano 1k的rgb led电路图如下所示
     ![](./../../assets/Nano_1K_RGB_pins.png "nano 1k rgb pins")
     因此在打开的界面中按照序号的顺序来进行相应的操作（两种方式选择一种即可）
@@ -73,6 +74,8 @@ endmodule
 
     **完成约束后记得保存~**
 
+
+### 布局布线
 
 11. 到“Process”下运行“Place&Route”，即运行管脚布局布线，运行结果如下图所示：
     ![](./../../assets/RGB_LED_Place&Route.png)
