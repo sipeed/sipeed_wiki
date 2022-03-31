@@ -1,6 +1,12 @@
 ---
-title: 管脚约束文件
+title: LCD 管脚约束文件内容
 ---
+
+
+<p id="back">
+    <a href="#" onClick="javascript :history.back(-1);">返回上一页(Back)</a>
+</p>
+
 ```cst
 IO_LOC "LCD_B[4]" 24;
 IO_PORT "LCD_B[4]" IO_TYPE=LVCMOS33 PULL_MODE=UP DRIVE=8;
@@ -47,3 +53,7 @@ IO_PORT "XTAL_IN" IO_TYPE=LVCMOS33 PULL_MODE=UP;
 IO_LOC "nRST" 44;
 IO_PORT "nRST" IO_TYPE=LVCMOS33 PULL_MODE=UP;
 ```
+
+<p id="back">
+    <a href="#" onClick="javascript :history.back(-1);">返回上一页(Back)</a>
+</p>

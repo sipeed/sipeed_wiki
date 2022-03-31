@@ -296,3 +296,7 @@ endmodule
 上面差不多叙述了所需要的代码。
 整个工程可以参考 [这里](https://github.com/sipeed/TangNano-1K-examples/tree/main/example_lcd/) 
 
+
+<p id="back">
+    <a href="#" onClick="javascript :history.back(-1);">返回上一页(Back)</a>
+</p>

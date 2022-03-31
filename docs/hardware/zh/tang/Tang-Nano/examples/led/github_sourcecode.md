@@ -13,3 +13,7 @@
 
 - 接下来选择sram烧录即可验证程序。
     ![](./assets/Success_led.png)
+
+<p id="back">
+    <a href="#" onClick="javascript :history.back(-1);">返回上一页(Back)</a>
+</p>

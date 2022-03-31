@@ -98,3 +98,6 @@ endmodule
 
 点灯验证到此结束。
 
+<p id="back">
+    <a href="#" onClick="javascript :history.back(-1);">返回上一页(Back)</a>
+</p>

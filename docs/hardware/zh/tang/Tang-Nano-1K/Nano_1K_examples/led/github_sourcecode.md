@@ -12,3 +12,9 @@ title: 使用github例程
 
 - 接下来选择sram烧录即可验证程序。
     ![](./assets/Success_led_nano_1k.png)
+
+
+
+<p id="back">
+    <a href="#" onClick="javascript :history.back(-1);">返回上一页(Back)</a>
+</p>
