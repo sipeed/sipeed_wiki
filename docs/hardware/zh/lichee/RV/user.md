@@ -118,10 +118,9 @@ udhcpc -ieth0
 - **使用 Tina 系统**
   LicheeRV 底板默认使用XR829或者RTL8723BS wifi模块，可以使用以下指令进行联网操作
 
-  先配置热点信息：
+  先配置热点信息：需要手动在 /etc/wifi/wpa_supplicant.conf 文件里添加下面内容
 
   ```bash
-  vim /etc/wifi/wpa_supplicant.conf
   network={  
       ssid="WiFi_name"  
       psk="WiFi_password"  
