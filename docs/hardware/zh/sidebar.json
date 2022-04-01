@@ -180,6 +180,10 @@
                             "file": "tang/Tang-Nano-Doc/get_started/install-the-ide.md"
                         },
                         {
+                            "label": "下载失败问题",
+                            "file": "tang/Tang-Nano-Doc/get_started/programmer.md"
+                        },
+                        {
                             "label": "相关例程",
                             "items": [
                                 {
