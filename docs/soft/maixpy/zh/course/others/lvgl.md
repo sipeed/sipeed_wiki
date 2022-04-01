@@ -9,7 +9,7 @@ desc: maixpy doc: LittlevGL
 
 请使用带有 LVGL 字样的 bin 固件进行操作。
 
-参考官方文档： [lvgl blog page](https://blog.littlevgl.com/2019-02-20/micropython-bindings)
+参考官方文档： [lvgl blog page](https://lvgl.io/developers)
 
 ## 例程
 

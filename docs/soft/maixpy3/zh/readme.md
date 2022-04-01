@@ -40,7 +40,7 @@ desc: maixpy doc: MaixPy3 是什么？能做什么？
 
 - [MaixII-Dock](/hardware/zh/maixII/M2/resources.html)
 
-- [MaixSense](/hardware/zh/maixII/M2A/R329.html)
+- [MaixSense](/hardware/zh/maixII/M2A/maixsense.html)
 
 - [Linux Desktop](https://github.com/sipeed/MaixPy3)
 
