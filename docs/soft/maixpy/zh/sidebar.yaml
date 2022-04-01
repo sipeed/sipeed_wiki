@@ -123,9 +123,8 @@ items:
         -   label: 源码编译
             file: firmware/compile.md
 -   label: 进阶教程
-    items:
-    -   label: 教程说明
-        file: course/readme.md
+    file: course/readme.md
+    items:        
     -   label: 基本图像处理
         items:
         -   label: 图像获取和显示
