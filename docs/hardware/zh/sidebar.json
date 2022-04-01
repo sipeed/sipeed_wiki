@@ -401,41 +401,15 @@
             "label": "模块&&调试器",
             "items": [
                 {
-                    "label": "调试器",
-                    "items": [
-                        {
-                            "label": "Sipeed RV Debugger"
-                        },
-                        {
-                            "label": "双串口 USB 模块"
-                        }
-                    ]
+                    "label": "调试器&&串口模块",
+                    "file" : "modules/debugger_and_uart.md"
                 },
                 {
                     "label": "模块",
                     "items": [
                         {
                             "label": "摄像头",
-                            "items": [
-                                {
-                                    "label": "GC0328"
-                                },
-                                {
-                                    "label": "双摄像头模块(GC0328)"
-                                },
-                                {
-                                    "label": "OV7740"
-                                },
-                                {
-                                    "label": "OV2640"
-                                },
-                                {
-                                    "label": "OV2640-M12"
-                                },
-                                {
-                                    "label": "双摄像头模块(OV2640)"
-                                }
-                            ]
+                            "file" : "modules/camera_summary.md"
                         },
                         {
                             "label": "麦克风模块",

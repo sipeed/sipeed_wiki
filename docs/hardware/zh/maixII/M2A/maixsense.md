@@ -48,11 +48,6 @@ MaixSense 开发板可能是市面上最小的 Linux 卡片电脑, 本套件包�
 |   特点   |        主线化Linux，功能丰富        |        厂商深度修改，软硬件契合度高        |
 | 适用人群 |       极客，嵌入式入门玩家等        | 深度开发，需要自行定制等开发人员 |
 
-<div align="center">
-<img src="./assets/M2S_1.png" width="270">
-</div>
-
-
 
 ## MaixSense外观预览
 <div align="center">
@@ -71,7 +66,7 @@ MaixSense 开发板可能是市面上最小的 Linux 卡片电脑, 本套件包�
     <tbody>
     <tr>    
         <td>处理器<br>CPU</td>
-        <td>双核 ARM CortexTM-A53, ARM v8 架构,z</td>
+        <td>双核 ARM CortexTM-A53™ </td>
     </tr>
     <tr>
         <td>AIPU(NPU)</td>
@@ -116,7 +111,7 @@ MaixSense 开发板可能是市面上最小的 Linux 卡片电脑, 本套件包�
     </tbody>
 </table>
 
-![R329-pin](./assets/R329-pin.png)
+![R329-pin](./assets/R329-pin.jpg)
 
 ## 资料
 [MaixSense 资料库](https://dl.sipeed.com/shareURL/MaixII/MaixII-A)

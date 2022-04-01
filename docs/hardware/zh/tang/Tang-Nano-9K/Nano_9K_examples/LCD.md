@@ -39,7 +39,7 @@ RGB LCD 显示图像的原理和 VGA 类似，都是在计算机内部以数字�
 这里需要使用到 `IP Core Generate` ，位置在 Tools -> IP Core Generate；
 双击 `rPLL` ，在弹出窗口输入 CLKIN 为 27MHz ，CLKOUT 为 33.3MHz，，Tolerance 选择 0.5%
 
-![](./../assets/nano_9k/lcd_rPll.png)
+![](./../nano_9k/lcd_rPll.png)
 
 
 ### lcd时序产生

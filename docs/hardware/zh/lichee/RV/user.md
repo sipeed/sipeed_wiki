@@ -9,7 +9,7 @@
 
 可知该 LED 连接的是 PC1，换算该 IO 的数字标号为：2*32+1=65，或者查看 IO 复用情况表：
 
-```
+```bash
 cat /sys/kernel/debug/pinctrl/2000000.pinctrl/pinmux-pins
 ...
 pin 64 (PC0): device 2008000.ledc function ledc group PC0
@@ -25,14 +25,14 @@ pin 71 (PC7): UNCLAIMED
 
 我们先导出该 GPIO：
 
-```
+```bash
 echo 65 > /sys/class/gpio/export
 cd /sys/class/gpio/gpio65
 ```
 
 然后再将该 IO 置为输出状态，即可操作其电平：
 
-```
+```bash
 echo out>direction
 echo 1 > value  #LED点亮
 echo 0 > value  #LED熄灭
@@ -42,7 +42,7 @@ echo 0 > value  #LED熄灭
 
 你也可以对 串行RGB LED WS2812 进行花式点灯：
 
-```
+```bash
 cd /sys/class/leds/
 echo 255 > /sys/class/leds/sunxi_led0r/brightness;echo 0 > /sys/class/leds/sunxi_led0g/brightness;echo 0 > /sys/class/leds/sunxi_led0b/brightness;
 echo 0 > /sys/class/leds/sunxi_led0r/brightness;echo 255 > /sys/class/leds/sunxi_led0g/brightness;echo 0 > /sys/class/leds/sunxi_led0b/brightness;
@@ -58,7 +58,7 @@ echo 0 > /sys/class/leds/sunxi_led0r/brightness;echo 0 > /sys/class/leds/sunxi_l
 
 录音设备查看
 
-```
+```bash
 root@MaixLinux:~# arecord -l
 **** List of CAPTURE Hardware Devices ****
 card 0: audiocodec [audiocodec], device 0: SUNXI-CODEC 2030000.codec-0 []
@@ -75,7 +75,7 @@ card 2: sndhdmi [sndhdmi], device 0: 2034000.daudio-audiohdmi-dai 20340a4.hdmiau
 
 播放设备查看
 
-```
+```bash
 root@MaixLinux:~# aplay -l
 **** List of PLAYBACK Hardware Devices ****
 card 0: audiocodec [audiocodec], device 0: SUNXI-CODEC 2030000.codec-0 []
@@ -89,7 +89,7 @@ card 2: sndhdmi [sndhdmi], device 0: 2034000.daudio-audiohdmi-dai 20340a4.hdmiau
 
 录放音测试：
 
-```
+```bash
 arecord -D hw:1,0 -f S16_LE -t wav -d 3 t.wav 
 aplay -D hw:0,0 t.wav
 ```
@@ -98,17 +98,17 @@ aplay -D hw:0,0 t.wav
 
 ### USB功能
 
-默认内核支持外挂U盘的驱动，插上U盘后可以使用 fdisk -l 查看到新增的 /dev/sda
+默认内核支持外挂U盘的驱动，插上U盘后可以使用 fdisk -l 查看到新增的 /dev/sda <br>
 
-如果U盘没有被格式化，可以使用mkfs.vfat指令来格式化U盘，再使用mount指令挂载
+如果U盘没有被格式化，应该使用mkfs.vfat指令来格式化U盘，再使用mount指令挂载U盘。
 
-默认Tina固件里的 /dev/mmcblk0p8 分区即可使用上述方式格式化后挂载，来提升可用空间
+默认Tina固件里的 /dev/mmcblk0p8 分区即可使用上述方式格式化后挂载，提升可用空间
 
 ### 有线网络
 
 LicheeRV-86 Panel 支持百兆网络，使用套餐附送的网线尾线接上网线后，执行以下指令来连接有线网络
 
-```
+```bash
 ifconfig eth0 up
 udhcpc -ieth0
 ```
@@ -120,7 +120,7 @@ udhcpc -ieth0
 
   先配置热点信息：
 
-  ```
+  ```bash
   vim /etc/wifi/wpa_supplicant.conf
   network={  
       ssid="WiFi_name"  
@@ -128,14 +128,15 @@ udhcpc -ieth0
   } 
   ```
 
-  配置完成后重启，ifconfig wlan0 up; udhcpc -iwlan0 即可连上对应的wifi。连上网络后，你就可以使用ssh远程登录板卡，或者使用scp来进行文件传输啦~
+  配置完成后重启，执行ifconfig wlan0 up; udhcpc -iwlan0 即可连上对应的wifi。
+  连上网络后，就可以使用ssh远程登录板卡，或者使用scp来进行文件传输。
 
 - **使用 debian 系统**
   点击系统菜单--Preferenes--Connman Settings，打开 Network Settings ，查看网络属性中的 Interface 是否为 wlan0。双击网络名称，并输入 WiFi 密码进行连接
 
   ![](./../assets/RV/wifi-1.jpg)
 
-  连接网络成功之后，通过系统系统菜单--Preferenes--Connman Settings，查看网络属性查看网络的 IP 地址
+  成功连接网络之后，通过系统系统菜单--Preferenes--Connman Settings，查看网络属性查看网络的 IP 地址
 
   ![](./../assets/RV/wifi-2.jpg)
 
@@ -151,11 +152,11 @@ LicheeRV系列支持以下显示屏：
 
 Tina下可以通过以下指令测试屏幕显示：
 
-  fbviewer xxx.jpg
+> fbviewer xxx.jpg
 
 如果需要调试屏幕驱动，可以使用以下指令查看屏幕驱动信息：
 
-```
+```bash
 cat /sys/class/disp/disp/attr/sys
 
 screen 0:
@@ -176,15 +177,16 @@ dmabuf: cache[0] cache max[0] umap skip[0] overflow[0]
 
 ### 视频播放
 
-最终我们可以尝试在LicheeRV上播放BadApple啦~[视频下载](https://dl.sipeed.com/shareURL/LICHEE/D1/Lichee_RV/MP4)
+我们可以尝试在LicheeRV上播放BadApple啦~ [视频文件下载](https://dl.sipeed.com/shareURL/LICHEE/D1/Lichee_RV/MP4)
 
-Tina镜像中内置了ffmpeg软件包，ffmpeg是强大的多媒体库，可以用于录屏或者播放
+Tina镜像中内置了ffmpeg软件包；ffmpeg是强大的多媒体库，可以用于录屏或者播放
 
-录屏指令：ffmpeg -f fbdev -framerate 10 -i /dev/fb0 record.avi
+录屏指令：
+> ffmpeg -f fbdev -framerate 10 -i /dev/fb0 record.avi
 
 播放指令（分别是扬声器播放音频和hdmi播放音频）：
 
-```
+```bash
 ffmpeg -i /mnt/UDISK/badapple_640480_xvid.mp4 -pix_fmt bgra -f fbdev /dev/fb0 -f alsa hw:0,0  
 ffmpeg -i /mnt/UDISK/badapple_640480_xvid.mp4 -pix_fmt bgra -f fbdev /dev/fb0 -f alsa hw:2,0   
 ```
@@ -197,7 +199,9 @@ ffmpeg -i /mnt/UDISK/badapple_640480_xvid.mp4 -pix_fmt bgra -f fbdev /dev/fb0 -f
 
 如果你使用的是dock板，那么还可以外接麦克风阵列版进行声场成像演示：
 
-直接执行debian系统下内置的micarr_0609指令即可
+直接执行在debian系统下内置的micarr_0609指令即可即
+
+> sudo ./micarr_0609
 
 有麦克风阵列相关的二次开发需求，可以联系support@sipeed.com
 
@@ -205,7 +209,9 @@ ffmpeg -i /mnt/UDISK/badapple_640480_xvid.mp4 -pix_fmt bgra -f fbdev /dev/fb0 -f
 
 ## Debian镜像体验
 
-对于只接触过桌面级系统的开发者，推荐使用Debian镜像，可在上面的网盘里下载
+对于只接触过桌面级系统的开发者，推荐使用Debian镜像，可在网盘里下载
+    国内用户：[百度网盘](https://pan.baidu.com/s/1QJTaDw6kkTM4c_GAlmG0hg)  提取码：wbef
+    国外用户：[Mega](https://mega.nz/folder/lx4CyZBA#PiFhY7oSVQ3gp2ZZ_AnwYA)
 
 LicheeRV_Debian_86_480p 为 480p的86盒板卡的debian镜像
 
@@ -238,6 +244,10 @@ LicheeRV_Debian_hdmi 为 dock的hdmi输出的debian镜像
 
 为了方便用户自行开发，矽速整理发布了 LicheeRV 的bsp开发docker镜像，大家使用该镜像可以快速开始D1的系统级开发。
 
+国内用户：[百度网盘](https://pan.baidu.com/s/1QJTaDw6kkTM4c_GAlmG0hg)  提取码：wbef
+国外用户：[Mega](https://mega.nz/folder/lx4CyZBA#PiFhY7oSVQ3gp2ZZ_AnwYA)
+
+
 在网盘中下载对应的docker文件后，解压到tar文件后导入到docker
 >docker import licheerv_d1_compile.tar licheerv_d1_compile:lastest
 
@@ -245,7 +255,7 @@ LicheeRV_Debian_hdmi 为 dock的hdmi输出的debian镜像
 
 进入容器后的基础编译操作为：
 
-```
+```bash
 cd ~/sdk/tina-d1-open_new/
 source build/envsetup.sh
 lunch   #选1

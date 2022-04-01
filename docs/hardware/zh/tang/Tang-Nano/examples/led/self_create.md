@@ -1,6 +1,7 @@
 # 自己点灯
 
-1. 新建工程：File-->NEW-->FPGA Dsign Project-->OK
+## 新建项目
+1. 新建工程：File-->NEW-->FPGA Design Project-->OK
     ![](./../../assets/LED-1.png)
 
 2. 弹出的选项框选择存储路径和工程名称（路径和文件名称要求是英文路径）
@@ -9,6 +10,8 @@
 3. 选择对应的型号：
     ![Tang_nano_1k_device_choose](./assets/Nano_device_choose.png)
     
+## 编写代码
+
 4. 新建好工程之后接下来进行代码编辑，在Design工作栏内新建“Verilog File”,如下图所示：
     ![](./../../assets/LED-5.png)
 5. 为文件命名（要求写英文名，不然后续综合很容易报错）；
@@ -48,12 +51,16 @@ end
 endmodule
 
  ```
-
+## 综合、约束、布局布线
+### 综合
 7. 代码编辑保存后转到“Process”界面下，对编辑好的代码进行综合，即双击“Systhesize”
     ![](./../../../Tang-Nano-9K/nano_9k/nano_9k_synthsize.png)
+    运行之后如没有报错而且 Synthesize 变成下图里的图标
+    ![](./../../../Tang-Nano/assets/LED.png) 
+    说明前面编辑的代码无误；如果有错，根据错误提示进行改正即可。
         
-    显示 xxxxxxx finish 后即可进行下一步
 
+### 约束
 8.  接下来通过  双击 Process 界面里的FloorPlanner来设置管脚约束。第一次打开会弹出缺少.cst文件.选择“OK”即可；
     ![](./../../assets/LED-9.png)
 
@@ -75,10 +82,14 @@ endmodule
 ![](./assets/pin_constrain_1.png)
 ![](./assets/pin_constrain_2.png)
 
-- 直接编写约束文件希望用户自行研究
+- 直接编写约束文件方法用户自行研究
+
+### 布局布线
 
 10. 到“Process”下运行“Place&Route”，即运行管脚布局布线，运行结果如下图所示：
     ![](./assets/RGB_LED_Place&Route.png)
+    
+## 烧录
 
 11. 接下来是进行连接板子，烧录固件。在Process界面双击`Program Device` 后打开烧录工具
     ![](./assets/Open_Programmer.png)
@@ -89,3 +100,6 @@ endmodule
 
 点灯验证到此结束。
 
+<p id="back">
+    <a href="#" onClick="javascript :history.back(-1);">返回上一页(Back)</a>
+</p>

@@ -161,7 +161,7 @@ static struct fbtft_display display = {
 
 ![](./assets/SPI_Pins.jpg)
 
-根据电路，找到 pio 节点，添加 SPI0 所用引脚，spi0_pins_a 作为数据时钟绑定，spi0_pins_b 作为 CS 的绑定，并上拉。RST，DC，背光在这里不做声明。
+根据电路，在文件夹 D1/device/config/chips/d1-h/configs/nezha/linux-5.4文件夹中找到board.dts文件， 找到 pio 节点，添加 SPI0 所用引脚，spi0_pins_a 作为数据时钟绑定，spi0_pins_b 作为 CS 的绑定，并上拉。RST，DC，背光在这里不做声明。
 ```dts
 &spi0 {
 	clock-frequency = <100000000>;
