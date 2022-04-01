@@ -69,7 +69,7 @@ win+r，输入cmd，打开命令行
 
 然后等待安装成功即可
 
-## MiaxHub本地训练
+## MaixHub本地训练
 
 配置了那么久的环境了，终于到最后一步了，[下载本地训练代码](https://github.com/sipeed/maix_train)
 
