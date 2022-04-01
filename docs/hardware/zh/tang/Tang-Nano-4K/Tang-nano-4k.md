@@ -6,7 +6,7 @@ title: Tang nano 4k 一些例程
 下载后解压替换掉Gowin对应安装目录的Programmer文件夹即可。
 不会替换的话可以在下载解压后的Programmer程序中手动添加对应下载文件来进行烧录。
 
-具体工程[git仓库](https://github.com/sipeed/TangNano-4K-example)
+参考工程[git仓库](https://github.com/sipeed/TangNano-4K-example)
 
 接好摄像头和HDMI显示器之后，将这个工程烧录到开发板上可以看到相应的现象。
 
