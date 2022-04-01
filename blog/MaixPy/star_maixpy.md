@@ -3,7 +3,7 @@ title: MaixPy 上手指南（避坑）之一
 keywords: MaixPy, K210, Python, MicroPython
 desc: MaixPy 上手指南（避坑） 之一
 date: 2022-04-01
-tags: MaixPy,MaixPy3
+tags: MaixPy, K210
 
 ---
 
