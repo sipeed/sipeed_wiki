@@ -41,27 +41,6 @@ desc: maixpy doc: 如何正确 阅读 本文
 * 关于模块的接口及参数，在使用时根据自己的需求进行查阅，<code><strong><font size=4>页面顶部右上角有搜索框</font></strong></code>，可以好好利用，同时也可以使用浏览器的页面搜索功能，即按键盘<kbd> Ctrl+F </kbd>，然后输入要搜索的内容后按确认键
 * 如果有找不到的内容也请不要着急， 可以上 github 的 [issue](https://github.com/sipeed/MaixPy/issues) 页面找一找（搜一搜）是不是有人提过了，没有的话可以新建 issue， 或者到 [论坛](https://bbs.sipeed.com) 搜索问题，没有再向大家求助， 或者联系技术支持。
 
-## 本文档常见问题
-
-* 文档加了 PDF 生成， 但是尽量不要传播 PDF 版本， 因为内容更新后 PDF 得不到及时更新， 尽量访问此网站([`https://maixpy.sipeed.com`](https://wiki.sipeed.com/maixpy))查看文档
-
-* 如果网页加载比较慢， 请尝试刷新或者等待， 或者换个线路（使用代理或者换手机流量试试）
-
-* 本文档有两个域名： [`https://maixpy.sipeed.com`](https://wiki.sipeed.com/maixpy) 和 [`https://cn.maixpy.sipeed.com`](https://wiki.sipeed.com/maixpy)， 一个访问不了时可以访问另一个
-
-* 文档使用 gitbook 从 markdown 自动生成为静态页面， 如果遇到有些页面无法访问， 请检查一下网址（路径）是否正确， 可以回到首页 ([`maixpy.sipeed.com`](https://wiki.sipeed.com/maixpy)) 重新进入即可。
-
-比如这个网址就是由于网络情况不佳点击过快导致的：
-```
-http://localhost:4000/zh/zh/how_to_read.html
-```
-正确的网址应该是：
-```
-http://localhost:4000/zh/how_to_read.html
-```
-
-
-
 ## MaixPy 常见问题
 
 * 常见问题请见[常见问题](./others/maixpy_faq.md)
@@ -69,7 +48,7 @@ http://localhost:4000/zh/how_to_read.html
 
 ## 其它教程
 
-* 除了文档，还可以浏览[博客](http://blog.sipeed.com)，[BBS](https://bbs.sipeed.com)用户写的教程， 或者百度搜索， 以及各个开发者的博客，都会有很多开发教程开发日记等， 都可以参考
+* 除了文档，还可以浏览[BBS](https://bbs.sipeed.com)用户写的教程， 或者百度搜索， 以及各个开发者的博客，都会有很多开发教程开发日记等， 都可以参考
 
 ## 提问技巧
 

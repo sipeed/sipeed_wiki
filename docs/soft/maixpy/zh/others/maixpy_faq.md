@@ -29,26 +29,6 @@ MaixPy 是基于 Micropython 的脚本语言， 不需要编译，在运行时�
 
     > MaixPy 版本号低于 0.5.0_v0 不支持连接 MaixPy IDE
 
-## 文档网页打不开，速度慢
-
-如果遇到有些页面无法访问， 请检查一下网址（路径）是否正确， 可以回到首页 (`maixpy.sipeed.com`) 重新进入即可。
-
-比如这个网址就是由于点击过快导致的：
-```
-http://localhost:4000/zh/zh/get_started/how_to_read.html
-```
-正确的网址应该是：
-```
-http://localhost:4000/zh/get_started/how_to_read.html
-```
-
-另外，可以换个网络线路试试，比如挂代理，或者换手机流量试试， 国内也可以使用`cn.maixpy.sipeed.com`
-
-## 下载站文件下载速度慢，文件无法下载
-
-如果遇到在 dl.sipeed.com 下载站下载速度慢，可以使用国内的同步服务器 cn.dl.sipeed.com 下载，路径相同，每天同步一次；
-部分文件提供了 CDN 下载链接，速度会比较快， 比如 IDE 在 readme.txt 中有说明
-
 ## Micro SD 卡读取不到
 
 
@@ -186,16 +166,7 @@ lcd.mirror(invert)
 
 - 可能现象：下载，保存脚本到 MaixPy 内部flash 之后，板子无法更新固件，板子无法启动
 
-
-> 问题可以从硬件和软件上面去定位:
-
-可能的硬件原因：
-
-​	TODO: 待更新
-
-可能的软件原因：
-
-  1. 程序中拉高了 GPIO16, 造成了自动下载点电路无法拉低 GPIO16,使 K210 进入 ISP 模式
+  1. 程序中拉高了 GPIO16, 造成了自动下载点电路无法拉低 GPIO16,使 K210 进入 ISP 模式，手动拉低 16 号管脚即可
 
 ## kflash 无法烧录/更新 MaixPy 固件
 
