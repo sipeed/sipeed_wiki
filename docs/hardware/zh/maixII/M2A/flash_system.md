@@ -57,9 +57,9 @@ Tina 系统的烧录方式和 MaixII dock通用，可参考[MaixII M2dock 烧录
 
 
 
-## 访问串口
+## 连接串口
 
-> 请将 USB口插入到 USB UART 口(下面的口）从而获得串口。
+- 直接将开发板有Debug标志的Type C接口与电脑连接即可
 
 ### Linux & macOS
 
@@ -67,6 +67,6 @@ Linux 不需要装驱动，系统自带了，使用 `ls /dev/ttyUSB*` 即可看�
 
 ### Windows
 
-`Lichee MaixSense` 使用了 `CH340` 作为驱动芯片。`Windows` 用户需要安装 `CH340` 的驱动。
+Lichee MaixSense 使用了 CH340 作为驱动芯片。Windows 用户需要安装 CH340 的驱动。
 
-Windows 下载 [ch340 ch341 driver](https://api.dl.sipeed.com/shareURL/MAIX/tools/ch340_ch341_driver) 安装即可，然后可以在 `设备管理器` 中看到串口设备和端口号
+Windows 下载 [ch340 ch341 driver](https://api.dl.sipeed.com/shareURL/MAIX/tools/ch340_ch341_driver) 安装即可，然后可以在 设备管理器 中看到串口设备和端口号

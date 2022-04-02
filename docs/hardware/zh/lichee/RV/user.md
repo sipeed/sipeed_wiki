@@ -118,17 +118,16 @@ udhcpc -ieth0
 - **使用 Tina 系统**
   LicheeRV 底板默认使用XR829或者RTL8723BS wifi模块，可以使用以下指令进行联网操作
 
-  先配置热点信息：
+  先配置热点信息：需要手动在 /etc/wifi/wpa_supplicant.conf 文件里添加下面内容
 
   ```bash
-  vim /etc/wifi/wpa_supplicant.conf
   network={  
       ssid="WiFi_name"  
       psk="WiFi_password"  
   } 
   ```
 
-  配置完成后重启，执行ifconfig wlan0 up; udhcpc -iwlan0 即可连上对应的wifi。
+  配置完成后重启，执行 ifconfig wlan0 up; udhcpc -iwlan0 即可连上对应的wifi。
   连上网络后，就可以使用ssh远程登录板卡，或者使用scp来进行文件传输。
 
 - **使用 debian 系统**
@@ -205,25 +204,29 @@ ffmpeg -i /mnt/UDISK/badapple_640480_xvid.mp4 -pix_fmt bgra -f fbdev /dev/fb0 -f
 
 有麦克风阵列相关的二次开发需求，可以联系support@sipeed.com
 
+![](./../assets/RV/mic_array_picture.jpg)
+
+
 <iframe src="https://player.bilibili.com/player.html?aid=849734125&bvid=BV1HL4y1H7nv&cid=457750392&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
 ## Debian镜像体验
 
 对于只接触过桌面级系统的开发者，推荐使用Debian镜像，可在网盘里下载
-    国内用户：[百度网盘](https://pan.baidu.com/s/1QJTaDw6kkTM4c_GAlmG0hg)  提取码：wbef
-    国外用户：[Mega](https://mega.nz/folder/lx4CyZBA#PiFhY7oSVQ3gp2ZZ_AnwYA)
+国内用户：[百度网盘](https://pan.baidu.com/s/1QJTaDw6kkTM4c_GAlmG0hg)  提取码：wbef
+国外用户：[Mega](https://mega.nz/folder/lx4CyZBA#PiFhY7oSVQ3gp2ZZ_AnwYA)
 
 LicheeRV_Debian_86_480p 为 480p的86盒板卡的debian镜像
-
 LicheeRV_Debian_hdmi 为 dock的hdmi输出的debian镜像
 
-如果是其他板卡或者屏幕，请自行使用对应的fex覆盖板级配置。
+如果是其他板卡或者屏幕，请自行使用对应的fex覆盖板级配置即可。
+fex下载地址 https://dl.sipeed.com/shareURL/LICHEE/D1/Lichee_RV/SDK/board
 
 烧录完成后，插卡启动，稍等2分钟左右，屏幕上就会显示登录界面
 
 ![登录界面](./../assets/RV/LicheeRV_login_picture.png "登录界面")
 
 输入用户名 sipeed，密码 licheepi，即可进入桌面 （使用USB HOST口外接键鼠输入）
+- Alt+F2 可以打开 运行 ，接着输入 termit 即可打开命令行终端
 
 ![桌面样式](./../assets/RV/desktop_appearance.png "桌面样式")
 进入桌面后可以进行一些基础操作
@@ -265,6 +268,7 @@ pack  #打包
 ```
 
 SDK内置了一些版型的dts，你可以自行选择编辑：
+
 `device/config/chips/d1/configs/nezha/board_xxx.dts`
 
 其他SDK的开发说明，可以参见全志开发平台上下载的相关文档
