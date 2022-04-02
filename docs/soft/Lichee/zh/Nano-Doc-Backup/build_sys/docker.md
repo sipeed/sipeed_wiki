@@ -61,7 +61,7 @@ docker import nano.tar
 ### 通过docker官方仓库拉取lichee-nano编译环境镜像
 
 ``` 
-docker pull zepan/licheepi-nano
+docker pull zepan/licheepi-nano:1.0.0
 ```
 
 ### 镜像使用
