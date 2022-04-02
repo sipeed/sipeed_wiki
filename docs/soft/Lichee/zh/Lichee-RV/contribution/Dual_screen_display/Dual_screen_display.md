@@ -3,31 +3,42 @@ title: 使用 LicheeRV 86 Panel 与 Tina BSP 实现 RGB 与 SPI 双屏显示
 keywords: LicheeRV, SPI, RISCV, D1
 ---
 > 编辑于2022年3月28日
+
 [原文链接](http://www.gloomyghost.com/live/20220131.aspx) [原文作者空间](http://www.gloomyghost.com/) 
 原创时间: 2022年1月31日
 
 Tina 提供了2种 SPI TFT 显示屏的驱动方式。
 - 第一种是官方推荐的 fbdev 方式，使用 Framebuffer implementaion without display hardware of AW 进行 SPI屏幕的驱动。
-- 另外一种是使用 fbtft 进行 SPI 屏幕驱动。 
+- 另外一种是使用 fbtft 进行 SPI 屏幕驱动。
+ 
 fbdev 方式由于 pinctrl 在新内核中调用方式出现修改，所以暂时无法使用。修改难度较大。
 fbtft 虽然官方wiki表明不建议在 Linux 5.4 中使用，但是其实也是可以使用的，只需要修改一下 GPIO 的注册方式就行。
 
 ## 环境搭建
+
+下面三种方法选择一种即可
+
+
+- [使用sipeed提供的docker](./sipeed_D1_docker.md)
 - [使用原文作者的环境](./environment.md)
 - [使用D1官方环境](https://d1.docs.aw-ol.com/study/study_2getsdk/)
 
 ## 先驱动 SPI 屏幕
+
 这里驱动的屏幕所选择的是 ST7789V SPI
 
 ### 修改 FBTFT 驱动
-进入 tina-d1-open/lichee/linux-5.4/drivers/staging/fbtft 找到 fbtft-core.c
 
+进入 tina-d1-open/lichee/linux-5.4/drivers/staging/fbtft 找到 fbtft-core.c
 首先加入将要使用到的头文件
+
 ```c
 #include <linux/gpio.h>
 #include <linux/of_gpio.h>
 ```
+
 然后找到 static int fbtft_request_one_gpio() 函数，将已经弃用的端口绑定方法改为以下内容
+
 ```c
 static int fbtft_request_one_gpio(struct fbtft_par *par,
                   const char *name, int index,
@@ -68,7 +79,9 @@ static int fbtft_request_one_gpio(struct fbtft_par *par,
     return ret;
 }
 ```
+
 找到 static void fbtft_reset() 函数，将 RST 信号最后拉高
+
 ```c
 static void fbtft_reset(struct fbtft_par *par)
 {
@@ -82,9 +95,13 @@ static void fbtft_reset(struct fbtft_par *par)
     gpiod_set_value_cansleep(par->gpio.reset, 1);
     msleep(10);
 }
+
 ```
+
 找到 static void fbtft_set_addr_win() 函数，添加地址偏移。否则会出现下图部分雪花屏现象。
+
 ![](./assets/display_offset_situation.jpg)
+
 ```c
 static void fbtft_set_addr_win(struct fbtft_par *par, int xs, int ys, int xe,
 			       int ye)
@@ -112,7 +129,9 @@ static void fbtft_set_addr_win(struct fbtft_par *par, int xs, int ys, int xe,
 	write_reg(par, MIPI_DCS_WRITE_MEMORY_START);
 }
 ```
-找到 fb_st7789v.c，参照STM32的初始化函数对初始化部分进行修改。
+
+当前目录下找到 fb_st7789v.c，参照STM32的初始化函数对初始化部分进行修改。
+
 ```c
 static int init_display(struct fbtft_par *par)
 {
@@ -139,7 +158,9 @@ static int init_display(struct fbtft_par *par)
     return 0;
 }
 ```
-将屏幕大小配置为屏幕实际大小
+
+将相关参数配置为屏幕实际大小
+
 ```c
 static struct fbtft_display display = {
 	.regwidth = 8,
@@ -156,12 +177,15 @@ static struct fbtft_display display = {
 	},
 };
 ```
+
 ### 设备树修改
+
 首先打开电路图，找到 SPI 屏幕的电路。
 
 ![](./assets/SPI_Pins.jpg)
 
-根据电路，在文件夹 D1/device/config/chips/d1-h/configs/nezha/linux-5.4文件夹中找到board.dts文件， 找到 pio 节点，添加 SPI0 所用引脚，spi0_pins_a 作为数据时钟绑定，spi0_pins_b 作为 CS 的绑定，并上拉。RST，DC，背光在这里不做声明。
+根据电路，在 tina-d1-open_new/device/config/chips/d1/configs/nezha/board.dts0 文件中 找到 pio 节点，添加 SPI0 所用引脚；spi0_pins_a 作为数据时钟绑定，spi0_pins_b 作为 CS 的绑定，并上拉。RST、DC、背光引脚在这里不做声明。
+
 ```dts
 &spi0 {
 	clock-frequency = <100000000>;
@@ -184,7 +208,9 @@ static struct fbtft_display display = {
     };
 };
 ```
+
 最后，将不需要的屏幕关闭，方便调试
+
 ```dts
 &disp {
 	disp_init_enable = <0>;
@@ -202,7 +228,8 @@ static struct fbtft_display display = {
 }
 ```
 ### 内核配置
-进入 kernel_menuconfig ，开启 FBTFT，关闭 RGB，MIPI 所使用的 DISP Driver Support(sunxi-disp2) 输出。
+进入 kernel_menuconfig ，开启 FBTFT，关闭 RGB、MIPI 所使用的 DISP Driver Support(sunxi-disp2) 输出。
+
 ```menuconfig
 Device Drivers  --->
 	 Graphics support  --->
@@ -214,7 +241,9 @@ Device Drivers  --->
 	 	 <*>   Support for small TFT LCD display modules  --->
 	 	 	  <*>   FB driver for the ST7789V LCD Controller
 ```
+
 由于上面配置关闭了 DISP Driver Support(sunxi-disp2) ，所用需要在 menuconfig 里将内核模块关闭，否则会出现找不到驱动的错误。
+
 ```menuconfig
 Kernel modules  --->
 	Video Support  --->
@@ -223,6 +252,7 @@ Kernel modules  --->
          < > kmod-sunxi-hdmi....................................... sunxi-hdmi support
          < > kmod-sunxi-uvc......................................... sunxi-uvc support
 ```
+
 编译，打包，使用 fbviewer 进行测试
 
 ```bash
@@ -231,12 +261,15 @@ pack
 
 fbviewer Yuzuki.jpg
 ```
+
 ![](./assets/SPI_Display.jpg)
 
 ## 修改为双屏驱动
+
 修改双屏也很简单，SPI 屏幕调试完成之后，将刚才关闭的各类驱动打开即可。
 
 ### 配置设备树
+
 找到 SPI0 节点，将背光 led 注释掉，查看电路图可知 RGB 屏幕和 SPI 屏幕使用的背光是同一个，这里不需要分开注册。
 ```dts
 &spi0 {
@@ -260,6 +293,7 @@ fbviewer Yuzuki.jpg
     };
 };
 ```
+
 把之前关闭的显示输出重新打开
 ```dts
 &disp {

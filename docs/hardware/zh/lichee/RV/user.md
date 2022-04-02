@@ -252,9 +252,18 @@ fex下载地址 https://dl.sipeed.com/shareURL/LICHEE/D1/Lichee_RV/SDK/board
 
 
 在网盘中下载对应的docker文件后，解压到tar文件后导入到docker
->docker import licheerv_d1_compile.tar licheerv_d1_compile:lastest
 
-然后即可run该容器。用户名为`nihao`，密码为`sipeed123`
+```bash
+gzip -d licheerv_d1_compile.tar.gz #解压成tar文件
+docker import licheerv_d1_compile.tar licheerv_d1_compile:latest #docker导入镜像
+```
+
+成功运行后应当重新登陆一次；用户名为`nihao`，密码为`sipeed123`
+
+```bash
+sudo docker run -it licheerv_d1_compile:latest /bin/bash # 交互模式启动D1镜像编译环境
+login #切换用户
+```
 
 进入容器后的基础编译操作为：
 
@@ -268,14 +277,13 @@ pack  #打包
 ```
 
 SDK内置了一些版型的dts，你可以自行选择编辑：
-
-`device/config/chips/d1/configs/nezha/board_xxx.dts`
+device/config/chips/d1/configs/nezha/board_xxx.dts
 
 其他SDK的开发说明，可以参见全志开发平台上下载的相关文档
 https://open.allwinnertech.com/
 也可以加全志交流QQ群：`498263967`
 
-如果需要自己下载SDK开发，参考全志在线相关网页：https://d1.docs.aw-ol.com/en/
+如果需要自己下载SDK开发，参考全志在线相关网页：https://d1.docs.aw-ol.com/
 
 ## WAFT 开发指南
 
