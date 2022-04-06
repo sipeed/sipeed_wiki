@@ -282,4 +282,4 @@ https://wiki.sipeed.com/soft/maixpy3/zh/usage/vision/maixpy3-example.html
 会议纪要：
 暂无
 
-> 后续进展可以通过查看共享文档获得：<ttps://www.kdocs.cn/l/cfdsBPVRhXxo>
+> 后续进展可以通过查看共享文档获得：<https://www.kdocs.cn/l/cfdsBPVRhXxo>
