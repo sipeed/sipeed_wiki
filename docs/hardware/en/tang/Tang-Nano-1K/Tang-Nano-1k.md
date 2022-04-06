@@ -1,6 +1,6 @@
 ---
-title: Tang nano 1k 一些例程
+title: Tang nano 1k examples
 ---
 
-- [点灯例程](./Nano_1K_examples/LED.md)
-- [驱屏教程](./Nano_1K_examples/LCD.md)
+- [Blink](./Nano_1K_examples/LED.md)(Preparing, please wait)
+- [LCD screen](./Nano_1K_examples/LCD.md)(Preparing, please wait)

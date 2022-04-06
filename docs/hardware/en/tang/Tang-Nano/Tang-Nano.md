@@ -6,5 +6,5 @@ For tang nano（USB-JTAG is CH552）user, it may be unable to flash the board. A
 
 
 ## Examples
-- [Blink](./../Tang-Nano-Doc/examples/1_led.md)
-- [LCD screen](./../Tang-Nano-Doc/examples/2_lcd.md)
+- [Blink](./../Tang-Nano-Doc/examples/1_led.md)(Preparing, please wait)
+- [LCD screen](./../Tang-Nano-Doc/examples/2_lcd.md)(Preparing, please wait)
