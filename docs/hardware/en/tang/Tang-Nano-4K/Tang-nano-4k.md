@@ -7,5 +7,5 @@ After connecting the camera and HDMI display, flash the project to the developme
 - [Blink](./../Tang-Nano-Doc/examples/4K_led.md)(Preparing, please wait)
 - HDMI display(Preparing, please wait)
 - Display camera content by HDMI(Preparing, please wait)
-- Cortex-m3 blink：待更新(Preparing, please wait)
+- Cortex-m3 blink(Preparing, please wait)
 - others(Any ideas could be come up, and will be accepted if feasible)

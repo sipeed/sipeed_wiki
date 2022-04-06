@@ -7,7 +7,7 @@ Lichee Tang Nano 4K是基于[高云半导体](http://www.gowinsemi.com.cn/)的�
 ![Tang Nano 4K](./../Tang-Nano/assets/4k-2.jpg)
 
 ## 产品参数
-Lichee Tang Nano 4K开发板板载的GW1NSR-LV4C，是一款系统级封装芯片，内部集成了 GW1NS系列可编辑逻辑器件产品和PSRAM存储芯片。包括GW1NSR-2C器件和GW1NSR-2器件，GW1NSR-2C器件内嵌ARMCortex-M3硬核处理器。板载32Mbit Nor Flash，提供存储资源。
+Lichee Tang Nano 4K开发板板载的GW1NSR-LV4C，是一款系统级封装芯片，内部集成了GW1NS系列可编辑逻辑器件产品和PSRAM存储芯片。
 
 - 下表为与前代同系列产品对比图
 
@@ -23,8 +23,8 @@ Lichee Tang Nano 4K开发板板载的GW1NSR-LV4C，是一款系统级封装芯�
 | I/O Bank 总数    | 4                   | 4                 |
 | 最多用户I/O数    | 41                  | 44                |
 | 显示屏接口       | 标准40P RGB LCD接口 | HDMI接口          |
-| 摄像头接口       | None                | 常见的DVP顺序接口  |
-| 尺寸             | 58.4mm\*21.3mm      | 60mm\*22.86mm    |
+| 摄像头接口       | None                | 常见的DVP顺序接口 |
+| 尺寸             | 58.4mm\*21.3mm      | 60mm\*22.86mm     |
 | 下载接口         | USB Type-C接口      | USB Type-C接口    |
 
 
