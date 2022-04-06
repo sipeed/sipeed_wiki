@@ -102,7 +102,7 @@ def map_face(box,points):                           #将224*224空间的位置�
     return box,points
 def darw_info(draw, box, points, disp_str, bg_color=(255, 0, 0), font_color=(255, 255, 255)):    #画框函数
     box,points = map_face(box,points)
-    font_wh = draw.get_string_size(disp_str)
+    font_wh = image.get_string_size(disp_str)
     for p in points:
         draw.draw_rectangle(p[0] - 1, p[1] -1, p[0] + 1, p[1] + 1, color=bg_color)
     draw.draw_rectangle(box[0], box[1], box[0] + box[2], box[1] + box[3], color=bg_color, thickness=2)
