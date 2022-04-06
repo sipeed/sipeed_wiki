@@ -38,15 +38,15 @@
                     "file": "develop/apriltag.md"
                 },
                 {
-                    "label": "V83X 自学习检测（待移植）",
+                    "label": "maixpy3 自学习检测（待公开）",
                     "file": "develop/self_yolo.md"
                 },
                 {
-                    "label": "omv 传统视觉算法（开发中）",
+                    "label": "imlib 传统视觉算法（开发中）",
                     "file": "develop/opmv_cv.md"
                 },
                 {
-                    "label": "maix 串口模块框架（待公开）",
+                    "label": "maixsmart 串口框架（待公开）",
                     "file": "develop/maixcam.md"
                 },
                 {
@@ -62,7 +62,7 @@
                     "file": "develop/maixpy3_mfcc.md"
                 },
                 {
-                    "label": "M2DOCK 摄像头 ISP 调试（待公开）",
+                    "label": "M2DOCK 摄像头 ISP 调试（已公开）",
                     "file": "develop/v83x_isp.md"
                 },
                 {
@@ -123,7 +123,7 @@
                             "file": "usage/vision/maixpy3-example.ipynb"
                         },
                         {
-                            "label": "经典案例（未整理）"
+                            "label": "经典案例（开发中）"
                         }
                     ]
                 },
