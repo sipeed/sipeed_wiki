@@ -19,7 +19,7 @@ FORMAT = pyaudio.paInt16
 CHANNELS = 2
 RATE = 44100
 RECORD_SECONDS = 5
-WAVE_OUTPUT_FILENAME = "output.wav"
+WAVE_OUTPUT_FILENAME = "test.wav"
 
 p = pyaudio.PyAudio()
 
@@ -54,41 +54,26 @@ wf.close()
 ## 播放音频
 
 ```python
-
 import pyaudio
 import wave
 import sys
-
-# 定义数据流块
 CHUNK = 1024
-
-if len(sys.argv) < 2:
-    print("Plays a wave file.\n\nUsage: %s filename.wav" % sys.argv[0])
-    sys.exit(-1)
-
-# 只读方式打开wav文件
-wf = wave.open(r'test.wav', 'rb')#(sys.argv[1], 'rb')
-
+wf = wave.open(r'test.wav', 'rb')#(sys.argv[1], 'rb'
 p = pyaudio.PyAudio()
 
-# 打开数据流
 stream = p.open(format=p.get_format_from_width(wf.getsampwidth()),
                 channels=wf.getnchannels(),
                 rate=wf.getframerate(),
                 output=True)
 
-# 读取数据
 data = wf.readframes(CHUNK)
 
-# 播放
 while data != '':
     stream.write(data)
     data = wf.readframes(CHUNK)
 
-# 停止数据流
 stream.stop_stream()
 stream.close()
 
-# 关闭 PyAudio
 p.terminate()
 ```

@@ -1,33 +1,79 @@
 {
     "items": [
         {
-            "label": "MaixPy3 是什么？",
+            "label": "MaixPy3 是什么？能做什么？",
             "file": "readme.md"
         },
         {
-            "label": "支持的开发板&平台",
-            "file": "install/install.md"
-        },
-        {
-            "label":"MaixPy3 IDE 介绍",
-            "file":"tools/MaixPy3_IDE.md"
-        },
-        {
-            "label":"连接开发板",
+            "label": "支持的开发板&平台& IDE",
+            "file": "install/install.md",
+            "collapsed": false,
             "items":[
                 {
-                    "label":"MaixII-Dock (V831)",
-                    "file":"tools/0.MaixII-Dock.ipynb"
+                    "label":"MaixPy3 IDE 介绍",
+                    "file":"tools/MaixPy3_IDE.md"
                 },
                 {
-                    "label":"MaixSense (R329)",
-                    "file":"tools/maixsense.md"
+                    "label":"连接开发板",
+                    "items":[
+                        {
+                            "label":"MaixII-Dock (V831)",
+                            "file":"tools/0.MaixII-Dock.ipynb"
+                        },
+                        {
+                            "label":"MaixSense (R329)",
+                            "file":"tools/maixsense.md"
+                        }
+                    ]
                 }
             ]
         },
         {
-            "label": "一些开源社区里的学习资料（♂）",
-            
+            "label":"MaixPy3 开发进度跟踪",
+            "file": "develop/readme.md",
+            "collapsed": true,
+            "items":[
+                {
+                    "label": "AprilTag 标签定位（待公开）",
+                    "file": "develop/apriltag.md"
+                },
+                {
+                    "label": "V83X 自学习检测（待移植）",
+                    "file": "develop/self_yolo.md"
+                },
+                {
+                    "label": "omv 传统视觉算法（开发中）",
+                    "file": "develop/opmv_cv.md"
+                },
+                {
+                    "label": "maix 串口模块框架（待公开）",
+                    "file": "develop/maixcam.md"
+                },
+                {
+                    "label": "中文语音识别模型（待公开）",
+                    "file": "develop/maix_speech.md"
+                },
+                {
+                    "label": "R329 YOLO 训练教程（待公开）",
+                    "file": "develop/r329_yolo.md"
+                },
+                {
+                    "label": "MFCC 关键词检测（待公开）",
+                    "file": "develop/maixpy3_mfcc.md"
+                },
+                {
+                    "label": "M2DOCK 摄像头 ISP 调试（待公开）",
+                    "file": "develop/v83x_isp.md"
+                },
+                {
+                    "label": "R329 人脸识别（待公开）",
+                    "file": "develop/face_reco.md"
+                }
+            ]
+        },
+        {
+            "label": "开源社区中分享“亿”些资料", 
+            "collapsed": false,    
             "items": [
                 {
                     "label":"Python 的相关教程",
@@ -138,7 +184,7 @@
             ]
         },
         {
-            "label":"MaixPy3 视觉 AI ",
+            "label":"AI 神经网络功能",
             "collapsed": false,
             "items":[
                 {
@@ -146,7 +192,7 @@
                     "file": "usage/AI_net/Edge_detection.ipynb"
                 },
                 {
-                    "label": "物体分类",
+                    "label": "物品分类",
                     "file": "usage/AI_net/resnet.ipynb"
                 },
                 {
@@ -197,49 +243,7 @@
                 }
             ]
         },
-        {
-            "label":"MaixPy3 开发进度跟踪",
-            "file": "develop/readme.md",
-            "collapsed": true,
-            "items":[
-                {
-                    "label": "AprilTag 标签定位（待公开）",
-                    "file": "develop/apriltag.md"
-                },
-                {
-                    "label": "V83X 自学习检测（待移植）",
-                    "file": "develop/self_yolo.md"
-                },
-                {
-                    "label": "omv 传统视觉算法（待公开）",
-                    "file": "develop/opmv_cv.md"
-                },
-                {
-                    "label": "maix 串口模块框架（待公开）",
-                    "file": "develop/maixcam.md"
-                },
-                {
-                    "label": "中文语音识别模型（待公开）",
-                    "file": "develop/maix_speech.md"
-                },
-                {
-                    "label": "R329 YOLO 训练教程（待公开）",
-                    "file": "develop/r329_yolo.md"
-                },
-                {
-                    "label": "MFCC 关键词检测（待公开）",
-                    "file": "develop/maixpy3_mfcc.md"
-                },
-                {
-                    "label": "M2DOCK 摄像头 ISP 调试（待公开）",
-                    "file": "develop/v83x_isp.md"
-                },
-                {
-                    "label": "R329 人脸识别（待公开）",
-                    "file": "develop/face_reco.md"
-                }
-            ]
-        },
+        
         {
             "label": "核心 API 手册（待整理）",
             "items": [
