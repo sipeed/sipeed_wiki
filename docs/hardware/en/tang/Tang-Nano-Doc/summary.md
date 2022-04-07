@@ -6,7 +6,7 @@ title: Summary
 
 Tang Nano series development boards are designed based on [Gowin](https://www.gowinsemi.com/en/) FPGA chip. Mutiple models of development board meets various requirements. 
 - Tang nano 1K with a extremely low price can lead user into FPGA fields
-- Tang nano 4K with a Cortex m3 hardcore, is almost the cheapest heterogeneous development
+- Tang nano 4K with a Cortex m3 hardcore, almost the cheapest heterogeneous core board
 - Tang nano 9K with rich logic units can be used to verify Riscv core 
 
 ## Comparation
@@ -18,7 +18,7 @@ Tang Nano series development boards are designed based on [Gowin](https://www.go
 | Hard core       |                                                            | Cortex-M3                                                    |                                                            |
 | Crystal oscillator frequency         | 27Mhz                                                        | 27Mhz                                                        | 27Mhz                                                        |
 | Display interface         | RGB screen interface                                              | HDMI                                                         | HDMI,<br>  RGB screen interface,<br>  SPI screen interface                      |
-| Camera           |                                                            | 可选OV2640                                                   |                                                            |
+| Camera           |                                                            | OV2640                                                   |                                                            |
 | External SPI FLASH    | Pads are reserved                                                   | Default welding<br>32Mbit SPI FLASH                                     | Default welding<br>32Mbit SPI FLASH                                     |
 | TF card slot           |                                                            |                                                            | yes                                                           |
 | Programmer           | Onboard USB-JTAG downloader                                            | Onboard USB-JTAG downloader                                            | Onboard USB-JTAG downloader &<br> USB-UART port                                     |

@@ -1,5 +1,7 @@
 # Tang Nano 1K
 
+> Edit on 2022.04.06
+
 ## Introduction
 
 Lichee Tang Nano 1K is a core board designed based on [Gowin](https://www.gowinsemi.com/en/) GW1NZ-LV1 FPGA chip. The board is equipped with RGB LCD interface and onboard USG-JTAG debugger, which make it convinent for users to use.

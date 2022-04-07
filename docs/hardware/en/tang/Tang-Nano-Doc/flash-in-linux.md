@@ -4,7 +4,7 @@ keyeords: Linux, FPGA, Gowin
 ---
 
 It's suggested to use **openFPGALoader** to flash te development board in Ubuntu.
-Other linux distribution have not been verified.
+Other linux distributions have not been verified.
 
 The steps are as shown:
 
