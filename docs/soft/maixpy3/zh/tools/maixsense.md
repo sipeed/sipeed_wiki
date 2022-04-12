@@ -23,6 +23,8 @@ desc: maixpy doc: 在 MaixII-Sense 平台上使用
 
 同样【session】会保存在左侧的【session】标签页里，方便下次连接。
 
+> 如果没有显示的时候，按下回车，看看有没有信息打印出来。这是因为串口连接慢了，板子已经启动完了。
+
 ## SSH 连接
 
 除了有线串口的方式，还可以通过无线访问 SSH 登录 Linux 系统，如一般的家用路由器。
@@ -36,6 +38,7 @@ desc: maixpy doc: 在 MaixII-Sense 平台上使用
 就可以看到 Linux 的登录会话终端了。
 
 ![](./assets/mobaxterm_ssh_view.jpg)
+
 
 
 ## MaixPy3 IDE 连接

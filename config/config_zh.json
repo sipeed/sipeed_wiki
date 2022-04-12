@@ -95,7 +95,7 @@
             },
             {
                 "label":"最新动态",
-                "url":"/blog/",
+                "url":"/news/",
                 "position":"left"
             },
             {

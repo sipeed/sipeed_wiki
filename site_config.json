@@ -33,7 +33,7 @@
             "/soft/maixduino/assets/":"docs/soft/maixduino/assets"
         },
         "blog": {
-            "/blog/": "blog"
+            "/news/": "news"
         }
     },
     "translate": {
