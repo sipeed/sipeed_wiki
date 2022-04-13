@@ -16,4 +16,14 @@ desc: maixpy3 doc: 开发进程
 
 当完成上述步骤后，就表示该功能已进到 maixpy3 项目中。
 
-> 这样大家就可以知道 maixpy3 正在做什么了！ 逃！~ 季更！~
+| 项目 | 进度 |
+| --- | --- |
+| [AprilTag 标签定位](./apriltag.md) | 待公开 |
+| [自学习检测](./self_yolo.md) | 待测试 |
+| [传统视觉算法](./opmv_cv.md) | 开发中 |
+| [Maixsmart 串口框架](./maixcam.md) | 待公开 |
+| [中文语音识别模型](./maix_speech.md) | 待公开 |
+| [MaixSense YOLO 训练方法](./r329_yolo.md) | 待公开 |
+| [MFCC关键词检测](./maixpy3_mfcc.md) | 待公开 |
+| [MaixII-Dock 摄像头 ISP 调试](./v83x_isp.md) | 已公开 |
+| [MaixSense 人脸识别](./face_reco.md) | 待公开 |
