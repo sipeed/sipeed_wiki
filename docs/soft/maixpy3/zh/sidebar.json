@@ -83,7 +83,7 @@
                             "file": "usage/vision/maixpy3-example.ipynb"
                         },
                         {
-                            "label": "传统视觉操作(开发ing)",
+                            "label": "图像处理操作(开发ing)",
                             "file":"usage/vision/image_example.ipynb"
                         }
                     ]
