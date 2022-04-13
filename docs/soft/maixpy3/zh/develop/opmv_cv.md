@@ -1,5 +1,7 @@
 # MaixPy3 视觉模块开发
 
+> 进度直播通过查看共享文档获得：<https://www.kdocs.cn/l/cfdsBPVRhXxo>
+
 ## 项目简介：
 
 由于 maixpy3 的环境传统视觉功能薄弱，所有需要结合 openmv 文档实现视觉模块的基础 API 功能以及应用，相关功能也会体现在产品介绍当中，其中一些相关模块可能配合应用需要完成，应用示例文档参考如下：https://book.openmv.cc/image/
@@ -282,4 +284,3 @@ https://wiki.sipeed.com/soft/maixpy3/zh/usage/vision/maixpy3-example.html
 会议纪要：
 暂无
 
-> 后续进展可以通过查看共享文档获得：<https://www.kdocs.cn/l/cfdsBPVRhXxo>
