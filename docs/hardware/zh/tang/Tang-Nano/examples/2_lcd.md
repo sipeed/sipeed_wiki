@@ -1,9 +1,10 @@
 # RGB LCD 示例
 
+> 编辑于2022.04.12
 
 ## 先介绍时序
 
-RGB LCD 显示图像的原理和 VGA 类似，都是在计算机内部以数字的方式生成需要显示的图像信息，再通过模数转换的方式，将这些数字的图像信息转变为 RGB 三原色模拟信号、以及行、场同步信号。
+RGB LCD 显示协议和 VGA 类似，通信都有专用的行同步、场同步信号线。它们的主要区别是前者传输用的是数字信号，后者传输走的是模拟信号。
 
 下面就介绍 VGA 的时序
 
@@ -13,11 +14,11 @@ RGB LCD 显示图像的原理和 VGA 类似，都是在计算机内部以数字�
 
 从时序图中可以看出，不论是显示一行数据还是一列数据，都需要一个对应的同步(sync)信号，数据的传输在两个同步信号的脉冲之间完成
 
-每一行的数据包括显示前沿(back porch)、有效数据(active viedo)、显示后沿(front porch)三个阶段
+每一行的数据包括显示前沿(back porch)、有效数据(active video)、显示后沿(front porch)三个阶段
 
 其中的有效数据就是我们常说的分辨率，而显示前后沿的参数需要参考具体的分辨率与帧数进行设置，相关参数可以参考典型参数，链接在此： http://www.tinyvga.com/vga-timing
 
-这块屏幕的控制时序略有不同，相关参数的设置可以查看[规格书](https://dl.sipeed.com/shareURL/TANG/Premier/HDK/Datasheet)(点开链接后选择AT050TN43文件)
+这块屏幕的控制时序略有不同，相关参数的设置可以查看[规格书](https://dl.sipeed.com/fileList/TANG/Primer/HDK/Datasheet/AT050TN43%20V.1%20Pre%20Ver01%2020100511%20A050-43-TT-11_201102115899.pdf)
 
 下面为这块 LCD 时序相关的截图
 
@@ -45,17 +46,16 @@ RGB LCD 显示图像的原理和 VGA 类似，都是在计算机内部以数字�
 
 这里需要使用到 `IP Core Generate` ，位置在 Tools -> IP Core Generate
 
-![](./../assets/Gowin_IP_rpll.png)
+![](./../../Tang-Nano-1K/assets/Gowin_IP_rpll.png)
 
 双击 `rPLL` ，在弹出窗口 language 选择 Verilog ，CLKIN 为 24MHz ，CLKOUT 为 200MHz，CLKOUTD 要选择 Enable，然后生成时钟为 33.33MHz，Tolerance 选择 0.2%
 
 ![](./../../assets/examples/lcd_pjt_5.png)
 
-- 点击ok后提示是否需要添加到当前工程，此时应当选择确定
+点击ok后提示是否需要添加到当前工程，此时应当选择确定
   ![](./led/assets/add_ip_file_in_project.png)
 
-- 接着会出现一个例化的tmp文件，用来例化所设置的ip。
-比如下图中例子（图文无关）
+接着会出现一个例化的tmp文件，用来例化所设置的ip。比如下图中例子
 ![](./led/assets/ip_examples.png)
 
 ### osc
@@ -77,6 +77,7 @@ RGB LCD 显示图像的原理和 VGA 类似，都是在计算机内部以数字�
 ### 端口定义
 
 首先需要先定义出驱动屏幕所需要的端口
+
 ```verilog
 module VGAMod
 (
@@ -94,9 +95,11 @@ module VGAMod
 	output          [4:0]   LCD_R
 );
 ```
+
 本例程使用RGB565作为驱动方式；
 
 ### 时序常量
+
 接着定义出时序图上所要求的常量
 
 ```verilog
@@ -136,6 +139,7 @@ reg	[9:0]  Data_B;
 ```
 
 ### 同步信号
+
 这段代码产生同步信号，需要注意的是，这块屏幕的同步信号是负极性使能
 
 ```verilog
@@ -184,6 +188,7 @@ assign  LCD_DE = (  ( PixelCount >= H_BackPorch )&&
 ```
 
 ### 测试彩条
+
 - 这段代码用来产生 LCD 的测试数据，产生彩条显示
 
 ```verilog
@@ -221,70 +226,65 @@ assign  LCD_B   =   (PixelCount<640)? 5'b00000 :
 - 新建文件之后直接把下面的内容复制进去保存即可
 
 ```verilog
-module TOP
+module TOP //设置顶层模块
 (
-    input           nRST,
+	input			nRST,
     input           XTAL_IN,
 
-    output          LCD_CLK,
-    output          LCD_HYNC,
-    output          LCD_SYNC,
-    output          LCD_DEN,
-    output  [4:0]   LCD_R,
-    output  [5:0]   LCD_G,
-    output  [4:0]   LCD_B
-);
+	output			LCD_CLK,
+	output			LCD_HYNC,
+	output			LCD_SYNC,
+	output			LCD_DEN,
+	output	[4:0]	LCD_R,
+	output	[5:0]	LCD_G,
+	output	[4:0]	LCD_B,
 
-    wire        CLK_SYS;    
-    wire        CLK_PIX;
+); // 列出需要的端口
 
-    wire        oscout_o;
-
-//`define internel_clock //取消注释之后需要使用内部时钟ip才行
-
-`ifdef internel_clock
-    //例化内部时钟
-    Gowin_OSC chip_osc(
-        .oscout(oscout_o) //output oscout
-    );
-`endif
-
-    //例化rpll
+	wire		CLK_SYS;	
+	wire		CLK_PIX;
+    
+    //例化pll
     Gowin_rPLL chip_pll(
-        .clkout(CLK_SYS), //output clkout      //200M
-        .clkoutd(CLK_PIX), //output clkoutd   //33.33M
-`ifndef internel_clock
+        .clkout(CLK_SYS), //output clkout     //200M
+        .clkoutd(CLK_PIX), //output clkoutd   //33.00M
         .clkin(XTAL_IN)    //input clkin
-`else
-        .clkin(oscout_o)    //input clkin
-`endif
-    );  
+    );	
 
-    VGAMod VGAMod_inst //例化vga驱动
-    (
-        .CLK        (   CLK_SYS     ),
-        .nRST       (   nRST        ),
+	VGAMod	VGAMod_inst //例化vga驱动
+	(
+		.CLK		(	CLK_SYS     ),
+		.nRST		(	nRST		),
 
-        .PixelClk   (   CLK_PIX     ),
-        .LCD_DE     (   LCD_DEN     ),
-        .LCD_HSYNC  (   LCD_HYNC    ),
-        .LCD_VSYNC  (   LCD_SYNC    ),
+		.PixelClk	(	CLK_PIX		),
+		.LCD_DE		(	LCD_DEN	 	),
+		.LCD_HSYNC	(	LCD_HYNC 	),
+    	.LCD_VSYNC	(	LCD_SYNC 	),
 
-        .LCD_B      (   LCD_B       ),
-        .LCD_G      (   LCD_G       ),
-        .LCD_R      (   LCD_R       )
-    );
+		.LCD_B		(	LCD_B		),
+		.LCD_G		(	LCD_G		),
+		.LCD_R		(	LCD_R		)
+	);
 
-    assign      LCD_CLK     =   CLK_PIX;
+	assign		LCD_CLK		=	CLK_PIX;
 
 endmodule
-
 ```
-## 管脚约束、综合、布局布线
+
+## 综合、约束、布局布线
+
+### 综合
+
+完成上面步骤后转到“Process”界面下，对编辑好的代码进行综合，即运行“Systhesize” 
+![](./../../Tang-Nano-9K/nano_9k/nano_9k_synthsize.png)
+
+运行的结果如下图出现 
+![](./../../Tang-Nano/assets/LED.png)
+
+说明前面编辑的代码无误；如果有错，根据错误提示进行改正即可。
 
 ### 管脚约束
 
-进行管脚约束前需要先将工程综合一次，即在 Process 界面双击一下 Synthesize，然后选择Process 里的 User Constrains -> FloorPlanner。
 对应的管脚约束如下表格所示；
 关于管脚约束方法可以参考[自建点灯文章(点我)](./led/self_create.md)里面的约束方法。
 感觉麻烦的话也可以直接复制准备好的[文件(点我)](./lcd_constrains.md)，将页面里的内容复制到工程目录里 .cst 文件中（如果没有.cst 文件那么自己新建一个**物理管脚约束文件**） 即可。
@@ -300,7 +300,6 @@ endmodule
 | LCD_R[0] |  27   | LCD_DEN  |   5   | LCD_SYNC |  46   |
 | LCD_HYNC |  10   |
 
-
 ### 布局布线
 
 管脚约束之后需要在设置里面开启引脚复用才能完成布局布线。
@@ -310,11 +309,14 @@ endmodule
 设置完上面的之后。
 就可以开始布局布线(Place&Route)了。
 完成后就可以给开发板验证代码内容了。
+
 ## 烧录
+
 布局布线结束后生成比特流，就可以烧录开发板了。
 
 
 ## 结束
+
 上面差不多叙述了所有代码。
 整个工程可以参考 [这里](https://github.com/sipeed/Tang-Nano-examples/tree/master/example_lcd) 
 

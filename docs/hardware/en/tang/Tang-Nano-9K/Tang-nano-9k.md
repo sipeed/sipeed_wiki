@@ -2,8 +2,8 @@
 title: Tang nano 9k examples
 ---
 
-- [Blink](./Nano_9K_examples/LED.md)(Preparing, please wait)
-- [LCD screen](./Nano_9K_examples/LCD.md)(Preparing, please wait)
+- [Blink](./examples/led/led.md)
+- [LCD screen](./examples/rgb_screen/rgb_screen.md)
 - litex running on 9K(Preparing, please wait)
 - FPGA drives SPI screen(Preparing, please wait)
 - PicoRV running on 9K(Preparing, please wait)
