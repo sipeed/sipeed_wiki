@@ -97,10 +97,8 @@ This form shows detail parameters of Tang Nano 9K
 ## Summary of hardware files
 
 - [Datasheet](https://dl.sipeed.com/shareURL/TANG/Nano%209K/6_Chip_Manual/EN)
-- User Guide
 - [Schematic](https://dl.sipeed.com/shareURL/TANG/Nano%209K/2_Schematic)
 - [Size](https://dl.sipeed.com/shareURL/TANG/Nano%209K/4_Dimensional_drawing)
-- Designator
 - [3D file](https://dl.sipeed.com/shareURL/TANG/Nano%209K/5_3D_file)
 
 ## Matters need attention
@@ -108,7 +106,7 @@ This form shows detail parameters of Tang Nano 9K
 1. It is recommended to use Gowin V1.9.8.03 Education Edition : [Click here](https://www.gowinsemi.com/en/support/download_eda/)
 But if you want to use more IP cores, you need to download other version of IDE, and apply for license : [Click here](https://wiki.sipeed.com/hardware/en/tang/Tang-Nano-Doc/install-the-ide.html)
 2. This version of programmer is recommended : [Click here](https://dl.sipeed.com/shareURL/TANG/programmer)
-3. Avoid using JTAG, MODE0/1 and DONE pins. If you really need to use these pins, please refer to the <UG284-1.8E : schematic manual.pdf>
+3. Avoid using JTAG, MODE0/1 and DONE pins. If you really need to use these pins, please refer to the [UG284-1.8E : schematic manual.pdf](file:///E:/Download/download/UG284-1.8E_GW1NR%20Series%20of%20FPGA%20Products%20Schematic%20Manual.pdf) to see how to enable IO mux.
 4. Please avoid static electricity hitting PCBA; Please release the static electricity from the hand before contacting PCBA
 5. The working voltage of each GPIO has been marked in the schematic . Please do not let the actual working voltage of GPIO exceed the rated value, because it will cause permanent damage to PCBA
 6. When connecting FPC flexible cable, make sure that the cable is completely inserted into the cable without offset

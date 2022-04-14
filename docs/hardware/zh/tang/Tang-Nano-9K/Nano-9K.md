@@ -66,11 +66,9 @@ Tang Nano 9K是基于高云GW1NR-9 FPGA芯片设计的精简型开发板。它�
 
     SUG284-2.1E_Gowin IP Core Generator User Guide.pdf（第28页）
 
-    5寸屏规格书：[点击这里（再点击AT050TN43***.pdf）](https://dl.sipeed.com/shareURL/LICHEE/Zero/HDK/) (主要是获取CLK是33.3Mhz这个信息)
+    [5寸屏规格书](https://dl.sipeed.com/fileList/TANG/Nano%209K/6_Chip_Manual/EN/LCD_Datasheet/5.0inch_LCD_Datashet%20_RGB_.pdf)：(主要是获取CLK是33.3Mhz这个信息)
 
 6. 驱HDMI屏讲解（待更新）
-
-7. PicoRV软核实验（待更新，用户也可以按照第一步下载的指南文档里的PicoRV文件夹内的官方指南进行）
 
 ## 例程汇总
 
@@ -90,11 +88,11 @@ Tang Nano 9K是基于高云GW1NR-9 FPGA芯片设计的精简型开发板。它�
 
 ## **硬件资料汇总**
 
-规格书、官方手册、原理图、尺寸图、位号图、3D文件：[点击这里](https://dl.sipeed.com/shareURL/TANG/Nano%209K)
+规格书、原理图、尺寸图、3D文件等均可在这里找到：[点击这里](https://dl.sipeed.com/shareURL/TANG/Nano%209K)
 
 ## **注意事项**
 
-1. 如果有什么疑问，欢迎加群 `834585530`
+1. 如果有什么疑问，欢迎加群 `834585530`, 或者去[论坛](bbs.sipeed.com)发帖
 
 2. 避免使用JTAG、MODE、DONE等引脚。如果一定要使用这些引脚，请查看《UG292-1.0原理图指导手册》
 

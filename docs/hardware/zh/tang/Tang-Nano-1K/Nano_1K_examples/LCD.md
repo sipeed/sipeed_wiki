@@ -20,7 +20,7 @@ RGB LCD 显示协议和 VGA 类似，通信都有专用的行同步、场同步�
 
 其中的有效数据就是我们常说的分辨率，而显示前后沿的参数需要参考具体的分辨率与帧数进行设置，相关参数可以参考典型参数，链接在此： http://www.tinyvga.com/vga-timing
 
-这块屏幕的控制时序略有不同，相关参数的设置可以查看[规格书](https://dl.sipeed.com/fileList/TANG/Premier/HDK/Datasheet/AT050TN43%20V.1%20Pre%20Ver01%2020100511_A050-43-TT-11_201102115899.pdf)
+这块屏幕的控制时序略有不同，相关参数的设置可以查看[规格书](https://dl.sipeed.com/fileList/TANG/Nano%209K/6_Chip_Manual/EN/LCD_Datasheet/5.0inch_LCD_Datashet%20_RGB_.pdf)
 
 下面为这块 LCD 时序相关的截图
 
