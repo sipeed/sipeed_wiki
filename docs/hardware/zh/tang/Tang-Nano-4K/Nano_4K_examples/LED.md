@@ -17,15 +17,18 @@ title: Nano 4K 点灯
 选择对应的型号：
     ![Tang_nano_1k_device_choose](./../assets/Nano_4K_device_choose.png)
 
-## 准备代码
+## 编写代码
 
 新建工程之后接下来进行代码编辑，在Design工作栏内新建“Verilog File”,如下图所示：
     ![](./../../Tang-Nano/assets/LED-5.png)
+
 为文件命名（要求写英文名，不然后续综合很容易报错）；
    一般来说文件名称应该和文件内容模块名称相同
     ![](./../../Tang-Nano/assets/LED-6.png)
-    ![](./../../Tang-Nano/assets/LED-7.png)
+
 双击文件，可以在右侧的编辑框中进行代码的编写。
+    ![](./../../Tang-Nano/assets/LED-7.png)
+
 以点灯为例，将下方的 示例代码 粘贴到自己的文件中，也可以自己编写自己的代码。
 
 ```verilog
@@ -61,38 +64,39 @@ endmodule
 
 ### 综合
 
-代码编辑结束后转到“Process”界面下，对编辑好的代码进行综合，即运行“Synthesize”
+保存编辑的代码后转到“Process”界面下，对编辑好的代码进行综合，即双击“Systhesize”
     ![](./../../Tang-Nano-9K/nano_9k/nano_9k_synthsize.png)
-    运行之后如没有报错而且 Synthesize 变成下图里的图标
-    ![](./../../Tang-Nano/assets/LED.png) 
-    说明前面编辑的代码无误；如果有错，根据错误提示进行改正即可。
 
-### 引脚约束
+运行之后如没有报错而且 Synthesize 变成下图里的图标
+    ![](./../../Tang-Nano/assets/LED.png) 
+
+说明前面编辑的代码无误；如果有错，根据错误提示进行改正即可。
+
+### 约束
+
+- 此处未涉及时钟约束
 
 想让 Fpga 实现代码的功能，需要将代码中涉及的 端口 绑定到 Fpga 实际的引脚上。
 
-- 引脚约束前应需要先综合一次，即双击 process 页面的 Synthesize
-  
-接下来就可以进行管脚约束了。如下图，在左边的工作区点击 process，然后双击 FloorPlanner
-
+如下图，在左边的工作区点击 process，然后双击 FloorPlanner
 
 ![](./../../assets/examples/led_pjt_2.png)
 
 在工程中第一次点击，可能会提示说创建文件，点击确定即可
-对于管脚约束有下图中的两种方法
-- 将对应的端口拖拽到芯片引脚上
-- 在IO约束中输入端口对应的引脚编号
-
+![](./../../Tang-Nano/assets/LED-9.png)
 
 nano 4k的rgb led电路图如下所示
     ![](./../assets/LED_Pin.png "nano 1k rgb pins")
-
 
 | port      | I/O    | pin | desc       |
 | --------- | ------ | --- | ---------- |
 | sys_clk   | input  | 45  | 时钟输入脚 |
 | sys_rst_n | input  | 15  | 系统复位脚 |
 | led       | output | 10  | 红灯       |
+
+对于交互式管脚约束有下图中的两种方法
+- 将对应的端口拖拽到芯片引脚上
+- 在IO约束中输入端口对应的引脚编号
 
 因此对应在管脚约束里的内容应该如下图
   

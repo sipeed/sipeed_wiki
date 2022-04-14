@@ -2,25 +2,31 @@
 title: 点灯LED RGB
 ---
 
+> 编辑于2022年4月13日
+
 ## 新建项目
-1. 新建工程：File-->NEW-->FPGA Design Project-->OK
+
+新建工程：File-->NEW-->FPGA Design Project-->OK
     ![](./../../../Tang-Nano/assets/LED-1.png)
 
-2. 弹出的选项框选择存储路径和工程名称（路径和文件名称要求是英文路径）
+弹出的选项框选择存储路径和工程名称（路径和文件名称要求是英文路径）
     ![](./../../../Tang-Nano/assets/LED-2.png)
 
-3. 选择对应的型号：
+选择对应的型号：
     ![Tang_nano_1k_device_choose](./../../assets/Nano_1K_device_choose.png)
 
-## 准备代码
+## 编写代码
 
-4. 新建工程之后接下来进行代码编辑，在Design工作栏内新建“Verilog File”,如下图所示：
+新建工程之后接下来进行代码编辑，在Design工作栏内新建“Verilog File”,如下图所示：
     ![](./../../../Tang-Nano/assets/LED-5.png)
-5. 为文件命名（要求写英文名，不然后续综合很容易报错）；
+
+为文件命名（要求写英文名，不然后续综合很容易报错）；
    一般来说文件名称应该和文件内容模块名称相同
     ![](./../../../Tang-Nano/assets/LED-6.png)
+
+双击文件，可以在右侧的编辑框中进行代码的编写。
     ![](./../../../Tang-Nano/assets/LED-7.png)
-6. 双击文件，可以在右侧的编辑框中进行代码的编写。
+
 以流水灯为例，将下方的“LED例程代码”粘贴到自己的文件中，也可以自己编写自己的代码。
 
 ```verilog
@@ -57,38 +63,53 @@ endmodule
 ## 综合、约束、布局布线
 
 ### 综合
-7. 代码编辑结束后转到“Process”界面下，对编辑好的代码进行综合，即运行“Systhesize”
+
+保存编辑的代码后转到“Process”界面下，对编辑好的代码进行综合，即双击“Systhesize”
     ![](./../../../Tang-Nano-9K/nano_9k/nano_9k_synthsize.png)
-    运行之后如没有报错而且 Synthesize 变成下图里的图标
+
+运行之后如没有报错而且 Synthesize 变成下图里的图标
     ![](./../../../Tang-Nano/assets/LED.png) 
-    说明前面编辑的代码无误；如果有错，根据错误提示进行改正即可。
+
+说明前面编辑的代码无误；如果有错，根据错误提示进行改正即可。
 
 ### 约束
-8.  接下来通过  双击Process界面里的FloorPlanner来设置管脚约束（前面的综合如果运行失败，这一步无法进行），第一次打开会弹出缺少.cst文件.选择“OK”即可；
-    ![](./../../../Tang-Nano/assets/LED-9.png)
 
-9. nano 1k的rgb led电路图如下所示
-    ![](./../../assets/Nano_1K_RGB_pins.png "nano 1k rgb pins")
-    因此在打开的界面中按照序号的顺序来进行相应的操作（两种方式选择一种即可）
+- 此处未涉及时钟约束
+
+想让 Fpga 实现代码的功能，需要将代码中涉及的 端口 绑定到 Fpga 实际的引脚上。
+如下图，在左边的工作区点击 process，然后双击 FloorPlanner
+   ![](./../../assets/examples/led_pjt_2.png)
+   
+在工程中第一次点击，可能会提示创建文件，点击确定即可
+   ![](./../../../Tang-Nano/assets/LED-9.png)
+
+nano 1k的rgb led电路图如下所示
+    ![](./../../assets/Nano_1K_RGB_pins.png "nano 1k rgb pins")    
+
+对于交互式管脚约束有下图中的两种方法
+- 将对应的端口拖拽到芯片引脚上
+- 在IO约束中输入端口对应的引脚编号
+
+因此在打开的界面中按照序号的顺序来进行相应的操作（两种方式选择一种即可）
     ![](./../../assets/RGB_LED_Constrains.png)
 
-    **完成约束后记得保存~**
+**完成约束后记得保存~**
 
 
 ### 布局布线
 
-11. 到“Process”下运行“Place&Route”，即运行管脚布局布线，运行结果如下图所示：
+到“Process”下运行“Place&Route”，即运行管脚布局布线，运行结果如下图所示：
     ![](./../../assets/RGB_LED_Place&Route.png)
 
 ## 烧录
 
 - 成功完成上面步骤后就已经生成高云的比特流文件了，可以进行下面的步骤来将文件烧录到板子了。
 
-12. 接下来是进行连接板子，烧录固件。在Process界面双击`Program Device` 后打开烧录工具
+接下来是进行连接板子，烧录固件。在Process界面双击`Program Device` 后打开烧录工具
     ![](./../../assets/Open_Programmer.png)
 
 
-13. 接下来选择 SRAM下载 即可验证程序。
+接下来选择 SRAM下载 即可验证程序。
     没有自行焊接外部 FLASH 的话固化应当选择内部FLASH。
 
 点灯验证到此结束。

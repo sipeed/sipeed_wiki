@@ -1,24 +1,29 @@
 # 自己点灯
 
 ## 新建项目
-1. 新建工程：File-->NEW-->FPGA Design Project-->OK
+
+新建工程：File-->NEW-->FPGA Design Project-->OK
     ![](./../../assets/LED-1.png)
 
-2. 弹出的选项框选择存储路径和工程名称（路径和文件名称要求是英文路径）
+弹出的选项框选择存储路径和工程名称（路径和文件名称要求是英文路径）
     ![](./../../assets/LED-2.png)
 
-3. 选择对应的型号：
+选择对应的型号：
     ![Tang_nano_1k_device_choose](./assets/Nano_device_choose.png)
     
 ## 编写代码
 
-4. 新建好工程之后接下来进行代码编辑，在Design工作栏内新建“Verilog File”,如下图所示：
+新建好工程之后接下来进行代码编辑，在Design工作栏内新建“Verilog File”,如下图所示：
     ![](./../../assets/LED-5.png)
-5. 为文件命名（要求写英文名，不然后续综合很容易报错）；
+    
+为文件命名（要求写英文名，不然后续综合很容易报错）； 
    一般来说对于verolog文件建议文件名称与文件module名称应当相同
     ![](./../../assets/LED-6.png)
+
+双击新建的 .v 文件，可以在右侧的编辑框中编写代码。
     ![](./../../assets/LED-7.png)
-6. 双击新建的 .v 文件，可以在右侧的编辑框中编写代码。
+
+
 以流水灯为例；将下方的代码粘贴到自己的文件中，也可以自己编写代码。
 
 ```verilog
@@ -51,23 +56,36 @@ end
 endmodule
 
  ```
+
 ## 综合、约束、布局布线
+
 ### 综合
-7. 代码编辑保存后转到“Process”界面下，对编辑好的代码进行综合，即双击“Systhesize”
-    ![](./../../../Tang-Nano-9K/nano_9k/nano_9k_synthsize.png)
-    运行之后如没有报错而且 Synthesize 变成下图里的图标
+
+保存编辑的代码后转到“Process”界面下，对编辑好的代码进行综合，即双击“Systhesize”
+    ![](./../../../../Tang-Nano-9K/nano_9k/nano_9k_synthsize.png)
+
+运行之后如没有报错而且 Synthesize 变成下图里的图标
     ![](./../../../Tang-Nano/assets/LED.png) 
-    说明前面编辑的代码无误；如果有错，根据错误提示进行改正即可。
-        
+
+说明前面编辑的代码无误；如果有错，根据错误提示进行改正即可。        
 
 ### 约束
-8.  接下来通过  双击 Process 界面里的FloorPlanner来设置管脚约束。第一次打开会弹出缺少.cst文件.选择“OK”即可；
+
+- 此处未涉及时钟约束
+
+想让 Fpga 实现代码的功能，需要将代码中涉及的 端口 绑定到 Fpga 实际的引脚上。
+
+如下图，在左边的工作区点击 process，然后双击 FloorPlanner
+
+![](./../../../assets/examples/led_pjt_2.png)
+
+接下来通过 双击 Process 界面里的FloorPlanner来设置管脚约束。第一次打开会弹出缺少.cst文件.选择“OK”即可；
     ![](./../../assets/LED-9.png)
 
-9. nano 的rgb led电路图如下所示
+nano 的 rgb led电路图如下所示
     ![](./assets/nano_led_pins.png "nano rgb pins")
 
-    整个项目需要约束的引脚如下
+整个项目需要约束的引脚如下
 
 | port      | I/O    | pin | desc       |
 | --------- | ------ | --- | ---------- |
@@ -77,6 +95,9 @@ endmodule
 | led[1]    | output | 17  | 蓝灯       |
 | led[2]    | output | 18  | 红灯       |
 
+对于交互式管脚约束有下图中的两种方法
+- 将对应的端口拖拽到芯片引脚上
+- 在IO约束中输入端口对应的引脚编号
 
 在打开的界面中按照序号的顺序来进行相应的操作（两种方式选择一种即可）
 ![](./assets/pin_constrain_1.png)
@@ -86,15 +107,15 @@ endmodule
 
 ### 布局布线
 
-10. 到“Process”下运行“Place&Route”，即运行管脚布局布线，运行结果如下图所示：
+到“Process”下运行“Place&Route”，即运行管脚布局布线，运行结果如下图所示：
     ![](./assets/RGB_LED_Place&Route.png)
     
 ## 烧录
 
-11. 接下来是进行连接板子，烧录固件。在Process界面双击`Program Device` 后打开烧录工具
+接下来是进行连接板子，烧录固件。在Process界面双击 `Program Device` 后打开烧录工具
     ![](./assets/Open_Programmer.png)
 
-12. 接下来选择sram烧录即可验证程序。
+接下来选择sram烧录即可验证程序。
     ![](./assets/Success_led.png)
     
 

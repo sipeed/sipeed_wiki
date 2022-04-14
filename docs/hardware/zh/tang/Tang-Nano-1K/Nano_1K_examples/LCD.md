@@ -6,7 +6,7 @@ title: RGB LCD 示例
 
 ## 先介绍时序
 
-RGB LCD 显示图像的原理和 VGA 类似，都是在计算机内部以数字的方式生成需要显示的图像信息，再通过模数转换的方式，将这些数字的图像信息转变为 RGB 三原色模拟信号、以及行、场同步信号。
+RGB LCD 显示协议和 VGA 类似，通信都有专用的行同步、场同步信号线。它们的主要区别是前者传输用的是数字信号，后者传输走的是模拟信号。
 
 下面就介绍 VGA 的时序
 
@@ -16,11 +16,11 @@ RGB LCD 显示图像的原理和 VGA 类似，都是在计算机内部以数字�
 
 从时序图中可以看出，不论是显示一行数据还是一列数据，都需要一个对应的同步(sync)信号，数据的传输在两个同步信号的脉冲之间完成
 
-每一行的数据包括显示前沿(back porch)、有效数据(active viedo)、显示后沿(front porch)三个阶段
+每一行的数据包括显示前沿(back porch)、有效数据(active video)、显示后沿(front porch)三个阶段
 
 其中的有效数据就是我们常说的分辨率，而显示前后沿的参数需要参考具体的分辨率与帧数进行设置，相关参数可以参考典型参数，链接在此： http://www.tinyvga.com/vga-timing
 
-这块屏幕的控制时序略有不同，相关参数的设置可以查看[规格书](https://dl.sipeed.com/shareURL/TANG/Premier/HDK/Datasheet)(点开链接后选择AT050TN43文件)
+这块屏幕的控制时序略有不同，相关参数的设置可以查看[规格书](https://dl.sipeed.com/fileList/TANG/Nano%209K/6_Chip_Manual/EN/LCD_Datasheet/5.0inch_LCD_Datashet%20_RGB_.pdf)
 
 下面为这块 LCD 时序相关的截图
 
@@ -43,7 +43,7 @@ RGB LCD 显示图像的原理和 VGA 类似，都是在计算机内部以数字�
 
 ### pll
 
-板载的晶振时钟为 27MHz ，但是我们的屏幕要求 33.3MHZ 的时钟，所以我们需要使用对应的ip核来生成相应的时钟
+板载的晶振时钟为 27MHz ，但是我们的屏幕要求 33.3MHZ 的时钟，所以我们需要使用相应的ip核来生成需要的时钟
 
 这里需要使用到 `IP Core Generate` ，位置在 Tools -> IP Core Generate
 
@@ -53,12 +53,11 @@ RGB LCD 显示图像的原理和 VGA 类似，都是在计算机内部以数字�
 
 ![](./../assets/lcd_rpll.png)
 
-- 点击ok后提示是否需要添加到当前工程，此时应当选择确定
+点击ok后提示是否需要添加到当前工程，此时应当选择确定
   ![](./led/assets/add_ip_file_in_project.png)
 
-- 接着会出现一个例化的tmp文件，用来例化所设置的ip。
-比如下图中例子
-![](./led/assets/ip_examples.png)
+接着会出现一个例化的tmp文件，用来例化所设置的ip。比如下图中例子
+![](./../../Tang-Nano/examples/led/assets/ip_examples.png)
 
 ## 屏幕驱动代码
 
@@ -67,6 +66,7 @@ RGB LCD 显示图像的原理和 VGA 类似，都是在计算机内部以数字�
 ### 端口定义
 
 首先需要先定义出驱动屏幕所需要的端口
+
 ```verilog
 module VGAMod
 (
@@ -84,6 +84,7 @@ module VGAMod
 	output          [4:0]   LCD_R
 );
 ```
+
 本例程使用RGB565作为驱动方式；
 
 ### 时序常量
@@ -211,7 +212,7 @@ assign  LCD_B   =   (PixelCount<640)? 5'b00000 :
 - **这里也是要新建文件的**
 
 ```verilog
-module TOP
+module TOP //设置顶层模块
 (
 	input			nRST,
     input           XTAL_IN,
@@ -224,14 +225,14 @@ module TOP
 	output	[5:0]	LCD_G,
 	output	[4:0]	LCD_B,
 
-);
+); // 罗列需要的端口
 
 	wire		CLK_SYS;	
 	wire		CLK_PIX;
     
     //例化pll
     Gowin_rPLL chip_pll(
-        .clkout(CLK_SYS), //output clkout      //200M
+        .clkout(CLK_SYS), //output clkout     //200M
         .clkoutd(CLK_PIX), //output clkoutd   //33.00M
         .clkin(XTAL_IN)    //input clkin
     );	
@@ -255,8 +256,23 @@ module TOP
 
 endmodule
 ```
-## 管脚约束
-进行管脚约束前需要先将工程综合一次，即在 Process 界面双击一下 Synthesize，然后选择Process 里的 User Constrains -> FloorPlanner。
+
+## 综合、约束、布局布线
+
+### 综合
+
+完成上面步骤后转到“Process”界面下，对编辑好的代码进行综合，即运行“Systhesize” 
+![](./../../Tang-Nano-9K/nano_9k/nano_9k_synthsize.png)
+
+运行的结果如下图出现 
+![](./../../Tang-Nano/assets/LED.png) 
+
+且下方结果栏不出现任何从报错，说明前面编辑的代码无误，如果有错，根据错误提示进行改正即可。
+
+### 约束 
+
+- 此处仅管脚约束
+
 对应的管脚约束如下表格；
 关于管脚约束可以参考[自建点灯文章(点我)](./led/self_create.md)里面的约束方法
 如果感觉麻烦的话也可以直接复制准备好的[文件(点我)](./lcd_constrains.md)，将页面里的内容复制到工程目录里 .cst 文件中（如果没有.cst 文件那么自己新建一个）**物理管脚约束文件** 即可。
@@ -287,6 +303,7 @@ endmodule
 设置完上面的之后。
 就可以开始布局布线(Place&Route)了。
 完成后就可以给开发板验证代码内容了。
+
 ## 烧录
 
 布局布线结束后生成比特流，就可以烧录开发板了。
