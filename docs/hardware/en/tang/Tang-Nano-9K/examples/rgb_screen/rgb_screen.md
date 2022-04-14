@@ -20,7 +20,7 @@ Each horizon of data contains back porch, visible data **(this is normally  thou
 
 The visible data is resolution we normally think, while the parameter of back porch and front porch depends on the resolution and frame rate. Its typical parameters can be found in this web. http://www.tinyvga.com/vga-timing
 
-The timing of screen which we provided is a bit different, its parameters can be downloaded here. [Detail book](https://dl.sipeed.com/fileList/TANG/Premier/HDK/Datasheet/AT050TN43%20V.1%20Pre%20Ver01%2020100511_A050-43-TT-11_201102115899.pdf)
+The timing of screen which we provided is a bit different, its parameters can be downloaded here. [Detail book](https://dl.sipeed.com/fileList/TANG/Nano%209K/6_Chip_Manual/EN/LCD_Datasheet/5.0inch_LCD_Datashet_RGB.pdf)
 
 The following picture shows the screenshot about this LCD timing.
 
@@ -271,7 +271,8 @@ If the result is the same as shown below
 ![](./../../../../../zh/tang/Tang-Nano/assets/LED.png) 
 
 It means that there is no bug in our code, we can continue the next steps. 
-If the is some thing wrong, please fix by yourself. 
+
+If there is some thing wrong, please fix by yourself. 
 
 ### Constrain
 

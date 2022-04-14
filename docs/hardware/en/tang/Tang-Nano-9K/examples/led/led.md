@@ -76,7 +76,8 @@ If the result is the same as shown below
 ![](./../../../../../zh/tang/Tang-Nano/assets/LED.png) 
 
 It means that there is no bug in our code, we can continue the next steps. 
-If the is some thing wrong, please fix by yourself. 
+
+If there is some thing wrong, please fix by yourself. 
 
 ### Constrain
 

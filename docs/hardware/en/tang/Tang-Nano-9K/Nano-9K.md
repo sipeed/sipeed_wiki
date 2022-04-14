@@ -14,7 +14,7 @@ Tang Nano 9K is the 5th product of Sipeed Tang series. Before purchasing, you ca
 
 | Model               | Tang Nano 1K                             | Tang Nano 4K                             | Tang Nano 1K                                            |
 | :------------------ | :--------------------------------------- | :--------------------------------------- | :------------------------------------------------------ |
-| Appearance          | <img src="./assets/1K.png" width="180" > | <img src="./assets/4K.png" width="180" > | <img src="./assets/9K.png" width="180" >                |
+| Appearance          | <img src="./../../../zh/tang/Tang-Nano/assets/clip_image002.gif" width="180" > | <img src="./../../../zh/tang/Tang-Nano/assets/clip_image004.gif" width="180" > | <img src="./../../../zh/tang/Tang-Nano/assets/clip_image006.gif" width="180" >                |
 | Logic Units (LUT4)  | 1152                                     | 4608                                     | 8640                                                    |
 | Hard core processor | /                                        | Cortex m3                                | /                                                       |
 | Crystal oscillator  | 27MHZ                                    | 27MHZ                                    | 27MHZ                                                   |
@@ -40,7 +40,7 @@ This form shows detail parameters of Tang Nano 9K
 | SDR SDRAM(bits)                                                                                            | 64M                                                                     |
 | 18 x 18 Multiplier                                                                                         | 20                                                                      |
 | SPI FLASH                                                                                                  | 32M-bit                                                                 |
-| Number of Pll                                                                                              | 2                                                                       |
+| Number of PLL                                                                                              | 2                                                                       |
 | Display interface                                                                                          | HDMI interface, SPI screen interface and RGB screen interface           |
 | Debugger                                                                                                   | Onboard BL702 chip provides USB-JTAG and USB-UART functions for GW1NR-9 |
 | IO                                                                                                         | • support 4mA、8mA、16mA、24mA other driving capabilities <br>• Provides independent Bus Keeper, pull-up/pull-down resistors, and Open Drain output options for each I/O |
@@ -49,9 +49,9 @@ This form shows detail parameters of Tang Nano 9K
 | LED                                                                                                        | Onboard 6 programmable LEDs                                             |
 
 
-![Generated](.\assets\clip_image008.jpg)
+![Generated](./../../../zh/tang/Tang-Nano-9K/assets/clip_image008.jpg)
 
-![Generated](.\assets\clip_image010.gif)
+![Generated](./../../../zh/tang/Tang-Nano-9K/assets/clip_image010.gif)
 
 | Usage           | FPGA                     | MCU                                                                               | FPGA+MCU                                                              |
 | :-------------- | :----------------------- | :-------------------------------------------------------------------------------- | :-------------------------------------------------------------------- |
@@ -61,27 +61,26 @@ This form shows detail parameters of Tang Nano 9K
 
 ## User guide
 
-1. Download our packaged user guide document : [Click here](https://dl.sipeed.com/shareURL/TANG/Nano%209K/6_Chip_Manual) (The all PDFs mentioned below are here)
+1. Download our packaged user guide document : [Click here](https://dl.sipeed.com/shareURL/TANG/Nano%209K/6_Chip_Manual) (All PDFs mentioned below are here)
    
 2. Install IDE and configure license : [Click here](./../Tang-Nano-Doc/install-the-ide.md)
    
 3. Read this file (in the file downloaded in step 1) : [SUG100-2.6E_Gowin Software User Guide.pdf](https://dl.sipeed.com/fileList/TANG/Nano%209K/6_Chip_Manual/EN/General%20Guide/SUG100-2.6E_Gowin%20Software%20User%20Guide.pdf)
 
 4. Read this [tutorial](./examples/led/led.md) (LEDs lighting experiment).
+   We recommended you read the following documents during this process:
+   Verilog code specifications (please search by yourself. It is very necessary to cultivate good code specifications from the beginning)
+   SUG949-1.1E_Gowin HDL Coding User Guide.pdf
+   UG286-1.9.1E_Gowin Clock User Guide.pdf
+   FPGA related learning books
 
-We recommended you read the following documents during this process:
-Verilog code specifications (please search by yourself. It is very necessary to cultivate good code specifications from the beginning)
-SUG949-1.1E_Gowin HDL Coding User Guide.pdf
-UG286-1.9.1E_Gowin Clock User Guide.pdf
-FPGA related learning books
+   Online tutorial:  We suggest two excellent third-party learning sites about verilog : [HDLBITs](https://hdlbits.01xz.net/wiki/Main_Page) and [Verilog Page](https://www.asic-world.com/verilog/index.html)
 
-Online tutorial:  We suggest two excellent third-party learning sites about verilog : [HDLBITs](https://hdlbits.01xz.net/wiki/Main_Page) and [Verilog Page](https://www.asic-world.com/verilog/index.html)
-
-5. Read this [tutorial](./examples/rgb_screen/rgb_screen.md) (RGB screen Display experiment). If you can't complete this experiment, you can download our 9K examples (adapted to 9K + 5-inch screen) to see which step goes wrong.
-Note: for screen wiring, pay attention to the 1-pin silk screen next to the connector corresponding to 1-pin of the cable
-Documents to read:
-SUG284-2.1E_Gowin IP Core Generator User Guide.pdf (Page 28)
-Datasheet of 5inch screen:Click AT050TN43***.pdf (mainly to obtain the information that CLK is 33.3mhz)
+5. Read this [tutorial](./examples/rgb_screen/rgb_screen.md) (RGB screen Display experiment). If you can't complete this experiment, you can download our [9K examples](https://github.com/sipeed/TangNano-9K-example.git) (adapted to 9K + 5-inch screen) to see which step goes wrong.
+   Note: for screen wiring, pay attention to the 1-pin silk screen next to the connector corresponding to 1-pin of the cable
+   Documents to read:
+   [SUG284-2.1E_Gowin IP Core Generator User Guide.pdf](https://dl.sipeed.com/fileList/TANG/Nano%209K/6_Chip_Manual/EN/General%20Guide/SUG284-2.1E_Gowin%20IP%20Core%20Generator%20User%20Guide.pdf) (Page 28)
+   [Datasheet of 5inch screen](https://dl.sipeed.com/fileList/TANG/Nano%209K/6_Chip_Manual/EN/LCD_Datasheet/5.0inch_LCD_Datashet%20_RGB_.pdf)
 
 6. Explanation of HDMI display (to be updated)
 
@@ -97,27 +96,26 @@ Datasheet of 5inch screen:Click AT050TN43***.pdf (mainly to obtain the informati
 
 ## Summary of hardware files
 
-- Datasheet,  User Guide, Schemaitc, Size, Designator, 3D file : [Click here](https://dl.sipeed.com/shareURL/TANG/Nano%209K)
+- [Datasheet](https://dl.sipeed.com/shareURL/TANG/Nano%209K/6_Chip_Manual/EN)
+- User Guide
+- [Schematic](https://dl.sipeed.com/shareURL/TANG/Nano%209K/2_Schematic)
+- [Size](https://dl.sipeed.com/shareURL/TANG/Nano%209K/4_Dimensional_drawing)
+- Designator
+- [3D file](https://dl.sipeed.com/shareURL/TANG/Nano%209K/5_3D_file)
 
-## Matters needing attention
+## Matters need attention
 
 1. It is recommended to use Gowin V1.9.8.03 Education Edition : [Click here](https://www.gowinsemi.com/en/support/download_eda/)
-If you want to use more IP cores, you need to download other version of IDE, and apply for license : [Click here](https://wiki.sipeed.com/hardware/en/tang/Tang-Nano-Doc/install-the-ide.html)
+But if you want to use more IP cores, you need to download other version of IDE, and apply for license : [Click here](https://wiki.sipeed.com/hardware/en/tang/Tang-Nano-Doc/install-the-ide.html)
 2. This version of programmer is recommended : [Click here](https://dl.sipeed.com/shareURL/TANG/programmer)
-3. Avoid using JTAG, MODE0/1 and DONE pins. If you must use these pins, please refer to the <UG284-1.8E : schematic manual.pdf>
-4. Please pay attention to avoid static electricity hitting PCBA; Please release the static electricity from the hand before contacting PCBA
-5. The working voltage of each GPIO has been marked in the schematic . Please do not let the actual working voltage of GPIO exceed the rated value, otherwise it will cause permanent damage to PCBA
-6. When connecting FPC flexible cable, please ensure that the cable is completely inserted into the cable without offset
-7. Please avoid any liquid or metal touching the pads of components on PCBA during power on, otherwise it will cause short circuit and burn PCBA
-
-
-
-
-
+3. Avoid using JTAG, MODE0/1 and DONE pins. If you really need to use these pins, please refer to the <UG284-1.8E : schematic manual.pdf>
+4. Please avoid static electricity hitting PCBA; Please release the static electricity from the hand before contacting PCBA
+5. The working voltage of each GPIO has been marked in the schematic . Please do not let the actual working voltage of GPIO exceed the rated value, because it will cause permanent damage to PCBA
+6. When connecting FPC flexible cable, make sure that the cable is completely inserted into the cable without offset
+7. Avoid any liquid or metal touching the pads of components on PCBA during working, because this will cause short circuit and demage PCBA
 
 ## Others
 
-- [Schematic](https://dl.sipeed.com/shareURL/TANG/Nano%209K/2_Schematic)
 - [Download center](https://dl.sipeed.com/shareURL/TANG/Nano%209K)
 - [Examples](./Tang-nano-9k.md)
 
