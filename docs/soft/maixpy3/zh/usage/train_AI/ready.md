@@ -53,6 +53,8 @@ PyTorch 不能直接将模型导出成 ncnn 格式，需要使用 onnx2ncnn 转�
 
     ```shell
     git clone https://github.com/Tencent/ncnn.git
+    cd ncnn
+    git checkout a03c1353193a172bfc22481195704731f75148d9
     ```
 
 3. 工程编译初始化

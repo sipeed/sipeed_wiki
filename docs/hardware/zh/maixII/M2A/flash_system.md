@@ -18,7 +18,7 @@ Lichee MaixSense（以下简称R329）提供了以下两种系统镜像
 
 armbian 镜像获取：
 
-> 链接：<https://pan.baidu.com/s/1CcjZdjPb3RtVjdQkQ0CfAg> 提取码：2333 
+> 链接：<https://eyun.baidu.com/s/3i6wLa41> 提取码：2333 
 
 
 armbian 使用的烧录方式为 dd，windows下推荐使用 Etcher，linux 下推荐使用 Terminal。
