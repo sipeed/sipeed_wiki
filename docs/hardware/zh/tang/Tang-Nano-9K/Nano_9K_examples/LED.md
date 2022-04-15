@@ -108,6 +108,9 @@ nano 9k的led电路图如下所示
 
 ## 烧录
 
+双击 Programmer 打开下载软件
+![](./../../../../../Tang-Nano-4K/assets/Open_Programmer.png)
+
 接下来是连接板子，烧录固件，可参照下图选择版型：
 ![](./../nano_9k/nano_9k_device_scan.png)
 

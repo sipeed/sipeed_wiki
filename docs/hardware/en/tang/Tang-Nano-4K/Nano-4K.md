@@ -32,9 +32,9 @@ Lichee Tang Nano 4K is a core board designed based on [Gowin](https://www.gowins
 
 ## Others
 
+- [Examples](./Tang-nano-4k.md)
 - [Schematic](https://dl.sipeed.com/shareURL/TANG/Nano%204K/HDK/02_Schematic)
 - [Download center](https://dl.sipeed.com/shareURL/TANG/Nano%204K/)
-- [Examples](./Tang-nano-4k.md)
 
 ## Support
 

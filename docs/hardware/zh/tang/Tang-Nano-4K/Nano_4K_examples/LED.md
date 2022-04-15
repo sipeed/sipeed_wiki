@@ -15,9 +15,9 @@ title: Nano 4K 点灯
     ![](./../../Tang-Nano/assets/LED-2.png)
 
 选择对应的型号：
-    ![Tang_nano_1k_device_choose](./../assets/Nano_4K_device_choose.png)
+    ![Tang_nano_4k_device_choose](./../assets/Nano_4K_device_choose.png)
 
-- 可能有部分板子主控芯片型号为 C7/I6 ，用户自行更改一下即可
+- 可能有部分板子主控芯片型号为 C7/I6 ，用户自行选择一下即可
 
 ## 编写代码
 
@@ -88,7 +88,7 @@ endmodule
 ![](./../../Tang-Nano/assets/LED-9.png)
 
 nano 4k的rgb led电路图如下所示
-    ![](./../assets/LED_Pin.png "nano 1k rgb pins")
+    ![](./../assets/LED_Pin.png "nano 4k rgb pins")
 
 | port      | I/O    | pin | desc       |
 | --------- | ------ | --- | ---------- |
@@ -117,7 +117,6 @@ Project -> Configuration ->Palse&Route -> Dual-Purpose Pin,
 
 - 完成脚约束后，接下来进行布局布线操作。
 
-
 ![Place&&Route](./../assets/Place&Route.png)
 
 > 失败的话请从头再来一遍
@@ -125,6 +124,9 @@ Project -> Configuration ->Palse&Route -> Dual-Purpose Pin,
 ## 烧录到开发板
 
 - 成功完成上面步骤后就已经生成高云的比特流文件了，可以进行下面的步骤来将文件烧录到板子了。
+
+接下来是连接板子，烧录固件，可参照下图选择版型：
+![](./../assets/nano_4k_device_scan.png)
 
 在Process界面双击`Program Device` 后打开烧录工具
     ![](./../assets/Open_Programmer.png)

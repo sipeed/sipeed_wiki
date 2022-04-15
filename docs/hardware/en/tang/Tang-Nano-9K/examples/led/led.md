@@ -105,7 +105,7 @@ So we can do the ordered operations in the opened window as what the following p
 
 ### Place&Route
 
-> If it shows error 2017, the solve way can be found ahead 
+> If it shows error 2017, the solve way can be found ahead(Tips: Enable Dual-Purpose Pin) 
 
 After finishing Running "Place&Route" in the Process interface window, the result will be as same as below
 ![](./../../../../../zh/tang/Tang-Nano-9K/nano_9k/LED_Place&Route.png)
