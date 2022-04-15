@@ -5,7 +5,7 @@ desc: maixpy doc: 如何连接并使用 MaixPy3 的 IDE
 ---
 
 >[下载 MaixPy3 IDE ](https://dl.sipeed.com/shareURL/MaixII/MaixPy3-IDE)
->百度网盘下载连接：<https://pan.baidu.com/s/1C7Jl3rXticeJsCgH-fIcbQ> 提取码：2333
+>百度网盘下载链接：<https://eyun.baidu.com/s/3ggHhRQr> 密码：2333
 
 ## 为什么要使用 IDE ？
 

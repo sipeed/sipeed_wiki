@@ -33,7 +33,7 @@ armbian 内置了 ffmpeg ，可以快速捕捉 sensor 数据并输出到屏幕�
 也可以使用apt下载各种应用
 
 ```bash
-sudo apt install neofetch
+sudo apt install neofetch armbian-config
 ```
 
 ![image-20210805165620823](./assets/image-20210805165620823.png)
