@@ -87,7 +87,7 @@ To realize function of the code on FPGA, we need bind the ports we define with t
 
 Double click the FloorPlanner in the Process interface to set pin constrain(This can be continued if failing systhesize). 
 
-![](./../../assets/examples/led_pjt_2.png)
+![](./../../../../../zh/tang/assets/examples/led_pjt_2.png)
 
 First time open FloorPlanner it will notice lack ".cst" file, we just choose ok. 
 ![](./../../../../../zh/tang/Tang-Nano/assets/LED-9.png)

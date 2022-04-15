@@ -2,6 +2,8 @@
 title: Tang nano 9k examples
 ---
 
+Before reading, we suggest using this [Programmer](https://dl.sipeed.com/shareURL/TANG/programmer) not that installed with IDE
+
 - [Blink](./examples/led/led.md)
 - [LCD screen](./examples/rgb_screen/rgb_screen.md)
 - [Run examples of PicoRV](./examples/picorv/picorv.md)

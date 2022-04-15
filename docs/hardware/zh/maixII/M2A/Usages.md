@@ -2,19 +2,74 @@
 
 ## 配置网络
 
-`nmtui`
+我们使用 `nmtui` 命令来配置 wifi
 
 ![202108051626](./assets/202108051626.gif)
 
+## 新建用户
 
+一般来说不使用root来登录linux系统，因为这样很容易把系统玩崩了。
+因此新建一个用户来避免一直使用root账户来进行操作。
 
-## 配置SSH连接
+```bash
+adduser xxx                                             # 添加用户名为 xxx 的用户
 
-系统已默认开启了ssh和ftp，需要在串口使用 `passwd root` 设置密码后，才能使用 root 用户进行 SSH 连接。
-再或者新建一个用户也可以进行SSH登录，具体新建用户方法自行搜索。
+# ...                                                   # 省略一些 log
+
+New password:                                           # 新建用户密码
+Retype new password:                                    # 重新输入密码
+
+# ...                                                   # 省略一些 log
+
+Enter the new value, or press ENTER for the default     # 添加信息，或者直接按 ENTER 选择默认信息
+
+# ...                                                   # 按五次 enter 选择默认即可
+
+Is the information correct? [Y/n] y                     # 输入 y 完成创建
+
+```
+
+到这里我们就已经成功创建名称为 xxx 的用户了
+
+### 授予管理员权限
+
+有时候用户需要使用到管理员权限，下面内容就是授予用户管理员权限
+
+```bash
+sudo nano /etc/sudoers                                   # 修改 /etc/sudoers 文件。编辑器个人喜好
+```
+
+在文件里找到下面的内容
+
+```vim
+# User privilege specification
+root    ALL=(ALL:ALL) ALL
+
+```
+
+在里面添加上
+
+```vim
+# User privilege specification
+root    ALL=(ALL:ALL) ALL
+xxx     ALL=(ALL:ALL) ALL
+
+```
+
+接着保存后退出即可。
+
+## 使用SSH连接
+
+想要使用 ssh 来连接板子的话需要板子里面存在的用户名称和密码。
+默认的 root 用户没有密码， 所以想用 root 账户的话需要自己使用passwd命令自己添加密码；
+使用串口连接板子后执行 ifconfig 来或许板子的 IP 地址。
+接着就可以使用 ssh 来连接板子了。
+用户也可以尝试使用 MobaXterm 这个软件来方便电脑与板子传输文件
 
 ## MaixPy3 IDE 连接
-只能通过远程连接来用 MaixPy3 IDE 连接 MaixSense ，使用有线连接会连接不上。每个人的网络环境都存在差异，都可能存在连接不上的情况。
+
+只能通过远程连接来用 MaixPy3 IDE 连接 MaixSense ，使用有线连接会连接不上。
+每个人的网络环境都存在差异，都可能存在连接不上的情况。
 
 ### 准备
 
@@ -36,8 +91,6 @@ print(platform.uname())
 
 运行输出结果如下：
 ![MaixPy3 IDE](./assets/MaixPy3-IDE.jpg)
-
-
 
 ## 设置时区
 

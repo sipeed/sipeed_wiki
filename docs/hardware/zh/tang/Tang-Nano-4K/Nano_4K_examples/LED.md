@@ -17,6 +17,8 @@ title: Nano 4K 点灯
 选择对应的型号：
     ![Tang_nano_1k_device_choose](./../assets/Nano_4K_device_choose.png)
 
+- 可能有部分板子主控芯片型号为 C7/I6 ，用户自行更改一下即可
+
 ## 编写代码
 
 新建工程之后接下来进行代码编辑，在Design工作栏内新建“Verilog File”,如下图所示：
