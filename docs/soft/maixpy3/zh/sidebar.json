@@ -5,7 +5,7 @@
             "file": "readme.md"
         },
         {
-            "label": "支持的开发板&平台& IDE",
+            "label": "支持的开发板",
             "file": "install/install.md",
             "collapsed": false,
             "items":[
@@ -14,7 +14,7 @@
                     "file":"tools/MaixPy3_IDE.md"
                 },
                 {
-                    "label":"连接开发板",
+                    "label":"如何连接开发板",
                     "items":[
                         {
                             "label":"MaixII-Dock (V831)",
@@ -29,12 +29,16 @@
             ]
         },
         {
-            "label":"MaixPy3 开发进度跟踪",
+            "label":"最新开发进度",
             "file": "develop/readme.md"
         },
         {
-            "label": "开源社区中分享“亿”些资料",   
+            "label": "来自社区分享的“亿”些资料",   
             "items": [
+                {
+                    "label":"如何正确反馈问题并得到解决的方法",
+                    "file":"origin/helper.md"
+                },
                 {
                     "label":"Python 的相关教程",
                     "file": "origin/python.md",
@@ -60,10 +64,6 @@
                 {
                     "label":"喏呐の 【攻城狮成长记】",
                     "file":"origin/xiaoxu.md"
-                },
-                {
-                    "label":"如何正确反馈问题并得到解决的方法",
-                    "file":"origin/helper.md"
                 }
             ]
         },
@@ -83,7 +83,7 @@
                             "file": "usage/vision/maixpy3-example.ipynb"
                         },
                         {
-                            "label": "图像处理操作(开发ing)",
+                            "label": "图像处理（开发中）",
                             "file":"usage/vision/image_example.ipynb"
                         }
                     ]
@@ -108,7 +108,7 @@
                             "file": "usage/hardware/UART.ipynb"
                         },
                         {
-                            "label": "SPI",
+                            "label": "SPI （spidev）",
                             "file": "usage/hardware/SPI.ipynb"
                         },
                         {
@@ -173,7 +173,7 @@
                     "file":"usage/AI_net/self_learn.ipynb"
                 },
                 {
-                    "label": "训练 AI 模型",
+                    "label": "本地训练 AI 模型",
                     "items":[
                         {
                             "label": "深度神经网络基础知识（必看）",
