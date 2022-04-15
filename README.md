@@ -6,7 +6,7 @@ visit: [wiki.sipeed.com](https://wiki.sipeed.com)
 
 ## build locally
 
-* Install teedoc
+* Install teedoc   
 
 ```
 pip3 install teedoc --upgrade
@@ -32,5 +32,4 @@ teedoc serve
 ```
 
 then visit [http://127.0.0.1:2333](http://127.0.0.1:2333)
-
 
