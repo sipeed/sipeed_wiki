@@ -6,7 +6,7 @@ visit: [wiki.sipeed.com](https://wiki.sipeed.com)
 
 ## build locally
 
-* Install teedoc   
+* Install teedoc 
 
 ```
 pip3 install teedoc --upgrade
