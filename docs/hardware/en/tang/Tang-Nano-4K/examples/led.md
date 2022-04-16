@@ -83,7 +83,7 @@ If there is some thing wrong, please fix by yourself.
 
 ### Constrain
 
-- Here is no clock constraint involved
+- Clock constraint is not involved here
 
 To realize function of the code on FPGA, we need bind the ports we define with the chip pins.
 
@@ -120,20 +120,18 @@ After finishing Running "Place&Route" in the Process interface window, the resul
 ## Program
 
 Then connect the board with computer, download firmware.
-You can select the device according to the following picture.
-![](./../../../../zh/tang/Tang-Nano-4K/nano_9k/nano_9k_device_scan.png)
+
+You can scan the device according to the following picture.
+![](./../../../../zh/tang/Tang-Nano-4K/assets/nano-4k-device-scan.png)
 
 We use download to SRAM as an example.
 - Configure download mode
 
-![](./../../../../../zh/tang/Tang-Nano-9K/nano_9k/nano_9k_sram_program.png "configure sram download mode")
+![](./../../../../zh/tang/Tang-Nano-4K/assets/nano-4k-sram-choose.png)
 
-Download
-![](./../../../../../zh/tang/Tang-Nano-9K/nano_9k/nano_9k_sram_download.png "start sram download")
+Then we just click download to start program device.
 
-Then the board runs as shown：
-
-![](./../../../../../zh/tang/Tang-Nano-9K/nano_9k/blink.gif)
+Then the led on the board will blink
 
 If you need to store firmware with no power, just choose download to flash mode.
 

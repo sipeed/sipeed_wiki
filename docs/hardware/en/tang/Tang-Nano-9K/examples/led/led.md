@@ -81,7 +81,7 @@ If there is some thing wrong, please fix by yourself.
 
 ### Constrain
 
-- Here is no clock constraint involved
+- Clock constraint is not involved here
 
 To realize function of the code on FPGA, we need bind the ports we define with the chip pins.
 
