@@ -276,6 +276,8 @@ maixpy ide 挂着运行时内存不足，就会出现的常见错误，解决方
 
 所以要改图片为 224224 输入，如果是 128 128 同理修改图片尺寸！！！！！
 
+要么使用 sensor.set_windowing 改变摄像头输入大小，要么对 图像 img.resize 改变图像大小。
+
 ## ValueError input not support
 
 检查一下 Python 代码出错行，排查 ValueError 错误，一般发生在输入的类型不与目标函数所需的类型一致导致的错误，可能是内存不足导致对象为 None 也可能是类被回收了。
