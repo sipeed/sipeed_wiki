@@ -28,6 +28,8 @@ The IDE icon is like what is shown below.
 
 ### Using local license
 
+- Normally the license email will be replied on Tuseday or Friday (GMT+8)
+
 Send an apply license email to support@sipeed.com to get a local license.
 The title of the email is [Apply Tang Lic]MAC: xxxxxx , the content should be like below:
 
