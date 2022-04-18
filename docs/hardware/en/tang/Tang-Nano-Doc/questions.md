@@ -10,5 +10,5 @@
 
 ## ID code mismatch
 
-This error means wrong device choice. All that refers chip model need to be changed. 
+This error means wrong device choice. All that refers chip model(like he project device, pin constrain, IP modules and programmer device choose) need to be changed. 
 

@@ -180,29 +180,12 @@
                             "file": "tang/Tang-Nano-Doc/get_started/install-the-ide.md"
                         },
                         {
-                            "label": "下载失败问题",
-                            "file": "tang/Tang-Nano-Doc/get_started/programmer.md"
+                            "label": "相关问题",
+                            "file": "tang/Tang-Nano-Doc/questions.md"
                         },
                         {
                             "label": "相关例程",
-                            "items": [
-                                {
-                                    "label": "Tang Nano 的一些例程",
-                                    "file": "tang/Tang-Nano/Tang-nano.md"
-                                },
-                                {
-                                    "label": "Tang Nano 1k 的一些例程",
-                                    "file": "tang/Tang-Nano-1K/Tang-nano-1k.md"
-                                },
-                                {
-                                    "label": "Tang Nano 4k 的一些例程",
-                                    "file": "tang/Tang-Nano-4K/Tang-nano-4k.md"
-                                },
-                                {
-                                    "label": "Tang Nano 9k 的一些例程",
-                                    "file": "tang/Tang-Nano-9K/Tang-nano-9k.md"
-                                }
-                            ]
+                            "file": "tang/Tang-Nano-Doc/examples.md"
                         }
                     ]
                 },
