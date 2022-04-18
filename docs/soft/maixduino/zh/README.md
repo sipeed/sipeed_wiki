@@ -1,4 +1,4 @@
-Maixduino 文档
+Maixduino 文档(此文档已不再更新)
 ======
 
 <div class="title_pic">
