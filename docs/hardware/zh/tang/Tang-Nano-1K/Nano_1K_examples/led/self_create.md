@@ -101,16 +101,19 @@ nano 1k的rgb led电路图如下所示
 到“Process”下运行“Place&Route”，即运行管脚布局布线，运行结果如下图所示：
     ![](./../../assets/RGB_LED_Place&Route.png)
 
+如果没有成功运行，那自己修修。
+
 ## 烧录
 
 - 成功完成上面步骤后就已经生成高云的比特流文件了，可以进行下面的步骤来将文件烧录到板子了。
 
-接下来是进行连接板子，烧录固件。在Process界面双击`Program Device` 后打开烧录工具
+接下来是连接板子，烧录固件。在Process界面双击`Program Device` 后打开烧录工具
     ![](./../../assets/Open_Programmer.png)
 
+可以从下面的图中选择烧录模式；再此以烧录到SRAM作为示例
+![](./../../../Tang-Nano/examples/led/assets/tang-nano-programmer-config.png)
 
-接下来选择 SRAM下载 即可验证程序。
-    没有自行焊接外部 FLASH 的话固化应当选择内部FLASH。
+接下来选择运行即可验证程序。有固化需求的自行选择下载到flash即可。
 
 点灯验证到此结束。
 

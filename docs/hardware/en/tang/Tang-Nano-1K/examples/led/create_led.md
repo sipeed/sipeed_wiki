@@ -1,6 +1,6 @@
 # Blink led
 
-> Edit on 2022.04.18
+> Edit on 2022.04.19
 
 From this essay we can learn the basic usage of Gowin IDE
 
@@ -13,7 +13,7 @@ Set project name and project path (File name and project path shoule be English)
 ![](./../../../../../zh/tang/Tang-Nano/assets/LED-2.png)
 
 Choose correct device: 
-![Tang_nano_device_choose](./../../../../../zh/tang/Tang-Nano/examples/led/assets/Nano_device_choose.png)
+![Tang_nano_device_choose](./../../../../../zh/tang/Tang-Nano-1K/assets/Nano_1K_device_choose.png)
 
 ## Prepare codes
 
@@ -32,9 +32,9 @@ Double click the created file, then edit in right window
 
 ~~~v
 module led (
-    input sys_clk,
-    input sys_rst_n,
-    output reg [2:0] led // 110 B, 101 R, 011 G
+    input sys_clk,          // clk input
+    input sys_rst_n,        // reset input
+    output reg [2:0] led    // 110 B, 101 G,001 R
 );
 
 reg [23:0] counter;
@@ -42,7 +42,7 @@ reg [23:0] counter;
 always @(posedge sys_clk or negedge sys_rst_n) begin
     if (!sys_rst_n)
         counter <= 24'd0;
-    else if (counter < 24'd1199_9999)       // 0.5s delay
+    else if (counter < 24'd1349_9999)       // 0.5s delay
         counter <= counter + 1;
     else
         counter <= 24'd0;
@@ -51,7 +51,7 @@ end
 always @(posedge sys_clk or negedge sys_rst_n) begin
     if (!sys_rst_n)
         led <= 3'b110;
-    else if (counter == 24'd1199_9999)       // 0.5s delay
+    else if (counter == 24'd1349_9999)       // 0.5s delay
         led[2:0] <= {led[1:0],led[2]};
     else
         led <= led;
@@ -88,20 +88,21 @@ First time open FloorPlanner it will prompt lack of ".cst" file, we just choose 
 ![](./../../../../../zh/tang/Tang-Nano/assets/LED-9.png)
 
 The led schematic of nano is as shown below:
-![](./../../../../../zh/tang/Tang-Nano/examples/led/assets/nano_led_pins.png)
+![](./../../../../../zh/tang/Tang-Nano-1K/assets/Nano_1K_RGB_pins.png)
 
 In this GUI interface we have two ways to constrain pins:
 - Drag the corresponding port to the pin of chip
-- Type the pin number corresponding to the port in IO constraint(This is shown as below)
+- Type the pin number corresponding to the port in IO constraint
 
 So we can do the ordered operations in the opened window as what the following picture shows:(Just choose one way)
-![](./../../../../../zh/tang/Tang-Nano/examples/led/assets/pin_constrain_1.png)
-![](./../../../../../zh/tang/Tang-Nano/examples/led/assets/pin_constrain_2.png)
+    ![](./../../../../../zh/tang/Tang-Nano-1K/assets/RGB_LED_Constrains.png)
 
 ### Place&Route
 
 After finishing Running "Place&Route" in the Process interface window, the result will be as same as below
-![](./../../../../../zh/tang/Tang-Nano/examples/led/assets/RGB_LED_Place&Route.png)
+![](./../../../../../zh/tang/Tang-Nano-1K/assets/RGB_LED_Place&Route.png)
+
+If it shows different from the picture below, please fix by yourself.
 
 ## Program
 

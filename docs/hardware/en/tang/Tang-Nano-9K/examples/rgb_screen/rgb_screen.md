@@ -2,7 +2,7 @@
 title: Drive RGB screen
 ---
 
-> Edit on 2022.04.22
+> Edit on 2022.04.12
 
 ## Introduce timing 
 
@@ -316,6 +316,6 @@ Finishing Place&Route, we can download the generated .fs file to the development
 Now the tutorial ends, if you have any suggestions, just leave a message.
 
 <p id="back">
-    <a href="#" onClick="javascript :history.back(-1);">返回上一页(Back)</a>
+    <a href="#" onClick="javascript :history.back(-1);">Back to the previous page</a>
 </p>
 

@@ -12,18 +12,18 @@ Lichee Tang Nano开发板板载的GW1N-1 FPGA芯片功能非常强大，具有�
 
 ![Nano](/hardware/assets/Tang/Nano/Tang-Nano-4.png)
 
-| 项目 | 参数 |
-| --- | --- |
-| 核心 | GW1N-1 FPGA |
-| 逻辑单元(LUT4) | 1152 |
-| 寄存器(FF) | 864 |
-| Block SRAM(bits) | 72K
-| B-SRAM块个数| 4 |
-| 用户闪存(bits) | 96K |
-| 锁相环PLL | 1 |
-| I/O Bank总数 | 4 |
-| 最多用户I/O数 | 41 |
-| 核电压 | 1.2V |
+| 项目             | 参数        |
+| ---------------- | ----------- |
+| 核心             | GW1N-1 FPGA |
+| 逻辑单元(LUT4)   | 1152        |
+| 寄存器(FF)       | 864         |
+| Block SRAM(bits) | 72K         |
+| B-SRAM块个数     | 4           |
+| 用户闪存(bits)   | 96K         |
+| 锁相环PLL        | 1           |
+| I/O Bank总数     | 4           |
+| 最多用户I/O数    | 41          |
+| 核电压           | 1.2V        |
 
 
 ![Nano-Pin](/hardware/assets/Tang/Nano/Tang-Nano-Pin.png)
@@ -32,5 +32,6 @@ Lichee Tang Nano开发板板载的GW1N-1 FPGA芯片功能非常强大，具有�
 Tang Nano开发板可以在多种场景实现客户不同方面的需要，在AIoT上已经广泛的使用，品质和性能在行业内已经有非常好的口碑，专业的技术团队为广大客户解决硬件设计和软件功能上的各种各样问题。专业技术支持和更详细资料请联系商务<support@sipeed.com>
 
 ## 资料
-[相关例程](./Tang-Nano.md)
+
+[相关例程](./../Tang-nano-Doc/examples.md#板型)
 [资料下载](https://dl.sipeed.com/shareURL/TANG/Nano)

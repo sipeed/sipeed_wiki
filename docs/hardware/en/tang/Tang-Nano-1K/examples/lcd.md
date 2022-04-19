@@ -2,7 +2,7 @@
 title: Drive RGB screen
 ---
 
-> Edit on 2022.04.18
+> Edit on 2022.04.19
 
 ## Introduce timing 
 
@@ -40,7 +40,7 @@ Please refer to this [article](./led/led.md) to see how to create project.
 
 - Here we use gowin official IP
 
-The crystal oscillator onboard is 24MHz, but our screen needs 33.3MHZ clock, so we need to use the corresponding ip core to generate the corresponding clock. 
+The crystal oscillator onboard is 27MHz, but our screen needs 33.3MHZ clock, so we need to use the corresponding ip core to generate the corresponding clock. 
 
 Here we use  `IP Core Generate` which can be find in Tools -> IP Core Generate
 
@@ -48,7 +48,7 @@ Here we use  `IP Core Generate` which can be find in Tools -> IP Core Generate
 
 Double click `rPLL` and select Verilog in the pop-up window language, set CLKIN 24MHz, CLKOUTD is 33.00MHz. Also config the tolerance.
 
-![](./../../../../zh/tang/assets/examples/lcd_pjt_5.png)
+![](./../../../../zh/tang/Tang-Nano-1K/assets/lcd_rpll.png)
 
 After click OK it asks whether add it to current project, here we choose yes.
 
@@ -282,21 +282,24 @@ The corresponding pins and ports are as follows form shows
 
 The way to constain pins can refer to the [Light led](./led/create_led.md), it contains two ways to constain pins.
 
-If you feel troublesome about the method above,  you can copy the content in this [page](./../../../../zh/tang/Tang-Nano/examples/lcd_constrains.md)， and paste it in ".cst" file in this project (If there is no ".cst" file, just create a "physicsl constrains file"). 
+If you feel troublesome about the method above,  you can copy the content in this [page](./../../../../zh/tang/Tang-Nano-1K/Nano_1K_examples/lcd_constrains.md)， and paste it in ".cst" file in this project (If there is no ".cst" file, just create a "physicsl constrains file"). 
 
-| PORT        | I/O    | PIN | PORT         | I/O    | PIN |
-| ----------- | ------ | --- | ------------ | ------ | --- |
-| LCD_B[4]    | output | 41  | LCD_B[3]     | output | 42  |
-| LCD_B[2]    | output | 51  | LCD_B[1]     | output | 53  |
-| LCD_B[0]    | output | 54  | LCD_G[5]     | output | 55  |
-| LCD_G[4]    | output | 56  | LCD_G[3]     | output | 57  |
-| LCD_G[2]    | output | 68  | LCD_G[1]     | output | 69  |
-| LCD_G[0]    | output | 70  | LCD_R[4]     | output | 71  |
-| LCD_R[3]    | output | 72  | LCD_R[2]     | output | 73  |
-| LCD_R[1]    | output | 74  | LCD_R[0]     | output | 75  |
-| LCD_DEN     | output | 33  | LCD_SYNC     | output | 34  |
-| LCD_HYNC    | output | 40  | LCD_CLK      | output | 35  |
-| XTAL_IN     | input  | 52  | nRST         | input  | 4   |
+|   PORT   |  PIN  |   PORT   |  PIN  |
+| :------: | :---: | :------: | :---: |
+|  LED_B   |  10   |  LED_G   |  11   |
+|  LED_R   |   9   | LCD_B[4] |  24   |
+| LCD_B[3] |  23   | LCD_B[2] |  22   |
+| LCD_B[1] |  20   | LCD_B[0] |  19   |
+| LCD_G[5] |  18   | LCD_G[4] |  17   |
+| LCD_G[3] |  16   | LCD_G[2] |  15   |
+| LCD_G[1] |  27   | LCD_G[0] |  28   |
+| LCD_R[4] |  29   | LCD_R[3] |  30   |
+| LCD_R[2] |  31   | LCD_R[1] |  34   |
+| LCD_R[0] |  35   | LCD_DEN  |  21   |
+| LCD_SYNC |  32   | LCD_HYNC |  33   |
+| LCD_CLK  |   8   | XTAL_IN  |  47   |
+|   nRST   |  44   |          |       |
+
 
 ### Place&Route
 
@@ -312,6 +315,8 @@ Then we can run Place&Route.
 Finishing Place&Route, we can download the generated .fs file to the development board to see color bar.
 
 ## End
+
+If you want the project, it can be found in this page : https://github.com/sipeed/TangNano-1K-examples.git
 
 Now the tutorial ends, if you have any suggestions, just leave a message.
 

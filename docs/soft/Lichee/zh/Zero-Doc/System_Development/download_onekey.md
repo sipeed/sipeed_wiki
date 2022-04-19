@@ -1,5 +1,5 @@
 ---
-title: 一键镜像烧录指南
+title: Windows 下烧录指南
 ---
 
 简介：最方便的镜像烧录方法，类似于ghost一键装机
@@ -10,6 +10,8 @@ title: 一键镜像烧录指南
 - 缺点：不适合开发过程，不利于学习
 
 资源获取：
+
+   先去下载站获取镜像 dl.sipeed.com
 
 ​	下载[Etcher](https://www.balena.io/etcher/ "Etcher")
 
@@ -27,18 +29,19 @@ title: 一键镜像烧录指南
 2.  打开Etcher
 
     - 解压镜像，得到 .img镜像文件
-    - 点击`Flash from file`,选中dd镜像包
+    - 点击`Flash from file`,选中想要烧录的镜像包
     - 点击`Select target`选中sd卡
     - 点击`Flash`烧录
     - 待烧录完成
+
+
     ![95133](./../static/System_Development/95133.gif)
 
-3.  插卡
+3.  启动
 
-    > 上电
-    > 启动
-    > 至此，一键烧录完成！
-
-
+    - 插卡
+    - 上电
+    
+    这样系统就正常运行了
 
 恭喜！您已成功安装荔枝派Zero系统！

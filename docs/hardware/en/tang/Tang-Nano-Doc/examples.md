@@ -1,8 +1,8 @@
-# Summary examples of Tang nano serious
+# Examples of Tang nano series
 
-- Edit on 2022.04.18
+> Edit on 2022.04.18
 
-Here are Tang nano serious examples and continuously updated
+Here are Tang nano series examples and continuously updated
 
 ## Preface
 
@@ -14,24 +14,36 @@ In addition, we are glad you submit or provide a example, and if you have any fe
 
 ### Tang nano
 
-> The onboard downloader is Ch552
+> The onboard downloader is ch552
 
-- [Blink](./../Tang-Nano-Doc/examples/1_led.md)(Preparing, please wait)
-- [LCD screen](./../Tang-Nano-Doc/examples/2_lcd.md)(Preparing, please wait)
+Github Repository:
+https://github.com/sipeed/Tang-Nano-examples
+
+- [Blink](./../Tang-Nano/examples/led/led.md)
+- [LCD screen](./../Tang-Nano/examples/lcd.md)
 
 ### Tang nano 1K
 
-- [Blink](./Nano_1K_examples/LED.md)(Preparing, please wait)
-- [LCD screen](./Nano_1K_examples/LCD.md)(Preparing, please wait)
+Github Repository:
+https://github.com/sipeed/TangNano-1K-examples
 
+- [Blink](./../Tang-Nano-1K/examples/led/led.md)
+- [LCD screen](./../Tang-Nano-1K/examples/lcd.md)
 ### Tang nano 4K
+
+Github Repository:
+https://github.com/sipeed/TangNano-4K-example
 
 - [Blink](./../Tang-Nano-4K/examples/led.md)
 - HDMI display(Preparing, please wait)
-- Display camera content by HDMI(Preparing, please wait)
+- Display camera content by HDMI project Repository:
+https://github.com/sipeed/TangNano-4K-example
 - Cortex-m3 blink(Preparing, please wait)
 
 ### Tang nano 9K
+
+Github Repository:
+https://github.com/sipeed/TangNano-9K-example
 
 - [Blink](./../Tang-Nano-9K/examples/led/led.md)
 - [LCD screen](./../Tang-Nano-9K/examples/rgb_screen/rgb_screen.md)

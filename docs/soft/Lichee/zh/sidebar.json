@@ -26,6 +26,10 @@
                                     "items":
                                     [
                                         {
+                                            "label":"Windows下烧录",
+                                            "file":"Zero-Doc/System_Development/download_onekey.md"
+                                        },   
+                                        {
                                             "label":"dd镜像烧录",
                                             "file":"Zero-Doc/System_Development/download_dd.md"
                                         },
@@ -36,11 +40,7 @@
                                         {
                                             "label":"SPI Flash系统烧录",
                                             "file":"Zero-Doc/System_Development/download_SPI.md"
-                                        },
-                                        {
-                                            "label":"一键镜像烧录指南",
-                                            "file":"Zero-Doc/System_Development/download_onekey.md"
-                                        }                                       
+                                        }                                    
                                     ]
                                 },
                                 {

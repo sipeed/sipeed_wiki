@@ -29,5 +29,6 @@ Lichee Tang Nano开发板板载的GW1NZ-LV1 FPGA芯片功能非常强大，具�
 
 
 ## 资料
-[例程相关使用](./Tang-Nano-1k.md)
+
+[相关例程](./../Tang-nano-Doc/examples.md#板型)
 [资料下载](https://dl.sipeed.com/shareURL/TANG/Nano%201K)
