@@ -51,7 +51,7 @@ INFO: hdimage(sdcard.img): writing hybrid MBR
 **注意：只需要接RX、TX和GND即可，RX接TX，TX接RX，别接错了。**
 如果按下回车键后有内容输出，并且能够正常使用命令，恭喜你，喜提属于你自己的Linux。
 如果需要联网，请参考：
-[联网教程](./user.html#无线网络)的使用Tina系统（udhcpc需要替换成dhcpd）
+[联网教程](https://wiki.sipeed.com/hardware/zh/lichee/RV/user.html#%E6%97%A0%E7%BA%BF%E7%BD%91%E7%BB%9C)的使用Tina系统（udhcpc需要替换成dhcpd）
 ## 方式二：使用官方Buildroot/其他大佬的Buildroot（适合喜欢折腾Buildroot的人）
 目前官方版本的Buildroot已经支持全志D1（截至2022.02），但是默认C语言标准库是uClibc-ng，就看个人喜好了，想要支持更多软件可以使用glibc，想要体积小一点的可以选uClibc-ng，当然你得自己去摸索了，比如软件库啥的。
 其他大佬的Buildroot列表：
