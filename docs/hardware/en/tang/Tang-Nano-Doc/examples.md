@@ -49,7 +49,7 @@ https://github.com/sipeed/TangNano-9K-example
 - [LCD screen](./../Tang-Nano-9K/examples/rgb_screen/rgb_screen.md)
 - [Run examples of PicoRV](./../Tang-Nano-9K/examples/picorv/picorv.md)
 - litex running on 9K(Preparing, please wait)
-- FPGA drives SPI screen(Preparing, please wait)
+- ~~FPGA drives 1.14-inch SPI screen(Preparing, please wait)~~
 - PicoRV running on 9K(Preparing, please wait)
 - HDMI display(Preparing, please wait)
 - Drive screen by mipi interface(Preparing, please wait)

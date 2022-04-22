@@ -41,7 +41,7 @@ https://dl.sipeed.com/shareURL/TANG/programmer 里面的文件。
 - [驱RGB屏教程](./../Tang-Nano-9K/Nano_9K_examples/LCD.md)
 - [PicoRV 在9K上运行的示例](./../Tang-Nano-9K/Nano_9K_examples/picoRV_examples.md)
 - litex在9K上使用示例：即将更新
-- 使用软核驱动SPI屏幕：待更新
+- ~~使用软核驱动1.14寸SPI屏幕：待更新~~
 - FPGA驱动SPI屏幕：待更新
 - HDMI显示例程：即将更新
 - 驱动MIPI接口屏幕：待更新
