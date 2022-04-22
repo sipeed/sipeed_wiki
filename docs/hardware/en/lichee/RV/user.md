@@ -1,15 +1,30 @@
-# 基础上手
+# Start
 
-## 点灯教程
+> Edit on 2022.04.21
 
-当我们成功进入系统后，就可以进行基础的点灯操作啦！
-（注：该教程不适用于 `86-panel`，因为对应引脚连接了外设，`86-panel` 用户可以拆下核心板来操作实验）
+Note:
+If you use debian, it will take about 2 minutes (this depends on the tf card) to start system.
+Then using command `Alt+F2` In graphical interface, then input `termit` to open the terminal.
+Do the following steps to stop kernel continue printing message when you use serial port or remote connection
 
-核心板的螺丝固定焊盘旁有一颗 LED ，查看原理图：https://dl.sipeed.com/shareURL/LICHEE/D1/HDK/Lichee_RV/2_Schematic
+- Login in system,the user name is `sipeed` and the password is `licheepi`
+- Edit `/etc/rsyslog.conf` by root and change `*.emerg` into `#*.emerg` in this file
+- restart rsyslog service by this command `/etc/init.d/rsyslog restart`
+  
+Then you can use this system with pleasure.
 
-可知该 LED 连接的是 PC1，换算该 IO 的数字标号为：2*32+1=65，或者查看 IO 复用情况表：
 
-```
+## Blink
+
+We can start blink an led after running OS.
+- Note : This blink turtial is not fit for  `86-panel` because the corresponding pin in `86-panel` is connected to the peripheral, you can use the core board to do this experiment.  
+
+There is an LED beside the screw fixing pad on the core board, This can be found in this file:
+https://dl.sipeed.com/shareURL/LICHEE/D1/Lichee_RV/HDK/5_Dimensions
+
+And from the [schematic]{https://dl.sipeed.com/shareURL/LICHEE/D1/Lichee_RV/HDK/2_Schematic} we can know the led connects with PC1 pin, and we can figure out its siginal number is 2*32+1=65. We can also view IO multiplexing table
+
+```bash
 cat /sys/kernel/debug/pinctrl/2000000.pinctrl/pinmux-pins
 ...
 pin 64 (PC0): device 2008000.ledc function ledc group PC0
@@ -23,24 +38,24 @@ pin 71 (PC7): UNCLAIMED
 
 ```
 
-我们先导出该 GPIO：
+First we should figure out this led GPIO：
 
 ```
 echo 65 > /sys/class/gpio/export
 cd /sys/class/gpio/gpio65
 ```
 
-然后再将该 IO 置为输出状态，即可操作其电平：
+Then we change this IO into output mode，which means control its voltage level ：
 
 ```
 echo out>direction
-echo 1 > value  #LED点亮
-echo 0 > value  #LED熄灭
+echo 1 > value  #LED ON
+echo 0 > value  #LED OFF
 ```
 
-至此我们就成功在 RISC-V 64 D1上点灯啦~
+Up to now we have succeeded blinking on RISC-V 64 D1.
 
-你也可以对 串行RGB LED WS2812 进行花式点灯：
+You can also perform fancy lighting on the serial RGB LED ws2812:
 
 ```
 cd /sys/class/leds/
@@ -49,14 +64,13 @@ echo 0 > /sys/class/leds/sunxi_led0r/brightness;echo 255 > /sys/class/leds/sunxi
 echo 0 > /sys/class/leds/sunxi_led0r/brightness;echo 0 > /sys/class/leds/sunxi_led0g/brightness;echo 255 > /sys/class/leds/sunxi_led0b/brightness;
 ```
 
-## 外设功能验证
+## Peripheral verification
 
-> 注意！！！
-> 目前在 debian 系统下，蓝牙暂时不可以用！！
+> Note:In the current Debian system, bluetooth is unavailable！！
 
-### 音频功能
+### Audio
 
-录音设备查看
+Check Audio device
 
 ```
 root@MaixLinux:~# arecord -l
@@ -73,7 +87,7 @@ card 2: sndhdmi [sndhdmi], device 0: 2034000.daudio-audiohdmi-dai 20340a4.hdmiau
 
 ```
 
-播放设备查看
+Check play device
 
 ```
 root@MaixLinux:~# aplay -l
@@ -87,40 +101,45 @@ card 2: sndhdmi [sndhdmi], device 0: 2034000.daudio-audiohdmi-dai 20340a4.hdmiau
 
 ```
 
-录放音测试：
+Recording and playback test:
 
 ```
 arecord -D hw:1,0 -f S16_LE -t wav -d 3 t.wav 
 aplay -D hw:0,0 t.wav
 ```
 
-另外可以使用alsamixer 进行音量调整
+Besides, you can Adjust volume by alsamixer application
 
-### USB功能
+### USB Function
 
-默认内核支持外挂U盘的驱动，插上U盘后可以使用 fdisk -l 查看到新增的 /dev/sda
+Default kernel supports the driver of external USB flash disk. After inserting the USB flash disk, you can use `fdisk -l` command to see the new /dev/sda device
 
-如果U盘没有被格式化，可以使用mkfs.vfat指令来格式化U盘，再使用mount指令挂载
+If the USB flash disk is not formatted, you can use mkfs.vfat command to format the USB disk, and then mount it.
 
-默认Tina固件里的 /dev/mmcblk0p8 分区即可使用上述方式格式化后挂载，来提升可用空间
+The /dev/mmcblk0p8 partition in the default Tina firmware can be mounted after formatting USB disk in the above way to increase the available space
 
-### 有线网络
+### Wired network
 
-LicheeRV-86 Panel 支持百兆网络，使用套餐附送的网线尾线接上网线后，执行以下指令来连接有线网络
+LicheeRV-86 Panel supports 100M network.
+
+After Inserting network cable we can use following commands to connect network
 
 ```
 ifconfig eth0 up
 udhcpc -ieth0
 ```
 
-### 无线网络
+### Wireless network
 
-- 使用 Tina 系统
-  LicheeRV 底板默认使用XR829或者RTL8723BS wifi模块，可以使用以下指令进行联网操作
+- **Tina OS**
 
-  先配置热点信息：
+We can connect the core board by TypeC port and use adb to control this OS, or use uart to connct this board is ok too.
+  
+  LicheeRV bottom board is equipped with XR829 or RTL8723BS wifi module, can connect network by following commands:
 
-  ```
+  Config wifi information:
+
+  ```bash
   vim /etc/wifi/wpa_supplicant.conf
   network={  
       ssid="WiFi_name"  
@@ -128,32 +147,38 @@ udhcpc -ieth0
   } 
   ```
 
-  配置完成后重启，ifconfig wlan0 up; udhcpc -iwlan0 即可连上对应的wifi。连上网络后，你就可以使用ssh远程登录板卡，或者使用scp来进行文件传输啦~
+  Then restart board, use these two commands `ifconfig wlan0 up`; `udhcpc -iwlan0`  to connect corresponding wifi.
+  Then we can use ssh to remote login or use scp to transfer files by network.
 
-- 使用 debian 系统
-  点击系统菜单--Preferenes--Connman Settings，打开 Network Settings ，查看网络属性中的 Interface 是否为 wlan0。双击网络名称，并输入 WiFi 密码进行连接
+- **debian OS**
+
+
+
+  Click System menu -> Preferenes -> Connman Settings，Enable Network Settings ，check whether the interface in the network property is wlan0. Double click the network name and input WiFi password to connect wifi.
 
   ![](./../assets/RV/wifi-1.jpg)
 
-  连接网络成功之后，通过系统系统菜单--Preferenes--Connman Settings，查看网络属性查看网络的 IP 地址
+  After succeeding connecting network, we can see the network IP
 
   ![](./../assets/RV/wifi-2.jpg)
 
+### Display and touch
 
-### 屏显触摸
+LicheeRV supports following screen：
 
-LicheeRV系列支持以下显示屏：
-- SPI屏		1.14寸屏(TODO)
-- RGB屏		4.3寸 480x272；5.0寸 800x480；
-- RGB+SPI屏	4.0寸 480x480(st7701s); 4.0寸 720x720(nv3052c)
-- MIPI屏		8.0寸 1280x720(ILI9881C)
+- SPI screen		  1.14 inch(TODO)
+- RGB screen		  4.3 inch 480x272；5.0 inch 800x480；
+- RGB+SPI screen  4.0 inch 480x480(st7701s); 4.0 inch 720x720(nv3052c)
+- MIPI screen   	8.0 inch 1280x720(ILI9881C)
 
 
-Tina下可以通过以下指令测试屏幕显示：
+We can use following command to test screen in **Tina OS** 下可以通过以下指令测试屏幕显示：
 
+```bash
   fbviewer xxx.jpg
+```
 
-如果需要调试屏幕驱动，可以使用以下指令查看屏幕驱动信息：
+If you need to debug screen driver, just use following command to see information of screen driver
 
 ```
 cat /sys/class/disp/disp/attr/sys
@@ -168,101 +193,116 @@ dmabuf: cache[0] cache max[0] umap skip[0] overflow[0]
 
 ```
 
-屏幕彩条测试：echo 1 > /sys/class/disp/disp/attr/colorbar
+Screen Color Bar test：echo 1 > /sys/class/disp/disp/attr/colorbar
 
-如果你购买的是86面板套餐，可以使用 ts_test进行触摸测试
+If you buy 86 panel suit, you can use `ts_test` for touching test
 
-> 注意触摸驱动有瑕疵，ts_test测试时松开后，光标会不动，但是终端仍会正常打印信息
+> There is a bug on touching driver, that is, After the test, the cursor do not move, but the terminal will still print information
 
-### 视频播放
+### Play video
 
-最终我们可以尝试在LicheeRV上播放BadApple啦~[视频下载](https://dl.sipeed.com/shareURL/LICHEE/D1/Lichee_RV/MP4)
+Now we can play BadApple On licheeRV [Click me to download video](https://dl.sipeed.com/shareURL/LICHEE/D1/Lichee_RV/MP4)
 
-Tina镜像中内置了ffmpeg软件包，ffmpeg是强大的多媒体库，可以用于录屏或者播放
+FFmpeg has been built in Tina image, which is a powerful multimedia library, can be used for screen recording or play video
 
-录屏指令：ffmpeg -f fbdev -framerate 10 -i /dev/fb0 record.avi
+Recording command：`ffmpeg -f fbdev -framerate 10 -i /dev/fb0 record.avi`
 
-播放指令（分别是扬声器播放音频和hdmi播放音频）：
+Play commamd (They are play audio from speaker and HDMI)
 
 ```
-ffmpeg -i /mnt/UDISK/badapple_640480_xvid.mp4 -pix_fmt bgra -f fbdev /dev/fb0 -f alsa hw:0,0  
-ffmpeg -i /mnt/UDISK/badapple_640480_xvid.mp4 -pix_fmt bgra -f fbdev /dev/fb0 -f alsa hw:2,0   
+ffmpeg -i /mnt/UDISK/badapple_640480_xvid.mp4 -pix_fmt bgra -f fbdev /dev/fb0 -f alsa hw:0,0  ## speaker
+ffmpeg -i /mnt/UDISK/badapple_640480_xvid.mp4 -pix_fmt bgra -f fbdev /dev/fb0 -f alsa hw:2,0  ## hdmi 
 ```
 
-这里由于是CPU软解，所以测试最高分辨率约为720x540， 再高会变卡
+Because of it's software decoding by cpu, so the test of screen resolution supports 750x540 Maximum, and it will run slower if play higher screen resolution.
 
 <iframe src="https://player.bilibili.com/player.html?aid=209723771&bvid=BV1xa411r7PP&cid=457742249&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
-### 麦克风阵列
+### Microphone array
 
-如果你使用的是dock板，那么还可以外接麦克风阵列版进行声场成像演示：
+If you use Dock board, you can use microphone array to perform sound field imaging display:
 
-直接执行debian系统下内置的micarr_0609指令即可
+Run `sudo ./micarr_0609` in terminal.
 
-有麦克风阵列相关的二次开发需求，可以联系support@sipeed.com
+If you need redevelop about microphone array, just contact support@sipeed.com
 
 <iframe src="https://player.bilibili.com/player.html?aid=849734125&bvid=BV1HL4y1H7nv&cid=457750392&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
-## Debian镜像体验
+## Debian image experience
 
-对于只接触过桌面级系统的开发者，推荐使用Debian镜像，可在上面的网盘里下载
+For people who only have used desktop system, it's suggested to use debian.
+And it can be download form [Mega netdisk](https://mega.nz/folder/lx4CyZBA#PiFhY7oSVQ3gp2ZZ_AnwYA)
 
-LicheeRV_Debian_86_480p 为 480p的86盒板卡的debian镜像
+LicheeRV_Debian_86_480p is 480p 86 panel debian image.
 
-LicheeRV_Debian_hdmi 为 dock的hdmi输出的debian镜像
+LicheeRV_Debian_hdmi is debian image for dock hdmi output
 
-如果是其他板卡或者屏幕，请自行使用对应的fex覆盖板级配置。
+Other board or screen, use corresponding fex file to reconfig.
 
-烧录完成后，插卡启动，稍等2分钟左右，屏幕上就会显示登录界面
+After burning system, insert card, wait about 2 minutes then the screen will display
+
 
 ![attachmentId-2734](https://bbs.sipeed.com/storage/attachments/2021/12/09/z8QlbfdC11GLaT5dis9epd1DdfbRPpRsa6XEi2AU.png)
 
-输入用户名 sipeed，密码 licheepi，即可进入桌面 （使用USB HOST口外接键鼠输入）
+Username `sipeed` and password `licheepi`. Need extra mouse and keyboard.
 
 ![attachmentId-2735](https://bbs.sipeed.com/storage/attachments/2021/12/09/2uBMvAjSuX8VLL3kVVKmBCUIxqOPJgVyYsl7MTge.png)
 
-进入桌面后可以进行一些基础操作
+Using `Alt+F2` then input termit to open terminal.
+
+Then we can de some basic operations.
 
 ![attachmentId-2736](https://bbs.sipeed.com/storage/attachments/2021/12/09/jtKDz9H3AvMrfmLCSwQW3QR8sRXQEDjAJFMG9KaI.png)
 
-接下来让我们尝试在Debian下跑一下Hello World:
+Let's try to compile and run hello world
 
 ![attachmentId-2737](https://bbs.sipeed.com/storage/attachments/2021/12/09/vuluuJDdW5sJm2dSy60HmqUvpYJ6YJMuIinX3Y0N.png)
 
-另有720P高清屏的效果对比，有米的同学可以考虑入手：
+We also provide 720P 720p high-definition screen, you can try this if you have enough money~
 
 ![attachmentId-2738](https://bbs.sipeed.com/storage/attachments/2021/12/09/77KuMcmppgJn44doDQMYBBi8pPDRdKwkXm9HPit6.png)
 
 ![attachmentId-2739](https://bbs.sipeed.com/storage/attachments/2021/12/09/E1qugpwslyoHbknndO5KDqv3tjclx3GUWM5QDzN4.png)
 
-## BSP SDK 开发指南
+## BSP SDK develpoment
 
-为了方便用户自行开发，矽速整理发布了 LicheeRV 的bsp开发docker镜像，大家使用该镜像可以快速开始D1的系统级开发。
+To make it easy for users to develop custom function, Sipeed provide bsp docker image of LicheeRV.
 
-在网盘中下载对应的docker文件后，解压到tar文件，docker import licheerv_d1_compile.tar licheerv_d1_compile:lastest
+Download link:[Mege netdisk](https://mega.nz/folder/lx4CyZBA#PiFhY7oSVQ3gp2ZZ_AnwYA)
 
-然后即可run该容器，用户名为nihao，密码为sipeed123
+After finishing downloading docker file, decompress into tar file.
 
-进入容器后的基础编译操作为：
-
+```bash
+gzip -d licheerv_d1_compile.tar.gz                                #Decompress into tar file
+docker import licheerv_d1_compile.tar licheerv_d1_compile:latest  #import docker image
 ```
+
+After succeed running it's suggessted to relogin and username `nihao` password `sipeed123`
+
+```bash
+sudo docker run -it licheerv_d1_compile:latest /bin/bash # Start D1 compile docker image in interactive mode
+login # change user
+```
+
+You can use following commands to finish compiling.
+
+```bash
 cd ~/sdk/tina-d1-open_new/
 source build/envsetup.sh
-lunch   //选1
-make menuconfig //去掉里面的 alsa-plugin选项，否则编译不过
-make -j96 #按实际核数编译
-pack  #打包
+lunch   # choose 1
+make menuconfig  # untick alsa-plugin, otherwise it will fail to compile
+make -j8  
+pack  
 ```
 
-SDK内置了一些版型的dts，你可以自行选择编辑：
-device/config/chips/d1/configs/nezha/board_xxx.dts
+There are some new dts file in this SDK, you can use them if necessary
+Ther are in device/config/chips/d1/configs/nezha/board_xxx.dts
 
-其他SDK的开发说明，可以参见全志开发平台上下载的相关文档
+Other SDK developing manual can refer to relevant documents on the Allwinner development platform
 https://open.allwinnertech.com/
-也可以加全志交流QQ群：498263967
 
-如果需要自己下载SDK开发，参考全志在线相关网页：https://d1.docs.aw-ol.com/en/
+If you need other SDK please visit allwinner official website: https://d1.docs.aw-ol.com/en
 
-## WAFT 开发指南
+## WAFT developer's guide
 
 TODO

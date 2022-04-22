@@ -1,13 +1,13 @@
 # Tang Nano 4K 
 
 ## Tang Nano 4K 开发板
-Lichee Tang Nano 4K是基于[高云半导体](http://www.gowinsemi.com.cn/)的小蜜蜂系列 GW1NSR-LV4C 设计的简约型开发板。开发板设计小巧精致，将芯片的所有资源都引出，板载Type-C、USB-JTAG、DVP、HDMI座子及其电路等，并把所有IO资源引出，方便开发者拓展使用，非常适用于小型数字逻辑的设计和实验。
+Tang Nano 4K是基于[高云半导体](http://www.gowinsemi.com.cn/)的小蜜蜂系列 GW1NSR-LV4C 设计的简约型开发板。开发板设计小巧精致，将芯片的所有资源都引出，板载Type-C、USB-JTAG、DVP、HDMI座子及其电路等，并把所有IO资源引出，方便开发者拓展使用，非常适用于小型数字逻辑的设计和实验。
 
 ![Tang Nano 4K](./../Tang-Nano/assets/4k-1.jpg)
 ![Tang Nano 4K](./../Tang-Nano/assets/4k-2.jpg)
 
 ## 产品参数
-Lichee Tang Nano 4K开发板板载的GW1NSR-LV4C，是一款系统级封装芯片，内部集成了GW1NS系列可编辑逻辑器件产品和PSRAM存储芯片。
+Tang Nano 4K开发板板载的GW1NSR-LV4C，是一款系统级封装芯片，内部集成了GW1NS系列可编辑逻辑器件产品和PSRAM存储芯片。
 
 - 下表为与前代同系列产品对比图
 
@@ -28,7 +28,7 @@ Lichee Tang Nano 4K开发板板载的GW1NSR-LV4C，是一款系统级封装芯�
 | 下载接口         | USB Type-C接口      | USB Type-C接口    |
 
 
-![](./../Tang-Nano/assets/Tang_nano_4K_0813.svg)
+![](./../Tang-Nano/assets/Tang_nano_4K_0813.png)
 
 ## 开发环境
 
@@ -38,9 +38,9 @@ Lichee Tang Nano 4K开发板板载的GW1NSR-LV4C，是一款系统级封装芯�
 
 ## 下载方式
 
-- Lichee Tang Nano开发板板载BL702芯片，为GW1NSR提供JTAG调试功能，开发板可以直接连接电脑使用GOWIN programmer进行下载比特流，不需要额外的调试器。
+- Tang Nano开发板板载BL702芯片，为GW1NSR提供JTAG调试功能，开发板可以直接连接电脑使用GOWIN programmer进行下载比特流，不需要额外的调试器。
 
 ## 资料
 
-[相关例程](./Tang-nano-4k.md)
+[相关例程](./../Tang-nano-Doc/examples.md#板型)
 [Tang nano 4K 资料库](https://dl.sipeed.com/shareURL/TANG/Nano%204K)

@@ -132,12 +132,16 @@
                             "file":"lichee/RV/Dock.md"
                         },
                         {
-                            "label":"烧录系统",
+                            "label":"Burn System",
                             "file":"lichee/RV/flash.md"
                         },
                         {
-                            "label":"基础上手",
+                            "label":"Basic usage",
                             "file":"lichee/RV/user.md"
+                        },
+                        {
+                            "label":"Problems",
+                            "file":"lichee/RV/debian_img_apt.md"
                         }
                     ]
                 }
@@ -177,25 +181,8 @@
                             "file":"tang/Tang-Nano-Doc/questions.md"
                         },
                         {
-                            "label":"Some examples",
-                            "items":[                                
-                                {
-                                    "label":"Tang Nano Examples",
-                                    "file": "tang/Tang-Nano/Tang-Nano.md"
-                                },
-                                {
-                                    "label":"Tang Nano 1k Examples",
-                                    "file": "tang/Tang-Nano-1K/Tang-Nano-1k.md"
-                                },
-                                {
-                                    "label":"Tang Nano 4k Examples",
-                                    "file": "tang/Tang-Nano-4K/Tang-nano-4k.md"
-                                },
-                                {
-                                    "label":"Tang Nano 9k Examples",
-                                    "file": "tang/Tang-Nano-9K/Tang-nano-9k.md"
-                                }
-                            ]
+                            "label":"Tang nano examples",
+                            "file": "tang/Tang-Nano-Doc/examples.md"
                         }
                         
                     ]

@@ -60,3 +60,7 @@ Flashing completed
 
 - 本文仅提供一种运行方法，无其他作用
 - 交叉编译等高阶玩法自己参考项目目录的makefile修改，无其他支持
+
+<p id="back">
+    <a href="#" onClick="javascript :history.back(-1);">返回上一页(Back)</a>
+</p>

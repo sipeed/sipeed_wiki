@@ -26,6 +26,10 @@
                                     "items":
                                     [
                                         {
+                                            "label":"Windows下烧录",
+                                            "file":"Zero-Doc/System_Development/download_onekey.md"
+                                        },   
+                                        {
                                             "label":"dd镜像烧录",
                                             "file":"Zero-Doc/System_Development/download_dd.md"
                                         },
@@ -36,11 +40,7 @@
                                         {
                                             "label":"SPI Flash系统烧录",
                                             "file":"Zero-Doc/System_Development/download_SPI.md"
-                                        },
-                                        {
-                                            "label":"一键镜像烧录指南",
-                                            "file":"Zero-Doc/System_Development/download_onekey.md"
-                                        }                                       
+                                        }                                    
                                     ]
                                 },
                                 {
@@ -481,7 +481,7 @@
             "collapsed": false,
             "items": [ 
                 {
-                "label": "R329主线armbian内核，系统，驱动开发方法",
+                "label": "R329主线armbian内核 系统 驱动开发方法",
                 "file":"MaixSense/contribution/Build_R329.md"
                 },  
                 {
@@ -509,7 +509,7 @@
                 },
                 {
                 "label": "D1上Kubernetes相关软件编译",
-                "file":"Lichee-Rv/contribution/D1_Kubernetes.md"
+                "file":"Lichee-RV/contribution/D1_Kubernetes.md"
                 }
 
             ]

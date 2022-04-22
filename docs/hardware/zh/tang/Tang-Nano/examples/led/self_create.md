@@ -62,7 +62,7 @@ endmodule
 ### 综合
 
 保存编辑的代码后转到“Process”界面下，对编辑好的代码进行综合，即双击“Systhesize”
-    ![](./../../../../Tang-Nano-9K/nano_9k/nano_9k_synthsize.png)
+    ![](./../../../Tang-Nano-9K/nano_9k/nano_9k_synthsize.png)
 
 运行之后如没有报错而且 Synthesize 变成下图里的图标
     ![](./../../../Tang-Nano/assets/LED.png) 
@@ -80,7 +80,7 @@ endmodule
 ![](./../../../assets/examples/led_pjt_2.png)
 
 接下来通过 双击 Process 界面里的FloorPlanner来设置管脚约束。第一次打开会弹出缺少.cst文件.选择“OK”即可；
-    ![](./../../assets/LED-9.png)
+    ![](./../../assets/LED-9.pngassets/LED-9.png)
 
 nano 的 rgb led电路图如下所示
     ![](./assets/nano_led_pins.png "nano rgb pins")
@@ -112,13 +112,15 @@ nano 的 rgb led电路图如下所示
     
 ## 烧录
 
-接下来是进行连接板子，烧录固件。在Process界面双击 `Program Device` 后打开烧录工具
+接下来是连接板子，烧录固件。在Process界面双击 `Program Device` 后打开烧录工具
     ![](./assets/Open_Programmer.png)
+
+可以在图中进行相应的修改
+    ![](./../../../../../zh/tang/Tang-Nano/examples/led/assets/tang-nano-programmer-config.png)
 
 接下来选择sram烧录即可验证程序。
     ![](./assets/Success_led.png)
     
-
 点灯验证到此结束。
 
 <p id="back">

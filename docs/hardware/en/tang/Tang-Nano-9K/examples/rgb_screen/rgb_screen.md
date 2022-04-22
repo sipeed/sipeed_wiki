@@ -2,7 +2,7 @@
 title: Drive RGB screen
 ---
 
-> Edit on 2022.04.22
+> Edit on 2022.04.12
 
 ## Introduce timing 
 
@@ -46,7 +46,7 @@ Here we use  `IP Core Generate` which can be find in Tools -> IP Core Generate
 
 ![](./../../../../../zh/tang/Tang-Nano-1K/assets/Gowin_IP_rpll.png)
 
-Double click `rPLL` and select Verilog in the pop-up window language, set CLKIN 27MHz, CLKOUT is 33.00MHz. Also notice the tolerance.
+Double click `rPLL` and select Verilog in the pop-up window language, set CLKIN 27MHz, CLKOUT is 33.00MHz. Also config the tolerance.
 
 ![](./../../../../../zh/tang/Tang-Nano-1K/assets/lcd_rpll.png)
 
@@ -316,6 +316,6 @@ Finishing Place&Route, we can download the generated .fs file to the development
 Now the tutorial ends, if you have any suggestions, just leave a message.
 
 <p id="back">
-    <a href="#" onClick="javascript :history.back(-1);">返回上一页(Back)</a>
+    <a href="#" onClick="javascript :history.back(-1);">Back to the previous page</a>
 </p>
 

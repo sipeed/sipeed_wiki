@@ -10,5 +10,9 @@
 
 ## ID code mismatch
 
-This error means wrong device choice. All that refers chip model need to be changed. 
+This error means wrong device choice. All that refers chip model(like he project device, pin constrain, IP modules and programmer device choose) need to be changed. 
+
+## Using GAO
+
+It's tested IDE version before V1.9.8.1 and V1.9.8.1 is ok, the newer version is not ok.
 

@@ -1,5 +1,5 @@
 ---
-title: LCD 管脚约束文件内容
+title: LCD constrain file content
 ---
 
 <p id="back">

@@ -126,3 +126,8 @@ nano 9k的led电路图如下所示
 ![](./../nano_9k/blink.gif)
 
 点灯验证到此结束。
+
+<p id="back">
+    <a href="#" onClick="javascript :history.back(-1);">返回上一页(Back)</a>
+</p>
+

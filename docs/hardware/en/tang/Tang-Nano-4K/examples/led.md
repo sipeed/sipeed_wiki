@@ -91,7 +91,7 @@ Double click the FloorPlanner in the Process interface to set pin constrain(This
 
 ![](./../../../../zh/tang/assets/examples/led_pjt_2.png)
 
-First time open FloorPlanner it will notice lack ".cst" file, we just choose ok. 
+First time open FloorPlanner it will prompt lack of ".cst" file, we just choose ok. 
 ![](./../../../../zh/tang/Tang-Nano/assets/LED-9.png)
 
 The leds schematic of nano 9k is as shown below:
@@ -131,7 +131,7 @@ We use download to SRAM as an example.
 
 Then we just click download to start program device.
 
-Then the led on the board will blink
+The led on the board will blink
 
 If you need to store firmware with no power, just choose download to flash mode.
 

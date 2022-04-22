@@ -18,11 +18,9 @@ Lichee MaixSense（以下简称R329）提供了以下两种系统镜像
 
 armbian 镜像获取：
 
-> 链接：<https://eyun.baidu.com/s/3i6wLa41> 提取码：2333 
-
+> 链接：https://eyun.baidu.com/s/3dUjp6Y 提取码：fvbn
 
 armbian 使用的烧录方式为 dd，windows下推荐使用 Etcher，linux 下推荐使用 Terminal。
-
 
 ### Tina 系统镜像
 
@@ -32,6 +30,7 @@ Tina 系统的烧录方式和 MaixII dock通用，可参考[MaixII M2dock 烧录
 
 
 ## 烧录镜像
+
 ### windows 下系统烧录
 
 资源获取：

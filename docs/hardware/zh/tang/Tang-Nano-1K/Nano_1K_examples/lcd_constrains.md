@@ -1,10 +1,10 @@
 ---
-title: LCD 管脚约束文件内容
+title: LCD constrain file content
 ---
 
 
 <p id="back">
-    <a href="#" onClick="javascript :history.back(-1);">返回上一页(Back)</a>
+    <a href="#" onClick="javascript :history.back(-1);">Previous page</a>
 </p>
 
 ```cst

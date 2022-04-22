@@ -1,7 +1,7 @@
 # Lichee RV - Nezha CM
 
 ## 概述
-Lichee RV - Nezha CM是模块化设计的核心计算模组，搭载全志D1主控芯片(基于平头哥玄铁C906处理器），512MB DDR3内存，可选启动介质为TF卡或者SDNAND芯片，并使用两组M.2B - KEY 67 Pin金手指引出所有l0，方便量产使用，也方便维修替换。
+Lichee RV - Nezha CM是模块化设计的核心计算模组，搭载全志D1主控芯片(基于平头哥玄铁C906处理器），512MB DDR3内存，可选启动介质为TF卡或者SDNAND芯片，并使用两组M.2B - KEY 67 Pin金手指引出所有l0，方便量产使用，也方便安装替换。
 
 ![](./../assets/RV/D1-4.jpg)
 
@@ -81,10 +81,9 @@ Lichee RV - Nezha CM是模块化设计的核心计算模组，搭载全志D1主�
 ## 资料下载
 [硬件资料下载](https://dl.sipeed.com/shareURL/LICHEE/D1/Lichee_RV/HDK)
 
-Debian 系统镜像请到[百度网盘](https://pan.baidu.com/s/1QJTaDw6kkTM4c_GAlmG0hg)( 提取码：`wbef`)下载
+Debian 系统镜像请到
 
-Download the Debian system image from 
->[Baidu Netdisk](https://pan.baidu.com/s/1QJTaDw6kkTM4c_GAlmG0hg>)(Extraction code: `wbef`)
+>[百度网盘](https://pan.baidu.com/s/1QJTaDw6kkTM4c_GAlmG0hg)(提取码：`wbef`)
 >[Mega netdisk](https://mega.nz/folder/lx4CyZBA#PiFhY7oSVQ3gp2ZZ_AnwYA)
 
 [源码获取](/hardware/zh/lichee/RV/user.html#BSP-SDK-开发指南)
