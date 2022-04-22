@@ -231,7 +231,7 @@ If you need redevelop about microphone array, just contact support@sipeed.com
 ## Debian image experience
 
 For people who only have used desktop system, it's suggested to use debian.
-And it can be download form [netdisk]()
+And it can be download form [Mega netdisk](https://mega.nz/folder/lx4CyZBA#PiFhY7oSVQ3gp2ZZ_AnwYA)
 
 LicheeRV_Debian_86_480p is 480p 86 panel debian image.
 

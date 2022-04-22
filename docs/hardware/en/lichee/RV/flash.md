@@ -9,8 +9,8 @@ Tina is a small linux image while Debian is a desktop image.
 2. TF card (It's suggested to use tf card provided by sipeed beacuse other card might fail to burn or fail to boot system)
 3. Burn tool [PhoenixCard](https://dl.sipeed.com/shareURL/LICHEE/D1/Lichee_RV/tool)
 4. System image
-    [Tina](https://dl.sipeed.com/shareURL/LICHEE/D1/Lichee_RV/SDK/image) 
-    Debian: Download from [mega](https://mega.nz/folder/lx4CyZBA#PiFhY7oSVQ3gp2ZZ_AnwYA)
+   - [Tina](https://dl.sipeed.com/shareURL/LICHEE/D1/Lichee_RV/SDK/image) 
+   - Debian: Download from [mega](https://mega.nz/folder/lx4CyZBA#PiFhY7oSVQ3gp2ZZ_AnwYA)
 
 | Image name    | Meaning                                                                                                                    | Note |
 | ------------- | -------------------------------------------------------------------------------------------------------------------------- | ---- |
@@ -74,24 +74,17 @@ BusyBox v1.27.2 () built-in shell (ash)
  ----------------------------------------------
 ```
 
-TIPS：
-If you are prompted the it fails to format when burning, and there is no drive shown on the computer after burning the card, you can restore there as following steps:
-1. Download disk software： https://www.diskgenius.cn/
-2. The disk drive not shown on conputer can be found here and we can use this software to do quick format
-    ![attachmentId-2788](https://bbs.sipeed.com/storage/attachments/2021/12/17/K9SdDOalmpgIwFopjoUU7sV2zgp26E1d85EMwgXf.png)
-3. Reburn tf cards following the previous steps.
-
 If you use debian OS, the username is `sipeed` and password is `licheepi`
 
-## Flash in linux
+## Others
 
-> The following operation is for linux users to burn tf card.
+### Burn wrong image 
  
-If you burn wrong image that is not corrsponding with your board, just use boot_package_XXX.fex file to recover the privious file.
+If you burn wrong image that is not corrsponding with your board, just use boot_package_XXX.fex (can be download here https://dl.sipeed.com/shareURL/LICHEE/D1/Lichee_RV/SDK/board ) file to recover the previous file.
 
 The recover command：
 > sudo dd if=boot_package_XXX.fex of=/dev/sdX bs=1K seek=16400
 
-## Others
+### Not work
 
-If there is no react on your board, please reburn again and strictly follow the steps.
+If your board doesn't work, make sure you choose boot card mode in burning mode, and please reburn.

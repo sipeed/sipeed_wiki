@@ -26,7 +26,9 @@
 
 
 ## 烧录镜像
+
 ### 烧录步骤
+
 使用前最好先把内存卡格式化
 
 打开烧录软件 [PhoenixCard](https://dl.sipeed.com/shareURL/LICHEE/D1/Lichee_RV/tool)，选择烧录的固件，将内存卡通过读卡器插入电脑中
@@ -44,11 +46,12 @@
 等待烧录结束；烧录 Tina 系统镜像会比较快，烧录 Debian 系统镜像将会久一点，可能多用10分钟。
 
 ### 烧录失败相关
+
 如果在烧录时提示格式化失败，或者使用烧录过的卡但是电脑上没有显示盘符，可以按以下操作来解决：
 
 1. 在此下载磁盘处理软件： https://www.diskgenius.cn/
 2. 电脑上显示不出的盘符，会在该软件里显示出来，使用该软件进行快速分区：
-    ![attachmentId-2788](https://bbs.sipeed.com/storage/attachments/2021/12/17/K9SdDOalmpgIwFopjoUU7sV2zgp26E1d85EMwgXf.png)
+    ![attachmentId-2788](./../assets/RV/Diskgenius.png)
 3. 分区完成后，电脑上就能够看到盘符，PhoenixCard 里也能看到，在 PhoenixCard 里点击恢复卡即可恢复卡到正常状态
 4. 按之前步骤继续烧录即可
 

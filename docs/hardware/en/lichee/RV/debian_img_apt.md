@@ -1,9 +1,9 @@
 ---
-title: licheeRV debian OS problems
+title: Problems
 keywords: debian, Rv, Problam, apt, img, sipeed
 ---
 
-## apt 相关
+## Apt problem
 
 - When execute apt command in debian system it may show error as follows
   
@@ -19,3 +19,4 @@ Copy doanloaded key (usr scp or lrzsz tool) into LicheeRV board, then run follow
 > sudo dpkg -i debian-ports-archive-keyring_2022.02.15_all.deb
 
 Then run `sudo apt-get update` to update apt.
+
