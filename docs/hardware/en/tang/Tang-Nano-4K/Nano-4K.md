@@ -4,7 +4,7 @@
 
 ## Introduction
 
-Lichee Tang Nano 4K is a core board designed based on [Gowin](https://www.gowinsemi.com/en/) GW1NSR-LV4C FPGA chip. The board is equipped with camera interface and HDMI interface. There is also an onboard USG-JTAG debugger, which make it convinent for users to use. Its Cortex-M3 hardcore can help users study mcu.
+Tang Nano 4K is a core board designed based on [Gowin](https://www.gowinsemi.com/en/) little GW1NSR-LV4C FPGA chip. The board is equipped with camera interface and HDMI interface. There is also an onboard USG-JTAG debugger, which make it convinent for users to use. Its Cortex-M3 hardcore can help users study mcu.
 
 ![Tang Nano 4K](./assets/4k-1.jpg)
 ![Tang Nano 4K](./assets/4k-2.jpg)
@@ -28,7 +28,7 @@ Lichee Tang Nano 4K is a core board designed based on [Gowin](https://www.gowins
 | camera interface    | None                  | DVP interface  |
 | Size                | 58.4mm\*21.3mm        | 60mm\*22.86mm  |
 
-![](./assets/Tang_nano_4K_0813.svg)
+![](./assets/Tang_nano_4K_0813.png)
 
 ## Others
 

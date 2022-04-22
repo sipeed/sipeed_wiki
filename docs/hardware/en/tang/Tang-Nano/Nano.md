@@ -4,7 +4,7 @@
 
 ## Introduction
 
-Lichee Tang Nano is a core board designed based on [Gowin](https://www.gowinsemi.com/en/) GW1N-1 FPGA chip.The board is equipped with PSRAM, RGB LCD interface and onboard USG-JTAG debugger, which make it convinent for users to use.
+Tang Nano is a core board designed based on [Gowin](https://www.gowinsemi.com/en/) GW1N-1 FPGA chip.The board is equipped with PSRAM, RGB LCD interface and onboard USG-JTAG debugger, which make it convinent for users to use.
 
 ![](./../../../assets/Tang/Nano/Tang_Nano.jpg)
 

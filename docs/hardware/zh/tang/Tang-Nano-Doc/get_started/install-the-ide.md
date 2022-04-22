@@ -9,6 +9,7 @@ keywords: Sipeed, Gowin, Tang, Nano, fpga, 矽速
 
 - 用户安装请根据自己电脑系统进行IDE选择，例如Windows系统的用户用选择带有Win版本的IDE。
 - 不推荐使用教育版本，教育版本安装之后可选芯片仅包含教育使用芯片型号，可选型号稀少。
+- 经测试V1.9.8.1版本可用 [GAO](http://cdn.gowinsemi.com.cn/SUG114-2.5_Gowin%E5%9C%A8%E7%BA%BF%E9%80%BB%E8%BE%91%E5%88%86%E6%9E%90%E4%BB%AA%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97.pdf)
 - **网络版license仅适用于1.9.8之前的版本**
 
 
@@ -60,7 +61,18 @@ keywords: Sipeed, Gowin, Tang, Nano, fpga, 矽速
 
 ### 使用单机版 license (需要自己申请 license)
 
+- 有两种方法申请license
+
+#### 向高云官方申请
+
+点击链接且填写完毕后等待即可 http://www.gowinsemi.com.cn/faq_view.aspx
+
+#### 向sipeed发邮件申请
+
 - 通常邮件会在周二和周五回复
+
+sipeed 回复的邮件不支持 V1.9.8 和 V1.9.8之前的版本。
+需要的话可用在线license
 
 发送申请邮件到 support@sipeed.com 来申请license，标题为 [Apply Tang Lic]MAC: xxxxxx ，内容模板如下：
 
@@ -86,17 +98,13 @@ license类型:共享型 仅本机
 
 ### 使用 sipeed 的 license 服务器联网激活
 
-> 在线许可服务器仅适用于 GoWin V1.9.8 及更低版本，推荐使用 V1.9.6
+> 在线许可服务器仅适用于 GoWin V1.9.8 及更低版本
 
 这种方式配置简单，不过没有网络的情况下无法使用软件。
 
 安装好软件并打开后，软件会提示需要 license，在弹出框中填入服务器地址 `45.33.107.56` 即可，端口：10559
 
 ![IDE](./assets/IDE-14.png)
-
-
-
-
 
 在此主要以“Use Floating License server”一栏进行测试
 
@@ -128,5 +136,5 @@ license类型:共享型 仅本机
 
 + [高云软件简介和安装](http://cdn.gowinsemi.com.cn/%E9%AB%98%E4%BA%91%E8%BD%AF%E4%BB%B6%E7%AE%80%E4%BB%8B%E5%92%8C%E5%AE%89%E8%A3%85.pdf)
 
-## 其他链接
+## Flash in linux
 [Linux系统下烧录方法](./flash_in_linux.md)

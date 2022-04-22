@@ -1,13 +1,26 @@
 # 基础上手
 
+注意:
+使用debian系统的话,启动图形化系统大概要2分钟(取决于tf卡)
+图形化界面使用`Alt+F2`，接着在里面输入`termit`即可打开命令行终端。
+使用下面命令来关闭使用串口或者远程连接时命令行不停打印内核信息
+
+- 登录系统，用户名为`sipeed`，密码为`licheepi`
+- 使用root权限编辑`/etc/rsyslog.conf`并且把文件中的`*.emerg`改成`#*.emerg`
+- 重启 rsyslog 服务 `/etc/init.d/rsyslog restart`
+  
+接下来就可以愉快的使用了
+图形化界面使用`Alt+F2`，接着在里面输入`termit`即可打开命令行终端
+
 ## 点灯教程
 
 当我们成功进入系统后，就可以进行基础的点灯操作啦！
 （注：该教程不适用于 `86-panel`，因为对应引脚连接了外设，`86-panel` 用户可以拆下核心板来操作实验）
 
-核心板的螺丝固定焊盘旁有一颗 LED ，查看原理图：https://dl.sipeed.com/shareURL/LICHEE/D1/HDK/Lichee_RV/2_Schematic
+核心板的螺丝固定焊盘旁有一颗 LED ，查看原尺寸图：
+https://dl.sipeed.com/shareURL/LICHEE/D1/Lichee_RV/HDK/5_Dimensions
 
-可知该 LED 连接的是 PC1，换算该 IO 的数字标号为：2*32+1=65，或者查看 IO 复用情况表：
+从[原理图](https://dl.sipeed.com/shareURL/LICHEE/D1/Lichee_RV/HDK/2_Schematic)可以查到 LED 连接的是 PC1 引脚，换算该 IO 的数字标号为：2*32+1=65，或者查看 IO 复用情况表：
 
 ```bash
 cat /sys/kernel/debug/pinctrl/2000000.pinctrl/pinmux-pins
@@ -87,7 +100,7 @@ card 2: sndhdmi [sndhdmi], device 0: 2034000.daudio-audiohdmi-dai 20340a4.hdmiau
 
 ```
 
-录放音测试：
+录音播放测试：
 
 ```bash
 arecord -D hw:1,0 -f S16_LE -t wav -d 3 t.wav 
@@ -102,7 +115,7 @@ aplay -D hw:0,0 t.wav
 
 如果U盘没有被格式化，应该使用mkfs.vfat指令来格式化U盘，再使用mount指令挂载U盘。
 
-默认Tina固件里的 /dev/mmcblk0p8 分区即可使用上述方式格式化后挂载，提升可用空间
+默认Tina固件里的 /dev/mmcblk0p8 分区即可使用上述方式格式化U盘后挂载，提升可用空间
 
 ### 有线网络
 
@@ -116,6 +129,9 @@ udhcpc -ieth0
 ### 无线网络
 
 - **使用 Tina 系统**
+
+可以直接用Typec连接核心板然后用adb来操作系统，也可以用串口来连接板子
+
   LicheeRV 底板默认使用XR829或者RTL8723BS wifi模块，可以使用以下指令进行联网操作
 
   先配置热点信息：需要手动在 /etc/wifi/wpa_supplicant.conf 文件里添加下面内容
@@ -131,6 +147,7 @@ udhcpc -ieth0
   连上网络后，就可以使用ssh远程登录板卡，或者使用scp来进行文件传输。
 
 - **使用 debian 系统**
+  
   点击系统菜单--Preferenes--Connman Settings，打开 Network Settings ，查看网络属性中的 Interface 是否为 wlan0。双击网络名称，并输入 WiFi 密码进行连接
 
   ![](./../assets/RV/wifi-1.jpg)
@@ -237,7 +254,7 @@ fex下载地址 https://dl.sipeed.com/shareURL/LICHEE/D1/Lichee_RV/SDK/board
 
 ![运行自制程序](./../assets/RV/Run_HelloWorld.png "运行自制程序")
 
-另有720P高清屏的效果对比，有米的同学可以考虑入手：
+另有720P高清屏的效果对比，有米的朋友可以考虑入手：
 
 ![attachmentId-2738](https://bbs.sipeed.com/storage/attachments/2021/12/09/77KuMcmppgJn44doDQMYBBi8pPDRdKwkXm9HPit6.png)
 

@@ -1,7 +1,7 @@
 # Lichee RV - Nezha CM
 
 ## 概述
-Lichee RV - Nezha CM是模块化设计的核心计算模组，搭载全志D1主控芯片(基于平头哥玄铁C906处理器），512MB DDR3内存，可选启动介质为TF卡或者SDNAND芯片，并使用两组M.2B - KEY 67 Pin金手指引出所有l0，方便量产使用，也方便维修替换。
+Lichee RV - Nezha CM是模块化设计的核心计算模组，搭载全志D1主控芯片(基于平头哥玄铁C906处理器），512MB DDR3内存，可选启动介质为TF卡或者SDNAND芯片，并使用两组M.2B - KEY 67 Pin金手指引出所有l0，方便量产使用，也方便安装替换。
 
 ![](./../assets/RV/D1-4.jpg)
 

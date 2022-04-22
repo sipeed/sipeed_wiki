@@ -132,12 +132,16 @@
                             "file":"lichee/RV/Dock.md"
                         },
                         {
-                            "label":"烧录系统",
+                            "label":"Burn System",
                             "file":"lichee/RV/flash.md"
                         },
                         {
-                            "label":"基础上手",
+                            "label":"Basic usage",
                             "file":"lichee/RV/user.md"
+                        },
+                        {
+                            "label":"Problems",
+                            "file":"lichee/RV/debian_img_apt.md"
                         }
                     ]
                 }

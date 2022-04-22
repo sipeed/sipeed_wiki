@@ -55,11 +55,13 @@
 ## 启动
 
 启动后若提示需要用户名和密码的话的分别如下：
+
 > Tina 系统登录用户名：root  密码：tina
 
 > Debian 系统登录用户名：sipeed 密码：licheepi
 
 插卡启动，可以在串口工具中查看到启动信息:
+
 - debian 启动的打印信息
     ```shell
     [270]HELLO! BOOT0 is starting!
