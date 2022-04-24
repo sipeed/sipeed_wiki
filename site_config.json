@@ -31,6 +31,7 @@
             "/soft/maixpy/assets/": "docs/soft/maixpy/assets",
             "/soft/maixpy3/assets/": "docs/soft/maixpy3/assets",
             "/soft/maixduino/assets/":"docs/soft/maixduino/assets"
+
         },
         "blog": {
             "/news/": "news"
