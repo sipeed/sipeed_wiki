@@ -7,7 +7,7 @@ Lichee MaixSense（以下简称R329）提供了以下两种系统镜像
 
 |   名称   |               armbian               |       Tina      |
 | :------: | :------------------------: | :----------------------: |
-|   简介   | 专门用于`ARM`开发板的轻量级`Debian` |    全志魔改OpenWRT1404的系统     |
+|   简介   | 专门用于ARM开发板的轻量级 Debian |    全志魔改OpenWRT1404的系统     |
 |   特点   |        主线化Linux，功能丰富      |        厂商魔改，比较精简        |
 | 适用人群 |       极客，嵌入式入门玩家等      | 深度开发，需要自行定制等开发人员 |
 
@@ -20,14 +20,13 @@ armbian 镜像获取：
 
 > 链接：https://eyun.baidu.com/s/3dUjp6Y 提取码：fvbn
 
-armbian 使用的烧录方式为 dd，windows下推荐使用 Etcher，linux 下推荐使用 Terminal。
+armbian 使用的烧录方式为 dd; windows下推荐使用 Etcher 这个软件，linux 下推荐使用 Terminal。
 
 ### Tina 系统镜像
 
 Tina 系统需要自己进行编译，具体编译方式参考<https://github.com/sipeed/R329-Tina-jishu>
 
 Tina 系统的烧录方式和 MaixII dock通用，可参考[MaixII M2dock 烧录系统 - Sipeed Wiki](./../M2/flash.md)，这里不多做介绍
-
 
 ## 烧录镜像
 
@@ -52,9 +51,7 @@ Tina 系统的烧录方式和 MaixII dock通用，可参考[MaixII M2dock 烧录
 
 ![2021080511-46-53](./assets/2021080511-46-53.gif)
 
-烧录完毕后，即可放入Lichee MaixSense中运行。
-
-
+烧录完毕后，直接将内存卡放入Lichee MaixSense中启动即可。
 
 ## 连接串口
 
@@ -62,10 +59,10 @@ Tina 系统的烧录方式和 MaixII dock通用，可参考[MaixII M2dock 烧录
 
 ### Linux & macOS
 
-Linux 不需要装驱动，系统自带了，使用 `ls /dev/ttyUSB*` 即可看到设备号
+Linux 不需要装驱动，系统自带了，使用 `ls /dev/ttyUSB*` 命令即可看到设备号
 
 ### Windows
 
 Lichee MaixSense 使用了 CH340 作为驱动芯片。Windows 用户需要安装 CH340 的驱动。
 
-Windows 下载 [ch340 ch341 driver](https://api.dl.sipeed.com/shareURL/MAIX/tools/ch340_ch341_driver) 安装即可，然后可以在 设备管理器 中看到串口设备和端口号
+Windows 下载 [ch340 ch341 driver](https://api.dl.sipeed.com/shareURL/MAIX/tools/ch340_ch341_driver) 安装即可，然后可以在 设备管理器 中看到串口设备和端口号。

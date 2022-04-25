@@ -2,7 +2,7 @@
 
 ## 测试屏幕
 
-硬件正常的话，开机屏幕会自动输出内核信息，也可以使用`echo "hello sipeed">/dev/tty0`重定向信息到屏幕上。
+硬件正常的话，开机屏幕会自动输出内核信息，也可以使用`echo "hello sipeed" > /dev/tty0` 重定向信息到屏幕上。
 
 <img src="./assets/image-20210805150728052.png" alt="image-20210805150728052" style="zoom:50%;" />
 
@@ -23,8 +23,6 @@ armbian 内置了 ffmpeg ，可以快速捕捉 sensor 数据并输出到屏幕�
 选择 Activate a connection ， 选择对应的 WIFI名称 ，输入连接密码，确认即可。
 
 ![202108051626](./assets/202108051626.gif)
-
-
 
 设置完毕后使用 ifconfig 查看本机操作，然后就可以使用 ssh 等操作了。
 

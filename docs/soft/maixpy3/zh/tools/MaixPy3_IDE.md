@@ -5,7 +5,10 @@ desc: maixpy doc: 如何连接并使用 MaixPy3 的 IDE
 ---
 
 >[下载 MaixPy3 IDE ](https://dl.sipeed.com/shareURL/MaixII/MaixPy3-IDE)
->百度网盘下载链接：<https://eyun.baidu.com/s/3ggHhRQr> 密码：2333
+>百度网盘下载链接：链接：https://eyun.baidu.com/s/3cU8YYi 密码：2333
+
+如果百度云链接失效，直接通过下面链接进入下载站里相同路径页面下也是可以找到的
+https://eyun.baidu.com/s/3htTXfaG
 
 ## 为什么要使用 IDE ？
 
@@ -13,7 +16,7 @@ desc: maixpy doc: 如何连接并使用 MaixPy3 的 IDE
 
 ![index.png](./assets/4in1.jpg)
 
-上述命令行的编程方式是上世纪 80 年代流行的开发方式，建议你在有一定 linux 系统的操作基础后再熟练使用会更好，但 2022 现代 IDE 工具的重点应该是向人类传达 Python 代码运行结果或效果。
+上述命令行的编程方式是上世纪 80 年代流行的开发方式，建议你在有一定 linux 系统的操作基础后再熟练使用会更好。但 2022 现代 IDE 工具的重点应该是向人类传达 Python 代码运行结果或效果。
 
 如果你是一名开发者，你要如何教会初学者使用你的代码？像你一样使用命令行敲出来看实际的效果吗？
 
@@ -53,13 +56,13 @@ MaixPy3 IDE 的构成主要如下：
 
 ### 关于 Windows 平台的安装方法
 
-**只支持 Windows7 或 Windows10 32位以上的系统，需要自带安装了支持谷歌内核浏览器的系统，Windows11 测试样本极少，需要慎重选用**
+**只支持 Windows7 或 Windows10 32位以上的系统。需要自带安装了支持谷歌内核浏览器的系统。Windows11 测试样本极少，需要慎重选用**
 
-为了节约用户自己配置的操作，我们提供了开箱即用的绿色软件，它是借助 pyinstaller 将 ipython 、 jupyter 、 rpyc_ikernel 合并导出的 Python 程序，你可以在[下载站](https://dl.sipeed.com/shareURL/MaixII/MaixPy3-IDE)中获得 MaixPy3 IDE exe 安装包，安装程序结束之后，它会调用系统默认的浏览器以网页的形式打开，运行的浏览器需要 chrome 内核支持，不能是 IE 浏览器，旧版的 Edge 加载 8M 以上的页面会卡死，不是特别推荐。
+为了节约用户自己配置的操作，我们提供了开箱即用的绿色软件，它是借助 pyinstaller 将 ipython 、 jupyter 、 rpyc_ikernel 合并导出的 Python 程序，你可以在[下载站](https://dl.sipeed.com/shareURL/MaixII/MaixPy3-IDE)中获得 MaixPy3 IDE exe 安装包，安装程序结束之后，它会调用系统默认的浏览器以网页的形式打开，运行的浏览器需要 chrome 内核支持，不能是 IE 浏览器，旧版的 Edge 加载 8M 以上的页面会卡死，并不推荐。
 
 ![IDE_1](./assets/IDE_1.png)
 
-> 若是下载站很慢，可以在[百度云](https://pan.baidu.com/s/1C7Jl3rXticeJsCgH-fIcbQ)下载，提取码：2333 。
+> 若是下载站很慢，可以在文章开头处获取百度云链接
 
 2022年1月15日收到用户的反馈点
 
@@ -130,17 +133,17 @@ MaixPy IDE （jupyter） 在创建代码文档的时候，可以选择多个 Pyt
 
 这里我们以典型硬件 V83X 和 R329 的为例。
 
-因为 V83X 因为支持 usb adb forward 功能，可以通过转发 TCP/IP 地址进行 IP 映射的端口绑定，而 R329 只能通过 TCP/IP 地址进行连接，但从设计上来说 IDE 只支持 TCP/IP 地址的连接方法，所以要确保 TCP 的远程调用端口 18811 和 18812 图传端口没有被防火墙阻止，那么如何确认呢？
+因为 V83X 因为支持 usb adb forward 功能，可以通过转发 TCP/IP 地址进行 IP 映射的端口绑定；而 R329 只能通过 TCP/IP 地址进行连接，但从设计上来说 IDE 只支持 TCP/IP 地址的连接方法，所以要确保 TCP 的远程调用端口 18811 和 18812 图传端口没有被防火墙阻止，那么如何确认呢？
 
 最起码的就是互相 ping 对方的 IP 确保该 IP 下的通路可行。如果 IP 确定是可以连通的，则我们需要确定远程调用的服务是否存在。
 
-通常里面需要一个 rpyc + mjpg 的服务去维持远程调用，如果是 V83X 则会自动经过 adb shell 完成调用 [实现在 github 这里](https://github.com/sipeed/rpyc_ikernel/blob/master/rpyc_ikernel/adb.py#L509-L539)，如果你是 R329 则需要手动启动该服务，或配置成开机自动启动，从而避免下次手动启动。
+通常里面需要一个 rpyc + mjpg 的服务去维持远程调用，如果是 V83X 则会自动经过 adb shell 完成调用 [实现在 github 这里](https://github.com/sipeed/rpyc_ikernel/blob/master/rpyc_ikernel/adb.py#L509-L539)；如果你是 R329 则需要手动启动该服务，或配置成开机自动启动，从而避免下次手动启动。
 
-如果遇到 IDE 链接失败，首先要通过 linux ps 命令检查维持 IDE 链接的 Python 程序（`python -c from maix import mjpg;mjpg.start();`）是否存在（如 S 表示正在运行）。
+如果遇到 IDE 链接失败，首先要通过 linux `ps` 命令检查维持 IDE 链接的 Python 程序（`python3 -c from maix import mjpg;mjpg.start();`）是否存在（如 S 表示正在运行）。
 
 ![](./assets/ps.png)
 
-若是通道+服务均正常，那 IDE 就一定可以连上，还需要注意的就是默认连接的 IP 地址是 localhost ，如果你本机的网卡环境比较混乱，可能你需要手动指定一下 IP 才能确保正确连接上，如：`$connect("192.168.0.156")`。
+若是通道+服务均正常，那 IDE 就一定可以连上，还需要注意的就是默认连接的 IP 地址是 localhost ；如果你本机的网卡环境比较混乱，可能你需要手动指定一下 IP 才能确保正确连接上，如：`$connect("192.168.0.156")`。
 
 在我设计的 V83X 的使用体验步骤是：
 

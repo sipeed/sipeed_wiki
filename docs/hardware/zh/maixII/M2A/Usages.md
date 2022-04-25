@@ -248,12 +248,18 @@ maixsense:~:# pactl set-sink-volume 2 -0x3000
 ## 媒体播放
 
 媒体播放常用mplayer
-- 下载mplayer `sudo apt install mplayer`
+- 下载mplayer 
   
-然后执行 `sudo mplayer badapple_240p.mp4 -vo fbdev2` 播放视频
-或者`sudo mplayer G.E.M.邓紫棋\ -\ 光年之外.flac`播放音频
+> sudo apt install mplayer
+  
+然后执行 `sudo mplayer badapple_240p.mp4 -vo fbdev2` 来播放视频
+或者`sudo mplayer G.E.M.邓紫棋\ -\ 光年之外.flac` 播放音频
 
 在后面加上`< /dev/null > /dev/null 2>1 &`以便在后台播放
+
+```bash
+mplayer /root/badapple_240p.mp4 -vo fbdev2  < /dev/null > /dev/null 2>1 &
+```
 
 ![202108091128](./assets/202108091128.gif)
 
@@ -357,7 +363,6 @@ chmod 777 run.sh #授予执行权限
 ./run.sh #执行1000类物体分类
 ```
 
-
 ## 设置开机启动
 
 启用开机自启动脚本
@@ -382,11 +387,6 @@ Alias=rc.local.service
 
 在`exit 0`前面添加需要启动的服务
 
-```bash
-mplayer /root/badapple_240p.mp4 -vo fbdev2  < /dev/null > /dev/null 2>1 &
-python3 /root/helloworld.py
-```
-
 然后重启即可
 
 注意，此脚本会在用户登录前执行，执行日志如下
@@ -395,14 +395,6 @@ python3 /root/helloworld.py
 [  OK  ] Finished Permit User Sessions.
 [  38.569457] rc.local[1322]: hello world!
 ```
-
-## 配置APT源
-
-选择合适的APT源能节省我们的下载时间。
-命令行中输入`armbian-config`，选中Personal，再选择Mirrors，选择合适的apt源，按住TAB键切换到ok，保存即可。		
-
-![202108061955](./assets/202108061955.gif)
-
 
 ## 更多的使用方法
 请到[MaixPy3](/soft/maixpy3/zh/readme.md)和[极术社区](https://aijishu.com/a/1060000000221780)中自行查看

@@ -35,10 +35,13 @@
 2018年8月15日之前收到的板子预烧录的码流为旧版本IO分配，需要烧录[新版本码流](./../assets/LicheeTangNewIoMap_BitStream.bit)
 
 您可能需要这些来进一步了解荔枝糖： 
+
 - EG4S20Datasheet [点我](https://dl.sipeed.com/shareURL/TANG/Premier/HDK/Datasheet/)里面的`EG4S20_DataSheet_V1.4.pdf`
+
 - 荔枝糖原理图 [点我](https://dl.sipeed.com/fileList/TANG/Premier/HDK/)里面的`LicheeTang_RV(Schematic).pdf`
 
-荔枝糖仍在不断地成长，对于外观、电路设计、文档内容甚至于荔枝糖的发展方向，我们欢迎您到[荔枝糖 | 建议与讨论帖](https://bbs.sipeed.com/cate/30/seq/1) 提出您宝贵的建议。
+荔枝糖仍在不断地成长，对于外观、电路设计、文档内容甚至于荔枝糖的发展方向，
+我们欢迎您到[荔枝糖 | 建议与讨论帖](https://bbs.sipeed.com/cate/30/seq/1) 提出您宝贵的建议。
 
 同时欢迎各位加入荔枝派交流群 `834585530` 或者 [荔枝派Telegram电报群](https://t.me/sipeed)与众多开发者、爱好者即时交流。
 

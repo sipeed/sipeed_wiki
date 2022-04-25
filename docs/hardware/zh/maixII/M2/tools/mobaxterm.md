@@ -16,7 +16,7 @@ desc: maixpy doc: 如何使用 mobaxterm
 - ssh 远程登录 Linux 系统的终端
 - ftp 远程访问文件服务上的资源
 
-## 连接 Serial
+## 连接 串口(Serial)
 
 开源硬件产品大多都会预留串口（Serial）用作 Linux 系统的终端交互接口，下面介绍串口【session】的创建。
 
@@ -30,15 +30,17 @@ desc: maixpy doc: 如何使用 mobaxterm
 
 ## 连接 SSH
 
-除了有线串口的方式，还可以通过无线访问 SSH 登录 Linux 系统，如一般的家用路由器。
+除了有线串口的方式，还可以通过无线访问 SSH 登录 Linux 系统。
 
-在 Linux 系统输入 ifconfig 查看自己 ip 地址（192.168.1.185），然后输入自己名称和密码，常见有 root / root 。
+在 Linux 系统输入 ifconfig 查看自己 ip 地址（此处以192.168.1.185作为示例），然后输入自己用户名和密码。
 
-> 如果没有设置密码，root 的连接密码是 root 。输入密码的时候是看不到的，在输入结束之后，按回车即可
+> 输入密码的时候是看不到的（没有输入显示），在输入结束之后，按回车即可
 
 ![](./asserts/mobaxterm_ssh.jpg)
 
 就可以看到 Linux 的登录会话终端了。
+
+传输文件的时候可以直接把文件拖入或者拉出下图的左红框中。
 
 ![](./asserts/mobaxterm_ssh_view.jpg)
 
@@ -68,7 +70,7 @@ MaixII-Dock 可以通过 OTG 接口转发到 127.0.0.1 的 22 端口，但是每
 
 ![](https://mobaxterm.mobatek.net/img/moba/features/feature-mobatexteditor.png)
 
-这时候再拿到终端里运行 Python 脚本即可。
+对于python文件编辑结束后再拿到终端里运行即可。
 
 ```bash
 python xxxx.py
