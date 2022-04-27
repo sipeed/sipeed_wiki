@@ -1,7 +1,9 @@
 # 无 SD 卡系统烧录方式
 
-> 目前没有在V831上进行过flash系统烧录，V833可以使用一下方式进行烧录，镜像需要发送邮件获取
-> 如需烧录到V831上，需要自行设计底板，引出fel烧录按键
+- **目前没有在V831上进行过flash系统烧录，V833可以使用一下方式进行烧录，镜像需要发送邮件获取**
+- 如需烧录到V831上，需要自行设计底板，引出fel烧录按键
+
+## 获取烧录工具
 
 - 从网上获取 PhoenixSuit(Windows) 烧录工具。
   - [baidu-PhoenixSuit](https://www.baidu.com/s?wd=PhoenixSuit)
@@ -11,7 +13,7 @@
 
 ## Windows 上使用 PhoenixSuit 烧录
 
-获取系统镜像（.img） 和烧录工具（.exe） 解压到你知道的地方。
+获取系统镜像（.img） 和烧录工具（.exe） 。解压到你知道的地方。
 
 ![](./../img/no_sd_flash.png)
 

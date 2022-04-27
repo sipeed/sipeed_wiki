@@ -4,22 +4,77 @@ keywords: MaixII, MaixPy3, Python, Python3, M2dock, Tina, Openwrt
 desc: maixpy doc: MaixII M2dock 上手使用
 ---
 
-- 没有 Linux 系统使用基础的同学，不推荐以下的使用方式
+> 没有 Linux 系统使用基础的同学，不推荐以下的使用方式
 
 ## 认识 openwrt 系统
 
-> 全志 V831 使用 Tina Linux 系统，移植自 openwrt 。
+> 全志 V831 使用 Tina Linux 系统，移植自 [OpenWrt]((https://openwrt.org)) 。
 
 OpenWrt 可以被描述为一个嵌入式的 Linux 发行版，详情可看 [官方网址](https://openwrt.org) 和 [官方开源仓库](https://github.com/openwrt/openwrt)。
 
 OpenWRT 是一个高度模块化、高度自动化的嵌入式 Linux 系统，拥有强大的网络组件和扩展性，常常被用于工控设备、电话、小型机器人、智能家居、路由器以及 VOIP 设备中。 同时，它还提供了 100 多个已编译好的软件，而且数量还在不断增加，而 OpenWrt SDK 更简化了开发软件的工序。
 
+对于 V831 tina 系统支持使用 adb 调用。需要将主机于板子的OTG标识的接口相连
+
+---
+
+- Windows 将 adb路径 添加到 PATH 即可在命令行使用。但是体验极差
+
+---
+- 对于linux需要先安装adb程序且增加一条 udev 规则并重新拔插一下 usb 即可生效
+```bash
+echo 'SUBSYSTEM=="usb", MODE="0660", GROUP="plugdev", SYMLINK+="android%n"' | sudo tee /etc/udev/rules.d/51-android.rules
+```
+---
+
+接着只需要在命令行终端执行 `adb shell` 即可连接V831了
+
+## 部分常用 Linux 命令
+
+<details>
+  <summary>部分常用命令</summary>
+   <pre>
+ls 查看目录下文件
+cd 打开目录
+pwd 打印当前目录
+mv 移动/重命名 文件/文件夹
+cp 复制 文件/文件夹
+rm 删除
+vi 编辑文件内容 #经测试windows下会出问题
+top 查看系统内存
+df 查看磁盘信息
+time 查看时间
+ifconfig 查看网络信息
+free 查看剩余内存
+ps 查看运行的进程
+kill 杀死进程
+killall 杀死所有进程
+chmod 更改 文件/文件夹 权限
+passwd 设置/更改 用户密码
+cat 查看文件内容
+ping 检测某网址是否连通
+wget 下载某链接文件
+grep 搜索文件内容
+ln 建立文件链接
+</pre>
+</details>
+
 ### opkg 包管理器
 
 Opkg 是一个轻量快速的套件管理系统，目前已成为 Opensource 界嵌入式系统标准。常用于 路由、 交换机等 嵌入式设备中，用来管理软件包的安装升级与下载。
 
+#### 相关常用命令
+
+- opkg update 更新可以获取的软件包列表
+- opkg upgrade 对已经安装的软件包升级
+- opkg list 获取软件列表
+- opkg install 安装指定的软件包
+- opkg remove 卸载已经安装的指定的软件包
+  
+例如：
+
 ```bash
-root@sipeed:/# opkg list
+root@sipeed:/# opkg list 
 MaixPy3 - 0.2.5-1
 alsa-lib - 1.1.4.1-1
 busybox - 1.27.2-3
@@ -33,13 +88,6 @@ eyesee-mpp-middleware - 1.0-1
 eyesee-mpp-system - 1.0-1
 ```
 
-#### 常用命令
-
-- opkg update 更新可以获取的软件包列表
-- opkg upgrade 对已经安装的软件包升级
-- opkg list 获取软件列表
-- opkg install 安装指定的软件包
-- opkg remove 卸载已经安装的指定的软件包
 
 ### pip 包管理器
 
@@ -53,7 +101,7 @@ eyesee-mpp-system - 1.0-1
 
 #### 临时使用
 
-```
+```python
 pip install -i https://pypi.tuna.tsinghua.edu.cn/simple some-package
 ```
 
@@ -63,49 +111,33 @@ some-package 请自行更换成你想要安装的包
 
 升级 pip 到最新的版本 (>=10.0.0) 后进行配置：
 
-```
+```python
 pip install -i https://pypi.tuna.tsinghua.edu.cn/simple pip -U
 ```
 
 设置清华镜像源为默认：
 
-```
+```python
 pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
 ```
 
-### 常用 Linux 命令
-
-- ls 查看目录下文件
-- cd pwd mv cp rm 一套文件管理命令
-- vi 编辑文件内容
-- top 查看系统内存
-- df 查看磁盘信息
-- time 查看时间
-- ifconfig 查看网络信息
-- free 查看剩余内存
-- ps 查看运行的进程
-- kill killall 杀死指定进程
-- chmod 给某个文件权限
-- passwd 设置用户的密码
-- more cat 查看文件内容
-- ping 检测某网址是否连通
-- wget 下载某链接文件
-- grep 搜索文件内容
-- ln 建立文件链接
-
 ## 测试屏幕方法
 
-> 请测试前观察系统上电后屏幕是否会闪烁一次，这表示屏幕已经通电、驱动起来，并对其复位（RST）后产生的。
+- 请测试前观察系统上电后屏幕是否会闪烁一次；这表示屏幕已经通电、驱动起来，并对其复位（RST）后产生的。
 
 在 Linux Shell 运行 `cat /dev/urandom > /dev/fb0` 就会输入随机数据到 fb0 产生雪花屏了，这表示屏幕显示是正常的。
 
 <center><img src="./asserts/lcd_test.jpg" width="400"></center>
 
-> 帧缓冲（framebuffer）是 Linux 为显示设备提供的一个接口，把显存抽象后的一种设备，他允许上层应用程序在图形模式下直接对显示缓冲区进行 读写操作。framebuffer 是 LCD 对应的一种 HAL（硬件抽象层），提供抽象的，统一的接口操作，用户不必关心硬件层是怎么实施的。这些都是由 Framebuffer 设备驱动来完成的。帧缓冲设备对应的设备文件为 /dev/fb*，如果系统有多个显示卡，Linux下还可支持多个帧缓冲设备，最多可达 32 个，分别为 /dev/fb0 到 /dev/fb31，而 /dev/fb 则为当前缺省的帧缓冲设备，通常指向 /dev/fb0，在嵌入式系统中支持一个显示设备就够了。帧缓冲设备为标准字 符设备，主设备号为 29 ，次设备号则从 0 到 31 。分别对应 /dev/fb0-/dev/fb31 。
+<details>
+  <summary>帧缓冲相关知识</summary>
+   帧缓冲（framebuffer）是 Linux 为显示设备提供的一个接口，把显存抽象后的一种设备。
+   它允许上层应用程序在图形模式下直接对显示缓冲区进行 读写操作。framebuffer 是 LCD 对应的一种 HAL（硬件抽象层），提供抽象的，统一的接口操作，用户不必关心硬件层是怎么实施的。这些都是由 Framebuffer 设备驱动来完成的。帧缓冲设备对应的设备文件为 /dev/fb*，如果系统有多个显示卡，Linux下还可支持多个帧缓冲设备，最多可达 32 个，分别为 /dev/fb0 到 /dev/fb31，而 /dev/fb 则为当前缺省的帧缓冲设备，通常指向 /dev/fb0，在嵌入式系统中支持一个显示设备就够了。帧缓冲设备为标准字 符设备，主设备号为 29 ，次设备号则从 0 到 31 。分别对应 /dev/fb0-/dev/fb31 。
+</details>
 
 ## 运行 Python3 解释器
 
-在 Linux 上使用 Python 编程只需要在 shell 命令行交互的接口输入 python3 即可启动，可直接复制代码粘贴后按回车键运行。
+在 Linux 上使用 Python 编程只需要在 adb shell 命令行交互的接口输入 python3 即可启动，可直接复制代码粘贴后按回车键运行。
 
 ```python
 import platform
@@ -135,6 +167,8 @@ uname_result(system='Linux', node='sipeed', release='4.9.118', version='#77 PREE
 
 ## 测试拍照功能
 
+同样进行上面操作先运行 python3, 再将下面代码复制进终端即可
+
 ```python
 from maix import display, camera
 display.show(camera.capture())
@@ -142,7 +176,7 @@ display.show(camera.capture())
 
 <center><img src="./asserts/hello_world.jpg" width="500"></center>
 
-> 如果发现屏幕没有亮起显示摄像头内容，确保系统是最新的，排查硬件接线与通电方面的问题，通常产品出厂前都会做外设硬件测试的。
+> 如果发现屏幕没有亮起显示摄像头内容，请先确保系统是最新的，排查硬件接线与通电方面的问题。因为通常产品出厂前都会做外设硬件测试的。
 
 ## 入门教程
 

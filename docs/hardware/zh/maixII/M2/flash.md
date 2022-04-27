@@ -4,22 +4,26 @@ keywords: MaixII, MaixPy3, Python, Python3, M2dock
 desc: maixpy doc: MaixII M2dock 烧录系统
 ---
 
-| 文档更新时间 | 负责人 | 更新内容 |
-| :---: | :---: | :---: |
-| 2021.03.20 | 大老鼠 | 新建文档，开始编写内容 |
-| 2021.12.8 | Rui & 点灯鼠 | 整理并更新烧录方式 |
-| 2022.3.8 | Rui | 修改烧录的注意事项 |
+> 编辑时间2022.04.27
 
-> 注意事项！！！
-> 1、非必要的情况下，请不要随意镜像烧录。
-> 2、部分 AMD 平台的电脑存在无法烧录的情况
-> 3、不能保证所有的卡都可以成功的烧录镜像，所以建议用户直接购买官方的镜像卡
+| 文档更新时间 |    负责人    |        更新内容        |
+| :----------: | :----------: | :--------------------: |
+|  2021.03.20  |    大老鼠    | 新建文档，开始编写内容 |
+|  2021.12.8   | Rui & 点灯鼠 |   整理并更新烧录方式   |
+|   2022.3.8   |     Rui      |   修改烧录的注意事项   |
+
+注意事项！！！
+- 1、非必要的情况下，请不要随意镜像烧录。
+- 2、部分 AMD 平台的电脑存在无法烧录的情况
+- 3、不能保证所有的卡都可以成功的烧录镜像，所以建议用户直接购买官方的镜像卡
 
 ## 获取镜像文件
 
 从下载站获取最新的 V831 系统镜像 [SDK_MaixII/release](https://dl.sipeed.com/shareURL/MaixII/MaixII-Dock/SDK/release) ,得到一个压缩包，解压之后就得到一个 .img 文件，这个就是系统镜像文件
 
-> 如果下载站下载的很慢，建议使用百度网盘进行下载，下载站的下载带宽有限。链接：<https://eyun.baidu.com/s/3c3I9UDE> 密码：2333 
+> 如果下载站下载的很慢，建议使用百度网盘进行下载，下载站的下载带宽有限。链接：https://eyun.baidu.com/s/3c3I9UDE 密码：2333 
+
+百度网盘可能失效，那样的话可以进入百度企业网盘对应在下载站相同的路径目录里面找到目标文件 ：百度云企业网盘 https://eyun.baidu.com/s/3htTXfaG
 
 ### 镜像文件命名方式
 
@@ -27,15 +31,15 @@ desc: maixpy doc: MaixII M2dock 烧录系统
 
 就拿`maixpy3-0.3.4_MaixII-Dock_20211119.7z`这镜像文件来说
 
-| 名称 | 含义 |
-| --- | --- |
+| 名称          | 含义                                           |
+| ------------- | ---------------------------------------------- |
 | maixpy3-0.3.4 | 此镜像是给 MaixPy3 专用，并内置了`0.3.4`的版本 |
-| MaixII-Dock | 可使用 MaixII-Dock 开发板平台 |
-| 20211119 | 镜像更新日期 |
+| MaixII-Dock   | 可使用 MaixII-Dock 开发板平台                  |
+| 20211119      | 镜像更新日期                                   |
 
 ## Windows 上使用 PhoenixCard烧录镜像
 
-PhoenixSuit和PhoenixCard是全志芯片常用的两种烧录工具，一个是USB烧录，另一个是sd卡烧录。对于需要烧录到flash中的，常用PhoenixSuit，而使用sd卡的在用PhoenixSuit需要安装USB驱动等一系列的麻烦操作，就可以使用PhoenixCard进行烧录。
+PhoenixSuit和PhoenixCard是常用来烧录全志科技芯片的两种工具，前者通过USB烧录到flash，后者常常用于烧录镜像到TF卡中。
 
 ### 准备工作
 
@@ -47,11 +51,11 @@ PhoenixSuit和PhoenixCard是全志芯片常用的两种烧录工具，一个是U
 
 ### 系统烧录
 
-1. 将内存卡通过读卡器接到电脑的 USB 口，打开 SD Card Formatter 软件，对内存卡进行格式化。Refresh后点击Format后格式化，注意选中对应的sd卡。
+1. 将内存卡通过读卡器接到电脑的 USB 口，打开 SD Card Formatter 软件，对内存卡进行格式化。Refresh（刷新）后点击Format（格式化），注意应正确选择选目标SD卡。
 
      ![image-20210802102810041](./../../../assets/maixII/V831/image-20210802102810041.png)
 
-2. 打开PhoenixCard,固件处选择对应镜像包（下载镜像后需要先解压），然后刷新盘符，如果未找到可以尝试重新插拔下SD卡，勾选启动卡，点击烧卡。
+2. 打开PhoenixCard，在固件处选择对应镜像包（下载镜像后需要先解压），然后刷新盘符找到目标卡，如果未找到可以尝试重新插拔下SD卡。选择启动卡选项后点击烧卡。
 
      ![image-20210802104155132](./../../../assets/maixII/V831/image-20210802104155132.png)
 
@@ -99,9 +103,6 @@ PhoenixSuit和PhoenixCard是全志芯片常用的两种烧录工具，一个是U
      chmod +x livesuit_installer.run
      sudo ./livesuit_installer.run
      ```
-
-
-
 ### 使用 Livesuit 烧录
 
 `sudo livesuit` 打开烧录工具，并点击“固件”选择镜像文件
