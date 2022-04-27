@@ -264,7 +264,7 @@ We also provide 720P 720p high-definition screen, you can try this if you have e
 
 ![attachmentId-2739](https://bbs.sipeed.com/storage/attachments/2021/12/09/E1qugpwslyoHbknndO5KDqv3tjclx3GUWM5QDzN4.png)
 
-## BSP SDK develpoment
+## BSP SDK
 
 To make it easy for users to develop custom function, Sipeed provide bsp docker image of LicheeRV.
 

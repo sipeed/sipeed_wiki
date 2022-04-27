@@ -31,9 +31,9 @@ Lichee RV-86 Panel是为智能家居中控应用场景而设计的开发套件�
 
 [下载站](https://dl.sipeed.com/shareURL/LICHEE/D1/Lichee_RV_86_panel)
 
-[使用教程](/soft/Lichee/zh/Lichee-RV/get_started/flash.md)
+[烧录系统](./flash.md)
 
-
+[相关使用](./user.md)
 
 ## 产品技术支持
 

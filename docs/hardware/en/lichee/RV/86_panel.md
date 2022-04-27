@@ -27,11 +27,13 @@ Lichee RV-86 Panel is a development kit designed for smart home central control 
 
 ![](./../assets/RV/86_pin.png)
 
-## Download center
+## Related links
 
 [Download center](https://dl.sipeed.com/shareURL/LICHEE/D1/Lichee_RV_86_panel)
 
+[Burn image](./flash.md)
 
+[Basic usage](./user.md
 
 ## Support
 

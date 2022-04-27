@@ -89,11 +89,12 @@ If you want to use USB C to C data line， you need do two things：
 ## Download
 
 Please download the Debian system image from Mega netdisk: 
+
 <https://mega.nz/folder/lx4CyZBA#PiFhY7oSVQ3gp2ZZ_AnwYA>
 
-If you want to build your own custom image, you can visit the BSP SDK develpoment in the following link.
+If you want to build your own custom image, you can visit the BSP SDK in the following link.
 
-[BSP SDK develpoment](./user.md#BSP-SDK-development)
+[BSP SDK](./user.md#BSP-SDK-development)
 
 ## Problems
 
