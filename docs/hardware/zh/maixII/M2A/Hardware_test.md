@@ -2,7 +2,7 @@
 
 ## 测试屏幕
 
-硬件正常的话，开机屏幕会自动输出内核信息，也可以使用`echo "hello sipeed" > /dev/tty0` 重定向信息到屏幕上。
+可以使用`echo "hello sipeed" > /dev/tty0` 重定向信息到屏幕上。
 
 <img src="./assets/image-20210805150728052.png" alt="image-20210805150728052" style="zoom:50%;" />
 

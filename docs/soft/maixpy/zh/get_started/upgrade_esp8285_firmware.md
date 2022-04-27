@@ -4,7 +4,6 @@ keywords: maixpy, k210, AIOT, ESP8285, 边缘计算
 desc: maixpy doc: 更新板载 ESP8285 固件
 ---
 
-
 ## 简介：
 
 目前 MaixPy 系列采用 M1W 模块的作为核心模块的开发板有: MaixDock(M1W)， MaixGo
@@ -17,7 +16,7 @@ desc: maixpy doc: 更新板载 ESP8285 固件
 
 - MaixPy 验证 ESP8285 是否正常工作例程
 
-> 查看文本末尾例程
+> [查看文本末尾例程](#maixpy-例程测试)
 
 - 外接 USB 转串口模块测试
 
@@ -81,9 +80,9 @@ ESP8285 进入不同模式的 IO 电平请看如下表：
 
 而以 MaixDock 为例，可以看到 MaixDock 原理图如下：
 
-![](../../assets/hardware/maix_dock/sipeed_maix_dock_sch_wifi.png)
+![](../../assets/hardware/maix_dock/sipeed_maix_dock_sch.png)
 
-![](../../assets/hardware/maix_dock/sipeed_maix_dock_sch_wifi_spi.png)
+![](../../assets/hardware/maix_dock/sipeed_maix_dock_sch_wifi.png)
 
 ### 准备
 
@@ -99,8 +98,6 @@ ESP8285 进入不同模式的 IO 电平请看如下表：
  - 乐鑫官方下载链接: [espressif_esp8266-at](https://www.espressif.com/zh-hans/support/download/at?keys=&field_type_tid%5B%5D=14)
 
    ![](../../assets/hardware/module_esp8285/image-20210105192007.png)
-
-
 
 ### Windows 使用 flash_download_tools 更新 ES8285（这里以 MaixDock 为例）：
 
@@ -135,10 +132,9 @@ ESP8285 进入不同模式的 IO 电平请看如下表：
 
 ### LINUX 使用 esp_tool 更新 ES8285（这里以 MaixDock 为例）：
 
-
 1. 按照下面配置，连接 MaixDock,
 
-    ![](../../assets/hardware/maix_dock/sipeed_maix_dock_m1w_2.png)
+    ![](../../assets/hardware/maix_dock/maixdock_pin_maps.svg)
 
 2. 安装 esptool
 
@@ -155,7 +151,7 @@ ESP8285 进入不同模式的 IO 电平请看如下表：
 
 4. 验证更新是否完成
 
-    使用 XCOM 波特率 115200, 打开 ESP8285 串口，输出 `AT\r\n`,如图提示 `OK` 即刷入成功
+    使用串口工具， 波特率 115200, 打开 ESP8285 串口，输出 `AT\r\n`,如图提示 `OK` 即刷入成功
     ![esp8285_at.png](../../assets/hardware/maix_dock/esp8285_at.png)
 
 

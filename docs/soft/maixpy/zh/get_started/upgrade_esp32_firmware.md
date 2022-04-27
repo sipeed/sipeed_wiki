@@ -7,7 +7,8 @@ desc: maixpy doc: 更新板载 ESP32 固件
 
 ## 简介：
 
-MaixPy 系列的开发板中 MaixDuino 板载了一块 ESP32 WIFI SOC，在默认情况下我们不需要更新板载的 ESP32 模块，但是但我们发现使用过程中存在 bug 并修复了之后我们就需要更新修复的固件。
+MaixPy 系列的开发板中 MaixDuino 板载了一块 ESP32 WIFI SOC，一般情况下不推荐更新板载的 ESP32 模块。
+但是但我们发现使用过程中存在 bug 并修复了之后我们就需要更新修复的固件。
 
 ## 更新 ESP32 固件步骤
 

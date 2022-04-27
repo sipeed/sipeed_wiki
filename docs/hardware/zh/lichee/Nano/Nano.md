@@ -3,6 +3,8 @@
 
 Lichee Nano是基于全志科技的F1C100s(ARM 926EJS内核)高性能soC芯片设计的迷你开发板。开发板设计小巧精致，将芯片的所有资源都引出，板载USB、Flash、TF卡、4OP LCD接口等，并把所有IO资源引出，方便开发者拓展使用，非常适合初学者学习linux或者商用于产品开发。
 
+> 默认用户名称:root 用户密码:licheepi
+
 <img src="./../assets/Nano/Nano_2.png" width=400>
 <img src="./../assets/Nano/Nano_3.png" width=400>
 
@@ -24,6 +26,7 @@ Lichee Nano开发板板载的F1C100s芯片功能很强大，芯片内置32MBDDR�
 | Connectivity | •USB OTG, SDIO,IR, 3 x TWI, 2 x SPI, 3 x UART |
 
 ### 开发板参数
+
 | 项目 | 参数 |
 | --- | --- |
 | CPU | 全志 F1C100s， ARM 926EJS , 主频 408MHz， 可超频至 600Mhz |
@@ -36,15 +39,15 @@ Lichee Nano开发板板载的F1C100s芯片功能很强大，芯片内置32MBDDR�
 ![](./../assets/Nano/Nano_pin.png)
 
 ### 软件参数
+
 | 开发环境 | 参数 |
 | --- | --- |
 | Linux | 支持3.10 BSP Linux<br>支持4.19 主线 Linux |
 | 裸机 | Xboot |
 | 裸机 | RT-Thread |
 
-> 用户名称:root 用户密码:licheepi
-
 ## 使用教程
+
 [Lichee Nano](/soft/Lichee/zh/Nano-Doc-Backup/index.md)
 
 ## 产品技术支持

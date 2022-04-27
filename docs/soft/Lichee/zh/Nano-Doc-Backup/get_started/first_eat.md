@@ -1,6 +1,3 @@
-
-
-
 # 前言
 
 
@@ -10,18 +7,20 @@
 
 > ubuntu 16.04 LTS 64位
 
-对于本节内容，如有疑问，欢迎到 [Bootloader 与 RTOS 使用交流帖 ](https://bbs.sipeed.com/) 提问或分享经验。
+对于本节内容，如有疑问，欢迎到 [Bootloader 与 RTOS 使用交流帖](https://bbs.sipeed.com/) 提问或分享经验。
+
+交叉编译除了编译器外需要安装一大堆依赖
+> sudo apt-get install gcc make cmake rsync wget unzip build-essential git bc swig libncurses-dev libpython3-dev libssl-dev python3-distutils android-tools-mkbootimg -y
 
 ## u-boot 初体验
-
 
 ### 安装交叉编译链
 
 首先需要安装交叉编译链：
 
-
 此处为获取7.2.1版本，您可获取其他版本或者通过链接直接下载
-```
+
+```bash
 wget http://releases.linaro.org/components/toolchain/binaries/7.2-2017.11/arm-linux-gnueabi/gcc-linaro-7.2.1-2017.11-x86_64_arm-linux-gnueabi.tar.xz
 tar -vxJf gcc-linaro-7.2.1-2017.11-x86_64_arm-linux-gnueabi.tar.xz
 sudo cp -r ./gcc-linaro-7.2.1-201711-x86_64_arm-linux-gnueabi /opt/

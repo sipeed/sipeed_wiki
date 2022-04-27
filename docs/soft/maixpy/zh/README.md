@@ -27,11 +27,9 @@ desc: maixpy doc: MaixPy 文档简介
 ## 关于 MaixPy
 
 
-[**MaixPy**](https://maixpy.sipeed.com/zh/wiki.sipeed.com/maixpy) 是将 [Micropython](http://micropython.org/) 移植到 [K210](https://canaan-creative.com/product/kendryteai)（一款 64 位双核带硬件 FPU、卷积加速器、FFT、Sha256 的 RISC-V CPU ） 的一个项目， 支持 MCU 常规操作， 更集成了硬件加速的 `AI` 机器视觉和麦克风阵列，`1TOPS` 算力 核心模块却不到`￥50`， 以快速开发具有极低成本和体积实用的 `AIOT` 领域智能应用。
+[**MaixPy**](https://maixpy.sipeed.com/zh/maixpy) 是将 [Micropython](http://micropython.org/) 移植到 [K210](https://canaan-creative.com/product/kendryteai)（一款 64 位双核带硬件 FPU、卷积加速器、FFT、Sha256 的 RISC-V CPU ） 的一个项目， 支持 MCU 常规操作， 更集成了硬件加速的 `AI` 机器视觉和麦克风阵列，`1TOPS` 算力 核心模块却不到`￥50`， 以快速开发具有极低成本和体积实用的 `AIOT` 领域智能应用。
 
 > MicroPython 是基于 Python3 的语法做的一款解析器，包含了 Python3 的大多数基础语法， 主要运行在性能和内存有限的嵌入式芯片上。（注意 Micropython 不包含 Python3 的所有语法）
-
-
 
 **MaixPy** 让我们在 K210 上编程更加简单快捷， 我们也将源代码开源在 [github](https://github.com/sipeed/MaixPy) 上
 
@@ -131,8 +129,6 @@ please read doc before run it!
 
 要获得这些板子，可以访问Sipeed（矽速）官网[www.sipeed.com](https://www.sipeed.com/)，或者[官方淘宝店](https://sipeed.taobao.com/)
 
-
-
 ## MaixPy 源码
 
 `MaixPy` 源码是指 运行在 `K210` 上的 `Micropython` 语法解析器， 使用 `C语言` 编写， 源码托管在 [github](https://github.com/sipeed/MaixPy), 如果只是想使用 MaixPy，不需要了解源码， 但是也欢迎给 `MaixPy` 项目一个 `star` ;
@@ -162,6 +158,8 @@ please read doc before run it!
 
 有问题尽量到上面的反馈地址提交`issue`，方便留下记录，其他人也可以查阅，提交前搜索一下是否有人提过相同问题
 
+也可以去[论坛](bbs.sipeed.com)发帖交流，方便按他人查询类似问题。
+
 以下交流方式提供辅助：
 
 <table role="table">
@@ -185,8 +183,8 @@ please read doc before run it!
             <td>878189804</td>
         </tr>
         <tr>
-            <td>MaixPy AI QQ 交流群(二群)</td>
-            <td>1129095405</td>
+            <td>MaixPy AI QQ 交流群(四群)</td>
+            <td>256336487</td>
         </tr>
         <tr>
             <td>telgram</td>

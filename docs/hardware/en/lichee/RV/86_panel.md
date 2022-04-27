@@ -33,7 +33,7 @@ Lichee RV-86 Panel is a development kit designed for smart home central control 
 
 [Burn image](./flash.md)
 
-[Basic usage](./user.md
+[Basic usage](./user.md)
 
 ## Support
 

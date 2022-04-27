@@ -4,11 +4,12 @@ keywords: Jupyter, MaixPy3, Python, Python3
 desc: maixpy doc: 在 MaixII-Sense 平台上使用 
 ---
 
+---
 
-| 时间 | 负责人 | 更新内容 |
-| --- | --- | --- |
-| 2022年4月24日| wonder|增加一点细节|
-| 2022年2月28日 | Rui | 编写连接文档 |
+|     时间      | 负责人 |   更新内容   |
+| :-----------: | :----: | :----------: |
+| 2022年4月24日 | wonder | 增加一点细节 |
+| 2022年2月28日 |  Rui   | 编写连接文档 |
 
 > Maixsense 仅支持通过网络连接到 maixpy3
 
@@ -31,9 +32,7 @@ desc: maixpy doc: 在 MaixII-Sense 平台上使用
 > 如果提示用户名和密码的话。那么用户名和密码都是`root`。
 > 注意的是输入密码的时候是没有输入显示的，因此只管输入就行。
 
-连接板子后可以参考 [硬件测试](./../../../../hardware/zh/maixII/M2A/Hardware_test.md) 和 [上手使用](./../../../../hardware/zh/maixII/M2A/Usages.md) 来基本用一下。
-
-其中 硬件测试建议 全都试一下。里面有连接wifi的方法，且花费不了多少时间。
+连接板子后可以参考 [上手使用](./../../../../hardware/zh/maixII/M2A/Usages.md) 来基本用一下。
 
 - 如果连接软件后终端界面没有任何显示，尝试按一下回车，看看有没有信息显示出来。这是因为板子已经启动完毕，串口连接迟了。
 
@@ -69,34 +68,42 @@ wlan0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 ```
 
+从上面的 wlan0 信息中我们可以发现本次 IP 地址是 `192.168.0.2`；
+这只是一个示例，具体到每个人可能会不一样，自行更改即可
+
 - 没有显示IP的话重新设置连接网络
 
 ### 连接
 
 在板子上执行 `python3 -c "import maix.mjpg;maix.mjpg.start()"` 命令来启动板子上的远程 RPyc 服务；在电脑启动 MaixPy3 IDE，新建代码区，运行下面的连接代码。
 
-板子终端执行 `python3 -c "import maix.mjpg;maix.mjpg.start()"` ：
+- 板子终端执行 `python3 -c "import maix.mjpg;maix.mjpg.start()"` ：
 
 ```bash
 root@maixsense:~# python3 -c "import maix.mjpg;maix.mjpg.start()"
 ```
 
-电脑
+- 电脑在 IDE 中新建代码区并执行
 
 ```python
-$connect("192.168.xxx.xxx")   # 此处填入开发板的 IP 地址
+$connect("192.168.0.2")   # 此处填入开发板本次的 IP 地址
 import platform
 print(platform.uname())
 ```
 
-然后运行结果如下，稍微等一会
+稍微等一会，然后运行结果如下
 
 ![](./assets/example.png)
 
 - 注意右上角应该是RPyc
 
-> 启动 IDE 的时候，会打开一个 adb 终端窗口，可以直接关闭无视它
+> 启动 MAixpy3 IDE 的时候，会打开一个 adb 终端窗口。由于我们是用网络连接且运行运行相关代码的，因此可以直接关闭它
 
 相关使用方法可以参考[使用 MaixPy3 IDE 连接 MaixII-Dock](./0.MaixII-Dock.ipynb),其中的**如何运行代码**和**首次尝试**都可以参考。
 
-另外注意因为板子是使用无线网络连接的IDE，所以运行时需要指定IP
+另外注意因为板子是使用无线网络连接的IDE，所以每次首次运行时需要指定IP。
+
+### 开机自启
+
+目前 R329 镜像是 armbian linux 系统。
+用户可以自行搜索配置linux开机脚本方式来启动想要的脚本。

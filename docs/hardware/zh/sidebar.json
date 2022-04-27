@@ -60,16 +60,16 @@
                             "file": "maixII/M2/flash.md"
                         },
                         {
-                            "label": "连接开发板",
-                            "file": "../../soft/maixpy3/zh/tools/0.MaixII-Dock.ipynb"
-                        },
-                        {
-                            "label": "进阶使用",
+                            "label": "基础使用",
                             "file": "maixII/M2/usage.md"
                         },
                         {
                             "label": "其他事项",
                             "file": "maixII/M2/other.md"
+                        },
+                        {
+                            "label": "连接MaixPy3",
+                            "file": "../../soft/maixpy3/zh/tools/0.MaixII-Dock.ipynb"
                         }
                     ]
                 },
@@ -203,7 +203,7 @@
                         },
                         {
                             "label": "安装TD驱动——Linux",
-                            "file": "tang/Tang-primer/get_started/driver_linux_en.md"
+                            "file": "tang/Tang-primer/get_started/install_linux.md"
                         },
                         {
                             "label": "使用FPGA点灯",
