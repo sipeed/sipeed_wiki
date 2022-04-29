@@ -260,6 +260,21 @@
     background-color: #ff6b63;
     color: #ffffff;
 }
+#sidebar > ul > li > ul > li  {
+    border-left: 10px solid rgb(218, 214, 17);
+}
+#sidebar > ul > li > ul > li > ul > li {
+    border-left: 8px solid #03a9f4;
+}
+#sidebar > ul > li > ul > li > ul > li > ul > li {
+    border-left: 6px solid #be0af5;
+}
+#sidebar > ul > li > ul > li > ul > li > ul > li > ul > li {
+    border-left: 4px solid #10d831;
+}
+#sidebar > ul > li > ul > li > ul > li > ul > li > ul > li > ul > li {
+    border-left: 4px solid #ee0969;
+}
 blockquote {
     border-left: 4px solid #ff6b63;
 }

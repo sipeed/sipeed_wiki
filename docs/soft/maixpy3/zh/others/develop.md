@@ -59,10 +59,10 @@ juwan@juwan-N85-N870HL:~/Desktop/v831_toolchain_linux_x86/MaixPy3$
 
 - 编译 `python3.8 setup.py maix_v831 bdist_wheel`
 
-- 安装 `pip install ./dist/*.whl`
+- 安装 `export TMPDIR=/root && pip install ./dist/*.whl`
 
 ```bash
-root@sipeed:/# pip install maixpy3 --upgrade
+root@sipeed:/# export TMPDIR=/root && pip install maixpy3 --upgrade
 Collecting maixpy3
   Downloading MaixPy3-0.1.9-cp38-cp38-linux_armv7l.whl (1.0 MB)
      |████████████████████████████████| 1.0 MB 43 kB/s 
@@ -88,7 +88,7 @@ root@sipeed:/#
 
 对于一些安装失败，缺少了依赖库的场合，需要从外部去引入该包的安装，例如这个问题 [error happened when install maixpy3](https://github.com/sipeed/MaixPy3/issues/4) ，这通常需要升级镜像来解决，或手动安装相关的依赖包。
 
-至此以后，在发布软件包的时候可以通过 `pip install maixpy3` 让目标机器直接安装 maixpy3 的包即可使用。
+至此以后，在发布软件包的时候可以通过 `export TMPDIR=/root && pip install maixpy3` 让目标机器直接安装 maixpy3 的包即可使用。
 
 ## 一般测试流程
 

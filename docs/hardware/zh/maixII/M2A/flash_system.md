@@ -20,6 +20,9 @@ armbian 镜像获取：
 
 > 链接：https://eyun.baidu.com/s/3dUjp6Y 提取码：fvbn
 
+如果上面的链接失效了的话。请自行更换这个 [点我](https://eyun.baidu.com/s/3htTXfaG#sharelink/path=%2F%E4%B8%8B%E8%BD%BD%E7%AB%99%E6%96%87%E4%BB%B6%2FMaixII%2FMaixII-A%2FSDK&parent_path=%2F%E6%B7%B1%E5%9C%B3%E7%9F%BD%E9%80%9F%E7%A7%91%E6%8A%80%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8)。
+其中带有 maixpy3 名称的是已经装载了maixpy3应用程序和相关驱动的镜像包。
+
 armbian 使用的烧录方式为 dd; windows下推荐使用 Etcher 这个软件，linux 下推荐使用 Terminal。
 
 ### Tina 系统镜像

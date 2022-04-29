@@ -7,14 +7,26 @@ desc: maixpy doc: 如何连接并使用 MaixPy3 的 IDE
 >[下载 MaixPy3 IDE ](https://dl.sipeed.com/shareURL/MaixII/MaixPy3-IDE)
 >百度网盘下载链接：链接：https://eyun.baidu.com/s/3cU8YYi 密码：2333
 
-如果百度云链接失效，直接通过下面链接进入下载站里相同路径页面下也是可以找到的
-https://eyun.baidu.com/s/3htTXfaG
+如果百度云链接失效，请使用这个链接 [点我](https://eyun.baidu.com/s/3htTXfaG#sharelink/path=%2F%E4%B8%8B%E8%BD%BD%E7%AB%99%E6%96%87%E4%BB%B6%2FMaixII%2FMaixPy3-IDE&parent_path=%2F%E6%B7%B1%E5%9C%B3%E7%9F%BD%E9%80%9F%E7%A7%91%E6%8A%80%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8)
 
 ## 为什么要使用 IDE ？
 
 在没有 IDE 的时候，我们是这样编程的，这是每一只远古程序猿都必备的开发技能。
 
-![index.png](./assets/4in1.jpg)
+<html>
+<div class="imbox">
+    <img src="./assets/4in1.jpg" height = 300 >
+    <img src="./assets/python_cmd.gif" height = 300 >
+
+<style>
+.imbox{
+     display:flex;
+     flex-direction: row;
+     }
+</style>
+</div>
+
+</html>
 
 上述命令行的编程方式是上世纪 80 年代流行的开发方式，建议你在有一定 linux 系统的操作基础后再熟练使用会更好。但 2022 现代 IDE 工具的重点应该是向人类传达 Python 代码运行结果或效果。
 

@@ -27,7 +27,7 @@ MaixSense 需要是烧录官方提供最新的 Armbian 镜像，旧的镜像在�
 > MaixSense 的 Tina 系统并支持使用
 
 ```shell
-root@maixsense:~# pip install maixpy3
+root@maixsense:~# export TMPDIR=/root && pip install maixpy3
 Requirement already satisfied: maixpy3 in /usr/local/lib/python3.9/dist-packages (0.3.4)
 Requirement already satisfied: Pillow in /usr/lib/python3/dist-packages (from maixpy3) (8.1.2)
 Requirement already satisfied: zbarlight in /usr/local/lib/python3.9/dist-packages (from maixpy3) (3.0)
@@ -51,7 +51,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 
 > 2021年02月21日 在 RaspberryPi 、 ubuntu20 与 manjaro20 上测试通过。
 
-通过 `pip3 install maixpy3` 安装。
+通过 `export TMPDIR=/root && pip3 install maixpy3` 安装。
 
 ```bash
 juwan@juwan-N85-N870HL:~$ pip3 install .Looking in indexes: https://pypi.tuna.tsinghua.edu.cn/simple
@@ -84,6 +84,6 @@ Successfully installed MaixPy3-0.2.9
 
 通常来说，像树莓派 2B 这类拥有桌面环境面（DE）的 linux 硬件也是可以通过 pip 进行安装 Linux Desktop 分支的，效果都是一样的。
 
-    pip install maixpy3
+    export TMPDIR=/root && pip install maixpy3
 
 ![](./asserts/rpi2b.png)

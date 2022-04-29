@@ -33,7 +33,7 @@ Is the information correct? [Y/n] y                     # 输入 y 完成创建
 
 ### 授予管理员权限
 
-有时候用户需要使用到管理员权限，下面内容就是授予用户管理员权限.首先编辑相关文件
+有时候用户需要使用到管理员权限，下面内容就是授予用户管理员权限
 
 ```bash
 sudo nano /etc/sudoers                                   # 修改 /etc/sudoers 文件。编辑器个人喜好
@@ -52,27 +52,45 @@ root    ALL=(ALL:ALL) ALL
 ```vim
 # User privilege specification
 root    ALL=(ALL:ALL) ALL
-xxx     ALL=(ALL:ALL) ALL           
+xxx     ALL=(ALL:ALL) ALL
 
 ```
 
 接着保存后退出即可。
 
-## 安装程序
-
-这里我们使用安装 `armbian-config` 为例。直接执行下面的命令即可
-
-```bash
-sudo apt install armbian-config -y  # 使用root权限来运行apt应用的install命令来安装armbian-config且默认全都是通过
-```
-
 ## 使用SSH连接
 
 想要使用 ssh 来连接板子的话需要板子里面存在的用户名称和密码。
 默认的 root 用户没有密码， 所以想用 root 账户的话需要自己使用passwd命令自己添加密码；
-使用串口连接板子后执行 ifconfig 来获取板子的 IP 地址。
+使用串口连接板子后执行 ifconfig 来或许板子的 IP 地址。
 接着就可以使用 ssh 来连接板子了。
 用户也可以尝试使用 MobaXterm 这个软件来方便电脑与板子传输文件
+
+## MaixPy3 IDE 连接
+
+只能通过远程连接来用 MaixPy3 IDE 连接 MaixSense ，使用有线连接会连接不上。
+每个人的网络环境都存在差异，都可能存在连接不上的情况。
+
+### 准备
+
+- 烧录好带有 MaixPy3 的 Armbian 系统
+- 连接网络进行 MaixPy3更新，确保 MaixPy3 的版本大于 0.3.4。
+- 运行 `ifconfig` 获取开发板的 IP 地址
+
+### 连接
+
+在MaixSense上运行 `python3 -c "import maix.mjpg;maix.mjpg.start()"` 启动板子上的远程 RPyc 服务
+
+在电脑 IDE 中新建代码区，运行下面的代码来连接开发板
+
+```python 
+$connect("192.168.43.44") # 此处填入开发板的 IP 地址
+import platform
+print(platform.uname())
+```
+
+运行输出结果如下：
+![MaixPy3 IDE](./assets/MaixPy3-IDE.jpg)
 
 ## 设置时区
 

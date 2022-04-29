@@ -4,6 +4,7 @@ keywords: Maixpy3 官方文档
 desc: maixpy doc: MaixPy3 是什么？能做什么？
 ---
 
+> 视频速览
 
 <p align="center">
     <iframe src="//player.bilibili.com/player.html?aid=465792152&bvid=BV1ZL411c7kc&cid=489256831&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="max-width:640px; max-height:480px;"> </iframe>

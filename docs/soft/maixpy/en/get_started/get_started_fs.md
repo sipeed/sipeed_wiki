@@ -66,10 +66,10 @@ Interpretation:
 
 Of course, SD card is also supported. If you need to use it, SD card needs to meet the following points:
 
-* Support `SPI` mode, most genuine cards on the market support
-* The partition is `MBR (msdos)`
-* Format as `FAT32`
-* The size tested is the largest `128GiB` available
+* Support `SPI` mode. Most genuine cards on the market support this
+* The partitioned tables is `MBR (msdos)`
+* File system is `FAT32`
+* The **`**1TB**`** storage has been tested and is available
 
 sAfter inserting the `SD` after power off, the `SD` card will be mounted on `/sd` if it is powered on. If there are multiple partitions, the second partition name is `/sd2`
 

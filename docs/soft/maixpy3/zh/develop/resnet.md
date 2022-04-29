@@ -294,7 +294,7 @@ python 请看MaixPy3
 
 不想看文档的话，就是在系统开机使用的基础上， 更新 MaixPy3 就可以了：
 
-    pip install --upgrade maixpy3
+    export TMPDIR=/root && pip install --upgrade maixpy3
 
 然后在终端使用 python 运行脚本（可能需要根据你的文件名参数什么的改一下代码）：
 

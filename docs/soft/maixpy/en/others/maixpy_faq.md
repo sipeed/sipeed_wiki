@@ -92,7 +92,7 @@ For example: the two cards on the left side of the picture below are not support
 
 ## How much capacity does the SD card support?
 
-Maximum tested 128GiB can be used
+We have tested that **`1TB`** storage capacity SD card is OK  
 
 ## Use SD to load file, model is unsuccessful
 

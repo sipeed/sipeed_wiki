@@ -8,7 +8,7 @@ desc: maixpy doc: MaixII M2dock 上手使用
 
 ## 认识 openwrt 系统
 
-> 全志 V831 使用 Tina Linux 系统，移植自 [OpenWrt]((https://openwrt.org)) 。
+> 全志 V831 使用 Tina Linux 系统，移植自 [OpenWrt](https://openwrt.org) 。
 
 OpenWrt 可以被描述为一个嵌入式的 Linux 发行版，详情可看 [官方网址](https://openwrt.org) 和 [官方开源仓库](https://github.com/openwrt/openwrt)。
 

@@ -14,6 +14,7 @@
                 },
                 {
                     "label": "Maix 开发板",
+                    "collapsed": false,
                     "items": [
                         {
                             "label": "Maix Go",
@@ -54,6 +55,7 @@
                 {
                     "label": "MaixII-Dock",
                     "file": "maixII/M2/resources.md",
+                    "collapsed": false,
                     "items": [
                         {
                             "label": "烧录系统",
@@ -76,6 +78,7 @@
                 {
                     "label": "M2S",
                     "file": "maixII/M2S/V833.md",
+                    "collapsed": false,
                     "items": [
                         {
                             "label": "板级资源介绍",
@@ -86,6 +89,7 @@
                 {
                     "label": "MaixSense",
                     "file": "maixII/M2A/maixsense.md",
+                    "collapsed": false,
                     "items": [
                         {
                             "label": "烧录系统",
@@ -96,12 +100,12 @@
                             "file": "maixII/M2A/config_system.md"
                         },
                         {
-                            "label": "硬件测试",
-                            "file": "maixII/M2A/Hardware_test.md"
+                            "label": "基本用法",
+                            "file": "maixII/M2A/Usages.md"
                         },
                         {
-                            "label": "基本使用",
-                            "file": "maixII/M2A/Usages.md"
+                            "label" : "连接MaixPy3",
+                            "file": "../../soft/maixpy3/zh/tools/maixsense.md"
                         }
                     ]
                 }
@@ -126,6 +130,7 @@
                 {
                     "label": "Lichee RV",
                     "file": "lichee/RV/RV.md",
+                    "collapsed": false,
                     "items": [
                         {
                             "label": "Lichee RV 86 Panel",
@@ -158,11 +163,8 @@
                 {
                     "label": "Tang Nano 系列",
                     "file": "tang/Tang-Nano-Doc/SUMMARY.md",
+                    "collapsed": false,
                     "items": [
-                        {
-                            "label": "Tang Nano",
-                            "file": "tang/Tang-Nano/Nano.md"
-                        },
                         {
                             "label": "Tang Nano 1K",
                             "file": "tang/Tang-Nano-1K/Nano-1k.md"
@@ -174,6 +176,10 @@
                         {
                             "label": "Tang Nano 9K",
                             "file": "tang/Tang-Nano-9K/Nano-9K.md"
+                        },
+                        {
+                            "label": "Tang Nano (已停产)",
+                            "file": "tang/Tang-Nano/Nano.md"
                         },
                         {
                             "label": "安装 IDE",
@@ -191,31 +197,52 @@
                 },
                 {
                     "label": "Tang Premier",
-                    "file": "tang/Tang-primer/Tang-primer.md",
+                    "file": "tang/Tang-primer/Tang-primer-summary.md",
+                    "collapsed": false,
                     "items": [
                         {
-                            "label": "前言",
-                            "file": "tang/Tang-primer/readme.md"
+                            "label": "Tang Primer 20K",
+                            "file": "tang/Tang-primer-20k/primer-20k.md",
+                            "item":[
+                                {
+
+                                }
+                            ]
                         },
                         {
-                            "label": "安装TD驱动",
-                            "file": "tang/Tang-primer/get_started/install_TD_win.md"
-                        },
-                        {
-                            "label": "安装TD驱动——Linux",
-                            "file": "tang/Tang-primer/get_started/install_linux.md"
-                        },
-                        {
-                            "label": "使用FPGA点灯",
-                            "file": "tang/Tang-primer/fpga/led.md"
-                        },
-                        {
-                            "label": "搭建蜂鸟开发环境",
-                            "file": "tang/Tang-primer/get_started/E203.md"
-                        },
-                        {
-                            "label": "FPGA码流烧录",
-                            "file": "tang/Tang-primer/get_started/fpga_download.md"
+                            "label": "Tang Primer (已停产)",
+                            "file": "tang/Tang-primer/Tang-primer.md",
+                            "items":[
+                                {
+                                    "label": "前言",
+                                    "file": "tang/Tang-primer/readme.md"
+                                },
+                                {
+                                    "label":"安装TD",
+                                    "items":[
+                                    {
+                                        "label": "Windows安装TD",
+                                        "file": "tang/Tang-primer/get_started/install_TD_win.md"
+                                    },
+                                    {
+                                        "label": "Linux安装TD",
+                                        "file": "tang/Tang-primer/get_started/install_linux.md"
+                                    }
+                                ]
+                                },                          
+                                {
+                                    "label": "使用FPGA点灯",
+                                    "file": "tang/Tang-primer/fpga/led.md"
+                                },
+                                {
+                                    "label": "搭建蜂鸟开发环境",
+                                    "file": "tang/Tang-primer/get_started/E203.md"
+                                },
+                                {
+                                    "label": "FPGA码流烧录",
+                                    "file": "tang/Tang-primer/get_started/fpga_download.md"
+                                }
+                            ]
                         }
                     ]
                 }
@@ -223,10 +250,12 @@
         },
         {
             "label": "Longon",
+            "file":"longan/README.md",
             "items": [
                 {
                     "label": "Longon Nano",
                     "file": "longan/Nano/Longan_nano.md",
+                    "collapsed": false,
                     "items": [
                         {
                             "label": "PIO配置",
@@ -300,6 +329,7 @@
             "items": [
                 {
                     "label": "转接板类",
+                    "collapsed": false,
                     "items": [
                         {
                             "label": "SP-Extender",
@@ -333,6 +363,7 @@
                 },
                 {
                     "label": "传感器类",
+                    "collapsed": false,
                     "items": [
                         {
                             "label": "SP-Weather",
@@ -346,6 +377,7 @@
                 },
                 {
                     "label": "通信类",
+                    "collapsed": false,
                     "items": [
                         {
                             "label": "SP-BT",
@@ -371,6 +403,7 @@
                 },
                 {
                     "label": "显示类",
+                    "collapsed": false,
                     "items": [
                         {
                             "label": "SP-LCD 1.14",
@@ -393,6 +426,7 @@
                 },
                 {
                     "label": "模块",
+                    "collapsed": false,
                     "items": [
                         {
                             "label": "摄像头",
