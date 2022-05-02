@@ -117,7 +117,7 @@ MaixBit开发板以K210作为核心单元，功能非常很强大，芯片内置
 </table>
 
 ## 资料下载
-Sipeed-Maix-Bit 资料下载：[Sipeed-Maix-Bit](https://dl.sipeed.com/shareURL/MAIX/HDK/Sipeed-Maix-Bit)
+Sipeed-Maix-Bit 资料下载：[Sipeed-Maix-Bit](https://dl.sipeed.com/shareURL/MAIX/HDK/Sipeed-Maix-Bit/Maix-Bit_V2.0_with_MEMS_microphone)
 
 Sipeed-Maix-Bit 规格书下载：[Sipeed-Maix-Bit](https://dl.sipeed.com/fileList/MAIX/HDK/Sipeed-Maix-Bit/Specifications/Sipeed%20Maix-Bit%20%E8%A7%84%E6%A0%BC%E4%B9%A6%20V2.0.pdf)
 
