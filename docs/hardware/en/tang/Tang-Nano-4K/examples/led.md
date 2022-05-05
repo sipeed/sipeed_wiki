@@ -85,7 +85,7 @@ If there is some thing wrong, please fix by yourself.
 
 - Clock constraint is not involved here
 
-To realize function of the code on FPGA, we need bind the ports we define with the chip pins.
+To realize function of the code on FPGA, we must bind the ports we define with the chip pins.
 
 Double click the FloorPlanner in the Process interface to set pin constrain(This can be continued if failing systhesize). 
 

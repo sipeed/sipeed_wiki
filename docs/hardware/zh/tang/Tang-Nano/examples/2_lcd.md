@@ -237,7 +237,7 @@ module TOP //设置顶层模块
 	output			LCD_DEN,
 	output	[4:0]	LCD_R,
 	output	[5:0]	LCD_G,
-	output	[4:0]	LCD_B,
+	output	[4:0]	LCD_B
 
 ); // 列出需要的端口
 

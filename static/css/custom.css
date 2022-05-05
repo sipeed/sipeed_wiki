@@ -261,19 +261,19 @@
     color: #ffffff;
 }
 #sidebar > ul > li > ul > li  {
-    border-left: 10px solid rgb(218, 214, 17);
+    border-left: 3px solid #ff6b63;
 }
 #sidebar > ul > li > ul > li > ul > li {
-    border-left: 8px solid #03a9f4;
+    border-left: 3px solid #e7615a;
 }
 #sidebar > ul > li > ul > li > ul > li > ul > li {
-    border-left: 6px solid #be0af5;
+    border-left: 3px solid #be4f49;
 }
 #sidebar > ul > li > ul > li > ul > li > ul > li > ul > li {
-    border-left: 4px solid #10d831;
+    border-left: 3px solid #a84540;
 }
 #sidebar > ul > li > ul > li > ul > li > ul > li > ul > li > ul > li {
-    border-left: 4px solid #ee0969;
+    border-left: 3px solid #a5342e;
 }
 blockquote {
     border-left: 4px solid #ff6b63;
