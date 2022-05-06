@@ -51,7 +51,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 
 > 2021年02月21日 在 RaspberryPi 、 ubuntu20 与 manjaro20 上测试通过。
 
-通过 `export TMPDIR=/root && pip3 install maixpy3` 安装。
+通过 `pip3 install maixpy3` 安装。
 
 ```bash
 juwan@juwan-N85-N870HL:~$ pip3 install .Looking in indexes: https://pypi.tuna.tsinghua.edu.cn/simple
@@ -84,6 +84,6 @@ Successfully installed MaixPy3-0.2.9
 
 通常来说，像树莓派 2B 这类拥有桌面环境面（DE）的 linux 硬件也是可以通过 pip 进行安装 Linux Desktop 分支的，效果都是一样的。
 
-    export TMPDIR=/root && pip install maixpy3
+    pip install maixpy3
 
 ![](./asserts/rpi2b.png)
