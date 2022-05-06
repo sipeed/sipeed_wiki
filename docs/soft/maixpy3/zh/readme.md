@@ -12,8 +12,6 @@ desc: maixpy doc: MaixPy3 是什么？能做什么？
 
 中国的 [Sipeed 开源组织](https://github.com/sipeed) 在 2020 年底推出了 [MaixPy3](https://github.com/sipeed/MaixPy3) 开源软件，这是一款基于 [linux cpython](https://github.com/python/cpython) 的 Python3 软件开发工具包（SDK），借助开源 Python 编程语言实现跨平台统一和简化 Linux 嵌入式设备上开发 AIoT （人工智能物联网） = AI（人工智能） + IoT（物联网）应用，意在打造可落地的视觉 AI 应用生态，帮助更多人了解、使用 AI 技术来解决实际问题，推进全球边缘 AI 的落地化进程。
 
-**
-
 ## 本开源项目适用于以下人群：
 
 1. 想要了解与学习应用视觉 AI 开发的学生、爱好者、创客等。
