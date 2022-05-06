@@ -260,20 +260,21 @@
     background-color: #ff6b63;
     color: #ffffff;
 }
+
 #sidebar > ul > li > ul > li  {
-    border-left: 3px solid #ff6b63;
+    border-left: 0.1em solid #24292e38;
 }
 #sidebar > ul > li > ul > li > ul > li {
-    border-left: 3px solid #e7615a;
+    border-left: 0.1em solid #24292e6e;
 }
 #sidebar > ul > li > ul > li > ul > li > ul > li {
-    border-left: 3px solid #be4f49;
+    border-left: 0.1em solid #24292eb3;
 }
 #sidebar > ul > li > ul > li > ul > li > ul > li > ul > li {
-    border-left: 3px solid #a84540;
+    border-left: 0.1em solid #24292e;
 }
 #sidebar > ul > li > ul > li > ul > li > ul > li > ul > li > ul > li {
-    border-left: 3px solid #a5342e;
+    border-left: 0.1em solid #24292e;
 }
 blockquote {
     border-left: 4px solid #ff6b63;

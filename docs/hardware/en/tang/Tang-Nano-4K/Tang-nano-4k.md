@@ -1,5 +1,5 @@
 ---
-title: Tang nano 4k examples
+title: Tang Nano 4k examples
 ---
 
 Before reading, we suggest using this [Programmer](https://dl.sipeed.com/shareURL/TANG/programmer) not that installed with IDE

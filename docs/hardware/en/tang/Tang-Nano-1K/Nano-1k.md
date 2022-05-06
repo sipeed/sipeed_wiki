@@ -29,7 +29,7 @@ Tang Nano 1K is a core board designed based on [Gowin](https://www.gowinsemi.com
 
 - [Schematic](https://dl.sipeed.com/shareURL/TANG/Nano%201K/2_Schematic)
 - [Download center](https://dl.sipeed.com/shareURL/TANG/Nano%201K)
-- [Examples](./Tang-Nano-1k.md)
+- [Examples](./../Tang-Nano-Doc/examples.md)
 
 ## Support
 

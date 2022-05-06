@@ -115,7 +115,7 @@ But if you want to use more IP cores, you need to download other version of IDE,
 ## Others
 
 - [Download center](https://dl.sipeed.com/shareURL/TANG/Nano%209K)
-- [Examples](./Tang-nano-9k.md)
+- [Examples](./../Tang-Nano-Doc/examples.md)
 
 ## Support
 

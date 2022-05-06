@@ -1,23 +1,21 @@
 ---
-title: Introduction to MaixPy documentation
+title: Introduction of MaixPy
 keywords: maixpy, k210, AIOT, edge computing
 desc: maixpy ​​doc: Introduction to MaixPy documentation
 ---
 
-
 <div class="title_pic">
     <div class="logo_maixpy">
-    <img src="../assets/maixpy/maixpy.png" alt="maixpy ​​logo">
+        <img src="../assets/maixpy/maixpy.png" alt="maixpy ​​logo">
     </div>
     <span class="logo_sipeed">
-    <img src="../assets/sipeed/sipeed_logo_4.svg" alt="sipeed logo">
+        <img src="../assets/sipeed/sipeed_logo_4.svg" alt="sipeed logo">
     </span>
     <span class="logo_mpy">
-    <img src="../assets/maixpy/micropython.png" alt="micropython logo">
+        <img src="../assets/maixpy/micropython.png" alt="micropython logo">
     </span>
-    <br/>
+    <br />
 </div>
-
 
 <table role="table" class="center_table">
     <thead>
@@ -28,36 +26,44 @@ desc: maixpy ​​doc: Introduction to MaixPy documentation
     </thead>
     <tbody>
         <tr>
-            <td><strong>MaixPy</strong> The only official document official website</td>
-            <td><span class="limit_width">Official website:</span> <span class=""><a href="https://maixpy.sipeed.com" rel="nofollow"><strong>maixpy. sipeed.com</strong></a></span><br><span class="limit_width">Chinese site: </span><span class=""><a href="https://cn.maixpy.sipeed.com" rel="nofollow"><strong>cn.maixpy.sipeed.com</strong></a></span>
-            <br><span class="limit_width">Site on github: </span><span class=""><a href="https://en.maixpy.sipeed.com" rel="nofollow"><strong>en.maixpy.sipeed.com</strong></a></span>
+            <td><strong>MaixPy</strong> official document website</td>
+            <td><span class="limit_width">Official website:</span> <span class=""><a
+                        href="https://wiki.sipeed.com/soft/maixpy/en/"
+                        rel="nofollow"><strong>wiki.sipeed.com</strong></a></span><br><span class="limit_width">Chinese
+                    site: </span><span class=""><a href="https://cn.maixpy.sipeed.com"
+                        rel="nofollow"><strong>cn.maixpy.sipeed.com</strong></a></span>
+                <br><span class="limit_width">English site: </span><span class=""><a
+                        href="https://wiki.sipeed.com/soft/maixpy/en/"
+                        rel="nofollow"><strong>en.maixpy.sipeed.com</strong></a></span>
             </td>
         </tr>
         <tr>
             <td><strong>MaixPy</strong> demo repository</td>
-            <td><span class="limit_width">github:</span> <span class=""><a href="https://github.com/sipeed/MaixPy_scripts"><strong>github/maixpy_script </strong></a></span> <br><span class="limit_width">Domestic:</span><span class=""><a href="https://gitee.com/Sipeed/maixpy_scripts "rel="nofollow"><strong>gitee/maixpy_scripts</strong></a></span></td>
+            <td><span class="limit_width">github:</span> <span class=""><a
+                        href="https://github.com/sipeed/MaixPy_scripts"><strong>github/maixpy_script
+                        </strong></a></span> <br><span class="limit_width">Domestic:</span><span class=""><a
+                        href="https://gitee.com/Sipeed/maixpy_scripts "
+                        rel="nofollow"><strong>gitee/maixpy_scripts</strong></a></span></td>
         </tr>
         <tr>
             <td>MaixPy source code</td>
-            <td><span class="limit_width"></span><span class=""><a href="https://github.com/sipeed/MaixPy"><strong>github: MaixPy</strong> </a></span></td>
+            <td><span class="limit_width"></span><span class=""><a
+                        href="https://github.com/sipeed/MaixPy"><strong>github: MaixPy</strong> </a></span></td>
         </tr>
         <tr>
             <td>Hardware data download</td>
-            <td><span class="limit_width"></span><span class=""><a href="http://dl.sipeed.com/MAIX/HDK" rel="nofollow"><strong> dl.sipeed.com</strong></a></span></td>
+            <td><span class="limit_width"></span><span class=""><a href="http://dl.sipeed.com/MAIX/HDK"
+                        rel="nofollow"><strong> dl.sipeed.com</strong></a></span></td>
         </tr>
         <tr>
             <td>Sipeed WIKI</td>
-            <td><span class="limit_width"></span><span class=""><a href="https://wiki.sipeed.com" rel="nofollow"><strong>wiki.sipeed. com</strong></a></span></td>
+            <td><span class="limit_width"></span><span class=""><a href="https://wiki.sipeed.com"
+                        rel="nofollow"><strong>wiki.sipeed. com</strong></a></span></td>
         </tr>
     </tbody>
 </table>
 
-
-
-
-
 ## About MaixPy
-
 
 [**MaixPy**](https://maixpy.sipeed.com/zh/wiki.sipeed.com/maixpy) is to port [Micropython](http://micropython.org/) to [K210](https:/ /canaan-creative.com/product/kendryteai) (a 64-bit dual-core RISC-V CPU with hardware FPU, convolution accelerator, FFT, Sha256) is a project that supports the normal operation of the MCU and integrates hardware acceleration. `AI` machine vision and microphone array, `1TOPS` computing power core module is less than `￥50`, in order to quickly develop intelligent applications in the field of `AIOT` with extremely low cost and practical size.
 

@@ -15,7 +15,8 @@
             "/soft/Tang/zh/": "docs/soft/Tang/zh",
             "/soft/maixpy/zh/": "docs/soft/maixpy/zh",
             "/soft/maixpy3/zh/": "docs/soft/maixpy3/zh",
-            "/soft/maixduino/zh/":"docs/soft/maixduino/zh"
+            "/soft/maixduino/zh/":"docs/soft/maixduino/zh",
+            "/share_docs/zh/": "share_docs/zh"
             
         },
         "pages": {
@@ -30,7 +31,8 @@
             "/soft/Tang/assets/": "docs/soft/Tang/assets",
             "/soft/maixpy/assets/": "docs/soft/maixpy/assets",
             "/soft/maixpy3/assets/": "docs/soft/maixpy3/assets",
-            "/soft/maixduino/assets/":"docs/soft/maixduino/assets"
+            "/soft/maixduino/assets/":"docs/soft/maixduino/assets",
+            "/share_docs/assets":"share_docs/assets"
 
         },
         "blog": {
@@ -64,6 +66,11 @@
                 "url": "/soft/Tang/en/",
                 "src" : "docs/soft/Tang/en"
                 }
+            ],
+            "/share_docs/zh/": [{
+                "url": "/share_docs/en/",
+                "src" : "share_docs/en"
+                }
             ]
         },
         "pages": {
@@ -83,7 +90,7 @@
         "teedoc-plugin-markdown-parser":{
             "from": "pypi",
             "config": {
-                "toc_depth": 3
+                "toc_depth": 4
             }
         },
         "teedoc-plugin-jupyter-notebook-parser": {

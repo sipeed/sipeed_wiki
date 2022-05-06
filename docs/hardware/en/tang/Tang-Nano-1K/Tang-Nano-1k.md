@@ -1,5 +1,5 @@
 ---
-title: Tang nano 1k examples
+title: Tang Nano 1k examples
 ---
 
 - [Blink](./Nano_1K_examples/LED.md)(Preparing, please wait)

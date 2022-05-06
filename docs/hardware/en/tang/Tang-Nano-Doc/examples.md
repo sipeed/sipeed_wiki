@@ -1,8 +1,8 @@
-# Examples of Tang nano series
+# Examples of Tang Nano series
 
 > Edit on 2022.04.18
 
-Here are Tang nano series examples and continuously updated
+Here are Tang Nano series examples and continuously updated
 
 ## Preface
 
@@ -12,9 +12,11 @@ In addition, we are glad you submit or provide a example, and if you have any fe
 
 ## Examples
 
-### Tang nano
+---
 
-> The onboard downloader is ch552
+### Tang Nano
+
+- The onboard downloader is ch552
 
 Github Repository:
 https://github.com/sipeed/Tang-Nano-examples
@@ -22,14 +24,18 @@ https://github.com/sipeed/Tang-Nano-examples
 - [Blink](./../Tang-Nano/examples/led/led.md)
 - [LCD screen](./../Tang-Nano/examples/lcd.md)
 
-### Tang nano 1K
+---
+
+### Tang Nano 1K
 
 Github Repository:
 https://github.com/sipeed/TangNano-1K-examples
 
 - [Blink](./../Tang-Nano-1K/examples/led/led.md)
 - [LCD screen](./../Tang-Nano-1K/examples/lcd.md)
-### Tang nano 4K
+
+---
+### Tang Nano 4K
 
 Github Repository:
 https://github.com/sipeed/TangNano-4K-example
@@ -40,7 +46,9 @@ https://github.com/sipeed/TangNano-4K-example
 https://github.com/sipeed/TangNano-4K-example
 - Cortex-m3 blink(Preparing, please wait)
 
-### Tang nano 9K
+---
+
+### Tang Nano 9K
 
 Github Repository:
 https://github.com/sipeed/TangNano-9K-example

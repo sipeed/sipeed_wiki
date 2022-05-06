@@ -2,7 +2,7 @@
 
 - 编辑于2022.04.18
 
-这里汇总Tang nano例程，持续更新
+这里汇总 Tang Nano 例程，持续更新
 
 ## 前言
 
@@ -15,19 +15,19 @@ https://dl.sipeed.com/shareURL/TANG/programmer 里面的文件。
 
 ## 板型
 
-### Tang nano
+### Tang Nano
 
 > 板载下载器为CH552
 
 - [点灯例程](./../Tang-Nano/examples/1_led.md)
 - [驱屏教程](./../Tang-Nano/examples/2_lcd.md)
 
-### Tang nano 1K
+### Tang Nano 1K
 
 - [点灯例程](./../Tang-Nano-1K/Nano_1K_examples/LED.md)
 - [驱屏教程](./../Tang-Nano-1K/Nano_1K_examples/LCD.md) 
 
-### Tang nano 4K
+### Tang Nano 4K
 
 - [点灯例程](./../Tang-Nano-4K/Nano_4K_examples/LED.md)
 - HDMI显示工程：https://github.com/sipeed/TangNano-4K-example/tree/main/dk_video/project
@@ -35,7 +35,7 @@ https://dl.sipeed.com/shareURL/TANG/programmer 里面的文件。
 - Cortex-m3点灯：待更新
 - Cortex-m3串口通信：待更新
 
-### Tang nano 9K
+### Tang Nano 9K
 
 - [点灯例程](./../Tang-Nano-9K/Nano_9K_examples/LED.md)
 - [驱RGB屏教程](./../Tang-Nano-9K/Nano_9K_examples/LCD.md)

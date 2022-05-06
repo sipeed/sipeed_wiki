@@ -1,5 +1,5 @@
 ---
-title: Tang nano examples
+title: Tang Nano examples
 ---
 
 ## Note

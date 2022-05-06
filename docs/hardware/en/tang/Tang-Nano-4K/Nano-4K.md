@@ -28,11 +28,11 @@ Tang Nano 4K is a core board designed based on [Gowin](https://www.gowinsemi.com
 | camera interface    | None                  | DVP interface  |
 | Size                | 58.4mm\*21.3mm        | 60mm\*22.86mm  |
 
-![](./assets/Tang_nano_4K_0813.png)
+![](./../../../zh/tang/Tang-Nano/assets/Tang_nano_4K_0813.png)
 
 ## Others
 
-- [Examples](./Tang-nano-4k.md)
+- [Examples](./../Tang-Nano-Doc/examples.md)
 - [Schematic](https://dl.sipeed.com/shareURL/TANG/Nano%204K/HDK/02_Schematic)
 - [Download center](https://dl.sipeed.com/shareURL/TANG/Nano%204K/)
 

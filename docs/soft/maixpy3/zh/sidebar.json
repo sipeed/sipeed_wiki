@@ -1,20 +1,20 @@
 {
     "items": [
         {
-            "label": "MaixPy3 是什么？能做什么？",
+            "label": "MaixPy3 简介",
             "file": "readme.md"
         },
         {
-            "label": "支持的开发板",
-            "file": "install/install.md",
+            "label":"MaixPy3 IDE (必看)",
+            "file":"tools/MaixPy3_IDE.md",
             "collapsed": false,
             "items":[
                 {
-                    "label":"MaixPy3 IDE 介绍",
-                    "file":"tools/MaixPy3_IDE.md"
+                    "label": "终端安装IDE",
+                    "file": "install/install.md"
                 },
                 {
-                    "label":"如何连接开发板",
+                    "label":"连接开发板",
                     "items":[
                         {
                             "label":"MaixII-Dock (V831)",
@@ -33,7 +33,7 @@
             "file": "develop/readme.md"
         },
         {
-            "label": "来自社区分享的“亿”些资料",   
+            "label": "来自社区分享的资料",   
             "items": [
                 {
                     "label":"如何正确反馈问题并得到解决的方法",
@@ -72,7 +72,7 @@
             "collapsed": false,
             "items": [
                 {
-                    "label": "传统视觉",
+                    "label": "图像处理",
                     "items": [
                         {
                             "label": "背景知识",
@@ -83,20 +83,20 @@
                             "file": "usage/vision/maixpy3-example.ipynb"
                         },
                         {
-                            "label": "图像处理",
+                            "label": "传统视觉",
                             "file":"usage/vision/image_example.ipynb"
                         }
                     ]
                 },
                 {
-                    "label": "基础外设",
+                    "label": "基本外设",
                     "items": [
                         {
                             "label": "GPIO （点灯）",
                             "file": "usage/hardware/GPIO.ipynb"
                         },
                         {
-                            "label": "I2C(与外设通讯)",
+                            "label": "I2C （与外设通讯）",
                             "file": "usage/hardware/I2C.ipynb"
                         },
                         {
@@ -104,7 +104,7 @@
                             "file": "usage/hardware/PWM.ipynb"
                         },
                         {
-                            "label": "UART（串口）",
+                            "label": "UART （串口）",
                             "file": "usage/hardware/UART.ipynb"
                         },
                         {

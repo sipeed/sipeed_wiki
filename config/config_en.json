@@ -9,7 +9,7 @@
         "home_url": "/en/",
         "items": [
             {
-            "label": "Product",
+            "label": "Products",
             "position": "left",
             "type": "list",
             "url":"/hardware/en/",
@@ -28,7 +28,7 @@
                     "label": "Lichee Pi"
                 },
                 {
-                    "url": "/hardware/zh/tang/index.html",
+                    "url": "/hardware/en/tang/index.html",
                     "label": "Tang"
                 },
                 {
@@ -42,12 +42,12 @@
             ]
         },
         {
-            "label": "Software Doc",
+            "label": "Software Docs",
             "position": "left",
             "type": "list",
             "items": [
                 {
-                    "url": "/soft/maixpy/zh/index.html",
+                    "url": "/soft/maixpy/en/index.html",
                     "label": "MaixPy"
                 },
                 {
@@ -89,13 +89,13 @@
             "position": "left"
         },
         {
-            "label":"Contribution docs",
-            "url":"/change_doc.html",
+            "label":"Edit docs",
+            "url":"/share_docs/en/",
             "position": "left"
         },
         {
             "label":"News",
-            "url":"/blog/",
+            "url":"/news/",
             "position":"left"
         },
         {
@@ -227,5 +227,5 @@
         }
     }    
 },
-"show_source": "Edit"
+"show_source": "Edit this page"
 }

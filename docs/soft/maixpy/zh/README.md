@@ -4,34 +4,26 @@ keywords: maixpy, k210, AIOT, 边缘计算, 人工智能, 深度学习
 desc: maixpy doc: MaixPy 文档简介
 ---
 
-
 <div class="title_pic">
     <div class="logo_maixpy">
-    <img src="./../assets/maixpy/maixpy.png" alt="maixpy logo">
+    <img src="../assets/maixpy/maixpy.png" alt="maixpy ​​logo">
     </div>
     <span class="logo_sipeed">
-    <img src="./../assets/sipeed/sipeed_logo_4.svg" alt="sipeed logo">
+    <img src="../assets/sipeed/sipeed_logo_4.svg" alt="sipeed logo">
     </span>
     <span class="logo_mpy">
-    <img src="./../assets/maixpy/micropython.png" alt="micropython logo">
+    <img src="../assets/maixpy/micropython.png" alt="micropython logo">
     </span>
     <br/>
 </div>
 
-
-
-
-
-
-
 ## 关于 MaixPy
 
-
-[**MaixPy**](https://maixpy.sipeed.com/zh/maixpy) 是将 [Micropython](http://micropython.org/) 移植到 [K210](https://canaan-creative.com/product/kendryteai)（一款 64 位双核带硬件 FPU、卷积加速器、FFT、Sha256 的 RISC-V CPU ） 的一个项目， 支持 MCU 常规操作， 更集成了硬件加速的 `AI` 机器视觉和麦克风阵列，`1TOPS` 算力 核心模块却不到`￥50`， 以快速开发具有极低成本和体积实用的 `AIOT` 领域智能应用。
+[**MaixPy**](https://maixpy.sipeed.com/zh/maixpy) 是将 [Micropython](http://micropython.org/) 移植到 [K210](https://canaan-creative.com/product/kendryteai)（一款 64 位双核带硬件 FPU、卷积加速器、FFT、Sha256 的 RISC-V CPU ） 的一个项目； [**MaixPy**](https://maixpy.sipeed.com/zh/maixpy) 不但支持 MCU 常规操作， 还集成了硬件加速的 `AI` 机器视觉和麦克风阵列相关的算法。相应的高达 `1TOPS` 算力核心模块却不到`￥50`， 凭借着快速开发和较低成本与其较小的体积很适合 `AIOT` 领域智能应用
 
 > MicroPython 是基于 Python3 的语法做的一款解析器，包含了 Python3 的大多数基础语法， 主要运行在性能和内存有限的嵌入式芯片上。（注意 Micropython 不包含 Python3 的所有语法）
 
-**MaixPy** 让我们在 K210 上编程更加简单快捷， 我们也将源代码开源在 [github](https://github.com/sipeed/MaixPy) 上
+**MaixPy** 让我们在 K210 上编程更加简单快捷， 我们也将源代码开源在 github [点我跳转](https://github.com/sipeed/MaixPy) 上
 
 使用 MaixPy 可以做很多有趣的事情， 具体可以 [看这里](./what_maix_do.md)
 

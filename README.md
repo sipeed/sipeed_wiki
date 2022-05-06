@@ -1,36 +1,18 @@
-sipeed wiki source code
+# Sipeed wiki source code
 =====
 
-visit: [wiki.sipeed.com](https://wiki.sipeed.com)
+Related site: [wiki.sipeed.com](https://wiki.sipeed.com)
 
+If you want change document or add one, do the following choice.
 
-## build locally
+## Fix error
 
-* Install teedoc
+If you find any error on wiki page, just fix it on github and **Commit changes**, thanks for correcting.
 
-```
-pip3 install teedoc --upgrade
-```
+## Share article 
 
-* Get site source files
+We are glad that people share their article on our wiki page
 
-```
-git clone https://github.com/sipeed/sipeed_wiki
-```
+Choose one language below to start to know how to share article.
 
-* Install plugins
-
-```
-cd sipeed_wiki
-teedoc install
-```
-
-* build and serve locally
-
-```
-teedoc serve
-```
-
-then visit [http://127.0.0.1:2333](http://127.0.0.1:2333)
-
-
+[中文](./pages/index/zh/github.md) [English](./pages/index/en/github.md)
