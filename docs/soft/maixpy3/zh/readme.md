@@ -8,13 +8,7 @@ desc: maixpy doc: MaixPy3 是什么？能做什么？
 
 ## MaixPy3 能做什么？
 
-### M2DOCK 产品功能速览
-
-- M2DOCK：国产全志 V831 开源 人工智能 神经网络 视觉 AI Python开发板
-
-<p align="center">
-    <iframe src="//player.bilibili.com/player.html?aid=298543445&bvid=BV1sF411u7xb&cid=586467021&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="max-width:640px; max-height:480px;"> </iframe>
-</p>
+> 以下部分内容都是来自社区用户分享，均是用户基于 MaixPy3 实现的内容，本文档不提供用户的二次开发成果。
 
 ### MaixPy3 开源项目自述
 
@@ -26,11 +20,35 @@ desc: maixpy doc: MaixPy3 是什么？能做什么？
 
 > 在 2022年01月21日 该视频只说了为什么要做这款开源产品，此时还没有做【在线 AI 训练】和【突出产品亮点】，最终是**想要让初学者【学会视觉 AI 应用】和【开发出可落地的产品】**
 
-### M2DOCK 冰箱水果识别
+### M2DOCK 产品功能速览
+
+- M2DOCK：国产全志 V831 开源 人工智能 神经网络 视觉 AI Python开发板
+
+<p align="center">
+    <iframe src="//player.bilibili.com/player.html?aid=298543445&bvid=BV1sF411u7xb&cid=586467021&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="max-width:640px; max-height:480px;"> </iframe>
+</p>
+
+### M2DOCK 冰箱水果识别系统
 
 - 简易水果识别系统。基于pytorch的yolo训练模型，移植到v831，app和开发板实时显示。
 
-<iframe src="//player.bilibili.com/player.html?aid=853065689&bvid=BV1sL4y157us&cid=572354654&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="max-width:640px; max-height:480px;"> </iframe>
+<p align="center">
+    <iframe src="//player.bilibili.com/player.html?aid=853065689&bvid=BV1sL4y157us&cid=572354654&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="max-width:640px; max-height:480px;"> </iframe>
+</p>
+
+### yolov2_20classes by Maix ⅡDock(V831)
+
+<p align="center">
+    <iframe src="//player.bilibili.com/player.html?aid=594688527&bvid=BV16q4y1i7rS&cid=546750387&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="max-width:640px; max-height:480px;"> </iframe>
+</p>
+
+### M2DOCK 人脸和口罩检测
+
+- ［maixpy3] 831 脸子姐姐的毕设人脸口罩识别
+
+<p align="center">
+    <iframe src="//player.bilibili.com/player.html?aid=467818856&bvid=BV1X5411S7F6&cid=713976242&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="max-width:640px; max-height:480px;"> </iframe>
+</p>
 
 ## 本开源项目适用于以下人群：
 
