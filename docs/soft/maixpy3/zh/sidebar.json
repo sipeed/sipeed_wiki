@@ -1,20 +1,16 @@
 {
     "items": [
         {
-            "label": "MaixPy3 简介",
-            "file": "readme.md"
-        },
-        {
-            "label":"MaixPy3 IDE (必看)",
-            "file":"tools/MaixPy3_IDE.md",
-            "collapsed": false,
+            "label": "MaixPy3 是什么？能做什么？",
+            "file": "readme.md",
             "items":[
                 {
-                    "label": "终端安装IDE",
-                    "file": "install/install.md"
+                    "label": "安装 MaixPy3 IDE",
+                    "file": "tools/MaixPy3_IDE.md"
                 },
                 {
-                    "label":"连接开发板",
+                    "label":"支持的开发板一览",
+                    "collapsed": false,
                     "items":[
                         {
                             "label":"MaixII-Dock (V831)",
@@ -23,52 +19,56 @@
                         {
                             "label":"MaixSense (R329)",
                             "file":"tools/maixsense.md"
+                        },
+                        {
+                            "label": "其他嵌入式 Linux 设备",
+                            "file": "install/install.md"
+                        }
+                    ]
+                },
+                {
+                    "label":"最新开发进度速览",
+                    "file": "develop/readme.md"
+                },
+                {
+                    "label": "来自社区分享的资料",   
+                    "items": [
+                        {
+                            "label":"如何正确反馈问题并得到解决的方法",
+                            "file":"origin/helper.md"
+                        },
+                        {
+                            "label":"Python 的相关教程",
+                            "file": "origin/python.md",
+                            "items":[
+                                {
+                                    "label":"收录国内 Python 基础教程",
+                                    "file":"origin/video.md"
+                                },
+                                {
+                                    "label": "大佬鼠の嵌入式 Python 入门教程 [1]",
+                                    "file": "origin/hello_world.md"
+                                },
+                                {
+                                    "label": "大佬鼠の嵌入式 Python 入门教程 [2]",
+                                    "file": "origin/loop_python.md"
+                                }
+                            ]
+                        },
+                        {
+                            "label":"咸鱼菌の MaixII-Dock 上手系列教程",
+                            "url":"https://bbs.sipeed.com/user/909"
+                        },
+                        {
+                            "label":"喏呐の 【攻城狮成长记】",
+                            "file":"origin/xiaoxu.md"
                         }
                     ]
                 }
             ]
         },
         {
-            "label":"最新开发进度",
-            "file": "develop/readme.md"
-        },
-        {
-            "label": "来自社区分享的资料",   
-            "items": [
-                {
-                    "label":"如何正确反馈问题并得到解决的方法",
-                    "file":"origin/helper.md"
-                },
-                {
-                    "label":"Python 的相关教程",
-                    "file": "origin/python.md",
-                    "items":[
-                        {
-                            "label":"收录国内 Python 基础教程",
-                            "file":"origin/video.md"
-                        },
-                        {
-                            "label": "大佬鼠の嵌入式 Python 入门教程 [1]",
-                            "file": "origin/hello_world.md"
-                        },
-                        {
-                            "label": "大佬鼠の嵌入式 Python 入门教程 [2]",
-                            "file": "origin/loop_python.md"
-                        }
-                    ]
-                },
-                {
-                    "label":"咸鱼菌の MaixII-Dock 上手系列教程",
-                    "url":"https://bbs.sipeed.com/user/909"
-                },
-                {
-                    "label":"喏呐の 【攻城狮成长记】",
-                    "file":"origin/xiaoxu.md"
-                }
-            ]
-        },
-        {
-            "label": "基本功能的使用",
+            "label": "基本功能的用法",
             "collapsed": false,
             "items": [
                 {

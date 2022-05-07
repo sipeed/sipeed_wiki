@@ -4,13 +4,33 @@ keywords: Maixpy3 官方文档
 desc: maixpy doc: MaixPy3 是什么？能做什么？
 ---
 
-> 在 2022年01月21日 该视频只说了为什么要做这款开源产品，此时还没有做【在线 AI 训练】和【突出产品亮点】，最终是**想要让初学者【学会视觉 AI 应用】和【开发出可落地的产品】**
+中国的 [Sipeed 开源组织](https://github.com/sipeed) 在 2020 年底推出了 [MaixPy3](https://github.com/sipeed/MaixPy3) 开源软件，这是一款基于 [linux cpython](https://github.com/python/cpython) 的 Python3 软件开发工具包（SDK），借助开源 Python 编程语言实现跨平台统一和简化 Linux 嵌入式设备上开发 AIoT （人工智能物联网） = AI（人工智能） + IoT（物联网）应用，意在打造可落地的视觉 AI 应用生态，帮助更多人了解、使用 AI 技术来解决实际问题，推进全球边缘 AI 的落地化进程。
+
+## MaixPy3 能做什么？
+
+### M2DOCK 产品功能速览
+
+- M2DOCK：国产全志 V831 开源 人工智能 神经网络 视觉 AI Python开发板
+
+<p align="center">
+    <iframe src="//player.bilibili.com/player.html?aid=298543445&bvid=BV1sF411u7xb&cid=586467021&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="max-width:640px; max-height:480px;"> </iframe>
+</p>
+
+### MaixPy3 开源项目自述
+
+- 大佬鼠自述：MaixPy3项目开发的心路历程
 
 <p align="center">
     <iframe src="//player.bilibili.com/player.html?aid=465792152&bvid=BV1ZL411c7kc&cid=489256831&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="max-width:640px; max-height:480px;"> </iframe>
 </p>
 
-中国的 [Sipeed 开源组织](https://github.com/sipeed) 在 2020 年底推出了 [MaixPy3](https://github.com/sipeed/MaixPy3) 开源软件，这是一款基于 [linux cpython](https://github.com/python/cpython) 的 Python3 软件开发工具包（SDK），借助开源 Python 编程语言实现跨平台统一和简化 Linux 嵌入式设备上开发 AIoT （人工智能物联网） = AI（人工智能） + IoT（物联网）应用，意在打造可落地的视觉 AI 应用生态，帮助更多人了解、使用 AI 技术来解决实际问题，推进全球边缘 AI 的落地化进程。
+> 在 2022年01月21日 该视频只说了为什么要做这款开源产品，此时还没有做【在线 AI 训练】和【突出产品亮点】，最终是**想要让初学者【学会视觉 AI 应用】和【开发出可落地的产品】**
+
+### M2DOCK 冰箱水果识别
+
+- 简易水果识别系统。基于pytorch的yolo训练模型，移植到v831，app和开发板实时显示。
+
+<iframe src="//player.bilibili.com/player.html?aid=853065689&bvid=BV1sL4y157us&cid=572354654&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="max-width:640px; max-height:480px;"> </iframe>
 
 ## 本开源项目适用于以下人群：
 
@@ -28,16 +48,6 @@ desc: maixpy doc: MaixPy3 是什么？能做什么？
 - 有使用过 maixpy K210 AI 开发板的基础（与上代[MaixPy](https://github.com/sipeed/MaixPy)开源产品联动）。
 
 当你有这些基础概念后，你可以减少很多犯错的次数，避免踩到一些不必要的坑。
-
-## 适配平台
-
-目前 MaixPy3 支持的平台主要如下，未来会进一步适配其他低端嵌入式 Linux 平台。
-
-- [MaixII-Dock](/hardware/zh/maixII/M2/resources.html)
-
-- [MaixSense](/hardware/zh/maixII/M2A/maixsense.html)
-
-- [Linux Desktop](https://github.com/sipeed/MaixPy3)
 
 ## [MaixPy3](https://github.com/sipeed/MaixPy3) star-history
 

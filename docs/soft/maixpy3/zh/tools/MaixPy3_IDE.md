@@ -13,26 +13,15 @@ desc: maixpy doc: 如何连接并使用 MaixPy3 的 IDE
 
 在没有 IDE 的时候，我们是这样编程的，这是每一只远古程序猿都必备的开发技能。
 
-<html>
-<div class="imbox">
-    <img src="./assets/4in1.jpg" height = 300 >
-    <img src="./assets/python_cmd.gif" height = 300 >
-
-<style>
-.imbox{
-     display:flex;
-     flex-direction: row;
-     }
-</style>
-</div>
-
-</html>
+<img style="width:100%;height:auto;min-width:600px;min-height:400px;" src="./assets/4in1.jpg" >
 
 上述命令行的编程方式是上世纪 80 年代流行的开发方式，建议你在有一定 linux 系统的操作基础后再熟练使用会更好。但 2022 现代 IDE 工具的重点应该是向人类传达 Python 代码运行结果或效果。
 
+<img style="width:100%;height:auto;min-width:600px;min-height:400px;" src="./assets/python_cmd.gif">
+
 如果你是一名开发者，你要如何教会初学者使用你的代码？像你一样使用命令行敲出来看实际的效果吗？
 
-对初学者来说，这一定是一场灾难，所以我们需要 IDE 来结束这一切。
+> **对初学者来说，这一定是一场灾难，所以我们需要 IDE 来结束这一场悲剧。**
 
 ## 那么 MaixPy3 IDE 是什么?
 
