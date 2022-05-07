@@ -19,5 +19,5 @@ BusyBox v1.27.2 () built-in shell (ash)
 root@sipeed:/#
 ```
 
-这时可以开始使用 maixpy3 进行开发了
+这时可以开始使用 MaixPy3 进行开发了
 

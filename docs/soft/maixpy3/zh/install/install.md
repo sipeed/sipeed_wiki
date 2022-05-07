@@ -16,42 +16,28 @@ desc: maixpy doc: linux_x86_64 如何安装？
 
 ## Linux Desktop 安装 MaixPy3
 
-> 2021年02月21日 在 RaspberryPi 、 ubuntu20 与 manjaro20 上测试通过。
-
-通过 `pip3 install maixpy3` 安装。
+在终端执行下面命令来安装 MaixPy3
 
 ```bash
-juwan@juwan-N85-N870HL:~$ pip3 install .Looking in indexes: https://pypi.tuna.tsinghua.edu.cn/simple
-Processing /home/juwan/Desktop/v831_toolchain_linux_x86/MaixPy3
-Requirement already satisfied: Pillow in /usr/lib/python3/dist-packages (from MaixPy3==0.2.9) (7.0.0)
-Requirement already satisfied: evdev in /home/juwan/.local/lib/python3.8/site-packages (from MaixPy3==0.2.9) (1.4.0)
-Requirement already satisfied: gpiod in /home/juwan/.local/lib/python3.8/site-packages (from MaixPy3==0.2.9) (1.4.0)
-Requirement already satisfied: numpy in /home/juwan/.local/lib/python3.8/site-packages (from MaixPy3==0.2.9) (1.19.4)
-Requirement already satisfied: opencv-python in /home/juwan/.local/lib/python3.8/site-packages (from MaixPy3==0.2.9) (4.5.1.48)
-Requirement already satisfied: pyserial in /usr/local/lib/python3.8/dist-packages (from MaixPy3==0.2.9) (3.4)
-Requirement already satisfied: rpyc in /home/juwan/.local/lib/python3.8/site-packages (from MaixPy3==0.2.9) (5.0.1)
-Requirement already satisfied: spidev in /home/juwan/.local/lib/python3.8/site-packages (from MaixPy3==0.2.9) (3.5)
-Requirement already satisfied: plumbum in /home/juwan/.local/lib/python3.8/site-packages (from rpyc->MaixPy3==0.2.9) (1.6.9)
-Building wheels for collected packages: MaixPy3
-  Building wheel for MaixPy3 (setup.py) ... done
-  Created wheel for MaixPy3: filename=MaixPy3-0.2.9-cp38-cp38-linux_x86_64.whl size=115611 sha256=54f70f181ccc629f1eaf470bf30eccd20389c6333814d7145e16a31db7f6cdcd
-  Stored in directory: /tmp/pip-ephem-wheel-cache-9bf1q3wt/wheels/53/7d/47/6cd374fab930089f96a0a3185f5677e52a9b71dbbee769935d
-Successfully built MaixPy3
-Installing collected packages: MaixPy3
-  Attempting uninstall: MaixPy3
-    Found existing installation: MaixPy3 0.2.8
-    Uninstalling MaixPy3-0.2.8:
-      Successfully uninstalled MaixPy3-0.2.8
-Successfully installed MaixPy3-0.2.9
+sudo apt update && sudo apt install libjpeg-dev gcc libopencv-dev -qq -y && wget http://mirrors.kernel.org/ubuntu/pool/main/libf/libffi/libffi6_3.2.1-8_amd64.deb && sudo apt install ./libffi6_3.2.1-8_amd64.deb -qq -y
 ```
 
-输出以上信息则是代表安装好了，下面为实拍图。
+在设备上输入下面命令来测试拍照
+
+```python
+from maix import camera, display
+display.show(camera.capture().draw_string(0, 0, "hello world!"))
+```
+
+下面为实拍图。
 
 ![](./asserts/ubuntu.png)
 
-通常来说，像树莓派 2B 这类拥有桌面环境面（DE）的 linux 硬件也是可以通过 pip 进行安装 Linux Desktop 分支的，效果都是一样的。
+通常来说，像树莓派 2B 这类拥有桌面环境的 linux 设备也是可以通过 pip 进行安装 Linux Desktop 分支的，使用效果一样。
 
-    pip install maixpy3
+```python
+pip install maixpy3
+```
 
 ![](./asserts/rpi2b.png)
 
@@ -67,7 +53,8 @@ Successfully installed MaixPy3-0.2.9
 MaixSense 需要是烧录官方提供最新内置 MaixPy3 的 Armbian 镜像。
 
 ```shell
-root@maixsense:~# export TMPDIR=/root && pip install maixpy3
+root@maixsense:~# export TMPDIR=/root && pip install maixpy3 #安装maixpy3
+
 Requirement already satisfied: maixpy3 in /usr/local/lib/python3.9/dist-packages (0.3.4)
 Requirement already satisfied: Pillow in /usr/lib/python3/dist-packages (from maixpy3) (8.1.2)
 Requirement already satisfied: zbarlight in /usr/local/lib/python3.9/dist-packages (from maixpy3) (3.0)
@@ -77,12 +64,14 @@ Requirement already satisfied: pyserial in /usr/local/lib/python3.9/dist-package
 Requirement already satisfied: rpyc in /usr/local/lib/python3.9/dist-packages (from maixpy3) (5.0.1)
 Requirement already satisfied: gpiod in /usr/local/lib/python3.9/dist-packages (from maixpy3) (1.5.0)
 Requirement already satisfied: plumbum in /usr/local/lib/python3.9/dist-packages (from rpyc->maixpy3) (1.7.0)
-root@maixsense:~# python
+
+root@maixsense:~# python #运行python
 Python 3.9.2 (default, Feb 28 2021, 17:03:44)
 [GCC 10.2.1 20210110] on linux
 Type "help", "copyright", "credits" or "license" for more information.
->>> import maix
->>>
+>>> from maix import camera,display
+>>> while True:
+···    display.show(camera.capture())
 ```
 
 输出以上信息则是代表安装好了，以下为实拍图。

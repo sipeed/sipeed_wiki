@@ -29,7 +29,7 @@
             <td><strong><span class="limit_width"></span><span class="limit_width">Group①: 878189804</span></strong><br><span class="limit_width"></span><span class="limit_width"><strong>Group②: 1129095405</strong></span></td>
         </tr>
         <tr>
-            <td><span class="limit_width"></span><strong>Maixpy3 QQ Group</strong></td>
+            <td><span class="limit_width"></span><strong>MaixPy3 QQ Group</strong></td>
             <td><span class="limit_width"></span><span class=""><strong>756313869</strong></span></td>
         </tr>
         <tr>

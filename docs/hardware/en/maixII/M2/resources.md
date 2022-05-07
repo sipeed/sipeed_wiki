@@ -44,7 +44,7 @@ MaixII M2dock 是基于 V831 芯片设计的一款【板卡】+【底板】的�
 | Ethernet | None | 10/100 Mbit/s Ethernet port with RMII interface |
 | ADC | None | 1-ch 6bit LRADC for key |
 | Audio | None | LINEOUTP + MICIN1P/N |
-| 开发软件 | Maixpy/C | Maixpy3/linux |
+| 开发软件 | MaixPy/C | MaixPy3/linux |
 
 ## 底板
 

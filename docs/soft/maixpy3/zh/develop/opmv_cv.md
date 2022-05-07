@@ -4,7 +4,7 @@
 
 ## 项目简介：
 
-由于 maixpy3 的环境传统视觉功能薄弱，所有需要结合 openmv 文档实现视觉模块的基础 API 功能以及应用，相关功能也会体现在产品介绍当中，其中一些相关模块可能配合应用需要完成，应用示例文档参考如下：https://book.openmv.cc/image/
+由于 MaixPy3 的环境传统视觉功能薄弱，所有需要结合 openmv 文档实现视觉模块的基础 API 功能以及应用，相关功能也会体现在产品介绍当中，其中一些相关模块可能配合应用需要完成，应用示例文档参考如下：https://book.openmv.cc/image/
 
 - Feature-Detection 特征检测
 - Image-Filters 图像滤波
@@ -158,19 +158,19 @@ A：安装 sudo apt install python3-pybind11 或 pip3 intall pybind11
 ### 这里有自动化编译的命令给你们参考如何编译a。
 #### 准备工作需要做什么？
 
-maixpy3 文档 https://github.com/sipeed/MaixPy3/blob/develop/docs/develop.md
-maixpy3 编译流程 https://github.com/sipeed/MaixPy3/blob/release/.github/workflows/maixpy3_build.yml#L19-L34
+MaixPy3 文档 https://github.com/sipeed/MaixPy3/blob/develop/docs/develop.md
+MaixPy3 编译流程 https://github.com/sipeed/MaixPy3/blob/release/.github/workflows/maixpy3_build.yml#L19-L34
 libmaix 文档 https://github.com/sipeed/libmaix/blob/develop/README_ZH.md
 libmaix 编译流程 https://github.com/sipeed/libmaix/blob/develop/.github/workflows/test_build.yml#L26-L36
 
-### maixpy3 编译安装的结果（不要在 jupyter notebook 里写死循环！）
+### MaixPy3 编译安装的结果（不要在 jupyter notebook 里写死循环！）
 了解本文 https://wiki.sipeed.com/soft/maixpy3/zh/install/install.html 完成 maixpy3 的安装与测试。
 
-测试人员需要会写 markdown 并能够安装 maixpy3 并运行测试，会用 jupyter 记录运行结果，能够一步步测试给出反馈和结果，如下图。
+测试人员需要会写 markdown 并能够安装 MaixPy3 并运行测试，会用 jupyter 记录运行结果，能够一步步测试给出反馈和结果，如下图。
 ![](./../assets/opencv/develop_2.jpg)
 ### libmaix 编译安装的结果
 
-开发人员需要能够编译 libmaix 和 maixpy3 的运行、调试、打包，学会编译运行最基础的 camera 项目即可，知道如何使用 libmaix 的项目就行，测试人员不需要了解 libmaix 的编译与测试。
+开发人员需要能够编译 libmaix 和 MaixPy3 的运行、调试、打包，学会编译运行最基础的 camera 项目即可，知道如何使用 libmaix 的项目就行，测试人员不需要了解 libmaix 的编译与测试。
 ```shell
 cd ~/MaixPy3/ext_modules/libmaix/examples/imlib_test
 python3 project.py --toolchain /usr/bin --toolchain-prefix x86_64-linux-gnu- config
@@ -205,7 +205,7 @@ python3 project.py menuconfig
 
 在下一次会议来之前，需要统计好需要增加的功能，进而准备 API 设计和测试文档，测试即文档，可见下文。
 
-### maixpy3 image 现有功能表
+### MaixPy3 image 现有功能表
 ```shell
 >>> t = camera.capture()
 >>> t.

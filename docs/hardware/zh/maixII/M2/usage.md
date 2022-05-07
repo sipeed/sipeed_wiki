@@ -180,7 +180,7 @@ display.show(camera.capture())
 
 ## 入门教程
 
-本设备是支持使用 [Maixpy3](/soft/maixpy3/zh/index.html) 进行开发使用，请好好阅读 Maixpy3 的使用文档
+本设备是支持使用 [MaixPy3](/soft/maixpy3/zh/index.html) 进行开发使用，请好好阅读 MaixPy3 的使用文档
 
 ### **使用 Jupyter IDE 开发**
 
