@@ -22,6 +22,10 @@ This error means wrong device choice. All that refers chip model(like he project
 
 This can be solved by replacing Programmer as mentioned in **Trouble downloading**
 
+### Download slowly
+
+Don't choose Operation containing verify
+
 ## Using GAO
 
 It's tested IDE version before V1.9.8.1 and V1.9.8.1 is ok, the newer version is not ok.

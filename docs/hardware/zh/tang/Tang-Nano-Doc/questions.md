@@ -29,6 +29,10 @@ https://dl.sipeed.com/shareURL/TANG/programmer 里面的文件。
 
 这种情况可以和上面的 下载失败 里面的内容一样先替换 Programmer 文件夹。
 
+### 下载卡住
+
+不要选中带有 verify 选项的。
+
 ## IDE 使用相关
 
 ### 使用GAO
