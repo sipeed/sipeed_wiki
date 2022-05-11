@@ -67,14 +67,22 @@ display.show(img2)
 
 ### 参数
 
-* `model_path`: 模型路径, 可以是字符串或者字典的形式, 目前只支持字典形式
-比如:
+* `model_path`: 模型路径, 包含了字符串和字典两种形式
+字典形式：
 ```python
 {
     "param": "/root/models/sobel_int8.param",
     "bin": "/root/models/sobel_int8.bin"
 }
 ```
+
+字符串形式:
+
+```python
+model_path = "/root/mud/sobel_int8.mud"
+```
+
+>! 特别说明，mud文件是上新的联合模型描述文件，后文有详细描述
 
 * `opt`: 设置项, 字典形式, 包括了:
   * `model_type`: 模型类别, 目前仅支持 `awnn`
@@ -91,8 +99,9 @@ display.show(img2)
     }
 ```
   * `outputs`: 输出层, 同理输入层. 支持多层输出
-  * `mean`: 如果在`forward`使参数`quantize=True`, 则会使用这个参数对输入数据进行归一化, 计算方法为`(x - mean) * norm`; 格式为`list` 或者 `float`(未支持, 欢迎提交 PR)
-  * `norm`: 看`mean`
+  * `mean`: 如果在`forward`使参数`standardize=True`（默认为True）, 则会使用这个参数对输入数据进行归一化, 计算方法为`(x - mean) * norm`; 格式为`list` 或者 `float`(未支持, 欢迎提交 PR)
+  * `norm`: 定义参见上述`mean`描述
+>! 当`model_path`选择字符串格式时， 此项`opt`不用进行赋值，默认为None
 
 ### 返回值
 
@@ -109,13 +118,12 @@ display.show(img2)
 
 #### 参数
 
-* `inputs`: 输入, 可以是`Pillow`的`Image`对象, 也可以是`HWC`排列的`bytes`对象, 也可以是`HWC`排列的`numpy.ndarray`对象(还未支持), 多层输入使用`list`(还未支持)
+* `inputs`: 输入, 可以是`_maix_image`的`Image`对象, 也可以是`HWC`排列的`bytes`对象, 也可以是`HWC`排列的`numpy.ndarray`对象(还未支持), 多层输入使用`list`(还未支持)
 >! 这个参数未来可能会进行优化
-* `quantize`: 为`True`, 会使用 `load()` 时 `opt` 的`mean norm`参数对数据进行归一化, 并进行`int8`量化； `False`则不会对输入数据进行处理, 则输入需要先自己手动规范量化到`-128~127`范围.  
->! 这个参数未来可能会进行优化, 将归一化和量化分开
+* `standardize`: `int` 类型,默认为`1`, 当`load()`加载字典类型时， `opt` 的`mean,norm`参数对数据进行标准化；当`load()`加载字符串类型时，会根据mud文件自动进行标准化；置为`0`时不会对输入数据进行处理，则输入前需要将数据进行手动处理，处理方式跟模型训练时的数据处理一致 
 
-* `layout`: `"hwc"` 或者 `"chw"`(默认, 推荐)
-* `debug`: 输出`debug`信息, 包含了底层`forward`用时等
+* `layout`: `"hwc"` 或者 `"chw"`， 默认设置为 `"hwc"`
+* `debug`: `int` 类型，默认为`0`,该值不为`0`时会打印`debug`信息和`forward`的推理耗时 
 
 #### 返回值
 
@@ -192,8 +200,8 @@ for i, box in enumerate(boxes):
 
 * `class_num`: 类别数量
 * `anchors`: 预选框, `list` 类型, 数量为偶数, 必须要和训练时使用的`anchors` 相同, 也就是说跟模型绑定的参数, 如果你不知道, 请找提供模型的人提供
-* `net_in_size`: 网络输入层分辨率, 默认`(224, 244)`
-* `net_out_size`: 网络输出层分辨率, 默认 `(7, 7)`
+* `net_in_size`: 网络输入层分辨率
+* `net_out_size`: 网络输出层分辨率
 
 
 
