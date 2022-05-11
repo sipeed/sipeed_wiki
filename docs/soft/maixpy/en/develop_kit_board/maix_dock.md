@@ -39,6 +39,5 @@ Sipeed-Maix-Dock data download: [Sipeed-Maix-Dock](https://dl.sipeed.com/shareUR
 
 Sipeed-Maix-Dock specification download: [Sipeed-Maix-Dock](https://dl.sipeed.com/shareURL/MAIX/HDK/Sipeed-Maix-Dock/Specifications)
 
-Sipeed-Maix-Dock schematic download: [Sipeed-Maix-Dock][Sipeed-Maix-Dock]
+Sipeed-Maix-Dock schematic download: [Sipeed-Maix-Dock][Sipeed-Maix-Dock](https://dl.sipeed.com/fileList/MAIX/HDK/Sipeed-Maix-Dock/Maix-Dock_11.27/Maix-Dock_11.27-schematic.pdf)
 
-[Sipeed-Maix-Dock]: https://dl.sipeed.com/fileList/MAIX/HDK/Sipeed-Maix-Dock/Maix-Dock_11.27/Maix-Dock_11.27(Schematic).pdf
