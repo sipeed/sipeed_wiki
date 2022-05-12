@@ -75,7 +75,7 @@ wlan0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
 
 ### 连接
 
-> 20220512 0.4.8 后的镜像提供了开机启动服务，不需要可以输入 `sudo systemctl enable rc-local` 停止 /etc/rc.local 的开机启动命令。
+> 20220512 0.4.8 后的镜像提供了开机启动服务，不需要可以输入 `sudo systemctl disable rc-local` 停止 /etc/rc.local 的服务。
 
 在板子终端执行下述命令来启动板子上的远程 RPyc 服务；在电脑启动 MaixPy3 IDE，新建代码区，运行下面的连接代码。
 
