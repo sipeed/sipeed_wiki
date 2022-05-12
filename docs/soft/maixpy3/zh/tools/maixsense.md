@@ -1,7 +1,7 @@
 ---
-title: 使用 MaixPy3 IDE 连接 MaixSense 
+title: 使用 MaixPy3 IDE 连接 MaixSense
 keywords: Jupyter, MaixPy3, Python, Python3
-desc: maixpy doc: 在 MaixII-Sense 平台上使用 
+desc: maixpy doc: 在 MaixII-Sense 平台上使用
 ---
 
 ---
@@ -75,12 +75,35 @@ wlan0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
 
 ### 连接
 
-在板子上执行 `python3 -c "import maix.mjpg;maix.mjpg.start()"` 命令来启动板子上的远程 RPyc 服务；在电脑启动 MaixPy3 IDE，新建代码区，运行下面的连接代码。
+> 20220512 0.4.8 后的镜像提供了开机启动服务，不需要可以输入 `sudo systemctl enable rc-local` 停止 /etc/rc.local 的开机启动命令。
 
-- 板子终端执行 `python3 -c "import maix.mjpg;maix.mjpg.start()"` ：
+在板子终端执行下述命令来启动板子上的远程 RPyc 服务；在电脑启动 MaixPy3 IDE，新建代码区，运行下面的连接代码。
 
 ```bash
+python3 -c "import maix.mjpg;maix.mjpg.start()"
+```
+
+> 加载 NN 模型的时候容易出现内存不足的错误，如果没法继续运行可以使用 Ctrl + Z 后 reboot 重启再来。
+
+```bash
+Welcome to Armbian 21.08.0-trunk Bullseye with bleeding edge Linux 5.14.0-rc7-sun50iw11
+
+No end-user support: built from trunk & unsupported (bullseye) userspace!
+
+System load:   118%           	Up time:       3 min
+Memory usage:  43% of 231M   	Zram usage:    3% of 115M   	IP:	       192.168.0.222
+CPU temp:      64°C           	Usage of /:    80% of 2.9G
+
+[ 0 security updates available, 34 updates total: apt upgrade ]
+Last check: 2022-05-12 06:38
+
+Last login: Thu May 12 07:12:30 UTC 2022 on ttyS0
+
+root@maixsense:~# root
+-bash: root: command not found
 root@maixsense:~# python3 -c "import maix.mjpg;maix.mjpg.start()"
+Dict mode[TEST INFO] AIPU load graph successfully.
+[libmaix_nn] -- start alloction tensor buffers
 ```
 
 - 电脑在 IDE 中新建代码区并执行
