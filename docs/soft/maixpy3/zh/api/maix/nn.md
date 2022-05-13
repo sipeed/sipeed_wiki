@@ -139,7 +139,7 @@ del m
 
 ## 模块 maix.nn.decoder
 
-`nn` 后处理模块, 集成了常见的模型的后处理, 使用 `forwhttps://github.com/sipeedard` 进行模型推理后得到特征图输出, 使用这个模块下的方法对输出的特征图进行后处理
+`nn` 后处理模块, 集成了常见的模型的后处理, 使用 `forward` 进行模型推理后得到特征图输出, 使用这个模块下的方法对输出的特征图进行后处理
 
 ### 类 maix.nn.decoder.Yolo2
 
