@@ -139,7 +139,7 @@ del m
 
 ## 模块 maix.nn.decoder
 
-`nn` 后处理模块, 集成了常见的模型的后处理, 使用 `forward` 进行模型推理后得到特征图输出, 使用这个模块下的方法对输出的特征图进行后处理
+`nn` 后处理模块, 集成了常见的模型的后处理, 使用 `forwhttps://github.com/sipeedard` 进行模型推理后得到特征图输出, 使用这个模块下的方法对输出的特征图进行后处理
 
 ### 类 maix.nn.decoder.Yolo2
 
@@ -409,8 +409,34 @@ class FaceRecognize:
 
 * 返回值： 返回两个人脸特征值的对比相似度分数（百分比），取值范围 `∈` `[0.0, 100.0]`
 
+## mud文件
 
+mud文件是模型统一描述文件，全称model unified describe file；mud文件可以简化模型运行Python代码，使得使用统一份代码就可以部署在MaixPy3所支持的不同平台上
 
+### 文件形式
 
+文件以.mud为后缀，严格按照INI的格式进行解析
 
+### 文件内容
+
+文件是一种按照特点方式排列的文本文件。 每一个INI文件结构都非常类似，由若干段落（section）组成，在每个带括号的标题下面，是若干个以单个单词开头的关键词（keyword）和一个等号，等号右边的就是关键字对应的值（value); section部分通常用`[]`进行声明。
+
+#### section & keywords
+* [basic]: 路径参数段， 其中的字段定义模型源文件
+    * type：不同目标平台的标识，如R329称为aipu，V831代称为awnn
+    * bin：V831，R329平台模型的重要组成
+    * param：V831模型组成之一，R329可以将此值置空
+
+* [inputs] :输入信息段，其中的字段定义输入个数和相关参数(该section是可以支持多输入，keywords的个数和名称及模型如数个数和名称)
+    * input ： 输入节点名称，前三个参数定义为  H,W,C ，后面的参数以此是mean，norm
+    >! H != 1 && W != 1 && C == 3 的时候，输入为三通道图像，依次按照mean_R , mean_G ，mean_B ，norm_R ，norm_G ，norm_B 的顺序往后排列  
+    >! H != 1 && W != 1 && C == 1 的时候，输入为灰度图， mean_gray , norm_gray ，按顺序两个值，进行排列  
+    >! H ==  1 && W == 1 && C != 1 ，输入为三维向量， mean_v , norm_v ，按顺序两个值，进行排列  
+
+* [outputs] :输出信息段，其中的字段定义输出个数和相关参数（该section是可以支持多输入，keywords的个数和名称及模型如数个数和名称）
+    * output:输出节点名称， 其值按照 h , w ,c  排列，输出节点个数随模型确定
+
+* [extra]:额外的参数段，一般是不同平台额外的参数。
+    *  inputs_scale：输入层在量化后的scale值，按照输入顺序排列 ，如inputs_scale = input0_scale , input1_scale, input2_scale ……
+    *  outputs_scale：输出层在量化后的scale值，按照输出顺序排列，如outputs_scale = ouput0_scale , output1_scale , output2_scale ……
 
