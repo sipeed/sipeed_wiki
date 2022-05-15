@@ -1,6 +1,6 @@
 # Tang Nano 9K
 
->  First edit on 2022.04.06, changed on 2022.04.11
+>  Edit on 2022.05.13
 
 ## Introduction
 
@@ -56,7 +56,7 @@ This form shows detail parameters of Tang Nano 9K
 | Usage           | FPGA                     | MCU                                                                               | FPGA+MCU                                                              |
 | :-------------- | :----------------------- | :-------------------------------------------------------------------------------- | :-------------------------------------------------------------------- |
 | Language        | Verilog HDL/Verilog      | C/C++                                                                             | Verilog HDL/Verilog ，  C/C++                                         |
-| summary         | verify HDL design        | After flashing the softcore bitstream, <br>this board can bu used as a normal mcu | After flashing the softcore bitstream,<br>it can be used as two chips |
+| summary         | verify HDL design        | After flashing the softcore bitstream, <br>this board can be used as a normal microcontroller unit | After flashing the softcore bitstream,<br>it can be used as two chips |
 | suitable people | beginner，FPGA developer | RISC-V developers，Cortex-M developers                                            | Senior engineer                                 |
 
 ## User guide
