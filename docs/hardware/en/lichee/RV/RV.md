@@ -1,9 +1,9 @@
 # Lichee RV - Nezha CM
 
-> Edit on 2022.04.20
+> Edit on 2022.05.13
 
-## 概述
-Lichee RV - Nezha CM is a compute module with modular design, it's equipped with Allwinner D1 chip (Based on T-Head XuanTie C906 core), 521MB ddr3 ram, and it can boot from TF card or SDNAND, it also uses two sets of M.2B - KEY 67 Pins connecting finger to pull out all IO to make it convient for users to widely use or replace.
+## Overview
+Lichee RV - Nezha CM is a compute module with modular design, equipped with Allwinner D1 chip (based on T-Head XuanTie C906 core), 512MB DDR3 RAM. It can boot from TF card or SD-NAND, uses two sets of M.2 b key 67 pin connectors to route all IO, making it convient for wide use and easy to replace.
 
 ![](./../assets/RV/D1-4.jpg)
 
@@ -26,7 +26,7 @@ Lichee RV - Nezha CM is a compute module with modular design, it's equipped with
 | PCB                  | 4 layers                                                                                                                                                                                                                          |
 | Fixed<br> way        | Connect the core board and bottom board by two sets of M.2B connecting finger and fasten with a M2 screw                                                                                                                          |
 | Development lanuguge | C/C++, Python, Golang, etc...                                                                                                                                                                                                     |
-| System Mirrors       | Tina Linux( Based on OpenWRT 14.07)、 Debian、YoC (RTOS )                                                                                                                                                                         |
+| System Mirrors       | Tina Linux (Based on OpenWRT 14.07), Debian, YoC (RTOS )                                                                                                                                                                         |
 
 ![](./../assets/RV/D1-pin.png)
 
@@ -61,11 +61,11 @@ Lichee RV - Nezha CM is a compute module with modular design, it's equipped with
 
 ## Burn system
 
-[Flash turtial](./flash.md)
+[Flash tutorial](./flash.md)
 
 ## Notice
 
-The USB TYPE-C connector of the core board uses the CC pin as an automatic OTG identification pin, so it conflicts with the identification when using the USB C to C data line, and it only works with the USB A to C data line. There are two ways to solve this problem and the steps are as following
+The USB TYPE-C connector of the core board uses the CC pin as an automatic OTG identification pin, so it conflicts with the identification when using the USB C to C data line, and it only works with the USB A to C data line. There are two ways to solve this problem and the steps are as follows
 
 | Type-C work mode                         | OTG (Factory default product) | CC identification(Need to change hardware) |
 | ---------------------------------------- | :---------------------------: | :----------------------------------------: |
@@ -75,9 +75,9 @@ The USB TYPE-C connector of the core board uses the CC pin as an automatic OTG i
 | Compatible with A to C cables            |              yes              |                    yes                     |
 | Whether supports automatic OTG switching |              yes              |                     no                     |
 
-If you want to use C to C data line, it's need to change the device around the typeC port to the corresponding CC identification mode,and manually switche to Host mode when you need to extend the external USB device.
+To use C to C data line, a physical modification to the device is required to be made around the type-c connector in order to use the corresponding CC identification mode. A manual switch to Host mode using OTG cables will be required from then on should you wish to attach the external USB devices, as automatic OTG switching is disabled.
 
-If you want to use USB C to C data line， you need do two things：
+If you want to use USB C to C data line, you need do two things：
 
 > ① add two 5.1K 1% 0402 Resistances at R30 and R31 ，② Remove Diode
 
