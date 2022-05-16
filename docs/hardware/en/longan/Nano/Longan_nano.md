@@ -1,38 +1,38 @@
 # Longan nano 
 
-## 介绍
+## Introduction
 
-Longan Nano是基于兆易创新(GigaDevice)的GD32VF103CBT6(RISC-V架构)芯片设计的极简开发板。开发板将芯片所有IO引出，设计小巧精致，板载Type-C、LCD、SD卡、JTAG等接口，方便广大学生、工程师、极客爱好者们接触学习最新一代的 RISC-V处理器。
+Longan Nano is a minimalist RISC-V development board based on GigaDevice GD32VF103CBT6. The development board draws out all the IOs of the chip, with a small and exquisite design, and has on-board USB-C, LCD, SD card, JTAG and other interfaces, which is convenient for students, engineers, and enthusiasts to learn the latest generation of RISC-V processors.
 
 ![Longan_nano_pin](./../../../assets/Longan/nano/Longan_nano.124.jpg)
 
-## 参数
+## Specification
 
-| 项目 | 参数 |
+| Feature | Description |
 | --- | --- |
-| CPU | 基于 RISC-V 32 位内核的 GD32VF103CBT6 |
-| 内核功耗 | 仅传统 Cortex-M3 的 1/3 |
-| 存储 | 128KB Flash, 32KB SRAM |
-|外设 | 4 x general purpose 16-bit timer, 2 x basic 16-bit timer, 1 x advanced 16-bit timer,<br>Watchdog, RTC, Systick<br>3 x USART, 2 x I2C, 3 x SPI, 2 x I2S, 2 x CAN, 1 x USBFS (OTG), 2 x ADC (10 channel), 2 x DAC |
-| 按键 | 1 个复位按键和 1 个 BOOT 按键（连接到 GPIO） |
-| 屏幕接口 | SPI 接口（标配 0.96 寸 160x80 RGB IPS LCD） |
-| 存储接口 | 板载 TF 卡座子 |
-| 调试接口 | 2x4 排针引出 JTAG 调试接口和串口 |
-| 晶振 | 8MHz 无源晶振 + 32.768KHz RTC 无源晶振 |
-| LED | 板载 1 个 RGB LED |
-| GPIO 数量 | 2 引出 28 个 GPIO 到排针 |
-### 新版照片
+| CPU | GD32VF103CBT6 based on RISC-V 32-bit core |
+| Core power consumption | 1/3 of a traditional Cortex-M3 |
+| Storage | 128KB Flash, 32KB SRAM |
+| Peripherals | 4 x general purpose 16-bit timer, 2 x basic 16-bit timer, 1 x advanced 16-bit timer,<br>Watchdog, RTC, Systick<br>3 x USART, 2 x I2C, 3 x SPI, 2 x I2S, 2 x CAN, 1 x USBFS (OTG), 2 x ADC (10 channel), 2 x DAC |
+| Buttons | 1x Reset button, 1x BOOT button (connected to GPIO） |
+| Display Interface | SPI interface (standard 0.96 inch 160x80 RGB IPS LCD） |
+| Storage Interface | Onboard TF card slot |
+| Debug Interface | 2x 4 pin headers connected to JTAG debug interface and serial port |
+| Crystal Oscillator | 8MHz passive crystal + 32.768KHz RTC passive crystal |
+| LED | 1x RGB LED |
+| Number of GPIOs | 2 Lead out 28 GPIOs to pin headers |
+### New Photo
 ![](./../../../assets/Longan/nano/Longan-nano_PINOUT.svg)
  
 ![](./../../../assets/Longan/nano/longan-nano-1.png)
-### 旧版照片
+### Old Photo
 ![](./../../../assets/Longan/nano/longan_nano_pinout_old.png)
 
 ![](./../../../assets/Longan/nano/longan-nano-old.png)
 
-## 使用
+## User Guide
 
-[Longan使用](/soft/longan/zh/readme.md)
+[Longan User Guide](/soft/longan/en/README.md)
 
-## 产品技术支持
-Longan Nano 开发板可以在多种场景实现客户不同方面的需要，在 AIoT 上已经广泛的使用，品质和性能在行业内已经有非常好的口碑，专业的技术团队为广大客户解决硬件设计和软件功能上的各种各样问题。专业技术支持和更详细资料请联系商务 <support@sipeed.com>。
+## Product technical support
+The Longan Nano development board can meet the needs of customers in various scenarios. It has been widely used in AIoT, and its quality and performance have a very good reputation in the industry. The professional technical team solves hardware design and software functions for our customers. For professional technical support and more detailed product information, please contact us via e-mail <support@sipeed.com>。
