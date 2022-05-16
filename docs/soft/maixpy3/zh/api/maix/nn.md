@@ -411,7 +411,7 @@ class FaceRecognize:
 
 ## MUD文件
 
-MUD 文件是模型统一描述文件，全称 model unified describe file ；mud 文件可以简化模型运行 Python 代码，还可以使得不同平台的模型文件使用同一份代码运行
+MUD 文件是模型统一描述文件，全称 model universal description file ；mud 文件可以简化模型运行 Python 代码，还可以使得不同平台的模型文件使用同一份代码运行
 
 ### 文件形式
 
