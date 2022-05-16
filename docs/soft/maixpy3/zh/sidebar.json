@@ -31,7 +31,7 @@
                     "file": "develop/readme.md"
                 },
                 {
-                    "label": "来自社区分享的资料",   
+                    "label": "来自社区分享的资料",
                     "items": [
                         {
                             "label":"如何正确反馈问题并得到解决的方法",
@@ -194,7 +194,7 @@
                         {
                             "label": "训练物体分类模型",
                             "file":"usage/train_AI/train_resnet.md"
-                            
+
                         },
                         {
                             "label": "训练物体检测模型",
@@ -204,10 +204,22 @@
                 }
             ]
         },
-        
+
         {
-            "label": "核心 API 手册（待整理）",
+            "label": "核心 API 手册",
             "items": [
+                {
+                    "label": "image",
+                    "file": "api/maix/image.md"
+                },
+                {
+                    "label": "display",
+                    "file": "api/maix/display.md"
+                },
+                {
+                    "label": "camera",
+                    "file": "api/maix/camera.md"
+                },
                 {
                     "label": "nn",
                     "file": "api/maix/nn.md"
