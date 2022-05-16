@@ -52,7 +52,7 @@ Double click `rPLL` and select Verilog in the pop-up window language, set CLKIN 
 
 After click OK it asks whether add it to current project, here we choose yes.
 
-![](./../../../../../zh/tang/Tang-Nano-1K/Nano_1K_examples/led/assets/add_ip_file_in_project.png)
+![](./../../../../../zh/tang/Tang-Nano-1K/examples/led/assets/add_ip_file_in_project.png)
 
 Then a tmp file will appear, we can use it to generate the ip, like what is shown below. 
 
@@ -282,7 +282,7 @@ The corresponding pins and ports are as follows form shows
 
 The way to constain pins can refer to the [Light led](./../led/led.md), it contains a way to constain pins.
 
-If you feel troublesome about the method above,  you can copy the content in this [page](./../../../../../zh/tang/Tang-Nano-9K/Nano_9K_examples/lcd_constrains.md)， and paste it in ".cst" file in this project (If there is no ".cst" file, just create a "physicsl constrains file"). 
+If you feel troublesome about the method above,  you can copy the content in this [page](./../../../../../zh/tang/Tang-Nano-9K/examples/lcd_constrains.md)， and paste it in ".cst" file in this project (If there is no ".cst" file, just create a "physicsl constrains file"). 
 
 | PORT        | I/O    | PIN | PORT         | I/O    | PIN |
 | ----------- | ------ | --- | ------------ | ------ | --- |

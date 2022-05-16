@@ -24,12 +24,12 @@ https://dl.sipeed.com/shareURL/TANG/programmer 里面的文件。
 
 ### Tang Nano 1K
 
-- [点灯例程](./../Tang-Nano-1K/Nano_1K_examples/LED.md)
-- [驱屏教程](./../Tang-Nano-1K/Nano_1K_examples/LCD.md)
+- [点灯例程](./../Tang-Nano-1K/examples/LED.md)
+- [驱屏教程](./../Tang-Nano-1K/examples/LCD.md)
 
 ### Tang Nano 4K
 
-- [点灯例程](./../Tang-Nano-4K/Nano_4K_examples/LED.md)
+- [点灯例程](./../Tang-Nano-4K/examples/LED.md)
 - HDMI显示工程：https://github.com/sipeed/TangNano-4K-example/tree/main/dk_video/project
 - 摄像头内容显示在HDMI工程：https://github.com/sipeed/TangNano-4K-example/tree/main/dk_video/project
 - Cortex-m3点灯：待更新
@@ -37,9 +37,9 @@ https://dl.sipeed.com/shareURL/TANG/programmer 里面的文件。
 
 ### Tang Nano 9K
 
-- [点灯例程](./../Tang-Nano-9K/Nano_9K_examples/LED.md)
-- [驱RGB屏教程](./../Tang-Nano-9K/Nano_9K_examples/LCD.md)
-- [PicoRV 在9K上运行的示例](./../Tang-Nano-9K/Nano_9K_examples/picoRV_examples.md)
+- [点灯例程](./../Tang-Nano-9K/examples/LED.md)
+- [驱RGB屏教程](./../Tang-Nano-9K/examples/LCD.md)
+- [PicoRV 在9K上运行的示例](./../Tang-Nano-9K/examples/picoRV_examples.md)
 - litex在9K上使用示例：即将更新
 - ~~使用软核驱动1.14寸SPI屏幕：待更新~~
 - FPGA驱动SPI屏幕：待更新

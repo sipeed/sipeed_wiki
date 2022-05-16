@@ -8,7 +8,7 @@ title: Tang nano 1k 一些例程
 不会替换的话可以在下载解压后的Programmer程序中手动添加对应下载文件来进行烧录。
 
 
-- [点灯例程](./Nano_1K_examples/LED.md)
-- [驱屏教程](./Nano_1K_examples/LCD.md) 
+- [点灯例程](./examples/LED.md)
+- [驱屏教程](./examples/LCD.md) 
 
 

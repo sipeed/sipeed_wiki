@@ -48,7 +48,7 @@ Tang Nano 9K是基于高云GW1NR-9 FPGA芯片设计的精简型开发板。它�
 
 3. 阅读第一步下载的文件里面的：SUG100-2.6_Gowin云源软件用户指南.pdf
 
-4. 阅读这个[教程](./Nano_9K_examples/LED.md)完成点灯实验， 其他链接：
+4. 阅读这个[教程](./examples/LED.md)完成点灯实验， 其他链接：
 
     - 在线免费教程：[菜鸟教程](https://www.runoob.com/w3cnote/verilog-tutorial.html)（学习Verilog语言）
 
@@ -56,7 +56,7 @@ Tang Nano 9K是基于高云GW1NR-9 FPGA芯片设计的精简型开发板。它�
 
     - 在线高云官方视频教程：[点击这里](http://www.gowinsemi.com.cn/video_complex.aspx?FId=n15:15:26)
 
-5. 按照这个[教程](./Nano_9K_examples/LCD.md)进行RGB屏驱动实验。如果用户自行实在无法完成这个实验，可以下载我们9K例程（适配9K板子+5寸屏）查看哪个步骤没做正确
+5. 按照这个[教程](./examples/LCD.md)进行RGB屏驱动实验。如果用户自行实在无法完成这个实验，可以下载我们9K例程（适配9K板子+5寸屏）查看哪个步骤没做正确
 
     注意：屏幕接线需要注意排线的1脚对应连接器旁的1脚丝印
 
@@ -72,9 +72,9 @@ Tang Nano 9K是基于高云GW1NR-9 FPGA芯片设计的精简型开发板。它�
 
 ## 例程汇总
 
-- LED drive ：[点我](./Nano_9K_examples/LED.md) 
+- LED drive ：[点我](./examples/LED.md) 
 
-- RGB LCD display : [点我](./Nano_9K_examples/LCD.md)
+- RGB LCD display : [点我](./examples/LCD.md)
 
 - PicoRV源工程 : https://github.com/YosysHQ/picorv32 
 
