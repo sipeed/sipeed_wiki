@@ -6,15 +6,15 @@ desc: Sipeed hardware documentation website
 
 # Sipeed HardWare WIKI
 
-[English](./README_en.md)[中文]
+[English](./README_en.md)
 
-## K210 核心模组
+## K210 Core Module
 
-* [K210 核心模块](./core_modules/k210_core_modules.md)
+* [K210 Core Module](./core_modules/k210_core_modules.md)
     - [M1/M1w](./core_modules/k210_core_modules.md)
     - [M1n](./core_modules/k210_core_modules.md)
 
-## MaixPy 系列开发板
+## MaixPy Series Development Board
 
 * [MaixPy boards](./maixpy_develop_kit_board/develop_kit_board.md)
   - [Maix Go](./maixpy_develop_kit_board/maix_go.md)
@@ -27,12 +27,12 @@ desc: Sipeed hardware documentation website
 
 
 
-### MaixPy 外设模块
+### MaixPy Peripherals
 
-* [扩展接口 Grove](./)
+* [Grove](./)
     - [Grove-RGB LED](./)
-* [扩展接口 SP-MOD](./)
-    - [转接板类](./)
+* [SP-MOD](./)
+    - Adapters
     - [SP-Extender](./modules_spmod/spmod_extender.md)
     - [SP-Grove](./modules_spmod/spmod_grove.md)
     - [SP-FPC](./modules_spmod/spmod_fpc.md)
@@ -41,39 +41,39 @@ desc: Sipeed hardware documentation website
     - [SP-JoyStick2](./zh/modules_spmod/spmod_joystick.md)
     - [SP-Servo](./modules_spmod/spmod_servo.md)
     - [SP-Type-C](./)
-    - 传感器类
+    - Sensors
     - [SP-Weather](./modules_spmod/spmod_weather.md)
     - [SP-TOF-1P](./modules_spmod/spmod_tof.md)
-    - 通信类
+    - Communication Interfaces
     - [SP-BLE](./modules_spmod/spmod_bt.md)
     - [SP-LoRa](./modules_spmod/spmod_lora.md)
     - [SP-PSRAM](./modules_spmod/spmod_psram.md)
     - [SP-RFID](./modules_spmod/spmod_rfid.md)
     - [SP-Ethernet](./modules_spmod/spmod_ethernet.md)
-    - 显示类
+    - Displays
     - [SP-LCD 1.14](./modules_spmod/spmod_lcd1.14.md)
     - [SP-Eink](./modules_spmod/spmod_eink.md)
 
-## 模块&&调试器
+## Peripherals & Debuggers
 
-### 调试器
+### Debuggers
 
 - [Sipeed RV Debugger](./)
-- [双串口 USB 模块](./)
+- [Dual Serial USB Module](./)
 
-### 模块
+### Peripherals
 
 - Camera(Sensor)
 
     - [OV2640](./)
     - [OV2640-M12](./)
-    - [双摄像头模块(OV2640)](./)
+    - [Dual Camera Module (OV2640)](./)
     - [GC0328](./)
-    - [双摄像头模块(GC0328)](./)
+    - [Dual Camera Module (GC0328)](./)
     - [OV7740](./)
 
-- [麦克风模块](./)
-  - [单麦克风模块](./)
-  - [麦克风阵列](./)
+- [Microphone Module](./)
+  - [Single Microphone Module](./)
+  - [Microphone Array](./)
 
-- [LCD 1.3/2.4/2.8/4.3/5 寸](./)
+- [1.3"/2.4"/2.8"/4.3"/5" LCD](./)
