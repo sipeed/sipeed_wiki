@@ -20,7 +20,9 @@ Each horizon of data contains back porch, visible data **(this is normally  thou
 
 The visible data is resolution we normally think, while the parameter of back porch and front porch depends on the resolution and frame rate. Its typical parameters can be found in this web. http://www.tinyvga.com/vga-timing
 
-The timing of screen which we provided is a bit different, its parameters can be downloaded here. [Detail book](https://dl.sipeed.com/fileList/TANG/Nano%209K/6_Chip_Manual/EN/LCD_Datasheet/5.0inch_LCD_Datashet_RGB.pdf)
+The timing of this 5-inch screen we sell is a bit different, its parameters can be downloaded here. [Detail book](https://dl.sipeed.com/fileList/TANG/Nano%209K/6_Chip_Manual/EN/LCD_Datasheet/5.0inch_LCD_Datashet_RGB.pdf)
+
+For other size screen parameters, they can be downloaded here. [Click me](https://dl.sipeed.com/shareURL/TANG/Nano%209K/6_Chip_Manual/EN)
 
 The following picture shows the screenshot about this LCD timing.
 
