@@ -238,6 +238,14 @@ LicheeRV_Debian_hdmi 为 dock的hdmi输出的debian镜像
 如果是其他板卡或者屏幕，请自行使用对应的fex覆盖板级配置即可。
 fex下载地址 https://dl.sipeed.com/shareURL/LICHEE/D1/Lichee_RV/SDK/board
 
+覆盖指令为
+
+```bash
+sudo dd if=boot_package_XXX.fex of=/dev/sdX bs=1K seek=16400
+```
+
+**上面命令中的 sdX 为 TF 卡在 linux 系统中的命名**。具体依据自己的系统来判断
+
 烧录完成后，插卡启动，稍等2分钟左右，屏幕上就会显示登录界面
 
 ![登录界面](./../assets/RV/LicheeRV_login_picture.png "登录界面")

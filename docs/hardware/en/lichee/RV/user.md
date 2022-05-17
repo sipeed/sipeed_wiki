@@ -156,11 +156,11 @@ We can connect the core board by TypeC port and use adb to control this OS, or u
 
   Click System menu -> Preferenes -> Connman Settings，Enable Network Settings ，check whether the interface in the network property is wlan0. Double click the network name and input WiFi password to connect wifi.
 
-  ![](./../assets/RV/wifi-1.jpg)
+  ![](./../../../zh/lichee/assets/RV/wifi-1.jpg)
 
   After succeeding connecting network, we can see the network IP
 
-  ![](./../assets/RV/wifi-2.jpg)
+  ![](./../../../zh/lichee/assets/RV/wifi-2.jpg)
 
 ### Display and touch
 
@@ -228,35 +228,43 @@ If you need redevelop about microphone array, just contact support@sipeed.com
 
 <iframe src="https://player.bilibili.com/player.html?aid=849734125&bvid=BV1HL4y1H7nv&cid=457750392&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
-## Debian image experience
+## Experience Debian image
 
-For people who only have used desktop system, it's suggested to use debian.
-And it can be download form [Mega netdisk](https://mega.nz/folder/lx4CyZBA#PiFhY7oSVQ3gp2ZZ_AnwYA)
+For people who only have used desktop system before, it's suggested to use debian to experience this device.
+And it can be downloaded form [Mega netdisk](https://mega.nz/folder/lx4CyZBA#PiFhY7oSVQ3gp2ZZ_AnwYA)
 
-LicheeRV_Debian_86_480p is 480p 86 panel debian image.
+- LicheeRV_Debian_86_480p is 480p 86 panel debian image.
 
-LicheeRV_Debian_hdmi is debian image for dock hdmi output
+- LicheeRV_Debian_hdmi is a debian image for Dock hdmi output
 
-Other board or screen, use corresponding fex file to reconfig.
+For other board or screen, use corresponding fex file to reconfig.
 
-After burning system, insert card, wait about 2 minutes then the screen will display
+And the fex file can be downloaded here.[Click me](https://dl.sipeed.com/shareURL/LICHEE/D1/Lichee_RV/SDK/board)
+
+Using following command to overwrite board-configuration. 
+
+```bash
+sudo dd if=boot_package_XXX.fex of=/dev/sdX bs=1K seek=16400
+```
+
+After finishing burning card, insert it into the board, wait about 2 minutes to see the desktop displays on the screen
 
 
-![attachmentId-2734](https://bbs.sipeed.com/storage/attachments/2021/12/09/z8QlbfdC11GLaT5dis9epd1DdfbRPpRsa6XEi2AU.png)
+![attachmentId-2734](./../../../zh/lichee/assets/RV/LicheeRV_login_picture.png)
 
-Username `sipeed` and password `licheepi`. Need extra mouse and keyboard.
+Username `sipeed` and Password `licheepi`. Need mouse and keyboard to operate it.
 
-![attachmentId-2735](https://bbs.sipeed.com/storage/attachments/2021/12/09/2uBMvAjSuX8VLL3kVVKmBCUIxqOPJgVyYsl7MTge.png)
+![attachmentId-2735](./../../../zh/lichee/assets/RV/desktop_appearance.png)
 
 Using `Alt+F2` then input termit to open terminal.
 
 Then we can de some basic operations.
 
-![attachmentId-2736](https://bbs.sipeed.com/storage/attachments/2021/12/09/jtKDz9H3AvMrfmLCSwQW3QR8sRXQEDjAJFMG9KaI.png)
+![attachmentId-2736](./../../../zh/lichee/assets/RV/Basic_operation.png)
 
 Let's try to compile and run hello world
 
-![attachmentId-2737](https://bbs.sipeed.com/storage/attachments/2021/12/09/vuluuJDdW5sJm2dSy60HmqUvpYJ6YJMuIinX3Y0N.png)
+![attachmentId-2737](./../../../zh/lichee/assets/RV/Run_HelloWorld.png)
 
 We also provide 720P 720p high-definition screen, you can try this if you have enough money~
 
@@ -264,7 +272,7 @@ We also provide 720P 720p high-definition screen, you can try this if you have e
 
 ![attachmentId-2739](https://bbs.sipeed.com/storage/attachments/2021/12/09/E1qugpwslyoHbknndO5KDqv3tjclx3GUWM5QDzN4.png)
 
-## BSP SDK
+## USE BSP SDK
 
 To make it easy for users to develop custom function, Sipeed provide bsp docker image of LicheeRV.
 

@@ -5,17 +5,34 @@ Lichee Zero是基于全志科技的V3s(ARM Cortex-A7内核)高性能CPL芯片设
 
 核心板：
 
-
-<img src="./../assets/Zero/Zero_1.png" width=500>
-
-<img src="./../assets/Zero/Zero_6.png" width=500>
+<html>
+<div class="imbox">
+<img src="./../assets/Zero/Zero_1.png" width=240>
+<img src="./../assets/Zero/Zero_6.png" width=240>
+<style>
+.imbox{
+     display:flex;
+     flex-direction: row;
+     }
+</style>
+</div>
+</html>
 
 
 核心板+扩展板：
 
-<img src="./../assets/Zero/Zero_3.png" width=500>
-<img src="./../assets/Zero/Zero_4.png" width=500>
-
+<html>
+<div class="imbox">
+<img src="./../assets/Zero/Zero_3.png" width=240>
+<img src="./../assets/Zero/Zero_4.png" width=240>
+<style>
+.imbox{
+     display:flex;
+     flex-direction: row;
+     }
+</style>
+</div>
+</html>
 
 ## 参数
 
@@ -63,14 +80,11 @@ V3s框架
 | 板载外设 | 以太网接口<br>3.5mm耳机接口<br>驻极体麦克风<br>额外TF卡卡槽<br>4个按键<br>MIPI接口 |
 | 电气特性 | Micro USB 5V供电<br>2.54mm插针3.3V~5V供电<br>1.27mm邮票孔供电 |
 
-
-
-
 ![](./../assets/Zero/Zero_9.png)
 
 ## 使用教程
 
-[Lichee Zero](/soft/Lichee/zh/Zero-Doc/Start/intro_cn.md)
+[Lichee Zero](/soft/Lichee/zh/Zero-Doc/Start/board_intro.md)
 
 ## 产品技术支持
 
