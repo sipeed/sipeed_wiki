@@ -8,7 +8,7 @@ desc: MaixPy3 display 模块 API 文档, 以及使用说明
 
 ## 导入模块
 
-```
+```python
 from maix import display
 ```
 

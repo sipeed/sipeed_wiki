@@ -10,7 +10,7 @@ desc: MaixPy3 image 模块 API 文档, 以及使用说明
 
 Image 对象是机器视觉操作的基本对象。
 
-```
+```python
 from maix import image
 ```
 
