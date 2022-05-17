@@ -68,6 +68,7 @@ display.show(img2)
 ### 参数
 
 * `model_path`: 模型路径, 包含了字符串和字典两种形式
+
 字典形式：
 ```python
 {
@@ -77,12 +78,11 @@ display.show(img2)
 ```
 
 字符串形式:
-
 ```python
 model_path = "/root/mud/sobel_int8.mud"
 ```
 
->! 特别说明，mud文件是上新的联合模型描述文件，后文有详细描述
+>! 特别说明，MUD文件是模型统一描述文件，后文有[详细描述](https://wiki.sipeed.com/soft/maixpy3/zh/api/maix/nn.html#MUD%E6%96%87%E4%BB%B6)
 
 * `opt`: 设置项, 字典形式, 包括了:
   * `model_type`: 模型类别, 目前仅支持 `awnn`
@@ -409,34 +409,54 @@ class FaceRecognize:
 
 * 返回值： 返回两个人脸特征值的对比相似度分数（百分比），取值范围 `∈` `[0.0, 100.0]`
 
-## mud文件
+## MUD文件
 
-mud文件是模型统一描述文件，全称model unified describe file；mud文件可以简化模型运行Python代码，使得使用统一份代码就可以部署在MaixPy3所支持的不同平台上
+MUD 文件是模型统一描述文件，全称 model universal description file ；mud 文件可以简化模型运行 Python 代码，还可以使得不同平台的模型文件使用同一份代码运行
 
 ### 文件形式
 
-文件以.mud为后缀，严格按照INI的格式进行解析
+文件以 .mud 为后缀，严格按照 INI 的格式进行解析
 
 ### 文件内容
 
-文件是一种按照特点方式排列的文本文件。 每一个INI文件结构都非常类似，由若干段落（section）组成，在每个带括号的标题下面，是若干个以单个单词开头的关键词（keyword）和一个等号，等号右边的就是关键字对应的值（value); section部分通常用`[]`进行声明。
+MUD 文件是按照既定顺序和内容进行解读。不同的 MUD 文件之间结构都非常类似，由若干段落（section）组成，在每个带括号的标题下面，是若干个以单个单词开头的关键词（keyword）和一个等号，等号右边的就是关键字对应的值（value); section部分通常用`[]`进行声明，例如：
+```bash
+[basic]
+type = awnn
+param =/root/models/awnn_retinaface.param
+bin =/root/models/awnn_retinaface.bin
+
+[inputs]
+input0 = 224,224,3,127.5, 127.5, 127.5,0.0078125, 0.0078125, 0.0078125
+
+[outputs]
+output0 = 1,4,2058
+output1 = 1,2,2058
+output2 = 1,10,2058
+
+[extra]
+outputs_scale =
+inputs_scale =
+```
 
 #### section & keywords
-* [basic]: 路径参数段， 其中的字段定义模型源文件
+* [basic]: 基础参数段，包含了模型模型类型、模型参数、模型结构三种文件
     * type：不同目标平台的标识，如R329称为aipu，V831代称为awnn
-    * bin：V831，R329平台模型的重要组成
-    * param：V831模型组成之一，R329可以将此值置空
+    * bin：V831，R329 平台模型的参数二进制文件
+    * param：V831的模型结构文件，R329融合了模型参数和模型结构故此项置为空
 
-* [inputs] :输入信息段，其中的字段定义输入个数和相关参数(该section是可以支持多输入，keywords的个数和名称及模型如数个数和名称)
-    * input ： 输入节点名称，前三个参数定义为  H,W,C ，后面的参数以此是mean，norm
+* [inputs] :输入信息段
+
+  input ：输入节点名称，输入个数随模型而定，其前三个参数定义为 H,W,C ，后两个的参数以此是mean，norm 
     >! H != 1 && W != 1 && C == 3 的时候，输入为三通道图像，依次按照mean_R , mean_G ，mean_B ，norm_R ，norm_G ，norm_B 的顺序往后排列  
-    >! H != 1 && W != 1 && C == 1 的时候，输入为灰度图， mean_gray , norm_gray ，按顺序两个值，进行排列  
-    >! H ==  1 && W == 1 && C != 1 ，输入为三维向量， mean_v , norm_v ，按顺序两个值，进行排列  
+    >  H != 1 && W != 1 && C == 1 的时候，输入为灰度图， mean_gray , norm_gray ，按顺序两个值，进行排列  
+    >  H ==  1 && W == 1 && C != 1 ，输入为三维向量， mean_v , norm_v ，按顺序两个值，进行排列  
 
-* [outputs] :输出信息段，其中的字段定义输出个数和相关参数（该section是可以支持多输入，keywords的个数和名称及模型如数个数和名称）
-    * output:输出节点名称， 其值按照 h , w ,c  排列，输出节点个数随模型确定
+* [outputs] :输出信息段
+
+  output ：输出节点名称，输出节点个数根据模型而定，其参数定义为 H,W,C
 
 * [extra]:额外的参数段，一般是不同平台额外的参数。
     *  inputs_scale：输入层在量化后的scale值，按照输入顺序排列 ，如inputs_scale = input0_scale , input1_scale, input2_scale ……
-    *  outputs_scale：输出层在量化后的scale值，按照输出顺序排列，如outputs_scale = ouput0_scale , output1_scale , output2_scale ……
+    *  outputs_scale：输出层在量化后的scale值，按照输出顺序排列，如outputs_scale = ouput0_scale , output1_scale , output2_scale …… （目前仅R329需要）
 
