@@ -1,14 +1,10 @@
----
-title: FPGA点灯
----
+# Light LED
 
-## 源码下载
+Get source code: https://github.com/Lichee-Pi/Tang_FPGA_Examples/tree/master/0.LED
 
-请到 github 下载全部工程，地址为 [https://github.com/Lichee-Pi/Tang_FPGA_Examples/](https://github.com/Lichee-Pi/Tang_FPGA_Examples/)
+Verilog code:
 
-## Verilog代码
-
-```v
+```verilog
 module led
 (
     input wire CLK_IN, //时钟输入，24MHz
@@ -56,6 +52,6 @@ end
 assign RGB_LED = rledout;
 endmodule
 ```
+Saving this into project and run place&route to generate bit file to download into board.
 
-上面的代码输入完且保存后，综合一下，接着自己对照板子原理图进行管脚约束。在生成比特流下载到fpga，可以看到板上的rgb led会移位闪烁。（emmm，闪烁效果太差，如果你有更好的可以发过来。(╯︵╰)
-
+Then you will see the flow light.

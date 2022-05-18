@@ -10,7 +10,7 @@ title: Note
 
 **首先确定设备管理器里面有两个converter，在进行下面的操作**
 
-![](./../../assets/questions/converter.png)
+![](./../assets/questions/converter.png)
 
 与上图中一样的话说明电脑与板子连接没问题；不存在的话请更改 usb口 或者重新安装驱动。
 
@@ -65,9 +65,24 @@ https://dl.sipeed.com/shareURL/TANG/programmer 里面的文件。
   <p>接着再点击 Save 即可</p>
 </details>
 
+### 烧录结束后没反应
+
+一般这种情况是没有选择正确的烧录文件。自己在
 
 ## IDE 使用相关
 
 ### 使用GAO
 
 目前测试过IDE v1.9.8.1和之前的版本可使用。其他新版的不行
+
+### 查看IP文档
+<details>
+  <summary><font color="#4F84FF">点开查看相关说明</font></summary>
+    <img src="./../assets/ip-reference.png">
+</details>
+
+### 修改设置过的IP
+<details>
+  <summary><font color="#4F84FF">点开查看相关说明</font></summary>
+    <img src="./../assets/ip-reconfigure.png">
+</details>

@@ -4,7 +4,7 @@
 
 ## Introduction
 
-Tang Nano 1K is a core board designed based on [Gowin](https://www.gowinsemi.com/en/) GW1NZ-LV1 FPGA chip. The board is equipped with RGB LCD interface and onboard USG-JTAG debugger, which make it convinent for users to use.
+Tang Nano 1K is a core board designed based on [Gowin](https://www.gowinsemi.com/en/) GW1NZ-LV1 FPGA chip. The board is equipped with RGB LCD interface and onboard USG-JTAG debugger, which make it convinent for users to use. User can use this for small digital logic design and experiment.
 
 ![](./assets/1k-1.jpg)
 ![Nano](./assets/1k-2.jpg)

@@ -1,6 +1,5 @@
 # 荔枝糖 全流程指南
 
-
 荔枝糖，一款极致打磨的国产开源RISC-V开发板。
 
 荔枝糖萌生于国内芯片振荡之潮，历经三个月的生长与蜕变，终于在七月，登上开源的舞台。
@@ -23,22 +22,17 @@
 -   双排插针间距900mil， **兼容面包板开发** 
 -   半孔引出额外 **40 IO**，整板引出 **130+ IO** 。
 
-![荔枝糖资源图](./../assets./../assets./../assets/E203_function.png)
+![荔枝糖资源图](./../assets/E203_function.png)
 
-
-![荔枝糖引脚图(旧板,底面丝印较小版本)](./../assets./../assets/E203_pin.png)
-
+![荔枝糖引脚图(旧板,底面丝印较小版本)](./../assets/E203_pin.png)
 
 ![ 荔枝派引脚图(新板,底面丝印较大版本)](./../assets/Lichee-tang_NewIoMap.png)
 
-
-2018年8月15日之前收到的板子预烧录的码流为旧版本IO分配，需要烧录[新版本码流](./../assets/LicheeTangNewIoMap_BitStream.bit)
-
 您可能需要这些来进一步了解荔枝糖： 
 
-- EG4S20Datasheet [点我](https://dl.sipeed.com/shareURL/TANG/Premier/HDK/Datasheet/)里面的`EG4S20_DataSheet_V1.4.pdf`
+- EG4S20Datasheet [点我](https://dl.sipeed.com/shareURL/TANG/Primer/HDK/Datasheet/)里面的`EG4S20_DataSheet_V1.4.pdf`
 
-- 荔枝糖原理图 [点我](https://dl.sipeed.com/fileList/TANG/Premier/HDK/)里面的`LicheeTang_RV(Schematic).pdf`
+- 荔枝糖原理图 [点我](https://dl.sipeed.com/shareURL/TANG/Primer/HDK)里面的`LicheeTang_RV(Schematic).pdf`
 
 荔枝糖仍在不断地成长，对于外观、电路设计、文档内容甚至于荔枝糖的发展方向，
 我们欢迎您到[荔枝糖 | 建议与讨论帖](https://bbs.sipeed.com/cate/30/seq/1) 提出您宝贵的建议。
@@ -47,4 +41,4 @@
 
 另外，FPGA开发环境TD (Tang Dynasty) 可在如下网址下载：
 - [https://eyun.baidu.com/s/3i6FbQzr](https://eyun.baidu.com/s/3i6FbQzr)
-- [https://dl.sipeed.com/shareURL/TANG/Premier/IDE](https://dl.sipeed.com/shareURL/TANG/Premier/IDE)
+- [https://dl.sipeed.com/shareURL/TANG/Primer/IDE](https://dl.sipeed.com/shareURL/TANG/Primer/IDE)

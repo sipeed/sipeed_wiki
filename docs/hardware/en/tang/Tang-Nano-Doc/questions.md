@@ -58,7 +58,20 @@ Click Edit->Cable Setting->Cable->Query in the top menu bar,then save.
   <p>Click Save</p>
 </details>
 
-## Using GAO
+## Troubles with IDE
+
+### Using GAO
 
 It's tested IDE version before V1.9.8.1 and V1.9.8.1 is ok, the newer version is not ok.
 
+### View IP reference
+<details>
+  <summary><font color="#4F84FF">Click to see instructions</font></summary>
+    <img src="./../../../zh/tang/assets/ip-reference.png">
+</details>
+
+### Reconfigure generater IP
+<details>
+  <summary><font color="#4F84FF">Click to see instructions</font></summary>
+    <img src="./../../../zh/tang/assets/ip-reconfigure.png">
+</details>

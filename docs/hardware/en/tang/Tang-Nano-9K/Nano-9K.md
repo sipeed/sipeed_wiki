@@ -4,7 +4,7 @@
 
 ## Introduction
 
-Tang nano 9K is an exquisite development board based on [Gowin](https://www.gowinsemi.com/en/) GW1NR-9 FPGA chip.It equips with HDMI connector, RGB screen interface connector, SPI screen connector, 32Mbit SPI flash and 6 LEDs, so users can use it for FPGA verification, risc-v soft core verification and basic function verification easily and quickly. Its 8640 LUT4 logic units can not only be used for various complex logic circuits designing, but also used for running a complete PicoRV soft core. It meets various needs of users, such as learning FPGA, verifying soft core and further design.
+Tang nano 9K is an exquisite development board based on [Gowin](https://www.gowinsemi.com/en/) GW1NR-9 FPGA chip.It equips with HDMI connector, RGB screen interface connector, SPI screen connector, 32Mbit SPI flash and 6 LEDs, so users can use it for FPGA verification, risc-v soft core verification and basic function verification easily and quickly. Its 8640 LUT4 logic units can not only be used for various complex logic circuits designing, but also used for running a complete PicoRV soft core. It also meets various needs of users, such as learning FPGA, verifying soft core and further design.
 
 ![](./assets/9K.png)
 
@@ -61,32 +61,42 @@ This form shows detail parameters of Tang Nano 9K
 
 ## User guide
 
-1. Download our packaged user guide document : [Click here](https://dl.sipeed.com/shareURL/TANG/Nano%209K/6_Chip_Manual) (All PDFs mentioned below are here)
+1. Download our packaged user guide document : [Click me](https://dl.sipeed.com/shareURL/TANG/Nano%209K/6_Chip_Manual/EN/General%20Guide) (All PDFs mentioned below are here)
    
-2. Install IDE and configure license : [Click here](./../Tang-Nano-Doc/install-the-ide.md)
+2. Install IDE and configure license : [Click me](./../Tang-Nano-Doc/install-the-ide.md)
    
 3. Read this file (in the file downloaded in step 1) : [SUG100-2.6E_Gowin Software User Guide.pdf](https://dl.sipeed.com/fileList/TANG/Nano%209K/6_Chip_Manual/EN/General%20Guide/SUG100-2.6E_Gowin%20Software%20User%20Guide.pdf)
 
 4. Read this [tutorial](./examples/led/led.md) (LEDs lighting experiment).
    We recommended you read the following documents during this process:
-   Verilog code specifications (please search by yourself. It is very necessary to cultivate good code specifications from the beginning)
-   SUG949-1.1E_Gowin HDL Coding User Guide.pdf
-   UG286-1.9.1E_Gowin Clock User Guide.pdf
-   FPGA related learning books
+   - Verilog code specifications (please search by yourself. It is very necessary to cultivate good code specifications from the beginning)
 
-   Online tutorial:  We suggest two excellent third-party learning sites about verilog : [HDLBITs](https://hdlbits.01xz.net/wiki/Main_Page) and [Verilog Page](https://www.asic-world.com/verilog/index.html)
+The following documents are very useful for learning FPGA, so we should read them.
+   - SUG949-1.1E_Gowin HDL Coding User Guide.pdf
+   - UG286-1.9.1E_Gowin Clock User Guide.pdf
 
-5. Read this [tutorial](./examples/rgb_screen/rgb_screen.md) (RGB screen Display experiment). If you can't complete this experiment, you can download our [9K examples](https://github.com/sipeed/TangNano-9K-example.git) (adapted to 9K + 5-inch screen) to see which step goes wrong.
+The documents mentioned above can be downloaded from our [Download station](https://dl.sipeed.com/shareURL/TANG/Nano%209K/6_Chip_Manual/EN/General%20Guide)
+And there has been a compressed package contains all documents
+
+   Online tutorial:  
+   We suggest two excellent third-party learning sites about verilog : [HDLBITs](https://hdlbits.01xz.net/wiki/Main_Page) and [Verilog Page](https://www.asic-world.com/verilog/index.html)
+
+1. Read this [tutorial](./examples/rgb_screen/rgb_screen.md) (5-inch RGB screen Display turtial). If you can't complete this experiment, you can download our [9K examples](https://github.com/sipeed/TangNano-9K-example) (adapted to 9K + 5-inch screen) to see which step goes wrong.
    Note: for screen wiring, pay attention to the 1-pin silk screen next to the connector corresponding to 1-pin of the cable
    Documents to read:
-   [SUG284-2.1E_Gowin IP Core Generator User Guide.pdf](https://dl.sipeed.com/fileList/TANG/Nano%209K/6_Chip_Manual/EN/General%20Guide/SUG284-2.1E_Gowin%20IP%20Core%20Generator%20User%20Guide.pdf) (Page 28)
-   [Datasheet of 5inch screen](https://dl.sipeed.com/fileList/TANG/Nano%209K/6_Chip_Manual/EN/LCD_Datasheet/5.0inch_LCD_Datashet%20_RGB_.pdf)
+   - rPLL IP core reference: Click the menubar Tools>IP Core Generator>Hard Module>CLOCK>rPLL
+        <details>
+        <summary><font color="#4F84FF">Click to see reference</font></summary>
+        <img src="./../../../zh/tang/assets/ip-reference.png">
+        </details>
+   - [SUG284-2.1E_Gowin IP Core Generator User Guide.pdf](https://dl.sipeed.com/fileList/TANG/Nano%209K/6_Chip_Manual/EN/General%20Guide/SUG284-2.1E_Gowin%20IP%20Core%20Generator%20User%20Guide.pdf) (Page 28)
+   - [Datasheet of 5inch screen](https://dl.sipeed.com/fileList/TANG/Nano%209K/6_Chip_Manual/EN/LCD_Datasheet/5.0inch_LCD_Datashet%20_RGB_.pdf)
 
-6. Explanation of HDMI display (to be updated)
+2. Explanation of HDMI display (to be updated)
 
-7. PicoRV soft core test ([Source code](https://github.com/sipeed/TangNano-9K-example))
+3. PicoRV soft core test ([Source code](https://github.com/sipeed/TangNano-9K-example))
 
-## Reference code summary
+## Reference examples summary
 
 - LED drive / RGB LCD display : https://github.com/sipeed/TangNano-9K-example  
 - GameBOY HDMI : https://github.com/Martoni/GbHdmi 
@@ -103,9 +113,9 @@ This form shows detail parameters of Tang Nano 9K
 
 ## Matters need attention
 
-1. It is recommended to use Gowin V1.9.8.03 Education Edition : [Click here](https://www.gowinsemi.com/en/support/download_eda/)
-But if you want to use more IP cores, you need to download other version of IDE, and apply for license : [Click here](https://wiki.sipeed.com/hardware/en/tang/Tang-Nano-Doc/install-the-ide.html)
-2. This version of programmer is recommended : [Click here](https://dl.sipeed.com/shareURL/TANG/programmer)
+1. It is recommended to use Gowin V1.9.8.03 Education Edition : [Click me](https://www.gowinsemi.com/en/support/download_eda/)
+But if you want to use more IP cores, you need to download other version of IDE, and apply for license : [Click me](https://wiki.sipeed.com/hardware/en/tang/Tang-Nano-Doc/install-the-ide.html)
+2. This version of programmer is recommended : [Click me](https://dl.sipeed.com/shareURL/TANG/programmer)
 3. Avoid using JTAG, MODE0/1 and DONE pins. If you really need to use these pins, please refer to the [UG284-1.8E : schematic manual.pdf](file:///E:/Download/download/UG284-1.8E_GW1NR%20Series%20of%20FPGA%20Products%20Schematic%20Manual.pdf) to see how to enable IO mux.
 4. Please avoid static electricity hitting PCBA; Please release the static electricity from the hand before contacting PCBA
 5. The working voltage of each GPIO has been marked in the schematic . Please do not let the actual working voltage of GPIO exceed the rated value, because it will cause permanent damage to PCBA

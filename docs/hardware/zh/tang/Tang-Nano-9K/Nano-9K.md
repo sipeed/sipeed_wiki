@@ -42,31 +42,48 @@ Tang Nano 9K是基于高云GW1NR-9 FPGA芯片设计的精简型开发板。它�
 
 ## **上手指引**
 
-1. 下载我们打包好的用户指南文档：[下载站](https://dl.sipeed.com/shareURL/TANG) （下文提到的所有pdf文件都在这里）
+1. 下载我们打包好的用户指南文档：[下载站](https://dl.sipeed.com/shareURL/TANG/Nano%209K/6_Chip_Manual/CN/%E9%80%9A%E7%94%A8%E6%8C%87%E5%BC%95) （下文提到的所有pdf文件都在这里）
 
 2. 安装IDE和填写正确的License：[点击这里](https://wiki.sipeed.com/soft/Tang/zh/Tang-Nano-Doc/get_started/install-the-ide.html)
 
 3. 阅读第一步下载的文件里面的：SUG100-2.6_Gowin云源软件用户指南.pdf
 
-4. 阅读这个[教程](./examples/LED.md)完成点灯实验， 其他链接：
+4. 阅读这个[教程](./examples/LED.md)完成点灯实验。
 
-    - 在线免费教程：[菜鸟教程](https://www.runoob.com/w3cnote/verilog-tutorial.html)（学习Verilog语言）
+    建议新手在完成这一步之后，自己重新独立新建项目、编写代码，完成这个实验，并且按自己的想法修改点灯程序，增强对FPGA和硬件描述语言的理解。
+    建议在这个过程阅读以下文档，阅读完才进入下一步：
+    - Verilog代码规范（自行搜索，从初学就培养良好的代码规范是非常必要的）
 
-    - 在线免费FPGA教程：[Verilog](https://www.asic-world.com/verilog/index.html)
+下面的这些内容对于初学者来说是非常有用的，对未来深入学习 FPGA 很有帮助。
 
-    - 在线高云官方视频教程：[点击这里](http://www.gowinsemi.com.cn/video_complex.aspx?FId=n15:15:26)
+   - [SUG100-2.6_Gowin云源软件用户指南.pdf](http://cdn.gowinsemi.com.cn/SUG100-2.6_Gowin%E4%BA%91%E6%BA%90%E8%BD%AF%E4%BB%B6%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97.pdf)
+   - [SUG949-1.1_Gowin_HDL编码风格用户指南.pdf](http://cdn.gowinsemi.com.cn/SUG949-1.1_Gowin_HDL%E7%BC%96%E7%A0%81%E9%A3%8E%E6%A0%BC%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97.pdf)
+   - [UG286-1.9.1_Gowin时钟资源(Clock)用户指南.pdf]
+   - [SUG940-1.3_Gowin设计时序约束用户指南.pdf](http://cdn.gowinsemi.com.cn/SUG940-1.3_Gowin%E8%AE%BE%E8%AE%A1%E6%97%B6%E5%BA%8F%E7%BA%A6%E6%9D%9F%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97.pdf)
+   - [SUG502-1.3_Gowin_Programmer用户指南.pdf](http://cdn.gowinsemi.com.cn/SUG502-1.3_Gowin_Programmer%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97.pdf)
+   - [SUG114-2.5_Gowin在线逻辑分析仪用户指南.pdf](http://cdn.gowinsemi.com.cn/SUG114-2.5_Gowin%E5%9C%A8%E7%BA%BF%E9%80%BB%E8%BE%91%E5%88%86%E6%9E%90%E4%BB%AA%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97.pdf)
 
-5. 按照这个[教程](./examples/LCD.md)进行RGB屏驱动实验。如果用户自行实在无法完成这个实验，可以下载我们9K例程（适配9K板子+5寸屏）查看哪个步骤没做正确
+上面的都已经打包进了下载站[点我跳转](https://dl.sipeed.com/shareURL/TANG/Nano%209K/6_Chip_Manual/CN/%E9%80%9A%E7%94%A8%E6%8C%87%E5%BC%95)。可以点击压缩包全都下载下来
 
-    注意：屏幕接线需要注意排线的1脚对应连接器旁的1脚丝印
+其他学习链接：
++ 在线免费教程：[菜鸟教程](https://www.runoob.com/w3cnote/verilog-tutorial.html)（学习Verilog）
++ 在线免费FPGA教程：[Verilog](https://www.asic-world.com/verilog/index.html)
++ 在线高云官方视频教程：[点击这里](http://www.gowinsemi.com.cn/video_complex.aspx?FId=n15:15:26)
+
+5. 按照这个[教程](./examples/LCD.md)进行5寸RGB屏驱动实验（其他尺寸屏幕自行修改一下）。
+   
+   如果用户自行实在无法完成这个实验，可以下载我们[9K例程](https://github.com/sipeed/TangNano-9K-example)（适配9K板子+5寸屏）查看哪个步骤没做正确
+
+    注意：屏幕接线时需要注意排线的1脚对应连接器旁的1脚丝印
 
     需要阅读的文档：
-
-    rPLL IP核的说明文档：在IDE里>Tools>IP Core Generator>Hard Module>CLOCK>rPLL>点击弹出界面右下角的Help按键就会弹出说明文档
-
-    SUG284-2.1E_Gowin IP Core Generator User Guide.pdf（第28页）
-
-    [5寸屏规格书](https://dl.sipeed.com/fileList/TANG/Nano%209K/6_Chip_Manual/EN/LCD_Datasheet/5.0inch_LCD_Datashet%20_RGB_.pdf)：(主要是获取CLK是33.3Mhz这个信息)
+    - rPLL IP核的说明文档：在IDE里>Tools>IP Core Generator>Hard Module>CLOCK>rPLL>点击弹出界面右下角的Help按键就会弹出说明文档
+        <details>
+        <summary><font color="#4F84FF">点开查看说明位置</font></summary>
+        <img src="./../assets/ip-reference.png">
+        </details>
+    - SUG284-2.1E_Gowin IP Core Generator User Guide.pdf 
+    - [5寸屏规格书](https://dl.sipeed.com/fileList/TANG/Nano%209K/6_Chip_Manual/EN/LCD_Datasheet/5.0inch_LCD_Datashet%20_RGB_.pdf)：(主要是获取CLK是33.3Mhz这个信息)
 
 6. 驱HDMI屏讲解（待更新）
 

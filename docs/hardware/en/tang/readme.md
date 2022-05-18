@@ -1,6 +1,10 @@
 # Tang Serial Development Board
 
-- Overview
+> Overview
+
+## Tang Primer 20K(Building)
+
+- Updating
 
 ## Tang Nano 1K
 
@@ -14,10 +18,10 @@
 
 [![Tang Nano 9K](./../../assets/Tang/Nano-9K/9K.png)](./Tang-Nano-9K/Nano-9K.md)
 
-## Tang Nano 
+## Tang Nano(Sold out) 
 
 [![Tang Nano](./../../assets/Tang/Nano/Tang_Nano.jpg)](./Tang-Nano/Nano.md)
 
-## Tang Primer 
+## Tang Primer(Sold out)
 
 [![Tang Primer](./../../assets/Tang/permier/Tang_permier.jpg)](./Tang-primer/Tang-primer.md)

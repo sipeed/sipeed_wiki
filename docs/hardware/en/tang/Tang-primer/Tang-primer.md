@@ -1,40 +1,54 @@
-# Tang Primer
+---
+title: Tang Primer board
+date: 2022-05-17
+draft: false
+---
 
-## 介绍
-Lichee Tang Primer是基于安路科技的EG4S20BG256 FPGA芯片设计的简约型开发板。开发板设计小巧精致，将芯片的所有资源都引出，板载Micro-USB、USB-JTAG、TF卡槽、DVP摄像头接口、RGB(可接LCD屏、VGA等外设)等，并把部分IO资源引出，非常方便开发者拓展使用，开放RISC-V IP内核。
+> Sold out
 
-![Tang_permier](./../../../assets/Tang/permier/Tang_permier.jpg)
+## The Tang Primer at a Glance
 
-![Tang_permier_1](./../../../assets/Tang/permier/Tang_permier_1.png)
+![Tang Primer at a Glance](./../../../zh/tang/assets/material.png "Tang Primer at a Glance")
 
-## 管脚定义
+Tang Primer uses Anlogic's EG4S20 as the core unit, **20K logic unit (LUT4/LUT5 hybrid architecture), approximately 130KB SRAM, built-in 32bit bit width 64MBit SDRAM, rich LVDS pin, built-in 12-bit 1MSPS ADC** This provides unlimited possibilities for Tang Primer:
 
-![Tang_permier_2](./../../../assets/Tang/permier/Tang_permier_2.png)
+## Tang Primer features
 
-![Tang_permier_3](./../../../assets/Tang/permier/Tang_permier_3.png)
++ FPC40P socket, can be connected to RGB LCD, VGA adapter board, high speed DAC module.
++ FPC24P socket, can be connected to DVP camera, high speed ADC module.
++ Resistive touch screen controller for I2C interface, used with RGB LCD.
++ 3-channel DCDC power supply chip, stable and efficient power supply, independent adjustment of Bank0 IO level.
++ FPGA configuration Flash, 8Mbit User Flash, nor/nand optional.
++ Onboard FPGA JTAG Download Debugger.
++ Onboard RGB LED
++ The adjacent pins LVDS are drawn in the same length, and 8 GCLKs are taken out, and 8 ADCs are all taken out.
++ The double row pin spacing is 900 mils and is compatible with breadboard development.
++ The half hole leads to an additional 40 IO and the entire board leads to 130+ IO.
 
-## 参数
+## Pinouts
 
-| 项目 | 参数 |
-| --- | ---- |
-| FPGA芯片 | EG4S20BG256 | 
-| 逻辑单元数量 | 23520 |
-| 寄存器数量(FF) | 19600 |
-| Total Configuration SRAM (bits) | 4,988,928 |
-| EM SDR SDRAM | 2M X 32bits |
-| 锁相环PLL | 1 |
-| I/O Bank总数 | 1 |
-| 最多用户I/O数 | 193 |
-| 核电压 | 1.2V |
-| 板载FPC40P座 | 可接RGB LCD、VGA转接口、高速DAC等模块 |
-| 板载FPC20P座 | 可接DVP摄像头、高速ADC模块 |
-| 引出IO | 标准2.54mm和半邮票孔接口，引出芯片大部分IO资源 |
-| 板载IIC电阻触摸芯片屏控制器 | --- |
+Pinout for **New** Tang Primer Board.
 
-## 产品技术支持
+![Tang Primer at a Glance](./../../../zh/tang/assets/Lichee-tang_NewIoMap.png "Tang Primer at a Glance")
 
-Tang Permier开发板可以在多种场景实现客户不同方面的需要，在AIoT上已经广泛的使用，品质和性能在行业内已经有非常好的口碑，专业的技术团队为广大客户解决硬件设计和软件功能上的各种各样问题。专业技术支持和更详细资料请联系商务support@sipeed.com。
+Pinout for **Old** Tang Primer Board.
 
-## 资料
-[烧录相关使用](/soft/Tang/zh/index_bak.md)
-[资料下载](https://dl.sipeed.com/shareURL/TANG/Primer)
+![Tang Primer at a Glance](./../../../zh/tang/assets/E203_pin.png "Tang Primer at a Glance")
+
+## Resources
+
+#### Attachments:
+
++ [EG4S20_DataSheet_V1.5_english.pdf](https://github.com/kprasadvnsi/tang-doc/releases/download/1.0.0/EG4S20_DataSheet_V1.5_english.pdf)
+
++ [Eagle_DataSheet_V2.8_english.pdf](https://github.com/kprasadvnsi/tang-doc/releases/download/1.0.0/Eagle_DataSheet_V2.8_english.pdf)
+
++ [LicheeTang RV.pdf](https://github.com/kprasadvnsi/tang-doc/releases/download/1.0.0/LicheeTang+RV.pdf)
+
++ [sipeed-tang-primer-pins.pdf](https://github.com/kprasadvnsi/tang-doc/releases/download/1.0.0/sipeed-tang-primer-pins.pdf)
+
++ Schematic of Lichee Tang [Click me](https://dl.sipeed.com/shareURL/TANG/Primer/HDK) and choose `LicheeTang_RV(Schematic).pdf`
+
+Besides, its development enviroument IDE TD(Tang Dynasty) can be downloaded from following sites
+- [Click me](https://eyun.baidu.com/enterprise/home#share/path=%2F%E6%B7%B1%E5%9C%B3%E7%9F%BD%E9%80%9F%E7%A7%91%E6%8A%80%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8%2F%E4%B8%8B%E8%BD%BD%E7%AB%99%E6%96%87%E4%BB%B6%2FTANG%2FPrimer%2FIDE&owner_uk=1227825567&oper=2&share=1&info=1)
+- [https://dl.sipeed.com/shareURL/TANG/Primer/IDE](https://dl.sipeed.com/shareURL/TANG/Primer/IDE)
