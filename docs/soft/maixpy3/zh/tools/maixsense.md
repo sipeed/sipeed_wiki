@@ -68,22 +68,21 @@ wlan0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 ```
 
-从上面的 wlan0 信息中我们可以发现本次 IP 地址是 `192.168.0.2`；
+从上面的 wlan0 信息里面的 `inet 192.168.0.2` 中我们可以发现本次 IP 地址是 `192.168.0.2`；
 这只是一个示例，具体到每个人可能会不一样，自行更改即可
 
 - 没有显示IP的话重新设置连接网络
 
 ### 连接
 
-> 20220512 0.4.8 后的镜像提供了开机启动服务，不需要可以输入 `sudo systemctl disable rc-local` 停止 /etc/rc.local 的服务。
-
-在板子终端执行下述命令来启动板子上的远程 RPyc 服务；在电脑启动 MaixPy3 IDE，新建代码区，运行下面的连接代码。
+在板子终端执行下述命令来启动板子上的远程 RPyc 服务。运行完下面的命令行之后会看起来卡住了，实际上是已经在运行中了。
+对于 linux 系统使用快捷键 Ctrl+C 可以来终止命令
 
 ```bash
 python3 -c "import maix.mjpg;maix.mjpg.start()"
 ```
 
-> 加载 NN 模型的时候容易出现内存不足的错误，如果没法继续运行可以使用 Ctrl + Z 后 reboot 重启再来。
+下面是全部的log：
 
 ```bash
 Welcome to Armbian 21.08.0-trunk Bullseye with bleeding edge Linux 5.14.0-rc7-sun50iw11
@@ -99,12 +98,12 @@ Last check: 2022-05-12 06:38
 
 Last login: Thu May 12 07:12:30 UTC 2022 on ttyS0
 
-root@maixsense:~# root
--bash: root: command not found
 root@maixsense:~# python3 -c "import maix.mjpg;maix.mjpg.start()"
 Dict mode[TEST INFO] AIPU load graph successfully.
 [libmaix_nn] -- start alloction tensor buffers
 ```
+
+在电脑启动 MaixPy3 IDE，新建代码区，运行下面的连接代码。
 
 - 电脑在 IDE 中新建代码区并执行
 
@@ -120,7 +119,12 @@ print(platform.uname())
 
 - 注意右上角应该是RPyc
 
-> 启动 MAixpy3 IDE 的时候，会打开一个 adb 终端窗口。由于我们是用网络连接且运行运行相关代码的，因此可以直接关闭它
+> 启动 MaixPy3 IDE 的时候，会弹出一个 adb 终端窗口。由于我们是用网络连接且运行运行相关代码的，因此可以关闭它。
+
+- 今后使用出现 AIPU_load_graph_helper: UMD fails in allocating buffers 错误的时候。
+
+可以使用reboot命令重启板子或者指用下面的命令来解决（这个在修了）：
+`sudo rmmod -f aipu && sudo insmod /lib/modules/5.14.0-rc7-sun50iw11/kernel/drivers/aipu/aipu.ko`
 
 相关使用方法可以参考[使用 MaixPy3 IDE 连接 MaixII-Dock](./0.MaixII-Dock.ipynb),其中的**如何运行代码**和**首次尝试**都可以参考。
 
