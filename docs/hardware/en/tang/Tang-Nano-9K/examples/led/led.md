@@ -102,6 +102,9 @@ In this GUI interface we have two ways to constrain pins:
 So we can do the ordered operations in the opened window as what the following picture shows:
 ![](./../../../../../zh/tang/Tang-Nano-9K/nano_9k/LED_FloorPlanner.png)
 
+For more usage about FloorPlanner,please refer to 
+
+关于 FloorPlanner 更多的相关说明，可以参考 [SUG935-1.3_Gowin设计物理约束用户指南.pdf](http://cdn.gowinsemi.com.cn/SUG935-1.3_Gowin%E8%AE%BE%E8%AE%A1%E7%89%A9%E7%90%86%E7%BA%A6%E6%9D%9F%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97.pdf)。里面的内容都很有用
 
 ### Place&Route
 

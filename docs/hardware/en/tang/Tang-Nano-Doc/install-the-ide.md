@@ -1,4 +1,4 @@
-# Install the ide
+# Install the IDE
 
 > Edit on 2022.04.06
 
@@ -6,7 +6,7 @@
 - It's tested that we can use [GAO](Online debug tool Gowin Analysis Oscilloscope) on V1.9.8.1
 - **Float license only suits IDE version before 1.9.8**
 
-## Install the application
+## Install the IDE
 
 - The IDE can be downloaded on this page http://www.gowinsemi.com.cn/faq.aspx
 
@@ -14,14 +14,48 @@
 
 > Due to the IDE updating, the screenshot is created on 2022.04.06
 
-- When finish installing, 2 drivers need to be installed.
+Download the software and install it.This is not a difficult work.
+
+Make sure install all components.
+
+<html>
+<div class="imbox">
+    <img src="./../../../zh/tang/Tang-Nano-Doc/get_started/assets/IDE-2.png" width=350>
+    <img src="./../../../zh/tang/Tang-Nano-Doc/get_started/assets/IDE-4.png" width=350>
+<style>
+.imbox{
+     display:flex;
+     flex-direction: row;
+     }
+</style>
+</div>
+</html>
+
+- When finishing installing, There are 2 drivers need to be installed.
 
 ![](./assets/ide-install-driver.png)
 
-After installing all, we can start run the IDE.
-The IDE icon is like what is shown below.
+After installing all, There ia an IDE icon is like what is shown below on your desktop.
 
 ![](./assets/ide-icon.png)
+
+## Other
+
+It may take a time to receive license. During this time we can read GOWIN official documents, which can easily be found after installing IDE.
+
+There are three contents in the IDE installation path : IDE folder, Programmer folder, uninst.exe
+
+- **IDE** folder：Here I suggest you view the **doc** folder, many GOWIN official documents are set in it like showing below.
+
+![IDE](./../../../zh/tang/Tang-Nano-Doc/get_started/assets/doc-folder.png)
+
+- Programmer folder: There are also many documents
+
+![IDE](./../../../zh/tang/Tang-Nano-Doc/get_started/assets/programmer-folder.png)
+
+Normally we suggest you delete this Programmer folder and use this version [Click me](https://dl.sipeed.com/shareURL/TANG/programmer)，this can reduse many troubles
+
+- uninst.exe：remove IDE
 
 ## Activate the IDE
 
@@ -70,17 +104,9 @@ Country or Region:
 
 The server ip and port are shown below
 
-![](./assets/using-float-lic.png)
+![](./assets/using-float-lic.png)]
 
-## Others
-
-### Programmer application
-
-The programmer application installed with the IDE may not work very well with our board.
-So it's suggested to use the programmer which can be downloaded here 
-https://dl.sipeed.com/shareURL/TANG/programmer
-
-### Flash in linux
+### Burn in linux
 
 Here is a way to Flash the development board in linux [click me](./flash-in-linux.md)
 

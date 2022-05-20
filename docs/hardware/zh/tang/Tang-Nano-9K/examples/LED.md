@@ -99,6 +99,8 @@ nano 9k的led电路图如下所示
 因此在打开的界面中按照序号的顺序来进行相应的操作 
 ![](./../nano_9k/LED_FloorPlanner.png)
 
+关于 FloorPlanner 更多的相关说明，可以参考 [SUG935-1.3_Gowin设计物理约束用户指南.pdf](http://cdn.gowinsemi.com.cn/SUG935-1.3_Gowin%E8%AE%BE%E8%AE%A1%E7%89%A9%E7%90%86%E7%BA%A6%E6%9D%9F%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97.pdf)。里面的内容都很有用
+
 ### 布局布线
 
 > 未开启管脚复用会提示 error2017， 前文提到过启用方法

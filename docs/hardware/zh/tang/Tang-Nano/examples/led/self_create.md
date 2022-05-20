@@ -105,6 +105,8 @@ nano 的 rgb led电路图如下所示
 
 - 直接编写约束文件方法用户自行研究
 
+关于 FloorPlanner 更多的相关说明，可以参考 [SUG935-1.3_Gowin设计物理约束用户指南.pdf](http://cdn.gowinsemi.com.cn/SUG935-1.3_Gowin%E8%AE%BE%E8%AE%A1%E7%89%A9%E7%90%86%E7%BA%A6%E6%9D%9F%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97.pdf)。里面的内容都很有用
+
 ### 布局布线
 
 到“Process”下运行“Place&Route”，即运行管脚布局布线，运行结果如下图所示：

@@ -68,21 +68,21 @@ This form shows detail parameters of Tang Nano 9K
 3. Read this file (in the file downloaded in step 1) : [SUG100-2.6E_Gowin Software User Guide.pdf](https://dl.sipeed.com/fileList/TANG/Nano%209K/6_Chip_Manual/EN/General%20Guide/SUG100-2.6E_Gowin%20Software%20User%20Guide.pdf)
 
 4. Read this [tutorial](./examples/led/led.md) (LEDs lighting experiment).
-   We recommended you read the following documents during this process:
-   - Verilog code specifications (please search by yourself. It is very necessary to cultivate good code specifications from the beginning)
-
-The following documents are very useful for learning FPGA, so we should read them.
-   - SUG949-1.1E_Gowin HDL Coding User Guide.pdf
-   - UG286-1.9.1E_Gowin Clock User Guide.pdf
-
-The documents mentioned above can be downloaded from our [Download station](https://dl.sipeed.com/shareURL/TANG/Nano%209K/6_Chip_Manual/EN/General%20Guide)
-And there has been a compressed package contains all documents
+   We suggest you recreate a project ang light the led by yourself, this can help you know more about the steps about fpga.
+   We recommended you read the following tips during this process:
+   - Verilog code specifications (please search by yourself. It is very necessary to obey good code specifications from beginning)
+   
+	The following documents are very useful for learning FPGA, so we should read them.
+	   - SUG949-1.1E_Gowin HDL Coding User Guide.pdf
+	   - UG286-1.9.1E_Gowin Clock User Guide.pdf
+	The documents mentioned above can be downloaded from our [Download station](https://dl.sipeed.com/shareURL/TANG/Nano%209K/6_Chip_Manual/EN/General%20Guide)
+   	And there has been a compressed package contains all documents
 
    Online tutorial:  
-   We suggest two excellent third-party learning sites about verilog : [HDLBITs](https://hdlbits.01xz.net/wiki/Main_Page) and [Verilog Page](https://www.asic-world.com/verilog/index.html)
+   We suggest two excellent learning sites about verilog : [HDLBITs](https://hdlbits.01xz.net/wiki/Main_Page) and [Verilog Page](https://www.asic-world.com/verilog/index.html)
 
-1. Read this [tutorial](./examples/rgb_screen/rgb_screen.md) (5-inch RGB screen Display turtial). If you can't complete this experiment, you can download our [9K examples](https://github.com/sipeed/TangNano-9K-example) (adapted to 9K + 5-inch screen) to see which step goes wrong.
-   Note: for screen wiring, pay attention to the 1-pin silk screen next to the connector corresponding to 1-pin of the cable
+5. Read this [tutorial](./examples/rgb_screen/rgb_screen.md) (5-inch RGB screen Display turtial). If you can't complete this experiment, you can download our [9K examples](https://github.com/sipeed/TangNano-9K-example) (adapted to 9K + 5-inch screen) to see which step goes wrong.
+   **Note: for screen wiring, pay attention to the 1-pin silk screen next to the connector corresponding to 1-pin of the cable**
    Documents to read:
    - rPLL IP core reference: Click the menubar Tools>IP Core Generator>Hard Module>CLOCK>rPLL
         <details>
@@ -91,10 +91,10 @@ And there has been a compressed package contains all documents
         </details>
    - [SUG284-2.1E_Gowin IP Core Generator User Guide.pdf](https://dl.sipeed.com/fileList/TANG/Nano%209K/6_Chip_Manual/EN/General%20Guide/SUG284-2.1E_Gowin%20IP%20Core%20Generator%20User%20Guide.pdf) (Page 28)
    - [Datasheet of 5inch screen](https://dl.sipeed.com/fileList/TANG/Nano%209K/6_Chip_Manual/EN/LCD_Datasheet/5.0inch_LCD_Datashet%20_RGB_.pdf)
+   
+6. Explanation of HDMI display (to be updated)
 
-2. Explanation of HDMI display (to be updated)
-
-3. PicoRV soft core test ([Source code](https://github.com/sipeed/TangNano-9K-example))
+7. PicoRV soft core test ([Source code](https://github.com/sipeed/TangNano-9K-example))
 
 ## Reference examples summary
 

@@ -25,7 +25,15 @@ https://dl.sipeed.com/shareURL/TANG/programmer 里面的文件。
 
 这种情况是工程芯片与下载芯片不一致。
 
-重新检查工程中的芯片型号（比如工程设置、引脚约束、各个IP中的型号），与板子上的芯片丝印对应上。
+重新检查工程中的芯片型号（比如工程设置、引脚约束、各个IP中的型号）。
+
+对于Nano 9K应该选择如下设置
+<details>
+  <summary><font color="#4F84FF">点开查看9K相关选择</font></summary>
+  <img src="./../Tang-Nano-9K/nano_9k/Tang_nano_9k_Device_choose.png">
+</details>
+
+对于其他板子选择型号的时候与芯片丝印相对应就行。
 
 ### 下载卡住
 

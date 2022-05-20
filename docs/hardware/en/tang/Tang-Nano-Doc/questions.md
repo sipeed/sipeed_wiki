@@ -20,6 +20,15 @@ If there are two converters, this means computer and board succeed connectting. 
 
 This error means wrong device choice. All that refers chip model(like he project device, pin constrain, IP modules and programmer device choose) need to be changed. 
 
+For Nano 9K it should be choose as follow:
+
+<details>
+  <summary><font color="#4F84FF">Click to see the choice of 9K</font></summary>
+  <img src="./../../../zh/tang/Tang-Nano-9K/nano_9k/Tang_nano_9k_Device_choose.png">
+</details>
+
+For other boards, just make sure your device selection corresponds to the laser mark on chip package.
+
 ### Download slowly
 
 Don't choose Operation containing Verify

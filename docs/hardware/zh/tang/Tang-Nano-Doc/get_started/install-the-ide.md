@@ -27,33 +27,88 @@ keywords: Sipeed, Gowin, Tang, Nano, fpga, 矽速
 
 进入链接后选择“云源软件历史版本”，往下拉找到历史版本中最新版本进行下载，下载到本地的文件夹是一个压缩包格式的文件，进行解压后得到安装包“Gowin_V1.9.8_win.exe”，直接双击开始进行安装：
 
-![IDE](./assets/IDE-2.png)
-![IDE](./assets/IDE-3.png)
+<html>
+<div class="imbox">
+    <img src="./assets/IDE-2.png" width=350>
+    <img src="./assets/IDE-3.png" width=350>
+<style>
+.imbox{
+     display:flex;
+     flex-direction: row;
+     }
+</style>
+</div>
+</html>
+
 - 下图的两个都需要安装上
 
-![IDE](./assets/IDE-4.png)
+<img src="./assets/IDE-4.png" width=350>
+
 - 下图的安装路径个人按照自己需要设置
   
-![IDE](./assets/IDE-5.png)
+<img src="./assets/IDE-5.png" width=350>
+
 - 安装中...
-  
-![IDE](./assets/IDE-6.png)
+
+<img src="./assets/IDE-6.png" width=350>
+
 - 下面这一步不要更改任何东西，按照默认的点击`Finish`就行
 
-![IDE](./assets/IDE-7.png)
+<img src="./assets/IDE-7.png" width=350>
+
 - 上面的`Finish`后会出现下面的内容，这是安装驱动的。
 
-![IDE](./assets/IDE-8.png)
-![IDE](./assets/IDE-9.png)
+<html>
+<div class="imbox">
+    <img src="./assets/IDE-8.png" width=350>
+    <img src="./assets/IDE-9.png" width=350>
+<style>
+.imbox{
+     display:flex;
+     flex-direction: row;
+     }
+</style>
+</div>
+</html>
+
 - 这里需要选择接受协议才能继续安装
   
-![IDE](./assets/IDE-10.png)
-![IDE](./assets/IDE-11.png)
-- 前面的完成后桌面上会出现下面这种图的图标
+<html>
+<div class="imbox">
+    <img src="./assets/IDE-10.png" width=350>
+    <img src="./assets/IDE-11.png" width=350>
+<style>
+.imbox{
+     display:flex;
+     flex-direction: row;
+     }
+</style>
+</div>
+</html>
+
+- 点击完成后桌面上会出现下面的图标
   
 ![IDE](./assets/IDE-12.png)
 
-这样我们就完成了软件的安装
+到这里我们就完成了软件的安装
+
+## 拓展
+
+获取 license 然后到使用 IDE 可能要花费时间。在这期间可以看看高云的官当文档。下面简单说明
+
+在 IDE 的安装路径下主要有如下内容：IDE 文件夹、Programmer 文件夹、uninst.exe；
+
+- **IDE** 文件夹：这里主要说一下里面的 **doc** 文件夹，用户在安装完之后可以在这个文件夹里面看到高云提供的大多数文档高云，主要内容如下图所示：
+
+![IDE](./assets/doc-folder.png)
+
+- Programmer 文件夹：里面是烧录软件，也有相关的文档。
+
+![IDE](.//assets/programmer-folder.png)
+
+一般来说建议把这个删掉。替换成特定版本的（这样能减少不少问题）。 可以在这里下载：[点我跳转](https://dl.sipeed.com/shareURL/TANG/programmer)
+
+- uninst.exe：卸载IDE
 
 ## license 激活
 
@@ -116,25 +171,10 @@ license类型:共享型 仅本机
 
 到此，安装结束。
 
-
-## 拓展
-- IDE 的安装路径下主要有如下几个文件夹：IDE、Programmer、uninst.exe；
-- **IDE** 文件夹：主要介绍次路径下的 **doc** 文件夹，用户在安装完之后可以在这个路径下进行对 IDE 的基本了解，主要包含文件如下图所示：
-
-![IDE](./assets/IDE-17.png)
-
-> “Programmer”：附带的烧录软件
-
-> “uninst.exe”：卸载工具
-
-
-## 使用方法
-
-参考官方文档[Gowin云源软件用户指南](http://cdn.gowinsemi.com.cn/SUG100-1.8_Gowin%E4%BA%91%E6%BA%90%E8%BD%AF%E4%BB%B6%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97.pdf)，第5章 云源软件使用
-
-## 参考文档
+## 相关文档
 
 + [高云软件简介和安装](http://cdn.gowinsemi.com.cn/%E9%AB%98%E4%BA%91%E8%BD%AF%E4%BB%B6%E7%AE%80%E4%BB%8B%E5%92%8C%E5%AE%89%E8%A3%85.pdf)
 
-## Flash in linux
+## Burn in linux
+
 [Linux系统下烧录方法](./flash_in_linux.md)
