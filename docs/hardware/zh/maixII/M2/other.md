@@ -17,27 +17,50 @@ desc: maixpy doc: 其他事项
 
 ### 屏幕连接
 
-开发板连接1.3寸屏幕是可以直接连接，但是如果想要连接2.4寸和2.8寸屏幕，是需要使用转接板的
+开发板可以直接与1.3寸屏幕连接，但是与2.4寸或2.8寸屏幕链接的话需要使用转接板
 
-转接板上的接口一个 1 的标识符，这个标识符是用来辨别屏幕的接线的正反，屏幕排线上的 1 要和转接板、开发板的上 1 ，位置对应，都要在同一边
+转接板上的接口一个 1 的标识符，是来确保不被反插的。屏幕排线上的 1 要和转接板、开发板的上 1 相位置对应。
 
-![](./asserts/other/1.3.png)
+屏幕标识的 1 如下所示
 
-![](./asserts/other/2.4.jpg)
+<html>
+<div class="imbox">
+    <img src="./asserts/other/1.3.png" width=350>
+    <img src="./asserts/other/2.4.jpg" width=350>
+<style>
+.imbox{
+     display:flex;
+     flex-direction: row;
+     }
+</style>
+</div>
+</html>
 
-![](./asserts/other/change.jpg)
+转接板上面的 1 如下所示
 
-![](./asserts/other/V831.jpg)
+<img src="./asserts/other/change.jpg" width=600>
+
+板子上的 1 如下所示
+
+<img src="./asserts/other/V831.jpg" width=600>
+
+具体接线参考下面两张图
+
+<html>
+    <img src="./asserts/other/not-connected.jpg" width=350>
+    <img src="./asserts/other/connected.jpg" width=350>
+</html>
 
 ### 切换设备树
 
 - update_dtb 程序是给 Allwinner tina linux 专门写的应用。
 - 编译好的设备树文件，可以在[下载站](https://dl.sipeed.com/shareURL/MaixII/MaixII-Dock/SDK/Toolchain)中进行下载
 
-将设备树文件放到开发板中的任意位置，在设备树文件所在的路径执行
+将设备树文件存放到开发板中在电脑中显示的虚拟U盘中。接着在adb终端里面执行下面命令
 
 ```bash
-update_dtb /dev/mmcblk0 sipeed_320240_sp2305.dtb
+sync  #刷新一下目录
+update_dtb /dev/mmcblk0 /root/sipeed_320240_sp2305.dtb
 ```
 
 即可切换设备树。该设备树文件是通过内核编译出来的，不推荐个人用户自行编译。设备树文件命名规则如下：
@@ -65,9 +88,12 @@ update_dtb /dev/mmcblk0 sipeed_320240_sp2305.dtb
 
 > update_dtb 程序是给 allwiner tina linux 专门写的小工具。
 
-将设备树文件放到开发板中的任意位置，在设备树文件所在的位置运行
+将设备树文件存放到开发板中在电脑中显示的虚拟U盘中。接着在adb终端里面执行下面命令
 
-    update_dtb /dev/mmcblk0 sipeed_320240_sp2305.dtb
+```bash
+sync  #刷新一下目录
+update_dtb /dev/mmcblk0 /root/sipeed_320240_sp2305.dtb
+```
 
 即可切换设备树，该设备树文件是通过内核编译出来的，不推荐个人用户自行编译
 
