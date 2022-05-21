@@ -23,10 +23,12 @@ from maix import camera
 
 ### camera.config
 
-配置摄像头，如获取的图像大小、旋转（部分芯片可选）、翻转（部分芯片可选）。
+> 这个 API 涉及硬件容易使软件崩溃所以移除了，详细请查阅 [maix/camera.py](https://github.com/sipeed/MaixPy3/blob/release/maix/camera.py)。
+
+主要用于配置摄像头，如获取的图像大小、旋转（部分芯片可选）、翻转（部分芯片可选）。
 
 ```python
->>> camera.config(size=(240, 240))
+>>> camera.camera.config(size=(240, 240))
 [v4l2] Current data format information:
 	width:320
 	height:240
@@ -36,6 +38,8 @@ from maix import camera
 240 240
 >>>
 ```
+
+现在作为开发调试的保留功能，像缩放、裁剪、翻转、旋转请使用 image 的一系列函数。
 
 ### camera.capture
 
