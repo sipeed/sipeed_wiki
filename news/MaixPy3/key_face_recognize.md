@@ -92,14 +92,24 @@ def get_key():                                      #按键检测函数
                 return 3
     return 0
 
-def map_face(box,points):                           #将224*224空间的位置转换到240*240空间内
-    def tran(x):
-        return int(x/224*240)
-    box = list(map(tran, box))
-    def tran_p(p):
-        return list(map(tran, p))
-    points = list(map(tran_p, points))
+def map_face(box,points):                           #将224*224空间的位置转换到240*240或320*240空间内
+    # print(box,points)
+    if display.width() == display.height():
+        def tran(x):
+            return int(x/224*320)
+        box = list(map(tran, box))
+        def tran_p(p):
+            return list(map(tran, p))
+        points = list(map(tran_p, points))
+    else:
+        box[0], box[2] = int(box[0]/224*display.width()), int(box[2]/224*display.width())
+        box[1], box[3] = int(box[1]/224*display.height()), int(box[3]/224*display.height())
+        def tran_p(p):
+            return [int(p[0]/224*display.width()), int(p[1]/224*display.height())]
+        points = list(map(tran_p, points))
+    # print(box,points)
     return box,points
+
 def darw_info(draw, box, points, disp_str, bg_color=(255, 0, 0), font_color=(255, 255, 255)):    #画框函数
     box,points = map_face(box,points)
     font_wh = image.get_string_size(disp_str)
