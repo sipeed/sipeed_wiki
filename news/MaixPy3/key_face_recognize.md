@@ -96,7 +96,7 @@ def map_face(box,points):                           #将224*224空间的位置�
     # print(box,points)
     if display.width() == display.height():
         def tran(x):
-            return int(x/224*320)
+            return int(x/224*240)
         box = list(map(tran, box))
         def tran_p(p):
             return list(map(tran, p))
