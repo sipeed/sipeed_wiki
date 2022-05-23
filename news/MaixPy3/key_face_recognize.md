@@ -96,16 +96,19 @@ def map_face(box,points):                           #将224*224空间的位置�
     # print(box,points)
     if display.width() == display.height():
         def tran(x):
-            return int(x/224*240)
+            return int(x/224*display.width())
         box = list(map(tran, box))
         def tran_p(p):
             return list(map(tran, p))
         points = list(map(tran_p, points))
     else:
-        box[0], box[2] = int(box[0]/224*display.width()), int(box[2]/224*display.width())
-        box[1], box[3] = int(box[1]/224*display.height()), int(box[3]/224*display.height())
+        # 168x224(320x240) > 224x224(240x240) > 320x240
+        s = (224*display.height()/display.width()) # 168x224
+        w, h, c = display.width()/224, display.height()/224, 224/s
+        t, d = c*h, (224 - s) // 2 # d = 224 - s // 2 == 28
+        box[0], box[1], box[2], box[3] = int(box[0]*w), int((box[1]-28)*t), int(box[2]*w), int((box[3])*t)
         def tran_p(p):
-            return [int(p[0]/224*display.width()), int(p[1]/224*display.height())]
+            return [int(p[0]*w), int((p[1]-d)*t)] # 224 - 168 / 2 = 28 so 168 / (old_h - 28) = 240 / new_h
         points = list(map(tran_p, points))
     # print(box,points)
     return box,points
