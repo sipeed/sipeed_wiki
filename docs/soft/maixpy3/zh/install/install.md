@@ -6,7 +6,7 @@ desc: maixpy doc: linux_x86_64 MaixPy3 如何安装？
 
 ## 目前 MaixPy3 适配的平台
 
-目前 MaixPy3 用于 Linux 平台，为用户提供了板子的 Python 编程基础模块、如摄像头、屏幕、I2C等传感器外设的用法、以及后续需要的图像处理、传统算法、AI 算法模块等嵌入式 AI 开发环境，未来会陆续适配其他低端嵌入式芯片平台。
+目前 MaixPy3 用于 Linux 平台，为用户提供了板子的 Python 编程基础模块、如摄像头、屏幕、I2C等传感器外设的用法、以及后续需要的图像处理、传统算法、AI 算法模块等相关功能模块，未来会陆续适配其他低端嵌入式芯片平台。
 
 - [Linux Desktop](https://github.com/sipeed/MaixPy3)
 
