@@ -15,4 +15,4 @@ We are glad that people share their article on our wiki page
 
 Choose one language below to start to know how to share article.
 
-[中文](./pages/index/zh/github.md) [English](./pages/index/en/github.md)
+[中文](./share_docs/zh/readme.md) [English](./share_docs/en/readme.md)

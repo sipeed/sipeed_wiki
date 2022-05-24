@@ -40,15 +40,15 @@ pwd 打印当前目录
 mv 移动/重命名 文件/文件夹
 cp 复制 文件/文件夹
 rm 删除
-vi 编辑文件内容 #经测试windows下会出问题
+vi 编辑文件内容 #需要使用特定的adb版本能正常显示内容
 top 查看系统内存
 df 查看磁盘信息
 time 查看时间
 ifconfig 查看网络信息
 free 查看剩余内存
 ps 查看运行的进程
-kill 杀死进程
-killall 杀死所有进程
+kill 终止进程
+killall 终止所有进程
 chmod 更改 文件/文件夹 权限
 passwd 设置/更改 用户密码
 cat 查看文件内容
@@ -87,7 +87,6 @@ eyesee-mpp-external - 1.0-1
 eyesee-mpp-middleware - 1.0-1
 eyesee-mpp-system - 1.0-1
 ```
-
 
 ### pip 包管理器
 

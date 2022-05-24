@@ -1,12 +1,12 @@
 ---
-title: 板卡介绍
+title: LicheePI Zero
 ---
 
-## LicheePi Zero 简介
+## 简介
 
-荔枝派Zero（下面简称Zero）是一款精致迷你的 **Cortex-A7** 核心板/开发板，可用于初学者学习linux或者商用于产品开发。 Zero在稍长于SD卡的尺寸上（**45x26mm**）提供了丰富的外设（LCD,ETH,UART,SPI,I2C,PWM,SDIO---）和强劲的性能（**24M~1.2G, 64MB DDR** ）。
+**荔枝派Zero**（下面简称 **Zero**）是一款精致迷你的 **Cortex-A7** 核心板/开发板，可用于初学者学习linux或者商用于产品开发。 Zero 在稍长于SD卡的尺寸上（**45x26mm**）提供了丰富的外设（LCD,ETH,UART,SPI,I2C,PWM,SDIO---）和强劲的性能（**24MHZ~1.2GHZ, 64MB DDR** ）。
 
-Zero的使用了精巧的PCB设计，使得开发和使用非常方便：
+得益于精巧的的PCB设计，Zero 相关的开发和使用非常方便：
 
 - 直插面包板
 - 直插40P RGB LCD
@@ -14,47 +14,36 @@ Zero的使用了精巧的PCB设计，使得开发和使用非常方便：
 - 使用堆叠式的WiFi 模块联网
 - 直接贴片
 
-Zero提供了 **主线Linux** 支持 和
-官方原生Camdriod（适用于行车记录仪应用）SDK，可在linux上使用任意你熟悉的语音编程。
+Zero 提供了 **Linux主线** 支持和 全志官方原生 Camdriod（适用于行车记录仪应用）SDK，可以选择你熟悉的系统来进行开发。
 
 ## Zero上手提示
 
 对于刚入坑的小白，请先看以下几点基础说明：
 
-1.  Zero需要插卡启动（或者焊接spi flash），请不要问为什么插上usb没反应
+1.  Zero 需要插卡启动（或者自行焊接spi flash）；请不要问为什么通电后没反应
 2.  TF卡槽是下图中荔枝派logo上方的长方形插槽
-3.  收到Zero后看到主芯片上有连锡请不要慌张，这是设计如此（相同的电源管脚），请参阅[原理图](https://dl.sipeed.com/shareURL/LICHEE/Zero/HDK)
+3.  收到Zero后看到主芯片上有连锡请不要慌张，这是设计如此（相同的电源管脚），请参阅原理图，[点我下载](https://dl.sipeed.com/fileList/LICHEE/Zero/HDK/lichee_zero_Schematic.pdf)
 4.  Zero的系统调试串口是UART0，即下图右下方的“U0T R”标识的两个引脚
 5.  Zero正面的led不是上电就闪烁的，请不要认为上电后led不亮就是坏的
-6.  Zero的usb是OTG usb，既可以供电，又能通信（比如作为usb虚拟网口[与电脑共享网络](http://bbs.ilichee.cc/t/tutorial-pc-share-network-to-zero-via-usb/55)）
+6.  Zero的USB是OTG USB，既可以供电，又能通信（比如作为usb虚拟网口[与电脑共享网络](http://bbs.ilichee.cc/t/tutorial-pc-share-network-to-zero-via-usb/55)）
 7.  Zero usb口下方的“GND 5V”可以作为电源输入，使用串口小板的5V或者锂电池均可供电。
 8.  推荐的两边排针焊接方式是向下焊接。“G 5V”插针推荐向上焊接。
 9.  推荐的底层调试接法是：usb转串口小板接“U0T R”和“G 5V”。
-10. 推荐的联网方式是：[usb虚拟网口](http://bbs.ilichee.cc/t/tutorial-pc-share-network-to-zero-via-usb/55)或者 [tf wifi](https://www.kancloud.cn/lichee/lpi0/327885)；或者使用淘宝店里的[usb转网口HUB](https://item.taobao.com/item.htm?id=538814529688) 。
-11. Zero毕竟是上G主频的Cortex-A7处理器，运行时温度在40\~60℃，请不要认为芯片在此范围内的发热是短路。
+10. 推荐的联网方式是：USB虚拟网口 或者 [tf wifi](./../Contribution/article_12.md)。
+11. Zero毕竟是上千M主频的Cortex-A7处理器，运行时温度在40\~60℃，请不要认为芯片在此范围内的发热是短路。
 12. Zero运行Linux空载电流约100mA，满载电流约150\~180mA，插上LCD电流约200\~300mA。不插卡上电电流约50\~60mA。
 
-如果收到板子后还有其他疑问，请加 **官方交流QQ群：573832310** 。
-入群验证答案是---请拿起板子看下上面芯片的丝印标识，谢谢。
+如果收到板子后还有其他疑问，请加 **官方交流QQ群：712961164** 。
 
 ## 设计框图
 
-
 ![](./../static/start/board_intro_1.png)
-
-
 
 ## Zero实物图
 
+<img src="./../static/start/lichee-zero-cut.jpg" >
 
-![](./../static/start/zero_1.jpg)
-
-![](./../static/start/zero_2.jpg)
-
-## 硬件资料
-
-
-### 硬件参数
+## 硬件参数
 
 -   **CPU：** 全志V3S， ARM Cortex-A7, 最高1.2GHz
 -   **内存：** 集成64MB DDR2
@@ -90,14 +79,8 @@ Zero提供了 **主线Linux** 支持 和
     -   1GHz linux空载运行电流 90\~100mA， 满载运行电流 \~180mA
     -   存储温度 -40\~125℃，运行温度 -20\~70℃
 
-## 手册资料
+## 其他资料
 
 国内下载链接：
-网盘地址：[https://eyun.baidu.com/s/3pLZ8hBH](https://eyun.baidu.com/s/3pLZ8hBH)
+网盘地址：[https://eyun.baidu.com/s/3pLZ8hBH](https://eyun.baidu.com/s/3htTXfaG#sharelink/parent_path=%2F%E6%B7%B1%E5%9C%B3%E7%9F%BD%E9%80%9F%E7%A7%91%E6%8A%80%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8&path=%2F%E4%B8%8B%E8%BD%BD%E7%AB%99%E6%96%87%E4%BB%B6%2FLICHEE%2FZero)
 下载站：[dl.sipeed.com/shareURL/LICHEE/Zero/HDK](https://dl.sipeed.com/shareURL/LICHEE/Zero/HDK)
-
-## 管脚定义
-
-![](./../static/start/board_intro_4.png)
-
-> 图中UART0的TX RX画反了，以板子上的丝印为准。

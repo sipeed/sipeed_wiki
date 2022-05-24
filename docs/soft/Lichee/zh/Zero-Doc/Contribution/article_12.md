@@ -2,15 +2,11 @@
 title: TF WIFI 小白编
 ---
 
-> **材料**
->
 > 荔枝派Zero开发板TF WiFi模块
 
 ## 旧版的首先要把这电阻去了
 
-
 ![](./../static/Contribution/article_56.png)
-
 
 ## 焊接
 
