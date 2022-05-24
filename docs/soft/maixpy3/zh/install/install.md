@@ -14,12 +14,21 @@ desc: maixpy doc: linux_x86_64 如何安装？
 
 - [MaixSense](/hardware/zh/maixII/M2A/maixsense.html)
 
+## 使用 pip3 安装并更新 MaixPy3
+
+```python
+pip install maixpy3 --upgrade
+```
+
 ## Linux Desktop 安装 MaixPy3
 
 在终端执行下面命令来安装 MaixPy3
 
 ```bash
 sudo apt update && sudo apt install libjpeg-dev gcc libopencv-dev -qq -y && wget http://mirrors.kernel.org/ubuntu/pool/main/libf/libffi/libffi6_3.2.1-8_amd64.deb && sudo apt install ./libffi6_3.2.1-8_amd64.deb -qq -y
+
+pip3 install maixpy3
+
 ```
 
 在设备上输入下面命令来测试拍照
@@ -35,10 +44,6 @@ display.show(camera.capture().draw_string(0, 0, "hello world!"))
 
 通常来说，像树莓派 2B 这类拥有桌面环境的 linux 设备也是可以通过 pip 进行安装 Linux Desktop 分支的，使用效果一样。
 
-```python
-pip install maixpy3
-```
-
 ![](./asserts/rpi2b.png)
 
 ## MaixII-Dock 安装与更新 MaixPy3
@@ -53,7 +58,7 @@ pip install maixpy3
 MaixSense 需要是烧录官方提供最新内置 MaixPy3 的 Armbian 镜像。
 
 ```shell
-root@maixsense:~# export TMPDIR=/root && pip install maixpy3 #安装maixpy3
+root@maixsense:~# pip3 install maixpy3
 
 Requirement already satisfied: maixpy3 in /usr/local/lib/python3.9/dist-packages (0.3.4)
 Requirement already satisfied: Pillow in /usr/lib/python3/dist-packages (from maixpy3) (8.1.2)

@@ -5,11 +5,8 @@
             "file": "readme.md",
             "items":[
                 {
-                    "label": "安装 MaixPy3 IDE",
-                    "file": "tools/MaixPy3_IDE.md"
-                },
-                {
                     "label":"支持的开发板一览",
+                    "file": "install/install.md",
                     "collapsed": false,
                     "items":[
                         {
@@ -19,12 +16,12 @@
                         {
                             "label":"MaixSense (R329)",
                             "file":"tools/maixsense.md"
-                        },
-                        {
-                            "label": "其他嵌入式 Linux 设备",
-                            "file": "install/install.md"
                         }
                     ]
+                },
+                {
+                    "label": "安装 MaixPy3 IDE",
+                    "file": "tools/MaixPy3_IDE.md"
                 },
                 {
                     "label":"最新开发进度速览",
