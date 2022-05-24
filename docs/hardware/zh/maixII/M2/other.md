@@ -8,12 +8,13 @@ desc: maixpy doc: 其他事项
 
 ## 切换屏幕
 
-目前开发板支持的屏幕有 1.3寸、2.4寸、2.8寸的 spi 屏和5寸的 RBG 屏幕，且只是支持在[我们淘宝](https://sipeed.taobao.com/)上售卖的显示屏；对于别的屏幕有需求的，可以走商务通道进行定制。
+目前开发板支持的屏幕有 1.3寸、2.4寸、2.8寸的 spi 屏，且只是支持在[我们淘宝](https://sipeed.taobao.com/)上售卖的显示屏；对于别的屏幕有需求的，可以走商务通道进行定制。
 
 ### 准备
 
-- 需要切换的屏幕
+- 需要切换的屏幕和对应的转接板
 - 开发板
+- 系统镜像是 20220523 日期之后的
 
 ### 屏幕连接
 
@@ -60,17 +61,23 @@ desc: maixpy doc: 其他事项
 
 ```bash
 sync  #刷新一下目录
-update_dtb /dev/mmcblk0 /root/sipeed_320240_sp2305.dtb
+update_dtb /dev/mmcblk0 /root/sipeed_240x240_vs3205.dtb
 ```
 
 即可切换设备树。该设备树文件是通过内核编译出来的，不推荐个人用户自行编译。设备树文件命名规则如下：
 
 | 文件名字 | 可用屏幕 | 可用摄像头 |
 | :----: | :----: | :---: |
-| sipeed_320240_sp2305.dtb | 2.4寸和2.8寸 | sp2305 |
-| sipeed_240240_vs3205.dtb | 1.3寸 |vs3205 |
-| sipeed_240240_sp2305.dtb | 1.3寸 |sp2305 |
-| sipeed_320240_vs3205.dtb | 2.4寸和2.8寸 |vs3205 |
+| sipeed_240x240_vs3205.dtb | 1.3寸 | vs3205 |
+| sipeed_240x240_sp2305.dtb | 1.3寸 | sp2305 |
+| sipeed_240x320_vs3205.dtb | 2.4寸和2.8寸 |vs3205 |
+| sipeed_240x320_sp2305.dtb | 2.4寸和2.8寸 |sp2305 |
+
+- 如果发现屏幕显示效果不对 说明选错了对应的设备树文件。重新弄一下即可
+
+这里贴一张正常显示的图样
+
+![](./asserts/show.jpg)
 
 ## 更换摄像头
 
@@ -83,6 +90,7 @@ update_dtb /dev/mmcblk0 /root/sipeed_320240_sp2305.dtb
 - 需要切换的摄像头模块
 - 开发板
 - 编译好的设备树文件，可以在[下载站](https://dl.sipeed.com/shareURL/MaixII/MaixII-Dock/SDK/Toolchain)中进行下载
+- 系统镜像是 20220523 日期之后的
 
 ### 切换设备树
 
@@ -92,14 +100,14 @@ update_dtb /dev/mmcblk0 /root/sipeed_320240_sp2305.dtb
 
 ```bash
 sync  #刷新一下目录
-update_dtb /dev/mmcblk0 /root/sipeed_320240_sp2305.dtb
+update_dtb /dev/mmcblk0 /root/sipeed_240x240_vs3205.dtb
 ```
 
 即可切换设备树，该设备树文件是通过内核编译出来的，不推荐个人用户自行编译
 
 | 文件名字 | 可用屏幕 | 可用摄像头 |
 | :----: | :----: | :---: |
-| sipeed_320240_sp2305.dtb | 2.4寸和2.8寸 | sp2305 |
-| sipeed_240240_vs3205.dtb | 1.3寸 |vs3205 |
-| sipeed_240240_sp2305.dtb | 1.3寸 |sp2305 |
-| sipeed_320240_vs3205.dtb | 2.4寸和2.8寸 |vs3205 |
+| sipeed_240x240_vs3205.dtb | 1.3寸 | vs3205 |
+| sipeed_240x240_sp2305.dtb | 1.3寸 | sp2305 |
+| sipeed_240x320_vs3205.dtb | 2.4寸和2.8寸 |vs3205 |
+| sipeed_240x320_sp2305.dtb | 2.4寸和2.8寸 |sp2305 |

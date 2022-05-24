@@ -16,14 +16,14 @@ Docker 可以让开发者打包他们的应用以及依赖包到一个轻量级�
 
 ## docker下载安装
 
-```
+```bash
 sudo apt-get install docker.io
 docker version
 ```
 
 安装成功后可见版本信息
 
-```
+```bash
 Client version: 1.6.2
 Client API version: 1.18
 Go version (client): go1.2.1
@@ -34,7 +34,7 @@ FATA[0000] Get http:///var/run/docker.sock/v1.18/version: dial unix /var/run/doc
 
 默认情况下会报后面的错误，如果使用sudo就不会报错。不想每次都sudo的话，可以把用户加入到docker组。
 
-```
+```bash
 //如果还没有 docker group 就添加一个(默认安装后已经有了)
 //sudo groupadd docker
 //将用户加入该 group 内。然后退出并重新登录就生效啦。
@@ -47,7 +47,7 @@ sudo service docker restart
 
 ## 安装荔枝派开发镜像
 
-```
+```bash
 docker pull zepan/licheepi
 docker run -d -p 6666:22 zepan/licheepi /usr/sbin/sshd -D
 ```

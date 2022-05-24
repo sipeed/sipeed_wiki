@@ -1,5 +1,7 @@
 # Armbian 配置及使用
 
+- 使用前先使用 `/usr/lib/armbian/armbian-resize-filesystem start` 命令来扩容一下系统大小
+
 ## 配置网络
 
 我们使用 `nmtui` 命令来配置 wifi
@@ -96,43 +98,44 @@ sudo apt install armbian-config -y  # 使用root权限来运行apt应用的insta
 
 然后就可以使用Bluetoothctl配置蓝牙。
 
-常用命令：
-
-```bash
-devices             		列出活动的蓝牙设备
-paired-devices      		列出已配对蓝牙设备
-pairable <on/off>   		是否允许配对
-discoverable <on/off>       是否允许被发现
+<html>
+<details>
+  <summary><font color="#4F84FF">点开查看常用命令</font></summary>
+    <pre  class="line-numbers language-bash">
+devices                     列出活动的蓝牙设备
+paired-devices              列出已配对蓝牙设备
+pairable &lt;on/off&gt;           是否允许配对
+discoverable &lt;on/off&gt;       是否允许被发现
 discoverable-timeout [value]设置暴露时间
 pair [dev]                  配对设备
 trust [dev]                 信任设备
 untrust [dev]               取消设备信任
-remove <dev>                移除设备
-connect <dev>               连接设备
+remove &lt;dev&gt;                移除设备
+connect &lt;dev&gt;               连接设备
 disconnect [dev]            断开设备连接                      
 quit                        退出
-help          				查看帮助
-```
+help                        查看帮助
+</pre>
+</details>
+</html>
 
 ### 连接蓝牙设备
 
 使用`bluetoothctl`连接蓝牙设备。
 
 ```bash
-scan on #扫描设备
-scan off #停止扫描
-trust XX:XX:XX:XX # 信任设备
-pair XX:XX:XX:XX #配对设备
+scan on             #扫描设备
+scan off            #停止扫描
+trust XX:XX:XX:XX   #信任设备
+pair XX:XX:XX:XX    #配对设备
 connect XX:XX:XX:XX #连接设备
 ```
-
-
 
 ![202108071610](./assets/202108071610.gif)
 
 ### 设置蓝牙音频输入/输出
 
-启用蓝牙音频前，需要先安装`pulseaudio`即及蓝牙组件
+启用蓝牙音频前，需要先安装 `pulseaudio` 即及蓝牙组件
 
 ```bash
 sudo apt install pulseaudio
@@ -172,35 +175,38 @@ maixsense:~:# pactl set-default-sink 2
 
 ![202108071440](./assets/202108071440.gif)
 
-常用命令
-
-```
+<html>
+<details>
+  <summary><font color="#4F84FF">点开查看常用命令</font></summary>
+    <pre>
 ------------------- Help-----------------------
-xxEsc     离开                                ▒x
-xxF1 ? H  帮助                                ▒x
-xxF2 /    系统信息                            ▒x
-xxF3      回放控制                            ▒x
-xxF4      捕获控制                            ▒x
-xxF5      所有控制                            ▒x
-xxTab     切换显示模式                        ▒x
-xxF6 S    选择声卡                            ▒x
-xxL       刷新屏幕                            ▒x
-xxLeft    移动到上一个的控制                    ▒x
-xxRight   移动到下一个的控制                    ▒x
+xxEsc        离开                             ▒x
+xxF1 ? H     帮助                             ▒x
+xxF2 /       系统信息                         ▒x
+xxF3         回放控制                         ▒x
+xxF4         捕获控制                         ▒x
+xxF5         所有控制                         ▒x
+xxTab        切换显示模式                     ▒x
+xxF6 S       选择声卡                         ▒x
+xxL          刷新屏幕                         ▒x
+xxLeft       移动到上一个的控制               ▒x
+xxRight      移动到下一个的控制               ▒x
 xxUp/Down    改变音量                         ▒x
 xx+ -        改变音量                         ▒x
-xxPage Up/Dn 大幅改变音量                      ▒x
-xxEnd        设置音量为0                       ▒x
-xx0-9        从0到9依次设置音量                 ▒x
-xxQ W E      增加 左/全部/右声道音量            ▒x
-xxZ X C      减少 左/全部/右声道音量            ▒x
-xxB          左右声道平衡                      ▒x
+xxPage Up/Dn 大幅改变音量                     ▒x
+xxEnd        设置音量为0                      ▒x
+xx0-9        从0到9依次设置音量               ▒x
+xxQ W E      增加 左/全部/右声道音量          ▒x
+xxZ X C      减少 左/全部/右声道音量          ▒x
+xxB          左右声道平衡                     ▒x
 xxM          切换静音                         ▒x
-x< >         切换左/右静音                     ▒x
+x< >         切换左/右静音                    ▒x
 xxSpace      切换捕获                         ▒x
-xx; '        切换左/右捕获                     ▒x
+xx; '        切换左/右捕获                    ▒x
 -----------------------------------------------
-```
+</pre>
+</details>
+</html>
 
 如果需要控制蓝牙设备音量，需要使用`pactl` ，并且`pcatl`也支持控制声卡，所以推荐使用此app控制音量。
 
@@ -245,9 +251,11 @@ mplayer /root/badapple_240p.mp4 -vo fbdev2  < /dev/null > /dev/null 2>1 &
 
 ![202108091128](./assets/202108091128.gif)
 
-
-
 ## 编写c代码
+
+一般命令行都是用 vim 来作为编辑器。有兴趣的可以额外学习一下这款强大的编辑器
+
+如果提示没有安装 vim 的话，可以使用命令 `sudo apt install vim -y` 来安装。
 
 ```bash
 vim helloworld.c  #使用 vim 创建一个文件并打开
@@ -272,9 +280,10 @@ gcc hello.c -o hello.o #编译C文件
 ![202108091201](./assets/202108091201.gif)
 
 ## 编写python代码
+
 - 详细解释看上面的C代码样例
 ```bash
-vim helloworld.py
+vim helloworld.py       #新建一个python文件并且用vim打开
 i
 print("hello world!\n")
 esc
@@ -294,7 +303,7 @@ pip install gpiod
 
 把led正极插入PH5,负极插入GND
 
-编写代码
+创建文件
 
 ``` bash
 vim led.py
@@ -330,20 +339,6 @@ while led:
 效果如下：
 
 ![202108091956](./assets/202108091956.gif)
-
-
-## 运行神经网络实例
-
-获取1000类物体分类模型
-
-下载站链接[zhouyi_test.tar.xz](https://dl.sipeed.com/shareURL/MaixII/MaixII-A/example),使用任意方式上传到板子中
-
-```bash
-tar -Jxvf zhouyi_test.tar.xz #解压压缩包
-cd zhouyi_test #打开解压后的文件目录
-chmod 777 run.sh #授予执行权限
-./run.sh #执行1000类物体分类
-```
 
 ## 设置开机启动
 
