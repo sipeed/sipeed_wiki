@@ -1,12 +1,12 @@
 ---
-title: MaixPy3 支持的平台
+title: MaixPy3 如何获取、安装、使用？
 keywords: linux, MaixII-Dock, MaixSense, 安装MaixPy3
-desc: maixpy doc: linux_x86_64 如何安装？
+desc: maixpy doc: linux_x86_64 MaixPy3 如何安装？
 ---
 
-## 可适配平台
+## 目前 MaixPy3 适配的平台
 
-目前 MaixPy3 支持的平台主要如下，未来会进一步适配其他低端嵌入式 Linux 平台。
+目前 MaixPy3 用于 Linux 平台，为用户提供了板子的编程方法、外设控制、图像处理等嵌入式基础环境，未来会陆续适配其他低端嵌入式芯片平台。
 
 - [Linux Desktop](https://github.com/sipeed/MaixPy3)
 
@@ -17,7 +17,7 @@ desc: maixpy doc: linux_x86_64 如何安装？
 ## 使用 pip3 安装并更新 MaixPy3
 
 ```python
-pip install maixpy3 --upgrade
+pip3 install maixpy3 --upgrade
 ```
 
 ## Linux Desktop 安装 MaixPy3
