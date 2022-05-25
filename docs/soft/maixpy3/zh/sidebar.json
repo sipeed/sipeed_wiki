@@ -65,7 +65,7 @@
             ]
         },
         {
-            "label": "基本功能的用法",
+            "label": "基础功能模块",
             "collapsed": false,
             "items": [
                 {
@@ -86,14 +86,14 @@
                     ]
                 },
                 {
-                    "label": "基本外设",
+                    "label": "硬件外设",
                     "items": [
                         {
                             "label": "GPIO （点灯）",
                             "file": "usage/hardware/GPIO.ipynb"
                         },
                         {
-                            "label": "I2C （与外设通讯）",
+                            "label": "I2C （pylibi2c）",
                             "file": "usage/hardware/I2C.ipynb"
                         },
                         {
@@ -101,7 +101,7 @@
                             "file": "usage/hardware/PWM.ipynb"
                         },
                         {
-                            "label": "UART （串口）",
+                            "label": "UART （pyserial）",
                             "file": "usage/hardware/UART.ipynb"
                         },
                         {
@@ -109,7 +109,7 @@
                             "file": "usage/hardware/SPI.ipynb"
                         },
                         {
-                            "label": "EVENT （输入事件）",
+                            "label": "EVENT （evdev）",
                             "file": "usage/hardware/event.ipynb"
                         },
                         {
@@ -130,11 +130,11 @@
                     "label": "媒体功能",
                     "items": [
                         {
-                            "label": "视频播放",
+                            "label": "视频播放（pyav）",
                             "file": "usage/Audio/play_mp4.md"
                         },
                         {
-                            "label": "录音与播放",
+                            "label": "录音与播放（pyaudio）",
                             "file": "usage/Audio/audio.md"
                         }
                     ]
@@ -142,19 +142,19 @@
             ]
         },
         {
-            "label":"AI 神经网络功能",
+            "label":"获取 AI 算法",
             "collapsed": false,
             "items":[
                 {
-                    "label": "边缘检测",
+                    "label": "边缘检测（sobel）",
                     "file": "usage/AI_net/Edge_detection.ipynb"
                 },
                 {
-                    "label": "物品分类",
+                    "label": "物品分类（resnet）",
                     "file": "usage/AI_net/resnet.ipynb"
                 },
                 {
-                    "label": "物体检测",
+                    "label": "物体检测（yolov2）",
                     "file": "usage/AI_net/yolo.ipynb"
                 },
                 {
@@ -177,7 +177,7 @@
                             "file":"usage/train_AI/information.md"
                         },
                         {
-                            "label":"本地训练环境搭建",
+                            "label": "本地训练环境搭建",
                             "file":"usage/train_AI/ready.md"
                         },
                         {
@@ -185,7 +185,7 @@
                             "file":"usage/train_AI/v831_sobel.ipynb"
                         },
                         {
-                            "label":"制作数据集",
+                            "label": "如何制作数据集",
                             "file":"usage/train_AI/data.md"
                         },
                         {

@@ -30,6 +30,8 @@ desc: maixpy doc: net
 
 ## HTTP 有什么用？怎么用？
 
+你可以在终端里 `pip3 install requests` 获取这个模块。
+
 > 如果你想要获取网页的数据，或是向服务器提交数据，那 HTTP 就是你最好的朋友。
 
 Requests 唯一的一个非转基因的 Python HTTP 库，人类可以安全享用。
@@ -59,6 +61,8 @@ Requests 允许你发送纯天然，植物饲养的 HTTP/1.1 请求，无需手�
 更多请看该文档[Requests: 让 HTTP 服务人类](https://docs.python-requests.org/zh_CN/latest/)。
 
 ## MQTT 有什么用？怎么用？
+
+你可以在终端里 `pip3 install paho.mqtt` 获取这个模块。
 
 > 如果没有服务器也想要一对多采集数据，或是许多设备彼此建立通信，那 MQTT 就是你最好的朋友。
 
@@ -97,11 +101,11 @@ b'boo123'
 
 > 关于 MQTT 的官网 [MQTT: The Standard for IoT Messaging](https://mqtt.org/)。
 
-## 网络图传 怎么用？
+## MJPG 图传 怎么用？
 
-想通过网络来接收摄像头拍摄到画面，可以使用在 MaixPy3 中内置的 mjpg 包。
+想通过网络来接收摄像头拍摄到画面，可以使用在 MaixPy3 中内置的 mjpg 包，MJPG 编码是一种常见且简易的视频编码方案，只需要将每一帧压缩成 jpg 图片后不断发送给客户端就行。
 
-让电脑和硬件平台连接到同一个局域网内，运行以下代码，在浏览器中输入 `http://localhost:18811`，localhost 为硬件平台的 IP 地址。
+确保电脑浏览器客户端和硬件开发板服务端处于到同一个网络内（可以互相 ping 通），运行以下代码，在电脑的浏览器中输入 `http://localhost:18811` 即可获取板子摄像头的实时视频流，其中 localhost 为通过 adb forward 映射的本地 IP 地址，如果是 WIFI 则需要使板子连上 WIFI 路由器后获取可以 ping 通的 IP 地址。
 
 ```python
 from maix import camera, mjpg, utils, display
@@ -123,6 +127,6 @@ while True:
 
     > <img src="http://127.0.0.1:18811"> 图传画面（没有成功运行代码是不会显示出来的）
 
-    或者在浏览器中打开 <http://127.0.0.1:18811>
+    或在浏览器中打开 <http://127.0.0.1:18811>
 
-> MaixPy3 IDE 中的画面回传也是基于此功能实现的
+想了解为什么的可以查看这份代码实现 [mjpg.py](https://github.com/sipeed/MaixPy3/blob/release/maix/mjpg.py) 。
