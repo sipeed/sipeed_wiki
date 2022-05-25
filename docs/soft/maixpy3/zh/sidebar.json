@@ -5,7 +5,7 @@
             "file": "readme.md",
             "items":[
                 {
-                    "label":"准备 MaixPy3 开发环境",
+                    "label":"获取 MaixPy3 开发环境",
                     "file": "install/install.md",
                     "collapsed": false,
                     "items":[
