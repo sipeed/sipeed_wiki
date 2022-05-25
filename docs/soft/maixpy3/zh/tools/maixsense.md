@@ -55,15 +55,11 @@ desc: maixpy doc: 在 MaixII-Sense 平台上使用
 
 在板子终端执行下述命令(需要确认系统镜像是20220516之后的版本)来启动板子上的远程 RPyc 服务。
 
-运行完下面的命令行之后会看起来卡住了，实际上是已经在运行中了。
-
-对于 linux 系统使用快捷键 Ctrl+C 可以来终止并退出命令
-
 ```bash
-bash /home/maixpy3.sh
+maixpy3.sh
 ```
 
-以后每次使用都需要执行一次
+以后每次使用都执行一次即可
 
 <details>
   <summary><font color="#4F84FF">点开查看正常运行样子</font></summary>
@@ -93,7 +89,7 @@ print(platform.uname())
 - 启动 MaixPy3 IDE 的时候，会弹出一个 adb 终端窗口。对于 R329 我们是使用串口和板子连接的，因此可以关掉它。
 
 > 今后使用出现 AIPU_load_graph_helper: UMD fails in allocating buffers 错误。
-> 重新使用 `bash /home/maixpy3.sh` 命令就可以了
+> 重新使用 `maixpy3.sh` 命令就可以了
 
 具体相关使用方法可以参考[使用 MaixPy3 IDE 连接 MaixII-Dock](./0.MaixII-Dock.ipynb),其中的**如何运行代码**和**首次尝试**都可以参考。
 
