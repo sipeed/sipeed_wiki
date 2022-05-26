@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>thresholding-filter-online-html</title>
+  <script type="text/javascript">
+    var DISABLE_EXCEPTION_CATCHING = 2;
+  </script>
+  <script src="/static/js/opencv.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="https://apps.bdimg.com/libs/jqueryui/1.10.4/css/jquery-ui.min.css">
+  <script src="https://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="https://apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+  <link rel="stylesheet" href="css/themename/jquery-ui.css" />
+</head>
+
+<body>
+  <div style="padding:5% 25% 5% 10%;">
+    <p>
+    <h2>thresholding-filter-online-html</h2>
+    <div class="caption">imageSrc <input type="file" id="fileInput" name="file" /></div>
+    <!-- <canvas id="imageCanvas" width="320" width="240"></canvas> -->
+    <img id="imageSrc" alt="No Image need to selected " />
+    <canvas id="imageDest">
+      <button onclick="callRender();">adaptiveThreshold</button>
+      <script type="text/javascript">
+        let imgElement = document.getElementById("imageSrc");
+        // let imageCanvas = document.getElementById("imageCanvas");
+        let inputElement = document.getElementById("fileInput");
+        let outputElement = document.getElementById("imageDest");
+        inputElement.addEventListener("change", (e) => {
+          imgElement.src = URL.createObjectURL(e.target.files[0]);
+        }, false);
+        // imgElement.onload = function () {
+        //   var ctx = imageCanvas.getContext("2d");
+        //   ctx.drawImage(imgElement, 0, 0, 224, 224);
+        // };
+        function callRender() {
+          // console.log(cv)
+          let src = cv.imread(imgElement);
+          cv.cvtColor(src, src, cv.COLOR_RGBA2GRAY, 0);
+          let marker = new cv.Mat(224, 224, cv.CV_8UC1);
+          try {
+            cv.adaptiveThreshold(src, marker, 255, cv.ADAPTIVE_THRESH_GAUSSIAN_C, cv.THRESH_BINARY, 11, 2);
+          } catch (e) {
+            throw e;
+          }
+          cv.imshow('imageDest', marker);
+          marker.delete();
+          update_color_lab();
+        }
+      </script>
+    </canvas>
+    </p>
+
+    <p>
+      <label for="amount">二值化（threshold）阈值范围</label>
+      <input type="text" id="amount" style="border:0; color:#f6931f; font-weight:bold;">
+      <div id="slider_range"></div>
+      <script>
+        $(function () {
+          $("#slider_range").slider({
+            range: true,
+            min: 0,
+            max: 255,
+            values: [0, 255],
+            slide: function (event, ui) {
+              // console.log(cv)
+              let src = cv.imread(imgElement);
+              cv.cvtColor(src, src, cv.COLOR_RGBA2GRAY, 0);
+              let marker = new cv.Mat(224, 224, cv.CV_8UC1);
+              try {
+                cv.threshold(src, marker, ui.values[0], ui.values[1], cv.THRESH_BINARY);
+              } catch (e) {
+                throw e;
+              }
+              cv.imshow('imageDest', marker);
+              marker.delete();
+              src.delete();
+              $("#amount").val("阈值 " + ui.values[0] + " - 最大值" + ui.values[1]);
+            }
+          });
+          $("#amount").val("阈值 " + $("#slider_range").slider("values", 0) +
+            " - 最大值 " + $("#slider_range").slider("values", 1));
+        });
+      </script>
+    </p>
+
+    <p>
+      <div>
+        <label for="amount">LAB（threshold）阈值范围</label>
+        <input type="text" id="amount_lab" style="border:0; color:#f6931f; font-weight:bold;">
+      </div>
+      <p>
+        <label for="amount">L min - max</label>
+        <input type="text" id="amount_l" style="border:0; color:#f6931f; font-weight:bold;">
+        <div id="slider_l_min"></div>
+        <div id="slider_l_max"></div>
+      </p>
+      <p>
+        <label for="amount">A min - max</label>
+        <input type="text" id="amount_a" style="border:0; color:#f6931f; font-weight:bold;">
+        <div id="slider_a_min"></div>
+        <div id="slider_a_max"></div>
+      </p>
+      <p>
+        <label for="amount">B min - max</label>
+        <input type="text" id="amount_b" style="border:0; color:#f6931f; font-weight:bold;">
+        <div id="slider_b_min"></div>
+        <div id="slider_b_max"></div>
+      </p>
+      <script>
+        function update_color_lab() {
+          try {
+            let src = cv.imread(imgElement);
+            let marker = new cv.Mat(src.cols, src.rows, cv.CV_8UC3);
+            let result = new cv.Mat(src.cols, src.rows, cv.CV_8UC1);
+            cv.cvtColor(src, marker, cv.COLOR_RGBA2RGB);
+            cv.cvtColor(marker, marker, cv.COLOR_RGB2Lab);
+
+            l_min = $("#slider_l_min").slider("values", 0);
+            l_max = $("#slider_l_max").slider("values", 0);
+            a_min = $("#slider_a_min").slider("values", 0);
+            a_max = $("#slider_a_max").slider("values", 0);
+            b_min = $("#slider_b_min").slider("values", 0);
+            b_max = $("#slider_b_max").slider("values", 0);
+
+            l_min = l_min * 255 / 100
+            l_max = l_max * 255 / 100,
+            a_min = a_min + 128
+            a_max = a_max + 128
+            b_min = b_min + 128
+            b_max = b_max + 128
+
+            // console.log(
+            //   l_min * 255 / 100, l_max * 255 / 100,
+            //   a_min + 128, a_max + 128,
+            //   b_min + 128, b_max + 128
+            // )
+            // min = new cv.Mat(1, 1, cv.CV_8UC3, new cv.Scalar(
+            //     l_min * 255 / 100,
+            //     a_min + 128,
+            //     b_min + 128
+            // ))
+            // max = new cv.Mat(1, 1, cv.CV_8UC3, new cv.Scalar(
+            //     l_max * 255 / 100,
+            //     a_max + 128,
+            //     b_max + 128
+            // ))
+            // console.log(min, max, marker)
+            // cv.inRange(marker, min, max, marker);
+            // cv.cvtColor(marker, marker, cv.COLOR_Lab2RGB, 0);
+
+            // lMin = l_min > l_max ? l_max : l_min
+            // lMax = l_min > l_max ? l_min : l_max
+
+            // aMin = a_min > a_max ? a_max : a_min
+            // aMax = a_min > a_max ? a_min : a_max
+
+            // bMin = b_min > b_max ? b_max : b_min
+            // bMax = b_min > b_max ? b_min : b_max
+
+            invert = true
+            for (y = 0; y <= marker.cols; y++) {
+                for (x = 0; x <= marker.rows; x++) {
+                  src_pos = y * marker.step[0] + x * marker.step[1]
+                  dst_pos = y * result.step[0] + x * result.step[1]
+                  l = marker.data[src_pos + 0]
+                  a = marker.data[src_pos + 1]
+                  b = marker.data[src_pos + 2]
+                  result.data[dst_pos] = ((l_min <= l && l <= l_max && a_min <= a && a <= a_max && b_min <= b && b <= b_max) ? 255 : 0); // ^ invert
+              }
+            }
+            // console.log(marker)
+            cv.imshow('imageDest', result);
+            marker.delete();
+            result.delete();
+            src.delete();
+            // max.delete();
+          } catch (e) {
+            throw e;
+          }
+
+          $("#amount_l").val("最小值 " + $("#slider_l_min").slider("values", 0) + " - 最大值 " + $("#slider_l_max").slider("values", 0));
+          $("#amount_a").val("最小值 " + $("#slider_a_min").slider("values", 0) + " - 最大值 " + $("#slider_a_max").slider("values", 0));
+          $("#amount_b").val("最小值 " + $("#slider_b_min").slider("values", 0) + " - 最大值 " + $("#slider_b_max").slider("values", 0));
+
+          $("#amount_lab").val(
+            "[(" + $("#slider_l_min").slider("values", 0) +
+            ", " + $("#slider_l_max").slider("values", 0) +
+            ", " + $("#slider_a_min").slider("values", 0) +
+            ", " + $("#slider_a_max").slider("values", 0) +
+            ", " + $("#slider_b_min").slider("values", 0) +
+            ", " + $("#slider_b_max").slider("values", 0) + ")]"
+          );
+        }
+
+        $(function () {
+          $("#slider_l_min").slider({
+            range: "min",
+            min: 0,
+            max: 100,
+            value: 0,
+            stop: function (event, ui) {
+              update_color_lab();
+            }
+          });
+
+          $("#slider_l_max").slider({
+            range: "min",
+            min: 0,
+            max: 100,
+            value: 100,
+            stop: function (event, ui) {
+              update_color_lab();
+            }
+          });
+          $("#slider_a_min").slider({
+            range: "min",
+            min: -128,
+            max: 127,
+            value: -128,
+            stop: function (event, ui) {
+              update_color_lab();
+            }
+          });
+          $("#slider_a_max").slider({
+            range: "min",
+            min: -128,
+            max: 127,
+            value: 127,
+            stop: function (event, ui) {
+              update_color_lab();
+            }
+          });
+          $("#slider_b_min").slider({
+            range: "min",
+            min: -128,
+            max: 127,
+            value: -128,
+            stop: function (event, ui) {
+              update_color_lab();
+            }
+          });
+          $("#slider_b_max").slider({
+            range: "min",
+            min: -128,
+            max: 127,
+            value: 127,
+            stop: function (event, ui) {
+              update_color_lab();
+            }
+          });
+        });
+      </script>
+    </p>
+
+  </div>
+</body>
+
+</html>
