@@ -83,8 +83,6 @@ root@MaixLinux:/#
 </code></pre>
 </details>
 
-If you use debian OS, the username is `sipeed` and password is `licheepi`
-
 ## Qusetions
 
 [Questions](./problems.md)
