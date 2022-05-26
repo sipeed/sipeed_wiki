@@ -133,12 +133,18 @@
                     "collapsed": false,
                     "items": [
                         {
-                            "label": "Lichee RV 86 Panel",
-                            "file": "lichee/RV/86_panel.md"
-                        },
-                        {
-                            "label": "Lichee RV Dock",
-                            "file": "lichee/RV/Dock.md"
+                            "label": "版型介绍",
+                            "collapsed": false,
+                            "items": [
+                                {
+                                    "label": "Lichee RV 86 Panel",
+                                    "file": "lichee/RV/86_panel.md"
+                                },
+                                {
+                                    "label": "Lichee RV Dock",
+                                    "file": "lichee/RV/Dock.md"
+                                }
+                            ]
                         },
                         {
                             "label": "烧录系统",
@@ -149,8 +155,8 @@
                             "file": "lichee/RV/user.md"
                         },
                         {
-                            "label": "apt问题",
-                            "file": "lichee/RV/debian_img_apt.md"
+                            "label": "常见问题",
+                            "file": "lichee/RV/problems.md"
                         }
                     ]
                 }

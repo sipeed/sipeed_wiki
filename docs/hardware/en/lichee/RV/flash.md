@@ -1,7 +1,7 @@
 # Lichee RV system image
 
 There are two system images for Lichee RV and they are tina and debian.
-Tina is a small linux image while Debian is a desktop image.
+**Tina** is a small linux image while **Debian** is a desktop image.
 
 ## Prepare
 
@@ -39,52 +39,52 @@ Waiting for finishing burning, It will be faster if flashing Tina OS and it will
 ## Run OS
 The username and passward are as follows:
 
-> Tina   OS username：root   password：tina
+- Tina   OS username：`root`   password：`tina`
 
-> Debian OS username：sipeed password：licheepi
+- Debian OS username：`sipeed` password：`licheepi`
 
 Insert tf card, and we can see the startup information in the serial port tool
 
-- Debian startup message
-    ```shell
-    [270]HELLO! BOOT0 is starting!
-    [273]BOOT0 commit : 27369ab
+> Debian startup message
 
-    OpenSBI v0.6
-       ____                    _____ ____ _____
-      / __ \                  / ____|  _ \_   _|
-     | |  | |_ __   ___ _ __ | (___ | |_) || |
-     | |  | | '_ \ / _ \ '_ \ \___ \|  _ < | |
-     | |__| | |_) |  __/ | | |____) | |_) || |_
-      \____/| .__/ \___|_| |_|_____/|____/_____|
-            | |
-            |_|
-    ```
+<details>
+  <summary><font color="#4F84FF">Click to see Debian startup log</font></summary>
+<pre><code class="language-shell">
+[270]HELLO! BOOT0 is starting!
+[273]BOOT0 commit : 27369ab
 
-- Tina startup message
-```shell
+OpenSBI v0.6
+   ____                    _____ ____ _____
+  / __ \                  / ____|  _ \_   _|
+ | |  | |_ __   ___ _ __ | (___ | |_) || |
+ | |  | | '_ \ / _ \ '_ \ \___ \|  _ < | |
+ | |__| | |_) |  __/ | | |____) | |_) || |_
+  \____/| .__/ \___|_| |_|_____/|____/_____|
+        | |
+        |_|
+</code></pre>
+</details>
+
+> Tina startup message
+
+<details>
+  <summary><font color="#4F84FF">Click to see Tina startup log</font></summary>
+<pre><code class="language-shell">
 BusyBox v1.27.2 () built-in shell (ash)
 
-    __  ___     _        __   _   
+    __  ___     _        __   _
    /  |/  /__ _(_)_ __  / /  (_)__  __ ____ __
   / /|_/ / _ `/ /\ \ / / /__/ / _ \/ // /\ \ /
- /_/  /_/\_,_/_//_\_\ /____/_/_//_/\_,_//_\_\ 
+ /_/  /_/\_,_/_//_\_\ /____/_/_//_/\_,_//_\_\
  ----------------------------------------------
  Maix Linux (Neptune, 5C1C9C53)
  ----------------------------------------------
-```
+root@MaixLinux:/#
+</code></pre>
+</details>
 
 If you use debian OS, the username is `sipeed` and password is `licheepi`
 
-## Others
+## Qusetions
 
-### Burn wrong image 
- 
-If you burn wrong image that is not corrsponding with your board, just use boot_package_XXX.fex (can be download here https://dl.sipeed.com/shareURL/LICHEE/D1/Lichee_RV/SDK/board ) file to recover the previous file.
-
-The recover command：
-> sudo dd if=boot_package_XXX.fex of=/dev/sdX bs=1K seek=16400
-
-### Not work
-
-If your board doesn't work, make sure you choose boot card mode in burning mode, and please reburn.
+[Questions](./problems.md)

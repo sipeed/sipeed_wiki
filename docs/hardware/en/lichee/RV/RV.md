@@ -96,6 +96,3 @@ If you want to build your own custom image, you can visit the BSP SDK in the fol
 
 [BSP SDK](./user.md#BSP-SDK-development)
 
-## Problems
-
-[Problems about debian system](./debian_img_apt.md)

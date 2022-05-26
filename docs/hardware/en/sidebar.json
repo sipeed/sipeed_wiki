@@ -109,6 +109,7 @@
         {
             "label": "LicheePi",
             "file": "lichee/README.md",
+            "collapsed":false,
             "items": [
                 {
                     "label": "Lichee Zero",
@@ -125,14 +126,21 @@
                 {
                     "label": "Lichee RV",
                     "file": "lichee/RV/RV.md",
+                    "collapsed":false,
                     "items": [
                         {
-                            "label": "Lichee RV 86 Panel",
-                            "file": "lichee/RV/86_panel.md"
-                        },
-                        {
-                            "label": "Lichee RV Dock",
-                            "file": "lichee/RV/Dock.md"
+                            "label": "Board introduction",
+                            "collapsed":false,
+                            "items": [
+                                {
+                                    "label": "Lichee RV 86 Panel",
+                                    "file": "lichee/RV/86_panel.md"
+                                },
+                                {
+                                    "label": "Lichee RV Dock",
+                                    "file": "lichee/RV/Dock.md"
+                                }
+                            ]
                         },
                         {
                             "label": "Burn System",
@@ -143,8 +151,8 @@
                             "file": "lichee/RV/user.md"
                         },
                         {
-                            "label": "Problems",
-                            "file": "lichee/RV/debian_img_apt.md"
+                            "label": "Questions&Answers",
+                            "file": "lichee/RV/problems.md"
                         }
                     ]
                 }

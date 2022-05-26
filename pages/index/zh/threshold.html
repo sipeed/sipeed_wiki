@@ -114,7 +114,7 @@
           try {
             let src = cv.imread(imgElement);
             let marker = new cv.Mat(src.cols, src.rows, cv.CV_8UC3);
-            let result = new cv.Mat(src.cols, src.rows, cv.CV_8UC1);
+            let result = new cv.Mat(src.rows, src.cols, cv.CV_8UC1);
             cv.cvtColor(src, marker, cv.COLOR_RGBA2RGB);
             cv.cvtColor(marker, marker, cv.COLOR_RGB2Lab);
 
@@ -163,8 +163,8 @@
             invert = true
             for (y = 0; y <= marker.cols; y++) {
                 for (x = 0; x <= marker.rows; x++) {
-                  src_pos = y * marker.step[0] + x * marker.step[1]
-                  dst_pos = y * result.step[0] + x * result.step[1]
+                  src_pos = x * marker.step[0] + y * marker.step[1]
+                  dst_pos = x * result.step[0] + y * result.step[1]
                   l = marker.data[src_pos + 0]
                   a = marker.data[src_pos + 1]
                   b = marker.data[src_pos + 2]
