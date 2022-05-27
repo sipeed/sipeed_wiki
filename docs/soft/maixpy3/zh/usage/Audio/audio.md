@@ -4,7 +4,7 @@ keywords: 音频操作, MaixPy3, Python, Python3
 desc: maixpy doc: 音频操作
 ---
 
-MaixPy3 关于音频相关操作采用的是 库，PyAudio 库，PyAudio 为跨平台音频 I/O 库 PortAudio 提供了 Python 绑定，帮助用户轻松地在各种平台上播放和录制音频。
+MaixPy3 关于音频相关操作采用的是PyAudio 库，PyAudio 为跨平台音频 I/O 库 PortAudio 提供了 Python 绑定，帮助用户轻松地在各种平台上播放和录制音频。
 
 [pyaudio 官方文档](http://people.csail.mit.edu/hubert/pyaudio/docs/)
 
@@ -68,7 +68,7 @@ stream = p.open(format=p.get_format_from_width(wf.getsampwidth()),
 
 data = wf.readframes(CHUNK)
 
-while data != '':
+while len(data) > 0:
     stream.write(data)
     data = wf.readframes(CHUNK)
 
