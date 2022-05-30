@@ -27,7 +27,7 @@ tags: MaixPy, K210
 
 1. [【安装驱动】](/soft/maixpy/zh/get_started/env_install_driver.md) 根据自己使用的开发进行选择需要按安装驱动
 2. [【更新固件】](/soft/maixpy/zh/get_started/upgrade_maixpy_firmware.md) 确保使用的是最新版本的固件，并学习一下每个固件之间的[差异](/soft/maixpy/zh/get_started/upgrade_maixpy_firmware.html#固件命名说明)
-3. [【安装 MaixPy IDE】](/soft/maixpy/zh/get_started/env_maixpyide.html) 
+3. [【安装 MaixPy IDE】](/soft/maixpy/zh/get_started/env_maixpyide.html)
 
 如果安装驱动的时候出现安装失败，或者是安装驱动之后，电脑上没有显示 COM 口的，就需要更新一下系统或者是检查一下自己的系统是不是正版的了。因为有部分的盗版系统安装不上驱动，或者是安装驱动之后并显示。或者通过换 USB 口进行连接，也许就可以检测到开发板
 
@@ -39,13 +39,13 @@ tags: MaixPy, K210
 
 开始使用 K210 之前，一定要学习 Python，如果你连 Python 都不会的，就不要继续往下走，可以快速的过一遍 [Python](/soft/maixpy3/zh/origin/python.md) 的语法和使用，一定要会 Python !一定要会 Python !一定要会 Python !
 
-现在就当你懂 Python 了，这是就可以开始看 MaixPy 文档中的[【入门指南】——【上手】](/soft/maixpy/zh/get_started/get_started_power_on.md)，进行对于 MaixPy 的使用和 K210 的基本了解。
+现在就当你懂 Python 了，这是就可以开始看 MaixPy 文档中的入门指南，进行对于 MaixPy 的使用和 K210 的基本了解。
 
-[【进阶教程】](/soft/maixpy/zh/course/readme.md) 中将有 MaixPy 更多的使用案例和使用方式，一定要确保自己已经对应入门教程中内容已经了解和掌握了再去看，否则你在学习的时候还是会一脸懵逼，不知所云。
+【更多功能应用】中将有 MaixPy 更多的使用案例和使用方式，一定要确保自己已经对应入门教程中内容已经了解和掌握了再去看，否则你在学习的时候还是会一脸懵逼，不知所云。
 
 ## 获取 AI 模型文件
 
-在【进阶教程】中是有讲述如何运行神经网络模型，也知道怎么去获取示例中的模型文件，但是少了如何获取机器码这个操作，这里详细的讲述一下何如获取机器码。
+在【更多功能应用】中是有讲述如何运行神经网络模型，也知道怎么去获取示例中的模型文件，但是少了如何获取机器码这个操作，这里详细的讲述一下何如获取机器码。
 
 1. 将 [key_gen.bin](https://dl.sipeed.com/fileList/MaixHub_Tools/key_gen_v1.2.bin) 这个固件通过 Kflash 烧录到开发板上。烧录这个机器码固件之后，开发板是处于一个不能使用的状态，上电屏幕只会变成一个白屏。
 2. 这时将开发板通过 USB 连接到电脑上，利用[【串口连接】](/soft/maixpy/zh/get_started/env_serial_tools.html)中的方式来连接开发板。注：IDE 中的串口终端和 IDE 的连接方式相对独立的，而且串口不能通过多种方式进行连接

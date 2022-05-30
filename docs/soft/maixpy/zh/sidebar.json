@@ -1,11 +1,11 @@
 {
     "items": [
         {
-            "label": "简介",
+            "label": "MaixPy 是什么？",
             "file": "README.md"
         },
         {
-            "label": "MaixPy 能做哪些事",
+            "label": "MaixPy 能做哪些事？",
             "file": "what_maix_do.md"
         },
         {
@@ -13,18 +13,14 @@
             "file": "maixpy_history.md"
         },
         {
-            "label": "致谢",
-            "file": "thanks.md"
-        },
-        {
-            "label": "入门指南",
+            "label": "入门必看指南",
             "items": [
                 {
-                    "label": "如何正确阅读本文 (重要！！！)",
+                    "label": "如何阅读本文档（重要）",
                     "file": "how_to_read.md"
                 },
                 {
-                    "label": "如何优雅提问 (重要！！！)",
+                    "label": "如何正确的提问（重要）",
                     "file": "how_to_ask.md"
                 },
                 {
@@ -75,7 +71,7 @@
                             ]
                         },
                         {
-                            "label": "外设模组（配件）"
+                            "label": "相关外设模组（配件）"
                         },
                         {
                             "collapsed": false,
@@ -97,10 +93,10 @@
                     ]
                 },
                 {
-                    "label": "开发环境准备",
+                    "label": "准备你的开发环境",
                     "items": [
                         {
-                            "label": "安装驱动",
+                            "label": "在电脑上安装开发板驱动",
                             "file": "get_started/env_install_driver.md",
                             "items": [
                                 {
@@ -138,15 +134,15 @@
                             ]
                         },
                         {
-                            "label": "更新 MaixPy 固件",
+                            "label": "如何更新 MaixPy 固件",
                             "file": "get_started/upgrade_maixpy_firmware.md"
                         },
                         {
-                            "label": "MaixPy IDE 使用说明",
+                            "label": "MaixPy IDE 安装使用",
                             "file": "get_started/env_maixpyide.md"
                         },
                         {
-                            "label": "串口连接",
+                            "label": "如何连接串口?",
                             "file": "get_started/uart.md",
                             "items": [
                                 {
@@ -179,10 +175,10 @@
                     ]
                 },
                 {
-                    "label": "上手",
+                    "label": "准备上手运行程序",
                     "items": [
                         {
-                            "label": "上电",
+                            "label": "给板子通上电开机",
                             "file": "get_started/get_started_power_on.md"
                         },
                         {
@@ -190,18 +186,18 @@
                             "file": "get_started/get_started_cam_lcd.md"
                         },
                         {
-                            "label": "第二个程序: 点亮 LED",
+                            "label": "第二个程序: 点亮 LED 灯",
                             "file": "get_started/get_started_led_blink.md"
                         },
                         {
-                            "label": "基础知识",
+                            "label": "编程基础知识",
                             "items": [
                                 {
                                     "label": "MaixPy 语法基础知识",
                                     "file": "get_started/knowledge_micropython.md"
                                 },
                                 {
-                                    "label": "git 和 github",
+                                    "label": "什么是 git 和 github",
                                     "file": "get_started/knowledge_git_github.md"
                                 },
                                 {
@@ -215,19 +211,19 @@
                             ]
                         },
                         {
-                            "label": "存储系统简介",
+                            "label": "存储系统介绍",
                             "file": "get_started/get_started_fs.md"
                         },
                         {
-                            "label": "编辑并运行脚本",
+                            "label": "编辑代码并运行",
                             "file": "get_started/get_started_edit_file.md"
                         },
                         {
-                            "label": "上传脚本到开发板",
+                            "label": "上传代码到开发板",
                             "file": "get_started/get_started_upload_script.md"
                         },
                         {
-                            "label": "开机自动运行脚本",
+                            "label": "开机自动运行代码",
                             "file": "get_started/get_started_boot.md"
                         },
                         {
@@ -241,7 +237,7 @@
                     ]
                 },
                 {
-                    "label": "固件定制",
+                    "label": "定制你的专属固件",
                     "items": [
                         {
                             "label": "为什么需要定制固件",
@@ -260,141 +256,85 @@
             ]
         },
         {
-            "label": "进阶教程",
+            "label": "更多功能应用",
             "file": "course/readme.md",
             "items": [
                 {
-                    "label": "基本图像处理",
+                    "label": "系统基础功能",
                     "items": [
                         {
-                            "label": "图像获取和显示",
+                            "label": "CPU & RAM",
                             "items": [
                                 {
-                                    "label": "图像获取",
-                                    "file": "course/image/basic/get_images.md"
+                                    "label": "主频、复位等",
+                                    "file": "course/others/system.md"
                                 },
                                 {
-                                    "label": "图像显示",
-                                    "file": "course/image/basic/display_images.md"
+                                    "label": "内存配置与查看",
+                                    "file": "course/others/mem.md"
                                 }
                             ]
                         },
                         {
-                            "label": "MaixPy 图像及常用操作",
-                            "file": "course/image/basic/vary.md"
-                        },
-                        {
-                            "label": "基本画图、写字",
-                            "file": "course/image/basic/draw.md"
-                        },
-                        {
-                            "label": "硬件加速的图像处理",
-                            "file": "course/image/basic/acc_image_deal.md"
-                        }
-                    ]
-                },
-                {
-                    "label": "MaixPy AI",
-                    "items": [
-                        {
-                            "label": "深度神经网络基础知识",
-                            "file": "course/ai/basic/dnn_basic.md"
-                        },
-                        {
-                            "label": "MaixPy AI 硬件加速基础知识",
-                            "file": "course/ai/basic/maixpy_hardware_ai_basic.md"
-                        },
-                        {
-                            "label": "图像处理",
+                            "label": "GUI 支持",
                             "items": [
                                 {
-                                    "label": "人脸检测",
-                                    "file": "course/ai/image/face_detect.md"
+                                    "label": "中文等多国语言支持",
+                                    "file": "course/image/image_draw_font/image_draw_font.md"
                                 },
                                 {
-                                    "label": "1000 种物体分类",
-                                    "file": "course/ai/image/1000_type_classifier.md"
+                                    "label": "Maix UI",
+                                    "file": "course/others/maixui.md"
                                 },
                                 {
-                                    "label": "人脸识别",
-                                    "file": "course/ai/image/face_recognization.md"
+                                    "label": "Lvgl UI",
+                                    "file": "course/others/lvgl.md"
                                 },
                                 {
-                                    "label": "自学习分类",
-                                    "file": "course/ai/image/self_learn_classifier.md"
+                                    "label": "pye 编辑器 ",
+                                    "file": "course/others/pye.md"
                                 }
                             ]
                         },
                         {
-                            "label": "音频处理",
+                            "label": "网络支持",
                             "items": [
                                 {
-                                    "label": "语音识别",
-                                    "file": "course/speech/recognizer_cnn.md"
+                                    "label": "配置 network 网卡",
+                                    "file": "course/network/network_config.md"
+                                },
+                                {
+                                    "label": "使用 socket 通信",
+                                    "file": "course/network/socket_usage.md"
                                 }
                             ]
-                        }
-                    ]
-                },
-                {
-                    "label": "模型训练",
-                    "items": [
+                        },
                         {
-                            "label": "训练自己的分类和检测模型",
+                            "label": "媒体功能",
                             "items": [
                                 {
-                                    "label": "MaixHub 云端训练",
-                                    "file": "course/ai/train/maixhub.md"
+                                    "label": "录音与播放（audio）",
+                                    "file": "course/media/audio.md"
                                 },
                                 {
-                                    "label": "本地训练——Linux",
-                                    "file": "course/ai/train/local.md"
-                                },
+                                    "label": "播放视频（video）",
+                                    "file": "course/media/video.md"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "游戏模拟",
+                            "items": [
                                 {
-                                    "label": "本地训练Windows环境配置",
-                                    "file": "course/ai/train/local_windows_1.md"
-                                },
-                                {
-                                    "label": "本地训练Windows使用教程",
-                                    "file": "course/ai/train/local_windows_2.md"
+                                    "label": "NES 游戏机",
+                                    "file": "api_reference/media/nes.md"
                                 }
                             ]
                         }
                     ]
                 },
                 {
-                    "label": "传统算法",
-                    "items": [
-                        {
-                            "label": "图像处理",
-                            "items": [
-                                {
-                                    "label": "寻找色块",
-                                    "file": "course/image/find_color_blob.md"
-                                },
-                                {
-                                    "label": "二维码识别",
-                                    "file": "course/image/find_qrcodes.md"
-                                }
-                            ]
-                        },
-                        {
-                            "label": "音频处理",
-                            "items": [
-                                {
-                                    "label": "FFT 瀑布图",
-                                    "file": "course/speech/fft_waterfall.md"
-                                },
-                                {
-                                    "label": "关键词识别",
-                                    "file": "course/speech/recognizer_mfcc.md"
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "label": "外设",
+                    "label": "外设模块拓展",
                     "items": [
                         {
                             "label": "片上外设",
@@ -488,7 +428,7 @@
                             ]
                         },
                         {
-                            "label": "更多外设",
+                            "label": "其他外设",
                             "items": [
                                 {
                                     "label": "Sipeed 麦克风阵列",
@@ -503,7 +443,7 @@
                                     "file": "modules/others/mlx90640.md"
                                 },
                                 {
-                                    "label": "舵机",
+                                    "label": "PWM 舵机",
                                     "file": "modules/others/servo.md"
                                 },
                                 {
@@ -519,74 +459,125 @@
                     ]
                 },
                 {
-                    "label": "更多功能",
+                    "label": "图像处理基础（Image）",
                     "items": [
                         {
-                            "label": "系统",
+                            "label": "获取一张图像",
+                            "file": "course/image/basic/get_images.md"
+                        },
+                        {
+                            "label": "显示一张图像",
+                            "file": "course/image/basic/display_images.md"
+                        },
+                        {
+                            "label": "图像处理基础",
+                            "file": "course/image/basic/vary.md"
+                        },
+                        {
+                            "label": "如何在图像上写字",
+                            "file": "course/image/basic/draw.md"
+                        },
+                        {
+                            "label": "硬件加速图像模块",
+                            "file": "course/image/basic/acc_image_deal.md"
+                        }
+                    ]
+                },
+                {
+                    "label": "传统算法应用",
+                    "items": [
+                        {
+                            "label": "图像处理",
                             "items": [
                                 {
-                                    "label": "主频、复位等",
-                                    "file": "course/others/system.md"
+                                    "label": "寻找色块",
+                                    "file": "course/image/find_color_blob.md"
                                 },
                                 {
-                                    "label": "内存配置与查看",
-                                    "file": "course/others/mem.md"
+                                    "label": "二维码识别",
+                                    "file": "course/image/find_qrcodes.md"
                                 }
                             ]
                         },
                         {
-                            "label": "GUI",
+                            "label": "音频处理",
                             "items": [
                                 {
-                                    "label": "中文等多国语言支持",
-                                    "file": "course/image/image_draw_font/image_draw_font.md"
+                                    "label": "FFT 瀑布图",
+                                    "file": "course/speech/fft_waterfall.md"
                                 },
                                 {
-                                    "label": "Maix UI",
-                                    "file": "course/others/maixui.md"
+                                    "label": "关键词识别",
+                                    "file": "course/speech/recognizer_mfcc.md"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "label": "神经网络应用（AI）",
+                    "items": [
+                        {
+                            "label": "深度神经网络基础",
+                            "file": "course/ai/basic/dnn_basic.md"
+                        },
+                        {
+                            "label": "KPU 硬件加速介绍",
+                            "file": "course/ai/basic/maixpy_hardware_ai_basic.md"
+                        },
+                        {
+                            "label": "AI 图像处理",
+                            "items": [
+                                {
+                                    "label": "人脸检测",
+                                    "file": "course/ai/image/face_detect.md"
                                 },
                                 {
-                                    "label": "Lvgl",
-                                    "file": "course/others/lvgl.md"
+                                    "label": "1000 种物体分类",
+                                    "file": "course/ai/image/1000_type_classifier.md"
                                 },
                                 {
-                                    "label": "编辑器 pye",
-                                    "file": "course/others/pye.md"
+                                    "label": "人脸识别",
+                                    "file": "course/ai/image/face_recognization.md"
+                                },
+                                {
+                                    "label": "自学习分类",
+                                    "file": "course/ai/image/self_learn_classifier.md"
                                 }
                             ]
                         },
                         {
-                            "label": "网络",
+                            "label": "AI 音频处理",
                             "items": [
                                 {
-                                    "label": "配置 network 网卡",
-                                    "file": "course/network/network_config.md"
-                                },
-                                {
-                                    "label": "使用 socket 通信",
-                                    "file": "course/network/socket_usage.md"
+                                    "label": "语音识别",
+                                    "file": "course/speech/recognizer_cnn.md"
                                 }
                             ]
                         },
                         {
-                            "label": "多媒体",
+                            "label": "如何训练模型",
                             "items": [
                                 {
-                                    "label": "audio",
-                                    "file": "course/media/audio.md"
-                                },
-                                {
-                                    "label": "video",
-                                    "file": "course/media/video.md"
-                                }
-                            ]
-                        },
-                        {
-                            "label": "游戏",
-                            "items": [
-                                {
-                                    "label": "NES 游戏机",
-                                    "file": "api_reference/media/nes.md"
+                                    "label": "训练自己的分类和检测模型",
+                                    "items": [
+                                        {
+                                            "label": "MaixHub 云端训练",
+                                            "file": "course/ai/train/maixhub.md"
+                                        },
+                                        {
+                                            "label": "本地训练——Linux",
+                                            "file": "course/ai/train/local.md"
+                                        },
+                                        {
+                                            "label": "本地训练Windows环境配置",
+                                            "file": "course/ai/train/local_windows_1.md"
+                                        },
+                                        {
+                                            "label": "本地训练Windows使用教程",
+                                            "file": "course/ai/train/local_windows_2.md"
+                                        }
+                                    ]
                                 }
                             ]
                         }
@@ -595,7 +586,7 @@
             ]
         },
         {
-            "label": "API手册",
+            "label": "库函数 API 手册",
             "items": [
                 {
                     "label": "标准库",
@@ -839,7 +830,7 @@
             "label": "开发与贡献",
             "items": [
                 {
-                    "label": "开发",
+                    "label": "如何编译开发",
                     "items": [
                         {
                             "label": "源码目录结构",
@@ -860,7 +851,7 @@
                     ]
                 },
                 {
-                    "label": "贡献",
+                    "label": "如何贡献代码",
                     "items": [
                         {
                             "label": "参与文档编写（规范）",
@@ -875,7 +866,7 @@
             ]
         },
         {
-            "label": "社区 & 分享",
+            "label": "来自社区和用户分享",
             "items": [
                 {
                     "label": "精选文章",
@@ -897,8 +888,8 @@
             ]
         },
         {
-            "label": "更新历史",
-            "file": "update_history.md"
+            "label": "开源项目致谢",
+            "file": "thanks.md"
         }
     ]
 }
