@@ -511,7 +511,7 @@
                                     "file": "modules/others/esp32_read_adc.md"
                                 },
                                 {
-                                    "label": "onwire 单总线",
+                                    "label": "onewire 单总线",
                                     "file": "modules/others/onewire.md"
                                 }
                             ]
