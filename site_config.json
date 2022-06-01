@@ -155,6 +155,16 @@
                 }
             }
         },
+        "teedoc-plugin-ad-hint": {
+            "from": "pypi",
+            "config": {
+                "type": "hint",
+                "label": "☆",
+                "content": "新版 MaixHub beta 测试版已上线，支持在线标注、一键部署，更稳定的网络和流畅的体验，并增加 Maix-II-Dock 支持<br/><a href='https://maix.sipeed.com'>快来体验吧！</a>",
+                "show_after_s": 432000,
+                "date": "2022-06-01 14:00"
+            }
+        },
         "teedoc-plugin-assets": {
             "from": "pypi",
             "config": {
