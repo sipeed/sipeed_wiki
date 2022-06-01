@@ -115,9 +115,9 @@ image(_maix_image) 模块采用 pybind11 c++ 语言进行开发。
 
   返回图像的 bytes 数据，用于序列化数据。
 
-- Image.resize(w, h, func = 1)
+- Image.resize(w, h, func = 1, padding = 1, size=(0, 0))
 
-  将图像调整至(w, h)大小,func可选
+  将图像调整至(w, h)大小,func 可选,size 可选（和 w h 互斥），padding 默认会按比例缩放填充，而不是 CV 的拉伸图像变形。
     0     (INTER_NEAREST 最近邻插值)
     1     (INTER_LINEAR 双线性插值)（默认设置）
     2     (INTER_CUBIC 4x4像素邻域的双三次插值)
