@@ -168,14 +168,17 @@ lcd.mirror(invert)
 
 ## After burning MaixPy, MaixPy fails to start
 
-Phenomenon: We may encounter MaixPy cannot be started after burning MaixPy (it appears that the screen cannot be turned on, the screen is white, etc.).
+Phenomenon: We may encounter MaixPy cannot be started after burning MaixPy (it appears that the screen cannot be turned on, the screen shows white, etc.).
+
 The cause of the problem: A large part of this phenomenon is that the configuration file in the internal file system is read incorrectly, or the system configuration value we set (such as the gc heap value is too large) is incorrect and the system cannot be started.
 
 Solution: Erase the file system (erase all flash)
 
 Use kflash_gui to select the `erase` function in the upper right corner, then load the `MaixPy file system` template, the address becomes `0xD00000`, and the length becomes `3MiB`
 
-Or download the erase firmware: erase.fpkg/flash_erase_16MB.bin/[erase_spiffs.kfpkg](https://cn.dl.sipeed.com/MAIX/MaixPy/release)
+Or reburn the erase firmware: Click to download [K210-chip_erase.kfpkg](https://dl.sipeed.com/fileList/MAIX/MaixPy/release/Erase_all/K210-chip_erase.kfpkg)
+
+After erasing device do remember to reburn your target firmware
 
 
 ## Using JTAG debugger has been unable to connect to K210

@@ -145,13 +145,16 @@ lcd.mirror(invert)
 ## 烧录 MaixPy 之后，MaixPy 出现无法启动
 
 现象：我们在使用过程中可能遇到烧录 MaixPy 之后，MaixPy 出现无法启动(表象为 无法点亮屏幕，白屏 等)，
+
 问题原因: 出现这种现象很大一部分是内部文件系统中的配置文件读取出错，或者我们设置的系统配置值(如 gc heap 值过大)出错导致系统无法启动。
 
 解决方法：擦除文件系统(擦除全部 flash)
 
 使用 kflash_gui 右上角选择`擦除`功能，然后加载`MaixPy 文件系统`模板，地址变成`0xD00000`, 长度变为`3MiB`
 
-或者下载擦除固件: erase.fpkg/flash_erase_16MB.bin/[erase_spiffs.kfpkg](https://cn.dl.sipeed.com/MAIX/MaixPy/release)
+或者直接烧录擦除固件: 点击下载 [K210-chip_erase.kfpkg](https://dl.sipeed.com/fileList/MAIX/MaixPy/release/Erase_all/K210-chip_erase.kfpkg)
+
+擦除后再重新烧录一次目标固件即可
 
 
 ## 使用 JTAG 调试器一直无法接连 K210
