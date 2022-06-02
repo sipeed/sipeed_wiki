@@ -5,6 +5,7 @@
 - Educational edition is not recommend because it supports few chips
 - It's tested that we can use [GAO](Online debug tool Gowin Analysis Oscilloscope) on V1.9.8.1
 - **Float license only suits IDE version before 1.9.8**
+- All dosc can be found here https://www.gowinsemi.com/en/support/database/
 
 ## Install the IDE
 
@@ -109,4 +110,4 @@ The server ip and port are shown below
 ### Burn in linux
 
 Here is a way to Flash the development board in linux [click me](./flash-in-linux.md)
-
+ 
