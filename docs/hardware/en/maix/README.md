@@ -1,25 +1,25 @@
 ---
 title: Sipeed Hardware
-keywords: Sipeed, Hardware, 矽速, 硬件资料, 文档, 资料下载
-desc: 矽速科技的硬件资料站
+keywords: Sipeed, Hardware, Hardware Data, Documentation
+desc: Silicon Speed Technology's Hardware Information
 ---
 
 # Maix—I
 
 [English](./../../en/maix/README.md)
 
-## K210 核心模组
+## K210 Core Module
 - [M1/M1w](./core_module.md)
 - [M1n](./core_modules/k210_core_modules.md)
 
-## Maix 系列开发板
+## Maix Series Development Boards
 
 
 <table role="table" class="center_table">
   <tbody>
     <tr>
-      <th scope="col">型号</th>
-      <th scope="col">图片</th>
+      <th scope="col">Model</th>
+      <th scope="col">Photo of device</th>
     </tr>
     <tr>
       <td> Maix Go</td>
@@ -52,5 +52,5 @@ desc: 矽速科技的硬件资料站
   </tbody>
 </table>
 
-## 产品技术支持
-Maix系列产品可以在多种场景实现客户不同方面的需要，在AIoT上已经广泛的使用，品质和性能在行业内已经有非常好的口碑，专业的技术团队为广大客户解决硬件设计和软件功能上的各种各样问题。专业技术支持和更详细资料请联系商务<support@sipeed.com>。
+## Product technical support
+Maix series of products can meet the different needs of customers in a variety of scenarios, and have been widely used in AIoT. The quality and performance have a very good reputation in the industry. The professional technical team solves hardware design and software functions for our customers. For professional technical support and more detailed information, please contact <support@sipeed.com>。
