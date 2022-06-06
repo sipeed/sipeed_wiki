@@ -19,7 +19,7 @@ desc: maixpy ​​doc: Maix Dock
 
 ### Onboard functions
 
-| Project | Description |
+| Item | Description |
 | --- | --- |
 | CPU: | Dual-core 64bit RISC-V / 400MHz* (double-precision FPU integration) |
 | Memory: | 8MiB 64bit on-chip SRAM |
@@ -41,3 +41,11 @@ Sipeed-Maix-Dock specification download: [Sipeed-Maix-Dock](https://dl.sipeed.co
 
 Sipeed-Maix-Dock schematic download: [Sipeed-Maix-Dock][Sipeed-Maix-Dock](https://dl.sipeed.com/fileList/MAIX/HDK/Sipeed-Maix-Dock/Maix-Dock_11.27/Maix-Dock_11.27-schematic.pdf)
 
+## Problems
+
+Maix Dock cannot use MobaXterm or other software which does not support manual serial port flow control for serial communication.
+To avoid wasting time, it is recommended to use MaixPy for communication.
+
+You can open terminal in MaixPy top menu bar tools->open terminals->new terminal->Connect to serial ports ->select the correct serial port->baudrate 115200, to create a new terminal
+
+![sipeed_maix_dock_terminal](../../assets/hardware/maix_dock/sipeed_maix_dock_terminal.png)

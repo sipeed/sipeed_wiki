@@ -40,3 +40,12 @@ Sipeed-Maix-Dock 资料下载：[Sipeed-Maix-Dock](https://dl.sipeed.com/shareUR
 Sipeed-Maix-Dock 规格书下载：[Sipeed-Maix-Dock](https://dl.sipeed.com/shareURL/MAIX/HDK/Sipeed-Maix-Dock/Specifications)
 
 Sipeed-Maix-Dock 原理图下载：[Sipeed-Maix-Dock](https://dl.sipeed.com/fileList/MAIX/HDK/Sipeed-Maix-Dock/Maix-Dock_11.27/Maix-Dock_11.27-schematic.pdf)
+
+## 相关问题
+
+Maix Dock 不能使用 MobaXterm 或其他 不支持手动串口流控制的软件 来进行串口通信。
+为了不浪费时间，建议使用 MaixPy 来进行通信。
+
+可以在 MaixPy 顶部菜单栏 工具->打开终端->新终端->连接到串口->选择正确的串口->115200波特率 来新建一个终端
+
+![sipeed_maix_dock_terminal](../../assets/hardware/maix_dock/sipeed_maix_dock_terminal.png)
