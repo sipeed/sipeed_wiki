@@ -1,128 +1,128 @@
-# MaixDuino 开发板
+# MaixDuino Development Board
 
-## 概述
+## Overview
 
-  SIPEED MaixDuino 是基于我们 M1 模块(主控:Kendryte K210)开发的一款外形兼容 Arduino 的开发板
-  <br/>MaixDuino 集成摄像头、TF卡槽、用户按键、TFT显示屏、MaixDuino 扩展接口等, 用户可使用 MaixDuino 轻松搭建一款人脸识别门禁系统, 同时还预留开发调试接口, 也能将其作为一款功能强大的 AI 学习开发板.
+  SIPEED MaixDuino is an Arduino-compatible development board based on our M1 module (main controller: Kendryte K210).
+  <br/>MaixDuino integrates camera, TF card slot, user buttons, TFT display, MaixDuino expansion interface. Users can use MaixDuino to easily build a face recognition access control system, and also reserve a development and debugging interface, which can also be used as a functioning powerful AI learning development board.
 
-## MaixDuino 外观及功能介绍
+## MaixDuino Features
 
-### 外观一览
+### Appearance
 
 ![MaixDuino](./../assets/dk_board/maix_duino/maixduino_0.png)
 ![MaixDuino](./../assets/dk_board/maix_duino/maixduino_1.png)
 ![MaixDuino](./../assets/dk_board/maix_duino/maixduino_2.png)
 
-### 板载功能介绍
+### Onboard features
 
-- 电源输入 DC05: 6~12V 直流
-- 电源输入 + 程序下载调试接口: USB Type-C 接口
-- DVP 24PIN: 标准 Camera DVP 24PIN 接口
-- TF 扩展槽:
-- ESP32: ESP32 SPI 连接(ESP32 支持 WIFI 与 蓝牙)
+- DC Barrel Power Jack: 6~12V DC power input
+- USB Type-C: For power input and debug interface
+- DVP 24PIN: Camera interface
+- TF slot: For SD/TF card
+- ESP32: WiFi and Bluetooth support via SPI
 - I2C DAC
 - PA PAM8403A
 
 ![MaixDuino](./../assets/dk_board/maix_duino/maixduino_3.jpg)
 
-## MaixDuino参数
-Maixduino开发板以M1Al模块作为核心单元，功能非常很强大，模块内置64位双核处理器芯片，拥有8M的片上SRAM，在Al机器视觉、听觉性能方便表现突出，内置多种硬件加速单元(KPU、FPU，FFT等)，总算力最高可达1TOPS，可以方便地实现各类应用场景的机器视觉/听觉算法,也可以进行语音方向扫描和语音数据输出的前置处理工作。此外，开发板还配置了ESP32模块(WiFi+蓝牙一体)，简单的操作即可轻松联网。
+## MaixDuino Description
+The Maixduino development board uses the powerful M1Al module as the core unit. The module has a built-in 64-bit dual-core processor chip and 8MB on-chip SRAM. It has outstanding performance in Al machine vision and hearing performance with a total computing power up to 1TOPS (FPU, Fast Fourier Transform Accelerator), which can easily implement machine vision/auditory algorithms for various application scenarios, and can also perform preprocessing for voice direction scanning and voice data output. In addition, the development board is also equipped with an ESP32 module (WiFi+Bluetooth integrated), which can be easily connected to the Internet with simple operations.
 
 <table role="table" class="center_table">
     <thead>
         <tr>
-            <th colspan = "2">K210 芯片基本参数</th>   
+            <th colspan = "2">K210 chip features</th>   
         </tr>
     </thead>
     <tbody>
     <tr>    
-        <td>内核</td>
+        <td>Core</td>
         <td>RISC-V Dual Core 64bit, with FPU</td>
     </tr>
     <tr>
-        <td>主频</td>
-        <td>400MHz （可超频至600MHz）</td>
+        <td>Frequency</td>
+        <td>400MHz （Can be overclocked to 600MHz）</td>
     </tr>
     <tr>
         <td>SRAM</td>
-        <td>内置8M Byte</td>
+        <td>built-in 8MB</td>
     </tr>
     <tr>
-        <td>图像识别</td>
+        <td>Image Recognition</td>
         <td>QVGA@60fps/VGA@30fps</td>
     </tr>
     <tr>
-        <td>语音识别</td>
-        <td>麦克风阵列(8mics)</td>
+        <td>Speech Recognition</td>
+        <td>Microphone array (8mics)</td>
     </tr>
     <tr>
-        <td>网络模型</td>
-        <td><li>支持YOLOv3<li>Mobilenetv2<li>TinyYOLOv2<li>人脸识别等</td>
+        <td>Network Model</td>
+        <td><li>Support YOLOv3<li>Mobilenetv2<li>TinyYOLOv2<li>facial recognition, etc.</td>
     </tr>
     <tr>
-        <td>深度学习框架</td>
-        <td>支持TensorFlow \ Keras \ Darknet \ Caffe 等主流框架</td>
+        <td>Deep Learning Framework</td>
+        <td>Supports TensorFlow, Keras, Darknet, Caffe, other mainstream frameworks</td>
     </tr>
     <tr>
-        <td>外设</td>
-        <td>FPIOA、 UART、 GPIO、 SPI、 I2C、I2S、 TIMER</td>
+        <td>Peripherals</td>
+        <td>FPIOA, UART, GPIO, SPI, I2C, I2S, TIMER</td>
     </tr>
     <tr>
-        <td>视频处理</td>
-        <td><li>神经网络处理器(KPU)<li>FPU满足IEEE754-2008标准<li>音频处理器(APU)<li>快速傅里叶变换加速器(FFT)</td>
+        <td>Video Processing</td>
+        <td><li>Neural Network Processor (KPU)<li>FPU Meets IEEE754-2008 Standard<li>Audio Processor (APU)<li>Fast Fourier Transform Accelerator (FFT)</td>
     </tr>
     </tbody>
 </table>
 <table role="table" class="center_table">
   <thead>
     <tr>
-      <th colspan = "2">ESP32模块</th>
+      <th colspan = "2">ESP32 Module</th>
     </tr>
   </thead>
   <tr>
-    <td>主控</td>
-    <td>ESP32-D0WDQ6(Xtensa 32-bit内核)</td>
+    <td>Core</td>
+    <td>ESP32-D0WDQ6(Xtensa 32-bit core)</td>
   </tr>
   <tr>
-    <td>无线标准</td>
+    <td>Wireless Standards</td>
     <td>802.11b/g/n</td>
   </tr>
   <tr>
-    <td>无线频率</td>
+    <td>Radio Frequencies</td>
     <td>2400MHz-2483.5MHz</td>
   </tr>
   <tr>
-    <td>无线协议</td>
-    <td>2.4G WiFi+双模蓝牙(BT&BLE4.2)</td>
+    <td>Wireless Protocols</td>
+    <td>2.4Ghz WiFi, Dual-mode Bluetooth (BT & BLE4.2)</td>
   </tr>
   <tr>
-    <td>天线</td>
-    <td>PCB板载天线</td>
+    <td>Antenna</td>
+    <td>PCB Onboard Antenna</td>
   </tr> 
 </table>
 <table role="table" class="center_table">
     <thead>
         <tr>
-            <th colspan = "2" >开发板参数</th>   
+            <th colspan = "2" >Development board features</th>   
         </tr>
     </thead>
-        <td> 板载资源</td>
-        <td><li>RGB灯*1<li>MEMS Microphone*1<li>USB转串口*1</td>
+        <td>Onboard</td>
+        <td><li>1x RGB LED<li>1x MEMS Microphone<li>1x USB to serial port</td>
     </tr>
     <tr>
-        <td>板载接口</td>
-        <td><li>USB Type-C接口<li>24PIN DVP摄像头接口<li>24PIN LCD接口<li>MicroSD卡槽<li>音频接口（支持外接3扬声器）<li>部分IO排针引脚引出</td>
+        <td>Interfaces</td>
+        <td><li>USB Type-C interface<li>24PIN DVP camera interface<li>24PIN LCD interface<li>MicroSD card slot<li>Audio interface (supports 3 external speakers)<li>Part of the IO pin header</td>
     </tr>
     <tr>
-        <td>尺寸</td>
+        <td>Size</td>
         <td>60*88mm</td>
     </tr>
     <tr>
-        <td>供电电压</td>
-        <td>5.0V @ 300mA（供电电流需大于300mA)</td>
+        <td>Supply Voltage</td>
+        <td>5.0V @ 300mA（300mA minimum)</td>
     </tr>
     <tr>
-        <td>工作温度</td>
+        <td>Operating Temperature</td>
         <td>-30℃ ~85C</td>
     </tr>
 </table>
@@ -130,29 +130,29 @@ Maixduino开发板以M1Al模块作为核心单元，功能非常很强大，模�
 <table role="table" class="center_table">
     <thead>
         <tr>
-        <th colspan = "2">软件开发</th>
+        <th colspan = "2">Software</th>
         <tr>
     </thead>
     <tr>
-    <td>芯片操作系统</td>
-    <td>FreeRTOS、RT-Thread等</td>
+    <td>Operating Systems</td>
+    <td>FreeRTOS, RT-Thread, etc</td>
     </tr>
     <tr>
-    <td>开发环境</td>
-    <td>MaixPy IDE、PlatformlO IDE、Arduino IDE等</td>
+    <td>Development Environments</td>
+    <td>MaixPy IDE、PlatformlO IDE、Arduino IDE, etc</td>
     </tr>
     <tr>
-    <td>编程语言</td>
+    <td>Programming languages</td>
     <td>C，C++，MicroPython</td>
     </tr>
 </table>
 
 
-## 资料相关链接
+## Related Links
 
-- [MaixDuino 原理图](https://dl.sipeed.com/shareURL/MAIX/HDK/Sipeed-Maixduino)
-<a href="/soft/maixpy/zh/" target="_blank"> MaixPy的使用教程入口 </a>
-<a href="/soft/maixduino/zh/" target="_blank"> arduino的使用教程入口 </a>
+- [MaixDuino Schematic](https://dl.sipeed.com/shareURL/MAIX/HDK/Sipeed-Maixduino)
+- <a href="/soft/maixpy/zh/" target="_blank"> MaixPy Tutorial</a>
+- <a href="/soft/maixduino/zh/" target="_blank"> Arduino Tutorial</a>
 
-## 产品技术支持
-Maix系列产品可以在多种场景实现客户不同方面的需要，在AIoT上已经广泛的使用，品质和性能在行业内已经有非常好的口碑，专业的技术团队为广大客户解决硬件设计和软件功能上的各种各样问题。专业技术支持和更详细资料请联系商务<support@sipeed.com>。
+## Product Technical Support
+Maix series of products can meet the different needs of customers in a variety of scenarios, and have been widely used in AIoT. The quality and performance have a very good reputation in the industry. The professional technical team solves hardware design and software functions for our customers. For professional technical support and more detailed information, please contact <support@sipeed.com>。
