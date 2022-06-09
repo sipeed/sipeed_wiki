@@ -1,8 +1,8 @@
 ---
-title: V831 简单交叉编译
+title: V831 如何使用 libmaix SDK C++ 开发
 keywords: V831, 交叉编译, lvgl
 date: 2022-05-19
-desc: V831 简单交叉编译
+desc: V831 如何使用 libmaix SDK C++ 开发 交叉编译
 tags: V831，交叉编译
 ---
 
