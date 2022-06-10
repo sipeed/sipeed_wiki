@@ -2,6 +2,11 @@
 
 > Overview
 
+Tang Serial development board have  Tang Nano serial and Tang Primer serial.
+
+Tang Nano board is tiny and delicate for new user.
+Tang Primer board with more on-chip resources help users do more things.
+
 ## Tang Primer 20K(Building)
 
 - Updating

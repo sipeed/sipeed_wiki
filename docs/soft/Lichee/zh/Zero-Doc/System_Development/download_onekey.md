@@ -2,46 +2,42 @@
 title: Windows 下烧录指南
 ---
 
-简介：最方便的镜像烧录方法，类似于ghost一键装机
+> 最方便的镜像烧录方法，类似于ghost一键装机
 
-两面性：
+## 准备：
 
-- 优点：装机速度快，无需任何专业知识，直接安装，方便效验成果
-- 缺点：不适合开发过程，不利于学习
+- 先去下载站获取镜像 dl.sipeed.com [点我跳转](https://dl.sipeed.com/shareURL/LICHEE/Zero/Images)。
+  余下内容以 `Zero_pub_V0.3.gz` 压缩包里面的镜像为例
 
-资源获取：
+- 下载[Etcher](https://www.balena.io/etcher/ "Etcher")
 
-   先去下载站获取镜像 dl.sipeed.com
+- 下载[SD Card Formatter](https://www.sdcard.org/downloads/formatter/eula_windows/SDCardFormatterv5_WinEN.zip "SDCardFormatter")
 
-​	下载[Etcher](https://www.balena.io/etcher/ "Etcher")
+## 烧录步骤：
 
-​	下载[SD Card Formatter](https://www.sdcard.org/downloads/formatter/eula_windows/SDCardFormatterv5_WinEN.zip "SDCardFormatter")
+> 格式化内存卡是为了能够成功烧录~
 
-操作步骤：
+-  打开SD卡格式化工具
 
-1.  打开SD卡格式化工具
+    - 点击`Refresh`来刷新盘符
+    - 在 `Select card` 选中目标盘符
+    - 点击右下角 `Format` 
+    - 等待弹框提示 `successful`
+<details>
+  <summary>点开查看格式化简图</summary>
+  <img src="./../static/System_Development/format.gif" >
+</details>
 
-    - SD Format或SDA 插入内存卡
-    - 选调整分区大小 ON
-    - 注意盘符的选择
-    - 然后点击格式化
-
-2.  打开Etcher
+-  打开Etcher
 
     - 解压镜像，得到 .img镜像文件
     - 点击`Flash from file`,选中想要烧录的镜像包
     - 点击`Select target`选中sd卡
     - 点击`Flash`烧录
-    - 待烧录完成
+    - 等待烧录完成
+<details>
+  <summary>点开查看烧录简图</summary>
+  <img src="./../static/System_Development/flash.gif" >
+</details>
 
-
-    ![95133](./../static/System_Development/95133.gif)
-
-3.  启动
-
-    - 插卡
-    - 上电
-    
-    这样系统就正常运行了
-
-恭喜！您已成功安装荔枝派Zero系统！
+到此就已经结束烧录了。

@@ -4,7 +4,6 @@ keywords: MaixPy, K210, Python, MicroPython
 desc: MaixPy 上手指南（避坑） 之上手篇
 date: 2022-04-01
 tags: MaixPy, K210
-
 ---
 
 > 作者：Ray（Rui）
