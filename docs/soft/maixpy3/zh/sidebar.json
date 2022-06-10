@@ -170,6 +170,10 @@
                     "file":"usage/AI_net/self_learn.ipynb"
                 },
                 {
+                    "label":"在线训练 AI 模型",
+                    "url":"https://maixhub.com"
+                },
+                {
                     "label": "本地训练 AI 模型",
                     "items":[
                         {
