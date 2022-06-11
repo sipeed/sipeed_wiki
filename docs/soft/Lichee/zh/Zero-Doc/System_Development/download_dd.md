@@ -5,8 +5,8 @@ title: linux烧录镜像
 
 ## 准备
 
-- 先去[下载站 - Sipeed](https://dl.sipeed.com/shareURL/LICHEE/Zero/) 或者 [百度网盘](https://eyun.baidu.com/s/3htTXfaG#sharelink/parent_path=%2F%E6%B7%B1%E5%9C%B3%E7%9F%BD%E9%80%9F%E7%A7%91%E6%8A%80%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8&path=%2F%E4%B8%8B%E8%BD%BD%E7%AB%99%E6%96%87%E4%BB%B6%2FLICHEE%2FZero)获取镜像 dl.sipeed.com 点我跳转。
-  余下内容以 `Zero_pub_V0.3.gz` 压缩包里面的镜像为例
+- 先去[下载站 - Sipeed](https://dl.sipeed.com/shareURL/LICHEE/Zero/) 或者 [百度网盘](https://eyun.baidu.com/s/3htTXfaG#sharelink/parent_path=%2F%E6%B7%B1%E5%9C%B3%E7%9F%BD%E9%80%9F%E7%A7%91%E6%8A%80%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8&path=%2F%E4%B8%8B%E8%BD%BD%E7%AB%99%E6%96%87%E4%BB%B6%2FLICHEE%2FZero) 获取镜像。
+  余下内容以 Zero_pub_V0.3.gz [点我跳转](https://dl.sipeed.com/shareURL/LICHEE/Zero/SDK) 压缩包里面的镜像为例
 
 - TF卡
 
