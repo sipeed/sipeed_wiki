@@ -7,7 +7,7 @@ title: Windows 下烧录指南
 ## 准备：
 
 - 先去下载站获取镜像 dl.sipeed.com [点我跳转](https://dl.sipeed.com/shareURL/LICHEE/Zero/Images)。
-  余下内容以 `Zero_pub_V0.3.gz` 压缩包里面的镜像为例
+  余下内容以 Zero_pub_V0.3.gz [点我跳转](https://dl.sipeed.com/shareURL/LICHEE/Zero/SDK) 压缩包里面的镜像为例
 
 - 下载[Etcher](https://www.balena.io/etcher/ "Etcher")
 
