@@ -2,7 +2,21 @@
     "items": [
         {
             "label": "Linux 简介",
-            "file": "linux/start/introduction.md"
+            "file": "linux/start/introduction.md",
+            "items":[
+                {
+                    "label":"bootloader(施工中)"
+                },
+                {
+                    "label":"Kernel(施工中)"
+                },
+                {
+                    "label":"rootfs(施工中)"
+                },
+                {
+                    "label":"application(施工中)"
+                }
+            ]
         },
         {
             "label": "LicheePI Zero",
