@@ -2,7 +2,7 @@
 title: 学习开源项目和 Python 编程入门建议
 keywords: Python,入门,开源
 date: 2022-06-11
-tags: Python, 入门,开源
+tags: Python, 入门, 开源
 ---
 
 本文是给有一点 Python 基础但还想进一步深入的同学，有经验的开发者建议跳过。
@@ -45,7 +45,7 @@ print("hello world")
 
 直接点击右上角的执行即可
 
-<!iframe src="https://tool.lu/coderunner/embed/aEj.html" style="height: 320px" frameborder="0" mozallowfullscreen="" webkitallowfullscreen="" allowfullscreen=""></iframe>
+<iframe src="https://tool.lu/coderunner/embed/aEj.html" style="height: 320px" frameborder="0" mozallowfullscreen="" webkitallowfullscreen="" allowfullscreen=""></iframe>
 
 > 在线 Python 编程 [runoob-python](https://www.runoob.com/try/runcode.php?filename=HelloWorld&type=python3) 备用地址。
 
