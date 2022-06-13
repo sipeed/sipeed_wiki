@@ -12,7 +12,8 @@ tags: Color, 色彩空间
 
 <!-- more -->
 
-原文链接：https://neucrack.com/p/294 作者：neucrack
+版权声明：本文为 neucrack 的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://neucrack.com/p/294
 
 ## RGB
 

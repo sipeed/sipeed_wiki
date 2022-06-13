@@ -58,7 +58,7 @@ endmodule
 
 在程序中通过 counter 计算 12000000 个时钟周期，实现 0.5s 的等待，等时间到了之后将 counter 置 0，并改变 LED 的颜色
 
-```
+```v
 module led (
     input sys_clk,          // clk input
     input sys_rst_n,        // reset input
@@ -71,7 +71,7 @@ always @(posedge sys_clk or negedge sys_rst_n) begin
     if (!sys_rst_n)
         counter <= 24'd0;
     else if (counter < 24'd1200_0000)       // 0.5s delay
-        counter <= counter + 1;
+        counter <= counter + 1'b1;
     else
         counter <= 24'd0;
 end

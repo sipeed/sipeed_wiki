@@ -17,7 +17,7 @@
     ![](./assets/LED-6.png)![](./assets/LED-7.png)
 6. 双击文件，可以在右侧的编辑框中进行代码的编写。以编辑流水灯为例，将下方的“LED例程代码”粘贴到自己的文件中，也可以自己编写自己的代码，例程代码地址：<https://github.com/sipeed/TangNano-1K-examples>
 
-    ```
+    ```v
     module led (
         input sys_clk,
         input sys_rst_n,
@@ -32,7 +32,7 @@
             led <= 3'b110;
         end
         else if (counter < 31'd1350_0000)       // 0.5s delay
-            counter <= counter + 1;
+            counter <= counter + 1'b1;
         else begin
             counter <= 31'd0;
             led[2:0] <= {led[1:0],led[2]};

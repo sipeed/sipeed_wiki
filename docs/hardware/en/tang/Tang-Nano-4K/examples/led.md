@@ -48,7 +48,7 @@ always @(posedge sys_clk or negedge sys_rst_n) begin // Counter block
     if (!sys_rst_n)
         counter <= 24'd0;
     else if (counter < 24'd1349_9999)       // 0.5s delay
-        counter <= counter + 1;
+        counter <= counter + 1'b1;
     else
         counter <= 24'd0;
 end
