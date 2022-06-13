@@ -1,5 +1,5 @@
 ---
-title: 学习开源项目核 Python 编程入门建议
+title: 学习开源项目和 Python 编程入门建议
 keywords: Python,入门,开源
 date: 2022-06-11
 tags: Python, 入门,开源
