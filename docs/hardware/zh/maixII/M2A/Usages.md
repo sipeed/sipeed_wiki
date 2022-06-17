@@ -1,6 +1,14 @@
 # Armbian 配置及使用
 
-- 使用前先使用 `/usr/lib/armbian/armbian-resize-filesystem start` 命令来扩容一下系统大小
+## 前言
+
+这里先推荐一下 mobaxterm [点我跳转](../M2/tools/mobaxterm.md) 这个软件
+
+看完上面介绍后可以用串口来连接板子。接着在进行下面的操作
+
+登陆用户名和密码都是 `root`
+
+- 使用前先执行一下 `/usr/lib/armbian/armbian-resize-filesystem start` 命令来扩容一下系统大小
 
 ## 配置网络
 
@@ -49,7 +57,7 @@ root    ALL=(ALL:ALL) ALL
 
 ```
 
-在里面添加上
+在里面添加上（其中xxx是你之前添加的用户名）
 
 ```vim
 # User privilege specification
@@ -67,14 +75,6 @@ xxx     ALL=(ALL:ALL) ALL
 ```bash
 sudo apt install armbian-config -y  # 使用root权限来运行apt应用的install命令来安装armbian-config且默认全都是通过
 ```
-
-## 使用SSH连接
-
-想要使用 ssh 来连接板子的话需要板子里面存在的用户名称和密码。
-默认的 root 用户没有密码， 所以想用 root 账户的话需要自己使用passwd命令自己添加密码；
-使用串口连接板子后执行 ifconfig 来获取板子的 IP 地址。
-接着就可以使用 ssh 来连接板子了。
-用户也可以尝试使用 MobaXterm 这个软件来方便电脑与板子传输文件
 
 ## 设置时区
 
@@ -235,21 +235,34 @@ maixsense:~:# pactl set-sink-volume 2 -0x3000
 
 ## 媒体播放
 
-媒体播放常用mplayer
+媒体播放常用 mplayer
+
 - 下载mplayer 
   
 > sudo apt install mplayer
-  
-然后执行 `sudo mplayer badapple_240p.mp4 -vo fbdev2` 来播放视频
-或者`sudo mplayer G.E.M.邓紫棋\ -\ 光年之外.flac` 播放音频
 
-在后面加上`< /dev/null > /dev/null 2>1 &`以便在后台播放
+接着我们需要把想要播放的文件传到板子上。
+
+文件可以在[下载站](https://dl.sipeed.com/shareURL/MaixII/MaixII-Dock/example)获取到下面的示例文件
+
+这里可以用最初提到过的 [mobaxterm](../M2/tools/mobaxterm.md) 软件来使用无线网络把文件传输到板子上。
+  
+- 然后执行 `sudo mplayer badapple_240_60fps.mp4 -vo fbdev2` 来播放视频
+- 或者`sudo mplayer Short.mp3` 播放音频
+
+退出的话使用 `Ctrl+C` 即可。
+
+也在后面加上`< /dev/null > /dev/null 2>1 &`以便在后台播放
 
 ```bash
-mplayer /root/badapple_240p.mp4 -vo fbdev2  < /dev/null > /dev/null 2>1 &
+mplayer badapple_240_60fps.mp4 -vo fbdev2  < /dev/null > /dev/null 2>1 &
 ```
 
+上面的指令是在后台播放的。想要停止的话可以先使用 `fg` 命令来切换到任务，再用 `Ctrl+C` 来终止程序
+
 ![202108091128](./assets/202108091128.gif)
+
+如果没播放成功的话，尝试增加设备音量（前文提过alsamixer）或者确认一下文件路径是否正确
 
 ## 编写c代码
 

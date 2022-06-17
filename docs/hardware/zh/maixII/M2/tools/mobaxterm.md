@@ -32,23 +32,30 @@ desc: maixpy doc: 如何使用 mobaxterm
 
 除了有线串口的方式，还可以通过无线访问 SSH 登录 Linux 系统。
 
-在 Linux 系统输入 ifconfig 查看自己 ip 地址（此处以192.168.1.185作为示例），然后输入自己用户名和密码。
+在板子终端输入 `hostname -I` 查看自己 ip 地址 (先连上网)，然后输入自己用户名和密码。
 
-> 输入密码的时候是看不到的（没有输入显示），在输入结束之后，按回车即可
+```bash
+root@maixsense:~# hostname -I
+192.168.0.197
+```
+
+然后我们就可以来新建SSH会话然后远程登录到板子了
+
+- 新建SSH会话
 
 ![](./asserts/mobaxterm_ssh.jpg)
+
+- 登录到板子终端
+
+![](./asserts/mobaxterm_ssh_login.png)
+
+> 输入密码的时候是看不到的（没有输入显示），在输入结束之后，按回车即可
 
 就可以看到 Linux 的登录会话终端了。
 
 传输文件的时候可以直接把文件拖入或者拉出下图的左红框中。
 
 ![](./asserts/mobaxterm_ssh_view.jpg)
-
-> 以下连接方式只是合适在 MaixII-Dock 上使用的，需要使用 MaixPy3 IDE 版本 0.4.2以上的版本
-
-MaixII-Dock 可以通过 OTG 接口转发到 127.0.0.1 的 22 端口，但是每次使用之前，都需要通过运行 IDE 来进行配置，进行 ssh 端口转发服务的开启。
-
-具体的连接方式和上面的 ssh 方式一样，只需要将 ip 地址修改成 127.0.0.1 即可，默认用户名和密码都是 root。
 
 ## 连接 FTP
 
@@ -64,14 +71,4 @@ MaixII-Dock 可以通过 OTG 接口转发到 127.0.0.1 的 22 端口，但是每
 
 ![](./asserts/mobaxterm_ftp_ud.png)
 
-## 如何进行编程
-
-除了使用串口进行 Python 代码的复制粘贴运行，还可以通过在 FTP 文件管理获取下图的代码编辑器，编辑后保存就会自动同步上传（下图为 C 代码参考，其他代码同理）。
-
-![](https://mobaxterm.mobatek.net/img/moba/features/feature-mobatexteditor.png)
-
-对于python文件编辑结束后再拿到终端里运行即可。
-
-```bash
-python xxxx.py
-```
+<a href="#" onClick="javascript :history.back(-1);">返回上一页(Back)</a>

@@ -29,7 +29,7 @@ sudo tar -xvf  TD_5.0.3_28716_NL_Linux.zip -d /opt/TD_DECEMBER2018/
 
 ## Check for default linux driver
 
-Insert Tang Primer into your computer and execute lsusb to see the information. Make sure USB VID:PID is 0547:1002 as shown in image below
+Plug in Tang Primer into your computer and execute lsusb to see the information. Make sure USB VID:PID is 0547:1002 as shown in image below
 
 ![](./../../../../zh/tang/Tang-primer/get_started/assets/USB_VID.jpg)
 

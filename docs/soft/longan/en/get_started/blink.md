@@ -101,7 +101,7 @@ First enter the driver folder, install the corresponding driver file, pay attent
 
 ![](../../assets/examples/how_to_install_dfu.png)
 
-Run GD32 MCU Dfu Tool.exe Insert Longan Nano into the computer, press and hold the Boot0 key, short press the Reset key, then release the Boot0 key, you can see that the GD32VF chip is recognized in the DFU tool.
+Run GD32 MCU Dfu Tool.exe Plug Longan Nano into the computer, press and hold the Boot0 key, short press the Reset key, then release the Boot0 key, you can see that the GD32VF chip is recognized in the DFU tool.
 
 Select the corresponding firmware file, and check the checksum after burning. Click OK to burn.
 

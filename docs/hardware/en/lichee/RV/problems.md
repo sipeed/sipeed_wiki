@@ -3,7 +3,7 @@ title: Questions&Answers
 keywords: debian, Rv, Problam, apt, img, sipeed
 ---
 
-## Apt problem
+## Apt trouble
 
 - When execute apt command in debian system it may show error as follows
   

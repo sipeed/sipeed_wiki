@@ -49,5 +49,3 @@
 | [荔枝派交流群`712961164`](https://jq.qq.com/?_wv=1027&k=2ymSdiUL) |
 | [荔枝派Telegram电报群](https://t.me/sipeed)                       |
 | [荔枝派社区](http://bbs.sipeed.com)                               |
-
- [littlevGL的使用](./application/littlevgl.md)
