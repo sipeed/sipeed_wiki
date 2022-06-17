@@ -204,7 +204,7 @@ It's not supported to use command line to connect network
 
   ![](./../../../zh/lichee/assets/RV/wifi-2.jpg)
 
-### Display and touch
+#### Display and touch
 
 LicheeRV supports following screen：
 
@@ -260,6 +260,8 @@ Because it's decoded by cpu, so the Maximum screen resolution test is 750x540 , 
 Connect board with microphone array (make sure not reverse the cable or not reverse the pin  ), then run `sudo ./micarr_0609` in terminal.
 
 If you need redevelop about microphone array, contact with support@sipeed.com
+
+![](./../../../zh/lichee/assets/RV/mic_array_picture.jpg)
 
 <iframe src="https://player.bilibili.com/player.html?aid=849734125&bvid=BV1HL4y1H7nv&cid=457750392&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
