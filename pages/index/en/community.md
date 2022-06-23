@@ -23,25 +23,36 @@
 		<tr>
             <td><span class="limit_width"></span><strong>twitter</strong></td>
             <td><span class="limit_width"></span><span class=""><a href="https://twitter.com/SipeedIO" target="_blank"><strong>twitter.com/SipeedIO</strong></a></span</td>
+        </tr>				
+    </tbody>
+</table>
+
+<table role="table" class="center_table">
+    <thead>
+        <tr>
+            <th>QQ Group</th>
+            <th>Address</th>
         </tr>
+    </thead>
+    <tbody>
         <tr>
             <td><span class="limit_width"></span><strong>MaixPy QQ Group</strong></td>
-            <td><strong><span class="limit_width"></span><span class="limit_width">Group①: 878189804</span></strong><br><span class="limit_width"></span><span class="limit_width"><strong>Group②: 1129095405</strong></span></td>
+            <td><strong><span class="limit_width"></span><span class="limit_width">Group②: 1129095405</span></strong><br><span class="limit_width"></span><span class="limit_width"><strong>Group④: 256336487</strong></span></td>
         </tr>
         <tr>
             <td><span class="limit_width"></span><strong>MaixPy3 QQ Group</strong></td>
             <td><span class="limit_width"></span><span class=""><strong>756313869</strong></span></td>
         </tr>
         <tr>
-            <td><span class="limit_width"></span><strong>Linux-Lichee QQ Group</strong></td>
+            <td><span class="limit_width"></span><strong>Licheepi-linux QQ Group</strong></td>
             <td><span class="limit_width"></span><span class=""><strong>488268051</strong></span></td>
         </tr>
         <tr>
-            <td><span class="limit_width"></span><strong>FPGA-Tang QQ Group</strong></td>
+            <td><span class="limit_width"></span><strong>Tang-fpga QQ Group</strong></td>
             <td><span class="limit_width"></span><span class=""><strong>834585530</strong></span></td>
         </tr>
         <tr>
-            <td><span class="limit_width"></span><strong>Mcu-Longan QQ Group</strong></td>
+            <td><span class="limit_width"></span><strong>Longan-Mcu QQ Group</strong></td>
             <td><span class="limit_width"></span><span class=""><strong>816177882</strong></span></td>
         </tr>				
     </tbody>

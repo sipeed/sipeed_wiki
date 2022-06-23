@@ -12,7 +12,6 @@
                 "label": "产品",
                 "position": "left",
                 "type": "list",
-                "url":"/hardware/zh/",
                 "items": [
                     {
                         "url": "/hardware/zh/maix/index.html",
@@ -25,7 +24,7 @@
                     },
                     {
                         "url": "/hardware/zh/lichee/index.html",
-                        "label": "Lichee Pi"
+                        "label": "Lichee-Pi"
                     },
                     {
                         "url": "/hardware/zh/tang/index.html",
@@ -62,13 +61,13 @@
             },
             
             {
-                "label": "云服务",
+                "label": "在线服务",
                 "position": "left",
                 "type":"list",
                 "items":[
                     {
                         "label":"AI 训练平台",
-                        "url":"https://www.maixhub.com",
+                        "url":"https://maix.sipeed.com",
                         "target": "_blank"
                     },
                     {
@@ -84,19 +83,19 @@
                 "position": "left"
             },
             {
-                "url": "/store.html",
+                "label":"博文精选",
+                "url":"/news/",
+                "position":"left"
+            },
+            {
                 "label": "线上商城",
-                "position": "left"
+                "url": "/store.html",
+                "position": "right"
             },
             {
                 "label":"贡献文档",
                 "url":"/share_docs/zh/",
-                "position": "left"
-            },
-            {
-                "label":"最新动态",
-                "url":"/news/",
-                "position":"left"
+                "position": "right"
             },
             {
                 "label": "Github ",
@@ -115,10 +114,10 @@
     "footer":{
         "top":[
             {
-                "label": "链接",
+                "label": "其他链接",
                 "items": [
                     {
-                        "label": "Sipeed",
+                        "label": "Sipeed 官网",
                         "url": "https://www.sipeed.com",
                         "target": "_blank"
                     },
@@ -129,13 +128,16 @@
                     },
                     {
                         "label": "Maixhub",
-                        "url": "https://maixhub.sipeed.com/",
+                        "url": "https://maix.sipeed.com/",
                         "target": "_blank"
                     },
                     {
                         "label": "Sipeed 淘宝",
                         "url": "https://sipeed.taobao.com/",
                         "target": "_blank"
+                    },
+                    {
+
                     },
                     {
                         "label": "网站使用 teedoc 生成",
@@ -162,7 +164,7 @@
                 "label": "源码",
                 "items": [
                     {
-                        "label": "文档源文件",
+                        "label": "网站源码",
                         "url": "https://github.com/sipeed/sipeed_wiki",
                         "target": "_blank"
                     },

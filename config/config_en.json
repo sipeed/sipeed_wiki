@@ -12,7 +12,6 @@
             "label": "Products",
             "position": "left",
             "type": "list",
-            "url":"/hardware/en/",
             "items": [
                 {
                     "url": "/hardware/zh/maix/index.html",
@@ -25,7 +24,7 @@
                 },
                 {
                     "url": "/hardware/zh/lichee/index.html",
-                    "label": "Lichee Pi"
+                    "label": "Lichee-Pi"
                 },
                 {
                     "url": "/hardware/en/tang/index.html",
@@ -62,7 +61,7 @@
         },
         
         {
-            "label": "Cloud Service",
+            "label": "Online Service",
             "position": "left",
             "type":"list",
             "items":[
@@ -84,19 +83,19 @@
             "position": "left"
         },
         {
-            "url": "/store.html",
+            "label":"Articles",
+            "url":"/news/",
+            "position":"left"
+        },
+        {
             "label": "Online Store",
-            "position": "left"
+            "url": "/store.html",
+            "position": "right"
         },
         {
             "label":"Contribute docs",
             "url":"/share_docs/en/",
-            "position": "left"
-        },
-        {
-            "label":"News",
-            "url":"/news/",
-            "position":"left"
+            "position": "right"
         },
         {
             "label": "Github ",
@@ -115,7 +114,7 @@
 "footer":{
     "top":[
         {
-            "label": "Link",
+            "label": "Other links",
             "items": [
                 {
                     "label": "Sipeed",
@@ -148,7 +147,7 @@
             "label": "Source Code",
             "items": [
                 {
-                    "label": "Open Source Doc",
+                    "label": "Website source code",
                     "url": "https://github.com/sipeed/sipeed_wiki",
                     "target": "_blank"
                 },

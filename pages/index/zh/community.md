@@ -4,28 +4,24 @@
 </div>
 
 
->! 建议到 [Sipeed 社区(bbs)](https://bbs.sipeed.com) 交流和提问, 提问时请使用图文完整阐述问题和复现问题的详细过程, 在群里提问时最好发提问贴的链接, 方便大家快速了解到你的问题,提高问题被解答的可能性~
+- 建议到 [Sipeed 社区(bbs)](https://bbs.sipeed.com) 交流和提问, 提问时请使用图文完整阐述问题和复现问题的详细过程； 在群里提问时最好发提问贴的链接, 方便大家快速了解到你的问题,提高问题被快速解决的可能性~
 
-<div></div>
-
->! QQ群数量有限, 加的伙伴比较多, 群满之后会清理长期未发言的账户, 如果不小心被移除了可以再次加回来, 理解万岁!
-
-
+-  QQ群数量有限, 加的伙伴比较多, 群满之后会清理长期未发言的账户, 如果不小心被移除了可以再次加回来, 理解万岁!
 
 <table role="table" class="center_table">
     <thead>
         <tr>
-            <th>Sipeed 社区</th>
+            <th>Sipeed 国内社区</th>
             <th>地址</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td><span class="limit_width"></span><strong>Sipeed交流社区(推荐使用)</strong></td>
+            <td><span class="limit_width"></span><strong>Sipeed 交流社区(推荐使用)</strong></td>
             <td><span class="limit_width"></span><span class=""><a href="https://bbs.sipeed.com" target="_blank"><strong>bbs.sipeed.com</strong></a></span></td>
         </tr>
         <tr>
-            <td><span class="limit_width"></span><strong>MaixPy 交流QQ群</strong></td>
+            <td><span class="limit_width"></span><strong>MaixPy 交流QQ群（K210用户）</strong></td>
             <td><strong><span class="limit_width"></span><span class="limit_width">①群: 878189804</span></strong><br><span class="limit_width"></span><span class="limit_width"><strong>②群(刚入门): 1129095405</strong></span><br><span class="limit_width"></span><span class="limit_width"><strong>④群(刚入门): 256336487</strong></span></td>
         </tr>
         <tr>
@@ -33,27 +29,47 @@
             <td><span class="limit_width"></span><span class=""><strong>756313869</strong></span></td>
         </tr>
         <tr>
-            <td><span class="limit_width"></span><strong>Linux-Lichee交流QQ群</strong></td>
+            <td><span class="limit_width"></span><strong>LicheePi-linux 交流QQ群</strong></td>
             <td><span class="limit_width"></span><span class=""><strong>712961164</strong></span></td>
         </tr>
         <tr>
-            <td><span class="limit_width"></span><strong>FPGA-Tang交流QQ群</strong></td>
+            <td><span class="limit_width"></span><strong>Tang-FPGA 交流QQ群</strong></td>
             <td><span class="limit_width"></span><span class=""><strong>834585530</strong></span></td>
         </tr>
         <tr>
-            <td><span class="limit_width"></span><strong>Mcu-Longan交流QQ群</strong></td>
+            <td><span class="limit_width"></span><strong>Longan-Mcu 交流QQ群</strong></td>
             <td><span class="limit_width"></span><span class=""><strong>816177882</strong></span></td>
         </tr>
         <tr>
-            <td><span class="limit_width"></span><strong>twitter</strong></td>
-            <td><span class="limit_width"></span><span class=""><a href="https://twitter.com/SipeedIO" target="_blank"><strong>twitter.com/SipeedIO</strong></a></span</td>
-        </tr>
-        <tr>
-            <td><span class="limit_width"></span><strong>Telegram</strong></td>
+            <td><span class="limit_width"></span><strong>Telegram 交流群</strong></td>
             <td><span class="limit_width"></span><span class=""><a href="https://t.me/sipeed" target="_blank"><strong>t.me/sipeed</strong></a></span</td>
-        </tr>				
+        </tr>	
+        <tr>
+            <td><span class="limit_width"></span><strong>Twitter 宣传页</strong></td>
+            <td><span class="limit_width"></span><span class=""><a href="https://twitter.com/SipeedIO" target="_blank"><strong>twitter.com/SipeedIO</strong></a></span</td>
+        </tr>			
     </tbody>
 </table>
+
+<table role="table" class="center_table">
+    <thead>
+        <tr>
+            <th>Sipeed 国外社区</th>
+            <th>地址</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><span class="limit_width"></span><strong>Telegram 交流群</strong></td>
+            <td><span class="limit_width"></span><span class=""><a href="https://t.me/sipeed" target="_blank"><strong>t.me/sipeed</strong></a></span</td>
+        </tr>	
+        <tr>
+            <td><span class="limit_width"></span><strong>Twitter 宣传页</strong></td>
+            <td><span class="limit_width"></span><span class=""><a href="https://twitter.com/SipeedIO" target="_blank"><strong>twitter.com/SipeedIO</strong></a></span</td>
+        </tr>			
+    </tbody>
+</table>
+
 
 
 <table role="table" class="center_table">

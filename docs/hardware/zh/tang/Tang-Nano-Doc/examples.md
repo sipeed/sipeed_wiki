@@ -32,6 +32,7 @@ https://dl.sipeed.com/shareURL/TANG/programmer 里面的文件。
 - [点灯例程](./../Tang-Nano-4K/examples/LED.md)
 - HDMI显示工程：https://github.com/sipeed/TangNano-4K-example/tree/main/dk_video/project
 - 摄像头内容显示在HDMI工程：https://github.com/sipeed/TangNano-4K-example/tree/main/dk_video/project
+- 在Nano 4K上运行GBA的工程：https://github.com/Martoni/GbHdmi
 - Cortex-m3点灯：待更新
 - Cortex-m3串口通信：待更新
 
@@ -45,4 +46,3 @@ https://dl.sipeed.com/shareURL/TANG/programmer 里面的文件。
 - FPGA驱动SPI屏幕：待更新
 - HDMI显示例程：即将更新
 - 驱动MIPI接口屏幕：待更新
-
