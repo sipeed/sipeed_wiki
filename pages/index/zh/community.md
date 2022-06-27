@@ -22,7 +22,7 @@
         </tr>
         <tr>
             <td><span class="limit_width"></span><strong>MaixPy 交流QQ群（K210用户）</strong></td>
-            <td><strong><span class="limit_width"></span><span class="limit_width">①群: 878189804</span></strong><br><span class="limit_width"></span><span class="limit_width"><strong>②群(刚入门): 1129095405</strong></span><br><span class="limit_width"></span><span class="limit_width"><strong>④群(刚入门): 256336487</strong></span></td>
+            <td><strong><span class="limit_width"></span><span class="limit_width">①群: 878189804</span></strong><br><span class="limit_width"></span><span class="limit_width"><strong>②群: 1129095405</strong></span><br><span class="limit_width"></span><span class="limit_width"><strong>④群(刚入门): 256336487</strong></span></td>
         </tr>
         <tr>
             <td><span class="limit_width"></span><strong>MaixPy3 交流QQ群（K210勿入）</strong></td>
