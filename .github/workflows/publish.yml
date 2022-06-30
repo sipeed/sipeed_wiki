@@ -38,11 +38,14 @@ jobs:
           teedoc install
           teedoc build
           out_dir=out`python3 -c 'import json; f=open("site_config.json");config=json.load(f);print(config["site_root_url"])'`
+          sync_gitee=`pwd`/.github/workflows/sync_gitee.yml
           cd $out_dir
           git init
           git config user.name ${{ secrets.GIT_NAME }}
           git config user.email ${{ secrets.GIT_EMAIL }}
           git remote add upstream "git@github.com:${{ secrets.REPO }}.git"
+          mkdir -p .github/workflows
+          cp $sync_gitee .github/workflows/
           git add -A
           git commit -m "rebuild website ad $GITHUB_REF"
           SSHPATH="$HOME/.ssh"
