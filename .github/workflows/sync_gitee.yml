@@ -37,4 +37,4 @@ jobs:
           chmod 600 "$SSHPATH/id_rsa"
           sudo sh -c "echo StrictHostKeyChecking no >>/etc/ssh/ssh_config"
           git remote add upstream $GITEE_GIT_ADDR
-          git push upstream --all --force --tags
+          git push upstream --all --force
