@@ -118,11 +118,10 @@ mjpg.MjpgServerThread(
 
 while True:
     img = camera.capture()
-    jpg = utils.rgb2jpg(img.convert("RGB").tobytes(),
-                        img.width, img.height)
-    print(len(jpg))
+    jpg = utils.rgb2jpg(img.convert("RGB").tobytes(), img.width, img.height)
     queue.put(mjpg.BytesImage(jpg))
     display.show(img)
+
 ```
 
 - 如果使用 MaixII-Dock 开发板，连接 OTG 接口可以实现通过有线实时显示摄像头画面。打开 MaixPy3 IDE，在图片的右键菜单中将 maixpy3_notebook 停止，然后在 adb 终端的 进入 python 环境，运行以上代码，可以直接在下面的中显示画面、
