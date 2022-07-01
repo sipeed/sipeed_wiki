@@ -1,6 +1,6 @@
 # Note
 
-> Edit on 2022.05.12
+> Edit on 2022.06.29
 
 - This is for Windows users only
 
@@ -11,6 +11,20 @@
 ![](./../../../zh/tang/assets/questions/converter.png)
 
 If there are two converters, this means computer and board succeed connectting. And if there is no converter, try another USB port or reinstall driver.
+
+<h3> <font color="">Download frequency</font></h3>
+
+Make sure the frquency is equal or lower than `2.5MHz` ,
+
+Otherwise it may lead some errors.
+
+<details>
+  <summary><font color="#4F84FF">Click to see steps</font></summary>
+  <img src="./../assets/questions/cable.png">
+  <p>Choose Frequency</p>
+  <img src="./../assets/questions/frequency.png" >
+  <p>Cilck Save</p>
+</details>
 
 ### Trouble downloading
 
@@ -71,15 +85,21 @@ Click Edit->Cable Setting->Cable->Query in the top menu bar,then save.
 
 ### Using GAO
 
-It's tested IDE version before V1.9.8.1 and V1.9.8.1 is ok, the newer version is not ok.
+GAO is Gowin Analyzer Oscilloscope, its document can be found in the path like what is shown below
+
+![GAO path](./assets/gao.png)
+
+It's tested IDE version before V1.9.8.1 and V1.9.8.1 is ok, the newer version has not be tesetd.
 
 ### View IP reference
+
 <details>
   <summary><font color="#4F84FF">Click to see instructions</font></summary>
     <img src="./../../../zh/tang/assets/ip-reference.png">
 </details>
 
-### Reconfigure generater IP
+### Reconfigure generated IP
+
 <details>
   <summary><font color="#4F84FF">Click to see instructions</font></summary>
     <img src="./../../../zh/tang/assets/ip-reconfigure.png">

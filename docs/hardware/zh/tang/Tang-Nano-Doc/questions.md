@@ -2,7 +2,7 @@
 title: Note
 ---
 
-> 编辑于2022.05.12
+> 编辑于2022.06.29
 
 这里汇总一些常见问题，持续更新
 
@@ -14,9 +14,23 @@ title: Note
 
 与上图中一样的话说明电脑与板子连接没问题；不存在的话请更改 usb口 或者重新安装驱动。
 
+<h3> <font color="">下载频率</font></h3>
+
+要注意下载频率应该为 `2.5M`或者更低的数值。
+
+不然很可能导致一些奇怪的错误
+
+<details>
+  <summary><font color="#4F84FF">点开查看操作步骤图片</font></summary>
+  <img src="./../assets/questions/cable.png">
+  <p>点击下图中的 Frequency</p>
+  <img src="./../assets/questions/frequency.png" >
+  <p>接着再点击 Save 即可</p>
+</details>
+
 ### 下载失败
 
-对于Programmer(下载程序)建议使用 
+对于Programmer(下载程序)建议使用 AA
 https://dl.sipeed.com/shareURL/TANG/programmer 里面的文件。
 下载后解压替换掉Gowin对应安装目录的Programmer文件夹即可。
 不会替换的话可以在下载解压后的Programmer程序中手动添加对应下载文件来进行烧录。
@@ -79,17 +93,23 @@ https://dl.sipeed.com/shareURL/TANG/programmer 里面的文件。
 
 ## IDE 使用相关
 
-### 使用GAO
+### 使用 GAO
+
+GAO 是高云半导体在线逻辑分析仪（Gowin Analyzer Oscilloscope）。安装高云 IDE 之后就能在对应的安装相对路径下看到相关文档了
+
+![GAO](./../assets/questions/gao.png)
 
 目前测试过IDE v1.9.8.1和之前的版本可使用。其他新版的不行
 
 ### 查看IP文档
+
 <details>
   <summary><font color="#4F84FF">点开查看相关说明</font></summary>
     <img src="./../assets/ip-reference.png">
 </details>
 
 ### 修改设置过的IP
+
 <details>
   <summary><font color="#4F84FF">点开查看相关说明</font></summary>
     <img src="./../assets/ip-reconfigure.png">

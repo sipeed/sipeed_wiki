@@ -28,7 +28,7 @@ There are two system images for Lichee RV and they are tina and debian.
 
 ## Flash image
 
-Open PhoenixCard, and choose the target firmware, insert tf card into card reader then connect with the computer.
+Run PhoenixCard, and choose the target firmware, insert tf card into card reader then connect with the computer.
 
 ![](./../assets/RV/flash.png)
 

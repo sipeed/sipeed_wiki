@@ -31,7 +31,7 @@ desc: maixpy doc: MaixII M2dock 烧录系统
 
 | 名称          | 含义                                           |
 | ------------- | ---------------------------------------------- |
-| maixpy3-0.3.4 | 此镜像是给 MaixPy3 专用，并内置了`0.3.4`的版本 |
+| maixpy3-0.3.4 | 此镜像是给 [MaixPy3](https://wiki.sipeed.com/maixpy3) 专用，并内置了`0.3.4`的版本 |
 | MaixII-Dock   | 可使用 MaixII-Dock 开发板平台                  |
 | 20211119      | 镜像更新日期                                   |
 

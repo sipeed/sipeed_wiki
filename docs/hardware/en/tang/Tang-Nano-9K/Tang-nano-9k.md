@@ -4,9 +4,9 @@ title: Tang Nano 9k examples
 
 Before reading, we suggest using this [Programmer](https://dl.sipeed.com/shareURL/TANG/programmer) not that installed with IDE
 
-- [Blink](./examples/led/led.md)
-- [LCD screen](./examples/rgb_screen/rgb_screen.md)
-- [Run examples of PicoRV](./examples/picorv/picorv.md)
+- [Blink](./examples/led.md)
+- [LCD screen](./examples/rgb_screen.md)
+- [Run examples of PicoRV](./examples/picorv.md)
 - litex running on 9K(Preparing, please wait)
 - FPGA drives SPI screen(Preparing, please wait)
 - PicoRV running on 9K(Preparing, please wait)

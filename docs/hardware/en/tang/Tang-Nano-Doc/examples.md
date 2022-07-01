@@ -53,11 +53,11 @@ https://github.com/sipeed/TangNano-4K-example
 Github Repository:
 https://github.com/sipeed/TangNano-9K-example
 
-- [Blink](./../Tang-Nano-9K/examples/led/led.md)
-- [LCD screen](./../Tang-Nano-9K/examples/rgb_screen/rgb_screen.md)
-- [Run examples of PicoRV](./../Tang-Nano-9K/examples/picorv/picorv.md)
+- [Blink](./../Tang-Nano-9K/examples/led.md)
+- [LCD screen](./../Tang-Nano-9K/examples/rgb_screen.md)
+- [Run examples of PicoRV](./../Tang-Nano-9K/examples/picorv.md)
 - litex running on 9K(Preparing, please wait)
-- ~~FPGA drives 1.14-inch SPI screen(Preparing, please wait)~~
+- [FPGA drives 1.14-inch SPI screen](./../Tang-Nano-9K/examples/spi_lcd.md)
 - PicoRV running on 9K(Preparing, please wait)
 - HDMI display(Preparing, please wait)
 - Drive screen by mipi interface(Preparing, please wait)

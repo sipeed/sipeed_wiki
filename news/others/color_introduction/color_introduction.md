@@ -4,11 +4,10 @@ keywords: Color, 色彩空间,RGB,HSV,YUV,LAB,CMYK
 desc: 色彩空间科普
 date: 2022-06-11
 tags: Color, 色彩空间
+cover: ./assets/cover.png
 ---
 
 常用颜色表示方法： RGB HSV YUV LAB CMYK
-
-![](./assets/cover.png)
 
 <!-- more -->
 

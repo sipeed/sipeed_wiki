@@ -271,7 +271,9 @@ If your device display incorrectly, go to [Questions&Answers](./problems.md) to 
 
 Here we just show simple usage about this board, the usage for [Dock](#use-dock-motherboard) also can be used for 86Panel (Except Light LED by PC0 pins)
 
-After finishing burning card, insert it into the board, wait about 2 minutes to see the desktop displays on the screen
+For tina os there is no GUI, so we use debian as example.
+
+After finishing burning debian OS, insert mirror card into the board, wait about 2 minutes to see the desktop displays on the screen, during which you can see log form uart port.
 
 ![attachmentId-2734](./../../../zh/lichee/assets/RV/LicheeRV_login_picture.png)
 
@@ -289,7 +291,9 @@ Let's try to compile and run hello world
 
 ![attachmentId-2737](./../../../zh/lichee/assets/RV/Run_HelloWorld.png)
 
-We also provide 720P 720p high-definition screen, you can try this if you have enough money~
+We also provide 720P 720p high-definition screen, you can try this if you have enough money。
+
+When you use this you need to overwrite the board-level configuration to set it in correct configurations to display.[Click here](problems.md#86-panel-screen-no-display-display-wrong) to see more details.
 
 ![attachmentId-2738](./../../../zh/lichee/assets/RV/display_1.png)
 
@@ -299,7 +303,7 @@ We also provide 720P 720p high-definition screen, you can try this if you have e
 
 Because LED on the core board is reused with the 86Panel motherboard peripheral, We can't light it directly.
 
-But we can see that there are many extra pins on thr mother board, so we can light led in a similar way how we light led with Dock board .
+After connecting the LED with the reserved IO pad, we can blink it by the same ways how we blink by [dock board](#light-led).
 
 ### Connect Internet
 
@@ -319,6 +323,20 @@ You can refer to [Dock wireless network](#wireless-network)
 ### Others
 
 Same as operating dock motherboard.
+
+#### Touch screen test
+
+<font color=#16B2C>Only tina OS contains touch demo</font>
+
+IF you buy 86panel package, just use command `ts_test` to test touch screen
+
+> There is a bug with touch-driver,that is when you remove your finger during test, the cursor stops blink while the terminal still print messages
+
+```bash
+root@MaixLinux:/# ts
+ts_calibrate  ts_harvest    ts_print_mt   ts_test       ts_verify
+ts_finddev    ts_print      ts_print_raw  ts_test_mt    tshowimg
+```
 
 ## USE BSP SDK
 

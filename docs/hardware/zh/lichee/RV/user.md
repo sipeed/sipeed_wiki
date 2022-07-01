@@ -270,7 +270,9 @@ sudo ./micarr_0609
 
 下面仅进行简单的操作。另外上面 dock 板子的操作同样适用于 86Panel。
 
-烧录debian系统后，插卡启动，等待2分钟左右，屏幕上就会显示登录界面
+对于使用 tina 系统的是没有 GUI 界面的。因此下面使用 debian 简单展示一下屏幕
+
+烧录 debian 系统后，插卡启动，等待2分钟左右，屏幕上就会显示登录界面
 
 ![登录界面](./../assets/RV/LicheeRV_login_picture.png "登录界面")
 
@@ -288,7 +290,11 @@ sudo ./micarr_0609
 
 ![运行自制程序](./../assets/RV/Run_HelloWorld.png "运行自制程序")
 
-另有720P高清屏的效果对比，有米的朋友可以考虑入手：
+另有720P高清屏的效果对比，有米的朋友可以考虑入手。
+
+注意使用的时候应当烧录一下板级配置文件来成功显示，具体请看[86panel显示异常](problems.md#86-panel-烧录后屏幕无反应显示不对)
+
+实际显示效果如下：
 
 ![高清显示_1](./../assets/RV/display_1.png)
 
@@ -298,7 +304,7 @@ sudo ./micarr_0609
 
 由于 86Panel 的核心板的 LED 与底板外设复用了，因此不能直接使用核心板的灯了。
 
-但是我们可以看到它上面有许多的额外引脚。因此我们可以使用类似于 dock 底板点灯的方式来点灯。
+将直插型 LED 正确地与预留的 IO 焊盘连接好后可以参考 dock 底板点灯的方式来点灯。
 
 ### 连接网络
 
@@ -318,6 +324,20 @@ udhcpc -ieth0
 ### 其他
 
 与 dock 底板相关操作一致
+
+### 触摸屏测试
+
+<font color=#16B2C>仅 tina 系统内置 触摸demo</font>
+
+如果你购买的是86面板套餐，可以使用 ts_test 进行触摸测试。
+
+> 注意触摸驱动有瑕疵，ts_test测试时松开后，光标会不动，但是终端仍会正常打印信息
+
+```bash
+root@MaixLinux:/# ts
+ts_calibrate  ts_harvest    ts_print_mt   ts_test       ts_verify
+ts_finddev    ts_print      ts_print_raw  ts_test_mt    tshowimg
+```
 
 ## BSP SDK 开发指南
 

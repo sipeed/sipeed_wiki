@@ -93,7 +93,7 @@ print(platform.uname())
 
 具体相关使用方法可以参考[使用 MaixPy3 IDE 连接 MaixII-Dock](./0.MaixII-Dock.ipynb),其中的**如何运行代码**和**首次尝试**都可以参考。
 
-- 另外因为板子是使用无线网络连接的IDE，所以在IDE离需要先指定一下板子IP
+- 另外因为板子是使用无线网络连接的 IDE，所以在 IDE 里面需要先指定一下板子IP
 
 ### 开机自启
 

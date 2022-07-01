@@ -6,7 +6,7 @@
 
 Tang nano 9K is an exquisite development board based on [Gowin](https://www.gowinsemi.com/en/) GW1NR-9 FPGA chip.It equips with HDMI connector, RGB screen interface connector, SPI screen connector, 32Mbit SPI flash and 6 LEDs, so users can use it for FPGA verification, risc-v soft core verification and basic function verification easily and quickly. Its 8640 LUT4 logic units can not only be used for various complex logic circuits designing, but also used for running a complete PicoRV soft core. It also meets various needs of users, such as learning FPGA, verifying soft core and further design.
 
-![](./assets/9K.png)
+![](./../../../assets/Tang/Nano-9K/9K.png)
 
 ## Comparison
 
@@ -67,7 +67,7 @@ This form shows detail parameters of Tang Nano 9K
    
 3. Read this file (in the file downloaded in step 1) : [SUG100-2.6E_Gowin Software User Guide.pdf](https://dl.sipeed.com/fileList/TANG/Nano%209K/6_Chip_Manual/EN/General%20Guide/SUG100-2.6E_Gowin%20Software%20User%20Guide.pdf)
 
-4. Read this [tutorial](./examples/led/led.md) (LEDs lighting experiment).
+4. Read this [tutorial](./examples/led.md) (LEDs lighting experiment).
    We suggest you recreate a project ang light the led by yourself, this can help you know more about the steps about fpga.
    We recommended you read the following tips during this process:
    - Verilog code specifications (please search by yourself. It is very necessary to obey good code specifications from beginning)
@@ -81,7 +81,7 @@ This form shows detail parameters of Tang Nano 9K
    Online tutorial:  
    We suggest two excellent learning sites about verilog : [HDLBITs](https://hdlbits.01xz.net/wiki/Main_Page) and [Verilog Page](https://www.asic-world.com/verilog/index.html)
 
-5. Read this [tutorial](./examples/rgb_screen/rgb_screen.md) (5-inch RGB screen Display turtial). If you can't complete this experiment, you can download our [9K examples](https://github.com/sipeed/TangNano-9K-example) (adapted to 9K + 5-inch screen) to see which step goes wrong.
+5. Read this [tutorial](./examples/rgb_screen.md) (5-inch RGB screen Display turtial). If you can't complete this experiment, you can download our [9K examples](https://github.com/sipeed/TangNano-9K-example) (adapted to 9K + 5-inch screen) to see which step goes wrong.
    **Note: for screen wiring, pay attention to the 1-pin silk screen next to the connector corresponding to 1-pin of the cable**
    Documents to read:
    - rPLL IP core reference: Click the menubar Tools>IP Core Generator>Hard Module>CLOCK>rPLL
@@ -116,11 +116,11 @@ This form shows detail parameters of Tang Nano 9K
 1. It is recommended to use Gowin V1.9.8.03 Education Edition : [Click me](https://www.gowinsemi.com/en/support/download_eda/)
 But if you want to use more IP cores, you need to download other version of IDE, and apply for license : [Click me](https://wiki.sipeed.com/hardware/en/tang/Tang-Nano-Doc/install-the-ide.html)
 2. This version of programmer is recommended : [Click me](https://dl.sipeed.com/shareURL/TANG/programmer)
-3. Avoid using JTAG, MODE0/1 and DONE pins. If you really need to use these pins, please refer to the [UG284-1.8E : schematic manual.pdf](file:///E:/Download/download/UG284-1.8E_GW1NR%20Series%20of%20FPGA%20Products%20Schematic%20Manual.pdf) to see how to enable IO mux.
+3. Avoid using JTAG, MODE0/1 and DONE pins. If you really need to use these pins, please refer to the [SUG100-2.6E_Gowin Software User Guide.pdf](https://dl.sipeed.com/fileList/TANG/Nano%209K/6_Chip_Manual/EN/General%20Guide/SUG100-2.6E_Gowin%20Software%20User%20Guide.pdf) to see how to enable IO mux.
 4. Please avoid static electricity hitting PCBA; Please release the static electricity from the hand before contacting PCBA
 5. The working voltage of each GPIO has been marked in the schematic . Please do not let the actual working voltage of GPIO exceed the rated value, because it will cause permanent damage to PCBA
 6. When connecting FPC flexible cable, make sure the cable is completely inserted into the base with on offset
-7. Avoid any liquid or metal touching the pads of components on PCBA during working, because this will cause short circuit and demage PCBA
+7. Avoid any liquid or metal touching the pads of components on PCBA during working, because this will cause short circuit and damage PCBA
 
 ## Others
 
