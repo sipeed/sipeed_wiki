@@ -2,33 +2,39 @@
 title: Light LED
 ---
 
-> Edit on 2022.04.11
+> Edit on 2022.07.03
 
 From this essay we can learn the basic usage of Gowin IDE
 
 ## Create Project
 
 Create Project：File-->NEW-->FPGA Dsign Project-->OK
-![](./../../../../../zh/tang/Tang-Nano/assets/LED-1.png)
+
+![](https://github.com/sipeed/sipeed_wiki/blob/main/docs/hardware/zh/tang/Tang-Nano/assets/LED-1.png?raw=true)
 
 Set project name and project path (File name and project path shoule be English)
-![](./../../../../../zh/tang/Tang-Nano/assets/LED-2.png)
+
+![](https://github.com/sipeed/sipeed_wiki/blob/main/docs/hardware/zh/tang/Tang-Nano/assets/LED-2.png?raw=true)
 
 Choose correct device: 
-![Tang_nano_9k_device_choose](./../../../../../zh/tang/Tang-Nano-9K/nano_9k/Tang_nano_9k_Device_choose.png)
+
+![](https://github.com/sipeed/sipeed_wiki/blob/main/docs/hardware/zh/tang/Tang-Nano-9K/nano_9k/Tang_nano_9k_Device_choose.png?raw=true)
 
 ## Prepare codes
 
 After creating project, we can start editing codes. 
 To creat a new file, we can click where the arrow points to in the picture or use shortcut key Ctrl+N.
 Then choose Verilog File in the pop-up window.
-![](./../../../../../zh/tang/Tang-Nano/assets/LED-5.png)
+
+![](https://github.com/sipeed/sipeed_wiki/blob/main/docs/hardware/zh/tang/Tang-Nano/assets/LED-5.png?raw=true)
 
 Name for file (Suggested using English)
-![](./../../../../../zh/tang/Tang-Nano/assets/LED-6.png)
+
+![](https://github.com/sipeed/sipeed_wiki/blob/main/docs/hardware/zh/tang/Tang-Nano/assets/LED-6.png?raw=true)
 
 Double click the created file, then edit in right window
-![](./../../../../../zh/tang/Tang-Nano/assets/LED-7.png)
+
+![](https://github.com/sipeed/sipeed_wiki/blob/main/docs/hardware/zh/tang/Tang-Nano/assets/LED-7.png?raw=true)
 
 - We use light led as an example, copy the following "LED example codes" into the created file or edit the created file by yourself.  
 
@@ -63,17 +69,20 @@ endmodule
 ~~~
 
 After finishing edit the file, it's necessary to tick the `Use DONE as regular IO` in Project->Configuration->Place&Route->Dual-Purpose Pin to avoid error.
-![img_configuration](./../../../../../zh/tang/Tang-Nano-9K/nano_9k/LED_Configuration.png)
+
+![img_configuration](https://github.com/sipeed/sipeed_wiki/blob/main/docs/hardware/zh/tang/Tang-Nano-9K/nano_9k/LED_Configuration.png?raw=true)
 
 ## Systhesize, constrain, place&route
 
 ### Systhesize
 
-After finishing steps above, go to the "Process" interface, systhesize the edited file, which means running "Systhesize". 
-![](./../../../../../zh/tang/Tang-Nano-9K/nano_9k/nano_9k_synthsize.png)
+After finishing steps above, go to the "Process" interface, systhesize the edited file, which means running "Systhesize".
+
+![img_configuration](https://github.com/sipeed/sipeed_wiki/blob/main/docs/hardware/zh/tang/Tang-Nano-9K/nano_9k/nano_9k_synthsize.png?raw=true)
 
 If the result is the same as shown below
-![](./../../../../../zh/tang/Tang-Nano/assets/LED.png) 
+
+![](https://github.com/sipeed/sipeed_wiki/blob/main/docs/hardware/zh/tang/Tang-Nano/assets/LED.png?raw=true)
 
 It means that there is no bug in our code, we can continue the next steps. 
 
@@ -87,20 +96,23 @@ To realize function of the code on FPGA, we must bind the ports we define with t
 
 Double click the FloorPlanner in the Process interface to set pin constrain(This can be continued if failing systhesize). 
 
-![](./../../../../../zh/tang/assets/examples/led_pjt_2.png)
+![](https://github.com/sipeed/sipeed_wiki/blob/main/docs/hardware/zh/tang/assets/examples/lcd_pjt_2.png?raw=true)
 
 First time open FloorPlanner it will prompt lack of ".cst" file, we just choose ok. 
-![](./../../../../../zh/tang/Tang-Nano/assets/LED-9.png)
+
+![](https://github.com/sipeed/sipeed_wiki/blob/main/docs/hardware/zh/tang/Tang-Nano/assets/LED-9.png?raw=true)
 
 The leds schematic of nano 9k is as shown below:
-![](./../../../../../zh/tang/Tang-Nano-9K/nano_9k/LED_Pins.png "nano 9k led pins")
+
+![](https://github.com/sipeed/sipeed_wiki/blob/main/docs/hardware/zh/tang/Tang-Nano-9K/nano_9k/LED_Pins.png?raw=true)
 
 In this GUI interface we have two ways to constrain pins:
 - Drag the corresponding port to the pin of chip
 - Type the pin number corresponding to the port in IO constraint(This is shown as below)
 
 So we can do the ordered operations in the opened window as what the following picture shows:
-![](./../../../../../zh/tang/Tang-Nano-9K/nano_9k/LED_FloorPlanner.png)
+
+![](https://github.com/sipeed/sipeed_wiki/blob/main/docs/hardware/zh/tang/Tang-Nano-9K/nano_9k/LED_FloorPlanner.png?raw=true)
 
 For more usage about FloorPlanner,please refer to 
 
@@ -111,25 +123,28 @@ For more usage about FloorPlanner,please refer to
 > If it shows error 2017, the solve way can be found ahead(Tips: Enable Dual-Purpose Pin) 
 
 After finishing Running "Place&Route" in the Process interface window, the result will be as same as below
-![](./../../../../../zh/tang/Tang-Nano-9K/nano_9k/LED_Place&Route.png)
+
+![](https://github.com/sipeed/sipeed_wiki/blob/main/docs/hardware/zh/tang/Tang-Nano-9K/nano_9k/LED_Place&Route.png?raw=true)
 
 ## Program
 
 Then connect the board with computer, download firmware.
 You can select the device according to the following picture.
-![](./../../../../../zh/tang/Tang-Nano-9K/nano_9k/nano_9k_device_scan.png)
+
+![](https://github.com/sipeed/sipeed_wiki/blob/main/docs/hardware/zh/tang/Tang-Nano-9K/nano_9k/nano_9k_device_scan.png?raw=true)
 
 We use download to SRAM as an example.
-- Configure download mode
+- Configure download mode ("configure sram download mode")
 
-![](./../../../../../zh/tang/Tang-Nano-9K/nano_9k/nano_9k_sram_program.png "configure sram download mode")
+![](https://github.com/sipeed/sipeed_wiki/blob/main/docs/hardware/zh/tang/Tang-Nano-9K/nano_9k/nano_9k_sram_program.png?raw=true)
 
-Download
-![](./../../../../../zh/tang/Tang-Nano-9K/nano_9k/nano_9k_sram_download.png "start sram download")
+Download ("start sram download")
+
+![](https://github.com/sipeed/sipeed_wiki/blob/main/docs/hardware/zh/tang/Tang-Nano-9K/nano_9k/nano_9k_sram_download.png?raw=true)
 
 Then the board runs as shown：
 
-![](./../../../../../zh/tang/Tang-Nano-9K/nano_9k/blink.gif)
+![](https://github.com/sipeed/sipeed_wiki/blob/main/docs/hardware/zh/tang/Tang-Nano-9K/nano_9k/blink.gif?raw=true)
 
 If you need to store firmware with no power, just choose download to flash mode.
 
