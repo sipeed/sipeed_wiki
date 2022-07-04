@@ -2,7 +2,7 @@
 title: MaixPy3 Image.resize 的效果
 keywords: MaixPy3,
 desc: 这里展示一下 MaixPy3 Image.resize 的效果
-date: 2021-07-01
+date: 2022-07-01
 tags: MaixPy3, resize, teedoc
 cover: ./assets/resize.png
 ---
