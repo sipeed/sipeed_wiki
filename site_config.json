@@ -1,0 +1,193 @@
+{
+    "site_name": "Sipeed Wiki",
+    "site_slogon": "",
+    "site_root_url": "/",
+    "site_domain": "wiki.sipeed.com",
+    "site_protocol": "https",
+    "config_template_dir": "config",
+    "source": "https://github.com/sipeed/sipeed_wiki/blob/main",
+    "route": {
+        "docs": {
+            "/hardware/zh/": "docs/hardware/zh",
+            "/soft/longan/zh/": "docs/soft/longan/zh",
+            "/hardware/maixface/zh/": "docs/hardware/maixface/zh",
+            "/soft/Lichee/zh/": "docs/soft/Lichee/zh",
+            "/soft/Tang/zh/": "docs/soft/Tang/zh",
+            "/soft/maixpy/zh/": "docs/soft/maixpy/zh",
+            "/soft/maixpy3/zh/": "docs/soft/maixpy3/zh",
+            "/soft/maixduino/zh/":"docs/soft/maixduino/zh",
+            "/share_docs/zh/": "share_docs/zh"
+            
+        },
+        "pages": {
+            "/": "pages/index/zh"
+        },
+        "assets": {
+            "/static/": "static",
+            "/hardware/assets/": "docs/hardware/assets",
+            "/soft/longan/assets/": "docs/soft/longan/assets",
+            "/hardware/maixface/assets/": "docs/hardware/maixface/assets",
+            "/soft/Lichee/assets/": "docs/soft/Lichee/assets",
+            "/soft/Tang/assets/": "docs/soft/Tang/assets",
+            "/soft/maixpy/assets/": "docs/soft/maixpy/assets",
+            "/soft/maixpy3/assets/": "docs/soft/maixpy3/assets",
+            "/soft/maixduino/assets/":"docs/soft/maixduino/assets",
+            "/share_docs/assets":"share_docs/assets"
+
+        },
+        "blog": {
+            "/news/": "news"
+        }
+    },
+    "translate": {
+        "docs": {
+            "/hardware/zh/": [
+                {
+                    "url": "/hardware/en/",
+                    "src": "docs/hardware/en"
+                }
+            ],
+            "/soft/longan/zh/": [{
+                    "url": "/soft/longan/en/",
+                    "src": "docs/soft/longan/en"
+                }
+            ],
+            "/hardware/maixface/zh/": [{
+                    "url": "/hardware/maixface/en/",
+                    "src": "docs/hardware/maixface/en"
+                }
+            ],
+            "/soft/maixpy/zh/": [{
+                    "url": "/soft/maixpy/en/",
+                    "src" : "docs/soft/maixpy/en"
+                }
+            ],
+            "/soft/Tang/zh/": [{
+                "url": "/soft/Tang/en/",
+                "src" : "docs/soft/Tang/en"
+                }
+            ],
+            "/share_docs/zh/": [{
+                "url": "/share_docs/en/",
+                "src" : "share_docs/en"
+                }
+            ]
+        },
+        "pages": {
+            "/": [
+                {
+                    "url": "/en/",
+                    "src": "pages/index/en"
+                }
+            ]
+        }
+    },
+    "executable": {
+        "python": "python3",
+        "pip": "pip3"
+    },
+    "plugins": {
+        "teedoc-plugin-markdown-parser":{
+            "from": "pypi",
+            "config": {
+                "toc_depth": 4
+            }
+        },
+        "teedoc-plugin-jupyter-notebook-parser": {
+            "from": "pypi",
+            "config": {
+
+            }
+        },
+        "teedoc-plugin-google-translate": {
+            "from": "pypi",
+            "config": {
+            }
+        },
+        "teedoc-plugin-blog": {
+            "from": "pypi",
+            "config": {
+            }
+        },
+        "teedoc-plugin-theme-default":{
+            "from": "pypi",
+            "config": {
+                "dark": true,
+                "env":{
+                    "main_color": "#FF6B63"
+                }
+            }
+        },
+        "teedoc-plugin-search":{
+            "from": "pypi",
+            "config": {
+                "search_hint": "Search",
+                "env":{
+                    "main_color": "#FF6B63",
+                    "main_color_dark": "#923732",
+                    "hint_shadow_color": "rgba(146, 55, 50, 0.38)"
+                }
+            }
+        },
+        "teedoc-plugin-baidu-tongji":{
+            "from": "pypi",
+            "config": {
+                "code": "9cb07365544a53067c56c346c838181a"
+            }
+        },
+        "teedoc-plugin-google-analytics":{
+            "from": "pypi",
+            "config": {
+                "id": "UA-119047820-5"
+            }
+        },
+        "teedoc-plugin-comments-gitalk": {
+            "from": "pypi",
+            "config": {
+                "env": {
+                    "clientID": "13d7605e4abe8192405c",
+                    "clientSecret": "105f1bf3dee8f3b8c0cecfcfbdb1c273a3babb12",
+                    "repo": "sipeed_wiki",
+                    "owner": "sipeed",
+                    "admin": ["Neutree", "STRfarfar"],
+                    "main_color": "#FF6B63",
+                    "second_color": "#e25d55"
+                }
+            }
+        },
+        "teedoc-plugin-ad-hint": {
+            "from": "pypi",
+            "config": {
+                "type": "hint",
+                "label": "☆",
+                "content": "新版 MaixHub beta 测试版已上线，支持在线标注、一键部署，更稳定的网络和流畅的体验，并增加 Maix-II-Dock 和手机 web 支持<br/><a href='https://maix.sipeed.com'>快来体验吧！</a>",
+                "show_after_s": 432000,
+                "date": "2022-06-01 14:00"
+            }
+        },
+        "teedoc-plugin-assets": {
+            "from": "pypi",
+            "config": {
+                "header_items": [
+                    "/static/css/custom.css"
+                ],
+                "footer_items": [
+                    "/static/js/custom.js"
+                ],
+                "env":{
+                    "main_color": "#FF6B63",
+                    "second_color": "#e25d55"
+                }
+            }
+        }
+    },
+    "rebuild_changes_delay": 1,
+    "robots":{
+        "User-agent": "*"
+    },
+    "teedoc-plugin-google-translate": {
+        "from": "pypi",
+        "config": {
+        }
+    }
+}

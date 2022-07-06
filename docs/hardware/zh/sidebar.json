@@ -1,0 +1,457 @@
+{
+    "items": [
+        {
+            "label": "Maix-I",
+            "file": "maix/README.md",
+            "items": [
+                {
+                    "label": "M1/M1w",
+                    "file": "maix/core_module.md"
+                },
+                {
+                    "label": "M1n",
+                    "file": "maix/M1n.md"
+                },
+                {
+                    "label": "Maix 开发板",
+                    "collapsed": false,
+                    "items": [
+                        {
+                            "label": "Maix Go",
+                            "file": "maix/maixpy_develop_kit_board/maix_go.md"
+                        },
+                        {
+                            "label": "Maix Dock(M1/M1W)",
+                            "file": "maix/maixpy_develop_kit_board/Maix_dock.md"
+                        },
+                        {
+                            "label": "Maix Bit",
+                            "file": "maix/maixpy_develop_kit_board/maix_bit.md"
+                        },
+                        {
+                            "label": "Maix Duino",
+                            "file": "maix/maixpy_develop_kit_board/maix_duino.md"
+                        },
+                        {
+                            "label": "Maix Nano",
+                            "file": "maix/maixpy_develop_kit_board/maix_nano.md"
+                        },
+                        {
+                            "label": "Maix Cube",
+                            "file": "maix/maixpy_develop_kit_board/maix_cube.md"
+                        },
+                        {
+                            "label": "Maix Amigo",
+                            "file": "maix/maixpy_develop_kit_board/maix_Amigo.md"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "Maix-II",
+            "file": "maixII/readme.md",
+            "items": [
+                {
+                    "label": "MaixII-Dock",
+                    "file": "maixII/M2/resources.md",
+                    "collapsed": false,
+                    "items": [
+                        {
+                            "label": "烧录系统",
+                            "file": "maixII/M2/flash.md"
+                        },
+                        {
+                            "label": "基础使用",
+                            "file": "maixII/M2/usage.md"
+                        },
+                        {
+                            "label": "其他事项",
+                            "file": "maixII/M2/other.md"
+                        },
+                        {
+                            "label": "连接MaixPy3",
+                            "file": "../../soft/maixpy3/zh/tools/0.MaixII-Dock.ipynb"
+                        }
+                    ]
+                },
+                {
+                    "label": "M2S",
+                    "file": "maixII/M2S/V833.md",
+                    "collapsed": false,
+                    "items": [
+                        {
+                            "label": "板级资源介绍",
+                            "file": "maixII/M2S/reources.md"
+                        }
+                    ]
+                },
+                {
+                    "label": "MaixSense",
+                    "file": "maixII/M2A/maixsense.md",
+                    "collapsed": false,
+                    "items": [
+                        {
+                            "label": "烧录系统",
+                            "file": "maixII/M2A/flash_system.md"
+                        },
+                        {
+                            "label": "配置系统",
+                            "file": "maixII/M2A/config_system.md"
+                        },
+                        {
+                            "label": "基本用法",
+                            "file": "maixII/M2A/Usages.md"
+                        },
+                        {
+                            "label": "连接MaixPy3",
+                            "file": "../../soft/maixpy3/zh/tools/maixsense.md"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "LicheePi",
+            "file": "lichee/README.md",
+            "items": [
+                {
+                    "label": "Lichee Zero",
+                    "file": "lichee/Zero/Zero.md"
+                },
+                {
+                    "label": "Lichee Nano",
+                    "file": "lichee/Nano/Nano.md"
+                },
+                {
+                    "label": "Lichee ZeroPlus",
+                    "file": "lichee/ZeroPlus/ZeroPlus.md"
+                },
+                {
+                    "label": "Lichee RV",
+                    "file": "lichee/RV/RV.md",
+                    "collapsed": false,
+                    "items": [
+                        {
+                            "label": "版型介绍",
+                            "collapsed": false,
+                            "items": [
+                                {
+                                    "label": "Lichee RV 86 Panel",
+                                    "file": "lichee/RV/86_panel.md"
+                                },
+                                {
+                                    "label": "Lichee RV Dock",
+                                    "file": "lichee/RV/Dock.md"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "烧录系统",
+                            "file": "lichee/RV/flash.md"
+                        },
+                        {
+                            "label": "基础上手",
+                            "file": "lichee/RV/user.md"
+                        },
+                        {
+                            "label": "常见问题",
+                            "file": "lichee/RV/problems.md"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": " Tang",
+            "file": "tang/README.md",
+            "items": [
+                {
+                    "label": "Tang Nano 系列",
+                    "file": "tang/Tang-Nano-Doc/SUMMARY.md",
+                    "collapsed": false,
+                    "items": [
+                        {
+                            "label": "Tang Nano 1K",
+                            "file": "tang/Tang-Nano-1K/Nano-1k.md"
+                        },
+                        {
+                            "label": "Tang Nano 4k",
+                            "file": "tang/Tang-Nano-4K/Nano-4K.md"
+                        },
+                        {
+                            "label": "Tang Nano 9K",
+                            "file": "tang/Tang-Nano-9K/Nano-9K.md"
+                        },
+                        {
+                            "label": "Tang Nano (已停产)",
+                            "file": "tang/Tang-Nano/Nano.md"
+                        },
+                        {
+                            "label": "安装 IDE",
+                            "file": "tang/Tang-Nano-Doc/get_started/install-the-ide.md"
+                        },
+                        {
+                            "label": "常见问题",
+                            "file": "tang/Tang-Nano-Doc/questions.md"
+                        },
+                        {
+                            "label": "相关例程",
+                            "file": "tang/Tang-Nano-Doc/examples.md"
+                        }
+                    ]
+                },
+                {
+                    "label": "Tang Primer",
+                    "file": "tang/Tang-primer/Tang-primer-summary.md",
+                    "collapsed": false,
+                    "items": [
+                        {
+                            "label": "Tang Primer 20K（建设中）",
+                            "file": "tang/Tang-primer-20k/primer-20k.md",
+                            "item": [
+                                {}
+                            ]
+                        },
+                        {
+                            "label": "Tang Primer (已停产)",
+                            "file": "tang/Tang-primer/Tang-primer.md",
+                            "items": [
+                                {
+                                    "label": "前言",
+                                    "file": "tang/Tang-primer/readme.md"
+                                },
+                                {
+                                    "label": "安装TD",
+                                    "items": [
+                                        {
+                                            "label": "Windows安装TD",
+                                            "file": "tang/Tang-primer/get_started/install_TD_win.md"
+                                        },
+                                        {
+                                            "label": "Linux安装TD",
+                                            "file": "tang/Tang-primer/get_started/install_linux.md"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "label": "使用FPGA点灯",
+                                    "file": "tang/Tang-primer/fpga/led.md"
+                                },
+                                {
+                                    "label": "搭建蜂鸟开发环境",
+                                    "file": "tang/Tang-primer/get_started/E203.md"
+                                },
+                                {
+                                    "label": "FPGA码流烧录",
+                                    "file": "tang/Tang-primer/get_started/fpga_download.md"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "Longon",
+            "file": "longan/README.md",
+            "items": [
+                {
+                    "label": "Longon Nano",
+                    "file": "longan/Nano/Longan_nano.md",
+                    "collapsed": false,
+                    "items": [
+                        {
+                            "label": "PIO配置",
+                            "file": "longan/Nano/get_started/pio.md"
+                        },
+                        {
+                            "label": "点灯测试",
+                            "file": "longan/Nano/get_started/blink.md"
+                        },
+                        {
+                            "label": "DEBUG 调试",
+                            "file": "longan/Nano/get_started/debug.md",
+                            "items": [
+                                {
+                                    "label": "使用 Sipeed 调试器",
+                                    "file": "longan/Nano/get_started/sipeed-debugger.md"
+                                },
+                                {
+                                    "label": "使用 RV-LINK",
+                                    "file": "longan/Nano/get_started/rv-link.md"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "示例",
+                            "items": [
+                                {
+                                    "label": "串口输出",
+                                    "file": "longan/Nano/examples/printf.md"
+                                },
+                                {
+                                    "label": "播放 Badapple",
+                                    "file": "longan/Nano/examples/badapple.md"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "label": "Coming soon"
+                }
+            ]
+        },
+        {
+            "label": "MF 人脸识别模块",
+            "items": [
+                {
+                    "label": "MF0&&MF0 Dock",
+                    "file": "maixface/mf_ml_module/mf0_ml_module.md"
+                },
+                {
+                    "label": "MF1 && MF2",
+                    "file": "maixface/mf_ml_module/mf1_ml_module.md"
+                },
+                {
+                    "label": "MF4 && MF5",
+                    "file": "maixface/mf_ml_module/mf5_product.md"
+                },
+                {
+                    "label": "MF 人脸识别模块 PCB 设计注意事项",
+                    "file": "maixface/mf_ml_module/mf_precautions.md"
+                },
+                {
+                    "label": "MF 更新固件说明",
+                    "file": "maixface/mf_ml_module/mf_update_firmwave.md"
+                }
+            ]
+        },
+        {
+            "label": "SP-MOD外设模组",
+            "items": [
+                {
+                    "label": "转接板类",
+                    "collapsed": false,
+                    "items": [
+                        {
+                            "label": "SP-Extender",
+                            "file": "modules_spmod/spmod_extender.md"
+                        },
+                        {
+                            "label": "SP-Grove",
+                            "file": "modules_spmod/spmod_grove.md"
+                        },
+                        {
+                            "label": "SP-FPC",
+                            "file": "modules_spmod/spmod_fpc.md"
+                        },
+                        {
+                            "label": "SP-MicArray",
+                            "file": "modules_spmod/spmod_micarray.md"
+                        },
+                        {
+                            "label": "SP-JotStick",
+                            "file": "modules_spmod/spmod_joystick.md"
+                        },
+                        {
+                            "label": "SP-Servo",
+                            "file": "modules_spmod/spmod_servo.md"
+                        },
+                        {
+                            "label": "SP-TypeC",
+                            "file": ""
+                        }
+                    ]
+                },
+                {
+                    "label": "传感器类",
+                    "collapsed": false,
+                    "items": [
+                        {
+                            "label": "SP-Weather",
+                            "file": "modules_spmod/spmod_weather.md"
+                        },
+                        {
+                            "label": "SP-TOF-1P",
+                            "file": "modules_spmod/spmod_tof.md"
+                        }
+                    ]
+                },
+                {
+                    "label": "通信类",
+                    "collapsed": false,
+                    "items": [
+                        {
+                            "label": "SP-BT",
+                            "file": "modules_spmod/spmod_bt.md"
+                        },
+                        {
+                            "label": "SP-LoRa",
+                            "file": "modules_spmod/spmod_lora.md"
+                        },
+                        {
+                            "label": "SP-PSRAM",
+                            "file": "modules_spmod/spmod_psram.md"
+                        },
+                        {
+                            "label": "SP-RFID",
+                            "file": "modules_spmod/spmod_rfid.md"
+                        },
+                        {
+                            "label": "SP-Ethernet",
+                            "file": "modules_spmod/spmod_ethernet.md"
+                        }
+                    ]
+                },
+                {
+                    "label": "显示类",
+                    "collapsed": false,
+                    "items": [
+                        {
+                            "label": "SP-LCD 1.14",
+                            "file": "modules_spmod/spmod_lcd1.14.md"
+                        },
+                        {
+                            "label": "SP-Eink",
+                            "file": "modules_spmod/spmod_eink.md"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "模块&&调试器",
+            "items": [
+                {
+                    "label": "调试器&&串口模块",
+                    "file": "modules/debugger_and_uart.md"
+                },
+                {
+                    "label": "模块",
+                    "collapsed": false,
+                    "items": [
+                        {
+                            "label": "摄像头",
+                            "file": "modules/camera_summary.md"
+                        },
+                        {
+                            "label": "麦克风模块",
+                            "items": [
+                                {
+                                    "label": "麦克风阵列",
+                                    "file": "modules/micarray.md"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "Sipeed Gamepad",
+                            "file": "modules/Gamepad.md"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

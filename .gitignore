@@ -1,10 +1,5 @@
-npm-debug.log
-.DS_Store
-node_modules/
-output/
-.vscode/
-_book/
-*.epub
-*.mobi
-serve.tmp
-*-lock.json
+out
+__pycache__
+temp
+.vscode
+.ipynb_checkpoints

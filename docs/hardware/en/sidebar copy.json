@@ -1,0 +1,322 @@
+{
+    "items": [
+        {
+            "label": "Sipeed 硬件资料导航",
+            "file": "README.md"
+        },
+
+        {
+            "label": "Maix",
+            "items": [
+        
+                {
+                    "label": "M1/M1w"
+                    
+                },
+                {
+                    "label": "M1n"
+                    
+                },
+                {
+                    "label": "MaixPy 开发板",
+                    "file": "maixpy_develop_kit_board/develop_kit_board.md",
+                    "items":[
+                
+                {
+                    "label": "Maix Go",
+                    "file": null
+                },
+                {
+                    "label": "Maix Dock(M1/M1W",
+                    "file": null
+                },
+                {
+                    "label": "Maix Bit",
+                    "file": null
+                },
+                {
+                    "label": "Maix Duino",
+                    "file": "maixpy_develop_kit_board/maix_duino.md"
+                },
+                {
+                    "label": "Maix Nano",
+                    "file": null
+                },
+                {
+                    "label": "Maix Cube",
+                    "file": "maixpy_develop_kit_board/maix_cube.md"
+                },
+                {
+                    "label": "Maix Amigo",
+                    "file": "maixpy_develop_kit_board/maix_Amigo.md"
+                }
+                    ]
+            }
+            ]
+        },
+        {
+            "label": "MaixII",
+            "items": [
+                {
+                    "label": "M2"
+                    
+                },
+                {
+                    "label": "M2S"
+                    
+                },
+                {
+                    "label": "M2A"
+                    
+                },
+                {
+                    "label": "M2W"
+                    
+                },
+                {
+                    "label": "M2WS"
+                    
+                }
+            ]
+        },
+        {
+            "label": "MaixIII",
+            "items": [
+                {
+                    "label": "M3-lite"
+                    
+                },
+                {
+                    "label": "M3"
+                    
+                }               
+            ]
+        },
+        {
+            "label": "MaixIV",
+            "items": [
+                {
+                    "label": "M4"
+                    
+                },
+                {
+                    "label": "M4S"
+                    
+                },
+                {
+                    "label": "M4P"
+                    
+                }               
+            ]
+        },
+        {
+            "label": "LicheePi (Linux)",
+            "items": [
+                {
+                    "label": "LicheePi Zero",
+                    "file": null
+                },
+                {
+                    "label": "LicheePi One",
+                    "file": null
+                },
+                {
+                    "label": "LicheePi Nano",
+                    "file": null
+                },
+                {
+                    "label": "LicheePi ZeroPlus",
+                    "file": null
+                }
+            ]
+        },
+        {
+            "label": " Tang",
+            "items": [
+                {
+                    "label": "Tang Premier",
+                    "file": null
+                },
+                {
+                    "label": "Tang Nano",
+                    "file": null
+                },
+                {
+                    "label": "Tang Pico/AI",
+                    "file": null
+                },
+                {
+                    "label": "Tang Sweety",
+                    "file": null
+                }                                                
+            ]
+        },
+        {
+            "label": "Longon",
+            "items": [
+                {
+                    "label": "Longon Nano"
+                    
+                },
+                {
+                    "label": "Longon Zero"
+                    
+                },
+                {
+                    "label": "Longon One"
+                    
+                }               
+            ]
+        },
+        {
+            "label": "扩展接口 SP-MOD",
+            "items": [
+                {
+                    "label":"扩张接口 Grove",
+                    "items":[
+                        {
+                            "label":"Grove-RGB LED"
+                        }
+                    ]
+                },
+                {
+                    "label":"扩展接口SP-MOD",
+                    "items":[
+                        {
+                            "label":"转接板类",
+                            "items":[
+                                {
+                                    "label":"SP-Extender"
+                                },
+                                {
+                                    "label":"SP-Grove"
+                                },
+                                {
+                                    "label":"SP-FRC"
+                                },
+                                {
+                                    "label":"SP-MicArray"
+                                },
+                                {
+                                    "label":"SP-JotStick"
+                                },
+                                {
+                                    "label":"SP-JotStick2"
+                                },
+                                {
+                                    "label":"SP-Servo"
+                                },
+                                {
+                                    "label":"SP-Type-C"
+                                }
+                            ]
+                        },
+                        {
+                            "label":"传感器类",
+                            "items":[
+                                {
+                                    "label":"SP-Weather"
+                                },
+                                {
+                                    "label":"SP-TOF-1P"
+                                }
+                            ]
+                        },
+                        {
+                            "label":"通信类",
+                            "items":[
+                                {
+                                    "label":"SP-BLE"
+                                    
+                                },
+                                {
+                                    "label":"SP-LoRa"
+                                },
+                                {
+                                    "label":"SP-PSRAM"
+                                },
+                                {
+                                    "label":"SP-RFID"
+                                },
+                                {
+                                    "label":"SP-Ethernet"
+                                }
+                            ]
+                        },
+                        {
+                            "label":"显示类",
+                            "items":[
+                                {
+                                    "label":"SP-LCD 1.14"
+                                },
+                                {
+                                    "label":"SP-Eink"
+                                }
+                            ]
+                        }
+
+                    ]
+                }
+            ]
+        },
+        {
+            "label":"模块&&调试器",
+            "items":[
+                {
+                    "label":"调试器",
+                    "items":[
+                        {
+                            "label":"Sipeed RV Debugger"
+                        },
+                        {
+                            "label":"双串口 USB 模块"
+                        }                                                
+                    ]
+                },
+                {
+                    "label":"模块",
+                    "items":[
+                        {
+                            "label":"摄像头",
+                            "items":[
+                                {
+                                    "label":"GC0328"
+                                },
+                                {
+                                    "label":"双摄像头模块(GC0328)"
+                                },
+                                {
+                                    "label":"OV7740"
+                                },
+                                {
+                                    "label":"OV2640"
+                                },
+                                {
+                                    "label":"OV2640-M12"
+                                },
+                                {
+                                    "label":"双摄像头模块(OV2640)"
+                                }
+                            ]
+                        },
+                        {
+                            "label":"麦克风模块",
+                            "items":[
+                                {
+                                    "label":"单麦克风模块"
+                                },
+                                {
+                                    "label":"麦克风阵列"
+                                }
+                            ]
+                        },
+                        {
+                            "label":"LCD 1.3/2.4/2.8/4.3/5 寸"
+                        }
+                    ]
+                }
+            ]
+        }
+        
+    ]
+}

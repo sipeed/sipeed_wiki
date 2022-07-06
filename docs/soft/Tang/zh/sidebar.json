@@ -1,0 +1,71 @@
+{
+    "items": [
+        {
+            "label": "Tang Nano",
+            "collapsed": false,
+            "items": [
+                {
+                    "label": "简介",
+                    "file": "Tang-Nano-Doc/README.md"
+                },
+                {
+                    "label": "安装 IDE",
+                    "file": "Tang-Nano-Doc/get_started/install-the-ide.md"
+                },
+                {
+                    "label": "示例",
+                    "items": [
+                        {
+                            "label": "点灯教程",
+                            "file": "Tang-Nano-Doc/examples/1_led.md"
+                        },
+                        {
+                            "label": "点LCD教程",
+                            "file": "Tang-Nano-Doc/examples/2_lcd.md"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "Tang Permier",
+            "collapsed": false,
+            "items": [
+                {
+                    "label": "简介",
+                    "file": "index_bak.md"
+                },
+                {
+                    "label": "准备",
+                    "items": [
+                        {
+                            "label": "安装TD驱动",
+                            "file": "get_started/install_TD_win.md"
+                        },
+                        {
+                            "label": "安装TD驱动——Linux",
+                            "file": "get_started/driver_linux_en.md"
+                        },
+                        {
+                            "label": "搭建蜂鸟开发环境",
+                            "file": "get_started/E203.md"
+                        },
+                        {
+                            "label": "FPGA码流烧录",
+                            "file": "get_started/fpga_download.md"
+                        }
+                    ]
+                },
+                {
+                    "label": "FPGA例程",
+                    "items": [
+                        {
+                            "label": "LED",
+                            "file": "fpga/led.md"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

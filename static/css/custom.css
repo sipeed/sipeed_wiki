@@ -1,0 +1,433 @@
+#content_body iframe {
+    width: 43vw;
+    height: 34vw;
+    min-width: 90%;
+}
+#page_footer {
+    margin-top: 0;
+}
+#home #navbar {
+    background: #fbfbfb;
+    box-shadow: 0px 0px 5px 0px #dfecf7;
+}
+#home .dark #navbar {
+    box-shadow: 0px 0px 5px 0px #000000;
+    background: #212121;
+}
+#home #page_wrapper {
+    background: #fbfbfb;
+}
+#home #page_content h1, #home #page_content h2, #home #page_content h3 {
+    font-size: revert;
+}
+#home #page_content h3 {
+    margin-top: 0.2em;
+}
+#home #products .product_body > ul > li.category h3 {
+    margin-bottom: 0.2em;
+}
+#home #page_content > div {
+    width: 100%;
+    max-width: 100%;
+    margin: auto;
+}
+#home #page_content ul {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: left;
+    padding: 0;
+}
+#home #page_content #products > ul {
+    justify-content: center;
+}
+#home #page_content li {
+    list-style: none;
+    text-align: start;
+}
+#home #products > ul > li {
+    display: flex;
+    flex-direction: row;
+    background-size: cover;
+    background-color: white;
+    color: #c8cad4;
+    margin: 2em;
+    padding: 0;
+    background: #fff;
+    color: #dbdeec;
+    box-shadow: 0px 14px 55px rgb(60 0 189 / 15%);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: 0.4s;
+}
+#home #products > ul > li:hover {
+    box-shadow: 0px 14px 55px rgb(60 0 189 / 24%);
+    -webkit-transform: scale(1.005);
+    transform: scale(1.005);
+}
+#home #products > ul > li .video_wrapper,
+#home #products > ul > li > img {
+    flex-grow: 1;
+    max-width: 400px;
+    align-self: center;
+    object-fit: cover;
+}
+#home #products > ul > li .video_player {
+    max-width: 400px;
+}
+#home #products > ul > li .video_wrapper {
+    position: relative;
+}
+#home #products > ul > li .play_mask {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: url("/static/image/play.svg");
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#home #products .product_info {
+    min-height: 260px;
+    background-color: #263238;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+#home #products .product_head {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 100%;
+    text-align: start;
+}
+#home #products .product_head_content {
+    padding: 0 1em;
+}
+#home #products .product_body {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* border-top: 1px solid #152127; */
+    width: 100%;
+}
+#home #products .product_body_single {
+    flex-direction: column;
+}
+#home #products .product_body > ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+#home #products .product_body > ul > li {
+    transition: 0.4s;
+    border: 1px solid #263238;
+    background-color: #152127;
+    padding: 0 1em;
+    position: relative;
+}
+#home #products .product_body > ul > li .new {
+    background-image: url("/static/image/new.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 3em;
+    height: 3em;
+    position: absolute;
+    top: 0;
+    right: 0;
+    filter: drop-shadow(-4px 4px 6px black);
+}
+#home #products .product_body > ul > li .new_with_info {
+    background-image: url("/static/image/new.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 3em;
+    height: 3em;
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    filter: drop-shadow(-4px 4px 6px black);
+}
+#home #products .product_body > ul > li .new_info {
+    display: none;
+}
+#home #products .product_body > ul > li:hover {
+    background-color: #000f15;
+}
+#home #products .product_body > ul > li.category {
+    background-color: revert;
+    padding-left: 1em;
+    color: #93989a;
+}
+#home #products .product_body .left {
+    color: #dbdeec;
+    flex-grow: 1;
+}
+#home #products .product_body .right {
+    color: #dbdeec;
+    flex-grow: 1;
+}
+#home #products .product_body .left_lable, #home #products .product_body .right_lable {
+    text-align: left;
+}
+#home .product_body a:hover {
+    background-color: transparent;
+}
+#home .product_body .title {
+    color: #9cbdd8;
+}
+#home .product_body .brief {
+    color: #93989a;
+}
+#home #msg {
+    display: none;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgb(0, 0, 0, 0.72);
+    color: #dbdeec;
+    z-index: 99;
+}
+#home #msg_mask {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+#home #msg_content_wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+#home #msg_content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1em;
+    background-color: #263238;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px 0px #000000;
+    min-width: 50%;
+    min-height: 30%;
+    z-index: 199;
+}
+#home #msg_close {
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    width: 2em;
+    height: 2em;
+    border-radius: 100%;
+    background-color: #cf3d3d;
+}
+#big_btn_wrapper {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 5em 1em;
+}
+#wiki_home .big_btn a {
+    padding: 2em;
+    background-color: #f7f7f9;
+    font-size: 1.3em;
+    border-radius: 10px;
+    transition: 0.4s;
+    display: flex;
+}
+#wiki_home .big_btn a:hover {
+    background-color: #f1f1f1;
+}
+.dark #wiki_home .big_btn a {
+    background-color: #2d2d2d;
+}
+.dark #wiki_home .big_btn a:hover {
+    background-color: #1f1f1f;
+}
+#sidebar .active > a, #navbar .active > a, #navbar .active_parent > a {
+    background-color: #ff6b63;
+    color: #ffffff;
+}
+#sidebar li > a:hover, #sidebar li.active_parent > a:hover, #navbar li > a:hover, #navbar .sub_items > a:hover {
+    background-color: #ff6b63;
+    color: #ffffff;
+}
+
+#sidebar > ul > li > ul > li  {
+    border-left: 0.1em solid #24292e38;
+}
+#sidebar > ul > li > ul > li > ul > li {
+    border-left: 0.1em solid #24292e6e;
+}
+#sidebar > ul > li > ul > li > ul > li > ul > li {
+    border-left: 0.1em solid #24292eb3;
+}
+#sidebar > ul > li > ul > li > ul > li > ul > li > ul > li {
+    border-left: 0.1em solid #24292e;
+}
+#sidebar > ul > li > ul > li > ul > li > ul > li > ul > li > ul > li {
+    border-left: 0.1em solid #24292e;
+}
+blockquote {
+    border-left: 4px solid #ff6b63;
+}
+.title_pic {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    text-align: center;
+}
+.logo_maixpy {
+    margin-bottom: 15px;
+}
+.logo_maixpy img {
+    height: 200px;
+}
+.logo_sipeed img {
+    height: 43px;
+}
+.logo_mpy img {
+    height: 45px;
+}
+.limit_width {
+    min-width: 65px;
+    display: inline-block;
+}
+.grove_pic img{
+    height: 500px;
+}
+.center_table {
+    display: table;
+}
+th {
+    background-color: #ff6b63;
+    border: 2px solid #d8524b;
+}
+#navbar .site_logo {
+    height: 2em;
+}
+
+#navbar h2 {
+    padding-left: 2px;
+}
+
+#wiki_home body:before {
+    content: '';
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #d8edff;
+    background-size: 100% 100%;
+    transition: 0.4s;
+}
+
+#wiki_home body::after {
+    content: '';
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    right: 0;
+    bottom: 13em;
+    left: 0;
+    background: url(/static/image/bg2.png) center 0 no-repeat;
+    background-size: cover;
+}
+
+#wiki_home #page_content {
+    width: 100%;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+    display: flex;
+    flex-direction: column;
+}
+#wiki_home #page_content a {
+    margin: 0.5em;
+}
+#wiki_home #page_content a:hover, #store a:hover {
+    background-color: transparent;
+}
+#wiki_home #page_content a > img {
+    padding: 0;
+    border-radius: 10px;
+}
+#wiki_home #page_content a > img {
+    box-shadow: 0px 0px 7px 1px #bbdfff;
+}
+#wiki_home #page_content a:hover > img {
+    box-shadow: 8px 9px 15px 1px #81a1bf;
+    transition: 0.4s;
+}
+#store a > img {
+    height: 40px;
+    transition:height 0.4s;
+    -moz-transition:height 0.4s; /* Firefox 4 */
+    -webkit-transition:height 0.4s; /* Safari and Chrome */
+    -o-transition:height 0.4s; /* Opera */
+}
+#store a:hover > img {
+    height: 50px;
+}
+#wiki_home h1 {
+    margin-bottom: 2em;
+}
+#wiki_home #search {
+    background-color: #6391ed;
+}
+#wiki_home #search .placeholder {
+    color: #ffffff;
+}
+#wiki_home body.dark:before {
+    background-color: transparent
+}
+#wiki_home .dark #page_content a > img {
+    box-shadow: 0px 0px 10px 0px #000000;
+}
+#wiki_home .dark #page_content a:hover > img {
+    box-shadow: 0px 0 15px 5px #ffffff;
+}
+#wiki_home .dark #navbar {
+    background: #1b1b1b;
+}
+
+@media screen and (max-width: 900px) {
+    #big_btn_wrapper {
+        flex-direction: column;
+    }
+    #big_btn_wrapper > div {
+        margin: 2em 0;
+    }
+    #footer_top > ul {
+        margin: 0 0;
+    }
+    #wiki_home p {
+        display: flex;
+        flex-direction: column;
+    }
+    #wiki_home #page_content a:hover {
+        background-color: transparent;
+    }
+    #navbar #navbar_items {
+        display: none;
+    }
+    #home #products > ul > li {
+        flex-direction: column;
+    }
+    #home #page_content li {
+        text-align: center;
+    }
+    #home #products .product_body {
+        flex-direction: column;
+    }
+}
+

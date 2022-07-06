@@ -1,48 +1,18 @@
-Sipeed Wiki pages
-===========
+# Sipeed wiki source code
+=====
 
+Related site: [wiki.sipeed.com](https://wiki.sipeed.com)
 
-|[Read me online](https://wiki.sipeed.com/en/)  | [在线阅读](https://wiki.sipeed.com/zh/) |
-| ------------------------ | ----------- |
+If you want change document or add one, do the following choice.
 
-[![Build Status](https://travis-ci.org/sipeed/sipeed_wiki.svg?branch=master)](https://travis-ci.org/sipeed/sipeed_wiki)
+## Fix error
 
+If you find any error on wiki page, just fix it on github and **Commit changes**, thanks for correcting.
 
+## Share article 
 
------------------------------------------------------------------------
+We are glad that people share their article on our wiki page
 
-## Build Doc
+Choose one language below to start to know how to share article.
 
-
-This documentation site is powered by GitBook. You can check out the online version here.
-
-You need Node.js and npm to be able to build the site.
-
-To install gitbook:
-
-```
-npm install gitbook-cli -g
-```
-
-Get Doc source code:
-```
-sudo apt install git 
-git clone https://github.com/sipeed/sipeed_wiki.git
-```
-
-Install gitbook plugins:
-
-```
-cd sipeed_wiki
-gitbook install
-```
-
-Serve as a website:
-
-```
-chmod +x serve.sh
-./serve.sh
-```
-
-Then visit http://localhost:4000
-
+[中文](./share_docs/zh/readme.md) [English](./share_docs/en/readme.md)
