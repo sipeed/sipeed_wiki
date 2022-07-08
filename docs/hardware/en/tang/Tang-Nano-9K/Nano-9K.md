@@ -12,7 +12,7 @@ Tang nano 9K is an exquisite development board based on [Gowin](https://www.gowi
 
 Tang Nano 9K is the 5th product of Sipeed Tang series. Before purchasing, you can compare and choose from the following table according to your demands:
 
-| Model               | Tang Nano 1K                             | Tang Nano 4K                             | Tang Nano 1K                                            |
+| Model               | Tang Nano 1K                             | Tang Nano 4K                             | Tang Nano 9K                                            |
 | :------------------ | :--------------------------------------- | :--------------------------------------- | :------------------------------------------------------ |
 | Appearance          | <img src="./../../../zh/tang/Tang-Nano/assets/clip_image002.gif" width="180" > | <img src="./../../../zh/tang/Tang-Nano/assets/clip_image004.gif" width="180" > | <img src="./../../../zh/tang/Tang-Nano/assets/clip_image006.gif" width="180" >                |
 | Logic Units (LUT4)  | 1152                                     | 4608                                     | 8640                                                    |
