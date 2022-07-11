@@ -14,20 +14,13 @@ OpenWrt 可以被描述为一个嵌入式的 Linux 发行版，详情可看 [官
 
 OpenWRT 是一个高度模块化、高度自动化的嵌入式 Linux 系统，拥有强大的网络组件和扩展性，常常被用于工控设备、电话、小型机器人、智能家居、路由器以及 VOIP 设备中。 同时，它还提供了 100 多个已编译好的软件，而且数量还在不断增加，而 OpenWrt SDK 更简化了开发软件的工序。
 
-对于 V831 tina 系统支持使用 adb 调用。需要将主机于板子的OTG标识的接口相连
+V831 tina 系统支持使用 adb 来操作系统。需要将主机于板子的OTG标识的接口相连。
 
 ---
-
-- Windows 将 adb路径 添加到 PATH 即可在命令行使用。但是体验极差
-
+- Windows 系统需要先下载最新的 adb 然后将其解压并添加到系统路径，接着就可以在命令行中使用 adb shell 连接上 v831.
 ---
-- 对于linux需要先安装adb程序且增加一条 udev 规则并重新拔插一下 usb 即可生效
-```bash
-echo 'SUBSYSTEM=="usb", MODE="0660", GROUP="plugdev", SYMLINK+="android%n"' | sudo tee /etc/udev/rules.d/51-android.rules
-```
+- 对于 linux 直接安装 adb 即可，然后在终端执行 adb shell 连接 V831
 ---
-
-接着只需要在命令行终端执行 `adb shell` 即可连接V831了
 
 ## 部分常用 Linux 命令
 
@@ -59,7 +52,7 @@ ln 建立文件链接
 </pre>
 </details>
 
-### opkg 包管理器
+### Opkg 包管理器
 
 Opkg 是一个轻量快速的套件管理系统，目前已成为 Opensource 界嵌入式系统标准。常用于 路由、 交换机等 嵌入式设备中，用来管理软件包的安装升级与下载。
 
@@ -143,49 +136,42 @@ import platform
 print(platform.uname())
 ```
 
-2021年02月23日 实际操作结果：
+2022年7月6日 实际操作结果：
 
 ```bash
-   __  ___     _        __   _               
-  /  |/  /__ _(_)_ __  / /  (_)__  __ ____ __
- / /|_/ / _ `/ /\ \ / / /__/ / _ \/ // /\ \ /
-/_/  /_/\_,_/_//_\_\ /____/_/_//_/\_,_//_\_\ 
- ----------------------------------------------
-Linux sipeed 4.9.118 #77 PREEMPT Wed Feb 3 11:06:36 UTC 2021 armv7l GNU/Linux
-Please press Enter, then input maixpy3_config.py complete your configuration.
+   __   _
+  / /  (_)__  __ ____ __ ------------------------
+ / /__/ / _ \/ // /\ \ /  sipeed.com (Neptune)
+/____/_/_//_/\_,_//_\_\  ------------------------
 
 root@sipeed:/# python3
-Python 3.8.5 (default, Jan 17 2021, 06:07:56) 
+Python 3.8.5 (default, Jun 14 2022, 09:51:56)
 [GCC 6.4.1] on linux
 Type "help", "copyright", "credits" or "license" for more information.
 >>> import platform
 >>> print(platform.uname())
-uname_result(system='Linux', node='sipeed', release='4.9.118', version='#77 PREEMPT Wed Feb 3 11:06:36 UTC 2021', machine='armv7l', processor='')
->>> 
+uname_result(system='Linux', node='sipeed', release='4.9.118', version='#3242 PREEMPT Tue Jun 28 04:03:38 UTC 2022', 
+machine='armv7l', processor='')
 ```
 
 ## 测试拍照功能
 
-同样进行上面操作先运行 python3, 再将下面代码复制进终端即可
+这里我们使用 [MaixPy3](/maixpy3) 来测试一下摄像头，先以交互模式启动一下 Python,
 
 ```python
-from maix import display, camera
+from maix import camera, display, image 
 display.show(camera.capture())
 ```
 
 <center><img src="./asserts/hello_world.jpg" width="500"></center>
 
-> 如果发现屏幕没有亮起显示摄像头内容，请先确保系统是最新的，排查硬件接线与通电方面的问题。因为通常产品出厂前都会做外设硬件测试的。
+> 如果屏幕没有显示内容。那么首先确认一下镜像镜像版本，并且确认一下外设和驱动对的上
 
-## 入门教程
+## MaixPy3
 
 本设备是支持使用 [MaixPy3](/soft/maixpy3/zh/index.html) 进行开发使用，请好好阅读 MaixPy3 的使用文档
 
-### **使用 Jupyter IDE 开发**
+## 源码
 
-> 注意！！！！ MaixPy M2dock 不支持在本机安装 Jupyter ！！！
-
-关于 jupyter 的使用和安装请到 MaixPy3 中的[开发环境配置](/soft/maixpy3/zh/install/install.html#jupyter-安装)中查看
-
-
+V831的源码已经放在  https://github.com/Tina-Linux/tina-V83x ，有需要的可以自行尝试一下
 

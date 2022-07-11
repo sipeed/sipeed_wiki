@@ -2,20 +2,20 @@
 title: Light LED
 ---
 
-> Edit on 2022.04.11
+> Edit on 2022.07.11
 
 From this essay we can learn the basic usage of Gowin IDE
 
 ## Create Project
 
 Create Project：File-->NEW-->FPGA Dsign Project-->OK
-![](./../../../../../zh/tang/Tang-Nano/assets/LED-1.png)
+![](./../../../../zh/tang/Tang-Nano/assets/LED-1.png)
 
 Set project name and project path (File name and project path shoule be English)
-![](./../../../../../zh/tang/Tang-Nano/assets/LED-2.png)
+![](./../../../../zh/tang/Tang-Nano/assets/LED-2.png)
 
 Choose correct device: 
-![Tang_nano_9k_device_choose](./../../../../../zh/tang/Tang-Nano-9K/nano_9k/Tang_nano_9k_Device_choose.png)
+![Tang_nano_9k_device_choose](./../../../../zh/tang/Tang-Nano-9K/nano_9k/Tang_nano_9k_Device_choose.png)
 
 ## Prepare codes
 
@@ -63,14 +63,14 @@ endmodule
 ~~~
 
 After finishing edit the file, it's necessary to tick the `Use DONE as regular IO` in Project->Configuration->Place&Route->Dual-Purpose Pin to avoid error.
-![img_configuration](./../../../../../zh/tang/Tang-Nano-9K/nano_9k/LED_Configuration.png)
+![img_configuration](./../../../../zh/tang/Tang-Nano-9K/nano_9k/LED_Configuration.png)
 
 ## Systhesize, constrain, place&route
 
 ### Systhesize
 
 After finishing steps above, go to the "Process" interface, systhesize the edited file, which means running "Systhesize". 
-![](./../../../../../zh/tang/Tang-Nano-9K/nano_9k/nano_9k_synthsize.png)
+![](./../../../../zh/tang/Tang-Nano-9K/nano_9k/nano_9k_synthsize.png)
 
 If the result is the same as shown below
 ![](./../../../../../zh/tang/Tang-Nano/assets/LED.png) 
@@ -93,43 +93,41 @@ First time open FloorPlanner it will prompt lack of ".cst" file, we just choose 
 ![](./../../../../../zh/tang/Tang-Nano/assets/LED-9.png)
 
 The leds schematic of nano 9k is as shown below:
-![](./../../../../../zh/tang/Tang-Nano-9K/nano_9k/LED_Pins.png "nano 9k led pins")
+![](./../../../../zh/tang/Tang-Nano-9K/nano_9k/LED_Pins.png "nano 9k led pins")
 
 In this GUI interface we have two ways to constrain pins:
 - Drag the corresponding port to the pin of chip
 - Type the pin number corresponding to the port in IO constraint(This is shown as below)
 
 So we can do the ordered operations in the opened window as what the following picture shows:
-![](./../../../../../zh/tang/Tang-Nano-9K/nano_9k/LED_FloorPlanner.png)
+![](./../../../../zh/tang/Tang-Nano-9K/nano_9k/LED_FloorPlanner.png)
 
-For more usage about FloorPlanner,please refer to 
-
-关于 FloorPlanner 更多的相关说明，可以参考 [SUG935-1.3_Gowin设计物理约束用户指南.pdf](http://cdn.gowinsemi.com.cn/SUG935-1.3_Gowin%E8%AE%BE%E8%AE%A1%E7%89%A9%E7%90%86%E7%BA%A6%E6%9D%9F%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97.pdf)。里面的内容都很有用
+For more usage about FloorPlanner,please refer to [SUG935-1.3E_Gowin Design Physical Constraints User Guide.pdf](https://dl.sipeed.com/fileList/TANG/Nano%209K/6_Chip_Manual/EN/General%20Guide/SUG935-1.3E_Gowin%20Design%20Physical%20Constraints%20User%20Guide.pdf)
 
 ### Place&Route
 
 > If it shows error 2017, the solve way can be found ahead(Tips: Enable Dual-Purpose Pin) 
 
 After finishing Running "Place&Route" in the Process interface window, the result will be as same as below
-![](./../../../../../zh/tang/Tang-Nano-9K/nano_9k/LED_Place&Route.png)
+![](./../../../../zh/tang/Tang-Nano-9K/nano_9k/LED_Place&Route.png)
 
 ## Program
 
 Then connect the board with computer, download firmware.
 You can select the device according to the following picture.
-![](./../../../../../zh/tang/Tang-Nano-9K/nano_9k/nano_9k_device_scan.png)
+![](./../../../../zh/tang/Tang-Nano-9K/nano_9k/nano_9k_device_scan.png)
 
 We use download to SRAM as an example.
 - Configure download mode
 
-![](./../../../../../zh/tang/Tang-Nano-9K/nano_9k/nano_9k_sram_program.png "configure sram download mode")
+![](./../../../../zh/tang/Tang-Nano-9K/nano_9k/nano_9k_sram_program.png "configure sram download mode")
 
 Download
-![](./../../../../../zh/tang/Tang-Nano-9K/nano_9k/nano_9k_sram_download.png "start sram download")
+![](./../../../../zh/tang/Tang-Nano-9K/nano_9k/nano_9k_sram_download.png "start sram download")
 
 Then the board runs as shown：
 
-![](./../../../../../zh/tang/Tang-Nano-9K/nano_9k/blink.gif)
+![](./../../../../zh/tang/Tang-Nano-9K/nano_9k/blink.gif)
 
 If you need to store firmware with no power, just choose download to flash mode.
 

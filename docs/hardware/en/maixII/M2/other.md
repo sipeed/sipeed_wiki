@@ -6,13 +6,13 @@ desc: maixpy doc: Others
 
 - Here tells some other usages and related ways to deal with.
 
-## Switch screen
+## Replace screen
 
 Up to now this development board supports 1.3 inch, 2.4 inch and 2.8 inch spi screen, they can be bought from aliexpress in our [shop](https://sipeed.aliexpress.com/store/1101739727?spm=a2g0o.detail.100005.2.54df59cebhGZrI), consult the sale support for more information. And if you need to use other size of screen, you can email to support@sipeed.com for Commercial customization.
 
 ### Prepare
 
-- The switch screen and its convert board (Consult sale support for more information)
+- The replace screen and its convert board (Consult sale support for more information)
 - M2-Dock
 - Latest system image
 
@@ -59,14 +59,14 @@ Connect them as what is shown below
 
 This dtb file is compiled from kernel, and it's not suggested to be compiled by users because it's a bit difficult.
 
-The rule of dtb file name is shown as follows:
+The rule of dtb file name is shown as following:
 
 | File name | Fit screen | Fit camera |
 | :----: | :----: | :---: |
 | sipeed_240x240_vs3205.dtb | 1.3 inch | vs3205 |
 | sipeed_240x240_sp2305.dtb | 1.3 inch | sp2305 |
-| sipeed_240x320_vs3205.dtb | 2.4 inch and 2.8 inch |vs3205 |
-| sipeed_240x320_sp2305.dtb | 2.4 inch and 2.8 inch |sp2305 |
+| sipeed_240x320_vs3205.dtb | 2.4 inch |vs3205 |
+| sipeed_240x320_sp2305.dtb | 2.4 inch |sp2305 |
 
 Copy the compiled dtb file into the virtual U-disk, then run following commmand in adb shell.
 
@@ -77,8 +77,57 @@ reboot #Restart to apply
 ```
 
 Then we succeed changing device tree. 
-- 如果发现屏幕显示效果不对 说明选错了对应的设备树文件。重新弄一下即可
 
-这里贴一张正常显示的图样
+- If your screen displays incorrectly, this means you choose wrond dtb file, just reupdate it to fix this.
 
-![](./asserts/show.jpg)
+Here is a correct display picture. 
+
+![correct display](./../../../zh/maixII/M2/asserts/show.jpg)
+
+## Replace camera
+
+Up to now MaixII-Dock development board support sp2305 and vs3205 these two cameras, and they are being sold in our online [store](https://sipeed.aliexpress.com/store/1101739727?spm=a2g0o.detail.100005.2.54df59cebhGZrI), consult our salers for help. If you want to use other camera, we can do commercial customization for you, or you can adapt the drivers by yourself.
+
+Same as replacing screen, we need to update device tree to change driver.
+
+### Prepare
+
+- The replace camera
+- MaixII-Dock
+- Latest system mirror
+
+### Connect camera
+
+> Be careful of your camera direction, if you connect if in a wrong direction, your camera may burn out.
+
+Just make sure the white point in the same place
+
+<html>
+<div class="imbox">
+    <img src="./../../../zh/maixII/M2/asserts/other/camera_outlook_1.jpg" width=350 alt="camera top">
+    <img src="./../../../zh/maixII/M2/asserts/other/camera_outlook_2.jpg" width=350 alt="camera bottom">
+</div>
+</html>
+
+### Update device tree
+
+> update_dtb is a tiny tool for Allwinner tina linux
+
+Put your downloaded dtb file into the virtual disk created bu development board. Then run following commands in adb shell
+
+```bash
+sync  #Refresh content
+update_dtb /dev/mmcblk0 /root/sipeed_240x240_vs3205.dtb
+reboot #Reboot to apply
+```
+
+Then we succeed changing camera.
+
+This dtb file is compiled from kernel, and it's not suggested to be compiled by users because it's a bit difficult.
+
+| File name | Fit screen | Fit camera |
+| :----: | :----: | :---: |
+| sipeed_240x240_vs3205.dtb | 1.3 inch | vs3205 |
+| sipeed_240x240_sp2305.dtb | 1.3 inch | sp2305 |
+| sipeed_240x320_vs3205.dtb | 2.4 inch |vs3205 |
+| sipeed_240x320_sp2305.dtb | 2.4 inch |sp2305 |

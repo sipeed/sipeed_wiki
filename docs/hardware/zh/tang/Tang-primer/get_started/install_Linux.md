@@ -5,6 +5,9 @@
 想要进行FPGA开发需要安装TD，可以通过[下载站](https://dl.sipeed.com/shareURL/TANG/Premier/IDE)，下载TD安装包和license，如果下载速度过慢的时候，建议使用[百度网盘](https://eyun.baidu.com/s/3i6FbQzr)进行下载
 
 对应应下载的IDE名称为 `TD_5.0.3_28716_NL_Linux.zip`
+License文件：`Anlogic_20230606.lic`
+
+双击打开第一个文件进行安装，安装结束之后将 Anlogic_20230606.lic 修改成Anlogic.lic放到对应安装目录的TD5.0.27252/license中
 
 下载完程序后，打开终端并 cd 进入TD压缩包所在的目录。 
 

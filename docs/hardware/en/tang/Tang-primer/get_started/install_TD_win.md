@@ -9,13 +9,11 @@ This may take a really long time to download.
 But we need it to development tang primer
 
 Install-package ：`TD_5.0.4_27252_Win7_64bit_NL.msi`
-License file：`Anlogic_20220703.lic`
+License file：`Anlogic_20230606.lic`
 
-Double click the Install-package to install this software, and rename the license file Anlogic_20220703.lic as Anlogic.lic, then move the license file to the TD5.0.27252\license folder in the installed path.
+Double click the Install-package to install this software, and rename the license file Anlogic_20230606.lic as Anlogic.lic, then move the license file to the TD5.0.27252\license folder in the installed path.
 
-**Note：license is valid before 2022.07.03 after when we don't support anymore**
-
-Then we can use TD
+Then we can run TD
 
 ## Install the USB serial port
 

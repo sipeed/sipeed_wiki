@@ -7,13 +7,11 @@
 想要进行FPGA开发需要安装TD，可以通过[下载站](https://dl.sipeed.com/shareURL/TANG)，下载TD安装包和license，如果下载速度过慢，建议使用[百度网盘](https://eyun.baidu.com/s/3htTXfaG)进行下载
 
 安装包 ：`TD_5.0.4_27252_Win7_64bit_NL.msi`
-License文件：`Anlogic_20220703.lic`
+License文件：`Anlogic_20230606.lic`
 
-双击打开第一个文件进行安装，安装结束之后将 Anlogic_20220703.lic 修改成Anlogic.lic放到对应安装目录的TD5.0.27252\license中
+双击打开第一个文件进行安装，安装结束之后将 Anlogic_20230606.lic 修改成Anlogic.lic放到对应安装目录的TD5.0.27252\license中
 
-**注意：license持续时间截止到2022年七月三日，之后将不再提供**
-
-然后可以打开TD软件
+然后可以运行TD软件
 
 ## 安装usb串口
 

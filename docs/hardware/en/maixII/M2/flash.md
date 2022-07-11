@@ -16,13 +16,14 @@ Download the newest V831 system image from Download website [SDK_MaixII/release]
 
 For V831 there is name rule for all files.
 
-Here I take `maixpy3-0.3.4_MaixII-Dock_20211119.7z` image file for example.
+Here I take `v831-m2dock-maixhub-0.5.1-20220701.zip` and ` v831-m2dock-maixpy3-0.5.1-20220701.zip`  these two image files for example.
 
-| Name          | Meaning                                |
-| ------------- | -------------------------------------- |
-| maixpy3-0.3.4 | For [MaixPy3](https://wiki.sipeed.com/maixpy3) and its version is `0.3.4` |
-| MaixII-Dock   | Image for MaixII-Dock                  |
-| 20211119      | Update date                            |
+| Name          | Meaning                                                                                           |
+| ------------- | ------------------------------------------------------------------------------------------------- |
+| maixpy3-0.5.1 | For [MaixPy3](https://wiki.sipeed.com/maixpy3) and its version is `0.5.1` , no maixhub app inside |
+| maixhub-0.5.1 | For [MaixPy3](https://wiki.sipeed.com/maixpy3) and its version is `0.5.1` , contains maixhub app  |
+| m2dock        | Image for MaixII-Dock                                                                             |
+| 20220701      | Update date                                                                                       |
 
 ## Buring System 
 

@@ -7,9 +7,9 @@ This may take a really long time to download.
 But we need it to development tang primer
 
 IDE File name :  `TD_5.0.3_28716_NL_Linux.zip`
-License file：`Anlogic_20220703.lic`
+License file：`Anlogic_20230606.lic`
 
-After finising downloading, new a terminal and cd into where it is 
+After finising downloading, new a terminal and cd into where we extract `TD_5.0.3_28716_NL_Linux.zip ` and rename the license file Anlogic_20230606.lic to Anlogic.lic, then move the license file to the TD5.0.28716\license folder in the extract path.
 
 ```bash
 cd <Application path >

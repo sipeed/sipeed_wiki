@@ -43,4 +43,3 @@ V831 为全志的 SOC， 所以 Windwos 使用 **PhoenixSuit**, Linux 上使用 
 ![](./asserts/flash_11.png)
 
 ![](./asserts/flash_13.png)
-

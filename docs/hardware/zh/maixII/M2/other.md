@@ -63,8 +63,8 @@ desc: maixpy doc: 其他事项
 | :----: | :----: | :---: |
 | sipeed_240x240_vs3205.dtb | 1.3寸 | vs3205 |
 | sipeed_240x240_sp2305.dtb | 1.3寸 | sp2305 |
-| sipeed_240x320_vs3205.dtb | 2.4寸和2.8寸 |vs3205 |
-| sipeed_240x320_sp2305.dtb | 2.4寸和2.8寸 |sp2305 |
+| sipeed_240x320_vs3205.dtb | 2.4寸 |vs3205 |
+| sipeed_240x320_sp2305.dtb | 2.4寸 |sp2305 |
 
 将设备树文件存放到开发板中在电脑中显示的虚拟U盘中。接着在adb终端里面执行下面命令
 
@@ -86,6 +86,15 @@ reboot #重启以应用
 
 目前 MaixII-Dock 开发板目前支持的摄像头有 sp2305 和 vs3205 （只支持官方店上再售卖的这两款摄像头，有别的摄像头需求可以进行商务定制），摄像头之间的切换同样时需要更换设备树文件，更换方式上面的更换屏幕一样的。
 
+### 准备
+
+- 需要切换的摄像头模块
+- 开发板
+- 编译好的设备树文件，可以在[下载站](https://dl.sipeed.com/shareURL/MaixII/MaixII-Dock/SDK/Toolchain)中进行下载
+- 系统镜像是 20220523 日期之后的
+
+### 连接摄像头
+
 > **注意的是要摄像头的接法，不要把摄像头给接反了，摄像头的底板上有一个白点，开发板卡上也有一个白点，这两个白点要在同一边。如果接反了，摄像头烧毁了请自行再买一个吧**
 
 <html>
@@ -94,13 +103,6 @@ reboot #重启以应用
     <img src="./asserts/other/camera_outlook_2.jpg" width=350 alt="camera bottom">
 </div>
 </html>
-
-### 准备
-
-- 需要切换的摄像头模块
-- 开发板
-- 编译好的设备树文件，可以在[下载站](https://dl.sipeed.com/shareURL/MaixII/MaixII-Dock/SDK/Toolchain)中进行下载
-- 系统镜像是 20220523 日期之后的
 
 ### 切换设备树
 
@@ -120,5 +122,5 @@ reboot #重启以重新使用
 | :----: | :----: | :---: |
 | sipeed_240x240_vs3205.dtb | 1.3寸 | vs3205 |
 | sipeed_240x240_sp2305.dtb | 1.3寸 | sp2305 |
-| sipeed_240x320_vs3205.dtb | 2.4寸和2.8寸 |vs3205 |
-| sipeed_240x320_sp2305.dtb | 2.4寸和2.8寸 |sp2305 |
+| sipeed_240x320_vs3205.dtb | 2.4寸 |vs3205 |
+| sipeed_240x320_sp2305.dtb | 2.4寸 |sp2305 |
