@@ -14,24 +14,40 @@ desc: maixpy doc: linux_x86_64 MaixPy3 如何安装？
 
 - [MaixSense](/hardware/zh/maixII/M2A/maixsense.html)
 
-## 使用 pip3 安装并更新 MaixPy3
+> 2022年07月11日 MaixPy3 不支持 Windows MacOS Android 等操作系统。
 
-```python
+## 在 Linux Desktop 上使用 pip3 安装 MaixPy3
+
+> Linux Desktop 特指带桌面的 Linux 系统，如 ubuntu 、 debian 、Raspberry Pi OS 等。
+
+先在终端执行下面命令来配置 MaixPy3 所需要的 libjpeg pybind11 gcc libopencv 等基础依赖库。
+
+```bash
+sudo apt update && sudo apt install libjpeg-dev gcc python3-pybind11 libopencv-dev -qq -y && wget http://mirrors.kernel.org/ubuntu/pool/main/libf/libffi/libffi6_3.2.1-8_amd64.deb && sudo apt install ./libffi6_3.2.1-8_amd64.deb -qq -y
+```
+
+然后安装或更新 maixpy3 依赖包。
+
+```bash
 pip3 install maixpy3 --upgrade
 ```
 
-## Linux Desktop 安装 MaixPy3
+若是 MaixPy3 包安装后即可在终端运行代码检查版本号。
 
-在终端执行下面命令来安装 MaixPy3
-
-```bash
-sudo apt update && sudo apt install libjpeg-dev gcc libopencv-dev -qq -y && wget http://mirrors.kernel.org/ubuntu/pool/main/libf/libffi/libffi6_3.2.1-8_amd64.deb && sudo apt install ./libffi6_3.2.1-8_amd64.deb -qq -y
-
-pip3 install maixpy3
-
+```python
+juwan@juwan-n85-dls:~$ python3
+Python 3.8.10 (default, Nov 26 2021, 20:14:08)
+[GCC 9.3.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import maix
+>>> maix.
+maix.nn       maix.signal   maix.version
+>>> maix.version
+'0.5.1'
+>>>
 ```
 
-在设备上输入下面命令来测试拍照
+可以接好摄像头设备(/dev/videoX)后，在设备上输入下面命令来测试拍照
 
 ```python
 from maix import camera, display
@@ -46,16 +62,15 @@ display.show(camera.capture().draw_string(0, 0, "hello world!"))
 
 ![](./asserts/rpi2b.png)
 
-## MaixII-Dock 安装与更新 MaixPy3
+## MaixII-Dock (m2dock) 安装与更新 MaixPy3
 
-- 可以通过烧录内置最新版本 MaixPy3 的系统镜像
-- [手动更新](/soft/maixpy3/zh/tools/0.MaixII-Dock.html#如何更新-MaixPy3-包) MaixPy3 软件包。
+MaixII-Dock 需要[烧录官方提供预置 MaixPy3 的 Openwrt 镜像](https://wiki.sipeed.com/hardware/zh/maixII/M2/flash.html)，你也可以手动 pip 安装更新 whl 软件包。
 
 ![](./asserts/V831.jpg)
 
 ## MaixSense 安装 MaixPy3
 
-MaixSense 需要是烧录官方提供最新内置 MaixPy3 的 Armbian 镜像。
+MaixSense 需要[烧录官方提供预置 MaixPy3 的 Armbian 镜像](https://wiki.sipeed.com/hardware/zh/maixII/M2A/flash_system.html)，你也可以手动 pip 安装更新 whl 软件包。
 
 ```shell
 root@maixsense:~# pip3 install maixpy3
@@ -81,3 +96,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 
 输出以上信息则是代表安装好了，以下为实拍图。
 ![](./asserts/R329.jpg)
+
+## 其他 Linux 芯片平台
+
+目前还没有精力适配其他平台的软件包，但大都不难适配，主要的适配工作量在 nn 模块（神经网络方面的接口），而其他都是通用的。

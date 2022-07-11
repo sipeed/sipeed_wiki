@@ -4,27 +4,27 @@
             "label": "MaixPy3 是什么？能做什么？",
             "file": "readme.md",
             "items":[
-                {                
-                    "label": "安装 MaixPy3 IDE",
-                    "file": "tools/MaixPy3_IDE.md"
+                {
+                    "label": "如何获取、安装、使用？",
+                    "file": "install/install.md"
                 },
                 {
-                    "label":"连接到设备",
-                    "collapsed": false,
+                    "label": "安装或配置 IDE 开发工具",
+                    "file": "tools/MaixPy3_IDE.md",
                     "items":[
-                    {
-                        "label":"MaixII-Dock (V831)",
-                        "file":"tools/0.MaixII-Dock.ipynb"
-                    },
-                    {
-                        "label":"MaixSense (R329)",
-                        "file":"tools/maixsense.md"
-                    },
-                    {
-                        "label":"其他设备",
-                        "file": "install/install.md"
-                    }
+                        {
+                            "label":"基于 USB 开发 MaixII-Dock",
+                            "file":"tools/0.MaixII-Dock.ipynb"
+                        },
+                        {
+                            "label":"基于 WIFI 开发 MaixSense",
+                            "file":"tools/maixsense.md"
+                        }
                     ]
+                },
+                {
+                    "label":"更新日志速览",
+                    "file": "develop/readme.md"
                 },
                 {
                     "label": "来自社区分享的资料",
@@ -62,10 +62,6 @@
                     ]
                 }
             ]
-        },
-        {
-            "label":"更新日志速览",
-            "file": "develop/readme.md"
         },
         {
             "label": "基础功能模块",
