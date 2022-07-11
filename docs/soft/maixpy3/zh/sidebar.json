@@ -9,7 +9,7 @@
                     "file": "install/install.md"
                 },
                 {
-                    "label": "配置 Jupyter 开发工具（ MaixPy3 IDE ）",
+                    "label": "安装或配置 IDE 开发工具",
                     "file": "tools/MaixPy3_IDE.md",
                     "items":[
                         {
