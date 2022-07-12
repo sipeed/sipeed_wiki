@@ -53,7 +53,7 @@ MaixPy3 IDE 的构成主要如下：
 - 确认系统防火墙没有阻止 TCP 的 18811 和 18812 端口，不清楚就关闭网络防火墙或安全软件
 - 确认硬件的 MaixPy3 的 Python 包和电脑上的 IDE 版本为 0.4.0 以上
 - 确认 所用硬件的 连接和配置方法，确认没有被杀毒程序给阻止且已经授予程序权限
-- **若是仍然出现问题，将上述流程打包起来反馈给社区并@管理员解决**
+- **若是仍然出现问题，将上述流程打包起来反馈给[社区](https://bbs.sipeed.com/)并@管理员解决**
 
 ### 关于 Windows 平台的安装方法
 
@@ -70,7 +70,6 @@ MaixPy3 IDE 的构成主要如下：
 <p align="center">
     <iframe src="//player.bilibili.com/player.html?bvid=BV14Z4y147Lg&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="max-width:640px; max-height:480px;"> </iframe>
 </p>
-
 
 > 若下载站下载很慢，可以在文章开头处获取百度云链接
 
@@ -189,10 +188,12 @@ MaixPy3 IDE （jupyter） 新建文件(上图中的2)的时候，可以选择多
 
 若是通道+服务均正常，那 IDE 就一定可以连上，还需要注意的就是 IDE 默认连接的 IP 地址是 [localhost](https://baike.baidu.com/item/localhost/2608730)；如果你本机的网卡环境比较混乱，可能你需要在 IDE 里手动指定一下 IP 才能确保正确连接上，如：`$connect("192.168.0.23")`。
 
-下图为 IDE 通过无线网在 Maixsense 上运行代码的结果，同样也适用于在 V831 上。只是说明一下可以指定 IP 然后通过无线运行
+下图为 IDE 通过无线网在 Maixsense 上运行代码的结果，同样也适用于在 V831 上。只是说明一下可以指定 IP 然后通过无线运行（需要确定板子上已经有`python3 -c from maix import mjpg;mjpg.start();`在运行，没有的话可以手动执行一下 `python3 -c "from maix import mjpg;mjpg.start();"`）
 
 <img src="./assets/r329-start/6.jpg">
 
 ## 结语
 
-MaixPy3 IDE 依赖于 [jupyter](https://github.com/jupyter/jupyter)、[rpyc_ikernel](https://github.com/sipeed/rpyc_ikernel)、[MaixPy3](https://github.com/sipeed/MaixPy3) 开源仓库实现，目的是为了让新用户更直观地运行代码。感兴趣的可以自行了解，其实所谓的 IDE 就是 jupyter 的打包版本，知道了工作机制后，还不赶紧用起来？
+MaixPy3 IDE 依赖于 [jupyter](https://github.com/jupyter/jupyter)、[rpyc_ikernel](https://github.com/sipeed/rpyc_ikernel)、[MaixPy3](https://github.com/sipeed/MaixPy3) 开源仓库实现，目的是为了让新用户更直观地运行代码，感兴趣的可以自行了解。
+
+其实所谓的 IDE 就是 jupyter 的打包版本，知道了工作机制后，还不赶紧用起来？

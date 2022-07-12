@@ -4,7 +4,6 @@ keywords: MaixPy3,
 desc: 这里展示一下 MaixPy3 Image.resize 的效果
 date: 2022-07-01
 tags: MaixPy3, resize, teedoc
-cover: ./assets/resize.png
 ---
 
 点击下载对应的 ipynb 文件后导入到 jupyter 照样能阅读 [源文件](https://dl.sipeed.com/fileList/others/wiki_news/maixpy3_resize/camera_resize.ipynb)
