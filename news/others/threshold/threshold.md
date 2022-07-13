@@ -92,7 +92,7 @@ while True:
 
 前面说过，机器视觉中会利用到Lab，同样的，MaixPy3也提供了很简单的方法来应用Lab阈值。
 
-这里有一个能直接使用的在线工具: [在线阈值](https://wiki.sipeed.com/threshold)（可能加载有点慢）
+这里有一个能直接使用的在线工具: [https://wiki.sipeed.com/threshold](https://wiki.sipeed.com/threshold)（加载有点慢） 
 
 提供了一个简单的示例，可以自己通过调整下面滑块位置或者输入阈值数值来查看不同的效果
 

@@ -11,21 +11,21 @@ desc: maixpy doc: 在 MaixII-Sense 平台上使用
 | 2022年4月24日 | wonder | 增加一点细节 |
 | 2022年2月28日 |  Rui   | 编写连接文档 |
 
-> Maixsense 仅支持通过网络连接到 maixpy3
+> Maixsense 仅支持通过网络连接到 MaixPy3 IDE
 
 在 MaixSense 上使用 MaixPy3 ，需要烧录内置 MaixPy3 的 armbian 系统，并且连接到网络
 
-其中烧录系统可以参考 [点我](./../../../../hardware/zh/maixII/M2A/flash_system.md)。系统用该选择带有maixpy3的armbian镜像。
+其中烧录系统可以参考 [点我](./../../../../hardware/zh/maixII/M2A/flash_system.md)。系统用该选择带有 MaixPy3 的 armbian 镜像。
 
-## 设置wifi
+## 设置 wifi
 
-对于新烧录的系统需要先使用串口来设置wifi连接。
+对于新烧录的系统需要先使用串口来设置 wifi 连接。
 
 使用 串口 连接板子，然后这里以 mobaxterm [[点我查看简述](./../../../../hardware/zh/maixII/M2/tools/mobaxterm.md)]这个软件为例
 
 ![](./assets/mobaxterm-serial-4.png)
 
-在「session setting」 对话框里选择【serial】，设置好波特率为115200，点击【OK】后就进到如下页面
+在「session setting」 对话框里选择【serial】，设置好波特率为 115200，点击【OK】后就进到如下页面
 
 ![](./assets/mobaxterm-serial-5.png)
 
@@ -34,7 +34,7 @@ desc: maixpy doc: 在 MaixII-Sense 平台上使用
 
 连接板子后可以参考 [上手使用](./../../../../hardware/zh/maixII/M2A/Usages.md) 来基本用一下。
 
-- 如果连接软件后终端界面没有任何显示，尝试按一下回车，看看有没有信息显示出来。这是因为板子已经启动完毕，串口连接迟了。
+如果连接软件后终端界面没有任何显示，尝试按一下回车，看看有没有信息显示出来。这是因为板子已经启动完毕，串口连接迟了。
 
 ## MaixPy3 IDE 连接
 
@@ -49,7 +49,7 @@ desc: maixpy doc: 在 MaixII-Sense 平台上使用
 
 从上面收到的信息可以看到本次的 IP 地址为 192.168.0.23 .
 
-- 没有显示IP的话重新设置连接网络
+没有显示IP的话重新设置连接网络
 
 ### 连接
 
@@ -99,4 +99,6 @@ print(platform.uname())
 
 目前 R329 镜像是 armbian linux 系统。
 
-用户可以自行搜索配置linux开机脚本方式来启动想要的运行脚本。
+可以通过修改 /etc/rc.local 来启动自己想要开机运行的脚本
+
+具体方法可以自行搜索配置 linux 开机脚本方式来启动想要的运行脚本。

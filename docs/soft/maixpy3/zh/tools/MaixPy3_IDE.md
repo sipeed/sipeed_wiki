@@ -61,7 +61,7 @@ MaixPy3 IDE 的构成主要如下：
 
 注意事项:
 
-- 只支持 Windows7 或 Windows10 32位以上的系统
+- 只支持 Windows7 或 Windows10 32 位以上的系统
 - 需要内核为Chromium的浏览器,比如 [Microsoft Edge](https://www.microsoft.com/zh-cn/edge) 或 Chrome。
 - Windows11 测试样本极少，需要慎重选用
 
@@ -71,9 +71,13 @@ MaixPy3 IDE 的构成主要如下：
     <iframe src="//player.bilibili.com/player.html?bvid=BV14Z4y147Lg&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="max-width:640px; max-height:480px;"> </iframe>
 </p>
 
+补充说明：
+- 安装完 IDE 后务必安装弹出窗口的驱动
+- 记得像视频中一样卸载掉对应的 ADB 驱动
+
 > 若下载站下载很慢，可以在文章开头处获取百度云链接
 
-2022年1月15日收到用户的反馈点
+2022年1月15日 收到用户的反馈点
 
 曾经有自己手动配置过环境的同学，需要在删除你系统的 `C:\Users\（改成你电脑的用户名）\AppData\Roaming\jupyter\kernels\rpyc` 防止调用核心时调用了过去的旧核心导致错误发生。
 
@@ -123,7 +127,7 @@ MaixPy3 IDE （jupyter） 新建文件(上图中的2)的时候，可以选择多
 4. 蓝色边框表示单元格处于命令模式。绿色边框表示单元格为编辑模式
 
 <details><summary><font color="#4F84FF">Jupyter 用法简介</font></summary>
-与vim类似，jupyer有命令模式和编辑模式
+与 vim 类似，jupyer 有命令模式和编辑模式
 <li>
 通用：<br>
 &emsp;&emsp;Shift+ Enter ：运行单元格，且以命令模式切换到下一个单元格<br>
@@ -156,7 +160,7 @@ MaixPy3 IDE （jupyter） 新建文件(上图中的2)的时候，可以选择多
 图片展示结果，直接点击运行可以复现
 ![运行结果](./assets/IDE_6.png)
 
-这也是 jupyter 的魅力之一吧，有兴趣的话也可以直接分享 ipynb文件 来向他人展示你的代码
+这也是 jupyter 的魅力之一吧，有兴趣的话也可以直接分享 ipynb 文件 来向他人展示你的代码
 
 ---
 
