@@ -42,14 +42,14 @@ https://github.com/sipeed/libmaix/blob/develop/examples/imlib_test/main/src/main
 - 戚晨夕
 - 王晓
 - 刘子健
-- Steven 
+- Steven
 - 刘闫兴
-- Alex 
+- Alex
 - 曾广仕
 - 叶炯凯
 - 针针扎
 - 斌
-- 张罗东 
+- 张罗东
 - 爱笑的莫妮卡
 - 奈奎斯特不稳定
 - 黄涛
@@ -110,7 +110,7 @@ Q：开发需要做什么？测试需要做什么？
 A：开发的需要了解底层实现和代码在哪，能够跑代码修代码测代码改代码。测试需要了解用户是如何使用的，能够说明这个功能是怎么设计怎么使用的，需要什么接口，使用流程是怎样的？文档说明提供出来。开发需要实现对应功能的移植优化，做好鲁棒性，做好接口的统一封装，让使用者不需要了解内部数据流转的细节，调用相应接口就可以完成输出需要的数据
 
 Q：报错 InportError: No module named pybind11 ？
-A：安装 sudo apt install python3-pybind11 或 pip3 intall pybind11 
+A：安装 sudo apt install python3-pybind11 或 pip3 intall pybind11
 
 ## 项目进度：
 
@@ -143,7 +143,7 @@ A：安装 sudo apt install python3-pybind11 或 pip3 intall pybind11
     - 锐化、取反、二值化、直方图均衡、旋转校正
 - （过时）高级特征 HAAR HOG LBP （方法）
     - 人脸、眼球、梯度方向和强度的统
-    
+
 ### 准备工作、如何协作、如何提交？
 
 环境、代码、功能、接口
@@ -153,7 +153,7 @@ A：安装 sudo apt install python3-pybind11 或 pip3 intall pybind11
 - [github.com/sipeed/libmaix](https://github.com/sipeed/libmaix)
 
 请准备上述两个模块，测试和开发的同学都需要，请通过 git clone 获取上述仓库。
-拉取子模块 'git submodule update --init --recursive' 
+拉取子模块 'git submodule update --init --recursive'
 
 ### 这里有自动化编译的命令给你们参考如何编译a。
 #### 准备工作需要做什么？
@@ -199,7 +199,7 @@ python3 project.py menuconfig
 
 ## 第二次会议 2022-04-02 （准备中，计划 9 点左右）
 
-在准备阶段，确保开发准备好开发环境（可电脑运行），测试准备好测试环境（可导出文档），最后准备完毕后继续。 
+在准备阶段，确保开发准备好开发环境（可电脑运行），测试准备好测试环境（可导出文档），最后准备完毕后继续。
 
 可以在节假日的时候进行人员的确认和分工，以及参与人员的统计，确定本次开发的功能列表以及进度表，预计完成时间，由我牵头开发的同学一起完成，如果出现人员特殊意外均由官方人员兜底，不会影响整体进度，如果其他同学因为事情搁置则提前移交任务出来给其他人继续完成，比如@Juwan 可以保证所有功能没有人处理的时候亲自处理。
 
@@ -219,9 +219,9 @@ t.delete(                 t.get_blob_color(         t.show(
 t.draw_circle(            t.get_blob_lab(           t.size
 t.draw_ellipse(           t.get_pixel(              t.tobytes(
 t.draw_image(             t.height                  t.width
-t.draw_line(              t.load(                   
-t.draw_rectangle(         t.mode                    
->>> 
+t.draw_line(              t.load(
+t.draw_rectangle(         t.mode
+>>>
 ```
 image 模块：
 - 属性查询 API ：width 、height 、mode、size
@@ -249,7 +249,7 @@ image 模块：
 - 图像滤波模块 https://book.openmv.cc/example/04-Image-Filters/adaptive-histogram-equalization.html
     - 各种图像滤波、边缘滤波、腐蚀膨胀
     - 锐化、取反、二值化、直方图均衡、旋转校正
-    
+
 ### 沟通记录
 - @Juwan 封装接口的开发样例 https://github.com/sipeed/MaixPy3/commit/3ac83ef6a479ceafce288d0b2a2378a92f15a286 建议每次都重新编译安装 python3 setup.py clean --all build && python3 install . 确保代码有更新，最终效果如下：
 - 分别测试了一下沿 X 轴 和 Z 轴旋转了一下。
@@ -259,7 +259,7 @@ image 模块：
 
 ```python
 from maix import image
-t = image.Image().new((240, 240), color=(255, 0, 0))
+t = image.new((240, 240), color=(255, 0, 0))
 print(t)
 
 t.draw_string(120, 20, "hello")
