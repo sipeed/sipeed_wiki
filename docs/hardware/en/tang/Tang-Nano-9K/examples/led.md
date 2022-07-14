@@ -9,10 +9,10 @@ This tutorial will walk you through the basics of the Gowin IDE, which we'll use
 ## Create Project
 
 Create Project：File-->NEW-->FPGA Dsign Project-->OK
-![](./../../../../zh/tang/Tang-Nano/assets/LED-1.png)
+![Create Project](./../../../../zh/tang/Tang-Nano/assets/LED-1.png)
 
 Set project name and project path (File name and project path should be English)
-![](./../../../../zh/tang/Tang-Nano/assets/LED-2.png)
+![Set project name](./../../../../zh/tang/Tang-Nano/assets/LED-2.png)
 
 Choose the correct device: 
 ![Tang_nano_9k_device_choose](./../../../../zh/tang/Tang-Nano-9K/nano_9k/Tang_nano_9k_Device_choose.png)
@@ -22,13 +22,13 @@ Choose the correct device:
 After creating the project, we can start editing the code. 
 To create a new file, we can either click the marked icon (top left of the window) or use Ctrl+N.
 Choose Verilog File in the pop-up window.
-![](./../../../../../zh/tang/Tang-Nano/assets/LED-5.png)
+![Create file](./../../../../zh/tang/Tang-Nano/assets/LED-5.png)
 
 Name the file (it's best to use English for this)
-![](./../../../../../zh/tang/Tang-Nano/assets/LED-6.png)
+![Name the file](./../../../../zh/tang/Tang-Nano/assets/LED-6.png)
 
 Double click the created file to open it, then edit it in right window.
-![](./../../../../../zh/tang/Tang-Nano/assets/LED-7.png)
+![OPen file](./../../../../zh/tang/Tang-Nano/assets/LED-7.png)
 
 Here's all the code we're using for this example, either copy/paste it into your file or enter it manually.  
 
@@ -62,72 +62,85 @@ end
 endmodule
 ~~~
 
-Once we're done with the code, we need to tick `Use DONE as regular IO` in Project->Configuration->Place&Route->Dual-Purpose Pin to avoid an error.
+Once we're done with the code, we need to tick `Use DONE as regular IO` in Project->Configuration->Place&Route->Dual-Purpose Pin which can be found in the top menu bar to avoid an error.
 ![img_configuration](./../../../../zh/tang/Tang-Nano-9K/nano_9k/LED_Configuration.png)
 
 ## Systhesize, constrain, place&route
 
 ### Systhesize
 
-After finishing the steps above, go to the "Process" interface and double click "Synthesize" to synthesize our code. 
-![](./../../../../zh/tang/Tang-Nano-9K/nano_9k/nano_9k_synthsize.png)
+After finishing the steps above, go to the "Process" interface and double click "Synthesize" to synthesize our code. You can also right click "Synthesize" to see its other function
+![Synthesize](./../../../../zh/tang/Tang-Nano-9K/nano_9k/nano_9k_synthsize.png)
 
 If the result is the same as shown below, then we can move on to setting our constraints.
-![](./../../../../../zh/tang/Tang-Nano/assets/LED.png) 
+![Finish_Synthesize](./../../../../zh/tang/Tang-Nano/assets/LED.png) 
 
-If your synthesis fails then check the console - it should tell you where the error is.
+If your synthesis fails, then check the console - it should tell you where the error is.
 
 ### Constrain
 
 > Clock constraint is not involved here
 
-For our code to actually do anything, we need to bind the ports we defined to the actual pins of the chip.
+For our code to actually do anything, we must bind the ports we defined to the actual pins of the FPGA chip.
 
-Double click the FloorPlanner in the Process interface to set pin constraints (This can be edited later if synthesis fails). 
+Double click the FloorPlanner in the Process interface to set pin constraints (If synthesis fails we can't do this step). 
 
-![](./../../../../../zh/tang/assets/examples/led_pjt_2.png)
+![FloorPlanner](./../../../../zh/tang/assets/examples/led_pjt_2.png)
 
 The first time we open FloorPlanner it will prompt lack of a ".cst" file, we'll just click ok. 
-![](./../../../../../zh/tang/Tang-Nano/assets/LED-9.png)
+![cst_file](./../../../../zh/tang/Tang-Nano/assets/LED-9.png)
 
-Here's the LED schematic for the nano 9k:
-![](./../../../../zh/tang/Tang-Nano-9K/nano_9k/LED_Pins.png "nano 9k led pins")
+You can download the full schematic [here](https://dl.sipeed.com/shareURL/TANG/Nano%209K/2_Schematic).
+Here is the part of schematic about LEDs on the nano 9k:
+![LED_schematic](./../../../../zh/tang/Tang-Nano-9K/nano_9k/LED_Pins.png "nano 9k led pins")
 
 In this GUI interface we have two ways to constrain pins:
 - Drag the corresponding port to the pin of the chip
-- Type the pin number corresponding to the port in IO constraints (This is shown below)
+- Enter the pin number corresponding to the port in IO constraints 
 
-This diagram shows the steps to perform to set our constraints:
-![](./../../../../zh/tang/Tang-Nano-9K/nano_9k/LED_FloorPlanner.png)
+Refer to this guide for more information about FloorPlanner : [SUG935-1.3E_Gowin Design Physical Constraints User Guide.pdf](https://dl.sipeed.com/fileList/TANG/Nano%209K/6_Chip_Manual/EN/General%20Guide/SUG935-1.3E_Gowin%20Design%20Physical%20Constraints%20User%20Guide.pdf)
 
-Refer to this guide for more information on FloorPlanner: [SUG935-1.3E_Gowin Design Physical Constraints User Guide.pdf](https://dl.sipeed.com/fileList/TANG/Nano%209K/6_Chip_Manual/EN/General%20Guide/SUG935-1.3E_Gowin%20Design%20Physical%20Constraints%20User%20Guide.pdf)
+Don't forget bind the clock port and reset port to their pins marked in the [schematic](https://dl.sipeed.com/shareURL/TANG/Nano%209K/2_Schematic)
+
+The following figure shows the example pin constraint of this project
+![constraints](./../../../../zh/tang/Tang-Nano-9K/nano_9k/LED_FloorPlanner.png)
 
 ### Place&Route
 
-> If it shows error 2017, make sure you enabled `Use DONE as regular IO` (see the coding section)
+> If it shows error2017, make sure you have enabled `Use DONE as regular IO` (see [prepare the code](#Prepare-the-code))
 
-Double-click Place&Route to run it, your output should look like this:
-![](./../../../../zh/tang/Tang-Nano-9K/nano_9k/LED_Place&Route.png)
+Double click Place&Route to run it, it will shows as following:
+![Finish_place&route](./../../../../zh/tang/Tang-Nano-9K/nano_9k/LED_Place&Route.png)
 
-## Program
+## Download to device
+
+Visit [here](https://dl.sipeed.com/shareURL/TANG/programmer/docs) to see docs about programmer if you need.
+
+### Start to download
 
 Connect your board to your PC, and select the device as shown in the picture:
-![](./../../../../zh/tang/Tang-Nano-9K/nano_9k/nano_9k_device_scan.png)
+![Choose_device](./../../../../zh/tang/Tang-Nano-9K/nano_9k/nano_9k_device_scan.png)
 
-We'll use download to SRAM in this example.
+We'll use download to SRAM as an example.
 
-Follow the steps in the image below to select that operation:
-![](./../../../../zh/tang/Tang-Nano-9K/nano_9k/nano_9k_sram_program.png "configure sram download mode")
+Follow the steps in the figure below to select that operation:
+![SRAM_download](./../../../../zh/tang/Tang-Nano-9K/nano_9k/nano_9k_sram_program.png "configure sram download mode")
 
-Click the button shown to start the firmware flash process:
-![](./../../../../zh/tang/Tang-Nano-9K/nano_9k/nano_9k_sram_download.png "start sram download")
+Click the button shown in the figure to start the firmware download process:
+![Verify](./../../../../zh/tang/Tang-Nano-9K/nano_9k/nano_9k_sram_download.png "start sram download")
 
-Once that's complete, the LEDs should start flashing like this：
+### Result
 
-![](./../../../../zh/tang/Tang-Nano-9K/nano_9k/blink.gif)
+Once that's complete, the LEDs start flashing like this：
+![Finish](./../../../../zh/tang/Tang-Nano-9K/nano_9k/blink.gif)
 
-If you need to store firmware with no power, just choose download to flash mode.
+## Other
+
+If you need to store firmware with no power, just change Accsess mode and choose your target .fs file .
+![Access_mode](./../../../../zh/tang/Tang-Nano-9K/nano_9k/access_mode.png)
+
+Visit [Qustions&Answers](./../../Tang-Nano-Doc/questions.md) if you have trouble
 
 ## End
 
-You've reached the end of the tutorial. If you have any suggestions please raise an issue.
+You've reached the end of the tutorial. If you have any suggestion, just leave your message.

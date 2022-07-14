@@ -3,21 +3,19 @@ title: 安装IDE
 keywords: Sipeed, Gowin, Tang, Nano, fpga, 矽速
 ---
 
-使用高云的FPGA需要用到GOWIN这个软件，对应的软件文档链接：
+使用高云的 FPGA 需要用到 GOWIN 这个软件，对应的软件文档链接：
 <http://www.gowinsemi.com.cn/down.aspx?FId=n14:14:26>
 
-
-- 用户安装请根据自己电脑系统进行IDE选择，例如Windows系统的用户用选择带有Win版本的IDE。
+- 用户安装请根据自己电脑系统进行 IDE 选择，例如 Windows 系统的用户用选择带有 Win 版本的 IDE 。
 - 不推荐使用教育版本，教育版本安装之后可选芯片仅包含教育使用芯片型号，可选型号稀少。
-- 经测试V1.9.8.1版本可用 [GAO](http://cdn.gowinsemi.com.cn/SUG114-2.5_Gowin%E5%9C%A8%E7%BA%BF%E9%80%BB%E8%BE%91%E5%88%86%E6%9E%90%E4%BB%AA%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97.pdf)
-- **网络版license仅适用于1.9.8之前的版本**
-
+- 经测试 V1.9.8.1 版本可用 [GAO](http://cdn.gowinsemi.com.cn/SUG114-2.5_Gowin%E5%9C%A8%E7%BA%BF%E9%80%BB%E8%BE%91%E5%88%86%E6%9E%90%E4%BB%AA%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97.pdf)
+- **网络版 license 仅适用于 1.9.8 之前的版本**
 
 ## 安装软件
 
 此处以安装 **Gowin_V1.9.8_win** 为例进行安装示范。
 其他版本用户根据需要自己选择安装。
-- 下文中有关联网激活ide的方式仅限于1.9.8之前的版本
+- 下文中有关联网激活 IDE 的方式仅限于 1.9.8 之前的版本
 
 云源软件链接 http://www.gowinsemi.com.cn/faq.aspx
 
@@ -40,83 +38,53 @@ keywords: Sipeed, Gowin, Tang, Nano, fpga, 矽速
 </div>
 </html>
 
-- 下图的两个都需要安装上
+下图的两个都需要安装上
 
 <img src="./assets/IDE-4.png" width=350>
 
-- 下图的安装路径个人按照自己需要设置
+下图的安装路径个人按照自己需要设置
   
 <img src="./assets/IDE-5.png" width=350>
 
-- 安装中...
+安装中...
 
 <img src="./assets/IDE-6.png" width=350>
 
-- 下面这一步不要更改任何东西，按照默认的点击`Finish`就行
+下面这一步不要更改任何东西，按照默认的点击`Finish`就行
 
 <img src="./assets/IDE-7.png" width=350>
 
-- 上面的`Finish`后会出现下面的内容，这是安装驱动的。
+上面的`Finish`后会出现下面的内容，这是安装驱动的。
 
 <html>
 <div class="imbox">
     <img src="./assets/IDE-8.png" width=350>
     <img src="./assets/IDE-9.png" width=350>
-<style>
-.imbox{
-     display:flex;
-     flex-direction: row;
-     }
-</style>
 </div>
 </html>
 
-- 这里需要选择接受协议才能继续安装
+这里需要选择接受协议才能继续安装
   
 <html>
 <div class="imbox">
     <img src="./assets/IDE-10.png" width=350>
     <img src="./assets/IDE-11.png" width=350>
-<style>
-.imbox{
-     display:flex;
-     flex-direction: row;
-     }
-</style>
 </div>
 </html>
 
-- 点击完成后桌面上会出现下面的图标
+点击完成后桌面上会出现下面的图标
   
 ![IDE](./assets/IDE-12.png)
 
 到这里我们就完成了软件的安装
 
-## 拓展
+## 使用 IDE
 
-获取 license 然后到使用 IDE 可能要花费时间。在这期间可以看看高云的官当文档。下面简单说明
+高云 IDE 进行 license 验证后才能使用，申请方式很简单。
 
-在 IDE 的安装路径下主要有如下内容：IDE 文件夹、Programmer 文件夹、uninst.exe；
+### 使用单机版 license (需要自己申请 license )
 
-- **IDE** 文件夹：这里主要说一下里面的 **doc** 文件夹，用户在安装完之后可以在这个文件夹里面看到高云提供的大多数文档高云，主要内容如下图所示：
-
-![IDE](./assets/doc-folder.png)
-
-- Programmer 文件夹：里面是烧录软件，也有相关的文档。
-
-![IDE](.//assets/programmer-folder.png)
-
-一般来说建议把这个删掉。替换成特定版本的（这样能减少不少问题）。 可以在这里下载：[点我跳转](https://dl.sipeed.com/shareURL/TANG/programmer)
-
-- uninst.exe：卸载IDE
-
-## license 激活
-
-接下来是进行 **license** 的申请，有两种方式：
-
-### 使用单机版 license (需要自己申请 license)
-
-- 有两种方法申请license
+有两种方法申请license
 
 #### 向高云官方申请
 
@@ -124,14 +92,11 @@ keywords: Sipeed, Gowin, Tang, Nano, fpga, 矽速
 
 #### 向sipeed发邮件申请
 
-- 通常邮件会在周二和周五回复
+通常邮件会在周二和周五回复
 
-sipeed 回复的邮件不支持 V1.9.8 和 V1.9.8之前的版本。
-需要的话可用在线license
+发送申请邮件到 support@sipeed.com 来申请 license ，标题为 `[Apply Tang Lic]MAC: xx-xx-xx-xx-xx-xx` ，内容模板如下：
 
-发送申请邮件到 support@sipeed.com 来申请license，标题为 [Apply Tang Lic]MAC: xxxxxx ，内容模板如下：
-
-```
+```txt
 公司名称:
 公司网站:
 部门:
@@ -140,18 +105,21 @@ sipeed 回复的邮件不支持 V1.9.8 和 V1.9.8之前的版本。
 联系人邮箱:
 联系人省份:
 计算机MAC地址:
-license类型:共享型 仅本机
-操作系统类型:Windows Linux
-代理商推荐:群策电子 致远达科技 算科电子 欣华隆科技 北高智科技 晶立达科技 其他
+license类型:共享型 仅本机 （选一个）
+操作系统类型:Windows Linux （选一个）
 ```
 
-打开高云 IDE 的时候，在弹出的 license 管理中，选择自己本地 license 的文件
+建议使用本机以太网的 MAC 来申请，不要使用无线网卡的 MAC 或者虚拟网卡的 MAC
+
+### 验证 license
+
+首次打开高云 IDE 的时候，在弹出的 license 管理中，选择自己本地 license 的文件
 
 ![IDE](./assets/IDE-13.png)
 
 下面是另一种添加方法， 使用 sipeed 的 license 服务器联网激活
 
-### 使用 sipeed 的 license 服务器联网激活
+#### 使用 sipeed 的 license 服务器联网激活
 
 > 在线许可服务器仅适用于 GoWin V1.9.8 及更低版本
 
@@ -161,7 +129,7 @@ license类型:共享型 仅本机
 
 ![IDE](./assets/IDE-14.png)
 
-在此主要以“Use Floating License server”一栏进行测试
+在此主要以 Use Floating License server 一栏进行测试
 
 ![IDE](./assets/IDE-15.png)
 
@@ -169,7 +137,27 @@ license类型:共享型 仅本机
 
 ![IDE](./assets/IDE-16.png)
 
-到此，安装结束。
+到此，我们已经可以正常使用 IDE 了。
+
+## 拓展
+
+获取 license 可能需要等待一段时间。在此期间可以看看高云的官方文档。下面简单说明一下：
+
+在 IDE 的安装路径下主要有如下内容：IDE 文件夹、Programmer 文件夹、uninst.exe；
+
+![ide_folder](./assets/ide_folder.png)
+
+**IDE** 文件夹：这里主要说一下里面的 **doc** 文件夹，用户在安装完之后可以在这个文件夹里面看到高云提供的大多数文档高云，主要内容如下图所示：
+
+![IDE](./assets/doc-folder.png)
+
+Programmer 文件夹：里面是烧录软件，也有相关的文档。
+
+![IDE](./assets/programmer-folder.png)
+
+一般来说建议把安装 IDE 附带的 Programmer 删掉。替换成特定版本的（这样能减少不少问题）。可以在这里下载：[点我跳转](https://dl.sipeed.com/shareURL/TANG/programmer)
+
+uninst.exe：卸载IDE
 
 ## 相关文档
 
