@@ -103,7 +103,7 @@
                 "type": "list",
                 "items": [
                     {
-                        "url": "https://www.maixhub.com",
+                        "url": "https://maix.sipeed.com",
                         "label": "Maixhub 模型训练平台",
                         "target": "_blank"
                     },
