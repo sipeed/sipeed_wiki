@@ -74,10 +74,10 @@ SPMOD_Ethernet(网络扩展模块)采用 W5500 以太网主控芯片。
 |Github | [https://github.com/sipeed](https://github.com/sipeed) |
 |BBS | [http://bbs.sipeed.com](http://bbs.sipeed.com) |
 |MaixPy 文档官网 | [http://maixpy.sipeed.com](http://wiki.sipeed.com/maixpy) |
-|Sipeed 模型平台 | [https://maixhub.com](https://maixhub.com) |
+|Sipeed 模型平台 | [https://maix.sipeed.com](https://maix.sipeed.com) |
 |SDK 相关信息 | [https://dl.sipeed.com/MAIX/SDK](https://dl.sipeed.com/MAIX/SDK) |
 |HDK 相关信息 | [https://dl.sipeed.com/MAIX/HDK](https://dl.sipeed.com/MAIX/HDK) |
 |E-mail(技术支持和商业合作) | [Support@sipeed.com](mailto:support@sipeed.com) |
 |telgram link | https://t.me/sipeed |
-|MaixPy AI QQ 交流群 | 878189804 |
-|MaixPy AI QQ 交流群(二群) | 1129095405 |
+|MaixPy AI QQ 交流群 (四群）| 256336487 |
+|MaixPy AI QQ 交流群 (二群) | 1129095405 |
