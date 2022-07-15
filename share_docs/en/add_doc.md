@@ -1,48 +1,21 @@
 # Share article
 
-## Prepare
+If you want to share articles, you can add it to wiki.
 
-- This site is built by teedoc, so we need to install it first.
+Here are the steps:
 
-### About teedoc
+---
 
-If you have trouble using this site, pleasr refer to https://teedoc.github.io/en/
+Our wiki supports markdown and ipynb these two documents type
 
-### build locally
+Visit https://github.com/sipeed/sipeed_wiki/tree/main/docs add click 'Upload files'
 
-* Install teedoc
+![Upload_files](./../zh/assets/upload.png)
 
-```
-pip3 install teedoc --upgrade
-```
+Then follow the prompts in the red box, the purple box shows the added document, and enter your additional notes in blue box. After these are done, click the green button `Commit changes` to finish adding document.
 
-* Get site source files
+![add_docs](./assets/add.png)
 
-```
-git clone https://github.com/sipeed/sipeed_wiki.git
-```
+The repository administrator will migrate the document to the correct location according to the additional notes in the blue box when seeing it.
 
-* Install related plugins
-
-```
-cd sipeed_wiki
-teedoc install
-```
-
-* build and serve locally
-
-```
-teedoc serve
-```
-
-then visit [http://127.0.0.1:2333](http://127.0.0.1:2333) to see your local site
-
-## Add article
-
-Normally all docs are put in the folder named docs which is in the root path.
-
-When finishing writing the document you want to share under the appropriate corresponding directory, edit the file with name **sidebar** to make your file to be shown in the corresponding place on the web page.
-
-Then you can then view the effect in the locally built site.
-
-If you think you have finish this job, just create pull request and we'll merge it .
+> Thanks for your participation in construction of open source documentation
