@@ -1,47 +1,21 @@
 # 分享文档
 
-## 准备环境
+如果你有什么好的文档想分享出来的话，可以上传到 wiki 上
 
-- wiki 网站是使用 teedoc 构建的。因此需要先准备环境
+下面是操作步骤：
 
-### teedoc 说明
+---
 
-关于网站框架，使用时有疑问的话可以参考 https://teedoc.github.io/
+目前 wiki 主要网页支持 markdown 和 ipynb 两种说明文档
 
-### 本地构建网站
+我们在 https://github.com/sipeed/sipeed_wiki/tree/main/docs 页面选择 'Upload files'
 
-- 安装teedoc
+![添加文件](./assets/upload.png)
 
-```python
-pip3 install teedoc --upgrade
-```
+在接下来的页面中我们**把想要分享的文档直接拖拽到红框处，比如下图紫框中就是已经上传的文件，然后在蓝框中补充说明一下**。最后可以点击绿色的 `Commit changes` 来进行提交了
 
-- 获取网站源码
+![增加文件](./assets/added.png)
 
-```bash
-git clone https://github.com/sipeed/sipeed_wiki.git
-```
+仓库管理员看到后会根据蓝框中的说明把文档移植到正确的位置。
 
-- 安装对应插件
- 
-```bash
-cd sipeed_wiki
-teedoc install
-```
-- 本地构建网站
-
-```bash
-teedoc serve
-```
-
-然后访问 [http://127.0.0.1:2333](http://127.0.0.1:2333) 可以查看构建的网页
-
-## 添加文档
-
-一般来说文档都位于根目录下面的 docs 文件夹里面。
-
-对于想要添加的文档在合适的对应目录下面编写完毕后，再在对应目录的 sidebar 文件中合适的位置添加后，可在网页中相应的位置看到相关的文档
-
-然后可以在本地构建的网站中查看效果。
-
-如果自己觉得已经完成的话可以提交 PR ，我们看到后会及时合并进去。
+> 感谢参与建设开源文档
