@@ -14,7 +14,6 @@ For V831 we use adb shell to control it. Connect otg interface marked on board w
 
 ---
 - Fow Windows users, download the latest adb, add its path into system path and save it then use command `adb shell` to connect V831.
----
 - For linux we need to install adb first, then run command `adb shell` to connect V831.
 ---
 
@@ -95,9 +94,13 @@ display.show(camera.capture())
 
 > If your screen doesn't display anything, make sure your mirror is the latest one and your drivers are correct.
 
+## ToolChain
+
+[Here](https://dl.sipeed.com/shareURL/MaixII/MaixII-Dock/SDK/Toolchain) is a toolchain for V831, it can be run in linux system.
+
 ## MaixPy3
 
-For this device we suggest you use [Maixpy3] to develop with, and its English documents will come out soon.
+For this device we suggest you use [Maixpy3] to develop , and its English documents will come out soon.
 
 ## SDK development
 

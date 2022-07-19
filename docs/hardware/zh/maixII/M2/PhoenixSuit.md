@@ -20,7 +20,7 @@ V831 为全志的 SOC， 所以 Windwos 使用 **PhoenixSuit**, Linux 上使用 
 
 ## Windows 上使用 PhoenixSuit 烧录
 
-解压 PhoenixSuit(Windows) 工具压缩包，不插入 SD 卡，将 V831 USB OTG 接口连接到 PC， 打开设备管理器， 安装驱动文件
+解压 PhoenixSuit(Windows) 工具压缩包，不插入 SD 卡，将 V831 USB OTG 接口连接到 PC，打开设备管理器， 安装驱动文件
 
 ![](./asserts/flash_01.png)
 

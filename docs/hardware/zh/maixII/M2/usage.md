@@ -18,14 +18,13 @@ V831 tina 系统支持使用 adb 来操作系统。需要将主机于板子的OT
 
 ---
 - Windows 系统需要先下载最新的 adb 然后将其解压并添加到系统路径，接着就可以在命令行中使用 adb shell 连接上 v831.
----
 - 对于 linux 直接安装 adb 即可，然后在终端执行 adb shell 连接 V831
 ---
 
 ## 部分常用 Linux 命令
 
 <details>
-  <summary>部分常用命令</summary>
+  <summary>点击查看部分常用命令</summary>
    <pre>
 ls 查看目录下文件
 cd 打开目录
@@ -167,11 +166,17 @@ display.show(camera.capture())
 
 > 如果屏幕没有显示内容。那么首先确认一下镜像镜像版本，并且确认一下外设和驱动对的上
 
+## 工具链
+
+[这里](https://dl.sipeed.com/shareURL/MaixII/MaixII-Dock/SDK/Toolchain)提供了在 linux 系统下的编译工具链，有能力的可以自己试一下。无相关支持
+
+建议使用 [MaixPy3](/soft/maixpy3/zh/index.html) 来操作设备
+
 ## MaixPy3
 
-本设备是支持使用 [MaixPy3](/soft/maixpy3/zh/index.html) 进行开发使用，请好好阅读 MaixPy3 的使用文档
+本设备建议使用 [MaixPy3](/soft/maixpy3/zh/index.html) 来进行相应的快速开发，相关文档请仔细阅读
 
 ## 源码
 
-V831的源码已经放在  https://github.com/Tina-Linux/tina-V83x ，有需要的可以自行尝试一下
+V831 的源码已经放在  https://github.com/Tina-Linux/tina-V83x ，有需要的可以自行尝试一下
 

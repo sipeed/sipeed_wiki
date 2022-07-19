@@ -4,7 +4,6 @@ keywords: maixpy, k210, AIOT, 边缘计算, maixpy入门
 desc: maixpy doc: Board
 ---
 
-
 > **本文档在 MaixPy 0.5.1-128 版本测试通过。**
 
 这是一个 MaixPy 板级配置模块，它可以在用户层统一 Python 代码，从而屏蔽许多硬件的引脚差异。
@@ -48,7 +47,6 @@ led_r.value(0)
 
 7. Maix Nano
 > 这个没有硬件外设.....所以不要问为什么没有它的配置代码了。
-
 
 运行配置代码后会自动重启，此时代码中才可以调用 board_info.BOOT_KEY , 实际上 board_info.BOOT_KEY 就是指 IO 16 ，对应的定义在 config.json 中可以得知，如果不存在的资源将会报错，如没有 LED 定义的硬件，运行 LED 点亮的时候就会报错。
 

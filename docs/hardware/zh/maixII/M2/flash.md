@@ -25,7 +25,7 @@ desc: maixpy doc: MaixII M2dock 烧录系统
 
 ### 镜像文件命名方式
 
-对于V831的镜像文件名字是有对应的规则，以后大家可以根据自己的需求来进行下载
+对于 V831 的镜像文件名字是有对应的规则，以后大家可以根据自己的需求来进行下载
 
 就拿`v831-m2dock-maixhub-0.5.1-20220701.zip`和 ` v831-m2dock-maixpy3-0.5.1-20220701.zip` 这两个镜像文件来说
 
@@ -36,9 +36,9 @@ desc: maixpy doc: MaixII M2dock 烧录系统
 | m2dock        | 可使用 MaixII-Dock 开发板平台                                                                                     |
 | 20220701      | 镜像更新日期                                                                                                      |
 
-## Windows 上使用 PhoenixCard烧录镜像
+## Windows 上使用 PhoenixCard 烧录镜像
 
-PhoenixSuit和PhoenixCard是常用来烧录全志科技芯片的两种工具，前者通过USB烧录到flash，后者常常用于烧录镜像到TF卡中。
+PhoenixSuit 和 PhoenixCard 是常用来烧录全志科技芯片的两种工具，前者通过 USB 烧录到 flash，后者常常用于烧录镜像到 TF 卡中。
 
 ### 准备工作
 
@@ -131,4 +131,3 @@ PhoenixSuit和PhoenixCard是常用来烧录全志科技芯片的两种工具，�
 ### 使用 dd 烧录
 
 官方没有做 MaixII-Dock 的 dd 镜像相关支持，有需要的可以自行去学习如何制作 dd 镜像的[制作](https://www.cnblogs.com/USTHzhanglu/p/15431249.html)。
-
