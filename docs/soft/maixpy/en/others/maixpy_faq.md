@@ -4,8 +4,7 @@ keywords: maixpy, k210, AIOT, edge computing
 desc: maixpy ​​doc: MaixPy FAQ
 ---
 
-
-
+> Edit on 2022.07.19
 
 ## What are the similarities and differences between MaixPy and C development, and how should I choose
 
@@ -55,7 +54,6 @@ If you encounter slow download speed at the dl.sipeed.com download station, you 
 Some files provide CDN download links, which will be faster, for example, IDE has instructions in readme.txt
 
 ## Micro SD card cannot be read
-
 
 Micro SD cannot be read phenomenon and solutions:
 
@@ -213,4 +211,125 @@ kflash_gui configuration options
 - Burning space (SRAM/Flash)
   - Wrong selection of burning space
 - Baud rate & download speed mode
-  - Download baud rate is too high
+  - Download baudrate is too high
+
+## An error: type object 'board_info' has no attribute 'XX' 
+Visit [Board_config](./../get_started/board_info.md) to reconfig your board.
+
+## TF card format is right, but can't read tf card anf failed mount
+
+Use following to remount:
+```python
+from machine import SDCard
+SDCard.remount()
+```
+
+Using following code to check whether succeed mounting tf card:
+```python
+def sd_check():
+    import os
+    try:
+        os.listdir("/sd/.")
+    except Exception as e:
+        return False
+    return True
+print(sd_check())
+```
+
+## ValueError:[MAIXPY]kpu: load error:2002, ERR_KMODEL_VERSION: onlysupport kmodel V3/V4 now
+
+1. Update firmware, using the latest MaixPy firmware with v3/v4 supported. The update way has been tole before.
+2. Check the location you store the model whether matches your read location. For example, if you store the model on sd card, but you read your flash address 0x300000, this error will occour.
+3. If you use module named with .smodel, you should redownload it with your own machine-key from maixhub.
+
+## No any response when run boot.py in MaixPy IDE
+
+If you burn your model on flash, you should run boot.py in serial terminal. If is told `Out of memory`, you should store your model on sd card, then run your code (Make sure your sd card can well be mounted).
+
+## ValueError: [MAIXPY]kpu: load error:2006, ERR. NO_ MEM: memory not enough
+
+This error means out of memory, use smaller size firmware to comsume less ram. There will be about 1M memory left because standard firmware consumes 2MB bytes, if you choose firmware which consumes 600kB you will have 3MB bytes memory left. Visit this demo [demo_view_mem.py](https://github.com/sipeed/MaixPy_scripts/blob/master/basic/demo_view_mem.py) to see how to know the rest memory.
+
+1. Using mini firmware instead of which you used now, or you need to reduce your dataset used during training
+2. Visit [memory manegment](./../course/others/mem.md) to manage your memory amd adjust it by garbage collector.
+
+## OSEerror: [Errno 2] ENOENT
+
+This error means the file your code read is not at the correct path. If the file is on sd card, check whether sd card is well mounted.
+
+Using following codes to check whether sd card is mounted, it will return false if failling mounting. This maybe because your sdcard is not compatible with this board, or the file system format on sdcard is incorrect(It should be FAT32). It's suggested to use our official sdcard and if it can't work do contact with us we will response you soon.
+```python
+def sd_check():
+    import os
+    try:
+        os.listdir("/sd/.")
+    except Exception as e:
+        return False
+    return True
+print(sd_check())
+```
+Using following codes to remount
+```python
+from machine import SDCard
+SDCard.remount()
+```
+
+## Failed to open serial terminal, but it run in IDE
+
+1. Check if the serial port is occupied, because only one application can use a serial port at a time
+2. Using serial terminal contained in IDE
+
+## ValueError: [MAIXPY]kpu: load error:2005,ERR_READ_FILE: read filefailed
+
+1. Check if the name of model on sdcard matches it in the code, and its path whether matches.
+2. Check whether your model downloaded address matches the load address in your code.
+
+## Operations after burning key_gen.bin
+
+After burning key_gen.bin, use serial terminal connects with your board, and press reset key which is on your board. Then you will see a machine code prints out on your serial terminal. Or you can use the [serial terminal](/soft/maixpy/en/get_started/env_serial_tools.html#Use-serial-port-tool) contained in MaixPy IDE connects with your board to see your machine code.
+
+After you get your machine code, you need to reburn your corresopnding firmware to reuse your board.
+
+## Camera is not clear
+
+If you are using OV5642 while it doesn't shows very clear, you can adjust its focal length by rotating the lens. If the other camera is not very clear, you can do the same operation to adjust its focal too. But there is a limit to the camera display effect, so maybe sometiomes we can juse use other camera to get better image.
+
+## Display incorrect, like blurred screen, incorrect color or single color
+
+Using kflash flashs your board with [K210-chip_erase.kfpkg](https://dl.sipeed.com/fileList/MAIX/MaixPy/release/Erase_all/K210-chip_erase.kfpkg), this will clear all data in your flash. And reburn your firmware to restart your board.
+
+When you reburn your model, make sure your model address matches it in your code.
+
+- White blurred screen means wronf firmware, reburn correct firmware after erasing your your board to solve this
+- Screen blurred screen may mean your camera is broken
+- Red screen is the righe color, but there is no user's code running on it.
+
+## TypeError: Can't convert to type when using IDE
+
+This error means the memory on board is not enough while contacts with IDE.
+
+Use the termial located on the top menu bar or allocate memory wisely to solve this.
+
+## kpu:check img format err!
+
+Pay attention to your terminal !!!
+
+The content of gray font: kpu img w=320, h=240 but model w=224, h=224
+
+means the requirement for this model is 224 224, but the input is 320 240
+
+so we should resize all pictures into 224 224, and for 128 128 we need resize resolution of picture too.
+
+Use `sensor.set_windowing` to resize camera input or use `img.resize` to resize picture resolution
+
+## ValueError input not support
+
+Check the Python code error line and check ValueError error. This normally happens when the type of input-format mismatches the type target functions need, or because of lack of memory the object is to be None or that the class type was recycled.
+
+## OSError reset failed
+
+This error means there is somdthing is wrong with your camera.
+
+You can try to reconnect camera with your board or use another camera.
+
+It's suggested to use camera provided by Sipeed, this can reduce many troubles like the different line sequence of camera to the board or the lack of your camrea driver on this board.

@@ -4,7 +4,7 @@ keywords: maixpy, k210, AIOT, 边缘计算
 desc: maixpy doc: MaixPy 常见问题
 ---
 
-
+> 编辑于 2022.07.19
 
 ## MaixPy 与 C 开发有什么异同，我该怎么选择
 
@@ -182,7 +182,7 @@ kflash_gui 配置选项
 - 波特率&下载速度模式
   - 下载波特率过高
 
-## 出现type object 'board_info' has no attribute 'XX'
+## 出现 type object 'board_info' has no attribute 'XX'
 请看[开发板配置文件](./../get_started/board_info.md),对开发板进行重新配置
 
 ## TF卡格式没有问题，但是无法读取TF卡，挂载失败
@@ -212,6 +212,7 @@ print(sd_check())
 3、如果是使用以 smodel 为后缀模型，必需使用自己开发板上的机器码来获取模型。
 
 ## 在MaixPyIDE上运行boot.py文件时，卡死，没有显示，没有报错
+
 如果你的模型是烧录到flash上，你需要在串口终端上运行boot.py里面的代码，输出一段红色的报错信息为`Out of memory`，这时你需要将模型放到sd上，然后再进行读取（一定要可以挂载的sd卡，否则都是白干）
 
 ## 运行模型的时候报 ValueError: [MAIXPY]kpu: load error:2006, ERR. NO_ MEM: memory not enough
@@ -219,8 +220,8 @@ print(sd_check())
 同上 Out of memory ，请使用更小的固件获得更多的运行内存，标准固件大于 2m 剩余 1m 多，同理选用 600kb 可以获得 3m 多的运行内存，查看剩余运行内存看 [demo_view_mem.py](https://github.com/sipeed/MaixPy_scripts/blob/master/basic/demo_view_mem.py)。
 这是内存不足了，不是 flash 或者是 sd 内存不够，是运行内存不够了。解决办法：
 
-1. 这时需要跟换 mini 固件得以解决，如果还是不行，那就要减少训练的是时候使用的数据集
-2. 或者通过查看【[内存管理](/soft/maixpy/zh/course/others/mem.md)】这篇教程进行对内存和 GC 进行调整
+1. 这时需要跟换 mini 固件得以解决，如果还是不行，那就要减少训练的时候使用的数据集
+2. 或者通过查看【[内存管理](./../course/others/mem.md)】这篇教程进行对内存和 GC 进行调整
 
 ## 出现 OSEerror: [Errno 2] ENOENT
 
@@ -249,11 +250,13 @@ SDCard.remount()
 2、使用 ide 中软件菜单的串口终端打开
 
 ## 出现 ValueError: [MAIXPY]kpu: load error:2005,ERR_READ_FILE: read filefailed
+
 检查sd卡上的模型模型和代码中的名字，路径是不是一样的。
 检查模型下载地址是不是和程序一样
 
 ## 烧录了 key_gen.bin 之后的操作
-烧录刻 key_gen.bin 之后，通过串口软件来连接开发板，然后按下 reset 按键，重启开发板，可以看到机器码打印到串口的接收区中。也可以通过 MaixPy IDE 中的 [串口终端](/soft/maixpy/zh/get_started/env_serial_tools.html#MaixPy-IDE终端工具)来连接开发板查看机器码。
+
+烧录 key_gen.bin 之后，通过串口软件来连接开发板，然后按下 reset 按键，重启开发板，可以看到机器码打印到串口的接收区中。也可以通过 MaixPy IDE 中的 [串口终端](/soft/maixpy/zh/get_started/env_serial_tools.html#MaixPy-IDE终端工具)来连接开发板查看机器码。
 
 获取到机器码之后，需要重新烧录需要使用的固件才能运行对应的代码。否则是连 IDE 都无法连接的
 
@@ -279,11 +282,11 @@ maixpy ide 挂着运行时内存不足，就会出现的常见错误，解决方
 
 注意看终端输出提示，特别强调！！！
 
-灰色字体的错误      kpu img w=320, h=240 but model w=224, h=224 
+灰色字体的错误 kpu img w=320, h=240 but model w=224, h=224 
 
-意思是说，这个模型的要求是 224224 ，但输入的是 320240 。
+意思是说，这个模型的要求是 224 224 ，但输入的是 320 240 。
 
-所以要改图片为 224224 输入，如果是 128 128 同理修改图片尺寸！！！！！
+所以要改图片为 224 224 输入，如果是 128 128 同理修改图片尺寸！！！！！
 
 要么使用 sensor.set_windowing 改变摄像头输入大小，要么对 图像 img.resize 改变图像大小。
 
@@ -291,3 +294,8 @@ maixpy ide 挂着运行时内存不足，就会出现的常见错误，解决方
 
 检查一下 Python 代码出错行，排查 ValueError 错误，一般发生在输入的类型不与目标函数所需的类型一致导致的错误，可能是内存不足导致对象为 None 也可能是类被回收了。
 
+## OSError reset failed
+
+这种情况可能是**摄像头接错、接反或被烧坏了**，只能换摄像头。
+
+建议使用 Sipeed 所提供的摄像头，用户自行配备的可能因为线序不符或者摄像头驱动不支持等原因而不能用。
