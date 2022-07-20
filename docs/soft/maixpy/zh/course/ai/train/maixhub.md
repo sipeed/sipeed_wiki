@@ -4,7 +4,7 @@ keywords: maixpy, k210, AIOT, 边缘计算
 desc: maixpy doc: Maixhub 模型训练
 ---
 
-> 已过时，请前往新网站 [Maixhub](maix.sipeed.com)
+> 2022年07月20日 目前 maixhub 新版网站已上线测试版，点此前往 [maix.sipeed.com](http://maix.sipeed.com) ，同步支持 k210 nncase 模型的图片标注、训练、部署。
 
 Maixhub 提供模型训练功能和模型分享功能， 只需要准备好需要训练的数据集， 不需要搭建训练环境和代码， 上传训练数据即可快速训练出模型
 
