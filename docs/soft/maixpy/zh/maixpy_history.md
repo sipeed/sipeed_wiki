@@ -95,4 +95,6 @@ wipping 退出项目组， zepan 和 xel 专注到其它项目组
 
 稳定 MaixPy 各项功能，补充缺失的文档，迎接 MaixPy3 项目的到来。
 
+## 2022 年 6 月
 
+全新 [Maixhub](maix.sipeed.com) 上线，更好的体验
