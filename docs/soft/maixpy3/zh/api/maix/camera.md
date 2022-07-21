@@ -41,6 +41,24 @@ from maix import camera
 
 现在作为开发调试的保留功能，像缩放、裁剪、翻转、旋转请使用 image 的一系列函数。
 
+#### 关于增益和曝光的摄像头控制接口
+
+> 0.5.3 以后给 v83x m2dock 系列的加入了 [exp_gain](https://github.com/sipeed/MaixPy3/commit/d7e5cb04ed31a2ffe135407a0379a701bd3a5522) 函数。
+
+```python
+from maix import camera, display, image
+camera.config(size=(224, 224))
+a, b = 16, 16 # 初值，增益[16 - 1024]，曝光[0, 65536]，随意设置得值会受到驱动限制。
+for i in range(120):
+    a, b = a + 16, b + 32
+    camera.config(exp_gain=(a, b))
+    img = camera.capture()
+    display.show(img)
+camera.config(exp_gain=(0, 0)) # 设置为 0, 0 表示恢复自动曝光。
+```
+
+做这些控制需要了解摄像头控制增益、曝光会发生什么，传统视觉有时候需要拉低曝光固定亮度去寻色寻线，这时候就需要设置特定的增益和曝光，比如怼白灯的时候需要拉低曝光才能看到灯。
+
 ### camera.capture
 
 捕获一张图像并返回 _maix_image.image 。
