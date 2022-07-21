@@ -23,7 +23,7 @@ from maix import camera
 
 ### camera.config
 
-> 这个 API 涉及硬件容易使软件崩溃所以移除了，详细请查阅 [maix/camera.py](https://github.com/sipeed/MaixPy3/blob/release/maix/camera.py)。
+> 这个 API 涉及硬件容易使软件崩溃所以详细请查阅 [maix/camera.py](https://github.com/sipeed/MaixPy3/blob/release/maix/camera.py)。
 
 主要用于配置摄像头，如获取的图像大小、旋转（部分芯片可选）、翻转（部分芯片可选）。
 
@@ -57,7 +57,7 @@ for i in range(120):
 camera.config(exp_gain=(0, 0)) # 设置为 0, 0 表示恢复自动曝光。
 ```
 
-做这些控制需要了解摄像头控制增益、曝光会发生什么，传统视觉有时候需要拉低曝光固定亮度去寻色寻线，这时候就需要设置特定的增益和曝光，比如怼白灯的时候需要拉低曝光才能看到灯。
+做这些控制需要了解摄像头控制增益、曝光会发生什么，传统视觉有时候需要拉低曝光固定亮度去寻色寻线，这时候就需要设置特定的增益和曝光，比如拍白灯的时候需要拉低曝光才能看到灯罩的轮廓。
 
 ### camera.capture
 
