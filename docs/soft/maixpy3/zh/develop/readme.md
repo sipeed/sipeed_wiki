@@ -5,13 +5,13 @@ desc: maixpy3 doc: 开发进程
 class: heading_no_counter
 ---
 
-> 设置一个板块来让大家知道最近增加了哪些内容
+> 2022年07月22日 设置一个板块来让大家知道最近增加了哪些内容，以及开发者们所关心的如何二次开发的问题。
 
 ## MaixPy3 更新日志
 
 ---
 
-### V0.5.1 
+### V0.5.1
 
 Release 页面： https://github.com/sipeed/MaixPy3/releases/tag/MaixPy-0.5.1
 
@@ -29,7 +29,7 @@ Release 页面： https://github.com/sipeed/MaixPy3/releases/tag/MaixPy-0.5.1
 
 ---
 
-### V0.5.0 
+### V0.5.0
 
 Release 页面： https://github.com/sipeed/MaixPy3/releases/tag/MaixPy-0.5.0
 

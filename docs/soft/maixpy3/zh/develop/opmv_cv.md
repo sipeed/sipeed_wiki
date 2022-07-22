@@ -1,6 +1,6 @@
 # MaixPy3 视觉模块开发
 
-> 进度直播通过查看共享文档获得：<https://www.kdocs.cn/l/cfdsBPVRhXxo>
+> 2022年07月22日 最新进度可以通过查看共享文档获得：<https://www.kdocs.cn/l/cfdsBPVRhXxo>
 
 ## 项目简介：
 

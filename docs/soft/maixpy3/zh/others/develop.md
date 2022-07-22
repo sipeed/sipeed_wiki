@@ -52,7 +52,7 @@ Installing collected packages: MaixPy3
     Uninstalling MaixPy3-0.2.8:
       Successfully uninstalled MaixPy3-0.2.8
 Successfully installed MaixPy3-0.2.9
-juwan@juwan-N85-N870HL:~/Desktop/v831_toolchain_linux_x86/MaixPy3$ 
+juwan@juwan-N85-N870HL:~/Desktop/v831_toolchain_linux_x86/MaixPy3$
 ```
 
 而对于不能在目标平台上编译安装的环境，就需要使用预编译的 whl 包来辅助安装，以 Maix V831 为例。
@@ -65,25 +65,25 @@ juwan@juwan-N85-N870HL:~/Desktop/v831_toolchain_linux_x86/MaixPy3$
 root@sipeed:/# export TMPDIR=/root && pip install maixpy3 --upgrade
 Collecting maixpy3
   Downloading MaixPy3-0.1.9-cp38-cp38-linux_armv7l.whl (1.0 MB)
-     |████████████████████████████████| 1.0 MB 43 kB/s 
+     |████████████████████████████████| 1.0 MB 43 kB/s
 Collecting pexpect
   Downloading pexpect-4.8.0-py2.py3-none-any.whl (59 kB)
-     |████████████████████████████████| 59 kB 71 kB/s 
+     |████████████████████████████████| 59 kB 71 kB/s
 Collecting rpyc
   Downloading rpyc-5.0.1-py3-none-any.whl (68 kB)
-     |████████████████████████████████| 68 kB 42 kB/s 
+     |████████████████████████████████| 68 kB 42 kB/s
 Requirement already satisfied, skipping upgrade: Pillow in /usr/lib/python3.8/site-packages (from maixpy3) (7.2.0)
 Collecting ptyprocess>=0.5
   Downloading ptyprocess-0.7.0-py2.py3-none-any.whl (13 kB)
 Collecting plumbum
   Downloading plumbum-1.6.9-py2.py3-none-any.whl (115 kB)
-     |████████████████████████████████| 115 kB 84 kB/s 
+     |████████████████████████████████| 115 kB 84 kB/s
 Installing collected packages: ptyprocess, pexpect, plumbum, rpyc, maixpy3
 Successfully installed maixpy3-0.1.9 pexpect-4.8.0 plumbum-1.6.9 ptyprocess-0.7.0 rpyc-5.0.1
 WARNING: You are using pip version 20.1.1; however, version 21.0 is available.
 You should consider upgrading via the '/usr/bin/python3 -m pip install --upgrade pip' command.
 
-root@sipeed:/# 
+root@sipeed:/#
 ```
 
 对于一些安装失败，缺少了依赖库的场合，需要从外部去引入该包的安装，例如这个问题 [error happened when install maixpy3](https://github.com/sipeed/MaixPy3/issues/4) ，这通常需要升级镜像来解决，或手动安装相关的依赖包。
@@ -105,7 +105,7 @@ py38 run-test: commands[0] | py.test
 platform linux -- Python 3.8.5, pytest-6.2.1, py-1.10.0, pluggy-0.13.1
 cachedir: .tox/py38/.pytest_cache
 rootdir: /home/juwan/Desktop/v831_toolchain_linux_x86/MaixPy3
-collected 5 items                                                                                  
+collected 5 items
 
 ext_modules/_maix/example/test__maix.py .                                                    [ 20%]
 tests/test_maix.py ....                                                                      [100%]
@@ -192,9 +192,17 @@ __all__ = ['display', 'video', 'camera']
 
 其中 `__all__` 可以控制 import 加载的模块、对象或变量，这样一个最基本的 Python 模块就制作完成了。
 
-关于编写后的测试看 [test_maix.py](https://github.com/sipeed/MaixPy3/tree/main/tests/test_maix.py) 代码可知，关于 tox 测试框架会在最后简单说明。 
+关于编写后的测试看 [test_maix.py](https://github.com/sipeed/MaixPy3/tree/main/tests/test_maix.py) 代码可知，关于 tox 测试框架会在最后简单说明。
+
+## 关于 C++ 拓展模块开发
+
+> 2022年07月22日 已经将 camera、display、image 等模块移植采用该方式开发。
+
+[使用pybind11 将C++代码编译为python模块](https://zhuanlan.zhihu.com/p/52619334)
 
 ## 关于 C 拓展模块开发
+
+> 如今已经不再推荐使用，但适合学习和了解以往的最初的开发方法。
 
 以 [libi2c](https://github.com/amaork/libi2c) 举例说明原生 C 开发的模块。
 
@@ -204,13 +212,13 @@ __all__ = ['display', 'video', 'camera']
 
 ```shell
 juwan@juwan-N85-N870HL:~/Desktop/v831_toolchain_linux_x86/MaixPy3/ext_modules/libi2c$ python3
-Python 3.8.5 (default, Jul 28 2020, 12:59:40) 
+Python 3.8.5 (default, Jul 28 2020, 12:59:40)
 [GCC 9.3.0] on linux
 Type "help", "copyright", "credits" or "license" for more information.
 >>> import pylibi2c
 >>> pylibi2c
 <module 'pylibi2c' from '/home/juwan/Desktop/v831_toolchain_linux_x86/MaixPy3/ext_modules/libi2c/pylibi2c.cpython-38-x86_64-linux-gnu.so'>
->>> 
+>>>
 ```
 
 注意 `pylibi2c.so` 是经过 `python3 setup.py build_ext --inplace` 命令编译 [ext_modules/libi2c/src/pyi2c.c](https://github.com/sipeed/MaixPy3/tree/main/ext_modules/libi2c/src/pyi2c.c) 得到的模块。
@@ -299,7 +307,7 @@ if 'maix_v831' in sys.argv:
   from envs.maix_v831 import _maix_modules, _maix_data_files, _maix_py_modules
 else:
   from envs.general import _maix_modules, _maix_data_files, _maix_py_modules
-  
+
 ext_modules.extend(_maix_modules)
 data_files.extend(_maix_data_files)
 py_modules.extend(_maix_py_modules)
