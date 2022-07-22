@@ -23,41 +23,70 @@
                     ]
                 },
                 {
-                    "label":"更新日志速览",
-                    "file": "develop/readme.md"
-                },
-                {
-                    "label": "来自社区分享的资料",
+                    "label":"遇到问题怎么办？",
                     "items": [
                         {
-                            "label":"如何正确反馈问题并得到解决的方法",
+                            "label": "如何正确反馈问题！",
                             "file":"origin/helper.md"
                         },
                         {
-                            "label":"Python 的相关教程",
-                            "file": "origin/python.md",
-                            "items":[
-                                {
-                                    "label":"收录国内 Python 基础教程",
-                                    "file":"origin/video.md"
-                                },
-                                {
-                                    "label": "大佬鼠の嵌入式 Python 入门教程 [1]",
-                                    "file": "origin/hello_world.md"
-                                },
-                                {
-                                    "label": "大佬鼠の嵌入式 Python 入门教程 [2]",
-                                    "file": "origin/loop_python.md"
-                                }
-                            ]
+                            "label": "常见问题与解决方法",
+                            "file":"question/maixpy3_faq.ipynb"
+                        }
+                    ]
+                },
+                {
+                    "label":"相关的基础知识",
+                    "items": [
+                        {
+                            "label": "MaixPy 和 MaixPy3 的区别",
+                            "url": "/news/MaixPy3/difference.html"
+                        },
+                        {
+                            "label":"收录一些国内 Python 基础教程",
+                            "file":"origin/video.md"
+                        },
+                        {
+                            "label": "大佬鼠の嵌入式 Python 入门教程 [1]",
+                            "file": "origin/hello_world.md"
+                        },
+                        {
+                            "label": "大佬鼠の嵌入式 Python 入门教程 [2]",
+                            "file": "origin/loop_python.md"
+                        },
+                        {
+                            "label":"使用必应搜索 V831 M2DOCK 的内容",
+                            "url":"https://bing.com/search?q=v831+m2dock"
                         },
                         {
                             "label":"咸鱼菌の MaixII-Dock 上手系列教程",
                             "url":"https://bbs.sipeed.com/user/909"
                         },
                         {
-                            "label":"喏呐の 【攻城狮成长记】",
+                            "label":"喏呐の【攻城狮成长记】",
                             "file":"origin/xiaoxu.md"
+                        }
+                    ]
+                },
+                {
+                    "label":"开发者更新速览",
+                    "file": "develop/readme.md",
+                    "items": [
+                        {
+                            "label":"【模块开发基础】项目架构介绍",
+                            "file":"others/framework.md"
+                        },
+                        {
+                            "label":"【底层开发基础】编译安装测试",
+                            "file":"others/develop.md"
+                        },
+                        {
+                            "label":"【移植适配实例】开发新的平台",
+                            "file":"others/platform.md"
+                        },
+                        {
+                            "label":"【图像处理开发】传统视觉算法",
+                            "file":"develop/opmv_cv.md"
                         }
                     ]
                 }
@@ -223,27 +252,6 @@
                 {
                     "label": "nn",
                     "file": "api/maix/nn.md"
-                }
-            ]
-        },
-        {
-            "label": "MaixPy3 常见问题与解决方法",
-            "file":"question/maixpy3_faq.ipynb"
-        },
-        {
-            "label": "MaixPy 和 MaixPy3 的区别",
-            "url": "/news/MaixPy3/difference.html"
-        },
-        {
-            "label": "让更多硬件加入 MaixPy3 吧!",
-            "items":[
-                {
-                    "label":"如何开发 MaixPy3 （过时）",
-                    "file":"others/develop.md"
-                },
-                {
-                    "label":"如何适配其他硬件平台（过时）",
-                    "file":"others/platform.md"
                 }
             ]
         }

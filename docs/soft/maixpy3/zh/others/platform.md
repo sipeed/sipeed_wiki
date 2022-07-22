@@ -2,11 +2,11 @@
 title: 如何适配你的平台
 keywords: MaixPy, MaixPy3, Python, Python3, MicroPython
 desc: maixpy doc: 如何适配你的平台
---- 
+---
 
 > 通过【MaixPy3开发文档】可知基础的 Python3 编译、安装、测试等开发方法。
 
-本文基于 [MaixPy3 项目主页](https://github.com/sipeed/MaixPy3) 详细地介绍了 MaixPy3 项目结构，帮助你更好的适配 MaixPy3 环境。
+本文详细地介绍了 MaixPy3 项目结构，帮助你更好的适配 MaixPy3 环境。
 
 ## 2021 年的 Python 可以彻底跨平台了吗？
 
@@ -150,7 +150,7 @@ class DisplayViewer(UnixViewer):
 在 v831 的 linux 系统中可以使用和 display 类似的 fbviewer 程序来显示一张图像。
 
 ```
-root@sipeed:/# fbviewer /home/res/logo.png 
+root@sipeed:/# fbviewer /home/res/logo.png
 fbv - The Framebuffer Viewer
 /home/res/logo.png
 140 x 140
@@ -316,13 +316,13 @@ class MaixVideo():
 
     def __init__(self, size=(640, 480)):
         self._width, self._height = size
-        
+
     def width(self):
         return self._width
-      
+
     def height(self):
         return self._height
-      
+
     def write(self):
         pass  # for file
 
