@@ -54,6 +54,8 @@ https://www.gowinsemi.com/en/support/license/
 
 #### Get license from Sipeed
 
+> Don't reapply for license from Sipeed if you have asked Gowin for license.
+
 Normally the license email will be replied on Tuseday or Friday (GMT+8)
 
 Send the applying license email to support@sipeed.com to get a local license.

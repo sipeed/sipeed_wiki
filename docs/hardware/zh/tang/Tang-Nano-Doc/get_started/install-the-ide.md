@@ -90,7 +90,9 @@ keywords: Sipeed, Gowin, Tang, Nano, fpga, 矽速
 
 点击链接且填写完毕后等待即可 http://www.gowinsemi.com.cn/faq_view.aspx
 
-#### 向sipeed发邮件申请
+#### 向 Sipeed 发邮件申请
+
+> 向高云申请后不要再向 Sipeed 重复申请
 
 通常邮件会在周二和周五回复
 
