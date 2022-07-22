@@ -36,7 +36,7 @@ There is an LED beside the screw fixing pad on the core board, This can be found
   <img src="./../../../zh/lichee/assets/RV/rv_coreboard_dimension.png">
 </details>
 
-And from the [schematic](https://dl.sipeed.com/shareURL/LICHEE/D1/Lichee_RV/HDK/2_Schematic) we can know the led connects with PC0 pin, and we can figure out its siginal number is 2*32+0=64. 
+And from the [schematic](https://dl.sipeed.com/shareURL/LICHEE/D1/Lichee_RV/HDK/2_Schematic) we can know the led connects with PC0 pin, and we can figure out its siginal number is ('C'-'A')x32+0 = 2x32+0=64 
 
 We can also know the IO multiplexing table from pinmux-pins file
 

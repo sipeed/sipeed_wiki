@@ -36,7 +36,7 @@
   <img src="./../assets/RV/rv_coreboard_dimension.png">
 </details>
 
-从[原理图](https://dl.sipeed.com/shareURL/LICHEE/D1/Lichee_RV/HDK/2_Schematic)可以查到 LED 连接的是 PC0 引脚，换算该 IO 的数字标号为：2*32+0=64；
+从[原理图](https://dl.sipeed.com/shareURL/LICHEE/D1/Lichee_RV/HDK/2_Schematic)可以查到 LED 连接的是 PC0 引脚，根据简单的公式 ('C'-'A')x32 + 0 = 2x32+0 = 64
 
 当然我们也可以查看 pinmux-pins 文件中的内容来知道 IO 复用情况表：
 
