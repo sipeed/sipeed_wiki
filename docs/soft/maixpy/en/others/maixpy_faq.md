@@ -328,8 +328,8 @@ Check the Python code error line and check ValueError error. This normally happe
 
 ## OSError reset failed
 
-This error means there is somdthing is wrong with your camera.
+This error means there is something wrong with your camera.
 
-You can try to reconnect camera with your board or use another camera.
+Check your connection of board with camera, if you make sure your connection of board with camera is right, then you can only another camera to slove this because this camera bas been broken.
 
 It's suggested to use camera provided by Sipeed, this can reduce many troubles like the different line sequence of camera to the board or the lack of your camrea driver on this board.
