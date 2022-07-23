@@ -73,7 +73,7 @@
                     "file": "develop/readme.md",
                     "items": [
                         {
-                            "label":"【模块开发基础】项目架构介绍",
+                            "label":"【项目开发基础】项目架构介绍",
                             "file":"others/framework.md"
                         },
                         {
