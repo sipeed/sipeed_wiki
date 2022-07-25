@@ -43,7 +43,7 @@ from maix import camera
 
 #### 关于增益和曝光的摄像头控制接口
 
-> 0.5.3 以后给 v83x m2dock 系列的加入了 [exp_gain](https://github.com/sipeed/MaixPy3/commit/d7e5cb04ed31a2ffe135407a0379a701bd3a5522) 函数。
+> 0.5.2 以后给 v83x m2dock 系列的加入了 [exp_gain](https://github.com/sipeed/MaixPy3/commit/d7e5cb04ed31a2ffe135407a0379a701bd3a5522) 函数。
 
 ```python
 from maix import camera, display, image
