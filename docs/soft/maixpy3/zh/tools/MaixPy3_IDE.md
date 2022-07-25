@@ -68,7 +68,7 @@ MaixPy3 IDE 的构成主要如下：
 可以看下面的视频来看具体操作：
 
 <p align="center">
-    <iframe src="//player.bilibili.com/player.html?bvid=727075484&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="max-width:640px; max-height:480px;"> </iframe>
+    <iframe src="//player.bilibili.com/player.html?bvid=BV1SS4y1q7QX&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="max-width:640px; max-height:480px;"> </iframe>
 </p>
 
 补充说明：
