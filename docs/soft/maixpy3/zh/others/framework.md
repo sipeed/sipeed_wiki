@@ -312,6 +312,7 @@ _maix_py_modules = [
 │   │   ├── components
 │   │   │   ├── libmaix
 │   │   │   ├── maix_cv_image
+│   │   │   ├── maix_gs831
 │   │   │   ├── maix_speech
 │   │   │   └── third_party
 │   │   │       ├── apriltag
@@ -321,6 +322,7 @@ _maix_py_modules = [
 │   │   │       ├── sqlite3
 │   │   │       └── zbar
 │   │   └── examples
+│   │       ├── app_gs831
 │   │       ├── camera
 │   │       ├── display
 │   │       ├── hello-world
@@ -345,6 +347,8 @@ _maix_py_modules = [
 ```
 
 - maix_cv_image 是基于 opencv 的拓展 image 实现，可以看到 maixpy3 有些接口的底层实现是直接取自 opencv 的接口设计，但 opencv 只能解决一些通用编解码格式与基础图像处理的接口，从实际的开发适配过程中会发现 openmv 的接口设计更实用，并且一些 cv 视觉算法的流程测试函数会通过这个组件使用 C++ 代码完成，对于算法开发人员来说 c++ 代码去验证算法逻辑会方便一些，至少不用到处找基础容器了。
+
+- maix_gs831 这个项目的启动入口在 app_gs831 里，在 main 中将 C 代码跳进 C++ 代码开发环境，用于提供给商业客户开发的典型示例程序，对模块分层实现了串口协议与高速扫码的分时处理，可作为落地商业项目的代码框架参考。
 
 - maix_speech 则是语音相关的接口，在这里大多数模块都是基于 c++ 实现后通过 c 符号暴露给外部调用的，这是因为用户程序如果是 c 代码则比较简单调用，但中大型程序则建议改用 c++ 代码开发。
 
