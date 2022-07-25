@@ -28,7 +28,7 @@ Otherwise it may lead some errors.
 
 ### Trouble downloading
 
-**If you have any problems programming or flashing FPGA development board, it's suggested to use the programmer which can be downloaded at this page https://dl.sipeed.com/shareURL/TANG/programmer instead of what is installed with the IDE.**
+**If you have any problems programming or flashing FPGA development board, it's required to use the programmer which can be downloaded at this page https://dl.sipeed.com/shareURL/TANG/programmer instead of what is installed with the IDE.**
 
 ### ID code mismatch
 
