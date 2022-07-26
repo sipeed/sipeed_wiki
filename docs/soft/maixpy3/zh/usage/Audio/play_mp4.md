@@ -57,7 +57,7 @@ finally:
 
 ## 如何录制视频并播放？
 
-2022年07月26日 根据 pyav.org 文档加源码整理如下代码，从录制编码到播放（x264 支持手机预览但解码性能低），注意该代码只在 av 9.2.0 版本的库可用，需要更新 0.5.2 系统底包的（8.0.3）喔（这种需要编译的包 pip 是得不到的）。
+2022年07月26日 根据 pyav.org 文档加源码整理如下代码，从录制编码到播放（x264 支持手机预览但解码性能低），注意该代码只在 av 9.2.0 版本的库可用，需要更新 0.5.2 系统底包的（av 8.0.3）喔（这种需要编译的包 pip 是得不到的）。
 
 ```python
 
@@ -67,18 +67,18 @@ path_to_video = 'test.mp4'
 
 import av
 
-duration, fps = 4, 24
+duration, fps = 4, 10
 total_frames = duration * fps
 container = av.open(path_to_video, mode='w')
 stream = container.add_stream('h264', rate=fps) # h264 or mpeg4
-stream.width = 480
-stream.height = 320
+stream.width = 320
+stream.height = 240
 stream.pix_fmt = 'yuv420p'
 
 for frame_i in range(total_frames):
-    img = image.new(size=(480, 320), mode='RGB')
+    img = image.new(size=(stream.width, stream.height), mode='RGB')
     import time
-    img.draw_string(0, 0, time.asctime(), 2)
+    img.draw_string(0, 0, str(time.time()), 2)
     frame = av.VideoFrame(img.width, img.height, 'rgb24')
     frame.planes[0].update(img.tobytes())
     for packet in stream.encode(frame):
