@@ -45,12 +45,60 @@ try:
             for frame in fifo.read_many(4096):
                 ao.write(frame.planes[0].to_bytes())
         if 'Video' in repr(frame):
-            img = image.Image().load(bytes(frame.to_rgb().planes[0]))
-            
+            img = image.open(bytes(frame.to_rgb().planes[0]))
+
             display.show(img)
-            
+
 finally:
     ao.stop_stream()
     ao.close()
     p.terminate()
 ```
+
+## 如何录制视频并播放？
+
+2022年07月26日 根据 pyav.org 文档加源码整理如下代码，从录制编码到播放（x264 支持手机预览但解码性能低），注意该代码只在 av 9.2.0 版本的库可用，需要更新 0.5.2 系统底包的（8.0.3）喔（这种需要编译的包 pip 是得不到的）。
+
+```python
+
+from maix import display, image
+
+path_to_video = 'test.mp4'
+
+import av
+
+duration, fps = 4, 24
+total_frames = duration * fps
+container = av.open(path_to_video, mode='w')
+stream = container.add_stream('h264', rate=fps) # h264 or mpeg4
+stream.width = 480
+stream.height = 320
+stream.pix_fmt = 'yuv420p'
+
+for frame_i in range(total_frames):
+    img = image.new(size=(480, 320), mode='RGB')
+    import time
+    img.draw_string(0, 0, time.asctime(), 2)
+    frame = av.VideoFrame(img.width, img.height, 'rgb24')
+    frame.planes[0].update(img.tobytes())
+    for packet in stream.encode(frame):
+        container.mux(packet)
+
+#Flush stream
+for packet in stream.encode():
+    container.mux(packet)
+
+#Close the file
+container.close()
+
+#Play the video
+
+container = av.open(path_to_video)
+stream = container.streams.video[0]
+for frame in container.decode(video=0):
+    if 'Video' in repr(frame):
+        img = image.load(bytes(frame.to_rgb().planes[0]), (stream.width, stream.height))
+        display.show(img)
+```
+
+试试吧。
