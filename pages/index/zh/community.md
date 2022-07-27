@@ -3,6 +3,7 @@
 <img src="/static/image/sipeed_logo_4.svg" alt="sipeed_logo">
 </div>
 
+> 电赛加群:750799296
 
 - 建议到 [Sipeed 社区(bbs)](https://bbs.sipeed.com) 交流和提问, 提问时请使用图文完整阐述问题和复现问题的详细过程； 在群里提问时最好发提问贴的链接, 方便大家快速了解到你的问题,提高问题被快速解决的可能性~
 
@@ -22,7 +23,7 @@
         </tr>
         <tr>
             <td><span class="limit_width"></span><strong>MaixPy 交流QQ群（K210用户）</strong></td>
-            <td><span class="limit_width"></span><span class="limit_width"><strong>②群（高手进）: 1129095405</strong></span><br><span class="limit_width"></span><span class="limit_width"><strong>④群(刚入门): 256336487</strong></span></td>
+            <td><span class="limit_width"></span><span class="limit_width"><strong>②群（高手进）: 1129095405</strong></span><br><span class="limit_width"></span><span class="limit_width"><strong>④群(刚入门): 256336487</strong></span></td><span class="limit_width"></span><span class="limit_width"><strong>⑤群(刚入门): 696014576</strong></span></td>
         </tr>
         <tr>
             <td><span class="limit_width"></span><strong>MaixPy3 交流QQ群（K210勿入）</strong></td>
