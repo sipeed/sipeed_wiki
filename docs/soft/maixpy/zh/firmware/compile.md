@@ -11,6 +11,9 @@ desc: maixpy doc: 源码编译
 
 编译方法请参考 源码下的编译说明 [build.md](https://github.com/sipeed/MaixPy/blob/master/build.md)
 
+在 `python project.py menuconfig` 命令部分可以 勾选 或者 去掉 功能和模块
+
+
 ## 使用 docker 环境编译
 
 docker 可以简化开发环境安装
