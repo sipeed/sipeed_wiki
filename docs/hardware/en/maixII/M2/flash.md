@@ -10,7 +10,7 @@ desc: maixpy doc: Buring MaixII-Dock OS
 
 Download the newest V831 system image from Download website [SDK_MaixII/release](https://dl.sipeed.com/shareURL/MaixII/MaixII-Dock/SDK/release), unpack the downloaded file to get the .img file, which is the system image file. 
 
-> If it slows to download, you can use [MEGA]https://mega.nz/fm/9Bw0wJoD 
+> If it slows to download, you can use MEGA: https://mega.nz/folder/5dJSWJDD#nQmiOeJsX6pEl2Q0cBrj2A
 
 ## Image file name rule
 
@@ -39,15 +39,24 @@ Here we take PhoenixCard for example.
 - Get [image file](https://dl.sipeed.com/shareURL/MaixII/MaixII-Dock/SDK/release)
 - Get SD card [Formatter Tool](https://www.sdcard.org/downloads/formatter/eula_windows/SDCardFormatterv5_WinEN.zip)
 
-#### Buring system
+#### Start burning system
 
-- Use SD Card Formatter to format your TF card. Click Refresh then choose your target disk carefully, click Format
+Connect you sd card reader inserted with sd card with your computer
+
+Use SD Card Formatter to format your TF card first: Click Refresh then choose your target disk carefully, click Format
 
 ![Format SD card](./../../../assets/maixII/V831/image-20210802102810041.png)
 
-- Run PhoenixCard, and choose the target firmware, insert tf card into card reader then connect with the computer.
+Follow the steps below to complete burning
 
-![Flash tf card](./../../lichee/assets/RV/flash.png)
+![burn image](./../../lichee/assets/RV/flash.png)
+
+- Run PhoenixCard
+- Click `Image` marked with ① to choose your target firmware
+- We choose `Start up` marked with ② 
+- Click `Burn` marked with ③ to burn your target firmware into tf card
+- From `Status bar` marked with ④ to see your progress；If it's red when finishing this means it fails burning, then we should rerun `SD Card Formatter` to format the TF card to increase its success possibility.
+- Click `Close` to close PhoenixCard
 
 ### Using Linux(Ubuntu)
 
@@ -91,7 +100,7 @@ Here we take PhoenixCard for example.
      sudo ./ 
      ```
 
-#### Burning system
+#### Start burning system
 
 - Run command `sudo livesuit` to run livesuit software, then click the red box marked in the picture below to choose your image file.
 

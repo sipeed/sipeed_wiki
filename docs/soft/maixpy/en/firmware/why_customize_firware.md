@@ -21,4 +21,4 @@ These firmwares may be used in different situations. such as:
 
 * Tailoring multithreading support, if you don't need multithreading support, you can trim this part to get more memory space.
 
-Therefore, if you are using a certain function, and you find the prompt `ImportError: no module named'XXX'`, it may be that you are using a firmware that does not include this function. For example, the `minimum` firmware does not include IDE and `image.find_blobs` Function, if this firmware is burned, it will be unable to connect for a long time if you connect to the `IDE` again. Using the function `iamge.find_blobs` will also prompt that the function definition cannot be found.
+Therefore, if you are using a certain function, and you find the prompt `ImportError: no module named'XXX'`, it may be that you are using a firmware that does not include this function. For example, the `minimum` firmware does not include IDE and `image.find_blobs` Function, if this firmware is burned, it will be unable to connect for a long time if you connect to the `IDE` again. Using the function `image.find_blobs` will also prompt that the function definition cannot be found.

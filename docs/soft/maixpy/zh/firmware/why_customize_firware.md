@@ -21,7 +21,7 @@ desc: maixpy doc: 为何需要固件定制
 
 * 裁剪多线程支持，若不需要多线程支持，即可裁剪该部分得到更多内存空间。
 
-所以，如果你在使用某个功能时， 发现提示`ImportError: no module named 'XXX'`，可能是你使用了不包含这个功能的固件，比如`minimum`固件不包含 IDE 和 `image.find_blobs`功能， 如果烧录了这个固件， 再去连接 `IDE` 就会长时间连接不上， 使用`iamge.find_blobs`这个函数也会提示找不到函数定义。
+所以，如果你在使用某个功能时， 发现提示`ImportError: no module named 'XXX'`，可能是你使用了不包含这个功能的固件，比如`minimum`固件不包含 IDE 和 `image.find_blobs`功能， 如果烧录了这个固件， 再去连接 `IDE` 就会长时间连接不上， 使用`image.find_blobs`这个函数也会提示找不到函数定义。
 
 
 

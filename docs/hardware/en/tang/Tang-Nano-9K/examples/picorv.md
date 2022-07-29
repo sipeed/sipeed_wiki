@@ -1,23 +1,23 @@
-# Simple example about PicoRV on nano 9K
+# PicoRV on nano 9K
 
-> Edit on 2022.04.14
+> Edit on 2022.07.13
 
 ## Preface
 
-There ia an example about picoRV in [Tang Nano 9K github repository](https://github.com/sipeed/TangNano-9K-example/tree/main/picotiny).
-In this turtial we just describe how to run the example .
+There ia an example about picoRV : [Tang Nano 9K github repository](https://github.com/sipeed/TangNano-9K-example/tree/main/picotiny).
+In this turtial we just describe how to run the example simply .
 
 ## Environment
 
 - Python
-- Gowin IDE
+- [Gowin IDE](./../../Tang-Nano-Doc/install-the-ide.md)
 
 ## Steps
 
 ### Program FPGA
 
-- Open picotiny.gprj file which is in TangNano-9K-example\picotiny\project dictionary to open picotiny project.
-- Tick Use MSPI as regular IO in Project->Configuration->Place&Route->Dual-Purpose Pin which can be found in the top menu bar
+- Open picotiny project by `picotiny.gprj` file in TangNano-9K-example\picotiny\project dictionary
+- Tick `Use MSPI as regular IO` in Project->Configuration->Place&Route->Dual-Purpose Pin which can be found in the top menu bar
 - Right-click Place&Route which is in Process interface and choose Clean&Rerun All 
 - Download the generated .fs file to the Embedded Flash of Nano 9K
 
@@ -25,7 +25,7 @@ Then we can use the FPGA like a mcu.
 
 ### Download firmware
 
-- Execute the following command in TangNano-9K-example\picotiny directory
+Execute the following command in TangNano-9K-example\picotiny directory
 
 ```python
 python .\sw\pico-programmer.py .\example-fw-flash.v COM13

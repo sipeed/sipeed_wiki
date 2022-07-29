@@ -205,13 +205,13 @@ print(sd_check())
 ```
 进行检测是否挂载成功
 
-## 出现ValueError:[MAIXPY]kpu: load error:2002, ERR_KMODEL_VERSION: onlysupport kmodel V3/V4 now
+## ValueError:[MAIXPY]kpu: load error:2002, ERR_KMODEL_VERSION: onlysupport kmodel V3/V4 now
 
 1、更新固件，更新固件，更新到最新版本支持v3/v4的MaixPy固件，具体更新方法看前面的文档
 2、检查存放模型的位置是否与读取的位置是否一致，如果将模型放到sd上，然后读取的位置为flash的0x300000时就会出现这样的错误
 3、如果是使用以 smodel 为后缀模型，必需使用自己开发板上的机器码来获取模型。
 
-## 在MaixPyIDE上运行boot.py文件时，卡死，没有显示，没有报错
+## 在 MaixPyIDE 上运行 boot.py 文件时，卡死，没有显示，没有报错
 
 如果你的模型是烧录到flash上，你需要在串口终端上运行boot.py里面的代码，输出一段红色的报错信息为`Out of memory`，这时你需要将模型放到sd上，然后再进行读取（一定要可以挂载的sd卡，否则都是白干）
 
@@ -223,7 +223,7 @@ print(sd_check())
 1. 这时需要跟换 mini 固件得以解决，如果还是不行，那就要减少训练的时候使用的数据集
 2. 或者通过查看【[内存管理](./../course/others/mem.md)】这篇教程进行对内存和 GC 进行调整
 
-## 出现 OSEerror: [Errno 2] ENOENT
+## OSEerror: [Errno 2] ENOENT
 
 所需要读取的文件不存在对应的路径上，如果这个文件是在sd卡上的话，建议查看sd卡是否挂载了
 
@@ -249,7 +249,7 @@ SDCard.remount()
 1、检查串口是不是被ide占用了，因为串口只能用一个软件进行打开。
 2、使用 ide 中软件菜单的串口终端打开
 
-## 出现 ValueError: [MAIXPY]kpu: load error:2005,ERR_READ_FILE: read filefailed
+## ValueError: [MAIXPY]kpu: load error:2005,ERR_READ_FILE: read filefailed
 
 检查sd卡上的模型模型和代码中的名字，路径是不是一样的。
 检查模型下载地址是不是和程序一样
@@ -274,11 +274,11 @@ SDCard.remount()
 
 比如红屏是正常的，但需要用户下载程序。
 
-## 使用 IDE 的时候出现 TypeError: Can't convert to type 错误
+## TypeError: Can't convert to type 错误
 
-maixpy ide 挂着运行时内存不足，就会出现的常见错误，解决方法，换成菜单的打开终端运行，或让内存有一定预留就不会出现了。
+Maixpy ide 挂着运行时内存不足，就会出现的常见错误，解决方法，换成菜单的打开终端运行，或让内存有一定预留就不会出现了。
 
-## 出现 kpu:check img format err!
+## kpu:check img format err!
 
 注意看终端输出提示，特别强调！！！
 

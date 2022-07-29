@@ -26,13 +26,26 @@ There are two system images for Lichee RV and they are tina and debian.
 | waft          | Whether waft is built in  image                                                                                                     |      |
 
 
-## Flash image
+## Burn image
 
-Run PhoenixCard, and choose the target firmware, insert tf card into card reader then connect with the computer.
+Connect you sd card reader inserted with sd card with your computer
 
-![](./../assets/RV/flash.png)
+Use SD Card Formatter to format your TF card first: Click Refresh then choose your target disk carefully, click Format
 
-> It's not sure each card can successed be burned, if you can't do this we suggest you buy image card we provide
+![Format SD card](./../../../assets/maixII/V831/image-20210802102810041.png)
+
+Follow the steps below to complete burning
+
+![burn image](./../../lichee/assets/RV/flash.png)
+
+- Run PhoenixCard
+- Click `Image` marked with ① to choose your target firmware
+- We choose `Start up` marked with ② 
+- Click `Burn` marked with ③ to burn your target firmware into tf card
+- From `Status bar` marked with ④ to see your progress；If it's red when finishing this means it fails burning, then we should rerun `SD Card Formatter` to format the TF card to increase its success possibility.
+- Click `Close` to close PhoenixCard
+
+> Not each card can successed be burned, if you can't do this we suggest you buy an image card we provide
 
 Waiting for finishing burning, It will be faster if flashing Tina OS and it will take about 10 minutes if flashing Debian 
 

@@ -10,7 +10,7 @@ RGB LCD display protocol is similar to VGA protocol, both have horizon  synchron
 
 Here we introduce VGA timing.
 
-![](./../../../../../zh/tang/assets/examples/lcd_pjt_1.png)
+![](./../../../../zh/tang/assets/examples/lcd_pjt_1.png)
 
 There shows horizon synchronization timing and vertical synchronization timing in the picture above.
 
@@ -26,9 +26,9 @@ For other size screen parameters, they can be downloaded here. [Click me](https:
 
 The following picture shows the screenshot about this LCD timing.
 
-![](./../../../../../zh/tang/assets/examples/lcd_pjt_2.png)
+![](./../../../../zh/tang/assets/examples/lcd_pjt_2.png)
 
-![](./../../../../../zh/tang/assets/examples/lcd_pjt_3.png)
+![](./../../../../zh/tang/assets/examples/lcd_pjt_3.png)
 
 The first picture form shows parameters of the screen and the the following picture is its timing. 
 
@@ -46,19 +46,19 @@ The crystal oscillator onboard is 27MHz, but our screen needs 33.3MHZ clock, so 
 
 Here we use  `IP Core Generate` which can be find in Tools -> IP Core Generate
 
-![](./../../../../../zh/tang/Tang-Nano-1K/assets/Gowin_IP_rpll.png)
+![](./../../../../zh/tang/Tang-Nano-1K/assets/Gowin_IP_rpll.png)
 
 Double click `rPLL` and select Verilog in the pop-up window language, set CLKIN 27MHz, CLKOUT is 33.00MHz. Also config the tolerance.
 
-![](./../../../../../zh/tang/Tang-Nano-1K/assets/lcd_rpll.png)
+![](./../../../../zh/tang/Tang-Nano-1K/assets/lcd_rpll.png)
 
 After click OK it asks whether add it to current project, here we choose yes.
 
-![](./../../../../../zh/tang/Tang-Nano-1K/examples/led/assets/add_ip_file_in_project.png)
+![](./../../../../zh/tang/Tang-Nano-1K/examples/led/assets/add_ip_file_in_project.png)
 
 Then a tmp file will appear, we can use it to generate the ip, like what is shown below. 
 
-![](./../../../../../zh/tang/Tang-Nano/examples/led/assets/ip_examples.png)
+![](./../../../../zh/tang/Tang-Nano/examples/led/assets/ip_examples.png)
 
 ## Screen driver
 
@@ -267,10 +267,10 @@ endmodule
 ### Synthesize
 
 After finishing steps above, go to the "Process" interface, systhesize the edited file, which means running "Systhesize". 
-![](./../../../../../zh/tang/Tang-Nano-9K/nano_9k/nano_9k_synthsize.png)
+![](./../../../../zh/tang/Tang-Nano-9K/nano_9k/nano_9k_synthsize.png)
 
 If the result is the same as shown below
-![](./../../../../../zh/tang/Tang-Nano/assets/LED.png) 
+![](./../../../../zh/tang/Tang-Nano/assets/LED.png) 
 
 It means that there is no bug in our code, we can continue the next steps. 
 
@@ -284,7 +284,7 @@ The corresponding pins and ports are as follows form shows
 
 The way to constain pins can refer to the [Light led](./../led/led.md), it contains a way to constain pins.
 
-If you feel troublesome about the method above,  you can copy the content in this [page](./../../../../../zh/tang/Tang-Nano-9K/examples/lcd_constrains.md)， and paste it in ".cst" file in this project (If there is no ".cst" file, just create a "physicsl constrains file"). 
+If you feel troublesome about the method above,  you can copy the content in this [page](./../../../../zh/tang/Tang-Nano-9K/examples/lcd_constrains.md)， and paste it in ".cst" file in this project (If there is no ".cst" file, just create a "physicsl constrains file"). 
 
 | PORT        | I/O    | PIN | PORT         | I/O    | PIN |
 | ----------- | ------ | --- | ------------ | ------ | --- |
@@ -305,7 +305,7 @@ If you feel troublesome about the method above,  you can copy the content in thi
 After constraining, we need to open IO mux to complete Place&Route.
 
 Tick Project -> Configuration -> Place&Route -> Dual-Purpose Pin which is in the Menu Bar.
-![](./../../../../../zh/tang/Tang-Nano/examples/led/assets/enable_io_mux.png)
+![](./../../../../zh/tang/Tang-Nano/examples/led/assets/enable_io_mux.png)
 
 Then we can run Place&Route.
 

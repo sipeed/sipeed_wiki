@@ -29,17 +29,19 @@
 
 ### 烧录步骤
 
-使用前最好先把内存卡格式化
+烧录前最好使用[SD card Formatter](https://www.sdcard.org/downloads/formatter/eula_windows/SDCardFormatterv5_WinEN.zip)先把内存卡格式化一次，格式化的时候注意不要选择错了镜像。
 
-打开烧录软件 [PhoenixCard](https://dl.sipeed.com/shareURL/LICHEE/D1/Lichee_RV/tool)，选择烧录的固件，将内存卡通过读卡器插入电脑中
+- 打开烧录软件 [PhoenixCard](https://dl.sipeed.com/shareURL/LICHEE/D1/Lichee_RV/tool)，选择烧录的固件，将内存卡通过读卡器插入电脑中
+- 选择 `启动卡` 选项
+- 选择正确的盘符
+- 点击 `烧卡`
+- 根据状态栏的颜色可以判断烧录结果：红色的话说明烧录失败了，建议使用[SD card Formatter](https://www.sdcard.org/downloads/formatter/eula_windows/SDCardFormatterv5_WinEN.zip)格式化后再重新烧录一次；绿色则表示一切正常。
 
 ![](./../assets/RV/flash.png)
 
-- 选择**量产卡**是不能启动系统的
-![img_Mass_production_cards](./../assets/RV/Mass_production_cards.png)
-
-- 选择**启动卡**能成功启动系统
-![img_boot_cards](./../assets/RV/boot_cards.png)
+要注意 Windows 默认打不开 linux 的文件系统，所以对于烧录过 linux 镜像的 sd 卡在 Windows 上会不能直接被打开，且被提示需要格式化之类的。
+这时可以使用[SD card Formatter](https://www.sdcard.org/downloads/formatter/eula_windows/SDCardFormatterv5_WinEN.zip)来格式化 sd 卡来恢复到 Windows 系统可用的状态。
+对于嵌入式 linux，建议持有两张以上的 sd 卡。
 
 > 并不能保证每台电脑和每个人的内存卡都是可以烧录的，烧录失败的话建议购买官方的镜像卡。
 
