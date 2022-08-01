@@ -20,7 +20,10 @@ PyAV 是一个用于 FFmpeg 的 python 绑定。通过容器、流、包、编�
   <iframe src="//player.bilibili.com/player.html?aid=717126108&bvid=BV1dQ4y1f7RN&cid=385731209&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="max-width:640px; max-height:480px;"> </iframe>
 </p>
 
-共有2个[测试视频](https://dl.sipeed.com/shareURL/MaixII/MaixII-Dock/example),将这里得到的视频存放到 Linux 系统的 root 目录中，将 `path_to_video` 的参数修改成所存放视频路径。
+## 如何播放视频？
+
+这里共有2个[测试视频](https://dl.sipeed.com/shareURL/MaixII/MaixII-Dock/example),将这里得到的视频存放到 Linux 系统的 root 目录中，将 `path_to_video` 的参数修改成所存放视频路径。
+
 > 注意，请尽量使用我们所提供的测试视频进行视频播放，因为**视频播放对视频编码格式、音频编码格式以及尺寸有要求**。文件名为 "badapple_240_60fps.mp4" 测试视频的视频编码格式为：h264，测试视频的音频编码格式为：aac，大小为 240 x 240，如果想要播放自己的视频，请先检查视频格式是否符合要求。
 
 ```python
@@ -55,7 +58,7 @@ finally:
     p.terminate()
 ```
 
-## 如何录制视频并播放？
+## 如何录制视频？
 
 2022年07月26日 根据 pyav.org 文档加源码整理如下代码，从录制编码到播放（x264 支持手机预览但解码性能低），注意该代码只在 av 9.2.0 版本的库可用，需要更新 0.5.2 系统底包的（av 8.0.3）喔（这种需要编译的包 pip 是得不到的）。
 
@@ -101,4 +104,4 @@ for frame in container.decode(video=0):
         display.show(img)
 ```
 
-试试吧。
+试试吧，可以看到录制的是我们填充的 image 图像，打印了时间字符串。
