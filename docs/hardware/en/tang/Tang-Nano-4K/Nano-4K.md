@@ -9,7 +9,7 @@ Tang Nano 4K is a core board designed based on [Gowin](https://www.gowinsemi.com
 ![Tang Nano 4K](./assets/4k-1.jpg)
 ![Tang Nano 4K](./assets/4k-2.jpg)
 
-## Parameters
+## Specs
 
 - The sheet below shows difference with previous product
 

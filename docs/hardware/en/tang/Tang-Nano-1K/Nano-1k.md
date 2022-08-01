@@ -11,7 +11,7 @@ Tang Nano 1K is a core board designed based on [Gowin](https://www.gowinsemi.com
 
 ## Parameters
 
-|        item        |     value      |
+|        item        |     Specs      |
 | :----------------: | :------------: |
 |        chip        | GW1NZ-LV1 FPGA |
 | logic units(LUT4)  |      1152      |

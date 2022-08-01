@@ -80,38 +80,15 @@ keywords: Sipeed, Gowin, Tang, Nano, fpga, 矽速
 
 ## 使用 IDE
 
-高云 IDE 进行 license 验证后才能使用，申请方式很简单。
+高云 IDE 进行 license 验证后才能使用; 申请方式很简单。
 
 ### 使用单机版 license (需要自己申请 license )
-
-有两种方法申请license
 
 #### 向高云官方申请
 
 点击链接且填写完毕后等待即可 http://www.gowinsemi.com.cn/faq_view.aspx
 
-#### 向 Sipeed 发邮件申请
-
-> 向高云申请后不要再向 Sipeed 重复申请
-
-通常邮件会在周二和周五回复
-
-发送申请邮件到 support@sipeed.com 来申请 license ，标题为 `[Apply Tang Lic]MAC: xx-xx-xx-xx-xx-xx` ，内容模板如下：
-
-```txt
-公司名称:
-公司网站:
-部门:
-联系人姓名:
-联系人电话:
-联系人邮箱:
-联系人省份:
-计算机MAC地址:
-license类型:共享型 仅本机 （选一个）
-操作系统类型:Windows Linux （选一个）
-```
-
-建议使用本机以太网的 MAC 来申请，不要使用无线网卡的 MAC 或者虚拟网卡的 MAC
+其中 MAC 最好填写本机的以太网网卡地址
 
 ### 验证 license
 

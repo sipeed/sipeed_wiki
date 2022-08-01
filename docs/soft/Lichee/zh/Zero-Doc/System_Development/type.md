@@ -29,7 +29,6 @@ Lichee Linux：[http://pan.baidu.com/s/1eRJrViy](http://pan.baidu.com/s/1eRJrViy
 
 ## 主线Uboot + 主线linux
 
-
 如果想使用主线的特性，可以使用 主线Uboot + 主线linux 开发环境。系统配置为dts设备树配置。
 
 主线uboot： <https://github.com/Lichee-Pi/u-boot>

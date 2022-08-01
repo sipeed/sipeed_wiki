@@ -27,7 +27,7 @@ Tang Nano 9K is the 5th product of Sipeed Tang series. Before purchasing, you ca
 
 ## Characteristic
 
-This form shows detail parameters of Tang Nano 9K
+This form shows detail specs of Tang Nano 9K
 
 | Item                                                                                                       | value                                                                   |
 | ---------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- |

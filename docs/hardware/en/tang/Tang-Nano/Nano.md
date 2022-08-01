@@ -16,7 +16,7 @@ Tang Nano is a core board designed based on [Gowin](https://www.gowinsemi.com/en
 - Numeric number with dot matches gclk pins
 
 
-| Items             | Parameters  |
+| Items             | Specs  |
 | ----------------- | ----------- |
 | Core              | GW1N-1 FPGA |
 | Logic units(LUT4) | 1152        |

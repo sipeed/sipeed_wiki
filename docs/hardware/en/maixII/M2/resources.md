@@ -55,7 +55,7 @@ Normally we think the screen panel is the front and camera is back.
 > Thanks for net users sharing the [NGFF M.2 B-key footprint for Maix-II module](https://bbs.elecfans.com/jishu_2036119_1_1.html)
 > Download information about bottom board [MaixII_V831_v3100](https://api.dl.sipeed.com/shareURL/MaixII/MaixII-Dock/HDK/Sipeed_MaixII_V831/MaixII_V831_v3100)
 
-### Bottom board parameters
+### Bottom board Specs
 
 ![bottom board](./../../../zh/maixII/M2/asserts/M2Dock_pin.jpg)
 

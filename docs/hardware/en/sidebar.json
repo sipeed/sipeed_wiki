@@ -54,7 +54,6 @@
                 {
                     "label": "MaixII-Dock",
                     "file": "maixII/M2/resources.md",
-                    "collapsed": false,
                     "items": [
                         {
                             "label": "烧录系统",
@@ -73,7 +72,6 @@
                 {
                     "label": "M2S",
                     "file": "maixII/M2S/V833.md",
-                    "collapsed": false,
                     "items": [
                         {
                             "label": "板级资源介绍",
@@ -84,7 +82,6 @@
                 {
                     "label": "MaixSense",
                     "file": "maixII/M2A/maixsense.md",
-                    "collapsed": false,
                     "items": [
                         {
                             "label": "烧录系统",
@@ -130,7 +127,6 @@
                     "items": [
                         {
                             "label": "Board introduction",
-                            "collapsed":false,
                             "items": [
                                 {
                                     "label": "Lichee RV 86 Panel",

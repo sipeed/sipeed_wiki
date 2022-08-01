@@ -18,7 +18,7 @@ Allwinner introduces several camera processors (V3, V316, S3…) in the past, bu
 
 ## Parameters
 
-| Item          | Value                                                                            | Addition                   |
+| Item          | Specs                                                                            | Addition                   |
 | ------------- | -------------------------------------------------------------------------------- | -------------------------- |
 | CPU           | Up to 800Mhz                                                                     |                            |
 | Video encoder | H.264, up to 1080p@30fps</br>H265, up to 1080p@30fps</br>JPEG, up to 1080p@30fps | ---                        |

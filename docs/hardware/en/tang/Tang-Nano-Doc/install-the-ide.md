@@ -45,37 +45,11 @@ Here are two ways to activate the IDE
 
 ### Using local license
 
-Here are two ways to apply for local license
-
 #### Get license from gowin official website
 
 Visit this page and fill those blanks, then just wait.
 https://www.gowinsemi.com/en/support/license/
 
-#### Get license from Sipeed
-
-> Don't reapply for license from Sipeed if you have asked Gowin for license.
-
-Normally the license email will be replied on Tuseday or Friday (GMT+8)
-
-Send the applying license email to support@sipeed.com to get a local license.
-
-The title of the email is `[Apply Tang Lic]MAC: xx-xx-xx-xx-xx-xx` , The content template is as follows :
-
-```txt
-Company name:
-Company website:
-Department:
-Contact person:
-Phone number:
-Email :
-PC MAC address:
-license type: local shared (choose one)
-Operating system: Windows Linux (choose one)
-Country or Region:
-```
-
-It's suggested to use local MAC to apply for license, not the virtual MAC or wireless MAC
 
 ### Verify license
 
