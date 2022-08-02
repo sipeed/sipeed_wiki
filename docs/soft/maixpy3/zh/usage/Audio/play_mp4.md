@@ -22,16 +22,16 @@ PyAV 是一个用于 FFmpeg 的 python 绑定。通过容器、流、包、编�
 
 ## 如何播放视频？
 
-这里共有2个[测试视频](https://dl.sipeed.com/shareURL/MaixII/MaixII-Dock/example),将这里得到的视频存放到 Linux 系统的 root 目录中，将 `path_to_video` 的参数修改成所存放视频路径。
+这里使用的是转换后的 output_240_240.mp4 [测试视频](https://dl.sipeed.com/shareURL/MaixII/MaixII-Dock/example)，从这里获得视频后存放到 Linux 系统的 root 目录中，将 `path_to_video` 的参数修改成所存放视频路径，如：`'/root/output_240_240.mp4'`，其他视频同理，需要注意的是 v831 的性能很弱，可能最高就播放到软解 h264 30fps 了，硬解资源不被 FFmpeg 所提供。
 
-> 注意，请尽量使用我们所提供的测试视频进行视频播放，因为**视频播放对视频编码格式、音频编码格式以及尺寸有要求**。文件名为 "badapple_240_60fps.mp4" 测试视频的视频编码格式为：h264，测试视频的音频编码格式为：aac，大小为 240 x 240，如果想要播放自己的视频，请先检查视频格式是否符合要求。
+> ffmpeg 转换命令 ffmpeg -r 30 -i badapple_240_60fps.mp4 -vf scale=240:240,setdar=1:1 output.mp4
 
 ```python
 import pyaudio, av, os
 from maix import display, camera, image
 # ffmpeg -r 30 -i badapple_240_60fps.mp4 -vf scale=240:240,setdar=1:1 output.mp4
 # adb push ./output.mp4 /root/
-path_to_video = '/root/output.mp4'
+path_to_video = '/root/output_240_240.mp4'
 if os.path.exists(path_to_video):
     try:
         container = av.open(path_to_video)
