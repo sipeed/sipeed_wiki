@@ -27,35 +27,32 @@ PyAV 是一个用于 FFmpeg 的 python 绑定。通过容器、流、包、编�
 > 注意，请尽量使用我们所提供的测试视频进行视频播放，因为**视频播放对视频编码格式、音频编码格式以及尺寸有要求**。文件名为 "badapple_240_60fps.mp4" 测试视频的视频编码格式为：h264，测试视频的音频编码格式为：aac，大小为 240 x 240，如果想要播放自己的视频，请先检查视频格式是否符合要求。
 
 ```python
-import pyaudio, av
+import pyaudio, av, os
 from maix import display, camera, image
-try:
-    # recommend flv
-    # ffmpeg -r 30 -i bad_apple.mp4 -s 240x240 output.mp4
-    # adb push ./output.mp4 /mnt/UDISK/
-    # adb push ./test.py / && adb shell 'python ./test.py'
-    path_to_video = '/root/badapple_240_60fps.mp4'
-    container = av.open(path_to_video)
-    ai_stream = container.streams.audio[0]
-    vi_stream = container.streams.video[0]
-    fifo = av.AudioFifo()
-    p = pyaudio.PyAudio()
-    ao = p.open(format=pyaudio.paFloat32, channels=2, rate=22050, output=True)
-    for frame in container.decode(video=0, audio=0):
-        if 'Audio' in repr(frame):
-            frame.pts = None
-            fifo.write(frame)
-            for frame in fifo.read_many(4096):
-                ao.write(frame.planes[0].to_bytes())
-        if 'Video' in repr(frame):
-            img = image.open(bytes(frame.to_rgb().planes[0]))
-
-            display.show(img)
-
-finally:
-    ao.stop_stream()
-    ao.close()
-    p.terminate()
+# ffmpeg -r 30 -i badapple_240_60fps.mp4 -vf scale=240:240,setdar=1:1 output.mp4
+# adb push ./output.mp4 /root/
+path_to_video = '/root/output.mp4'
+if os.path.exists(path_to_video):
+    try:
+        container = av.open(path_to_video)
+        ai_stream = container.streams.audio[0]
+        vi_stream = container.streams.video[0]
+        fifo = av.AudioFifo()
+        p = pyaudio.PyAudio()
+        ao = p.open(format=pyaudio.paFloat32, channels=1, rate=44100, output=True)
+        for frame in container.decode(video=0, audio=0):
+            if 'Audio' in repr(frame):
+                frame.pts = None
+                fifo.write(frame)
+                for frame in fifo.read_many(4096):
+                    ao.write(frame.planes[0].to_bytes())
+            if 'Video' in repr(frame):
+                img = image.load(bytes(frame.to_rgb().planes[0]), (vi_stream.width, vi_stream.height))
+                display.show(img)
+    finally:
+        ao.stop_stream()
+        ao.close()
+        p.terminate()
 ```
 
 ## 如何录制视频？
