@@ -18,7 +18,7 @@ desc: maixpy doc: MaixPy3 是什么？能做什么？
     <iframe src="//player.bilibili.com/player.html?aid=639532689&bvid=BV1SS4y1q7QX&cid=734642901&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="max-width:640px; max-height:480px;"> </iframe>
 </p>
 
-> 在 2022年01月21日 该视频只说了为什么要做这款开源产品，此时还没有做【在线 AI 训练】和【突出产品亮点】，最终是**想要让初学者【学会视觉 AI 应用】和【开发出可落地的产品】**
+> 在 2022年01月21日 该视频只说了为什么要做这款开源产品系列，此时还没有做【在线 AI 训练】和【突出产品亮点】，最终是**想要让初学者【学会视觉 AI 应用】和【开发出可落地的产品】**
 > 在 2022年06月01日 儿童节的时候【在线 AI 训练】已公开集标注训练部署一体的服务。
 
 ### M2DOCK 产品功能速览
@@ -27,6 +27,24 @@ desc: maixpy doc: MaixPy3 是什么？能做什么？
 
 <p align="center">
     <iframe src="//player.bilibili.com/player.html?aid=298543445&bvid=BV1sF411u7xb&cid=586467021&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="max-width:640px; max-height:480px;"> </iframe>
+</p>
+
+### M2DOCK 电赛数字送药小车
+
+<p align="center">
+    <iframe src="//player.bilibili.com/player.html?aid=258696230&bvid=BV1Wa411D7DL&cid=779040049&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="max-width:640px; max-height:480px;"> </iframe>
+</p>
+
+### M2DOCK V831 车牌识别
+
+- 社区是检测后联网识别，官方是检测后本地识别。
+
+<p align="center">
+    <iframe src="//player.bilibili.com/player.html?aid=854443414&bvid=BV1M54y1o7YH&cid=730413361&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="max-width:640px; max-height:480px;"> </iframe>
+</p>
+
+<p align="center">
+    <iframe src="//player.bilibili.com/player.html?aid=941105171&bvid=BV1zW4y117U4&cid=775859102&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="max-width:640px; max-height:480px;"> </iframe>
 </p>
 
 ### M2DOCK 冰箱水果识别系统
