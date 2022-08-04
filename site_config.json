@@ -17,7 +17,6 @@
             "/soft/maixpy3/zh/": "docs/soft/maixpy3/zh",
             "/soft/maixduino/zh/":"docs/soft/maixduino/zh",
             "/share_docs/zh/": "share_docs/zh"
-            
         },
         "pages": {
             "/": "pages/index/zh"

@@ -304,6 +304,16 @@
             ]
         },
         {
+            "label": "TOF",
+            "file": "tof/readme.md",
+            "items":[
+                {
+                    "label":"MetaSense",
+                    "file":"tof/metasense/metasense.md"
+                }
+            ]
+        },
+        {
             "label": "MF 人脸识别模块",
             "items": [
                 {

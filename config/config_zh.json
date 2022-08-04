@@ -35,6 +35,10 @@
                         "label": "Longan"
                     },
                     {
+                        "url": "/hardware/zh/tof/metasense/metasense.html",
+                        "label": "TOF"
+                    },
+                    {
                         "url":"/hardware/zh/modules_spmod/spmod_extender.html",
                         "label":"SP-Mod"
                     }
