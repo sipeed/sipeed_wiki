@@ -19,7 +19,7 @@ desc: maixpy doc: MaixPy 文档简介
 
 ## 关于 MaixPy
 
-[**MaixPy**](https://maixpy.sipeed.com/zh/maixpy) 是将 [Micropython](http://micropython.org/) 移植到 [K210](https://canaan-creative.com/product/kendryteai)（一款 64 位双核带硬件 FPU、卷积加速器、FFT、Sha256 的 RISC-V CPU ） 的一个项目； [**MaixPy**](https://maixpy.sipeed.com/zh/maixpy) 不但支持 MCU 常规操作， 还集成了硬件加速的 `AI` 机器视觉和麦克风阵列相关的算法。相应的高达 `1TOPS` 算力核心模块却不到`￥50`， 凭借着快速开发和较低成本与其较小的体积很适合 `AIOT` 领域智能应用
+[**MaixPy**](https://wiki.sipeed.com/soft/maixpy/zh/index.html) 是将 [Micropython](http://micropython.org/) 移植到 [K210](https://canaan-creative.com/product/kendryteai)（一款 64 位双核带硬件 FPU、卷积加速器、FFT、Sha256 的 RISC-V CPU ） 的一个项目； [**MaixPy**](https://wiki.sipeed.com/soft/maixpy/zh/index.html) 不但支持 MCU 常规操作， 还集成了硬件加速的 `AI` 机器视觉和麦克风阵列相关的算法。相应的高达 `1TOPS` 算力核心模块却不到`￥50`， 凭借着快速开发和较低成本与其较小的体积很适合 `AIOT` 领域智能应用
 
 > MicroPython 是基于 Python3 的语法做的一款解析器，包含了 Python3 的大多数基础语法， 主要运行在性能和内存有限的嵌入式芯片上。（注意 Micropython 不包含 Python3 的所有语法）
 
