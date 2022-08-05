@@ -1,16 +1,16 @@
 # MaixSense 简介
 
-这个板子和之前的 Maix-I 系列不同，它不仅仅是一个带 AI 加速的 MCU，还是一个可以运行 armbian 系统的开发板。
+这个板子和之前的 Maix-I 系列不同，它的主控不但带有 AI 加速功能，还支持运行 armbian 系统。
 
 ## M2A 板卡
 
-M2A 板卡以全志 R329 为核心，集成电源芯片、FEL烧录按键、wifi模组、存储焊盘和RMGII接口等组件。
+M2A 板卡以全志 R329 为核心主控，还集成电源芯片、FEL烧录按键、wifi模组、存储焊盘和 RMGII 接口等组件。
 
 ![M2A](./assets/M2A.jpg)
 
 ### R329 芯片
 
-R329 芯片是由全志科技所涉及的搭载双核 Cortex-A53 64 位处理器 ，配备有双 HIFI4 DSP 可用于音频后处理和预处理，以及 Arm 中国以极低的功耗却可达到 0.256 TOPS 算力的 AIPU（人工智能处理单元）。能够硬件加速神经网络，对摄像头获取到的 720p 像素的数据进行相应的处理。
+R329 芯片是由全志科技所设计双核 Cortex-A53 64 位处理器 ，配备有双 HIFI4 DSP 可用于音频后处理和预处理，以及 Arm 中国以极低的功耗却可达到 0.256 TOPS 算力的 AIPU（人工智能处理单元），能够用来硬件加速神经网络，对摄像头获取到的 720p 分辨率的图像进行相应的处理。
 
 ![R329框架](./assets/R329_1.png)
 
@@ -19,9 +19,10 @@ R329 芯片是由全志科技所涉及的搭载双核 Cortex-A53 64 位处理器
 | CPU | Dual-core ARM Cortex™-A53@1.5GHz<br>32KB L1 I-cache + 32KB L1 D-cache per core<br>256KB L2 cache |
 | DSP | Dual-core HiFi4@400MHz<br> 32KB L1 I-cache + 32KB L1 D-cache per core<br> 2MB SRAM |
 | NPU | 搭载周易™Z1 AIPU，最大支持0.25TOPS@600MHz |
-| 内存<br>Memory |内置 DDR3 256MB<br> 支持 SPI Nand/Nor/eMMC |
-| Audio | Supports 5 audio ADC and 2 audio DAC<br>Supports 5 analog audio inputs and 2 analog audio output<br>Up to 3 I2S/PCM controllers for Bluetooth and external audio codec<br>Integrated digital microphone, supports maximum 8 digital microphones |
-| Enthernet | 10/100/1000 Mbps |
+| 内存 |内置 DDR3 256MB |
+| 储存 | 支持 SPI Nand/Nor/eMMC |
+| 音频 | 5路ADC，2路DAC<br>3个 I2S/PCM 控制器 |
+| 以太网 | 10/100/1000 Mbps |
 | USB | OTG \* 1<br>Host \* 1|
 | SDIO | SDIO 3.0 * 2 |
 | I2S | I2S*3(I2S0, I2S1, S-I2S0) |
@@ -53,7 +54,7 @@ MaixSense 开发板可能是市面上最小的 Linux 卡片电脑。本套件包
 </div>
 
 
-## MaixSense基本参数
+## MaixSense 基本参数
 
 <table role="table" class="center_table">
     <thead>
@@ -99,12 +100,12 @@ MaixSense 开发板可能是市面上最小的 Linux 卡片电脑。本套件包
         <td>1个复位按键和4个用户按键(ADC按键)，1个下载按键(FEL)</td>
     </tr>
     <tr>
-        <td>IO引出</td>
-        <td>3*10P 2.54mm 引出4个电源引脚(5V/GND)11个GPIO引脚<br>1个4PMX1.25插座(引出2*GPIO和5V/GND)s</td>
-    </tr>
-    <tr>
         <td>以太网接口</td>
         <td>在核心板以24P 0.5mm间距FPC的形式引出，用于连接相应PHY</td>
+    </tr>
+    <tr>
+        <td>IO引出</td>
+        <td>3*10P 2.54mm 焊盘<br>1个4PMx1.25插座(引出2*GPIO和5V/GND)<br>具体可看下方引脚图</td>
     </tr>
     </tbody>
 </table>
