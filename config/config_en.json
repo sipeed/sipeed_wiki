@@ -224,7 +224,16 @@
             "other_docs_result_hint": "Results form other doc",
             "curr_doc_result_hint": "Result form current doc"
         }
-    }    
+    },
+    "teedoc-plugin-ad-hint": {
+        "config": {
+            "type": "hint",
+            "label": "☆",
+            "content": "New MaixHub online, support online annotating, one key to deployment, add support for Maix-II-Dock and mobile phone and web<br/><a href='https://maixhub.com'>Go!</a>",
+            "show_after_s": 432000,
+            "date": "2022-06-01 14:00"
+        }
+    }
 },
 "show_source": "Edit this page"
 }

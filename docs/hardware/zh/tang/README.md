@@ -40,7 +40,7 @@ Tang 系列开发板主要分为 Tang Nano 和 Tang Primer 两个系列。
 
 ### 主要参数对比
 
-| 条目            |<p style="white-space:nowrap">Tang Primer 20K</p>| <p style="white-space:nowrap">Tang Nano 9K</p>|<p style="white-space:nowrap">Tang Nano 4K</p>|<p style="white-space:nowrap">Tang Nano 1K |
+| 条目            |<p style="white-space:nowrap">Tang Primer 20K</p>| <p style="white-space:nowrap">Tang Nano 9K</p>|<p style="white-space:nowrap">Tang Nano 4K</p>|<p style="white-space:nowrap">Tang Nano 1K</p>|
 | :-------------- | :---------------- | :---------------- | :---------------- | ------------ |
 | 逻辑单元(LUT4)  | 20736             | 8640              | 4608              | 1152         |
 | 寄存器（FF）    | 15552             | 6480              | 3456              | 864          |
