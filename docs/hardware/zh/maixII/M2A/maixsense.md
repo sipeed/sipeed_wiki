@@ -64,7 +64,7 @@ MaixSense 开发板可能是市面上最小的 Linux 卡片电脑。本套件包
     </thead>
     <tbody>
     <tr>    
-        <td>处理器<br>CPU</td>
+        <td>处理器 CPU</td>
         <td>双核 ARM CortexTM-A53™ </td>
     </tr>
     <tr>
