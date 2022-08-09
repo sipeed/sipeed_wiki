@@ -24,7 +24,7 @@ armbian 镜像获取：
 
 其中带有 MaixPy3 名称的是已经装载了 MaixPy3 库和相关驱动的镜像包。
 
-armbian 镜像所制作的方法为 [dd](https://baike.baidu.com/item/DD/2654972); windows下推荐使用 Etcher 这个软件，linux 下推荐直接使用命令行终端来烧录。
+armbian 镜像所打包的方法为 [dd](https://baike.baidu.com/item/DD/2654972); 可以选用适合当前系统的 [Etcher](https://www.balena.io/etcher/ "Etcher") 软件来烧录。
 
 ### Tina 系统镜像
 
@@ -34,28 +34,19 @@ Tina 系统的烧录方式和 MaixII Dock 通用，可参考[MaixII M2dock 烧�
 
 ## 烧录镜像
 
-### Windows 下系统烧录
-
-资源获取：
+### 资源获取
 
 - 下载[Etcher](https://www.balena.io/etcher/ "Etcher")
-- 下载[SD Card Formatter](https://www.sdcard.org/downloads/formatter/eula_windows/SDCardFormatterv5_WinEN.zip "SDCardFormatter")
 
-首先解压镜像，得到 .img 镜像文件，然后使用 SD Card Formatter 格式化sd卡后，打开Etcher，点击 `Flash from file` ,选中解压出来的 .img 文件镜像包，然后点击 `Select target` 选中sd卡，最后点击 `Flash` 进行烧录，等待完成即可。 
+### 烧录步骤
+
+首先解压所下载的镜像压缩包，得到 `.img` 镜像文件，打开 [Etcher](https://www.balena.io/etcher/ "Etcher") 软件，点击 `Flash from file` ,选中解压出来的 `.img ` 文件镜像，然后点击 `Select target` 选中sd卡，最后点击 `Flash` 进行烧录，等待完成即可。 
+
+下面只是用原始的 armbian 作为展示，有需求的话可也已选择下载带有 MaixPy3 的镜像文件。
 
 ![burn](./assets/95133.gif)
 
-### linux下系统烧录
-
-首先解压镜像，得到 .img 镜像文件，然后格式化 sd 卡，打开 Terminal ，输入 `sudo dd if = xxx.img of=/dev/sdx bs=1M status=progress oflag=direct` 烧录。注意xxx.img为文件名，`/dev/sdx`为sd卡实挂载位置。
-
-![2021-08-05-11-44-49](./assets/2021-08-05-11-44-49.gif)
-
-同时也可以直接使用 Disks 进行更便捷的烧录（需要Ubuntu桌面版)：
-
-![2021080511-46-53](./assets/2021080511-46-53.gif)
-
-烧录完毕后，直接将内存卡放入Lichee MaixSense中启动即可。
+如果烧录失败了，请手动格式化一下 sd 卡。Windows 和 MacOS 可以使用 [SD Card Formatter](https://www.sdcard.org/downloads/formatter/eula_windows/SDCardFormatterv5_WinEN.zip)，Linux 系统可以使用 [Gparted](https://gparted.org/)。
 
 ## 连接串口
 

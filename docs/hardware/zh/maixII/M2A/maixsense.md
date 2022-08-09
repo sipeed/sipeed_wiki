@@ -80,7 +80,7 @@ MaixSense 开发板可能是市面上最小的 Linux 卡片电脑。本套件包
         <td>可使用核心板搭载的 SPINAND (默认空贴)存储<br>可使用底板搭载的SD卡座</td>
     </tr>
     <tr>
-        <td>video Encoder<br>视频编码器</td>
+        <td>视频编码器</td>
         <td>H264/5 &JPEG,最大720p@30fps</td>
     </tr>
     <tr>
