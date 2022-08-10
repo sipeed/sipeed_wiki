@@ -14,7 +14,7 @@ Visit [aliexpress](https://www.aliexpress.com/item/1005002538932487.html?pdp_ext
 
 ![core_board](./../../../zh/maixII/M2/asserts/maix_v831.jpg)
 
-> Download related hardware information from [MaixII_V831_v3100](https://api.dl.sipeed.com/shareURL/MaixII/MaixII-Dock/HDK/Sipeed_MaixII_V831/MaixII_V831_v3100)
+> Download reference hardware information from [Sipeed_Maix_II_3101](https://api.dl.sipeed.com/shareURL/MaixII/MaixII-Dock/HDK/Sipeed_MaixII_V831/Sipeed_Maix_II_3101)
 
 In the last year or so, we’ve started to see several camera SoCs with a built-in NPU or SIMD instructions to accelerate face detection, objects detection and so on, starting with the low-resolution Kendryte K210 processor to the 2.5K Ingenic T31 MIPS video processor, or even the 4K capable iCatch V37 camera SoC. Allwinner introduces several camera processors (V3, V316, S3…) in the past, but none of them included an NPU aka AI accelerator. This has now changed with Allwinner V831 Cortex-A7 Full HD camera SoC also including a small 200 GOPS NPU.
 
@@ -53,7 +53,7 @@ Normally we think the screen panel is the front and camera is back.
 ![Outlook](./../../../zh/maixII/M2/asserts/m2dock.jpg)
 
 > Thanks for net users sharing the [NGFF M.2 B-key footprint for Maix-II module](https://bbs.elecfans.com/jishu_2036119_1_1.html)
-> Download information about bottom board [MaixII_V831_v3100](https://api.dl.sipeed.com/shareURL/MaixII/MaixII-Dock/HDK/Sipeed_MaixII_V831/MaixII_V831_v3100)
+> Download information about bottom board [Click me](https://api.dl.sipeed.com/shareURL/MaixII/MaixII-Dock/HDK/Sipeed_MaixII_Dock_V831)
 
 ### Bottom board Specs
 
@@ -86,6 +86,6 @@ Normally we think the screen panel is the front and camera is back.
 
 ## Resource
 
-[MaixII_V831_v3100 Hardware information](https://api.dl.sipeed.com/shareURL/MaixII/MaixII-Dock/HDK/Sipeed_MaixII_V831/MaixII_V831_v3100)
+[MaixII Hardware information](https://api.dl.sipeed.com/shareURL/MaixII/MaixII-Dock/HDK)
 
 [MaixPy3 software documents]()

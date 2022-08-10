@@ -14,7 +14,7 @@ MaixII M2dock 是基于全志 V831 芯片设计的一款【板卡】+【底板�
 
 ![core_board](./asserts/maix_v831.jpg)
 
-> 板卡参考资料下载站 [MaixII_V831_v3100](https://api.dl.sipeed.com/shareURL/MaixII/MaixII-Dock/HDK/Sipeed_MaixII_V831/MaixII_V831_v3100)
+> 板卡参考资料下载站 [Sipeed_Maix_II_3101](https://api.dl.sipeed.com/shareURL/MaixII/MaixII-Dock/HDK/Sipeed_MaixII_V831/Sipeed_Maix_II_3101)
 
 ### V831 芯片介绍
 
@@ -55,7 +55,7 @@ MaixII M2dock 是基于全志 V831 芯片设计的一款【板卡】+【底板�
 ![](./asserts/m2dock.jpg)
 
 > 感谢热心网友分享的 [ M2 模块底板母座 PCB 封装](https://bbs.elecfans.com/jishu_2036119_1_1.html)
-> 底板参考资料下载 [MaixII_V831_v3100](https://api.dl.sipeed.com/shareURL/MaixII/MaixII-Dock/HDK/Sipeed_MaixII_V831/MaixII_V831_v3100)
+> 底板参考资料下载 [点我跳转](https://api.dl.sipeed.com/shareURL/MaixII/MaixII-Dock/HDK/Sipeed_MaixII_Dock_V831)
 
 ### 硬件参数
 
@@ -88,6 +88,6 @@ MaixII M2dock 是基于全志 V831 芯片设计的一款【板卡】+【底板�
 
 ## 资源
 
-[MaixII_V831_v3100 硬件资料库](https://api.dl.sipeed.com/shareURL/MaixII/MaixII-Dock/HDK/Sipeed_MaixII_V831/MaixII_V831_v3100)
+[MaixII 硬件资料库](https://api.dl.sipeed.com/shareURL/MaixII/MaixII-Dock/HDK)
 
 [MaixPy3 软件文档](/maixpy3)
