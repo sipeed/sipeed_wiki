@@ -305,13 +305,22 @@
         },
         {
             "label": "TOF",
-            "file": "tof/readme.md",
+            "file": "tof/summary.md",
             "items":[
                 {
-                    "label":"MetaSense",
-                    "file":"tof/metasense/metasense.md"
+                    "label":"MetaSense",                    
+                    "items":[
+                        {
+                            "label":"MetaSense-a300v",
+                            "file":"tof/metasense-a300v/metasense-a300v.md"
+                        },
+                        {
+                            "label":"MetaSense-a010",
+                            "file":"tof/metasense-a010/metasense-a010.md"
+                        }
+                    ]
                 }
-            ]
+                ]
         },
         {
             "label": "MF 人脸识别模块",
