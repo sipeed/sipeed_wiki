@@ -1,8 +1,8 @@
-# MetaSense
+# MetaSense-A300V
 
 ## 概述
 
-MetaSense 是由 Sipeed 所推出的一款具有 RGB 功能的 3D TOF 摄像机模组。
+MetaSense-A300V 是由 Sipeed 所推出的一款具有 RGB 功能的 3D TOF 摄像机模组。
 该模组可以实现免驱的即插即用，实现实时彩色3D显示。
 
 ### TOF 简介
