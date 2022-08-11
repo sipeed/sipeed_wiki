@@ -1,9 +1,14 @@
 # MetaSense-A300V
 
+|     时间      | 负责人 |   更新内容   |
+| :-----------: | :----: | :----------: |
+| 2022年8月10日 | yuexin | 初次编写文档 |
+
+
 ## 概述
 
 MetaSense-A300V 是由 Sipeed 所推出的一款具有 RGB 功能的 3D TOF 摄像机模组。
-该模组可以实现免驱的即插即用，实现实时彩色3D显示。
+该模组可以实现免驱的即插即用，实现实时彩色 3D 显示。
 
 ### TOF 简介
 
@@ -13,10 +18,6 @@ TOF 是一种测距的方法，通过测量超声波/微波/光等信号在发�
 
 | 条目         | 参数                                                               | 补充 |
 | :----------- | :----------------------------------------------------------------- | :--- |
-| 外形尺寸     | 模块本体：36\*36\*13.5mm<br>带散热模块：36\*36\*23.5mm                  |      |
-| 重量         | 带散热模组约40克                                                   |      |
-| 主控参数     | 主频 1.5G<br> 单核 Cortex-A7<br>支持NEON加速,集成浮点协处理器 |      |
-| 内存         | 128MB RAM<br>128MB ROM                                             |      |
 | 接口         | 1.25mm 串口连接器 \*1 <br>Type-C USB2.0 \*1                        |      |
 | 分辨率       | RGB：1600x1200@30fps<br>TOF：320x240@60fps                         |      |
 | 视场角       | RGB:120°<br>TOF:55°(H)*72°(H)                                      |      |
@@ -35,19 +36,22 @@ TOF 是一种测距的方法，通过测量超声波/微波/光等信号在发�
   
 ### 注意事项
 
-上电前一定要确保网络环境中没有使用 192.168.233.0/24 地址段，MS-A300V 会使用 RNDIS 并设置自己的 ip 地址为 192.168.233.233。Windows 系统需安装驱动才可正常运行。
+上电前一定要确保网络环境中没有使用  192.168.233.0/24  的地址段，MS-A300V 会使用 RNDIS 并设置自己的 ip 地址为 192.168.233.233 ，Windows 系统需安装驱动才可正常运行。
   
   [点击下载 Windows 驱动](https://dl.sipeed.com/shareURL/TOF/MetaSense/Drivers)
   [点击查看 Windows 安装驱动方法](./install_drivers.md)
 
 ### 例程指南
 
-1. 把设备使用 Type-c 线与电脑链接, MS-A300V 的风扇会开始工作，产品正面镜头处就会闪烁红灯。
+1. 把设备使用 type-c 线与电脑链接, MS-A300V 的风扇会开始工作，产品正面镜头处就会闪烁红灯。
 2. 此时可打开浏览器输入 http://192.168.233.233 预览 3D 点云图，上电后有延迟需等待一段时间，系统和程序才会启动完成。
-3. 使用网页上位机快速预览 演示图（正面和侧面）：   
-  ![tof-a300v1](assets/tof-1.jpg)
-  ![tof-a300v2](assets/tof-2.jpg)
-4. 可选预览深度伪彩点云，右上角打开交互面板。第一行取消勾选RGB_Map即可。
+3. 使用网页上位机快速预览 演示图（正面和侧面）： 
+    <html>
+    <img src="./assets/tof-1.jpg" width=45%>
+    <img src="./assets/tof-2.jpg" width=45%>
+   </html>
+
+4. 可选预览深度伪彩点云，右上角打开交互面板。第一行取消勾选 RGB_Map 即可。
   ![tof-a3003](assets/tof-3.jpg)
 
 ### 互动配置
@@ -56,19 +60,19 @@ TOF 是一种测距的方法，通过测量超声波/微波/光等信号在发�
 ![tof-a3004](assets/tof-4.jpg)
 
 现简单说明一下各个控件的功能。
-- RGB_Map多选框 开关RGB映射，即关闭时只显示深度伪彩点云，打开时显示RGB映射点云。
-- colorMap下拉栏 提供了几个伪彩映射选项(即cmap)，推荐使用jet，RGB_Map关闭时有效。
-- deepRangeMax和deepRangeMin滑动条是设定cmap的映射范围的，即只有位于deepRangeMin和deepRangeMax之间的数值（深度值）会通过cmap，RGB_Map关闭时有效。
-- NormalPoint多选框 开关显示正常点（TOF成像会有无效点，对应的相反描述），需要打开。
-- OE_Points多选框 开关显示OE点，建议关闭。
-- UE_Points多选框 开关显示UE点，建议关闭。
-- Bad_Points多选框 开关显示无效点，建议关闭。
-- SpatialFilter多选框 开关空间滤波，基于下面的SpatialFilterSize值和SpatialFilterType指定的算法进行处理。
-- TemporalFilter多选框 开关时间滤波，基于下面的TemporalFilteralpha值做了一个时间上的平均。
-- TemporalFilteralpha滑动条 设定时间滤波所需时长，适中即可，可自行尝试体验其它效果。
-- SpatialFilterType下拉栏 设定空间滤波算法，提供高斯滤波（Gaussian）和双边滤波（Bilateral），双边滤波性能要求较高，不建议使用。
-- SpatialFilterSize滑动条 设定空间滤波所需范围，适中即可，可自行尝试体验其它效果。
-- FlyingPointFilter多选框 开关飞点过滤，基于下面的FlyingPointThreshold值作为过滤阈值，超过阈值的将被过滤掉，建议适中配置，否则有效点也会被剔除。
+- RGB_Map 多选框 开关 RGB 映射，即关闭时只显示深度伪彩点云，打开时显示 RGB 映射点云。
+- colorMap 下拉栏 提供了几个伪彩映射选项(即 cmap )，推荐使用 jet，RGB_Map 关闭时有效。
+- deepRangeMax 和 deepRangeMin 滑动条是设定 cmap 的映射范围的，即只有位于 deepRangeMin 和 deepRangeMax 之间的数值（深度值）会通过 cmap，RGB_Map 关闭时有效。
+- NormalPoint 多选框 开关显示正常点（TOF 成像会有无效点，对应的相反描述），需要打开。
+- OE_Points 多选框 开关显示OE点，建议关闭。
+- UE_Points 多选框 开关显示UE点，建议关闭。
+- Bad_Points 多选框 开关显示无效点，建议关闭。
+- SpatialFilter 多选框 开关空间滤波，基于下面的 SpatialFilterSize 值和 SpatialFilterType 指定的算法进行处理。
+- TemporalFilter 多选框 开关时间滤波，基于下面的TemporalFilteralpha 值做了一个时间上的平均。
+- TemporalFilteralpha 滑动条 设定时间滤波所需时长，适中即可，可自行尝试体验其它效果。
+- SpatialFilterType 下拉栏 设定空间滤波算法，提供高斯滤波（Gaussian）和双边滤波（Bilateral），双边滤波性能要求较高，不建议使用。
+- SpatialFilterSize 滑动条 设定空间滤波所需范围，适中即可，可自行尝试体验其它效果。
+- FlyingPointFilter 多选框 开关飞点过滤，基于下面的 FlyingPointThreshold 值作为过滤阈值，超过阈值的将被过滤掉，建议适中配置，否则有效点也会被剔除。
   
 ## 相关问题
 
