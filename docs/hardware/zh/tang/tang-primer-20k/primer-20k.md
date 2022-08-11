@@ -4,13 +4,15 @@
 
 ## 前言
 
-Tang Primer 20K 是基于 [GW2A-V18PG256C8IC8I7](http://www.gowinsemi.com.cn/prod_view.aspx?TypeId=10&amp;FId=t3:10:3&amp;Id=167#GW2A) 所设计的一款 dd3 sodimm 封装的核心板，额外配套了两个底板，分别为 Dock 底板和 Lite 底板。作为 Sipeed 所发售的第六款 FPGA 产品，Tang Primer 20K 一直广受关注。
+Tang Primer 20K 是基于 [GW2A-V18PG256C8IC8I7](http://www.gowinsemi.com.cn/prod_view.aspx?TypeId=10&amp;FId=t3:10:3&amp;Id=167#GW2A) 所设计的一款 dd3 sodimm 封装的核心板，额外准备了两个底板，分别为 Dock 底板和 Lite 底板。作为 Sipeed 所发售的第六款 FPGA 产品，Tang Primer 20K 一直广受关注。
 
-得益于 GW2A 丰富的资源，Tang Primer 20K 可以满足多种项目需求；例如当下最火的“”使用并体验高云所提供的 [Gowin_EMPU_M1](http://www.gowinsemi.com.cn/prodshow_view.aspx?TypeId=71&Id=178&FId=t31:71:31#IP)、[PicoRV32](http://www.gowinsemi.com.cn/prodshow_view.aspx?TypeId=70&Id=175&FId=t31:70:31#IP)两款常用软核，或者也可以用来验证自己所设计的软核。
+**注意： Dock 底板预计十月份发售**
 
-当然两款配套的 Dock 底板与 Lite 底板资源不同。前者所搭载的多个外设例如 dvp 摄像头、rgb屏幕和百兆以太网接口适合用户快速验证自己所写的代码，当然也可以使用高云所提供的[USB软核](http://www.gowinsemi.com.cn/enrollment_view.aspx?TypeId=67&Id=858&FId=t27:67:27#IP)，来自行开发一下有趣的东西；后者留出巨多的多个自定义 IO 来使用户自己决定所需要驱动的外设或者其他配件。
+得益于 GW2A 丰富的资源，Tang Primer 20K 可以满足多种项目需求；例如当下最火的“IC设计”，可以使用高云所提供的 [Gowin_EMPU_M1](http://www.gowinsemi.com.cn/prodshow_view.aspx?TypeId=71&Id=178&FId=t31:71:31#IP)、[PicoRV32](http://www.gowinsemi.com.cn/prodshow_view.aspx?TypeId=70&Id=175&FId=t31:70:31#IP)两款软核来体验一下 mcu 软核，或者也可以用来验证自己所设计的软核。
 
-这次以底板 + 核心板的设计，能够满足大多数用户不同的基础使用需求。
+两款适用的 Dock 底板与 Lite 底板资源不同。前者所搭载有例如 dvp 摄像头、rgb屏幕和百兆以太网接口等多种外设适合用户快速验证自己所写的代码，也可以尝试使用高云所提供的[USB软核](http://www.gowinsemi.com.cn/enrollment_view.aspx?TypeId=67&Id=858&FId=t27:67:27#IP)，来自行开发一下有趣的东西；后者引出上百个自定义 IO 方便用户自行设计相关拓展模块。
+
+这次以底板 + 核心板的设计，满足大多数用户不同的基础使用需求。
 
 ## 核心板
 
@@ -113,25 +115,85 @@ Tang Primer 20K 是基于 [GW2A-V18PG256C8IC8I7](http://www.gowinsemi.com.cn/pro
 		</tr>
 		<tr>
 			<td style="text-align:left">可用 IO</td>
-			<td style="text-align:left">3.3V IO x 111 个 + 1.5V IO x 4 个</td>
+			<td style="text-align:left">一共 117 个</td>
 			<td style="text-align:left"></td>
 		</tr>
 	</tbody>
 </table>
 
-## 底板参数
+## Lite 底板参数
 
-| 条目 | Dock  | Lite | 补充 |
-| :--- | :--- | :--- | --- |
-| 用户按键 | 5个 | 2个 | |
-| 拓展接口 |<table><tr><td style="text-align:left">RGB565 接口</td><td style="text-align:left">1 x 40P\*0.5mm fpc</td></tr><tr><td style="text-align:left">DVP 接口</td><td style="text-align:left">1 x 24P\*0.5mm fpc</td></tr><tr><td style="text-align:left">麦克风阵列接口</td><td style="text-align:left">1 x 10P\*0.5mm fpc</td></tr><tr><td style="text-align:left">触摸接口</td><td style="text-align:left">1 x 4P\*0.5mm fpc</td></tr><tr><td style="text-align:left">PMOD接口</td><td style="text-align:left">4</td></tr></table>4个PMOD接口与 RGB565、DVP、麦克风阵列<br>三个接口复用| PMOD * 4 ||
-| 3.5mm 耳机接口 | 1个 |||
-| REG LED | WS2812 * 1个 |||
-| 拨码开关 | 5P * 1个 | ||
-| 滑动开关 | 1个，用于切换 USB 功能| 2个 ||
-| LED | 6个 |  ||
-| HDMI 接口 | 1个 |||
-| USB |  |  ||
-| 百兆以太网 |  |  ||
-| 排针 | | 2 x 20P*2.54mm 排针 |
+| 项目 | 数量 | 描述 |
+|---|---|---|
+| 排针 | 2 | 两个 2 x 20Pin 排针接口 |
+| Pmod | 4 | 用于与 Pmod 模块连接 |
+| 按键 | 2 | 用于用户自定义 |
+| 滑动开关 | 2 | 用于用户自定义 |
 
+
+## **适用人群**
+
+| 用法     | FPGA                             | MCU                                | FPGA+MCU                     |
+| :---- | :---------- | :------------- | :----------------- |
+| 语言     | Verilog HDL/Verilog         | C/C++               | Verilog HDL/Verilog ，  C/C++                |
+| 简介     | 上板验证用户HDL | 用户将软核的比特流文件下载到芯片后可将<br>Primer 20K当做普通的 MCU 来使用  | 烧入软核后可以进行异构开发 |
+| 适用人群 | 初学者，FPGA开发者        | RISC-V开发者，Cortex-M开发者          | 资深软硬件工程师             |
+
+## **上手指引**
+
+1. 检查板子是否正常
+
+1. 下载我们打包好的用户指南文档：[下载站](https://dl.sipeed.com/shareURL/TANG/Primer_20K/07_Chip_manual/CN/%E9%80%9A%E7%94%A8%E6%8C%87%E5%BC%95) （下文提到的所有pdf文件都在这里）
+
+2. 安装 IDE 并申请来获得 License：[点击这里](https://wiki.sipeed.com/soft/Tang/zh/Tang-Nano-Doc/get_started/install-the-ide.html)
+
+3. 阅读第一步下载的文件里面的：SUG100-2.6_Gowin云源软件用户指南.pdf
+
+4. 阅读这个[教程](./examples/LED.md)完成点灯实验。
+
+    建议新手在完成这一步之后，自己重新独立新建项目、编写代码，完成这个实验，并且按自己的想法修改点灯程序，增强对FPGA和硬件描述语言的理解。
+    建议在这个过程阅读以下内容，阅读完才进入下一步：
+    - Verilog代码规范（自行搜索，从初学就培养良好的代码规范是非常必要的）
+
+下面的这些内容对于初学者来说是非常有用的，对未来深入学习 FPGA 很有帮助。
+
+   - [SUG100-2.6_Gowin云源软件用户指南.pdf](http://cdn.gowinsemi.com.cn/SUG100-2.6_Gowin%E4%BA%91%E6%BA%90%E8%BD%AF%E4%BB%B6%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97.pdf)
+   - [SUG949-1.1_Gowin_HDL编码风格用户指南.pdf](http://cdn.gowinsemi.com.cn/SUG949-1.1_Gowin_HDL%E7%BC%96%E7%A0%81%E9%A3%8E%E6%A0%BC%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97.pdf)
+   - UG286-1.9.1_Gowin时钟资源(Clock)用户指南.pdf
+   - [SUG940-1.3_Gowin设计时序约束用户指南.pdf](http://cdn.gowinsemi.com.cn/SUG940-1.3_Gowin%E8%AE%BE%E8%AE%A1%E6%97%B6%E5%BA%8F%E7%BA%A6%E6%9D%9F%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97.pdf)
+   - [SUG502-1.3_Gowin_Programmer用户指南.pdf](http://cdn.gowinsemi.com.cn/SUG502-1.3_Gowin_Programmer%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97.pdf)
+   - [SUG114-2.5_Gowin在线逻辑分析仪用户指南.pdf](http://cdn.gowinsemi.com.cn/SUG114-2.5_Gowin%E5%9C%A8%E7%BA%BF%E9%80%BB%E8%BE%91%E5%88%86%E6%9E%90%E4%BB%AA%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97.pdf)
+
+上面的都已经打包进了下载站[点我跳转](https://dl.sipeed.com/shareURL/TANG/Primer_20K/07_Chip_manual/CN/%E9%80%9A%E7%94%A8%E6%8C%87%E5%BC%95)。可以点击压缩包全都下载下来
+
+其他学习链接：
++ 在线免费教程：[菜鸟教程](https://www.runoob.com/w3cnote/verilog-tutorial.html)（学习Verilog）
++ 在线免费 FPGA 教程：[Verilog](https://www.asic-world.com/verilog/index.html)
++ Verilog 刷题网站：[HDLBits](https://hdlbits.01xz.net/wiki/Main_Page)
++ 在线高云视频教程：[点击这里](http://www.gowinsemi.com.cn/video_complex.aspx?FId=n15:15:26)
+
+## 例程汇总
+
+https://github.com/sipeed/TangPrimer-20K-example
+
+部分例程教程：
+
+- LED drive ：[点我](./examples/LED.md) 
+
+## **硬件资料汇总**
+
+规格书、原理图、尺寸图等均可在这里找到：[点击这里](https://dl.sipeed.com/shareURL/TANG/Primer_20K)
+
+## **注意事项**
+
+1. 如果有什么疑问，欢迎加群 `834585530`, 或者去[论坛](bbs.sipeed.com)发帖
+
+2. 如果使用 programmer 时候出现了红色的错误（比如找不到设备下载失败等），建议查看相关问题 [点我](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/questions.html)
+
+3. 避免使用 JTAG、MODE、DONE 等引脚。如果一定要使用这些引脚，请自行阅读高云《UG292-1.0原理图指导手册》
+
+4. 请注意避免静电打到 PCBA 上；接触 PCBA 之前请把手的静电释放掉
+
+5. 每个GPIO的工作电压已经在原理图中标注出来，请不要让 GPIO 的实际工作的电压超过额定值，否则会引起 PCBA 的永久性损坏
+
+6. 请在上电过程中，避免任何液体和金属触碰到PCBA上的元件的焊盘，否则会导致短路，烧毁 PCBA
