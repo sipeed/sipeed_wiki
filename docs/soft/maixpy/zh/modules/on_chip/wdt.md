@@ -5,7 +5,7 @@ desc: maixpy doc: WDT（看门狗） 的使用
 ---
 
 
-关于 WDT 详细介绍请参考[WDT API 文档](../../api_reference/machine/wdt.md).
+关于 WDT 详细介绍请参考[WDT API 文档](./../../api_reference/machine/wdt.md).
 
 ## 使用方法
 

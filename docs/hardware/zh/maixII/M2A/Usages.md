@@ -1,6 +1,10 @@
 # Armbian 配置及使用
 
+> 编辑于2022年8月10日
+
 ## 前言
+
+这里简述一下 armbian 在 R329 上面的一下基础用法。
 
 这里先推荐一下 mobaxterm [点我跳转](../M2/tools/mobaxterm.md) 这个软件
 
@@ -8,7 +12,7 @@
 
 登陆用户名和密码都是 `root`
 
-- 使用前先执行一下 `/usr/lib/armbian/armbian-resize-filesystem start` 命令来扩容一下系统大小
+- 使用前先执行一下 `/usr/lib/armbian/armbian-resize-filesystem start` 命令来扩容一下系统大小，会花费一下时间；执行时不要强行退出，执行完毕后会自动退回到终端
 
 ## 配置网络
 

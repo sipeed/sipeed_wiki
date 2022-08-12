@@ -178,7 +178,7 @@ https://github.com/sipeed/TangPrimer-20K-example
 
 部分例程教程：
 
-- LED drive ：[点我](./examples/LED.md) 
+- LED drive ：[点我](./examples/LED.md)
 
 ## **硬件资料汇总**
 
@@ -197,3 +197,4 @@ https://github.com/sipeed/TangPrimer-20K-example
 5. 每个GPIO的工作电压已经在原理图中标注出来，请不要让 GPIO 的实际工作的电压超过额定值，否则会引起 PCBA 的永久性损坏
 
 6. 请在上电过程中，避免任何液体和金属触碰到PCBA上的元件的焊盘，否则会导致短路，烧毁 PCBA
+
