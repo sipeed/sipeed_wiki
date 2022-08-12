@@ -311,14 +311,14 @@
                     "label":"MetaSense",                    
                     "items":[
                         {
-                            "label":"MetaSense-a300v",
-                            "file":"tof/metasense-a300v/metasense-a300v.md"
-                        },
-                        {
                             "label":"MetaSense-a010",
                             "file":"tof/metasense-a010/metasense-a010.md"
-                        }
-                    ]
+                        },
+                        {
+                            "label":"MetaSense-a300v",
+                            "file":"tof/metasense-a300v/metasense-a300v.md"
+                        }  
+                   ]
                 }
                 ]
         },
