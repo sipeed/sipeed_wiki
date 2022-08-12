@@ -25,16 +25,9 @@ desc: maixpy doc: 其他事项
 屏幕标识的 1 如下所示
 
 <html>
-<div class="imbox">
-    <img src="./asserts/other/1.3.png" width=350>
-    <img src="./asserts/other/2.4.jpg" width=350>
+    <img src="./asserts/other/1.3.png" width=45%>
+    <img src="./asserts/other/2.4.jpg" width=45%>
 <style>
-.imbox{
-     display:flex;
-     flex-direction: row;
-     }
-</style>
-</div>
 </html>
 
 转接板上面的 1 如下所示
@@ -48,8 +41,8 @@ desc: maixpy doc: 其他事项
 具体接线参考下面两张图
 
 <html>
-    <img src="./asserts/other/not-connected.jpg" width=350>
-    <img src="./asserts/other/connected.jpg" width=350>
+    <img src="./asserts/other/not-connected.jpg" width=45%>
+    <img src="./asserts/other/connected.jpg" width=45%>
 </html>
 
 ### 切换设备树

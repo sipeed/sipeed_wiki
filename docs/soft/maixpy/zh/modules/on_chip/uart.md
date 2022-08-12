@@ -5,7 +5,7 @@ desc: maixpy doc: UART 的使用
 ---
 
 
-关于 UART 详细介绍请参考[UART-API 文档](./../api_reference/machine/uart.md).
+关于 UART 详细介绍请参考[UART-API 文档](./../../api_reference/machine/uart.md).
 
 ## 使用方法
 

@@ -70,7 +70,7 @@ Tang Nano 9K是基于高云GW1NR-9 FPGA芯片设计的精简型开发板。它�
 + 在线免费FPGA教程：[Verilog](https://www.asic-world.com/verilog/index.html)
 + 在线高云官方视频教程：[点击这里](http://www.gowinsemi.com.cn/video_complex.aspx?FId=n15:15:26)
 
-5. 按照这个[教程](./examples/LCD.md)进行5寸RGB屏驱动实验（其他尺寸屏幕自行修改一下）。
+1. 按照这个[教程](./examples/LCD.md)进行5寸RGB屏驱动实验（其他尺寸屏幕自行修改一下）。
    如果用户自行无法完成这个实验，可以下载我们[9K例程](https://github.com/sipeed/TangNano-9K-example)（适配9K板子+5寸屏）查看哪个步骤没做正确
 
     注意：屏幕接线时需要注意排线的1脚对应连接器旁的1脚丝印
@@ -84,7 +84,7 @@ Tang Nano 9K是基于高云GW1NR-9 FPGA芯片设计的精简型开发板。它�
     - SUG284-2.1E_Gowin IP Core Generator User Guide.pdf 
     - [5寸屏规格书](https://dl.sipeed.com/fileList/TANG/Nano%209K/6_Chip_Manual/EN/LCD_Datasheet/5.0inch_LCD_Datashet%20_RGB_.pdf)：(主要是获取CLK是33.3Mhz这个信息)
 
-6. 驱HDMI屏讲解（待更新）
+2. 驱HDMI屏讲解（待更新）
 
 ## 例程汇总
 

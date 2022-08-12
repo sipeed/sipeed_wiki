@@ -137,7 +137,6 @@ uart.deinit()
 > 以下例程对于Bit开发是不能直接进行使用，需要修改对应可用的PIN脚，可自行尝试
 
 ```python
-from fpioa_manager import fm
 from machine import UART
 from board import board_info
 from fpioa_manager import fm
