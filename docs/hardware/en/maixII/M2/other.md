@@ -8,7 +8,7 @@ desc: maixpy doc: Others
 
 ## Replace screen
 
-Up to now this development board supports 1.3 inch, 2.4 inch and 2.8 inch spi screen, they can be bought from aliexpress in our [shop](https://sipeed.aliexpress.com/store/1101739727?spm=a2g0o.detail.100005.2.54df59cebhGZrI), consult the sale support for more information. And if you need to use other size of screen, you can email to support@sipeed.com for Commercial customization.
+Up to now this development board supports 1.3 inch, 2.4 inch and 2.8 inch IPS screen, they can be bought from aliexpress in our [shop](https://sipeed.aliexpress.com/store/1101739727?spm=a2g0o.detail.100005.2.54df59cebhGZrI), consult the sale support for more information. And if you need to use other size of screen, you can email to support@sipeed.com for Commercial customization.
 
 ### Prepare
 
