@@ -121,15 +121,138 @@ Tang Primer 20K 是基于 [GW2A-V18PG256C8IC8I7](http://www.gowinsemi.com.cn/pro
 	</tbody>
 </table>
 
-## Lite 底板参数
+## 底板参数对比
 
-| 项目 | 数量 | 描述 |
-|---|---|---|
-| 排针 | 2 | 两个 2 x 20Pin 排针接口 |
-| Pmod | 4 | 用于与 Pmod 模块连接 |
-| 按键 | 2 | 用于用户自定义 |
-| 滑动开关 | 2 | 用于用户自定义 |
-
+<table>
+	<thead>
+		<tr>
+			<th rowspan="2" colspan="2">项目</th>
+			<th colspan="2">Dock</th>
+			<th colspan="2">Lite</th>
+		</tr>
+		<tr>
+			<th>数量</th>
+			<th>补充说明</th>
+			<th>数量</th>
+			<th>补充说明</th>
+		</tr>
+	</thead>
+	<body>
+		<tr>
+			<td colspan="2">RGB 接口</td>
+			<td>1</td>
+			<td>RGB565 40P FPC 连接器</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td colspan="2">DVP 接口</td>
+			<td>1</td>
+			<td>24P FPC 连接器</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td colspan="2">麦克风阵列接口</td>
+			<td>1</td>
+			<td>10P FPC 连接器</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td colspan="2">触摸接口</td>
+			<td>1</td>
+			<td>4P FPC 连接器</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td colspan="2">PMOD 接口</td>
+			<td>4</td>
+			<td></td>
+			<td>4</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td colspan="2">3.5mm 耳机接口</td>
+			<td>1</td>
+			<td>使用 LPA4809MSF 驱动</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td colspan="2">拨码开关</td>
+			<td>1</td>
+			<td>5P 拨码开关</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td colspan="2">滑动开关</td>
+			<td>1</td>
+			<td>切换板载 USB 功能</td>
+			<td>2</td>
+			<td>用户自定义功能</td>
+		</tr>
+		<tr>
+			<td style="white-space:nowrap" rowspan="2">Type-C 接口</td>
+			<td style="white-space:nowrap">USB-JTAG&UART</td>
+			<td>1</td>
+			<td>板载 BL702 芯片用来<br>下载比特流并提供串口功能</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>自定义 USB</td>
+			<td>1</td>
+			<td>USB3317 芯片与滑动开关<br>来自定义该 USB 接口功能</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td colspan="2">无线天线</td>
+			<td>1</td>
+			<td>使用 BL702 芯片的无线功能</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td colspan="2">按键</td>
+			<td>6</td>
+			<td>一个用来烧录 BL702,<br>剩下五个用户自定义功能</td>
+			<td>2</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td colspan="2">LED</td>
+			<td>6</td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td colspan="2">HDMI 接口</td>
+			<td>1</td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td colspan="2">以太网接口</td>
+			<td>1</td>
+			<td>TL8201 芯片实现以太网功能</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td colspan="2">RGB LED</td>
+			<td>1</td>
+			<td>WS2812 灯珠</td>
+			<td></td>
+			<td></td>
+		</tr>
+	</body>
+</table>
 
 ## **适用人群**
 
@@ -137,7 +260,7 @@ Tang Primer 20K 是基于 [GW2A-V18PG256C8IC8I7](http://www.gowinsemi.com.cn/pro
 | :---- | :---------- | :------------- | :----------------- |
 | 语言     | Verilog HDL/Verilog         | C/C++               | Verilog HDL/Verilog ，  C/C++                |
 | 简介     | 上板验证用户HDL | 用户将软核的比特流文件下载到芯片后可将<br>Primer 20K当做普通的 MCU 来使用  | 烧入软核后可以进行异构开发 |
-| 适用人群 | 初学者，FPGA开发者        | RISC-V开发者，Cortex-M开发者          | 资深软硬件工程师             |
+| 适用人群 | 初学者，FPGA 开发者        | RISC-V 开发者，Cortex-M 开发者          | 资深软硬件工程师             |
 
 ## **上手指引**
 
@@ -145,11 +268,11 @@ Tang Primer 20K 是基于 [GW2A-V18PG256C8IC8I7](http://www.gowinsemi.com.cn/pro
 
 1. 下载我们打包好的用户指南文档：[下载站](https://dl.sipeed.com/shareURL/TANG/Primer_20K/07_Chip_manual/CN/%E9%80%9A%E7%94%A8%E6%8C%87%E5%BC%95) （下文提到的所有pdf文件都在这里）
 
-2. 安装 IDE 并申请来获得 License：[点击这里](https://wiki.sipeed.com/soft/Tang/zh/Tang-Nano-Doc/get_started/install-the-ide.html)
+2. 安装 IDE 并申请 License：[点击这里](https://wiki.sipeed.com/soft/Tang/zh/Tang-Nano-Doc/get_started/install-the-ide.html)
 
-3. 阅读第一步下载的文件里面的：SUG100-2.6_Gowin云源软件用户指南.pdf
+3. 阅读第一步下载的文件里面的：[SUG100-2.6_Gowin云源软件用户指南.pdf]((http://cdn.gowinsemi.com.cn/SUG100-2.6_Gowin%E4%BA%91%E6%BA%90%E8%BD%AF%E4%BB%B6%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97.pdf))
 
-4. 阅读这个[教程](./examples/LED.md)完成点灯实验。
+4. 阅读这个[教程](./examples/LED.md)完成点灯仿真实验。
 
     建议新手在完成这一步之后，自己重新独立新建项目、编写代码，完成这个实验，并且按自己的想法修改点灯程序，增强对FPGA和硬件描述语言的理解。
     建议在这个过程阅读以下内容，阅读完才进入下一步：
@@ -159,7 +282,7 @@ Tang Primer 20K 是基于 [GW2A-V18PG256C8IC8I7](http://www.gowinsemi.com.cn/pro
 
    - [SUG100-2.6_Gowin云源软件用户指南.pdf](http://cdn.gowinsemi.com.cn/SUG100-2.6_Gowin%E4%BA%91%E6%BA%90%E8%BD%AF%E4%BB%B6%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97.pdf)
    - [SUG949-1.1_Gowin_HDL编码风格用户指南.pdf](http://cdn.gowinsemi.com.cn/SUG949-1.1_Gowin_HDL%E7%BC%96%E7%A0%81%E9%A3%8E%E6%A0%BC%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97.pdf)
-   - UG286-1.9.1_Gowin时钟资源(Clock)用户指南.pdf
+   - <a href="http://cdn.gowinsemi.com.cn/UG286-1.9.1_Gowin%E6%97%B6%E9%92%9F%E8%B5%84%E6%BA%90(Clock)%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97.pdf">UG286-1.9.1_Gowin时钟资源(Clock)用户指南.pdf</a>
    - [SUG940-1.3_Gowin设计时序约束用户指南.pdf](http://cdn.gowinsemi.com.cn/SUG940-1.3_Gowin%E8%AE%BE%E8%AE%A1%E6%97%B6%E5%BA%8F%E7%BA%A6%E6%9D%9F%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97.pdf)
    - [SUG502-1.3_Gowin_Programmer用户指南.pdf](http://cdn.gowinsemi.com.cn/SUG502-1.3_Gowin_Programmer%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97.pdf)
    - [SUG114-2.5_Gowin在线逻辑分析仪用户指南.pdf](http://cdn.gowinsemi.com.cn/SUG114-2.5_Gowin%E5%9C%A8%E7%BA%BF%E9%80%BB%E8%BE%91%E5%88%86%E6%9E%90%E4%BB%AA%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97.pdf)

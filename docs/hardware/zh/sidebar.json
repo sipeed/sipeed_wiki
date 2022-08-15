@@ -207,7 +207,7 @@
                     "collapsed": false,
                     "items": [
                         {
-                            "label": "Tang Primer 20K（建设中）",
+                            "label": "Tang Primer 20K",
                             "file": "tang/tang-primer-20k/primer-20k.md",
                             "item": [
                                 {}
@@ -305,15 +305,15 @@
         },
         {
             "label": "MetaSense",
-            "file": "tof/summary.md",
+            "file": "metasense/summary.md",
             "items": [
                 {
                     "label": "MetaSense-a010",
-                    "file": "tof/metasense-a010/metasense-a010.md"
+                    "file": "metasense/metasense-a010/metasense-a010.md"
                 },
                 {
                     "label": "MetaSense-a300v",
-                    "file": "tof/metasense-a300v/metasense-a300v.md"
+                    "file": "metasense/metasense-a300v/metasense-a300v.md"
                 }
             ]
         },
