@@ -74,13 +74,13 @@
                     "label":"Download center",
                     "url":"https://dl.sipeed.com/",
                     "target": "_blank"
+                },
+                {
+                    "label": "Online Group",
+                    "url": "/en/community.html",
+                    "target": "_blank"
                 }
             ]
-        },
-        {
-            "label": "Online Group",
-            "url": "/community.html",
-            "position": "left"
         },
         {
             "label":"Articles",
@@ -89,8 +89,8 @@
         },
         {
             "label": "Online Store",
-            "url": "/store.html",
-            "position": "right"
+            "url": "/en/store.html",
+            "position": "left"
         },
         {
             "label":"Contribute docs",

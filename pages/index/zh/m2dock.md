@@ -1,4 +1,4 @@
 ---
 layout: redirect
-redirect_url: https://item.taobao.com/item.htm?ft=t&id=635874427363
+redirect_url: https://wiki.sipeed.com/hardware/zh/maixII/index.html
 ---

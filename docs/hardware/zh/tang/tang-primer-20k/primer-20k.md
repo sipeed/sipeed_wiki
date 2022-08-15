@@ -240,7 +240,7 @@ Tang Primer 20K 是基于 [GW2A-V18PG256C8IC8I7](http://www.gowinsemi.com.cn/pro
 		<tr>
 			<td colspan="2">以太网接口</td>
 			<td>1</td>
-			<td>TL8201 芯片实现以太网功能</td>
+			<td>TL8201F 芯片实现以太网功能</td>
 			<td></td>
 			<td></td>
 		</tr>

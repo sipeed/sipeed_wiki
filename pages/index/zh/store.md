@@ -5,8 +5,6 @@ desc: 矽速科技(Sipeed)商城导航, AI 硬件购买
 id: store
 ---
 
-
-
 <div class="title_store">
 <img src="/static/image/sipeed_logo_4.svg" alt="sipeed_logo">
 </div>
@@ -21,7 +19,6 @@ id: store
 	}
 </style>
 </div>
-
 
 <table role="table" class="center_table">
     <thead>

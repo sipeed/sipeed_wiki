@@ -5,8 +5,6 @@ desc: Sipeed official shop
 id: store
 ---
 
-
-
 <div class="title_store">
 <img src="/static/image/sipeed_logo_4.svg" alt="sipeed_logo">
 </div>
@@ -21,7 +19,6 @@ id: store
 	}
 </style>
 </div>
-
 
 <table role="table" class="center_table">
     <thead>

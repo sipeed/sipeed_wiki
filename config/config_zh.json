@@ -94,7 +94,7 @@
             {
                 "label": "线上商城",
                 "url": "/store.html",
-                "position": "right"
+                "position": "left"
             },
             {
                 "label":"贡献文档",

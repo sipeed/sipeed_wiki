@@ -29,6 +29,9 @@
 
 <table role="table" class="center_table">
     <thead>
+    <tr>
+        <th colspan="2">Tencect QQ group</th>
+    </tr>
         <tr>
             <th>QQ Group</th>
             <th>Address</th>
@@ -37,7 +40,11 @@
     <tbody>
         <tr>
             <td><span class="limit_width"></span><strong>MaixPy QQ Group</strong></td>
-            <td><strong><span class="limit_width"></span><span class="limit_width">Group②: 1129095405</span></strong><br><span class="limit_width"></span><span class="limit_width"><strong>Group④: 256336487</strong></span></td>
+            <td>
+            <strong><span class="limit_width"></span><span class="limit_width">Group②: 1129095405</span></strong><br>
+            <span class="limit_width"></span><span class="limit_width"><strong>Group④: 256336487</strong></span><br>
+            <span class="limit_width"><strong>Group⑤（Newer）: 696014576</strong></span>
+            </td>
         </tr>
         <tr>
             <td><span class="limit_width"></span><strong>MaixPy3 QQ Group</strong></td>
@@ -45,10 +52,10 @@
         </tr>
         <tr>
             <td><span class="limit_width"></span><strong>Licheepi-linux QQ Group</strong></td>
-            <td><span class="limit_width"></span><span class=""><strong>488268051</strong></span></td>
+            <td><span class="limit_width"></span><span class=""><strong>712961164</strong></span></td>
         </tr>
         <tr>
-            <td><span class="limit_width"></span><strong>Tang-fpga QQ Group</strong></td>
+            <td><span class="limit_width"></span><strong>Tang-FPGA QQ Group</strong></td>
             <td><span class="limit_width"></span><span class=""><strong>834585530</strong></span></td>
         </tr>
         <tr>
