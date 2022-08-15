@@ -27,7 +27,7 @@ TOF 是一种测距的方法，通过测量超声波/微波/光等信号在发�
 | 测量精度     | <=1%/cm                                                            |       |
 
 
-## 使用例程
+## 使用目录
 
 ### 流程
 - 注意事项
@@ -38,7 +38,7 @@ TOF 是一种测距的方法，通过测量超声波/微波/光等信号在发�
 
 上电前一定要确保网络环境中没有使用 192.168.233.0/24  的地址段，MS-A300V 会使用 RNDIS 并设置自己的 ip 地址为 192.168.233.233 ，Windows 系统需安装驱动才可正常运行。
   
-  [点击下载 Windows 驱动](https://dl.sipeed.com/shareURL/TOF/MetaSense/Drivers)
+  [点击下载 Windows 驱动](https://dl.sipeed.com/shareURL/MetaSense/Drivers)
   [点击查看 Windows 安装驱动方法](./install_drivers.md)
 
 ### 例程指南
