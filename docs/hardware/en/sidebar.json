@@ -56,15 +56,15 @@
                     "file": "maixII/M2/resources.md",
                     "items": [
                         {
-                            "label": "烧录系统",
+                            "label": "Burn image",
                             "file": "maixII/M2/flash.md"
                         },
                         {
-                            "label": "进阶使用",
+                            "label": "Advanced usage",
                             "file": "maixII/M2/usage.md"
                         },
                         {
-                            "label": "其他事项",
+                            "label": "Other notice",
                             "file": "maixII/M2/other.md"
                         }
                     ]
@@ -74,7 +74,7 @@
                     "file": "maixII/M2S/V833.md",
                     "items": [
                         {
-                            "label": "板级资源介绍",
+                            "label": "Board introduction",
                             "file": "maixII/M2S/reources.md"
                         }
                     ]
@@ -84,12 +84,12 @@
                     "file": "maixII/M2A/maixsense.md",
                     "items": [
                         {
-                            "label": "烧录系统",
-                            "file": "maixII/M2A/start.md"
+                            "label": "Burn image",
+                            "file": "maixII/M2A/flash_system.md"
                         },
                         {
-                            "label": "配置系统",
-                            "file": "maixII/M2A/buildsystem.md"
+                            "label": "Config system",
+                            "file": "maixII/M2A/config_system.md"
                         },
                         {
                             "label": "开箱测试",
@@ -106,7 +106,6 @@
         {
             "label": "LicheePi",
             "file": "lichee/README.md",
-            "collapsed":false,
             "items": [
                 {
                     "label": "Lichee Zero",
@@ -199,7 +198,7 @@
                     "collapsed": false,
                     "items": [
                         {
-                            "label": "Tang Primer 20K(Building)",
+                            "label": "Tang Primer 20K",
                             "file": "tang/Tang-primer-20k/primer-20k.md",
                             "item": [
                                 {}

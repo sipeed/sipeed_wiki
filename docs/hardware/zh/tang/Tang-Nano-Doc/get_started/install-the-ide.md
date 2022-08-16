@@ -6,60 +6,78 @@ keywords: Sipeed, Gowin, Tang, Nano, fpga, 矽速
 使用高云的 FPGA 需要用到 GOWIN 这个软件，对应的软件文档链接：
 <http://www.gowinsemi.com.cn/down.aspx?FId=n14:14:26>
 
-- 用户安装请根据自己电脑系统进行 IDE 选择，例如 Windows 系统的用户用选择带有 Win 版本的 IDE 。
-- 不推荐使用教育版本，教育版本安装之后可选芯片仅包含教育使用芯片型号，可选型号稀少。
-- 经测试 V1.9.8.1 版本可用 [GAO](http://cdn.gowinsemi.com.cn/SUG114-2.5_Gowin%E5%9C%A8%E7%BA%BF%E9%80%BB%E8%BE%91%E5%88%86%E6%9E%90%E4%BB%AA%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97.pdf)
-- **网络版 license 仅适用于 1.9.8 之前的版本**
+- 用户安装请根据自己电脑系统选择 IDE
+- 对于 Linux 系统下下载可以使用 Openfpgaloader，可以查看本页底部的 [Linux 下烧录](#burn-in-linux) 来进行烧录操作。
 
 ## 安装软件
 
-此处以安装 **Gowin_V1.9.8_win** 为例进行安装示范。
-其他版本用户根据需要自己选择安装。
-- 下文中有关联网激活 IDE 的方式仅限于 1.9.8 之前的版本
+### 下载软件
 
-云源软件链接 http://www.gowinsemi.com.cn/faq.aspx
+前往 http://www.gowinsemi.com.cn/faq.aspx 下载 IDE。
 
 ![IDE](./assets/IDE-1.png)
 
-> 由于高云的IDE在不断的更新中，上图为2021年11月30号截图
+> 由于高云的IDE在不断的更新中，上图为 2022 年 08 月 16 日截图
 
-进入链接后选择“云源软件历史版本”，往下拉找到历史版本中最新版本进行下载，下载到本地的文件夹是一个压缩包格式的文件，进行解压后得到安装包“Gowin_V1.9.8_win.exe”，直接双击开始进行安装：
+---
 
-<html>
+IDE 分为普通版和教育版：
+
+普通版的 IDE 需要 license，需要向高云官方自行申请。
+
+教育版 IDE 不需要 license，且 V1.9.8.07 和之后的版本支持 GW2A-18C 器件。先在网页顶部注册、登陆然后就能够顺利下载下来教育版 IDE 了，目前教育版所支持的器件如下：
+
+![educational_device](./assets/educational_device.png)
+
+> 由于高云的IDE在不断的更新中，上图为 2022 年 08 月 16 日截图
+
+其中：
+- GW2A-LV18PG256C8/I7 GW2A-18C 为 Primer 20K 所使用的芯片
+- GW1NR-LV9QN88PC6/I5 GW1NR-9C 为 Nano 9K 所使用的芯片
+- GW1NSR-LV4CQN48PC6/I5 GW1NSR-4C 为 Nano 4K 所使用的芯片
+
+
+### 开始安装
+
+此处以安装 **Gowin_V1.9.8_win** 为例进行安装示范。其他版本用户自己安装即可。
+
+#### Linux 系统
+
+Linux 版本的解压后里面存在着一个 bin 文件夹，然后可执行文件 gw.ide 就在所解压路径的 bin 文件夹中，用命令行来启动即可。
+
+#### Windows 系统
+
+下载相应的 IDE 之后所得到的是一个压缩包程序；对于 Windows 版本的解压后里面是一个可执行程序，双击安装继续下面的步骤就行。
+
+下面的所有安装步骤均为 Windows 平台：
+
 <div class="imbox">
-    <img src="./assets/IDE-2.png" width=350>
-    <img src="./assets/IDE-3.png" width=350>
-<style>
-.imbox{
-     display:flex;
-     flex-direction: row;
-     }
-</style>
+    <img src="./assets/IDE-2.png" width=45%>
+    <img src="./assets/IDE-3.png" width=45%>
 </div>
-</html>
 
-下图的两个都需要安装上
+下图的两个都需要安装上。其中的 Gowin 为 IDE 本体， 另一个 programmer 相关的是烧录软件。由于我们所提供下载器会与新版的 IDE 不太兼容，因此建议前往 <a href="./../questions.html#下载失败" target="blank">programmer 相关里的下载失败</a> 来查看对应方法。
 
-<img src="./assets/IDE-4.png" width=350>
+<img src="./assets/IDE-4.png" width=50%>
 
 下图的安装路径个人按照自己需要设置
   
-<img src="./assets/IDE-5.png" width=350>
+<img src="./assets/IDE-5.png" width=50%>
 
 安装中...
 
-<img src="./assets/IDE-6.png" width=350>
+<img src="./assets/IDE-6.png" width=50%>
 
-下面这一步不要更改任何东西，按照默认的点击`Finish`就行
+下面这一步不要更改任何东西，按照默认的点击`Finish`就行，紧接着就是安装相关的驱动
 
-<img src="./assets/IDE-7.png" width=350>
+<img src="./assets/IDE-7.png" width=50%>
 
 上面的`Finish`后会出现下面的内容，这是安装驱动的。
 
 <html>
 <div class="imbox">
-    <img src="./assets/IDE-8.png" width=350>
-    <img src="./assets/IDE-9.png" width=350>
+    <img src="./assets/IDE-8.png" width=45%>
+    <img src="./assets/IDE-9.png" width=45%>
 </div>
 </html>
 
@@ -67,8 +85,8 @@ keywords: Sipeed, Gowin, Tang, Nano, fpga, 矽速
   
 <html>
 <div class="imbox">
-    <img src="./assets/IDE-10.png" width=350>
-    <img src="./assets/IDE-11.png" width=350>
+    <img src="./assets/IDE-10.png" width=45%>
+    <img src="./assets/IDE-11.png" width=45%>
 </div>
 </html>
 
@@ -80,43 +98,19 @@ keywords: Sipeed, Gowin, Tang, Nano, fpga, 矽速
 
 ## 使用 IDE
 
-高云 IDE 进行 license 验证后才能使用; 申请方式很简单。
+### license 相关
 
-### 使用单机版 license (需要自己申请 license )
-
-#### 向高云官方申请
-
-点击链接且填写完毕后等待即可 http://www.gowinsemi.com.cn/faq_view.aspx
-
-其中 MAC 最好填写本机的以太网网卡地址
+教育版本的 IDE 直接运行即可；非教育版的 IDE 需要自行前往 [点我](http://www.gowinsemi.com.cn/faq_view.aspx) 申请 license 后才能使用，其中申请license 时 MAC 最好填写本机的以太网网卡地址，避免以后可能因部分设置而导致 MAC 地址改变 license 验证失败。
 
 ### 验证 license
 
-首次打开高云 IDE 的时候，在弹出的 license 管理中，选择自己本地 license 的文件
+打开高云 IDE 的时候，在弹出的 license 管理中，选择自己本地 license 的文件
 
 ![IDE](./assets/IDE-13.png)
 
-下面是另一种添加方法， 使用 sipeed 的 license 服务器联网激活
+### Programmer
 
-#### 使用 sipeed 的 license 服务器联网激活
-
-> 在线许可服务器仅适用于 GoWin V1.9.8 及更低版本
-
-这种方式配置简单，不过没有网络的情况下无法使用软件。
-
-安装好软件并打开后，软件会提示需要 license，在弹出框中填入服务器地址 `45.33.107.56` 即可，端口：10559
-
-![IDE](./assets/IDE-14.png)
-
-在此主要以 Use Floating License server 一栏进行测试
-
-![IDE](./assets/IDE-15.png)
-
-输入后点击“Save”,在联网的情况下重新打开应用可以直接进入使用界面：
-
-![IDE](./assets/IDE-16.png)
-
-到此，我们已经可以正常使用 IDE 了。
+在烧录 FPGA 的时候可能因为安装 IDE 时所暗转 Programmer 软件不兼容所提供的下载器，因此对于 Windows 用户要求使用我们所提供的特定版本的 Programmer 软件，[点我]跳转下载即可；对于 Linux 用户可以用 Openfpgaloader, 查看本页最底部的相关说明即可。
 
 ## 拓展
 
@@ -130,7 +124,7 @@ keywords: Sipeed, Gowin, Tang, Nano, fpga, 矽速
 
 ![IDE](./assets/doc-folder.png)
 
-Programmer 文件夹：里面是烧录软件，也有相关的文档。
+**Programmer** 文件夹：里面是烧录软件，也有相关的文档。
 
 ![IDE](./assets/programmer-folder.png)
 

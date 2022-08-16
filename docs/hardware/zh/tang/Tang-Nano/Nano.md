@@ -35,5 +35,5 @@ Tang Nano开发板可以在多种场景实现客户不同方面的需要，在AI
 
 ## 资料
 
-[相关例程](./../Tang-Nano-Doc/examples.md#板型)
+[相关例程](./../Tang-Nano-Doc/examples.html#板型)
 [资料下载](https://dl.sipeed.com/shareURL/TANG/Nano)

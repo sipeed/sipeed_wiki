@@ -29,7 +29,7 @@ This image file is created by [dd](https://en.wikipedia.org/wiki/Dd_(Unix)). It'
 
 Tina os need to be compiled by yourself, visit [https://github.com/sipeed/R329-Tina-jishu](https://github.com/sipeed/R329-Tina-jishu) for imformation.
 
-Its burning method is the same as MaixII Dock, visit [Buring MaixII-Dock OS](./../M2/flash.md#Buring-system) for detailed steps.
+Its burning method is the same as MaixII Dock, visit [Buring MaixII-Dock OS](./../M2/flash.html#Buring-system) for detailed steps.
 
 ## Burn system
 

@@ -90,4 +90,4 @@ Debian 系统镜像请到
 
 ## 相关问题
 
-[licheeRV debian镜像相关问题](./Armbian_img_apt.md)
+[licheeRV debian镜像相关问题](./problems.md#apt-相关)

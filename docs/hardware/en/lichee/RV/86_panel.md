@@ -21,7 +21,7 @@ Lichee RV-86 Panel is a development kit designed for smart home central control 
 | Usage situations                                      | Smart home center control unit，WAFT UI evaluation                                                                                                                                                                                         |
 | Development framework                                 | Support WAFT (WebAssembly Framework For Things）runtime                                                                                                                                                                                    |
 | Operating system                                      | Support OpenWRT and Debian                                                                                                                                                                                                                 |
-| [Development resource](./user.md#bsp-sdk-develpoment) | Provide docker development image of the original SDK                                                                                                                                                                                       |
+| [Development resource](./user.html#bsp-sdk-develpoment) | Provide docker development image of the original SDK                                                                                                                                                                                       |
 
 ![Functions map](./../assets/RV/86_pin.png)
 
