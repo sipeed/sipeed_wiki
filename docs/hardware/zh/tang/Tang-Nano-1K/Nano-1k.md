@@ -30,5 +30,5 @@ Tang Nano 1K 开发板板载的GW1NZ-LV1 FPGA芯片功能非常强大，具有�
 
 ## 资料
 
-[相关例程](./../Tang-Nano-Doc/examples.md#板型)
+[相关例程](./../Tang-Nano-Doc/examples.html#板型)
 [资料下载](https://dl.sipeed.com/shareURL/TANG/Nano%201K)

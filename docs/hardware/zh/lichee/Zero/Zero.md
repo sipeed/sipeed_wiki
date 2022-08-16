@@ -84,7 +84,7 @@ V3s框架
 
 ## 使用教程
 
-[Lichee Zero](/soft/Lichee/zh/Zero-Doc/Start/board_intro.md)
+[Lichee Zero](./../../../../soft/Lichee/zh/Zero-Doc/Start/board_intro.md)
 
 ## 产品技术支持
 

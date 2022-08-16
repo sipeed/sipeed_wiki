@@ -293,7 +293,7 @@ Let's try to compile and run hello world
 
 We also provide 720P 720p high-definition screen, you can try this if you have enough money。
 
-When you use this you need to overwrite the board-level configuration to set it in correct configurations to display.[Click here](problems.md#86-panel-screen-no-display-display-wrong) to see more details.
+When you use this you need to overwrite the board-level configuration to set it in correct configurations to display.[Click here](problems.html#86-panel-screen-no-display-display-wrong) to see more details.
 
 ![attachmentId-2738](./../../../zh/lichee/assets/RV/display_1.png)
 
