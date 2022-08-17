@@ -3,10 +3,12 @@ title: 安装IDE
 keywords: Sipeed, Gowin, Tang, Nano, fpga, 矽速
 ---
 
+编辑于 2022.08.16
+
 使用高云的 FPGA 需要用到 GOWIN 这个软件，对应的软件文档链接：
 <http://www.gowinsemi.com.cn/down.aspx?FId=n14:14:26>
 
-- 用户安装请根据自己电脑系统选择 IDE
+- 根据自己系统选择安装对应版本的 IDE
 - 对于 Linux 系统下下载可以使用 Openfpgaloader，可以查看本页底部的 [Linux 下烧录](#burn-in-linux) 来进行烧录操作。
 
 ## 安装软件
@@ -36,10 +38,7 @@ IDE 分为普通版和教育版：
 - GW1NR-LV9QN88PC6/I5 GW1NR-9C 为 Nano 9K 所使用的芯片
 - GW1NSR-LV4CQN48PC6/I5 GW1NSR-4C 为 Nano 4K 所使用的芯片
 
-
 ### 开始安装
-
-此处以安装 **Gowin_V1.9.8_win** 为例进行安装示范。其他版本用户自己安装即可。
 
 #### Linux 系统
 
@@ -104,13 +103,16 @@ Linux 版本的解压后里面存在着一个 bin 文件夹，然后可执行文
 
 ### 验证 license
 
-打开高云 IDE 的时候，在弹出的 license 管理中，选择自己本地 license 的文件
+打开高云 IDE 的时候，在弹出的 license 管理中，选择自己本地 license 的文件，验证保存即可。
 
-![IDE](./assets/IDE-13.png)
+<img src="./assets/IDE-13.png" alt="Broswer lic" width=45%>
+<img src="./assets/check.png"  alt="Check lic"   width=45%>
+
+然后就可以开始使用高云 IDE 了。
 
 ### Programmer
 
-在烧录 FPGA 的时候可能因为安装 IDE 时所暗转 Programmer 软件不兼容所提供的下载器，因此对于 Windows 用户要求使用我们所提供的特定版本的 Programmer 软件，[点我]跳转下载即可；对于 Linux 用户可以用 Openfpgaloader, 查看本页最底部的相关说明即可。
+在烧录 FPGA 的时候可能因为安装 IDE 时所安装的 Programmer 软件不兼容我们所提供的下载器，因此对于 Windows 用户要求使用我们所提供的特定版本的 Programmer 软件，[点我](https://dl.sipeed.com/shareURL/TANG/programmer)跳转下载即可；对于 Linux 用户可以用 Openfpgaloader, 查看本页最底部的相关说明即可。
 
 ## 拓展
 
@@ -126,7 +128,7 @@ Linux 版本的解压后里面存在着一个 bin 文件夹，然后可执行文
 
 **Programmer** 文件夹：里面是烧录软件，也有相关的文档。
 
-![IDE](./assets/programmer-folder.png)
+![programmer](./assets/programmer-folder.png)
 
 一般来说建议把安装 IDE 附带的 Programmer 删掉。替换成特定版本的（这样能减少不少问题）。可以在这里下载：[点我跳转](https://dl.sipeed.com/shareURL/TANG/programmer)
 
