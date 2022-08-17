@@ -18,18 +18,10 @@ Tang Primer 20K 是基于 [GW2A-V18PG256C8IC8I7](http://www.gowinsemi.com.cn/pro
 
 ### 外观
 
-<body>
-<div class="imbox">
-    <img src="./assets/20k_front.png" width=350>
-    <img src="./assets/20k_back.png" width=350>
-<style>
-.imbox{
-     display:flex;
-     flex-direction: row;
-     }
-</style>
+<div>
+    <img src="./assets/20k_front.png" width=45%>
+    <img src="./assets/20k_back.png" width=45%>
 </div>
-</body>
 
 ### 相关参数
 
@@ -44,7 +36,7 @@ Tang Primer 20K 是基于 [GW2A-V18PG256C8IC8I7](http://www.gowinsemi.com.cn/pro
 	<tbody>
 		<tr>
 			<td style="text-align:left">主控</td>
-			<td style="text-align:left"><a href="http://www.gowinsemi.com.cn/prod_view.aspx?TypeId=10&amp;FId=t3:10:3&amp;Id=167#GW2A">GW2A-V18PG256C8IC8I7</a>
+			<td style="text-align:left"><a href="http://www.gowinsemi.com.cn/prod_view.aspx?TypeId=10&amp;FId=t3:10:3&amp;Id=167#GW2A">GW2A-LV18PG256C8IC8I7</a>
 			</td>
 			<td style="text-align:left">
 				<table>

@@ -42,5 +42,5 @@ Tang Nano 4K开发板板载的GW1NSR-LV4C，是一款系统级封装芯片，内
 
 ## 资料
 
-[相关例程](./../Tang-Nano-Doc/examples.md#板型)
+[相关例程](./../Tang-Nano-Doc/examples.html#板型)
 [Tang nano 4K 资料库](https://dl.sipeed.com/shareURL/TANG/Nano%204K)
