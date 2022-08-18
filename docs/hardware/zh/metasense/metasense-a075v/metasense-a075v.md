@@ -46,10 +46,10 @@ TOF 是一种测距的方法，通过测量超声波/微波/光等信号在发�
 1. 把设备使用 type-c 线与电脑链接，MS-A075V 的风扇会开始工作，产品正面镜头处就会闪烁红灯。
 2. 此时可打开浏览器输入 http://192.168.233.233 预览 3D 点云图，上电后有延迟需等待一段时间后，系统和程序才会启动完成。
 3. 使用网页上位机快速预览 演示图（正面和侧面）： 
-    <html>
-    <img src="./assets/tof-1.jpg" width=48%>
-    <img src="./assets/tof-2.jpg" width=48%>
-   </html>
+<html>
+  <img src="./assets/tof-1.jpg" width=48%>
+  <img src="./assets/tof-2.jpg" width=48%>
+</html>
 
 4. 可选预览深度伪彩点云，右上角打开交互面板，第一行取消勾选 RGB_Map 即可。
 ![tof-a0753](assets/tof-3.jpg)
