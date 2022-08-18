@@ -229,7 +229,7 @@
         "config": {
             "type": "hint",
             "label": "☆",
-            "content": "New MaixHub online, support online annotating, one key to deployment, add support for Maix-II-Dock and mobile phone and web<br/><a href='https://maixhub.com'>Go!</a>",
+            "content": "New MaixHub online, online annotation, one-key to deploy, better experience, support Maix-I, Maix-II, mobile phone, web, <a href='https://maixhub.com'>Go!</a></br>Latest open source project <a href='https://github.com/sipeed/TinyMaix'>TinyMaix</a>, model infer runtime runs on any MCU, even runs on 2KiB RAM chip",
             "show_after_s": 432000,
             "date": "2022-06-01 14:00"
         }
