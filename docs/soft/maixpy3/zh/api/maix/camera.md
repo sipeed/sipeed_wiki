@@ -48,13 +48,13 @@ from maix import camera
 ```python
 from maix import camera, display, image
 camera.config(size=(224, 224))
-a, b = 16, 16 # 初值，增益[16 - 1024]，曝光[0, 65536]，随意设置得值会受到驱动限制。
+exp, gain = 16, 16 # 初值，exp 曝光[0, 65536]，gain 增益[16 - 1024]，随意设置得值会受到驱动限制。
 for i in range(120):
-    a, b = a + 16, b + 32
-    camera.config(exp_gain=(a, b))
+    exp, gain = exp + 32, gain + 16
+    camera.config(exp_gain=(exp, gain))
     img = camera.capture()
     display.show(img)
-camera.config(exp_gain=(0, 0)) # 设置为 0, 0 表示恢复自动曝光。
+camera.config(exp_gain=(0, 0)) # 设置为 0, 0 表示放弃控制恢复成自动曝光。
 ```
 
 做这些控制需要了解摄像头控制增益、曝光会发生什么，传统视觉有时候需要拉低曝光固定亮度去寻色寻线，这时候就需要设置特定的增益和曝光，比如拍白灯的时候需要拉低曝光才能看到灯罩的轮廓。
