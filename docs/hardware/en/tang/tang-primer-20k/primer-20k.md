@@ -241,7 +241,7 @@ it can be used as two chips |
 
 1. Download our packaged user guide document : [Click me](https://dl.sipeed.com/shareURL/TANG/Nano%209K/6_Chip_Manual/EN/General%20Guide) (All PDFs mentioned below are here)
    
-2. Install IDE and configure license : [Click me](./../Tang-Nano-Doc/install-the-ide.md)
+2. Install IDE and configure license : <a href="https://wiki.sipeed.com/hardware/en/tang/Tang-Nano-Doc/install-the-ide.html" target="blank">Click me</a>
    
 3. Read this file : [SUG100-2.6E_Gowin Software User Guide.pdf](https://dl.sipeed.com/fileList/TANG/Nano%209K/6_Chip_Manual/EN/General%20Guide/SUG100-2.6E_Gowin%20Software%20User%20Guide.pdf)
 

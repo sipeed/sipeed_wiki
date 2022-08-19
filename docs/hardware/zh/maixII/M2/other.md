@@ -126,6 +126,6 @@ reboot #重启设备来更新配置
 
 ## 编译链
 
-在[下载站](https://dl.sipeed.com/shareURL/MaixII/MaixII-Dock/SDK/Toolchain)里有一个名为 `toolchain-sunxi-musl-pack-2021-01-09.tar.xz` 的文件，这是在 Linux 系统下为 v831 所使用的编译链。
+在[下载站](https://dl.sipeed.com/shareURL/MaixII/MaixII-Dock/SDK/Toolchain)里有一个名为 `toolchain-sunxi-musl-pack-2021-01-09.tar.xz` 的文件，这是在 Linux 系统下为 V831 所使用的编译链。
 
 有需求的可以自行尝试，但是对于 V831 还是推荐使用 MaixPy3 和 Maixhub。

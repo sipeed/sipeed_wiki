@@ -1,7 +1,6 @@
 # Tang Primer
 
 Tang Primer 系列 FPGA 是 Sipeed 使用国产 FPGA 芯片作为主控所设计的大容量板卡。
-截止到目前已有两种型号。
 
 <table>
     <thead>
