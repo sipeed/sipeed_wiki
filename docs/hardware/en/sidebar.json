@@ -13,7 +13,7 @@
                     "file": "maix/M1n.md"
                 },
                 {
-                    "label": "Maix 开发板",
+                    "label": "Maix Board",
                     "items": [
                         {
                             "label": "Maix Go",
@@ -49,7 +49,7 @@
         },
         {
             "label": "Maix-II",
-            "file": "maixII/readme.md",
+            "file": "maixII/README.md",
             "items": [
                 {
                     "label": "MaixII-Dock",
