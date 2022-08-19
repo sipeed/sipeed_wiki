@@ -100,7 +100,8 @@ while True:
 
 也可以自己手动上传图片然后查看不同阈值所产生的效果，当然这里主要介绍无线调整阈值功能。
 
-> 由于浏览器安全因素，我们需要先打开网页 [https://wiki.sipeed.com/threshold](https://wiki.sipeed.com/threshold)，接着使用键盘上的 `Ctrl + S` 两个按键来将该网页保存到本地，接着双击文件来在本地浏览器上运行 threshold
+> 因为浏览器安全方面的权限，我们需要把 [https://wiki.sipeed.com/threshold](https://wiki.sipeed.com/threshold) 先保存到本地才能进行局域网图传。
+使用键盘上面的 `Ctrl + S` 两个按键来将该网页保存到本地，然后在浏览器打开保存到本地的网页就等于在本地运行 [https://wiki.sipeed.com/threshold](https://wiki.sipeed.com/threshold) 了，接着就可以开始后续的操作来实现局域网图传了。
 
 成功运行上面[图传代码](#m2dock-启用图传)且能够在浏览器地址栏中输入板子相应的 IP 地址和图传端口号来访问图传画面后，就可以在本地阈值网页中输入正确的图传 IP 后来直接调整阈值了。下图中右上角有一个图传地址的输入栏，在那里输入正确查看 m2dock 图传的 IP 后就能够实时查看摄像头录制画面且能够实时调整阈值了。
 
