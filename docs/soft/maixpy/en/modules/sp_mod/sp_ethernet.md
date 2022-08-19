@@ -38,4 +38,4 @@ print("Static IP: ", nic.ifconfig())
 * Create SPI and use SPI to create WIZNET5K wired network card
 * Print current IP information
 
-Related API reference: [wiznet5k API](../../api_reference/machine/network.md#WIZNET5K_Module)
+Related API reference: [wiznet5k API](../../api_reference/machine/network.html#WIZNET5K_Module)

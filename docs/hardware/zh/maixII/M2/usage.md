@@ -179,4 +179,3 @@ display.show(camera.capture())
 ## 源码
 
 V831 的源码已经放在  https://github.com/Tina-Linux/tina-V83x ，有需要的可以自行尝试一下
-

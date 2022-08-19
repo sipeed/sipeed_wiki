@@ -304,3 +304,15 @@ Maixpy ide 挂着运行时内存不足，就会出现的常见错误，解决方
 
 后缀名为 kmodel 的模型文件是用来阐述这个模型的形状结构和参数。
 而 smodel 模型需要用到机器码；机器码是一机一码的一种加密方式，用于模型文件的加密。如果使用别的机器码去加密或者下载其他以 smodel 为文件后缀的模型文件，开发板是无法使用这些模型文件的!!
+
+## MemoryError: Out of normal MicroPython Heap Memory
+
+前往 ： [https://neucrack.com/p/325](https://neucrack.com/p/325#%E5%86%85%E5%AD%98%E4%B8%8D%E5%A4%9F%20%EF%BC%88MemoryError:%20Out%20of%20normal%20MicroPython%20Heap%20Memory!%EF%BC%89) 查阅相关解决方法
+
+## 如何同时运行多个模型
+
+其实也不是同时运行，就是分时运行。
+
+如果有足够内存，就一次性把几个模型加载到内存， 然后分别分时运行推理。
+
+如果内存不足，加载第一个模型，运行后注销（使用 `kpu.deinit`），再加载运行第二个模型部分或全部模型。使用 `load_flash` 的方式加载模型，实时从 flash 读取内容。

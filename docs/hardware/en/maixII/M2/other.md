@@ -24,18 +24,10 @@ There is a mark 1 on convert board, which notes the direction to connect lcd scr
 
 The mark 1 on screen is as below:
 
-<html>
-<style>
-.imbox{
-     display:flex;
-     flex-direction: row;
-     }
-</style>
-<div class="imbox">
+<div>
     <img src="./../../../zh/maixII/M2/asserts/other/1.3.png" width=350>
     <img src="./../../../zh/maixII/M2/asserts/other/2.4.jpg" width=350>
 </div>
-</html>
 
 The mark 1 on convert board is shown as below:
 
@@ -63,10 +55,12 @@ The rule of dtb file name is shown as following:
 
 | File name | Fit screen | Fit camera |
 | :----: | :----: | :---: |
-| sipeed_240x240_vs3205.dtb | 1.3 inch | vs3205 |
-| sipeed_240x240_sp2305.dtb | 1.3 inch | sp2305 |
-| sipeed_240x320_vs3205.dtb | 2.4 inch |vs3205 |
-| sipeed_240x320_sp2305.dtb | 2.4 inch |sp2305 |
+| sipeed_2.8_240x320_vs3205.dtb | 2.8 inch | vs3205 |
+| sipeed_2.8_240x320_sp2305.dtb | 2.8 inch | sp2305 |
+| sipeed_2.4_240x320_vs3205.dtb | 2.4 inch | vs3205 |
+| sipeed_2.4_240x320_sp2305.dtb | 2.4 inch | sp2305 |
+| sipeed_1.3_240x240_vs3205.dtb | 1.3 inch | vs3205 |
+| sipeed_1.3_240x240_sp2305.dtb | 1.3 inch | sp2305 |
 
 Copy the compiled dtb file into the virtual U-disk, then run following commmand in adb shell.
 
@@ -127,7 +121,15 @@ This dtb file is compiled from kernel, and it's not suggested to be compiled by 
 
 | File name | Fit screen | Fit camera |
 | :----: | :----: | :---: |
-| sipeed_240x240_vs3205.dtb | 1.3 inch | vs3205 |
-| sipeed_240x240_sp2305.dtb | 1.3 inch | sp2305 |
-| sipeed_240x320_vs3205.dtb | 2.4 inch |vs3205 |
-| sipeed_240x320_sp2305.dtb | 2.4 inch |sp2305 |
+| sipeed_2.8_240x320_vs3205.dtb | 2.8 inch | vs3205 |
+| sipeed_2.8_240x320_sp2305.dtb | 2.8 inch | sp2305 |
+| sipeed_2.4_240x320_vs3205.dtb | 2.4 inch | vs3205 |
+| sipeed_2.4_240x320_sp2305.dtb | 2.4 inch | sp2305 |
+| sipeed_1.3_240x240_vs3205.dtb | 1.3 inch | vs3205 |
+| sipeed_1.3_240x240_sp2305.dtb | 1.3 inch | sp2305 |
+
+## Toolchain
+
+There is a file name `toolchain-sunxi-musl-pack-2021-01-09.tar.xz` in the [Download station](https://dl.sipeed.com/shareURL/MaixII/MaixII-Dock/SDK/Toolchain), it's the toolchain for V831 in linux OS.
+
+You can try to use this if you need, but for V831 we suggest use MaixPy3 and Maixhub.

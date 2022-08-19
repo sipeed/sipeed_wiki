@@ -48,16 +48,19 @@ This form shows detail specs of Tang Nano 9K
 | Button                                                                                                     | 2 programmable buttons for users                                        |
 | LED                                                                                                        | Onboard 6 programmable LEDs                                             |
 
+### On-board Function block
 
 ![Generated](./../../../zh/tang/Tang-Nano-9K/assets/clip_image008.jpg)
+
+### Pinmap
 
 ![Generated](./../../../zh/tang/Tang-Nano-9K/assets/clip_image010.gif)
 
 | Usage           | FPGA                     | MCU                                                                               | FPGA+MCU                                                              |
 | :-------------- | :----------------------- | :-------------------------------------------------------------------------------- | :-------------------------------------------------------------------- |
 | Language        | Verilog HDL/Verilog      | C/C++                                                                             | Verilog HDL/Verilog ，  C/C++                                         |
-| summary         | verify HDL design        | After flashing the softcore bitstream, <br>this board can be used as a normal microcontroller unit | After flashing the softcore bitstream,<br>it can be used as two chips |
-| suitable people | beginner，FPGA developer | RISC-V developers，Cortex-M developers                                            | Senior engineer                                 |
+| Introduction         | verify HDL design        | After flashing the softcore bitstream, <br>this board can be used as a normal microcontroller unit | After flashing the softcore bitstream,<br>it can be used as two chips |
+| User | Beginner，FPGA developer | RISC-V developers，Cortex-M developers                                            | Senior engineer                                 |
 
 ## User guide
 
@@ -98,35 +101,31 @@ This form shows detail specs of Tang Nano 9K
 
 ## Reference examples summary
 
-- LED drive / RGB LCD display : https://github.com/sipeed/TangNano-9K-example  
-- GameBOY HDMI : https://github.com/Martoni/GbHdmi 
-- PicoRV : https://github.com/YosysHQ/picorv32 
-- PicoRV project running on Tang Nano 9K : https://github.com/sipeed/TangNano-9K-example
-- HDMI Display : coming soon
+Visit [examples](./../Tang-Nano-Doc/examples.md)
 
-## Summary of hardware files
+## Hardware files
+
+[All files](https://dl.sipeed.com/shareURL/TANG/Nano%209K/)
 
 - [Datasheet](https://dl.sipeed.com/shareURL/TANG/Nano%209K/6_Chip_Manual/EN)
 - [Schematic](https://dl.sipeed.com/shareURL/TANG/Nano%209K/2_Schematic)
 - [Size](https://dl.sipeed.com/shareURL/TANG/Nano%209K/4_Dimensional_drawing)
 - [3D file](https://dl.sipeed.com/shareURL/TANG/Nano%209K/5_3D_file)
 
-## Matters need attention
+## Attention
 
-1. It is recommended to use Gowin V1.9.8.03 Education Edition : [Click me](https://www.gowinsemi.com/en/support/download_eda/)
-But if you want to use more IP cores, you need to download other version of IDE, and apply for license : [Click me](https://wiki.sipeed.com/hardware/en/tang/Tang-Nano-Doc/install-the-ide.html)
-2. This version of programmer is recommended : [Click me](https://dl.sipeed.com/shareURL/TANG/programmer)
-3. Avoid using JTAG, MODE0/1 and DONE pins. If you really need to use these pins, please refer to the [SUG100-2.6E_Gowin Software User Guide.pdf](https://dl.sipeed.com/fileList/TANG/Nano%209K/6_Chip_Manual/EN/General%20Guide/SUG100-2.6E_Gowin%20Software%20User%20Guide.pdf) to see how to enable IO mux.
-4. Please avoid static electricity hitting PCBA; Please release the static electricity from the hand before contacting PCBA
-5. The working voltage of each GPIO has been marked in the schematic . Please do not let the actual working voltage of GPIO exceed the rated value, because it will cause permanent damage to PCBA
-6. When connecting FPC flexible cable, make sure the cable is completely inserted into the base with on offset
-7. Avoid any liquid or metal touching the pads of components on PCBA during working, because this will cause short circuit and damage PCBA
+1. If you have trouble with this board, you can join our telegram (t.me/sipeed) or contact us on twitter (https://twitter.com/SipeedIO).
 
-## Others
+2. For fpga burning we require using [this](https://dl.sipeed.com/shareURL/TANG/programmer) Programmer application. Because other version Programmer application may fail burning this board.
 
-- [Download center](https://dl.sipeed.com/shareURL/TANG/Nano%209K)
-- [Examples](./../Tang-Nano-Doc/examples.md)
+3. If you meet problems, please visit [problems](./../Tang-Nano-Doc/questions.md) first, normally most problems will be solved after using this programmer [Click me](https://dl.sipeed.com/shareURL/TANG/programmer).
+   
+4. Avoid using JTAG, MODE0/1 and DONE pins. If you really need to use these pins, please refer to [SUG100-2.6E_Gowin Software User Guide.pdf](https://dl.sipeed.com/fileList/TANG/Nano%209K/6_Chip_Manual/EN/General%20Guide/SUG100-2.6E_Gowin%20Software%20User%20Guide.pdf).
 
-## Support
+5. Please avoid static electricity hitting PCBA; Please release the static electricity from the hand before contacting PCBA.
 
-Email to support@sipeed.com for technical support and Business cooperation.
+6. The working voltage of each GPIO has been marked in the schematic . Please do not let the actual working voltage of GPIO exceed the rated value, because it will cause permanent damage to PCBA.
+
+7. When connecting FPC flexible cable, make sure the cable is completely inserted into the base with on offset.
+
+8. Avoid any liquid or metal touching the pads of components on PCBA during working, because this will cause short circuit and damage PCBA.

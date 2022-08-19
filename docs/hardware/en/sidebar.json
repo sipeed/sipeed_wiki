@@ -92,11 +92,11 @@
                             "file": "maixII/M2A/config_system.md"
                         },
                         {
-                            "label": "开箱测试",
+                            "label": "Test board",
                             "file": "maixII/M2A/first.md"
                         },
                         {
-                            "label": "上手使用",
+                            "label": "Start to use",
                             "file": "maixII/M2A/user.md"
                         }
                     ]
@@ -183,12 +183,12 @@
                             "file": "tang/Tang-Nano-Doc/install-the-ide.md"
                         },
                         {
-                            "label": "Questions&Answers",
-                            "file": "tang/Tang-Nano-Doc/questions.md"
-                        },
-                        {
                             "label": "Tang Nano examples",
                             "file": "tang/Tang-Nano-Doc/examples.md"
+                        },
+                        {
+                            "label": "Questions&Answers",
+                            "file": "tang/Tang-Nano-Doc/questions.md"
                         }
                     ]
                 },

@@ -105,6 +105,3 @@ For this device we suggest you use [Maixpy3] to develop , and its English docume
 ## SDK development
 
 Now we have open V831 source sode here, use this https://github.com/Tina-Linux/tina-V83x if you need. 
-
-
-

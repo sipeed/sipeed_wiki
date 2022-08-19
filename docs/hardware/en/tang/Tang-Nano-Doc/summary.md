@@ -21,7 +21,7 @@ Tang Nano series development boards are designed based on [Gowin](https://www.go
 | Camera           |                                                            | OV2640                                                   |                                                            |
 | External SPI FLASH    | Pads are reserved                                                   | Default welding<br>32Mbit SPI FLASH                                     | Default welding<br>32Mbit SPI FLASH                                     |
 | TF card slot           |                                                            |                                                            | yes                                                           |
-| Programmer           | Onboard USB-JTAG downloader                                            | Onboard USB-JTAG downloader                                            | Onboard USB-JTAG downloader &<br> USB-UART port                                     |
+| Programmer           | Onboard USB-JTAG                                            | Onboard USB-JTAG                                            | Onboard USB-JTAG &<br> USB-UART                                     |
 
 - The blank in the form means none
 

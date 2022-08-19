@@ -65,7 +65,7 @@ desc: maixpy ​​doc: Introduction to MaixPy documentation
 
 ## About MaixPy
 
-[**MaixPy**](https://maixpy.sipeed.com/zh/wiki.sipeed.com/maixpy) is to port [Micropython](http://micropython.org/) to [K210](https:/ /canaan-creative.com/product/kendryteai) (a 64-bit dual-core RISC-V CPU with hardware FPU, convolution accelerator, FFT, Sha256) is a project that supports the normal operation of the MCU and integrates hardware acceleration. `AI` machine vision and microphone array, `1TOPS` computing power core module is less than `￥50`, in order to quickly develop intelligent applications in the field of `AIOT` with extremely low cost and practical size.
+[**MaixPy**](https://maixpy.sipeed.com/zh/wiki.sipeed.com/maixpy) is to port [Micropython](http://micropython.org/) to [K210](https://canaan-creative.com/product/kendryteai) (a 64-bit dual-core RISC-V CPU with hardware FPU, convolution accelerator, FFT, Sha256) is a project that supports the normal operation of the MCU and integrates hardware acceleration. `AI` machine vision and microphone array, `1TOPS` computing power core module is less than `￥50`, in order to quickly develop intelligent applications in the field of `AIOT` with extremely low cost and practical size.
 
 > MicroPython is a parser based on the grammar of Python3. It contains most of the basic grammar of Python3. It mainly runs on embedded chips with limited performance and memory. (Note that Micropython does not include all the syntax of Python3)
 

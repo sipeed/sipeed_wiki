@@ -1,13 +1,13 @@
 # Tang Nano 1K
 
-> Edit on 2022.04.06
+> Edit on 2022.08.18
 
 ## Introduction
 
 Tang Nano 1K is a core board designed based on [Gowin](https://www.gowinsemi.com/en/) GW1NZ-LV1 FPGA chip. The board is equipped with RGB LCD interface and onboard USG-JTAG debugger, which make it convinent for users to use. User can use this for small digital logic design and experiment.
 
-![](./assets/1k-1.jpg)
-![Nano](./assets/1k-2.jpg)
+![Nano-1](./assets/1k-1.jpg)
+![Nano-2](./assets/1k-2.jpg)
 
 ## Parameters
 
@@ -22,8 +22,9 @@ Tang Nano 1K is a core board designed based on [Gowin](https://www.gowinsemi.com
 |   Number of Pll    |       1        |
 | Number of I/O Bank |       2        |
 
+### Pinmap
 
-![](./assets/1k-pin.png)
+![pinmap](./assets/1k-pin.png)
 
 ## Others
 
@@ -31,6 +32,10 @@ Tang Nano 1K is a core board designed based on [Gowin](https://www.gowinsemi.com
 - [Download center](https://dl.sipeed.com/shareURL/TANG/Nano%201K)
 - [Examples](./../Tang-Nano-Doc/examples.md)
 
-## Support
+## Addition
 
-Email to support@sipeed.com for technical support and Business cooperation.
+1. If you have trouble with this board, you can join our telegram (t.me/sipeed) or contact us on twitter (https://twitter.com/SipeedIO).
+
+2. For Fpga burning we require using [this](https://dl.sipeed.com/shareURL/TANG/programmer) Programmer application. Because other version Programmer application may fail burning this board.
+
+3. If you meet problems, please visit [problems](./../Tang-Nano-Doc/questions.md) first, normally most problems will be solved after using this programmer [Click me](https://dl.sipeed.com/shareURL/TANG/programmer).
