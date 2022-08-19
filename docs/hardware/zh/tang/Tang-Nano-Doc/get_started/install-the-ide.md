@@ -126,7 +126,7 @@ Linux 版本的解压后里面存在着一个 bin 文件夹，然后可执行文
 
 ![IDE](./assets/doc-folder.png)
 
-**Programmer** 文件夹：里面是烧录软件，也有相关的文档。
+**Programmer** 文件夹：里面是烧录软件，也有相关的文.3档。
 
 ![programmer](./assets/programmer-folder.png)
 
@@ -134,7 +134,9 @@ Linux 版本的解压后里面存在着一个 bin 文件夹，然后可执行文
 
 uninst.exe：卸载IDE
 
-## 相关文档
+## 其他安装方法
+
+下面是高云官方所提供的 IDE 安装方法，有需要的话可以自行查阅
 
 + [高云软件简介和安装](http://cdn.gowinsemi.com.cn/%E9%AB%98%E4%BA%91%E8%BD%AF%E4%BB%B6%E7%AE%80%E4%BB%8B%E5%92%8C%E5%AE%89%E8%A3%85.pdf)
 

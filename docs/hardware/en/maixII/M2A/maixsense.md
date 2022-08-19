@@ -96,7 +96,7 @@ MaixSense not only can run Tina os, but also can run **armbian**, which is built
         <td>24P 0.5mm FPC connector，for connecting PHY</td>
     </tr>
     <tr>
-        <td>IO fanned out</td>
+        <td>IO Routed</td>
         <td>3*10P 2.54mm IO pads<br>4P* 1.25 male connectors(Used for usart1)<br>See following pinout for more help</td>
     </tr>
     </tbody>

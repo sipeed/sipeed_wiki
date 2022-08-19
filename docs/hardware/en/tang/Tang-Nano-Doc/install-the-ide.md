@@ -108,5 +108,4 @@ uninst.exe：remove IDE
 
 ### Burn in linux
 
-Here is a way to Flash the development board in linux [click me](./flash-in-linux.md)
- 
+Here is a way to burn the development board in linux [click me](./flash-in-linux.md)
