@@ -85,26 +85,26 @@ Maixduino 有各种版本的固件，Mind+ 图形化部分为保持积木生成�
 
 ## 教程
 
-1. 社区用户驴友花雕的系列教程
+社区用户驴友花雕的系列教程
 - [【花雕测评】【AI】Mind+文字图片显示、呼吸灯及网络应用的22项小实验](https://makelog.dfrobot.com.cn/article-311386.html)
 - [【花雕测评】【AI】Mind+机器视觉之数字图像处理和显示的22种小测试](https://makelog.dfrobot.com.cn/article-311405.html)
 - [【花雕测评】【AI】Mind+机器视觉之颜色、维码与形状识别的8个小实验](https://makelog.dfrobot.com.cn/article-311417.html)
 
-1. 社区用户 hockel 的系别教程：
+社区用户 hockel 的系别教程：
 - [【mind+ 玩转MAIXDUINO 系列0】 工欲善其事，必先利其器](https://mc.dfrobot.com.cn/thread-307857-1-1.html)
 - [【Mind+ 玩转Maixduino系列1】你好，世界](https://mc.dfrobot.com.cn/thread-307857-1-1.html)
 - [【mind+ Maixduino用户库】NES 游戏扩展库 【mind+ 用户库】Maixduino 中文字模、图片英文显示](https://mc.dfrobot.com.cn/thread-308037-1-1.html)
 
-3. 社区用户 DFByaoZQN5E 的系列教程：
+社区用户 DFByaoZQN5E 的系列教程：
 - [[教程]mind+ k210主板第一课 hello word!](https://mc.dfrobot.com.cn/thread-307820-1-1.html)
 - [[教程]mind+ k210主板第二课 gpio(1)](https://mc.dfrobot.com.cn/thread-307850-1-1.html)
 - [[教程]mind+ k210 第三课 gpio (2)](https://mc.dfrobot.com.cn/thread-307877-1-1.html)
 - [[教程]mind+ k210 第四课 gpio (3)](https://mc.dfrobot.com.cn/thread-307969-1-1.html)
 
-4. 社区用户肥罗-阿勇的教程：
+社区用户肥罗-阿勇的教程：
 - [Mind+Maixduino应用案例集合](https://mc.dfrobot.com.cn/thread-307946-1-1.html)
 
-5. 社区用户 hmilycheng 的系列教程：
+社区用户 hmilycheng 的系列教程：
 - [Maixduino轻松学系列 —— （1）初识Maixduino](https://makelog.dfrobot.com.cn/article-311375.html)
 - [Maixduino轻松学系列 —— （2）Mind+带你畅玩经典红白机游戏](https://makelog.dfrobot.com.cn/article-311392.html)
 - [Maixduino轻松学系列 —— （3）基于Mind+的简易NTP网络时钟](https://makelog.dfrobot.com.cn/article-311401.html)
