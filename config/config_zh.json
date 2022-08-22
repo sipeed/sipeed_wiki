@@ -17,7 +17,6 @@
                         "url": "/hardware/zh/maix/index.html",
                         "label": "Maix-I"
                     },
-                    
                     {
                         "url": "/hardware/zh/maixII/index.html",
                         "label": "Maix-II"
@@ -70,8 +69,8 @@
                 "type":"list",
                 "items":[
                     {
-                        "label":"AI 训练平台",
-                        "url":"https://maix.sipeed.com",
+                        "label":"MaixHub: AI 训练和分享平台",
+                        "url":"https://maixhub.com",
                         "target": "_blank"
                     },
                     {
@@ -80,7 +79,7 @@
                         "target": "_blank"
                     },
                     {
-                        "label": "在线社群",
+                        "label": "社区: 沟通交流",
                         "url": "/community.html",
                         "position": "left"
                     }

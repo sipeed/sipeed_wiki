@@ -1,36 +1,45 @@
 ---
-title: M2dock 介绍
+title: Maix-II-Dock(M2dock) 介绍
 keywords: MaixII, MaixPy3, Python, Python3, M2dock
-desc: maixpy doc: 板级资源介绍
+desc: 板级资源介绍
 ---
 
-MaixII M2dock 是基于全志 V831 芯片设计的一款【板卡】+【底板】的开发板产品。
 
-> 与 Maix-Dock 开发方式有所不同，其内置了 Tina-Linux 系统，可以使用 [MaixPy3](/maixpy3) 进行开发
+Maix-II-Dock 定位于高性价比的 AIOT 开发板， 支持常规 Linux 开发的同时， 有特有的 **AI 硬件加速** 特性，配合 Sipeed 提供的完整的软件生态，让你快速实现你的边缘 AI 应用。
 
-## M2板卡
+* **硬件**上， 基于全志 V831 芯片， 以【核心板】+【底板】的形式组成开发板，可以直接使用开发板，也可以只使用核心板根据需求自行设计底板，方便快速完成开发。
+* **软件**上， 除了可以直接使用全志提供的资料进行开发（部分可能需要找全志获取）外，Sipeed 提供了非常方便的 Python SDK（[MaixPy3](/maixpy3)）以及 C SDK （[libmaix](https://github.com/sipeed/libmaix)）；
+更是提供了在线模型训练服务（[MaixHub](https://maixhub.com)），方便刚入门也能快速训练能使用的 AI 模型。
+* **购买**：[sipeed.taobao.com](https://item.taobao.com/item.htm?id=635874427363)
 
-细节请看[淘宝商品介绍](https://item.taobao.com/item.htm?id=635874427363)，可同步最新讯息。
+<p align="center">
+    <iframe src="//player.bilibili.com/player.html?aid=298543445&bvid=BV1sF411u7xb&cid=586467021&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+</p>
 
-![core_board](./asserts/maix_v831.jpg)
 
-> 板卡参考资料下载站 [Sipeed_Maix_II_3101](https://api.dl.sipeed.com/shareURL/MaixII/MaixII-Dock/HDK/Sipeed_MaixII_V831/Sipeed_Maix_II_3101)
+
+## M2 核心板
+
+
+<img style="max-height: 260px" src="./asserts/maix_v831.jpg" alt="core_board"/>
+
+> 核心板硬件资料下载 [Sipeed_Maix_II_3101](https://api.dl.sipeed.com/shareURL/MaixII/MaixII-Dock/HDK/Sipeed_MaixII_V831/Sipeed_Maix_II_3101)
 
 ### V831 芯片介绍
 
-从 2019 年至今的时间，可以开始看到几个相机 SoC 与一个内置的转专业或 SIMD 指令加快人脸检测、物体检测等等，从低分辨率 Kendryte K210 处理器 2.5 k Ingenic T31 MIPS 视频处理器，甚至 4k 能力 iCatch V37 相机 SoC 。 Allwinner 过去推出了几个摄像头处理器(V3， V316， S3…)，但没有一个包含 NPU (又名 AI 加速器)。现在这已经改变了，Allwinner V831 Cortex-A7 全高清摄像头 SoC 还包括一个小的 200 GOPS NPU 。
+全志 V831, 单核 Cortex-A7 800MHz， 64MiB 片内 DDR2 内存， 高性价比能跑 Linux 的SOC，同时支持硬件 AI 加速（0.2Tops 算力），可以当成普通 Linux SOC 使用， 也可以用于边缘 AI 应用， 更详细的参数请看手册和下文。
 
-> 取自 [allwinner-v831-ai-full-hd-camera-soc-powers-sochip-v831-development-board](https://www.cnx-software.com/2020/04/28/allwinner-v831-ai-full-hd-camera-soc-powers-sochip-v831-development-board/)
+芯片手册： [V833／V831 Datasheet V1.0.pdf](https://linux-sunxi.org/images/b/b9/V833%EF%BC%8FV831_Datasheet_V1.0.pdf)
 
-![V831_struct.png](./asserts/V831_struct.png)
+内部结构图：
 
-点击查看 [V833／V831 Datasheet V1.0.pdf](https://linux-sunxi.org/images/b/b9/V833%EF%BC%8FV831_Datasheet_V1.0.pdf)
+<img style="max-height: 400px" src="./asserts/V831_struct.png" alt="V831 struct"/>
 
-### M2板卡参数
+### M2核心板参数
 
-与前代MAIX对比
+与 Maix-I 对比
 
-| 项目                         | MAIX-I (K210)                        | MAIX-II (V831)                                                                 |
+| 项目                         | Maix-I (K210)                        | Maix-II (V831)                                                                 |
 | ---------------------------- | ------------------------------------ | ------------------------------------------------------------------------------ |
 | 主控芯片<br> CPU             | 400~600Mhz                           | 800~1000Mhz                                                                    |
 | 视频编码器 <br>Video encoder | None                                 | H.264, up to 1080p@30fps<br>H265, up to 1080p@30fps<br>JPEG, up to 1080p@30fps |
@@ -54,10 +63,10 @@ MaixII M2dock 是基于全志 V831 芯片设计的一款【板卡】+【底板�
 
 ![](./asserts/m2dock.jpg)
 
+> 底板硬件资料下载 [点我跳转](https://api.dl.sipeed.com/shareURL/MaixII/MaixII-Dock/HDK/Sipeed_MaixII_Dock_V831)
 > 感谢热心网友分享的 [ M2 模块底板母座 PCB 封装](https://bbs.elecfans.com/jishu_2036119_1_1.html)
-> 底板参考资料下载 [点我跳转](https://api.dl.sipeed.com/shareURL/MaixII/MaixII-Dock/HDK/Sipeed_MaixII_Dock_V831)
 
-### 硬件参数
+### 底板硬件参数
 
 ![Pin](./asserts/M2Dock_pin.jpg)
 
@@ -86,8 +95,27 @@ MaixII M2dock 是基于全志 V831 芯片设计的一款【板卡】+【底板�
 | 21   | 扬声器*1                | 8Ω1W 1609复合铝膜扬声器                    | 出厂已连接                                   |
 | 22   | 麦克风*1                | 模拟驻极体麦克风                           | ---                                          |
 
-## 资源
+## 资源汇总
 
-[MaixII 硬件资料库](https://api.dl.sipeed.com/shareURL/MaixII/MaixII-Dock/HDK)
+硬件: [MaixII 硬件资料库](https://api.dl.sipeed.com/shareURL/MaixII/MaixII-Dock/HDK)
 
-[MaixPy3 软件文档](/maixpy3)
+软件：
+* Python SDK： [MaixPy3 软件文档](/maixpy3)
+* C SDK: [libmiax](https://github.com/sipeed/libmaix)
+* MaixHub 模型平台（AI 模型下载、在线训练、项目分享）： [MaixHub](https://maixhub.com)
+* 全志 tina-V83x SDK： [Tina-Linux/tina-V83x](https://github.com/Tina-Linux/tina-V83x)
+* 工具链： [dl.sipeed.com](https://dl.sipeed.com/shareURL/MaixII/MaixII-Dock/SDK/Toolchain) 或者 [github](https://github.com/sipeed/libmaix/releases/download/v0.1.0/toolchain-sunxi-musl-pack-2021-01-09.tar.xz)
+
+## Maix-II-Dock 上手开发路线指南
+
+* 因为需要 linux 系统（tina-linx）， 所以需要先学会烧录系统镜像，就类似学会电脑重装系统一样，这样在遇到问题就可以重来，在左边目录找到“烧录系统”文章查看
+<!-- 这里不给烧录系统的链接，让用户学会查看左边目录 -->
+* 学会基础的 Linux 操作，比如如何打开终端，基础的终端命令，以及如何传输文件到开发板等，比如 串口使用， adb 使用等等基础操作
+* 选择开发语言：
+  * 如果你熟悉 C 有一定的开发经验，可以选择使用[libmaix](https://github.com/sipeed/libmaix)
+  * 如果你希望快速上手，并使用 Python 语言开发， 请使用[MaixPy3](/maixpy3)，仔细阅读其文档即可
+* 如果需要使用 AI 功能， 可以搭配 [MaixHub](https://maixhub.com) 在线训练平台使用，以及可以将 AI 模型或者项目分享到该平台
+
+
+
+

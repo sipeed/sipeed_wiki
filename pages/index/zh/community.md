@@ -52,9 +52,17 @@
             <td><span class="limit_width"></span><span class=""><a href="https://t.me/sipeed" target="_blank"><strong>t.me/sipeed</strong></a></span</td>
         </tr>	
         <tr>
-            <td><span class="limit_width"></span><strong>Twitter 宣传页</strong></td>
+            <td><span class="limit_width"></span><strong>Twitter</strong></td>
             <td><span class="limit_width"></span><span class=""><a href="https://twitter.com/SipeedIO" target="_blank"><strong>twitter.com/SipeedIO</strong></a></span</td>
-        </tr>			
+        </tr>
+        <tr>
+            <td><span class="limit_width"></span><strong>MaixHub</strong></td>
+            <td><span class="limit_width"></span><span class="">
+            <strong>
+                <div>模型和项目分享：<a href="https://maixhub.com" target="_blank">MaixHub 官网</a></div>
+                <div>QQ群：766140795</div>
+            </strong></span</td>
+        </tr>
     </tbody>
 </table>
 
@@ -71,9 +79,17 @@
             <td><span class="limit_width"></span><span class=""><a href="https://t.me/sipeed" target="_blank"><strong>t.me/sipeed</strong></a></span</td>
         </tr>	
         <tr>
-            <td><span class="limit_width"></span><strong>Twitter 宣传页</strong></td>
+            <td><span class="limit_width"></span><strong>Twitter</strong></td>
             <td><span class="limit_width"></span><span class=""><a href="https://twitter.com/SipeedIO" target="_blank"><strong>twitter.com/SipeedIO</strong></a></span</td>
-        </tr>			
+        </tr>
+        <tr>
+            <td><span class="limit_width"></span><strong>MaixHub</strong></td>
+            <td><span class="limit_width"></span><span class="">
+            <strong>
+                <div>模型和项目分享：<a href="https://maixhub.com" target="_blank">MaixHub 官网</a></div>
+                <div>Telegram 群：<a href="https://t.me/maixhub" traget="_blank">t.me/maixhub</a></div>
+            </strong></span</td>
+        </tr>
     </tbody>
 </table>
 

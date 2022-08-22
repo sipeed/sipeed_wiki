@@ -23,7 +23,15 @@
 		<tr>
             <td><span class="limit_width"></span><strong>twitter</strong></td>
             <td><span class="limit_width"></span><span class=""><a href="https://twitter.com/SipeedIO" target="_blank"><strong>twitter.com/SipeedIO</strong></a></span</td>
-        </tr>				
+        </tr>
+        <tr>
+            <td><span class="limit_width"></span><strong>MaixHub</strong></td>
+            <td><span class="limit_width"></span><span class="">
+            <strong>
+                <div>Model and projects sharing: <a href="https://maixhub.com" target="_blank">MaixHub</a></div>
+                <div>Telegram group: <a href="https://t.me/maixhub" traget="_blank">t.me/maixhub</a></div>
+            </strong></span</td>
+        </tr>
     </tbody>
 </table>
 
@@ -61,7 +69,15 @@
         <tr>
             <td><span class="limit_width"></span><strong>Longan-Mcu QQ Group</strong></td>
             <td><span class="limit_width"></span><span class=""><strong>816177882</strong></span></td>
-        </tr>				
+        </tr>
+        <tr>
+            <td><span class="limit_width"></span><strong>MaixHub</strong></td>
+            <td><span class="limit_width"></span><span class="">
+            <strong>
+                <div>Model and projects sharing: <a href="https://maixhub.com" target="_blank">MaixHub</a></div>
+                <div>QQ group：766140795</div>
+            </strong></span</td>
+        </tr>
     </tbody>
 </table>
 
