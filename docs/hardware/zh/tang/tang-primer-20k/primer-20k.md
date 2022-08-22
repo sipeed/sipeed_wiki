@@ -1,6 +1,6 @@
 # Tang Primer 20K
 
-> 编辑于 2022.08.18
+> 编辑于 2022.08.22
 
 ## 前言
 
@@ -264,7 +264,7 @@ Tang Primer 20K 是基于 [GW2A-V18PG256C8IC8I7](http://www.gowinsemi.com.cn/pro
 
 4. 阅读第一步下载的文件里面的：[SUG100-2.6_Gowin云源软件用户指南.pdf]((http://cdn.gowinsemi.com.cn/SUG100-2.6_Gowin%E4%BA%91%E6%BA%90%E8%BD%AF%E4%BB%B6%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97.pdf))
 
-5. 阅读这个[教程] (预计 2022.08.22 更新) 完成点灯仿真实验。
+5. 阅读 <a href="https://wiki.sipeed.com/news/others/20k_lite_start/20k_lite_start.html" target="blank">这个</a> 完成点灯操作。
 
     建议新手在完成这一步之后，自己重新独立新建项目、编写代码，完成这个实验，并且按自己的想法修改点灯程序，增强对FPGA和硬件描述语言的理解。
     建议在这个过程阅读以下内容，阅读完才进入下一步：
@@ -291,9 +291,9 @@ Tang Primer 20K 是基于 [GW2A-V18PG256C8IC8I7](http://www.gowinsemi.com.cn/pro
 
 https://github.com/sipeed/TangPrimer-20K-example
 
-部分例程教程：
+部分教程：
 
-- LED drive ：2022.08.22 更新
+- LED drive ：<a href="https://wiki.sipeed.com/news/others/20k_lite_start/20k_lite_start.html" target="blank">点我跳转</a>
 
 ## **硬件资料汇总**
 

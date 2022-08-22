@@ -2,7 +2,7 @@
 title: Primer 20K Lite 初见
 keywords: Primer 20K, Lite, FPGA
 desc: Primer 20K 上手
-date: 2022-08-12
+date: 2022-08-22
 tags: FPGA, Primer 20K
 cover: ./assets/cover.png
 ---
@@ -11,17 +11,15 @@ cover: ./assets/cover.png
 
 <!-- more -->
 
-先把目录放这里吧，需要的话自己直接点击跳转就行。
-
 ## 前言
 
-本篇内容是给用户拿来做流水灯实验所用，目的是引导新用户快速完成点灯神技。
+本篇文档引导新用户熟悉 IDE 流程并且完成点灯操作。
+
+出货固件已经默认为用户可用全 IO 闪灯，因此长期通电会发热，介意的话可以先擦除 Flash 或者根据本文走到最后烧录时将电脑与板子连接起来。
 
 ## 安装 IDE
 
 参考 [安装IDE](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/get_started/install-the-ide.html) 来完成我们需要准备的软件环境。
-
-过段时间教育版的 IDE 会支持 GW2A-18 器件，不想申请 license 的话可以使用教育版。
 
 对于 Windows 用户需要额外下载一下 [Programmer](https://dl.sipeed.com/shareURL/TANG/programmer) 烧录专用软件可以降低我们在烧录的时候出现问题的可能性。
 
@@ -40,7 +38,7 @@ cover: ./assets/cover.png
 
 ![project_path](./assets/project_path.png)
 
-然后在下面的芯片型号中选择 GW2A-LV18PG256C8/I7，使用上面的筛选能够更快地选择到正确的型号
+然后在下面的芯片型号中选择 GW2A-LV18PG256C8/I7，使用上面的筛选能够更快地选择到正确的型号，注意 Device 那一栏为 GW2A-18C
 ![device_choose](./assets/device_choose.png)
 
 然后点击确定后就可以进行最终项目预览了。确认无误后就完成工程创建了。
@@ -253,10 +251,41 @@ endmodule
 
 ## 烧录固件
 
-如果使用的是 bl702 下载器，那么要求使用  [此处]https://dl.sipeed.com/shareURL/TANG/programmer 链接内的 Programmer 软件来进行烧录，来避免 Programmer 软件识别不到芯片等一系列问题。
+如果使用的是 bl702 下载器，那么要求使用  [此处](https://dl.sipeed.com/shareURL/TANG/programmer) 链接内的 Programmer 软件来进行烧录，来避免 Programmer 软件识别不到芯片等一系列问题。
 
 下载后解压替换掉 Gowin 对应安装目录的 Programmer 文件夹即可。
 不会替换的话可以在下载解压后的 Programmer 程序中手动添加需要下载的 .fs 文件来进行烧录。
+
+### 接线说明
+
+由于需要将核心板与下载器进行连线，这里说明一下所连接的对应端口。
+
+<table>
+    <tr>
+        <td>核心板</td>
+        <td>5V0</td>
+        <td>TMS</td>
+        <td>TDO</td>
+        <td>TCK</td>
+        <td>TDI</td>
+        <td>RX</td>
+        <td>TX</td>
+        <td>GND</td>
+    </tr>
+    <tr>
+        <td>调试器</td>
+        <td>5V0</td>
+        <td>TMS</td>
+        <td>TDO</td>
+        <td>TCK</td>
+        <td>TDI</td>
+        <td>TX</td>
+        <td>RX</td>
+        <td>GND</td>
+    </tr>
+</table>
+
+![cable_connect](./assets/cable_connect.png)
 
 ### 扫描设备
 
@@ -304,3 +333,9 @@ endmodule
 ![flash_download](./assets/flash_download.png)
 
 然后我们的程序重新上电也能照样运行了。
+
+### 代码效果
+
+使用 Sipeed 的 SPMOD 后，如下图所示有一个灯在闪。
+
+![result](./assets/result.gif)
