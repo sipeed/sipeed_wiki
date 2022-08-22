@@ -40,8 +40,8 @@
                         <li class="left_lable category" v-if="product.left_label"><h3>{[ $t(product.left_label) ]}</h3></li>
                         <li class="info_item" v-for="left in product.left">
                             <a v-bind:href="$t(left.url)" v-new-tab="left.new_tab">
-                                <h3 class="title">{[ $t(left.name) ]}</h3>
-                                <span class="brief">{[ $t(left.brief) ]}</span>
+                                <h3 class="title" v-html="$t(left.name)"></h3>
+                                <span class="brief" v-html="$t(left.brief)"></span>
                             </a>
                             <span v-if="typeof(left.new)=='string' && left.new != ''" class="new_with_info" v-on:click="newInfo"><span class="new_info">{[ left.new ]}</span></span>
                             <span v-else-if="left.new" class="new"></span>
@@ -51,8 +51,8 @@
                         <li class="right_lable category" v-if="product.right_label"><h3>{[ $t(product.right_label) ]}</h3></li>
                         <li class="info_item" v-for="right in product.right">
                             <a v-bind:href="$t(right.url)" v-new-tab="right.new_tab">
-                                <h3 class="title">{[ $t(right.name) ]}</h3>
-                                <span class="brief">{[ $t(right.brief) ]}</span>
+                                <h3 class="title" v-html="$t(right.name)"></h3>
+                                <div class="brief" v-html="$t(right.brief)"></div>
                             </a>
                             <span v-if="typeof(right.new)=='string' && right.new != ''" class="new_with_info" v-on:click="newInfo"><span class="new_info">{[ right.new ]}</span></span>
                             <span v-else-if="right.new" class="new"></span>
@@ -64,8 +64,8 @@
                         <li class="left_lable category" v-if="product.left_label"><h3>{[ $t(product.left_label) ]}</h3></li>
                         <li class="info_item" v-for="left in product.left">
                             <a v-bind:href="$t(left.url)" v-new-tab="left.new_tab">
-                                <h3 class="title">{[ $t(left.name) ]}</h3>
-                                <span class="brief">{[ $t(left.brief) ]}</span>
+                                <h3 class="title" v-html="$t(left.name)"></h3>
+                                <span class="brief" v-html="$t(left.brief)"></span>
                             </a>
                             <span v-if="typeof(left.new)=='string' && left.new != ''" class="new_with_info" v-on:click="newInfo"><span class="new_info">{[ left.new ]}</span></span>
                             <span v-else-if="left.new" class="new"></span>
@@ -75,8 +75,8 @@
                         <li class="right_lable category" v-if="product.right_label"><h3>{[ $t(product.right_label) ]}</h3></li>
                         <li class="info_item" v-for="right in product.right">
                             <a v-bind:href="$t(right.url)" v-new-tab="right.new_tab">
-                                <h3 class="title">{[ $t(right.name) ]}</h3>
-                                <span class="brief">{[ $t(right.brief) ]}</span>
+                                <h3 class="title" v-html="$t(right.name)"></h3>
+                                <span class="brief" v-html="$t(right.brief)"></span>
                             </a>
                             <span v-if="typeof(right.new)=='string' && right.new != ''" class="new_with_info" v-on:click="newInfo"><span class="new_info">{[ right.new ]}</span></span>
                             <span v-else-if="right.new" class="new"></span>
@@ -105,17 +105,21 @@
 
             maix_title: "Maix AI",
             maix_brief: "Edge AI so easy! Deploy AI programs quickly on various hardware platforms",
-            maix_i_brief: "MCU with AI HashRate, extremely affordable",
-            maix_ii_brief: "SOC with AI HashRate, can run Linux system",
+            maix_i_brief: "MCU with hardware AI accelerate, cost-effective",
+            maix_ii_brief: "SOC with hardware AI accelerate, Linux builtin, cost-effective",
+            maix_iii_brief: "Powerful AI SOC, Linux builtin, <strong>coming soon!</strong>",
             maixpy_brief: "Embedded AI developed by MicroPython, easy and fast",
             maixpy3_brief: "Embedded AI developed by Python3, easy and fast, cross-platform",
             maixpy_speech_brief: "Real-time speech recognition library designed for embedded, tiny with high-precision, multi-platform support",
+            tinymaix_brief: "Ultra light weight AI runtime Designed for MCU",
+            libmaix_brief: "C SDK for Maix boards",
             maix_i_url: "/hardware/en/maix/index.html",
             maix_ii_url: "/hardware/en/maixII/index.html",
+            maix_iii_url: "/hardware/en/maixIII/index.html",
             maixpy_url: "/soft/maixpy/en/index.html",
             maixpy3_url: "/soft/maixpy3/en/index.html",
 
-            maixhub_title: "Maixhub",
+            maixhub_title: "MaixHub",
             maixhub_brief: "AI model online training & sharing, project sharing, app store etc.",
             maixhub_models: "Model library",
             maixhub_models_brief: "Model download and upload sharing",
@@ -187,17 +191,21 @@
 
             maix_title: "Maix AI",
             maix_brief: "边缘 AI, 如此简单！快速地在各种硬件平台部署 AI 程序",
-            maix_i_brief: "带 AI 算力 MCU, 极致性价比",
-            maix_ii_brief: "带 AI 算力 SOC, 内置 Linux 系统，可用 MaixPy3 进行开发",
+            maix_i_brief: "带 AI 硬件加速 MCU, 极致性价比",
+            maix_ii_brief: "带 AI 硬件加速 SOC, 内置 Linux 系统，极致性价比",
+            maix_iii_brief: "高算力 AI SOC， 内置 Linux 系统，<strong>即将推出！</strong>",
             maixpy_brief: "MicroPython 开发嵌入式 AI， 简单快速",
             maixpy3_brief: "Python3 开发嵌入式 AI， 简单快速跨平台",
             maixpy_speech_brief: "为嵌入式设计的实时语音识别库，小巧且精度高，多平台支持",
+            tinymaix_brief: "为 MCU 设计的超轻量级 AI 通用模型运行库",
+            libmaix_brief: "Maix 系列开发板 C SDK",
             maix_i_url: "/hardware/zh/maix/index.html",
             maix_ii_url: "/hardware/zh/maixII/index.html",
+            maix_iii_url: "/hardware/zh/maixIII/index.html",
             maixpy_url: "/soft/maixpy/zh/index.html",
             maixpy3_url: "/soft/maixpy3/zh/index.html",
 
-            maixhub_title: "Maixhub",
+            maixhub_title: "MaixHub",
             maixhub_brief: "AI模型在线训练、分享，作品分享、应用商店",
             maixhub_models: "模型库",
             maixhub_models_brief: "模型下载、上传分享",
@@ -266,7 +274,7 @@
     const products = [{
         title: "maix_title",
         brief: "maix_brief",
-        img: "/soft/maixpy3/zh/assets/images/load.gif",
+        img: "",
         video: "/hardware/zh/maixII/M2A/MaixSense/assets/M2A-1.mp4",
         bg: "#dbdbdb",
         left_label: "Hardware",
@@ -281,6 +289,12 @@
                 url: "maix_ii_url",
                 brief: "maix_ii_brief",
                 new: true
+            },
+            {
+                name: "Maix-III",
+                url: "maix_iii_url",
+                brief: "maix_iii_brief",
+                new: true
             }
         ],
         right: [{
@@ -293,11 +307,22 @@
                 brief: "maixpy3_brief",
                 new: true
             },{
+                name: "TinyMaix",
+                url: "https://github.com/sipeed/TinyMaix",
+                brief: "tinymaix_brief",
+                new_tab: true,
+                new: true
+            },
+            {
+                name: "libmaix",
+                url: "https://github.com/sipeed/libmaix",
+                brief: "libmaix_brief",
+                new_tab: true
+            },{
                 name: "Maix-Speech",
                 url: "https://github.com/sipeed/Maix-Speech",
                 brief: "maixpy_speech_brief",
-                new_tab: true,
-                new: true
+                new_tab: true
             }
         ]
         },{
@@ -309,12 +334,14 @@
                 name: "maixhub_models",
                 url: "https://maixhub.com/model/zoo",
                 brief: "maixhub_models_brief",
-                new_tab: true
+                new_tab: true,
+                new: true
             },{
                 name: "maixhub_train",
                 url: "https://maixhub.com/",
                 brief: "maixhub_train_brief",
-                new_tab: true
+                new_tab: true,
+                new: true
             },{
                 name: "maixhub_convert",
                 url: "https://maixhub.com/",

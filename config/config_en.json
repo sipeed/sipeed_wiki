@@ -14,16 +14,16 @@
             "type": "list",
             "items": [
                 {
-                    "url": "/hardware/zh/maix/index.html",
+                    "url": "/hardware/en/maix/index.html",
                     "label": "Maix-I"
                 },
-                
+
                 {
-                    "url": "/hardware/zh/maixII/index.html",
+                    "url": "/hardware/en/maixII/index.html",
                     "label": "Maix-II"
                 },
                 {
-                    "url": "/hardware/zh/lichee/index.html",
+                    "url": "/hardware/en/lichee/index.html",
                     "label": "Lichee-Pi"
                 },
                 {
@@ -31,11 +31,11 @@
                     "label": "Tang"
                 },
                 {
-                    "url": "/hardware/zh/longan/Nano/Longan_nano.html",
+                    "url": "/hardware/en/longan/Nano/Longan_nano.html",
                     "label": "Longan"
                 },
                 {
-                    "url":"/hardware/zh/modules_spmod/spmod_extender.html",
+                    "url":"/hardware/en/modules_spmod/spmod_extender.html",
                     "label":"SP-Mod"
                 }
             ]
@@ -59,15 +59,15 @@
                 }
             ]
         },
-        
+
         {
             "label": "Online Service",
             "position": "left",
             "type":"list",
             "items":[
                 {
-                    "label":"AI Trainning platform",
-                    "url":"https://www.maixhub.com",
+                    "label":"MaixHub: AI online training and sharing platform",
+                    "url":"https://maixhub.com",
                     "target": "_blank"
                 },
                 {
@@ -76,9 +76,8 @@
                     "target": "_blank"
                 },
                 {
-                    "label": "Online Group",
-                    "url": "/en/community.html",
-                    "target": "_blank"
+                    "label": "community",
+                    "url": "/en/community.html"
                 }
             ]
         },
@@ -122,13 +121,13 @@
                     "target": "_blank"
                 },
                 {
-                    "label": "BBS ",
-                    "url": "https://bbs.sipeed.com/",
+                    "label": "MaixHub",
+                    "url": "https://maixhub.com/",
                     "target": "_blank"
                 },
                 {
-                    "label": "Maixhub",
-                    "url": "https://maixhub.sipeed.com/",
+                    "label": "BBS ",
+                    "url": "https://bbs.sipeed.com/",
                     "target": "_blank"
                 },
                 {
@@ -203,12 +202,12 @@
     ],
     "bottom": [
         {
-            "label": "©2018-2021 深圳矽速科技有限公司",
+            "label": "©2018-2022 深圳矽速科技有限公司",
             "url": "https://www.sipeed.com",
             "target": "_blank"
         },
         {
-            "label": "粤ICP备19015433号-1",
+            "label": "粤ICP备19015433号",
             "url": "https://beian.miit.gov.cn/#/Integrated/index",
             "target": "_blank"
         }
