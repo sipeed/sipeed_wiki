@@ -94,10 +94,10 @@ Follow the steps below to complete burning
 3. Install **livesuit**
 
      ```shell
-     git clone --recursive https://github.com/QinYUN575/allwinner-livesuit.git
-     cd allwinner-livesuit
-     chmod +x livesuit_installer.run
-     sudo ./ 
+     git clone https://github.com/linux-sunxi/sunxi-livesuite.git
+     cd sunxi-livesuite
+     chmod +x LiveSuit.sh
+     sudo ./LiveSuit.sh
      ```
 
 #### Start burning system
