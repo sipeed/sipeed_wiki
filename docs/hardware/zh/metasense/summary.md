@@ -5,6 +5,11 @@ title: MetaSense 系列摄像头模组
 > 编辑于 2022 年 8 月 12 日
 
 MetaSense 系列摄像头模组主要分为 MetaSense-A075V 和 MetaSense-A010 两款产品。
+此处应该有图 后续会陆续上线。
+### TOF 简介
+
+TOF 是一种测距的方法，通过测量超声波/微波/光等信号在发射器和反射器之间的“飞行时间”来计算出两者之间的距离。能够实现 TOF 测距的传感器就是 TOF 传感器。种类较多，使用较多的是通过红外或者激光进行测距的 TOF 传感器下图图源自[百度](https://baike.baidu.com/item/TOF/19952376?fr=aladdin)。
+![tof-1.1](tof-1.1.jpg)
 
 ### 产品参数
 
