@@ -10,9 +10,9 @@ There are 2 system images for Lichee MaixSense(which will be called R329 below)
 | Feature      | Linux mainline, mutiple contents               | Tiny os                                                |
 | Target users | Geeker, or newer                               | Customization requirements developer                   |
 
-- For armbian system image it's required to use sd card over than 4GBi
-- For Tina os it needs sd card over than 512MBi
-- Low speed sd card will lead a bad experience
+- For armbian system image it's required to use sdcard over than 4GBi
+- For Tina os it needs sdcard over than 512MBi
+- Low speed sdcard will lead a bad experience
 
 ## Get image
 
@@ -33,27 +33,14 @@ Its burning method is the same as MaixII Dock, visit [Buring MaixII-Dock OS](./.
 
 ## Burn system
 
-### Windows burn system
-
 Get software:
 - [Etcher](https://www.balena.io/etcher/ "Etcher")
-- [SD Card Formatter](https://www.sdcard.org/downloads/formatter/eula_windows/SDCardFormatterv5_WinEN.zip "SDCardFormatter")
 
-Exteact the .img file from your downloaded image file, then use `SD Card Formatter` format your sd card, run Etcher, click `Flash from file`, choose the extracted .img file, click `Select target` and choose your sd card, click `Flash` to burn your sd card, wait it for finishing.
+Exteact your downloaded image file to get the `.img` file, run Etcher, click `Flash from file`, choose the extracted .img file, click `Select target` and choose your sdcard, click `Flash` to burn your sdcard, wait it for finishing.
 
 ![burn](./../../maixII/M2A/assets/95133.gif)
 
-### Linux burn system
-
-Exteact the .img file from your downloaded image file, format the sd card, and open a terminal, use command `sudo dd if = xxx.img of=/dev/sdx bs=1M status=progress oflag=direct` to burn image into your sd card. The `xxx.img` is your extracted file, and the `of=/dev/sdx` is your sd card registered name.
-
-![](./../M2A/assets/2021-08-05-11-44-49.gif)
-
-We can also use Disks to burn sd card
-
-![](./../M2A/assets/2021080511-46-53.gif)
-
-After finishing burning, insert the sd card burned image file into Lichee MaixSense.
+If failed burning, try to format your sdcard. For Windows and macos users we suggest use [SD Card Formatter](https://www.sdcard.org/downloads/formatter/eula_windows/SDCardFormatterv5_WinEN.zip "SDCardFormatter") to format sdcard, while for linuc users can try [Gparted](https://gparted.org/).
 
 ## Use Serial communication
 
