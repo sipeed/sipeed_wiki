@@ -98,11 +98,12 @@ PhoenixSuit 和 PhoenixCard 是常用来烧录全志科技芯片的两种工具�
 1. 安装 **livesuit**
 
      ```shell
-     git clone --recursive https://github.com/QinYUN575/allwinner-livesuit.git
-     cd allwinner-livesuit
-     chmod +x livesuit_installer.run
-     sudo ./livesuit_installer.run
+     git clone https://github.com/linux-sunxi/sunxi-livesuite.git
+     cd sunxi-livesuite
+     chmod +x LiveSuit.sh
+     sudo ./LiveSuit.sh
      ```
+
 ### 使用 Livesuit 烧录
 
 `sudo livesuit` 打开烧录工具，并点击“固件”选择镜像文件

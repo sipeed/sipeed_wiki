@@ -12,7 +12,7 @@ Lichee MaixSense（以下简称R329）提供了以下两种系统镜像
 
 > ！！！一定要严格按照步骤操作！！！armbian系统请使用大于 4G 的 TF/SD 卡进行烧录，Tina系统请使用大于 1G 的 TF/SD 卡进行烧录, 质量较差的启动卡会有糟糕的实际使用体验
 
-对于 R329 芯片， 在 Windows 使用 Etcher ，Linux 上使用 Livesuit 烧录镜像文件。
+对于 R329 芯片， 建议使用 Etcher 软件来烧录镜像。
 
 ## 获取镜像
 
@@ -46,7 +46,7 @@ Tina 系统的烧录方式和 MaixII Dock 通用，可参考[MaixII M2dock 烧�
 
 ![burn](./assets/95133.gif)
 
-如果烧录失败了，请手动格式化一下 sd 卡。Windows 和 MacOS 可以使用 [SD Card Formatter](https://www.sdcard.org/downloads/formatter/eula_windows/SDCardFormatterv5_WinEN.zip)，Linux 系统可以使用 [Gparted](https://gparted.org/)。
+如果烧录失败了，请手动格式化一下 sd 卡。Windows 和 MacOS 可以使用 [SD Card Formatter](https://www.sdcard.org/downloads/formatter/eula_windows/SDCardFormatterv5_WinEN.zip)来格式化 sd 卡，Linux 系统可以使用 [Gparted](https://gparted.org/)来格式化。
 
 ## 连接串口
 
