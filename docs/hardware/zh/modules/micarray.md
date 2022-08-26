@@ -2,20 +2,22 @@
 
 ## 概述
 
-![micarray](./../../assets/spmod/spmod_micarray/spmod_micarray.png)
+麦克风阵列由沿板的六个麦克风和一个中心的麦克风组成，阵列板上的 12 颗 LED 可以用来可视化识别声源方位，可以用来做声源定位实验。
 
-7个MEMS麦克风 : MSM261S4030H0
-12个SK9822 LED
-支持 2*5P 2.54mm 端子和 10P 0.5mm FPC 连接器
+## 产品视图
+
+<img src="./../../assets/spmod/spmod_micarray/spmod_micarray.png" width=55%>
 
 ## 麦克风阵列介绍
 
-- MEMS 麦克风 :6 个 MSM261S4030H0 组成阵列
+- MEMS 麦克风 :7 个 MSM261S4030H0 组成阵列
 - 灵敏度 : -26(dB,dBFS @1kHz 1Pa)
 - 信噪比 : 57dB(20kHz bandwidth, A-weighted)
 - 尺寸 :78.1*88.8mm
-- 灯光 :12 个 LED 组成一个环形 LED 阵列 多个 LED 通过双信号线级联
-- 8 Bit(256 级) 可调颜色,5Bit (32 级)亮度调节 连接器 :支持 2*5P 2.54mm 端子和 10P 0.5mm FPC 连接器
+- 灯光 :12 个 SK9822 LED 组成一个环形 LED 阵列
+    - 多个 LED 通过双信号线级联
+    - 8 Bit(256 级) 可调颜色,5 Bit (32 级)亮度调节 
+- 连接器 :支持 2*5P 2.54mm 端子和 10P 0.5mm FPC 连接器
 
 ## 参数
 | 功能特点 | 参数 |
@@ -40,7 +42,8 @@
 | 9 | LED_CK | I/O | LED 的 I²C 接口的串行数据时钟 |
 | 10 | LED_DA | I/O | LED 的 I²C 接口的串行数据输出 |
 
-![MicArray](./../../assets/spmod/spmod_micarray/MicArray.png)
+
+<img src="./../../assets/spmod/spmod_micarray/MicArray.png" width=55%>
 
 ## 例程代码
 
@@ -61,9 +64,10 @@
 | MIC_WS | I/O 口 | i2s_ws |
 | MIC_CK | I/O 口 | i2s_sclk |
 
-> 因为 K210 的 FPIOA 的特性,支持每个外设随意映射到任意引脚,所以上面表格中的 `I/O 口` 每个人依据自身喜好和板子上引脚数字自行设定即可，具体可看下方代码下面的相关说明
+因为 K210 的 FPIOA 的特性, 支持每个外设随意映射到任意引脚；所以将上面的表格中的 `I/O 口` 与自己的板子上带有数字标识的引脚连起来即可，类似于标有 GND 这种特殊标识的就不算所谓的数字标识引脚。连接完引脚后可以查看下面代码下方关于代码中引脚的说明。
 
 ### python代码
+
 ```python
 from Maix import MIC_ARRAY as mic
 import lcd
@@ -86,6 +90,7 @@ mic.deinit()
 
 
 ## 资料
+
 [麦克风阵列硬件资料](https://dl.sipeed.com/shareURL/MAIX/HDK/Sipeed-R6+1_MicArray)
 
 ## 更多使用方法

@@ -4,7 +4,11 @@ keywords: MaixII, MaixPy3, Python, Python3, M2dock
 desc: maixpy doc: Others
 ---
 
-- Here tells some other usages and related ways to deal with.
+> Edit on 2022.08.23
+
+This essay tells additional usages about V831 development board.
+
+After replacing device, the app application in Maixhub image can't be used anymore.
 
 ## Replace screen
 
@@ -127,6 +131,7 @@ This dtb file is compiled from kernel, and it's not suggested to be compiled by 
 | sipeed_2.4_240x320_sp2305.dtb | 2.4 inch | sp2305 |
 | sipeed_1.3_240x240_vs3205.dtb | 1.3 inch | vs3205 |
 | sipeed_1.3_240x240_sp2305.dtb | 1.3 inch | sp2305 |
+| sipeed_1.3_240x240_ov2685.dtb | 1.3 inch | ov2685 |
 
 ## Toolchain
 

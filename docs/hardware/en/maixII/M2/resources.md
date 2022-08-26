@@ -1,39 +1,34 @@
 ---
-title: M2dock introduction
+title: Maix-II-Dock(M2dock) introduction
 keywords: MaixII, MaixPy3, Python, Python3, M2dock
 desc: maixpy doc: Onboard resources
 ---
 
 Maix-II-Dock is positioned as a cost-effective AIOT development board. While supporting conventional Linux development, it also has a unique AI hardware acceleration feature. With the complete software ecosystem provided by Sipeed, you can quickly realize your edge AI application.
 
-* **Hardware**, based on the Allwinner V831 chip, the development board is formed in the form of [core board] + [backplane]. You can use the development board directly, or you can use only the core board to design the backplane according to your needs, which is convenient and fast to complete. development.
-* **Software**, in addition to directly using the data provided by Quanzhi for development (some may need to be obtained from Quanzhi), Sipeed provides a very convenient Python SDK ([MaixPy3](/maixpy3)) and C SDK ([libmaix](https://github.com/sipeed/libmaix));
-It also provides an online model training service ([MaixHub](https://maixhub.com)), which is convenient for beginners to quickly train usable AI models.
+* **Hardware**, based on the Allwinner V831 chip, the development board is formed in the form of [core board] + [ext-board]. You can use the development board directly, or you can use only the core board to design your own ext-board according to your needs, which is convenient and fast to complete the development.
+* **Software**, in addition to directly using the datasheet provided by Allwinner for development (some satasheet may need to be obtained from Allwinner), Sipeed provides a very convenient Python SDK ([MaixPy3](/maixpy3)) and C SDK ([libmaix](https://github.com/sipeed/libmaix)). It also provides an online model training service ([MaixHub](https://maixhub.com), which is more convenient for beginners to quickly train their usable AI models.
 * **Purchase**: [sipeed.aliexpress.com](https://www.aliexpress.com/item/1005002538932487.html)
-
 
 <p align="center">
     <iframe src="//player.bilibili.com/player.html?aid=298543445&bvid=BV1sF411u7xb&cid=586467021&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 </p>
 
-
 ## M2 core board
 
 <img style="max-height: 260px" src="./../../../zh/maixII/M2/asserts/maix_v831.jpg" alt="core_board"/>
-
 
 > Download hardware reference data from [Sipeed_Maix_II_3101](https://api.dl.sipeed.com/shareURL/MaixII/MaixII-Dock/HDK/Sipeed_MaixII_V831/Sipeed_Maix_II_3101)
 
 ### V831 chip brief
 
-Allwinner V831, single-core Cortex-A7 800MHz, 64MiB on-chip DDR2 memory, cost-effective SOC that can run Linux, and supports hardware AI acceleration (0.2Tops computing power), can be used as a normal Linux SOC, and can also be used for edge AI application, see the manual and below for more detailed parameters.
+Allwinner V831, single-core Cortex-A7 800MHz, 64MiB on-chip DDR2 memory, cost-effective SOC that can run Linux, and supports hardware AI acceleration (0.2Tops computing power), can be used as a normal Linux SOC, and can also be used for edge AI application. See the manual below for more detailed parameters.
 
 Dataset: [V833／V831 Datasheet V1.0.pdf](https://linux-sunxi.org/images/b/b9/V833%EF%BC%8FV831_Datasheet_V1.0.pdf)
 
 Chip structure:
 
 <img style="max-height: 400px" src="./../../../zh/maixII/M2/asserts/V831_struct.png" alt="V831 structure"/>
-
 
 ### M2 core board details
 
@@ -61,7 +56,7 @@ Compared with Maix-I generation
 
 Normally we think the screen panel is the front and camera is back.
 
-![m2dock](./../../../zh/maixII/M2/asserts/m2dock.jpg)
+![m2dock](./../../../assets/maixII/m2dock.jpg)no
 
 > Download dock board hardware data [Click me](https://api.dl.sipeed.com/shareURL/MaixII/MaixII-Dock/HDK/Sipeed_MaixII_Dock_V831)
 > Thanks for net users sharing the [NGFF M.2 B-key footprint for Maix-II module](https://bbs.elecfans.com/jishu_2036119_1_1.html)
@@ -108,10 +103,10 @@ software:
 
 ## Maix-II-Dock Getting Started Development Route Guide
 
-* Because you need a linux system (tina-linx), you need to learn to burn the system image first, just like learning how to reinstall the computer system, so you can start over if you encounter problems, find the "Burn image" article in the left directory to view
+* Because Maix-II-Dock runs linux system (tina-linx), so we need to learn to burn the system image first, just like learning how to reinstall the computer system, which helps us start over if you encounter problems, find the "Burn image" article in the left directory to view
 <!-- There is no link to the burning system, let users learn to view the left directory -->
 * Learn basic Linux operations, such as how to open a terminal, basic terminal commands, and how to transfer files to the development board, such as serial port usage, adb usage, and other basic operations
-* Select development language:
+* Select your development language:
   * If you are familiar with C and have some development experience, you can choose to use [libmaix](https://github.com/sipeed/libmaix)
   * If you want to get started quickly and develop in Python, please use [MaixPy3](/maixpy3) and read its documentation carefully
-* If you need to use AI functions, you can use it with the [MaixHub](https://maixhub.com) online training platform, and you can share AI models or projects to the platform
+* If you need to use AI functions, you can use it with the [MaixHub](https://maixhub.com) online training platform, this platform provides AI model and project sharing function, save users's time.

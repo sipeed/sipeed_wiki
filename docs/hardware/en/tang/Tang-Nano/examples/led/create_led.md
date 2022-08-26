@@ -30,6 +30,32 @@ Double click the created file, then edit in right window
 
 - We use light led as an example, copy the following "LED example codes" into the created file or edit the created file by yourself.  
 
+### Verilog description
+
+Here I just introduction some basic grammer which we will use in our code about verilog, for more knowledge please refer to the official verilog grammer.
+
+The basic Verilog design unit is module, a module is build from 2 parts, one part describes the ports, another part describes the logic functions which show the relations between ports.
+
+Module is like a black box we normally said, we don't care what's inside the module, we only need to instantiate the module according to the input and output format defined by the module, provide input to the module, and let the module work on its own.
+
+A module is normally like following:
+
+```v
+module module_name 
+#(parameter)
+(port) ;
+    Function description;
+endmodule
+```
+
+The module start with `module` and ends with `endmodule`. After declaring `module` we will declare the `module name`, then we can set `parameter` to make our module change automaticly to meet out depmands. Then `Port` is the singal dealing with this module.`Function description` is a kind of description how we will realize our depmands.
+
+There are 2 signal types in a module, wire type and reg type.
+
+`Function description` contains `always` and `assign` 2 functions. `assign` function is used for describing combinatorial logic. `alyays` function can be used for describing combinatorial logic, as well as timing logic.
+
+### Example codes
+
 ~~~v
 module led (
     input sys_clk,

@@ -41,6 +41,4 @@ Sipeed-Maix-Duino data download: [Sipeed-Maix-Duino](https://dl.sipeed.com/share
 
 Sipeed-Maix-Duino specification download: [Sipeed-Maix-Duino](https://dl.sipeed.com/shareURL/MAIX/HDK/Sipeed-Maixduino/Specifications)
 
-Sipeed-Maix-Duino schematic download: [Sipeed-Maix-Duino][Sipeed-Maix-Duino]
-
-[Sipeed-Maix-Duino]: https://dl.sipeed.com/fileList/MAIX/HDK/Sipeed-Maixduino/Maixduino_2832/Maixduino_2832(Schematic).pdf
+Sipeed-Maix-Duino schematic download: <a href="https://dl.sipeed.com/fileList/MAIX/HDK/Sipeed-Maixduino/Maixduino_2832/Maixduino_2832(Schematic).pdf">Sipeed-Maix-Duino</a>

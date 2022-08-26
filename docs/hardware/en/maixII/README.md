@@ -5,8 +5,8 @@ Maix-II series hardware products
 
 Following the classic K210 Maix-I series AIOT boards, Sipeed continues to launch a number of edge computing boards that can run a complete Linux system, which will be named MAIX-II and MAIX-III in order of performance.
 
-The MAIX-II series includes a variety of hardware products, currently:
-* **Maix-II Dock**: **Recommended products in this series**, the chip is Allwinner V831, a cost-effective SOC that can run Linux, and supports hardware AI acceleration (0.2Tops computing power), currently have the best software support in this Maix-II series, provide CSDK and Python SDK, and online model training service ([MaixHub](https://maixhub.com))
+The MAIX-II series includes a variety of hardware products currently:
+* **Maix-II Dock**: **Recommended products in this series**, the chip is Allwinner V831, a cost-effective SOC that can run Linux, and supports hardware AI acceleration (0.2Tops computing power), currently have the best software support in Maix-II series, provide C SDK and Python SDK, and online model training service ([MaixHub](https://maixhub.com))
 * **MaixSense**: The chip is Allwinner R329, which also provides hardware AI acceleration, 0.25Tops computing power.
 * **Maix-II-S**: The chip is Allwinner V833, an upgraded version of V831, which is mainly used for commercial customization, and individual users should choose carefully.
 

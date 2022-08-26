@@ -10,7 +10,7 @@
 
 ## 麦克风阵列介绍
 
-- MEMS 麦克风 :6 个 MSM261S4030H0 组成阵列
+- MEMS 麦克风 :7 个 MSM261S4030H0 组成阵列
 - 灵敏度 : -26(dB,dBFS @1kHz 1Pa)
 - 信噪比 : 57dB(20kHz bandwidth, A-weighted)
 - 尺寸 :78.1*88.8mm

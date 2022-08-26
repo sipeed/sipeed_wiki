@@ -4,7 +4,6 @@ keywords: MaixII, MaixPy3, Python, Python3, M2dock
 desc: 板级资源介绍
 ---
 
-
 Maix-II-Dock 定位于高性价比的 AIOT 开发板， 支持常规 Linux 开发的同时， 有特有的 **AI 硬件加速** 特性，配合 Sipeed 提供的完整的软件生态，让你快速实现你的边缘 AI 应用。
 
 * **硬件**上， 基于全志 V831 芯片， 以【核心板】+【底板】的形式组成开发板，可以直接使用开发板，也可以只使用核心板根据需求自行设计底板，方便快速完成开发。
@@ -16,10 +15,7 @@ Maix-II-Dock 定位于高性价比的 AIOT 开发板， 支持常规 Linux 开�
     <iframe src="//player.bilibili.com/player.html?aid=298543445&bvid=BV1sF411u7xb&cid=586467021&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 </p>
 
-
-
 ## M2 核心板
-
 
 <img style="max-height: 260px" src="./asserts/maix_v831.jpg" alt="core_board"/>
 
@@ -61,7 +57,7 @@ Maix-II-Dock 定位于高性价比的 AIOT 开发板， 支持常规 Linux 开�
 
 一般情况下可以认为底板屏幕为正面，带摄像头为背面。
 
-![](./asserts/m2dock.jpg)
+![m2dock](./../../../assets/maixII/m2dock.jpg)
 
 > 底板硬件资料下载 [点我跳转](https://api.dl.sipeed.com/shareURL/MaixII/MaixII-Dock/HDK/Sipeed_MaixII_Dock_V831)
 > 感谢热心网友分享的 [ M2 模块底板母座 PCB 封装](https://bbs.elecfans.com/jishu_2036119_1_1.html)
@@ -108,14 +104,10 @@ Maix-II-Dock 定位于高性价比的 AIOT 开发板， 支持常规 Linux 开�
 
 ## Maix-II-Dock 上手开发路线指南
 
-* 因为需要 linux 系统（tina-linx）， 所以需要先学会烧录系统镜像，就类似学会电脑重装系统一样，这样在遇到问题就可以重来，在左边目录找到“烧录系统”文章查看
+* 因为需要使用 linux 系统（tina-linx）， 所以需要先学习烧录系统镜像，就类似学会电脑重装系统一样，这样在遇到问题就可以重来，在左侧目录找到“烧录系统”文章查看
 <!-- 这里不给烧录系统的链接，让用户学会查看左边目录 -->
 * 学会基础的 Linux 操作，比如如何打开终端，基础的终端命令，以及如何传输文件到开发板等，比如 串口使用， adb 使用等等基础操作
 * 选择开发语言：
   * 如果你熟悉 C 有一定的开发经验，可以选择使用[libmaix](https://github.com/sipeed/libmaix)
   * 如果你希望快速上手，并使用 Python 语言开发， 请使用[MaixPy3](/maixpy3)，仔细阅读其文档即可
-* 如果需要使用 AI 功能， 可以搭配 [MaixHub](https://maixhub.com) 在线训练平台使用，以及可以将 AI 模型或者项目分享到该平台
-
-
-
-
+* 如果需要使用 AI 功能，可以搭配 [MaixHub](https://maixhub.com) 在线训练平台使用，平台提供了 AI 模型或者项目分享功能，节约大家不少时间。

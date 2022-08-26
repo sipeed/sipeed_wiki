@@ -2,17 +2,9 @@
 
 > 编辑于 2022.08.22
 
-## 前言
+## 概述
 
-Tang Primer 20K 是基于 [GW2A-V18PG256C8IC8I7](http://www.gowinsemi.com.cn/prod_view.aspx?TypeId=10&amp;FId=t3:10:3&amp;Id=167#GW2A) 所设计的一款 DDR3 sodimm 封装的核心板，额外准备了两个底板，分别为 Dock 底板和 Lite 底板。作为 Sipeed 所发售的第六款 FPGA 产品，Tang Primer 20K 一直广受关注。
-
-**注意： Dock 底板预计十月份发售**
-
-得益于 GW2A 丰富的资源，Tang Primer 20K 可以满足多种项目需求；例如当下最火的“IC设计”，可以使用高云所提供的 [Gowin_EMPU_M1](http://www.gowinsemi.com.cn/prodshow_view.aspx?TypeId=71&Id=178&FId=t31:71:31#IP)、[PicoRV32](http://www.gowinsemi.com.cn/prodshow_view.aspx?TypeId=70&Id=175&FId=t31:70:31#IP)两款软核来体验一下 mcu 软核，或者也可以用来验证自己所设计的软核。
-
-两款适用的 Dock 底板与 Lite 底板资源不同。前者所搭载有例如 dvp 摄像头、rgb 屏幕和千兆以太网接口等多种外设适合用户快速验证自己所写的代码，也可以尝试使用高云所提供的 [USB软核](http://www.gowinsemi.com.cn/enrollment_view.aspx?TypeId=67&Id=858&FId=t27:67:27#IP)，来自行开发一下有趣的东西；后者引出上百个自定义 IO ,并且里面含有部分差分引脚，方便用户自行设计相关拓展模块，关于线长和阻抗相关的数据可以在[这里](https://dl.sipeed.com/shareURL/TANG/Primer_20K/04_Net_Length)找到。
-
-这次以底板 + 核心板的设计，满足大多数用户不同的基础使用需求。
+Tang Primer 20K 是基于 [GW2A-V18PG256C8IC8I7](http://www.gowinsemi.com.cn/prod_view.aspx?TypeId=10&amp;FId=t3:10:3&amp;Id=167#GW2A) 所设计的一款 DDR3 sodimm 封装的核心板，额外准备了两个底板，分别为 Dock 底板和 Lite 底板。
 
 ## 核心板
 
@@ -113,7 +105,25 @@ Tang Primer 20K 是基于 [GW2A-V18PG256C8IC8I7](http://www.gowinsemi.com.cn/pro
 	</tbody>
 </table>
 
-## 底板参数对比
+## 底板对比
+
+### Dock 底板产品图
+
+<div>
+<img src="./assets/dock-up.png" alt="dock-up" width=45%>
+<img src="./assets/dock-back.png" alt="dock-back" width=45%>
+</div>
+
+### Lite 底板产品图
+
+底板左上角 R8 与 P9 之间为 P8 引脚。已标明
+
+<div>
+<img src="./assets/lite-up.png" alt="lite-up" width=45%>
+<img src="./assets/lite-back.png" alt="lite-back" width=45%>
+</div>
+
+### 外设参数对比
 
 <table>
 	<thead>
@@ -246,32 +256,27 @@ Tang Primer 20K 是基于 [GW2A-V18PG256C8IC8I7](http://www.gowinsemi.com.cn/pro
 	</body>
 </table>
 
-## **适用人群**
 
-| 用法     | FPGA                             | MCU                                | FPGA+MCU                     |
-| :---- | :---------- | :------------- | :----------------- |
-| 语言     | Verilog HDL/Verilog         | C/C++               | Verilog HDL/Verilog ，  C/C++                |
-| 简介     | 上板验证用户HDL | 用户将软核的比特流文件下载到芯片后可将<br>Primer 20K当做普通的 MCU 来使用  | 烧入软核后可以进行异构开发 |
-| 适用人群 | 初学者，FPGA 开发者        | RISC-V 开发者，Cortex-M 开发者          | 资深软硬件工程师             |
+## 硬件资料汇总
 
-## **上手指引**
+规格书、原理图、尺寸图等均可在这里找到：[点击这里](https://dl.sipeed.com/shareURL/TANG/Primer_20K)
 
-1. 检查板子是否正常
+## 上手指引
+   
+1. 安装 IDE ：[点击这里](https://wiki.sipeed.com/soft/Tang/zh/Tang-Nano-Doc/get_started/install-the-ide.html)
 
-2. 下载我们打包好的用户指南文档：[下载站](https://dl.sipeed.com/shareURL/TANG/Primer_20K/07_Chip_manual/CN/%E9%80%9A%E7%94%A8%E6%8C%87%E5%BC%95) （下文提到的所有pdf文件都在这里）
+2. 阅读 <a href="https://wiki.sipeed.com/news/others/20k_lite_start/20k_lite_start.html" target="blank">这个</a> 完成点灯操作。
 
-3. 安装 IDE 并申请 License：[点击这里](https://wiki.sipeed.com/soft/Tang/zh/Tang-Nano-Doc/get_started/install-the-ide.html)
+    进行完上面的点灯操作后可以考虑将一个灯闪改为多个灯一起闪，来提升自己
 
-4. 阅读第一步下载的文件里面的：[SUG100-2.6_Gowin云源软件用户指南.pdf]((http://cdn.gowinsemi.com.cn/SUG100-2.6_Gowin%E4%BA%91%E6%BA%90%E8%BD%AF%E4%BB%B6%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97.pdf))
+3. 如果进行完上面的点灯操作后后感觉有压力，可以自己查漏补缺：
+   可以在下面的这些网站学习 Verilog:
+	+ 在线免费教程：[菜鸟教程](https://www.runoob.com/w3cnote/verilog-tutorial.html)（学习Verilog）
+	+ 在线免费 FPGA 教程：[Verilog](https://www.asic-world.com/verilog/index.html)
+	+ Verilog 刷题网站：[HDLBits](https://hdlbits.01xz.net/wiki/Main_Page)
+	+ 在线高云视频教程：[点击这里](http://www.gowinsemi.com.cn/video_complex.aspx?FId=n15:15:26)
 
-5. 阅读 <a href="https://wiki.sipeed.com/news/others/20k_lite_start/20k_lite_start.html" target="blank">这个</a> 完成点灯操作。
-
-    建议新手在完成这一步之后，自己重新独立新建项目、编写代码，完成这个实验，并且按自己的想法修改点灯程序，增强对FPGA和硬件描述语言的理解。
-    建议在这个过程阅读以下内容，阅读完才进入下一步：
-    - Verilog代码规范（自行搜索，从初学就培养良好的代码规范是非常必要的）
-
-下面的这些内容对于初学者来说是非常有用的，对未来深入学习 FPGA 很有帮助。
-
+   对 IDE 使用有疑问的话，可以查看官方的一些文档来熟悉相关内容
    - [SUG100-2.6_Gowin云源软件用户指南.pdf](http://cdn.gowinsemi.com.cn/SUG100-2.6_Gowin%E4%BA%91%E6%BA%90%E8%BD%AF%E4%BB%B6%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97.pdf)
    - [SUG949-1.1_Gowin_HDL编码风格用户指南.pdf](http://cdn.gowinsemi.com.cn/SUG949-1.1_Gowin_HDL%E7%BC%96%E7%A0%81%E9%A3%8E%E6%A0%BC%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97.pdf)
    - <a href="http://cdn.gowinsemi.com.cn/UG286-1.9.1_Gowin%E6%97%B6%E9%92%9F%E8%B5%84%E6%BA%90(Clock)%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97.pdf">UG286-1.9.1_Gowin时钟资源(Clock)用户指南.pdf</a>
@@ -279,13 +284,7 @@ Tang Primer 20K 是基于 [GW2A-V18PG256C8IC8I7](http://www.gowinsemi.com.cn/pro
    - [SUG502-1.3_Gowin_Programmer用户指南.pdf](http://cdn.gowinsemi.com.cn/SUG502-1.3_Gowin_Programmer%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97.pdf)
    - [SUG114-2.5_Gowin在线逻辑分析仪用户指南.pdf](http://cdn.gowinsemi.com.cn/SUG114-2.5_Gowin%E5%9C%A8%E7%BA%BF%E9%80%BB%E8%BE%91%E5%88%86%E6%9E%90%E4%BB%AA%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97.pdf)
 
-上面的都已经打包进了下载站[点我跳转](https://dl.sipeed.com/shareURL/TANG/Primer_20K/07_Chip_manual/CN/%E9%80%9A%E7%94%A8%E6%8C%87%E5%BC%95)。可以点击压缩包全都下载下来
-
-其他学习链接：
-+ 在线免费教程：[菜鸟教程](https://www.runoob.com/w3cnote/verilog-tutorial.html)（学习Verilog）
-+ 在线免费 FPGA 教程：[Verilog](https://www.asic-world.com/verilog/index.html)
-+ Verilog 刷题网站：[HDLBits](https://hdlbits.01xz.net/wiki/Main_Page)
-+ 在线高云视频教程：[点击这里](http://www.gowinsemi.com.cn/video_complex.aspx?FId=n15:15:26)
+   上面的所有文档都已经打包进了下载站[点我跳转](https://dl.sipeed.com/shareURL/TANG/Primer_20K/07_Chip_manual/CN/%E9%80%9A%E7%94%A8%E6%8C%87%E5%BC%95)，需要的话可以点击压缩包全都下载下来。
 
 ## 例程汇总
 
@@ -295,24 +294,8 @@ https://github.com/sipeed/TangPrimer-20K-example
 
 - LED drive ：<a href="https://wiki.sipeed.com/news/others/20k_lite_start/20k_lite_start.html" target="blank">点我跳转</a>
 
-## **硬件资料汇总**
+## 其他
 
-规格书、原理图、尺寸图等均可在这里找到：[点击这里](https://dl.sipeed.com/shareURL/TANG/Primer_20K)
-
-## **注意事项**
-
-1. 如果有什么疑问，欢迎加群 `834585530`, 或者去[论坛](bbs.sipeed.com)发帖
-   
-2. 下载 FPGA 是要求使用 [这里](https://dl.sipeed.com/shareURL/TANG/programmer) 的 Programmer 软件。不然有极大概率不能下载固件到板子。
-   
-3. 有问题的话先去 [常见问题](./../Tang-Nano-Doc/questions.md) 自查，通常来说使用 [这里](https://dl.sipeed.com/shareURL/TANG/programmer) 的 Programmer 软件能解决 99% 问题。
-
-4. 避免使用JTAG、MODE、DONE等引脚。如果一定要使用这些引脚，请查看 [UG292-1.0原理图指导手册](http://cdn.gowinsemi.com.cn/UG293-1.0_GW1NZ%E7%B3%BB%E5%88%97FPGA%E4%BA%A7%E5%93%81%E5%8E%9F%E7%90%86%E5%9B%BE%E6%8C%87%E5%AF%BC%E6%89%8B%E5%86%8C.pdf)
-
-5. 请注意避免静电打到PCBA上；接触PCBA之前请把手的静电释放掉
-
-6. 每个GPIO的工作电压已经在原理图中标注出来，请不要让GPIO的实际工作的电压超过额定值，否则会引起PCBA的永久性损坏
-
-7. 在连接FPC软排线的时候，请确保排线无偏移、完整地插入到排线中，且线序正确没有接反
-
-8. 请在上电过程中，避免任何液体和金属触碰到PCBA上的元件的焊盘，否则会导致短路，烧毁PCBA 
+- 交流论坛: bbs.sipeed.com
+- QQ 交流群：834585530
+- 有问题的话先去 [常见问题](./../Tang-Nano-Doc/questions.md) 自查，通常来说使用 [这里](https://dl.sipeed.com/shareURL/TANG/programmer) 的 Programmer 软件能解决 99% 问题。

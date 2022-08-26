@@ -24,6 +24,32 @@
     ![](./../../assets/LED-7.png)
 
 
+### Verilog 预备知识
+
+这里只介绍接下来会用到的相关语法，更多的可以参考 《Verilog 数字系统设计教程》
+
+Verilog 的基本设计单元是模块，一个模块是由两部分组成的，一部分描述接口，另一部分描述逻辑功能，即描述输出和输入的关系的。
+
+模块就像我们平时提到的黑匣子，当我们实现了模块后，就不需要去关心模块内部，只需要根据模块定义的输入输出格式，将模块实例化，给模块提供输入，就可以让模块自己工作了
+
+一个模块长成这样
+
+```v
+module module_name 
+#(parameter)
+(port) ;
+    Function description;
+endmodule
+```
+
+模块整体结构由 module 和 endmodule 组成，module 后面跟着的是模块的名称，可传递变量参数，接口的定义，声明了端口的方向
+
+模块内部有时候会使用内部的信号，内部信号有 wire 和 reg 类型
+
+功能的定义可以通过 assign 和 always 块完成。 assign 是描述组合逻辑最常用的方法之一； always 可用于描述组合逻辑，也可描述时序逻辑
+
+### 示例代码
+
 以流水灯为例；将下方的代码粘贴到自己的文件中，也可以自己编写代码。
 
 ```verilog
@@ -124,6 +150,10 @@ nano 的 rgb led电路图如下所示
     ![](./assets/Success_led.png)
     
 点灯验证到此结束。
+
+## 结语
+
+有问题的话可以在下方留言。
 
 <p id="back">
     <a href="#" onClick="javascript :history.back(-1);">返回上一页(Back)</a>

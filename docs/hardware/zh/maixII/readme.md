@@ -6,7 +6,7 @@ Maix-II 系列硬件产品
 继经典的 K210 Maix-I 系列 AIOT 板卡之后，Sipeed 继续推出多款可运行完整 Linux 系统的边缘计算板卡，将以 MAIX-II，MAIX-III 按照性能依次命名。
 
 MAIX-II 系列包含多款硬件产品，目前有:
-* **Maix-II Dock**： **本系列推荐产品**, 芯片为全志 V831, 高性价比能跑 Linux 的SOC，同时支持硬件 AI 加速（0.2Tops 算力），目前软件支持最容易入门，提供 CSDK 和 Python SDK， 以及在线模型训练服务([MaixHub](https://maixhub.com))
+* **Maix-II Dock**： **本系列推荐产品**, 芯片为全志 V831, 高性价比能跑 Linux 的SOC，同时支持硬件 AI 加速（0.2Tops 算力），目前软件支持最容易入门，提供 C SDK 和 Python SDK， 以及在线模型训练服务([MaixHub](https://maixhub.com))
 * **MaixSense**： 芯片为全志R329，也有提供硬件 AI 加速，0.25Tops 算力。
 * **Maix-II-S**：芯片为全志 V833，V831 升级版， 主要用于商业定制用途，个人用户慎重选择。
 

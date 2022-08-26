@@ -32,6 +32,4 @@ Sipeed-Maix-Bit data download: [Sipeed-Maix-Bit](https://dl.sipeed.com/shareURL/
 
 Sipeed-Maix-Bit specification download: [Sipeed-Maix-Bit](https://dl.sipeed.com/fileList/MAIX/HDK/Sipeed-Maix-Bit/Specifications/Sipeed_Maix_Bit_Specification_V2.0.pdf)
 
-Sipeed-Maix-Bit schematic download: [Sipeed-Maix-Bit][Sipeed-Maix-Bit]
-
-[Sipeed-Maix-Bit]: https://dl.sipeed.com/fileList/MAIX/HDK/Sipeed-Maix-Bit/Maix-Bit%20V2.0(with%20MEMS%20microphone)/Maix-Bit%20V2 .0(Schematic).pdf
+Sipeed-Maix-Bit schematic download: <a href="https://dl.sipeed.com/fileList/MAIX/HDK/Sipeed-Maix-Bit/Maix-Bit%20V2.0(with%20MEMS%20microphone)/Maix-Bit%20V2.0(Schematic).pdf">Sipeed-Maix-Bitf</a>

@@ -4,7 +4,11 @@ keywords: MaixII, MaixPy3, Python, Python3, M2dock
 desc: maixpy doc: 其他事项
 ---
 
-- 这个讲述 V831 开发板的一些额外使用事项和相关方法
+> 编辑于 2022年8月23日
+
+这里讲述 V831 开发板的一些额外使用事项和相关解决方法
+
+以下替换设备相关操作完成后，名称为 Maixhub 的镜像里的 app 应用不再可用
 
 ## 切换屏幕
 
@@ -123,6 +127,7 @@ reboot #重启设备来更新配置
 | sipeed_2.4_240x320_sp2305.dtb | 2.4寸 | sp2305 |
 | sipeed_1.3_240x240_vs3205.dtb | 1.3寸 | vs3205 |
 | sipeed_1.3_240x240_sp2305.dtb | 1.3寸 | sp2305 |
+| sipeed_1.3_240x240_ov2685.dtb | 1.3寸 | ov2685 |
 
 ## 编译链
 

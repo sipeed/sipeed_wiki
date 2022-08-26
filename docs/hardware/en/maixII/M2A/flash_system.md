@@ -22,8 +22,7 @@ Download armbian system image from MEGA ：https://mega.nz/folder/1B4RFKpK#X0tMw
 
 The image named with maixpy3 means this image has installed MaixPy3 and its related drivers
 
-This image file is created by [dd](https://en.wikipedia.org/wiki/Dd_(Unix)). It's suggested to use Etcher in Windows OS to burn image, and use Linux Terminal to burn image in Linux OS.
-
+This image file is created by [dd](https://en.wikipedia.org/wiki/Dd_(Unix)). It's suggested to download Etcher according to your OS to burn the sdcard.
 
 ### Tina system image
 

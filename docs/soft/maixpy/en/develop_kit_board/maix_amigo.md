@@ -158,9 +158,6 @@ Maix-Amigo data download: [Sipeed-Amigo](https://dl.sipeed.com/shareURL/MAIX/HDK
 
 Maix-Amigo specification download: [Sipeed-Amigo](https://dl.sipeed.com/shareURL/MAIX/HDK/Sipeed-Amigo/ProductSpecification)
 
-Maix-Amigo IPS version Schematic download: [Maix_Amigo_2970(Schematic).pdf][Maix_Amigo_2970(Schematic).pdf]
+Maix-Amigo IPS version Schematic download: <a href="https://dl.sipeed.com/fileList/MAIX/HDK/Sipeed-Amigo/2970/Maix_Amigo_2970(Schematic).pdf">Maix_Amigo_2970(Schematic).pdf</a>
 
-Maix-Amigo TFT version Schematic download: [Maix_Amigo_2960(Schematic).pdf][Maix_Amigo_2960(Schematic).pdf]
-
-[Maix_Amigo_2970(Schematic).pdf]: https://dl.sipeed.com/fileList/MAIX/HDK/Sipeed-Amigo/2970/Maix_Amigo_2970(Schematic).pdf
-[Maix_Amigo_2960(Schematic).pdf]: https://dl.sipeed.com/fileList/MAIX/HDK/Sipeed-Amigo/2960/Maix_Amigo_2960(Schematic).pdf
+Maix-Amigo TFT version Schematic download: <a href="https://dl.sipeed.com/fileList/MAIX/HDK/Sipeed-Amigo/2960/Maix_Amigo_2960(Schematic).pdf">Maix_Amigo_2960(Schematic).pdf</a>

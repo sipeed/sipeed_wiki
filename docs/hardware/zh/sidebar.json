@@ -192,10 +192,6 @@
                             "file": "tang/Tang-Nano-Doc/get_started/install-the-ide.md"
                         },
                         {
-                            "label": "常见问题",
-                            "file": "tang/Tang-Nano-Doc/questions.md"
-                        },
-                        {
                             "label": "相关例程",
                             "file": "tang/Tang-Nano-Doc/examples.md"
                         }
@@ -249,6 +245,10 @@
                             ]
                         }
                     ]
+                },
+                {
+                    "label": "常见问题",
+                    "file": "tang/Tang-Nano-Doc/questions.md"
                 }
             ]
         },

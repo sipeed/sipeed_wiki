@@ -30,7 +30,7 @@ title: Note
 
 ### 下载失败
 
-对于Programmer(下载程序)要求使用 https://dl.sipeed.com/shareURL/TANG/programmer 里面的文件。
+对于 Programmer (下载程序) 要求使用 [这里](https://dl.sipeed.com/shareURL/TANG/programmer) 的文件。
 下载后解压替换掉Gowin对应安装目录的Programmer文件夹即可。
 不会替换的话可以在下载解压后的Programmer程序中手动添加对应下载文件来进行烧录。
 
@@ -40,11 +40,14 @@ title: Note
 
 重新检查工程中的芯片型号（比如工程设置、引脚约束、各个IP中的型号）。
 
-对于Nano 9K应该选择如下设置
+对于 Nano 9K 和 Primer 20K 型号选择应该分别如下：
 
 <details>
-  <summary><font color="#4F84FF">点开查看9K相关选择</font></summary>
-  <img src="./../Tang-Nano-9K/nano_9k/Tang_nano_9k_Device_choose.png">
+  <summary><font color="#4F84FF">点开查看正确型号选择</font></summary>
+  <p>Nano 9K 应当选择的型号</p>
+  <img src="./../Tang-Nano-9K/nano_9k/Tang_nano_9k_Device_choose.png" width=45%>
+  <p>Primer 20K 应当选择的型号</p>
+  <img src="./assets/primer_20k_device_choose.png" width=45%>
 </details>
 
 对于其他板子选择型号的时候与芯片丝印相对应就行。
