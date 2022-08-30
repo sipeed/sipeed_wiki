@@ -75,7 +75,7 @@ Tang Primer 20K 是基于 [GW2A-V18PG256C8IC8I7](http://www.gowinsemi.com.cn/pro
 		<tr>
 			<td style="text-align:left">Flash</td>
 			<td style="text-align:left">32Mbits NOR Flash</td>
-			<td style="text-align:left">W25Q32JVS</td>
+			<td style="text-align:left">下载方式参考底部相关问题</td>
 		</tr>
 		<tr>
 			<td style="text-align:left">调试接口</td>
@@ -294,8 +294,23 @@ https://github.com/sipeed/TangPrimer-20K-example
 
 - LED drive ：<a href="https://wiki.sipeed.com/news/others/20k_lite_start/20k_lite_start.html" target="blank">点我跳转</a>
 
-## 其他
+## 交流方式
 
-- 交流论坛: bbs.sipeed.com
-- QQ 交流群：834585530
-- 有问题的话先去 [常见问题](./../Tang-Nano-Doc/questions.md) 自查，通常来说使用 [这里](https://dl.sipeed.com/shareURL/TANG/programmer) 的 Programmer 软件能解决 99% 问题。
+- **交流论坛: [bbs.sipeed.com](bbs.sipeed.com)**
+- **QQ 交流群：[834585530](https://jq.qq.com/?_wv=1027&k=wBb8XUan)**
+- 直接本页下方留言
+
+## 相关问题
+
+### 如何下载到外部 FLASH
+进行如下选项设置：
+<img src="./assets/flash_mode.png" alt="flash_mode" width=75%>
+<!-- ![flash_mode](./assets/flash_mode.png) -->
+
+### 烧录后没反应或者引脚现象不对
+首先确定选择了正确的型号，下图中的每一个参数都要求一致
+<img src="./assets/device_choose.png" alt="device_choose" width=75%><br>
+<!-- ![device_choose](./assets/device_choose.png) -->
+然后检查自己的代码和对应的仿真波形是否满足要求
+
+### 更多问题及其解决办法前往[相关问题](./../Tang-Nano-Doc/questions.md)查看

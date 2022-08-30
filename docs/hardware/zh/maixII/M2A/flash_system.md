@@ -46,18 +46,8 @@ Tina 系统的烧录方式和 MaixII Dock 通用，可参考[MaixII M2dock 烧�
 
 ![burn](./assets/95133.gif)
 
+最终下载结束后的效果会和下图一样，显示 `Flash Complete!`：
+
+![下载结束](./assets/finish_flash.png)
+
 如果烧录失败了，请手动格式化一下 sd 卡。Windows 和 MacOS 可以使用 [SD Card Formatter](https://www.sdcard.org/downloads/formatter/eula_windows/SDCardFormatterv5_WinEN.zip)来格式化 sd 卡，Linux 系统可以使用 [Gparted](https://gparted.org/)来格式化。
-
-## 连接串口
-
-- 直接将开发板有 Debug 标志的 Type C 接口与电脑连接即可
-
-### Linux & macOS
-
-Linux 不需要装驱动，系统自带了，使用 `ls /dev/ttyUSB*` 命令即可看到设备号
-
-### Windows
-
-Lichee MaixSense 使用了 CH340 作为串口芯片。Windows 用户需要安装 CH340 的驱动。
-
-Windows 下载 [ch340 ch341 driver](https://api.dl.sipeed.com/shareURL/MAIX/tools/ch340_ch341_driver) 安装即可，然后可以在 设备管理器 中看到串口设备和端口号。
