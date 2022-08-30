@@ -14,7 +14,7 @@ desc: maixpy doc: MaixPy 文档简介
     <span class="logo_mpy">
     <img src="../assets/maixpy/micropython.png" alt="micropython logo">
     </span>
-    <br/>
+    </br>
 </div>
 
 ## 关于 MaixPy

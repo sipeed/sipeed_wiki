@@ -24,73 +24,8 @@
                     "file": "how_to_ask.md"
                 },
                 {
-                    "label": "开发板和配件选购指南",
-                    "items": [
-                        {
-                            "label": "开发板选购指南(对比)",
-                            "file": "develop_kit_board/get_hardware.md"
-                        },
-                        {
-                            "label": "开发板介绍"
-                        },
-                        {
-                            "collapsed": false,
-                            "items": [
-                                {
-                                    "label": "Maix Dock",
-                                    "file": "develop_kit_board/maix_dock.md"
-                                },
-                                {
-                                    "label": "Maix Bit",
-                                    "file": "develop_kit_board/maix_bit.md"
-                                },
-                                {
-                                    "label": "Maix Amigo",
-                                    "file": "develop_kit_board/maix_amigo.md"
-                                },
-                                {
-                                    "label": "Maix Duino",
-                                    "file": "develop_kit_board/maix_duino.md"
-                                },
-                                {
-                                    "label": "Maix Cube",
-                                    "file": "develop_kit_board/maix_cube.md"
-                                },
-                                {
-                                    "label": "Maix Go",
-                                    "file": "develop_kit_board/maix_go.md"
-                                },
-                                {
-                                    "label": "Maix Nano",
-                                    "file": "develop_kit_board/maix_nano.md"
-                                },
-                                {
-                                    "label": "Grove AI HAT",
-                                    "file": "develop_kit_board/grove_ai_hat.md"
-                                }
-                            ]
-                        },
-                        {
-                            "label": "相关外设模组（配件）"
-                        },
-                        {
-                            "collapsed": false,
-                            "items": [
-                                {
-                                    "label": "SP-MOD",
-                                    "file": "modules/sp_mod/README.md"
-                                },
-                                {
-                                    "label": "Grove",
-                                    "file": "modules/grove/README.md"
-                                },
-                                {
-                                    "label": "其它",
-                                    "file": "modules/others/README.md"
-                                }
-                            ]
-                        }
-                    ]
+                    "label": "开发板选购指南(对比)",
+                    "file": "develop_kit_board/get_hardware.md"
                 },
                 {
                     "label": "准备你的开发环境",

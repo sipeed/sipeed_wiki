@@ -5,21 +5,23 @@
             "file": "maix/README.md",
             "items": [
                 {
-                    "label": "M1/M1w",
-                    "file": "maix/core_module.md"
-                },
-                {
-                    "label": "M1n",
-                    "file": "maix/M1n.md"
-                },
+                    "label": "Maix 模块",
+                    "collapsed": false,
+                    "items": [
+                        {
+                            "label": "M1/M1w",
+                            "file": "maix/core_module.md"
+                        },
+                        {
+                            "label": "M1n",
+                            "file": "maix/M1n.md"
+                        }
+                    ]
+                },                    
                 {
                     "label": "Maix 开发板",
                     "collapsed": false,
                     "items": [
-                        {
-                            "label": "Maix Go",
-                            "file": "maix/maixpy_develop_kit_board/maix_go.md"
-                        },
                         {
                             "label": "Maix Dock(M1/M1W)",
                             "file": "maix/maixpy_develop_kit_board/Maix_dock.md"
@@ -43,6 +45,14 @@
                         {
                             "label": "Maix Amigo",
                             "file": "maix/maixpy_develop_kit_board/maix_Amigo.md"
+                        },
+                        {
+                            "label": "Maix HAT",
+                            "file": "maix/maixpy_develop_kit_board/maix_hat.md"
+                        },
+                        {
+                            "label": "Maix Go（已停产）",
+                            "file": "maix/maixpy_develop_kit_board/maix_go.md"
                         }
                     ]
                 }
