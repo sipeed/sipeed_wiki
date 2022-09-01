@@ -10,6 +10,7 @@
         "items": [
             {
                 "label": "产品",
+                "url": "/hardware/zh/index.html",
                 "position": "left",
                 "type": "list",
                 "items": [

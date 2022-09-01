@@ -10,20 +10,26 @@ desc: 矽速科技的硬件资料站
 
 [![](./../assets/maix.jpg)](./maix/readme.md)
 
+## MaixII & III 系列
 
-## MaixII Linux AI 开发板系列
+Linux AI 开发板
 
 [![](./../assets/maixii.jpg)](./maixII/readme.md)
 
-## Lichee Linux 开发板系列
+## Lichee 系列
+
+Linux 开发板
 
 [![](./../assets/lichee.jpg)](./lichee/readme.md)
 
 ## Tang 系列
+
 FPGA 开发板
 
 [![](./../assets/tang.jpg)](./tang/readme.md)
 
 ## Longon 系列
+
+MCU 开发板
 
 [![](./../assets/longan_nano.jpg)](./longan/readme.md)

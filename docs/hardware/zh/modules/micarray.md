@@ -66,6 +66,10 @@
 
 因为 K210 的 FPIOA 的特性, 支持每个外设随意映射到任意引脚；所以将上面的表格中的 `I/O 口` 与自己的板子上带有数字标识的引脚连起来即可，类似于标有 GND 这种特殊标识的就不算所谓的数字标识引脚。连接完引脚后可以查看下面代码下方关于代码中引脚的说明。
 
+### 烧录固件
+
+前往 [下载站](https://dl.sipeed.com/shareURL/MAIX/MaixPy/release/master/maixpy_v0.6.2_84_g8fcd84a58) 下载固件，下载 [固件说明](https://wiki.sipeed.com/soft/maixpy/zh/get_started/upgrade_maixpy_firmware.html#%E5%9B%BA%E4%BB%B6%E5%91%BD%E5%90%8D%E8%AF%B4%E6%98%8E) 里面的默认固件即可使用。
+
 ### python代码
 
 ```python

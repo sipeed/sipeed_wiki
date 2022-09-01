@@ -1,5 +1,5 @@
 ---
 layout: redirect
-redirect_url: /soft/longan/zh/index.html
+redirect_url: https://wiki.sipeed.com/hardware/zh/longan/Nano/Longan_nano.html
 ---
     

@@ -52,11 +52,21 @@ title: Note
 
 对于其他板子选择型号的时候与芯片丝印相对应就行。
 
-### 下载卡住
+### 下载卡住、下载非常慢
 
 不要选中带有 Verify 选项的。
 
 ![](./../assets/questions/never_choose_verify.png)
+
+自己注意设置一下下载频率，一般设置为 2.5MHZ 不会有异常
+
+<details>
+  <summary><font color="#4F84FF">点开查看操作步骤图片</font></summary>
+  <img src="./../assets/questions/cable.png">
+  <p>点击下图中的 Frequency</p>
+  <img src="./../assets/questions/frequency.png" >
+  <p>接着再点击 Save 即可</p>
+</details>
 
 ### 找不到下载文件
 
@@ -92,7 +102,7 @@ title: Note
 
 ### 烧录结束后没反应
 
-一般这种情况是没有选择正确的烧录文件。自己在
+一般这种情况是没有选择正确的烧录文件。可以自己先对应着各个板子点灯文档里所选择的芯片型号来检查一下自己的工程，然后看看自己的代码是否有问题。
 
 ## IDE 使用相关
 
