@@ -92,7 +92,7 @@ MF0 硬件连接：
 | 5 | DTR | BOOT | --- |
 | 6 | RTS | RST | --- |
 
-![](../../assets/mf_module/mf0_mf0dock/mf0_flash.png)
+![](./../assets/mf_module/mf0_mf0dock/mf0_flash.png)
 
 MF0 Dock 硬件连接：
 
@@ -105,8 +105,8 @@ MF0 Dock 硬件连接：
 | 3 | TX | IO4 | --- |
 | 4 | RX | IO5 | --- |
 
-![](../../assets/mf_module/mf0_mf0dock/mf0_dock_flash.png)
+![](./../zh/maixface/assets/mf_module/mf0_mf0dock/mf0_dock_flash.png)
 
 然后使用 kflash_gui 下载 MF0 固件
 
-![](../../assets/mf_module/mf0_mf0dock/mf0_upgrade_firmwave.png)
+![](./../zh/maixface/assets/mf_module/mf0_mf0dock/mf0_upgrade_firmwave.png)

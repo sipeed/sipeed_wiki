@@ -3,7 +3,7 @@ title: 安装IDE
 keywords: Sipeed, Gowin, Tang, Nano, fpga, 矽速
 ---
 
-高云云源软件是专门为高云半导体芯片配套的集成电路设计与实现工具。覆盖了FPGA芯片全类型的设计功能，具体功能可以自行到高云官网进行查阅，在此不进行赘述。附上文档链接：<http://www.gowinsemi.com.cn/down.aspx?FId=n14:14:26>
+高云半导体云源软件是专门为高云半导体半导体芯片配套的集成电路设计与实现工具。覆盖了FPGA芯片全类型的设计功能，具体功能可以自行到高云半导体官网进行查阅，在此不进行赘述。附上文档链接：<http://www.gowinsemi.com.cn/down.aspx?FId=n14:14:26>
 
 1. 用户安装请根据自己电脑系统选择 IDE；
 2. 对于 Linux 系统下下载可以使用 Openfpgaloader，可以查看本页底部的 [安装openfpgaloader](#安装openfpgaloader) 来进行烧录操作。
@@ -16,7 +16,7 @@ keywords: Sipeed, Gowin, Tang, Nano, fpga, 矽速
 
 ![IDE](./assets/IDE-1.png)
 
-> 由于高云的IDE在不断的更新中，上图为2021年11月30号截图
+> 由于高云半导体的IDE在不断的更新，上图为2021年11月30号截图
 
 进入链接后选择“云源软件历史版本”，往下拉找到历史版本中最新版本进行下载，下载到本地的文件夹是一个压缩包格式的文件，进行解压后得到安装包“Gowin_V1.9.8_win.exe”，直接双击开始进行安装：
 
@@ -56,11 +56,11 @@ keywords: Sipeed, Gowin, Tang, Nano, fpga, 矽速
 
 对于教育版 IDE 的是不需要 license 的，因此可以跳过这步。
 
-对于非教育版的 IDE 需要向高云官方申请 **license** 。
+对于非教育版的 IDE 需要向高云半导体官方申请 **license** 。
 
 申请链接：[http://www.gowinsemi.com.cn/faq_view.aspx](http://www.gowinsemi.com.cn/faq_view.aspx)
 
-打开高云 IDE 的时候，在弹出的 license 管理中，点击 Broswer 选择自己所获得的 license 文件
+打开高云半导体 IDE 的时候，在弹出的 license 管理中，点击 Broswer 选择自己所获得的 license 文件
 
 ![IDE](./assets/IDE-13.png)
 
@@ -80,11 +80,10 @@ keywords: Sipeed, Gowin, Tang, Nano, fpga, 矽速
 
 ## 参考文档
 
-+ [高云软件简介和安装](http://cdn.gowinsemi.com.cn/%E9%AB%98%E4%BA%91%E8%BD%AF%E4%BB%B6%E7%AE%80%E4%BB%8B%E5%92%8C%E5%AE%89%E8%A3%85.pdf)
++ [高云半导体软件简介和安装](http://cdn.gowinsemi.com.cn/%E9%AB%98%E4%BA%91%E8%BD%AF%E4%BB%B6%E7%AE%80%E4%BB%8B%E5%92%8C%E5%AE%89%E8%A3%85.pdf)
 
 
 ## Linux 烧录教程
-
 
 在Ubuntu系统下我们建议使用**openFPGALoader**烧写，以下为具体步骤
 

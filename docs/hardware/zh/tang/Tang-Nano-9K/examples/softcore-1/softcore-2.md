@@ -7,7 +7,7 @@
 ## 摘要
 
 此工程在 LCD 屏幕绘制了两个长方形——一个实心的；另一个空心的。其中空心的边框宽度作为参数可调，并且绘图的颜色还可以通过按钮调整，现已支持红、绿、蓝和白，共四种颜色。
-整体的硬件设计基于高云提供的 PicoRV32 软核IP，在 OPEN AHB INTERFACE 的处，挂载了 128Kbits 的 BSRAM 用作显存。
+整体的硬件设计基于半导体提供的 PicoRV32 软核IP，在 OPEN AHB INTERFACE 的处，挂载了 128Kbits 的 BSRAM 用作显存。
 该 128Kbits 的显存，本质上是一颗双端口的 SRAM ，使得 CPU 和自定义的 LCD IP 共同使用该“显存”。LCD IP 独立于CPU工作，节省 CPU 资源，达到 FPGA 加速的效果。
 
 ## 设计

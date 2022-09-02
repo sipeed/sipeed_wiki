@@ -112,11 +112,15 @@ MaixSense 开发板可能是市面上最小的 Linux 卡片电脑。本套件包
 
 ## 引脚图参考
 
-![R329-pin](./assets/R329-pin.jpg)
+![R329-pin](./assets/R329-pin.png)
 
-## 下载站资料
+## 相关资料
 
-[MaixSense 资料库](https://dl.sipeed.com/shareURL/MaixII/MaixII-A)
+[MaixSense 硬件资料](https://dl.sipeed.com/shareURL/MaixII/MaixII-A)
+[极数社区 R329 上手帖](https://aijishu.com/a/1060000000221780)
+[极数社区 R329 芯片FAQ](https://aijishu.com/a/1060000000291439)
+[极数社区矽速科技](https://aijishu.com/blog/xisukeji)（很多资料）
+
 
 ## 产品技术支持
 

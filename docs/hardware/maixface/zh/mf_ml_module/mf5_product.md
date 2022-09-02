@@ -2,7 +2,6 @@
 
 ## MF5 外观一览
 
-
 ## MF5 板载接口
 
 <table border="2">
@@ -10,8 +9,8 @@
         <th colspan=6>MaixFace 5 引脚信息</th>
     </tr>
     <tr>
-        <td colspan=3><img src="../../assets/mf_module/mf5/mf5_if_1.png" height=400></td>
-        <td colspan=3><img src="../../assets/mf_module/mf5/mf5_if_2.png" height=400></td>
+        <td colspan=3><img src="./../../../zh/maixface/assets/mf_module/mf5/mf5_if_1.png" height=400></td>
+        <td colspan=3><img src="./../../../zh/maixface/assets/mf_module/mf5/mf5_if_2.png" height=400></td>
     </tr>
     <tr>
         <td>Maix Face Slik</td>

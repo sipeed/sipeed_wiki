@@ -1,4 +1,4 @@
 ---
 layout: redirect
-redirect_url: /soft/Tang/zh/index_bak.html
+redirect_url: /hardware/zh/tang/index.html
 ---

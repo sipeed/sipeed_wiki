@@ -10,6 +10,7 @@
         "items": [
             {
             "label": "Products",
+            "url": "/hardware/en/index.html",
             "position": "left",
             "type": "list",
             "items": [
@@ -33,6 +34,10 @@
                 {
                     "url": "/hardware/en/longan/Nano/Longan_nano.html",
                     "label": "Longan"
+                },
+                {
+                    "url": "/hardware/en/metasense/index.html",
+                    "label": "MetaSense"
                 },
                 {
                     "url":"/hardware/en/modules_spmod/spmod_extender.html",

@@ -2,7 +2,7 @@
 title: Summary
 ---
 
-Tang nano系列开发板是基于[高云](http://www.gowinsemi.com.cn/)FPGA设计的开发板，多种型号刚好可以满足不同的需求：
+Tang nano系列开发板是基于[高云半导体](http://www.gowinsemi.com.cn/)FPGA设计的开发板，多种型号刚好可以满足不同的需求：
 - Tang nano 1K 用极低的价格来让用户带领用户踏入FPGA领域
 - Tang nano 4K 带有一个Cortex m3的硬核，几乎是用户可以购买到的最低价的异构开发板
 - Tang nano 9K 配有极其丰富数量的逻辑单元，可以让用户在上面运行软核

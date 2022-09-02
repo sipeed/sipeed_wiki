@@ -28,6 +28,10 @@ FPGA 开发板
 
 [![](./../assets/tang.jpg)](./tang/readme.md)
 
+## Metesense 模组
+
+待插入图片
+
 ## Longon 系列
 
 MCU 开发板

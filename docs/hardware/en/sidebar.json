@@ -5,20 +5,22 @@
             "file": "maix/README.md",
             "items": [
                 {
-                    "label": "M1/M1w",
-                    "file": "maix/core_module.md"
-                },
-                {
-                    "label": "M1n",
-                    "file": "maix/M1n.md"
+                    "label": "Maix Module",
+                    "collapsed": false,
+                    "items": [
+                        {
+                            "label": "M1/M1w",
+                            "file": "maix/core_module.md"
+                        },
+                        {
+                            "label": "M1n",
+                            "file": "maix/M1n.md"
+                        }
+                    ]
                 },
                 {
                     "label": "Maix Board",
                     "items": [
-                        {
-                            "label": "Maix Go",
-                            "file": "maix/maixpy_develop_kit_board/maix_go.md"
-                        },
                         {
                             "label": "Maix Dock(M1/M1W)",
                             "file": "maix/maixpy_develop_kit_board/Maix_dock.md"
@@ -42,6 +44,14 @@
                         {
                             "label": "Maix Amigo",
                             "file": "maix/maixpy_develop_kit_board/maix_Amigo.md"
+                        },
+                        {
+                            "label": "Maix HAT",
+                            "file": "maix/maixpy_develop_kit_board/maix_hat.md"
+                        },
+                        {
+                            "label": "Maix Go (Sold out)",
+                            "file": "maix/maixpy_develop_kit_board/maix_go.md"
                         }
                     ]
                 }
@@ -122,7 +132,7 @@
                 {
                     "label": "Lichee RV",
                     "file": "lichee/RV/RV.md",
-                    "collapsed":false,
+                    "collapsed": false,
                     "items": [
                         {
                             "label": "Board introduction",
@@ -185,10 +195,6 @@
                         {
                             "label": "Tang Nano examples",
                             "file": "tang/Tang-Nano-Doc/examples.md"
-                        },
-                        {
-                            "label": "Questions&Answers",
-                            "file": "tang/Tang-Nano-Doc/questions.md"
                         }
                     ]
                 },
@@ -226,179 +232,227 @@
                                     "file": "tang/Tang-primer/fpga/led.md"
                                 },
                                 {
-                                    "label": "Setup up 蜂鸟E203 development enviroument",
+                                    "label": "Setup up hummingbird-E203 development enviroument",
                                     "file": "tang/Tang-primer/get_started/E203.md"
                                 },
                                 {
-                                    "label": "Download to FPGA",
+                                    "label": "Burn FPGA",
                                     "file": "tang/Tang-primer/get_started/fpga_download.md"
                                 }
                             ]
-                        }
-                    ]
-                },
-                {
-                    "label": "Longon",
-                    "items": [
+                        },
                         {
-                            "label": "Longon Nano",
-                            "file": "longan/Nano/Longan_nano.md",
-                            "items": [
-                                {
-                                    "label": "环境配置",
-                                    "file": "longan/Nano/pio.md"
-                                },
-                                {
-                                    "label": "点灯测试",
-                                    "file": "longan/Nano/blink.md"
-                                }
-                            ]
+                            "label": "Questions&Answers",
+                            "file": "tang/Tang-Nano-Doc/questions.md"
                         }
                     ]
                 }
             ]
         },
         {
-            "label": "SP-MOD外设模组",
+            "label": "Longon",
             "items": [
                 {
-                    "label": "转接板类",
+                    "label": "Longon Nano",
+                    "file": "longan/Nano/Longan_nano.md",
                     "items": [
                         {
-                            "label": "SP-Extender",
-                            "file": "modules_spmod/spmod_extender.md"
+                            "label": "Setup enviroument",
+                            "file": "longan/Nano/pio.md"
                         },
                         {
-                            "label": "SP-Grove",
-                            "file": "modules_spmod/spmod_grove.md"
-                        },
-                        {
-                            "label": "SP-FPC",
-                            "file": "modules_spmod/spmod_fpc.md"
-                        },
-                        {
-                            "label": "SP-MicArray",
-                            "file": "modules_spmod/spmod_micarray.md"
-                        },
-                        {
-                            "label": "SP-JotStick",
-                            "file": "modules_spmod/spmod_joystick.md"
-                        },
-                        {
-                            "label": "SP-Servo",
-                            "file": "modules_spmod/spmod_servo.md"
-                        },
-                        {
-                            "label": "SP-TypeC",
-                            "file": ""
-                        }
-                    ]
-                },
-                {
-                    "label": "传感器类",
-                    "items": [
-                        {
-                            "label": "SP-Weather",
-                            "file": "modules_spmod/spmod_weather.md"
-                        },
-                        {
-                            "label": "SP-TOF-1P",
-                            "file": "modules_spmod/spmod_tof.md"
-                        }
-                    ]
-                },
-                {
-                    "label": "通信类",
-                    "items": [
-                        {
-                            "label": "SP-BT",
-                            "file": "modules_spmod/spmod_bt.md"
-                        },
-                        {
-                            "label": "SP-LoRa",
-                            "file": "modules_spmod/spmod_lora.md"
-                        },
-                        {
-                            "label": "SP-PSRAM",
-                            "file": "modules_spmod/spmod_psram.md"
-                        },
-                        {
-                            "label": "SP-RFID",
-                            "file": "modules_spmod/spmod_rfid.md"
-                        },
-                        {
-                            "label": "SP-Ethernet",
-                            "file": "modules_spmod/spmod_ethernet.md"
-                        }
-                    ]
-                },
-                {
-                    "label": "显示类",
-                    "items": [
-                        {
-                            "label": "SP-LCD 1.14",
-                            "file": "modules_spmod/spmod_lcd1.14.md"
-                        },
-                        {
-                            "label": "SP-Eink",
-                            "file": "modules_spmod/spmod_eink.md"
+                            "label": "Blink test",
+                            "file": "longan/Nano/blink.md"
                         }
                     ]
                 }
             ]
         },
         {
-            "label": "模块&&调试器",
+            "label": "MetaSense",
+            "file": "metasense/readme.md",
             "items": [
                 {
-                    "label": "调试器",
+                    "label": "MetaSense-a010",
+                    "file": "metasense/metasense-a010/metasense-a010.md"
+                },
+                {
+                    "label": "MetaSense-a075v",
+                    "file": "metasense/metasense-a075v/metasense-a075v.md"
+                }
+            ]
+        },
+        {
+            "label": "MaixFace",
+            "items": [
+                {
+                    "label": "MF0&&MF0 Dock",
+                    "file": "maixface/mf_ml_module/mf0_ml_module.md"
+                },
+                {
+                    "label": "MF1 && MF2",
+                    "file": "maixface/mf_ml_module/mf1_ml_module.md"
+                },
+                {
+                    "label": "MF4 && MF5",
+                    "file": "maixface/mf_ml_module/mf5_product.md"
+                },
+                {
+                    "label": "Maixface PCB Design",
+                    "file": "maixface/mf_ml_module/mf_precautions.md"
+                },
+                {
+                    "label": "Maixface Update firmware",
+                    "file": "maixface/mf_ml_module/mf_update_firmwave.md"
+                }
+            ]
+        },
+        {
+            "label": "Peripheral modules",
+            "items": [
+                {
+                    "label": "SP-MOD Peripheral modules",
                     "items": [
                         {
-                            "label": "Sipeed RV Debugger"
+                            "label": "Adapter borad",
+                            "items": [
+                                {
+                                    "label": "SP-Extender",
+                                    "file": "modules_spmod/spmod_extender.md"
+                                },
+                                {
+                                    "label": "SP-Grove",
+                                    "file": "modules_spmod/spmod_grove.md"
+                                },
+                                {
+                                    "label": "SP-FPC",
+                                    "file": "modules_spmod/spmod_fpc.md"
+                                },
+                                {
+                                    "label": "SP-MicArray",
+                                    "file": "modules_spmod/spmod_micarray.md"
+                                },
+                                {
+                                    "label": "SP-JotStick",
+                                    "file": "modules_spmod/spmod_joystick.md"
+                                },
+                                {
+                                    "label": "SP-Servo",
+                                    "file": "modules_spmod/spmod_servo.md"
+                                },
+                                {
+                                    "label": "SP-TypeC",
+                                    "file": ""
+                                }
+                            ]
                         },
                         {
-                            "label": "双串口 USB 模块"
+                            "label": "Sensor",
+                            "items": [
+                                {
+                                    "label": "SP-Weather",
+                                    "file": "modules_spmod/spmod_weather.md"
+                                },
+                                {
+                                    "label": "SP-TOF-1P",
+                                    "file": "modules_spmod/spmod_tof.md"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "Communication",
+                            "items": [
+                                {
+                                    "label": "SP-BT",
+                                    "file": "modules_spmod/spmod_bt.md"
+                                },
+                                {
+                                    "label": "SP-LoRa",
+                                    "file": "modules_spmod/spmod_lora.md"
+                                },
+                                {
+                                    "label": "SP-PSRAM",
+                                    "file": "modules_spmod/spmod_psram.md"
+                                },
+                                {
+                                    "label": "SP-RFID",
+                                    "file": "modules_spmod/spmod_rfid.md"
+                                },
+                                {
+                                    "label": "SP-Ethernet",
+                                    "file": "modules_spmod/spmod_ethernet.md"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "Display",
+                            "items": [
+                                {
+                                    "label": "SP-LCD 1.14",
+                                    "file": "modules_spmod/spmod_lcd1.14.md"
+                                },
+                                {
+                                    "label": "SP-Eink",
+                                    "file": "modules_spmod/spmod_eink.md"
+                                }
+                            ]
                         }
                     ]
                 },
                 {
-                    "label": "模块",
+                    "label": "Module && Debugger",
                     "items": [
                         {
-                            "label": "摄像头",
+                            "label": "Debugger",
                             "items": [
                                 {
-                                    "label": "GC0328"
+                                    "label": "Sipeed RV Debugger"
                                 },
                                 {
-                                    "label": "双摄像头模块(GC0328)"
-                                },
-                                {
-                                    "label": "OV7740"
-                                },
-                                {
-                                    "label": "OV2640"
-                                },
-                                {
-                                    "label": "OV2640-M12"
-                                },
-                                {
-                                    "label": "双摄像头模块(OV2640)"
+                                    "label": "Dual uart USB module"
                                 }
                             ]
                         },
                         {
-                            "label": "麦克风模块",
+                            "label": "module",
                             "items": [
                                 {
-                                    "label": "麦克风阵列",
-                                    "file": "modules/micarray.md"
+                                    "label": "camera",
+                                    "items": [
+                                        {
+                                            "label": "GC0328"
+                                        },
+                                        {
+                                            "label": "Dual cam module(GC0328)"
+                                        },
+                                        {
+                                            "label": "OV7740"
+                                        },
+                                        {
+                                            "label": "OV2640"
+                                        },
+                                        {
+                                            "label": "OV2640-M12"
+                                        },
+                                        {
+                                            "label": "Dual cam module(OV2640)"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "label": "Mic module",
+                                    "items": [
+                                        {
+                                            "label": "Mic array",
+                                            "file": "modules/micarray.md"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "label": "Sipeed Gamepad",
+                                    "file": "modules/Gamepad.md"
                                 }
                             ]
-                        },
-                        {
-                            "label": "Sipeed Gamepad",
-                            "file": "modules/Gamepad.md"
                         }
                     ]
                 }

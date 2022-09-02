@@ -2,7 +2,7 @@
 
 ## 什么是 Tang Nano 
 
-Tang Nano 是基于高云小蜜蜂系列 GW1N-1 FPGA 的简约型开发板。
+Tang Nano 是基于高云半导体小蜜蜂系列 GW1N-1 FPGA 的简约型开发板。
 
 板载芯片为 GW1N-LV1QN48C6/I5，搭载了 1152 LUT4 的逻辑资源，1 PLL 和 4 Block 合计 72Kbit SRAM，封装为 QFN48。开发板引出了所有 I/O 接口，适用于小型数字逻辑的设计和实验。
 
@@ -27,7 +27,7 @@ Tang Nano 是基于高云小蜜蜂系列 GW1N-1 FPGA 的简约型开发板。
 
 ## 资源下载链接
 
-+ [高云官方下载站](http://www.gowinsemi.com.cn/faq.aspx)
++ [高云半导体官方下载站](http://www.gowinsemi.com.cn/faq.aspx)
 + [dl 下载站](http://dl.sipeed.com/TANG/Nano)
 + [Tang nano 原理图](../assets/files/Tang-NANO.pdf)
 

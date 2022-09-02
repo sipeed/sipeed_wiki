@@ -24,7 +24,7 @@
 
 ## GMD 相关的操作
 
-接下去的工作就要转到[GMD](http://www.gowinsemi.com.cn/prodshow.aspx)中了。参考高云官方文档[IPUG910](http://cdn.gowinsemi.com.cn/IPUG910-1.4_Gowin_PicoRV32_IDE%E8%BD%AF%E4%BB%B6%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C.pdf)进行开发环境搭建和程序编译，外设的驱动编写可以参考[IPUG911](http://cdn.gowinsemi.com.cn/IPUG911-1.3_Gowin_PicoRV32%E8%BD%AF%E4%BB%B6%E7%BC%96%E7%A8%8B%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C.pdf)，最后程序的下载可以参考[IPUG913](http://cdn.gowinsemi.com.cn/IPUG913-1.4_Gowin_PicoRV32%E8%BD%AF%E4%BB%B6%E4%B8%8B%E8%BD%BD%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C.pdf)。
+接下去的工作就要转到[GMD](http://www.gowinsemi.com.cn/prodshow.aspx)中了。参考半导体官方文档[IPUG910](http://cdn.gowinsemi.com.cn/IPUG910-1.4_Gowin_PicoRV32_IDE%E8%BD%AF%E4%BB%B6%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C.pdf)进行开发环境搭建和程序编译，外设的驱动编写可以参考[IPUG911](http://cdn.gowinsemi.com.cn/IPUG911-1.3_Gowin_PicoRV32%E8%BD%AF%E4%BB%B6%E7%BC%96%E7%A8%8B%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C.pdf)，最后程序的下载可以参考[IPUG913](http://cdn.gowinsemi.com.cn/IPUG913-1.4_Gowin_PicoRV32%E8%BD%AF%E4%BB%B6%E4%B8%8B%E8%BD%BD%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C.pdf)。
 
 C的开发环境搭建完成后，就开始进行SD卡驱动和fatfs的移植，这里我将SD卡作为只读设备，编写了相应的驱动。
 

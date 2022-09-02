@@ -312,7 +312,7 @@
         },
         {
             "label": "MetaSense",
-            "file": "metasense/summary.md",
+            "file": "metasense/readme.md",
             "items": [
                 {
                     "label": "MetaSense-a010",

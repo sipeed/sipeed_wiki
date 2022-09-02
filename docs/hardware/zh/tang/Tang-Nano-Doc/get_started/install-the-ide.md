@@ -5,7 +5,7 @@ keywords: Sipeed, Gowin, Tang, Nano, fpga, 矽速
 
 编辑于 2022.08.16
 
-使用高云的 FPGA 需要用到 GOWIN 这个软件，对应的软件文档链接：
+使用高云半导体的 FPGA 需要用到 GOWIN 这个软件，对应的软件文档链接：
 <http://www.gowinsemi.com.cn/down.aspx?FId=n14:14:26>
 
 - 根据自己系统选择安装对应版本的 IDE
@@ -19,19 +19,19 @@ keywords: Sipeed, Gowin, Tang, Nano, fpga, 矽速
 
 ![IDE](./assets/IDE-1.png)
 
-> 由于高云的IDE在不断的更新中，上图为 2022 年 08 月 16 日截图
+> 由于高云半导体的IDE在不断的更新中，上图为 2022 年 08 月 16 日截图
 
 ---
 
 IDE 分为普通版和教育版：
 
-普通版的 IDE 需要 license，需要向高云官方自行申请。
+普通版的 IDE 需要 license，需要向高云半导体官方自行申请。
 
 教育版 IDE 不需要 license，且 V1.9.8.07 和之后的版本支持 GW2A-18C 器件。先在网页顶部注册、登陆然后就能够顺利下载下来教育版 IDE 了，目前教育版所支持的器件如下：
 
 ![educational_device](./assets/educational_device.png)
 
-> 由于高云的IDE在不断的更新中，上图为 2022 年 08 月 16 日截图
+> 由于高云半导体的IDE在不断的更新中，上图为 2022 年 08 月 16 日截图
 
 其中：
 - GW2A-LV18PG256C8/I7 GW2A-18C 为 Primer 20K 所使用的芯片
@@ -103,12 +103,12 @@ Linux 版本的解压后里面存在着一个 bin 文件夹，然后可执行文
 
 ### 验证 license
 
-打开高云 IDE 的时候，在弹出的 license 管理中，选择自己本地 license 的文件，验证保存即可。
+打开高云半导体 IDE 的时候，在弹出的 license 管理中，选择自己本地 license 的文件，验证保存即可。
 
 <img src="./assets/IDE-13.png" alt="Broswer lic" width=45%>
 <img src="./assets/check.png"  alt="Check lic"   width=45%>
 
-然后就可以开始使用高云 IDE 了。
+然后就可以开始使用高云半导体 IDE 了。
 
 ### Programmer
 
@@ -116,13 +116,13 @@ Linux 版本的解压后里面存在着一个 bin 文件夹，然后可执行文
 
 ## 拓展
 
-获取 license 可能需要等待一段时间。在此期间可以看看高云的官方文档。下面简单说明一下：
+获取 license 可能需要等待一段时间。在此期间可以看看高云半导体的官方文档。下面简单说明一下：
 
 在 IDE 的安装路径下主要有如下内容：IDE 文件夹、Programmer 文件夹、uninst.exe；
 
 ![ide_folder](./assets/ide_folder.png)
 
-**IDE** 文件夹：这里主要说一下里面的 **doc** 文件夹，用户在安装完之后可以在这个文件夹里面看到高云提供的大多数文档高云，主要内容如下图所示：
+**IDE** 文件夹：这里主要说一下里面的 **doc** 文件夹，用户在安装完之后可以在这个文件夹里面看到高云提供的大多数文档高云半导体，主要内容如下图所示：
 
 ![IDE](./assets/doc-folder.png)
 
@@ -136,9 +136,9 @@ uninst.exe：卸载IDE
 
 ## 其他安装方法
 
-下面是高云官方所提供的 IDE 安装方法，有需要的话可以自行查阅
+下面是高云半导体官方所提供的 IDE 安装方法，有需要的话可以自行查阅
 
-+ [高云软件简介和安装](http://cdn.gowinsemi.com.cn/%E9%AB%98%E4%BA%91%E8%BD%AF%E4%BB%B6%E7%AE%80%E4%BB%8B%E5%92%8C%E5%AE%89%E8%A3%85.pdf)
++ [高云半导体软件简介和安装](http://cdn.gowinsemi.com.cn/%E9%AB%98%E4%BA%91%E8%BD%AF%E4%BB%B6%E7%AE%80%E4%BB%8B%E5%92%8C%E5%AE%89%E8%A3%85.pdf)
 
 ## Burn in linux
 
