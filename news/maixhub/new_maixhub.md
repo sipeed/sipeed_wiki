@@ -2,15 +2,21 @@
 title: 新版 MaixHub 正式上线啦！
 keywords: 在线训练, 模型平台, 单片机运行模型, 云端训练, 模型库, model zoo
 date: 2022-09-04
+tags: maixhub, 模型训练
+cover: ./images/deploy.gif
 ---
 
-> 原文： https://neucrack.com/p/444 , 持续更新
+
 
 先看看效果， 一个检测小鸭子（可同时检测多个相同或者不同目标），另外一个是表情分类模型：
 
 ![deploy](./images/deploy.gif)
 
 ![face_emotion](./images/face_emotion.gif)
+
+<!-- more -->
+
+> 原文： https://neucrack.com/p/444 , 持续更新
 > 视频： [基于K210的情绪识别与可视化](https://www.bilibili.com/video/BV1Xe4y1D7ne?spm_id_from=333.337.search-card.all.click&vd_source=6c974e13f53439d17d6a092a499df304)
 
 ## 新版 [MaixHub](https://maixhub.com) 简介
