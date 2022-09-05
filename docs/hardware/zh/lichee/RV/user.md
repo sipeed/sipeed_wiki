@@ -177,7 +177,7 @@ aplay -D hw:0,0 t.wav                             #播放录音
 
   LicheeRV 底板默认使用 XR829 或者 RTL8723BS wifi 模块，可以使用以下指令进行联网操作
 
-  先配置热点信息：需要手动在 /etc/wifi/wpa_supplicant.conf 文件里添加下面内容
+  先配置热点信息：需要手动在 /etc/wifi 目录下的 wpa_supplicant.conf 文件里添加下面内容
 
   ```bash
   network={  
@@ -186,8 +186,8 @@ aplay -D hw:0,0 t.wav                             #播放录音
   } 
   ```
 
-  配置完成后重启一下(执行 `roboot` 命令即可)，重启完成后执行 `ifconfig wlan0 up; udhcpc -iwlan0` 即可连上对应的wifi。
-  连上网络后，就可以使用ssh(自己记得设置一下密码)来远程登录板卡，或者使用scp来进行文件传输。
+  配置完成后重启一下(执行 `reboot` 命令即可)，重启完成后执行 `ifconfig wlan0 up; udhcpc -iwlan0 &` 后即可连上对应的wifi。
+  连上网络后，就可以使用 ssh (自己记得设置一下密码)来远程登录板卡，或者使用 scp 来进行文件传输。
 
 ##### **使用 debian 系统**
 

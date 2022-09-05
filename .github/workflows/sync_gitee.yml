@@ -9,7 +9,13 @@ name: sync code to gitee
 #     branches: [ master ]
 #   pull_request:
 #     branches: [ master ]
-on: [push, pull_request]
+on: 
+  # Triggers the workflow on push or pull request events but only for the main branch
+  push:
+    branches: [ main ]
+  # pull_request:
+  #   branches: [ main ]
+
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -37,4 +43,4 @@ jobs:
           chmod 600 "$SSHPATH/id_rsa"
           sudo sh -c "echo StrictHostKeyChecking no >>/etc/ssh/ssh_config"
           git remote add upstream $GITEE_GIT_ADDR
-          git push upstream --all --force
+          git push upstream main:main --force
