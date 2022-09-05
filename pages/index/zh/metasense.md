@@ -1,4 +1,4 @@
 ---
 layout: redirect
-redirect_url: /hardware/zh/metasense/summary.html
+redirect_url: https://wiki.sipeed.com/hardware/zh/metasense/index.html
 ---

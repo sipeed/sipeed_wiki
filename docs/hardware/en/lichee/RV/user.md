@@ -180,7 +180,7 @@ If the USB flash disk has not been formatted, you can use `mkfs.vfat` command to
     
   LicheeRV bottom board is equipped with XR829 or RTL8723BS wifi module, can connect network by following commands:
 
-  Config wifi Edit `wpa_supplicant.conf` file content located in /etc/wifi/
+  Add following content into `wpa_supplicant.conf` file located in /etc/wifi/ to config wifi
 
   ```bash
   network={  
