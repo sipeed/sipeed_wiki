@@ -6,7 +6,7 @@
 
 ---
 
-目前 wiki 主要网页支持 markdown 和 ipynb 两种说明文档
+目前 wiki 主要网页支持 markdown 和 ipynb 两种文档
 
 我们在 https://github.com/sipeed/sipeed_wiki/tree/main/docs 页面选择 'Upload files'
 

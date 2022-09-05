@@ -3,3 +3,4 @@ __pycache__
 temp
 .vscode
 .ipynb_checkpoints
+.qiniu_pythonsdk_hostscache.json

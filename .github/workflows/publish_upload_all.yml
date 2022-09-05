@@ -1,16 +1,10 @@
 # This is a basic workflow to help you get started with Actions
 
-name: build_doc_upload
+name: build_doc_upload_all
 
 # Controls when the action will run.
 on:
-  # Triggers the workflow on push or pull request events but only for the main branch
-  push:
-    branches: [ main ]
-  # pull_request:
-  #   branches: [ main ]
-
-  # Allows you to run this workflow manually from the Actions tab
+  # Only allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
@@ -52,7 +46,7 @@ jobs:
           git pull origin gh-pages
           echo "== upload to cloud server =="
           pip3 install qiniu
-          teedoc-upload --cloud qiniu --bucket ${{ secrets.QINIU_BUCKET }} --access_key ${{ secrets.QINIU_ACCESS_KEY }} --secret_key ${{ secrets.QINIU_SECRET_KEY }} --old ./ ../${out_dir}
+          teedoc-upload --cloud qiniu --bucket ${{ secrets.QINIU_BUCKET }} --access_key ${{ secrets.QINIU_ACCESS_KEY }} --secret_key ${{ secrets.QINIU_SECRET_KEY }} ../${out_dir}
           echo "== upload to gh-pages for pages service =="
           cd ../$out_dir
           git init
