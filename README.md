@@ -1,9 +1,8 @@
-Sipeed wiki source code
+Sipeed wiki source docs
 =====
 
-Related site: [wiki.sipeed.com](https://wiki.sipeed.com)
+Sipeed official Wiki: [wiki.sipeed.com](https://wiki.sipeed.com)
 
-If you want change document or add one, do the following choice.
 
 ## Contributing and article sharing
 

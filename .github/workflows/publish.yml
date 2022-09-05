@@ -52,7 +52,7 @@ jobs:
           git pull origin gh-pages
           echo "== upload to cloud server =="
           pip3 install qiniu
-          teedoc-upload --cloud qiniu --bucket ${{ secrets.QINIU_BUCKET }} --access_key ${{ secrets.QINIU_ACCESS_KEY }} --secret_key ${{ secrets.QINIU_SECRET_KEY }} --old ./ ../${out_dir}
+          teedoc-upload --progress raw --cloud qiniu --bucket ${{ secrets.QINIU_BUCKET }} --access_key ${{ secrets.QINIU_ACCESS_KEY }} --secret_key ${{ secrets.QINIU_SECRET_KEY }} --old ./ ../${out_dir}
           echo "== upload to gh-pages for pages service =="
           cd ../$out_dir
           git init
