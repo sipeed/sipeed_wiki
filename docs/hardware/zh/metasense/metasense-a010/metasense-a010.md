@@ -7,10 +7,8 @@
 
 ## 产品概述
 
-产品图
-
-
-MetaSense-A010 是由 Sipeed 所推出的一款基于炬佑 100x100 TOF 模组+ BL702 极致性价比的 TOF 3D 传感器模组，最大支持 100x100 的分辨率和 8 位精度，并且自带的 240×135 的 LCD 显示屏可实时预览 color map 后的深度图。
+![a010-11](asstes/tof/../../assets/a010-11.jpg)
+MetaSense-A010 是由 Sipeed 所推出的一款由 BL702 + 炬佑 100x100 TOF 所组成的极致性价比 3D 传感器模组，最大支持 100x100 的分辨率和 8 位精度，并且自带 240×135 像素的 LCD 显示屏来实时预览 color map 后的深度图 。
 
 **资料汇总**
 
@@ -19,34 +17,56 @@ MetaSense-A010 是由 Sipeed 所推出的一款基于炬佑 100x100 TOF 模组+ 
 
 ## 产品开箱指南
 
-### 快速上手的准备工作
+### 准备工作
 
-这款设备采用串口协议对外提供接口和传输数据，物理接口对外提供了 type-c（虚拟串口）及 1.0mm 的 4pin 母座（UART）都能获取深度图数据，可自定义设置，用户可以使用任意 linux 板卡或者单片机进行二次开发。
+这款设备采用串口协议对外提供接口和传输数据，物理接口对外提供了 type-c（虚拟串口）及 1.0mm 的 4pin 母座（UART）都能获取深度图数据用于集成。
 
-- 接线示例说明
+**产品接线说明**
 通过 type-c 接口连接电脑后，可以识别到 /dev/ttyUSBx（Linux）或COMx（Windows）。
-通过 usb2ttl 模块按照硬件引脚图连接4pin母座（硬件引脚图：屏幕正面朝上）。
-硬件引脚图
-![010-5](assets/a010-5.jpg)
+![a010-12](asstes/../assets/a010.12.jpg)
 
-- COMTOOL 软件包安装
-Windows 系统：下载压缩包后解压安装即可。
+还可通过 usb2ttl 模组按照硬件引脚图连接 4pin 母座。
+硬件引脚图：屏幕正面朝下
+<html>
+  <img src="./asstes/../assets/a010-12.jpg" width=48%>
+  <img src="./asstes/../assets/a010-5.jpg" width=48%>
+</html>
+
+<table>
+    <tr>
+        <td>MS-A010</td>
+        <td>TX</td>
+        <td>RX</td>
+        <td>GND</td>
+        <td>5V</td>
+    </tr>
+    <tr>
+        <td>usb2ttl 模块</td>
+        <td>RX</td>
+        <td>TX</td>
+        <td>GND</td>
+        <td>5V</td>
+    </tr>
+</table>
+
+
+**COMTOOL 软件包**
+Windows 系统连接：下载压缩包后解压安装即可。
 Linux 系统：不提供软件压缩包，需用户自行编译。
-
 注意：Win 7 及以下系统需装驱动，可自行前往 FTDI 官网下载。
-### 上电互动预览
 
+### 上电互动预览
 将设备通电后，可在设备上自带 LCD 屏实时预览 color map 后的深度伪彩图
 ![010-3](assets/a010-3.jpg)
 
 ### PC 预览和微调
+1. 打开 COMTOOL 软件后，如果软件上方无 Graph 的话，可在右上角 + 号处添加 Graph 。
+2. 左侧选择 Port 和对应波特率（忽略 USB 串口，可任意选择高波特率），选择 MaixSenseLite 后点击 open 后再勾选下方 USB 即可接收大量数据。
 
-1. 使用 PC 预览前先安装 COMTOOL 上位机软件包
-2. 打开 COMTOOL 软件后，如果软件上方无 Graph 的话，可在右上角 + 号处添加 Graph 。
-3. 左侧选择 Port 和对应波特率（忽略 USB 串口，可任意选择高波特率），选择 MaixSenseLite 后点击 open 后再勾选下方 USB 即可接收大量数据。
 ![010-1](assets/a010-1.jpg)
-4. 设定 Header 为 \x00\xFF 即可正确解析图像数据并观察到深度图，可以直观感受二维平面图像上的深度。
+3. 设定 Header 为 \x00\xFF 即可正确解析图像数据并观察到深度图，可以直观感受二维平面图像上的深度。
 ![010-2](assets/a010-2.jpg)
+
 
 ### 互动配置说明
 
@@ -65,28 +85,56 @@ COMTOOL 上位机的配置控件说明
 - Ev 曝光间隙控制（最左代表 AE，其他是固定曝光时间）
 
 
-## 案例：3D 识别人脸
 
-1. 简易介绍
-![a010-6](assets/a010-6.jpg)
+## 案例：检测人流
 
-## 案例：检测运动物体
+高精度，大分辨率的实时监测人流走动的情况统计。
 
-1. 简易介绍
-2. 视频
+![a010-14](assets/a010-14.jpg)
+
+
+
+## 案例：键盘灯跟随
+
+实现超酷炫的键盘灯跟随，实时跟踪手部的位置，再根据手部的位置映射键盘灯。
+
+![tof-1.9](./../assets/tof-1.9.jpg)
+
 
 ## 案例：接入 MCU 
 
-简单介绍
-![a010-7](assets/a010-7.jpg)
-demo 暂未开源，待整理公开
+MS-A010 拥有强大的兼容性，可基于串口协议外接 K210 bit 这样的单片机开发板或树莓派之类的 linux 开发板来进行二次开发。
+
+![a010-13](asstes/../assets/a010-13.jpg)
+获取链接：
+
+
+## 二次开发：串口协议
+
+可参考上方的案例：**K210 bit 外接 MCU**
+
+| AT                             |                                                                                                                                                                                                                |
+| ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| +ISP<br>Image Signal Processor | :0: turn ISP off<br>=1: turn ISP on                                                                                                                                                                            |
+| +BINN<br>full binning          | =1: output 100x100 pixel frame<br>=2: output 50x50 pixel frame<br>=4: output 25x25 pixel frame<br>                                                                                                             |
+| +DISP<br>display mux           | =0: all off<br>=1: lcd display on<br>=2: usb display on<br>=3: lcd and usb display on<br>=4: uart display on<br>=5: lcd and uart display on<br>=6: usb and uart display on<br>=7: lcd, usb and uart display on |
+| +BAUD<br>uart baudrate         | =0: 9600<br>=1: 57600<br>=2: 115200<br>=3: 230400<br>=4: 460800<br>=5: 921600<br>=6: 1000000<br>=7: 2000000<br>=8: 3000000                                                                                     |
+| +UNIT<br>quantization unit     | =0: auto<br>=1-10: quantizated by unit(mm)                                                                                                                                                                     |
+| +FPS<br>frame per second       | =1-19: set frame per second                                                                                                                                                                                    |
+| +Save<br>save config           | : save current configuration                                 |
+
+
+
 
 ## 二次开发：接入 ROS
 ### 接入 ROS1 
 
-1. 准备工作 
-2. 安装运行
-我们提供了 ROS1 的接入功能包，用户需要在运行 ROS1 的系统上编译安装。
+**1. 准备工作** 
+首先，准备适用的环境：Linux 系统
+可使用虚拟机 `virtual box` 或者 `vmware` 也可安装双系统，安装方法请自行查询。
+
+**2. 安装运行**
+由于我们提供的是 ROS2 的接入功能包，运行 ROS1 的话只需切换分支即可。
 
 ```bash
 
@@ -99,20 +147,22 @@ rosrun sipeed_tof_ms_a010 a010_publisher _device:="/dev/ttyUSB0"
 #之后终端会持续刷新显示[sipeed_tof]: Publishing，即正常工作
 
 ```
-3. RQT 查看帧率
-4. RVIZ预览
-打开 rviz，左下角 Add，选择 By topic，选中 PointCloud2 或 /depth 下的 Image 添加。
-如下图，Display/Global Options/Fixed Frame 需要修改成 “tof”，才能正常显示点云。
-根据添加的内容，左侧会显示 Image，中间则显示点云。
-- 伪彩点云
+**3. 可自行在 RQT 查看帧率**
+
+**4. RVIZ2 预览**
+打开 `rviz2` 后，在界面左下角的 `Add`->`By topic`->`PointCloud2或/depth` ->`Image 添加` ->`Display/Global Options/Fixed Frame` 需要修改成 `tof`，才能正常显示点云，根据添加的内容，左侧会显示 `Image` 而中间则显示点云。
 ![a010-8](asstes/../assets/a010-8.jpg)
 
 
 ### 接入 ROS2 
 
-1. 准备工作 
-2. 安装运行
-我们提供了ros2的接入功能包，用户需要在运行ROS2的系统上编译安装。
+**1. 准备工作**
+首先，准备适用的环境：Linux 系统
+可使用虚拟机 `virtual box` 或者 `vmware` 也可安装双系统，安装方法请自行查询。
+
+**2. 安装运行**
+我们提供了 ROS2 的接入功能包，用户需要在运行 ROS2 的系统上编译安装。
+接入包下载连接：
 
 ```bash
 #解压缩 sipeed_tof_ms_a010.zip，并进入目录
@@ -120,15 +170,14 @@ source /opt/ros/*/setup.sh
 colcon build #如提示缺少colcon时需要sudo apt install python3-colcon-ros
 ros2 run sipeed_tof_ms_a010 publisher --ros-args -p device:="/dev/ttyUSB0"
 source install/setup.sh
-```
 #之后终端会持续刷新显示[sipeed_tof]: Publishing，即正常工作。
-3. RQT 查看帧率
+```
+
+**3. RQT 查看帧率**
 
 ![a010-9](asstes/../assets/a010-9.jpg)
 
-4. RVIZ2 预览
-打开 rviz2，左下角 Add，选择 By topic，选中 PointCloud2或/depth 下的 Image 添加。如图，Display/Global Options/Fixed Frame 需要修改成 “tof”，才能正常显示点云,根据添加的内容，左侧会显示Image，中间则显示点云。
-- 伪彩点云
+**4. RVIZ2 预览**
+打开 `rviz2` 后，在界面左下角的 `Add`->`By topic`->`PointCloud2或/depth` ->`Image 添加` ->`Display/Global Options/Fixed Frame` 需要修改成 `tof`，才能正常显示点云，根据添加的内容，左侧会显示 `Image` 而中间则显示点云。
 ![a010-10](assets/a010-10.jpg)
 
-## 二次开发：文本协议
