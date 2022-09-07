@@ -25,14 +25,14 @@ Windows 下载 [ch340 ch341 driver](https://api.dl.sipeed.com/shareURL/MAIX/tool
 一般建议使用 armbian 系统，对于 Tina 系统用户需要有一定的使用基础才能够使用。
 
 Lichee MaixSense 的 Tina 系统配置和 [M2dock](./../M2/usage.md) 基本相同，这里不另作赘述。
-
-- 可以将板子上的摄像头拆下来后再将电脑与该接口相连然后使用 [adb](https://developer.android.google.cn/studio/releases/platform-tools?hl=zh-cn) 工具来操作板子，此操作仅限 Tina 系统。因为不推荐小白使用 Tina 系统，所以此处不再细说
+<!-- 
+- 可以将板子上的摄像头拆下来后再将电脑与该接口相连然后使用 [adb](https://developer.android.google.cn/studio/releases/platform-tools?hl=zh-cn) 工具来操作板子，此操作仅限 Tina 系统。因为不推荐小白使用 Tina 系统，所以此处不再细说 -->
 
 ## armbian 系统配置
 
 根据本文开头描述来将电脑与板子连接且安装 [CH340 驱动](https://dl.sipeed.com/fileList/MAIX/tools/ch340_ch341_driver/CH341SER.EXE) 后，可以在串口软件比如 Xshell 或者 [Mobaxterm](./../M2/tools/mobaxterm.md)中，设置波特率 (baudrate) 为115200，选择板子的串口，连接上板子。
 
-由于所提供的下载镜像分为内置 MaixPy3 的镜像和无 MaixPy3的镜像，所以下面分为两种来说明相关操作。
+由于所提供的下载镜像分为内置 MaixPy3 的镜像和无 MaixPy3 的镜像，所以下面分为两种来说明相关操作。
 
 ### 默认含有 MaixPy3 的镜像
 
@@ -70,7 +70,9 @@ root@maixsense:
 
 ### 不含 MaixPy3 的镜像
 
-由于是全新的镜像，所以首次登录需要设置密码。密码过短或者过于简单的话会被要求重新设置。
+首次使用需要设置密码，第一次使用没有设置密码的话只能重新烧录重新获取设置密码的机会。
+
+密码过短或者过于简单的话会被要求重新设置。
 
 ```bash
 New to Armbian? Documentation: https://docs.armbian.com Support: https://forum.armbian.com
@@ -102,12 +104,14 @@ Repeat password: *********
 
 新建用户后默认给新建的用户授予了 root 权限，以后可以直接使用新建的用户来操作板子。
 
-可以只用 `passwd -d 你新建的用户名` 来删除所新创建用户密码，其中 `你新建的用户名` 应该改成你上面所新建的用户名称。
+我们可以用 `passwd` 命令来删除或者修改密码。
 
-另外可以直接使用 `passwd 你新建的用户名` 来修改你所创建的用户的密码。
+例如我们可以使用 `passwd -d root` 来删除我们开始所创建的 root 用户的密码，也可以使用 `passwd root` 命令来重新设置 root 用户的密码
+
+下面是部分 `passwd` 命令例子 log
 
 ```bash
-root@maixsense:~# passwd ll
+root@maixsense:~# passwd root
 New password:
 Retype new password:
 passwd: password updated successfully

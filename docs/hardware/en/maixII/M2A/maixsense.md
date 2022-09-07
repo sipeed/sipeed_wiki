@@ -38,13 +38,19 @@ MaixSense is a really small Linux card computer. Its package contains a SOM base
 
 **Tina Linux**：Tina Linux is an embedded system built for intelligent hardware products by Allwinner based on openwrt-14.07. Kernel source code, drivers, toolchain, system middleware and application packages can be found @ [https://github.com/sipeed/r329-linux-4.9](https://github.com/sipeed/r329-linux-4.9)
 
-MaixSense not only can run Tina os, but also can run **armbian**, which is built based on debian/ubuntu,this is a really common linux os.
+MaixSense not only can run Tina os, but also can run **armbian**, which is built based on debian/ubuntu, is a really full linux os.
 
 | Name | armbian | Tina |
 |:---|:---|:---|
 |Description| A `Debian OS` for `arm` devices | An OS modified from OpenWRT1404 |
 | Feature | Linux mainline, with many advantages | Deeply modified, well fits hardware |
 | Target user | New Linux user | Linux developer, custome design  |
+
+## Maixsense appearance
+
+<div align="center">
+    <img src="./../../maixII/M2A/assets/M2A-1.gif" alt="Maixsense outlook" >
+</div>
 
 ## MaixSense Specs
 
@@ -104,9 +110,9 @@ MaixSense not only can run Tina os, but also can run **armbian**, which is built
 
 ## Pinout
 
-![R329-pin](./../../assets/../maixII/M2A/assets/R329-pin.png)
+![R329-pin](./../../assets/../maixII/M2A/assets/R329-pin.jpg)
 
-## Download station
+## Others
 
 [MaixSense other related information](https://dl.sipeed.com/shareURL/MaixII/MaixII-A)
 

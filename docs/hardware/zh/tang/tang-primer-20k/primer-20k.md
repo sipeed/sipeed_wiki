@@ -70,7 +70,7 @@ Tang Primer 20K 是基于 [GW2A-V18PG256C8IC8I7](http://www.gowinsemi.com.cn/pro
 		<tr>
 			<td style="text-align:left">内存</td>
 			<td style="text-align:left">128M DDR3</td>
-			<td style="text-align:left">13Row x 10Col x 8banks x 16bits</td>
+			<td style="text-align:left">128Meg x 16</td>
 		</tr>
 		<tr>
 			<td style="text-align:left">Flash</td>
@@ -274,7 +274,7 @@ Tang Primer 20K 是基于 [GW2A-V18PG256C8IC8I7](http://www.gowinsemi.com.cn/pro
 	+ 在线免费教程：[菜鸟教程](https://www.runoob.com/w3cnote/verilog-tutorial.html)（学习Verilog）
 	+ 在线免费 FPGA 教程：[Verilog](https://www.asic-world.com/verilog/index.html)
 	+ Verilog 刷题网站：[HDLBits](https://hdlbits.01xz.net/wiki/Main_Page)
-	+ 在线高云视频教程：[点击这里](http://www.gowinsemi.com.cn/video_complex.aspx?FId=n15:15:26)
+	+ 在线高云半导体视频教程：[点击这里](http://www.gowinsemi.com.cn/video_complex.aspx?FId=n15:15:26)
 
    对 IDE 使用有疑问的话，可以查看官方的一些文档来熟悉相关内容
    - [SUG100-2.6_Gowin云源软件用户指南.pdf](http://cdn.gowinsemi.com.cn/SUG100-2.6_Gowin%E4%BA%91%E6%BA%90%E8%BD%AF%E4%BB%B6%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97.pdf)
@@ -300,6 +300,16 @@ https://github.com/sipeed/TangPrimer-20K-example
 - **QQ 交流群：[834585530](https://jq.qq.com/?_wv=1027&k=wBb8XUan)**
 - 直接本页下方留言
 
+## 补充说明
+
+对于板子上的 bank 0、bank 1、bank 7 这 3 个 bank 电压，默认所接的是 3.3V，对应的 bank IO 会对外输出 3.3V 电压。如果需要输入自定义的 IO bank 电压，请拆除 R5 和 R9，请参考对应 Assembly [点我跳转](https://dl.sipeed.com/shareURL/TANG/Primer_20K/03_Bit_number_map) 图来确定 R5 和 R9 的位置。
+
+![io_vltage](./assets/io_vltage.png)
+
+对应核心板原理图上在金手指处的说明如下
+
+![sodimm_voltage](./assets/sodimm_voltage.png)
+
 ## 相关问题
 
 ### 如何下载到外部 FLASH
@@ -312,5 +322,13 @@ https://github.com/sipeed/TangPrimer-20K-example
 <img src="./assets/device_choose.png" alt="device_choose" width=75%><br>
 <!-- ![device_choose](./assets/device_choose.png) -->
 然后检查自己的代码和对应的仿真波形是否满足要求
+
+### 之前成功烧录过一次外部 Flash 后 Programmer 软件无法再烧录
+
+注意描述是之前成功烧录过一次 Flash。
+
+这种情况默认为启用了错误的引脚复用而导致下载器不能再识别到 FPGA 的 JTAG。解决办法是在芯片通电前将核心板上的 Flash 使能引脚拉高来阻止 FPGA 加载固件。使用金属将板子上的 Flash 短接后再通电即可解决。短接的具体位置见下图 Flash 处两侧的红框处。
+
+![flash_cs](./assets/flash_cs.png)
 
 ### 更多问题及其解决办法前往[相关问题](./../Tang-Nano-Doc/questions.md)查看

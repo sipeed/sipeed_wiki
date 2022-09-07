@@ -486,7 +486,6 @@
         },
         {
             "label": "MaixSense",
-            "file": "./MaixSense/intro_cn.md",
             "collapsed": false,
             "items": [
                 {
@@ -496,12 +495,15 @@
                 {
                     "label": "Tina R329 swupdate OTA 步骤 ",
                     "file": "MaixSense/contribution/Tina_R329_swupdate_OTA.md"
+                },
+                {
+                    "label": "Maix-Speech 的相关使用",
+                    "file": "MaixSense/application/Speech_usage_zh.md"
                 }
             ]
         },
         {
             "label": "Lichee RV",
-            "file": "./Lichee-RV/intro_cn.md",
             "collapsed": false,
             "items": [
                 {
