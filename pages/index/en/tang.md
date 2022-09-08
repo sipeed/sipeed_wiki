@@ -1,3 +1,4 @@
-<head>
-<meta http-equiv="refresh" content="0.1;url=/soft/Tang/en/index_bak.html">
-</head>
+---
+layout: redirect
+redirect_url: /hardware/en/tang/index.html
+---

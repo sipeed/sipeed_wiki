@@ -1,8 +1,6 @@
-# Tang Serial Development Board
+# Tang Series Development Board
 
-> Overview
-
-Tang Serial development boards are devided into Tang Nano serial  development boardand Tang Primer serial development board.
+Tang Series development boards are devided into Tang Nano series  development boardand Tang Primer series development board.
 
 ## Product on sale
 

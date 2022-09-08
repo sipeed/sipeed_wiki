@@ -1,8 +1,6 @@
 ---
-title: Summary
+title: Tang Nano
 ---
-
-> Edit on 2022.04.06
 
 Tang Nano series development boards are designed based on [Gowin](https://www.gowinsemi.com/en/) FPGA chip. Mutiple models of development board meets various requirements. 
 - Tang nano 1K with a extremely low price can lead user into FPGA fields

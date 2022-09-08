@@ -4,8 +4,6 @@ keywords: Sipeed, Hardware, Sipeed, Hardware specifications, Documentation, Down
 desc: Sipeed hardware documentation website
 ---
 
-# Sipeed Hardware WIKI
-
 ## Maix Series
 
 A series of development boards based on **K210**, meets the needs of different groups of people
@@ -32,7 +30,9 @@ FPGA Development board
 
 ## Metasense Module
 
-Waiting picture
+3D TOF Module
+
+[![](./../assets/metasense.jpg)](./metasense/readme.md)
 
 ## Longon Series
 

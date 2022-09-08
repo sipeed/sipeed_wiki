@@ -2,15 +2,18 @@
     "items": [
         {
             "label": "简介",
-            "file" : "./readme.md"
-        },
-        {
-            "label": "修改页面",
-            "file" : "./change_doc.md"
-        },
-        {
-            "label": "添加文档",
-            "file" : "./add_doc.md"
+            "file": "./readme.md",
+            "collapsed": false,
+            "items": [
+                {
+                    "label": "修改页面",
+                    "file": "./change_doc.md"
+                },
+                {
+                    "label": "添加文档",
+                    "file": "./add_doc.md"
+                }
+            ]
         }
     ]
 }

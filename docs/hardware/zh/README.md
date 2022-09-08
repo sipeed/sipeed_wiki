@@ -30,7 +30,9 @@ FPGA 开发板
 
 ## Metesense 模组
 
-待插入图片
+3D TOF 模组
+
+[![](./../assets/metasense.jpg)](./metasense/readme.md)
 
 ## Longon 系列
 
