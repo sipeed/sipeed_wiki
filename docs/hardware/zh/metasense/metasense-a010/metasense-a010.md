@@ -7,7 +7,7 @@
 
 ## 产品概述
 
-![a010-11](asstes/tof/../../assets/a010-11.jpg)
+![ms_small](asstes/tof/../../assets/ms_s.jpg)
 MetaSense-A010 是由 Sipeed 所推出的一款由 BL702 + 炬佑 100x100 TOF 所组成的极致性价比 3D 传感器模组，最大支持 100x100 的分辨率和 8 位精度，并且自带 240×135 像素的 LCD 显示屏来实时预览 color map 后的深度图 。
 
 **资料汇总**
@@ -23,13 +23,13 @@ MetaSense-A010 是由 Sipeed 所推出的一款由 BL702 + 炬佑 100x100 TOF �
 
 **产品接线说明**
 通过 type-c 接口连接电脑后，可以识别到 /dev/ttyUSBx（Linux）或COMx（Windows）。
-![a010-12](asstes/../assets/a010.12.jpg)
+![ms_pinb](asstes/../assets/ms_pinb.jpg)
 
 还可通过 usb2ttl 模组按照硬件引脚图连接 4pin 母座。
 硬件引脚图：屏幕正面朝下
 <html>
-  <img src="./asstes/../assets/a010-12.jpg" width=48%>
-  <img src="./asstes/../assets/a010-5.jpg" width=48%>
+  <img src="./asstes/../assets/ms_pin.jpg" width=48%>
+  <img src="./asstes/../assets/ms_pinc.jpg" width=48%>
 </html>
 
 <table>
@@ -57,15 +57,15 @@ Linux 系统：不提供软件压缩包，需用户自行编译 [获取跳转](h
 
 ### 上电互动预览
 将设备通电后，可在设备上自带 LCD 屏实时预览 color map 后的深度伪彩图。
-![010-3](assets/a010-3.jpg)
+![ms_comtool](assets/ms_comtool.jpg)
 
 ### PC 预览和微调
 1. 打开 COMTOOL 软件后，如果软件上方无 Graph 的话，可在右上角 + 号处添加 Graph 。
 2. 左侧选择 Port 和对应波特率（忽略 USB 串口，可任意选择高波特率），选择 MaixSenseLite 后点击 open 后再勾选下方 USB 即可接收大量数据。
 
-![010-1](assets/a010-1.jpg)
+![ms_comtoolb](assets/ms_comtoolb.jpg)
 3. 设定 Header 为 \x00\xFF 即可正确解析图像数据并观察到深度图，可以直观感受二维平面图像上的深度。
-![010-2](assets/a010-2.jpg)
+![ms_comtoolc](assets/ms_comtoolc.jpg)
 
 
 ### 互动配置说明
@@ -92,18 +92,18 @@ COMTOOL 上位机的配置控件说明
 ## 案例：检测人流
 高精度，大分辨率的实时监测人流走动的情况并统计。
 
-![msone-people](./assets/ms-people.jpg)
+![ms_people](./assets/ms-people.jpg)
 
 ## 案例：键盘灯跟随
 实现超酷炫的键盘灯跟随，实时跟踪手部的位置，再根据手部的位置映射键盘灯。
 
-![](./assets/ms-larm.jpg)
+![ma_lamp](./assets/ms_lamp.jpg)
 
 
 ## 案例：接入 MCU 
 MS-A010 拥有强大的兼容性，可基于串口协议外接 K210 bit 这样的单片机开发板或树莓派之类的 linux 开发板来进行二次开发。
 [MS-A010 外接 K210 bit 源码获取](./metasense-a010/../code.html#tof_mainpy)
-![ms-mcu](./assets/ms-mcu.jpg)
+![ms_mcu](./assets/ms_mcu.jpg)
 
 
 
@@ -139,7 +139,7 @@ rosrun sipeed_tof_ms_a010 a010_publisher _device:="/dev/ttyUSB0"
 
 **4. RVIZ2 预览**
 打开 `rviz2` 后，在界面左下角的 `Add`->`By topic`->`PointCloud2或/depth` ->`Image 添加` ->`Display/Global Options/Fixed Frame` 需要修改成 `tof`，才能正常显示点云，根据添加的内容，左侧会显示 `Image` 而中间则显示点云。
-![ms-rviz](asstes/../assets/ms-RVIZ.jpg)
+![ms_rviz](asstes/../assets/ms_rviz.jpg)
 
 
 ### 接入 ROS2 
@@ -163,9 +163,9 @@ source install/setup.sh
 
 **3. RQT 查看帧率**
 
-![ms-rqt](asstes/../asstes/../assets/ms-rqt.jpg)
+![ms_rqt](asstes/../asstes/../assets/ms_rqt.jpg)
 
 **4. RVIZ2 预览**
 打开 `rviz2` 后，在界面左下角的 `Add`->`By topic`->`PointCloud2或/depth` ->`Image 添加` ->`Display/Global Options/Fixed Frame` 需要修改成 `tof`，才能正常显示点云，根据添加的内容，左侧会显示 `Image` 而中间则显示点云。
-![ms-ros](assets/ms-rqt.jpg)
+![ms_ros](assets/ms_ros.jpg)
 

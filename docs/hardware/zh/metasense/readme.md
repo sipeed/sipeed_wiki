@@ -9,16 +9,16 @@ MetaSense 系列产品搭载 TOF 深度摄像头，目前主要有 MetaSense-A01
 - 而 MS-A075V 是一款具有 RGB 功能的 3D TOF 摄像机模组，该模组可以实现 Linux 免驱的即插即用，实现实时彩色 3D 显示。
 
 
-<img src="./assets/tof-1.6.jpg" alt="summary" width=100%>
+<img src="./assets/meta.jpg" alt="summary" width=100%>
 
 购买方式：众筹预售购买连接
 
 
 
 
-|              |<p style="white-space:nowrap">MateSense-A010</p > | <p style="white-space:nowrap">MateSense-A075V</p > | 
+|              |<p style="white-space:nowrap">MateSense-A010</p> | <p style="white-space:nowrap">MateSense-A075V</p> | 
 | :----------- |:----------------------------------------------- | :------------------------------------------------- | 
-|              |![tof-1.3](./assets/tof-1.3.jpg)                | ![tof-1.2](./assets/tof-1.2.jpg)                  | 
+|              |![me-small](./assets/me_small.jpg)                | ![me-big](./assets/me_big.jpg)                  | 
 | 接口         | 1.25mm 串口连接器 \*1<br>Type-C USB2.0 \*1       | 1.25mm 串口连接器 \*1 <br>Type-C USB2.0 \*1         |
 | 分辨率       |TOF：100x100@30fps                               | RGB：1600x1200@30fps<br>TOF：320x240@60fps         | 
 | 视场角       |RGB：无<br>TOF：70°(H) * 60°(V)                  | RGB：120°<br>TOF：55°(H)*72°(H)                    | 
@@ -41,7 +41,7 @@ MetaSense 系列产品搭载 TOF 深度摄像头，目前主要有 MetaSense-A01
 ### 案例：人流统计
 可高精度、大分辨率的实时监测人流走动的情况并统计。
 
-![ms-people](./metasense-a010/assets/ms-people.jpg)
+![me_people](./metesense/../assets/me_people.jpg)
 
 ### 案例：小车避障
 可搭载于小车移动并判断画面是否有障碍物，模组自带 LCD 屏幕精准显示距离并做出反应规避障碍物。
@@ -51,23 +51,23 @@ MetaSense 系列产品搭载 TOF 深度摄像头，目前主要有 MetaSense-A01
 ### 案例：键盘灯跟随
 实现超酷炫的键盘灯跟随，实时跟踪手部的位置，再根据手部的位置映射键盘灯。
 
-![,s-lamp](./assets/../metasense-a010/assets/ms-lamp.jpg)
+![ms_lamp](./assets/../metasense-a010/ammets/../assets/ms_lamp.jpg)
 
 ### 案例：体积测量
 通过 SDK 获取到的相机内参后计算出初略的点云，做累加得到全部的总体积，达到体积测量的效果。
-![tof-a0757](assets/../metasense-a075v/assets/tof-7.png)
+![mt_volume](assets/../metasense-a075v/assets/mt_volume.jpg)
 
-### [案例：外接 MCU](./metasense-a010/code.html#tof_mainpy)
+### 案例：外接 MCU
 
 MS-A010 拥有强大的兼容性，基于串口协议的数据传输，可外接 K210 bit 这样的单片机开发板或树莓派之类的 linux 开发板来进行二次开发。
-![a010-13](assets/../metasense-a010/assets/ms-mcu.jpg)
+![ms_mcu](assets/../metasense-a010/assets/ms-mcu.jpg)
 
 
 ### 案例：接入 ROS1 + ROS2
 双支持 ROS 系统，开放 ROS1+ROS2 接入功能包，可快速获得深度数据及深度图。
 <html>
-  <img src="./assets/tof-1.13.jpg" width=49%>
-  <img src="./assets/tof-1.12.jpg" width=49%>
+  <img src="./assets/me_ross.jpg" width=49%>
+  <img src="./assets/me_rosb.jpg" width=49%>
 </html>
 
 
