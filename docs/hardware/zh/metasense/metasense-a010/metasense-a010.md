@@ -52,11 +52,11 @@ MetaSense-A010 是由 Sipeed 所推出的一款由 BL702 + 炬佑 100x100 TOF �
 
 **COMTOOL 软件包**
 Windows 系统连接：下载压缩包后解压安装即可。
-Linux 系统：不提供软件压缩包，需用户自行编译。
+Linux 系统：不提供软件压缩包，需用户自行编译 [获取跳转](https://github.com/sipeed/COMTool)。
 注意：Win 7 及以下系统需装驱动，可自行前往 FTDI 官网下载。
 
 ### 上电互动预览
-将设备通电后，可在设备上自带 LCD 屏实时预览 color map 后的深度伪彩图
+将设备通电后，可在设备上自带 LCD 屏实时预览 color map 后的深度伪彩图。
 ![010-3](assets/a010-3.jpg)
 
 ### PC 预览和微调
@@ -84,44 +84,32 @@ COMTOOL 上位机的配置控件说明
 - FPS 设置出图帧率（不宜过高，根据对接设备的性能合理设置即可，减小帧率可以减少传输数据量）
 - Ev 曝光间隙控制（最左代表 AE，其他是固定曝光时间）
 
+## 案例：远近中物体实拍
+物体摆放距离形成差异，模组通过捕捉到的深度值的差异显示冷暖色调，更直观了解 `TOF` 技术。
 
+![](./assets/../../assets/tof-1.10.jpg)
 
 ## 案例：检测人流
+高精度，大分辨率的实时监测人流走动的情况并统计。
 
-高精度，大分辨率的实时监测人流走动的情况统计。
-
-![a010-14](assets/a010-14.jpg)
-
-
+![msone-people](./assets/ms-people.jpg)
 
 ## 案例：键盘灯跟随
-
 实现超酷炫的键盘灯跟随，实时跟踪手部的位置，再根据手部的位置映射键盘灯。
 
-![tof-1.9](./../assets/tof-1.9.jpg)
+![](./assets/ms-larm.jpg)
 
 
 ## 案例：接入 MCU 
-
 MS-A010 拥有强大的兼容性，可基于串口协议外接 K210 bit 这样的单片机开发板或树莓派之类的 linux 开发板来进行二次开发。
+[MS-A010 外接 K210 bit 源码获取](./metasense-a010/../code.html#tof_mainpy)
+![ms-mcu](./assets/ms-mcu.jpg)
 
-![a010-13](asstes/../assets/a010-13.jpg)
-获取链接：
 
 
 ## 二次开发：串口协议
 
 可参考上方的案例：**K210 bit 外接 MCU**
-
-| AT                             |                                                                                                                                                                                                                |
-| ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| +ISP<br>Image Signal Processor | :0: turn ISP off<br>=1: turn ISP on                                                                                                                                                                            |
-| +BINN<br>full binning          | =1: output 100x100 pixel frame<br>=2: output 50x50 pixel frame<br>=4: output 25x25 pixel frame<br>                                                                                                             |
-| +DISP<br>display mux           | =0: all off<br>=1: lcd display on<br>=2: usb display on<br>=3: lcd and usb display on<br>=4: uart display on<br>=5: lcd and uart display on<br>=6: usb and uart display on<br>=7: lcd, usb and uart display on |
-| +BAUD<br>uart baudrate         | =0: 9600<br>=1: 57600<br>=2: 115200<br>=3: 230400<br>=4: 460800<br>=5: 921600<br>=6: 1000000<br>=7: 2000000<br>=8: 3000000                                                                                     |
-| +UNIT<br>quantization unit     | =0: auto<br>=1-10: quantizated by unit(mm)                                                                                                                                                                     |
-| +FPS<br>frame per second       | =1-19: set frame per second                                                                                                                                                                                    |
-| +Save<br>save config           | : save current configuration                                 |
 
 
 
@@ -130,7 +118,7 @@ MS-A010 拥有强大的兼容性，可基于串口协议外接 K210 bit 这样�
 ### 接入 ROS1 
 
 **1. 准备工作** 
-首先，准备适用的环境：Linux 系统
+首先，准备适用的环境：`Linux` 系统
 可使用虚拟机 `virtual box` 或者 `vmware` 也可安装双系统，安装方法请自行查询。
 
 **2. 安装运行**
@@ -151,13 +139,13 @@ rosrun sipeed_tof_ms_a010 a010_publisher _device:="/dev/ttyUSB0"
 
 **4. RVIZ2 预览**
 打开 `rviz2` 后，在界面左下角的 `Add`->`By topic`->`PointCloud2或/depth` ->`Image 添加` ->`Display/Global Options/Fixed Frame` 需要修改成 `tof`，才能正常显示点云，根据添加的内容，左侧会显示 `Image` 而中间则显示点云。
-![a010-8](asstes/../assets/a010-8.jpg)
+![ms-rviz](asstes/../assets/ms-RVIZ.jpg)
 
 
 ### 接入 ROS2 
 
 **1. 准备工作**
-首先，准备适用的环境：Linux 系统
+首先，准备适用的环境：`Linux` 系统
 可使用虚拟机 `virtual box` 或者 `vmware` 也可安装双系统，安装方法请自行查询。
 
 **2. 安装运行**
@@ -175,9 +163,9 @@ source install/setup.sh
 
 **3. RQT 查看帧率**
 
-![a010-9](asstes/../assets/a010-9.jpg)
+![ms-rqt](asstes/../asstes/../assets/ms-rqt.jpg)
 
 **4. RVIZ2 预览**
 打开 `rviz2` 后，在界面左下角的 `Add`->`By topic`->`PointCloud2或/depth` ->`Image 添加` ->`Display/Global Options/Fixed Frame` 需要修改成 `tof`，才能正常显示点云，根据添加的内容，左侧会显示 `Image` 而中间则显示点云。
-![a010-10](assets/a010-10.jpg)
+![ms-ros](assets/ms-rqt.jpg)
 
