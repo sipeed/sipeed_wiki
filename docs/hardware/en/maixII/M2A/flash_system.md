@@ -22,18 +22,21 @@ Download armbian system image from MEGA ：https://mega.nz/folder/1B4RFKpK#X0tMw
 
 The image named with maixpy3 means this image has installed MaixPy3 and its related drivers
 
-This image file is created by [dd](https://en.wikipedia.org/wiki/Dd_(Unix)). It's suggested to download Etcher according to your OS to burn the sdcard.
+This image file is created by [dd](https://en.wikipedia.org/wiki/Dd_(Unix)). So we use [Etcher](https://www.balena.io/etcher/ "Etcher")  to burn our image card.
 
 ### Tina system image
 
 Tina os need to be compiled by yourself, visit [https://github.com/sipeed/R329-Tina-jishu](https://github.com/sipeed/R329-Tina-jishu) for imformation.
 
-Its burning method is the same as MaixII Dock, visit [Buring MaixII-Dock OS](./../M2/flash.html#Buring-system) for detailed steps.
-
 ## Burn system
 
-Get software:
-- [Etcher](https://www.balena.io/etcher/ "Etcher")
+### Burn armbian image
+
+#### Get software
+
+[Etcher](https://www.balena.io/etcher/ "Etcher")
+
+#### Burn steps
 
 Exteact your downloaded image file to get the `.img` file, run Etcher, click `Flash from file`, choose the extracted .img file, click `Select target` and choose your sdcard, click `Flash` to burn your sdcard, wait it for finishing.
 
@@ -41,16 +44,6 @@ Exteact your downloaded image file to get the `.img` file, run Etcher, click `Fl
 
 If failed burning, try to format your sdcard. For Windows and macos users we suggest use [SD Card Formatter](https://www.sdcard.org/downloads/formatter/eula_windows/SDCardFormatterv5_WinEN.zip "SDCardFormatter") to format sdcard, while for linuc users can try [Gparted](https://gparted.org/).
 
-## Use Serial communication
+### Burn Tina image
 
-- Plug in Type C cable into the usb port marked Debug, then you can use serial terminal to control this board
-
-### Linux & macOS
-
-For linux OS, use command `ls /dev/ttyUSB*` to see your device COM number, then use serial application to connect the board.
-
-### Windows
-
-Lichee MaixSense equips with CH340 as serial chip, but we need install its driver to use it.
-
-[Click this](https://api.dl.sipeed.com/shareURL/MAIX/tools/ch340_ch341_driver) to download the driver for this serial chip, after installing this driver, you can find your device serial port from `Device manager`
+Its burning steps are the same as MaixII Dock, visit [Buring MaixII-Dock OS](./../M2/flash.html#Buring-system) for detailed steps.

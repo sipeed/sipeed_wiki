@@ -30,7 +30,6 @@ armbian 镜像所打包的方法为 [dd](https://baike.baidu.com/item/DD/2654972
 
 Tina 系统需要自己进行编译，具体编译方式参考 [https://github.com/sipeed/R329-Tina-jishu](https://github.com/sipeed/R329-Tina-jishu)
 
-
 ## 烧录镜像
 
 ### armbian 镜像烧录

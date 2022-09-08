@@ -36,9 +36,9 @@ R329 芯片是由全志科技所设计双核 Cortex-A53 64 位处理器 ，配�
 
 MaixSense 开发板可能是市面上最小的 Linux 卡片电脑。本套件包含一个搭载全志 R329 的高度集成 SOM 核心板，以及一个多功能 IO 扩展底板，可以运行 Linux 系统, 并具备出色的扩展功能。您可以将它用于搭建个人服务器、开发智能语音助手、设计机器人等场景。它通过内置的周易 AIPU 处理器同时支持智能语音和视频图像处理，开发者可以直接在开发板上跑通 CV , NLP 等 AI 模型。
 
-**Tina Linux**：全志科技基于 Linux 内核开发的针对智能硬件类产品的嵌入式软件系统。Tina Linux基于 openwrt-14.07 版本的软件开发包,包含了Linux系统开发用到的内核源码、驱动、工具、系统中间件与应用程序包。
+**Tina Linux**：全志科技基于 Linux 内核开发的针对智能硬件类产品的嵌入式软件系统。Tina Linux基于 openwrt-14.07 版本的软件开发包,包含了Linux系统开发用到的内核源码、驱动、工具、系统中间件与应用程序包。可以从 [https://github.com/sipeed/r329-linux-4.9](https://github.com/sipeed/r329-linux-4.9) 获取到 Tina sdk。
 
-但是 MaixSense 不只是可以运行 Tina ，还可以运行**armbian**，这是一个真正**完整**的 linux 系统，armbian 是基于 debian/ubuntu 进行开发的。
+但是 MaixSense 不只是可以运行 Tina ，还可以运行 **armbian**，这是一个真正**完整**的 linux 系统，armbian 是基于 debian/ubuntu 进行开发的。
 
 |   名称   |               armbian               |               Tina               |
 | ------ | --------------------------------- | ------------------------------ |
@@ -50,7 +50,7 @@ MaixSense 开发板可能是市面上最小的 Linux 卡片电脑。本套件包
 ## MaixSense外观预览
 
 <div align="center">
-    <img src="./assets/M2A-1.gif">
+    <img src="./assets/M2A-1.gif" alt="Maixsense outlook" >
 </div>
 
 

@@ -2,8 +2,6 @@
 title: Tang 系列开发板
 ---
 
-> 编辑于 2022 年 7 月 21 日
-
 Tang 系列开发板主要分为 Tang Nano 和 Tang Primer 两个系列。
 
 ## 当前产品
