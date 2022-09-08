@@ -322,13 +322,13 @@ https://github.com/sipeed/TangPrimer-20K-example
 <img src="./assets/device_choose.png" alt="device_choose" width=75%><br>
 <!-- ![device_choose](./assets/device_choose.png) -->
 然后检查自己的代码和对应的仿真波形是否满足要求
-
+<!-- 
 ### 之前成功烧录过一次外部 Flash 后 Programmer 软件无法再烧录
 
 注意描述是之前成功烧录过一次 Flash。
 
 这种情况默认为启用了错误的引脚复用而导致下载器不能再识别到 FPGA 的 JTAG。解决办法是在芯片通电前将核心板上的 Flash 使能引脚拉高来阻止 FPGA 加载固件。使用金属将板子上的 Flash 短接后再通电即可解决。短接的具体位置见下图 Flash 处两侧的红框处。
 
-![flash_cs](./assets/flash_cs.png)
+![flash_cs](./assets/flash_cs.png) -->
 
 ### 更多问题及其解决办法前往[相关问题](./../Tang-Nano-Doc/questions.md)查看
