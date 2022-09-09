@@ -31,7 +31,6 @@ desc: maixpy doc: 其他事项
 <html>
     <img src="./asserts/other/1.3.png" width=45%>
     <img src="./asserts/other/2.4.jpg" width=45%>
-<style>
 </html>
 
 转接板上面的 1 如下所示
