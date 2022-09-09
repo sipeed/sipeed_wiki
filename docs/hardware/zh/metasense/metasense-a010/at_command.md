@@ -12,6 +12,7 @@
 | +FPS<br>frame per second       | =1-19: set frame per second                                                                                                                                                                                    |
 | +Save<br>save config           | : save current configuration                                 |
 
+句法：
 
 |输入|执行|注释|
 |---|---|---|
@@ -19,14 +20,17 @@
 |AT+ISP=? |\r|返回所有支持的ISP状态|
 |AT+ISP=< MODE >|\r|选择ISP状态|
 
+
 参数：
+
 |< MODE >  | 含义 |
 |----|----|
 |0 "STOP ISP"   |立即关闭模组ISP，停止IR发射器|
 |1 "LAUNCH ISP" |计划启动模组ISP，实际出图需等待1～2秒|
 
-BINN指令
+### BINN指令
 句法：
+
 | 输入 | 执行 | 注释 |
 |----|----|----|
 | AT+BINN? | \r | 返回当前BINN状态 |
@@ -34,6 +38,7 @@ BINN指令
 | AT+BINN= < MODE > | \r | 选择BINN状态 |
 
 参数：
+
 | < MODE > | 含义 |
 |----------|------|
 | 1 "1x1 BINN" | 1x1相当于无binning，实际出图分辨率为100x100。 |
@@ -41,7 +46,7 @@ BINN指令
 | 4 "4x4 BINN" | 4×4binning，16个像素点合并成1个，实际出图分辨率为25×25。 |
 
 
-DISP指令
+### DISP指令
 请按需开启，避免资源过度占用
 句法：
 
@@ -65,7 +70,7 @@ DISP指令
 | 6 | usb and uart display on |
 | 7 | lcd, usb and uart display on |
 
-BAUD指令
+### BAUD指令
 句法：
 
 | 输入 | 执行 | 注释 |
@@ -88,7 +93,7 @@ BAUD指令
 | 7 | 2000000 |
 | 8 | 3000000 |
 
-UNIT指令
+### UNIT指令
 句法：
 
 | 输入 | 执行 | 注释 |
@@ -98,67 +103,54 @@ UNIT指令
 | AT+UNIT=< UINT > | \r | 选择UNIT值 |
 
 参数：
+
 | < UINT > | 含义 | 
 |----------|------|
-| 0 "DEFAULT UNIT" | 采用默认量化策略，因tof特性导致成像近处精度优于远距离处，故放大近距离处差异，采用5.1*sqrt(x)将16bit的原数据量化为8bit
-| 1...9 "QUANTIZE UNIT"s
+| 0 "DEFAULT UNIT" | 采用默认量化策略，因tof特性导致成像近处精度优于远距离处，故放大近距离处差异，采用5.1*sqrt(x)将16bit的原数据量化为8bit |
+| 1...9 "QUANTIZE UNIT" | 代表以x mm为单位进行量化，取值越小细节越多，同时可视距离越短，请合理设置 |
 
-代表以x mm为单位进行量化，取值越小细节越多，同时可视距离越短，请合理设置
-FPS指令
+### FPS指令
 句法：
-输入
-执行
-注释
-AT+FPS?
-\r
-返回当前FPS值
-AT+FPS=?
-\r
-返回所有支持的FPS值
-AT+FPS=<FPS>
-\r
-选择FPS值
+
+| 输入 | 执行 | 注释 |
+|------|-----|------|
+| AT+FPS? | \r | 返回当前FPS值 |
+| AT+FPS=? | \r | 返回所有支持的FPS值 |
+| AT+FPS=<FPS> | \r | 选择FPS值 |
+
 参数：
-< FPS >
-含义
-1...19 "frame per second"
 
-tof出图帧率，越大越流畅
-SAVE指令
-句法：
-输入
-执行
-注释
-AT+SAVE
-\r
-固化TOF摄像头当前配置，事后需要复位
+| < FPS > | 含义 |
+|---------|------|
+| 1...19 "frame per second" | tof出图帧率，越大越流畅 |
 
-多机 和 AE 指令建议加入
-ANTIMMI指令
+### SAVE指令
 句法：
-输入
-执行
-注释
-AT+ANTIMMI?
-\r
-返回当前ANTIMMI状态
-AT+ANTIMMI=?
-\r
-返回所有支持的ANTIMMI状态
-AT+ANTIMMI=<MODE>
-\r
-选择ANTIMMI状态
+
+| 输入 | 执行 | 注释 |
+|------|------|-----|
+| AT+SAVE | \r | 固化TOF摄像头当前配置，事后需要复位 |
+
+多机和 AE 指令建议加入
+
+### ANTIMMI指令
+句法：
+
+| 输入 | 执行 | 注释 |
+|------|------|-----|
+| AT+ANTIMMI? | \r    | 返回当前ANTIMMI状态       |
+| AT+ANTIMMI=? | \r   | 返回所有支持的ANTIMMI状态  |
+| AT+ANTIMMI=< MODE > | \r | 选择ANTIMMI状态      |
+
 参数：
-<MODE>
-含义
--1
-disable anti-mmi
-0
-auto anti-mmi
-1-41
-manual anti-mmi usb display on
 
-图像数据包说明
+| < MODE > | 含义 |
+|----------|------|
+| -1       | disable anti-mmi               |
+| 0        | auto anti-mmi                  |
+| 1-41     | manual anti-mmi usb display on |
+
+### 图像数据包说明
 上电默认启动ISP并在显示屏显示图像，同时输出图像数据到uart和usb
 图像数据封装成包（未稳定）：
 1. 包头2字节：0X00、0XFF 

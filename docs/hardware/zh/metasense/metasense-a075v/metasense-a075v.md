@@ -16,6 +16,7 @@ MS-A075V 是由 Sipeed 所推出的一款具有 RGB 功能的 3D TOF 摄像机�
 硬件接线图：
 
 ## 产品开箱指南
+
 ### 准备工作
 
 **接线说明**
@@ -42,6 +43,7 @@ Windows 系统需安装驱动才可正常运行。
 ![mt_examlec](assets/mt_examlec.jpg)
 
 ### 互动配置
+
 上位机交互面板提供了一系列配置和功能，可以实时预览变动的效果。
 ![mt_examled](assets/mt_examled.jpg)
 
@@ -76,18 +78,20 @@ Windows 系统需安装驱动才可正常运行。
 
 ## 案例：避障小车
 
-模组可搭载小车或无人机来回移动获取障碍物的远近深度值，并通过差异判断画面中是否有障碍物，做出快速反应并精准规避障碍物（例程暂未开源，待整理公开)
+模组可搭载小车或无人机来回移动获取障碍物的远近深度值，并通过差异判断画面中是否有障碍物，做出快速反应并精准规避障碍物。
 <html>
   <img src="./assets/../../assets/me_car.jpg" width=48%>
   <img src="./assets/../../assets/me_cars.jpg" width=48%>
 </html>
+（例程暂未开源，待整理公开)
 
 ## 案例：检测人流
 
-高精度，大分辨率的实时监测人流走动的情况统计。
+可实时监控人流，进行更高精度以及大分辨率的统计。
 
 ![mt_people](assets/../../metasense-a010/assets/../../metasense-a075v/assets/mt_people.jpg)
-暂未开源 待整理公开
+
+（例程暂未开源，待整理公开)
 
 ## 二次开发：SDK 支持
 
@@ -97,22 +101,19 @@ Windows 系统需安装驱动才可正常运行。
 **SDK 获取方式**：
 **使用方式**：安装 jupyter 后连接 MS-A075V 打开我们提供的 `toturial.py` 即可。
 
-
 ### 解包推流 
 理解了上述 `python SDK` 数据获取和解码的逻辑后，我们可以尝试进阶版，连续获取解码并调用第三方 `python` 图像库，例如：matplotlib 进行实时显示。而 `toturial.py` 给出了获取一帧数据的逻辑实现，通过 plt 显示并外套循环即可做到实时显示。
 
-**解包推流**：`python stream.py`  [点我查看 stream.py 内容](./../metasense-a010/code.html#streampy)
+**解包推流**：[点我查看 stream.py 内容](./../metasense-a010/code.html#streampy)
 **使用方式**：装好所有的依赖包后即可 `python stream.py` 运行。
 ![mt_sdk](assets/mt_sdk.jpg)
-
 
 ### 检测体积
 基于第三方 `python` 包，理解了上述数据获取和解码的逻辑后，再次进阶，持续显示多帧并且再通过 SDK 获取模组内参数后计算出粗略的点云，做累加得到总体积。限制：要求俯视图可以看到除底面外的所有细节。
 
-**检测体积**：
+**检测体积**：[点我查看 calVolumes.py 内容](./../metasense-a010/code.html#calvolumespy)
 **使用方式**：装好所有的依赖包后即可 `python calVolumes.py` 运行，命令行有后续操作提示。
 ![mt_volumbs](assets/mt_volumbs.jpg)
-
 
 ## 二次开发：接入 ROS
 ### 接入 ROS1
@@ -139,7 +140,6 @@ rosrun sipeed_tof_cpp publisher
 **4. RVIZ 预览**
 打开 `rviz2` 后，在界面左下角的 `Add`->`By topic`->`PointCloud2或/depth` ->`Image 添加` ->`Display/Global Options/Fixed Frame` 需要修改成 `tof`，才能正常显示点云，根据添加的内容，左侧会显示 `Image` 而中间则显示点云。
 ![mt_ros](assets/mt_ros.jpg)
-
 
 ### 接入 ROS2
 **1. 准备工作**
