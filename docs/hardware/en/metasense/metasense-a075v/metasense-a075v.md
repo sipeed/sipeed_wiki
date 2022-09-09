@@ -6,9 +6,6 @@
 
 MS-A075V is a 3D TOF camera module with RGB designed by Sipeed, can display the live 3D picture.
 
-- Hardware information:
-- Wiring diagram:
-
 ## User Guide
 
 ### Preparation
@@ -30,8 +27,10 @@ Before using this device, make sure that the 192.168.233.0/24 address segment is
 2. It takes a while for MS-A075V gets ready after power-up, then run your browser and open the URL http://192.168.233.1 to preview the 3D point cloud map.
 3. These are the examples caputred by MS-A075V(From the front and the side).
 
-<img src="./../../../zh/metasense/metasense-a075v/assets/mt_examle.jpg" width=45%>
-<img src="./../../../zh/metasense/metasense-a075v/assets/mt_examleb.jpg" width=45%>
+<html>
+  <img src="./../../../zh/metasense/metasense-a075v/assets/mt_examle.jpg" width=48%>
+  <img src="./../../../zh/metasense/metasense-a075v/assets/mt_examleb.jpg" width=48%>
+</html>
 
 4. We can preview the depth pseudo-color point cloud map. Open the interaction panel in the upper right corner, uncheck RGB_Map in the first line.
 
@@ -77,16 +76,18 @@ High-precision mapping of differences in object placement distances, point cloud
 ### Car avoid obstacles
 
 The module can be carried by a car or drone to move back and forth to obtain the depth value of the obstacle, and judge whether there is an obstacle in the screen through the difference, make a rapid response and accurately avoid the obstacle (the example has not been open sourced, will be sorted out and disclosed).
-
-![tof-a0756](./../../../zh/metasense/metasense-a075v/assets/tof-6.jpg)
+<html>
+  <img src="./../../../zh/metasense/assets/me_car.jpg" width=48%>
+  <img src="./../../../zh/metasense/assets/me_cars.jpg" width=48%>
+</html>
 
 ### Detect foot traffic
 
-High-precision, high resolution real-time monitoring of the flow of people moving around the situation statistics.
-
-![mt_people](./../../../zh/metasense/metasense-a075v/assets/../../metasense-a010/assets/../../metasense-a075v/assets/mt_people.jpg)
-
-Not open sourced at present.
+High-precision, high resolution real-time monitoring of the flow of people moving around the situation statistics(the example has not been open sourced, will be sorted out and disclosed).
+<html>
+  <img src="./../../../zh/metasense/assets/me_pt.jpg" width=48%>
+  <img src="./../../../zh/metasense/assets/me_ph.jpg" width=48%>
+</html>
 
 ## Custom development
 
@@ -96,7 +97,7 @@ This is a SDK based on Python3. MS-A075V opens its http interface, we can get it
 
 To help user understand the struct of data package and the relevant logic of decoding, we provide decoding related functions that encapsulate http requests and native data, based on which users can do custom development.
 
-**Get SDK**：
+**Get SDK**:[Click to download](https://dl.sipeed.com/fileList/others/metasense_example/matasense_075_tutorial.ipynb)
 
 **Method**：Install jupyter, connect to the TOF module, then open the `toturial.py` file.
 
@@ -104,7 +105,7 @@ To help user understand the struct of data package and the relevant logic of dec
 
 After understanding the struct of data package and the relevant logic of decoding from `Python SDK`, we can do advanced development, continuously get, decode and call the third-party `python` image library, like matplotlib for live display. The `toturial.py` gives the implementation of getting onr frame data, and it can achieve live display by plt with loop. 
 
-**Decoding and steraming**：`python stream.py`  [Click me to see content of stream.py](https://wiki.sipeed.com/hardware/zh/metasense/metasense-a010/code.html#streampy)
+**Decoding and steraming**:[Click me to see content of stream.py](https://wiki.sipeed.com/hardware/zh/metasense/metasense-a010/code.html#streampy)
 **Methods**：Run command `python stream.py` after installing all dependent packages.
 
 ![mt_sdk](./../../../zh/metasense/metasense-a075v/assets/mt_sdk.jpg)
@@ -113,7 +114,7 @@ After understanding the struct of data package and the relevant logic of decodin
 
 Based on third-party `python` library，and have understood the logic of getting and decoding data, we can do more development: Continuously display frames, roughly calculate the point cloud through the data from TOF module by SDK, do the accumulation to get the total volume. Limit: The top view should include all details except bottom.
 
-**Detect volume**：
+**Detect volume**：[Click to view calVolumes.py](https://wiki.sipeed.com/hardware/zh/metasense/metasense-a010/code.html#calvolumespy)
 **Methods**：Run command `python calVolumes.py` after installing all dependent packages, there will be notice after you run it.
 
 ![mt_volumbs](./../../../zh/metasense/metasense-a075v/assets/mt_volumbs.jpg)
@@ -127,7 +128,7 @@ Prepare a Linux enviroment for ROS.
 
 **2. Install and RUN**
 
-Because the functional package we provide is for ROS2, if you want to use it on ROS1 just switch the branch is ok.
+Because the functional package we provide is for ROS2, if you want to use it on ROS1 just switch the branch is ok.[Access package download.](https://dl.sipeed.com/shareURL/MetaSense/MetaSense_A075V/software/SDK)
 
 ```bash
 #Extract Sipeed_tof_ms_a010.zip，and open its path
@@ -156,7 +157,7 @@ Prepare a Linux enviroment for ROS.
 
 **2. Install and RUN**
 
-We have provided the functional package for ROS2, users need compile and run it on the system with ROS2.
+We have provided the functional package for ROS2, users need compile and run it on the system with ROS2.[Access package download.](https://dl.sipeed.com/shareURL/MetaSense/MetaSense_A075V/software/SDK).
 
 ``` bash
 #Extract sipeed_tof_cpp.zip，and open its path
@@ -176,7 +177,10 @@ ros2 run sipeed_tof_cpp publisher
 Open `rviz2`, in the bottom left interface choose `Add`->`By topic`->`PointCloud2 or/depth` ->`Image add` ->`Display/Global Options/Fixed Frame`, changed it into `tof`,
 in this way it displays point cloud normally. According to the added content, the `Image` displays in the left and the point cloud display in the center.
 
-**The result of mixing Pseudo-colored point clouds and RGB**
+**The result of mixing Pseudo-colored point clouds and RGB:**
 
-<img src="./../../../zh/metasense/metasense-a075v/assets/mt_rosb.jpg" width=48%>
-<img src="./../../../zh/metasense/metasense-a075v/assets/mt_rosc.jpg" width=48%>
+<html>
+  <img src="./../../../zh/metasense/metasense-a075v/assets/mt_rosb.jpg" width=48%>
+  <img src="./../../../zh/metasense/metasense-a075v/assets/mt_rosc.jpg" width=48%>
+</html>
+

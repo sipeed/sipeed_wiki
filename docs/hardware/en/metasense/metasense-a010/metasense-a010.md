@@ -8,7 +8,7 @@ MetaSense-A010 is an extremely cost-effective 3D sensor module composed of BL702
 
 **Data summary**
 
-Hardware information:
+Hardware information:[Click to download](https://dl.sipeed.com/shareURL/MetaSense/MetaSense_A010)
 
 ## Product unpacking guide
 
@@ -48,7 +48,7 @@ Hardware pinout picture: Screen face down
 
 **COMTOOL package**
 
-Windows system:
+Windows system:[Click to download](https://dl.sipeed.com/shareURL/MetaSense/MetaSense_A010/software_pack/comtool)
 
 Linux system: download package is not provided, users need to compile it by themselves.[Obtain](https://github.com/sipeed/COMTool)
 
@@ -65,10 +65,8 @@ After the device is powered on, the LCD screen on the device can preview the dep
 1. After opening the COMTOOL software, if there is no Graph above the software, you can add a Graph at the + sign in the upper right corner.
 
 2. Select the Port on the left and the corresponding baud rate (select a high baud rate arbitrarily), select MaixSenseLite, click Open, and check the USB below to receive a large amount of data.
-
 ![ms_comtoolb](./../../../zh/metasense/metasense-a010/assets/ms_comtoolb.jpg)
-
-1. Set the Header to \x00\xFF to correctly parse the image data and observe the depth map to intuitively feel the depth on the 2D flat image.
+3. Set the Header to \x00\xFF to correctly parse the image data and observe the depth map to intuitively feel the depth on the 2D flat image.
 ![ms_comtoolc](./../../../zh/metasense/metasense-a010/assets/ms_comtoolc.jpg)
 
 ### Comtool configuration instructions
@@ -97,10 +95,15 @@ The distance between the objects is placed to form the difference in depth value
 
 Realize super cool keyboard light follow,track the position of the hand in real time,and then map the keyboard light according to the position of the hand.
 
+[Related code](https://dl.sipeed.com/shareURL/others/metasense_example)
+
 ![ma_lamp](./../../../zh/metasense/metasense-a010/assets/ms_lamp.jpg)
 
 ## Case:Access to MCU
-MS-A010 has strong compatibility and is based on serial protocol. It can be connected to single-chip development boards such as K210 bit or linux development boards such as Raspberry Pi for secondary development.
+- MS-A010 has strong compatibility and is based on serial protocol. It can be connected to single-chip development boards such as K210 bit or linux development boards such as Raspberry Pi for secondary development.
+- The k210 Bit development board is a member of the sipeed Maix product line. It is an AIOT development board designed based on the edge intelligent computing chip K210 (RISC-V architecture 64-bit dual-core) of Canaan Canzhi Technology.
+
+[Click to learn about K210 Bit](https://wiki.sipeed.com/hardware/en/maix/maixpy_develop_kit_board/maix_bit.html)
 
 [MS-A010 external K210 bit source code acquisition](./../../../zh/metasense/metasense-a010/code.html#tof_mainpy)
 
@@ -123,7 +126,7 @@ You can use the virtual machine `virtual box` or `vmware`.
 
 **2. Install and run**
 
-Since we provide the access function package of ROS2, if you run ROS1, you only need to switch branches.[Access package download.]()
+Since we provide the access function package of ROS2, if you run ROS1, you only need to switch branches.[Access package download.](https://dl.sipeed.com/shareURL/MetaSense/MetaSense_A010/software_pack/SDK)
 
 ```bash
 
@@ -154,7 +157,7 @@ You can use the virtual machine `virtual box` or `vmware`.
 
 **2. Install and run**
 
-We provide an access package for ROS2, which users need to compile and install on a system running ROS2.[Access package download.]()
+We provide an access package for ROS2, which users need to compile and install on a system running ROS2.[Access package download.](https://dl.sipeed.com/shareURL/MetaSense/MetaSense_A010/software_pack/SDK)
 
 ```bash
 #Unzip sipeed_tof_ms_a010.zip and enter the directory

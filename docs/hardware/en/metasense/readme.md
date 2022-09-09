@@ -4,13 +4,14 @@ title: MetaSense series
 
 ## What is MetaSense?
 
+<img src="./../../zh/metasense/assets/meta.jpg" alt="summary" width=100%>
+
 MetaSense series products are equipped with TOF depth cameras, currently there are two products: MetaSense-A010 and MetaSense-A075V.
 - MS-A010 is an extremely cost-effective TOF 3D sensor module composed of BL702 + OPNOUS 100x100 TOF module, which supports a maximum resolution of 100x100 and 8-bit Preview the depth map after color map in real time.
 - While MS-A075V is a 3D TOF camera module with RGB function, this module can realize Linux driver-free plug-and-play and real-time color 3D display.
-  
-<img src="./../../zh/metasense/assets/meta.jpg" alt="summary" width=100%>
 
-Purchase method: 
+
+Purchase method:[Crowdfunding pre-sale](https://igg.me/at/MetaSense)
 
 |              |<p style="white-space:nowrap">MateSense-A010</p> | <p style="white-space:nowrap">MateSense-A075V</p> | 
 | :----------- |:----------------------------------------------- | :------------------------------------------------- | 

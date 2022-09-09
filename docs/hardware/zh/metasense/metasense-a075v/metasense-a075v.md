@@ -10,11 +10,6 @@
 
 MS-A075V 是由 Sipeed 所推出的一款具有 RGB 功能的 3D TOF 摄像机模组，可以实时显示彩色 3D 画面。
 
-**资料汇总**
-
-硬件规格书：
-硬件接线图：
-
 ## 产品开箱指南
 
 ### 准备工作
@@ -33,9 +28,10 @@ Windows 系统需安装驱动才可正常运行。
 1. 把设备使用 type-c 线与电脑链接，MS-A075V 的风扇会开始工作，产品正面镜头处就会闪烁红灯。
 2. 此时可打开浏览器输入 http://192.168.233.1 预览 3D 点云图，上电后有延迟需等待一段时间后，系统和程序才会启动完成。
 3. 使用网页上位机快速预览 演示图（正面和侧面）： 
-   
-<img src="./assets/mt_examle.jpg" width=48%>
-<img src="./assets/mt_examleb.jpg" width=48%>
+<html>
+  <img src="./assets/mt_examle.jpg" width=48%>
+  <img src="./assets/mt_examleb.jpg" width=48%>
+</html>
 
 4. 可选预览深度伪彩点云，右上角打开交互面板，第一行取消勾选 RGB_Map 即可。
 ![mt_examlec](assets/mt_examlec.jpg)
@@ -81,13 +77,16 @@ Windows 系统需安装驱动才可正常运行。
   <img src="./assets/../../assets/me_car.jpg" width=48%>
   <img src="./assets/../../assets/me_cars.jpg" width=48%>
 </html>
+
 （例程暂未开源，待整理公开)
 
 ## 案例：检测人流
 
 可实时监控人流，进行更高精度以及大分辨率的统计。
-
-![mt_people](assets/../../metasense-a010/assets/../../metasense-a075v/assets/mt_people.jpg)
+<html>
+  <img src="./../../../zh/metasense/assets/me_pt.jpg" width=48%>
+  <img src="./../../../zh/metasense/assets/me_ph.jpg" width=48%>
+</html>
 
 （例程暂未开源，待整理公开)
 
@@ -96,7 +95,7 @@ Windows 系统需安装驱动才可正常运行。
 ### python SDK
 这是基于 `python 3` 软件开发工具包，MS-A075V 对外开发了 http 接口，我们可通过 http 请求获取到原生数据（包括深度图，ir 图，rgb 图），为了方便用户理解数据包的结构及获取还有解码的相关逻辑，因此我们提供封装了 http 请求和原生数据的解码相关函数，用户基于此可进行二次开发。
 
-**SDK 获取方式**：
+**SDK 获取方式**：[点击下载](https://dl.sipeed.com/fileList/others/metasense_example/matasense_075_tutorial.ipynb)
 **使用方式**：安装 jupyter 后连接 MS-A075V 打开我们提供的 `toturial.py` 即可。
 
 ### 解包推流 
@@ -122,6 +121,7 @@ Windows 系统需安装驱动才可正常运行。
 
 **2. 安装运行**
 由于我们提供的是 ROS2 的接入功能包，运行 ROS1 的话只需切换分支即可。
+[接入包下载](https://dl.sipeed.com/shareURL/MetaSense/MetaSense_A075V/software/SDK)
 
 ```bash
 #解压缩sipeed_tof_ms_a010.zip，并进入目录
@@ -146,6 +146,7 @@ rosrun sipeed_tof_cpp publisher
 
 **2. 安装运行**
 我们提供了 ROS2 的接入功能包，用户需要在运行 ROS2 的系统上编译安装。
+[接入包下载](https://dl.sipeed.com/shareURL/MetaSense/MetaSense_A075V/software/SDK)
 
 ``` bash
 
@@ -164,5 +165,8 @@ ros2 run sipeed_tof_cpp publisher
 打开 `rviz2` 后，在界面左下角的 `Add`->`By topic`->`PointCloud2` 或 `/depth、/intensity、/rgb`->`Image 添加`->`Display/Global Options/Fixed Frame` 需要修改成 `“tof”`，才能正常显示点云。根据添加的内容，左侧会显示 `Image`而中间则显示点云。
 **伪彩点云和 RGBD融合点云效果：**
 
-<img src="./assets/mt_rosb.jpg" width=48%>
-<img src="./assets/mt_rosc.jpg" width=48%>
+<html>
+  <img src="./assets/mt_rosb.jpg" width=48%>
+  <img src="./assets/mt_rosc.jpg" width=48%>
+</html>
+
