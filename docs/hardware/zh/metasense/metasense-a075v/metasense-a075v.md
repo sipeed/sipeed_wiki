@@ -4,11 +4,10 @@
 | :-----------: | :----: | :----------: |
 | 2022年8月10日 | yuexin | 初次编写文档 |
 
-
 ## 产品概述
+
 ![mt_big](asstes/../assets/mt_big.jpg)
-MS-A075V 是由 Sipeed 所推出的一款具有 RGB 功能的 3D TOF 摄像机模组。
-该模组可以实现免驱的即插即用，实现实时彩色 3D 显示。
+MS-A075V 是由 Sipeed 所推出的一款具有 RGB 功能的 3D TOF 摄像机模组，可以实时显示彩色 3D 画面。
 
 **资料汇总**
 
@@ -33,10 +32,8 @@ Windows 系统需安装驱动才可正常运行。
 2. 此时可打开浏览器输入 http://192.168.233.1 预览 3D 点云图，上电后有延迟需等待一段时间后，系统和程序才会启动完成。
 3. 使用网页上位机快速预览 演示图（正面和侧面）： 
    
-<html>
-  <img src="./assets/mt_examle.jpg" width=48%>
-  <img src="./assets/mt_examleb.jpg" width=48%>
-</html>
+<img src="./assets/mt_examle.jpg" width=48%>
+<img src="./assets/mt_examleb.jpg" width=48%>
 
 4. 可选预览深度伪彩点云，右上角打开交互面板，第一行取消勾选 RGB_Map 即可。
 ![mt_examlec](assets/mt_examlec.jpg)
@@ -112,8 +109,6 @@ Windows 系统需安装驱动才可正常运行。
 **使用方式**：装好所有的依赖包后即可 `python calVolumes.py` 运行，命令行有后续操作提示。
 ![mt_volumbs](assets/mt_volumbs.jpg)
 
-
-
 ## 二次开发：接入 ROS
 ### 接入 ROS1
 
@@ -151,7 +146,7 @@ rosrun sipeed_tof_cpp publisher
 
 ``` bash
 
-#压缩sipeed_tof_cpp.zip，并进入目录
+#解压sipeed_tof_cpp.zip，并进入目录
 source /opt/ros/*/setup.sh
 colcon build #如提示缺少colcon时需要sudo apt install python3-colcon-ros
 source install/setup.sh
@@ -165,9 +160,6 @@ ros2 run sipeed_tof_cpp publisher
 **4. RVIZ2 预览**
 打开 `rviz2` 后，在界面左下角的 `Add`->`By topic`->`PointCloud2` 或 `/depth、/intensity、/rgb`->`Image 添加`->`Display/Global Options/Fixed Frame` 需要修改成 `“tof”`，才能正常显示点云。根据添加的内容，左侧会显示 `Image`而中间则显示点云。
 **伪彩点云和 RGBD融合点云效果：**
-<html>
-  <img src="./assets/mt_rosb.jpg" width=48%>
-  <img src="./assets/mt_rosc.jpg" width=48%>
-</html>
 
-
+<img src="./assets/mt_rosb.jpg" width=48%>
+<img src="./assets/mt_rosc.jpg" width=48%>
