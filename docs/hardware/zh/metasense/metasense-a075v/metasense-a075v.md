@@ -8,7 +8,7 @@
 ## 产品概述
 ![mt_big](asstes/../assets/mt_big.jpg)
 MS-A075V 是由 Sipeed 所推出的一款具有 RGB 功能的 3D TOF 摄像机模组。
-该模组可以实现免驱的即插即用，实现实时彩色 3D 显示。
+该模组可以实现 linux 免驱的即插即用，实现实时彩色 3D 显示。
 
 **资料汇总**
 
@@ -70,15 +70,17 @@ Windows 系统需安装驱动才可正常运行。
 注意：raw 数据可通过开放的接口获取，开发者进行解析即可基于此二次开发，但点云（pointcloud）是基于 raw 数据和相机内参进行计算得到的，无相应接口提供。
 
 ## 案例：远中近点云实拍
+
 高精度的映射物品摆放距离的差异，点云图可直观清楚感受到更真实的可视化。
 ![mt_cloud](assets/mt_cloud.jpg)
 
 ## 案例：避障小车
 
-模组可搭载小车或无人机来回移动获取障碍物的远近深度值，并通过差异判断画面中是否有障碍物，做出快速反应并精准规避障碍物（例程暂未开源，待整理公开)。
-
-![tof-a0756](assets/tof-6.jpg)
-
+模组可搭载小车或无人机来回移动获取障碍物的远近深度值，并通过差异判断画面中是否有障碍物，做出快速反应并精准规避障碍物（例程暂未开源，待整理公开)
+<html>
+  <img src="./assets/../../assets/me_car.jpg" width=48%>
+  <img src="./assets/../../assets/me_cars.jpg" width=48%>
+</html>
 
 ## 案例：检测人流
 
@@ -93,25 +95,23 @@ Windows 系统需安装驱动才可正常运行。
 这是基于 `python 3` 软件开发工具包，MS-A075V 对外开发了 http 接口，我们可通过 http 请求获取到原生数据（包括深度图，ir 图，rgb 图），为了方便用户理解数据包的结构及获取还有解码的相关逻辑，因此我们提供封装了 http 请求和原生数据的解码相关函数，用户基于此可进行二次开发。
 
 **SDK 获取方式**：
-**使用方式**：安装 jupyter 后连接相机打开我们提供的 `toturial.py` 即可。
+**使用方式**：安装 jupyter 后连接 MS-A075V 打开我们提供的 `toturial.py` 即可。
 
 
 ### 解包推流 
 理解了上述 `python SDK` 数据获取和解码的逻辑后，我们可以尝试进阶版，连续获取解码并调用第三方 `python` 图像库，例如：matplotlib 进行实时显示。而 `toturial.py` 给出了获取一帧数据的逻辑实现，通过 plt 显示并外套循环即可做到实时显示。
 
-**解包推流**：`python stream.py`  [点我查看stream.py内容](./../metasense-a010/code.html#streampy)
+**解包推流**：`python stream.py`  [点我查看 stream.py 内容](./../metasense-a010/code.html#streampy)
 **使用方式**：装好所有的依赖包后即可 `python stream.py` 运行。
 ![mt_sdk](assets/mt_sdk.jpg)
 
-[233](./../metasense-a010/code.html#calibratepy)
 
 ### 检测体积
-基于第三方 `python` 包，理解了上述数据获取和解码的逻辑后，再次进阶，不但持续显示多帧并且再通过 SDK 获取相机内参后计算出初略的点云，做累加得到总体积。限制：要求俯视图可以看到除底面外的所有细节
+基于第三方 `python` 包，理解了上述数据获取和解码的逻辑后，再次进阶，持续显示多帧并且再通过 SDK 获取模组内参数后计算出粗略的点云，做累加得到总体积。限制：要求俯视图可以看到除底面外的所有细节。
 
 **检测体积**：
 **使用方式**：装好所有的依赖包后即可 `python calVolumes.py` 运行，命令行有后续操作提示。
 ![mt_volumbs](assets/mt_volumbs.jpg)
-
 
 
 ## 二次开发：接入 ROS
