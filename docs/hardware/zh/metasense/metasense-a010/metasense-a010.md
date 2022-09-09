@@ -135,7 +135,7 @@ rosrun sipeed_tof_ms_a010 a010_publisher _device:="/dev/ttyUSB0"
 
 **4. RVIZ2 预览**
 打开 `rviz2` 后，在界面左下角的 `Add`->`By topic`->`PointCloud2或/depth` ->`Image 添加` ->`Display/Global Options/Fixed Frame` 需要修改成 `tof`，才能正常显示点云，根据添加的内容，左侧会显示 `Image` 而中间则显示点云。
-![ms_rviz](./../../../../../out/hardware/zh/metasense/metasense-a010/assets/ms-RVIZ.jpg)
+![ms_rviz](./assets/ms_rviz.jpg)
 
 
 ### 接入 ROS2 
