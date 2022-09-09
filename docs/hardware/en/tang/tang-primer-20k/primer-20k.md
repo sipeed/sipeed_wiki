@@ -1,7 +1,5 @@
 # Tang Primer 20K
 
-> Edit on 2022.08.18
-
 ## Preface
 
 Tang Primer 20K is a core board with DDR3 sodimm shape using [GW2A-V18PG256C8IC8I7](https://www.gowinsemi.com/en/product/detail/38/) as the main chip, 2 ext-boards are prepared, the Dock and the Lite. Being as the 6th FPGA board sold by Sipeed, Tang Primer 20K has always been expected.
