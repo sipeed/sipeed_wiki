@@ -31,6 +31,7 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: build doc and push to github pages
         run: |
+          git fetch --unshallow # fetch all history
           pip3 install setuptools
           pip3 install teedoc
           ls -al ~/.local/bin/
