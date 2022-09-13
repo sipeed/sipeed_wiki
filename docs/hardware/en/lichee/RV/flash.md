@@ -54,7 +54,7 @@ The username and passward are as follows:
 
 - Tina   OS username：`root`   password：`tina`
 
-- Debian OS username：`sipeed` password：`licheepi`
+- Debian OS username：`root` password：`licheepi`
 
 Insert tf card, and we can see the startup information in the serial port tool
 
