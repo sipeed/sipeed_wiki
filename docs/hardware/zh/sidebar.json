@@ -118,6 +118,21 @@
                             "file": "../../soft/maixpy3/zh/tools/maixsense.md"
                         }
                     ]
+                },
+                {
+                    "label": "Maixiii ax-pi",
+                    "file": "maixIII/readme.md",
+                    "collapsed": false,
+                    "items": [
+                        {
+                            "label": "烧录系统",
+                            "file": "maixIII/ax620a/flash_system.md"
+                        },
+                        {
+                            "label": "基础使用",
+                            "file": "maixIII/ax620a/usages.md"
+                        }
+                    ]
                 }
             ]
         },

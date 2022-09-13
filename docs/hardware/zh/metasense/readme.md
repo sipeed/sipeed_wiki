@@ -4,13 +4,13 @@ title: MetaSense 系列
 
 ## MetaSense 是什么?
 
-<img src="./assets/meta.jpg" alt="summary" width=100%>
-
 MetaSense 系列产品搭载 TOF 深度摄像头，目前有 MetaSense-A010 和 MetaSense-A075VS 两款产品。
 - MS-A010 是一款由 BL702 + 炬佑 100x100 TOF 模组所组成的极致性价比的 TOF 3D 传感器模组，最大支持 100x100 的分辨率和 8 位精度，并且带有 240×135 的 LCD 显示屏可实时预览 color map 后的深度图。
 - 而 MS-A075V 是一款具有 RGB 功能的 3D TOF 摄像机模组，该模组可以实现 Linux 免驱的即插即用，实现实时彩色 3D 显示。
 
-购买方式：[众筹预售连接](https://igg.me/at/MetaSense)
+<img src="./assets/meta.jpg" alt="summary" width=100%>
+
+购买方式：众筹预售购买连接
 
 |              |<p style="white-space:nowrap">MateSense-A010</p> | <p style="white-space:nowrap">MateSense-A075V</p> | 
 | :----------- |:----------------------------------------------- | :------------------------------------------------- | 
@@ -60,7 +60,7 @@ MetaSense 系列产品搭载 TOF 深度摄像头，目前有 MetaSense-A010 和 
 
 ![mt_volume](./metasense-a075v/assets/mt_volume.jpg)
 
-### 案例：外接 MC
+### 案例：外接 MCU
 MS-A010 拥有强大的兼容性，基于串口协议的数据传输。
 可外接 K210 bit 这样的单片机开发板或树莓派之类的 linux 开发板来进行二次开发。
 
