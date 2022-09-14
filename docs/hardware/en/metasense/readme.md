@@ -31,7 +31,10 @@ Purchase method:[Crowdfunding pre-sale](https://igg.me/at/MetaSense)
 
 High-precision mapping of the difference in the distance between items, the point cloud map can intuitively feel a more realistic visualization.
 
-![mt_could](./../../zh/metasense/metasense-a075v/assets/mt_cloud.jpg)
+<html>
+  <img src="./../../zh/metasense/metasense-a010/assets/ms_cloud.jpg" width=48%>
+  <img src="./../../zh/metasense/metasense-a075v/assets/mt_cloud.jpg" width=48%>
+</html>
 
 ### Case:statistics traffic
 
@@ -46,10 +49,7 @@ It can monitor the flow of people in real time and make statistics with high pre
 
 It can be mounted on a robot car to move and determine whether there are obstacles on the screen.The module comes with an LCD screen to accurately display the distance and respond to avoid obstacles.
 
-<html>
-  <img src="./../../zh/metasense/assets/me_car.jpg" width=48%>
-  <img src="./../../zh/metasense/assets/me_cars.jpg" width=48%>
-</html>
+![me_car](./../../zh/metasense/assets/me_car.jpg)
 
 ### Case:Keyboard lights follow gesture changes
 
@@ -83,7 +83,10 @@ Dual support ROS system, open ROS1 + ROS2 access function package, can quickly o
 
 1. TOF: It is a method of distance measurement, which calculates the distance between the two by measuring the "time of flight" of signals such as ultrasonic/microwave/light between the transmitter and the reflector. It is the TOF sensor that can achieve TOF ranging. The most commonly used is infrared or laser ranging.
 2. There is a difference in the distance between the objects. The module displays the cold and warm colors through the difference of the captured depth values. The cool and warm colors change with the mapping of the distance. 
-![me_tof](./../../zh/metasense/assets/tof.jpg)
+<html>
+  <img src="./../../zh/metasense/assets/tof_two.jpg" height=250 width=49%>
+  <img src="./../../zh/metasense/assets/tof.jpg" width=49% height=250>
+</html>
 
 ## More
 

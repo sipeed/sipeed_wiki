@@ -10,7 +10,7 @@ MetaSense 系列产品搭载 TOF 深度摄像头，目前有 MetaSense-A010 和 
 
 <img src="./assets/meta.jpg" alt="summary" width=100%>
 
-购买方式：众筹预售购买连接
+购买方式：[众筹预售购买连接](https://igg.me/at/MetaSense )
 
 |              |<p style="white-space:nowrap">MateSense-A010</p> | <p style="white-space:nowrap">MateSense-A075V</p> | 
 | :----------- |:----------------------------------------------- | :------------------------------------------------- | 
@@ -29,8 +29,10 @@ MetaSense 系列产品搭载 TOF 深度摄像头，目前有 MetaSense-A010 和 
 ### 案例：远中近物体实拍
 
 高精度的映射物品摆放距离的差异，点云图可直观感受到更真实的可视化。
-
-![mt_could](./metasense-a075v/assets/mt_cloud.jpg)
+<html>
+  <img src="./metasense-a010/assets/ms_cloud.jpg" width=48%>
+  <img src="./metasense-a075v/assets/mt_cloud.jpg" width=48%>
+</html>
 
 ### 案例：人流统计
 
@@ -43,10 +45,7 @@ MetaSense 系列产品搭载 TOF 深度摄像头，目前有 MetaSense-A010 和 
 ### 案例：小车避障
 
 可搭载于小车移动并判断画面是否有障碍物，模组自带 LCD 屏幕精准显示距离并做出反应规避障碍物。
-<html>
-  <img src="./assets/me_car.jpg" width=48%>
-  <img src="./assets/me_cars.jpg" width=48%>
-</html>
+![me_car](./assets/me_car.jpg)
 
 ### 案例：键盘灯跟随
 
@@ -78,7 +77,10 @@ MS-A010 拥有强大的兼容性，基于串口协议的数据传输。
 
 1. TOF: 是一种距离测量的方法，通过测量发射器和反射器之间的超声波/微波/光等信号的“飞行时间”来计算两者之间的距离。 可以实现TOF测距的是TOF传感器。 最常用的是红外线或激光测距。
 2. 物体之间的距离存在差异。 该模块通过捕获的深度值的差异来显示冷色和暖色。冷暖色随着距离的映射而变化，距离越近色调呈暖调（橘红）而越远色调呈冷调（蓝色）。
-![me_tof](./assets/tof.jpg)
+<html>
+  <img src="./assets/tof_two.jpg" height=250 width=49%>
+  <img src="./assets/tof.jpg" width=49% height=250>
+</html>
 
 ## 更多
 

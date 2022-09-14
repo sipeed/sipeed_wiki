@@ -73,20 +73,14 @@ Windows 系统需安装驱动才可正常运行。
 ## 案例：避障小车
 
 模组可搭载小车或无人机来回移动获取障碍物的远近深度值，并通过差异判断画面中是否有障碍物，做出快速反应并精准规避障碍物。
-<html>
-  <img src="./assets/../../assets/me_car.jpg" width=48%>
-  <img src="./assets/../../assets/me_cars.jpg" width=48%>
-</html>
+![me_car](./../assets/me_car.jpg)
 
 （例程暂未开源，待整理公开)
 
 ## 案例：检测人流
 
 可实时监控人流，进行更高精度以及大分辨率的统计。
-<html>
-  <img src="./../../../zh/metasense/assets/me_pt.jpg" width=48%>
-  <img src="./../../../zh/metasense/assets/me_ph.jpg" width=48%>
-</html>
+![me_pt](./../assets/me_pt.jpg)
 
 （例程暂未开源，待整理公开)
 

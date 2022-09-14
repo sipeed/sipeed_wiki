@@ -58,16 +58,18 @@ Note: Windows 7 and below systems need to install the driver, you can go to the 
 
 After the device is powered on, the LCD screen on the device can preview the depth pseudo-color image after the color map in real time.
 
-![ms_comtool](./../../../zh/metasense/metasense-a010/assets/ms_comtool.jpg)
+![ms_comtool](./../../../zh/metasense/metasense-a010/assets/ms_lcd.jpg)
 
 ### PC side preview interaction
 
-1. After opening the COMTOOL software, if there is no Graph above the software, you can add a Graph at the + sign in the upper right corner.
+1. After opening the COMTOOL software, if there is no Graph above the software, you can add a Graph at the + sign in the upper right corner. After creating the Graph, if the center part is white and no graph, **double-click** MaixSenseLite in the lower left corner to open the interface display port.
+![ms_lcd](./../../../zh/metasense/metasense-a010/assets/ms_comtool.jpg)
 
-2. Select the Port on the left and the corresponding baud rate (select a high baud rate arbitrarily), select MaixSenseLite, click Open, and check the USB below to receive a large amount of data.
-![ms_comtoolb](./../../../zh/metasense/metasense-a010/assets/ms_comtoolb.jpg)
+2. Select the small Port and the corresponding baud rate on the left (select a high baud rate arbitrarily), click open and then check the USB below to receive a large amount of data, and Connected will be displayed in the lower left corner.
+![ms_comtool_two](./../../../zh/metasense/metasense-a010/assets/ms_comtoolt.jpg)
+
 3. Set the Header to \x00\xFF to correctly parse the image data and observe the depth map to intuitively feel the depth on the 2D flat image.
-![ms_comtoolc](./../../../zh/metasense/metasense-a010/assets/ms_comtoolc.jpg)
+![ms_comtool_three](./../../../zh/metasense/metasense-a010/assets/ms_comtoolh.jpg)
 
 ### Comtool configuration instructions
 
@@ -103,7 +105,7 @@ Realize super cool keyboard light follow,track the position of the hand in real 
 - MS-A010 has strong compatibility and is based on serial protocol. It can be connected to single-chip development boards such as K210 bit or linux development boards such as Raspberry Pi for secondary development.
 - The k210 Bit development board is a member of the sipeed Maix product line. It is an AIOT development board designed based on the edge intelligent computing chip K210 (RISC-V architecture 64-bit dual-core) of Canaan Canzhi Technology.
 
-[Click to learn about K210 Bit](https://wiki.sipeed.com/hardware/en/maix/maixpy_develop_kit_board/maix_bit.html)
+[Click to learn about K210 Bit](https://www.aliexpress.com/item/1005002547039100.html?spm=5261.ProductManageOnline.0.0.15744edfvEngHc)
 
 [MS-A010 external K210 bit source code acquisition](./../../../zh/metasense/metasense-a010/code.html#tof_mainpy)
 
