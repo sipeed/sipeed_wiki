@@ -130,14 +130,6 @@ please read doc before run it!
 
 本项目主要由 &copy;<a href="https://www.sipeed.com" style="color: #f14c42">Sipeed</a> Co.,Ltd. 维护， 并接受来自开源社区的贡献， 具体贡献这见[贡献者列表](https://github.com/sipeed/MaixPy/graphs/contributors)
 
-## MaixPy 文档源码
-
-
-文档源码托管在 [github](https://github.com/sipeed/MaixPy_DOC)，如果文档有错别字或者改进可以提交PR，PR通过后，文档也会随之更新
-
-注意： 在编辑文档前**必须**看[文档编写规范](./contribute/doc_convention.md)， 只有符合文档规范的修改才会被通过
-
-
 
 ## 反馈
 

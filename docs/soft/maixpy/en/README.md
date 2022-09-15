@@ -177,14 +177,6 @@ If you want to participate in the development of MaixPy’s built-in functions, 
 
 This project is mainly maintained by &copy;<a href="https://www.sipeed.com" style="color: #f14c42">Sipeed</a> Co.,Ltd., and accepts contributions from the open source community, For specific contributions, see [Contributor List](https://github.com/sipeed/MaixPy/graphs/contributors)
 
-## MaixPy document source code
-
-
-The source code of the document is hosted at [github](https://github.com/sipeed/MaixPy_DOC), if the document has typos or improvements, you can submit a PR, and the document will be updated after the PR is passed
-
-Note: Before editing the document, **must** look at the [document writing specification](contribute/doc_convention.md), only the modifications that conform to the document specification will be approved
-
-
 
 ## Feedback
 
