@@ -16,7 +16,8 @@
             "/soft/maixpy/zh/": "docs/soft/maixpy/zh",
             "/soft/maixpy3/zh/": "docs/soft/maixpy3/zh",
             "/soft/maixduino/zh/":"docs/soft/maixduino/zh",
-            "/share_docs/zh/": "share_docs/zh"
+            "/share_docs/zh/": "share_docs/zh",
+            "/ai/zh/": "docs/soft/ai/zh"
         },
         "pages": {
             "/": "pages/index/zh"
@@ -31,8 +32,8 @@
             "/soft/maixpy/assets/": "docs/soft/maixpy/assets",
             "/soft/maixpy3/assets/": "docs/soft/maixpy3/assets",
             "/soft/maixduino/assets/":"docs/soft/maixduino/assets",
-            "/share_docs/assets":"share_docs/assets"
-
+            "/share_docs/assets/":"share_docs/assets",
+            "/ai/assets/":"docs/soft/ai/assets"
         },
         "blog": {
             "/news/": "news"
@@ -69,6 +70,11 @@
             "/share_docs/zh/": [{
                 "url": "/share_docs/en/",
                 "src" : "share_docs/en"
+                }
+            ],
+            "/ai/zh/": [{
+                "url": "/ai/en/",
+                "src" : "docs/soft/ai/en"
                 }
             ]
         },

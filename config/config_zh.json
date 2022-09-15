@@ -60,6 +60,10 @@
                     {
                         "url": "/soft/Lichee/zh/index.html",
                         "label": "Lichee"
+                    },
+                    {
+                        "url": "/ai/zh/index.html",
+                        "label": "AI 指南"
                     }
                 ]
             },

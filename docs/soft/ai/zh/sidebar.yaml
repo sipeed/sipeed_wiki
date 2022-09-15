@@ -1,0 +1,19 @@
+items:
+- label: 文档简介
+  file: README.md
+- label: AI 基础
+- label: 什么是 AI ?
+  file: basic/what_is_ai.md
+- label: 部署到边缘设备
+- label: Maix-I 之 K210 模型部署
+  file: deploy/k210.md
+- label: Maix-II 之 V831 模型部署
+  file: deploy/v831.md
+- label: TinyMaix 模型部署
+  file: deploy/tinymaix.md
+- label: MaixHub
+- label: MaixHub 简介
+  file: maixhub/README.md
+- label: MaixHub 在线训练调优
+  file: maixhub/train_best.md
+

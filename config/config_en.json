@@ -61,6 +61,10 @@
                 {
                     "url": "/soft/Lichee/zh/index.html",
                     "label": "Lichee"
+                },
+                {
+                    "url": "/ai/en/index.html",
+                    "label": "AI Guide"
                 }
             ]
         },
