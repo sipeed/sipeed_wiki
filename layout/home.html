@@ -38,7 +38,7 @@
                                          </n-carousel-item>
                                          <n-carousel-item :style="{ width: '80%' }">
                                              <n-card size="small" hoverable>
-                                                 <img class="carousel-img" src="https://sipeed.com/static/images/banner-2.jpg">
+                                                 <img class="carousel-img" src="/static/home/banner-2.jpg">
                                                  <n-divider title-placement="right">
                                                      <n-button-group style="margin: 5px; font-size: 16px;">
                                                          <n-button size="large"
@@ -165,7 +165,7 @@
                                          </n-carousel-item>
                                          <n-carousel-item :style="{ width: '80%' }">
                                              <n-card size="small" hoverable>
-                                                 <img class="carousel-img" src="https://sipeed.com/static/images/banner-2.jpg">
+                                                 <img class="carousel-img" src="/static/home/banner-2.jpg">
                                                  <n-divider title-placement="right">
                                                      <n-button-group style="margin: 5px; font-size: 16px;">
                                                          <n-button size="large"
@@ -248,138 +248,138 @@
          </n-grid>
      </n-card>
 
- </div>
- <script>
-     var pageLanguages = ["en", "zh"] // languages user can select in pages
-     ///////////////////// translate start /////////////////////
-     const messages = {
-         en: {
-             language: "en",
-             btn_buy: "buy!",
-             btn_eol: "stop",
-             btn_docs: "docs",
-             btn_detail: "details",
-             btn_repo: "source",
-             btn_github: "github",
-             btn_example: "demos",
-             btn_gitte: "gitte"
-         },
-         zh: {
-             language: "zh",
-             btn_buy: "购买链接",
-             btn_eol: "现已停产",
-             btn_docs: "使用文档",
-             btn_detail: "产品资料",
-             btn_repo: "源码仓库",
-             btn_github: "github",
-             btn_example: "示例代码",
-             btn_gitte: "gitee",
-         }
-     }
-     ///////////////////// translate end /////////////////////
-     ///////////////////// config start /////////////////////
-     const datas = {
-         'products': {
-             'zh': {
-                 "Maix-AI-K210": [
-                     {
-                         title: "MicroPython 边缘 AI 开发",
-                         src: "/static/home/maixpy.jpeg",
-                         lbtn_text: "btn_repo",
-                         lbtn_href: "https://github.com/sipeed/maixpy",
-                         rbtn_text: "btn_docs",
-                         rbtn_href: "https://wiki.sipeed.com/maixpy",
-                     },
-                     {
-                         title: "MaixPy 官方参考例程",
+</div>
+<script>
+    var pageLanguages = ["en", "zh"] // languages user can select in pages
+    ///////////////////// translate start /////////////////////
+    const messages = {
+        en: {
+            language: "en",
+            btn_buy: "buy!",
+            btn_eol: "stop",
+            btn_docs: "docs",
+            btn_detail: "details",
+            btn_repo: "source",
+            btn_github: "github",
+            btn_example: "demos",
+            btn_gitte: "gitte"
+        },
+        zh: {
+            language: "zh",
+            btn_buy: "购买链接",
+            btn_eol: "现已停产",
+            btn_docs: "使用文档",
+            btn_detail: "产品资料",
+            btn_repo: "源码仓库",
+            btn_github: "github",
+            btn_example: "示例代码",
+            btn_gitte: "gitee",
+        }
+    }
+    ///////////////////// translate end /////////////////////
+    ///////////////////// config start /////////////////////
+    const datas = {
+        'products': {
+            'zh': {
+                "Maix-AI-K210": [
+                    {
+                        title: "MicroPython 边缘 AI 开发",
+                        src: "/static/home/maixpy.jpeg",
+                        lbtn_text: "btn_repo",
+                        lbtn_href: "https://github.com/sipeed/maixpy",
+                        rbtn_text: "btn_docs",
+                        rbtn_href: "https://wiki.sipeed.com/maixpy",
+                    },
+                    {
+                        title: "MaixPy 官方参考例程",
                          src: "/static/home/maixpy_scripts.png",
-                         lbtn_text: "btn_github",
-                         lbtn_href: "https://github.com/sipeed/MaixPy_scripts",
-                         rbtn_text: "btn_example",
-                         rbtn_href: "https://gitee.com/Sipeed/maixpy_scripts",
-                     },
-                     {
-                         title: "Maix Cube",
-                         src: "https://img.alicdn.com/bao/uploaded/i3/2200606237318/O1CN01eb9ob023vhA51aLaE_!!2200606237318.jpg_240x240.jpg",
-                         lbtn_text: "btn_buy",
-                         lbtn_href: "https://wiki.sipeed.com/hardware/zh/maix/maixpy_develop_kit_board/maix_cube.html",
-                         rbtn_text: "btn_detail",
-                         rbtn_href: "https://item.taobao.com/item.htm?id=615468921411",
-                     },
-                     {
-                         title: "Maix Amigo",
-                         src: "https://gd4.alicdn.com/imgextra/i2/2200606237318/O1CN016Tbv3A23vhAC9QbgF_!!2200606237318.jpg_400x400.jpg",
-                         lbtn_text: "btn_buy",
-                         lbtn_href: "https://item.taobao.com/item.htm?id=624450348277",
-                         rbtn_text: "btn_detail",
-                         rbtn_href: "https://wiki.sipeed.com/hardware/zh/maix/maixpy_develop_kit_board/maix_Amigo.html",
-                     },
-                     {
-                         title: "Maix Duino",
-                         src: "https://gd4.alicdn.com/imgextra/i3/2200606237318/O1CN01uL1V3023vhAO1ffQJ_!!2200606237318.jpg_400x400.jpg",
-                         lbtn_text: "btn_buy",
-                         lbtn_href: "https://item.taobao.com/item.htm?id=595216523162",
-                         rbtn_text: "btn_detail",
-                         rbtn_href: "https://wiki.sipeed.com/hardware/zh/maix/maixpy_develop_kit_board/maix_duino.html",
-                     },
-                     {
-                         title: "Maix Bit",
-                         src: "https://gd3.alicdn.com/imgextra/i2/2200606237318/O1CN01Bc1o1723vhAJAZvOJ_!!2200606237318.jpg_400x400\.jpg",
-                         lbtn_text: "btn_buy",
-                         lbtn_href: "https://item.taobao.com/item.htm?id=586580351110",
-                         rbtn_text: "btn_detail",
-                         rbtn_href: "https://wiki.sipeed.com/hardware/zh/maix/maixpy_develop_kit_board/maix_bit.html",
-                     },
-                     {
-                         title: "Maix Dock",
-                         src: "https://gd3.alicdn.com/imgextra/i1/2200606237318/O1CN01YFstXt23vhALCWX3a_!!2200606237318.jpg_400x400\.jpg",
-                         lbtn_text: "btn_buy",
-                         lbtn_href: "https://item.taobao.com/item.htm?id=591616120470",
-                         rbtn_text: "btn_detail",
-                         rbtn_href: "https://wiki.sipeed.com/hardware/zh/maix/maixpy_develop_kit_board/Maix_dock.html",
-                     },
-                     {
-                         title: "Maix HAT",
-                         src: "https://gd4.alicdn.com/imgextra/i3/2200606237318/O1CN01V4vzsQ23vhAhBRn1C_!!2200606237318.png_400x400\.jpg",
-                         lbtn_text: "btn_buy",
-                         lbtn_href: "https://item.taobao.com/item.htm?id=637432568692",
-                         rbtn_text: "btn_detail",
-                         rbtn_href: "https://wiki.sipeed.com/hardware/zh/maix/maixpy_develop_kit_board/maix_hat.html",
-                     },
-                     {
-                         title: "Maix M1W",
-                         src: "https://gd1.alicdn.com/imgextra/i3/2200606237318/O1CN01T5k8Oy23vhAEnnHZt_!!2200606237318.jpg_400x400\.jpg",
-                         lbtn_text: "btn_buy",
-                         lbtn_href: "https://item.taobao.com/item.htm?id=584853693295",
-                         rbtn_text: "btn_detail",
-                         rbtn_href: "https://wiki.sipeed.com/hardware/zh/maix/core_module.html",
-                     },
-                     {
-                         title: "Maix M1n",
-                         src: "https://gd1.alicdn.com/imgextra/i4/2200606237318/O1CN01SAicn723vhAEW7RKt_!!2200606237318.jpg_400x400\.jpg",
-                         lbtn_text: "btn_buy",
-                         lbtn_href: "https://item.taobao.com/item.htm?id=607174705842",
-                         rbtn_text: "btn_detail",
-                         rbtn_href: "https://wiki.sipeed.com/hardware/zh/maix/M1n.html",
-                     },
-                     {
-                         title: "Maix GO",
-                         src: "https://wiki.sipeed.com/hardware/zh/maix/assets/dk_board/maix_go/Go\.jpg",
-                         lbtn_text: "btn_eol",
-                         lbtn_href: "",
-                         rbtn_text: "btn_detail",
-                         rbtn_href: "https://wiki.sipeed.com/hardware/zh/maix/maixpy_develop_kit_board/maix_go.html",
-                     },
-                 ],
-                 "Maix-AI-Linux": [
-                     {
-                         title: "Linux Python3 与边缘 AI",
-                         src: "/static/home/maixpy3.jpeg",
-                         lbtn_text: "btn_buy",
-                         lbtn_href: "https://github.com/sipeed/maixpy3",
-                         rbtn_text: "btn_detail",
-                         rbtn_href: "https://wiki.sipeed.com/maixpy3",
-                     },
+                        lbtn_text: "btn_github",
+                        lbtn_href: "https://github.com/sipeed/MaixPy_scripts",
+                        rbtn_text: "btn_example",
+                        rbtn_href: "https://gitee.com/Sipeed/maixpy_scripts",
+                    },
+                    {
+                        title: "Maix Cube",
+                        src: "https://gd2.alicdn.com/imgextra/i2/2200606237318/O1CN015OM3ND23vh0YlSShH_!!2200606237318.jpg",
+                        lbtn_text: "btn_buy",
+                        lbtn_href: "https://wiki.sipeed.com/hardware/zh/maix/maixpy_develop_kit_board/maix_cube.html",
+                        rbtn_text: "btn_detail",
+                        rbtn_href: "https://item.taobao.com/item.htm?id=615468921411",
+                    },
+                    {
+                        title: "Maix Amigo",
+                        src: "https://gd3.alicdn.com/imgextra/i3/2200606237318/O1CN01fXDeT623vh1cT5QPj_!!2200606237318.png_400x400.jpg",
+                        lbtn_text: "btn_buy",
+                        lbtn_href: "https://item.taobao.com/item.htm?id=624450348277",
+                        rbtn_text: "btn_detail",
+                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/maix/maixpy_develop_kit_board/maix_Amigo.html",
+                    },
+                    {
+                        title: "Maix Duino",
+                        src: "https://wiki.sipeed.com/hardware/zh/maix/assets/dk_board/maix_duino/maixduino_0.png",
+                        lbtn_text: "btn_buy",
+                        lbtn_href: "https://item.taobao.com/item.htm?id=595216523162",
+                        rbtn_text: "btn_detail",
+                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/maix/maixpy_develop_kit_board/maix_duino.html",
+                    },
+                    {
+                        title: "Maix Bit",
+                        src: "https://gd4.alicdn.com/imgextra/i4/2200606237318/O1CN01UHPhIE23vh1BVob31_!!2200606237318.jpg_400x400.jpg",
+                        lbtn_text: "btn_buy",
+                        lbtn_href: "https://item.taobao.com/item.htm?id=586580351110",
+                        rbtn_text: "btn_detail",
+                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/maix/maixpy_develop_kit_board/maix_bit.html",
+                    },
+                    {
+                        title: "Maix Dock",
+                        src: "https://gd2.alicdn.com/imgextra/i2/2200606237318/O1CN01TLveJb23vgyujGFIj_!!2200606237318.jpg_400x400.jpg",
+                        lbtn_text: "btn_buy",
+                        lbtn_href: "https://item.taobao.com/item.htm?id=591616120470",
+                        rbtn_text: "btn_detail",
+                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/maix/maixpy_develop_kit_board/Maix_dock.html",
+                    },
+                    {
+                        title: "Maix HAT",
+                        src: "https://wiki.sipeed.com/soft/maixpy/assets/hardware/grove_ai_hat/grove_ai_hat1.png",
+                        lbtn_text: "btn_buy",
+                        lbtn_href: "https://item.taobao.com/item.htm?id=637432568692",
+                        rbtn_text: "btn_detail",
+                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/maix/maixpy_develop_kit_board/maix_hat.html",
+                    },
+                    {
+                        title: "Maix M1W",
+                        src: "https://gd2.alicdn.com/imgextra/i2/2200606237318/O1CN01nIkzXs23vgysnE4Ou_!!2200606237318.jpg_400x400.jpg",
+                        lbtn_text: "btn_buy",
+                        lbtn_href: "https://item.taobao.com/item.htm?id=584853693295",
+                        rbtn_text: "btn_detail",
+                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/maix/core_module.html",
+                    },
+                    {
+                        title: "Maix M1n",
+                        src: "https://gd4.alicdn.com/imgextra/i4/2200606237318/O1CN01WR63GE23vgysaJ64A_!!2200606237318.jpg_400x400.jpg",
+                        lbtn_text: "btn_buy",
+                        lbtn_href: "https://item.taobao.com/item.htm?id=607174705842",
+                        rbtn_text: "btn_detail",
+                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/maix/M1n.html",
+                    },
+                    {
+                        title: "Maix GO",
+                        src: "https://wiki.sipeed.com/hardware/zh/maix/assets/dk_board/maix_go/Go\.jpg",
+                        lbtn_text: "btn_eol",
+                        lbtn_href: "",
+                        rbtn_text: "btn_detail",
+                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/maix/maixpy_develop_kit_board/maix_go.html",
+                    },
+                ],
+                "Maix-AI-Linux": [
+                    {
+                        title: "Linux Python3 与边缘 AI",
+                        src: "/static/home/maixpy3.jpeg",
+                        lbtn_text: "btn_buy",
+                        lbtn_href: "https://github.com/sipeed/maixpy3",
+                        rbtn_text: "btn_detail",
+                        rbtn_href: "https://wiki.sipeed.com/maixpy3",
+                    },
                      {
                          title: "LMAIX-II DOCK (V831)",
                          src: "https://g-search1.alicdn.com/img/bao/uploaded/i4/i1/2200606237318/O1CN019KdAO223vhAIISzji_!!2200606237318.jpg_250x250.jpg_.webp",
@@ -404,288 +404,288 @@
                          rbtn_text: "btn_detail",
                          rbtn_href: "https://wiki.sipeed.com/hardware/zh/maixIII/index.html",
                      },
-                 ],
-                 "LicheePi": [
-                     {
-                         title: "LicheePi RV",
-                         src: "https://gd3.alicdn.com/imgextra/i3/2200606237318/O1CN01MEgUIo23vhAFhUCq0_!!2200606237318.jpg_400x400\.jpg",
-                         lbtn_text: "btn_buy",
-                         lbtn_href: "https://item.taobao.com/item.htm?id=660478137105",
-                         rbtn_text: "btn_detail",
-                         rbtn_href: "https://wiki.sipeed.com/hardware/zh/lichee/RV/RV.html",
-                     },
-                     {
-                         title: "LicheePi RV DOCK",
-                         src: "https://gd3.alicdn.com/imgextra/i1/2200606237318/O1CN01OulXPA23vhA9FKbmd_!!2200606237318.jpg_400x400\.jpg",
-                         lbtn_text: "btn_buy",
-                         lbtn_href: "https://item.taobao.com/item.htm?id=666274331852",
-                         rbtn_text: "btn_detail",
-                         rbtn_href: "https://wiki.sipeed.com/hardware/zh/lichee/RV/Dock.html",
-                     },
-                     {
-                         title: "LicheePi RV 86 panel",
-                         src: "https://gd3.alicdn.com/imgextra/i1/2200606237318/O1CN01dJMnXa23vhAJB8hsd_!!2200606237318.jpg_400x400\.jpg",
-                         lbtn_text: "btn_buy",
-                         lbtn_href: "https://item.taobao.com/item.htm?id=663345415205",
-                         rbtn_text: "btn_detail",
-                         rbtn_href: "https://wiki.sipeed.com/hardware/zh/lichee/RV/86_panel.html",
-                     },
-                     {
-                         title: "LicheePi Zero",
-                         src: "https://gd4.alicdn.com/imgextra/i2/2200606237318/O1CN019QAynl23vhAAzYMLR_!!2200606237318.jpg_400x400\.jpg",
-                         lbtn_text: "btn_buy",
-                         lbtn_href: "https://item.taobao.com/item.htm?id=585033586770",
-                         rbtn_text: "btn_detail",
-                         rbtn_href: "https://wiki.sipeed.com/hardware/zh/lichee/Zero/Zero.html",
-                     },
-                     {
-                         title: "LicheePi Nano",
-                         src: "https://gd3.alicdn.com/imgextra/i2/2200606237318/O1CN01DCSn0723vhAKs8FnH_!!2200606237318.jpg_400x400\.jpg",
-                         lbtn_text: "btn_buy",
-                         lbtn_href: "https://item.taobao.com/item.htm?id=584657396198",
-                         rbtn_text: "btn_detail",
-                         rbtn_href: "https://wiki.sipeed.com/hardware/zh/lichee/Nano/Nano.html",
-                     },
-                     {
-                         title: "LicheePi Zeroplus",
-                         src: "https://wiki.sipeed.com/hardware/zh/lichee/assets/Zero-Plus/Plus_1.jpg",
-                         lbtn_text: "btn_eol",
-                         rbtn_text: "btn_detail",
-                         rbtn_href: "https://wiki.sipeed.com/hardware/zh/lichee/ZeroPlus/ZeroPlus.html",
-                     },
-                 ],
-                 "Tang FPGA": [
-                     {
-                         title: "Tang Primer 20k",
-                         src: "https://gd3.alicdn.com/imgextra/i3/2200606237318/O1CN01Xe11pH23vhBRw4zLG_!!2200606237318.jpg_400x400\.jpg",
-                         lbtn_text: "btn_buy",
-                         lbtn_href: "https://item.taobao.com/item.htm?id=680099020807",
-                         rbtn_text: "btn_detail",
-                         rbtn_href: "https://wiki.sipeed.com/hardware/zh/tang/tang-primer-20k/primer-20k.html",
-                     },
-                     {
-                         title: "Tang Nano 9K",
-                         src: "https://gd1.alicdn.com/imgextra/i2/2200606237318/O1CN010ZU7AZ23vhAO2pYsr_!!2200606237318.jpg_400x400\.jpg",
-                         lbtn_text: "btn_buy",
-                         lbtn_href: "https://item.taobao.com/item.htm?id=666055424174",
-                         rbtn_text: "btn_detail",
-                         rbtn_href: "https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-9K/Nano-9K.html",
-                     },
-                     {
-                         title: "Tang Nano 4K",
-                         src: "https://gd3.alicdn.com/imgextra/i3/2200606237318/O1CN01sA5bRZ23vhADC0MmP_!!2200606237318.jpg_400x400\.jpg",
-                         lbtn_text: "btn_buy",
-                         lbtn_href: "https://item.taobao.com/item.htm?id=661994055100",
-                         rbtn_text: "btn_detail",
-                         rbtn_href: "https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-4K/Nano-4K.html",
-                     },
-                     {
-                         title: "Tang Nano 1K",
-                         src: "https://gd3.alicdn.com/imgextra/i1/2200606237318/O1CN01oSMyeW23vhAGKY8rO_!!2200606237318.jpg_400x400\.jpg",
-                         lbtn_text: "btn_buy",
-                         lbtn_href: "https://item.taobao.com/item.htm?id=661994055100",
-                         rbtn_text: "btn_detail",
-                         rbtn_href: "https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-1K/Nano-1k.html",
-                     },
-                     {
-                         title: "Tang Primer",
-                         src: "https://wiki.sipeed.com/hardware/assets/Tang/permier/Tang_permier.jpg",
-                         lbtn_text: "btn_eol",
-                         rbtn_text: "btn_detail",
-                         rbtn_href: "https://wiki.sipeed.com/hardware/zh/tang/Tang-primer/Tang-primer.html",
-                     },
-                     {
-                         title: "Tang Nano",
-                         src: "https://wiki.sipeed.com/hardware/assets/Tang/Nano/Tang_Nano.jpg",
-                         lbtn_text: "btn_eol",
-                         rbtn_text: "btn_detail",
-                         rbtn_href: "https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano/Nano.html",
-                     },
-                 ],
-                 "MetaSense ToF": [
-                     {
-                         title: "A010",
-                         src: "aaaaaaaaaa",
-                         lbtn_text: "btn_buy",
-                         lbtn_href: "aaaaaaaaaa",
-                         rbtn_text: "btn_detail",
-                         rbtn_href: "https://wiki.sipeed.com/hardware/zh/metasense/metasense-a010/metasense-a010.html",
-                     },
-                     {
-                         title: "A075V",
-                         src: "aaaaaaaaaa",
-                         lbtn_text: "btn_buy",
-                         lbtn_href: "aaaaaaaaaa",
-                         rbtn_text: "btn_detail",
-                         rbtn_href: "https://wiki.sipeed.com/hardware/zh/metasense/metasense-a075v/metasense-a075v.html",
-                     },
-                 ],
-                 "MaixFace": [
-                     {
-                         title: "MF1",
-                         src: "https://img.alicdn.com/imgextra/i2/2200606237318/O1CN01H8SqoX23vh39Zp9vF_!!2200606237318.jpg_400x400\.jpg",
-                         lbtn_text: "btn_buy",
-                         lbtn_href: "https://item.taobao.com/item.htm?id=599138281058",
-                         rbtn_text: "btn_detail",
-                         rbtn_href: "https://wiki.sipeed.com/hardware/zh/maixface/mf_ml_module/mf1_ml_module.html",
-                     },
-                     {
-                         title: "MF0",
-                         src: "/hardware/assets/maixface/mf0/mf0_front.jpg",
-                         lbtn_text: "btn_eol",
-                         rbtn_text: "btn_detail",
-                         rbtn_href: "https://wiki.sipeed.com/hardware/zh/maixface/mf_ml_module/mf0_ml_module.html",
-                     },
-                     {
-                         title: "MF5",
-                         src: "/hardware/assets/maixface/mf5/mf5.jpg",
-                         lbtn_text: "btn_buy",
-                         lbtn_href: "aaaaaaaaaa",
-                         rbtn_text: "btn_detail",
-                         rbtn_href: "https://wiki.sipeed.com/hardware/zh/maixface/mf_ml_module/mf5_product.html",
-                     },
-                 ],
-                 "外设模块": [
-                     {
-                         title: "MicArray 麦克风阵列",
-                         src: "https://gd2.alicdn.com/imgextra/i2/2200606237318/O1CN01iWgLWE23vhAFV0ClM_!!2200606237318\.jpg",
-                         lbtn_text: "btn_buy",
-                         lbtn_href: "https://item.taobao.com/item.htm?spm=a1z10.5-c-s.w4002-21410578033.10.38c91e6erGBI4k&id=624545696681",
-                         rbtn_text: "btn_detail",
-                         rbtn_href: "https://wiki.sipeed.com/hardware/zh/modules/micarray.html",
-                     },
-                     {
-                         title: "转接板类 SPMOD - Extender",
-                         src: "https://gd1.alicdn.com/imgextra/i1/2200606237318/O1CN01t46VdO23vhAAkeBGg_!!2200606237318\.jpg",
-                         lbtn_text: "btn_buy",
-                         lbtn_href: "https://item.taobao.com/item.htm?spm=a1z10.5-c-s.w4002-21410578033.10.38c91e6erGBI4k&id=624545696681",
-                         rbtn_text: "btn_detail",
-                         rbtn_href: "https://wiki.sipeed.com/hardware/zh/modules_spmod/spmod_extender.html",
-                     },
-                     {
-                         title: "转接板类 SPMOD - Grove",
-                         src: "https://gd2.alicdn.com/imgextra/i4/2200606237318/O1CN01z90MGo23vhAFNZ7fb_!!2200606237318.jpg_400x400\.jpg",
-                         lbtn_text: "btn_buy",
-                         lbtn_href: "https://item.taobao.com/item.htm?spm=a1z10.5-c-s.w4002-21410578033.10.38c91e6erGBI4k&id=624545696681",
-                         rbtn_text: "btn_detail",
-                         rbtn_href: "https://wiki.sipeed.com/hardware/zh/modules_spmod/spmod_grove.html",
-                     },
-                     {
-                         title: "转接板类 SPMOD - FPC",
-                         src: "https://gd1.alicdn.com/imgextra/i1/2200606237318/O1CN01mlbrti23vhAKjGczj_!!2200606237318.jpg_400x400\.jpg",
-                         lbtn_text: "btn_buy",
-                         lbtn_href: "https://wiki.sipeed.com/hardware/zh/modules_spmod/spmod_fpc.html",
-                         rbtn_text: "btn_detail",
-                         rbtn_href: "https://item.taobao.com/item.htm?spm=a1z10.5-c-s.w4002-21410578033.10.38c91e6erGBI4k&id=624545696681",
-                     },
-                     {
-                         title: "转接板类 SPMOD - MicArray",
-                         src: "https://gd1.alicdn.com/imgextra/i1/2200606237318/O1CN01kIVANn23vhAKjHy8Y_!!2200606237318.jpg_400x400\.jpg",
-                         lbtn_text: "btn_buy",
-                         lbtn_href: "https://wiki.sipeed.com/hardware/zh/modules_spmod/spmod_micarray.html",
-                         rbtn_text: "btn_detail",
-                         rbtn_href: "https://item.taobao.com/item.htm?spm=a1z10.5-c-s.w4002-21410578033.10.38c91e6erGBI4k&id=624545696681",
-                     },
-                     {
-                         title: "转接板类 SPMOD - JotStick",
-                         src: "https://gd1.alicdn.com/imgextra/i3/2200606237318/O1CN01hzOZ3a23vhAG97k5l_!!2200606237318.jpg_400x400\.jpg",
-                         lbtn_text: "btn_buy",
-                         lbtn_href: "https://wiki.sipeed.com/hardware/zh/modules_spmod/spmod_joystick.html",
-                         rbtn_text: "btn_detail",
-                         rbtn_href: "https://item.taobao.com/item.htm?spm=a1z10.5-c-s.w4002-21410578033.10.38c91e6erGBI4k&id=624545696681",
-                     },
-                     {
-                         title: "转接板类 SPMOD - Servo",
-                         src: "https://gd1.alicdn.com/imgextra/i4/2200606237318/O1CN019xqp0H23vhAMjPiv4_!!2200606237318.jpg_400x400\.jpg",
-                         lbtn_text: "btn_buy",
-                         lbtn_href: "https://wiki.sipeed.com/hardware/zh/modules_spmod/spmod_servo.html",
-                         rbtn_text: "btn_detail",
-                         rbtn_href: "https://item.taobao.com/item.htm?spm=a1z10.5-c-s.w4002-21410578033.10.38c91e6erGBI4k&id=624545696681",
-                     },
-                     {
-                         title: "传感器类 SPMOD - Weather",
-                         src: "https://gd3.alicdn.com/imgextra/i2/2200606237318/O1CN01WabdBY23vhAKjIq9e_!!2200606237318.jpg_400x400\.jpg",
-                         lbtn_text: "btn_buy",
-                         lbtn_href: "https://wiki.sipeed.com/hardware/zh/modules_spmod/spmod_weather.html",
-                         rbtn_text: "btn_detail",
-                         rbtn_href: "https://item.taobao.com/item.htm?spm=a1z10.5-c-s.w4002-21410578033.10.38c91e6erGBI4k&id=624545696681",
-                     },
-                     {
-                         title: "传感器类 SPMOD - TOF - 1P",
-                         src: "https://gd1.alicdn.com/imgextra/i1/2200606237318/O1CN01t7dWVV23vhAMjOmgh_!!2200606237318.jpg_400x400\.jpg",
-                         lbtn_text: "btn_buy",
-                         lbtn_href: "https://wiki.sipeed.com/hardware/zh/modules_spmod/spmod_tof.html",
-                         rbtn_text: "btn_detail",
-                         rbtn_href: "https://item.taobao.com/item.htm?spm=a1z10.5-c-s.w4002-21410578033.10.38c91e6erGBI4k&id=624545696681",
-                     },
-                     {
-                         title: "通信类 SPMOD - BT",
-                         src: "https://gd2.alicdn.com/imgextra/i4/2200606237318/O1CN01LP2Bbg23vhAFNWVXU_!!2200606237318.jpg_400x400\.jpg",
-                         lbtn_text: "btn_buy",
-                         lbtn_href: "https://wiki.sipeed.com/hardware/zh/modules_spmod/spmod_bt.html",
-                         rbtn_text: "btn_detail",
-                         rbtn_href: "https://item.taobao.com/item.htm?spm=a1z10.5-c-s.w4002-21410578033.10.38c91e6erGBI4k&id=624545696681",
-                     },
-                     {
-                         title: "通信类 SPMOD - LoRa",
-                         src: "https://gd3.alicdn.com/imgextra/i2/2200606237318/O1CN01Dtk8mc23vhAHfzvZz_!!2200606237318.jpg_400x400\.jpg",
-                         lbtn_text: "btn_buy",
-                         lbtn_href: "https://wiki.sipeed.com/hardware/zh/modules_spmod/spmod_lora.html",
-                         rbtn_text: "btn_detail",
-                         rbtn_href: "https://item.taobao.com/item.htm?spm=a1z10.5-c-s.w4002-21410578033.10.38c91e6erGBI4k&id=624545696681",
-                     },
-                     {
-                         title: "通信类 SPMOD - PSRAM",
-                         src: "https://gd1.alicdn.com/imgextra/i4/2200606237318/O1CN01Ym0wNi23vhAHE9IHW_!!2200606237318.jpg_400x400\.jpg",
-                         lbtn_text: "btn_buy",
-                         lbtn_href: "https://wiki.sipeed.com/hardware/zh/modules_spmod/spmod_psram.html",
-                         rbtn_text: "btn_detail",
-                         rbtn_href: "https://item.taobao.com/item.htm?spm=a1z10.5-c-s.w4002-21410578033.10.38c91e6erGBI4k&id=624545696681",
-                     },
-                     {
-                         title: "通信类 SPMOD - RFID",
-                         src: "https://gd1.alicdn.com/imgextra/i1/2200606237318/O1CN01eDttVn23vhANuaCSQ_!!2200606237318.jpg_400x400.jpg",
-                         lbtn_text: "btn_buy",
-                         lbtn_href: "https://wiki.sipeed.com/hardware/zh/modules_spmod/spmod_rfid.html",
-                         rbtn_text: "btn_detail",
-                         rbtn_href: "https://item.taobao.com/item.htm?spm=a1z10.5-c-s.w4002-21410578033.10.38c91e6erGBI4k&id=624545696681",
-                     },
-                     {
-                         title: "通信类 SPMOD - Ethernet",
-                         src: "https://gd1.alicdn.com/imgextra/i3/2200606237318/O1CN01WAeut023vhAFNYzLO_!!2200606237318.jpg_400x400.jpg",
-                         lbtn_text: "btn_buy",
-                         lbtn_href: "https://wiki.sipeed.com/hardware/zh/modules_spmod/spmod_ethernet.html",
-                         rbtn_text: "btn_detail",
-                         rbtn_href: "https://item.taobao.com/item.htm?spm=a1z10.5-c-s.w4002-21410578033.10.38c91e6erGBI4k&id=624545696681",
-                     },
-                     {
-                         title: "显示类 SPMOD - LCD 1.14",
-                         src: "https://gd1.alicdn.com/imgextra/i1/2200606237318/O1CN01vlQaEI23vhAFTJLRH_!!2200606237318.jpg_400x400.jpg",
-                         lbtn_text: "btn_buy",
-                         lbtn_href: "https://wiki.sipeed.com/hardware/zh/modules_spmod/spmod_lcd1.14.html",
-                         rbtn_text: "btn_detail",
-                         rbtn_href: "https://item.taobao.com/item.htm?spm=a1z10.5-c-s.w4002-21410578033.10.38c91e6erGBI4k&id=624545696681",
-                     },
-                     {
-                         title: "显示类 SPMOD - Eink",
-                         src: "https://gd4.alicdn.com/imgextra/i4/2200606237318/O1CN018uTgJk23vhAKjJ2dM_!!2200606237318.jpg_400x400.jpg",
-                         lbtn_text: "btn_buy",
-                         lbtn_href: "https://wiki.sipeed.com/hardware/zh/modules_spmod/spmod_eink.html",
-                         rbtn_text: "btn_detail",
-                         rbtn_href: "https://item.taobao.com/item.htm?spm=a1z10.5-c-s.w4002-21410578033.10.38c91e6erGBI4k&id=624545696681",
-                     },
-                 ],
-                 "商业方案": [
-                     {
-                         title: "Maixll S",
-                         src: "https://wiki.sipeed.com/hardware/zh/maixII/M2S/assets/M2s_Dock\.jpg",
-                         lbtn_text: "btn_eol",
-                         rbtn_text: "btn_detail",
-                         rbtn_href: "https://wiki.sipeed.com/hardware/zh/maixII/M2S/reources.html",
-                     },
-                 ],
-             },
-             'en': {
+                ],
+                "LicheePi": [
+                    {
+                        title: "LicheePi RV",
+                        src: "https://gd3.alicdn.com/imgextra/i3/2200606237318/O1CN01MEgUIo23vhAFhUCq0_!!2200606237318.jpg_400x400\.jpg",
+                        lbtn_text: "btn_buy",
+                        lbtn_href: "https://item.taobao.com/item.htm?id=660478137105",
+                        rbtn_text: "btn_detail",
+                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/lichee/RV/RV.html",
+                    },
+                    {
+                        title: "LicheePi RV DOCK",
+                        src: "https://gd3.alicdn.com/imgextra/i1/2200606237318/O1CN01OulXPA23vhA9FKbmd_!!2200606237318.jpg_400x400\.jpg",
+                        lbtn_text: "btn_buy",
+                        lbtn_href: "https://item.taobao.com/item.htm?id=666274331852",
+                        rbtn_text: "btn_detail",
+                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/lichee/RV/Dock.html",
+                    },
+                    {
+                        title: "LicheePi RV 86 panel",
+                        src: "https://gd3.alicdn.com/imgextra/i1/2200606237318/O1CN01dJMnXa23vhAJB8hsd_!!2200606237318.jpg_400x400\.jpg",
+                        lbtn_text: "btn_buy",
+                        lbtn_href: "https://item.taobao.com/item.htm?id=663345415205",
+                        rbtn_text: "btn_detail",
+                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/lichee/RV/86_panel.html",
+                    },
+                    {
+                        title: "LicheePi Zero",
+                        src: "https://gd4.alicdn.com/imgextra/i2/2200606237318/O1CN019QAynl23vhAAzYMLR_!!2200606237318.jpg_400x400\.jpg",
+                        lbtn_text: "btn_buy",
+                        lbtn_href: "https://item.taobao.com/item.htm?id=585033586770",
+                        rbtn_text: "btn_detail",
+                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/lichee/Zero/Zero.html",
+                    },
+                    {
+                        title: "LicheePi Nano",
+                        src: "https://gd3.alicdn.com/imgextra/i2/2200606237318/O1CN01DCSn0723vhAKs8FnH_!!2200606237318.jpg_400x400\.jpg",
+                        lbtn_text: "btn_buy",
+                        lbtn_href: "https://item.taobao.com/item.htm?id=584657396198",
+                        rbtn_text: "btn_detail",
+                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/lichee/Nano/Nano.html",
+                    },
+                    {
+                        title: "LicheePi Zeroplus",
+                        src: "https://wiki.sipeed.com/hardware/zh/lichee/assets/Zero-Plus/Plus_1.jpg",
+                        lbtn_text: "btn_eol",
+                        rbtn_text: "btn_detail",
+                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/lichee/ZeroPlus/ZeroPlus.html",
+                    },
+                ],
+                "Tang FPGA": [
+                    {
+                        title: "Tang Primer 20k",
+                        src: "https://gd3.alicdn.com/imgextra/i3/2200606237318/O1CN01Xe11pH23vhBRw4zLG_!!2200606237318.jpg_400x400\.jpg",
+                        lbtn_text: "btn_buy",
+                        lbtn_href: "https://item.taobao.com/item.htm?id=680099020807",
+                        rbtn_text: "btn_detail",
+                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/tang/tang-primer-20k/primer-20k.html",
+                    },
+                    {
+                        title: "Tang Nano 9K",
+                        src: "https://gd1.alicdn.com/imgextra/i2/2200606237318/O1CN010ZU7AZ23vhAO2pYsr_!!2200606237318.jpg_400x400\.jpg",
+                        lbtn_text: "btn_buy",
+                        lbtn_href: "https://item.taobao.com/item.htm?id=666055424174",
+                        rbtn_text: "btn_detail",
+                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-9K/Nano-9K.html",
+                    },
+                    {
+                        title: "Tang Nano 4K",
+                        src: "https://gd3.alicdn.com/imgextra/i3/2200606237318/O1CN01sA5bRZ23vhADC0MmP_!!2200606237318.jpg_400x400\.jpg",
+                        lbtn_text: "btn_buy",
+                        lbtn_href: "https://item.taobao.com/item.htm?id=661994055100",
+                        rbtn_text: "btn_detail",
+                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-4K/Nano-4K.html",
+                    },
+                    {
+                        title: "Tang Nano 1K",
+                        src: "https://gd3.alicdn.com/imgextra/i1/2200606237318/O1CN01oSMyeW23vhAGKY8rO_!!2200606237318.jpg_400x400\.jpg",
+                        lbtn_text: "btn_buy",
+                        lbtn_href: "https://item.taobao.com/item.htm?id=661994055100",
+                        rbtn_text: "btn_detail",
+                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-1K/Nano-1k.html",
+                    },
+                    {
+                        title: "Tang Primer",
+                        src: "https://wiki.sipeed.com/hardware/assets/Tang/permier/Tang_permier.jpg",
+                        lbtn_text: "btn_eol",
+                        rbtn_text: "btn_detail",
+                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/tang/Tang-primer/Tang-primer.html",
+                    },
+                    {
+                        title: "Tang Nano",
+                        src: "https://wiki.sipeed.com/hardware/assets/Tang/Nano/Tang_Nano.jpg",
+                        lbtn_text: "btn_eol",
+                        rbtn_text: "btn_detail",
+                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano/Nano.html",
+                    },
+                ],
+                "MetaSense ToF": [
+                    {
+                        title: "A010",
+                        src: "https://wiki.sipeed.com/hardware/zh/metasense/metasense-a010/assets/ms_s.jpg",
+                        lbtn_text: "btn_buy",
+                        lbtn_href: "https://igg.me/at/MetaSense",
+                        rbtn_text: "btn_detail",
+                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/metasense/metasense-a010/metasense-a010.html",
+                    },
+                    {
+                        title: "A075V",
+                        src: "https://wiki.sipeed.com/hardware/zh/metasense/assets/me_big.jpg",
+                        lbtn_text: "btn_buy",
+                        lbtn_href: "https://igg.me/at/MetaSense",
+                        rbtn_text: "btn_detail",
+                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/metasense/metasense-a075v/metasense-a075v.html",
+                    },
+                ],
+                "MaixFace": [
+                    {
+                        title: "MF1",
+                        src: "https://img.alicdn.com/imgextra/i2/2200606237318/O1CN01H8SqoX23vh39Zp9vF_!!2200606237318.jpg_400x400\.jpg",
+                        lbtn_text: "btn_buy",
+                        lbtn_href: "https://item.taobao.com/item.htm?id=599138281058",
+                        rbtn_text: "btn_detail",
+                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/maixface/mf_ml_module/mf1_ml_module.html",
+                    },
+                    {
+                        title: "MF0",
+                        src: "/hardware/assets/maixface/mf0/mf0_front.jpg",
+                        lbtn_text: "btn_eol",
+                        rbtn_text: "btn_detail",
+                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/maixface/mf_ml_module/mf0_ml_module.html",
+                    },
+                    {
+                        title: "MF5",
+                        src: "/hardware/assets/maixface/mf5/mf5.jpg",
+                        lbtn_text: "btn_buy",
+                        lbtn_href: "aaaaaaaaaa",
+                        rbtn_text: "btn_detail",
+                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/maixface/mf_ml_module/mf5_product.html",
+                    },
+                ],
+                "外设模块": [
+                    {
+                        title: "MicArray 麦克风阵列",
+                        src: "https://gd2.alicdn.com/imgextra/i2/2200606237318/O1CN01iWgLWE23vhAFV0ClM_!!2200606237318\.jpg",
+                        lbtn_text: "btn_buy",
+                        lbtn_href: "https://item.taobao.com/item.htm?spm=a1z10.5-c-s.w4002-21410578033.10.38c91e6erGBI4k&id=624545696681",
+                        rbtn_text: "btn_detail",
+                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/modules/micarray.html",
+                    },
+                    {
+                        title: "转接板类 SPMOD - Extender",
+                        src: "https://gd1.alicdn.com/imgextra/i1/2200606237318/O1CN01t46VdO23vhAAkeBGg_!!2200606237318\.jpg",
+                        lbtn_text: "btn_buy",
+                        lbtn_href: "https://item.taobao.com/item.htm?spm=a1z10.5-c-s.w4002-21410578033.10.38c91e6erGBI4k&id=624545696681",
+                        rbtn_text: "btn_detail",
+                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/modules_spmod/spmod_extender.html",
+                    },
+                    {
+                        title: "转接板类 SPMOD - Grove",
+                        src: "https://gd2.alicdn.com/imgextra/i4/2200606237318/O1CN01z90MGo23vhAFNZ7fb_!!2200606237318.jpg_400x400\.jpg",
+                        lbtn_text: "btn_buy",
+                        lbtn_href: "https://item.taobao.com/item.htm?spm=a1z10.5-c-s.w4002-21410578033.10.38c91e6erGBI4k&id=624545696681",
+                        rbtn_text: "btn_detail",
+                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/modules_spmod/spmod_grove.html",
+                    },
+                    {
+                        title: "转接板类 SPMOD - FPC",
+                        src: "https://gd1.alicdn.com/imgextra/i1/2200606237318/O1CN01mlbrti23vhAKjGczj_!!2200606237318.jpg_400x400\.jpg",
+                        lbtn_text: "btn_buy",
+                        lbtn_href: "https://wiki.sipeed.com/hardware/zh/modules_spmod/spmod_fpc.html",
+                        rbtn_text: "btn_detail",
+                        rbtn_href: "https://item.taobao.com/item.htm?spm=a1z10.5-c-s.w4002-21410578033.10.38c91e6erGBI4k&id=624545696681",
+                    },
+                    {
+                        title: "转接板类 SPMOD - MicArray",
+                        src: "https://gd1.alicdn.com/imgextra/i1/2200606237318/O1CN01kIVANn23vhAKjHy8Y_!!2200606237318.jpg_400x400\.jpg",
+                        lbtn_text: "btn_buy",
+                        lbtn_href: "https://wiki.sipeed.com/hardware/zh/modules_spmod/spmod_micarray.html",
+                        rbtn_text: "btn_detail",
+                        rbtn_href: "https://item.taobao.com/item.htm?spm=a1z10.5-c-s.w4002-21410578033.10.38c91e6erGBI4k&id=624545696681",
+                    },
+                    {
+                        title: "转接板类 SPMOD - JotStick",
+                        src: "https://gd1.alicdn.com/imgextra/i3/2200606237318/O1CN01hzOZ3a23vhAG97k5l_!!2200606237318.jpg_400x400\.jpg",
+                        lbtn_text: "btn_buy",
+                        lbtn_href: "https://wiki.sipeed.com/hardware/zh/modules_spmod/spmod_joystick.html",
+                        rbtn_text: "btn_detail",
+                        rbtn_href: "https://item.taobao.com/item.htm?spm=a1z10.5-c-s.w4002-21410578033.10.38c91e6erGBI4k&id=624545696681",
+                    },
+                    {
+                        title: "转接板类 SPMOD - Servo",
+                        src: "https://gd1.alicdn.com/imgextra/i4/2200606237318/O1CN019xqp0H23vhAMjPiv4_!!2200606237318.jpg_400x400\.jpg",
+                        lbtn_text: "btn_buy",
+                        lbtn_href: "https://wiki.sipeed.com/hardware/zh/modules_spmod/spmod_servo.html",
+                        rbtn_text: "btn_detail",
+                        rbtn_href: "https://item.taobao.com/item.htm?spm=a1z10.5-c-s.w4002-21410578033.10.38c91e6erGBI4k&id=624545696681",
+                    },
+                    {
+                        title: "传感器类 SPMOD - Weather",
+                        src: "https://gd3.alicdn.com/imgextra/i2/2200606237318/O1CN01WabdBY23vhAKjIq9e_!!2200606237318.jpg_400x400\.jpg",
+                        lbtn_text: "btn_buy",
+                        lbtn_href: "https://wiki.sipeed.com/hardware/zh/modules_spmod/spmod_weather.html",
+                        rbtn_text: "btn_detail",
+                        rbtn_href: "https://item.taobao.com/item.htm?spm=a1z10.5-c-s.w4002-21410578033.10.38c91e6erGBI4k&id=624545696681",
+                    },
+                    {
+                        title: "传感器类 SPMOD - TOF - 1P",
+                        src: "https://gd1.alicdn.com/imgextra/i1/2200606237318/O1CN01t7dWVV23vhAMjOmgh_!!2200606237318.jpg_400x400\.jpg",
+                        lbtn_text: "btn_buy",
+                        lbtn_href: "https://wiki.sipeed.com/hardware/zh/modules_spmod/spmod_tof.html",
+                        rbtn_text: "btn_detail",
+                        rbtn_href: "https://item.taobao.com/item.htm?spm=a1z10.5-c-s.w4002-21410578033.10.38c91e6erGBI4k&id=624545696681",
+                    },
+                    {
+                        title: "通信类 SPMOD - BT",
+                        src: "https://gd2.alicdn.com/imgextra/i4/2200606237318/O1CN01LP2Bbg23vhAFNWVXU_!!2200606237318.jpg_400x400\.jpg",
+                        lbtn_text: "btn_buy",
+                        lbtn_href: "https://wiki.sipeed.com/hardware/zh/modules_spmod/spmod_bt.html",
+                        rbtn_text: "btn_detail",
+                        rbtn_href: "https://item.taobao.com/item.htm?spm=a1z10.5-c-s.w4002-21410578033.10.38c91e6erGBI4k&id=624545696681",
+                    },
+                    {
+                        title: "通信类 SPMOD - LoRa",
+                        src: "https://gd3.alicdn.com/imgextra/i2/2200606237318/O1CN01Dtk8mc23vhAHfzvZz_!!2200606237318.jpg_400x400\.jpg",
+                        lbtn_text: "btn_buy",
+                        lbtn_href: "https://wiki.sipeed.com/hardware/zh/modules_spmod/spmod_lora.html",
+                        rbtn_text: "btn_detail",
+                        rbtn_href: "https://item.taobao.com/item.htm?spm=a1z10.5-c-s.w4002-21410578033.10.38c91e6erGBI4k&id=624545696681",
+                    },
+                    {
+                        title: "通信类 SPMOD - PSRAM",
+                        src: "https://gd1.alicdn.com/imgextra/i4/2200606237318/O1CN01Ym0wNi23vhAHE9IHW_!!2200606237318.jpg_400x400\.jpg",
+                        lbtn_text: "btn_buy",
+                        lbtn_href: "https://wiki.sipeed.com/hardware/zh/modules_spmod/spmod_psram.html",
+                        rbtn_text: "btn_detail",
+                        rbtn_href: "https://item.taobao.com/item.htm?spm=a1z10.5-c-s.w4002-21410578033.10.38c91e6erGBI4k&id=624545696681",
+                    },
+                    {
+                        title: "通信类 SPMOD - RFID",
+                        src: "https://gd1.alicdn.com/imgextra/i1/2200606237318/O1CN01eDttVn23vhANuaCSQ_!!2200606237318.jpg_400x400.jpg",
+                        lbtn_text: "btn_buy",
+                        lbtn_href: "https://wiki.sipeed.com/hardware/zh/modules_spmod/spmod_rfid.html",
+                        rbtn_text: "btn_detail",
+                        rbtn_href: "https://item.taobao.com/item.htm?spm=a1z10.5-c-s.w4002-21410578033.10.38c91e6erGBI4k&id=624545696681",
+                    },
+                    {
+                        title: "通信类 SPMOD - Ethernet",
+                        src: "https://gd1.alicdn.com/imgextra/i3/2200606237318/O1CN01WAeut023vhAFNYzLO_!!2200606237318.jpg_400x400.jpg",
+                        lbtn_text: "btn_buy",
+                        lbtn_href: "https://wiki.sipeed.com/hardware/zh/modules_spmod/spmod_ethernet.html",
+                        rbtn_text: "btn_detail",
+                        rbtn_href: "https://item.taobao.com/item.htm?spm=a1z10.5-c-s.w4002-21410578033.10.38c91e6erGBI4k&id=624545696681",
+                    },
+                    {
+                        title: "显示类 SPMOD - LCD 1.14",
+                        src: "https://gd1.alicdn.com/imgextra/i1/2200606237318/O1CN01vlQaEI23vhAFTJLRH_!!2200606237318.jpg_400x400.jpg",
+                        lbtn_text: "btn_buy",
+                        lbtn_href: "https://wiki.sipeed.com/hardware/zh/modules_spmod/spmod_lcd1.14.html",
+                        rbtn_text: "btn_detail",
+                        rbtn_href: "https://item.taobao.com/item.htm?spm=a1z10.5-c-s.w4002-21410578033.10.38c91e6erGBI4k&id=624545696681",
+                    },
+                    {
+                        title: "显示类 SPMOD - Eink",
+                        src: "https://gd4.alicdn.com/imgextra/i4/2200606237318/O1CN018uTgJk23vhAKjJ2dM_!!2200606237318.jpg_400x400.jpg",
+                        lbtn_text: "btn_buy",
+                        lbtn_href: "https://wiki.sipeed.com/hardware/zh/modules_spmod/spmod_eink.html",
+                        rbtn_text: "btn_detail",
+                        rbtn_href: "https://item.taobao.com/item.htm?spm=a1z10.5-c-s.w4002-21410578033.10.38c91e6erGBI4k&id=624545696681",
+                    },
+                ],
+                "商业方案": [
+                    {
+                        title: "Maixll S",
+                        src: "https://wiki.sipeed.com/hardware/zh/maixII/M2S/assets/M2s_Dock\.jpg",
+                        lbtn_text: "btn_eol",
+                        rbtn_text: "btn_detail",
+                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/maixII/M2S/reources.html",
+                    },
+                ],
+            },
+            'en': {
                 "Maix-AI-K210": [
                     {
                         title: "MicroPython AIOT",
@@ -793,191 +793,191 @@
              }
          },
      }
-     ///////////////////// config end /////////////////////
-     // get page locale
-     var locale = document.getElementsByTagName("html")[0].lang
-     if (locale) {
-         locale = locale.toLowerCase().split("-")[0]
-     }
-     // get browser locale
-     var localeBrowser = (navigator.language || navigator.browserLanguage).toLowerCase().split("-")[0];
-     // brower locale not in page lanuage list, use browser locale
-     if (!localeBrowser in pageLanguages) {
-         locale = localeBrowser
-     }
-     const i18n = VueI18n.createI18n({
-         locale: locale,
-         messages: messages,
-         fallbackLocale: "en",
-         silentFallbackWarn: true
-     })
-     function isLimitedNetwork() {
-         var connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection || { tyep: 'unknown' };
-         const notLimitTypes = ["ethernet", "wifi", "wimax"]
-         const limitTypes = ["bluetooth", "cellular"]
-         var system = {
-             win: false,
-             mac: false,
-             x11: false,
-             ipad: false
-         };
-         var p = navigator.platform;
-         system.win = p.indexOf("Win") == 0;
-         system.mac = p.indexOf("Mac") == 0;
-         system.x11 = (p == "X11") || (p.indexOf("Linux") == 0);
-         system.ipad = (navigator.userAgent.match(/iPad/i) != null) ? true : false;
-         if (notLimitTypes.indexOf(connection.type) >= 0) {
-             return false
-         }
-         if ((system.win || system.mac || system.x11 || system.ipad) && (limitTypes.indexOf(connection.type) < 0)) {
-             return false
-         }
-         return true
-     }
-     function showNew(info) {
-         var el = document.getElementById("msg_content")
-         el.innerHTML = info
-         el = document.getElementById("msg")
-         el.style.display = "block"
-     }
-     const allHandling = {
-         compilerOptions: {
-             delimiters: ['{[', ']}'],
-         },
-         data() {
-             return {
-                 datas: datas
-             }
-         },
-         mounted() {
-             var isWechat = window.WeixinJSBridge
-             if (!isWechat) {
-                 document.addEventListener("WeixinJSBridgeReady", function () {
-                     var players_mask = document.getElementsByClassName("play_mask")
-                     for (var i = 0; i < players_mask.length; ++i) {
-                         players_mask[i].style.display = "block"
-                     }
-                 }, false);
-             }
-             if (isLimitedNetwork() || isWechat) {
-                 var players_mask = document.getElementsByClassName("play_mask")
-                 for (var i = 0; i < players_mask.length; ++i) {
-                     players_mask[i].style.display = "block"
-                 }
-             } else {
-                 var players = document.getElementsByClassName("video_player")
-                 for (var i = 0; i < players.length; ++i) {
-                     players[i].play();
-                 }
-             }
-         },
-         methods: {
-             playVideo(event) {
-                 // remove play button and paly video
-                 el = event.target
-                 el.style.display = "none"
-                 player = el.parentElement.getElementsByTagName("video")[0]
-                 player.play()
-             },
-             newInfo(event) {
-                 el = event.target
-                 info = el.getElementsByClassName("new_info")[0].innerText
-                 if (info != "true" && info != "false" && info.trim() != "") {
-                     showNew(info)
-                 }
-             },
-             msgCLose(event) {
-                 console.log("close")
-                 var el = document.getElementById("msg")
-                 el.style.display = "none"
-             }
-         }
-     }
-     var app = Vue.createApp(allHandling)
-     app.use(i18n)
-     app.use(naive)
-     // const meta = document.createElement('meta')
-     // meta.name = 'naive-ui-style'
-     // document.head.appendChild(meta)
-     app.directive('new-tab', {
-         mounted(el, binding) {
-             if (binding.value) {
-                 el.setAttribute("target", "_blank")
-             }
-         }
-     })
-     var vm = app.mount('#products')
- </script>
- <style scoped>
-     .n-gradient-text {
-         font-size: 36px;
-     }
+    ///////////////////// config end /////////////////////
+    // get page locale
+    var locale = document.getElementsByTagName("html")[0].lang
+    if (locale) {
+        locale = locale.toLowerCase().split("-")[0]
+    }
+    // get browser locale
+    var localeBrowser = (navigator.language || navigator.browserLanguage).toLowerCase().split("-")[0];
+    // brower locale not in page lanuage list, use browser locale
+    if (!localeBrowser in pageLanguages) {
+        locale = localeBrowser
+    }
+    const i18n = VueI18n.createI18n({
+        locale: locale,
+        messages: messages,
+        fallbackLocale: "en",
+        silentFallbackWarn: true
+    })
+    function isLimitedNetwork() {
+        var connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection || { tyep: 'unknown' };
+        const notLimitTypes = ["ethernet", "wifi", "wimax"]
+        const limitTypes = ["bluetooth", "cellular"]
+        var system = {
+            win: false,
+            mac: false,
+            x11: false,
+            ipad: false
+        };
+        var p = navigator.platform;
+        system.win = p.indexOf("Win") == 0;
+        system.mac = p.indexOf("Mac") == 0;
+        system.x11 = (p == "X11") || (p.indexOf("Linux") == 0);
+        system.ipad = (navigator.userAgent.match(/iPad/i) != null) ? true : false;
+        if (notLimitTypes.indexOf(connection.type) >= 0) {
+            return false
+        }
+        if ((system.win || system.mac || system.x11 || system.ipad) && (limitTypes.indexOf(connection.type) < 0)) {
+            return false
+        }
+        return true
+    }
+    function showNew(info) {
+        var el = document.getElementById("msg_content")
+        el.innerHTML = info
+        el = document.getElementById("msg")
+        el.style.display = "block"
+    }
+    const allHandling = {
+        compilerOptions: {
+            delimiters: ['{[', ']}'],
+        },
+        data() {
+            return {
+                datas: datas
+            }
+        },
+        mounted() {
+            var isWechat = window.WeixinJSBridge
+            if (!isWechat) {
+                document.addEventListener("WeixinJSBridgeReady", function () {
+                    var players_mask = document.getElementsByClassName("play_mask")
+                    for (var i = 0; i < players_mask.length; ++i) {
+                        players_mask[i].style.display = "block"
+                    }
+                }, false);
+            }
+            if (isLimitedNetwork() || isWechat) {
+                var players_mask = document.getElementsByClassName("play_mask")
+                for (var i = 0; i < players_mask.length; ++i) {
+                    players_mask[i].style.display = "block"
+                }
+            } else {
+                var players = document.getElementsByClassName("video_player")
+                for (var i = 0; i < players.length; ++i) {
+                    players[i].play();
+                }
+            }
+        },
+        methods: {
+            playVideo(event) {
+                // remove play button and paly video
+                el = event.target
+                el.style.display = "none"
+                player = el.parentElement.getElementsByTagName("video")[0]
+                player.play()
+            },
+            newInfo(event) {
+                el = event.target
+                info = el.getElementsByClassName("new_info")[0].innerText
+                if (info != "true" && info != "false" && info.trim() != "") {
+                    showNew(info)
+                }
+            },
+            msgCLose(event) {
+                console.log("close")
+                var el = document.getElementById("msg")
+                el.style.display = "none"
+            }
+        }
+    }
+    var app = Vue.createApp(allHandling)
+    app.use(i18n)
+    app.use(naive)
+    // const meta = document.createElement('meta')
+    // meta.name = 'naive-ui-style'
+    // document.head.appendChild(meta)
+    app.directive('new-tab', {
+        mounted(el, binding) {
+            if (binding.value) {
+                el.setAttribute("target", "_blank")
+            }
+        }
+    })
+    var vm = app.mount('#products')
+</script>
+<style scoped>
+    .n-gradient-text {
+        font-size: 36px;
+    }
 
-     .n-layout-header,
-     .n-layout-footer {
-         background: rgba(128, 128, 128, 0.2);
-         padding: 24px;
-     }
+    .n-layout-header,
+    .n-layout-footer {
+        background: rgba(128, 128, 128, 0.2);
+        padding: 24px;
+    }
 
-     .n-layout-sider {
-         background: rgba(128, 128, 128, 0.3);
-     }
+    .n-layout-sider {
+        background: rgba(128, 128, 128, 0.3);
+    }
 
-     .n-layout-content {
-         background: rgba(128, 128, 128, 0.4);
-     }
+    .n-layout-content {
+        background: rgba(128, 128, 128, 0.4);
+    }
 
-     .card-img {
-         object-fit: scale-down;
-         height: 280px;
-         max-width: fit-content;
-     }
+    .card-img {
+        object-fit: scale-down;
+        height: 280px;
+        max-width: fit-content;
+    }
 
-     .carousel-img {
-         margin: 0 auto;
-         width: 100%;
-         height: 100%;
-         object-fit: cover;
-     }
+    .carousel-img {
+        margin: 0 auto;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 
-     .mobile-img {
-         width: 100%;
-         object-fit: cover;
-     }
+    .mobile-img {
+        width: 100%;
+        object-fit: cover;
+    }
 
-     .normal-img {
-         max-width: 80%;
-         height: 200px;
-         object-fit: scale-down;
-     }
+    .normal-img {
+        max-width: 80%;
+        height: 200px;
+        object-fit: scale-down;
+    }
 
-     .card-tabs .n-tabs-nav--bar-type {
-         padding-left: 4px;
-     }
+    .card-tabs .n-tabs-nav--bar-type {
+        padding-left: 4px;
+    }
 
-     .custom-tabs .n-tabs-bar {
-         background-color: transparent !important;
-     }
+    .custom-tabs .n-tabs-bar {
+        background-color: transparent !important;
+    }
 
-     .custom-tabs .n-tabs-bar::after {
-         background-color: rgba(255, 0, 0, 0.80);
-     }
+    .custom-tabs .n-tabs-bar::after {
+        background-color: rgba(255, 0, 0, 0.80);
+    }
 
-     .base_background {
-         background-image: repeating-linear-gradient(135deg, hsla(35, 0%, 71%, 0.09) 0px, hsla(35, 0%, 71%, 0.09) 1px, transparent 1px, transparent 11px), repeating-linear-gradient(45deg, hsla(35, 0%, 71%, 0.09) 0px, hsla(35, 0%, 71%, 0.09) 1px, transparent 1px, transparent 11px), linear-gradient(90deg, hsl(183, 0%, 100%), hsl(183, 0%, 100%));
-     }
+    .base_background {
+        background-image: repeating-linear-gradient(135deg, hsla(35, 0%, 71%, 0.09) 0px, hsla(35, 0%, 71%, 0.09) 1px, transparent 1px, transparent 11px), repeating-linear-gradient(45deg, hsla(35, 0%, 71%, 0.09) 0px, hsla(35, 0%, 71%, 0.09) 1px, transparent 1px, transparent 11px), linear-gradient(90deg, hsl(183, 0%, 100%), hsl(183, 0%, 100%));
+    }
 
-     .head_background {
-         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 304 304' width='304' height='304'%3E%3Cpath fill='%23000000' fill-opacity='0.04' d='M44.1 224a5 5 0 1 1 0 2H0v-2h44.1zm160 48a5 5 0 1 1 0 2H82v-2h122.1zm57.8-46a5 5 0 1 1 0-2H304v2h-42.1zm0 16a5 5 0 1 1 0-2H304v2h-42.1zm6.2-114a5 5 0 1 1 0 2h-86.2a5 5 0 1 1 0-2h86.2zm-256-48a5 5 0 1 1 0 2H0v-2h12.1zm185.8 34a5 5 0 1 1 0-2h86.2a5 5 0 1 1 0 2h-86.2zM258 12.1a5 5 0 1 1-2 0V0h2v12.1zm-64 208a5 5 0 1 1-2 0v-54.2a5 5 0 1 1 2 0v54.2zm48-198.2V80h62v2h-64V21.9a5 5 0 1 1 2 0zm16 16V64h46v2h-48V37.9a5 5 0 1 1 2 0zm-128 96V208h16v12.1a5 5 0 1 1-2 0V210h-16v-76.1a5 5 0 1 1 2 0zm-5.9-21.9a5 5 0 1 1 0 2H114v48H85.9a5 5 0 1 1 0-2H112v-48h12.1zm-6.2 130a5 5 0 1 1 0-2H176v-74.1a5 5 0 1 1 2 0V242h-60.1zm-16-64a5 5 0 1 1 0-2H114v48h10.1a5 5 0 1 1 0 2H112v-48h-10.1zM66 284.1a5 5 0 1 1-2 0V274H50v30h-2v-32h18v12.1zM236.1 176a5 5 0 1 1 0 2H226v94h48v32h-2v-30h-48v-98h12.1zm25.8-30a5 5 0 1 1 0-2H274v44.1a5 5 0 1 1-2 0V146h-10.1zm-64 96a5 5 0 1 1 0-2H208v-80h16v-14h-42.1a5 5 0 1 1 0-2H226v18h-16v80h-12.1zm86.2-210a5 5 0 1 1 0 2H272V0h2v32h10.1zM98 101.9V146H53.9a5 5 0 1 1 0-2H96v-42.1a5 5 0 1 1 2 0zM53.9 34a5 5 0 1 1 0-2H80V0h2v34H53.9zm60.1 3.9V66H82v64H69.9a5 5 0 1 1 0-2H80V64h32V37.9a5 5 0 1 1 2 0zM101.9 82a5 5 0 1 1 0-2H128V37.9a5 5 0 1 1 2 0V82h-28.1zm16-64a5 5 0 1 1 0-2H146v44.1a5 5 0 1 1-2 0V18h-26.1zm102.2 270a5 5 0 1 1 0 2H98v14h-2v-16h124.1zM242 149.9V160h16v34h-16v62h48v48h-2v-46h-48v-66h16v-30h-16v-12.1a5 5 0 1 1 2 0zM53.9 18a5 5 0 1 1 0-2H64V2H48V0h18v18H53.9zm112 32a5 5 0 1 1 0-2H192V0h50v2h-48v48h-28.1zm-48-48a5 5 0 0 1-9.8-2h2.07a3 3 0 1 0 5.66 0H178v34h-18V21.9a5 5 0 1 1 2 0V32h14V2h-58.1zm0 96a5 5 0 1 1 0-2H137l32-32h39V21.9a5 5 0 1 1 2 0V66h-40.17l-32 32H117.9zm28.1 90.1a5 5 0 1 1-2 0v-76.51L175.59 80H224V21.9a5 5 0 1 1 2 0V82h-49.59L146 112.41v75.69zm16 32a5 5 0 1 1-2 0v-99.51L184.59 96H300.1a5 5 0 0 1 3.9-3.9v2.07a3 3 0 0 0 0 5.66v2.07a5 5 0 0 1-3.9-3.9H185.41L162 121.41v98.69zm-144-64a5 5 0 1 1-2 0v-3.51l48-48V48h32V0h2v50H66v55.41l-48 48v2.69zM50 53.9v43.51l-48 48V208h26.1a5 5 0 1 1 0 2H0v-65.41l48-48V53.9a5 5 0 1 1 2 0zm-16 16V89.41l-34 34v-2.82l32-32V69.9a5 5 0 1 1 2 0zM12.1 32a5 5 0 1 1 0 2H9.41L0 43.41V40.6L8.59 32h3.51zm265.8 18a5 5 0 1 1 0-2h18.69l7.41-7.41v2.82L297.41 50H277.9zm-16 160a5 5 0 1 1 0-2H288v-71.41l16-16v2.82l-14 14V210h-28.1zm-208 32a5 5 0 1 1 0-2H64v-22.59L40.59 194H21.9a5 5 0 1 1 0-2H41.41L66 216.59V242H53.9zm150.2 14a5 5 0 1 1 0 2H96v-56.6L56.6 162H37.9a5 5 0 1 1 0-2h19.5L98 200.6V256h106.1zm-150.2 2a5 5 0 1 1 0-2H80v-46.59L48.59 178H21.9a5 5 0 1 1 0-2H49.41L82 208.59V258H53.9zM34 39.8v1.61L9.41 66H0v-2h8.59L32 40.59V0h2v39.8zM2 300.1a5 5 0 0 1 3.9 3.9H3.83A3 3 0 0 0 0 302.17V256h18v48h-2v-46H2v42.1zM34 241v63h-2v-62H0v-2h34v1zM17 18H0v-2h16V0h2v18h-1zm273-2h14v2h-16V0h2v16zm-32 273v15h-2v-14h-14v14h-2v-16h18v1zM0 92.1A5.02 5.02 0 0 1 6 97a5 5 0 0 1-6 4.9v-2.07a3 3 0 1 0 0-5.66V92.1zM80 272h2v32h-2v-32zm37.9 32h-2.07a3 3 0 0 0-5.66 0h-2.07a5 5 0 0 1 9.8 0zM5.9 0A5.02 5.02 0 0 1 0 5.9V3.83A3 3 0 0 0 3.83 0H5.9zm294.2 0h2.07A3 3 0 0 0 304 3.83V5.9a5 5 0 0 1-3.9-5.9zm3.9 300.1v2.07a3 3 0 0 0-1.83 1.83h-2.07a5 5 0 0 1 3.9-3.9zM97 100a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0-16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-48 32a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm32 48a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-16 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm32-16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0-32a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16 32a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm32 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0-16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-16-64a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16 96a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16-144a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 32a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16-32a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16-16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-96 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16-32a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm96 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-16-64a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16-16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-32 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0-16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-16 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-16 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-16 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM49 36a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-32 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm32 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM33 68a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16-48a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 240a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16 32a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-16-64a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-16-32a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm80-176a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-16-16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm32 48a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16-16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0-32a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm112 176a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-16 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM17 180a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0-32a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM17 84a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm32 64a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16-16a3 3 0 1 0 0-6 3 3 0 0 0 0 6z'%3E%3C/path%3E%3C/svg%3E");
-     }
+    .head_background {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 304 304' width='304' height='304'%3E%3Cpath fill='%23000000' fill-opacity='0.04' d='M44.1 224a5 5 0 1 1 0 2H0v-2h44.1zm160 48a5 5 0 1 1 0 2H82v-2h122.1zm57.8-46a5 5 0 1 1 0-2H304v2h-42.1zm0 16a5 5 0 1 1 0-2H304v2h-42.1zm6.2-114a5 5 0 1 1 0 2h-86.2a5 5 0 1 1 0-2h86.2zm-256-48a5 5 0 1 1 0 2H0v-2h12.1zm185.8 34a5 5 0 1 1 0-2h86.2a5 5 0 1 1 0 2h-86.2zM258 12.1a5 5 0 1 1-2 0V0h2v12.1zm-64 208a5 5 0 1 1-2 0v-54.2a5 5 0 1 1 2 0v54.2zm48-198.2V80h62v2h-64V21.9a5 5 0 1 1 2 0zm16 16V64h46v2h-48V37.9a5 5 0 1 1 2 0zm-128 96V208h16v12.1a5 5 0 1 1-2 0V210h-16v-76.1a5 5 0 1 1 2 0zm-5.9-21.9a5 5 0 1 1 0 2H114v48H85.9a5 5 0 1 1 0-2H112v-48h12.1zm-6.2 130a5 5 0 1 1 0-2H176v-74.1a5 5 0 1 1 2 0V242h-60.1zm-16-64a5 5 0 1 1 0-2H114v48h10.1a5 5 0 1 1 0 2H112v-48h-10.1zM66 284.1a5 5 0 1 1-2 0V274H50v30h-2v-32h18v12.1zM236.1 176a5 5 0 1 1 0 2H226v94h48v32h-2v-30h-48v-98h12.1zm25.8-30a5 5 0 1 1 0-2H274v44.1a5 5 0 1 1-2 0V146h-10.1zm-64 96a5 5 0 1 1 0-2H208v-80h16v-14h-42.1a5 5 0 1 1 0-2H226v18h-16v80h-12.1zm86.2-210a5 5 0 1 1 0 2H272V0h2v32h10.1zM98 101.9V146H53.9a5 5 0 1 1 0-2H96v-42.1a5 5 0 1 1 2 0zM53.9 34a5 5 0 1 1 0-2H80V0h2v34H53.9zm60.1 3.9V66H82v64H69.9a5 5 0 1 1 0-2H80V64h32V37.9a5 5 0 1 1 2 0zM101.9 82a5 5 0 1 1 0-2H128V37.9a5 5 0 1 1 2 0V82h-28.1zm16-64a5 5 0 1 1 0-2H146v44.1a5 5 0 1 1-2 0V18h-26.1zm102.2 270a5 5 0 1 1 0 2H98v14h-2v-16h124.1zM242 149.9V160h16v34h-16v62h48v48h-2v-46h-48v-66h16v-30h-16v-12.1a5 5 0 1 1 2 0zM53.9 18a5 5 0 1 1 0-2H64V2H48V0h18v18H53.9zm112 32a5 5 0 1 1 0-2H192V0h50v2h-48v48h-28.1zm-48-48a5 5 0 0 1-9.8-2h2.07a3 3 0 1 0 5.66 0H178v34h-18V21.9a5 5 0 1 1 2 0V32h14V2h-58.1zm0 96a5 5 0 1 1 0-2H137l32-32h39V21.9a5 5 0 1 1 2 0V66h-40.17l-32 32H117.9zm28.1 90.1a5 5 0 1 1-2 0v-76.51L175.59 80H224V21.9a5 5 0 1 1 2 0V82h-49.59L146 112.41v75.69zm16 32a5 5 0 1 1-2 0v-99.51L184.59 96H300.1a5 5 0 0 1 3.9-3.9v2.07a3 3 0 0 0 0 5.66v2.07a5 5 0 0 1-3.9-3.9H185.41L162 121.41v98.69zm-144-64a5 5 0 1 1-2 0v-3.51l48-48V48h32V0h2v50H66v55.41l-48 48v2.69zM50 53.9v43.51l-48 48V208h26.1a5 5 0 1 1 0 2H0v-65.41l48-48V53.9a5 5 0 1 1 2 0zm-16 16V89.41l-34 34v-2.82l32-32V69.9a5 5 0 1 1 2 0zM12.1 32a5 5 0 1 1 0 2H9.41L0 43.41V40.6L8.59 32h3.51zm265.8 18a5 5 0 1 1 0-2h18.69l7.41-7.41v2.82L297.41 50H277.9zm-16 160a5 5 0 1 1 0-2H288v-71.41l16-16v2.82l-14 14V210h-28.1zm-208 32a5 5 0 1 1 0-2H64v-22.59L40.59 194H21.9a5 5 0 1 1 0-2H41.41L66 216.59V242H53.9zm150.2 14a5 5 0 1 1 0 2H96v-56.6L56.6 162H37.9a5 5 0 1 1 0-2h19.5L98 200.6V256h106.1zm-150.2 2a5 5 0 1 1 0-2H80v-46.59L48.59 178H21.9a5 5 0 1 1 0-2H49.41L82 208.59V258H53.9zM34 39.8v1.61L9.41 66H0v-2h8.59L32 40.59V0h2v39.8zM2 300.1a5 5 0 0 1 3.9 3.9H3.83A3 3 0 0 0 0 302.17V256h18v48h-2v-46H2v42.1zM34 241v63h-2v-62H0v-2h34v1zM17 18H0v-2h16V0h2v18h-1zm273-2h14v2h-16V0h2v16zm-32 273v15h-2v-14h-14v14h-2v-16h18v1zM0 92.1A5.02 5.02 0 0 1 6 97a5 5 0 0 1-6 4.9v-2.07a3 3 0 1 0 0-5.66V92.1zM80 272h2v32h-2v-32zm37.9 32h-2.07a3 3 0 0 0-5.66 0h-2.07a5 5 0 0 1 9.8 0zM5.9 0A5.02 5.02 0 0 1 0 5.9V3.83A3 3 0 0 0 3.83 0H5.9zm294.2 0h2.07A3 3 0 0 0 304 3.83V5.9a5 5 0 0 1-3.9-5.9zm3.9 300.1v2.07a3 3 0 0 0-1.83 1.83h-2.07a5 5 0 0 1 3.9-3.9zM97 100a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0-16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-48 32a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm32 48a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-16 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm32-16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0-32a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16 32a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm32 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0-16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-16-64a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16 96a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16-144a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 32a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16-32a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16-16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-96 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16-32a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm96 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-16-64a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16-16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-32 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0-16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-16 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-16 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-16 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM49 36a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-32 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm32 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM33 68a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16-48a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 240a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16 32a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-16-64a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-16-32a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm80-176a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-16-16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm32 48a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16-16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0-32a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm112 176a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-16 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM17 180a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0-32a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM17 84a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm32 64a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16-16a3 3 0 1 0 0-6 3 3 0 0 0 0 6z'%3E%3C/path%3E%3C/svg%3E");
+    }
 
-     .news_background {
-         background-image: radial-gradient(circle at 82% 46%, rgba(0, 0, 0, 0.01) 0%, rgba(0, 0, 0, 0.01) 3%, transparent 3%, transparent 100%), radial-gradient(circle at 69% 5%, rgba(0, 0, 0, 0.02) 0%, rgba(0, 0, 0, 0.02) 3%, transparent 3%, transparent 100%), radial-gradient(circle at 38% 80%, rgba(0, 0, 0, 0.02) 0%, rgba(0, 0, 0, 0.02) 3%, transparent 3%, transparent 100%), radial-gradient(circle at 75% 68%, rgba(0, 0, 0, 0.01) 0%, rgba(0, 0, 0, 0.01) 7%, transparent 7%, transparent 100%), radial-gradient(circle at 44% 94%, rgba(0, 0, 0, 0.03) 0%, rgba(0, 0, 0, 0.03) 7%, transparent 7%, transparent 100%), radial-gradient(circle at 44% 77%, rgba(0, 0, 0, 0.01) 0%, rgba(0, 0, 0, 0.01) 7%, transparent 7%, transparent 100%), radial-gradient(circle at 68% 100%, rgba(0, 0, 0, 0.01) 0%, rgba(0, 0, 0, 0.01) 7%, transparent 7%, transparent 100%), radial-gradient(circle at 58% 79%, rgba(0, 0, 0, 0.02) 0%, rgba(0, 0, 0, 0.02) 7%, transparent 7%, transparent 100%), radial-gradient(circle at 64% 48%, rgba(0, 0, 0, 0.02) 0%, rgba(0, 0, 0, 0.02) 5%, transparent 5%, transparent 100%), radial-gradient(circle at 18% 100%, rgba(0, 0, 0, 0.02) 0%, rgba(0, 0, 0, 0.02) 5%, transparent 5%, transparent 100%), linear-gradient(135deg, hsla(14, 0%, 99%, 1), hsla(29, 0%, 99%, 1));
-     }
- </style>
+    .news_background {
+        background-image: radial-gradient(circle at 13% 47%, rgba(140, 140, 140, 0.03) 0%, rgba(140, 140, 140, 0.03) 25%, transparent 25%, transparent 100%), radial-gradient(circle at 28% 63%, rgba(143, 143, 143, 0.03) 0%, rgba(143, 143, 143, 0.03) 16%, transparent 16%, transparent 100%), radial-gradient(circle at 81% 56%, rgba(65, 65, 65, 0.03) 0%, rgba(65, 65, 65, 0.03) 12%, transparent 12%, transparent 100%), radial-gradient(circle at 26% 48%, rgba(60, 60, 60, 0.03) 0%, rgba(60, 60, 60, 0.03) 6%, transparent 6%, transparent 100%), radial-gradient(circle at 97% 17%, rgba(150, 150, 150, 0.03) 0%, rgba(150, 150, 150, 0.03) 56%, transparent 56%, transparent 100%), radial-gradient(circle at 50% 100%, rgba(25, 25, 25, 0.03) 0%, rgba(25, 25, 25, 0.03) 36%, transparent 36%, transparent 100%), radial-gradient(circle at 55% 52%, rgba(69, 69, 69, 0.03) 0%, rgba(69, 69, 69, 0.03) 6%, transparent 6%, transparent 100%), linear-gradient(90deg, rgb(255, 255, 255), rgb(255, 255, 255));
+    }
+</style>
 
 
 
- {{ body|safe }}
+{{ body|safe }}
 
- {% endblock%}
+{% endblock%}
