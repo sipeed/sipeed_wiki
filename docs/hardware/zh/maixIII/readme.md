@@ -21,16 +21,16 @@ AX620A 是一款高算力、高能效比、低功耗的 AI SoC 芯片。芯片�
 
 | 项目   | 参数            | 
 |--------|----------------|
-| CPU    | Quad-A53（四核A53）      |    
-| NPU    | 32Tops@int4，8Tops@int8 |
-| ISP    | 4K@60fps |
+| CPU    | Quad-A7（四核A7）      |    
+| NPU    | 14.4Tops@int4，3.6Tops@int8 |
+| ISP    | 4K@30fps |
 | 编解码格式 | H.264, H.265 |
-| 视频编码 | 4K@60fps |
-| 视频解码 | 4K@120fps |
+| 视频编码 | 4K@30fps |
+| 视频解码 | 1080P@60fps |
 | Ethernet | 支持双路RGMII / RMII 接口模式的以太网 |
-| 视频输出 | 支持MIPI DSI 4-LANE, 支持4K@60fps |
+| 视频输出 | 支持MIPI DSI 4-LANE, 支持4K@30fps |
 | DRAM | 2GB LPDDR4X |
-| 存储 | 可选1GB EMMC |
+| 存储 | 可选16GB EMMC |
 | IO 引出 | DDR4 SODIMM 260P 金手指全IO引出 |
 
 ## MAIXIII 能做什么？

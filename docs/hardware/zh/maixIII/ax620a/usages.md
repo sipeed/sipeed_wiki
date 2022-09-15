@@ -27,8 +27,6 @@ title: 基础使用
  `sudo apt install memtester DDR RAM` 测试需要安装一下。
 格式: `memtester 内存数量 次数` 比如测试 512M 使用 `memtester 512M &` 挂后台循环测试。
 
-下列语言:
-
 ```python
 juwan@juwan-n85-dls:~$ memtester 8M
 memtester version 4.3.0 (64-bit)
