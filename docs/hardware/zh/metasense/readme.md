@@ -45,7 +45,7 @@ MetaSense 系列产品搭载 TOF 深度摄像头，目前有 MetaSense-A010 和 
 ### 案例：小车避障
 
 可搭载于小车移动并判断画面是否有障碍物，模组自带 LCD 屏幕精准显示距离并做出反应规避障碍物。
-![me_car](./assets/me_car.jpg)
+![me_car](./assets/me_car.gif)
 
 ### 案例：键盘灯跟随
 
