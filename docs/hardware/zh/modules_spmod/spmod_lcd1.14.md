@@ -3,7 +3,7 @@
 
 ## 概述
 
-![](../../assets/spmod/spmod_lcd1.14//sp_lcd.png)
+![](../../assets/spmod/spmod_lcd1.14/sp_lcd.png)
 
 SPMOD_LCD1.14(1.14寸 LCD 屏幕模块)采用 ST7735S TFT LCD屏。
 

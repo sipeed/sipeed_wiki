@@ -246,13 +246,13 @@ Tang Primer 20K 是基于 [GW2A-V18PG256C8IC8I7](http://www.gowinsemi.com.cn/pro
 			<td></td>
 			<td></td>
 		</tr>
-		<tr>
+		<!-- <tr>
 			<td colspan="2">RGB LED</td>
 			<td>1</td>
 			<td>WS2812 灯珠</td>
 			<td></td>
 			<td></td>
-		</tr>
+		</tr> -->
 	</body>
 </table>
 
@@ -260,6 +260,10 @@ Tang Primer 20K 是基于 [GW2A-V18PG256C8IC8I7](http://www.gowinsemi.com.cn/pro
 ## 硬件资料汇总
 
 规格书、原理图、尺寸图等均可在这里找到：[点击这里](https://dl.sipeed.com/shareURL/TANG/Primer_20K)
+
+## 开箱指南
+
+前往 [开箱指南](./start.md) 来开始使用这个板子
 
 ## 上手指引
    

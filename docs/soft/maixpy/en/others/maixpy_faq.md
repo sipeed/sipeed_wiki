@@ -333,3 +333,9 @@ This error means there is something wrong with your camera.
 Check your connection of board with camera, if you make sure your connection of board with camera is right, then you can only another camera to slove this because this camera bas been broken.
 
 It's suggested to use camera provided by Sipeed, this can reduce many troubles like the different line sequence of camera to the board or the lack of your camrea driver on this board.
+
+## What's the difference between kmodel and smodel?
+
+kmodel is a kind of model explaining the structure and parameters of this model.
+
+smodel requires Machine-code; Machine-code is a kind of encrypted way to encrypt the model. The development board can't use the smodel encrypted and generanted by other Machine-code.

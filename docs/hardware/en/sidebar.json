@@ -240,12 +240,12 @@
                                     "file": "tang/Tang-primer/get_started/fpga_download.md"
                                 }
                             ]
-                        },
-                        {
-                            "label": "Questions&Answers",
-                            "file": "tang/Tang-Nano-Doc/questions.md"
                         }
                     ]
+                },
+                {
+                    "label": "Questions&Answers",
+                    "file": "tang/Tang-Nano-Doc/questions.md"
                 }
             ]
         },

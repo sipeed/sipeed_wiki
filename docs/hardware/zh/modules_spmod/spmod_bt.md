@@ -3,7 +3,7 @@
 
 ## 概述
 
-![](./../../assets/spmod/spmod_bt/sipeed_spmod_BT.jpg)
+![](./../../assets/spmod/spmod_bt/sp_bt.png)
 
 SPMOD-BT(蓝牙 模块)采用 YDJ-23。
 
