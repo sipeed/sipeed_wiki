@@ -1,7 +1,7 @@
 ---
 title: uerrno — system error code
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: uerrno — system error code
+desc: maixpy  uerrno — system error code
 ---
 
 

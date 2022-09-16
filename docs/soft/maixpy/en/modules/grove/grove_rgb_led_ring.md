@@ -1,7 +1,7 @@
 ---
 title: Grove-RGB LED Ring (LED strip)
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: Grove-RGB LED Ring (LED strip)
+desc: maixpy  Grove-RGB LED Ring (LED strip)
 ---
 
 

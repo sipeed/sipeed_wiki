@@ -1,7 +1,7 @@
 ---
 title: 如何使用 Socket 网络编程
 keywords: maixpy, k210, AIOT, 边缘计算
-desc: maixpy doc: 如何使用 Socket 网络编程
+desc: maixpy  如何使用 Socket 网络编程
 ---
 
 

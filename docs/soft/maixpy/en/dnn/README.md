@@ -1,7 +1,7 @@
 ---
 title: Deep learning and KPU basic knowledge
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: deep learning and KPU basics
+desc: maixpy  deep learning and KPU basics
 ---
 
 

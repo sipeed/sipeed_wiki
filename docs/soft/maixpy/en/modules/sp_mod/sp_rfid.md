@@ -1,7 +1,7 @@
 ---
 title: Use of SP_RFID
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: Use of SP_RFID
+desc: maixpy  Use of SP_RFID
 ---
 
 

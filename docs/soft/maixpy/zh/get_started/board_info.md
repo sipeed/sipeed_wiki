@@ -1,7 +1,7 @@
 ---
 title: Board
 keywords: maixpy, k210, AIOT, 边缘计算, maixpy入门
-desc: maixpy doc: Board
+desc: maixpy  Board
 ---
 
 > **本文档在 MaixPy 0.5.1-128 版本测试通过。**

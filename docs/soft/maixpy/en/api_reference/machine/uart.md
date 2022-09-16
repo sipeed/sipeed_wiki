@@ -1,7 +1,7 @@
 ---
 title: machine.UART
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: machine.UART
+desc: maixpy  machine.UART
 ---
 
 

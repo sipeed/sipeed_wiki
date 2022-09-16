@@ -1,7 +1,7 @@
 ---
 title: uos – 基本的“操作系统”服务
 keywords: maixpy, k210, AIOT, 边缘计算
-desc: maixpy doc: uos – 基本的“操作系统”服务
+desc: maixpy  uos – 基本的“操作系统”服务
 ---
 
 

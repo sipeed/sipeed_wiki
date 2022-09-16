@@ -1,7 +1,7 @@
 ---
 title: How to use Socket network programming
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: How to use Socket network programming
+desc: maixpy  How to use Socket network programming
 ---
 
 

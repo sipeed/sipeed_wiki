@@ -1,7 +1,7 @@
 ---
 title: 显示图片
 keywords: maixpy, k210, AIOT, 边缘计算
-desc: maixpy doc: 显示图片
+desc: maixpy  显示图片
 ---
 
 

@@ -1,7 +1,7 @@
 ---
 title: KPU
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: KPU
+desc: maixpy  KPU
 ---
 
 

@@ -1,7 +1,7 @@
 ---
 title: 如何使用 mobaxterm 
 keywords: Jupyter, MaixPy3, Python, Python3
-desc: maixpy doc: 如何使用 mobaxterm 
+desc: maixpy  如何使用 mobaxterm 
 ---
 
 ## mobaxterm 是什么？

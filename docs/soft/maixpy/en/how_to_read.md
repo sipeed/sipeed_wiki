@@ -1,7 +1,7 @@
 ---
 title: How to read this article correctly
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: how to read this article correctly
+desc: maixpy  how to read this article correctly
 ---
 
 

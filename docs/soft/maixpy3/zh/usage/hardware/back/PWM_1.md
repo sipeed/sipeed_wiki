@@ -1,7 +1,7 @@
 ---
 title: PWM
 keywords: maixpy3, PWM
-desc: maixpy3 doc: PWM
+desc: maixpy3  PWM
 ---
 
 ## 使用 PWM

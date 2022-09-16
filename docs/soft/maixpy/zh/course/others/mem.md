@@ -1,7 +1,7 @@
 ---
 title: 内存管理
 keywords: maixpy, k210, AIOT, 边缘计算
-desc: maixpy doc: 内存管理
+desc: maixpy  内存管理
 ---
 
 在 MaixPy 中， 目前使用了两种内存管理， 一种是 GC（垃圾回收）， 另一种是系统堆内存， 两者同时存在。

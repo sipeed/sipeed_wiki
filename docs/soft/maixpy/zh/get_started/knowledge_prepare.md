@@ -1,7 +1,7 @@
 ---
 title: 必备基础知识
 keywords: maixpy, k210, AIOT, 边缘计算, maixpy入门, 人工智能
-desc: maixpy doc: 必备基础知识
+desc: maixpy  必备基础知识
 ---
 
 

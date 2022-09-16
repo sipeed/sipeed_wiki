@@ -1,7 +1,7 @@
 ---
 title: uos-basic "operating system" services
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: uos-basic "operating system" services
+desc: maixpy  uos-basic "operating system" services
 ---
 
 

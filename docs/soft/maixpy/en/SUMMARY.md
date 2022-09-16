@@ -1,7 +1,7 @@
 ---
 title: Summary
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: Summary
+desc: maixpy  Summary
 ---
 
 

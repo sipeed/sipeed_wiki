@@ -1,7 +1,7 @@
 ---
 title: 硬件加速的图像处理
 keywords: maixpy, k210, AIOT, 边缘计算
-desc: maixpy doc: 硬件加速的图像处理
+desc: maixpy  硬件加速的图像处理
 ---
 
 

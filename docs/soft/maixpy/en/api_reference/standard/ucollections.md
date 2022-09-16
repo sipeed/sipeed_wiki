@@ -1,7 +1,7 @@
 ---
 title: ucollections-collection and container types
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: ucollections-collections and container types
+desc: maixpy  ucollections-collections and container types
 ---
 
 

@@ -1,7 +1,7 @@
 ---
 title: MaixPy 手把手教程说明
 keywords: maixpy, k210, AIOT, 边缘计算
-desc: maixpy doc: MaixPy 手把手教程说明
+desc: maixpy  MaixPy 手把手教程说明
 ---
 
 

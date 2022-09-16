@@ -1,7 +1,7 @@
 ---
 title: 点亮 LED
 keywords: maixpy, k210, AIOT, 边缘计算, maixpy入门
-desc: maixpy doc: 点亮 LED
+desc: maixpy  点亮 LED
 ---
 
 

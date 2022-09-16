@@ -1,7 +1,7 @@
 ---
 title: MaixPy 与 MaixPy3 的区别
 keywords: MaixPy, MaixPy3, Python, Python3, MicroPython
-desc: maixpy doc: MaixPy3
+desc: maixpy  MaixPy3
 ---
 
 ## 区别是？

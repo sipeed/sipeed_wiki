@@ -1,7 +1,7 @@
 ---
 title: Hello World
 keywords: Hello World, MaixPy3, Python, Python3
-desc: maixpy doc: Hello World
+desc: maixpy  Hello World
 ---
 
 > 本文是给有一点 Python 基础但还想进一步深入的同学，有经验的开发者建议跳过。

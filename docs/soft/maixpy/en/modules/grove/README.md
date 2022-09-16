@@ -1,7 +1,7 @@
 ---
 title: Grove
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: Grove
+desc: maixpy  Grove
 ---
 
 

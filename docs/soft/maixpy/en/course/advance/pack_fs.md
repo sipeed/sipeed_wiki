@@ -1,7 +1,7 @@
 ---
 title: Packaging file system
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy doc: packaging file system
+desc: maixpy  packaging file system
 ---
 
 

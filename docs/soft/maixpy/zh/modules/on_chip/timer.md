@@ -1,7 +1,7 @@
 ---
 title: Timer（定时器） 的使用
 keywords: maixpy, k210, AIOT, 边缘计算
-desc: maixpy doc: Timer（定时器） 的使用
+desc: maixpy  Timer（定时器） 的使用
 ---
 
 

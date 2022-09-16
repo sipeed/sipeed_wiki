@@ -1,7 +1,7 @@
 ---
 title: 画图 写字
 keywords: maixpy, k210, AIOT, 边缘计算
-desc: maixpy doc: 画图 写字
+desc: maixpy  画图 写字
 ---
 
 

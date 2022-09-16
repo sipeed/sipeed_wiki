@@ -1,7 +1,7 @@
 ---
 title: GPIO
 keywords: maixpy3, GPIO
-desc: maixpy3 doc: GPIO
+desc: maixpy3  GPIO
 ---
 
 ## 如何使用 GPIO 输出高低电平

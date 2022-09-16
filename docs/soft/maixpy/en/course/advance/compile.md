@@ -1,7 +1,7 @@
 ---
 title: How to complie
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: How to complie
+desc: maixpy  How to complie
 ---
 
 

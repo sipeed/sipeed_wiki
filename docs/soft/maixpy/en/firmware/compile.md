@@ -1,7 +1,7 @@
 ---
 title: source code compilation
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy doc: source code compilation
+desc: maixpy  source code compilation
 ---
 
 

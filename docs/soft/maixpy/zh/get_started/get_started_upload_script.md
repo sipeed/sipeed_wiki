@@ -1,7 +1,7 @@
 ---
 title: 上传脚本&模块到开发板
 keywords: maixpy, k210, AIOT, 边缘计算, maixpy入门, 人工智能
-desc: maixpy doc: 上传脚本&模块到开发板
+desc: maixpy  上传脚本&模块到开发板
 ---
 
 

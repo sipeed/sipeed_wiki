@@ -1,7 +1,7 @@
 ---
 title: FFT 信号处理
 keywords: maixpy, k210, AIOT, 边缘计算
-desc: maixpy doc: FFT 信号处理
+desc: maixpy  FFT 信号处理
 ---
 
 

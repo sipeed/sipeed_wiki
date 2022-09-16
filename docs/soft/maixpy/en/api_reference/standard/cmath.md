@@ -1,7 +1,7 @@
 ---
 title: cmath – mathematical functions for complex numbers
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: cmath – mathematical functions for complex numbers
+desc: maixpy  cmath – mathematical functions for complex numbers
 ---
 
 

@@ -1,7 +1,7 @@
 ---
 title: Others
 keywords: MaixII, MaixPy3, Python, Python3, M2dock
-desc: maixpy doc: Others
+desc: maixpy  Others
 ---
 
 > Edit on 2022.08.23

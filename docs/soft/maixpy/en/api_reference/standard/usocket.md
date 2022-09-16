@@ -1,7 +1,7 @@
 ---
 title: usocket – socket module
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: usocket-socket module
+desc: maixpy  usocket-socket module
 ---
 
 

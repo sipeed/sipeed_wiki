@@ -1,7 +1,7 @@
 ---
 title: MaixPy_DOC 实例教程模板
 keywords: maixpy, k210, AIOT, 边缘计算
-desc: maixpy doc: MaixPy_DOC 实例教程模板
+desc: maixpy  MaixPy_DOC 实例教程模板
 ---
 
 

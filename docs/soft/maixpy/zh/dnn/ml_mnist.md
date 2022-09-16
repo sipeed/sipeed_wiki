@@ -1,7 +1,7 @@
 ---
 title: mnist 手写数字识别
 keywords: maixpy, k210, AIOT, 边缘计算
-desc: maixpy doc: mnist 手写数字识别
+desc: maixpy  mnist 手写数字识别
 ---
 
 

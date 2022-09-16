@@ -1,7 +1,7 @@
 ---
 title: modules.onewire（单总线）
 keywords: maixpy, k210, AIOT, spmod
-desc: maixpy doc: modules.onewire（单总线）
+desc: maixpy  modules.onewire（单总线）
 ---
 
 

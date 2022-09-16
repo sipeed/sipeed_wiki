@@ -1,7 +1,7 @@
 ---
 title: Background knowledge of image processing
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: background knowledge of image processing
+desc: maixpy  background knowledge of image processing
 ---
 
 

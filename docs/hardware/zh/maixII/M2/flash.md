@@ -1,7 +1,7 @@
 ---
 title: MaixII-Dock 烧录系统
 keywords: MaixII, MaixPy3, Python, Python3, M2dock
-desc: maixpy doc: MaixII M2dock 烧录系统
+desc: maixpy  MaixII M2dock 烧录系统
 ---
 
 > 编辑时间2022.04.27

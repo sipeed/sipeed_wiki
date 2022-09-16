@@ -1,7 +1,7 @@
 ---
 title: Maix-II-Dock(M2dock) introduction
 keywords: MaixII, MaixPy3, Python, Python3, M2dock
-desc: maixpy doc: Onboard resources
+desc: maixpy  Onboard resources
 ---
 
 Maix-II-Dock is positioned as a cost-effective AIOT development board. While supporting conventional Linux development, it also has a unique AI hardware acceleration feature. With the complete software ecosystem provided by Sipeed, you can quickly realize your edge AI application.

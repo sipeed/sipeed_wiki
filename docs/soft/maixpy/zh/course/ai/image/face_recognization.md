@@ -1,7 +1,7 @@
 ---
 title: 人脸识别
 keywords: maixpy, k210, AIOT, 边缘计算
-desc: maixpy doc: 人脸识别
+desc: maixpy  人脸识别
 ---
 
 

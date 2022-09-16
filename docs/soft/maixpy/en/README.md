@@ -1,7 +1,7 @@
 ---
 title: Introduction of MaixPy
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: Introduction to MaixPy documentation
+desc: maixpy  Introduction to MaixPy documentation
 ---
 
 <div class="title_pic">

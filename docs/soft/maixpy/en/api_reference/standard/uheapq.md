@@ -1,7 +1,7 @@
 ---
 title: uheapq-heap queue algorithm
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy doc: uheapq-heap queue algorithm
+desc: maixpy  uheapq-heap queue algorithm
 ---
 
 

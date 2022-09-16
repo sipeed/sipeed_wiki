@@ -1,7 +1,7 @@
 ---
 title: uctypes-access to binary data in a structured way
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: uctypes-access to binary data in a structured way
+desc: maixpy  uctypes-access to binary data in a structured way
 ---
 
 

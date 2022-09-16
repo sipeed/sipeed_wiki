@@ -1,7 +1,7 @@
 ---
 title: 芯片平台介绍
 keywords: MaixII, MaixPy3, Python, Python3, M2dock
-desc: maixpy doc: 芯片平台介绍
+desc: maixpy  芯片平台介绍
 ---
 
 V831 芯片介绍

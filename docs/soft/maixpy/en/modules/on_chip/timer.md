@@ -1,7 +1,7 @@
 ---
 title: Use of Timer
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: the use of Timer (timer)
+desc: maixpy  the use of Timer (timer)
 ---
 
 

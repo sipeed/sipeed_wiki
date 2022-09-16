@@ -1,7 +1,7 @@
 ---
 title: MaixCube
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: MaixCube
+desc: maixpy  MaixCube
 ---
 
 

@@ -1,7 +1,7 @@
 ---
 title: Board
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: Board
+desc: maixpy  Board
 ---
 
 

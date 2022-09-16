@@ -1,7 +1,7 @@
 ---
 title: MaixPy series development board
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: MaixPy series development board
+desc: maixpy  MaixPy series development board
 ---
 
 

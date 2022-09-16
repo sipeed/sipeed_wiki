@@ -1,7 +1,7 @@
 ---
 title: Binocular camera
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy doc: binocular camera
+desc: maixpy  binocular camera
 ---
 
 

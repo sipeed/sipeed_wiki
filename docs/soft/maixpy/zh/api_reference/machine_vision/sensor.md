@@ -1,7 +1,7 @@
 ---
 title: sensor（摄像头）
 keywords: maixpy, k210, AIOT, 边缘计算
-desc: maixpy doc: sensor（摄像头）
+desc: maixpy  sensor（摄像头）
 ---
 
 

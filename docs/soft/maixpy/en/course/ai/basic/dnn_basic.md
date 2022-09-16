@@ -1,7 +1,7 @@
 ---
 title: Basic knowledge of deep neural network (DNN)
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: basic knowledge of deep neural network (DNN)
+desc: maixpy  basic knowledge of deep neural network (DNN)
 ---
 
 

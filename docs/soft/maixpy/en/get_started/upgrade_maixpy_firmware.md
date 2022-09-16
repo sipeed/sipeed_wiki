@@ -1,7 +1,7 @@
 ---
 title: Update MaixPy firmware
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: update MaixPy firmware
+desc: maixpy  update MaixPy firmware
 ---
 
 

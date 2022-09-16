@@ -1,7 +1,7 @@
 ---
 title: Maix library
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy doc: Maix library
+desc: maixpy  Maix library
 ---
 
 

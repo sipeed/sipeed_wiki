@@ -1,7 +1,7 @@
 ---
 title: MaixPy 相关开源项目精选
 keywords: maixpy, k210, AIOT, 边缘计算
-desc: maixpy doc: MaixPy 相关开源项目精选
+desc: maixpy  MaixPy 相关开源项目精选
 ---
 
 

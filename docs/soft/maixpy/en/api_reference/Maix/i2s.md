@@ -1,7 +1,7 @@
 ---
 title: I2S
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: I2S
+desc: maixpy  I2S
 ---
 
 The I2S module is mainly used to drive I2S devices. There are 3 I2S devices in k210, and each device has 4 channels. The pins need to be mapped and managed before use.

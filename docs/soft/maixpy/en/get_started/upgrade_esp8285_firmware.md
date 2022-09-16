@@ -1,7 +1,7 @@
 ---
 title: Update onboard ESP8285 firmware
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: update onboard ESP8285 firmware
+desc: maixpy  update onboard ESP8285 firmware
 ---
 
 

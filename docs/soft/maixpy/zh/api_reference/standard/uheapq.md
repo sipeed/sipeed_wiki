@@ -1,7 +1,7 @@
 ---
 title: uheapq – 堆队列算法
 keywords: maixpy, k210, AIOT, 边缘计算
-desc: maixpy doc: uheapq – 堆队列算法
+desc: maixpy  uheapq – 堆队列算法
 ---
 
 

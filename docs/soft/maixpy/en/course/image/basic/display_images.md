@@ -1,7 +1,7 @@
 ---
 title: Show picture
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy doc: show picture
+desc: maixpy  show picture
 ---
 
 

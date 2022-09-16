@@ -1,7 +1,7 @@
 ---
 title: machine.WDT
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: machine.WDT
+desc: maixpy  machine.WDT
 ---
 
 

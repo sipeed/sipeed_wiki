@@ -1,7 +1,7 @@
 ---
 title: MaixPy Development Board Power
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: MaixPy development board power
+desc: maixpy  MaixPy development board power
 ---
 
 When we get the MaixPy development board

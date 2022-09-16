@@ -1,7 +1,7 @@
 ---
 title: UART
 keywords: maixpy3, UART
-desc: maixpy3 doc: UART
+desc: maixpy3  UART
 ---
 
 ## UART 的使用

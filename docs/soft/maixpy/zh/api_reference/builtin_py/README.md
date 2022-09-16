@@ -1,7 +1,7 @@
 ---
 title: 内置类（builtin_py）
 keywords: maixpy, k210, AIOT, 边缘计算, 深度学习, 人工智能
-desc: maixpy doc: 内置类（builtin_py）
+desc: maixpy  内置类（builtin_py）
 ---
 
 

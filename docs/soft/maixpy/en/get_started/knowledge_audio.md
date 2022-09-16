@@ -1,7 +1,7 @@
 ---
 title: Audio processing background knowledge
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: audio processing background knowledge
+desc: maixpy  audio processing background knowledge
 ---
 
 

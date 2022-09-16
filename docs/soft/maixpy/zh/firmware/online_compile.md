@@ -1,7 +1,7 @@
 ---
 title: 固件在线编译
 keywords: maixpy, k210, AIOT, 边缘计算
-desc: maixpy doc: 固件在线编译
+desc: maixpy  固件在线编译
 ---
 
 

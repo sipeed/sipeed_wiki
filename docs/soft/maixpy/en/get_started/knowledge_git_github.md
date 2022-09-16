@@ -1,7 +1,7 @@
 ---
 title: Introduction to git and github
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: introduction to git and github
+desc: maixpy  introduction to git and github
 ---
 
 

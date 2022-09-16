@@ -1,7 +1,7 @@
 ---
 title: MaixII M2dock 烧录系统
 keywords: MaixII, MaixPy3, Python, Python3, M2dock
-desc: maixpy doc: MaixII M2dock 烧录系统
+desc: maixpy  MaixII M2dock 烧录系统
 ---
 
 > ！！！一定要严格按照步骤操作！！！请使用大于 1G 的 TF/SD 卡进行烧录，开源版本要求使用 TF/SD 卡来启动系统。

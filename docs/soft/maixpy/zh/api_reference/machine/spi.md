@@ -1,7 +1,7 @@
 ---
 title: machine.SPI
 keywords: maixpy, k210, AIOT, 边缘计算
-desc: maixpy doc: machine.SPI
+desc: maixpy  machine.SPI
 ---
 
 

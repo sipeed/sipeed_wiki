@@ -1,7 +1,7 @@
 ---
 title: Grove-Chainable RGB LED (Linkable LED lights)
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: Grove-Chainable RGB LED (linkable LED lights)
+desc: maixpy  Grove-Chainable RGB LED (linkable LED lights)
 ---
 
 

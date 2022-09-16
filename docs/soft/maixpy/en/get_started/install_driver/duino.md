@@ -1,7 +1,7 @@
 ---
 title: Maix Duino USB Driver Installation
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: Maix Duino USB driver installation
+desc: maixpy  Maix Duino USB driver installation
 ---
 
 

@@ -1,7 +1,7 @@
 ---
 title: get image
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: get image
+desc: maixpy  get image
 ---
 
 

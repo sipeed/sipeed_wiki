@@ -1,7 +1,7 @@
 ---
 title: MaixPy Development History
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: MaixPy development history
+desc: maixpy  MaixPy development history
 ---
 
 

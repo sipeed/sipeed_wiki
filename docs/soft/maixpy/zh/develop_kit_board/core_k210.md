@@ -1,7 +1,7 @@
 ---
 title: K210 模块核心板
 keywords: maixpy, k210, AIOT, 边缘计算
-desc: maixpy doc: K210 模块核心板
+desc: maixpy  K210 模块核心板
 ---
 
 

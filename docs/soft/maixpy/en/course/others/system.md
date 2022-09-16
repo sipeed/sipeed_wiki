@@ -1,7 +1,7 @@
 ---
 title: System Control
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy doc: system control
+desc: maixpy  system control
 ---
 
 

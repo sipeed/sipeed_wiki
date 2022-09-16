@@ -1,7 +1,7 @@
 ---
 title: 使用 MaixPy3 IDE 连接 MaixSense
 keywords: Jupyter, MaixPy3, Python, Python3
-desc: maixpy doc: 在 MaixII-Sense 平台上使用
+desc: maixpy  在 MaixII-Sense 平台上使用
 ---
 
 ---

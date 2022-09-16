@@ -1,7 +1,7 @@
 ---
 title: isolated_word (isolated word MFCC module)
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: isolated_word (isolated word MFCC module)
+desc: maixpy  isolated_word (isolated word MFCC module)
 ---
 
 

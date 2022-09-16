@@ -1,7 +1,7 @@
 ---
 title: ujson – JSON encoding and decoding
 keywords: maixpy, k210, AIOT, 边缘计算
-desc: maixpy doc: ujson – JSON encoding and decoding
+desc: maixpy  ujson – JSON encoding and decoding
 ---
 
 

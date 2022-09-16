@@ -1,7 +1,7 @@
 ---
 title: audio（音频）
 keywords: maixpy, k210, AIOT, 边缘计算
-desc: maixpy doc: audio（音频）
+desc: maixpy  audio（音频）
 ---
 
 

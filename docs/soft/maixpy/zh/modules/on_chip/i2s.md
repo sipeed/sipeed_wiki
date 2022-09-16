@@ -1,7 +1,7 @@
 ---
 title: I2S（集成电路内置音频总线）的使用
 keywords: maixpy, k210, AIOT, 边缘计算
-desc: maixpy doc: I2S（集成电路内置音频总线）的使用
+desc: maixpy  I2S（集成电路内置音频总线）的使用
 ---
 
 

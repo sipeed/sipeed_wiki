@@ -1,7 +1,7 @@
 ---
 title: machine.Timer
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: machine.Timer
+desc: maixpy  machine.Timer
 ---
 
 

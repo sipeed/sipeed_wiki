@@ -1,7 +1,7 @@
 ---
 title: steering gear
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy doc: steering gear
+desc: maixpy  steering gear
 ---
 
 

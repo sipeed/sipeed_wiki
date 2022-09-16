@@ -1,7 +1,7 @@
 ---
 title: 如何优雅地提问
 keywords: maixpy, k210, AIOT, 边缘计算, 人工智能, 深度学习
-desc: maixpy doc: 如何优雅地提问
+desc: maixpy  如何优雅地提问
 ---
 
 

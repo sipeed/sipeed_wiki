@@ -1,7 +1,7 @@
 ---
 title: MaixPy IDE installation and use
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: MaixPy IDE installation and use
+desc: maixpy  MaixPy IDE installation and use
 ---
 
 

@@ -1,7 +1,7 @@
 ---
 title: Buring MaixII-Dock OS
 keywords: MaixII, MaixPy3, Python, Python3, M2dock
-desc: maixpy doc: Buring MaixII-Dock OS
+desc: maixpy  Buring MaixII-Dock OS
 ---
 
 > Edit on 2022.06.27

@@ -1,7 +1,7 @@
 ---
 title: 什么是 Python ？
 keywords: MaixPy, Python, AIOT, 边缘计算
-desc: maixpy doc: Python
+desc: maixpy  Python
 ---
 
 ## 说起 Python 语言

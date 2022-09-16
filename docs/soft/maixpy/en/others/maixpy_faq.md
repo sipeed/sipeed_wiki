@@ -1,7 +1,7 @@
 ---
 title: MaixPy FAQ
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: MaixPy FAQ
+desc: maixpy  MaixPy FAQ
 ---
 
 > Edit on 2022.07.19

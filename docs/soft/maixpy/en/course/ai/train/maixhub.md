@@ -1,7 +1,7 @@
 ---
 title: Maixhub model training
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy doc: Maixhub model training
+desc: maixpy  Maixhub model training
 ---
 
 

@@ -1,7 +1,7 @@
 ---
 title: Face detection
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: face detection
+desc: maixpy  face detection
 ---
 
 

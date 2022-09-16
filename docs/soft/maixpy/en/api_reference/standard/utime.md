@@ -1,7 +1,7 @@
 ---
 title: utime-time related functions
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: utime-time related functions
+desc: maixpy  utime-time related functions
 ---
 
 

@@ -1,7 +1,7 @@
 ---
 title: audio
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: audio (audio)
+desc: maixpy  audio (audio)
 ---
 
 

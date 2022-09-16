@@ -1,7 +1,7 @@
 ---
 title: boot script
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: boot script
+desc: maixpy  boot script
 ---
 
 

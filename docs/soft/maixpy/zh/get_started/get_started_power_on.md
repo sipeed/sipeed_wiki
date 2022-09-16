@@ -1,7 +1,7 @@
 ---
 title:  MaixPy 开发板上电
 keywords: maixpy, k210, AIOT, 边缘计算, maixpy入门, 人工智能
-desc: maixpy doc: MaixPy 开发板上电
+desc: maixpy  MaixPy 开发板上电
 ---
 
 

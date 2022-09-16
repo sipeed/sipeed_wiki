@@ -1,7 +1,7 @@
 ---
 title: 更新 MaixPy 固件
 keywords: maixpy, k210, AIOT, 边缘计算, maix固件
-desc: maixpy doc: 更新 MaixPy 固件
+desc: maixpy  更新 MaixPy 固件
 ---
 
 

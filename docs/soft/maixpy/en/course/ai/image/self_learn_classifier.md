@@ -1,7 +1,7 @@
 ---
 title: self learning classifier
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: self learning classifier
+desc: maixpy  self learning classifier
 ---
 
 

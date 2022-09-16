@@ -1,7 +1,7 @@
 ---
 title: Usage
 keywords: MaixII, MaixPy3, Python, Python3, M2dock, Tina, Openwrt
-desc: maixpy doc: MaixII M2dock start to use
+desc: maixpy  MaixII M2dock start to use
 ---
 
 ## Introduct openwrt

@@ -1,7 +1,7 @@
 ---
 title: machine.PWM
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: machine.PWM
+desc: maixpy  machine.PWM
 ---
 
 

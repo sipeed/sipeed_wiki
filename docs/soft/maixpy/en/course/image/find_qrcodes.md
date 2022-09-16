@@ -1,7 +1,7 @@
 ---
 title: MaixPy Find QR code
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: MaixPy find QR code
+desc: maixpy  MaixPy find QR code
 ---
 
 

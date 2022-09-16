@@ -1,7 +1,7 @@
 ---
 title: 如何参与项目
 keywords: MaixPy, MaixPy3, Python, Python3, MicroPython
-desc: maixpy doc: 如何参与项目
+desc: maixpy  如何参与项目
 ---
 
 如果你对开源社区文化很感兴趣，也想一同加入其中学习和分享，那了解 MaixPy3 开源项目可能是一个好的开始。

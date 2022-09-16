@@ -1,7 +1,7 @@
 ---
 title: Install USB driver
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: install USB driver
+desc: maixpy  install USB driver
 ---
 
 

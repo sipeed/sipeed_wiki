@@ -1,7 +1,7 @@
 ---
 title: Use of SP_LORA
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: use of SP_LORA
+desc: maixpy  use of SP_LORA
 ---
 
 

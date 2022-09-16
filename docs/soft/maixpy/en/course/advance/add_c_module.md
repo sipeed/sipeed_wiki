@@ -1,7 +1,7 @@
 ---
 title: How to add a MaixPy module in C
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: How to add a MaixPy module in C
+desc: maixpy  How to add a MaixPy module in C
 ---
 
 

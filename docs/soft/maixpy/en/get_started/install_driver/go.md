@@ -1,7 +1,7 @@
 ---
 title: Maix Go USB Driver Installation
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: Maix Go USB driver installation
+desc: maixpy  Maix Go USB driver installation
 ---
 
 

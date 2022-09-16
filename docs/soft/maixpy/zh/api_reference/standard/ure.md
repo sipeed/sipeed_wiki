@@ -1,7 +1,7 @@
 ---
 title: ure – 简单的正则表达式
 keywords: maixpy, k210, AIOT, 边缘计算
-desc: maixpy doc: ure – 简单的正则表达式
+desc: maixpy  ure – 简单的正则表达式
 ---
 
 

@@ -1,7 +1,7 @@
 ---
 title: Grove AI HAT
 keywords: maixpy, k210, AIOT, 边缘计算
-desc: maixpy doc: Grove AI HAT
+desc: maixpy  Grove AI HAT
 ---
 
 ## 外观及功能介绍

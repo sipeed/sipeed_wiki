@@ -1,7 +1,7 @@
 ---
 title: MaixPy_DOC example tutorial template
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: MaixPy_DOC example tutorial template
+desc: maixpy  MaixPy_DOC example tutorial template
 ---
 
 

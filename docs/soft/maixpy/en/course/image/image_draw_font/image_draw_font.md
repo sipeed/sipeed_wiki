@@ -1,7 +1,7 @@
 ---
 title: How to display Chinese
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: how to display Chinese
+desc: maixpy  how to display Chinese
 ---
 
 

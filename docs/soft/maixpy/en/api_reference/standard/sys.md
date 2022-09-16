@@ -1,7 +1,7 @@
 ---
 title: sys-system specific functions
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: sys-system specific functions
+desc: maixpy  sys-system specific functions
 ---
 
 

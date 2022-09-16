@@ -1,7 +1,7 @@
 ---
 title: MaixPy 精选文章
 keywords: maixpy, k210, AIOT, 边缘计算
-desc: maixpy doc: MaixPy 精选文章
+desc: maixpy  MaixPy 精选文章
 ---
 
 

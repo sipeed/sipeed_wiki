@@ -1,7 +1,7 @@
 ---
 title: Use of SP_TOF
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: use of SP_TOF
+desc: maixpy  use of SP_TOF
 ---
 
 

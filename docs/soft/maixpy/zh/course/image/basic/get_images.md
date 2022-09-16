@@ -1,7 +1,7 @@
 ---
 title: 获得图像
 keywords: maixpy, k210, AIOT, 边缘计算
-desc: maixpy doc: 获得图像
+desc: maixpy  获得图像
 ---
 
 

@@ -1,7 +1,7 @@
 ---
 title: utime – 时间相关的功能
 keywords: maixpy, k210, AIOT, 边缘计算
-desc: maixpy doc: utime – 时间相关的功能
+desc: maixpy  utime – 时间相关的功能
 ---
 
 

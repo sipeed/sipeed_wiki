@@ -1,7 +1,7 @@
 ---
 title: the use of audio
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: audio (audio) use
+desc: maixpy  audio (audio) use
 ---
 
 

@@ -1,7 +1,7 @@
 ---
 title: MaixPy 能做哪些事
 keywords: maixpy, k210, AIOT, 边缘计算, 人工智能, 深度学习
-desc: maixpy doc: MaixPy 能做哪些事
+desc: maixpy  MaixPy 能做哪些事
 ---
 
 

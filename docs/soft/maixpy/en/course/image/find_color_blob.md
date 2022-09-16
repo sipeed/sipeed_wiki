@@ -1,7 +1,7 @@
 ---
 title: MaixPy Find color blocks
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: MaixPy find color blocks
+desc: maixpy  MaixPy find color blocks
 ---
 
 

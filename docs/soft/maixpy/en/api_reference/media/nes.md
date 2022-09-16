@@ -1,7 +1,7 @@
 ---
 title: NES game emulator
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: NES game emulator
+desc: maixpy  NES game emulator
 ---
 
 

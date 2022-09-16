@@ -1,7 +1,7 @@
 ---
 title: Maix Go
 keywords: maixpy, k210, AIOT, 边缘计算, Maix Go
-desc: maixpy doc: Maix Go
+desc: maixpy  Maix Go
 ---
 
 

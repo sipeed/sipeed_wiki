@@ -1,7 +1,7 @@
 ---
 title: gc-memory recovery
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: gc-memory recovery
+desc: maixpy  gc-memory recovery
 ---
 
 

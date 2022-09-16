@@ -1,7 +1,7 @@
 ---
 title: nuclear filtering
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: nuclear filtering
+desc: maixpy  nuclear filtering
 ---
 
 

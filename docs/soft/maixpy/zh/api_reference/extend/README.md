@@ -1,7 +1,7 @@
 ---
 title: 外设模块
 keywords: maixpy, k210, AIOT, spmod
-desc: maixpy doc: 外设模块
+desc: maixpy  外设模块
 ---
 
 

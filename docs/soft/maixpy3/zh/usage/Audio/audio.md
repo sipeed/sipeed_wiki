@@ -1,7 +1,7 @@
 ---
 title: 音频操作
 keywords: 音频操作, MaixPy3, Python, Python3
-desc: maixpy doc: 音频操作
+desc: maixpy  音频操作
 ---
 
 MaixPy3 关于音频相关操作采用的是PyAudio 库，PyAudio 为跨平台音频 I/O 库 PortAudio 提供了 Python 绑定，帮助用户轻松地在各种平台上播放和录制音频。

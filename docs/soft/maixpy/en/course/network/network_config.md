@@ -1,7 +1,7 @@
 ---
 title: How to connect MaixPy to the Internet
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: How to connect MaixPy to the Internet
+desc: maixpy  How to connect MaixPy to the Internet
 ---
 
 

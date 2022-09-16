@@ -1,7 +1,7 @@
 ---
 title: 进阶使用
 keywords: MaixII, MaixPy3, Python, Python3, M2dock, Tina, Openwrt
-desc: maixpy doc: MaixII M2dock 上手使用
+desc: maixpy  MaixII M2dock 上手使用
 ---
 
 > 没有 Linux 系统使用基础的同学，不推荐以下的使用方式

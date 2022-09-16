@@ -156,7 +156,8 @@
                     "owner": "sipeed",
                     "admin": ["Neutree", "STRfarfar"],
                     "main_color": "#FF6B63",
-                    "second_color": "#e25d55"
+                    "second_color": "#e25d55",
+                    "adminAutoCreate": false
                 }
             }
         },

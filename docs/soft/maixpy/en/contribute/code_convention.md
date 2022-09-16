@@ -1,7 +1,7 @@
 ---
 title: MaixPy programming specification
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: MaixPy programming specification
+desc: maixpy  MaixPy programming specification
 ---
 
 

@@ -1,7 +1,7 @@
 ---
 title: MaixDuino
 keywords: maixpy, k210, AIOT, 边缘计算, MaixDuino
-desc: maixpy doc: MaixDuino
+desc: maixpy  MaixDuino
 ---
 
 

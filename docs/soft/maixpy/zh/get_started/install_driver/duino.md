@@ -1,7 +1,7 @@
 ---
 title: Maix Duino USB 驱动安装
 keywords: maixpy, k210, AIOT, 边缘计算
-desc: maixpy doc: Maix Duino USB 驱动安装
+desc: maixpy  Maix Duino USB 驱动安装
 ---
 
 

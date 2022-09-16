@@ -1,7 +1,7 @@
 ---
 title: 如何显示中文
 keywords: maixpy, k210, AIOT, 边缘计算
-desc: maixpy doc: 如何显示中文
+desc: maixpy  如何显示中文
 ---
 
 

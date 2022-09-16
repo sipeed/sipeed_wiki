@@ -1,7 +1,7 @@
 ---
 title: I2S
 keywords: maixpy, k210, AIOT, 边缘计算
-desc: maixpy doc: I2S
+desc: maixpy  I2S
 ---
 
 I2S模块主要用于驱动I2S设备，k210一共有3个I2S设备，每个设备一共有4个通道，在使用前需要对引脚进行映射管理

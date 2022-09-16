@@ -1,7 +1,7 @@
 ---
 title: ESP32 ADC
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: ESP32 ADC
+desc: maixpy  ESP32 ADC
 ---
 
 ## How to use ESP32 to get ADC analog

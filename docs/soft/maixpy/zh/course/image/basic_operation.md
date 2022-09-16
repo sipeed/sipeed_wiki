@@ -1,7 +1,7 @@
 ---
 title: 图像的基本运算
 keywords: maixpy, k210, AIOT, 边缘计算
-desc: maixpy doc: 图像的基本运算
+desc: maixpy  图像的基本运算
 ---
 
 

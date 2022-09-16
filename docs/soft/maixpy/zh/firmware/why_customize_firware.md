@@ -1,7 +1,7 @@
 ---
 title: 为何需要固件定制
 keywords: maixpy, k210, AIOT, 边缘计算
-desc: maixpy doc: 为何需要固件定制
+desc: maixpy  为何需要固件定制
 ---
 
 

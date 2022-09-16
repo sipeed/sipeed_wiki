@@ -1,7 +1,7 @@
 ---
 title: 项目使用说明
 keywords: MaixPy, MaixPy3, Python, Python3, MicroPython
-desc: maixpy doc: 项目使用说明
+desc: maixpy  项目使用说明
 ---
 
 ## 认识 MaixPy3 项目

@@ -1,7 +1,7 @@
 ---
 title: Use of UART
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: use of UART
+desc: maixpy  use of UART
 ---
 
 

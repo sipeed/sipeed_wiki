@@ -1,7 +1,7 @@
 ---
 title: Maix Bit USB Driver Installation
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: Maix Bit USB driver installation
+desc: maixpy  Maix Bit USB driver installation
 ---
 
 

@@ -1,7 +1,7 @@
 ---
 title: sys – 系统特定功能
 keywords: maixpy, k210, AIOT, 边缘计算
-desc: maixpy doc: sys – 系统特定功能
+desc: maixpy  sys – 系统特定功能
 ---
 
 

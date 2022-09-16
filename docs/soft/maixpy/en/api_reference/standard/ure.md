@@ -1,7 +1,7 @@
 ---
 title: ure-simple regular expression
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: ure-simple regular expression
+desc: maixpy  ure-simple regular expression
 ---
 
 

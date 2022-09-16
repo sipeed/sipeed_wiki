@@ -1,7 +1,7 @@
 ---
 title: isolated_word（孤立词 MFCC 模块）
 keywords: maixpy, k210, AIOT, 边缘计算
-desc: maixpy doc: isolated_word（孤立词 MFCC 模块）
+desc: maixpy  isolated_word（孤立词 MFCC 模块）
 ---
 
 

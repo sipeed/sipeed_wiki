@@ -1,7 +1,7 @@
 ---
 title: SP_BT 的使用
 keywords: maixpy, k210, AIOT, 边缘计算
-desc: maixpy doc: SP_BT 的使用
+desc: maixpy  SP_BT 的使用
 ---
 
 

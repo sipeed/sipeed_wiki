@@ -1,7 +1,7 @@
 ---
 title: ucollections – 集合和容器类型
 keywords: maixpy, k210, AIOT, 边缘计算
-desc: maixpy doc: ucollections – 集合和容器类型
+desc: maixpy  ucollections – 集合和容器类型
 ---
 
 

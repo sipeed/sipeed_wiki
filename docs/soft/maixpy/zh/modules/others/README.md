@@ -1,7 +1,7 @@
 ---
 title: 其他模块
 keywords: maixpy, k210, AIOT, 边缘计算
-desc: maixpy doc: 其他模块
+desc: maixpy  其他模块
 ---
 
 

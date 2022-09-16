@@ -1,7 +1,7 @@
 ---
 title: Hardware accelerated image processing
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: hardware accelerated image processing
+desc: maixpy  hardware accelerated image processing
 ---
 
 

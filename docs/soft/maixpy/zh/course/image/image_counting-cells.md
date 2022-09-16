@@ -1,7 +1,7 @@
 ---
 title: MaixPy 实现细胞计数
 keywords: maixpy, k210, AIOT, 边缘计算
-desc: maixpy doc: MaixPy 实现细胞计数
+desc: maixpy  MaixPy 实现细胞计数
 ---
 
 

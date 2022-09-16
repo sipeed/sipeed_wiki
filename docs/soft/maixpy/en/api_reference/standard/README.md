@@ -1,7 +1,7 @@
 ---
 title: Standard Library
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy doc: standard library
+desc: maixpy  standard library
 ---
 
 

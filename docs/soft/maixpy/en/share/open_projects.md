@@ -1,7 +1,7 @@
 ---
 title: Selected MaixPy related open source projects
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: MaixPy related open source project selection
+desc: maixpy  MaixPy related open source project selection
 ---
 
 

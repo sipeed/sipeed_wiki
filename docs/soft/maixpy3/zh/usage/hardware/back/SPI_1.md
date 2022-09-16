@@ -1,7 +1,7 @@
 ---
 title: SPI
 keywords: maixpy3, SPI
-desc: maixpy3 doc: SPI
+desc: maixpy3  SPI
 ---
 
 ## 使用 SPI

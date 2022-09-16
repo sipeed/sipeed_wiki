@@ -1,7 +1,7 @@
 ---
 title: Maixhub FAQ
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy doc: Maixhub FAQ
+desc: maixpy  Maixhub FAQ
 ---
 
 

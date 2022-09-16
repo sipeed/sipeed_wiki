@@ -1,7 +1,7 @@
 ---
 title: modules.onewire (single bus)
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: modules.onewire (single bus)
+desc: maixpy  modules.onewire (single bus)
 ---
 
 

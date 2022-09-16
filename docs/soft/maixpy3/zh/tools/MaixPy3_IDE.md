@@ -1,7 +1,7 @@
 ---
 title: 安装 IDE
 keywords: MaixPy3 IDE
-desc: maixpy doc: 如何连接并使用 MaixPy3 的 IDE
+desc: maixpy  如何连接并使用 MaixPy3 的 IDE
 ---
 
 - 修改与2022年七月七日

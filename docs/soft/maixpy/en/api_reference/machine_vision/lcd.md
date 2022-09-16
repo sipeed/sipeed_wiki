@@ -1,7 +1,7 @@
 ---
 title: lcd (screen display)
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: lcd (screen display)
+desc: maixpy  lcd (screen display)
 ---
 
 

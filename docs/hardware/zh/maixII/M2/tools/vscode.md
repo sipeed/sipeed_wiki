@@ -1,7 +1,7 @@
 ---
 title: 如何使用 vscode 
 keywords: vscode, MaixPy3, Python, Python3
-desc: maixpy doc: 如何使用 vscode 
+desc: maixpy  如何使用 vscode 
 ---
 
 ## 前言

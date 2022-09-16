@@ -1,7 +1,7 @@
 ---
 title: maix_asr（语音识别模块）
 keywords: maixpy, k210, AIOT, 边缘计算
-desc: maixpy doc: maix_asr（语音识别模块）
+desc: maixpy  maix_asr（语音识别模块）
 ---
 
 

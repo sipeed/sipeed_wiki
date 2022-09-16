@@ -1,7 +1,7 @@
 ---
 title: Use of GPIO
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy doc: use of GPIO
+desc: maixpy  use of GPIO
 ---
 
 For detailed introduction of GPIO, please refer to [GPIO-API Document](../../api_reference//Maix/gpio.md).

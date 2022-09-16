@@ -1,7 +1,7 @@
 ---
 title: Python3 网络应用
 keywords: MaixPy3,net, Python3
-desc: maixpy doc: net
+desc: maixpy  net
 ---
 
 

@@ -1,7 +1,7 @@
 ---
 title: How to choose a development board
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: How to choose a development board
+desc: maixpy  How to choose a development board
 ---
 
 

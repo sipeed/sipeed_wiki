@@ -1,7 +1,7 @@
 ---
 title: Introduction to Storage System
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: storage system introduction
+desc: maixpy  storage system introduction
 ---
 
 

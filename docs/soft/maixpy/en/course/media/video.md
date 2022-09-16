@@ -1,7 +1,7 @@
 ---
 title: Use of video
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: video (video) use
+desc: maixpy  video (video) use
 ---
 
 

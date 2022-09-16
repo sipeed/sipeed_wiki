@@ -1,7 +1,7 @@
 ---
 title: machine vision/hearing
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy doc: machine vision/hearing
+desc: maixpy  machine vision/hearing
 ---
 
 

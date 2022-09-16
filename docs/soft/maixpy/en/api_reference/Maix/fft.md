@@ -1,7 +1,7 @@
 ---
 title: FFT operation
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: FFT operation
+desc: maixpy  FFT operation
 ---
 
 FFT fast Fourier transform module, which performs Fourier transform on input data and returns the corresponding frequency amplitude. FFT fast Fourier operation can convert time domain signal into frequency domain signal

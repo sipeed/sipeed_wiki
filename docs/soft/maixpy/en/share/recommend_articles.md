@@ -1,7 +1,7 @@
 ---
 title: MaixPy Featured Article
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy doc: MaixPy Featured Articles
+desc: maixpy  MaixPy Featured Articles
 ---
 
 

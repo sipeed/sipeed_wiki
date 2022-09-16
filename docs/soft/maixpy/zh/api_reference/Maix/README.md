@@ -1,7 +1,7 @@
 ---
 title: Maix库
 keywords: maixpy, k210, AIOT, 边缘计算
-desc: maixpy doc: Maix库
+desc: maixpy  Maix库
 ---
 
 

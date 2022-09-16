@@ -1,7 +1,7 @@
 ---
 title: modules.htpa（HTPA 热红外测温模组）
 keywords: maixpy, k210, AIOT, spmod
-desc: maixpy doc: modules.htpa（HTPA 热红外测温模组）
+desc: maixpy  modules.htpa（HTPA 热红外测温模组）
 ---
 
 

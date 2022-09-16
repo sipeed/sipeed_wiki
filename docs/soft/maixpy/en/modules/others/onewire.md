@@ -1,7 +1,7 @@
 ---
 title: Use of onewire (single bus)
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy doc: Use of onewire (single bus)
+desc: maixpy  Use of onewire (single bus)
 ---
 
 ## Instructions

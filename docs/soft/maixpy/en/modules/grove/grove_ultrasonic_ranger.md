@@ -1,7 +1,7 @@
 ---
 title: Grove-Ultrasonic Ranger (Ultrasonic Ranger)
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: Grove-Ultrasonic Ranger (Ultrasonic Ranger)
+desc: maixpy  Grove-Ultrasonic Ranger (Ultrasonic Ranger)
 ---
 
 

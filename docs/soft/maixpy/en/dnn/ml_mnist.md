@@ -1,7 +1,7 @@
 ---
 title: mnist handwritten number recognition
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: mnist handwritten digit recognition
+desc: maixpy  mnist handwritten digit recognition
 ---
 
 

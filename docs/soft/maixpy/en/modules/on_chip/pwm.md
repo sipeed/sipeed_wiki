@@ -1,7 +1,7 @@
 ---
 title: Use of PWM
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: Use of PWM
+desc: maixpy  Use of PWM
 ---
 
 

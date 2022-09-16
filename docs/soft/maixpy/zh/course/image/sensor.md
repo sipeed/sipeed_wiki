@@ -1,7 +1,7 @@
 ---
 title: Sensor 感光元件
 keywords: maixpy, k210, AIOT, 边缘计算
-desc: maixpy doc: Sensor 感光元件
+desc: maixpy  Sensor 感光元件
 ---
 
 

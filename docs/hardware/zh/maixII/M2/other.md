@@ -1,7 +1,7 @@
 ---
 title: 其他事项
 keywords: MaixII, MaixPy3, Python, Python3, M2dock
-desc: maixpy doc: 其他事项
+desc: maixpy  其他事项
 ---
 
 > 编辑于 2022年8月23日

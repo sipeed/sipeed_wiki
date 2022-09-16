@@ -1,7 +1,7 @@
 ---
 title: MaixPy Experience Sharing —— XXX
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: MaixPy experience sharing-XXX
+desc: maixpy  MaixPy experience sharing-XXX
 ---
 
 

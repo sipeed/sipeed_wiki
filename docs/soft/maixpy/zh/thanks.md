@@ -1,7 +1,7 @@
 ---
 title: 致谢
 keywords: maixpy, k210, AIOT, 边缘计算, 人工智能, 深度学习
-desc: maixpy doc: 致谢
+desc: maixpy  致谢
 ---
 
 

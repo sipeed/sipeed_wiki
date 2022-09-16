@@ -1,7 +1,7 @@
 ---
 title: What can MaixPy do
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: What can MaixPy do
+desc: maixpy  What can MaixPy do
 ---
 
 Most of them integrated to MaixPy, or some of them include in [Maixduino](https://Maixduino.sipeed.com) or from other developers

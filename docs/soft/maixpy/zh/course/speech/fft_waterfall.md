@@ -1,7 +1,7 @@
 ---
 title: FFT 瀑布图(雨图)
 keywords: maixpy, k210, AIOT, 边缘计算
-desc: maixpy doc: FFT 瀑布图(雨图)
+desc: maixpy  FFT 瀑布图(雨图)
 ---
 
 

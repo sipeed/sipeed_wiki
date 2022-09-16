@@ -1,7 +1,7 @@
 ---
 title: ustruct – 打包和解包原始数据类型
 keywords: maixpy, k210, AIOT, 边缘计算
-desc: maixpy doc: ustruct – 打包和解包原始数据类型
+desc: maixpy  ustruct – 打包和解包原始数据类型
 ---
 
 

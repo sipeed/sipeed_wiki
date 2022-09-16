@@ -1,7 +1,7 @@
 ---
 title: ubinascii – 二进制/ ASCII转换
 keywords: maixpy, k210, AIOT, 边缘计算
-desc: maixpy doc: ubinascii – 二进制/ ASCII转换
+desc: maixpy  ubinascii – 二进制/ ASCII转换
 ---
 
 

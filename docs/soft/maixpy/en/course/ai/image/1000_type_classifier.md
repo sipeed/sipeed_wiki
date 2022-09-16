@@ -1,7 +1,7 @@
 ---
 title: 1000 object classification models
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: 1000 object classification models
+desc: maixpy  1000 object classification models
 ---
 
 

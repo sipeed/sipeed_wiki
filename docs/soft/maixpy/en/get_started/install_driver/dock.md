@@ -1,7 +1,7 @@
 ---
 title: Maix Dock USB driver installation
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy doc: Maix Dock USB driver installation
+desc: maixpy  Maix Dock USB driver installation
 ---
 
 ## Linux

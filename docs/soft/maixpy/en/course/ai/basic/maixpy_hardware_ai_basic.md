@@ -1,7 +1,7 @@
 ---
 title: Basic knowledge of MaixPy AI hardware acceleration
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: Basic knowledge of MaixPy AI hardware acceleration
+desc: maixpy  Basic knowledge of MaixPy AI hardware acceleration
 ---
 
 

@@ -1,7 +1,7 @@
 ---
 title: Use of WDT (Watchdog)
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: the use of WDT (watchdog)
+desc: maixpy  the use of WDT (watchdog)
 ---
 
 

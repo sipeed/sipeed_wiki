@@ -1,7 +1,7 @@
 ---
 title: 近期更新内容
 keywords: maixpy3, 开发进程
-desc: maixpy3 doc: 开发进程
+desc: maixpy3  开发进程
 class: heading_no_counter
 ---
 

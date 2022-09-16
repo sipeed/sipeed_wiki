@@ -1,7 +1,7 @@
 ---
 title: image (machine vision)
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: image (machine vision)
+desc: maixpy  image (machine vision)
 ---
 
 

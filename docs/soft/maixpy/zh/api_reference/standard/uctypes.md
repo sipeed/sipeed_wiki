@@ -1,7 +1,7 @@
 ---
 title: uctypes – 以结构化方式访问二进制数据
 keywords: maixpy, k210, AIOT, 边缘计算
-desc: maixpy doc: uctypes – 以结构化方式访问二进制数据
+desc: maixpy  uctypes – 以结构化方式访问二进制数据
 ---
 
 

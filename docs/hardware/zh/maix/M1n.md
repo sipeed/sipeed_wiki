@@ -1,7 +1,7 @@
 ---
 title: Sipeed M1n
 keywords: maixpy, k210, AIOT, 边缘计算, M1n
-desc: maixpy doc: Sipeed M1/M1W 
+desc: maixpy  Sipeed M1/M1W 
 ---
 
 ## M1n

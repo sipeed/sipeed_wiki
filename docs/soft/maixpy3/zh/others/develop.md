@@ -1,7 +1,7 @@
 ---
 title: MaixPy3 开发文档
 keywords: MaixPy, MaixPy3, Python, Python3, MicroPython
-desc: maixpy doc: 如何参与项目（开发文档）
+desc: maixpy  如何参与项目（开发文档）
 ---
 
 MaixPy3 并不是为了某一款芯片平台制作的，它的初衷就是为了通过 Python 编程简化用户在嵌入式 Linux 上开发程序的过程，所以是建立在所有 Linux 设备都能使用的基础上去设计的，但由于 Sipeed 官方的能力有限，难以同时照顾所有开源硬件的同步开发，所以提供一些官方的基本芯片移植参考，方便第三方的开源爱好者提交其他芯片平台、镜像、工具推送到 MaixPy3 的环境中。

@@ -1,7 +1,7 @@
 ---
 title: gc – 内存回收
 keywords: maixpy, k210, AIOT, 边缘计算
-desc: maixpy doc: gc – 内存回收
+desc: maixpy  gc – 内存回收
 ---
 
 

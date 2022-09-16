@@ -1,7 +1,7 @@
 ---
 title: fpioa_manager
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: fpioa_manager
+desc: maixpy  fpioa_manager
 ---
 
 

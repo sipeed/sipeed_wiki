@@ -1,7 +1,7 @@
 ---
 title: NES 游戏模拟器
 keywords: maixpy, k210, AIOT, 边缘计算
-desc: maixpy doc: NES 游戏模拟器
+desc: maixpy  NES 游戏模拟器
 ---
 
 

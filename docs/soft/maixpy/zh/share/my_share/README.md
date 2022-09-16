@@ -1,7 +1,7 @@
 ---
 title: MaixPy 经验分享 —— XXX
 keywords: maixpy, k210, AIOT, 边缘计算
-desc: maixpy doc: MaixPy 经验分享 —— XXX
+desc: maixpy  MaixPy 经验分享 —— XXX
 ---
 
 

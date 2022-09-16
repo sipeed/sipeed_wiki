@@ -1,7 +1,7 @@
 ---
 title: 如何编译
 keywords: maixpy, k210, AIOT, 边缘计算
-desc: maixpy doc: 如何编译
+desc: maixpy  如何编译
 ---
 
 

@@ -1,7 +1,7 @@
 ---
 title: How to ask questions gracefully
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: how to ask questions gracefully
+desc: maixpy  how to ask questions gracefully
 ---
 
 

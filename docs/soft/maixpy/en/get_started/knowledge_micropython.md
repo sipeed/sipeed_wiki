@@ -1,7 +1,7 @@
 ---
 title: MicroPython background knowledge
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: MicroPython background knowledge
+desc: maixpy  MicroPython background knowledge
 ---
 
 

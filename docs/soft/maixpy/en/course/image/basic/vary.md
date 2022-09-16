@@ -1,7 +1,7 @@
 ---
 title: Basic image transformation and common operations
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: basic image transformation and common operations
+desc: maixpy  basic image transformation and common operations
 ---
 
 

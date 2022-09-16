@@ -1,7 +1,7 @@
 ---
 title: 串口连接
 keywords: maixpy, k210, AIOT, 边缘计算, maixpy入门
-desc: maixpy doc: 使用串口工具
+desc: maixpy  使用串口工具
 ---
 
 

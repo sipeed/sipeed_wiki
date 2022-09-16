@@ -1,7 +1,7 @@
 ---
 title: Use serial port tools
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: use serial port tool
+desc: maixpy  use serial port tool
 ---
 
 

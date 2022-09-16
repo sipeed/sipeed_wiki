@@ -1,7 +1,7 @@
 ---
 title: sensor (camera)
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: sensor (camera)
+desc: maixpy  sensor (camera)
 ---
 
 

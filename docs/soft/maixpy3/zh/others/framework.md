@@ -1,7 +1,7 @@
 ---
 title: MaixPy3 架构介绍
 keywords: MaixPy, MaixPy3, Python, Python3, MicroPython
-desc: maixpy doc: 认识项目整体框架（开发文档）
+desc: maixpy  认识项目整体框架（开发文档）
 ---
 
 ## 前言：开发基础

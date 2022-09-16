@@ -1,7 +1,7 @@
 ---
 title: modules.htpa (HTPA thermal infrared temperature measurement module)
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: modules.htpa (HTPA thermal infrared temperature measurement module)
+desc: maixpy  modules.htpa (HTPA thermal infrared temperature measurement module)
 ---
 
 

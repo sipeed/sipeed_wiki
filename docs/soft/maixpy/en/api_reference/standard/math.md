@@ -1,7 +1,7 @@
 ---
 title: math-mathematical functions
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: math-mathematical functions
+desc: maixpy  math-mathematical functions
 ---
 
 

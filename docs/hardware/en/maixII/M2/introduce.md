@@ -1,7 +1,7 @@
 ---
 title: Chip introduction
 keywords: MaixII, MaixPy3, Python, Python3, M2dock
-desc: maixpy doc: 
+desc: maixpy  
 ---
 
 About V831

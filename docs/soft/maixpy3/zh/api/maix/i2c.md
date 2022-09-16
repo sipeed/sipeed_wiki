@@ -1,7 +1,7 @@
 ---
 title: MaixII M2dock I2C 调试
 keywords: MaixII, MaixPy3, Python, Python3, M2dock
-desc: maixpy doc: MaixII M2dock I2C 调试
+desc: maixpy  MaixII M2dock I2C 调试
 ---
 
 V831 镜像中默认包含 **i2c-tools**, i2c-tools 包含如下四条命令

@@ -1,7 +1,7 @@
 ---
 title: touchscreen (touch screen)
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: touchscreen (touch screen)
+desc: maixpy  touchscreen (touch screen)
 ---
 
 

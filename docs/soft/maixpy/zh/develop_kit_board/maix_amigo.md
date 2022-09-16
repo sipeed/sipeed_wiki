@@ -1,7 +1,7 @@
 ---
 title: MaixAmigo
 keywords: maixpy, k210, AIOT, 边缘计算, MaixAmigo
-desc: maixpy doc: MaixAmigo
+desc: maixpy  MaixAmigo
 ---
 
 

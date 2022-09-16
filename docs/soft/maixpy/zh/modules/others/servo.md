@@ -1,7 +1,7 @@
 ---
 title: 舵机
 keywords: maixpy, k210, AIOT, 边缘计算
-desc: maixpy doc: 舵机
+desc: maixpy  舵机
 ---
 
 

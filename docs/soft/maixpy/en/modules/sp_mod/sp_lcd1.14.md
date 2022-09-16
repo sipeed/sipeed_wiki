@@ -1,7 +1,7 @@
 ---
 title: Use of SP_LCD1.14
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: Use of SP_LCD1.14
+desc: maixpy  Use of SP_LCD1.14
 ---
 
 

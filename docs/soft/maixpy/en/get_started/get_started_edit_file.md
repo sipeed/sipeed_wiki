@@ -1,7 +1,7 @@
 ---
 title: Edit and execute the file
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: edit and execute files
+desc: maixpy  edit and execute files
 ---
 
 

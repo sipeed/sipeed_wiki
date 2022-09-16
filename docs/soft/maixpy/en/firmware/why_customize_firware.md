@@ -1,7 +1,7 @@
 ---
 title: Why need firmware customization
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: why need firmware customization
+desc: maixpy  why need firmware customization
 ---
 
 

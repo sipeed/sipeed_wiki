@@ -1,7 +1,7 @@
 ---
 title: 自学习分类器（self learning classifier）
 keywords: maixpy, k210, AIOT, 边缘计算
-desc: maixpy doc: 自学习分类器（self learning classifier）
+desc: maixpy  自学习分类器（self learning classifier）
 ---
 
 

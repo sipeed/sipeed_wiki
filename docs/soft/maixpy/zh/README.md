@@ -1,7 +1,7 @@
 ---
 title: MaixPy 文档简介
 keywords: maixpy, k210, AIOT, 边缘计算, 人工智能, 深度学习
-desc: maixpy doc: MaixPy 文档简介
+desc: maixpy  MaixPy 文档简介
 ---
 
 <div class="title_pic">

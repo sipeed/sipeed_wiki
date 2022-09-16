@@ -1,7 +1,7 @@
 ---
 title: isolated word
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: isolated word
+desc: maixpy  isolated word
 ---
 
 

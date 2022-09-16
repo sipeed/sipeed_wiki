@@ -1,7 +1,7 @@
 ---
 title: Use of I2C
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: the use of I2C
+desc: maixpy  the use of I2C
 ---
 
 

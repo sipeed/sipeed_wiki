@@ -1,7 +1,7 @@
 ---
 title: 核滤波
 keywords: maixpy, k210, AIOT, 边缘计算
-desc: maixpy doc: 核滤波
+desc: maixpy  核滤波
 ---
 
 

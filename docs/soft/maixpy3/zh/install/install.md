@@ -1,7 +1,7 @@
 ---
 title: MaixPy3 如何获取、安装、使用？
 keywords: linux, MaixII-Dock, MaixSense, 安装MaixPy3
-desc: maixpy doc: linux_x86_64 MaixPy3 如何安装？
+desc: maixpy  linux_x86_64 MaixPy3 如何安装？
 ---
 
 ## 目前 MaixPy3 适配的平台

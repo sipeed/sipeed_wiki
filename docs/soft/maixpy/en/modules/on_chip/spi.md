@@ -1,7 +1,7 @@
 ---
 title: Use of SPI
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: use of SPI
+desc: maixpy  use of SPI
 ---
 
 

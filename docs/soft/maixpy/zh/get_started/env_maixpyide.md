@@ -1,7 +1,7 @@
 ---
 title: MaixPy IDE 安装与使用
 keywords: maixpy, k210, AIOT, 边缘计算, maixpy入门
-desc: maixpy doc: MaixPy IDE 安装与使用
+desc: maixpy  MaixPy IDE 安装与使用
 ---
 
 

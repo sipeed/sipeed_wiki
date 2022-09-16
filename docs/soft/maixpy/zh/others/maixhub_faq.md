@@ -1,7 +1,7 @@
 ---
 title: Maixhub 常见问题
 keywords: maixpy, k210, AIOT, 边缘计算
-desc: maixpy doc: Maixhub 常见问题
+desc: maixpy  Maixhub 常见问题
 ---
 
 

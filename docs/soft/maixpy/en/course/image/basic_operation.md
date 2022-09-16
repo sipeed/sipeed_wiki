@@ -1,7 +1,7 @@
 ---
 title: basic operations of the image
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: basic operations of images
+desc: maixpy  basic operations of images
 ---
 
 

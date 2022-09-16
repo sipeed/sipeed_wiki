@@ -1,7 +1,7 @@
 ---
 title: Maix Dock
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: Maix Dock
+desc: maixpy  Maix Dock
 ---
 
 

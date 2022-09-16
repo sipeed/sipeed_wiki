@@ -1,7 +1,7 @@
 ---
 title: Maix.utils
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy doc: Maix.utils
+desc: maixpy  Maix.utils
 ---
 
 

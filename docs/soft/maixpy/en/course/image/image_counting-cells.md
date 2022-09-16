@@ -1,7 +1,7 @@
 ---
 title: MaixPy achieves cell counting
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy doc: MaixPy for cell counting
+desc: maixpy  MaixPy for cell counting
 ---
 
 

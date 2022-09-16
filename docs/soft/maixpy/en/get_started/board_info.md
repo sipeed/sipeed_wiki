@@ -1,7 +1,7 @@
 ---
 title: Board
 keywords: maixpy, k210, AIOT, Edge_calculation, maixpy_start
-desc: maixpy doc: Board
+desc: maixpy  Board
 ---
 
 > This documnet has passed in Maixpy 0.5.1-128 version

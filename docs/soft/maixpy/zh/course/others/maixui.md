@@ -1,7 +1,7 @@
 ---
 title: MaixUI 基础使用指导
 keywords: maixpy, k210, AIOT, 边缘计算
-desc: maixpy doc: MaixUI 基础使用指导
+desc: maixpy  MaixUI 基础使用指导
 ---
 
 

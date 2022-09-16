@@ -1,7 +1,7 @@
 ---
 title: 源码编译
 keywords: maixpy, k210, AIOT, 边缘计算
-desc: maixpy doc: 源码编译
+desc: maixpy  源码编译
 ---
 
 

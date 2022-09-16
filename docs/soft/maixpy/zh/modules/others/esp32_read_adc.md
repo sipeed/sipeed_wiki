@@ -1,7 +1,7 @@
 ---
 title: 
 keywords: maixpy, k210, AIOT, 边缘计算
-desc: maixpy doc: 
+desc: maixpy  
 ---
 
 ## 如何使用 ESP32 获取 ADC 模拟量

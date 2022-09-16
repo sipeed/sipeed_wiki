@@ -1,7 +1,7 @@
 ---
 title: 如何适配你的平台
 keywords: MaixPy, MaixPy3, Python, Python3, MicroPython
-desc: maixpy doc: 如何适配你的平台
+desc: maixpy  如何适配你的平台
 ---
 
 > 通过【MaixPy3开发文档】可知基础的 Python3 编译、安装、测试等开发方法。

@@ -1,7 +1,7 @@
 ---
 title: Document contribution specification
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: document contribution specification
+desc: maixpy  document contribution specification
 ---
 
 

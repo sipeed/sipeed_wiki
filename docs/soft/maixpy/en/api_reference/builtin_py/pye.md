@@ -1,7 +1,7 @@
 ---
 title: Micropython Editor
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy doc: Micropython Editor
+desc: maixpy  Micropython Editor
 ---
 
 

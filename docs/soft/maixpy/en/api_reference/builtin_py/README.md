@@ -1,7 +1,7 @@
 ---
 title: built-in class (builtin_py)
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy doc: built-in class (builtin_py)
+desc: maixpy  built-in class (builtin_py)
 ---
 
 

@@ -1,7 +1,7 @@
 ---
 title: FFT waterfall chart (rain chart)
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: FFT waterfall chart (rain chart)
+desc: maixpy  FFT waterfall chart (rain chart)
 ---
 
 

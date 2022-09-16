@@ -1,7 +1,7 @@
 ---
 title: MaixPy 常见问题
 keywords: maixpy, k210, AIOT, 边缘计算
-desc: maixpy doc: MaixPy 常见问题
+desc: maixpy  MaixPy 常见问题
 ---
 
 > 编辑于 2022.07.19

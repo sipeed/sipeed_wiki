@@ -1,7 +1,7 @@
 ---
 title: onewire（单总线）的使用
 keywords: maixpy, k210, AIOT, 边缘计算
-desc: maixpy doc: onewire（单总线）的使用
+desc: maixpy  onewire（单总线）的使用
 ---
 
 

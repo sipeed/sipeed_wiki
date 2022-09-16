@@ -1,7 +1,7 @@
 ---
 title: MaixUI basic usage guide
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: MaixUI basic usage guide
+desc: maixpy  MaixUI basic usage guide
 ---
 
 

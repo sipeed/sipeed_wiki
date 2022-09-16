@@ -1,7 +1,7 @@
 ---
 title: MaixPy 查找色块
 keywords: maixpy, k210, AIOT, 边缘计算
-desc: maixpy doc: MaixPy 查找色块
+desc: maixpy  MaixPy 查找色块
 ---
 
 

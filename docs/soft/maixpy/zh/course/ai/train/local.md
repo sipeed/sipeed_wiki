@@ -1,7 +1,7 @@
 ---
 title: 本地模型训练 for Linux
 keywords: maixpy, k210, AIOT, 边缘计算
-desc: maixpy doc: 本地模型训练
+desc: maixpy  本地模型训练
 ---
 
 > 没有任何的开发基础请慎重使用，出现问题请自行解决！

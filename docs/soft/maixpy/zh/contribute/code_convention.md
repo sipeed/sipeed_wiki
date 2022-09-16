@@ -1,7 +1,7 @@
 ---
 title: MaixPy 编程规范
 keywords: maixpy, k210, AIOT, 边缘计算
-desc: maixpy doc: MaixPy 编程规范
+desc: maixpy  MaixPy 编程规范
 ---
 
 

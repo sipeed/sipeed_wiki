@@ -1,7 +1,7 @@
 ---
 title: uzlib  — zlib 解压缩
 keywords: maixpy, k210, AIOT, 边缘计算
-desc: maixpy doc: uzlib  — zlib 解压缩
+desc: maixpy  uzlib  — zlib 解压缩
 ---
 
 

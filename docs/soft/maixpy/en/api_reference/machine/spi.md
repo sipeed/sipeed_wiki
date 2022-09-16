@@ -1,7 +1,7 @@
 ---
 title: machine.SPI
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: machine.SPI
+desc: maixpy  machine.SPI
 ---
 
 

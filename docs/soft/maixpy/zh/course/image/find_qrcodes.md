@@ -1,7 +1,7 @@
 ---
 title: MaixPy 查找二维码
 keywords: maixpy, k210, AIOT, 边缘计算
-desc: maixpy doc: MaixPy 查找二维码
+desc: maixpy  MaixPy 查找二维码
 ---
 
 

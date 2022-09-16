@@ -1,7 +1,7 @@
 ---
 title: 如何使用 pyqt_rtsp 
 keywords: pyqt_rtsp, MaixPy3, Python, Python3
-desc: maixpy doc: 如何使用 pyqt_rtsp 
+desc: maixpy  如何使用 pyqt_rtsp 
 ---
 
 > 这是一个图传客户端工具，脱离 jupyter 的编程环境，使用的时候只需要在电脑上安装好就可以链接到硬件中获取图传信息。

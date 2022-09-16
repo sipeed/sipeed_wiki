@@ -1,7 +1,7 @@
 ---
 title: Memory management
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: memory management
+desc: maixpy  memory management
 ---
 
 In MaixPy, two types of memory management are currently used, one is GC (garbage collection) and the other is system heap memory, both of which exist at the same time.

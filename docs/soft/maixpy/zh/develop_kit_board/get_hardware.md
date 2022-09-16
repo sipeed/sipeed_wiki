@@ -1,7 +1,7 @@
 ---
 title: 如何选购开发板
 keywords: maixpy, k210, AIOT, 边缘计算, Maix开发板
-desc: maixpy doc: 如何选购开发板
+desc: maixpy  如何选购开发板
 ---
 
 

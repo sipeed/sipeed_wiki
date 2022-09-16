@@ -1,7 +1,7 @@
 ---
 title: drawing and writing
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy doc: drawing, writing
+desc: maixpy  drawing, writing
 ---
 
 

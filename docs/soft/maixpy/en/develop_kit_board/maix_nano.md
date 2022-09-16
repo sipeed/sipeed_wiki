@@ -1,7 +1,7 @@
 ---
 title: Maix Nano
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: Maix Nano
+desc: maixpy  Maix Nano
 ---
 
 

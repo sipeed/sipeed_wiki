@@ -1,7 +1,7 @@
 ---
 title: 系统控制
 keywords: maixpy, k210, AIOT, 边缘计算
-desc: maixpy doc: 系统控制
+desc: maixpy  系统控制
 ---
 
 

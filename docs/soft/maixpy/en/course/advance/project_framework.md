@@ -1,7 +1,7 @@
 ---
 title: Code frame structure
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: code frame structure
+desc: maixpy  code frame structure
 ---
 
 

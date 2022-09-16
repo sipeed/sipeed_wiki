@@ -1,7 +1,7 @@
 ---
 title: Upload scripts & modules to the development board
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: upload scripts & modules to the development board
+desc: maixpy  upload scripts & modules to the development board
 ---
 
 

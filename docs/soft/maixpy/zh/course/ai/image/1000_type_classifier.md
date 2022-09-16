@@ -1,7 +1,7 @@
 ---
 title: 1000 种物体分类模型
 keywords: maixpy, k210, AIOT, 边缘计算
-desc: maixpy doc: 1000 种物体分类模型
+desc: maixpy  1000 种物体分类模型
 ---
 
 

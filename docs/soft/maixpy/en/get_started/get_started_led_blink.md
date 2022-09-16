@@ -1,7 +1,7 @@
 ---
 title: Turn on the LED
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: turn on the LED
+desc: maixpy  turn on the LED
 ---
 
 

@@ -1,7 +1,7 @@
 ---
 title: Maix Bit
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: Maix Bit
+desc: maixpy  Maix Bit
 ---
 
 

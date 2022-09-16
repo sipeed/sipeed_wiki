@@ -1,7 +1,7 @@
 ---
 title: SP-MOD
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy doc: SP-MOD
+desc: maixpy  SP-MOD
 ---
 
 

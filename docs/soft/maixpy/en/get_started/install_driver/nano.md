@@ -1,7 +1,7 @@
 ---
 title: Maix Nano USB Driver Installation
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: Maix Nano USB driver installation
+desc: maixpy  Maix Nano USB driver installation
 ---
 
 

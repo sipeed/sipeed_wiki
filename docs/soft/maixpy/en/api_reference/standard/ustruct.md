@@ -1,7 +1,7 @@
 ---
 title: ustruct-Packing and unpacking primitive data types
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: ustruct-packing and unpacking primitive data types
+desc: maixpy  ustruct-packing and unpacking primitive data types
 ---
 
 

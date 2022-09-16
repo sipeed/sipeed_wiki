@@ -1,7 +1,7 @@
 ---
 title: K210 module core board
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: K210 module core board
+desc: maixpy  K210 module core board
 ---
 
 

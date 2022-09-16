@@ -1,7 +1,7 @@
 ---
-title: First program: Use screen and camera
+title: "First program: Use screen and camera"
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: first program: use screen and camera
+desc: "maixpy first program: use screen and camera"
 ---
 
 

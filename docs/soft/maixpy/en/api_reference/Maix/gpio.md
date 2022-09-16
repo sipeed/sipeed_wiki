@@ -1,7 +1,7 @@
 ---
 title: GPIO
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: GPIO
+desc: maixpy  GPIO
 ---
 
 

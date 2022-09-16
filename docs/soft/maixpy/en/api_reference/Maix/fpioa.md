@@ -1,7 +1,7 @@
 ---
 title: FPIOA (Field Programmable Input and Output Array)
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: FPIOA (Field Programmable Input and Output Array)
+desc: maixpy  FPIOA (Field Programmable Input and Output Array)
 ---
 
 

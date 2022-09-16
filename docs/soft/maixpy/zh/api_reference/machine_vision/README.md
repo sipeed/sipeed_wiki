@@ -1,7 +1,7 @@
 ---
 title: 机器视觉/听觉
 keywords: maixpy, k210, AIOT, 边缘计算
-desc: maixpy doc: 机器视觉/听觉
+desc: maixpy  机器视觉/听觉
 ---
 
 

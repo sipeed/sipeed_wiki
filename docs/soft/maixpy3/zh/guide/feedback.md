@@ -1,7 +1,7 @@
 ---
 title: 如何反馈问题
 keywords: MaixPy, MaixPy3, Python, Python3, MicroPython
-desc: maixpy doc: 如何反馈问题
+desc: maixpy  如何反馈问题
 ---
 
 在没开始使用 MaixPy3 开源项目之前，建议先看一下如何反馈问题，免得之后使用过程中出了问题，不知道在哪反馈，也不知道在哪获取解决方法。在开源项目上反馈的问题通常需要一些时间才能得到解决。

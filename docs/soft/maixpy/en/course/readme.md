@@ -1,7 +1,7 @@
 ---
 title: MaixPy tutorial instructions
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy doc: MaixPy manual tutorial instructions
+desc: maixpy  MaixPy manual tutorial instructions
 ---
 
 

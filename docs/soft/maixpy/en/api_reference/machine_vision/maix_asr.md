@@ -1,7 +1,7 @@
 ---
 title: maix_asr (voice recognition module)
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: maix_asr (speech recognition module)
+desc: maixpy  maix_asr (speech recognition module)
 ---
 
 

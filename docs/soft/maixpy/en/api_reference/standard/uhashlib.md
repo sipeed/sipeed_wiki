@@ -1,7 +1,7 @@
 ---
 title: uhashlib-hash algorithm
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: uhashlib-hash algorithm
+desc: maixpy  uhashlib-hash algorithm
 ---
 
 

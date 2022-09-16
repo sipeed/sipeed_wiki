@@ -1,7 +1,7 @@
 ---
 title: math – 数学函数
 keywords: maixpy, k210, AIOT, 边缘计算
-desc: maixpy doc: math – 数学函数
+desc: maixpy  math – 数学函数
 ---
 
 

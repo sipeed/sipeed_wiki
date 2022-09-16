@@ -1,7 +1,7 @@
 ---
 title: Use of SP_Ethernet
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: use of SP_Ethernet
+desc: maixpy  use of SP_Ethernet
 ---
 
 

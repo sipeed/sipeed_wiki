@@ -1,7 +1,7 @@
 ---
 title: FFT运算
 keywords: maixpy, k210, AIOT, 边缘计算
-desc: maixpy doc: FFT运算
+desc: maixpy  FFT运算
 ---
 
 FFT快速傅里叶变换模块，对输入数据进行傅里叶变换并返回相应的频率幅值, FFT快速傅里叶运算可以将时域信号转换为频域信号

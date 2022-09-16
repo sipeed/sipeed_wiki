@@ -1,7 +1,7 @@
 ---
 title: Firmware online compilation
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy doc: firmware online compilation
+desc: maixpy  firmware online compilation
 ---
 
 

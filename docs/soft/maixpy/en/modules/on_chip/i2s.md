@@ -1,7 +1,7 @@
 ---
 title: Use of I2S (Integrated Circuit Audio Bus)
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: the use of I2S (integrated circuit built-in audio bus)
+desc: maixpy  the use of I2S (integrated circuit built-in audio bus)
 ---
 
 

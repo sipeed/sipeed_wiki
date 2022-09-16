@@ -1,7 +1,7 @@
 ---
 title: machine.I2C
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: machine.I2C
+desc: maixpy  machine.I2C
 ---
 
 

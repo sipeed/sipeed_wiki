@@ -1,7 +1,7 @@
 ---
 title: 基本图像变换 和 常用操作
 keywords: maixpy, k210, AIOT, 边缘计算
-desc: maixpy doc: 基本图像变换 和 常用操作
+desc: maixpy  基本图像变换 和 常用操作
 ---
 
 

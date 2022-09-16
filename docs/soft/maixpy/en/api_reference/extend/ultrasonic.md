@@ -1,7 +1,7 @@
 ---
 title: modules.ultrasonic (ultrasonic ranging module)
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy doc: modules.ultrasonic (ultrasonic ranging module)
+desc: maixpy  modules.ultrasonic (ultrasonic ranging module)
 ---
 
 

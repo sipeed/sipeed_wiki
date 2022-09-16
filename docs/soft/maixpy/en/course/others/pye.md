@@ -1,7 +1,7 @@
 ---
 title: pye (Micropython Editor)
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: pye (Micropython Editor)
+desc: maixpy  pye (Micropython Editor)
 ---
 
 

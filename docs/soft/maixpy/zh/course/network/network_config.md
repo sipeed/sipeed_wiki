@@ -1,7 +1,7 @@
 ---
 title: 如何给 MaixPy 连接网络
 keywords: maixpy, k210, AIOT, 边缘计算
-desc: maixpy doc: 如何给 MaixPy 连接网络
+desc: maixpy  如何给 MaixPy 连接网络
 ---
 
 

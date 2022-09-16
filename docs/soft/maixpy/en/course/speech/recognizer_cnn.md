@@ -1,7 +1,7 @@
 ---
 title: maix asr (automatic speech recognition)
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: maix asr (automatic speech recognition)
+desc: maixpy  maix asr (automatic speech recognition)
 ---
 
 

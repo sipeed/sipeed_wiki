@@ -1,7 +1,7 @@
 ---
 title: uzlib — zlib decompression
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: uzlib — zlib decompression
+desc: maixpy  uzlib — zlib decompression
 ---
 
 

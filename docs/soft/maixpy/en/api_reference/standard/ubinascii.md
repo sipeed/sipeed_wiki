@@ -1,7 +1,7 @@
 ---
 title: ubinascii-Binary/ASCII conversion
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy ​​doc: ubinascii-Binary/ASCII conversion
+desc: maixpy  ubinascii-Binary/ASCII conversion
 ---
 
 

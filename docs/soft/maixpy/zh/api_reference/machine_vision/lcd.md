@@ -1,7 +1,7 @@
 ---
 title: lcd（屏幕显示）
 keywords: maixpy, k210, AIOT, 边缘计算
-desc: maixpy doc: lcd（屏幕显示）
+desc: maixpy  lcd（屏幕显示）
 ---
 
 

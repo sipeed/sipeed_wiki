@@ -1,7 +1,7 @@
 ---
 title: uerrno — 系统错误代码
 keywords: maixpy, k210, AIOT, 边缘计算
-desc: maixpy doc: uerrno — 系统错误代码
+desc: maixpy  uerrno — 系统错误代码
 ---
 
 
