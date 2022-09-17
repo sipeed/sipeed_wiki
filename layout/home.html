@@ -208,13 +208,13 @@
              </template>
 
              <n-grid-item span="9 s:9 m:9 l:9" style="margin-left: 4%; margin-right: 4%;">
-                 <n-card size="small" style="margin: auto; display: flex; height: 800px; " hoverable>
+                 <n-card size="small" style="margin: auto; display: flex; min-height: fit-content; " hoverable>
                      <n-tabs type="line" justify-content="space-evenly"
                          tab-style="justify-content:center; display: flex; padding-left: 15px; padding-right: 15px; text-align: center; margin: 0 auto; font-size: 20px; "
                          class="custom-tabs" trigger='hover'>
                          <n-tab-pane v-bind:tab="key" v-bind:name="key"
                              v-for="(value, key) in datas['products'][$t('language')]">
-                             <n-layout has-sider position="absolute" style="height: 700px; position: relative"
+                             <n-layout has-sider position="absolute" style="min-height: 700px; position: relative"
                                  class="news_background" hoverable>
                                  <n-grid cols="10" item-responsive responsive="screen">
                                      <n-grid-item span="10 s:5 m:2 l:2" style="padding: 4%;" v-for="product in value">
@@ -459,7 +459,7 @@
                         title: "Tang Primer 20k Dock",
                         src: "https://gd2.alicdn.com/imgextra/i2/2200606237318/O1CN011WbMhx23vhBcXmkEL_!!2200606237318.jpg_400x400.jpg",
                         lbtn_text: "btn_buy",
-                        lbtn_href: "https://item.taobao.com/item.htm?id=683873093620",                        
+                        lbtn_href: "https://item.taobao.com/item.htm?id=683873093620",
                         rbtn_text: "btn_detail",
                         rbtn_href: "https://wiki.sipeed.com/hardware/zh/tang/tang-primer-20k/primer-20k.html",
                     },
@@ -870,7 +870,7 @@
                         title: "Tang Primer 20k Dock",
                         src: "https://gd2.alicdn.com/imgextra/i2/2200606237318/O1CN011WbMhx23vhBcXmkEL_!!2200606237318.jpg_400x400.jpg",
                         lbtn_text: "btn_buy",
-                        lbtn_href: "https://item.taobao.com/item.htm?id=683873093620",                        
+                        lbtn_href: "https://item.taobao.com/item.htm?id=683873093620",
                         rbtn_text: "btn_detail",
                         rbtn_href: "https://wiki.sipeed.com/hardware/en/tang/tang-primer-20k/primer-20k.html",
                     },
