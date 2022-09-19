@@ -185,6 +185,14 @@
                     "second_color": "#e25d55"
                 }
             }
+        },
+        "teedoc-plugin-thumbs-up": {
+            "from": "pypi",
+            "config": {
+                "url": "http://49.234.194.98:5728",
+                "show_up_count": true,
+                "show_down_count": false
+            }
         }
     },
     "rebuild_changes_delay": 1,
