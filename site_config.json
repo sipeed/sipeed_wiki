@@ -189,7 +189,7 @@
         "teedoc-plugin-thumbs-up": {
             "from": "pypi",
             "config": {
-                "url": "http://49.234.194.98:5728",
+                "url": "https://thumbs-up.sipeed.com",
                 "show_up_count": true,
                 "show_down_count": false
             }
