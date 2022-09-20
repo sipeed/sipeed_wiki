@@ -109,6 +109,8 @@ Tang Primer 20K 是基于 [GW2A-V18PG256C8IC8I7](http://www.gowinsemi.com.cn/pro
 
 ### Dock 底板产品图
 
+其中 LED2 和 LED3 所对应的引脚编号为 N16 和 N14。查阅右图左方，已标明。
+
 <div>
 <img src="./assets/dock-up.png" alt="dock-up" width=45%>
 <img src="./assets/dock-back.png" alt="dock-back" width=45%>
@@ -116,7 +118,7 @@ Tang Primer 20K 是基于 [GW2A-V18PG256C8IC8I7](http://www.gowinsemi.com.cn/pro
 
 ### Lite 底板产品图
 
-底板左上角 R8 与 P9 之间为 P8 引脚。已标明
+底板 R8 与 P9 之间为 P8 引脚。参考右图左上方，已标明
 
 <div>
 <img src="./assets/lite-up.png" alt="lite-up" width=45%>
@@ -316,23 +318,30 @@ https://github.com/sipeed/TangPrimer-20K-example
 
 ## 相关问题
 
+### Dock 底板不工作
+
+拨下 1 号拨码开关以使能核心板，不然底板会不工作且 LED0 和 LED1 常亮
+
+| 使能核心板 | 未使能核心板 |
+| --- | --- |
+| ![switch_1_on](./assets/start/switch_1_on.png) | ![reset_led_on](./assets/start/reset_led_on.png)  |
+
+<!-- <img src="./assets/start/switch_1_on.png" alt="switch_1_on" width=20%> -->
+
 ### 如何下载到外部 FLASH
 进行如下选项设置：
 <img src="./assets/flash_mode.png" alt="flash_mode" width=75%>
-<!-- ![flash_mode](./assets/flash_mode.png) -->
 
 ### 烧录后没反应或者引脚现象不对
 首先确定选择了正确的型号，下图中的每一个参数都要求一致
-<img src="./assets/device_choose.png" alt="device_choose" width=75%><br>
-<!-- ![device_choose](./assets/device_choose.png) -->
+<img src="./assets/device_choose.png" alt="device_choose" width=75%>
+
 然后检查自己的代码和对应的仿真波形是否满足要求
-<!-- 
-### 之前成功烧录过一次外部 Flash 后 Programmer 软件无法再烧录
 
-注意描述是之前成功烧录过一次 Flash。
-
+### 成功烧录过一次外部 Flash 后 Programmer 软件无法再烧录
+注意描述是成功烧录过一次 Flash。
 这种情况默认为启用了错误的引脚复用而导致下载器不能再识别到 FPGA 的 JTAG。解决办法是在芯片通电前将核心板上的 Flash 使能引脚拉高来阻止 FPGA 加载固件。使用金属将板子上的 Flash 短接后再通电即可解决。短接的具体位置见下图 Flash 处两侧的红框处。
 
-![flash_cs](./assets/flash_cs.png) -->
+![flash_cs](./assets/flash_cs.png)
 
 ### 更多问题及其解决办法前往[相关问题](./../Tang-Nano-Doc/questions.md)查看

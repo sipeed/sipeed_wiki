@@ -5,7 +5,7 @@
             "file": "maix/README.md",
             "items": [
                 {
-                    "label": "Maix 模块",
+                    "label":"M1 模块",
                     "collapsed": false,
                     "items": [
                         {
@@ -17,18 +17,18 @@
                             "file": "maix/M1n.md"
                         }
                     ]
-                },                    
+                },               
                 {
-                    "label": "Maix 开发板",
+                    "label": "M1 开发板",
                     "collapsed": false,
                     "items": [
                         {
-                            "label": "Maix Dock(M1/M1W)",
-                            "file": "maix/maixpy_develop_kit_board/Maix_dock.md"
-                        },
-                        {
                             "label": "Maix Bit",
                             "file": "maix/maixpy_develop_kit_board/maix_bit.md"
+                        },
+                        {
+                            "label": "Maix Dock(M1/M1W)",
+                            "file": "maix/maixpy_develop_kit_board/Maix_dock.md"
                         },
                         {
                             "label": "Maix Duino",
@@ -53,6 +53,36 @@
                         {
                             "label": "Maix Go（已停产）",
                             "file": "maix/maixpy_develop_kit_board/maix_go.md"
+                        }
+                    ]
+                },
+                {
+                    "label":"M1s 模块",
+                    "items":[
+                        {                            
+                        }
+                    ]
+
+                },
+                {
+                    "label":"M1s 开发板",
+                    "items":[
+                        {
+                        }
+                    ]
+                },
+                {
+                    "label":"M1a 模块",
+                    "items":[
+                        {
+                        }
+                    ]
+
+                },                
+                {
+                    "label":"M1a 开发板",
+                    "items":[
+                        {                            
                         }
                     ]
                 }
@@ -232,7 +262,7 @@
                             "file": "tang/tang-primer-20k/primer-20k.md",
                             "items": [
                                 {
-                                    "label":"开箱使用",
+                                    "label":"上手指南",
                                     "file" :"tang/tang-primer-20k/start.md"
                                 },
                                 {
@@ -349,24 +379,24 @@
             "label": "MaixFace",
             "items": [
                 {
-                    "label": "MF0&&MF0 Dock",
+                    "label": "MF0 & MF0 Dock",
                     "file": "maixface/mf_ml_module/mf0_ml_module.md"
                 },
                 {
-                    "label": "MF1 && MF2",
+                    "label": "MF1 & MF2",
                     "file": "maixface/mf_ml_module/mf1_ml_module.md"
                 },
                 {
-                    "label": "MF4 && MF5",
+                    "label": "MF4 & MF5",
                     "file": "maixface/mf_ml_module/mf5_product.md"
-                },
-                {
-                    "label": "MF 人脸识别模块 PCB 设计注意事项",
-                    "file": "maixface/mf_ml_module/mf_precautions.md"
                 },
                 {
                     "label": "MF 更新固件说明",
                     "file": "maixface/mf_ml_module/mf_update_firmwave.md"
+                },
+                {
+                    "label": "MF 人脸识别模块 PCB 设计注意事项",
+                    "file": "maixface/mf_ml_module/mf_precautions.md"
                 }
             ]
         },
@@ -467,10 +497,10 @@
                     ]
                 },
                 {
-                    "label": "模块&&调试器",
+                    "label": "模块 & 调试器",
                     "items": [
                         {
-                            "label": "调试器&&串口模块",
+                            "label": "调试器 & 串口模块",
                             "file": "modules/debugger_and_uart.md"
                         },
                         {

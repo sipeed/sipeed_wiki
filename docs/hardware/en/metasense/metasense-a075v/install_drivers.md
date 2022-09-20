@@ -35,6 +35,10 @@ Open the extracted downloaded file path, choose one .inf file, click the `open`.
 
 ![inf](./assets/install_drivers/inf.png)
 
+Here we click `OK`
+
+![click_ok](./assets/install_drivers/click_ok.png)
+
 Then we choose `Next`.
 
 ![Next](./assets/install_drivers/next.png)

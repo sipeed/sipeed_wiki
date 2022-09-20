@@ -18,22 +18,17 @@ Primer 20K 底板有 Lite 和 Dock 两款，这里分开说明一下
 #### 使能核心板
 
 对于 Dock 板，使用的时候需要注意将拨码开关 1 号位开启，以此来使能核心板。
-将拨码开关 1 号位拨向下即可。
 
-<img src="./assets/start/switch_1_on.png" alt="switch_1_on" width=20%>
-<!-- ![switch_1_on](./assets/start/switch_1_on.png) -->
-
-如果没有将拨码开关 1 号位拨向下，板子上的 0、1 号 LED 会是一直亮着的，且核心板不会正常启动。
-
-<img src="./assets/start/reset_led_on.png" alt="reset_led_on" width=20%>
-<!-- ![reset_led_on](./assets/start/reset_led_on.png) -->
+| 使能核心板 | 未使能状态 | 补充说明 |
+| --- | --- | --- |
+|<img src="./assets/start/switch_1_on.png" alt="switch_1_on" width=100%>|<img src="./assets/start/reset_led_on.png" alt="reset_led_on" width=100%> | 未使能核心板的话板子上的 0、1 号 LED 会一直亮着，且核心板不会正常启动。|
 
 #### 设备不工作
 
 默认的包装盒里已经将核心板组装在底板上面了，但是有时候因为一些必要操作需要取下核心板。
 然后再次组装回去后发现设备不再工作了，这个时候我们需要确认一下核心板与底板是否连接好。
 
-正确的连接顺序是先将核心板斜插入到底板中，倾斜角度大概如如下图左图所示，确定从上面看到斜插入的核心板与底板接触均匀，可以从金手指裸露出来的均匀程度来判断。
+正确的连接顺序是先将核心板斜插入到底板中，倾斜角度大概如如下图左图所示。确定从上面看到斜插入的核心板与底板均匀接触，可以从金手指裸露出来的均匀程度来判断。
 
 <img src="./assets/start/edge_view.png" alt="edge_view" width=30%>
 <img src="./assets/start/top_view.png" alt="top_view" width=25%>
@@ -46,6 +41,25 @@ Primer 20K 底板有 Lite 和 Dock 两款，这里分开说明一下
 
 将上图红框的两处侧边稍微打磨一下，来减少配合时的困难。
 
+#### 硬件改版说明
+
+对于 Dock 底板，可以从如下图所指的位置来了解当前自己所使用的板子版本。
+
+![version](./assets/start/version.png)
+
+比如上面这张图的板子的版本号为 V3708
+
+下面是有问题的版本修正：
+
+##### V3708
+
+LED2 与 LED3 的丝印错误，应当为：
+
+| 外设 | 引脚 |
+| ---  | --- |
+| LED2 | N16 |
+| LED3 | N14 |
+
 ### 开始使用
 
 对于 Dock 底板，默认固件可进行如下操作：
@@ -56,4 +70,23 @@ Primer 20K 底板有 Lite 和 Dock 两款，这里分开说明一下
 默认固件中，将 3、4 号两个灯设置为时钟检测信号，可以通过这两个灯的状态来鉴别设备是否工作。
 
 
-## Lite 开箱指南
+## Lite 开箱说明
+
+### 应该更新记录
+
+对于 Lite 底板，可以从如下图所指的位置来了解当前自己所使用的板子版本。
+
+![lite-version](./assets/start/lite-version.png)
+
+比如上面这张图的板子的版本号为 3710
+
+下面是有问题的版本修正：
+
+#### 3710
+
+底板 R8 与 P9 之间为 P8 引脚。参考右图左上方，已标明
+
+<div>
+<img src="./assets/lite-up.png" alt="lite-up" width=45%>
+<img src="./assets/lite-back.png" alt="lite-back" width=45%>
+</div>

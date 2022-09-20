@@ -24,7 +24,7 @@
                     },
                     {
                         "url": "/hardware/zh/lichee/index.html",
-                        "label": "Lichee-Pi"
+                        "label": "LicheePi"
                     },
                     {
                         "url": "/hardware/zh/tang/index.html",
@@ -37,6 +37,10 @@
                     {
                         "url": "/hardware/zh/metasense/index.html",
                         "label": "MetaSense"
+                    },
+                    {
+                        "url": "/hardware/zh/maixface/mf_ml_module/mf0_ml_module.html",
+                        "label": "MaixFace"
                     },
                     {
                         "url":"/hardware/zh/modules_spmod/spmod_extender.html",
@@ -143,9 +147,6 @@
                         "label": "Sipeed 淘宝",
                         "url": "https://sipeed.taobao.com/",
                         "target": "_blank"
-                    },
-                    {
-
                     },
                     {
                         "label": "网站使用 teedoc 生成",
