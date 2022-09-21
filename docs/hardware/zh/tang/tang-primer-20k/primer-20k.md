@@ -298,11 +298,11 @@ https://github.com/sipeed/TangPrimer-20K-example
 
 部分教程：
 
-- LED drive ：<a href="https://wiki.sipeed.com/news/others/20k_lite_start/20k_lite_start.html" target="blank">点我跳转</a>
+- Lite 底板点灯 ：<a href="https://wiki.sipeed.com/news/others/20k_lite_start/20k_lite_start.html" target="blank">点我跳转</a>
 
 ## 交流方式
 
-- **交流论坛: [bbs.sipeed.com](bbs.sipeed.com)**
+- **交流论坛: [bbs.sipeed.com](https://bbs.sipeed.com)**
 - **QQ 交流群：[834585530](https://jq.qq.com/?_wv=1027&k=wBb8XUan)**
 - 直接本页下方留言
 

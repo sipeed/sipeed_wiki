@@ -8,7 +8,7 @@ title: Tang nano 9k 一些例程
 
 - [点灯例程](./examples/LED.md)
 - [驱RGB屏教程](./examples/LCD.md)
-- [PicoRV 在9K上运行的示例](./examples/picoRV_examples.md)
+- [PicoRV 在9K上运行的示例](./examples/picorv.md)
 - litex在9K上使用示例：即将更新
 - 使用软核驱动SPI屏幕：待更新
 - ~~FPGA驱动1.14寸SPI屏幕：待更新~~

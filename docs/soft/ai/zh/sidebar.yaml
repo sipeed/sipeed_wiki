@@ -5,12 +5,16 @@ items:
 - label: 什么是 AI ?
   file: basic/what_is_ai.md
 - label: 部署到边缘设备
+- label: 部署方法汇总
+  file: deploy/README.md
 - label: Maix-I 之 K210 模型部署
   file: deploy/k210.md
 - label: Maix-II 之 V831 模型部署
   file: deploy/v831.md
 - label: TinyMaix 模型部署
   file: deploy/tinymaix.md
+- label: AX-Pi 模型部署
+  file: deploy/ax-pi.md
 - label: MaixHub
 - label: MaixHub 简介
   file: maixhub/README.md
