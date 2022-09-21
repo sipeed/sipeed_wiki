@@ -31,31 +31,19 @@
                                          prev-slide-style="transform: translateX(-150%) translateZ(-1200px);"
                                          next-slide-style="transform: translateX(50%) translateZ(-1200px);"
                                          :show-dots="false" autoplay draggable style="height: 620px">
-                                         <n-carousel-item :style="{ width: '80%' }">
+                                         <!-- <n-carousel-item :style="{ width: '80%' }">
                                              <n-card size="small" hoverable>
                                                  <img class="carousel-img" src="https://sipeed.com/static/images/banner-1.jpg">
+                                                 <n-divider title-placement="right">
+                                                    <n-button-group style="margin: 5px; font-size: 16px;">
+                                                    <n-button size="large"
+                                                        href="https://sipeed.com"
+                                                        target="_blank" tag="a" type="error" ghost>
+                                                        官网链接
+                                                    </n-button-group>
+                                                </n-divider>                                                 
                                              </n-card>
-                                            </n-carousel-item>
-                                            <n-carousel-item :style="{ width: '80%' }">
-                                                <n-card size="small" hoverable>
-                                                    <img class="carousel-img" src="/static/home/banner-2.jpg">
-                                                    <n-divider title-placement="right">
-                                                        <n-button-group style="margin: 5px; font-size: 16px;">
-                                                        <n-button size="large"
-                                                            href="https://wiki.sipeed.com/hardware/zh/maixII/M2/resources.html"                                                            
-                                                            target="_blank" tag="a" type="error" ghost>
-                                                            产品使用手册
-                                                        </n-button>
-                                                        <n-button size="large" style="color:#ffffff; " color="#e34548"
-                                                            href="https://item.taobao.com/item.htm?spm=a1z10.1-c-s.w4004-24053782153.3.3d3252b1jsMNM4&id=680099020807"
-                                                            tag="a" target="_blank" round>
-                                                            购买链接：￥245.00
-                                                        </n-button>
-                                                        </n-button-group>
-                                                    </n-divider>
-                                                </n-card>
-                                            </n-carousel-item>
-                                        </n-carousel-item>
+                                            </n-carousel-item> -->
                                         <n-carousel-item :style="{ width: '80%' }">
                                             <n-card size="small" hoverable>
                                                 <img class="carousel-img" src="/static/home/metasense.png">
@@ -75,25 +63,45 @@
                                                 </n-divider>
                                             </n-card>
                                         </n-carousel-item>
-                                         <n-carousel-item :style="{ width: '80%' }">
-                                             <n-card size="small" hoverable>
-                                                 <img class="carousel-img" src="https://sipeed.com/static/images/banner-4.jpg">
-                                                 <n-divider title-placement="right">
-                                                    <n-button-group style="margin: 5px; font-size: 16px;">
-                                                    <n-button size="large"
-                                                            href="https://wiki.sipeed.com/ai/zh/index.html"                                                            
+                                    </n-carousel-item>
+                                     <n-carousel-item :style="{ width: '80%' }">
+                                         <n-card size="small" hoverable>
+                                             <img class="carousel-img" src="https://sipeed.com/static/images/banner-4.jpg">
+                                             <n-divider title-placement="right">
+                                                <n-button-group style="margin: 5px; font-size: 16px;">
+                                                <n-button size="large"
+                                                        href="https://wiki.sipeed.com/ai/zh/index.html"                                                            
+                                                        target="_blank" tag="a" type="error" ghost>
+                                                        AI 指南说明
+                                                    </n-button>
+                                                    <n-button size="large" style="color:#ffffff; " color="#e34548"
+                                                        href="https://maixhub.com/"
+                                                        tag="a" target="_blank" round>
+                                                       Maixhub 官网
+                                                    </n-button>
+                                                </n-button-group>
+                                            </n-divider>                                                 
+                                         </n-card>
+                                     </n-carousel-item>
+                                            <n-carousel-item :style="{ width: '80%' }">
+                                                <n-card size="small" hoverable>
+                                                    <img class="carousel-img" src="/static/home/banner-2.jpg">
+                                                    <n-divider title-placement="right">
+                                                        <n-button-group style="margin: 5px; font-size: 16px;">
+                                                        <n-button size="large"
+                                                            href="https://wiki.sipeed.com/hardware/zh/maixII/M2/resources.html"                                                            
                                                             target="_blank" tag="a" type="error" ghost>
-                                                            AI 指南说明
+                                                            产品使用手册
                                                         </n-button>
                                                         <n-button size="large" style="color:#ffffff; " color="#e34548"
-                                                            href="https://maixhub.com/"
+                                                            href="https://item.taobao.com/item.htm?id=635874427363"
                                                             tag="a" target="_blank" round>
-                                                           Maixhub 官网
+                                                            购买链接：￥245.00
                                                         </n-button>
-                                                    </n-button-group>
-                                                </n-divider>                                                 
-                                             </n-card>
-                                         </n-carousel-item>
+                                                        </n-button-group>
+                                                    </n-divider>
+                                                </n-card>
+                                            </n-carousel-item>
                                      </n-carousel>
                                  </n-card>
                              </n-tab-pane>
@@ -106,12 +114,9 @@
                                              <n-rate size="large" readonly :default-value="3" />
                                          </n-divider>
                                          <n-ellipsis expand-trigger="click" line-clamp="1" :tooltip="false">
-                                             Tang Primer 20K 是基于 GW2A-V18PG256C8IC8I7 所设计的一款 DDR3 sodimm
-                                             封装的核心板，额外准备了两个底板，分别为 Dock 底板和 Lite 底板。作为 Sipeed 所发售的第六款 FPGA 产品，Tang
-                                             Primer 20K 一直广受关注。<br>
-                                             得益于 GW2A 丰富的资源，Tang Primer 20K 可以满足多种项目需求；例如当下最火的“IC设计”，可以使用高云所提供的
-                                             Gowin_EMPU_M1、PicoRV32两款软核来体验一下 mcu 软核，或者也可以用来验证自己所设计的软核。<br>
-                                         </n-ellipsis>
+                                             Tang Primer 20K 是基于 GW2A-V18PG256C8IC8I7 所设计的一款 DDR3 sodimm 封装的核心板，<br>
+                                             作为 Sipeed 所发售的第六款 FPGA 产品，Tang Primer 20K 一直广受关注。其额外配置了两个底板，分别为 Dock 底板和 Lite 底板。
+                                             </n-ellipsis>
                                          <div>
                                              <img class="card-img"
                                                  src="https://gd1.alicdn.com/imgextra/i3/2200606237318/O1CN01Xe11pH23vhBRw4zLG_!!2200606237318.jpg_400x400.jpg">
@@ -121,9 +126,9 @@
                                              <n-button-group>
                                                  <n-button-group style="margin: 5px; font-size: 16px;">
                                                      <n-button size="large"
-                                                         href="https://item.taobao.com/item.htm?spm=a1z10.1-c-s.w4004-24053782153.3.3d3252b1jsMNM4&id=680099020807"
+                                                         href="https://item.taobao.com/item.htm?&id=680099020807"
                                                          target="_blank" tag="a" type="error" ghost>
-                                                         活动价：￥199.00
+                                                         活动价：￥189.00
                                                      </n-button>
                                                      <n-button size="large" style="color:#ffffff;" color="#e34548"
                                                          href="/news/others/20k_lite_start/20k_lite_start.html" tag="a"
@@ -1277,6 +1282,7 @@
         margin: 0 auto;
         width: 100%;
         height: 100%;
+        max-width: 960px;
         object-fit: cover;
     }
 
