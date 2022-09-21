@@ -5,12 +5,16 @@ items:
 - label: What is AI ?
   file: basic/what_is_ai.md
 - label: Deploy to edge devices
+- label: Deployment methods
+  file: deploy/README.md
 - label: Deploy to Maix-I K210
   file: deploy/k210.md
 - label: Deploy to Maix-II V831
   file: deploy/v831.md
-- label: TinyMaix Deployment
+- label: TinyMaix deployment
   file: deploy/tinymaix.md
+- label: AX-Pi deployment
+  file: deploy/ax-pi.md
 - label: MaixHub
 - label: MaixHub brief
   file: maixhub/README.md
