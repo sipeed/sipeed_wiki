@@ -45,7 +45,7 @@ Primer 20K 底板有 Lite 和 Dock 两款，这里分开说明一下
 
 对于 Dock 底板，可以从如下图所指的位置来了解当前自己所使用的板子版本。
 
-![version](./assets/start/version.png)
+![version](./assets/start/dock-version.png)
 
 比如上面这张图的板子的版本号为 V3708
 
@@ -55,10 +55,10 @@ Primer 20K 底板有 Lite 和 Dock 两款，这里分开说明一下
 
 LED2 与 LED3 的丝印错误，应当为：
 
-| 外设 | 引脚 |
-| ---  | --- |
-| LED2 | N16 |
-| LED3 | N14 |
+| 外设 | 正确引脚 | 错误丝印 |
+| ---  | --- | --- |
+| LED2 | N16 | B14 |
+| LED3 | N14 | N16 |
 
 ### 开始使用
 
