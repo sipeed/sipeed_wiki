@@ -6,6 +6,9 @@ date: 2022-09-21
 class: heading_no_counter
 ---
 
+<div id="maixhub">
+    到<a href="https://maixhub.com/model/zoo">MaixHub 查看</a>或<a href="https://maixhub.com/model/zoo/share">上传分享</a>能直接部署到边缘设备的模型
+</div>
 
 <div id="deploy_items">
     <a href="./k210.html">
@@ -79,6 +82,7 @@ class: heading_no_counter
     box-shadow: 5px 6px 20px 4px  rgba(0, 0, 0, 0.1);
     border-radius: 0.6rem;
     transition: 0.4s;
+    background: white;
 }
 .card:hover {
     box-shadow: 5px 6px 40px 4px  rgba(0, 0, 0, 0.1);
@@ -122,6 +126,37 @@ class: heading_no_counter
 .card_purple {
     background-color: #d1c4e9;
     color: #673ab7;
+}
+#maixhub {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1em 0;
+    width: 100%;
+    background-color: #f5f5f5;
+    color: #727272;
+    border-radius: 0.6rem;
+    padding: 1em;
+}
+.dark #maixhub {
+    background-color: #2d2d2d;
+    color: #bfbfbf;
+}
+.dark .card_blue {
+    background-color: #003c6c;
+    color: #ffffffba;
+}
+.dark .card_red {
+    background-color: #5a0000;
+    color: #ffffffba;
+}
+.dark .card_green {
+    background-color: #004e03;
+    color: #ffffffba;
+}
+.dark .card_purple {
+    background-color: #370040;
+    color: #ffffffba;
 }
 </style>
 
