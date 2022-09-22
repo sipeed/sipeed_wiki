@@ -77,7 +77,7 @@
                                                     <n-button size="large" style="color:#ffffff; " color="#e34548"
                                                         href="https://maixhub.com/"
                                                         tag="a" target="_blank" round>
-                                                       Maixhub 官网
+                                                        MaixHub 官网
                                                     </n-button>
                                                 </n-button-group>
                                             </n-divider>                                                 
@@ -104,6 +104,30 @@
                                             </n-carousel-item>
                                      </n-carousel>
                                  </n-card>
+                             </n-tab-pane>
+                             <n-tab-pane name="MetaSense 系列登场">
+                                <n-layout style="position: relative" has-sider position="absolute" hoverable>
+                                    <n-card class="base_background"
+                                        style="margin: auto; display: fit-content; max-height: 600px;">
+                                        <h1>一起用 MetaSense 解锁 <br>TOF 的有趣体验吧！</h1>
+                                        <n-divider>
+                                        </n-divider>
+                                            <n-collapse>
+                                                <n-collapse-item title="sipeed 上新啦“MetaSense 系列”TOF摄像头模组" name="1">
+                                                  <div>可以</div>
+                                                </n-collapse-item>
+                                                <n-collapse-item title="TOF 普及小课堂上课啦！解答 MetaSense 是什么？" name="2">
+                                                  <div>很好</div>
+                                                </n-collapse-item>
+                                                <n-collapse-item title="MetaSense 系列的新奇玩法！你想的都有！" name="3">
+                                                  <div>真棒</div>
+                                                </n-collapse-item>
+                                              </n-collapse>
+                                            </n-card> 
+                                            <n-divider title-placement="left">
+                                            <iframe src="//player.bilibili.com/player.html?aid=218150917&bvid=BV1q8411t7xb&cid=838335610&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="min-width:640px; min-height:480px;"> </iframe>
+                                            </n-divider>
+                                </n-layout>
                              </n-tab-pane>
                              <n-tab-pane name="Primer 20K Lite 上新">
                                  <n-layout style="position: relative" has-sider position="absolute" hoverable>
@@ -141,45 +165,21 @@
                                      </n-card>
                                  </n-layout>
                              </n-tab-pane>
-                             <n-tab-pane name="MetaSense 系列登场">
-                                <n-layout style="position: relative" has-sider position="absolute" hoverable>
-                                    <n-card class="base_background"
-                                        style="margin: auto; display: fit-content; max-height: 600px;">
-                                        <h1>一起用 MetaSense 解锁 <br>TOF 的有趣体验吧！</h1>
-                                        <n-divider>
-                                        </n-divider>
-                                            <n-collapse>
-                                                <n-collapse-item title="sipeed 上新啦“MetaSense 系列”TOF摄像头模组" name="1">
-                                                  <div>可以</div>
-                                                </n-collapse-item>
-                                                <n-collapse-item title="TOF 普及小课堂上课啦！解答 MetaSense 是什么？" name="2">
-                                                  <div>很好</div>
-                                                </n-collapse-item>
-                                                <n-collapse-item title="MetaSense 系列的新奇玩法！你想的都有！" name="3">
-                                                  <div>真棒</div>
-                                                </n-collapse-item>
-                                              </n-collapse>
-                                            </n-card> 
-                                            <n-divider title-placement="left">
-                                            <iframe src="//player.bilibili.com/player.html?aid=218150917&bvid=BV1q8411t7xb&cid=838335610&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="min-width:640px; min-height:480px;"> </iframe>
-                                            </n-divider>
-                                </n-layout>
-                             </n-tab-pane>
                              <n-tab-pane name="2022年电赛精彩回顾">
                                  1. 原本想象中的是视觉题，结果 k210 大展身手，麦克风阵列宝刀未老！
                                  2. 都有哪些精彩现场视频可以回顾呢！
                                  3. 最后电赛交流群： 来年再战吧！
                              </n-tab-pane>
                              <n-tab-pane name="MaixHub 全新出发">
-                                 1. maixhub 大更新，更新都有哪些亮点呢？
+                                 1. MaixHub 大更新，更新都有哪些亮点呢？
                                  2. 陆续支持哪些内容呢？比如 TinyMaix MAIXPY MAIXPY3 等产品系列。
                                  3. 那么在哪呢？
                              </n-tab-pane>
-<!--                              <n-tab-pane name="全国 FPGA 创新设计大赛">
+                             <n-tab-pane name="全国 FPGA 创新设计大赛">
                                  1. 比赛内容都有哪些内容呢？从官网节选
                                  2. 高云系 20k 产品资料都在哪？可以在哪找到？github 上可以用什么关键词。
                                  3. 在此预祝各位同学大赛中旗开得胜！
-                             </n-tab-pane> -->
+                             </n-tab-pane>
                              <n-tab-pane name="Maix AI 高端战力新品">
                                  1. 什么是 爱芯 AX620A 芯片亮点是？
                                  2. 我们提供了什么？对比前两代前辈有什么不同？
@@ -325,7 +325,7 @@
     const datas = {
         'products': {
             'zh': {
-                "Maix-AI-K210": [
+                "Maix-I": [
                     {
                         title: "MicroPython 边缘 AI 开发",
                         src: "/static/home/maixpy.jpeg",
@@ -346,9 +346,9 @@
                         title: "Maix Cube",
                         src: "https://gd2.alicdn.com/imgextra/i2/2200606237318/O1CN015OM3ND23vh0YlSShH_!!2200606237318.jpg",
                         lbtn_text: "btn_buy",
-                        lbtn_href: "https://wiki.sipeed.com/hardware/zh/maix/maixpy_develop_kit_board/maix_cube.html",
+                        lbtn_href: "https://item.taobao.com/item.htm?id=615468921411",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://item.taobao.com/item.htm?id=615468921411",
+                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/maix/maixpy_develop_kit_board/maix_cube.html",
                     },
                     {
                         title: "Maix Amigo",
@@ -408,14 +408,14 @@
                     },
                     {
                         title: "Maix GO",
-                        src: "https://wiki.sipeed.com/hardware/zh/maix/assets/dk_board/maix_go/Go\.jpg",
+                        src: "https://wiki.sipeed.com/hardware/zh/maix/assets/dk_board/maix_go/Go.jpg",
                         lbtn_text: "btn_eol",
                         lbtn_href: "",
                         rbtn_text: "btn_detail",
                         rbtn_href: "https://wiki.sipeed.com/hardware/zh/maix/maixpy_develop_kit_board/maix_go.html",
                     },
                 ],
-                "Maix-AI-Linux": [
+                "Maix-II&III": [
                     {
                         title: "Linux Python3 与边缘 AI",
                         src: "/static/home/maixpy3.jpeg",
@@ -425,7 +425,7 @@
                         rbtn_href: "https://wiki.sipeed.com/maixpy3",
                     },
                      {
-                         title: "LMAIX-II DOCK (V831)",
+                         title: "MAIX-II DOCK (V831)",
                          src: "https://gd3.alicdn.com/imgextra/i3/2200606237318/O1CN01dT63dq23vhAOtdtm7_!!2200606237318.png_400x400.jpg",
                          lbtn_text: "btn_buy",
                          lbtn_href: "https://item.taobao.com/item.htm?spm=a230r.1.14.13.681570a1SllT5M&id=635874427363&ns=1&abbucket=16#detail",
@@ -444,14 +444,14 @@
                          title: "MAIX-III AX-Pi (AX620A)",
                          src: "https://gd2.alicdn.com/imgextra/i2/2200606237318/O1CN01AY6Mu123vhBaHWr6H_!!2200606237318.jpg_400x400.jpg",
                          lbtn_text: "btn_buy",
-                         lbtn_href: "https://item.taobao.com/item.htm?spm=a230r.1.14.19.681570a1SllT5M&id=682169792430&ns=1&abbucket=16#detail",
+                         lbtn_href: "https://item.taobao.com/item.htm?id=682169792430",
                          rbtn_text: "btn_detail",
                          rbtn_href: "https://wiki.sipeed.com/hardware/zh/maixIII/index.html",
                      },
                 ],
-                "LicheePi": [
+                "Lichee linux": [
                     {
-                        title: "LicheePi RV",
+                        title: "Lichee RV",
                         src: "https://gd1.alicdn.com/imgextra/i1/2200606237318/O1CN01xlggEe23vh8Ckjjkm_!!2200606237318.png_400x400.jpg",
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://item.taobao.com/item.htm?id=660478137105",
@@ -459,7 +459,7 @@
                         rbtn_href: "https://wiki.sipeed.com/hardware/zh/lichee/RV/RV.html",
                     },
                     {
-                        title: "LicheePi RV DOCK",
+                        title: "Lichee RV DOCK",
                         src: "https://wiki.sipeed.com/hardware/zh/lichee/assets/RV/RV-Dock.jpg",
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://item.taobao.com/item.htm?id=666274331852",
@@ -467,7 +467,7 @@
                         rbtn_href: "https://wiki.sipeed.com/hardware/zh/lichee/RV/Dock.html",
                     },
                     {
-                        title: "LicheePi RV 86 panel",
+                        title: "Lichee RV 86 panel",
                         src: "https://wiki.sipeed.com/hardware/zh/lichee/assets/RV/86_2.png",
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://item.taobao.com/item.htm?id=663345415205",
@@ -475,7 +475,7 @@
                         rbtn_href: "https://wiki.sipeed.com/hardware/zh/lichee/RV/86_panel.html",
                     },
                     {
-                        title: "LicheePi Zero",
+                        title: "Lichee Zero",
                         src: "https://wiki.sipeed.com/hardware/zh/lichee/assets/Zero/Zero_1.png",
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://item.taobao.com/item.htm?id=585033586770",
@@ -483,7 +483,7 @@
                         rbtn_href: "https://wiki.sipeed.com/hardware/zh/lichee/Zero/Zero.html",
                     },
                     {
-                        title: "LicheePi Nano",
+                        title: "Lichee Nano",
                         src: "https://gd1.alicdn.com/imgextra/i1/2200606237318/O1CN01GZGb1W23vh6RnU8Q1_!!2200606237318.jpg_400x400.jpg",
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://item.taobao.com/item.htm?id=584657396198",
@@ -491,7 +491,7 @@
                         rbtn_href: "https://wiki.sipeed.com/hardware/zh/lichee/Nano/Nano.html",
                     },
                     {
-                        title: "LicheePi Zeroplus",
+                        title: "Lichee Zeroplus",
                         src: "https://wiki.sipeed.com/hardware/zh/lichee/assets/Zero-Plus/Plus_1.jpg",
                         lbtn_text: "btn_eol",
                         rbtn_text: "btn_detail",
@@ -575,7 +575,7 @@
                 "MaixFace": [
                     {
                         title: "MF1",
-                        src: "https://img.alicdn.com/imgextra/i2/2200606237318/O1CN01H8SqoX23vh39Zp9vF_!!2200606237318.jpg_400x400\.jpg",
+                        src: "https://img.alicdn.com/imgextra/i2/2200606237318/O1CN01H8SqoX23vh39Zp9vF_!!2200606237318.jpg_400x400.jpg",
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://item.taobao.com/item.htm?id=599138281058",
                         rbtn_text: "btn_detail",
@@ -728,8 +728,8 @@
                 ],
                 "商业方案": [
                     {
-                        title: "Maixll S",
-                        src: "https://wiki.sipeed.com/hardware/zh/maixII/M2S/assets/M2s_Dock\.jpg",
+                        title: "MaixII S",
+                        src: "https://wiki.sipeed.com/hardware/zh/maixII/M2S/assets/M2s_Dock.jpg",
                         lbtn_text: "btn_eol",
                         rbtn_text: "btn_detail",
                         rbtn_href: "https://wiki.sipeed.com/hardware/zh/maixII/M2S/reources.html",
@@ -737,7 +737,7 @@
                 ],
             },
             'en': {
-                "Maix-AI-K210": [
+                "Maix-I": [
                     {
                         title: "MicroPython AIOT",
                         src: "/static/home/maixpy.jpeg",
@@ -828,13 +828,13 @@
                     },
                     {
                         title: "Maix GO",
-                        src: "https://wiki.sipeed.com/hardware/zh/maix/assets/dk_board/maix_go/Go\.jpg",
+                        src: "https://wiki.sipeed.com/hardware/zh/maix/assets/dk_board/maix_go/Go.jpg",
                         lbtn_text: "btn_eol",
                         rbtn_text: "btn_detail",
                         rbtn_href: "https://wiki.sipeed.com/hardware/zh/maix/maixpy_develop_kit_board/maix_go.html",
                     },
                 ],
-                "Maix-AI-Linux": [
+                "Maix-II&III": [
                     {
                         title: "Linux Python3 and Edge AI",
                         src: "/static/home/maixpy3.jpeg",
@@ -868,9 +868,9 @@
                          rbtn_href: "https://wiki.sipeed.com/hardware/en/maixIII/index.html",
                      },
                 ],
-                "LicheePi": [
+                "Lichee Linux": [
                     {
-                        title: "LicheePi RV",
+                        title: "Lichee RV",
                         src: "https://gd1.alicdn.com/imgextra/i1/2200606237318/O1CN01xlggEe23vh8Ckjjkm_!!2200606237318.png_400x400.jpg",
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://www.aliexpress.com/item/1005003594875290.html",
@@ -878,7 +878,7 @@
                         rbtn_href: "https://wiki.sipeed.com/hardware/en/lichee/RV/RV.html",
                     },
                     {
-                        title: "LicheePi RV DOCK",
+                        title: "Lichee RV DOCK",
                         src: "https://wiki.sipeed.com/hardware/zh/lichee/assets/RV/RV-Dock.jpg",
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://www.aliexpress.com/item/1005003741287162.html",
@@ -886,7 +886,7 @@
                         rbtn_href: "https://wiki.sipeed.com/hardware/en/lichee/RV/Dock.html",
                     },
                     {
-                        title: "LicheePi RV 86 panel",
+                        title: "Lichee RV 86 panel",
                         src: "https://wiki.sipeed.com/hardware/zh/lichee/assets/RV/86_2.png",
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://www.aliexpress.com/item/1005003684310743.html",
@@ -894,7 +894,7 @@
                         rbtn_href: "https://wiki.sipeed.com/hardware/en/lichee/RV/86_panel.html",
                     },
                     {
-                        title: "LicheePi Zero",
+                        title: "Lichee Zero",
                         src: "https://wiki.sipeed.com/hardware/zh/lichee/assets/Zero/Zero_1.png",
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://www.aliexpress.com/item/1005002547504075.html",
@@ -902,7 +902,7 @@
                         rbtn_href: "https://wiki.sipeed.com/hardware/en/lichee/Zero/Zero.html",
                     },
                     {
-                        title: "LicheePi Nano",
+                        title: "Lichee Nano",
                         src: "https://gd1.alicdn.com/imgextra/i1/2200606237318/O1CN01GZGb1W23vh6RnU8Q1_!!2200606237318.jpg_400x400.jpg",
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://www.aliexpress.com/item/1005002542701015.html",
@@ -910,7 +910,7 @@
                         rbtn_href: "https://wiki.sipeed.com/hardware/en/lichee/Nano/Nano.html",
                     },
                     {
-                        title: "LicheePi Zeroplus",
+                        title: "Lichee Zeroplus",
                         src: "https://wiki.sipeed.com/hardware/zh/lichee/assets/Zero-Plus/Plus_1.jpg",
                         lbtn_text: "btn_eol",
                         rbtn_text: "btn_detail",
@@ -994,7 +994,7 @@
                 "MaixFace": [
                     {
                         title: "MF1",
-                        src: "https://img.alicdn.com/imgextra/i2/2200606237318/O1CN01H8SqoX23vh39Zp9vF_!!2200606237318.jpg_400x400\.jpg",
+                        src: "https://img.alicdn.com/imgextra/i2/2200606237318/O1CN01H8SqoX23vh39Zp9vF_!!2200606237318.jpg_400x400.jpg",
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://item.taobao.com/item.htm?id=599138281058",
                         rbtn_text: "btn_detail",
@@ -1147,8 +1147,8 @@
                 ],
                 "Business": [
                     {
-                        title: "Maixll S",
-                        src: "https://wiki.sipeed.com/hardware/zh/maixII/M2S/assets/M2s_Dock\.jpg",
+                        title: "MaixII S",
+                        src: "https://wiki.sipeed.com/hardware/zh/maixII/M2S/assets/M2s_Dock.jpg",
                         lbtn_text: "btn_eol",
                         rbtn_text: "btn_detail",
                         rbtn_href: "https://wiki.sipeed.com/hardware/en/maixII/M2S/reources.html",
