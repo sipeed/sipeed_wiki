@@ -8,7 +8,7 @@ desc: maixpy  其他事项
 
 这里讲述 V831 开发板的一些额外使用事项和相关解决方法
 
-以下替换设备相关操作完成后，名称为 Maixhub 的镜像里的 app 应用不再可用
+以下替换设备相关操作完成后，名称为 `maixhub` 的镜像里的 app 应用不再可用
 
 ## 切换屏幕
 
@@ -132,4 +132,4 @@ reboot #重启设备来更新配置
 
 在[下载站](https://dl.sipeed.com/shareURL/MaixII/MaixII-Dock/SDK/Toolchain)里有一个名为 `toolchain-sunxi-musl-pack-2021-01-09.tar.xz` 的文件，这是在 Linux 系统下为 V831 所使用的编译链。
 
-有需求的可以自行尝试，但是对于 V831 还是推荐使用 MaixPy3 和 Maixhub。
+有需求的可以自行尝试，但是对于 V831 还是推荐使用 MaixPy3 和 MaixHub。

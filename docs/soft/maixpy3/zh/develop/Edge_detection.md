@@ -93,7 +93,7 @@ conv_rgb_core_sobel = [
 
 ![](./../asserts/sobel_v831.jpg)
 
-V831 部署[源码](https://github.com/sipeed/MaixPy3/blob/master/ext_modules/_maix_nn/example/load_forward_sobel_edge_camera.py)在 github， 模型在 maixhub 上可以下载
+V831 部署[源码](https://github.com/sipeed/MaixPy3/blob/master/ext_modules/_maix_nn/example/load_forward_sobel_edge_camera.py)在 github， 模型在 MaixHub 上可以下载
 
 ## 边缘检测源码
 

@@ -10,7 +10,7 @@ desc: MaixPy3 nn模块 API文档, 以及使用说明
 
 * 准备模型
 
-比如从 maixhub 下载, 这里以边缘检测模型为例, 先[下载模型](https://maixhub.com/modelInfo?modelId=24)(需要先注册登录)
+比如从 MaixHub 下载, 这里以边缘检测模型为例, 先[下载模型](https://maixhub.com/modelInfo?modelId=24)(需要先注册登录)
 
 * 准备一张 `224 x 224` 分辨率的图像, 比如这里放到了开发板文件系统的`/root/test.png`位置
 
