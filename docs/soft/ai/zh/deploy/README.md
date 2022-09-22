@@ -47,7 +47,7 @@ class: heading_no_counter
             </div>
         </div>
     </a>
-    <a>
+    <a href="./ax-pi.html">
         <div class="card" style="background-color: #fafbfe">
             <img src="../../assets/maix-iii-small.png" alt="AX-Pi 模型转换和部署">
             <div class="card_info card_purple">
