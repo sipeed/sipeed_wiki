@@ -264,9 +264,9 @@ onnx_to_ncnn(input_shape, onnx=onnx_out, ncnn_param=ncnn_out_param, ncnn_bin=ncn
 
 ### ncnn量化到int8模型
 
-通过maixhub将ncnn模型进行量化到int8模型
+通过 MaixHub 将ncnn模型进行量化到int8模型
 
-在 maixhub 模型转换 将 ncnn 模型转换为 awnn 支持的 int8 模型 （网页在线转换很方便人为操作，另一个方面因为全志要求不开放 awnn 所以暂时只能这样做）
+在 MaixHub 模型转换 将 ncnn 模型转换为 awnn 支持的 int8 模型 （网页在线转换很方便人为操作，另一个方面因为全志要求不开放 awnn 所以暂时只能这样做）
 
 阅读转换说明，可以获得更多详细的转换说明
 ![](./../asserts/maixhub.jpg)

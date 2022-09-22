@@ -2,7 +2,7 @@
 title: 新版 MaixHub 正式上线啦！
 keywords: 在线训练, 模型平台, 单片机运行模型, 云端训练, 模型库, model zoo
 date: 2022-09-04
-tags: maixhub, 模型训练
+tags: MaixHub, 模型训练
 cover: ./images/deploy.gif
 ---
 
@@ -38,7 +38,7 @@ cover: ./images/deploy.gif
   * 通用单片机，更是推出了超轻量的单片上运行的模型推理库[TinyMaix](https://github.com/sipeed/TinyMaix)，可以移植到任意单片机，甚至能在 2KiB RAM的arduino上跑
   ![mcu](./images/mcu.jpg)
 * 训练过程、日志、图标展示，以及验证结果展示，方便分析和优化模型
-![maixhub](./images/maixhub.jpg)
+![MaixHub](./images/maixhub.jpg)
 * 一键部署到设备
 ![部署](./images/部署.jpg)
 * 一键分享到模型库（模型平台/model zoo），同时模型库也支持手动上传分享更厉害好玩的模型哦

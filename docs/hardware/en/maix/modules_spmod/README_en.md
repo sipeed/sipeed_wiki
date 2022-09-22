@@ -33,14 +33,14 @@
   - [Maix Amigo](./en/maixpy_develop_kit_board/maix_Amigo.md)
 
 
-## LicheePi (Linux)
+## Lichee (Linux)
 
-LicheePi Zero
+Lichee Zero
 
-- [LicheePi Zero]()
-- [LicheePi Zero Plus]()
-
-- [LicheePi Nano]()
+- [Lichee Zero]()
+- [Lichee Nano]()
+- [Lichee Zero Plus]()
+- [Lichee RV]()
 
 ## Lichee Tang(FPGA)
 

@@ -35,8 +35,8 @@ Release 页面： https://github.com/sipeed/MaixPy3/releases/tag/MaixPy-0.5.0
 
 #### V831
 
-- 内置 maixhub 应用，可以直接在线训练并且直接部署。在线训练网址：maix.sipeed.com
-- 启动顺序为先执行 /root/app/main.py 然后是 /root/main.py。不需要 maixhub 一键部署后可以直接 `rm -rf /root/app`
+- 内置 MaixHub 应用，可以直接在线训练并且直接部署。在线训练网址：maix.sipeed.com
+- 启动顺序为先执行 /root/app/main.py 然后是 /root/main.py。不需要 MaixHub 直接部署模型的话可以直接 `rm -rf /root/app`
 
 相关问题：
 

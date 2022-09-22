@@ -69,7 +69,7 @@ python3 train.py init
 
 准备数据集， 图片大小为 `224x224`， 格式可以参考`maix_train/datasets`下的数据集示例
 
-也可以看 [Maxhub 的数据集要求](https://www.maixhub.com/index/mtrain/help.html)
+也可以看 [MaixHub 的数据集要求](https://www.maixhub.com/index/mtrain/help.html)
 
 
 ##  训练分类模型

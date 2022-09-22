@@ -3,7 +3,7 @@ title: Lichee Pi
 ---
 > 编辑与2022年3月11日 
 
-- LicheePi 是 [Sipeed](https://www.sipeed.com/) 推出的开源产品，是为了能让用户获得优廉的linux设备，实战linux底层相关的内容的产品。
+- Lichee 是 [Sipeed](https://www.sipeed.com/) 推出的开源产品，是为了能让用户获得优廉的linux设备，实战linux底层相关的内容的产品。
   
 目前LicheePi相关核心板部分参数对比表格如下：
 
@@ -19,7 +19,7 @@ title: Lichee Pi
 - 上述的款型都可以通过sd卡启动系统
 - 其他参数过多，版面放不下，需要的话麻烦自行对比一下。
   
-## LicheePi核心版照片(Linux)
+## Lichee 核心版照片(Linux)
 ### Lichee Zero 
 <div align="center">
 <a href="./Zero/Zero.html" ><img src="./assets/Zero/Zero_1.png" width=400></a>

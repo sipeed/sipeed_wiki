@@ -14,7 +14,7 @@ desc: maixpy  人脸识别
 ## 使用方法
 
 
-* 从 [maixhub](https://www.maixhub.com) 按照说明下载模型， 获得模型`smodel`, 就是 加密版本的`kmodel`
+* 从 [MaixHub](https://www.maixhub.com) 按照说明下载模型， 获得模型`smodel`, 就是 加密版本的`kmodel`
 * 按照入门教程的方法下载模型到开发板
 * 运行脚本 [script](https://github.com/sipeed/MaixPy_scripts/blob/master/machine_vision/face_recognization/demo_face_recognization.py)
 
@@ -33,9 +33,3 @@ desc: maixpy  人脸识别
 * 用特征提取模型提取出人脸的特征值
 
 有了前面的基础， 这里的程序就能看懂了，也就不再进行详细的阐述了，只不过是从之前的使用一个模型，变成了按照顺序分别使用三个模型，再加上一点简单的图像裁减和旋转处理，都是调用`API`，仔细看一遍代码就知道具体的细节是如何实现的了
-
-
-
-
-
-
