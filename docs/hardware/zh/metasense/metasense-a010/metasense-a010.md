@@ -46,7 +46,7 @@ MetaSense-A010 是由 Sipeed 所推出的一款由 BL702 + 炬佑 100x100 TOF �
 **COMTOOL 软件包**
 
 Windows 系统连接：[点击查看软件包](https://dl.sipeed.com/shareURL/MetaSense/MetaSense_A010/software_pack/comtool)
-Linux 系统：不提供软件包，需用户自行编译[点击跳转](https://github.com/sipeed/COMTool)。
+Linux 系统：不提供软件包，需用户自行编译[点击跳转](https://github.com/sipeed/MetaSense-ComTool)。
 注意：Win 7 及以下系统需装驱动，可自行前往 FTDI 官网下载。
 
 ### 上电互动预览
