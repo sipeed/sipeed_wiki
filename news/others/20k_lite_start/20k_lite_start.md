@@ -2,9 +2,19 @@
 title: Primer 20K Lite 初见
 keywords: Primer 20K, Lite, FPGA
 desc: Primer 20K 上手
-date: 2022-08-22
 tags: FPGA, Primer 20K
 cover: ./assets/cover.png
+update:
+  - date: 2022-08-22
+    version: v0.1
+    author: wonder
+    content:
+      - 初稿
+  - date: 2022-09-23
+    version: v0.2
+    author: wonder
+    content:
+      - 更新常见问题
 ---
 
 拿到 Primer 20K Lite 后上手点个灯
@@ -38,7 +48,7 @@ cover: ./assets/cover.png
 
 ![project_path](./assets/project_path.png)
 
-然后在下面的芯片型号中选择 GW2A-LV18PG256C8/I7，使用上面的筛选能够更快地选择到正确的型号，注意 Device 那一栏为 GW2A-18C
+然后在下面的芯片型号中选择 GW2A-LV18PG256C8/I7，使用上面的筛选能够更快地选择到正确的型号。注意 Device 那一栏为 GW2A-18C
 ![device_choose](./assets/device_choose.png)
 
 然后点击确定后就可以进行最终项目预览了。确认无误后就完成工程创建了。
@@ -230,11 +240,11 @@ endmodule
 
 ![l14_port](./assets/l14_port.png)
 
-因此对于在 FloorPlanner 交互窗口下面的 IO Constranins 中填入下面的值：
+因此对于在 FloorPlanner 交互窗口下面的 IO Constranins 中将 PORT（端口）与 Location（引脚） 分别填入下面的值：
 
 ![io_constrain_value](./assets/io_constrain_value.png)
 
-输入完毕后快捷键 Ctrl + S 来保存一下约束，然后接可以关闭 FloorPlanner 的交互图形界面了。
+输入完毕后快捷键 Ctrl + S 来保存一下引脚约束，然后接可以关闭 FloorPlanner 的交互图形界面了。
 
 接着发现在工程项目里面多出来刚刚创建的 cst 文件了，里面的内容也比较好理解。
 
@@ -242,19 +252,23 @@ endmodule
 
 ### 布局布线
 
-完成约束后就要开始运行布局布线了，目的是为了把综合所生成的网表和我们自己定义的约束来通过 IDE 算出最优解然后将资源合理的分配在 FPGA 芯片上。
+完成约束后就要开始运行布局布线了，目的是为了把综合所生成的网表与我们自己定义的约束来通过 IDE 算出最优解然后将资源合理地分配在 FPGA 芯片上。
 
 双击下体红框处的 Place&Route 就开始运行了。
 ![place_route](./assets/place_route.png)。
 
-紧接着没有报错，全部通过。就饿可以开始进行烧录了。
+紧接着没有报错，全部通过。就可以开始进行烧录了。
 
 ## 烧录固件
 
-如果使用的是 bl702 下载器，那么要求使用  [此处](https://dl.sipeed.com/shareURL/TANG/programmer) 链接内的 Programmer 软件来进行烧录，来避免 Programmer 软件识别不到芯片等一系列问题。
+建议使用高云教育版的 Programmer 软件，可以在高云官网下载到 [点我跳转](http://www.gowinsemi.com.cn/faq.aspx) ，下载下图所示的 Programmer 软件即可。
 
-下载后解压替换掉 Gowin 对应安装目录的 Programmer 文件夹即可。
-不会替换的话可以在下载解压后的 Programmer 程序中手动添加需要下载的 .fs 文件来进行烧录。
+![educational_edition_programmer](./assets/educational_edition_programmer.png)
+
+<!-- 如果使用的是 bl702 下载器，那么要求使用  [此处](https://dl.sipeed.com/shareURL/TANG/programmer) 链接内的 Programmer 软件来进行烧录，来避免 Programmer 软件识别不到芯片等一系列问题。
+
+下载后解压替换掉 Gowin 对应安装目录的 Programmer 文件夹即可。 -->
+<!-- 不会替换的话可以在下载解压后的 Programmer 程序中手动添加需要下载的 .fs 文件来进行烧录。 -->
 
 ### 接线说明
 
@@ -289,11 +303,13 @@ endmodule
 
 ### 扫描设备
 
-双击下图中的 下载程序(Program Device) 来运行 Programmer 软件
+双击下图中的下载程序(Program Device) 来运行 Programmer 软件
 
 ![open_programmer](./assets/open_programmer.png)
 
-正确运行我们所提供下载的 Programmer 软件的话软件上面所显示的软件名称为 `Programmer 2` ，点击下图红框处来扫描设备，且在设备选择中选择 GW2A-18C 。
+<!-- 正确运行我们所提供下载的 Programmer 软件的话软件上面所显示的软件名称为 `Programmer 2` ，点击下图红框处来扫描设备，且在设备选择中选择 GW2A-18C 。 -->
+
+然后在打开的页面中点击一下 scan_device 来扫描到我们的设备。
 
 ![scan_device](./assets/scan_device.png)
 
@@ -339,3 +355,7 @@ endmodule
 使用 Sipeed 的 SPMOD 后，如下图所示有一个灯在闪。
 
 ![result](./assets/result.gif)
+
+## 常见问题
+
+前往 [常见问题](./../../../docs/hardware/zh/tang/Tang-Nano-Doc/questions.md) 查看一般的解决方法

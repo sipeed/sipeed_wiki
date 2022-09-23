@@ -198,6 +198,10 @@
                     "file":"usage/AI_net/self_learn.ipynb"
                 },
                 {
+                    "label": "车牌识别",
+                    "file":"usage/AI_net/car_registration_plate_recognition.ipynb"
+                },
+                {
                     "label":"在线训练 AI 模型",
                     "url":"https://maixhub.com"
                 },

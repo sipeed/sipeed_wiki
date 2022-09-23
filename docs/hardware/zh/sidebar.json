@@ -51,7 +51,7 @@
                             "file": "maix/maixpy_develop_kit_board/maix_hat.md"
                         },
                         {
-                            "label": "Maix Go（已停产）",
+                            "label": "Maix Go（售罄）",
                             "file": "maix/maixpy_develop_kit_board/maix_go.md"
                         }
                     ]
@@ -239,7 +239,7 @@
                             "file": "tang/Tang-Nano-9K/Nano-9K.md"
                         },
                         {
-                            "label": "Tang Nano (已停产)",
+                            "label": "Tang Nano (售罄)",
                             "file": "tang/Tang-Nano/Nano.md"
                         },
                         {
@@ -271,7 +271,7 @@
                             ]
                         },
                         {
-                            "label": "Tang Primer (已停产)",
+                            "label": "Tang Primer (售罄)",
                             "file": "tang/Tang-primer/Tang-primer.md",
                             "items": [
                                 {

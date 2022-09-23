@@ -1,6 +1,21 @@
 ---
-title: Note
+title: 常见问题
+tags: Tang
+keywords:
+desc: 
+update:
+  - date: 2022-06-29
+    version: v0.1
+    author: wonder
+    content:
+      - 初次编写  
+  - date: 2022-09-23
+    version: v0.2
+    author: wonder
+    content:
+      - 更新部分过期内容
 ---
+
 
 > 编辑于2022.06.29
 
@@ -8,11 +23,11 @@ title: Note
 
 ## Programmer 相关
 
-**首先确定设备管理器里面有两个converter，在进行下面的操作**
+**首先确定设备管理器里面有两个 converter，在进行下面的操作**
 
-![](./../assets/questions/converter.png)
+![converter](./../assets/questions/converter.png)
 
-与上图中一样的话说明电脑与板子连接没问题；不存在的话请更改 usb口 或者重新安装驱动。
+与上图中一样的话说明电脑与板子连接没问题；不存在的话请稍微等待数秒，可能电脑正在加载驱动，还不行的话尝试使用电脑别的 usb口 或者重新安装驱动。
 
 <h3> <font color="">下载频率</font></h3>
 
@@ -28,11 +43,41 @@ title: Note
   <p>接着再点击 Save 即可</p>
 </details>
 
-### 下载失败
+### Error found
 
-对于 Programmer (下载程序) 要求使用 [这里](https://dl.sipeed.com/shareURL/TANG/programmer) 的文件。
+没有扫描到下载器或者驱动错误，参考上面的 converter 相关说明自己尝试解决。
+
+<!-- 对于 Programmer (下载程序) 要求使用 [这里](https://dl.sipeed.com/shareURL/TANG/programmer) 的文件。
 下载后解压替换掉Gowin对应安装目录的Programmer文件夹即可。
-不会替换的话可以在下载解压后的Programmer程序中手动添加对应下载文件来进行烧录。
+不会替换的话可以在下载解压后的Programmer程序中手动添加对应下载文件来进行烧录。 -->
+
+### Cabel open failed
+
+这里的意思是没有找到下载器，可以尝试使用高云半导体所提供的最新的教育版的编程器 [点我跳转](http://www.gowinsemi.com.cn/faq.aspx) 来尝试解决老版本 Programmer 软件的 bug。
+
+![educational_edition_programmer](./../tang-primer-20k/assets/start/educational_edition_programmer.png)
+
+<!-- 参考上一步 No Gowin devices found 的操作后，再 programmer 里面进行下面操作：
+
+点击顶部菜单栏的 Edit->Cable Setting->Cable->Query，然后 Save 即可
+
+<details>
+  <summary><font color="#4F84FF">点开查看操作步骤图片</font></summary>
+  <img src="./../assets/questions/cable.png">
+  <p>点击下图中的 Query</p>
+  <img src="./../assets/questions/click_query.png" >
+  <p>接着再点击 Save 即可</p>
+</details> -->
+
+### No Gowin devices found
+
+这里指的是没有扫描到高云设备，可以尝试使用高云半导体所提供的最新的教育版的编程器 [点我跳转](http://www.gowinsemi.com.cn/faq.aspx) 来尝试解决老版本 Programmer 软件的 bug。
+
+![educational_edition_programmer](./../tang-primer-20k/assets/start/educational_edition_programmer.png)
+
+对于 20K 核心板来说可能是接线错了，自己检查一下线序或者检查一下核心板的 8pin 接口有没有被怼歪。
+
+![cable_connect](./../tang-primer-20k/examples/assets/led_assets/cable_connect.png)
 
 ### ID code mismatch
 
@@ -82,24 +127,6 @@ title: Note
   <p> 然后那个拓展名为 .fs 的文件就是下载到 fpga 的文件</p>
 </details>
 
-### No Gowin devices found
-
-这种情况可以和上面的 [下载失败](#下载失败) 里面的内容一样替换 Programmer 文件夹。
-
-### Cabel open failed
-
-参考上一步 No Gowin devices found 的操作后，再 programmer 里面进行下面操作：
-
-点击顶部菜单栏的 Edit->Cable Setting->Cable->Query，然后 Save 即可
-
-<details>
-  <summary><font color="#4F84FF">点开查看操作步骤图片</font></summary>
-  <img src="./../assets/questions/cable.png">
-  <p>点击下图中的 Query</p>
-  <img src="./../assets/questions/click_query.png" >
-  <p>接着再点击 Save 即可</p>
-</details>
-
 ### 烧录结束后没反应
 
 一般这种情况是没有选择正确的烧录文件。可以自己先对应着各个板子点灯文档里所选择的芯片型号来检查一下自己的工程，然后看看自己的代码是否有问题。
@@ -110,9 +137,9 @@ title: Note
 
 GAO 是高云半导体在线逻辑分析仪（Gowin Analyzer Oscilloscope）。安装高云 IDE 之后就能在对应的安装相对路径下看到相关文档了
 
-![GAO](./../assets/questions/gao.png)
+使用高云半导体所提供的最新的教育版的编程器 [点我跳转](http://www.gowinsemi.com.cn/faq.aspx) 能够正常使用 GAO。
 
-目前测试过IDE v1.9.8.1和之前的版本可使用。其他新版的不行
+![educational_edition_programmer](./../tang-primer-20k/assets/start/educational_edition_programmer.png)
 
 ### 查看IP文档
 

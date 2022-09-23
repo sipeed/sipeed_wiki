@@ -85,7 +85,7 @@ desc: maixpy  如何选购开发板
             <img src="../../assets/hardware/maix_go/sipeed_maix_go_400x400.jpg" height="200">
             </p><a href="https://sipeed.taobao.com/">点击购买 Maix GO</a>
         </td>
-        <td>已停产</td>
+        <td>售罄</td>
     </tr>
     <tr>
         <td>Maix Nano</td>

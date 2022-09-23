@@ -1,7 +1,5 @@
 # Tang Primer
 
-> 已停产
-
 ## 介绍
 Lichee Tang Primer是基于安路科技的EG4S20BG256 FPGA芯片设计的简约型开发板。开发板设计小巧精致，将芯片的所有资源都引出，板载Micro-USB、USB-JTAG、TF卡槽、DVP摄像头接口、RGB(可接LCD屏、VGA等外设)等，并把部分IO资源引出，非常方便开发者拓展使用，开放RISC-V IP内核。
 

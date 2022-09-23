@@ -227,7 +227,7 @@ endmodule
 
 然后结合底板上的 IO 丝印，决定用地板上的 L14 引脚进行点灯，对应的 LED 编号为 LED4。
 
-![l14_port](./assets/led_assets/l14_port.png)
+![led_port](./assets/led_assets/led_port.png)
 
 因此对于在 FloorPlanner 交互窗口下面的 IO Constranins 中将 PORT（端口）与 Location（引脚） 分别填入下面的值：
 
@@ -323,7 +323,7 @@ Dock 板载了下载器，在 [安装IDE](https://wiki.sipeed.com/hardware/zh/ta
 
 需要使用高云在线逻辑分析仪的可以看这里：[使用 GAO]施工中 <!---(./gao.md) -->
 
-下一篇：[点六个灯](./led_6.md)
+下一篇：<!--[点六个灯](./led_6.md) --> 施工中
 
 ## 常见问题
 

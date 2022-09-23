@@ -6,7 +6,7 @@ Tang Primer 系列 FPGA 是 Sipeed 使用国产 FPGA 芯片作为主控所设计
     <thead>
         <tr>
             <th>Tang primer 20K</th>
-            <th>Tang primer （已停产）</th>
+            <th>Tang primer </th>
         </tr>
     </thead>
         <tr>

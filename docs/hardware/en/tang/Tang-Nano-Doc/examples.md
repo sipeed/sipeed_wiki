@@ -41,10 +41,9 @@ Github Repository:
 https://github.com/sipeed/TangNano-4K-example
 
 - [Blink](./../Tang-Nano-4K/examples/led.md)
-- HDMI display(Preparing, please wait)
-- Display camera content by HDMI project Repository:
-https://github.com/sipeed/TangNano-4K-example
-- Cortex-m3 blink(Preparing, please wait)
+- HDMI display project ：https://github.com/sipeed/TangNano-4K-example/tree/main/dk_video/project
+- Display camera content on HDMI：https://github.com/sipeed/TangNano-4K-example/tree/main/dk_video/project
+- Run GBA on Nano 4K ：https://github.com/Martoni/GbHdmi
 
 ---
 
@@ -55,10 +54,7 @@ https://github.com/sipeed/TangNano-9K-example
 
 - [Blink](./../Tang-Nano-9K/examples/led.md)
 - [LCD screen](./../Tang-Nano-9K/examples/rgb_screen.md)
-- [Run examples of PicoRV](./../Tang-Nano-9K/examples/picorv.md)
-- litex running on 9K(Preparing, please wait)
+- [Examples of PicoRV](./../Tang-Nano-9K/examples/picorv.md)
 - [FPGA drives 1.14-inch SPI screen](./../Tang-Nano-9K/examples/spi_lcd.md)
-- PicoRV running on 9K(Preparing, please wait)
-- HDMI display(Preparing, please wait)
-- Drive screen by mipi interface(Preparing, please wait)
-
+- HDMI display : Visit [Examples of PicoRV](./../Tang-Nano-9K/examples/picorv.md)
+- Litex running on 9K : https://github.com/litex-hub/litex-boards
