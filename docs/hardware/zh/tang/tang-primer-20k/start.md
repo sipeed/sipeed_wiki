@@ -73,6 +73,10 @@ LED2 与 LED3 的丝印错误，应当为：
 
 [点一个灯](./examples/led.md)
 
+### 相关问题
+
+使用中碰到问题可以先前往 [常见问题](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/questions.html) 自行解决。
+
 ## Lite 开箱说明
 
 ### 应该更新记录
@@ -93,3 +97,11 @@ LED2 与 LED3 的丝印错误，应当为：
 <img src="./assets/lite-up.png" alt="lite-up" width=45%>
 <img src="./assets/lite-back.png" alt="lite-back" width=45%>
 </div>
+
+### 实战使用
+
+[点一个灯](https://wiki.sipeed.com/news/others/20k_lite_start/20k_lite_start.html)
+
+### 相关问题
+
+使用中碰到问题可以先前往 [常见问题](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/questions.html) 自行解决。
