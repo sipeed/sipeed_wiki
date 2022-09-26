@@ -161,6 +161,14 @@
                         {
                             "label": "基础使用",
                             "file": "maixIII/ax620a/usages.md"
+                        },
+                        {
+                            "label": "SDK 使用",
+                            "file": "maixIII/ax620a/sdk.md"
+                        },
+                        {
+                            "label": "AI 模型相关",
+                            "file": "maixIII/ax620a/ai.md"
                         }
                     ]
                 }

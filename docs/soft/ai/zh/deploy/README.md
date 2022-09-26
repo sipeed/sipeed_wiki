@@ -1,8 +1,8 @@
 ---
-title: 部署模型到边缘设备方法汇总
+title: 制作可部署到边缘设备的模型和部署方法汇总
 keywords: 模型部署, 模型转换, 模型部署边缘设备
 desc: 汇总如何部署模型到边缘设备的相关文档，边缘设备包含单片机、SBC、SOC、NPU等。
-date: 2022-09-21
+date: false
 class: heading_no_counter
 ---
 
@@ -54,7 +54,7 @@ class: heading_no_counter
                 <h2>Maix-III 系列 AX-Pi</h2>
                 <div class="brief">
                     <div>高算力、独特 AI-ISP 影像系统</div>
-                    <div>最高 3.6Tops@INT8，算子支持较多</div>
+                    <div>最高 3.6Tops@INT8，丰富算子支持</div>
                 </div>
             </div>
         </div>
