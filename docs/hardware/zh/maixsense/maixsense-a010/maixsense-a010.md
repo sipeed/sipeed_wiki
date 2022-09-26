@@ -1,13 +1,13 @@
-# MetaSense-A010
+# MaixSense-A010
 
 ## 产品概述
 
 ![ms_small](./assets/ms_s.jpg)
-MetaSense-A010 是由 Sipeed 所推出的一款由 BL702 + 炬佑 100x100 TOF 所组成的极致性价比 3D 传感器模组，最大支持 100x100 的分辨率和 8 位精度，并且自带 240×135 像素的 LCD 显示屏来实时预览 colormap 后的深度图 。
+MaixSense-A010 是由 Sipeed 所推出的一款由 BL702 + 炬佑 100x100 TOF 所组成的极致性价比 3D 传感器模组，最大支持 100x100 的分辨率和 8 位精度，并且自带 240×135 像素的 LCD 显示屏来实时预览 colormap 后的深度图 。
 
 **资料汇总**
 
-硬件资料：[点击查看下载](https://dl.sipeed.com/shareURL/MetaSense/MetaSense_A010)
+硬件资料：[点击查看下载](https://dl.sipeed.com/shareURL/MaixSense/MaixSense_A010)
 
 ## 产品开箱指南
 
@@ -45,8 +45,8 @@ MetaSense-A010 是由 Sipeed 所推出的一款由 BL702 + 炬佑 100x100 TOF �
 
 **COMTOOL 软件包**
 
-Windows 系统连接：[点击查看软件包](https://dl.sipeed.com/shareURL/MetaSense/MetaSense_A010/software_pack/comtool)
-Linux 系统：不提供软件包，需用户自行编译[点击跳转](https://github.com/sipeed/MetaSense-ComTool)。
+Windows 系统连接：[点击查看软件包](https://dl.sipeed.com/shareURL/MaixSense/MaixSense_A010/software_pack/comtool)
+Linux 系统：不提供软件包，需用户自行编译[点击跳转](https://github.com/sipeed/MaixSense-ComTool)。
 注意：Win 7 及以下系统需装驱动，可自行前往 FTDI 官网下载。
 
 ### 上电互动预览
@@ -92,7 +92,7 @@ COMTOOL 上位机的配置控件说明
 ## 案例：键盘灯跟随
 实现超酷炫的键盘灯跟随，实时跟踪手部的位置，再根据手部的位置映射键盘灯。
 
-相关支持：[点击查看代码](https://dl.sipeed.com/shareURL/others/metasense_example)
+相关支持：[点击查看代码](https://dl.sipeed.com/shareURL/others/maixsense_example)
 ![ma_lamp](./assets/ms_lamp.jpg)
 
 ## 案例：接入 MCU 
@@ -100,12 +100,12 @@ COMTOOL 上位机的配置控件说明
 - k210 Bit 开发板是 sipeed Maix 中产品线的一员，基于嘉楠堪智科技的边缘智能计算芯片 K210 (RISC-V 架构 64位双核) 设计的一款 AIOT 开发板。
   
 [点击了解 K210 Bit](https://wiki.sipeed.com/hardware/zh/maix/maixpy_develop_kit_board/maix_bit.html)
-[MS-A010 外接 K210 bit 源码获取](./metasense-a010/../code.html#tof_mainpy)
+[MS-A010 外接 K210 bit 源码获取](./maixsense-a010/../code.html#tof_mainpy)
 ![ms_mcu](./assets/ms_mcu.jpg)
 
 ## 二次开发：串口协议
 
-MS-A010 二次开发手册：[点击查看](http://wiki.sipeed.com/hardware/zh/metasense/metasense-a010/at_command.html)
+MS-A010 二次开发手册：[点击查看](http://wiki.sipeed.com/hardware/zh/maixsense/maixsense-a010/at_command.html)
 可参考上方的案例：**MS-A010 外接 K210 bit**
 
 ## 二次开发：接入 ROS
@@ -117,7 +117,7 @@ MS-A010 二次开发手册：[点击查看](http://wiki.sipeed.com/hardware/zh/m
 
 **2. 安装运行**
 由于我们提供的是 ROS2 的接入功能包，运行 ROS1 的话只需切换分支即可。
-接入功能包：[点击下载](https://dl.sipeed.com/shareURL/MetaSense/MetaSense_A010/software_pack/SDK)
+接入功能包：[点击下载](https://dl.sipeed.com/shareURL/MaixSense/MaixSense_A010/software_pack/SDK)
 ```bash
 
 #解压缩sipeed_tof_ms_a010.zip，并进入目录
@@ -144,7 +144,7 @@ rosrun sipeed_tof_ms_a010 a010_publisher _device:="/dev/ttyUSB0"
 
 **2. 安装运行**
 我们提供了 ROS2 的接入功能包，用户需要在运行 ROS2 的系统上编译安装。
-接入功能包：[点击下载](https://dl.sipeed.com/shareURL/MetaSense/MetaSense_A010/software_pack/SDK)
+接入功能包：[点击下载](https://dl.sipeed.com/shareURL/MaixSense/MaixSense_A010/software_pack/SDK)
 
 ```bash
 #解压缩 sipeed_tof_ms_a010.zip，并进入目录

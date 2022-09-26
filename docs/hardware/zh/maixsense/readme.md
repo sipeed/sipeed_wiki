@@ -1,18 +1,18 @@
 ---
-title: MetaSense 系列
+title: MaixSense 系列
 ---
 
-## MetaSense 是什么?
+## MaixSense 是什么?
 
-MetaSense 系列产品搭载 TOF 深度摄像头，目前有 MetaSense-A010 和 MetaSense-A075V 两款产品。
+MaixSense 系列产品搭载 TOF 深度摄像头，目前有 MaixSense-A010 和 MaixSense-A075V 两款产品。
 - MS-A010 是一款由 BL702 + 炬佑 100x100 TOF 模组所组成的极致性价比的 TOF 3D 传感器模组，最大支持 100x100 的分辨率和 8 位精度，并且带有 240×135 的 LCD 显示屏可实时预览 color map 后的深度图。
 - 而 MS-A075V 是一款具有 RGB 功能的 3D TOF 摄像机模组，该模组可以实现 Linux 免驱的即插即用，实现实时彩色 3D 显示。
 
 <img src="./assets/meta.jpg" alt="summary" width=100%>
 
-购买方式：[众筹预售购买连接](https://igg.me/at/MetaSense )
+购买方式：[众筹预售购买连接](https://igg.me/at/MaixSense )
 
-|              |<p style="white-space:nowrap">MateSense-A010</p> | <p style="white-space:nowrap">MateSense-A075V</p> | 
+|              |<p style="white-space:nowrap">MaixSense-A010</p> | <p style="white-space:nowrap">MaixSense-A075V</p> | 
 | :----------- |:----------------------------------------------- | :------------------------------------------------- | 
 |              |![me-small](./assets/me_small.jpg)                | ![me-big](./assets/me_big.jpg)                  | 
 | 接口         | 1.25mm 串口连接器 \*1<br>Type-C USB2.0 \*1       | 1.25mm 串口连接器 \*1 <br>Type-C USB2.0 \*1         |
@@ -24,14 +24,14 @@ MetaSense 系列产品搭载 TOF 深度摄像头，目前有 MetaSense-A010 和 
 | 测量精度     |&lt;=1%/cm                                       | &lt;=1%/cm                                         | 
 
 
-## MetaSense 能做什么？
+## MaixSense 能做什么？
 
 ### 案例：远中近物体实拍
 
 高精度的映射物品摆放距离的差异，点云图可直观感受到更真实的可视化。
 <html>
-  <img src="./metasense-a010/assets/ms_cloud.jpg" width=48%>
-  <img src="./metasense-a075v/assets/mt_cloud.jpg" width=48%>
+  <img src="./maixsense-a010/assets/ms_cloud.jpg" width=48%>
+  <img src="./maixsense-a075v/assets/mt_cloud.jpg" width=48%>
 </html>
 
 ### 案例：人流统计
@@ -51,19 +51,19 @@ MetaSense 系列产品搭载 TOF 深度摄像头，目前有 MetaSense-A010 和 
 
 实现超酷炫的键盘灯跟随，实时跟踪手部的位置，再根据手部的位置映射键盘灯。
 
-![ms_lamp](./metasense-a010/assets/ms_lamp.jpg)
+![ms_lamp](./maixsense-a010/assets/ms_lamp.jpg)
 
 ### 案例：体积测量
 
 通过 SDK 获取到的模组内参数后，计算粗略点云并累加总体积，达到体积测量的效果。
 
-![mt_volume](./metasense-a075v/assets/mt_volume.jpg)
+![mt_volume](./maixsense-a075v/assets/mt_volumbs.jpg)
 
 ### 案例：外接 MCU
 MS-A010 拥有强大的兼容性，基于串口协议的数据传输。
 可外接 K210 bit 这样的单片机开发板或树莓派之类的 linux 开发板来进行二次开发。
 
-![ms_mcu](./metasense-a010/assets/ms_mcu.jpg)
+![ms_mcu](./maixsense-a010/assets/ms_mcu.jpg)
 
 ### 案例：接入 ROS1 + ROS2
 
@@ -84,5 +84,5 @@ MS-A010 拥有强大的兼容性，基于串口协议的数据传输。
 
 ## 更多
 
-关于 MS-010 更详细的资料获取：[点击跳转](https://wiki.sipeed.com/hardware/zh/metasense/metasense-a010/metasense-a010.html)
-关于 MS-075 更详细的资料获取：[点击跳转](https://wiki.sipeed.com/hardware/zh/metasense/metasense-a075v/metasense-a075v.html)
+关于 MS-010 更详细的资料获取：[点击跳转](https://wiki.sipeed.com/hardware/zh/maixsense/maixsense-a010/maixsense-a010.html)
+关于 MS-075 更详细的资料获取：[点击跳转](https://wiki.sipeed.com/hardware/zh/maixsense/maixsense-a075v/maixsense-a075v.html)

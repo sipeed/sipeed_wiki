@@ -1,8 +1,8 @@
-# MetaSense-A075V
+# MaixSense-A075V
 
 ## Summary
 
-![mt_big](./../../../zh/metasense/metasense-a075v/assets/mt_big.jpg)
+![mt_big](./../../../zh/maixsense/maixsense-a075v/assets/mt_big.jpg)
 
 MS-A075V is a 3D TOF camera module with RGB designed by Sipeed, can display the live 3D picture.
 
@@ -12,13 +12,13 @@ MS-A075V is a 3D TOF camera module with RGB designed by Sipeed, can display the 
 
 **Wiring diagram**
 
-![tof-07514](./../../../zh/metasense/metasense-a075v/assets/mt_pin.jpg)
+![tof-07514](./../../../zh/maixsense/maixsense-a075v/assets/mt_pin.jpg)
 
 **Install driver**：
 
 Before using this device, make sure that the 192.168.233.0/24 address segment is not occupied in your network environment, because the MS-A075V uses RNDIS and sets its IP address http://192.168.233.1 
   
-  [Windows drivers](https://dl.sipeed.com/shareURL/MetaSense/Drivers)
+  [Windows drivers](https://dl.sipeed.com/shareURL/MaixSense/Drivers)
   [Windows drivers installation guide](./install_drivers.md)
 
 ### On-page preview
@@ -28,19 +28,19 @@ Before using this device, make sure that the 192.168.233.0/24 address segment is
 3. These are the examples caputred by MS-A075V(From the front and the side).
 
 <html>
-  <img src="./../../../zh/metasense/metasense-a075v/assets/mt_examle.jpg" width=48%>
-  <img src="./../../../zh/metasense/metasense-a075v/assets/mt_examleb.jpg" width=48%>
+  <img src="./../../../zh/maixsense/maixsense-a075v/assets/mt_examle.jpg" width=48%>
+  <img src="./../../../zh/maixsense/maixsense-a075v/assets/mt_examleb.jpg" width=48%>
 </html>
 
 4. We can preview the depth pseudo-color point cloud map. Open the interaction panel in the upper right corner, uncheck RGB_Map in the first line.
 
-![mt_examlec](./../../../zh/metasense/metasense-a075v/assets/mt_examlec.jpg)
+![mt_examlec](./../../../zh/maixsense/maixsense-a075v/assets/mt_examlec.jpg)
 
 ### Interactive configuration 
 
 The preview webpage contained many function configurations, we can change them to get different live preview result.
 
-![mt_examled](./../../../zh/metasense/metasense-a075v/assets/mt_examled.jpg)
+![mt_examled](./../../../zh/maixsense/maixsense-a075v/assets/mt_examled.jpg)
 
 Here tells the functions of each widgets.
 - **RGB_Map** checkbox, control RGB map. Display the deep pseudo-colored point map when checked, display the RGB-mapped point cloud map when unchecked.
@@ -71,22 +71,22 @@ Note: The data of raw can be get through open interface, which developers can do
 
 High-precision mapping of differences in object placement distances, point cloud maps can intuitively feel a more realistic visualization.
 
-![mt_cloud](./../../../zh/metasense/metasense-a075v/assets/mt_cloud.jpg)
+![mt_cloud](./../../../zh/maixsense/maixsense-a075v/assets/mt_cloud.jpg)
 
 ### Car avoid obstacles
 
 The module can be carried by a car or drone to move back and forth to obtain the depth value of the obstacle, and judge whether there is an obstacle in the screen through the difference, make a rapid response and accurately avoid the obstacle (the example has not been open sourced, will be sorted out and disclosed).
 <html>
-  <img src="./../../../zh/metasense/assets/me_car.jpg" width=48%>
-  <img src="./../../../zh/metasense/assets/me_cars.jpg" width=48%>
+  <img src="./../../../zh/maixsense/assets/me_car.jpg" width=48%>
+  <img src="./../../../zh/maixsense/assets/me_cars.jpg" width=48%>
 </html>
 
 ### Detect foot traffic
 
 High-precision, high resolution real-time monitoring of the flow of people moving around the situation statistics(the example has not been open sourced, will be sorted out and disclosed).
 <html>
-  <img src="./../../../zh/metasense/assets/me_pt.jpg" width=48%>
-  <img src="./../../../zh/metasense/assets/me_ph.jpg" width=48%>
+  <img src="./../../../zh/maixsense/assets/me_pt.jpg" width=48%>
+  <img src="./../../../zh/maixsense/assets/me_ph.jpg" width=48%>
 </html>
 
 ## Custom development
@@ -97,7 +97,7 @@ This is a SDK based on Python3. MS-A075V opens its http interface, we can get it
 
 To help user understand the struct of data package and the relevant logic of decoding, we provide decoding related functions that encapsulate http requests and native data, based on which users can do custom development.
 
-**Get SDK**:[Click to download](https://dl.sipeed.com/fileList/others/metasense_example/matasense_075_tutorial.ipynb)
+**Get SDK**:[Click to download](https://dl.sipeed.com/fileList/others/maixsense_example/matasense_075_tutorial.ipynb)
 
 **Method**：Install jupyter, connect to the TOF module, then open the `toturial.py` file.
 
@@ -105,19 +105,19 @@ To help user understand the struct of data package and the relevant logic of dec
 
 After understanding the struct of data package and the relevant logic of decoding from `Python SDK`, we can do advanced development, continuously get, decode and call the third-party `python` image library, like matplotlib for live display. The `toturial.py` gives the implementation of getting onr frame data, and it can achieve live display by plt with loop. 
 
-**Decoding and steraming**:[Click me to see content of stream.py](https://wiki.sipeed.com/hardware/zh/metasense/metasense-a010/code.html#streampy)
+**Decoding and steraming**:[Click me to see content of stream.py](https://wiki.sipeed.com/hardware/zh/maixsense/maixsense-a010/code.html#streampy)
 **Methods**：Run command `python stream.py` after installing all dependent packages.
 
-![mt_sdk](./../../../zh/metasense/metasense-a075v/assets/mt_sdk.jpg)
+![mt_sdk](./../../../zh/maixsense/maixsense-a075v/assets/mt_sdk.jpg)
 
 ### Detect volume
 
 Based on third-party `python` library，and have understood the logic of getting and decoding data, we can do more development: Continuously display frames, roughly calculate the point cloud through the data from TOF module by SDK, do the accumulation to get the total volume. Limit: The top view should include all details except bottom.
 
-**Detect volume**：[Click to view calVolumes.py](https://wiki.sipeed.com/hardware/zh/metasense/metasense-a010/code.html#calvolumespy)
+**Detect volume**：[Click to view calVolumes.py](https://wiki.sipeed.com/hardware/zh/maixsense/maixsense-a010/code.html#calvolumespy)
 **Methods**：Run command `python calVolumes.py` after installing all dependent packages, there will be notice after you run it.
 
-![mt_volumbs](./../../../zh/metasense/metasense-a075v/assets/mt_volumbs.jpg)
+![mt_volumbs](./../../../zh/maixsense/maixsense-a075v/assets/mt_volumbs.jpg)
 
 ## Use ROS
 ### Use ROS1
@@ -128,7 +128,7 @@ Prepare a Linux enviroment for ROS.
 
 **2. Install and RUN**
 
-Because the functional package we provide is for ROS2, if you want to use it on ROS1 just switch the branch is ok.[Access package download.](https://dl.sipeed.com/shareURL/MetaSense/MetaSense_A075V/software/SDK)
+Because the functional package we provide is for ROS2, if you want to use it on ROS1 just switch the branch is ok.[Access package download.](https://dl.sipeed.com/shareURL/MaixSense/MaixSense_A075V/software/SDK)
 
 ```bash
 #Extract Sipeed_tof_ms_a010.zip，and open its path
@@ -147,7 +147,7 @@ rosrun sipeed_tof_cpp publisher
 Open `rviz2`, in the bottom left interface choose `Add`->`By topic`->`PointCloud2 or/depth` ->`Image add` ->`Display/Global Options/Fixed Frame`, changed it into `tof`,
 in this way it displays point cloud normally. According to the added content, the `Image` displays in the left and the point cloud display in the center.
 
-![mt_ros](./../../../zh/metasense/metasense-a075v/assets/mt_ros.jpg)
+![mt_ros](./../../../zh/maixsense/maixsense-a075v/assets/mt_ros.jpg)
 
 ### Use ROS2
 
@@ -157,7 +157,7 @@ Prepare a Linux enviroment for ROS.
 
 **2. Install and RUN**
 
-We have provided the functional package for ROS2, users need compile and run it on the system with ROS2.[Access package download.](https://dl.sipeed.com/shareURL/MetaSense/MetaSense_A075V/software/SDK).
+We have provided the functional package for ROS2, users need compile and run it on the system with ROS2.[Access package download.](https://dl.sipeed.com/shareURL/MaixSense/MaixSense_A075V/software/SDK).
 
 ``` bash
 #Extract sipeed_tof_cpp.zip，and open its path
@@ -170,7 +170,7 @@ ros2 run sipeed_tof_cpp publisher
 
 **3. View frames by RQT**
 
-![mt_rqt](./../../../zh/metasense/metasense-a075v/assets/../assets/mt_rqt.jpg)
+![mt_rqt](./../../../zh/maixsense/maixsense-a075v/assets/../assets/mt_rqt.jpg)
 
 **4. RVIZ2 Priview**
 
@@ -180,7 +180,7 @@ in this way it displays point cloud normally. According to the added content, th
 **The result of mixing Pseudo-colored point clouds and RGB:**
 
 <html>
-  <img src="./../../../zh/metasense/metasense-a075v/assets/mt_rosb.jpg" width=48%>
-  <img src="./../../../zh/metasense/metasense-a075v/assets/mt_rosc.jpg" width=48%>
+  <img src="./../../../zh/maixsense/maixsense-a075v/assets/mt_rosb.jpg" width=48%>
+  <img src="./../../../zh/maixsense/maixsense-a075v/assets/mt_rosc.jpg" width=48%>
 </html>
 

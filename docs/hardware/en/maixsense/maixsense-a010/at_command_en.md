@@ -1,4 +1,4 @@
-# MetaSense-A010 二次开发手册
+# MaixSense-A010 二次开发手册
 
 ## AT 指令表
 

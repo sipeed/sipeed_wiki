@@ -370,16 +370,16 @@
             ]
         },
         {
-            "label": "MetaSense",
-            "file": "metasense/readme.md",
+            "label": "MaixSense",
+            "file": "maixsense/readme.md",
             "items": [
                 {
-                    "label": "MetaSense-a010",
-                    "file": "metasense/metasense-a010/metasense-a010.md"
+                    "label": "MaixSense-a010",
+                    "file": "maixsense/maixsense-a010/maixsense-a010.md"
                 },
                 {
-                    "label": "MetaSense-a075v",
-                    "file": "metasense/metasense-a075v/metasense-a075v.md"
+                    "label": "MaixSense-a075v",
+                    "file": "maixsense/maixsense-a075v/maixsense-a075v.md"
                 }
             ]
         },

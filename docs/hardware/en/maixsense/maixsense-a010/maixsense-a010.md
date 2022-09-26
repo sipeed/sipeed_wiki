@@ -1,14 +1,14 @@
-# MetaSense-A010
+# MaixSense-A010
 
 ## Product description
 
-![ms_small](./../../../zh/metasense/metasense-a010/assets/ms_s.jpg)
+![ms_small](./../../../zh/maixsense/maixsense-a010/assets/ms_s.jpg)
 
-MetaSense-A010 is an extremely cost-effective 3D sensor module composed of BL702 + OPNOUS 100x100 TOF launched by Sipeed, which supports a maximum resolution of 100x100 and 8-bit precision, and comes with a 240x135 pixel LCD display to preview the depth map after colormap in real time.
+MaixSense-A010 is an extremely cost-effective 3D sensor module composed of BL702 + OPNOUS 100x100 TOF launched by Sipeed, which supports a maximum resolution of 100x100 and 8-bit precision, and comes with a 240x135 pixel LCD display to preview the depth map after colormap in real time.
 
 **Data summary**
 
-Hardware information:[Click to download](https://dl.sipeed.com/shareURL/MetaSense/MetaSense_A010)
+Hardware information:[Click to download](https://dl.sipeed.com/shareURL/MaixSense/MaixSense_A010)
 
 ## Product unpacking guide
 
@@ -20,13 +20,13 @@ This device adopts the serial port protocol to provide external interface and tr
 
 After connecting to the computer through the type-c interface, it can identify /dev/ttyUSBx (Linux) or COMx (Windows).
 
-![ms_pinb](./../../../zh/metasense/metasense-a010/assets/ms_pinb.jpg)
+![ms_pinb](./../../../zh/maixsense/maixsense-a010/assets/ms_pinb.jpg)
 
 You can also connect the 4pin female socket through the usb2ttl module according to the hardware pin diagram.
 Hardware pinout picture: Screen face down
 <html>
-  <img src="./../../../zh/metasense/metasense-a010/assets/ms_pin.jpg" width=48%>
-  <img src="./../../../zh/metasense/metasense-a010/assets/ms_pinc.jpg" width=48%>
+  <img src="./../../../zh/maixsense/maixsense-a010/assets/ms_pin.jpg" width=48%>
+  <img src="./../../../zh/maixsense/maixsense-a010/assets/ms_pinc.jpg" width=48%>
 </html>
 
 <table>
@@ -48,7 +48,7 @@ Hardware pinout picture: Screen face down
 
 **COMTOOL package**
 
-Windows system:[Click to download](https://dl.sipeed.com/shareURL/MetaSense/MetaSense_A010/software_pack/comtool)
+Windows system:[Click to download](https://dl.sipeed.com/shareURL/MaixSense/MaixSense_A010/software_pack/comtool)
 
 Linux system: download package is not provided, users need to compile it by themselves.[Obtain](https://github.com/sipeed/COMTool)
 
@@ -58,18 +58,18 @@ Note: Windows 7 and below systems need to install the driver, you can go to the 
 
 After the device is powered on, the LCD screen on the device can preview the depth pseudo-color image after the color map in real time.
 
-![ms_comtool](./../../../zh/metasense/metasense-a010/assets/ms_lcd.jpg)
+![ms_comtool](./../../../zh/maixsense/maixsense-a010/assets/ms_lcd.jpg)
 
 ### PC side preview interaction
 
 1. After opening the COMTOOL software, if there is no Graph above the software, you can add a Graph at the + sign in the upper right corner. After creating the Graph, if the center part is white and no graph, **double-click** MaixSenseLite in the lower left corner to open the interface display port.
-![ms_lcd](./../../../zh/metasense/metasense-a010/assets/ms_comtool.jpg)
+![ms_lcd](./../../../zh/maixsense/maixsense-a010/assets/ms_comtool.jpg)
 
 2. Select the small Port and the corresponding baud rate on the left (select a high baud rate arbitrarily), click open and then check the USB below to receive a large amount of data, and Connected will be displayed in the lower left corner.
-![ms_comtool_two](./../../../zh/metasense/metasense-a010/assets/ms_comtoolt.jpg)
+![ms_comtool_two](./../../../zh/maixsense/maixsense-a010/assets/ms_comtoolt.jpg)
 
 3. Set the Header to \x00\xFF to correctly parse the image data and observe the depth map to intuitively feel the depth on the 2D flat image.
-![ms_comtool_three](./../../../zh/metasense/metasense-a010/assets/ms_comtoolh.jpg)
+![ms_comtool_three](./../../../zh/maixsense/maixsense-a010/assets/ms_comtoolh.jpg)
 
 ### Comtool configuration instructions
 
@@ -91,15 +91,15 @@ Comtool configuration control description of the host computer
 
 The distance between the objects is placed to form the difference in depth value. After the module captures the difference, it displays a warm and cold color, a warm color when the distance is close, and a cool color when the distance is far.
 
-![ms-carton](./../../../zh/metasense/metasense-a010/assets/ms_carton.jpg)
+![ms-carton](./../../../zh/maixsense/maixsense-a010/assets/ms_carton.jpg)
 
 ## Case:Keyboard lights follow gesture changes
 
 Realize super cool keyboard light follow,track the position of the hand in real time,and then map the keyboard light according to the position of the hand.
 
-[Related code](https://dl.sipeed.com/shareURL/others/metasense_example)
+[Related code](https://dl.sipeed.com/shareURL/others/maixsense_example)
 
-![ma_lamp](./../../../zh/metasense/metasense-a010/assets/ms_lamp.jpg)
+![ma_lamp](./../../../zh/maixsense/maixsense-a010/assets/ms_lamp.jpg)
 
 ## Case:Access to MCU
 - MS-A010 has strong compatibility and is based on serial protocol. It can be connected to single-chip development boards such as K210 bit or linux development boards such as Raspberry Pi for secondary development.
@@ -107,15 +107,15 @@ Realize super cool keyboard light follow,track the position of the hand in real 
 
 [Click to learn about K210 Bit](https://www.aliexpress.com/item/1005002547039100.html?spm=5261.ProductManageOnline.0.0.15744edfvEngHc)
 
-[MS-A010 external K210 bit source code acquisition](./../../../zh/metasense/metasense-a010/code.html#tof_mainpy)
+[MS-A010 external K210 bit source code acquisition](./../../../zh/maixsense/maixsense-a010/code.html#tof_mainpy)
 
-![ms_mcu](./../../../zh/metasense/metasense-a010/assets/ms_mcu.jpg)
+![ms_mcu](./../../../zh/maixsense/maixsense-a010/assets/ms_mcu.jpg)
 
 ## Secondary development:Serial protocol
 
 Please refer to the above case:  **MS-A010 external K210 bit**
 
-MS-A010 Secondary Development Manual:[Click to view](http://wiki.sipeed.com/hardware/en/metasense/metasense-a010/at_command_en.html)
+MS-A010 Secondary Development Manual:[Click to view](http://wiki.sipeed.com/hardware/en/maixsense/maixsense-a010/at_command_en.html)
 
 ## Secondary development:Access ROS
 
@@ -128,7 +128,7 @@ You can use the virtual machine `virtual box` or `vmware`.
 
 **2. Install and run**
 
-Since we provide the access function package of ROS2, if you run ROS1, you only need to switch branches.[Access package download.](https://dl.sipeed.com/shareURL/MetaSense/MetaSense_A010/software_pack/SDK)
+Since we provide the access function package of ROS2, if you run ROS1, you only need to switch branches.[Access package download.](https://dl.sipeed.com/shareURL/MaixSense/MaixSense_A010/software_pack/SDK)
 
 ```bash
 
@@ -148,7 +148,7 @@ rosrun sipeed_tof_ms_a010 a010_publisher _device:="/dev/ttyUSB0"
 
 After opening `rviz2`, in the lower left corner of the interface `Add`->`By topic`->`PointCloud2 or /depth` ->`Image Add` ->`Display/Global Options/Fixed Frame` needs to be modified to `tof `, the point cloud can be displayed normally. According to the added content, `Image` will be displayed on the left and the point cloud will be displayed in the middle.
 
-![ms_rviz](./../../../zh/metasense/metasense-a010/assets/ms_rviz.jpg)
+![ms_rviz](./../../../zh/maixsense/maixsense-a010/assets/ms_rviz.jpg)
 
 ### Access ROS1
 
@@ -159,7 +159,7 @@ You can use the virtual machine `virtual box` or `vmware`.
 
 **2. Install and run**
 
-We provide an access package for ROS2, which users need to compile and install on a system running ROS2.[Access package download.](https://dl.sipeed.com/shareURL/MetaSense/MetaSense_A010/software_pack/SDK)
+We provide an access package for ROS2, which users need to compile and install on a system running ROS2.[Access package download.](https://dl.sipeed.com/shareURL/MaixSense/MaixSense_A010/software_pack/SDK)
 
 ```bash
 #Unzip sipeed_tof_ms_a010.zip and enter the directory
@@ -172,10 +172,10 @@ source install/setup.sh
 
 **3. RQT View frame rate**
 
-![ms_rqt](./../../../zh/metasense/metasense-a010/assets/ms_rqt.jpg)
+![ms_rqt](./../../../zh/maixsense/maixsense-a010/assets/ms_rqt.jpg)
 
 **4. RVIZ2 Preview**
 
 After opening `rviz2`, in the lower left corner of the interface `Add`->`By topic`->`PointCloud2 or /depth` ->`Image Add` ->`Display/Global Options/Fixed Frame` needs to be modified to `tof `, the point cloud can be displayed normally. According to the added content, `Image` will be displayed on the left and the point cloud will be displayed in the middle.
 
-![ms_ros](./../../../zh/metasense/metasense-a010/assets/ms_ros.jpg)
+![ms_ros](./../../../zh/maixsense/maixsense-a010/assets/ms_ros.jpg)
