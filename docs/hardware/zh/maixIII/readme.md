@@ -1,9 +1,9 @@
 ---
-title: MaixIII  
+title: MAIX-III-AXPI 
 
 ---
 
-## MAIXIII 是什么？
+## MAIX-III-AXPI 是什么？
 
 MAIX-III 是一款以 AX620A 为主控的核心计算板，采用兼容 DDR4 SODIMM 260P 金手指全 IO 引出，可以兼容 AxPi 底板或方便的进行二次开发。
 
@@ -33,11 +33,11 @@ AX620A 是一款高算力、高能效比、低功耗的 AI SoC 芯片。芯片�
 | 存储 | 可选16GB EMMC |
 | IO 引出 | DDR4 SODIMM 260P 金手指全IO引出 |
 
-## MAIXIII 能做什么？
+## MAIX-III-AXPI 能做什么？
 
 待补充
 
-## 关于 MAIXIII 我们提供什么？
+## 关于 MAIX-III-AXPI 我们提供什么？
 
 1. 标准 Linux 系统体验、开箱即用的 AI 案例。
 

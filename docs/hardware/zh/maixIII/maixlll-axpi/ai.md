@@ -1,5 +1,5 @@
 ---
-title: 是在 Maix-III(M3) 系列 AX-Pi 开发板上运行 AI 模型和部署模型到 AX-Pi
+title: 是在 MAIX-III(M3) 系列 AX-Pi 开发板上运行 AI 模型和部署模型到 AX-Pi
 ---
 
 

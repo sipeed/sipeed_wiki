@@ -150,25 +150,25 @@
                     ]
                 },
                 {
-                    "label": "Maixiii ax-pi",
+                    "label": "MAIX-III-AXPI",
                     "file": "maixIII/readme.md",
                     "collapsed": false,
                     "items": [
                         {
                             "label": "烧录系统",
-                            "file": "maixIII/ax620a/flash_system.md"
+                            "file": "maixIII/maixlll-axpi/flash_system.md"
                         },
                         {
                             "label": "基础使用",
-                            "file": "maixIII/ax620a/usages.md"
+                            "file": "maixIII/maixlll-axpi/usages.md"
                         },
                         {
                             "label": "SDK 使用",
-                            "file": "maixIII/ax620a/sdk.md"
+                            "file": "maixIII/maixlll-axpi/sdk.md"
                         },
                         {
                             "label": "AI 模型相关",
-                            "file": "maixIII/ax620a/ai.md"
+                            "file": "maixIII/maixlll-axpi/ai.md"
                         }
                     ]
                 }

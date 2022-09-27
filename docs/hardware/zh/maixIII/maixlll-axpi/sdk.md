@@ -1,5 +1,5 @@
 ---
-title: Maix-III 系列 AX-Pi 开发板 SDK 使用介绍
+title: MAIX-III 系列 AX-Pi 开发板 SDK 使用介绍
 ---
 
 ## SDK 和源码下载
