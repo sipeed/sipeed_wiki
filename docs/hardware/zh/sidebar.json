@@ -150,20 +150,24 @@
                     ]
                 },
                 {
-                    "label": "Maixiii ax-pi",
+                    "label": "Maix-III AXera-Pi",
                     "file": "maixIII/readme.md",
                     "collapsed": false,
                     "items": [
                         {
-                            "label": "烧录系统",
+                            "label": "烧录系统镜像",
                             "file": "maixIII/ax620a/flash_system.md"
                         },
                         {
-                            "label": "基础使用",
-                            "file": "maixIII/ax620a/usages.md"
+                            "label": "系统基础使用",
+                            "file": "maixIII/ax620a/basic_usage.md"
                         },
                         {
-                            "label": "SDK 使用",
+                            "label": "开发准备工作",
+                            "file": "maixIII/ax620a/dev_prepare.md"
+                        },
+                        {
+                            "label": "基于 SDK 开发应用",
                             "file": "maixIII/ax620a/sdk.md"
                         },
                         {

@@ -1,9 +1,10 @@
 ---
-title: 基础使用  
+title: Maix-III AXera-Pi 系统基础使用
 
 ---
 
-基于上文的烧录系统后，
+基于上文的烧录系统后，本文介绍使用 Maix-III AXera-Pi 开发板的系统基础使用方法。
+
 
 ## 准备工作
 

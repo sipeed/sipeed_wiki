@@ -49,9 +49,9 @@ class: heading_no_counter
     </a>
     <a href="./ax-pi.html">
         <div class="card" style="background-color: #fafbfe">
-            <img src="../../assets/maix-iii-small.png" alt="AX-Pi 模型转换和部署">
+            <img src="../../assets/maix-iii-small.png" alt="AXera-Pi 模型转换和部署">
             <div class="card_info card_purple">
-                <h2>Maix-III 系列 AX-Pi</h2>
+                <h2>Maix-III 系列 AXera-Pi</h2>
                 <div class="brief">
                     <div>高算力、独特 AI-ISP 影像系统</div>
                     <div>最高 3.6Tops@INT8，丰富算子支持</div>

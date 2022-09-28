@@ -36,6 +36,7 @@ date: 2022-09-15
 .title {
     font-size: 1.5em;
     font-weight: 800;
+    padding: 0.8em;
 }
 </style>
 

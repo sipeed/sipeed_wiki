@@ -1,25 +1,81 @@
 ---
-title: Maix-III 系列 AX-Pi 开发板 SDK 使用介绍
+title: Maix-III 系列 AXera-Pi 开发板 SDK 使用介绍
 ---
 
 ## SDK 和源码下载
 
-SDK 源码在 [libmaix](https://github.com/sipeed/libmaix)， 点击页面`Code` -> `Download ZIP` 下载， 或者使用 git 命令下载：
+SDK 源码在 [libmaix](https://github.com/sipeed/libmaix)， 需要使用 git 命令下载：
 
 ```bash
-git clone https://github.com/sipeed/libmaix.git
+git clone https://github.com/sipeed/libmaix.git --recursive
 ```
+>! 注意这里`--recursive` 参数是必须的，用来下载仓库里面的子模块，如果没有这个参数，代码会不完整，导致编译出错
+
+> 中国国内可能下载速度较慢，可以多取消重试几次，可能会遇到速度快的节点，当然最好还是通过设置代理来加速下载。
 
 另外， AI 模型及例程在 [MaixHub 模型库](https://maixhub.com/model/zoo) 可以找到， 以及 [AXERA-TECH/ax-samples](https://github.com/AXERA-TECH/ax-samples) 仓库。
 
 
 ## 编译 SDK
 
-对于 `libmaix`， 按照其`README.md` 文件描述的方法编译即可， 不过需要在`menuconfig`命令中选择 `AX-Pi` 作为编译目标。
+编译有两种方式：
+* 直接在开发板上编译：编译速度较慢，但是不需要额外的环境配置
+* 在 PC 上编译，然后拷贝可执行文件到开发板，也就是交叉编译： 编译速度更快，但是需要额外的环境配置
 
-这里简要介绍一下编译过程：
+### [libmaix](https://github.com/sipeed/libmaix)
+
+对于 `libmaix`， 按照其`README.md` 文件描述的方法编译即可， 不过需要在`menuconfig`命令中选择 `AXera-Pi` 作为编译目标。
+
+这里简要介绍一下编译过程（libmaix 目前还未稳定，未来可能会有大的更新），实际以[libmaix 仓库](https://github.com/sipeed/libmaix)代码和说明为准。
+* 先安装依赖
+```
+apt install build-essential cmake python3 sshpass git
+```
+> sshpass 也可以不安装， build-essential, cmake, git, python3 必须安装
+
+* 克隆仓库到本地或者开发板
+```
+git clone https://github.com/sipeed/libmaix --recursive
+```
+>! 注意 `--recursive` 参数是必须的，用以克隆子模块，否则会缺代码
+
+#### 在开发板上编译
+
+```
+cd libmaix
+cd examples/axpi
+python3 project.py distclean
+# python3 project.py menuconfig # 可以配置相关参数
+python3 project.py build        # 如果增加文件了，需要 python3 project.py rebuild 命令
+./dist/start_app.sh             # 运行示例程序
+```
+
+#### 交叉编译
 
 TODO:
+
+### [ax-samples](https://github.com/AXERA-TECH/ax-samples)
+
+[ax-samples](https://github.com/AXERA-TECH/ax-samples) 是爱芯官方提供的例程，包含了一些 AI 模型和运行代码，编译完能直接在开发板上运行，只不过输入是图片，不是摄像头。
+
+#### 在开发板上编译
+
+进入开发板终端，执行
+```
+git clone https://github.com/AXERA-TECH/ax-samples.git
+cd ax-samples
+mkdir build
+cd build
+cmake ..
+make install
+```
+然后就能在`ax-samples/build/install/bin/`目录下找到编译好的可执行文件。
+
+
+#### 交叉编译
+
+稍微复杂一点，需要在 PC 上配置交叉编译环境，然后在 PC 上编译，最后拷贝可执行文件到开发板，见[ax-samples 源码编译](https://github.com/AXERA-TECH/ax-samples/blob/main/docs/compile.md)
+
 
 ## 组合 SDK 和 AI 模型例程
 
