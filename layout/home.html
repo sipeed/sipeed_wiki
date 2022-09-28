@@ -154,7 +154,7 @@
                                         <p>
                                             今年的 FPGA 创新设计竞赛如期开展，作为本次比赛中高云半导体的板卡供货商，这边存放一些资料来帮助大家解决难找资料这类问题
                                         </p>
-                                        <div style="display: grid; gap: 10%; grid-template-columns: minmax(0px, 1fr) minmax(0px, 1fr); align-items: flex-start;">
+                                        <div style="display: grid; gap: 5%; grid-template-columns: minmax(400px, 60%) minmax(0px, 1fr); align-items: flex-start;">
                                             <div style="display: grid; gap: 16px; grid-template-columns: 100%;">
                                             <table>
                                                 <tr>
@@ -170,15 +170,22 @@
                                                     <td><a href="https://github.com/sipeed/TangPrimer-20K-example" target="_blank">github.com/sipeed/TangPrimer-20K-example</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td> TinyMaix 推理框架 </td>
-                                                    <td><a href="https://github.com/sipeed/TinyMaix" target="_blank"> https://github.com/sipeed/TinyMaix </a></td>
+                                                    <td> TinyMaix 推理框架 </td>                                                            
+                                                    <td>
+                                                        <tinymaix_20k style="float:left">这是网友将 Tinymaix 移植到 PicoRV32 软核上的跑分结果</tinymaix_20k>
+                                                            <table>
+                                                                <tr><td>Chip/Board    </td><td>Core</td><td>Flash</td><td>RAM </td><td>Freq</td><td>cifar</td><td>mnist</td></tr>
+                                                                <tr><td>PicoRV32(GW2A)</td><td>RV32</td><td>  1MB</td><td>64KB</td><td> 54M</td><td>26935</td><td>385</td></tr>
+                                                            </table>
+                                                        <p style="float:left"> TinyMaix 推理框架跳转链接：<a href="https://github.com/sipeed/TinyMaix" target="_blank"> https://github.com/sipeed/TinyMaix </a></p>
+                                                    </td>
                                                 </tr>
                                                 <tr>
                                                     <td> 开源 IP core  </td>
                                                     <td><a href="https://opencores.org/" target="_blank"> https://opencores.org/ </a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td> FPGA 竞赛高云官方指导群 </td>
+                                                    <td style="white-space:nowrap"> FPGA 竞赛高云官方指导群 </td>
                                                     <td> 721849943 <a href="https://jq.qq.com/?_wv=1027&k=qR44sQWA" target="_blank"> 点我自动加群 </a></td>
                                                 </tr>
                                                 <tr>
@@ -241,7 +248,7 @@
                                  <n-layout style="position: relative" has-sider position="absolute" hoverable>
                                      <n-card class="base_background"
                                         style="margin: auto; display: fit-content; height: 600px;">
-                                        <h1>2022年TI杯大学生电子设计竞赛声源定位跟踪系统（E题）</h1>
+                                        <h1>2022 年 TI 杯大学生电子设计竞赛声源定位跟踪系统（E题）</h1>
                                         <n-ellipsis expand-trigger="click" line-clamp="1" :tooltip="false">
                                             本题是设计制作一个声源定位跟踪系统，能够实时显示及指示声源的位置，当声源移动时能够用激光笔动态跟踪声源。
                                             是的，这题我们只能祭出 K210 了！！下面我们来看看小伙伴们的精彩受虐过程。
@@ -251,12 +258,12 @@
                                                 <n-button size="small" style="color:#ffffff;" color="#e34548"
                                                     href="https://blog.csdn.net/qq_53357019/article/details/126982978" tag="a"
                                                     target="_blank" round>
-                                                    [池子tt] 2022年电赛声源定位跟踪系统（E题）
+                                                    博文：[池子tt] 2022年电赛声源定位跟踪系统（E题）
                                                 </n-button>
                                                 <n-button size="small"
                                                     href="https://blog.csdn.net/qq_51963216/article/details/126022738"
                                                     target="_blank" tag="a" type="error" ghost>
-                                                    [我与nano] K210 声源定位、声音识别
+                                                    博文：[我与nano] K210 声源定位、声音识别
                                                 </n-button>
                                             </n-button-group>
                                         </n-divider>
