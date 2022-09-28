@@ -156,23 +156,23 @@
                     "items": [
                         {
                             "label": "烧录系统镜像",
-                            "file": "maixIII/ax620a/flash_system.md"
+                            "file": "maixIII/ax-pi/flash_system.md"
                         },
                         {
                             "label": "系统基础使用",
-                            "file": "maixIII/maixlll-axpi/basic_usage.md"
+                            "file": "maixIII/ax-pi/basic_usage.md"
                         },
                         {
                             "label": "开发准备工作",
-                            "file": "maixIII/ax620a/dev_prepare.md"
+                            "file": "maixIII/ax-pi/dev_prepare.md"
                         },
                         {
                             "label": "基于 SDK 开发应用",
-                            "file": "maixIII/ax620a/sdk.md"
+                            "file": "maixIII/ax-pi/sdk.md"
                         },
                         {
                             "label": "AI 模型相关",
-                            "file": "maixIII/maixlll-axpi/ai.md"
+                            "file": "maixIII/ax-pi/ai.md"
                         }
                     ]
                 }

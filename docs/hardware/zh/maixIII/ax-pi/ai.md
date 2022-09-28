@@ -7,7 +7,7 @@ title: 是在 Maix-III(M3) 系列 AXera-Pi 开发板上运行 AI 模型和部署
 
 到 [MaixHub 模型库](https://maixhub.com/model/zoo) 找到你需要的模型，可以在过滤选项中选择`AXera-Pi 平台`来查找能在`AXera-Pi`上运行的模型。
 以及可以在 [AXERA-TECH/ax-samples](https://github.com/AXERA-TECH/ax-samples) 仓库也可以找到模型。
-然后下载并拷贝到开发板使用，模型详情页面会介绍如何使用模型。
+然后下载并拷贝到开发板使用，模型详情页面会介绍如何使用模型，在使用模型前，最好先仔细看看左边目录中的`Axera-Pi`的基本操作和开发准备。
 
 ## 将你的模型转换为在 AXera-Pi 上可以使用的模型
 

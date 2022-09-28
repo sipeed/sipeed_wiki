@@ -23,9 +23,9 @@ title: 烧录系统
 - 使用镜像为 `sipeed_ax620a_debian11_20220819.zip` []()
 
 烧录方法如下图示意
-![etcher](./../assets/etcher.jpg)
+![etcher](../../../assets/maixIII/ax-pi/etcher.jpg)
 点击“flash!”开始烧录，可看到进度条的跳动。
-![etcher_two](./../assets/etcher_t.jpg)
+![etcher_two](../../../assets/maixIII/ax-pi/etcher_t.jpg)
 最终下载结束后的效果会和下图一样，显示 `Flash Complete!`：
-![etcher_three](./../assets/etcher_h.jpg)
+![etcher_three](../../../assets/maixIII/ax-pi/etcher_h.jpg)
 如果烧录失败的话 方法：

@@ -23,7 +23,7 @@ title: Maix-III AXera-Pi 系统基础使用
  `sudo stress -c 2 -t 10000` 执行 CPU 压力测试。2代表核数 10000代表时间
 查看系统信息使用 `htop` 即可
 
-![cpu](./../assets/cpu.jpg)
+![cpu](../../../assets/maixIII/ax-pi/cpu.jpg)
 
  `sudo apt install memtester DDR RAM` 测试需要安装一下。
 格式: `memtester 内存数量 次数` 比如测试 512M 使用 `memtester 512M &` 挂后台循环测试。
@@ -140,7 +140,7 @@ finally:
 ```
 
 配置命令 `alsamixer`
-![alsamixer](./../assets/alsamixer.jpg)
+![alsamixer](../../../assets/maixIII/ax-pi/alsamixer.jpg)
 
 ## 网卡相关操作
 
@@ -232,8 +232,8 @@ network={
 usb0 网卡 rndis 驱动安装参考这篇 [Ghost系列USB网卡（RNDIS) 使用教程](https://www.foream.com/wiki/docs/mindoc/mindoc-1b2er0dm4pos9)，其中在 win10 则如下图。
 
 <html>
-  <img src="./../assets/rndis.jpg" width=48%>
-  <img src="./../assets/rndis_t.jpg" width=48%>
+  <img src="../../../assets/maixIII/ax-pi/rndis.jpg" width=48%>
+  <img src="../../../assets/maixIII/ax-pi/rndis_t.jpg" width=48%>
 </html>
 
 连接方法看 USB 相关操作：USB 网卡会自动 DHCP 配置，直接连接 192.168.233.1 即可。
@@ -247,14 +247,14 @@ usb0 网卡 rndis 驱动安装参考这篇 [Ghost系列USB网卡（RNDIS) 使用
 默认就会启动配置 `systemctl enable usb-gadget@g0`，停止开机启动用 `systemctl disable usb-gadget@g0`，停止服务用 `systemctl stop usb-gadget@g0`。
 使用 `sshpass -p root ssh root@192.168.233.1` 即可连接，账号密码都是 root 。
 
-![configure_usb](./../assets/configure_usb.jpg)
+![configure_usb](../../../assets/maixIII/ax-pi/configure_usb.jpg)
 
 ### 如何配置虚拟串口 /dev/ttyGS0 并使用
 
 停止 `usb-gadget@g0` 后使用 `systemctl start usb-gadget@g1` 即可看到 。 
 然后使用 `systemctl start getty@ttyGS0` 即可转发串口终端到 usb 的虚拟串口上。
 
-![configure_ttygs](./../assets/configure_ttygs.jpg)
+![configure_ttygs](../../../assets/maixIII/ax-pi/configure_ttygs.jpg)
 
 ### 使用 USB HOST 读取一个 256M 的 SD 卡
 
@@ -305,7 +305,7 @@ root@AXERA:~#
 
 - 先使用 `/opt/bin/sample_vo_fb &` 绑定 fb0 设备，如果使用 libdrm 则需要 `killall ample_vo_fb`，解除 vo 的占用。
 - 再使用 `/home/fbv-1.0b/fbv /home/examples/480x360.jpg` 显示图像。
-![fb](./../assets/fb.jpg)
+![fb](../../../assets/maixIII/ax-pi/fb.jpg)
 - 使用 `wget https://picsum.photos/200/300` 即可获取想要的图像（如分辨率 200x300）。
 
 ## 内置 AI 应用
@@ -338,9 +338,9 @@ root@AXERA:~#
 ```
 
 2. 访问上面的 IP 地址后会弹出以下页面，直接登录即可。
-![ipcdemo](./../assets/ipcdemo.jpg)
+![ipcdemo](../../../assets/maixIII/ax-pi/ipcdemo.jpg)
 3. 登录后会出现图像(待补充)
-![ipcdemo_two](./../assets/ipcdemo_two.jpg)
+![ipcdemo_two](../../../assets/maixIII/ax-pi/ipcdemo_two.jpg)
 
 ### SKEDEMO 人体姿态检测
 
@@ -428,14 +428,14 @@ echo 1 > /sys/class/pwm/pwmchip0/pwm1/enable
 ## UART 操作示意
 
 里面默认是 ttyS0 ，排针上的是 ttyS1 ，虚拟串口是 ttyGS0
-![uart](./../assets/uart.jpg)
+![uart](../../../assets/maixIII/ax-pi/uart.jpg)
 
 ## SPI 操作示意
 
 要更新 uboot 和 内核 
 [点击查询](https://www.cnblogs.com/juwan/p/14341406.html)
 获取 spidev:
-![spi](./../assets/spi.jpg)
+![spi](../../../assets/maixIII/ax-pi/spi.jpg)
 
 ```bash
 root@AXERA:~# ./spidev_test -D /dev/spidev1.0 -v 
