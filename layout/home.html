@@ -41,7 +41,7 @@
                                                         target="_blank" tag="a" type="error" ghost>
                                                         官网链接
                                                     </n-button-group>
-                                                </n-divider>                                                 
+                                                </n-divider>
                                              </n-card>
                                             </n-carousel-item> -->
                                         <n-carousel-item :style="{ width: '80%' }">
@@ -50,7 +50,7 @@
                                                 <n-divider title-placement="right">
                                                     <n-button-group style="margin: 5px; font-size: 16px;">
                                                     <n-button size="large"
-                                                            href="https://wiki.sipeed.com/hardware/zh/maixsense/index.html"                                                            
+                                                            href="https://wiki.sipeed.com/hardware/zh/maixsense/index.html"
                                                             target="_blank" tag="a" type="error" ghost>
                                                             体验 TOF 有趣玩法
                                                         </n-button>
@@ -123,7 +123,7 @@
                                             <n-collapse-item title="TOF 科普小课堂上课啦！解答 MaixSense 是什么？" name="2">
                                                 <div>
                                                   <img src="https://wiki.sipeed.com/hardware/zh/maixsense/assets/tof_two.jpg" style="max-width:400px; max-height:480px;" alt="" />
-                                                    <br>TOF 是“飞行时间”指是光飞行到目标物体并反射回来所经历的时间，而 MaixSense 使用 ToF 技术采集真实世界的 3D 信息 
+                                                    <br>TOF 是“飞行时间”指是光飞行到目标物体并反射回来所经历的时间，而 MaixSense 使用 ToF 技术采集真实世界的 3D 信息
                                                     <a href="https://wiki.sipeed.com/hardware/zh/maixsense/index.html" target="_blank">传送门：去看看 MaixSense 是什么?</a>
                                                 </div>
                                             </n-collapse-item>
@@ -136,16 +136,16 @@
                                                 </n-collapse-item>
                                                 <n-collapse-item title="如何拥有 MateSense 呢？" name="4">
                                                     <div>目前淘宝渠道还未正式开售，等不及的小伙伴们点传送门到众筹购买！
-                                                        <br><a href="https://www.indiegogo.com/projects/metasense-rgbd-tof-3d-camera-for-mcu-ros-robot#/" target="_blank">[传送门：众筹]</a>                                                            
+                                                        <br><a href="https://www.indiegogo.com/projects/metasense-rgbd-tof-3d-camera-for-mcu-ros-robot#/" target="_blank">[传送门：众筹]</a>
                                                     </div>
                                                   </n-collapse-item>
                                             </n-collapse>
-                                    </n-card> 
-                                        <n-divider title-placement="center">
+                                    </n-card>
+                                    <n-divider title-placement="center">
                                         <iframe src="//player.bilibili.com/player.html?aid=218150917&bvid=BV1q8411t7xb&cid=838335610&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="min-width:540px; min-height:480px;"> </iframe>
-                                        </n-divider>   
+                                    </n-divider>
                                 </n-layout>
-                             </n-tab-pane>                
+                             </n-tab-pane>
                              <n-tab-pane name="全国 FPGA 创新设计大赛">
                                 <n-layout style="position: relative" has-sider position="absolute" hoverable>
                                     <n-card class="base_background"
@@ -206,7 +206,7 @@
                                      <n-card class="base_background"
                                          style="margin: auto; display: fit-content; max-height: 600px;">
                                          <h1>初见 Primer 20K Lite 之点灯奥义</h1>
-                                         <n-divider title-placement="center">
+                                         <n-divider title-placement="left">
                                              <n-rate size="large" readonly :default-value="3" />
                                          </n-divider>
                                          <n-ellipsis expand-trigger="click" line-clamp="1" :tooltip="false">
@@ -238,9 +238,61 @@
                                  </n-layout>
                              </n-tab-pane>
                              <n-tab-pane name="2022年电赛精彩回顾">
-                                 1. 原本想象中的是视觉题，结果 k210 大展身手，麦克风阵列宝刀未老！
-                                 2. 都有哪些精彩现场视频可以回顾呢！
-                                 3. 最后电赛交流群： 来年再战吧！
+                                 <n-layout style="position: relative" has-sider position="absolute" hoverable>
+                                     <n-card class="base_background"
+                                        style="margin: auto; display: fit-content; height: 600px;">
+                                        <h1>2022年TI杯大学生电子设计竞赛声源定位跟踪系统（E题）</h1>
+                                        <n-ellipsis expand-trigger="click" line-clamp="1" :tooltip="false">
+                                            本题是设计制作一个声源定位跟踪系统，能够实时显示及指示声源的位置，当声源移动时能够用激光笔动态跟踪声源。
+                                            是的，这题我们只能祭出 K210 了！！下面我们来看看小伙伴们的精彩受虐过程。
+                                        </n-ellipsis>
+                                        <n-divider title-placement="left">
+                                            <n-button-group style="margin: 5px; font-size: 16px;">
+                                                <n-button size="small" style="color:#ffffff;" color="#e34548"
+                                                    href="https://blog.csdn.net/qq_53357019/article/details/126982978" tag="a"
+                                                    target="_blank" round>
+                                                    [池子tt] 2022年电赛声源定位跟踪系统（E题）
+                                                </n-button>
+                                                <n-button size="small"
+                                                    href="https://blog.csdn.net/qq_51963216/article/details/126022738"
+                                                    target="_blank" tag="a" type="error" ghost>
+                                                    [我与nano] K210 声源定位、声音识别
+                                                </n-button>
+                                            </n-button-group>
+                                        </n-divider>
+                                        <n-space justify="space-around" size="large">
+                                            <iframe src="//player.bilibili.com/player.html?aid=856476185&bvid=BV1PV4y1j73P&cid=788208879&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="min-width:320px; min-height:240px;"> </iframe>
+                                            <iframe src="//player.bilibili.com/player.html?aid=729603710&bvid=BV1RS4y1p7JJ&cid=805953263&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="min-width:320px; min-height:240px;"> </iframe>
+                                            <iframe src="//player.bilibili.com/player.html?aid=386490858&bvid=BV1jd4y1U76A&cid=786166754&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="min-width:320px; min-height:240px;"> </iframe>
+                                            <iframe src="//player.bilibili.com/player.html?aid=386595152&bvid=BV1md4y1U7hU&cid=792787811&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="min-width:320px; min-height:240px;"> </iframe>
+                                            <iframe src="//player.bilibili.com/player.html?aid=344065631&bvid=BV1nd4y1T7vr&cid=790053373&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="min-width:320px; min-height:240px;"> </iframe>
+                                            <iframe src="//player.bilibili.com/player.html?aid=345270680&bvid=BV1zd4y1g7ee&cid=825796654&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="min-width:320px; min-height:240px;"> </iframe>
+                                            <iframe src="//player.bilibili.com/player.html?aid=556446543&bvid=BV1Ee4y1X7mZ&cid=788404762&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="min-width:320px; min-height:240px;"> </iframe>
+                                            <iframe src="//player.bilibili.com/player.html?aid=941406425&bvid=BV18W4y1y7gv&cid=789252841&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="min-width:320px; min-height:240px;"> </iframe>
+                                        </n-space>
+                                        <n-ellipsis expand-trigger="click" line-clamp="1" :tooltip="false">
+                                            <h2>以下是 Sipeed 的同学为这次电赛做的一些资料，提供给大家评估效果，使用成品不一定能拿满分，但一定不会弃赛 ：）。</h2>
+                                        </n-ellipsis>
+                                        <n-space justify="space-around" size="large">
+                                            <iframe src="//player.bilibili.com/player.html?aid=386326363&bvid=BV1Nd4y1D7Qj&cid=785429209&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="min-width:320px; min-height:240px;"> </iframe>
+                                            <iframe src="//player.bilibili.com/player.html?aid=471372448&bvid=BV1tT411j7no&cid=785629300&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="min-width:320px; min-height:240px;"> </iframe>
+                                        </n-space>
+                                        <n-divider title-placement="right">
+                                            <n-button-group style="margin: 5px; font-size: 16px;">
+                                                <n-button size="small"
+                                                    href="https://wiki.sipeed.com/hardware/zh/modules/micarray.html"
+                                                    target="_blank" tag="a" type="error" ghost>
+                                                    [WIKI] 麦克风阵列资料
+                                                </n-button>
+                                                <n-button size="small" style="color:#ffffff;" color="#e34548"
+                                                    href="https://bbs.sipeed.com/thread/1682" tag="a"
+                                                    target="_blank" round>
+                                                    [BBS] 电赛交流贴（2022-07-27）
+                                                </n-button>
+                                            </n-button-group>
+                                        </n-divider>
+                                     </n-card>
+                                 </n-layout>
                              </n-tab-pane>
                              <n-tab-pane name="MaixHub 全新出发">
                                  1. MaixHub 大更新，更新都有哪些亮点呢？
@@ -277,7 +329,7 @@
                                                  <n-divider title-placement="right">
                                                      <n-button-group style="margin: 5px; font-size: 16px;">
                                                      <n-button size="large"
-                                                         href="https://wiki.sipeed.com/hardware/en/maixII/M2/resources.html"                                                            
+                                                         href="https://wiki.sipeed.com/hardware/en/maixII/M2/resources.html"
                                                          target="_blank" tag="a" type="error" ghost>
                                                          User Manual
                                                      </n-button>
@@ -297,7 +349,7 @@
                                              <n-divider title-placement="right">
                                                  <n-button-group style="margin: 5px; font-size: 16px;">
                                                  <n-button size="large"
-                                                         href="https://wiki.sipeed.com/hardware/en/maixsense/index.html"                                                            
+                                                         href="https://wiki.sipeed.com/hardware/en/maixsense/index.html"
                                                          target="_blank" tag="a" type="error" ghost>
                                                          User Manual
                                                      </n-button>
@@ -371,9 +423,9 @@
             btn_docs: "docs",
             btn_detail: "details",
             btn_repo: "source",
-            btn_github: "github",
+            btn_github: "Github",
             btn_example: "demos",
-            btn_gitte: "gitte"
+            btn_gitte: "Gitee"
         },
         zh: {
             language: "zh",
@@ -382,9 +434,9 @@
             btn_docs: "使用文档",
             btn_detail: "产品资料",
             btn_repo: "源码仓库",
-            btn_github: "github",
+            btn_github: "Github",
             btn_example: "示例代码",
-            btn_gitte: "gitee",
+            btn_gitte: "Gitee",
         }
     }
     ///////////////////// translate end /////////////////////
@@ -516,7 +568,7 @@
                          rbtn_href: "https://wiki.sipeed.com/hardware/zh/maixIII/index.html",
                      },
                 ],
-                "Lichee linux": [
+                "LicheePi": [
                     {
                         title: "Lichee RV",
                         src: "https://gd1.alicdn.com/imgextra/i1/2200606237318/O1CN01xlggEe23vh8Ckjjkm_!!2200606237318.png_400x400.jpg",
@@ -637,30 +689,6 @@
                         lbtn_href: "https://igg.me/at/MaixSense",
                         rbtn_text: "btn_detail",
                         rbtn_href: "https://wiki.sipeed.com/hardware/zh/maixsense/maixsense-a075v/maixsense-a075v.html",
-                    },
-                ],
-                "MaixFace": [
-                    {
-                        title: "MF1",
-                        src: "https://img.alicdn.com/imgextra/i2/2200606237318/O1CN01H8SqoX23vh39Zp9vF_!!2200606237318.jpg_400x400.jpg",
-                        lbtn_text: "btn_buy",
-                        lbtn_href: "https://item.taobao.com/item.htm?id=599138281058",
-                        rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/maixface/mf_ml_module/mf1_ml_module.html",
-                    },
-                    {
-                        title: "MF0",
-                        src: "/hardware/assets/maixface/mf0/mf0_front.jpg",
-                        lbtn_text: "btn_eol",
-                        rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/maixface/mf_ml_module/mf0_ml_module.html",
-                    },
-                    {
-                        title: "MF5",
-                        src: "/hardware/assets/maixface/mf5/mf5.jpg",
-                        lbtn_text: "btn_eol",
-                        rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/maixface/mf_ml_module/mf5_product.html",
                     },
                 ],
                 "外设模块": [
@@ -794,6 +822,28 @@
                     },
                 ],
                 "商业方案": [
+                    {
+                        title: "MF1",
+                        src: "https://img.alicdn.com/imgextra/i2/2200606237318/O1CN01H8SqoX23vh39Zp9vF_!!2200606237318.jpg_400x400.jpg",
+                        lbtn_text: "btn_buy",
+                        lbtn_href: "https://item.taobao.com/item.htm?id=599138281058",
+                        rbtn_text: "btn_detail",
+                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/maixface/mf_ml_module/mf1_ml_module.html",
+                    },
+                    {
+                        title: "MF0",
+                        src: "/hardware/assets/maixface/mf0/mf0_front.jpg",
+                        lbtn_text: "btn_eol",
+                        rbtn_text: "btn_detail",
+                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/maixface/mf_ml_module/mf0_ml_module.html",
+                    },
+                    {
+                        title: "MF5",
+                        src: "/hardware/assets/maixface/mf5/mf5.jpg",
+                        lbtn_text: "btn_eol",
+                        rbtn_text: "btn_detail",
+                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/maixface/mf_ml_module/mf5_product.html",
+                    },
                     {
                         title: "MaixII S",
                         src: "https://wiki.sipeed.com/hardware/zh/maixII/M2S/assets/M2s_Dock.jpg",
@@ -935,7 +985,7 @@
                          rbtn_href: "https://wiki.sipeed.com/hardware/en/maixIII/index.html",
                      },
                 ],
-                "Lichee Linux": [
+                "LicheePi": [
                     {
                         title: "Lichee RV",
                         src: "https://gd1.alicdn.com/imgextra/i1/2200606237318/O1CN01xlggEe23vh8Ckjjkm_!!2200606237318.png_400x400.jpg",
@@ -1058,30 +1108,6 @@
                         rbtn_href: "https://wiki.sipeed.com/hardware/en/maixsense/maixsense-a075v/maixsense-a075v.html",
                     },
                  ],
-                "MaixFace": [
-                    {
-                        title: "MF1",
-                        src: "https://img.alicdn.com/imgextra/i2/2200606237318/O1CN01H8SqoX23vh39Zp9vF_!!2200606237318.jpg_400x400.jpg",
-                        lbtn_text: "btn_buy",
-                        lbtn_href: "https://item.taobao.com/item.htm?id=599138281058",
-                        rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/en/maixface/mf_ml_module/mf1_ml_module.html",
-                    },
-                    {
-                        title: "MF0",
-                        src: "/hardware/assets/maixface/mf0/mf0_front.jpg",
-                        lbtn_text: "btn_eol",
-                        rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/en/maixface/mf_ml_module/mf0_ml_module.html",
-                    },
-                    {
-                        title: "MF5",
-                        src: "/hardware/assets/maixface/mf5/mf5.jpg",
-                        lbtn_text: "btn_eol",
-                        rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/en/maixface/mf_ml_module/mf5_product.html",
-                    },
-                ],
                  "Peripheral": [
                     {
                         title: "Mic Array",
@@ -1213,6 +1239,28 @@
                     },
                 ],
                 "Business": [
+                    {
+                        title: "MF1",
+                        src: "https://img.alicdn.com/imgextra/i2/2200606237318/O1CN01H8SqoX23vh39Zp9vF_!!2200606237318.jpg_400x400.jpg",
+                        lbtn_text: "btn_buy",
+                        lbtn_href: "https://item.taobao.com/item.htm?id=599138281058",
+                        rbtn_text: "btn_detail",
+                        rbtn_href: "https://wiki.sipeed.com/hardware/en/maixface/mf_ml_module/mf1_ml_module.html",
+                    },
+                    {
+                        title: "MF0",
+                        src: "/hardware/assets/maixface/mf0/mf0_front.jpg",
+                        lbtn_text: "btn_eol",
+                        rbtn_text: "btn_detail",
+                        rbtn_href: "https://wiki.sipeed.com/hardware/en/maixface/mf_ml_module/mf0_ml_module.html",
+                    },
+                    {
+                        title: "MF5",
+                        src: "/hardware/assets/maixface/mf5/mf5.jpg",
+                        lbtn_text: "btn_eol",
+                        rbtn_text: "btn_detail",
+                        rbtn_href: "https://wiki.sipeed.com/hardware/en/maixface/mf_ml_module/mf5_product.html",
+                    },
                     {
                         title: "MaixII S",
                         src: "https://wiki.sipeed.com/hardware/zh/maixII/M2S/assets/M2s_Dock.jpg",
@@ -1406,7 +1454,7 @@
     .news_background {
         background-image: radial-gradient(circle at 13% 47%, rgba(140, 140, 140, 0.03) 0%, rgba(140, 140, 140, 0.03) 25%, transparent 25%, transparent 100%), radial-gradient(circle at 28% 63%, rgba(143, 143, 143, 0.03) 0%, rgba(143, 143, 143, 0.03) 16%, transparent 16%, transparent 100%), radial-gradient(circle at 81% 56%, rgba(65, 65, 65, 0.03) 0%, rgba(65, 65, 65, 0.03) 12%, transparent 12%, transparent 100%), radial-gradient(circle at 26% 48%, rgba(60, 60, 60, 0.03) 0%, rgba(60, 60, 60, 0.03) 6%, transparent 6%, transparent 100%), radial-gradient(circle at 97% 17%, rgba(150, 150, 150, 0.03) 0%, rgba(150, 150, 150, 0.03) 56%, transparent 56%, transparent 100%), radial-gradient(circle at 50% 100%, rgba(25, 25, 25, 0.03) 0%, rgba(25, 25, 25, 0.03) 36%, transparent 36%, transparent 100%), radial-gradient(circle at 55% 52%, rgba(69, 69, 69, 0.03) 0%, rgba(69, 69, 69, 0.03) 6%, transparent 6%, transparent 100%), linear-gradient(90deg, rgb(255, 255, 255), rgb(255, 255, 255));
     }
-    
+
     .imbox{
         display: flex;
         flex-direction: row;
