@@ -32,7 +32,7 @@ FPGA Development board
 
 3D TOF Module
 
-[![](./../assets/metasense.jpg)](./metasense/readme.md)
+[![](./../assets/maixsense.jpg)](./maixasense/readme.md)
 
 ## Longon Series
 

@@ -32,7 +32,7 @@ FPGA 开发板
 
 3D TOF 模组
 
-[![](./../assets/metasense.jpg)](./metasense/readme.md)
+[![](./../assets/maixsense.jpg)](./maixsense/readme.md)
 
 ## Longon 系列
 
