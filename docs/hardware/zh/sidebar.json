@@ -274,11 +274,12 @@
                             "file": "tang/tang-primer-20k/primer-20k.md",
                             "items": [
                                 {
-                                    "label":"上手指南",
+                                    "label":"开箱指南",
                                     "file" :"tang/tang-primer-20k/start.md"
                                 },
                                 {
-
+                                    "label":"例程指南",
+                                    "file" :"tang/tang-primer-20k/example.md"
                                 }
                             ]
                         },
