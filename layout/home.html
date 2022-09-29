@@ -210,39 +210,134 @@
                                     </n-card>
                                 </n-layout>
                              </n-tab-pane>
-                             <n-tab-pane name="Primer 20K Lite 上新">
+                             <n-tab-pane name="Tang Primer 20K 上新">
                                  <n-layout style="position: relative" has-sider position="absolute" hoverable>
                                      <n-card class="base_background"
                                          style="margin: auto; display: fit-content; max-height: 600px;">
-                                         <h1>初见 Primer 20K Lite 之点灯奥义</h1>
-                                         <n-divider title-placement="left">
+                                         <h1> Tang Primer 20K Lite 实战使用 </h1>
+                                         <!-- <n-divider title-placement="left">
                                              <n-rate size="large" readonly :default-value="3" />
-                                         </n-divider>
-                                         <n-ellipsis expand-trigger="click" line-clamp="1" :tooltip="false">
-                                             Tang Primer 20K 是基于 GW2A-V18PG256C8IC8I7 所设计的一款 DDR3 sodimm 封装的核心板，<br>
-                                             作为 Sipeed 所发售的第六款 FPGA 产品，Tang Primer 20K 一直广受关注。其额外配置了两个底板，分别为 Dock 底板和 Lite 底板。
-                                             </n-ellipsis>
-                                         <div>
-                                             <img class="card-img"
-                                                 src="https://gd1.alicdn.com/imgextra/i3/2200606237318/O1CN01Xe11pH23vhBRw4zLG_!!2200606237318.jpg_400x400.jpg">
-                                             <img class="card-img" src="/news/others/20k_lite_start/assets/result.gif">
-                                         </div>
-                                         <n-divider title-placement="right">
-                                             <n-button-group>
-                                                 <n-button-group style="margin: 5px; font-size: 16px;">
-                                                     <n-button size="large"
-                                                         href="https://item.taobao.com/item.htm?&id=680099020807"
-                                                         target="_blank" tag="a" type="error" ghost>
-                                                         活动价：￥189.00
-                                                     </n-button>
-                                                     <n-button size="large" style="color:#ffffff;" color="#e34548"
-                                                         href="/news/others/20k_lite_start/20k_lite_start.html" tag="a"
-                                                         target="_blank" round>
-                                                         阅读更多
-                                                     </n-button>
-                                                 </n-button-group>
-                                             </n-button-group>
-                                         </n-divider>
+                                         </n-divider> -->
+                                         <!-- <n-ellipsis expand-trigger="click" line-clamp="1" :tooltip="false"> -->
+                                             Tang Primer 20K 是基于 GW2A-V18PG256C8IC8I7 所设计的一款 DDR3 sodimm 封装的核心板，且我们设计了一款为它全 IO 引出到 2.54mm 排针（母）的 Lite 底板
+                                             <!-- </n-ellipsis>                                              -->
+                                             <hr>
+                                        <div style="display: grid; gap: 2%; grid-template-columns: minmax(400px, 60%) minmax(0px, 1fr); align-items: flex-start;">
+                                            <div style="display: grid; gap: 16px; grid-template-columns: 100%;">
+                                                <lite_20K_start><strong> Tang Primer 20K 核心板参数 </strong></lite_20K_start>
+                                                <table>
+                                                	<thead>
+                                                		<tr>
+                                                			<th style="text-align:center">项目</th>
+                                                			<th style="text-align:center">参数</th>
+                                                			<th style="text-align:center">补充</th>
+                                                		</tr>
+                                                	</thead>
+                                                	<tbody>
+                                                		<tr>
+                                                			<td style="text-align:left">主控</td>
+                                                			<td style="text-align:left"><a href="http://www.gowinsemi.com.cn/prod_view.aspx?TypeId=10&amp;FId=t3:10:3&amp;Id=167#GW2A">GW2A-LV18PG256C8IC8I7</a>
+                                                			</td>
+                                                			<td style="text-align:left">
+                                                				<table>
+                                                					<tr>
+                                                						<td>逻辑单元(LUT4)</td>
+                                                						<td>20736</td>
+                                                					</tr>
+                                                					<tr>
+                                                						<td>寄存器(FF)</td>
+                                                						<td>15552</td>
+                                                					</tr>
+                                                					<tr>
+                                                						<td>分布式静态随机存储器S-SRAM(bits)</td>
+                                                						<td>41472</td>
+                                                					</tr>
+                                                					<tr>
+                                                						<td>块状静态随机存储器B-SRAM(bits)</td>
+                                                						<td>828K</td>
+                                                					</tr>
+                                                					<tr>
+                                                						<td>块状静态随机存储器数目B-SRAM(个)</td>
+                                                						<td>46</td>
+                                                					</tr>
+                                                					<tr>
+                                                						<td>乘法器(18x18 Multiplier)</td>
+                                                						<td>48</td>
+                                                					</tr>
+                                                					<tr>
+                                                						<td>锁相环(PLLs)</td>
+                                                						<td>4</td>
+                                                					</tr>
+                                                					<tr>
+                                                						<td>I/O Bank 总数</td>
+                                                						<td>8</td>
+                                                					</tr>
+                                                				</table>
+                                                			</td>
+                                                		</tr>
+                                                		<tr>
+                                                			<td style="text-align:left">内存</td>
+                                                			<td style="text-align:left">128M DDR3</td>
+                                                			<td style="text-align:left">128Meg x 16</td>
+                                                		</tr>
+                                                		<tr>
+                                                			<td style="text-align:left">Flash</td>
+                                                			<td style="text-align:left">32Mbits NOR Flash</td>
+                                                			<td style="text-align:left"></td>
+                                                		</tr>
+                                                		<tr>
+                                                			<td style="text-align:left">调试接口</td>
+                                                			<td style="text-align:left">Jtag + Uart</td>
+                                                			<td style="text-align:left">JST SH1.0 8Pins 连接器</td>
+                                                		</tr>
+                                                		<tr>
+                                                			<td style="text-align:left">SD 卡槽</td>
+                                                			<td style="text-align:left">一个</td>
+                                                			<td style="text-align:left">推拉式</td>
+                                                		</tr>
+                                                		<tr>
+                                                			<td style="text-align:left">显示接口</td>
+                                                			<td style="text-align:left">8Pins spi lcd 连接器</td>
+                                                			<td style="text-align:left"></td>
+                                                		</tr>
+                                                		<tr>
+                                                			<td style="text-align:left">整体封装</td>
+                                                			<td style="text-align:left">204P DDR3 Sodimm 金手指</td>
+                                                			<td style="text-align:left"></td>
+                                                		</tr>
+                                                		<tr>
+                                                			<td style="text-align:left">可用 IO</td>
+                                                			<td style="text-align:left">一共 117 个</td>
+                                                			<td style="text-align:left"></td>
+                                                		</tr>
+                                                	</tbody>
+                                                </table>
+                                                <a href="wiki.sipeed.com/primer20k"> 点击跳转到 Tang Primer 20K 文档 </a>
+                                            </div>
+                                            <div style="display: grid; gap: 16px; grid-template-columns: 100%;">
+                                                <lite_20K_start><strong> Lite 底板上手使用 </strong></lite_20K_start>
+                                                <lite_20K_start style="text-align:left"> 因为 sodimm 封装的核心板到手后不方便直接进行使用，因此我们设计了 Lite 底板 </lite_20K_start>
+                                                <div>
+                                                     <img class="card-img" src="/news/others/20k_lite_start/assets/result.gif">
+                                                 </div>
+                                                 <n-divider title-placement="right">
+                                                     <n-button-group>
+                                                         <n-button-group style="margin: 5px; font-size: 16px;">
+                                                             <n-button size="large"
+                                                                 href="https://item.taobao.com/item.htm?&id=680099020807"
+                                                                 target="_blank" tag="a" type="error" ghost>
+                                                                 活动价：￥189.00
+                                                             </n-button>
+                                                             <n-button size="large" style="color:#ffffff;" color="#e34548"
+                                                                 href="/news/others/20k_lite_start/20k_lite_start.html" tag="a"
+                                                                 target="_blank" round>
+                                                                 阅读更多实战使用
+                                                             </n-button>
+                                                         </n-button-group>
+                                                     </n-button-group>
+                                                 </n-divider>
+                                            </div>
+                                        </div>
                                      </n-card>
                                  </n-layout>
                              </n-tab-pane>
