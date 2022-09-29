@@ -285,7 +285,7 @@ print(out.argmax(), out.max())
 ## 使用摄像头和屏幕
 
 到此，模型单独运行已经走通了，如果要基于此做应用，因为是 `Linux`，有很多通用的开发方法和库，如果你希望将摄像头和屏幕联合起来使用，可以使用[libmaix](https://github.com/sipeed/libmaix)，或者你也可以直接使用[axpi_bsp_sdk](https://github.com/sipeed/axpi_bsp_sdk)进行开发（难度会比较大一点）。
-* 看[SDK 开发说明](/hardware/zh/maixIII/ax620a/sdk.html) 编译并执行[摄像头屏幕显示例程](https://github.com/sipeed/libmaix/tree/release/examples/axpi)，因为仓库都在`github`，所以最好是有个好的代理服务器。
+* 看[SDK 开发说明](/hardware/zh/maixIII/ax-pi/sdk.html) 编译并执行[摄像头屏幕显示例程](https://github.com/sipeed/libmaix/tree/release/examples/axpi)，因为仓库都在`github`，所以最好是有个好的代理服务器。
 * 将模型运行代码合并到例程中，有个问题要十分注意，如果要使用摄像头，默认`AI-ISP`会打开（暂未提供关闭的方式，后面更新TODO:），**所以模型转换的时候要指定模型为虚拟NPU运行，即配置文件中设置`ax620_virtual_npu: AX620_VIRTUAL_NPU_MODE_111`，否则初始化会失败**。
 > 可以直接使用[1000分类例程](https://github.com/sipeed/libmaix/tree/release/examples/axpi_classification_cam).
 > 在板子编译通过后执行`./dist/axpi_classification_cam -m mobilenetv2.joint` 即可开始识别。模型也可以到[MaixHub 模型库下载](https://maixhub.com/model/zoo/89)
