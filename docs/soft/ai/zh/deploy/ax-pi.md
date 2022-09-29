@@ -48,7 +48,7 @@ date: 2022-09-21
 
 要部署模型到`AXera-Pi`，需要将模型量化到 INT8，减小模型大小的同时提高运行速度，一般采用 `PTQ`(训练后量化)的方式量化模型，步骤：
 * 准备好浮点模型。
-* 用模型量化和格式转换工具转换成 AXera-Pi 支持的格式，这里工具使用爱芯官方提供的 [superpulsar](https://superpulsar-docs.readthedocs.io) 。
+* 用模型量化和格式转换工具转换成 AXera-Pi 支持的格式，这里工具使用爱芯官方提供的 [pulsar](https://superpulsar-docs.readthedocs.io) 。
 * 在 AXera-Pi 上运行模型。
 
 ## 准备浮点模型
@@ -104,14 +104,14 @@ newgrp docker
 
 | 下载站点 | 简介 | 使用方法 |
 | :--- | :--- | :--- |
-| [dockerhub](https://hub.docker.com/r/sipeed/superpulsar/tags) | 执行命令即可在线下载 | `docker pull sipeed/superpulsar` |
-| dockerhub 国内镜像 | 中国国内下载加速 | 1. 编辑`/etc/docker/daemon.json`添加`"registry-mirrors": ["https://docker.mirrors.ustc.edu.cn"],`(也可以用其它镜像比如[阿里云](https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors))<br>2. `docker pull daocloud.io/sipeed/superpulsar:latest` |
+| [dockerhub](https://hub.docker.com/r/sipeed/pulsar/tags) | 执行命令即可在线下载 | `docker pull sipeed/pulsar` |
+| dockerhub 国内镜像 | 中国国内下载加速 | 1. 编辑`/etc/docker/daemon.json`添加`"registry-mirrors": ["https://docker.mirrors.ustc.edu.cn"],`(也可以用其它镜像比如[阿里云](https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors))<br>2. `docker pull daocloud.io/sipeed/pulsar:latest` |
 
-> 注意这里镜像名叫 `sipeed/superpulsar`， 在文档里面有些地方可能是 `axera/neuwizard`，是等效的，只是名字不同
+> 注意这里镜像名叫 `sipeed/pulsar`， 在文档里面有些地方可能是 `axera/neuwizard`，是等效的，只是名字不同
 
 然后创建容器：
 ```shell
-docker run -it --net host --rm --shm-size 32g -v $PWD:/data sipeed/superpulsar
+docker run -it --net host --rm --shm-size 32g -v $PWD:/data sipeed/pulsar
 ```
 > * 这里`--shm-size`共享内run大小根据你的电脑内存大小设置。
 > * 不用`--rm`会保留容器，建议加个`-name xxx`来命名容器，下次通过`docker start xxx && docker attach xxx`进入容器
@@ -121,13 +121,13 @@ docker run -it --net host --rm --shm-size 32g -v $PWD:/data sipeed/superpulsar
 
 ### 进行模型量化和转换
 
-然后看 [superpulsar](https://superpulsar-docs.readthedocs.io) 文档中的转换命令以及配置文件方法进行模型量化和格式转换。
+然后看 [pulsar](https://superpulsar-docs.readthedocs.io) 文档中的转换命令以及配置文件方法进行模型量化和格式转换。
 > 注意 `AXera-Pi` 使用了虚拟 NPU 的概念来划分算力，以将实现全部算力给 NPU 或者 NPU 和 AI-ISP 各分一半。
 
 #### 举例
 
 仍然以 `mobilenetv2` 为例：
-* 根据`superpulsar`文档，准备好配置文件`config_mobilenetv2.prototxt`, (具体格式说明见[配置文件详细说明](https://superpulsar-docs.readthedocs.io/zh_CN/latest/test_configs/config.html)),内容如下：
+* 根据`pulsar`文档，准备好配置文件`config_mobilenetv2.prototxt`, (具体格式说明见[配置文件详细说明](https://superpulsar-docs.readthedocs.io/zh_CN/latest/test_configs/config.html)),内容如下：
 .. details:: config_mobilenetv2.prototxt
     ```protobuf
     # 基本配置参数：输入输出
