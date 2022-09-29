@@ -100,13 +100,13 @@ newgrp docker
 ### 下载转换工具
 
 转换工具是以 docker 镜像的方式提供的，下载后用 docker 加载镜像即可。
-直接使用 `docker` 命令下载镜像或者先下载镜像文件解压成 `tar` 文件，再加载镜像:
 
 | 下载站点 | 简介 | 使用方法 |
 | :--- | :--- | :--- |
 | [dockerhub](https://hub.docker.com/r/sipeed/pulsar/tags) | 执行命令即可在线下载 | `docker pull sipeed/pulsar` |
-| dockerhub 国内镜像 | 中国国内下载加速 | 1. 编辑`/etc/docker/daemon.json`添加`"registry-mirrors": ["https://docker.mirrors.ustc.edu.cn"],`(也可以用其它镜像比如[阿里云](https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors))<br>2. `docker pull daocloud.io/sipeed/pulsar:latest` |
+| dockerhub 国内镜像 | 中国国内下载加速 | 1. 编辑`/etc/docker/daemon.json`添加`"registry-mirrors": ["https://docker.mirrors.ustc.edu.cn"],`(也可以用其它镜像比如[阿里云](https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors))<br>2. 然后 `docker pull sipeed/pulsar` 拉取镜像 |
 
+拉取完成后使用`docker images`命令可以看到`sipeed/pulsar:latest`镜像
 > 注意这里镜像名叫 `sipeed/pulsar`， 在文档里面有些地方可能是 `axera/neuwizard`，是等效的，只是名字不同
 
 然后创建容器：
