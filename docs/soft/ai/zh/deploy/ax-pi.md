@@ -48,12 +48,12 @@ date: 2022-09-21
 
 要部署模型到`AXera-Pi`，需要将模型量化到 INT8，减小模型大小的同时提高运行速度，一般采用 `PTQ`(训练后量化)的方式量化模型，步骤：
 * 准备好浮点模型。
-* 用模型量化和格式转换工具转换成 AXera-Pi 支持的格式，这里工具使用爱芯官方提供的 [superpulsar](https://superpulsar-docs.readthedocs.io) 。
+* 用模型量化和格式转换工具转换成 AXera-Pi 支持的格式，这里工具使用爱芯官方提供的 [pulsar](https://superpulsar-docs.readthedocs.io) 。
 * 在 AXera-Pi 上运行模型。
 
 ## 准备浮点模型
 
-使用 `Pytorch` 或者 `Tensorflow` 训练好模型， 将模型保存为 `onnx` 格式备用。
+使用 `Pytorch` 或者 `TensorFlow` 训练好模型， 将模型保存为 `onnx` 格式备用。
 
 需要注意只能使用 `AXera-Pi` 所支持的算子，见[算子支持列表](https://superpulsar-docs.readthedocs.io/zh_CN/latest/appendix/op_support_list.html)。
 
@@ -61,7 +61,7 @@ date: 2022-09-21
 
 ### 举例
 
-比如我们用一个 pytorch hub 上面的 [mobilenetv2](https://pytorch.org/hub/pytorch_vision_mobilenet_v2/):
+比如我们用一个 PyTorch Hub 上面的 [mobilenetv2](https://pytorch.org/hub/pytorch_vision_mobilenet_v2/):
 ```python
 import torch
 model = torch.hub.load('pytorch/vision:v0.10.0', 'mobilenet_v2', pretrained=True)
@@ -73,7 +73,7 @@ model.eval()
 x = torch.randn(1, 3, 224, 224)
 torch.onnx.export(model, x, "mobilenetv2.onnx", export_params = True, verbose=True, opset_version=11)
 ```
-有些模型可以使用`onnxsim`精简下网络结构（这个模型实际上不需要）：
+有些模型可以使用 `onnxsim` 精简下网络结构（这个模型实际上不需要）：
 ```
 pip install onnx-simplifier
 python -m onnxsim mobilenetv2.onnx mobilenetv2-sim.onnx
@@ -100,34 +100,34 @@ newgrp docker
 ### 下载转换工具
 
 转换工具是以 docker 镜像的方式提供的，下载后用 docker 加载镜像即可。
-直接使用 `docker`命令下载镜像或者先下载镜像文件解压成 `tar` 文件，再加载镜像:
 
 | 下载站点 | 简介 | 使用方法 |
 | :--- | :--- | :--- |
-| [dockerhub](https://hub.docker.com/r/sipeed/superpulsar/tags) | 执行命令即可在线下载 | `docker pull sipeed/superpulsar` |
-| dockerhub 国内镜像 | 中国国内下载加速 | 1. 编辑`/etc/docker/daemon.json`添加`"registry-mirrors": ["https://docker.mirrors.ustc.edu.cn"],`(也可以用其它镜像比如[阿里云](https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors))<br>2. `docker pull daocloud.io/sipeed/superpulsar:latest` |
+| [dockerhub](https://hub.docker.com/r/sipeed/pulsar/tags) | 执行命令即可在线下载 | `docker pull sipeed/pulsar` |
+| dockerhub 国内镜像 | 中国国内下载加速 | 1. 编辑`/etc/docker/daemon.json`添加`"registry-mirrors": ["https://docker.mirrors.ustc.edu.cn"],`(也可以用其它镜像比如[阿里云](https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors))<br>2. 然后 `docker pull sipeed/pulsar` 拉取镜像 |
 
-> 注意这里镜像名叫 `sipeed/superpulsar`， 在文档里面有些地方可能是 `axera/neuwizard`，是等效的，只是名字不同
+拉取完成后使用`docker images`命令可以看到`sipeed/pulsar:latest`镜像
+> 注意这里镜像名叫 `sipeed/pulsar`， 在文档里面有些地方可能是 `axera/neuwizard`，是等效的，只是名字不同
 
 然后创建容器：
 ```shell
-docker run -it --net host --rm --shm-size 32g -v $PWD:/data sipeed/superpulsar
+docker run -it --net host --rm --shm-size 32g -v $PWD:/data sipeed/pulsar
 ```
 > * 这里`--shm-size`共享内run大小根据你的电脑内存大小设置。
 > * 不用`--rm`会保留容器，建议加个`-name xxx`来命名容器，下次通过`docker start xxx && docker attach xxx`进入容器
 > * `-v 宿主机路径:/data`是把宿主机的目录挂载到容器的`/data`目录，这样就可以在容器里面直接操作宿主机的文件了。
 
-创建容器后会自动进入容器，使用`pulsar -h`命令可以看到相关命令。
+创建容器后会自动进入容器，使用 `pulsar -h` 命令可以看到相关命令。
 
 ### 进行模型量化和转换
 
-然后看 [superpulsar](https://superpulsar-docs.readthedocs.io) 文档中的转换命令以及配置文件方法进行模型量化和格式转换。
+然后看 [pulsar](https://superpulsar-docs.readthedocs.io) 文档中的转换命令以及配置文件方法进行模型量化和格式转换。
 > 注意 `AXera-Pi` 使用了虚拟 NPU 的概念来划分算力，以将实现全部算力给 NPU 或者 NPU 和 AI-ISP 各分一半。
 
 #### 举例
 
 仍然以 `mobilenetv2` 为例：
-* 根据`superpulsar`文档，准备好配置文件`config_mobilenetv2.prototxt`, (具体格式说明见[配置文件详细说明](https://superpulsar-docs.readthedocs.io/zh_CN/latest/test_configs/config.html)),内容如下：
+* 根据`pulsar`文档，准备好配置文件`config_mobilenetv2.prototxt`, (具体格式说明见[配置文件详细说明](https://superpulsar-docs.readthedocs.io/zh_CN/latest/test_configs/config.html)),内容如下：
 .. details:: config_mobilenetv2.prototxt
     ```protobuf
     # 基本配置参数：输入输出
@@ -197,7 +197,7 @@ docker run -it --net host --rm --shm-size 32g -v $PWD:/data sipeed/superpulsar
     pulsar_conf {
         ax620_virtual_npu: AX620_VIRTUAL_NPU_MODE_111 # 使用虚拟 NPU， NPU 和 AI-ISP 各分一半， 111 代表 NPU
                         #  AX620_VIRTUAL_NPU_MODE_0   # 不使用虚拟 NPU， 全部算力给 NPU
-                        #  AX620_VIRTUAL_NPU_MODE_112 # 使用虚拟 NPU， NPU 和 AI-ISP 各分一半， 112 代表 AI-ISP
+                        #  AX620_VIRTUAL_NPU_MODE_112 # 使用虚拟 NPU， NPU 和 AI-ISP 各分一半， 112 代表 AI-ISP 特用，千万别乱设置
         batch_size: 1
     }
     ```
@@ -228,23 +228,23 @@ pulsar build --input mobilenetv2.onnx --output mobilenetv2.joint --config config
 ```
 pulsar run mobilenetv2.onnx mobilenetv2.joint --input cat.jpg --config out_config_mobilenet_v2.prototxt --output_gt gt
 ```
-得到余弦距离，这里为`0.9862`，说明`joint`模型和`onnx`模型的输出结果相似度`98.62%`，在可以接受的范围内，如果值太小，则表示量化过程中出现了误差，需要考虑是不是设置有误或者量化输入数据有误或者模型设计有问题。
+得到余弦距离，这里为 `0.9862` ，说明 `joint` 模型和 `onnx` 模型的输出结果相似度 `98.62%`，在可以接受的范围内，如果值太小，则表示量化过程中出现了误差，需要考虑是不是设置有误或者量化输入数据有误或者模型设计有问题。
 ```log
 Layer: 536  2-norm RE: 17.03%  cosine-sim: 0.9862
 ```
 
-* 拷贝模型到`AXera-Pi`上直接跑一下(通过`scp`命令拷贝`joint`格式模型文件到开发板）：
+* 拷贝模型到 `AXera-Pi` 上直接跑一下(通过 `scp` 命令拷贝 `joint` 格式模型文件到开发板）：
 在板子上运行模型：
 ```
 time run_joint mobilenetv2.joint --repeat 100 --warmup 10
 ```
-可以看到模型运行时间`2.1ms`，这里我们没有启用虚拟 NPU，如果启用了虚拟 NPU，则时间加倍为`4ms`。以及`overhead 250.42 ms`即其它耗时（比如模型加载 内存分配等）。
+可以看到模型运行时间 `2.1ms`，这里我们没有启用虚拟 NPU，如果启用了虚拟 NPU，则时间加倍为 `4ms`。以及 `overhead 250.42 ms` 即其它耗时（比如 模型加载 内存分配 等）。
 ```
 Run task took 2143 us (99 rounds for average)
         Run NEU took an average of 2108 us (overhead 9 us)
 
 ```
-如果要测试输入，需要先将图片转换为二进制内容，`HWC + RGB`排列，用`--data`指定二进制文件。
+如果要测试输入，需要先将图片转换为二进制内容，`HWC + RGB` 排列，用 `--data` 指定二进制文件。
 
 .. details::转换为二进制文件脚本
     ```python
@@ -278,14 +278,14 @@ print(out.argmax(), out.max())
 ```
 ./ax_classification -m mobilenetv2.joint -i cat.jpg
 ```
-> 在代码中使用了`opencv`读取了图片，格式为`BGR`，在运行模型时会根据转换模型时的配置自动判断是否转成`RGB`，所以直接用了`mw::prepare_io`拷贝`BGR`的图到输入缓冲区了，后面就交给底层库处理了。
+> 在代码中使用了 `opencv` 读取了图片，格式为 `BGR`，在运行模型时会根据转换模型时的配置自动判断是否转成 `RGB`，所以直接用了 `mw::prepare_io` 拷贝 `BGR` 的图到输入缓冲区了，后面就交给底层库处理了。
 
 如果你的模型不是简单的分类模型，那你可能需要在模型推理结束后添加后处理的代码以达到解析结果的目的。
 
 ## 使用摄像头和屏幕
 
-到此，模型单独运行已经走通了，如果要基于此做应用，因为是`Linux`，有很多通用的开发方法和库，如果你希望将摄像头和屏幕联合起来使用，可以使用[libmaix](https://github.com/sipeed/libmaix)，或者你也可以直接使用[axpi_bsp_sdk](https://github.com/sipeed/axpi_bsp_sdk)进行开发（难度会比较大一点）。
-* 看[SDK 开发说明](/hardware/zh/maixIII/ax620a/sdk.html) 编译并执行[摄像头屏幕显示例程](https://github.com/sipeed/libmaix/tree/release/examples/axpi)，因为仓库都在`github`，所以最好是有个好的代理服务器。
+到此，模型单独运行已经走通了，如果要基于此做应用，因为是 `Linux`，有很多通用的开发方法和库，如果你希望将摄像头和屏幕联合起来使用，可以使用[libmaix](https://github.com/sipeed/libmaix)，或者你也可以直接使用[axpi_bsp_sdk](https://github.com/sipeed/axpi_bsp_sdk)进行开发（难度会比较大一点）。
+* 看[SDK 开发说明](/hardware/zh/maixIII/ax-pi/sdk.html) 编译并执行[摄像头屏幕显示例程](https://github.com/sipeed/libmaix/tree/release/examples/axpi)，因为仓库都在`github`，所以最好是有个好的代理服务器。
 * 将模型运行代码合并到例程中，有个问题要十分注意，如果要使用摄像头，默认`AI-ISP`会打开（暂未提供关闭的方式，后面更新TODO:），**所以模型转换的时候要指定模型为虚拟NPU运行，即配置文件中设置`ax620_virtual_npu: AX620_VIRTUAL_NPU_MODE_111`，否则初始化会失败**。
 > 可以直接使用[1000分类例程](https://github.com/sipeed/libmaix/tree/release/examples/axpi_classification_cam).
 > 在板子编译通过后执行`./dist/axpi_classification_cam -m mobilenetv2.joint` 即可开始识别。模型也可以到[MaixHub 模型库下载](https://maixhub.com/model/zoo/89)
@@ -293,7 +293,7 @@ print(out.argmax(), out.max())
 
 ## QAT 量化 和其它优化方法
 
-`QAT`(Quantization aware training)即量化感知训练，和`PTQ`在对训练好的模型进行浏览量化的做法不同，`QAT`是在训练时就模拟量化推理，以减少量化误差， 和训练后量化`PTQ`相比，有更高的精度，但是过程会更复杂，不建议一开始就使用。
+`QAT`(Quantization aware training)即量化感知训练，和 `PTQ` 在对训练好的模型进行浏览量化的做法不同，`QAT` 是在训练时就模拟量化推理，以减少量化误差， 和训练后量化 `PTQ` 相比，有更高的精度，但是过程会更复杂，不建议一开始就使用。
 
 更多详情看[superpulsar](https://superpulsar-docs.readthedocs.io)， 文档会持续更新，如果你擅长这方面，也欢迎点击右上角`编辑本页`在这里添加说明。
 
