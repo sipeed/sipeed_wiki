@@ -17,7 +17,7 @@
                             "file": "maix/M1n.md"
                         }
                     ]
-                },               
+                },
                 {
                     "label": "M1 开发板",
                     "collapsed": false,
@@ -59,7 +59,7 @@
                 {
                     "label":"M1s 模块",
                     "items":[
-                        {                            
+                        {
                         }
                     ]
 
@@ -78,11 +78,11 @@
                         }
                     ]
 
-                },                
+                },
                 {
                     "label":"M1a 开发板",
                     "items":[
-                        {                            
+                        {
                         }
                     ]
                 }
@@ -159,15 +159,15 @@
                             "file": "maixIII/ax-pi/flash_system.md"
                         },
                         {
-                            "label": "系统基础使用",
+                            "label": "系统操作基础",
                             "file": "maixIII/ax-pi/basic_usage.md"
                         },
                         {
-                            "label": "开发准备工作",
+                            "label": "准备开发环境",
                             "file": "maixIII/ax-pi/dev_prepare.md"
                         },
                         {
-                            "label": "基于 SDK 开发应用",
+                            "label": "SDK 开发指南",
                             "file": "maixIII/ax-pi/sdk.md"
                         },
                         {
