@@ -1,6 +1,10 @@
 ---
 title: 部署模型到 Maix-III(M3) 系列 AXera-Pi 开发板
 date: 2022-09-21
+#update:
+#  - date: 2022-09-30
+#    author: neucrack
+#    content: 初版文档
 ---
 
 <div id="title_card">
@@ -211,6 +215,19 @@ pulsar build --input mobilenetv2.onnx --output mobilenetv2.joint --config config
 ```
 耐心等待，可能需要一小会儿时间，就会得到转换的模型结果`mobilenetv2.joint`了
 
+### 在 docker 中使用 GPU 进行模型量化和格式转换
+
+默认 docker 不能使用显卡驱动，但是有要用的话方法也不难：
+* 宿主机正常安装显卡驱动，比如 `ubuntu` 直接可以在包管理器中安装
+* 按照 [nvidia-docker](https://github.com/NVIDIA/nvidia-docker) 的说明安装， 然后测试是否可用：
+```
+docker run --rm --gpus all nvidia/cuda:11.0.3-base-ubuntu20.04 nvidia-smi
+```
+这会执行 `nvidia-smi` 命令，就可以看到映射到 docker 里面的显卡信息了。
+* 在需要使用显卡的容器创建时加上 `--gpus all` 参数来将所有显卡驱动映射到容器内，也可以指定特定显卡编号 `--gpus '"device=2,3"'`, 比如：
+```
+docker run -it --net host --rm --gpus all --shm-size 32g -v $PWD:/data sipeed/pulsar
+```
 
 
 
