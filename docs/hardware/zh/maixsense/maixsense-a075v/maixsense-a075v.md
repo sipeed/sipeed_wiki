@@ -89,7 +89,7 @@ Windows 系统需安装驱动才可正常运行。
 ### python SDK
 这是基于 `python 3` 软件开发工具包，MS-A075V 对外开发了 http 接口，我们可通过 http 请求获取到原生数据（包括深度图，ir 图，rgb 图），为了方便用户理解数据包的结构及获取还有解码的相关逻辑，因此我们提供封装了 http 请求和原生数据的解码相关函数，用户基于此可进行二次开发。
 
-**SDK 获取方式**：[点击下载](https://dl.sipeed.com/fileList/others/maixsense_example/matasense_075_tutorial.ipynb)
+**SDK 获取方式**：[点击下载](https://dl.sipeed.com/fileList/others/maixsense_example/maixsense_075_tutorial.ipynb)
 **使用方式**：安装 jupyter 后连接 MS-A075V 打开我们提供的 `toturial.py` 即可。
 
 ### 解包推流 
