@@ -48,14 +48,14 @@ date: 2022-09-21
 
 要部署模型到`AXera-Pi`，需要将模型量化到 INT8，减小模型大小的同时提高运行速度，一般采用 `PTQ`(训练后量化)的方式量化模型，步骤：
 * 准备好浮点模型。
-* 用模型量化和格式转换工具转换成 AXera-Pi 支持的格式，这里工具使用爱芯官方提供的 [pulsar](https://superpulsar-docs.readthedocs.io) 。
+* 用模型量化和格式转换工具转换成 AXera-Pi 支持的格式，这里工具使用爱芯官方提供的 [pulsar](https://pulsar-docs.readthedocs.io) 。
 * 在 AXera-Pi 上运行模型。
 
 ## 准备浮点模型
 
 使用 `Pytorch` 或者 `TensorFlow` 训练好模型， 将模型保存为 `onnx` 格式备用。
 
-需要注意只能使用 `AXera-Pi` 所支持的算子，见[算子支持列表](https://superpulsar-docs.readthedocs.io/zh_CN/latest/appendix/op_support_list.html)。
+需要注意只能使用 `AXera-Pi` 所支持的算子，见[算子支持列表](https://pulsar-docs.readthedocs.io/zh_CN/latest/appendix/op_support_list.html)。
 
 对于某些网络，可能需要将后处理剥离出来，使用`CPU`处理。
 
@@ -121,13 +121,13 @@ docker run -it --net host --rm --shm-size 32g -v $PWD:/data sipeed/pulsar
 
 ### 进行模型量化和转换
 
-然后看 [pulsar](https://superpulsar-docs.readthedocs.io) 文档中的转换命令以及配置文件方法进行模型量化和格式转换。
+然后看 [pulsar](https://pulsar-docs.readthedocs.io) 文档中的转换命令以及配置文件方法进行模型量化和格式转换。
 > 注意 `AXera-Pi` 使用了虚拟 NPU 的概念来划分算力，以将实现全部算力给 NPU 或者 NPU 和 AI-ISP 各分一半。
 
 #### 举例
 
 仍然以 `mobilenetv2` 为例：
-* 根据`pulsar`文档，准备好配置文件`config_mobilenetv2.prototxt`, (具体格式说明见[配置文件详细说明](https://superpulsar-docs.readthedocs.io/zh_CN/latest/test_configs/config.html)),内容如下：
+* 根据`pulsar`文档，准备好配置文件`config_mobilenetv2.prototxt`, (具体格式说明见[配置文件详细说明](https://pulsar-docs.readthedocs.io/zh_CN/latest/test_configs/config.html)),内容如下：
 .. details:: config_mobilenetv2.prototxt
     ```protobuf
     # 基本配置参数：输入输出
@@ -295,6 +295,6 @@ print(out.argmax(), out.max())
 
 `QAT`(Quantization aware training)即量化感知训练，和 `PTQ` 在对训练好的模型进行浏览量化的做法不同，`QAT` 是在训练时就模拟量化推理，以减少量化误差， 和训练后量化 `PTQ` 相比，有更高的精度，但是过程会更复杂，不建议一开始就使用。
 
-更多详情看[superpulsar](https://superpulsar-docs.readthedocs.io)， 文档会持续更新，如果你擅长这方面，也欢迎点击右上角`编辑本页`在这里添加说明。
+更多详情看[superpulsar](https://pulsar-docs.readthedocs.io)， 文档会持续更新，如果你擅长这方面，也欢迎点击右上角`编辑本页`在这里添加说明。
 
 

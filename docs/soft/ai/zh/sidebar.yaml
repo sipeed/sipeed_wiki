@@ -11,10 +11,10 @@ items:
   file: deploy/k210.md
 - label: Maix-II 之 V831 模型部署
   file: deploy/v831.md
+- label: Maix-III 之 AX-Pi 模型部署
+  file: deploy/ax-pi.md
 - label: TinyMaix 模型部署
   file: deploy/tinymaix.md
-- label: AX-Pi 模型部署
-  file: deploy/ax-pi.md
 - label: MaixHub
 - label: MaixHub 简介
   file: maixhub/README.md
