@@ -1,24 +1,15 @@
 ---
-title: Tang Primer 20K Dock 点一个灯
+title: Tang Primer 20K Dock 亮一个灯
 tags: Tang Primer 20K Dock，上手
 keywords: Primer, Tang, Dock， 入门，20K
 desc: Tang Primer 20K Dock 简单上手
 update:
-  - date: 2022-09-21
+  - date: 2022-09-29
     version: v0.1
     author: wonder
     content:
       - 初稿
-  - date: 2022-09-29
-    version: v0.2
-    author: wonder
-    content:
-      - 修复部分错误
 ---
-
-对于软件开发来说，输出 `hello world` 就是入门了。对于硬件相关的开发而言，点灯就是同款入门。
-<!-- 
-Dock 底板上有 6 个普通的 LED 可以自定义功能。用户可以使用这六个灯来组合成不同的状态来判断自己当前代码的运行情况，在此仅以最简单的流水灯为例，且对他进行简单的抓波。 -->
 
 ## 安装 IDE
 
@@ -26,7 +17,7 @@ Dock 底板上有 6 个普通的 LED 可以自定义功能。用户可以使用�
 
 Windows 用户建议额外下载一次高云教育版的编程器软件，这样可以避免烧录时因为 Programmer 软件版本不兼容 BL702 下载器而导致的奇怪问题。
 
-对于 Linux 用户的话建议使用 [openfpgaLoader](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/get_started/flash_in_linux.html) 这软件来烧录这款设备。
+对于 Linux 用户的话建议使用 [openfpgaLoader](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/get_started/flash_in_linux.html) 这软件来烧录这款板子。
 
 ## 新建工程
 
@@ -39,7 +30,7 @@ Windows 用户建议额外下载一次高云教育版的编程器软件，这样
 
 设置工程名称，要求只用英文的下划线命名，存放路径中不要有中文字符或者空格等。
 
-![project_path](./assets/led_assets/project_path.png)
+![project_path](./assets/assign_led_assets/assign_led_on.png)
 
 然后在下面的芯片型号中选择 GW2A-LV18PG256C8/I7，使用上面的筛选能够更快地选择到正确的型号。注意 Device 那一栏为 GW2A-18C
 ![device_choose](./assets/led_assets/device_choose.png)
@@ -88,121 +79,31 @@ endmodule
 
 ### 代码思路
 
-写代码前我们需要先想清楚代码目的：每隔 0.5S 灯闪一次。
+根据我们的 Dock 底板 [原理图](https://dl.sipeed.com/shareURL/TANG/Primer_20K/02_Schematic)，可以看到我们将 IO 控制为底的时候，LED 会亮起来。
 
-对此所画的需求框图如下：
+![led_schematic](./assets/assign_led_assets/led_schematic.png)
 
-![block_method](./assets/led_assets/block_method.png)
-
-然后对于 0.5S 我们需要一个计数器来计时，LED 灯闪就是 IO 翻转
-
-![count_block](./assets/led_assets/time_count.png)
-
-把上面的思维框图具体到实际使用的话，就变成下面的样式了:
-
-![clock_time_count](./assets/led_assets/clock_time_count.png)
-
-其中 Clock 为时钟源，用来给计时器提供准确的时间。
+知道怎么样能让灯亮起来后，就快点编写代码吧
 
 ### 代码描述
 
-根据上文 Verilog 简单说明和所描述的框图，可以所要编写 Verilog 模块有 Clock 和 IO电平 两个端口；
-
 ```v
-module led(
-    input  Clock,
-    output IO_voltage
+module assign_led_on(
+    output led_voltage_level
 );
-
+    assign led_voltage_level = 1'b0 ;
 endmodule
 ```
 
-对于内部的计时模块，Primer 20K 核心板上的晶振为 27MHZ，因此我们每秒钟会有 27000000 个时钟上升沿，想要 0.5S 计数的话那么只需要计数 13500000 次上升沿就好。计数是从 0 开始的，数 13500000 的话就是从 0 数到 13499999。计数完后我们需要设置一个标志位，来通知 LED 的 IO 翻转一下电平。整体计数代码如下：
+上面的代码，定义了一个名为 assign_led_on 得模块，一个名为 led_voltage_level 的输出端口。 `assign` 语句约束了 led_voltage_level 的值，使其值保持为 0。后面再将这个端口绑定到 FPGA 芯片的引脚上后，就可以得到一个电平状态为低电平的引脚，借此来使 LED 亮起来。
 
-```v
-//parameter Clock_frequency = 27_000_000; // 时钟频率为27Mhz
-parameter count_value       = 13_499_999; // 计时 0.5S 所需要的计数次数
-
-reg [23:0]  count_value_reg ; // 计数器
-reg         count_value_flag; // IO 电平翻转标志
-
-always @(posedge Clock) begin
-    if ( count_value_reg <= count_value ) begin //没有计数到 0.5S
-        count_value_reg  <= count_value_reg + 1'b1; // 继续计数
-        count_value_flag <= 1'b0 ; // 不产生翻转标志
-    end
-    else begin //计数到 0.5S 了
-        count_value_reg  <= 23'b0; // 清零计数器，为重新计数最准备
-        count_value_flag <= 1'b1 ; // 产生翻转标志
-    end
-end
-```
-
-对于 LED IO 电平翻转代码如下：
-
-```v
-reg IO_voltage_reg = 1'b0; // 声明 IO 电平状态用于达到计时时间后的翻转，并赋予一个低电平初始态
-
-always @(posedge Clock) begin
-    if ( count_value_flag )  //  电平翻转标志有效
-        IO_voltage_reg <= ~IO_voltage_reg; // IO 电平翻转
-    else //  电平翻转标志无效
-        IO_voltage_reg <= IO_voltage_reg; // IO 电平不变
-end
-```
-
-
-将上面的代码整合后就变成了下面的内容:
-
-```v
-module led(
-    input  Clock,
-    output IO_voltage
-);
-
-/**********计时部分**********/
-//parameter Clock_frequency = 27_000_000; // 时钟频率为27Mhz
-parameter count_value       = 13_499_999; // 计时 0.5S 所需要的计数次数
-
-reg [23:0]  count_value_reg ; // 计数器
-reg         count_value_flag; // IO 电平翻转标志
-
-always @(posedge Clock) begin
-    if ( count_value_reg <= count_value ) begin //没有计数到 0.5S
-        count_value_reg  <= count_value_reg + 1'b1; // 继续计数
-        count_value_flag <= 1'b0 ; // 不产生翻转标志
-    end
-    else begin //计数到 0.5S 了
-        count_value_reg  <= 23'b0; // 清零计数器，为重新计数最准备
-        count_value_flag <= 1'b1 ; // 产生翻转标志
-    end
-end
-reg IO_voltage_reg = 1'b0; // 声明 IO 电平状态用于达到计时时间后的翻转，并赋予一个低电平初始态
-
-/**********电平翻转部分**********/
-always @(posedge Clock) begin
-    if ( count_value_flag )  //  电平翻转标志有效
-        IO_voltage_reg <= ~IO_voltage_reg; // IO 电平翻转
-    else //  电平翻转标志无效
-        IO_voltage_reg <= IO_voltage_reg; // IO 电平不变
-end
-
-
-/**********补充一行代码**********/
-assign IO_voltage = IO_voltage_reg;
-
-endmodule
-```
-
-上面代码最后面补充了一行代码，是因为 IO_voltage 声明在了 port 位置，默认为 wire 型，想要将它与 reg 变量 IO_voltage_reg 连接起来，需要用到 assign 语句。
-
-## 综合，约束，布局布线
+## 综合、约束、布局布线
 
 ### 综合
 
 代码保存后，可以双击 IDE 内部的 Process -> Synthesize 来进行代码综合，将 verilog 代码内容转换为综合网表。
 
-![synthesize](./assets/led_assets/synthesize.png)
+![synthesize](./assets/assign_led_assets/synthesize.png)
 
 关于网表有兴趣的可以自己去查阅相关资料，此处不再额外说明。
 
@@ -224,25 +125,21 @@ endmodule
 
 此处因个人喜所以仅使用下图中 IO Constranins 方法来约束引脚：
 
-![floor_planner_ioconstrain](./assets/led_assets/floor_planner_ioconstrain.png)
+![floor_planner_ioconstrain](./assets/assign_led_assets/floor_planner_ioconstrain.png)
 
-根据[核心板原理图](https://dl.sipeed.com/fileList/TANG/Primer_20K/02_Schematic/Tang_Primer_20K_Core_board_3690.pdf)，我们可以知道晶振所输入的引脚为 H11。
+根据下面 Dock 底板原理图，决定点亮 LED4，对应在 FPGA 上的引脚为 L14。
 
-<img src="./assets/led_assets/crystal_port.png" alt="crystal_port" width=45%>
-
-然后结合底板上的 IO 丝印，决定用底板上的 FPGA 的 L14 引脚进行点灯，对应的 LED 编号为 LED4。
-
-![led_port](./assets/led_assets/led_port.png)
+![led_port](./assets/assign_led_assets/led_port.png)
 
 因此对于在 FloorPlanner 交互窗口下面的 IO Constranins 中将 PORT（端口）与 Location（引脚） 分别填入下面的值：
 
-![io_constrain_value](./assets/led_assets/io_constrain_value.png)
+![io_constrain_value](./assets/assign_led_assets/io_constrain_value.png)
 
 输入完毕后快捷键 Ctrl + S 来保存一下引脚约束，然后接可以关闭 FloorPlanner 的交互图形界面了。
 
 接着发现在工程项目里面多出来刚刚创建的 cst 文件了，里面的内容也比较好理解。
 
-![cst_content](./assets/led_assets/cst_content.png)
+![cst_content](./assets/assign_led_assets/cst_content.png)
 
 ### 布局布线
 
@@ -250,7 +147,7 @@ endmodule
 
 双击下体红框处的 Place&Route 就开始运行了。
 
-![place_route](./assets/led_assets/place_route.png)。
+![place_route](./assets/assign_led_assets/place_route.png)
 
 紧接着没有报错，全部通过。就可以开始进行烧录了。
 
@@ -260,7 +157,7 @@ Dock 板载了下载器，在 [安装IDE](https://wiki.sipeed.com/hardware/zh/ta
 
 ![connected](./assets/led_assets/connected.png)
 
-对于 Programmer 软件建议使用高云官网下载到 [点我跳转](http://www.gowinsemi.com.cn/faq.aspx) ，下载下图所示的 Programmer 软件即可。
+对于 Programmer 软件建议使用高云官网下载到 [点我跳转](http://www.gowinsemi.com.cn/faq.aspx) ，下载下图所示的高云云源编程器软件即可。
 
 ![educational_edition_programmer](./assets/led_assets/educational_edition_programmer.png)
 
@@ -282,6 +179,7 @@ Dock 板载了下载器，在 [安装IDE](https://wiki.sipeed.com/hardware/zh/ta
 
 烧录相关的文档可以参考 [SUG502-1.3_Gowin_Programmer用户指南.pdf](http://cdn.gowinsemi.com.cn/SUG502-1.3_Gowin_Programmer%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97.pdf)
 
+有问题的话可以前往 [常见问题](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/questions.html) 自行排查。
 
 ### 下载到 SRAM
 
@@ -316,19 +214,17 @@ Dock 板载了下载器，在 [安装IDE](https://wiki.sipeed.com/hardware/zh/ta
 
 然后我们的程序重新上电也能照样运行了。
 
+有问题的话可以前往 [常见问题](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/questions.html) 自行排查。
+
 ## 代码结果
 
-如图所示，只有一个灯在闪。
+如图所示，只有 LED4 亮着。
 
-![led_blink](./assets/led_assets/led_blink.gif)
+![led_blink](./assets/assign_led_assets/led4_on.png)
 
 ## 结语
 
 到这里我们就已经完成了 FPGA 的 “Hello world” 了。以后的示例工程不会再叙述新建文件等操作了。
-
-需要使用高云在线逻辑分析仪的可以看这里：[使用 GAO]施工中 <!---(./gao.md) -->
-
-下一篇：<!--[点六个灯](./led_6.md) --> 施工中
 
 ## 常见问题
 
@@ -343,3 +239,9 @@ Dock 板载了下载器，在 [安装IDE](https://wiki.sipeed.com/hardware/zh/ta
 ### No gowin device found
 
 确认自己使能了核心板。
+
+### 成功烧录过一次外部 Flash 后 Programmer 软件无法再烧录
+注意描述是成功烧录过一次 Flash。
+这种情况默认为启用了错误的引脚复用而导致下载器不能再识别到 FPGA 的 JTAG。解决办法是在芯片通电前将核心板上的 Flash 使能引脚拉高来阻止 FPGA 加载固件。使用金属将板子上的 Flash 短接后再通电即可解决。短接的具体位置见下图 Flash 处两侧的红框处。
+
+![flash_cs](./../assets/flash_cs.png)
