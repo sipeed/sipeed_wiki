@@ -13,7 +13,7 @@ update:
 
 本例程使用 Dock 底板上的 S0、S1 按键，和 LED0、LED1、LED2、LED3 四个 LED 灯。
 
-进行的操作与对应的结果如下：
+使用两个按键来控制 4 个LED灯的状态，进行的操作与对应的结果如下：
 
 <table>
     <tr>       
@@ -152,11 +152,11 @@ update:
 
 .. tabset::
 
-    ## key_led_on.v
+    ## decode_led_on.v
     Verilog文件；
     定义了两个按键输入端口，和四个输出端口。根据按键输入的状态，译码输出到对应的端口。
     ```verilog
-    module key_led_on(
+    module decode_led_on(
         input  [1:0] key,
         output [3:0] led
     );
@@ -167,7 +167,7 @@ update:
     endmodule
     ```
 
-    ## key_led_on.cst
+    ## decode_led_on.cst
     物理约束文件；
     将 verilog 代码里的端口绑定到 FPGA 引脚上面
     ```txt

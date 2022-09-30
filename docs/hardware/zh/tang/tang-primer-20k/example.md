@@ -17,13 +17,10 @@ Dock 底板上六个 LED 可以拿来做不少新手实验
   - [约束亮灯](./examples/assign_led.md)（快速熟悉 IDE，必看）
   - [按键亮灯](./examples/key_led_on.md) (后续文档规范，必看)
   - [译码器亮灯](./examples/decode_led_on.md)
-  - 优先编码器亮灯
 - 时序逻辑操作：
-  - 计数器亮灯
-  - 加法器亮灯
-  - 流水灯
+  - [计数器亮灯](./examples/led.md) 
+  - [流水灯](./examples/water_led.md)
   - 呼吸灯
-  - [计数器点灯](./examples/led.md) 
 
 ## RGB LCD 篇
 
