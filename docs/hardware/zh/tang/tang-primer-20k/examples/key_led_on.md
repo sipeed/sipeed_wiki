@@ -1,7 +1,6 @@
 ---
 title: Tang Primer 20K 按键亮灯
 keywords: Tang Primer 20K ,例程, 上手
-desc: AXera-Pi 烧录系统
 update:
   - date: 2022-09-29
     version: v0.1
@@ -12,7 +11,7 @@ update:
 
 ## 原理
 
-根据 Dock 底板原理图，可以看出当板载按键按下时，对应的 FPGA 引脚会为低电平。
+根据 DOCK 底板原理图，可以看出当板载按键按下时，对应的 FPGA 引脚会为低电平。
 
 ### 按键电路：
 
@@ -22,18 +21,30 @@ update:
 
 ### LED 电路:
 
-![key_schematic](./assets/key_led_on/key_schematic.png)
+![key_schematic](./assets/key_led_on/led_schematic.png)
 
 所以我们直接将按键引脚的电平输出到 LED 的引脚电平就可以了。
 
+### FPGA 引脚与电路外设对应的关系
+
+![peripherals](./assets/key_led_on/peripherals.png)
+
 ## 操作
 
-### 复用
+### 引脚复用
 
 LED5 复用了 SSPI 引脚，需要手动前往 Project->Configuration->Place&Route->Dual-Purpose Pin 中，勾选 `Use SSPI as regular IO`
 ![dual_purpose_pin](./assets/key_led_on/dual_purpose_pin.png)
 
 **后续文章中不再重复描述步骤，仅说明复用管脚，用户自行前往设置启用管脚复用。**
+
+### 端口和引脚
+
+| Port | Direction | Location |
+| --- | --- | --- |
+| key | input | T10 |
+| led[5] | output | L16 |
+| led[4] | output | L14 |
 
 ### 代码
 
@@ -46,7 +57,7 @@ LED5 复用了 SSPI 引脚，需要手动前往 Project->Configuration->Place&Ro
     ```verilog
     module key_led_on(
         input key,
-        output [1:0] led
+        output [5:4] led
     );
         assign led[1:0] = {2{key}};
     endmodule
@@ -66,7 +77,11 @@ LED5 复用了 SSPI 引脚，需要手动前往 Project->Configuration->Place&Ro
 
 #### 代码用法
 
+**仅本次说明，后续章节除了特定内容外，不再做说明。**
+
 根据文件里所描述的文件类型，创建对应的文件，并且把文件内容复制进去。
+
+---
 
 发现这是一个 `物理约束文件`
 ![物理约束文件](./assets/key_led_on/cst_file.png)
@@ -74,6 +89,9 @@ LED5 复用了 SSPI 引脚，需要手动前往 Project->Configuration->Place&Ro
 ![file_kind](./assets/key_led_on/file_kind.png)
 将文件内容内容复制进去
 ![file_content](./assets/key_led_on/file_content.png)
+接着保存这个文件。
+
+---
 
 将所有代码中涉及到的文件创建、复制内容且保存后，就可以进行综合、布局布线操作来生成下载固件了。
 
