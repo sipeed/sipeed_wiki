@@ -33,15 +33,11 @@ AX620A 是一款高算力、高能效比、低功耗的 AI SoC 芯片。芯片�
 | 存储 | 可选16GB EMMC |
 | IO 引出 | DDR4 SODIMM 260P 金手指全IO引出 |
 
-## MAIX-III AXera-Pi 能做什么？
-
-待补充
-
-## 关于 MAIX-III AXera-Pi 我们提供什么？
+## MAIX-III AXera-Pi 提供了什么？
 
 * 标准 Linux 系统体验， 提供 debian11 Linux 系统，支持 SD 卡启动 DD 烧录系统，方便用户开箱上手。
 
-* 提供 uboot 、kernel 、sample 等 Linux 源码仓库、提供产品使用文档、源码开发方法等说明。
+* 提供 ax-sample / libmaix / bsp sdk 等 Linux 源码仓库、提供产品使用文档、源码开发方法等说明。
 
 * 开箱即用的常见 AI 模型，以及模型量化转换工具和指导手册。
 
