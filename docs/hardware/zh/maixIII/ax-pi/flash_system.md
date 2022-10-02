@@ -20,11 +20,13 @@ update:
 
 ## 系统简介
 
-AXera-Pi 默认板卡没有存储介质，因此我们需要准备一张系统卡来启动设备。
+AXera-Pi 默认板卡没有存储介质，因此需要准备一张系统卡来启动设备。
 
-对于 AXera-Pi 我们提供的是 Debian 镜像，用来使用这款开发板足够了。
+目前 AXera-Pi 提供的是 Debian11 Bullseye 镜像，[Ubuntu 源自 Debian。 这意味着 Ubuntu 使用与 Debian 相同的 apt 打包系统，并共享来自 Debian 存储库的大量软件包和库，利用 Debian 基础设施作为基础。 大多数“派生” Linux 发行版，它们使用相同的包管理系统并与基于的发行版共享软件包。 ](https://zhuanlan.zhihu.com/p/426219868)。
 
-官方店铺可以购买到预烧录了系统镜像的 SD 卡，不然的话我们就需要进行下面的操作来自己准备 SD 镜像卡了。
+> [选择 Debian 的理由](https://www.debian.org/intro/why_debian)
+
+官方店铺可以购买到预烧录了系统镜像的 SD 卡，不然的话就需要进行下面的操作来自己准备 SD 镜像卡了。
 
 ## 获取镜像
 
