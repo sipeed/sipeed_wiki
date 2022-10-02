@@ -2,7 +2,25 @@
 title: Maix-III 系列 AXera-Pi 开发板 SDK 使用介绍
 ---
 
-## SDK 和源码下载
+## 获取 SDK 源码
+
+上一篇介绍了基础的开发环境搭建和使用方法，这一篇介绍如何应用这些 sdk 源码。
+
+- [ax-sample](https://github.com/AXERA-TECH/ax-samples)
+
+由爱芯提供 AI 模型的开发与评估验证，提供给有经验的 AI 开发者使用，不涉及任何硬件外设有关的内容。
+
+- [libmaix](https://github.com/sipeed/libmaix)
+
+由 sipeed 提供在 linux 平台统一的嵌入式开发环境，主要有摄像头、屏幕、视觉、图像处理、NPU pipiline 相关的实机部署例程，适合刚入门嵌入式 linux 开发的同学使用。
+
+- [axpi_bsp_sdk](https://github.com/sipeed/axpi_bsp_sdk)
+
+芯片商用时所用的 bsp 开发包，这里主要提供的是芯片的原始开发资料，如 uboot 、 linux 、 msp 、msp 等工程代码，这个部分是逐步开源的，你可以从这里得到商业评估用的代码，例如 ipcdemo 这样的程序，但这些代码会很复杂且高耦合，适合有经验的同行使用。
+
+### libmaix
+
+这是一个适用于 sipeed 所用 linux 芯片开发的 C/C++ 基础开发框架，使用 cmake 构建，提供了许多开箱参考的案例，还有一些第三方库代码的链接，如 opencv openmv 这些视觉库的链接。
 
 SDK 源码在 [libmaix](https://github.com/sipeed/libmaix)， 需要使用 git 命令下载：
 
@@ -14,7 +32,6 @@ git clone https://github.com/sipeed/libmaix.git --recursive
 > 中国国内可能下载速度较慢，可以多取消重试几次，可能会遇到速度快的节点，当然最好还是通过设置代理来加速下载。
 
 另外， AI 模型及例程在 [MaixHub 模型库](https://maixhub.com/model/zoo) 可以找到， 以及 [AXERA-TECH/ax-samples](https://github.com/AXERA-TECH/ax-samples) 仓库。
-
 
 ## 编译 SDK
 
