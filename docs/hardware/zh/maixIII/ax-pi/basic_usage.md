@@ -121,7 +121,7 @@ wlan0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
 
 - wlan0：无线网卡，使用 DHCP 协议获取 IP 地址，可以使用 `ifconfig wlan0` 命令查看当前网络配置。
 
-默认 WIFI 账号密码配置存放在 `wpa_supplicant.conf` 里，测试过支持 Android 手机开放的 WPA-PSK2 热点。
+默认 WIFI 账号密码配置存放在 `wpa_supplicant.conf` 里，测试过支持 Android 手机开放的 WPA-PSK2 热点，配置修改后会在重启后生效。
 
 ```bash
 root@AXERA:~# cat /etc/wpa_supplicant/wpa_supplicant.conf
@@ -135,7 +135,11 @@ network={
 }
 ```
 
-账号密码修改后可以重启后生效，手工操作则需要了解 iwconfig 和 iwlist 命令管理 wifi 网卡，例如 WIFI 扫描方法 iwlist wlan0 scanning，手动连接热点 `iwconfig wlan0 essid "xxxxx" iwconfig wlan0 ap auto` 。
+想要更好的命令行网络管理工具请使用 `apt-get install network-manager` 安装后，在 `/etc/NetworkManager/NetworkManager.conf` 里修改为此设置 `：managed=true` 和注释掉 `/etc/network/interfaces` 里的 wlan0 相关配置后重启即可生效，但原来的 `wpa_supplicant.conf` 里的配置会失效。重启后使用 `nmtui-connect` 命令来联网（目前 20221001 的镜像未预置该命令，需要先通过以太网联网才能完成安装）。
+
+> [配置 NetworkManager 参考](https://support.huaweicloud.com/bestpractice-ims/ims_bp_0026.html#section1) & [linux系统中使用nmtui命令配置网络参数（图形用户界面）](https://www.cnblogs.com/liujiaxin2018/p/13910144.html)
+
+手工操作则需要了解 iwconfig 和 iwlist 命令管理 wifi 网卡，例如 WIFI 扫描方法 `iwlist wlan0 scanning`，现已不再使用这个命令了，仅供测试。
 
 ```
 root@AXERA:~# iwlist wlan0 scanning
