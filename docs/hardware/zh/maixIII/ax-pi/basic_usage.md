@@ -115,9 +115,11 @@ wlan0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
 
 - lo: local的简写，一般指本地环回接口。
 
-- eth0：有线网卡，使用 DHCP 协议获取 IP 地址，可以使用 `ifconfig eth0` 命令查看当前网络配置。
+- eth0：有线网卡，使用 `dhclient eth0 &` 手动启动 DHCP 客户端获取 IP 地址，得到 ip 后可以使用 `ifconfig eth0` 命令查看当前网络配置。
 
-支持千兆网络，只需要开机前将网线插上去，启动过程中就会自动配置并联网，可以通过 `apt update` 测试软件源更新。
+> dhclient 也支持其他网卡，如 dhclient wlan0 
+
+默认支持千兆网络，只需要开机前将网线插上去，启动过程中就会自动配置并联网，可以通过 `apt update` 测试软件源更新。
 
 - wlan0：无线网卡，使用 DHCP 协议获取 IP 地址，可以使用 `ifconfig wlan0` 命令查看当前网络配置。
 
@@ -139,7 +141,7 @@ network={
 
 > [配置 NetworkManager 参考](https://support.huaweicloud.com/bestpractice-ims/ims_bp_0026.html#section1) & [linux系统中使用nmtui命令配置网络参数（图形用户界面）](https://www.cnblogs.com/liujiaxin2018/p/13910144.html)
 
-手工操作则需要了解 iwconfig 和 iwlist 命令管理 wifi 网卡，例如 WIFI 扫描方法 `iwlist wlan0 scanning`，现已不再使用这个命令了，仅供测试。
+手工操作则需要了解 iwconfig 和 iwlist 命令管理 wifi 网卡，例如 WIFI 扫描方法 `iwlist wlan0 scanning`，由于 iwconfig 只支持无密码和 WEP 认证的热点，所以现已不再使用这个命令了，仅供简单查询热点测试 wifi 好坏。
 
 ```
 root@AXERA:~# iwlist wlan0 scanning
