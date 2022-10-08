@@ -47,7 +47,7 @@ ssh root@192.168.233.1
 
 不想输入密码可以用 sshpass 类似这样。
 
-```bash 
+```bash
 sshpass -p root ssh root@192.168.233.1
 ```
 
@@ -80,21 +80,7 @@ fbon
 
 ### 交叉编译工具链
 
-交叉编译工具链是用来编译 linux 系统的程序的，这里使用的是 arm-linux-gnueabihf 这个工具链，这个工具链是 debian / ubunutu 系统提供的，所以可以直接通过 apt 安装。
-
-```bash
-sudo apt install gcc-arm-linux-gnueabihf
-```
-
-安装完成后，可以在 /usr/bin 目录下找到 arm-linux-gnueabihf-gcc 这个交叉编译工具，这个工具可以用来编译 linux 系统的程序。
-
-### 交叉编译 libmaix
-
-用本地编译同样的方式编译 libmaix 只是这一次多了一个 scp 拷贝文件夹的步骤，将 libmaix 编译出来的程序，上传到板子运行即可。
-
-唯一不同的地方在于提供交叉编译链的地方需要修改，如：`python3 project.py --board=axpi --toolchain /usr/bin --toolchain-prefix arm-linux-gnueabihf- config` 之中的编译链可能会发生改变，这里需要根据你的实际情况进行修改，比如本机环境下可能有多个编译链，但一般来说是不需要修改的。
-
-附图：
+不用改变编译环境即可完成交叉编译，请参考本文在桌面系统上完成交叉编译：[[maixpy3 axpi] 编辑发布 debian 镜像与在 PC 上交叉编译程序](https://www.cnblogs.com/juwan/p/16769237.html)
 
 ## 总结
 
@@ -105,7 +91,7 @@ sudo apt install gcc-arm-linux-gnueabihf
 ## 参考
 
 * [什么是交叉编译？](https://cn.bing.com/search?q=%E4%BB%80%E4%B9%88%E6%98%AF%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%EF%BC%9F)
-* [超详细解答vscode如何远程连接Linux以及可能会出现的一些问题](https://blog.csdn.net/cxn15335120506/article/details/123238233) 
+* [超详细解答vscode如何远程连接Linux以及可能会出现的一些问题](https://blog.csdn.net/cxn15335120506/article/details/123238233)
 * [vscode remote](code.visualstudio.com/docs/remote/remote-overview)
 * [ssh scp 是什么？](https://cn.bing.com/search?q=ssh+scp+%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F)
 * [libmaix](github.com/sipeed/libmaix)
