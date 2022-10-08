@@ -137,7 +137,9 @@ network={
 }
 ```
 
-想要更好的命令行网络管理工具请使用 `apt-get install network-manager` 安装后（最新 20221008 后的镜像已安装但未配置），在 `/etc/NetworkManager/NetworkManager.conf` 里修改为此设置 `：managed=true` 和注释掉 `/etc/network/interfaces` 里的 wlan0 相关配置后重启即可生效，但原来的 `wpa_supplicant.conf` 里的配置会失效。重启后使用 `nmtui-connect` 命令来联网。
+想要更好的命令行网络管理工具请使用 `apt-get install network-manager` 在 20221008 后的镜像已预置。
+
+启用需要 `systemctl enable ModemManager.service` 并在 `nano /etc/NetworkManager/NetworkManager.conf` 里修改成 `：managed=true` 和注释掉 `/etc/network/interfaces` 里的 wlan0 相关配置后重启即可使用 `nmtui-connect` 进行联网，但原来的 `wpa_supplicant.conf` 里的配置会失效，禁用需要 `systemctl disable ModemManager.service` 。
 
 > [配置 NetworkManager 参考](https://support.huaweicloud.com/bestpractice-ims/ims_bp_0026.html#section1) & [linux系统中使用nmtui命令配置网络参数（图形用户界面）](https://www.cnblogs.com/liujiaxin2018/p/13910144.html)
 
