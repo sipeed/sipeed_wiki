@@ -78,7 +78,7 @@ iface wlan0 inet dhcp
 可以使用 ifconfig 查看所有网卡信息。
 
 ```bash
-root@AXERA:~# ifconfig 
+root@AXERA:~# ifconfig
 eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
         inet 192.168.0.77  netmask 255.255.255.0  broadcast 192.168.0.255
         ether 1e:09:dc:e9:1c:29  txqueuelen 1000  (Ethernet)
@@ -86,7 +86,7 @@ eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
         RX errors 0  dropped 0  overruns 0  frame 0
         TX packets 31  bytes 2970 (2.9 KiB)
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
-        device interrupt 56  
+        device interrupt 56
 
 lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
         inet 127.0.0.1  netmask 255.0.0.0
@@ -117,7 +117,7 @@ wlan0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
 
 - eth0：有线网卡，使用 `dhclient eth0 &` 手动启动 DHCP 客户端获取 IP 地址，得到 ip 后可以使用 `ifconfig eth0` 命令查看当前网络配置。
 
-> dhclient 也支持其他网卡，如 dhclient wlan0 
+> dhclient 也支持其他网卡，如 dhclient wlan0
 
 默认支持千兆网络，只需要开机前将网线插上去，启动过程中就会自动配置并联网，可以通过 `apt update` 测试软件源更新。
 
@@ -137,7 +137,7 @@ network={
 }
 ```
 
-想要更好的命令行网络管理工具请使用 `apt-get install network-manager` 安装后，在 `/etc/NetworkManager/NetworkManager.conf` 里修改为此设置 `：managed=true` 和注释掉 `/etc/network/interfaces` 里的 wlan0 相关配置后重启即可生效，但原来的 `wpa_supplicant.conf` 里的配置会失效。重启后使用 `nmtui-connect` 命令来联网（目前 20221001 的镜像未预置该命令，需要先通过以太网联网才能完成安装）。
+想要更好的命令行网络管理工具请使用 `apt-get install network-manager` 安装后（最新 20221008 后的镜像已安装但未配置），在 `/etc/NetworkManager/NetworkManager.conf` 里修改为此设置 `：managed=true` 和注释掉 `/etc/network/interfaces` 里的 wlan0 相关配置后重启即可生效，但原来的 `wpa_supplicant.conf` 里的配置会失效。重启后使用 `nmtui-connect` 命令来联网。
 
 > [配置 NetworkManager 参考](https://support.huaweicloud.com/bestpractice-ims/ims_bp_0026.html#section1) & [linux系统中使用nmtui命令配置网络参数（图形用户界面）](https://www.cnblogs.com/liujiaxin2018/p/13910144.html)
 
@@ -163,7 +163,7 @@ wlan0     Scan completed :
                         Group Cipher : CCMP
                         Pairwise Ciphers (1) : CCMP
                         Authentication Suites (1) : PSK
-                    Quality=100/100  Signal level=100/100  
+                    Quality=100/100  Signal level=100/100
                     Extra:fm =0003
           Cell 02 - Address: 0C:3A:FA:0E:81:7F
                     ESSID:""
@@ -172,7 +172,7 @@ wlan0     Scan completed :
                     Frequency:2.412 GHz (Channel 1)
                     Encryption key:off
                     Bit Rates:144 Mb/s
-                    Quality=100/100  Signal level=88/100  
+                    Quality=100/100  Signal level=88/100
                     Extra:fm =0001
           Cell 03 - Address: 64:64:4A:88:7F:06
                     ESSID:"Reachintelligent"
@@ -187,7 +187,7 @@ wlan0     Scan completed :
                         Pairwise Ciphers (1) : CCMP
                         Authentication Suites (1) : PSK
                     IE: Unknown: DD7B0050F204104A0001101044000102103B00010310470010876543219ABCDEF0123464644A887F04102100067869616F6D69102300045241373210240004303030321042000531323334351054000800060050F20400011011000C5869616F4D69526F75746572100800020000103C0001031049000600372A000120
-                    Quality=100/100  Signal level=100/100  
+                    Quality=100/100  Signal level=100/100
                     Extra:fm =0003
 
 ```
@@ -251,7 +251,7 @@ poweroff
 系统已经配置好 `/etc/rc.local` 开机脚本，可以在这里添加开机启动的命令，可以修改 `#!/bin/sh` 到 `exit 0` 之间的命令。
 
 ```bash
-root@AXERA:~# cat /etc/rc.local 
+root@AXERA:~# cat /etc/rc.local
 #!/bin/sh
 
 chmod 755 /opt/scripts/auto_load_all_drv.sh && bash /opt/scripts/auto_load_all_drv.sh > /dev/null 2>&1
@@ -327,7 +327,7 @@ bin  include  lib  scripts  share
 ```
 
 还有一些在 home 目录下：
-    
+
 ```bash
 root@AXERA:~# tree -L 1 /home
 
@@ -415,7 +415,7 @@ NPU CORE0:         800 MHz
 ISP:                 533 MHz
 MM:                 594 MHz
 VPU:                 624 MHz
-root@AXERA:~# 
+root@AXERA:~#
 ```
 
 目前硬件内存虽然是 2g 但在系统上只能看到 745M ，不用担心，这是目前的分配内存过于保守导致的，后续更新内核调整一下 NPU 和 CMM 的内存分配的。
@@ -474,7 +474,7 @@ fbv yolov5s_out.jpg
 
 - 测试脚本 speaker-test -t sine -f 440 -c1
 - 播放音频 aplay test.wav
-- 录制音频 arecord test.wav -c 2 -d 2 
+- 录制音频 arecord test.wav -c 2 -d 2
 
 录音回放 的 python3 代码如下：
 
@@ -521,7 +521,7 @@ finally:
 
 - 如何配置虚拟串口 /dev/ttyGS0 并转发登录接口。
 
-停止 usb-gadget@g0 后使用 `systemctl start usb-gadget@g1` 即可看到 。 
+停止 usb-gadget@g0 后使用 `systemctl start usb-gadget@g1` 即可看到 。
 
 然后使用 `systemctl start getty@ttyGS0` 即可转发串口终端到 usb 的虚拟串口上。
 
@@ -533,9 +533,9 @@ finally:
 
 ```bash
 root@AXERA:~# systemctl stop usb-gadget@g0
-root@AXERA:~# lsusb 
+root@AXERA:~# lsusb
 Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
-Bus 001 Device 002: ID 067b:2731 Prolific Technology, Inc. USB SD Card Reader     
+Bus 001 Device 002: ID 067b:2731 Prolific Technology, Inc. USB SD Card Reader
 Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
 root@AXERA:~# fdisk -l
 Disk /dev/mmcblk2: 58.94 GiB, 63281561600 bytes, 123596800 sectors
@@ -551,7 +551,7 @@ Device         Boot  Start       End   Sectors  Size Id Type
 
 
 Disk /dev/sda: 240 MiB, 251658240 bytes, 491520 sectors
-Disk model: SD Card Reader  
+Disk model: SD Card Reader
 Units: sectors of 1 * 512 = 512 bytes
 Sector size (logical/physical): 512 bytes / 512 bytes
 I/O size (minimum/optimal): 512 bytes / 512 bytes
@@ -628,15 +628,15 @@ echo 1 > /sys/class/pwm/pwmchip0/pwm1/enable
 ```bash
 root@AXERA:~# i2cdetect -y -r 0
      0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
-00:                         -- -- -- -- -- -- -- -- 
-10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
-20: -- 21 -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
-30: -- -- -- -- -- -- 36 -- -- -- -- -- -- -- -- -- 
-40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
-50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
-60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
-70: -- -- -- -- -- -- -- --                         
-root@AXERA:~# 
+00:                         -- -- -- -- -- -- -- --
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+20: -- 21 -- -- -- -- -- -- -- -- -- -- -- -- -- --
+30: -- -- -- -- -- -- 36 -- -- -- -- -- -- -- -- --
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+70: -- -- -- -- -- -- -- --
+root@AXERA:~#
 ```
 
 读写可用 i2cget 和 i2cset 命令，与其他芯片同理。
@@ -646,19 +646,19 @@ root@AXERA:~#
 和这篇一样 [为 AW V831 配置 spidev 模块，使用 py-spidev 进行用户层的 SPI 通信。](https://www.cnblogs.com/juwan/p/14341406.html)
 
 ```
-root@AXERA:~# ./spidev_test -D /dev/spidev1.0 -v 
+root@AXERA:~# ./spidev_test -D /dev/spidev1.0 -v
 spi mode: 0x0
 bits per word: 8
 max speed: 500000 Hz (500 KHz)
 TX | FF FF FF FF FF FF 40 00 00 00 00 95 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF F0 0D  | ......@....�..................�.
 RX | FF FF FF FF FF FF 40 00 00 00 00 95 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF F0 0D  | ......@....�..................�.
-root@AXERA:~# ./spidev_test -D /dev/spidev1.0 -v 
+root@AXERA:~# ./spidev_test -D /dev/spidev1.0 -v
 spi mode: 0x0
 bits per word: 8
 max speed: 500000 Hz (500 KHz)
 TX | FF FF FF FF FF FF 40 00 00 00 00 95 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF F0 0D  | ......@....�..................�.
 RX | FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF  | ................................
-root@AXERA:~# ./spidev_test -D /dev/spidev1.0 -v 
+root@AXERA:~# ./spidev_test -D /dev/spidev1.0 -v
 spi mode: 0x0
 bits per word: 8
 max speed: 500000 Hz (500 KHz)
