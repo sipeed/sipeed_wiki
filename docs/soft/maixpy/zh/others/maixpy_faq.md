@@ -249,10 +249,13 @@ SDCard.remount()
 1、检查串口是不是被ide占用了，因为串口只能用一个软件进行打开。
 2、使用 ide 中软件菜单的串口终端打开
 
-## ValueError: [MAIXPY]kpu: load error:2005,ERR_READ_FILE: read filefailed
+## ValueError: [MAIXPY]kpu: load error:2005,ERR_READ_FILE: read file failed
 
-检查sd卡上的模型模型和代码中的名字，路径是不是一样的。
-检查模型下载地址是不是和程序一样
+读取文件失败（read file failed）
+重新获取模型，重新烧录模型，重新导入模型。
+检查文件是不是损坏了，用校验工具对比一下。
+检查sd卡上的模型模型和代码中的名字与路径是不是一样的。
+检查模型下载地址是不是和程序一样。
 
 ## 烧录了 key_gen.bin 之后的操作
 
