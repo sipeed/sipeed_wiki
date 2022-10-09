@@ -78,9 +78,67 @@ fbon
 
 首先得有一台 linux 系统，如 ubuntu20.04 这样的桌面计算机，接着和上面一样，也可以在这台计算机上安装 vscode remote 或 idea clion 这类开发工具直接连接到板子里，这可以方便你编辑代码或传输文件。
 
-### 交叉编译工具链
+### 更换交叉编译工具链
 
-不用改变编译环境即可完成交叉编译，请参考本文在桌面系统上完成交叉编译：[[maixpy3 axpi] 编辑发布 debian 镜像与在 PC 上交叉编译程序](https://www.cnblogs.com/juwan/p/16769237.html)
+交叉编译工具链是用来编译 linux 系统的程序的，这里使用的是 arm-linux-gnueabihf 这个工具链，这个工具链是 debian / ubunutu 系统提供的，所以可以直接通过 apt 安装。
+
+- `sudo apt install gcc-arm-linux-gnueabihf`
+
+安装完成后，可以在 /usr/bin 目录下找到 `arm-linux-gnueabihf-gcc` 这个交叉编译工具，这个工具可以用来编译 linux 系统的程序。
+
+```bash
+juwan@juwan-n85-dls:~$ /usr/bin/arm-linux-gnueabihf-gcc -v
+Using built-in specs.
+COLLECT_GCC=arm-linux-gnueabihf-gcc
+COLLECT_LTO_WRAPPER=/usr/lib/gcc-cross/arm-linux-gnueabihf/9/lto-wrapper
+Target: arm-linux-gnueabihf
+Configured with: ../src/configure -v --with-pkgversion='Ubuntu 9.4.0-1ubuntu1~20.04.1' --with-bugurl=file:///usr/share/doc/gcc-9/README.Bugs --enable-languages=c,ada,c++,go,d,fortran,objc,obj-c++,gm2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-9 --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --with-sysroot=/ --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-libitm --disable-libquadmath --disable-libquadmath-support --enable-plugin --enable-default-pie --with-system-zlib --without-target-system-zlib --enable-libpth-m2 --enable-multiarch --enable-multilib --disable-sjlj-exceptions --with-arch=armv7-a --with-fpu=vfpv3-d16 --with-float=hard --with-mode=thumb --disable-werror --enable-multilib --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=arm-linux-gnueabihf --program-prefix=arm-linux-gnueabihf- --includedir=/usr/arm-linux-gnueabihf/include
+Thread model: posix
+gcc version 9.4.0 (Ubuntu 9.4.0-1ubuntu1~20.04.1)
+```
+
+用本地编译同样的方式编译 libmaix 只是这一次多了一个 scp 拷贝文件夹的步骤，将 libmaix 编译出来的程序，上传到板子运行即可。
+
+唯一不同的地方在于提供交叉编译链的地方需要修改，如：python3 project.py --board=axpi --toolchain /usr/bin --toolchain-prefix arm-linux-gnueabihf- config 之中的编译链可能会发生改变，这里需要根据你的实际情况进行修改，比如本机环境下可能有多个编译链，但一般来说是不需要修改的。
+
+假设要移到另一台 X86 的 PC 上，还需要修改编译配置中所需要的依赖文件：
+
+```
+        list(APPEND ADD_INCLUDE "lib/arch/axpi/joint"
+                                "lib/arch/axpi/opt/include"
+                                "lib/arch/axpi/opt/include/opencv4"
+        )
+        "/lib/aarch64-linux-gnu/libm.so"
+        "/lib/aarch64-linux-gnu/libpthread.so"
+        "/lib/aarch64-linux-gnu/libopencv_videoio.so"
+        "/lib/aarch64-linux-gnu/libopencv_highgui.so"
+        "/lib/aarch64-linux-gnu/libopencv_imgcodecs.so"
+        "/lib/aarch64-linux-gnu/libopencv_imgproc.so"
+        "/lib/aarch64-linux-gnu/libopencv_core.so"
+        "/lib/aarch64-linux-gnu/libopencv_freetype.so"
+```
+
+当换了编译链后也要修改到其他路径下的链接库：
+
+```
+        list(APPEND ADD_INCLUDE "lib/arch/axpi/joint"
+                                "/opt/include"
+                                "/usr//local/include/opencv4"
+        )
+        "/lib/arm-linux-gnueabihf/libm.so"
+        "/lib/arm-linux-gnueabihf/libpthread.so"
+        "/lib/arm-linux-gnueabihf/libopencv_videoio.so"
+        "/lib/arm-linux-gnueabihf/libopencv_highgui.so"
+        "/lib/arm-linux-gnueabihf/libopencv_imgcodecs.so"
+        "/lib/arm-linux-gnueabihf/libopencv_imgproc.so"
+        "/lib/arm-linux-gnueabihf/libopencv_core.so"
+        "/lib/arm-linux-gnueabihf/libopencv_freetype.so"
+```
+
+当然，具体问题还需要具体分析，总之换了桌面系统和编译链，对应的一些文件可能也会发生改变。
+
+
+**所以这里我提供了一种不用改变编译环境即可完成交叉编译，可以借助 `docker qemu` 虚拟机上完成板上交叉编译：[[maixpy3 axpi] 编辑发布 debian 镜像与在 PC 上交叉编译程序](https://www.cnblogs.com/juwan/p/16769237.html)**
 
 ## 总结
 
