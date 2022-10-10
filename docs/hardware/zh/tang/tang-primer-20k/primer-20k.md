@@ -277,9 +277,9 @@ Tang Primer 20K 是基于 [GW2A-V18PG256C8IC8I7](http://www.gowinsemi.com.cn/pro
 
 3. 如果进行完上面的点灯操作后后感觉有压力，可以自己查漏补缺：
    可以在下面的这些网站学习 Verilog:
-	+ 在线免费教程：[菜鸟教程](https://www.runoob.com/w3cnote/verilog-tutorial.html)（学习Verilog）
-	+ 在线免费 FPGA 教程：[Verilog](https://www.asic-world.com/verilog/index.html)
-	+ Verilog 刷题网站：[HDLBits](https://hdlbits.01xz.net/wiki/Main_Page)
+	+ 在线免费教程：[Verilog 教程](https://www.runoob.com/w3cnote/verilog-tutorial.html)（学习Verilog）
+	+ 在线免费 FPGA 教程：[Verilog](https://www.asic-world.com/verilog/index.html) （英文网站）
+	+ Verilog 刷题网站：[HDLBits](https://hdlbits.01xz.net/wiki/Main_Page)（英文网站）
 	+ 在线高云半导体视频教程：[点击这里](http://www.gowinsemi.com.cn/video_complex.aspx?FId=n15:15:26)
 
    对 IDE 使用有疑问的话，可以查看官方的一些文档来熟悉相关内容
@@ -294,11 +294,12 @@ Tang Primer 20K 是基于 [GW2A-V18PG256C8IC8I7](http://www.gowinsemi.com.cn/pro
 
 ## 例程汇总
 
-https://github.com/sipeed/TangPrimer-20K-example
+github 链接：https://github.com/sipeed/TangPrimer-20K-example
 
 部分教程：
 
 - Lite 底板点灯 ：<a href="https://wiki.sipeed.com/news/others/20k_lite_start/20k_lite_start.html" target="blank">点我跳转</a>
+- 例程指南: [点我跳转](./example.md)
 
 ## 交流方式
 
@@ -329,18 +330,22 @@ https://github.com/sipeed/TangPrimer-20K-example
 <!-- <img src="./assets/start/switch_1_on.png" alt="switch_1_on" width=20%> -->
 
 ### 如何下载到外部 FLASH
+
 进行如下选项设置：
 <img src="./assets/flash_mode.png" alt="flash_mode" width=75%>
 
 ### 烧录后没反应或者引脚现象不对
+
 首先确定选择了正确的型号，下图中的每一个参数都要求一致
 <img src="./assets/device_choose.png" alt="device_choose" width=75%>
 
 然后检查自己的代码和对应的仿真波形是否满足要求
 
 ### 成功烧录过一次外部 Flash 后 Programmer 软件无法再烧录
+
 注意描述是成功烧录过一次 Flash。
-这种情况默认为启用了错误的引脚复用而导致下载器不能再识别到 FPGA 的 JTAG。解决办法是在芯片通电前将核心板上的 Flash 使能引脚拉高来阻止 FPGA 加载固件。使用金属将板子上的 Flash 短接后再通电即可解决。短接的具体位置见下图 Flash 处两侧的红框处。
+
+这种情况默认为启用了错误的引脚复用而导致下载器不能再识别到 FPGA 的 JTAG。可以短接 Flash 的 1、4 引脚，让芯片上电时不能正常读 FLASH 。
 
 ![flash_cs](./assets/flash_cs.png)
 

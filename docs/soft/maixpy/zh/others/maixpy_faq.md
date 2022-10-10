@@ -269,7 +269,7 @@ SDCard.remount()
 
 ## 烧录模型或者固件，出现花屏、屏幕颜色不对、屏幕颜色单一
 
-这时需要使用，使用 kflash 来对 flash 整片擦除，然后再重新进行对应的 固件 和 模型烧录。
+这时需要使用 kflash 来对 flash 整片擦除，然后重新烧录 固件 和 模型。
 
 烧录模型到 flsah 的时候一定要注意烧录的位置，是否正确（数清楚对应 0 的个数）。
 
@@ -318,12 +318,30 @@ Maixpy ide 挂着运行时内存不足，就会出现的常见错误，解决方
 
 ## 如何同时运行多个模型
 
-其实也不是同时运行，就是分时运行。
+其实也不是同时运行，而是分时运行。
 
 如果有足够内存，就一次性把几个模型加载到内存， 然后分别分时运行推理。
 
 如果内存不足，加载第一个模型，运行后注销（使用 `kpu.deinit`），再加载运行第二个模型部分或全部模型。使用 `load_flash` 的方式加载模型，实时从 flash 读取内容。
 
+## 如何加载大模型
+
+由于 K210 的 RAM 的运行限制，当需要加载大模型文件时，可以通过直接 Flash 中动态加载并运行。
+
+具体用法前往 github:
+
+使用说明:[点我github](https://github.com/sipeed/MaixPy_scripts/blob/master/machine_vision/load_big_model/README_ZH.md)
+具体仓库:[点我github](https://github.com/sipeed/MaixPy_scripts/tree/master/machine_vision/load_big_model)
+
 ## could not open port 'COMxx':Permission 错误
 
 这种情况是因为串口被占用了，自己将使用过串口的程序关闭掉就行。实在不会解决的话重启电脑也能达到关闭所有使用串口程序的效果。
+
+## Maix Dock 串口不能用
+
+Maix Dock 不能使用 MobaXterm 或其他 不支持手动串口流控制的软件 来进行串口通信。
+为了不浪费时间，建议使用 MaixPy IDE 来进行通信。
+
+可以在 MaixPy IDE 顶部菜单栏 工具->打开终端->新终端->连接到串口->选择正确的串口->115200波特率 来新建一个终端，在这里面使用串口。
+
+![sipeed_maix_dock_terminal](./../../assets/hardware/maix_dock/sipeed_maix_dock_terminal.png)

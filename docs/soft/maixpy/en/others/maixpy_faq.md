@@ -337,3 +337,31 @@ It's suggested to use camera provided by Sipeed, this can reduce many troubles l
 kmodel is a kind of model explaining the structure and parameters of this model.
 
 smodel requires Machine-code; Machine-code is a kind of encrypted way to encrypt the model. The development board can't use the smodel encrypted and generanted by other Machine-code.
+
+## How to run multiple models in the same time
+
+Try to run it in time-sharing instead of in the same time
+
+If the RAM is big enough to load target models, then load them all and run rhem in time-sharing.
+
+If the RAM is not big enough to load multiple models, try to load one model, and deinit it after finishing running it (use `kpu.deinit`), the load another model or rest models(if the RAM is big enough). Use `load_flash` mode to load model, read content from flash.
+
+## How to load big model
+
+Beacuse the limit of RAM in K210, if need load big model, try to load it from flash and run it.
+
+The detailed usage can be found in github: [Click me](https://github.com/sipeed/MaixPy_scripts/tree/master/machine_vision/load_big_model)
+
+## could not open port 'COMxx':Permission denied
+
+This happens when the serial port is occupied. Try to close application which is using this serial port, or try to reboot computer to close all applications to avoid serial port occupied.
+
+## Maix Dock serial port connect failed
+
+Maix Dock cannot use MobaXterm or other software which does not support manual serial port flow control for serial communication.
+
+To avoid wasting time, it is recommended to use MaixPy IDE for communication.
+
+You can open terminal in MaixPy IDE top menu bar tools->open terminals->new terminal->Connect to serial ports ->select the correct serial port->baudrate 115200, to create a new terminal.
+
+![sipeed_maix_dock_terminal](./../../assets/hardware/maix_dock/sipeed_maix_dock_terminal.png)
