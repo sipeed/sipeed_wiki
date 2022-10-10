@@ -15,7 +15,7 @@ Maix-III AXera-Pi 开发板的 Linux debian11 系统默认使用 root 用户登�
 
 - 有线 串口 serial 登陆
 
-连接板子上的 usb uart 需要先安装串口驱动，再使用 mobaxterm 即可链接板子。
+连接板子上的 usb uart 需要先安装串口驱动，再使用 mobaxterm 即可链接板子，默认串口配置为 115200,8N1 （波特率115200，8位数据，无奇偶校验，1位停止位）。
 
 如下图操作步骤：
 
@@ -641,7 +641,7 @@ root@AXERA:~# i2cdetect -y -r 0
 root@AXERA:~#
 ```
 
-读写可用 i2cget 和 i2cset 命令，与其他芯片同理。
+这里 0x21 和 0x36 就代表的板子在 cam0 这个排线上的 /dev/i2c-0 设备存在某个摄像头的 i2c 设备，而读写可用 i2cget 和 i2cset 命令，与其他芯片同理。
 
 ### SPI
 

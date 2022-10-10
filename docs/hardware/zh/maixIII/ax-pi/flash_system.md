@@ -32,7 +32,9 @@ AXera-Pi 默认板卡没有存储介质，因此需要准备一张系统卡来�
 
 因为镜像文件比较大，因此这里仅提供百度云下载链接：
 
-前往百度云 [点我](https://eyun.baidu.com/s/3htTXfaG#sharelink/path=%2F%E4%B8%8B%E8%BD%BD%E7%AB%99%E6%96%87%E4%BB%B6%2FMaix-III%2FAXera%2Fsdk%2Frelease&parent_path=%2F%E6%B7%B1%E5%9C%B3%E7%9F%BD%E9%80%9F%E7%A7%91%E6%8A%80%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8) 下载文件，镜像包与校验文件都已经放在里面了。
+前往百度云 [点我](https://eyun.baidu.com/s/3htTXfaG#sharelink/path=%2F%E4%B8%8B%E8%BD%BD%E7%AB%99%E6%96%87%E4%BB%B6%2FMaix-III%2FAXera%2Fsdk%2Frelease&parent_path=%2F%E6%B7%B1%E5%9C%B3%E7%9F%BD%E9%80%9F%E7%A7%91%E6%8A%80%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8) 下载文件（sipeed_ax620a_debian11_*.zip），镜像包与校验文件都已经放在里面了。
+
+附图：
 
 ## 烧录镜像
 
@@ -62,7 +64,7 @@ AXera-Pi 默认板卡没有存储介质，因此需要准备一张系统卡来�
 
 ![下载结束](./../../maixII/M2A/assets/finish_flash.png)
 
-如果烧录失败了，请手动格式化一下 sd 卡。Windows 和 MacOS 可以使用 [SD Card Formatter](https://www.sdcard.org/downloads/formatter/eula_windows/SDCardFormatterv5_WinEN.zip)来格式化 sd 卡，Linux 系统可以使用 [Gparted](https://gparted.org/)来格式化。
+如果烧录失败了，请手动格式化一下 sd 卡。Windows 和 MacOS 可以使用 [SD Card Formatter](https://www.sdcard.org/downloads/formatter/eula_windows/SDCardFormatterv5_WinEN.zip)来格式化 sd 卡，Linux 系统可以使用系统的 disk 工具或 [Gparted](https://gparted.org/)来格式化。
 
 
 <!-- 烧录方法如下图示意
