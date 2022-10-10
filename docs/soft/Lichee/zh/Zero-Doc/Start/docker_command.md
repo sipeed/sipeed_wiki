@@ -2,7 +2,7 @@
 title: Docker命令速查
 ---
 
-# Docker概念
+## Docker 概念
 
 
 `镜像` ：只读的模板
@@ -12,7 +12,7 @@ title: Docker命令速查
 
 ## Docker 安装
 
-```
+```bash
 sudo apt-get install docker.io      
 sudo gpasswd -a your_user_name docker       #加入用户组
 sudo service docker restart     
@@ -25,8 +25,7 @@ docker下各文件默认存放在/var/lib/docker下
 
 ## Docker镜像操作
 
-
-```
+```bash
 docker search licheepi       #搜索镜像
 docker pull zepan/licheepi       #下载镜像
 docker run zepan/licheepi apt-get install -y xxx     #在镜像中执行命令，安装某软件

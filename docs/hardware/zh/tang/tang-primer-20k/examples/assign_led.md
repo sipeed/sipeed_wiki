@@ -241,7 +241,10 @@ Dock 板载了下载器，在 [安装IDE](https://wiki.sipeed.com/hardware/zh/ta
 确认自己使能了核心板。
 
 ### 成功烧录过一次外部 Flash 后 Programmer 软件无法再烧录
+
 注意描述是成功烧录过一次 Flash。
-这种情况默认为启用了错误的引脚复用而导致下载器不能再识别到 FPGA 的 JTAG。解决办法是在芯片通电前将核心板上的 Flash 使能引脚拉高来阻止 FPGA 加载固件。使用金属将板子上的 Flash 短接后再通电即可解决。短接的具体位置见下图 Flash 处两侧的红框处。
+这种情况默认为启用了错误的引脚复用而导致下载器不能再识别到 FPGA 的 JTAG。可以短接 Flash 的 1、4 引脚，让芯片上电时不能正常读 FLASH 。
 
 ![flash_cs](./../assets/flash_cs.png)
+
+### 更多问题及其解决办法前往[相关问题](./../Tang-Nano-Doc/questions.md)查看

@@ -16,9 +16,6 @@ update:
       - 更新部分过期内容
 ---
 
-
-> 编辑于2022.06.29
-
 这里汇总一些常见问题，持续更新
 
 ## Programmer 相关
@@ -76,6 +73,33 @@ update:
 ![educational_edition_programmer](./../tang-primer-20k/assets/start/educational_edition_programmer.png)
 
 对于 20K 核心板来说可能是接线错了，自己检查一下线序或者检查一下核心板的 8pin 接口有没有被怼歪。
+
+20K 核心板 JTAG 引脚定义可以在背部看到。
+
+<table>
+    <tr>
+        <td>核心板</td>
+        <td>5V0</td>
+        <td>TMS</td>
+        <td>TDO</td>
+        <td>TCK</td>
+        <td>TDI</td>
+        <td>RX</td>
+        <td>TX</td>
+        <td>GND</td>
+    </tr>
+    <tr>
+        <td>调试器</td>
+        <td>5V0</td>
+        <td>TMS</td>
+        <td>TDO</td>
+        <td>TCK</td>
+        <td>TDI</td>
+        <td>TX</td>
+        <td>RX</td>
+        <td>GND</td>
+    </tr>
+</table>
 
 ![cable_connect](./../tang-primer-20k/examples/assets/led_assets/cable_connect.png)
 
