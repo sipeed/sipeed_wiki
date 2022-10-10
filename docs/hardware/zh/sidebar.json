@@ -168,7 +168,7 @@
                         },
                         {
                             "label": "SDK 开发指南",
-                            "file": "maixIII/ax-pi/sdk.md"
+                            "file": "maixIII/ax-pi/sdk_usage.md"
                         },
                         {
                             "label": "AI 开发指南",
