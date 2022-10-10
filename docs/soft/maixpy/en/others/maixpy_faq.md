@@ -4,8 +4,6 @@ keywords: maixpy, k210, AIOT, edge computing
 desc: maixpy  MaixPy FAQ
 ---
 
-> Edit on 2022.07.19
-
 ## What are the similarities and differences between MaixPy and C development, and how should I choose
 
 MaixPy is a scripting language based on Micropython. It does not need to be compiled and parsed at runtime. It is simpler and more convenient to write, but it is not as real as C language at runtime.
@@ -330,7 +328,7 @@ Check the Python code error line and check ValueError error. This normally happe
 
 This error means there is something wrong with your camera.
 
-Check your connection of board with camera, if you make sure your connection of board with camera is right, then you can only another camera to slove this because this camera bas been broken.
+Check your connection of board with camera, if you make sure your connection of board with camera is right, then you can only another camera to slove this because this camera has been broken.
 
 It's suggested to use camera provided by Sipeed, this can reduce many troubles like the different line sequence of camera to the board or the lack of your camrea driver on this board.
 
