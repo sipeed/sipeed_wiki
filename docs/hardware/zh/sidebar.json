@@ -116,7 +116,7 @@
                     ]
                 },
                 {
-                    "label": "MaixII S",
+                    "label": "MaixII-S",
                     "file": "maixII/M2S/V833.md",
                     "collapsed": false,
                     "items": [
@@ -127,7 +127,7 @@
                     ]
                 },
                 {
-                    "label": "MaixSense",
+                    "label": "MaixII-Sense",
                     "file": "maixII/M2A/maixsense.md",
                     "collapsed": false,
                     "items": [
@@ -172,7 +172,7 @@
                         },
                         {
                             "label": "AI 开发指南",
-                            "file": "maixIII/ax-pi/ai.md"
+                            "url": "https://wiki.sipeed.com/ai/zh/deploy/ax-pi.html"
                         }
                     ]
                 }
