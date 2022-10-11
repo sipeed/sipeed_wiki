@@ -61,7 +61,7 @@ Linux 系统：不提供软件包，需用户自行编译[点击跳转](https://
 2. 左侧选择小的 Port 和对应波特率（任意选择高波特率），点击 open 再勾选下方 USB 即可接收大量数据,左下角处会显示 Connected。
 ![ms_comtool_two](./assets/ms_comtoolt.jpg)
 3. 设定 Header 为 \x00\xFF 即可正确解析图像数据并观察到深度图，可以直观感受二维平面图像上的深度。
-![ms_comtoolc](./assets/ms_comtoolc.jpg)
+![ms_comtoolh](./assets/ms_comtoolh.jpg)
 
 ### 互动配置说明
 
@@ -98,9 +98,10 @@ COMTOOL 上位机的配置控件说明
 ## 案例：接入 MCU 
 - MS-A010 拥有强大的兼容性，可基于串口协议外接 K210 bit 这样的单片机开发板或树莓派之类的 linux 开发板来进行二次开发。
 - k210 Bit 开发板是 sipeed Maix 中产品线的一员，基于嘉楠堪智科技的边缘智能计算芯片 K210 (RISC-V 架构 64位双核) 设计的一款 AIOT 开发板。
-  
+
+[K210 Bit 购买链接指路](https://item.taobao.com/item.htm?spm=a230r.1.14.11.681570a1yq4sJD&id=586580351110&ns=1&abbucket=10&mt=)
 [点击了解 K210 Bit](https://wiki.sipeed.com/hardware/zh/maix/maixpy_develop_kit_board/maix_bit.html)
-[MS-A010 外接 K210 bit 源码获取](./maixsense-a010/../code.html#tof_mainpy)
+[MS-A010 外接 K210 bit 源码获取](http://wiki.sipeed.com/hardware/zh/maixsense/maixsense-a010/mcu.html)
 ![ms_mcu](./assets/ms_mcu.jpg)
 
 ## 二次开发：串口协议

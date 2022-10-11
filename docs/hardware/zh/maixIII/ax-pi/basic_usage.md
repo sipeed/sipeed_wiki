@@ -5,36 +5,81 @@ title: Maix-III AXera-Pi 系统基础使用
 
 基于上文的烧录系统后，本文介绍使用 Maix-III AXera-Pi 开发板的 Linux debian11 系统基础使用方法。
 
+## 准备工作
+
+开始进行系统的调试使用之前，请先准备好所需的硬件设备，然后参考下方的接线示例正确接好后上电。
+
+1. Maix-III AXera-Pi 开发板
+2. 能出 1A 的 USB3.0 口（或是带供电的 usb hub 拓展） 
+3. 一张大于 8G 烧录 debian11 的镜像系统卡
+4. GC4653 Sensor（自行按需求购入）
+5. 5 寸 MIPI屏（自行按需求购入）
+
+**供电要求**：由于板子的功耗要求低，可以不用外接 2A 电源使用 usb3.0 1A 即可启动 linux 系统。
+
+### 接线示例
+
+注意：摄像头接线一定要十分注意！！！接反可能会烧坏板子或者是摄像头！！
+
+**接线**：将屏幕（排线反面朝上）接入底板背面接口，组装好后翻正板子在右侧卡槽处插入镜像卡，再接入（排线反面朝上）摄像头并揭开保护盖，可参考示意图进行接线。
+
+<html>
+  <img src="./../assets/mipi.jpg" width=48%>
+  <img src="./../assets/sensor.jpg" width=48%>
+</html>
+
+### 安装驱动
+
+rndis 在 Linux 和 Windows 下可免驱，而 macos 需要额外安装驱动，Windows 则需要勾选驱动配置一下网络优先级，如下配置图（勾选微软 rndis 驱动后设置网络跃点数调整优先级）。
+
+.. details::点我查看配置图
+
+    ![rndis](./../assets/rndis.jpg)
+
+### 工具
+
+.. details::点我查看 MobaXterm 介绍
+
+    MobaXterm 是在 Windows 下使用的全能终端管理软件，而 Linux 系统可以使用 ssh 远程被操作，使用 MobaXterm 进行 ssh 登陆板子直接编辑板内的代码或执行命令，也能方便的拖拽文件上传或下载到电脑里，类似的工具还有 vscode remote 远程登录 linux 服务器。
+
+    ![mobaxterm_ssh](./../assets/ssh.jpg)
+
+下载链接：[点击跳转](mobaxterm.mobatek.net/download) 获取免费版本即可使用。
+使用教程：[点击跳转](https://wiki.sipeed.com/hardware/zh/maixII/M2/tools/mobaxterm.html?highlight=ssh)
+
+.. details::点我查看 vscode 介绍
+    
+    待补充
+
 ## 系统登录
 
 ### 登录方式
 
-Maix-III AXera-Pi 开发板的 Linux debian11 系统默认使用 root 用户登录，密码为 `root`，目前板子插上电脑通电启动后支持以下登录 Linux 系统方式：
+Maix-III AXera-Pi 开发板的 Linux debian11 系统默认使用 root 用户登录。
+用户名为 `root`，密码为 `root`，目前板子接入电脑端上电启动后支持以下登录 Linux 系统方式。
 
-> 由于板子功耗要求低，可以不用外接 2A 电源即可使用 usb3.0 1a 启动 linux 系统。
+- **有线 串口 serial 登陆**
+![uart](./../assets/uart.jpg)
 
-- 有线 串口 serial 登陆
+使用 usb 3.0 连接板子上的 usb uart 接入电脑端，使用前请安装上文的驱动，再使用 MobaXterm 即可连接，默认串口配置为 115200、8N1（波特率115200，8位数据，无奇偶校验，1位停止位）。
 
-连接板子上的 usb uart 需要先安装串口驱动，再使用 mobaxterm 即可链接板子，默认串口配置为 115200,8N1 （波特率115200，8位数据，无奇偶校验，1位停止位）。
+1. serial 登陆教程：[点击查看](https://wiki.sipeed.com/hardware/zh/maixII/M2/tools/mobaxterm.html?highlight=ssh#%E8%BF%9E%E6%8E%A5-%E4%B8%B2%E5%8F%A3%28Serial%29)
+2. 成功连接后会打印大量调试信息，并弹出登陆账号信息，输入用户名及密码即可登陆。
 
-如下图操作步骤：
+![serial](./../assets/serial.jpg)
 
 > 串口通常只提供给专业的驱动开发工程师调试用，会打印大量的调试信息，如感到不适请使用 ssh 登陆。
 
-- 基于 ip + ssh 登录
+- **基于 ip + ssh 登录**
+![otg](./../assets/otg.jpg)
 
 系统默认开启了 usb rndis 虚拟以太网，可以透过有线 usb otg 口连接 usb0 网卡的 ip 192.168.233.1 后使用 ssh 登陆到 linux 系统。
 
-rndis 在 Linux 和 Windows 下免驱，而 macos 需要额外安装驱动，Windows 需要勾选驱动，配置一下网络优先级即可。
-
-如下配置图（勾选微软 rndis 驱动，设置网络跃点数调整优先级。）：
-
-想要无线连接 ssh 需要先登陆板子通过 ifconfig 得到板子到 ip 后即可连接。
-
-如下图的 IP 地址都可以用于登陆板子：
-
-> 使用 mobaxterm 进行 ssh 登陆板子可以直接编辑板子内的代码或者执行命令，爷可以很方便的拖拽文件上传或下载到电脑里，类似的工具还有 vscode remote 远程登录 linux 服务器。（附图）
-
+1. 想要无线连接 ssh 需要先登陆板子通过 `ifconfig` 得到板子 ip 后即可连接，下图的 IP 地址都能登陆板子。
+![ifconfig](./../assets/ifconfig.jpg)
+2. ssh 登陆教程：[点击跳转](https://wiki.sipeed.com/hardware/zh/maixII/M2/tools/mobaxterm.html?highlight=ssh#%E8%BF%9E%E6%8E%A5-SSH)
+![ssh](./../assets/ssh.jpg)
+   
 ### 登录后
 
 登录后，可以使用 `ls` 命令查看当前目录下的文件，使用 `cd` 命令切换目录，使用 `pwd` 命令查看当前目录。
