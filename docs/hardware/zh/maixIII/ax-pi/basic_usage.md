@@ -33,7 +33,7 @@ rndis 在 Linux 和 Windows 下免驱，而 macos 需要额外安装驱动，Win
 
 如下图的 IP 地址都可以用于登陆板子：
 
-> 使用 mobaxterm 进行 ssh 登陆板子可以直接编辑板子内的代码或者执行命令，爷可以很方便的拖拽文件上传或下载到电脑里，类似的工具还有 vscode remote 远程登录 linux 服务器。（附图）
+> 使用 mobaxterm 进行 ssh 登陆板子可以直接编辑板子内的代码或者执行命令，也可以很方便的拖拽文件上传或下载到电脑里，类似的工具还有 vscode remote 远程登录 linux 服务器。（附图）
 
 ### 登录后
 
