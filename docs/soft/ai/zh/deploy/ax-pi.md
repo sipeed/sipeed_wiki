@@ -51,9 +51,10 @@ date: 2022-09-21
 [点击可以查看 Maix-III(M3) 系列 AXera-Pi 开发板详情和基础使用文档](/hardware/zh/maixIII/index.html)
 
 要部署模型到`AXera-Pi`，需要将模型量化到 INT8，减小模型大小的同时提高运行速度，一般采用 `PTQ`(训练后量化)的方式量化模型，步骤：
-* 准备好浮点模型。
-* 用模型量化和格式转换工具转换成 AXera-Pi 支持的格式，这里工具使用爱芯官方提供的 [pulsar](https://pulsar-docs.readthedocs.io) 。
-* 在 AXera-Pi 上运行模型。
+**1.** 准备好浮点模型。
+**2.** 用模型量化和格式转换工具转换成 AXera-Pi 支持的格式，这里工具使用爱芯官方提供的 [pulsar](https://pulsar-docs.readthedocs.io) 。
+> 本文提供了快速入门和流程向导，强烈建议先通看一遍，再查看 pulsar 文档获得更多具体内容。
+**3.** 在 AXera-Pi 上运行模型。
 
 ## 准备浮点模型
 
@@ -314,4 +315,11 @@ print(out.argmax(), out.max())
 
 更多详情看[superpulsar](https://pulsar-docs.readthedocs.io)， 文档会持续更新，如果你擅长这方面，也欢迎点击右上角`编辑本页`在这里添加说明。
 
+
+## 其它参考
+
+> 欢迎贴上你的分享，点击右上角`编辑本页`添加。
+
+* [爱芯元智AX620A部署yolov5 6.0模型实录](https://zhuanlan.zhihu.com/p/569083585)
+* [AX620A运行yolov5s自训练模型全过程记录（windows）](http://t.csdn.cn/oNeYG)
 
