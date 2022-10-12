@@ -78,7 +78,7 @@ title: MAIX-III AXera-Pi 是什么？
 
 [点此 >>> 「查看 AX620A 算子支持列表」 <<< 喔！](https://pulsar-docs.readthedocs.io/zh_CN/latest/appendix/op_support_list.html)
 
-下表统计一下目前在售的相关主板（仅单主板，全套太贵）的 AI 算力性能排行（20221012）
+下表统计一下目前千元内在售的 AI 主板（仅单主板，全套太贵）的 NPU 算力性能排行（20221012）
 
 | 芯片            | 产品             | 价格    | CPU                                                 | RAM   | NPU |
 | --------------- | -------------------------- | ------- | --------------------------------------------------- | ----- | ----------- |
@@ -141,7 +141,7 @@ title: MAIX-III AXera-Pi 是什么？
 
 如今 [新版 MaixHub 正式上线啦！](https://wiki.sipeed.com/news/maixhub/new_maixhub.html)下为 maixhub 在线训练模型流程示意。
 
-下面视频为上一代 m2dock 产品的效果，目前 m3axpi 还在支持中...
+以下为上一代 m2dock 产品的演示效果，目前 m3axpi 还在开发中...
 
 <p align="center">
     <iframe src="//player.bilibili.com/player.html?aid=597374704&bvid=BV1eB4y1Q74i&cid=741940038&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="max-width:640px; max-height:480px;"> </iframe>
@@ -149,7 +149,7 @@ title: MAIX-III AXera-Pi 是什么？
 
 #### 分享有趣的模型！
 
-在你部署成功后会有一份模型文件，以及能运行模型的代码或程序，你可以将这些文件分享到 [MaixHub 模型库](https://maixhub.com/model/zoo) ，大家一起交流学习成长！（请开始你的表演!!!）
+在你部署成功后会有一份模型文件，以及能运行模型的代码或程序，你可以将这些文件分享到 [MaixHub 模型库](https://maixhub.com/model/zoo) ，大家一起交流学习成长！（请开始你的表演吧）
 
 <p align="center">
   <img src="./assets/share_model.jpg" style="zoom: 75%;" />
@@ -227,9 +227,9 @@ title: MAIX-III AXera-Pi 是什么？
 
 ## 上手流程
 
-为了让你轻松、平稳、最快地把产品用起来，下面为您准备了新手初学者上手流程：
+为了让你轻松、平稳、快速地把产品用起来，下面为您准备了新手初学者上手流程：
 
-### 1. 烧录系统启动
+### 烧录系统启动
 
 > 已买烧录卡的同学可以跳过这一步，直接把 TF 卡插上即可启动 Linux Debian 系统。
 
@@ -308,7 +308,7 @@ Welcome to Debian GNU/Linux 11 (bullseye)!
 ......
 ```
 
-### 2. 登录到板子里
+### 登录到板子里
 
 如果已经确定开机成功了，这时候把板子当做一台 linux 服务器来对待，还需要通过「系统使用手册」来了解如何登录到板子里的 Linux 系统，同时它还会告诉你，板上所有验证过的系统调频、外设、驱动、应用等资源的用法，像一些 Linux 操作基础、如何控制 I2C / UART / SPI 这些硬件设备的操作，或是直接运行板子内置的 AI 应用等等内容。
 
@@ -367,7 +367,7 @@ root@AXERA:~#
 
 可以看到板子的基础信息，目前默认是用 800Mhz 来跑，并且内存分配比较保守，留给用户空间的内存只有不到 1GB，不用担心，板子贴得内存最小都得是 2G 的，所以之后会通过更新内核开放更多内存给用户空间。
 
-### 3. 编译代码运行
+### 编译代码运行
 
 能走到这里就说明板子已经用起来了，那就来开发吧！在这之前需要「准备开发环境」了解如何拷贝文件到板子里，如何搭建本地编译或交叉编译，然后通过「SDK 开发指南」学习到如何基于现有的代码进行开发。
 
@@ -385,7 +385,7 @@ root@AXERA:~#
 
 > 如果你不嫌麻烦的话，可以选择配置交叉编译链、板子依赖的头文件、第三方链接库后才能进行程序的编译，但这个 docker arm 虚拟机的方法是最省事的，甚至还可以通过读卡器（或网络）挂载板子里的根文件系统进行编译。
 
-### 4. 训练模型部署
+### 训练模型部署
 
 初学者训练模型可以从 [AI 开发指南](https://wiki.sipeed.com/ai/zh/deploy/ax-pi.html) 学习如何训练一个最简单的模型到量化转换部署测试。
 
@@ -397,7 +397,7 @@ root@AXERA:~#
 
 - 商业：以效果最好、性能最好、占用最少、稳定可靠、功能最多、确保最终能部署到用户的现场不出问题的框架代码来开发 AI 程序。
 
-#### 开源社区部署（libmaix）
+#### 开源项目部署（libmaix）
 
 在板子上编译这个示例代码 [axpi_classification_cam](https://github.com/sipeed/libmaix/tree/release/examples/axpi_classification_cam)，然后放入模型运行即可看到效果，代码还没有优化所以性能不高，只够看个结果。
 
