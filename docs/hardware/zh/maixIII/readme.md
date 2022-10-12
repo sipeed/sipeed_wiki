@@ -78,7 +78,7 @@ title: MAIX-III AXera-Pi 是什么？
 
 [点此 >>> 「查看 AX620A 算子支持列表」 <<< 喔！](https://pulsar-docs.readthedocs.io/zh_CN/latest/appendix/op_support_list.html)
 
-下表统计一下目前在售的相关主板（仅单主板，全套太贵）的 AI 算力性能排行（20221012）
+下表统计一下目前千元内在售的 AI 主板（仅单主板，全套太贵）的 NPU 算力性能排行（20221012）
 
 | 芯片            | 产品             | 价格    | CPU                                                 | RAM   | NPU |
 | --------------- | -------------------------- | ------- | --------------------------------------------------- | ----- | ----------- |
@@ -141,7 +141,7 @@ title: MAIX-III AXera-Pi 是什么？
 
 如今 [新版 MaixHub 正式上线啦！](https://wiki.sipeed.com/news/maixhub/new_maixhub.html)下为 maixhub 在线训练模型流程示意。
 
-下面视频为上一代 m2dock 产品的效果，目前 m3axpi 还在支持中...
+以下为上一代 m2dock 产品的演示效果，目前 m3axpi 还在开发中...
 
 <p align="center">
     <iframe src="//player.bilibili.com/player.html?aid=597374704&bvid=BV1eB4y1Q74i&cid=741940038&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="max-width:640px; max-height:480px;"> </iframe>
@@ -149,7 +149,7 @@ title: MAIX-III AXera-Pi 是什么？
 
 #### 分享有趣的模型！
 
-在你部署成功后会有一份模型文件，以及能运行模型的代码或程序，你可以将这些文件分享到 [MaixHub 模型库](https://maixhub.com/model/zoo) ，大家一起交流学习成长！（请开始你的表演!!!）
+在你部署成功后会有一份模型文件，以及能运行模型的代码或程序，你可以将这些文件分享到 [MaixHub 模型库](https://maixhub.com/model/zoo) ，大家一起交流学习成长！（请开始你的表演吧）
 
 <p align="center">
   <img src="./assets/share_model.jpg" style="zoom: 75%;" />
