@@ -9,38 +9,48 @@ title: MAIX-III AXera-Pi
 
 # MAIX-III AXera-Pi 是什么？
 
-[TOC]
+截止 2022 年市面上的各类视觉国产 Linux AI 开发板陆续面世！
 
-截止 2022 年市面上的各类视觉国产 Linux AI 开发板陆续面世！在千元内的相关产品有晶晨 A311D 、地平线 X3 、瑞芯微 RV1126、堪智 K510、全志 V85X 等芯片支撑。
+在千元内的产品有晶晨 A311D 、地平线 X3 、瑞芯微 RV1126、堪智 K510、全志 V85X 等芯片供选择。
 
-但它们要么资料太少、能效比差、价格太贵、没有生态、开发困难、摄像效果太差啦！是真的很难有一款板子可以满足所有人的要求！
+但它们要么资料太少、能效比差、价格太贵、没有生态、开发困难、摄像效果太差啦！
 
-但现在！支持国产芯片的 AI 开发工程师们，你们要多了一个更好的选择了！！
+真的很难有一款板子可以满足所有要求。
 
-练习时长两年半，一颗 3.6 TOPS 大算力低功耗超强夜视效果的芯片来到了 SIPEED MAIX-III Linux AI 系列。
+但现在，想要支持国产芯片的 AI 开发工程师们！总算是有更好的选择了！！
 
+练习时长两年半，一颗 3.6TOPs@INT8 大算力低功耗超强夜景的芯片来到了 MAIX-III Linux AI 系列！
+
+<p align="center">
 <img src="https://axera-tech.com/upload/8f/091a2540e7cdc5c7f62df022f80220.jpg" alt="img" style="zoom: 50%;" />
+</p>
 
 它就是来自「[爱芯元智](https://axera-tech.com/)」的 [AX620A](https://axera-tech.com/product/T7297367876123493768)，这是一款高算力，高能效比，低功耗的 AI SoC 芯片，芯片集成了四核 Cortex A7 @ 1Ghz CPU，拥有 3.6TOPs@INT8 的高算力 NPU，支持 4K@30fps 的 ISP，以及支持 H.264、H.265 编码的 VPU，拥有大算力和优异画质处理能力的 AX620A 可以实现更多的 AI 功能，带来最优的 AI 体验！（来自官方）
 
 ## 产品介绍
 
-它其实早在 9月初爱芯元智参展了2022年世界人工智能大会亮相了～（当时它长这样）
+它其实早在九月初就参展了 2022 年世界人工智能大会了～（当时它长这样）
 
-<img src="/Users/junhuan/Library/Application Support/typora-user-images/image-20221011215757163.png" alt="image-20221011215757163" style="zoom: 50%;" />
+<p align="center">
+<img src="./assets/waic-axpi.jpg" style="zoom: 70%;" />
+<p align="center">
 
-最后总算是在 20221001 国庆节的时候推出了这款搭载 AX620A 的开发板，名为：MAIX-III AXera-Pi ！（以下简称 m3axpi ）
+最后总算是在 20221001 国庆节的时候推出了这款搭载 AX620A 的开发板，正式名为：**MAIX-III AXera-Pi**，可简称 m3axpi 喔！
 
-<img src="/Users/junhuan/Downloads/O1CN01Zz3KEg23vhBycn1iJ_!!2200606237318.jpg_400x400.png" alt="O1CN01Zz3KEg23vhBycn1iJ_!!2200606237318.jpg_400x400" style="zoom: 67%;" /> <img src="/Users/junhuan/Downloads/maix-iii-small.png" alt="maix-iii-small"  /> <img src="/Users/junhuan/Downloads/d038fb83-6ed4-4c2c-9a3f-eaf016a20129.png" alt="d038fb83-6ed4-4c2c-9a3f-eaf016a20129" style="zoom: 33%;" />
+<p align="center">
+<img src="./assets/waiguan1.jpg" style="zoom: 51%;" />
+<img src="./assets/maix-iii-small.jpg" style="zoom: 80%;" />
+<img src="./assets/waiguan2.jpg" style="zoom: 45%;" />
+<p align="center">
 
 那么，它都带来了哪些内容呢？
 
-- 资料太少？全中文文档教你从开箱到开发，从嵌入式 Linux 开发到 AI 模型开发指南一应俱全！
-- 能效比差？这块板子四核 A7 靠一根 USB3.0 就可以跑起来！和你的外接电源散热器说再见吧！！
-- 开发困难？支持 debian11 系统，内置 sdk 代码直接板上编译！还能白嫖在线 AI 模型训练到部署！！！ 
-- 没有生态？SIPEED 开源累积了 LINUX、RISCV、AIOT、FPGA、MCU 等嵌入式领域的社区开发内容！！！！
-- 摄像效果太差？芯片主打 AI + ISP 夜视增强！由原厂亲手为你调试从白天到夜间到超强摄像 ISP 效果！！！！！
-- 价格太贵？从核心+底板+屏幕+摄像头+外壳支架总共人民币 **549** ！！！！！！（啸叫！咆哮！！）
+- 资料太少？文档教你从开箱到开发，从嵌入式 Linux 开发到 AI 模型开发指南一应俱全！
+- 能效比差？四核 A7 靠一根 USB3.0 就可以带起来！和你的外接电源、散热器说拜拜吧！！
+- 开发困难？支持 debian11 系统内置 sdk 直接板上编译！白嫖在线 AI 模型训练直到部署！！！ 
+- 没有生态？ WIKI 拥有许多 LINUX、RISCV、AIOT、FPGA、MCU 等嵌入式领域的内容！！！！
+- 摄像效果太差？芯片主打 AI ISP 夜视增强！由原厂亲手为你调试白天到夜间的超强影像！！！！！
+- 价格太贵？从核心+底板+屏幕+摄像头+外壳支架全套总共人民币 **549** ！！！！！！（咆哮！！！！）
 
 ## 产品特色
 
@@ -50,15 +60,21 @@ title: MAIX-III AXera-Pi
 
 #### 夜视增强效果
 
-- 视频
+<p align="center">
+    <iframe src="//player.bilibili.com/player.html?aid=558992847&bvid=BV1Ge4y1S7kC&cid=859368716&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="max-width:640px; max-height:480px;"> </iframe>
+</p>
 
-#### 暗室场景实拍
+#### 展会暗室现场
 
-- 视频
+<p align="center">
+    <iframe src="//player.bilibili.com/player.html?aid=430541632&bvid=BV1iG41137tx&cid=831645988&page=1&t=83.6" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+</p>
 
 #### AI 应用实拍
 
-- 视频
+<p align="center">
+    <iframe src="//player.bilibili.com/player.html?aid=773227207&bvid=BV1B14y1Y7A4&cid=837154353&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="max-width:640px; max-height:480px;"> </iframe>
+</p>
 
 ### AI 生态
 
@@ -95,6 +111,8 @@ title: MAIX-III AXera-Pi
 
 对比主流 sbc 来说，这个配置的物料，这个功耗温度实测。
 
+> 正在制作中
+
 #### 基于 debian 系统开发
 
 提供 debian11 Linux 系统，支持 SD 卡启动 DD 烧录系统，方便用户开箱上手。
@@ -105,7 +123,7 @@ title: MAIX-III AXera-Pi
 
 ## 上手流程
 
-为了让你最快能够把产品用起来，我们为您准备了以下使用流程：
+为了让你轻松、平稳、最快地把产品用起来，下面为您准备了新手使用流程：
 
 ### 1. 烧录系统启动
 
@@ -130,7 +148,7 @@ title: MAIX-III AXera-Pi
 
 ### 核心板硬件参数
 
-> 需要整理
+> 正在制作中
 
 | 项目       | 参数                                  |
 | ---------- | ------------------------------------- |
@@ -148,30 +166,44 @@ title: MAIX-III AXera-Pi
 
 ### 底板的硬件参数
 
-> 需要整理
+> 正在制作中
 
 摄像头相关参数
 
-> 需要整理
+> 正在制作中
 
 支持的屏幕一览
 
+> 正在制作中
+
 ### 外壳支架装配示意
 
-> 需要整理
+> 正在制作中
 
 ## 问题与解答（Q&A）
 
 ### Q：产品技术支持售后在哪？
 
-A：我们提供两个技术 QQ 群：
+A：现在提供两个 QQ 技术群：
+
+- AXERA 技术交流群：（ 139953715 ）专供 AI ISP 核心技术交流
+- 荔枝 MaixPy3 AI 交流群：（ 756313869 ）给产品开箱小白答疑
 
 ### Q：产品文档资料社区在哪？
 
-A：产品资料 http://wiki.sipeed.com/m3axpi AI 社区 http://maixhub.com 
+A：本产品只有一个资料入口 http://wiki.sipeed.com/m3axpi 
+
+SIPEED 开源社区资源如下：
+
+- AI 服务 http://maixhub.com
+- 开源资料 http://wiki.sipeed.com
+- 开源社区 http://bbs.sipeed.com
+- 开源组织 http://github.com/sipeed
 
 ### Q：那么，在哪可以买到？
 
-A：复制此链接：
+A：[点此链接直达](https://m.tb.cn/h.U30m3xW?tk=L1vr2BQ0AQM)
 
+### Q：被产品电了怎么办？
 
+A：最近冬天静电来了，产品要注意接地喔。
