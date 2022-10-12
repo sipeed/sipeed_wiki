@@ -69,6 +69,8 @@ AXera-Pi 默认板卡没有存储介质，因此需要准备一张系统卡来�
 
 ### 镜像系统烧录方法
 
+> 20221012 现已确认 Etcher 可以直接支持 zip 压缩包烧录里面的 img 镜像，不需要解压出来，所以这一步可以省略。
+
 首先解压所下载的镜像压缩包，得到 `.img` 镜像文件，打开 [Etcher](https://www.balena.io/etcher/ "Etcher") 软件，点击 `Flash from file` ,选中解压出来的 `.img ` 文件镜像，然后点击 `Select target` 选中sd卡，最后点击 `Flash` 进行烧录，等待完成即可。 
 
 解压出镜像文件：

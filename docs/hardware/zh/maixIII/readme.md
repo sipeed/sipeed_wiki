@@ -1,13 +1,9 @@
 ---
-title: MAIX-III AXera-Pi
+title: MAIX-III AXera-Pi 是什么？
 
 ---
 
-> 以下内容还在施工中，本周会随时变动。
-
-
-
-# MAIX-III AXera-Pi 是什么？
+> 20221012 以下内容还在施工中，本周可能还会随时变动。
 
 截止 2022 年市面上的各类视觉国产 Linux AI 开发板陆续面世！
 
@@ -32,16 +28,16 @@ title: MAIX-III AXera-Pi
 它其实早在九月初就参展了 2022 年世界人工智能大会了～（当时它长这样）
 
 <p align="center">
-<img src="./assets/waic-axpi.jpg" style="zoom: 70%;" />
-<p align="center">
+  <img src="./assets/waic-axpi.jpg" style="zoom: 70%;" />
+</p>
 
 最后总算是在 20221001 国庆节的时候推出了这款搭载 AX620A 的开发板，正式名为：**MAIX-III AXera-Pi**，可简称 m3axpi 喔！
 
 <p align="center">
-<img src="./assets/waiguan1.jpg" style="zoom: 51%;" />
-<img src="./assets/maix-iii-small.jpg" style="zoom: 80%;" />
-<img src="./assets/waiguan2.jpg" style="zoom: 45%;" />
-<p align="center">
+  <img src="./assets/waiguan1.jpg" style="zoom: 51%;" />
+  <img src="./assets/maix-iii-small.jpg" style="zoom: 80%;" />
+  <img src="./assets/waiguan2.jpg" style="zoom: 45%;" />
+</p>
 
 那么，它都带来了哪些内容呢？
 
@@ -54,7 +50,7 @@ title: MAIX-III AXera-Pi
 
 ## 产品特色
 
-说了这么多没用的，还是赶紧把东西掏出来，让大家瞧瞧都有些什么吧！
+说这么多没用的，还是赶紧把东西掏出来，让大家瞧瞧都有些什么吧！
 
 ### 影像效果
 
@@ -67,7 +63,7 @@ title: MAIX-III AXera-Pi
 #### 展会暗室现场
 
 <p align="center">
-    <iframe src="//player.bilibili.com/player.html?aid=430541632&bvid=BV1iG41137tx&cid=831645988&page=1&t=83.6" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+    <iframe src="//player.bilibili.com/player.html?aid=430541632&bvid=BV1iG41137tx&cid=831645988&page=1&t=83.6" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="max-width:640px; max-height:480px;"> </iframe>
 </p>
 
 #### AI 应用实拍
@@ -80,73 +76,360 @@ title: MAIX-III AXera-Pi
 
 #### 大算力超多算子！
 
-- 文档 或 芯片介绍
+[点此 >>> 「查看 AX620A 算子支持列表」 <<< 喔！](https://pulsar-docs.readthedocs.io/zh_CN/latest/appendix/op_support_list.html)
+
+下表统计一下目前在售的相关主板（仅单主板，全套太贵）的 AI 算力性能排行（20221012）
+
+| 芯片            | 产品             | 价格    | CPU                                                 | RAM   | NPU |
+| --------------- | -------------------------- | ------- | --------------------------------------------------- | ----- | ----------- |
+| 晶晨 A311D      | Khadas VIM3                | ¥850.00 | 四核 ARM Cortex-A73@2.2GHz <br> 双核 ARM Cortex-A53@1.8GHz | 2GB   | 5TOPs          |
+| 地平线 X3       | 旭日派                     | ¥499.00 | 四核 ARM Cortex-A53@1.2GHz                          | 2GB   | 5TOPs          |
+| 爱芯元智 AX620A | MAIX-III AXera-Pi          | ¥399.00 | 四核 ARM Cortex-A7@1.0GHz                             | 2GB   | 3.6TOPs        |
+| 瑞芯微 RV1126   | EASY EAI Nano              | ¥328.00 | 四核 ARM Cortex-A7@1.5GHz                            | 1GB   | 2TOPs          |
+| 堪智 K510       | K510 CRB-KIT Lite          | ¥699.00 | 双核 RISCV 64 位 800Mhz                             | 512MB | 3TOPs          |
+| 全志 V85X       | 全志 V853 开发板（仅主板） | ¥973.00 | 单核 ARM Cortex-A7@1.2GHz | 512MB | 1TOPs          |
 
 #### 大量现成的模型！
 
-- 仓库
+没有拿到板子之前，你可以到 [MaixHub 模型库](https://maixhub.com/model/zoo) 找到你需要的模型，可以在过滤选项中选择 `AX-Pi` 来查找能在 `AXera-Pi` 上运行的模型。
 
-到 [MaixHub 模型库](https://maixhub.com/model/zoo) 找到你需要的模型，可以在过滤选项中选择`AXera-Pi 平台`来查找能在`AXera-Pi`上运行的模型。
-以及可以在 [AXERA-TECH/ax-samples](https://github.com/AXERA-TECH/ax-samples) 仓库也可以找到模型。
-然后下载并拷贝到开发板使用，模型详情页面会介绍如何使用模型，在使用模型前，最好先仔细看看左边目录中的`Axera-Pi`的基本操作和开发准备。
+![maixhub_zoo.jpg](./assets/maixhub_zoo.jpg)
 
-使用模型训练框架(比如 Pytorch）训练好模型后，要在 `AXera-Pi` 上运行，还需要将模型量化为`INT8`模型，以及转换成`AXera-Pi`支持的模型格式。
-同时，也要注意`AXera-Pi`的算子支持情况，在设计模型结构时就需要考虑到；
-另外，有些模型可能需要将后处理从模型中分离出来，在`AXera-Pi`上单独使用代码实现后处理。
-详细的模型部署方法见**[部署模型到 Maix-III(M3) 系列 AXera-Pi 开发板](/ai/zh/deploy/ax-pi.html)**
+还可以在 [AXERA-TECH/ax-samples](https://github.com/AXERA-TECH/ax-samples) 仓库也可以找到模型，板子系统里也预置了模型资源，后续模型更新会在这里[「ax-models」](https://github.com/AXERA-TECH/ax-models)，而 [ AX-Samples 将不断更新最流行的、实用的、有趣的示例代码](https://github.com/AXERA-TECH/ax-samples/tree/main/examples#examples)，目前有如下模型支持列表：
+
+- 物体分类
+  - MobileNetv1
+  - MobileNetv2
+  - MobileOne-s0
+  - ResNet18
+  - ResNet50
+  - Others......
+- 物体检测
+  - [PP-YOLOv3](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/README.md#yolov3paddle)
+  - YOLOv3
+  - YOLOv3-Tiny
+  - YOLOv4
+  - YOLOv4-Tiny
+  - YOLOv4-Tiny-3l
+  - YOLOv5s
+  - YOLOv7-Tiny
+  - YOLOX-S
+  - YOLO-Fastest-XL
+  - NanoDet
+- 人型检测
+  - YOLO-Fastest-Body
+- 人脸检测
+  - scrfd
+- 障碍物检测 (扫地机场景)
+  - Robot-Obstacle-Detect
+- 3D单目车辆检测
+  - Monodlex
+- 人体关键点
+  - HRNet
+- 人体分割
+  - [PP-HumanSeg](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/README.md#MobileSeg)
+- 语义分割
+  - [PP-Seg](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/README.md#PP-HumanSeg)
+
+想要在板子上运行模型请看[「部署模型到 Maix-III AXera-Pi 开发板」](/ai/zh/deploy/ax-pi.html)
+
+<p align="center">
+  <img src="./assets/ai_guide.jpg" style="zoom: 75%;" />
+</p>
 
 #### 在线训练模型吧！
 
-上 maixhub 提供
+如今 [新版 MaixHub 正式上线啦！](https://wiki.sipeed.com/news/maixhub/new_maixhub.html)下为 maixhub 在线训练模型流程示意。
 
-- AI 应用（都有哪些模型和效果）
+下面视频为上一代 m2dock 产品的效果，目前 m3axpi 还在支持中...
+
+<p align="center">
+    <iframe src="//player.bilibili.com/player.html?aid=597374704&bvid=BV1eB4y1Q74i&cid=741940038&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="max-width:640px; max-height:480px;"> </iframe>
+</p>
 
 #### 分享有趣的模型！
 
-部署成功后会有一份模型文件，以及一份能运行模型的代码，可以将这些文件分享到 [MaixHub 模型库](https://maixhub.com/model/zoo) ，大家一起交流学习！
+在你部署成功后会有一份模型文件，以及能运行模型的代码或程序，你可以将这些文件分享到 [MaixHub 模型库](https://maixhub.com/model/zoo) ，大家一起交流学习成长！（请开始你的表演!!!）
+
+<p align="center">
+  <img src="./assets/share_model.jpg" style="zoom: 75%;" />
+</p>
 
 ### 嵌入式
 
 #### 超高能效比与性价比
 
-对比主流 sbc 来说，这个配置的物料，这个功耗温度实测。
+> 正在制作中，下面是一些屁话。
 
-> 正在制作中
+对比主流 sbc linux ai 开发板来说，这个配置的物料这个价格，就问五百左右能买到全家桶配件的板子哪家可以。
+
+这个产品不需要散热器也不需要外接电源就可以启动，不需要找 hdmi 屏幕，不需要找 2a 电源，也不需要找散热片、散热器。
 
 #### 基于 debian 系统开发
 
 提供 debian11 Linux 系统，支持 SD 卡启动 DD 烧录系统，方便用户开箱上手。
 
+1. 开发笔记：[[maixpy3 axpi] 关于爱芯 ax620a 移植 debian11 系统这件事](https://www.cnblogs.com/juwan/p/16751348.html)
+
+2. 开发笔记：[[maixpy3 axpi] 编辑发布 debian 镜像与在 PC 上交叉编译程序 ](https://www.cnblogs.com/juwan/p/16769237.html)
+
+3. 烧录方法：[WIKI AXera-Pi 烧录系统](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/flash_system.html)
+
 #### BSP SDK 源码开放
 
-提供 ax-sample / libmaix / bsp sdk 等源码仓库，提供 API 开发文档、SDK 开发方法等说明。
+文档会提供下面这些源码，提供 API 开发文档，SDK 开发方法等说明，细节可以从[SDK 开发指南](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/sdk_usage.html) 得知。
+
+##### [ax-sample](https://github.com/AXERA-TECH/ax-samples)
+
+由爱芯提供典型 AI 模型的开发与评估验证，提供给有经验的 AI 开发者使用或只想蹭模型的同学，不涉及任何硬件外设有关的内容。
+
+1. [示例项目 examples](https://github.com/AXERA-TECH/ax-samples/tree/main/examples)
+2. [物体检测 PP-YOLOv3](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/README.md#yolov3paddle)
+3. [人体分割 PP-HumanSeg](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/README.md#MobileSeg)
+4. [语义分割 PP-Seg](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/README.md#PP-HumanSeg)
+
+##### [libmaix](https://github.com/sipeed/libmaix)
+
+由 SIPEED 提供在嵌入式平台统一的嵌入式开发环境，主要有摄像头、屏幕、视觉、图像处理、NPU Pipiline 相关的实机部署例程，适合刚入门嵌入式 linux 开发的同学使用。
+
+> 屏幕显示需要先运行 `fbon` 打开 `/dev/fb0` 显示驱动设备才能让 libmaix 显示内容到屏幕上。
+
+1. [测试一下屏幕显示](https://github.com/sipeed/libmaix/tree/release/examples/display)
+2. [把摄像头显示到屏幕](https://github.com/sipeed/libmaix/tree/release/examples/axpi)
+3. [摄像头输入模型后显示识别结果到屏幕](https://github.com/sipeed/libmaix/tree/release/examples/axpi_classification_cam)
+
+##### [axpi_bsp_sdk](https://github.com/sipeed/axpi_bsp_sdk)
+
+芯片商用时所用的 bsp 开发包，这里主要提供的是芯片的原始开发资料，如 uboot 、 linux 、 msp 、msp 等工程代码，这个部分是逐步开源的，你可以从这里得到商业评估用的代码，例如 ipcdemo 这样的程序，但这些代码会很复杂且高耦合，适合有经验的同行出于商业落地的目的使用。
+
+1. 开发文档 [docs](https://github.com/sipeed/axpi_bsp_sdk/tree/main/msp/sample/vo_fb)
+2. 成品应用 [ipcdmeo](https://github.com/sipeed/axpi_bsp_sdk/tree/main/app/IPCDemo)
+3. 底层验证 [sample](https://github.com/sipeed/axpi_bsp_sdk/tree/main/msp/sample)
+
+#### 由社区开发者贡献的内容
+
+以下是来自社区一些同学的相关博文精选，欢迎你也来投稿喔！！！你直接丢群里都可以喔！
+
+- [爱芯派-AI微光全彩夜视-开箱体验](https://zhuanlan.zhihu.com/p/571233089)
+- [爱芯 AX620A NPU 初体验](https://neucrack.com/p/440)
+- [爱芯元智AX620A部署yolov5 6.0模型实录](https://zhuanlan.zhihu.com/p/569083585)
+- [ubuntu22.04搭建AX620A官方例程开发环境](http://t.csdn.cn/p8Nno)
+- [AX620A运行yolov5s自训练模型全过程记录（windows）](http://t.csdn.cn/oNeYG)
+
+其他相关的新闻内容有：
+
+- [AI ISP 的黎明——大话成像](https://axera-tech.com/tech/T7297054127901756535)
+- [2022世界人工智能大会启动:爱芯元智发布AI-ISP“爱芯智眸®”_中华网](https://tech.china.com/article/20220901/092022_1134965.html)
+
+即将联动的 AI 社区有：
+
+- [保密中]()
 
 ## 上手流程
 
-为了让你轻松、平稳、最快地把产品用起来，下面为您准备了新手使用流程：
+为了让你轻松、平稳、最快地把产品用起来，下面为您准备了新手初学者上手流程：
 
 ### 1. 烧录系统启动
 
-> 已买烧录卡的同学可以跳过这一步，插上 TF 卡即可启动 Linux Debian 系统。
+> 已买烧录卡的同学可以跳过这一步，直接把 TF 卡插上即可启动 Linux Debian 系统。
+
+板子默认是没有 emmc 介质可以启动的，所以需要从 TF 卡启动 Linux 系统，请从「烧录系统镜像」了解具体操作。
 
 - [烧录系统镜像](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/flash_system.html)
 
+看上文使用 [Etcher](https://etcherpc.com/) 烧录镜像成功后，要把卡插入板子里，接上 USB-UART 和 USB-OTG 口，此时给板子上电就行。
+
+20221012 目前镜像还没有开机 logo 喔，所以需要你通过串口（USB-UART）查看板子启动输出的讯息，有如下的 debian11 系统启动日志。
+
+> [有些同学会遇到 Ubuntu22.04 CH340系列串口驱动（没有ttyUSB）问题，点此查看解决方案](https://blog.csdn.net/qq_27865227/article/details/125538516)
+
+```
+Vddr init success!
+The system boot form EMMC
+enter boot normal mode
+
+U-Boot 2020.04 (Jun 16 2022 - 00:16:34 +0800)
+
+Model: AXERA AX620_demo Board
+DRAM:  1 GiB
+NAND:  unknown raw ID 77ee0178
+uclass_get_device: Invalid bus 0 (err=-524)
+0 MiB
+initr_pinmux: delay pinmux_init for env board id
+MMC:   enter sdhci_cdns_get_cd call mmc_getcd
+enter sdhci_cdns_get_cd call mmc_getcd
+mmc@10000000: 0, mmc@4950000: 1
+Loading Environment from MMC... OK
+In:    serial
+Out:   serial
+Err:   serial
+MMC: no card present
+sd card is not present
+enter normal boot mode
+Net:
+reset EMAC0: ethernet@0x4970000 ...
+Warning: ethernet@0x4970000 (eth0) using random MAC address - 6a:e4:fd:58:97:ea
+eth0: ethernet@0x4970000
+Hit any key to stop autoboot:  0
+reading DTB and BOOT image ...
+reading bootimg header...
+MAGIC:       AXERA!
+img size:    4841536
+kernel_size: 4841472
+kernel_addr: 64
+id:bc 19 bb a7 2d 27 74 de 7c 91 4b 70 ea c9 ab 96 50 61 bd e0 2b 02 8b e5 c8 ee 22 ce df b1 cf ea
+load kernel image addr = 0x40008000,load dtb image addr = 0x48008000
+boot cmd is :bootm 0x40008000 - 0x48008000
+## Booting kernel from Legacy Image at 40008000 ...
+   Image Name:   Linux-4.19.125
+   Image Type:   ARM Linux Kernel Image (uncompressed)
+   Data Size:    4839952 Bytes = 4.6 MiB
+   Load Address: 40008000
+   Entry Point:  40008000
+   Verifying Checksum ... OK
+## Flattened Device Tree blob at 48008000
+   Booting using the fdt blob at 0x48008000
+   Loading Kernel Image
+   Using Device Tree in place at 48008000, end 480103d6
+
+Starting kernel ...
+
+
+Welcome to Debian GNU/Linux 11 (bullseye)!
+
+[  OK  ] Created slice system-getty.slice.
+[  OK  ] Created slice system-modprobe.slice.
+[  OK  ] Created slice system-serial\x2dgetty.slice.
+[  OK  ] Created slice User and Session Slice.
+[  OK  ] Started Dispatch Password …ts to Console Directory Watch.
+[  OK  ] Started Forward Password R…uests to Wall Directory Watch.
+[  OK  ] Reached target Local Encrypted Volumes.
+[  OK  ] Reached target Network is Online.
+......
+```
+
 ### 2. 登录到板子里
+
+如果已经确定开机成功了，这时候把板子当做一台 linux 服务器来对待，还需要通过「系统使用手册」来了解如何登录到板子里的 Linux 系统，同时它还会告诉你，板上所有验证过的系统调频、外设、驱动、应用等资源的用法，像一些 Linux 操作基础、如何控制 I2C / UART / SPI 这些硬件设备的操作，或是直接运行板子内置的 AI 应用等等内容。
 
 - [系统使用手册](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html)
 
+这里以 USB-OTG 口的 usb0 网卡（192.168.233.1）作为 ssh 登录的 ip 进入板子为例。
+
+```bash
+juwan@juwan-n85-dls:~/sipeed_wiki$ sshpass -p root ssh root@192.168.233.1
+Linux AXERA 4.19.125 #53 SMP PREEMPT Tue Sep 13 13:16:27 HKT 2022 armv7l
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+Last login: Wed Oct 12 16:43:43 2022 from 192.168.233.10
+root@AXERA:~# screenfetch 
+         _,met$$$$$gg.           root@AXERA
+      ,g$$$$$$$$$$$$$$$P.        OS: Debian 
+    ,g$$P""       """Y$$.".      Kernel: armv7l Linux 4.19.125
+   ,$$P'              `$$$.      Uptime: 2d 3h 5m
+  ',$$P       ,ggs.     `$$b:    Packages: 785
+  `d$$'     ,$P"'   .    $$$     Shell: bash 5.1.4
+   $$P      d$'     ,    $$P     Disk: 2.6G / 3.6G (77%)
+   $$:      $$.   -    ,d$$'     CPU: ARMv7 rev 5 (v7l) @ 4x 1.248GHz
+   $$\;      Y$b._   _,d$P'      RAM: 88MiB / 744MiB
+   Y$$.    `.`"Y$$$$P"'         
+   `$$b      "-.__              
+    `Y$$                        
+     `Y$$.                      
+       `$$b.                    
+         `Y$$b.                 
+            `"Y$b._             
+                `""""           
+             
+root@AXERA:~# ax_clk 
+AX620A:
+DDR:            3733 MHz
+CPU:            800 MHz
+BUS of VPU:     624 MHz
+BUS of NPU:     624 MHz
+BUS of ISP:     624 MHz
+BUS of CPU:     624 MHz
+NPU OTHER:      800 MHz
+NPU GLB:        24 MHz
+NPU FAB:        800 MHz
+NPU CORE1:      800 MHz
+NPU CORE0:      800 MHz
+ISP:            533 MHz
+MM:             594 MHz
+VPU:            624 MHz
+root@AXERA:~# 
+```
+
+可以看到板子的基础信息，目前默认是用 800Mhz 来跑，并且内存分配比较保守，留给用户空间的内存只有不到 1GB，不用担心，板子贴得内存最小都得是 2G 的，所以之后会通过更新内核开放更多内存给用户空间。
+
 ### 3. 编译代码运行
 
+能走到这里就说明板子已经用起来了，那就来开发吧！在这之前需要「准备开发环境」了解如何拷贝文件到板子里，如何搭建本地编译或交叉编译，然后通过「SDK 开发指南」学习到如何基于现有的代码进行开发。
+
 - [准备开发环境](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/dev_prepare.html)
+
+了解现在提供了哪些开源代码仓库的用法，这个部分的源码会持续更新和开放的。
+
 - [SDK 开发指南](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/sdk_usage.html)
+
+![axpi_sdk.jpg](./assets/axpi_sdk.jpg)
+
+在这里「大佬鼠」推荐自己常用的开发流程和方法，最简单的就是先在板子上本地编译测试现有的代码和功能，然后根据 [[maixpy3 axpi] 编辑发布 debian 镜像与在 PC 上交叉编译程序 ](https://www.cnblogs.com/juwan/p/16769237.html) 来安装 docker arm 虚拟机。
+
+接着，将之前烧录到板子里的根文件系统（.img）通过 losetup + mount + chroot 挂载（.img）出来，这时候你就会得到和板子一样的 arm 虚拟机环境，就可以直接本地编译啦！不过，这个方法需要学习 docker 的安装喔，包括后面的模型开发也上会用到 docker 的。
+
+> 如果你不嫌麻烦的话，可以选择配置交叉编译链、板子依赖的头文件、第三方链接库后才能进行程序的编译，但这个 docker arm 虚拟机的方法是最省事的，甚至还可以通过读卡器（或网络）挂载板子里的根文件系统进行编译。
 
 ### 4. 训练模型部署
 
-- [AI 开发指南](https://wiki.sipeed.com/ai/zh/deploy/ax-pi.html)
+初学者训练模型可以从 [AI 开发指南](https://wiki.sipeed.com/ai/zh/deploy/ax-pi.html) 学习如何训练一个最简单的模型到量化转换部署测试。
 
-## 硬件参数一览
+更专业更深入的调优需要了解 [Pulsar](https://pulsar-docs.readthedocs.io/) ，这是由 爱芯元智 自主研发 的 all-in-one 神经网络编译器，充分发挥片上异构计算单元(CPU+NPU)算力， Pulsar 工具链核心功能是将 .onnx 模型编译成芯片能解析并运行的 .joint 模型。
 
-### 核心板硬件参数
+目前有两种部署方式（Pipeline）推荐：
+
+- 开源：并不在意程序的性能和效率，用最快的方式把摄像头图像输入 AI 模型后输出识别结果绘制到显示到屏幕上验证一下识别效果。
+
+- 商业：以效果最好、性能最好、占用最少、稳定可靠、功能最多、确保最终能部署到用户的现场不出问题的框架代码来开发 AI 程序。
+
+#### 开源社区部署（libmaix）
+
+在板子上编译这个示例代码 [axpi_classification_cam](https://github.com/sipeed/libmaix/tree/release/examples/axpi_classification_cam)，然后放入模型运行即可看到效果，代码还没有优化所以性能不高，只够看个结果。
+
+![mobilenet_axpi.jpg](./assets/mobilenet_axpi.jpg)
+
+即可验证效果，[详细可从 maixhub 上获取](https://maixhub.com/model/zoo/89)。
+
+> 屏幕没有显示画面的话，记得使用 fbon 把 /dev/fb0 设备打开。
+
+#### 商业项目部署（ipcdemo） 
+
+这是一个典型的 IPC 商业应用程序，源码在这里 [axpi_bsp_sdk IPCDemo](https://github.com/sipeed/axpi_bsp_sdk/tree/main/app/IPCDemo) ，其中 IPCDemo 的功能模块有：
+
+- ISP：负责从 Sensor 获取图像 RAW 数据并转为 YUV，最终分 3 路通道输出以上信息。
+- IVPS：图像视频处理模块。实现对视频图形进行一分多、Resize、Crop、旋转等功能。
+- VENC / JENC：视频/JPEG 编码输出。
+- Detect：支持人脸或结构化检测。
+- Web 显示：实现 H264 流的 Web 传输和提供 Web 方式查看实时视频。
+- RTSP 推流：实现 H264 流的 RTSP 封装以及传输。
+- 录像 TF 卡存储：封装 H264 流为 MP4 格式文件并保存至 TF 卡或者 FLASH 空间。
+
+以下视频中的 IPCDemo 软件使用方法请看[内置开箱应用](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html#%E5%86%85%E7%BD%AE%E5%BC%80%E7%AE%B1%E5%BA%94%E7%94%A8)。
+
+<p align="center">
+    <iframe src="//player.bilibili.com/player.html?aid=260625114&bvid=BV1me411T7g8&cid=837160730&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="max-width:640px; max-height:480px;"> </iframe>
+</p>
+
+> 现公开了源码但还没有修改说明，这里就快速介绍这个软件，细节可看[ 01 - AX IPCDemo 用户指南.pdf](https://github.com/sipeed/axpi_bsp_sdk/blob/main/docs/01%20-%20AX%20IPCDemo%20%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97.pdf)。
+
+## 产品参数
+
+### 核心板参数
 
 > 正在制作中
 
@@ -164,7 +447,7 @@ title: MAIX-III AXera-Pi
 | 存储       | 可选16GB EMMC                         |
 | IO 引出    | DDR4 SODIMM 260P 金手指全IO引出       |
 
-### 底板的硬件参数
+### 底板的物料参数
 
 > 正在制作中
 
@@ -180,7 +463,32 @@ title: MAIX-III AXera-Pi
 
 > 正在制作中
 
-## 问题与解答（Q&A）
+## 常见问题（FAQ）
+
+> FAQ 中文意思是指「常見問題」，而 Q&A 的中文意思則是「question and answer」。
+
+### Q：供电不足怎么办？
+
+A：可以把两根 usb 口接上来供电，板子至少要 USB3.0 1A 的电流才能启动喔！（拉黑 USB2.0 500ma ）
+
+### Q：被产品电了怎么办？
+
+A：最近冬天静电来了，产品要注意接地喔。
+
+### Q：那么，在哪可以买到？
+
+A：[点此链接直达](https://m.tb.cn/h.U30m3xW?tk=L1vr2BQ0AQM)
+
+### Q：产品文档资料社区在哪？
+
+A：本产品只有一个产品资料入口 http://wiki.sipeed.com/m3axpi 
+
+SIPEED 开源相关社区资源如下：
+
+- AI 服务 http://maixhub.com
+- 开源资料 http://wiki.sipeed.com
+- 开源社区 http://bbs.sipeed.com
+- 开源组织 http://github.com/sipeed
 
 ### Q：产品技术支持售后在哪？
 
@@ -189,21 +497,4 @@ A：现在提供两个 QQ 技术群：
 - AXERA 技术交流群：（ 139953715 ）专供 AI ISP 核心技术交流
 - 荔枝 MaixPy3 AI 交流群：（ 756313869 ）给产品开箱小白答疑
 
-### Q：产品文档资料社区在哪？
-
-A：本产品只有一个资料入口 http://wiki.sipeed.com/m3axpi 
-
-SIPEED 开源社区资源如下：
-
-- AI 服务 http://maixhub.com
-- 开源资料 http://wiki.sipeed.com
-- 开源社区 http://bbs.sipeed.com
-- 开源组织 http://github.com/sipeed
-
-### Q：那么，在哪可以买到？
-
-A：[点此链接直达](https://m.tb.cn/h.U30m3xW?tk=L1vr2BQ0AQM)
-
-### Q：被产品电了怎么办？
-
-A：最近冬天静电来了，产品要注意接地喔。
+更多问题的 Q & A 请到 [Maix-III 系列 AXera-Pi 常见问题（FAQ）](./ax-pi/faq_axpi.md) 了解喔。 
