@@ -43,7 +43,7 @@ title: MAIX-III AXera-Pi 是什么？
 
 - 资料太少？文档教你从开箱到开发，从嵌入式 Linux 开发到 AI 模型开发指南一应俱全！
 - 能效比差？四核 A7 靠一根 USB3.0 就可以带起来！和你的外接电源、散热器说拜拜吧！！
-- 开发困难？支持 debian11 系统内置 sdk 直接板上编译！白嫖在线 AI 模型训练直到部署！！！ 
+- 开发困难？支持 debian11 系统内置 sdk 直接板上编译！白嫖在线 AI 模型训练直到部署！！！
 - 没有生态？ WIKI 拥有许多 LINUX、RISCV、AIOT、FPGA、MCU 等嵌入式领域的内容！！！！
 - 摄像效果太差？芯片主打 AI ISP 夜视增强！由原厂亲手为你调试白天到夜间的超强影像！！！！！
 - 价格太贵？从核心+底板+屏幕+摄像头+外壳支架全套总共人民币 **549** ！！！！！！（咆哮！！！！）
@@ -159,7 +159,7 @@ title: MAIX-III AXera-Pi 是什么？
 
 #### 超高能效比与性价比
 
-> 正在制作中，下面是一些屁话。
+> 样图正在制作中
 
 对比主流 sbc linux ai 开发板来说，这个配置的物料这个价格，就问五百左右能买到全家桶配件的板子哪家可以。
 
@@ -177,7 +177,7 @@ title: MAIX-III AXera-Pi 是什么？
 
 #### BSP SDK 源码开放
 
-文档会提供下面这些源码，提供 API 开发文档，SDK 开发方法等说明，细节可以从[SDK 开发指南](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/sdk_usage.html) 得知。
+提供各类开发源码，提供 API 开发文档，SDK 开发方法等说明，细节可以从[SDK 开发指南](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/sdk_usage.html) 得知。
 
 ##### [ax-sample](https://github.com/AXERA-TECH/ax-samples)
 
@@ -222,10 +222,11 @@ title: MAIX-III AXera-Pi 是什么？
 即将联动的 AI 社区有：
 
 - [保密中]()
+- [保密中]()
 
 ## 上手流程
 
-为了让你轻松、平稳、快速地把产品用起来，下面为您准备了新手初学者上手流程：
+为了让你轻松、快速、平稳地把产品用起来，下面为您准备了新手初学者上手流程：
 
 ### 烧录系统启动
 
@@ -325,9 +326,9 @@ individual files in /usr/share/doc/*/copyright.
 Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
 permitted by applicable law.
 Last login: Wed Oct 12 16:43:43 2022 from 192.168.233.10
-root@AXERA:~# screenfetch 
+root@AXERA:~# screenfetch
          _,met$$$$$gg.           root@AXERA
-      ,g$$$$$$$$$$$$$$$P.        OS: Debian 
+      ,g$$$$$$$$$$$$$$$P.        OS: Debian
     ,g$$P""       """Y$$.".      Kernel: armv7l Linux 4.19.125
    ,$$P'              `$$$.      Uptime: 2d 3h 5m
   ',$$P       ,ggs.     `$$b:    Packages: 785
@@ -335,16 +336,16 @@ root@AXERA:~# screenfetch
    $$P      d$'     ,    $$P     Disk: 2.6G / 3.6G (77%)
    $$:      $$.   -    ,d$$'     CPU: ARMv7 rev 5 (v7l) @ 4x 1.248GHz
    $$\;      Y$b._   _,d$P'      RAM: 88MiB / 744MiB
-   Y$$.    `.`"Y$$$$P"'         
-   `$$b      "-.__              
-    `Y$$                        
-     `Y$$.                      
-       `$$b.                    
-         `Y$$b.                 
-            `"Y$b._             
-                `""""           
-             
-root@AXERA:~# ax_clk 
+   Y$$.    `.`"Y$$$$P"'
+   `$$b      "-.__
+    `Y$$
+     `Y$$.
+       `$$b.
+         `Y$$b.
+            `"Y$b._
+                `""""
+
+root@AXERA:~# ax_clk
 AX620A:
 DDR:            3733 MHz
 CPU:            800 MHz
@@ -360,7 +361,7 @@ NPU CORE0:      800 MHz
 ISP:            533 MHz
 MM:             594 MHz
 VPU:            624 MHz
-root@AXERA:~# 
+root@AXERA:~#
 ```
 
 可以看到板子的基础信息，目前默认是用 800Mhz 来跑，并且内存分配比较保守，留给用户空间的内存只有不到 1GB，不用担心，板子贴得内存最小都得是 2G 的，所以之后会通过更新内核开放更多内存给用户空间。
@@ -377,7 +378,7 @@ root@AXERA:~#
 
 ![axpi_sdk.jpg](./assets/axpi_sdk.jpg)
 
-在这里「大佬鼠」推荐自己常用的开发流程和方法，最简单的就是先在板子上本地编译测试现有的代码和功能，然后根据 [[maixpy3 axpi] 编辑发布 debian 镜像与在 PC 上交叉编译程序 ](https://www.cnblogs.com/juwan/p/16769237.html) 来安装 docker arm 虚拟机。
+在这里「大佬鼠」推荐自己常用的开发流程和方法，最开始就是先在板子上本地编译测试现有的代码和功能，然后根据 [[maixpy3 axpi] 编辑发布 debian 镜像与在 PC 上交叉编译程序 ](https://www.cnblogs.com/juwan/p/16769237.html) 来安装 docker arm 虚拟机。
 
 接着，将之前烧录到板子里的根文件系统（.img）通过 losetup + mount + chroot 挂载（.img）出来，这时候你就会得到和板子一样的 arm 虚拟机环境，就可以直接本地编译啦！不过，这个方法需要学习 docker 的安装喔，包括后面的模型开发也上会用到 docker 的。
 
@@ -406,7 +407,7 @@ root@AXERA:~#
 
 即可验证效果，[详细可从 maixhub 上获取](https://maixhub.com/model/zoo/89)。
 
-#### IPCDemo 部署 
+#### IPCDemo 部署
 
 这是一个典型的 IPC 演示程序，源码在这里 [axpi_bsp_sdk IPCDemo](https://github.com/sipeed/axpi_bsp_sdk/tree/main/app/IPCDemo) ，其中 IPCDemo 的功能模块有：
 
@@ -424,11 +425,11 @@ root@AXERA:~#
     <iframe src="//player.bilibili.com/player.html?aid=260625114&bvid=BV1me411T7g8&cid=837160730&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="max-width:640px; max-height:480px;"> </iframe>
 </p>
 
-> 现公开了源码但还没有修改说明，这里就快速介绍这个软件，开发细节可看[ 01 - AX IPCDemo 用户指南.pdf](https://github.com/sipeed/axpi_bsp_sdk/blob/main/docs/01%20-%20AX%20IPCDemo%20%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97.pdf)。
+> 现公开了源码但还没修改说明，这里就介绍一下软件，细节可看[ 01 - AX IPCDemo 用户指南.pdf](https://github.com/sipeed/axpi_bsp_sdk/blob/main/docs/01%20-%20AX%20IPCDemo%20%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97.pdf)。
 
 ## 产品参数·
 
-> 产品爆炸图 装配示意 正在制作中
+> 产品爆炸图 装配示意 样图正在制作中
 
 > [点此获取更多 >>>「MaixIII/AXera」硬件资源 <<< 喔！](https://api.dl.sipeed.com/shareURL/MaixIII/AXera)
 
@@ -470,8 +471,6 @@ root@AXERA:~#
 
 ## 常见问题（FAQ）
 
-> FAQ 中文意思是指「常見問題」，而 Q&A 的中文意思則是「question and answer」。
-
 ### Q：供电不足怎么办？
 
 A：可以把两根 usb 口接上来供电，板子至少要 USB3.0 1A 的电流才能启动喔！（拉黑 USB2.0 500ma ）
@@ -486,7 +485,7 @@ A：[点此链接直达](https://m.tb.cn/h.U30m3xW?tk=L1vr2BQ0AQM)
 
 ### Q：产品文档资料社区在哪？
 
-A：本产品只有一个产品资料入口 http://wiki.sipeed.com/m3axpi 
+A：本产品只有一个产品资料入口 http://wiki.sipeed.com/m3axpi
 
 SIPEED 开源相关社区资源如下：
 
@@ -502,4 +501,4 @@ A：现在提供两个 QQ 技术群：
 - AXERA 技术交流群：（ 139953715 ）专供 AI ISP 核心技术交流
 - 荔枝 MaixPy3 AI 交流群：（ 756313869 ）给产品开箱小白答疑
 
-更多问题的 Q & A 请到 [Maix-III 系列 AXera-Pi 常见问题（FAQ）](./ax-pi/faq_axpi.md) 了解喔。 
+更多问题的 Q & A 请到 [Maix-III 系列 AXera-Pi 常见问题（FAQ）](./ax-pi/faq_axpi.md) 了解喔。
