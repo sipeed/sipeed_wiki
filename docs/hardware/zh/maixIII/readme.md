@@ -446,7 +446,7 @@ root@AXERA:~#
 | 视频编码   | 4K@30fps                              |
 | 视频解码   | 1080P@60fps                           |
 | Ethernet   | 支持双路RGMII / RMII 接口模式的以太网 |
-| 视频输出   | 支持MIPI DSI 4-LANE                   |
+| 显示输出   | MIPI DSI 4 Lane，最高支持4K@30FPS |
 | DRAM       | 2GB LPDDR4X 3733Mhz                 |
 | 存储       | 可选16GB EMMC（默认是 TF 卡启动）       |
 | IO 引出    | DDR4 SODIMM 260P 金手指全 IO 引出       |
@@ -457,12 +457,12 @@ root@AXERA:~#
 | ---------- | ------------------------------------- |
 | 摄像头输入 | （默认单摄）最高支持 3 摄:1个MIPI4-LANE+2个MIPI2-LANE |
 | 屏幕输出 | 支持最高 4-LANE MIPI DSI 屏幕 |
-| MICRO SD 插槽 | 默认从SD卡启动 |
-| 板载两个 MEMS MIC  | 支持双麦降噪 |
-| 3.5MM 耳机接口  | 支持立体声输入和 MIC 输入 |
+| SD 插槽 | 默认从 SD 卡启动 |
+| 录音输入 | 板载两个 MEMS MIC 支持双麦降噪 |
+| 音频输出  | 3.5MM耳机接口 支持立体声输入和 MIC 输入 |
 | 网络接口 | 支持 千兆以太网（ETH） 和 2.4GHZ WI-FI 板载天线（可外接） |
-| USB 接口  | 1xUSB2.0HS 支持 OTG or HOST 功能，1xUSB-UART 系统串口 |
-| 内置边角料  | 1x用户按键，3x系统按键，1xRTC时钟，2xLED |
+| USB 接口  | 1xUSB2.0HS 支持 OTG 或 HOST 功能，1xUSB-UART 系统串口 |
+| 其他资源  | 1x用户按键，3x系统按键，1xRTC时钟，2xLED |
 | 对外接口  | 引出CJTAG，可自行连接相应调试器，引出2x12排针，4个M2.5螺丝定位孔 |
 
 > [点此获取更多 >>>「MaixIII/AXera」硬件资源 <<< 喔！](https://api.dl.sipeed.com/shareURL/MaixIII/AXera)
