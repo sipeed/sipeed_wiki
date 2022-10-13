@@ -425,7 +425,7 @@ root@AXERA:~#
 
 > 现公开了源码但还没修改说明，这里就介绍一下软件，细节可看[ 01 - AX IPCDemo 用户指南.pdf](https://github.com/sipeed/axpi_bsp_sdk/blob/main/docs/01%20-%20AX%20IPCDemo%20%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97.pdf)。
 
-## 产品参数·
+## 产品参数
 
 > 产品爆炸图 装配示意 样图正在制作中
 
