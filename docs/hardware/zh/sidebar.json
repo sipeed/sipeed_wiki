@@ -173,6 +173,10 @@
                         {
                             "label": "AI 开发指南",
                             "url": "https://wiki.sipeed.com/ai/zh/deploy/ax-pi.html"
+                        },
+                        {
+                            "label": "常见问题（FAQ）",
+                            "file": "maixIII/ax-pi/faq_axpi.md"
                         }
                     ]
                 }
