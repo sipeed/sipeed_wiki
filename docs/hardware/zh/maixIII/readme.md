@@ -393,11 +393,11 @@ root@AXERA:~#
 
 目前有两种部署方式（Pipeline）推荐：
 
-- 开源：并不在意程序的性能和效率，用最快的方式把摄像头图像输入 AI 模型后输出识别结果绘制到显示到屏幕上验证一下识别效果。
+- libmaix：并不在意程序的性能和效率，用最快的方式把摄像头图像输入 AI 模型后输出识别结果绘制到显示到屏幕上验证一下识别效果。
 
-- 商业：以效果最好、性能最好、占用最少、稳定可靠、功能最多、确保最终能部署到用户的现场不出问题的框架代码来开发 AI 程序。
+- IPCDemo：以效果最好、性能最好、占用最少、稳定可靠、功能最多、确保最终能部署到用户的现场不出问题的框架代码来开发 AI 程序。
 
-#### 开源项目部署（libmaix）
+#### libmaix 部署
 
 在板子上编译这个示例代码 [axpi_classification_cam](https://github.com/sipeed/libmaix/tree/release/examples/axpi_classification_cam)，然后放入模型运行即可看到效果，代码还没有优化所以性能不高，只够看个结果。
 
@@ -407,9 +407,9 @@ root@AXERA:~#
 
 > 屏幕没有显示画面的话，记得使用 fbon 把 /dev/fb0 设备打开。
 
-#### 商业项目部署（ipcdemo） 
+#### IPCDemo 部署 
 
-这是一个典型的 IPC 商业应用程序，源码在这里 [axpi_bsp_sdk IPCDemo](https://github.com/sipeed/axpi_bsp_sdk/tree/main/app/IPCDemo) ，其中 IPCDemo 的功能模块有：
+这是一个典型的 IPC 演示程序，源码在这里 [axpi_bsp_sdk IPCDemo](https://github.com/sipeed/axpi_bsp_sdk/tree/main/app/IPCDemo) ，其中 IPCDemo 的功能模块有：
 
 - ISP：负责从 Sensor 获取图像 RAW 数据并转为 YUV，最终分 3 路通道输出以上信息。
 - IVPS：图像视频处理模块。实现对视频图形进行一分多、Resize、Crop、旋转等功能。
@@ -425,7 +425,7 @@ root@AXERA:~#
     <iframe src="//player.bilibili.com/player.html?aid=260625114&bvid=BV1me411T7g8&cid=837160730&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="max-width:640px; max-height:480px;"> </iframe>
 </p>
 
-> 现公开了源码但还没有修改说明，这里就快速介绍这个软件，细节可看[ 01 - AX IPCDemo 用户指南.pdf](https://github.com/sipeed/axpi_bsp_sdk/blob/main/docs/01%20-%20AX%20IPCDemo%20%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97.pdf)。
+> 现公开了源码但还没有修改说明，这里就快速介绍这个软件，开发细节可看[ 01 - AX IPCDemo 用户指南.pdf](https://github.com/sipeed/axpi_bsp_sdk/blob/main/docs/01%20-%20AX%20IPCDemo%20%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97.pdf)。
 
 ## 产品参数
 
