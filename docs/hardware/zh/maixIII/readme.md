@@ -57,7 +57,7 @@ title: MAIX-III AXera-Pi 是什么？
 #### 夜视增强效果
 
 <p align="center">
-    <iframe src="//player.bilibili.com/player.html?aid=558992847&bvid=BV1Ge4y1S7kC&cid=859368716&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="max-width:640px; max-height:480px;"> </iframe>
+    <iframe src="//player.bilibili.com/player.html?aid=561523949&bvid=BV1Ee4y1v7iF&cid=860676576&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="max-width:640px; max-height:480px;"> </iframe>
 </p>
 
 #### 展会暗室现场
