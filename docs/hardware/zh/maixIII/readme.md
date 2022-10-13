@@ -141,7 +141,7 @@ title: MAIX-III AXera-Pi 是什么？
 
 如今 [新版 MaixHub 正式上线啦！](https://wiki.sipeed.com/news/maixhub/new_maixhub.html)下为 maixhub 在线训练模型流程示意。
 
-以下为上一代 m2dock 产品的演示效果，目前 m3axpi 还在开发中...
+> 以下为上一代 m2dock 产品的演示效果，目前 m3axpi 还在开发中...
 
 <p align="center">
     <iframe src="//player.bilibili.com/player.html?aid=597374704&bvid=BV1eB4y1Q74i&cid=741940038&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="max-width:640px; max-height:480px;"> </iframe>
@@ -232,15 +232,13 @@ title: MAIX-III AXera-Pi 是什么？
 
 > 已买烧录卡的同学可以跳过这一步，直接把 TF 卡插上即可启动 Linux Debian 系统。
 
-板子默认是没有 emmc 介质可以启动的，所以需要从 TF 卡启动 Linux 系统，请从「烧录系统镜像」了解具体操作。
+板子默认是没有 emmc 介质可以启动的，需要从 TF 卡启动 Linux 系统，请从以下「烧录系统镜像」了解。
 
 - [烧录系统镜像](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/flash_system.html)
 
-看上文使用 [Etcher](https://etcherpc.com/) 烧录镜像成功后，要把卡插入板子里，接上 USB-UART 和 USB-OTG 口，此时给板子上电就行。
+通过跨平台烧卡烧录工具 [Etcher](https://etcherpc.com/) 烧录镜像成功后，要把卡插入板子里，接上 USB-UART 和 USB-OTG 口，此时给板子上电就行。
 
-20221012 目前镜像还没有开机 logo 喔，所以需要你通过串口（USB-UART）查看板子启动输出的讯息，有如下的 debian11 系统启动日志。
-
-> [有些同学会遇到 Ubuntu22.04 CH340系列串口驱动（没有ttyUSB）问题，点此查看解决方案](https://blog.csdn.net/qq_27865227/article/details/125538516)
+> 20221013 后开机后会从耳机播放音乐和点亮出厂的 5 寸屏幕，并在串口输出如下的 debian11 系统启动日志，[有些同学会遇到 Ubuntu22.04 CH340系列串口驱动（没有ttyUSB）问题，点此查看解决方案](https://blog.csdn.net/qq_27865227/article/details/125538516)。
 
 ```
 Vddr init success!
@@ -372,7 +370,7 @@ root@AXERA:~#
 
 - [准备开发环境](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/dev_prepare.html)
 
-了解现在提供了哪些开源代码仓库的用法，这个部分的源码会持续更新和开放的。
+了解现在提供了哪些开源代码仓库的用法，这些开源仓库会持续更新和开放的。
 
 - [SDK 开发指南](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/sdk_usage.html)
 
@@ -398,7 +396,7 @@ root@AXERA:~#
 
 #### libmaix 部署
 
-在板子上编译这个示例代码 [axpi_classification_cam](https://github.com/sipeed/libmaix/tree/release/examples/axpi_classification_cam)，然后放入模型运行即可看到效果，代码还没有优化所以性能不高，只够看个结果。
+在板子上编译这个示例代码 [axpi_classification_cam](https://github.com/sipeed/libmaix/tree/release/examples/axpi_classification_cam)，然后放入模型运行即可看到效果，截止 20221013 前代码还没有优化所以性能不高，只够看个结果。
 
 <p align="center">
   <img src="./assets/mobilenet_axpi.jpg" alt="img" style="zoom: 100%;" />
@@ -430,8 +428,6 @@ root@AXERA:~#
 ## 产品参数·
 
 > 产品爆炸图 装配示意 样图正在制作中
-
-> [点此获取更多 >>>「MaixIII/AXera」硬件资源 <<< 喔！](https://api.dl.sipeed.com/shareURL/MaixIII/AXera)
 
 ### 硬件标注图
 
@@ -468,6 +464,8 @@ root@AXERA:~#
 | USB 接口  | 1xUSB2.0HS 支持 OTG or HOST 功能，1xUSB-UART 系统串口 |
 | 内置边角料  | 1x用户按键，3x系统按键，1xRTC时钟，2xLED |
 | 对外接口  | 引出CJTAG，可自行连接相应调试器，引出2x12排针，4个M2.5螺丝定位孔 |
+
+> [点此获取更多 >>>「MaixIII/AXera」硬件资源 <<< 喔！](https://api.dl.sipeed.com/shareURL/MaixIII/AXera)
 
 ## 常见问题（FAQ）
 
