@@ -192,8 +192,6 @@ title: MAIX-III AXera-Pi 是什么？
 
 由 SIPEED 提供在嵌入式平台统一的嵌入式开发环境，主要有摄像头、屏幕、视觉、图像处理、NPU Pipiline 相关的实机部署例程，适合刚入门嵌入式 linux 开发的同学使用。
 
-> 屏幕显示需要先运行 `fbon` 打开 `/dev/fb0` 显示驱动设备才能让 libmaix 显示内容到屏幕上。
-
 1. [测试一下屏幕显示](https://github.com/sipeed/libmaix/tree/release/examples/display)
 2. [把摄像头显示到屏幕](https://github.com/sipeed/libmaix/tree/release/examples/axpi)
 3. [摄像头输入模型后显示识别结果到屏幕](https://github.com/sipeed/libmaix/tree/release/examples/axpi_classification_cam)
@@ -401,11 +399,12 @@ root@AXERA:~#
 
 在板子上编译这个示例代码 [axpi_classification_cam](https://github.com/sipeed/libmaix/tree/release/examples/axpi_classification_cam)，然后放入模型运行即可看到效果，代码还没有优化所以性能不高，只够看个结果。
 
-![mobilenet_axpi.jpg](./assets/mobilenet_axpi.jpg)
+<p align="center">
+  <img src="./assets/mobilenet_axpi.jpg" alt="img" style="zoom: 100%;" />
+</p>
+
 
 即可验证效果，[详细可从 maixhub 上获取](https://maixhub.com/model/zoo/89)。
-
-> 屏幕没有显示画面的话，记得使用 fbon 把 /dev/fb0 设备打开。
 
 #### IPCDemo 部署 
 
@@ -427,15 +426,23 @@ root@AXERA:~#
 
 > 现公开了源码但还没有修改说明，这里就快速介绍这个软件，开发细节可看[ 01 - AX IPCDemo 用户指南.pdf](https://github.com/sipeed/axpi_bsp_sdk/blob/main/docs/01%20-%20AX%20IPCDemo%20%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97.pdf)。
 
-## 产品参数
+## 产品参数·
+
+> 产品爆炸图 装配示意 正在制作中
+
+> [点此获取更多 >>>「MaixIII/AXera」硬件资源 <<< 喔！](https://api.dl.sipeed.com/shareURL/MaixIII/AXera)
+
+### 硬件标注图
+
+<p align="center">
+  <img src="./assets/layout_axpi.jpg" alt="img" style="zoom: 100%;" />
+</p>
 
 ### 核心板参数
 
-> 正在制作中
-
 | 项目       | 参数                                  |
 | ---------- | ------------------------------------- |
-| CPU        | Quad-A7（四核A7）                     |
+| CPU        | Quad-A7 @ 1.0 Ghz（四核A7）            |
 | NPU        | 14.4Tops@int4，3.6Tops@int8           |
 | ISP        | 4K@30fps                              |
 | 编解码格式 | H.264, H.265                          |
@@ -443,25 +450,23 @@ root@AXERA:~#
 | 视频解码   | 1080P@60fps                           |
 | Ethernet   | 支持双路RGMII / RMII 接口模式的以太网 |
 | 视频输出   | 支持MIPI DSI 4-LANE                   |
-| DRAM       | 2GB LPDDR4X                           |
-| 存储       | 可选16GB EMMC                         |
-| IO 引出    | DDR4 SODIMM 260P 金手指全IO引出       |
+| DRAM       | 2GB LPDDR4X 3733Mhz                 |
+| 存储       | 可选16GB EMMC（默认是 TF 卡启动）       |
+| IO 引出    | DDR4 SODIMM 260P 金手指全 IO 引出       |
 
-### 底板的物料参数
+### 底板参数
 
-> 正在制作中
-
-摄像头相关参数
-
-> 正在制作中
-
-支持的屏幕一览
-
-> 正在制作中
-
-### 外壳支架装配示意
-
-> 正在制作中
+| 项目       | 参数                                   |
+| ---------- | ------------------------------------- |
+| 摄像头输入 | （默认单摄）最高支持 3 摄:1个MIPI4-LANE+2个MIPI2-LANE |
+| 屏幕输出 | 支持最高 4-LANE MIPI DSI 屏幕 |
+| MICRO SD 插槽 | 默认从SD卡启动 |
+| 板载两个 MEMS MIC  | 支持双麦降噪 |
+| 3.5MM 耳机接口  | 支持立体声输入和 MIC 输入 |
+| 网络接口 | 支持 千兆以太网（ETH） 和 2.4GHZ WI-FI 板载天线（可外接） |
+| USB 接口  | 1xUSB2.0HS 支持 OTG or HOST 功能，1xUSB-UART 系统串口 |
+| 内置边角料  | 1x用户按键，3x系统按键，1xRTC时钟，2xLED |
+| 对外接口  | 引出CJTAG，可自行连接相应调试器，引出2x12排针，4个M2.5螺丝定位孔 |
 
 ## 常见问题（FAQ）
 
