@@ -36,9 +36,19 @@ rndis 在 Linux 和 Windows 下可免驱，而 macos 需要额外安装驱动，
 
 驱动安装：[这篇 Ghost 系列 USB 网卡（RNDIS) 使用教程](https://www.foream.com/wiki/docs/mindoc/mindoc-1b2er0dm4pos9)
 
-.. details::点我查看 Win10 下的配置图
+>[有些同学会遇到 Ubuntu22.04 CH340系列串口驱动（没有ttyUSB）问题，点此查看解决方案.](https://blog.csdn.net/qq_27865227/article/details/125538516)
 
-    ![rndis](./../assets/rndis.jpg)
+.. details::点我查看 Win10 下的安装过程
+
+    打开设备管理器找到其他设备，选中 rndis 选择更新驱动程序，在如何搜索设备软件窗口中，选择**浏览计算机查找驱动程序软件（R）**。
+
+    ![rndis_1](./../assets/rndis_1.jpg)
+    再选择**从计算机的设备驱动程序列表中选择（L）**在硬件设备列表中往下拉，找到**网络适配器**，选中**下一步**。
+
+    ![rndis_2](./../assets/rndis_2.jpg)
+    在厂商列表中选择 **Microsoft Corporation**，右侧列表中选择 **USB RNDIS Adapter**。
+
+    ![rndis_3](./../assets/rndis_3.jpg)
 
 ### 工具
 
@@ -599,7 +609,7 @@ finally:
 
 停止 usb-gadget@g0 后使用 `systemctl start usb-gadget@g1` 即可看到，然后使用 `systemctl start getty@ttyGS0` 即可转发串口终端到 usb 的虚拟串口上。
 
-附图：
+![usb_tty](./../assets/usb_tty.jpg)
 
 - **如何使用 USB HOST 读取一个 256M 的 SD 卡**
 先关了 otg 的 rndis 后再 lsusb 就可以看到了。

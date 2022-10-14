@@ -34,7 +34,7 @@ AXera-Pi 默认板卡没有存储介质，因此需要准备一张系统卡来�
 
 前往百度云 [点我](https://eyun.baidu.com/s/3htTXfaG#sharelink/path=%2F%E4%B8%8B%E8%BD%BD%E7%AB%99%E6%96%87%E4%BB%B6%2FMaix-III%2FAXera%2Fsdk%2Frelease&parent_path=%2F%E6%B7%B1%E5%9C%B3%E7%9F%BD%E9%80%9F%E7%A7%91%E6%8A%80%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8) 下载文件（sipeed_ax620a_debian11_*.zip），镜像包与校验文件都已经放在里面了。
 
-附图：
+![debian](./../assets/debian.jpg)
 
 用两个文件名来举例，其中文件命名规则如下（拖动滚动条来查看全部）：
 
@@ -60,33 +60,34 @@ AXera-Pi 默认板卡没有存储介质，因此需要准备一张系统卡来�
 
 ### 准备工作
 
-硬件：
-- 一张容量大于 4G 的 SD 卡；建议购买官方提供的卡，不然可能因为其他的 SD 卡质量差而带来糟糕的体验
-- 一个读卡器；建议使用 USB3.0 接口得读卡器，不然读卡器得 USB 速度过低会导致烧录时间过长
+**硬件**：
+- 一张容量大于 8G 的 SD 卡：建议购买官方提供的卡，不然可能因为其他的 SD 卡质量差而带来糟糕的体验
+- 一个读卡器：建议使用 USB3.0 接口的读卡器，不然读卡器的 USB 速度过低会导致烧录时间过长
 
-软件：
-- <a href="https://www.balena.io/etcher/" alt="Etcher" target="_blank"> Etcher </a>；根据自身电脑下载对应版本的软件即可
+**软件**：
+- <a href="https://www.balena.io/etcher/" alt="Etcher" target="_blank"> Etcher </a>：根据自身电脑下载对应版本的软件即可
 
 ### 镜像系统烧录方法
 
-> 20221012 现已确认 Etcher 可以直接支持 zip 压缩包烧录里面的 img 镜像，不需要解压出来，所以这一步可以省略。
+> **20221012** 现已确认 Etcher 软件可直接支持烧录 zip 压缩包里面的 img 镜像，用户不需要解压的步骤s直接选择 zip 文件按下面步骤操作即可。
 
 首先解压所下载的镜像压缩包，得到 `.img` 镜像文件，打开 [Etcher](https://www.balena.io/etcher/ "Etcher") 软件，点击 `Flash from file` ,选中解压出来的 `.img ` 文件镜像，然后点击 `Select target` 选中sd卡，最后点击 `Flash` 进行烧录，等待完成即可。 
 
-解压出镜像文件：
+**解压出镜像文件：**
 ![extract_image_file](./../../../assets/maixIII/ax-pi/extract_image_file.gif)
 
-烧录镜像文件到 SD 卡：
+**烧录镜像文件到 SD 卡：**
 ![burn_image_by_etcher](./../../assets/../../assets/maixIII/ax-pi/burn_image_by_etcher.gif)
 
-下面这种是烧录中的一张截图：
+下图是烧录过程中的一张截图（可参照）：
 ![axera_burning_image](./../../../assets/maixIII/ax-pi/axera_burning_image.png)
 
 最终下载结束后的效果会和下图一样，显示 `Flash Complete!`：
 
 ![下载结束](./../../maixII/M2A/assets/finish_flash.png)
 
-如果烧录失败了，请手动格式化一下 sd 卡。Windows 和 MacOS 可以使用 [SD Card Formatter](https://www.sdcard.org/downloads/formatter/eula_windows/SDCardFormatterv5_WinEN.zip)来格式化 sd 卡，Linux 系统可以使用系统的 disk 工具或 [Gparted](https://gparted.org/)来格式化。
+> **注意**：如果出现烧录失败的情况，请手动格式化一下 sd 卡。
+> Windows 和 MacOS 可以使用 [SD Card Formatter](https://www.sdcard.org/downloads/formatter/eula_windows/SDCardFormatterv5_WinEN.zip)来格式化 sd 卡，Linux 系统可以使用系统的 disk 工具或 [Gparted](https://gparted.org/)来格式化。
 
 
 <!-- 烧录方法如下图示意
