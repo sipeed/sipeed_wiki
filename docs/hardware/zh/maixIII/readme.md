@@ -185,7 +185,7 @@ title: MAIX-III AXera-Pi 是什么？
   <img src="./assets/test_axpi.jpeg" style="zoom: 50%;" />
 </p>
 
-来一个实际点的温度和功能测量图：
+来一个实际点的温度和功耗实际测量，要使用 USB3.0 的口来供电喔。
 
 <p align="center">
   <img src="./assets/temp_test_axpi.jpg" style="zoom: 100%;" />
