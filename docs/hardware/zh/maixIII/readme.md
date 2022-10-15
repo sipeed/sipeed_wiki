@@ -3,8 +3,6 @@ title: MAIX-III AXera-Pi 是什么？
 
 ---
 
-> 20221012 以下内容还在施工中，本周可能还会随时变动。
-
 截止 2022 年市面上的各类视觉国产 Linux AI 开发板陆续面世！
 
 在千元内的产品有晶晨 A311D 、地平线 X3 、瑞芯微 RV1126、堪智 K510、全志 V85X 等芯片供选择。
@@ -31,12 +29,12 @@ title: MAIX-III AXera-Pi 是什么？
   <img src="./assets/waic-axpi.jpg" style="zoom: 70%;" />
 </p>
 
-最后总算是在 20221001 国庆节的时候推出了这款搭载 AX620A 的开发板，正式名为：**MAIX-III AXera-Pi**，可简称 m3axpi 喔！
+最后总算是在 20221001 的时候推出了这款搭载 AX620A 的开发板，正式名为：**MAIX-III AXera-Pi**，以下内容中简称 **m3axpi** 喔！
 
 <p align="center">
-  <img src="./assets/waiguan1.jpg" style="zoom: 51%;" />
-  <img src="./assets/maix-iii-small.jpg" style="zoom: 80%;" />
-  <img src="./assets/waiguan2.jpg" style="zoom: 45%;" />
+  <video width="640" height="480" controls="controls" loop="loop" autoplay="autoplay">
+    <source src="./assets/axpi_boom.mp4" type="video/mp4">
+  </video>
 </p>
 
 那么，它都带来了哪些内容呢？
@@ -46,7 +44,7 @@ title: MAIX-III AXera-Pi 是什么？
 - 开发困难？支持 debian11 系统内置 sdk 直接板上编译！白嫖在线 AI 模型训练直到部署！！！
 - 没有生态？ WIKI 拥有许多 LINUX、RISCV、AIOT、FPGA、MCU 等嵌入式领域的内容！！！！
 - 摄像效果太差？芯片主打 AI ISP 夜视增强！由原厂亲手为你调试白天到夜间的超强影像！！！！！
-- 价格太贵？从核心+底板+屏幕+摄像头+外壳支架全套总共人民币 **549** ！！！！！！（咆哮！！！！）
+- 价格太贵？从核心+底板+屏幕+摄像头+外壳支架全套总共人民币 **5X9** ！！！！！！（咆哮！！！！）
 
 ## 产品特色
 
@@ -177,7 +175,7 @@ title: MAIX-III AXera-Pi 是什么？
 
 > 笔者在这里认为所谓的性价比不是一昧地追求产品的最低价，而是在同类产品市场的主流价格区间内，选出社区用户群体可以接受的价格，然后在这个定位里去尽力做出效果最好的产品。
 
-从这些典型的产品中可以看出 m3axpi 是不需要「散热片和风扇还有外接电源」的，这就是它的另一个特色「高能效比」。
+从这些典型的产品中可以看出 m3axpi 套餐是没有配「散热片和风扇还有外接电源」的，这也是它的另一个特色「高能效比」。
 
 是的，这个产品不需要散热器/风扇，也不需要外接 2A 电源就可以启动系统，更不需要找 hdmi 线和显示器，并且产品测试时是类似如下接线图示意进行产品发货前测试的（这些实拍图虽然有点简陋但都是真情流露呀）。
 
@@ -185,13 +183,13 @@ title: MAIX-III AXera-Pi 是什么？
   <img src="./assets/test_axpi.jpeg" style="zoom: 50%;" />
 </p>
 
-来一个实际点的温度和功耗实际测量，要使用 USB3.0 的口来供电喔。
+来一个实际测量的温度和功耗，注意要使用 USB3.0 的口来供电喔。
 
 <p align="center">
   <img src="./assets/temp_test_axpi.jpg" style="zoom: 100%;" />
 </p>
 
-> 从实测结果上来看，这个功耗和温度控制的确实不错，承载了核心板、WIFI、以太网、摄像头、5寸屏的全部工作。
+> 从实测结果上来看，这个功耗和温度控制得挺好，用 USB3.0 5V@1A 承载了底板、核心板、WIFI、以太网、摄像头、5寸屏的工作。
 
 #### 基于 debian 系统开发
 
@@ -455,7 +453,11 @@ root@AXERA:~#
 
 ## 产品参数
 
-> 产品爆炸图 装配示意 样图正在制作中
+<p align="center">
+  <img src="./assets/waiguan1.jpg" style="zoom: 51%;" />
+  <img src="./assets/maix-iii-small.jpg" style="zoom: 80%;" />
+  <img src="./assets/waiguan2.jpg" style="zoom: 45%;" />
+</p>
 
 ### 硬件标注图
 
@@ -497,13 +499,17 @@ root@AXERA:~#
 
 ### 摄像头一览
 
-- 低配 gc4653 400w 单买不超过 ¥100 的社区体验版本。
+- 低配 gc4653 400w 基础体验版本。
 
-> 这里会有一些与其他机器的对比样张，正在加急制作中......
+<p align="center">
+  <img src="./assets/ax620a_gc.jpg" style="zoom: 100%;" />
+</p>
 
-- 高配 os04a10 400w 单买超过 ¥499 的对外宣传版本。
+- 高配 os04a10 400w 夜景增强版本。
 
-> 这里会有一些与其他机器的对比样张，正在加急制作中......
+<p align="center">
+  <img src="./assets/ax620a_os.jpg" style="zoom: 100%;" />
+</p>
 
 [更换摄像头可以看常见问题：Maix-III 系列 AXera-Pi 常见问题（FAQ）](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html)
 
