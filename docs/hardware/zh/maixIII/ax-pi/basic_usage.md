@@ -32,7 +32,7 @@ title: Maix-III AXera-Pi 系统基础使用
 
 ### 安装驱动
 
-rndis 在 Linux 和 Windows 下可免驱，而 macos 需要额外安装驱动，Windows 则需要勾选驱动配置一下网络优先级，如下配置图（勾选微软 rndis 驱动后设置网络跃点数调整优先级）。
+一般情况下 rndis usb 网卡驱动在 Linux 下可不用安装，在 Windows 下需要按下图手动安装系统自带驱动，而 macos 需要编译安装驱动（horndis），Windows 还需要配置一下网络优先级，如下配置图（勾选微软 rndis 驱动后设置网络跃点数调整优先级）。
 
 驱动安装：[这篇 Ghost 系列 USB 网卡（RNDIS) 使用教程](https://www.foream.com/wiki/docs/mindoc/mindoc-1b2er0dm4pos9)
 
