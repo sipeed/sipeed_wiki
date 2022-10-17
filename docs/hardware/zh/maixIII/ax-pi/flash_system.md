@@ -26,13 +26,13 @@ AXera-Pi 默认板卡没有存储介质，因此需要准备一张系统卡来�
 
 > [选择 Debian 的理由](https://www.debian.org/intro/why_debian)
 
-官方店铺可以购买到预烧录了系统镜像的 SD 卡，不然的话就需要进行下面的操作来自己准备 SD 镜像卡了。
+官方店铺可以购买预烧录系统镜像的 SD 卡，否则就需要自己进行以下的操作来准备 SD 镜像卡了。
 
 ## 获取镜像
 
 因为镜像文件比较大，因此这里仅提供百度云下载链接。
 
-前往百度云 [点我](https://eyun.baidu.com/s/3htTXfaG#sharelink/path=%2F%E4%B8%8B%E8%BD%BD%E7%AB%99%E6%96%87%E4%BB%B6%2FMaix-III%2FAXera%2Fsdk%2Frelease&parent_path=%2F%E6%B7%B1%E5%9C%B3%E7%9F%BD%E9%80%9F%E7%A7%91%E6%8A%80%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8) 下载文件（sipeed_ax620a_debian11_*.zip），镜像包与校验文件都已经放在里面了。
+前往百度云 [点我](https://eyun.baidu.com/s/3htTXfaG#sharelink/path=%2F%E4%B8%8B%E8%BD%BD%E7%AB%99%E6%96%87%E4%BB%B6%2FMaix-III%2FAXera%2Fsdk%2Frelease&parent_path=%2F%E6%B7%B1%E5%9C%B3%E7%9F%BD%E9%80%9F%E7%A7%91%E6%8A%80%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8) 下载文件，镜像包与校验文件都已经放在里面了。
 
 ![debian](./../assets/debian.jpg)
 
@@ -86,8 +86,8 @@ AXera-Pi 默认板卡没有存储介质，因此需要准备一张系统卡来�
 
 ![下载结束](./../../maixII/M2A/assets/finish_flash.png)
 
-> **注意**：如果出现烧录失败的情况，请手动格式化一下 sd 卡。
-> Windows 和 MacOS 可以使用 [SD Card Formatter](https://www.sdcard.org/downloads/formatter/eula_windows/SDCardFormatterv5_WinEN.zip)来格式化 sd 卡，Linux 系统可以使用系统的 disk 工具或 [Gparted](https://gparted.org/)来格式化。
+> **注意**：如果出现烧录失败的情况，请手动格式化一下 SD 卡。
+> Windows 和 MacOS 可以使用 [SD Card Formatter](https://www.sdcard.org/downloads/formatter/eula_windows/SDCardFormatterv5_WinEN.zip)来格式化 SD 卡，Linux 系统可以使用系统的 disk 工具或 [Gparted](https://gparted.org/)来格式化。
 
 
 <!-- 烧录方法如下图示意

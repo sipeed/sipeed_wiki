@@ -32,13 +32,16 @@ title: Maix-III AXera-Pi 系统基础使用
 
 ### 安装驱动
 
-一般情况下 rndis usb 网卡驱动在 Linux 下可不用安装，在 Windows 下需要按下图手动安装系统自带驱动，而 macos 需要编译安装驱动（horndis），Windows 还需要配置一下网络优先级，如下配置图（勾选微软 rndis 驱动后设置网络跃点数调整优先级）。
+一般情况下 rndis usb 网卡驱动在 Linux 下可不用安装，在 Windows 下需要按下图手动安装系统自带驱动，而 macos 需要编译安装驱动（horndis），Windows 还需要配置一下网络优先级，勾选微软 rndis 驱动后设置网络跃点数调整优先级。
 
 驱动安装：[这篇 Ghost 系列 USB 网卡（RNDIS) 使用教程](https://www.foream.com/wiki/docs/mindoc/mindoc-1b2er0dm4pos9)
 
+Windows 配置网络优先级：[设置网络跃点数调整优先级](https://jingyan.baidu.com/article/358570f6bc5cfdce4724fca2.html)
+
+
 >[有些同学会遇到 Ubuntu22.04 CH340系列串口驱动（没有ttyUSB）问题，点此查看解决方案.](https://blog.csdn.net/qq_27865227/article/details/125538516)
 
-.. details::点我查看 Win10 下的安装过程
+.. details::点我查看 Win10 驱动安装过程
 
     打开设备管理器找到其他设备，选中 rndis 选择更新驱动程序，在如何搜索设备软件窗口中，选择**浏览计算机查找驱动程序软件（R）**。
 
