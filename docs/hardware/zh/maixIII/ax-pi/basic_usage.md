@@ -40,7 +40,7 @@ title: Maix-III AXera-Pi 系统基础使用
 
     ![mobaxterm_ssh](./../assets/ssh.jpg)
 
-下载链接：[点击跳转](mobaxterm.mobatek.net/download) 获取免费版本即可使用。
+下载链接：[点击跳转](mobaxterm.mobatek.net/download) 分别付费与免费双版本，下载免费版本即可。
 使用教程：[如何使用 MobaXterm](https://wiki.sipeed.com/hardware/zh/maixII/M2/tools/mobaxterm.html?highlight=ssh)
 
 .. details::点我查看 vscode remote 介绍
@@ -57,35 +57,37 @@ Maix-III AXera-Pi 开发板的 Linux debian11 系统默认使用 root 用户登�
 
 - **有线 串口 serial 登陆**
 
-> 需安装 tty 转 USB 串口驱动
+> 使用串口 serial 登陆前需安装 tty 转 USB 串口驱动
 
-.. details::点我查看 uab uart 接口示意图
+**Linux**：系统本身自带无需再装驱动，使用 `ls /dev/ttyUSB*` 即可看到设备号。
+
+**Windows**：直接点击右侧下载 [CH340](https://api.dl.sipeed.com/fileList/MAIX/tools/ch340_ch341_driver/CH341SER.EXE) 驱动安装，安装后可在`设备管理器`查看串口设备。
+
+>[有些同学会遇到 Ubuntu22.04 CH340系列串口驱动（没有ttyUSB）问题，点此查看解决方案。](https://blog.csdn.net/qq_27865227/article/details/125538516)
+
+.. details::点我查看 usb uart 接口示意图
 
     ![uart](./../assets/uart.jpg)
 
-使用 usb 3.0 连接板子上的 usb uart 接入电脑端，使用前请安装上文的驱动，再使用 MobaXterm 即可连接，默认串口配置为 115200、8N1（波特率115200，8位数据，无奇偶校验，1位停止位）。
+使用 usb 3.0 线连接板子上的 usb uart 接入电脑端，使用前请安装上文的驱动，再使用 MobaXterm 即可连接，默认串口配置为 115200、8N1（波特率115200，8位数据，无奇偶校验，1位停止位）。
 
 **serial 登陆教程**：[点击查看](https://wiki.sipeed.com/hardware/zh/maixII/M2/tools/mobaxterm.html?highlight=ssh#%E8%BF%9E%E6%8E%A5-%E4%B8%B2%E5%8F%A3%28Serial%29)
 成功连接后会打印大量调试信息，会弹出登陆账号信息，输入用户名及密码即可登陆。
 
 ![serial](./../assets/serial.jpg)
 
-> 串口通常只提供给专业的驱动开发工程师调试用，会打印大量的调试信息，如感到不适请使用 ssh 登陆。
+> 串口通常只提供给专业的驱动开发工程师调试用，会打印大量的调试信息，如感到不适请使用 **ssh** 登陆。
 
 - **基于 ip + ssh 登录**
 
-> 需安装 RNDIS USB 网卡驱动
-
-#### 安装驱动
+> 登录前需安装 **RNDIS USB** 网卡驱动
 
 一般情况下 rndis usb 网卡驱动在 Linux 下可不用安装，在 Windows 下需要按下图手动安装系统自带驱动，而 macos 需要编译安装驱动（horndis），Windows 还需要配置一下网络优先级，勾选微软 rndis 驱动后设置网络跃点数调整优先级。
 
-驱动安装：[这篇 Ghost 系列 USB 网卡（RNDIS) 使用教程](https://www.foream.com/wiki/docs/mindoc/mindoc-1b2er0dm4pos9)
+**驱动安装**：[这篇 Ghost 系列 USB 网卡（RNDIS) 使用教程](https://www.foream.com/wiki/docs/mindoc/mindoc-1b2er0dm4pos9)
 
-Windows 配置网络优先级：[设置网络跃点数调整优先级](https://jingyan.baidu.com/article/358570f6bc5cfdce4724fca2.html)
+**Windows 配置网络优先级**：[设置网络跃点数调整优先级](https://jingyan.baidu.com/article/358570f6bc5cfdce4724fca2.html)
 
-
->[有些同学会遇到 Ubuntu22.04 CH340系列串口驱动（没有ttyUSB）问题，点此查看解决方案.](https://blog.csdn.net/qq_27865227/article/details/125538516)
 
 .. details::点我查看 Win10 驱动安装过程
 
@@ -104,7 +106,7 @@ Windows 配置网络优先级：[设置网络跃点数调整优先级](https://j
     ![otg](./../assets/otg.jpg)
 
 系统默认开启了 usb rndis 虚拟以太网，可以透过有线 usb otg 口连接 usb0 网卡的 ip 192.168.233.1 后使用 ssh 登陆到 linux 系统。
-想要无线连接 ssh 需要先登陆板子通过 `ifconfig` 得到板子 Ip 后即可连接，下图的 IP 地址都能登陆板子。
+想要无线连接 ssh 需要先登陆板子通过 `ifconfig` 得到板子 IP 后即可连接，下图的 IP 地址都能登陆板子。
 
 ![ifconfig](./../assets/ifconfig.jpg)
 
@@ -121,31 +123,14 @@ Windows 配置网络优先级：[设置网络跃点数调整优先级](https://j
 
 ### 网络操作基础
 
-- 使用 ping baidu.com 测试网络
-- 使用 ifconfig 查看所有网卡情况
-- 使用 dhclient 触发 dhcp 获取 ip （举例）
+- **使用 ping baidu.com 测试网络**
 
-### USB RNDIS （usb0）配置方法
+![baidu](./../assets/baidu.jpg)
 
-> 需要安装 RNDIS 驱动
-- 查看 usb0 网卡是否存在
-- 在 ping 通后 192.168.233.1 即可通过 usb 线登陆到板子
-
-### 有线以太网（eth0）配置方法
-
-- 查看 eth0 网卡是否存在
-- 一些问题排除方法，如没有 ip 如何配置。
-
-### 无线 WIFI （wlan0）配置方法
-
-- 查看 WIFI 网卡是否存在
-- 如何修改连接的 WIFI 账号密码（会开机自动联网）
-- 如何改用 mntui-connect 可视化配置
-- （附录）如何扫描 WIFI 热点
-
-### 网络配置（下为原料）
+- **使用 ifconfig 查看所有网卡情况**
 
 Maix-III AXera-Pi 开发板的 Linux 系统默认使用 DHCP 协议获取 IP 地址，可以使用命令行 `ifconfig` 查看当前网络配置，板子根据下述会配置四种网卡类型。
+
 
 ```bash
 root@AXERA:~# cat /etc/network/interfaces
@@ -213,18 +198,71 @@ wlan0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 ```
 
-- **lo**：local 的简写，一般指本地环回接口。
-- **eth0**：即有线网卡，可使用 `dhclient eth0 &` 手动启动 DHCP 客户端获取 IP 地址，得到 ip 后可以使用 `ifconfig eth0` 命令查看当前网络配置。
+- **使用 dhclient 触发 dhcp 获取 ip**
+
+>这里以无线 WIFI（wlan0）为例，decliient 还支持有线网卡（eth0）。
+ 
+```bash
+root@AXERA:~# dhclient wlan0
+[1]+  Done                    dhclient eth0
+root@AXERA:~# ifconfig wlan0
+wlan0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 192.168.0.136  netmask 255.255.255.0  broadcast 192.168.0.255
+        ether 0c:cf:89:32:c5:dc  txqueuelen 1000  (Ethernet)
+        RX packets 1284  bytes 157505 (153.8 KiB)
+        RX errors 0  dropped 1274  overruns 0  frame 0
+        TX packets 205  bytes 20798 (20.3 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+```
+
+### USB RNDIS（usb0）配置方法
+
+可使用静态 IP 地址 `192.168.233.1` 这里已配置好 dhcp 服务了，从而避免用户需手动设置 IP 地址的操作。
+
+> 使用 usb0 前需要安装 rndis 驱动，可参考上文的驱动安装过程。
+
+在 Windows 系统下如果遇到多个网卡时，发现 USB 网卡优于局域网导致内网网站访问很慢甚至失败，此时就需要通过 Win10 设置跃点数来调整网络优先级的连接顺序，去修改优先级改善访问慢的状态，数值越大优先级越低（比如设置 1000），从而把 USB 网卡优先级调至最低。
+
+- **查看 usb0 网卡是否存在**
+
+可通过 `ifconfig usb0` 命令查看 usb0 网卡或尝试 `ping 192.168.233.1` 是否能通。
+
+```bash
+root@AXERA:~# ifconfig usb0
+usb0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
+        inet 192.168.233.1  netmask 255.255.255.0  broadcast 192.168.233.255
+        ether 16:37:cd:c6:f2:ae  txqueuelen 1000  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+```
+
+- **在 ping 通后 192.168.233.1 即可通过 usb 线登陆到板子**
+
+USB 网卡会自动 DHCP 配置，直接连接 192.168.233.1 即可，连接方式可参考示意图。
+
+![ssh_usb](../assets/ssh_usb.jpg)
+
+
+
+### 有线以太网（eth0）配置方法
+
+- **查看 eth0 网卡是否存在**
+  
+**eth0**：即有线网卡，可使用 `dhclient eth0 &` 手动启动 DHCP 客户端获取 IP 地址，得到 ip 后可以使用 `ifconfig eth0` 命令查看当前网络配置。
 
 默认支持千兆网络，只需要开机前将网线插上去，在启动过程中就会自动配置并联网，可以通过 `apt update` 测试软件源更新。
 
-.. details::点我查看 eth0 接口示意图
+- **一些问题排除方法，如没有 ip 如何配置**
 
-    ![eth0](./../assets/eth0.jpg)
+### 无线 WIFI （wlan0）配置方法
 
-> dhclient 也支持其他网卡，如 dhclient wlan0
+- **查看 WIFI 网卡是否存在**
 
-- **wlan0**：无线网卡，使用 DHCP 协议获取 IP 地址，可使用命令 `ifconfig wlan0` 查看当前网络配置。
+**wlan0**：无线网卡，使用 DHCP 协议获取 IP 地址，可使用命令 `ifconfig wlan0` 查看当前网络配置。 
+
+- **如何修改连接的 WIFI 账号密码（会开机自动联网）**
 
 默认 WIFI 账号密码配置存放在 `/boot/wpa_supplicant.conf` 里，测试过并支持 Android 手机开放的 WPA-PSK2 热点，配置修改后会在重启后生效。
 
@@ -240,12 +278,16 @@ network={
 }
 ```
 
+- **如何改用 mntui-connect 可视化配置** 
+
 想要更好的命令行网络管理工具请使用 `apt-get install network-manager` 在 20221008 后的镜像已预置。
 
 启用需要 `systemctl enable ModemManager.service` 并在 `nano /etc/NetworkManager/NetworkManager.conf` 里修改成 `：managed=true` 和注释掉 `/etc/network/interfaces` 里的 wlan0 相关配置后重启即可使用 `nmtui-connect` 进行联网，但原来的 `wpa_supplicant.conf` 里的配置会失效，禁用需要 `systemctl disable ModemManager.service` 。
 
 > [配置 NetworkManager 参考](https://support.huaweicloud.com/bestpractice-ims/ims_bp_0026.html#section1) & [linux系统中使用nmtui命令配置网络参数（图形用户界面）](https://www.cnblogs.com/liujiaxin2018/p/13910144.html)
 
+- **（附录）如何扫描 WIFI 热点**
+  
 手工操作则需要了解 iwconfig 和 iwlist 命令去管理 WIFI 网卡，例如 WIFI 扫描方法 `iwlist wlan0 scanning`，由于 iwconfig 只支持无密码和 WEP 认证的热点，所以现已不使用这个命令，仅供简单的查询热点或测试 WIFI 的好与坏。
 
 ```
@@ -296,18 +338,8 @@ wlan0     Scan completed :
                     Extra:fm =0003
 
 ```
+>目前所有的网络配置都会在重启后自动生效，如果想要自己手工控制网卡的开关，请了解一下 ifup 或 ifdown 命令的用法，类似 ifup eth0 启动 eth0 网卡，ifdown eth0 --force 强制关闭 eth0 网卡等。
 
-- **usb0**：USB 虚拟网卡，使用静态 IP 地址（192.168.233.1）这里已经为其配置好 dhcp 服务了，从而避免用户需要手动设置 IP 地址的操作。
-
-**使用 usb0 前需要安装 rndis 驱动**：[跳回安装驱动教程。](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html#%E5%AE%89%E8%A3%85%E9%A9%B1%E5%8A%A8)
-
-USB 网卡会自动 DHCP 配置，直接连接 192.168.233.1 即可，连接方式可参考示意图。
-
-在 Windows 系统下如果遇到多个网卡时，发现 USB 网卡优于局域网导致内网网站访问很慢甚至失败，此时就需要通过 Win10 设置跃点数来调整网络优先级的连接顺序，去修改优先级改善访问慢的状态，数值越大优先级越低（比如设置 1000），从而把 USB 网卡优先级调至最低。
-
-![ssh_usb](../assets/ssh_usb.jpg)
-
-目前所有的网络配置都会在重启后自动生效，如果想要自己手工控制网卡的开关，请了解一下 ifup 或 ifdown 命令的用法，类似 `ifup eth0` 启动 eth0 网卡，`ifdown eth0 --force` 强制关闭 eth0 网卡等。
 
 ## 系统更新
 
@@ -802,15 +834,21 @@ devmem 0x2000038
 
 #### 使用方法
 
-运行以下命令启动软件（默认 gc4653）
+在终端运行下面的命令即可启动软件，服务默认绑定到 0.0.0.0 地址，直接在浏览器输入 usb0 的 IP 即可访问，使用板子上其他 IP 也可以访问页面。
 
-- `/opt/bin/IPCDemo/run.sh /opt/bin/IPCDemo/config/gc4653_config.json`
+```bash
+/opt/bin/IPCDemo/run.sh /opt/bin/IPCDemo/config/gc4653_config.json
+```
 
-不同摄像头要用不同的配置文件
+终端运行图
 
-服务默认绑定到 0.0.0.0 地址，用 usb0 的 IP 即可访问，使用其他 ip 也可以的。
+>**注意**：启动命令默认的镜头型号为 **gc4653** ，因不同的摄像头配置文件不一致，使用别的型号时需点击右侧[更换摄像头](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html#Q%EF%BC%9A%E5%A6%82%E4%BD%95%E6%9B%B4%E6%8D%A2-os04a10-%E6%91%84%E5%83%8F%E5%A4%B4%EF%BC%9F)进行修改。
 
-登陆上去就可以看到下图画面了，如果没看到，可能是配置没选对，或者换个浏览器测试
+访问页面后会弹出登录页面，点击登录后页面会弹出下图画面。
+
+点击登录图
+效果图
+
 
 #### 如何抓拍？如何录制？
 
