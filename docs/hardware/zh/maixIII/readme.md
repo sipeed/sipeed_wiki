@@ -32,14 +32,14 @@ title: MAIX-III AXera-Pi 是什么？
 最后总算是在 20221001 的时候推出了这款搭载 AX620A 的开发板，正式名为：**MAIX-III AXera-Pi**，以下内容中简称 **m3axpi** 喔！
 
 <p align="center">
-  <video width="100%" height="auto" controls="controls" loop="loop" autoplay="autoplay"
-    webkit-playsinline="true" playsinline="true" x5-playsinline="" 
-    x-webkit-airplay="allow"
-    x5-video-player-type="h5" 
-    x5-video-player-fullscreen="true" 
-    x5-video-orientation="portraint"
+  <video src="./assets/axpi_boom.mp4"
+    width="100%" controls="controls" autoplay="autoplay"
+    x5-playsinline=""
+ 		playsinline
+ 		webkit-playsinline="true"
+ 		poster="/assets/maix-iii-small.jpg"
+ 		preload="auto"
   >
-    <source src="./assets/axpi_boom.mp4" type="video/mp4">
   </video>
 </p>
 
@@ -433,7 +433,6 @@ root@AXERA:~#
 <p align="center">
   <img src="./assets/mobilenet_axpi.jpg" alt="img" style="zoom: 100%;" />
 </p>
-
 
 即可验证效果，[详细可从 maixhub 上获取](https://maixhub.com/model/zoo/89)。
 

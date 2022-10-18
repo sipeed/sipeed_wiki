@@ -10,7 +10,7 @@ title: Maix-III AXera-Pi 系统基础使用
 开始进行系统的调试使用之前，请先准备好所需的硬件设备，然后参考下方的接线示例正确接好后上电。
 
 1. Maix-III AXera-Pi 开发板
-2. 能出 1A 的 USB3.0 口（或是带供电的 usb hub 拓展） 
+2. 能出 1A 的 USB3.0 口（或是带供电的 usb hub 拓展）
 3. 一张大于 8G 烧录 debian11 的镜像系统卡
 4. GC4653 Sensor（自行按需求购入）
 5. 5 寸 MIPI屏（自行按需求购入）
@@ -30,7 +30,53 @@ title: Maix-III AXera-Pi 系统基础使用
   <img src="./../assets/sensor.jpg" width=48%>
 </html>
 
-### 安装驱动
+## 系统登录
+
+### 登陆工具
+
+.. details::点我查看 MobaXterm 介绍
+
+    MobaXterm 是在 Windows 下使用的全能终端管理软件，而 Linux 系统可以使用 ssh 远程被操作，使用 MobaXterm 进行 ssh 登陆板子直接编辑板内的代码或执行命令，也能方便的拖拽文件上传或下载到电脑里，类似的工具还有 vscode remote 远程登录 linux 服务器。
+
+    ![mobaxterm_ssh](./../assets/ssh.jpg)
+
+下载链接：[点击跳转](mobaxterm.mobatek.net/download) 获取免费版本即可使用。
+使用教程：[如何使用 MobaXterm](https://wiki.sipeed.com/hardware/zh/maixII/M2/tools/mobaxterm.html?highlight=ssh)
+
+.. details::点我查看 vscode remote 介绍
+
+    vscode remote 是 vscode 的一个插件，可以直接连接到远程的 linux 服务器，然后在本地编辑代码，同步到远程服务器上编译运行，这里以一台 ubuntu20.04 的桌面计算机系统为例，只要能安装 vscode 编辑器软件计算机都行，这里只是为了示意如何连接到板子里。
+
+下载连接：[点击跳转](https://code.visualstudio.com/)
+连接教程：[如何使用 vscode remote 连接板子](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/dev_prepare.html?highlight=ssh#vscode-remote)
+
+### 登录方式
+
+Maix-III AXera-Pi 开发板的 Linux debian11 系统默认使用 root 用户登录。
+用户名为 `root`，密码为 `root`，目前板子接入电脑端上电启动后支持以下登录 Linux 系统方式。
+
+- **有线 串口 serial 登陆**
+
+> 需安装 tty 转 USB 串口驱动
+
+.. details::点我查看 uab uart 接口示意图
+
+    ![uart](./../assets/uart.jpg)
+
+使用 usb 3.0 连接板子上的 usb uart 接入电脑端，使用前请安装上文的驱动，再使用 MobaXterm 即可连接，默认串口配置为 115200、8N1（波特率115200，8位数据，无奇偶校验，1位停止位）。
+
+**serial 登陆教程**：[点击查看](https://wiki.sipeed.com/hardware/zh/maixII/M2/tools/mobaxterm.html?highlight=ssh#%E8%BF%9E%E6%8E%A5-%E4%B8%B2%E5%8F%A3%28Serial%29)
+成功连接后会打印大量调试信息，会弹出登陆账号信息，输入用户名及密码即可登陆。
+
+![serial](./../assets/serial.jpg)
+
+> 串口通常只提供给专业的驱动开发工程师调试用，会打印大量的调试信息，如感到不适请使用 ssh 登陆。
+
+- **基于 ip + ssh 登录**
+
+> 需安装 RNDIS USB 网卡驱动
+
+#### 安装驱动
 
 一般情况下 rndis usb 网卡驱动在 Linux 下可不用安装，在 Windows 下需要按下图手动安装系统自带驱动，而 macos 需要编译安装驱动（horndis），Windows 还需要配置一下网络优先级，勾选微软 rndis 驱动后设置网络跃点数调整优先级。
 
@@ -53,47 +99,6 @@ Windows 配置网络优先级：[设置网络跃点数调整优先级](https://j
 
     ![rndis_3](./../assets/rndis_3.jpg)
 
-### 工具
-
-.. details::点我查看 MobaXterm 介绍
-
-    MobaXterm 是在 Windows 下使用的全能终端管理软件，而 Linux 系统可以使用 ssh 远程被操作，使用 MobaXterm 进行 ssh 登陆板子直接编辑板内的代码或执行命令，也能方便的拖拽文件上传或下载到电脑里，类似的工具还有 vscode remote 远程登录 linux 服务器。
-
-    ![mobaxterm_ssh](./../assets/ssh.jpg)
-
-下载链接：[点击跳转](mobaxterm.mobatek.net/download) 获取免费版本即可使用。
-使用教程：[如何使用 MobaXterm](https://wiki.sipeed.com/hardware/zh/maixII/M2/tools/mobaxterm.html?highlight=ssh)
-
-.. details::点我查看 vscode remote 介绍
-    
-    vscode remote 是 vscode 的一个插件，可以直接连接到远程的 linux 服务器，然后在本地编辑代码，同步到远程服务器上编译运行，这里以一台 ubuntu20.04 的桌面计算机系统为例，只要能安装 vscode 编辑器软件计算机都行，这里只是为了示意如何连接到板子里。
-
-下载连接：[点击跳转](https://code.visualstudio.com/)
-连接教程：[如何使用 vscode remote 连接板子](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/dev_prepare.html?highlight=ssh#vscode-remote)
-
-## 系统登录
-
-### 登录方式
-
-Maix-III AXera-Pi 开发板的 Linux debian11 系统默认使用 root 用户登录。
-用户名为 `root`，密码为 `root`，目前板子接入电脑端上电启动后支持以下登录 Linux 系统方式。
-
-- **有线 串口 serial 登陆**
-
-.. details::点我查看 uab uart 接口示意图
-
-    ![uart](./../assets/uart.jpg)
-
-使用 usb 3.0 连接板子上的 usb uart 接入电脑端，使用前请安装上文的驱动，再使用 MobaXterm 即可连接，默认串口配置为 115200、8N1（波特率115200，8位数据，无奇偶校验，1位停止位）。
-
-**serial 登陆教程**：[点击查看](https://wiki.sipeed.com/hardware/zh/maixII/M2/tools/mobaxterm.html?highlight=ssh#%E8%BF%9E%E6%8E%A5-%E4%B8%B2%E5%8F%A3%28Serial%29)
-成功连接后会打印大量调试信息，会弹出登陆账号信息，输入用户名及密码即可登陆。
-
-![serial](./../assets/serial.jpg)
-
-> 串口通常只提供给专业的驱动开发工程师调试用，会打印大量的调试信息，如感到不适请使用 ssh 登陆。
-
-- **基于 ip + ssh 登录**
 .. details::点我查看 uab otg 接口示意图
 
     ![otg](./../assets/otg.jpg)
@@ -114,7 +119,31 @@ Maix-III AXera-Pi 开发板的 Linux debian11 系统默认使用 root 用户登�
 
 ## 系统配置
 
-### 网络配置
+### 网络操作基础
+
+- 使用 ping baidu.com 测试网络
+- 使用 ifconfig 查看所有网卡情况
+- 使用 dhclient 触发 dhcp 获取 ip （举例）
+
+### USB RNDIS （usb0）配置方法
+
+> 需要安装 RNDIS 驱动
+- 查看 usb0 网卡是否存在
+- 在 ping 通后 192.168.233.1 即可通过 usb 线登陆到板子
+
+### 有线以太网（eth0）配置方法
+
+- 查看 eth0 网卡是否存在
+- 一些问题排除方法，如没有 ip 如何配置。
+
+### 无线 WIFI （wlan0）配置方法
+
+- 查看 WIFI 网卡是否存在
+- 如何修改连接的 WIFI 账号密码（会开机自动联网）
+- 如何改用 mntui-connect 可视化配置
+- （附录）如何扫描 WIFI 热点
+
+### 网络配置（下为原料）
 
 Maix-III AXera-Pi 开发板的 Linux 系统默认使用 DHCP 协议获取 IP 地址，可以使用命令行 `ifconfig` 查看当前网络配置，板子根据下述会配置四种网卡类型。
 
@@ -142,7 +171,7 @@ netmask 255.255.255.0
 # wpa-psk "junhuanchen"
 auto wlan0
 iface wlan0 inet manual
-wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
+wpa-conf /boot/wpa_supplicant.conf
 iface wlan0 inet dhcp
 ```
 
@@ -200,7 +229,7 @@ wlan0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
 默认 WIFI 账号密码配置存放在 `/boot/wpa_supplicant.conf` 里，测试过并支持 Android 手机开放的 WPA-PSK2 热点，配置修改后会在重启后生效。
 
 ```bash
-root@AXERA:~# cat /etc/wpa_supplicant/wpa_supplicant.conf
+root@AXERA:~# cat /boot/wpa_supplicant.conf
 ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
 update_config=1
 
@@ -364,35 +393,6 @@ exit 0
 - kernel.img linux 内核
 
 - dtb.img linux 设备树
-
-20221001 版本的内核与驱动已经发布，可以挂载镜像从第一分区获取相关文件后替换到 SD 卡的 /boot 目录下，目前 linux 底层还未开源，未来会逐步开源。
-
-## 内置开箱应用
-
-IPCDEMO（商业 ipc 应用）
-
-介绍
-
-提供人脸识别、车牌识别开箱即用的
-
-`/opt/bin/IPCDemo/run.sh /opt/bin/IPCDemo/config/gc4653_config.json`
-
-附图：
-
-效果视频
-
-- https://www.bilibili.com/video/BV1me411T7g8
-- https://www.bilibili.com/video/BV1p24y1d7Te
-
-SKEDEMO（暂未开放）
-
-介绍
-
-在展会上运行的效果视频。
-
-附图：
-
-效果视频 https://www.bilibili.com/video/BV1B14y1Y7A4
 
 ## 系统外设验证
 
@@ -778,7 +778,65 @@ devmem 0x2000030
 devmem 0x2000034
 devmem 0x2000038
 
-## 出厂测试脚本
+## 内置开箱应用
+
+### IPCDemo
+
+这是一个典型的 IPC 演示程序，对应的功能模块有：
+
+- ISP：负责从 Sensor 获取图像 RAW 数据并转为 YUV，最终分 3 路通道输出以上信息。
+- IVPS：图像视频处理模块。实现对视频图形进行一分多、Resize、Crop、旋转等功能。
+- VENC / JENC：视频/JPEG 编码输出。
+- Detect：支持人脸或结构化检测。
+- Web 显示：实现 H264 流的 Web 传输和提供 Web 方式查看实时视频。
+- RTSP 推流：实现 H264 流的 RTSP 封装以及传输。
+- 录像 TF 卡存储：封装 H264 流为 MP4 格式文件并保存至 TF 卡或者 FLASH 空间。
+
+<p align="center">
+    <iframe src="//player.bilibili.com/player.html?aid=260625114&bvid=BV1me411T7g8&cid=837160730&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="max-width:640px; max-height:480px;"> </iframe>
+</p>
+
+<p align="center">
+    <iframe src="//player.bilibili.com/player.html?aid=688159412&bvid=BV1p24y1d7Te&cid=837167669&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="max-width:640px; max-height:480px;"> </iframe>
+</p>
+
+#### 使用方法
+
+运行以下命令启动软件（默认 gc4653）
+
+- `/opt/bin/IPCDemo/run.sh /opt/bin/IPCDemo/config/gc4653_config.json`
+
+不同摄像头要用不同的配置文件
+
+服务默认绑定到 0.0.0.0 地址，用 usb0 的 IP 即可访问，使用其他 ip 也可以的。
+
+登陆上去就可以看到下图画面了，如果没看到，可能是配置没选对，或者换个浏览器测试
+
+#### 如何抓拍？如何录制？
+
+浏览器抓拍录制（web）
+
+- 抓拍
+
+- 录制
+
+在班底本地录制（mp4）
+
+20222017 后镜像默认打开了录制到 `/opt/mp4` 目录下，注意，录制完后存到文件系统后才能打开喔，某种意义上来讲，你可以挂载一个网络路径当做。
+
+录制的视频截图如下：
+
+
+
+### SKEDEMO
+
+> 这是一个基于 IPCDemo 的人体关键点开箱示例（暂未开放）
+
+<p align="center">
+    <iframe src="//player.bilibili.com/player.html?aid=773227207&bvid=BV1B14y1Y7A4&cid=837154353&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="max-width:640px; max-height:480px;"> </iframe>
+</p>
+
+### 出厂测试脚本
 
 ```python
 test_flag = False
