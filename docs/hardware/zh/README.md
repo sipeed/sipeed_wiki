@@ -6,7 +6,7 @@ desc: 矽速科技的硬件资料站
 
 ## Maix 系列
 
-推出一系列以 **K210** 为核心的开发板，满足不同人群对于开发板的需求
+推出一系列以 **MCU** 为核心的开发板，满足不同人群对于开发板的需求
 
 [![](./../assets/maix.jpg)](./maix/readme.md)
 
@@ -16,7 +16,7 @@ Linux AI 开发板
 
 [![](./../assets/maixii.jpg)](./maixII/readme.md)
 
-## Lichee 系列
+## LicheePi 系列
 
 Linux 开发板
 
@@ -28,7 +28,7 @@ FPGA 开发板
 
 [![](./../assets/tang.jpg)](./tang/readme.md)
 
-## Metesense 模组
+## Maixsense 模组
 
 3D TOF 模组
 

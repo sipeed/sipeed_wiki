@@ -84,7 +84,7 @@ This form shows detail specs of Tang Nano 9K
    Online tutorial:  
    We suggest two excellent learning sites about verilog : [HDLBITs](https://hdlbits.01xz.net/wiki/Main_Page) and [Verilog Page](https://www.asic-world.com/verilog/index.html)
 
-5. Read this [tutorial](./examples/rgb_screen.md) (5-inch RGB screen Display turtial). If you can't complete this experiment, you can download our [9K examples](https://github.com/sipeed/TangNano-9K-example) (adapted to 9K + 5-inch screen) to see which step goes wrong.
+5. Read this [tutorial](./examples/rgb_screen.md) (5-inch RGB screen Display tutorial). If you can't complete this experiment, you can download our [9K examples](https://github.com/sipeed/TangNano-9K-example) (adapted to 9K + 5-inch screen) to see which step goes wrong.
    **Note: for screen wiring, pay attention to the 1-pin silk screen next to the connector corresponding to 1-pin of the cable**
    Documents to read:
    - rPLL IP core reference: Click the menubar Tools>IP Core Generator>Hard Module>CLOCK>rPLL

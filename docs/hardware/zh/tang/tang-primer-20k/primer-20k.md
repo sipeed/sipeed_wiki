@@ -1,7 +1,5 @@
 # Tang Primer 20K
 
-> 编辑于 2022.08.22
-
 ## 概述
 
 Tang Primer 20K 是基于 [GW2A-V18PG256C8IC8I7](http://www.gowinsemi.com.cn/prod_view.aspx?TypeId=10&amp;FId=t3:10:3&amp;Id=167#GW2A) 所设计的一款 DDR3 sodimm 封装的核心板，额外准备了两个底板，分别为 Dock 底板和 Lite 底板。
@@ -258,22 +256,15 @@ Tang Primer 20K 是基于 [GW2A-V18PG256C8IC8I7](http://www.gowinsemi.com.cn/pro
 	</body>
 </table>
 
-
 ## 硬件资料汇总
 
 规格书、原理图、尺寸图等均可在这里找到：[点击这里](https://dl.sipeed.com/shareURL/TANG/Primer_20K)
 
-## 开箱指南
-
-前往 [开箱指南](./start.md) 来开始使用这个板子
-
 ## 上手指引
    
-1. 安装 IDE ：[点击这里](https://wiki.sipeed.com/soft/Tang/zh/Tang-Nano-Doc/get_started/install-the-ide.html)
+1. 安装 IDE ：[点击这里](./../Tang-Nano-Doc/get_started/install-the-ide.md)
 
-2. 阅读 <a href="https://wiki.sipeed.com/news/others/20k_lite_start/20k_lite_start.html" target="blank">这个</a> 完成点灯操作。
-
-    进行完上面的点灯操作后可以考虑将一个灯闪改为多个灯一起闪，来提升自己
+2. 查看 [上手指南](./start.md) 来避免一些问题，并且从那里面可以开始进行代码实战。
 
 3. 如果进行完上面的点灯操作后后感觉有压力，可以自己查漏补缺：
    可以在下面的这些网站学习 Verilog:
@@ -294,12 +285,14 @@ Tang Primer 20K 是基于 [GW2A-V18PG256C8IC8I7](http://www.gowinsemi.com.cn/pro
 
 ## 例程汇总
 
-github 链接：https://github.com/sipeed/TangPrimer-20K-example
+### 公开例程
 
-部分教程：
+github 链接： https://github.com/sipeed/TangPrimer-20K-example
+
+### 部分教程
 
 - Lite 底板点灯 ：<a href="https://wiki.sipeed.com/news/others/20k_lite_start/20k_lite_start.html" target="blank">点我跳转</a>
-- 例程指南: [点我跳转](./example.md)
+- Dock 底板例程指南: [点我跳转](./example.md)
 
 ## 交流方式
 
@@ -332,11 +325,13 @@ github 链接：https://github.com/sipeed/TangPrimer-20K-example
 ### 如何下载到外部 FLASH
 
 进行如下选项设置：
+
 <img src="./assets/flash_mode.png" alt="flash_mode" width=75%>
 
 ### 烧录后没反应或者引脚现象不对
 
 首先确定选择了正确的型号，下图中的每一个参数都要求一致
+
 <img src="./assets/device_choose.png" alt="device_choose" width=75%>
 
 然后检查自己的代码和对应的仿真波形是否满足要求

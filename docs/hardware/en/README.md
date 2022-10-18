@@ -6,7 +6,7 @@ desc: Sipeed hardware documentation website
 
 ## Maix Series
 
-A series of development boards based on **K210**, meets the needs of different groups of people
+A series of development boards based on **MCU**, meets the needs of different groups of people
 
 [![](./../assets/maix.jpg)](./maix/readme.md)
 

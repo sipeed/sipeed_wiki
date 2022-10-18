@@ -58,18 +58,11 @@
                 },
                 {
                     "label":"M1s 模块",
-                    "items":[
-                        {
-                        }
-                    ]
-
+                    "file":"maix/m1s/m1s_module.md"
                 },
                 {
                     "label":"M1s 开发板",
-                    "items":[
-                        {
-                        }
-                    ]
+                    "file":"maix/m1s/m1s_dock.md"
                 },
                 {
                     "label":"M1a 模块",
