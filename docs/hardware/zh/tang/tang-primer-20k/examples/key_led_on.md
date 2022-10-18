@@ -11,23 +11,25 @@ update:
 
 ## 原理
 
-根据 DOCK 底板原理图，可以看出当板载按键按下时，对应的 FPGA 引脚会为低电平。
+从 [原理图](https://dl.sipeed.com/shareURL/TANG/Primer_20K/02_Schematic) 中，可以知道以下信息：
 
 ### 按键电路：
 
-![key_schematic](./assets/key_led_on/key_schematic.png)
+根据 DOCK 底板原理图，可以看出当板载按键按下时，对应的 FPGA 引脚会为低电平输入。
 
-且根据 LED 电路，可以知道当 FPGA 引脚为低电平的时候对应连接的 LED 会亮起来。
+| 板载按键电路原理图 | 板载按键与 FPGA 连接引脚图 |
+|---|---|
+| ![key_schematic](./assets/key_led_on/key_schematic.png)| ![key_pin](./assets/key_led_on/key_pin.png) |
 
 ### LED 电路:
 
-![key_schematic](./assets/key_led_on/led_schematic.png)
+根据 LED 电路，可以知道当 FPGA 引脚为低电平的时候对应连接的 LED 会亮起来。
 
-所以我们直接将按键引脚的电平输出到 LED 的引脚电平就可以了。
+| 板载自定义 LED 电路原理图 | 板载自定义 LED 与 FPGA 连接引脚图 |
+|---|---|
+| ![key_schematic](./assets/key_led_on/led_schematic.png)| ![key_pin](./assets/key_led_on/led_pin.png) |
 
-### FPGA 引脚与电路外设对应的关系
-
-![peripherals](./assets/key_led_on/peripherals.png)
+所以直接将按键引脚的逻辑电平输出为 LED 的引脚裸机电平就可以点亮 LED 灯。
 
 ## 操作
 

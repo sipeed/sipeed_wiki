@@ -5,7 +5,7 @@
 ## Preface
 
 There ia an example about picoRV : [Tang Nano 9K github repository](https://github.com/sipeed/TangNano-9K-example/tree/main/picotiny).
-In this turtial we just describe how to run the example simply .
+In this tutorial we just describe how to run the example simply .
 
 ## Environment
 
