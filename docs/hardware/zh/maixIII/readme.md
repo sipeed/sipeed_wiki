@@ -516,38 +516,24 @@ root@AXERA:~#
   <img src="./assets/ax620a_os.jpg" style="zoom: 100%;" />
 </p>
 
-[更换摄像头可以看常见问题：Maix-III 系列 AXera-Pi 常见问题（FAQ）](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html)
+> [更换摄像头可以看这个](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html)
 
-## 常见问题（FAQ）
+## 其他资源
 
-### Q：供电不足怎么办？
+[>>> 点此直达淘宝商品链接 <<< ](https://m.tb.cn/h.U30m3xW?tk=L1vr2BQ0AQM)。
 
-A：可以把两根 usb 口接上来供电，板子至少要 USB3.0 1A 的电流才能启动喔！（拉黑 USB2.0 500ma ）
+如果你想分享给更多人，请使用这个资料入口（http://wiki.sipeed.com/m3axpi）喔。
 
-### Q：被产品电了怎么办？
-
-A：最近冬天静电来了，产品要注意接地喔。
-
-### Q：那么，在哪可以买到？
-
-A：[点此链接直达](https://m.tb.cn/h.U30m3xW?tk=L1vr2BQ0AQM)
-
-### Q：产品文档资料社区在哪？
-
-A：本产品只有一个产品资料入口 http://wiki.sipeed.com/m3axpi
-
-SIPEED 开源相关社区资源如下：
+### 产品社区资源
 
 - AI 服务 http://maixhub.com
-- 开源资料 http://wiki.sipeed.com
-- 开源社区 http://bbs.sipeed.com
+- 文档资料 http://wiki.sipeed.com
+- 交流社区 http://bbs.sipeed.com
 - 开源组织 http://github.com/sipeed
 
-### Q：产品技术支持售后在哪？
+### 产品售后支持
 
-A：现在提供两个 QQ 技术群：
-
-- AXERA 技术交流群：（ 139953715 ）专供 AI ISP 核心技术交流
+- AXERA 技术交流群：（ 139953715 ）专供 AI ISP 技术交流
 - 荔枝 MaixPy3 AI 交流群：（ 756313869 ）给产品开箱小白答疑
 
-更多问题的 Q & A 请到 [Maix-III 系列 AXera-Pi 常见问题（FAQ）](./ax-pi/faq_axpi.md) 了解喔。
+> 一些常见问题（FAQ） Q & A 请到 [Maix-III 系列 AXera-Pi 常见问题（FAQ）](./ax-pi/faq_axpi.md) 了解喔。
