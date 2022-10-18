@@ -11,42 +11,7 @@
             {
                 "label": "产品",
                 "url": "/hardware/zh/index.html",
-                "position": "left",
-                "type": "list",
-                "items": [
-                    {
-                        "url": "/hardware/zh/maix/index.html",
-                        "label": "Maix-I"
-                    },
-                    {
-                        "url": "/hardware/zh/maixII/index.html",
-                        "label": "Maix-II & III"
-                    },
-                    {
-                        "url": "/hardware/zh/lichee/index.html",
-                        "label": "LicheePI"
-                    },
-                    {
-                        "url": "/hardware/zh/tang/index.html",
-                        "label": "Tang"
-                    },
-                    {
-                        "url": "/hardware/zh/longan/Nano/Longan_nano.html",
-                        "label": "Longan"
-                    },
-                    {
-                        "url": "/hardware/zh/maixsense/index.html",
-                        "label": "MaixSense"
-                    },
-                    {
-                        "url": "/hardware/zh/maixface/mf_ml_module/mf0_ml_module.html",
-                        "label": "MaixFace"
-                    },
-                    {
-                        "url":"/hardware/zh/modules_spmod/spmod_extender.html",
-                        "label":"SP-Mod"
-                    }
-                ]
+                "position": "left"
             },
             {
                 "label": "软件文档",
@@ -71,7 +36,7 @@
                     }
                 ]
             },
-            
+
             {
                 "label": "在线服务",
                 "position": "left",
