@@ -2,11 +2,7 @@
 
 ## Preface
 
-Tang Primer 20K is a core board with DDR3 sodimm shape using [GW2A-V18PG256C8IC8I7](https://www.gowinsemi.com/en/product/detail/38/) as the main chip, 2 ext-boards are prepared, the Dock and the Lite. Being as the 6th FPGA board sold by Sipeed, Tang Primer 20K has always been expected.
-
-**Notice: Dock ext-board will be ready in October**
-
-Dock ext-board and Lite ext-board contains different resources. The Dock ext-board can be used to drive peripherals like dvp camera, rgb screen, Gigabit Ethernet and other peripherals direclty and quickly, which save user's time to verify codes. Besides, there is a [USB-softcore](http://www.gowinsemi.com.cn/enrollment_view.aspx?TypeId=67&Id=858&FId=t27:67:27#IP) provided by GOWIN, you can try it by yourself if you are instarected enough. The Lite ext-board routes out almost all IO, and there are some Differential pins routed to pin headers, users can design instresting ext-module to use this kit, line length and impedance data are [here](https://dl.sipeed.com/shareURL/TANG/Primer_20K/04_Net_Length).
+Tang Primer 20K is a core board with DDR3 sodimm shape based on [GW2A-V18PG256C8IC8I7](https://www.gowinsemi.com/en/product/detail/38/) as the main chip, with 2 ext-boards are prepared, the Dock and the Lite.
 
 ## Core board
 
@@ -17,7 +13,7 @@ Dock ext-board and Lite ext-board contains different resources. The Dock ext-boa
     <img src="./assets/20k_back.png" width=45%>
 </div>
 
-### Specs
+### Parameters
 
 <table>
 	<thead>
@@ -109,6 +105,25 @@ Dock ext-board and Lite ext-board contains different resources. The Dock ext-boa
 
 ## Comparison between ext-board
 
+### Dock ext-board appearance
+
+The corresponding pins numbering of LED2 and LED3 is N16 and N14. See the mark on left of the right picture.
+
+<div>
+<img src="./../../../zh/tang/tang-primer-20k/assets/dock-up.png" alt="dock-up" width=45%>
+<img src="./../../../zh/tang/tang-primer-20k/assets/dock-back.png" alt="dock-back" width=45%>
+</div>
+
+### Lite ext-board appearance
+
+The corresponding pin numbering between R8 and P9 is P8. See the mark on the top left of the right picture.
+
+<div>
+<img src="./../../../zh/tang/tang-primer-20k/assets/lite-up.png" alt="lite-up" width=45%>
+<img src="./../../../zh/tang/tang-primer-20k/assets/lite-back.png" alt="lite-back" width=45%>
+</div>
+
+### Comparison between peripherals of ext-board
 
 <table>
 	<thead>
@@ -215,59 +230,80 @@ Dock ext-board and Lite ext-board contains different resources. The Dock ext-boa
 			<td>TL8201F</td>
 			<td></td>
 		</tr>
-		<tr>
+		<!-- <tr>
 			<td colspan="2">RGB LED</td>
 			<td>1</td>
 			<td>WS2812</td>
 			<td></td>
-		</tr>
+		</tr> -->
 	</body>
 </table>
 
-## Target user
+## Hardware information
 
-| Usage     | FPGA                             | MCU                                | FPGA+MCU                     |
-| :---- | :---------- | :------------- | :----------------- |
-| Language     | Verilog HDL/Verilog         | C/C++               | Verilog HDL/Verilog ，  C/C++                |
-| Introduction     | Verify HDL on FPGA | Burn softcore bitstream into chip then <br>use Primer 20K as normal MCU| After flashing the softcore bitstream,
-it can be used as two chips |
-| User |  Beginner，FPGA developer  | RISC-V developers，Cortex-M developers | Senior engineer |
+Datasheet, Schematic and dimensional drawing about hardware design can be found [here](https://dl.sipeed.com/shareURL/TANG/Primer_20K)
 
 ## User guide
 
-1. Check the board whether it works.
+1. Install IDE: [Click me](./../Tang-Nano-Doc/install-the-ide.md).
 
-1. Download our packaged user guide document : [Click me](https://dl.sipeed.com/shareURL/TANG/Nano%209K/6_Chip_Manual/EN/General%20Guide) (All PDFs mentioned below are here)
-   
-2. Install IDE and configure license : <a href="https://wiki.sipeed.com/hardware/en/tang/Tang-Nano-Doc/install-the-ide.html" target="blank">Click me</a>
-   
-3. Read this file : [SUG100-2.6E_Gowin Software User Guide.pdf](https://dl.sipeed.com/fileList/TANG/Nano%209K/6_Chip_Manual/EN/General%20Guide/SUG100-2.6E_Gowin%20Software%20User%20Guide.pdf)
+2. Visit [Start to use](./start.md) to avoid some problems, and we can start coding for FPGA there.
 
-4. Read this [tutorial] (On building) (LEDs Blink experiment).
-   We suggest you recreate a project ang light the led by yourself, this can help you know more about the steps about fpga.
-   We recommended you read the following tips during this process:
-   - Verilog code specifications (please search by yourself. It is very necessary to obey good code specifications from beginning)
-   
-	The following documents are very useful for learning FPGA, so we should read them.
-	   - SUG949-1.1E_Gowin HDL Coding User Guide.pdf
-	   - UG286-1.9.1E_Gowin Clock User Guide.pdf
-	The documents mentioned above can be downloaded from our [Download station](https://dl.sipeed.com/shareURL/TANG/Nano%209K/6_Chip_Manual/EN/General%20Guide)
-   	And there has been a compressed package contains all documents
+3. After coding for FPGA, if you think it difficult, here we collect some useful learning resource.
+   + Online FPGA tutorial: [Verilog](https://www.asic-world.com/verilog/index.html)
+   + Online Verilog exercise：[HDLBits](https://hdlbits.01xz.net/wiki/Main_Page)
 
-   Online tutorial:  
-   We suggest two excellent learning sites about verilog : [HDLBITs](https://hdlbits.01xz.net/wiki/Main_Page) and [Verilog Page](https://www.asic-world.com/verilog/index.html)
+	If you have trouble using IDE, we have packed all documents about IDE, visit [Download station](https://dl.sipeed.com/shareURL/TANG/Primer_20K/07_Chip_manual/EN/General%20Guide) and download what you need.
 
 ## Reference examples summary
 
-https://github.com/sipeed/TangPrimer-20K-example
+### Open codes
 
-Examples update time:
+github ：https://github.com/sipeed/TangPrimer-20K-example
 
-- LED drive ：Update on 2022.08.22
+### Tutorial
 
-## Hardware files
+- Lite ext-board blink ：[Click me](./examples/lite/blink.md)
+- Dock ext-board examples summary : [Click me](./example.md)
 
-[All hardware files](https://dl.sipeed.com/shareURL/TANG/Primer_20K)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## Attention
 

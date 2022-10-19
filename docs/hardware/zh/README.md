@@ -7,63 +7,102 @@ desc: 矽速科技的开源软硬件 WIKI 资料站
 ## Maix-I 系列
 
 ### Maix-I S
+
+这是一款以博流 808 为主控所制作的模块与核心板
+
 ### Maix-I A
 
 ### Maix-I 系列
 
-这是 2019 年以 K210 为核心制作的一系列 AIOT 开发板。
+这是 2019 年以 K210 为核心所制作的一系列 AIOT 开发板。
 
 <table role="table" class="center_table">
-  <tbody>
-    <tr>
-      <th scope="col">型号</th>
-      <th scope="col">图片</th>
-    </tr>
-    <tr>
-      <td> Maix Go</td>
-      <td><a href="./maixpy_develop_kit_board/maix_go.html" target="_blank"><img src="./assets/dk_board/maix_go/Go.jpg" width="260"></a></td>
-    </tr>
-    <tr>
-      <td>Maix Dock</td>
-      <td><a href="./maixpy_develop_kit_board/Maix_dock.html" target="_blank"><img src="./assets/dk_board/maix_dock/Dan_Dock.png" width="260"></a></td>
-    </tr>
-    <tr>
-      <td>Maix Duino</td>
-      <td><a href="./maixpy_develop_kit_board/maix_duino.html" target="_blank"><img src="./assets/dk_board/maix_duino/maixduino_0.png" width="260"></a></td>
-    </tr>
-    <tr>
-      <td>Maix Bit</td>
-      <td> <a href="./maixpy_develop_kit_board/maix_bit.html" target="_blank"><img src="./assets/dk_board/maix_bit/Bit.png" width="260"></a> </td>
-    </tr>
-    <tr>
-      <td>Maix Cube</td>
-      <td><a href="./maixpy_develop_kit_board/maix_cube.html" target="_blank"><img src="./assets/dk_board/maix_cube/maix_cube.png" width="260"></a></td>
-    </tr>
-    <tr>
-      <td>Maix Amigo</td>
-      <td><a href="./maixpy_develop_kit_board/maix_Amigo.html" target="_blank"><img src="./assets/dk_board/maxi_amigo/maix_amigo_0.png" width="260"></a></td>
-    </tr>
-    <tr>
-    <td>Maix nano</td>
-    <td><a href="./maixpy_develop_kit_board/maix_nano.html"><img src="./assets/dk_board/maix_nano/maix_nano.jpg" width="260" alt="Maxi nano"></a></td>
-    </tr>
-  </tbody>
+    <tbody>
+        <tr>
+            <th scope="col">型号</th>
+            <th scope="col">图片</th>
+            <th scope="col">型号</th>
+            <th scope="col">图片</th>
+        </tr>
+        <tr>
+             <td style="white-space:nowrap">Maix Bit</td>
+            <td> <a href="./maix/maixpy_develop_kit_board/maix_bit.html"
+                    target="_blank"><img
+                        src="./maix/assets/dk_board/maix_bit/Bit.png" ></a> </td>
+             <td style="white-space:nowrap">Maix Dock</td>
+            <td><a href="./maix/maixpy_develop_kit_board/Maix_dock.html"
+                    target="_blank"><img
+                        src="./maix/assets/dk_board/maix_dock/Dan_Dock.png" ></a></td>
+        </tr>
+        <tr>
+             <td style="white-space:nowrap">Maix Duino</td>
+            <td><a href="./maix/maixpy_develop_kit_board/maix_duino.html"
+                    target="_blank"><img
+                        src="./maix/assets/dk_board/maix_duino/maixduino_0.png" ></a></td>
+             <td style="white-space:nowrap">Maix nano</td>
+            <td><a href="./maix/maixpy_develop_kit_board/maix_nano.html"><img
+                        src="./maix/assets/dk_board/maix_nano/maix_nano.jpg"  alt="Maxi nano"></a></td>
+        </tr>
+        <tr>
+             <td style="white-space:nowrap">Maix Cube</td>
+            <td><a href="./maix/maixpy_develop_kit_board/maix_cube.html"
+                    target="_blank"><img
+                        src="./maix/assets/dk_board/maix_cube/maix_cube.png" ></a></td>
+             <td style="white-space:nowrap">Maix Amigo</td>
+            <td><a href="./maix/maixpy_develop_kit_board/maix_Amigo.html"
+                    target="_blank"><img
+                        src="./maix/assets/dk_board/maxi_amigo/maix_amigo_0.png" ></a></td>
+        </tr>
+        <tr>
+             <td style="white-space:nowrap">Maix HAT</td>
+            <td><a href="./maix/maixpy_develop_kit_board/maix_go.html"><img
+                        src="./../../soft/maixpy/assets/hardware/grove_ai_hat/grove_ai_hat1.png"  alt="Maix HAT"></a></td>
+             <td style="white-space:nowrap">Maix Go</td>
+            <td><a href="./maix/maixpy_develop_kit_board/maix_go.html"
+                    target="_blank"><img
+                        src="./maix/assets/dk_board/maix_go/Go.jpg"  ></a></td>
+        </tr>
+    </tbody>
 </table>
 
 ### 产品技术支持
 
-Maix系列产品可以在多种场景实现客户不同方面的需要，在AIoT上已经广泛的使用，品质和性能在行业内已经有非常好的口碑，专业的技术团队为广大客户解决硬件设计和软件功能上的各种各样问题。专业技术支持和更详细资料请联系商务<support@sipeed.com>。
+Maix 系列产品可以在多种场景实现客户不同方面的需要，在 AIoT 上已经广泛的使用，品质和性能在行业内已经有非常好的口碑，专业的技术团队为广大客户解决硬件设计和软件功能上的各种各样问题。商业合作可以联系 <support@sipeed.com>。
 
 ## Maix-II & III 系列
 
-### Maix-II 简介
+### Maix-II 系列简介
 
 继经典的 K210 Maix-I 系列 AIOT 板卡之后，Sipeed 继续推出多款可运行完整 Linux 系统的边缘计算板卡，将以 MAIX-II，MAIX-III 按照性能依次命名。
 
-MAIX-II 系列包含多款硬件产品，目前有:
-* **Maix-II Dock**： **本系列推荐产品**, 芯片为全志 V831, 高性价比能跑 Linux 的SOC，同时支持硬件 AI 加速（0.2Tops 算力），目前软件支持最容易入门，提供 C SDK 和 Python SDK， 以及在线模型训练服务([MaixHub](https://maixhub.com))
-* **MaixSense**： 芯片为全志R329，也有提供硬件 AI 加速，0.25Tops 算力。
-* **Maix-II-S**：芯片为全志 V833，V831 升级版， 主要用于商业定制用途，个人用户慎重选择。
+MAIX-II 系列包含多款硬件产品，目前有三款产品，分别如下：
+
+<table>
+<thead>
+<tr>
+  <th>产品名称</th>
+  <th>板卡简述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td style="white-space:nowrap"><strong>Maix-II Dock</strong></td>
+  <td><strong>推荐产品</strong>，主控芯片为全志 V831, 高性价比能跑 Linux 的SOC，同时支持硬件 AI 加速（0.2Tops 算力），目前软件支持最容易入门，提供 C SDK 和 Python SDK， 以及在线模型训练服务(<a href="https://maixhub.com" target="_blank">MaixHub</a>)</td>
+</tr>
+<tr>
+  <td style="white-space:nowrap"><strong>Maix-II Sense</strong></td>
+  <td>芯片为全志R329，也有提供硬件 AI 加速，0.25Tops 算力。</td>
+</tr>
+<tr>
+  <td style="white-space:nowrap"><strong>Maix-II-S</strong></td>
+  <td>芯片为全志 V833，V831 升级版， 主要用于商业定制用途，个人用户慎重选择。</td>
+</tr>
+</tbody>
+</table>
+
+<!-- * **Maix-II Dock**： **本系列推荐产品**, 芯片为全志 V831, 高性价比能跑 Linux 的SOC，同时支持硬件 AI 加速（0.2Tops 算力），目前软件支持最容易入门，提供 C SDK 和 Python SDK， 以及在线模型训练服务([MaixHub](https://maixhub.com))
+* **Maix-II Sense**： 芯片为全志R329，也有提供硬件 AI 加速，0.25Tops 算力。
+* **Maix-II-S**：芯片为全志 V833，V831 升级版， 主要用于商业定制用途，个人用户慎重选择。 -->
 
 ### MaixII Dock
 
@@ -71,32 +110,46 @@ MAIX-II 系列包含多款硬件产品，目前有:
 
 **本系列推荐产品**, 最具性价比， 目前软件支持最容易入门， 支持 C 语言开发，提供 C SDK([libmaix](http://github.com/sipeed/libmaix))； 同时提供 [MaixPy3](/maixpy3) 支持，使用 Python 语言即可开发，可以直接使用大量 Python 库，并且配套 jupyter IDE， 同时 [MaixHub](https://maixhub.com) 完全支持此设备
 
-* 产品功能速览
+.. details:: 点开查看产品功能速览视频
 
-<p align="center">
-    <iframe src="//player.bilibili.com/player.html?aid=298543445&bvid=BV1sF411u7xb&cid=586467021&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
-</p>
+    <p align="center">
+        <iframe src="//player.bilibili.com/player.html?aid=298543445&bvid=BV1sF411u7xb&cid=586467021&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+    </p>
 
-* 实拍图：
-![m2dock](../../assets/maixII/m2dock.jpg)
+<table>
+<tr>
+  <td>产品实拍图片</td>
+  <td></td>
+</tr>
+<tr>
+  <td>
+  <img src="./../assets/maixII/m2dock.jpg" alt="m2dock">
+  </td>
+  <td></td>
+</tr>
+</table>
+
 * 购买链接: [sipeed.taobao.com](https://item.taobao.com/item.htm?ft=t&id=635874427363)
-* 详情： [MaixII-Dock](./M2/resources.md)
+* 详情： [MaixII-Dock](./maixII/M2/resources.md)
 
 ### MaixII Sense
 
-芯片为全志 R329，双核 A53@1.5GHz，片内 256MiB DDR3 内存，双核 HiFi4@400MHz 也有提供硬件 AI 加速，0.25Tops 算力， 更加擅长音频领域， 支持 armbian 系统。
+其主控芯片为全志 R329，双核 A53@1.5GHz，片内 256MiB DDR3 内存，双核 HiFi4@400MHz 也有提供硬件 AI 加速，0.25Tops 算力， 更加擅长音频领域， 支持 armbian 系统。
 
 官方开放资料很多，目前比较适合动手能力比较强的开发者。
 
-![](./M2A/assets/M2A-1.gif)
+![MaixII-Sense](./maixII/M2A/assets/M2A-1.gif)
 
 * 购买链接: [sipeed.taobao.com](https://sipeed.taobao.com)
-* 详情： [MaixSense](./M2A/maixsense.md)
+* 详情： [MaixSense](./maixII/M2A/maixsense.md)
+* [极数社区 R329 上手帖](https://aijishu.com/a/1060000000221780)
+* [极数社区 R329 芯片FAQ](https://aijishu.com/a/1060000000291439)
+* [极数社区矽速科技](https://aijishu.com/blog/xisukeji)（很多资料）
 
+### MaixII S
 
-## MaixII S
-
-可以理解成 V831 的性能升级版， V831 上的程序可以直接在 V833 上运行，此开发板仅支持商业用户，个人用户建议选择 Maix-II-Dock 开发板
+可以理解成 V831 的性能升级版， V831 上的程序可以直接在 V833 上运行；
+此开发板仅支持商业用户，个人用户应当选择 [Maix-II-Dock](./maixII/M2/resources.md) 开发板
 
 <img style="max-height: 300px" src="./M2S/assets/M2s_Dock.jpg" alt=“M2s_Dock”/>
 
