@@ -520,9 +520,9 @@ root@AXERA:~#
 
 ## 其他资源
 
-[>>> 点此直达淘宝商品链接 <<< ](https://m.tb.cn/h.U30m3xW?tk=L1vr2BQ0AQM)。
+[>>> 点此直达淘宝商品链接 <<< ](https://m.tb.cn/h.U30m3xW?tk=L1vr2BQ0AQM)
 
-如果你想分享给更多人，请使用这个资料入口（http://wiki.sipeed.com/m3axpi）喔。
+如果你想分享给更多人，请使用这个资料入口：http://wiki.sipeed.com/m3axpi 
 
 ### 产品社区资源
 
