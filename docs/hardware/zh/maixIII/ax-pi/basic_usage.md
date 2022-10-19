@@ -45,7 +45,9 @@ title: Maix-III AXera-Pi 系统基础使用
 
 .. details::点我查看 vscode remote 介绍
 
-    vscode remote 是 vscode 的一个插件，可以直接连接到远程的 linux 服务器，然后在本地编辑代码，同步到远程服务器上编译运行，这里以一台 ubuntu20.04 的桌面计算机系统为例，只要能安装 vscode 编辑器软件计算机都行，这里只是为了示意如何连接到板子里。
+    vscode remote 是 vscode 的一个插件，可以直接连接到远程的 linux 服务器，然后在本地编辑代码，同步到远程服务器上编译运行，这里以一台 Windows 10 的桌面计算机系统为例，只要能安装 vscode 编辑器软件计算机都行。
+
+    ![vscode](./../assets/vscode.jpg)
 
 下载连接：[点击跳转](https://code.visualstudio.com/)
 连接教程：[如何使用 vscode remote 连接板子](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/dev_prepare.html?highlight=ssh#vscode-remote)
@@ -383,8 +385,15 @@ poweroff
 
 ### 开机启动脚本
 
-系统已经配置好 `/etc/rc.local & /boot/rc.local` 开机脚本。
-在这里可以添加开机启动的命令，还可以修改 `#!/bin/sh` 到 `exit 0` 之间的命令。
+>**20221013** 后更新的镜像已预置正式版本开机自启脚本。
+
+系统已经配置好 `/etc/rc.local & /boot/rc.local` 开机脚本，
+Maix-III AXera-Pi 开发板上电后会自启点亮 5 寸屏幕以及播放开机音乐。
+
+.. details::点我查看示例图
+    ![start](./../assets/start.jpg)
+
+这里可以添加开机启动的命令，还可以修改 `#!/bin/sh` 到 `exit 0` 之间的命令。
 
 ```bash
 root@AXERA:~# cat /etc/rc.local
@@ -410,10 +419,6 @@ exit 0
 
 **注意**：开机时的执行对象由于没有环境变量，所以不同于登录后运行的 `sample_vo -v dsi0@480x854@60 -m 0 &` 需要修改成 `export LD_LIBRARY_PATH=/opt/lib:LD_LIBRARY_PATH && /opt/bin/sample_vo -v dsi0@480x854@60 -m 0 & ` 才能开机启动，注意要在命令后使用 & 将程序挂在后台执行喔！
 
-.. details::点我查看示例图
-    使用上方命令行后，屏幕会显示打彩条图像，可以通过此来验证屏幕是否能用！
-
-    ![start](./../assets/start.jpg)
 ### 更新内核与驱动
 
 在 SD 卡的第一分区会挂载到系统根目录下的 /boot 系统启动相关的文件，这里直接替换它即可完成更新。
@@ -437,7 +442,7 @@ root@AXERA:~# ls /opt
 bin  include  lib  scripts  share
 ```
 
-还有一些在 home 目录下：
+还有一些在 `home` 目录下：
 
 ```bash
 root@AXERA:~# tree -L 1 /home
@@ -461,11 +466,11 @@ root@AXERA:~# tree -L 1 /home
 8 directories, 0 files
 ```
 
-板子已经预置了 gcc g++ gdb libopencv ffmpeg 等工具，可直接在板上编译运行程序。
+板子已经预置了 `gcc g++ gdb libopencv ffmpeg` 等工具，可直接在板上编译运行程序。
 
-> **注意**：如果使用 xxxx menuconfig 时遇到 `locale.Error: unsupported locale setting` 则可以使用 `sudo localedef -i en_US -f UTF-8 en_US.UTF-8` 恢复一下配置即可。
+> **注意**：使用 xxxx menuconfig 报错请移步[Maix-III 系列 AXera-Pi 常见问题（FAQ）](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html)
 
-在 20221001 推出的镜像里内置了 libmaix 和 ax-sample 仓库，可以直接在 home 目录下找到它。
+在 **20221001** 推出的镜像里内置了 libmaix 和 ax-sample 仓库，可以直接在 `home` 目录下找到它。
 可参考下方使用方法：
 
 ```bash
@@ -480,7 +485,7 @@ fbon
 
     ![libmaix](./../assets/libmaix.jpg)
 
-而 axsample 已经预编译好了，相关 joint 模型内置在 /home/models/ 下。
+而 axsample 已经预编译好了，相关 joint 模型已内置在 `/home/models/` 下便于用户查询。
 
 ```bash
 /home/ax-samples/build/install/bin/ax_yolov5s -m /home/models/yolov5s.joint -i /home/images/cat.jpg -r 10
@@ -493,7 +498,7 @@ fbv yolov5s_out.jpg
 
     ![cat](./../assets/cat.jpg)
 
-可以在联网后直接 `git pull` 更新仓库的提交记录，如果不能访问 github 就设置一下 `git remote` 从 gitee 拉取代码吧。
+可以在联网后直接 `git pull` 更新仓库的提交记录，如果不能访问 github 的话就设置一下 `git remote` 从 gitee 拉取代码吧。
 
 ### CPU & RAM
 
@@ -543,7 +548,7 @@ root@AXERA:~#
 
 ### VIDEO
 
-目前系统的摄b像头驱动不经过 v4l2 驱动框架，所以必须通过代码配置的方式进行启用，相关摄像头驱动都是在应用层上完成的。
+目前系统的摄像头驱动不经过 v4l2 驱动框架，所以必须通过代码配置的方式进行启用，相关摄像头驱动都是在应用层上完成的。
 
 - gc4653 （基础版）
 - os04a10（夜视版）
@@ -556,11 +561,6 @@ sample_vin_vo -c 2 -e 1 -s 0 -v dsi0@480x854@60
 
 .. details::运行上方命令后可看到画面（示例效果）
     图片待上传
-
-
-> **注意**
-> 1. 使用时遇到摄像头连接不上，可通过 i2c 扫一下是否存在设备来排查问题。
-> 2. 切换 os04a10 摄像头时报错，修改下 libmaix_cam.cpp 把 `SYS_CASE_SINGLE_Gc4653` 改成 `SYS_CASE_SINGLE_OS04A10` 即可。
 
 ### DISPLAY
 
@@ -578,7 +578,6 @@ fboff
 
 想要使用 libdrm 需要搭配代码使用，请参考 sdk 源码实现，目前系统还未移植好 gpu 驱动，无法使用 modetest 进行测试。
 
-> 测试屏幕好坏可以用：`sample_vo -v dsi0@480x854@60 -m 0` 运行后屏幕会打彩条，但使用前务必调用 fboff 关闭 fb 设备。
 
 ### NPU
 
@@ -789,26 +788,28 @@ RX | FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF 
 
 ### ADC（暂未支持）
 
-硬件上支持，但软件上目前还没写调试工具配合。
-可参考外围开发手册，这需要专用的代码控制，目前还没有全部补充完。
+.. details::点击查看
 
-1. 设置 THM 寄存器
-2. 中间需要 delay 一段时间，否则读取出来的值，可能不对.
-3. 0x2000028 寄存器读取出来的值 DATA
-4. DAT 和 voltage 的对应关系，voltage = DATA / 1024 * VREF(1.8V)
-5. 如果读取 chan1/2/3/4，需要读取 0x200002c，0x2000030，0x2000034，0x2000038
+    硬件上支持，但软件上目前还没写调试工具配合。
+    可参考外围开发手册，这需要专用的代码控制，目前还没有全部补充完。
 
-使能 ADC 通道
-devmem 0x2000020 32 0x1000 //chan0
-devmem 0x2000020 32 0x800 //chan1
-devmem 0x2000020 32 0x400 //chan2
-devmem 0x2000020 32 0x200 //chan3
-devmem 0x2000020 32 0x100 //chan4
+    1. 设置 THM 寄存器
+    2. 中间需要 delay 一段时间，否则读取出来的值，可能不对.
+    3. 0x2000028 寄存器读取出来的值 DATA
+    4. DAT 和 voltage 的对应关系，voltage = DATA / 1024 * VREF(1.8V)
+    5. 如果读取 chan1/2/3/4，需要读取 0x200002c，0x2000030，0x2000034，0x2000038
 
-devmem 0x200002c
-devmem 0x2000030
-devmem 0x2000034
-devmem 0x2000038
+    使能 ADC 通道
+    devmem 0x2000020 32 0x1000 //chan0
+    devmem 0x2000020 32 0x800 //chan1
+    devmem 0x2000020 32 0x400 //chan2
+    devmem 0x2000020 32 0x200 //chan3
+    devmem 0x2000020 32 0x100 //chan4
+
+    devmem 0x200002c
+    devmem 0x2000030
+    devmem 0x2000034
+    devmem 0x2000038
 
 ## 内置开箱应用
 
@@ -834,15 +835,16 @@ devmem 0x2000038
 
 #### 使用方法
 
+>**注意**：启动命令默认的镜头型号为 **gc4653** ，因不同的摄像头配置文件不一致，使用别的型号时需点击右侧[更换摄像头](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html#Q%EF%BC%9A%E5%A6%82%E4%BD%95%E6%9B%B4%E6%8D%A2-os04a10-%E6%91%84%E5%83%8F%E5%A4%B4%EF%BC%9F)进行修改。
+
 在终端运行下面的命令即可启动软件，服务默认绑定到 0.0.0.0 地址，直接在浏览器输入 usb0 的 IP 即可访问，使用板子上其他 IP 也可以访问页面。
 
 ```bash
 /opt/bin/IPCDemo/run.sh /opt/bin/IPCDemo/config/gc4653_config.json
 ```
-
-终端运行图
-
->**注意**：启动命令默认的镜头型号为 **gc4653** ，因不同的摄像头配置文件不一致，使用别的型号时需点击右侧[更换摄像头](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html#Q%EF%BC%9A%E5%A6%82%E4%BD%95%E6%9B%B4%E6%8D%A2-os04a10-%E6%91%84%E5%83%8F%E5%A4%B4%EF%BC%9F)进行修改。
+.. details::点击查看
+    输入启动命令后，终端会打印大量调试信息。
+    ![ipc](./../assets/ipc.jpg)
 
 访问页面后会弹出登录页面，点击登录后页面会弹出下图画面。
 
@@ -854,17 +856,25 @@ devmem 0x2000038
 
 浏览器抓拍录制（web）
 
-- 抓拍
+- **抓拍图像**
+  
+软件经过上文的启动后显示画面，右下角有抓拍和录制的功能图标。
+用户可点击摄像头图标进行抓拍喜欢的场景，抓拍的照片浏览器会自动弹出进行下载方便用户查看存储。
 
-- 录制
+![ipc-web](./../assets/ipc-web.jpg)
 
-在班底本地录制（mp4）
+- **录制视频**
 
-20222017 后镜像默认打开了录制到 `/opt/mp4` 目录下，注意，录制完后存到文件系统后才能打开喔，某种意义上来讲，你可以挂载一个网络路径当做。
+点击右下角的录制图标，即可进入本地录制视频（mp4）模式，再次点击图标即录制完成结束。
 
-录制的视频截图如下：
+![ipc-mp4](./../assets/ipc-mp4.jpg)
 
+用户可在配置页面的`录像回放`选项预览视频进行下载到本地或删除的操作。
 
+![ipc-config](./../assets/ipc-config.jpg)
+
+>**20222017** 后的镜像默认打开了录制保存到 `/opt/mp4` 的目录下，
+>**注意**：视频录制完后储存到文件系统后才能打开。某种意义上讲；用户也可以挂载一个网络路径来当监控录像使用。
 
 ### SKEDEMO
 
