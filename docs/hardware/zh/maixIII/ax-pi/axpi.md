@@ -456,6 +456,10 @@ root@AXERA:~#
 
 > 现公开了源码但还没修改说明，这里就介绍一下软件，细节可看[ 01 - AX IPCDemo 用户指南.pdf](https://github.com/sipeed/axpi_bsp_sdk/blob/main/docs/01%20-%20AX%20IPCDemo%20%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97.pdf)。
 
+#### AI-KIT 部署
+
+以上部署方式都出于快速验证或应用落地的角度进行的，还有一套基于 bsp sdk 的部署方式，它相对于上方案会面向既了解 AI 又知道芯片底层 Linux 开发方法的同学，目前内置应用中提供了板子的 rtsp 和屏幕 双推流 yolov5 实时识别，代码目前还未开放。
+
 ## 产品参数
 
 <p align="center">
