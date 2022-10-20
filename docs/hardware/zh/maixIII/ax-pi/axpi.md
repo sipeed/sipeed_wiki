@@ -26,7 +26,7 @@ title: MAIX-III AXera-Pi 是什么？
 它其实早在九月初就参展了 2022 年世界人工智能大会了～（当时它长这样）
 
 <p align="center">
-  <img src="./assets/waic-axpi.jpg" style="zoom: 70%;" />
+  <img src="./../assets/waic-axpi.jpg" style="zoom: 70%;" />
 </p>
 
 最后总算是在 20221001 的时候推出了这款搭载 AX620A 的开发板，正式名为：**MAIX-III AXera-Pi**，以下内容中简称 **m3axpi** 喔！
@@ -97,7 +97,7 @@ title: MAIX-III AXera-Pi 是什么？
 
 没有拿到板子之前，你可以到 [MaixHub 模型库](https://maixhub.com/model/zoo) 找到你需要的模型，可以在过滤选项中选择 `AX-Pi` 来查找能在 `AXera-Pi` 上运行的模型。
 
-![maixhub_zoo.jpg](./assets/maixhub_zoo.jpg)
+![maixhub_zoo.jpg](./../assets/maixhub_zoo.jpg)
 
 还可以在 [AXERA-TECH/ax-samples](https://github.com/AXERA-TECH/ax-samples) 仓库也可以找到模型，板子系统里也预置了模型资源，后续模型更新会在这里[「ax-models」](https://github.com/AXERA-TECH/ax-models)，而 [ AX-Samples 将不断更新最流行的、实用的、有趣的示例代码](https://github.com/AXERA-TECH/ax-samples/tree/main/examples#examples)，目前有如下模型支持列表：
 
@@ -138,7 +138,7 @@ title: MAIX-III AXera-Pi 是什么？
 想要在板子上运行模型请看[「部署模型到 Maix-III AXera-Pi 开发板」](/ai/zh/deploy/ax-pi.html)
 
 <p align="center">
-  <img src="./assets/ai_guide.jpg" style="zoom: 75%;" />
+  <img src="./../assets/ai_guide.jpg" style="zoom: 75%;" />
 </p>
 
 #### 在线训练模型吧！
@@ -156,7 +156,7 @@ title: MAIX-III AXera-Pi 是什么？
 在你部署成功后会有一份模型文件，以及能运行模型的代码或程序，你可以将这些文件分享到 [MaixHub 模型库](https://maixhub.com/model/zoo) ，大家一起交流学习成长！（请开始你的表演吧）
 
 <p align="center">
-  <img src="./assets/share_model.jpg" style="zoom: 75%;" />
+  <img src="./../assets/share_model.jpg" style="zoom: 75%;" />
 </p>
 
 ### 嵌入式
@@ -186,13 +186,13 @@ title: MAIX-III AXera-Pi 是什么？
 是的，这个产品不需要散热器/风扇，也不需要外接 2A 电源就可以启动系统，更不需要找 hdmi 线和显示器，并且产品测试时是类似如下接线图示意进行产品发货前测试的（这些实拍图虽然有点简陋但都是真情流露呀）。
 
 <p align="center">
-  <img src="./assets/test_axpi.jpeg" style="zoom: 50%;" />
+  <img src="./../assets/test_axpi.jpeg" style="zoom: 50%;" />
 </p>
 
 来一个实际测量的温度和功耗，注意要使用 USB3.0 的口来供电喔。
 
 <p align="center">
-  <img src="./assets/temp_test_axpi.jpg" style="zoom: 100%;" />
+  <img src="./../assets/temp_test_axpi.jpg" style="zoom: 100%;" />
 </p>
 
 > 从实测结果上来看，这个功耗和温度控制得挺好，用 USB3.0 5V@1A 承载了底板、核心板、WIFI、以太网、摄像头、5寸屏的工作。
@@ -406,7 +406,7 @@ root@AXERA:~#
 
 - [SDK 开发指南](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/sdk_usage.html)
 
-![axpi_sdk.jpg](./assets/axpi_sdk.jpg)
+![axpi_sdk.jpg](./../assets/axpi_sdk.jpg)
 
 在这里「大佬鼠」推荐自己常用的开发流程和方法，最开始就是先在板子上本地编译测试现有的代码和功能，然后根据 [[maixpy3 axpi] 编辑发布 debian 镜像与在 PC 上交叉编译程序 ](https://www.cnblogs.com/juwan/p/16769237.html) 来安装 docker arm 虚拟机。
 
@@ -431,7 +431,7 @@ root@AXERA:~#
 在板子上编译这个示例代码 [axpi_classification_cam](https://github.com/sipeed/libmaix/tree/release/examples/axpi_classification_cam)，然后放入模型运行即可看到效果，截止 20221013 前代码还没有优化所以性能不高，只够看个结果。
 
 <p align="center">
-  <img src="./assets/mobilenet_axpi.jpg" alt="img" style="zoom: 100%;" />
+  <img src="./../assets/mobilenet_axpi.jpg" alt="img" style="zoom: 100%;" />
 </p>
 
 即可验证效果，[详细可从 maixhub 上获取](https://maixhub.com/model/zoo/89)。
@@ -456,18 +456,22 @@ root@AXERA:~#
 
 > 现公开了源码但还没修改说明，这里就介绍一下软件，细节可看[ 01 - AX IPCDemo 用户指南.pdf](https://github.com/sipeed/axpi_bsp_sdk/blob/main/docs/01%20-%20AX%20IPCDemo%20%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97.pdf)。
 
+#### AI-KIT 部署
+
+以上部署方式都出于快速验证或应用落地的角度进行的，还有一套基于 bsp sdk 的部署方式，它相对于上方案会面向既了解 AI 又知道芯片底层 Linux 开发方法的同学，目前内置应用中提供了板子的 rtsp 和屏幕 双推流 yolov5 实时识别，代码目前还未开放。
+
 ## 产品参数
 
 <p align="center">
-  <img src="./assets/waiguan1.jpg" style="zoom: 51%;" />
-  <img src="./assets/maix-iii-small.jpg" style="zoom: 80%;" />
-  <img src="./assets/waiguan2.jpg" style="zoom: 45%;" />
+  <img src="./../assets/waiguan1.jpg" style="zoom: 51%;" />
+  <img src="./../assets/maix-iii-small.jpg" style="zoom: 80%;" />
+  <img src="./../assets/waiguan2.jpg" style="zoom: 45%;" />
 </p>
 
 ### 硬件标注图
 
 <p align="center">
-  <img src="./assets/layout_axpi.jpg" alt="img" style="zoom: 100%;" />
+  <img src="./../assets/layout_axpi.jpg" alt="img" style="zoom: 100%;" />
 </p>
 
 ### 核心板参数
@@ -507,13 +511,13 @@ root@AXERA:~#
 - 低配 gc4653 400w 基础体验版本。
 
 <p align="center">
-  <img src="./assets/ax620a_gc.jpg" style="zoom: 100%;" />
+  <img src="./../assets/ax620a_gc.jpg" style="zoom: 100%;" />
 </p>
 
 - 高配 os04a10 400w 夜景增强版本。
 
 <p align="center">
-  <img src="./assets/ax620a_os.jpg" style="zoom: 100%;" />
+  <img src="./../assets/ax620a_os.jpg" style="zoom: 100%;" />
 </p>
 
 > [更换摄像头可以看这个](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html)
