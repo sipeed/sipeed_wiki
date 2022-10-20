@@ -38,7 +38,7 @@ Tina os need to be compiled by yourself, visit [https://github.com/sipeed/R329-T
 
 #### Burn steps
 
-Exteact your downloaded image file to get the `.img` file, run Etcher, click `Flash from file`, choose the extracted .img file, click `Select target` and choose your sdcard, click `Flash` to burn your sdcard, wait it for finishing.
+Extract your downloaded image file to get the `.img` file, run Etcher, click `Flash from file`, choose the extracted .img file, click `Select target` and choose your sdcard, click `Flash` to burn your sdcard, wait it for finishing.
 
 ![burn](./../../maixII/M2A/assets/95133.gif)
 

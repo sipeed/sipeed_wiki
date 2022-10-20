@@ -182,19 +182,19 @@
             "label": "LicheePi",
             "items": [
                 {
-                    "label": "Lichee Zero",
+                    "label": "LicheePI Zero",
                     "file": "lichee/Zero/Zero.md"
                 },
                 {
-                    "label": "Lichee Nano",
+                    "label": "LicheePI Nano",
                     "file": "lichee/Nano/Nano.md"
                 },
                 {
-                    "label": "Lichee ZeroPlus",
+                    "label": "LicheePI ZeroPlus",
                     "file": "lichee/ZeroPlus/ZeroPlus.md"
                 },
                 {
-                    "label": "Lichee RV",
+                    "label": "LicheePI RV",
                     "file": "lichee/RV/RV.md",
                     "collapsed": false,
                     "items": [
@@ -203,11 +203,11 @@
                             "collapsed": false,
                             "items": [
                                 {
-                                    "label": "Lichee RV 86 Panel",
+                                    "label": "LicheePI RV 86 Panel",
                                     "file": "lichee/RV/86_panel.md"
                                 },
                                 {
-                                    "label": "Lichee RV Dock",
+                                    "label": "LicheePI RV Dock",
                                     "file": "lichee/RV/Dock.md"
                                 }
                             ]
@@ -259,6 +259,10 @@
                         {
                             "label": "相关例程",
                             "file": "tang/Tang-Nano-Doc/examples.md"
+                        },
+                        {
+                            "label": "常见问题",
+                            "file": "tang/Tang-Nano-Doc/questions.md"
                         }
                     ]
                 },
@@ -278,6 +282,10 @@
                                 {
                                     "label":"例程指南",
                                     "file" :"tang/tang-primer-20k/example.md"
+                                },
+                                {
+                                    "label": "常见问题",
+                                    "file": "tang/Tang-Nano-Doc/questions.md"
                                 }
                             ]
                         },
@@ -317,10 +325,6 @@
                             ]
                         }
                     ]
-                },
-                {
-                    "label": "常见问题",
-                    "file": "tang/Tang-Nano-Doc/questions.md"
                 }
             ]
         },

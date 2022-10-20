@@ -274,7 +274,7 @@ items:
                 file: course/ai/train/local.md
             -   label: Setup Windows local training envrioument
                 file: course/ai/train/local_windows_1.md
-            -   label: Turtial of Windows local training
+            -   label: Tutorial of Windows local training
                 file: course/ai/train/local_windows_2.md
 -   label: API reference
     items:
