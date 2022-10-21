@@ -159,7 +159,7 @@ title: MAIX-III AXera-Pi 是什么？
   <img src="./../assets/share_model.jpg" style="zoom: 75%;" />
 </p>
 
-### Linux SBC
+### Linux 开发
 
 #### 超高性价比与能效比
 
