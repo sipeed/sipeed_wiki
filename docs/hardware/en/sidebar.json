@@ -195,6 +195,10 @@
                         {
                             "label": "Tang Nano examples",
                             "file": "tang/Tang-Nano-Doc/examples.md"
+                        },
+                        {
+                            "label": "Questions&Answers",
+                            "file": "tang/Tang-Nano-Doc/questions.md"
                         }
                     ]
                 },
@@ -206,8 +210,23 @@
                         {
                             "label": "Tang Primer 20K",
                             "file": "tang/tang-primer-20k/primer-20k.md",
-                            "item": [
-                                {}
+                            "item": [    
+                                {
+                                    "label":"Notice",
+                                    "file" :"tang/tang-primer-20k/start.md"
+                                },                                
+                                {
+                                    "label": "Install IDE",
+                                    "file": "tang/Tang-Nano-Doc/install-the-ide.md"
+                                },
+                                {
+                                    "label":"Examples",
+                                    "file" :"tang/tang-primer-20k/example.md"
+                                },
+                                {
+                                    "label": "Questions&Answers",
+                                    "file": "tang/Tang-Nano-Doc/questions.md"
+                                }
                             ]
                         },
                         {
@@ -242,10 +261,6 @@
                             ]
                         }
                     ]
-                },
-                {
-                    "label": "Questions&Answers",
-                    "file": "tang/Tang-Nano-Doc/questions.md"
                 }
             ]
         },

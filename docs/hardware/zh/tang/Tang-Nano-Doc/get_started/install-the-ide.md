@@ -10,12 +10,6 @@ update:
       - 去掉了替换 Programmer 相关操作说明
 ---
 
-<!-- 
----
-title: 安装IDE 
-keywords: Sipeed, Gowin, Tang, Nano, fpga, 矽速
---- -->
-
 使用高云半导体的 FPGA 需要用到 GOWIN 这个软件，对应的软件文档链接：
 <http://www.gowinsemi.com.cn/down.aspx?FId=n14:14:26>
 
@@ -49,11 +43,13 @@ IDE 分为商业版和教育版：
 - GW1NR-LV9QN88PC6/I5 GW1NR-9C 为 Nano 9K 所使用的芯片
 - GW1NSR-LV4CQN48PC6/I5 GW1NSR-4C 为 Nano 4K 所使用的芯片
 
+所以对于购买了 Tang Nano 和 Tang Nano 1K 的用户，目前需要使用商业版的 IDE 且需要自行向高云半导体官方申请 license。
+
 ### 开始安装
 
 #### Linux 系统
 
-Linux 版本的解压后里面存在着一个 bin 文件夹，然后可执行文件 gw.ide 就在所解压路径的 bin 文件夹中，用命令行来启动即可；运行软件失败的话记得改软件的可执行权限 `chmod + x`。
+Linux 版本的解压后里面存在着一个 bin 文件夹，然后可执行文件 `gw_ide` 就在所解压路径的 /IDE/bin/ 文件夹中，用命令行来运行即可；运行软件失败的话记得改软件的可执行权限 `chmod + x`。
 
 #### Windows 系统
 
@@ -65,6 +61,8 @@ Linux 版本的解压后里面存在着一个 bin 文件夹，然后可执行文
 </div>
 
 下图的两个都需要安装上。其中的 Gowin 为 IDE 本体， 另一个 programmer 相关的是烧录软件。
+
+因为我们的下载器与 IDE 附带安装的 Programmer 可能不太兼容，使用中有问题的话可以前往 <a href="./../questions.html#下载失败" target="blank">programmer 相关里的下载失败</a> 来查看对应方法。
 
 <!-- 由于我们所提供下载器会与新版的 IDE 不太兼容，因此建议前往 <a href="./../questions.html#下载失败" target="blank">programmer 相关里的下载失败</a> 来查看对应方法。 -->
 
@@ -125,7 +123,8 @@ Linux 版本的解压后里面存在着一个 bin 文件夹，然后可执行文
 
 <!-- 在烧录 FPGA 的时候可能因为安装 IDE 时所安装的 Programmer 软件不兼容我们所提供的下载器，因此对于 Windows 用户要求使用我们所提供的特定版本的 Programmer 软件，[点我](https://dl.sipeed.com/shareURL/TANG/programmer)跳转下载即可； -->
 
-如果下载固件失败的话，可以手动下载一下 Programmer 软件来试试 [跳转地址](http://www.gowinsemi.com.cn/faq.aspx)
+如果下载固件失败的话，可以手动下载一下 Programmer 软件来试试 [跳转地址](https://dl.sipeed.com/shareURL/TANG/programmer)
+
 ![programmer_download](./assets/programmer_download.png)
 
 对于 Linux 用户可以用 Openfpgaloader, 查看本页最底部的相关说明即可。
@@ -146,13 +145,13 @@ Linux 版本的解压后里面存在着一个 bin 文件夹，然后可执行文
 
 ![programmer](./assets/programmer-folder.png)
 
-uninst.exe：卸载IDE
+**uninst.exe**：卸载IDE
 
-## 其他安装方法
+<!-- ## 其他安装方法
 
 下面是高云半导体官方所提供的 IDE 安装方法，有需要的话可以自行查阅
 
-+ [高云半导体软件简介和安装](http://cdn.gowinsemi.com.cn/%E9%AB%98%E4%BA%91%E8%BD%AF%E4%BB%B6%E7%AE%80%E4%BB%8B%E5%92%8C%E5%AE%89%E8%A3%85.pdf)
++ [高云半导体软件简介和安装](http://cdn.gowinsemi.com.cn/%E9%AB%98%E4%BA%91%E8%BD%AF%E4%BB%B6%E7%AE%80%E4%BB%8B%E5%92%8C%E5%AE%89%E8%A3%85.pdf) -->
 
 ## Burn in linux
 
