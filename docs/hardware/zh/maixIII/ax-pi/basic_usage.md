@@ -103,7 +103,7 @@ Maix-III AXera-Pi 开发板的 Linux debian11 系统默认使用 root 用户登�
 
     ![rndis_3](./../assets/rndis_3.jpg)
 
-.. details::点我查看 uab otg 接口示意图
+.. details::点我查看 usb otg 接口示意图
 
     ![otg](./../assets/otg.jpg)
 
@@ -200,14 +200,15 @@ wlan0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 ```
 
-- **使用 dhclient 触发 dhcp 获取 ip**
+- **使用 dhclient 触发 DHCP 获取 ip**
 
->这里以无线 WIFI（wlan0）为例，decliient 还支持有线网卡（eth0）。
+>这里以有线网卡（eth0）为例，decliient 还支持无线 WIFI（wlan0）.
+使用上方 `ifconfig` 命令后，如果 eth0 的地址获取失败，可使用 `dhclient eth0` 命令触发 DHCP 获取 IP。
  
 ```bash
-root@AXERA:~# dhclient wlan0
+root@AXERA:~# dhclient eth0 &
 [1]+  Done                    dhclient eth0
-root@AXERA:~# ifconfig wlan0
+root@AXERA:~# ifconfig eth0
 wlan0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
         inet 192.168.0.136  netmask 255.255.255.0  broadcast 192.168.0.255
         ether 0c:cf:89:32:c5:dc  txqueuelen 1000  (Ethernet)
@@ -223,7 +224,7 @@ wlan0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
 
 > 使用 usb0 前需要安装 rndis 驱动，可参考上文的驱动安装过程。
 
-在 Windows 系统下如果遇到多个网卡时，发现 USB 网卡优于局域网导致内网网站访问很慢甚至失败，此时就需要通过 Win10 设置跃点数来调整网络优先级的连接顺序，去修改优先级改善访问慢的状态，数值越大优先级越低（比如设置 1000），从而把 USB 网卡优先级调至最低。
+在 Windows 系统下如果遇到多个网卡时，发现 USB 网卡优于局域网导致内网网站访问很慢甚至失败，此时就需要通过 Win10 设置跃点数来调整网络优先级的连接顺序，去修改优先级改善访问慢的状态，数值越大优先级越低（比如设置 1000），从而把 USB 网卡优先级调至最低**可参考上文的调整网络优先级的教程**。
 
 - **查看 usb0 网卡是否存在**
 
@@ -244,9 +245,7 @@ usb0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
 
 USB 网卡会自动 DHCP 配置，直接连接 192.168.233.1 即可，连接方式可参考示意图。
 
-![ssh_usb](../assets/ssh_usb.jpg)
-
-
+![ssh-usb](./../assets/ssh-usb.jpg)
 
 ### 有线以太网（eth0）配置方法
 
@@ -258,6 +257,7 @@ USB 网卡会自动 DHCP 配置，直接连接 192.168.233.1 即可，连接方�
 
 - **一些问题排除方法，如没有 ip 如何配置**
 
+登录到板子使用 `ifconfig` 后无法获取以太网地址，可尝试用 `dhclient eth0 &` 启动 DHCP 客户端获取 IP 地址，或进行手动配置 IP ，
 ### 无线 WIFI （wlan0）配置方法
 
 - **查看 WIFI 网卡是否存在**
@@ -560,28 +560,58 @@ sample_vin_vo -c 2 -e 1 -s 0 -v dsi0@480x854@60
 ```
 
 .. details::运行上方命令后可看到画面（示例效果）
-    图片待上传
+    ![video](./../assets/video.jpg)
 
 ### DISPLAY
 
-目前系统默认使用的是最简单的 framebuffer 显示驱动（/dev/fb0），在系统里内置了 fbon / fboff / fbv xxx.jpg 三个命令负责管理 fb 设备的启用和现实。
+目前系统默认使用的是最简单的 framebuffer 显示驱动（/dev/fb0），在系统里内置了 `fbon / fboff / fbv xxx.jpg` 三个命令负责管理 fb 设备的启用和现实。
 
 ```bash
 fbon
-
 fbv /home/res/logo.png
-
 fboff
 ```
 
 ![fbv_logo](./../assets/fbv_logo.jpg)
 
-想要使用 libdrm 需要搭配代码使用，请参考 sdk 源码实现，目前系统还未移植好 gpu 驱动，无法使用 modetest 进行测试。
+目前想要使用 libdrm 需要搭配代码使用，请参考 sdk 的源码实现，因为目前系统还未移植好 gpu 驱动所以无法使用 modetest 进行测试，但可以参考下面进行测试。
 
+测试屏幕是否能用运行右侧 `sample_vo -v dsi0@480x854@60 -m 0` 命令屏幕会显示彩条，但使用前务必调用 `fboff` 关闭 fb 设备。
 
+### RTSP
+
+**RTSP**：也称实时流传输协议，可通过 RTSP 实现推流，该协议定义了一对多应用程序如何有效地通过 IP 网络传送多媒体数据。
+
+>**20221019** 后更新的镜像内置了 **`/home/vin_ivps_joint_venc_rtsp_v2`** 可用于评估从摄像头运行 yolov5s 模型识别结果推流的演示效果。
+
+运行 `yolov5s` 模型实现推流前，我们需要先认识工具 `VLC Media Player`。
+
+**点击跳转下载**：[VLC Media Player](https://www.videolan.org/vlc/)
+
+.. details::点我查看 VLC Media Player 介绍
+    VLC Media Player（VLC 多媒体播放器），是一款可播放大多数格式，而无需安装编解码器包的媒体播放器，以及支持多平台使用、支持 DVD 影音光盘，VCD 影音光盘及各类流式协议。
+
+    ![vl-yolov5s](./../assets/vlc-yolov5s.jpg)
+
+可使用 `cd /home/vin_ivps_joint_venc_rtsp_v2/ && ./sample_vin_ivps_joint_venc_rtsp -c 0 -m yolov5s_sub_nv12_11.joint` 命令运行 yolov5s 模型终端会弹跳出信息，不同型号的摄像头记得修改 `-c 2` 后的值，具体可参考[Maix-III 系列 AXera-Pi 常见问题（FAQ）.](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html)
+
+.. details::点击查看终端运行图
+    ![vlr-run](./../assets/vlc-run.jpg)
+
+打开我们已经下载好的 `VLC Media Player` 软件，进行配置网络串流连接获取画面进行物体检测。
+
+.. details::点我查看 VLC Media Player 配置步骤
+    打开后在上方选择**媒体**后选择**打开网络串流**进到配置画面。
+    ![vlc](./../assets/vlc.jpg)
+    在网络页面输入**网络 URL ：`rtsp://192.168.233.1:8554/axstream0`**，
+    勾选下方更多选项进行调整缓存后点击下方播放即可。
+    ![vlc-urt](./../assets/vlc-urt.jpg)
+
+![vlc-yolov5s](./../assets/vlc-yolov5s.jpg)
+    
 ### NPU
 
-测试 NPU 的示例程序在 /home/ax-samples/build/install 目录下，已经预编译好了，直接就可以调用并显示运行结果。
+测试 NPU 的示例程序在 `/home/ax-samples/build/install` 目录下，已经预编译好了，直接就可以调用并显示运行结果。
 
 ```fbon
 /home/ax-samples/build/install/bin/ax_yolov5s -m /home/models/yolov5s.joint -i /home/images/cat.jpg -r 10
@@ -637,7 +667,7 @@ finally:
 
 此时使用命令 `sshpass -p root ssh root@192.168.233.1` 即可连接，账号及密码都是 root 。
 
-![ssh_usb](./../assets/ssh_usb.jpg)
+![ssh-usb](./../assets/ssh-usb.jpg)
 
 - **配置虚拟串口 /dev/ttyGS0 并转发登录接口**
 
@@ -848,9 +878,7 @@ RX | FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF 
 
 访问页面后会弹出登录页面，点击登录后页面会弹出下图画面。
 
-点击登录图
-效果图
-
+![ipc-admin](./../assets/ipc-admin.jpg)
 
 #### 如何抓拍？如何录制？
 
@@ -873,8 +901,24 @@ RX | FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF 
 
 ![ipc-config](./../assets/ipc-config.jpg)
 
->**20222017** 后的镜像默认打开了录制保存到 `/opt/mp4` 的目录下，
+>**20222017** 后的镜像默认打开了录制保存到 `/opt/mp4` 的目录下。
 >**注意**：视频录制完后储存到文件系统后才能打开。某种意义上讲；用户也可以挂载一个网络路径来当监控录像使用。
+
+### RTSP 推流
+
+推流：把采集阶段封包好的内容传输到服务器的过程。
+
+进行 RTSP 推流前先需要下载工具 `VLC Media Player` 软件。
+
+**VLC Media Player**：[点击下载](https://www.videolan.org/vlc/)
+**VLC Media Player 介绍及配置流程**：[点击查看](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html#RTSP)
+
+运行右侧命令 `cd /home/vin_ivps_joint_venc_rtsp_v2/ && ./sample_vin_ivps_joint_venc_rtsp -c 0 -m yolov5s_sub_nv12_11.joint` 后终端无报错，打开 VLC 软件参考上文配置流程进行配置，点击播放即可查看 RTSP 推流效果。
+
+.. details::点击查看终端运行图
+    ![vlr-run](./../assets/vlc-run.jpg)
+
+![vlc-rtsp](./../assets/vcl-rtsp.jpg)
 
 ### SKEDEMO
 
