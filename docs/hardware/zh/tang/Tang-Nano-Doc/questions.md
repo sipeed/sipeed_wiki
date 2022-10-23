@@ -241,7 +241,7 @@ update:
 
 GAO 是高云半导体在线逻辑分析仪（Gowin Analyzer Oscilloscope）。安装高云 IDE 之后就能在对应的安装相对路径下看到相关文档了
 
-![gao](./questions/gao.png)
+![gao](./../assets/questions/gao.png)
 
 使用高云半导体所提供的最新的教育版的编程器 [点我跳转](http://www.gowinsemi.com.cn/faq.aspx) 能够正常使用 GAO（因为 GAO 必须在 IDE 内才能打开，所以你需要自己替换掉安装时候的 Programmer 文件夹，并且确定替换后的路径与之前的相同）。
 

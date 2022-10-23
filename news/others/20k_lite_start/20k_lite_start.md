@@ -33,7 +33,7 @@ update:
 
 对于 Windows 用户需要额外下载一下 [Programmer](https://dl.sipeed.com/shareURL/TANG/programmer) 烧录专用软件可以降低我们在烧录的时候出现问题的可能性。
 
-对于 Linux 用户的话建议使用 [openfpgaLoader](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/get_started/flash_in_linux.html) 这软件来烧录 GW2A-18。
+对于 Linux 用户，如果打开 Programmer 烧录软件困难的话，可以使用 [openfpgaLoader](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/get_started/flash_in_linux.html) 这软件来烧录 GW2A-18，相关用法在 [OpenFpgaloader](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/get_started/flash_in_linux.html) 一文中有说明。
 
 ## 新建工程
 
@@ -44,7 +44,7 @@ update:
     <img src="./assets/fpga_project.png" width=35% alt="fpga_project">
 </div>
 
-设置工程名称，要求只用英文的下划线命名，存放路径中不要有中文字符或者空格等。
+设置工程名称，要求只用英文和下划线命名，存放路径中不要有中文字符或者空格等。
 
 ![project_path](./assets/project_path.png)
 
