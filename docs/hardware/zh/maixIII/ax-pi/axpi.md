@@ -504,7 +504,12 @@ root@AXERA:~#
 | 其他资源  | 1x用户按键，3x系统按键，1xRTC时钟，2xLED |
 | 对外接口  | 引出CJTAG，可自行连接相应调试器，引出2x12排针，4个M2.5螺丝定位孔 |
 
-> [点此获取更多 >>>「MaixIII/AXera」硬件资源 <<< 喔！](https://api.dl.sipeed.com/shareURL/MaixIII/AXera)
+硬件资源汇总：
+总链接[点我跳转](https://dl.sipeed.com/shareURL/MaixIII/AXera)
+- 原理图[带我跳转](https://dl.sipeed.com/shareURL/MaixIII/AXera/02_Schematic)
+- 点位图[带我跳转](https://dl.sipeed.com/shareURL/MaixIII/AXera/03_Bit_number_map)
+- 模型文件[带我跳转](https://dl.sipeed.com/shareURL/MaixIII/AXera/05_3D_file)
+- 尺寸图[带我跳转](https://dl.sipeed.com/shareURL/MaixIII/AXera/04_Dimensional_drawing)
 
 ### 摄像头一览
 
