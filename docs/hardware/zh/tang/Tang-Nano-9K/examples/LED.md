@@ -70,11 +70,11 @@ endmodule
 
 ### 综合
 
-保存编辑的代码后转到 “Process” 界面，双击 “Systhesize” 来对我们所编写的代码进行综合。也可以鼠标右键点击看看有啥功能
-![Systhesize](./../nano_9k/nano_9k_synthsize.png)
+保存编辑的代码后转到 “Process” 界面，双击 “Synthesize” 来对我们所编写的代码进行综合。也可以鼠标右键点击看看有啥功能
+![Synthesize](./../nano_9k/nano_9k_synthsize.png)
 
 运行的结果如下图一样 
-![Finish_Systhesize](./../../Tang-Nano/assets/LED.png) 
+![Finish_Synthesize](./../../Tang-Nano/assets/LED.png) 
 
 且下方结果栏不出现任何从报错，说明前面编辑的代码无误，如果有错，根据错误提示进行改正即可。
 

@@ -87,7 +87,7 @@ endmodule
 
 ### 综合
 
-保存编辑的代码后转到“Process”界面下，对编辑好的代码进行综合，即双击“Systhesize”
+保存编辑的代码后转到“Process”界面下，对编辑好的代码进行综合，即双击“Synthesize”
     ![](./../../../Tang-Nano-9K/nano_9k/nano_9k_synthsize.png)
 
 运行之后如没有报错而且 Synthesize 变成下图里的图标

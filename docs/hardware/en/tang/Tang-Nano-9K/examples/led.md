@@ -65,9 +65,9 @@ endmodule
 Once we're done with the code, we need to tick `Use DONE as regular IO` in Project->Configuration->Place&Route->Dual-Purpose Pin which can be found in the top menu bar to avoid an error.
 ![img_configuration](./../../../../zh/tang/Tang-Nano-9K/nano_9k/LED_Configuration.png)
 
-## Systhesize, constrain, place&route
+## Synthesize, constrain, place&route
 
-### Systhesize
+### Synthesize
 
 After finishing the steps above, go to the "Process" interface and double click "Synthesize" to synthesize our code. You can also right click "Synthesize" to see its other function
 ![Synthesize](./../../../../zh/tang/Tang-Nano-9K/nano_9k/nano_9k_synthsize.png)

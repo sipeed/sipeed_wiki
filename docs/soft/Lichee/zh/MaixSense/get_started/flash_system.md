@@ -1,6 +1,5 @@
 # 系统烧录
 
-
 ## 系统简介
 
 Lichee MaixSense（以下简称R329）提供了以下两种系统镜像
@@ -18,11 +17,9 @@ Lichee MaixSense（以下简称R329）提供了以下两种系统镜像
 
 armbian 镜像获取：
 
-> 链接：<https://pan.baidu.com/s/1CcjZdjPb3RtVjdQkQ0CfAg> 提取码：2333 
-
+> 链接：[https://pan.baidu.com/s/12YTwDm4PEhYKYZuH-lrBYA](https://pan.baidu.com/s/12YTwDm4PEhYKYZuH-lrBYA) 提取码：2333 
 
 armbian 使用的烧录方式为 dd，windows下推荐使用 Etcher，linux 下推荐使用 Terminal。
-
 
 ### Tina 系统镜像
 
@@ -30,8 +27,8 @@ Tina 系统需要自己进行编译，具体编译方式参考<https://github.co
 
 Tina 系统的烧录方式和 MaixII dock通用，可参考[MaixII M2dock 烧录系统 - Sipeed Wiki](./../../../../../hardware/zh/maixII/M2/flash.md)，这里不多做介绍
 
-
 ## 烧录镜像
+
 ### windows 下系统烧录
 
 资源获取：
@@ -54,8 +51,6 @@ Tina 系统的烧录方式和 MaixII dock通用，可参考[MaixII M2dock 烧录
 ![2021080511-46-53](./../assets/2021080511-46-53.gif)
 
 烧录完毕后，即可放入Lichee MaixSense中运行。
-
-
 
 ## 访问串口
 

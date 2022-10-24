@@ -299,6 +299,7 @@ github 链接： https://github.com/sipeed/TangPrimer-20K-example
 - **交流论坛: [bbs.sipeed.com](https://bbs.sipeed.com)**
 - **QQ 交流群：[834585530](https://jq.qq.com/?_wv=1027&k=wBb8XUan)**
 - 直接本页下方留言
+- 商业邮箱 : [support@sipeed.com](support@sipeed.com)
 
 ## 补充说明
 
@@ -314,7 +315,7 @@ github 链接： https://github.com/sipeed/TangPrimer-20K-example
 
 ### Dock 底板不工作
 
-拨下 1 号拨码开关以使能核心板，不然底板会不工作且 LED0 和 LED1 常亮
+拨下 1 号拨码开关以使能核心板，不然底板会不工作且 LED0 和 LED1 常亮。
 
 | 使能核心板 | 未使能核心板 |
 | --- | --- |

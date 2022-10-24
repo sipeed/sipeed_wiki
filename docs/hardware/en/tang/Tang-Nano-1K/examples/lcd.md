@@ -266,7 +266,7 @@ endmodule
 
 ### Synthesize
 
-After finishing steps above, go to the "Process" interface, systhesize the edited file, which means running "Systhesize". 
+After finishing steps above, go to the "Process" interface, synthesize the edited file, which means running "Synthesize". 
 ![](./../../../../zh/tang/Tang-Nano-9K/nano_9k/nano_9k_synthsize.png)
 
 If the result is the same as shown below

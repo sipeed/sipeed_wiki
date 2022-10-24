@@ -60,11 +60,11 @@ end
 endmodule
 ~~~
 
-## Systhesize, constrain, place&route
+## Synthesize, constrain, place&route
 
-### Systhesize
+### Synthesize
 
-After finishing steps above, go to the "Process" interface, systhesize the edited file, which means running "Systhesize". 
+After finishing steps above, go to the "Process" interface, Synthesize the edited file, which means running "Synthesize". 
 ![](./../../../../../zh/tang/Tang-Nano-9K/nano_9k/nano_9k_synthsize.png)
 
 If the result is the same as shown below
@@ -80,7 +80,7 @@ If there is some thing wrong, please fix by yourself.
 
 To realize function of the code on FPGA, we must bind the ports we define with the chip pins.
 
-Double click the FloorPlanner in the Process interface to set pin constrain(This can be continued if failing systhesize). 
+Double click the FloorPlanner in the Process interface to set pin constraints(This can be continued if failing Synthesize). 
 
 ![](./../../../../../zh/tang/assets/examples/led_pjt_2.png)
 

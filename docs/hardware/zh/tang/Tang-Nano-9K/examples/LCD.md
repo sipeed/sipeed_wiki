@@ -266,7 +266,7 @@ endmodule
 
 ### 综合
 
-完成上面步骤后转到“Process”界面下，对编辑好的代码进行综合，即运行“Systhesize” 
+完成上面步骤后转到“Process”界面下，对编辑好的代码进行综合，即运行“Synthesize” 
 ![](./../nano_9k/nano_9k_synthsize.png)
 
 运行的结果如下图出现 

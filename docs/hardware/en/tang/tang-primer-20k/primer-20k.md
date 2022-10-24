@@ -257,7 +257,7 @@ Datasheet, Schematic and dimensional drawing about hardware design can be found 
 
 ## Reference examples summary
 
-### Open codes
+### Opensource codes
 
 github ：https://github.com/sipeed/TangPrimer-20K-example
 
@@ -266,43 +266,32 @@ github ：https://github.com/sipeed/TangPrimer-20K-example
 - Lite ext-board blink ：[Click me](./examples/lite/blink.md)
 - Dock ext-board examples summary : [Click me](./example.md)
 
+## Communication
 
+- **Reddit** : [reddit.com/r/GowinFPGA/](reddit.com/r/GowinFPGA/)
+- **Telegram** : [t.me/sipeed](t.me/sipeed)
+- Leave message in the end of this page
+- Business email : [support@sipeed.com](support@sipeed.com)
 
+## Additional message
 
+The default bank voltage of bank 0、bank 1、bank 7 on the core board is 3.3V, so their bank IO voltage is 3.3V output. If you want to custom the input IO bank voltage, please remove R5 and R9, see Assembly [Click me](https://dl.sipeed.com/shareURL/TANG/Primer_20K/03_Bit_number_map) to see where is R5 and R9.
 
+![io_vltage](./../../../zh/tang/tang-primer-20k/assets/io_vltage.png)
 
+And the corresponding golden finger on core board are as following:
 
+![sodimm_voltage](./../../../zh/tang/tang-primer-20k/assets/sodimm_voltage.png)
 
+## Questions
 
+### Dock ext-board not work
 
+For 20K Dock kits, it's necessary to enable the core board before using debugger debug the chip, just put the 1 switch on the dip switch down, otherwise LED0 and LED1 are on and core board dose not work.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+| Enable Core Board | Disable state | Additional comments |
+| --- | --- | --- |
+|<img src="./../../../zh/tang/tang-primer-20k/assets/start/switch_1_on.png" alt="switch_1_on" width=100%>|<img src="./../../../zh/tang/tang-primer-20k/assets/start/reset_led_on.png" alt="reset_led_on" width=100%> | When disabled, the LDE0 and LED1 is on, and core board doesn't work.|
 
 
 ## Attention

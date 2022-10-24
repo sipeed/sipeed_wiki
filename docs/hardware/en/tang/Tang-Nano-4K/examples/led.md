@@ -67,11 +67,11 @@ endmodule
 After finishing edit the file, it's necessary to tick the `Use DONE as regular IO` in Project->Configuration->Place&Route->Dual-Purpose Pin to avoid error.
 ![img_configuration](./../../../../zh/tang/Tang-Nano-9K/nano_9k/LED_Configuration.png)
 
-## Systhesize, constrain, place&route
+## Synthesize, constrain, place&route
 
-### Systhesize
+### Synthesize
 
-After finishing steps above, go to the "Process" interface, systhesize the edited file, which means running "Systhesize". 
+After finishing steps above, go to the "Process" interface, Synthesize the edited file, which means running "Synthesize". 
 ![](./../../../../zh/tang/Tang-Nano-9K/nano_9k/nano_9k_synthsize.png)
 
 If the result is the same as shown below
@@ -87,7 +87,7 @@ If there is some thing wrong, please fix by yourself.
 
 To realize function of the code on FPGA, we must bind the ports we define with the chip pins.
 
-Double click the FloorPlanner in the Process interface to set pin constrain(This can be continued if failing systhesize). 
+Double click the FloorPlanner in the Process interface to set pin constraints(This can be continued if failing Synthesize). 
 
 ![](./../../../../zh/tang/assets/examples/led_pjt_2.png)
 
@@ -107,7 +107,7 @@ In this GUI interface we have two ways to constrain pins:
 - Drag the corresponding port to the pin of chip
 - Type the pin number corresponding to the port in IO constraint
 
-So we can choose one way in the opened window as what the following picture shows to finish constrain:
+So we can choose one way in the opened window as what the following picture shows to finish constraints:
 ![Led floorplanner](./../../../../zh/tang/Tang-Nano-4K/assets/LED_FloorPlanner.png)
 
 ### Place&Route
