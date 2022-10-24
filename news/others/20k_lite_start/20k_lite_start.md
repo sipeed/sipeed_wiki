@@ -15,6 +15,11 @@ update:
     author: wonder
     content:
       - 更新常见问题
+  - date: 2022-10-18
+    version: v0.3
+    author: wonder
+    content:
+      - 修改部分表达语句
 ---
 
 拿到 Primer 20K Lite 后上手点个灯
@@ -25,7 +30,13 @@ update:
 
 本篇文档引导新用户熟悉 IDE 流程并且完成点灯操作。
 
-出货固件已经默认为用户可用全 IO 闪灯，因此长期通电会发热，介意的话可以先擦除 Flash 或者根据本文走到最后烧录时将电脑与板子连接起来。
+默认固件工程可以在 [github](https://github.com/sipeed/TangPrimer-20K-example/tree/main/Lite-bottom%20test%20project/test_board) 找到
+
+默认固件功能如下：
+- 所有引出到排针的 IO 电平逻辑定期翻转，spi lcd 连接器与 sd 卡槽连接器的可编程引脚也定期翻转
+- DDR 测试；可以通过核心板上下载接口里面的串口引脚在电脑上位机上看到 DDR 测试结果
+
+因为固件里面有 DDR 测试，所以核心板上电后会发烫；介意这个发热的话可以把默认的固件给擦除了。
 
 ## 安装 IDE
 
@@ -113,7 +124,7 @@ endmodule
 
 ### 代码描述
 
-根据上文 Verilog 简单说明和所描述的框图，可以所要编写 Verilog 模块有 Clock 和 IO电平 两个端口；
+根据上文 Verilog 简单说明和所描述的框图，可以知道所要编写 Verilog 模块有 Clock 和 IO电平 两个端口；
 
 ```v
 module led(
@@ -124,7 +135,7 @@ module led(
 endmodule
 ```
 
-对于内部的计时模块，Primer 20K 核心板上的晶振为 27MHZ，因此我们每秒钟会有 27000000 个时钟上升沿，想要 0.5S 计数的话那么只需要计数 13500000 次上升沿就好。计数是从 0 开始的，数 13500000 的话就是从 0 数到 13499999。计数完后我们需要设置一个标志位，来通知 LED 的 IO 翻转一下电平。整体计数代码如下：
+对于内部的计时模块，Primer 20K 核心板上的晶振为 27MHZ，因此我们每秒钟会有 27000000 个时钟上升沿，想要 0.5S 计数的话那么只需要计数 13500000 次上升沿就好。计数是从 0 开始的，数 13500000 的话就是从 0 数到 13499999。计数完后我们设置一个标志位，来通知 LED 的 IO 翻转一下电平。整体计数代码如下：
 
 ```v
 //parameter Clock_frequency = 27_000_000; // 时钟频率为27Mhz
@@ -183,16 +194,16 @@ always @(posedge Clock) begin
         count_value_flag <= 1'b1 ; // 产生翻转标志
     end
 end
-reg IO_voltage_reg = 1'b0; // 声明 IO 电平状态用于达到计时时间后的翻转，并赋予一个低电平初始态
 
 /**********电平翻转部分**********/
+reg IO_voltage_reg = 1'b0; // 声明 IO 电平状态用于达到计时时间后的翻转，并赋予一个低电平初始态
+
 always @(posedge Clock) begin
     if ( count_value_flag )  //  电平翻转标志有效
         IO_voltage_reg <= ~IO_voltage_reg; // IO 电平翻转
     else //  电平翻转标志无效
         IO_voltage_reg <= IO_voltage_reg; // IO 电平不变
 end
-
 
 /**********补充一行代码**********/
 assign IO_voltage = IO_voltage_reg;
@@ -232,11 +243,11 @@ endmodule
 
 ![floor_planner_ioconstrain](./assets/floor_planner_ioconstrain.png)
 
-根据[核心板原理图](https://dl.sipeed.com/fileList/TANG/Primer_20K/02_Schematic/Tang_Primer_20K_Core_board_3690.pdf)，我们可以知道晶振所输入的引脚为 H11。
+根据[核心板原理图](https://dl.sipeed.com/shareURL/TANG/Primer_20K/02_Schematic)，我们可以知道晶振所输入的引脚为 H11。
 
 <img src="./assets/crystal_port.png" alt="crystal_port" width=45%>
 
-然后结合底板上的 IO 丝印，决定用地板上的 L14 引脚进行点灯。
+然后结合底板上的 IO 丝印，决定用底板上的 L14 引脚进行点灯。
 
 ![l14_port](./assets/l14_port.png)
 
@@ -255,6 +266,7 @@ endmodule
 完成约束后就要开始运行布局布线了，目的是为了把综合所生成的网表与我们自己定义的约束来通过 IDE 算出最优解然后将资源合理地分配在 FPGA 芯片上。
 
 双击下体红框处的 Place&Route 就开始运行了。
+
 ![place_route](./assets/place_route.png)。
 
 紧接着没有报错，全部通过。就可以开始进行烧录了。
@@ -320,7 +332,7 @@ endmodule
 
 ### 下载到 SRAM
 
-一般来说这个模式是以用来快速要证所生成的固件是否满足自己目的的。
+一般来说这个模式是以用来快速验证所生成的固件是否满足自己目的的。
 
 因为其烧录快的特性所以使用的较多，然是当然断电会丢失数据，所以如果想上电运行程序的话是不能选这个的。
 
@@ -351,9 +363,11 @@ endmodule
 
 然后我们的程序重新上电也能照样运行了。
 
+有问题的话可以前往 [常见问题](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/questions.html) 自行排查。
+
 ### 代码效果
 
-使用 Sipeed 的 SPMOD 后，如下图所示有一个灯在闪。
+使用 Sipeed 的 PMOD 后，如下图所示有一个灯在闪。
 
 ![result](./assets/result.gif)
 

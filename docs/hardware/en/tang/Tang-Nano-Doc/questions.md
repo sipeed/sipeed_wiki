@@ -67,7 +67,7 @@ Click Edit->Cable Setting->Cable->Query in the top menu bar,then save.
 
 This means the debugger does not detect the gowin chip, try this programmer application mentioned in [Error found](#error-found).
 
-For 20K Dock kits, it's necessary to enable the core board before using debugger debug the chip, otherwise this error occurs.
+For 20K Dock kits, it's necessary to enable the core board before using debugger debug the chip, just put the 1 switch on the dip switch down, otherwise this error occurs.
 
 | Enable Core Board | Disable state | Additional comments |
 | --- | --- | --- |

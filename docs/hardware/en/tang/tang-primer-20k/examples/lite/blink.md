@@ -3,7 +3,6 @@ title: Primer 20K Lite blink led
 keywords: Primer 20K, Lite, FPGA
 desc: Primer 20K start
 tags: FPGA, Primer 20K
-cover: ./../../
 update:
   - date: 2022-10-18
     version: v0.1
@@ -95,14 +94,253 @@ Before coding, we need to think our purpose: The led flashes every 0.5S.
 
 Then we draw demand block diagram as follows:
 
-![block_method](./../../../../../../../news/others/20k_lite_start/assets/block_method.png)
+![block_method](./assets/block_method.png)
 
-然后对于 0.5S 我们需要一个计数器来计时，LED 灯闪就是 IO 翻转
+Then we need a counter to time of every 0.5S, LED flashes means IO flip.
 
-![count_block](./../../../../../../../news/others/20k_lite_start/assets/time_count.png)
+![count_block](./assets/time_count.png)
 
-把上面的思维框图具体到实际使用的话，就变成下面的样式了:
+Put the thought diagram into practical use, then it will look like this:
 
-![clock_time_count](./../../../../../../../news/others/20k_lite_start/assets/clock_time_count.png)
+![clock_time_count](./assets/clock_time_count.png)
 
-其中 Clock 为时钟源，用来给计时器提供准确的时间。
+The Clock is the clock source, provides the accurate time for the time counter.
+
+### Code description
+
+From the verilog introduction and think storm diagram above, we can know the module we will create contains 2 ports:
+
+```v
+module led(
+    input  Clock,
+    output IO_voltage
+);
+
+endmodule
+```
+
+For time counter inside module, crystal oscillator on the Primer 20K core board is 27MHZ, so we have 27 million times rising edges per second, and we just need to count 13500000 times rising edges to get 0.5 seconds. The counter starts form `0`, and to count 13500000 times rising edges, we count to 13499999. when counted to 0.5S, we set a flag to inform LED IO to flip its voltage. The overall count code is as follows:
+
+```v
+//parameter Clock_frequency = 27_000_000; // Crystal oscillator freqiamcy is 27Mhz
+parameter count_value       = 13_499_999; // The number of times needed to time 0.5S
+
+reg [23:0]  count_value_reg ; // counter_value
+reg         count_value_flag; // IO chaneg flag
+
+always @(posedge Clock) begin
+    if ( count_value_reg <= count_value ) begin //not count to 0.5S
+        count_value_reg  <= count_value_reg + 1'b1; // Continue counting
+        count_value_flag <= 1'b0 ; // No flip flag
+    end
+    else begin //Count to 0.5S
+        count_value_reg  <= 23'b0; // Clear counter,prepare for next time counting.
+        count_value_flag <= 1'b1 ; // Flip flag
+    end
+end
+```
+
+The code to vhange IO voltage are as following:
+
+```v
+reg IO_voltage_reg = 1'b0; // Initial state
+
+always @(posedge Clock) begin
+    if ( count_value_flag )  //  Flip flag 
+        IO_voltage_reg <= ~IO_voltage_reg; // IO voltage filp
+    else //  No flip flag
+        IO_voltage_reg <= IO_voltage_reg; // IO voltage constant
+end
+```
+
+Combined the codes above, it becomes like this:
+
+```v
+module led(
+    input  Clock,
+    output IO_voltage
+);
+
+/********** Counter **********/
+//parameter Clock_frequency = 27_000_000; // Crystal oscillator freqiamcy is 27Mhz
+parameter count_value       = 13_499_999; // The number of times needed to time 0.5S
+
+reg [23:0]  count_value_reg ; // counter_value
+reg         count_value_flag; // IO chaneg flag
+
+always @(posedge Clock) begin
+    if ( count_value_reg <= count_value ) begin //not count to 0.5S
+        count_value_reg  <= count_value_reg + 1'b1; // Continue counting
+        count_value_flag <= 1'b0 ; // No flip flag
+    end
+    else begin //Count to 0.5S
+        count_value_reg  <= 23'b0; // Clear counter,prepare for next time counting.
+        count_value_flag <= 1'b1 ; // Flip flag
+    end
+end
+
+/********** IO voltage flip **********/
+reg IO_voltage_reg = 1'b0; // Initial state
+
+always @(posedge Clock) begin
+    if ( count_value_flag )  //  Flip flag 
+        IO_voltage_reg <= ~IO_voltage_reg; // IO voltage filp
+    else //  No flip flag
+        IO_voltage_reg <= IO_voltage_reg; // IO voltage constant
+end
+
+/***** Add an extra line of code *****/
+assign IO_voltage = IO_voltage_reg;
+
+endmodule
+```
+
+Because the `IO_voltage` is declared in the port position, which is wire type by default. To connect it to the reg variable `IO_voltage_reg`, we need to use assign. 
+
+## Synthesize, constrain, place&route
+
+### Synthesize
+
+After finishing the code, go to the "Process" interface and double click "Synthesize" to synthesize our code to convert the verilog code content to netlist.
+
+![Synthesize](./../../../../../../../news/others/20k_lite_start/assets/synthesize.png)
+
+### Constraint
+
+After Synthesizing our code, we need to set constrains to bind the ports defined in our code to fpga pins, by which we can realize our module function on fpga. 
+
+Click the FloorPlanner in the top of Synthesize to set constrains.
+
+![FloorPlanner](./../../../../../../../news/others/20k_lite_start/assets/floorplanner.png)
+
+Since this is the first time we create it, the following dialog box will pop up. Click OK and the graphical constraint interface will pop up.
+
+![create_constrain_file](./../../../../../../../news/others/20k_lite_start/assets/create_constrain_file.png)
+
+![floorplanner_intreface](./../../../../../../../news/others/20k_lite_start/assets/floorplanner_interface.png)
+
+The ways to constraint the file can be get from this docs: [SUG935-1.3E_Gowin Design Physical Constraints User Guide.pdf](https://dl.sipeed.com/fileList/TANG/Nano%209K/6_Chip_Manual/EN/General%20Guide/SUG935-1.3E_Gowin%20Design%20Physical%20Constraints%20User%20Guide.pdf)
+
+Here we only use the IO Constranins method shown below to constrain the pins:
+
+![floor_planner_ioconstrain](./../../../../../../../news/others/20k_lite_start/assets/floor_planner_ioconstrain.png)
+
+According to [Schematic of core board](https://dl.sipeed.com/shareURL/TANG/Primer_20K/02_Schematic), we can know the input pin of crystal oscillator is H11。
+
+<img src="./../../../../../../../news/others/20k_lite_start/assets/crystal_port.png" alt="crystal_port" width=45%>
+
+Take consideration in the IO screen printing on the ext_board, we decide to use the L14 pin on the ext_board for flashing. 
+
+![l14_port](./../../../../../../../news/others/20k_lite_start/assets/l14_port.png)
+
+So for the IO Constranins under the FloorPlanner interactive window, we fill in the following values for PORT and Location:
+
+![io_constrain_value](./../../../../../../../news/others/20k_lite_start/assets/io_constrain_value.png)
+
+Finishing filling, use `Ctrl + S` to save constraints file, then close FloorPlanner interactive graphical interface.
+
+Then we see there is a .cst file in our project, and its content are easy to understand. 
+
+![cst_content](./../../../../../../../news/others/20k_lite_start/assets/cst_content.png)
+
+### Place & Route
+
+After finishing constrainting, we run Place & Route. The purpose is to synthesize the generated netlist and our defined constraints to calculate the optimal solution through IDE, then allocate resources reasonably on the FPGA chip.
+
+Couble click Place&Route marked with red box to run.
+
+![place_route](./../../../../../../../news/others/20k_lite_start/assets/place_route.png)。
+
+Then there is no error, everything works well, we can burn our fpga.
+
+## Burn bitstream
+
+It's suggested use this programmer application [Click me](https://dl.sipeed.com/shareURL/TANG/programmer) ro burn fpga.
+
+### Connection comment
+
+The JTAG pin orders can be found in the back of 20K core board.
+
+<table>
+    <tr>
+        <td>Core Board</td>
+        <td>5V0</td>
+        <td>TMS</td>
+        <td>TDO</td>
+        <td>TCK</td>
+        <td>TDI</td>
+        <td>RX</td>
+        <td>TX</td>
+        <td>GND</td>
+    </tr>
+    <tr>
+        <td>Debugger</td>
+        <td>5V0</td>
+        <td>TMS</td>
+        <td>TDO</td>
+        <td>TCK</td>
+        <td>TDI</td>
+        <td>TX</td>
+        <td>RX</td>
+        <td>GND</td>
+    </tr>
+</table>
+
+![cable_connect](./../../../../../../../news/others/20k_lite_start/assets/cable_connect.png)
+
+### Scan Device
+
+Click `Program Device` twice to run Programmer application.
+
+![open_programmer](./../../../../../../../news/others/20k_lite_start/assets/open_programmer.png)
+
+Click scan_device marked by red box to scan our device.
+
+![scan_device](./../../../../../../../news/others/20k_lite_start/assets/scan_device.png)
+
+CLick OK to burn fpga.
+
+### Burn to SRAM
+
+Normally this mode is used to verify biststream.
+
+Because of its fast burning characteristics so the use of more, but of course the power will lose data, so if you want to power on the running program you can't choose this mode.
+
+Click the function box below Operation to open the device configuration interface, then select the SRAM Mode option in Access Mode to set to download to SRAM, and finally click the three dots box below to select our generated `.fs` bitstream file . Generally speaking, bitstream firmware file is in the impl -> pnr directory.
+
+![sram_mode](./../../../../../../../news/others/20k_lite_start/assets/sram_mode.png)
+
+Click where the red box is to burn firmware.
+
+![sram_download](./../../../../../../../news/others/20k_lite_start/assets/sram_download.png)
+
+Go to [Questions](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/questions.html) if you have any trouble。
+
+Here we finished downloading into SRAM。
+
+### Burn into Flash
+
+Burnning into sram is used for verifying biststream, but can't store program.
+If we want to run application at startup, we need to burn into flash.
+
+This steps are similar to the steps above of burnning to SRAM.
+
+Click the function box below Operation to open the device configuration interface,   then select the External Flash Mode in the Access Mode to burn into external Flash. Finally click the three dots below to select the.fs we generated to download the firmware. Choose the three dots box below to select our generated `.fs` bitstream file. Generally speaking, bitstream firmware file is in the impl -> pnr directory. Finally, select the Generic Flash device from the following external Flash options.
+
+![flash_mode](./../../../../../../../news/others/20k_lite_start/assets/flash_mode.png)
+
+Click where the red box is to burn firmware.
+
+![flash_download](./../../../../../../../news/others/20k_lite_start/assets/flash_download.png)
+
+Then we can run our program when power on.
+
+### Result
+
+After using PMOD designed by Sipeed，one led flashes like below.
+
+![result](./../../../../../../../news/others/20k_lite_start/assets/result.gif)
+
+## Question
+
+Go to [Questions](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/questions.html) if you have any trouble。

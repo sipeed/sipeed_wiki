@@ -293,8 +293,31 @@ For 20K Dock kits, it's necessary to enable the core board before using debugger
 | --- | --- | --- |
 |<img src="./../../../zh/tang/tang-primer-20k/assets/start/switch_1_on.png" alt="switch_1_on" width=100%>|<img src="./../../../zh/tang/tang-primer-20k/assets/start/reset_led_on.png" alt="reset_led_on" width=100%> | When disabled, the LDE0 and LED1 is on, and core board doesn't work.|
 
+### How to burn into flash
 
-## Attention
+Do following configurations:
+
+<img src="./../../../zh/tang/tang-primer-20k/assets/flash_mode.png" alt="flash_mode" width=75%>
+
+### No reaction after burning or phenomenon is wrong
+
+Make sure you hace selected right device, and all parameters are the same as following.
+
+<img src="./../../../zh/tang/tang-primer-20k/assets/device_choose.png" alt="device_choose" width=75%>
+
+Then make sure your code logic is right and your 
+
+### Successfully burned once, after can't burn again
+
+Note that the description is there was a successful Flash burnt one time.
+
+In this case, the default reason is that the wrong Dual-Purpose pin is enabled and the debugger can no longer scan the FPGA's JTAG. You can short pin 1 and pin 4 of Flash, by which the chip cannot read FLASH normally when it is powered on.
+
+![flash_cs](./../../../zh/tang/tang-primer-20k/assets/flash_cs.png)
+
+### Visit [Questions](./../Tang-Nano-Doc/questions.md) for more
+
+<!-- ## Attention
 
 1. If you have trouble with this board, you can join our telegram (t.me/sipeed) or contact us on twitter (https://twitter.com/SipeedIO).
 
@@ -310,4 +333,4 @@ For 20K Dock kits, it's necessary to enable the core board before using debugger
 
 7. When connecting FPC flexible cable, make sure the cable is completely inserted into the base with on offset.
 
-8. Avoid any liquid or metal touching the pads of components on PCBA during working, because this will cause short circuit and damage PCBA.
+8. Avoid any liquid or metal touching the pads of components on PCBA during working, because this will cause short circuit and damage PCBA. -->

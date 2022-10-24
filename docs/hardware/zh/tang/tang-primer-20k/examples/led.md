@@ -226,7 +226,7 @@ endmodule
 
 ![floor_planner_ioconstrain](./assets/led_assets/floor_planner_ioconstrain.png)
 
-根据[核心板原理图](https://dl.sipeed.com/fileList/TANG/Primer_20K/02_Schematic/Tang_Primer_20K_Core_board_3690.pdf)，我们可以知道晶振所输入的引脚为 H11。
+根据[核心板原理图](https://dl.sipeed.com/fileList/TANG/Primer_20K/02_Schematic/)，我们可以知道晶振所输入的引脚为 H11。
 
 <img src="./assets/led_assets/crystal_port.png" alt="crystal_port" width=45%>
 
@@ -285,7 +285,7 @@ Dock 板载了下载器，在 [安装IDE](https://wiki.sipeed.com/hardware/zh/ta
 
 ### 下载到 SRAM
 
-一般来说这个模式是以用来快速要证所生成的固件是否满足自己目的的。
+一般来说这个模式是以用来快速验证所生成的固件是否满足自己目的的。
 
 因为其烧录快的特性所以使用的较多，然是当然断电会丢失数据，所以如果想上电运行程序的话是不能选这个的。
 
