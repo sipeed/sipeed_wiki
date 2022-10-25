@@ -30,6 +30,7 @@ https://dl.sipeed.com/shareURL/TANG/programmer 里面的文件。
 ### Tang Nano 4K
 
 - [点灯例程](./../Tang-Nano-4K/examples/LED.md)
+- 使用 Cortex-M3 点灯例程：[Github](https://github.com/verilog-indeed/gowin_fpga_tutorials) (英文)
 - HDMI显示工程：https://github.com/sipeed/TangNano-4K-example/tree/main/dk_video/project
 - 摄像头内容显示在HDMI工程：https://github.com/sipeed/TangNano-4K-example/tree/main/dk_video/project
 - 在Nano 4K上运行GBA的工程：https://github.com/Martoni/GbHdmi
@@ -39,6 +40,7 @@ https://dl.sipeed.com/shareURL/TANG/programmer 里面的文件。
 - [点灯例程](./../Tang-Nano-9K/examples/LED.md)
 - [驱RGB屏教程](./../Tang-Nano-9K/examples/LCD.md)
 - [PicoRV 在9K上运行的示例](./../Tang-Nano-9K/examples/picorv.md)
-- [FPGA驱动1.14 SPI屏幕](./../Tang-Nano-9K/examples/spi_lcd/spi_lcd.md)
+- [FPGA驱动1.14 SPI屏幕工程](./../Tang-Nano-9K/examples/spi_lcd.md)
+<!-- - [FPGA驱动1.14 SPI屏幕](./../Tang-Nano-9K/examples/spi_lcd/spi_lcd.md) -->
 - HDMI 示例：参考 [PicoRV 在9K上运行的示例](./../Tang-Nano-9K/examples/picorv.md)
 - litex 在 9K 支持：https://github.com/litex-hub/litex-boards

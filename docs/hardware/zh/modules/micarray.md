@@ -4,6 +4,10 @@
 
 麦克风阵列由沿板的六个麦克风和一个中心的麦克风组成，阵列板上的 12 颗 LED 可以用来可视化识别声源方位，可以用来做声源定位实验。
 
+购买链接：
+- [淘宝](https://item.taobao.com/item.htm?id=591820993474)
+- [Aliexpress](https://www.aliexpress.com/item/1005002687541143.html)
+
 ## 产品视图
 
 <img src="./../../assets/spmod/spmod_micarray/spmod_micarray.png" width=55%>
@@ -20,7 +24,7 @@
 - 信噪比 : 57dB(20kHz bandwidth, A-weighted)
 - 尺寸 :78.1*88.8mm
 - 灯光 :12 个 SK9822 LED 组成一个环形 LED 阵列 
-  [点我下载 SK8322 数据手册](https://dl.sipeed.com/fileList/MAIX/HDK/Chip_DS/sk9822_micarray_led.PDF)
+  [点我下载 SK9822 数据手册](https://dl.sipeed.com/fileList/MAIX/HDK/Chip_DS/sk9822_micarray_led.PDF)
     - 多个 LED 通过双信号线级联
     - 8 Bit(256 级) 可调颜色,5 Bit (32 级)亮度调节 
 - 连接器 :支持 2*5P 2.54mm 端子和 10P 0.5mm FPC 连接器
@@ -38,15 +42,15 @@
 | 引脚序号 | 引脚名称 | 类型 | 引脚说明 | 
 | --- | --- | --- | --- |
 | 1 | VIN | VCC | 模块电源输入正 |
-| 2 | GND | G | 模块电源地 |
-| 3 | MIC_D0 | I/O | 0号麦克风和1号麦克风的I²S 接口的串行数据输出 |
-| 4 | MIC_D1 | I/O | 2号麦克风和3号麦克风的I²S 接口的串行数据输出 |
-| 5 | MIC_D2 | I/O | 4号麦克风和5号麦克风的I²S 接口的串行数据输出 |
-| 6 | MIC_D3 | I/O | 中心麦克风的I²S 接口的串行数据输出 |
+| 2 | GND | GND | 模块电源地 |
+| 3 | MIC_D0 | I/O | 0 号麦克风和1号麦克风的 I²S 接口的串行数据输出 |
+| 4 | MIC_D1 | I/O | 2 号麦克风和3号麦克风的 I²S 接口的串行数据输出 |
+| 5 | MIC_D2 | I/O | 4 号麦克风和5号麦克风的 I²S 接口的串行数据输出 |
+| 6 | MIC_D3 | I/O | 中心麦克风的 I²S 接口的串行数据输出 |
 | 7 | MIC_WS | I/O | I²S 接口的串行数据字选择 |
 | 8 | MIC_CK | I/O | I²S 接口的串行数据时钟 |
-| 9 | LED_CK | I/O | LED 的 I²C 接口的串行数据时钟 |
-| 10 | LED_DA | I/O | LED 的 I²C 接口的串行数据输出 |
+| 9 | LED_CK | I/O | LED 的串行数据时钟 |
+| 10 | LED_DA | I/O | LED 的的串行数据输出 |
 
 <img src="./../../assets/spmod/spmod_micarray/MicArray.png" width=55%>
 
@@ -73,7 +77,7 @@
 
 ### 烧录固件
 
-前往 [下载站](https://dl.sipeed.com/shareURL/MAIX/MaixPy/release/master/maixpy_v0.6.2_84_g8fcd84a58) 下载固件，下载 [固件说明](https://wiki.sipeed.com/soft/maixpy/zh/get_started/upgrade_maixpy_firmware.html#%E5%9B%BA%E4%BB%B6%E5%91%BD%E5%90%8D%E8%AF%B4%E6%98%8E) 里面的默认固件即可使用。
+前往 [下载站](https://dl.sipeed.com/shareURL/MAIX/MaixPy/release/master) 下载固件，下载 [固件说明](https://wiki.sipeed.com/soft/maixpy/zh/get_started/upgrade_maixpy_firmware.html#%E5%9B%BA%E4%BB%B6%E5%91%BD%E5%90%8D%E8%AF%B4%E6%98%8E) 里面的默认固件即可使用。
 
 ### Micropython 代码
 
@@ -95,7 +99,8 @@ while True:
 mic.deinit()
 
 ```
-需要自行根据自己的连接的管脚号，对应着修改`mic.init(i2s_d0=23, i2s_d1=22, i2s_d2=21, i2s_d3=20, i2s_ws=19, i2s_sclk=18, sk9822_dat=24, sk9822_clk=25)`里面的参数。比如如果将麦克风阵列上的 `MIC_D0` 与 K210 板子上面的标号为 25 的引脚相连，那么对应在代码中的参数需要修改为 `i2s_d0=25`，其他七个引脚也是同理。因为每个人的配置是不同的，所以使用杜邦线的话没有固定的连接说明，个人自行修改引脚参数，并且不要忘记删掉`mic.init(...)`前面的注释。
+
+需要自行根据自己的连接的管脚号，对应着修改`mic.init(i2s_d0=23, i2s_d1=22, i2s_d2=21, i2s_d3=20, i2s_ws=19, i2s_sclk=18, sk9822_dat=24, sk9822_clk=25)`里面的参数。比如如果将麦克风阵列上的 `MIC_D0` 与 K210 板子上面的标号为 25 的引脚相连，那么对应在代码中的参数需要修改为 `i2s_d0=25`，其他七个引脚也是同理。因为每个人的配置是不同的，所以使用杜邦线的话没有固定的连接说明，个人自行修改引脚参数，并且不要忘记删掉`mic.init(...)`前面的注释（删掉`#`就行）。
 
 ### C 语言代码
 
@@ -380,7 +385,7 @@ void sipeed_init_mic_array_led(void)
   </pre>
 </details>
 
-#### micarray 代码
+#### Micarray 代码
 
 仅供参考用，来源：[github](https://github.com/sipeed/MaixPy/blob/master/components/micropython/port/src/Maix/Maix_mic_array.c)；需要分析代码的话建议复制代码到电脑本地编辑器中查看。
 
