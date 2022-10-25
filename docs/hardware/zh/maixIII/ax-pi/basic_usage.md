@@ -17,7 +17,7 @@ title: Maix-III AXera-Pi 系统基础使用
 
 图待补充
 
-**供电要求**：由于板子的功耗要求低，可以不用外接 2A 电源使用 usb3.0 1A 即可启动 linux 系统。
+**供电要求**：由于板子的功耗要求低，使用 usb3.0 1A 即可启动 linux 系统。
 
 ### 接线示例
 
@@ -32,7 +32,7 @@ title: Maix-III AXera-Pi 系统基础使用
 
 ## 系统登录
 
-### 登陆工具
+### 登录工具
 
 .. details::点我查看 MobaXterm 介绍
 
@@ -63,8 +63,15 @@ Maix-III AXera-Pi 开发板的 Linux debian11 系统默认使用 root 用户登�
 
 **Linux**：系统本身自带无需再装驱动，使用 `ls /dev/ttyUSB*` 即可看到设备号。
 
-**Windows**：直接点击右侧下载 [CH340](https://api.dl.sipeed.com/fileList/MAIX/tools/ch340_ch341_driver/CH341SER.EXE) 驱动安装，安装后可在`设备管理器`查看串口设备。
+**Windows**：直接[点击下载 CH340 驱动](https://api.dl.sipeed.com/fileList/MAIX/tools/ch340_ch341_driver/CH341SER.EXE)安装，安装后可在`设备管理器`查看串口设备。
 
+.. details::点我查看 CH340 驱动安装
+    先打开设备管理器查看是否有 **CH340** 驱动，如无驱动的话请点击上方链接进行下载。
+    ![usb-serial](./../assets/usb-serial.jpg)
+    下载完成后，右键点击文件，选择**以管理员身份运行(A)**即会自动安装。
+    ![install-serial](../assets/install-serial.jpg)
+    安装完成，可在设备管理器端口处查看设备。
+    
 >[有些同学会遇到 Ubuntu22.04 CH340系列串口驱动（没有ttyUSB）问题，点此查看解决方案。](https://blog.csdn.net/qq_27865227/article/details/125538516)
 
 .. details::点我查看 usb uart 接口示意图
@@ -82,7 +89,7 @@ Maix-III AXera-Pi 开发板的 Linux debian11 系统默认使用 root 用户登�
 
 - **基于 ip + ssh 登录**
 
-> 登录前需安装 **RNDIS USB** 网卡驱动
+> 登录前需安装 **rndis usb** 网卡驱动
 
 一般情况下 rndis usb 网卡驱动在 Linux 下可不用安装，在 Windows 下需要按下图手动安装系统自带驱动，而 macos 需要编译安装驱动（horndis），Windows 还需要配置一下网络优先级，勾选微软 rndis 驱动后设置网络跃点数调整优先级。
 
@@ -251,13 +258,29 @@ USB 网卡会自动 DHCP 配置，直接连接 192.168.233.1 即可，连接方�
 
 - **查看 eth0 网卡是否存在**
   
-**eth0**：即有线网卡，可使用 `dhclient eth0 &` 手动启动 DHCP 客户端获取 IP 地址，得到 ip 后可以使用 `ifconfig eth0` 命令查看当前网络配置。
+可使用 `dhclient eth0 &` 手动启动 DHCP 客户端获取 IP 地址，得到 ip 后使用 `ifconfig eth0` 命令查看当前网络配置。默认支持千兆网络，只需要开机前将网线插上去，在启动过程中就会自动配置并联网，可以通过 `apt update` 测试软件源更新。
 
-默认支持千兆网络，只需要开机前将网线插上去，在启动过程中就会自动配置并联网，可以通过 `apt update` 测试软件源更新。
+```bash
+root@AXERA:~# ifconfig
+eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 192.168.0.77  netmask 255.255.255.0  broadcast 192.168.0.255
+        ether 1e:09:dc:e9:1c:29  txqueuelen 1000  (Ethernet)
+        RX packets 301  bytes 41433 (40.4 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 31  bytes 2970 (2.9 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+        device interrupt 56
+```
 
 - **一些问题排除方法，如没有 ip 如何配置**
 
-登录到板子使用 `ifconfig` 后无法获取以太网地址，可尝试用 `dhclient eth0 &` 启动 DHCP 客户端获取 IP 地址，或进行手动配置 IP ，
+登录后无法获取以太网地址的话，可用上文命令启动 DHCP 客户端获取 IP 地址。
+或者是使用 `ifdown eth0` 关闭网卡后再使用 `ifup eth0 --force` 启动手动配置 IP。
+
+.. details::点我查看配置示例
+    ![eth0-config](./../assets/eth0-config.jpg)
+
+
 ### 无线 WIFI （wlan0）配置方法
 
 - **查看 WIFI 网卡是否存在**
@@ -385,10 +408,78 @@ poweroff
 
 ### 开机启动脚本
 
->**20221013** 后更新的镜像已预置正式版本开机自启脚本。
+>**20221013** 后更新的镜像已预置正式版本开机自启脚本
 
 系统已经配置好 `/etc/rc.local & /boot/rc.local` 开机脚本，
-Maix-III AXera-Pi 开发板上电后会自启点亮 5 寸屏幕以及播放开机音乐。
+Maix-III AXera-Pi 开发板上电后会自启点亮 5 寸屏幕以及耳机播放开机音乐。
+
+.. details::点击查看连接后串口输出的 debian11 系统启动日志。
+
+    ```bash
+    Vddr init success!
+    The system boot form EMMC
+    enter boot normal mode
+
+    U-Boot 2020.04 (Jun 16 2022 - 00:16:34 +0800)
+
+    Model: AXERA AX620_demo Board
+    DRAM:  1 GiB
+    NAND:  unknown raw ID 77ee0178
+    uclass_get_device: Invalid bus 0 (err=-524)
+    0 MiB
+    initr_pinmux: delay pinmux_init for env board id
+    MMC:   enter sdhci_cdns_get_cd call mmc_getcd
+    enter sdhci_cdns_get_cd call mmc_getcd
+    mmc@10000000: 0, mmc@4950000: 1
+    Loading Environment from MMC... OK
+    In:    serial
+    Out:   serial
+    Err:   serial
+    MMC: no card present
+    sd card is not present
+    enter normal boot mode
+    Net:
+    reset EMAC0: ethernet@0x4970000 ...
+    Warning: ethernet@0x4970000 (eth0) using random MAC address - 6a:e4:fd:58:97:ea
+    eth0: ethernet@0x4970000
+    Hit any key to stop autoboot:  0
+    reading DTB and BOOT image ...
+    reading bootimg header...
+    MAGIC:       AXERA!
+    img size:    4841536
+    kernel_size: 4841472
+    kernel_addr: 64
+    id:bc 19 bb a7 2d 27 74 de 7c 91 4b 70 ea c9 ab 96 50 61 bd e0 2b 02 8b e5 c8 ee 22 ce df b1 cf ea
+    load kernel image addr = 0x40008000,load dtb image addr = 0x48008000
+    boot cmd is :bootm 0x40008000 - 0x48008000
+    ## Booting kernel from Legacy Image at 40008000 ...
+    Image Name:   Linux-4.19.125
+    Image Type:   ARM Linux Kernel Image (uncompressed)
+    Data Size:    4839952 Bytes = 4.6 MiB
+    Load Address: 40008000
+    Entry Point:  40008000
+    Verifying Checksum ... OK
+    ## Flattened Device Tree blob at 48008000
+    Booting using the fdt blob at 0x48008000
+    Loading Kernel Image
+    Using Device Tree in place at 48008000, end 480103d6
+
+    Starting kernel ...
+
+
+    Welcome to Debian GNU/Linux 11 (bullseye)!
+
+    [  OK  ] Created slice system-getty.slice.
+    [  OK  ] Created slice system-modprobe.slice.
+    [  OK  ] Created slice system-serial\x2dgetty.slice.
+    [  OK  ] Created slice User and Session Slice.
+    [  OK  ] Started Dispatch Password …ts to Console Directory Watch.
+    [  OK  ] Started Forward Password R…uests to Wall Directory Watch.
+    [  OK  ] Reached target Local Encrypted Volumes.
+    [  OK  ] Reached target Network is Online.
+    ......
+
+    ```
 
 .. details::点我查看示例图
     ![start](./../assets/start.jpg)
@@ -561,6 +652,8 @@ sample_vin_vo -c 2 -e 1 -s 0 -v dsi0@480x854@60
 
 .. details::运行上方命令后可看到画面（示例效果）
     ![video](./../assets/video.jpg)
+
+>使用摄像头时如有报错或者是不显示，请移步[Maix-III 系列 AXera-Pi 常见问题(FAQ)](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html)查询。
 
 ### DISPLAY
 
@@ -904,6 +997,39 @@ RX | FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF 
 >**20222017** 后的镜像默认打开了录制保存到 `/opt/mp4` 的目录下。
 >**注意**：视频录制完后储存到文件系统后才能打开。某种意义上讲；用户也可以挂载一个网络路径来当监控录像使用。
 
+#### 人脸识别
+>基于上文的基础功能，IPCDemo 自身还附带其他一些功能应用.例如**：人脸识别、车牌识别**。
+
+使用前请参考上文使用命令行登录 IPC 网页，登录后先进行相机结构化配置，具体配置流程看下文。
+
+.. details::点击查看配置流程
+    接入页面后选择**配置**在**智能配置**里再进行**结构化配置**，用户可根据自己的需要进行勾选即可。
+
+    ![ipc-video](./../assets/ipc-video.jpg)
+
+设置完成后回到预览页面即可进行人脸及人形识别，IPC 会自动框出识别人脸并且截取人脸的图片，可在预览页面下方点击截取图样放大查看附带信息。
+- 左侧：人脸识别 右侧：人形识别
+  
+<html>
+  <img src="./../assets/ipc-model.jpg" width=48%>
+  <img src="./../assets/ipc-person.jpg" width=48%>
+</html>
+
+
+#### 车牌识别
+
+使用前请参考上文基础功能使用命令行登录网页，再进行**结构化配置**勾选车牌所需的检测画框即可。
+
+.. details::点击查看 IPC 配置流程
+    接入页面后选择**配置**在**智能配置**里再进行**结构化配置**，用户可根据自己的需要进行勾选即可。
+
+    ![ipc-video](./../assets/ipc-video.jpg)
+
+设置完成即可回到预览页面进行车牌识别，IPC 会自动框出识别到得车牌及读取车牌数字信息，用户可在预览下方点击图片放大查看截取到车牌图片及信息。
+
+![ipc-car](./../assets/ipc-car.jpg)
+
+
 ### RTSP 推流
 
 推流：把采集阶段封包好的内容传输到服务器的过程。
@@ -913,12 +1039,16 @@ RX | FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF 
 **VLC Media Player**：[点击下载](https://www.videolan.org/vlc/)
 **VLC Media Player 介绍及配置流程**：[点击查看](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html#RTSP)
 
-运行右侧命令 `cd /home/vin_ivps_joint_venc_rtsp_v2/ && ./sample_vin_ivps_joint_venc_rtsp -c 0 -m yolov5s_sub_nv12_11.joint` 后终端无报错，打开 VLC 软件参考上文配置流程进行配置，点击播放即可查看 RTSP 推流效果。
+运行下文命令后终端无报错，打开 VLC 软件参考上文配置流程进行配置，点击播放即可查看 RTSP 推流效果。
+
+```bash
+cd /home/vin_ivps_joint_venc_rtsp_v2/ && ./sample_vin_ivps_joint_venc_rtsp -c 0 -m yolov5s_sub_nv12_11.joint
+```
 
 .. details::点击查看终端运行图
     ![vlr-run](./../assets/vlc-run.jpg)
 
-![vlc-rtsp](./../assets/vcl-rtsp.jpg)
+![vlc-rtsp](./../assets/vlc-rtsp.jpg)
 
 ### SKEDEMO
 
