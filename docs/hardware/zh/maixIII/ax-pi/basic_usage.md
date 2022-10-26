@@ -686,12 +686,19 @@ fboff
 
     ![vl-yolov5s](./../assets/vlc-yolov5s.jpg)
 
-可使用 `cd /home/vin_ivps_joint_venc_rtsp_v2/ && ./sample_vin_ivps_joint_venc_rtsp -c 0 -m yolov5s_sub_nv12_11.joint` 命令运行 yolov5s 模型终端会弹跳出信息，不同型号的摄像头记得修改 `-c 2` 后的值，具体可参考[Maix-III 系列 AXera-Pi 常见问题（FAQ）.](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html)
+>不同型号的摄像头记得修改 `-c` 后的值，具体可参考[Maix-III 系列 AXera-Pi 常见问题（FAQ）.](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html)
 
+- **PC 端推流**
+
+1. 可使用下文命令运行 yolov5s 模型终端会弹跳出信息。
+2. 着打开我们已经下载好的 `VLC Media Player` 软件，进行配置网络串流连接获取画面进行物体检测。
+
+```bash
+cd /home/vin_ivps_joint_venc_rtsp_v2/ && ./sample_vin_ivps_joint_venc_rtsp -c 0 -m yolov5s_sub_nv12_11.joint
+```
+ 
 .. details::点击查看终端运行图
     ![vlr-run](./../assets/vlc-run.jpg)
-
-打开我们已经下载好的 `VLC Media Player` 软件，进行配置网络串流连接获取画面进行物体检测。
 
 .. details::点我查看 VLC Media Player 配置步骤
     打开后在上方选择**媒体**后选择**打开网络串流**进到配置画面。
@@ -701,7 +708,26 @@ fboff
     ![vlc-urt](./../assets/vlc-urt.jpg)
 
 ![vlc-yolov5s](./../assets/vlc-yolov5s.jpg)
-    
+
+- **双屏推流**
+  
+双屏推流顾名思义是基于上文的升级版，适配到 PC 端与设备屏幕双屏同时显示推流画面。
+
+1. 可使用下文命令运行 yolov5s 模型进行 PC 端与设备屏幕双屏推流，运行后终端会弹跳出信息。
+2. 接着打开我们已经下载好的 `VLC Media Player` 软件，进行配置网络串流连接获取画面进行物体检测。
+
+```bash
+cd /home/vin_ivps_joint_venc_rtsp_v2/ && ./sample_vin_ivps_joint_venc_rtsp_vo -c 0 -m ./yolov5s_sub_nv12_11.joint
+```
+
+效果图如下：
+<html>
+  <img src="./../assets/rtsp-display.jpg" width=48%>
+  <img src="./../assets/rtsp-axpi.jpg" width=48%>
+</html>
+
+
+
 ### NPU
 
 测试 NPU 的示例程序在 `/home/ax-samples/build/install` 目录下，已经预编译好了，直接就可以调用并显示运行结果。
