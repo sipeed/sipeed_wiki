@@ -13,9 +13,9 @@ title: MAIX-III AXera-Pi 是什么？
 
 在千元内的产品有晶晨 A311D 、地平线 X3 、瑞芯微 RV1126、堪智 K510、全志 V85X 等芯片供选择。
 
-但它们要么资料太少、能效比差、价格太贵、没有生态、开发困难、摄像效果太差啦！
+但它们要么资料太少、能效比低、价格太贵、生态贫瘠、开发困难、摄像效果太差啦！
 
-真的很难有一款板子可以满足所有要求。
+真的很难有一款 AI 板子可以满足所有要求。
 
 但现在，想要支持国产芯片的 AI 开发工程师们！总算是有更好的选择了！！
 
@@ -239,8 +239,9 @@ title: MAIX-III AXera-Pi 是什么？
 芯片商用时所用的 bsp 开发包，这里主要提供的是芯片的原始开发资料，如 uboot 、 linux 、 msp 、msp 等工程代码，这个部分是逐步开源的，你可以从这里得到商业评估用的代码，例如 ipcdemo 这样的程序，但这些代码会很复杂且高耦合，适合有经验的同行出于商业落地的目的使用。
 
 1. 开发文档 [docs](https://github.com/sipeed/axpi_bsp_sdk/tree/main/msp/sample/vo_fb)
-2. 成品应用 [ipcdmeo](https://github.com/sipeed/axpi_bsp_sdk/tree/main/app/IPCDemo)
-3. 底层验证 [sample](https://github.com/sipeed/axpi_bsp_sdk/tree/main/msp/sample)
+2. 框架应用 [ipcdmeo](https://github.com/sipeed/axpi_bsp_sdk/tree/main/app/IPCDemo)
+3. 外设验证 [sample](https://github.com/sipeed/axpi_bsp_sdk/tree/main/msp/sample)
+4. 模型部署 [ax-pipeline](https://github.com/AXERA-TECH/ax-pipeline)
 
 ## 社区资源
 
