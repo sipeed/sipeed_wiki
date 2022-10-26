@@ -241,7 +241,7 @@ title: MAIX-III AXera-Pi 是什么？
 1. 开发文档 [docs](https://github.com/sipeed/axpi_bsp_sdk/tree/main/msp/sample/vo_fb)
 2. 框架应用 [ipcdmeo](https://github.com/sipeed/axpi_bsp_sdk/tree/main/app/IPCDemo)
 3. 外设验证 [sample](https://github.com/sipeed/axpi_bsp_sdk/tree/main/msp/sample)
-4. 模型部署 [ax-pipeline](https://github.com/AXERA-TECH/ax-pipeline)
+4. （即将公开）模型部署 [ax-pipeline](https://github.com/AXERA-TECH/ax-pipeline)
 
 ## 社区资源
 
@@ -253,25 +253,25 @@ title: MAIX-III AXera-Pi 是什么？
 - [ubuntu22.04搭建AX620A官方例程开发环境](http://t.csdn.cn/p8Nno)
 - [AX620A运行yolov5s自训练模型全过程记录（windows）](http://t.csdn.cn/oNeYG)
 
-其他相关的新闻内容有：
+产品相关的新闻内容有：
 
 - [AI ISP 的黎明——大话成像](https://axera-tech.com/tech/T7297054127901756535)
 - [2022世界人工智能大会启动:爱芯元智发布AI-ISP“爱芯智眸®”_中华网](https://tech.china.com/article/20220901/092022_1134965.html)
 
-即将联动的 AI 社区有：
+正在联动的 AI 社区有：
 
-- [保密中]()
-- [保密中]()
+- [sipeed maixhub.com](https://maixhub.com)
+- [秘密策划中]()
 
 ### 产品开箱测评公示
 
 - **活动内容**：活动面向已购买全功能套餐的同学们，给大众及其他的小伙伴们提供良好的开箱体验。
-  
+
 - **测评要求**
-  
-1. 测评的场景内容不限，但提交的内容不得与社区内容投稿冲突
+
+1. 测评的场景内容不限，但提交的内容不得与社区内容投稿冲突。
 2. 最少在`**丰富图文内容**`或`**分享开发成果**`中满足一项。
-  
+
 - **截止时间**：2022年12月31号
 
 - **公示结果**：
