@@ -22,9 +22,7 @@ desc: maixpy  linux_x86_64 MaixPy3 如何安装？
 
 先在终端执行下面命令来配置 MaixPy3 所需要的 libjpeg pybind11 gcc libopencv 等基础依赖库。
 
-```bash
-sudo apt update && sudo apt install libjpeg-dev gcc python3-pybind11 libopencv-dev -qq -y && wget http://mirrors.kernel.org/ubuntu/pool/main/libf/libffi/libffi6_3.2.1-8_amd64.deb && sudo apt install ./libffi6_3.2.1-8_amd64.deb -qq -y
-```
+[从 github ci 了解如何自动构建 maixpy3 包](https://github.com/sipeed/MaixPy3/blob/release/.github/workflows/maixpy3_build.yml#L21-L34)
 
 然后安装或更新 maixpy3 依赖包。
 
