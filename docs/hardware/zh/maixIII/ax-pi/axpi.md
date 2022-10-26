@@ -242,9 +242,9 @@ title: MAIX-III AXera-Pi 是什么？
 2. 成品应用 [ipcdmeo](https://github.com/sipeed/axpi_bsp_sdk/tree/main/app/IPCDemo)
 3. 底层验证 [sample](https://github.com/sipeed/axpi_bsp_sdk/tree/main/msp/sample)
 
-#### 由社区开发者贡献的内容
+## 社区资源
 
-以下是来自社区一些同学的相关博文精选，欢迎你也来投稿喔！！！你直接丢群里都可以喔！
+以下是由社区开发者贡献的内容，欢迎你也来贡献喔！！！（直接丢群里都可以喔！）
 
 - [爱芯派-AI微光全彩夜视-开箱体验](https://zhuanlan.zhihu.com/p/571233089)
 - [爱芯 AX620A NPU 初体验](https://neucrack.com/p/440)
@@ -261,6 +261,18 @@ title: MAIX-III AXera-Pi 是什么？
 
 - [保密中]()
 - [保密中]()
+
+### 产品开箱测评公示
+
+- 活动内容：
+
+- 截止时间：
+
+- 公示结果：
+
+### 模型训练测评公示
+
+> 留白
 
 ## 上手流程
 
@@ -533,7 +545,7 @@ root@AXERA:~#
 
 > [更换摄像头可以看这个](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html)
 
-## 社区资源
+## 其他资源
 
 ### 产品相关
 
