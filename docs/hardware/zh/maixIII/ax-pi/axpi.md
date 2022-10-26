@@ -3,6 +3,12 @@ title: MAIX-III AXera-Pi 是什么？
 
 ---
 
+> 此处应有一张海报
+
+[>>> 点此直达淘宝商品链接 <<<](https://m.tb.cn/h.U30m3xW?tk=L1vr2BQ0AQM)
+
+> 如果你想分享给更多人，请使用这个资料入口：[wiki.sipeed.com/m3axpi](http://wiki.sipeed.com/m3axpi)
+
 截止 2022 年市面上的各类视觉国产 Linux AI 开发板陆续面世！
 
 在千元内的产品有晶晨 A311D 、地平线 X3 、瑞芯微 RV1126、堪智 K510、全志 V85X 等芯片供选择。
@@ -527,20 +533,16 @@ root@AXERA:~#
 
 > [更换摄像头可以看这个](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html)
 
-## 其他资源
+## 社区资源
 
-[>>> 点此直达淘宝商品链接 <<<](https://m.tb.cn/h.U30m3xW?tk=L1vr2BQ0AQM)
-
-如果你想分享给更多人，请使用这个资料入口：[wiki.sipeed.com/m3axpi](http://wiki.sipeed.com/m3axpi)
-
-### 产品社区资源
+### 产品相关
 
 - AI 服务 http://maixhub.com
 - 文档资料 http://wiki.sipeed.com
 - 交流社区 http://bbs.sipeed.com
 - 开源组织 http://github.com/sipeed
 
-### 产品售后支持
+### 售后支持
 
 - AXERA 技术交流群：（ 139953715 ）专供 AI ISP 技术交流
 - 荔枝 MaixPy3 AI 交流群：（ 756313869 ）给产品开箱小白答疑
