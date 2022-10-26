@@ -720,13 +720,11 @@ cd /home/vin_ivps_joint_venc_rtsp_v2/ && ./sample_vin_ivps_joint_venc_rtsp -c 0 
 cd /home/vin_ivps_joint_venc_rtsp_v2/ && ./sample_vin_ivps_joint_venc_rtsp_vo -c 0 -m ./yolov5s_sub_nv12_11.joint
 ```
 
-效果图如下：
+- 效果图如下：
 <html>
   <img src="./../assets/rtsp-display.jpg" width=48%>
   <img src="./../assets/rtsp-axpi.jpg" width=48%>
 </html>
-
-
 
 ### NPU
 
@@ -1037,8 +1035,8 @@ RX | FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF 
 - 左侧：人脸识别 右侧：人形识别
   
 <html>
-  <img src="./../assets/ipc-model.jpg" width=48%>
-  <img src="./../assets/ipc-person.jpg" width=48%>
+  <img src="./../assets/ipc-model.jpg" width=45%>
+  <img src="./../assets/ipc-person.jpg" width=45%>
 </html>
 
 
@@ -1058,14 +1056,17 @@ RX | FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF 
 
 ### RTSP 推流
 
-推流：把采集阶段封包好的内容传输到服务器的过程。
+>**RTSP**：也称实时流传输协议，可通过 RTSP 实现推流，该协议定义了一对多应用程序如何有效地通过 IP 网络传送多媒体数据。
+>**推流**：把采集阶段封包好的内容传输到服务器的过程。
 
 进行 RTSP 推流前先需要下载工具 `VLC Media Player` 软件。
 
 **VLC Media Player**：[点击下载](https://www.videolan.org/vlc/)
 **VLC Media Player 介绍及配置流程**：[点击查看](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html#RTSP)
 
-运行下文命令后终端无报错，打开 VLC 软件参考上文配置流程进行配置，点击播放即可查看 RTSP 推流效果。
+#### PC 端推流
+
+运行下方命令行后终端无报错，打开 VLC 软件参考上文进行配置，点击播放即可查看 RTSP 推流效果。
 
 ```bash
 cd /home/vin_ivps_joint_venc_rtsp_v2/ && ./sample_vin_ivps_joint_venc_rtsp -c 0 -m yolov5s_sub_nv12_11.joint
@@ -1075,6 +1076,21 @@ cd /home/vin_ivps_joint_venc_rtsp_v2/ && ./sample_vin_ivps_joint_venc_rtsp -c 0 
     ![vlr-run](./../assets/vlc-run.jpg)
 
 ![vlc-rtsp](./../assets/vlc-rtsp.jpg)
+
+#### 双屏推流
+
+运行下方命令行后进行 PC 端与设备屏幕推流，打开 VLC 软件进行配置后点击播放即可看见画面。
+
+```bash
+cd /home/vin_ivps_joint_venc_rtsp_v2/ && ./sample_vin_ivps_joint_venc_rtsp_vo -c 0 -m ./yolov5s_sub_nv12_11.joint
+```
+
+- 双屏效果如下图示例：
+  
+<html>
+  <img src="./../assets/rtsp-display.jpg" width=48%>
+  <img src="./../assets/rtsp-axpi.jpg" width=48%>
+</html>
 
 ### SKEDEMO
 
