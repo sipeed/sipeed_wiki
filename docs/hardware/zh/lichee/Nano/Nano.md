@@ -48,7 +48,7 @@ Lichee Nano开发板板载的F1C100s芯片功能很强大，芯片内置32MBDDR�
 
 ## 使用教程
 
-[Lichee Nano](/soft/Lichee/zh/Nano-Doc-Backup/index.md)
+[Lichee Nano](./../../../../soft/Lichee/zh/Nano-Doc-Backup/index.md)
 
 ## 产品技术支持
 
