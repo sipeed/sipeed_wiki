@@ -13,9 +13,9 @@ title: MAIX-III AXera-Pi 是什么？
 
 在千元内的产品有晶晨 A311D 、地平线 X3 、瑞芯微 RV1126、堪智 K510、全志 V85X 等芯片供选择。
 
-但它们要么资料太少、能效比差、价格太贵、没有生态、开发困难、摄像效果太差啦！
+但它们要么资料太少、能效比低、价格太贵、生态贫瘠、开发困难、摄像效果太差啦！
 
-真的很难有一款板子可以满足所有要求。
+真的很难有一款 AI 板子可以满足所有要求。
 
 但现在，想要支持国产芯片的 AI 开发工程师们！总算是有更好的选择了！！
 
@@ -176,10 +176,10 @@ title: MAIX-III AXera-Pi 是什么？
 | 英伟达JETSON NANO开发板                              | 4GB 主板、铝合金外壳（带风扇）、5V4A 电源、双频无线网卡、64G U盘、IMX279 摄像头、HDMI 线 + 网线、7 寸触摸屏+支架、 | ¥2129.00<br />（未来可能降价）                  |
 | Raspberry Pi 树莓派4B                                | 4GB 主板、七寸触摸屏+支架、64G U盘、散热片、HDMI 线 + 网线、5V3A 电源、亚克力外壳（带风扇）、500w USB 摄像头、入门指导手册 | ¥1439.00                  |
 | Khadas vim3物联网a311d（目前线上销量不高，但很典型） | VIM3（4GB+32G）开发板、外壳、散热器、风扇、30W 电源、HDMI 线 | ¥1399.00                  |
-| 迅为RK3568开发板瑞芯微                               | 商业级2G+16G、7寸MIPI屏、OV5695摄像头                        | ¥1380.00                  |
-| EASY EAI Nano AI开发板 瑞芯微RV1126                  | 1GB 单主板、200w双目摄像头（gc2xxx）、5寸ips屏、天线、喇叭、铜柱、电源 | ¥799.00                   |
+| 迅为RK3568开发板瑞芯微                               | 商业级2G+16G、7寸MIPI屏、OV5695摄像头、（没有配电源）    | ¥1380.00                  |
+| EASY EAI Nano AI开发板 瑞芯微RV1126                  | 1GB 单主板、200w双目摄像头（gc2xxx）、5寸ips屏、天线、喇叭、铜柱、2A电源 | ¥799.00                   |
 | 亚博智能 旭日X3派开发板                              | 2GB 主板、古月居课程、WIFI 天线、铝合金外壳、gc4663 摄像头、32G U盘、5V3A 开关电源、HDMI 线 | ¥769.00                   |
-| Sipeed MAIX-III AX-Pi AI微光夜视 爱芯派              | 2GB 单主板、400w gc4653 摄像头、5寸ips屏、外壳、数据线、白嫖在线模型训练服务、超级热闹的开源硬件社区       | ¥549.00<br />（未来可能涨价） |
+| Sipeed MAIX-III AX-Pi AI微光夜视 爱芯派              | 2GB 单主板、400w gc4653 摄像头、5寸ips屏、外壳、数据线、32G TF 卡、白嫖在线模型训练服务、超级热闹的开源硬件社区       | ¥579.00<br />（未来可能涨价） |
 
 想想某些产品为什么卖这么贵，销量还这么好？凭什么？
 
@@ -239,8 +239,9 @@ title: MAIX-III AXera-Pi 是什么？
 芯片商用时所用的 bsp 开发包，这里主要提供的是芯片的原始开发资料，如 uboot 、 linux 、 msp 、msp 等工程代码，这个部分是逐步开源的，你可以从这里得到商业评估用的代码，例如 ipcdemo 这样的程序，但这些代码会很复杂且高耦合，适合有经验的同行出于商业落地的目的使用。
 
 1. 开发文档 [docs](https://github.com/sipeed/axpi_bsp_sdk/tree/main/msp/sample/vo_fb)
-2. 成品应用 [ipcdmeo](https://github.com/sipeed/axpi_bsp_sdk/tree/main/app/IPCDemo)
-3. 底层验证 [sample](https://github.com/sipeed/axpi_bsp_sdk/tree/main/msp/sample)
+2. 框架应用 [ipcdmeo](https://github.com/sipeed/axpi_bsp_sdk/tree/main/app/IPCDemo)
+3. 外设验证 [sample](https://github.com/sipeed/axpi_bsp_sdk/tree/main/msp/sample)
+4. 模型部署 [ax-pipeline](https://github.com/AXERA-TECH/ax-pipeline)
 
 ## 社区资源
 
