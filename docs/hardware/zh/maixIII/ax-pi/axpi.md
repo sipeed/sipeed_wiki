@@ -265,7 +265,7 @@ title: MAIX-III AXera-Pi 是什么？
 
 ### 产品开箱测评公示（进行中）
 
-- **活动内容**：为给社区小伙伴们提供良好的开箱体验，本活动面向已购买**全功能套餐**的同学征集产品测评，将测评在此公示的同学可找**大佬鼠**领取 M2DOCK \ TANG9K \ TOF010 等产品三选一作为奖品发放。
+- **活动内容**：为给社区小伙伴们提供良好的开箱回赠，本活动面向已购买**全功能套餐**的同学征集产品测评，将测评在此公示的同学可找**大佬鼠**领取 [MaixII M2DOCK](./../../maixII/M2/resources.md) 、 [TANG NANO 9K](./../../tang/Tang-Nano-9K/Nano-9K.md) 、 [MAIXSENSE A010](./../../maixsense/maixsense-a010/maixsense-a010.md) 等产品三选一作为奖品发放。
 
 - **测评要求**
 
@@ -279,7 +279,7 @@ title: MAIX-III AXera-Pi 是什么？
 
 - **测评公示**：
 
-> 测评结果会公开在此，并附上你的署名。需要提交测评的同学请直接联系群里的大佬鼠 或发到 support@sipeed.com 署名：【m3axpi 产品测评】。
+> 测评结果会公开在此，并附上你的署名。需要提交测评的同学请直接联系群里的 **大佬鼠** 或发送评测内容到 `support@sipeed.com` 并署名：【m3axpi 产品测评】。
 
 - [某某同学：如何优雅的打开某某产品？]()
 
@@ -307,13 +307,13 @@ title: MAIX-III AXera-Pi 是什么？
 
 社区的其他同学也可以一同参与喔，快快给你喜欢的模型点赞加收藏加分吧！
 
-模型提交步骤 ① 注册登陆 maixhub ② 点击进入模型库 ③选择上传模型分享，提交格式可参考其他模型，如 [YOLOV7-Tiny 80 种物体检测](https://maixhub.com/model/zoo/96) 、 [检测小鸭子玩具](https://maixhub.com/model/zoo/108) 。
+模型提交步骤： ① 注册登陆 MaixHub ② 点击进入模型库 ③ 选择上传模型分享，提交格式可参考其他模型，如 [YOLOV7-Tiny 80 种物体检测](https://maixhub.com/model/zoo/96) 、 [检测小鸭子玩具](https://maixhub.com/model/zoo/108) 。
 
 - **截止时间**：2022年12月31号
 
 - **测评公示**：
 
-请访问 https://maixhub.com/model/zoo 查看大佬们分享的模型。
+访问 [https://maixhub.com/model/zoo](https://maixhub.com/model/zoo) 查看大佬们分享的模型。
 
 ## 上手流程
 
@@ -329,9 +329,9 @@ title: MAIX-III AXera-Pi 是什么？
 
 通过跨平台烧卡烧录工具 [Etcher](https://etcherpc.com/) 烧录镜像成功后，要把卡插入板子里，接上 USB-UART 和 USB-OTG 口，此时给板子上电就行。
 
-> 20221013 后开机后会从耳机播放音乐和点亮出厂的 5 寸屏幕，并在串口输出如下的 debian11 系统启动日志，[有些同学会遇到 Ubuntu22.04 CH340系列串口驱动（没有ttyUSB）问题，点此查看解决方案](https://blog.csdn.net/qq_27865227/article/details/125538516)。
+> 20221013 后开机后会从耳机播放音乐和点亮出厂的 5 寸屏幕，并在串口输出如下的 debian11 系统启动日志（截取部分日志如下），[有些同学会遇到 Ubuntu22.04 CH340系列串口驱动（没有ttyUSB）问题，点此查看解决方案](https://blog.csdn.net/qq_27865227/article/details/125538516)。
 
-```
+```bash
 Vddr init success!
 The system boot form EMMC
 enter boot normal mode
@@ -398,7 +398,7 @@ Welcome to Debian GNU/Linux 11 (bullseye)!
 
 ### 登录到板子里
 
-如果已经确定开机成功了，这时候把板子当做一台 linux 服务器来对待，还需要通过「系统使用手册」来了解如何登录到板子里的 Linux 系统，同时它还会告诉你，板上所有验证过的系统调频、外设、驱动、应用等资源的用法，像一些 Linux 操作基础、如何控制 I2C / UART / SPI 这些硬件设备的操作，或是直接运行板子内置的 AI 应用等等内容。
+如果已经确定开机成功了，这时候把板子当做一台 Linux 服务器来对待，还需要通过「系统使用手册」来了解如何登录到板子里的 Linux 系统，同时它还会告诉你，板上所有验证过的系统调频、外设、驱动、应用等资源的用法，像一些 Linux 操作基础、如何控制 I2C / UART / SPI 这些硬件设备的操作，或是直接运行板子内置的 AI 应用等等内容。
 
 - [系统使用手册](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html)
 
