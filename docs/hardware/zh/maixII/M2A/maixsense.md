@@ -114,6 +114,10 @@ MaixSense 开发板可能是市面上最小的 Linux 卡片电脑。本套件包
 
 ![R329-pin](./assets/R329-pin.png)
 
+摄像头接口图：
+
+![camera_pin_order](./assets/camera_pin_order.png)
+
 ## 相关资料
 
 [MaixSense 硬件资料](https://dl.sipeed.com/shareURL/MaixII/MaixII-A)

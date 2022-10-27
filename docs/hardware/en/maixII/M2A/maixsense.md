@@ -110,7 +110,12 @@ MaixSense not only can run Tina os, but also can run **armbian**, which is built
 
 ## Pinout
 
-![R329-pin](./../../assets/../maixII/M2A/assets/R329-pin.jpg)
+![R329-pin](./../../maixII/M2A/assets/R329-pin.jpg)
+
+
+Camera Port pin：
+
+![camera_pin_order](./../../../zh/maixII/M2A/assets/camera_pin_order.png)
 
 ## Others
 

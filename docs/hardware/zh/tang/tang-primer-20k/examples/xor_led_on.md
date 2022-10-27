@@ -161,7 +161,7 @@ Tang Primer 20K DOCK 底板配备有一个 5P 的拨码开关。其中一号拨�
 
     ## xor_led_on.v
     Verilog文件；
-    定义了两个按键输入端口，和四个输出端口。根据按键输入的状态，译码输出到对应的端口。
+    定义了 4 个拨码开关输入端口，和 1 个 LED 输出端口。根据拨码开关输入的状态，异或运算后输出到对应的端口。
     ```verilog
     module xor_led_on(
       input [5:2] dip_switch,
@@ -219,3 +219,7 @@ Tang Primer 20K 的主控芯片 [GW2A-V18PG256C8IC8I7](http://www.gowinsemi.com.
 ### 烧录代码后拨动拨码开关 LED 状态没有改变
 
 这是因为拨码开关引脚上拉了，自己将物理约束文件 (.cst) 文件里面的 `PULL_MODE=UP` 改成 `PULL_MODE=DOWN`
+
+<p id="back">
+    <a href="#" onClick="javascript :history.back(-1);">返回上一页(Back)</a>
+</p>

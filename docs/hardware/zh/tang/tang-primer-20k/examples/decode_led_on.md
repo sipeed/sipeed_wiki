@@ -46,7 +46,7 @@ update:
         <td>亮</td>
         <td></td>
         <td></td>
-        <td>$$ LED0 = \overline{S0}\cdot S1 $$</td>
+        <td>$$ LED1 = \overline{S0}\cdot S1 $$</td>
     </tr>
     <tr>
         <td></td>
@@ -55,7 +55,7 @@ update:
         <td></td>
         <td>亮</td>
         <td></td>
-        <td>$$ LED0 = S0\cdot \overline{S1} $$</td>
+        <td>$$ LED2 = S0\cdot \overline{S1} $$</td>
     </tr>
     <tr>
         <td>按下</td>
@@ -64,7 +64,7 @@ update:
         <td></td>
         <td></td>
         <td>亮</td>
-        <td>$$ LED0 = \overline{S0}\cdot \overline{S1} $$</td>
+        <td>$$ LED3 = \overline{S0}\cdot \overline{S1} $$</td>
     </tr>
 </table>
 
@@ -124,7 +124,7 @@ update:
         <td></td>
         <td></td>
         <td>0</td>
-        <td>$$ LED3 = \overline{\overline{S0}\cdot \overline{S1}} = S0+S1 $$</td>
+        <td>$$ LED3 = \overline{\overline{S0}\cdot \overline{S1}} = S0 | S1 $$</td>
         <!-- <td> LED3 =   ( S0 | S1 )  </td> -->
     </tr>
 </table>

@@ -12,7 +12,7 @@ desc: 矽速科技的开源软硬件 WIKI 资料站
 
 ### Maix-I A
 
-### Maix-I 系列
+### Maix-I
 
 这是 2019 年以 K210 为核心所制作的一系列 AIOT 开发板。
 
@@ -65,7 +65,7 @@ desc: 矽速科技的开源软硬件 WIKI 资料站
     </tbody>
 </table>
 
-### 产品技术支持
+### 产品支持
 
 Maix 系列产品可以在多种场景实现客户不同方面的需要，在 AIoT 上已经广泛的使用，品质和性能在行业内已经有非常好的口碑，专业的技术团队为广大客户解决硬件设计和软件功能上的各种各样问题。商业合作可以联系 <support@sipeed.com>。
 
@@ -73,7 +73,7 @@ Maix 系列产品可以在多种场景实现客户不同方面的需要，在 AI
 
 ### Maix-II 系列简介
 
-继经典的 K210 Maix-I 系列 AIOT 板卡之后，Sipeed 继续推出多款可运行完整 Linux 系统的边缘计算板卡，将以 MAIX-II，MAIX-III 按照性能依次命名。
+继经典的 K210 Maix-I 系列 AIOT 板卡之后，Sipeed 继续推出多款可运行完整 Linux 系统的边缘计算板卡，以 MAIX-II，MAIX-III 按照性能依次命名。
 
 MAIX-II 系列包含多款硬件产品，目前有三款产品，分别如下：
 
@@ -106,7 +106,7 @@ MAIX-II 系列包含多款硬件产品，目前有三款产品，分别如下：
 
 ### MaixII Dock
 
-芯片为全志 V831, 单核 Cortex-A7 800MHz， 64MiB 片内 DDR2 内存， 高性价比能跑 Linux 的SOC，同时支持硬件 AI 加速（0.2Tops 算力），可以当成普通 Linux SOC 使用， 也可以用于边缘 AI 应用。
+主控为全志 V831,；单核 Cortex-A7 800MHz， 64MiB 片内 DDR2 内存， 高性价比能跑 Linux 的SOC，同时支持硬件 AI 加速（0.2Tops 算力），可以当成普通 Linux SOC 使用， 也可以用于边缘 AI 应用。
 
 **本系列推荐产品**, 最具性价比， 目前软件支持最容易入门， 支持 C 语言开发，提供 C SDK([libmaix](http://github.com/sipeed/libmaix))； 同时提供 [MaixPy3](/maixpy3) 支持，使用 Python 语言即可开发，可以直接使用大量 Python 库，并且配套 jupyter IDE， 同时 [MaixHub](https://maixhub.com) 完全支持此设备
 
@@ -151,7 +151,7 @@ MAIX-II 系列包含多款硬件产品，目前有三款产品，分别如下：
 可以理解成 V831 的性能升级版， V831 上的程序可以直接在 V833 上运行；
 此开发板仅支持商业用户，个人用户应当选择 [Maix-II-Dock](./maixII/M2/resources.md) 开发板
 
-<img style="max-height: 300px" src="./M2S/assets/M2s_Dock.jpg" alt=“M2s_Dock”/>
+<img style="max-height: 300px" src="./maixII/M2S/assets/M2s_Dock.jpg" alt=“M2s_Dock”/>
 
 * 详情： [MaixII S](./M2S/V833.md)
 
@@ -159,9 +159,11 @@ MAIX-II 系列包含多款硬件产品，目前有三款产品，分别如下：
 
 Linux 开发板
 
-[![](./../assets/lichee.jpg)](./lichee/readme.md)
+![](./lichee/assets/lichee.jpg)
 
-- Lichee 是 [Sipeed](https://www.sipeed.com/) 推出的开源产品，是为了能让用户获得优廉的linux设备，实战linux底层相关的内容的产品。
+[![lichee](./../assets/lichee.jpg)](./lichee/readme.md)
+
+- LicheePI 是 [Sipeed](https://www.sipeed.com/) 推出的开源产品，是为了能让用户获得优廉的linux设备，实战linux底层相关的内容的产品。
 
 目前LicheePi相关核心板部分参数对比表格如下：
 
