@@ -62,13 +62,11 @@ Tang Nano 9K 是 Sipeed 所推出的第五款 FPGA 开发板，与在售前代�
 
 ## 上手指引
 
-1. 下载我们打包好的用户指南文档：[下载站](https://dl.sipeed.com/shareURL/TANG/Nano%209K/6_Chip_Manual/CN/%E9%80%9A%E7%94%A8%E6%8C%87%E5%BC%95) （下文提到的所有pdf文件都在这里）
+1. 安装IDE和填写正确的License：[点击这里](https://wiki.sipeed.com/soft/Tang/zh/Tang-Nano-Doc/get_started/install-the-ide.html)
 
-2. 安装IDE和填写正确的License：[点击这里](https://wiki.sipeed.com/soft/Tang/zh/Tang-Nano-Doc/get_started/install-the-ide.html)
+2. 阅读：[SUG100-2.6_Gowin云源软件用户指南.pdf](http://cdn.gowinsemi.com.cn/SUG100-2.5_Gowin%E4%BA%91%E6%BA%90%E8%BD%AF%E4%BB%B6%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97.pdf)
 
-3. 阅读第一步下载的文件里面的：[SUG100-2.6_Gowin云源软件用户指南.pdf](http://cdn.gowinsemi.com.cn/SUG100-2.5_Gowin%E4%BA%91%E6%BA%90%E8%BD%AF%E4%BB%B6%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97.pdf)
-
-4. 阅读这个[教程](./examples/LED.md)完成点灯实验。
+3. 阅读这个[教程](./examples/LED.md)完成点灯实验。
 
     建议新手在完成这一步之后，自己重新独立新建项目、编写代码，完成这个实验，并且按自己的想法修改点灯程序，增强对FPGA和硬件描述语言的理解。
     建议在这个过程阅读以下内容，阅读完才进入下一步：
@@ -103,8 +101,6 @@ Tang Nano 9K 是 Sipeed 所推出的第五款 FPGA 开发板，与在售前代�
         </details>
     - SUG284-2.1E_Gowin IP Core Generator User Guide.pdf 
     - [5寸屏规格书](https://dl.sipeed.com/fileList/TANG/Nano%209K/6_Chip_Manual/EN/LCD_Datasheet/5.0inch_LCD_Datashet%20_RGB_.pdf)：(主要是获取CLK是33.3Mhz这个信息)
-
-2. 驱HDMI屏讲解（待更新）
 
 ## 例程汇总
 
