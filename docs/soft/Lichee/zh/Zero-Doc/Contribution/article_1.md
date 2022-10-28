@@ -42,7 +42,7 @@ title: 荔枝派zero开箱指南
 
 SD卡中的系统镜像一般分为三个区，第一个区称为boot区或者引导区，该部分没有文件系统而是直接将二进制的bootloader(uboot)文件直接写入。第二个区可以被称为linux内核区，fat文件系统，存放linux内核、内核参数文件还有设备数dtb文件。第三个区是root分区，用来存放根文件系统和用户数据等，一般是ext4文件分区格式。
 
-系统镜像下载地址链接: <https://pan.baidu.com/s/1nv7Fq2X> 密码: 5gec
+<!-- 系统镜像下载地址链接: <https://pan.baidu.com/s/1nv7Fq2X> 密码: 5gec -->
 
 ## 镜像烧录及简单演示
 
