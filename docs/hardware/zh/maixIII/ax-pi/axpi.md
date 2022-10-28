@@ -3,12 +3,10 @@ title: MAIX-III AXera-Pi 是什么？
 
 ---
 
-> 如果你想分享这款 AI 开发板给其他同学，可使用 [wiki.sipeed.com/m3axpi](http://wiki.sipeed.com/m3axpi) 传送门，
-。
+> 如果你想分享这款 AI 开发板给其他同学了解，可使用 [wiki.sipeed.com/m3axpi](http://wiki.sipeed.com/m3axpi) 作为传送门。 [>>> 想要购买请点此直达淘宝商品链接 <<<](https://m.tb.cn/h.U30m3xW?tk=L1vr2BQ0AQM)
 
 ![maixiii_axpi](./../../../../../static/home/maixiii_axpi.jpg)
 
-> [>>> 点此直达商品淘宝购买链接 <<<](https://m.tb.cn/h.U30m3xW?tk=L1vr2BQ0AQM)
 
  2021 年的时候，国内各大芯片原厂纷纷亮出了自己的 Linux 边缘 AI 芯片。
 
@@ -43,12 +41,12 @@ title: MAIX-III AXera-Pi 是什么？
 最后总算是在 20221001 的时候推出了这款搭载 AX620A 的开发板，正式名为：**MAIX-III AXera-Pi**，在以下内容中简称 **m3axpi** 喔！
 
 <p align="center">
-  <video src="./assets/axpi_boom.mp4"
+  <video src="../assets/axpi_boom.mp4"
     width="100%" controls="controls" autoplay="autoplay"
     x5-playsinline=""
  		playsinline
  		webkit-playsinline="true"
- 		poster="/assets/maix-iii-small.jpg"
+ 		poster="../assets/maix-iii-small.jpg"
  		preload="auto"
   >
   </video>
