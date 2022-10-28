@@ -3,10 +3,11 @@ title: MAIX-III AXera-Pi 是什么？
 
 ---
 
-> 如果你想分享这款 AI 开发板给其他同学了解，可使用 [wiki.sipeed.com/m3axpi](http://wiki.sipeed.com/m3axpi) 作为传送门。 [>>> 想要购买请点此直达淘宝商品链接 <<<](https://m.tb.cn/h.U30m3xW?tk=L1vr2BQ0AQM)
+> 如果你想分享这款 AI 开发板给其他同学了解，请使用唯一的传送门[「 wiki.sipeed.com/m3axpi 」](http://wiki.sipeed.com/m3axpi) 。
 
 ![maixiii_axpi](./../../../../../static/home/maixiii_axpi.jpg)
 
+> [>>> 请点此直达淘宝商品链接 <<<](https://m.tb.cn/h.U30m3xW?tk=L1vr2BQ0AQM)
 
  2021 年的时候，国内各大芯片原厂纷纷亮出了自己的 Linux 边缘 AI 芯片。
 
