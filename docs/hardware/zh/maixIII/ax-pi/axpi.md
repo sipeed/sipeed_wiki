@@ -13,7 +13,7 @@ title: MAIX-III AXera-Pi 是什么？
 
 但在 AI 开发板的市场中，前有树莓派（Raspberry Pi），后有英伟达（Jetson Nano）等国外老牌选手强力围剿国内 Linux AI 开发板，在这之前国产的同类产品无论是价格还是体验，都被打的丢盔弃甲。
 
-如今在千元内的选手有晶晨 A311D 、地平线 X3 、瑞芯微 RV1126、堪智 K510、全志 V85X 、晶视 CR182x 、亿智 SV826 、酷芯微 AR9341 等等国产芯片，看上去是有很多选择？
+如今在千元内的选手有晶晨 A311D 、地平线 X3 、瑞芯微 RV1126、堪智 K510、全志 V85X 、晶视 CR182x 、亿智 SV826 、酷芯微 AR9341 等等国产芯片，看上去感觉有很多选择？
 
 但是，它们要么资料太少（资料封闭）、能效比低、价格太贵、生态贫瘠、开发困难、视觉效果太差存在各种各样的问题。
 
@@ -60,7 +60,7 @@ title: MAIX-III AXera-Pi 是什么？
 - 开发困难？支持 debian11 系统内置 SDK 直接板上编译！白嫖在线 AI 模型训练直到部署！！！
 - 没有生态？ SIPEED 拥有关于 LINUX、RISCV、AIOT、FPGA、MCU 等嵌入式领域的内容！！！！
 - 摄像效果太差？芯片主打 AI ISP 夜视增强！由原厂亲手为你调试白天到夜间的超强影像！！！！！
-- 价格太贵？从核心+底板+屏幕+摄像头+外壳支架全套总共人民币 **579** ！！！！！！（咆哮！！！！）
+- 价格太贵？从核心+底板+屏幕+摄像头+卡+外壳支架全套总共人民币 **579** ！（咆哮！！！！！！）
 
 ## 产品特色
 
@@ -92,7 +92,7 @@ title: MAIX-III AXera-Pi 是什么？
 
 [点此 >>> 「查看 AX620A 算子支持列表」 <<< 喔！](https://pulsar-docs.readthedocs.io/zh_CN/latest/appendix/op_support_list.html)
 
-下表统计一下目前千元内在售的 AI 主板（仅单主板，全套太贵）的 NPU 算力性能排行（20221012）
+下表统计一下目前千元内在售的 AI 主板（仅单主板，全套太贵）的 NPU 算力性能从高到低的排行（20221012）
 
 | 芯片            | 产品             | 价格    | CPU                                                 | RAM   | NPU |
 | --------------- | -------------------------- | ------- | --------------------------------------------------- | ----- | ----------- |
@@ -181,7 +181,7 @@ title: MAIX-III AXera-Pi 是什么？
 
 #### 超高性价比与能效比
 
-别搞那些虚的。来点实际点的，以下是目前（20221014）市场上销量排行的典型 AI 开发产品。（已除去低成本低摄像头 38 板和芯片原厂超昂贵开发板）
+别搞那些虚的。来点实际点的，以下是目前（20221014）市场上销量排行的典型 AI 开发产品。（已除去低成本 38 板摄像头和芯片原厂超昂贵开发板）
 
 | AI 开发板                                            | 全家桶套餐的主要内容                                         | 大致价格（20221013）      |
 | ---------------------------------------------------- | ------------------------------------------------------------ | ------------------------- |
@@ -191,7 +191,7 @@ title: MAIX-III AXera-Pi 是什么？
 | 迅为RK3568开发板瑞芯微                               | 商业级2G+16G、7寸MIPI屏、OV5695摄像头、（没有配电源）    | ¥1380.00                  |
 | EASY EAI Nano AI开发板 瑞芯微RV1126                  | 1GB 单主板、200w双目摄像头（gc2xxx）、5寸ips屏、天线、喇叭、铜柱、2A电源 | ¥799.00                   |
 | 亚博智能 旭日X3派开发板                              | 2GB 主板、古月居课程、WIFI 天线、铝合金外壳、gc4663 摄像头、32G U盘、5V3A 开关电源、HDMI 线 | ¥769.00                   |
-| Sipeed MAIX-III AX-Pi AI微光夜视 爱芯派              | 2GB 单主板、400w gc4653 摄像头、5寸ips屏、外壳、数据线、32G TF 卡、白嫖在线模型训练服务、超级热闹的开源硬件社区       | ¥579.00<br />（未来可能涨价） |
+| Sipeed M3AXPI Linux AI 微光夜视 爱芯派              | 2GB 单主板、400w gc4653 摄像头、5寸ips屏、外壳、数据线、32G TF 卡、在线模型训练服务、活力四射的开源社区       | ¥579.00<br />（未来可能涨价） |
 
 想想某些产品为什么卖这么贵，销量还这么好？凭什么？
 
@@ -219,11 +219,11 @@ title: MAIX-III AXera-Pi 是什么？
 
 提供 debian11 Linux 系统，支持 SD 卡启动 DD 烧录系统，方便用户开箱上手。
 
-1. 开发笔记：[[maixpy3 axpi] 关于爱芯 ax620a 移植 debian11 系统这件事](https://www.cnblogs.com/juwan/p/16751348.html)
+1. 烧录方法：[WIKI AXera-Pi 烧录系统](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/flash_system.html)
 
-2. 开发笔记：[[maixpy3 axpi] 编辑发布 debian 镜像与在 PC 上交叉编译程序 ](https://www.cnblogs.com/juwan/p/16769237.html)
+2. 开发笔记：[[maixpy3 axpi] 关于爱芯 ax620a 移植 debian11 系统这件事](https://www.cnblogs.com/juwan/p/16751348.html)
 
-3. 烧录方法：[WIKI AXera-Pi 烧录系统](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/flash_system.html)
+3. 开发笔记：[[maixpy3 axpi] 编辑发布 debian 镜像与在 PC 上交叉编译程序 ](https://www.cnblogs.com/juwan/p/16769237.html)
 
 #### BSP SDK 源码开放
 
@@ -240,15 +240,15 @@ title: MAIX-III AXera-Pi 是什么？
 
 ##### [libmaix](https://github.com/sipeed/libmaix)
 
-由 SIPEED 提供在嵌入式平台统一的嵌入式开发环境，主要有摄像头、屏幕、视觉、图像处理、NPU Pipiline 相关的实机部署例程，适合刚入门嵌入式 linux 开发的同学使用。
+由 SIPEED 提供在嵌入式平台统一的嵌入式开发环境，主要有摄像头、屏幕、视觉、图像处理、部署 Pipeline 相关的实机例程，适合刚入门嵌入式 linux 开发的同学使用。
 
 1. [测试一下屏幕显示](https://github.com/sipeed/libmaix/tree/release/examples/display)
 2. [把摄像头显示到屏幕](https://github.com/sipeed/libmaix/tree/release/examples/axpi)
-3. [摄像头输入模型后显示识别结果到屏幕](https://github.com/sipeed/libmaix/tree/release/examples/axpi_classification_cam)
+3. [摄像头+模型+屏幕](https://github.com/sipeed/libmaix/tree/release/examples/axpi_classification_cam)
 
 ##### [axpi_bsp_sdk](https://github.com/sipeed/axpi_bsp_sdk)
 
-芯片商用时所用的 bsp 开发包，这里主要提供的是芯片的原始开发资料，如 uboot 、 linux 、 msp 、msp 等工程代码，这个部分是逐步开源的，你可以从这里得到商业评估用的代码，例如 ipcdemo 这样的程序，但这些代码会很复杂且高耦合，适合有经验的同行出于商业落地的目的使用。
+芯片商用时所用的 bsp 开发包，这里主要提供的是芯片的原始开发资料，如 uboot、linux、msp 、sample、rtsp、ipcdemo 等工程代码，这个部分是逐步开源的，你可以从这里得到商业评估用的代码，例如 ipcdemo 这样的程序，但这些代码会很复杂且高耦合，适合有经验的同行出于商业落地的目的使用。
 
 1. 开发文档 [docs](https://github.com/sipeed/axpi_bsp_sdk/tree/main/msp/sample/vo_fb)
 2. 框架应用 [ipcdmeo](https://github.com/sipeed/axpi_bsp_sdk/tree/main/app/IPCDemo)
@@ -304,18 +304,16 @@ title: MAIX-III AXera-Pi 是什么？
 - **测评要求**
 
 1. 模型评分点（100）
-   ① 模型下载量+收藏数（10）
-   ② 模型结构新颖（20）
-   ③ 模型有创新点（20）
-   ④ 模型有应用场景（20）
-   ⑤ 有实际案例最好（30）
+   ① 模型下载量+收藏数（20）
+   ② 模型结构新颖（30）
+   ③ 模型有创新点（30）
+   ④ 模型有应用场景（30）
+   ⑤ 有实际案例最好（40）
    评分至少大于 60 分的才被算入可发放奖品的对象。
 
 2. 必须是官方发布以外的模型（[可点此查看已提供的模型](https://maixhub.com/model/zoo)），分享模型不要求数据集公开，但需要通过模型转换得到验证过的 joint 模型，并上传模型给审核的同学看到。
 
-负责模型评分和审核的同学
-
-由圈圈虫 (axera-tech) 以及 neucrack (sipeed) 两位同学进行审核！
+负责模型评分和审核的同学有 圈圈虫 (axera-tech) 以及 neucrack (sipeed) 两位同学进行审核喔！
 
 社区的其他同学也可以一同参与喔，快快给你喜欢的模型点赞加收藏加分吧！
 
@@ -479,7 +477,7 @@ root@AXERA:~#
 
 ![axpi_sdk.jpg](./../assets/axpi_sdk.jpg)
 
-在这里「大佬鼠」推荐自己常用的开发流程和方法，最开始就是先在板子上本地编译测试现有的代码和功能，然后根据 [[maixpy3 axpi] 编辑发布 debian 镜像与在 PC 上交叉编译程序 ](https://www.cnblogs.com/juwan/p/16769237.html) 来安装 docker arm 虚拟机。
+在这里「大佬鼠」推荐自己的开发流程和方法，最开始就是先在板子上本地编译测试现有的代码和功能，然后根据 [[maixpy3 axpi] 编辑发布 debian 镜像与在 PC 上交叉编译程序 ](https://www.cnblogs.com/juwan/p/16769237.html) 来安装 docker arm 虚拟机。
 
 接着，将之前烧录到板子里的根文件系统（.img）通过 losetup + mount + chroot 挂载（.img）出来，这时候你就会得到和板子一样的 arm 虚拟机环境，就可以直接本地编译啦！不过，这个方法需要学习 docker 的安装喔，包括后面的模型开发也上会用到 docker 的。
 
@@ -489,23 +487,29 @@ root@AXERA:~#
 
 初学者训练模型可以从 [AI 开发指南](https://wiki.sipeed.com/ai/zh/deploy/ax-pi.html) 学习如何训练一个最简单的模型到量化转换部署测试。
 
-更专业更深入的调优需要了解 [Pulsar](https://pulsar-docs.readthedocs.io/) ，这是由 爱芯元智 自主研发 的 all-in-one 神经网络编译器，充分发挥片上异构计算单元(CPU+NPU)算力， Pulsar 工具链核心功能是将 .onnx 模型编译成芯片能解析并运行的 .joint 模型。
+更专业更深入的调优需要了解 [Pulsar](https://pulsar-docs.readthedocs.io/) ，这是由 爱芯元智 自主研发 的 all-in-one 神经网络编译器，充分发挥片上异构计算单元(CPU+NPU)算力， Pulsar 工具链核心功能是将 .onnx 模型编译成芯片能解析并运行的 （.joint） 模型。
 
-目前有两种部署方式（Pipeline）推荐：
+目前有几种部署方式（Pipeline）推荐：
 
 - libmaix：并不在意程序的性能和效率，用最快的方式把摄像头图像输入 AI 模型后输出识别结果绘制到显示到屏幕上验证一下识别效果。
+
+- ax-pipeline：没有多余的封装，直接操作芯片核心资源 vin \ ivps \ npu \ vo 等硬解设备进行部署开发，可以使模型部署达到一个非常好的效果。
 
 - IPCDemo：以效果最好、性能最好、占用最少、稳定可靠、功能最多、确保最终能部署到用户的现场不出问题的框架代码来开发 AI 程序。
 
 #### libmaix 部署
 
-在板子上编译这个示例代码 [axpi_classification_cam](https://github.com/sipeed/libmaix/tree/release/examples/axpi_classification_cam)，然后放入模型运行即可看到效果，截止 20221013 前代码还没有优化所以性能不高，只够看个结果。
+在板子上编译这个示例代码 [axpi_classification_cam](https://github.com/sipeed/libmaix/tree/release/examples/axpi_classification_cam)，然后放入模型运行即可看到效果，截止 20221013 前代码还没有优化所以性能不高，只够看个结果，想要效果和性能可以看 ax-pipeline 部署。
 
 <p align="center">
   <img src="./../assets/mobilenet_axpi.jpg" alt="img" style="zoom: 100%;" />
 </p>
 
 即可验证效果，[详细可从 maixhub 上获取](https://maixhub.com/model/zoo/89)。
+
+#### ax-pipeline 部署
+
+以上部署方式都出于快速验证或应用落地的角度进行的，还有一套基于 bsp sdk 的 [ax-pipeline](https://github.com/AXERA-TECH/ax-pipeline) 部署方式，它面向既了解 AI 又知道芯片底层 Linux 开发方法的同学，目前内置应用中提供了板子的 rtsp 和屏幕 双推流 yolov5 实时识别的程序就是来自于此。
 
 #### IPCDemo 部署
 
@@ -524,12 +528,6 @@ root@AXERA:~#
 <p align="center">
     <iframe src="//player.bilibili.com/player.html?aid=260625114&bvid=BV1me411T7g8&cid=837160730&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="max-width:640px; max-height:480px;"> </iframe>
 </p>
-
-> 现公开了源码但还没修改说明，这里就介绍一下软件，细节可看[ 01 - AX IPCDemo 用户指南.pdf](https://github.com/sipeed/axpi_bsp_sdk/blob/main/docs/01%20-%20AX%20IPCDemo%20%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97.pdf)。
-
-#### AI-KIT 部署
-
-以上部署方式都出于快速验证或应用落地的角度进行的，还有一套基于 bsp sdk 的部署方式，它相对于上方案会面向既了解 AI 又知道芯片底层 Linux 开发方法的同学，目前内置应用中提供了板子的 rtsp 和屏幕 双推流 yolov5 实时识别，代码目前还未开放。
 
 ## 产品参数
 
@@ -575,12 +573,12 @@ root@AXERA:~#
 | 其他资源  | 1x用户按键，3x系统按键，1xRTC时钟，2xLED |
 | 对外接口  | 引出CJTAG，可自行连接相应调试器，引出2x12排针，4个M2.5螺丝定位孔 |
 
-硬件资源汇总：
-总链接[点我跳转](https://dl.sipeed.com/shareURL/MaixIII/AXera)
-- 原理图[带我跳转](https://dl.sipeed.com/shareURL/MaixIII/AXera/02_Schematic)
-- 点位图[带我跳转](https://dl.sipeed.com/shareURL/MaixIII/AXera/03_Bit_number_map)
-- 模型文件[带我跳转](https://dl.sipeed.com/shareURL/MaixIII/AXera/05_3D_file)
-- 尺寸图[带我跳转](https://dl.sipeed.com/shareURL/MaixIII/AXera/04_Dimensional_drawing)
+[硬件资源汇总](https://dl.sipeed.com/shareURL/MaixIII/AXera)
+
+- [原理图](https://dl.sipeed.com/shareURL/MaixIII/AXera/02_Schematic)
+- [点位图](https://dl.sipeed.com/shareURL/MaixIII/AXera/03_Bit_number_map)
+- [模型文件](https://dl.sipeed.com/shareURL/MaixIII/AXera/05_3D_file)
+- [尺寸图](https://dl.sipeed.com/shareURL/MaixIII/AXera/04_Dimensional_drawing)
 
 ### 摄像头一览
 
