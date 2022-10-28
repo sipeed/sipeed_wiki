@@ -11,19 +11,19 @@ title: Maix-III AXera-Pi 系统基础使用
 
 1. Maix-III AXera-Pi 开发板
 2. 能出 1A 的 USB3.0 口（或是带供电的 usb hub 拓展）
-3. 一张大于 8G 烧录 debian11 的镜像系统卡
-4. GC4653 Sensor（自行按需求购入）
+3. 一张大于 16G 烧录 debian11 的镜像系统卡
+4. GC4653 Sensor 普通版/OS04a10 Sensor 夜视版（自行按需求购入）
 5. 5 寸 MIPI屏（自行按需求购入）
 
-图待补充
+![axpi-config](./../assets/axpi-config.jpg)
 
 **供电要求**：由于板子的功耗要求低，使用 usb3.0 1A 即可启动 linux 系统。
 
 ### 接线示例
 
-注意：摄像头接线一定要十分注意！！！接反可能会烧坏板子或者是摄像头！！
+>注意：摄像头接线一定要十分注意！！！接反可能会烧坏板子或者是摄像头！！
 
-**接线**：将屏幕（排线反面朝上）接入底板背面接口，组装好后翻正板子在右侧卡槽处插入镜像卡，再接入（排线反面朝上）摄像头并揭开保护盖，可参考示意图进行接线。
+**接线**：将屏幕（排线反面朝上）接入底板背面接口，组装好后翻正板子在右侧卡槽处插入镜像卡，再接入（认准蓝色线序接入）摄像头并揭开保护盖，可参考示意图进行接线。
 
 <html>
   <img src="./../assets/mipi.jpg" width=48%>
@@ -1021,8 +1021,8 @@ RX | FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF 
 >**20222017** 后的镜像默认打开了录制保存到 `/opt/mp4` 的目录下。
 >**注意**：视频录制完后储存到文件系统后才能打开。某种意义上讲；用户也可以挂载一个网络路径来当监控录像使用。
 
-#### 人脸识别
->基于上文的基础功能，IPCDemo 自身还附带其他一些功能应用.例如**：人脸识别、车牌识别**。
+#### 人脸检测
+>基于上文的基础功能，IPCDemo 自身还附带其他一些功能应用.例如**：人脸检测、车牌识别**。
 
 使用前请参考上文使用命令行登录 IPC 网页，登录后先进行相机结构化配置，具体配置流程看下文。
 
@@ -1032,7 +1032,7 @@ RX | FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF 
     ![ipc-video](./../assets/ipc-video.jpg)
 
 设置完成后回到预览页面即可进行人脸及人形识别，IPC 会自动框出识别人脸并且截取人脸的图片，可在预览页面下方点击截取图样放大查看附带信息。
-- 左侧：人脸识别 右侧：人形识别
+- 左侧：人脸检测 右侧：人形检测
   
 <html>
   <img src="./../assets/ipc-model.jpg" width=45%>
@@ -1064,6 +1064,7 @@ RX | FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF 
 **VLC Media Player**：[点击下载](https://www.videolan.org/vlc/)
 **VLC Media Player 介绍及配置流程**：[点击查看](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html#RTSP)
 
+>**注意**：默认摄像头为 GC4653 如型号不同请移步[Maix-III 系列 AXera-Pi 常见问题(FAQ)](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html)查询更换参数。
 #### PC 端推流
 
 运行下方命令行后终端无报错，打开 VLC 软件参考上文进行配置，点击播放即可查看 RTSP 推流效果。
