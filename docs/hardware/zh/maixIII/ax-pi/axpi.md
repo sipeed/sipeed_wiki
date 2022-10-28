@@ -3,29 +3,34 @@ title: MAIX-III AXera-Pi 是什么？
 
 ---
 
+> 如果你想分享这款 AI 开发板给其他同学，可使用 [wiki.sipeed.com/m3axpi](http://wiki.sipeed.com/m3axpi) 传送门，
+。
+
 ![maixiii_axpi](./../../../../../static/home/maixiii_axpi.jpg)
 
-[>>> 点此直达淘宝商品链接 <<<](https://m.tb.cn/h.U30m3xW?tk=L1vr2BQ0AQM)
+> [>>> 点此直达商品淘宝购买链接 <<<](https://m.tb.cn/h.U30m3xW?tk=L1vr2BQ0AQM)
 
-> 如果你想分享给更多人，请使用这个资料入口：[wiki.sipeed.com/m3axpi](http://wiki.sipeed.com/m3axpi)
+ 2021 年的时候，国内各大芯片原厂纷纷亮出了自己的 Linux 边缘 AI 芯片。
 
-截止 2022 年市面上的各类视觉国产 Linux AI 开发板陆续面世！
+但在 AI 开发板的市场中，前有树莓派（Raspberry Pi），后有英伟达（Jetson Nano）等国外老牌选手强力围剿国内 Linux AI 开发板，在这之前国产的同类产品无论是价格还是体验，都被打的丢盔弃甲。
 
-在千元内的产品有晶晨 A311D 、地平线 X3 、瑞芯微 RV1126、堪智 K510、全志 V85X 等芯片供选择。
+如今在千元内的选手有晶晨 A311D 、地平线 X3 、瑞芯微 RV1126、堪智 K510、全志 V85X 、晶视 CR182x 、亿智 SV826 、酷芯微 AR9341 等等国产芯片，看上去是有很多选择？
 
-但它们要么资料太少、能效比低、价格太贵、生态贫瘠、开发困难、摄像效果太差啦！
+但是，它们要么资料太少（资料封闭）、能效比低、价格太贵、生态贫瘠、开发困难、视觉效果太差存在各种各样的问题。
 
-真的很难有一款 AI 板子可以满足所有要求。
+真的很难有一款边缘 AI 板子可以满足开发者的要求！！！
 
-但现在，想要支持国产芯片的 AI 开发工程师们！总算是有更好的选择了！！
+但现在！这些问题可能不再是问题了！
 
-练习时长两年半，一颗 3.6TOPs@INT8 大算力低功耗超强夜景的芯片来到了 MAIX-III Linux AI 系列！
+是时候请出我们新一轮的参赛选手了！
+
+练习时长两年半（不是），一颗 3.6TOPs@INT8 大算力低功耗超强夜景的芯片总算是来到了 MAIX-III Linux AI 系列！
 
 <p align="center">
 <img src="https://axera-tech.com/upload/8f/091a2540e7cdc5c7f62df022f80220.jpg" alt="img" style="zoom: 50%;" />
 </p>
 
-它就是来自「[爱芯元智](https://axera-tech.com/)」的 [AX620A](https://axera-tech.com/product/T7297367876123493768)，这是一款高算力，高能效比，低功耗的 AI SoC 芯片，芯片集成了四核 Cortex A7 @ 1Ghz CPU，拥有 3.6TOPs@INT8 的高算力 NPU，支持 4K@30fps 的 ISP，以及支持 H.264、H.265 编码的 VPU，拥有大算力和优异画质处理能力的 AX620A 可以实现更多的 AI 功能，带来最优的 AI 体验！（来自官方）
+没错，它就是来自「[爱芯元智](https://axera-tech.com/)」的 [AX620A](https://axera-tech.com/product/T7297367876123493768)，这是一款高算力，高能效比，低功耗的 AI SoC 芯片，芯片集成了四核 Cortex A7 @ 1Ghz CPU，拥有 3.6TOPs@INT8 的高算力 NPU，支持 4K@30fps 的 ISP，以及支持 H.264、H.265 编码的 VPU，拥有大算力和优异画质处理能力的 AX620A 可以实现更多的 AI 功能，带来最优的 AI 体验！（来自官方）
 
 ## 产品介绍
 
@@ -35,7 +40,7 @@ title: MAIX-III AXera-Pi 是什么？
   <img src="./../assets/waic-axpi.jpg" style="zoom: 70%;" />
 </p>
 
-最后总算是在 20221001 的时候推出了这款搭载 AX620A 的开发板，正式名为：**MAIX-III AXera-Pi**，以下内容中简称 **m3axpi** 喔！
+最后总算是在 20221001 的时候推出了这款搭载 AX620A 的开发板，正式名为：**MAIX-III AXera-Pi**，在以下内容中简称 **m3axpi** 喔！
 
 <p align="center">
   <video src="./assets/axpi_boom.mp4"
@@ -52,11 +57,11 @@ title: MAIX-III AXera-Pi 是什么？
 那么，它都带来了哪些内容呢？
 
 - 资料太少？文档教你从开箱到开发，从嵌入式 Linux 开发到 AI 模型开发指南一应俱全！
-- 能效比差？四核 A7 靠一根 USB3.0 就可以带起来！和你的外接电源、散热器说拜拜吧！！
-- 开发困难？支持 debian11 系统内置 sdk 直接板上编译！白嫖在线 AI 模型训练直到部署！！！
-- 没有生态？ WIKI 拥有许多 LINUX、RISCV、AIOT、FPGA、MCU 等嵌入式领域的内容！！！！
+- 能效比差？四核 A7 靠一条 USB3.0 就可以带起来！和你的外接电源、散热器说拜拜吧！！
+- 开发困难？支持 debian11 系统内置 SDK 直接板上编译！白嫖在线 AI 模型训练直到部署！！！
+- 没有生态？ SIPEED 拥有关于 LINUX、RISCV、AIOT、FPGA、MCU 等嵌入式领域的内容！！！！
 - 摄像效果太差？芯片主打 AI ISP 夜视增强！由原厂亲手为你调试白天到夜间的超强影像！！！！！
-- 价格太贵？从核心+底板+屏幕+摄像头+外壳支架全套总共人民币 **5X9** ！！！！！！（咆哮！！！！）
+- 价格太贵？从核心+底板+屏幕+摄像头+外壳支架全套总共人民币 **579** ！！！！！！（咆哮！！！！）
 
 ## 产品特色
 
@@ -151,7 +156,9 @@ title: MAIX-III AXera-Pi 是什么？
 
 如今 [新版 MaixHub 正式上线啦！](https://wiki.sipeed.com/news/maixhub/new_maixhub.html)下为 maixhub 在线训练模型流程示意。
 
-> 以下为上一代 m2dock 产品的演示效果，目前 m3axpi 还在开发中...
+<p align="center">
+  <img src="./../assets/test_maixhub.jpg" style="zoom: 100%;" />
+</p>
 
 <p align="center">
     <iframe src="//player.bilibili.com/player.html?aid=597374704&bvid=BV1eB4y1Q74i&cid=741940038&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="max-width:640px; max-height:480px;"> </iframe>
@@ -164,6 +171,12 @@ title: MAIX-III AXera-Pi 是什么？
 <p align="center">
   <img src="./../assets/share_model.jpg" style="zoom: 75%;" />
 </p>
+
+<p align="center">
+  <img src="./../assets/test_yolov5s.jpg" style="zoom: 100%;" />
+</p>
+
+如 [YOLOv5s-face 人脸检测](https://maixhub.com/model/zoo/110) 、 [蓝绿车牌识别](https://maixhub.com/model/zoo/79) 这些分享出来的现成可部署的模型。
 
 ### Linux 开发
 
@@ -272,7 +285,7 @@ title: MAIX-III AXera-Pi 是什么？
 1. 测评的场景、题材、内容不限，但提交的内容不应与上述社区或他人内容冲突。
 2. 测评内容至少满足在`**丰富图文内容**`或`**分享开发成果**`中的一项。
 3. 可参考以往的产品测评：
-   ① [【Sipeed M2 Dock开发板试用体验】开箱帖（含高颜值个人单身照）](https://bbs.elecfans.com/jishu_2286184_1_1.html) 
+   ① [【Sipeed M2 Dock开发板试用体验】开箱帖（含高颜值个人单身照）](https://bbs.elecfans.com/jishu_2286184_1_1.html)
    ② [【Sipeed M2 Dock开发板试用体验】图传功能使用与魔方色块寻找](https://bbs.elecfans.com/jishu_2290503_1_1.html)
 
 - **截止时间**：2022年12月31号
@@ -290,10 +303,10 @@ title: MAIX-III AXera-Pi 是什么？
 - **活动内容**：为了雨露均沾照顾所有的社区小伙伴们，我们还启动了面向于对产品十分感兴趣但未购买的同学的活动，通过分享 AI 模型参与模型测评，抄底价赢取产品。（五折起步）
 
 - **测评要求**
-  
+
 1. 模型评分点（100）
    ① 模型下载量+收藏数（10）
-   ② 模型结构新颖（20） 
+   ② 模型结构新颖（20）
    ③ 模型有创新点（20）
    ④ 模型有应用场景（20）
    ⑤ 有实际案例最好（30）
