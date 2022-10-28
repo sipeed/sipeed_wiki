@@ -252,7 +252,7 @@ title: MAIX-III AXera-Pi 是什么？
 1. 开发文档 [docs](https://github.com/sipeed/axpi_bsp_sdk/tree/main/msp/sample/vo_fb)
 2. 框架应用 [ipcdmeo](https://github.com/sipeed/axpi_bsp_sdk/tree/main/app/IPCDemo)
 3. 外设验证 [sample](https://github.com/sipeed/axpi_bsp_sdk/tree/main/msp/sample)
-4. （即将公开）模型部署 [ax-pipeline](https://github.com/AXERA-TECH/ax-pipeline)
+4. 模型部署 [ax-pipeline](https://github.com/AXERA-TECH/ax-pipeline)
 
 ## 社区资源
 
