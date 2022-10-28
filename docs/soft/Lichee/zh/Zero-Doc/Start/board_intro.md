@@ -25,7 +25,7 @@ Zero 提供了 **Linux主线** 支持和 全志官方原生 Camdriod（适用于
 3.  收到Zero后看到主芯片上有连锡请不要慌张，这是设计如此（相同的电源管脚），请参阅原理图，[点我下载](https://dl.sipeed.com/fileList/LICHEE/Zero/HDK/lichee_zero_Schematic.pdf)
 4.  Zero的系统调试串口是UART0，即下图右下方的“U0T R”标识的两个引脚
 5.  Zero正面的led不是上电就闪烁的，请不要认为上电后led不亮就是坏的
-6.  Zero的USB是OTG USB，既可以供电，又能通信（比如作为usb虚拟网口[与电脑共享网络](http://bbs.ilichee.cc/t/tutorial-pc-share-network-to-zero-via-usb/55)）
+6.  Zero的USB是OTG USB，既可以供电，又能通信（比如作为usb虚拟网口与电脑共享网络)
 7.  Zero usb口下方的“GND 5V”可以作为电源输入，使用串口小板的5V或者锂电池均可供电。
 8.  推荐的两边排针焊接方式是向下焊接。“G 5V”插针推荐向上焊接。
 9.  推荐的底层调试接法是：usb转串口小板接“U0T R”和“G 5V”。
