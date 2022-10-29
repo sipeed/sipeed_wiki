@@ -3,7 +3,7 @@ title: MAIX-III AXera-Pi 是什么？
 
 ---
 
-> 如果你想分享这款 AI 开发板给其他同学了解，请使用唯一的传送门[「 wiki.sipeed.com/m3axpi 」](http://wiki.sipeed.com/m3axpi) 。
+> 如果你想分享这款 AI 开发板给其他同学了解，请使用唯一的传送门「[ wiki.sipeed.com/m3axpi ](http://wiki.sipeed.com/m3axpi) 」。
 
 ![maixiii_axpi](./../../../../../static/home/maixiii_axpi.jpg)
 
