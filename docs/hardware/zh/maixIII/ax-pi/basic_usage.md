@@ -303,16 +303,40 @@ network={
 }
 ```
 
-- **如何改用 mntui-connect 可视化配置** 
+- **如何改用 mntui-connect 可视化配置（有问题还需要配置）** 
 
-想要更好的命令行网络管理工具请使用 `apt-get install network-manager` 在 20221008 后的镜像已预置。
-
-启用需要 `systemctl enable ModemManager.service` 并在 `nano /etc/NetworkManager/NetworkManager.conf` 里修改成 `：managed=true` 和注释掉 `/etc/network/interfaces` 里的 wlan0 相关配置后重启即可使用 `nmtui-connect` 进行联网，但原来的 `wpa_supplicant.conf` 里的配置会失效，禁用需要 `systemctl disable ModemManager.service` 。
+想要更好的命令行网络管理工具请使用 `apt-get install network-manager` ，如果已经安装请使用 `apt-get --reinstall install network-manager` 重新配置软件产生网卡配置，启用需要 `systemctl enable ModemManager.service` 并在 `nano /etc/NetworkManager/NetworkManager.conf` 里修改成 `managed=true` 和注释掉 `/etc/network/interfaces` 里的有关于 `wlan0` 的配置后重启即可使用 `nmtui-connect` 进行联网，但原来的 `wpa_supplicant.conf` 里的配置会失效。
 
 > [配置 NetworkManager 参考](https://support.huaweicloud.com/bestpractice-ims/ims_bp_0026.html#section1) & [linux系统中使用nmtui命令配置网络参数（图形用户界面）](https://www.cnblogs.com/liujiaxin2018/p/13910144.html)
 
+- **（BUG）暂不能打开 WIFI AP 热点模式**
+
+> 20221030 dalaoshu
+
+```bash
+root@AXERA:~# git clone https://github.com/oblique/create_ap
+cd create_ap
+make install
+Cloning into 'create_ap'...
+remote: Enumerating objects: 1072, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 1072 (delta 0), reused 0 (delta 0), pack-reused 1069
+Receiving objects: 100% (1072/1072), 357.79 KiB | 464.00 KiB/s, done.
+Resolving deltas: 100% (591/591), done.
+install -Dm755 create_ap /usr/bin/create_ap
+install -Dm644 create_ap.conf /etc/create_ap.conf
+[ ! -d /lib/systemd/system ] || install -Dm644 create_ap.service /usr/lib/systemd/system/create_ap.service
+[ ! -e /sbin/openrc-run ] || install -Dm755 create_ap.openrc /etc/init.d/create_ap
+install -Dm644 bash_completion /usr/share/bash-completion/completions/create_ap
+install -Dm644 README.md /usr/share/doc/create_ap/README.md
+root@AXERA:~/create_ap# create_ap wlan0 eth0 MyAccessPoint
+ERROR: Your adapter can not be a station (i.e. be connected) and an AP at the same time
+
+```
+
 - **（附录）如何扫描 WIFI 热点**
-  
+
 手工操作则需要了解 iwconfig 和 iwlist 命令去管理 WIFI 网卡，例如 WIFI 扫描方法 `iwlist wlan0 scanning`，由于 iwconfig 只支持无密码和 WEP 认证的热点，所以现已不使用这个命令，仅供简单的查询热点或测试 WIFI 的好与坏。
 
 ```
