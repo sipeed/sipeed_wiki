@@ -93,7 +93,7 @@ Maix-III AXera-Pi 开发板的 Linux debian11 系统默认使用 root 用户登�
 
 一般情况下 rndis usb 网卡驱动在 Linux 下可不用安装，在 Windows 下需要按下图手动安装系统自带驱动，而 macos 需要编译安装驱动（horndis），Windows 还需要配置一下网络优先级，勾选微软 rndis 驱动后设置网络跃点数调整优先级。
 
-**驱动安装**：[这篇 Ghost 系列 USB 网卡（RNDIS) 使用教程](https://www.foream.com/wiki/docs/mindoc/mindoc-1b2er0dm4pos9)
+**驱动安装**：[查看 Ghost 系列 USB 网卡（RNDIS) 使用教程](https://wiki.sipeed.com/news/others/usb_rndis/usb_rndis.html)
 
 **Windows 配置网络优先级**：[设置网络跃点数调整优先级](https://jingyan.baidu.com/article/358570f6bc5cfdce4724fca2.html)
 
@@ -106,7 +106,7 @@ Maix-III AXera-Pi 开发板的 Linux debian11 系统默认使用 root 用户登�
     再选择**从计算机的设备驱动程序列表中选择（L）**在硬件设备列表中往下拉，找到**网络适配器**，选中**下一步**。
 
     ![rndis_2](./../assets/rndis_2.jpg)
-    在厂商列表中选择 **Microsoft Corporation**，右侧列表中选择 **USB RNDIS Adapter**。
+    在厂商列表中选择 **Microsoft**，右侧列表中选择 **USB RNDIS Adapter**。
 
     ![rndis_3](./../assets/rndis_3.jpg)
 
