@@ -303,9 +303,38 @@ network={
 }
 ```
 
-- **如何改用 mntui-connect 可视化配置（有问题还需要配置）** 
+- **如何改用 mntui-connect 可视化配置** 
 
-想要更好的命令行网络管理工具请使用 `apt-get install network-manager` ，如果已经安装请使用 `apt-get --reinstall install network-manager` 重新配置软件产生网卡配置，启用需要 `systemctl enable ModemManager.service` 并在 `nano /etc/NetworkManager/NetworkManager.conf` 里修改成 `managed=true` 和注释掉 `/etc/network/interfaces` 里的有关于 `wlan0` 的配置后重启即可使用 `nmtui-connect` 进行联网，但原来的 `wpa_supplicant.conf` 里的配置会失效。
+系统已预置 NetworkManager 在 `nano /etc/NetworkManager/NetworkManager.conf` 里的 `managed=false` 修改成 `managed=true` 和注释掉 `/etc/network/interfaces` 里的有关于 `wlan0` 的配置（可以打开 `allow-hotplug wlan0` ）后「拔线断电重启」即可使用 `nmtui-connect` 进行联网，但原来的 `wpa_supplicant.conf` 里的配置会失效。
+
+```
+root@AXERA:~# cat /etc/network/interfaces
+# interfaces(5) file used by ifup(8) and ifdown(8)
+# Include files from /etc/network/interfaces.d:
+source /etc/network/interfaces.d/*
+
+auto lo
+iface lo inet loopback
+
+# auto eth0
+allow-hotplug eth0
+iface eth0 inet dhcp
+
+# auto usb0
+allow-hotplug usb0
+iface usb0 inet static
+address 192.168.233.1
+netmask 255.255.255.0
+
+allow-hotplug wlan0
+# wpa-ssid "2.4G"
+# wpa-psk "1qaz2wsx"
+
+# auto wlan0
+# iface wlan0 inet manual
+# wpa-conf /boot/wpa_supplicant.conf
+# iface wlan0 inet dhcp
+```
 
 > [配置 NetworkManager 参考](https://support.huaweicloud.com/bestpractice-ims/ims_bp_0026.html#section1) & [linux系统中使用nmtui命令配置网络参数（图形用户界面）](https://www.cnblogs.com/liujiaxin2018/p/13910144.html)
 
