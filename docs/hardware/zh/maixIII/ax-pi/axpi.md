@@ -341,70 +341,72 @@ title: MAIX-III AXera-Pi 是什么？
 
 > 20221013 后开机后会从耳机播放音乐和点亮出厂的 5 寸屏幕，并在串口输出如下的 debian11 系统启动日志（截取部分日志如下），[有些同学会遇到 Ubuntu22.04 CH340系列串口驱动（没有ttyUSB）问题，点此查看解决方案](https://blog.csdn.net/qq_27865227/article/details/125538516)。
 
-```bash
-Vddr init success!
-The system boot form EMMC
-enter boot normal mode
+.. details:: 点击查看 debian11 系统启动日志  
 
-U-Boot 2020.04 (Jun 16 2022 - 00:16:34 +0800)
+    ```bash
+    Vddr init success!
+    The system boot form EMMC
+    enter boot normal mode
 
-Model: AXERA AX620_demo Board
-DRAM:  1 GiB
-NAND:  unknown raw ID 77ee0178
-uclass_get_device: Invalid bus 0 (err=-524)
-0 MiB
-initr_pinmux: delay pinmux_init for env board id
-MMC:   enter sdhci_cdns_get_cd call mmc_getcd
-enter sdhci_cdns_get_cd call mmc_getcd
-mmc@10000000: 0, mmc@4950000: 1
-Loading Environment from MMC... OK
-In:    serial
-Out:   serial
-Err:   serial
-MMC: no card present
-sd card is not present
-enter normal boot mode
-Net:
-reset EMAC0: ethernet@0x4970000 ...
-Warning: ethernet@0x4970000 (eth0) using random MAC address - 6a:e4:fd:58:97:ea
-eth0: ethernet@0x4970000
-Hit any key to stop autoboot:  0
-reading DTB and BOOT image ...
-reading bootimg header...
-MAGIC:       AXERA!
-img size:    4841536
-kernel_size: 4841472
-kernel_addr: 64
-id:bc 19 bb a7 2d 27 74 de 7c 91 4b 70 ea c9 ab 96 50 61 bd e0 2b 02 8b e5 c8 ee 22 ce df b1 cf ea
-load kernel image addr = 0x40008000,load dtb image addr = 0x48008000
-boot cmd is :bootm 0x40008000 - 0x48008000
-## Booting kernel from Legacy Image at 40008000 ...
-   Image Name:   Linux-4.19.125
-   Image Type:   ARM Linux Kernel Image (uncompressed)
-   Data Size:    4839952 Bytes = 4.6 MiB
-   Load Address: 40008000
-   Entry Point:  40008000
-   Verifying Checksum ... OK
-## Flattened Device Tree blob at 48008000
-   Booting using the fdt blob at 0x48008000
-   Loading Kernel Image
-   Using Device Tree in place at 48008000, end 480103d6
+    U-Boot 2020.04 (Jun 16 2022 - 00:16:34 +0800)
 
-Starting kernel ...
+    Model: AXERA AX620_demo Board
+    DRAM:  1 GiB
+    NAND:  unknown raw ID 77ee0178
+    uclass_get_device: Invalid bus 0 (err=-524)
+    0 MiB
+    initr_pinmux: delay pinmux_init for env board id
+    MMC:   enter sdhci_cdns_get_cd call mmc_getcd
+    enter sdhci_cdns_get_cd call mmc_getcd
+    mmc@10000000: 0, mmc@4950000: 1
+    Loading Environment from MMC... OK
+    In:    serial
+    Out:   serial
+    Err:   serial
+    MMC: no card present
+    sd card is not present
+    enter normal boot mode
+    Net:
+    reset EMAC0: ethernet@0x4970000 ...
+    Warning: ethernet@0x4970000 (eth0) using random MAC address - 6a:e4:fd:58:97:ea
+    eth0: ethernet@0x4970000
+    Hit any key to stop autoboot:  0
+    reading DTB and BOOT image ...
+    reading bootimg header...
+    MAGIC:       AXERA!
+    img size:    4841536
+    kernel_size: 4841472
+    kernel_addr: 64
+    id:bc 19 bb a7 2d 27 74 de 7c 91 4b 70 ea c9 ab 96 50 61 bd e0 2b 02 8b e5 c8 ee 22 ce df b1 cf ea
+    load kernel image addr = 0x40008000,load dtb image addr = 0x48008000
+    boot cmd is :bootm 0x40008000 - 0x48008000
+    ## Booting kernel from Legacy Image at 40008000 ...
+      Image Name:   Linux-4.19.125
+      Image Type:   ARM Linux Kernel Image (uncompressed)
+      Data Size:    4839952 Bytes = 4.6 MiB
+      Load Address: 40008000
+      Entry Point:  40008000
+      Verifying Checksum ... OK
+    ## Flattened Device Tree blob at 48008000
+      Booting using the fdt blob at 0x48008000
+      Loading Kernel Image
+      Using Device Tree in place at 48008000, end 480103d6
+
+    Starting kernel ...
 
 
-Welcome to Debian GNU/Linux 11 (bullseye)!
+    Welcome to Debian GNU/Linux 11 (bullseye)!
 
-[  OK  ] Created slice system-getty.slice.
-[  OK  ] Created slice system-modprobe.slice.
-[  OK  ] Created slice system-serial\x2dgetty.slice.
-[  OK  ] Created slice User and Session Slice.
-[  OK  ] Started Dispatch Password …ts to Console Directory Watch.
-[  OK  ] Started Forward Password R…uests to Wall Directory Watch.
-[  OK  ] Reached target Local Encrypted Volumes.
-[  OK  ] Reached target Network is Online.
-......
-```
+    [  OK  ] Created slice system-getty.slice.
+    [  OK  ] Created slice system-modprobe.slice.
+    [  OK  ] Created slice system-serial\x2dgetty.slice.
+    [  OK  ] Created slice User and Session Slice.
+    [  OK  ] Started Dispatch Password …ts to Console Directory Watch.
+    [  OK  ] Started Forward Password R…uests to Wall Directory Watch.
+    [  OK  ] Reached target Local Encrypted Volumes.
+    [  OK  ] Reached target Network is Online.
+    ......
+    ```
 
 ### 登录到板子里
 
@@ -412,56 +414,56 @@ Welcome to Debian GNU/Linux 11 (bullseye)!
 
 - [系统使用手册](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html)
 
-这里以 USB-OTG 口的 usb0 网卡（192.168.233.1）作为 ssh 登录的 ip 进入板子为例。
+.. details::这里以 USB-OTG 口的 usb0 网卡（192.168.233.1）作为 ssh 登录的 ip 进入板子为例。
 
-```bash
-juwan@juwan-n85-dls:~/sipeed_wiki$ sshpass -p root ssh root@192.168.233.1
-Linux AXERA 4.19.125 #53 SMP PREEMPT Tue Sep 13 13:16:27 HKT 2022 armv7l
+    ```bash
+    juwan@juwan-n85-dls:~/sipeed_wiki$ sshpass -p root ssh root@192.168.233.1
+    Linux AXERA 4.19.125 #53 SMP PREEMPT Tue Sep 13 13:16:27 HKT 2022 armv7l
 
-The programs included with the Debian GNU/Linux system are free software;
-the exact distribution terms for each program are described in the
-individual files in /usr/share/doc/*/copyright.
+    The programs included with the Debian GNU/Linux system are free software;
+    the exact distribution terms for each program are described in the
+    individual files in /usr/share/doc/*/copyright.
 
-Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
-permitted by applicable law.
-Last login: Wed Oct 12 16:43:43 2022 from 192.168.233.10
-root@AXERA:~# screenfetch
-         _,met$$$$$gg.           root@AXERA
-      ,g$$$$$$$$$$$$$$$P.        OS: Debian
-    ,g$$P""       """Y$$.".      Kernel: armv7l Linux 4.19.125
-   ,$$P'              `$$$.      Uptime: 2d 3h 5m
-  ',$$P       ,ggs.     `$$b:    Packages: 785
-  `d$$'     ,$P"'   .    $$$     Shell: bash 5.1.4
-   $$P      d$'     ,    $$P     Disk: 2.6G / 3.6G (77%)
-   $$:      $$.   -    ,d$$'     CPU: ARMv7 rev 5 (v7l) @ 4x 1.248GHz
-   $$\;      Y$b._   _,d$P'      RAM: 88MiB / 744MiB
-   Y$$.    `.`"Y$$$$P"'
-   `$$b      "-.__
-    `Y$$
-     `Y$$.
-       `$$b.
-         `Y$$b.
-            `"Y$b._
-                `""""
+    Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+    permitted by applicable law.
+    Last login: Wed Oct 12 16:43:43 2022 from 192.168.233.10
+    root@AXERA:~# screenfetch
+            _,met$$$$$gg.           root@AXERA
+          ,g$$$$$$$$$$$$$$$P.        OS: Debian
+        ,g$$P""       """Y$$.".      Kernel: armv7l Linux 4.19.125
+      ,$$P'              `$$$.      Uptime: 2d 3h 5m
+      ',$$P       ,ggs.     `$$b:    Packages: 785
+      `d$$'     ,$P"'   .    $$$     Shell: bash 5.1.4
+      $$P      d$'     ,    $$P     Disk: 2.6G / 3.6G (77%)
+      $$:      $$.   -    ,d$$'     CPU: ARMv7 rev 5 (v7l) @ 4x 1.248GHz
+      $$\;      Y$b._   _,d$P'      RAM: 88MiB / 744MiB
+      Y$$.    `.`"Y$$$$P"'
+      `$$b      "-.__
+        `Y$$
+        `Y$$.
+          `$$b.
+            `Y$$b.
+                `"Y$b._
+                    `""""
 
-root@AXERA:~# ax_clk
-AX620A:
-DDR:            3733 MHz
-CPU:            800 MHz
-BUS of VPU:     624 MHz
-BUS of NPU:     624 MHz
-BUS of ISP:     624 MHz
-BUS of CPU:     624 MHz
-NPU OTHER:      800 MHz
-NPU GLB:        24 MHz
-NPU FAB:        800 MHz
-NPU CORE1:      800 MHz
-NPU CORE0:      800 MHz
-ISP:            533 MHz
-MM:             594 MHz
-VPU:            624 MHz
-root@AXERA:~#
-```
+    root@AXERA:~# ax_clk
+    AX620A:
+    DDR:            3733 MHz
+    CPU:            800 MHz
+    BUS of VPU:     624 MHz
+    BUS of NPU:     624 MHz
+    BUS of ISP:     624 MHz
+    BUS of CPU:     624 MHz
+    NPU OTHER:      800 MHz
+    NPU GLB:        24 MHz
+    NPU FAB:        800 MHz
+    NPU CORE1:      800 MHz
+    NPU CORE0:      800 MHz
+    ISP:            533 MHz
+    MM:             594 MHz
+    VPU:            624 MHz
+    root@AXERA:~#
+    ```
 
 可以看到板子的基础信息，目前默认是用 800Mhz 来跑，并且内存分配比较保守，留给用户空间的内存只有不到 1GB，不用担心，板子贴得内存最小都得是 2G 的，所以之后会通过更新内核开放更多内存给用户空间。
 
