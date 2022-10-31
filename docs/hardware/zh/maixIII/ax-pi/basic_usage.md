@@ -11,19 +11,19 @@ title: Maix-III AXera-Pi 系统基础使用
 
 1. Maix-III AXera-Pi 开发板
 2. 能出 1A 的 USB3.0 口（或是带供电的 usb hub 拓展）
-3. 一张大于 8G 烧录 debian11 的镜像系统卡
-4. GC4653 Sensor（自行按需求购入）
+3. 一张大于 16G 烧录 debian11 的镜像系统卡
+4. GC4653 Sensor 普通版/OS04a10 Sensor 夜视版（自行按需求购入）
 5. 5 寸 MIPI屏（自行按需求购入）
 
-图待补充
+![axpi-config](./../assets/axpi-config.jpg)
 
 **供电要求**：由于板子的功耗要求低，使用 usb3.0 1A 即可启动 linux 系统。
 
 ### 接线示例
 
-注意：摄像头接线一定要十分注意！！！接反可能会烧坏板子或者是摄像头！！
+>注意：摄像头接线一定要十分注意！！！接反可能会烧坏板子或者是摄像头！！
 
-**接线**：将屏幕（排线反面朝上）接入底板背面接口，组装好后翻正板子在右侧卡槽处插入镜像卡，再接入（排线反面朝上）摄像头并揭开保护盖，可参考示意图进行接线。
+**接线**：将屏幕（排线反面朝上）接入底板背面接口，组装好后翻正板子在右侧卡槽处插入镜像卡，再接入（认准蓝色线序接入）摄像头并揭开保护盖，可参考示意图进行接线。
 
 <html>
   <img src="./../assets/mipi.jpg" width=48%>
@@ -93,7 +93,7 @@ Maix-III AXera-Pi 开发板的 Linux debian11 系统默认使用 root 用户登�
 
 一般情况下 rndis usb 网卡驱动在 Linux 下可不用安装，在 Windows 下需要按下图手动安装系统自带驱动，而 macos 需要编译安装驱动（horndis），Windows 还需要配置一下网络优先级，勾选微软 rndis 驱动后设置网络跃点数调整优先级。
 
-**驱动安装**：[这篇 Ghost 系列 USB 网卡（RNDIS) 使用教程](https://www.foream.com/wiki/docs/mindoc/mindoc-1b2er0dm4pos9)
+**驱动安装**：[查看 Ghost 系列 USB 网卡（RNDIS) 使用教程](https://wiki.sipeed.com/news/others/usb_rndis/usb_rndis.html)
 
 **Windows 配置网络优先级**：[设置网络跃点数调整优先级](https://jingyan.baidu.com/article/358570f6bc5cfdce4724fca2.html)
 
@@ -106,7 +106,7 @@ Maix-III AXera-Pi 开发板的 Linux debian11 系统默认使用 root 用户登�
     再选择**从计算机的设备驱动程序列表中选择（L）**在硬件设备列表中往下拉，找到**网络适配器**，选中**下一步**。
 
     ![rndis_2](./../assets/rndis_2.jpg)
-    在厂商列表中选择 **Microsoft Corporation**，右侧列表中选择 **USB RNDIS Adapter**。
+    在厂商列表中选择 **Microsoft**，右侧列表中选择 **USB RNDIS Adapter**。
 
     ![rndis_3](./../assets/rndis_3.jpg)
 
@@ -303,17 +303,82 @@ network={
 }
 ```
 
-- **如何改用 mntui-connect 可视化配置** 
+- **改用 mntui-connect 可视化联网管理** 
 
-想要更好的命令行网络管理工具请使用 `apt-get install network-manager` 在 20221008 后的镜像已预置。
+系统已预置 NetworkManager 在 `nano /etc/NetworkManager/NetworkManager.conf` 里的 `managed=false` 修改成 `managed=true` 和注释掉 `/etc/network/interfaces` 里的有关于 `wlan0` 的配置（可以打开 `allow-hotplug wlan0` ）后「拔线断电重启」即可使用 `nmtui-connect` 进行联网，但原来的 `wpa_supplicant.conf` 里的配置会失效。
 
-启用需要 `systemctl enable ModemManager.service` 并在 `nano /etc/NetworkManager/NetworkManager.conf` 里修改成 `：managed=true` 和注释掉 `/etc/network/interfaces` 里的 wlan0 相关配置后重启即可使用 `nmtui-connect` 进行联网，但原来的 `wpa_supplicant.conf` 里的配置会失效，禁用需要 `systemctl disable ModemManager.service` 。
+```
+root@AXERA:~# cat /etc/network/interfaces
+# interfaces(5) file used by ifup(8) and ifdown(8)
+# Include files from /etc/network/interfaces.d:
+source /etc/network/interfaces.d/*
+
+auto lo
+iface lo inet loopback
+
+# auto eth0
+allow-hotplug eth0
+iface eth0 inet dhcp
+
+# auto usb0
+allow-hotplug usb0
+iface usb0 inet static
+address 192.168.233.1
+netmask 255.255.255.0
+
+allow-hotplug wlan0
+# wpa-ssid "2.4G"
+# wpa-psk "1qaz2wsx"
+
+# auto wlan0
+# iface wlan0 inet manual
+# wpa-conf /boot/wpa_supplicant.conf
+# iface wlan0 inet dhcp
+```
 
 > [配置 NetworkManager 参考](https://support.huaweicloud.com/bestpractice-ims/ims_bp_0026.html#section1) & [linux系统中使用nmtui命令配置网络参数（图形用户界面）](https://www.cnblogs.com/liujiaxin2018/p/13910144.html)
 
-- **（附录）如何扫描 WIFI 热点**
-  
-手工操作则需要了解 iwconfig 和 iwlist 命令去管理 WIFI 网卡，例如 WIFI 扫描方法 `iwlist wlan0 scanning`，由于 iwconfig 只支持无密码和 WEP 认证的热点，所以现已不使用这个命令，仅供简单的查询热点或测试 WIFI 的好与坏。
+这样你就可以使用 `nmcli --pretty device wifi list` 进行 Wi-Fi 的扫描了。
+
+```
+root@AXERA:~# nmcli --pretty device wifi list
+===========================
+  Wi-Fi scan list (wlan0)
+===========================
+IN-USE  BSSID              SSID                 MODE   CHAN  RATE        SIGNAL>
+------------------------------------------------------------------------------->
+        CC:81:DA:5B:10:98  2.4G                 Infra  7     270 Mbit/s  92    >
+        22:59:57:DD:90:63  田震天啊天震田       Infra  1     270 Mbit/s  65    >
+        C4:70:AB:3B:5A:EF  201                  Infra  1     130 Mbit/s  65    >
+        6A:70:AB:3B:5A:EC  --                   Infra  1     130 Mbit/s  65    >
+        48:A0:F8:22:BB:2D  ChinaNet-KQXN        Infra  3     130 Mbit/s  65    >
+        10:C1:72:2F:AD:FC  ChinaNet-kWCT        Infra  11    130 Mbit/s  64    >
+        B0:DF:C1:76:C5:21  --                   Infra  2     195 Mbit/s  62    >
+        66:9A:08:0C:57:D4  aWiFi-204            Infra  3     270 Mbit/s  62    >
+        1C:60:DE:96:19:16  26JK                 Infra  6     270 Mbit/s  60    >
+        1C:60:DE:78:D8:D2  EDwinLam.            Infra  1     270 Mbit/s  59    >
+        64:64:4A:28:14:3F  Xiaomi_143E          Infra  2     130 Mbit/s  59    >
+        08:40:F3:27:63:70  大王                 Infra  5     270 Mbit/s  59    >
+        14:A3:2F:62:80:F4  HUAWEI-211           Infra  6     270 Mbit/s  59    >
+        E4:0E:EE:DA:96:A4  w168                 Infra  6     270 Mbit/s  59    >
+        66:9A:08:0C:2D:34  aWiFi-305            Infra  6     270 Mbit/s  59    >
+        00:E0:4C:2B:2F:F3  UU加速盒-2FF2        Infra  11    270 Mbit/s  59    >
+        74:50:4E:8D:51:69  --                   Infra  5     270 Mbit/s  57    >
+        76:50:4E:1D:51:69  207                  Infra  5     130 Mbit/s  57    >
+lines 1-23
+```
+
+- **（BUG）暂不能打开 WIFI AP 热点模式**
+
+基于 mntui 联网成功后改用 nmcli 命令。
+
+- `nmcli device wifi hotspot ifname wlan0 con-name MyHostspot ssid MyHostspotSSID password 12345678` 即可创建 MyHostspotSSID 的 ap 热点。
+
+但是目前能打开，但连上会重启板子，驱动问题不是很好修。（ 20221030 ）
+
+- **（过时）如何扫描 WIFI 热点**
+
+这需要了解 iwconfig 和 iwlist 命令去管理 WIFI 网卡，例如 WIFI 扫描方法 `iwlist wlan0 scanning`，由于 iwconfig 只支持无密码和 WEP 认证的热点，所以现已不使用这个命令，仅供简单的查询热点或测试 WIFI 的好与坏。
 
 ```
 root@AXERA:~# iwlist wlan0 scanning
@@ -363,8 +428,8 @@ wlan0     Scan completed :
                     Extra:fm =0003
 
 ```
->目前所有的网络配置都会在重启后自动生效，如果想要自己手工控制网卡的开关，请了解一下 ifup 或 ifdown 命令的用法，类似 ifup eth0 启动 eth0 网卡，ifdown eth0 --force 强制关闭 eth0 网卡等。
 
+> 目前所有的网络配置都会在重启后自动生效，如果想要自己手工控制网卡的开关，请了解一下 ifup 或 ifdown 命令的用法，类似 ifup eth0 启动 eth0 网卡，ifdown eth0 --force 强制关闭 eth0 网卡等。
 
 ## 系统更新
 
@@ -1021,8 +1086,8 @@ RX | FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF 
 >**20222017** 后的镜像默认打开了录制保存到 `/opt/mp4` 的目录下。
 >**注意**：视频录制完后储存到文件系统后才能打开。某种意义上讲；用户也可以挂载一个网络路径来当监控录像使用。
 
-#### 人脸识别
->基于上文的基础功能，IPCDemo 自身还附带其他一些功能应用.例如**：人脸识别、车牌识别**。
+#### 人脸检测
+>基于上文的基础功能，IPCDemo 自身还附带其他一些功能应用.例如**：人脸检测、车牌识别**。
 
 使用前请参考上文使用命令行登录 IPC 网页，登录后先进行相机结构化配置，具体配置流程看下文。
 
@@ -1032,7 +1097,7 @@ RX | FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF 
     ![ipc-video](./../assets/ipc-video.jpg)
 
 设置完成后回到预览页面即可进行人脸及人形识别，IPC 会自动框出识别人脸并且截取人脸的图片，可在预览页面下方点击截取图样放大查看附带信息。
-- 左侧：人脸识别 右侧：人形识别
+- 左侧：人脸检测 右侧：人形检测
   
 <html>
   <img src="./../assets/ipc-model.jpg" width=45%>
@@ -1064,6 +1129,7 @@ RX | FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF 
 **VLC Media Player**：[点击下载](https://www.videolan.org/vlc/)
 **VLC Media Player 介绍及配置流程**：[点击查看](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html#RTSP)
 
+>**注意**：默认摄像头为 GC4653 如型号不同请移步[Maix-III 系列 AXera-Pi 常见问题(FAQ)](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html)查询更换参数。
 #### PC 端推流
 
 运行下方命令行后终端无报错，打开 VLC 软件参考上文进行配置，点击播放即可查看 RTSP 推流效果。

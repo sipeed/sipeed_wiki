@@ -42,6 +42,8 @@ git clone https://github.com/sipeed/libmaix.git --recursive
 
 ### [libmaix](https://github.com/sipeed/libmaix)
 
+> /home/ 目录已预置，可以 git pull 联网拉取更新。
+
 对于 `libmaix`， 按照其`README.md` 文件描述的方法编译即可， 不过需要在`menuconfig`命令中选择 `AXera-Pi` 作为编译目标。
 
 这里简要介绍一下编译过程（libmaix 目前还未稳定，未来可能会有大的更新），实际以[libmaix 仓库](https://github.com/sipeed/libmaix)代码和说明为准。
@@ -61,7 +63,7 @@ git clone https://github.com/sipeed/libmaix --recursive
 这里以在开发板上编译为例：
 
 ```bash
-cd libmaix
+cd /home/libmaix # git clone https://github.com/sipeed/libmaix --recursive
 cd examples/axpi
 python3 project.py distclean
 # python3 project.py menuconfig # 可以配置相关参数
@@ -71,12 +73,13 @@ python3 project.py build        # 如果增加文件了，需要 python3 project
 
 ### [ax-samples](https://github.com/AXERA-TECH/ax-samples)
 
+> /home/ 目录已预置，可以 git pull 联网拉取更新。
+
 [ax-samples](https://github.com/AXERA-TECH/ax-samples) 是爱芯官方提供的例程，包含了一些 AI 模型和运行代码，编译完能直接在开发板上运行，只不过输入是图片，不是摄像头。
 进入开发板终端，执行以下代码：
 
 ```bash
-git clone https://github.com/AXERA-TECH/ax-samples.git
-cd ax-samples
+cd /home/ax-samples # git clone https://github.com/AXERA-TECH/ax-samples.git
 mkdir build
 cd build
 cmake ..

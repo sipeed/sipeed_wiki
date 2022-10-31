@@ -89,6 +89,28 @@ AXera-Pi 默认板卡没有存储介质，因此需要准备一张系统卡来�
 > **注意**：如果出现烧录失败的情况，请手动格式化一下 SD 卡。
 > Windows 和 MacOS 可以使用 [SD Card Formatter](https://www.sdcard.org/downloads/formatter/eula_windows/SDCardFormatterv5_WinEN.zip)来格式化 SD 卡，Linux 系统可以使用系统的 disk 工具或 [Gparted](https://gparted.org/)来格式化。
 
+## 如何进行磁盘扩容
+
+基于一些用户可能有扩容分区的需求，因此在这里添加在 AXera-Pi 上给板子扩容或者是建立新分区的内容。
+
+### 操作方法
+
+首先需要烧录完上方的 debian11 的镜像系统后，再使用 AXera-Pi 登陆上 Linux 系统来进行磁盘扩容分区。
+
+>[点击查看 AXera-Pi 登陆方式](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html#%E7%B3%BB%E7%BB%9F%E7%99%BB%E5%BD%95)
+
+成功登陆到 AXera-Pi 上后，用户可以先使用 `lsblk` 命令来查看设备当前的存储情况。接着使用 `cfdisk /dev/mmcblk2` 来进行磁盘分区扩容的操作（`mmcblk2` 是我们进行操作的区域名称也称设备名）。
+
+![cfdisk](./../assets/cfdisk-mmcblk2.jpg)
+
+输入命令后终端会跳出下图操作界面，由图可见自由空间余 `4.3G`，使用键盘方向键移动选择我们要扩容的分区 `/dev/mmcblk2p2` 再选择下方的 `Resize` 按下**回车键**对当前分区进行缩容或扩容。
+
+![rizese-mmcblk2](./../assets/rizese-mmcblk2.png)
+
+
+
+
+
 
 <!-- 烧录方法如下图示意
 ![etcher](../../../assets/maixIII/ax-pi/etcher.jpg)
