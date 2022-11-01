@@ -513,6 +513,7 @@ title: MAIX-III AXera-Pi 是什么？
 
 以上部署方式都出于快速验证或应用落地的角度进行的，还有一套基于 bsp sdk 的 [ax-pipeline](https://github.com/AXERA-TECH/ax-pipeline) 部署方式，它面向既了解 AI 又知道芯片底层 Linux 开发方法的同学，目前内置应用中提供了板子的 rtsp 和屏幕 双推流 yolov5 实时识别的程序就是来自于此。
 
+![](./../assets/rtsp-display.jpg)
 #### IPCDemo 部署
 
 这是一个典型的 IPC 演示程序，源码在这里 [axpi_bsp_sdk IPCDemo](https://github.com/sipeed/axpi_bsp_sdk/tree/main/app/IPCDemo) ，其中 IPCDemo 的功能模块有：

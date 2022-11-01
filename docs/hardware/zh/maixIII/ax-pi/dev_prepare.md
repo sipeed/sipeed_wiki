@@ -117,7 +117,7 @@ fbon
 
 在 Windows 上可以用 mobaxterm 这样的工具连接到板子进行 linux 服务器管理，但编译还是需要在 linux 系统上进行。
 
-附图
+![mobaxterm_ssh](./../assets/ssh.jpg)
 
 ## 交叉编译上传程序再运行
 

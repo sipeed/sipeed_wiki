@@ -334,6 +334,7 @@
         },
         {
             "label": "MaixSense",
+            "file": "maixsense/readme.md",
             "items": [
                 {
                     "label": "MaixSense-a010",
