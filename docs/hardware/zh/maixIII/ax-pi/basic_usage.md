@@ -272,6 +272,14 @@ eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
         device interrupt 56
 ```
 
+- **关于 eth0 地址相同的问题**
+
+执行下述代码就会从 `/proc/ax_proc/uid` 读取 chip_id 写到 `/etc/network/interfaces` 的 eth0 配置里，该命令多次执行不受影响。
+
+```
+python3 -c "import os, binascii; os.system('sed -i \'/iface eth0 inet dhcp/ahwaddress ether {}\' /etc/network/interfaces'.format(binascii.hexlify(bytes.fromhex(open('/proc/ax_proc/uid').read().split('0x')[1][:-5]),':').decode('iso8859-1'))) if os.system('grep \'hwaddress ether\' /etc/network/interfaces -q') != 0 else exit();"
+```
+
 - **一些问题排除方法，如没有 ip 如何配置**
 
 登录后无法获取以太网地址的话，可用上文命令启动 DHCP 客户端获取 IP 地址。
@@ -996,6 +1004,14 @@ bits per word: 8
 max speed: 500000 Hz (500 KHz)
 TX | FF FF FF FF FF FF 40 00 00 00 00 95 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF F0 0D  | ......@....�..................�.
 RX | FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF  | ................................
+```
+
+### CHIP ID
+
+获取芯片唯一的 id 码。
+
+```
+cat /proc/ax_proc/uid
 ```
 
 ### ADC（暂未支持）
