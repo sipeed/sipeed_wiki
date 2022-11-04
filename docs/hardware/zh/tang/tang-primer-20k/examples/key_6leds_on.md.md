@@ -55,4 +55,4 @@ wire [5:0] c = {a,b} ;
 |---|---|
 | ![key_schematic](./assets/key_led_on/led_schematic.png)| ![key_pin](./assets/key_led_on/led_pin.png) |
 
-所以直接将按键引脚的逻辑电平输出为 LED 的引脚裸机电平就可以点亮 LED 灯。
+所以直接将按键引脚的逻辑电平输出为 LED 的引脚逻辑电平就可以点亮 LED 灯。
