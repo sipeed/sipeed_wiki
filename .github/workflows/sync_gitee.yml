@@ -22,6 +22,8 @@ jobs:
   # This workflow contains a single job called "build"
   sync_gitee:
     name: sync repo to gitee
+    # Only run job for specific repository
+    if: github.repository == 'sipeed/sipeed_wiki'
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
