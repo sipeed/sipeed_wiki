@@ -15,7 +15,7 @@ desc: maixpy  MaixPy3 是什么？能做什么？
 - 大佬鼠自述：MaixPy3项目开发的心路历程
 
 <p align="center">
-    <iframe src="//player.bilibili.com/player.html?bvid=BV1DY4y1B7Nb" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="max-width:640px; max-height:480px;"> </iframe>
+    <iframe src="//player.bilibili.com/player.html?bvid=BV1DY4y1B7Nb&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="max-width:640px; max-height:480px;"> </iframe>
 </p>
 
 > 在 2022年01月21日 该视频只说了为什么要做这款开源产品系列，此时还没有做【在线 AI 训练】和【突出产品亮点】，最终是**想要让初学者【学会视觉 AI 应用】和【开发出可落地的产品】**
