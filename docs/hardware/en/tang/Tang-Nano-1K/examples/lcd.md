@@ -48,7 +48,7 @@ Here we use  `IP Core Generate` which can be find in Tools -> IP Core Generate
 
 ![](./../../../../zh/tang/Tang-Nano-1K/assets/Gowin_IP_rpll.png)
 
-Double click `rPLL` and select Verilog in the pop-up window language, set CLKIN 24MHz, CLKOUTD is 33.00MHz. Also config the tolerance.
+Double click `rPLL` and select Verilog in the pop-up window language, set CLKIN 27MHz, CLKOUTD is 33.00MHz. Also config the tolerance.
 
 ![](./../../../../zh/tang/Tang-Nano-1K/assets/lcd_rpll.png)
 
