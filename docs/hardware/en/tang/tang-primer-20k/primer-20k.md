@@ -1,4 +1,13 @@
-# Tang Primer 20K
+---
+title: Tang Primer 20K
+keywords: FPGA, Primer, Tang, 20K
+update:
+  - date: 2022-08-25
+    version: v0.1
+    author: wonder
+    content:
+      - Init docs
+---
 
 ## Preface
 
@@ -307,7 +316,7 @@ Make sure you hace selected right device, and all parameters are the same as fol
 
 Then make sure your code logic is right and your 
 
-### Successfully burned once, after can't burn again
+### Successfully burned once, but can't burn after that
 
 Note that the description is there was a successful Flash burnt one time.
 
