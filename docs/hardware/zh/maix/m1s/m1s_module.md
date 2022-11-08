@@ -13,6 +13,8 @@ update:
 
 Sipeed M1s 模组是基于[博流智能科技](http://www.bouffalolab.com/)的 BL808 芯片所设计的一款 AIOT 模组，主控芯片包含三个核心，具有 WiFi/BT/BLE/Zigbee 等无线互联单元，包含多个 CPU 以及音频编码译码器、视频编码译码器和 AI 硬件加速器（BLAI-100），适用于各种高性能和低功耗应用领域。
 
+购买链接：[淘宝](https://item.taobao.com/item.htm?id=691108452443)
+
 <img src="./assets/m1s_module/m1s_module_outlook.png" alt="m1s_module_outlook" width=35%>
 
 ## 特点
@@ -229,8 +231,9 @@ Sipeed M1s 模组是基于[博流智能科技](http://www.bouffalolab.com/)的 B
 
 ---
 
-- [SDK]() (Github) 等待公开
-- 交流 QQ 群：`592731168` 。[点我加群](点击链接加入群聊【荔枝开源 M1s AI交流群】：https://jq.qq.com/?_wv=1027&k=uyKNhTeu)
+- [SDK](https://github.com/sipeed/M1s_BL808_SDK) (Github) 
+- [Examples](https://github.com/sipeed/M1s_BL808_example)（Github）
+- 交流 QQ 群：`592731168` 。[点我加群](https://jq.qq.com/?_wv=1027&k=uyKNhTeu)
 - 论坛：[bbs.sipeed.com](bbs.sipeed.com)
 
 ## 引脚
@@ -239,4 +242,4 @@ Sipeed M1s 模组是基于[博流智能科技](http://www.bouffalolab.com/)的 B
 
 ## 联系
 
-M1s 模组可以在多种场景实现客户不同方面的需要，商业合作请联系使用邮箱商务 [support@sipeed.com](support@sipeed.com)
+M1s 模组可以在多种场景实现客户不同方面的需要，技术支持和商业合作请联系使用邮箱 [support@sipeed.com](support@sipeed.com)

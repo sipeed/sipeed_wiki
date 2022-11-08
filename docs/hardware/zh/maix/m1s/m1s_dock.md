@@ -156,10 +156,10 @@ Sipeed M1s Dock 是基于 [Sipeed M1s](./m1s_module.md) 模组来设计的一款
 
 ---
 
-- [SDK]() (Github) 等待公开
-- 交流 QQ 群：`592731168` 。[点我加群](点击链接加入群聊【荔枝开源 M1s AI交流群】：https://jq.qq.com/?_wv=1027&k=uyKNhTeu)
+- [SDK](https://github.com/bouffalolab/bl_mcu_sdk) (Github) 
+- 交流 QQ 群：`816177882` 。[点我加群](https://jq.qq.com/?_wv=1027&k=0fOkj3EB)
 - 论坛：[bbs.sipeed.com](bbs.sipeed.com)
 
 ## 联系
 
-M1s 模组可以在多种场景实现客户不同方面的需要，商业合作请联系使用邮箱商务 [support@sipeed.com](support@sipeed.com)
+M0sense 开发板可以在多种场景实现客户不同方面的需要，技术支持和商业合作请联系使用邮箱 [support@sipeed.com](support@sipeed.com)
