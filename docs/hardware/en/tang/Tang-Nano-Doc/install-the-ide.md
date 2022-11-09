@@ -32,16 +32,21 @@ Standard Edition IDE requires license, which you should apply from GOWIN Semicon
 
 Education Edition IDE is free to use, but supports fewer device and contains less IP core.
 
-The following figure shows part number supported in the latest Education Edition IDE
+The following figure (Snapped on 2022/11/09) shows part number supported in the latest Education Edition IDE
 
 ![educational_device](./assets/educational_device.png)
 
-In this sheet：
-- GW2A-LV18PG256C8/I7 GW2A-18C is the chip on Primer 20K
-- GW1NR-LV9QN88PC6/I5 GW1NR-9C is the chip on Nano 9K
-- GW1NSR-LV4CQN48PC6/I5 GW1NSR-4C is the chip on Nano 4K
+The supported chips and boards are listed in the following sheet.
 
-So for those who use Tang Nano or Tang Nano 1K, it's need to use Standard Edition IDE and apply license from GOWIN Semiconductor Corp now.
+| Chip full name        |Chip Series|Chip model | Board       |
+| --------------------- | --------- | --------  | ----------- |
+| GW1NZ-LV1QN48C6/I5    | GW1NZ     |GW1NZ      | Nano 1K     |
+| GW1NSR-LV4CQN48PC6/I5 | GW1NSR    |GW1NSR-4C  | Nano 4K     |
+| GW1NR-LV9QN88PC6/I5   | GW1NR     |GW1NR-9C   | Nano 9K     |
+| GW2AR-LV18QN88PC8/I7  | GW2AR     |GW2AR-LV18 | Nano 20K    |
+| GW2A-LV18PG256C8/I7   | GW2A      |GW2A-18C   | Primer 20K  |
+
+So for those who use Tang Nano (Onboard jtag is CH552), it's need to use Standard Edition IDE and apply license from GOWIN Semiconductor Corp now.
 
 ### Install
 
