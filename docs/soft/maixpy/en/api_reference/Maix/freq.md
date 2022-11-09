@@ -19,7 +19,7 @@ Please note that the performance of some peripherals may change after the freque
 
 ```python
 from Maix import freq
-freq.set(cpu ​​= 400, kpu = 400)
+freq.set(cpu = 400, pll1 = 400, kpu_div=1)
 ```
 
 The configuration file will be saved in the file system `/flash/freq.conf`, please do not modify this file, if the file does not exist, it will be created automatically
@@ -40,7 +40,6 @@ Parameters that are not set will retain their previous values
 
 If the frequency has not changed, it returns to null.
 If the frequency changes, the machine will automatically restart. Before using this interface, please confirm whether the current situation can be restarted
-
 
 ### freq.get()
 

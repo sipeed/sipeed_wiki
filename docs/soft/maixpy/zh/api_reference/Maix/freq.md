@@ -19,7 +19,7 @@ desc: maixpy  Maix.freq
 
 ```python
 from Maix import freq
-freq.set(cpu = 400, kpu = 400)
+freq.set(cpu = 400, pll1 = 400, kpu_div=1)
 ```
 
 配置文件将会保存在文件系统的`/flash/freq.conf`文件下，请勿修改这个文件，如果文件不存在则会自动创建
@@ -57,7 +57,6 @@ freq.set(cpu = 400, kpu = 400)
 #### 返回值
 
 `cpu`频率
-
 
 ### freq.get_kpu()
 

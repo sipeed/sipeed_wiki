@@ -1,85 +1,86 @@
 {
     "items": [
         {
-
             "label": "产品总览",
-            "file":"README.md"
+            "file": "README.md"
         },
         {
-            "label": "Maix-I",
+            "label": "Maix-I & Zero",
             "items": [
                 {
-                    "label":"M1 模块",
-                    "collapsed": false,
+                    "label": "Maix M1",
                     "items": [
                         {
-                            "label": "M1/M1w",
-                            "file": "maix/core_module.md"
+                            "label": "M1 模块",
+                            "items": [
+                                {
+                                    "label": "M1/M1w",
+                                    "file": "maix/core_module.md"
+                                },
+                                {
+                                    "label": "M1n",
+                                    "file": "maix/M1n.md"
+                                }
+                            ]
                         },
                         {
-                            "label": "M1n",
-                            "file": "maix/M1n.md"
+                            "label": "M1 开发板",
+                            "items": [
+                                {
+                                    "label": "Maix Bit",
+                                    "file": "maix/maixpy_develop_kit_board/maix_bit.md"
+                                },
+                                {
+                                    "label": "Maix Dock(M1/M1W)",
+                                    "file": "maix/maixpy_develop_kit_board/Maix_dock.md"
+                                },
+                                {
+                                    "label": "Maix Duino",
+                                    "file": "maix/maixpy_develop_kit_board/maix_duino.md"
+                                },
+                                {
+                                    "label": "Maix Nano",
+                                    "file": "maix/maixpy_develop_kit_board/maix_nano.md"
+                                },
+                                {
+                                    "label": "Maix Cube",
+                                    "file": "maix/maixpy_develop_kit_board/maix_cube.md"
+                                },
+                                {
+                                    "label": "Maix Amigo",
+                                    "file": "maix/maixpy_develop_kit_board/maix_Amigo.md"
+                                },
+                                {
+                                    "label": "Maix HAT",
+                                    "file": "maix/maixpy_develop_kit_board/maix_hat.md"
+                                },
+                                {
+                                    "label": "Maix Go（售罄）",
+                                    "file": "maix/maixpy_develop_kit_board/maix_go.md"
+                                }
+                            ]
                         }
                     ]
                 },
                 {
-                    "label": "M1 开发板",
-                    "collapsed": false,
+                    "label": "Maix M1s",
                     "items": [
                         {
-                            "label": "Maix Bit",
-                            "file": "maix/maixpy_develop_kit_board/maix_bit.md"
+                            "label": "M1s 模块",
+                            "file": "maix/m1s/m1s_module.md"
                         },
                         {
-                            "label": "Maix Dock(M1/M1W)",
-                            "file": "maix/maixpy_develop_kit_board/Maix_dock.md"
-                        },
-                        {
-                            "label": "Maix Duino",
-                            "file": "maix/maixpy_develop_kit_board/maix_duino.md"
-                        },
-                        {
-                            "label": "Maix Nano",
-                            "file": "maix/maixpy_develop_kit_board/maix_nano.md"
-                        },
-                        {
-                            "label": "Maix Cube",
-                            "file": "maix/maixpy_develop_kit_board/maix_cube.md"
-                        },
-                        {
-                            "label": "Maix Amigo",
-                            "file": "maix/maixpy_develop_kit_board/maix_Amigo.md"
-                        },
-                        {
-                            "label": "Maix HAT",
-                            "file": "maix/maixpy_develop_kit_board/maix_hat.md"
-                        },
-                        {
-                            "label": "Maix Go（售罄）",
-                            "file": "maix/maixpy_develop_kit_board/maix_go.md"
+                            "label": "M1s 开发板",
+                            "file": "maix/m1s/m1s_dock.md"
                         }
                     ]
                 },
                 {
-                    "label":"M1s 模块",
-                    "file":"maix/m1s/m1s_module.md"
-                },
-                {
-                    "label":"M1s 开发板",
-                    "file":"maix/m1s/m1s_dock.md"
-                },
-                {
-                    "label":"M1a 模块",
-                    "items":[
+                    "label": "Maix Zero",
+                    "items": [
                         {
-                        }
-                    ]
-
-                },
-                {
-                    "label":"M1a 开发板",
-                    "items":[
-                        {
+                            "label": "M0sense 开发板",
+                            "file": "./maixzero/sense/maix_zero_sense.md"
                         }
                     ]
                 }
@@ -276,16 +277,16 @@
                             "file": "tang/tang-primer-20k/primer-20k.md",
                             "items": [
                                 {
-                                    "label":"开箱指南",
-                                    "file" :"tang/tang-primer-20k/start.md"
+                                    "label": "开箱指南",
+                                    "file": "tang/tang-primer-20k/start.md"
                                 },
                                 {
                                     "label": "安装 IDE",
                                     "file": "tang/Tang-Nano-Doc/get_started/install-the-ide.md"
                                 },
                                 {
-                                    "label":"例程指南",
-                                    "file" :"tang/tang-primer-20k/example.md"
+                                    "label": "例程指南",
+                                    "file": "tang/tang-primer-20k/example.md"
                                 },
                                 {
                                     "label": "常见问题",
@@ -397,30 +398,39 @@
             "label": "MaixFace",
             "items": [
                 {
-                    "label": "MF0 & MF0 Dock",
-                    "file": "maixface/mf_ml_module/mf0_ml_module.md"
+                    "label": "MF-ST40 人脸识别模块",
+                    "file": "maixface/mfst40/mfst40.md"
                 },
                 {
-                    "label": "MF1 & MF2",
-                    "file": "maixface/mf_ml_module/mf1_ml_module.md"
-                },
-                {
-                    "label": "MF4 & MF5",
-                    "file": "maixface/mf_ml_module/mf5_product.md"
-                },
-                {
-                    "label": "MF 更新固件说明",
-                    "file": "maixface/mf_ml_module/mf_update_firmwave.md"
-                },
-                {
-                    "label": "MF 人脸识别模块 PCB 设计注意事项",
-                    "file": "maixface/mf_ml_module/mf_precautions.md"
+                    "label": "MF 资料",
+                    "items": [
+                        {
+                            "label": "MF0 & MF0 Dock",
+                            "file": "maixface/mf_ml_module/mf0_ml_module.md"
+                        },
+                        {
+                            "label": "MF1 & MF2",
+                            "file": "maixface/mf_ml_module/mf1_ml_module.md"
+                        },
+                        {
+                            "label": "MF4 & MF5",
+                            "file": "maixface/mf_ml_module/mf5_product.md"
+                        },
+                        {
+                            "label": "MF 更新固件说明",
+                            "file": "maixface/mf_ml_module/mf_update_firmwave.md"
+                        },
+                        {
+                            "label": "MF 人脸识别模块 PCB 设计注意事项",
+                            "file": "maixface/mf_ml_module/mf_precautions.md"
+                        }
+                    ]
                 }
             ]
         },
         {
-            "label":"外设模组",
-            "items":[
+            "label": "外设模组",
+            "items": [
                 {
                     "label": "SP-MOD外设模组",
                     "items": [
@@ -546,7 +556,6 @@
                         }
                     ]
                 }
-
             ]
         }
     ]

@@ -97,9 +97,8 @@ Sipeed M1s Dock 是基于 [Sipeed M1s](./m1s_module.md) 模组来设计的一款
     <tr>
         <td>板载 1 个模拟麦克风、1 个 LED、1 个 TF 卡座 </td>
     </tr>
-    </tbody>
     <tr>    
-        <td rowspan="6" style="white-space:nowrap"> 其他说明 </td>
+        <td rowspan="5" style="white-space:nowrap"> 其他说明 </td>
     </tr>
     <tr>
       <td>
@@ -163,11 +162,11 @@ Sipeed M1s Dock 是基于 [Sipeed M1s](./m1s_module.md) 模组来设计的一款
     <tbody>
         <tr>
           <td>OS</td>
-          <td>· 完备支持FreeRTOS<br>· 基础支持Linux</td>
+          <td>· 完备支持 FreeRTOS<br>· 基础支持 Linux</td>
         </tr>
         <tr>
           <td>开发方式</td>
-          <td>· 原生C SDK<br>· MaixHAL C 模块<br>· pikascript python 脚本</td>
+          <td>· 原生 C SDK<br>· MaixHAL C 模块<br>· pikascript python 脚本</td>
         </tr>
         <tr>
           <td>固件下载</td>
@@ -175,7 +174,7 @@ Sipeed M1s Dock 是基于 [Sipeed M1s](./m1s_module.md) 模组来设计的一款
         </tr>
         <tr>
           <td>AI 推理框架</td>
-          <td>· 支持原生SDK的BLAI加速推理引擎<br>· 支持通用TinyMaix推理引擎</td>
+          <td>· 支持原生 SDK 的 BLAI 加速推理引擎<br>· 支持通用 TinyMaix 推理引擎</td>
         </tr>
         <tr>
           <td>AI 模型下载</td>
@@ -187,7 +186,6 @@ Sipeed M1s Dock 是基于 [Sipeed M1s](./m1s_module.md) 模组来设计的一款
         </tr>
     </tbody>
 </table>
-
 
 ## 补充资料
 
@@ -206,7 +204,6 @@ Sipeed M1s Dock 是基于 [Sipeed M1s](./m1s_module.md) 模组来设计的一款
 - [Examples](https://github.com/sipeed/M1s_BL808_example)（Github）
 - 交流 QQ 群：`816177882` 。[点我加群](https://jq.qq.com/?_wv=1027&k=0fOkj3EB)
 - 论坛：[bbs.sipeed.com](bbs.sipeed.com)
-
 
 ## 注意事项
 

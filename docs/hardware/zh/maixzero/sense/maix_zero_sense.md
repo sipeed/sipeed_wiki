@@ -11,12 +11,20 @@ update:
 
 ## 概述
 
-
 Sipeed M0sense 是基于[博流智能科技](http://www.bouffalolab.com/)的 BL702 芯片所设计的一款 AIOT 开发板，主控芯片为 Risc-V 架构，支持低功耗蓝牙。板载一个 8P FPC 接口来连接 LCD 屏幕，额外配备了 1 个麦克风、1 个 RGB LED 和一颗六轴传感器芯片，引出了一路 USB 2.0 FS 到 Type-C 座子。
 
 购买链接：暂无
 
-<img src="./assets/m0sense_1.png" alt="m0sense_1.png" width=35%>
+渲染图：
+
+<img src="./assets/m0sense_1.png" alt="m0sense_1.png" width=30%>
+
+实物图：
+
+<div>
+  <img src="./assets/m0sense_outlook_top.png" alt="m0sense_outlook_top.png" width=40%>
+  <img src="./assets/m0sense_outlook_bot.png" alt="m0sense_outlook_bot.png" width=40%>
+</div>
 
 ## 特点
 
@@ -86,10 +94,31 @@ Sipeed M0sense 是基于[博流智能科技](http://www.bouffalolab.com/)的 BL7
     <tr>
         <td>陶瓷天线</td>
     </tr>
+    <tr>    
+        <td rowspan="5" style="white-space:nowrap"> 其他说明 </td>
+    </tr>
+    <tr>
+      <td>
+        3D 模型文件下载：<a href="https://dl.sipeed.com/shareURL/Maix-Zero/Maix-Zero/5_3D_file">点击跳转</a>
+      </td>
+    </tr>
+    <tr>
+        <td>外部供电需求 TYPE-C 接口：5V±10% 0.5A</td>
+    </tr>
+    <tr>
+        <td>温升: &lt;30K</td>
+    </tr>
+    <tr>
+        <td>工作温度范围:-10℃ ~ 65℃</td>
+    </tr>
     </tbody>
 </table>
 
 <img src="./assets/m0sense_size.png" alt="m0sense_size" width=55%>
+
+## 引脚
+
+<img src="./assets/m0sense_pinmap.png" alt="m0sense_pinmap" width=75%>
 
 ## 对比
 
@@ -175,7 +204,43 @@ Sipeed M0sense 是基于[博流智能科技](http://www.bouffalolab.com/)的 BL7
   </body>
 </table>
 
-## 资料
+## 软件描述
+
+<table>
+    <thead>
+        <tr>
+            <th colspan = "2" > M0sense </th>   
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>OS</td>
+          <td>FreeRTOS</td>
+        </tr>
+        <tr>
+          <td>开发方式</td>
+          <td>· 原生 C SDK<br>· MaixHAL C 模块pikascript 脚本话脚本</td>
+        </tr>
+        <tr>
+          <td>固件下载</td>
+          <td>·  USB虚拟串口下载<br>· USB虚拟磁盘拖拽更新</td>
+        </tr>
+        <tr>
+          <td>AI 推理框架</td>
+          <td>TinyMaix 推理框架</td>
+        </tr>
+        <tr>
+          <td>AI 模型下载</td>
+          <td>· <a herf="https://maixhub.com/">MaixHub</a> 下载。支持 关键词唤醒，手势识别 等模型</td>
+        </tr>
+        <tr>
+          <td>Sipeed 参考示例</td>
+          <td>· https://github.com/sipeed</td>
+        </tr>
+    </tbody>
+</table>
+
+## 补充资料
 
 - [规格书](https://dl.sipeed.com/shareURL/Maix-Zero/Maix-Zero/1_Specification)
 - [原理图](https://dl.sipeed.com/shareURL/Maix-Zero/Maix-Zero/2_Schematic)
@@ -217,10 +282,6 @@ Sipeed M0sense 是基于[博流智能科技](http://www.bouffalolab.com/)的 BL7
         <td>请在上电过程中，避免任何液体和金属触碰到 PCBA 上的元件的焊盘，否则会导致路，烧毁 PCBA</td>
     </tr>
 </table>
-
-## 引脚
-
-<img src="./assets/m0sense_pinmap.png" alt="m0sense_pinmap" width=75%>
 
 ## 联系
 
