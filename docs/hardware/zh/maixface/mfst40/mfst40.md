@@ -23,8 +23,8 @@ MF-ST40 人脸识别模组基于博流 BL808 芯片设计，模组内部预留�
 
 <table>
     <tr>
-    <td align="center">模组图片</td>
-    <td align="center">演示机图片</td>
+    <th align="center">模组图片</th>
+    <th align="center">演示机图片</th>
     </tr>
     <tr>
     <td>
@@ -81,6 +81,10 @@ MF-ST40 人脸识别模组基于博流 BL808 芯片设计，模组内部预留�
 
 <table>
     <tr>
+        <th>项目</th>
+        <th>注意事项</th>
+    </tr>
+    <tr>
         <td>静电防护</td>
         <td>请避免静电打到 PCBA 上；接触 PCBA 之前请我手的静电释放掉</td>
     </tr>
@@ -89,7 +93,7 @@ MF-ST40 人脸识别模组基于博流 BL808 芯片设计，模组内部预留�
         <td> 每个 GPIO 的工作电压已经在原理图中标注出来，请不要让 GPIO 的实际工作的电压超过额定值，否则会引起 PCBA 的永久性损坏 </td>
     </tr>
     <tr>
-        <td>FPC座子</td>
+        <td>FPC 座子</td>
         <td>在连接 FPC 软排线的时候，谲确保排线无偏侈地完整地插入到排线中</td>
     </tr>
     <tr>

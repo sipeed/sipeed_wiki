@@ -189,10 +189,39 @@ Sipeed M0sense 是基于[博流智能科技](http://www.bouffalolab.com/)的 BL7
 - 交流 QQ 群：`592731168` 。[点我加群](https://jq.qq.com/?_wv=1027&k=uyKNhTeu)
 - 论坛：[bbs.sipeed.com](bbs.sipeed.com)
 
+## 注意事项
+
+<table>
+    <tr>
+        <th>项目</th>
+        <th>注意事项</th>
+    </tr>
+    <tr>
+        <td>静电防护</td>
+        <td>请避免静电打到 PCBA 上；接触 PCBA 之前请我手的静电释放掉</td>
+    </tr>
+    <tr>
+        <td>容忍电压</td>
+        <td> 每个 GPIO 的工作电压已经在原理图中标注出来，请不要让 GPIO 的实际工作的电压超过额定值，否则会引起 PCBA 的永久性损坏 </td>
+    </tr>
+    <tr>
+        <td>FPC 座子</td>
+        <td>在连接 FPC 软排线的时候，谲确保排线无偏侈地完整地插入到排线中</td>
+    </tr>
+    <tr>
+        <td>插拔</td>
+        <td>请完全断电后才进行插拔操作</td>
+    </tr>
+    <tr>
+        <td>避免短路</td>
+        <td>请在上电过程中，避免任何液体和金属触碰到 PCBA 上的元件的焊盘，否则会导致路，烧毁 PCBA</td>
+    </tr>
+</table>
+
 ## 引脚
 
 <img src="./assets/m0sense_pinmap.png" alt="m0sense_pinmap" width=75%>
 
 ## 联系
 
-M1s 模组可以在多种场景实现客户不同方面的需要，技术支持和商业合作请联系使用邮箱 [support@sipeed.com](support@sipeed.com)
+M0sense 可以在多种场景实现客户不同方面的需要，技术支持和商业合作请联系使用邮箱 [support@sipeed.com](support@sipeed.com)

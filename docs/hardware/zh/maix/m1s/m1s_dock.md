@@ -2,6 +2,14 @@
 title: M1s DOCK 开发板
 keywords: M1s DOCK ,BL808, M1s
 update:
+  - date: 2022-11-09
+    version: v0.1
+    author: wonder
+    content:
+      - 修改部分描述错误
+      - 增加 SDK(github) 和 Example(github) 链接
+      - 增加注意事项
+      - 增加软件描述栏目
   - date: 2022-11-04
     version: v0.1
     author: wonder
@@ -38,7 +46,6 @@ Sipeed M1s Dock 是基于 [Sipeed M1s](./m1s_module.md) 模组来设计的一款
 -	引出一路 USB-OTG 到 USB Type-C 接口
 
 ### 硬件参数
-
 
 <table>
     <thead>
@@ -111,7 +118,7 @@ Sipeed M1s Dock 是基于 [Sipeed M1s](./m1s_module.md) 模组来设计的一款
     </tbody>    
 </table>
 
-### 功能框图
+### 外设框图
 
 <table width=40%>
   <tr>
@@ -128,23 +135,61 @@ Sipeed M1s Dock 是基于 [Sipeed M1s](./m1s_module.md) 模组来设计的一款
 
 <img alt="m1s_doc_pin_map" src="./assets/m1s_dock/m1s_doc_pin_map.png" width=45%>
 
-## 对比
+## 产品对比
 
-| 项目 | Maix Bit | ESP32 cam | M1s Dock |
-|:---|:---|:---|:---|
-| 处理器 | K210 | ESP32 | M1s(BL808) |
-| 摄像头 | 0.3MP DVP GC0328 | 2MP DVP OV2640 with flash LED | 2MP MIPI OV2685(two-side) with flash LED |
-| 显示屏 | 2.4 inch 320x240 || 1.68 inch 280x240 带电容触摸 |
-| 音频 | I2S MEMS MIC |  | Analog MEMS MIC + LineOut |
-| SD 卡槽 | SPI 模式 |  SPI 模式 |  SDHC 模式 <br> JTAG 模式 |
-| 按键 | Reset <br> Boot | Reset | Reset <br> Boot <br> User x 2 |
-| USB | USB to Serial x 1 || USB to Dual Serial  x 1 <br> USB OTG HS |
-| 其他 ||| 4P 1.25mm 连接器（串口） |
-| 引脚 | 2 x 18 pins,可用于面包板 | 2 x 8 pins | 2 x 16 pins,可用于面包板 |
-| 尺寸 | 25 x 53 mm | 27 x 41 mm | 27 x 55 mm |
+| 项目    | Maix Bit                 | ESP32 cam                     | M1s Dock                                   |
+| :------ | :----------------------- | :---------------------------- | :----------------------------------------- |
+| 处理器  | K210                     | ESP32                         | M1s(BL808)                                 |
+| 摄像头  | 0.3MP DVP GC0328         | 2MP DVP OV2640 with flash LED | 2MP MIPI OV2685(two-side) with flash LED   |
+| 显示屏  | 2.4 inch 320x240         |                               | 1.68 inch 280x240 带电容触摸               |
+| 音频    | I2S MEMS MIC             |                               | Analog MEMS MIC + LineOut                  |
+| SD 卡槽 | SPI 模式                 | SPI 模式                      | · SDHC 模式 <br>· JTAG 模式                |
+| 按键    | Reset <br> Boot          | Reset                         | · Reset <br>· Boot <br>· User x 2          |
+| USB     | USB to Serial x 1        |                               | · USB to Dual Serial  x 1 <br>· USB OTG HS |
+| 其他    |                          |                               | 4P x 1.25mm 连接器（串口）                 |
+| 引脚    | 2 x 18 pins,可用于面包板 | 2 x 8 pins                    | 2 x 16 pins,可用于面包板                   |
+| JTAG    |                          |                               | 可选 TF2JTAG                               |
+| 外壳    |                          |                               | 可选                                       |
+| 尺寸    | 25 x 53 mm               | 27 x 41 mm                    | 27 x 55 mm                                 |
+
+## 软件描述
+
+<table>
+    <thead>
+        <tr>
+            <th colspan = "2" > M1s 模组 </th>   
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>OS</td>
+          <td>· 完备支持FreeRTOS<br>· 基础支持Linux</td>
+        </tr>
+        <tr>
+          <td>开发方式</td>
+          <td>· 原生C SDK<br>· MaixHAL C 模块<br>· pikascript python 脚本</td>
+        </tr>
+        <tr>
+          <td>固件下载</td>
+          <td>· 串口下载<br>· 虚拟磁盘拖拽式更新</td>
+        </tr>
+        <tr>
+          <td>AI 推理框架</td>
+          <td>· 支持原生SDK的BLAI加速推理引擎<br>· 支持通用TinyMaix推理引擎</td>
+        </tr>
+        <tr>
+          <td>AI 模型下载</td>
+          <td>· <a herf="https://maixhub.com/">MaixHub</a> 下载。支持 人脸检测，识别，姿态检测，手势检测 等</td>
+        </tr>
+        <tr>
+          <td>Sipeed 参考示例</td>
+          <td>· https://github.com/sipeed/M1s_BL808_example</td>
+        </tr>
+    </tbody>
+</table>
 
 
-## 资料
+## 补充资料
 
 - [规格书](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/1_Specification)
 - [原理图](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/2_Schematic)
@@ -153,13 +198,45 @@ Sipeed M1s Dock 是基于 [Sipeed M1s](./m1s_module.md) 模组来设计的一款
 - [3D 模型文件](https://dl.sipeed.com/shareURL/MAIX/M1s_Dock/M1s/5_3D_file)
 - [芯片数据手册](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/6_Chip_Manual)
 - [触摸屏手册](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/6_Chip_Manual/touch_screen)
+- [博流官方文档](https://dev.bouffalolab.com/home/)
 
 ---
 
 - [SDK](https://github.com/bouffalolab/bl_mcu_sdk) (Github) 
+- [Examples](https://github.com/sipeed/M1s_BL808_example)（Github）
 - 交流 QQ 群：`816177882` 。[点我加群](https://jq.qq.com/?_wv=1027&k=0fOkj3EB)
 - 论坛：[bbs.sipeed.com](bbs.sipeed.com)
 
+
+## 注意事项
+
+<table>
+    <tr>
+        <th>项目</th>
+        <th>注意事项</th>
+    </tr>
+    <tr>
+        <td>静电防护</td>
+        <td>请避免静电打到 PCBA 上；接触 PCBA 之前请我手的静电释放掉</td>
+    </tr>
+    <tr>
+        <td>容忍电压</td>
+        <td> 每个 GPIO 的工作电压已经在原理图中标注出来，请不要让 GPIO 的实际工作的电压超过额定值，否则会引起 PCBA 的永久性损坏 </td>
+    </tr>
+    <tr>
+        <td>FPC 座子</td>
+        <td>在连接 FPC 软排线的时候，谲确保排线无偏侈地完整地插入到排线中</td>
+    </tr>
+    <tr>
+        <td>插拔</td>
+        <td>请完全断电后才进行插拔操作</td>
+    </tr>
+    <tr>
+        <td>避免短路</td>
+        <td>请在上电过程中，避免任何液体和金属触碰到 PCBA 上的元件的焊盘，否则会导致路，烧毁 PCBA</td>
+    </tr>
+</table>
+
 ## 联系
 
-M0sense 开发板可以在多种场景实现客户不同方面的需要，技术支持和商业合作请联系使用邮箱 [support@sipeed.com](support@sipeed.com)
+Sipeed M1s Dock 开发板可以在多种场景实现客户不同方面的需要，技术支持和商业合作请联系使用邮箱 [support@sipeed.com](support@sipeed.com)
