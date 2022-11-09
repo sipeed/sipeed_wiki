@@ -200,7 +200,7 @@ Sipeed M1s Dock 是基于 [Sipeed M1s](./m1s_module.md) 模组来设计的一款
 
 ---
 
-- [SDK](https://github.com/bouffalolab/bl_mcu_sdk) (Github) 
+- [SDK](https://github.com/sipeed/M1s_BL808_SDK) (Github) 
 - [Examples](https://github.com/sipeed/M1s_BL808_example)（Github）
 - 交流 QQ 群：`816177882` 。[点我加群](https://jq.qq.com/?_wv=1027&k=0fOkj3EB)
 - 论坛：[bbs.sipeed.com](bbs.sipeed.com)

@@ -32,18 +32,23 @@ IDE 分为商业版和教育版：
 
 商业版的 IDE 需要 license，需要向高云半导体官方自行申请。
 
-教育版 IDE 不需要 license，且 V1.9.8.07 和之后的版本支持 GW2A-18C 器件。先在网页顶部注册、登陆然后就能够顺利下载下来教育版 IDE 了，目前教育版所支持的器件如下：
+教育版 IDE 不需要 license，直接点击下载就可以了。
+
+教育版所支持的器件如下：
 
 ![educational_device](./assets/educational_device.png)
 
-由于高云半导体的IDE在不断的更新中，上图为 2022 年 08 月 16 日截图
+由于高云半导体的IDE在不断的更新中，上图为 2022 年 11 月 09 日截图
 
-其中：
-- GW2A-LV18PG256C8/I7 GW2A-18C 为 Primer 20K 所使用的芯片
-- GW1NR-LV9QN88PC6/I5 GW1NR-9C 为 Nano 9K 所使用的芯片
-- GW1NSR-LV4CQN48PC6/I5 GW1NSR-4C 为 Nano 4K 所使用的芯片
+| 芯片全程               | 芯片系列  | 芯片型号   | 适用板卡     |
+| --------------------- | --------- | --------  | ----------- |
+| GW1NZ-LV1QN48C6/I5    | GW1NZ     |GW1NZ      | Nano 1K     |
+| GW1NSR-LV4CQN48PC6/I5 | GW1NSR    |GW1NSR-4C  | Nano 4K     |
+| GW1NR-LV9QN88PC6/I5   | GW1NR     |GW1NR-9C   | Nano 9K     |
+| GW2AR-LV18QN88PC8/I7  | GW2AR     |GW2AR-LV18 | Nano 20K    |
+| GW2A-LV18PG256C8/I7   | GW2A      |GW2A-18C   | Primer 20K  |
 
-所以对于购买了 Tang Nano 和 Tang Nano 1K 的用户，目前需要使用商业版的 IDE 且需要自行向高云半导体官方申请 license。
+所以对于购买了 Tang Nano （板载 jtag 芯片为 CH552），目前需要使用商业版的 IDE 且需要自行向高云半导体官方申请 license。
 
 ### 开始安装
 
