@@ -1,6 +1,12 @@
 ---
-title: 20K 开箱指南
-date: 2022-09-16
+title: Tang Primer 20K 开箱指南
+keywords: FPGA, Primer, Tang, 20K
+update:
+  - date: 2022-09-16
+    version: v0.1
+    author: wonder
+    content:
+      - 首次编辑
 ---
 
 持续施工中
@@ -30,8 +36,8 @@ Primer 20K 底板有 Lite 和 Dock 两款，这里分开说明一下
 
 正确的连接顺序是先将核心板斜插入到底板中，倾斜角度大概如如下图左图所示。确定从上面看到斜插入的核心板与底板均匀接触，可以从金手指裸露出来的均匀程度来判断。
 
-<img src="./assets/start/edge_view.png" alt="edge_view" width=30%>
-<img src="./assets/start/top_view.png" alt="top_view" width=25%>
+<img src="./assets/start/edge_view.png" alt="edge_view" width=45%>
+<img src="./assets/start/top_view.png" alt="top_view" width=35%>
 
 然后轻压翘起来的那一头，可以清脆的听见核心板被底板插槽固定住的声音。
 
@@ -65,7 +71,7 @@ LED2 与 LED3 的丝印错误，应当为：
 对于 Dock 底板，默认固件可进行如下操作：
 - 按下 S0 按键，复位 RGB 屏幕、摄像头、HDMI 信号复位，且 3、4、5 号三个 LED 会常亮。
 - S2 到 S5 按键及 2 号到 5 号拨码开关控制 0、1、2 三个 LED 灯的状态
-- 将 OV5640 与 RGB 屏幕连接到板子上（连接时注意断开板子电源），屏幕上面会显示摄像头所捕获到的画面。如果屏幕显示有撕裂现象的话，可以按下 S0 按键来同步一下输出画面。
+- 将 OV5640 摄像头与 4.3寸 RGB 屏幕连接到板子上（连接时注意断开板子电源），屏幕上面会显示摄像头所捕获到的画面。如果屏幕显示有撕裂现象的话，可以按下 S0 按键来同步一下输出画面。
 
 默认固件中，将 3、4 号两个灯设置为时钟检测信号，可以通过这两个灯的状态来鉴别设备是否工作。
 
@@ -75,11 +81,11 @@ LED2 与 LED3 的丝印错误，应当为：
 
 ### 相关问题
 
-使用中碰到问题可以先前往 [常见问题](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/questions.html) 自行解决。
+使用中碰到问题可以先前往 [常见问题](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/questions.html) 来查看解决方法。
 
 ## Lite 开箱说明
 
-### 应该更新记录
+### 硬件版本说明
 
 对于 Lite 底板，可以从如下图所指的位置来了解当前自己所使用的板子版本。
 
@@ -104,4 +110,4 @@ LED2 与 LED3 的丝印错误，应当为：
 
 ### 相关问题
 
-使用中碰到问题可以先前往 [常见问题](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/questions.html) 自行解决。
+使用中碰到问题可以先前往 [常见问题](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/questions.html) 来查看解决方法。
