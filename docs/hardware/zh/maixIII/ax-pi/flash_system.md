@@ -4,16 +4,21 @@ tags: AXera-Pi, 烧录系统
 keywords: AXera-Pi，烧录, 上手
 desc: AXera-Pi 烧录系统
 update:
-  - date: 2022-09-13
-    version: v0.1
-    author: lyx
+  - date: 2022-11-10
+    version: v0.3
+    author: wonder
     content:
-      - 初稿
+      - 优化排版
   - date: 2022-09-29
     version: v0.2
     author: wonder
     content:
       - 丰富内容
+  - date: 2022-09-13
+    version: v0.1
+    author: lyx
+    content:
+      - 初稿
 ---
 
 ---
@@ -115,12 +120,3 @@ AXera-Pi 默认板卡没有存储介质，因此需要准备一张系统卡来�
 
 > **注意**：如果出现烧录失败的情况，请手动格式化一下 SD 卡。
 > Windows 和 MacOS 可以使用 [SD Card Formatter](https://www.sdcard.org/downloads/formatter/eula_windows/SDCardFormatterv5_WinEN.zip)来格式化 SD 卡，Linux 系统可以使用系统的 disk 工具或 [Gparted](https://gparted.org/)来格式化。
-
-
-<!-- 烧录方法如下图示意
-![etcher](../../../assets/maixIII/ax-pi/etcher.jpg)
-点击“flash!”开始烧录，可看到进度条的跳动。
-![etcher_two](../../../assets/maixIII/ax-pi/etcher_t.jpg)
-最终下载结束后的效果会和下图一样，显示 `Flash Complete!`：
-![etcher_three](../../../assets/maixIII/ax-pi/etcher_h.jpg)
-如果烧录失败的话 方法： -->

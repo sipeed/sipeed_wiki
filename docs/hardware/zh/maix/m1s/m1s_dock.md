@@ -3,7 +3,7 @@ title: M1s DOCK 开发板
 keywords: M1s DOCK ,BL808, M1s
 update:
   - date: 2022-11-09
-    version: v0.1
+    version: v0.2
     author: wonder
     content:
       - 修改部分描述错误
