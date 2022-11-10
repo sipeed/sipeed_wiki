@@ -82,3 +82,7 @@ key:57F80642C3F97E2655772C48AF17455EC9E79BBF76C16EED4E0EC1096D664435
 ### 没有显示出两个串口
 
 可以参考[该网页](https://github.com/sipeed/M1s_BL808_example) (Github) 里面的 **Download bl702 firmware** 重新烧录一次串口固件，双串口固件下载地址为 [这里](https://dl.sipeed.com/shareURL/Accessories/RV-Debugger%20Plus)，其名称为 `usb2dualuart_bl702.bin`
+
+### 没有显示出任何串口
+
+首先应当确认自己所接通的是 UART 口，然后可以根据本篇所述的[没有显示出两个串口](#没有显示出两个串口)重新烧录一下串口固件
