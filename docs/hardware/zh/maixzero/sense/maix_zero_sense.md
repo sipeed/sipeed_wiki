@@ -252,7 +252,7 @@ Sipeed M0sense 是基于[博流智能科技](http://www.bouffalolab.com/)的 BL7
 
 - [SDK](https://github.com/bouffalolab/bl_mcu_sdk) (Github) 
 - 交流 QQ 群：`592731168` 。[点我加群](https://jq.qq.com/?_wv=1027&k=uyKNhTeu)
-- 论坛：[bbs.sipeed.com](bbs.sipeed.com)
+- 论坛：[bbs.sipeed.com](https://bbs.sipeed.com/)
 
 ## 注意事项
 
@@ -263,7 +263,7 @@ Sipeed M0sense 是基于[博流智能科技](http://www.bouffalolab.com/)的 BL7
     </tr>
     <tr>
         <td>静电防护</td>
-        <td>请避免静电打到 PCBA 上；接触 PCBA 之前请我手的静电释放掉</td>
+        <td>请避免静电打到 PCBA 上；接触 PCBA 之前请把手的静电释放掉</td>
     </tr>
     <tr>
         <td>容忍电压</td>

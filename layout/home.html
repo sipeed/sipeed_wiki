@@ -20,10 +20,10 @@
  <div id="products">
      <n-card class="head_background" hoverable>
          <n-grid cols="9" item-responsive responsive="screen">
-             <template v-if="$t('language') === 'zh'">
                  <n-grid-item span="0 s:0 m:0 l:9" style="margin-left: 6%; margin-right: 6%; margin-bottom: 1%; ">
                      <n-card size="small" style="margin: auto; display: flex; height: 740px; " hoverable>
                          <n-tabs type="line" trigger='hover' justify-content="space-evenly">
+                            <template v-if="$t('language') === 'zh'">
                              <n-tab-pane name="近期热点事件">
                                  <n-card style="margin: auto; display: fit-content; max-height: fit-content;">
                                      <n-carousel effect="card" class="base_background"
@@ -61,7 +61,7 @@
                                                     </n-button-group>
                                                 </n-divider>    
                                             </n-card>
-                                        </n-carousel-item>   
+                                        </n-carousel-item>
                                         <n-carousel-item :style="{ width: '75%' }">
                                             <n-card size="small" hoverable>
                                                 <a href= "/m1s#dock" target="_blank"><img class="carousel-img" src="/static/home/m1s_dock_m0sense.jpg" alt="m1s_dock_m0sense"></a>
@@ -80,7 +80,7 @@
                                                     </n-button-group>
                                                 </n-divider>    
                                             </n-card>
-                                        </n-carousel-item>    
+                                        </n-carousel-item>
                                         <n-carousel-item :style="{ width: '80%' }">
                                             <n-card size="small" hoverable>
                                                 <img class="carousel-img" src="/static/home/maixsense.jpg">
@@ -103,7 +103,7 @@
                                     </n-carousel-item>
                                      <n-carousel-item :style="{ width: '80%' }">
                                          <n-card size="small" hoverable>
-                                             <img class="carousel-img" src="/static/image/maixhub_banner.jpg">
+                                             <a href="https://maixhub.com/signin"><img class="carousel-img" src="/static/image/maixhub_banner.jpg"></a>
                                              <n-divider title-placement="right">
                                                 <n-button-group style="margin: 5px; font-size: 16px;">
                                                 <n-button size="large"
@@ -165,7 +165,8 @@
                                             <n-collapse-item title="TOF 科普小课堂上课啦！解答 MaixSense 是什么？" name="2">
                                                 <div>
                                                   <img src="https://wiki.sipeed.com/hardware/zh/maixsense/assets/tof_two.jpg" style="max-width:400px; max-height:480px;" alt="" />
-                                                    <br>TOF 是“飞行时间”指是光飞行到目标物体并反射回来所经历的时间，而 MaixSense 使用 ToF 技术采集真实世界的 3D 信息
+                                                    <br>TOF 是“飞行时间”指是光飞行到目标物体并反射回来所经历的时间，我们可以根据这时间计算出距离，来得到深度信息，然后构建出 3D 模型。
+                                                    而 MaixSense 就是使用 ToF 技术来采集并得出真实世界的 3D 信息
                                                     <a href="https://wiki.sipeed.com/hardware/zh/maixsense/index.html" target="_blank">传送门：去看看 MaixSense 是什么?</a>
                                                 </div>
                                             </n-collapse-item>
@@ -379,7 +380,7 @@
                                      </n-card>
                                  </n-layout>
                              </n-tab-pane>
-                             <n-tab-pane name="2022年电赛精彩回顾">
+                             <n-tab-pane name="2022 年电赛声源定位">
                                  <n-layout style="position: relative" has-sider position="absolute" hoverable>
                                      <n-card class="base_background"
                                         style="margin: auto; display: fit-content; height: 600px;">
@@ -446,20 +447,90 @@
                                  2. 你的板子在支持列表吗？向我们请愿吧！
                                  3. 如何加入开发或讨论呢？
                              </n-tab-pane> -->
-                         </n-tabs>
-                     </n-card>
-                 </n-grid-item>
-             </template>
-             <template v-else>
-                 <n-grid-item span="0 s:0 m:0 l:0" style="margin-left: 6%; margin-right: 6%; margin-bottom: 1%; ">
-                     <n-card size="small" style="margin: auto; display: flex; height: 740px; " hoverable>
-                         <n-tabs type="line" trigger='hover' justify-content="space-evenly">
-                             <n-tab-pane name="news">
+                        </template>
+                        <template v-else>                                    
+                            <n-tab-pane name="Hot on sale">
                                  <n-card style="margin: auto; display: fit-content; max-height: fit-content;">
                                      <n-carousel effect="card" class="base_background"
                                          prev-slide-style="transform: translateX(-150%) translateZ(-1200px);"
                                          next-slide-style="transform: translateX(50%) translateZ(-1200px);"
-                                         :show-dots="false" autoplay draggable style="height: 620px">
+                                         :show-dots="false" autoplay draggable style="height: 620px"> 
+                                         <n-carousel-item :style="{ width: '75%' }">
+                                             <n-card size="small" hoverable>
+                                                 <a href= "/m1s#dock" target="_blank"><img class="carousel-img" src="/static/home/m1s_dock_m0sense.jpg" alt="m1s_dock_m0sense"></a>
+                                                 <n-divider title-placement="right">
+                                                     <n-button-group style="margin: 5px; font-size: 16px;">
+                                                     <n-button size="large"
+                                                             href="https://wiki.sipeed.com/en/m1s#dock"
+                                                             target="_blank" tag="a" type="error" ghost>
+                                                             See muti-core muc details
+                                                         </n-button>
+                                                         <n-button size="large" style="color:#ffffff; " color="#e34548"
+                                                              href="https://sipeed.aliexpress.com/store/1101739727"
+                                                              tag="a" target="_blank" round>
+                                                             Buy it (Consult the saler)
+                                                     </n-button>
+                                                     </n-button-group>
+                                                 </n-divider>    
+                                             </n-card>
+                                         </n-carousel-item>
+                                         <n-carousel-item :style="{ width: '75%' }">
+                                             <n-card size="small" hoverable>
+                                                 <a href="https://wiki.sipeed.com/hardware/en/maixIII/ax-pi/axpi.html" target="_blank"><img class="carousel-img" src="/static/home/maixiii_axpi.jpg" alt="maixiii_axpi"></a>
+                                                 <n-divider title-placement="right">
+                                                     <n-button-group style="margin: 5px; font-size: 16px;">
+                                                     <n-button size="large"
+                                                             href="https://wiki.sipeed.com/hardware/en/maixIII/ax-pi/axpi.html"
+                                                             target="_blank" tag="a" type="error" ghost>
+                                                             Get to know MAIX-III AXera-Pi AI board
+                                                         </n-button>
+                                                         <n-button size="large" style="color:#ffffff; " color="#e34548"
+                                                              href="https://sipeed.aliexpress.com/store/1101739727"
+                                                              tag="a" target="_blank" round>
+                                                             Buy it (Consult the saler)
+                                                     </n-button>
+                                                     </n-button-group>
+                                                 </n-divider>    
+                                             </n-card>
+                                         </n-carousel-item>
+                                         <n-carousel-item :style="{ width: '80%' }">
+                                             <n-card size="small" hoverable>
+                                                 <img class="carousel-img" src="/static/home/maixsense.jpg">
+                                                 <n-divider title-placement="right">
+                                                     <n-button-group style="margin: 5px; font-size: 16px;">
+                                                     <n-button size="large"
+                                                             href="https://wiki.sipeed.com/hardware/en/maixsense/index.html"
+                                                             target="_blank" tag="a" type="error" ghost>
+                                                             Try this toy
+                                                         </n-button>
+                                                         <n-button size="large" style="color:#ffffff; " color="#e34548"
+                                                             href="https://www.indiegogo.com/projects/maixsense-rgbd-tof-3d-camera-for-mcu-ros-robot#/"
+                                                             tag="a" target="_blank" round>
+                                                            Get it
+                                                         </n-button>
+                                                     </n-button-group>
+                                                 </n-divider>
+                                             </n-card>
+                                         </n-carousel-item>
+                                         <n-carousel-item :style="{ width: '80%' }">
+                                             <n-card size="small" hoverable>
+                                                 <a href="https://maixhub.com/signin?tab=email"><img class="carousel-img" src="/static/image/maixhub_banner_en.jpg"></a>
+                                                 <n-divider title-placement="right">
+                                                    <n-button-group style="margin: 5px; font-size: 16px;">
+                                                    <n-button size="large"
+                                                            href="https://wiki.sipeed.com/ai/en/index.html"
+                                                            target="_blank" tag="a" type="error" ghost>
+                                                            AI Guide
+                                                        </n-button>
+                                                        <n-button size="large" style="color:#ffffff; " color="#e34548"
+                                                            href="https://maixhub.com/"
+                                                            tag="a" target="_blank" round>
+                                                            MaixHub
+                                                        </n-button>
+                                                    </n-button-group>
+                                                </n-divider>
+                                             </n-card>
+                                         </n-carousel-item>
                                          <n-carousel-item :style="{ width: '80%' }">
                                              <n-card size="small" hoverable>
                                                  <img class="carousel-img" src="/static/home/banner-2.jpg">
@@ -473,39 +544,59 @@
                                                      <n-button size="large" style="color:#ffffff; " color="#e34548"
                                                          href="https://www.aliexpress.com/item/1005002538932487.html"
                                                          tag="a" target="_blank" round>
-                                                         Get one：$23.59
+                                                         Get it
                                                      </n-button>
                                                      </n-button-group>
                                                  </n-divider>
                                              </n-card>
                                          </n-carousel-item>
-                                     </n-carousel-item>
-                                     <n-carousel-item :style="{ width: '80%' }">
-                                         <n-card size="small" hoverable>
-                                             <img class="carousel-img" src="/static/home/maixsense.webp">
-                                             <n-divider title-placement="right">
-                                                 <n-button-group style="margin: 5px; font-size: 16px;">
-                                                 <n-button size="large"
-                                                         href="https://wiki.sipeed.com/hardware/en/maixsense/index.html"
-                                                         target="_blank" tag="a" type="error" ghost>
-                                                         User Manual
-                                                     </n-button>
-                                                     <n-button size="large" style="color:#ffffff; " color="#e34548"
-                                                         href="https://www.indiegogo.com/projects/maixsense-rgbd-tof-3d-camera-for-mcu-ros-robot#/"
-                                                         tag="a" target="_blank" round>
-                                                        Get it
-                                                     </n-button>
-                                                 </n-button-group>
-                                             </n-divider>
-                                         </n-card>
-                                     </n-carousel-item>
                                      </n-carousel>
                                  </n-card>
                              </n-tab-pane>
+                             <n-tab-pane name="MaixSense TOF">
+                                <n-layout style="position: relative" has-sider position="absolute" hoverable>
+                                    <n-card class="base_background"
+                                        style="margin: auto; display: fit-content; max-width: 50%; max-height: 600px;">
+                                        <h1>Let's use MaixSense to have a good experience <br>in TOF world</h1>
+                                        <n-divider>
+                                        </n-divider>
+                                            <n-collapse>
+                                                <n-collapse-item title="Sipeed brings up MaixSense series TOF camera module" name="1">
+                                                  <div>
+                                                    <img src="https://wiki.sipeed.com/hardware/zh/maixsense/assets/meta.jpg" style="max-width:400px; max-height:480px;" alt="" />
+                                                    <br>This time we bring up 2 TOF modules, they are A010 and A075V.
+                                                    <a href="https://wiki.sipeed.com/hardware/en/maixsense/index.html" target="_blank">[Click to know more]</a>
+                                                  </div>
+                                                </n-collapse-item>
+                                            <n-collapse-item title="Introduction to TOF! What is MaixSense? " name="2">
+                                                <div>
+                                                  <img src="https://wiki.sipeed.com/hardware/zh/maixsense/assets/tof_two.jpg" style="max-width:400px; max-height:480px;" alt="" />
+                                                    <br>TOF is "Time-Of-Flight", means the time that light travels to the target and reflects back, by which calculating the distense, and get the target shape by mutiple depth data. MaixSense reflects the real 3D world information by this technology.
+                                                    <a href="https://wiki.sipeed.com/hardware/en/maixsense/index.html" target="_blank">Portal: What's MaixSense?</a>
+                                                </div>
+                                            </n-collapse-item>
+                                                <n-collapse-item title="Many different usages with MaixSense series, meet all you want" name="3">
+                                                  <div>
+                                                    <img class="carousel-img" src="/static/home/metasense_effect.jpg" style="max-width:400px; max-height:480px;" alt="" />
+                                                       <br>Easy to use? Dot cloud image? Access to ROS or MCU? Face recognition? Car obstacle avoidance?<br>All what you want are offered! And SDK and examples are also provided.
+                                                       <br><a href="https://wiki.sipeed.com/hardware/en/maixsense/index.html#What-can-MaixSense-do%3F" target="_blank">Know their functions earlier than others</a>
+                                                  </div>
+                                                </n-collapse-item>
+                                                <n-collapse-item title="How to get MaixSense ?" name="4">
+                                                    <div>Up to now the raise has stopped, consult the saler for details.<a href="https://sipeed.aliexpress.com/store/1101739727" target="_blank"> Aliexpress</a>
+                                                    </div>
+                                                  </n-collapse-item>
+                                            </n-collapse>
+                                    </n-card>
+                                    <n-divider title-placement="center">
+                                        <iframe src="//player.bilibili.com/player.html?aid=218150917&bvid=BV1q8411t7xb&cid=838335610&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="min-width:540px; min-height:480px;"> </iframe>
+                                    </n-divider>
+                                </n-layout>
+                             </n-tab-pane>
+                            </template>
                          </n-tabs>
                      </n-card>
                  </n-grid-item>
-             </template>
 
              <n-grid-item span="9 s:9 m:9 l:9" >
                  <n-card size="small" style="margin: auto; display: flex; min-height: fit-content; " hoverable>
@@ -544,7 +635,7 @@
                          </n-tab-pane>
                      </n-tabs>
                  </n-card>
-         </n-grid>
+            </n-grid>
          </n-grid>
      </n-card>
 
@@ -739,7 +830,6 @@
                      },
                 ],
                 "LICHEEPI": [
-
                     {
                         title: "Lichee RV",
                         src: "https://gd1.alicdn.com/imgextra/i1/2200606237318/O1CN01xlggEe23vh8Ckjjkm_!!2200606237318.png_400x400.jpg",
@@ -1049,7 +1139,7 @@
                 ],
             },
             'en': {
-                "Maix-I": [
+                "MAIX-I & Zero": [
                     {
                         title: "MicroPython AIOT",
                         src: "/static/home/maixpy.jpeg",
@@ -1074,84 +1164,108 @@
                         rbtn_text: "btn_example",
                         rbtn_href: "https://gitee.com/greener/micropython-lib",
                     },
+                    // {
+                    //     title: "Maix M1s Dock",
+                    //     src: "https://gd1.alicdn.com/imgextra/i1/2200606237318/O1CN01gE4a1E23vhCV77ggE_!!2200606237318.jpg",
+                    //     lbtn_text: "btn_buy",
+                    //     lbtn_href: "https://item.taobao.com/item.htm?id=691108452443",
+                    //     rbtn_text: "btn_detail",
+                    //     rbtn_href: window.location.origin + "/en/m1s#dock",
+                    // },
+                    // {
+                    //     title: "Maix M1s",
+                    //     src: "https://gd4.alicdn.com/imgextra/i4/2200606237318/O1CN011g9yY323vhCXEyiKU_!!2200606237318.jpg",
+                    //     lbtn_text: "btn_buy",
+                    //     lbtn_href: "https://item.taobao.com/item.htm?id=691108452443",
+                    //     rbtn_text: "btn_detail",
+                    //     rbtn_href: window.location.origin + "/en/m1s",
+                    // },
+                    // {
+                    //     title: "Maix Zero Sense",
+                    //     src: window.location.origin + "/hardware/en/maixzero/sense//assets/m0sense_outlook.png",
+                    //     lbtn_text: "btn_eol",
+                    //     lbtn_href: "",
+                    //     rbtn_text: "btn_detail",
+                    //     rbtn_href: window.location.origin + "/en/m0sense",
+                    // },
                     {
                         title: "Maix Cube",
                         src: "https://gd2.alicdn.com/imgextra/i2/2200606237318/O1CN015OM3ND23vh0YlSShH_!!2200606237318.jpg",
                         lbtn_text: "btn_buy",
-                        lbtn_href: "https://wiki.sipeed.com/hardware/zh/maix/maixpy_develop_kit_board/maix_cube.html",
+                        rbtn_href: "https://www.aliexpress.com/item/1005002624234145.html",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://item.taobao.com/item.htm?id=615468921411",
+                        lbtn_href: "https://wiki.sipeed.com/hardware/en/maix/maixpy_develop_kit_board/maix_cube.html",
                     },
                     {
                         title: "Maix Amigo",
                         src: "https://gd3.alicdn.com/imgextra/i3/2200606237318/O1CN01fXDeT623vh1cT5QPj_!!2200606237318.png_400x400.jpg",
-                        lbtn_text: "btn_buy",
-                        lbtn_href: "https://item.taobao.com/item.htm?id=624450348277",
+                        lbtn_text: "Consult the saler",
+                        lbtn_href: "https://sipeed.aliexpress.com/store/1101739727",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/maix/maixpy_develop_kit_board/maix_Amigo.html",
+                        rbtn_href: "https://wiki.sipeed.com/hardware/en/maix/maixpy_develop_kit_board/maix_Amigo.html",
                     },
                     {
                         title: "Maix Duino",
                         src: "https://wiki.sipeed.com/hardware/zh/maix/assets/dk_board/maix_duino/maixduino_0.png",
                         lbtn_text: "btn_buy",
-                        lbtn_href: "https://item.taobao.com/item.htm?id=595216523162",
+                        lbtn_href: "https://www.aliexpress.com/item/1005002547345797.html",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/maix/maixpy_develop_kit_board/maix_duino.html",
+                        rbtn_href: "https://wiki.sipeed.com/hardware/en/maix/maixpy_develop_kit_board/maix_duino.html",
                     },
                     {
                         title: "Maix Bit",
                         src: "https://gd4.alicdn.com/imgextra/i4/2200606237318/O1CN01UHPhIE23vh1BVob31_!!2200606237318.jpg_400x400.jpg",
                         lbtn_text: "btn_buy",
-                        lbtn_href: "https://item.taobao.com/item.htm?id=586580351110",
+                        lbtn_href: "https://www.aliexpress.com/item/1005002547039100.html",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/maix/maixpy_develop_kit_board/maix_bit.html",
+                        rbtn_href: "https://wiki.sipeed.com/hardware/en/maix/maixpy_develop_kit_board/maix_bit.html",
                     },
                     {
                         title: "Maix Dock",
                         src: "https://gd2.alicdn.com/imgextra/i2/2200606237318/O1CN01TLveJb23vgyujGFIj_!!2200606237318.jpg_400x400.jpg",
                         lbtn_text: "btn_buy",
-                        lbtn_href: "https://item.taobao.com/item.htm?id=591616120470",
+                        lbtn_href: "https://www.aliexpress.com/item/1005002569741906.html",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/maix/maixpy_develop_kit_board/Maix_dock.html",
+                        rbtn_href: "https://wiki.sipeed.com/hardware/en/maix/maixpy_develop_kit_board/Maix_dock.html",
                     },
                     {
                         title: "Maix HAT",
                         src: "https://wiki.sipeed.com/soft/maixpy/assets/hardware/grove_ai_hat/grove_ai_hat1.png",
-                        lbtn_text: "btn_buy",
-                        lbtn_href: "https://item.taobao.com/item.htm?id=637432568692",
+                        lbtn_text: "Consult the saler",
+                        lbtn_href: "https://sipeed.aliexpress.com/store/1101739727",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/maix/maixpy_develop_kit_board/maix_hat.html",
+                        rbtn_href: "https://wiki.sipeed.com/hardware/en/maix/maixpy_develop_kit_board/maix_hat.html",
                     },
                     {
                         title: "Maix M1W",
                         src: "https://gd2.alicdn.com/imgextra/i2/2200606237318/O1CN01nIkzXs23vgysnE4Ou_!!2200606237318.jpg_400x400.jpg",
                         lbtn_text: "btn_buy",
-                        lbtn_href: "https://item.taobao.com/item.htm?id=584853693295",
+                        lbtn_href: "https://www.aliexpress.com/item/1005004138090982.html",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/maix/core_module.html",
+                        rbtn_href: "https://wiki.sipeed.com/hardware/en/maix/core_module.html",
                     },
                     {
                         title: "Maix M1n",
                         src: "https://gd4.alicdn.com/imgextra/i4/2200606237318/O1CN01WR63GE23vgysaJ64A_!!2200606237318.jpg_400x400.jpg",
                         lbtn_text: "btn_buy",
-                        lbtn_href: "https://item.taobao.com/item.htm?id=607174705842",
+                        lbtn_href: "https://www.aliexpress.com/item/1005004138090982.html",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/maix/M1n.html",
+                        rbtn_href: "https://wiki.sipeed.com/hardware/en/maix/M1n.html",
                     },
                     {
                         title: "Maix GO",
-                        src: "https://wiki.sipeed.com/hardware/zh/maix/assets/dk_board/maix_go/Go.jpg",
+                        src: "https://wiki.sipeed.com/hardware/en/maix/assets/dk_board/maix_go/Go.jpg",
                         lbtn_text: "btn_eol",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/maix/maixpy_develop_kit_board/maix_go.html",
+                        rbtn_href: "https://wiki.sipeed.com/hardware/en/maix/maixpy_develop_kit_board/maix_go.html",
                     },
                 ],
-                "Maix-II&III": [
+                "Maix-II & III": [
                     {
                         title: "Linux Python3 and Edge AI",
                         src: "/static/home/maixpy3.jpeg",
                         lbtn_text: "btn_repo",
-                        lbtn_href: "https://github.com/sipeed/maixpy3",
+                        lbtn_href: "https://github.com/sipeed/en/maixpy3",
                         rbtn_text: "btn_docs",
                         rbtn_href: "https://wiki.sipeed.com/maixpy3",
                     },
@@ -1174,8 +1288,8 @@
                      {
                          title: "MAIX-III AX-Pi (AX620A)",
                          src: "https://gd2.alicdn.com/imgextra/i2/2200606237318/O1CN01AY6Mu123vhBaHWr6H_!!2200606237318.jpg_400x400.jpg",
-                         lbtn_text: "btn_buy",
-                         lbtn_href: "https://item.taobao.com/item.htm?spm=a230r.1.14.19.681570a1SllT5M&id=682169792430&ns=1&abbucket=16#detail",
+                         lbtn_text: "Consult the saler",
+                         lbtn_href: "https://sipeed.aliexpress.com/store/1101739727",
                          rbtn_text: "btn_detail",
                          rbtn_href: "https://wiki.sipeed.com/hardware/en/maixIII/index.html",
                      },
@@ -1229,7 +1343,7 @@
                         rbtn_href: "https://wiki.sipeed.com/hardware/en/lichee/ZeroPlus/ZeroPlus.html",
                     },
                 ],
-                 "Tang FPGA": [
+                 "Tang-FPGA": [
                     {
                         title: "Tang Primer 20k Dock",
                         src: "https://ae01.alicdn.com/kf/S3e6dabaca446400ea9e132d4b1d8abb9E/Sipeed-Tang-Primer-20K-GOWIN-GW2A-FPGA-GoAI-Core-Board-Minimum-System.jpg_50x50.jpg_.webp",
@@ -1285,7 +1399,7 @@
                         rbtn_href: "https://wiki.sipeed.com/hardware/en/tang/Tang-Nano/Nano.html",
                     },
                 ],
-                 "MaixSense ToF": [
+                 "MAIX-SENSE-TOF": [
                  {
                         title: "A010",
                         src: "https://wiki.sipeed.com/hardware/zh/maixsense/maixsense-a010/assets/ms_s.jpg",
@@ -1442,6 +1556,14 @@
                         rbtn_text: "btn_detail",
                         rbtn_href: "https://wiki.sipeed.com/hardware/en/maixface/mf_ml_module/mf1_ml_module.html",
                     },
+                    // {
+                    //     title: "MF-ST40",
+                    //     src: "https://gd1.alicdn.com/imgextra/i1/2200606237318/O1CN01IUgd8n23vhCR53jrQ_!!2200606237318.jpg_400x400.jpg",
+                    //     lbtn_text: "Concult the saler",
+                    //     lbtn_href: "https://item.taobao.com/item.htm?id=690754113762",
+                    //     rbtn_text: "btn_detail",
+                    //     rbtn_href: window.location.origin + "/hardware/en/maixface/mfst40/mfst40.html",
+                    // },
                     {
                         title: "MF0",
                         src: "/hardware/assets/maixface/mf0/mf0_front.jpg",

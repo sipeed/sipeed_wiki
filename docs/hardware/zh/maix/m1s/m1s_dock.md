@@ -203,7 +203,7 @@ Sipeed M1s Dock 是基于 [Sipeed M1s](./m1s_module.md) 模组来设计的一款
 - [SDK](https://github.com/sipeed/M1s_BL808_SDK) (Github) 
 - [Examples](https://github.com/sipeed/M1s_BL808_example)（Github）
 - 交流 QQ 群：`816177882` 。[点我加群](https://jq.qq.com/?_wv=1027&k=0fOkj3EB)
-- 论坛：[bbs.sipeed.com](bbs.sipeed.com)
+- 论坛：[bbs.sipeed.com](https://bbs.sipeed.com/)
 
 ## 注意事项
 
@@ -214,7 +214,7 @@ Sipeed M1s Dock 是基于 [Sipeed M1s](./m1s_module.md) 模组来设计的一款
     </tr>
     <tr>
         <td>静电防护</td>
-        <td>请避免静电打到 PCBA 上；接触 PCBA 之前请我手的静电释放掉</td>
+        <td>请避免静电打到 PCBA 上；接触 PCBA 之前请把手的静电释放掉</td>
     </tr>
     <tr>
         <td>容忍电压</td>

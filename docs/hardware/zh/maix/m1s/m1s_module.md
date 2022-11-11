@@ -256,7 +256,7 @@ Sipeed M1s 模组是基于[博流智能科技](http://www.bouffalolab.com/)的 B
 - [SDK](https://github.com/sipeed/M1s_BL808_SDK) (Github) 
 - [Examples](https://github.com/sipeed/M1s_BL808_example)（Github）
 - 交流 QQ 群：`592731168` 。[点我加群](https://jq.qq.com/?_wv=1027&k=uyKNhTeu)
-- 论坛：[bbs.sipeed.com](bbs.sipeed.com)
+- 论坛：[bbs.sipeed.com](https://bbs.sipeed.com/)
 
 ## 注意事项
 
@@ -267,7 +267,7 @@ Sipeed M1s 模组是基于[博流智能科技](http://www.bouffalolab.com/)的 B
     </tr>
     <tr>
         <td>静电防护</td>
-        <td>请避免静电打到 PCBA 上；接触 PCBA 之前请我手的静电释放掉</td>
+        <td>请避免静电打到 PCBA 上；接触 PCBA 之前请把手的静电释放掉</td>
     </tr>
     <tr>
         <td>容忍电压</td>
@@ -284,6 +284,27 @@ Sipeed M1s 模组是基于[博流智能科技](http://www.bouffalolab.com/)的 B
     <tr>
         <td>避免短路</td>
         <td>请在上电过程中，避免任何液体和金属触碰到 PCBA 上的元件的焊盘，否则会导致路，烧毁 PCBA</td>
+    </tr>
+    <tr>
+        <td>设计建议</td>
+        <td>为该模组设计底板时，建议先看这个帖子 <a href="https://bbs.sipeed.com/thread/1721">https://bbs.sipeed.com/thread/1721</a></td>
+    </tr>
+    <tr>
+        <td>BANK 划分</td>
+        <td>
+            VDDIO1：GPIO 0-8，1.8V/3.3V<br>
+            VDDIO2：GPIO 11-15，GPIO 40-41, 3.3V only<br>
+            VDDIO3：GPIO 16-23，1.8V/3.3V<br>
+            VDDIO4：GPIO 24-39，1.8V/3.3V<br>        
+        </td>
+    </tr>    
+    <tr>
+        <td>BOOT 模式选择</td>
+        <td>
+        在启动时，芯片判定 BOOT 引脚的电平，选择两个启动选项之一<br>
+        · BOOT 高电平：从 FLASH 存储启动
+        · BOOT 低电平：进入串口下载模式
+        </td>
     </tr>
 </table>
 
