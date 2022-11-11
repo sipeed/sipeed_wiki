@@ -18,6 +18,10 @@ title: Maix-III 系列 AXera-Pi 开发板 SDK 使用介绍
 
 芯片商用时所用的 bsp 开发包，这里主要提供的是芯片的原始开发资料，如 uboot 、 linux 、 msp 、msp 等工程代码，这个部分是逐步开源的，你可以从这里得到商业评估用的代码，例如 ipcdemo 这样的程序，但这些代码会很复杂且高耦合，适合有经验的同行出于商业落地的目的使用。
 
+- [ax-pipeline](https://github.com/AXERA-TECH/ax-pipeline)
+
+基于 axpi_bsp_sdk 制作的 AI 部署高性能仓库，在这里主要用于该项目基于 AXera-Pi 展示 ISP、图像处理、NPU、编码、显示 等功能模块软件调用方法，方便社区开发者进行快速评估和二次开发自己的多媒体应用。
+
 ### libmaix
 
 这是一个适用于 sipeed 所用 linux 芯片开发的 C/C++ 基础开发框架，使用 cmake 构建，提供了许多开箱参考的案例，还有一些第三方库代码的链接，如 opencv openmv 这些视觉库的链接。
@@ -188,20 +192,29 @@ killall sample_vo_fb
 
 ```
 
-
 ## 组合 SDK 和 AI 模型例程
 
 比如我们要跑一个视觉 AI 模型，需要用到摄像头，屏幕，还有 AI 模型。
 其中 摄像头和屏幕的使用在`libmaix`中已经有例程，可以直接使用，基于摄像头屏幕使用例程，将 AI 模型的例程拷贝到例程目录中，调整一下 API 调用即可。
 
-举例：
-
-TODO：
-
 ### 借助 libmaix 实现
 
-基于 libmaix 的 axpi 项目进行开源快速验证效果
+基于 libmaix 的 axpi 项目进行开源快速验证效果，代码简单易懂。
+
+- [axpi](https://github.com/sipeed/libmaix/tree/release/examples/axpi)
+- [axpi_classification_cam](https://github.com/sipeed/libmaix/tree/release/examples/axpi_classification_cam)
+- [axpi_yolov5_cam](https://github.com/sipeed/libmaix/tree/release/examples/axpi_yolov5_cam)
+
+### 借助 ax-pipeline 实现
+
+> 要有基本的芯片 bsp sdk 开发的基础（axpi_bsp_sdk），这部分的内容会专业一些。
+
+- [准备编译环境](https://github.com/AXERA-TECH/ax-pipeline/blob/main/docs/compile.md)
+- [如何更换自己训练的 yolov5 模型？](https://github.com/AXERA-TECH/ax-pipeline/blob/main/docs/how_to_deploy_custom_yolov5_model.md)
+- [如何部署自己的其他模型](https://github.com/AXERA-TECH/ax-pipeline/blob/main/docs/how_to_deploy_custom_model.md)
 
 ### 借助 ipcdemo 实现
 
-基于 axpi_bsp_sdk 的 ipcdemo 商用视频推流应用
+基于 axpi_bsp_sdk 的 ipcdemo 商用视频推流应用，由于源码过于复杂，需要有上述基础才能介入。
+
+- [axpi_bsp_sdk/app/IPCDemo](https://github.com/sipeed/axpi_bsp_sdk/tree/main/app/IPCDemo)
