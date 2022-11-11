@@ -20,7 +20,7 @@ A：**一改参数，二改代码，以下述改动为例**：
 
 ## Q：运行摄像头有关程序时报错 i2c_read: Failed to read reg: Remote I/O error.!？
 
-A：检查摄像头配置是否与型号相匹配、参数是否修改、启动命令行输入是否出错；如果以上都是正确的话，摄像头依旧报错就是硬件问题了。
+A：摄像头接线是否正确、检查摄像头配置是否与型号相匹配、参数是否修改、启动命令行输入是否出错、以及摄像头是否启动；如果以上都是正确的话，摄像头依旧报错就是硬件问题了。
 
 ## Q：如何更换其他屏幕？
 
@@ -29,3 +29,16 @@ A：目前默认只提供 5 寸屏幕，支持其他屏幕需要自行修改驱�
 ## Q：如果使用 xxxx menuconfig 时遇到报错 locale.Error: unsupported locale setting ？
 
 A：可以使用 `sudo localedef -i en_US -f UTF-8 en_US.UTF-8` 恢复一下配置即可。
+
+## Q：如果使用 ODM 命令时报错 VCEncInit:ERROR codecFormat NOT support by HW ?
+
+A：试着按复位键或者是插拔重启设备即可。
+
+## Q：运行程序后屏幕显示花屏？
+
+A：查看摄像头型号参数是否配置正确。
+
+## Q：如果使用 ODM 启动命令后报错 i2c_read: Failed to read reg: Remote I/O error.!？
+
+A：修改 `run.sh` 启动脚本里的摄像头参数，脚本默认参数是 os04a10 摄像头，更换为 gc4653 将 `-e 2 -v 0 -c 0` 修改为 `-v 0 -c 2` 即可。
+

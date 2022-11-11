@@ -128,7 +128,7 @@ Maix-III AXera-Pi 开发板的 Linux debian11 系统默认使用 root 用户登�
 
 登录后，可以使用 `ls` 命令查看当前目录下的文件，使用 `cd` 命令切换目录，使用 `pwd` 命令查看当前目录。
 
-## 系统配置
+## 网络配置
 
 ### 网络操作基础
 
@@ -602,22 +602,20 @@ Maix-III AXera-Pi 开发板上电后会自启点亮 5 寸屏幕以及耳机播�
 这里可以添加开机启动的命令，还可以修改 `#!/bin/sh` 到 `exit 0` 之间的命令。
 
 ```bash
-root@AXERA:~# cat /etc/rc.local
+root@AXERA:~# cat /etc/rc.local & /boot/rc.local
 #!/bin/sh
 
-chmod 755 /opt/scripts/auto_load_all_drv.sh && bash /opt/scripts/auto_load_all_drv.sh > /dev/null 2>&1
+# this file is called by /etc/rc.local at boot.
 
-# python3 /home/examples/alltest.py > /dev/null 2>&1 &
+# systemctl stop usb-gadget@g0
+# mkdir -p /mnt/udisk && mount /dev/sda1 /mnt/udisk
+# python3 /mnt/udisk/alltest.py
 
-# export LD_LIBRARY_PATH=/opt/lib:LD_LIBRARY_PATH && /opt/bin/sample_vin_vo -c 2 -e 1 -s 0 -v dsi0@480x854@60
+aplay /home/res/boot.wav >/dev/null 2>&1
 
-systemctl stop usb-gadget@g0
+/opt/bin/sample_vo_fb -v dsi0@480x854@60 -m 0 >/dev/null 2>&1 &
 
-mkdir -p /mnt/udisk && mount /dev/sda1 /mnt/udisk
-
-python3 /mnt/udisk/alltest.py
-
-export LD_LIBRARY_PATH=/opt/lib:LD_LIBRARY_PATH && /opt/bin/sample_vo -v dsi0@480x854@60 -m 0 &
+sleep 3 && bash /opt/bin/fboff &
 
 exit 0
 
@@ -754,7 +752,7 @@ root@AXERA:~#
 
 ### VIDEO
 
-目前系统的摄像头驱动不经过 v4l2 驱动框架，所以必须通过代码配置的方式进行启用，相关摄像头驱动都是在应用层上完成的。
+目前系统的摄像头驱动不经过 v4l2 驱动框架，所以必须通过代码配置的方式进行启用，相关摄像头驱动都是在应用层上完成的，此配置较旧图像可能会偏转，请使用下方其余 demo 运行摄像头。
 
 - gc4653 （基础版）
 - os04a10（夜视版）
@@ -788,41 +786,9 @@ fboff
 
 ### RTSP
 
-**RTSP**：也称实时流传输协议，可通过 RTSP 实现推流，该协议定义了一对多应用程序如何有效地通过 IP 网络传送多媒体数据。
-
 >**20221019** 后更新的镜像内置了 **`/home/vin_ivps_joint_venc_rtsp_v2`** 可用于评估从摄像头运行 yolov5s 模型识别结果推流的演示效果。
 
-运行 `yolov5s` 模型实现推流前，我们需要先认识工具 `VLC Media Player`。
-
-**点击跳转下载**：[VLC Media Player](https://www.videolan.org/vlc/)
-
-.. details::点我查看 VLC Media Player 介绍
-    VLC Media Player（VLC 多媒体播放器），是一款可播放大多数格式，而无需安装编解码器包的媒体播放器，以及支持多平台使用、支持 DVD 影音光盘，VCD 影音光盘及各类流式协议。
-
-    ![vl-yolov5s](./../assets/vlc-yolov5s.jpg)
-
->不同型号的摄像头记得修改 `-c` 后的值，具体可参考[Maix-III 系列 AXera-Pi 常见问题（FAQ）.](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html)
-
-- **PC 端推流**
-
-1. 可使用下文命令运行 yolov5s 模型终端会弹跳出信息。
-2. 着打开我们已经下载好的 `VLC Media Player` 软件，进行配置网络串流连接获取画面进行物体检测。
-
-```bash
-cd /home/vin_ivps_joint_venc_rtsp_v2/ && ./sample_vin_ivps_joint_venc_rtsp -c 0 -m yolov5s_sub_nv12_11.joint
-```
- 
-.. details::点击查看终端运行图
-    ![vlr-run](./../assets/vlc-run.jpg)
-
-.. details::点我查看 VLC Media Player 配置步骤
-    打开后在上方选择**媒体**后选择**打开网络串流**进到配置画面。
-    ![vlc](./../assets/vlc.jpg)
-    在网络页面输入**网络 URL ：`rtsp://192.168.233.1:8554/axstream0`**，
-    勾选下方更多选项进行调整缓存后点击下方播放即可。
-    ![vlc-urt](./../assets/vlc-urt.jpg)
-
-![vlc-yolov5s](./../assets/vlc-yolov5s.jpg)
+RTSP 介绍及使用过程：[点击查看](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html#RTSP-%E6%8E%A8%E6%B5%81)
 
 - **双屏推流**
   
@@ -1182,31 +1148,44 @@ cat /proc/ax_proc/uid
 >**RTSP**：也称实时流传输协议，可通过 RTSP 实现推流，该协议定义了一对多应用程序如何有效地通过 IP 网络传送多媒体数据。
 >**推流**：把采集阶段封包好的内容传输到服务器的过程。
 
-进行 RTSP 推流前先需要下载工具 `VLC Media Player` 软件。
-
 **VLC Media Player**：[点击下载](https://www.videolan.org/vlc/)
-**VLC Media Player 介绍及配置流程**：[点击查看](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html#RTSP)
 
->**注意**：默认摄像头为 GC4653 如型号不同请移步[Maix-III 系列 AXera-Pi 常见问题(FAQ)](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html)查询更换参数。
+运行 `yolov5s` 模型实现推流前，我们需要先认识工具 `VLC Media Player`。
+
+.. details::点我查看 VLC Media Player 介绍
+    VLC Media Player（VLC 多媒体播放器），是一款可播放大多数格式，而无需安装编解码器包的媒体播放器，以及支持多平台使用、支持 DVD 影音光盘，VCD 影音光盘及各类流式协议。
+
+    ![vl-yolov5s](./../assets/vlc-yolov5s.jpg)
+
 #### PC 端推流
 
-运行下方命令行后终端无报错，打开 VLC 软件参考上文进行配置，点击播放即可查看 RTSP 推流效果。
+运行下方命令后终端会弹跳出信息，打开我们已经下载好的 `VLC Media Player` 软件，进行配置网络串流连接获取画面进行物体检测。
 
 ```bash
-cd /home/vin_ivps_joint_venc_rtsp_v2/ && ./sample_vin_ivps_joint_venc_rtsp -c 0 -m yolov5s_sub_nv12_11.joint
+cd /home/examples/vin_ivps_joint_venc_rtsp_v2/ && ./sample_vin_ivps_joint_venc_rtsp -c 2 -m yolov5s_sub_nv12_11.joint
 ```
-
+ 
 .. details::点击查看终端运行图
     ![vlr-run](./../assets/vlc-run.jpg)
 
+.. details::点我查看 VLC Media Player 配置步骤
+    打开后在上方选择**媒体**后选择**打开网络串流**进到配置画面。
+    ![vlc](./../assets/vlc.jpg)
+    在网络页面输入**网络 URL ：`rtsp://192.168.233.1:8554/axstream0`**，
+    勾选下方更多选项进行调整缓存后点击下方播放即可。
+    ![vlc-urt](./../assets/vlc-urt.jpg)
+
 ![vlc-rtsp](./../assets/vlc-rtsp.jpg)
+
+
+>**注意**：默认摄像头为 GC4653 如型号不同请移步[Maix-III 系列 AXera-Pi 常见问题(FAQ)](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html)查询更换参数。
 
 #### 双屏推流
 
 运行下方命令行后进行 PC 端与设备屏幕推流，打开 VLC 软件进行配置后点击播放即可看见画面。
 
 ```bash
-cd /home/vin_ivps_joint_venc_rtsp_v2/ && ./sample_vin_ivps_joint_venc_rtsp_vo -c 0 -m ./yolov5s_sub_nv12_11.joint
+cd /home/examples/vin_ivps_joint_venc_rtsp_v2/ && ./sample_vin_ivps_joint_venc_rtsp_vo -c 2 -m ./yolov5s_sub_nv12_11.joint
 ```
 
 - 双屏效果如下图示例：
@@ -1216,6 +1195,17 @@ cd /home/vin_ivps_joint_venc_rtsp_v2/ && ./sample_vin_ivps_joint_venc_rtsp_vo -c
   <img src="./../assets/rtsp-axpi.jpg" width=48%>
 </html>
 
+#### ffpaly 
+
+推流工具除了 `VCL` 还可以直接使用 `ffpaly` 进行推流。
+
+ffpaly :[点击下载](https://dl.sipeed.com/shareURL/MaixIII/AXera/09_Software_tool)
+
+```bash
+sudo apt install ffmpeg
+ffplay rtsp://192.168.233.1:8554/axstream0 -fflags nobuffer
+```
+
 ### SKEDEMO
 
 > 这是一个基于 IPCDemo 的人体关键点开箱示例（暂未开放）
@@ -1224,6 +1214,62 @@ cd /home/vin_ivps_joint_venc_rtsp_v2/ && ./sample_vin_ivps_joint_venc_rtsp_vo -c
     <iframe src="//player.bilibili.com/player.html?aid=773227207&bvid=BV1B14y1Y7A4&cid=837154353&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="max-width:640px; max-height:480px;"> </iframe>
 </p>
 
+### IPC ODM
+
+>在 20221111 后的更新的镜像系统，内置了按键录像 mp4 和支持更换 yolov5s 人脸/物体检测模型以及对 ODM（ONVIF） 软件也进行支持。
+
+**ONVIF Device Manager**：[点击下载](https://sourceforge.net/projects/onvifdm/)
+
+.. details::点击查看 ODM 软件介绍
+
+    ONVIF 协议作为全球性的网络视频监控开放接口标准，推进了网络视频在安防市场的应用，特别是促进了高清网络摄像头的普及和运用。 越来越多的前端 IPC 厂家和后端 NVR 及存储提供商加入进来。而 ONVIF Device Manager 是 ONVIF 官方基于协议提供的免费第三方的 ONVIF 协议测试工具，与上文的 VLC 相比性能不同，但 ODM 的内容形式更加多样丰富。
+    
+   ![odm](./../assets/odm.jpg)
+
+在终端运行下方命令，设备屏幕会跳出 yolov5S 模型运行画面，镜像内置默认是 `os04a10` 的镜头参数，使用 `gc4653` 的话请参考下文修改参数。接着我们来配置 `ODM` 实现 PC 端显示。
+
+.. details::点击设备运行效果图
+    ![odm-mipi](./../assets/odm-mipi.jpg)
+
+```bash
+/home/examples/vin_ivps_joint_venc_rtsp_vo_onvif_mp4v2/run.sh
+```
+
+打开我们下载好的 `ODM` 软件点击左侧白框的 `Refresh` 按键扫描设备，扫描成功会显示 `IP-Camera` 方框点击后选择下方的 `Live video` 即可在 PC 端看到画面。
+
+![odm-config](./../assets/odm-config.jpg)
+
+还可通过下方命令去查看文件配置：
+
+```bash
+ cd /home/examples/vin_ivps_joint_venc_rtsp_vo_onvif_mp4v2/
+ ls -l
+```
+
+- **更换模型**
+镜像内置 yolov5s 的人脸/物体检测模型，可使用以下命令更改运行脚本内容更换模型。
+
+``` bash
+nano /home/examples/vin_ivps_joint_venc_rtsp_vo_onvif_mp4v2/run.sh
+```
+
+.. details::点击查看修改操作示例
+    运行后会显示 `run.sh` 的编辑页面，对当前启动的模型进行注释更换其他模型，
+    按 **ctrl+X** 键后会提示是否保存修改内容。
+    ![model-save](./../assets/model-save.jpg)
+    根据提示按下 **Y** 键保存，界面会显示修改内容写入的文件名按**回车**键确定，
+    再次运行 `run.sh` 脚本即可看到模型更换成功。
+    ![model-file](./../assets/model-file.jpg)
+    除了上方通过命令修改`run.sh`更换还可以通过`MdbaXterm`工具查看`/home/examples/vin_ivps_joint_venc_rtsp_vo_onvif_mp4v2/`目录下的`run.sh`脚本文件直接修改保存。
+
+- **按键录制 MP4**
+运行 `run.sh` 期间可按下板载的按键 `user` 进行录制视频，按下后 **LED0** 会亮起代表开始录制 MP4，
+
+![odm-mp4](./../assets/odm-mp4.jpg)
+
+终端界面会显示下图 `delete file`，当录制完成后再次按下按键停止录制而 LED0 会灭掉，录制完成的 MP4 文件可在 **`home/examples/`** 目录下查看。
+
+![odm-adb](./../assets/odm-adb.png)
 ### 出厂测试脚本
 
 ```python
