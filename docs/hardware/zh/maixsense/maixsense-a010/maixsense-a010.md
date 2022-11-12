@@ -122,10 +122,10 @@ MS-A010 二次开发手册：[点击查看](http://wiki.sipeed.com/hardware/zh/m
 ```bash
 
 #解压缩sipeed_tof_ms_a010.zip，并进入目录
-git switch ros1 #切换到ros1分支
+cd ros1
 source /opt/ros/*/setup.sh
 catkin_make
-source devel/setup.sh
+source devel/setup.sh 
 rosrun sipeed_tof_ms_a010 a010_publisher _device:="/dev/ttyUSB0"
 #之后终端会持续刷新显示[sipeed_tof]: Publishing，即正常工作
 

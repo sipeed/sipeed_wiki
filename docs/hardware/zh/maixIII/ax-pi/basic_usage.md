@@ -621,6 +621,8 @@ exit 0
 
 ```
 
+用户可使用 `nano boot/rc.local` 命令修改开机脚本，修改内容后按 **ctrl+x** 键根据提示保存确定即可。
+
 **注意**：开机时的执行对象由于没有环境变量，所以不同于登录后运行的 `sample_vo -v dsi0@480x854@60 -m 0 &` 需要修改成 `export LD_LIBRARY_PATH=/opt/lib:LD_LIBRARY_PATH && /opt/bin/sample_vo -v dsi0@480x854@60 -m 0 & ` 才能开机启动，注意要在命令后使用 & 将程序挂在后台执行喔！
 
 ### 更新内核与驱动
@@ -789,23 +791,6 @@ fboff
 >**20221019** 后更新的镜像内置了 **`/home/vin_ivps_joint_venc_rtsp_v2`** 可用于评估从摄像头运行 yolov5s 模型识别结果推流的演示效果。
 
 RTSP 介绍及使用过程：[点击查看](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html#RTSP-%E6%8E%A8%E6%B5%81)
-
-- **双屏推流**
-  
-双屏推流顾名思义是基于上文的升级版，适配到 PC 端与设备屏幕双屏同时显示推流画面。
-
-1. 可使用下文命令运行 yolov5s 模型进行 PC 端与设备屏幕双屏推流，运行后终端会弹跳出信息。
-2. 接着打开我们已经下载好的 `VLC Media Player` 软件，进行配置网络串流连接获取画面进行物体检测。
-
-```bash
-cd /home/vin_ivps_joint_venc_rtsp_v2/ && ./sample_vin_ivps_joint_venc_rtsp_vo -c 0 -m ./yolov5s_sub_nv12_11.joint
-```
-
-- 效果图如下：
-<html>
-  <img src="./../assets/rtsp-display.jpg" width=48%>
-  <img src="./../assets/rtsp-axpi.jpg" width=48%>
-</html>
 
 ### NPU
 
@@ -1159,7 +1144,8 @@ cat /proc/ax_proc/uid
 
 #### PC 端推流
 
-运行下方命令后终端会弹跳出信息，打开我们已经下载好的 `VLC Media Player` 软件，进行配置网络串流连接获取画面进行物体检测。
+1. 使用下方命令运行 yolov5s 模型进行 PC 端推流，运行后终端会弹跳出信息。
+2. 接着打开我们已经下载好的 `VLC Media Player` 软件，进行配置网络串流连接获取画面进行物体检测。
 
 ```bash
 cd /home/examples/vin_ivps_joint_venc_rtsp_v2/ && ./sample_vin_ivps_joint_venc_rtsp -c 2 -m yolov5s_sub_nv12_11.joint
@@ -1178,11 +1164,13 @@ cd /home/examples/vin_ivps_joint_venc_rtsp_v2/ && ./sample_vin_ivps_joint_venc_r
 ![vlc-rtsp](./../assets/vlc-rtsp.jpg)
 
 
->**注意**：默认摄像头为 GC4653 如型号不同请移步[Maix-III 系列 AXera-Pi 常见问题(FAQ)](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html)查询更换参数。
+>**注意**：
+>1. 默认摄像头为 GC4653 如型号不同请移步[Maix-III 系列 AXera-Pi 常见问题(FAQ)](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html)查询更换参数。
+>2. 如果使用 VCL 软件出现连接不上的现象，可使用 ffplay 进行推流。
 
 #### 双屏推流
 
-运行下方命令行后进行 PC 端与设备屏幕推流，打开 VLC 软件进行配置后点击播放即可看见画面。
+运行下面命令行后进行 PC 端与设备屏幕推流，打开 VLC 软件进行配置后点击播放即可看见画面。
 
 ```bash
 cd /home/examples/vin_ivps_joint_venc_rtsp_v2/ && ./sample_vin_ivps_joint_venc_rtsp_vo -c 2 -m ./yolov5s_sub_nv12_11.joint
@@ -1195,11 +1183,11 @@ cd /home/examples/vin_ivps_joint_venc_rtsp_v2/ && ./sample_vin_ivps_joint_venc_r
   <img src="./../assets/rtsp-axpi.jpg" width=48%>
 </html>
 
-#### ffpaly 
+#### ffplay
 
-推流工具除了 `VCL` 还可以直接使用 `ffpaly` 进行推流。
+推流工具除了 `VCL` 还可以直接使用 `ffplay` 进行推流。
 
-ffpaly :[点击下载](https://dl.sipeed.com/shareURL/MaixIII/AXera/09_Software_tool)
+ffplay :[点击下载](https://dl.sipeed.com/shareURL/MaixIII/AXera/09_Software_tool)
 
 ```bash
 sudo apt install ffmpeg
@@ -1227,6 +1215,8 @@ ffplay rtsp://192.168.233.1:8554/axstream0 -fflags nobuffer
    ![odm](./../assets/odm.jpg)
 
 在终端运行下方命令，设备屏幕会跳出 yolov5S 模型运行画面，镜像内置默认是 `os04a10` 的镜头参数，使用 `gc4653` 的话请参考下文修改参数。接着我们来配置 `ODM` 实现 PC 端显示。
+
+>**注意**：ODM 受网络影响较大，如果有卡顿现象把网络更换成以太网即可。默认摄像头为 os04a10 如型号不同请移步[Maix-III 系列 AXera-Pi 常见问题(FAQ)](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html)查询更换参数。
 
 .. details::点击设备运行效果图
     ![odm-mipi](./../assets/odm-mipi.jpg)
@@ -1265,123 +1255,129 @@ nano /home/examples/vin_ivps_joint_venc_rtsp_vo_onvif_mp4v2/run.sh
 - **按键录制 MP4**
 运行 `run.sh` 期间可按下板载的按键 `user` 进行录制视频，按下后 **LED0** 会亮起代表开始录制 MP4，
 
-![odm-mp4](./../assets/odm-mp4.jpg)
+.. details::点击查看按键示意图
+    ![odm-mp4](./../assets/odm-mp4.jpg)
 
-终端界面会显示下图 `delete file`，当录制完成后再次按下按键停止录制而 LED0 会灭掉，录制完成的 MP4 文件可在 **`home/examples/`** 目录下查看。
+终端界面会显示下图 `delete file`，当录制完成后再次按下按键停止录制而 LED0 会灭掉，
 
 ![odm-adb](./../assets/odm-adb.png)
+
+录制完成的 MP4 文件可在 **`home/examples/`** 目录下查看。
+
+![mp4-file](./../assets/mp4-file.png)
 ### 出厂测试脚本
 
-```python
-test_flag = False
+.. details::点击可查看产品出厂测试时用的 Python 测试脚本
+    ```python
+    test_flag = False
 
-try:
-    from gpiod import chip, line, line_request
-    config = None # rpi is default value A 0
-    def gpio(gpio_line=0, gpio_bank="a", gpio_chip=0, line_mode = line_request.DIRECTION_OUTPUT):
-        global config
-        if config != None and gpio_line in config:
-            gpio_bank, gpio_chip = config[gpio_line]
-        l, c = [32 * (ord(gpio_bank.lower()[0]) - ord('a')) + gpio_line, chip("gpiochip%d" % gpio_chip)]
-        tmp = c.get_line(l)
-        cfg = line_request() # led.active_state == line.ACTIVE_LOW
-        cfg.request_type = line_mode # line.DIRECTION_INPUT
-        tmp.request(cfg)
-        tmp.source = "GPIO chip %s bank %s line %d" % (gpio_chip, gpio_bank, gpio_line)
-        return tmp
-    def load(cfg=None):
-        global config
-        config = cfg
-except ModuleNotFoundError as e:
-    pass
+    try:
+        from gpiod import chip, line, line_request
+        config = None # rpi is default value A 0
+        def gpio(gpio_line=0, gpio_bank="a", gpio_chip=0, line_mode = line_request.DIRECTION_OUTPUT):
+            global config
+            if config != None and gpio_line in config:
+                gpio_bank, gpio_chip = config[gpio_line]
+            l, c = [32 * (ord(gpio_bank.lower()[0]) - ord('a')) + gpio_line, chip("gpiochip%d" % gpio_chip)]
+            tmp = c.get_line(l)
+            cfg = line_request() # led.active_state == line.ACTIVE_LOW
+            cfg.request_type = line_mode # line.DIRECTION_INPUT
+            tmp.request(cfg)
+            tmp.source = "GPIO chip %s bank %s line %d" % (gpio_chip, gpio_bank, gpio_line)
+            return tmp
+        def load(cfg=None):
+            global config
+            config = cfg
+    except ModuleNotFoundError as e:
+        pass
 
-key = gpio(21, gpio_chip=2, line_mode = line_request.DIRECTION_INPUT)
-led0 = gpio(4, gpio_chip=2, line_mode = line_request.DIRECTION_OUTPUT)
-led1 = gpio(5, gpio_chip=2, line_mode = line_request.DIRECTION_OUTPUT)
+    key = gpio(21, gpio_chip=2, line_mode = line_request.DIRECTION_INPUT)
+    led0 = gpio(4, gpio_chip=2, line_mode = line_request.DIRECTION_OUTPUT)
+    led1 = gpio(5, gpio_chip=2, line_mode = line_request.DIRECTION_OUTPUT)
 
-import time
-import ifcfg
-import os
+    import time
+    import ifcfg
+    import os
 
-def check_ifconfig():
-    result = []
-    for name, interface in ifcfg.interfaces().items():
-        if name in ['eth0', 'wlan0'] and interface['inet']:
-            result.append(name)
-    return result
+    def check_ifconfig():
+        result = []
+        for name, interface in ifcfg.interfaces().items():
+            if name in ['eth0', 'wlan0'] and interface['inet']:
+                result.append(name)
+        return result
 
-try:
-    if (0 == key.get_value()):
-        os.system("export LD_LIBRARY_PATH=/opt/lib:LD_LIBRARY_PATH && /opt/bin/sample_vin_vo -c 2 -e 1 -s 0 -v dsi0@480x854@60 &")
-        led1.set_value(1)
-        while True:
-            led0.set_value(1)
-            time.sleep(0.2)
-            led0.set_value(0)
-            time.sleep(0.2)
-            tmp = check_ifconfig()
-            if len(tmp) > 1:
+    try:
+        if (0 == key.get_value()):
+            os.system("export LD_LIBRARY_PATH=/opt/lib:LD_LIBRARY_PATH && /opt/bin/sample_vin_vo -c 2 -e 1 -s 0 -v dsi0@480x854@60 &")
+            led1.set_value(1)
+            while True:
+                led0.set_value(1)
+                time.sleep(0.2)
                 led0.set_value(0)
-                led1.set_value(0)
-                test_flag = True
-                break
-        while (0 == key.get_value()):
-            time.sleep(0.2)
-        os.system("aplay /home/res/boot.wav")
-        led0.set_value(1)
-        led1.set_value(1)
-        import pyaudio
+                time.sleep(0.2)
+                tmp = check_ifconfig()
+                if len(tmp) > 1:
+                    led0.set_value(0)
+                    led1.set_value(0)
+                    test_flag = True
+                    break
+            while (0 == key.get_value()):
+                time.sleep(0.2)
+            os.system("aplay /home/res/boot.wav")
+            led0.set_value(1)
+            led1.set_value(1)
+            import pyaudio
+            chunk = 1024      # Each chunk will consist of 1024 samples
+            sample_format = pyaudio.paInt16      # 16 bits per sample
+            channels = 2      # Number of audio channels
+            fs = 44100        # Record at 44100 samples per second
+            p = pyaudio.PyAudio()
+            stream = p.open(format=sample_format,
+                            channels = channels,
+                            rate = fs,
+                            frames_per_buffer = chunk,
+                            input = True, output = True)
+            while (1 == key.get_value()):
+                data = stream.read(chunk, exception_on_overflow = False)
+                stream.write(data)
+            while (0 == key.get_value()):
+                time.sleep(0.2)
+            os.system('killall sample_vin_vo')
+            os.system('killall sample_vin_vo')
+            # Stop and close the Stream and PyAudio
+            stream.stop_stream()
+            stream.close()
+            p.terminate()
+    except Exception as e:
+        print(e)
+    finally:
+        if test_flag:
+            led0.set_value(0)
+            led1.set_value(0)
+
+    '''
+
+    import pyaudio
+    try:
         chunk = 1024      # Each chunk will consist of 1024 samples
         sample_format = pyaudio.paInt16      # 16 bits per sample
         channels = 2      # Number of audio channels
         fs = 44100        # Record at 44100 samples per second
+        time_in_seconds = 300
         p = pyaudio.PyAudio()
         stream = p.open(format=sample_format,
                         channels = channels,
                         rate = fs,
                         frames_per_buffer = chunk,
                         input = True, output = True)
-        while (1 == key.get_value()):
-            data = stream.read(chunk, exception_on_overflow = False)
+        for i in range(0, int(fs / chunk * time_in_seconds)):
+            data = stream.read(chunk)
             stream.write(data)
-        while (0 == key.get_value()):
-            time.sleep(0.2)
-        os.system('killall sample_vin_vo')
-        os.system('killall sample_vin_vo')
+    finally:
         # Stop and close the Stream and PyAudio
         stream.stop_stream()
         stream.close()
         p.terminate()
-except Exception as e:
-    print(e)
-finally:
-    if test_flag:
-        led0.set_value(0)
-        led1.set_value(0)
 
-'''
-
-import pyaudio
-try:
-    chunk = 1024      # Each chunk will consist of 1024 samples
-    sample_format = pyaudio.paInt16      # 16 bits per sample
-    channels = 2      # Number of audio channels
-    fs = 44100        # Record at 44100 samples per second
-    time_in_seconds = 300
-    p = pyaudio.PyAudio()
-    stream = p.open(format=sample_format,
-                    channels = channels,
-                    rate = fs,
-                    frames_per_buffer = chunk,
-                    input = True, output = True)
-    for i in range(0, int(fs / chunk * time_in_seconds)):
-        data = stream.read(chunk)
-        stream.write(data)
-finally:
-    # Stop and close the Stream and PyAudio
-    stream.stop_stream()
-    stream.close()
-    p.terminate()
-
-'''
-```
+    '''
+    ```
