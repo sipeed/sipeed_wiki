@@ -439,7 +439,7 @@ wlan0     Scan completed :
 
 > 目前所有的网络配置都会在重启后自动生效，如果想要自己手工控制网卡的开关，请了解一下 ifup 或 ifdown 命令的用法，类似 ifup eth0 启动 eth0 网卡，ifdown eth0 --force 强制关闭 eth0 网卡等。
 
-## 系统更新
+## 系统配置
 
 ### 系统时间
 
