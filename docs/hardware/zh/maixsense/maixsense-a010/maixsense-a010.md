@@ -50,6 +50,7 @@ Linux 系统：不提供软件包，需用户自行编译[点击跳转](https://
 注意：Win 7 及以下系统需装驱动，可自行前往 FTDI 官网下载。
 
 ### 上电互动预览
+
 将设备通电后，可在设备上自带 LCD 屏实时预览 color map 后的深度伪彩图。
 
 ![ms_lcd](./assets/ms_lcd.jpg)
@@ -80,16 +81,19 @@ COMTOOL 上位机的配置控件说明
 - Ev 曝光间隙控制（最左代表 AE，其他是固定曝光时间）
 
 ## 案例：远近中物体实拍
+
 物体之间放置的距离形成深度值的差异，模块捕捉到差异后显示冷暖色，距离近时显示暖色而远则显示冷色。
 
 ![ms_](./assets/ms_carton.jpg)
 
 ## 案例：检测人流
+
 高精度，大分辨率的实时监测人流走动的情况并统计。
 
 ![ms_people](./assets/ms-people.jpg)
 
 ## 案例：键盘灯跟随
+
 实现超酷炫的键盘灯跟随，实时跟踪手部的位置，再根据手部的位置映射键盘灯。
 
 相关支持：[点击查看代码](https://dl.sipeed.com/shareURL/others/maixsense_example)
@@ -113,24 +117,28 @@ MS-A010 二次开发手册：[点击查看](http://wiki.sipeed.com/hardware/zh/m
 ### 接入 ROS1 
 
 **1. 准备工作** 
-首先，准备适用的环境：`Linux` 系统
-可使用虚拟机 `virtual box` 或者 `vmware` 也可安装双系统，安装方法请自行查询。
+运行 ROS 前我们要准备适用的环境：`Linux` 系统。
+可使用虚拟机 `virtual box` 或者 `vmware`：[点击获取](https://www.vmware.com/cn/products/workstation-player/workstation-player-evaluation.html)
+也可以自行安装双系统，安装方法请自行搜索或参考右侧：[双系统安装教程](https://neucrack.com/p/330)
 
 **2. 安装运行**
-由于我们提供的是 ROS2 的接入功能包，运行 ROS1 的话只需切换分支即可。
-接入功能包：[点击下载](https://dl.sipeed.com/shareURL/MaixSense/MaixSense_A010/software_pack/SDK)
-```bash
+ROS 接入包：[点击前往下载](https://dl.sipeed.com/shareURL/MaixSense/MaixSense_A010/software_pack/SDK)
 
-#解压缩sipeed_tof_ms_a010.zip，并进入目录
+```bash
+#解压缩 sipeed_tof_ms_a010.zip，并进入目录
 cd ros1
 source /opt/ros/*/setup.sh
 catkin_make
 source devel/setup.sh 
 rosrun sipeed_tof_ms_a010 a010_publisher _device:="/dev/ttyUSB0"
 #之后终端会持续刷新显示[sipeed_tof]: Publishing，即正常工作
-
 ```
+
+![ros_adb](./assets/ros_adb.jpg)
+
 **3. 可自行在 RQT 查看帧率**
+
+![ms_rosone](./assets/ms_rosone.jpg)
 
 **4. RVIZ2 预览**
 打开 `rviz2` 后，在界面左下角的 `Add`->`By topic`->`PointCloud2或/depth` ->`Image 添加` ->`Display/Global Options/Fixed Frame` 需要修改成 `tof`，才能正常显示点云，根据添加的内容，左侧会显示 `Image` 而中间则显示点云。
@@ -140,20 +148,29 @@ rosrun sipeed_tof_ms_a010 a010_publisher _device:="/dev/ttyUSB0"
 ### 接入 ROS2 
 
 **1. 准备工作**
-首先，准备适用的环境：`Linux` 系统
-可使用虚拟机 `virtual box` 或者 `vmware` 也可安装双系统，安装方法请自行查询。
+运行 ROS 前我们要准备适用的环境：`Linux` 系统。
+可使用虚拟机 `virtual box` 或者 `vmware`：[点击获取](https://www.vmware.com/cn/products/workstation-player/workstation-player-evaluation.html)
+也可以自行安装双系统，安装方法请自行搜索或参考右侧：[双系统安装教程](https://neucrack.com/p/330)
 
-**2. 安装运行**
-我们提供了 ROS2 的接入功能包，用户需要在运行 ROS2 的系统上编译安装。
-接入功能包：[点击下载](https://dl.sipeed.com/shareURL/MaixSense/MaixSense_A010/software_pack/SDK)
+> 如果环境同时安装了 ROS1，使用 ROS2 的话需要选额外择正确的版本。
 
 ```bash
-#解压缩 sipeed_tof_ms_a010.zip，并进入目录
+ls /opt/ros
+ros@ros-virtual-machine:~/Desktop$ ls /opt/ros
+noetic  rolling
+```
+**2. 安装运行**
+我们提供了 ROS2 的接入功能包，用户需要在运行 ROS2 的系统上编译安装。
+ROS 接入包：[点击前往下载](https://dl.sipeed.com/shareURL/MaixSense/MaixSense_A010/software_pack/SDK)
+
+```bash
+#解压缩sipeed_tof_ms_a010.zip，并进入目录
+cd ros2
 source /opt/ros/*/setup.sh
-colcon build #如提示缺少colcon时需要sudo apt install python3-colcon-ros
-ros2 run sipeed_tof_ms_a010 publisher --ros-args -p device:="/dev/ttyUSB0"
+colcon build #（如提示缺少colcon时需要sudo apt install python3-colcon-ros）
 source install/setup.sh
-#之后终端会持续刷新显示[sipeed_tof]: Publishing，即正常工作。
+ros2 run sipeed_tof_ms_a010 publisher --ros-args -p device:="/dev/ttyUSB0"
+#之后终端会持续刷新显示[sipeed_tof]: Publishing，即正常工作
 ```
 
 **3. RQT 查看帧率**

@@ -27,14 +27,15 @@ Windows 系统需安装驱动才可正常运行。
 
 1. 把设备使用 type-c 线与电脑链接，MS-A075V 的风扇会开始工作，产品正面镜头处就会闪烁红灯。
 2. 此时可打开浏览器输入 http://192.168.233.1 预览 3D 点云图，上电后有延迟需等待一段时间后，系统和程序才会启动完成。
-3. 使用网页上位机快速预览 演示图（正面和侧面）： 
-<html>
-  <img src="./assets/mt_examle.jpg" width=48%>
-  <img src="./assets/mt_examleb.jpg" width=48%>
-</html>
+3. 使用网页上位机快速预览 演示图（正面和侧面）：
+ 
+    <html>
+      <img src="./assets/mt_examle.jpg" width=48%>
+      <img src="./assets/mt_examleb.jpg" width=48%>
+    </html>
 
-4. 可选预览深度伪彩点云，右上角打开交互面板，第一行取消勾选 RGB_Map 即可。
-![mt_examlec](assets/mt_examlec.jpg)
+5. 可选预览深度伪彩点云，右上角打开交互面板，第一行取消勾选 RGB_Map 即可。
+    ![mt_examlec](assets/mt_examlec.jpg)
 
 ### 互动配置
 
@@ -108,57 +109,67 @@ Windows 系统需安装驱动才可正常运行。
 
 ## 二次开发：接入 ROS
 ### 接入 ROS1
-
 **1. 准备工作**
-首先，准备适用的环境：`Linux` 系统
-可使用虚拟机 `virtual box` 或者 `vmware` 也可安装双系统，安装方法请自行查询。
+
+运行 ROS 前我们要准备适用的环境：`Linux` 系统。
+可使用虚拟机 `virtual box` 或者 `vmware`：[点击获取](https://www.vmware.com/cn/products/workstation-player/workstation-player-evaluation.html)
+也可以自行安装双系统，安装方法请自行搜索或参考右侧：[双系统安装教程](https://neucrack.com/p/330)
 
 **2. 安装运行**
-由于我们提供的是 ROS2 的接入功能包，运行 ROS1 的话只需切换分支即可。
-[接入包下载](https://dl.sipeed.com/shareURL/MaixSense/MaixSense_A075V/software/SDK)
+
+ROS1 接入包：[点击前往下载](https://dl.sipeed.com/shareURL/MaixSense/MaixSense_A075V/software/SDK)
 
 ```bash
-#解压缩sipeed_tof_ms_a010.zip，并进入目录
-git switch ros1 #切换到 ros1 分支
+#解压缩sipeed-tofv075-ros.zip，并进入目录
 source /opt/ros/*/setup.sh
 catkin_make
 source devel/setup.sh
 rosrun sipeed_tof_cpp publisher
 #之后终端会持续刷新命令行
 ```
+![mt_adb](./assets/mt_adb.jpg)
 
 **3. 可自行在 RQT 查看帧率**
 
+![mt_rqta](./assets/mt_rqta.jpg)
+
 **4. RVIZ 预览**
+
 打开 `rviz2` 后，在界面左下角的 `Add`->`By topic`->`PointCloud2或/depth` ->`Image 添加` ->`Display/Global Options/Fixed Frame` 需要修改成 `tof`，才能正常显示点云，根据添加的内容，左侧会显示 `Image` 而中间则显示点云。
 ![mt_ros](assets/mt_ros.jpg)
 
 ### 接入 ROS2
 **1. 准备工作**
-首先，准备适用的环境：`Linux` 系统
-可使用虚拟机 `virtual box` 或者 `vmware` 也可安装双系统，安装方法请自行查询。
+
+运行 ROS 前我们要准备适用的环境：`Linux` 系统。
+可使用虚拟机 `virtual box` 或者 `vmware`：[点击获取](https://www.vmware.com/cn/products/workstation-player/workstation-player-evaluation.html)
+也可以自行安装双系统，安装方法请自行搜索或参考右侧：[双系统安装教程](https://neucrack.com/p/330)
 
 **2. 安装运行**
+
 我们提供了 ROS2 的接入功能包，用户需要在运行 ROS2 的系统上编译安装。
-[接入包下载](https://dl.sipeed.com/shareURL/MaixSense/MaixSense_A075V/software/SDK)
+ROS2 接入包：[点击前往下载](https://dl.sipeed.com/shareURL/MaixSense/MaixSense_A075V/software/SDK)
 
 ``` bash
-
-#解压sipeed_tof_cpp.zip，并进入目录
+#解压缩sipeed-tofv075-ros2.zip，并进入目录
 source /opt/ros/*/setup.sh
-colcon build #如提示缺少colcon时需要sudo apt install python3-colcon-ros
+colcon build #（如提示缺少colcon时需要sudo apt install python3-colcon-ros）
 source install/setup.sh
 ros2 run sipeed_tof_cpp publisher
 #之后终端会持续刷新显示[sipeed_tof]: Publishing，即正常工作
 ``` 
 
 **3. RQT 查看帧率**
+
+打开 `RQT` 后选择 `Plugins`->`Topics`->`Topic Monitor`。
+
 ![mt_rqt](asstes/../assets/mt_rqt.jpg)
 
 **4. RVIZ2 预览**
-打开 `rviz2` 后，在界面左下角的 `Add`->`By topic`->`PointCloud2` 或 `/depth、/intensity、/rgb`->`Image 添加`->`Display/Global Options/Fixed Frame` 需要修改成 `“tof”`，才能正常显示点云。根据添加的内容，左侧会显示 `Image`而中间则显示点云。
-**伪彩点云和 RGBD融合点云效果：**
 
+打开 `rviz2` 后，在界面左下角的 `Add`->`By topic`->`PointCloud2` 或 `/depth、/intensity、/rgb`->`Image 添加`->`Display/Global Options/Fixed Frame` 需要修改成 `“tof”`，才能正常显示点云。根据添加的内容，左侧会显示 `Image`而中间则显示点云。
+
+**伪彩点云和 RGBD融合点云效果：**
 <html>
   <img src="./assets/mt_rosb.jpg" width=48%>
   <img src="./assets/mt_rosc.jpg" width=48%>
