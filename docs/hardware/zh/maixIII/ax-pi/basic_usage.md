@@ -1202,9 +1202,9 @@ ffplay rtsp://192.168.233.1:8554/axstream0 -fflags nobuffer
     <iframe src="//player.bilibili.com/player.html?aid=773227207&bvid=BV1B14y1Y7A4&cid=837154353&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="max-width:640px; max-height:480px;"> </iframe>
 </p>
 
-### IPC ODM
+### ONVIF ODM
 
->在 20221111 后的更新的镜像系统，内置了按键录像 mp4 和支持更换 yolov5s 人脸/物体检测模型以及对 ODM（ONVIF） 软件也进行支持。
+>在 20221111 后的更新的镜像系统，内置了按键录像 mp4 和支持更换 yolov5s 人脸/物体检测模型以及对 ODM（ONVIF）进行支持。
 
 **ONVIF Device Manager**：[点击下载](https://sourceforge.net/projects/onvifdm/)
 
