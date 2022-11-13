@@ -525,7 +525,7 @@ poweroff
 
 >**20221013** 后更新的镜像已预置正式版本开机自启脚本
 
-系统已经配置好 `/etc/rc.local & /boot/rc.local` 开机脚本，
+系统已经配置好 `/etc/rc.local` 调用 `/boot/rc.local` 的开机脚本，
 Maix-III AXera-Pi 开发板上电后会自启点亮 5 寸屏幕以及耳机播放开机音乐。
 
 .. details::点击查看连接后串口输出的 debian11 系统启动日志。
@@ -602,7 +602,7 @@ Maix-III AXera-Pi 开发板上电后会自启点亮 5 寸屏幕以及耳机播�
 这里可以添加开机启动的命令，还可以修改 `#!/bin/sh` 到 `exit 0` 之间的命令。
 
 ```bash
-root@AXERA:~# cat /etc/rc.local & /boot/rc.local
+root@AXERA:~# cat /boot/rc.local
 #!/bin/sh
 
 # this file is called by /etc/rc.local at boot.
