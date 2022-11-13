@@ -194,24 +194,27 @@ killall sample_vo_fb
 
 ## 组合 SDK 和 AI 模型例程
 
-比如我们要跑一个视觉 AI 模型，需要用到摄像头，屏幕，还有 AI 模型。
-其中 摄像头和屏幕的使用在`libmaix`中已经有例程，可以直接使用，基于摄像头屏幕使用例程，将 AI 模型的例程拷贝到例程目录中，调整一下 API 调用即可。
+比如我们要跑一个视觉 AI 模型，需要用到摄像头，屏幕，还有 AI 模型，你需要借助以下仓库代码完成这个目标。
 
-### 借助 libmaix 实现
+### 借助 libmaix 实现（只支持 maixhub.com 训练出来的输入 rgb 的 joint 模型）
 
-基于 libmaix 的 axpi 项目进行开源快速验证效果，代码简单易懂。
+基于 libmaix 的 axpi 项目进行开源快速验证效果，代码简单易懂，基于在线服务完成模型部署，只用于新手上路，与 ax-sample 的模型一起被支持。
 
 - [axpi](https://github.com/sipeed/libmaix/tree/release/examples/axpi)
 - [axpi_classification_cam](https://github.com/sipeed/libmaix/tree/release/examples/axpi_classification_cam)
 - [axpi_yolov5_cam](https://github.com/sipeed/libmaix/tree/release/examples/axpi_yolov5_cam)
 
-### 借助 ax-pipeline 实现
+> 20221113 目前仓库只保证用户初次上手时能够不报错的安全调用 AI 模型，不代表芯片的最好效果，不能与 ax-pipeline 的模型混用。
 
-> 要有基本的芯片 bsp sdk 开发的基础（axpi_bsp_sdk），这部分的内容会专业一些。
+### 借助 ax-pipeline 实现（只支持经过 readme.md 训练出来的输入 yuv 的 joint 模型）
+
+到了这里要有基本的芯片 bsp sdk 开发的基础（axpi_bsp_sdk），这部分会略显专业一些，注意不与 libmaix 共存，这个仓库目前追求最高性能的效果。
 
 - [准备编译环境](https://github.com/AXERA-TECH/ax-pipeline/blob/main/docs/compile.md)
 - [如何更换自己训练的 yolov5 模型？](https://github.com/AXERA-TECH/ax-pipeline/blob/main/docs/how_to_deploy_custom_yolov5_model.md)
 - [如何部署自己的其他模型](https://github.com/AXERA-TECH/ax-pipeline/blob/main/docs/how_to_deploy_custom_model.md)
+
+> 20221113 目前仓库为了实现所有 AI 模型的最优性能和识别效果，但这一切的代价是不与和 libmaix & ax-sample 的模型混用，未来会进一步磨合合并功能，目前还在开发阶段。
 
 ### 借助 ipcdemo 实现
 
