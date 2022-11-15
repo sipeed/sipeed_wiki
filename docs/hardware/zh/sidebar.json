@@ -112,7 +112,8 @@
                         },
                         {
                             "label": "连接MaixPy3",
-                            "file": "../../soft/maixpy3/zh/tools/0.MaixII-Dock.ipynb"
+                            "file": "../../soft/maixpy3/zh/tools/0.MaixII-Dock.ipynb",
+                            "target": "_blank"
                         }
                     ]
                 },
@@ -146,7 +147,8 @@
                         },
                         {
                             "label": "连接MaixPy3",
-                            "file": "../../soft/maixpy3/zh/tools/maixsense.md"
+                            "file": "../../soft/maixpy3/zh/tools/maixsense.md",
+                            "target": "_blank"
                         }
                     ]
                 },
@@ -267,7 +269,8 @@
                         },
                         {
                             "label": "常见问题",
-                            "file": "tang/Tang-Nano-Doc/questions.md"
+                            "file": "tang/Tang-Nano-Doc/questions.md",
+                            "target": "_blank"
                         }
                     ]
                 },
@@ -294,7 +297,8 @@
                                 },
                                 {
                                     "label": "常见问题",
-                                    "file": "tang/Tang-Nano-Doc/questions.md"
+                                    "file": "tang/Tang-Nano-Doc/questions.md",
+                                    "target": "_blank"
                                 }
                             ]
                         },

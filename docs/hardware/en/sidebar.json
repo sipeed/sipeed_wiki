@@ -1,57 +1,91 @@
 {
     "items": [
         {
-            "label": "Maix-I",
-            "file": "maix/README.md",
+            "label": "Hardware",
+            "file": "maix/README.md"
+        },
+        {
+            "label": "Maix-I & Zero",
             "items": [
                 {
-                    "label": "Maix Module",
-                    "collapsed": false,
+                    "label": "Maix M1",
                     "items": [
                         {
-                            "label": "M1/M1w",
-                            "file": "maix/core_module.md"
+                            "label": "M1 Module",
+                            "collapsed": false,
+                            "items": [
+                                {
+                                    "label": "M1/M1w",
+                                    "file": "maix/core_module.md"
+                                },
+                                {
+                                    "label": "M1n",
+                                    "file": "maix/M1n.md"
+                                }
+                            ]
                         },
                         {
-                            "label": "M1n",
-                            "file": "maix/M1n.md"
+                            "label": "M1 Board",
+                            "items": [
+                                {
+                                    "label": "Maix Dock(M1/M1W)",
+                                    "file": "maix/maixpy_develop_kit_board/Maix_dock.md"
+                                },
+                                {
+                                    "label": "Maix Bit",
+                                    "file": "maix/maixpy_develop_kit_board/maix_bit.md"
+                                },
+                                {
+                                    "label": "Maix Duino",
+                                    "file": "maix/maixpy_develop_kit_board/maix_duino.md"
+                                },
+                                {
+                                    "label": "Maix Nano",
+                                    "file": "maix/maixpy_develop_kit_board/maix_nano.md"
+                                },
+                                {
+                                    "label": "Maix Cube",
+                                    "file": "maix/maixpy_develop_kit_board/maix_cube.md"
+                                },
+                                {
+                                    "label": "Maix Amigo",
+                                    "file": "maix/maixpy_develop_kit_board/maix_Amigo.md"
+                                },
+                                {
+                                    "label": "Maix HAT",
+                                    "file": "maix/maixpy_develop_kit_board/maix_hat.md"
+                                },
+                                {
+                                    "label": "Maix Go (Sold out)",
+                                    "file": "maix/maixpy_develop_kit_board/maix_go.md"
+                                }
+                            ]
                         }
                     ]
                 },
                 {
-                    "label": "Maix Board",
+                    "label": "Maix M1s",
                     "items": [
                         {
-                            "label": "Maix Dock(M1/M1W)",
-                            "file": "maix/maixpy_develop_kit_board/Maix_dock.md"
+                            "label": "M1s Module",
+                            "file": "maix/m1s/m1s_module.md"
                         },
                         {
-                            "label": "Maix Bit",
-                            "file": "maix/maixpy_develop_kit_board/maix_bit.md"
+                            "label": "M1s Board",
+                            "file": "maix/m1s/m1s_dock.md"
                         },
                         {
-                            "label": "Maix Duino",
-                            "file": "maix/maixpy_develop_kit_board/maix_duino.md"
-                        },
+                            "label": "M1s Machine Key",
+                            "file": "maix/m1s/other/get_key.md"
+                        }
+                    ]
+                },
+                {
+                    "label": "Maix Zero",
+                    "items": [
                         {
-                            "label": "Maix Nano",
-                            "file": "maix/maixpy_develop_kit_board/maix_nano.md"
-                        },
-                        {
-                            "label": "Maix Cube",
-                            "file": "maix/maixpy_develop_kit_board/maix_cube.md"
-                        },
-                        {
-                            "label": "Maix Amigo",
-                            "file": "maix/maixpy_develop_kit_board/maix_Amigo.md"
-                        },
-                        {
-                            "label": "Maix HAT",
-                            "file": "maix/maixpy_develop_kit_board/maix_hat.md"
-                        },
-                        {
-                            "label": "Maix Go (Sold out)",
-                            "file": "maix/maixpy_develop_kit_board/maix_go.md"
+                            "label": "M0sense Board",
+                            "file": "./maixzero/sense/maix_zero_sense.md"
                         }
                     ]
                 }
@@ -210,18 +244,18 @@
                         {
                             "label": "Tang Primer 20K",
                             "file": "tang/tang-primer-20k/primer-20k.md",
-                            "item": [    
+                            "item": [
                                 {
-                                    "label":"Notice",
-                                    "file" :"tang/tang-primer-20k/start.md"
-                                },                                
+                                    "label": "Notice",
+                                    "file": "tang/tang-primer-20k/start.md"
+                                },
                                 {
                                     "label": "Install IDE",
                                     "file": "tang/Tang-Nano-Doc/install-the-ide.md"
                                 },
                                 {
-                                    "label":"Examples",
-                                    "file" :"tang/tang-primer-20k/example.md"
+                                    "label": "Examples",
+                                    "file": "tang/tang-primer-20k/example.md"
                                 },
                                 {
                                     "label": "Questions&Answers",
