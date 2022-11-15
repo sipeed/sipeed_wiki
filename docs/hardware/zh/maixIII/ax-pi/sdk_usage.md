@@ -196,7 +196,7 @@ killall sample_vo_fb
 
 比如我们要跑一个视觉 AI 模型，需要用到摄像头，屏幕，还有 AI 模型，你需要借助以下仓库代码完成这个目标。
 
-### 借助 libmaix 实现（难度最小）
+### 借助 libmaix 实现（开发难度最小，适合验证）
 
 基于 libmaix 的 axpi 项目进行开源快速验证效果，代码简单易懂，基于在线服务完成模型部署，只用于新手上路，与 ax-sample 的模型一起被支持。
 
@@ -206,7 +206,7 @@ killall sample_vo_fb
 
 > 20221113 目前仓库只保证用户初次上手时能够不报错的安全调用 AI 模型，不代表芯片的最好效果。
 
-### 借助 ax-pipeline 实现（难度适中）
+### 借助 ax-pipeline 实现（开发难度适中，适合优化）
 
 到了这里要有基本的芯片 bsp sdk 开发的基础（axpi_bsp_sdk），这部分会略显专业一些，这个仓库目前追求最高性能的效果。
 
@@ -214,7 +214,7 @@ killall sample_vo_fb
 - [如何更换自己训练的 yolov5 模型？](https://github.com/AXERA-TECH/ax-pipeline/blob/main/docs/how_to_deploy_custom_yolov5_model.md)
 - [如何部署自己的其他模型](https://github.com/AXERA-TECH/ax-pipeline/blob/main/docs/how_to_deploy_custom_model.md)
 
-### 借助 ipcdemo 实现（难度最大）
+### 借助 ipcdemo 实现（开发难度最大，适合落地）
 
 基于 axpi_bsp_sdk 的 ipcdemo 商用视频推流应用，由于源码过于复杂，需要有上述基础才能介入。
 
