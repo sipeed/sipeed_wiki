@@ -57,7 +57,7 @@ title: Maix-III AXera-Pi 系统基础使用
 Maix-III AXera-Pi 开发板的 Linux debian11 系统默认使用 root 用户登录。
 用户名为 `root`，密码为 `root`，目前板子接入电脑端上电启动后支持以下登录 Linux 系统方式。
 
-- **有线 串口 serial 登陆**
+#### 有线 串口 serial 登陆
 
 > 使用串口 serial 登陆前需安装 tty 转 USB 串口驱动
 
@@ -87,7 +87,7 @@ Maix-III AXera-Pi 开发板的 Linux debian11 系统默认使用 root 用户登�
 
 > 串口通常只提供给专业的驱动开发工程师调试用，会打印大量的调试信息，如感到不适请使用 **ssh** 登陆。
 
-- **基于 ip + ssh 登录**
+#### 基于 ip + ssh 登录
 
 > 登录前需安装 **rndis usb** 网卡驱动
 
@@ -229,7 +229,7 @@ wlan0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
 
 可使用静态 IP 地址 `192.168.233.1` 这里已配置好 dhcp 服务了，从而避免用户需手动设置 IP 地址的操作。
 
-> 使用 usb0 前需要安装 rndis 驱动，可参考上文的驱动安装过程。
+> 使用 usb0 前需要安装 rndis 驱动，可点击[驱动安装过程](http://wiki.spieed.com/hardware/zh/maixIII/ax-pi/basic_usage.html#基于-ip-%2B-ssh-登录l)前往安装。
 
 在 Windows 系统下如果遇到多个网卡时，发现 USB 网卡优于局域网导致内网网站访问很慢甚至失败，此时就需要通过 Win10 设置跃点数来调整网络优先级的连接顺序，去修改优先级改善访问慢的状态，数值越大优先级越低（比如设置 1000），从而把 USB 网卡优先级调至最低**可参考上文的调整网络优先级的教程**。
 
@@ -754,7 +754,7 @@ root@AXERA:~#
 
 ### VIDEO
 
-目前系统的摄像头驱动不经过 v4l2 驱动框架，所以必须通过代码配置的方式进行启用，相关摄像头驱动都是在应用层上完成的，此配置较旧图像可能会偏转，请使用下方其余 demo 运行摄像头。
+目前系统的摄像头驱动不经过 v4l2 驱动框架，所以必须通过代码配置的方式进行启用，相关摄像头驱动都是在应用层上完成的，此配置较旧已过时，请使用下方其余应用运行摄像头。
 
 - gc4653 （基础版）
 - os04a10（夜视版）
@@ -844,7 +844,7 @@ finally:
 
 我们在 debian 系统上配置了 usb-gadget@g1 和 usb-gadget@g0 两个服务。
 
-- **配置虚拟网卡 RNDIS usb0 有线 ssh 登录**
+#### 配置虚拟网卡 RNDIS usb0 有线 ssh 登录
 
 默认就会启动配置 `systemctl enable usb-gadget@g0`，停止开机启动用 `systemctl disable usb-gadget@g0`，停止服务用`systemctl stop usb-gadget@g0`。
 
@@ -852,13 +852,18 @@ finally:
 
 ![ssh-usb](./../assets/ssh-usb.jpg)
 
-- **配置虚拟串口 /dev/ttyGS0 并转发登录接口**
+#### 配置虚拟串口 /dev/ttyGS0 并转发登录接口
 
 停止 usb-gadget@g0 后使用 `systemctl start usb-gadget@g1` 即可看到，然后使用 `systemctl start getty@ttyGS0` 即可转发串口终端到 usb 的虚拟串口上。
 
 ![usb_tty](./../assets/usb_tty.jpg)
 
-- **如何使用 USB HOST 读取一个 256M 的 SD 卡**
+#### v4l2 webcam
+
+适配 usb 摄像头前我们需要给板子接上以太网 `eth0`，使用 `ifconfig` 查询以太网的 `IP` 地址方便我们使用。如果获取不到以太网的 `IP` 地址，请移步右侧进行重新启动/配置[点击前往相关](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html#%E6%9C%89%E7%BA%BF%E4%BB%A5%E5%A4%AA%E7%BD%91%EF%BC%88eth0%EF%BC%89%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95)。
+
+
+#### 如何使用 USB HOST 读取一个 256M 的 SD 卡
 先关了 otg 的 rndis 后再 lsusb 就可以看到了。
 
 > 系统同一个时刻只有一种 usb 设备方向，要么上 otg 模式变成串口、网卡接电脑，要么是 host 模式接鼠标键盘U盘，不能同时使用。
@@ -1265,6 +1270,8 @@ nano /home/examples/vin_ivps_joint_venc_rtsp_vo_onvif_mp4v2/run.sh
 录制完成的 MP4 文件可在 **`home/examples/`** 目录下查看。
 
 ![mp4-file](./../assets/mp4-file.png)
+
+### pp_human
 ### 出厂测试脚本
 
 .. details::点击可查看产品出厂测试时用的 Python 测试脚本
