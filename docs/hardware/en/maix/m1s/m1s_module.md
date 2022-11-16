@@ -23,7 +23,7 @@ Buy one: [Aliexpress]()
 - Onboard SPI FLASH  (16MByte default)
 - Support 2.4G WIFI / BT / BLE
 - Support IPEX-I antenna and onboard PCB antenna
-- Stamp holes route all IO
+- Stamp package route all IO
 
 ## Parameter
 
@@ -256,7 +256,7 @@ Buy one: [Aliexpress]()
 - [Reddit](https://www.reddit.com/r/Sipeed/)
 - [Online model platform](https://maixhub.com/)
 
-<!-- 
+
 ## Attention
 
 <table>
@@ -265,31 +265,31 @@ Buy one: [Aliexpress]()
         <th>Attention</th>
     </tr>
     <tr>
-        <td>静电防护</td>
-        <td>请避免静电打到 PCBA 上；接触 PCBA 之前请把手的静电释放掉</td>
+        <td>Electrostatic protection</td>
+        <td>Avoid static electricity hitting the PCBA. Release the static electricity of hand before touching the PCBA</td>
     </tr>
     <tr>
-        <td>容忍电压</td>
-        <td> 每个 GPIO 的工作电压已经在原理图中标注出来，请不要让 GPIO 的实际工作的电压超过额定值，否则会引起 PCBA 的永久性损坏 </td>
+        <td>Operating voltage</td>
+        <td>The operating voltage of each GPIO has been marked in the schematic. Please do not allow the actual operating voltage of the GPIO to exceed the rated value, otherwise the PCBA will be permanently damaged</td>
     </tr>
     <tr>
-        <td>FPC 座子</td>
-        <td>在连接 FPC 软排线的时候，谲确保排线无偏侈地完整地插入到排线中</td>
+        <td>FPC Connector</td>
+        <td>When connecting FPC cable，make sure that the row is completely inserted into the row without bias</td>
     </tr>
     <tr>
-        <td>插拔</td>
-        <td>请完全断电后才进行插拔操作</td>
+        <td>Plug and Remove</td>
+        <td>Power off completely before plugging or removing it</td>
     </tr>
     <tr>
-        <td>避免短路</td>
-        <td>请在上电过程中，避免任何液体和金属触碰到 PCBA 上的元件的焊盘，否则会导致路，烧毁 PCBA</td>
+        <td>Avoid short circuit</td>
+        <td>During the power-on, avoid any liquid or metal touching PCBA components，otherwise the PCBA will be damaged even burn</td>
     </tr>
     <tr>
-        <td>设计建议</td>
-        <td>为该模组设计底板时，建议先看这个帖子 <a href="https://bbs.sipeed.com/thread/1721">https://bbs.sipeed.com/thread/1721</a></td>
+        <td>Suggestion for Design</td>
+        <td>Before hadrware design, see this post <a href="https://bbs.sipeed.com/thread/1721">https://bbs.sipeed.com/thread/1721</a> (Use Web Translation)</td>
     </tr>
     <tr>
-        <td>BANK 划分</td>
+        <td>BANK</td>
         <td>
             VDDIO1：GPIO 0-8，1.8V/3.3V<br>
             VDDIO2：GPIO 11-15，GPIO 40-41, 3.3V only<br>
@@ -300,14 +300,13 @@ Buy one: [Aliexpress]()
     <tr>
         <td>BOOT Mode</td>
         <td>
-        When power on, the chip determines the level of the BOOT pin and selects one of the two boot options
-        在启动时，芯片判定 BOOT 引脚的电平，选择两个启动选项之一<br>
-        · BOOT 高电平：从 FLASH 存储启动
-        · BOOT 低电平：进入串口下载模式
+        When power on, the chip starts depend on the the voltage level of the BOOT pin: <br>
+        · BOOT is 1 ：Start from flash<br>
+        · BOOT is 0 ：Download from uart
         </td>
     </tr>
 </table>
- -->
+
 ## Contact
 
 M1s Dock meets different needs of customers in various scenarios. Please contact email [support@sipeed.com](support@sipeed.com) for technical support and business cooperation

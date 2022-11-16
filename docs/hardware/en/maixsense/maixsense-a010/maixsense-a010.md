@@ -115,7 +115,7 @@ Realize super cool keyboard light follow,track the position of the hand in real 
 
 Please refer to the above case:  **MS-A010 external K210 bit**
 
-MS-A010 Secondary Development Manual:[Click to view](http://wiki.sipeed.com/hardware/en/maixsense/maixsense-a010/at_command_en.html)
+MS-A010 Secondary Development Manual:[Click to view](./at_command_en.md)
 
 ## Secondary development:Access ROS
 

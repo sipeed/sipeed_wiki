@@ -22,20 +22,15 @@ Buy one: [Aliexpress]()
   </tr>
 </table>
 
-<!-- 
-<img width=40% alt="m1s_dock_top" src="./../../../zh/maix/m1s/assets/m1s_dock/m1s_dock_top.jpg">
-<img width=40% alt="m1s_dock_bottom" src="./../../../zh/maix/m1s/assets/m1s_dock/m1s_dock_bottom.jpg">
- -->
-
 ## Feature
 
--	MainChip BL808 RISC-V 480Mhz + NPU BLAI-100
--	Onboard USB to UART debugger
--	Onboard screen interface (Optional 1.69-inch 240x280 capacitor touch screen)
--	Onboard MIPI camera interface (Optional 2M solution camera)
--	Support 2.4G WIFI / BT / BLE
--	Onboard 1 analog microphone、1  LED、1 TF card slot
--	Route USB-OTG to USB Type-C port
+- MainChip BL808 RISC-V 480Mhz + NPU BLAI-100
+- Onboard USB to UART debugger
+- Onboard screen interface (Optional 1.69-inch 240x280 capacitor touch screen)
+- Onboard MIPI camera interface (Optional 2M solution camera)
+- Support 2.4G WIFI / BT / BLE
+- Onboard 1 analog microphone、1 LED、1 TF card slot
+- Route USB-OTG to USB Type-C port
 
 ### Parameter
 
@@ -81,7 +76,7 @@ Buy one: [Aliexpress]()
         <td>Onboard screen interface (Optional 1.69-inch 240x280 capacitor touch screen)</td>
     </tr>
     <tr>
-        <td>Onboard MIPI camera interface (Optional 2M solution camera</td>
+        <td>Onboard MIPI camera interface (Optional 2M solution camera)</td>
     </tr>
     <tr>
         <td>Onboard 1 analog microphone、1  LED、1 TF card slot</td>
@@ -199,34 +194,34 @@ Buy one: [Aliexpress]()
 - [Online model platform](https://maixhub.com/)
 
 
-<!-- ## 注意事项
+## Attention
 
 <table>
     <tr>
-        <th>项目</th>
-        <th>注意事项</th>
+        <th>Item</th>
+        <th>Attention</th>
     </tr>
     <tr>
-        <td>静电防护</td>
-        <td>请避免静电打到 PCBA 上；接触 PCBA 之前请把手的静电释放掉</td>
+        <td>Electrostatic protection</td>
+        <td>Avoid static electricity hitting the PCBA. Release the static electricity of hand before touching the PCBA</td>
     </tr>
     <tr>
-        <td>容忍电压</td>
-        <td> 每个 GPIO 的工作电压已经在原理图中标注出来，请不要让 GPIO 的实际工作的电压超过额定值，否则会引起 PCBA 的永久性损坏 </td>
+        <td>Operating voltage</td>
+        <td>The operating voltage of each GPIO has been marked in the schematic. Please do not allow the actual operating voltage of the GPIO to exceed the rated value, otherwise the PCBA will be permanently damaged</td>
     </tr>
     <tr>
-        <td>FPC 座子</td>
-        <td>在连接 FPC 软排线的时候，谲确保排线无偏侈地完整地插入到排线中</td>
+        <td>FPC Connector</td>
+        <td>When connecting FPC cable，make sure that the row is completely inserted into the row without bias</td>
     </tr>
     <tr>
-        <td>插拔</td>
-        <td>请完全断电后才进行插拔操作</td>
+        <td>Plug and Remove</td>
+        <td>Power off completely before plugging or removing it</td>
     </tr>
     <tr>
-        <td>避免短路</td>
-        <td>请在上电过程中，避免任何液体和金属触碰到 PCBA 上的元件的焊盘，否则会导致路，烧毁 PCBA</td>
+        <td>Avoid short circuit</td>
+        <td>During the power-on, avoid any liquid or metal touching PCBA components，otherwise the PCBA will be damaged even burn</td>
     </tr>
-</table> -->
+</table>
 
 ## Contact
 
