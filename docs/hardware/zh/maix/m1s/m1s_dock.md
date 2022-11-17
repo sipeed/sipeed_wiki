@@ -50,7 +50,7 @@ Sipeed M1s Dock 是基于 [Sipeed M1s](./m1s_module.md) 模组来设计的一款
 <table>
     <thead>
         <tr>
-            <th colspan = "2" > M1s 模组 </th>   
+            <th colspan = "2" > M1s Dock </th>   
         </tr>
     </thead>
     <tbody>
@@ -156,7 +156,7 @@ Sipeed M1s Dock 是基于 [Sipeed M1s](./m1s_module.md) 模组来设计的一款
 <table>
     <thead>
         <tr>
-            <th colspan = "2" > M1s 模组 </th>   
+            <th colspan = "2" > M1s Dock </th>   
         </tr>
     </thead>
     <tbody>

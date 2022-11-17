@@ -66,17 +66,35 @@
                                             <n-card size="small" hoverable>
                                                 <a href= "/m1s#dock" target="_blank"><img class="carousel-img" src="/static/home/m1s_dock_m0sense.jpg" alt="m1s_dock_m0sense"></a>
                                                 <n-divider title-placement="right">
-                                                    <n-button-group style="margin: 5px; font-size: 16px;">
-                                                    <n-button size="large"
-                                                            href="https://wiki.sipeed.com/m1s#dock"
-                                                            target="_blank" tag="a" type="error" ghost>
-                                                            看看多核异构单片机资料
-                                                        </n-button>
-                                                    <n-button size="large" style="color:#ffffff; " color="#e34548"
-                                                             href="ttps://item.taobao.com/item.htm?id=691108452443"
-                                                             tag="a" target="_blank" round>
-                                                            购买链接
-                                                    </n-button>
+                                                    <n-button-group vertical style="margin: 5px; font-size: 16px;">
+                                                        <n-button-group>
+                                                            <n-button size="large"
+                                                                    href="https://wiki.sipeed.com/m1s#dock"
+                                                                    target="_blank" tag="a" type="error" ghost>
+                                                                    M1s Dock
+                                                                </n-button>
+                                                            <n-button size="large" style="color:#ffffff; " color="#e34548"
+                                                                     href="https://item.taobao.com/item.htm?id=691108452443"
+                                                                     tag="a" target="_blank">
+                                                                    购买链接
+                                                            </n-button>
+                                                        </n-button-group>
+                                                        <n-button-group>
+                                                            <n-button size="large"
+                                                                    href="https://wiki.sipeed.com/m0sense"
+                                                                    target="_blank" tag="a" type="error" ghost>
+                                                                    M0Sense
+                                                                </n-button>
+                                                            <n-button 
+                                                            disabled>
+                                                            暂无购买链接
+                                                            <!-- size="large" style="color:#ffffff; " color="#e34548"
+                                                                     href="https://item.taobao.com/item.htm?id=691108452443"
+                                                                     tag="a" target="_blank"
+                                                                     >
+                                                                    购买链接 -->                                                                    
+                                                            </n-button>
+                                                        </n-button-group>
                                                     </n-button-group>
                                                 </n-divider>    
                                             </n-card>
@@ -101,9 +119,28 @@
                                             </n-card>
                                         </n-carousel-item>
                                     </n-carousel-item>
+                                    <n-carousel-item :style="{ width: '75%' }">
+                                        <n-card size="small" hoverable>
+                                            <a href= "/primer20k" target="_blank"><img class="carousel-img" src="/static/home/primer20k.png" alt="primer20k"></a>
+                                            <n-divider title-placement="right">
+                                                <n-button-group style="margin: 5px; font-size: 16px;">
+                                                <n-button size="large"
+                                                        href="https://wiki.sipeed.com/primer20k"
+                                                        target="_blank" tag="a" type="error" ghost>
+                                                        速览板卡资料
+                                                    </n-button>
+                                                <n-button size="large" style="color:#ffffff; " color="#e34548"
+                                                         href="https://item.taobao.com/item.htm?id=680099020807"
+                                                         tag="a" target="_blank" round>
+                                                        购买链接
+                                                </n-button>
+                                                </n-button-group>
+                                            </n-divider>    
+                                        </n-card>
+                                    </n-carousel-item>
                                      <n-carousel-item :style="{ width: '80%' }">
                                          <n-card size="small" hoverable>
-                                             <a href="https://maixhub.com/signin"><img class="carousel-img" src="/static/image/maixhub_banner.jpg"></a>
+                                             <a href="https://maixhub.com/signin" target="_blank" ><img class="carousel-img" src="/static/image/maixhub_banner.jpg"></a>
                                              <n-divider title-placement="right">
                                                 <n-button-group style="margin: 5px; font-size: 16px;">
                                                 <n-button size="large"
@@ -612,17 +649,23 @@
                                          <n-card v-bind:title="product.title" size="small" hoverable>
                                              <img class="normal-img" v-bind:src="product.src">
                                              <n-button-group style="margin: 5px; font-size: 16px;">
-                                                 <template v-if="product.lbtn_text === 'btn_eol'">
-                                                     <n-button disabled round>
-                                                         {[ $t(product.lbtn_text) ]}
-                                                     </n-button>
-                                                 </template>
-                                                 <template v-else>
-                                                     <n-button tag="a" v-bind:href="product.lbtn_href" target="_blank"
-                                                         round>
-                                                         {[ $t(product.lbtn_text) ]}
-                                                     </n-button>
-                                                 </template>
+                                                <template v-if="product.other_text">
+                                                    <n-button style="color:#ffffff;" color="#e34548" tag="a"
+                                                    v-bind:href="product.other_href" target="_blank" round>
+                                                    {[ $t(product.other_text) ]}
+                                                </n-button>
+                                                </template>
+                                                <template v-if="product.lbtn_text === 'btn_eol'">
+                                                    <n-button disabled round>
+                                                        {[ $t(product.lbtn_text) ]}
+                                                    </n-button>
+                                                </template>
+                                                <template v-else>
+                                                    <n-button tag="a" v-bind:href="product.lbtn_href" target="_blank"
+                                                        round>
+                                                        {[ $t(product.lbtn_text) ]}
+                                                    </n-button>
+                                                </template>
                                                  <n-button style="color:#ffffff;" color="#e34548" tag="a"
                                                      v-bind:href="product.rbtn_href" target="_blank" round>
                                                      {[ $t(product.rbtn_text) ]}
@@ -678,7 +721,7 @@
                 //         lbtn_text: "btn_repo",
                 //         lbtn_href: "https://github.com/sipeed/maixpy",
                 //         rbtn_text: "btn_docs",
-                //         rbtn_href: "https://wiki.sipeed.com/maixpy",
+                //         rbtn_href: window.location.origin + "/maixpy",
                 //     },
                 // ],
                 "MAIX-I & Zero": [
@@ -688,7 +731,7 @@
                         lbtn_text: "btn_repo",
                         lbtn_href: "https://github.com/sipeed/maixpy",
                         rbtn_text: "btn_docs",
-                        rbtn_href: "https://wiki.sipeed.com/maixpy",
+                        rbtn_href: window.location.origin + "/maixpy",
                     },
                     {
                         title: "MaixPy 官方参考例程",
@@ -728,7 +771,7 @@
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://item.taobao.com/item.htm?id=615468921411",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/maix/maixpy_develop_kit_board/maix_cube.html",
+                        rbtn_href: window.location.origin + "/hardware/zh/maix/maixpy_develop_kit_board/maix_cube.html",
                     },
                     {
                         title: "Maix Bit",
@@ -736,7 +779,7 @@
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://item.taobao.com/item.htm?id=586580351110",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/maix/maixpy_develop_kit_board/maix_bit.html",
+                        rbtn_href: window.location.origin + "/hardware/zh/maix/maixpy_develop_kit_board/maix_bit.html",
                     },
                     {
                         title: "Maix Amigo",
@@ -744,15 +787,15 @@
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://item.taobao.com/item.htm?id=624450348277",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/maix/maixpy_develop_kit_board/maix_Amigo.html",
+                        rbtn_href: window.location.origin + "/hardware/zh/maix/maixpy_develop_kit_board/maix_Amigo.html",
                     },
                     {
                         title: "Maix Duino",
-                        src: "https://wiki.sipeed.com/hardware/zh/maix/assets/dk_board/maix_duino/maixduino_0.png",
+                        src: window.location.origin + "/hardware/zh/maix/assets/dk_board/maix_duino/maixduino_0.png",
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://item.taobao.com/item.htm?id=595216523162",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/maix/maixpy_develop_kit_board/maix_duino.html",
+                        rbtn_href: window.location.origin + "/hardware/zh/maix/maixpy_develop_kit_board/maix_duino.html",
                     },
                     {
                         title: "Maix Dock",
@@ -760,15 +803,15 @@
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://item.taobao.com/item.htm?id=591616120470",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/maix/maixpy_develop_kit_board/Maix_dock.html",
+                        rbtn_href: window.location.origin + "/hardware/zh/maix/maixpy_develop_kit_board/Maix_dock.html",
                     },
                     {
                         title: "Maix HAT",
-                        src: "https://wiki.sipeed.com/soft/maixpy/assets/hardware/grove_ai_hat/grove_ai_hat1.png",
+                        src: window.location.origin + "/soft/maixpy/assets/hardware/grove_ai_hat/grove_ai_hat1.png",
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://item.taobao.com/item.htm?id=637432568692",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/maix/maixpy_develop_kit_board/maix_hat.html",
+                        rbtn_href: window.location.origin + "/hardware/zh/maix/maixpy_develop_kit_board/maix_hat.html",
                     },
                     {
                         title: "Maix M1W",
@@ -776,7 +819,7 @@
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://item.taobao.com/item.htm?id=584853693295",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/maix/core_module.html",
+                        rbtn_href: window.location.origin + "/hardware/zh/maix/core_module.html",
                     },
                     {
                         title: "Maix M1n",
@@ -784,15 +827,15 @@
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://item.taobao.com/item.htm?id=607174705842",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/maix/M1n.html",
+                        rbtn_href: window.location.origin + "/hardware/zh/maix/M1n.html",
                     },
                     {
                         title: "Maix GO",
-                        src: "https://wiki.sipeed.com/hardware/zh/maix/assets/dk_board/maix_go/Go.jpg",
+                        src: window.location.origin + "/hardware/zh/maix/assets/dk_board/maix_go/Go.jpg",
                         lbtn_text: "btn_eol",
                         lbtn_href: "",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/maix/maixpy_develop_kit_board/maix_go.html",
+                        rbtn_href: window.location.origin + "/hardware/zh/maix/maixpy_develop_kit_board/maix_go.html",
                     },
                 ],
                 "MAIX-II & III": [
@@ -802,7 +845,7 @@
                         lbtn_text: "btn_repo",
                         lbtn_href: "https://github.com/sipeed/maixpy3",
                         rbtn_text: "btn_docs",
-                        rbtn_href: "https://wiki.sipeed.com/maixpy3",
+                        rbtn_href: window.location.origin + "/maixpy3",
                     },
                      {
                          title: "MAIX-II DOCK (V831)",
@@ -810,7 +853,7 @@
                          lbtn_text: "btn_buy",
                          lbtn_href: "https://item.taobao.com/item.htm?spm=a230r.1.14.13.681570a1SllT5M&id=635874427363&ns=1&abbucket=16#detail",
                          rbtn_text: "btn_detail",
-                         rbtn_href: "https://wiki.sipeed.com/hardware/zh/maixII/M2/resources.html",
+                         rbtn_href: window.location.origin + "/hardware/zh/maixII/M2/resources.html",
                      },
                      {
                          title: "MAIX-II Sense (R329)",
@@ -818,7 +861,7 @@
                          lbtn_text: "btn_buy",
                          lbtn_href: "https://item.taobao.com/item.htm?spm=a230r.1.14.13.57cf53f8QNmNpO&id=652879327858&ns=1&abbucket=16#detail",
                          rbtn_text: "btn_detail",
-                         rbtn_href: "https://wiki.sipeed.com/hardware/zh/maixII/M2A/maixsense.html",
+                         rbtn_href: window.location.origin + "/hardware/zh/maixII/M2A/maixsense.html",
                      },
                      {
                          title: "MAIX-III AX-Pi (AX620A)",
@@ -826,7 +869,7 @@
                          lbtn_text: "btn_buy",
                          lbtn_href: "https://item.taobao.com/item.htm?id=682169792430",
                          rbtn_text: "btn_detail",
-                         rbtn_href: "https://wiki.sipeed.com/m3axpi",
+                         rbtn_href: window.location.origin + "/m3axpi",
                      },
                 ],
                 "LICHEEPI": [
@@ -836,15 +879,15 @@
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://item.taobao.com/item.htm?id=660478137105",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/lichee/RV/RV.html",
+                        rbtn_href: window.location.origin + "/hardware/zh/lichee/RV/RV.html",
                     },
                     {
                         title: "Lichee RV DOCK",
-                        src: "https://wiki.sipeed.com/hardware/zh/lichee/assets/RV/RV-Dock.jpg",
+                        src: window.location.origin + "/hardware/zh/lichee/assets/RV/RV-Dock.jpg",
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://item.taobao.com/item.htm?id=666274331852",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/lichee/RV/Dock.html",
+                        rbtn_href: window.location.origin + "/hardware/zh/lichee/RV/Dock.html",
                     },
                     {
                         title: "Lichee RV 86 panel",
@@ -852,15 +895,15 @@
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://item.taobao.com/item.htm?id=663345415205",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/lichee/RV/86_panel.html",
+                        rbtn_href: window.location.origin + "/hardware/zh/lichee/RV/86_panel.html",
                     },
                     {
                         title: "Lichee Zero",
-                        src: "https://wiki.sipeed.com/hardware/zh/lichee/assets/Zero/Zero_1.png",
+                        src: window.location.origin + "/hardware/zh/lichee/assets/Zero/Zero_1.png",
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://item.taobao.com/item.htm?id=585033586770",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/lichee/Zero/Zero.html",
+                        rbtn_href: window.location.origin + "/hardware/zh/lichee/Zero/Zero.html",
                     },
                     {
                         title: "Lichee Nano",
@@ -868,32 +911,32 @@
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://item.taobao.com/item.htm?id=584657396198",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/lichee/Nano/Nano.html",
+                        rbtn_href: window.location.origin + "/hardware/zh/lichee/Nano/Nano.html",
                     },
                     {
                         title: "Lichee Zeroplus",
-                        src: "https://wiki.sipeed.com/hardware/zh/lichee/assets/Zero-Plus/Plus_1.jpg",
+                        src: window.location.origin + "/hardware/zh/lichee/assets/Zero-Plus/Plus_1.jpg",
                         lbtn_text: "btn_eol",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/lichee/ZeroPlus/ZeroPlus.html",
+                        rbtn_href: window.location.origin + "/hardware/zh/lichee/ZeroPlus/ZeroPlus.html",
                     },
                 ],
                 "TANG-FPGA": [
                     {
                         title: "Tang Primer 20K Dock 教育版大礼包",
-                        src: "https://wiki.sipeed.com/hardware/zh/tang/tang-primer-20k/assets/dock-up.png",
+                        src: window.location.origin + "/hardware/zh/tang/tang-primer-20k/assets/dock-up.png",
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://item.taobao.com/item.htm?id=683873093620",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/tang/tang-primer-20k/primer-20k.html",
+                        rbtn_href: window.location.origin + "/hardware/zh/tang/tang-primer-20k/primer-20k.html",
                     },
                     {
                         title: "Tang Primer 20K Dock",
-                        src: "https://wiki.sipeed.com/hardware/zh/tang/tang-primer-20k/assets/dock-up.png",
+                        src: window.location.origin + "/hardware/zh/tang/tang-primer-20k/assets/dock-up.png",
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://item.taobao.com/item.htm?id=680099020807",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/tang/tang-primer-20k/primer-20k.html",
+                        rbtn_href: window.location.origin + "/hardware/zh/tang/tang-primer-20k/primer-20k.html",
                     },
                     {
                         title: "Tang Primer 20k Lite",
@@ -901,72 +944,74 @@
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://item.taobao.com/item.htm?id=680099020807",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/tang/tang-primer-20k/primer-20k.html",
+                        rbtn_href: window.location.origin + "/hardware/zh/tang/tang-primer-20k/primer-20k.html",
                     },
                     {
                         title: "Tang Nano 9K",
-                        src: "https://wiki.sipeed.com/hardware/assets/Tang/Nano-9K/9K.png",
+                        src: window.location.origin + "/hardware/assets/Tang/Nano-9K/9K.png",
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://item.taobao.com/item.htm?id=666055424174",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-9K/Nano-9K.html",
+                        rbtn_href: window.location.origin + "/hardware/zh/tang/Tang-Nano-9K/Nano-9K.html",
                     },
                     {
                         title: "Tang Nano 4K",
-                        src: "https://wiki.sipeed.com/hardware/assets/Tang/Nano_4K/Nano_4K.png",
+                        src: window.location.origin + "/hardware/assets/Tang/Nano_4K/Nano_4K.png",
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://item.taobao.com/item.htm?id=661994055100",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-4K/Nano-4K.html",
+                        rbtn_href: window.location.origin + "/hardware/zh/tang/Tang-Nano-4K/Nano-4K.html",
                     },
                     {
                         title: "Tang Nano 1K",
-                        src: "https://wiki.sipeed.com/hardware/assets/Tang/Nano-1K/1K.png",
+                        src: window.location.origin + "/hardware/assets/Tang/Nano-1K/1K.png",
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://item.taobao.com/item.htm?id=661994055100",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-1K/Nano-1k.html",
+                        rbtn_href: window.location.origin + "/hardware/zh/tang/Tang-Nano-1K/Nano-1k.html",
                     },
                     {
                         title: "Tang Primer",
-                        src: "https://wiki.sipeed.com/hardware/assets/Tang/permier/Tang_permier.jpg",
+                        src: window.location.origin + "/hardware/assets/Tang/permier/Tang_permier.jpg",
                         lbtn_text: "btn_eol",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/tang/Tang-primer/Tang-primer.html",
+                        rbtn_href: window.location.origin + "/hardware/zh/tang/Tang-primer/Tang-primer.html",
                     },
                     {
                         title: "Tang Nano",
-                        src: "https://wiki.sipeed.com/hardware/assets/Tang/Nano/Tang_Nano.jpg",
+                        src: window.location.origin + "/hardware/assets/Tang/Nano/Tang_Nano.jpg",
                         lbtn_text: "btn_eol",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano/Nano.html",
+                        rbtn_href: window.location.origin + "/hardware/zh/tang/Tang-Nano/Nano.html",
                     },
                 ],
                 "MAIX-SENSE-TOF": [
                     {
                         title: "A010",
-                        src: "https://wiki.sipeed.com/hardware/zh/maixsense/maixsense-a010/assets/ms_s.jpg",
+                        src: window.location.origin + "/hardware/zh/maixsense/maixsense-a010/assets/ms_s.jpg",
                         lbtn_text: "btn_buy",
-                        lbtn_href: "https://igg.me/at/MetaSense",
+                        lbtn_href: "https://item.taobao.com/item.htm?id=684566484141",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/maixsense/maixsense-a010/maixsense-a010.html",
+                        rbtn_href: window.location.origin + "/hardware/zh/maixsense/maixsense-a010/maixsense-a010.html",
                     },
                     {
                         title: "A075V",
-                        src: "https://wiki.sipeed.com/hardware/zh/maixsense/assets/me_big.jpg",
+                        src: window.location.origin + "/hardware/zh/maixsense/assets/me_big.jpg",
                         lbtn_text: "btn_buy",
-                        lbtn_href: "https://igg.me/at/MetaSense",
+                        lbtn_href: "https://item.taobao.com/item.htm?id=684566484141",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/maixsense/maixsense-a075v/maixsense-a075v.html",
+                        rbtn_href: window.location.origin + "/hardware/zh/maixsense/maixsense-a075v/maixsense-a075v.html",
                     },
-                    {
-                        title: "MaixSense & ROS",
-                        src: "/static/home/maixsense_tof.jpg",
-                        lbtn_text: "btn_github",
-                        lbtn_href: "https://github.com/sipeed/MaixSense_ROS",
-                        rbtn_text: "btn_docs",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/maixsense/maixsense-a075v/maixsense-a075v.html#%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91%EF%BC%9A%E6%8E%A5%E5%85%A5-ROS",
-                    },
+                    // {
+                    //     title: "MaixSense & ROS",
+                    //     src: "/static/home/maixsense_tof.jpg",
+                    //     other_text: "A010 ROS",
+                    //     other_href: window.location.origin + "/hardware/zh/maixsense/maixsense-a010/maixsense-a010.html#%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91%EF%BC%9A%E6%8E%A5%E5%85%A5-ROS",
+                    //     lbtn_text: "btn_github",
+                    //     lbtn_href: "https://github.com/sipeed/MaixSense_ROS",
+                    //     rbtn_text: "V075v ROS",
+                    //     rbtn_href: window.location.origin + "/hardware/zh/maixsense/maixsense-a075v/maixsense-a075v.html#%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91%EF%BC%9A%E6%8E%A5%E5%85%A5-ROS",
+                    // },
                 ],
                 "外设模块": [
                     {
@@ -975,127 +1020,127 @@
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://item.taobao.com/item.htm?id=624545696681",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/modules/micarray.html",
+                        rbtn_href: window.location.origin + "/hardware/zh/modules/micarray.html",
                     },
                     {
                         title: "转接板类 SPMOD - Extender",
-                        src: "https://wiki.sipeed.com/hardware/assets/spmod/spmod_extender/sp_extender.png",
+                        src: window.location.origin + "/hardware/assets/spmod/spmod_extender/sp_extender.png",
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://item.taobao.com/item.htm?id=624545696681",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/modules_spmod/spmod_extender.html",
+                        rbtn_href: window.location.origin + "/hardware/zh/modules_spmod/spmod_extender.html",
                     },
                     {
                         title: "转接板类 SPMOD - Grove",
-                        src: "https://wiki.sipeed.com/hardware/assets/spmod/spmod_grove/sp_grove.png",
+                        src: window.location.origin + "/hardware/assets/spmod/spmod_grove/sp_grove.png",
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://item.taobao.com/item.htm?id=624545696681",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/modules_spmod/spmod_grove.html",
+                        rbtn_href: window.location.origin + "/hardware/zh/modules_spmod/spmod_grove.html",
                     },
                     {
                         title: "转接板类 SPMOD - FPC",
-                        src: "https://wiki.sipeed.com/hardware/assets/spmod/spmod_fpc/sp_fpc.png",
+                        src: window.location.origin + "/hardware/assets/spmod/spmod_fpc/sp_fpc.png",
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://item.taobao.com/item.htm?id=624545696681",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/modules_spmod/spmod_fpc.html",
+                        rbtn_href: window.location.origin + "/hardware/zh/modules_spmod/spmod_fpc.html",
                     },
                     {
                         title: "转接板类 SPMOD - MicArray",
-                        src: "https://wiki.sipeed.com/hardware/assets/spmod/spmod_micarray/sp_micarray.png",
+                        src: window.location.origin + "/hardware/assets/spmod/spmod_micarray/sp_micarray.png",
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://item.taobao.com/item.htm?id=624545696681",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/modules_spmod/spmod_micarray.html",
+                        rbtn_href: window.location.origin + "/hardware/zh/modules_spmod/spmod_micarray.html",
                     },
                     {
                         title: "转接板类 SPMOD - JotStick",
-                        src: "https://wiki.sipeed.com/hardware/assets/spmod/spmod_joystick/sp_joystick.png",
+                        src: window.location.origin + "/hardware/assets/spmod/spmod_joystick/sp_joystick.png",
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://item.taobao.com/item.htm?id=624545696681",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/modules_spmod/spmod_joystick.html",
+                        rbtn_href: window.location.origin + "/hardware/zh/modules_spmod/spmod_joystick.html",
                     },
                     {
                         title: "转接板类 SPMOD - Servo",
-                        src: "https://wiki.sipeed.com/hardware/assets/spmod/spmod_servo/sp_servo.png",
+                        src: window.location.origin + "/hardware/assets/spmod/spmod_servo/sp_servo.png",
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://item.taobao.com/item.htm?id=624545696681",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/modules_spmod/spmod_servo.html",
+                        rbtn_href: window.location.origin + "/hardware/zh/modules_spmod/spmod_servo.html",
                     },
                     {
                         title: "传感器类 SPMOD - Weather",
-                        src: "https://wiki.sipeed.com/soft/maixpy/assets/hardware/module_spmod/sp_weather.png",
+                        src: window.location.origin + "/soft/maixpy/assets/hardware/module_spmod/sp_weather.png",
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://item.taobao.com/item.htm?id=624545696681",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/modules_spmod/spmod_weather.html",
+                        rbtn_href: window.location.origin + "/hardware/zh/modules_spmod/spmod_weather.html",
                     },
                     {
                         title: "传感器类 SPMOD - TOF - 1P",
-                        src: "https://wiki.sipeed.com/hardware/assets/spmod/spmod_tof/sp_tof.png",
+                        src: window.location.origin + "/hardware/assets/spmod/spmod_tof/sp_tof.png",
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://item.taobao.com/item.htm?id=624545696681",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/modules_spmod/spmod_tof.html",
+                        rbtn_href: window.location.origin + "/hardware/zh/modules_spmod/spmod_tof.html",
                     },
                     {
                         title: "通信类 SPMOD - BT",
-                        src: "https://wiki.sipeed.com/soft/maixpy/assets/hardware/module_spmod/sp_bt.png",
+                        src: window.location.origin + "/soft/maixpy/assets/hardware/module_spmod/sp_bt.png",
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://item.taobao.com/item.htm?id=624545696681",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/modules_spmod/spmod_bt.html",
+                        rbtn_href: window.location.origin + "/hardware/zh/modules_spmod/spmod_bt.html",
                     },
                     {
                         title: "通信类 SPMOD - LoRa",
-                        src: "https://wiki.sipeed.com/hardware/assets/spmod/spmod_lora/sp_lora.png",
+                        src: window.location.origin + "/hardware/assets/spmod/spmod_lora/sp_lora.png",
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://item.taobao.com/item.htm?id=624545696681",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/modules_spmod/spmod_lora.html",
+                        rbtn_href: window.location.origin + "/hardware/zh/modules_spmod/spmod_lora.html",
                     },
                     {
                         title: "通信类 SPMOD - PSRAM",
-                        src: "https://wiki.sipeed.com/hardware/assets/spmod/spmod_psram/sp_psram.png",
+                        src: window.location.origin + "/hardware/assets/spmod/spmod_psram/sp_psram.png",
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://item.taobao.com/item.htm?id=624545696681",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/modules_spmod/spmod_psram.html",
+                        rbtn_href: window.location.origin + "/hardware/zh/modules_spmod/spmod_psram.html",
                     },
                     {
                         title: "通信类 SPMOD - RFID",
-                        src: "https://wiki.sipeed.com/hardware/assets/spmod/spmod_rfid/sp_rfid.png",
+                        src: window.location.origin + "/hardware/assets/spmod/spmod_rfid/sp_rfid.png",
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://item.taobao.com/item.htm?id=624545696681",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/modules_spmod/spmod_rfid.html",
+                        rbtn_href: window.location.origin + "/hardware/zh/modules_spmod/spmod_rfid.html",
                     },
                     {
                         title: "通信类 SPMOD - Ethernet",
-                        src: "https://wiki.sipeed.com/hardware/assets/spmod/spmod_ethernet/sp_ethernet.png",
+                        src: window.location.origin + "/hardware/assets/spmod/spmod_ethernet/sp_ethernet.png",
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://item.taobao.com/item.htm?id=624545696681",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/modules_spmod/spmod_ethernet.html",
+                        rbtn_href: window.location.origin + "/hardware/zh/modules_spmod/spmod_ethernet.html",
                     },
                     {
                         title: "显示类 SPMOD - LCD 1.14",
-                        src: "https://wiki.sipeed.com/hardware/assets/spmod/spmod_lcd1.14//sp_lcd.png",
+                        src: window.location.origin + "/hardware/assets/spmod/spmod_lcd1.14//sp_lcd.png",
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://item.taobao.com/item.htm?id=624545696681",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/modules_spmod/spmod_lcd1.14.html",
+                        rbtn_href: window.location.origin + "/hardware/zh/modules_spmod/spmod_lcd1.14.html",
                     },
                     {
                         title: "显示类 SPMOD - Eink",
-                        src: "https://wiki.sipeed.com/hardware/assets/spmod/spmod_eink/sp_eink.png",
+                        src: window.location.origin + "/hardware/assets/spmod/spmod_eink/sp_eink.png",
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://item.taobao.com/item.htm?id=624545696681",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/modules_spmod/spmod_eink.html",
+                        rbtn_href: window.location.origin + "/hardware/zh/modules_spmod/spmod_eink.html",
                     },
                 ],
                 "商业方案": [
@@ -1105,7 +1150,7 @@
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://item.taobao.com/item.htm?id=599138281058",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/maixface/mf_ml_module/mf1_ml_module.html",
+                        rbtn_href: window.location.origin + "/hardware/zh/maixface/mf_ml_module/mf1_ml_module.html",
                     },
                     {
                         title: "MF-ST40",
@@ -1120,21 +1165,21 @@
                         src: "/hardware/assets/maixface/mf0/mf0_front.jpg",
                         lbtn_text: "btn_eol",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/maixface/mf_ml_module/mf0_ml_module.html",
+                        rbtn_href: window.location.origin + "/hardware/zh/maixface/mf_ml_module/mf0_ml_module.html",
                     },
                     {
                         title: "MF5",
                         src: "/hardware/assets/maixface/mf5/mf5.jpg",
                         lbtn_text: "btn_eol",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/maixface/mf_ml_module/mf5_product.html",
+                        rbtn_href: window.location.origin + "/hardware/zh/maixface/mf_ml_module/mf5_product.html",
                     },
                     {
                         title: "MaixII S",
-                        src: "https://wiki.sipeed.com/hardware/zh/maixII/M2S/assets/M2s_Dock.jpg",
+                        src: window.location.origin + "/hardware/zh/maixII/M2S/assets/M2s_Dock.jpg",
                         lbtn_text: "btn_eol",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/zh/maixII/M2S/reources.html",
+                        rbtn_href: window.location.origin + "/hardware/zh/maixII/M2S/reources.html",
                     },
                 ],
             },
@@ -1146,7 +1191,7 @@
                         lbtn_text: "btn_repo",
                         lbtn_href: "https://github.com/sipeed/maixpy",
                         rbtn_text: "btn_docs",
-                        rbtn_href: "https://wiki.sipeed.com/maixpy",
+                        rbtn_href: window.location.origin + "/maixpy",
                     },
                     {
                         title: "MaixPy Python Scripts",
@@ -1164,37 +1209,37 @@
                         rbtn_text: "btn_example",
                         rbtn_href: "https://gitee.com/greener/micropython-lib",
                     },
-                    // {
-                    //     title: "Maix M1s Dock",
-                    //     src: "https://gd1.alicdn.com/imgextra/i1/2200606237318/O1CN01gE4a1E23vhCV77ggE_!!2200606237318.jpg",
-                    //     lbtn_text: "btn_buy",
-                    //     lbtn_href: "https://item.taobao.com/item.htm?id=691108452443",
-                    //     rbtn_text: "btn_detail",
-                    //     rbtn_href: window.location.origin + "/en/m1s#dock",
-                    // },
-                    // {
-                    //     title: "Maix M1s",
-                    //     src: "https://gd4.alicdn.com/imgextra/i4/2200606237318/O1CN011g9yY323vhCXEyiKU_!!2200606237318.jpg",
-                    //     lbtn_text: "btn_buy",
-                    //     lbtn_href: "https://item.taobao.com/item.htm?id=691108452443",
-                    //     rbtn_text: "btn_detail",
-                    //     rbtn_href: window.location.origin + "/en/m1s",
-                    // },
-                    // {
-                    //     title: "Maix Zero Sense",
-                    //     src: window.location.origin + "/hardware/en/maixzero/sense//assets/m0sense_outlook.png",
-                    //     lbtn_text: "btn_eol",
-                    //     lbtn_href: "",
-                    //     rbtn_text: "btn_detail",
-                    //     rbtn_href: window.location.origin + "/en/m0sense",
-                    // },
+                    {
+                        title: "Maix M1s Dock",
+                        src: "https://gd1.alicdn.com/imgextra/i1/2200606237318/O1CN01gE4a1E23vhCV77ggE_!!2200606237318.jpg",
+                        lbtn_text: "btn_buy",
+                        lbtn_href: "https://item.taobao.com/item.htm?id=691108452443",
+                        rbtn_text: "btn_detail",
+                        rbtn_href: window.location.origin + "/en/m1s#dock",
+                    },
+                    {
+                        title: "Maix M1s",
+                        src: "https://gd4.alicdn.com/imgextra/i4/2200606237318/O1CN011g9yY323vhCXEyiKU_!!2200606237318.jpg",
+                        lbtn_text: "btn_buy",
+                        lbtn_href: "https://item.taobao.com/item.htm?id=691108452443",
+                        rbtn_text: "btn_detail",
+                        rbtn_href: window.location.origin + "/en/m1s",
+                    },
+                    {
+                        title: "Maix Zero Sense",
+                        src: window.location.origin + "/hardware/en/maixzero/sense//assets/m0sense_outlook.png",
+                        lbtn_text: "btn_eol",
+                        lbtn_href: "",
+                        rbtn_text: "btn_detail",
+                        rbtn_href: window.location.origin + "/en/m0sense",
+                    },
                     {
                         title: "Maix Cube",
                         src: "https://gd2.alicdn.com/imgextra/i2/2200606237318/O1CN015OM3ND23vh0YlSShH_!!2200606237318.jpg",
                         lbtn_text: "btn_buy",
                         rbtn_href: "https://www.aliexpress.com/item/1005002624234145.html",
                         rbtn_text: "btn_detail",
-                        lbtn_href: "https://wiki.sipeed.com/hardware/en/maix/maixpy_develop_kit_board/maix_cube.html",
+                        lbtn_href: window.location.origin + "/hardware/en/maix/maixpy_develop_kit_board/maix_cube.html",
                     },
                     {
                         title: "Maix Amigo",
@@ -1202,15 +1247,15 @@
                         lbtn_text: "Consult the saler",
                         lbtn_href: "https://sipeed.aliexpress.com/store/1101739727",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/en/maix/maixpy_develop_kit_board/maix_Amigo.html",
+                        rbtn_href: window.location.origin + "/hardware/en/maix/maixpy_develop_kit_board/maix_Amigo.html",
                     },
                     {
                         title: "Maix Duino",
-                        src: "https://wiki.sipeed.com/hardware/zh/maix/assets/dk_board/maix_duino/maixduino_0.png",
+                        src: window.location.origin + "/hardware/zh/maix/assets/dk_board/maix_duino/maixduino_0.png",
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://www.aliexpress.com/item/1005002547345797.html",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/en/maix/maixpy_develop_kit_board/maix_duino.html",
+                        rbtn_href: window.location.origin + "/hardware/en/maix/maixpy_develop_kit_board/maix_duino.html",
                     },
                     {
                         title: "Maix Bit",
@@ -1218,7 +1263,7 @@
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://www.aliexpress.com/item/1005002547039100.html",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/en/maix/maixpy_develop_kit_board/maix_bit.html",
+                        rbtn_href: window.location.origin + "/hardware/en/maix/maixpy_develop_kit_board/maix_bit.html",
                     },
                     {
                         title: "Maix Dock",
@@ -1226,15 +1271,15 @@
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://www.aliexpress.com/item/1005002569741906.html",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/en/maix/maixpy_develop_kit_board/Maix_dock.html",
+                        rbtn_href: window.location.origin + "/hardware/en/maix/maixpy_develop_kit_board/Maix_dock.html",
                     },
                     {
                         title: "Maix HAT",
-                        src: "https://wiki.sipeed.com/soft/maixpy/assets/hardware/grove_ai_hat/grove_ai_hat1.png",
+                        src: window.location.origin + "/soft/maixpy/assets/hardware/grove_ai_hat/grove_ai_hat1.png",
                         lbtn_text: "Consult the saler",
                         lbtn_href: "https://sipeed.aliexpress.com/store/1101739727",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/en/maix/maixpy_develop_kit_board/maix_hat.html",
+                        rbtn_href: window.location.origin + "/hardware/en/maix/maixpy_develop_kit_board/maix_hat.html",
                     },
                     {
                         title: "Maix M1W",
@@ -1242,7 +1287,7 @@
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://www.aliexpress.com/item/1005004138090982.html",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/en/maix/core_module.html",
+                        rbtn_href: window.location.origin + "/hardware/en/maix/core_module.html",
                     },
                     {
                         title: "Maix M1n",
@@ -1250,14 +1295,14 @@
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://www.aliexpress.com/item/1005004138090982.html",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/en/maix/M1n.html",
+                        rbtn_href: window.location.origin + "/hardware/en/maix/M1n.html",
                     },
                     {
                         title: "Maix GO",
-                        src: "https://wiki.sipeed.com/hardware/en/maix/assets/dk_board/maix_go/Go.jpg",
+                        src: window.location.origin + "/hardware/en/maix/assets/dk_board/maix_go/Go.jpg",
                         lbtn_text: "btn_eol",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/en/maix/maixpy_develop_kit_board/maix_go.html",
+                        rbtn_href: window.location.origin + "/hardware/en/maix/maixpy_develop_kit_board/maix_go.html",
                     },
                 ],
                 "Maix-II & III": [
@@ -1267,7 +1312,7 @@
                         lbtn_text: "btn_repo",
                         lbtn_href: "https://github.com/sipeed/en/maixpy3",
                         rbtn_text: "btn_docs",
-                        rbtn_href: "https://wiki.sipeed.com/maixpy3",
+                        rbtn_href: window.location.origin + "/maixpy3",
                     },
                      {
                          title: "LMAIX-II DOCK (V831)",
@@ -1275,7 +1320,7 @@
                          lbtn_text: "btn_buy",
                          lbtn_href: "https://www.aliexpress.com/item/1005002538932487.html?",
                          rbtn_text: "btn_detail",
-                         rbtn_href: "https://wiki.sipeed.com/hardware/en/maixII/M2/resources.html",
+                         rbtn_href: window.location.origin + "/hardware/en/maixII/M2/resources.html",
                      },
                      {
                          title: "MAIX-II Sense (R329)",
@@ -1283,7 +1328,7 @@
                          lbtn_text: "btn_buy",
                          lbtn_href: "https://www.aliexpress.com/item/1005003152376519.html",
                          rbtn_text: "btn_detail",
-                         rbtn_href: "https://wiki.sipeed.com/hardware/en/maixII/M2A/maixsense.html",
+                         rbtn_href: window.location.origin + "/hardware/en/maixII/M2A/maixsense.html",
                      },
                      {
                          title: "MAIX-III AX-Pi (AX620A)",
@@ -1291,7 +1336,7 @@
                          lbtn_text: "Consult the saler",
                          lbtn_href: "https://sipeed.aliexpress.com/store/1101739727",
                          rbtn_text: "btn_detail",
-                         rbtn_href: "https://wiki.sipeed.com/hardware/en/maixIII/index.html",
+                         rbtn_href: window.location.origin + "/hardware/en/maixIII/index.html",
                      },
                 ],
                 "LicheePi": [
@@ -1301,15 +1346,15 @@
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://www.aliexpress.com/item/1005003594875290.html",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/en/lichee/RV/RV.html",
+                        rbtn_href: window.location.origin + "/hardware/en/lichee/RV/RV.html",
                     },
                     {
                         title: "Lichee RV DOCK",
-                        src: "https://wiki.sipeed.com/hardware/zh/lichee/assets/RV/RV-Dock.jpg",
+                        src: window.location.origin + "/hardware/zh/lichee/assets/RV/RV-Dock.jpg",
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://www.aliexpress.com/item/1005003741287162.html",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/en/lichee/RV/Dock.html",
+                        rbtn_href: window.location.origin + "/hardware/en/lichee/RV/Dock.html",
                     },
                     {
                         title: "Lichee RV 86 panel",
@@ -1317,15 +1362,15 @@
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://www.aliexpress.com/item/1005003684310743.html",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/en/lichee/RV/86_panel.html",
+                        rbtn_href: window.location.origin + "/hardware/en/lichee/RV/86_panel.html",
                     },
                     {
                         title: "Lichee Zero",
-                        src: "https://wiki.sipeed.com/hardware/zh/lichee/assets/Zero/Zero_1.png",
+                        src: window.location.origin + "/hardware/zh/lichee/assets/Zero/Zero_1.png",
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://www.aliexpress.com/item/1005002547504075.html",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/en/lichee/Zero/Zero.html",
+                        rbtn_href: window.location.origin + "/hardware/en/lichee/Zero/Zero.html",
                     },
                     {
                         title: "Lichee Nano",
@@ -1333,24 +1378,24 @@
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://www.aliexpress.com/item/1005002542701015.html",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/en/lichee/Nano/Nano.html",
+                        rbtn_href: window.location.origin + "/hardware/en/lichee/Nano/Nano.html",
                     },
                     {
                         title: "Lichee Zeroplus",
-                        src: "https://wiki.sipeed.com/hardware/zh/lichee/assets/Zero-Plus/Plus_1.jpg",
+                        src: window.location.origin + "/hardware/zh/lichee/assets/Zero-Plus/Plus_1.jpg",
                         lbtn_text: "btn_eol",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/en/lichee/ZeroPlus/ZeroPlus.html",
+                        rbtn_href: window.location.origin + "/hardware/en/lichee/ZeroPlus/ZeroPlus.html",
                     },
                 ],
                  "Tang-FPGA": [
                     {
                         title: "Tang Primer 20k Dock",
-                        src: "https://ae01.alicdn.com/kf/S3e6dabaca446400ea9e132d4b1d8abb9E/Sipeed-Tang-Primer-20K-GOWIN-GW2A-FPGA-GoAI-Core-Board-Minimum-System.jpg_50x50.jpg_.webp",
+                        src: "https://ae01.alicdn.com/kf/Se5eb6a4d134a4c6094c6d6f56dfe4846b/Sipeed-Tang-Primer-20K-GOWIN-GW2A-FPGA-GoAI-Core-Board-Minimum-System.jpg_Q90.jpg_.webp",
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://www.aliexpress.com/item/1005004653308809.html",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/en/tang/tang-primer-20k/primer-20k.html",
+                        rbtn_href: window.location.origin + "/hardware/en/tang/tang-primer-20k/primer-20k.html",
                     },
                     {
                         title: "Tang Primer 20k Lite",
@@ -1358,63 +1403,63 @@
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://www.aliexpress.com/item/1005004653308809.html",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/en/tang/tang-primer-20k/primer-20k.html",
+                        rbtn_href: window.location.origin + "/hardware/en/tang/tang-primer-20k/primer-20k.html",
                     },
                     {
                         title: "Tang Nano 9K",
-                        src: "https://wiki.sipeed.com/hardware/assets/Tang/Nano-9K/9K.png",
+                        src: window.location.origin + "/hardware/assets/Tang/Nano-9K/9K.png",
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://www.aliexpress.com/item/1005003803994525.html",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/en/tang/Tang-Nano-9K/Nano-9K.html",
+                        rbtn_href: window.location.origin + "/hardware/en/tang/Tang-Nano-9K/Nano-9K.html",
                     },
                     {
                         title: "Tang Nano 4K",
-                        src: "https://wiki.sipeed.com/hardware/assets/Tang/Nano_4K/Nano_4K.png",
+                        src: window.location.origin + "/hardware/assets/Tang/Nano_4K/Nano_4K.png",
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://www.aliexpress.com/item/1005003152104886.html",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/en/tang/Tang-Nano-4K/Nano-4K.html",
+                        rbtn_href: window.location.origin + "/hardware/en/tang/Tang-Nano-4K/Nano-4K.html",
                     },
                     {
                         title: "Tang Nano 1K",
-                        src: "https://wiki.sipeed.com/hardware/assets/Tang/Nano-1K/1K.png",
+                        src: window.location.origin + "/hardware/assets/Tang/Nano-1K/1K.png",
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://www.aliexpress.com/item/1005002551785169.html",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/en/tang/Tang-Nano-1K/Nano-1k.html",
+                        rbtn_href: window.location.origin + "/hardware/en/tang/Tang-Nano-1K/Nano-1k.html",
                     },
                     {
                         title: "Tang Primer",
-                        src: "https://wiki.sipeed.com/hardware/assets/Tang/permier/Tang_permier.jpg",
+                        src: window.location.origin + "/hardware/assets/Tang/permier/Tang_permier.jpg",
                         lbtn_text: "btn_eol",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/en/tang/Tang-primer/Tang-primer.html",
+                        rbtn_href: window.location.origin + "/hardware/en/tang/Tang-primer/Tang-primer.html",
                     },
                     {
                         title: "Tang Nano",
-                        src: "https://wiki.sipeed.com/hardware/assets/Tang/Nano/Tang_Nano.jpg",
+                        src: window.location.origin + "/hardware/assets/Tang/Nano/Tang_Nano.jpg",
                         lbtn_text: "btn_eol",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/en/tang/Tang-Nano/Nano.html",
+                        rbtn_href: window.location.origin + "/hardware/en/tang/Tang-Nano/Nano.html",
                     },
                 ],
                  "MAIX-SENSE-TOF": [
                  {
                         title: "A010",
-                        src: "https://wiki.sipeed.com/hardware/zh/maixsense/maixsense-a010/assets/ms_s.jpg",
+                        src: window.location.origin + "/hardware/zh/maixsense/maixsense-a010/assets/ms_s.jpg",
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://igg.me/at/MaixSense",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/en/maixsense/maixsense-a010/maixsense-a010.html",
+                        rbtn_href: window.location.origin + "/hardware/en/maixsense/maixsense-a010/maixsense-a010.html",
                     },
                     {
                         title: "A075V",
-                        src: "https://wiki.sipeed.com/hardware/zh/maixsense/assets/me_big.jpg",
+                        src: window.location.origin + "/hardware/zh/maixsense/assets/me_big.jpg",
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://igg.me/at/MaixSense",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/en/maixsense/maixsense-a075v/maixsense-a075v.html",
+                        rbtn_href: window.location.origin + "/hardware/en/maixsense/maixsense-a075v/maixsense-a075v.html",
                     },
                  ],
                  "Peripheral": [
@@ -1424,127 +1469,127 @@
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://www.aliexpress.com/item/1005002687541143.html",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/en/modules/micarray.html",
+                        rbtn_href: window.location.origin + "/hardware/en/modules/micarray.html",
                     },
                     {
                         title: "Adaptor SPMOD - Extender",
-                        src: "https://wiki.sipeed.com/hardware/assets/spmod/spmod_extender/sp_extender.png",
+                        src: window.location.origin + "/hardware/assets/spmod/spmod_extender/sp_extender.png",
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://item.taobao.com/item.htm?id=624545696681",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/en/modules_spmod/spmod_extender.html",
+                        rbtn_href: window.location.origin + "/hardware/en/modules_spmod/spmod_extender.html",
                     },
                     {
                         title: "Adaptor SPMOD - Grove",
-                        src: "https://wiki.sipeed.com/hardware/assets/spmod/spmod_grove/sp_grove.png",
+                        src: window.location.origin + "/hardware/assets/spmod/spmod_grove/sp_grove.png",
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://item.taobao.com/item.htm?id=624545696681",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/en/modules_spmod/spmod_grove.html",
+                        rbtn_href: window.location.origin + "/hardware/en/modules_spmod/spmod_grove.html",
                     },
                     {
                         title: "Adaptor SPMOD - FPC",
-                        src: "https://wiki.sipeed.com/hardware/assets/spmod/spmod_fpc/sp_fpc.png",
+                        src: window.location.origin + "/hardware/assets/spmod/spmod_fpc/sp_fpc.png",
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://item.taobao.com/item.htm?id=624545696681",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/en/modules_spmod/spmod_fpc.html",
+                        rbtn_href: window.location.origin + "/hardware/en/modules_spmod/spmod_fpc.html",
                     },
                     {
                         title: "Adaptor SPMOD - MicArray",
-                        src: "https://wiki.sipeed.com/hardware/assets/spmod/spmod_micarray/sp_micarray.png",
+                        src: window.location.origin + "/hardware/assets/spmod/spmod_micarray/sp_micarray.png",
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://item.taobao.com/item.htm?id=624545696681",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/en/modules_spmod/spmod_micarray.html",
+                        rbtn_href: window.location.origin + "/hardware/en/modules_spmod/spmod_micarray.html",
                     },
                     {
                         title: "Adaptor SPMOD - JotStick",
-                        src: "https://wiki.sipeed.com/hardware/assets/spmod/spmod_joystick/sp_joystick.png",
+                        src: window.location.origin + "/hardware/assets/spmod/spmod_joystick/sp_joystick.png",
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://item.taobao.com/item.htm?id=624545696681",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/en/modules_spmod/spmod_joystick.html",
+                        rbtn_href: window.location.origin + "/hardware/en/modules_spmod/spmod_joystick.html",
                     },
                     {
                         title: "Adaptor SPMOD - Servo",
-                        src: "https://wiki.sipeed.com/hardware/assets/spmod/spmod_servo/sp_servo.png",
+                        src: window.location.origin + "/hardware/assets/spmod/spmod_servo/sp_servo.png",
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://item.taobao.com/item.htm?id=624545696681",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/en/modules_spmod/spmod_servo.html",
+                        rbtn_href: window.location.origin + "/hardware/en/modules_spmod/spmod_servo.html",
                     },
                     {
                         title: "Sensor SPMOD - Weather",
-                        src: "https://wiki.sipeed.com/soft/maixpy/assets/hardware/module_spmod/sp_weather.png",
+                        src: window.location.origin + "/soft/maixpy/assets/hardware/module_spmod/sp_weather.png",
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://item.taobao.com/item.htm?id=624545696681",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/en/modules_spmod/spmod_weather.html",
+                        rbtn_href: window.location.origin + "/hardware/en/modules_spmod/spmod_weather.html",
                     },
                     {
                         title: "Sensor SPMOD - TOF - 1P",
-                        src: "https://wiki.sipeed.com/hardware/assets/spmod/spmod_tof/sp_tof.png",
+                        src: window.location.origin + "/hardware/assets/spmod/spmod_tof/sp_tof.png",
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://item.taobao.com/item.htm?id=624545696681",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/en/modules_spmod/spmod_tof.html",
+                        rbtn_href: window.location.origin + "/hardware/en/modules_spmod/spmod_tof.html",
                     },
                     {
                         title: "Communication SPMOD - BT",
-                        src: "https://wiki.sipeed.com/soft/maixpy/assets/hardware/module_spmod/sp_bt.png",
+                        src: window.location.origin + "/soft/maixpy/assets/hardware/module_spmod/sp_bt.png",
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://item.taobao.com/item.htm?id=624545696681",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/en/modules_spmod/spmod_bt.html",
+                        rbtn_href: window.location.origin + "/hardware/en/modules_spmod/spmod_bt.html",
                     },
                     {
                         title: "Communication SPMOD - LoRa",
-                        src: "https://wiki.sipeed.com/hardware/assets/spmod/spmod_lora/sp_lora.png",
+                        src: window.location.origin + "/hardware/assets/spmod/spmod_lora/sp_lora.png",
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://item.taobao.com/item.htm?id=624545696681",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/en/modules_spmod/spmod_lora.html",
+                        rbtn_href: window.location.origin + "/hardware/en/modules_spmod/spmod_lora.html",
                     },
                     {
                         title: "Communication SPMOD - PSRAM",
-                        src: "https://wiki.sipeed.com/hardware/assets/spmod/spmod_psram/sp_psram.png",
+                        src: window.location.origin + "/hardware/assets/spmod/spmod_psram/sp_psram.png",
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://item.taobao.com/item.htm?id=624545696681",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/en/modules_spmod/spmod_psram.html",
+                        rbtn_href: window.location.origin + "/hardware/en/modules_spmod/spmod_psram.html",
                     },
                     {
                         title: "Communication SPMOD - RFID",
-                        src: "https://wiki.sipeed.com/hardware/assets/spmod/spmod_rfid/sp_rfid.png",
+                        src: window.location.origin + "/hardware/assets/spmod/spmod_rfid/sp_rfid.png",
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://item.taobao.com/item.htm?id=624545696681",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/en/modules_spmod/spmod_rfid.html",
+                        rbtn_href: window.location.origin + "/hardware/en/modules_spmod/spmod_rfid.html",
                     },
                     {
                         title: "Communication SPMOD - Ethernet",
-                        src: "https://wiki.sipeed.com/hardware/assets/spmod/spmod_ethernet/sp_ethernet.png",
+                        src: window.location.origin + "/hardware/assets/spmod/spmod_ethernet/sp_ethernet.png",
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://item.taobao.com/item.htm?id=624545696681",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/en/modules_spmod/spmod_ethernet.html",
+                        rbtn_href: window.location.origin + "/hardware/en/modules_spmod/spmod_ethernet.html",
                     },
                     {
                         title: "Display SPMOD - LCD 1.14",
-                        src: "https://wiki.sipeed.com/hardware/assets/spmod/spmod_lcd1.14//sp_lcd.png",
+                        src: window.location.origin + "/hardware/assets/spmod/spmod_lcd1.14//sp_lcd.png",
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://item.taobao.com/item.htm?id=624545696681",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/en/modules_spmod/spmod_lcd1.14.html",
+                        rbtn_href: window.location.origin + "/hardware/en/modules_spmod/spmod_lcd1.14.html",
                     },
                     {
                         title: "Display SPMOD - Eink",
-                        src: "https://wiki.sipeed.com/hardware/assets/spmod/spmod_eink/sp_eink.png",
+                        src: window.location.origin + "/hardware/assets/spmod/spmod_eink/sp_eink.png",
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://item.taobao.com/item.htm?id=624545696681",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/en/modules_spmod/spmod_eink.html",
+                        rbtn_href: window.location.origin + "/hardware/en/modules_spmod/spmod_eink.html",
                     },
                 ],
                 "Business": [
@@ -1554,7 +1599,7 @@
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://item.taobao.com/item.htm?id=599138281058",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/en/maixface/mf_ml_module/mf1_ml_module.html",
+                        rbtn_href: window.location.origin + "/hardware/en/maixface/mf_ml_module/mf1_ml_module.html",
                     },
                     // {
                     //     title: "MF-ST40",
@@ -1569,21 +1614,21 @@
                         src: "/hardware/assets/maixface/mf0/mf0_front.jpg",
                         lbtn_text: "btn_eol",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/en/maixface/mf_ml_module/mf0_ml_module.html",
+                        rbtn_href: window.location.origin + "/hardware/en/maixface/mf_ml_module/mf0_ml_module.html",
                     },
                     {
                         title: "MF5",
                         src: "/hardware/assets/maixface/mf5/mf5.jpg",
                         lbtn_text: "btn_eol",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/en/maixface/mf_ml_module/mf5_product.html",
+                        rbtn_href: window.location.origin + "/hardware/en/maixface/mf_ml_module/mf5_product.html",
                     },
                     {
                         title: "MaixII S",
-                        src: "https://wiki.sipeed.com/hardware/zh/maixII/M2S/assets/M2s_Dock.jpg",
+                        src: window.location.origin + "/hardware/zh/maixII/M2S/assets/M2s_Dock.jpg",
                         lbtn_text: "btn_eol",
                         rbtn_text: "btn_detail",
-                        rbtn_href: "https://wiki.sipeed.com/hardware/en/maixII/M2S/reources.html",
+                        rbtn_href: window.location.origin + "/hardware/en/maixII/M2S/reources.html",
                     },
                 ],
              }
