@@ -219,7 +219,7 @@ Sipeed M0sense 是基于[博流智能科技](http://www.bouffalolab.com/)的 BL7
         </tr>
         <tr>
           <td>开发方式</td>
-          <td>· 原生 C SDK<br>· MaixHAL C 模块pikascript 脚本话脚本</td>
+          <td>· 原生 C SDK<br>· MaixHAL C 模块<br>· pikascript 脚本</td>
         </tr>
         <tr>
           <td>固件下载</td>

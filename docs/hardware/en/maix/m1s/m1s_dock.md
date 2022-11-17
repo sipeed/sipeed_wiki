@@ -90,7 +90,7 @@ Buy one: [Aliexpress]()
       </td>
     </tr>
     <tr>
-        <td>External power supply requirements：<br>VDDIO4/VDDIO3/VDDIO1/ and 3V3 these power supplys are required</td>
+        <td>External TYPE-C PORT power supply requirements：<br>5V±10% 0.5A</td>
     </tr>
     <tr>
         <td>Temperature rise: &lt;30K</td>
