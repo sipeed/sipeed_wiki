@@ -42,3 +42,15 @@ A：查看摄像头型号参数是否配置正确。
 
 A：修改 `run.sh` 启动脚本里的摄像头参数，脚本默认参数是 os04a10 摄像头，更换为 gc4653 将 `-e 2 -v 0 -c 0` 修改为 `-v 0 -c 2` 即可。
 
+## Q：GC4653 摄像头角度偏转怎么解决？
+
+A：按照图例更改摆放方式即可。
+
+![fqa_video](./../assets/fqa_video_a.jpg)
+
+有装配外壳的 AXera-Pi 可参考以下图例：
+
+<html>
+      <img src="./../assets/fqa_video_b.jpg" width=48%>
+      <img src="./../assets/fqa_video_c.jpg" width=48%>
+    </html>
