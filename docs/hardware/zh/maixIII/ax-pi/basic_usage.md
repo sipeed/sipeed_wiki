@@ -759,8 +759,6 @@ root@AXERA:~#
 - gc4653 （基础版）
 - os04a10（夜视版）
 
-目前默认使用的是 gc4653 ，使用 os04a10 需要改一下 -c 2 为 -c 0，如下示意。
-
 ```bash
 sample_vin_vo -c 2 -e 1 -s 0 -v dsi0@480x854@60
 ```
@@ -768,7 +766,7 @@ sample_vin_vo -c 2 -e 1 -s 0 -v dsi0@480x854@60
 .. details::运行上方命令后可看到画面（示例效果）
     ![video](./../assets/video.jpg)
 
->使用摄像头时如有报错或者是不显示，请移步[Maix-III 系列 AXera-Pi 常见问题(FAQ)](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html)查询。
+>目前默认使用的是 gc4653 ，使用 os04a10 请移步[Maix-III 系列 AXera-Pi 常见问题(FAQ)](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html)查询。
 
 ### DISPLAY
 
@@ -858,10 +856,26 @@ finally:
 
 ![usb_tty](./../assets/usb_tty.jpg)
 
-#### v4l2 webcam
+#### usb v4l2 webcam
 
-适配 usb 摄像头前我们需要给板子接上以太网 `eth0`，使用 `ifconfig` 查询以太网的 `IP` 地址方便我们使用。如果获取不到以太网的 `IP` 地址，请移步右侧进行重新启动/配置[点击前往相关](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html#%E6%9C%89%E7%BA%BF%E4%BB%A5%E5%A4%AA%E7%BD%91%EF%BC%88eth0%EF%BC%89%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95)。
+>适配 usb 摄像头前我们需要给板子接上以太网 `eth0`，使用 `ifconfig` 查询以太网的 `IP` 方便我们使用。
+>如果获取不到以太网的 `IP` 地址，请移步右侧进行重新启动/配置[点击前往相关](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html#%E6%9C%89%E7%BA%BF%E4%BB%A5%E5%A4%AA%E7%BD%91%EF%BC%88eth0%EF%BC%89%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95)。
 
+运行下方的命令行，终端会弹出调试信息无明显报错后，打开任意浏览器输入我们刚获取的以太网 `IP` 地址，进入 `ustreamer` 使用体验拍照及录像功能。
+
+```bash
+/home/ustreamer/ustreamer --device=/dev/video0 --host=0.0.0.0 --port=80
+```
+
+![ustreamer_adb](./../assets/ustreamer_adb.png)
+
+`snapshot` 为拍照功能，`stream` 为视频功能。
+
+![ustreamer](./../assets/ustreamer.png)
+
+.. details::点击查看效果图
+
+    ![ustreamer_snapshot](./../assets/ustreamer_snapshot.jpg)
 
 #### 如何使用 USB HOST 读取一个 256M 的 SD 卡
 先关了 otg 的 rndis 后再 lsusb 就可以看到了。
@@ -1242,20 +1256,21 @@ ffplay rtsp://192.168.233.1:8554/axstream0 -fflags nobuffer
 ```
 
 - **更换模型**
-镜像内置 yolov5s 的人脸/物体检测模型，可使用以下命令更改运行脚本内容更换模型。
+>20221116 后更新的镜像已在 `run.sh` 内置了不同摄像头参数的源码。
+>20221111 镜像内置 yolov5s 的人脸/物体检测模型，可使用以下命令更改运行脚本内容更换模型。
 
 ``` bash
 nano /home/examples/vin_ivps_joint_venc_rtsp_vo_onvif_mp4v2/run.sh
 ```
 
 .. details::点击查看修改操作示例
-    运行后会显示 `run.sh` 的编辑页面，对当前启动的模型进行注释更换其他模型，
+    运行后会显示 `run.sh` 的编辑页面，对当前启动的模型进行注释或调用其他模型即可，
     按 **ctrl+X** 键后会提示是否保存修改内容。
     ![model-save](./../assets/model-save.jpg)
     根据提示按下 **Y** 键保存，界面会显示修改内容写入的文件名按**回车**键确定，
     再次运行 `run.sh` 脚本即可看到模型更换成功。
     ![model-file](./../assets/model-file.jpg)
-    除了上方通过命令修改`run.sh`更换还可以通过`MdbaXterm`工具查看`/home/examples/vin_ivps_joint_venc_rtsp_vo_onvif_mp4v2/`目录下的`run.sh`脚本文件直接修改保存。
+    除了上方通过命令修改 `run.sh` 更换还可以通过 `MdbaXterm` 工具查看 `/home/examples/vin_ivps_joint_venc_rtsp_vo_onvif_mp4v2/` 目录下的`run.sh`脚本文件直接修改保存。
 
 - **按键录制 MP4**
 运行 `run.sh` 期间可按下板载的按键 `user` 进行录制视频，按下后 **LED0** 会亮起代表开始录制 MP4，
@@ -1272,6 +1287,25 @@ nano /home/examples/vin_ivps_joint_venc_rtsp_vo_onvif_mp4v2/run.sh
 ![mp4-file](./../assets/mp4-file.png)
 
 ### pp_human
+
+>**20221116** 后更新的系统镜像已内置了 `pp_human` 人体检测分割模块，
+>还内置了不同摄像头的参数命令在 `run.sh`，只需要调用注释相应源码即可使用。
+
+运行下方的命令后终端会输出调试信息，设备屏幕会显示运行画面。
+
+```bash
+/home/examples/vin_ivps_joint_vo_pp_human_seg/run.sh
+```
+![pp_human](./../assets/pp_human.jpg)
+可使用下方命令进入图形化页面，对 `run.sh` 里不同摄像头参数的源码进行调用或注释。
+
+```bash
+nano /home/examples/vin_ivps_joint_vo_pp_human_seg/run.sh
+```
+
+.. details::点击查看图形化页面
+    ![pp_human_adb](./../assets/pp_humana_adb.png)
+
 ### 出厂测试脚本
 
 .. details::点击可查看产品出厂测试时用的 Python 测试脚本
