@@ -244,7 +244,7 @@ title: MAIX-III AXera-Pi 是什么？
 
 1. [测试一下屏幕显示](https://github.com/sipeed/libmaix/tree/release/examples/display)
 2. [把摄像头显示到屏幕](https://github.com/sipeed/libmaix/tree/release/examples/axpi)
-3. [摄像头+模型+屏幕](https://github.com/sipeed/libmaix/tree/release/examples/axpi_classification_cam)
+3. [摄像头+yolov5 模型+屏幕](https://github.com/sipeed/libmaix/tree/release/examples/axpi_yolov5_cam)
 
 ##### [axpi_bsp_sdk](https://github.com/sipeed/axpi_bsp_sdk)
 
@@ -253,7 +253,16 @@ title: MAIX-III AXera-Pi 是什么？
 1. 开发文档 [docs](https://github.com/sipeed/axpi_bsp_sdk/tree/main/msp/sample/vo_fb)
 2. 框架应用 [ipcdmeo](https://github.com/sipeed/axpi_bsp_sdk/tree/main/app/IPCDemo)
 3. 外设验证 [sample](https://github.com/sipeed/axpi_bsp_sdk/tree/main/msp/sample)
-4. 模型部署 [ax-pipeline](https://github.com/AXERA-TECH/ax-pipeline)
+
+##### [ax-pipeline](https://github.com/AXERA-TECH/ax-pipeline)
+
+AX-Pipeline 由爱芯主导开发。该项目基于 AXera-Pi 展示 ISP、图像处理、NPU、编码、显示 等功能模块软件调用方法，方便社区开发者进行快速评估和二次开发自己的多媒体应用。
+
+1. [快速编译](https://github.com/AXERA-TECH/ax-pipeline/blob/main/docs/compile.md) 基于 cmake 实现简单的跨平台编译。
+2. [如何更换自己训练的 yolov5 模型](https://github.com/AXERA-TECH/ax-pipeline/blob/main/docs/how_to_deploy_custom_yolov5_model.md)
+3. [如何部署自己的其他模型](https://github.com/AXERA-TECH/ax-pipeline/blob/main/docs/how_to_deploy_custom_model.md)
+4. [如何调整图像方向](https://github.com/AXERA-TECH/ax-pipeline/blob/main/docs/how_to_adjust_image_orientation.md)
+5. [ModelZoo](https://github.com/AXERA-TECH/ax-pipeline/blob/main/docs/modelzoo.md) 一些支持或将支持的模型和一些模型的说明.
 
 ## 社区资源
 
@@ -299,7 +308,7 @@ title: MAIX-III AXera-Pi 是什么？
 
 - [某某同学：如何优雅的打开某某产品？]()
 
-### 模型训练测评公示（筹备中）
+### 模型训练测评公示（进行中）
 
 > 使用 maixhub.com 需要先注册账号登陆，才能正常使用查看分享的模型和在线训练模型。
 
@@ -482,12 +491,6 @@ title: MAIX-III AXera-Pi 是什么？
 - [SDK 开发指南](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/sdk_usage.html)
 
 ![axpi_sdk.jpg](./../assets/axpi_sdk.jpg)
-
-在这里「大佬鼠」推荐自己的开发流程和方法，最开始就是先在板子上本地编译测试现有的代码和功能，然后根据 [[maixpy3 axpi] 编辑发布 debian 镜像与在 PC 上交叉编译程序 ](https://www.cnblogs.com/juwan/p/16769237.html) 来安装 docker arm 虚拟机。
-
-接着，将之前烧录到板子里的根文件系统（.img）通过 losetup + mount + chroot 挂载（.img）出来，这时候你就会得到和板子一样的 arm 虚拟机环境，就可以直接本地编译啦！不过，这个方法需要学习 docker 的安装喔，包括后面的模型开发也上会用到 docker 的。
-
-> 如果你不嫌麻烦的话，可以选择配置交叉编译链、板子依赖的头文件、第三方链接库后才能进行程序的编译，但这个 docker arm 虚拟机的方法是最省事的，甚至还可以通过读卡器（或网络）挂载板子里的根文件系统进行编译。
 
 ### 训练模型部署
 

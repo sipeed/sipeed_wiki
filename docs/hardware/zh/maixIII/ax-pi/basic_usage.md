@@ -229,7 +229,7 @@ wlan0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
 
 可使用静态 IP 地址 `192.168.233.1` 这里已配置好 dhcp 服务了，从而避免用户需手动设置 IP 地址的操作。
 
-> 使用 usb0 前需要安装 rndis 驱动，可点击[驱动安装过程](http://wiki.spieed.com/hardware/zh/maixIII/ax-pi/basic_usage.html#基于-ip-%2B-ssh-登录l)前往安装。
+> 使用 usb0 前需要安装 rndis 驱动，可点击[驱动安装过程](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html#%E5%9F%BA%E4%BA%8E-ip-%2B-ssh-%E7%99%BB%E5%BD%95)前往安装。
 
 在 Windows 系统下如果遇到多个网卡时，发现 USB 网卡优于局域网导致内网网站访问很慢甚至失败，此时就需要通过 Win10 设置跃点数来调整网络优先级的连接顺序，去修改优先级改善访问慢的状态，数值越大优先级越低（比如设置 1000），从而把 USB 网卡优先级调至最低**可参考上文的调整网络优先级的教程**。
 
@@ -623,7 +623,8 @@ exit 0
 
 用户可使用 `nano boot/rc.local` 命令修改开机脚本，修改内容后按 **ctrl+x** 键根据提示保存确定即可。
 
-**注意**：开机时的执行对象由于没有环境变量，所以不同于登录后运行的 `sample_vo -v dsi0@480x854@60 -m 0 &` 需要修改成 `export LD_LIBRARY_PATH=/opt/lib:LD_LIBRARY_PATH && /opt/bin/sample_vo -v dsi0@480x854@60 -m 0 & ` 才能开机启动，注意要在命令后使用 & 将程序挂在后台执行喔！
+**注意**：~~开机时的执行对象由于没有环境变量，所以不同于登录后运行的 `sample_vo -v dsi0@480x854@60 -m 0 &` 需要修改成 `export LD_LIBRARY_PATH=/opt/lib:LD_LIBRARY_PATH && /opt/bin/sample_vo -v dsi0@480x854@60 -m 0 & ` 才能开机启动，注意要在命令后使用 & 将程序挂在后台执行喔!~~
+>20221012 后更新的镜像已提前预置好，无需用户自行手动修改设置。
 
 ### 更新内核与驱动
 
@@ -840,6 +841,7 @@ finally:
 
 ### USB
 
+> 系统同一个时刻只有一种 usb 设备方向，要么上 otg 模式变成串口、网卡接电脑，要么是 host 模式接鼠标键盘U盘，不能同时使用。
 我们在 debian 系统上配置了 usb-gadget@g1 和 usb-gadget@g0 两个服务。
 
 #### 配置虚拟网卡 RNDIS usb0 有线 ssh 登录
@@ -856,11 +858,12 @@ finally:
 
 ![usb_tty](./../assets/usb_tty.jpg)
 
-#### usb v4l2 webcam
+#### 如何使用 USB OTG 虚拟一个 USB 摄像头
 
 >适配 usb 摄像头前我们需要给板子接上以太网 `eth0`，使用 `ifconfig` 查询以太网的 `IP` 方便我们使用。
 >如果获取不到以太网的 `IP` 地址，请移步右侧进行重新启动/配置[点击前往相关](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html#%E6%9C%89%E7%BA%BF%E4%BB%A5%E5%A4%AA%E7%BD%91%EF%BC%88eth0%EF%BC%89%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95)。
 
+**Ustreamer**：[点击查看相关仓库](https://github.com/pikvm/ustreamer)
 运行下方的命令行，终端会弹出调试信息无明显报错后，打开任意浏览器输入我们刚获取的以太网 `IP` 地址，进入 `ustreamer` 使用体验拍照及录像功能。
 
 ```bash
@@ -877,10 +880,13 @@ finally:
 
     ![ustreamer_snapshot](./../assets/ustreamer_snapshot.jpg)
 
+#### UVC
+
+**usb-uvc-gadget**：[点击查看相关仓库](https://github.com/junhuanchen/usb-uvc-gadget)
+待整理更新。
+
 #### 如何使用 USB HOST 读取一个 256M 的 SD 卡
 先关了 otg 的 rndis 后再 lsusb 就可以看到了。
-
-> 系统同一个时刻只有一种 usb 设备方向，要么上 otg 模式变成串口、网卡接电脑，要么是 host 模式接鼠标键盘U盘，不能同时使用。
 
 ```bash
 root@AXERA:~# systemctl stop usb-gadget@g0
@@ -944,6 +950,505 @@ echo 1 > /sys/class/gpio/gpio68/value
 
 以后主流会统一到 PA0 或 PC4 这类定义，方便不同芯片共同定义。
 
+.. details:: 点击查看相关 gpio.h 代码
+
+    ```c
+    #ifndef __LINUX_GPIO_H
+    #define __LINUX_GPIO_H
+
+    #ifdef __cplusplus
+    extern "C"
+    {
+    #endif
+
+    #include <stdint.h>
+    #include <stdio.h>
+    #include <fcntl.h>
+    #include <unistd.h>
+    #include <stdlib.h>
+    #include <string.h>
+
+    void _pwm_init(char *pin, uint64_t fre, float duty);
+
+    void _pwm_set_duty(char * pin, float duty);
+
+    void _pwm_deinit(char *pin);
+
+    /*
+    _pwm_init("PH8", 50000, 0.1);
+    sleep(1);
+    _pwm_set_duty("PH8", 0.6);
+    sleep(1);
+    _pwm_set_duty("PH8", 0.3);
+    sleep(1);
+    _pwm_deinit("PH8");
+    */
+
+    void* _gpio_init(char* pin, int mode, int state);
+
+    void _gpio_deinit(char* pin);
+
+    void _gpio_read(char* pin, int* state);
+
+    /*
+    // _gpio_init("PH7", 0, 0);
+    // for (int i = 0; i < 30; i++)
+    // {
+    //     int val = 0;
+    //     _gpio_read("PH7", &val);
+    //     printf("%d\r\n", val);
+    //     sleep(1);
+    // }
+    // _gpio_deinit("PH7");
+    // return;
+    */
+
+    #ifdef __cplusplus
+    } /* extern "C" */
+    #endif
+
+    #endif /* __LINUX_GPIO_H */
+    ```
+
+.. details:: 点击查看相关 gpio.c 代码
+    
+    ```c
+    #include "linux_gpio.h"
+
+    int _write_file_only(char* path, char* buf, size_t count)
+    {
+        int fd, res;
+
+        fd = open(path, O_WRONLY | O_NONBLOCK);
+        if (fd < 0)
+            return -1;
+
+        res = write(fd, buf, count);
+        if (res < 0)
+        {
+            close(fd);
+            return -2;
+        }
+
+        res = close(fd);
+        if (res < 0)
+            return -3;
+
+        return res;
+    }
+
+    int _read_file_only(char* path, char* buf, size_t count)
+    {
+        int fd, res;
+
+        fd = open(path, O_RDONLY | O_NONBLOCK);
+        if (fd < 0)
+            return -1;
+
+        res = read(fd, buf, count);
+        if (res < 0)
+        {
+            close(fd);
+            return -2;
+        }
+
+        res = close(fd);
+        if (res < 0)
+            return -3;
+
+        return res;
+    }
+
+    int _get_pwm_num(char *pin)
+    {
+        int pwm_num = 0;
+        if (strlen(pin) < 3)    return -1;
+
+        if (!strcmp(pin, "PD1") || !strcmp(pin, "PH0"))
+        {
+            pwm_num = 0;
+        }
+        else if (!strcmp(pin, "PD2") || !strcmp(pin, "PH1"))
+        {
+            pwm_num = 1;
+        }
+        else if (!strcmp(pin, "PD3") || !strcmp(pin, "PH2"))
+        {
+            pwm_num = 2;
+        }
+        else if (!strcmp(pin, "PD4") || !strcmp(pin, "PH3"))
+        {
+            pwm_num = 3;
+        }
+        else if (!strcmp(pin, "PD5") || !strcmp(pin, "PH4"))
+        {
+            pwm_num = 4;
+        }
+        else if (!strcmp(pin, "PD6") || !strcmp(pin, "PH5"))
+        {
+            pwm_num = 5;
+        }
+        else if (!strcmp(pin, "PD7") || !strcmp(pin, "PH6"))
+        {
+            pwm_num = 6;
+        }
+        else if (!strcmp(pin, "PD8") || !strcmp(pin, "PH7"))
+        {
+            pwm_num = 7;
+        }
+        else if (!strcmp(pin, "PD9") || !strcmp(pin, "PH8"))
+        {
+            pwm_num = 8;
+        }
+        else if (!strcmp(pin, "PD19") || !strcmp(pin, "PD22") || !strcmp(pin, "PH9"))
+        {
+            pwm_num = 9;
+        }
+        else
+        {
+            pwm_num = -1;
+        }
+
+        return pwm_num;
+    }
+
+    /**
+    * @brief 初始化pwm
+    * @details
+    * @param [in] pwm_id   按键id(0 按键0,1 按键1)
+    * @param [in] fre      频率
+    * @param [in] duty     占空比
+    * @retval
+    */
+    void _pwm_init(char *pin, uint64_t fre, float duty)
+    {
+        int res = 0;
+        char path[100];
+        char arg[20];
+        int pwm_id;
+        uint64_t period = 0, duty_cycle = 0;
+
+        pwm_id = _get_pwm_num(pin);
+        if (-1 == pwm_id)   return;
+
+        snprintf(arg, sizeof(arg), "%d", pwm_id);
+        res = _write_file_only("/sys/class/pwm/pwmchip0/export", arg, strlen(arg));
+        if (res < 0)    {return;}
+
+        period = 1000000000 / fre;
+        snprintf(path, sizeof(path), "/sys/class/pwm/pwmchip0/pwm%d/period", pwm_id);
+        snprintf(arg, sizeof(arg), "%lld", period);
+        res = _write_file_only(path, arg, strlen(arg));
+        if (res < 0)    {return;}
+
+        duty = duty > 1.0 ? 1.0 : duty;
+        duty = 1.0 - duty;
+        duty_cycle = period * duty;
+        snprintf(path, sizeof(path), "/sys/class/pwm/pwmchip0/pwm%d/duty_cycle", pwm_id);
+        snprintf(arg, sizeof(arg), "%lld", duty_cycle);
+        res = _write_file_only(path, arg, strlen(arg));
+        if (res < 0)    {return;}
+
+        snprintf(path, sizeof(path), "/sys/class/pwm/pwmchip0/pwm%d/enable", pwm_id);
+        res = _write_file_only(path, "1", 1);
+        if (res < 0)    {return;}
+    }
+
+    void _pwm_deinit(char *pin)
+    {
+        int res = 0;
+        char path[100];
+        char arg[20];
+        int pwm_id;
+
+        pwm_id = _get_pwm_num(pin);
+        if (-1 == pwm_id)   return;
+
+        snprintf(path, sizeof(path), "/sys/class/pwm/pwmchip0/pwm%d/enable", pwm_id);
+        res = _write_file_only(path, "0", 1);
+        if (res < 0)    {return;}
+
+        snprintf(arg, sizeof(arg), "%d", pwm_id);
+        res = _write_file_only("/sys/class/pwm/pwmchip0/unexport", arg, strlen(arg));
+        if (res < 0)    {return;}
+    }
+
+    void _pwm_set_duty(char * pin, float duty)
+    {
+        int res = 0;
+        char path[100];
+        char arg[20];
+        int pwm_id;
+        uint64_t period = 0, duty_cycle = 0;
+
+        pwm_id = _get_pwm_num(pin);
+        if (-1 == pwm_id)   return;
+
+        snprintf(path, sizeof(path), "/sys/class/pwm/pwmchip0/pwm%d/period", pwm_id);
+        res = _read_file_only(path, arg, sizeof(arg));
+        if (res < 0)    {return;}
+        period = atoi(arg);
+
+        duty = 1.0 - duty;
+        duty_cycle = period * duty;
+        snprintf(arg, sizeof(arg), "%lld", duty_cycle);
+        snprintf(path, sizeof(path), "/sys/class/pwm/pwmchip0/pwm%d/duty_cycle", pwm_id);
+        res = _write_file_only(path, arg, strlen(arg));
+        if (res < 0)    {return;}
+    }
+
+    /**
+    * @brief 将字符引脚编号转换为数字引脚编号
+    * @param [in] pin   字符引脚编号,格式必须为PAxx~PHxx，且xx的范围为0~31
+    * @retval 返回数字引脚编号，如果为-1，则执行失败
+    */
+    int _get_gpio_num(char* pin)
+    {
+        if (strlen(pin) < 3)
+            return -1;
+        char c;
+        int group_id, group_offset, gpio_num;
+
+        c = pin[0];
+        if (c != 'p' && c != 'P')
+        {
+            return -1;
+        }
+
+        c = pin[1];
+        if ('a' <= c && c <= 'z')			// 限制a~z
+        {
+            group_id = c - 'a';
+        }
+        else if ('A' <= c && c <= 'Z')	    // 限制A~Z
+        {
+            group_id = c - 'A';
+        }
+        else
+        {
+            return -1;
+        }
+
+        group_offset = atoi(pin + 2);
+        if (group_offset > 31)
+        {
+            return -1;
+        }
+
+        gpio_num = (group_id << 5) + group_offset;
+        return gpio_num;
+    }
+
+    /**
+    * @brief 向export文件注册gpio
+    * @param [in] gpio   引脚编号
+    * @retval 返回0，成功，小于0，失败
+    */
+    int gpio_export(uint32_t gpio)
+    {
+        int len, res;
+        char buf[10];
+
+        len = snprintf(buf, sizeof(buf), "%d", gpio);
+        if (len > sizeof(buf))
+            return -1;
+
+        res = _write_file_only("/sys/class/gpio" "/export", buf, len);
+        if (res < 0)
+        {
+            perror("gpio_export");
+        }
+
+        return res;
+    }
+
+    /**
+    * @brief 向unexport文件取消注册gpio
+    * @param [in] gpio   引脚编号
+    * @retval 返回0，成功，小于0，失败
+    */
+    int gpio_unexport(uint32_t gpio)
+    {
+        int len, res;
+        char buf[10];
+
+        len = snprintf(buf, sizeof(buf), "%d", gpio);
+        if (len > sizeof(buf))
+            return -1;
+
+        res = _write_file_only("/sys/class/gpio" "/unexport", buf, len);
+        if (res < 0)
+        {
+            perror("gpio unexport");
+        }
+
+        return res;
+    }
+
+    /**
+    * @brief 设置gpio输入/输出模式
+    * @param [in] gpio   引脚编号
+    * @param [in] mode   引脚模式,取值如下:
+    *  				0,输入模式
+    *  				1,输出模式，默认低电平
+    *  				2,输出模式，默认低电平
+    *  				3,输出模式，默认高电平
+    * @retval 返回0，成功，小于0，失败
+    */
+    int gpio_set_dir(uint32_t gpio, uint32_t mode)
+    {
+        int len, res;
+        char path[40];
+
+        len = snprintf(path, sizeof(path), "/sys/class/gpio"  "/gpio%d/direction", gpio);
+        if (len > sizeof(path))
+            return -1;
+
+        mode = mode > 3 ? 3 : mode;
+        switch(mode)
+        {
+            case 0:res = _write_file_only(path, "in", sizeof("in"));break;
+            case 1:res = _write_file_only(path, "out", sizeof("out"));break;
+            case 2:res = _write_file_only(path, "low", sizeof("low"));break;
+            case 3:res = _write_file_only(path, "high", sizeof("high"));break;
+            default:break;
+        }
+
+        return res;
+    }
+
+    /**
+    * @brief 设置gpio电平
+    * @param [in] gpio   引脚编号
+    * @param [in] value  引脚电平(1,高电平;0,低电平)
+    * @retval 返回0，成功，小于0，失败
+    */
+    int gpio_set_value(uint32_t gpio, uint32_t value)
+    {
+        int len, res;
+        char path[40];
+
+        len = snprintf(path, sizeof(path), "/sys/class/gpio"  "/gpio%d/value", gpio);
+        if (len > sizeof(path))
+            return -1;
+
+        if (value)
+            res = _write_file_only(path, "1", 2);
+        else
+            res = _write_file_only(path, "0", 2);
+
+        return res;
+    }
+
+    /**
+    * @brief 读取gpio电平
+    * @param [in] 	gpio   引脚编号
+    * @param [out] value  引脚电平(1,高电平;0,低电平)
+    * @retval 返回0，成功，小于0，失败
+    */
+    int gpio_get_value(uint32_t gpio, uint32_t *value)
+    {
+        int len, res;
+        char path[40], state;
+
+        len = snprintf(path, sizeof(path), "/sys/class/gpio"  "/gpio%d/value", gpio);
+        if (len > sizeof(path))
+            return -1;
+
+        res = _read_file_only(path, &state, 1);
+        if (res < 0)
+            return res;
+
+        *value = state == '0' ? 0 : 1;
+
+        return res;
+    }
+
+    /**
+    * @brief 初始化gpio
+    * @note 还没有限制io_num的范围，需要注意
+    * @param [in] dev      设备名
+    * @param [in] mode     模式
+    * @param [in] state    初始状态值
+    * @retval 0 成功 <0 失败
+    */
+    void* _gpio_init(char* pin, int mode, int state)
+    {
+        int res = -1;
+
+        int io_num = _get_gpio_num(pin);
+        if (io_num < 0)
+        {
+            return (void *)res;
+        }
+
+        /* 向export文件注册一个gpio */
+        res = gpio_export(io_num);
+        if (res < 0)    return (void *)res;
+
+        /* 设置gpio方向 */
+        res = gpio_set_dir(io_num, mode);
+        if (res < 0)    return (void *)res;
+
+        if (mode > 0)
+        {
+            /* 设置gpio电平 */
+            res = gpio_set_value(io_num, state);
+            if (res < 0)    return (void *)res;
+
+        }
+
+
+        return (void*)res;
+    }
+
+    /**
+    * @brief 初始化gpio
+    * @note 还没有限制io_num的范围，需要注意
+    * @param [in] handle      设备名
+    * @retval
+    */
+    void _gpio_deinit(char* pin)
+    {
+        int res;
+
+        int io_num = _get_gpio_num(pin);
+        if (io_num < 0) return;
+        res = gpio_unexport(io_num);
+        if (res < 0) return;
+    }
+
+    /**
+    * @brief 读gpio电平，只能在输入模式下调用
+    * @note
+    * @param [in]  handle  句柄，用来传入文件描述符
+    * @param [out] state 状态值
+    * @retval
+    */
+    void _gpio_read(char* pin, int* state)
+    {
+        int io_num = _get_gpio_num(pin);
+        if (io_num < 0) return;
+
+        gpio_get_value(io_num, (uint32_t *)state);
+
+    }
+
+    /**
+    * @brief 写gpio电平，只能在输出模式下调用
+    * @note
+    * @param [in] handle  句柄，用来传入文件描述符
+    * @param [in] state   状态值
+    * @retval
+    */
+    void _gpio_write(char* pin, int state)
+    {
+        int io_num = _get_gpio_num(pin);
+        if (io_num < 0) return;
+
+        gpio_set_value(io_num, state);
+    }
+    ```
 ### UART
 
 系统输出默认是 **ttyS0** ，排针上的是 **ttyS1** ，而虚拟串口是 **ttyGS0**。
@@ -959,6 +1464,232 @@ ser = serial.Serial('/dev/ttyS1', 115200, timeout=1)
 ser.write(b'hello world\n')
 ser.close()
 ```
+
+.. details:: 点击查看相关 uart.h 代码
+    ```c
+        #ifndef __LINUX_UART_H
+    #define __LINUX_UART_H
+
+    #ifdef __cplusplus
+    extern "C"
+    {
+    #endif
+
+    #include "stdint.h"
+
+    #define PRINF_HEX_ARR(str,buf,len)\
+    do{\
+        char *buff = (char *)buf;\
+        printf("\e[32m[%s](%d):\e[0m", str, len);\
+        for (int i = 0;i < len; ++i)\
+        {\
+            printf("0x%.2X ", buff[i] & 0xff);\
+        }\
+        printf("\r\n");\
+    } while (0);
+
+    typedef struct{
+        int baud;
+        int data_bits;
+        int stop_bits;
+        char parity;
+    }uart_t;
+
+    int linux_uart_init(char* dev, void* param);
+    void linux_uart_deinit(int fd);
+    int linux_uart_read(int fd, int cnt, uint8_t* buf);
+    int linux_uart_write(int fd, int cnt, uint8_t* buf);
+
+    #ifdef __cplusplus
+    } /* extern "C" */
+    #endif
+
+    #endif /* __LINUX_UART_H */
+
+    ```
+
+.. details:: 点击查看相关 uart.c 代码
+
+    ```c
+    #include "linux_uart.h"
+
+    #include <stdio.h>
+    #include <sys/ioctl.h>
+    #include <fcntl.h>
+    #include <errno.h>
+    #include <termios.h>
+    #include <linux/serial.h>
+
+
+    static int _get_baud(int baud)
+    {
+        switch (baud)
+        {
+        case 9600:return B9600;
+        case 19200:return B19200;
+        case 38400:return B38400;
+        case 57600:return B57600;
+        case 115200:return B115200;
+        case 230400:return B230400;
+        case 460800:return B460800;
+        case 500000:return B500000;
+        case 576000:return B576000;
+        case 921600:return B921600;
+    #ifdef B1000000
+        case 1000000:return B1000000;
+    #endif
+    #ifdef B1152000
+        case 1152000:return B1152000;
+    #endif
+    #ifdef B1500000
+        case 1500000:return B1500000;
+    #endif
+    #ifdef B2000000
+        case 2000000:return B2000000;
+    #endif
+    #ifdef B2500000
+        case 2500000:return B2500000;
+    #endif
+    #ifdef B3000000
+        case 3000000:return B3000000;
+    #endif
+    #ifdef B3500000
+        case 3500000:return B3500000;
+    #endif
+    #ifdef B4000000
+        case 4000000:return B4000000;
+    #endif
+        default:return -1;
+        }
+    }
+
+
+    static void clear_custom_speed_flag(int _fd)
+    {
+        struct serial_struct ss;
+        if (ioctl(_fd, TIOCGSERIAL, &ss) < 0) {
+            // return silently as some devices do not support TIOCGSERIAL
+            return;
+        }
+
+        if ((ss.flags & ASYNC_SPD_MASK) != ASYNC_SPD_CUST)
+            return;
+
+        ss.flags &= ~ASYNC_SPD_MASK;
+
+        if (ioctl(_fd, TIOCSSERIAL, &ss) < 0) {
+            perror("TIOCSSERIAL failed");
+            exit(1);
+        }
+    }
+
+    /**
+    * @brief 初始化uart
+    * @note
+    * @param [in] dev    设备名
+    * @param [in] param  参数
+    * @retval
+    */
+    int linux_uart_init(char* dev, void* param)
+    {
+        int fd;
+
+        uart_t* cfg = (uart_t *)param;
+
+        int baud = _get_baud(cfg->baud);
+        int data_bits = cfg->data_bits, stop_bits = cfg->stop_bits;
+        char parity = cfg->parity;
+
+        fd = open(dev, O_RDWR | O_NONBLOCK | O_NOCTTY);
+        // fd = open(dev, O_RDWR | O_NOCTTY);
+        if (fd < 0)
+        {
+            return fd;
+        }
+
+        struct termios opt;
+        memset(&opt, 0, sizeof(opt));
+
+        /* 忽略modem，使能读模式 */
+        opt.c_cflag |= CLOCAL | CREAD;
+
+        /* 设置波特率 */
+        opt.c_cflag |= baud;
+
+        /* 设置数据位 */
+        switch (data_bits)
+        {
+        case 7:
+            opt.c_cflag |= CS7;
+            break;
+        case 8:
+            opt.c_cflag |= CS8;
+            break;
+        default:break;
+        }
+
+        /* 设置奇偶校验位 */
+        switch (parity)
+        {
+        case 'N':
+        case 'n':
+            opt.c_iflag &= ~INPCK;
+            opt.c_cflag &= ~PARENB;
+            break;
+        case 'O':
+        case 'o':
+            opt.c_iflag |= (INPCK | ISTRIP);
+            opt.c_cflag |= (PARODD | PARENB);
+            break;
+        case 'E':
+        case 'e':
+            opt.c_iflag |= (INPCK | ISTRIP);
+            opt.c_cflag |= PARENB;
+            opt.c_cflag &= ~PARODD;
+            break;
+        default:break;
+        }
+
+        /* 设置停止位 */
+        switch (stop_bits)
+        {
+        case 1:
+            opt.c_cflag &= ~CSTOPB;
+            break;
+        case 2:
+            opt.c_cflag |= CSTOPB;
+            break;
+        default:break;
+        }
+
+        /* 设置流控制 */
+        opt.c_cflag &= ~CRTSCTS;
+
+        /* 最小字节数与等待时间 */
+        opt.c_cc[VMIN] = 1;
+        opt.c_cc[VTIME] = 0;
+
+        /* 刷新串口，更新配置 */
+        tcflush(fd, TCIOFLUSH);
+        tcsetattr(fd, TCSANOW, &opt);
+
+        clear_custom_speed_flag(fd);
+
+        return fd;
+    }
+
+    void linux_uart_deinit(int fd)
+    {
+        int res;
+
+        res = close(fd);
+        if (res < 0)
+            fprintf(stderr, "uart close fd(%d) err:%s\n", fd, strerror(errno));
+        else
+            fd = -1;
+    }
+    ```
+
 
 ### PWM
 
