@@ -27,47 +27,50 @@
 
 ![tof-07514](asstes/../assets/mt_pin.jpg)
 
-参照上图连接方式将模组连接 `PC` 端，模组自带的风扇会开始工作，正面镜头处会显示红灯在闪烁。
-此时可打开浏览器输入 `http://192.168.233.1` 预览 3D 点云图，上电后有延迟需等待一段时间后，系统和程序才会启动完成。
+根据上图将模组通电接入 `PC` 端，这时自带的风扇会开始工作以及镜头处会显示有红灯在闪烁，选择浏览器输入 `http://192.168.233.1` 预览 3D 点云图，上电后有延迟等待 `10s-15s` 系统和程序才会启动完成。
 
-3. 使用网页上位机快速预览 演示图（正面和侧面）：
+**使用网页上位机快速预览（正面和侧面）：**
  
-    <html>
-      <img src="./assets/mt_examle.jpg" width=48%>
-      <img src="./assets/mt_examleb.jpg" width=48%>
-    </html>
+<html>
+  <img src="./assets/mt_examle.jpg" width=48%>
+  <img src="./assets/mt_examleb.jpg" width=48%>
+</html>
 
-5. 可选预览深度伪彩点云，右上角打开交互面板，第一行取消勾选 RGB_Map 即可。
-    ![mt_examlec](assets/mt_examlec.jpg)
+可选预览深度伪彩点云，取消勾选页面右侧的交互面板上的第一行 `RGB_Map` 即可。
+
+![mt_examlec](assets/mt_examlec.jpg)
 
 ### 互动配置
 
-上位机交互面板提供了一系列配置和功能，可以实时预览变动的效果。
+网页上位机交互面板提供了一系列配置和功能，可以实时预览变动的效果。
+
 ![mt_examled](assets/mt_examled.jpg)
 
-现简单说明一下各个控件的功能。
-- **RGB_Map** 多选框 开关 RGB 映射，即关闭时只显示深度伪彩点云，打开时显示 RGB 映射点云。
-- **colorMap** 下拉栏 提供了几个伪彩映射选项(即 cmap )，推荐使用 jet，RGB_Map 关闭时有效。
+**交互面板控件说明**
+
+- **RGB_Map**：多选框 开关 RGB 映射，即关闭时只显示深度伪彩点云，打开时显示 RGB 映射点云。
+- **colorMap**：下拉栏 提供了几个伪彩映射选项(即 cmap )，推荐使用 jet，RGB_Map 关闭时有效。
 - **deepRangeMax** 和 **deepRangeMin** 滑动条是设定 cmap 的映射范围的，即只有位于 deepRangeMin 和 deepRangeMax 之间的数值（深度值）会通过 cmap，RGB_Map 关闭时有效。
-- **NormalPoint** 多选框 开关显示正常点（TOF 成像会有无效点，对应的相反描述），需要打开。
-- **OE_Points** 多选框 开关显示OE点，建议关闭。
-- **UE_Points** 多选框 开关显示UE点，建议关闭。
-- **Bad_Points** 多选框 开关显示无效点，建议关闭。
-- **SpatialFilter** 多选框 开关空间滤波，基于下面的 SpatialFilterSize 值和 SpatialFilterType 指定的算法进行处理。
-- **TemporalFilter** 多选框 开关时间滤波，基于下面的TemporalFilteralpha 值做了一个时间上的平均。
-- **TemporalFilteralpha** 滑动条 设定时间滤波所需时长，适中即可，可自行尝试体验其它效果。
-- **SpatialFilterType** 下拉栏 设定空间滤波算法，提供高斯滤波（Gaussian）和双边滤波（Bilateral），双边滤波性能要求较高，不建议使用。
-- **SpatialFilterSize** 滑动条 设定空间滤波所需范围，适中即可，可自行尝试体验其它效果。
-- **FlyingPointFilter** 多选框 开关飞点过滤，基于下面的 FlyingPointThreshold 值作为过滤阈值，超过阈值的将被过滤掉，建议适中配置，否则有效点也会被剔除。
+- **NormalPoint**：多选框 开关显示正常点（TOF 成像会有无效点，对应的相反描述），需要打开。
+- **OE_Points**：多选框 开关显示OE点，建议关闭。
+- **UE_Points**：多选框 开关显示UE点，建议关闭。
+- **Bad_Points**：多选框 开关显示无效点，建议关闭。
+- **SpatialFilter**：多选框 开关空间滤波，基于下面的 SpatialFilterSize 值和 SpatialFilterType 指定的算法进行处理。
+- **TemporalFilter**：多选框 开关时间滤波，基于下面的TemporalFilteralpha 值做了一个时间上的平均。
+- **TemporalFilteralpha**：滑动条 设定时间滤波所需时长，适中即可，可自行尝试体验其它效果。
+- **SpatialFilterType**：下拉栏 设定空间滤波算法，提供高斯滤波（Gaussian）和双边滤波（Bilateral），双边滤波性能要求较高，不建议使用。
+- **SpatialFilterSize**：滑动条 设定空间滤波所需范围，适中即可，可自行尝试体验其它效果。
+- **FlyingPointFilter**：多选框 开关飞点过滤，基于下面的 FlyingPointThreshold 值作为过滤阈值，超过阈值的将被过滤掉，建议适中配置，否则有效点也会被剔除。
 
 ### 保存数据
 
-网页版上位机控件栏最下方提供了两个按钮：
+网页版上位机控件栏最下方提供了两个按钮，可根据下方的说明去使用。
 
-- **SaveRaw**：可保存一帧 raw 数据，用户如果需要使用深度或 IR 或 RGB 数据进行二次开发，则需要了解 raw 数据结构。不过我们同时提供了一个详细的 jupyter notebook 供用户和开发者使用和了解 raw 数据的处理过程。
+**SaveRaw**：可保存一帧 **raw** 数据，用户如果需要使用深度或 **IR** 或 **RGB** 数据进行二次开发的话，则需要了解 **raw** 的数据结构。不过我们同时也提供了详细的 `jupyter notebook` 供用户和开发者使用和了解 **raw** 数据的处理过程。
 
-- **SavePointCloud**：可保存一帧 3D 点云图，保存格式为 pcd ，同样可以通过上述提供的脚本预览。
-注意：raw 数据可通过开放的接口获取，开发者进行解析即可基于此二次开发，但点云（pointcloud）是基于 raw 数据和相机内参进行计算得到的，无相应接口提供。
+**SavePointCloud**：可保存一帧 **3D** 点云图，保存格式为 `pcd` ，同样可以通过上述提供的脚本预览。
+>注意：`raw` 数据可通过开放的接口获取，开发者进行解析即可基于此二次开发，
+>但点云 `（pointcloud）` 是基于 `raw` 数据和相机内参进行计算得到的，无相应接口提供。
 
 ## 案例：远中近点云实拍
 
