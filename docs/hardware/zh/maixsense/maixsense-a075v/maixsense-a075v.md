@@ -52,11 +52,11 @@
 - **colorMap**：下拉栏 提供了几个伪彩映射选项(即 cmap )，推荐使用 jet，RGB_Map 关闭时有效。
 - **deepRangeMax** 和 **deepRangeMin** 滑动条是设定 cmap 的映射范围的，即只有位于 deepRangeMin 和 deepRangeMax 之间的数值（深度值）会通过 cmap，RGB_Map 关闭时有效。
 - **NormalPoint**：多选框 开关显示正常点（TOF 成像会有无效点，对应的相反描述），需要打开。
-- **OE_Points**：多选框 开关显示OE点，建议关闭。
-- **UE_Points**：多选框 开关显示UE点，建议关闭。
+- **OE_Points**：多选框 开关显示 OE 点，建议关闭。
+- **UE_Points**：多选框 开关显示 UE 点，建议关闭。
 - **Bad_Points**：多选框 开关显示无效点，建议关闭。
 - **SpatialFilter**：多选框 开关空间滤波，基于下面的 SpatialFilterSize 值和 SpatialFilterType 指定的算法进行处理。
-- **TemporalFilter**：多选框 开关时间滤波，基于下面的TemporalFilteralpha 值做了一个时间上的平均。
+- **TemporalFilter**：多选框 开关时间滤波，基于下面的 TemporalFilteralpha 值做了一个时间上的平均。
 - **TemporalFilteralpha**：滑动条 设定时间滤波所需时长，适中即可，可自行尝试体验其它效果。
 - **SpatialFilterType**：下拉栏 设定空间滤波算法，提供高斯滤波（Gaussian）和双边滤波（Bilateral），双边滤波性能要求较高，不建议使用。
 - **SpatialFilterSize**：滑动条 设定空间滤波所需范围，适中即可，可自行尝试体验其它效果。
@@ -64,53 +64,84 @@
 
 ### 保存数据
 
-网页版上位机控件栏最下方提供了两个按钮，可根据下方的说明去使用。
+网页版上位机控件栏最下方提供两个按钮，用户可根据以下的说明去使用。
 
-**SaveRaw**：可保存一帧 **raw** 数据，用户如果需要使用深度或 **IR** 或 **RGB** 数据进行二次开发的话，则需要了解 **raw** 的数据结构。不过我们同时也提供了详细的 `jupyter notebook` 供用户和开发者使用和了解 **raw** 数据的处理过程。
+**SaveRaw**：可保存一帧 raw 数据，如果需要使用深度或 IR 或 RGB 数据进行二次开发的话，则需要了解 raw 的数据结构。不过我们也提供详细的 `jupyter notebook` 供用户和开发者使用和了解 raw 数据的处理过程。
 
-**SavePointCloud**：可保存一帧 **3D** 点云图，保存格式为 `pcd` ，同样可以通过上述提供的脚本预览。
->注意：`raw` 数据可通过开放的接口获取，开发者进行解析即可基于此二次开发，
->但点云 `（pointcloud）` 是基于 `raw` 数据和相机内参进行计算得到的，无相应接口提供。
+**SavePointCloud**：可保存一帧 3D 点云图，保存格式为 `pcd` ，同样可以通过上述提供的脚本预览。
+
+>注意：**raw** 数据可通过开放的接口获取，开发者进行解析即可基于此二次开发，但点云 **pointcloud** 是基于 **raw** 数据和相机内参进行计算得到的，无相应接口提供。
+
+### SSH 登录
+
+除了直接使用网页上位机进行预览，我们还可以使用 SSH 进行登录操作。
+
+.. details::点我查看 MobaXterm 介绍
+
+    MobaXterm 是在 Windows 下使用的全能终端管理软件，而 Linux 系统可以使用 ssh 远程被操作，使用 MobaXterm 进行 ssh 登陆板子直接编辑板内的代码或执行命令，也能方便的拖拽文件上传或下载到电脑里，类似的工具还有 vscode remote 远程登录 linux 服务器。
+
+    ![mobaxterm_ssh](./../../maixIII/assets/ssh.jpg)
+
+**MobaXterm**：[点击前往下载](mobaxterm.mobatek.net/download) 分别有付费与免费双版本，下载免费版本即可。
+**MobaXterm 使用例程**：[点击查看](https://wiki.sipeed.com/hardware/zh/maixII/M2/tools/mobaxterm.html?highlight=ssh)
+
+Windows：参照上文例程使用模组自带的 `ip` 地址 `192.168.233.1` 进行登录。
+Linux：直接使用以下的命令行登录终端进行操作。
+
+```bash
+ssh root@192.168.233.1
+```
 
 ## 案例：远中近点云实拍
 
 高精度的映射物品摆放距离的差异，点云图可直观清楚感受到更真实的可视化。
+
 ![mt_cloud](assets/mt_cloud.jpg)
 
 ## 案例：避障小车
 
 模组可搭载小车或无人机来回移动获取障碍物的远近深度值，并通过差异判断画面中是否有障碍物，做出快速反应并精准规避障碍物。
+
 ![me_car](./../assets/me_car.jpg)
 
-（例程暂未开源，待整理公开)
+>例程暂未开源，待整理公开
 
 ## 案例：检测人流
 
 可实时监控人流，进行更高精度以及大分辨率的统计。
+
 ![me_pt](./../assets/me_pt.jpg)
 
-（例程暂未开源，待整理公开)
+>例程暂未开源，待整理公开。
 
 ## 二次开发：SDK 支持
 
 ### python SDK
-这是基于 `python 3` 软件开发工具包，MS-A075V 对外开发了 http 接口，我们可通过 http 请求获取到原生数据（包括深度图，ir 图，rgb 图），为了方便用户理解数据包的结构及获取还有解码的相关逻辑，因此我们提供封装了 http 请求和原生数据的解码相关函数，用户基于此可进行二次开发。
+
+这是基于 `python 3` 软件开发工具包，MaixSense-A075V 对外开发了 `http` 接口，我们可通过 `http` 请求获取到原生数据（包括深度图，ir 图，rgb 图），为了方便用户理解数据包的结构及获取还有解码的相关逻辑，因此我们提供封装了 `http` 请求和原生数据的解码相关函数，用户基于此可进行二次开发。
 
 **SDK 获取方式**：[点击下载](https://dl.sipeed.com/fileList/others/maixsense_example/maixsense_075_tutorial.ipynb)
-**使用方式**：安装 jupyter 后连接 MS-A075V 打开我们提供的 `toturial.py` 即可。
+**使用方式**：安装 `jupyter` 后连接模组打开我们提供的 `toturial.py` 即可。
 
 ### 解包推流 
-理解了上述 `python SDK` 数据获取和解码的逻辑后，我们可以尝试进阶版，连续获取解码并调用第三方 `python` 图像库，例如：matplotlib 进行实时显示。而 `toturial.py` 给出了获取一帧数据的逻辑实现，通过 plt 显示并外套循环即可做到实时显示。
+
+理解了上述 `python SDK` 数据获取和解码的逻辑后，我们可以尝试进阶版，连续获取解码并调用第三方 `python` 图像库。例如：`matplotlib` 进行实时显示，而 `toturial.py` 给出了获取一帧数据的逻辑实现，通过 `plt` 显示并外套循环即可做到实时显示。
 
 **解包推流**：[点我查看 stream.py 内容](./../maixsense-a010/code.html#streampy)
 **使用方式**：装好所有的依赖包后即可 `python stream.py` 运行。
+
 ![mt_sdk](assets/mt_sdk.jpg)
 
 ### 检测体积
-基于第三方 `python` 包，理解了上述数据获取和解码的逻辑后，再次进阶，持续显示多帧并且再通过 SDK 获取模组内参数后计算出粗略的点云，做累加得到总体积。限制：要求俯视图可以看到除底面外的所有细节。
+
+基于第三方 `python` 包，理解了上述数据获取和解码的逻辑后再次进阶，
+持续显示多帧并且再通过 `SDK` 获取模组内参数计算出粗略的点云，并进行累加得到物品的总体积。
+
+>限制：要求俯视图可以看到除底面外的所有细节
 
 **检测体积**：[点我查看 calVolumes.py 内容](./../maixsense-a010/code.html#calvolumespy)
 **使用方式**：装好所有的依赖包后即可 `python calVolumes.py` 运行，命令行有后续操作提示。
+
 ![mt_volumbs](assets/mt_volumbs.jpg)
 
 ## 二次开发：接入 ROS
@@ -118,7 +149,7 @@
 **1. 准备工作**
 
 运行 ROS 前我们要准备适用的环境：`Linux` 系统。
-可使用虚拟机 `virtual box` 或者 `vmware`：[点击获取](https://www.vmware.com/cn/products/workstation-player/workstation-player-evaluation.html)
+可使用虚拟机 `virtual box` 或者 `vmware`：[点击前往下载](https://www.vmware.com/cn/products/workstation-player/workstation-player-evaluation.html)
 也可以自行安装双系统，安装方法请自行搜索或参考右侧：[双系统安装教程](https://neucrack.com/p/330)
 
 **2. 安装运行**
@@ -141,7 +172,8 @@ rosrun sipeed_tof_cpp publisher
 
 **4. RVIZ 预览**
 
-打开 `rviz2` 后，在界面左下角的 `Add`->`By topic`->`PointCloud2或/depth` ->`Image 添加` ->`Display/Global Options/Fixed Frame` 需要修改成 `tof`，才能正常显示点云，根据添加的内容，左侧会显示 `Image` 而中间则显示点云。
+打开 `rviz2` 后，在界面左下角的 `Add`->`By topic`->`PointCloud2或/depth` ->`Image 添加` ->`Display/Global Options/Fixed Frame` 需要修改成 `tof` 才能正常显示点云，根据添加的内容左侧会显示 **Image** 而中间则显示点云。
+
 ![mt_ros](assets/mt_ros.jpg)
 
 ### 接入 ROS2
@@ -173,9 +205,9 @@ ros2 run sipeed_tof_cpp publisher
 
 **4. RVIZ2 预览**
 
-打开 `rviz2` 后，在界面左下角的 `Add`->`By topic`->`PointCloud2` 或 `/depth、/intensity、/rgb`->`Image 添加`->`Display/Global Options/Fixed Frame` 需要修改成 `“tof”`，才能正常显示点云。根据添加的内容，左侧会显示 `Image`而中间则显示点云。
+打开 `rviz2` 后，在界面左下角的 `Add`->`By topic`->`PointCloud2` 或 `/depth、/intensity、/rgb`->`Image 添加`->`Display/Global Options/Fixed Frame` 需要修改成 `“tof”` 才能正常显示点云。根据添加的内容左侧会显示 **Image** 而中间则显示点云。
 
-**伪彩点云和 RGBD融合点云效果：**
+**伪彩点云和 RGBD 融合的点云效果：**
 <html>
   <img src="./assets/mt_rosb.jpg" width=48%>
   <img src="./assets/mt_rosc.jpg" width=48%>

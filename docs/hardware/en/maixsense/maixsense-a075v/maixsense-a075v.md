@@ -10,29 +10,27 @@ MS-A075V is a 3D TOF camera module with RGB designed by Sipeed, can display the 
 
 ### Preparation
 
-**Wiring diagram**
+To run preview MaixSense-A075V on Windows, install the driver.
 
-![tof-07514](./../../../zh/maixsense/maixsense-a075v/assets/mt_pin.jpg)
-
-**Install driver**：
-
-Before using this device, make sure that the 192.168.233.0/24 address segment is not occupied in your network environment, because the MS-A075V uses RNDIS and sets its IP address http://192.168.233.1 
-  
-  [Windows drivers](https://dl.sipeed.com/shareURL/MaixSense/Drivers)
-  [Windows drivers installation guide](./install_drivers.md)
+**Windows Driver:**[Click Get](https://dl.sipeed.com/shareURL/MaixSense/Drivers)
+**Windows Installation driver tutorial:**[Click to view](./install_drivers.md)
 
 ### On-page preview
 
-1. Connect device with computer by type-c cable, the fan in MS-A075V start working, the red light in the front lens flashs.
-2. It takes a while for MS-A075V gets ready after power-up, then run your browser and open the URL http://192.168.233.1 to preview the 3D point cloud map.
-3. These are the examples caputred by MS-A075V(From the front and the side).
+![tof-07514](./../../../zh/maixsense/maixsense-a075v/assets/mt_pin.jpg)
+
+>Before using this device, make sure that the 192.168.233.0/24 address segment is not occupied in your network environment, because the MS-A075V uses RNDIS and sets its IP address http://192.168.233.1.
+
+Connect the module to the PC with power according to the figure above, then the built-in fan will start to work and the red light will be displayed at the lens. Select the browser and enter http://192.168.233.1 to preview the 3D point cloud image. After power-on, the system and program will be started 10s-15s later.
+
+**Quick preview using web upper computer (front and side) :**
 
 <html>
   <img src="./../../../zh/maixsense/maixsense-a075v/assets/mt_examle.jpg" width=48%>
   <img src="./../../../zh/maixsense/maixsense-a075v/assets/mt_examleb.jpg" width=48%>
 </html>
 
-4. We can preview the depth pseudo-color point cloud map. Open the interaction panel in the upper right corner, uncheck RGB_Map in the first line.
+We can preview the depth pseudo-color point cloud map. Open the interaction panel in the upper right corner, uncheck RGB_Map in the first line.
 
 ![mt_examlec](./../../../zh/maixsense/maixsense-a075v/assets/mt_examlec.jpg)
 
@@ -43,6 +41,7 @@ The preview webpage contained many function configurations, we can change them t
 ![mt_examled](./../../../zh/maixsense/maixsense-a075v/assets/mt_examled.jpg)
 
 Here tells the functions of each widgets.
+
 - **RGB_Map** checkbox, control RGB map. Display the deep pseudo-colored point map when checked, display the RGB-mapped point cloud map when unchecked.
 - **colorMap** drop-down bar, provides several pseudo-color mapping options(cmap)，jet is recommended. Avaliable when RGB_Map is unchecked.
 - **deepRangeMax** and **deepRangeMin** slide bar are used for setting the mapping range of cmap, the depth value between deepRangeMin and deepRangeMax are OK. Avaliable when RGB_Map is unchecked.
@@ -65,6 +64,14 @@ The webpage provides 2 buttons at the bottom of the control bar.
 - **SavePointCloud**：Sava one frame 3D point map, and its saved format is pcd. Can be previewed via the script provided above.
 Note: The data of raw can be get through open interface, which developers can do development on. While the pointcloud data does not provide any interface since it's calculated based on the raw data and camera internal parameters.
 
+### SSH login
+
+In addition to using the web page preview directly, you can also log in using SSH.
+
+```bash
+ssh root@192.168.233.1
+```
+
 ## Examples
 
 ### Real shooting of distant, near and far point cloud
@@ -76,18 +83,13 @@ High-precision mapping of differences in object placement distances, point cloud
 ### Car avoid obstacles
 
 The module can be carried by a car or drone to move back and forth to obtain the depth value of the obstacle, and judge whether there is an obstacle in the screen through the difference, make a rapid response and accurately avoid the obstacle (the example has not been open sourced, will be sorted out and disclosed).
-<html>
-  <img src="./../../../zh/maixsense/assets/me_car.jpg" width=48%>
-  <img src="./../../../zh/maixsense/assets/me_cars.jpg" width=48%>
-</html>
 
+![me_car](./../../../zh/maixsense/assets/me_car.gif)
 ### Detect foot traffic
 
 High-precision, high resolution real-time monitoring of the flow of people moving around the situation statistics(the example has not been open sourced, will be sorted out and disclosed).
-<html>
-  <img src="./../../../zh/maixsense/assets/me_pt.jpg" width=48%>
-  <img src="./../../../zh/maixsense/assets/me_ph.jpg" width=48%>
-</html>
+
+![me_pt](./../../../zh/maixsense/assets/me_pt.jpg)
 
 ## Custom development
 
@@ -128,11 +130,10 @@ Prepare a Linux enviroment for ROS.
 
 **2. Install and RUN**
 
-Because the functional package we provide is for ROS2, if you want to use it on ROS1 just switch the branch is ok.[Access package download.](https://dl.sipeed.com/shareURL/MaixSense/MaixSense_A075V/software/SDK)
+[Access package download.](https://dl.sipeed.com/shareURL/MaixSense/MaixSense_A075V/software/SDK)
 
 ```bash
-#Extract Sipeed_tof_ms_a010.zip，and open its path
-git switch ros1 # switch to ros1
+#Extract sipeed_tofv075-ros.zip，and open its path
 source /opt/ros/*/setup.sh
 catkin_make
 source devel/setup.sh
@@ -140,7 +141,11 @@ rosrun sipeed_tof_cpp publisher
 #Then the terminal continuously refreshes the command line
 ```
 
+![mt_adb](./../../../zh/maixsense/maixsense-a075v/assets/mt_adb.jpg)
+
 **3. View frames in RQT**
+
+![mt_rqta](./../../../zh/maixsense/maixsense-a075v/assets/mt_rqta.jpg)
 
 **4. RVIZ preview**
 
@@ -160,7 +165,7 @@ Prepare a Linux enviroment for ROS.
 We have provided the functional package for ROS2, users need compile and run it on the system with ROS2.[Access package download.](https://dl.sipeed.com/shareURL/MaixSense/MaixSense_A075V/software/SDK).
 
 ``` bash
-#Extract sipeed_tof_cpp.zip，and open its path
+#Extract sipeed_tofv075_ros2.zip，and open its path
 source /opt/ros/*/setup.sh
 colcon build #If it indicates missing colcon, use command sudo apt install python3-colcon-ros
 source install/setup.sh
@@ -169,6 +174,8 @@ ros2 run sipeed_tof_cpp publisher
 ``` 
 
 **3. View frames by RQT**
+
+Open `RQT` and select `Plugins`->`Topics`->`Topic Monitor`.
 
 ![mt_rqt](./../../../zh/maixsense/maixsense-a075v/assets/../assets/mt_rqt.jpg)
 

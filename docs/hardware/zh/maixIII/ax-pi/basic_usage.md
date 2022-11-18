@@ -841,18 +841,15 @@ finally:
 
 ### USB
 
-> 系统同一个时刻只有一种 usb 设备方向，要么上 otg 模式变成串口、网卡接电脑，要么是 host 模式接鼠标键盘U盘，不能同时使用。
-我们在 debian 系统上配置了 usb-gadget@g1 和 usb-gadget@g0 两个服务。
+#### 如何配置虚拟网卡 RNDIS usb0 有线 ssh 登录
 
-#### 配置虚拟网卡 RNDIS usb0 有线 ssh 登录
-
-默认就会启动配置 `systemctl enable usb-gadget@g0`，停止开机启动用 `systemctl disable usb-gadget@g0`，停止服务用`systemctl stop usb-gadget@g0`。
+默认就会启动配置 `systemctl enable usb-gadget@g0`，启动用 `systemctl start usb-gadget@g0`，停止开机启动用 `systemctl disable usb-gadget@g0`，停止服务用`systemctl stop usb-gadget@g0`。
 
 此时使用命令 `sshpass -p root ssh root@192.168.233.1` 即可连接，账号及密码都是 root 。
 
 ![ssh-usb](./../assets/ssh-usb.jpg)
 
-#### 配置虚拟串口 /dev/ttyGS0 并转发登录接口
+#### 如何配置虚拟串口 /dev/ttyGS0 并转发登录接口
 
 停止 usb-gadget@g0 后使用 `systemctl start usb-gadget@g1` 即可看到，然后使用 `systemctl start getty@ttyGS0` 即可转发串口终端到 usb 的虚拟串口上。
 
@@ -880,13 +877,15 @@ finally:
 
     ![ustreamer_snapshot](./../assets/ustreamer_snapshot.jpg)
 
-#### UVC
-
 **usb-uvc-gadget**：[点击查看相关仓库](https://github.com/junhuanchen/usb-uvc-gadget)
 待整理更新。
 
 #### 如何使用 USB HOST 读取一个 256M 的 SD 卡
+
 先关了 otg 的 rndis 后再 lsusb 就可以看到了。
+
+> 系统同一个时刻只有一种 usb 设备方向，要么上 otg 模式变成串口、网卡接电脑，要么是 host 模式接鼠标键盘U盘，不能同时使用。
+我们在 debian 系统上配置了 usb-gadget@g1 和 usb-gadget@g0 两个服务。
 
 ```bash
 root@AXERA:~# systemctl stop usb-gadget@g0
@@ -2035,6 +2034,7 @@ nano /home/examples/vin_ivps_joint_vo_pp_human_seg/run.sh
 ```
 
 .. details::点击查看图形化页面
+    修改后按 **ctrl+x** 键会进入保存页面，后续按终端提示操作即可。
     ![pp_human_adb](./../assets/pp_humana_adb.png)
 
 ### 出厂测试脚本
