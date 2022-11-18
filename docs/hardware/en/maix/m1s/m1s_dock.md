@@ -22,6 +22,12 @@ Buy one: [Aliexpress]()
   </tr>
 </table>
 
+## Video
+
+Video of M1s Dock and M0Sense：M1s Dock is time before 3:15，and time after 3:15 is M0Sense.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/hkSAW42Evl4" title="M1s Dock" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ## Feature
 
 - MainChip BL808 RISC-V 480Mhz + NPU BLAI-100

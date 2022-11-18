@@ -26,6 +26,12 @@ Sipeed M0sense 是基于[博流智能科技](http://www.bouffalolab.com/)的 BL7
   <img src="./assets/m0sense_outlook_bot.png" alt="m0sense_outlook_bot.png" width=40%>
 </div>
 
+## 视频
+
+M1s Dock 和 M0Sense 总览； M0Sense 在 3:15 处开始，之前的为 M1s Dock 宣传视频.
+
+<iframe src="//player.bilibili.com/player.html?aid=559937139&bvid=BV1De4y117sP&cid=887814913&page=1&t=197" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" > </iframe>
+
 ## 特点
 
 - 主芯片 BL702 RISC-V 144MHz

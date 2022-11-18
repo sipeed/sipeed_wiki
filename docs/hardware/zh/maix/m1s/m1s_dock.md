@@ -30,10 +30,11 @@ Sipeed M1s Dock 是基于 [Sipeed M1s](./m1s_module.md) 模组来设计的一款
   </tr>
 </table>
 
-<!-- 
-<img width=40% alt="m1s_dock_top" src="./assets/m1s_dock/m1s_dock_top.jpg">
-<img width=40% alt="m1s_dock_bottom" src="./assets/m1s_dock/m1s_dock_bottom.jpg">
- -->
+## 宣传视频
+
+M1s Dock 和 M0Sense 总览：3:15 之前的都是 M1s Dock。
+
+<iframe src="//player.bilibili.com/player.html?aid=559937139&bvid=BV1De4y117sP&cid=887814913&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
 ## 板卡特点
 

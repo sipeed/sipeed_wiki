@@ -26,6 +26,10 @@ Real picture:
   <img src="./../../../../hardware/zh/maixzero/sense/assets/m0sense_outlook_bot.png" alt="m0sense_outlook_bot.png" width=40%>
 </div>
 
+## Video
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/hkSAW42Evl4?start=197" title="M0Sense" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ## Feature
 
 - Mainchip BL702 RISC-V 144MHz
