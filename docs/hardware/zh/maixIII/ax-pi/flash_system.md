@@ -101,9 +101,9 @@ AXera-Pi 默认板卡没有存储介质，因此需要准备一张系统卡来�
 
 ### 镜像系统烧录方法
 
-> **20221012** 现已确认 Etcher 软件可直接支持烧录 zip 压缩包里面的 img 镜像，用户不需要解压的步骤s直接选择 zip 文件按下面步骤操作即可。
+> **20221012** 现已确认 Etcher 软件可直接支持烧录 zip 压缩包里面的 img 镜像，用户不需要解压的步骤直接选择 zip 文件按下面步骤操作即可。
 
-首先解压所下载的镜像压缩包，得到 `.img` 镜像文件，打开 [Etcher](https://www.balena.io/etcher/ "Etcher") 软件，点击 `Flash from file` ,选中解压出来的 `.img ` 文件镜像，然后点击 `Select target` 选中sd卡，最后点击 `Flash` 进行烧录，等待完成即可。 
+首先打开 [Etcher](https://www.balena.io/etcher/ "Etcher") 软件，点击 `Flash from file` ,选中已经下载好的 `zip` 文件镜像，然后点击 `Select target` 选中sd卡，最后点击 `Flash` 进行烧录，等待完成即可。 
 
 **解压出镜像文件：**
 ![extract_image_file](./../../../assets/maixIII/ax-pi/extract_image_file.gif)
@@ -120,3 +120,27 @@ AXera-Pi 默认板卡没有存储介质，因此需要准备一张系统卡来�
 
 > **注意**：如果出现烧录失败的情况，请手动格式化一下 SD 卡。
 > Windows 和 MacOS 可以使用 [SD Card Formatter](https://www.sdcard.org/downloads/formatter/eula_windows/SDCardFormatterv5_WinEN.zip)来格式化 SD 卡，Linux 系统可以使用系统的 disk 工具或 [Gparted](https://gparted.org/)来格式化。
+
+### 上手指引系列
+
+1. 根据上文自行烧录镜像系统到 TF/SD 卡里。
+   
+   ![axpi-flash](./../assets/axpi-flash.png)
+
+2. 当烧录系统完成后，我们需要给 AXera-Pi 进行正确的接线并且上电。
+   **如何正确接入屏幕及摄像头**：[点击查看](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html#%E6%8E%A5%E7%BA%BF%E7%A4%BA%E4%BE%8B).
+
+   ![axpi-connect](./../assets/axpi-connect.png)
+ 
+3. 以上的准备工作完成后，可以开始对 AXera-Pi 登陆系统进行使用配置。
+   **如何登陆 Linux debian11 系统**：[点击查看](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html#%E6%8E%A5%E7%BA%BF%E7%A4%BA%E4%BE%8B).
+
+   ![axpi-login](./../assets/axpi-login.png)
+
+4. 登陆上 Debian 系统后即可体验我们内置的众多 AI 开箱应用。
+   **如何体验内置 AI 应用**：[点击查看](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html#%E5%86%85%E7%BD%AE%E5%BC%80%E7%AE%B1%E5%BA%94%E7%94%A8).
+
+   ![axpi-ai](./../assets/axpi-ai.png)
+
+  
+

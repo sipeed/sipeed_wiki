@@ -42,7 +42,7 @@ A：查看摄像头型号参数是否配置正确。
 
 A：修改 `run.sh` 启动脚本里的摄像头参数，脚本默认参数是 os04a10 摄像头，更换为 gc4653 将 `-e 2 -v 0 -c 0` 修改为 `-v 0 -c 2` 即可。
 
-## Q：摄像头、屏幕画面反了、倒过来了怎么解决？
+## Q：摄像头、屏幕画面反了倒过来了怎么解决？
 
 A：物理旋转。
 
@@ -54,3 +54,12 @@ A：物理旋转。
       <img src="./../assets/fqa_video_b.jpg" width=48%>
       <img src="./../assets/fqa_video_c.jpg" width=48%>
     </html>
+
+## Q：运行命令后报错：Bus Error！？
+
+![fqa_bus](./../assets/fqa_bus.jpg)
+
+A：这种情况是 SD 卡质量问题导致掉卡，也就是镜像卡里面的程序崩掉了无法读取到。
+
+- 更换质量好一点的 SD 卡或官方购买镜像卡，可参照 `SD` 卡测试选购合适的卡[点击前往查看](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/flash_system.html#%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9-SD-%E5%8D%A1%EF%BC%9F)。
+

@@ -136,9 +136,9 @@ Maix-III AXera-Pi 开发板的 Linux debian11 系统默认使用 root 用户登�
 
 ![baidu](./../assets/baidu.jpg)
 
-- **使用 ifconfig 查看所有网卡情况**
+- **使用 ifconfig -a 查看所有网卡情况**
 
-Maix-III AXera-Pi 开发板的 Linux 系统默认使用 DHCP 协议获取 IP 地址，可以使用命令行 `ifconfig` 查看当前网络配置，板子根据下述会配置四种网卡类型。
+Maix-III AXera-Pi 开发板的 Linux 系统默认使用 DHCP 协议获取 IP 地址，可以使用命令行 `ifconfig -a` 查看当前网络配置，板子根据下述会配置四种网卡类型。
 
 
 ```bash
@@ -169,10 +169,10 @@ wpa-conf /boot/wpa_supplicant.conf
 iface wlan0 inet dhcp
 ```
 
-可以使用命令行 `ifconfig` 查看所有网卡信息。
+可以使用命令行 `ifconfig -a` 查看所有网卡信息。
 
 ```bash
-root@AXERA:~# ifconfig
+root@AXERA:~# ifconfig -a
 eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
         inet 192.168.0.77  netmask 255.255.255.0  broadcast 192.168.0.255
         ether 1e:09:dc:e9:1c:29  txqueuelen 1000  (Ethernet)
@@ -210,7 +210,7 @@ wlan0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
 - **使用 dhclient 触发 DHCP 获取 ip**
 
 >这里以有线网卡（eth0）为例，decliient 还支持无线 WIFI（wlan0）.
-使用上方 `ifconfig` 命令后，如果 eth0 的地址获取失败，可使用 `dhclient eth0` 命令触发 DHCP 获取 IP。
+使用上方 `ifconfig -a` 命令后，如果 eth0 的地址获取失败，可使用 `dhclient eth0` 命令触发 DHCP 获取 IP。
  
 ```bash
 root@AXERA:~# dhclient eth0 &
@@ -754,8 +754,9 @@ root@AXERA:~#
 目前硬件内存虽然是 2g 但在系统上只能看到 745M ，不用担心，这是目前的分配内存过于保守导致的，后续更新内核调整一下 NPU 和 CMM 的内存分配的。
 
 ### VIDEO
-
-目前系统的摄像头驱动不经过 v4l2 驱动框架，所以必须通过代码配置的方式进行启用，相关摄像头驱动都是在应用层上完成的，此配置较旧已过时，请使用下方其余应用运行摄像头。
+>**注意**：以下例程是原始测试时检查硬件好坏的程序，请用下面内置应用看正常的效果！
+>内置开箱应用传送门：[点击前往](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html#%E5%86%85%E7%BD%AE%E5%BC%80%E7%AE%B1%E5%BA%94%E7%94%A8)
+目前系统的摄像头驱动不经过 v4l2 驱动框架，所以必须通过代码配置的方式进行启用，相关摄像头驱动都是在应用层上完成的，
 
 - gc4653 （基础版）
 - os04a10（夜视版）
@@ -857,6 +858,11 @@ finally:
 
 #### 如何使用 USB OTG 虚拟一个 USB 摄像头
 
+**usb-uvc-gadget**：[点击查看相关仓库](https://github.com/junhuanchen/usb-uvc-gadget)
+>待整理更新。
+
+#### 如何使用 USB HOST 接一个 USB 摄像头
+
 >适配 usb 摄像头前我们需要给板子接上以太网 `eth0`，使用 `ifconfig` 查询以太网的 `IP` 方便我们使用。
 >如果获取不到以太网的 `IP` 地址，请移步右侧进行重新启动/配置[点击前往相关](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html#%E6%9C%89%E7%BA%BF%E4%BB%A5%E5%A4%AA%E7%BD%91%EF%BC%88eth0%EF%BC%89%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95)。
 
@@ -877,8 +883,6 @@ finally:
 
     ![ustreamer_snapshot](./../assets/ustreamer_snapshot.jpg)
 
-**usb-uvc-gadget**：[点击查看相关仓库](https://github.com/junhuanchen/usb-uvc-gadget)
-待整理更新。
 
 #### 如何使用 USB HOST 读取一个 256M 的 SD 卡
 
@@ -1915,7 +1919,7 @@ cd /home/examples/vin_ivps_joint_venc_rtsp_v2/ && ./sample_vin_ivps_joint_venc_r
 
 >**注意**：
 >1. 默认摄像头为 GC4653 如型号不同请移步[Maix-III 系列 AXera-Pi 常见问题(FAQ)](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html)查询更换参数。
->2. 如果使用 VCL 软件出现连接不上的现象，可使用 ffplay 进行推流。
+>2. 如果使用 VCL 软件出现连接不上的现象，可使用 ffplay 进行拉流。
 
 #### 双屏推流
 
@@ -1934,7 +1938,7 @@ cd /home/examples/vin_ivps_joint_venc_rtsp_v2/ && ./sample_vin_ivps_joint_venc_r
 
 #### ffplay
 
-推流工具除了 `VCL` 还可以直接使用 `ffplay` 进行推流。
+推流工具除了 `VCL` 还可以直接使用 `ffplay` 进行拉流。
 
 ffplay :[点击下载](https://dl.sipeed.com/shareURL/MaixIII/AXera/09_Software_tool)
 
@@ -1963,7 +1967,7 @@ ffplay rtsp://192.168.233.1:8554/axstream0 -fflags nobuffer
     
    ![odm](./../assets/odm.jpg)
 
-在终端运行下方命令，设备屏幕会跳出 yolov5S 模型运行画面，镜像内置默认是 `os04a10` 的镜头参数，使用 `gc4653` 的话请参考下文修改参数。接着我们来配置 `ODM` 实现 PC 端显示。
+在终端运行下方命令，设备屏幕会跳出 yolov5s 模型运行画面，镜像内置默认是 `os04a10` 的镜头参数，使用 `gc4653` 的话请参考下文修改参数。接着我们来配置 `ODM` 实现 PC 端显示。
 
 >**注意**：ODM 受网络影响较大，如果有卡顿现象把网络更换成以太网即可。默认摄像头为 os04a10 如型号不同请移步[Maix-III 系列 AXera-Pi 常见问题(FAQ)](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html)查询更换参数。
 
@@ -2018,7 +2022,7 @@ nano /home/examples/vin_ivps_joint_venc_rtsp_vo_onvif_mp4v2/run.sh
 
 ### pp_human
 
->**20221116** 后更新的系统镜像已内置了 `pp_human` 人体检测分割模块，
+>**20221116** 后更新的系统镜像已内置了 `pp_human` 人体分割应用。
 >还内置了不同摄像头的参数命令在 `run.sh`，只需要调用注释相应源码即可使用。
 
 运行下方的命令后终端会输出调试信息，设备屏幕会显示运行画面。

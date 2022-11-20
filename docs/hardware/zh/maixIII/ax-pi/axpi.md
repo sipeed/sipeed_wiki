@@ -201,11 +201,7 @@ title: MAIX-III AXera-Pi 是什么？
 
 从这些典型的产品中可以看出 m3axpi 套餐是没有配「散热片和风扇还有外接电源」的，这也是它的另一个特色「高能效比」。
 
-是的，这个产品不需要散热器/风扇，也不需要外接 2A 电源就可以启动系统，更不需要找 hdmi 线和显示器，并且产品测试时是类似如下接线图示意进行产品发货前测试的（这些实拍图虽然有点简陋但都是真情流露呀）。
-
-<p align="center">
-  <img src="./../assets/test_axpi.jpeg" style="zoom: 50%;" />
-</p>
+是的，这个产品不需要散热器/风扇，也不需要外接 2A 电源就可以启动系统，更不需要找 hdmi 线和显示器。
 
 来一个实际测量的温度和功耗，注意要使用 USB3.0 的口来供电喔。
 
@@ -345,7 +341,6 @@ AX-Pipeline 由爱芯主导开发。该项目基于 AXera-Pi 展示 ISP、图像
 ### 烧录系统启动
 
 > 已买烧录卡的同学可以跳过这一步，直接把 TF 卡插上即可启动 Linux Debian 系统。
-
 板子默认是没有 emmc 介质可以启动的，需要从 TF 卡启动 Linux 系统，请从以下「烧录系统镜像」了解。
 
 - [烧录系统镜像](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/flash_system.html)
