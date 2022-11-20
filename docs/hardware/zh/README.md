@@ -4,13 +4,38 @@ keywords: Sipeed, Hardware, 矽速, 硬件资料, 文档, 资料下载, 深度�
 desc: 矽速科技的开源软硬件 WIKI 资料站
 ---
 
-## Maix-I 系列
+## 总览
+
+- [Maix-I & Zero](#maix-i--zero) 以 MCU 为主控的 AI 开发板
+- [Maix II & III](#maix-ii--iii-系列)： 基于 Linux 系统的 AI 开发板
+- [LicheePI](#licheepi-系列)： Linux 开发板
+- [Tang](#tang-fpga-系列)：FPGA 开发板
+- [MaixSense](#maixsense-系列)：3D TOF 模组
+- [Longon](#longon-系列)：MCU 开发板
+- MaixFace：商业项目板卡
+- 其他外设
+
+## Maix-I & Zero 
+
+| 项目     | M1/M1w                        | M1n                   |                           M1s                            | M0                                          |
+| :------- | :---------------------------- | :-------------------- | :------------------------------------------------------: | :------------------------------------------ |
+| 主控     | K210                          | K210                  |                          BL808                           | BL702                                       |
+| 核心     | RV64@600MHz(Max) *2           | RV64@600MHz(Max) *2   | · RV64GCV@480MHz<br>· RV32GCP@320MHz<br>· RV32EMC@160MHz | RV32@144MHz                                 |
+| RAM      | 8MB                           | 8MB                   |                           64MB                           | 132KB                                       |
+| 无线     | M1w 支持 Wifi                 |                       |             <br>· Wifi<br>· 蓝牙<br>· Zigbee             | 蓝牙                                        |
+| 封装样式 | 邮票孔                        | 金手指                |                          邮票孔                          |                                             |
+| 尺寸     | 25.4(L)x25.4(W)x3.0(H)mm      | 25.0(L)x22.0(W)mm     |                    31(L)x18(W)mm (W)                     |                                             |
+| 详情页   | [点我](./maix/core_module.md) | [点我](./maix/M1n.md) |             [点我](./maix/m1s/m1s_module.md)             | [点我](./maixzero/sense/maix_zero_sense.md) |
 
 ### Maix-I S
 
-这是一款以博流 808 为主控所制作的模块与核心板
+这是一款以博流 808 为主控所制作的 AIOT 模组与核心板
 
-### Maix-I A
+|      | [M1s](./maix/m1s/m1s_module.md)                                                                                                                                                                       | [M1s Dock](./maix/m1s/m1s_dock.md)                                                                                                                                                                       |
+| ---- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 图片 | <a href="https://wiki.sipeed.com/m1s"><img src="https://gd4.alicdn.com/imgextra/i4/2200606237318/O1CN011g9yY323vhCXEyiKU_!!2200606237318.jpg" style="transform:rotate(270deg);" alt="M1s_module"></a> | <a href="https://wiki.sipeed.com/m1s#dock"><img src="https://gd1.alicdn.com/imgextra/i1/2200606237318/O1CN01gE4a1E23vhCV77ggE_!!2200606237318.jpg" style="transform:rotate(270deg);" alt="M1s_Dock"></a> |
+
+<!-- ### Maix-I A -->
 
 ### Maix-I
 
@@ -65,15 +90,35 @@ desc: 矽速科技的开源软硬件 WIKI 资料站
     </tbody>
 </table>
 
+### Maix-I S
+
+这是一款以博流 702 为主控所制作的极小开发板
+
+<img src="./maixzero/sense/assets/m0sense_1.png" alt="m0sense" width=35%>
+
+详情页 ：[点我](./maix/../maixzero/sense/maix_zero_sense.md)
+<!-- ![](./maixzero/sense/assets/m0sense_1.png) -->
+
 ### 产品支持
 
-Maix 系列产品可以在多种场景实现客户不同方面的需要，在 AIoT 上已经广泛的使用，品质和性能在行业内已经有非常好的口碑，专业的技术团队为广大客户解决硬件设计和软件功能上的各种各样问题。商业合作可以联系 <support@sipeed.com>。
+Maix 系列产品可以在多种场景实现客户不同方面的需要，在 AIoT 上已经广泛的使用，品质和性能在行业内已经有非常好的口碑，专业
+的技术团队为广大客户解决硬件设计和软件功能上的各种各样问题。商业合作可以联系 <support@sipeed.com>。
 
 ## Maix-II & III 系列
 
-### Maix-II 系列简介
+| 项目   | MaixII-Dock                                                                                                                                                            | MaixII-Sense                                                                                                                                                            |                                                                              MaixII-S                                                                               | MaixIII-axpi                                                                                                                                                            |
+| :----- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 主控   | V831                                                                                                                                                                   | R329                                                                                                                                                                    |                                                                                V833                                                                                 | Ax620a                                                                                                                                                                  |
+| 核心   | Cortex A7@800MHz                                                                                                                                                       | Cortex A53\*2@1.5GHz                                                                                                                                                    |                                                                          Cortex A7@1.2GHz                                                                           | Cortex A7\*4@1.0GHz                                                                                                                                                     |
+| RAM    | 64MB                                                                                                                                                                   | 256MB                                                                                                                                                                   |                                                                              默认128MB                                                                              | 默认 1GB                                                                                                                                                                |
+| 无线   | Wifi                                                                                                                                                                   | · Wifi<br>· 蓝牙                                                                                                                                                        |                                                                               · Wifi                                                                                | · Wifi<br>· 蓝牙                                                                                                                                                        |
+| 外观图 | <img src="https://gd3.alicdn.com/imgextra/i3/2200606237318/O1CN01dT63dq23vhAOtdtm7_!!2200606237318.png_400x400.jpg" style="transform:rotate(0deg);" alt="MaixII-Dock"> | <img src="https://gd3.alicdn.com/imgextra/i3/2200606237318/O1CN01AJdLYs23vh6b40oy2_!!2200606237318.png_400x400.jpg" style="transform:rotate(0deg);" alt="MaixII-Sense"> | <img src="https://gd2.alicdn.com/imgextra/i2/2200606237318/O1CN01C4iTYi23vh6muQApg_!!2200606237318.png_400x400.jpg" style="transform:rotate(0deg);" alt="MaixII-S"> | <img src="https://gd2.alicdn.com/imgextra/i2/2200606237318/O1CN01AY6Mu123vhBaHWr6H_!!2200606237318.jpg_400x400.jpg" style="transform:rotate(0deg);" alt="MaixIII-Axpi"> |
+| 详情页 | [点我](./maixii/m2/resources.md)                                                                                                                                       | [点我](./maixii/m2a/maixsense.md)                                                                                                                                       |                                                                    [点我](./maixii/M2S/V833.md)                                                                     | [点我](./maixIII/ax-pi/axpi.md)                                                                                                                                         |
+| 备注   |                                                                                                                                                                        |                                                                                                                                                                         |                                                                             仅支持商业                                                                              |                                                                                                                                                                         |
 
-继经典的 K210 Maix-I 系列 AIOT 板卡之后，Sipeed 继续推出多款可运行完整 Linux 系统的边缘计算板卡，以 MAIX-II，MAIX-III 按照性能依次命名。
+### Maix-II
+
+<!-- 继经典的 K210 Maix-I 系列 AIOT 板卡之后，Sipeed 继续推出多款可运行完整 Linux 系统的边缘计算板卡，以 MAIX-II，MAIX-III 按照性能依次命名。 -->
 
 MAIX-II 系列包含多款硬件产品，目前有三款产品，分别如下：
 
@@ -103,7 +148,7 @@ MAIX-II 系列包含多款硬件产品，目前有三款产品，分别如下：
 <!-- * **Maix-II Dock**： **本系列推荐产品**, 芯片为全志 V831, 高性价比能跑 Linux 的SOC，同时支持硬件 AI 加速（0.2Tops 算力），目前软件支持最容易入门，提供 C SDK 和 Python SDK， 以及在线模型训练服务([MaixHub](https://maixhub.com))
 * **Maix-II Sense**： 芯片为全志R329，也有提供硬件 AI 加速，0.25Tops 算力。
 * **Maix-II-S**：芯片为全志 V833，V831 升级版， 主要用于商业定制用途，个人用户慎重选择。 -->
-
+<!-- 
 ### MaixII Dock
 
 主控为全志 V831,；单核 Cortex-A7 800MHz， 64MiB 片内 DDR2 内存， 高性价比能跑 Linux 的SOC，同时支持硬件 AI 加速（0.2Tops 算力），可以当成普通 Linux SOC 使用， 也可以用于边缘 AI 应用。
@@ -153,33 +198,64 @@ MAIX-II 系列包含多款硬件产品，目前有三款产品，分别如下：
 
 <img style="max-height: 300px" src="./maixII/M2S/assets/M2s_Dock.jpg" alt=“M2s_Dock”/>
 
-* 详情： [MaixII S](./M2S/V833.md)
+* 详情： [MaixII S](./M2S/V833.md) -->
+
+### MaixIII
+
+目前 MaixIII axpi 是最新款的 AI 开发板，强烈推荐
+
+
+
 
 ## LicheePi 系列
-
+<!-- 
 Linux 开发板
 
 ![](./lichee/assets/lichee.jpg)
 
-[![lichee](./../assets/lichee.jpg)](./lichee/readme.md)
+[![lichee](./../assets/lichee.jpg)](./lichee/readme.md) -->
 
-- LicheePI 是 [Sipeed](https://www.sipeed.com/) 推出的开源产品，是为了能让用户获得优廉的linux设备，实战linux底层相关的内容的产品。
+<!-- 目前LicheePi相关核心板部分参数对比表格如下： -->
 
-目前LicheePi相关核心板部分参数对比表格如下：
+| 类别     | Lichee RV    | Lichee Zero Plus                           | Lichee Zero                    | Lichee nano         |
+| :------- | :----------- | :----------------------------------------- | :----------------------------- | :------------------ |
+| SOC      | Allwinner D1 | Allwinner S3                               | Allwinner V3s                  | Allwinner F1c100s   |
+| CPU架构  | 玄铁 C906    | Cortex™-A7                                 | Cortex™-A7                     | ARM 926EJS          |
+| 运行频率 | 1GHz         | 1.2GHz                                     | 1.2GHz(max)                    | 600MHz(max)         |
+| RAM      | 512MB DDR3   | 128Mbyte DDR3                              | 64MB DRAM                      | 32MB DDR            |
+| FLASH    | 可选SD-nand  | 可选SD Nand、<br>SPI Nor Flash<br>或者eMMC | 预留<br>SOP8 SPI Flash<br>焊盘 | 板载 16MB NOR FLASH |
+| TF连接器 | 有           | 有                                         | 有                             | 有                  |
 
-| 类别 | Lichee RV |Lichee Zero Plus|Lichee Zero|Lichee nano|
-| :--- | :--- | :--- | :--- | :--- |
-| SOC | Allwinner D1 | Allwinner S3 | Allwinner V3s | Allwinner F1c100s |
-| CPU架构 |玄铁 C906 | Cortex™-A7  | Cortex™-A7 |  ARM 926EJS  |
-|运行频率|1GHz|1.2GHz|1.2GHz(max)|600MHz(max)|
-| RAM | 512MB DDR3 | 128Mbyte DDR3 |  64MB DRAM | 32MB DDR |
-|FLASH|可选SD-nand|可选SD Nand、<br>SPI Nor Flash<br>或者eMMC |预留<br>SOP8 SPI Flash<br>焊盘|板载 16MB NOR FLASH|
-| TF连接器 | 有|有|有|有|
+- LicheePI 是为了能让用户获得优廉的 linux设备，实战linux底层相关的内容的产品。
 
-- 上述的款型都可以通过sd卡启动系统
-- 其他参数过多，版面放不下，需要的话麻烦自行对比一下。
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Lichee Zero</th>
+<th style="text-align:center">Lichee Nano</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><a href="./lichee/Zero/Zero.html"><img src="./lichee/assets/Zero/Zero_1.png" alt="Lichee Zero"></a></td>
+<td style="text-align:center"><a href="./lichee/Nano/Nano.html" ><img src="./lichee/assets/Nano/Nano_2.png" alt="Lichee Nano"></a></td>
+</tr>
+</tbody>
+<thead>
+<tr>
+<th style="text-align:center">Lichee Zero Plus</th>
+<th style="text-align:center">Lichee RV</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><a href="./lichee/ZeroPlus/ZeroPlus.html"><img src="./lichee/assets/Zero-Plus/Plus_1.jpg" alt="Tang Nano 4K"></a></td>
+<td style="text-align:center"><a href="./lichee/RV/RV.html"><img src="./lichee/assets/RV/D1-4.png" alt="Lichee RV"></a></td>
+</tr>
+</tbody>
+</table>
 
-### Lichee 核心版照片(Linux)
+<!-- ### Lichee 核心版照片(Linux)
 
 #### Lichee Zero
 
@@ -209,13 +285,23 @@ Linux 开发板
 
 <a href="./RV/RV.html"><img src="./assets/RV/D1-4.png" width=400></a>
 
-</div>
+</div> -->
 
 ## Tang FPGA 系列
 
-Tang FPGA 系列开发板主要分为 Tang Nano 和 Tang Primer 两个系列。
+| 项目            | <p style="white-space:nowrap">Tang Primer 20K</p> | <p style="white-space:nowrap">Tang Nano 9K</p> | <p style="white-space:nowrap">Tang Nano 4K</p> | <p style="white-space:nowrap">Tang Nano 1K</p> |
+| :-------------- | :------------------------------------------------ | :--------------------------------------------- | :--------------------------------------------- | ---------------------------------------------- |
+| 逻辑单元(LUT4)  | 20736                                             | 8640                                           | 4608                                           | 1152                                           |
+| 寄存器（FF）    | 15552                                             | 6480                                           | 3456                                           | 864                                            |
+| S-SRAM (bits)   | 41472                                             | 17280                                          |                                                |                                                |
+| B-SRAM (bits)   | 828K x 46                                         | 468K x 26                                      | 180K x 10                                      | 72K x 4                                        |
+| 用户闪存 (bits) |                                                   | 608K                                           | 256K                                           | 96K                                            |
+| 锁相环 (PLL)    | 4                                                 | 2                                              | 2                                              | 1                                              |
+| 板载 Flash      | 32Mbits NOR Flash                                 | 32Mbits NOR Flash                              | 32Mbits NOR Flash                              | 预留焊盘                                       |
+| 硬核处理器      |                                                   |                                                | Cortex-M3                                      |
 
-### 外观总览
+- Tang FPGA 系列开发板主要分为 Tang Nano 和 Tang Primer 两个系列。
+
 <table>
 <thead>
 <tr>
@@ -225,8 +311,8 @@ Tang FPGA 系列开发板主要分为 Tang Nano 和 Tang Primer 两个系列。
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center"><a href="./tang-primer-20k/primer-20k.html"><img src="./../../assets/Tang/primer_20k/primer_20k.png" alt="Tang Primer 20K（核心板）"></a></td>
-<td style="text-align:center"><a href="./Tang-Nano-1K/Nano-1k.html"><img src="./../../assets/Tang/Nano-1K/1K.png" alt="Tang Nano 1K"></a></td>
+<td style="text-align:center"><a href="./tang/tang-primer-20k/primer-20k.html"><img src="./tang/../../assets/Tang/primer_20k/primer_20k.png" alt="Tang Primer 20K（核心板）"></a></td>
+<td style="text-align:center"><a href="./tang/Tang-Nano-1K/Nano-1k.html"><img src="./tang/../../assets/Tang/Nano-1K/1K.png" alt="Tang Nano 1K"></a></td>
 </tr>
 </tbody>
 <thead>
@@ -237,37 +323,31 @@ Tang FPGA 系列开发板主要分为 Tang Nano 和 Tang Primer 两个系列。
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center"><a href="./Tang-Nano-4K/Nano-4K.html"><img src="./../../assets/Tang/Nano_4K/Nano_4K.png" alt="Tang Nano 4K"></a></td>
-<td style="text-align:center"><a href="./Tang-Nano-9K/Nano-9K.html"><img src="./../../assets/Tang/Nano-9K/9K.png" alt="Tang Nano 9K"></a></td>
+<td style="text-align:center"><a href="./tang/Tang-Nano-4K/Nano-4K.html"><img src="./tang/../../assets/Tang/Nano_4K/Nano_4K.png" alt="Tang Nano 4K"></a></td>
+<td style="text-align:center"><a href="./tang/Tang-Nano-9K/Nano-9K.html"><img src="./tang/../../assets/Tang/Nano-9K/9K.png" alt="Tang Nano 9K"></a></td>
 </tr>
 </tbody>
 </table>
 
-#### 主要参数对比
-
-| 条目            |<p style="white-space:nowrap">Tang Primer 20K</p>| <p style="white-space:nowrap">Tang Nano 9K</p>|<p style="white-space:nowrap">Tang Nano 4K</p>|<p style="white-space:nowrap">Tang Nano 1K</p>|
-| :-------------- | :---------------- | :---------------- | :---------------- | ------------ |
-| 逻辑单元(LUT4)  | 20736             | 8640              | 4608              | 1152         |
-| 寄存器（FF）    | 15552             | 6480              | 3456              | 864          |
-| S-SRAM (bits)   | 41472             | 17280             |                   |              |
-| B-SRAM (bits)   | 828K x 46         | 468K x 26         | 180K x 10         | 72K x 4      |
-| 用户闪存 (bits) |                   | 608K              | 256K              | 96K          |
-| 锁相环 (PLL)    | 4                 | 2                 | 2                 | 1            |
-| 板载 Flash      | 32Mbits NOR Flash | 32Mbits NOR Flash | 32Mbits NOR Flash | 预留焊盘     |
-| 硬核处理器      |                   |                   | Cortex-M3         |              | |
 
 ### 售罄产品
 
 |                                  Tang Nano                                  |                                         Tang Primer                                          |
 | :-------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------: |
-| [![Tang Nano](./../../assets/Tang/Nano/Tang_Nano.jpg)](./Tang-Nano/Nano.md) | [![Tang Primer](./../../assets/Tang/permier/Tang_permier.jpg)](./Tang-primer/Tang-primer.md) |
+| [![Tang Nano](./tang/../../assets/Tang/Nano/Tang_Nano.jpg)](./tang/Tang-Nano/Nano.md) | [![Tang Primer](./tang/../../assets/Tang/permier/Tang_permier.jpg)](./tang/Tang-primer/Tang-primer.md) |
 
 
 ## MaixSense 系列
-
+<!-- 
 3D TOF 模组
 
-[![](./../assets/maixsense.jpg)](./maixsense/readme.md)
+[![](./../assets/maixsense.jpg)](./maixsense/readme.md) -->
+
+||Maixsense-010A| MaixSense-075V |
+|---|---|---|
+|  |||
+
+- 基于 TOF 技术的深度相机
 
 ## Longon 系列
 
