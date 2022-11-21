@@ -359,7 +359,7 @@ Linux 开发板
 
 MCU 开发板
 
-![longan_nano](./longan/Nano/assets/longan_nano.jpg)
+<img src="./longan/Nano/assets/longan_nano.jpg" alt="longan_nano" width="40%">
 
 详情页：[点我](./longan/Nano/assets/readme.md)
 
