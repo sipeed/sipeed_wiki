@@ -61,7 +61,7 @@ LED5 复用了 SSPI 引脚，需要手动前往 Project->Configuration->Place&Ro
         input key,
         output [5:4] led
     );
-        assign led[1:0] = {2{key}};
+        assign led[5:4] = {2{key}};
     endmodule
     ```
 
