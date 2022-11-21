@@ -12,16 +12,16 @@ MaixSense 系列产品搭载 TOF 深度摄像头，目前有 MaixSense-A010 和 
 
 购买方式：[众筹预售购买连接](https://igg.me/at/MaixSense )
 
-|              |<p style="white-space:nowrap">MaixSense-A010</p> | <p style="white-space:nowrap">MaixSense-A075V</p> | 
-| :----------- |:----------------------------------------------- | :------------------------------------------------- | 
-|              |![me-small](./assets/me_small.jpg)                | ![me-big](./assets/me_big.jpg)                  | 
-| 接口         | 1.25mm 串口连接器 \*1<br>Type-C USB2.0 \*1       | 1.25mm 串口连接器 \*1 <br>Type-C USB2.0 \*1         |
-| 分辨率       |TOF：100x100@30fps                               | RGB：1600x1200@30fps<br>TOF：320x240@60fps         | 
-| 视场角       |RGB：无<br>TOF：70°(H) * 60°(V)                  | RGB：120°<br>TOF：55°(H)*72°(H)                    | 
-| <p style="white-space:nowrap">TOF 像素尺寸</p> |                                                 | 15um                                               | 
-| 激光发射器   |40nm VCSEL                                       | 940nm,3W                                           | 
-| 测量范围     |0.2-2.5m                                         | 0.15-1.5m                                          | 
-| 测量精度     |&lt;=1%/cm                                       | &lt;=1%/cm                                         | 
+|                                                | <p style="white-space:nowrap">MaixSense-A010</p> | <p style="white-space:nowrap">MaixSense-A075V</p> |
+| :--------------------------------------------- | :----------------------------------------------- | :------------------------------------------------ |
+|                                                | ![me-small](./assets/me_small.jpg)               | ![me-big](./assets/me_big.jpg)                    |
+| 接口                                           | 1.25mm 串口连接器 \*1<br>Type-C USB2.0 \*1       | 1.25mm 串口连接器 \*1 <br>Type-C USB2.0 \*1       |
+| 分辨率                                         | TOF：100x100@30fps                               | RGB：1600x1200@30fps<br>TOF：320x240@60fps        |
+| 视场角                                         | RGB：无<br>TOF：70°(H) * 60°(V)                  | RGB：120°<br>TOF：55°(H)*72°(H)                   |
+| <p style="white-space:nowrap">TOF 像素尺寸</p> |                                                  | 15um                                              |
+| 激光发射器                                     | 40nm VCSEL                                       | 940nm,3W                                          |
+| 测量范围                                       | 0.2-2.5m                                         | 0.15-1.5m                                         |
+| 测量精度                                       | &lt;=1%/cm                                       | &lt;=1%/cm                                        |
 
 
 ## MaixSense 能做什么？

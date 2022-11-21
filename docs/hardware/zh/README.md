@@ -12,28 +12,29 @@ desc: 矽速科技的开源软硬件 WIKI 资料站
 - [Tang](#tang-fpga-系列)：FPGA 开发板
 - [MaixSense](#maixsense-系列)：3D TOF 模组
 - [Longon](#longon-系列)：MCU 开发板
-- MaixFace：商业项目板卡
-- 其他外设
+- [MaixFace](#maixface-模组)：商业项目板卡
+- [其他外设](#外设模组)
 
 ## Maix-I & Zero 
 
-| 项目     | M1/M1w                        | M1n                   |                           M1s                            | M0                                          |
-| :------- | :---------------------------- | :-------------------- | :------------------------------------------------------: | :------------------------------------------ |
-| 主控     | K210                          | K210                  |                          BL808                           | BL702                                       |
-| 核心     | RV64@600MHz(Max) *2           | RV64@600MHz(Max) *2   | · RV64GCV@480MHz<br>· RV32GCP@320MHz<br>· RV32EMC@160MHz | RV32@144MHz                                 |
-| RAM      | 8MB                           | 8MB                   |                           64MB                           | 132KB                                       |
-| 无线     | M1w 支持 Wifi                 |                       |             <br>· Wifi<br>· 蓝牙<br>· Zigbee             | 蓝牙                                        |
-| 封装样式 | 邮票孔                        | 金手指                |                          邮票孔                          |                                             |
-| 尺寸     | 25.4(L)x25.4(W)x3.0(H)mm      | 25.0(L)x22.0(W)mm     |                    31(L)x18(W)mm (W)                     |                                             |
-| 详情页   | [点我](./maix/core_module.md) | [点我](./maix/M1n.md) |             [点我](./maix/m1s/m1s_module.md)             | [点我](./maixzero/sense/maix_zero_sense.md) |
+| 项目     | M1/M1w                             | M1n                                | M1s                                                | M0                                          |
+| :------- | :--------------------------------- | :--------------------------------- | :------------------------------------------------- | :------------------------------------------ |
+| 主控     | K210                               | K210                               | BL808                                              | BL702                                       |
+| 核心     | RV64@400MHz * 2                    | RV64@400MHz * 2                    | RV64GCV@480MHz<br>RV32GCP@320MHz<br>RV32EMC@160MHz | RV32@144MHz                                 |
+| RAM      | 8MB                                | 8MB                                | 64MB                                               | 132KB                                       |
+| 无线     | M1w 支持 Wifi                      |                                    | · Wifi<br>· 蓝牙<br>· Zigbee                       | 蓝牙                                        |
+| 封装样式 | 邮票孔                             | 金手指                             | 邮票孔                                             |                                             |
+| 模型平台 | [MaixHub](https://www.maixhub.com) | [MaixHub](https://www.maixhub.com) | [MaixHub](https://www.maixhub.com)                 | [MaixHub](https://www.maixhub.com)          |
+| 尺寸     | 25.4(L)x25.4(W)mm                  | 25.0(L)x22.0(W)mm                  | 31.0(L)x18.0(W)mm                                  |                                             |
+| 详情页   | [点我](./maix/core_module.md)      | [点我](./maix/M1n.md)              | [点我](./maix/m1s/m1s_module.md)                   | [点我](./maixzero/sense/maix_zero_sense.md) |
 
 ### Maix-I S
 
 这是一款以博流 808 为主控所制作的 AIOT 模组与核心板
 
-|      | [M1s](./maix/m1s/m1s_module.md)                                                                                                                                                                       | [M1s Dock](./maix/m1s/m1s_dock.md)                                                                                                                                                                       |
-| ---- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 图片 | <a href="https://wiki.sipeed.com/m1s"><img src="https://gd4.alicdn.com/imgextra/i4/2200606237318/O1CN011g9yY323vhCXEyiKU_!!2200606237318.jpg" style="transform:rotate(270deg);" alt="M1s_module"></a> | <a href="https://wiki.sipeed.com/m1s#dock"><img src="https://gd1.alicdn.com/imgextra/i1/2200606237318/O1CN01gE4a1E23vhCV77ggE_!!2200606237318.jpg" style="transform:rotate(270deg);" alt="M1s_Dock"></a> |
+|      | [M1s](./maix/m1s/m1s_module.md)                                                                                                                                                                                   | [M1s Dock](./maix/m1s/m1s_dock.md)                                                                                                                                                                                   |
+| ---- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 图片 | <a href="https://wiki.sipeed.com/m1s"><img src="https://gd4.alicdn.com/imgextra/i4/2200606237318/O1CN011g9yY323vhCXEyiKU_!!2200606237318.jpg" style="transform:rotate(270deg);" alt="M1s_module" width="80%"></a> | <a href="https://wiki.sipeed.com/m1s#dock"><img src="https://gd1.alicdn.com/imgextra/i1/2200606237318/O1CN01gE4a1E23vhCV77ggE_!!2200606237318.jpg" style="transform:rotate(270deg);" alt="M1s_Dock" width="80%"></a> |
 
 <!-- ### Maix-I A -->
 
@@ -44,45 +45,43 @@ desc: 矽速科技的开源软硬件 WIKI 资料站
 <table role="table" class="center_table">
     <tbody>
         <tr>
-            <th scope="col">型号</th>
-            <th scope="col">图片</th>
-            <th scope="col">型号</th>
-            <th scope="col">图片</th>
+            <th scope="col"></th>
+            <th scope="col">Maix Bit</th>
+            <th scope="col">Maix Dock</th>
+            <th scope="col">Maix Duino</th>
+            <th scope="col">Maix nano</th>
         </tr>
         <tr>
-             <td style="white-space:nowrap">Maix Bit</td>
+             <td style="white-space:nowrap">图片</td>
             <td> <a href="./maix/maixpy_develop_kit_board/maix_bit.html"
                     target="_blank"><img
                         src="./maix/assets/dk_board/maix_bit/Bit.png" ></a> </td>
-             <td style="white-space:nowrap">Maix Dock</td>
             <td><a href="./maix/maixpy_develop_kit_board/Maix_dock.html"
                     target="_blank"><img
                         src="./maix/assets/dk_board/maix_dock/Dan_Dock.png" ></a></td>
-        </tr>
-        <tr>
-             <td style="white-space:nowrap">Maix Duino</td>
             <td><a href="./maix/maixpy_develop_kit_board/maix_duino.html"
                     target="_blank"><img
                         src="./maix/assets/dk_board/maix_duino/maixduino_0.png" ></a></td>
-             <td style="white-space:nowrap">Maix nano</td>
             <td><a href="./maix/maixpy_develop_kit_board/maix_nano.html"><img
                         src="./maix/assets/dk_board/maix_nano/maix_nano.jpg"  alt="Maxi nano"></a></td>
         </tr>
         <tr>
-             <td style="white-space:nowrap">Maix Cube</td>
+            <th scope="col"></th>
+            <th scope="col">Maix Cube</th>
+            <th scope="col">Maix Amigo</th>
+            <th scope="col">Maix HAT</th>
+            <th scope="col">Maix Go</th>
+        </tr>
+        <tr>
+             <td style="white-space:nowrap">图片</td>
             <td><a href="./maix/maixpy_develop_kit_board/maix_cube.html"
                     target="_blank"><img
                         src="./maix/assets/dk_board/maix_cube/maix_cube.png" ></a></td>
-             <td style="white-space:nowrap">Maix Amigo</td>
             <td><a href="./maix/maixpy_develop_kit_board/maix_Amigo.html"
                     target="_blank"><img
                         src="./maix/assets/dk_board/maxi_amigo/maix_amigo_0.png" ></a></td>
-        </tr>
-        <tr>
-             <td style="white-space:nowrap">Maix HAT</td>
             <td><a href="./maix/maixpy_develop_kit_board/maix_go.html"><img
                         src="./../../soft/maixpy/assets/hardware/grove_ai_hat/grove_ai_hat1.png"  alt="Maix HAT"></a></td>
-             <td style="white-space:nowrap">Maix Go</td>
             <td><a href="./maix/maixpy_develop_kit_board/maix_go.html"
                     target="_blank"><img
                         src="./maix/assets/dk_board/maix_go/Go.jpg"  ></a></td>
@@ -101,20 +100,20 @@ desc: 矽速科技的开源软硬件 WIKI 资料站
 
 ### 产品支持
 
-Maix 系列产品可以在多种场景实现客户不同方面的需要，在 AIoT 上已经广泛的使用，品质和性能在行业内已经有非常好的口碑，专业
-的技术团队为广大客户解决硬件设计和软件功能上的各种各样问题。商业合作可以联系 <support@sipeed.com>。
+Maix 系列产品可以在多种场景实现客户不同方面的需要，在 AIoT 上已经广泛的使用，品质和性能在行业内已经有非常好的口碑，专业的技术团队为广大客户解决硬件设计和软件功能上的各种各样问题。商业合作可以联系 <support@sipeed.com>。
 
 ## Maix-II & III 系列
 
-| 项目   | MaixII-Dock                                                                                                                                                            | MaixII-Sense                                                                                                                                                            |                                                                              MaixII-S                                                                               | MaixIII-axpi                                                                                                                                                            |
-| :----- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 主控   | V831                                                                                                                                                                   | R329                                                                                                                                                                    |                                                                                V833                                                                                 | Ax620a                                                                                                                                                                  |
-| 核心   | Cortex A7@800MHz                                                                                                                                                       | Cortex A53\*2@1.5GHz                                                                                                                                                    |                                                                          Cortex A7@1.2GHz                                                                           | Cortex A7\*4@1.0GHz                                                                                                                                                     |
-| RAM    | 64MB                                                                                                                                                                   | 256MB                                                                                                                                                                   |                                                                              默认128MB                                                                              | 默认 1GB                                                                                                                                                                |
-| 无线   | Wifi                                                                                                                                                                   | · Wifi<br>· 蓝牙                                                                                                                                                        |                                                                               · Wifi                                                                                | · Wifi<br>· 蓝牙                                                                                                                                                        |
-| 外观图 | <img src="https://gd3.alicdn.com/imgextra/i3/2200606237318/O1CN01dT63dq23vhAOtdtm7_!!2200606237318.png_400x400.jpg" style="transform:rotate(0deg);" alt="MaixII-Dock"> | <img src="https://gd3.alicdn.com/imgextra/i3/2200606237318/O1CN01AJdLYs23vh6b40oy2_!!2200606237318.png_400x400.jpg" style="transform:rotate(0deg);" alt="MaixII-Sense"> | <img src="https://gd2.alicdn.com/imgextra/i2/2200606237318/O1CN01C4iTYi23vh6muQApg_!!2200606237318.png_400x400.jpg" style="transform:rotate(0deg);" alt="MaixII-S"> | <img src="https://gd2.alicdn.com/imgextra/i2/2200606237318/O1CN01AY6Mu123vhBaHWr6H_!!2200606237318.jpg_400x400.jpg" style="transform:rotate(0deg);" alt="MaixIII-Axpi"> |
-| 详情页 | [点我](./maixii/m2/resources.md)                                                                                                                                       | [点我](./maixii/m2a/maixsense.md)                                                                                                                                       |                                                                    [点我](./maixii/M2S/V833.md)                                                                     | [点我](./maixIII/ax-pi/axpi.md)                                                                                                                                         |
-| 备注   |                                                                                                                                                                        |                                                                                                                                                                         |                                                                             仅支持商业                                                                              |                                                                                                                                                                         |
+| 项目     | MaixII-Dock                                                                                                                                                            | MaixII-Sense                                                                                                                                                            | MaixII-S                                                                                                                                                            | MaixIII-axpi                                                                                                                                                            |
+| :------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 主控     | V831                                                                                                                                                                   | R329                                                                                                                                                                    | V833                                                                                                                                                                | Ax620a                                                                                                                                                                  |
+| 核心     | Cortex A7@800MHz                                                                                                                                                       | Cortex A53\*2@1.5GHz                                                                                                                                                    | Cortex A7@1.2GHz                                                                                                                                                    | Cortex A7\*4@1.0GHz                                                                                                                                                     |
+| RAM      | 64MB                                                                                                                                                                   | 256MB                                                                                                                                                                   | 默认128MB                                                                                                                                                           | 默认 1GB                                                                                                                                                                |
+| 无线     | Wifi                                                                                                                                                                   | · Wifi<br>· 蓝牙                                                                                                                                                        | · Wifi                                                                                                                                                              | · Wifi<br>· 蓝牙                                                                                                                                                        |
+| 模型平台 | [MaixHub](https://www.maixhub.com)                                                                                                                                     |                                                                                                                                                                         |                                                                                                                                                                     | [MaixHub](https://www.maixhub.com)                                                                                                                                      |
+| 外观图   | <img src="https://gd3.alicdn.com/imgextra/i3/2200606237318/O1CN01dT63dq23vhAOtdtm7_!!2200606237318.png_400x400.jpg" style="transform:rotate(0deg);" alt="MaixII-Dock"> | <img src="https://gd3.alicdn.com/imgextra/i3/2200606237318/O1CN01AJdLYs23vh6b40oy2_!!2200606237318.png_400x400.jpg" style="transform:rotate(0deg);" alt="MaixII-Sense"> | <img src="https://gd2.alicdn.com/imgextra/i2/2200606237318/O1CN01C4iTYi23vh6muQApg_!!2200606237318.png_400x400.jpg" style="transform:rotate(0deg);" alt="MaixII-S"> | <img src="https://gd2.alicdn.com/imgextra/i2/2200606237318/O1CN01AY6Mu123vhBaHWr6H_!!2200606237318.jpg_400x400.jpg" style="transform:rotate(0deg);" alt="MaixIII-Axpi"> |
+| 详情页   | [点我](./maixii/m2/resources.md)                                                                                                                                       | [点我](./maixii/m2a/maixsense.md)                                                                                                                                       | [点我](./maixii/M2S/V833.md)                                                                                                                                        | [点我](./maixIII/ax-pi/axpi.md)                                                                                                                                         |
+| 备注     |                                                                                                                                                                        |                                                                                                                                                                         | 仅支持商业                                                                                                                                                          |                                                                                                                                                                         |
 
 ### Maix-II
 
@@ -204,8 +203,9 @@ MAIX-II 系列包含多款硬件产品，目前有三款产品，分别如下：
 
 目前 MaixIII axpi 是最新款的 AI 开发板，强烈推荐
 
+![maix-iii-small](./../../soft/ai/assets/maix-iii-small.png)
 
-
+详情页：[点我跳转](./maixIII/ax-pi/axpi.md)
 
 ## LicheePi 系列
 <!-- 
@@ -332,8 +332,8 @@ Linux 开发板
 
 ### 售罄产品
 
-|                                  Tang Nano                                  |                                         Tang Primer                                          |
-| :-------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------: |
+|                                       Tang Nano                                       |                                              Tang Primer                                               |
+| :-----------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------: |
 | [![Tang Nano](./tang/../../assets/Tang/Nano/Tang_Nano.jpg)](./tang/Tang-Nano/Nano.md) | [![Tang Primer](./tang/../../assets/Tang/permier/Tang_permier.jpg)](./tang/Tang-primer/Tang-primer.md) |
 
 
@@ -342,21 +342,33 @@ Linux 开发板
 3D TOF 模组
 
 [![](./../assets/maixsense.jpg)](./maixsense/readme.md) -->
-
-||Maixsense-010A| MaixSense-075V |
-|---|---|---|
-|  |||
-
 - 基于 TOF 技术的深度相机
+
+|                                                | Maixsense-a010                               | MaixSense-a075V                             |
+| ---------------------------------------------- | -------------------------------------------- | ------------------------------------------- |
+| 图片                                           | ![me_small](./maixsense/assets/me_small.jpg) | ![me_big](./maixsense/assets/me_big.jpg)    |
+| 接口                                           | 1.25mm 串口连接器 \*1<br>Type-C USB2.0 \*1   | 1.25mm 串口连接器 \*1 <br>Type-C USB2.0 \*1 |
+| 分辨率                                         | TOF：100x100@30fps                           | RGB：1600x1200@30fps<br>TOF：320x240@60fps  |
+| 视场角                                         | RGB：无<br>TOF：70°(H) * 60°(V)              | RGB：120°<br>TOF：55°(H)*72°(H)             |
+| <p style="white-space:nowrap">TOF 像素尺寸</p> |                                              | 15um                                        |
+| 激光发射器                                     | 40nm VCSEL                                   | 940nm,3W                                    |
+| 测量范围                                       | 0.2-2.5m                                     | 0.15-1.5m                                   |
+| 测量精度                                       | &lt;=1%/cm                                   | &lt;=1%/cm                                  |
 
 ## Longon 系列
 
 MCU 开发板
 
-[![](./../assets/longan_nano.jpg)](./longan/readme.md)
+![longan_nano](./longan/Nano/assets/longan_nano.jpg)
+
+详情页：[点我](./longan/Nano/assets/readme.md)
 
 ## MaixFace 模组
 
+- 商业合作模组，无个人支持
+
+前往首页商业方案板块查看对应设备
 
 ## 外设模组
 
+前往首页外设模组板块查阅对应设备
