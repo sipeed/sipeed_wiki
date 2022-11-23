@@ -63,3 +63,15 @@ A：这种情况是 SD 卡质量问题导致掉卡，也就是镜像卡里面的
 
 - 更换质量好一点的 SD 卡或官方购买镜像卡，可参照 `SD` 卡测试选购合适的卡[点击前往查看](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/flash_system.html#%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9-SD-%E5%8D%A1%EF%BC%9F)。
 
+## Q：使用 `ifconfig -a` 查看网络没有 eth0 ip 地址怎么解决？
+
+A：没有联网的话会直接看不到 ip 地址，查看下网线是否有接入、是否接稳了。
+   - 或使用 `dhclient eth0` 手动启动或参考文档[传送门](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html#%E6%9C%89%E7%BA%BF%E4%BB%A5%E5%A4%AA%E7%BD%91%EF%BC%88eth0%EF%BC%89%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95)重新配置 ip 获取地址。
+
+## Q：运行 uvc 命令后一直报错读取不到设备？
+
+A：这种情况一般会少数出现在 Windows 环境上，查看设备管理器是不是有什么显示异常驱动，卸载后即可使用。
+
+## Q：运行 uvc 命令后出现卡住现象？
+
+A：重启即可
