@@ -1,7 +1,5 @@
 # 基础上手
 
-> 编辑于20220616
-
 ## Dock 相关使用
 
 ### 连接板子
@@ -366,7 +364,11 @@ login #切换用户
 cd ~/sdk/tina-d1-open_new/
 source build/envsetup.sh
 lunch   #选1
-make menuconfig  #去掉里面的 alsa-plugin选项，否则编译不过
+make menuconfig  #去掉里面的 alsa-plugin 选项，否则编译不过
+# alsa-plugins 在 menuconfig 中的位置如下
+#.
+#└── Libraries
+#    └── alsa-plugins
 make -j8  #按实际CPU性能编译
 pack  #打包
 ```

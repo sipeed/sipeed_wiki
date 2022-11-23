@@ -237,7 +237,7 @@ Sipeed M1s 模组是基于[博流智能科技](http://www.bouffalolab.com/)的 B
         </tr>
         <tr>
           <td>Sipeed 参考示例</td>
-          <td>· https://github.com/sipeed/M1s_BL808_example</td>
+          <td>· https://gitee.com/sipeed/M1s_BL808_example</td>
         </tr>
     </tbody>
 </table>
@@ -246,6 +246,7 @@ Sipeed M1s 模组是基于[博流智能科技](http://www.bouffalolab.com/)的 B
 
 - [规格书](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s/1_Specification)
 - [原理图](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s/2_Schematic)
+- [封装库](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s/7_Package)
 - [位号图](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s/3_Bit_number_map)
 - [尺寸图](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s/4_Dimensional_drawing)
 - [3D 模型文件](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s/5_3D_file)
@@ -253,8 +254,8 @@ Sipeed M1s 模组是基于[博流智能科技](http://www.bouffalolab.com/)的 B
 
 ---
 
-- [SDK](https://github.com/sipeed/M1s_BL808_SDK) (Github) 
-- [Examples](https://github.com/sipeed/M1s_BL808_example)（Github）
+- [SDK](https://gitee.com/sipeed/M1s_BL808_SDK) (gitee) 
+- [Examples](https://gitee.com/sipeed/M1s_BL808_example)（gitee）
 - 交流 QQ 群：`592731168` 。[点我加群](https://jq.qq.com/?_wv=1027&k=uyKNhTeu)
 - 论坛：[bbs.sipeed.com](https://bbs.sipeed.com/)
 

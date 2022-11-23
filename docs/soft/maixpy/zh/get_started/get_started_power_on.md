@@ -22,12 +22,14 @@ desc: maixpy  MaixPy 开发板上电
 
 在 Linux 下可以通过 `ls /dev/ttyUSB*` 或者 `ls /dev/ttyACM*` 来查看， 如果没有可以 `ls /dev` 来找找，具体的设备名跟串口芯片和驱动有关
 
-
 如果没有发现设备， 需要确认有没有装驱动以及接触是否良好
 
 上电后， 如果是新出厂的开发板， 可能会显示红色背景，前景是简单的 MaixPy 介绍，包括官网地址，画面是静止的，需要通过接下来的编程让它改变。
 ![](./../../assets/maixpy/welcome_maixpy.png)
 
+对于 maixbit 板子，我们准备了组装视频
+
+<iframe src="//player.bilibili.com/player.html?aid=860412959&bvid=BV1dG4y1R7Ap&cid=900550125&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
 ## 检查固件版本
 

@@ -1,7 +1,5 @@
 # Basic usage
 
-> Edit on 2022.06.16
-
 ## Use Dock motherboard
 
 ### Connnect Board
@@ -364,13 +362,17 @@ You can use following commands to finish compiling.
 cd ~/sdk/tina-d1-open_new/
 source build/envsetup.sh
 lunch   # choose 1
-make menuconfig  # untick alsa-plugin, otherwise it will fail to compile
+make menuconfig  # unchoose alsa-plugin, otherwise it fail to compile
+# alsa-plugins path in menuconfig
+#.
+#└── Libraries
+#    └── alsa-plugins
 make -j8  
 pack  
 ```
 
 There are some new dts file in this SDK, you can use them if necessary
-Ther are in device/config/chips/d1/configs/nezha/board_xxx.dts
+They are in device/config/chips/d1/configs/nezha/board_xxx.dts
 
 Other SDK developing manual can refer to relevant documents on the Allwinner development platform
 https://open.allwinnertech.com/

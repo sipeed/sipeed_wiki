@@ -183,7 +183,7 @@ M1s Dock 和 M0Sense 总览：3:15 之前的都是 M1s Dock。
         </tr>
         <tr>
           <td>Sipeed 参考示例</td>
-          <td>· https://github.com/sipeed/M1s_BL808_example</td>
+          <td>· https://gitee.com/sipeed/M1s_BL808_example</td>
         </tr>
     </tbody>
 </table>
@@ -201,8 +201,8 @@ M1s Dock 和 M0Sense 总览：3:15 之前的都是 M1s Dock。
 
 ---
 
-- [SDK](https://github.com/sipeed/M1s_BL808_SDK) (Github) 
-- [Examples](https://github.com/sipeed/M1s_BL808_example)（Github）
+- [SDK](https://gitee.com/sipeed/M1s_BL808_SDK) (gitee) 
+- [Examples](https://gitee.com/sipeed/M1s_BL808_example)（gitee）
 - 交流 QQ 群：`816177882` 。[点我加群](https://jq.qq.com/?_wv=1027&k=0fOkj3EB)
 - 论坛：[bbs.sipeed.com](https://bbs.sipeed.com/)
 

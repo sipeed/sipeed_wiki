@@ -71,7 +71,20 @@
                         },
                         {
                             "label": "M1s 开发板",
-                            "file": "maix/m1s/m1s_dock.md"
+                            "items":[
+                                {
+                                    "label":"简介",
+                                    "file": "maix/m1s/m1s_dock.md"
+                                },
+                                {
+                                    "label":"上手",
+                                    "file":"maix/m1s/other/start.md"
+                                },
+                                {
+                                    "label":"其他事项",
+                                    "file":"maix/m1s/other/others.md"
+                                }
+                            ]
                         },
                         {
                             "label": "M1s 获取机器码",
