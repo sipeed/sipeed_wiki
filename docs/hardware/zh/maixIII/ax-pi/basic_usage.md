@@ -780,7 +780,7 @@ fboff
 >**20221116** 后镜像内置了 **`vin_ivps_joint_venc_rtsp_vo_onvif_mp4v2`** 
 
 可用于评估从摄像头运行 yolov5s 模型识别结果通过 RTSP 发送数据采集的演示效果。
-**RTSP 介绍及使用过程**：[点击查看](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html#RTSP)
+**RTSP 介绍及使用过程**：[点击查看](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html#rtsp)
 
 ### NPU
 
@@ -1998,9 +1998,9 @@ cat /proc/ax_proc/uid
     <iframe src="//player.bilibili.com/player.html?aid=773227207&bvid=BV1B14y1Y7A4&cid=837154353&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="max-width:640px; max-height:480px;"> </iframe>
 </p>
 
-### RTSP 
+### rtsp
 
->**RTSP**：也称实时流传输协议，该协议定义了一对多应用程序如何有效地通过 IP 网络传送多媒体数据。
+>**rtsp**：也称实时流传输协议，该协议定义了一对多应用程序如何有效地通过 IP 网络传送多媒体数据。
 
 **VLC Media Player**：[点击下载](https://www.videolan.org/vlc/)
 
