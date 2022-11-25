@@ -276,7 +276,7 @@ Sipeed M1s 模组是基于[博流智能科技](http://www.bouffalolab.com/)的 B
     </tr>
     <tr>
         <td>FPC 座子</td>
-        <td>在连接 FPC 软排线的时候，谲确保排线无偏侈地完整地插入到排线中</td>
+        <td>在连接 FPC 软排线的时候，请确保排线无偏侈地完整地插入到排线中</td>
     </tr>
     <tr>
         <td>插拔</td>
