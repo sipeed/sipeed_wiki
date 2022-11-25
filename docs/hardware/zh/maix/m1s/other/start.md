@@ -15,6 +15,8 @@ M1s Dock 设计精巧，可以用来所很多有意思的事，这里简单说�
 
 首次对 M1s Dock 板子上电，屏幕会显示摄像头所拍摄到的内容，且按两侧的按键显示屏上的数字会有变化。
 
+![default_firmware](./assets/start/default_firmware.jpg)
+
 ## U 盘烧录
 
 推荐使用这种方法来进行烧录，主要用来给板子上的 C906 核心烧录运行程序。
@@ -28,6 +30,8 @@ M1s Dock 设计精巧，可以用来所很多有意思的事，这里简单说�
     </tr>
 </table>
 
+另外，按住两侧按键的时候，从板子的 OTG 口板子给板子通电来启动板子也可以进入 U 盘下载模式。
+
 板子成功进入 U 盘烧录模式后在电脑上会显示出一个容量很小的磁盘，直接把固件 <a href="https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmware/demo_bin">点我跳转部分例程固件</a> 拖拽进去即可完成烧录。文件存放进去后数秒后板子会重启，U 盘被弹出，表示烧录完成，看不到效果的话可以给板子重新插拔板子 USB 来完全重启一次再来查看烧录结果。
 
 <img src="./assets/start/udisk_in_computer.png" alt="udisk_burn" style="transform:rotate(0deg);">
@@ -38,7 +42,7 @@ M1s Dock 设计精巧，可以用来所很多有意思的事，这里简单说�
 
 ### 给 M1s 烧录
 
-使用 TypeC 数据线将电脑与板子的 UART 口连接起来，此时电脑上会出现两个串口 （如果出现鼠标不能动的现象请拔掉 USB 并且查看 [更新板载 bl702 固件](#给板载-bl702-进行烧录) 相关内容来修复问题)
+使用 TypeC 数据线将电脑与板子的 UART 口连接起来，此时电脑上会出现两个串口 （如果出现鼠标不能动的现象请拔掉 USB 并且查看 [更新板载 bl702 固件](#给板载-bl702-进行烧录) 相关内容来修复问题)。
 
 给 M1s 烧录需要用到博流官方烧录工具，前往 https://dev.bouffalolab.com/download 下载名称为 `Bouffalo Lab Dev Cube` 的文件。解压后就得到了用来烧录板子的应用程序。
 
@@ -48,7 +52,7 @@ M1s Dock 设计精巧，可以用来所很多有意思的事，这里简单说�
 
 ![application](./assets/start/application.png)
 
-启动软件后选择 bl808 ，紧着这软件的 IOT 页面选择分区表文件[点我下载](https://dl.sipeed.com/fileList/MAIX/M1s/M1s_Dock/7_Firmware/partition/partition_cfg_16M_m1sdock.toml)（图里②）
+启动软件后选择 bl808 ，紧着这软件的 IOT 页面选择分区表文件[点我下载](https://dl.sipeed.com/fileList/MAIX/M1s/M1s_Dock/7_Firmware/partition/partition_cfg_16M_m1sdock.toml)（图里②）。
 
 <table>
     <tr>
@@ -57,13 +61,13 @@ M1s Dock 设计精巧，可以用来所很多有意思的事，这里简单说�
     </tr>
 </table>
 
-选择完上面的分区表文件后，烧录工具的可选项就变多了，主要关注 `boot2`, `firmware`, `d0fw` 三项
+选择完上面的分区表文件后，烧录工具的可选项就变多了，主要关注 `boot2`, `firmware`, `d0fw` 三项。
 
 <img src="./assets/start/firmware_choose.png" alt="firmware_choose" style="transform:rotate(0deg);">
 
 上图中，`boot2` 是固定的，位于 `BLDevCube\chips\bl808\builtin_imgs\boot2_isp_bl808_v6.4_rc6` 目录下，就是在解压的烧录程序文件夹的子目录里面；`firmware` 是 E907 核心运行的固件 ；`d0fw`是 C906 核心运行的固件，前面的 U 盘烧录里面的固件就是给这个核心烧录的。E907 的固件文件和 C906 的固件文件均可以通过 [M1s_dock example](https://gitee.com/sipeed/M1s_BL808_example) 来编译得到。
 
-默认固件可以在 [这里下载到](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmware/factory)
+默认固件可以在 [这里下载到](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmware/factory)。
 
 正确的选择固件后，在窗口右侧点击一下 `Refresh` 来刷新串口，正常情况有两个串口号相邻的串口可供选择，如果没有两个串口请参考下面的 [烧录 BL702](#给板载-bl702-进行烧录)来查看解决方法。在双串口中需要选择串口号较大的那个。设置波特率 2000000。
 
