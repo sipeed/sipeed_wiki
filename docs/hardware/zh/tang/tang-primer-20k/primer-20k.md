@@ -345,4 +345,30 @@ github 链接： https://github.com/sipeed/TangPrimer-20K-example
 
 ![flash_cs](./assets/flash_cs.png)
 
+如果有 dock 底板的话，可以直接操作一号拨码开关重新救活核心板，具体操作如下：
+
+首先正常使能核心板，将拨码开关一号位拨下。然后在 Programmer 软件中，选择一个操作（烧写、擦除都可以），当 Programmer 软件中进度条出现的时候，快速将一号拨码开关拉高，然后再拉低重新使能核心板，这样就会发现 Programmer 可以正常烧录 FPGA 板卡了。
+
+<table>
+	<tr>
+		<td><img src="./assets/start/switch_1_on.png" alt="switch_1_on"></td>
+		<td> 首先使能核心板。</td>
+	</tr>
+	<tr>
+		<td><img src="./assets/start/progress_bar.jpg" alt="progress_bar"></td>
+		<td> 对板卡进行操作，出现进度条的时候快速拨动使能引脚。 </td>
+	</tr>
+	<tr>
+		<td>
+		<img src="./assets/start/switch_1_off.jpg" alt="switch_1_off" witdh="25%">
+		<img src="./assets/start/switch_1_on.png" alt="switch_1_on" witdh="25%">
+		</td>
+		<td> 先向上拨动1号拨码开关，再向下拨动 </td>
+	</tr>
+	<tr>
+		<td><img src="./assets/start/progress_bar_running.jpg" alt="progress_bar_running"><img src="./assets/start/progress_bar_finishing.jpg" alt="progress_bar_finishing"></td>
+		<td> 然后就看到进度条正常，操作顺利 </td>
+	</tr>
+</table>
+
 ### 更多问题及其解决办法前往[相关问题](./../Tang-Nano-Doc/questions.md)查看

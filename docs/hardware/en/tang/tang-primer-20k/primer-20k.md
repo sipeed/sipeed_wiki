@@ -324,6 +324,32 @@ In this case, the default reason is that the wrong Dual-Purpose pin is enabled a
 
 ![flash_cs](./../../../zh/tang/tang-primer-20k/assets/flash_cs.png)
 
+Besides, if you have dock ext-board, this can be solved by the enable pin of dip switch. Here art the steps
+
+Firstlt, enable the core board, put the 1 switch on the dip switch down, then do something (like burnning fpga or erasing FPGA) in Programmer application, when the progress bar shows, switch the 1 switch on the dip switch up and down, after which you will find the progress bar works and finish your operations on fpga.
+
+<table>
+	<tr>
+		<td><img src="./assets/start/switch_1_on.png" alt="switch_1_on"></td>
+		<td> Enable the core board first </td>
+	</tr>
+	<tr>
+		<td><img src="./assets/start/progress_bar.jpg" alt="progress_bar"></td>
+		<td> Do operation on board, when progress bar shows, switch the 1 switch on the dip switch up and down</td>
+	</tr>
+	<tr>
+		<td>
+		<img src="./assets/start/switch_1_off.jpg" alt="switch_1_off" witdh="25%">
+		<img src="./assets/start/switch_1_on.png" alt="switch_1_on" witdh="25%">
+		</td>
+		<td> put the 1 switch on the dip switch up and down </td>
+	</tr>
+	<tr>
+		<td><img src="./assets/start/progress_bar_running.jpg" alt="progress_bar_running"><img src="./assets/start/progress_bar_finishing.jpg" alt="progress_bar_finishing"></td>
+		<td> Progress bar works and finish your operations on fpga </td>
+	</tr>
+</table>
+
 ### Visit [Questions](./../Tang-Nano-Doc/questions.md) for more
 
 <!-- ## Attention
