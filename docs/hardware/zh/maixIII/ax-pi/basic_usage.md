@@ -780,7 +780,7 @@ fboff
 >**20221116** 后镜像内置了 **`vin_ivps_joint_venc_rtsp_vo_onvif_mp4v2`** 
 
 可用于评估从摄像头运行 yolov5s 模型识别结果通过 RTSP 发送数据采集的演示效果。
-**RTSP 介绍及使用过程**：[点击查看](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html#ONVIF-ODM)
+**RTSP 介绍及使用过程**：[点击查看](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html#rtsp)
 
 ### NPU
 
@@ -1957,7 +1957,7 @@ cat /proc/ax_proc/uid
 
 >**注意**：
 >**20221017** 后的镜像默认打开了录制保存到`/opt/mp4`的目录下。
->视频录制后储存到文件系统后才能打开，某种意义上讲用户也可以挂载一个网络路径来当监控录像使用。
+>视频录制要储存到文件系统后才能打开，某种意义上用户也可以挂载网络路径来当监控录像使用。
 
 #### 人脸检测
 >基于上文的基础功能，IPCDemo 自身还附带其他一些功能应用.例如**：人脸检测、车牌识别**。
@@ -1998,11 +1998,57 @@ cat /proc/ax_proc/uid
     <iframe src="//player.bilibili.com/player.html?aid=773227207&bvid=BV1B14y1Y7A4&cid=837154353&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="max-width:640px; max-height:480px;"> </iframe>
 </p>
 
+### rtsp
+
+>**rtsp**：也称实时流传输协议，该协议定义了一对多应用程序如何有效地通过 IP 网络传送多媒体数据。
+
+**VLC Media Player**：[点击下载](https://www.videolan.org/vlc/)
+
+使用 RTSP 传送数据前，我们需要先认识工具 `VLC Media Player`。
+
+.. details::点我查看 VLC Media Player 介绍
+    VLC Media Player（VLC 多媒体播放器），是一款可播放大多数格式，而无需安装编解码器包的媒体播放器，以及支持多平台使用、支持 DVD 影音光盘，VCD 影音光盘及各类流式协议。
+
+    ![vl-yolov5s](./../assets/vlc-yolov5s.jpg)
+
+
+运行命令后终端会弹出调试信息，打开 `VLC Media Player` 进行配置网络串流后即可看到画面效果。
+
+```bash
+/home/examples/vin_ivps_joint_venc_rtsp_vo_onvif_mp4v2/run.sh
+```
+ 
+.. details::点击查看终端运行图
+    ![vlr-run](./../assets/vlc-run.jpg)
+
+.. details::点我查看 VLC Media Player 配置步骤
+    打开后在上方选择**媒体**后选择**打开网络串流**进到配置画面。
+    ![vlc](./../assets/vlc.jpg)
+    在网络页面输入**网络 URL ：`rtsp://192.168.233.1:8554/axstream0`**，
+    勾选下方更多选项进行调整缓存后点击下方播放即可。
+    ![vlc-urt](./../assets/vlc-urt.jpg)
+
+- 双屏效果如下图示例：
+  
+<html>
+  <img src="./../assets/rtsp-display.jpg" width=48%>
+  <img src="./../assets/rtsp-axpi.jpg" width=48%>
+</html>
+
+>**注意**：默认摄像头为 os04a10 型号不同请移步[Maix-III 系列 AXera-Pi 常见问题(FAQ)](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html)更换参数。
+#### ffplay
+
+工具除了 `VCL` 还可以直接使用 `ffplay`。
+**ffplay** :[点击下载](https://dl.sipeed.com/shareURL/MaixIII/AXera/09_Software_tool)
+
+```bash
+sudo apt install ffmpeg
+ffplay rtsp://192.168.233.1:8554/axstream0 -fflags nobuffer
+```
+
 ### ONVIF ODM
 
->在 20221111 后的更新的镜像系统，内置了按键录像 mp4 和支持更换 yolov5s 人脸/物体检测模型以及对 ODM（ONVIF）进行支持。
-
->**RTSP**：也称实时流传输协议，该协议定义了一对多应用程序如何有效地通过 IP 网络传送多媒体数据。
+>在 **20221111** 后的更新的镜像系统，内置了按键录像 mp4 和支持更换 yolov5s 人脸/物体检测模型以及对 ODM（ONVIF）进行支持。
 
 **ONVIF Device Manager**：[点击下载](https://sourceforge.net/projects/onvifdm/)
 
@@ -2012,7 +2058,7 @@ cat /proc/ax_proc/uid
     
    ![odm](./../assets/odm.jpg)
 
-在终端运行下方命令，设备屏幕会跳出 yolov5s 模型运行画面，镜像内置默认是 `os04a10` 的镜头参数，使用 `gc4653` 的话请参考下文修改参数。接着我们来配置 `ODM` 实现 PC 端显示。
+在终端运行下方命令，设备屏幕会跳出 yolov5s 模型运行画面，接着我们来配置 `ODM` 实现 PC 端显示。
 
 >**注意**：ODM 受网络影响较大，如果有卡顿现象把网络更换成以太网即可。
 >默认摄像头为 os04a10 如型号不同请移步[Maix-III 系列 AXera-Pi 常见问题(FAQ)](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html)更换参数。
@@ -2091,16 +2137,17 @@ nano /home/examples/vin_ivps_joint_vo_pp_human_seg/run.sh
 
 **usb-uvc-gadget**：[点击查看相关仓库](https://github.com/junhuanchen/usb-uvc-gadget)
 
->**20221123** 镜像内置了 uvc vo 应用，并且还适配了安卓手机端软件使用。
->目前应用还处于不稳定状态运行途中可能会掉线或导致设备重启，后续会慢慢优化！
+>**20221123** 镜像内置了 uvc vo 应用，并且还可以在手机端软件使用。
+>目前应用还处于不稳定的状态，第一次启动程序或供电不足会导致设备重启，后续会慢慢优化！
 
-使用前需要把设备的 **uart** 及 **usb** 口全部接入 `PC` 端，再运行下方命令终端会跳出无报错的调试信息。
+使用前需要准备两条 USB type_c  的数据线以及一条双 type_c 口的数据线。
+把设备的 **UART** 及 **OTG** 口用`USB type-c` 线全部接入 `PC` 端，再运行下方命令终端会弹出无报错调试信息。
 
 ```bash
 /home/examples/vin_ivps_joint_venc_uvc_vo/run.sh
 ```
 
-.. details::点击查看终端调试信息图
+.. details::点击查看终端示例图
     ![uvc_adb](./../assets/uvc_adb.png)
 
 打开 `PC` 端自带相机应用即可在设备屏幕以及 `PC` 端观察到模型检测画面。
@@ -2115,15 +2162,14 @@ nano /home/examples/vin_ivps_joint_vo_pp_human_seg/run.sh
 
 - **手机端虚拟摄像头**
 
-UVC 也能适配于安卓手机端的 `app` 上当虚拟摄像头使用，
-使用前需准备一条**双头 type-c 数据线**以及在软件商店下载好 **USB 摄像头专业版**软件。
+UVC 也能在安卓手机端的 `app` 上当虚拟摄像头使用，使用前在软件商店下载好 **USB 摄像头专业版** 软件。
 
 .. details::USB 摄像头专业版软件介绍
     USB 摄像头是一款支持 USB 摄像头、适配采集卡等设备通过 OTG 连接手机并驱动设备展示画面。
 
     ![uvc_usb](./../assets/uvc_usb.jpg)
 
-把双头 type-c 线的接口分别接上手机端以及设备的 OTG 口，运行上方命令后会自动连接。
+把双头 `type-c` 线的分别接上手机端以及设备的 OTG 口，运行上方命令后会自动连接。
 
 ![uvc_phone](./../assets/uvc_phone.jpg)
 
