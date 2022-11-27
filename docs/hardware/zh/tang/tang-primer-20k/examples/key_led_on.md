@@ -55,7 +55,7 @@ LED5 复用了 SSPI 引脚，需要手动前往 Project->Configuration->Place&Ro
     ## key_led_on.v
     Verilog文件；
     定义了一个按键输入端口，和两个输出端口。将输入端口的 IO 电平状态输出到两个输出端口。 
-    此处使用了位拓展语法。   
+    此处使用了位拓展语法。可以前往 [位拼接运算](./examples/key_6leds_on.md.md) 查看相关说明，但是本篇后续的文档规范还是应当继续阅读完。
     ```verilog
     module key_led_on(
         input key,
