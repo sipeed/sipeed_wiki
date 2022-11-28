@@ -213,15 +213,17 @@ title: MAIX-III AXera-Pi 是什么？
 
 #### 基于 debian 系统开发
 
-提供 debian11 Linux 系统，支持 SD 卡启动 DD 烧录系统，方便用户开箱上手。
+提供 debian11 Linux 系统，支持 SD 卡启动 DD 烧录系统，方便用户开箱上手，同时支持 Python API 编程开发 AI 应用。
 
 1. 烧录方法：[WIKI AXera-Pi 烧录系统](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/flash_system.html)
 
-2. 开发笔记：[[maixpy3 axpi] 关于爱芯 ax620a 移植 debian11 系统这件事](https://www.cnblogs.com/juwan/p/16751348.html)
+2. Python 编程：[ax_pipeline_api ](https://github.com/junhuanchen/ax_pipeline_api) （由社区大佬鼠贡献）
 
-3. 开发笔记：[[maixpy3 axpi] 编辑发布 debian 镜像与在 PC 上交叉编译程序 ](https://www.cnblogs.com/juwan/p/16769237.html)
+3. 开发笔记：[[maixpy3 axpi] 关于爱芯 ax620a 移植 debian11 系统这件事](https://www.cnblogs.com/juwan/p/16751348.html)
 
-#### BSP SDK 源码开放
+4. 开发笔记：[[maixpy3 axpi] 编辑发布 debian 镜像与在 PC 上交叉编译程序 ](https://www.cnblogs.com/juwan/p/16769237.html)
+
+#### 开放 BSP SDK 源码
 
 提供各类开发源码，提供 API 开发文档，SDK 开发方法等说明，细节可以从[SDK 开发指南](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/sdk_usage.html) 得知。
 
@@ -334,7 +336,7 @@ AX-Pipeline 由爱芯主导开发。该项目基于 AXera-Pi 展示 ISP、图像
 
 访问 [https://maixhub.com/model/zoo](https://maixhub.com/model/zoo) 查看大佬们分享的模型。
 
-## 产品参数
+## 硬件参数
 
 <p align="center">
   <img src="./../assets/waiguan1.jpg" style="zoom: 51%;" />
@@ -345,7 +347,8 @@ AX-Pipeline 由爱芯主导开发。该项目基于 AXera-Pi 展示 ISP、图像
 ### 硬件标注图
 
 <p align="center">
-  <img src="./../assets/layout_axpi.jpg" alt="img" style="zoom: 100%;" />
+  <img src="./../assets/layout_axpi_2.png" alt="layout_axpi_2" width="45%">
+  <img src="./../assets/layout_axpi_1.png" alt="layout_axpi_1" width="45%">
 </p>
 
 ### 核心板参数
