@@ -8,7 +8,7 @@ update:
     version: v0.4
     author: lyx
     content:
-      - 增加新内容
+      - 增加上手使用说明
   - date: 2022-11-10
     version: v0.3
     author: wonder
