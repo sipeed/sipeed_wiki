@@ -171,7 +171,7 @@
                     "collapsed": false,
                     "items": [
                         {
-                            "label": "烧录系统镜像",
+                            "label": "上手引导指南",
                             "file": "maixIII/ax-pi/flash_system.md"
                         },
                         {

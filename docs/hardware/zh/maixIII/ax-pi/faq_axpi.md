@@ -76,10 +76,14 @@ A：这种情况一般会少数出现在 Windows 环境上，查看设备管理�
 
 A：重启即可
 
-## Q：开机后 ifconfig 不显示 wlan0 怎么解决？
+## Q：开机 ifconfig 不显示 wlan0 怎么解决？
 
 A：可能是核心板与底板衔接松了，重新插拔核心板与底板可！
 
 ## Q：使用 ssh 登陆后断开报错：packet_write_wait: Connection to 10.xxx.xxx.xxx port 22: Broken pipe！
 
 A: 运行一下`python3 -c "import os, binascii; os.system('sed -i \'/iface eth0 inet dhcp/ahwaddress ether {}\' /etc/network/interfaces'.format(binascii.hexlify(bytes.fromhex(open('/proc/ax_proc/uid').read().split('0x')[1][:-5]),':').decode('iso8859-1'))) if os.system('grep \'hwaddress ether\' /etc/network/interfaces -q') != 0 else exit();"` 后重启即可。
+
+## Q：开机画面出现锯齿画面怎么解决？
+
+A：因为屏幕批次不同导致的原因，更新到最新的 **20221125** 后的镜像即可。

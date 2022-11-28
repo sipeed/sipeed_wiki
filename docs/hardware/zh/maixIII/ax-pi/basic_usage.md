@@ -636,7 +636,7 @@ exit 0
 
 - dtb.img linux 设备树
 
-## 系统外设验证
+## 验证系统外设
 
 ### 系统预置的资源
 
@@ -2175,8 +2175,8 @@ UVC 也能在安卓手机端的 `app` 上当虚拟摄像头使用，使用前在
 
 >**注意**：如果需要完全脱离电脑端用手机端供电的话，需要把 uvc 程序写入开机脚本即可。
 
-### ax-pipeline 
+## Python API
 
-待更新
-
+> 在****
+**ax_pipeline**：[点击查看相关仓库](https://github.com/junhuanchen/ax_pipeline_api)
 
