@@ -347,7 +347,8 @@ AX-Pipeline 由爱芯主导开发。该项目基于 AXera-Pi 展示 ISP、图像
 ### 硬件标注图
 
 <p align="center">
-  <img src="./../assets/layout_axpi.jpg" alt="img" style="zoom: 100%;" />
+  <img src="./../assets/layout_axpi_2.png" alt="layout_axpi_2" width="45%">
+  <img src="./../assets/layout_axpi_1.png" alt="layout_axpi_1" width="45%">
 </p>
 
 ### 核心板参数
