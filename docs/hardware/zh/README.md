@@ -36,8 +36,6 @@ desc: 矽速科技的开源软硬件 WIKI 资料站
 | ---- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 图片 | <a href="https://wiki.sipeed.com/m1s"><img src="https://gd4.alicdn.com/imgextra/i4/2200606237318/O1CN011g9yY323vhCXEyiKU_!!2200606237318.jpg" style="transform:rotate(270deg);" alt="M1s_module" width="80%"></a> | <a href="https://wiki.sipeed.com/m1s#dock"><img src="https://gd1.alicdn.com/imgextra/i1/2200606237318/O1CN01gE4a1E23vhCV77ggE_!!2200606237318.jpg" style="transform:rotate(270deg);" alt="M1s_Dock" width="80%"></a> |
 
-<!-- ### Maix-I A -->
-
 ### Maix-I
 
 这是 2019 年以 K210 为核心所制作的一系列 AIOT 开发板。
@@ -96,7 +94,6 @@ desc: 矽速科技的开源软硬件 WIKI 资料站
 <img src="./maixzero/sense/assets/m0sense_1.png" alt="m0sense" width=35%>
 
 详情页 ：[点我](./maix/../maixzero/sense/maix_zero_sense.md)
-<!-- ![](./maixzero/sense/assets/m0sense_1.png) -->
 
 ### 产品支持
 
@@ -116,8 +113,6 @@ Maix 系列产品可以在多种场景实现客户不同方面的需要，在 AI
 | 备注     |                                                                                                                                                                        |                                                                                                                                                                         | 仅支持商业                                                                                                                                                          |                                                                                                                                                                         |
 
 ### Maix-II
-
-<!-- 继经典的 K210 Maix-I 系列 AIOT 板卡之后，Sipeed 继续推出多款可运行完整 Linux 系统的边缘计算板卡，以 MAIX-II，MAIX-III 按照性能依次命名。 -->
 
 MAIX-II 系列包含多款硬件产品，目前有三款产品，分别如下：
 
@@ -144,78 +139,15 @@ MAIX-II 系列包含多款硬件产品，目前有三款产品，分别如下：
 </tbody>
 </table>
 
-<!-- * **Maix-II Dock**： **本系列推荐产品**, 芯片为全志 V831, 高性价比能跑 Linux 的SOC，同时支持硬件 AI 加速（0.2Tops 算力），目前软件支持最容易入门，提供 C SDK 和 Python SDK， 以及在线模型训练服务([MaixHub](https://maixhub.com))
-* **Maix-II Sense**： 芯片为全志R329，也有提供硬件 AI 加速，0.25Tops 算力。
-* **Maix-II-S**：芯片为全志 V833，V831 升级版， 主要用于商业定制用途，个人用户慎重选择。 -->
-<!-- 
-### MaixII Dock
-
-主控为全志 V831,；单核 Cortex-A7 800MHz， 64MiB 片内 DDR2 内存， 高性价比能跑 Linux 的SOC，同时支持硬件 AI 加速（0.2Tops 算力），可以当成普通 Linux SOC 使用， 也可以用于边缘 AI 应用。
-
-**本系列推荐产品**, 最具性价比， 目前软件支持最容易入门， 支持 C 语言开发，提供 C SDK([libmaix](http://github.com/sipeed/libmaix))； 同时提供 [MaixPy3](/maixpy3) 支持，使用 Python 语言即可开发，可以直接使用大量 Python 库，并且配套 jupyter IDE， 同时 [MaixHub](https://maixhub.com) 完全支持此设备
-
-.. details:: 点开查看产品功能速览视频
-
-    <p align="center">
-        <iframe src="//player.bilibili.com/player.html?aid=298543445&bvid=BV1sF411u7xb&cid=586467021&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
-    </p>
-
-<table>
-<tr>
-  <td>产品实拍图片</td>
-  <td></td>
-</tr>
-<tr>
-  <td>
-  <img src="./../assets/maixII/m2dock.jpg" alt="m2dock">
-  </td>
-  <td></td>
-</tr>
-</table>
-
-* 购买链接: [sipeed.taobao.com](https://item.taobao.com/item.htm?ft=t&id=635874427363)
-* 详情： [MaixII-Dock](./maixII/M2/resources.md)
-
-### MaixII Sense
-
-其主控芯片为全志 R329，双核 A53@1.5GHz，片内 256MiB DDR3 内存，双核 HiFi4@400MHz 也有提供硬件 AI 加速，0.25Tops 算力， 更加擅长音频领域， 支持 armbian 系统。
-
-官方开放资料很多，目前比较适合动手能力比较强的开发者。
-
-![MaixII-Sense](./maixII/M2A/assets/M2A-1.gif)
-
-* 购买链接: [sipeed.taobao.com](https://sipeed.taobao.com)
-* 详情： [MaixSense](./maixII/M2A/maixsense.md)
-* [极数社区 R329 上手帖](https://aijishu.com/a/1060000000221780)
-* [极数社区 R329 芯片FAQ](https://aijishu.com/a/1060000000291439)
-* [极数社区矽速科技](https://aijishu.com/blog/xisukeji)（很多资料）
-
-### MaixII S
-
-可以理解成 V831 的性能升级版， V831 上的程序可以直接在 V833 上运行；
-此开发板仅支持商业用户，个人用户应当选择 [Maix-II-Dock](./maixII/M2/resources.md) 开发板
-
-<img style="max-height: 300px" src="./maixII/M2S/assets/M2s_Dock.jpg" alt=“M2s_Dock”/>
-
-* 详情： [MaixII S](./M2S/V833.md) -->
-
 ### MaixIII
 
 目前 MaixIII axpi 是最新款的 AI 开发板，强烈推荐
 
-![maix-iii-small](./../../soft/ai/assets/maix-iii-small.png)
+![maix-iii-small](./../assets/maixIII/ax-pi/maix-iii-small.png)
 
 详情页：[点我跳转](./maixIII/ax-pi/axpi.md)
 
 ## LicheePi 系列
-<!-- 
-Linux 开发板
-
-![](./lichee/assets/lichee.jpg)
-
-[![lichee](./../assets/lichee.jpg)](./lichee/readme.md) -->
-
-<!-- 目前LicheePi相关核心板部分参数对比表格如下： -->
 
 | 类别     | Lichee RV    | Lichee Zero Plus                           | Lichee Zero                    | Lichee nano         |
 | :------- | :----------- | :----------------------------------------- | :----------------------------- | :------------------ |
@@ -254,38 +186,6 @@ Linux 开发板
 </tr>
 </tbody>
 </table>
-
-<!-- ### Lichee 核心版照片(Linux)
-
-#### Lichee Zero
-
-<div align="center">
-<a href="./Zero/Zero.html" ><img src="./assets/Zero/Zero_1.png" width=400></a>
-</div>
-
-#### Lichee Nano
-
-<div align="center">
-
-<a href="./Nano/Nano.html" ><img src="./assets/Nano/Nano_2.png" width=400></a>
-
-</div>
-
-#### Lichee Zero Plus
-
-<div align="center">
-
-<a href="./ZeroPlus/ZeroPlus.html"><img src="./assets/Zero-Plus/Plus_1.jpg" width=400></a>
-
-</div>
-
-#### Lichee RV
-
-<div align="center">
-
-<a href="./RV/RV.html"><img src="./assets/RV/D1-4.png" width=400></a>
-
-</div> -->
 
 ## Tang FPGA 系列
 
@@ -338,10 +238,7 @@ Linux 开发板
 
 
 ## MaixSense 系列
-<!-- 
-3D TOF 模组
 
-[![](./../assets/maixsense.jpg)](./maixsense/readme.md) -->
 - 基于 TOF 技术的深度相机
 
 |                                                | Maixsense-a010                               | MaixSense-a075V                             |

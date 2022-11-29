@@ -105,7 +105,9 @@ Sipeed M1s 模组是基于[博流智能科技](http://www.bouffalolab.com/)的 B
 
 ## 引脚分布
 
-<img src="./assets/m1s_module/m1s_pins.png" alt="m1s_pins" width=55%>
+前往原理图查看：[点我](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s/2_Schematic)
+
+<!-- <img src="./assets/m1s_module/m1s_pins.png" alt="m1s_pins" width=55%> -->
 
 ## 产品对比
 
