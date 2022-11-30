@@ -1,8 +1,8 @@
 ---
-title: AXera-Pi 上手引导指南
+title: AXera-Pi 上手必看
 tags: AXera-Pi, 烧录系统, 上手指引
 keywords: AXera-Pi，烧录, 上手
-desc: AXera-Pi 烧录系统
+desc: AXera-Pi 产品上手必看
 update:
   - date: 2022-11-25
     version: v0.4

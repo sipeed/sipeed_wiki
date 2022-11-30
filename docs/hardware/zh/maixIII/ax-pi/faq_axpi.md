@@ -87,3 +87,7 @@ A: 运行一下`python3 -c "import os, binascii; os.system('sed -i \'/iface eth0
 ## Q：开机画面出现锯齿画面怎么解决？
 
 A：因为屏幕批次不同导致的原因，更新到最新的 **20221125** 后的镜像即可。
+
+## Q：运行 opencv 相关后报错：can't open camera by index.
+
+A：查询一下摄像头设备号是否与代码内调用设备号的一致。

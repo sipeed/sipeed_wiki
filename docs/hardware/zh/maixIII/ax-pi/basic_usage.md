@@ -916,6 +916,27 @@ root@AXERA:~# mkdir /mnt/sdcard && mount /dev/sda1 /mnt/sdcard
 
     ![ustreamer_snapshot](./../assets/ustreamer_snapshot.jpg)
 
+- **使用 Opencv 读取 USB 摄像头**
+
+可在终端进入 `python3` 模式运行以下代码即可使用 USB 摄像头进行拍照。
+
+```python
+import os
+import cv2
+video = cv2.VideoCapture(0)
+for i in range(30):
+    ret, frame = video.read()
+    if ret:
+        cv2.imwrite("/tmp/capture.jpg", frame)
+        os.system("fbon && fbv /tmp/capture.jpg")
+```
+
+.. details::点击查看终端运行图以及效果图
+
+    ![opencv](./../assets/opencv.jpg)
+    ![opencv_cream](./../assets/opencv_cream.jpg)
+
+>运行出现报错请移步[Maix-III 系列 AXera-Pi 常见问题(FAQ)](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html)进行查询。
 
 ### GPIO
 
@@ -2175,8 +2196,46 @@ UVC 也能在安卓手机端的 `app` 上当虚拟摄像头使用，使用前在
 
 >**注意**：如果需要完全脱离电脑端用手机端供电的话，需要把 uvc 程序写入开机脚本即可。
 
-## Python API
+<!-- ## Python API 编程
 
-> 在****
+> 在 **20221125** 后更新的镜像内置了基于 ax-pipeline 的应用并支持可用 Python API 编程。
+
 **ax_pipeline**：[点击查看相关仓库](https://github.com/junhuanchen/ax_pipeline_api)
 
+使用之前需要替换最新 **20221125** 的镜像然后在终端安装 ax_pipeline_api 包。
+
+```bash
+pip3 install ax_pipeline_api -U
+```
+再使用以下命令行运行一下内置的 `pipeline.py` 即可在屏幕上看到效果
+
+```bash
+cd /home
+python3 pipeline.py
+```
+
+关于如何修改摄像头型号、libxxx*so、model 之类的可以参考 readme 文档
+
+### 支持 microbit 掌控板
+
+连接 microbit 掌控版并使用 python 编程前需要准备好以下的材料。
+
+- **microbit 掌控版以及 micro usb 数据线**
+- **type-c usb 转接头**
+- **Maix-III AXera-Pi 开发板以及 type-c 线** 
+  
+具体接线图待补充！
+
+可在终端接入 `python3` 模式运行下方代码即可连接 microbit 掌控版并会看到 **hello world** 亮灯效果。
+
+```bash
+import time
+from pinpong.board import Board,Pin
+from pinpong.extension.microbit import *
+Board("microbit","/dev/ttyACM0").begin()
+display.show(Image.HEART)
+while True:
+    display.scroll("hello world")
+```
+
+![microbit](./../assets/microbit.jpg) -->
