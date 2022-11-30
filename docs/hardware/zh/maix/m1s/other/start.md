@@ -17,6 +17,14 @@ M1s Dock 设计精巧，可以用来所很多有意思的事，这里简单说�
 
 ![default_firmware](./assets/start/default_firmware.jpg)
 
+通过 OTG 口连接 PC 的话会有一个大小为 3M 的 U 盘
+
+![default_udisk](./assets/start/default_udisk.jpg)
+
+通过 UART 口连接 PC 会显示有两个串口设备
+
+![dual_uart](./assets/start/dual_uart.jpg)
+
 ## U 盘烧录
 
 推荐使用这种方法来进行烧录，主要用来给板子上的 C906 核心烧录运行程序。
@@ -32,9 +40,13 @@ M1s Dock 设计精巧，可以用来所很多有意思的事，这里简单说�
 
 另外，按住两侧按键的时候，从板子的 OTG 口板子给板子通电来启动板子也可以进入 U 盘下载模式。
 
-板子成功进入 U 盘烧录模式后在电脑上会显示出一个容量很小的磁盘，直接把固件 <a href="https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmware/demo_bin">点我跳转部分例程固件</a> 拖拽进去即可完成烧录。文件存放进去后数秒后板子会重启，U 盘被弹出，表示烧录完成，看不到效果的话可以给板子重新插拔板子 USB 来完全重启一次再来查看烧录结果。
+<img src="./assets/start/udisk_in_computer.png" alt="udisk_in_computer" style="transform:rotate(0deg);">
 
-<img src="./assets/start/udisk_in_computer.png" alt="udisk_burn" style="transform:rotate(0deg);">
+板子成功进入 U 盘烧录模式后在电脑上会显示出一个容量很小的磁盘，直接把固件 <a href="https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmware/demo_bin">点我跳转部分例程固件</a> 拖拽进去即可完成烧录。。
+
+<img src="./assets/start/udisk_burn.gif" alt="udisk_burn" style="transform:rotate(0deg);">
+
+文件存放进去后数秒后板子会重启，U 盘被弹出，表示烧录完成，看不到效果的话可以给板子重新插拔板子 USB 来完全重启一次再来查看烧录结果。
 
 ## 串口烧录
 

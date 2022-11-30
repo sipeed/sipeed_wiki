@@ -13,14 +13,16 @@ update:
 
 Sipeed M1s Dock is a development board designed based on [Sipeed M1s module](./m1s_module.md)，routes interface like MIPI CSI、SPI LCD and FPC connector, to get rid of worries of connecting cable. Designed with the most minimal design, for customers to evaluate the module, or hobbyists to play directly, etc.
 
-Buy one: [Aliexpress]()
+Buy one: [Aliexpress](https://www.aliexpress.com/item/1005004970779483.html)
 
-<table>
+<td><img alt="m1s_dock.jpg" src="./../../../zh/maix/m1s/assets/m1s_dock/m1s_dock.jpg" width="45%"></td>
+
+<!-- <table>
   <tr>
   <td><img alt="m1s_dock_top" src="./../../../zh/maix/m1s/assets/m1s_dock/m1s_dock_top.jpg"></td>
   <td><img alt="m1s_dock_bottom" src="./../../../zh/maix/m1s/assets/m1s_dock/m1s_dock_bottom.jpg"></td>
   </tr>
-</table>
+</table> -->
 
 ## Video
 
@@ -28,7 +30,7 @@ Video of M1s Dock and M0Sense：M1s Dock is time before 3:15，and time after 3:
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/hkSAW42Evl4" title="M1s Dock" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-## Feature
+## Features
 
 - MainChip BL808 RISC-V 480Mhz + NPU BLAI-100
 - Onboard USB to UART debugger
@@ -38,7 +40,7 @@ Video of M1s Dock and M0Sense：M1s Dock is time before 3:15，and time after 3:
 - Onboard 1 analog microphone、1 LED、1 TF card slot
 - Route USB-OTG to USB Type-C port
 
-### Parameter
+### Parameters
 
 <table>
     <thead>
@@ -109,18 +111,21 @@ Video of M1s Dock and M0Sense：M1s Dock is time before 3:15，and time after 3:
 
 ### Function block
 
-<table width=40%>
+<!-- <table width=40%>
   <tr>
   <td><img alt="m1s_dock_function_block_top" src="./../../../zh/maix/m1s/assets/m1s_dock/m1s_dock_function_block_top.jpg"></td>
   <td><img alt="m1s_dock_function_block_top" src="./../../../zh/maix/m1s/assets/m1s_dock/m1s_dock_function_block_top.jpg"></td>
   </tr>
-</table>
+</table>  -->
+
+<img alt="m1s_dock_function_block_top" src="./../../../zh/maix/m1s/assets/m1s_dock/m1s_dock_function_block_top.jpg"  width=20%>
+<img alt="m1s_dock_function_block_top" src="./../../../zh/maix/m1s/assets/m1s_dock/m1s_dock_function_block_top.jpg"  width=20%>
 
 ### Dimenssion
 
 <img alt="m1s_dock_size" src="./../../../zh/maix/m1s/assets/m1s_dock/m1s_dock_size.png" width=45%>
 
-### Pin map
+### Pinmap
 
 <img alt="m1s_doc_pin_map" src="./../../../zh/maix/m1s/assets/m1s_dock/m1s_doc_pin_map.png" width=45%>
 
@@ -194,6 +199,7 @@ Video of M1s Dock and M0Sense：M1s Dock is time before 3:15，and time after 3:
 
 - [SDK](https://github.com/sipeed/M1s_BL808_SDK) (Github) 
 - [Examples](https://github.com/sipeed/M1s_BL808_example)（Github）
+- [Linux](https://github.com/sipeed/M1s_BL808_Linux_SDK)（Github）
 - [Telegram](https://t.me/sipeed)
 - [Twitter](https://twitter.com/SipeedIO)
 - [Reddit](https://www.reddit.com/r/Sipeed/)

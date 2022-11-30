@@ -23,12 +23,14 @@ Sipeed M1s Dock 是基于 [Sipeed M1s](./m1s_module.md) 模组来设计的一款
 
 购买链接：[淘宝](https://item.taobao.com/item.htm?id=691108452443)
 
-<table>
+<!-- <table>
   <tr>
-  <td><img alt="m1s_dock_top" src="./assets/m1s_dock/m1s_dock_top.jpg"></td>
+  <td><img alt="m1s_dock.jpg" src="./assets/m1s_dock/m1s_dock.jpg"></td>
   <td><img alt="m1s_dock_bottom" src="./assets/m1s_dock/m1s_dock_bottom.jpg"></td>
   </tr>
-</table>
+</table> -->
+
+<td><img alt="m1s_dock.jpg" src="./assets/m1s_dock/m1s_dock.jpg" width="45%"></td>
 
 ## 宣传视频
 
@@ -120,12 +122,16 @@ M1s Dock 和 M0Sense 总览：3:15 之前的都是 M1s Dock。
 
 ### 外设框图
 
-<table width=40%>
+<!-- <table>
   <tr>
-  <td><img alt="m1s_dock_function_block_top" src="./assets/m1s_dock/m1s_dock_function_block_top.jpg"></td>
-  <td><img alt="m1s_dock_function_block_top" src="./assets/m1s_dock/m1s_dock_function_block_top.jpg"></td>
+  <td><img alt="m1s_dock_function_block_top" src="./assets/m1s_dock/m1s_dock_function_block_top.jpg"  width=40%></td>
+  <td><img alt="m1s_dock_function_block_top" src="./assets/m1s_dock/m1s_dock_function_block_top.jpg"  width=40%></td>
   </tr>
-</table>
+</table> -->
+
+
+<img alt="m1s_dock_function_block_top" src="./assets/m1s_dock/m1s_dock_function_block_top.jpg"  width=20%>
+<img alt="m1s_dock_function_block_top" src="./assets/m1s_dock/m1s_dock_function_block_top.jpg"  width=20%>
 
 ### 尺寸图
 
@@ -203,8 +209,10 @@ M1s Dock 和 M0Sense 总览：3:15 之前的都是 M1s Dock。
 
 - [SDK](https://gitee.com/sipeed/M1s_BL808_SDK) (gitee) 
 - [Examples](https://gitee.com/sipeed/M1s_BL808_example)（gitee）
+- [Linux](https://github.com/sipeed/M1s_BL808_Linux_SDK)（Github）
 - 交流 QQ 群：`816177882` 。[点我加群](https://jq.qq.com/?_wv=1027&k=0fOkj3EB)
 - 论坛：[bbs.sipeed.com](https://bbs.sipeed.com/)
+- [在线模型平台](https://maixhub.com/)
 
 ## 注意事项
 
