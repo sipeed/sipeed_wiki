@@ -13,7 +13,7 @@ update:
 
 Sipeed M1s module is an AIOT module based on BL808 of [Bouffalo Lab](https://en.bouffalolab.com/), it contains 3 cores inside, with WiFi/BT/BLE/Zigbee wireless units, including multiple cpus, audio encoder and decoder, video encoder and decoder and AI hardware accelerator (BLAI-100), suitable for a variety of high performance and low power applications. 
 
-Buy one: [Aliexpress]()
+Buy one: [Aliexpress](https://www.aliexpress.com/item/1005004970779483.html)
 
 <img src="./../../../zh/maix/m1s/assets/m1s_module/m1s_module_outlook.png" alt="m1s_module_outlook" width=35%>
 
@@ -79,7 +79,7 @@ Buy one: [Aliexpress]()
     </tr>
     <tr>
       <td>
-        3D model file：<a href="https://dl.sipeed.com/shareURL/MAIX/M1s/M1s/5_3D_file">点击跳转</a>
+        3D model file：<a href="https://dl.sipeed.com/shareURL/MAIX/M1s/M1s/5_3D_file">Click me</a>
       </td>
     </tr>
     <tr>
@@ -97,6 +97,8 @@ Buy one: [Aliexpress]()
 <img src="./../../../zh/maix/m1s/assets/m1s_module/m1s_module_size.png" alt="m1s_module_size" width=35%>
 
 ## Pin map
+
+Visit Schematic for details：[Click me](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s/2_Schematic)
 
 <img src="./../../../zh/maix/m1s/assets/m1s_module/m1s_pins.png" alt="m1s_pins" width=55%>
 
@@ -251,11 +253,11 @@ Buy one: [Aliexpress]()
 
 - [SDK](https://github.com/sipeed/M1s_BL808_SDK) (Github) 
 - [Examples](https://github.com/sipeed/M1s_BL808_example)（Github）
+- [Linux](https://github.com/sipeed/M1s_BL808_Linux_SDK)（Github）
 - [Telegram](https://t.me/sipeed)
 - [Twitter](https://twitter.com/SipeedIO)
 - [Reddit](https://www.reddit.com/r/Sipeed/)
 - [Online model platform](https://maixhub.com/)
-
 
 ## Attention
 

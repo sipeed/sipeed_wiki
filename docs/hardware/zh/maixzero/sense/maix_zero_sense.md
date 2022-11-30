@@ -15,16 +15,16 @@ Sipeed M0sense 是基于[博流智能科技](http://www.bouffalolab.com/)的 BL7
 
 购买链接：暂无
 
-渲染图：
+<!-- 渲染图： -->
 
 <img src="./assets/m0sense_1.png" alt="m0sense_1.png" >
 
-实物图：
+<!-- 实物图：
 
 <div>
   <img src="./assets/m0sense_outlook_top.png" alt="m0sense_outlook_top.png" width=20%>
   <img src="./assets/m0sense_outlook_bot.png" alt="m0sense_outlook_bot.png" width=20%>
-</div>
+</div> -->
 
 ## 视频
 
@@ -119,6 +119,8 @@ M1s Dock 和 M0Sense 总览； M0Sense 在 3:15 处开始，之前的为 M1s Doc
     </tr>
     </tbody>
 </table>
+
+## 尺寸
 
 <img src="./assets/m0sense_size.png" alt="m0sense_size" width=55%>
 

@@ -17,16 +17,18 @@ Buy one: [Aliexpress]()
 
 Render picture:
 
-<img src="./../../../../hardware/zh/maixzero/sense/assets/m0sense_1.png" alt="m0sense_1.png" width=30%>
+<img src="./../../../../hardware/zh/maixzero/sense/assets/m0sense_1.png" alt="m0sense_1.png">
 
 Real picture:
 
 <div>
-  <img src="./../../../../hardware/zh/maixzero/sense/assets/m0sense_outlook_top.png" alt="m0sense_outlook_top.png" width=40%>
-  <img src="./../../../../hardware/zh/maixzero/sense/assets/m0sense_outlook_bot.png" alt="m0sense_outlook_bot.png" width=40%>
+  <img src="./../../../../hardware/zh/maixzero/sense/assets/m0sense_outlook_top.png" alt="m0sense_outlook_top.png" width=20%>
+  <img src="./../../../../hardware/zh/maixzero/sense/assets/m0sense_outlook_bot.png" alt="m0sense_outlook_bot.png" width=20%>
 </div>
 
 ## Video
+
+Introduction video for [M1s Dock](https://wiki.sipeed.com/en/m1s#dock) and M0Sense. M0Sense introduction starts at 3:15, before when the introduction of [M1s Dock](https://wiki.sipeed.com/en/m1s#dock) is.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/hkSAW42Evl4?start=197" title="M0Sense" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -120,11 +122,11 @@ Real picture:
 
 <img src="./../../../../hardware/zh/maixzero/sense/assets/m0sense_size.png" alt="m0sense_size" width=55%>
 
-## 引脚
+## Pinmap
 
 <img src="./../../../../hardware/zh/maixzero/sense/assets/m0sense_pinmap.png" alt="m0sense_pinmap" width=75%>
 
-## 对比
+## Comparsion
 
 <table>
   <thead>
@@ -261,7 +263,7 @@ Real picture:
 - [Reddit](https://www.reddit.com/r/Sipeed/)
 - [Online model platform](https://maixhub.com/)
 
-## 注意事项
+## Attentions
 
 <table>
     <tr>
@@ -290,6 +292,6 @@ Real picture:
     </tr>
 </table>
 
-## 联系
+## Contact
 
 M0sense eets different needs of customers in various scenarios. Please contact email [support@sipeed.com](support@sipeed.com) for technical support and business cooperation.

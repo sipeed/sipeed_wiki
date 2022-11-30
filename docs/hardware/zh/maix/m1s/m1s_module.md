@@ -258,8 +258,10 @@ Sipeed M1s 模组是基于[博流智能科技](http://www.bouffalolab.com/)的 B
 
 - [SDK](https://gitee.com/sipeed/M1s_BL808_SDK) (gitee) 
 - [Examples](https://gitee.com/sipeed/M1s_BL808_example)（gitee）
+- [Linux](https://github.com/sipeed/M1s_BL808_Linux_SDK)（Github）
 - 交流 QQ 群：`592731168` 。[点我加群](https://jq.qq.com/?_wv=1027&k=uyKNhTeu)
 - 论坛：[bbs.sipeed.com](https://bbs.sipeed.com/)
+- [在线模型平台](https://maixhub.com/)
 
 ## 注意事项
 
