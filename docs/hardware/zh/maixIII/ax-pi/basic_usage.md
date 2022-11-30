@@ -1719,6 +1719,8 @@ root@AXERA:~#
 
 这里 **0x21** 和 **0x36** 就代表的板子在 cam0 这个排线上的 /dev/i2c-0 设备存在某个摄像头的 i2c 设备，而读写可用 i2cget 和 i2cset 命令，与其他芯片皆为同理。
 
+> m3axpi 的 I2C 是 /dev/i2c-7 对应 `i2cdetect -y -r 0` 喔， 0 1 2 是摄像头的， 8 是系统的 usb rtc 的， 9 做预留。
+
 ### SPI
 
 可参考右边同理事例：[为 AW V831 配置 spidev 模块，使用 py-spidev 进行用户层的 SPI 通信。](https://www.cnblogs.com/juwan/p/14341406.html)
