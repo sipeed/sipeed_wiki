@@ -24,7 +24,11 @@ Lichee RV Dock 是为开源开发者而设计的一款功能**集成度高**、*
 
 ## 相关链接
 
-[下载站](https://dl.sipeed.com/shareURL/LICHEE/D1/Lichee_RV-Dock)
+[规格书](https://dl.sipeed.com/shareURL/LICHEE/D1/Lichee_RV-Dock/1_Datasheet)
+[原理图](https://dl.sipeed.com/shareURL/LICHEE/D1/Lichee_RV-Dock/2_Schematic)
+[点位图](https://dl.sipeed.com/shareURL/LICHEE/D1/Lichee_RV-Dock/3_Bitmap)
+[尺寸图](https://dl.sipeed.com/shareURL/LICHEE/D1/Lichee_RV-Dock/4_Dimensions)
+[3D 模型文件](https://dl.sipeed.com/shareURL/LICHEE/D1/Lichee_RV-Dock/5_3D)
 
 [使用教程](./flash.md)
 

@@ -1,7 +1,5 @@
 # Lichee Dock
 
-> Edit on 2022.04.22
-
 ## Introduction
 
 Lichee RV Dock is a RISC-V Linux development kits with high integration, small size and **affordable price** designed for opensource developer. It's equipped with **HDMI interface** and it supports many screen by its screen convert board. It's also equipped with many peripherals, including a UAB-A port, **2.4G Wifi-BT module**, an analog microphone and a speaker jack interface. These means user can use it to develop or test linux application just by display device and input device like mouse and keyboard, which shortens developer's research and development time. 
@@ -24,9 +22,13 @@ Lichee RV Dock is a RISC-V Linux development kits with high integration, small s
 | KEY | An onboard reset key<br>An user's key |
 
 
-## Download center
+## Links
 
-[Download center](https://dl.sipeed.com/shareURL/LICHEE/D1/Lichee_RV-Dock)
+[Datasheet](https://dl.sipeed.com/shareURL/LICHEE/D1/Lichee_RV-Dock/1_Datasheet)
+[Schematic](https://dl.sipeed.com/shareURL/LICHEE/D1/Lichee_RV-Dock/2_Schematic)
+[Bitmap](https://dl.sipeed.com/shareURL/LICHEE/D1/Lichee_RV-Dock/3_Bitmap)
+[Dimensions](https://dl.sipeed.com/shareURL/LICHEE/D1/Lichee_RV-Dock/4_Dimensions)
+[3D file](https://dl.sipeed.com/shareURL/LICHEE/D1/Lichee_RV-Dock/5_3D)
 
 ## Support
 
