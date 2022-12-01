@@ -179,6 +179,10 @@
                             "file": "maixIII/ax-pi/basic_usage.md"
                         },
                         {
+                            "label": "开启 Python 编程",
+                            "file": "maixIII/ax-pi/python_api.md"
+                        },
+                        {
                             "label": "准备开发环境",
                             "file": "maixIII/ax-pi/dev_prepare.md"
                         },
