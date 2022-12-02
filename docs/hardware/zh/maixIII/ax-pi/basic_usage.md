@@ -2198,46 +2198,23 @@ UVC 也能在安卓手机端的 `app` 上当虚拟摄像头使用，使用前在
 
 >**注意**：如果需要完全脱离电脑端用手机端供电的话，需要把 uvc 程序写入开机脚本即可。
 
-<!-- ## Python API 编程
+### lvgl7 UI
 
-> 在 **20221125** 后更新的镜像内置了基于 ax-pipeline 的应用并支持可用 Python API 编程。
+> 在 **20221125** 后更新的镜像系统里，我们内置了 lvgl7 UI 应用。
 
-**ax_pipeline**：[点击查看相关仓库](https://github.com/junhuanchen/ax_pipeline_api)
+**运行前先准备材料**：USB type-c 线/USB type-c 转换头/无线鼠标。
+使用 USB type-c 线接入设备的 **UART** 口与 **PC** 端，使用转换头将鼠标的 USB 接收器接入设备 **OTG** 口。
+运行下方命令后终端会弹出无报错的启动信息后，屏幕会显示画面用户即可体验 lvgl 应用了。
 
-使用之前需要替换最新 **20221125** 的镜像然后在终端安装 ax_pipeline_api 包。
-
-```bash
-pip3 install ax_pipeline_api -U
 ```
-再使用以下命令行运行一下内置的 `pipeline.py` 即可在屏幕上看到效果
-
-```bash
 cd /home
-python3 pipeline.py
+./bin/sample_vin_ivps_joint_vo_lvgl -c 0
 ```
 
-关于如何修改摄像头型号、libxxx*so、model 之类的可以参考 readme 文档
+.. details::点击查看终端示例图
+    ![lvgi_adb](./../assets/lvgl_adb.png)
 
-### 支持 microbit 掌控板
+<p align="center">
+    <iframe src="//player.bilibili.com/player.html?aid=690497396&bvid=BV1n24y1C7DN&cid=901748014&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+</p>
 
-连接 microbit 掌控版并使用 python 编程前需要准备好以下的材料。
-
-- **microbit 掌控版以及 micro usb 数据线**
-- **type-c usb 转接头**
-- **Maix-III AXera-Pi 开发板以及 type-c 线** 
-  
-具体接线图待补充！
-
-可在终端接入 `python3` 模式运行下方代码即可连接 microbit 掌控版并会看到 **hello world** 亮灯效果。
-
-```bash
-import time
-from pinpong.board import Board,Pin
-from pinpong.extension.microbit import *
-Board("microbit","/dev/ttyACM0").begin()
-display.show(Image.HEART)
-while True:
-    display.scroll("hello world")
-```
-
-![microbit](./../assets/microbit.jpg) -->
