@@ -4,6 +4,12 @@ items:
 - label: AI 基础
 - label: 什么是 AI ?
   file: basic/what_is_ai.md
+- label: 深度神经网络通俗理解
+  file: basic/dnn_basic.md
+- label: 常见代码框架和工具
+  file: basic/code_frameworks.md
+- label: 教程汇总
+  file: basic/courses.md
 - label: 部署到边缘设备
 - label: 部署方法汇总
   file: deploy/README.md

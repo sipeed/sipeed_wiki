@@ -4,6 +4,12 @@ items:
 - label: AI basic
 - label: What is AI ?
   file: basic/what_is_ai.md
+- label: Simple Understanding DNN
+  file: basic/dnn_basic.md
+- label: Code Frameworks and Tools
+  file: basic/code_frameworks.md
+- label: Tutorial summary
+  file: basic/courses.md
 - label: Deploy to edge devices
 - label: Deployment methods
   file: deploy/README.md
