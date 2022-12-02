@@ -13,7 +13,7 @@ update:
 
 Sipeed M0sense 是基于[博流智能科技](http://www.bouffalolab.com/)的 BL702 芯片所设计的一款 AIOT 开发板，主控芯片为 Risc-V 架构，支持低功耗蓝牙。板载一个 8P FPC 接口来连接 LCD 屏幕，额外配备了 1 个麦克风、1 个 RGB LED 和一颗六轴传感器芯片，引出了一路 USB 2.0 FS 到 Type-C 座子。
 
-购买链接：暂无
+购买链接：[淘宝](https://item.taobao.com/item.htm?id=693997918701)
 
 <!-- 渲染图： -->
 

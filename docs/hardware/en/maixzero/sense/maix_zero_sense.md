@@ -13,7 +13,7 @@ update:
 
 Sipeed M0sense is an AIOT development board based on BL702 of [Bouffalo Lab](https://en.bouffalolab.com/), it's RISC-V architecture, supports low-energy bluetooth. There is a 8Pins FPC connector for connecting LCD screen, and 1 microphone, 1 RGB LED and a six-axis sensor chip are on this board. One USB 2.0 FS routes to Type-C interface.
 
-Buy one: [Aliexpress]()
+Buy one: [Aliexpress](https://www.aliexpress.com/item/1005005012406688.html)
 
 Render picture:
 
