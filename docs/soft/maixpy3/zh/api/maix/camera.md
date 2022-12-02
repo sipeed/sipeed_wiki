@@ -41,6 +41,8 @@ from maix import camera
 
 现在作为开发调试的保留功能，像缩放、裁剪、翻转、旋转请使用 image 的一系列函数。
 
+![改变摄像头分辨率可以获得更大的视角](https://wiki.sipeed.com/news/MaixPy3/camera_resize/camera_resize.html)
+
 #### 关于增益和曝光的摄像头控制接口
 
 > 0.5.2 以后给 v83x m2dock 系列的加入了 [exp_gain](https://github.com/sipeed/MaixPy3/commit/d7e5cb04ed31a2ffe135407a0379a701bd3a5522) 函数。
