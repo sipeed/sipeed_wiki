@@ -36,7 +36,7 @@ update:
 
 AXera-Pi 默认板卡没有存储介质，因此需要准备一张系统卡来启动设备。
 
-目前 AXera-Pi 提供的是 Debian11 Bullseye 镜像，[Ubuntu 源自 Debian。 这意味着 Ubuntu 使用与 Debian 相同的 apt 打包系统，并共享来自 Debian 存储库的大量软件包和库，利用 Debian 基础设施作为基础。 大多数“派生” Linux 发行版，它们使用相同的包管理系统并与基于的发行版共享软件包。 ](https://zhuanlan.zhihu.com/p/426219868)。
+目前 AXera-Pi 提供的是 Debian11 Bullseye 镜像，[Ubuntu 源自 Debian，这意味着 Ubuntu 使用与 Debian 相同的 apt 打包系统，并共享来自 Debian 存储库的大量软件包和库，利用 Debian 基础设施作为基础。 大多数“派生” Linux 发行版，它们使用相同的包管理系统并与基于的发行版共享软件包。 ](https://zhuanlan.zhihu.com/p/426219868)
 
 > [选择 Debian 的理由](https://www.debian.org/intro/why_debian)
 
@@ -44,8 +44,7 @@ AXera-Pi 默认板卡没有存储介质，因此需要准备一张系统卡来�
 
 ### 如何选择 SD 卡？
 
-除了在官方店铺购买以及预烧录 debian11 的 SD 卡还可以在参考以下表格选择适合需求的 SD 卡。
-为了方便用户选择，我们对部分 SD 卡在 AXera-Pi 板子上进行了读写测速。
+为了方便用户有更多的选择，我们对部分 SD 卡在 AXera-Pi 板子上进行了读写测速。
 
 ![sd](./../assets/sd.jpg)
 
@@ -71,21 +70,97 @@ AXera-Pi 默认板卡没有存储介质，因此需要准备一张系统卡来�
 
 ### 烧录系统
 
->**注意**：已购买镜像卡的同学跳过这一步骤，直接把 TF 卡插上即可启动 Linux Debian 系统。
-
-**烧录系统镜像传送门**：[点击前往](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/flash_system.html#系统简介).
-
-设备默认是没有 Emmc 介质可以启动的，需要从 TF 卡启动 Linux 系统，请从上文「烧录系统镜像」了解。
-通过跨平台烧录工具 [Etcher](https://etcherpc.com/) 烧录镜像成功后，进行下一步接线准备启动板子。
+因设备默认无 Emmc 介质可以启动，用户需要从 TF 卡启动 Linux Debian 系统，
+已在官方购买镜像卡的同学跳过这一步骤，直接把 TF 卡插上即可启动 Linux Debian 系统。
 
 ![axpi-flash](./../assets/axpi-flash.png)
 
+#### 如何获取到镜像？
+
+因为镜像文件比较大，因此这里仅提供百度云下载链接。
+
+前往百度云[点击进入下载页面](https://pan.baidu.com/s/1-UtDoAVP6spwqjHP2wneJA)，输入提取码 `sdls` 即可下载文件，镜像包与校验文件都已经放在里面了。
+
+![debian](./../assets/debian.jpg)
+
+用两个文件名来举例，其中文件命名规则如下（拖动滚动条来查看全部）：
+
+| 文件名                                 | 提供方 | 文件类型                                          | 适用芯片 | 镜像发行版 | 发布日期 |
+| -------------------------------------- | ------ | ------------------------------------------------- | -------- | ---------- | -------- |
+| sipeed_ax620a_debian11_20221013.zip    | sipeed | 镜像压缩包                                        | ax620a   | debian11   | 20221009 |
+| sipeed_ax620a_debian11_20221013.md5sum |        | <p style="white-space:nowrap">md5sum 校验文件</p> |          |            |          |
+
+如果里面有多个镜像文件，那么建议下载最新的镜像文件。
+
+校验文件需要在 Linux 环境中使用，windows10 及以上的用户可以使用 wsl 当作 Linux 环境。
+
+使用方法为 `md5sum -c md5sum校验文件`。
+
+.. details::点我查看校验 log
+
+    ```bash    
+    root@desktop:$ md5sum -c sipeed_ax620a_debian11_20221009.md5sum
+    sipeed_ax620a_debian11_20221009.zip: OK
+    ```
+
+#### 如何烧录镜像？
+
+**烧录前我们需要进行以下准备：**
+
+- 一张容量大于 8G 的 SD 卡：建议购买官方镜像卡，不然可能会因为 SD 卡质量差而带来糟糕的体验
+- 一个读卡器：建议使用 USB3.0 接口的读卡器，不然读卡器的 USB 速度过低会导致烧录时间过长
+- [Etcher](https://www.balena.io/etcher/)：根据自身电脑下载对应版本的软件即可
+ 
+
+**镜像系统烧录方法：**
+
+首先打开 [Etcher](https://www.balena.io/etcher/ "Etcher") 软件，点击 `Flash from file` 选中已经下载好的 `zip` 文件镜像，然后点击 `Select target` 选中 SD 卡，最后点击 `Flash` 进行烧录等待完成即可。 
+
+<!-- **解压出镜像文件：**
+![extract_image_file](./../../../assets/maixIII/ax-pi/extract_image_file.gif) -->
+
+**烧录镜像文件到 SD 卡：**
+
+![burn_image_by_etcher](./../../assets/../../assets/maixIII/ax-pi/burn_image_by_etcher.gif)
+
+下图是烧录过程中的一张截图（可参照）：
+
+![axera_burning_image](./../../../assets/maixIII/ax-pi/axera_burning_image.png)
+
+最终下载结束后的效果会和下图一样，显示 `Flash Complete!`：
+
+![下载结束](./../../maixII/M2A/assets/finish_flash.png)
+
+> **注意**：如果出现烧录失败的情况，请手动格式化一下 SD 卡，Windows 和 MacOS 可以使用 [SD Card Formatter](https://www.sdcard.org/downloads/formatter/eula_windows/SDCardFormatterv5_WinEN.zip)来格式化 SD 卡，Linux 系统可以使用系统的 disk 工具或 [Gparted](https://gparted.org/)来格式化。
+
 ### 启动系统
 
-**如何正确接入屏幕及摄像头**：[点击查看](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html#%E6%8E%A5%E7%BA%BF%E7%A4%BA%E4%BE%8B).
-
 当完成上一步骤后我们需要给 AXera-Pi 进行正确的接线并上电启动。
-把镜像卡插入卡槽并接上 `USB-UART` 和 `USB-OTG` 口，再把摄像头与屏幕后接好给设备通电就行。
+
+#### 如何正确接线？
+
+>**供电要求**：由于板子的功耗要求低，使用 usb3.0 1A 即可启动 linux 系统。
+
+**接线前我们需要进行准备工作：**
+
+- 一台 AXera-Pi 开发板
+- 两条能出 1A 的 USB3.0 口（或是带供电的 usb hub 拓展）
+- 一张大于 8G 烧录 debian11 的镜像系统卡
+- GC4653 Sensor 普通版/OS04a10 Sensor 夜视版
+- 5 寸 MIPI 屏
+
+![axpi-config](./../assets/axpi-config.jpg)
+
+**可参考以下示例避免误接：**
+
+将屏幕**（排线反面朝上）**接入底板背面 LCD 接口，组装好后翻正板子在最右侧的卡槽处插入已烧录好的镜像卡，再接入**（认准蓝色线序在上）**摄像头并揭开保护盖。
+
+<html>
+  <img src="./../assets/mipi.jpg" width=48%>
+  <img src="./../assets/sensor.jpg" width=48%>
+</html>
+
+把设备的 `USB-UART` 及 `USB-OTG` 口用 USB type-c 线全部接入 PC 端通电后设备会自启。
 
 ![axpi-connect](./../assets/axpi-connect.png)
 
@@ -162,9 +237,9 @@ AXera-Pi 默认板卡没有存储介质，因此需要准备一张系统卡来�
 
 ### 登录到板子里
 
-**系统使用手册传送门**：[点击前往](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html#%E7%B3%BB%E7%BB%9F%E7%99%BB%E5%BD%95).
+当 **AXera-Pi** 开机成功后，这时我们把板子当做一台 Linux 服务器来对待。通过**「系统登录方式」**快速帮助用户了解如何登录到设备里的 Linux 系统，用户可以选择 `USB-UART serial` 或 `USB-OTG SSH` 登录。 
 
-当 **AXera-Pi** 正常开机成功后，这时候我们把板子当做一台 Linux 服务器来对待。还需要通过**「系统使用手册」**来快速帮助用户了解如何登录到设备里的 Linux 系统。同时它还会告诉你，板上所有验证过的系统调频、外设、驱动、应用等资源的用法，像一些 Linux 操作基础、如何控制 I2C / UART / SPI 这些硬件设备的操作，或是直接运行板子内置的 AI 开箱应用模型等内容。
+**「系统使用手册-登录方式」**：[点击前往](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html#%E7%B3%BB%E7%BB%9F%E7%99%BB%E5%BD%95)
 
 ![axpi-login](./../assets/axpi-login.png)
 
@@ -221,7 +296,21 @@ AXera-Pi 默认板卡没有存储介质，因此需要准备一张系统卡来�
 
 我们可以知道板子的基础信息，目前默认是用 800Mhz 来跑，而且内存分配较保守能留给用户的空间内存不到 1GB，但不用担心，板子贴得内存最小都得是 2G 的，所以之后会通过更新内核开放更多内存给用户空间。
 
-<!-- ### 体验 Python 编程 -->
+### 学会把板子用起来！
+
+你可以在系统使用手册获得板上所有验证过的系统调频、外设、驱动、应用等资源的用法，像一些 Linux 操作基础、如何控制 I2C / UART / SPI 这些硬件设备的操作。
+
+**「系统使用手册-验证外设」**：[点击前往](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html#%E9%AA%8C%E8%AF%81%E7%B3%BB%E7%BB%9F%E5%A4%96%E8%AE%BE)
+
+![axpi-ai](./../assets/axpi-ai.png)
+
+以及还有众多可以直接在板子终端运行的 AI 应用模型以及使用例程，快去用起来！
+
+**「系统使用手册-内置 AI 应用」**：[点击前往](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html#%E9%AA%8C%E8%AF%81%E7%B3%BB%E7%BB%9F%E5%A4%96%E8%AE%BE)
+
+### 试试 Python 编程吧！
+
+待更新
 
 ### 编译代码运行
 
@@ -238,8 +327,6 @@ AXera-Pi 默认板卡没有存储介质，因此需要准备一张系统卡来�
 ### 训练模型部署
 
 初学者训练模型可以从 [AI 开发指南](https://wiki.sipeed.com/ai/zh/deploy/ax-pi.html) 学习如何训练一个最简单的模型到量化转换部署测试。
-
-![axpi-ai](./../assets/axpi-ai.png)
 
 更专业更深入的调优需要了解 [Pulsar](https://pulsar-docs.readthedocs.io/) ，这是由**「爱芯元智」**自主研发的 all-in-one 神经网络编译器，充分发挥片上异构计算单元(CPU+NPU)算力， Pulsar 工具链核心功能是将 .onnx 模型编译成芯片能解析并运行的 （.joint） 模型。
 
@@ -285,66 +372,7 @@ AXera-Pi 默认板卡没有存储介质，因此需要准备一张系统卡来�
     <iframe src="//player.bilibili.com/player.html?aid=260625114&bvid=BV1me411T7g8&cid=837160730&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="max-width:640px; max-height:480px;"> </iframe>
 </p>
 
-## 获取镜像
 
-因为镜像文件比较大，因此这里仅提供百度云下载链接。
-
-前往百度云 [点我](https://pan.baidu.com/s/1-UtDoAVP6spwqjHP2wneJA) ，提取码 `sdls` ,下载文件，镜像包与校验文件都已经放在里面了。
-
-![debian](./../assets/debian.jpg)
-
-用两个文件名来举例，其中文件命名规则如下（拖动滚动条来查看全部）：
-
-| 文件名                                 | 提供方 | 文件类型                                          | 适用芯片 | 镜像发行版 | 发布日期 |
-| -------------------------------------- | ------ | ------------------------------------------------- | -------- | ---------- | -------- |
-| sipeed_ax620a_debian11_20221013.zip    | sipeed | 镜像压缩包                                        | ax620a   | debian11   | 20221009 |
-| sipeed_ax620a_debian11_20221013.md5sum |        | <p style="white-space:nowrap">md5sum 校验文件</p> |          |            |          |
-
-如果里面有多个镜像文件，那么建议下载最新的镜像文件。
-
-校验文件需要在 Linux 环境中使用，windows10 及以上的用户可以使用 wsl 当作 Linux 环境。
-
-使用方法为 `md5sum -c md5sum校验文件`。
-
-.. details::点我查看校验 log
-
-    ```bash    
-    root@desktop:$ md5sum -c sipeed_ax620a_debian11_20221009.md5sum
-    sipeed_ax620a_debian11_20221009.zip: OK
-    ```
-
-## 烧录镜像
-
-### 准备工作
-
-**硬件**：
-- 一张容量大于 8G 的 SD 卡：建议购买官方提供的卡，不然可能因为其他的 SD 卡质量差而带来糟糕的体验
-- 一个读卡器：建议使用 USB3.0 接口的读卡器，不然读卡器的 USB 速度过低会导致烧录时间过长
-
-**软件**：
-- <a href="https://www.balena.io/etcher/" alt="Etcher" target="_blank"> Etcher </a>：根据自身电脑下载对应版本的软件即可
-
-### 镜像系统烧录方法
-
-> **20221012** 现已确认 Etcher 软件可直接支持烧录 zip 压缩包里面的 img 镜像，用户不需要解压的步骤直接选择 zip 文件按下面步骤操作即可。
-
-首先打开 [Etcher](https://www.balena.io/etcher/ "Etcher") 软件，点击 `Flash from file` ,选中已经下载好的 `zip` 文件镜像，然后点击 `Select target` 选中sd卡，最后点击 `Flash` 进行烧录，等待完成即可。 
-
-<!-- **解压出镜像文件：**
-![extract_image_file](./../../../assets/maixIII/ax-pi/extract_image_file.gif) -->
-
-**烧录镜像文件到 SD 卡：**
-![burn_image_by_etcher](./../../assets/../../assets/maixIII/ax-pi/burn_image_by_etcher.gif)
-
-下图是烧录过程中的一张截图（可参照）：
-![axera_burning_image](./../../../assets/maixIII/ax-pi/axera_burning_image.png)
-
-最终下载结束后的效果会和下图一样，显示 `Flash Complete!`：
-
-![下载结束](./../../maixII/M2A/assets/finish_flash.png)
-
-> **注意**：如果出现烧录失败的情况，请手动格式化一下 SD 卡。
-> Windows 和 MacOS 可以使用 [SD Card Formatter](https://www.sdcard.org/downloads/formatter/eula_windows/SDCardFormatterv5_WinEN.zip)来格式化 SD 卡，Linux 系统可以使用系统的 disk 工具或 [Gparted](https://gparted.org/)来格式化。
 
 
 

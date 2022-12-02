@@ -36,15 +36,12 @@ A：试着按复位键或者是插拔重启设备即可。
 
 ## Q：运行程序后屏幕显示花屏？
 
+（待补充图）
 A：查看摄像头型号参数是否配置正确。
-
-## Q：运行 ODM 启动命令后报错 i2c_read: Failed to read reg: Remote I/O error.!？
-
-A：修改 `run.sh` 启动脚本里的摄像头参数，脚本默认参数是 os04a10 摄像头，更换为 gc4653 将 `-e 2 -v 0 -c 0` 修改为 `-v 0 -c 2` 即可。
 
 ## Q：摄像头、屏幕画面反了倒过来了怎么解决？
 
-A：物理旋转。
+A：这是批次问题，物理旋转即可解决。
 
 ![fqa_video](./../assets/fqa_video_a.jpg)
 
@@ -85,6 +82,8 @@ A：可能是核心板与底板衔接松了，重新插拔核心板与底板可�
 A: 运行一下`python3 -c "import os, binascii; os.system('sed -i \'/iface eth0 inet dhcp/ahwaddress ether {}\' /etc/network/interfaces'.format(binascii.hexlify(bytes.fromhex(open('/proc/ax_proc/uid').read().split('0x')[1][:-5]),':').decode('iso8859-1'))) if os.system('grep \'hwaddress ether\' /etc/network/interfaces -q') != 0 else exit();"` 后重启即可。
 
 ## Q：开机画面出现锯齿画面怎么解决？
+
+（待补充图）
 
 A：因为屏幕批次不同导致的原因，更新到最新的 **20221125** 后的镜像即可。
 

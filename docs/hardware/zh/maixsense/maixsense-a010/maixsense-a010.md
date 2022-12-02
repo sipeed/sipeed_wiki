@@ -130,7 +130,8 @@ COMTOOL 上位机的配置控件说明
 
 **Maix Bit 购买传送门**：[点击查看](https://item.taobao.com/item.htm?spm=a230r.1.14.11.681570a1yq4sJD&id=586580351110&ns=1&abbucket=10&mt=)
 **Maix Bit 资料传送门**：[更多详细资料](https://wiki.sipeed.com/hardware/zh/maix/maixpy_develop_kit_board/maix_bit.html)
-**MaixSense-A010 外接 Maix Bit 例程**：[点击查看](http://wiki.sipeed.com/hardware/zh/maixsense/maixsense-a010/mcu.html)
+**Maix Bit 源码传送门**：[点击查看](./maixsense-a010/../code.html#tof_mainpy)
+<!-- **MaixSense-A010 外接 Maix Bit 例程**：[点击查看](http://wiki.sipeed.com/hardware/zh/maixsense/maixsense-a010/mcu.html) -->
 
 ![ms_mcu](./assets/ms_mcu.jpg)
 
