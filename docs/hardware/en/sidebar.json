@@ -72,7 +72,20 @@
                         },
                         {
                             "label": "M1s Board",
-                            "file": "maix/m1s/m1s_dock.md"
+                            "items":[
+                                {
+                                    "label":"Introduction",
+                                    "file":"maix/m1s/m1s_dock.md"
+                                },
+                                {
+                                    "label":"Usage",
+                                    "file":"maix/m1s/other/start.md"
+                                },
+                                {
+                                    "label":"Others",
+                                    "file":"maix/m1s/other/others.md"
+                                }
+                            ]
                         },
                         {
                             "label": "M1s Machine Key",
