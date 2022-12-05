@@ -92,16 +92,16 @@ title: MAIX-III AXera-Pi 是什么？
 
 [点此 >>> 「查看 AX620A 算子支持列表」 <<< 喔！](https://pulsar-docs.readthedocs.io/zh_CN/latest/appendix/op_support_list.html)
 
-下表统计一下目前千元内在售的 AI 主板（仅单主板，全套太贵）的 NPU 算力性能从高到低的排行（20221012）
+下表统计一下目前（20221012）千元内在售的 AI 主板（仅单主板，全套太贵）的 NPU 算力性能从高到低的排行（商品价格会受市场波动影响，若发现表格数据过于离谱请指正）。
 
 | 芯片            | 产品             | 价格    | CPU                                                 | RAM   | NPU |
 | --------------- | -------------------------- | ------- | --------------------------------------------------- | ----- | ----------- |
 | 晶晨 A311D      | Khadas VIM3                | ¥850.00 | 四核 ARM Cortex-A73@2.2GHz <br> 双核 ARM Cortex-A53@1.8GHz | 2GB   | 5TOPs          |
 | 地平线 X3       | 旭日派                     | ¥499.00 | 四核 ARM Cortex-A53@1.2GHz                          | 2GB   | 5TOPs          |
 | 爱芯元智 AX620A | MAIX-III AXera-Pi          | ¥399.00 | 四核 ARM Cortex-A7@1.0GHz                             | 2GB   | 3.6TOPs        |
-| 瑞芯微 RV1126   | EASY EAI Nano              | ¥328.00 | 四核 ARM Cortex-A7@1.5GHz                            | 1GB   | 2TOPs          |
 | 堪智 K510       | K510 CRB-KIT Lite          | ¥699.00 | 双核 RISCV 64 位 800Mhz                             | 512MB | 3TOPs          |
-| 全志 V85X       | 全志 V853 开发板（仅主板） | ¥973.00 | 单核 ARM Cortex-A7@1.2GHz | 512MB | 1TOPs          |
+| 瑞芯微 RV1126   | EASY EAI Nano              | ¥328.00 | 四核 ARM Cortex-A7@1.5GHz                            | 1GB   | 2TOPs          |
+| 全志 V85X       | 全志 V853 单主板            | ¥973.00 | 单核 ARM Cortex-A7@1.2GHz | 512MB | 1TOPs          |
 
 #### 大量现成的模型！
 
@@ -113,7 +113,7 @@ title: MAIX-III AXera-Pi 是什么？
 
 - 物体分类
   - MobileNetv1
-  - MobileNetv2
+  - [MobileNetv2](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/README.md#MobileNetv2)
   - MobileOne-s0
   - ResNet18
   - ResNet50
@@ -125,25 +125,37 @@ title: MAIX-III AXera-Pi 是什么？
   - YOLOv4
   - YOLOv4-Tiny
   - YOLOv4-Tiny-3l
-  - YOLOv5s
-  - YOLOv7-Tiny
-  - YOLOX-S
+  - [YOLOv5s](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/README.md#YOLOv5s)
+  - [YOLOv5-Lite](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/README.md#YOLOv5-Lite)([original model](https://github.com/ppogg/YOLOv5-Lite))
+  - [YOLOv7-Tiny](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/README.md#YOLOv7-Tiny)
+  - [YOLOX-S](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/README.md#YOLOX-S)
   - YOLO-Fastest-XL
   - NanoDet
 - 人型检测
   - YOLO-Fastest-Body
 - 人脸检测
-  - scrfd
+  - [scrfd](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/README.md#Scrfd)
+  - [YOLOv5-Face](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/README.md#YOLOv5-Face)([original model](https://github.com/deepcam-cn/yolov5-face))
+- 人脸分割
+  - Face_Parsing
 - 障碍物检测 (扫地机场景)
   - Robot-Obstacle-Detect
+- 无人机视角物体检测
+  - [YOLOv5s_visdrone](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/README.md#YOLOv5s_visdrone)
 - 3D单目车辆检测
-  - Monodlex
+  - [Monodlex](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/README.md#Monodlex)
 - 人体关键点
-  - HRNet
+  - [HRNet](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/README.md#HRNet)
+  - [AX-POSE-PPL](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/README.md#AX-POSE-PPL)
+  - [HandPose](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/README.md#HandPose)
 - 人体分割
-  - [PP-HumanSeg](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/README.md#MobileSeg)
+  - [PP-HumanSeg](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/README.md#PP-HumanSeg)
 - 语义分割
-  - [PP-Seg](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/README.md#PP-HumanSeg)
+  - [PP-Seg](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/README.md#MobileSeg)
+- 传统 CV 操作
+  - CropResize
+- Pipeline 示例
+  - NV12 -> CropResize -> NN(Classification)
 
 想要在板子上运行模型请看[「部署模型到 Maix-III AXera-Pi 开发板」](/ai/zh/deploy/ax-pi.html)
 
@@ -177,32 +189,31 @@ title: MAIX-III AXera-Pi 是什么？
   <img src="./../assets/test_yolov5s.jpg" style="zoom: 100%;" />
 </p>
 
-如 [YOLOv5s-face 人脸检测](https://maixhub.com/model/zoo/110) 、 [蓝绿车牌识别](https://maixhub.com/model/zoo/79) 这些分享出来的现成可部署的模型。
-
 ### 众多开箱案例
 
-> 截止目前更新时间：20221205
+> 截止更新时间：20221205
 
-<html>
-  <img src="./../assets/demo_two.jpg" width=48%>
-  <img src="./../assets/demo_one.jpg" width=48%>
-</html>
+<p align="center">
+  <img src="./../assets/demo_one.jpg" style="zoom: 100%;">
+  <img src="./../assets/demo_two.jpg" style="zoom: 100%;">
+</p>
+
 
 ### Linux 开发
 
 #### 超高性价比与能效比
 
-别搞那些虚的。来点实际点的，以下是目前（20221014）市场上销量排行的典型 AI 开发产品。（已除去低成本 38 板摄像头和芯片原厂超昂贵开发板）
+别搞那些虚的。来点实际点的，以下是目前（20221014）市场上销量排行的典型 AI 开发产品，**商品价格会随时变动，有疑问可查询或指出并纠正**。（已除去低成本 38 板摄像头和芯片原厂超昂贵开发板）
 
 | AI 开发板                                            | 全家桶套餐的主要内容                                         | 大致价格（20221013）      |
 | ---------------------------------------------------- | ------------------------------------------------------------ | ------------------------- |
-| 英伟达JETSON NANO开发板                              | 4GB 主板、铝合金外壳（带风扇）、5V4A 电源、双频无线网卡、64G U盘、IMX279 摄像头、HDMI 线 + 网线、7 寸触摸屏+支架、 | ¥2129.00<br />（未来可能降价）                  |
+| 英伟达JETSON NANO开发板                              | 4GB 主板、铝合金外壳（带风扇）、5V4A 电源、双频无线网卡、64G U盘、IMX279 摄像头、HDMI 线 + 网线、7 寸触摸屏+支架、 | ¥2129.00                  |
 | Raspberry Pi 树莓派4B                                | 4GB 主板、七寸触摸屏+支架、64G U盘、散热片、HDMI 线 + 网线、5V3A 电源、亚克力外壳（带风扇）、500w USB 摄像头、入门指导手册 | ¥1439.00                  |
 | Khadas vim3物联网a311d（目前线上销量不高，但很典型） | VIM3（4GB+32G）开发板、外壳、散热器、风扇、30W 电源、HDMI 线 | ¥1399.00                  |
 | 迅为RK3568开发板瑞芯微                               | 商业级2G+16G、7寸MIPI屏、OV5695摄像头、（没有配电源）    | ¥1380.00                  |
 | EASY EAI Nano AI开发板 瑞芯微RV1126                  | 1GB 单主板、200w双目摄像头（gc2xxx）、5寸ips屏、天线、喇叭、铜柱、2A电源 | ¥799.00                   |
 | 亚博智能 旭日X3派开发板                              | 2GB 主板、古月居课程、WIFI 天线、铝合金外壳、gc4663 摄像头、32G U盘、5V3A 开关电源、HDMI 线 | ¥769.00                   |
-| Sipeed M3AXPI Linux AI 微光夜视 爱芯派              | 2GB 单主板、400w gc4653 摄像头、5寸ips屏、外壳、数据线、32G TF 卡、在线模型训练服务、活力四射的开源社区       | ¥579.00<br />（未来可能涨价） |
+| Sipeed M3AXPI Linux AI 微光夜视 爱芯派              | 2GB 单主板、400w gc4653 摄像头、5寸ips屏、外壳、数据线、32G TF 卡、在线模型训练服务、活力四射的开源社区       | ¥579.00 |
 
 想想某些产品为什么卖这么贵，销量还这么好？凭什么？
 
