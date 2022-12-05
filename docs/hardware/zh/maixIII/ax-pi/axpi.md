@@ -179,6 +179,15 @@ title: MAIX-III AXera-Pi 是什么？
 
 如 [YOLOv5s-face 人脸检测](https://maixhub.com/model/zoo/110) 、 [蓝绿车牌识别](https://maixhub.com/model/zoo/79) 这些分享出来的现成可部署的模型。
 
+### 众多开箱案例
+
+> 截止目前更新时间：20221205
+
+<html>
+  <img src="./../assets/demo_two.jpg" width=48%>
+  <img src="./../assets/demo_one.jpg" width=48%>
+</html>
+
 ### Linux 开发
 
 #### 超高性价比与能效比

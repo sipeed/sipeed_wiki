@@ -175,7 +175,7 @@
                     "collapsed": false,
                     "items": [
                         {
-                            "label": "产品上手必看",
+                            "label": "产品上手指南",
                             "file": "maixIII/ax-pi/flash_system.md"
                         },
                         {
@@ -183,11 +183,11 @@
                             "file": "maixIII/ax-pi/basic_usage.md"
                         },
                         {
-                            "label": "开启 Python 编程",
+                            "label": "试试 Python 编程",
                             "file": "maixIII/ax-pi/python_api.md"
                         },
                         {
-                            "label": "准备开发环境",
+                            "label": "准备 C/C++ 编程",
                             "file": "maixIII/ax-pi/dev_prepare.md"
                         },
                         {

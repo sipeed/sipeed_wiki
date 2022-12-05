@@ -1,8 +1,8 @@
 ---
-title: AXera-Pi 上手必看
-tags: AXera-Pi, 烧录系统, 上手指引
+title: AXera-Pi 上手指南
+tags: AXera-Pi, 烧录系统, 上手指南
 keywords: AXera-Pi，烧录, 上手
-desc: AXera-Pi 产品上手必看
+desc: AXera-Pi 产品上手指南
 update:
   - date: 2022-11-25
     version: v0.4
@@ -28,21 +28,23 @@ update:
 
 ---
 
-## 上手引导指南
+## 上手指南
 
-为了让小伙伴们轻松、快速、平稳地把产品用起来，我们准备了新手初学者上手引导指南：
+为了让小伙伴们轻松、快速、平稳地把产品用起来，我们准备了新手初学者上手指南：
 
-### 系统简介
+### Linux 系统简介
 
-AXera-Pi 默认板卡没有存储介质，因此需要准备一张系统卡来启动设备。
+**AXera-Pi 默认板卡没有存储介质，因此需要准备一张系统卡来启动设备。**
 
 目前 AXera-Pi 提供的是 Debian11 Bullseye 镜像，[Ubuntu 源自 Debian，这意味着 Ubuntu 使用与 Debian 相同的 apt 打包系统，并共享来自 Debian 存储库的大量软件包和库，利用 Debian 基础设施作为基础。 大多数“派生” Linux 发行版，它们使用相同的包管理系统并与基于的发行版共享软件包。 ](https://zhuanlan.zhihu.com/p/426219868)
 
-> [选择 Debian 的理由](https://www.debian.org/intro/why_debian)
+> ![debian_logo](./../assets/debian_logo.jpg)
+> [选择 Debian 的理由](https://www.debian.org/intro/why_debian) 
 
 官方店铺可以购买预烧录系统镜像的 SD 卡，否则就需要自己进行以下的操作来准备 SD 镜像卡了。
+### 选择 SD 卡
 
-### 如何选择 SD 卡？
+>已在官方购买镜像卡的同学跳过这一步骤，直接在设备插入 TF 卡[ 点击查看 ](#%E5%90%AF%E5%8A%A8-Linux-%E7%B3%BB%E7%BB%9F)启动 Linux 系统。
 
 为了方便用户有更多的选择，我们对部分 SD 卡在 AXera-Pi 板子上进行了读写测速。
 
@@ -68,14 +70,13 @@ AXera-Pi 默认板卡没有存储介质，因此需要准备一张系统卡来�
 | 1.   | 雷克沙（Lexar）64GB TF（MicroSD）存储卡 C10 U3 V30 A2 | 2.59644 s, 63.1 MB/s                                       | 1.9106 s, 85.8 MB/s                                         |
 | 2.   | 雷克沙（Lexar）128GB TF（MicroSD）存储卡 C10 U3 V30   | 6.73793 s, 24.3 MB/s                                       | 6.94079 s, 23.6 MB/s                                        |
 
-### 烧录系统
-
-因设备默认无 Emmc 介质可以启动，用户需要从 TF 卡启动 Linux Debian 系统，
-已在官方购买镜像卡的同学跳过这一步骤，直接把 TF 卡插上即可启动 Linux Debian 系统。
+### 烧录 Linux 系统
 
 ![axpi-flash](./../assets/axpi-flash.png)
 
-#### 如何获取到镜像？
+因设备默认无 Emmc 介质可以启动，用户需要从 TF 卡启动 Linux Debian 系统，
+
+#### 如何获取镜像？
 
 因为镜像文件比较大，因此这里仅提供百度云下载链接。
 
@@ -87,8 +88,8 @@ AXera-Pi 默认板卡没有存储介质，因此需要准备一张系统卡来�
 
 | 文件名                                 | 提供方 | 文件类型                                          | 适用芯片 | 镜像发行版 | 发布日期 |
 | -------------------------------------- | ------ | ------------------------------------------------- | -------- | ---------- | -------- |
-| sipeed_ax620a_debian11_20221013.zip    | sipeed | 镜像压缩包                                        | ax620a   | debian11   | 20221009 |
-| sipeed_ax620a_debian11_20221013.md5sum |        | <p style="white-space:nowrap">md5sum 校验文件</p> |          |            |          |
+| sipeed_ax620a_debian11_20221205.zip    | sipeed | 镜像压缩包                                        | ax620a   | debian11   | 20221009 |
+| sipeed_ax620a_debian11_20221205.md5sum |        | <p style="white-space:nowrap">md5sum 校验文件</p> |          |            |          |
 
 如果里面有多个镜像文件，那么建议下载最新的镜像文件。
 
@@ -133,13 +134,15 @@ AXera-Pi 默认板卡没有存储介质，因此需要准备一张系统卡来�
 
 > **注意**：如果出现烧录失败的情况，请手动格式化一下 SD 卡，Windows 和 MacOS 可以使用 [SD Card Formatter](https://www.sdcard.org/downloads/formatter/eula_windows/SDCardFormatterv5_WinEN.zip)来格式化 SD 卡，Linux 系统可以使用系统的 disk 工具或 [Gparted](https://gparted.org/)来格式化。
 
-### 启动系统
+### 启动 Linux 系统
+
+![axpi-connect](./../assets/axpi-connect.png)
 
 当完成上一步骤后我们需要给 AXera-Pi 进行正确的接线并上电启动。
 
-#### 如何正确接线？
+#### 如何连接外设和配件？
 
->**供电要求**：由于板子的功耗要求低，使用 usb3.0 1A 即可启动 linux 系统。
+> 购买全功能套餐的同学们跳过装配步骤[点击前往](#如何启动-AXera-Pi-？)上电启动 AXera-Pi 设备登录 Linux 系统即可。
 
 **接线前我们需要进行准备工作：**
 
@@ -160,15 +163,15 @@ AXera-Pi 默认板卡没有存储介质，因此需要准备一张系统卡来�
   <img src="./../assets/sensor.jpg" width=48%>
 </html>
 
+#### 如何启动 AXera-Pi ？
+
 把设备的 `USB-UART` 及 `USB-OTG` 口用 USB type-c 线全部接入 PC 端通电后设备会自启。
 
-![axpi-connect](./../assets/axpi-connect.png)
+![start](./../assets/start.jpg)
 
 >在 **20221013** 后设备通电开机会从耳机播放音乐和点亮出厂的 5 寸屏幕，并在串口输出如下的 debian11 系统启动日志（截取部分日志如下）.[有些同学会遇到 Ubuntu22.04 CH340系列串口驱动（没有ttyUSB）问题，点此查看解决方案](https://blog.csdn.net/qq_27865227/article/details/125538516)。
 
 .. details:: 点击查看 debian11 系统启动日志  
-
-    ![start](./../assets/start.jpg)
 
     ```bash
     Vddr init success!
@@ -235,84 +238,95 @@ AXera-Pi 默认板卡没有存储介质，因此需要准备一张系统卡来�
     ......
     ```
 
+
+
 ### 登录到板子里
 
-当 **AXera-Pi** 开机成功后，这时我们把板子当做一台 Linux 服务器来对待。通过**「系统登录方式」**快速帮助用户了解如何登录到设备里的 Linux 系统，用户可以选择 `USB-UART serial` 或 `USB-OTG SSH` 登录。 
-
-**「系统使用手册-登录方式」**：[点击前往](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html#%E7%B3%BB%E7%BB%9F%E7%99%BB%E5%BD%95)
+>当 **AXera-Pi** 出现上述 logo 画面后代表开机成功，这时我们把板子当做一台 Linux 服务器来对待。
 
 ![axpi-login](./../assets/axpi-login.png)
 
-.. details::这里以 USB-OTG 口的 usb0 网卡（192.168.233.1）作为 ssh 登录的 ip 进入板子为例。
+通过**「系统登录方式」**快速帮助用户了解如何登录到设备里的 Linux 系统，用户可以选择 `USB-UART 串口` 或 `USB-OTG SSH` 登录，可点击[**「系统使用手册-登录方式」**](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html#%E7%B3%BB%E7%BB%9F%E7%99%BB%E5%BD%95)前往查看，以下文 USB-OTG 口的 usb0 网卡（192.168.233.1）作为 ssh 登录的 ip 进入板子为例。
 
-    ```bash
-    juwan@juwan-n85-dls:~/sipeed_wiki$ sshpass -p root ssh root@192.168.233.1
-    Linux AXERA 4.19.125 #53 SMP PREEMPT Tue Sep 13 13:16:27 HKT 2022 armv7l
+```bash
+juwan@juwan-n85-dls:~/sipeed_wiki$ sshpass -p root ssh root@192.168.233.1
+Linux AXERA 4.19.125 #53 SMP PREEMPT Tue Sep 13 13:16:27 HKT 2022 armv7l
 
-    The programs included with the Debian GNU/Linux system are free software;
-    the exact distribution terms for each program are described in the
-    individual files in /usr/share/doc/*/copyright.
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
 
-    Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
-    permitted by applicable law.
-    Last login: Wed Oct 12 16:43:43 2022 from 192.168.233.10
-    root@AXERA:~# screenfetch
-            _,met$$$$$gg.           root@AXERA
-          ,g$$$$$$$$$$$$$$$P.        OS: Debian
-        ,g$$P""       """Y$$.".      Kernel: armv7l Linux 4.19.125
-      ,$$P'              `$$$.      Uptime: 2d 3h 5m
-      ',$$P       ,ggs.     `$$b:    Packages: 785
-      `d$$'     ,$P"'   .    $$$     Shell: bash 5.1.4
-      $$P      d$'     ,    $$P     Disk: 2.6G / 3.6G (77%)
-      $$:      $$.   -    ,d$$'     CPU: ARMv7 rev 5 (v7l) @ 4x 1.248GHz
-      $$\;      Y$b._   _,d$P'      RAM: 88MiB / 744MiB
-      Y$$.    `.`"Y$$$$P"'
-      `$$b      "-.__
-        `Y$$
-        `Y$$.
-          `$$b.
-            `Y$$b.
-                `"Y$b._
-                    `""""
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+Last login: Wed Oct 12 16:43:43 2022 from 192.168.233.10
+root@AXERA:~# screenfetch
+        _,met$$$$$gg.           root@AXERA
+      ,g$$$$$$$$$$$$$$$P.        OS: Debian
+    ,g$$P""       """Y$$.".      Kernel: armv7l Linux 4.19.125
+  ,$$P'              `$$$.      Uptime: 2d 3h 5m
+  ',$$P       ,ggs.     `$$b:    Packages: 785
+  `d$$'     ,$P"'   .    $$$     Shell: bash 5.1.4
+  $$P      d$'     ,    $$P     Disk: 2.6G / 3.6G (77%)
+  $$:      $$.   -    ,d$$'     CPU: ARMv7 rev 5 (v7l) @ 4x 1.248GHz
+  $$\;      Y$b._   _,d$P'      RAM: 88MiB / 744MiB
+  Y$$.    `.`"Y$$$$P"'
+  `$$b      "-.__
+    `Y$$
+    `Y$$.
+      `$$b.
+        `Y$$b.
+            `"Y$b._
+                `""""
 
-    root@AXERA:~# ax_clk
-    AX620A:
-    DDR:            3733 MHz
-    CPU:            800 MHz
-    BUS of VPU:     624 MHz
-    BUS of NPU:     624 MHz
-    BUS of ISP:     624 MHz
-    BUS of CPU:     624 MHz
-    NPU OTHER:      800 MHz
-    NPU GLB:        24 MHz
-    NPU FAB:        800 MHz
-    NPU CORE1:      800 MHz
-    NPU CORE0:      800 MHz
-    ISP:            533 MHz
-    MM:             594 MHz
-    VPU:            624 MHz
-    root@AXERA:~#
-    ```
+root@AXERA:~# ax_clk
+AX620A:
+DDR:            3733 MHz
+CPU:            800 MHz
+BUS of VPU:     624 MHz
+BUS of NPU:     624 MHz
+BUS of ISP:     624 MHz
+BUS of CPU:     624 MHz
+NPU OTHER:      800 MHz
+NPU GLB:        24 MHz
+NPU FAB:        800 MHz
+NPU CORE1:      800 MHz
+NPU CORE0:      800 MHz
+ISP:            533 MHz
+MM:             594 MHz
+VPU:            624 MHz
+root@AXERA:~#
+```
 
-我们可以知道板子的基础信息，目前默认是用 800Mhz 来跑，而且内存分配较保守能留给用户的空间内存不到 1GB，但不用担心，板子贴得内存最小都得是 2G 的，所以之后会通过更新内核开放更多内存给用户空间。
+<!-- 由上文我们可以知道板子的基础信息，在 **20221202** 后更新的镜像包里已经开放了 1.22G 的用户空间。 -->
+<!-- 我们可以跟着指南往下看学会把板子用起来！ -->
+<!-- 我们可以知道板子的基础信息，目前默认是用 800Mhz 来跑，而且内存分配较保守能留给用户的空间内存不到 1GB，但不用担心，板子贴得内存最小都得是 2G 的，所以之后会通过更新内核开放更多内存给用户空间。 -->
 
-### 学会把板子用起来！
-
-你可以在系统使用手册获得板上所有验证过的系统调频、外设、驱动、应用等资源的用法，像一些 Linux 操作基础、如何控制 I2C / UART / SPI 这些硬件设备的操作。
-
-**「系统使用手册-验证外设」**：[点击前往](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html#%E9%AA%8C%E8%AF%81%E7%B3%BB%E7%BB%9F%E5%A4%96%E8%AE%BE)
+### 学会使用板子
 
 ![axpi-ai](./../assets/axpi-ai.png)
 
-以及还有众多可以直接在板子终端运行的 AI 应用模型以及使用例程，快去用起来！
+由于默认没有配置桌面环境（只显示 logo），所以我们需要将 **AXera-Pi** 连接一台电脑，通过终端管理软件（shell）与它进行命令行交互，这些可以在[「系统使用手册-验证外设」](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html#%E9%AA%8C%E8%AF%81%E7%B3%BB%E7%BB%9F%E5%A4%96%E8%AE%BE)学会板上所有验证过的系统调频、外设、驱动、应用等资源的用法，像一些 Linux 操作基础、如何控制 I2C / UART / SPI 这些硬件设备的操作，还可以在[「系统使用手册-内置 AI 应用」](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html#%E9%AA%8C%E8%AF%81%E7%B3%BB%E7%BB%9F%E5%A4%96%E8%AE%BE)里调用内置的开箱 AI 应用及例程，快去用起来吧！
 
-**「系统使用手册-内置 AI 应用」**：[点击前往](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html#%E9%AA%8C%E8%AF%81%E7%B3%BB%E7%BB%9F%E5%A4%96%E8%AE%BE)
+![serial](./../assets/serial.jpg)
 
-### 试试 Python 编程吧！
+### 试试 Python 编程（适合初学者）
 
-待更新
+基于这篇上手指引的一路走下来的学习，相信小伙伴们也基本对 **AXera-Pi** 基础使用以及验证外设有一定的掌握了，那我们就踏入编程的世界，一起来试试 Python 编程吧！
 
-### 编译代码运行
+- [试试 Python 编程](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/python_api.html)
+
+我们内置了以 `jupyter notebook/ax-pipline-api/pinpong` 等 Python 包，你可以在**「试试 Python 编程」**里获得如何在 **AXera-Pi** 上进入 Python 模式启动 `jupyter notebook` 并使用运行 AI 模型。
+
+![python_jy](./../assets/python_jy.jpg)
+
+以及如何连接 **Arduino UNO** 以及 **Microbit** 进行 Python 编程的效果如下图。
+
+<html>
+  <img src="./../assets/arduino.jpg" width=48%>
+  <img src="./../assets/microbit.jpg" width=48%>
+</html>
+
+### 准备 C/C++ 编程（适用开发者）
 
 能走到这里就说明板子已经用起来了，那就来开发吧！在这之前需要**「准备开发环境」**了解如何拷贝文件到板子里，如何搭建本地编译或交叉编译，然后通过**「SDK 开发指南」**学习到如何基于现有的代码进行开发。
 
