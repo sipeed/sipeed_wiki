@@ -159,6 +159,8 @@ title: MAIX-III AXera-Pi 是什么？
   <img src="./../assets/test_maixhub.jpg" style="zoom: 100%;" />
 </p>
 
+> m3axpi 不支持上一代 m2dock 的扫码部署，只能选择本地上传文件部署。
+
 <p align="center">
     <iframe src="//player.bilibili.com/player.html?aid=597374704&bvid=BV1eB4y1Q74i&cid=741940038&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="max-width:640px; max-height:480px;"> </iframe>
 </p>
