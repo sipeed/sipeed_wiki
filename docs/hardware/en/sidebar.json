@@ -105,7 +105,7 @@
             ]
         },
         {
-            "label": "Maix-II",
+            "label": "Maix-II & III",
             "file": "maixII/README.md",
             "items": [
                 {
@@ -157,11 +157,39 @@
                             "file": "maixII/M2A/user.md"
                         }
                     ]
+                },
+                {
+                    "label": "Maix-III AXera-Pi",
+                    "file": "maixIII/ax-pi/axpi.md",
+                    "collapsed": false,
+                    "items": [
+                        {
+                            "label": "User guide"
+                        },
+                        {
+                            "label": "User mannul"
+                        },
+                        {
+                            "label": "Python programming"
+                        },
+                        {
+                            "label": "C/C++ programming"
+                        },
+                        {
+                            "label": "SDK development guide"
+                        },
+                        {
+                            "label": "AI development guide"
+                        },
+                        {
+                            "label": "Questions (FAQ)"
+                        }
+                    ]
                 }
             ]
         },
         {
-            "label": "Lichee",
+            "label": "LicheePI",
             "file": "lichee/README.md",
             "items": [
                 {
@@ -205,6 +233,10 @@
                         {
                             "label": "Questions&Answers",
                             "file": "lichee/RV/problems.md"
+                        },
+                        {
+                            "label": "Ubuntu Image",
+                            "file": "lichee/RV/ubuntu.md"
                         }
                     ]
                 }

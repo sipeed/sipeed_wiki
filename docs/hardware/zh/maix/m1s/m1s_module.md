@@ -1,6 +1,6 @@
 ---
 title: M1s 模组
-keywords: M1s ,模组
+keywords: M1s ,模组, bl808, BL808
 update:
   - date: 2022-11-09
     version: v0.2

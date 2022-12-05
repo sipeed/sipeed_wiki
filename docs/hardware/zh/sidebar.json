@@ -102,6 +102,10 @@
                         {
                             "label": "M0sense 开发板",
                             "file": "./maixzero/sense/maix_zero_sense.md"
+                        },
+                        {
+                            "label": "M0sense 基础使用",
+                            "file": "./maixzero/sense/start.md"
                         }
                     ]
                 }

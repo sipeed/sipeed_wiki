@@ -1,6 +1,6 @@
 ---
 title: M1s DOCK
-keywords: M1s DOCK ,BL808, M1s
+keywords: M1s DOCK ,BL808, M1s, bl808
 update:
   - date: 2022-11-15
     version: v0.1

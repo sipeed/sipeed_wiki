@@ -1,6 +1,6 @@
 ---
 title: M1s DOCK 开发板
-keywords: M1s DOCK ,BL808, M1s
+keywords: M1s DOCK ,BL808, M1s, bl808
 update:
   - date: 2022-11-09
     version: v0.2

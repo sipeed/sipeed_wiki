@@ -37,13 +37,13 @@ update:
 <table>
     <tr>
         <td><img alt="screen_connector" src="./assets/others/screen_connector.jpg" ></td>
-        <td>打开面板后注意屏幕与板子的连接方式如左图所示，<br>不要连接反了</td>
+        <td>打开后注意屏幕与板子的连接方式如左图所示，<br>不要连接反了</td>
     </tr>
 </table>
 
 ## 更换摄像头方向
 
-进行完前面的[拆卸屏幕](#拆卸屏幕)后期，可以将摄像头调整的前后方向了。
+进行完前面的[拆卸屏幕](#拆卸屏幕)后，可以将摄像头调整的前后方向了。
 唯一要注意的就是在连接摄像头排线的时候别接反了。
 
 <table>
@@ -63,7 +63,7 @@ update:
 
 ![parts](./assets/others/parts.jpg)
 
-摄像头有前有两种组装方式，分别是摄像头拍摄方向与屏幕相同和拍摄方向与屏幕相反。
+摄像头有前后两种组装方式，分别是摄像头拍摄方向与屏幕相同和拍摄方向与屏幕相反。
 
 ### 屏幕与摄像头方向相同
 
@@ -102,7 +102,7 @@ update:
 </table><br>
 <table>
     <tr>
-        <td>使用壳子上的双面胶固定好屏幕，背部固定好背部，注意背板的预留摄像头孔应对着模组。</td>
+        <td>使用壳子上的双面胶固定好屏幕，背板固定在背部，注意背板的预留摄像头孔应对着模组。</td>
         <td><img alt="fix_screen" src="./assets/others/fix_screen.jpg" ></td>
         <td><img alt="fix_panel" src="./assets/others/fix_panel.jpg" ></td>
     </tr>

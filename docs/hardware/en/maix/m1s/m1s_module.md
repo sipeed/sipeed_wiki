@@ -1,6 +1,6 @@
 ---
 title: M1s Module
-keywords: M1s ,Module
+keywords: M1s ,Module, bl808, BL808
 update:
   - date: 2022-11-14
     version: v0.1

@@ -15,162 +15,164 @@ Here are some steps like how to remove camera or screen.
 
 ## Remove the screen
 
-默认发货的板卡的摄像头和屏幕是同一方向的，有时候因为一些原因比如调整摄像头方向需要拆卸屏幕，这里写一下注意事项。
+The camera and screen are oriented in the same direction by default, we may need to remove the screen for some reasons, here are the steps to do this and matters need attention.
 
-| 屏幕与摄像头同向                                              | 摄像头放在背部                                        |
-| ------------------------------------------------------------- | ----------------------------------------------------- |
-| ![screen_camera_same](./assets/others/screen_camera_same.jpg) | ![camera_in_back](./assets/others/camera_in_back.jpg) |
+| Camera and screen in the same direction                                                     | Camera and screen in the opposite direction                                         |
+| ------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| ![screen_camera_same](./../../../../zh/maix/m1s/other/assets/others/screen_camera_same.jpg) | ![camera_in_back](./../../../../zh/maix/m1s/other/assets/others/camera_in_back.jpg) |
 
-屏幕与板卡是通过泡沫胶粘在一起的，因此拆卸屏幕的时候需要撕开泡沫胶。这时需要注意应该对屏幕背板的金属层用力，而不是扣屏幕边缘。
+Screen and board are fixed together, so when remove the screen, we need to force on the metal on the back of the screen, not the edge of the screen. Be caerful when doing this, otherwire your screen will be damaged.
 
 <table>
     <tr>
-        <td><img alt="sponge_glue_strip" src="./assets/others/sponge_glue_strip.jpg" width="150%"></td>
-        <td><img alt="sponge_glue_strip_top" src="./assets/others/sponge_glue_strip_top.jpg"  width="150%"></td>
-        <td>旁边两张图可以看到<br>屏幕与板子是通过泡沫胶粘在一起的</td>
+        <td><img alt="sponge_glue_strip" src="./../../../../zh/maix/m1s/other/assets/others/sponge_glue_strip.jpg" width="150%"></td>
+        <td><img alt="sponge_glue_strip_top" src="./../../../../zh/maix/m1s/other/assets/others/sponge_glue_strip_top.jpg"  width="150%"></td>
+        <td> Here we can see screen and board are fixed together</td>
     </tr>
 </table>
 <table>
     <tr>
-        <td><img alt="screen_back_plane" src="./assets/others/screen_back_plane.png" width="150%"></td>
-        <td>中间为屏幕背板金属层，<br>旁边的黑色部分为屏幕边缘，<br>拆卸的时候后需要对屏幕背板金属层用力</td>
+        <td><img alt="screen_back_plane" src="./../../../../zh/maix/m1s/other/assets/others/screen_back_plane.png" width="150%"></td>
+        <td> The center is the metal layer on the back of screen, where we force on when removing screen, and the black parts is the edge of the screen. </td>
     </tr>
 </table>
 <table>
     <tr>
-        <td><img alt="screen_connector" src="./assets/others/screen_connector.jpg" ></td>
-        <td>打开面板后注意屏幕与板子的连接方式如左图所示，<br>不要连接反了</td>
+        <td><img alt="screen_connector" src="./../../../../zh/maix/m1s/other/assets/others/screen_connector.jpg" ></td>
+        <td>Note the connection between board and screen, DO NOT CONNECT THEM WRONG</td>
     </tr>
 </table>
 
-## 更换摄像头方向
+## Change camera direction
 
-进行完前面的[拆卸屏幕](#拆卸屏幕)后期，可以将摄像头调整的前后方向了。
-唯一要注意的就是在连接摄像头排线的时候别接反了。
+After removing screen, we can change camera direction.
+
+Make sure your connecting is not wrong.
 
 <table>
     <tr>
-        <td><img alt="camera_direction_connector" src="./assets/others/camera_direction_connector.jpg" ></td>
-        <td>连接的时候注意将摄像头上的 1 与板子上的 1 对上就行</td>
+        <td><img alt="camera_direction_connector" src="./../../../../zh/maix/m1s/other/assets/others/camera_direction_connector.jpg" ></td>
+        <td>Make sure the 1 on board and 1 on the camera is in the same direction</td>
     </tr>
 </table>
 
-## 安装外壳
+## Install shell
 
-在购买 M1s Dock 的时候可以选购外壳，这里补充一下组装方法。
+We sell shell for M1s Dock, here are the assembly tutorial.
 
-摄像头有两个方向可以自行选择，下面会进行说明。
+You can decide the camera direction.
 
-拆成散件，首先要讲板子的屏幕和摄像头都拆下来，并且把外壳打开。参考下图排布方式。
+To begin this, depart the board into following parts.
 
-![parts](./assets/others/parts.jpg)
+![parts](./../../../../zh/maix/m1s/other/assets/others/parts.jpg)
 
-摄像头有前有两种组装方式，分别是摄像头拍摄方向与屏幕相同和拍摄方向与屏幕相反。
+The camera can be assembled in two directions: the camera shooting direction is the same to the screen or the camera shooting direction is on the opposite to the screen.
 
-### 屏幕与摄像头方向相同
+### Same to the screen
 
 <table>
     <tr>
-        <td><img alt="insert_camera_front_1" src="./assets/others/insert_camera_front_1.jpg" ></td>
-        <td><img alt="insert_camera_front_2" src="./assets/others/insert_camera_front_2.jpg" ></td>
-        <td>首先将摄像头嵌入在外壳里面，正常组装上之后摄像头会被轻微固定在外壳上，确保安装的时候无偏移，摄像头居中。</td>
+        <td><img alt="insert_camera_front_1" src="./../../../../zh/maix/m1s/other/assets/others/insert_camera_front_1.jpg" ></td>
+        <td><img alt="insert_camera_front_2" src="./../../../../zh/maix/m1s/other/assets/others/insert_camera_front_2.jpg" ></td>
+        <td>First, insert the camera into the shell, and the camera will be slightly fixed in the shell, ensuring that the inserting is not offset and the camera is centered. </td>
     </tr>
 </table><br>
 <table>
     <tr>
-        <td><img alt="insert_screen_side_1.jpg" src="./assets/others/insert_screen_side_1.jpg" ></td>
-        <td><img alt="insert_screen_side_2.jpg" src="./assets/others/insert_screen_side_2.jpg" ></td>
-        <td>板子与屏幕连接好后，将屏幕穿过外壳</td>
+        <td><img alt="insert_screen_side_1.jpg" src="./../../../../zh/maix/m1s/other/assets/others/insert_screen_side_1.jpg" ></td>
+        <td><img alt="insert_screen_side_2.jpg" src="./../../../../zh/maix/m1s/other/assets/others/insert_screen_side_2.jpg" ></td>
+        <td>Connect board with screen, and make the screen through shell</td>
     </tr>
 </table><br>
 <table>
     <tr>
-        <td>旋转外壳使板子上的 TF 卡槽<br>与外壳上的 SiPEED logo 同方向</td>
-        <td>将两个 TypeC 口对准壳子上的孔，准备安装板子进外壳</td>
-        <td>按压箭头指向的地方，首次按压的时候有一点紧，注意对准 TypeC 口。安装板子进入外壳</td>
+        <td>Rotate the shell to make the TF card slot on the board is in the same direction as the SiPEED logo on the shell</td>
+        <td>Align the two TypeC ports with the holes in the shell to prepare for inserting the board into the shell</td>
+        <td>Press where the arrow points at, it's a bit difficult for first time inserting, make sure the two TypeC ports align with the holes. Inster board into the shell</td>
     </tr>
     <tr>
-        <td><img alt="insert_screen_direction_1" src="./assets/others/insert_screen_direction_1.jpg" ></td>
-        <td><img alt="insert_screen_direction_2" src="./assets/others/insert_screen_direction_2.jpg" ></td>
-        <td><img alt="insert_screen_direction_3" src="./assets/others/insert_screen_direction_3.jpg" ></td>
-    </tr>
-</table><br>
-<table>
-    <tr>
-        <td><img alt="insert_camera_interface" src="./assets/others/insert_camera_interface.jpg" ></td>
-        <td><img alt="insert_camera_interface_1" src="./assets/others/insert_camera_interface_1.jpg" ></td>
-        <td>将摄像头排线弯曲，注意不是折叠，是弯曲。穿过板子的预留孔，连接上背面的座子。</td>
+        <td><img alt="insert_screen_direction_1" src="./../../../../zh/maix/m1s/other/assets/others/insert_screen_direction_1.jpg" ></td>
+        <td><img alt="insert_screen_direction_2" src="./../../../../zh/maix/m1s/other/assets/others/insert_screen_direction_2.jpg" ></td>
+        <td><img alt="insert_screen_direction_3" src="./../../../../zh/maix/m1s/other/assets/others/insert_screen_direction_3.jpg" ></td>
     </tr>
 </table><br>
 <table>
     <tr>
-        <td>使用壳子上的双面胶固定好屏幕，背部固定好背部，注意背板的预留摄像头孔应对着模组。</td>
-        <td><img alt="fix_screen" src="./assets/others/fix_screen.jpg" ></td>
-        <td><img alt="fix_panel" src="./assets/others/fix_panel.jpg" ></td>
+        <td><img alt="insert_camera_interface" src="./../../../../zh/maix/m1s/other/assets/others/insert_camera_interface.jpg" ></td>
+        <td><img alt="insert_camera_interface_1" src="./../../../../zh/maix/m1s/other/assets/others/insert_camera_interface_1.jpg" ></td>
+        <td>Bend not fold the camera cable through the hole on the board to connect to the connector</td>
+    </tr>
+</table><br>
+<table>
+    <tr>
+        <td>Use the reserved double-sided tape on the shell to fix the screen, the back panel is also fixed on the shell by double-sided tape, and note that the reserved camera hole on the back panel and the M1s module should in the same direction.
+        </td>
+        <td><img alt="fix_screen" src="./../../../../zh/maix/m1s/other/assets/others/fix_screen.jpg" ></td>
+        <td><img alt="fix_panel" src="./../../../../zh/maix/m1s/other/assets/others/fix_panel.jpg" ></td>
     </tr>
 </table><br>
 
-到此就已经组装完毕了。
+Up to now we have finished installing shell.
 
-### 屏幕与摄像头方向不同
+### Opposite to the screen
 
 <table>
     <tr>
-        <td><img alt="opposite_screen" src="./assets/others/opposite_screen.jpg" ></td>
-        <td><img alt="opposite_cam" src="./assets/others/opposite_cam.jpg" ></td>
-        <td>首先将摄像头和屏幕安装到板子上，摄像头应与模组同方向</td>
+        <td><img alt="opposite_screen" src="./../../../../zh/maix/m1s/other/assets/others/opposite_screen.jpg" ></td>
+        <td><img alt="opposite_cam" src="./../../../../zh/maix/m1s/other/assets/others/opposite_cam.jpg" ></td>
+        <td> Connect camera and screen with board first, and camera should on the M1s module</td>
     </tr>
 </table><br>
 <table>
     <tr>
-        <td>将板子穿过壳子</td>
-        <td>最终结果如下</td>
-        <td>调整方向让板子的 TF 卡槽与壳子上的 SiPEED logo 方向相同</td>
+        <td>Make the board through shell</td>
+        <td>Then it should be like this</td>
+        <td>Change the board direction to make the TF card slot on the board is in the same direction as the SiPEED logo on the shell</td>
     </tr>
     <tr>
-        <td><img alt="opposite_insert_screen_1" src="./assets/others/opposite_insert_screen_1.jpg" ></td>
-        <td><img alt="opposite_insert_screen_2" src="./assets/others/opposite_insert_screen_2.jpg" ></td>
-        <td><img alt="opposite_insert_screen_3" src="./assets/others/opposite_insert_screen_3.jpg" ></td>
-    </tr>
-</table><br>
-<table>
-    <tr>
-        <td>将两个 TypeC 口对准壳子上的孔，准备自装板子进外壳</td>
-        <td>按压箭头指向的地方，首次按压的时候有一点紧，注意对准 TypeC 口。安装板子进入外壳</td>
-    </tr>
-    <tr>
-        <td><img alt="insert_screen_direction_2" src="./assets/others/insert_screen_direction_2.jpg" ></td>
-        <td><img alt="insert_screen_direction_4" src="./assets/others/insert_screen_direction_4.jpg" ></td>
+        <td><img alt="opposite_insert_screen_1" src="./../../../../zh/maix/m1s/other/assets/others/opposite_insert_screen_1.jpg" ></td>
+        <td><img alt="opposite_insert_screen_2" src="./../../../../zh/maix/m1s/other/assets/others/opposite_insert_screen_2.jpg" ></td>
+        <td><img alt="opposite_insert_screen_3" src="./../../../../zh/maix/m1s/other/assets/others/opposite_insert_screen_3.jpg" ></td>
     </tr>
 </table><br>
 <table>
     <tr>
-        <td colspan="3">将摄像头穿过外壳，慢慢的滑动外壳来刚好将摄像头固定在板子模组上</td>
+        <td>Align the two TypeC ports with the holes in the shell to prepare for inserting the board into the shell</td>
+        <td>Press where the arrow points at, it's a bit difficult for first time inserting, make sure the two TypeC ports align with the holes. Inster board into the shell</td>
     </tr>
     <tr>
-        <td><img alt="opposite_fix_cam_1" src="./assets/others/opposite_fix_cam_1.jpg" ></td>
-        <td><img alt="opposite_fix_cam_2" src="./assets/others/opposite_fix_cam_2.jpg" ></td>
-        <td><img alt="opposite_fix_cam_3" src="./assets/others/opposite_fix_cam_3.jpg" ></td>
+        <td><img alt="insert_screen_direction_2" src="./../../../../zh/maix/m1s/other/assets/others/insert_screen_direction_2.jpg" ></td>
+        <td><img alt="insert_screen_direction_4" src="./../../../../zh/maix/m1s/other/assets/others/insert_screen_direction_4.jpg" ></td>
+    </tr>
+</table><br>
+<table>
+    <tr>
+        <td colspan="3">Make the camera through the back panel, slide the panel to change the camera into the right position</td>
+    </tr>
+    <tr>
+        <td><img alt="opposite_fix_cam_1" src="./../../../../zh/maix/m1s/other/assets/others/opposite_fix_cam_1.jpg" ></td>
+        <td><img alt="opposite_fix_cam_2" src="./../../../../zh/maix/m1s/other/assets/others/opposite_fix_cam_2.jpg" ></td>
+        <td><img alt="opposite_fix_cam_3" src="./../../../../zh/maix/m1s/other/assets/others/opposite_fix_cam_3.jpg" ></td>
     </tr>
 </table>
 
-安装好屏幕，到这里就已经完成组装了。
+Up to now we have finished installing shell.
 
-![opposite_fix_screen](./assets/others/opposite_fix_screen.jpg)
+![opposite_fix_screen](./../../../../zh/maix/m1s/other/assets/others/opposite_fix_screen.jpg)
 
-## 拆卸外壳
+## Remove shell
 
-首先在屏幕背面，使用镊子或其他工具翘起来外壳，将其取下。
+First, use tweezers or other tools to remove the back panel of the fixed shell.
 
-![disassemble_shell](./assets/others/disassemble_shell.jpg)
+![disassemble_shell](./../../../../zh/maix/m1s/other/assets/others/disassemble_shell.jpg)
 
-使用镊子，在外壳 Logo 处的哪个孔哪里，把板子从外壳中翘出来。
+Use tweezers to push this board out through the hole which is in the same direction with Logo on the shell
 
-<img src="./assets/others/disassemble_hole.jpg" alt="disassemble_hole" width="45%">
-<img src="./assets/others/disassemble_hole_1.jpg" alt="disassemble_hole_1" width="45%">
+<img src="./../../../../zh/maix/m1s/other/assets/others/disassemble_hole.jpg" alt="disassemble_hole" width="45%">
+<img src="./../../../../zh/maix/m1s/other/assets/others/disassemble_hole_1.jpg" alt="disassemble_hole_1" width="45%">
 
-然后对屏幕的背板用力，将屏幕顶出外壳
+Push on the metal panel of the screen to make the screen out of the shell.
 
-![disassemble_remove_screen](./assets/others/disassemble_remove_screen.jpg)
+![disassemble_remove_screen](./../../../../zh/maix/m1s/other/assets/others/disassemble_remove_screen.jpg)
 
-到此拆卸外壳结束。
+Up to now we have finished removing the shell.
