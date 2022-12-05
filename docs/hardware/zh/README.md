@@ -87,13 +87,13 @@ desc: 矽速科技的开源软硬件 WIKI 资料站
     </tbody>
 </table>
 
-### Maix-I S
+### Maix Zero
 
 这是一款以博流 702 为主控所制作的极小开发板
 
 <img src="./maixzero/sense/assets/m0sense_1.png" alt="m0sense" width=35%>
 
-详情页 ：[点我](./maix/../maixzero/sense/maix_zero_sense.md)
+详情页 ：[点我](./maixzero/sense/maix_zero_sense.md)
 
 ### 产品支持
 
