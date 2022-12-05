@@ -7,7 +7,8 @@ desc: 矽速科技的开源软硬件 WIKI 资料站
 ## 总览
 
 - [Maix-I & Zero](#maix-i--zero) 以 MCU 为主控的 AI 开发板
-- [Maix II & III](#maix-ii--iii-系列)： 基于 Linux 系统的 AI 开发板
+- [Maix-II](#maix-ii-系列)：Linux AI 开发板，小巧便携且实用
+- [Maix-III](#maix-iii)： Linux AI 开发板，超强算力超大内存多种玩法
 - [LicheePI](#licheepi-系列)： Linux 开发板
 - [Tang](#tang-fpga-系列)：FPGA 开发板
 - [MaixSense](#maixsense-系列)：3D TOF 模组
@@ -15,12 +16,12 @@ desc: 矽速科技的开源软硬件 WIKI 资料站
 - [MaixFace](#maixface-模组)：商业项目板卡
 - [其他外设](#外设模组)
 
-## Maix-I & Zero 
+## Maix-I & Zero
 
 | 项目     | M1/M1w                             | M1n                                | M1s                                                | M0                                          |
 | :------- | :--------------------------------- | :--------------------------------- | :------------------------------------------------- | :------------------------------------------ |
 | 主控     | K210                               | K210                               | BL808                                              | BL702                                       |
-| 核心     | RV64@400MHz * 2                    | RV64@400MHz * 2                    | RV64GCV@480MHz<br>RV32GCP@320MHz<br>RV32EMC@160MHz | RV32@144MHz                                 |
+| 核心     | RV64@400MHz \* 2                   | RV64@400MHz \* 2                   | RV64GCV@480MHz<br>RV32GCP@320MHz<br>RV32EMC@160MHz | RV32@144MHz                                 |
 | RAM      | 8MB                                | 8MB                                | 64MB                                               | 132KB                                       |
 | 无线     | M1w 支持 Wifi                      |                                    | · Wifi<br>· 蓝牙<br>· Zigbee                       | 蓝牙                                        |
 | 封装样式 | 邮票孔                             | 金手指                             | 邮票孔                                             |                                             |
@@ -99,20 +100,20 @@ desc: 矽速科技的开源软硬件 WIKI 资料站
 
 Maix 系列产品可以在多种场景实现客户不同方面的需要，在 AIoT 上已经广泛的使用，品质和性能在行业内已经有非常好的口碑，专业的技术团队为广大客户解决硬件设计和软件功能上的各种各样问题。商业合作可以联系 <support@sipeed.com>。
 
-## Maix-II & III 系列
+## Maix-II 系列
 
-| 项目     | MaixII-Dock                                                                                                                                                            | MaixII-Sense                                                                                                                                                            | MaixII-S                                                                                                                                                            | MaixIII-axpi                                                                                                                                                            |
-| :------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 主控     | V831                                                                                                                                                                   | R329                                                                                                                                                                    | V833                                                                                                                                                                | Ax620a                                                                                                                                                                  |
-| 核心     | Cortex A7@800MHz                                                                                                                                                       | Cortex A53\*2@1.5GHz                                                                                                                                                    | Cortex A7@1.2GHz                                                                                                                                                    | Cortex A7\*4@1.0GHz                                                                                                                                                     |
-| RAM      | 64MB                                                                                                                                                                   | 256MB                                                                                                                                                                   | 默认128MB                                                                                                                                                           | 默认 1GB                                                                                                                                                                |
-| 无线     | Wifi                                                                                                                                                                   | · Wifi<br>· 蓝牙                                                                                                                                                        | · Wifi                                                                                                                                                              | · Wifi<br>· 蓝牙                                                                                                                                                        |
-| 模型平台 | [MaixHub](https://www.maixhub.com)                                                                                                                                     |                                                                                                                                                                         |                                                                                                                                                                     | [MaixHub](https://www.maixhub.com)                                                                                                                                      |
-| 外观图   | <img src="https://gd3.alicdn.com/imgextra/i3/2200606237318/O1CN01dT63dq23vhAOtdtm7_!!2200606237318.png_400x400.jpg" style="transform:rotate(0deg);" alt="MaixII-Dock"> | <img src="https://gd3.alicdn.com/imgextra/i3/2200606237318/O1CN01AJdLYs23vh6b40oy2_!!2200606237318.png_400x400.jpg" style="transform:rotate(0deg);" alt="MaixII-Sense"> | <img src="https://gd2.alicdn.com/imgextra/i2/2200606237318/O1CN01C4iTYi23vh6muQApg_!!2200606237318.png_400x400.jpg" style="transform:rotate(0deg);" alt="MaixII-S"> | <img src="https://gd2.alicdn.com/imgextra/i2/2200606237318/O1CN01AY6Mu123vhBaHWr6H_!!2200606237318.jpg_400x400.jpg" style="transform:rotate(0deg);" alt="MaixIII-Axpi"> |
-| 详情页   | [点我](http://wiki.sipeed.com/m2dock)                                                                                                                                       | [点我](./maixii/m2a/maixsense.md)                                                                                                                                       | [点我](./maixii/M2S/V833.md)                                                                                                                                        | [点我](./maixIII/ax-pi/axpi.md)                                                                                                                                         |
-| 备注     |                                                                                                                                                                        |                                                                                                                                                                         | 仅支持商业                                                                                                                                                          |                                                                                                                                                                         |
+| 项目     | MaixII-Dock                                                                                                                                                                                                                    | MaixII-Sense                                                                                                                                                            | MaixII-S                                                                                                                                                            |
+| :------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 主控     | V831                                                                                                                                                                                                                           | R329                                                                                                                                                                    | V833                                                                                                                                                                |
+| 核心     | Cortex A7@800MHz                                                                                                                                                                                                               | Cortex A53\*2@1.5GHz                                                                                                                                                    | Cortex A7@1.2GHz                                                                                                                                                    |
+| RAM      | 64MB                                                                                                                                                                                                                           | 256MB                                                                                                                                                                   | 默认 128MB                                                                                                                                                          |
+| 无线     | Wifi                                                                                                                                                                                                                           | · Wifi<br>· 蓝牙                                                                                                                                                        | · Wifi                                                                                                                                                              |
+| 外观图   | <img src="https://gd3.alicdn.com/imgextra/i3/2200606237318/O1CN01dT63dq23vhAOtdtm7_!!2200606237318.png_400x400.jpg" style="transform:rotate(0deg);" alt="MaixII-Dock">                                                         | <img src="https://gd3.alicdn.com/imgextra/i3/2200606237318/O1CN01AJdLYs23vh6b40oy2_!!2200606237318.png_400x400.jpg" style="transform:rotate(0deg);" alt="MaixII-Sense"> | <img src="https://gd2.alicdn.com/imgextra/i2/2200606237318/O1CN01C4iTYi23vh6muQApg_!!2200606237318.png_400x400.jpg" style="transform:rotate(0deg);" alt="MaixII-S"> |
+| 模型平台 | [MaixHub](https://www.maixhub.com)                                                                                                                                                                                             |                                                                                                                                                                         |                                                                                                                                                                     |
+| 详情页   | [点我](http://wiki.sipeed.com/m2dock)                                                                                                                                                                                          | [点我](./maixii/m2a/maixsense.md)                                                                                                                                       | [点我](./maixii/M2S/V833.md)                                                                                                                                        |
+| 备注     | <strong>推荐产品</strong>，高性价比能跑 Linux 的 SOC，同时支持硬件 AI 加速（0.2Tops 算力），目前软件支持最容易入门，提供 C SDK 和 Python SDK， 以及在线模型训练服务(<a href="https://maixhub.com" target="_blank">MaixHub</a>) | 有提供硬件 AI 加速，0.25Tops 算力。                                                                                                                                     | 仅支持商业                                                                                                                                                          |
 
-### Maix-II
+<!-- ### Maix-II 板卡
 
 MAIX-II 系列包含多款硬件产品，目前有三款产品，分别如下：
 
@@ -137,28 +138,40 @@ MAIX-II 系列包含多款硬件产品，目前有三款产品，分别如下：
   <td>芯片为全志 V833，V831 升级版， 主要用于商业定制用途，个人用户慎重选择。</td>
 </tr>
 </tbody>
-</table>
+</table> -->
 
-### MaixIII
+## Maix-III
 
-目前 MaixIII axpi 是最新款的 AI 开发板，强烈推荐
+目前 Maix-III axpi 是最新款的 AI 开发板，拥有高算力、大内存、多种接口，支持超多算子。强烈推荐。
 
-![maix-iii-small](./../assets/maixIII/ax-pi/maix-iii-small.png)
+| 项目       | MaixIII-axpi                                                                                                                                                                        |
+| :--------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 主控       | Ax620a                                                                                                                                                                              |
+| 核心       | Cortex A7\*4@1.0GHz                                                                                                                                                                 |
+| NPU        | 14.4Tops@int4，3.6Tops@int8                                                                                                                                                         |
+| ISP        | 4K@30fps                                                                                                                                                                            |
+| RAM        | 2GB LPDDR4X 3733Mhz                                                                                                                                                                 |
+| 摄像头输入 | 默认单摄, 最高支持 3 摄:<br>1 个 MIPI4-LANE+2 个 MIPI2-LANE                                                                                                                         |
+| 屏幕输出   | 支持最高 4-LANE MIPI DSI 屏幕                                                                                                                                                       |
+| 网络接口   | 支持 千兆以太网（ETH） 和 2.4GHZ WI-FI 板载天线                                                                                                                                     |
+| USB 接口   | 1xUSB2.0HS 支持 OTG 或 HOST 功能，<br>1xUSB-UART 系统串口                                                                                                                           |
+| 外观图     | <img src="https://gd2.alicdn.com/imgextra/i2/2200606237318/O1CN01AY6Mu123vhBaHWr6H_!!2200606237318.jpg_400x400.jpg" style="transform:rotate(0deg);" alt="MaixIII-Axpi" width="40%"> |
+| 模型平台   | [MaixHub](https://www.maixhub.com)                                                                                                                                                  |
 
-详情页：[点我跳转](./maixIII/ax-pi/axpi.md)
+更多内容请前往[详情页](./maixIII/ax-pi/axpi.md)查看
 
 ## LicheePi 系列
 
-| 类别     | Lichee RV    | Lichee Zero Plus                           | Lichee Zero                    | Lichee nano         |
-| :------- | :----------- | :----------------------------------------- | :----------------------------- | :------------------ |
-| SOC      | Allwinner D1 | Allwinner S3                               | Allwinner V3s                  | Allwinner F1c100s   |
-| CPU架构  | 玄铁 C906    | Cortex™-A7                                 | Cortex™-A7                     | ARM 926EJS          |
-| 运行频率 | 1GHz         | 1.2GHz                                     | 1.2GHz(max)                    | 600MHz(max)         |
-| RAM      | 512MB DDR3   | 128Mbyte DDR3                              | 64MB DRAM                      | 32MB DDR            |
-| FLASH    | 可选SD-nand  | 可选SD Nand、<br>SPI Nor Flash<br>或者eMMC | 预留<br>SOP8 SPI Flash<br>焊盘 | 板载 16MB NOR FLASH |
-| TF连接器 | 有           | 有                                         | 有                             | 有                  |
+| 类别      | Lichee RV    | Lichee Zero Plus                             | Lichee Zero                    | Lichee nano         |
+| :-------- | :----------- | :------------------------------------------- | :----------------------------- | :------------------ |
+| SOC       | Allwinner D1 | Allwinner S3                                 | Allwinner V3s                  | Allwinner F1c100s   |
+| CPU 架构  | 玄铁 C906    | Cortex™-A7                                   | Cortex™-A7                     | ARM 926EJS          |
+| 运行频率  | 1GHz         | 1.2GHz                                       | 1.2GHz(max)                    | 600MHz(max)         |
+| RAM       | 512MB DDR3   | 128Mbyte DDR3                                | 64MB DRAM                      | 32MB DDR            |
+| FLASH     | 可选 SD-nand | 可选 SD Nand、<br>SPI Nor Flash<br>或者 eMMC | 预留<br>SOP8 SPI Flash<br>焊盘 | 板载 16MB NOR FLASH |
+| TF 连接器 | 有           | 有                                           | 有                             | 有                  |
 
-- LicheePI 是为了能让用户获得优廉的 linux设备，实战linux底层相关的内容的产品。
+- LicheePI 是为了能让用户获得优廉的 linux 设备，实战 linux 底层相关的内容的产品。
 
 <table>
 <thead>
@@ -229,13 +242,11 @@ MAIX-II 系列包含多款硬件产品，目前有三款产品，分别如下：
 </tbody>
 </table>
 
-
 ### 售罄产品
 
 |                                       Tang Nano                                       |                                              Tang Primer                                               |
 | :-----------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------: |
 | [![Tang Nano](./tang/../../assets/Tang/Nano/Tang_Nano.jpg)](./tang/Tang-Nano/Nano.md) | [![Tang Primer](./tang/../../assets/Tang/permier/Tang_permier.jpg)](./tang/Tang-primer/Tang-primer.md) |
-
 
 ## MaixSense 系列
 
@@ -246,7 +257,7 @@ MAIX-II 系列包含多款硬件产品，目前有三款产品，分别如下：
 | 图片                                           | ![me_small](./maixsense/assets/me_small.jpg) | ![me_big](./maixsense/assets/me_big.jpg)    |
 | 接口                                           | 1.25mm 串口连接器 \*1<br>Type-C USB2.0 \*1   | 1.25mm 串口连接器 \*1 <br>Type-C USB2.0 \*1 |
 | 分辨率                                         | TOF：100x100@30fps                           | RGB：1600x1200@30fps<br>TOF：320x240@60fps  |
-| 视场角                                         | RGB：无<br>TOF：70°(H) * 60°(V)              | RGB：120°<br>TOF：55°(H)*72°(H)             |
+| 视场角                                         | RGB：无<br>TOF：70°(H) \* 60°(V)             | RGB：120°<br>TOF：55°(H)\*72°(H)            |
 | <p style="white-space:nowrap">TOF 像素尺寸</p> |                                              | 15um                                        |
 | 激光发射器                                     | 40nm VCSEL                                   | 940nm,3W                                    |
 | 测量范围                                       | 0.2-2.5m                                     | 0.15-1.5m                                   |
