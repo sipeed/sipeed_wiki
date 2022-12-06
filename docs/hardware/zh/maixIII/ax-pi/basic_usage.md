@@ -102,55 +102,6 @@ Maix-III AXera-Pi 开发板的 Linux debian11 系统默认使用 root 用户登�
 
 登录后，可以使用 `ls` 命令查看当前目录下的文件，使用 `cd` 命令切换目录，使用 `pwd` 命令查看当前目录。
 
-## 如何传输文件
-
-### 板子与电脑的文件互传
-
-在编译程序之前，你需要了解一些拷贝文件到板子或电脑的方法，免得交叉编译完程序不知道怎么传文件进去板子里运行。
-
-- ssh 相关的远程工具需要，你知道板子的 IP 地址，可以从 ifconfig 得知。
-- serial 相关的有线串口工具，需要你接好线配置好参数连上板子。
-
-如何登录板子均可以从前文【系统使用手册】中得知。
-
-### 使用 ssh 远程管理工具
-
-在 windows 上有许多远程管理 linux 服务器的工具都提供了文件传输的功能，这里只推荐免费绿色好用的 mobaxterm 工具。
-
-- [利用MobaXterm实现linux和windows之间传输文件](https://jingyan.baidu.com/article/9f63fb91e2bc6688400f0e93.html)
-
-- [用MobaXterm 在linux和windows之间上传/下载文件](https://blog.csdn.net/unforgettable2010/article/details/123930796)
-
-> [如何使用 mobaxterm](https://wiki.sipeed.com/hardware/zh/maixII/M2/tools/mobaxterm.html)
-
-想了解更多可以看 [推荐7款超级好用的终端工具 —— SSH+FTP](https://zhuanlan.zhihu.com/p/301653835) ，而其他系统都提供了好用的命令行终端，支持 ssh 、 scp 等命令直接执行。
-
-### 使用 scp 命令复制文件
-
-和 cp 复制文件等命令一样，它就是 ssh + cp = scp 这个意思。
-
-- [linux操作系统scp命令使用方法](https://cloud.tencent.com/developer/article/1876623)
-
-###  使用读卡器物理拷贝文件
-
-由于 linux 系统采用 ext4 分区在 Windows / Mac 默认系统上看不到，需要额外安装增强工具才能读取到具体的分区。
-
-- [如何在 Windows 下访问 ext4 格式的硬盘？](https://zhuanlan.zhihu.com/p/448535639)
-
-- [[macOS] 在 macOS 上挂载 Linux 的 ext/ext3/ext4 文件系统](https://blog.twofei.com/773/)
-
-Linux 系统可以直接看到卡里的分区和内容，实在不行也可以把读卡器接到安卓设备通过 otg 转接头实现文件拷贝。
-
-### 使用有线串口互传文件
-
-接好串口连上设备，安装 `apt-get install lrzsz` 工具后参考以下文章：
-
-- 使用 命令行工具  `minicom -D /dev/ttyUSB0 -b 115200` 可以看[ubuntu中使用 minicom 玩转文件的上传与下载](https://blog.csdn.net/wanyeye/article/details/42002377)。
-
-- 使用 mobaxterm 可以看 [MobaXterm 使用 rz/sz 传送文件](https://blog.csdn.net/qq_28837389/article/details/120073720)
-
-其他的可以自行百度。
-
 ## 网络配置
 
 ### 网络操作基础
@@ -546,7 +497,7 @@ poweroff
 
 ### 开机启动脚本
 
-系统已经内置好 `/boot/rc.local` 的开机启动脚本，用户可参照以下示例进行修改。
+系统已经内置好 `/boot/home/rc.local` 的开机启动脚本，用户可参照以下示例进行修改。
 
 开机启动脚本是在 / 根目录下运行的，举例来说，如果想要开机启动 `/home/run.sh` 脚本。
 
@@ -665,6 +616,55 @@ exit 0
 - kernel.img linux 内核
 
 - dtb.img linux 设备树
+
+## 如何传输文件 
+
+### 板子与电脑的文件互传
+
+在编译程序之前，你需要了解一些拷贝文件到板子或电脑的方法，免得交叉编译完程序不知道怎么传文件进去板子里运行。
+
+- ssh 相关的远程工具需要，你知道板子的 IP 地址，可以从 ifconfig 得知。
+- serial 相关的有线串口工具，需要你接好线配置好参数连上板子。
+
+如何登录板子均可以从前文【系统使用手册】中得知。
+
+### 使用 ssh 远程管理工具
+
+在 windows 上有许多远程管理 linux 服务器的工具都提供了文件传输的功能，这里只推荐免费绿色好用的 mobaxterm 工具。
+
+- [利用MobaXterm实现linux和windows之间传输文件](https://jingyan.baidu.com/article/9f63fb91e2bc6688400f0e93.html)
+
+- [用MobaXterm 在linux和windows之间上传/下载文件](https://blog.csdn.net/unforgettable2010/article/details/123930796)
+
+> [如何使用 mobaxterm](https://wiki.sipeed.com/hardware/zh/maixII/M2/tools/mobaxterm.html)
+
+想了解更多可以看 [推荐7款超级好用的终端工具 —— SSH+FTP](https://zhuanlan.zhihu.com/p/301653835) ，而其他系统都提供了好用的命令行终端，支持 ssh 、 scp 等命令直接执行。
+
+### 使用 scp 命令复制文件
+
+和 cp 复制文件等命令一样，它就是 ssh + cp = scp 这个意思。
+
+- [linux操作系统scp命令使用方法](https://cloud.tencent.com/developer/article/1876623)
+
+###  使用读卡器物理拷贝文件
+
+由于 linux 系统采用 ext4 分区在 Windows / Mac 默认系统上看不到，需要额外安装增强工具才能读取到具体的分区。
+
+- [如何在 Windows 下访问 ext4 格式的硬盘？](https://zhuanlan.zhihu.com/p/448535639)
+
+- [[macOS] 在 macOS 上挂载 Linux 的 ext/ext3/ext4 文件系统](https://blog.twofei.com/773/)
+
+Linux 系统可以直接看到卡里的分区和内容，实在不行也可以把读卡器接到安卓设备通过 otg 转接头实现文件拷贝。
+
+### 使用有线串口互传文件
+
+接好串口连上设备，安装 `apt-get install lrzsz` 工具后参考以下文章：
+
+- 使用 命令行工具  `minicom -D /dev/ttyUSB0 -b 115200` 可以看[ubuntu中使用 minicom 玩转文件的上传与下载](https://blog.csdn.net/wanyeye/article/details/42002377)。
+
+- 使用 mobaxterm 可以看 [MobaXterm 使用 rz/sz 传送文件](https://blog.csdn.net/qq_28837389/article/details/120073720)
+
+其他的可以自行百度。 
 
 ## 验证系统外设
 

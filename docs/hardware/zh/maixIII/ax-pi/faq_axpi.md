@@ -90,3 +90,15 @@ A：因为屏幕批次不同导致的原因，更新到最新的 **20221125** �
 ## Q：运行 opencv 相关后报错：can't open camera by index.
 
 A：查询一下摄像头设备号是否与代码内调用设备号的一致。
+
+## Q：开机后使用屏幕出现以下画面。
+
+![fqa_dth](./../assets/fqa_dth.jpg)
+
+A：屏幕批次不同的原因，更换以下 `/boot/ dtb ` 的文件即可。
+
+```bash
+ls /boot/
+cp /boot/dtb.img.lcd20220830 dtb.img
+```
+
