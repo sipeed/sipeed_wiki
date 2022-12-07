@@ -288,7 +288,7 @@ Visit Schematic for details：[Click me](https://dl.sipeed.com/shareURL/MAIX/M1s
     </tr>
     <tr>
         <td>Suggestion for Design</td>
-        <td>Before hadrware design, see this post <a href="https://bbs.sipeed.com/thread/1721">https://bbs.sipeed.com/thread/1721</a> (Use Web Translation)</td>
+        <td>Before hadrware design, see this post <a href="https://bbs.sipeed.com/thread/1721">https://bbs.sipeed.com/thread/1721</a> (Use Web Translation)<br> The attached file can be download from <a href="https://dl.sipeed.com/shareURL/MAIX/M1s/M1s/">Download station</a></td>
     </tr>
     <tr>
         <td>BANK</td>
