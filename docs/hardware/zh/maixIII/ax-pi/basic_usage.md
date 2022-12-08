@@ -1026,7 +1026,7 @@ PWM 使用参考：[点击查看](https://wiki.sipeed.com/soft/maixpy3/zh/usage/
 
 ### I2C
 
-> m3axpi 的 I2C 是 /dev/i2c-7 对应 `i2cdetect -y -r 0` 喔， 0 1 2 是摄像头的， 8 是系统的 usb rtc 的， 9 做预留。
+> m3axpi 的排针上的 I2C 是 /dev/i2c-7 对应 `i2cdetect -y -r 7` 喔， 0 1 2 是摄像头的， 8 是系统的 usb rtc 的， 9 做预留。
 使用 i2c-tools 工具包，可使用 i2cdetect -y 0 来查看 i2c 总线上的设备。
 如果出现 i2c 设备扫不到的情况需要接一下上拉电阻。
 
