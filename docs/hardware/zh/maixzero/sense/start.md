@@ -36,7 +36,7 @@ update:
 
 通过串口软件打开板子串口，可以看到板子打印出的 `Hello,World`
 
-![m0sense_hello_world](./assets/start/m0sense_hello_world.gif) 
+![m0sense_hello_world](./assets/start/m0sense_hello_world.gif)
 
 ### blink_baremetal.uf2
 
@@ -48,7 +48,7 @@ update:
 
 - LED 闪灯
 
-![m0sense_blink_baremetal_led](./assets/start/m0sense_blink_baremetal_led.gif) 
+![m0sense_blink_baremetal_led](./assets/start/m0sense_blink_baremetal_led.gif)
 
 ### blink_rtos.uf2
 
@@ -62,13 +62,13 @@ update:
 
 - LED 闪灯
 
-![m0sense_blink_baremetal_led](./assets/start/m0sense_blink_baremetal_led.gif) 
+![m0sense_blink_baremetal_led](./assets/start/m0sense_blink_baremetal_led.gif)
 
 ### lcd_flush.uf2
 
 烧录进板子后，板子配套的 lcd 刷屏换颜色。
 
-![m0sense_lcd_flush](./assets/start/m0sense_lcd_flush.gif) 
+![m0sense_lcd_flush](./assets/start/m0sense_lcd_flush.gif)
 
 ## SDK 环境搭建
 
@@ -93,7 +93,6 @@ M0sense_BL702_example/
 ├── misc              # 其他应用
 └── uf2_demos         # 例程文件
 ```
-
 
 ### 在例程目录下，获得 SDK 仓库
 
@@ -122,7 +121,7 @@ M0sense_BL702_example/
 │   ├── examples
 │   ├── project.build
 │   ├── tools
-│   └── utils        
+│   └── utils
 ├── build.sh          # 编译脚本
 ├── m0sense_apps      # 例程源码
 ├── misc              # 其他应用
@@ -144,14 +143,14 @@ M0sense_BL702_example/
 ├── README.md                     # 仓库说明
 ├── bl_mcu_sdk                    # SDK 文件
 │   ├── README_zh.md              # SDK 中文说明
-│   ├── ReleaseNotes              # SDK 发布说明  
+│   ├── ReleaseNotes              # SDK 发布说明
 │   ...
 ├── build.sh                      # 编译脚本
 ├── m0sense_apps                  # 例程源码
 ├── misc                          # 其他应用
 ├── toolchain_gcc_sifive_linux    # 编译工具链
 │   ├── bin                       # 编译链可执行文件路径
-│   ├── lib                       # 动态库文件                    
+│   ├── lib                       # 动态库文件
 │   ...
 └── uf2_demos                     # 例程文件
 ```
@@ -231,3 +230,38 @@ gcc -I libs/uf2_format misc/utils/uf2_conv.c -o uf2_convert # 编译出固件转
 
 1. 第一次搭建环境最好自己编译一份 uf2 文件转换工具
 2. 每次新开终端编译记得配置一下 [编译工具链路径](#配置编译工具链路径)
+
+## 烧录 bin 文件
+
+有时候可能由于某些原因需要烧录 bin 文件，这里写一下烧录方法。
+
+给 M0sense 烧录需要用到博流官方烧录工具，前往 https://dev.bouffalolab.com/download 下载名称为 `Bouffalo Lab Dev Cube` 的文件。解压后就得到了用来烧录板子的应用程序。
+
+![bouffalo_cube](./../../maix/m1s/other/assets/start/bouffalo_cube.png)
+
+解压后的文件夹中主要关注 `BLDevCube`、 `BLDevCube-macos` 和 `BLDevCube-ubuntu` 三个文件，用于在不同系统启动这个烧录工具。
+
+![application](./../../maix/m1s/other/assets/start/application.png)
+
+然后使用镊子或其他金属短接上板子上的 3.3V 引脚和 boot 引脚，然后在给板子通电，这样板子进入烧录模式了。可以在电脑设备管理器中看到出现了一个串口设备。
+
+| 短接引脚                                   | 设备管理器中的串口设备                                |
+| ------------------------------------------ | -------------------------------------------------- |
+| ![boot_mode](./assets/start/boot_mode.jpg) | ![serial_device](./assets/start/serial_device.jpg) |
+
+接着打开 `BLDevCube` 烧录软件（根据自己系统选择），选择 `BL702` 芯片，在打开的软件界面选择 MCU 模式，选择想要烧录进去的固件。默认的固件可以在这里下载到: [Click me](https://dl.sipeed.com/shareURL/Maix-Zero/Maix-Zero/7_Example_demos/default_firmware)
+
+<table>
+    <tr>
+        <td><img src="./../../maix/m1s/other/assets/start/select_bl702.png" alt="select_bl702" style="transform:rotate(0deg);"></td>    
+        <td><img src="./../../maix/m1s/other/assets/start/mcu_mode.png" alt="mcu_mode" style="transform:rotate(0deg);" width="70%"></td>
+    </tr>
+</table>
+
+点击 `Refresh`，选择唯一的串口（如果看到的不是唯一串口，重新短接 boot 引脚和 3.3v 引脚），设置波特率 2000000， 点击下载烧录。
+
+![burn_bl702](./../../maix/m1s/other/assets/start/burn_bl702.png)
+
+烧录结束后，重新插拔一次 USB 来重新启动 bl702 以应用新的固件。
+
+![finish_burn_702](./../../maix/m1s/other/assets/start/finish_burn_702.png)
