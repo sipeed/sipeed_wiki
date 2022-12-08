@@ -216,5 +216,13 @@ make             # 执行编译
 
 > 若在编译过程中有依赖缺失、函数未定义等情况，请自行寻找对应函数，并添加头文件: )
 
+### 隐藏屏幕log和指针
+
+需要在uboot传入的参数中删去tty0输出和关闭指针，具体可参考*系统适配篇-uboot传递参数*章，具体命令如下
+
+```shell
+setenv bootargs console=ttyS0,115200 panic=5 rootwait root=/dev/mmcblk0p2 rw vt.global_cursor_default=0
+```
+
 > **交流与答疑**
 > 对于本节内容，如有疑问，欢迎到 [GUI交流帖](http://bbs.lichee.pro/d/25-gui) 提问或分享经验。
