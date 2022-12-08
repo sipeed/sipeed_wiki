@@ -322,7 +322,7 @@ We provide debian11 Linux system, and support boot from SD card and burn system 
 
 1. Burning image: [WIKI AXera-Pi burn image](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/flash_system.html#%E8%8E%B7%E5%8F%96%E9%95%9C%E5%83%8F)
 
-2. Basic use：[WIKI AXera-Pi 上手必看](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/flash_system.html)
+2. Basic use：[WIKI AXera-Pi guide](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/flash_system.html)
 
 3. Program with Python：[ax_pipeline_api](https://github.com/junhuanchen/ax_pipeline_api)
 
@@ -332,48 +332,46 @@ We provide debian11 Linux system, and support boot from SD card and burn system 
 
 #### BSP SDK
 
-
-
-提供各类开发源码，提供 API 开发文档，SDK 开发方法等说明，细节可以从[SDK 开发指南](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/sdk_usage.html) 得知。
+We provide source code, api documents, sdk usage, visit [sdk usage](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/sdk_usage.html) to get more.
 
 ##### [ax-sample](https://github.com/AXERA-TECH/ax-samples)
 
-由爱芯提供典型 AI 模型的开发与评估验证，提供给有经验的 AI 开发者使用或只想蹭模型的同学，不涉及任何硬件外设有关的内容。
+Here are AI models provided by Axera for development, evaluation and verification, those who are good at AI development or want to test these models can have a try, and there models are not involved with peripherals.
 
-1. [示例项目 examples](https://github.com/AXERA-TECH/ax-samples/tree/main/examples)
-2. [物体检测 PP-YOLOv3](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/README.md#yolov3paddle)
-3. [人体分割 PP-HumanSeg](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/README.md#MobileSeg)
-4. [语义分割 PP-Seg](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/README.md#PP-HumanSeg)
+1. [examples](https://github.com/AXERA-TECH/ax-samples/tree/main/examples)
+2. [PP-YOLOv3](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/README.md#yolov3paddle)
+3. [PP-HumanSeg](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/README.md#MobileSeg)
+4. [PP-Seg](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/README.md#PP-HumanSeg)
 
 ##### [libmaix](https://github.com/sipeed/libmaix)
 
-由 SIPEED 提供在嵌入式平台统一的嵌入式开发环境，主要有摄像头、屏幕、视觉、图像处理、部署 Pipeline 相关的实机例程，适合刚入门嵌入式 linux 开发的同学使用。
+A unified embedded development environment created by SIPEED, aimed to camera, screen, vision, image processing, deployment pipelines-related routines, is suitable for those who want to learn embedded Linux.
 
-1. [测试一下屏幕显示](https://github.com/sipeed/libmaix/tree/release/examples/display)
-2. [把摄像头显示到屏幕](https://github.com/sipeed/libmaix/tree/release/examples/axpi)
-3. [摄像头+yolov5 模型+屏幕](https://github.com/sipeed/libmaix/tree/release/examples/axpi_yolov5_cam)
+1. [Test screen display](https://github.com/sipeed/libmaix/tree/release/examples/display)
+2. [Screen displays camera content](https://github.com/sipeed/libmaix/tree/release/examples/axpi)
+3. [camera + screen + yolov5 model](https://github.com/sipeed/libmaix/tree/release/examples/axpi_yolov5_cam)
 
 ##### [axpi_bsp_sdk](https://github.com/sipeed/axpi_bsp_sdk)
 
-芯片商用时所用的 bsp 开发包，这里主要提供的是芯片的原始开发资料，如 uboot、linux、msp 、sample、rtsp、ipcdemo 等工程代码，这个部分是逐步开源的，你可以从这里得到商业评估用的代码，例如 ipcdemo 这样的程序，但这些代码会很复杂且高耦合，适合有经验的同行出于商业落地的目的使用。
+BSP development package for business, provided by Axera. It's the original development package for this chip, containing components like uboot、linux、msp 、sample、rtsp、ipcdemo, and this is progressively open source, you can get these codes for commercial evaluation, such as ipcdemo, but normally these codes are complex and highly coupled, those who are experienced enough and want to use this board for business cooperation can try this.
 
-1. 开发文档 [docs](https://github.com/sipeed/axpi_bsp_sdk/tree/main/msp/sample/vo_fb)
-2. 框架应用 [ipcdmeo](https://github.com/sipeed/axpi_bsp_sdk/tree/main/app/IPCDemo)
-3. 外设验证 [sample](https://github.com/sipeed/axpi_bsp_sdk/tree/main/msp/sample)
+1. Development documents [docs](https://github.com/sipeed/axpi_bsp_sdk/tree/main/msp/sample/vo_fb)
+2. Platform application [ipcdmeo](https://github.com/sipeed/axpi_bsp_sdk/tree/main/app/IPCDemo)
+3. Peripheral Verification[sample](https://github.com/sipeed/axpi_bsp_sdk/tree/main/msp/sample)
 
 ##### [ax-pipeline](https://github.com/AXERA-TECH/ax-pipeline)
 
-AX-Pipeline 由爱芯主导开发。该项目基于 AXera-Pi 展示 ISP、图像处理、NPU、编码、显示 等功能模块软件调用方法，方便社区开发者进行快速评估和二次开发自己的多媒体应用。
+AX-Pipeline is provided by Axera. With m3axpi, this project is used for pepole to know the usages of ISP, image processing, NPU, codec and display, which is convenient for community developers to quickly evaluate and develop their own multimedia applications.
 
-1. [快速编译](https://github.com/AXERA-TECH/ax-pipeline/blob/main/docs/compile.md) 基于 cmake 实现简单的跨平台编译。
-2. [如何更换自己训练的 yolov5 模型](https://github.com/AXERA-TECH/ax-pipeline/blob/main/docs/how_to_deploy_custom_yolov5_model.md)
-3. [如何部署自己的其他模型](https://github.com/AXERA-TECH/ax-pipeline/blob/main/docs/how_to_deploy_custom_model.md)
-4. [如何调整图像方向](https://github.com/AXERA-TECH/ax-pipeline/blob/main/docs/how_to_adjust_image_orientation.md)
-5. [ModelZoo](https://github.com/AXERA-TECH/ax-pipeline/blob/main/docs/modelzoo.md) 一些支持或将支持的模型和一些模型的说明。
+1. [Quick compilation](https://github.com/AXERA-TECH/ax-pipeline/blob/main/docs/compile.md) Simple cross-platform compilation based on cmake.
+2. [How to replace into my own trained yolov5 model](https://github.com/AXERA-TECH/ax-pipeline/blob/main/docs/how_to_deploy_custom_yolov5_model.md)
+3. [How to deploy my other models](https://github.com/AXERA-TECH/ax-pipeline/blob/main/docs/how_to_deploy_custom_model.md)
+4. [How to adjust the image orientation](https://github.com/AXERA-TECH/ax-pipeline/blob/main/docs/how_to_adjust_image_orientation.md)
+5. [ModelZoo](https://github.com/AXERA-TECH/ax-pipeline/blob/main/docs/modelzoo.md) descriptions for models which are supported or to be supported
 
-## 社区资源
+<!-- ## 社区资源
 
-以下是由社区开发者贡献的内容，欢迎你也来贡献喔！！！（直接丢群里都可以喔！）
+以下是由社区开发者贡献的内容，欢迎你也来贡献喔！！！（直接丢群里都可以喔！） -->
 
 <!-- - [爱芯派-AI 微光全彩夜视-开箱体验](https://zhuanlan.zhihu.com/p/571233089)
 - [爱芯 AX620A NPU 初体验](https://neucrack.com/p/440)
@@ -385,7 +383,7 @@ AX-Pipeline 由爱芯主导开发。该项目基于 AXera-Pi 展示 ISP、图像
 - [MAIX-III AXera-Pi 爱芯派从零入门开发【3】模型转换及部署](https://www.bilibili.com/video/BV1jg411z7C8/?spm_id_from=333.999.0.0)
 - [MAIX-III AXera-Pi 爱芯派从零入门开发【4】视频推理及推流](https://www.bilibili.com/video/BV14D4y147Ed/?spm_id_from=333.999.0.0) -->
 
-## 硬件参数
+## Hardware
 
 <p align="center">
   <img src="./../../../zh/maixIII/assets/waiguan1.jpg" style="zoom: 51%;" />
@@ -393,18 +391,118 @@ AX-Pipeline 由爱芯主导开发。该项目基于 AXera-Pi 展示 ISP、图像
   <img src="./../../../zh/maixIII/assets/waiguan2.jpg" style="zoom: 45%;" />
 </p>
 
-### 硬件标注图
+### Hardware dunction diagram
 
 <p align="center">
   <img src="./../../../zh/maixIII/assets/layout_axpi_2.png" alt="layout_axpi_2" width="45%">
   <img src="./../../../zh/maixIII/assets/layout_axpi_1.png" alt="layout_axpi_1" width="45%">
 </p>
 
-### 核心板参数
+### Core module parameters
 
-### 底板参数
+<table>
+<thead>
+<tr>
+  <th colspan=2>MaixIII Core module</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>CPU</td>
+  <td>Cortex-A7@1.0Ghz*4</td>
+</tr>
+<tr>
+  <td>NPU</td>
+  <td>14.4Tops@int4，3.6Tops@int8</td>
+</tr>
+<tr>
+  <td>ISP</td>
+  <td>4K@30fps</td>
+</tr>
+<tr>
+  <td>Codec format</td>
+  <td>H.264, H.265</td>
+</tr>
+<tr>
+  <td>Video encode</td>
+  <td>4K@30fps</td>
+</tr>
+<tr>
+  <td>Video decode</td>
+  <td>1080P@60fps</td>
+</tr>
+<tr>
+  <td>Ethernet</td>
+  <td>Support RGMII / RMII Ethernet</td>
+</tr>
+<tr>
+  <td>Display</td>
+  <td>MIPI DSI 4 Lane，up to 4K@30FPS</td>
+</tr>
+<tr>
+  <td>DRAM</td>
+  <td>2GB LPDDR4X 3733Mhz</td>
+</tr>
+<tr>
+  <td>Storge</td>
+  <td>Optional 16GB EMMC (Boot from TF card by default)</td>
+</tr>
+<tr>
+  <td>IO pins</td>
+  <td>DDR4 SODIMM 260P route all IO</td>
+</tr>
+</tbody>
+</table>
 
-| 项目       | 参数                                                                   |
+### Ext-board parameters
+
+<table>
+<thead>
+<tr>
+  <th colspan=2> Ext-board </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Camera</td>
+  <td> Maixmum supported 3 cameras (Default connecting one camera):<br> 1 MIPI 4-LANE + 2 MIPI 2-LANE</td>
+</tr>
+<tr>
+  <td>Display</td>
+  <td>Maixmum supported 4-LANE MIPI DSI</td>
+</tr>
+<tr>
+  <td>SD card slot</td>
+  <td>Default boot from SD card</td>
+</tr>
+<tr>
+  <td>Recording</td>
+  <td>2 onboard MEMS MIC support dual MIC noise reduction</td>
+</tr>
+<tr>
+  <td>Audio output</td>
+  <td>Support 3.5MM interface, used for stereo output or MIC input</td>
+</tr>
+<tr>
+  <td>Network</td>
+  <td>Support Gigabit Ethernet (ETH) and 2.4GHZ WI-FI</td>
+</tr>
+<tr>
+  <td>USB </td>
+  <td>1 x USB2.0HS osed for OTG or HOST<br>1 x USB-UART</td>
+</tr>
+<tr>
+  <td>Others</td>
+  <td>1 User key，<br>3 x System keys，<br>1 x RTC，<br>2 x LEDs</td>
+</tr>
+<tr>
+  <td>Interface</td>
+  <td>Reserved CJTAG，used for connecting corresponding debugger，<br> 2 x 12 pin headers，<br>4 x M2.5 screw positioning holes</td>
+</tr>
+</tbody>
+</table>
+
+<!-- | 项目       | 参数                                                                   |
 | ---------- | ---------------------------------------------------------------------- |
 | 摄像头输入 | （默认单摄）最高支持 3 摄:1 个 MIPI4-LANE+2 个 MIPI2-LANE              |
 | 屏幕输出   | 支持最高 4-LANE MIPI DSI 屏幕                                          |
@@ -414,43 +512,43 @@ AX-Pipeline 由爱芯主导开发。该项目基于 AXera-Pi 展示 ISP、图像
 | 网络接口   | 支持 千兆以太网（ETH） 和 2.4GHZ WI-FI 板载天线                        |
 | USB 接口   | 1xUSB2.0HS 支持 OTG 或 HOST 功能，1xUSB-UART 系统串口                  |
 | 其他资源   | 1x 用户按键，3x 系统按键，1xRTC 时钟，2xLED                            |
-| 对外接口   | 引出 CJTAG，可自行连接相应调试器，引出 2x12 排针，4 个 M2.5 螺丝定位孔 |
+| 对外接口   | 引出 CJTAG，可自行连接相应调试器，引出 2x12 排针，4 个 M2.5 螺丝定位孔 | -->
 
-[硬件资源汇总](https://dl.sipeed.com/shareURL/MaixIII/AXera)
+[Summary of Hardware imformations](https://dl.sipeed.com/shareURL/MaixIII/AXera)
 
-- [原理图](https://dl.sipeed.com/shareURL/MaixIII/AXera/02_Schematic)
-- [点位图](https://dl.sipeed.com/shareURL/MaixIII/AXera/03_Bit_number_map)
-- [模型文件](https://dl.sipeed.com/shareURL/MaixIII/AXera/05_3D_file)
-- [尺寸图](https://dl.sipeed.com/shareURL/MaixIII/AXera/04_Dimensional_drawing)
+- [Schematic](https://dl.sipeed.com/shareURL/MaixIII/AXera/02_Schematic)
+- [Bit map](https://dl.sipeed.com/shareURL/MaixIII/AXera/03_Bit_number_map)
+- [3D file](https://dl.sipeed.com/shareURL/MaixIII/AXera/05_3D_file)
+- [Dimension](https://dl.sipeed.com/shareURL/MaixIII/AXera/04_Dimensional_drawing)
 
-### 摄像头一览
+### Camera comparison
 
-- 低配 gc4653 400w 基础体验版本。
+- Low-end camera gc4653 400w basic experience
 
 <p align="center">
   <img src="./../../../zh/maixIII/assets/ax620a_gc.jpg" style="zoom: 100%;" />
 </p>
 
-- 高配 os04a10 400w 夜景增强版本。
+- High-end camera os04a10 400w enhanced night vision edition
 
 <p align="center">
   <img src="./../../../zh/maixIII/assets/ax620a_os.jpg" style="zoom: 100%;" />
 </p>
 
-> [更换摄像头可以看这个](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html)
+> [How to change camera](https://wiki.sipeed.com/hardware/en/maixIII/ax-pi/faq_axpi.html)
 
-## 其他资源
+## Others
 
-### 产品相关
+<!-- ### 产品相关 -->
 
-- AI 服务 http://maixhub.com
-- 文档资料 http://wiki.sipeed.com
-- 交流社区 http://bbs.sipeed.com
-- 开源组织 http://github.com/sipeed
+- Online AI: http://maixhub.com
+- Documents: http://wiki.sipeed.com
+- Github: http://github.com/sipeed
+<!-- - 交流社区 http://bbs.sipeed.com -->
 
-### 售后支持
+<!-- ### 售后支持
 
 - AXERA 技术交流群：（ 139953715 ）专供 AI ISP 技术交流
-- 荔枝 MaixPy3 AI 交流群：（ 756313869 ）给产品开箱小白答疑
+- 荔枝 MaixPy3 AI 交流群：（ 756313869 ）给产品开箱小白答疑 -->
 
-> 一些常见问题（FAQ） Q & A 请到 [Maix-III 系列 AXera-Pi 常见问题（FAQ）](./ax-pi/faq_axpi.md) 了解喔。
+> Visit [Maix-III AXera-Pi (FAQ)](./ax-pi/faq_axpi.md) if you have trobule.
