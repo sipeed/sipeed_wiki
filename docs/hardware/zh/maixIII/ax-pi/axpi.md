@@ -428,16 +428,16 @@ AX-Pipeline 由爱芯主导开发。该项目基于 AXera-Pi 展示 ISP、图像
 
 > [更换摄像头可以看这个](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html)
 
-## 其他资源
+## 开源社区
 
-### 产品相关
+### 在线资源
 
 - AI 服务 http://maixhub.com
 - 文档资料 http://wiki.sipeed.com
 - 交流社区 http://bbs.sipeed.com
 - 开源组织 http://github.com/sipeed
 
-### 售后支持
+### 技术交流
 
 - AXERA 技术交流群：（ 139953715 ）专供 AI ISP 技术交流
 - 荔枝 MaixPy3 AI 交流群：（ 756313869 ）给产品开箱小白答疑
