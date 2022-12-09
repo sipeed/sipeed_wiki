@@ -286,6 +286,7 @@ AX-Pipeline 由爱芯主导开发。该项目基于 AXera-Pi 展示 ISP、图像
 4. [如何调整图像方向](https://github.com/AXERA-TECH/ax-pipeline/blob/main/docs/how_to_adjust_image_orientation.md)
 5. [ModelZoo](https://github.com/AXERA-TECH/ax-pipeline/blob/main/docs/modelzoo.md) 一些支持或将支持的模型和一些模型的说明。
 
+
 ## 社区资源
 
 以下是由社区开发者贡献的内容，欢迎你也来贡献喔！！！（直接丢群里都可以喔！）
@@ -308,7 +309,8 @@ AX-Pipeline 由爱芯主导开发。该项目基于 AXera-Pi 展示 ISP、图像
 正在联动的 AI 社区有：
 
 - [sipeed maixhub.com](https://maixhub.com)
-- [秘密策划中]()
+
+## 新品活动
 
 ### 产品开箱测评公示（进行中）
 
@@ -426,20 +428,17 @@ AX-Pipeline 由爱芯主导开发。该项目基于 AXera-Pi 展示 ISP、图像
   <img src="./../assets/ax620a_os.jpg" style="zoom: 100%;" />
 </p>
 
-> [更换摄像头可以看这个](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html)
+> [更换摄像头常见问题](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html)
 
-## 开源社区
-
-### 在线资源
+## 常见问题（FAQ）
 
 - AI 服务 http://maixhub.com
-- 文档资料 http://wiki.sipeed.com
+- 在线文档 http://wiki.sipeed.com
 - 交流社区 http://bbs.sipeed.com
 - 开源组织 http://github.com/sipeed
-
-### 技术交流
 
 - AXERA 技术交流群：（ 139953715 ）专供 AI ISP 技术交流
 - 荔枝 MaixPy3 AI 交流群：（ 756313869 ）给产品开箱小白答疑
 
-> 一些常见问题（FAQ） Q & A 请到 [Maix-III 系列 AXera-Pi 常见问题（FAQ）](./ax-pi/faq_axpi.md) 了解喔。
+Q & A 请到 [Maix-III 系列 AXera-Pi 常见问题（FAQ）](./ax-pi/faq_axpi.md) 了解喔。
+
