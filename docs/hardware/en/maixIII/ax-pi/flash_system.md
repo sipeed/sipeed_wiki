@@ -1,10 +1,10 @@
 ---
-title: AXera-Pi Burn image
+title: AXera-Pi Guide
 tags: AXera-Pi, Burn image
 keywords: AXera-Pi，Burn, image
 desc: AXera-Pi Burn image
 update:
-  - date: 2022-11-24
+  - date: 2022-12-09
     version: v0.1
     author: wonder
     content:
@@ -13,22 +13,30 @@ update:
 
 ---
 
+> This page is on building, please use translation application to see https://wiki.sipeed.com/m3axpi instead.
+
+## Getting Started
+
 ## OS introduction
 
-The default package of AXera-Pi has no onboard memory storage to boot system, so it's necessary to prepare a TF card to boot this device.
+**The default AXera-Pi kit has no onboard memory storage, so it's necessary to prepare a TF card to boot this device.**
 
-For Axera-Pi, we provide Debian11 Bullseye image file,  [reasons to use Debian](https://www.debian.org/intro/why_debian.en.html).
+For Axera-Pi, we provide Debian11 Bullseye image file.
 
-TF card which has been burnned image can be bought from [Sipeed aliexpress](https://sipeed.aliexpress.com/store/1101739727), and you need to burn your own TF image card by following steps.
+> ![debian_logo](./../../../zh/maixIII/assets/debian_logo.jpg)
+> [Reasons to use Debian](https://www.debian.org/intro/why_debian.en.html).
 
-## Which SD card to choose？
+TF card which has been burnned system image can be bought from [Sipeed aliexpress](https://sipeed.aliexpress.com/store/1101739727), otherwise you need to perpare your own system image TF card by following steps.
 
-Except get the TF card from [Sipeed aliexpress](https://sipeed.aliexpress.com/store/1101739727), the following TF cards are also suitable for AXera-Pi.
-We have tested the read and write speed of some TF cards on Axera-pi, for users to make the decesion of TF card.
+## Choose TF card
 
-![sd](./../../../zh/maixIII/assets/sd.jpg)
+People who has bought the the TF card which has been burnned system image can skip this chapter and read [start Linux]() to use this board
 
-> Some SD cards are added to test after this photo, so they are not in this photo but they can be recognized by their number.
+We have tested the read and write speed of some TF cards on Axera-pi, for users to make the choice of TF card.
+
+![sd](./../../../zh/maixIII/assets/flash_system/sd.jpg)
+
+> Some TF cards are added to test after this photo, so they are not in this photo but they can be recognized by their number.
 
 | Number | Model                                    | <p style="white-space:nowrap">Write speed（Write 160MB）</p> | <p style="white-space:nowrap">Read speed（Read 160MB） </p> |
 | ------ | ---------------------------------------- | ------------------------------------------------------------ | ----------------------------------------------------------- |
@@ -48,91 +56,65 @@ Tht following TF cards are not in that photo but we also tested then.
 | 1.     | Lexar 64GB TF（MicroSD）C10 U3 V30 A2 | 2.59644 s, 63.1 MB/s                                         | 1.9106 s, 85.8 MB/s                                        |
 | 2.     | Lexar 128GB TF（MicroSD）C10 U3 V30   | 6.73793 s, 24.3 MB/s                                         | 6.94079 s, 23.6 MB/s                                       |
 
-## Get image
+### Burn system image
 
-Because the image is 1G up, so we only provide mega link.
+<!-- ![flash](./../../../zh/maixIII/assets/axpi-flash.png) -->
 
-Visit to mega [Click me](https://mega.nz/folder/9EhyBbJZ#lcNhhm9aWXOyo2T0DDaSqA) wo download the image file.
+We only reserved EMMC pad on board, so we need to boot linux on this board by TF card.
 
-因为镜像文件比较大，因此这里仅提供百度云下载链接。
+#### Get image
 
-前往百度云 [点我](https://pan.baidu.com/s/1-UtDoAVP6spwqjHP2wneJA) ，提取码 `sdls` ,下载文件，镜像包与校验文件都已经放在里面了。
+Because the system image is about 2G, so we only provide mega link to download.
 
-![debian](./../../../zh/maixIII/assets/debian.jpg)
+Visit mega [Click me](https://mega.nz/folder/9EhyBbJZ#lcNhhm9aWXOyo2T0DDaSqA) to download the image file.
 
-用两个文件名来举例，其中文件命名规则如下（拖动滚动条来查看全部）：
+![debian](./assets/flash_system/debian.jpg)
 
-| 文件名                                 | 提供方 | 文件类型                                          | 适用芯片 | 镜像发行版 | 发布日期 |
-| -------------------------------------- | ------ | ------------------------------------------------- | -------- | ---------- | -------- |
-| sipeed_ax620a_debian11_20221013.zip    | sipeed | 镜像压缩包                                        | ax620a   | debian11   | 20221009 |
-| sipeed_ax620a_debian11_20221013.md5sum |        | <p style="white-space:nowrap">md5sum 校验文件</p> |          |            |          |
+The file name end with `img.xz` is the compressed system image file, and the other file name end with `img.xz.md5sum` is the check file, which we use to check the compressed system image file.
 
-如果里面有多个镜像文件，那么建议下载最新的镜像文件。
+The name rule of compressed system image file is `Image provider` _ `Target chip` _ `Linux distribution` _ `Created time` + `img.xz`
 
-校验文件需要在 Linux 环境中使用，windows10 及以上的用户可以使用 wsl 当作 Linux 环境。
+The check file should be used in the Linux, and users using windows10 or windows 11 can use the wsl to prepare a Linux environment
 
-使用方法为 `md5sum -c md5sum校验文件`。
+Run command `md5sum -c *.md5sum*` in the path where compressed system image file and check file are to check the compressed system image file.
 
-.. details::点我查看校验 log
+| Check succeeded                                                       | Check failed                                                     |
+| -------------------------------------------------------------- | ------------------------------------------------------------ |
+| ![md5sum_success](./../../../zh/maixIII/assets/flash_system/md5sum_success.jpg) | ![md5sum_failed](./../../../zh/maixIII/assets/flash_system/md5sum_failed.jpg) |
 
-    ```bash    
-    root@desktop:$ md5sum -c sipeed_ax620a_debian11_20221009.md5sum
-    sipeed_ax620a_debian11_20221009.zip: OK
-    ```
+If there is some thing with the compressed system image file, it will shows FAILED. Normally we don't need to check the compressed system image file, this is only for those who need.
 
-## 烧录镜像
+## Burn image
 
-### 准备工作
+**Before burning image, we need do following preparation:**
 
-**硬件**：
-- 一张容量大于 8G 的 SD 卡：建议购买官方提供的卡，不然可能因为其他的 SD 卡质量差而带来糟糕的体验
-- 一个读卡器：建议使用 USB3.0 接口的读卡器，不然读卡器的 USB 速度过低会导致烧录时间过长
+- A TF card with a storge capacity card over 8GB; It is recommended to buy an official image card, otherwise it may lead to a bad experience due to the bad performace of the TF card
+- A card reader: It is recommended to use the card reader that supports USB3.0, this will save our time on burning the system image card.
+- [Etcher] (https://www.balena.io/etcher/) application: Download the edition of this application suitable for your computer system.
 
-**软件**：
-- <a href="https://www.balena.io/etcher/" alt="Etcher" target="_blank"> Etcher </a>：根据自身电脑下载对应版本的软件即可
+**Burning system image steps**
 
-### 镜像系统烧录方法
+Run [Etcher](https://www.balena.io/etcher/ "Etcher") application, click `Flash from file`, choose the compressed system image `img.xz` file， then click `Select target` to choose the TF card，click `FLASH` to burn your TF card.
 
-> **20221012** 现已确认 Etcher 软件可直接支持烧录 zip 压缩包里面的 img 镜像，用户不需要解压的步骤直接选择 zip 文件按下面步骤操作即可。
+**Burn the TF card**
 
-首先打开 [Etcher](https://www.balena.io/etcher/ "Etcher") 软件，点击 `Flash from file` ,选中已经下载好的 `zip` 文件镜像，然后点击 `Select target` 选中sd卡，最后点击 `Flash` 进行烧录，等待完成即可。 
+![burn_image_by_etcher](./../../../assets/maixIII/ax-pi/burn_image_by_etcher.gif)
 
-**解压出镜像文件：**
-![extract_image_file](./../../../../../zh/maixIII/assets/maixIII/ax-pi/extract_image_file.gif)
 
-**烧录镜像文件到 SD 卡：**
-![burn_image_by_etcher](./../../../../zh/maixIII/assets/../../../../zh/maixIII/assets/maixIII/ax-pi/burn_image_by_etcher.gif)
+| Burning                                                                          | Finish burning                                                    |
+| ------------------------------------------------------------------------------- | ----------------------------------------------------------- |
+| ![axera_burning_image](./../../../assets/maixIII/ax-pi/axera_burning_image.png) | ![finish_flash](./../../../zh/maixII/M2A/assets/finish_flash.png) |
 
-下图是烧录过程中的一张截图（可参照）：
-![axera_burning_image](./../../../../../zh/maixIII/assets/maixIII/ax-pi/axera_burning_image.png)
+Note that after finish burning the application shows `Flash Complete!` and `Successful`.
 
-最终下载结束后的效果会和下图一样，显示 `Flash Complete!`：
+Finishing above steps, the computer will ask us to format the udisk, we just ignore this information and remove the TF card (Because we have make `Successful` in Etcher), prepare for the following operations.
 
-![下载结束](./../../maixII/M2A/assets/finish_flash.png)
+#### Burning Questions
 
-> **注意**：如果出现烧录失败的情况，请手动格式化一下 SD 卡。
-> Windows 和 MacOS 可以使用 [SD Card Formatter](https://www.sdcard.org/downloads/formatter/eula_windows/SDCardFormatterv5_WinEN.zip)来格式化 SD 卡，Linux 系统可以使用系统的 disk 工具或 [Gparted](https://gparted.org/)来格式化。
+##### 1. After selecting sustem image, Etcher shows error.
 
-## 上手指引系列
+Rerun Etcher application to solve this error due to software cache or other issues
 
-1. 根据上文自行烧录镜像系统到 TF/SD 卡里。
-   
-   ![axpi-flash](./../../../zh/maixIII/assets/axpi-flash.png)
+##### 2. After finishing burning software the application shows FAILED not Successful
 
-2. 当烧录系统完成后，我们需要给 AXera-Pi 进行正确的接线并且上电。
-   **如何正确接入屏幕及摄像头**：[点击查看](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html#%E6%8E%A5%E7%BA%BF%E7%A4%BA%E4%BE%8B).
-
-   ![axpi-connect](./../../../zh/maixIII/assets/axpi-connect.png)
- 
-3. 以上的准备工作完成后，可以开始对 AXera-Pi 登陆系统进行使用配置。
-   **如何登陆 Linux debian11 系统**：[点击查看](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html#%E6%8E%A5%E7%BA%BF%E7%A4%BA%E4%BE%8B).
-
-   ![axpi-login](./../../../zh/maixIII/assets/axpi-login.png)
-
-4. 登陆上 Debian 系统后即可体验我们内置的众多 AI 开箱应用。
-   **如何体验内置 AI 应用**：[点击查看](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html#%E5%86%85%E7%BD%AE%E5%BC%80%E7%AE%B1%E5%BA%94%E7%94%A8).
-
-   ![axpi-ai](./../../../zh/maixIII/assets/axpi-ai.png)
-
-  
-
+Reburn the TF card.

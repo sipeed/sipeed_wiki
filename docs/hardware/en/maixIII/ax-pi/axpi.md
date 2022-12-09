@@ -318,11 +318,11 @@ There will be a model file and codes or programs to run the code, you can share 
 
 #### Based on debian
 
-We provide debian11 Linux system, and support boot from SD card and burn system by dd(A linux command), make it easiler for user to use. Besides, it's really conveient to program AI application by Python API.
+We provide debian11 Linux distribution, and support boot from SD card and burn system by dd(A linux command), make it easiler for user to use. Besides, it's really conveient to program AI application by Python API.
 
-1. Burning image: [WIKI AXera-Pi burn image](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/flash_system.html#%E8%8E%B7%E5%8F%96%E9%95%9C%E5%83%8F)
+1. Burning image: [WIKI AXera-Pi Burn image](./flash_system.md)
 
-2. Basic use：[WIKI AXera-Pi guide](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/flash_system.html)
+2. Basic usage：[WIKI AXera-Pi guide](./flash_system.md)
 
 3. Program with Python：[ax_pipeline_api](https://github.com/junhuanchen/ax_pipeline_api)
 
@@ -391,7 +391,7 @@ AX-Pipeline is provided by Axera. With m3axpi, this project is used for pepole t
   <img src="./../../../zh/maixIII/assets/waiguan2.jpg" style="zoom: 45%;" />
 </p>
 
-### Hardware dunction diagram
+### Hardware function diagram
 
 <p align="center">
   <img src="./../../../zh/maixIII/assets/layout_axpi_2.png" alt="layout_axpi_2" width="45%">
@@ -551,4 +551,4 @@ AX-Pipeline is provided by Axera. With m3axpi, this project is used for pepole t
 - AXERA 技术交流群：（ 139953715 ）专供 AI ISP 技术交流
 - 荔枝 MaixPy3 AI 交流群：（ 756313869 ）给产品开箱小白答疑 -->
 
-> Visit [Maix-III AXera-Pi (FAQ)](./ax-pi/faq_axpi.md) if you have trobule.
+> Visit [Maix-III AXera-Pi (FAQ)](./faq_axpi.md) if you have trobule.

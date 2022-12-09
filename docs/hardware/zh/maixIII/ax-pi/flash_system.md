@@ -36,27 +36,28 @@ update:
 
 **AXera-Pi 默认板卡没有存储介质，因此需要准备一张系统卡来启动设备。**
 
-目前 AXera-Pi 提供的是 Debian11 Bullseye 镜像，[Ubuntu 源自 Debian，这意味着 Ubuntu 使用与 Debian 相同的 apt 打包系统，并共享来自 Debian 存储库的大量软件包和库，利用 Debian 基础设施作为基础。 大多数“派生” Linux 发行版，它们使用相同的包管理系统并与基于的发行版共享软件包。 ](https://zhuanlan.zhihu.com/p/426219868)
+目前 AXera-Pi 提供的是 Debian11 Bullseye 镜像，[Ubuntu 源自 Debian，这意味着 Ubuntu 使用与 Debian 相同的 apt 打包系统，并共享来自 Debian 存储库的大量软件包和库，利用 Debian 基础设施作为基础。 大多数“派生” Linux 发行版，它们使用相同的包管理系统并与基于的发行版共享软件包。](https://zhuanlan.zhihu.com/p/426219868)
 
-> ![debian_logo](./../assets/debian_logo.jpg)
-> [选择 Debian 的理由](https://www.debian.org/intro/why_debian) 
+> ![debian_logo](./../assets/debian_logo.jpg) 
+> [选择 Debian 的理由](https://www.debian.org/intro/why_debian)
 
-官方店铺可以购买预烧录系统镜像的 SD 卡，否则就需要自己进行以下的操作来准备 SD 镜像卡了。
+[官方淘宝店](https://sipeed.taobao.com/)可以购买预烧录系统镜像的 SD 卡，否则就需要自己进行以下的操作来准备 SD 镜像卡。
+
 ### 选择 SD 卡
 
->已在官方购买镜像卡的同学跳过这一步骤，直接在设备插入 TF 卡[ 点击查看 ](#%E5%90%AF%E5%8A%A8-Linux-%E7%B3%BB%E7%BB%9F)启动 Linux 系统。
+> 已在官方购买镜像卡的同学跳过这一步骤，直接在设备插入 TF 卡[ 点击查看 ](#%E5%90%AF%E5%8A%A8-Linux-%E7%B3%BB%E7%BB%9F)启动 Linux 系统。
 
 为了方便用户有更多的选择，我们对部分 SD 卡在 AXera-Pi 板子上进行了读写测速。
 
-![sd](./../assets/sd.jpg)
+![sd](./../assets/flash_system/sd.jpg)
 
-> 因为部分 SD 卡是后面陆续才进行测试，没有一一单独拍照但可以根据型号辨认。 
+> 因为部分 SD 卡是后面陆续才进行测试，没有一一单独拍照但可以根据型号辨认。
 
 | 序号 | 型号                                     | <p style="white-space:nowrap">写入速度（写入量 160MB）</p> | <p style="white-space:nowrap">读取速度（读取量 160MB） </p> |
 | ---- | ---------------------------------------- | ---------------------------------------------------------- | ----------------------------------------------------------- |
-| 1.   | Netac 朗科 A2  P500-超高速-64GB 存储卡   | 2.04697 s, 80.0 MB/s                                       | 1.8759 s, 87.3 MB/s                                         |
+| 1.   | Netac 朗科 A2 P500-超高速-64GB 存储卡    | 2.04697 s, 80.0 MB/s                                       | 1.8759 s, 87.3 MB/s                                         |
 | 2.   | 三星 microSDXC UHS-I 128G 存储卡（蓝卡） | 2.53387 s, 64.7 MB/s                                       | 1.99882 s, 82.0 MB/s                                        |
-| 3.   | EAGET TF卡（T1系列）64G 存储卡           | 6.56955 s, 24.9 MB/s                                       | 7.13792 s, 23.0 MB/s                                        |
+| 3.   | EAGET TF 卡（T1 系列）64G 存储卡         | 6.56955 s, 24.9 MB/s                                       | 7.13792 s, 23.0 MB/s                                        |
 | 4.   | 京东 高性能 microSDXC UHS-I 128G 存储卡  | 2.28133 s, 71.8 MB/s                                       | 1.92001 s, 85.3 MB/s                                        |
 | 5.   | KIOXIA microSDXC UHS-I 32G 存储卡        | 6.71284 s, 24.4 MB/s                                       | 2.36794 s, 69.2 MB/s                                        |
 | 6.   | Netac 朗科 A1 32GB 存储卡                | 4.31411 s, 38.0 MB/s                                       | 2.00759 s, 81.6 MB/s                                        |
@@ -74,71 +75,71 @@ update:
 
 ![axpi-flash](./../assets/axpi-flash.png)
 
-因设备默认无 Emmc 介质可以启动，用户需要从 TF 卡启动 Linux Debian 系统，
+因为开发板上的 EMMC 仅默认预留焊盘，所以需要从 TF 卡启动 Linux Debian 系统。
 
 #### 如何获取镜像？
 
-因为镜像文件比较大，因此这里仅提供百度云下载链接。
+因为镜像文件比较大，因此仅提供百度云下载链接。
 
 前往百度云[点击进入下载页面](https://pan.baidu.com/s/1-UtDoAVP6spwqjHP2wneJA)，输入提取码 `sdls` 即可下载文件，镜像包与校验文件都已经放在里面了。
 
 ![debian](./../assets/debian.jpg)
 
-用两个文件名来举例，其中文件命名规则如下（拖动滚动条来查看全部）：
+其中拓展名为 `img.xz` 的是压缩文件，我们就是需要烧录这个文件，拓展名是 `img.xz.md5sum` 的是校验文件，可以用来校压缩文件的完整性。
 
-| 文件名                                 | 提供方 | 文件类型                                          | 适用芯片 | 镜像发行版 | 发布日期 |
-| -------------------------------------- | ------ | ------------------------------------------------- | -------- | ---------- | -------- |
-| sipeed_ax620a_debian11_20221205.zip    | sipeed | 镜像压缩包                                        | ax620a   | debian11   | 20221009 |
-| sipeed_ax620a_debian11_20221205.md5sum |        | <p style="white-space:nowrap">md5sum 校验文件</p> |          |            |          |
+镜像压缩文件命名的组成为：`镜像提供方` _ `适用芯片` _ `Linux 发行版` _ `镜像时间` + `img.xz`
 
-如果里面有多个镜像文件，那么建议下载最新的镜像文件。
+校验文件需要在 Linux 环境中使用，windows10 及以上的用户可以使用 wsl 来提供 Linux 环境
 
-校验文件需要在 Linux 环境中使用，windows10 及以上的用户可以使用 wsl 当作 Linux 环境。
+使用命令为在镜像文件和校验文件共同存在的目录使用 `md5sum -c *.md5sum*`，就可以来查看完整性了。
 
-使用方法为 `md5sum -c md5sum校验文件`。
+| 校验成功                                                       | 校验失败                                                     |
+| -------------------------------------------------------------- | ------------------------------------------------------------ |
+| ![md5sum_success](./../assets/flash_system/md5sum_success.jpg) | ![md5sum_failed](./../assets/flash_system/md5sum_failed.jpg) |
 
-.. details::点我查看校验 log
-
-    ```bash    
-    root@desktop:$ md5sum -c sipeed_ax620a_debian11_20221009.md5sum
-    sipeed_ax620a_debian11_20221009.zip: OK
-    ```
+可以看到校验失败的话会消失 FAILED。当然通常不需要进行校验，这里只是给有需要的人提前预留一下。
 
 #### 如何烧录镜像？
 
 **烧录前我们需要进行以下准备：**
 
-- 一张容量大于 8G 的 SD 卡：建议购买官方镜像卡，不然可能会因为 SD 卡质量差而带来糟糕的体验
-- 一个读卡器：建议使用 USB3.0 接口的读卡器，不然读卡器的 USB 速度过低会导致烧录时间过长
-- [Etcher](https://www.balena.io/etcher/)：根据自身电脑下载对应版本的软件即可
- 
+- 一张容量大于 8G 的 SD 卡；建议购买官方镜像卡，不然可能会因为 SD 卡质量差而带来糟糕的体验
+- 一个读卡器：建议使用支持 USB3.0 的读卡器，不然会因为读卡器的速度过低会使烧录时间过长
+- [Etcher](https://www.balena.io/etcher/)软件：根据自身电脑下载对应版本的软件即可
 
 **镜像系统烧录方法：**
 
-首先打开 [Etcher](https://www.balena.io/etcher/ "Etcher") 软件，点击 `Flash from file` 选中已经下载好的 `zip` 文件镜像，然后点击 `Select target` 选中 SD 卡，最后点击 `Flash` 进行烧录等待完成即可。 
-
-<!-- **解压出镜像文件：**
-![extract_image_file](./../../../assets/maixIII/ax-pi/extract_image_file.gif) -->
+首先运行 [Etcher](https://www.balena.io/etcher/ "Etcher") 软件，点击 `Flash from file` 选中已经下载好的 `img.xz` 文件镜像，然后点击 `Select target` 选中 SD 卡，最后点击 `Flash` 进行烧录等待完成即可。
 
 **烧录镜像文件到 SD 卡：**
 
-![burn_image_by_etcher](./../../assets/../../assets/maixIII/ax-pi/burn_image_by_etcher.gif)
+![burn_image_by_etcher](./../../../assets/maixIII/ax-pi/burn_image_by_etcher.gif)
 
-下图是烧录过程中的一张截图（可参照）：
+| 烧录中                                                                          | 烧录完成                                                    |
+| ------------------------------------------------------------------------------- | ----------------------------------------------------------- |
+| ![axera_burning_image](./../../../assets/maixIII/ax-pi/axera_burning_image.png) | ![finish_flash](./../../maixII/M2A/assets/finish_flash.png) |
 
-![axera_burning_image](./../../../assets/maixIII/ax-pi/axera_burning_image.png)
+需要注意的是在烧录完成后显示的应该是 `Flash Complete!`，并且显示的是 `Successful` 。
 
-最终下载结束后的效果会和下图一样，显示 `Flash Complete!`：
+进行完上述操作后，电脑可能会提示需要格式化 U 盘，这个时候我们直接忽略这个提示（因为在 Etcher 软件里面已经烧录完成且 `Successful` 了），将内存卡取下，准备安装到板子上准备使用。
 
-![下载结束](./../../maixII/M2A/assets/finish_flash.png)
+#### 烧录问题
 
-> **注意**：如果出现烧录失败的情况，请手动格式化一下 SD 卡，Windows 和 MacOS 可以使用 [SD Card Formatter](https://www.sdcard.org/downloads/formatter/eula_windows/SDCardFormatterv5_WinEN.zip)来格式化 SD 卡，Linux 系统可以使用系统的 disk 工具或 [Gparted](https://gparted.org/)来格式化。
+##### 1. 使用 Etcher 选择镜像的后出现错误
+
+可以重新运行 Etcher 来解决该软件由于缓存等问题而造成的加载错误
+
+##### 2. 结束烧录后提示的是 Failed
+
+重新一次烧录内存卡镜像
+
+<!-- > **注意**：如果出现烧录失败的情况，请手动格式化一下 SD 卡，Windows 和 MacOS 可以使用 [SD Card Formatter](https://www.sdcard.org/downloads/formatter/eula_windows/SDCardFormatterv5_WinEN.zip)来格式化 SD 卡，Linux 系统可以使用系统的 disk 工具或 [Gparted](https://gparted.org/)来格式化。 -->
 
 ### 启动 Linux 系统
 
-![axpi-connect](./../assets/axpi-connect.png)
+完成上面的烧录镜像卡后，接着接可以组装板子了。
 
-当完成上一步骤后我们需要给 AXera-Pi 进行正确的接线并上电启动。
+![axpi-connect](./../assets/axpi-connect.png)
 
 #### 如何连接外设和配件？
 
@@ -146,11 +147,11 @@ update:
 
 **接线前我们需要进行准备工作：**
 
-- 一台 AXera-Pi 开发板
-- 两条能出 1A 的 USB3.0 口（或是带供电的 usb hub 拓展）
-- 一张大于 8G 烧录 debian11 的镜像系统卡
-- GC4653 Sensor 普通版/OS04a10 Sensor 夜视版
-- 5 寸 MIPI 屏
+- 一块 AXera-Pi 开发板
+- 至少一个 USB3.0 的电脑接口来连接板子（USB2.0 的供电不足可能导致板子启动失败）
+- 一张已经烧录适用于 m3axpi 的系统镜像的 SD 卡
+- GC4653 Sensor 普通版摄像头 或者 OS04a10 Sensor 夜视版摄像头
+- 配套的 5 寸 MIPI 屏
 
 ![axpi-config](./../assets/axpi-config.jpg)
 
@@ -165,13 +166,13 @@ update:
 
 #### 如何启动 AXera-Pi ？
 
-把设备的 `USB-UART` 及 `USB-OTG` 口用 USB type-c 线全部接入 PC 端通电后设备会自启。
+把设备的 `USB-UART` 及 `USB-OTG` 接口用 USB type-c 线全部接入 PC 端通电后设备会自启。
 
 ![start](./../assets/start.jpg)
 
->在 **20221013** 后设备通电开机会从耳机播放音乐和点亮出厂的 5 寸屏幕，并在串口输出如下的 debian11 系统启动日志（截取部分日志如下）.[有些同学会遇到 Ubuntu22.04 CH340系列串口驱动（没有ttyUSB）问题，点此查看解决方案](https://blog.csdn.net/qq_27865227/article/details/125538516)。
+> 在 **20221013** 后设备通电开机会从耳机播放音乐和点亮出厂的 5 寸屏幕，并在串口输出如下的 debian11 系统启动日志（截取部分日志如下）.[有些同学会遇到 Ubuntu22.04 CH340 系列串口驱动（没有 ttyUSB）问题，点此查看解决方案](https://blog.csdn.net/qq_27865227/article/details/125538516)。
 
-.. details:: 点击查看 debian11 系统启动日志  
+.. details:: 点击查看 debian11 系统启动日志
 
     ```bash
     Vddr init success!
@@ -238,11 +239,9 @@ update:
     ......
     ```
 
-
-
 ### 登录到板子里
 
->当 **AXera-Pi** 出现上述 logo 画面后代表开机成功，这时我们把板子当做一台 Linux 服务器来对待。
+> 当 **AXera-Pi** 出现上述 logo 画面后代表开机成功，这时我们把板子当做一台 Linux 服务器来对待。
 
 ![axpi-login](./../assets/axpi-login.png)
 
@@ -380,13 +379,8 @@ root@AXERA:~#
 - RTSP 推流：实现 H264 流的 RTSP 封装以及传输。
 - 录像 TF 卡存储：封装 H264 流为 MP4 格式文件并保存至 TF 卡或者 FLASH 空间。
 
-以下视频中的 IPCDemo 程序使用方法请点击右侧[内置开箱应用](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html#%E5%86%85%E7%BD%AE%E5%BC%80%E7%AE%B1%E5%BA%94%E7%94%A8)查看。
+以下视频中的 IPCDemo 程序使用方法请点击<a href="https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html#%E5%86%85%E7%BD%AE%E5%BC%80%E7%AE%B1%E5%BA%94%E7%94%A8" target="blank">内置开箱应用</a>查看。
 
 <p align="center">
     <iframe src="//player.bilibili.com/player.html?aid=260625114&bvid=BV1me411T7g8&cid=837160730&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="max-width:640px; max-height:480px;"> </iframe>
 </p>
-
-
-
-
-
