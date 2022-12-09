@@ -36,25 +36,25 @@ A：试着按复位键或者是插拔重启设备即可。
 
 ## Q：运行程序后屏幕显示花屏？
 
-（待补充图）
+![faq_display](./../assets/faq_display.jpg)
 A：查看摄像头型号参数是否配置正确。
 
 ## Q：摄像头、屏幕画面反了倒过来了怎么解决？
 
 A：这是批次问题，物理旋转即可解决。
 
-![fqa_video](./../assets/fqa_video_a.jpg)
+![faq_video_a](./../assets/faq_video_a.jpg)
 
 有装配外壳的 AXera-Pi 可参考以下图例：
 
 <html>
-      <img src="./../assets/fqa_video_b.jpg" width=48%>
-      <img src="./../assets/fqa_video_c.jpg" width=48%>
+      <img src="./../assets/faq_video_b.jpg" width=48%>
+      <img src="./../assets/faq_video_c.jpg" width=48%>
     </html>
 
 ## Q：运行命令后报错：Bus Error！？
 
-![fqa_bus](./../assets/fqa_bus.jpg)
+![faq_bus](./../assets/faq_bus.jpg)
 
 A：这种情况是 SD 卡质量问题导致掉卡，也就是镜像卡里面的程序崩掉了无法读取到。
 
@@ -83,7 +83,7 @@ A: 运行一下`python3 -c "import os, binascii; os.system('sed -i \'/iface eth0
 
 ## Q：开机画面出现锯齿画面怎么解决？
 
-（待补充图）
+![fqa_sawtooth](./../assets/fqa_sawtooth.jpg)
 
 A：因为屏幕批次不同导致的原因，更新到最新的 **20221125** 后的镜像即可。
 
@@ -93,7 +93,7 @@ A：查询一下摄像头设备号是否与代码内调用设备号的一致。
 
 ## Q：开机后使用屏幕出现以下画面。
 
-![fqa_dth](./../assets/fqa_dth.jpg)
+![fqa_dth](./../assets/faq_dth.jpg)
 
 A：屏幕批次不同的原因，更换以下 `/boot/ dtb ` 的文件即可。
 
@@ -101,4 +101,10 @@ A：屏幕批次不同的原因，更换以下 `/boot/ dtb ` 的文件即可。
 ls /boot/
 cp /boot/dtb.img.lcd20220830 dtb.img
 ```
+
+## Q:烧录后启动不了显示：AXERA-UBOOT=>
+
+A：进入 uboot 模式了输入 boot 后即可启动。
+
+![faq_boot](./../assets/faq_boot.jpg)
 

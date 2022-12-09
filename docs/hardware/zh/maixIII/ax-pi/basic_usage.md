@@ -619,52 +619,46 @@ exit 0
 
 ## 如何传输文件 
 
-### 板子与电脑的文件互传
-
-在编译程序之前，你需要了解一些拷贝文件到板子或电脑的方法，免得交叉编译完程序不知道怎么传文件进去板子里运行。
-
-- ssh 相关的远程工具需要，你知道板子的 IP 地址，可以从 ifconfig 得知。
-- serial 相关的有线串口工具，需要你接好线配置好参数连上板子。
-
-如何登录板子均可以从前文【系统使用手册】中得知。
-
-### 使用 ssh 远程管理工具
-
-在 windows 上有许多远程管理 linux 服务器的工具都提供了文件传输的功能，这里只推荐免费绿色好用的 mobaxterm 工具。
-
-- [利用MobaXterm实现linux和windows之间传输文件](https://jingyan.baidu.com/article/9f63fb91e2bc6688400f0e93.html)
-
-- [用MobaXterm 在linux和windows之间上传/下载文件](https://blog.csdn.net/unforgettable2010/article/details/123930796)
-
-> [如何使用 mobaxterm](https://wiki.sipeed.com/hardware/zh/maixII/M2/tools/mobaxterm.html)
-
-想了解更多可以看 [推荐7款超级好用的终端工具 —— SSH+FTP](https://zhuanlan.zhihu.com/p/301653835) ，而其他系统都提供了好用的命令行终端，支持 ssh 、 scp 等命令直接执行。
-
-### 使用 scp 命令复制文件
-
-和 cp 复制文件等命令一样，它就是 ssh + cp = scp 这个意思。
-
-- [linux操作系统scp命令使用方法](https://cloud.tencent.com/developer/article/1876623)
-
+> 如果在使用 AXera-Pi 途中出现从设备到电脑端文件互传的需求，可根据以下的方式进行传输：
 ###  使用读卡器物理拷贝文件
 
-由于 linux 系统采用 ext4 分区在 Windows / Mac 默认系统上看不到，需要额外安装增强工具才能读取到具体的分区。
+**物理传输**：由于 Linux 系统采用 `ext4` 分区在 Windows / Mac 默认系统下无法进行查看，用户需额外安装增强工具才能读取到具体的分区。而 Linux 系统可直接看到卡里的分区和内容，也可以选择把读卡器接到安卓设备通过 **otg** 转接头实现文件拷贝。
 
 - [如何在 Windows 下访问 ext4 格式的硬盘？](https://zhuanlan.zhihu.com/p/448535639)
 
 - [[macOS] 在 macOS 上挂载 Linux 的 ext/ext3/ext4 文件系统](https://blog.twofei.com/773/)
 
-Linux 系统可以直接看到卡里的分区和内容，实在不行也可以把读卡器接到安卓设备通过 otg 转接头实现文件拷贝。
+### 板子与电脑的文件互传
 
-### 使用有线串口互传文件
+>基于让用户的使用更加快速便捷，还可以选择直接在板子上与电脑端通过工具实现文件互传。
 
-接好串口连上设备，安装 `apt-get install lrzsz` 工具后参考以下文章：
+**使用 SSH 远程管理工具进行文件传输：**
 
-- 使用 命令行工具  `minicom -D /dev/ttyUSB0 -b 115200` 可以看[ubuntu中使用 minicom 玩转文件的上传与下载](https://blog.csdn.net/wanyeye/article/details/42002377)。
+使用前需要使用 `ifconfig` 查询板子的 IP 地址做登录备用，可点击前往[系统登录](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html#%E5%9F%BA%E4%BA%8E-ip-%2B-ssh-%E7%99%BB%E5%BD%95)查看。在 Windows 上有众多远程管理 Linux 服务器的工具都提供了文件传输的功能，这里推荐免费绿色的 **Mobaxterm** 工具。
 
-- 使用 mobaxterm 可以看 [MobaXterm 使用 rz/sz 传送文件](https://blog.csdn.net/qq_28837389/article/details/120073720)
+- [如何使用 MobaXterm](https://wiki.sipeed.com/hardware/zh/maixII/M2/tools/mobaxterm.html)
 
-其他的可以自行百度。 
+- [利用 MobaXterm 实现 Linux 和 Windows 之间传输文件](https://jingyan.baidu.com/article/9f63fb91e2bc6688400f0e93.html)
+
+- [用 MobaXterm 在 Linux 和 Windows 之间上传/下载文件](https://blog.csdn.net/unforgettable2010/article/details/123930796)
+
+> 如果想了解更多的工具可点击[【推荐7款超级好用的终端工具 —— SSH+FTP】](https://zhuanlan.zhihu.com/p/301653835)查看，而其他系统都提供了好用的命令行终端，支持 SSH 、scp 等命令直接执行。
+
+**使用 scp 命令复制文件：**
+
+和 cp 复制文件等命令一样，它就是 `ssh + cp = scp` 这个意思。
+
+- [Linux 操作系统 scp 命令使用方法](https://cloud.tencent.com/developer/article/1876623)
+
+**使用有线串口互传文件：**
+
+使用前根据串口 serial 登录接线配置参数连上板子，安装 `apt-get install lrzsz` 工具后可参考以下文章。
+
+- [有线串口 serial 登录](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html#%E6%9C%89%E7%BA%BF-%E4%B8%B2%E5%8F%A3-serial-%E7%99%BB%E9%99%86)
+
+- 使用命令行工具 `minicom -D /dev/ttyUSB0 -b 115200` 可以查看[ Ubuntu 中使用 minicom 玩转文件的上传与下载](https://blog.csdn.net/wanyeye/article/details/42002377)。
+
+- 使用 MobaXterm 可以点击 [MobaXterm 使用 rz/sz 传送文件](https://blog.csdn.net/qq_28837389/article/details/120073720)查看。
 
 ## 验证系统外设
 
@@ -726,6 +720,10 @@ fbv yolov5s_out.jpg
 
 可以在联网后直接 `git pull` 更新仓库的提交记录，如果不能访问 github 的话就设置一下 `git remote` 从 gitee 拉取代码吧。
 
+### 排针引脚图
+
+![layout_axpi](./../assets/layout_axpi_1.png)
+
 ### CPU & RAM
 
 默认 800MHz 可以调到 1ghz.
@@ -773,6 +771,7 @@ root@AXERA:~#
 目前硬件内存虽然是 2g 但在系统上只能看到 745M ，不用担心，这是目前的分配内存过于保守导致的，后续更新内核调整一下 NPU 和 CMM 的内存分配的。
 
 ### VIDEO
+
 >**注意**：以下例程是原始测试时检查硬件好坏的程序，请用下面内置应用看正常的效果！
 >内置开箱应用传送门：[点击前往](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html#%E5%86%85%E7%BD%AE%E5%BC%80%E7%AE%B1%E5%BA%94%E7%94%A8)
 目前系统的摄像头驱动不经过 v4l2 驱动框架，所以必须通过代码配置的方式进行启用，相关摄像头驱动都是在应用层上完成的，
@@ -1338,7 +1337,6 @@ cat /proc/ax_proc/uid
 
     ![vl-yolov5s](./../assets/vlc-yolov5s.jpg)
 
-
 运行命令后终端会弹出调试信息，打开 `VLC Media Player` 进行配置网络串流后即可看到画面效果。
 
 ```bash
@@ -1522,3 +1520,7 @@ cd /home
     <iframe src="//player.bilibili.com/player.html?aid=690497396&bvid=BV1n24y1C7DN&cid=901748014&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 </p>
 
+<!-- 
+### 人体姿态关键点
+
+> /home/run.sh -->

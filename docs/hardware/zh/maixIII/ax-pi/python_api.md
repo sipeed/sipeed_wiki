@@ -2,7 +2,7 @@
 title: Maix-III AXera-Pi 开启 Python 编程吧！
 
 ---
-## 什么是 Python?
+## 什么是 Python
 
 **Python** 是一种广泛使用的解释型、高级和通用的编程语言。它支持多种编程范型包括函数式、指令式、反射式、结构化和面向对象编程，还拥有动态类型系统和垃圾回收功能，能够自动管理内存使用，并且其本身拥有一个巨大而广泛的标准库。
 
@@ -12,20 +12,20 @@ title: Maix-III AXera-Pi 开启 Python 编程吧！
 
 ![api_python_logo](./../assets/api_python_logo.jpg)
 
-## 什么是 Jupyter Notebook？ 
+## 什么是 Jupyter Notebook
 
 它是基于网页的用于交互计算的应用程序。其可被应用于全过程计算：开发、文档编写、运行代码和展示结果，它以网页的形式打开并可以直接编写和运行代码，运行结果也会直接显示在代码框下层。如在编程过程中需要编写说明文档，可在同一个页面中直接编写便于及时的解释和说明。
 
 ![jupyter_notebook](./../assets/jupyter_notebook.png)
 
-## 如何使用 Jupyter Notebook ？
+## Jupyter Notebook 多种用法
 
 >如果你已经跟随章节学习到达了这里，相信你已经根据前面的章节掌握一定的在 AXera-Pi 上烧录及登录系统、验证外设等基础的 Linux 操作。并基于上文对语言以及应用有了解，那就接着往下学习怎么进行 Python 编程吧！
 >- [产品上手指南](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/flash_system.html)
 >- [系统使用手册](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html)
 
 
-### 如何启动并访问？
+### 启动并访问
 
 **启动前的准备工作：**
 
@@ -40,7 +40,7 @@ title: Maix-III AXera-Pi 开启 Python 编程吧！
 
 ![api_adb](./../assets/api_adb.jpg)
 
-这时我们可以打开任意浏览器，输入刚刚查询到的 IP 地址后缀加上 `:8888`**（例：192.168.2.49:8888）除 usb0 不可用**后即可直接访问网页。网页会提醒你需要输入密码 **`Password:root`** 访问。
+这时我们可以打开任意浏览器，输入刚刚查询到的 IP 地址后缀加上 `:8888`**（例：192.168.2.49:8888）除 127.0.0.1 不可用**后即可直接访问网页。网页会提醒你需要输入密码 **`Password:root`** 访问。
 
 .. details:: 点击查看操作示意图
     ![api_root](./../assets/api_root.png)
@@ -80,7 +80,7 @@ Terminal：在浏览器中新建一个用户终端，类似于 shell/adb 终端.
     - **B：**向下添加
     - **M：**使得单元格变成 markdown 状态
 
-### 如何运行代码？
+### 运行代码
 
 我们选择需要的 `Python3` 即可接入编辑页面，根据上文简单熟悉基础用法，试着在 Notebook 运行代码吧！在网页上运行 Python 代码有三种方式，以下面为例：
 
@@ -96,7 +96,7 @@ Terminal：在浏览器中新建一个用户终端，类似于 shell/adb 终端.
 
 ![api_hello](./../assets/api_hello.jpg)
 
-### 如何启动终端？
+### 启动终端
 
 >上面演示了如何实现 Python 编程，而 **Jupyter Notebook** 还能开启终端并与 `Python3` 同时运行。
 
@@ -104,7 +104,7 @@ Terminal：在浏览器中新建一个用户终端，类似于 shell/adb 终端.
 
 ![api_web_adb](./../assets/api_web_adb.png)
 
-### 如何编写文档
+### 编写文档
 
 >我们可以在 **Jupyter Notebook** 里使用 `Markdowm` 语法编写文档去提示代码的易读性以及条理性。
 
@@ -112,7 +112,7 @@ Terminal：在浏览器中新建一个用户终端，类似于 shell/adb 终端.
 
 ![api_markdown](./../assets/api_markdown.jpg)
 
-### 如何传输文件？
+### 传输文件
 
 >除了运行代码以及编写文档等还可以进行文件的传输，让日常使用更加便捷。
 
@@ -132,7 +132,7 @@ Terminal：在浏览器中新建一个用户终端，类似于 shell/adb 终端.
 
     ![api_file](./../assets/api_file.jpg)
 
-## Python 多种用法？
+## Python 多种用法
 
 使用 Python 编程调用使用各种有趣玩法，让 AXera-Pi 用起来更加简单！
 
@@ -217,13 +217,13 @@ print(dt)
 
 ### 使用 Python 播放音视频 
 
-- [如何使用 Python 播放音适配：](https://wiki.sipeed.com/soft/maixpy3/zh/usage/Audio/play_mp4.html)
+- [如何使用 Python 播放音视频：](https://wiki.sipeed.com/soft/maixpy3/zh/usage/Audio/play_mp4.html)
 
 ### 使用 Python 发起 Http 请求或 MQTT 通信
 
 - [如何发起 Http 请求或 MQTT 通信：](https://wiki.sipeed.com/soft/maixpy3/zh/usage/net.html)
 
-## 如何使用控制 Microbit ？
+## 使用控制 Microbit
 
 **控制 Microbit 前需进行准备工作：**
 
@@ -247,7 +247,7 @@ while True:
 
 **关于 Microbit 更多例程请[点击](https://pinpong.readthedocs.io/zh_CN/latest/2.pinpong%E7%A4%BA%E4%BE%8B/index1.html)查看。**
 
-## 如何使用控制 Arduino UNO ？
+## 使用控制 Arduino UNO 
 
 **控制 Arduino UNO 前需进行准备工作：**
 
