@@ -350,13 +350,13 @@ IN-USE  BSSID              SSID                 MODE   CHAN  RATE        SIGNAL>
 lines 1-23
 ```
 
-- **（BUG）暂不能打开 WIFI AP 热点模式**
+- **打开 WIFI AP 热点模式（需要更换成 rtl8189fs wifi 模组）**
 
 基于 mntui 联网成功后改用 nmcli 命令。
 
 - `nmcli device wifi hotspot ifname wlan0 con-name MyHostspot ssid MyHostspotSSID password 12345678` 即可创建 MyHostspotSSID 的 ap 热点。
 
-但是目前 WIFI 能打开，但连上会重启板子，驱动问题暂时不修。（ 20221030 ）
+> 目前 rtl8723bs WIFI 能打开，但连上会重启板子，网卡驱动问题暂时不修，更换成 rtl8189fs 即可正常使用。
 
 - **（过时）如何扫描 WIFI 热点**
 
