@@ -2,6 +2,11 @@
 title: M1s DOCK 上手
 keywords: M1s DOCK ,BL808, M1s
 update:
+  - date: 2022-12-12
+    version: v0.2
+    author: wonder
+    content:
+      - 增加部分细节解释
   - date: 2022-11-23
     version: v0.1
     author: wonder
@@ -9,7 +14,11 @@ update:
       - 初次编辑
 ---
 
-M1s Dock 设计精巧，可以用来所很多有意思的事，这里简单说明一下一些使用方法。
+M1s Dock 设计精巧，可以用来所很多有意思的事，这里简单说明一下一些使用方法。要注意的是串口默认波特率 2000000。
+
+连接板载 UART 接口会显示有两个串口设备：小号串口连接的是 C906 核心，大号串口连接的是 E907 核心。
+
+![dual_uart](./assets/start/dual_uart.jpg)
 
 ## 初见
 
@@ -24,6 +33,16 @@ M1s Dock 设计精巧，可以用来所很多有意思的事，这里简单说�
 通过 UART 口连接 PC 会显示有两个串口设备
 
 ![dual_uart](./assets/start/dual_uart.jpg)
+
+设置波特率为 2000000，分别打开两个串口，会看到不同的信息。
+
+打开小号串口可以看到一直在打印信息：
+
+![start_smaller_uart](./assets/start/start_smaller_uart.jpg)
+
+打开大号串口可以进行命令行交互：
+
+![start_bigger_uart](./assets/start/start_bigger_uart.jpg)
 
 ## U 盘烧录
 
@@ -47,6 +66,27 @@ M1s Dock 设计精巧，可以用来所很多有意思的事，这里简单说�
 <img src="./assets/start/udisk_burn.gif" alt="udisk_burn" style="transform:rotate(0deg);">
 
 文件存放进去后数秒后板子会重启，U 盘被弹出，表示烧录完成，看不到效果的话可以给板子重新插拔板子 USB 来完全重启一次再来查看烧录结果。
+
+### lvgl_demo
+
+屏幕显示着 lvgl 动画，串口号较小的串口打印着最后一次触摸屏幕位置的信息。
+
+<img src="./assets/start/example_lvgl.gif" alt="example_lvgl" width="45%"> 
+<img src="./assets/start/example_lvgl.jpg" alt="example_lvgl" width="45%"> 
+
+### image_processing_demo
+
+屏幕上显示摄像头画面，按下两侧的按键可以切换不同的图像算子。串口号较小的串口显示着上次按键和其他信息。
+
+<img src="./assets/start/example_image_processing_demo.jpg" alt="example_image_processing_demo" width="45%"> 
+<img src="./assets/start/example_image_processing_demo_uart.jpg" alt="example_image_processing_demo_uart" width="45%"> 
+
+### tinymaix_mnist_demo
+
+屏幕中间的红框识别数字。串口号较小的串口打印着识别信息。
+
+<img src="./assets/start/example_tinymaix_mnist_demo.jpg" alt="example_tinymaix_mnist_demo" width="45%"> 
+<img src="./assets/start/example_tinymaix_mnist_demo_uart.jpg" alt="example_tinymaix_mnist_demo_uart" width="45%"> 
 
 ## 串口烧录
 
@@ -85,14 +125,22 @@ M1s Dock 设计精巧，可以用来所很多有意思的事，这里简单说�
 
 ![burn_steps](./assets/start/burn_steps.png)
 
-点击下载后按住板子上的 BOOT 键和 RST 键， 然后先松开 RST 键再松开 BOOT 键来给板子烧录固件。
+点击下载会出现下图箭头中多指向的信息，这个时候会提示需要操作硬件。
 
-<table>
-    <tr>
-        <td><img src="./assets/start/boot_rst.jpg" alt="boot_rst" style="transform:rotate(0deg);"></td>    
-        <td><img src="./assets/start/finish_burning.png" alt="finish_burning" style="transform:rotate(0deg);" width="70%"></td>
-    </tr>
-</table>
+![burn_press_boot](./assets/start/burn_press_boot.jpg)
+
+按住板子上的 BOOT 键和 RST 键， 然后先松开 RST 键再松开 BOOT 键来给板子烧录固件。
+
+<img src="./assets/start/boot_rst.jpg" alt="boot_rst" style="transform:rotate(0deg);" width="40%">
+
+成功进入烧录模式会握手成功并且接下来直接烧录成功。
+
+<img src="./assets/start/burn_press_boot_success.jpg" alt="burn_press_boot_success" style="transform:rotate(0deg);" width="70%">
+<img src="./assets/start/finish_burning.png" alt="finish_burning" style="transform:rotate(0deg);" width="70%">
+
+握手失败的话就重新点击烧录并且再次尝试。这种错误可能是按键顺序错误（应该先松开 RST 键再松开 BOOT 键），或者是在软件等待超时而导致的。
+
+<img src="./assets/start/burn_press_boot_failed.jpg" alt="burn_press_boot_failed" style="transform:rotate(0deg);" width="70%">
 
 ### 给板载 bl702 进行烧录
 
@@ -226,3 +274,15 @@ cd M1s_BL808_example/c906_app
 2. 编译出错
 
 确定自己所执行的编译命令时 `./build.sh demo_name`，而不是 `./build.sh demo_name/`，注意两者结尾处 `/` 符号。
+
+## Linux Demo
+
+[点我](https://dl.sipeed.com/fileList/MAIX/M1s/M1s_Dock/7_Firmware/m1sdock_linux_20221116.zip) 下载 Linux 例子，按照压缩包里面 `steps.md` 操作步骤完成 Linux 系统烧录。
+
+![linux_opensbi](./assets/start/linux_opensbi.jpg)
+
+使用 `root` 登录
+![linux_login](./assets/start/linux_login.jpg)
+
+查看 CPU 信息
+![linux_cpuinfo](./assets/start/linux_cpuinfo.jpg)

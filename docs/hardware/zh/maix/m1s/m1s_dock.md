@@ -23,13 +23,6 @@ Sipeed M1s Dock 是基于 [Sipeed M1s](./m1s_module.md) 模组来设计的一款
 
 购买链接：[淘宝](https://item.taobao.com/item.htm?id=691108452443)
 
-<!-- <table>
-  <tr>
-  <td><img alt="m1s_dock.jpg" src="./assets/m1s_dock/m1s_dock.jpg"></td>
-  <td><img alt="m1s_dock_bottom" src="./assets/m1s_dock/m1s_dock_bottom.jpg"></td>
-  </tr>
-</table> -->
-
 <td><img alt="m1s_dock.jpg" src="./assets/m1s_dock/m1s_dock.jpg" width="45%"></td>
 
 ## 宣传视频
