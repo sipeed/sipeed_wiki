@@ -133,7 +133,7 @@ arc.center()
 
 ![application](./assets/start/application.png)
 
-启动软件后选择 bl808 ，紧着这软件的 IOT 页面选择分区表文件[点我下载](https://dl.sipeed.com/fileList/MAIX/M1s/M1s_Dock/7_Firmware/partition/partition_cfg_16M_m1sdock.toml)（图里②）。
+启动软件后选择 bl808 ，紧接着软件的 IOT 页面选择分区表文件[点我下载](https://dl.sipeed.com/fileList/MAIX/M1s/M1s_Dock/7_Firmware/partition/partition_cfg_16M_m1sdock.toml)（图里②）。
 
 <table>
     <tr>
@@ -179,7 +179,7 @@ arc.center()
 
 在 `BLDevCube` 的文件夹下面，还有 `bflb_iot_tool` 工具，与 `BLDevCube` 一样，`bflb_iot_tool`、 `bflb_iot_tool-macos` 和 `bflb_iot_tool-ubuntu` 是在不同操作系统中来运行的。
 
-在 Windows 系统下执行下面的命令，其它系统自己更改命令行软件即可。其中 `firmware` 是 E907 核心的固件，可以在[默认固件](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmware/factory)处下载得到；`pt` 文件是分区表文件，默认在 `M1s_BL808_example\partition` 目录下；`boot2` 文件默认位于 `BLDevCube\chips\bl808\builtin_imgs\boot2_isp_bl808` 目录下；波特率为 2M；`port` 应指定为串口号较大的串口。
+在 Windows 系统下执行下面的命令，其它系统自己更改命令行软件即可。其中 `firmware` 是 E907 核心的固件，可以在[默认固件](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmware/factory)处下载得到；`pt` 文件是分区表文件，默认在 `M1s_BL808_example\partition` 目录下，当然也可以 [点我](https://dl.sipeed.com/fileList/MAIX/M1s/M1s_Dock/7_Firmware/partition/partition_cfg_16M_m1sdock.toml) 直接下载到；`boot2` 文件默认位于 `BLDevCube\chips\bl808\builtin_imgs\boot2_isp_bl808` 目录下；波特率为 2M，这样烧录的时候会快点；`port` 应指定为串口号较大的串口。
 
 ```bash
 .\bflb_iot_tool.exe --chipname=bl808 --port=COM38 --baudrate=2000000 --firmware="firmware_20221212.bin" --pt="M1s_BL808_example\partition\partition_cfg_16M_m1sdock.toml" --boot2="BLDevCube\chips\bl808\builtin_imgs\boot2_isp_bl808\boot2_isp_debug.bin"
@@ -300,7 +300,6 @@ sipeed@DESKTOP:~$ tree -L 2
     ...
 ```
 
-
 ### 配置编译工具链路径
 
 以后每次开始编译都需要执行一次这个来配置下编译工具链路径。
@@ -313,7 +312,7 @@ sipeed@DESKTOP:~/M1s_BL808_SDK$ pwd
 /home/lee/bl808/M1s_BL808_SDK
 ```
 
-我们复制上面执行 `pwd` 后的结果（每个人的会不一样），然后执行下面的命令就可以成功进行交叉编译了。
+我们复制上面执行 `pwd` 后的结果（每个人的会不一样），然后执行下面的命令就可以准备开始交叉编译了。
 
 ```bash
 export BL_SDK_PATH=/home/lee/bl808/M1s_BL808_SDK
@@ -357,7 +356,6 @@ cd M1s_BL808_example/c906_app
 ```
 
 然后编译出来的固件就会在 M1s_BL808_example/c906_app/build_out 目录下，名称为 `d0fw.bin`，通过虚拟 U 盘拖拽烧录即可。
-
 
 ### 编译 firmware
 
