@@ -22,9 +22,10 @@ M1s Dock 设计精巧，可以用来所很多有意思的事，这里简单说�
 
 ## 初见
 
-首次对 M1s Dock 板子上电，屏幕会显示摄像头所拍摄到的内容，且按两侧的按键显示屏上的数字会有变化。
+首次对 M1s Dock 板子上电，屏幕会显示摄像头所拍摄到的内容，且按两侧的按键显示屏上的数字会有变化，那个数字表示着 LED 的亮度。
 
 ![default_firmware](./assets/start/default_firmware.jpg)
+![led_brghtness](./assets/start/led_brghtness.jpg)
 
 通过 OTG 口连接 PC 的话会有一个大小为 3M 的 U 盘
 
@@ -69,24 +70,50 @@ M1s Dock 设计精巧，可以用来所很多有意思的事，这里简单说�
 
 ### lvgl_demo
 
-屏幕显示着 lvgl 动画，串口号较小的串口打印着最后一次触摸屏幕位置的信息。
+[LVGL](https://lvgl.io/) (轻巧而多功能的图形库)是一个免费的开放源代码图形库，适合用于 mcu 构建图形界面。
+
+烧录进 M1s Dock 后，屏幕显示着 lvgl 测试效果，设置波特率为 2000000，串口号较小的串口打印着最后一次触摸屏幕位置。
 
 <img src="./assets/start/example_lvgl.gif" alt="example_lvgl" width="45%"> 
 <img src="./assets/start/example_lvgl.jpg" alt="example_lvgl" width="45%"> 
 
 ### image_processing_demo
 
-屏幕上显示摄像头画面，按下两侧的按键可以切换不同的图像算子。串口号较小的串口显示着上次按键和其他信息。
+一个简单的图像处理例子。
+
+烧录进 M1s Dock 后，屏幕上显示摄像头画面，按下两侧的按键可以切换不同的图像算子。设置波特率为 2000000，串口号较小的串口显示着上次按键和其他信息。
 
 <img src="./assets/start/example_image_processing_demo.jpg" alt="example_image_processing_demo" width="45%"> 
 <img src="./assets/start/example_image_processing_demo_uart.jpg" alt="example_image_processing_demo_uart" width="45%"> 
 
 ### tinymaix_mnist_demo
 
-屏幕中间的红框识别数字。串口号较小的串口打印着识别信息。
+[TinyMaix](https://github.com/sipeed/TinyMaix) 是面向单片机的超轻量级的神经网络推理库，即 TinyML 推理库，可以在任意单片机上运行轻量级深度学习模型。
+
+烧录进 M1s Dock 后，屏幕中间的红框识别数字。设置波特率为 2000000，串口号较小的串口打印着识别信息。
 
 <img src="./assets/start/example_tinymaix_mnist_demo.jpg" alt="example_tinymaix_mnist_demo" width="45%"> 
 <img src="./assets/start/example_tinymaix_mnist_demo_uart.jpg" alt="example_tinymaix_mnist_demo_uart" width="45%"> 
+
+### pikascript_demo
+
+[PikaScript](http://pikascript.com/) 是一个跨平台的超轻量级嵌入式 Python 引擎。
+
+烧录进 M1s Dock 后，屏幕白屏，无内容。设置波特率为 2000000，打开串口号较小的串口来进行命令行交互。
+
+在命令行中输入这些指令：
+```bash
+arc = lv.arc(lv.scr_act())
+arc.set_end_angle(200)
+arc.set_size(150, 150)
+arc.center()
+```
+
+![example_pikascript_demo_uart](./assets/start/example_pikascript_demo_uart.jpg)
+
+然后可以看到屏幕上显示出来一些画面（忽略这糟糕的拍照）：
+
+![example_pikascript_demo_uart](./assets/start/example_pikascript_demo_screen.jpg)
 
 ## 串口烧录
 
@@ -96,11 +123,13 @@ M1s Dock 设计精巧，可以用来所很多有意思的事，这里简单说�
 
 使用 TypeC 数据线将电脑与板子的 UART 口连接起来，此时电脑上会出现两个串口 （如果出现鼠标不能动的现象请拔掉 USB 并且查看 [更新板载 bl702 固件](#给板载-bl702-进行烧录) 相关内容来修复问题)。
 
+#### 图形化界面烧录
+
 给 M1s 烧录需要用到博流官方烧录工具，前往 https://dev.bouffalolab.com/download 下载名称为 `Bouffalo Lab Dev Cube` 的文件。解压后就得到了用来烧录板子的应用程序。
 
 ![bouffalo_cube](./assets/start/bouffalo_cube.png)
 
-解压后的文件夹中主要关注 `BLDevCube`、 `BLDevCube-macos` 和 `BLDevCube-ubuntu` 三个文件，用于在不同系统启动这个烧录工具。
+解压后的文件夹中主要关注 `BLDevCube`、 `BLDevCube-macos` 和 `BLDevCube-ubuntu` 三个文件，用于在不同系统启动这个图形化烧录工具。
 
 ![application](./assets/start/application.png)
 
@@ -119,28 +148,62 @@ M1s Dock 设计精巧，可以用来所很多有意思的事，这里简单说�
 
 上图中，`boot2` 是固定的，位于 `BLDevCube\chips\bl808\builtin_imgs\boot2_isp_bl808_v6.4_rc6` 目录下，就是在解压的烧录程序文件夹的子目录里面；`firmware` 是 E907 核心运行的固件 ；`d0fw`是 C906 核心运行的固件，前面的 U 盘烧录里面的固件就是给这个核心烧录的。E907 的固件文件和 C906 的固件文件均可以通过 [M1s_dock example](https://gitee.com/sipeed/M1s_BL808_example) 来编译得到。
 
+首次烧录 `firmware` 和 `boot2` 都需要烧录进去，之后就可以按需烧录而不用全部勾选。
+
 默认固件可以在 [这里下载到](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmware/factory)。
 
 正确的选择固件后，在窗口右侧点击一下 `Refresh` 来刷新串口，正常情况有两个串口号相邻的串口可供选择，如果没有两个串口请参考下面的 [烧录 BL702](#给板载-bl702-进行烧录)来查看解决方法。在双串口中需要选择串口号较大的那个。设置波特率 2000000。
 
 ![burn_steps](./assets/start/burn_steps.png)
 
-点击下载会出现下图箭头中多指向的信息，这个时候会提示需要操作硬件。
-
-![burn_press_boot](./assets/start/burn_press_boot.jpg)
-
-按住板子上的 BOOT 键和 RST 键， 然后先松开 RST 键再松开 BOOT 键来给板子烧录固件。
+按住板子上的 BOOT 键和 RST 键， 然后先松开 RST 键再松开 BOOT 键来使板子进入串口烧录模式。
 
 <img src="./assets/start/boot_rst.jpg" alt="boot_rst" style="transform:rotate(0deg);" width="40%">
 
-成功进入烧录模式会握手成功并且接下来直接烧录成功。
+点击下载 (Create & Download) 后会看到下图箭头中多指向的信息，在这之前我们需要操作硬件使它进入串口烧录模式。
+
+![burn_press_boot](./assets/start/burn_press_boot.jpg)
+
+成功进入烧录模式会握手成功并且接下来会进行烧录。
 
 <img src="./assets/start/burn_press_boot_success.jpg" alt="burn_press_boot_success" style="transform:rotate(0deg);" width="70%">
 <img src="./assets/start/finish_burning.png" alt="finish_burning" style="transform:rotate(0deg);" width="70%">
 
-握手失败的话就重新点击烧录并且再次尝试。这种错误可能是按键顺序错误（应该先松开 RST 键再松开 BOOT 键），或者是在软件等待超时而导致的。
+握手失败的话就重新点击烧录并且再次尝试。这种错误可能是按键释放顺序错误（应该先松开 RST 键再松开 BOOT 键，即在松开 RST 键的时候 boot 键应该是按下的状态）而导致板子没有进入串口烧录模式，软件等待超时而导致的。
 
 <img src="./assets/start/burn_press_boot_failed.jpg" alt="burn_press_boot_failed" style="transform:rotate(0deg);" width="70%">
+
+#### 命令行烧录
+
+我们可以使用命令行来通过板子上的串口来对 M1s Dock 进行烧录。
+
+在 `BLDevCube` 的文件夹下面，还有 `bflb_iot_tool` 工具，与 `BLDevCube` 一样，`bflb_iot_tool`、 `bflb_iot_tool-macos` 和 `bflb_iot_tool-ubuntu` 是在不同操作系统中来运行的。
+
+在 Windows 系统下执行下面的命令，其它系统自己更改命令行软件即可。其中 `firmware` 是 E907 核心的固件，可以在[默认固件](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmware/factory)处下载得到；`pt` 文件是分区表文件，默认在 `M1s_BL808_example\partition` 目录下；`boot2` 文件默认位于 `BLDevCube\chips\bl808\builtin_imgs\boot2_isp_bl808` 目录下；波特率为 2M；`port` 应指定为串口号较大的串口。
+
+```bash
+.\bflb_iot_tool.exe --chipname=bl808 --port=COM38 --baudrate=2000000 --firmware="firmware_20221212.bin" --pt="M1s_BL808_example\partition\partition_cfg_16M_m1sdock.toml" --boot2="BLDevCube\chips\bl808\builtin_imgs\boot2_isp_bl808\boot2_isp_debug.bin"
+```
+
+当然，在烧录前需要让 M1s Dock 进入下载模式：按住板子上的 BOOT 键和 RST 键， 然后先松开 RST 键再松开 BOOT 键。
+
+![command_burn_flash](./assets/start/command_burn_flash.jpg)
+
+烧录完之后，可以参考前面的 [U 盘烧录](#u-盘烧录) 来给 C906 核心烧录固件。也可以自己根据烧录地址来烧录固件，烧录地址可以在 `partition_cfg_16M_m1sdock.toml` 文件查看到，也可以自己更改，此处不述。
+
+#### 擦除固件
+
+首先在软件里面点开高级模式
+
+![erase_advanede_mode](./assets/start/erase_advanede_mode.jpg)
+
+选择 FLASH 界面然后使板子进入下载模式（按住板子上的 BOOT 键和 RST 键， 然后先松开 RST 键再松开 BOOT 键），选择串口号较大的串口，勾选 Whole Chip，点击 `Erase Flash` 开始擦除。
+
+![erase_configurations](./assets/start/erase_configurations.jpg)
+
+擦除的时候没有进度条，擦除完成的时候会直接显示 SUCCESS。
+
+![erase_success](./assets/start/erase_success.jpg)
 
 ### 给板载 bl702 进行烧录
 
@@ -200,7 +263,7 @@ git clone https://gitee.com/sipeed/M1s_BL808_SDK.git
 sipeed@DESKTOP:~$ tree -L 1 
 .
 ├── M1s_BL808_example   # 例程文件夹
-└── M1s_BL808_SDK          # SDK 文件夹
+└── M1s_BL808_SDK       # SDK 文件夹
 ```
 
 ### 在 SDK 仓库文件夹下，获取编译工具链
@@ -232,7 +295,7 @@ sipeed@DESKTOP:~$ tree -L 2
 │   ├── e907_app          # E907 核心例程
 │   ├── partition         # 分区表文件
 │   └── readme.md         # 仓库说明
-└── M1s_BL808_SDK            # SDK 仓库文件夹
+└── M1s_BL808_SDK         # SDK 仓库文件夹
     ├── toolchain         # 编译工具链
     ...
 ```
@@ -256,9 +319,37 @@ sipeed@DESKTOP:~/M1s_BL808_SDK$ pwd
 export BL_SDK_PATH=/home/lee/bl808/M1s_BL808_SDK
 ```
 
+注意是 `M1s_BL808_SDK` ，不是 `M1s_BL808_SDK/`，一般自动补全会导致这个错误。
+
 ### 编译 demo
 
-执行 M1s_BL808_example/c906_app 目录下的 build.sh ，后面追加上想要编译的 demo 就可以完成了
+执行 M1s_BL808_example/c906_app 目录下的 build.sh ，后面追加上想要编译的 demo 就可以完成了。
+
+Demo 如下（编辑于2022-12-13）：
+
+```bash
+c906_app
+├── audio_recording
+├── blai_mnist_demo
+├── camera_bypass_lcd
+├── camera_dump
+├── camera_streaming_through_wifi
+├── cli_demo
+├── flash_demo
+├── gpio_demo
+├── hello_world
+├── i2c_touch
+├── image_processing_demo
+├── lfs_demo
+├── lvgl_demo
+├── pikascript_demo
+├── play_with_gba
+├── proj_config.mk
+├── pwm_demo
+├── spi_lcd
+├── tinymaix_mnist_demo
+└── uvc_demo
+```
 
 ```bash
 cd M1s_BL808_example/c906_app
@@ -266,6 +357,17 @@ cd M1s_BL808_example/c906_app
 ```
 
 然后编译出来的固件就会在 M1s_BL808_example/c906_app/build_out 目录下，名称为 `d0fw.bin`，通过虚拟 U 盘拖拽烧录即可。
+
+
+### 编译 firmware
+
+执行 M1s_BL808_example/e907_app 目录下的 build.sh ，后面追加上 firmware 就可以编译了
+
+```bash
+cd M1s_BL808_example/e907_app
+./build.sh firmware
+```
+然后编译出来的固件就会在 M1s_BL808_example/e907_app/build_out 目录下，名称为 `firmware.bin`，博流官方的烧录工具烧录进去即可。
 
 ### 常见问题
 
@@ -286,3 +388,7 @@ cd M1s_BL808_example/c906_app
 
 查看 CPU 信息
 ![linux_cpuinfo](./assets/start/linux_cpuinfo.jpg)
+
+相关的 Linux SDK 前往 [github](https://github.com/sipeed/M1s_BL808_Linux_SDK) 查看。
+
+## blai_npu
