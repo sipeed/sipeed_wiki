@@ -11,17 +11,17 @@ update:
 
 > Please use translation tool to read this page.
 
-Here are some steps like how to remove camera or screen.
+Here are some steps like how to remove the camera or screen.
 
 ## Remove the screen
 
-The camera and screen are oriented in the same direction by default, we may need to remove the screen for some reasons, here are the steps to do this and matters need attention.
+The camera and screen are oriented in the same direction by default, we may need to remove the screen for some reason, here are the steps to do this and matters need attention.
 
 | Camera and screen in the same direction                                                     | Camera and screen in the opposite direction                                         |
 | ------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
 | ![screen_camera_same](./../../../../zh/maix/m1s/other/assets/others/screen_camera_same.jpg) | ![camera_in_back](./../../../../zh/maix/m1s/other/assets/others/camera_in_back.jpg) |
 
-Screen and board are fixed together, so when remove the screen, we need to force on the metal on the back of the screen, not the edge of the screen. Be caerful when doing this, otherwire your screen will be damaged.
+Screen and board are fixed together, so when removing the screen, we need to force the metal on the back of the screen, not the edge of the screen. Be careful when doing this, otherwise your screen will be damaged.
 
 <table>
     <tr>
@@ -45,9 +45,9 @@ Screen and board are fixed together, so when remove the screen, we need to force
 
 ## Change camera direction
 
-After removing screen, we can change camera direction.
+After removing the screen, we can change camera direction.
 
-Make sure your connecting is not wrong.
+Make sure your connection is not wrong.
 
 <table>
     <tr>
@@ -58,7 +58,7 @@ Make sure your connecting is not wrong.
 
 ## Install shell
 
-We sell shell for M1s Dock, here are the assembly tutorial.
+We sell shell for M1s Dock, here is the assembly tutorial.
 
 You can decide the camera direction.
 
@@ -66,7 +66,7 @@ To begin this, depart the board into following parts.
 
 ![parts](./../../../../zh/maix/m1s/other/assets/others/parts.jpg)
 
-The camera can be assembled in two directions: the camera shooting direction is the same to the screen or the camera shooting direction is on the opposite to the screen.
+The camera can be assembled in two directions: the camera shooting direction is the same to the screen or the camera shooting direction is opposite to the screen.
 
 ### Same to the screen
 
@@ -105,7 +105,7 @@ The camera can be assembled in two directions: the camera shooting direction is 
 </table><br>
 <table>
     <tr>
-        <td>Use the reserved double-sided tape on the shell to fix the screen, the back panel is also fixed on the shell by double-sided tape, and note that the reserved camera hole on the back panel and the M1s module should in the same direction.
+        <td>Use the reserved double-sided tape on the shell to fix the screen, the back panel is also fixed on the shell by double-sided tape, and note that the reserved camera hole on the back panel and the M1s module should be in the same direction.
         </td>
         <td><img alt="fix_screen" src="./../../../../zh/maix/m1s/other/assets/others/fix_screen.jpg" ></td>
         <td><img alt="fix_panel" src="./../../../../zh/maix/m1s/other/assets/others/fix_panel.jpg" ></td>
@@ -120,7 +120,7 @@ Up to now we have finished installing shell.
     <tr>
         <td><img alt="opposite_screen" src="./../../../../zh/maix/m1s/other/assets/others/opposite_screen.jpg" ></td>
         <td><img alt="opposite_cam" src="./../../../../zh/maix/m1s/other/assets/others/opposite_cam.jpg" ></td>
-        <td> Connect camera and screen with board first, and camera should on the M1s module</td>
+        <td> Connect camera and screen with board first, and camera should be on the M1s module</td>
     </tr>
 </table><br>
 <table>
@@ -166,7 +166,7 @@ First, use tweezers or other tools to remove the back panel of the fixed shell.
 
 ![disassemble_shell](./../../../../zh/maix/m1s/other/assets/others/disassemble_shell.jpg)
 
-Use tweezers to push this board out through the hole which is in the same direction with Logo on the shell
+Use tweezers to push this board out through the hole which is in the same direction as Logo on the shell
 
 <img src="./../../../../zh/maix/m1s/other/assets/others/disassemble_hole.jpg" alt="disassemble_hole" width="45%">
 <img src="./../../../../zh/maix/m1s/other/assets/others/disassemble_hole_1.jpg" alt="disassemble_hole_1" width="45%">
@@ -175,4 +175,4 @@ Push on the metal panel of the screen to make the screen out of the shell.
 
 ![disassemble_remove_screen](./../../../../zh/maix/m1s/other/assets/others/disassemble_remove_screen.jpg)
 
-Up to now we have finished removing the shell.
+Now we have finished removing the shell.

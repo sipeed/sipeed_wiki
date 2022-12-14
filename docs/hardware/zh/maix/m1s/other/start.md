@@ -389,4 +389,161 @@ cd M1s_BL808_example/e907_app
 
 相关的 Linux SDK 前往 [github](https://github.com/sipeed/M1s_BL808_Linux_SDK) 查看。
 
+## 使用 Jtag
+
+可以在[淘宝店铺](https://sipeed.taobao.com/)购买到 Jtag 调试器来调试 M1s Dock.
+
+![cklink_appearence](./assets/start/cklink_appearence.jpg)
+
+### 连接设备
+
+将 Jtag 插入到板子的 TF 卡槽中来连接设备。自弹式 TF 卡槽可以自动固定连接，尽量减少硬插拔避免 TF 卡槽损坏。
+
+连接后的样式如下图所示。
+
+![cklink_connect_side](./assets/start/cklink_connect_side.jpg)
+![cklink_connect_top](./assets/start/cklink_connect_top.jpg)
+
+调试器和 M1s Dock 的 UART 口都需要与电脑连接上（如上图，板子上的 UART 口和调试器都连接了电脑）；仅调试器连接电脑会因为需要给 M1s Dock 供电而导致调试器很烫，并且我们需要通过串口在 M1s Dock 上开启 Jtag 功能才能调试。
+
+### 安装驱动
+
+前往 [下载站](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/9_Driver/cklink) 下载适合自己电脑的驱动。
+
+#### 安装驱动
+
+解压 `T-Head-DebugServer-windows` 压缩包后，运行加压后的 `Setup` 程序来安装驱动。
+
+![cklink_windows_install_driver](./assets/start/cklink_windows_install_driver.jpg)
+
+在确定安装目录界面，建议不要更改默认的安装位置。避免因错误安装到根目录后，卸载该程序导致全盘清空的悲剧。
+
+![cklink_windows_driver_path](./assets/start/cklink_windows_driver_path.jpg)
+
+全部都安装，避免以后还需要别的组件。
+
+![cklink_windows_driver_components](./assets/start/cklink_windows_driver_components.jpg)
+
+安装结束后，连接上了调试器的话可以在设备管理器中看到有 `CKlink-Lite`。
+
+![cklink_windows_driver_device_manager](./assets/start/cklink_windows_driver_device_manager.jpg)
+
+桌面上有一个调试软件的图标。
+
+![cklink_windows_driver_desktop_icon](./assets/start/cklink_windows_driver_desktop_icon.jpg)
+
+#### 安装驱动
+
+获得驱动：[点我](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/9_Driver/cklink)
+
+![cklink_linux_list_file](./assets/start/cklink_linux_list_file.jpg)
+
+解压所下载的压缩文件。
+
+```bash
+tar xvf T-Head-DebugServer*
+```
+
+然后当前目录下会多出一个脚本文件。
+
+![cklink_linux_list_shell_file](./assets/start/cklink_linux_list_shell_file.jpg)
+
+执行一下脚本，会显示说明，可以知道在脚本后面加上 `-i` 会安装软件，加上 `-u` 会卸载软件。
+
+```
+./T-Head-DebugServer-linux-x86_64-V5.16.5-20221021.sh
+```
+
+![cklink_linux_script_help](./assets/start/cklink_linux_script_help.jpg)
+
+开始安装驱动：
+
+```
+sudo ./T-Head-DebugServer-linux-x86_64-V5.16.5-20221021.sh -i
+```
+
+![cklink_linux_installation](./assets/start/cklink_linux_installation.jpg)
+
+上图中有两处是我们手动输入的 `yes` ，在 `Set full installing path` 处直接回车确认的话它会被安装到默认路径下，有需要的话自己指定一下安装路径。
+
+安装完后使用 `lsusb` 可以查看到 `CKlink-Lite` 设备。
+
+![cklink_linux_lsusb](./assets/start/cklink_linux_lsusb.jpg)
+
+### 调试设备
+
+在调试设备前，我们需要先通过 M1s Dock 上面的大号串口来操作板子，开启板子的调试功能。
+
+![cklink_jtag_serial_choice](./assets/start/cklink_jtag_serial_choice.jpg)
+![cklink_jtag_choice](./assets/start/cklink_jtag_choice.jpg)
+
+从上面可以看到有两个 jtag 选项，执行 `jtag_cpu0` 就会对 C906 核心进行调试，执行 `jtag_m0` 就是对 E907 核心进行调试。
+
+![cklink_jtag_c906](./assets/start/cklink_jtag_c906.jpg)
+![cklink_jtag_e907](./assets/start/cklink_jtag_e907.jpg)
+
+#### Windows
+
+运行前面安装驱动后在桌面上的 T-HeadDebugServer 程序，出现下面的提示的话说明没有连接上设备，可以自己检查：
+
+- 确定已经在串口里面使能了核心的 jtag 调试
+- 设备管理器里面的 `CKlink-Lite` 设备，没有的话检查核心板与电脑的连接情况或者重新安装驱动
+- 调试器已经被其他 T-HeadDebugServer 程序打开
+
+![cklink_jtag_windows_no_target](./assets/start/cklink_jtag_windows_no_target.jpg)
+
+点击下图箭头指向的 三角标志 可以连接设备：
+
+![cklink_jtag_windows_run_debugger](./assets/start/cklink_jtag_windows_run_debugger.jpg)
+
+出现下图所示的 Failed 的话说明连接失败，端口不可用，可以自己设置端口来连接设备。
+
+![cklink_jtag_windows_no_port](./assets/start/cklink_jtag_windows_no_port.jpg)
+
+选择 Socket Setting，设置合适的端口。
+
+![cklink_jtag_windows_set_socket](./assets/start/cklink_jtag_windows_set_socket.jpg)
+![cklink_jtag_windows_set_socket_1](./assets/start/cklink_jtag_windows_set_socket_1.jpg)
+
+成功连接上的话箭头所指的地方会从 三角形 变成 圆形。
+
+![cklink_jtag_windows_success_connection](./assets/start/cklink_jtag_windows_success_connection.jpg)
+
+到这里已经完成连接了，上面的图里是使用 `jtag_m0` 命令来调试 E907 核心，需要的话可以使用 `jtag_cpu0` 命令更改成调试 C906 核心。
+
+接下来就可以用 gdb 等工具来调试了。
+
+![cklink_jtag_windows_gdb_debug](./assets/start/cklink_jtag_windows_gdb_debug.jpg)
+
+此外，在调试工具的安装目录下，有命令行程序 `DebugServerConsole`。
+
+![cklink_jtag_windows_debugserverconsole](./assets/start/cklink_jtag_windows_debugserverconsole.jpg)
+
+使用命令行执行可以看到用法并且操作它。
+
+```bash
+.\DebugServerConsole.exe -h
+```
+![cklink_jtag_windows_debugserverconsole_help](./assets/start/cklink_jtag_windows_debugserverconsole_help.jpg)
+
+```bash
+.\DebugServerConsole.exe -port 65535
+```
+![cklink_jtag_windows_debugserverconsole_port](./assets/start/cklink_jtag_windows_debugserverconsole_port.jpg)
+
+就可以通过 65535 端口来调试了。
+
+#### Linux
+
+使用 `DebugServerConsole -h` 可以查看使用帮助。
+
+![cklink_jtag_linux_debugserverconsole_help](./assets/start/cklink_jtag_linux_debugserverconsole_help.jpg)
+
+在命令行运行命令后，可以通过 12345 端口来调试了。
+
+```bash
+DebugServerConsole -port 12345
+```
+![cklink_jtag_linux_debugserverconsole](./assets/start/cklink_jtag_linux_debugserverconsole.jpg)
+
 ## blai_npu

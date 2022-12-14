@@ -302,7 +302,7 @@ Visit Schematic for details：[Click me](https://dl.sipeed.com/shareURL/MAIX/M1s
     <tr>
         <td>BOOT Mode</td>
         <td>
-        When power on, the chip starts depend on the the voltage level of the BOOT pin: <br>
+        When powered  on, the chip starts depending on the voltage level of the BOOT pin: <br>
         · BOOT is 1 ：Start from flash<br>
         · BOOT is 0 ：Download from uart
         </td>

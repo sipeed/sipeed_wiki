@@ -11,12 +11,12 @@ update:
 
 When we download models from [MaixHub](https://maixhub.com/), the machine code is required. Here we are talking about how to get the machine code.
 
-If you did not get your machine code after doing following steps, just see the end [Questions](#questions) chapter in the last of this page.
+If you did not get your machine code after doing the following steps, just see the end [Questions](#questions) chapter at the end of this page.
 
 ## Brief steps
 
 Here are the steps:
-- Connect the board with computer through USB UART port (2 UART Ports will appera in your computer)
+- Connect the board with computer through USB UART port (2 UART Ports will appear in your computer)
 - Run UART application to open the UART device, set the Baudrate 2000000 (one 2 and six 0), open the bigger UART port
 - Press onboard `RST` key, and the log message is as following
 
@@ -85,6 +85,6 @@ This means you need upgrade your firmware, [Click me](https://dl.sipeed.com/shar
 
 visit the **Download bl702 firmware** [here](https://github.com/sipeed/M1s_BL808_example) (Github) to burn the onboard serial chip, and the firmware can be downloaded [here](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmware), choose the file starts with `usb2dualuart_bl702`.
 
-### No any Serial port
+### No Serial port
 
-Make sure you have connected computer with the UART port on the board first, then try to burn the onboard serial chip by following [No two Serial port](#no-two-serial-port)
+Make sure you have connected the computer with the UART port on the board first, then try to burn the onboard serial chip by following [No two Serial port](#no-two-serial-port)

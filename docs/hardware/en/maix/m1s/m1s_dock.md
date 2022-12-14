@@ -11,22 +11,15 @@ update:
 
 ## Summary
 
-Sipeed M1s Dock is a development board designed based on [Sipeed M1s module](./m1s_module.md)，routes interface like MIPI CSI、SPI LCD and FPC connector, to get rid of worries of connecting cable. Designed with the most minimal design, for customers to evaluate the module, or hobbyists to play directly, etc.
+Sipeed M1s Dock is a development board designed based on [Sipeed M1s module](./m1s_module.md)，routes interface like MIPI CSI、SPI LCD and FPC connector, to get rid of worries about connecting cable. Designed with the most minimal design, for customers to evaluate the module, or hobbyists to play directly, etc.
 
 Buy one: [Aliexpress](https://www.aliexpress.com/item/1005004970779483.html)
 
 <td><img alt="m1s_dock.jpg" src="./../../../zh/maix/m1s/assets/m1s_dock/m1s_dock.jpg" width="45%"></td>
 
-<!-- <table>
-  <tr>
-  <td><img alt="m1s_dock_top" src="./../../../zh/maix/m1s/assets/m1s_dock/m1s_dock_top.jpg"></td>
-  <td><img alt="m1s_dock_bottom" src="./../../../zh/maix/m1s/assets/m1s_dock/m1s_dock_bottom.jpg"></td>
-  </tr>
-</table> -->
-
 ## Video
 
-Video of M1s Dock and M0Sense：M1s Dock is time before 3:15，and time after 3:15 is M0Sense.
+Video of M1s Dock and M0Sense：M1s Dock is before 3:15，and time after 3:15 is M0Sense.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/hkSAW42Evl4" title="M1s Dock" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 

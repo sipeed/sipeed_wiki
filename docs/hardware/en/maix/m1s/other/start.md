@@ -14,7 +14,7 @@ update:
       - Create file
 ---
 
-The M1s Dock can be used for a variety of interesting things by its delicate design. Here we tell the usages about this device. Note that the default baudrate is 2000000.
+The M1s Dock can be used for a variety of interesting things by its delicate design. Here we tell the usages of this device. Note that the default baudrate is 2000000.
 
 There are two Serial Devices if connecting the board through UART USB port with computer. The smaller number serial port is connected with C906 core，and the bigger number serial port is connected with E907 core.
 
@@ -22,7 +22,7 @@ There are two Serial Devices if connecting the board through UART USB port with 
 
 ## Power On
 
-First time to start M1s Dock, screen displays what the camera captures, and the number on the screen which is the LED brightness changes when you press the keys on the side.
+the first time to start M1s Dock, screen displays what the camera captures, and the number on the screen which is the LED brightness changes when you press the keys on the side.
 
 ![default_firmware](./../../../../zh/maix/m1s/other/assets/start/default_firmware.jpg)
 ![led_brghtness](./../../../../zh/maix/m1s/other/assets/start/led_brghtness.jpg)
@@ -66,7 +66,7 @@ A removable disk with tiny storage capacity will be shown on your computer if th
 
 <img src="./../../../../zh/maix/m1s/other/assets/start/udisk_burn.gif" alt="udisk_burn" style="transform:rotate(0deg);">
 
-After succeed dragging the firmware bin into removable disk, the board will reboot and the u-disk is removed. Try to repower on this board if its not working well after burnning firmware.
+After succeed dragging the firmware bin into removable disk, the board will reboot and the u-disk is removed. Try to repower this board if its not working well after burnning firmware.
 
 ### lvgl_demo
 
@@ -81,7 +81,7 @@ After burning into M1s Dock, the screen displays the lvgl test. And then sets th
 
 A simple image processing example.
 
-Burning into M1s Dock, screen displays what is the camera captured, press the side key to change image operator. Set the baudrate to 2000000, to see the image operator state by the small serial port.
+Burning into M1s Dock, screen displays what the camera captured, press the side key to change image operator. Set the baudrate to 2000000, to see the image operator state by the small serial port.
 
 <img src="./../../../../zh/maix/m1s/other/assets/start/example_image_processing_demo.jpg" alt="example_image_processing_demo" width="45%"> 
 <img src="./../../../../zh/maix/m1s/other/assets/start/example_image_processing_demo_uart.jpg" alt="example_image_processing_demo_uart" width="45%"> 
@@ -121,7 +121,7 @@ The u-disk burnning method above is used to burn firmware for C906 core, and if 
 
 ### Burn M1s
 
-Connect this board by its TypeC UART port with computer, 2 serial port will be shown on your computer (If your mouse doesn't work after connecting board with computer, please disconnect board with computer and visit [Burn onboard bl702](#burn-onboard-bl702) to solve this problem).
+Connect this board by its TypeC UART port with computer, 2 serial ports will be shown on your computer (If your mouse doesn't work after connecting board with computer, please disconnect board with computer and visit [Burn onboard bl702](#burn-onboard-bl702) to solve this problem).
 
 #### Burn with graphical application
 
@@ -142,11 +142,11 @@ Run the application, choose bl808, then we put this [partition file](https://dl.
     </tr>
 </table>
 
-After select the partition file, we have more choice in this page. We just need `boot2`, `firmware` and  `d0fw` these optitions.
+After selecting the partition file, we have more choice in this page. We just need `boot2`, `firmware` and  `d0fw` these options.
 
 <img src="./../../../../zh/maix/m1s/other/assets/start/firmware_choose.png" alt="firmware_choose" style="transform:rotate(0deg);">
 
-In the picture abuve, `boot2` is never changed, and it's in this dictionary: `BLDevCube\chips\bl808\builtin_imgs\boot2_isp_bl808_v6.4_rc6`, under where the path if this burning application is. `firmware` is the firmware file for E907 cpre, and `d0fw` is C906 core file, the previous [Burn with u-disk](#burn-with-u-disk) operation can also burn firmware for this core. 
+In the picture above, `boot2` stays the same, and it's in this dictionary: `BLDevCube\chips\bl808\builtin_imgs\boot2_isp_bl808_v6.4_rc6`, under where the path if this burning application is. `firmware` is the firmware file for E907 core, and `d0fw` is C906 core file, the previous [Burn with u-disk](#burn-with-u-disk) operation can also burn firmware for this core. 
 
 The firmware file for E907 or C906 can be gotten by compiling [M1s_dock example](https://gitee.com/sipeed/M1s_BL808_example).
 
@@ -162,16 +162,16 @@ Press BOOT key and RST key on the board, then release RST key first, then releas
 
 <img src="./../../../../zh/maix/m1s/other/assets/start/boot_rst.jpg" alt="boot_rst" style="transform:rotate(0deg);" width="40%">
 
-Click `Create & Download`, then we can see the following meaasge where the arrow points at, before this we should make M1s Dock into UART burning mode.
+Click `Create & Download`, then we can see the following message where the arrow points at, before this we should make M1s Dock into UART burning mode.
 
 ![burn_press_boot](./../../../../zh/maix/m1s/other/assets/start/burn_press_boot.jpg)
 
-Then it will burn M1s Dock if it `shake hand success`
+It will burn M1s Dock if it shows `shake hand success`
 
 <img src="./../../../../zh/maix/m1s/other/assets/start/burn_press_boot_success.jpg" alt="burn_press_boot_success" style="transform:rotate(0deg);" width="70%">
 <img src="./../../../../zh/maix/m1s/other/assets/start/finish_burning.png" alt="finish_burning" style="transform:rotate(0deg);" width="70%">
 
-Reburn this if it `SHAKEHAND FAIL`. Try to release the keys in order (Release RST key first then release BOOT key, I mean when release RST key, the BOOT key is being pressed) to make the board into UART burning mode, otherwise the burning software will will show error because of timeout burning.
+Reburn this if it `SHAKEHAND FAIL`. Try to release the keys in order (Release RST key first then release BOOT key, I mean when release RST key, the BOOT key is being pressed) to make the board into UART burning mode, otherwise the burning software will show error because of timeout burning.
 
 <img src="./../../../../zh/maix/m1s/other/assets/start/burn_press_boot_failed.jpg" alt="burn_press_boot_failed" style="transform:rotate(0deg);" width="70%">
 
@@ -181,7 +181,7 @@ We can burn M1s Dock by commald-line through serial port on this board.
 
 In `BLDevCube` folder, there is `bflb_iot_tool` application, `bflb_iot_tool`、 `bflb_iot_tool-macos` and `bflb_iot_tool-ubuntu` are used for different OS.
 
-Here I take windows as example, and for other OS you nned to change the commands by your own.
+Here I take Windows as example, and for other OS you need to change the commands by yourself.
 
 In this command, `firmware` is the bin file for E907 Core, the default bin file can be downloaded from [here](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmware/factory). `pt` is the partition file, it's in the `M1s_BL808_example\partition` folder, you can also [Click me](https://dl.sipeed.com/fileList/MAIX/M1s/M1s_Dock/7_Firmware/partition/partition_cfg_16M_m1sdock.toml) to get it.`boot2` is in `BLDevCube\chips\bl808\builtin_imgs\boot2_isp_bl808` folder. Set baudrate 2000000 to burn this board fast. `port` is the bigger port number.
 
@@ -189,7 +189,7 @@ In this command, `firmware` is the bin file for E907 Core, the default bin file 
 .\bflb_iot_tool.exe --chipname=bl808 --port=COM38 --baudrate=2000000 --firmware="firmware_20221212.bin" --pt="M1s_BL808_example\partition\partition_cfg_16M_m1sdock.toml" --boot2="BLDevCube\chips\bl808\builtin_imgs\boot2_isp_bl808\boot2_isp_debug.bin"
 ```
 
-Of cource, make sure you have make this board into UART burning mode: Press BOOT key and RST key, then release RST key first then release BOOT key.
+Of course, make sure you have make this board into UART burning mode: Press BOOT key and RST key, then release RST key first then release BOOT key.
 
 ![command_burn_flash](./../../../../zh/maix/m1s/other/assets/start/command_burn_flash.jpg)
 
@@ -201,7 +201,7 @@ We need advanced mode first.
 
 ![erase_advanede_mode](./../../../../zh/maix/m1s/other/assets/start/erase_advanede_mode.jpg)
 
-Then in FLASH interface, we choose the bigger seral port, tick Whole Chip. Make this board into UART burning mode: Press BOOT key and RST key, then release RST key first then release BOOT key. Click `Erase Flash` to erase the chip
+Then in FLASH interface, we choose the bigger serial port, tick Whole Chip. Make this board into UART burning mode: Press BOOT key and RST key, then release RST key first then release BOOT key. Click `Erase Flash` to erase the chip
 
 ![erase_configurations](./../../../../zh/maix/m1s/other/assets/start/erase_configurations.jpg)
 
@@ -222,7 +222,7 @@ Hold BOOT key before power this device, then connect this board ti==with compute
     </tr>
 </table>
 
-Click `Refresh`，choose the serial port (there is only one port, if you can't see this port, make sure you have hold BOOT key before power this device), set UartRate 2000000, click `Create & Diwnload`.
+Click `Refresh`，choose the serial port (there is only one port, if you can't see this port, make sure you have hold BOOT key before powering this device), set UartRate 2000000, click `Create & Diwnload`.
 
 ![burn_bl702](./../../../../zh/maix/m1s/other/assets/start/burn_bl702.png)
 
@@ -255,7 +255,7 @@ M1s_BL808_example/
 
 ### Get SDK
 
-It's about 120MB memory storge.
+It's about 120MB memory storage.
 
 ```bash
 git clone https://github.com/sipeed/M1s_BL808_SDK.git
@@ -303,7 +303,6 @@ sipeed@DESKTOP:~$ tree -L 2
     ├── toolchain         # Folder of toolchain
     ...
 ```
-
 
 ### Set toolcahin path
 
@@ -371,7 +370,7 @@ cd M1s_BL808_example/e907_app
 ./build.sh firmware
 ```
 
-Then the compiled bin file is in M1s_BL808_example/e907_app/build_out folder, and its name is `firmware.bin`, we can burn it by the burning application provided by Bouffalo.
+Then the compiled bin file is in M1s_BL808_example/e907_app/build_out folder, and its name is `firmware.bin`, we can burn it with the burning application provided by Bouffalo.
 
 ### Questions
 
@@ -379,11 +378,11 @@ Then the compiled bin file is in M1s_BL808_example/e907_app/build_out folder, an
 
 2. Failed compiling
 
-Make sure you run `./build.sh demo_name` command, not `./build.sh demo_name/` command. Note the symbol `/` in the last.
+Make sure you run `./build.sh demo_name` command, not `./build.sh demo_name/` command. Note the symbol `/` in the end.
 
 ## Linux Demo
 
-[Click me](https://dl.sipeed.com/fileList/MAIX/M1s/M1s_Dock/7_Firmware/m1sdock_linux_20221116.zip) to download Linux demo, and following the `steps.md` in the compressed file to finishing burning Linux image.
+[Click me](https://dl.sipeed.com/fileList/MAIX/M1s/M1s_Dock/7_Firmware/m1sdock_linux_20221116.zip) to download Linux demo, and following the `steps.md` in the compressed file to finish burning Linux image.
 
 ![linux_opensbi](./../../../../zh/maix/m1s/other/assets/start/linux_opensbi.jpg)
 
