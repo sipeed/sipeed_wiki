@@ -262,33 +262,33 @@ The demo of uf2 format which can be burned to M0sense by u-disk is in the uf2_de
 
 Sometimes we need to burn bin file because of some reasons, here are the steps.
 
-给 M0sense 烧录需要用到博流官方烧录工具，前往 https://dev.bouffalolab.com/download 下载名称为 `Bouffalo Lab Dev Cube` 的文件。解压后就得到了用来烧录板子的应用程序。
+We need to use bouffalolab official flash application to burn M0sense, visit https://dev.bouffalolab.com/download and download the file whose name is `Bouffalo Lab Dev Cube`, cecompress it then we get the flash application.
 
-![bouffalo_cube](./../../maix/m1s/other/assets/start/bouffalo_cube.png)
+![bouffalo_cube](./../../../zh/maix/m1s/other/assets/start/bouffalo_cube.png)
 
-解压后的文件夹中主要关注 `BLDevCube`、 `BLDevCube-macos` 和 `BLDevCube-ubuntu` 三个文件，用于在不同系统启动这个烧录工具。
+We mainly use `BLDevCube`, `BLDevCube-macos` and `BLDevCube-ubuntu` these three files, by which to burn our board with graphical interface on different OS.
 
-![application](./../../maix/m1s/other/assets/start/application.png)
+![application](./../../../zh/maix/m1s/other/assets/start/application.png)
 
-然后使用镊子或其他金属短接上板子上的 3.3V 引脚和 boot 引脚，然后在给板子通电，这样板子进入烧录模式了。可以在电脑设备管理器中看到出现了一个串口设备。
+We use metal material or wire to connect the 3.3V pin and boot pin, then power up M0sense, it will be into download mode, we can see there is a serial device in computer device manager.
 
-| 短接引脚                                   | 设备管理器中的串口设备                                |
+| Connect pin                                   | Serial device in computer device manager                                |
 | ------------------------------------------ | -------------------------------------------------- |
 | ![boot_mode](./../../../zh/maixzero/sense/assets/start/boot_mode.jpg) | ![serial_device](./../../../zh/maixzero/sense/assets/start/serial_device.jpg) |
 
-接着打开 `BLDevCube` 烧录软件（根据自己系统选择），选择 `BL702` 芯片，在打开的软件界面选择 MCU 模式，选择想要烧录进去的固件。默认的固件可以在这里下载到: [Click me](https://dl.sipeed.com/shareURL/Maix-Zero/Maix-Zero/7_Example_demos/default_firmware)
+Run `BLDevCube`(Depends on your OS), choose `BL702`，and select MCU mode in application interface，choose the firmware bin file you want to burn. The default downloaded firmware can be found here: [Click me](https://dl.sipeed.com/shareURL/Maix-Zero/Maix-Zero/7_Example_demos/default_firmware)
 
 <table>
     <tr>
-        <td><img src="./../../maix/m1s/other/assets/start/select_bl702.png" alt="select_bl702" style="transform:rotate(0deg);"></td>    
-        <td><img src="./../../maix/m1s/other/assets/start/mcu_mode.png" alt="mcu_mode" style="transform:rotate(0deg);" width="70%"></td>
+        <td><img src="./../../../zh/maix/m1s/other/assets/start/select_bl702.png" alt="select_bl702" style="transform:rotate(0deg);"></td>    
+        <td><img src="./../../../zh/maix/m1s/other/assets/start/mcu_mode.png" alt="mcu_mode" style="transform:rotate(0deg);" width="70%"></td>
     </tr>
 </table>
 
-点击 `Refresh`，选择唯一的串口（如果看到的不是唯一串口，重新短接 boot 引脚和 3.3v 引脚），设置波特率 2000000， 点击下载烧录。
+Click `Refresh`，choose the only one serial port, if you did not see the serial port, reconnect the 3.3V pin and boot pin before power M0sense, set uartRate 2000000, click `Create & Diwnload`.
 
-![burn_bl702](./../../maix/m1s/other/assets/start/burn_bl702.png)
+![burn_bl702](./../../../zh/maix/m1s/other/assets/start/burn_bl702.png)
 
-烧录结束后，重新插拔一次 USB 来重新启动 bl702 以应用新的固件。
+Finishing flashing firmware, repower M0sense to load the new firmware.
 
-![finish_burn_702](./../../maix/m1s/other/assets/start/finish_burn_702.png)
+![finish_burn_702](./../../../zh/maix/m1s/other/assets/start/finish_burn_702.png)
