@@ -81,28 +81,25 @@ A：可能是核心板与底板衔接松了，重新插拔核心板与底板可�
 
 A: 运行一下`python3 -c "import os, binascii; os.system('sed -i \'/iface eth0 inet dhcp/ahwaddress ether {}\' /etc/network/interfaces'.format(binascii.hexlify(bytes.fromhex(open('/proc/ax_proc/uid').read().split('0x')[1][:-5]),':').decode('iso8859-1'))) if os.system('grep \'hwaddress ether\' /etc/network/interfaces -q') != 0 else exit();"` 后重启即可。
 
-## Q：开机画面出现锯齿画面怎么解决？
+## Q：开机画面出现锯齿或以下画面怎么解决？
 
-![fqa_sawtooth](./../assets/fqa_sawtooth.jpg)
+<html>
+      <img src="./../assets/faq_sawtooth.jpg" width=48%>
+      <img src="./../assets/faq_dth.jpg" width=48%>
+    </html>
 
-A：因为屏幕批次不同导致的原因，更新到最新的 **20221125** 后的镜像即可。
+A：屏幕批次不同导致的原因，更换以下 `/boot/ dtb ` 设备树的文件即可。
+
+```bash
+ls /boot/
+cp /boot/dtb.img.lcd20220830 dtb.img #dtb.img.lcd20221025 dtb.img
+```
 
 ## Q：运行 opencv 相关后报错：can't open camera by index.
 
 A：查询一下摄像头设备号是否与代码内调用设备号的一致。
 
-## Q：开机后使用屏幕出现以下画面。
-
-![fqa_dth](./../assets/faq_dth.jpg)
-
-A：屏幕批次不同的原因，更换以下 `/boot/ dtb ` 的文件即可。
-
-```bash
-ls /boot/
-cp /boot/dtb.img.lcd20220830 dtb.img
-```
-
-## Q:烧录后启动不了显示：AXERA-UBOOT=>
+## Q：烧录后启动失败显示 XERA-UBOOT=>
 
 A：进入 uboot 模式了输入 boot 后即可启动。
 

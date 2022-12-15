@@ -189,7 +189,7 @@
             },
             {
               "label": "试试 Python 编程",
-              "file": "maixIII/ax-pi/python_api.md"
+              "file": "maixIII/ax-pi/python_api.ipynb"
             },
             {
               "label": "准备 C/C++ 编程",
