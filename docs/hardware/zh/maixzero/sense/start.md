@@ -30,6 +30,8 @@ update:
 
 这边提供了几个 Demo 固件 [点我跳转](https://dl.sipeed.com/shareURL/Maix-Zero/Maix-Zero/7_Example_demos)，可以直接拖拽到 U 盘查看烧录结果，其对应的源码均可在 [github](https://github.com/sipeed/M0sense_BL702_example) 上面获取。
 
+> 源码镜像地址： https://gitee.com/sipeed/M0sense_BL702_example
+
 下面是这几个 demo 固件的说明与效果展示
 
 ### hello_world.uf2
@@ -40,7 +42,7 @@ update:
 
 ### blink_baremetal.uf2
 
-拖拽到 U 盘烧录完后，断电重新连接一下板子，使用串口软件打开串口后 LED 开始闪灯。关闭串口后灯的颜色会维持住。
+拖拽到 U 盘烧录完后，断电重新连接一下板子，LED 开始闪灯。打开串口后会显示灯的状态。
 
 - 打开串口软件
 
@@ -66,9 +68,31 @@ update:
 
 ### lcd_flush.uf2
 
-烧录进板子后，板子配套的 lcd 刷屏换颜色。
+烧录进板子后，板子配套的 lcd 背景色变化，打开串口会显示当前屏幕颜色的数值。
 
 ![m0sense_lcd_flush](./assets/start/m0sense_lcd_flush.gif)
+![m0sense_lcd_flush_uart](./assets/start/m0sense_lcd_flush_uart.gif)
+
+### imu.uf2
+
+烧录进板子后，从串口可以看到板子上面 6 轴 IMU (惯性传感器)的数据。
+
+![m0sense_imu_uart](./assets/start/m0sense_imu_uart.gif)
+
+### single_button_control.uf2
+
+烧录到板子中后，按下 BOOT 键，LED 会切换颜色，串口会打印当前 LED IO 状态。
+
+具体逻辑可以查看[源码](https://gitee.com/Sipeed/M0sense_BL702_example/blob/main/m0sense_apps/rtos_demos/single_button_control/main.c)。
+
+![single_button_control](./assets/start/single_button_control.gif)
+![single_button_control_uart](./assets/start/single_button_control_uart.gif)
+
+### audio_recording.uf2
+
+烧录进板子后，串口会持续打印麦克风所获得的周围环境音的 16bit pcm 格式数据。
+
+![audio_recording](./assets/start/audio_recording.gif)
 
 ## SDK 环境搭建
 
@@ -159,7 +183,7 @@ M0sense_BL702_example/
 
 首先确定是在 `M0sense_BL702_example` 目录下。
 
-打补丁前需要先设置一下用户名和密码, 随便设置一下
+打补丁前需要先设置一下用户名和邮箱, 随便设置一个
 
 ```bash
 cd bl_mcu_sdk
@@ -176,18 +200,20 @@ cd ..
 
 出现 `Apply patch for you!` 说明成功打补丁了，可以接着下面的操作了。
 
+![m0sense_patch](./assets/start/m0sense_patch.jpg)
+
 ### 配置编译工具链路径
 
 以后每次开始编译都需要执行一次这个来配置下编译工具链路径。
 
-首先需要确定当前所在的路径
+首先需要知道 `M0sense_BL702_example` 的路径。
 
 ```bash
 sipeed@DESKTOP:~$ pwd
 /home/lee/M0sense_BL702_example
 ```
 
-我们复制上面执行 `pwd` 后的结果（每个人的会不一样）然后在后面加上 `/toolchain_gcc_sifive_linux/bin`，就配置完路径了
+我们复制上面执行 `pwd` 后的结果（每个人的会不一样）然后在后面加上 `/toolchain_gcc_sifive_linux/bin`，然后执行下面的命令，就配置完路径了
 
 ```bash
 PATH=$PATH:/home/lee/M0sense_BL702_example/toolchain_gcc_sifive_linux/bin
@@ -206,6 +232,8 @@ Target: riscv64-unknown-elf
 ```
 
 没有成功的话会提示没找到 `riscv64-unknown-elf-gcc`，自己再重新配置一下
+
+![m0sense_toolchain_notfound](./assets/start/m0sense_toolchain_notfound.jpg)
 
 ### 编译 demo
 
