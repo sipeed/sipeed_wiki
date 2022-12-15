@@ -988,7 +988,7 @@ echo 1 > /sys/class/gpio/gpio68/value
 
 以后主流会统一到 PA0 或 PC4 这类定义，方便不同芯片共同定义。
 
-[点击查看相关 gpio.h/gpio.c 代码](https://www.cnblogs.com/juwan/p/16917802.html#linux-spiv)
+[可参考的 gpio.h/gpio.c 代码](https://www.cnblogs.com/juwan/p/16917802.html#linux-spiv)
 
 ### UART
 
@@ -1006,7 +1006,7 @@ ser.write(b'hello world\n')
 ser.close()
 ```
 
-[点击查看相关 uart.h/uart.c 代码](https://www.cnblogs.com/juwan/p/16917802.html#linux-uart-ttysx)
+[可参考的 uart.h/uart.c 代码](https://www.cnblogs.com/juwan/p/16917802.html#linux-uart-ttysx)
 
 ### PWM
 
