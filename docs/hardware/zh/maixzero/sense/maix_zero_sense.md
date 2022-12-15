@@ -15,16 +15,7 @@ Sipeed M0sense 是基于[博流智能科技](http://www.bouffalolab.com/)的 BL7
 
 购买链接：[淘宝](https://item.taobao.com/item.htm?id=693997918701)
 
-<!-- 渲染图： -->
-
 <img src="./assets/m0sense_1.png" alt="m0sense_1.png" >
-
-<!-- 实物图：
-
-<div>
-  <img src="./assets/m0sense_outlook_top.png" alt="m0sense_outlook_top.png" width=20%>
-  <img src="./assets/m0sense_outlook_bot.png" alt="m0sense_outlook_bot.png" width=20%>
-</div> -->
 
 ## 视频
 

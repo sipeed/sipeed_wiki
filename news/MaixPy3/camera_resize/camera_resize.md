@@ -34,8 +34,6 @@ tags: MaixPy3, resize, teedoc
 ### 试一下推流
 
 ```python
-import os
-os.system("killall python3")             #先杀一次预防 camera is busy
 from maix import camera, display, image #引入python模块包
 while True:
     img = camera.capture()    #从摄像头中获取一张图像
@@ -55,8 +53,6 @@ while True:
 #### 试试 240*240 的显示效果
 
 ``` python
-import os
-os.system("killall python3")
 from maix import camera, display
 camera.config(size=(240, 240))   #设置获取图像分辨率
 img = camera.capture()
@@ -82,8 +78,6 @@ display.show(img)
 #### 试试 320*240 的显示效果
 
 ```python
-import os
-os.system("killall python3")
 from maix import camera, display
 camera.config(size=(320, 240))
 img = camera.capture()
@@ -109,8 +103,6 @@ display.show(img)
 #### 再试试 320*180 显示效果
 
 ```python
-import os
-os.system("killall python3")
 from maix import camera, display
 camera.config(size=(320, 180))    #设置摄像头分辨率
 img = camera.capture()
