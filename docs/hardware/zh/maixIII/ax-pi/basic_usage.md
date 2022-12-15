@@ -1463,7 +1463,7 @@ nano /home/examples/vin_ivps_joint_vo_pp_human_seg/run.sh
 **usb-uvc-gadget**：[点击查看相关仓库](https://github.com/junhuanchen/usb-uvc-gadget)
 
 >**20221123** 镜像内置了 uvc vo 应用，并且还可以在手机端软件使用。
->目前应用还处于不稳定的状态，第一次启动程序或供电不足会导致设备重启，后续会慢慢优化！
+>目前应用还处于不稳定的状态，第一次启动程序会改变 usb otg rndis 转成 usb otg uvc 模式导致设备重启，重启再运行即可，画面绿屏是启动脚本里摄像头配置不对。
 
 使用前需要准备两条 USB type_c  的数据线以及一条双 type_c 口的数据线。
 把设备的 **UART** 及 **OTG** 口用`USB type-c` 线全部接入 `PC` 端，再运行下方命令终端会弹出无报错调试信息。
