@@ -286,7 +286,7 @@ gcc -I libs/uf2_format misc/utils/uf2_conv.c -o uf2_convert # 编译出固件转
     </tr>
 </table>
 
-点击 `Refresh`，选择唯一的串口（如果看到的不是唯一串口，重新短接 boot 引脚和 3.3v 引脚后在上电使 M0sense 进入下载模式），设置波特率 2000000， 点击下载烧录。
+点击 `Refresh`，选择唯一的串口（如果看到的不是唯一串口，重新短接 boot 引脚和 3.3v 引脚后再上电使 M0sense 进入下载模式），设置波特率 2000000， 点击下载烧录。
 
 ![burn_bl702](./../../maix/m1s/other/assets/start/burn_bl702.png)
 

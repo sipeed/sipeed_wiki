@@ -305,7 +305,7 @@
             {
               "label": "Tang Primer 20K",
               "file": "tang/tang-primer-20k/primer-20k.md",
-              "item": [
+              "items": [
                 {
                   "label": "Notice",
                   "file": "tang/tang-primer-20k/start.md"
