@@ -71,7 +71,7 @@
               "file": "maix/m1s/m1s_module.md"
             },
             {
-              "label": "M1s Board",
+              "label": "M1s Dock",
               "items": [
                 {
                   "label": "Introduction",
@@ -99,6 +99,10 @@
             {
               "label": "M0sense Board",
               "file": "./maixzero/sense/maix_zero_sense.md"
+            },
+            {
+              "label": "M0sense Guide",
+              "file": "./maixzero/sense/start.md"
             }
           ]
         }

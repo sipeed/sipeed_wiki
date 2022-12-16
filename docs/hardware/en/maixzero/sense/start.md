@@ -18,7 +18,7 @@ The led lights up when M0sense is powered on, and the screen displays spectrum d
 
 ## Burn by U-Disk
 
-M0sense can be burned by draging and dropoing firmware to u-disk.
+M0sense can be burned by dragging and dropping firmware to u-disk.
 
 Hold BOOT key, then click RST key once, a removable disk is shown in computer.
 
@@ -28,9 +28,9 @@ Just drag the firmware you want to burn and drop it in the removable disk, the r
 
 ![m0sense_drag_burn](./../../../zh/maixzero/sense/assets/start/m0sense_drag_burn.gif)
 
-Here are some demos [Click me](https://dl.sipeed.com/shareURL/Maix-Zero/Maix-Zero/7_Example_demos), just use them by draging and dropoing firmware to u-disk to see their result, the source codes are in [github](https://github.com/sipeed/M0sense_BL702_example).
+Here are some demos [Click me](https://dl.sipeed.com/shareURL/Maix-Zero/Maix-Zero/7_Example_demos), just use them by dragging and dropping firmware to u-disk to see their result, the source codes are in [github](https://github.com/sipeed/M0sense_BL702_example).
 
-And the result of each demo is as following:
+And the result of each demo is as follows:
 
 ### hello_world.uf2
 
@@ -40,7 +40,7 @@ Run serial application, and open the serial port, `Hello, World` is being printe
 
 ### blink_baremetal.uf2
 
-Draging and dropoing this file to u-disk, then repower M0sense, LED flashes, open the serial port the LED states are printed.
+Dragging and dropping this file to u-disk, then repower M0sense, LED flashes, open the serial port and the LED states are printed.
 
 - Open the serial port
 
@@ -52,7 +52,7 @@ Draging and dropoing this file to u-disk, then repower M0sense, LED flashes, ope
 
 ### blink_rtos.uf2
 
-This demo is the same effect as the privious one, but this demo is based on RTOS.
+This demo has the same effect as the previous one, but this demo is based on RTOS.
 
 - Open the serial port
 
@@ -88,7 +88,7 @@ The detailed usage can be analysised by reading <a href="https://github.com/Sipe
 
 ### audio_recording.uf2
 
-Burn this demo to M0sense, the 16bit pcm format data of onboard microphone is printed by serial port.
+Burn this demo to M0sense, the 16bit pcm format data of the onboard microphone is printed by serial port.
 
 ![audio_recording](./../../../zh/maixzero/sense/assets/start/audio_recording.gif)
 
@@ -185,7 +185,7 @@ M0sense_BL702_example/
 
 Make sure you are in `M0sense_BL702_example` dictionary.
 
-Before put the patch, we need set username and email, just set what you like.
+Before putting the patch, we need to set username and email, just set what you like.
 
 ```bash
 cd bl_mcu_sdk
@@ -199,7 +199,7 @@ cd ..
 ./build.sh patch
 ```
 
-When it shows `Apply patch for you!`, we succeed doing this.
+When it shows `Apply patch for you!`, we succeed in doing this.
 
 ![m0sense_patch](./../../../zh/maixzero/sense/assets/start/m0sense_patch.jpg)
 
@@ -238,7 +238,7 @@ If not set the path right, the command `riscv64-unknown-elf-gcc` will be shown n
 
 Before compiling demo first time, we need to compile the firmware conversion application on the computer for dragging  and burning firmware by u-disk.
 
-Run followinf command in the dictionary of `M0sense_BL702_example` .
+Run following command in the dictionary of `M0sense_BL702_example` .
 
 ```bash
 sudo apt install gcc # Install gcc

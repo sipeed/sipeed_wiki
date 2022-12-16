@@ -75,7 +75,7 @@ M1s Dock 设计精巧，可以用来所很多有意思的事，这里简单说�
 烧录进 M1s Dock 后，屏幕显示着 lvgl 测试效果，设置波特率为 2000000，串口号较小的串口打印着最后一次触摸屏幕位置。
 
 <img src="./assets/start/example_lvgl.gif" alt="example_lvgl" width="45%"> 
-<img src="./assets/start/example_lvgl.jpg" alt="example_lvgl" width="45%"> 
+<img src="./assets/start/example_lvgl.jpg" alt="example_lvgl" width="45%">
 
 ### image_processing_demo
 
@@ -84,7 +84,7 @@ M1s Dock 设计精巧，可以用来所很多有意思的事，这里简单说�
 烧录进 M1s Dock 后，屏幕上显示摄像头画面，按下两侧的按键可以切换不同的图像算子。设置波特率为 2000000，串口号较小的串口显示着上次按键和其他信息。
 
 <img src="./assets/start/example_image_processing_demo.jpg" alt="example_image_processing_demo" width="45%"> 
-<img src="./assets/start/example_image_processing_demo_uart.jpg" alt="example_image_processing_demo_uart" width="45%"> 
+<img src="./assets/start/example_image_processing_demo_uart.jpg" alt="example_image_processing_demo_uart" width="45%">
 
 ### tinymaix_mnist_demo
 
@@ -93,7 +93,7 @@ M1s Dock 设计精巧，可以用来所很多有意思的事，这里简单说�
 烧录进 M1s Dock 后，屏幕中间的红框识别数字。设置波特率为 2000000，串口号较小的串口打印着识别信息。
 
 <img src="./assets/start/example_tinymaix_mnist_demo.jpg" alt="example_tinymaix_mnist_demo" width="45%"> 
-<img src="./assets/start/example_tinymaix_mnist_demo_uart.jpg" alt="example_tinymaix_mnist_demo_uart" width="45%"> 
+<img src="./assets/start/example_tinymaix_mnist_demo_uart.jpg" alt="example_tinymaix_mnist_demo_uart" width="45%">
 
 ### pikascript_demo
 
@@ -102,6 +102,7 @@ M1s Dock 设计精巧，可以用来所很多有意思的事，这里简单说�
 烧录进 M1s Dock 后，屏幕白屏，无内容。设置波特率为 2000000，打开串口号较小的串口来进行命令行交互。
 
 在命令行中输入这些指令：
+
 ```bash
 arc = lv.arc(lv.scr_act())
 arc.set_end_angle(200)
@@ -133,7 +134,7 @@ arc.center()
 
 ![application](./assets/start/application.png)
 
-启动软件后选择 bl808 ，紧接着软件的 IOT 页面选择分区表文件[点我下载](https://dl.sipeed.com/fileList/MAIX/M1s/M1s_Dock/7_Firmware/partition/partition_cfg_16M_m1sdock.toml)（图里②）。
+启动软件后选择 bl808 ，紧接着软件的 IOT 页面选择分区表文件[点我下载](https://dl.sipeed.com/fileList/MAIX/M1s/M1s_Dock/7_Firmware/partition/partition_cfg_16M_m1sdock.toml)（图里 ②）。
 
 <table>
     <tr>
@@ -260,7 +261,7 @@ git clone https://gitee.com/sipeed/M1s_BL808_SDK.git
 最终结构树如下
 
 ```bash
-sipeed@DESKTOP:~$ tree -L 1 
+sipeed@DESKTOP:~$ tree -L 1
 .
 ├── M1s_BL808_example   # 例程文件夹
 └── M1s_BL808_SDK       # SDK 文件夹
@@ -324,7 +325,7 @@ export BL_SDK_PATH=/home/lee/bl808/M1s_BL808_SDK
 
 执行 M1s_BL808_example/c906_app 目录下的 build.sh ，后面追加上想要编译的 demo 就可以完成了。
 
-Demo 如下（编辑于2022-12-13）：
+Demo 如下（编辑于 2022-12-13）：
 
 ```bash
 c906_app
@@ -365,6 +366,7 @@ cd M1s_BL808_example/c906_app
 cd M1s_BL808_example/e907_app
 ./build.sh firmware
 ```
+
 然后编译出来的固件就会在 M1s_BL808_example/e907_app/build_out 目录下，名称为 `firmware.bin`，博流官方的烧录工具烧录进去即可。
 
 ### 常见问题
@@ -410,7 +412,7 @@ cd M1s_BL808_example/e907_app
 
 前往 [下载站](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/9_Driver/cklink) 下载适合自己电脑的驱动。
 
-#### 安装驱动
+#### Windows
 
 解压 `T-Head-DebugServer-windows` 压缩包后，运行加压后的 `Setup` 程序来安装驱动。
 
@@ -432,7 +434,7 @@ cd M1s_BL808_example/e907_app
 
 ![cklink_windows_driver_desktop_icon](./assets/start/cklink_windows_driver_desktop_icon.jpg)
 
-#### 安装驱动
+#### Linux
 
 获得驱动：[点我](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/9_Driver/cklink)
 
@@ -524,11 +526,13 @@ sudo ./T-Head-DebugServer-linux-x86_64-V5.16.5-20221021.sh -i
 ```bash
 .\DebugServerConsole.exe -h
 ```
+
 ![cklink_jtag_windows_debugserverconsole_help](./assets/start/cklink_jtag_windows_debugserverconsole_help.jpg)
 
 ```bash
 .\DebugServerConsole.exe -port 65535
 ```
+
 ![cklink_jtag_windows_debugserverconsole_port](./assets/start/cklink_jtag_windows_debugserverconsole_port.jpg)
 
 就可以通过 65535 端口来调试了。
@@ -544,6 +548,115 @@ sudo ./T-Head-DebugServer-linux-x86_64-V5.16.5-20221021.sh -i
 ```bash
 DebugServerConsole -port 12345
 ```
+
 ![cklink_jtag_linux_debugserverconsole](./assets/start/cklink_jtag_linux_debugserverconsole.jpg)
 
 ## blai_npu
+
+### 支持算子
+
+<table>
+<thead>
+<tr>
+  <th>Type</th>
+  <th>Operators</th>
+  <th>Applicable Subset Spec.</th>
+  <th>Processor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td rowspan="10">Convolution</td>
+  <td rowspan="4">Conv </td>
+  <td>Kernel: 1x1,3x3,5x5,7x7</td>
+  <td rowspan="4">:strong:<code>NPU</code></td>
+</tr>
+<tr>
+  <td>Stride: 1x1, 2x2</td>
+</tr>
+<tr>
+  <td>Dilation: 1x1, 2x2</td>
+</tr>
+<tr>
+  <td>Pad: same</td>
+</tr>
+<tr>
+  <td rowspan="4">Depthwise Conv</td>
+  <td>Kernel: 1x1,3x3 (5x5, 7x7 TBD)</td>
+  <td rowspan="4">:strong:<code>NPU</code></td>
+</tr>
+<tr>
+  <td>Stride: 1x1, 2x2</td>
+</tr>
+<tr>
+  <td>Dilation: 1x1 (2x2 TBD)</td>
+</tr>
+<tr>
+  <td>Pad: same</td>
+</tr>
+<tr>
+  <td rowspan="2">Transpose Conv</td>
+  <td>Kernel: 3x3</td>
+  <td rowspan="2">strong:<code>NPU</code></td>
+</tr>
+<tr>
+  <td>Stride: 2x2</td>
+</tr>
+<tr>
+  <td rowspan="4">Pooling</td>
+  <td rowspan="2">MaxPool (NPU TBD)</td>
+  <td>Kerenl: 2x2</td>
+  <td rowspan="2">DSP</td>
+</tr>
+<tr>
+  <td>Stride: 2x2</td>
+</tr>
+<tr>
+  <td rowspan="2">MaxPool</td>
+  <td>Kerenl: 3x3</td>
+  <td rowspan="2">:strong:<code>NPU</code></td>
+</tr>
+<tr>
+  <td>Stride: 1x1, 2x2</td>
+</tr>
+<tr>
+  <td rowspan="2">Activation</td>
+  <td>Relu</td>
+  <td></td>
+  <td>:strong:<code>NPU</code></td>
+</tr>
+<tr>
+  <td>Relu 6</td>
+  <td></td>
+  <td>:strong:<code>NPU</code></td>
+</tr>
+<tr>
+  <td rowspan="5">Other processing</td>
+  <td>BatchNormalization</td>
+  <td>fused with conv</td>
+  <td>:strong:<code>NPU</code></td>
+</tr>
+<tr>
+  <td>Add (shortcut)</td>
+  <td></td>
+  <td>:strong:<code>NPU</code></td>
+</tr>
+<tr>
+  <td>Concat (route)</td>
+  <td>Channel wise (AXIS 3 in BHWC)</td>
+  <td>:strong:<code>NPU</code></td>
+</tr>
+<tr>
+  <td>Fully Connected</td>
+  <td></td>
+  <td>:strong:<code>NPU</code></td>
+</tr>
+<tr>
+  <td>Upsample</td>
+  <td>Nearest</td>
+  <td>:strong:<code>NPU</code></td>
+</tr>
+</tbody>
+</table>
+
+ 

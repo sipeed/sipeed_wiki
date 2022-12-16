@@ -104,13 +104,6 @@ Video of M1s Dock and M0Sense：M1s Dock is before 3:15，and time after 3:15 is
 
 ### Function block
 
-<!-- <table width=40%>
-  <tr>
-  <td><img alt="m1s_dock_function_block_top" src="./../../../zh/maix/m1s/assets/m1s_dock/m1s_dock_function_block_top.jpg"></td>
-  <td><img alt="m1s_dock_function_block_top" src="./../../../zh/maix/m1s/assets/m1s_dock/m1s_dock_function_block_top.jpg"></td>
-  </tr>
-</table>  -->
-
 <img alt="m1s_dock_function_block_top" src="./../../../zh/maix/m1s/assets/m1s_dock/m1s_dock_function_block_top.jpg"  width=20%>
 <img alt="m1s_dock_function_block_top" src="./../../../zh/maix/m1s/assets/m1s_dock/m1s_dock_function_block_top.jpg"  width=20%>
 
@@ -124,20 +117,20 @@ Video of M1s Dock and M0Sense：M1s Dock is before 3:15，and time after 3:15 is
 
 ## Comparison
 
-| Item    | Maix Bit                 | ESP32 cam                     | M1s Dock                                   |
-| :------ | :----------------------- | :---------------------------- | :----------------------------------------- |
-| MainChip  | K210                     | ESP32                         | M1s(BL808)                                 |
-| Camera  | 0.3MP DVP GC0328         | 2MP DVP OV2640 with flash LED | 2MP MIPI OV2685(two-side) with flash LED   |
-| Screen  | 2.4 inch 320x240         |                               | 1.68 inch 280x240 capacitive touch screen               |
-| Audio    | I2S MEMS MIC             |                               | Analog MEMS MIC + LineOut                  |
-| SD Card Slot | SPI mode                 | SPI mode                      | · SDHC mode <br>· JTAG mode                |
-| Key    | Reset <br> Boot          | Reset                         | · Reset <br>· Boot <br>· User x 2          |
-| USB     | USB to Serial x 1        |                               | · USB to Dual Serial  x 1 <br>· USB OTG HS |
-| Other    |                          |                               | 4P x 1.25mm connector（UART port）                 |
-| Pin    |·  2 x 18 pins <br>· bread board friendly| 2 x 8 pins                    |· 2 x 16 pins<br>·  bread board friendly                   |
-| JTAG    |                          |                               | Optional TF2JTAG                               |
-| SHell    |                          |                               | Optional                                       |
-| 尺寸    | 25 x 53 mm               | 27 x 41 mm                    | 27 x 55 mm                                 |
+| Item         | Maix Bit                                 | ESP32 cam                     | M1s Dock                                  |
+| :----------- | :--------------------------------------- | :---------------------------- | :---------------------------------------- |
+| MainChip     | K210                                     | ESP32                         | M1s(BL808)                                |
+| Camera       | 0.3MP DVP GC0328                         | 2MP DVP OV2640 with flash LED | 2MP MIPI OV2685(two-side) with flash LED  |
+| Screen       | 2.4 inch 320x240                         |                               | 1.68 inch 280x240 capacitive touch screen |
+| Audio        | I2S MEMS MIC                             |                               | Analog MEMS MIC + LineOut                 |
+| SD Card Slot | SPI mode                                 | SPI mode                      | · SDHC mode <br>· JTAG mode               |
+| Key          | Reset <br> Boot                          | Reset                         | · Reset <br>· Boot <br>· User x 2         |
+| USB          | USB to Serial x 1                        |                               | · USB to Dual Serial x 1 <br>· USB OTG HS |
+| Other        |                                          |                               | 4P x 1.25mm connector（UART port）        |
+| Pin          | · 2 x 18 pins <br>· bread board friendly | 2 x 8 pins                    | · 2 x 16 pins<br>· bread board friendly   |
+| JTAG         |                                          |                               | Optional TF2JTAG                          |
+| Shell        |                                          |                               | Optional                                  |
+| Size         | 25 x 53 mm                               | 27 x 41 mm                    | 27 x 55 mm                                |
 
 ## Software
 
@@ -177,6 +170,112 @@ Video of M1s Dock and M0Sense：M1s Dock is before 3:15，and time after 3:15 is
     </tbody>
 </table>
 
+## Operators list
+
+<table>
+<thead>
+<tr>
+  <th>Type</th>
+  <th>Operators</th>
+  <th>Applicable Subset Spec.</th>
+  <th>Processor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td rowspan="10">Convolution</td>
+  <td rowspan="4">Conv </td>
+  <td>Kernel: 1x1,3x3,5x5,7x7</td>
+  <td rowspan="4">:strong:<code>NPU</code></td>
+</tr>
+<tr>
+  <td>Stride: 1x1, 2x2</td>
+</tr>
+<tr>
+  <td>Dilation: 1x1, 2x2</td>
+</tr>
+<tr>
+  <td>Pad: same</td>
+</tr>
+<tr>
+  <td rowspan="4">Depthwise Conv</td>
+  <td>Kernel: 1x1,3x3 (5x5, 7x7 TBD)</td>
+  <td rowspan="4">:strong:<code>NPU</code></td>
+</tr>
+<tr>
+  <td>Stride: 1x1, 2x2</td>
+</tr>
+<tr>
+  <td>Dilation: 1x1 (2x2 TBD)</td>
+</tr>
+<tr>
+  <td>Pad: same</td>
+</tr>
+<tr>
+  <td rowspan="2">Transpose Conv</td>
+  <td>Kernel: 3x3</td>
+  <td rowspan="2">strong:<code>NPU</code></td>
+</tr>
+<tr>
+  <td>Stride: 2x2</td>
+</tr>
+<tr>
+  <td rowspan="4">Pooling</td>
+  <td rowspan="2">MaxPool (NPU TBD)</td>
+  <td>Kerenl: 2x2</td>
+  <td rowspan="2">DSP</td>
+</tr>
+<tr>
+  <td>Stride: 2x2</td>
+</tr>
+<tr>
+  <td rowspan="2">MaxPool</td>
+  <td>Kerenl: 3x3</td>
+  <td rowspan="2">:strong:<code>NPU</code></td>
+</tr>
+<tr>
+  <td>Stride: 1x1, 2x2</td>
+</tr>
+<tr>
+  <td rowspan="2">Activation</td>
+  <td>Relu</td>
+  <td></td>
+  <td>:strong:<code>NPU</code></td>
+</tr>
+<tr>
+  <td>Relu 6</td>
+  <td></td>
+  <td>:strong:<code>NPU</code></td>
+</tr>
+<tr>
+  <td rowspan="5">Other processing</td>
+  <td>BatchNormalization</td>
+  <td>fused with conv</td>
+  <td>:strong:<code>NPU</code></td>
+</tr>
+<tr>
+  <td>Add (shortcut)</td>
+  <td></td>
+  <td>:strong:<code>NPU</code></td>
+</tr>
+<tr>
+  <td>Concat (route)</td>
+  <td>Channel wise (AXIS 3 in BHWC)</td>
+  <td>:strong:<code>NPU</code></td>
+</tr>
+<tr>
+  <td>Fully Connected</td>
+  <td></td>
+  <td>:strong:<code>NPU</code></td>
+</tr>
+<tr>
+  <td>Upsample</td>
+  <td>Nearest</td>
+  <td>:strong:<code>NPU</code></td>
+</tr>
+</tbody>
+</table>
+
 ## Links
 
 - [Datasheet](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/1_Specification)
@@ -190,14 +289,13 @@ Video of M1s Dock and M0Sense：M1s Dock is before 3:15，and time after 3:15 is
 
 ---
 
-- [SDK](https://github.com/sipeed/M1s_BL808_SDK) (Github) 
+- [SDK](https://github.com/sipeed/M1s_BL808_SDK) (Github)
 - [Examples](https://github.com/sipeed/M1s_BL808_example)（Github）
 - [Linux](https://github.com/sipeed/M1s_BL808_Linux_SDK)（Github）
 - [Telegram](https://t.me/sipeed)
 - [Twitter](https://twitter.com/SipeedIO)
 - [Reddit](https://www.reddit.com/r/Sipeed/)
 - [Online model platform](https://maixhub.com/)
-
 
 ## Attention
 

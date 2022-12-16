@@ -244,6 +244,112 @@ Sipeed M1s 模组是基于[博流智能科技](http://www.bouffalolab.com/)的 B
     </tbody>
 </table>
 
+## 支持算子列表
+
+<table>
+<thead>
+<tr>
+  <th>Type</th>
+  <th>Operators</th>
+  <th>Applicable Subset Spec.</th>
+  <th>Processor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td rowspan="10">Convolution</td>
+  <td rowspan="4">Conv </td>
+  <td>Kernel: 1x1,3x3,5x5,7x7</td>
+  <td rowspan="4">:strong:<code>NPU</code></td>
+</tr>
+<tr>
+  <td>Stride: 1x1, 2x2</td>
+</tr>
+<tr>
+  <td>Dilation: 1x1, 2x2</td>
+</tr>
+<tr>
+  <td>Pad: same</td>
+</tr>
+<tr>
+  <td rowspan="4">Depthwise Conv</td>
+  <td>Kernel: 1x1,3x3 (5x5, 7x7 TBD)</td>
+  <td rowspan="4">:strong:<code>NPU</code></td>
+</tr>
+<tr>
+  <td>Stride: 1x1, 2x2</td>
+</tr>
+<tr>
+  <td>Dilation: 1x1 (2x2 TBD)</td>
+</tr>
+<tr>
+  <td>Pad: same</td>
+</tr>
+<tr>
+  <td rowspan="2">Transpose Conv</td>
+  <td>Kernel: 3x3</td>
+  <td rowspan="2">strong:<code>NPU</code></td>
+</tr>
+<tr>
+  <td>Stride: 2x2</td>
+</tr>
+<tr>
+  <td rowspan="4">Pooling</td>
+  <td rowspan="2">MaxPool (NPU TBD)</td>
+  <td>Kerenl: 2x2</td>
+  <td rowspan="2">DSP</td>
+</tr>
+<tr>
+  <td>Stride: 2x2</td>
+</tr>
+<tr>
+  <td rowspan="2">MaxPool</td>
+  <td>Kerenl: 3x3</td>
+  <td rowspan="2">:strong:<code>NPU</code></td>
+</tr>
+<tr>
+  <td>Stride: 1x1, 2x2</td>
+</tr>
+<tr>
+  <td rowspan="2">Activation</td>
+  <td>Relu</td>
+  <td></td>
+  <td>:strong:<code>NPU</code></td>
+</tr>
+<tr>
+  <td>Relu 6</td>
+  <td></td>
+  <td>:strong:<code>NPU</code></td>
+</tr>
+<tr>
+  <td rowspan="5">Other processing</td>
+  <td>BatchNormalization</td>
+  <td>fused with conv</td>
+  <td>:strong:<code>NPU</code></td>
+</tr>
+<tr>
+  <td>Add (shortcut)</td>
+  <td></td>
+  <td>:strong:<code>NPU</code></td>
+</tr>
+<tr>
+  <td>Concat (route)</td>
+  <td>Channel wise (AXIS 3 in BHWC)</td>
+  <td>:strong:<code>NPU</code></td>
+</tr>
+<tr>
+  <td>Fully Connected</td>
+  <td></td>
+  <td>:strong:<code>NPU</code></td>
+</tr>
+<tr>
+  <td>Upsample</td>
+  <td>Nearest</td>
+  <td>:strong:<code>NPU</code></td>
+</tr>
+</tbody>
+</table>
+
 ## 模组资料
 
 - [规格书](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s/1_Specification)

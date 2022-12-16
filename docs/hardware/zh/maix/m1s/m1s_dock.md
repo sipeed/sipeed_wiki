@@ -33,13 +33,13 @@ M1s Dock 和 M0Sense 总览：3:15 之前的都是 M1s Dock。
 
 ## 板卡特点
 
--	主芯片 BL808 RISC-V 480Mhz + NPU BLAI-100
--	板载 USB 转 UART 调试器（可实现一键点击烧录，无需按实体按键）
--	板载显示屏座子（可选配 1.69 寸 240x280 电容触摸屏）
--	板载 MIPI 摄像头座子（可选配 200W 像素摄像头）
--	支持 2.4G WIFI / BT / BLE
--	板载 1 个模拟麦克风、1 个 LED、1 个 TF 卡座
--	引出一路 USB-OTG 到 USB Type-C 接口
+- 主芯片 BL808 RISC-V 480Mhz + NPU BLAI-100
+- 板载 USB 转 UART 调试器（可实现一键点击烧录，无需按实体按键）
+- 板载显示屏座子（可选配 1.69 寸 240x280 电容触摸屏）
+- 板载 MIPI 摄像头座子（可选配 200W 像素摄像头）
+- 支持 2.4G WIFI / BT / BLE
+- 板载 1 个模拟麦克风、1 个 LED、1 个 TF 卡座
+- 引出一路 USB-OTG 到 USB Type-C 接口
 
 ### 硬件参数
 
@@ -115,14 +115,6 @@ M1s Dock 和 M0Sense 总览：3:15 之前的都是 M1s Dock。
 
 ### 外设框图
 
-<!-- <table>
-  <tr>
-  <td><img alt="m1s_dock_function_block_top" src="./assets/m1s_dock/m1s_dock_function_block_top.jpg"  width=40%></td>
-  <td><img alt="m1s_dock_function_block_top" src="./assets/m1s_dock/m1s_dock_function_block_top.jpg"  width=40%></td>
-  </tr>
-</table> -->
-
-
 <img alt="m1s_dock_function_block_top" src="./assets/m1s_dock/m1s_dock_function_block_top.jpg"  width=20%>
 <img alt="m1s_dock_function_block_top" src="./assets/m1s_dock/m1s_dock_function_block_top.jpg"  width=20%>
 
@@ -136,20 +128,20 @@ M1s Dock 和 M0Sense 总览：3:15 之前的都是 M1s Dock。
 
 ## 产品对比
 
-| 项目    | Maix Bit                 | ESP32 cam                     | M1s Dock                                   |
-| :------ | :----------------------- | :---------------------------- | :----------------------------------------- |
-| 处理器  | K210                     | ESP32                         | M1s(BL808)                                 |
-| 摄像头  | 0.3MP DVP GC0328         | 2MP DVP OV2640 with flash LED | 2MP MIPI OV2685(two-side) with flash LED   |
-| 显示屏  | 2.4 inch 320x240         |                               | 1.68 inch 280x240 带电容触摸               |
-| 音频    | I2S MEMS MIC             |                               | Analog MEMS MIC + LineOut                  |
-| SD 卡槽 | SPI 模式                 | SPI 模式                      | · SDHC 模式 <br>· JTAG 模式                |
-| 按键    | Reset <br> Boot          | Reset                         | · Reset <br>· Boot <br>· User x 2          |
-| USB     | USB to Serial x 1        |                               | · USB to Dual Serial  x 1 <br>· USB OTG HS |
-| 其他    |                          |                               | 4P x 1.25mm 连接器（串口）                 |
-| 引脚    | 2 x 18 pins,可用于面包板 | 2 x 8 pins                    | 2 x 16 pins,可用于面包板                   |
-| JTAG    |                          |                               | 可选 TF2JTAG                               |
-| 外壳    |                          |                               | 可选                                       |
-| 尺寸    | 25 x 53 mm               | 27 x 41 mm                    | 27 x 55 mm                                 |
+| 项目    | Maix Bit                 | ESP32 cam                     | M1s Dock                                  |
+| :------ | :----------------------- | :---------------------------- | :---------------------------------------- |
+| 处理器  | K210                     | ESP32                         | M1s(BL808)                                |
+| 摄像头  | 0.3MP DVP GC0328         | 2MP DVP OV2640 with flash LED | 2MP MIPI OV2685(two-side) with flash LED  |
+| 显示屏  | 2.4 inch 320x240         |                               | 1.68 inch 280x240 带电容触摸              |
+| 音频    | I2S MEMS MIC             |                               | Analog MEMS MIC + LineOut                 |
+| SD 卡槽 | SPI 模式                 | SPI 模式                      | · SDHC 模式 <br>· JTAG 模式               |
+| 按键    | Reset <br> Boot          | Reset                         | · Reset <br>· Boot <br>· User x 2         |
+| USB     | USB to Serial x 1        |                               | · USB to Dual Serial x 1 <br>· USB OTG HS |
+| 其他    |                          |                               | 4P x 1.25mm 连接器（串口）                |
+| 引脚    | 2 x 18 pins,可用于面包板 | 2 x 8 pins                    | 2 x 16 pins,可用于面包板                  |
+| JTAG    |                          |                               | 可选 TF2JTAG                              |
+| 外壳    |                          |                               | 可选                                      |
+| 尺寸    | 25 x 53 mm               | 27 x 41 mm                    | 27 x 55 mm                                |
 
 ## 软件描述
 
@@ -187,6 +179,112 @@ M1s Dock 和 M0Sense 总览：3:15 之前的都是 M1s Dock。
     </tbody>
 </table>
 
+## 支持算子列表
+
+<table>
+<thead>
+<tr>
+  <th>Type</th>
+  <th>Operators</th>
+  <th>Applicable Subset Spec.</th>
+  <th>Processor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td rowspan="10">Convolution</td>
+  <td rowspan="4">Conv </td>
+  <td>Kernel: 1x1,3x3,5x5,7x7</td>
+  <td rowspan="4">:strong:<code>NPU</code></td>
+</tr>
+<tr>
+  <td>Stride: 1x1, 2x2</td>
+</tr>
+<tr>
+  <td>Dilation: 1x1, 2x2</td>
+</tr>
+<tr>
+  <td>Pad: same</td>
+</tr>
+<tr>
+  <td rowspan="4">Depthwise Conv</td>
+  <td>Kernel: 1x1,3x3 (5x5, 7x7 TBD)</td>
+  <td rowspan="4">:strong:<code>NPU</code></td>
+</tr>
+<tr>
+  <td>Stride: 1x1, 2x2</td>
+</tr>
+<tr>
+  <td>Dilation: 1x1 (2x2 TBD)</td>
+</tr>
+<tr>
+  <td>Pad: same</td>
+</tr>
+<tr>
+  <td rowspan="2">Transpose Conv</td>
+  <td>Kernel: 3x3</td>
+  <td rowspan="2">strong:<code>NPU</code></td>
+</tr>
+<tr>
+  <td>Stride: 2x2</td>
+</tr>
+<tr>
+  <td rowspan="4">Pooling</td>
+  <td rowspan="2">MaxPool (NPU TBD)</td>
+  <td>Kerenl: 2x2</td>
+  <td rowspan="2">DSP</td>
+</tr>
+<tr>
+  <td>Stride: 2x2</td>
+</tr>
+<tr>
+  <td rowspan="2">MaxPool</td>
+  <td>Kerenl: 3x3</td>
+  <td rowspan="2">:strong:<code>NPU</code></td>
+</tr>
+<tr>
+  <td>Stride: 1x1, 2x2</td>
+</tr>
+<tr>
+  <td rowspan="2">Activation</td>
+  <td>Relu</td>
+  <td></td>
+  <td>:strong:<code>NPU</code></td>
+</tr>
+<tr>
+  <td>Relu 6</td>
+  <td></td>
+  <td>:strong:<code>NPU</code></td>
+</tr>
+<tr>
+  <td rowspan="5">Other processing</td>
+  <td>BatchNormalization</td>
+  <td>fused with conv</td>
+  <td>:strong:<code>NPU</code></td>
+</tr>
+<tr>
+  <td>Add (shortcut)</td>
+  <td></td>
+  <td>:strong:<code>NPU</code></td>
+</tr>
+<tr>
+  <td>Concat (route)</td>
+  <td>Channel wise (AXIS 3 in BHWC)</td>
+  <td>:strong:<code>NPU</code></td>
+</tr>
+<tr>
+  <td>Fully Connected</td>
+  <td></td>
+  <td>:strong:<code>NPU</code></td>
+</tr>
+<tr>
+  <td>Upsample</td>
+  <td>Nearest</td>
+  <td>:strong:<code>NPU</code></td>
+</tr>
+</tbody>
+</table>
+
 ## 补充资料
 
 - [规格书](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/1_Specification)
@@ -200,7 +298,7 @@ M1s Dock 和 M0Sense 总览：3:15 之前的都是 M1s Dock。
 
 ---
 
-- [SDK](https://gitee.com/sipeed/M1s_BL808_SDK) (gitee) 
+- [SDK](https://gitee.com/sipeed/M1s_BL808_SDK) (gitee)
 - [Examples](https://gitee.com/sipeed/M1s_BL808_example)（gitee）
 - [Linux](https://github.com/sipeed/M1s_BL808_Linux_SDK)（Github）
 - 交流 QQ 群：`816177882` 。[点我加群](https://jq.qq.com/?_wv=1027&k=0fOkj3EB)

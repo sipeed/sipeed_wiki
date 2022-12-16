@@ -120,7 +120,9 @@
                 "dark": true,
                 "env":{
                     "main_color": "#FF6B63"
-                }
+                },
+                "code_highlight_css":  "/static/css/prism.css",
+                "code_highlight_js": "/static/js/prism.js"
             }
         },
         "teedoc-plugin-search":{
