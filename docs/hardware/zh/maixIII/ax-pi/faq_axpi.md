@@ -77,18 +77,25 @@ A：重启即可
 
 A：可能是核心板与底板衔接松了，重新插拔核心板与底板可！
 
+A：20221219 后板子更换了新的硬件模块，如出现以上情况更换一下 `/boot/kernel` 设备文件即可。
+
+```bash
+ls /boot/
+cp /boot/kernel.img.rtl8189fs kernel.img
+
 ## Q：使用 ssh 登陆后断开报错：packet_write_wait: Connection to 10.xxx.xxx.xxx port 22: Broken pipe！
 
 A: 运行一下`python3 -c "import os, binascii; os.system('sed -i \'/iface eth0 inet dhcp/ahwaddress ether {}\' /etc/network/interfaces'.format(binascii.hexlify(bytes.fromhex(open('/proc/ax_proc/uid').read().split('0x')[1][:-5]),':').decode('iso8859-1'))) if os.system('grep \'hwaddress ether\' /etc/network/interfaces -q') != 0 else exit();"` 后重启即可。
 
 ## Q：开机画面出现锯齿或以下画面怎么解决？
+## Q：屏幕出现烧屏情况？
 
 <html>
       <img src="./../assets/faq_sawtooth.jpg" width=48%>
       <img src="./../assets/faq_dth.jpg" width=48%>
     </html>
 
-A：屏幕批次不同导致的原因，更换以下 `/boot/ dtb ` 设备树的文件即可。
+A：屏幕批次不同导致的原因，因设备树版本的不同导致可能会出现烧屏情况，及时更换以下 `/boot/ dtb ` 设备树的文件即可。
 
 ```bash
 ls /boot/
@@ -104,4 +111,3 @@ A：查询一下摄像头设备号是否与代码内调用设备号的一致。
 A：进入 uboot 模式了输入 boot 后即可启动。
 
 ![faq_boot](./../assets/faq_boot.jpg)
-
