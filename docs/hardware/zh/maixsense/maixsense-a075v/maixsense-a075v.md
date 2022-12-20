@@ -86,7 +86,7 @@
 **MobaXterm 使用例程**：[点击查看](https://wiki.sipeed.com/hardware/zh/maixII/M2/tools/mobaxterm.html?highlight=ssh)
 
 Windows：参照上文例程使用模组自带的 `ip` 地址 `192.168.233.1` 进行登录。
-Linux：直接使用以下的命令行登录终端进行操作。
+Linux：`Password：root` 直接使用以下的命令行登录终端进行操作。
 
 ```bash
 ssh root@192.168.233.1

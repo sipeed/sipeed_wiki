@@ -66,7 +66,7 @@ Note: The data of raw can be get through open interface, which developers can do
 
 ### SSH login
 
-In addition to using the web page preview directly, you can also log in using SSH.
+In addition to using the web page preview directly, you can also log in using SSH.`Password:root`
 
 ```bash
 ssh root@192.168.233.1

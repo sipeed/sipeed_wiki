@@ -48,11 +48,11 @@ Maix-III AXera-Pi 开发板的 Linux debian11 系统默认使用 root 用户登�
     
 >[有些同学会遇到 Ubuntu22.04 CH340系列串口驱动（没有ttyUSB）问题，点此查看解决方案。](https://blog.csdn.net/qq_27865227/article/details/125538516)
 
-.. details::点我查看 usb uart 接口示意图
+.. details::点我查看 USB UART 接口示意图
 
     ![uart](./../assets/uart.jpg)
 
-使用 usb 3.0 线连接板子上的 usb uart 接入电脑端，使用前请安装上文的驱动，再使用 MobaXterm 即可连接，默认串口配置为 115200、8N1（波特率115200，8位数据，无奇偶校验，1位停止位）。
+使用 usb 3.0 线连接板子上的 USB UART 接入电脑端，使用前请安装上文的驱动，再使用 MobaXterm 即可连接，默认串口配置为 115200、8N1（波特率115200，8位数据，无奇偶校验，1位停止位）。
 
 **serial 登陆教程**：[点击查看](https://wiki.sipeed.com/hardware/zh/maixII/M2/tools/mobaxterm.html?highlight=ssh#%E8%BF%9E%E6%8E%A5-%E4%B8%B2%E5%8F%A3%28Serial%29)
 成功连接后会打印大量调试信息，会弹出登陆账号信息，输入用户名及密码即可登陆。
@@ -84,12 +84,11 @@ Maix-III AXera-Pi 开发板的 Linux debian11 系统默认使用 root 用户登�
 
     ![rndis_3](./../assets/rndis_3.jpg)
 
-.. details::点我查看 usb otg 接口示意图
+.. details::点我查看 USB OTG 接口示意图
 
     ![otg](./../assets/otg.jpg)
 
-系统默认开启了 usb rndis 虚拟以太网，可以透过有线 usb otg 口连接 usb0 网卡的 ip 192.168.233.1 后使用 ssh 登陆到 linux 系统。
-想要无线连接 ssh 需要先登陆板子通过 `ifconfig` 得到板子 IP 后即可连接，下图的 IP 地址都能登陆板子。
+系统默认开启了 usb rndis 虚拟以太网，用户可通过板载 USB OTG 口连接 usb0 网卡的 IP `192.168.233.` 进行 ssh 登录操作。使用 ssh 登录前需要先登陆板子通过 `ifconfig -a` 命令得到板子 IP 后再使用 IP 进行 ssh 登录上 Linux 系统，下图的 IP 地址（除 `127.0.0.1` 外）都能登陆板子。
 
 ![ifconfig](./../assets/ifconfig.jpg)
 
@@ -421,6 +420,21 @@ Maix-III AXera-Pi 开发板的 Linux 系统默认使用 NTP 协议获取系统�
 
 > 如果联网了会自动使用 `ntp-debian` 同步时间，没有同步则说明没有网络，没有同步 `apt update` 更新软件也会失败。
 
+#### 设置时间方法
+
+- **查看时间** 
+
+```bash
+cat /sys/class/rtc/rtc0/time && cat /sys/class/rtc/rtc0/date
+root@AXERA:~# cat /sys/class/rtc/rtc0/time && cat /sys/class/rtc/rtc0/date
+08:13:30
+2022-08-19
+```
+
+- **设置时间**
+  
+使用 `hwclock -w -f /dev/rtc0` 写入，只有这个方法可以写进去，确认 RTC 是否写入成功，只需要断电后重启的时间不为 1970 就行。
+
 ### 安装软件
 
 Maix-III AXera-Pi 开发板的 Linux 系统可以通过 `apt` 更新软件。
@@ -622,7 +636,7 @@ exit 0
 > 如果在使用 AXera-Pi 途中出现从设备到电脑端文件互传的需求，可根据以下的方式进行传输：
 ###  使用读卡器物理拷贝文件
 
-**物理传输**：由于 Linux 系统采用 `ext4` 分区在 Windows / Mac 默认系统下无法进行查看，用户需额外安装增强工具才能读取到具体的分区。而 Linux 系统可直接看到卡里的分区和内容，也可以选择把读卡器接到安卓设备通过 **otg** 转接头实现文件拷贝。
+**物理传输**：由于 Linux 系统采用 `ext4` 分区在 Windows / Mac 默认系统下无法进行查看，用户需额外安装增强工具才能读取到具体的分区。而 Linux 系统可直接看到卡里的分区和内容，也可以选择把读卡器接到安卓设备通过 **OTG** 转接头实现文件拷贝。
 
 - [如何在 Windows 下访问 ext4 格式的硬盘？](https://zhuanlan.zhihu.com/p/448535639)
 
