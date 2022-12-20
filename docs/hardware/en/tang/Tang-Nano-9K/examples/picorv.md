@@ -16,7 +16,7 @@ In this tutorial we just describe how to run the example simply .
 
 ### Program FPGA
 
-- Open picotiny project by `picotiny.gprj` file in TangNano-9K-example\picotiny\project dictionary
+- Open picotiny project by `picotiny.gprj` file in TangNano-9K-example\picotiny\project directory
 - Tick `Use MSPI as regular IO` in Project->Configuration->Place&Route->Dual-Purpose Pin which can be found in the top menu bar
 - Right-click Place&Route which is in Process interface and choose Clean&Rerun All 
 - Download the generated .fs file to the Embedded Flash of Nano 9K

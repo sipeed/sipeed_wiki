@@ -2,6 +2,11 @@
 title: M1s DOCK 上手
 keywords: M1s DOCK ,BL808, M1s
 update:
+  - date: 2022-12-20
+    version: v0.3
+    author: wonder
+    content:
+      - 增加部分blai相关内容
   - date: 2022-12-12
     version: v0.2
     author: wonder
@@ -414,7 +419,7 @@ cd M1s_BL808_example/e907_app
 
 #### Windows
 
-解压 `T-Head-DebugServer-windows` 压缩包后，运行加压后的 `Setup` 程序来安装驱动。
+解压 `T-Head-DebugServer-windows` 压缩包后，运行解压后的 `Setup` 程序来安装驱动。
 
 ![cklink_windows_install_driver](./assets/start/cklink_windows_install_driver.jpg)
 
@@ -551,7 +556,7 @@ DebugServerConsole -port 12345
 
 ![cklink_jtag_linux_debugserverconsole](./assets/start/cklink_jtag_linux_debugserverconsole.jpg)
 
-## blai_npu
+## blai npu
 
 ### 支持算子
 
@@ -659,4 +664,38 @@ DebugServerConsole -port 12345
 </tbody>
 </table>
 
- 
+### blai_mnist_demo
+
+编译之后使用 U 盘拖拽烧录的方法将它烧录进板子。前面说过编译出来的固件名称都是 `d0fw.bin`，且位于 `M1s_BL808_example/c906_app/built_out` 文件夹下。
+
+```
+#c906_app
+./build.sh blai_mnist_demo
+```
+
+![udisk_burn](./assets/start/udisk_burn.gif)
+
+烧录进去后（U 盘自动弹出就表示烧录完成）按下 RST 按键复位芯片来重新加载固件，此时查看通过串口号较小的串口（记住波特率为 2000000）查看会发现提示加载模型失败。
+
+![blai_mnist_demo_no_model](./assets/start/blai_mnist_demo_no_model.jpg)
+
+因此我们要将模型上传到模型，从源码中可以看到对于这个 demo 我们要将模型存放到 flash 中。
+
+![blai_mnist_demo_fopen](./assets/start/blai_mnist_demo_fopen.jpg)
+
+然后将板子的 OTG 口与电脑连接的话会看到一个大小为 7M 的 U 盘。
+
+![blai_mnist_demo_flash_disk](./assets/start/blai_mnist_demo_flash_disk.jpg)
+
+按照源码的要求把文件存进去：在 U 盘里新建一个 models 文件夹，然后将 [mnist.blai](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmware/demo_bin/blai_mnist_demo) 模型文件存放进去。
+
+```bash
+models
+└── mnist.blai
+```
+
+再次按下复位键，小号串口显示模型加载成功，并且显示板子识别数字结果。板子屏幕显示摄像头捕获到的画面，且也显示识别结果。
+
+![blai_mnist_demo_uart](./assets/start/blai_mnist_demo_uart.jpg)
+
+![blai_mnist_demo_recognition](./assets/start/blai_mnist_demo_recognition.jpg)

@@ -1,7 +1,11 @@
 ---
 title: M1s DOCK guides
 keywords: M1s DOCK ,BL808, M1s
-update:
+update:  - date: 2022-12-20
+    version: v0.3
+    author: wonder
+    content:
+      - Add contents about blai
   - date: 2022-12-13
     version: v0.1
     author: wonder
@@ -146,7 +150,7 @@ After selecting the partition file, we have more choice in this page. We just ne
 
 <img src="./../../../../zh/maix/m1s/other/assets/start/firmware_choose.png" alt="firmware_choose" style="transform:rotate(0deg);">
 
-In the picture above, `boot2` stays the same, and it's in this dictionary: `BLDevCube\chips\bl808\builtin_imgs\boot2_isp_bl808_v6.4_rc6`, under where the path if this burning application is. `firmware` is the firmware file for E907 core, and `d0fw` is C906 core file, the previous [Burn with u-disk](#burn-with-u-disk) operation can also burn firmware for this core. 
+In the picture above, `boot2` stays the same, and it's in this directory: `BLDevCube\chips\bl808\builtin_imgs\boot2_isp_bl808_v6.4_rc6`, under where the path if this burning application is. `firmware` is the firmware file for E907 core, and `d0fw` is C906 core file, the previous [Burn with u-disk](#burn-with-u-disk) operation can also burn firmware for this core. 
 
 The firmware file for E907 or C906 can be gotten by compiling [M1s_dock example](https://gitee.com/sipeed/M1s_BL808_example).
 
@@ -177,7 +181,7 @@ Reburn this if it `SHAKEHAND FAIL`. Try to release the keys in order (Release RS
 
 #### Burn with command-line
 
-We can burn M1s Dock by commald-line through serial port on this board.
+We can burn M1s Dock by command-line through serial port on this board.
 
 In `BLDevCube` folder, there is `bflb_iot_tool` application, `bflb_iot_tool`、 `bflb_iot_tool-macos` and `bflb_iot_tool-ubuntu` are used for different OS.
 
@@ -391,3 +395,309 @@ Login in with `root`
 
 Visit CPU information
 ![linux_cpuinfo](./../../../../zh/maix/m1s/other/assets/start/linux_cpuinfo.jpg)
+
+## Using Jtag
+
+The jtag debugger is sold in [Sipeed aliexpress store](https://sipeed.aliexpress.com/store/1101739727), you can buy one if you need.
+
+![cklink_appearence](./../../../../zh/maix/m1s/other/assets/start/cklink_appearence.jpg)
+
+### Connect to device
+
+Insert the jtag convertor board into the TF card slot on M1s Dock, then the convertor board is connected and fixed on the board.
+
+And it's look like as follows:
+
+![cklink_connect_side](./../../../../zh/maix/m1s/other/assets/start/cklink_connect_side.jpg)
+![cklink_connect_top](./../../../../zh/maix/m1s/other/assets/start/cklink_connect_top.jpg)
+
+Both jtag and M1s Dock are need to be connected with computer, and we need to make sure the UART port on M1s Dock is connected with computer, by which we can enable the core jtag and ensure that the jtag will not be very hot because of heavy power supply to M1s Dock.
+
+### Install driver
+
+Visit [Download station](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/9_Driver/cklink) to download the driver for your OS.
+
+#### Windows
+
+Unzip `T-Head-DebugServer-windows`, run `Setup` to install driver.
+
+![cklink_windows_install_driver](./../../../../zh/maix/m1s/other/assets/start/cklink_windows_install_driver.jpg)
+
+It's suggested not to change the default installation path, to avoid it remove all child directory when uninstalling it.
+
+![cklink_windows_driver_path](./../../../../zh/maix/m1s/other/assets/start/cklink_windows_driver_path.jpg)
+
+Install all compoents, which we may need in the future.
+
+![cklink_windows_driver_components](./../../../../zh/maix/m1s/other/assets/start/cklink_windows_driver_components.jpg)
+
+Finish installing this, and we can see there is `CKlink-Lite` in Windows device manager if we have connected the debugger.
+
+![cklink_windows_driver_device_manager](./../../../../zh/maix/m1s/other/assets/start/cklink_windows_driver_device_manager.jpg)
+
+There is an icon of the debug software.
+
+![cklink_windows_driver_desktop_icon](./../../../../zh/maix/m1s/other/assets/start/cklink_windows_driver_desktop_icon.jpg)
+
+#### Linux
+
+Download driver：[Click me](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/9_Driver/cklink)
+
+![cklink_linux_list_file](./../../../../zh/maix/m1s/other/assets/start/cklink_linux_list_file.jpg)
+
+Unzip the downloaded file.
+
+```bash
+tar xvf T-Head-DebugServer*
+```
+
+Then there is a new script file.
+
+![cklink_linux_list_shell_file](./../../../../zh/maix/m1s/other/assets/start/cklink_linux_list_shell_file.jpg)
+
+Run this script, then its usages are shown, by which we can know that add with command `-i` to install driver or with `-u` to remove it in the end of command.
+
+```
+./T-Head-DebugServer-linux-x86_64-V5.16.5-20221021.sh
+```
+
+![cklink_linux_script_help](./../../../../zh/maix/m1s/other/assets/start/cklink_linux_script_help.jpg)
+
+Install driver：
+
+```
+sudo ./T-Head-DebugServer-linux-x86_64-V5.16.5-20221021.sh -i
+```
+
+![cklink_linux_installation](./../../../../zh/maix/m1s/other/assets/start/cklink_linux_installation.jpg)
+
+We need enter `yes` two times when installing it, and for as for `Set full installing path` we can just press Enter on the keyboard to use the default installation path or set your own installation path by yourself.
+
+Finishing installing the driver, use command `lsusb` to see there is `CKlink-Lite` if we have connected the debugger.
+
+![cklink_linux_lsusb](./../../../../zh/maix/m1s/other/assets/start/cklink_linux_lsusb.jpg)
+
+### Debug denive
+
+Before debugging, we need to enable core debug. Connect computer with UART port on M1s Dock, and open the bigger serial port.
+
+![cklink_jtag_serial_choice](./../../../../zh/maix/m1s/other/assets/start/cklink_jtag_serial_choice.jpg)
+![cklink_jtag_choice](./../../../../zh/maix/m1s/other/assets/start/cklink_jtag_choice.jpg)
+
+We can know there are two jtag choices, run command `jtag_cpu0` to debug C906 Core or run command `jtag_m0` to debug E907 Core.
+
+![cklink_jtag_c906](./../../../../zh/maix/m1s/other/assets/start/cklink_jtag_c906.jpg)
+![cklink_jtag_e907](./../../../../zh/maix/m1s/other/assets/start/cklink_jtag_e907.jpg)
+
+#### Windows
+
+Run T-HeadDebugServer software on the desktop, if it shows following message, try following steps:
+
+- Make sure you have enabled core debug in serial connection
+- There is `CKlink-Lite` in Windows device manager, if there is no `CKlink-Lite`, check the connection of debugger or reinstall the driver 
+- Debugger is occupied by other T-HeadDebugServer application
+
+![cklink_jtag_windows_no_target](./../../../../zh/maix/m1s/other/assets/start/cklink_jtag_windows_no_target.jpg)
+
+Click the triangle icon to connect device.
+
+![cklink_jtag_windows_run_debugger](./../../../../zh/maix/m1s/other/assets/start/cklink_jtag_windows_run_debugger.jpg)
+
+If there shows Failed about port, set another port and then rerun connecting device.
+
+![cklink_jtag_windows_no_port](./../../../../zh/maix/m1s/other/assets/start/cklink_jtag_windows_no_port.jpg)
+
+Click Socket Setting, set a port.
+
+![cklink_jtag_windows_set_socket](./../../../../zh/maix/m1s/other/assets/start/cklink_jtag_windows_set_socket.jpg)
+![cklink_jtag_windows_set_socket_1](./../../../../zh/maix/m1s/other/assets/start/cklink_jtag_windows_set_socket_1.jpg)
+
+If succeed connecting, the triangle icon will change into circle icon.
+
+![cklink_jtag_windows_success_connection](./../../../../zh/maix/m1s/other/assets/start/cklink_jtag_windows_success_connection.jpg)
+
+Up to now we have connected device, and the picture above is we usr command `jtag_m0` to debug E907 Core, you can also run `jtag_cpu0` to debug C906 Core.
+
+And we can use software like gdb to debug the chip.
+
+![cklink_jtag_windows_gdb_debug](./../../../../zh/maix/m1s/other/assets/start/cklink_jtag_windows_gdb_debug.jpg)
+
+Besides, in the directory where we install this software, we can run `DebugServerConsole` to connect debugger by command-line.
+
+![cklink_jtag_windows_debugserverconsole](./../../../../zh/maix/m1s/other/assets/start/cklink_jtag_windows_debugserverconsole.jpg)
+
+Run it by command-line to see its usages.
+
+```bash
+.\DebugServerConsole.exe -h
+```
+
+![cklink_jtag_windows_debugserverconsole_help](./../../../../zh/maix/m1s/other/assets/start/cklink_jtag_windows_debugserverconsole_help.jpg)
+
+```bash
+.\DebugServerConsole.exe -port 65535
+```
+
+![cklink_jtag_windows_debugserverconsole_port](./../../../../zh/maix/m1s/other/assets/start/cklink_jtag_windows_debugserverconsole_port.jpg)
+
+Then we can debug it with port number 65535.
+
+#### Linux
+
+Run command`DebugServerConsole -h` to see help.
+
+![cklink_jtag_linux_debugserverconsole_help](./../../../../zh/maix/m1s/other/assets/start/cklink_jtag_linux_debugserverconsole_help.jpg)
+
+Run following command to debug M1s Dock with port number 12345.
+
+```bash
+DebugServerConsole -port 12345
+```
+
+![cklink_jtag_linux_debugserverconsole](./../../../../zh/maix/m1s/other/assets/start/cklink_jtag_linux_debugserverconsole.jpg)
+
+## blai npu
+
+### Supported operators
+
+<table>
+<thead>
+<tr>
+  <th>Type</th>
+  <th>Operators</th>
+  <th>Applicable Subset Spec.</th>
+  <th>Processor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td rowspan="10">Convolution</td>
+  <td rowspan="4">Conv </td>
+  <td>Kernel: 1x1,3x3,5x5,7x7</td>
+  <td rowspan="4">:strong:<code>NPU</code></td>
+</tr>
+<tr>
+  <td>Stride: 1x1, 2x2</td>
+</tr>
+<tr>
+  <td>Dilation: 1x1, 2x2</td>
+</tr>
+<tr>
+  <td>Pad: same</td>
+</tr>
+<tr>
+  <td rowspan="4">Depthwise Conv</td>
+  <td>Kernel: 1x1,3x3 (5x5, 7x7 TBD)</td>
+  <td rowspan="4">:strong:<code>NPU</code></td>
+</tr>
+<tr>
+  <td>Stride: 1x1, 2x2</td>
+</tr>
+<tr>
+  <td>Dilation: 1x1 (2x2 TBD)</td>
+</tr>
+<tr>
+  <td>Pad: same</td>
+</tr>
+<tr>
+  <td rowspan="2">Transpose Conv</td>
+  <td>Kernel: 3x3</td>
+  <td rowspan="2">strong:<code>NPU</code></td>
+</tr>
+<tr>
+  <td>Stride: 2x2</td>
+</tr>
+<tr>
+  <td rowspan="4">Pooling</td>
+  <td rowspan="2">MaxPool (NPU TBD)</td>
+  <td>Kerenl: 2x2</td>
+  <td rowspan="2">DSP</td>
+</tr>
+<tr>
+  <td>Stride: 2x2</td>
+</tr>
+<tr>
+  <td rowspan="2">MaxPool</td>
+  <td>Kerenl: 3x3</td>
+  <td rowspan="2">:strong:<code>NPU</code></td>
+</tr>
+<tr>
+  <td>Stride: 1x1, 2x2</td>
+</tr>
+<tr>
+  <td rowspan="2">Activation</td>
+  <td>Relu</td>
+  <td></td>
+  <td>:strong:<code>NPU</code></td>
+</tr>
+<tr>
+  <td>Relu 6</td>
+  <td></td>
+  <td>:strong:<code>NPU</code></td>
+</tr>
+<tr>
+  <td rowspan="5">Other processing</td>
+  <td>BatchNormalization</td>
+  <td>fused with conv</td>
+  <td>:strong:<code>NPU</code></td>
+</tr>
+<tr>
+  <td>Add (shortcut)</td>
+  <td></td>
+  <td>:strong:<code>NPU</code></td>
+</tr>
+<tr>
+  <td>Concat (route)</td>
+  <td>Channel wise (AXIS 3 in BHWC)</td>
+  <td>:strong:<code>NPU</code></td>
+</tr>
+<tr>
+  <td>Fully Connected</td>
+  <td></td>
+  <td>:strong:<code>NPU</code></td>
+</tr>
+<tr>
+  <td>Upsample</td>
+  <td>Nearest</td>
+  <td>:strong:<code>NPU</code></td>
+</tr>
+</tbody>
+</table>
+
+### blai_mnist_demo
+
+Burning it into M1s Dock, we have told that the each compiled demo bin is named `d0fw.bin`, and it's in `M1s_BL808_example/c906_app/built_out` folder.
+
+```
+#c906_app
+./build.sh blai_mnist_demo
+```
+
+![udisk_burn](./../../../../zh/maix/m1s/other/assets/start/udisk_burn.gif)
+
+After burning this firmware (when the u-disk is automatically removed it means we have finished burning this firmware), press RST key to reset M1s Dock and reload firmware, then open the smaller serial port (with baudrate 2000000) we can see it shows failed loading model.
+
+![blai_mnist_demo_no_model](./../../../../zh/maix/m1s/other/assets/start/blai_mnist_demo_no_model.jpg)
+
+So we need upload model into M1s Dock, from source code we can know we need to save model in flash.
+
+![blai_mnist_demo_fopen](./../../../../zh/maix/m1s/other/assets/start/blai_mnist_demo_fopen.jpg)
+
+Connect computer with OTG port on M1s Dock we can see there is a u-disk with nearly 7M storge memory.
+
+![blai_mnist_demo_flash_disk](./../../../../zh/maix/m1s/other/assets/start/blai_mnist_demo_flash_disk.jpg)
+
+Follow the source code, in the u-disk (which is the flash of M1s Dock indeed), we create a folder named `models`, and save [mnist.blai](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmware/demo_bin/blai_mnist_demo) into the newly created folder.
+
+```bash
+models
+└── mnist.blai
+```
+
+Press RST key again,  open the smaller serial port we can see we succeed loading model, and the recognition results are printed.
+
+Screen displays camera contents, and show recognition result.
+
+![blai_mnist_demo_uart](./../../../../zh/maix/m1s/other/assets/start/blai_mnist_demo_uart.jpg)
+
+![blai_mnist_demo_recognition](./../../../../zh/maix/m1s/other/assets/start/blai_mnist_demo_recognition.jpg)

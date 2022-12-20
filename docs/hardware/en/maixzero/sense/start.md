@@ -183,7 +183,7 @@ M0sense_BL702_example/
 
 ### Put the patch
 
-Make sure you are in `M0sense_BL702_example` dictionary.
+Make sure you are in `M0sense_BL702_example` directory.
 
 Before putting the patch, we need to set username and email, just set what you like.
 
@@ -238,7 +238,7 @@ If not set the path right, the command `riscv64-unknown-elf-gcc` will be shown n
 
 Before compiling demo first time, we need to compile the firmware conversion application on the computer for dragging  and burning firmware by u-disk.
 
-Run following command in the dictionary of `M0sense_BL702_example` .
+Run following command in the directory of `M0sense_BL702_example` .
 
 ```bash
 sudo apt install gcc # Install gcc
