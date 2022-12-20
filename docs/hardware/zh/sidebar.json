@@ -3,13 +3,13 @@
     {
       "label": "产品总览",
       "file": "README.md"
-    },    
+    },
     {
       "label": "Maix Zero",
       "items": [
         {
-          "label":"Maix M0",
-          "items":[
+          "label": "Maix M0",
+          "items": [
             {
               "label": "M0sense 开发板",
               "file": "./maixzero/sense/maix_zero_sense.md"
@@ -21,7 +21,7 @@
           ]
         },
         {
-          "label":"Maix M0s"          
+          "label": "Maix M0s"
         }
       ]
     },
@@ -119,8 +119,7 @@
         },
         {
           "label": "Maix M1a",
-          "items": [
-          ]
+          "items": []
         }
       ]
     },

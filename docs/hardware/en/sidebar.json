@@ -5,6 +5,27 @@
       "file": "maix/README.md"
     },
     {
+      "label": "Maix Zero",
+      "items": [
+        {
+          "label": "Maix M0",
+          "items": [
+            {
+              "label": "M0sense Board",
+              "file": "./maixzero/sense/maix_zero_sense.md"
+            },
+            {
+              "label": "M0sense Guide",
+              "file": "./maixzero/sense/start.md"
+            }
+          ]
+        },
+        {
+          "label": "Maix M0s"
+        }
+      ]
+    },
+    {
       "label": "Maix-I & Zero",
       "items": [
         {
@@ -94,17 +115,8 @@
           ]
         },
         {
-          "label": "Maix Zero",
-          "items": [
-            {
-              "label": "M0sense Board",
-              "file": "./maixzero/sense/maix_zero_sense.md"
-            },
-            {
-              "label": "M0sense Guide",
-              "file": "./maixzero/sense/start.md"
-            }
-          ]
+          "label": "Maix M1a",
+          "items": []
         }
       ]
     },

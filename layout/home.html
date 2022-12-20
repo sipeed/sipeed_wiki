@@ -478,7 +478,7 @@
                                          :show-dots="false" autoplay draggable style="height: 620px"> 
                                          <n-carousel-item :style="{ width: '75%' }">
                                              <n-card size="small" hoverable>
-                                                 <a href= "/m1s#dock" target="_blank"><img class="carousel-img" src="/static/home/m1s_dock_m0sense.jpg" alt="m1s_dock_m0sense"></a>
+                                                 <a href= "/en/m1s#dock" target="_blank"><img class="carousel-img" src="/static/home/m1s_dock_m0sense.jpg" alt="m1s_dock_m0sense"></a>
                                                  <n-divider title-placement="right">
                                                     <n-button-group style="margin: 5px; font-size: 16px;">
                                                      <n-button size="large"
@@ -842,19 +842,9 @@
     const datas = {
         'products': {
             'zh': {
-                // "MAIX-Zero":[
-                //     {
-                //         title: "MicroPython 边缘 AI 开发",
-                //         src: "/static/home/maixpy.jpeg",
-                //         lbtn_text: "btn_repo",
-                //         lbtn_href: "https://github.com/sipeed/maixpy",
-                //         rbtn_text: "btn_docs",
-                //         rbtn_href: window.location.origin + "/maixpy",
-                //     },
-                // ],
-                "MAIX-I & Zero": [
+                "MAIX-I (K210)": [
                     {
-                        title: "MicroPython 边缘 AI 开发",
+                        title: "MaixPy 源码仓库",
                         src: "/static/home/maixpy.jpeg",
                         lbtn_text: "btn_repo",
                         lbtn_href: "https://github.com/sipeed/maixpy",
@@ -868,22 +858,6 @@
                         lbtn_href: "https://github.com/sipeed/MaixPy_scripts",
                         rbtn_text: "btn_example",
                         rbtn_href: "https://gitee.com/Sipeed/maixpy_scripts",
-                    },
-                    {
-                        title: "Maix M1s Dock",
-                        src: "https://gd1.alicdn.com/imgextra/i1/2200606237318/O1CN01gE4a1E23vhCV77ggE_!!2200606237318.jpg",
-                        lbtn_text: "btn_buy",
-                        lbtn_href: "https://item.taobao.com/item.htm?id=691108452443",
-                        rbtn_text: "btn_detail",
-                        rbtn_href: window.location.origin + "/m1s#dock",
-                    },
-                    {
-                        title: "Maix Zero Sense",
-                        src: "https://gd2.alicdn.com/imgextra/i2/2200606237318/O1CN013wKHHQ23vhCuzGyfG_!!2200606237318.jpg_400x400.jpg",
-                        lbtn_text: "btn_buy",
-                        lbtn_href: "https://item.taobao.com/item.htm?id=693997918701",
-                        rbtn_text: "btn_detail",
-                        rbtn_href: window.location.origin + "/m0sense",
                     },
                     {
                         title: "Maix Duino",
@@ -934,15 +908,7 @@
                         rbtn_href: window.location.origin + "/hardware/zh/maix/maixpy_develop_kit_board/maix_hat.html",
                     },
                     {
-                        title: "Maix M1s",
-                        src: "https://gd4.alicdn.com/imgextra/i4/2200606237318/O1CN011g9yY323vhCXEyiKU_!!2200606237318.jpg",
-                        lbtn_text: "btn_buy",
-                        lbtn_href: "https://item.taobao.com/item.htm?id=691108452443",
-                        rbtn_text: "btn_detail",
-                        rbtn_href: window.location.origin + "/m1s",
-                    },
-                    {
-                        title: "Maix M1W",
+                        title: "Maix M1/M1W",
                         src: "https://gd2.alicdn.com/imgextra/i2/2200606237318/O1CN01nIkzXs23vgysnE4Ou_!!2200606237318.jpg_400x400.jpg",
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://item.taobao.com/item.htm?id=584853693295",
@@ -951,7 +917,7 @@
                     },
                     {
                         title: "Maix M1n",
-                        src: "https://gd4.alicdn.com/imgextra/i4/2200606237318/O1CN01WR63GE23vgysaJ64A_!!2200606237318.jpg_400x400.jpg",
+                        src: "https://gd4.alicdn.com/imgextra/i4/2200606237318/O1CN019XNI2U23vgylQtd77_!!2200606237318.jpg",
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://item.taobao.com/item.htm?id=607174705842",
                         rbtn_text: "btn_detail",
@@ -964,6 +930,32 @@
                         lbtn_href: "",
                         rbtn_text: "btn_detail",
                         rbtn_href: window.location.origin + "/hardware/zh/maix/maixpy_develop_kit_board/maix_go.html",
+                    },
+                ],
+                "MAIX-Zero & I (BL)":[
+                    {
+                        title: "Maix Zero Sense",
+                        src: "https://gd2.alicdn.com/imgextra/i2/2200606237318/O1CN013wKHHQ23vhCuzGyfG_!!2200606237318.jpg_400x400.jpg",
+                        lbtn_text: "btn_buy",
+                        lbtn_href: "https://item.taobao.com/item.htm?id=693997918701",
+                        rbtn_text: "btn_detail",
+                        rbtn_href: window.location.origin + "/m0sense",
+                    },
+                    {
+                        title: "Maix M1s Dock",
+                        src: "https://gd1.alicdn.com/imgextra/i1/2200606237318/O1CN01gE4a1E23vhCV77ggE_!!2200606237318.jpg",
+                        lbtn_text: "btn_buy",
+                        lbtn_href: "https://item.taobao.com/item.htm?id=691108452443",
+                        rbtn_text: "btn_detail",
+                        rbtn_href: window.location.origin + "/m1s#dock",
+                    },
+                    {
+                        title: "Maix M1s",
+                        src: "https://gd4.alicdn.com/imgextra/i4/2200606237318/O1CN011g9yY323vhCXEyiKU_!!2200606237318.jpg",
+                        lbtn_text: "btn_buy",
+                        lbtn_href: "https://item.taobao.com/item.htm?id=691108452443",
+                        rbtn_text: "btn_detail",
+                        rbtn_href: window.location.origin + "/m1s",
                     },
                 ],
                 "MAIX-III & II": [
@@ -1314,9 +1306,9 @@
                 ],
             },
             'en': {
-                "MAIX-I & Zero": [
+                "MAIX-I (K210)": [
                     {
-                        title: "MicroPython AIOT",
+                        title: "Maixpy Source Code",
                         src: "/static/home/maixpy.jpeg",
                         lbtn_text: "btn_repo",
                         lbtn_href: "https://github.com/sipeed/maixpy",
@@ -1338,22 +1330,6 @@
                         lbtn_href: "https://github.com/micropython/micropython-lib",
                         rbtn_text: "btn_example",
                         rbtn_href: "https://gitee.com/greener/micropython-lib",
-                    },
-                    {
-                        title: "Maix M1s Dock",
-                        src: "https://gd1.alicdn.com/imgextra/i1/2200606237318/O1CN01gE4a1E23vhCV77ggE_!!2200606237318.jpg",
-                        lbtn_text: "btn_buy",
-                        lbtn_href: "https://www.aliexpress.com/item/1005004970779483.html",
-                        rbtn_text: "btn_detail",
-                        rbtn_href: window.location.origin + "/en/m1s#dock",
-                    },
-                    {
-                        title: "Maix Zero Sense",
-                        src: "https://gd2.alicdn.com/imgextra/i2/2200606237318/O1CN013wKHHQ23vhCuzGyfG_!!2200606237318.jpg_400x400.jpg",
-                        lbtn_text: "btn_buy",
-                        lbtn_href: "https://www.aliexpress.com/item/1005005012406688.html",
-                        rbtn_text: "btn_detail",
-                        rbtn_href: window.location.origin + "/en/m0sense",
                     },
                     {
                         title: "Maix Duino",
@@ -1404,15 +1380,7 @@
                         rbtn_href: window.location.origin + "/hardware/en/maix/maixpy_develop_kit_board/maix_hat.html",
                     },
                     {
-                        title: "Maix M1s",
-                        src: "https://gd4.alicdn.com/imgextra/i4/2200606237318/O1CN011g9yY323vhCXEyiKU_!!2200606237318.jpg",
-                        lbtn_text: "btn_buy",
-                        lbtn_href: "https://www.aliexpress.com/item/1005004970779483.html",
-                        rbtn_text: "btn_detail",
-                        rbtn_href: window.location.origin + "/en/m1s",
-                    },
-                    {
-                        title: "Maix M1W",
+                        title: "Maix M1/M1W",
                         src: "https://gd2.alicdn.com/imgextra/i2/2200606237318/O1CN01nIkzXs23vgysnE4Ou_!!2200606237318.jpg_400x400.jpg",
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://www.aliexpress.com/item/1005004138090982.html",
@@ -1421,7 +1389,7 @@
                     },
                     {
                         title: "Maix M1n",
-                        src: "https://gd4.alicdn.com/imgextra/i4/2200606237318/O1CN01WR63GE23vgysaJ64A_!!2200606237318.jpg_400x400.jpg",
+                        src: "https://gd4.alicdn.com/imgextra/i4/2200606237318/O1CN019XNI2U23vgylQtd77_!!2200606237318.jpg",
                         lbtn_text: "btn_buy",
                         lbtn_href: "https://www.aliexpress.com/item/1005004138090982.html",
                         rbtn_text: "btn_detail",
@@ -1433,6 +1401,32 @@
                         lbtn_text: "btn_eol",
                         rbtn_text: "btn_detail",
                         rbtn_href: window.location.origin + "/hardware/en/maix/maixpy_develop_kit_board/maix_go.html",
+                    },
+                ],
+                "MAIX-Zero & I (BL)":[
+                    {
+                        title: "Maix Zero Sense",
+                        src: "https://gd2.alicdn.com/imgextra/i2/2200606237318/O1CN013wKHHQ23vhCuzGyfG_!!2200606237318.jpg_400x400.jpg",
+                        lbtn_text: "btn_buy",
+                        lbtn_href: "https://www.aliexpress.com/item/1005005012406688.html",
+                        rbtn_text: "btn_detail",
+                        rbtn_href: window.location.origin + "/en/m0sense",
+                    },
+                    {
+                        title: "Maix M1s Dock",
+                        src: "https://gd1.alicdn.com/imgextra/i1/2200606237318/O1CN01gE4a1E23vhCV77ggE_!!2200606237318.jpg",
+                        lbtn_text: "btn_buy",
+                        lbtn_href: "https://www.aliexpress.com/item/1005004970779483.html",
+                        rbtn_text: "btn_detail",
+                        rbtn_href: window.location.origin + "/en/m1s#dock",
+                    },
+                    {
+                        title: "Maix M1s",
+                        src: "https://gd4.alicdn.com/imgextra/i4/2200606237318/O1CN011g9yY323vhCXEyiKU_!!2200606237318.jpg",
+                        lbtn_text: "btn_buy",
+                        lbtn_href: "https://www.aliexpress.com/item/1005004970779483.html",
+                        rbtn_text: "btn_detail",
+                        rbtn_href: window.location.origin + "/en/m1s",
                     },
                 ],
                 "Maix-III & II": [
