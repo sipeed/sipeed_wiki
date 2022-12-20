@@ -3,9 +3,30 @@
     {
       "label": "产品总览",
       "file": "README.md"
+    },    
+    {
+      "label": "Maix Zero",
+      "items": [
+        {
+          "label":"Maix M0",
+          "items":[
+            {
+              "label": "M0sense 开发板",
+              "file": "./maixzero/sense/maix_zero_sense.md"
+            },
+            {
+              "label": "M0sense 基础使用",
+              "file": "./maixzero/sense/start.md"
+            }
+          ]
+        },
+        {
+          "label":"Maix M0s"          
+        }
+      ]
     },
     {
-      "label": "Maix-I & Zero",
+      "label": "Maix-I",
       "items": [
         {
           "label": "Maix M1",
@@ -97,16 +118,8 @@
           ]
         },
         {
-          "label": "Maix Zero",
+          "label": "Maix M1a",
           "items": [
-            {
-              "label": "M0sense 开发板",
-              "file": "./maixzero/sense/maix_zero_sense.md"
-            },
-            {
-              "label": "M0sense 基础使用",
-              "file": "./maixzero/sense/start.md"
-            }
           ]
         }
       ]

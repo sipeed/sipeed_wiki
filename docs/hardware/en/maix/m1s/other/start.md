@@ -1,7 +1,8 @@
 ---
 title: M1s DOCK guides
 keywords: M1s DOCK ,BL808, M1s
-update:  - date: 2022-12-20
+update:  
+  - date: 2022-12-20
     version: v0.3
     author: wonder
     content:
