@@ -269,8 +269,10 @@ python3 -c "import os, binascii; os.system('sed -i \'/iface eth0 inet dhcp/ahwad
 **wlan0**：无线网卡，使用 DHCP 协议获取 IP 地址，可使用命令 `ifconfig wlan0` 查看当前网络配置。 
 
 - **如何修改连接的 WIFI 账号密码（会开机自动联网）**
+  
+>因硬件的模块的更换，出现 wlan0 不显示的情况请移步[Maix-III 系列 AXera-Pi 常见问题（FAQ）](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html)查看。
 
-默认 WIFI 账号密码配置存放在 `/boot/wpa_supplicant.conf` 里，测试过并支持 Android 手机开放的 WPA-PSK2 热点，配置修改后会在重启后生效。
+默认 WIFI 账号密码配置存放在 `/boot/wpa_supplicant.conf` 里，测试过并支持 Android 手机开放的 WPA-PSK2 热点，配置修改后会在重启后生效（**已过时建议用 mntui-connect 进行配置连接**)。
 
 ```bash
 root@AXERA:~# cat /boot/wpa_supplicant.conf
@@ -284,7 +286,7 @@ network={
 }
 ```
 
-- **改用 mntui-connect 可视化联网管理** 
+- **使用 mntui-connect 可视化联网管理** 
 
 系统已预置 NetworkManager 在 `nano /etc/NetworkManager/NetworkManager.conf` 里的 `managed=false` 修改成 `managed=true` 和注释掉 `/etc/network/interfaces` 里的有关于 `wlan0` 的配置（可以打开 `allow-hotplug wlan0` ）后「拔线断电重启」即可使用 `nmtui-connect` 进行联网，但原来的 `wpa_supplicant.conf` 里的配置会失效。
 
@@ -316,6 +318,10 @@ allow-hotplug wlan0
 # wpa-conf /boot/wpa_supplicant.conf
 # iface wlan0 inet dhcp
 ```
+
+在终端使用 `nmtui-connect` 打开可视化联网页面。页面会显示扫描到的 WiFi 信息，使用键盘的**上下左右键**选择要连接的 WiFi 按下**回车键**，页面提示输入 WiFi 密码，输完后选择 `OK` 并按**回车键**则会弹出空白页面，选择 `Quit` 按**回车键**退出，联网完成后可使用 `ifconfig  wlan0` 查询 IP 地址。 
+
+![nmtui](./../assets/nmtui.jpg)
 
 > [配置 NetworkManager 参考](https://support.huaweicloud.com/bestpractice-ims/ims_bp_0026.html#section1) & [linux系统中使用nmtui命令配置网络参数（图形用户界面）](https://www.cnblogs.com/liujiaxin2018/p/13910144.html)
 
