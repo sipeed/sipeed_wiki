@@ -182,11 +182,11 @@ title: MAIX-III AXera-Pi 是什么？
 在你部署成功后会有一份模型文件，以及能运行模型的代码或程序，你可以将这些文件分享到 [MaixHub 模型库](https://maixhub.com/model/zoo) ，大家一起交流学习成长！（请开始你的表演吧）
 
 <p align="center">
-  <img src="./../assets/share_model.jpg" style="zoom: 75%;" />
+  <img src="./../assets/share_model.jpg" style="zoom: 75%;" >
 </p>
 
 <p align="center">
-  <img src="./../assets/test_yolov5s.jpg" style="zoom: 100%;" />
+  <img src="./../assets/test_yolov5s.jpg" style="zoom: 100%;" >
 </p>
 
 ### 众多开箱案例

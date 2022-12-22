@@ -11,9 +11,9 @@ update:
 
 > This page is on building, please use translation application to see https://wiki.sipeed.com/m3axpi instead.
 
-If you think this AI development board are excellent enough and your friends may be interested with this, just share with them this link [http://wiki.sipeed.com/m3axpi](http://wiki.sipeed.com/m3axpi)
+If you think this AI development board are excellent enough and your friends may be interested with this, just share with them this link [http://wiki.sipeed.com/m3axpi](http://wiki.sipeed.com/en/m3axpi)
 
-![maixiii_axpi](./../../../../../static/home/maixiii_axpi.jpg)
+![maixiii_axpi](./../../../../../static/home/maixiii_axpi_en.jpg)
 
 > [Official Online Store](https://www.aliexpress.com/item/1005005016931077.html)
 
@@ -21,27 +21,11 @@ In the past few years, many Linux AI chips come out.
 
 Raspberry Pi and Jetson Nano these boards are really popular by their good performance, but now MAIX-III AXera-Pi comes out, equipped with the high-performance 3.6TOPs@INT8 chip ax620a, which will be your good choice and provice you a really good experience.
 
-<!-- 2021 年的时候，国内各大芯片原厂纷纷亮出了自己的 Linux 边缘 AI 芯片。
-
-但在 AI 开发板的市场中，前有树莓派（Raspberry Pi），后有英伟达（Jetson Nano）等国外老牌选手强力围剿国内 Linux AI 开发板，在这之前国产的同类产品无论是价格还是体验，都被打的丢盔弃甲。
-
-如今在千元内的选手有晶晨 A311D 、地平线 X3 、瑞芯微 RV1126、堪智 K510、全志 V85X 、晶视 CR182x 、亿智 SV826 、酷芯微 AR9341 等等国产芯片，看上去感觉有很多选择？
-
-但是，它们要么资料太少（资料封闭）、能效比低、价格太贵、生态贫瘠、开发困难、视觉效果太差存在各种各样的问题。
-
-真的很难有一款边缘 AI 板子可以满足开发者的要求！！！
-
-但现在！这些问题可能不再是问题了！
-
-是时候请出我们新一轮的参赛选手了！
-
-练习时长两年半（不是），一颗 3.6TOPs@INT8 大算力低功耗超强夜景的芯片总算是来到了 MAIX-III Linux AI 系列！ -->
-
 <p align="center">
 <img src="https://axera-tech.com/upload/8f/091a2540e7cdc5c7f62df022f80220.jpg" alt="img" style="zoom: 50%;" />
 </p>
 
-We design this chip into a core module, which is convenient if you want to design the ext-board for yourself.
+We design a core module for this chip, which is convenient if you want to design the ext-board for yourself.
 
 <table>
 <thead>
@@ -129,13 +113,6 @@ So, why is this AI development board good?
 - Bad camera result? This chip is aimed for AI ISP night vision enhancement, we have adjust the camera to best state.
 - Too expensive? This board sold about 100$, chiper than any other similar board.
 
-<!-- - 资料太少？文档教你从开箱到开发，从嵌入式 Linux 开发到 AI 模型开发指南一应俱全！
-- 能效比差？四核 A7 靠一条 USB3.0 就可以带起来！和你的外接电源、散热器说拜拜吧！！
-- 开发困难？支持 debian11 系统内置 SDK 直接板上编译！白嫖在线 AI 模型训练直到部署！！！
-- 没有生态？ SIPEED 拥有关于 LINUX、RISCV、AIOT、FPGA、MCU 等嵌入式领域的内容！！！！
-- 摄像效果太差？芯片主打 AI ISP 夜视增强！由原厂亲手为你调试白天到夜间的超强影像！！！！！
-- 价格太贵？从核心+底板+屏幕+摄像头+卡+外壳支架全套总共人民币 **579** ！（咆哮！！！！！！） -->
-
 ## Features
 
 ### Camera effect
@@ -176,24 +153,21 @@ So, why is this AI development board good?
     <iframe src="//player.bilibili.com/player.html?aid=773227207&bvid=BV1B14y1Y7A4&cid=837154353&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="max-width:640px; max-height:480px;"> </iframe>
 </p>
 
-### AI advantages
+### AI resources
 
-#### Support many Operator
+#### Support many Operators
 
 ![many_operator](./assets/axpi/many_operator.jpg)
 
 Screenshots of part operators. [Click me to see whole operator support list](https://pulsar-docs.readthedocs.io/en/latest/appendix/op_support_list.html)
 
-#### Many AI models
+#### Many archived models
 
 Before receiving this board, visit [MaixHub](https://maixhub.com/model/zoo) to see your interested model, choose Platform `axera-pi` at the Lower left corner to find model can be deployed on `AX-PI`
 
 ![maixhub_zoo.jpg](./assets/axpi/maixhub_zoo.jpg)
 
-Apart from these, the models are uploaded to [github AXERA-TECH/ax-samples](https://github.com/AXERA-TECH/ax-samples), and there are also some models in the system image, flashing the system and boot it you will get some models too. The supported models are as followings:
-
-<!-- 
-还可以在 [AXERA-TECH/ax-samples](https://github.com/AXERA-TECH/ax-samples) 仓库也可以找到模型，板子系统里也预置了模型资源，后续模型更新会在这里[「ax-models」](https://github.com/AXERA-TECH/ax-models)，而 [ AX-Samples 将不断更新最流行的、实用的、有趣的示例代码](https://github.com/AXERA-TECH/ax-samples/tree/main/examples#examples)，目前有如下模型支持列表： -->
+Apart from these, many models are uploaded to [github AXERA-TECH/ax-samples](https://github.com/AXERA-TECH/ax-samples), and we also put sme models in sustem image, just burn the system image into SD card and boot it on board to experience these models. Up to now the supported models are as follows:
 
 - Objects Classification
   - MobileNetv1
@@ -252,75 +226,39 @@ Visit [Deploy models to AX-Pi (Maix-III(M3) series) board](/ai/en/deploy/ax-pi.h
 Now the [MaixHub](https://maixhub.com/welcome) has been upgraded, with more friendly interface and more functions, here are steps to tranning model online.
 
 <p align="center">
-  <img src="./../../../zh/maixIII/assets/test_maixhub.jpg" style="zoom: 100%;" />
+  <img src="./assets/axpi/test_maixhub.jpg" style="zoom: 100%;" />
 </p>
 
-> m3axpi doec not support deploy model by scanning QR code while m2dock can do, m3axpi only can be deployed models by local operations.
+<!-- > m3axpi does not support deploy model by scanning QR code while m2dock can do, m3axpi only can be deployed models by local operations. -->
 
 <!-- <p align="center">
     <iframe src="//player.bilibili.com/player.html?aid=597374704&bvid=BV1eB4y1Q74i&cid=741940038&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="max-width:640px; max-height:480px;"> </iframe>
 </p> -->
 
-#### Share model
+#### Share your model
 
-There will be a model file and codes or programs to run the code, you can share these on [Maixhub](https://maixhub.com/model/zoo) to other people, let's build the model Community together.
-
-<p align="center">
-  <img src="./../../../zh/maixIII/assets/share_model.jpg" style="zoom: 75%;" />
-</p>
+There are your model and codes or programs to run the model after you finish training the model, you can share these on [Maixhub](https://maixhub.com/model/zoo) to others, let's have fun and build the model Community together.
 
 <p align="center">
-  <img src="./../../../zh/maixIII/assets/test_yolov5s.jpg" style="zoom: 100%;" />
+  <img src="./assets/axpi/share_model.jpg" style="zoom: 75%;" >
 </p>
 
-### Defaule cases
+### Cases
 
 > Updated in 20221205
 
 <p align="center">
-  <img src="./../../../zh/maixIII/assets/demo_one.jpg" style="zoom: 100%;">
-  <img src="./../../../zh/maixIII/assets/demo_two.jpg" style="zoom: 100%;">
+  <img src="./assets/axpi/demo_one.jpg" style="zoom: 100%;">
+  <img src="./assets/axpi/demo_two.jpg" style="zoom: 100%;">
 </p>
 
 ### Linux development
 
-<!-- #### 超高性价比与能效比
+#### Used on debian
 
-别搞那些虚的。来点实际点的，以下是目前（20221014）市场上销量排行的典型 AI 开发产品，**商品价格会随时变动，有疑问可查询或指出并纠正**。（已除去低成本 38 板摄像头和芯片原厂超昂贵开发板）
+We provide a linux image based on debian11, and you can boot this board from SD card after you burn the system image into SD card. We aim to make it easiler for user to use. Besides, it's really conveient to program AI development with Python API.
 
-| AI 开发板                                              | 全家桶套餐的主要内容                                                                                                        | 大致价格（20221013） |
-| ------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------- | -------------------- |
-| 英伟达 JETSON NANO 开发板                              | 4GB 主板、铝合金外壳（带风扇）、5V4A 电源、双频无线网卡、64G U 盘、IMX279 摄像头、HDMI 线 + 网线、7 寸触摸屏+支架、         | ¥2129.00             |
-| Raspberry Pi 树莓派 4B                                 | 4GB 主板、七寸触摸屏+支架、64G U 盘、散热片、HDMI 线 + 网线、5V3A 电源、亚克力外壳（带风扇）、500w USB 摄像头、入门指导手册 | ¥1439.00             |
-| Khadas vim3 物联网 a311d（目前线上销量不高，但很典型） | VIM3（4GB+32G）开发板、外壳、散热器、风扇、30W 电源、HDMI 线                                                                | ¥1399.00             |
-| 迅为 RK3568 开发板瑞芯微                               | 商业级 2G+16G、7 寸 MIPI 屏、OV5695 摄像头、（没有配电源）                                                                  | ¥1380.00             |
-| EASY EAI Nano AI 开发板 瑞芯微 RV1126                  | 1GB 单主板、200w 双目摄像头（gc2xxx）、5 寸 ips 屏、天线、喇叭、铜柱、2A 电源                                               | ¥799.00              |
-| 亚博智能 旭日 X3 派开发板                              | 2GB 主板、古月居课程、WIFI 天线、铝合金外壳、gc4663 摄像头、32G U 盘、5V3A 开关电源、HDMI 线                                | ¥769.00              |
-| Sipeed M3AXPI Linux AI 微光夜视 爱芯派                 | 2GB 单主板、400w gc4653 摄像头、5 寸 ips 屏、外壳、数据线、32G TF 卡、在线模型训练服务、活力四射的开源社区                  | ¥579.00              |
-
-想想某些产品为什么卖这么贵，销量还这么好？凭什么？
-
-这些产品除了本身的质量要过硬，功能要够强，还要凭借自身的社区生态、软件支持、丰富资料、开源代码、用户口碑等等特色，来支撑产品高性价比的形象。
-
-> 笔者在这里认为所谓的性价比不是一昧地追求产品的最低价，而是在同类产品市场的主流价格区间内，选出社区用户群体可以接受的价格，然后在这个定位里去尽力做出效果最好的产品。
-
-从这些典型的产品中可以看出 m3axpi 套餐是没有配「散热片和风扇还有外接电源」的，这也是它的另一个特色「高能效比」。
-
-是的，这个产品不需要散热器/风扇，也不需要外接 2A 电源就可以启动系统，更不需要找 hdmi 线和显示器。
-
-来一个实际测量的温度和功耗，注意要使用 USB3.0 的口来供电喔。
-
-<p align="center">
-  <img src="./../../../zh/maixIII/assets/temp_test_axpi.jpg" style="zoom: 100%;" />
-</p>
-
-> 从实测结果上来看，这个功耗和温度控制得挺好，用 USB3.0 5V@1A 承载了底板、核心板、WIFI、以太网、摄像头、5 寸屏的工作。 -->
-
-#### Based on debian
-
-We provide debian11 Linux distribution, and support boot from SD card and burn system by dd(A linux command), make it easiler for user to use. Besides, it's really conveient to program AI application by Python API.
-
-1. Burning image: [WIKI AXera-Pi Burn image](./flash_system.md)
+1. Burning image: [WIKI AXera-Pi Burn image](./flash_system.md#burn-system-image)
 
 2. Basic usage：[WIKI AXera-Pi guide](./flash_system.md)
 
@@ -332,11 +270,11 @@ We provide debian11 Linux distribution, and support boot from SD card and burn s
 
 #### BSP SDK
 
-We provide source code, api documents, sdk usage, visit [sdk usage](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/sdk_usage.html) to get more.
+We provide source code, api documents, sdk usages, visit [sdk usage](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/sdk_usage.html) to get more.
 
 ##### [ax-sample](https://github.com/AXERA-TECH/ax-samples)
 
-Here are AI models provided by Axera for development, evaluation and verification, those who are good at AI development or want to test these models can have a try, and there models are not involved with peripherals.
+Here are typical AI models provided by Axera for development, evaluation and verification, those who are good at AI development or want to test these models can have a try, and there models are not involved with peripherals.
 
 1. [examples](https://github.com/AXERA-TECH/ax-samples/tree/main/examples)
 2. [PP-YOLOv3](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/README.md#yolov3paddle)
@@ -345,7 +283,7 @@ Here are AI models provided by Axera for development, evaluation and verificatio
 
 ##### [libmaix](https://github.com/sipeed/libmaix)
 
-A unified embedded development environment created by SIPEED, aimed to camera, screen, vision, image processing, deployment pipelines-related routines, is suitable for those who want to learn embedded Linux.
+A unified embedded development environment come by SIPEED, aimed to camera, screen, vision, image processing and pipelines-related deployment routines, is suitable for those who want to learn embedded Linux.
 
 1. [Test screen display](https://github.com/sipeed/libmaix/tree/release/examples/display)
 2. [Screen displays camera content](https://github.com/sipeed/libmaix/tree/release/examples/axpi)
@@ -535,20 +473,12 @@ AX-Pipeline is provided by Axera. With m3axpi, this project is used for pepole t
   <img src="./../../../zh/maixIII/assets/ax620a_os.jpg" style="zoom: 100%;" />
 </p>
 
-> [How to change camera](https://wiki.sipeed.com/hardware/en/maixIII/ax-pi/faq_axpi.html)
+> [How to change camera](./faq_axpi.md)
 
 ## Others
-
-<!-- ### 产品相关 -->
 
 - Online AI: http://maixhub.com
 - Documents: http://wiki.sipeed.com
 - Github: http://github.com/sipeed
-<!-- - 交流社区 http://bbs.sipeed.com -->
-
-<!-- ### 售后支持
-
-- AXERA 技术交流群：（ 139953715 ）专供 AI ISP 技术交流
-- 荔枝 MaixPy3 AI 交流群：（ 756313869 ）给产品开箱小白答疑 -->
 
 > Visit [Maix-III AXera-Pi (FAQ)](./faq_axpi.md) if you have trobule.
