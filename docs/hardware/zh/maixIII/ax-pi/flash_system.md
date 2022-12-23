@@ -133,7 +133,9 @@ update:
 
 重新一次烧录内存卡镜像
 
-<!-- > **注意**：如果出现烧录失败的情况，请手动格式化一下 SD 卡，Windows 和 MacOS 可以使用 [SD Card Formatter](https://www.sdcard.org/downloads/formatter/eula_windows/SDCardFormatterv5_WinEN.zip)来格式化 SD 卡，Linux 系统可以使用系统的 disk 工具或 [Gparted](https://gparted.org/)来格式化。 -->
+##### 3. 格式化后内存卡可用容量很小
+
+这种情况使用对于 Windows 和 MacOS 可以使用 [SD Card Formatter](https://www.sdcard.org/downloads/formatter/eula_windows/SDCardFormatterv5_WinEN.zip)来格式化 SD 卡，Linux 系统可以使用系统的 disk 工具或 [Gparted](https://gparted.org/)来格式化。
 
 ### 启动 Linux 系统
 
