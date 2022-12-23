@@ -18,6 +18,8 @@ update:
 
 ---
 
+> This page is on building, please use translation application to see https://wiki.sipeed.com/m3axpi instead.
+
 ## Product guideline
 
 To make it easiler to use this board, we prepare this guide.
@@ -317,7 +319,7 @@ ssh root@192.168.233.1
 
 ### Connect to network
 
-Axera-Pi can connect to network through network cable or wireless network.
+Axera-Pi can connect to network through network cable or wireless.
 
 #### Connect by Ethernet
 
