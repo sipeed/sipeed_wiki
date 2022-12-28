@@ -18,16 +18,9 @@ update:
 
 对于软件开发来说，输出 `hello world` 就是入门了。对于硬件相关的开发而言，点灯就是同款入门。
 
-之前的点灯操作在 FPGA 里面都是简单的，困难的恰恰是时序优化等问题。
-
-<!-- 
-Dock 底板上有 6 个普通的 LED 可以自定义功能。用户可以使用这六个灯来组合成不同的状态来判断自己当前代码的运行情况，在此仅以最简单的流水灯为例，且对他进行简单的抓波。 -->
-
 ## 安装 IDE
 
 参考 [安装IDE](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/get_started/install-the-ide.html) 来完成我们需要准备的软件环境。
-
-Windows 用户建议额外下载一次高云教育版的编程器软件，这样可以避免烧录时因为 Programmer 软件版本不兼容 BL702 下载器而导致的奇怪问题。
 
 对于 Linux 用户的话建议使用 [openfpgaLoader](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/get_started/flash_in_linux.html) 这软件来烧录这款设备。
 

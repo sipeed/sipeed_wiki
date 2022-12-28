@@ -27,8 +27,6 @@ Because of the DDR test function, Core Board will be very hot. you can erase the
 
 Visit [Install IDE](./../../../Tang-Nano-Doc/install-the-ide.md) to prepare the enviroment for this FPGA.
 
-For windows users, we recommend use this [Programmer](https://dl.sipeed.com/shareURL/TANG/programmer) application install the Programmer application installed with IDE, this can reduce many trobules we will meet.
-
 For Linux users, if it's difficult to run Programmer application to burn firmware into fpga, please visit [OpenFpgaloader](https://wiki.sipeed.com/hardware/en/tang/Tang-Nano-Doc/flash-in-linux.html) to see how to use it.
 
 ## New Project

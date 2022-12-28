@@ -42,8 +42,6 @@ update:
 
 参考 [安装IDE](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/get_started/install-the-ide.html) 来完成我们需要准备的软件环境。
 
-对于 Windows 用户需要额外下载一下 [Programmer](https://dl.sipeed.com/shareURL/TANG/programmer) 烧录专用软件可以降低我们在烧录的时候出现问题的可能性。
-
 对于 Linux 用户，如果打开 Programmer 烧录软件困难的话，可以使用 [openfpgaLoader](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/get_started/flash_in_linux.html) 这软件来烧录 GW2A-18，相关用法在 [OpenFpgaloader](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/get_started/flash_in_linux.html) 一文中有说明。
 
 ## 新建工程

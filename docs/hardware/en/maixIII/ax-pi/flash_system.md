@@ -319,7 +319,7 @@ ssh root@192.168.233.1
 
 ### Connect to network
 
-Axera-Pi can connect to network through network cable or wireless.
+Axera-Pi connects to network through network cable or wireless.
 
 #### Connect by Ethernet
 
@@ -331,89 +331,7 @@ Run command `ifconfig` to see whether there is the ip address.
 
 #### Wireless network
 
+1. Run command `ifconfig wlan0` to see whether there is the wireless device first, if there is no wireless device, visit [AXera-Pi Q&A](./faq_axpi.md#qno-wlan0-shown-in-result-after-running-command-ifconfig) to spove this problem.
 
-
-### 学会使用板子
-
-![axpi-ai](./../../../zh/maixIII/assets/axpi-ai.png)
-
-由于默认没有配置桌面环境（只显示 logo），所以我们需要将 **AXera-Pi** 连接一台电脑，通过终端管理软件（shell）与它进行命令行交互，这些可以在[「系统使用手册-验证外设」](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html#%E9%AA%8C%E8%AF%81%E7%B3%BB%E7%BB%9F%E5%A4%96%E8%AE%BE)学会板上所有验证过的系统调频、外设、驱动、应用等资源的用法，像一些 Linux 操作基础、如何控制 I2C / UART / SPI 这些硬件设备的操作，还可以在[「系统使用手册-内置 AI 应用」](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html#%E9%AA%8C%E8%AF%81%E7%B3%BB%E7%BB%9F%E5%A4%96%E8%AE%BE)里调用内置的开箱 AI 应用及例程，快去用起来吧！
-
-![serial](./../../../zh/maixIII/assets/serial.jpg)
-
-### 试试 Python 编程（适用初学者）
-
-基于这篇上手指引的一路走下来的学习，相信小伙伴们也基本对 **AXera-Pi** 基础使用以及验证外设有一定的掌握了，那我们就踏入编程的世界，一起来试试 Python 编程吧！
-
-- [试试 Python 编程](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/python_api.html)
-
-我们内置了以 `jupyter notebook/ax-pipline-api/pinpong` 等 Python 包，你可以在**「试试 Python 编程」**里获得如何在 **AXera-Pi** 上进入 Python 模式启动 `jupyter notebook` 并使用运行 AI 模型。
-
-![python_jy](./../../../zh/maixIII/assets/python_jy.jpg)
-
-以及如何连接 **Arduino UNO** 以及 **Microbit** 进行 Python 编程的效果如下图。
-
-<html>
-  <img src="./../../../zh/maixIII/assets/arduino.jpg" width=48%>
-  <img src="./../../../zh/maixIII/assets/microbit.jpg" width=48%>
-</html>
-
-### 准备 C/C++ 编程（适用开发者）
-
-能走到这里就说明板子已经用起来了，那就来开发吧！在这之前需要**「准备开发环境」**了解如何拷贝文件到板子里，如何搭建本地编译或交叉编译，然后通过**「SDK 开发指南」**学习到如何基于现有的代码进行开发。
-
-- [准备开发环境](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/dev_prepare.html)
-
-快速了解现在提供哪些开源代码仓库以及用法，这些开源仓库会持续更新和开放的。
-
-- [SDK 开发指南](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/sdk_usage.html)
-
-![axpi_sdk.jpg](./../../../zh/maixIII/assets/axpi_sdk.jpg)
-
-### 训练模型部署
-
-初学者训练模型可以从 [AI 开发指南](https://wiki.sipeed.com/ai/zh/deploy/ax-pi.html) 学习如何训练一个最简单的模型到量化转换部署测试。
-
-更专业更深入的调优需要了解 [Pulsar](https://pulsar-docs.readthedocs.io/) ，这是由**「爱芯元智」**自主研发的 all-in-one 神经网络编译器，充分发挥片上异构计算单元(CPU+NPU)算力， Pulsar 工具链核心功能是将 .onnx 模型编译成芯片能解析并运行的 （.joint） 模型。
-
-目前有以下几种部署方式（Pipeline）推荐：
-
-- **libmaix**：并不在意程序的性能和效率，用最快的方式把摄像头图像输入 AI 模型后输出识别结果绘制到显示到屏幕上验证一下识别效果。
-
-- **ax-pipeline**：没有多余的封装，直接操作芯片核心资源 vin \ ivps \ npu \ vo 等硬解设备进行部署开发，可以使模型部署达到一个非常好的效果。
-
-- **IPCDemo**：以效果最好、性能最好、占用最少、稳定可靠、功能最多、确保最终能部署到用户的现场不出问题的框架代码来开发 AI 程序。
-
-#### libmaix 部署
-
-在板子上编译这个示例代码 [axpi_classification_cam](https://github.com/sipeed/libmaix/tree/release/examples/axpi_classification_cam)，然后放入模型运行后即可看到效果，截止 **20221013** 前代码还没有优化所以性能不高只够看个结果，想要效果和性能可以看 **ax-pipeline** 部署。
-
-<p align="center">
-  <img src="./../../../zh/maixIII/assets/mobilenet_axpi.jpg" alt="img" style="zoom: 100%;" />
-</p>
-
-即可验证效果：[详细可从 maixhub 上获取](https://maixhub.com/model/zoo/89)。
-
-#### ax-pipeline 部署
-
-以上的部署方式都出于快速验证或应用落地的角度进行的，还有一套基于 **bsp sdk** 的 [ax-pipeline](https://github.com/AXERA-TECH/ax-pipeline) 部署方式，它面向既了解 AI 又知道芯片底层 Linux 开发方法的同学，目前内置应用中提供了板子的 **rtsp** 和屏幕双推流 **yolov5** 实时识别以及新增 **yolov5s-seg** 实例分割的程序就是来自于它。
-
-![rtsp-display](./../../../zh/maixIII/assets/rtsp-display.jpg)
-
-#### IPCDemo 部署
-
-这是一个典型的 IPC 演示程序，源码在这里 [axpi_bsp_sdk IPCDemo](https://github.com/sipeed/axpi_bsp_sdk/tree/main/app/IPCDemo) ，其中 IPCDemo 的功能模块有：
-
-- ISP：负责从 Sensor 获取图像 RAW 数据并转为 YUV，最终分 3 路通道输出以上信息。
-- IVPS：图像视频处理模块。实现对视频图形进行一分多、Resize、Crop、旋转等功能。
-- VENC / JENC：视频/JPEG 编码输出。
-- Detect：支持人脸或结构化检测。
-- Web 显示：实现 H264 流的 Web 传输和提供 Web 方式查看实时视频。
-- RTSP 推流：实现 H264 流的 RTSP 封装以及传输。
-- 录像 TF 卡存储：封装 H264 流为 MP4 格式文件并保存至 TF 卡或者 FLASH 空间。
-
-以下视频中的 IPCDemo 程序使用方法请点击<a href="https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html#%E5%86%85%E7%BD%AE%E5%BC%80%E7%AE%B1%E5%BA%94%E7%94%A8" target="blank">内置开箱应用</a>查看。
-
-<p align="center">
-    <iframe src="//player.bilibili.com/player.html?aid=260625114&bvid=BV1me411T7g8&cid=837160730&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="max-width:640px; max-height:480px;"> </iframe>
-</p>
+2. Run command `mntui-connect` to open a wireless internet graphical interface.
+![nmtui](./../../../../hardware/zh/maixIII/assets/nmtui.jpg)
