@@ -33,10 +33,7 @@ For Linux users, if it's difficult to run Programmer application to burn firmwar
 
 New Project：File-->NEW-->FPGA Dsign Project-->OK
 
-<div>
-    <img src="./../../../Tang-Nano-1K/assets/LED-1.png" width=58% alt="new_project">
-    <img src="./../../../Tang-Nano-1K/assets/LED-2.png" width=35% alt="fpga_project">
-</div>
+<img src="./../../../Tang-Nano-1K/assets/LED-1.png" width=35% alt="new_project">
 
 Set Project Name and path, Project Name and project path should be English.
 
@@ -323,7 +320,7 @@ If we want to run application at startup, we need to burn into flash.
 
 This steps are similar to the steps above of burnning to SRAM.
 
-Click the function box below Operation to open the device configuration interface,   then select the External Flash Mode in the Access Mode to burn into external Flash. Finally click the three dots below to select the.fs we generated to download the firmware. Choose the three dots box below to select our generated `.fs` bitstream file. Generally speaking, bitstream firmware file is in the impl -> pnr directory. Finally, select the Generic Flash device from the following external Flash options.
+Click the function box below Operation to open the device configuration interface, then select the External Flash Mode in the Access Mode to burn into external Flash. Finally click the three dots below to select the.fs we generated to download the firmware. Choose the three dots box below to select our generated `.fs` bitstream file. Generally speaking, bitstream firmware file is in the impl -> pnr directory. Finally, select the Generic Flash device from the following external Flash options.
 
 ![flash_mode](./../../../../../../../news/others/20k_lite_start/assets/flash_mode.png)
 

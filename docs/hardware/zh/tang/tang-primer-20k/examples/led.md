@@ -251,7 +251,7 @@ endmodule
 
 完成约束后就要开始运行布局布线了，目的是为了把综合所生成的网表与我们自己定义的约束来通过 IDE 算出最优解然后将资源合理地分配在 FPGA 芯片上。
 
-双击下体红框处的 Place&Route 就开始运行了。
+双击下图红框处的 Place&Route 就开始运行了。
 
 ![place_route](./assets/led_assets/place_route.png)。
 
