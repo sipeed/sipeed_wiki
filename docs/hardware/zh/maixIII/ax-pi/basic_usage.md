@@ -45,7 +45,7 @@ Maix-III AXera-Pi 开发板的 Linux debian11 系统默认使用 root 用户登�
     下载完成后，右键点击文件，选择**以管理员身份运行(A)**即会自动安装。
     ![install-serial](../assets/install-serial.jpg)
     安装完成，可在设备管理器端口处查看设备。
-    
+
 >[有些同学会遇到 Ubuntu22.04 CH340系列串口驱动（没有ttyUSB）问题，点此查看解决方案。](https://blog.csdn.net/qq_27865227/article/details/125538516)
 
 .. details::点我查看 USB UART 接口示意图
@@ -184,7 +184,7 @@ wlan0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
 
 >这里以有线网卡（eth0）为例，decliient 还支持无线 WIFI（wlan0）.
 使用上方 `ifconfig -a` 命令后，如果 eth0 的地址获取失败可使用 `dhclient eth0` 触发 DHCP 获取 IP。
- 
+
 ```bash
 root@AXERA:~# dhclient eth0 &
 [1]+  Done                    dhclient eth0
@@ -230,7 +230,7 @@ USB 网卡会自动 DHCP 配置，直接连接 192.168.233.1 即可，连接方�
 ### 有线以太网（eth0）配置方法
 
 - **查看 eth0 网卡是否存在**
-  
+
 可使用 `dhclient eth0 &` 手动启动 DHCP 客户端获取 IP 地址，得到 ip 后使用 `ifconfig eth0` 命令查看当前网络配置。默认支持千兆网络，只需要开机前将网线插上去，在启动过程中就会自动配置并联网，可以通过 `apt update` 测试软件源更新。
 
 ```bash
@@ -266,10 +266,10 @@ python3 -c "import os, binascii; os.system('sed -i \'/iface eth0 inet dhcp/ahwad
 
 - **查看 WIFI 网卡是否存在**
 
-**wlan0**：无线网卡，使用 DHCP 协议获取 IP 地址，可使用命令 `ifconfig wlan0` 查看当前网络配置。 
+**wlan0**：无线网卡，使用 DHCP 协议获取 IP 地址，可使用命令 `ifconfig wlan0` 查看当前网络配置。
 
 - **如何修改连接的 WIFI 账号密码（会开机自动联网）**
-  
+
 >因硬件的模块的更换，出现 wlan0 不显示的情况请移步[Maix-III 系列 AXera-Pi 常见问题（FAQ）](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html)查看。
 
 默认 WIFI 账号密码配置存放在 `/boot/wpa_supplicant.conf` 里，测试过并支持 Android 手机开放的 WPA-PSK2 热点，配置修改后会在重启后生效（**已过时建议用 nmtui-connect 进行配置连接**)。
@@ -286,7 +286,7 @@ network={
 }
 ```
 
-- **使用 nmtui-connect 可视化联网管理** 
+- **使用 nmtui-connect 可视化联网管理**
 
 系统已预置 NetworkManager 在 `nano /etc/NetworkManager/NetworkManager.conf` 里的 `managed=false` 修改成 `managed=true` 和注释掉 `/etc/network/interfaces` 里的有关于 `wlan0` 的配置（可以打开 `allow-hotplug wlan0` ）后「拔线断电重启」即可使用 `nmtui-connect` 进行联网，但原来的 `wpa_supplicant.conf` 里的配置会失效。
 
@@ -319,7 +319,7 @@ allow-hotplug wlan0
 # iface wlan0 inet dhcp
 ```
 
-在终端使用 `nmtui-connect` 打开可视化联网页面。页面会显示扫描到的 WiFi 信息，使用键盘的**上下左右键**选择要连接的 WiFi 按下**回车键**，页面提示输入 WiFi 密码，输完后选择 `OK` 并按**回车键**则会弹出空白页面，选择 `Quit` 按**回车键**退出，联网完成后可使用 `ifconfig  wlan0` 查询 IP 地址。 
+在终端使用 `nmtui-connect` 打开可视化联网页面。页面会显示扫描到的 WiFi 信息，使用键盘的**上下左右键**选择要连接的 WiFi 按下**回车键**，页面提示输入 WiFi 密码，输完后选择 `OK` 并按**回车键**则会弹出空白页面，选择 `Quit` 按**回车键**退出，联网完成后可使用 `ifconfig  wlan0` 查询 IP 地址。
 
 ![nmtui](./../assets/nmtui.jpg)
 
@@ -428,7 +428,7 @@ Maix-III AXera-Pi 开发板的 Linux 系统默认使用 NTP 协议获取系统�
 
 #### 设置时间方法
 
-- **查看时间** 
+- **查看时间**
 
 ```bash
 cat /sys/class/rtc/rtc0/time && cat /sys/class/rtc/rtc0/date
@@ -439,7 +439,7 @@ root@AXERA:~# cat /sys/class/rtc/rtc0/time && cat /sys/class/rtc/rtc0/date
 ```
 
 - **设置时间**
-  
+
 使用 `hwclock -w -f /dev/rtc0` 写入，只有这个方法可以写进去，确认 RTC 是否写入成功，只需要断电后重启的时间不为 1970 就行。
 
 ### 安装软件
@@ -538,7 +538,7 @@ root@AXERA:~# cat /boot/rc.local
 # python3 /mnt/udisk/alltest.py
 
 if [ -f "/root/boot" ]; then
-  cd /root/ && chmod 777 * && ./boot &  
+  cd /root/ && chmod 777 * && ./boot &
 elif [ -d "/root/app" ]; then
   cd /root/app && chmod 777 *
   if [ -f "./main" ]; then
@@ -638,7 +638,7 @@ exit 0
 
 - dtb.img linux 设备树
 
-## 如何传输文件 
+## 如何传输文件
 
 > 如果在使用 AXera-Pi 途中出现从设备到电脑端文件互传的需求，可根据以下的方式进行传输：
 ###  使用读卡器物理拷贝文件
@@ -1013,6 +1013,8 @@ echo 1 > /sys/class/gpio/gpio68/value
 
 ### UART
 
+> 关闭 ttyS0 交互在开机后用 `systemctl stop serial-getty@ttyS0.service` 串口就不会再出现交互了，但彻底禁用遇到点问题，重启后会恢复，待研究。
+
 系统输出默认是 **ttyS0** ，排针上的是 **ttyS1** ，而虚拟串口是 **ttyGS0**。
 
 ![uart_tty](./../assets/uart_tty.jpg)
@@ -1286,7 +1288,7 @@ cat /proc/ax_proc/uid
 浏览器抓拍录制（web）
 
 - **抓拍图像**
-  
+
 软件经过上文的启动后显示画面，右下角有抓拍和录制的功能图标。
 用户可点击摄像头图标进行抓拍喜欢的场景，抓拍的照片浏览器会自动弹出进行下载方便用户查看存储。
 
@@ -1318,7 +1320,7 @@ cat /proc/ax_proc/uid
 
 设置完成后回到预览页面即可进行人脸及人形识别，IPC 会自动框出识别人脸并且截取人脸的图片，可在预览页面下方点击截取图样放大查看附带信息。
 - 左侧：人脸检测 右侧：人形检测
-  
+
 <html>
   <img src="./../assets/ipc-model.jpg" width=45%>
   <img src="./../assets/ipc-person.jpg" width=45%>
@@ -1363,7 +1365,7 @@ cat /proc/ax_proc/uid
 ```bash
 /home/examples/vin_ivps_joint_venc_rtsp_vo_onvif_mp4v2/run.sh
 ```
- 
+
 .. details::点击查看终端运行图
     ![vlr-run](./../assets/vlc-run.jpg)
 
@@ -1375,7 +1377,7 @@ cat /proc/ax_proc/uid
     ![vlc-urt](./../assets/vlc-urt.jpg)
 
 - 双屏效果如下图示例：
-  
+
 <html>
   <img src="./../assets/rtsp-display.jpg" width=48%>
   <img src="./../assets/rtsp-axpi.jpg" width=48%>
@@ -1401,7 +1403,7 @@ ffplay rtsp://192.168.233.1:8554/axstream0 -fflags nobuffer
 .. details::点击查看 ODM 软件介绍
 
     ONVIF 协议作为全球性的网络视频监控开放接口标准，推进了网络视频在安防市场的应用，特别是促进了高清网络摄像头的普及和运用。 越来越多的前端 IPC 厂家和后端 NVR 及存储提供商加入进来。而 ONVIF Device Manager 是 ONVIF 官方基于协议提供的免费第三方的 ONVIF 协议测试工具，与上文的 VLC 相比性能不同，但 ODM 的内容形式更加多样丰富。
-    
+
    ![odm](./../assets/odm.jpg)
 
 在终端运行下方命令，设备屏幕会跳出 yolov5s 模型运行画面，接着我们来配置 `ODM` 实现 PC 端显示。
@@ -1541,7 +1543,7 @@ cd /home
     <iframe src="//player.bilibili.com/player.html?aid=690497396&bvid=BV1n24y1C7DN&cid=901748014&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 </p>
 
-<!-- 
+<!--
 ### 人体姿态关键点
 
 > /home/run.sh -->
