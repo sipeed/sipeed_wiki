@@ -72,6 +72,12 @@ In addition to using the web page preview directly, you can also log in using SS
 ssh root@192.168.233.1
 ```
 
+### System update
+
+Just replace the corresponding file under `/root/maix_dist`.
+
+[Click to view the update file](https://dl.sipeed.com/shareURL/MaixSense/MaixSense_A075V/03_Firmware)
+
 ## Examples
 
 ### Real shooting of distant, near and far point cloud
@@ -99,7 +105,7 @@ This is a SDK based on Python3. MS-A075V opens its http interface, we can get it
 
 To help user understand the struct of data package and the relevant logic of decoding, we provide decoding related functions that encapsulate http requests and native data, based on which users can do custom development.
 
-**Get SDK**:[Click to download](https://dl.sipeed.com/fileList/others/maixsense_example/matasense_075_tutorial.ipynb)
+**Get SDK**:[Click to download](https://dl.sipeed.com/fileList/others/maixsense_example/maixsense_075_tutorial.ipynb)
 
 **Method**：Install jupyter, connect to the TOF module, then open the `toturial.py` file.
 

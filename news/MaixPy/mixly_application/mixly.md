@@ -42,25 +42,25 @@ tags: K210, Maixduino, Maixdock, Mixly
 
 - 先把我们准备的开发板接入 `PC` 端打开我们安装成功的 **Mixly** 软件，然后在软件下方的操作栏右侧**选择相应的 `Maixduino` 设备**，操作完后**点击上传**连接设备。
 
-        ![mixly_lcd](./accets/mixly_lcd.jpg)
+![mixly_lcd](./accets/mixly_lcd.jpg)
 
-        **上传成功调试信息框会弹出以下日志：**
+**上传成功调试信息框会弹出以下日志：**
 
-        ```bash
-        write file mixly.py...
-        ========> done!
-        NOTICE: mixly_tool.py is the same in board, now skip it!
-        NOTICE: reset.py is the same in board, now skip it!
-        machine reseting...
-        ========> done!
-        set main.py...
-        ========> done!
-        run program...
-        exec(open('mixly.py').read(),globals())
-        >>> 
-        ```
+ ```bash
+write file mixly.py...
+========> done!
+NOTICE: mixly_tool.py is the same in board, now skip it!
+NOTICE: reset.py is the same in board, now skip it!
+machine reseting...
+========> done!
+set main.py...
+========> done!
+run program...
+exec(open('mixly.py').read(),globals())
+>>> 
+```
 
-        >**注意**：如有上传失败现象请检查接线是否正确？是否烧录基础固件？或使用 Kfalsh_gui 整片擦除重新烧录基础固件。
+>**注意**：如有上传失败现象请检查接线是否正确？是否烧录基础固件？或使用 Kfalsh_gui 整片擦除重新烧录基础固件。
 
 ### 界面介绍
 

@@ -92,6 +92,12 @@ Linux：`Password：root` 直接使用以下的命令行登录终端进行操作
 ssh root@192.168.233.1
 ```
 
+### 固件更新
+
+替换 `/root/maix_dist` 下对应的文件即可。
+
+[点击查看更新文件](https://dl.sipeed.com/shareURL/MaixSense/MaixSense_A075V/03_Firmware)
+
 ## 案例：远中近点云实拍
 
 高精度的映射物品摆放距离的差异，点云图可直观清楚感受到更真实的可视化。

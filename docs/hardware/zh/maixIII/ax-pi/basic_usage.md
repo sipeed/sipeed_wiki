@@ -272,7 +272,7 @@ python3 -c "import os, binascii; os.system('sed -i \'/iface eth0 inet dhcp/ahwad
   
 >因硬件的模块的更换，出现 wlan0 不显示的情况请移步[Maix-III 系列 AXera-Pi 常见问题（FAQ）](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html)查看。
 
-默认 WIFI 账号密码配置存放在 `/boot/wpa_supplicant.conf` 里，测试过并支持 Android 手机开放的 WPA-PSK2 热点，配置修改后会在重启后生效（**已过时建议用 mntui-connect 进行配置连接**)。
+默认 WIFI 账号密码配置存放在 `/boot/wpa_supplicant.conf` 里，测试过并支持 Android 手机开放的 WPA-PSK2 热点，配置修改后会在重启后生效（**已过时建议用 nmtui-connect 进行配置连接**)。
 
 ```bash
 root@AXERA:~# cat /boot/wpa_supplicant.conf
@@ -286,7 +286,7 @@ network={
 }
 ```
 
-- **使用 mntui-connect 可视化联网管理** 
+- **使用 nmtui-connect 可视化联网管理** 
 
 系统已预置 NetworkManager 在 `nano /etc/NetworkManager/NetworkManager.conf` 里的 `managed=false` 修改成 `managed=true` 和注释掉 `/etc/network/interfaces` 里的有关于 `wlan0` 的配置（可以打开 `allow-hotplug wlan0` ）后「拔线断电重启」即可使用 `nmtui-connect` 进行联网，但原来的 `wpa_supplicant.conf` 里的配置会失效。
 
@@ -357,7 +357,7 @@ lines 1-23
 
 - **打开 WIFI AP 热点模式（需要更换成 rtl8189fs wifi 模组）**
 
-基于 mntui 联网成功后改用 nmcli 命令。
+基于 nmtui 联网成功后改用 nmcli 命令。
 
 - `nmcli device wifi hotspot ifname wlan0 con-name MyHostspot ssid MyHostspotSSID password 12345678` 即可创建 MyHostspotSSID 的 ap 热点。
 
@@ -432,6 +432,7 @@ Maix-III AXera-Pi 开发板的 Linux 系统默认使用 NTP 协议获取系统�
 
 ```bash
 cat /sys/class/rtc/rtc0/time && cat /sys/class/rtc/rtc0/date
+
 root@AXERA:~# cat /sys/class/rtc/rtc0/time && cat /sys/class/rtc/rtc0/date
 08:13:30
 2022-08-19
@@ -1475,7 +1476,7 @@ nano /home/examples/vin_ivps_joint_vo_pp_human_seg/run.sh
 ```
 
 .. details::点击查看图形化页面
-    修改后按 **ctrl+x** 键会进入保存页面，后续按终端提示操作即可。
+    修改后按 **ctrl+x** 退出键会提示是否保存页面，后续按终端提示操作即可。
     ![pp_human_adb](./../assets/pp_humana_adb.png)
 
 ### uvc_vo
