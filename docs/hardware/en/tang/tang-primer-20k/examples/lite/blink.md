@@ -39,7 +39,7 @@ Set Project Name and path, Project Name and project path should be English.
 
 ![project_path](./../../../../../../../news/others/20k_lite_start/assets/project_path.png)
 
-Select Device we choose GW2A-LV18PG256C8/I7, use filter like below to help us choose device more easy. Note that the Device is GW2A-18C.
+Select Device we choose GW2A-LV18PG256C8/I7, use filter like below to help us choose device more easily. Note that the Device is GW2A-18C.
 
 ![device_choose](./../../../../../../../news/others/20k_lite_start/assets/device_choose.png)
 
@@ -47,9 +47,9 @@ Then click OK to preview the project. After confirming no error, the project is 
 
 ## New file
 
-Gowin IDE contains 3 ways to create file. Here we use shortcuts keys `Ctrl + N` to new a file. The other 2 ways to new file are not mentioned here,
+Gowin IDE contains 3 ways to create file. Here we use shortcut keys `Ctrl + N` to new a file. The other 2 ways to new file are not mentioned here,
 
-In the pop-up windows, we choose `Verilog File`, you can also choose `VHDL File` if you are good at it. Here we just use Verilog as example.
+In the pop-up windows, we choose `Verilog File`, you can also choose `VHDL File` if you are good at it. Here we just use Verilog as an example.
 
 <img src="./../../../../../../../news/others/20k_lite_start/assets/new_verilog_file.png" width=50% alt="new_verilog_file">
 
@@ -87,7 +87,7 @@ The internal logic function is usually composed by the assign and always blocks;
 
 Before coding, we need to think our purpose: The led flashes every 0.5S.
 
-Then we draw demand block diagram as follows:
+Then we draw a demand block diagram as follows:
 
 ![block_method](./assets/block_method.png)
 
@@ -99,11 +99,11 @@ Put the thought diagram into practical use, then it will look like this:
 
 ![clock_time_count](./assets/clock_time_count.png)
 
-The Clock is the clock source, provides the accurate time for the time counter.
+The Clock is the clock source, providing the accurate time for the time counter.
 
 ### Code description
 
-From the verilog introduction and think storm diagram above, we can know the module we will create contains 2 ports:
+From the verilog introduction and think storm diagram above, we can see the module we will create contains 2 ports:
 
 ```v
 module led(
@@ -114,10 +114,10 @@ module led(
 endmodule
 ```
 
-For time counter inside module, crystal oscillator on the Primer 20K core board is 27MHZ, so we have 27 million times rising edges per second, and we just need to count 13500000 times rising edges to get 0.5 seconds. The counter starts form `0`, and to count 13500000 times rising edges, we count to 13499999. when counted to 0.5S, we set a flag to inform LED IO to flip its voltage. The overall count code is as follows:
+For time counter inside module, crystal oscillator on the Primer 20K core board is 27MHZ, so we have 27 million times rising edges per second, and we just need to count 13500000 times rising edges to get 0.5 seconds. The counter starts from `0`, and to count 13500000 times rising edges, we count to 13499999. When counted to 0.5S, we set a flag to inform LED IO to flip its voltage. The overall count code is as follows:
 
 ```v
-//parameter Clock_frequency = 27_000_000; // Crystal oscillator freqiamcy is 27Mhz
+//parameter Clock_frequency = 27_000_000; // Crystal oscillator frequency is 27Mhz
 parameter count_value       = 13_499_999; // The number of times needed to time 0.5S
 
 reg [23:0]  count_value_reg ; // counter_value
@@ -135,7 +135,7 @@ always @(posedge Clock) begin
 end
 ```
 
-The code to vhange IO voltage are as following:
+The code to change IO voltage are as follows:
 
 ```v
 reg IO_voltage_reg = 1'b0; // Initial state
@@ -148,7 +148,7 @@ always @(posedge Clock) begin
 end
 ```
 
-Combined the codes above, it becomes like this:
+Combined with the codes above, it goes like this:
 
 ```v
 module led(
@@ -157,7 +157,7 @@ module led(
 );
 
 /********** Counter **********/
-//parameter Clock_frequency = 27_000_000; // Crystal oscillator freqiamcy is 27Mhz
+//parameter Clock_frequency = 27_000_000; // Crystal oscillator frequency is 27Mhz
 parameter count_value       = 13_499_999; // The number of times needed to time 0.5S
 
 reg [23:0]  count_value_reg ; // counter_value
@@ -224,7 +224,7 @@ According to [Schematic of core board](https://dl.sipeed.com/shareURL/TANG/Prime
 
 <img src="./../../../../../../../news/others/20k_lite_start/assets/crystal_port.png" alt="crystal_port" width=45%>
 
-Take consideration in the IO screen printing on the ext_board, we decide to use the L14 pin on the ext_board for flashing. 
+Taking into consideration the IO screen printing on the ext_board, we decide to use the L14 pin on the ext_board for flashing.
 
 ![l14_port](./../../../../../../../news/others/20k_lite_start/assets/l14_port.png)
 
@@ -293,7 +293,7 @@ Click scan_device marked by red box to scan our device.
 
 ![scan_device](./../../../../../../../news/others/20k_lite_start/assets/scan_device.png)
 
-CLick OK to burn fpga.
+Click OK to burn fpga.
 
 ### Burn to SRAM
 
@@ -309,7 +309,7 @@ Click where the red box is to burn firmware.
 
 ![sram_download](./../../../../../../../news/others/20k_lite_start/assets/sram_download.png)
 
-Go to [Questions](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/questions.html) if you have any trouble。
+Go to [Questions](https://wiki.sipeed.com/hardware/en/tang/Tang-Nano-Doc/questions.html) if you have any trouble。
 
 Here we finished downloading into SRAM。
 
@@ -338,4 +338,4 @@ After using PMOD designed by Sipeed，one led flashes like below.
 
 ## Question
 
-Go to [Questions](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/questions.html) if you have any trouble。
+Go to [Questions](https://wiki.sipeed.com/hardware/en/tang/Tang-Nano-Doc/questions.html) if you have any trouble。

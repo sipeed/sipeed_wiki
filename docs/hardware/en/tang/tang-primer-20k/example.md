@@ -25,8 +25,7 @@ Dock ext-board contains 6 LEDs, we can do many things by them.
   - [Decode_led_on]
   <!-- - (./examples/decode_led_on.md) -->
 - Timing logic operation:
-  - [Counter blink led]
-  <!-- - (./examples/led.md)  -->
+  - [Counter blink led](./examples/led.md)
   - [Flow led]
   <!-- - (./examples/water_led.md) -->
   - Breath_led

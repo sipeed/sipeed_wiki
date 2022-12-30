@@ -23,48 +23,42 @@ For linux user we suggest using [openfpgaLoader](https://wiki.sipeed.com/hardwar
 
 New Project：File-->NEW-->FPGA Dsign Project-->OK
 
-<div>
-    <img src="./../../../../zh/tang/tang-primer-20k/examples/assets/led_assets/new_project.png" width=58% alt="new_project">
-    <img src="./../../../../zh/tang/tang-primer-20k/examples/assets/led_assets/fpga_project.png" width=35% alt="fpga_project">
-</div>
+<img src="./../../Tang-Nano-1K/assets/LED-1.png" width=58% alt="new_project">
 
-设置工程名称，要求只用英文的下划线命名，存放路径中不要有中文字符或者空格等。
+Set Project Name and path, Project Name and project path should be English.
 
 ![project_path](./../../../../zh/tang/tang-primer-20k/examples/assets/led_assets/project_path.png)
 
-然后在下面的芯片型号中选择 GW2A-LV18PG256C8/I7，使用上面的筛选能够更快地选择到正确的型号。注意 Device 那一栏为 GW2A-18C
+Select Device we choose GW2A-LV18PG256C8/I7, use filter like below to help us choose device more easy. Note that the Device is GW2A-18C.
 ![device_choose](./../../../../zh/tang/tang-primer-20k/examples/assets/led_assets/device_choose.png)
-![](./../../../../zh/tang/tang-primer-20k/examples/assets/led_assets/device_choose.png)
 
-然后点击确定后就可以进行最终项目预览了。确认无误后就完成工程创建了。
+Then click OK to preview the project. After confirming no error, the project is created.
 
-## 编写代码
+## New file
 
-### 新建文件
+Gowin IDE contains 3 ways to create file. Here we use shortcut keys `Ctrl + N` to new a file. The other 2 ways to new file are not mentioned here,
 
-高云半导体 IDE 提供了三种新建文件的方法。在此我们直接使用快捷键 `Ctrl + N` 来新建文件，其他两种不在此讲述。
-
-在弹出的窗口中选择 `Verilog File`，会 VHDL 的也可以选择下面的 `VHDL File`，这篇文章只用 Verilog 来做点灯示例。
+In the pop-up windows, we choose `Verilog File`, you can also choose `VHDL File` if you are good at it. Here we just use Verilog as example.
 
 <img src="./../../../../zh/tang/tang-primer-20k/examples/assets/led_assets/new_verilog_file.png" width=50% alt="new_verilog_file">
     
-点击 OK 之后会提示让我们输入文件名称，此处以 `led` 为文件名做示范。
+Then click OK to set the file name, here we take `led` as the verilog file name as example.
 
 <img src="./../../../../zh/tang/tang-primer-20k/examples/assets/led_assets/file_name.png" width=75% alt="file_name">
 
-到这里我们就完成文件的创建了，可以直接编写代码了。
+Up to now we have finished creating file, then we need to prepare our code.
 
 ![created_file](./../../../../zh/tang/tang-primer-20k/examples/assets/led_assets/created_file.png)
 
-### Verilog 简单说明
+### Verilog introduction
 
-Verilog 是一种硬件描述语言，用来对数字电路进行抽象化描述。
+Verilog is a kind of Hardware Description Language(HDL), it's used to describe digital circuits.
 
-Verilog 的基本设计单元是“模块”(module)。
+The basic unit in Verilog is module.
 
-一个模块是由两部分组成的：一部分描述接口，另一部分描述内部逻辑功能，即定义输入是如何影响输出的。
+A module is composed of two parts: one describes the interface, and the other describes the internal logic function, that is, defines how the input affects the output.
 
-一个模块长成这样：
+A module is like this:
 
 ```v
 module module_name
@@ -74,38 +68,37 @@ module module_name
 endmodule
 ```
 
-模块整体结构由 module 和 endmodule 组成，module 后面跟着的是模块的名称(module_name)，可传递变量参数(parameter)，端口及其方向的申明(port)，紧接着就是内部逻辑功能描述(function) ,最后用 endmodule 来表示这一个模块，描述完毕。
+The module starts from module and ends by endmodule. The module is followed by the module name (module_name), transitable variable parameters (parameter), port and direction declaration (port), followed by internal logic function description (function), and finally, endmodule is used to represent this module.
 
-内部逻辑功能通常由 assign 和 always 块完成；其中 assign 语句描述逻辑功能，always 块常用于描述时序功能。
+The internal logic function is usually composed by the assign and always blocks; The assign statement describes logical circuit, and the always block is used to describe timing circuit.
 
-### 阻塞赋值与非阻塞赋值
+### Blocking and Non-blocking assignments
 
-在时序逻辑描述中，赋值符号有 `=` 和 `<=` 两种。注意 `<=` 在 if 判断语句中为小于或等于，不是赋值符号。
+In timing logic, there are two assignment symbols: `=` and `<=`. Note that `<=` means less than or equal to in the if statement, and is not an assignment symbol in the if statement.
 
-详细解释查看底部的 [阻塞赋值与非阻塞赋值区别](#阻塞赋值与非阻塞赋值区别)
+Visit the [difference between Blocking and Non-blocking assignments](#difference-between-blocking-and-non-blocking-assignments)
 
+### Think storm
 
-### 代码思路
+Before coding, we need to think our purpose: The led flashes every 0.5S.
 
-写代码前我们需要先想清楚代码目的：每隔 0.5S 灯闪一次。
+Then we draw a demand block diagram as follows:
 
-对此所画的需求框图如下：
+![block_method](./lite/assets/block_method.png)
 
-![block_method](./../../../../zh/tang/tang-primer-20k/examples/assets/led_assets/block_method.png)
+Then we need a counter to time of every 0.5S, LED flashes means IO flip.
 
-然后对于 0.5S 我们需要一个计数器来计时，LED 灯闪就是 IO 翻转
+![count_block](./lite/assets/time_count.png)
 
-![count_block](./../../../../zh/tang/tang-primer-20k/examples/assets/led_assets/time_count.png)
+Put the thought diagram into practical use, then it will look like this:
 
-把上面的思维框图具体到实际使用的话，就变成下面的样式了:
+![clock_time_count](./lite/assets/clock_time_count.png)
 
-![clock_time_count](./../../../../zh/tang/tang-primer-20k/examples/assets/led_assets/clock_time_count.png)
+The Clock is the clock source, providing the accurate time for the time counter.
 
-其中 Clock 为时钟源，用来给计时器提供准确的时间。
+### Code description
 
-### 代码描述
-
-根据上文 Verilog 简单说明和所描述的框图，可以所要编写 Verilog 模块有 Clock 和 IO电平 两个端口；
+From the verilog introduction and think storm diagram above, we can see the module we will create contains 2 ports:
 
 ```v
 module led(
@@ -116,42 +109,41 @@ module led(
 endmodule
 ```
 
-对于内部的计时模块，Primer 20K 核心板上的晶振为 27MHZ，因此我们每秒钟会有 27000000 个时钟上升沿，想要 0.5S 计数的话那么只需要计数 13500000 次上升沿就好。计数是从 0 开始的，数 13500000 的话就是从 0 数到 13499999。计数完后我们需要设置一个标志位，来通知 LED 的 IO 翻转一下电平。整体计数代码如下：
+For time counter inside module, crystal oscillator on the Primer 20K core board is 27MHZ, so we have 27 million times rising edges per second, and we just need to count 13500000 times rising edges to get 0.5 seconds. The counter starts from `0`, and to count 13500000 times rising edges, we count to 13499999. When counted to 0.5S, we set a flag to inform LED IO to flip its voltage. The overall count code is as follows:
 
 ```v
-//parameter Clock_frequency = 27_000_000; // 时钟频率为27Mhz
-parameter count_value       = 13_499_999; // 计时 0.5S 所需要的计数次数
+//parameter Clock_frequency = 27_000_000; // Crystal oscillator frequency is 27Mhz
+parameter count_value       = 13_499_999; // The number of times needed to time 0.5S
 
-reg [23:0]  count_value_reg ; // 计数器
-reg         count_value_flag; // IO 电平翻转标志
+reg [23:0]  count_value_reg ; // counter_value
+reg         count_value_flag; // IO chaneg flag
 
 always @(posedge Clock) begin
-    if ( count_value_reg <= count_value ) begin //没有计数到 0.5S
-        count_value_reg  <= count_value_reg + 1'b1; // 继续计数
-        count_value_flag <= 1'b0 ; // 不产生翻转标志
+    if ( count_value_reg <= count_value ) begin //not count to 0.5S
+        count_value_reg  <= count_value_reg + 1'b1; // Continue counting
+        count_value_flag <= 1'b0 ; // No flip flag
     end
-    else begin //计数到 0.5S 了
-        count_value_reg  <= 23'b0; // 清零计数器，为重新计数最准备
-        count_value_flag <= 1'b1 ; // 产生翻转标志
+    else begin //Count to 0.5S
+        count_value_reg  <= 23'b0; // Clear counter,prepare for next time counting.
+        count_value_flag <= 1'b1 ; // Flip flag
     end
 end
 ```
 
-对于 LED IO 电平翻转代码如下：
+The code to change IO voltage are as follows:
 
 ```v
-reg IO_voltage_reg = 1'b0; // 声明 IO 电平状态用于达到计时时间后的翻转，并赋予一个低电平初始态
+reg IO_voltage_reg = 1'b0; // Initial state
 
 always @(posedge Clock) begin
-    if ( count_value_flag )  //  电平翻转标志有效
-        IO_voltage_reg <= ~IO_voltage_reg; // IO 电平翻转
-    else //  电平翻转标志无效
-        IO_voltage_reg <= IO_voltage_reg; // IO 电平不变
+    if ( count_value_flag )  //  Flip flag 
+        IO_voltage_reg <= ~IO_voltage_reg; // IO voltage filp
+    else //  No flip flag
+        IO_voltage_reg <= IO_voltage_reg; // IO voltage constant
 end
 ```
 
-
-将上面的代码整合后就变成了下面的内容:
+Combined with the codes above, it goes like this:
 
 ```v
 module led(
@@ -159,176 +151,168 @@ module led(
     output IO_voltage
 );
 
-/**********计时部分**********/
-//parameter Clock_frequency = 27_000_000; // 时钟频率为27Mhz
-parameter count_value       = 13_499_999; // 计时 0.5S 所需要的计数次数
+/********** Counter **********/
+//parameter Clock_frequency = 27_000_000; // Crystal oscillator frequency is 27Mhz
+parameter count_value       = 13_499_999; // The number of times needed to time 0.5S
 
-reg [23:0]  count_value_reg ; // 计数器
-reg         count_value_flag; // IO 电平翻转标志
+reg [23:0]  count_value_reg ; // counter_value
+reg         count_value_flag; // IO chaneg flag
 
 always @(posedge Clock) begin
-    if ( count_value_reg <= count_value ) begin //没有计数到 0.5S
-        count_value_reg  <= count_value_reg + 1'b1; // 继续计数
-        count_value_flag <= 1'b0 ; // 不产生翻转标志
+    if ( count_value_reg <= count_value ) begin //not count to 0.5S
+        count_value_reg  <= count_value_reg + 1'b1; // Continue counting
+        count_value_flag <= 1'b0 ; // No flip flag
     end
-    else begin //计数到 0.5S 了
-        count_value_reg  <= 23'b0; // 清零计数器，为重新计数最准备
-        count_value_flag <= 1'b1 ; // 产生翻转标志
+    else begin //Count to 0.5S
+        count_value_reg  <= 23'b0; // Clear counter,prepare for next time counting.
+        count_value_flag <= 1'b1 ; // Flip flag
     end
 end
-reg IO_voltage_reg = 1'b0; // 声明 IO 电平状态用于达到计时时间后的翻转，并赋予一个低电平初始态
 
-/**********电平翻转部分**********/
+/********** IO voltage flip **********/
+reg IO_voltage_reg = 1'b0; // Initial state
+
 always @(posedge Clock) begin
-    if ( count_value_flag )  //  电平翻转标志有效
-        IO_voltage_reg <= ~IO_voltage_reg; // IO 电平翻转
-    else //  电平翻转标志无效
-        IO_voltage_reg <= IO_voltage_reg; // IO 电平不变
+    if ( count_value_flag )  //  Flip flag 
+        IO_voltage_reg <= ~IO_voltage_reg; // IO voltage filp
+    else //  No flip flag
+        IO_voltage_reg <= IO_voltage_reg; // IO voltage constant
 end
 
-
-/**********补充一行代码**********/
+/***** Add an extra line of code *****/
 assign IO_voltage = IO_voltage_reg;
 
 endmodule
 ```
 
-上面代码最后面补充了一行代码，是因为 IO_voltage 声明在了 port 位置，默认为 wire 型，想要将它与 reg 变量 IO_voltage_reg 连接起来，需要用到 assign 语句。
+Because the `IO_voltage` is declared in the port position, which is wire type by default. To connect it to the reg variable `IO_voltage_reg`, we need to use assign. 
 
-## 综合，约束，布局布线
+## Synthesize, constrain, place&route
 
-### 综合
+### Synthesize
 
-代码保存后，可以双击 IDE 内部的 Process -> Synthesize 来进行代码综合，将 verilog 代码内容转换为综合网表。
+After finishing the code, go to the "Process" interface and double click "Synthesize" to synthesize our code to convert the verilog code content to netlist.
 
-![synthesize](./../../../../zh/tang/tang-primer-20k/examples/assets/led_assets/synthesize.png)
+![Synthesize](./../../../../../../news/others/20k_lite_start/assets/synthesize.png)
 
-关于网表有兴趣的可以自己去查阅相关资料，此处不再额外说明。
+### Constraint
 
-### 约束
+After Synthesizing our code, we need to set constrains to bind the ports defined in our code to fpga pins, by which we can realize our module function on fpga. 
 
-综合完之后我们需要进行管脚约束，才能将所编写的模块端口与 FPGA 引脚相对应，并且实现模块的功能。
-
-点击上图 Synthesize 上面的 FloorPlanner 来进行管脚约束。
+Click the FloorPlanner in the top of Synthesize to set constrains.
 
 ![floorplanner](./../../../../zh/tang/tang-primer-20k/examples/assets/led_assets/floorplanner.png)
 
-由于是首次创建，所以会弹出下面的对话框，点击 OK 后就弹出了图形化约束交互界面。
+Since this is the first time we create it, the following dialog box will pop up. Click OK and the graphical constraint interface will pop up.
 
 ![create_constrain_file](./../../../../zh/tang/tang-primer-20k/examples/assets/led_assets/create_constrain_file.png)
 
 ![floorplanner_intreface](./../../../../zh/tang/tang-primer-20k/examples/assets/led_assets/floorplanner_interface.png)
 
-关于约束的方法可以查看 [SUG935-1.3_Gowin设计物理约束用户指南.pdf](http://cdn.gowinsemi.com.cn/SUG935-1.3_Gowin%E8%AE%BE%E8%AE%A1%E7%89%A9%E7%90%86%E7%BA%A6%E6%9D%9F%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97.pdf)
+The ways to constraint the file can be get from this docs: [SUG935-1.3E_Gowin Design Physical Constraints User Guide.pdf](https://dl.sipeed.com/fileList/TANG/Nano%209K/6_Chip_Manual/EN/General%20Guide/SUG935-1.3E_Gowin%20Design%20Physical%20Constraints%20User%20Guide.pdf)
 
-此处因个人喜所以仅使用下图中 IO Constranins 方法来约束引脚：
+Here we only use the IO Constranins method shown below to constrain the pins:
 
 ![floor_planner_ioconstrain](./../../../../zh/tang/tang-primer-20k/examples/assets/led_assets/floor_planner_ioconstrain.png)
 
-根据[核心板原理图](https://dl.sipeed.com/fileList/TANG/Primer_20K/02_Schematic/)，我们可以知道晶振所输入的引脚为 H11。
+According to [Schematic of core board](https://dl.sipeed.com/shareURL/TANG/Primer_20K/02_Schematic), we can know the input pin of crystal oscillator is H11。
 
 <img src="./../../../../zh/tang/tang-primer-20k/examples/assets/led_assets/crystal_port.png" alt="crystal_port" width=45%>
 
-然后结合底板上的 IO 丝印，决定用底板上的 FPGA 的 L14 引脚进行点灯，对应的 LED 编号为 LED4。
+Taking into consideration the IO screen printing on the ext_board, we decide to use the L14 pin on the ext_board for flashing.
 
 ![led_port](./../../../../zh/tang/tang-primer-20k/examples/assets/led_assets/led_port.png)
 
-因此对于在 FloorPlanner 交互窗口下面的 IO Constranins 中将 PORT（端口）与 Location（引脚） 分别填入下面的值：
+So for the IO Constranins under the FloorPlanner interactive window, we fill in the following values for PORT and Location:
 
 ![io_constrain_value](./../../../../zh/tang/tang-primer-20k/examples/assets/led_assets/io_constrain_value.png)
 
-输入完毕后快捷键 Ctrl + S 来保存一下引脚约束，然后接可以关闭 FloorPlanner 的交互图形界面了。
+Finishing filling, use `Ctrl + S` to save constraints file, then close FloorPlanner interactive graphical interface.
 
-接着发现在工程项目里面多出来刚刚创建的 cst 文件了，里面的内容也比较好理解。
+Then we see there is a .cst file in our project, and its content are easy to understand. 
 
 ![cst_content](./../../../../zh/tang/tang-primer-20k/examples/assets/led_assets/cst_content.png)
 
-### 布局布线
+### Place & Route
 
-完成约束后就要开始运行布局布线了，目的是为了把综合所生成的网表与我们自己定义的约束来通过 IDE 算出最优解然后将资源合理地分配在 FPGA 芯片上。
+After finishing constrainting, we run Place & Route. The purpose is to synthesize the generated netlist and our defined constraints to calculate the optimal solution through IDE, then allocate resources reasonably on the FPGA chip.
 
-双击下体红框处的 Place&Route 就开始运行了。
+Couble click Place&Route marked with red box to run.
 
 ![place_route](./../../../../zh/tang/tang-primer-20k/examples/assets/led_assets/place_route.png)。
 
-紧接着没有报错，全部通过。就可以开始进行烧录了。
+Then there is no error, everything works well, we can burn our fpga.
 
-## 烧录固件
+## Burn bitstream
 
-Dock 板载了下载器，在 [安装IDE](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/get_started/install-the-ide.html) 地时候我们已经安装了驱动。因此我们将板子与电脑连接起来就行。
+There is onboard programmer for downloading bitstream, and drivers have been installed when [install IDE](https://wiki.sipeed.com/hardware/en/tang/Tang-Nano-Doc/install-the-ide.html), we connect dock ext-board with computer.
 
 ![connected](./../../../../zh/tang/tang-primer-20k/examples/assets/led_assets/connected.png)
 
-对于 Programmer 软件建议使用高云官网下载到 [点我跳转](http://www.gowinsemi.com.cn/faq.aspx) ，下载下图所示的 Programmer 软件即可。
+### Scan device
 
-![educational_edition_programmer](./../../../../zh/tang/tang-primer-20k/examples/assets/led_assets/educational_edition_programmer.png)
+Make sure you have enabled the core board first, put the 1 switch on the dip switch down.
 
-### 扫描设备
+![Enable_core_board](./../../../../zh/tang/tang-primer-20k/examples/assets/start/switch_1_on.png)
 
-在使用 Dock 底板的时候不要忘记使能核心板，按下 1 号拨码开关即可。
-
-![Enable_core_board](./../../../../../zh/tang/tang-primer-20k/examples/assets/start/switch_1_on.png)
-
-双击下图中的下载程序(Program Device) 来运行 Programmer 软件
+Double click `Program Device` to run Programmer application
 
 ![open_programmer](./../../../../zh/tang/tang-primer-20k/examples/assets/led_assets/open_programmer.png)
 
-然后在打开的页面中点击一下 scan_device 来扫描到我们的设备。
+Click scan_device to scan device
 
 ![scan_device](./../../../../zh/tang/tang-primer-20k/examples/assets/led_assets/scan_device.png)
 
-点击 OK 后就可以进行烧录操作了。
+Click OK to burn device.
 
-烧录相关的文档可以参考 [SUG502-1.3_Gowin_Programmer用户指南.pdf](http://cdn.gowinsemi.com.cn/SUG502-1.3_Gowin_Programmer%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97.pdf)
+### Burn to SRAM
 
-### 下载到 SRAM
+Normally this mode is used to verify biststream.
 
-一般来说这个模式是以用来快速验证所生成的固件是否满足自己目的的。
+Because of its fast burning characteristics so the use of more, but of course the power will lose data, so if you want to power on the running program you can't choose this mode.
 
-因为其烧录快的特性所以使用的较多，然是当然断电会丢失数据，所以如果想上电运行程序的话是不能选这个的。
-
-点击 Operation 下面的功能框来打开设备设置界面，接着在 Operation 框中选择 SRAM Program 选项来设置为下载到 SRAM ，最后点击下面的那三个点点框来选择我们所生成的 .fs 下载固件。通常来说下载固件生成与工程文件目录下的 impl -> pnr 目录下。
+Click the function box below Operation to open the device configuration interface, then select the SRAM Mode option in Access Mode to set to download to SRAM, and finally click the three dots box below to select our generated `.fs` bitstream file . Generally speaking, bitstream firmware file is in the impl -> pnr directory.
 
 ![sram_mode](./../../../../zh/tang/tang-primer-20k/examples/assets/led_assets/sram_mode.png)
 
-接着来点击红框处开始进行烧录 
+Click where the red box is to burn firmware.
 
 ![sram_download](./../../../../zh/tang/tang-primer-20k/examples/assets/led_assets/sram_download.png)
 
-有问题的话可以前往 [常见问题](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/questions.html) 自行排查。
+Go to [Questions](https://wiki.sipeed.com/hardware/en/tang/Tang-Nano-Doc/questions.html) if you have any trouble。
 
-到这里就下载完成了。
+Here we finished downloading into SRAM。
 
-### 下载到 Flash
+### Burn into Flash
 
-上面说过下载到 SRAM 是为了快速验证，但是不能上电运行程序。
-所以想要上电运行的话我们需要设置下载到 Flash。
+Burnning into sram is used for verifying biststream, but can't store program.
+If we want to run application at startup, we need to burn into flash.
 
-和上面下载到 SRAM 的步骤几乎类似，先点开 Operation 下面的功能框来打开设备设置界面，接着在 Operation 框中选择 External Flash Mode 选项来设置为下载到外部 Flash ，最后点击下面的那三个点点框来选择我们所生成的 .fs 下载固件，通常来说下载固件生成与工程文件目录下的 impl -> pnr 目录下。最后在下面的外部 Flash 选项中选择设备为 Generic Flash 。
+This steps are similar to the steps above of burnning to SRAM.
 
-![flash_mode](./../../../../zh/tang/tang-primer-20k/examples/assets/led_assets/flash_mode.png)
+Click the function box below Operation to open the device configuration interface, then select the External Flash Mode in the Access Mode to burn into external Flash. Finally click the three dots below to select the.fs we generated to download the firmware. Choose the three dots box below to select our generated `.fs` bitstream file. Generally speaking, bitstream firmware file is in the impl -> pnr directory. Finally, select the Generic Flash device from the following external Flash options.
 
-接着来点击红框处开始进行烧录 
+![flash_mode](./../../../../../../../news/others/20k_lite_start/assets/flash_mode.png)
 
-![flash_download](./../../../../zh/tang/tang-primer-20k/examples/assets/led_assets/flash_download.png)
+Click where the red box is to burn firmware.
 
-然后我们的程序重新上电也能照样运行了。
+![flash_download](./../../../../../../../news/others/20k_lite_start/assets/flash_download.png)
 
-## 代码结果
+Then we can run our program when power on.
 
-如图所示，只有一个灯在闪。
+### Result
+
+One led flashes like below.
 
 ![led_blink](./../../../../zh/tang/tang-primer-20k/examples/assets/led_assets/led_blink.gif)
 
-## 结语
+## End
 
-到这里我们就已经完成了 FPGA 的 “Hello world” 了。以后的示例工程不会再叙述新建文件等操作了。
+Up to now we have finished blinking led on fpga, and know how to use GOWIN IDE with fpga.。
 
-## 阻塞赋值与非阻塞赋值区别
+## Difference between Blocking and Non-blocking assignments
 
-以下内容搬运自 `大猪蹄子` （有改动）：
-
-编写一段简单的代码，对它进行简单的仿真：
+Write a simple codes and simulate it:
 
 ```v
 module test(
@@ -350,28 +334,26 @@ endmodule
 
 ![simulation_result](./../../../../zh/tang/tang-primer-20k/examples/assets/led_assets/simulation_result.png)
 
-根据仿真结果我们可以看出阻塞和非阻塞赋值的差别。这里对比 `B` `C` `D` `E` 四种结果。`<=` 叫做非阻塞赋值，同一个 `always` 中的 `<=` 会同时执行。这就造成了绿框内的情况：`B` 直接被赋予 `A` 的值同时 `C` 被赋予 `B` 的值。由于这两步是同时进行的，就导致 `C` 被赋予的值是 `B` 的旧值，也就造成了图中所示，`C` 的数据变化时钟要慢 `B` 一个时钟周期。再说阻塞赋值 `=`，也就是说同一个 `always` 中上一个 `=` 语句执行完才会执行下一个 `=` 语句。在这个代码中，上一个语句 `D` 已经被赋予了 `A` 的值，才执行把 `D` 的值赋给 `E`，所以 `D` 、`E` 的值在仿真中始终保持一致。
+According to the simulation results, we can see the difference between blocking and non-blocking assignments by comparing the `B` `C` `D` `E` four results. `<=` is non-blocking assignments, and all `<=` in a `always` run at the same time, this lead the result in green box, `B` is assigned the value of `A` while `C` is assigned the value of `B`, this happens at the same time, so `C` is assigned the old value of `B`, the value of `C` is one clock delay of `B`. `=` is blocking assignments, all `=` in a `always` runs sequentially. In this code, `D` is assigned the value of `A`, then `D` is assigned the value of `E`, so `D` and `E` are the same value.
 
-> 不过一般来说，不建议在时序逻辑中使用阻塞赋值 `=`。
+> In general, however, blocking assignment is not recommended in timing logic.
 
-也得出了额外两个结论：
-- 第一，输入的数据不是完全有效，以时钟边沿时刻的输入数据为准。`posedge` 就是以上升沿执行，`negedge` 就是以下降沿执行。如果数据维持的时间小于一个时钟周期，就很有可能采集不到（如红框所示）。
-- 第二、每次触发特定时钟边沿，对应的 `always` 块就会从头到尾执行一次代码（如绿框所示），而不是从中间某处执行。
+And we get two results:
+- Input data is not always valid, it depends on the clock edge. If the data is maintained for less than one clock cycle, it may regard useless data.
+- Everytime Triggerring the edge clock, the `always` block runs from begin to the end, not runs from the middle.
 
-## 常见问题
+## Questions
 
 ### No Cable found
 
-检查设备管理器里有没有下图这两个，没有的话需要安装 Programmer 驱动。
+Check if there are two converters in device manager, reinstall programmer driver if there are no two converters in device manager.
 
-![converter](./../../../../../../zh/tang/tang-primer-20k/examples/assets/questions/converter.png)
-
-确定有 converter 设备的话在确认用的是不是所要求使用的 Programmer, 本文[这里](#烧录固件)有写过。
+![converter](./../../Tang-Nano-Doc/assets/questions/usb_converter.png)
 
 ### No gowin device found
 
-确认自己使能了核心板。
+Make sure you have enabled the core board.
 
-### 其他问题
+### Other questions
 
-前往 [Gowin 板卡常见问题查看](./../../Tang-Nano-Doc/questions.md)
+Visit [Gowin errors to solve this problem](./../../Tang-Nano-Doc/questions.md)

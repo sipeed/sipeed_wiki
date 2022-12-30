@@ -440,18 +440,6 @@ AX-Pipeline is provided by Axera. With m3axpi, this project is used for pepole t
 </tbody>
 </table>
 
-<!-- | 项目       | 参数                                                                   |
-| ---------- | ---------------------------------------------------------------------- |
-| 摄像头输入 | （默认单摄）最高支持 3 摄:1 个 MIPI4-LANE+2 个 MIPI2-LANE              |
-| 屏幕输出   | 支持最高 4-LANE MIPI DSI 屏幕                                          |
-| SD 插槽    | 默认从 SD 卡启动                                                       |
-| 录音输入   | 板载两个 MEMS MIC 支持双麦降噪                                         |
-| 音频输出   | 3.5MM 耳机接口 支持立体声输入和 MIC 输入                               |
-| 网络接口   | 支持 千兆以太网（ETH） 和 2.4GHZ WI-FI 板载天线                        |
-| USB 接口   | 1xUSB2.0HS 支持 OTG 或 HOST 功能，1xUSB-UART 系统串口                  |
-| 其他资源   | 1x 用户按键，3x 系统按键，1xRTC 时钟，2xLED                            |
-| 对外接口   | 引出 CJTAG，可自行连接相应调试器，引出 2x12 排针，4 个 M2.5 螺丝定位孔 | -->
-
 [Summary of Hardware imformations](https://dl.sipeed.com/shareURL/MaixIII/AXera)
 
 - [Schematic](https://dl.sipeed.com/shareURL/MaixIII/AXera/02_Schematic)

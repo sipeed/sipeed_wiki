@@ -234,8 +234,6 @@ Dock 板载了下载器，在 [安装IDE](https://wiki.sipeed.com/hardware/zh/ta
 
 ![converter](./../../assets/questions/converter.png)
 
-确定有 converter 设备的话在确认用的是不是所要求使用的 Programmer, 本文[这里](#烧录固件)有写过。
-
 ### No gowin device found
 
 确认自己使能了核心板。
