@@ -301,6 +301,12 @@ AX-Pipeline 由爱芯主导开发。该项目基于 AXera-Pi 展示 ISP、图像
 - [MAIX-III AXera-Pi爱芯派从零入门开发【3】模型转换及部署](https://www.bilibili.com/video/BV1jg411z7C8/?spm_id_from=333.999.0.0)
 - [MAIX-III AXera-Pi爱芯派从零入门开发【4】视频推理及推流](https://www.bilibili.com/video/BV14D4y147Ed/?spm_id_from=333.999.0.0)
 
+产品相关的专栏内容有：
+
+- [MAIX-III AXera-Pi 系列文章（1）：新一代 3.6T 视觉 AI 板卡面世](https://aijishu.com/a/1060000000374898)
+- [MAIX-III AXera-Pi 系列文章（2）：丰富多采的 AI 应用](https://aijishu.com/a/1060000000374900)
+- [MAIX-III AXera-Pi 系列文章（3）：Debian 系统 & 开箱案例](https://aijishu.com/a/1060000000374902)
+
 产品相关的新闻内容有：
 
 - [AI ISP 的黎明——大话成像](https://axera-tech.com/tech/T7297054127901756535)
@@ -312,7 +318,7 @@ AX-Pipeline 由爱芯主导开发。该项目基于 AXera-Pi 展示 ISP、图像
 
 ## 新品活动
 
-### 产品开箱测评公示（进行中）
+### 产品开箱测评公示（已截止）
 
 - **活动内容**：为给社区小伙伴们提供良好的开箱回赠，本活动面向已购买**全功能套餐**的同学征集产品测评，将测评在此公示的同学可找**大佬鼠**领取 [MaixII M2DOCK](./../../maixII/M2/resources.md) 、 [TANG NANO 9K](./../../tang/Tang-Nano-9K/Nano-9K.md) 、 [MAIXSENSE A010](./../../maixsense/maixsense-a010/maixsense-a010.md) 等产品三选一作为奖品发放。
 
@@ -332,7 +338,7 @@ AX-Pipeline 由爱芯主导开发。该项目基于 AXera-Pi 展示 ISP、图像
 
 - [小手智联老徐 —— AI 边缘计算平台 - 爱芯元智 AX620A 爱芯派开箱](https://blog.csdn.net/weixin_43978579/article/details/127966677)
 
-### 模型训练测评公示（进行中）
+### 模型训练测评公示（已截止）
 
 > 使用 maixhub.com 需要先注册账号登陆，才能正常使用查看分享的模型和在线训练模型。
 

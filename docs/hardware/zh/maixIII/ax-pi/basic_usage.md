@@ -264,29 +264,37 @@ python3 -c "import os, binascii; os.system('sed -i \'/iface eth0 inet dhcp/ahwad
 
 ### 无线 WIFI （wlan0）配置方法
 
+>**20230103** 后镜像更新及更换新硬件（rtl8189fs）WiFi 模组，相关的 `WiFi` 配置全部采用 `nmtui` 图形化或命令行进行联网。相关的硬件版本区分或出现 `wlan0` 不显示的情况都请移步[ Maix-III 系列 AXera-Pi 常见问题（FAQ）](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html)查看。
+
 - **查看 WIFI 网卡是否存在**
 
 **wlan0**：无线网卡，使用 DHCP 协议获取 IP 地址，可使用命令 `ifconfig wlan0` 查看当前网络配置。
 
-- **如何修改连接的 WIFI 账号密码（会开机自动联网）**
+#### 使用 nmtui-connect 命令行联网
 
->因硬件的模块的更换，出现 wlan0 不显示的情况请移步[Maix-III 系列 AXera-Pi 常见问题（FAQ）](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html)查看。
+>注意：新镜像（**20230103**）已提前配置好 `nmtui-connect` 直接可以根据下文进行联网。
+>旧版本使用前需先配置 `nmtui-connect` 才可使用，可点击前往[ 启动 nmtui-connect 图形化联网 ](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html#配置-nmtui-connect-使用图形化联网)查看。
 
-默认 WIFI 账号密码配置存放在 `/boot/wpa_supplicant.conf` 里，测试过并支持 Android 手机开放的 WPA-PSK2 热点，配置修改后会在重启后生效（**已过时建议用 nmtui-connect 进行配置连接**)。
+用户修改以下命令行的 `账户密码` 直接在终端运行连接即可，系统会自动保存连接过的 WiFi 账户以及密码。
 
 ```bash
-root@AXERA:~# cat /boot/wpa_supplicant.conf
-ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
-update_config=1
-
-network={
-    ssid="Sipeed_Guest"
-    key_mgmt=WPA-PSK
-    psk="qwert123"
-}
+nmcli device wifi connect Sipeed_Guest password qwert123
 ```
 
-- **使用 nmtui-connect 可视化联网管理**
+.. details::点击查看修改示例图
+
+    ![nmtui_adb](./../assets/nmtui_adb.png)
+
+#### 使用 nmtui-connect 图形化联网
+
+终端输入 `nmtui-connect` 打开可视化联网页面。页面会显示扫描到的 WiFi 信息，使用键盘的 **上下左右** 键选择要连接的 WiFi 按下 **回车** 键，页面提示输入 WiFi 密码，输完后选择 `OK` 并按 **回车** 键则会弹出页面，选择 `Quit` 按 **回车** 键退出，页面会显示 * 标变动代表联网完成。
+
+<html>
+  <img src="./../assets/nmtui_one.png" width=45%>
+  <img src="./../assets/nmtui_two.png" width=45%>
+</html>
+
+#### 启动 nmtui-connect 图形化联网 
 
 系统已预置 NetworkManager 在 `nano /etc/NetworkManager/NetworkManager.conf` 里的 `managed=false` 修改成 `managed=true` 和注释掉 `/etc/network/interfaces` 里的有关于 `wlan0` 的配置（可以打开 `allow-hotplug wlan0` ）后「拔线断电重启」即可使用 `nmtui-connect` 进行联网，但原来的 `wpa_supplicant.conf` 里的配置会失效。
 
@@ -318,10 +326,6 @@ allow-hotplug wlan0
 # wpa-conf /boot/wpa_supplicant.conf
 # iface wlan0 inet dhcp
 ```
-
-在终端使用 `nmtui-connect` 打开可视化联网页面。页面会显示扫描到的 WiFi 信息，使用键盘的**上下左右键**选择要连接的 WiFi 按下**回车键**，页面提示输入 WiFi 密码，输完后选择 `OK` 并按**回车键**则会弹出空白页面，选择 `Quit` 按**回车键**退出，联网完成后可使用 `ifconfig  wlan0` 查询 IP 地址。
-
-![nmtui](./../assets/nmtui.jpg)
 
 > [配置 NetworkManager 参考](https://support.huaweicloud.com/bestpractice-ims/ims_bp_0026.html#section1) & [linux系统中使用nmtui命令配置网络参数（图形用户界面）](https://www.cnblogs.com/liujiaxin2018/p/13910144.html)
 
@@ -362,6 +366,23 @@ lines 1-23
 - `nmcli device wifi hotspot ifname wlan0 con-name MyHostspot ssid MyHostspotSSID password 12345678` 即可创建 MyHostspotSSID 的 ap 热点。
 
 > 目前 rtl8723bs WIFI 能打开，但连上会重启板子，网卡驱动问题暂时不修，更换成 rtl8189fs 即可正常使用。
+
+- **如何修改连接的 WIFI 账号密码（会开机自动联网）**
+
+默认 WIFI 账号密码配置存放在 `/boot/wpa_supplicant.conf` 里，测试过并支持 Android 手机开放的 WPA-PSK2 热点，配置修改后会在重启后生效（**建议用 nmtui-connect 进行配置连接**)。
+
+```bash
+root@AXERA:~# cat /boot/wpa_supplicant.conf
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+
+network={
+    ssid="Sipeed_Guest"
+    key_mgmt=WPA-PSK
+    psk="qwert123"
+}
+```
+
 
 - **（过时）如何扫描 WIFI 热点**
 
@@ -425,22 +446,6 @@ wlan0     Scan completed :
 Maix-III AXera-Pi 开发板的 Linux 系统默认使用 NTP 协议获取系统时间，可以使用 `date` 命令查看当前系统时间。
 
 > 如果联网了会自动使用 `ntp-debian` 同步时间，没有同步则说明没有网络，没有同步 `apt update` 更新软件也会失败。
-
-#### 设置时间方法
-
-- **查看时间**
-
-```bash
-cat /sys/class/rtc/rtc0/time && cat /sys/class/rtc/rtc0/date
-
-root@AXERA:~# cat /sys/class/rtc/rtc0/time && cat /sys/class/rtc/rtc0/date
-08:13:30
-2022-08-19
-```
-
-- **设置时间**
-
-使用 `hwclock -w -f /dev/rtc0` 写入，只有这个方法可以写进去，确认 RTC 是否写入成功，只需要断电后重启的时间不为 1970 就行。
 
 ### 安装软件
 
@@ -537,6 +542,15 @@ root@AXERA:~# cat /boot/rc.local
 # mkdir -p /mnt/udisk && mount /dev/sda1 /mnt/udisk
 # python3 /mnt/udisk/alltest.py
 
+# this control lcd backlight(50 ~ 1000)
+echo 0 > /sys/class/pwm/pwmchip0/export
+echo 1000 > /sys/class/pwm/pwmchip0/pwm0/period
+echo 500 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle
+echo 1 > /sys/class/pwm/pwmchip0/pwm0/enable
+
+# wifi connect ssid Sipeed_Guest pasw qwert123
+nmcli device wifi connect Sipeed_Guest password qwert123
+
 if [ -f "/root/boot" ]; then
   cd /root/ && chmod 777 * && ./boot &
 elif [ -d "/root/app" ]; then
@@ -551,10 +565,12 @@ elif [ -d "/root/app" ]; then
 else
   aplay /home/res/boot.wav >/dev/null 2>&1 &
   /opt/bin/sample_vo_fb -v dsi0@480x854@60 -m 0 >/dev/null 2>&1 &
-  sleep 0.5 && /home/fbv-1.0b/fbv /home/res/2_480x854.jpeg && killall sample_vo_fb
+  sleep 0.8 && /home/fbv-1.0b/fbv /home/res/2_480x854.jpeg && killall sample_vo_fb &
+  python3 -c "import os, binascii; os.system('sed -i \'/iface eth0 inet dhcp/ahwaddress ether {}\' /etc/network/interfaces'.format(binascii.hexlify(bytes.fromhex(open('/proc/ax_proc/uid').read().split('0x')[1][:-5]),':').decode('iso8859-1'))) if os.system('grep \'hwaddress ether\' /etc/network/interfaces -q') != 0 else exit();" &
 fi
 
 exit 0
+
 ```
 
 .. details::点我查看示例图
@@ -710,8 +726,6 @@ root@AXERA:~# tree -L 1 /home
 
 板子已经预置了 `gcc g++ gdb libopencv ffmpeg` 等工具，可直接在板上编译运行程序。
 
-> **注意**：使用 xxxx menuconfig 报错请移步[Maix-III 系列 AXera-Pi 常见问题（FAQ）](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html)
-
 可参考下方使用方法：
 
 ```bash
@@ -741,9 +755,34 @@ fbv yolov5s_out.jpg
 
 可以在联网后直接 `git pull` 更新仓库的提交记录，如果不能访问 github 的话就设置一下 `git remote` 从 gitee 拉取代码吧。
 
+> **注意**：使用 xxxx menuconfig 报错请移步[Maix-III 系列 AXera-Pi 常见问题（FAQ）](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html)
+
 ### 排针引脚图
 
 ![layout_axpi](./../assets/layout_axpi_1.png)
+
+### RCT
+
+使用 `ls /sys/class/rts` 查询会出现 /dev/rtc0 和 /dev/rtc1，分别是外部电池以及芯片内部的 rct 时钟。
+
+- **查看时间**
+
+```bash
+cat /sys/class/rtc/rtc0/time && cat /sys/class/rtc/rtc0/date
+
+cat /sys/class/rtc/rtc1/time && cat /sys/class/rtc/rtc1/date
+```
+
+```bash
+root@AXERA:~# cat /sys/class/rtc/rtc0/time && cat /sys/class/rtc/rtc0/date
+08:13:30
+2022-08-19
+```
+
+- **设置时间**
+
+使用 `hwclock -w -f /dev/rtc0` 或 `hwclock -w -f /dev/rtc1` 写入。
+只有这个方法可以写进去，确认 RTC 是否写入成功，只需要断电后重启的时间不为 1970 就行。
 
 ### CPU & RAM
 
@@ -1339,13 +1378,10 @@ cat /proc/ax_proc/uid
 
 ![ipc-car](./../assets/ipc-car.jpg)
 
-#### 人体关键点
 
-> 这是一个基于 IPCDemo 的人体关键点开箱示例（暂未开放）
-
-<p align="center">
+<!-- <p align="center">
     <iframe src="//player.bilibili.com/player.html?aid=773227207&bvid=BV1B14y1Y7A4&cid=837154353&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="max-width:640px; max-height:480px;"> </iframe>
-</p>
+</p> -->
 
 ### rtsp
 
@@ -1523,6 +1559,21 @@ UVC 也能在安卓手机端的 `app` 上当虚拟摄像头使用，使用前在
 
 >**注意**：如果需要完全脱离电脑端用手机端供电的话，需要把 uvc 程序写入开机脚本即可。
 
+### 人体关键点
+
+>镜像系统已内置人体关键点模型，直接使用终端命令行运行模型或使用 `Python` 调用模型.
+
+- **终端使用命令行调用模型**
+  
+运行下方命令撤销对模型的注释以及参数并保存退出，再运行启动 `run.sh` 脚本命令调用模型。
+
+```bash
+nano /home/run.sh
+/home/run.sh
+```
+
+- **前往[试试 Python 编程](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/python_api.html#%E4%BD%BF%E7%94%A8-Python-%E8%B0%83%E7%94%A8-ax-poes-ppl-%E6%A8%A1%E5%9E%8B)查看如何使用 `Python` 调用模型示例。**
+
 ### lvgl7 UI
 
 > 在 **20221125** 后更新的镜像系统里，我们内置了 lvgl7 UI 应用。
@@ -1543,7 +1594,4 @@ cd /home
     <iframe src="//player.bilibili.com/player.html?aid=690497396&bvid=BV1n24y1C7DN&cid=901748014&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 </p>
 
-<!--
-### 人体姿态关键点
 
-> /home/run.sh -->
