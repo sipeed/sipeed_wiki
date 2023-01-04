@@ -267,11 +267,11 @@ We take MobaXterm as the example serial port software, you can use your favorite
 
 In MobaXterm, we create a serial session. Set baudrate 115200, then click ok to create it.
 
-![mobaxterm-serial-4](https://wiki.sipeed.com/soft/maixpy3/zh/tools/assets/mobaxterm-serial-4.png)
+![mobaxterm-serial-4](./../../../../soft/maixpy3/zh/tools/assets/mobaxterm-serial-4.png)
 
 Then click the created serial session to open the serial port to build communication.
 
-![mobaxterm-serial-5](https://wiki.sipeed.com/soft/maixpy3/zh/tools/assets/mobaxterm-serial-5.png)
+![mobaxterm-serial-5](./../../../../soft/maixpy3/zh/tools/assets/mobaxterm-serial-5.png)
 
 Run the serial port application, use username `root` and password `root` to login.
 
@@ -335,13 +335,15 @@ If there is no ip address of eth0 after connected with network gateway, run comm
 
 ### Wireless network
 
-1. Run command `ifconfig wlan0` to see whether there is the wireless device first, if there is no wireless device, visit [AXera-Pi Q&A](./faq_axpi.md#qno-wlan0-shown-in-result-after-running-command-ifconfig) to solve this problem.
+1. Run command `ifconfig wlan0` to see whether there is the wireless device first, if there is no wireless device, visit [AXera-Pi Q&A](./faq_axpi.md#qno-wlan0-shown-in-result-after-running-command-ifconfig) to solve this problem. And only 2.4GHz wireless network is feasible.
 
 2. Run command `nmtui-connect` to open a wireless internet graphical interface.
 ![nmtui](./../../../../hardware/zh/maixIII/assets/nmtui.jpg)
 
 3. Run command `ifconfig wlan0` to see whether there is the ip address.
 ![nmtui_wlan0_ifconfig](./assets/flash_system/nmtui_wlan0_ifconfig.png)
+
+Besides, Run command `nmcli device wifi connect Sipeed_Guest password qwert123` can also connect to wireless network, change the `Sipeed_Guest` into your wireless network name and change `qwert123` into your wireless network password.
 
 ## Config System
 
@@ -361,10 +363,6 @@ Maix-III AXera-Pi default timezone is GMT+8, you can change it with command `dpk
 
 Run `ntpdate-debian` command after connectting Maix-III AXera-Pi to network to update time.
 
-#### Write into device
-
-There is a RTC(Real Time Clock) on the ext-board under the Core module, which provides the read time for Maix-III AXera-Pi when not access to wireless. Use command `hwclock -w -f /dev/rtc0` to write current system time into RTC to adjust its time date.
-
 ### Install software
 
 Based in debian, we can use `apt` to install the software on Maix-III AXera-Pi. Change the software resource if you think it's slow to download the software.
@@ -378,79 +376,66 @@ sudo apt install gcc gparted
 
 ![install_software_gcc_gparted](./assets/flash_system/install_software_gcc_gparted.jpg)
 
-### Reboot device
+### Reboot/Shutdown device
 
-> 由于 Linux 系统直接断电可能会导致文件系统损坏，如果可以的话建议按下述命令去进行开关机，可以避免一些由于直接断电系统损坏导致的奇怪问题出现。
+For Linux we suggest rebooting or shutdown device by command line instaed of by disconnecting the USB cable or click the reset key, which may destory the file system.
 
-Maix-III AXera-Pi 开发板的 Linux 系统可以通过 `reboot` 命令重启，重启命令如下：
+Run command `reboot` to restar device.
 
 ```bash
 reboot
 ```
 
-### Shutdown device
-
-Maix-III AXera-Pi 开发板的 Linux 系统可以通过 `poweroff` 命令关闭，关闭命令如下：
+Run command `shutdown` to power off device.
 
 ```bash
 poweroff
 ```
 
-### 磁盘扩容
+### Enlarge system memory
 
-基于一些用户可能有扩容分区的需求，因此在这里添加在 AXera-Pi 上给板子扩容或者是建立新分区的内容。
+Run command `lsblk` to see the partition information, then resize the memory partition by command `cfdisk /dev/mmcblk2`.
 
-- 操作方法
+![enlarge_memory_lsblk](./assets/flash_system/enlarge_memory_lsblk.jpg)
 
-首先需要烧录完上方的 debian11 的镜像系统后，再使用 AXera-Pi 登陆上 Linux 系统来进行磁盘扩容分区。
+Then the following similar interface shown, and we choose `/dev/mmcblk2p2` by arrow keyboard `↑` `↓`, select the `Resize` below by arrow keyboard `←` `→`. 
 
->[点击查看 AXera-Pi 登陆方式](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html#%E7%B3%BB%E7%BB%9F%E7%99%BB%E5%BD%95)
+![rizese-mmcblk2](./../../../zh/maixIII/assets/rizese-mmcblk2.png)
 
-成功登陆到 AXera-Pi 上后，用户可以先使用 `lsblk` 命令来查看设备当前的存储情况。接着使用 `cfdisk /dev/mmcblk2` 来进行磁盘分区扩容的操作。（`mmcblk2` 是我们进行操作的区域名称也称设备名）
+The whole free space is resized by default, and you can enter your desired memory storge.
 
-.. details::点击查看配置示意图
-    ![cfdisk](./../assets/cfdisk-mmcblk2.jpg)
+![new-resize](./../../../zh/maixIII/assets/new-resize.png)
 
-运行命令后终端会弹出下图操作界面，由 `Free space` 可见存储空间还余 `4.3G`，用户可使用键盘上的方向键移动选择我们要扩容的分区 `/dev/mmcblk2p2` 。
+Enter your desired memory storge, and press Enter keyboard to save your temp change. Use arrow keyboard `←` `→` and choose `Write` to apply your change, and enter `yes` to confirm the change.
 
-.. details::点击查看配置示意图
-    ![rizese-mmcblk2](./../assets/rizese-mmcblk2.png)
+![write-disk](./../../../zh/maixIII/assets/write-disk.png)
 
-选择上图的 `Resize` 按下**回车键**对当前分区进行缩容或扩容，界面会跳出提示用户修改新的分区大小。
+Use arrow keyboard `←` `→` and select `Quit` to quit the storge partition.
 
-.. details::点击查看配置示意图
-    ![new-resize](./../assets/new-resize.png)
+![quit](./../../../zh/maixIII/assets/quit.jpg)
 
-修改后敲**回车键**确定，终端界面会回到原页面。这时我们已经完成对分区扩容的修改了，还需要把改动的部分写入磁盘。在页面选择 `Write` 并敲**回车键**后输入 `yes` 确定将改动分区表写入磁盘中，再敲**回车键**即可。
+Finishing these, we run command `df -h` to see the disk space usage, and we can see that the resized memory storge is not applied, we use command `resize2fs /dev/mmcblk2p2` to change the size of `mmcblk2`, and run command `df -h` again to see the applied change.
 
-.. details::点击查看配置示意图
-    ![write-disk](./../assets/write-disk.png)
+![df-mmcblk2](./../../../zh/maixIII/assets/df-mmcblk2.jpg)
 
-操作后会返回原界面，选择 `Quit` 退出即可。
+> `reboot` first if there is some trouble resizing the storge memory.
 
-.. details::点击查看配置示意图
-    ![quit](./../assets/quit.jpg)
+### Boot script
 
-接下来使用命令行 `df -h` 查询磁盘使用空间的情况，终端会显示用户没改动之前的使用情况，需要我们使用命令 `resize2fs /dev/mmcblk2p2` 来调整文件系统的大小实现对 `mmcblk2` 分区的扩容，再使用 `df -h` 查询就可以看到磁盘改动后的情况。
+The boot script is in `/boot` and named `rc.local`, you can edit it if you need.
 
-.. details::点击查看配置示意图
-    ![df-mmcblk2](./../assets/df-mmcblk2.jpg)
+The boot script uses the root directory `/` by default, for example, if you want to run `/home/run.sh` at startup:
 
-> **注意**：如果调整完文件系统的大小后使用 `df -h` 查询磁盘信息依旧是改动前的信息，可使用 `reboot` 重启设备后在查询。
+1. Use the absolute path to run the script background `/home/run.sh & `, if it's not running background we may bot be able to control the board by command line anymore.
+2. Use the relative path to run the script background `cd /home && ./run.sh &`, note that the path is different from the absolute path.
 
-### 开机启动脚本
-
-系统已经内置好 `/boot/rc.local` 的开机启动脚本，用户可参照以下示例进行修改。
-
-开机启动脚本是在 / 根目录下运行的，举例来说，如果想要开机启动 `/home/run.sh` 脚本。
-
-1. 用绝对路径挂后台运行程序 `/home/run.sh & ` 才可以确保开机后进入 shell 命令终端。
-2. 【推荐】用相对路径挂后台运行程序 `cd /home && ./run.sh &` 注意此时 pwd 和绝对路径是不一样。
-
-请先验证好可以在 / 根目录下启动后再放入以下的开机脚本中，不会就抄以下脚本的例子。
+Here is the default boot script.
 
 ```bash
 root@AXERA:~# cat /boot/rc.local
+```
+
+```txt
 #!/bin/sh
 
 # this file is called by /etc/rc.local at boot.
@@ -459,8 +444,17 @@ root@AXERA:~# cat /boot/rc.local
 # mkdir -p /mnt/udisk && mount /dev/sda1 /mnt/udisk
 # python3 /mnt/udisk/alltest.py
 
+# this control lcd backlight(50 ~ 1000)
+echo 0 > /sys/class/pwm/pwmchip0/export
+echo 1000 > /sys/class/pwm/pwmchip0/pwm0/period
+echo 500 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle
+echo 1 > /sys/class/pwm/pwmchip0/pwm0/enable
+
+# wifi connect ssid Sipeed_Guest pasw qwert123
+nmcli device wifi connect Sipeed_Guest password qwert123
+
 if [ -f "/root/boot" ]; then
-  cd /root/ && chmod 777 * && ./boot &  
+  cd /root/ && chmod 777 * && ./boot &
 elif [ -d "/root/app" ]; then
   cd /root/app && chmod 777 *
   if [ -f "./main" ]; then
@@ -473,168 +467,92 @@ elif [ -d "/root/app" ]; then
 else
   aplay /home/res/boot.wav >/dev/null 2>&1 &
   /opt/bin/sample_vo_fb -v dsi0@480x854@60 -m 0 >/dev/null 2>&1 &
-  sleep 0.5 && /home/fbv-1.0b/fbv /home/res/2_480x854.jpeg && killall sample_vo_fb
+  sleep 0.8 && /home/fbv-1.0b/fbv /home/res/2_480x854.jpeg && killall sample_vo_fb &
+  python3 -c "import os, binascii; os.system('sed -i \'/iface eth0 inet dhcp/ahwaddress ether {}\' /etc/network/interfaces'.format(binascii.hexlify(bytes.fromhex(open('/proc/ax_proc/uid').read().split('0x')[1][:-5]),':').decode('iso8859-1'))) if os.system('grep \'hwaddress ether\' /etc/network/interfaces -q') != 0 else exit();" &
 fi
 
 exit 0
 ```
 
-.. details::点我查看示例图
-    ![start](./../assets/start.jpg)
+![start](./../../../zh/maixIII/assets/start.jpg)
 
-.. details::点击查看连接后串口输出的 debian11 系统启动日志。
+From the boot script `rc.local`, we can see that `/home/res/2_480x854.jpeg` is what displayed on the screen, and you can change it if you need.
 
-    ```bash
-    Vddr init success!
-    The system boot form EMMC
-    enter boot normal mode
+### Update kernel and driver
 
-    U-Boot 2020.04 (Jun 16 2022 - 00:16:34 +0800)
-
-    Model: AXERA AX620_demo Board
-    DRAM:  1 GiB
-    NAND:  unknown raw ID 77ee0178
-    uclass_get_device: Invalid bus 0 (err=-524)
-    0 MiB
-    initr_pinmux: delay pinmux_init for env board id
-    MMC:   enter sdhci_cdns_get_cd call mmc_getcd
-    enter sdhci_cdns_get_cd call mmc_getcd
-    mmc@10000000: 0, mmc@4950000: 1
-    Loading Environment from MMC... OK
-    In:    serial
-    Out:   serial
-    Err:   serial
-    MMC: no card present
-    sd card is not present
-    enter normal boot mode
-    Net:
-    reset EMAC0: ethernet@0x4970000 ...
-    Warning: ethernet@0x4970000 (eth0) using random MAC address - 6a:e4:fd:58:97:ea
-    eth0: ethernet@0x4970000
-    Hit any key to stop autoboot:  0
-    reading DTB and BOOT image ...
-    reading bootimg header...
-    MAGIC:       AXERA!
-    img size:    4841536
-    kernel_size: 4841472
-    kernel_addr: 64
-    id:bc 19 bb a7 2d 27 74 de 7c 91 4b 70 ea c9 ab 96 50 61 bd e0 2b 02 8b e5 c8 ee 22 ce df b1 cf ea
-    load kernel image addr = 0x40008000,load dtb image addr = 0x48008000
-    boot cmd is :bootm 0x40008000 - 0x48008000
-    ## Booting kernel from Legacy Image at 40008000 ...
-    Image Name:   Linux-4.19.125
-    Image Type:   ARM Linux Kernel Image (uncompressed)
-    Data Size:    4839952 Bytes = 4.6 MiB
-    Load Address: 40008000
-    Entry Point:  40008000
-    Verifying Checksum ... OK
-    ## Flattened Device Tree blob at 48008000
-    Booting using the fdt blob at 0x48008000
-    Loading Kernel Image
-    Using Device Tree in place at 48008000, end 480103d6
-
-    Starting kernel ...
+The first partition of system image card is mounted at `/boot` after booting, and replace the file we can update the firmware.
 
 
-    Welcome to Debian GNU/Linux 11 (bullseye)!
+- `boot.bin` spl initialize file
 
-    [  OK  ] Created slice system-getty.slice.
-    [  OK  ] Created slice system-modprobe.slice.
-    [  OK  ] Created slice system-serial\x2dgetty.slice.
-    [  OK  ] Created slice User and Session Slice.
-    [  OK  ] Started Dispatch Password …ts to Console Directory Watch.
-    [  OK  ] Started Forward Password R…uests to Wall Directory Watch.
-    [  OK  ] Reached target Local Encrypted Volumes.
-    [  OK  ] Reached target Network is Online.
-    ......
+- `uboot.bin` uboot boot file 
 
-### 更新内核与驱动
+- `kernel.img` linux kernel
 
-在 SD 卡的第一分区会挂载到系统根目录下的 /boot 系统启动相关的文件，替换它即可完成更新。
+- `dtb.img` linux device tree
 
-- boot.bin 芯片 spl 初始化程序
+## Transfer file
 
-- uboot.bin uboot 启动引导程序
+> If you need to transfer file to AXera-Pi, here are some ways to do this.
 
-- kernel.img linux 内核
+### SD card reader
 
-- dtb.img linux 设备树
+Because of the `ext4` format file system, those who use Windows/Mac can't open the file without other application, so it's only suggested to open the tf image card in Linux. And it's also a good idea to transfer by u-disk connected to the USB-OTG port on AXera-Pi.
 
-## 如何传输文件 
+### Connect to computer
 
-> 如果在使用 AXera-Pi 途中出现从设备到电脑端文件互传的需求，可根据以下的方式进行传输：
-###  使用读卡器物理拷贝文件
+#### Network SSH
 
-**物理传输**：由于 Linux 系统采用 `ext4` 分区在 Windows / Mac 默认系统下无法进行查看，用户需额外安装增强工具才能读取到具体的分区。而 Linux 系统可直接看到卡里的分区和内容，也可以选择把读卡器接到安卓设备通过 **OTG** 转接头实现文件拷贝。
+We have told the way to login AXera-Pi by [SSH](#login-by-ssh), and with [mobaxterm](https://mobaxterm.mobatek.net/) it's really convenient to transfer files on Windows. Besides, login by ssh on [vscode](https://code.visualstudio.com/), we can transfer file by the Vscode Explorer.
 
-- [如何在 Windows 下访问 ext4 格式的硬盘？](https://zhuanlan.zhihu.com/p/448535639)
+![transfer_file_vscode](./assets/flash_system/transfer_file_vscode.jpg)
 
-- [[macOS] 在 macOS 上挂载 Linux 的 ext/ext3/ext4 文件系统](https://blog.twofei.com/773/)
+Besides, we can not only use mobaxterm for file transfer, but also run X11 on this software if you login by ssh. This is an example running gparted on Axera-Pi with X11 on mobaxterm.
 
-### 板子与电脑的文件互传
+![transfer_file_mobaxterm](./assets/flash_system/transfer_file_mobaxterm.jpg)
 
->基于让用户的使用更加快速便捷，还可以选择直接在板子上与电脑端通过工具实现文件互传。
+#### Serial communication
 
-**使用 SSH 远程管理工具进行文件传输：**
+If you connect the board with computer by [serial port](#serial-communication), after installing the `lrzsz` application by command `apt-get install lrzsz` after AXera-Pi is connected with network, we can transfer by `minicom` on Linux or [mobaxterm](https://mobaxterm.mobatek.net/) on Windows.
 
-使用前需要使用 `ifconfig` 查询板子的 IP 地址做登录备用，可点击前往[系统登录](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html#%E5%9F%BA%E4%BA%8E-ip-%2B-ssh-%E7%99%BB%E5%BD%95)查看。在 Windows 上有众多远程管理 Linux 服务器的工具都提供了文件传输的功能，这里推荐免费绿色的 **Mobaxterm** 工具。
+## Check the peripheral
 
-- [如何使用 MobaXterm](https://wiki.sipeed.com/hardware/zh/maixII/M2/tools/mobaxterm.html)
+### Built in application
 
-- [利用 MobaXterm 实现 Linux 和 Windows 之间传输文件](https://jingyan.baidu.com/article/9f63fb91e2bc6688400f0e93.html)
-
-- [用 MobaXterm 在 Linux 和 Windows 之间上传/下载文件](https://blog.csdn.net/unforgettable2010/article/details/123930796)
-
-> 如果想了解更多的工具可点击[【推荐7款超级好用的终端工具 —— SSH+FTP】](https://zhuanlan.zhihu.com/p/301653835)查看，而其他系统都提供了好用的命令行终端，支持 SSH 、scp 等命令直接执行。
-
-**使用 scp 命令复制文件：**
-
-和 cp 复制文件等命令一样，它就是 `ssh + cp = scp` 这个意思。
-
-- [Linux 操作系统 scp 命令使用方法](https://cloud.tencent.com/developer/article/1876623)
-
-**使用有线串口互传文件：**
-
-使用前根据串口 serial 登录接线配置参数连上板子，安装 `apt-get install lrzsz` 工具后可参考以下文章。
-
-- [有线串口 serial 登录](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html#%E6%9C%89%E7%BA%BF-%E4%B8%B2%E5%8F%A3-serial-%E7%99%BB%E9%99%86)
-
-- 使用命令行工具 `minicom -D /dev/ttyUSB0 -b 115200` 可以查看[ Ubuntu 中使用 minicom 玩转文件的上传与下载](https://blog.csdn.net/wanyeye/article/details/42002377)。
-
-- 使用 MobaXterm 可以点击 [MobaXterm 使用 rz/sz 传送文件](https://blog.csdn.net/qq_28837389/article/details/120073720)查看。
-
-## 验证系统外设
-
-### 系统预置的资源
-
-Maix-III AXera-Pi 开发板的 Linux 系统预置了一些资源，可以通过 `ls /opt` 命令来查看。
+Maix-III AXera-Pi contains some Built-in Linux applications, and they are in `ls /opt` directory.
 
 ```bash
 root@AXERA:~# ls /opt
+```
+
+```bash
 bin  include  lib  scripts  share
 ```
 
-还有一些在 `home` 目录下：
+And some resources are in the `/home` directory
 
 ```bash
 root@AXERA:~# tree -L 1 /home
-├── ax-samples          # npu ai sdk
-├── examples            # 一些开箱示例
-├── fbv-1.0b            # fbv 图片查看器
-├── images              # 一些测试图片
-├── libmaix             # simple pipeline sdk
-├── models              # 内置的 AI 模型
-├── res                 # 一些图像字体资源
-├── systemd-usb-gadget  # 配置 usb 服务
-├── usb-uvc-gadget      # 配置 uvc 服务
-└── ustreamer           # mjpeg 图传
 ```
 
-板子已经预置了 `gcc g++ gdb libopencv ffmpeg` 等工具，可直接在板上编译运行程序。
+```bash
+├── ax-samples          # npu ai sdk
+|-- bin                 # Ax example applications
+├── examples            # Ax example applications
+├── fbv-1.0b            # fbv picture viewer
+├── images              # Test pictures
+├── libmaix             # simple pipeline sdk
+├── models              # Built in AI models
+├── res                 # Pictures and fonts
+├── systemd-usb-gadget  # Config usb service
+├── usb-uvc-gadget      # Config uvc service
+└── ustreamer           # mjpeg application
+```
 
-> **注意**：使用 xxxx menuconfig 报错请移步[Maix-III 系列 AXera-Pi 常见问题（FAQ）](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html)
+We have put `gcc g++ gdb libopencv ffmpeg` into the Linux system image, with which we can compile the application on AXera-Pi.
 
-可参考下方使用方法：
+
+Here is an example using libmaix：
 
 ```bash
 cd /home/libmaix/examples/axpi/
@@ -643,12 +561,11 @@ fbon
 ./dist/start_app.sh
 ```
 
-.. details::点击查看示例效果
-    使用命令行后会打印大量数据信息并启动摄像头及屏幕。
+Screen displays the content of camera, if you failed running this application, visit [AXear-Pi Q&A](./faq_axpi.md) to see how to switch camera.
 
-    ![libmaix](./../assets/libmaix.jpg)
+![libmaix](./../../../zh/maixIII/assets/libmaix.jpg)
 
-而 axsample 已经预编译好了，相关 joint 模型已内置在 `/home/models/` 下便于用户查询。
+The axsample has been compiled, and its joint models are in `/home/models/` for people to use.
 
 ```bash
 /home/ax-samples/build/install/bin/ax_yolov5s -m /home/models/yolov5s.joint -i /home/images/cat.jpg -r 10
@@ -656,115 +573,139 @@ fbon
 fbv yolov5s_out.jpg
 ```
 
-.. details::点击查看效果
-    输入上方命令后屏幕会显示 yolovs_out.jpg 图像
+Screen shows the yolovs_out.jpg picture file, `reboot` system if there is something occupied the system resources
 
-    ![cat](./../assets/cat.jpg)
+![cat](./../../../zh/maixIII/assets/cat.jpg)
 
-可以在联网后直接 `git pull` 更新仓库的提交记录，如果不能访问 github 的话就设置一下 `git remote` 从 gitee 拉取代码吧。
+Run `git pull` to get the latest libmaix code.
 
-### 排针引脚图
+### Pin maps
 
-![layout_axpi](./../assets/layout_axpi_1.png)
+![layout_axpi](./../../../zh/maixIII/assets/layout_axpi_1.png)
+
+### RTC
+
+There is a RTC(Real Time Clock) on the ext-board under the Core module, which provides the read time for Maix-III AXera-Pi when not access to wireless. Use command `hwclock -w -f /dev/rtc0` to write current system time into RTC to adjust its time date.
+
+Run command `ls /sys/class/rtc`, we can see two rtc device: `rtc0` and `rtc1`, `rtc0` is the Real Time Clock on the ext-board and `rtc1` is the AXera-Pi internal Real Time Clock.
+
+![rtc0_data_time](./assets/flash_system/rtc0_data_time.jpg)
 
 ### CPU & RAM
 
-默认 800MHz 可以调到 1ghz.
+Default runs at 800MHz, and can be changed into 1GHZ.
+
+By command `ax_lookat`, we can get the values of memory.
+
+![ax_look_at](./assets/flash_system/ax_look_at.jpg)
+
+Set cpu at 800MHz:
 
 ```bash
 root@AXERA:~# ax_lookat 0x01900000 -s 33
-0x1900000:00000033
-root@AXERA:~# ax_clk
-AX620A:
-DDR:                 3733 MHz
-CPU:                 800 MHz
-BUS of VPU:         624 MHz
-BUS of NPU:         624 MHz
-BUS of ISP:         624 MHz
-BUS of CPU:         624 MHz
-NPU OTHER:         800 MHz
-NPU GLB:         24 MHz
-NPU FAB:         800 MHz
-NPU CORE1:         800 MHz
-NPU CORE0:         800 MHz
-ISP:                 533 MHz
-MM:                 594 MHz
-VPU:                 624 MHz
-root@AXERA:~# ax_lookat 0x01900000 -s 35
-0x1900000:00000035
-root@AXERA:~# ax_clk
-AX620A:
-DDR:                 3733 MHz
-CPU:                 1000 MHz
-BUS of VPU:         624 MHz
-BUS of NPU:         624 MHz
-BUS of ISP:         624 MHz
-BUS of CPU:         624 MHz
-NPU OTHER:         800 MHz
-NPU GLB:         24 MHz
-NPU FAB:         800 MHz
-NPU CORE1:         800 MHz
-NPU CORE0:         800 MHz
-ISP:                 533 MHz
-MM:                 594 MHz
-VPU:                 624 MHz
-root@AXERA:~#
 ```
 
-目前硬件内存虽然是 2g 但在系统上只能看到 745M ，不用担心，这是目前的分配内存过于保守导致的，后续更新内核调整一下 NPU 和 CMM 的内存分配的。
+View cpu frequency:
+
+```
+root@AXERA:~# ax_clk
+AX620A:
+DDR:            3733 MHz
+CPU:            800 MHz
+BUS of VPU:     624 MHz
+BUS of NPU:     624 MHz
+BUS of ISP:     624 MHz
+BUS of CPU:     624 MHz
+NPU OTHER:      800 MHz
+NPU GLB:        24 MHz
+NPU FAB:        800 MHz
+NPU CORE1:      800 MHz
+NPU CORE0:      800 MHz
+ISP:            533 MHz
+MM:             594 MHz
+VPU:            624 MHz
+```
+
+Set cpu at 1GHz:
+
+```
+root@AXERA:~# ax_lookat 0x01900000 -s 35
+```
+
+View cpu frequency:
+
+```
+root@AXERA:~# ax_clk
+AX620A:
+DDR:            3733 MHz
+CPU:            1000 MHz
+BUS of VPU:     624 MHz
+BUS of NPU:     624 MHz
+BUS of ISP:     624 MHz
+BUS of CPU:     624 MHz
+NPU OTHER:      800 MHz
+NPU GLB:        24 MHz
+NPU FAB:        800 MHz
+NPU CORE1:      800 MHz
+NPU CORE0:      800 MHz
+ISP:            533 MHz
+MM:             594 MHz
+VPU:            624 MHz
+```
 
 ### VIDEO
 
->**注意**：以下例程是原始测试时检查硬件好坏的程序，请用下面内置应用看正常的效果！
->内置开箱应用传送门：[点击前往](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html#%E5%86%85%E7%BD%AE%E5%BC%80%E7%AE%B1%E5%BA%94%E7%94%A8)
-目前系统的摄像头驱动不经过 v4l2 驱动框架，所以必须通过代码配置的方式进行启用，相关摄像头驱动都是在应用层上完成的，
+This is a demo for testing camera, visit [built in application](#built-in-applications) for more usages.
 
-- gc4653 （基础版）
-- os04a10（夜视版）
+- gc4653 （Defaule camera）
+- os04a10（Night enhanced camera）
 
 ```bash
 sample_vin_vo -c 2 -e 1 -s 0 -v dsi0@480x854@60
 ```
 
-.. details::运行上方命令后可看到画面（示例效果）
-    ![video](./../assets/video.jpg)
+![video](./../../../zh/maixIII/assets/video.jpg)
 
->目前默认使用的是 gc4653 ，使用 os04a10 请移步[Maix-III 系列 AXera-Pi 常见问题(FAQ)](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html)查询。
+> Those using os04a10 visit [AXera Pi](./faq_axpi.md#qhow-to-switch-to-os04a10-camera) to see how to switch camera.
 
 ### DISPLAY
 
-目前系统默认使用的是最简单的 framebuffer 显示驱动（/dev/fb0），在系统里内置了 `fbon / fboff / fbv xxx.jpg` 三个命令负责管理 fb 设备的启用和现实。
+Now we use framebuffer (/dev/fb0) to control the camera content, run command `fbon` to enable the framebuffer, and `fboff` to disable the framebuffer. When `/dev/fb0` is enabled, we can display picture on the screen by command `fbv xxx.jpg`, and some pictures have been stored in `/home/res/` directory, display them by youeself.
 
-```bash
-fbon
-fbv /home/res/logo.png
-fboff
+![_home_res](./assets/flash_system/_home_res.jpg)
+
+```
+fbon                        # enable framebuffer
+fbv /home/res/logo.png      # display picture
 ```
 
-![fbv_logo](./../assets/fbv_logo.jpg)
+![fbv_logo](./../../../zh/maixIII/assets/fbv_logo.jpg)
 
-目前想要使用 libdrm 需要搭配代码使用，请参考 sdk 的源码实现，因为目前系统还未移植好 gpu 驱动所以无法使用 modetest 进行测试，但可以参考下面进行测试。
-
-测试屏幕是否能用运行右侧 `sample_vo -v dsi0@480x854@60 -m 0` 命令屏幕会显示彩条，但使用前务必调用 `fboff` 关闭 fb 设备。
+Run command `sample_vo -v dsi0@480x854@60 -m 0` we can see there is colorbar on the screen to test the screen display, make sure you have disable the framebuffer with command `fboff`, otherwise this `sample_vo -v dsi0@480x854@60 -m 0` will not work, and use command hotkey `Ctrl` + `c` to cancel the command is you want to stop running application.
 
 ### NPU
 
-测试 NPU 的示例程序在 `/home/ax-samples/build/install` 目录下，已经预编译好了，直接就可以调用并显示运行结果。
+The NPU examples is in the `/home/ax-samples/build/install` directory, just run them to see their results.
 
-```fbon
+```bash
+fbon
 /home/ax-samples/build/install/bin/ax_yolov5s -m /home/models/yolov5s.joint -i /home/images/cat.jpg -r 10
 fbv yolov5s_out.jpg
 ```
 
 ### AUDIO
 
-和桌面系统保持一致，直接可用 alsa-utils 进行测试。
+There is a 3.5mm audio connector on AXera-Pi, we can use is to play or record audio, here are examples to test this peripheral, it's a bit loud, change the volume by `alsamixer`.
 
-- **测试脚本**：`speaker-test -t sine -f 440 -c1`
-- **播放音频**：`aplay test.wav`
-- **录制音频**；`arecord test.wav -c 2 -d 2`
+![alsamixer](./../../../zh/maixIII/assets/alsamixer.jpg)
 
-录音回放的 `python3` 代码如下：
+And these are examples:
+
+- **Test command**：`speaker-test -t sine -f 440 -c1`
+- **Play audio**：`aplay /home/res/boot.wav`
+- **Record audio**: `arecord test.wav -c 2 -d 2`
+
+And this is a python example to record and play the audio.
 
 ```python
 import pyaudio
@@ -791,33 +732,23 @@ finally:
     p.terminate()
 ```
 
-可以在 alsamixer 配置你的设备，如果不了解的话建议不要修改。
-
-![alsamixer](./../assets/alsamixer.jpg)
-
 ### USB
 
->**注意**：由于芯片只有一个完整功能的 usb2.0，同一时刻下只有一个使用方向如 OTG 从机或 HOST 主机。
+There is a USB-OTG port on AXera-Pi, we can change its function to be a OTG device or HOST device.
 
-#### 如何配置 USB OTG 虚拟网卡 RNDIS usb0 有线 ssh 登录
+#### USB OTG RNDIS
 
-默认就会启动配置 `systemctl enable usb-gadget@g0`，启动用 `systemctl start usb-gadget@g0`，停止开机启动用 `systemctl disable usb-gadget@g0`，停止服务用`systemctl stop usb-gadget@g0`。
+We set this function as the default function of USB-OTG port, with this we can see there is a usb RNDIS divice in the device manager and we can login to AXera-Pi by SSH with ip `192.168.233.1` if connecting computer with AXera-Pi via its USB-OTG port. [Click me](#rndis) to know how to login with RNDIS.
 
-此时使用命令 `sshpass -p root ssh root@192.168.233.1` 即可连接，账号及密码都是 root 。
+![ssh-usb](./../../../zh/maixIII/assets/ssh-usb.jpg)
 
-![ssh-usb](./../assets/ssh-usb.jpg)
+The system enable amd start this service by command `systemctl enable usb-gadget@g0` and `systemctl start usb-gadget@g0`, run command `systemctl disable usb-gadget@g0` to disable this service or command `systemctl stop usb-gadget@g0` to stop this service, by stopping this we can use this USB-OTG port for other function, we'll tell these in the following content.
 
-#### 如何配置 USB OTG 虚拟串口 /dev/ttyGS0 并转发登录接口
+#### USB HOST Device
 
-停止 usb-gadget@g0 后使用 `systemctl start usb-gadget@g1` 即可看到，然后使用 `systemctl start getty@ttyGS0` 即可转发串口终端到 usb 的虚拟串口上。
+Stop the RNDIS service with command `systemctl stop usb-gadget@g0`, then run command `systemctl start usb-gadget@g1` to set the USB-OTG port as the HOST function, connect a USB device with the USB-OTG port, run command `lsusb` to check the usb device.
 
-![usb_tty](./../assets/usb_tty.jpg)
-
-#### 如何使用 USB HOST 读取一个 256M 的 SD 卡
-
-先关了 otg 的 rndis 后再 lsusb 就可以看到了。
-
->我们在 debian 系统上配置了 usb-gadget@g1 和 usb-gadget@g0 两个服务。
+Here are the example logs(To read a usb storge device and mount it on AXera-Pi).
 
 ```bash
 root@AXERA:~# systemctl stop usb-gadget@g0
@@ -851,39 +782,37 @@ Device     Boot Start    End Sectors   Size Id Type
 root@AXERA:~# mkdir /mnt/sdcard && mount /dev/sda1 /mnt/sdcard
 ```
 
-一步到位挂载 U 盘第一分区的命令 `systemctl stop usb-gadget@g0 && lsusb && mkdir -p /mnt/udisk && mount /dev/sda1 /mnt/udisk`
-
-#### 如何配置 USB OTG 虚拟一个 USB 摄像头
+#### USB OTG CAM
 
 **usb-uvc-gadget**：[usb-uvc-gadget](https://github.com/junhuanchen/usb-uvc-gadget)
 
-**更多详情请移步内置应用查看**：[应用传送门](http://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html#uvc_vo)
+Visit [uvc_vo](#uvc_vo) to know more.
 
-#### 如何配置 USB HOST 读取一个 USB 摄像头
+#### USB HOST CAM
 
->适配 usb 摄像头前我们需要给板子接上以太网 `eth0`，使用 `ifconfig` 查询以太网的 `IP` 方便我们使用。
->如果获取不到以太网的 `IP` 地址，请移步右侧进行重新启动/配置[点击前往相关](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html#%E6%9C%89%E7%BA%BF%E4%BB%A5%E5%A4%AA%E7%BD%91%EF%BC%88eth0%EF%BC%89%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95)。
+By this example we can connect a USB camera to AXera-Pi USB-OTG port, and display the usb camera content in the browser, so we need to make sure AXera-Pi have connected to the network first, and we ned to get the ip address of AXera-Pi, with which we can view the usb camera content in the browser.
 
-**Ustreamer**：[点击查看相关仓库](https://github.com/pikvm/ustreamer)
-运行下方的命令行，终端会弹出调试信息无明显报错后，打开任意浏览器输入我们刚获取的以太网 `IP` 地址，进入 `ustreamer` 使用体验拍照及录像功能。
+**Ustreamer**：[Github](https://github.com/pikvm/ustreamer)
+
+Run following code, and open the ip address of AXera-Pi in a web browser.
 
 ```bash
 /home/ustreamer/ustreamer --device=/dev/video0 --host=0.0.0.0 --port=80
 ```
 
-![ustreamer_adb](./../assets/ustreamer_adb.png)
+![ustreamer_adb](./../../../zh/maixIII/assets/ustreamer_adb.png)
 
-`snapshot` 为拍照功能，`stream` 为视频功能。
+We have these choices: 
 
-![ustreamer](./../assets/ustreamer.png)
+![ustreamer](./../../../zh/maixIII/assets/ustreamer.png)
 
-.. details::点击查看效果图
+Streamer example:
 
-    ![ustreamer_snapshot](./../assets/ustreamer_snapshot.jpg)
+![ustreamer_snapshot](./../../../zh/maixIII/assets/ustreamer_snapshot.jpg)
 
-- **使用 Opencv 读取 USB 摄像头**
+- **Read USB Camera by OPENCV**
 
-可在终端进入 `python3` 模式运行以下代码即可使用 USB 摄像头进行拍照。
+Run following python code to display the USB camera content on the screen of AXera-Pi by OPENCV
 
 ```python
 import os
@@ -896,28 +825,42 @@ for i in range(30):
         os.system("fbon && fbv /tmp/capture.jpg")
 ```
 
-.. details::点击查看终端运行图以及效果图
+![opencv](./../../../zh/maixIII/assets/opencv.jpg)
+![opencv_cream](./../../../zh/maixIII/assets/opencv_cream.jpg)
 
-    ![opencv](./../assets/opencv.jpg)
-    ![opencv_cream](./../assets/opencv_cream.jpg)
-
->运行出现报错请移步[Maix-III 系列 AXera-Pi 常见问题(FAQ)](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html)进行查询。
+> Visit [AXera-Pi FAQ](./faq_axpi.md) if you have some trouble.
 
 ### GPIO
 
-#### 读取 KEY 按键输入：GPIO2 21
+#### Read KEY input：GPIO2 21
+
+This is the USER key on AXera-Pi.
+
+Config the USER key first.
 
 ```bash
-echo 85  > /sys/class/gpio/export
-echo in > /sys/class/gpio/gpio85/direction
-cat /sys/class/gpio/gpio85/value
+echo 85 > /sys/class/gpio/export            # export the USER key
+echo in > /sys/class/gpio/gpio85/direction  # set the exported USER key direction
 ```
 
-#### 点亮 LED 灯 GPIO2 A4-A5 68-69
+Get the USER key value
+
+```bash
+cat /sys/class/gpio/gpio85/value            # Get the value of USER key, 1 is unpressed and 0 is pressed
+```
+
+#### Blink a LED GPIO2 A4-68 A5-69
+
+Export the LED IO and set its direction.
 
 ```bash
 echo 68  > /sys/class/gpio/export
 echo out > /sys/class/gpio/gpio68/direction
+```
+
+Set led IO voltage value to control the LED.
+
+```bash
 echo 1 > /sys/class/gpio/gpio68/value
 sleep 1
 echo 0 > /sys/class/gpio/gpio68/value
@@ -925,22 +868,21 @@ sleep 1
 echo 1 > /sys/class/gpio/gpio68/value
 ```
 
-> 计算规则 GPIO2 A4 == 32 *  2 + 4 = 68
-对于爱芯的芯片，GPIO0 和 GPIO2 对应 A 和 C ，此处 A4 并不代表 GPIO2 只是序号。
-也就是 GPIO2 A4 在标准设备中的定义为 GPIO C(2) 4(A4) 同理 GPIOA0 对应 GPIO0A4。
+> Calculating Rule: GPIO2 A4 == 32 *  2 + 4 = 68
 
-以后主流会统一到 PA0 或 PC4 这类定义，方便不同芯片共同定义。
+For Axera chip, GPIO0 means A IO port and GPIO2 means C IO port, and example like A4 is just a siginal.
 
-[可参考的 gpio.h/gpio.c 代码](https://www.cnblogs.com/juwan/p/16917802.html#linux-spiv)
+GPIO2 A4 in AXera-Pi is GPIO C(2) 4(A4) in standard definition , and standard definition GPIOA0 means IO GPIO0A4 in AXera-Pi.
+
+Example [gpio.h/gpio.c](https://www.cnblogs.com/juwan/p/16917802.html#gpio--pwm)
 
 ### UART
 
-系统输出默认是 **ttyS0** ，排针上的是 **ttyS1** ，而虚拟串口是 **ttyGS0**。
+The dafault uart port of USB-UART is **ttyS0**, and the UART on the pin header is **ttyS1**, the virtual USRT is **ttyGS0**.
 
-![uart_tty](./../assets/uart_tty.jpg)
+![uart_tty](./../../../zh/maixIII/assets/uart_tty.jpg)
 
-可用 `python3 pyserial` 库来测试功能的好与坏，但是需要注意排针丝印可能不准确。
-如果出现串口的 tx 和 rx 没有数据的话可以反接一下，以及确保是共地的。
+Here is a `python3 pyserial` example code to test the UART on the pin header, make sure you have connect the GND on your UART-TTL with the GND on the AXera-Pi.
 
 ```python
 import serial
@@ -949,12 +891,12 @@ ser.write(b'hello world\n')
 ser.close()
 ```
 
-[可参考的 uart.h/uart.c 代码](https://www.cnblogs.com/juwan/p/16917802.html#linux-uart-ttysx)
+Example [ uart.h/uart.c ](https://www.cnblogs.com/juwan/p/16917802.html#linux-uart-ttysx)
 
 ### PWM
 
-以配置一个 pwm0 修改屏幕背光为例，需更新到 **20221201** 后的镜像。
-**例**：`echo 204 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle` 运行后屏幕亮度只有十分之一.
+Here we change the brightness of the screen of AXera-Pi to test the pwm example
+**Example**：Run command `echo 204 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle` and the screen is only one-tenth of the original brightness.
 
 ```bash
 echo 0 > /sys/class/pwm/pwmchip0/export
@@ -964,13 +906,21 @@ echo 2084 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle
 echo 0 > /sys/class/pwm/pwmchip0/pwm0/enable
 ```
 
-PWM 使用参考：[点击查看](https://wiki.sipeed.com/soft/maixpy3/zh/usage/hardware/PWM.html#%E5%BC%80%E5%A7%8B).
+PWM Example：[Click me](https://wiki.sipeed.com/soft/maixpy3/zh/usage/hardware/PWM.html#%E5%BC%80%E5%A7%8B).
 
 ### I2C
 
-> m3axpi 的排针上的 I2C 是 /dev/i2c-7 对应 `i2cdetect -y -r 7` 喔， 0 1 2 是摄像头的， 8 是系统的 usb rtc 的， 9 做预留。
-使用 i2c-tools 工具包，可使用 i2cdetect -y 0 来查看 i2c 总线上的设备。
-如果出现 i2c 设备扫不到的情况需要接一下上拉电阻。
+> The I2C on the pin header is `/dev/i2c-7` in AXera-Pi, we use command `i2cdetect` to check the i2c device.
+
+![i2c_detect](./assets/flash_system/i2c_detect.jpg)
+
+The `i2c-0`, `i2c-1`, `i2c-2` are the camera interface, and `i2c-7` is the connector on pin header, `i2c-8` is the RTC clock, and `i2c-9` is reserved.
+
+![i2c_dev](./assets/flash_system/i2c_dev.jpg)
+
+For example wo use command `i2cdetect -y 0` to see the device on i2c bus.
+
+If you can't detect your i2c device, make sure you have pull up the data line.
 
 ```bash
 root@AXERA:~# i2cdetect -y -r 0
@@ -983,72 +933,25 @@ root@AXERA:~# i2cdetect -y -r 0
 50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 70: -- -- -- -- -- -- -- --
-root@AXERA:~#
 ```
 
-这里 **0x21** 和 **0x36** 就代表的板子在 cam0 这个排线上的 /dev/i2c-0 设备存在某个摄像头的 i2c 设备，而读写可用 i2cget 和 i2cset 命令，与其他芯片皆为同理。
+The **0x21** 和 **0x36** in the log means there is a i2c device connecting to the `/dev/i2c-0` connector, and we can use command `i2cget` to read the data of the i2c device or command `i2cset` to write the i2c device.
 
 ### SPI
 
-可参考右边同理事例：[为 AW V831 配置 spidev 模块，使用 py-spidev 进行用户层的 SPI 通信。](https://www.cnblogs.com/juwan/p/14341406.html)
-
-```
-root@AXERA:~# ./spidev_test -D /dev/spidev1.0 -v
-spi mode: 0x0
-bits per word: 8
-max speed: 500000 Hz (500 KHz)
-TX | FF FF FF FF FF FF 40 00 00 00 00 95 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF F0 0D  | ......@....�..................�.
-RX | FF FF FF FF FF FF 40 00 00 00 00 95 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF F0 0D  | ......@....�..................�.
-root@AXERA:~# ./spidev_test -D /dev/spidev1.0 -v
-spi mode: 0x0
-bits per word: 8
-max speed: 500000 Hz (500 KHz)
-TX | FF FF FF FF FF FF 40 00 00 00 00 95 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF F0 0D  | ......@....�..................�.
-RX | FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF  | ................................
-root@AXERA:~# ./spidev_test -D /dev/spidev1.0 -v
-spi mode: 0x0
-bits per word: 8
-max speed: 500000 Hz (500 KHz)
-TX | FF FF FF FF FF FF 40 00 00 00 00 95 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF F0 0D  | ......@....�..................�.
-RX | FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF  | ................................
-```
-
 ### CHIP ID
 
-获取芯片唯一的 id 码。
+Get the unique chip id of the main chip.
 
-```
+```bash
 cat /proc/ax_proc/uid
 ```
 
-### ADC（暂未支持）
+### ADC
 
-.. details::点击查看
+### Factory test script
 
-    硬件上支持，但软件上目前还没写调试工具配合。
-    可参考外围开发手册，这需要专用的代码控制，目前还没有全部补充完。
-
-    1. 设置 THM 寄存器
-    2. 中间需要 delay 一段时间，否则读取出来的值，可能不对.
-    3. 0x2000028 寄存器读取出来的值 DATA
-    4. DAT 和 voltage 的对应关系，voltage = DATA / 1024 * VREF(1.8V)
-    5. 如果读取 chan1/2/3/4，需要读取 0x200002c，0x2000030，0x2000034，0x2000038
-
-    使能 ADC 通道
-    devmem 0x2000020 32 0x1000 //chan0
-    devmem 0x2000020 32 0x800 //chan1
-    devmem 0x2000020 32 0x400 //chan2
-    devmem 0x2000020 32 0x200 //chan3
-    devmem 0x2000020 32 0x100 //chan4
-
-    devmem 0x200002c
-    devmem 0x2000030
-    devmem 0x2000034
-    devmem 0x2000038
-
-### 出厂测试脚本
-
-.. details::点击可查看产品出厂测试时用的 Python 测试脚本
+.. details::This is the factory test python script
     ```python
     test_flag = False
 
@@ -1164,7 +1067,7 @@ cat /proc/ax_proc/uid
     ```
 
 
-## 内置开箱应用
+## Built in applications
 
 ### IPCDemo
 
@@ -1195,13 +1098,12 @@ cat /proc/ax_proc/uid
 ```bash
 /opt/bin/IPCDemo/run.sh /opt/bin/IPCDemo/config/gc4653_config.json
 ```
-.. details::点击查看
-    输入启动命令后，终端会打印大量调试信息。
-    ![ipc](./../assets/ipc.jpg)
+输入启动命令后，终端会打印大量调试信息。
+![ipc](./../../../zh/maixIII/assets/ipc.jpg)
 
 访问页面后会弹出登录页面，点击登录后页面会弹出下图画面。
 
-![ipc-admin](./../assets/ipc-admin.jpg)
+![ipc-admin](./../../../zh/maixIII/assets/ipc-admin.jpg)
 
 #### 如何抓拍？如何录制？
 
@@ -1212,17 +1114,17 @@ cat /proc/ax_proc/uid
 软件经过上文的启动后显示画面，右下角有抓拍和录制的功能图标。
 用户可点击摄像头图标进行抓拍喜欢的场景，抓拍的照片浏览器会自动弹出进行下载方便用户查看存储。
 
-![ipc-web](./../assets/ipc-web.jpg)
+![ipc-web](./../../../zh/maixIII/assets/ipc-web.jpg)
 
 - **录制视频**
 
 点击右下角的录制图标，即可进入本地录制视频（mp4）模式，再次点击图标即录制完成结束。
 
-![ipc-mp4](./../assets/ipc-mp4.jpg)
+![ipc-mp4](./../../../zh/maixIII/assets/ipc-mp4.jpg)
 
 用户可在配置页面的`录像回放`选项预览视频进行下载到本地或删除的操作。
 
-![ipc-config](./../assets/ipc-config.jpg)
+![ipc-config](./../../../zh/maixIII/assets/ipc-config.jpg)
 
 >**注意**：
 >**20221017** 后的镜像默认打开了录制保存到`/opt/mp4`的目录下。
@@ -1236,14 +1138,14 @@ cat /proc/ax_proc/uid
 .. details::点击查看配置流程
     接入页面后选择**配置**在**智能配置**里再进行**结构化配置**，用户可根据自己的需要进行勾选即可。
 
-    ![ipc-video](./../assets/ipc-video.jpg)
+    ![ipc-video](./../../../zh/maixIII/assets/ipc-video.jpg)
 
 设置完成后回到预览页面即可进行人脸及人形识别，IPC 会自动框出识别人脸并且截取人脸的图片，可在预览页面下方点击截取图样放大查看附带信息。
 - 左侧：人脸检测 右侧：人形检测
   
 <html>
-  <img src="./../assets/ipc-model.jpg" width=45%>
-  <img src="./../assets/ipc-person.jpg" width=45%>
+  <img src="./../../../zh/maixIII/assets/ipc-model.jpg" width=45%>
+  <img src="./../../../zh/maixIII/assets/ipc-person.jpg" width=45%>
 </html>
 
 #### 车牌识别
@@ -1253,11 +1155,11 @@ cat /proc/ax_proc/uid
 .. details::点击查看 IPC 配置流程
     接入页面后选择**配置**在**智能配置**里再进行**结构化配置**，用户可根据自己的需要进行勾选即可。
 
-    ![ipc-video](./../assets/ipc-video.jpg)
+    ![ipc-video](./../../../zh/maixIII/assets/ipc-video.jpg)
 
 设置完成即可回到预览页面进行车牌识别，IPC 会自动框出识别到得车牌及读取车牌数字信息，用户可在预览下方点击图片放大查看截取到车牌图片及信息。
 
-![ipc-car](./../assets/ipc-car.jpg)
+![ipc-car](./../../../zh/maixIII/assets/ipc-car.jpg)
 
 #### 人体关键点
 
@@ -1278,7 +1180,7 @@ cat /proc/ax_proc/uid
 .. details::点我查看 VLC Media Player 介绍
     VLC Media Player（VLC 多媒体播放器），是一款可播放大多数格式，而无需安装编解码器包的媒体播放器，以及支持多平台使用、支持 DVD 影音光盘，VCD 影音光盘及各类流式协议。
 
-    ![vl-yolov5s](./../assets/vlc-yolov5s.jpg)
+    ![vl-yolov5s](./../../../zh/maixIII/assets/vlc-yolov5s.jpg)
 
 运行命令后终端会弹出调试信息，打开 `VLC Media Player` 进行配置网络串流后即可看到画面效果。
 
@@ -1287,20 +1189,20 @@ cat /proc/ax_proc/uid
 ```
  
 .. details::点击查看终端运行图
-    ![vlr-run](./../assets/vlc-run.jpg)
+    ![vlr-run](./../../../zh/maixIII/assets/vlc-run.jpg)
 
 .. details::点我查看 VLC Media Player 配置步骤
     打开后在上方选择**媒体**后选择**打开网络串流**进到配置画面。
-    ![vlc](./../assets/vlc.jpg)
+    ![vlc](./../../../zh/maixIII/assets/vlc.jpg)
     在网络页面输入**网络 URL ：`rtsp://192.168.233.1:8554/axstream0`**，
     勾选下方更多选项进行调整缓存后点击下方播放即可。
-    ![vlc-urt](./../assets/vlc-urt.jpg)
+    ![vlc-urt](./../../../zh/maixIII/assets/vlc-urt.jpg)
 
 - 双屏效果如下图示例：
   
 <html>
-  <img src="./../assets/rtsp-display.jpg" width=48%>
-  <img src="./../assets/rtsp-axpi.jpg" width=48%>
+  <img src="./../../../zh/maixIII/assets/rtsp-display.jpg" width=48%>
+  <img src="./../../../zh/maixIII/assets/rtsp-axpi.jpg" width=48%>
 </html>
 
 >**注意**：默认摄像头为 os04a10 型号不同请移步[Maix-III 系列 AXera-Pi 常见问题(FAQ)](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html)更换参数。
@@ -1324,7 +1226,7 @@ ffplay rtsp://192.168.233.1:8554/axstream0 -fflags nobuffer
 
     ONVIF 协议作为全球性的网络视频监控开放接口标准，推进了网络视频在安防市场的应用，特别是促进了高清网络摄像头的普及和运用。 越来越多的前端 IPC 厂家和后端 NVR 及存储提供商加入进来。而 ONVIF Device Manager 是 ONVIF 官方基于协议提供的免费第三方的 ONVIF 协议测试工具，与上文的 VLC 相比性能不同，但 ODM 的内容形式更加多样丰富。
     
-   ![odm](./../assets/odm.jpg)
+   ![odm](./../../../zh/maixIII/assets/odm.jpg)
 
 在终端运行下方命令，设备屏幕会跳出 yolov5s 模型运行画面，接着我们来配置 `ODM` 实现 PC 端显示。
 
@@ -1332,7 +1234,7 @@ ffplay rtsp://192.168.233.1:8554/axstream0 -fflags nobuffer
 >默认摄像头为 os04a10 如型号不同请移步[Maix-III 系列 AXera-Pi 常见问题(FAQ)](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html)更换参数。
 
 .. details::点击设备运行效果图
-    ![odm-mipi](./../assets/odm-mipi.jpg)
+    ![odm-mipi](./../../../zh/maixIII/assets/odm-mipi.jpg)
 
 ```bash
 /home/examples/vin_ivps_joint_venc_rtsp_vo_onvif_mp4v2/run.sh
@@ -1340,7 +1242,7 @@ ffplay rtsp://192.168.233.1:8554/axstream0 -fflags nobuffer
 
 打开我们下载好的 `ODM` 软件点击左侧白框的 `Refresh` 按键扫描设备，扫描成功会显示 `IP-Camera` 方框点击后选择下方的 `Live video` 即可在 PC 端看到画面。
 
-![odm-config](./../assets/odm-config.jpg)
+![odm-config](./../../../zh/maixIII/assets/odm-config.jpg)
 
 还可通过下方命令去查看文件配置：
 
@@ -1360,25 +1262,25 @@ nano /home/examples/vin_ivps_joint_venc_rtsp_vo_onvif_mp4v2/run.sh
 .. details::点击查看修改操作示例
     运行后会显示 `run.sh` 的编辑页面，对当前启动的模型进行注释或调用其他模型即可，
     按 **ctrl+X** 键后会提示是否保存修改内容。
-    ![model-save](./../assets/model-save.jpg)
+    ![model-save](./../../../zh/maixIII/assets/model-save.jpg)
     根据提示按下 **Y** 键保存，界面会显示修改内容写入的文件名按**回车**键确定，
     再次运行 `run.sh` 脚本即可看到模型更换成功。
-    ![model-file](./../assets/model-file.jpg)
+    ![model-file](./../../../zh/maixIII/assets/model-file.jpg)
     除了上方通过命令修改 `run.sh` 更换还可以通过 `MdbaXterm` 工具查看 `/home/examples/vin_ivps_joint_venc_rtsp_vo_onvif_mp4v2/` 目录下的`run.sh`脚本文件直接修改保存。
 
 - **按键录制 MP4**
 运行 `run.sh` 期间可按下板载的按键 `user` 进行录制视频，按下后 **LED0** 会亮起代表开始录制 MP4，
 
 .. details::点击查看按键示意图
-    ![odm-mp4](./../assets/odm-mp4.jpg)
+    ![odm-mp4](./../../../zh/maixIII/assets/odm-mp4.jpg)
 
 终端界面会显示下图 `delete file`，当录制完成后再次按下按键停止录制而 LED0 会灭掉，
 
-![odm-adb](./../assets/odm-adb.png)
+![odm-adb](./../../../zh/maixIII/assets/odm-adb.png)
 
 录制完成的 MP4 文件可在 **`home/examples/`** 目录下查看。
 
-![mp4-file](./../assets/mp4-file.png)
+![mp4-file](./../../../zh/maixIII/assets/mp4-file.png)
 
 ### PP_human
 
@@ -1390,7 +1292,7 @@ nano /home/examples/vin_ivps_joint_venc_rtsp_vo_onvif_mp4v2/run.sh
 ```bash
 /home/examples/vin_ivps_joint_vo_pp_human_seg/run.sh
 ```
-![pp_human](./../assets/pp_human.jpg)
+![pp_human](./../../../zh/maixIII/assets/pp_human.jpg)
 可使用下方命令进入图形化页面，对 `run.sh` 里不同摄像头参数的源码进行调用或注释。
 
 ```bash
@@ -1399,7 +1301,7 @@ nano /home/examples/vin_ivps_joint_vo_pp_human_seg/run.sh
 
 .. details::点击查看图形化页面
     修改后按 **ctrl+x** 键会进入保存页面，后续按终端提示操作即可。
-    ![pp_human_adb](./../assets/pp_humana_adb.png)
+    ![pp_human_adb](./../../../zh/maixIII/assets/pp_humana_adb.png)
 
 ### uvc_vo
 
@@ -1416,11 +1318,11 @@ nano /home/examples/vin_ivps_joint_vo_pp_human_seg/run.sh
 ```
 
 .. details::点击查看终端示例图
-    ![uvc_adb](./../assets/uvc_adb.png)
+    ![uvc_adb](./../../../zh/maixIII/assets/uvc_adb.png)
 
 打开 `PC` 端自带相机应用即可在设备屏幕以及 `PC` 端观察到模型检测画面。
 
-![uvc_vo](./../assets/uvc_vo.jpg)
+![uvc_vo](./../../../zh/maixIII/assets/uvc_vo.jpg)
 
 可以使用以下的命令行更换尾缀 `start` 开启、`stop` 停止、`restore` 重启来对 `uvc` 程序进行操作。
 
@@ -1435,11 +1337,11 @@ UVC 也能在安卓手机端的 `app` 上当虚拟摄像头使用，使用前在
 .. details::USB 摄像头专业版软件介绍
     USB 摄像头是一款支持 USB 摄像头、适配采集卡等设备通过 OTG 连接手机并驱动设备展示画面。
 
-    ![uvc_usb](./../assets/uvc_usb.jpg)
+    ![uvc_usb](./../../../zh/maixIII/assets/uvc_usb.jpg)
 
 把双头 `type-c` 线的分别接上手机端以及设备的 OTG 口，运行上方命令后会自动连接。
 
-![uvc_phone](./../assets/uvc_phone.jpg)
+![uvc_phone](./../../../zh/maixIII/assets/uvc_phone.jpg)
 
 >**注意**：如果需要完全脱离电脑端用手机端供电的话，需要把 uvc 程序写入开机脚本即可。
 
@@ -1457,7 +1359,7 @@ cd /home
 ```
 
 .. details::点击查看终端示例图
-    ![lvgi_adb](./../assets/lvgl_adb.png)
+    ![lvgi_adb](./../../../zh/maixIII/assets/lvgl_adb.png)
 
 <p align="center">
     <iframe src="//player.bilibili.com/player.html?aid=690497396&bvid=BV1n24y1C7DN&cid=901748014&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
