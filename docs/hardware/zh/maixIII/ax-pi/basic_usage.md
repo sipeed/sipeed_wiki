@@ -270,7 +270,7 @@ python3 -c "import os, binascii; os.system('sed -i \'/iface eth0 inet dhcp/ahwad
 
 **wlan0**：无线网卡，使用 DHCP 协议获取 IP 地址，可使用命令 `ifconfig wlan0` 查看当前网络配置。
 
-#### 使用 nmtui-connect 命令行联网
+#### 使用命令行联网
 
 >注意：新镜像（**20230103**）已提前配置好 `nmtui-connect` 直接可以根据下文进行联网。
 >旧版本使用前需先配置 `nmtui-connect` 才可使用，可点击前往[ 启动 nmtui-connect 图形化联网 ](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html#配置-nmtui-connect-使用图形化联网)查看。
@@ -363,7 +363,7 @@ lines 1-23
 
 基于 nmtui 联网成功后改用 nmcli 命令。
 
-- `nmcli device wifi hotspot ifname wlan0 con-name MyHostspot ssid MyHostspotSSID password 12345678` 即可创建 MyHostspotSSID 的 ap 热点。
+- `nmtui device wifi hotspot ifname wlan0 con-name MyHostspot ssid MyHostspotSSID password 12345678` 即可创建 MyHostspotSSID 的 ap 热点。
 
 > 目前 rtl8723bs WIFI 能打开，但连上会重启板子，网卡驱动问题暂时不修，更换成 rtl8189fs 即可正常使用。
 
@@ -761,9 +761,9 @@ fbv yolov5s_out.jpg
 
 ![layout_axpi](./../assets/layout_axpi_1.png)
 
-### RCT
+### RTC
 
-使用 `ls /sys/class/rts` 查询会出现 /dev/rtc0 和 /dev/rtc1，分别是外部电池以及芯片内部的 rct 时钟。
+使用 `ls /sys/class/rtc` 查询会出现 /dev/rtc0 和 /dev/rtc1，分别是外部电池以及芯片内部的 rtc 时钟。
 
 - **查看时间**
 
@@ -828,7 +828,7 @@ VPU:                 624 MHz
 root@AXERA:~#
 ```
 
-目前硬件内存虽然是 2g 但在系统上只能看到 745M ，不用担心，这是目前的分配内存过于保守导致的，后续更新内核调整一下 NPU 和 CMM 的内存分配的。
+目前硬件内存虽然是 2g 但在系统上只能看到 745M ，不用担心，这是目前的分配内存过于保守导致的，后续更新内核调整一下 NPU 和 CMM 的内存分配的。**(注：内核已更新，用户空间恢复 1.22G)**
 
 ### VIDEO
 
@@ -868,7 +868,8 @@ fboff
 
 测试 NPU 的示例程序在 `/home/ax-samples/build/install` 目录下，已经预编译好了，直接就可以调用并显示运行结果。
 
-```fbon
+```bash
+fbon
 /home/ax-samples/build/install/bin/ax_yolov5s -m /home/models/yolov5s.joint -i /home/images/cat.jpg -r 10
 fbv yolov5s_out.jpg
 ```
@@ -878,8 +879,8 @@ fbv yolov5s_out.jpg
 和桌面系统保持一致，直接可用 alsa-utils 进行测试。
 
 - **测试脚本**：`speaker-test -t sine -f 440 -c1`
+- **录制音频**：`arecord test.wav -c 2 -d 2`
 - **播放音频**：`aplay test.wav`
-- **录制音频**；`arecord test.wav -c 2 -d 2`
 
 录音回放的 `python3` 代码如下：
 
