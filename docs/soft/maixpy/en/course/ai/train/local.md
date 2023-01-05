@@ -65,9 +65,7 @@ Then edit the `maix_train/instance/config.py` configuration according to your ha
 ## Prepare the data set
 
 Prepare the data set, the image size is `224x224`, the format can refer to the data set example under `maix_train/datasets`
-
-See also [Maxhub's data set requirements](https://www.maixhub.com/index/mtrain/help.html)
-
+<!-- See also [Maxhub's data set requirements](https://www.maixhub.com/index/mtrain/help.html) -->
 
 ## Train classification model
 
