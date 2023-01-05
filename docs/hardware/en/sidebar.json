@@ -190,11 +190,11 @@
         "label": "Maix-III",
         "items": [
           {
-            "label": "Maix-III AXera-Pi(Building)",
+            "label": "Maix-III AXera-Pi",
             "file": "maixIII/ax-pi/axpi.md",
             "items": [
               {
-                "label": "AXera-Pi Guide(Building)",
+                "label": "AXera-Pi Guide(90%)",
                 "file": "maixIII/ax-pi/flash_system.md"
               },
               {
@@ -214,7 +214,7 @@
                 "url": "/ai/zh/deploy/ax-pi.html"
               },
               {
-                "label": "Questions (FAQ)(Building)"
+                "label": "Questions (FAQ)"
               }
             ]
           }

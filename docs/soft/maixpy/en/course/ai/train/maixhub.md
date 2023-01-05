@@ -4,16 +4,9 @@ keywords: maixpy, k210, AIOT, edge computing
 desc: maixpy  Maixhub model training
 ---
 
+Now the new version of MaixHub website has been launched, visit [maixhub.com](http://maixhub.com), it not only supports k210 nncase model training, but also support more platforms and development boards, such as mobile phones, computers, V831, MCU and so on.
+It's also improved the training process, support the online annotation, one-click upload dataset, more training parameters can be manually adjusted, as well as one-click deployment to the device or other functions, login and experience!
 
-Maixhub provides model training function and model sharing function. You only need to prepare the data set that needs to be trained. There is no need to build a training environment and code. Upload the training data to quickly train the model.
+MaixHub provides model training functions and model sharing functions. You only need to prepare the data set to be trained, and do not need to build the training environment or prepare the code. By uploading the training dataset, you can quickly train the model, which is convenient to quickly make your own AI application, or learn the basic process and principle of AI training.
 
-Maixhub currently supports the training of classification models and target detection models.
-
-What you need to do:
-* Determine the target, whether it is classification or detection
-* Make a data set that meets the requirements according to the instructions for use
-* Upload the data set and wait for automatic training in the cloud
-* After the training is completed, the result will be notified by email, whether it is a success or a failure, there will be an email notification with detailed task information and result files
-
-
-Maixhub instruction manual reference [Maixhub training instruction manual](https://www.maixhub.com/index/mtrain/help.html)
+In addition, you can also download your favorite models in MaixHub model library, or upload and share your own models, no matter they are trained in MaixHub, or trained by your own codes!

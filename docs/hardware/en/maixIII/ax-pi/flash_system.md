@@ -1071,15 +1071,15 @@ cat /proc/ax_proc/uid
 
 ### IPCDemo
 
-这是一个典型的 IPC 演示程序，对应的功能模块有：
+This is a IPC (IP camera) demo program, and its functions are as follows:
 
-- ISP：负责从 Sensor 获取图像 RAW 数据并转为 YUV，最终分 3 路通道输出以上信息。
-- IVPS：图像视频处理模块。实现对视频图形进行一分多、Resize、Crop、旋转等功能。
-- VENC / JENC：视频/JPEG 编码输出。
-- Detect：支持人脸或结构化检测。
-- Web 显示：实现 H264 流的 Web 传输和提供 Web 方式查看实时视频。
-- RTSP 推流：实现 H264 流的 RTSP 封装以及传输。
-- 录像 TF 卡存储：封装 H264 流为 MP4 格式文件并保存至 TF 卡或者 FLASH 空间。
+- ISP: Transfor the RAW data stream from Sensor into YUV data stream, and output it in 3 channels
+- IVPS: Image Video Processing submoule, Resize、Crop、Rotate the video image, or change the video image into multiple one.
+- VENC / JENC：Video / JPEG encoded output.
+- Detect: Face detection or structure detection.
+- Web display: H264 Web stream and provides to view real-time Web video.
+- RTSP Stream: H264 stream RTSP package and transmission.
+- TF card Video storage: Package H264 stream into MP4 format and save it to TF card or FLASH.
 
 <p align="center">
     <iframe src="//player.bilibili.com/player.html?aid=260625114&bvid=BV1me411T7g8&cid=837160730&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="max-width:640px; max-height:480px;"> </iframe>
@@ -1089,36 +1089,35 @@ cat /proc/ax_proc/uid
     <iframe src="//player.bilibili.com/player.html?aid=688159412&bvid=BV1p24y1d7Te&cid=837167669&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="max-width:640px; max-height:480px;"> </iframe>
 </p>
 
-#### 使用方法
+#### Usages
 
->**注意**：启动命令默认的镜头型号为 **gc4653** ，因不同的摄像头配置文件不一致，使用别的型号时需点击右侧[更换摄像头](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html#Q%EF%BC%9A%E5%A6%82%E4%BD%95%E6%9B%B4%E6%8D%A2-os04a10-%E6%91%84%E5%83%8F%E5%A4%B4%EF%BC%9F)进行修改。
+**Note**: We use **gc4653** as the default camera, for other cameras please visit [how to switch to os04a10 camera](./faq_axpi.md#qhow-to-switch-to-os04a10-camera).
 
-在终端运行下面的命令即可启动软件，服务默认绑定到 0.0.0.0 地址，直接在浏览器输入 usb0 的 IP 即可访问，使用板子上其他 IP 也可以访问页面（例如：`192.168.233.1:8080`）.
+Run following command to start this application, and we can visit the ip address ([USB-OTG RNDIS](#rndis) or network ip address) of AXera-Pi in web browser to see the stream video.
 
 ```bash
 /opt/bin/IPCDemo/run.sh /opt/bin/IPCDemo/config/gc4653_config.json
 ```
-输入启动命令后，终端会打印大量调试信息。
+
+Running this application, lots of log are shown.
 ![ipc](./../../../zh/maixIII/assets/ipc.jpg)
 
-访问页面后会弹出登录页面，点击登录后页面会弹出下图画面。
+Login the web browser, username is `admin` and password is ``
 
 ![ipc-admin](./../../../zh/maixIII/assets/ipc-admin.jpg)
 
-#### 如何抓拍？如何录制？
+#### Snapshot and Record
 
-浏览器抓拍录制（web）
+**Snapshot**
 
-- **抓拍图像**
-  
-软件经过上文的启动后显示画面，右下角有抓拍和录制的功能图标。
-用户可点击摄像头图标进行抓拍喜欢的场景，抓拍的照片浏览器会自动弹出进行下载方便用户查看存储。
+Login the web stream service, there are a camera icon and record icon in the right bottom stream video corner.
+Click the camera icon to snapshot the video, and the snapshot picture will be automatically downloaded for viewing.
 
 ![ipc-web](./../../../zh/maixIII/assets/ipc-web.jpg)
 
-- **录制视频**
+**Record**
 
-点击右下角的录制图标，即可进入本地录制视频（mp4）模式，再次点击图标即录制完成结束。
+Click the record icon in the right bottom stream video corner to record the video (mp4 format), and click the record icon to stopping recording.
 
 ![ipc-mp4](./../../../zh/maixIII/assets/ipc-mp4.jpg)
 
@@ -1126,19 +1125,18 @@ cat /proc/ax_proc/uid
 
 ![ipc-config](./../../../zh/maixIII/assets/ipc-config.jpg)
 
->**注意**：
->**20221017** 后的镜像默认打开了录制保存到`/opt/mp4`的目录下。
->视频录制要储存到文件系统后才能打开，某种意义上用户也可以挂载网络路径来当监控录像使用。
+**20221017** we set the video automatically saved to `/opt/mp4` directory, with which you can use this board as a surveillance network camera after mounting a hard disk.
 
-#### 人脸检测
->基于上文的基础功能，IPCDemo 自身还附带其他一些功能应用.例如**：人脸检测、车牌识别**。
+#### Face detection
 
-使用前请参考上文使用命令行登录 IPC 网页，登录后先进行相机结构化配置，具体配置流程看下文。
+In the IPCDemo, we also set other functions, like `Face detection` or `LPRnet`
 
-.. details::点击查看配置流程
-    接入页面后选择**配置**在**智能配置**里再进行**结构化配置**，用户可根据自己的需要进行勾选即可。
+Login to the IPC website first, then click what's the following picture marked.
 
-    ![ipc-video](./../../../zh/maixIII/assets/ipc-video.jpg)
+接入页面后选择**配置**在**智能配置**里再进行**结构化配置**，用户可根据自己的需要进行勾选即可。
+
+![ipc-video](./../../../zh/maixIII/assets/ipc-video.jpg)
+
 
 设置完成后回到预览页面即可进行人脸及人形识别，IPC 会自动框出识别人脸并且截取人脸的图片，可在预览页面下方点击截取图样放大查看附带信息。
 - 左侧：人脸检测 右侧：人形检测
@@ -1148,14 +1146,13 @@ cat /proc/ax_proc/uid
   <img src="./../../../zh/maixIII/assets/ipc-person.jpg" width=45%>
 </html>
 
-#### 车牌识别
+#### 
 
 使用前请参考上文基础功能使用命令行登录网页，再进行**结构化配置**勾选车牌所需的检测画框即可。
 
-.. details::点击查看 IPC 配置流程
-    接入页面后选择**配置**在**智能配置**里再进行**结构化配置**，用户可根据自己的需要进行勾选即可。
+接入页面后选择**配置**在**智能配置**里再进行**结构化配置**，用户可根据自己的需要进行勾选即可。
 
-    ![ipc-video](./../../../zh/maixIII/assets/ipc-video.jpg)
+![ipc-video](./../../../zh/maixIII/assets/ipc-video.jpg)
 
 设置完成即可回到预览页面进行车牌识别，IPC 会自动框出识别到得车牌及读取车牌数字信息，用户可在预览下方点击图片放大查看截取到车牌图片及信息。
 
@@ -1177,10 +1174,9 @@ cat /proc/ax_proc/uid
 
 使用 RTSP 传送数据前，我们需要先认识工具 `VLC Media Player`。
 
-.. details::点我查看 VLC Media Player 介绍
-    VLC Media Player（VLC 多媒体播放器），是一款可播放大多数格式，而无需安装编解码器包的媒体播放器，以及支持多平台使用、支持 DVD 影音光盘，VCD 影音光盘及各类流式协议。
+VLC Media Player（VLC 多媒体播放器），是一款可播放大多数格式，而无需安装编解码器包的媒体播放器，以及支持多平台使用、支持 DVD 影音光盘，VCD 影音光盘及各类流式协议。
 
-    ![vl-yolov5s](./../../../zh/maixIII/assets/vlc-yolov5s.jpg)
+![vl-yolov5s](./../../../zh/maixIII/assets/vlc-yolov5s.jpg)
 
 运行命令后终端会弹出调试信息，打开 `VLC Media Player` 进行配置网络串流后即可看到画面效果。
 
@@ -1224,9 +1220,9 @@ ffplay rtsp://192.168.233.1:8554/axstream0 -fflags nobuffer
 
 .. details::点击查看 ODM 软件介绍
 
-    ONVIF 协议作为全球性的网络视频监控开放接口标准，推进了网络视频在安防市场的应用，特别是促进了高清网络摄像头的普及和运用。 越来越多的前端 IPC 厂家和后端 NVR 及存储提供商加入进来。而 ONVIF Device Manager 是 ONVIF 官方基于协议提供的免费第三方的 ONVIF 协议测试工具，与上文的 VLC 相比性能不同，但 ODM 的内容形式更加多样丰富。
+ONVIF 协议作为全球性的网络视频监控开放接口标准，推进了网络视频在安防市场的应用，特别是促进了高清网络摄像头的普及和运用。 越来越多的前端 IPC 厂家和后端 NVR 及存储提供商加入进来。而 ONVIF Device Manager 是 ONVIF 官方基于协议提供的免费第三方的 ONVIF 协议测试工具，与上文的 VLC 相比性能不同，但 ODM 的内容形式更加多样丰富。
     
-   ![odm](./../../../zh/maixIII/assets/odm.jpg)
+![odm](./../../../zh/maixIII/assets/odm.jpg)
 
 在终端运行下方命令，设备屏幕会跳出 yolov5s 模型运行画面，接着我们来配置 `ODM` 实现 PC 端显示。
 
@@ -1234,7 +1230,7 @@ ffplay rtsp://192.168.233.1:8554/axstream0 -fflags nobuffer
 >默认摄像头为 os04a10 如型号不同请移步[Maix-III 系列 AXera-Pi 常见问题(FAQ)](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html)更换参数。
 
 .. details::点击设备运行效果图
-    ![odm-mipi](./../../../zh/maixIII/assets/odm-mipi.jpg)
+![odm-mipi](./../../../zh/maixIII/assets/odm-mipi.jpg)
 
 ```bash
 /home/examples/vin_ivps_joint_venc_rtsp_vo_onvif_mp4v2/run.sh
