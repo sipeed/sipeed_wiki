@@ -738,7 +738,7 @@ There is a USB-OTG port on AXera-Pi, we can change its function to be a OTG devi
 
 #### USB OTG RNDIS
 
-We set this function as the default function of USB-OTG port, with this we can see there is a usb RNDIS divice in the device manager and we can login to AXera-Pi by SSH with ip `192.168.233.1` if connecting computer with AXera-Pi via its USB-OTG port. [Click me](#rndis) to know how to login with RNDIS.
+We set this function as the default function of USB-OTG port, with this we can see there is a usb RNDIS divice in the device manager and we can login to AXera-Pi by SSH with ip `192.168.233.1` if connecting computer with AXera-Pi via its USB-OTG port. [Click me](#rndis) to know how to login with RNDIS by ssh.
 
 ![ssh-usb](./../../../zh/maixIII/assets/ssh-usb.jpg)
 
@@ -1091,26 +1091,30 @@ This is a IPC (IP camera) demo program, and its functions are as follows:
 
 #### Usages
 
-**Note**: We use **gc4653** as the default camera, for other cameras please visit [how to switch to os04a10 camera](./faq_axpi.md#qhow-to-switch-to-os04a10-camera).
-
-Run following command to start this application, and we can visit the ip address ([USB-OTG RNDIS](#rndis) or network ip address) of AXera-Pi in web browser to see the stream video.
+Run following command to start this application, and we can visit the ip address ([USB-OTG RNDIS](#rndis) or network ip address) of AXera-Pi and add port `8080` in web browser to see the stream video.
 
 ```bash
 /opt/bin/IPCDemo/run.sh /opt/bin/IPCDemo/config/gc4653_config.json
 ```
 
+We use the default camera gc4653 as the example, change the config_json file of your real camera in the end of example command  with following choice.
+
+![ipc_demo_json](./assets/flash_system/ipc_demo_json.jpg)
+
 Running this application, lots of log are shown.
 ![ipc](./../../../zh/maixIII/assets/ipc.jpg)
 
-Login the web browser, username is `admin` and password is ``
+Open the ip address of AXera-Pi with port `8080` in the web browser, here I take `192.168.233.1:8080` as example (this ip address is the RNDIS ip address of AXera-Pi and can be visited after connecting computer with the USB-OTG port of AXera-Pi), click the blue frame to login. Sadly this application is only Chinese language support, you can use web translation tool to translate the web content into your language.
 
 ![ipc-admin](./../../../zh/maixIII/assets/ipc-admin.jpg)
+
+![ipc_demo_translation](./assets/flash_system/ipc_demo_translation.jpg)
 
 #### Snapshot and Record
 
 **Snapshot**
 
-Login the web stream service, there are a camera icon and record icon in the right bottom stream video corner.
+Login the web stream service (Visit the ip address of AXera-Pi port `8080` after running IPCDemo), there are a camera icon and record icon in the right bottom stream video corner.
 Click the camera icon to snapshot the video, and the snapshot picture will be automatically downloaded for viewing.
 
 ![ipc-web](./../../../zh/maixIII/assets/ipc-web.jpg)
@@ -1121,133 +1125,117 @@ Click the record icon in the right bottom stream video corner to record the vide
 
 ![ipc-mp4](./../../../zh/maixIII/assets/ipc-mp4.jpg)
 
-用户可在配置页面的`录像回放`选项预览视频进行下载到本地或删除的操作。
+| Recording | Unrecording |
+| --- | --- |
+| ![ipc_recording](./assets/flash_system/ipc_recording.jpg) | ![ipc_unrecording](./assets/flash_system/ipc_unrecording.jpg) |
+
+And we can play or download the recorded video in following step marked with ① and ② in the following picture
 
 ![ipc-config](./../../../zh/maixIII/assets/ipc-config.jpg)
 
-**20221017** we set the video automatically saved to `/opt/mp4` directory, with which you can use this board as a surveillance network camera after mounting a hard disk.
+**20221017 demo updating** we set the video automatically saved to `/opt/mp4` directory, with which you can use this board as a surveillance network camera after mounting a hard disk.
+
+![ipc_recording_video](./assets/flash_system/ipc_recording_video.jpg)
 
 #### Face detection
 
 In the IPCDemo, we also set other functions, like `Face detection` or `LPRnet`
 
-Login to the IPC website first, then click what's the following picture marked.
+Login to the IPC website (Visit the ip address of AXera-Pi after running IPCDemo) first, then click what's the following picture marked for your need, use web translation tool to translate these settings.
 
-接入页面后选择**配置**在**智能配置**里再进行**结构化配置**，用户可根据自己的需要进行勾选即可。
+![lprnet_detection](./assets/flash_system/lprnet_detection.jpg)
 
-![ipc-video](./../../../zh/maixIII/assets/ipc-video.jpg)
+Tick your needed configurations, we can do face detection in the preview page. IPCDemo application will automatically detect the face and take snapshot, and we can see the detected face picture in the following preview blank area.
 
-
-设置完成后回到预览页面即可进行人脸及人形识别，IPC 会自动框出识别人脸并且截取人脸的图片，可在预览页面下方点击截取图样放大查看附带信息。
-- 左侧：人脸检测 右侧：人形检测
+- Left: Face detection. Right: Body detection
   
 <html>
   <img src="./../../../zh/maixIII/assets/ipc-model.jpg" width=45%>
   <img src="./../../../zh/maixIII/assets/ipc-person.jpg" width=45%>
 </html>
 
-#### 
+#### LPRnet
 
-使用前请参考上文基础功能使用命令行登录网页，再进行**结构化配置**勾选车牌所需的检测画框即可。
+Login to the IPC website (Visit the ip address of AXera-Pi after running IPCDemo) first, then click what's the following picture marked for your need, use web translation tool to translate these settings.
 
-接入页面后选择**配置**在**智能配置**里再进行**结构化配置**，用户可根据自己的需要进行勾选即可。
+![lprnet_detection](./assets/flash_system/lprnet_detection.jpg)
 
-![ipc-video](./../../../zh/maixIII/assets/ipc-video.jpg)
-
-设置完成即可回到预览页面进行车牌识别，IPC 会自动框出识别到得车牌及读取车牌数字信息，用户可在预览下方点击图片放大查看截取到车牌图片及信息。
+Tick your needed configurations, we can do LPRnet detection in the preview page. IPCDemo application will automatically detect the LPRnet and take snapshot, and we can see the detected LPRnet result in the following preview blank area.
 
 ![ipc-car](./../../../zh/maixIII/assets/ipc-car.jpg)
 
-#### 人体关键点
-
-> 这是一个基于 IPCDemo 的人体关键点开箱示例（暂未开放）
-
-<p align="center">
-    <iframe src="//player.bilibili.com/player.html?aid=773227207&bvid=BV1B14y1Y7A4&cid=837154353&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="max-width:640px; max-height:480px;"> </iframe>
-</p>
-
 ### rtsp
 
->**rtsp**：也称实时流传输协议，该协议定义了一对多应用程序如何有效地通过 IP 网络传送多媒体数据。
+> **rtsp**：Real Time Streaming Protocol is an application-level network protocol designed for multiplexing and packetizing multimedia transport streams (such as interactive media, video and audio) over a suitable transport protocol.
 
-**VLC Media Player**：[点击下载](https://www.videolan.org/vlc/)
-
-使用 RTSP 传送数据前，我们需要先认识工具 `VLC Media Player`。
-
-VLC Media Player（VLC 多媒体播放器），是一款可播放大多数格式，而无需安装编解码器包的媒体播放器，以及支持多平台使用、支持 DVD 影音光盘，VCD 影音光盘及各类流式协议。
+Here we use [VLC Media Player](https://www.videolan.org/vlc/) to play the rtsp stream video.
 
 ![vl-yolov5s](./../../../zh/maixIII/assets/vlc-yolov5s.jpg)
 
-运行命令后终端会弹出调试信息，打开 `VLC Media Player` 进行配置网络串流后即可看到画面效果。
+Run following cammand on AXera-Pi, open `VLC Media Player` and use hoykey `Ctrl + N` to open a network stream video, enter the ip address of AXera-Pi like `rtsp://192.168.233.1:8554/axstream0` to play the stream video.
 
+Run this command on AXera-Pi:
 ```bash
 /home/examples/vin_ivps_joint_venc_rtsp_vo_onvif_mp4v2/run.sh
 ```
  
-.. details::点击查看终端运行图
-    ![vlr-run](./../../../zh/maixIII/assets/vlc-run.jpg)
+The lof of AXera-Pi running rtsp stream video
+![vlr-run](./../../../zh/maixIII/assets/vlc-run.jpg)
 
-.. details::点我查看 VLC Media Player 配置步骤
-    打开后在上方选择**媒体**后选择**打开网络串流**进到配置画面。
-    ![vlc](./../../../zh/maixIII/assets/vlc.jpg)
-    在网络页面输入**网络 URL ：`rtsp://192.168.233.1:8554/axstream0`**，
-    勾选下方更多选项进行调整缓存后点击下方播放即可。
-    ![vlc-urt](./../../../zh/maixIII/assets/vlc-urt.jpg)
+Enter the ip address of AXera-Pi for playing the stream video, use hoykey `Ctrl + P` to play after entering the ip address of AXera-Pi.
+![vlc-urt](./../../../zh/maixIII/assets/vlc-urt.jpg)
 
-- 双屏效果如下图示例：
+The rtsp example is as follows:
   
 <html>
   <img src="./../../../zh/maixIII/assets/rtsp-display.jpg" width=48%>
   <img src="./../../../zh/maixIII/assets/rtsp-axpi.jpg" width=48%>
 </html>
 
->**注意**：默认摄像头为 os04a10 型号不同请移步[Maix-III 系列 AXera-Pi 常见问题(FAQ)](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html)更换参数。
+Edit `/home/examples/vin_ivps_joint_venc_rtsp_vo_onvif_mp4v2/run.sh` if your camera is not gc4653.
+
 #### ffplay
 
-工具除了 `VCL` 还可以直接使用 `ffplay`。
-**ffplay** :[点击下载](https://dl.sipeed.com/shareURL/MaixIII/AXera/09_Software_tool)
+Except `VCL`, we can use `ffplay` to play the stream video.
+**ffplay** :[Click me to download windows edition ffplat](https://dl.sipeed.com/shareURL/MaixIII/AXera/09_Software_tool), for linux user run command `sudo apt install ffmpeg` to install ffplay.
+
+After getting ffplay ready, run following command in command line to play the rtsp stream video of AXera-Pi, change the ip address if necessary.
 
 ```bash
-sudo apt install ffmpeg
 ffplay rtsp://192.168.233.1:8554/axstream0 -fflags nobuffer
 ```
 
 ### ONVIF ODM
 
->在 **20221111** 后的更新的镜像系统，内置了按键录像 mp4 和支持更换 yolov5s 人脸/物体检测模型以及对 ODM（ONVIF）进行支持。
+**ONVIF Device Manager**：[Click to download](https://sourceforge.net/projects/onvifdm/)
 
-**ONVIF Device Manager**：[点击下载](https://sourceforge.net/projects/onvifdm/)
-
-.. details::点击查看 ODM 软件介绍
-
-ONVIF 协议作为全球性的网络视频监控开放接口标准，推进了网络视频在安防市场的应用，特别是促进了高清网络摄像头的普及和运用。 越来越多的前端 IPC 厂家和后端 NVR 及存储提供商加入进来。而 ONVIF Device Manager 是 ONVIF 官方基于协议提供的免费第三方的 ONVIF 协议测试工具，与上文的 VLC 相比性能不同，但 ODM 的内容形式更加多样丰富。
+Different from VLC player, ODM have many different usages.
     
 ![odm](./../../../zh/maixIII/assets/odm.jpg)
 
-在终端运行下方命令，设备屏幕会跳出 yolov5s 模型运行画面，接着我们来配置 `ODM` 实现 PC 端显示。
-
->**注意**：ODM 受网络影响较大，如果有卡顿现象把网络更换成以太网即可。
->默认摄像头为 os04a10 如型号不同请移步[Maix-III 系列 AXera-Pi 常见问题(FAQ)](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html)更换参数。
-
-.. details::点击设备运行效果图
-![odm-mipi](./../../../zh/maixIII/assets/odm-mipi.jpg)
+Run following command on AXera-Pi, the screen on AXera-Pi displays the yolov5s model, then we use `ODM` to display the content on computer.
 
 ```bash
 /home/examples/vin_ivps_joint_venc_rtsp_vo_onvif_mp4v2/run.sh
 ```
 
-打开我们下载好的 `ODM` 软件点击左侧白框的 `Refresh` 按键扫描设备，扫描成功会显示 `IP-Camera` 方框点击后选择下方的 `Live video` 即可在 PC 端看到画面。
+Edit `/home/examples/vin_ivps_joint_venc_rtsp_vo_onvif_mp4v2/run.sh` file to switch camera if your screen failed display the camera content.
 
-![odm-config](./../../../zh/maixIII/assets/odm-config.jpg)
+![onvif_changing_camera](./assets/flash_system/onvif_changing_camera.jpg)
 
-还可通过下方命令去查看文件配置：
+Screen displays the camera content:
+![odm-mipi](./../../../zh/maixIII/assets/odm-mipi.jpg)
 
-```bash
- cd /home/examples/vin_ivps_joint_venc_rtsp_vo_onvif_mp4v2/
- ls -l
-```
+Run the `ONVIF Device Manager`, click `Refresh` to scan device, make sure you have connected computer with USB-OTG port of AXera-Pi and there is RNDIS device in your computer manager (Here we take RNDIS as network example and We play the video through `192.168.233.1`). After clicking `Refresh` there is a IP-Camera with IP `192.168.233.1`, choose it and click `Live` video to stream the video.
 
-- **更换模型**
+![onvif_rndis_device](./assets/flash_system/onvif_rndis_device.jpg)
+
+![onvif_example](./assets/flash_system/onvif_example.jpg)
+
+And we just take RNDIS as example, other IP address like wireless or ethernrt are also fine. Make sure your nerwork is good, and bad network can not use `ONVIF Device Manager` with good experience.
+
+- Switch model
+
 >20221116 后更新的镜像已在 `run.sh` 内置了不同摄像头参数的源码。
 >20221111 镜像内置 yolov5s 的人脸/物体检测模型，可使用以下命令更改运行脚本内容更换模型。
 
@@ -1255,14 +1243,13 @@ ONVIF 协议作为全球性的网络视频监控开放接口标准，推进了�
 nano /home/examples/vin_ivps_joint_venc_rtsp_vo_onvif_mp4v2/run.sh
 ```
 
-.. details::点击查看修改操作示例
-    运行后会显示 `run.sh` 的编辑页面，对当前启动的模型进行注释或调用其他模型即可，
-    按 **ctrl+X** 键后会提示是否保存修改内容。
-    ![model-save](./../../../zh/maixIII/assets/model-save.jpg)
-    根据提示按下 **Y** 键保存，界面会显示修改内容写入的文件名按**回车**键确定，
-    再次运行 `run.sh` 脚本即可看到模型更换成功。
-    ![model-file](./../../../zh/maixIII/assets/model-file.jpg)
-    除了上方通过命令修改 `run.sh` 更换还可以通过 `MdbaXterm` 工具查看 `/home/examples/vin_ivps_joint_venc_rtsp_vo_onvif_mp4v2/` 目录下的`run.sh`脚本文件直接修改保存。
+运行后会显示 `run.sh` 的编辑页面，对当前启动的模型进行注释或调用其他模型即可，
+按 **ctrl+X** 键后会提示是否保存修改内容。
+![model-save](./../../../zh/maixIII/assets/model-save.jpg)
+根据提示按下 **Y** 键保存，界面会显示修改内容写入的文件名按**回车**键确定，
+再次运行 `run.sh` 脚本即可看到模型更换成功。
+![model-file](./../../../zh/maixIII/assets/model-file.jpg)
+除了上方通过命令修改 `run.sh` 更换还可以通过 `MdbaXterm` 工具查看 `/home/examples/vin_ivps_joint_venc_rtsp_vo_onvif_mp4v2/` 目录下的`run.sh`脚本文件直接修改保存。
 
 - **按键录制 MP4**
 运行 `run.sh` 期间可按下板载的按键 `user` 进行录制视频，按下后 **LED0** 会亮起代表开始录制 MP4，
