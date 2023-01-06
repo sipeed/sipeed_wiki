@@ -1058,7 +1058,7 @@ echo 1 > /sys/class/gpio/gpio68/value
 
 使用 Python 控制排针上的 GPIO 方法举例，可见排针上的 BOT_GPIO_0 - 7 对应 GPIO2_A16_m - GPIO2_A23_m 喔。
 
-![image](https://user-images.githubusercontent.com/32978053/210937035-dc06d8d2-6f93-47ef-806e-b4e8d11f70b1.png)
+![io_pin_map](./../assets/io_pin_map.png)
 
 先在 python3 中加载简易封装 gpio 类，使用的是 linux 的 libgpiod 的 python 版本。
 

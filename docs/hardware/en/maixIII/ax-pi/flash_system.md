@@ -480,7 +480,7 @@ From the boot script `rc.local`, we can see that `/home/res/2_480x854.jpeg` is w
 
 ### Update kernel and driver
 
-The first partition of system image card is mounted at `/boot` after booting, and replace the file we can update the firmware.
+The first partition of system image card is mounted at `/boot` after booting, and replace the file we can update the firmware to fit our hardware after rebooting device.
 
 
 - `boot.bin` spl initialize file
@@ -490,6 +490,14 @@ The first partition of system image card is mounted at `/boot` after booting, an
 - `kernel.img` linux kernel
 
 - `dtb.img` linux device tree
+
+For example:
+
+- Update device tree: `cp /boot/dtb.img.lcd20221025 /boot/dtb.img` 
+
+- Update kernel `cp /boot/kernel.img.rtl8723bs /boot/kernel.img`
+
+Then reboot device to apply the new configuration.
 
 ## Transfer file
 
@@ -874,7 +882,89 @@ For Axera chip, GPIO0 means A IO port and GPIO2 means C IO port, and example lik
 
 GPIO2 A4 in AXera-Pi is GPIO C(2) 4(A4) in standard definition , and standard definition GPIOA0 means IO GPIO0A4 in AXera-Pi.
 
-Example [gpio.h/gpio.c](https://www.cnblogs.com/juwan/p/16917802.html#gpio--pwm)
+In the future, we'll apply definition like PA0 and PC4, which is more easy to understand.
+
+Here we use Python to control the GPIO, from the following picture, we can know that the BOT_GPIO_0-7 of the pin headers are GPIO2_A16_m - GPIO2_A23_m in the system.
+
+![io_pin_map](./../../../zh/maixIII/assets/io_pin_map.png)
+
+We use Python3 libgpiod to encapsulate gpio class.
+
+```python
+
+try:
+    from gpiod import chip, line, line_request
+    config = None # rpi is default value A 0
+    def gpio(gpio_line=0, gpio_bank="a", gpio_chip=0, line_mode = line_request.DIRECTION_OUTPUT):
+        global config
+        if config != None and gpio_line in config:
+            gpio_bank, gpio_chip = config[gpio_line]
+        l, c = [32 * (ord(gpio_bank.lower()[0]) - ord('a')) + gpio_line, chip("gpiochip%d" % gpio_chip)]
+        tmp = c.get_line(l)
+        cfg = line_request() # led.active_state == line.ACTIVE_LOW
+        cfg.request_type = line_mode # line.DIRECTION_INPUT
+        tmp.request(cfg)
+        tmp.source = "GPIO chip %s bank %s line %d" % (gpio_chip, gpio_bank, gpio_line)
+        return tmp
+    def load(cfg=None):
+        global config
+        config = cfg
+except ModuleNotFoundError as e:
+    pass
+
+```
+
+GPIO input test:
+
+```python3
+
+led0 = gpio(16, gpio_chip=2, line_mode = line_request.DIRECTION_INPUT)
+led1 = gpio(17, gpio_chip=2, line_mode = line_request.DIRECTION_INPUT)
+led2 = gpio(18, gpio_chip=2, line_mode = line_request.DIRECTION_INPUT)
+led3 = gpio(19, gpio_chip=2, line_mode = line_request.DIRECTION_INPUT)
+
+def test():
+    import time
+    print(led0.get_value())
+    print(led1.get_value())
+    print(led2.get_value())
+    print(led3.get_value())
+    time.sleep(1)
+    print(time.asctime())
+
+while True:
+    test()
+
+```
+
+GPIO 输出测试：
+
+```python3
+
+led0 = gpio(0, gpio_chip=2, line_mode = line_request.DIRECTION_OUTPUT)
+led1 = gpio(1, gpio_chip=2, line_mode = line_request.DIRECTION_OUTPUT)
+led2 = gpio(2, gpio_chip=2, line_mode = line_request.DIRECTION_OUTPUT)
+led3 = gpio(3, gpio_chip=2, line_mode = line_request.DIRECTION_OUTPUT)
+
+def test():
+    import time
+    time.sleep(1)
+    led0.set_value(1)
+    led1.set_value(1)
+    led2.set_value(1)
+    led3.set_value(1)
+    time.sleep(1)
+    led0.set_value(0)
+    led1.set_value(0)
+    led2.set_value(0)
+    led3.set_value(0)
+    print(time.asctime())
+
+test()
+
+```
+
+C example to control gpio: [gpio.h/gpio.c](https://www.cnblogs.com/juwan/p/16917802.html#gpio--pwm)
 
 ### UART
 
