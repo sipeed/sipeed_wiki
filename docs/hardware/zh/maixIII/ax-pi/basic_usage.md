@@ -1056,6 +1056,86 @@ echo 1 > /sys/class/gpio/gpio68/value
 
 以后主流会统一到 PA0 或 PC4 这类定义，方便不同芯片共同定义。
 
+使用 Python 控制排针上的 GPIO 方法举例，可见排针上的 BOT_GPIO_0 - 7 对应 GPIO2_A16_m - GPIO2_A23_m 喔。
+
+![image](https://user-images.githubusercontent.com/32978053/210937035-dc06d8d2-6f93-47ef-806e-b4e8d11f70b1.png)
+
+先在 python3 中加载简易封装 gpio 类，使用的是 linux 的 libgpiod 的 python 版本。
+
+```python
+
+try:
+    from gpiod import chip, line, line_request
+    config = None # rpi is default value A 0
+    def gpio(gpio_line=0, gpio_bank="a", gpio_chip=0, line_mode = line_request.DIRECTION_OUTPUT):
+        global config
+        if config != None and gpio_line in config:
+            gpio_bank, gpio_chip = config[gpio_line]
+        l, c = [32 * (ord(gpio_bank.lower()[0]) - ord('a')) + gpio_line, chip("gpiochip%d" % gpio_chip)]
+        tmp = c.get_line(l)
+        cfg = line_request() # led.active_state == line.ACTIVE_LOW
+        cfg.request_type = line_mode # line.DIRECTION_INPUT
+        tmp.request(cfg)
+        tmp.source = "GPIO chip %s bank %s line %d" % (gpio_chip, gpio_bank, gpio_line)
+        return tmp
+    def load(cfg=None):
+        global config
+        config = cfg
+except ModuleNotFoundError as e:
+    pass
+
+```
+
+GPIO 输入测试：
+
+```python3
+
+led0 = gpio(16, gpio_chip=2, line_mode = line_request.DIRECTION_INPUT)
+led1 = gpio(17, gpio_chip=2, line_mode = line_request.DIRECTION_INPUT)
+led2 = gpio(18, gpio_chip=2, line_mode = line_request.DIRECTION_INPUT)
+led3 = gpio(19, gpio_chip=2, line_mode = line_request.DIRECTION_INPUT)
+
+def test():
+    import time
+    print(led0.get_value())
+    print(led1.get_value())
+    print(led2.get_value())
+    print(led3.get_value())
+    time.sleep(1)
+    print(time.asctime())
+
+while True:
+    test()
+
+```
+
+GPIO 输出测试：
+
+```python3
+
+led0 = gpio(0, gpio_chip=2, line_mode = line_request.DIRECTION_OUTPUT)
+led1 = gpio(1, gpio_chip=2, line_mode = line_request.DIRECTION_OUTPUT)
+led2 = gpio(2, gpio_chip=2, line_mode = line_request.DIRECTION_OUTPUT)
+led3 = gpio(3, gpio_chip=2, line_mode = line_request.DIRECTION_OUTPUT)
+
+def test():
+    import time
+    time.sleep(1)
+    led0.set_value(1)
+    led1.set_value(1)
+    led2.set_value(1)
+    led3.set_value(1)
+    time.sleep(1)
+    led0.set_value(0)
+    led1.set_value(0)
+    led2.set_value(0)
+    led3.set_value(0)
+    print(time.asctime())
+
+test()
+
+```
+
 [可参考的 gpio.h/gpio.c 代码](https://www.cnblogs.com/juwan/p/16917802.html#linux-spiv)
 
 ### UART
