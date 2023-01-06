@@ -644,7 +644,7 @@ exit 0
 
 ### 更新内核与驱动
 
-在 SD 卡的第一分区会挂载到系统根目录下的 /boot 系统启动相关的文件，替换它即可完成更新。
+在 SD 卡的第一分区会挂载到系统根目录下的 /boot 系统启动相关的文件，替换它后重启（reboot）即可完成更新。
 
 - boot.bin 芯片 spl 初始化程序
 
@@ -653,6 +653,13 @@ exit 0
 - kernel.img linux 内核
 
 - dtb.img linux 设备树
+
+例如：
+
+- 更新设备树可以用 `cp /boot/dtb.img.lcd20221025 /boot/dtb.img` 
+- 更新内核驱动可以用 `cp /boot/kernel.img.rtl8723bs /boot/kernel.img`
+
+最后 reboot 即可生效。
 
 ## 如何传输文件
 
