@@ -208,10 +208,6 @@
               "file": "maixIII/ax-pi/dev_prepare.md"
             },
             {
-              "label": "SDK 开发指南",
-              "file": "maixIII/ax-pi/sdk_usage.md"
-            },
-            {
               "label": "AI 开发指南",
               "url": "/ai/zh/deploy/ax-pi.html"
             },
