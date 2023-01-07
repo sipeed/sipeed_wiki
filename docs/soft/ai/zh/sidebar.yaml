@@ -1,6 +1,7 @@
 items:
 - label: 文档简介
   file: README.md
+
 - label: AI 基础
 - label: 什么是 AI ?
   file: basic/what_is_ai.md
@@ -10,6 +11,16 @@ items:
   file: basic/code_frameworks.md
 - label: 教程汇总
   file: basic/courses.md
+- label: 常见神经网络模型
+  collapsed: false
+  items:
+  - label: Mobilenet 分类模型
+    file: nn_models/mobilenet.md
+  - label: YOLO v2 检测模型
+    file: nn_models/yolov2.md
+  - label: FOMO 轻量检测模型
+    file: nn_models/fomo.md
+
 - label: 部署到边缘设备
 - label: 部署方法汇总
   file: deploy/README.md
@@ -21,6 +32,7 @@ items:
   file: deploy/ax-pi.md
 - label: TinyMaix 模型部署
   file: deploy/tinymaix.md
+
 - label: MaixHub
 - label: MaixHub 简介
   file: maixhub/README.md
