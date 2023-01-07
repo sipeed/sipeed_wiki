@@ -291,7 +291,6 @@ AX-Pipeline 由爱芯主导开发。该项目基于 AXera-Pi 展示 ISP、图像
 
 以下是由社区开发者贡献的内容，欢迎你也来贡献喔！！！（直接丢群里都可以喔！）
 
-- [矽速 MAIX-III AXera-Pi 开箱](https://bbs.elecfans.com/m/jishu_2314161_1_1.html)
 - [爱芯派-AI微光全彩夜视-开箱体验](https://zhuanlan.zhihu.com/p/571233089)
 - [爱芯 AX620A NPU 初体验](https://neucrack.com/p/440)
 - [爱芯元智AX620A部署yolov5 6.0模型实录](https://zhuanlan.zhihu.com/p/569083585)
@@ -307,6 +306,7 @@ AX-Pipeline 由爱芯主导开发。该项目基于 AXera-Pi 展示 ISP、图像
 - [MAIX-III AXera-Pi 系列文章（1）：新一代 3.6T 视觉 AI 板卡面世](https://aijishu.com/a/1060000000374898)
 - [MAIX-III AXera-Pi 系列文章（2）：丰富多采的 AI 应用](https://aijishu.com/a/1060000000374900)
 - [MAIX-III AXera-Pi 系列文章（3）：Debian 系统 & 开箱案例](https://aijishu.com/a/1060000000374902)
+- [MAIX-III AXera-Pi 系列文章（4）：开箱 & 产品外观](https://aijishu.com/a/1060000000378968)
 
 产品相关的新闻内容有：
 
@@ -338,6 +338,7 @@ AX-Pipeline 由爱芯主导开发。该项目基于 AXera-Pi 展示 ISP、图像
 > 测评结果会公开在此，并附上你的署名。需要提交测评的同学请直接联系群里的 **大佬鼠** 或发送评测内容到 `support@sipeed.com` 并署名：【m3axpi 产品测评】。
 
 - [小手智联老徐 —— AI 边缘计算平台 - 爱芯元智 AX620A 爱芯派开箱](https://blog.csdn.net/weixin_43978579/article/details/127966677)
+- [HonestQiao —— 矽速 MAIX-III AXera-Pi 开箱](https://bbs.elecfans.com/m/jishu_2314161_1_1.html)
 
 ### 模型训练测评公示（已截止）
 

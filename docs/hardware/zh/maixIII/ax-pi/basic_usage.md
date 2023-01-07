@@ -264,7 +264,7 @@ python3 -c "import os, binascii; os.system('sed -i \'/iface eth0 inet dhcp/ahwad
 
 ### 无线 WIFI （wlan0）配置方法
 
->**20230103** 后镜像更新及更换新硬件（rtl8189fs）WiFi 模组，相关的 `WiFi` 配置全部采用 `nmtui` 图形化或命令行进行联网。相关的硬件版本区分或出现 `wlan0` 不显示的情况都请移步[ Maix-III 系列 AXera-Pi 常见问题（FAQ）](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html)查看。
+>**20230103** 后镜像更新以及不同硬件（rtl8189fs）WiFi 模组，相关的 `WiFi` 配置全部采用 `nmtui` 图形化或命令行进行联网。相关的硬件版本区分或出现 `wlan0` 不显示的情况都请移步[ Maix-III 系列 AXera-Pi 常见问题（FAQ）](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html)查看。
 
 - **查看 WIFI 网卡是否存在**
 
@@ -273,7 +273,7 @@ python3 -c "import os, binascii; os.system('sed -i \'/iface eth0 inet dhcp/ahwad
 #### 使用命令行联网
 
 >注意：新镜像（**20230103**）已提前配置好 `nmtui-connect` 直接可以根据下文进行联网。
->旧版本使用前需先配置 `nmtui-connect` 才可使用，可点击前往[ 启动 nmtui-connect 图形化联网 ](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html#配置-nmtui-connect-使用图形化联网)查看。
+>旧镜像使用前需先配置 `nmtui-connect` 才可使用，可点击前往[ 启动 nmtui-connect 图形化联网 ](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html#配置-nmtui-connect-使用图形化联网)查看。
 
 用户修改以下命令行的 `账户密码` 直接在终端运行连接即可，系统会自动保存连接过的 WiFi 账户以及密码。
 
@@ -853,9 +853,11 @@ sample_vin_vo -c 2 -e 1 -s 0 -v dsi0@480x854@60
 .. details::运行上方命令后可看到画面（示例效果）
     ![video](./../assets/video.jpg)
 
->目前默认使用的是 gc4653 ，使用 os04a10 请移步[Maix-III 系列 AXera-Pi 常见问题(FAQ)](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html)查询。
+>默认使用的是 gc4653 ，使用 os04a10 请移步[Maix-III 系列 AXera-Pi 常见问题(FAQ)](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html)查询。
 
 ### DISPLAY
+
+>因物料更新屏幕现有不同的版本，需区别版本以及使用屏幕时出现锯齿等画面请移步到[ Maix-III 系列 AXera-Pi 常见问题(FAQ) ](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html)查询。
 
 目前系统默认使用的是最简单的 framebuffer 显示驱动（/dev/fb0），在系统里内置了 `fbon / fboff / fbv xxx.jpg` 三个命令负责管理 fb 设备的启用和现实。
 
@@ -1507,7 +1509,7 @@ cat /proc/ax_proc/uid
   <img src="./../assets/rtsp-axpi.jpg" width=48%>
 </html>
 
->**注意**：默认摄像头为 os04a10 型号不同请移步[Maix-III 系列 AXera-Pi 常见问题(FAQ)](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html)更换参数。
+>**注意**：默认摄像头为 gc4653 型号不同请移步[Maix-III 系列 AXera-Pi 常见问题(FAQ)](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html)更换参数。
 #### ffplay
 
 工具除了 `VCL` 还可以直接使用 `ffplay`。
@@ -1533,7 +1535,7 @@ ffplay rtsp://192.168.233.1:8554/axstream0 -fflags nobuffer
 在终端运行下方命令，设备屏幕会跳出 yolov5s 模型运行画面，接着我们来配置 `ODM` 实现 PC 端显示。
 
 >**注意**：ODM 受网络影响较大，如果有卡顿现象把网络更换成以太网即可。
->默认摄像头为 os04a10 如型号不同请移步[Maix-III 系列 AXera-Pi 常见问题(FAQ)](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html)更换参数。
+>默认摄像头为 gc4653 如型号不同请移步[Maix-III 系列 AXera-Pi 常见问题(FAQ)](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html)更换参数。
 
 .. details::点击设备运行效果图
     ![odm-mipi](./../assets/odm-mipi.jpg)
