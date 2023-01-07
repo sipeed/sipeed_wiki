@@ -194,11 +194,8 @@
             "file": "maixIII/ax-pi/axpi.md",
             "items": [
               {
-                "label": "AXera-Pi Guide(90%)",
+                "label": "AXera-Pi manual(90%)",
                 "file": "maixIII/ax-pi/flash_system.md"
-              },
-              {
-                "label": "User manual(Building)"
               },
               {
                 "label": "Python programming(Building)"
@@ -210,11 +207,12 @@
                 "label": "SDK development guide(Building)"
               },
               {
-                "label": "AI development guide(Building)",
-                "url": "/ai/zh/deploy/ax-pi.html"
+                "label": "AI development guide",
+                "url": "/ai/en/deploy/ax-pi.html"
               },
               {
-                "label": "Questions (FAQ)"
+                "label": "Questions (FAQ)",
+                "file":"maixIII/ax-pi/faq_axpi.md"
               }
             ]
           }

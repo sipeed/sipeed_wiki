@@ -14,9 +14,17 @@ A：最近冬天静电来了，产品要注意接地喔。
 
 A：**一改参数，二改代码，以下述改动为例**：
 
-- 类似 sample_vin_vo 这类命令改 `-c 0` 就可以启用 os04a10 摄像头，对应 `-c 2` 就是默认提供的 gc4653 摄像头。如果是类似 ipc demo 的话更改相对应后缀 gc4653 为 `gc4653_config.json`、os04a10 为 `os04a10_config.json`. 
+- 类似 sample_vin_vo 这类命令改 `-c 0` 就可以启用 os04a10 摄像头，对应 `-c 2` 就是默认提供的 gc4653 摄像头。
+- 如果是类似 [IPCDemo](./basic_usage.md#ipcdemo) 的话更改相对应后缀 gc4653 为 `gc4653_config.json`、os04a10 为 `os04a10_config.json`。
+  ![ipc_demo_json](./../../../en/maixIII/ax-pi/assets/flash_system/ipc_demo_json.jpg)
+- 像[RSTP](./basic_usage.md#rtsp) 这种脚本运行的示例，可以通过编辑里面的摄像头注释来改变摄像头配置。
+  ![rtsp_stream_shell](./../../../en/maixIII/ax-pi/assets/flash_system/rtsp_stream_shell.jpg)
 
-- 类似于改代码里的 `COMMON_SYS_CASE_E eSysCase = SYS_CASE_SINGLE_GC4653;` ，详细可看[components/libmaix/lib/arch/axpi/libmaix_cam/libmaix_cam.cpp#L93](https://github.com/sipeed/libmaix/blob/release/components/libmaix/lib/arch/axpi/libmaix_cam/libmaix_cam.cpp#L93)
+- 可以编辑 C 代码里设置默认摄像头的代码 `COMMON_SYS_CASE_E eSysCase = SYS_CASE_SINGLE_GC4653;` 来切换摄像头，详细可看[components/libmaix/lib/arch/axpi/libmaix_cam/libmaix_cam.cpp#L93](https://github.com/sipeed/libmaix/blob/release/components/libmaix/lib/arch/axpi/libmaix_cam/libmaix_cam.cpp#L93)
+<div>
+  <img src="./../../../en/maixIII/ax-pi/assets/qa/qa_switcg_os04a10_1.jpg" alt="qa_switcg_os04a10_1" width="45%">
+  <img src="./../../../en/maixIII/ax-pi/assets/qa/qa_switcg_os04a10_2.jpg" alt="qa_switcg_os04a10_2" width="45%">
+</div>
 
 ## Q：运行摄像头有关程序时报错 i2c_read: Failed to read reg: Remote I/O error.!？
 
@@ -50,7 +58,7 @@ A：这是批次问题，物理旋转即可解决。
 <html>
       <img src="./../assets/faq_video_b.jpg" width=48%>
       <img src="./../assets/faq_video_c.jpg" width=48%>
-    </html>
+</html>
 
 ## Q：运行命令后报错：Bus Error！？
 
@@ -77,14 +85,14 @@ A：重启即可
 
 A：可能是核心板与底板衔接松了，重新插拔核心板与底板可！
 
-A：**20230103** 后的新版底板更换了 WiFi 模组物料，更新的镜像系统默认内核为新模组的 `rtl8189fs`，如出现以上这种情况，可根据[ 更改说明](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html#Q：硬件物料更改说明) 查看并区别版本更换对应的在 `/boot` 目录下的 `kernel` 内核驱动即可。
+A：**20230103** 后的新版底板更换了 WiFi 模组物料，默认的系统镜像里面所使用的 Wifi 模组型号为`rtl8189fs`，因此对于之前所搭载的 `rtl8723bs` Wifi 模组的底板需要执行下面的命令来并执行 `reboot` 命令来重启设备以重新适配 Wifi 硬件。具体更改差别可前往[更改说明](#q硬件物料更改说明) 查看。
 
 ```bash
 ls /boot/
-cp /boot/kernel.img.rtl8189fs kernel.img  #kernel.img.rtl8723bs kernel.img
+cp kernel.img.rtl8723bs kernel.img #cp /boot/kernel.img.rtl8189fs kernel.img  
 ```
 
-A：确保核心配装配以及内核驱动无误后，请重新更换系统镜像卡。
+A：重新插拔核心板且执行上述命令后仍然不显示 wlan0 的话，重新烧录镜像来解决未知的系统问题(极少见)。
 
 ## Q：使用 ssh 登陆后断开报错：packet_write_wait: Connection to 10.xxx.xxx.xxx port 22: Broken pipe！
 
@@ -97,7 +105,7 @@ A: 运行一下`python3 -c "import os, binascii; os.system('sed -i \'/iface eth0
 <html>
       <img src="./../assets/faq_sawtooth.jpg" width=48%>
       <img src="./../assets/faq_dth.jpg" width=48%>
-    </html>
+</html>
 
 A：屏幕批次不同导致的原因，因设备树版本的不同导致可能会出现烧屏情况，参考[更改说明](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html#Q：硬件物料更改说明)区分版本及时更换以下 `/boot/ dtb ` 设备树的文件即可。
 
@@ -118,15 +126,20 @@ A：进入 uboot 模式了输入 boot 后即可启动。
 
 ## Q：硬件物料更改说明
 
-因板卡的升级换代部分硬件物料发生了变化，以下文为例区分新旧版本。
+因为某些原因板卡更换了部分硬件，下面来说明更换的地方。
 
 - **新旧版底板区别**
 
 1. 在新版本的底板上我们标注了设备号：`v3768`，用户也可以根据版本号来确认新旧版本。
    
-2. WiFi 模块更换：`旧 RTL8723BS` -> `新 RTL8189FTV`，使用时根据版本替换 `/boot` 目录下对应的内核驱动，替换方法[点击](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html#Q%EF%BC%9A%E5%BC%80%E6%9C%BA-ifconfig-%E4%B8%8D%E6%98%BE%E7%A4%BA-wlan0-%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3%EF%BC%9F)查看。
+2. WiFi 模块更换：`旧 RTL8723BS` -> `新 RTL8189FTV`，遇到 wlan0 不现实的情况的话需要替换驱动，可以执行下面的命令来替换，或者 [查看没有 wlan0](#q开机-ifconfig-不显示-wlan0) 来了解更多。
+
+```bash
+ls /boot/
+cp kernel.img.rtl8723bs kernel.img #cp /boot/kernel.img.rtl8189fs kernel.img  
+```
   
-3. 摄像头座子方向发生变化。
+3. 底板摄像头 FPC 连接座更换，主要就是固定方向改变，但是接线方向未变。
 ![faq_borad](./../assets/faq_board.jpg)
 
 - **新旧版摄像头区别**

@@ -136,3 +136,13 @@ echo 0 > /sys/class/leds/\:status/brightness
 ## In the end
 
 Based in [Ubuntu LicheeRV image](https://wiki.ubuntu.com/RISC-V/LicheeRV), we packed the wireless driver inside, which make user more convenient to experience this system.
+
+## Questions
+
+### No HDMI output
+
+The board will not display HDMI command line when booting, and after the HDMI related service starts LicheeRV displays the command line console on HDMI screen, and some screen is not fit LicheeRV ubuntu image output and will not display the command line console.
+
+Here is the login photo of UART (ttyS0) and HDMI command line console (tty1) of LicheeRV ubuntu image.
+
+![d1_ubuntu_console_hdmi](./../../../zh/lichee/assets/RV/ubuntu/d1_ubuntu_console_hdmi.jpg)

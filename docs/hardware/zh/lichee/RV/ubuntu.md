@@ -139,3 +139,13 @@ echo 0 > /sys/class/leds/\:status/brightness
 ## 结语
 
 在 Ubuntu 官方所提供的镜像上[点我跳转](https://wiki.ubuntu.com/RISC-V/LicheeRV)，我们这边补上了 wifi 驱动免去了自行编译的麻烦。
+
+## 常见问题
+
+### 没有 HDMI 输出
+
+板卡使用 ubuntu 镜像在启动时不会直接输出 HDMI， 而是会在相关的服务启动后 HDMI 屏幕在会有输出，另外部分 HDMI 屏幕不会兼容并显示出 LicheeRV HDMI 命令行。
+
+下图是分别用串口 (ttyS0) 和 HDMI 显示器终端 (tty1) 登录 LicheeRV ubuntu 的拍照截图
+
+![d1_ubuntu_console_hdmi](./../assets/RV/ubuntu/d1_ubuntu_console_hdmi.jpg)

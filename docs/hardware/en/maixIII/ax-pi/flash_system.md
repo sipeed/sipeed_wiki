@@ -22,7 +22,7 @@ update:
 
 ## Product guideline
 
-To make it easiler to use this board, we prepare this guide.
+To make it easier to use this board, we prepare this guide.
 
 ## OS introduction
 
@@ -33,11 +33,11 @@ For Axera-Pi, we provide Debian11 Bullseye image file.
 > ![debian_logo](./../../../zh/maixIII/assets/debian_logo.jpg)
 > [Reasons to use Debian](https://www.debian.org/intro/why_debian.en.html).
 
-TF card which has been burnned system image can be bought from [Sipeed aliexpress](https://sipeed.aliexpress.com/store/1101739727), otherwise you need to perpare your own system image TF card by following steps.
+TF card which has been burned system image can be bought from [Sipeed aliexpress](https://sipeed.aliexpress.com/store/1101739727), otherwise you need to prepare your own system image TF card by following steps.
 
 ## Choose TF card
 
-People who has bought the the TF card which has been burnned system image can skip this chapter and read [start Linux]() to use this board
+People who have bought the TF card which has been burned system image can skip this chapter and read [start Linux](#boot-axera-pi) to use this board
 
 We have tested the read and write speed of some TF cards on Axera-pi, for users to make the choice of TF card.
 
@@ -56,7 +56,7 @@ We have tested the read and write speed of some TF cards on Axera-pi, for users 
 | 7.     | BanQ JOY card platinum 64G               | 9.08105 s, 18.0 MB/s                                         | 9.02843 s, 18.1 MB/s                                        |
 | 8.     | Hiksemi HS -TF- P2 64G                   | 2.28079 s, 71.8 MB/s                                         | 1.87698 s, 87.3 MB/s                                        |
 
-Tht following TF cards are not in this photo but we also tested them.
+The following TF cards are not in this photo but we also tested them.
 
 | Number | Model                                 | <p style="white-space:nowrap">Write Speed (Write 160MB) </p> | <p style="white-space:nowrap">Read Speed (Read 160MB) </p> |
 | ------ | ------------------------------------- | ------------------------------------------------------------ | ---------------------------------------------------------- |
@@ -67,21 +67,21 @@ Tht following TF cards are not in this photo but we also tested them.
 
 ![flash](./../../../zh/maixIII/assets/axpi-flash.png)
 
-We only reserved EMMC pad on board, so we need to a TF card which have been burned system image to boot linux on this boad.
+We only reserved EMMC pad on board, so we need a TF card which has been burned system image to boot linux on this board.
 
 ### Get image
 
-Because the system image is about 2G, so we only provide mega link to download.
+Because the system image is about 2G memory storage, we only provide mega link to download.
 
 Visit mega [Click me](https://mega.nz/folder/9EhyBbJZ#lcNhhm9aWXOyo2T0DDaSqA) to download the image file.
 
 ![debian](./assets/flash_system/debian.jpg)
 
-The file name end with `img.xz` is the compressed system image file, and the other file name end with `img.xz.md5sum` is the check file, which we use to check the compressed system image file.
+The file name ends with `img.xz` is the compressed system image file, and the other file name ends with `img.xz.md5sum` is the check file, which we use to check the compressed system image file.
 
 The name rule of compressed system image file is `Image provider` _ `Target chip` _ `Linux distribution` _ `Created time` + `img.xz`
 
-The check file should be used in the Linux, and users using windows10 or windows 11 can use the wsl to prepare a Linux environment
+The check file should be used in Linux, and users using windows10 or windows 11 can use the wsl to prepare a Linux environment
 
 Run command `md5sum -c *.md5sum*` in the path where compressed system image file and check file are to check the compressed system image file.
 
@@ -89,11 +89,11 @@ Run command `md5sum -c *.md5sum*` in the path where compressed system image file
 | -------------------------------------------------------------- | ------------------------------------------------------------ |
 | ![md5sum_success](./../../../zh/maixIII/assets/flash_system/md5sum_success.jpg) | ![md5sum_failed](./../../../zh/maixIII/assets/flash_system/md5sum_failed.jpg) |
 
-If there is some thing with the compressed system image file, it will shows FAILED. Normally we don't need to check the compressed system image file, this is only for those who need.
+If there is some thing with the compressed system image file, it will show FAILED. Normally we don't need to check the compressed system image file, this is only for those who need it.
 
 ### Burn image
 
-**Before burning image, we need do following preparation:**
+**Before burning the image, we need to do the following preparation:**
 
 - A TF card with a storge capacity card over 8GB; It is recommended to buy an official image card, otherwise it may lead to a bad experience due to the bad performace of the TF card
 - A card reader: It is recommended to use the card reader that supports USB3.0, this will save our time on burning the system image card.
@@ -332,6 +332,8 @@ Run command `ifconfig eth0` to see whether there is the ip address.
 If there is no ip address of eth0 after connected with network gateway, run command `dhclient eth0 &
 ` to get the ip address manually.
 ![nmtui_eth0_dhclient](./assets/flash_system/nmtui_eth0_dhclient.jpg)
+
+And we can also use command `ifdown eth0` to disable Ethernet, and then use `ifup eth0 --force` to restart Ethernet to get the ip address.
 
 ### Wireless network
 
@@ -1187,7 +1189,7 @@ Run following command to start this application, and we can visit the ip address
 /opt/bin/IPCDemo/run.sh /opt/bin/IPCDemo/config/gc4653_config.json
 ```
 
-We use the default camera gc4653 as the example, change the config_json file of your real camera in the end of example command  with following choice.
+We use the default camera gc4653 as the example, change the config_json file of your real camera in the end of example command with following choice.
 
 ![ipc_demo_json](./assets/flash_system/ipc_demo_json.jpg)
 
@@ -1283,6 +1285,8 @@ The rtsp example is as follows:
 </html>
 
 Edit `/home/examples/vin_ivps_joint_venc_rtsp_vo_onvif_mp4v2/run.sh` if your camera is not gc4653.
+
+![rtsp_stream_shell](./assets/flash_system/rtsp_stream_shell.jpg)
 
 #### ffplay
 
