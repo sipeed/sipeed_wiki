@@ -4,7 +4,7 @@ tags: AXera-Pi, Burn image
 keywords: AXera-Pi，Burn, image
 desc: AXera-Pi Burn image
 update:
-  - date: 2022-12-22
+  - date: 2022-01-09
     version: v0.2
     author: wonder
     content:
@@ -17,8 +17,6 @@ update:
 ---
 
 ---
-
-> This page is on building, please use translation application to see https://wiki.sipeed.com/m3axpi instead.
 
 ## Product guideline
 
@@ -95,8 +93,8 @@ If there is some thing with the compressed system image file, it will show FAILE
 
 **Before burning the image, we need to do the following preparation:**
 
-- A TF card with a storge capacity card over 8GB; It is recommended to buy an official image card, otherwise it may lead to a bad experience due to the bad performace of the TF card
-- A card reader: It is recommended to use the card reader that supports USB3.0, this will save our time on burning the system image card.
+- A TF card with a storage capacity card over 8GB. It is recommended to buy an official image card, otherwise it may lead to a bad experience due to the bad performance of the TF card
+- A card reader: It is recommended to use the card reader that supports USB3.0, this will save time on burning the system image card.
 - [Etcher](https://www.balena.io/etcher/) application: Download the edition of this application suitable for your computer system.
 
 **Burning system image steps**
@@ -112,13 +110,13 @@ Run [Etcher](https://www.balena.io/etcher/ "Etcher") application, click `Flash f
 | ------------------------------------------------------------------------------- | ----------------------------------------------------------- |
 | ![axera_burning_image](./../../../assets/maixIII/ax-pi/axera_burning_image.png) | ![finish_flash](./../../../zh/maixII/M2A/assets/finish_flash.png) |
 
-Note that after finish burning the application shows `Flash Complete!` and `Successful`.
+Note that after finishing burning the application shows `Flash Complete!` and `Successful`.
 
-Finishing above steps, the computer will ask us to format the udisk, we just ignore this information and remove the TF card (Because we have make `Successful` in Etcher), prepare for the following operations.
+Finishing the above steps, the computer will ask us to format the udisk, we just ignore this information and remove the TF card (Because we have made `Successful` in Etcher), prepare for the following operations.
 
 ### Burning Questions
 
-#### 1. After selecting sustem image, Etcher shows error.
+#### 1. After selecting system image, Etcher shows error.
 
 Rerun Etcher application to solve this error due to software cache or other issues
 
@@ -128,7 +126,7 @@ Reburn the TF card.
 
 #### 3. The storage capacity of tf card is too small
 
-In this case, those who use Windows and MaxOS can use [SD Card Formatter](https://www.sdcard.org/downloads/formatter/eula_windows/SDCardFormatterv5_WinEN.zip) to format tf card, and those use Linux can format the tf card by [Gparted](https://gparted.org/).
+In this case, those who use Windows and MaxOS can use [SD Card Formatter](https://www.sdcard.org/downloads/formatter/eula_windows/SDCardFormatterv5_WinEN.zip) to format tf card, and those who use Linux can format the tf card by [Gparted](https://gparted.org/).
 
 ## Boot System
 
@@ -138,15 +136,15 @@ Finishing burning system image into tf card, we can assemble this board and boot
 
 ### Assemble this board
 
-> Those have bought the `Full board package` can skip these steps and visit [boot Axera-pi] to start.
+> Those who have bought the `Full board package` can skip these steps and visit [boot Axera-pi] to start.
 
 **Preparation**
 
 - An AXera-Pi development board
-- At least one USB3.0 connector to connect device(This board may fail to boot because the insufficient of power supply from USB2.0)
+- At least one USB3.0 connector to connect device(This board may fail to boot because  of insufficient power supply from USB2.0)
 - A tf card which has been burned system image
 - GC4653 camera or OS04a10 camera
-- The 5 inchs MIPI screen suitable for Axera-pi
+- The 5 inch MIPI screen suitable for Axera-pi
 
 ![axpi-config](./../../../zh/maixIII/assets/axpi-config.jpg)
 
@@ -154,31 +152,44 @@ Finishing burning system image into tf card, we can assemble this board and boot
 
 1. Set the screen and the board as shown in the image below, and connect them.
 2. Insert tf card which has been burned system image into the card slot on Axera-pi.
-3. Connect the camera with Axera-pi as shown in the image below, make sure you have removed the cover on the camera after finishing connectting.
+3. Connect the camera with Axera-pi as shown in the image below, make sure you have removed the cover on the camera after finishing connecting.
 
 <html>
   <img src="./../../../zh/maixIII/assets/mipi.jpg" width=48%>
   <img src="./../../../zh/maixIII/assets/sensor.jpg" width=48%>
 </html>
 
+**Camera connection**
+
+There are 2 versions of camera, make sure the `1` on the camera matches the `1` on the board. Wrong connection will burn and distory the camera.
+
+<img src="./../../../zh/maixIII/assets/senror_v3751.jpg" width=48%>
+<img src="./../../../zh/maixIII/assets/sensor_v3753.jpg" width=48%>
+
+Different onboard fpc camera connector meets different driver, we use `CAM0` as the default one.
+
 ### Boot AXera-Pi
 
-Connect both `USB-UART` and `USB-OTG` port with computer by USB type-c cable to boot AXera-Pi, make sure you have insert the tf card which has been burned system image.
+Connect both `USB-UART` and `USB-OTG` port with computer by USB type-c cable to boot AXera-Pi, make sure you have inserted the tf card which has been burned system image.
 
 ![start](./../../../zh/maixIII/assets/start.jpg)
 
+Because of the change of screen version, visit [bad display](./faq_axpi.md#qscreen-display-wrong) if your screen does not display the picture well.
+
 > In **20221013** we update the power-on phenomenon:
 
-- The 3.5mm connector play the music if connected with device.
+- The 3.5mm connector plays the music if connected with device.
 - 5 inches screen displays picture.
 - The logs are printed to USB-UART port, run serial port application to see it if you need.
 
-Here are the drivers for CH340 which is the USB-UART chip on Axera-Pi, install it if you can't see the serial device in your computer.
+Here are the drivers for CH340 which is the USB-UART chip on Axera-Pi, install it if you can't see the serial device on your computer.
 
 [CH34x Windows driver](https://dl.sipeed.com/shareURL/MAIX/tools/ch340_ch341_driver)
 [CH34x Linux driver](http://www.wch-ic.com/downloads/CH341SER_LINUX_ZIP.html)
 
-And those who use Ubuntu22.04 may not be able to open serial port (ttyUSB), read [this](https://www.chippiko.com/ch340-dev-ttyusb-not-showing) to see the solvement.
+If logs are not printed on serial terminal, press `RST` key on AXera-Pi to restart device.
+
+And those who use Ubuntu22.04 may not be able to open serial port (ttyUSB), read [this](https://www.chippiko.com/ch340-dev-ttyusb-not-showing) to see the solution.
 
 .. details:: Click to see the system boot log of debian11
 
@@ -255,7 +266,7 @@ And those who use Ubuntu22.04 may not be able to open serial port (ttyUSB), read
 
 ![axpi-login](./../../../zh/maixIII/assets/axpi-login.png)
 
-The First time to login to device, we need to use serial port application to open serial port to communicate with device to login, and use SSH login is also ok if you know the ip address of your board.
+The first time to login to device, we need to use serial port application to open the serial port to communicate with the device to login, and using SSH login is also OK if you know the ip address of your board.
 
 [MobaXterm](https://mobaxterm.mobatek.net/) is a ultimate toolbox for remote computing, we use this software to run our command on the board for example.
 
@@ -263,9 +274,9 @@ The First time to login to device, we need to use serial port application to ope
 
 ### Login by serial port
 
-We take MobaXterm as the example serial port software, you can use your favorite one.
+We take MobaXterm as an example serial port software, you can use your favorite one.
 
-In MobaXterm, we create a serial session. Set baudrate 115200, then click ok to create it.
+In MobaXterm, we create a serial session. Set baudrate 115200, then click OK to create it.
 
 ![mobaxterm-serial-4](./../../../../soft/maixpy3/zh/tools/assets/mobaxterm-serial-4.png)
 
@@ -275,13 +286,13 @@ Then click the created serial session to open the serial port to build communica
 
 Run the serial port application, use username `root` and password `root` to login.
 
-The password is not displayed when you enter it, so just retry if you fail login.
+The password is not displayed when you enter it, so just retry if you fail to login.
 
 ![axera_pi_serial_root_login](./assets/flash_system/axera_pi_serial_root_login.jpg)
 
 ### Login by SSH
 
-To login by ssh, we need to know the ip address of Axera-Pi.
+To login by SSH, we need to know the ip address of Axera-Pi.
 
 #### Traditional ip address
 
@@ -295,13 +306,13 @@ Connect the computer with USB-OTG port on Axera-Pi.
 
 ![otg](https://wiki.sipeed.com/hardware/zh/maixIII/assets/otg.jpg)
 
-Normally RNDIS is driver free in Linux, and in Windows we need to update driver [Click me](./rndis.md), for macos it's need to build and install `horndis` to use RNDIS.
+Normally RNDIS is driver free in Linux, and in Windows we need to update the driver [Click me](./rndis.md), for macos it needs to build and install `horndis` to use RNDIS.
 
 Deflaut RNDIS driver error in Windows:
 
 ![rndis_error_device](./assets/flash_system/rndis_error_device.jpg)
 
-Run command `ifconfig`, we can see there is a usb device with IP `192.168.1.233`, we'll use this ip address many time in the following content.
+Run command `ifconfig`, we can see there is a usb device with IP `192.168.1.233`, we'll use this ip address many times in the following content.
 
 ![ifconfig_usb_ip_address](./assets/flash_system/ifconfig_usb_ip_address.jpg)
 
@@ -329,7 +340,7 @@ Run command `ifconfig eth0` to see whether there is the ip address.
 
 ![nmtui_eth0_ifconfig](./assets/flash_system/nmtui_eth0_ifconfig.jpg)
 
-If there is no ip address of eth0 after connected with network gateway, run command `dhclient eth0 &
+If there is no ip address of eth0 after connecting with network gateway, run command `dhclient eth0 &
 ` to get the ip address manually.
 ![nmtui_eth0_dhclient](./assets/flash_system/nmtui_eth0_dhclient.jpg)
 
@@ -363,11 +374,11 @@ Maix-III AXera-Pi default timezone is GMT+8, you can change it with command `dpk
 
 #### Update time
 
-Run `ntpdate-debian` command after connectting Maix-III AXera-Pi to network to update time.
+Run `ntpdate-debian` command after connecting Maix-III AXera-Pi to network to update time.
 
 ### Install software
 
-Based in debian, we can use `apt` to install the software on Maix-III AXera-Pi. Change the software resource if you think it's slow to download the software.
+Based on debian, we can use `apt` to install the software on Maix-III AXera-Pi. Change the software resource if you think it's slow to download the software.
 
 Here we install `gcc`, `gparted`.
 
@@ -380,9 +391,9 @@ sudo apt install gcc gparted
 
 ### Reboot/Shutdown device
 
-For Linux we suggest rebooting or shutdown device by command line instaed of by disconnecting the USB cable or click the reset key, which may destory the file system.
+For Linux we suggest rebooting or shutting down the device by command line instead of disconnecting the USB cable or clicking the reset key, which may destory the file system.
 
-Run command `reboot` to restar device.
+Run command `reboot` to restart device.
 
 ```bash
 reboot
@@ -404,23 +415,23 @@ Then the following similar interface shown, and we choose `/dev/mmcblk2p2` by ar
 
 ![rizese-mmcblk2](./../../../zh/maixIII/assets/rizese-mmcblk2.png)
 
-The whole free space is resized by default, and you can enter your desired memory storge.
+The whole free space is resized by default, and you can enter your desired memory storage.
 
 ![new-resize](./../../../zh/maixIII/assets/new-resize.png)
 
-Enter your desired memory storge, and press Enter keyboard to save your temp change. Use arrow keyboard `←` `→` and choose `Write` to apply your change, and enter `yes` to confirm the change.
+Enter your desired memory storage, and press Enter keyboard to save your temp change. Use arrow keyboard `←` `→` and choose `Write` to apply your change, and enter `yes` to confirm the change.
 
 ![write-disk](./../../../zh/maixIII/assets/write-disk.png)
 
-Use arrow keyboard `←` `→` and select `Quit` to quit the storge partition.
+Use arrow keyboard `←` `→` and select `Quit` to quit the storage partition.
 
 ![quit](./../../../zh/maixIII/assets/quit.jpg)
 
-Finishing these, we run command `df -h` to see the disk space usage, and we can see that the resized memory storge is not applied, we use command `resize2fs /dev/mmcblk2p2` to change the size of `mmcblk2`, and run command `df -h` again to see the applied change.
+Finishing these, we run command `df -h` to see the disk space usage, and we can see that the resized memory storage is not applied, we use command `resize2fs /dev/mmcblk2p2` to change the size of `mmcblk2`, and run command `df -h` again to see the applied change.
 
 ![df-mmcblk2](./../../../zh/maixIII/assets/df-mmcblk2.jpg)
 
-> `reboot` first if there is some trouble resizing the storge memory.
+> `reboot` first if there is some trouble resizing the storage memory.
 
 ### Boot script
 
@@ -428,7 +439,7 @@ The boot script is in `/boot` and named `rc.local`, you can edit it if you need.
 
 The boot script uses the root directory `/` by default, for example, if you want to run `/home/run.sh` at startup:
 
-1. Use the absolute path to run the script background `/home/run.sh & `, if it's not running background we may bot be able to control the board by command line anymore.
+1. Use the absolute path to run the script background `/home/run.sh & `, if it's not running background we may not be able to control the board by command line anymore.
 2. Use the relative path to run the script background `cd /home && ./run.sh &`, note that the path is different from the absolute path.
 
 Here is the default boot script.
@@ -478,11 +489,11 @@ exit 0
 
 ![start](./../../../zh/maixIII/assets/start.jpg)
 
-From the boot script `rc.local`, we can see that `/home/res/2_480x854.jpeg` is what displayed on the screen, and you can change it if you need.
+From the boot script `rc.local`, we can see that `/home/res/2_480x854.jpeg` is what is displayed on the screen, and you can change it if you need.
 
 ### Update kernel and driver
 
-The first partition of system image card is mounted at `/boot` after booting, and replace the file we can update the firmware to fit our hardware after rebooting device.
+The first partition of system image card is mounted at `/boot` after booting, and replace with the file we can update the firmware to fit our hardware after rebooting the device.
 
 
 - `boot.bin` spl initialize file
@@ -517,13 +528,13 @@ We have told the way to login AXera-Pi by [SSH](#login-by-ssh), and with [mobaxt
 
 ![transfer_file_vscode](./assets/flash_system/transfer_file_vscode.jpg)
 
-Besides, we can not only use mobaxterm for file transfer, but also run X11 on this software if you login by ssh. This is an example running gparted on Axera-Pi with X11 on mobaxterm.
+Besides, we can not only use mobaxterm for file transfer, but also run X11 on this software if you login by ssh. This is an example of running gparted on Axera-Pi with X11 on mobaxterm.
 
 ![transfer_file_mobaxterm](./assets/flash_system/transfer_file_mobaxterm.jpg)
 
 #### Serial communication
 
-If you connect the board with computer by [serial port](#serial-communication), after installing the `lrzsz` application by command `apt-get install lrzsz` after AXera-Pi is connected with network, we can transfer by `minicom` on Linux or [mobaxterm](https://mobaxterm.mobatek.net/) on Windows.
+If you connect the board with computer by [serial port](#serial-communication), after installing the `lrzsz` application by command `apt-get install lrzsz` after AXera-Pi is connected to network, we can transfer it by `minicom` on Linux or [mobaxterm](https://mobaxterm.mobatek.net/) on Windows.
 
 ## Check the peripheral
 
@@ -575,7 +586,7 @@ Screen displays the content of camera, if you failed running this application, v
 
 ![libmaix](./../../../zh/maixIII/assets/libmaix.jpg)
 
-The axsample has been compiled, and its joint models are in `/home/models/` for people to use.
+The axsample has been compiled, and its joint models are in `/home/models/` directory for people to use.
 
 ```bash
 /home/ax-samples/build/install/bin/ax_yolov5s -m /home/models/yolov5s.joint -i /home/images/cat.jpg -r 10
@@ -583,7 +594,7 @@ fbon
 fbv yolov5s_out.jpg
 ```
 
-Screen shows the yolovs_out.jpg picture file, `reboot` system if there is something occupied the system resources
+Screen shows the yolovs_out.jpg picture file, `reboot` system if there is something occupying the system resources
 
 ![cat](./../../../zh/maixIII/assets/cat.jpg)
 
@@ -595,9 +606,9 @@ Run `git pull` to get the latest libmaix code.
 
 ### RTC
 
-There is a RTC(Real Time Clock) on the ext-board under the Core module, which provides the read time for Maix-III AXera-Pi when not access to wireless. Use command `hwclock -w -f /dev/rtc0` to write current system time into RTC to adjust its time date.
+There is a RTC(Real Time Clock) on the ext-board under the Core module, which provides the read time for Maix-III AXera-Pi when not accessed wireless. Use command `hwclock -w -f /dev/rtc0` to write current system time into RTC to adjust its time date.
 
-Run command `ls /sys/class/rtc`, we can see two rtc device: `rtc0` and `rtc1`, `rtc0` is the Real Time Clock on the ext-board and `rtc1` is the AXera-Pi internal Real Time Clock.
+Run command `ls /sys/class/rtc`, we can see two rtc devices: `rtc0` and `rtc1`, `rtc0` is the Real Time Clock on the ext-board and `rtc1` is the AXera-Pi internal Real Time Clock.
 
 ![rtc0_data_time](./assets/flash_system/rtc0_data_time.jpg)
 
@@ -680,7 +691,9 @@ sample_vin_vo -c 2 -e 1 -s 0 -v dsi0@480x854@60
 
 ### DISPLAY
 
-Now we use framebuffer (/dev/fb0) to control the camera content, run command `fbon` to enable the framebuffer, and `fboff` to disable the framebuffer. When `/dev/fb0` is enabled, we can display picture on the screen by command `fbv xxx.jpg`, and some pictures have been stored in `/home/res/` directory, display them by youeself.
+Because of the change of screen version, visit [bad display](./faq_axpi.md#qscreen-display-wrong) if your screen does not display well.
+
+Now we use framebuffer (/dev/fb0) to control the camera content, run command `fbon` to enable the framebuffer, and `fboff` to disable the framebuffer. When `/dev/fb0` is enabled, we can display picture on the screen by command `fbv xxx.jpg`, and some pictures have been stored in `/home/res/` directory, display them by yourself.
 
 ![_home_res](./assets/flash_system/_home_res.jpg)
 
@@ -691,11 +704,11 @@ fbv /home/res/logo.png      # display picture
 
 ![fbv_logo](./../../../zh/maixIII/assets/fbv_logo.jpg)
 
-Run command `sample_vo -v dsi0@480x854@60 -m 0` we can see there is colorbar on the screen to test the screen display, make sure you have disable the framebuffer with command `fboff`, otherwise this `sample_vo -v dsi0@480x854@60 -m 0` will not work, and use command hotkey `Ctrl` + `c` to cancel the command is you want to stop running application.
+Run command `sample_vo -v dsi0@480x854@60 -m 0` we can see there is colorbar on the screen to test the screen display, make sure you have disabled the framebuffer with command `fboff`, otherwise this `sample_vo -v dsi0@480x854@60 -m 0` will not work, and use command hotkey `Ctrl` + `c` to cancel the command is you want to stop running the application.
 
 ### NPU
 
-The NPU examples is in the `/home/ax-samples/build/install` directory, just run them to see their results.
+The NPU examples are in the `/home/ax-samples/build/install` directory, just run them to see their results.
 
 ```bash
 fbon
@@ -712,8 +725,8 @@ There is a 3.5mm audio connector on AXera-Pi, we can use is to play or record au
 And these are examples:
 
 - **Test command**：`speaker-test -t sine -f 440 -c1`
-- **Play audio**：`aplay /home/res/boot.wav`
-- **Record audio**: `arecord test.wav -c 2 -d 2`
+- **Record audio**: `arecord test.wav -c 2 -f cd -d 2`
+- **Play audio**：`aplay test.wav`
 
 And this is a python example to record and play the audio.
 
@@ -748,17 +761,17 @@ There is a USB-OTG port on AXera-Pi, we can change its function to be a OTG devi
 
 #### USB OTG RNDIS
 
-We set this function as the default function of USB-OTG port, with this we can see there is a usb RNDIS divice in the device manager and we can login to AXera-Pi by SSH with ip `192.168.233.1` if connecting computer with AXera-Pi via its USB-OTG port. [Click me](#rndis) to know how to login with RNDIS by ssh.
+We set this function as the default function of USB-OTG port, with this we can see there is a usb RNDIS device in the device manager and we can login to AXera-Pi by SSH with ip `192.168.233.1` if connecting the computer with AXera-Pi via its USB-OTG port. [Click me](#rndis) to know how to login with RNDIS by ssh.
 
 ![ssh-usb](./../../../zh/maixIII/assets/ssh-usb.jpg)
 
-The system enable amd start this service by command `systemctl enable usb-gadget@g0` and `systemctl start usb-gadget@g0`, run command `systemctl disable usb-gadget@g0` to disable this service or command `systemctl stop usb-gadget@g0` to stop this service, by stopping this we can use this USB-OTG port for other function, we'll tell these in the following content.
+The system enables amd starts this service by command `systemctl enable usb-gadget@g0` and `systemctl start usb-gadget@g0`, run command `systemctl disable usb-gadget@g0` to disable this service or command `systemctl stop usb-gadget@g0` to stop this service, by stopping this we can use this USB-OTG port for other functions, we'll describe these in the following content.
 
 #### USB HOST Device
 
 Stop the RNDIS service with command `systemctl stop usb-gadget@g0`, then run command `systemctl start usb-gadget@g1` to set the USB-OTG port as the HOST function, connect a USB device with the USB-OTG port, run command `lsusb` to check the usb device.
 
-Here are the example logs(To read a usb storge device and mount it on AXera-Pi).
+Here are the example logs(To read a usb storage device and mount it on AXera-Pi).
 
 ```bash
 root@AXERA:~# systemctl stop usb-gadget@g0
@@ -796,15 +809,15 @@ root@AXERA:~# mkdir /mnt/sdcard && mount /dev/sda1 /mnt/sdcard
 
 **usb-uvc-gadget**：[usb-uvc-gadget](https://github.com/junhuanchen/usb-uvc-gadget)
 
-Visit [uvc_vo](#uvc_vo) to know more.
+Visit [uvc_vo](#uvc_vo) to find out more.
 
 #### USB HOST CAM
 
-By this example we can connect a USB camera to AXera-Pi USB-OTG port, and display the usb camera content in the browser, so we need to make sure AXera-Pi have connected to the network first, and we ned to get the ip address of AXera-Pi, with which we can view the usb camera content in the browser.
+With this example we can connect a USB camera to AXera-Pi USB-OTG port, and display the usb camera content in the browser, so we need to make sure AXera-Pi has connected to the network first, and we need to get the ip address of AXera-Pi, with which we can view the usb camera content in the browser.
 
 **Ustreamer**：[Github](https://github.com/pikvm/ustreamer)
 
-Run following code, and open the ip address of AXera-Pi in a web browser.
+Run the following code, and open the ip address of AXera-Pi in a web browser.
 
 ```bash
 /home/ustreamer/ustreamer --device=/dev/video0 --host=0.0.0.0 --port=80
@@ -884,9 +897,9 @@ For Axera chip, GPIO0 means A IO port and GPIO2 means C IO port, and example lik
 
 GPIO2 A4 in AXera-Pi is GPIO C(2) 4(A4) in standard definition , and standard definition GPIOA0 means IO GPIO0A4 in AXera-Pi.
 
-In the future, we'll apply definition like PA0 and PC4, which is more easy to understand.
+In the future, we'll apply definition like PA0 and PC4, which is easier to understand.
 
-Here we use Python to control the GPIO, from the following picture, we can know that the BOT_GPIO_0-7 of the pin headers are GPIO2_A16_m - GPIO2_A23_m in the system.
+Here we use Python to control the GPIO, from the following picture, we can see that the BOT_GPIO_0-7 of the pin headers are GPIO2_A16_m - GPIO2_A23_m in the system.
 
 ![io_pin_map](./../../../zh/maixIII/assets/io_pin_map.png)
 
@@ -939,7 +952,7 @@ while True:
 
 ```
 
-GPIO 输出测试：
+GPIO output test：
 
 ```python3
 
@@ -970,11 +983,11 @@ C example to control gpio: [gpio.h/gpio.c](https://www.cnblogs.com/juwan/p/16917
 
 ### UART
 
-The dafault uart port of USB-UART is **ttyS0**, and the UART on the pin header is **ttyS1**, the virtual USRT is **ttyGS0**.
+The default uart port of USB-UART is **ttyS0**, and the UART on the pin header is **ttyS1**, the virtual USRT is **ttyGS0**.
 
 ![uart_tty](./../../../zh/maixIII/assets/uart_tty.jpg)
 
-Here is a `python3 pyserial` example code to test the UART on the pin header, make sure you have connect the GND on your UART-TTL with the GND on the AXera-Pi.
+Here is a `python3 pyserial` example code to test the UART on the pin header, make sure you have connected the GND on your UART-TTL with the GND on the AXera-Pi.
 
 ```python
 import serial
@@ -995,7 +1008,7 @@ echo 0 > /sys/class/pwm/pwmchip0/export
 echo 4167 > /sys/class/pwm/pwmchip0/pwm0/period
 echo 204 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle
 echo 2084 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle
-echo 0 > /sys/class/pwm/pwmchip0/pwm0/enable
+echo 1 > /sys/class/pwm/pwmchip0/pwm0/enable
 ```
 
 PWM Example：[Click me](https://wiki.sipeed.com/soft/maixpy3/zh/usage/hardware/PWM.html#%E5%BC%80%E5%A7%8B).
@@ -1010,9 +1023,9 @@ The `i2c-0`, `i2c-1`, `i2c-2` are the camera interface, and `i2c-7` is the conne
 
 ![i2c_dev](./assets/flash_system/i2c_dev.jpg)
 
-For example wo use command `i2cdetect -y 0` to see the device on i2c bus.
+For example we use command `i2cdetect -y 0` to see the device on the i2c bus.
 
-If you can't detect your i2c device, make sure you have pull up the data line.
+If you can't detect your i2c device, make sure you have pulled up the data line.
 
 ```bash
 root@AXERA:~# i2cdetect -y -r 0
@@ -1163,10 +1176,10 @@ cat /proc/ax_proc/uid
 
 ### IPCDemo
 
-This is a IPC (IP camera) demo program, and its functions are as follows:
+This is an IPC (IP camera) demo program, and its functions are as follows:
 
 - ISP: Transfor the RAW data stream from Sensor into YUV data stream, and output it in 3 channels
-- IVPS: Image Video Processing submoule, Resize、Crop、Rotate the video image, or change the video image into multiple one.
+- IVPS: Image Video Processing submoule, Resize、Crop、Rotate the video image, or change the video image into multiple ones.
 - VENC / JENC：Video / JPEG encoded output.
 - Detect: Face detection or structure detection.
 - Web display: H264 Web stream and provides to view real-time Web video.
@@ -1183,7 +1196,7 @@ This is a IPC (IP camera) demo program, and its functions are as follows:
 
 #### Usages
 
-Run following command to start this application, and we can visit the ip address ([USB-OTG RNDIS](#rndis) or network ip address) of AXera-Pi and add port `8080` in web browser to see the stream video.
+Run the following command to start this application, and we can visit the ip address ([USB-OTG RNDIS](#rndis) or network ip address) of AXera-Pi and add port `8080` in web browser to see the streaming video.
 
 ```bash
 /opt/bin/IPCDemo/run.sh /opt/bin/IPCDemo/config/gc4653_config.json
@@ -1193,10 +1206,11 @@ We use the default camera gc4653 as the example, change the config_json file of 
 
 ![ipc_demo_json](./assets/flash_system/ipc_demo_json.jpg)
 
-Running this application, lots of log are shown.
+Running this application, lots of logs are shown.
+
 ![ipc](./../../../zh/maixIII/assets/ipc.jpg)
 
-Open the ip address of AXera-Pi with port `8080` in the web browser, here I take `192.168.233.1:8080` as example (this ip address is the RNDIS ip address of AXera-Pi and can be visited after connecting computer with the USB-OTG port of AXera-Pi), click the blue frame to login. Sadly this application is only Chinese language support, you can use web translation tool to translate the web content into your language.
+Open the ip address of AXera-Pi with port `8080` in the web browser, here I take `192.168.233.1:8080` as an example (this ip address is the RNDIS ip address of AXera-Pi and can be visited after connecting the computer with the USB-OTG port of AXera-Pi), click the blue frame to login. Sadly this application is only Chinese language support, you can use web translation tool to translate the web content into your language.
 
 ![ipc-admin](./../../../zh/maixIII/assets/ipc-admin.jpg)
 
@@ -1206,14 +1220,14 @@ Open the ip address of AXera-Pi with port `8080` in the web browser, here I take
 
 **Snapshot**
 
-Login the web stream service (Visit the ip address of AXera-Pi port `8080` after running IPCDemo), there are a camera icon and record icon in the right bottom stream video corner.
+Login to the web stream service (Visit the ip address of AXera-Pi port `8080` after running IPCDemo), there is a camera icon and record icon in the bottom right stream video corner.
 Click the camera icon to snapshot the video, and the snapshot picture will be automatically downloaded for viewing.
 
 ![ipc-web](./../../../zh/maixIII/assets/ipc-web.jpg)
 
 **Record**
 
-Click the record icon in the right bottom stream video corner to record the video (mp4 format), and click the record icon to stopping recording.
+Click the record icon in the bottom right stream video corner to record the video (mp4 format), and click the record icon to stop recording.
 
 ![ipc-mp4](./../../../zh/maixIII/assets/ipc-mp4.jpg)
 
@@ -1264,7 +1278,7 @@ Here we use [VLC Media Player](https://www.videolan.org/vlc/) to play the rtsp s
 
 ![vl-yolov5s](./../../../zh/maixIII/assets/vlc-yolov5s.jpg)
 
-Run following cammand on AXera-Pi, open `VLC Media Player` and use hoykey `Ctrl + N` to open a network stream video, enter the ip address of AXera-Pi like `rtsp://192.168.233.1:8554/axstream0` to play the stream video.
+Run the following cammand on AXera-Pi, open `VLC Media Player` and use hoykey `Ctrl + N` to open a network stream video, enter the ip address of AXera-Pi like `rtsp://192.168.233.1:8554/axstream0` to play the stream video.
 
 Run this command on AXera-Pi:
 ```bash
@@ -1303,7 +1317,7 @@ ffplay rtsp://192.168.233.1:8554/axstream0 -fflags nobuffer
 
 **ONVIF Device Manager**：[Click to download](https://sourceforge.net/projects/onvifdm/)
 
-Different from VLC player, ODM have many different usages.
+Different from VLC player, ODM has many different usages.
     
 ![odm](./../../../zh/maixIII/assets/odm.jpg)
 
@@ -1320,7 +1334,7 @@ Edit `/home/examples/vin_ivps_joint_venc_rtsp_vo_onvif_mp4v2/run.sh` file to swi
 Screen displays the camera content:
 ![odm-mipi](./../../../zh/maixIII/assets/odm-mipi.jpg)
 
-Run the `ONVIF Device Manager`, click `Refresh` to scan device, make sure you have connected computer with USB-OTG port of AXera-Pi and there is RNDIS device in your computer manager (Here we take RNDIS as network example and We play the video through `192.168.233.1`). After clicking `Refresh` there is a IP-Camera with IP `192.168.233.1`, choose it and click `Live` video to stream the video.
+Run the `ONVIF Device Manager`, click `Refresh` to scan device, make sure you have connected computer with USB-OTG port of AXera-Pi and there is RNDIS device in your computer manager (Here we take RNDIS as network example and we play the video through `192.168.233.1`). After clicking `Refresh` there is a IP-Camera with IP `192.168.233.1`, choose it and click `Live` video to stream the video.
 
 ![onvif_rndis_device](./assets/flash_system/onvif_rndis_device.jpg)
 
@@ -1330,113 +1344,99 @@ And we just take RNDIS as example, other IP address like wireless or ethernrt ar
 
 - Switch model
 
->20221116 后更新的镜像已在 `run.sh` 内置了不同摄像头参数的源码。
->20221111 镜像内置 yolov5s 的人脸/物体检测模型，可使用以下命令更改运行脚本内容更换模型。
+> `20221116` we set the different camera parameters in `run.sh`
+> `20221111` we set yolov5s face/object detection model in the system image, read the following content to see how to edit the script and switch model.
 
 ``` bash
 nano /home/examples/vin_ivps_joint_venc_rtsp_vo_onvif_mp4v2/run.sh
 ```
 
-运行后会显示 `run.sh` 的编辑页面，对当前启动的模型进行注释或调用其他模型即可，
-按 **ctrl+X** 键后会提示是否保存修改内容。
+Run this command on AXera-Pi, we can edit `run.sh` shell annotation `#` to switch model or load other model.
+Use hotkey `Ctrl + x` to save your changes.
 ![model-save](./../../../zh/maixIII/assets/model-save.jpg)
-根据提示按下 **Y** 键保存，界面会显示修改内容写入的文件名按**回车**键确定，
-再次运行 `run.sh` 脚本即可看到模型更换成功。
+Follow the instruction press `Y` to save modified buffer.
+And use the default file name. Run `run.sh` we can see different detection effects on the screen of Axera-Pi.
 ![model-file](./../../../zh/maixIII/assets/model-file.jpg)
-除了上方通过命令修改 `run.sh` 更换还可以通过 `MdbaXterm` 工具查看 `/home/examples/vin_ivps_joint_venc_rtsp_vo_onvif_mp4v2/` 目录下的`run.sh`脚本文件直接修改保存。
 
-- **按键录制 MP4**
-运行 `run.sh` 期间可按下板载的按键 `user` 进行录制视频，按下后 **LED0** 会亮起代表开始录制 MP4，
+- **Press key and Record MP4**
+While running `run.sh`, click `USER` key to record video, and **LED0** is on when AXera-Pi is recording.
 
-.. details::点击查看按键示意图
-    ![odm-mp4](./../../../zh/maixIII/assets/odm-mp4.jpg)
+![odm-mp4](./../../../zh/maixIII/assets/odm-mp4.jpg)
 
-终端界面会显示下图 `delete file`，当录制完成后再次按下按键停止录制而 LED0 会灭掉，
+Click `USER` key again to stop recording and **LED0** is off
 
 ![odm-adb](./../../../zh/maixIII/assets/odm-adb.png)
 
-录制完成的 MP4 文件可在 **`home/examples/`** 目录下查看。
+The recorded mp4 files are in **`home/examples/`** directory.
 
 ![mp4-file](./../../../zh/maixIII/assets/mp4-file.png)
 
 ### PP_human
 
->**20221116** 后更新的系统镜像已内置了 `pp_human` 人体分割应用。
->还内置了不同摄像头的参数命令在 `run.sh`，只需要调用注释相应源码即可使用。
-
-运行下方的命令后终端会输出调试信息，设备屏幕会显示运行画面。
+Run following command on AXera-Pi, screen displays the background picture, and when capturing a human, it will be shown on the screen.
 
 ```bash
 /home/examples/vin_ivps_joint_vo_pp_human_seg/run.sh
 ```
+
 ![pp_human](./../../../zh/maixIII/assets/pp_human.jpg)
-可使用下方命令进入图形化页面，对 `run.sh` 里不同摄像头参数的源码进行调用或注释。
+
+Use the following command to edit the script file, change the annotation `#` to switch camera.
 
 ```bash
 nano /home/examples/vin_ivps_joint_vo_pp_human_seg/run.sh
 ```
 
-.. details::点击查看图形化页面
-    修改后按 **ctrl+x** 键会进入保存页面，后续按终端提示操作即可。
-    ![pp_human_adb](./../../../zh/maixIII/assets/pp_humana_adb.png)
+Use hoykey  `Ctrl + X` and follow instructions we save the change of editing.
+![pp_human_adb](./../../../zh/maixIII/assets/pp_humana_adb.png)
 
 ### uvc_vo
 
-**usb-uvc-gadget**：[点击查看相关仓库](https://github.com/junhuanchen/usb-uvc-gadget)
+**usb-uvc-gadget**：[Github repository](https://github.com/junhuanchen/usb-uvc-gadget)
 
->**20221123** 镜像内置了 uvc vo 应用，并且还可以在手机端软件使用。
->目前应用还处于不稳定的状态，第一次启动程序会改变 usb otg rndis 转成 usb otg uvc 模式导致设备重启，重启再运行即可，画面绿屏是启动脚本里摄像头配置不对。
+This demo is not very stable. For the first time running this demo application, the usb otg rndis will change into usb otg uvc and lead to the device reboot. After that run this demo application again then everything is right. 
 
-使用前需要准备两条 USB type_c  的数据线以及一条双 type_c 口的数据线。
-把设备的 **UART** 及 **OTG** 口用`USB type-c` 线全部接入 `PC` 端，再运行下方命令终端会弹出无报错调试信息。
+If your screen displays green interface, this means the wrong camera configuration, edit the script to switch camera.
+
+Before running this demo, connecting both USB-UART and USB-OTG port, we use USB-UART port to control AXera-Pi and use USB-OTG to transfer uvc stream to the computer.
+
+Run the following command to start this demo application.
 
 ```bash
 /home/examples/vin_ivps_joint_venc_uvc_vo/run.sh
 ```
 
-.. details::点击查看终端示例图
-    ![uvc_adb](./../../../zh/maixIII/assets/uvc_adb.png)
+![uvc_adb](./../../../zh/maixIII/assets/uvc_adb.png)
 
-打开 `PC` 端自带相机应用即可在设备屏幕以及 `PC` 端观察到模型检测画面。
+Run your computer camera application to display the camera detection of AXera-Pi.
 
 ![uvc_vo](./../../../zh/maixIII/assets/uvc_vo.jpg)
 
-可以使用以下的命令行更换尾缀 `start` 开启、`stop` 停止、`restore` 重启来对 `uvc` 程序进行操作。
+The following command can be used to `start`, `stop` or `restore` `uvc demo.
 
 ```bash
 /home/usb-uvc-gadget/uvc-gadget.sh #start/stop/restore
 ```
 
-- **手机端虚拟摄像头**
+- **Android phone uvc**
 
-UVC 也能在安卓手机端的 `app` 上当虚拟摄像头使用，使用前在软件商店下载好 **USB 摄像头专业版** 软件。
+This uvc demo application can also display on Android phone which support OTG mode. Download and install a USB camera application on the phone first.
 
-.. details::USB 摄像头专业版软件介绍
-    USB 摄像头是一款支持 USB 摄像头、适配采集卡等设备通过 OTG 连接手机并驱动设备展示画面。
-
-    ![uvc_usb](./../../../zh/maixIII/assets/uvc_usb.jpg)
-
-把双头 `type-c` 线的分别接上手机端以及设备的 OTG 口，运行上方命令后会自动连接。
+Connect USB-OTG port with Android phone, and run `/home/examples/vin_ivps_joint_venc_uvc_vo/run.sh` on AXera-Pi by USB-UART or SSH to start uvc demo, and start the USB camera application on the Android phone, then the camera content displays both on AXera-Pi screen and Android phone.
 
 ![uvc_phone](./../../../zh/maixIII/assets/uvc_phone.jpg)
 
->**注意**：如果需要完全脱离电脑端用手机端供电的话，需要把 uvc 程序写入开机脚本即可。
+This demo can run at system finishing boot if it's written into [rc.local](#boot-script)
 
 ### lvgl7 UI
 
-> 在 **20221125** 后更新的镜像系统里，我们内置了 lvgl7 UI 应用。
-
-**运行前先准备材料**：USB type-c 线/USB type-c 转换头/无线鼠标。
-使用 USB type-c 线接入设备的 **UART** 口与 **PC** 端，使用转换头将鼠标的 USB 接收器接入设备 **OTG** 口。
-运行下方命令后终端会弹出无报错的启动信息后，屏幕会显示画面用户即可体验 lvgl 应用了。
+Run following command we can run this lvgl demo.
 
 ```
-cd /home
-./bin/sample_vin_ivps_joint_vo_lvgl -c 0
+/home/bin/sample_vin_ivps_joint_vo_lvgl -c 0
 ```
 
-.. details::点击查看终端示例图
-    ![lvgi_adb](./../../../zh/maixIII/assets/lvgl_adb.png)
+![lvgi_adb](./../../../zh/maixIII/assets/lvgl_adb.png)
 
 <p align="center">
     <iframe src="//player.bilibili.com/player.html?aid=690497396&bvid=BV1n24y1C7DN&cid=901748014&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>

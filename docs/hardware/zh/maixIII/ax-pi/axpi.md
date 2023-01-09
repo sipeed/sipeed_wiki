@@ -7,7 +7,7 @@ title: MAIX-III AXera-Pi 是什么？
 
 ![maixiii_axpi](./../../../../../static/home/maixiii_axpi.jpg)
 
-> [>>> 请点此直达淘宝商品链接 <<<](https://m.tb.cn/h.U30m3xW?tk=L1vr2BQ0AQM)
+> [>>> 请点此直达淘宝商品链接 <<<](https://item.taobao.com/item.htm?id=682169792430)
 
  2021 年的时候，国内各大芯片原厂纷纷亮出了自己的 Linux 边缘 AI 芯片。
 

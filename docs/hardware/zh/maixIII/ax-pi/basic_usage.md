@@ -888,7 +888,7 @@ fbv yolov5s_out.jpg
 和桌面系统保持一致，直接可用 alsa-utils 进行测试。
 
 - **测试脚本**：`speaker-test -t sine -f 440 -c1`
-- **录制音频**：`arecord test.wav -c 2 -d 2`
+- **录制音频**：`arecord test.wav -c 2 -f cd -d 2`
 - **播放音频**：`aplay test.wav`
 
 录音回放的 `python3` 代码如下：

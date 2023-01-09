@@ -1,8 +1,13 @@
-# Tang Nano 系列例程
-
-- 编辑于2022.04.18
-
-这里汇总 Tang Nano 例程，持续更新
+---
+title: Tang Nano 系列例程
+tags: Tang Nano, example, guide
+keywords: Tang Nano，example
+update:
+  - date: 2023-01-09
+    author: wonder
+    content:
+      - 添加 Tang Nano 9K Lushay Labs 跳转链接
+---
 
 ## 前言
 
@@ -41,6 +46,7 @@ https://dl.sipeed.com/shareURL/TANG/programmer 里面的文件。
 - [驱RGB屏教程](./../Tang-Nano-9K/examples/LCD.md)
 - [PicoRV 在9K上运行的示例](./../Tang-Nano-9K/examples/picorv.md)
 - [FPGA驱动1.14 SPI屏幕工程](./../Tang-Nano-9K/examples/spi_lcd.md)
-<!-- - [FPGA驱动1.14 SPI屏幕](./../Tang-Nano-9K/examples/spi_lcd/spi_lcd.md) -->
 - HDMI 示例：参考 [PicoRV 在9K上运行的示例](./../Tang-Nano-9K/examples/picorv.md)
 - litex 在 9K 支持：https://github.com/litex-hub/litex-boards
+合作代理教程(英文)：
+<a href="https://learn.lushaylabs.com/tang-nano-series/"><img src="./assets/lushaylab_logo.png" alt="lushaylab_logo" width="35%"></a>

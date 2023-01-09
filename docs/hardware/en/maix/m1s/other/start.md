@@ -351,7 +351,6 @@ c906_app
 ├── lfs_demo
 ├── lvgl_demo
 ├── pikascript_demo
-├── play_with_gba
 ├── proj_config.mk
 ├── pwm_demo
 ├── spi_lcd
