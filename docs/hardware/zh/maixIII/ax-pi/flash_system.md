@@ -183,6 +183,8 @@ update:
 
 #### 如何启动 AXera-Pi ？
 
+>因物料更换屏幕现有不同的版本，需区别版本以及使用屏幕时出现锯齿等画面请移步到[ Maix-III 系列 AXera-Pi 常见问题(FAQ) ](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html)查询。
+
 把设备的 `USB-UART` 及 `USB-OTG` 接口用 USB type-c 线全部接入 PC 端通电后设备会自启。
 
 ![start](./../assets/start.jpg)

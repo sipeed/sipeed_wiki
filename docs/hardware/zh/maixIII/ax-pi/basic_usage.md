@@ -1170,7 +1170,7 @@ echo 0 > /sys/class/pwm/pwmchip0/export
 echo 4167 > /sys/class/pwm/pwmchip0/pwm0/period
 echo 204 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle
 echo 2084 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle
-echo 0 > /sys/class/pwm/pwmchip0/pwm0/enable
+echo 1 > /sys/class/pwm/pwmchip0/pwm0/enable
 ```
 
 PWM 使用参考：[点击查看](https://wiki.sipeed.com/soft/maixpy3/zh/usage/hardware/PWM.html#%E5%BC%80%E5%A7%8B).
