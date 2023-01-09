@@ -1,6 +1,13 @@
-# Examples of Tang Nano series
-
-> Edit on 2022.04.18
+---
+title: Tang Nano Examples
+tags: Tang Nano, example, guide
+keywords: Tang Nano，example
+update:
+  - date: 2023-01-09
+    author: wonder
+    content:
+      - Add Tang Nano 9K Lushay Labs link
+---
 
 Here are Tang Nano series examples and continuously updated
 
@@ -47,7 +54,6 @@ https://github.com/sipeed/TangNano-4K-example
 - Run GBA on Nano 4K ：https://github.com/Martoni/GbHdmi
 
 ---
-
 ### Tang Nano 9K
 
 Github Repository:
@@ -59,3 +65,5 @@ https://github.com/sipeed/TangNano-9K-example
 - [FPGA drives 1.14-inch SPI screen](./../Tang-Nano-9K/examples/spi_lcd.md)
 - HDMI display : Visit [Examples of PicoRV](./../Tang-Nano-9K/examples/picorv.md)
 - Litex running on 9K : https://github.com/litex-hub/litex-boards
+Partner tutorial:
+<a href="https://learn.lushaylabs.com/tang-nano-series/"><img src="./../../../zh/tang/Tang-Nano-Doc/assets/lushaylab_logo.png" alt="lushaylab_logo" width="35%"></a>
