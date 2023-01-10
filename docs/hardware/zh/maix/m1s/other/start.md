@@ -679,7 +679,7 @@ DebugServerConsole -port 12345
 
 ### blai_mnist_demo
 
-编译之后使用 U 盘拖拽烧录的方法将编译出来的固件烧录进板子。前面说过编译出来的固件名称都是 `d0fw.bin`，且位于 `M1s_BL808_example/c906_app/built_out` 文件夹下。
+编译之后使用 U 盘拖拽烧录的方法将编译出来的[固件](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmware/demo_bin/blai_mnist_demo)烧录进板子。前面说过编译出来的固件名称都是 `d0fw.bin`，且位于 `M1s_BL808_example/c906_app/built_out` 文件夹下。
 
 ```
 #c906_app
