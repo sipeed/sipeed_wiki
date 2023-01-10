@@ -236,6 +236,18 @@ arc.center()
 
 M1s 需要在 Linux 环境下进行编译
 
+### 安装编译所需要的相关软件
+
+获取 SDK 需要用到 `git` 这个软件，编译 SDK 需要用到 `make` 这个软件，对应着后面文档检查自己的目录结构配置的时候需要用到 `tree` 这个软件。
+
+下面是在 debian 系 Linux 发行版（比如 Ubuntu）中安装上述三个软件的示例命令。
+
+```bash
+sudo apt-get install git make tree
+```
+
+其它 Linux 发行版本安装上述所需的三个软件所使用的命令自行网上查找解决。
+
 ### 获取例程仓库
 
 ```bash
@@ -382,6 +394,8 @@ cd M1s_BL808_example/e907_app
 确定自己所执行的编译命令时 `./build.sh demo_name`，而不是 `./build.sh demo_name/`，注意两者结尾处 `/` 符号。
 
 ## Linux Demo
+
+这是一个能在 M1s Dock 上能运行起来的简易 Linux Demo。
 
 [点我](https://dl.sipeed.com/fileList/MAIX/M1s/M1s_Dock/7_Firmware/m1sdock_linux_20221116.zip) 下载 Linux 例子，按照压缩包里面 `steps.md` 操作步骤完成 Linux 系统烧录。
 
@@ -665,7 +679,7 @@ DebugServerConsole -port 12345
 
 ### blai_mnist_demo
 
-编译之后使用 U 盘拖拽烧录的方法将它烧录进板子。前面说过编译出来的固件名称都是 `d0fw.bin`，且位于 `M1s_BL808_example/c906_app/built_out` 文件夹下。
+编译之后使用 U 盘拖拽烧录的方法将编译出来的固件烧录进板子。前面说过编译出来的固件名称都是 `d0fw.bin`，且位于 `M1s_BL808_example/c906_app/built_out` 文件夹下。
 
 ```
 #c906_app
@@ -693,8 +707,50 @@ models
 └── mnist.blai
 ```
 
-再次按下复位键，小号串口显示模型加载成功，并且显示板子识别数字结果。板子屏幕显示摄像头捕获到的画面，且也显示识别结果。
+![blai_mnist_demo_model_path](./assets/start/blai_mnist_demo_model_path.jpg)
+
+按下板子上的复位键(RST)，复位板卡程序来使板卡重新加载模型。
+
+小号串口显示模型加载成功，并且显示板子识别数字结果。板子屏幕显示摄像头捕获到的画面，且也显示识别结果。
 
 ![blai_mnist_demo_uart](./assets/start/blai_mnist_demo_uart.jpg)
 
 ![blai_mnist_demo_recognition](./assets/start/blai_mnist_demo_recognition.jpg)
+
+### tom_and_jerry_classification_demo
+
+这是一个在 [MaixHub](https://maixhub.com/model/zoo/127) 上可下载的模型文件，我们可以在这个网站直接上传数据集、标注和生成模型文件再部署到板卡上，这里叙述一下怎么样将在 [MaixHub](https://maixhub.com/) 所下载的模型部署到 M1s Dock 上。
+
+首先根据前面搭建 SDK 环境所描述的内容，编译出 [tom_and_jerry_classification_demo](https://dl.sipeed.com/fileList/MAIX/M1s/M1s_Dock/7_Firmware/demo_bin/tom_and_jerry_classification_demo.bin) 这个例程固件。
+
+```
+#c906_app
+./build.sh tom_and_jerry_classification_demo
+```
+
+然后通过 U 盘拖拽烧录的方法将编译出来的固件烧录进板子。
+
+![udisk_burn](./assets/start/udisk_burn.gif)
+
+在 tom_and_jerry_classification_demo 里面的 `main.c` 源码中可以所加载的模型在 Flash 里面的 models 文件夹里面，且模型名称为 `tj.blai`。
+
+![tom_jerry_source_code](./assets/start/tom_jerry_source_code.jpg)
+
+所以我们在 [MaixHub](https://maixhub.com/model/zoo/127) 下载到这个例程模型后，解压并将里面拓展名为 `.blai` 的文件重命名为 `tj.blai`。
+
+![tom_jerry_model_rename](./assets/start/tom_jerry_model_rename.gif)
+
+然后将板子的 OTG 口与电脑连接的话会看到一个大小为 7M 的 U 盘。
+
+![blai_mnist_demo_flash_disk](./assets/start/blai_mnist_demo_flash_disk.jpg)
+
+按照源码要求把上面重命名后所得到的 `tj.blai` 文件存放到 U 盘的 models 文件夹下：在 U 盘里新建一个 models 文件夹，然后将 `tj.blai` 这个模型文件存放进所创建的 models 文件夹中 。
+
+![tom_jerry_model_path](./assets/start/tom_jerry_model_path.jpg)
+
+然后就可以使用 M1S Dock 来分辨 Tom 和 Jerry 了。
+
+<img src="./assets/start/tom_jerry_model_jerry.jpg" alt="tom_jerry_model_jerry" width=42%>
+<img src="./assets/start/tom_jerry_model_tom.jpg" alt="tom_jerry_model_tom" width=42%>
+
+因为模型文件比较大，所以识别略有压力。

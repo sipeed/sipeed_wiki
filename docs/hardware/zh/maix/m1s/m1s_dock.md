@@ -287,14 +287,16 @@ M1s Dock 和 M0Sense 总览：3:15 之前的都是 M1s Dock。
 
 ## 补充资料
 
-- [规格书](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/1_Specification)
-- [原理图](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/2_Schematic)
-- [位号图](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/3_Bit_number_map)
-- [尺寸图](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/4_Dimensional_drawing)
+- [板卡规格书](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/1_Specification)
+- [板卡原理图](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/2_Schematic)
+- [板卡点位图](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/3_Bit_number_map)
+- [板卡尺寸图](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/4_Dimensional_drawing)
 - [3D 模型文件](https://dl.sipeed.com/shareURL/MAIX/M1s_Dock/M1s/5_3D_file)
-- [芯片数据手册](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/6_Chip_Manual)
+- [板卡芯片数据手册](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/6_Chip_Manual)
 - [触摸屏手册](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/6_Chip_Manual/touch_screen)
 - [博流官方文档](https://dev.bouffalolab.com/home/)
+- [BL808 数据手册](https://gitee.com/wonderfullook/bl_docs/tree/main/BL808_DS/zh_CN) (gitee)
+- [BL808 寄存器手册](https://gitee.com/wonderfullook/bl_docs/tree/main/BL808_RM/zh_CN) (gitee)
 
 ---
 

@@ -239,6 +239,18 @@ After finishing burning, repower this board to use the new firmware.
 
 M1s can be compiled in Linux.
 
+### Preparation
+
+We need `git` to get the SDK complie envorioument, and use `make` to compile SDK, `tree` is also need to be installed to check the directory structure.
+
+The following command can be used in debian Linux distribution like Ubuntu to install the three softwares mentioned above.
+
+```bash
+sudo apt-get install git make tree
+```
+
+For the command of other Linux distribution to install the three softwares mentioned above can be searched on the Internet by yourself.
+
 ### Get example
 
 ```bash
@@ -385,6 +397,8 @@ Then the compiled bin file is in M1s_BL808_example/e907_app/build_out folder, an
 Make sure you run `./build.sh demo_name` command, not `./build.sh demo_name/` command. Note the symbol `/` in the end.
 
 ## Linux Demo
+
+This is a basic Linux Demo to run on M1s Dock.
 
 [Click me](https://dl.sipeed.com/fileList/MAIX/M1s/M1s_Dock/7_Firmware/m1sdock_linux_20221116.zip) to download Linux demo, and following the `steps.md` in the compressed file to finish burning Linux image.
 
@@ -683,7 +697,7 @@ So we need upload model into M1s Dock, from source code we can know we need to s
 
 ![blai_mnist_demo_fopen](./../../../../zh/maix/m1s/other/assets/start/blai_mnist_demo_fopen.jpg)
 
-Connect computer with OTG port on M1s Dock we can see there is a u-disk with nearly 7M storge memory.
+Connect computer with OTG port of M1s Dock we can see there is a u-disk with nearly 7M storage memory.
 
 ![blai_mnist_demo_flash_disk](./../../../../zh/maix/m1s/other/assets/start/blai_mnist_demo_flash_disk.jpg)
 
@@ -694,10 +708,52 @@ models
 └── mnist.blai
 ```
 
-Press RST key again,  open the smaller serial port we can see we succeed loading model, and the recognition results are printed.
+![blai_mnist_demo_model_path](./../../../../zh/maix/m1s/other/assets/start/blai_mnist_demo_model_path.jpg)
+
+Press onboard RST key to restart the M1s Dock to load the model
+
+Open the smaller serial port we can see we succeed loading model, and the recognition results are printed.
 
 Screen displays camera contents, and show recognition result.
 
 ![blai_mnist_demo_uart](./../../../../zh/maix/m1s/other/assets/start/blai_mnist_demo_uart.jpg)
 
 ![blai_mnist_demo_recognition](./../../../../zh/maix/m1s/other/assets/start/blai_mnist_demo_recognition.jpg)
+
+### tom_and_jerry_classification_demo
+
+This ai model file can be downloaded from [MaixHub](https://maixhub.com/model/zoo/127). We can upload dataset, label and train out model file in this website. Here we tell how to deploy the detection model downloaded from [Maixhub](https://maixhub.com/) on M1s Dock.
+
+To start this, refer to the [SDK compile](#sdk-compile) chapter and compile out the [tom_and_jerry_classification_demo](https://dl.sipeed.com/fileList/MAIX/M1s/M1s_Dock/7_Firmware/demo_bin/tom_and_jerry_classification_demo.bin) firmware first.
+
+```
+#c906_app
+./build.sh tom_and_jerry_classification_demo
+```
+
+Burn the compiled firmware into M1s Dock.
+
+![udisk_burn](./../../../../zh/maix/m1s/other/assets/start/udisk_burn.gif)
+
+Form the source code of `main.c` in tom_and_jerry_classification_demo we can see that the ai model file is the the models folder in the Flash, and the ai model file name is `tj.blai`.
+
+![tom_jerry_source_code](./../../../../zh/maix/m1s/other/assets/start/tom_jerry_source_code.jpg)
+
+We download the example ai model from [MaixHub](https://maixhub.com/model/zoo/127), and rename the file whose extended name is `.blai` into `tj.blai`.
+
+![tom_jerry_model_rename](./../../../../zh/maix/m1s/other/assets/start/tom_jerry_model_rename.gif)
+
+Connect computer with OTG port of M1s Dock we can see there is a u-disk with nearly 7M storage memory.
+
+![blai_mnist_demo_flash_disk](./../../../../zh/maix/m1s/other/assets/start/blai_mnist_demo_flash_disk.jpg)
+
+According to the source code, we copy the renamed `tj.blai` ai model file to the models folder in the u-disk: Create a folder named models in the u-disk, and copy the renamed `tj.blai` ai model file into the created models folder.
+
+![tom_jerry_model_path](./../../../../zh/maix/m1s/other/assets/start/tom_jerry_model_path.jpg)
+
+Finish there, we can use M1s Dock to distinguish Tom and Jerry.
+
+<img src="./../../../../zh/maix/m1s/other/assets/start/tom_jerry_model_jerry.jpg" alt="tom_jerry_model_jerry" width=42%>
+<img src="./../../../../zh/maix/m1s/other/assets/start/tom_jerry_model_tom.jpg" alt="tom_jerry_model_tom" width=42%>
+
+Because this ai model is a big one, it's heavy for M1s Dock.

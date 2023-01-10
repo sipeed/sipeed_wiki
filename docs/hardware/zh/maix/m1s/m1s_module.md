@@ -352,13 +352,16 @@ Sipeed M1s 模组是基于[博流智能科技](http://www.bouffalolab.com/)的 B
 
 ## 模组资料
 
-- [规格书](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s/1_Specification)
-- [原理图](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s/2_Schematic)
-- [封装库](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s/7_Package)
-- [位号图](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s/3_Bit_number_map)
-- [尺寸图](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s/4_Dimensional_drawing)
+- [模组规格书](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s/1_Specification)
+- [模组原理图](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s/2_Schematic)
+- [模组封装库](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s/7_Package)
+- [模组点位图](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s/3_Bit_number_map)
+- [模组尺寸图](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s/4_Dimensional_drawing)
 - [3D 模型文件](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s/5_3D_file)
-- [芯片数据手册](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s/6_Chip_Manual)
+- [模组芯片数据手册](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s/6_Chip_Manual)
+- [博流官方文档](https://dev.bouffalolab.com/home/)
+- [BL808 数据手册](https://gitee.com/wonderfullook/bl_docs/tree/main/BL808_DS/zh_CN) (gitee)
+- [BL808 寄存器手册](https://gitee.com/wonderfullook/bl_docs/tree/main/BL808_RM/zh_CN) (gitee)
 
 ---
 

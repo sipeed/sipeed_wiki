@@ -347,13 +347,16 @@ Visit Schematic for details：[Click me](https://dl.sipeed.com/shareURL/MAIX/M1s
 
 ## Links
 
-- [Datasheet](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s/1_Specification)
-- [Schematic](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s/2_Schematic)
-- [Bit map](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s/3_Bit_number_map)
-- [Dimension](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s/4_Dimensional_drawing)
+- [Module Datasheet](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s/1_Specification)
+- [Module Schematic](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s/2_Schematic)
+- [Module Package](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s/7_Package)
+- [Module Bit map](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s/3_Bit_number_map)
+- [Module Dimension](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s/4_Dimensional_drawing)
 - [3D model file](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s/5_3D_file)
-- [Chip manual](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s/6_Chip_Manual)
-- [Bouffalolab official site](https://dev.bouffalolab.com/home/)
+- [Module Chip manual](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s/6_Chip_Manual)
+- [Bouffalolab official document](https://dev.bouffalolab.com/home/)
+- [BL808 DataSheet](https://github.com/bouffalolab/bl_docs/tree/main/BL808_DS/en) (github)
+- [BL808 Reference Manual](https://github.com/bouffalolab/bl_docs/tree/main/BL808_RM/en) (github)
 
 ---
 

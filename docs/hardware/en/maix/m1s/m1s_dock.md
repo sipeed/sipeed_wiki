@@ -278,14 +278,16 @@ Video of M1s Dock and M0Sense：M1s Dock is before 3:15，and time after 3:15 is
 
 ## Links
 
-- [Datasheet](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/1_Specification)
-- [Schematic](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/2_Schematic)
-- [Bit map](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/3_Bit_number_map)
-- [Dimensions](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/4_Dimensional_drawing)
+- [Board Datasheet](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/1_Specification)
+- [Board Schematic](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/2_Schematic)
+- [Board Bit map](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/3_Bit_number_map)
+- [Board Dimensions](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/4_Dimensional_drawing)
 - [3D model file](https://dl.sipeed.com/shareURL/MAIX/M1s_Dock/M1s/5_3D_file)
-- [Chip manual](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/6_Chip_Manual)
+- [Board Chip manual](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/6_Chip_Manual)
 - [Capacitive touch screen manual](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/6_Chip_Manual/touch_screen)
-- [Bouffalolab official site](https://dev.bouffalolab.com/home/)
+- [Bouffalolab official documents](https://dev.bouffalolab.com/home/)
+- [BL808 DataSheet](https://github.com/bouffalolab/bl_docs/tree/main/BL808_DS/en) (github)
+- [BL808 Reference Manual](https://github.com/bouffalolab/bl_docs/tree/main/BL808_RM/en) (github)
 
 ---
 
