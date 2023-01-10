@@ -183,7 +183,7 @@ update:
 
 #### 如何启动 AXera-Pi ？
 
->因物料更换屏幕现有不同的版本，需区别版本以及使用屏幕时出现锯齿等画面请移步到[ Maix-III 系列 AXera-Pi 常见问题(FAQ) ](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html)查询。
+>因物料更换屏幕现有不同的版本，需区别版本以及使用屏幕时出现锯齿等画面请移步到[ Maix-III 系列 AXera-Pi 常见问题(FAQ) ](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html#Q：硬件物料更改说明、没有-wlan0-、屏幕烧屏、摄像头倒过来怎么解决？)查询。
 
 把设备的 `USB-UART` 及 `USB-OTG` 接口用 USB type-c 线全部接入 PC 端通电后设备会自启。
 
@@ -346,13 +346,11 @@ root@AXERA:~#
 
 ### 准备 C/C++ 编程（适用开发者）
 
-能走到这里就说明板子已经用起来了，那就来开发吧！在这之前需要**「准备开发环境」**了解如何拷贝文件到板子里，如何搭建本地编译或交叉编译，然后通过**「SDK 开发指南」**学习到如何基于现有的代码进行开发。
+能走到这里就说明板子已经用起来了，那就来开发吧！在这之前需要**「准备 C/C++ 编程」**了解如何拷贝文件到板子里，如何搭建本地编译或交叉编译，然后学习到如何基于现有的代码进行开发。
 
-- [准备开发环境](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/dev_prepare.html)
+- [准备 C/C++ 编程](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/dev_prepare.html)
 
 快速了解现在提供哪些开源代码仓库以及用法，这些开源仓库会持续更新和开放的。
-
-- [SDK 开发指南](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/sdk_usage.html)
 
 ![axpi_sdk.jpg](./../assets/axpi_sdk.jpg)
 

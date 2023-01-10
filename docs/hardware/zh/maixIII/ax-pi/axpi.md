@@ -249,7 +249,7 @@ title: MAIX-III AXera-Pi 是什么？
 
 #### 开放 BSP SDK 源码
 
-提供各类开发源码，提供 API 开发文档，SDK 开发方法等说明，细节可以从[SDK 开发指南](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/sdk_usage.html) 得知。
+提供各类开发源码，提供 API 开发文档，SDK 开发方法等说明，细节可以从[准备 C/C++ 编程](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/dev_prepare.html#%E8%8E%B7%E5%8F%96-SDK-%E6%BA%90%E7%A0%81) 得知。
 
 ##### [ax-sample](https://github.com/AXERA-TECH/ax-samples)
 

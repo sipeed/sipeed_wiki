@@ -47,19 +47,6 @@ A：试着按复位键或者是插拔重启设备即可。
 ![faq_display](./../assets/faq_display.jpg)
 A：查看摄像头型号参数是否配置正确。
 
-## Q：摄像头、屏幕画面反了倒过来了怎么解决？
-
-A：这是批次问题，物理旋转即可解决。
-
-![faq_video_a](./../assets/faq_video_a.jpg)
-
-有装配外壳的 AXera-Pi 可参考以下图例：
-
-<html>
-      <img src="./../assets/faq_video_b.jpg" width=48%>
-      <img src="./../assets/faq_video_c.jpg" width=48%>
-</html>
-
 ## Q：运行命令后报错：Bus Error！？
 
 ![faq_bus](./../assets/faq_bus.jpg)
@@ -81,38 +68,61 @@ A：这种情况一般会少数出现在 Windows 环境上，查看设备管理�
 
 A：重启即可
 
-## Q：开机 ifconfig 不显示 wlan0 ？
-
-A：可能是核心板与底板衔接松了，重新插拔核心板与底板可！
-
-A：**20230103** 后的新版底板更换了 WiFi 模组物料，默认的系统镜像里面所使用的 Wifi 模组型号为`rtl8189fs`，因此对于之前所搭载的 `rtl8723bs` Wifi 模组的底板需要执行下面的命令来并执行 `reboot` 命令来重启设备以重新适配 Wifi 硬件。具体更改差别可前往[更改说明](#q硬件物料更改说明) 查看。
-
-```bash
-ls /boot/
-cp kernel.img.rtl8723bs kernel.img #cp /boot/kernel.img.rtl8189fs kernel.img  
-```
-
-A：重新插拔核心板且执行上述命令后仍然不显示 wlan0 的话，重新烧录镜像来解决未知的系统问题(极少见)。
-
 ## Q：使用 ssh 登陆后断开报错：packet_write_wait: Connection to 10.xxx.xxx.xxx port 22: Broken pipe！
 
 A: 运行一下`python3 -c "import os, binascii; os.system('sed -i \'/iface eth0 inet dhcp/ahwaddress ether {}\' /etc/network/interfaces'.format(binascii.hexlify(bytes.fromhex(open('/proc/ax_proc/uid').read().split('0x')[1][:-5]),':').decode('iso8859-1'))) if os.system('grep \'hwaddress ether\' /etc/network/interfaces -q') != 0 else exit();"` 后重启即可。
 
 
-## Q：开机画面出现锯齿或以下画面怎么解决？
-## Q：屏幕出现烧屏情况？
+## Q：硬件物料更改说明、没有 wlan0 、屏幕烧屏、摄像头倒过来怎么解决？
+
+> **新旧版底板区别**
+> 
+1. 在新底板上我们标注了设备号：`v3768`，用户也可以根据版本号来确认版本的不同。
+2. 底板摄像头 FPC 连接座更换，主要就是固定方向改变，但是接线方向未变。
+3. WiFi 模块更换：`旧 RTL8723BS` -> `新 RTL8189FTV`。
+
+**如果遇到 wlan0 不显示的话请参考以下解决方法：**
+
+1. 根据下图确定 WiFi 模块的版本来替换 `/boot` 目录下的相对应的驱动，更新内核驱动可以用 `cp /boot/kernel.img.rtl8723bs /boot/kernel.img`。
+2. 可能是运输导致核心板与底板衔接松了，重新插拔装紧核心板即可。
+3. 尝试以上方法后仍不显示 wlan0 的话，重新烧录镜像（未知系统问题、极少见）。
+
+
+![faq_borad](./../assets/faq_board.jpg)
+
+> **新旧版摄像头区别**
+
+新版摄像头线序方向发生了变化，可点击[接线示例](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/flash_system.html#%E5%A6%82%E4%BD%95%E8%BF%9E%E6%8E%A5%E5%A4%96%E8%AE%BE%E5%92%8C%E9%85%8D%E4%BB%B6%EF%BC%9F)参考并进行接线防止接反导致烧坏排线或板卡。
+
+![faq_sensor](./../assets/faq_sensor.jpg)
+
+**如出现摄像头、屏幕画面反了倒过来了可参考以下解决方法：**
+
+`V3751` 版本的摄像头批次导致的问题，物理旋转即可解决。
+
+![faq_video_a](./../assets/faq_video_a.jpg)
+
+有装配亚克力外壳的 AXera-Pi 可参考以下图例旋转安装：
+
+<html>
+      <img src="./../assets/faq_video_b.jpg" width=48%>
+      <img src="./../assets/faq_video_c.jpg" width=48%>
+</html>
+
+> **新旧版屏幕区别**
+
+新旧板的屏幕所使用的设备树（驱动）不同。
+
+![faq_newdisplay](./../assets/fqa_newdisplay.jpg)
+
+**屏幕上电后出现残影、锯齿、烧屏或下图画面请参考以下解决方法：**
 
 <html>
       <img src="./../assets/faq_sawtooth.jpg" width=48%>
       <img src="./../assets/faq_dth.jpg" width=48%>
 </html>
 
-A：屏幕批次不同导致的原因，因设备树版本的不同导致可能会出现烧屏情况，参考[更改说明](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html#Q：硬件物料更改说明)区分版本及时更换以下 `/boot/ dtb ` 设备树的文件即可。
-
-```bash
-ls /boot/
-cp /boot/dtb.img.lcd20220830 dtb.img #dtb.img.lcd20221025 dtb.img
-```
+新旧版的屏幕设备树不同，根据上图日期区分并替换 `/boot` 目录下对应的 `dtb` 设备树驱动即可，请及时更换否则会导致烧屏，更新设备树可以用 `cp /boot/dtb.img.lcd20220830 /boot/dtb.img`。
 
 ## Q：运行 opencv 相关后报错：can't open camera by index.
 
@@ -124,33 +134,5 @@ A：进入 uboot 模式了输入 boot 后即可启动。
 
 ![faq_boot](./../assets/faq_boot.jpg)
 
-## Q：硬件物料更改说明
 
-因为某些原因板卡更换了部分硬件，下面来说明更换的地方。
-
-- **新旧版底板区别**
-
-1. 在新版本的底板上我们标注了设备号：`v3768`，用户也可以根据版本号来确认新旧版本。
-   
-2. WiFi 模块更换：`旧 RTL8723BS` -> `新 RTL8189FTV`，遇到 wlan0 不现实的情况的话需要替换驱动，可以执行下面的命令来替换，或者 [查看没有 wlan0](#q开机-ifconfig-不显示-wlan0) 来了解更多。
-
-```bash
-ls /boot/
-cp kernel.img.rtl8723bs kernel.img #cp /boot/kernel.img.rtl8189fs kernel.img  
-```
-  
-3. 底板摄像头 FPC 连接座更换，主要就是固定方向改变，但是接线方向未变。
-![faq_borad](./../assets/faq_board.jpg)
-
-- **新旧版摄像头区别**
-
-新版摄像头线序方向发生了变化，可参考示例进行接线，防止接反导致烧坏排线或板卡，接线示例指路[点击](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/flash_system.html#%E5%A6%82%E4%BD%95%E8%BF%9E%E6%8E%A5%E5%A4%96%E8%AE%BE%E5%92%8C%E9%85%8D%E4%BB%B6%EF%BC%9F)查看。
-
-![faq_sensor](./../assets/faq_sensor.jpg)
-
-- **新旧版屏幕区别**
-
-新旧版的屏幕设备树不同，根据屏幕的日期区分并在使用时替换 `/boot` 目录下对应设备树驱动即可，请及时更换否则会导致烧屏，更换方法指路[点击](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html#Q%EF%BC%9A%E5%B1%8F%E5%B9%95%E5%87%BA%E7%8E%B0%E7%83%A7%E5%B1%8F%E6%83%85%E5%86%B5%EF%BC%9F)查看。
-
-![faq_newdisplay](./../assets/fqa_newdisplay.jpg)
   
