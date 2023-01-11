@@ -258,7 +258,7 @@ There are your model and codes or programs to run the model after you finish tra
 
 We provide a linux image based on debian11, and you can boot this board from SD card after you burn the system image into SD card. We aim to make it easiler for user to use. Besides, it's really conveient to program AI development with Python API.
 
-1. Burning image: [WIKI AXera-Pi Burn image](./flash_system.md#burn-system-image)
+1. Burning image: [WIKI AXera-Pi Burn image](https://wiki.sipeed.com/hardware/en/maixIII/ax-pi/flash_system.html#Burn-system-image)
 
 2. Basic usage：[WIKI AXera-Pi guide](./flash_system.md)
 

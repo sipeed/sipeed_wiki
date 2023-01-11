@@ -174,7 +174,7 @@ Connect both `USB-UART` and `USB-OTG` port with computer by USB type-c cable to 
 
 ![start](./../../../zh/maixIII/assets/start.jpg)
 
-Because of the change of screen version, visit [bad display](./faq_axpi.md#qscreen-display-wrong) if your screen does not display the picture well.
+Because of the change of screen version, visit [bad display](https://wiki.sipeed.com/hardware/en/maixIII/ax-pi/faq_axpi.html#Q%EF%BC%9AThe-screen-is-blurred-after-booting) if your screen does not display the picture well.
 
 > In **20221013** we update the power-on phenomenon:
 
@@ -348,7 +348,7 @@ And we can also use command `ifdown eth0` to disable Ethernet, and then use `ifu
 
 ### Wireless network
 
-1. Run command `ifconfig wlan0` to see whether there is the wireless device first, if there is no wireless device, visit [AXera-Pi Q&A](./faq_axpi.md#qno-wlan0-shown-in-result-after-running-command-ifconfig) to solve this problem. And only 2.4GHz wireless network is feasible.
+1. Run command `ifconfig wlan0` to see whether there is the wireless device first, if there is no wireless device, visit [AXera-Pi Q&A](https://wiki.sipeed.com/hardware/en/maixIII/ax-pi/faq_axpi.html#Q%EF%BC%9ANo-wlan0-shown-in-result-after-running-command-%3Ccode%3Eifconfig%3C/code%3E) to solve this problem. And only 2.4GHz wireless network is feasible.
 
 2. Run command `nmtui-connect` to open a wireless internet graphical interface.
 ![nmtui](./../../../../hardware/zh/maixIII/assets/nmtui.jpg)
@@ -687,11 +687,11 @@ sample_vin_vo -c 2 -e 1 -s 0 -v dsi0@480x854@60
 
 ![video](./../../../zh/maixIII/assets/video.jpg)
 
-> Those using os04a10 visit [AXera Pi](./faq_axpi.md#qhow-to-switch-to-os04a10-camera) to see how to switch camera.
+> Those using os04a10 visit [AXera Pi](https://wiki.sipeed.com/hardware/en/maixIII/ax-pi/faq_axpi.html#Q%EF%BC%9AHow-to-switch-to-os04a10-camera%EF%BC%9F) to see how to switch camera.
 
 ### DISPLAY
 
-Because of the change of screen version, visit [bad display](./faq_axpi.md#qscreen-display-wrong) if your screen does not display well.
+Because of the change of screen version, visit [bad display](https://wiki.sipeed.com/hardware/en/maixIII/ax-pi/faq_axpi.html#Q%EF%BC%9AThe-screen-is-blurred-after-booting.) if your screen does not display well.
 
 Now we use framebuffer (/dev/fb0) to control the camera content, run command `fbon` to enable the framebuffer, and `fboff` to disable the framebuffer. When `/dev/fb0` is enabled, we can display picture on the screen by command `fbv xxx.jpg`, and some pictures have been stored in `/home/res/` directory, display them by yourself.
 

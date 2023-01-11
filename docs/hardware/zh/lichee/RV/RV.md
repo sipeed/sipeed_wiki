@@ -90,4 +90,4 @@ Debian 系统镜像请到
 
 ## 相关问题
 
-[licheeRV debian镜像相关问题](./problems.md#apt-相关)
+[licheeRV debian镜像相关问题](https://wiki.sipeed.com/hardware/zh/lichee/RV/problems.html#apt-%E7%9B%B8%E5%85%B3)

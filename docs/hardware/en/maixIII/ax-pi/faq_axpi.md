@@ -10,10 +10,10 @@ A: Try to plug connect the 2 USB on m3axpi, by this m3axpi can get enough power 
 
 A：**Change the parameter, or edit code**
 
-- For examples like [`sample_vin_vo`](./basic_usage.md#video), we can change the parameter `-c 2` into `-c 0` to switch camera.
-- For command line example like [IPCDemo](./flash_system.md#ipcdemo) we can change the json file in the end.
+- For examples like [`sample_vin_vo`](https://wiki.sipeed.com/hardware/en/maixIII/ax-pi/flash_system.html#VIDEO), we can change the parameter `-c 2` into `-c 0` to switch camera.
+- For command line example like [IPCDemo](https://wiki.sipeed.com/hardware/en/maixIII/ax-pi/flash_system.html#IPCDemo) we can change the json file in the end.
   ![ipc_demo_json](./assets/flash_system/ipc_demo_json.jpg)
-- For example script like [rstp](./flash_system.md#rtsp) we can edit the script file to change the camera configuration.
+- For example script like [rstp](https://wiki.sipeed.com/hardware/en/maixIII/ax-pi/flash_system.html#rtsp) we can edit the script file to change the camera configuration.
   ![rtsp_stream_shell](./assets/flash_system/rtsp_stream_shell.jpg)
 - Edit the C code `COMMON_SYS_CASE_E eSysCase = SYS_CASE_SINGLE_GC4653;` to switch the camera, visit [github libmaix](https://github.com/sipeed/libmaix/blob/release/components/libmaix/lib/arch/axpi/libmaix_cam/libmaix_cam.cpp) to know more.
 <div>
@@ -62,11 +62,11 @@ Those who have shell for AXera-Pi can connect them like in the following picture
 
 A：This happens when data in the tf card system is broken because of the bad quality of tf card.
 
-- Try to use a good tf card, like what we sell, and you can choose your tf card based on our test: [Choose tf card](./flash_system.md#choose-tf-card)
+- Try to use a good tf card, like what we sell, and you can choose your tf card based on our test: [Choose tf card](https://wiki.sipeed.com/hardware/en/maixIII/ax-pi/flash_system.html#Choose-TF-card)
 
 ## Q：No eth0 ip address after running `ifconfig -a`
 
-A：There is no ip address if the ethernet is not connected to the Internet, check your ethernet connection. Or use command `dhclient eth0` to get the ip address mannaly or visit [config eth0](./flash_system.md#connect-by-ethernet) to know more.
+A：There is no ip address if the ethernet is not connected to the Internet, check your ethernet connection. Or use command `dhclient eth0` to get the ip address mannaly or visit [config eth0](https://wiki.sipeed.com/hardware/en/maixIII/ax-pi/flash_system.html#Connect-by-Ethernet) to know more.
 
 ## Q：Device not found after running uvc
 
