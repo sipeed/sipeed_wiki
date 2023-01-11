@@ -15,9 +15,9 @@ A：最近冬天静电来了，产品要注意接地喔。
 A：**一改参数，二改代码，以下述改动为例**：
 
 - 类似 sample_vin_vo 这类命令改 `-c 0` 就可以启用 os04a10 摄像头，对应 `-c 2` 就是默认提供的 gc4653 摄像头。
-- 如果是类似 [IPCDemo](./basic_usage.md#ipcdemo) 的话更改相对应后缀 gc4653 为 `gc4653_config.json`、os04a10 为 `os04a10_config.json`。
+- 如果是类似 [IPCDemo](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html#IPCDemo) 的话更改相对应后缀 gc4653 为 `gc4653_config.json`、os04a10 为 `os04a10_config.json`。
   ![ipc_demo_json](./../../../en/maixIII/ax-pi/assets/flash_system/ipc_demo_json.jpg)
-- 像[RSTP](./basic_usage.md#rtsp) 这种脚本运行的示例，可以通过编辑里面的摄像头注释来改变摄像头配置。
+- 像[RSTP](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html#rtsp) 这种脚本运行的示例，可以通过编辑里面的摄像头注释来改变摄像头配置。
   ![rtsp_stream_shell](./../../../en/maixIII/ax-pi/assets/flash_system/rtsp_stream_shell.jpg)
 
 - 可以编辑 C 代码里设置默认摄像头的代码 `COMMON_SYS_CASE_E eSysCase = SYS_CASE_SINGLE_GC4653;` 来切换摄像头，详细可看[components/libmaix/lib/arch/axpi/libmaix_cam/libmaix_cam.cpp#L93](https://github.com/sipeed/libmaix/blob/release/components/libmaix/lib/arch/axpi/libmaix_cam/libmaix_cam.cpp#L93)

@@ -321,7 +321,7 @@ AX-Pipeline 由爱芯主导开发。该项目基于 AXera-Pi 展示 ISP、图像
 
 ### 产品开箱测评公示（已截止）
 
-- **活动内容**：为给社区小伙伴们提供良好的开箱回赠，本活动面向已购买**全功能套餐**的同学征集产品测评，将测评在此公示的同学可找**大佬鼠**领取 [MaixII M2DOCK](./../../maixII/M2/resources.md) 、 [TANG NANO 9K](./../../tang/Tang-Nano-9K/Nano-9K.md) 、 [MAIXSENSE A010](./../../maixsense/maixsense-a010/maixsense-a010.md) 等产品三选一作为奖品发放。
+- **活动内容**：为给社区小伙伴们提供良好的开箱回赠，本活动面向已购买**全功能套餐**的同学征集产品测评，将测评在此公示的同学可找**大佬鼠**领取 [MaixII M2DOCK](https://wiki.sipeed.com/hardware/zh/maixII/M2/resources.html) 、 [TANG NANO 9K](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-9K/Nano-9K.html) 、 [MAIXSENSE A010](https://wiki.sipeed.com/hardware/zh/maixsense/maixsense-a010/maixsense-a010.html) 等产品三选一作为奖品发放。
 
 - **测评要求**
 
