@@ -391,7 +391,8 @@ cd M1s_BL808_example/e907_app
 
 2. 编译出错
 
-确定自己所执行的编译命令时 `./build.sh demo_name`，而不是 `./build.sh demo_name/`，注意两者结尾处 `/` 符号。
+注意编译的时候使用的命令为 `./build.sh demo_name`，比如  `./build.sh hello_world`，而不是 `./build.sh hello_world/` （注意最后面的路径符号`/`）
+
 
 ## Linux Demo
 

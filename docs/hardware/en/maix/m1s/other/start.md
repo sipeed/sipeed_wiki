@@ -394,7 +394,7 @@ Then the compiled bin file is in M1s_BL808_example/e907_app/build_out folder, an
 
 2. Failed compiling
 
-Make sure you run `./build.sh demo_name` command, not `./build.sh demo_name/` command. Note the symbol `/` in the end.
+When compiling your firmware, make sure your command is `./build.sh demo_name`, like  `./build.sh hello_world`, not `./build.sh hello_world/` (pay atention to the end symbol `/`)
 
 ## Linux Demo
 

@@ -77,11 +77,11 @@ key:57F80642C3F97E2655772C48AF17455EC9E79BBF76C16EED4E0EC1096D664435
 
 ### 复位后的信息中没有 CHIP KEY
 
-这种情况可以通过更新为最新固件来解决，[点我跳转到最新固件下载地址](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmware)，选择文件名为 `firmware_m1sdock` 开头的文件，烧录方法请参考[该网页](https://github.com/sipeed/M1s_BL808_example) (Github) 里面的 **Download e907 firmware**
+这种情况可以通过更新为最新固件来解决，[点我跳转到最新固件下载地址](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmware/factory)，选择文件名为 `firmware` 开头的文件，烧录方法请参考[该网页](https://gitee.com/sipeed/M1s_BL808_example) (Gitee) 里面的 **Download e907 firmware**
 
 ### 没有显示出两个串口
 
-可以参考[该网页](https://github.com/sipeed/M1s_BL808_example) (Github) 里面的 **Download bl702 firmware** 重新烧录一次串口固件，双串口固件下载地址为 [这里](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmware)，其名称以 `usb2dualuart_bl702.bin` 开头
+可以参考[该网页](https://gitee.com/sipeed/M1s_BL808_example) (Gitee) 里面的 **Download bl702 firmware** 重新烧录一次串口固件，双串口固件下载地址为 [这里](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmware)，其名称以 `usb2dualuart_bl702.bin` 开头
 
 ### 没有显示出任何串口
 

@@ -79,7 +79,7 @@ Make sure your Baudrate is 2000000 (2M)
 
 ### No CHIP KEY in logs
 
-This means you need upgrade your firmware, [Click me](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmware) to download the firmware, choose the file starts with `firmware_m1sdock`,and visit the **Download e907 firmware** [here](https://github.com/sipeed/M1s_BL808_example) (Github) to burn it.
+This means you need upgrade your firmware, [Click me](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmware/factory) to download the firmware, choose the file starts with `firmware`,and visit the **Download e907 firmware** [here](https://github.com/sipeed/M1s_BL808_example) (Github) to burn it.
 
 ### No two Serial port
 
