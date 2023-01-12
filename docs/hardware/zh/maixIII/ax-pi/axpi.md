@@ -7,7 +7,7 @@ title: MAIX-III AXera-Pi 是什么？
 
 ![maixiii_axpi](./../../../../../static/home/maixiii_axpi.jpg)
 
-> [>>> 请点此直达淘宝商品链接 <<<](https://item.taobao.com/item.htm?id=682169792430)
+> [>>> 想要购买请点此直达淘宝商品链接 <<<](https://item.taobao.com/item.htm?id=682169792430)
 
  2021 年的时候，国内各大芯片原厂纷纷亮出了自己的 Linux 边缘 AI 芯片。
 
@@ -300,6 +300,8 @@ AX-Pipeline 由爱芯主导开发。该项目基于 AXera-Pi 展示 ISP、图像
 - [MAIX-III AXera-Pi爱芯派从零入门开发【2】开发部署](https://www.bilibili.com/video/BV1Ne4y117U9/?spm_id_from=333.999.0.0)
 - [MAIX-III AXera-Pi爱芯派从零入门开发【3】模型转换及部署](https://www.bilibili.com/video/BV1jg411z7C8/?spm_id_from=333.999.0.0)
 - [MAIX-III AXera-Pi爱芯派从零入门开发【4】视频推理及推流](https://www.bilibili.com/video/BV14D4y147Ed/?spm_id_from=333.999.0.0)
+- [小手智联老徐 —— AI 边缘计算平台 - 爱芯元智 AX620A 爱芯派开箱](https://blog.csdn.net/weixin_43978579/article/details/127966677)
+- [HonestQiao —— 矽速 MAIX-III AXera-Pi 开箱](https://bbs.elecfans.com/m/jishu_2314161_1_1.html)
 
 产品相关的专栏内容有：
 
@@ -316,59 +318,6 @@ AX-Pipeline 由爱芯主导开发。该项目基于 AXera-Pi 展示 ISP、图像
 正在联动的 AI 社区有：
 
 - [sipeed maixhub.com](https://maixhub.com)
-
-## 新品活动
-
-### 产品开箱测评公示（已截止）
-
-- **活动内容**：为给社区小伙伴们提供良好的开箱回赠，本活动面向已购买**全功能套餐**的同学征集产品测评，将测评在此公示的同学可找**大佬鼠**领取 [MaixII M2DOCK](https://wiki.sipeed.com/hardware/zh/maixII/M2/resources.html) 、 [TANG NANO 9K](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-9K/Nano-9K.html) 、 [MAIXSENSE A010](https://wiki.sipeed.com/hardware/zh/maixsense/maixsense-a010/maixsense-a010.html) 等产品三选一作为奖品发放。
-
-- **测评要求**
-
-1. 测评的场景、题材、内容不限，但提交的内容不应与上述社区或他人内容冲突。
-2. 测评内容至少满足在`**丰富图文内容**`或`**分享开发成果**`中的一项。
-3. 可参考以往的产品测评：
-   ① [【Sipeed M2 Dock开发板试用体验】开箱帖（含高颜值个人单身照）](https://bbs.elecfans.com/jishu_2286184_1_1.html)
-   ② [【Sipeed M2 Dock开发板试用体验】图传功能使用与魔方色块寻找](https://bbs.elecfans.com/jishu_2290503_1_1.html)
-
-- **截止时间**：2022年12月31号
-
-- **测评公示**：
-
-> 测评结果会公开在此，并附上你的署名。需要提交测评的同学请直接联系群里的 **大佬鼠** 或发送评测内容到 `support@sipeed.com` 并署名：【m3axpi 产品测评】。
-
-- [小手智联老徐 —— AI 边缘计算平台 - 爱芯元智 AX620A 爱芯派开箱](https://blog.csdn.net/weixin_43978579/article/details/127966677)
-- [HonestQiao —— 矽速 MAIX-III AXera-Pi 开箱](https://bbs.elecfans.com/m/jishu_2314161_1_1.html)
-
-### 模型训练测评公示（已截止）
-
-> 使用 maixhub.com 需要先注册账号登陆，才能正常使用查看分享的模型和在线训练模型。
-
-- **活动内容**：为了雨露均沾照顾所有的社区小伙伴们，我们还启动了面向于对产品十分感兴趣但未购买的同学的活动，通过分享 AI 模型参与模型测评，抄底价赢取产品。（五折起步）
-
-- **测评要求**
-
-1. 模型评分点（100）
-   ① 模型下载量+收藏数（20）
-   ② 模型结构新颖（30）
-   ③ 模型有创新点（30）
-   ④ 模型有应用场景（30）
-   ⑤ 有实际案例最好（40）
-   评分至少大于 60 分的才被算入可发放奖品的对象。
-
-2. 必须是官方发布以外的模型（[可点此查看已提供的模型](https://maixhub.com/model/zoo)），分享模型不要求数据集公开，但需要通过模型转换得到验证过的 joint 模型，并上传模型给审核的同学看到。
-
-负责模型评分和审核的同学有 圈圈虫 (axera-tech) 以及 neucrack (sipeed) 两位同学进行审核喔！
-
-社区的其他同学也可以一同参与喔，快快给你喜欢的模型点赞加收藏加分吧！
-
-模型提交步骤： ① 注册登陆 MaixHub ② 点击进入模型库 ③ 选择上传模型分享，提交格式可参考其他模型，如 [YOLOV7-Tiny 80 种物体检测](https://maixhub.com/model/zoo/96) 、 [检测小鸭子玩具](https://maixhub.com/model/zoo/108) 。
-
-- **截止时间**：2022年12月31号
-
-- **测评公示**：
-
-访问 [https://maixhub.com/model/zoo](https://maixhub.com/model/zoo) 查看大佬们分享的模型。
 
 ## 硬件参数
 
