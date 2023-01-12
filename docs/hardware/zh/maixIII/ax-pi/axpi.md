@@ -302,7 +302,9 @@ AX-Pipeline 由爱芯主导开发。该项目基于 AXera-Pi 展示 ISP、图像
 - [MAIX-III AXera-Pi爱芯派从零入门开发【4】视频推理及推流](https://www.bilibili.com/video/BV14D4y147Ed/?spm_id_from=333.999.0.0)
 - [小手智联老徐 —— AI 边缘计算平台 - 爱芯元智 AX620A 爱芯派开箱](https://blog.csdn.net/weixin_43978579/article/details/127966677)
 - [HonestQiao —— 矽速 MAIX-III AXera-Pi 开箱](https://bbs.elecfans.com/m/jishu_2314161_1_1.html)
-
+- [一款国产「3.6TOPS@INT8」视觉 AI 开发板](https://mp.weixin.qq.com/s/3bxFxO0Q0UmpzSM3_K794g)
+- [国产AI开发板测评 | MAIX-III AXera-Pi 上手 YOLOv5s 实时目标检测](https://mp.weixin.qq.com/s/lqxL-DmhBa-K9gu3uEyebQ)
+  
 产品相关的专栏内容有：
 
 - [MAIX-III AXera-Pi 系列文章（1）：新一代 3.6T 视觉 AI 板卡面世](https://aijishu.com/a/1060000000374898)
@@ -312,8 +314,12 @@ AX-Pipeline 由爱芯主导开发。该项目基于 AXera-Pi 展示 ISP、图像
 
 产品相关的新闻内容有：
 
+- [AI 视觉新势力×微光全彩“黑”科技](https://mp.weixin.qq.com/s/JIvVprWlQPvE7bTxozAG_Q)
 - [AI ISP 的黎明——大话成像](https://axera-tech.com/tech/T7297054127901756535)
 - [2022世界人工智能大会启动:爱芯元智发布AI-ISP“爱芯智眸®”_中华网](https://tech.china.com/article/20220901/092022_1134965.html)
+- [爱芯元智AX620A与百度飞桨完成 I 级兼容性测试 开源生态建设更进一步](https://mp.weixin.qq.com/s/k6G1pE-31VXlrBA3F6_Liw)
+- [爱芯派™AXera-Pi™亮相ICCAD 爱芯元智开源生态建设加速](https://mp.weixin.qq.com/s/_nZLfEjxOb4QLpGWgaLVWQ)
+
 
 正在联动的 AI 社区有：
 

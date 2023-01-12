@@ -1660,21 +1660,49 @@ UVC 也能在安卓手机端的 `app` 上当虚拟摄像头使用，使用前在
 
 - **终端使用命令行调用模型**
   
-运行下方命令撤销对模型的注释以及参数并保存退出，再运行启动 `run.sh` 脚本命令调用模型。
+用户先使用 `nano /home/run.sh` 进入 `run.sh` 可视化编辑页面修改相关命令行并退出。
+修改示例可参考下文，再运行启动 `run.sh` 脚本命令调用模型。
 
-```bash
-nano /home/run.sh
-/home/run.sh
-```
+**如何修改 `run.sh` 脚本，以人体关键点 `ax_poes` 为例。**
+
+![ax_poes_sh](./../assets/ax_poes_sh.jpg)
+
+使用命令 `nano /home/run.sh` 进入后找到自己需要调用的模型及命令，使用上下左右键移动取消注释更换 `-c 2` 的不同摄像头参数，然后按 `ctrl+x` 键退出会提示保存，按提示进行操作即修改完成。
+
+**修改后使用 `/home/run.sh` 运行程序，即可体验人体关键点。**
+
+<p align="center">
+<iframe src="//player.bilibili.com/player.html?aid=647932316&bvid=BV1Pe4y1W7n6&cid=901750338&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+</p>
 
 - **前往[试试 Python 编程](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/python_api.html#%E4%BD%BF%E7%94%A8-Python-%E8%B0%83%E7%94%A8-ax-poes-ppl-%E6%A8%A1%E5%9E%8B)查看如何使用 `Python` 调用模型示例。**
+
+- **如何调用运行 `run.sh` 里的更多预置模型。**
+
+我们在 `run.sh` 里预置了调用多种模型的命令行以及相应的摄像头参数。
+
+具体使用可参考上文 `nano /home/run.sh` 进入可视化编辑页面修改，运行启动脚本即可使用。
+
+```bash
+sample_vin_ivps_joint_vo
+sample_vin_ivps_joint_venc_rtsp_vo
+```
+
+```bash
+yolov5_seg.json         yolov7.json           yolox.json
+yolov5s_face.json       pp_human_seg.json     ax_pose.json
+hrnet_animal_pose.json  hand_pose.json
+```
+
 
 ### lvgl7 UI
 
 > 在 **20221125** 后更新的镜像系统里，我们内置了 lvgl7 UI 应用。
 
-**运行前先准备材料**：USB type-c 线/USB type-c 转换头/无线鼠标。
-使用 USB type-c 线接入设备的 **UART** 口与 **PC** 端，使用转换头将鼠标的 USB 接收器接入设备 **OTG** 口。
+**运行应用前请先准备材料：**USB type-c 线/USB type-c 转换头/无线鼠标。
+
+使用 USB type-c 数据线两端分别接入设备的 **UART** 口与电脑端 **USB** 口，再使用转换头的 **USB** 端接入鼠标的 USB 接收器，另一端接入设备 **OTG** 口。
+
 运行下方命令后终端会弹出无报错的启动信息后，屏幕会显示画面用户即可体验 lvgl 应用了。
 
 ```
@@ -1688,5 +1716,28 @@ cd /home
 <p align="center">
     <iframe src="//player.bilibili.com/player.html?aid=690497396&bvid=BV1n24y1C7DN&cid=901748014&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 </p>
+
+- **如何调用运行 `/home/bin` 目录下更多内置应用**
+
+以下应用是内置在 `home/bin` 目录下的，用户可使用 `ls /home/bin` 查询并参考示例调用其余应用。
+
+```bash
+root@AXERA:~# ls /home/bin
+sample_h264_ivps_joint_vo       sample_v4l2_user_ivps_joint_vo      sample_vin_ivps_joint_vo       sample_vin_joint
+sample_rtsp_ivps_joint          sample_vin_ivps_joint_venc_rtsp     sample_vin_ivps_joint_vo_h265
+sample_rtsp_ivps_joint_rtsp_vo  sample_vin_ivps_joint_venc_rtsp_vo  sample_vin_ivps_joint_vo_lvgl
+```
+
+例：调用 `sample_vin_ivps_joint_vo_h265` 运行命令如下方示例，`-c 2` 为摄像头参数。
+
+```bash
+/home/bin/sample_vin_ivps_joint_vo_h265 -c 2
+```
+
+.. details::点击查看终端示例图
+    ![sample](./../assets/sample.jpg)
+
+
+
 
 
