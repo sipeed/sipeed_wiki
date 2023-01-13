@@ -2,41 +2,41 @@
 title: Install IDE 
 keywords: Sipeed, Gowin, Tang, Nano, fpga, primer
 update:
-  - date: 2022-10-18
+  - date: 2023-01-13
     version: none
-    author: wonder
+    author: ali-raheem
     content:
-      - Update the expired descriptions
+      - Minor language fixes
 ---
 
-We need Gowin IDE to program Gowin FPGA chips, and the documents about the ide can be found here:[click me](https://www.gowinsemi.com/en/support/database/14/)
+We need to use the Gowin IDE to program Gowin FPGA chips, and documentation about the ide can be found [here](https://www.gowinsemi.com/en/support/database/14/).
 
 - Download and install the corresponding edition of the IDE according to your OS
-- For linux users we suggested using Openfpgaloader to burn fpga, which maybe a good choice. Visit the end of this page [burn-in-linux](#burn-in-linux) for more details.
+- For linux users we suggested using Openfpgaloader to burn fpga. Read the end of this page [burn-in-linux](#burn-in-linux) for more details.
 
 ## Install the IDE
 
-### Download IDE
+### Download the IDE
 
-- The IDE can be downloaded on this page https://www.gowinsemi.com/en/support/download_eda/ after logining in.
+- The IDE can be downloaded from [this page](https://www.gowinsemi.com/en/support/download_eda/) after logging in.
 
 ![download_ide](./assets/download_ide.png)
 
-> Because of the IDE updating, the screenshot is created on 2022.10.18
+It may look difference as this screenshot is from 2022.10.18 and the IDE has since been updated.
 
 ---
 
-The IDE is divided into Standard Edition and Education Edition:
+The IDE is available in two editions: Standard Edition and Education Edition.
 
-Standard Edition IDE requires license, which you should apply from GOWIN Semiconductor Corp.
+The Standard Edition IDE requires license, which you can get from GOWIN Semiconductor Corp.
 
-Education Edition IDE is free to use, but supports fewer device and contains less IP core.
+The Education Edition IDE is free to use, but supports fewer devices and contains fewer IP cores.
 
-The following figure (Snapped on 2022/11/09) shows part number supported in the latest Education Edition IDE
+The following figure (updated 2022/11/09) shows the part numbers supported in the latest Education Edition IDE
 
 ![educational_device](./assets/educational_device.png)
 
-The supported chips and boards are listed in the following sheet.
+The supported chips and boards are listed in the following table.
 
 | Chip full name        |Chip Series|Chip model | Board       |
 | --------------------- | --------- | --------  | ----------- |
@@ -46,35 +46,34 @@ The supported chips and boards are listed in the following sheet.
 | GW2AR-LV18QN88PC8/I7  | GW2AR     |GW2AR-LV18 | Nano 20K    |
 | GW2A-LV18PG256C8/I7   | GW2A      |GW2A-18C   | Primer 20K  |
 
-So for those who use Tang Nano (Onboard jtag is CH552), it's need to use Standard Edition IDE and apply license from GOWIN Semiconductor Corp now.
+So for those who want to use Tang Nano (Onboard jtag is CH552), you'll need to use the Standard Edition IDE and apply for a license from GOWIN Semiconductor Corp.
 
 ### Install
 
 #### Linux OS
 
-For linux, download the Linux edition IDE and decompress it, the executable file `gw_ide` is in the decompressed folder /IDE/bin/，execute it in command line to run GOWIN IDE. Remember to change the executable permission of the software `chmod + x` if running the software fails.
+For linux, download the Linux edition IDE and decompress it, the executable file `gw_ide` is in the decompressed folder /IDE/bin/. Execute it on command line to run the GOWIN IDE. Remember to change the permission of the software to make it executable with `chmod + x` if running the software fails.
 
 #### Windows OS
 
-Download the software and install it. This is not a difficult work.
+Simply download the software and install it.
 
-Make sure you have installed all components.
+Making sure to install all components.
 
 <div>
     <img src="./../../../zh/tang/Tang-Nano-Doc/get_started/assets/IDE-2.png" width=45% alt="install-ide">
     <img src="./../../../zh/tang/Tang-Nano-Doc/get_started/assets/IDE-4.png" width=45% alt="install-programmer">
 </div>
 
-In the second picture, Gowin is the IDE which we will use to generate bitstream file, and the Gowin programmer is what we use to burn fpga. But the programmer installed with IDE does not match the USB-Jtag we provide, so we suggest you visit [Tang questions](./../Tang-Nano-Doc/questions.md) to see how to replace programmer application to solve problems.
-
+In the second picture, Gowin is the IDE which we will use to generate the bitstream file, and the Gowin programmer is what we use to burn it to the fpga. But the programmer installed with IDE does not match the USB-Jtag we provide. So we suggest you visit [Tang questions](./../Tang-Nano-Doc/questions.md) to see how to replace programmer software with one will work better.
 
 <!-- so we recommand you use this [programmer](https://dl.sipeed.com/shareURL/TANG/programmer) to avoid situations such as failing downloading bitstream file. -->
 
-After finishing installing IDE, there are 2 drivers to be installed.
+After you finish installing IDE, you will need to install 2 drivers.
 
 ![install-driver](./assets/ide-install-driver.png)
 
-After installing all, there is an IDE icon is like this shown on your desktop.
+After installing everything there will be an IDE icon, like the one below, on your desktop.
 
 ![IDE-icon](./assets/ide-icon.png)
 
@@ -82,44 +81,45 @@ After installing all, there is an IDE icon is like this shown on your desktop.
 
 ### About the license
 
-Educational edition IDE does not require license. 
-Standard edition IDE require the license, which you should apply from Gowin official website, visit https://www.gowinsemi.com/en/support/license/ for more information, and there will be a software choice between `GOWIN EDA` and `GOWIN GMD`, the `GOWIN EDA` is what we use to program FPGA and the `GOWIN GMD` is what we use to program the hardcore or softcore in FPGA, so you should choose `GOWIN EDA` in the software choice to get your license to run GOWIN IDE.
+The Educational edition IDE does not require a license. 
+
+The Standard edition IDE requires a license, which you should apply for from the Gowin official website, visit https://www.gowinsemi.com/en/support/license/ for more information, and there you will be able to make a choice of software between `GOWIN EDA` and `GOWIN GMD`. `GOWIN EDA` is what we use to program FPGA and the `GOWIN GMD` is what we use to program the hardcore or softcore in FPGA, so you should choose `GOWIN EDA` to get a license to run GOWIN IDE.
 
 ### Verify license
 
-When run GOWIN IDE, a license manager message box will appear, click `Broswer` and select your license file, `Check` and `Save`.
+When you run GOWIN IDE, a license manager message box will appear. Once you have a license file you can click `Browse...` and select your license file, then `Check` and finally `Save`.
 
 <img src="./assets/IDE-13.png" alt="Broswer lic" width=45%>
 <img src="./assets/check.png"  alt="Check lic"   width=45%>
 
-Then we can start to use GOWIN IDE.
+Now you can use the GOWIN IDE.
 
 ### Programmer
 
-Because the Programmer application installed with IDE may bot match with the USB-JTAG we provide when burning fpga, so for Windows users it's commanded that using this [Programmer](https://dl.sipeed.com/shareURL/TANG/programmer) to burn FPGA.
+Because the Programmer installed with IDE may not match the USB-JTAG we provide it may not work. So for Windows users we recommended using this [Programmer](https://dl.sipeed.com/shareURL/TANG/programmer) instead.
 
-For Linux users, go to the end of this page to see [burn-in-linux](#burn-in-linux) if you have trouble running Gowin programmer.
+For Linux users, go to the end of this page to see the section [burn-in-linux](#burn-in-linux) if you have issues with the Gowin programmer.
 
 ## Other 
 
-It may take a time to receive license. During this time we can read GOWIN Semiconductor Corp official documents, which can easily be found after installing IDE.
+It may take some time to receive a license. During this time we sugegst you read the GOWIN Semiconductor Corp official documents, which are installed with the IDE.
 
-There are three contents in the IDE installation path : IDE folder, Programmer folder, uninst.exe
+There are three things in the IDE installation path: IDE folder, Programmer folder, uninst.exe
 
 ![ide_folder](./../../../zh/tang/Tang-Nano-Doc/get_started/assets/ide_folder.png)
 
-**IDE** folder：Here I suggest you view the **doc** folder, many GOWIN Semiconductor Corp official documents are set in it like showing below.
+**IDE** folder：Here I suggest you look in the **doc** folder, where many GOWIN Semiconductor Corp official documents are, as shown below.
 
 ![IDE](./../../../zh/tang/Tang-Nano-Doc/get_started/assets/doc-folder.png)
 
-**Programmer folder**: There are also many documents
+**Programmer folder**: There are also many documents here.
 
 ![programmer](./../../../zh/tang/Tang-Nano-Doc/get_started/assets/programmer-folder.png)
 
-We suggest you delete the Programmer folder installed with IDE and use this version [Click me](https://dl.sipeed.com/shareURL/TANG/programmer)，which can reduse many troubles
+We suggest you delete the Programmer folder installed with the IDE and use this version [Click me](https://dl.sipeed.com/shareURL/TANG/programmer)，which can solve some issues.
 
-**uninst.exe**：remove IDE
+**uninst.exe**：This program uninstalls the IDE.
 
 ## Burn in linux
 
-Here is a way to burn the development board in linux [click me](./flash-in-linux.md)
+[Click here](./flash-in-linux.md) is how to burn the development board in linux.
