@@ -158,7 +158,7 @@ M1s Dock 和 M0Sense 总览：3:15 之前的都是 M1s Dock。
         </tr>
         <tr>
           <td>开发方式</td>
-          <td>· 原生 C SDK<br>· MaixHAL C 模块<br>· pikascript python 脚本</td>
+          <td>· 原生 C SDK<br>· MaixHAL C 模块<br>· PikaPython </td>
         </tr>
         <tr>
           <td>固件下载</td>

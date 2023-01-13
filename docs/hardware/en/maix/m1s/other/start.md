@@ -32,13 +32,27 @@ the first time to start M1s Dock, screen displays what the camera captures, and 
 ![default_firmware](./../../../../zh/maix/m1s/other/assets/start/default_firmware.jpg)
 ![led_brghtness](./../../../../zh/maix/m1s/other/assets/start/led_brghtness.jpg)
 
-A virtual removable disk whose storage capacity is 3M will be shown on your computer if you connect this board with your computer by TypeC OTG port on this board.
+A virtual removable disk whose storage capacity is 3M will be shown on your computer if you connect this board with your computer by TypeC OTG port on this board. Because the driver is not compatible well with some computers, we can flash the firmware by [UART](https://wiki.sipeed.com/hardware/en/maix/m1s/other/start.html#Burn-with-UART).
 
 ![default_udisk](./../../../../zh/maix/m1s/other/assets/start/default_udisk.jpg)
 
-Two serial devides will be shown on your computer if you connect this board with your computer by TypeC UART port on this board.
+And there is USB Mass Storge Device in Windows device manager
+
+![udisk_device_manager](./../../../../zh/maix/m1s/other/assets/start/udisk_device_manager.jpg)
+
+If there is no USB Mass Storge Device in Windows device manager of no, try to use other USB TypeC cable or use other USB port of computer, and if this problem remains, visit [Burn-with-UART](https://wiki.sipeed.com/hardware/en/maix/m1s/other/start.html#Burn-with-UART) to flash M1s Dock, we mainly burn `partition table`, `boot2`, `firmware` these three files. After finishing burnning, reconnect the board with computer.
+
+Two serial devices will be shown in your computer if you connect this board with your computer by TypeC UART port on this board.
 
 ![dual_uart](./../../../../zh/maix/m1s/other/assets/start/dual_uart.jpg)
+
+There are two Converter devices in Windows device manager.
+
+![start_bl808_uart_converter](./../../../../zh/maix/m1s/other/assets/start/start_bl808_uart_converter.png)
+
+If there is no serial device，try to use other USB TypeC cable or use other USB port of computer, and if this problem remains, visit [Burn onboard bl702](https://wiki.sipeed.com/hardware/en/maix/m1s/other/start.html#Burn-onboard-bl702) to reflash the download debugger firmware.
+
+If there is only one serial device, visit [Burn onboard bl702](https://wiki.sipeed.com/hardware/en/maix/m1s/other/start.html#Burn-onboard-bl702) to reflash the download debugger firmware
 
 Set baudrate to 2000000，open the two serial ports, you will see different information.
 
@@ -87,6 +101,8 @@ After burning into M1s Dock, the screen displays the lvgl test. And then sets th
 A simple image processing example.
 
 Burning into M1s Dock, screen displays what the camera captured, press the side key to change image operator. Set the baudrate to 2000000, to see the image operator state by the small serial port.
+
+Click the RST key to reset the bl808, and we can see the information about the camera from the small serial port when the board boots, to know if there is some error with the camera.
 
 <img src="./../../../../zh/maix/m1s/other/assets/start/example_image_processing_demo.jpg" alt="example_image_processing_demo" width="45%"> 
 <img src="./../../../../zh/maix/m1s/other/assets/start/example_image_processing_demo_uart.jpg" alt="example_image_processing_demo_uart" width="45%"> 

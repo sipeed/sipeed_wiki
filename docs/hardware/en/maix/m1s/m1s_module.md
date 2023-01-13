@@ -216,7 +216,7 @@ Visit Schematic for details：[Click me](https://dl.sipeed.com/shareURL/MAIX/M1s
         </tr>
         <tr>
           <td>Developments</td>
-          <td>· C SDK<br>· MaixHAL C <br>· pikascript python </td>
+          <td>· C SDK<br>· MaixHAL C <br>· PikaPython </td>
         </tr>
         <tr>
           <td>Burn Firmware</td>

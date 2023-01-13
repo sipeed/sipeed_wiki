@@ -147,7 +147,7 @@ Video of M1s Dock and M0Sense：M1s Dock is before 3:15，and time after 3:15 is
         </tr>
         <tr>
           <td>Developments</td>
-          <td>· C SDK<br>· MaixHAL C <br>· pikascript python </td>
+          <td>· C SDK<br>· MaixHAL C <br>· PikaPython </td>
         </tr>
         <tr>
           <td>Burn Firmware</td>

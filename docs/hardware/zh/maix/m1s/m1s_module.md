@@ -223,7 +223,7 @@ Sipeed M1s 模组是基于[博流智能科技](http://www.bouffalolab.com/)的 B
         </tr>
         <tr>
           <td>开发方式</td>
-          <td>· 原生C SDK<br>· MaixHAL C 模块<br>· pikascript python 脚本</td>
+          <td>· 原生C SDK<br>· MaixHAL C 模块<br>· PikaPython </td>
         </tr>
         <tr>
           <td>固件下载</td>

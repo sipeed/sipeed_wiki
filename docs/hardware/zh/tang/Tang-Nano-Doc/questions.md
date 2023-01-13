@@ -55,6 +55,10 @@ update:
 
 ![cable_open_failed](./assets/qusetions/cable_open_failed.png)
 
+在板卡通电的时候需要 2~3s 时间来加载驱动，加载成功后电脑设备管理器中会显示出两个 converter 设备，这个时候就可以正常烧录了。
+
+![converter](./../assets/questions/converter.png)
+
 这里的意思是没有找到下载器，可以尝试使用高云半导体所提供的最新的教育版的编程器 [点我跳转](http://www.gowinsemi.com.cn/faq.aspx) 来尝试解决老版本 Programmer 软件的 bug。
 
 使用新版本下载器后出现这个问题的话，可以先重启一下 programmer 软件；依旧没找到的话可以看看本篇开头的 converter 相关的内容。
@@ -82,6 +86,16 @@ update:
 这里指的是没有扫描到高云设备，可以尝试使用高云半导体所提供的最新的教育版的编程器 [点我跳转](http://www.gowinsemi.com.cn/faq.aspx) 来尝试解决老版本 Programmer 软件的 bug。
 
 ![educational_edition_programmer](./../tang-primer-20k/assets/start/educational_edition_programmer.png)
+
+#### Nano 9K
+
+Nano 9K 在设计的时候将 JTAG_SEL 引脚连接到了 S2 按键上，根据高云手册可以知道  JTAGSEL_N=0 的时候，芯片的 Jtag 引脚可以正常使用。
+
+![jtag_sel_function](./assets/qusetions/jtag_sel_function.jpg)
+
+在使用 Programmer 对 Nano 9K FPGA 板卡进行操作的时候按住 S2 按键就可以了。
+
+#### Primer 20K
 
 20K Dock 套件要注意拨动拨码开关使能核心板后，下载软件才可以通过底板识别到底板所插入的核心板。
 
