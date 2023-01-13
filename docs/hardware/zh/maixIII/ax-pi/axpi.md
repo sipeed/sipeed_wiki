@@ -107,7 +107,7 @@ title: MAIX-III AXera-Pi 是什么？
 
 没有拿到板子之前，你可以到 [MaixHub 模型库](https://maixhub.com/model/zoo) 找到你需要的模型，可以在过滤选项中选择 `AX-Pi` 来查找能在 `AXera-Pi` 上运行的模型。
 
-![maixhub_zoo.jpg](./../assets/maixhub_zoo.jpg)
+![models](./../assets/models.jpg)
 
 还可以在 [AXERA-TECH/ax-samples](https://github.com/AXERA-TECH/ax-samples) 仓库也可以找到模型，板子系统里也预置了模型资源，后续模型更新会在这里[「ax-models」](https://github.com/AXERA-TECH/ax-models)，而 [ AX-Samples 将不断更新最流行的、实用的、有趣的示例代码](https://github.com/AXERA-TECH/ax-samples/tree/main/examples#examples)，目前有如下模型支持列表：
 
@@ -314,10 +314,10 @@ AX-Pipeline 由爱芯主导开发。该项目基于 AXera-Pi 展示 ISP、图像
 
 产品相关的新闻内容有：
 
-- [AI 视觉新势力×微光全彩“黑”科技](https://mp.weixin.qq.com/s/JIvVprWlQPvE7bTxozAG_Q)
 - [AI ISP 的黎明——大话成像](https://axera-tech.com/tech/T7297054127901756535)
 - [2022世界人工智能大会启动:爱芯元智发布AI-ISP“爱芯智眸®”_中华网](https://tech.china.com/article/20220901/092022_1134965.html)
 - [爱芯元智AX620A与百度飞桨完成 I 级兼容性测试 开源生态建设更进一步](https://mp.weixin.qq.com/s/k6G1pE-31VXlrBA3F6_Liw)
+- [AI 视觉新势力×微光全彩“黑”科技](https://mp.weixin.qq.com/s/JIvVprWlQPvE7bTxozAG_Q)
 - [爱芯派™AXera-Pi™亮相ICCAD 爱芯元智开源生态建设加速](https://mp.weixin.qq.com/s/_nZLfEjxOb4QLpGWgaLVWQ)
 
 
