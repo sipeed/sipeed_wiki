@@ -16,7 +16,7 @@ update:
 
 **这篇文档以 SIPEED `MaixDuino` 的使用为示例说明，相关的介绍参数[ 点击 ](https://wiki.sipeed.com/hardware/zh/maix/maixpy_develop_kit_board/maix_duino.html)查询。**
 
-![maixduino_0](./../../out/soft/maixpy/assets/hardware/maix_duino/maixduino_0.png)
+![maixduino_0](./mixly_application/accets/k210_usage/maixduino_0.jpg)
 
 ## 准备工作
 
@@ -45,7 +45,7 @@ update:
 当我们收到开发板后，首先对硬件进行检查看有没有外表损坏，然后再根据屏幕及摄像头排线上的丝印提示把外设安装到开发板上，即排线上的数字 **“1”** 和板子卡座边上引脚丝印 **“1”** 方位对应接上。
 
 <html>
-      <img src="./assets/../mixly_application/accets/k210_usage/led.jpg" width=45%>
+      <img src="./assets/../mixly_application/accets/k210_usage/lcd.jpg" width=45%>
       <img src="./mixly_application/accets/k210_usage/sensor.jpg" width=45%>
 </html>
 
@@ -57,10 +57,7 @@ update:
 **MaixPy IDE 下载传送门：**[点击前往](https://dl.sipeed.com/MAIX/MaixPy/ide/)
 **MaixPy IDE 安装与使用例程：**[点击前往](https://wiki.sipeed.com/soft/maixpy/zh/get_started/env_maixpyide.html)
 
-<html>
-      <img src="./../../out/soft/maixpy/assets/maixpy/maixpy_ide_start.png" width=48%>
-      <img src="./../../out/soft/maixpy/assets/maixpy/maixpy_ide.png" width=48%>
-</html>
+![maixpy_logo](./mixly_application/accets/k210_usage/maixpy_logo.jpg)
 
 .. details::FAQ：如果出现 MaixPy 软件包失败的话，卸载掉之前下的包，重新下载并换磁盘安装。
 
@@ -115,7 +112,39 @@ update:
 
 ## 上手运行程序
 
-在运行程序前先使用准备的 USB type-c 数据线两端分别接入板子以及电脑端。
+在运行程序前先使用准备的 USB type-c 数据线两端分别接入板子以及电脑端，给板子进行上电操作。
+如果是新出厂的开发板的话，上电后会显示红色屏幕
 
-### MaixPy IDE 连接运行程序
+![red_lcd](./mixly_application/accets/k210_usage/red_lcd.jpg)
+
+.. details::FAQ：板子通电后显示白屏、黄屏、红蓝闪屏等的话，请参考以下方法进行处理解决。
+      ![yellow_lcd](./mixly_application/accets/k210_usage/yellow_lcd.png)
+      白屏黄屏请参考 [MaixPy 常见问题 FAQ ](https://wiki.sipeed.com/soft/maixpy/zh/others/maixpy_faq.html?highlight=%E7%99%BD%E5%B1%8F#%E7%83%A7%E5%BD%95-MaixPy-%E4%B9%8B%E5%90%8E%EF%BC%8CMaixPy-%E5%87%BA%E7%8E%B0%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8)解决。
+      出现红蓝闪屏，请运行下文程序判断摄像头是否能用，有可能是摄像头或摄像头接口出现问题导致。
+
+### 使用 MaixPy IDE 运行程序
+
+- **使用开发板直连 `MaixPy IDE` 软件在编辑框中进行编辑代码运行。**
+
+参考 `MaixPy IDE 软件使用例程` 先学习怎么使软用件直连开发板，然后运行 `MaixPy IDE` 打开就显示的 `helloworld.py` 文件测试摄像头及屏幕是否正常可用，运行后屏幕会显示摄像头的画面。
+
+**MaixPy 软件使用例程：**[点击前往](https://wiki.sipeed.com/soft/maixpy/zh/get_started/env_maixpyide.html#%E6%B5%8B%E8%AF%95%E8%BF%90%E8%A1%8C)
+**测试屏幕及摄像头源码：**[点击前往](https://wiki.sipeed.com/soft/maixpy/zh/get_started/get_started_cam_lcd.html)
+
+![maixpy_run](./mixly_application/accets/k210_usage/maixpy_run.jpg)
+
+### 使用串口终端运行程序
+
+使用前可以先简单的了解 `串口的定义`以及`串口是什么？`方便我们理解后续使用更方便。文档提供了多种串口连接工具供用户使用，有 `MaixPy IDE 终端工具`、`Mobaxterm`、`mpfshell-lite` 等在 `Windows` 环境下的工具，以及 `Linux` 下的使用方法。
+
+![adb](./mixly_application/accets/k210_usage/adb.jpg)
+
+**串口是什么？**[点击前往](https://wiki.sipeed.com/soft/maixpy/zh/get_started/uart.html)
+**MobaXterm 下载及使用方法：**[点击前往](https://wiki.sipeed.com/soft/maixpy/zh/get_started/env_serial_tools.html#Mobaxterm)
+**MaixPy IDE 终端使用方法：**[点击前往](https://wiki.sipeed.com/soft/maixpy/zh/get_started/env_serial_tools.html#MaixPy-IDE%E7%BB%88%E7%AB%AF%E5%B7%A5%E5%85%B7)
+**mpfshell-lite 工具介绍及用法：**[点击前往](https://wiki.sipeed.com/soft/maixpy/zh/get_started/mpfshell-lite/mpfshell-lite.html)
+**mpfshell-lite 使用手册：**[点击前往](https://wiki.sipeed.com/soft/maixpy/zh/get_started/mpfshell-lite/mpfshell-lite-help.html)
+
+>有一定基础的同学们比较推荐使用终端来运行程序，`MaixPy IDE` 虽然运行出错会弹框显示错误但信息可能会不完整，而终端会输出更详细的报错信息方便排错。如果出现串口连接终端失败的现象，看看串口是否被占用。
+
 

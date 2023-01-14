@@ -14,7 +14,7 @@ title: Maix-III AXera-Pi 系统基础使用
 
     ![mobaxterm_ssh](./../assets/ssh.jpg)
 
-下载链接：[点击跳转](mobaxterm.mobatek.net/download) 分别付费与免费双版本，下载免费版本即可。
+下载链接：[点击跳转](https://mobaxterm.mobatek.net/download.html) 分别付费与免费双版本，下载免费版本即可。
 使用教程：[如何使用 MobaXterm](https://wiki.sipeed.com/hardware/zh/maixII/M2/tools/mobaxterm.html?highlight=ssh)
 
 .. details::点我查看 vscode remote 介绍
