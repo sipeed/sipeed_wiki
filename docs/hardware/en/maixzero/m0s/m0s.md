@@ -13,10 +13,9 @@ update:
 
 Sipeed M0S is a ultra-low power consumption tiny IOT module based on BL616 of [Bouffalo Lab](https://en.bouffalolab.com/), supports wireless protocol like Wifi6, BT 5.2 and zigbee, its frequency can overclock to 384 MHz, tiny size and ultra-low power mode and various wake sources of the chip meet different low power scenarios.
 
-Buy one: [Aliexpress]()
+Buy one: [Aliexpress](https://www.aliexpress.com/item/1005005142466936.html)
 
 <img src="./../../../zh/maixzero/m0s/assets/m0s/m0s_module_outlook.png" alt="m0s_module_outlook" width=35%>
-
 
 ## Module Feature
 

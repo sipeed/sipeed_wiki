@@ -86,19 +86,19 @@ Sipeed M0S 模块是基于[博流智能科技](http://www.bouffalolab.com/)的 B
 
 ## 产品对比
 
-| 型号         |        M0S 模块         |   ESP32-S3 N4 模块   |
-| ------------ | :---------------------: | :------------------: |
-| 主控         |     BL616(RV32GCP)      |    ESP32-S3 (LX7)    |
-| 频率         | 320MHz，可超频到 384MHz |        240MHz        |
-| SRAM         |          480KB          |        520KB         |
-| Flash        |         4MByte          |        4MByte        |
-| Wifi         |   WiFi6, 100uA@DTIM10   |        WiFi4         |
-| 蓝牙         |          BT5.2          |         BT5          |
-| USB          |  USB2.0 HS OTG 480Mbps  | USB2.0 FS OTG 12Mbps |
-| IIC/UART/SPI |           有            |          有          |
-| DVP Camera   |           Yes           |         Yes          |
-| 尺寸         |       10mm x 11mm       |    18mm x 25.5mm     |
-| 模型平台     |   TinyMaix + MaixHub    |         ---          |
+| 型号         |       M0S 模块        |   ESP32-S3 N4 模块   |
+| ------------ | :-------------------: | :------------------: |
+| 主控         |    BL616(RV32GCP)     |    ESP32-S3 (LX7)    |
+| 频率         |        320MHz         |        240MHz        |
+| SRAM         |         480KB         |        520KB         |
+| Flash        |        4MByte         |        4MByte        |
+| Wifi         |         WiFi6         |        WiFi4         |
+| 蓝牙         |         BT5.2         |         BT5          |
+| USB          | USB2.0 HS OTG 480Mbps | USB2.0 FS OTG 12Mbps |
+| IIC/UART/SPI |          有           |          有          |
+| DVP Camera   |          Yes          |         Yes          |
+| 尺寸         |      10mm x 11mm      |    18mm x 25.5mm     |
+| 模型平台     |  TinyMaix + MaixHub   |         ---          |
 
 <!-- | 型号         | M0S 模块                | ESP32-S3 N4 模块     |
 | ------------ | ----------------------- | -------------------- |
@@ -151,30 +151,29 @@ Sipeed M0S 模块是基于[博流智能科技](http://www.bouffalolab.com/)的 B
     </tbody>
 </table>
 
-
-<!--  
 ## 模块资料
 
-- [模块规格书](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s/1_Specification)
-- [模块原理图](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s/2_Schematic)
-- [模块封装库](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s/7_Package)
-- [模块点位图](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s/3_Bit_number_map)
-- [模块尺寸图](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s/4_Dimensional_drawing)
-- [3D 模型文件](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s/5_3D_file)
-- [模块芯片数据手册](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s/6_Chip_Manual)
+- [模块规格书](https://dl.sipeed.com/shareURL/Maix-Zero/M0S/M0S/1_Specification)
+- [模块原理图](https://dl.sipeed.com/shareURL/Maix-Zero/M0S/M0S/2_Schematic)
+- [模块封装库](https://dl.sipeed.com/shareURL/Maix-Zero/M0S/M0S/4_Package)
+- [3D 模型文件](https://dl.sipeed.com/shareURL/Maix-Zero/M0S/M0S/3_3D_file)
 - [博流官方文档](https://dev.bouffalolab.com/home/)
 - [BL616 数据手册](https://gitee.com/wonderfullook/bl_docs/tree/main/BL616_DS/zh_CN) (gitee)
 - [BL616 寄存器手册](https://gitee.com/wonderfullook/bl_docs/tree/main/BL616_RM/zh_CN) (gitee)
 
 ---
 
-- [SDK](https://gitee.com/sipeed/M1s_BL616_SDK) (gitee)
-- [Examples](https://gitee.com/sipeed/M1s_BL616_example)（gitee）
-- [Linux](https://github.com/sipeed/M1s_BL616_Linux_SDK)（Github）
-- 交流 QQ 群：`592731168` 。[点我加群](https://jq.qq.com/?_wv=1027&k=uyKNhTeu)
-- 论坛：[bbs.sipeed.com](https://bbs.sipeed.com/)
-- [在线模型平台](https://maixhub.com/) -->
+- [开发板规格书](https://dl.sipeed.com/shareURL/Maix-Zero/M0S/M0S_Dock/1_Specification)
+- [开发板原理图](https://dl.sipeed.com/shareURL/Maix-Zero/M0S/M0S_Dock/2_Schematic)
 
+---
+
+- [SDK](https://github.com/bouffalolab/bl_mcu_sdk) (github)
+- [Examples](https://gitee.com/sipeed/M1s_BL616_example)（gitee）
+- 交流 QQ 群：`816177882` 。[点我加群](https://jq.qq.com/?_wv=1027&k=CSnLIADN)
+- 论坛：[bbs.sipeed.com](https://bbs.sipeed.com/)
+
+<!--
 ## 注意事项
 
 <table>
@@ -208,9 +207,9 @@ Sipeed M0S 模块是基于[博流智能科技](http://www.bouffalolab.com/)的 B
             VDDIO1：GPIO 0-8，1.8V/3.3V<br>
             VDDIO2：GPIO 11-15，GPIO 40-41, 3.3V only<br>
             VDDIO3：GPIO 16-23，1.8V/3.3V<br>
-            VDDIO4：GPIO 24-39，1.8V/3.3V<br>        
+            VDDIO4：GPIO 24-39，1.8V/3.3V<br>
         </td>
-    </tr>    
+    </tr>
     <tr>
         <td>BOOT 模式选择</td>
         <td>
@@ -218,8 +217,8 @@ Sipeed M0S 模块是基于[博流智能科技](http://www.bouffalolab.com/)的 B
         · BOOT 高电平：从 FLASH 存储启动
         · BOOT 低电平：进入串口下载模式
         </td>
-    </tr> -->
-</table>
+    </tr>
+</table> -->
 
 ## 联系方式
 
