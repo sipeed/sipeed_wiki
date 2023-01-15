@@ -21,9 +21,13 @@ update:
 
 M1s Dock 设计精巧，可以用来所很多有意思的事，这里简单说明一下一些使用方法。要注意的是串口默认波特率 2000000。
 
-连接板载 UART 接口会显示有两个串口设备：小号串口连接的是 C906 核心，大号串口连接的是 E907 核心。
+过 UART 口连接 PC 在 Windows 系统的设备管理器中显示有两个 Converter 设备。
 
-![dual_uart](./assets/start/dual_uart.jpg)
+![start_bl808_uart_converter](./assets/start/start_bl808_uart_converter.png)
+
+<!-- 连接板载 UART 接口会显示有两个串口设备：小号串口连接的是 C906 核心，大号串口连接的是 E907 核心。
+
+![dual_uart](./assets/start/dual_uart.jpg) -->
 
 ## 初见
 

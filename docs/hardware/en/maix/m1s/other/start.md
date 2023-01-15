@@ -21,9 +21,14 @@ update:
 
 The M1s Dock can be used for a variety of interesting things by its delicate design. Here we tell the usages of this device. Note that the default baudrate is 2000000.
 
+There are two Converter devices in Windows device manager if you connect the computer with the UART port of M1s Dock.
+
+![start_bl808_uart_converter](./../../../../zh/maix/m1s/other/assets/start/start_bl808_uart_converter.png)
+
+<!-- 
 There are two Serial Devices if connecting the board through UART USB port with computer. The smaller number serial port is connected with C906 core，and the bigger number serial port is connected with E907 core.
 
-![dual_uart](./../../../../zh/maix/m1s/other/assets/start/dual_uart.jpg)
+![dual_uart](./../../../../zh/maix/m1s/other/assets/start/dual_uart.jpg) -->
 
 ## Power On
 
