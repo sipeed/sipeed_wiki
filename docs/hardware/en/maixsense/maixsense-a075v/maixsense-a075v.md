@@ -19,9 +19,9 @@ To run preview MaixSense-A075V on Windows, install the driver.
 
 ![tof-07514](./../../../zh/maixsense/maixsense-a075v/assets/mt_pin.jpg)
 
->Before using this device, make sure that the 192.168.233.0/24 address segment is not occupied in your network environment, because the MS-A075V uses RNDIS and sets its IP address http://192.168.233.1.
+>Before using this device, make sure that the `192.168.233.0/24` address segment is not occupied in your network environment, because the MS-A075V uses RNDIS and sets its IP address `http://192.168.233.1`.
 
-Connect the module to the PC with power according to the figure above, then the built-in fan will start to work and the red light will be displayed at the lens. Select the browser and enter http://192.168.233.1 to preview the 3D point cloud image. After power-on, the system and program will be started 10s-15s later.
+Connect the module to the PC with power according to the figure above, then the built-in fan will start to work and the red light will be displayed at the lens. Select the browser and enter `http://192.168.233.1` to preview the 3D point cloud image. After power-on, the system and program will be started 10s-15s delayed.
 
 **Quick preview using web upper computer (front and side) :**
 
@@ -60,38 +60,38 @@ Here tells the functions of each widgets.
 
 The webpage provides 2 buttons at the bottom of the control bar.
 
-- **SaveRaw**：Save one frame raw data. If you want to use the depth data or IR or RGB data for development, you need to know the data struct of raw. We provide a detailed jupyter notebook about the data processing of raw for users and developers.
-- **SavePointCloud**：Sava one frame 3D point map, and its saved format is pcd. Can be previewed via the script provided above.
+- **SaveRaw**：Save one frame raw data. If you want to use the depth data or IR or RGB data for development, you need to know the data struct of raw. We provide a detailed `jupyter notebook` about the data processing of raw for users and developers.
+- **SavePointCloud**：Sava one frame 3D point map, and its saved format is `pcd`. Can be previewed via the script provided above.
 Note: The data of raw can be get through open interface, which developers can do development on. While the pointcloud data does not provide any interface since it's calculated based on the raw data and camera internal parameters.
 
 ### SSH login
 
-In addition to using the web page preview directly, you can also log in using SSH.`Password:root`
+In addition to using the web page to preview directly, we can also login using SSH with password `root`
+
+In the web preview page we know the ip address of this device is `192.168.233.1`, with which we can login to this device.
 
 ```bash
 ssh root@192.168.233.1
 ```
 
-### System update
+### Firmware Update
 
-Just replace the corresponding file under `/root/maix_dist`.
+Replace the corresponding file in `/root/maix_dist` directory.
 
-[Click to view the update file](https://dl.sipeed.com/shareURL/MaixSense/MaixSense_A075V/03_Firmware)
+[Click to download the update file](https://dl.sipeed.com/shareURL/MaixSense/MaixSense_A075V/03_Firmware)
 
-## Examples
-
-### Real shooting of distant, near and far point cloud
+### Case: Real shooting of distant, near and far point cloud
 
 High-precision mapping of differences in object placement distances, point cloud maps can intuitively feel a more realistic visualization.
 
 ![mt_cloud](./../../../zh/maixsense/maixsense-a075v/assets/mt_cloud.jpg)
 
-### Car avoid obstacles
+### Case: Car avoid obstacles
 
 The module can be carried by a car or drone to move back and forth to obtain the depth value of the obstacle, and judge whether there is an obstacle in the screen through the difference, make a rapid response and accurately avoid the obstacle (the example has not been open sourced, will be sorted out and disclosed).
 
 ![me_car](./../../../zh/maixsense/assets/me_car.gif)
-### Detect foot traffic
+### Case: Detect foot traffic
 
 High-precision, high resolution real-time monitoring of the flow of people moving around the situation statistics(the example has not been open sourced, will be sorted out and disclosed).
 
@@ -101,17 +101,17 @@ High-precision, high resolution real-time monitoring of the flow of people movin
 
 ### python SDK
 
-This is a SDK based on Python3. MS-A075V opens its http interface, we can get its origin data (Depth map, ir map, rgb map) through http request.
+This is a SDK based on `Python3`. MS-A075V opens its http interface, we can get its origin data (Depth map, ir map, rgb map) through http request.
 
 To help user understand the struct of data package and the relevant logic of decoding, we provide decoding related functions that encapsulate http requests and native data, based on which users can do custom development.
 
 **Get SDK**:[Click to download](https://dl.sipeed.com/fileList/others/maixsense_example/maixsense_075_tutorial.ipynb)
 
-**Method**：Install jupyter, connect to the TOF module, then open the `toturial.py` file.
+**Method**：Install `jupyter`, connect to the TOF module, then open the `toturial.py` file.
 
 ### Decode and stream
 
-After understanding the struct of data package and the relevant logic of decoding from `Python SDK`, we can do advanced development, continuously get, decode and call the third-party `python` image library, like matplotlib for live display. The `toturial.py` gives the implementation of getting onr frame data, and it can achieve live display by plt with loop. 
+After understanding the struct of data package and the relevant logic of decoding from `Python SDK`, we can do advanced development, continuously get, decode and call the third-party `python` image library, like matplotlib for live display. The `toturial.py` gives the implementation of getting onr frame data, and it can achieve live display by `plt` with loop. 
 
 **Decoding and steraming**:[Click me to see content of stream.py](https://wiki.sipeed.com/hardware/zh/maixsense/maixsense-a010/code.html#streampy)
 **Methods**：Run command `python stream.py` after installing all dependent packages.
@@ -128,6 +128,9 @@ Based on third-party `python` library，and have understood the logic of getting
 ![mt_volumbs](./../../../zh/maixsense/maixsense-a075v/assets/mt_volumbs.jpg)
 
 ## Use ROS
+
+To begin this, install ROS on your computer first.
+
 ### Use ROS1
 
 **1. Preparation**

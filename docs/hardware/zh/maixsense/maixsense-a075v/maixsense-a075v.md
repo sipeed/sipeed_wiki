@@ -85,8 +85,10 @@
 **MobaXterm**：[点击前往下载](mobaxterm.mobatek.net/download) 分别有付费与免费双版本，下载免费版本即可。
 **MobaXterm 使用例程**：[点击查看](https://wiki.sipeed.com/hardware/zh/maixII/M2/tools/mobaxterm.html?highlight=ssh)
 
+根据上面网页预览的画面可以知道所使用的 ip 为 `192.168.233.1`, 所以我们可以使用这个 ip 和登录密码 `root` 来登录到 TOF 模组的终端系统中。
+
 Windows：参照上文例程使用模组自带的 `ip` 地址 `192.168.233.1` 进行登录。
-Linux：`Password：root` 直接使用以下的命令行登录终端进行操作。
+Linux：使用登录密码 `root` 直接使用以下的命令行登录终端进行操作。
 
 ```bash
 ssh root@192.168.233.1
@@ -96,7 +98,7 @@ ssh root@192.168.233.1
 
 替换 `/root/maix_dist` 下对应的文件即可。
 
-[点击查看更新文件](https://dl.sipeed.com/shareURL/MaixSense/MaixSense_A075V/03_Firmware)
+[点击下载更新文件](https://dl.sipeed.com/shareURL/MaixSense/MaixSense_A075V/03_Firmware)
 
 ## 案例：远中近点云实拍
 
@@ -151,6 +153,9 @@ ssh root@192.168.233.1
 ![mt_volumbs](assets/mt_volumbs.jpg)
 
 ## 二次开发：接入 ROS
+
+> 首先需要根据自己电脑安装对应版本的 ROS
+
 ### 接入 ROS1
 **1. 准备工作**
 
