@@ -11,7 +11,7 @@ update:
 
 ## 模块概述
 
-Sipeed M0S 模块是基于[博流智能科技](http://www.bouffalolab.com/)的 BL616 芯片所设计的一款适用于超低功耗应用 IOT 模块，支持 Wifi6、蓝牙 5.2 和 zigbee 等无线协议，主频最高可以达到 384MHz，模块极小的封装体积和芯片多种低功耗模式和多种唤醒源满足不同的低功耗场景。
+Sipeed M0S 模块是基于[博流智能科技](http://www.bouffalolab.com/)的 BL616 芯片所设计的一款适用于超低功耗应用 IOT 模块，支持 Wifi6、蓝牙 5.2 和 zigbee 等无线协议，默认最高主频 320MHz，模块极小的封装体积和芯片多种低功耗模式和多种唤醒源满足不同的低功耗场景。
 
 购买链接：[淘宝](https://item.taobao.com/item.htm?id=697403593463)
 
@@ -20,8 +20,8 @@ Sipeed M0S 模块是基于[博流智能科技](http://www.bouffalolab.com/)的 B
 ## 模块特点
 
 - 无线三模一体： WiFi6 / 蓝牙 5.2 / Zigbee
-- 高主频：默频 320MHz，最高可达 384MHz
-- 低功耗：WiFi6 低功耗在网电流低至 100uA 以内（DTIM10）
+- 高主频：默认最高 320MHz 
+- 低功耗：WiFi6 低功耗特性
 - DSP 加速：支持 RISC-V P 扩展指令集，可在 TinyMaix 推理框架中获得近一倍加速
 - 高速 USB：支持 USB2.0 HS OTG， 高达 480Mbps
 - 丰富外设接口：支持 RGB LCD，DVP Camera，以太网 RMII，SDIO 等
@@ -138,7 +138,7 @@ Sipeed M0S 模块是基于[博流智能科技](http://www.bouffalolab.com/)的 B
         </tr>
         <tr>
           <td>AI 推理框架</td>
-          <td>TinyMaix 推理框架</td>
+          <td>· TinyMaix 推理框架</td>
         </tr>
         <tr>
           <td>AI 模型下载</td>
@@ -153,9 +153,9 @@ Sipeed M0S 模块是基于[博流智能科技](http://www.bouffalolab.com/)的 B
 
 ## 模块资料
 
-- [模块规格书](https://dl.sipeed.com/shareURL/Maix-Zero/M0S/M0S/1_Specification)
-- [模块原理图](https://dl.sipeed.com/shareURL/Maix-Zero/M0S/M0S/2_Schematic)
-- [模块封装库](https://dl.sipeed.com/shareURL/Maix-Zero/M0S/M0S/4_Package)
+- [M0S 规格书](https://dl.sipeed.com/shareURL/Maix-Zero/M0S/M0S/1_Specification)
+- [M0S 原理图](https://dl.sipeed.com/shareURL/Maix-Zero/M0S/M0S/2_Schematic)
+- [M0S 封装库](https://dl.sipeed.com/shareURL/Maix-Zero/M0S/M0S/4_Package)
 - [3D 模型文件](https://dl.sipeed.com/shareURL/Maix-Zero/M0S/M0S/3_3D_file)
 - [博流官方文档](https://dev.bouffalolab.com/home/)
 - [BL616 数据手册](https://gitee.com/wonderfullook/bl_docs/tree/main/BL616_DS/zh_CN) (gitee)
@@ -163,8 +163,8 @@ Sipeed M0S 模块是基于[博流智能科技](http://www.bouffalolab.com/)的 B
 
 ---
 
-- [开发板规格书](https://dl.sipeed.com/shareURL/Maix-Zero/M0S/M0S_Dock/1_Specification)
-- [开发板原理图](https://dl.sipeed.com/shareURL/Maix-Zero/M0S/M0S_Dock/2_Schematic)
+- [M0S Dock 规格书](https://dl.sipeed.com/shareURL/Maix-Zero/M0S/M0S_Dock/1_Specification)
+- [M0S Dock 原理图](https://dl.sipeed.com/shareURL/Maix-Zero/M0S/M0S_Dock/2_Schematic)
 
 ---
 
