@@ -321,7 +321,7 @@
               "file": "tang/tang-primer-20k/primer-20k.md",
               "items": [
                 {
-                  "label": "Notice",
+                  "label": "Attention",
                   "file": "tang/tang-primer-20k/start.md"
                 },
                 {
@@ -329,8 +329,8 @@
                   "file": "tang/Tang-Nano-Doc/install-the-ide.md"
                 },
                 {
-                  "label": "Examples",
-                  "file": "tang/tang-primer-20k/example.md"
+                  "label": "Examples(Github)",
+                  "url": "https://github.com/sipeed/TangPrimer-20K-example"
                 },
                 {
                   "label": "Questions&Answers",

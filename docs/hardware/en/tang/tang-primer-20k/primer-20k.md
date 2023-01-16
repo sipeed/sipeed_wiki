@@ -273,7 +273,8 @@ github ：https://github.com/sipeed/TangPrimer-20K-example
 ### Tutorial
 
 - Lite ext-board blink ：[Click me](./examples/lite/blink.md)
-- Dock ext-board examples summary : [Click me](./example.md)
+<!-- - Dock ext-board examples summary : [Click me](./example.md) -->
+- Dock ext-board blink : [Click me](./examples/led.md) 
 
 ## Communication
 
