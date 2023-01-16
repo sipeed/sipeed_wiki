@@ -135,6 +135,9 @@ Sipeed M0S 模块是基于[博流智能科技](http://www.bouffalolab.com/)的 B
     </tbody>
 </table>
 
+<img src="./assets/m0s/m0s_dock_top.png" width="45%">
+<img src="./assets/m0s/m0s_dock_bottom.png" width="45%">
+
 ## 软件描述
 
 <table>

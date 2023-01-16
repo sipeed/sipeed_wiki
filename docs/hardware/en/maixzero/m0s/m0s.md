@@ -135,6 +135,9 @@ Buy one: [Aliexpress](https://www.aliexpress.com/item/1005005142466936.html)
     </tbody>
 </table>
 
+<img src="./../../../zh/maixzero/m0s/assets/m0s/m0s_dock_top.png" width="45%">
+<img src="./../../../zh/maixzero/m0s/assets/m0s/m0s_dock_bottom.png" width="45%">
+
 ## Software
 
 <table>
@@ -170,7 +173,6 @@ Buy one: [Aliexpress](https://www.aliexpress.com/item/1005005142466936.html)
         </tr>
     </tbody>
 </table>
-
 
 ## Other Links
 

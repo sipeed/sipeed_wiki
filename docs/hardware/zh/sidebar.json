@@ -22,16 +22,7 @@
         },
         {
           "label": "Maix M0S",
-          "items":[
-            {
-              "label": "M0S 模块",
-              "file": "./maixzero/m0s/m0s.md"
-            },
-            {
-              "label": "M0S Dock",
-              "file": "./maixzero/m0s/m0s_dock.md"
-            }
-          ]
+          "file": "./maixzero/m0s/m0s.md"
         }
       ]
     },

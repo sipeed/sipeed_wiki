@@ -9,16 +9,7 @@
       "items": [
         {
           "label": "Maix M0",
-          "items": [
-            {
-              "label": "M0sense Board",
-              "file": "./maixzero/sense/maix_zero_sense.md"
-            },
-            {
-              "label": "M0sense Guide",
-              "file": "./maixzero/sense/start.md"
-            }
-          ]
+          "file": "./maixzero/m0s/m0s.md"
         },
         {
           "label": "Maix M0s"
