@@ -248,7 +248,7 @@ M1s Dock 和 M0Sense 总览； M0Sense 在 3:15 处开始，之前的为 M1s Doc
 - [3D 模型文件](https://dl.sipeed.com/shareURL/Maix-Zero/Maix-Zero/5_3D_file)
 - [博流官方文档](https://dev.bouffalolab.com/home/)
 - [BL702 数据手册](https://gitee.com/wonderfullook/bl_docs/tree/main/BL702_DS/zh_CN) (gitee)
-- [BL702 寄存器手册](https://gitee.com/wonderfullook/bl_docs/tree/main/BL702_RM/zh_CN) (gitee)
+- [BL702 参考手册](https://gitee.com/wonderfullook/bl_docs/tree/main/BL702_RM/zh_CN) (gitee)
 
 ---
 

@@ -296,7 +296,7 @@ M1s Dock 和 M0Sense 总览：3:15 之前的都是 M1s Dock。
 - [触摸屏手册](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/6_Chip_Manual/touch_screen)
 - [博流官方文档](https://dev.bouffalolab.com/home/)
 - [BL808 数据手册](https://gitee.com/wonderfullook/bl_docs/tree/main/BL808_DS/zh_CN) (gitee)
-- [BL808 寄存器手册](https://gitee.com/wonderfullook/bl_docs/tree/main/BL808_RM/zh_CN) (gitee)
+- [BL808 参考手册](https://gitee.com/wonderfullook/bl_docs/tree/main/BL808_RM/zh_CN) (gitee)
 
 ---
 

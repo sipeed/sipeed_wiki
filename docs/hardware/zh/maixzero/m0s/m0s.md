@@ -27,7 +27,8 @@ Sipeed M0S 模块是基于[博流智能科技](http://www.bouffalolab.com/)的 B
 - 丰富外设接口：支持 RGB LCD，DVP Camera，以太网 RMII，SDIO 等
 - 小体积：10mmx11mm 面积上集成了陶瓷天线，并全引脚引出
 
-<!-- ## 模块参数
+## 模块参数
+
 <table>
     <thead>
         <tr>
@@ -39,7 +40,7 @@ Sipeed M0S 模块是基于[博流智能科技](http://www.bouffalolab.com/)的 B
         <td rowspan="5" style="white-space:nowrap">主控 BL616 处理器</td>
     </tr>
     <tr>
-        <td>RISC-V CPU：默认 RV32@320MHz </td>
+        <td>RISC-V CPU：默认 RV32GCP@320MHz </td>
     </tr>
     <tr>
         <td>内置 480KB SRAM + 4MB Flash</td>
@@ -58,7 +59,7 @@ Sipeed M0S 模块是基于[博流智能科技](http://www.bouffalolab.com/)的 B
     </tr>
     </tbody>
     <tr>
-        <td rowspan="5" style="white-space:nowrap"> 其他说明 </td>
+        <td rowspan="4" style="white-space:nowrap"> 其他说明 </td>
     </tr>
     <tr>
         <td>
@@ -67,18 +68,16 @@ Sipeed M0S 模块是基于[博流智能科技](http://www.bouffalolab.com/)的 B
     </tr>
     <tr>
       <td>
-        3D 模型文件下载：<a href="https://dl.sipeed.com/shareURL/MAIX/M1s/M1s/5_3D_file">点击跳转</a>
+        封装库文件 (KiCAD)：<a href="https://dl.sipeed.com/shareURL/Maix-Zero/M0S/M0S/4_Package">点击跳转</a>
       </td>
     </tr>
     <tr>
-        <td>温升: &lt;30K</td>
-    </tr>
-    <tr>
-        <td>工作温度范围:-10℃ ~ 65℃</td>
+      <td>
+        3D 模型文件下载：<a href="https://dl.sipeed.com/shareURL/Maix-Zero/M0S/M0S/3_3D_file">点击跳转</a>
+      </td>
     </tr>
     </tbody>
 </table>
- -->
 
 ## 引脚分布
 
@@ -100,20 +99,41 @@ Sipeed M0S 模块是基于[博流智能科技](http://www.bouffalolab.com/)的 B
 | 尺寸         |      10mm x 11mm      |    18mm x 25.5mm     |
 | 模型平台     |  TinyMaix + MaixHub   |         ---          |
 
-<!-- | 型号         | M0S 模块                | ESP32-S3 N4 模块     |
-| ------------ | ----------------------- | -------------------- |
-| 主控         | BL616(RV32GCP)          | 2xESP32-S3 (LX7)     |
-| 频率         | 320MHz，可超频到 384MHz | 240MHz               |
-| SRAM         | 480KB                   | 520KB                |
-| Flash        | 4MByte                  | 4MByte               |
-| Wifi         | WiFi6, 100uA@DTIM10     | WiFi4                |
-| 蓝牙         | BT5.2                   | BT5                  |
-| USB          | USB2.0 HS OTG 480Mbps   | USB2.0 FS OTG 12Mbps |
-| IIC/UART/SPI | 有                      | 有                   |
-| RGB          | LCD Yes                 | Yes                  |
-| DVP Camera   | Yes                     | Yes                  |
-| 尺寸         | 10mm x 11mm             | 18mm x 25.5mm        |
-| 模型平台     | TinyMaix + MaixHub      | ---                  | -->
+## 配套底板
+
+<table>
+    <thead>
+        <tr>
+            <th colspan = "2" > M0S Dock </th>
+        </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td> 核心 x 1 </td>
+        <td> M0S 模块 </td>
+    </tr>
+    <tr>
+        <td> 按键 x 1 </td>
+        <td> 按住按键后给板子通电来烧录板卡 </td>
+    </tr>
+    <tr>
+        <td> LED x 3 </td>
+        <td> 一个电源 LED，两个用户自定义 LED </td>
+    </tr>
+    <tr>
+        <td> TypeC 接口 x 1 </td>
+        <td> 用来下载固件或实现其他 USB 功能 </td>
+    </tr>
+    <tr>
+        <td> 外接 IO x 10 </td>
+        <td> 八个引出到排针<br> 两个位于 TypeC 接口旁边 </td>
+    </tr>
+    <tr>
+        <td> 原理图 </td>
+        <td> <a href="https://dl.sipeed.com/shareURL/Maix-Zero/M0S/M0S_Dock/2_Schematic"> 点我 </a></td>
+    </tr>
+    </tbody>
+</table>
 
 ## 软件描述
 
@@ -134,7 +154,7 @@ Sipeed M0S 模块是基于[博流智能科技](http://www.bouffalolab.com/)的 B
         </tr>
         <tr>
           <td>固件下载</td>
-          <td>· 串口下载 </td>
+          <td>· 串口下载<br>· USB 下载</td>
         </tr>
         <tr>
           <td>AI 推理框架</td>
@@ -146,12 +166,12 @@ Sipeed M0S 模块是基于[博流智能科技](http://www.bouffalolab.com/)的 B
         </tr>
         <tr>
           <td>Sipeed 参考示例</td>
-          <td>· https://gitee.com/sipeed/M0S_BL616_example</td>
+          <td>· https://github.com/sipeed/M0S_BL616_example</td>
         </tr>
     </tbody>
 </table>
 
-## 模块资料
+## 相关资料
 
 - [M0S 规格书](https://dl.sipeed.com/shareURL/Maix-Zero/M0S/M0S/1_Specification)
 - [M0S 原理图](https://dl.sipeed.com/shareURL/Maix-Zero/M0S/M0S/2_Schematic)
@@ -159,7 +179,7 @@ Sipeed M0S 模块是基于[博流智能科技](http://www.bouffalolab.com/)的 B
 - [3D 模型文件](https://dl.sipeed.com/shareURL/Maix-Zero/M0S/M0S/3_3D_file)
 - [博流官方文档](https://dev.bouffalolab.com/home/)
 - [BL616 数据手册](https://gitee.com/wonderfullook/bl_docs/tree/main/BL616_DS/zh_CN) (gitee)
-- [BL616 寄存器手册](https://gitee.com/wonderfullook/bl_docs/tree/main/BL616_RM/zh_CN) (gitee)
+- [BL616 参考手册](https://gitee.com/wonderfullook/bl_docs/tree/main/BL616_RM/zh_CN) (gitee)
 
 ---
 
@@ -169,11 +189,11 @@ Sipeed M0S 模块是基于[博流智能科技](http://www.bouffalolab.com/)的 B
 ---
 
 - [SDK](https://github.com/bouffalolab/bl_mcu_sdk) (github)
-- [Examples](https://gitee.com/sipeed/M1s_BL616_example)（gitee）
+<!-- - [Examples](https://github.com/sipeed/M0s_BL616_example)（github） -->
 - 交流 QQ 群：`816177882` 。[点我加群](https://jq.qq.com/?_wv=1027&k=CSnLIADN)
 - 论坛：[bbs.sipeed.com](https://bbs.sipeed.com/)
 
-<!--
+
 ## 注意事项
 
 <table>
@@ -187,7 +207,7 @@ Sipeed M0S 模块是基于[博流智能科技](http://www.bouffalolab.com/)的 B
     </tr>
     <tr>
         <td>容忍电压</td>
-        <td> 每个 GPIO 的工作电压已经在原理图中标注出来，请不要让 GPIO 的实际工作的电压超过额定值，否则会引起 PCBA 的永久性损坏 </td>
+        <td>请不要让 GPIO 的实际工作的电压超过额定值，否则会引起 PCBA 的永久性损坏 </td>
     </tr>
     <tr>
         <td>插拔</td>
@@ -197,28 +217,7 @@ Sipeed M0S 模块是基于[博流智能科技](http://www.bouffalolab.com/)的 B
         <td>避免短路</td>
         <td>请在上电过程中，避免任何液体和金属触碰到 PCBA 上的元件的焊盘，否则会导致路，烧毁 PCBA</td>
     </tr>
-    <!-- <tr>
-        <td>设计建议</td>
-        <td>为该模块设计底板时，建议先看这个帖子 <a href="https://bbs.sipeed.com/thread/1721">https://bbs.sipeed.com/thread/1721</a></td>
-    </tr>
-    <tr>
-        <td>BANK 划分</td>
-        <td>
-            VDDIO1：GPIO 0-8，1.8V/3.3V<br>
-            VDDIO2：GPIO 11-15，GPIO 40-41, 3.3V only<br>
-            VDDIO3：GPIO 16-23，1.8V/3.3V<br>
-            VDDIO4：GPIO 24-39，1.8V/3.3V<br>
-        </td>
-    </tr>
-    <tr>
-        <td>BOOT 模式选择</td>
-        <td>
-        在启动时，芯片判定 BOOT 引脚的电平，选择两个启动选项之一<br>
-        · BOOT 高电平：从 FLASH 存储启动
-        · BOOT 低电平：进入串口下载模式
-        </td>
-    </tr>
-</table> -->
+</table>
 
 ## 联系方式
 

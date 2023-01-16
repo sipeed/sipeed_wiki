@@ -361,7 +361,7 @@ Sipeed M1s 模组是基于[博流智能科技](http://www.bouffalolab.com/)的 B
 - [模组芯片数据手册](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s/6_Chip_Manual)
 - [博流官方文档](https://dev.bouffalolab.com/home/)
 - [BL808 数据手册](https://gitee.com/wonderfullook/bl_docs/tree/main/BL808_DS/zh_CN) (gitee)
-- [BL808 寄存器手册](https://gitee.com/wonderfullook/bl_docs/tree/main/BL808_RM/zh_CN) (gitee)
+- [BL808 参考手册](https://gitee.com/wonderfullook/bl_docs/tree/main/BL808_RM/zh_CN) (gitee)
 
 ---
 
