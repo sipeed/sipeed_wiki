@@ -6,7 +6,8 @@ desc: 矽速科技的开源软硬件 WIKI 资料站
 
 ## 总览
 
-- [Maix-I & Zero](#maix-i--zero) 以 MCU 为主控的 AI 开发板
+- [Maix Zero](#maix-zero) 以 MCU 为主控的 AIOT 开发板
+- [Maix-I](#maix-i) 以 MCU 为主控的 AI 开发板
 - [Maix-II](#maix-ii-系列)：Linux AI 开发板，小巧便携且实用
 - [Maix-III](#maix-iii)： Linux AI 开发板，超强算力超大内存多种玩法
 - [LicheePI](#licheepi-系列)： Linux 开发板
@@ -16,7 +17,21 @@ desc: 矽速科技的开源软硬件 WIKI 资料站
 - [MaixFace](#maixface-模组)：商业项目板卡
 - [其他外设](#外设模组)
 
-## Maix-I & Zero
+## Maix Zero
+
+| 项目     | M0S                                | M0                                          |
+| :------- | :--------------------------------- | :------------------------------------------ |
+| 主控     | BL616                              | BL702                                       |
+| 核心     | RV32GCP@320MHz                     | RV32@144MHz                                 |
+| RAM      | 480KB                              | 132KB                                       |
+| 储存     | 内置 4MB Flash                     | 内置 192KB ROM, 512KB Flash                 |
+| 无线     | · Wifi<br>· 蓝牙<br>· Zigbee       | 蓝牙                                        |
+| 模型平台 | [MaixHub](https://www.maixhub.com) | [MaixHub](https://www.maixhub.com)          |
+| 尺寸     | 11(L)x10(W)mm                      |                                             |
+| 详情页   | [点我](./maixzero/m0s/m0s.md)      | [点我](./maixzero/sense/maix_zero_sense.md) |
+| 外观图  | <img src="./maixzero/m0s/assets/m0s/m0s_pin_map.png" alt="m0sense" width="360"> |<img src="./maixzero/sense/assets/m0sense_1.png" alt="m0sense" width="360">|
+
+## Maix-I
 
 | 项目     | M1/M1w                             | M1n                                | M1s                                                | M0                                          |
 | :------- | :--------------------------------- | :--------------------------------- | :------------------------------------------------- | :------------------------------------------ |
@@ -88,14 +103,6 @@ desc: 矽速科技的开源软硬件 WIKI 资料站
     </tbody>
 </table>
 
-### Maix Zero
-
-这是一款以博流 702 为主控所制作的极小开发板
-
-<img src="./maixzero/sense/assets/m0sense_1.png" alt="m0sense" width=35%>
-
-详情页 ：[点我](./maixzero/sense/maix_zero_sense.md)
-
 ### 产品支持
 
 Maix 系列产品可以在多种场景实现客户不同方面的需要，在 AIoT 上已经广泛的使用，品质和性能在行业内已经有非常好的口碑，专业的技术团队为广大客户解决硬件设计和软件功能上的各种各样问题。商业合作可以联系 <support@sipeed.com>。
@@ -112,33 +119,6 @@ Maix 系列产品可以在多种场景实现客户不同方面的需要，在 AI
 | 模型平台 | [MaixHub](https://www.maixhub.com)                                                                                                                                                                                             |                                                                                                                                                                         |                                                                                                                                                                     |
 | 详情页   | [点我](http://wiki.sipeed.com/m2dock)                                                                                                                                                                                          | [点我](./maixii/m2a/maixsense.md)                                                                                                                                       | [点我](./maixii/M2S/V833.md)                                                                                                                                        |
 | 备注     | <strong>推荐产品</strong>，高性价比能跑 Linux 的 SOC，同时支持硬件 AI 加速（0.2Tops 算力），目前软件支持最容易入门，提供 C SDK 和 Python SDK， 以及在线模型训练服务(<a href="https://maixhub.com" target="_blank">MaixHub</a>) | 有提供硬件 AI 加速，0.25Tops 算力。                                                                                                                                     | 仅支持商业                                                                                                                                                          |
-
-<!-- ### Maix-II 板卡
-
-MAIX-II 系列包含多款硬件产品，目前有三款产品，分别如下：
-
-<table>
-<thead>
-<tr>
-  <th>产品名称</th>
-  <th>板卡简述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td style="white-space:nowrap"><strong>Maix-II Dock</strong></td>
-  <td><strong>推荐产品</strong>，主控芯片为全志 V831, 高性价比能跑 Linux 的SOC，同时支持硬件 AI 加速（0.2Tops 算力），目前软件支持最容易入门，提供 C SDK 和 Python SDK， 以及在线模型训练服务(<a href="https://maixhub.com" target="_blank">MaixHub</a>)</td>
-</tr>
-<tr>
-  <td style="white-space:nowrap"><strong>Maix-II Sense</strong></td>
-  <td>芯片为全志R329，也有提供硬件 AI 加速，0.25Tops 算力。</td>
-</tr>
-<tr>
-  <td style="white-space:nowrap"><strong>Maix-II-S</strong></td>
-  <td>芯片为全志 V833，V831 升级版， 主要用于商业定制用途，个人用户慎重选择。</td>
-</tr>
-</tbody>
-</table> -->
 
 ## Maix-III
 
