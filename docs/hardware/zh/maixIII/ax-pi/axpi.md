@@ -180,7 +180,8 @@ title: MAIX-III AXera-Pi 是什么？
 - [HonestQiao —— 矽速 MAIX-III AXera-Pi 开箱](https://bbs.elecfans.com/m/jishu_2314161_1_1.html)
 - [一款国产「3.6TOPS@INT8」视觉 AI 开发板](https://mp.weixin.qq.com/s/3bxFxO0Q0UmpzSM3_K794g)
 - [国产AI开发板测评 | MAIX-III AXera-Pi 上手 YOLOv5s 实时目标检测](https://mp.weixin.qq.com/s/lqxL-DmhBa-K9gu3uEyebQ)
-  
+- [【AXPI】如何在 M1/M2 Mac上使用 Rndis](https://zhuanlan.zhihu.com/p/593627641)
+
 产品相关的专栏内容有：
 
 - [MAIX-III AXera-Pi 系列文章（1）：新一代 3.6T 视觉 AI 板卡面世](https://aijishu.com/a/1060000000374898)
@@ -188,7 +189,7 @@ title: MAIX-III AXera-Pi 是什么？
 - [MAIX-III AXera-Pi 系列文章（3）：Debian 系统 & 开箱案例](https://aijishu.com/a/1060000000374902)
 - [MAIX-III AXera-Pi 系列文章（4）：开箱 & 产品外观](https://aijishu.com/a/1060000000378968)
 - [MAIX-III AXera-Pi 系列文章（5）：开箱 & 烧录启动 Linux 系统](https://aijishu.com/a/1060000000380513)
-- 
+
 产品相关的新闻内容有：
 
 - [AI ISP 的黎明——大话成像](https://axera-tech.com/tech/T7297054127901756535)

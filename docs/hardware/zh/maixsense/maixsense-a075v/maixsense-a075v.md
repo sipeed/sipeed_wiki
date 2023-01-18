@@ -23,14 +23,14 @@
 ### 网页上位机预览
 
 >**注意**：模组上电前一定要确保网络环境中没有使用 `192.168.233.0/24` 的地址段，
->**MaixSense-A075V** 会使用 **RNDIS** 并设置自己的 `iP` 地址为 `http://192.168.233.1`. 
+>**MaixSense-A075V** 会使用 **RNDIS** 并设置自己的 `iP` 地址为 `http://192.168.233.1`.
 
 ![tof-07514](asstes/../assets/mt_pin.jpg)
 
 根据上图将模组通电接入 `PC` 端，这时自带的风扇会开始工作以及镜头处会显示有红灯在闪烁，选择浏览器输入 `http://192.168.233.1` 预览 3D 点云图，上电后有延迟等待 `10s-15s` 系统和程序才会启动完成。
 
 **使用网页上位机快速预览（正面和侧面）：**
- 
+
 <html>
   <img src="./assets/mt_examle.jpg" width=48%>
   <img src="./assets/mt_examleb.jpg" width=48%>
@@ -76,7 +76,7 @@
 
 除了直接使用网页上位机进行预览，我们还可以使用 SSH 进行登录操作。
 
-.. details::点我查看 MobaXterm 介绍
+.. details::点此展开查看 MobaXterm 介绍
 
     MobaXterm 是在 Windows 下使用的全能终端管理软件，而 Linux 系统可以使用 ssh 远程被操作，使用 MobaXterm 进行 ssh 登陆板子直接编辑板内的代码或执行命令，也能方便的拖拽文件上传或下载到电脑里，类似的工具还有 vscode remote 远程登录 linux 服务器。
 
@@ -131,11 +131,11 @@ ssh root@192.168.233.1
 **SDK 获取方式**：[点击下载](https://dl.sipeed.com/fileList/others/maixsense_example/maixsense_075_tutorial.ipynb)
 **使用方式**：安装 `jupyter` 后连接模组打开我们提供的 `toturial.py` 即可。
 
-### 解包推流 
+### 解包推流
 
 理解了上述 `python SDK` 数据获取和解码的逻辑后，我们可以尝试进阶版，连续获取解码并调用第三方 `python` 图像库。例如：`matplotlib` 进行实时显示，而 `toturial.py` 给出了获取一帧数据的逻辑实现，通过 `plt` 显示并外套循环即可做到实时显示。
 
-**解包推流**：[点我查看 stream.py 内容](./../maixsense-a010/code.html#streampy)
+**解包推流**：[点此展开查看 stream.py 内容](./../maixsense-a010/code.html#streampy)
 **使用方式**：装好所有的依赖包后即可 `python stream.py` 运行。
 
 ![mt_sdk](assets/mt_sdk.jpg)
@@ -147,7 +147,7 @@ ssh root@192.168.233.1
 
 >限制：要求俯视图可以看到除底面外的所有细节
 
-**检测体积**：[点我查看 calVolumes.py 内容](./../maixsense-a010/code.html#calvolumespy)
+**检测体积**：[点此展开查看 calVolumes.py 内容](./../maixsense-a010/code.html#calvolumespy)
 **使用方式**：装好所有的依赖包后即可 `python calVolumes.py` 运行，命令行有后续操作提示。
 
 ![mt_volumbs](assets/mt_volumbs.jpg)
@@ -206,7 +206,7 @@ colcon build #（如提示缺少colcon时需要sudo apt install python3-colcon-r
 source install/setup.sh
 ros2 run sipeed_tof_cpp publisher
 #之后终端会持续刷新显示[sipeed_tof]: Publishing，即正常工作
-``` 
+```
 
 **3. RQT 查看帧率**
 

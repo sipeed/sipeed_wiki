@@ -21,7 +21,7 @@ desc: maixpy  在 MaixII-Sense 平台上使用
 
 对于新烧录的系统需要先使用串口来设置 wifi 连接。
 
-使用 串口 连接板子，然后这里以 mobaxterm [[点我查看简述](./../../../../hardware/zh/maixII/M2/tools/mobaxterm.md)]这个软件为例
+使用 串口 连接板子，然后这里以 mobaxterm [[点此展开查看简述](./../../../../hardware/zh/maixII/M2/tools/mobaxterm.md)]这个软件为例
 
 ![](./assets/mobaxterm-serial-4.png)
 

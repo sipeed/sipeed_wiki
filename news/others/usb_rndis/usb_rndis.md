@@ -5,11 +5,11 @@ date: 2022-10-20
 tags: USB, RNDIS, DRIVE
 ---
 
-方便用户快速了解 RNDIS 驱动安装的详细过程，转载一篇较为详细的文章：[原文链接](https://www.foream.com/wiki/docs/mindoc/mindoc-1b2er0dm4pos9)
+本文为转载网上文章，与任何产品的使用无关，本文仅方便用户快速了解 USB RNDIS 驱动安装的详细过程，故转载了这篇文章：[原文链接](https://www.foream.com/wiki/docs/mindoc/mindoc-1b2er0dm4pos9)
 
 ## 简述
 
- 本文档主要描述 GHOST 4K 相机如何工作在 USB 网卡模式（符合 RNDIS 规范）如何 PC 端通过 USB 连接相机后与相机 TCP/IP 通讯，并通过 RTSP 或 RTMP 视频通讯协议获取到相机的视频流方法。本方法使用了 RNDIS `（Remote Network Driver Interface Specification）` 远程网络驱动接口规范， 就是在USB设备上跑 TCP/IP，让相机看上去像一块 PC 的网卡。 
+ 本文档主要描述 GHOST 4K 相机如何工作在 USB 网卡模式（符合 RNDIS 规范）如何 PC 端通过 USB 连接相机后与相机 TCP/IP 通讯，并通过 RTSP 或 RTMP 视频通讯协议获取到相机的视频流方法。本方法使用了 RNDIS `（Remote Network Driver Interface Specification）` 远程网络驱动接口规范， 就是在USB设备上跑 TCP/IP，让相机看上去像一块 PC 的网卡。
  RNDIS 是 Windows7 的一部分， 但遗憾的是如果默认安装（插上符合 RNDIS 的设备时）一般均会安装失败，本文档会描述如何重新安装 RNDIS 驱动。
 
 ## 如何 enable GHOST 4K 相机为USB网卡模式
@@ -28,7 +28,7 @@ tags: USB, RNDIS, DRIVE
 3. 相机进入 USB 网卡模式后，相机 WIFI 指示灯会亮绿灯。
 
 ## 如何在 Windows7 上安装 RNDIS 驱动
- 
+
 1. 相机使用如上 `mcam.conf` 脚本文件开机后，插入 USB 并连接到 PC 端，Windows7 会弹出正在安装设备驱动程序软件消息。
    ![rndis-one](./assets/rndis-one.jpg)
 
@@ -70,7 +70,7 @@ tags: USB, RNDIS, DRIVE
 13. 设置新增的 `USB` 网卡的 `IP` 地址（要求与相机配置文件 `fmcam.conf` 指定的 `usb_net_host` 的值一致）
    - 右击**本地连接（RNDIS/Ethernet Gadget)**
      ![rndis-ten](./assets/rndis-ten.jpg)
-    
+
    - 选中 **Internet 协议版本 4(TCP/IPv4)**，点击**属性**按键，指定 `PC` 网卡的 `IP` 地址为: `192.168.5.1`.
      ![ipv4](./assets/ipv4.jpg)
 
@@ -82,9 +82,9 @@ tags: USB, RNDIS, DRIVE
     如果能 `ping` 通，说明相机与 `PC` 端建立 `TCP/IP` 连接成功。
 
 ## PC 端如何获取相机的视频流
- 
+
 ### 设置视频流的分辨率及码率
-    
+
 在相机 `SD`卡中的配置文件 `fmcam.conf` 增加两个选项 `stream_resolution` 和  `stream_bitrate` 如：
 
 ```bash
@@ -134,9 +134,9 @@ WVGA：  848*420
 
     stream_bitrate=25000000
     ```
-    
+
     CAM2 的脚本文件如下：
-    
+
     ```bash
     usb_net=1
 
