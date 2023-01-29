@@ -116,7 +116,7 @@ M1n模块以K210作为核心单元，功能非常很强大，芯片内置64位�
 ## 资料下载
 
 芯片 K210 Datasheet: [Kendryte 官网](https://canaan-creative.com/)
-M1W 资料下载: [dl.sipeed.com](https://dl.sipeed.com/shareURL/MAIX/HDK/Sipeed-M1&M1W)
+M1n 资料下载: [Click me](https://dl.sipeed.com/shareURL/MAIX/HDK/Sipeed-M1n)
 M1n 原理图下载：[Sipeed M1n Datasheet V1.0.pdf](https://dl.sipeed.com/fileList/MAIX/HDK/Sipeed-M1n/Sipeed%20M1n%20Datasheet%20V1.0.pdf)
 
 
