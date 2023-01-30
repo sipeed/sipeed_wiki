@@ -81,7 +81,7 @@ Sipeed M0S 模块是基于[博流智能科技](http://www.bouffalolab.com/)的 B
 
 ## 引脚分布
 
-![m0s_pin_map](./assets/m0s/m0s_pin_map.svg)
+![m0s_pin_map](./assets/m0s/m0s_pin_map.png)
 
 ## 产品对比
 

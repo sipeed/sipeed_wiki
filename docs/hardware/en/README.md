@@ -28,7 +28,7 @@ desc: Sipeed hardware documentation website
 | Model platform | [MaixHub](https://www.maixhub.com)                                                    | [MaixHub](https://www.maixhub.com)                                                |
 | Size           | 11(L)x10(W)mm                                                                         |                                                                                   |
 | Detail         | [Click me](./maixzero/m0s/m0s.md)                                                         | [Click me](./maixzero/sense/maix_zero_sense.md)                                       |
-| Outlook        | <img src="./../zh/maixzero/m0s/assets/m0s/m0s_pin_map.svg" alt="m0sense" width="360"> | <img src="./../zh/maixzero/sense/assets/m0sense_1.png" alt="m0sense" width="360"> |
+| Outlook        | <img src="./../zh/maixzero/m0s/assets/m0s/m0s_pin_map.png" alt="m0sense" width="360"> | <img src="./../zh/maixzero/sense/assets/m0sense_1.png" alt="m0sense" width="360"> |
 
 ## Maix-I
 
