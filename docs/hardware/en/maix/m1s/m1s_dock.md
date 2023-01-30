@@ -43,7 +43,7 @@ Video of M1s Dock and M0Sense：M1s Dock is before 3:15，and time after 3:15 is
     </thead>
     <tbody>
     <tr>    
-        <td rowspan="8" style="white-space:nowrap">Main Chip BL808</td>
+        <td rowspan="8" style="white-space:nowrap">M1s Module</td>
     </tr>
     <tr>
         <td>Three RISC-V CPUs：<br>· RV64GCV 480MHz <br>· RV32GCP 320MHz <br>· RV32EMC 160MHz</td>

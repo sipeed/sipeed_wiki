@@ -51,23 +51,20 @@ M1s Dock 和 M0Sense 总览：3:15 之前的都是 M1s Dock。
     </thead>
     <tbody>
     <tr>    
-        <td rowspan="9" style="white-space:nowrap">主控 BL808 处理器</td>
+        <td rowspan="8" style="white-space:nowrap">M1s 模组</td>
     </tr>
     <tr>
-        <td>多核 RISC-V (Max Freq 480MHz)</td>
+        <td>三核异构RISC-V CPUs：<br>· RV64GCV 480MHz <br>· RV32GCP 320MHz <br>· RV32EMC 160MHz</td>
     </tr>
     <tr>
         <td>AI NN 通用硬件加速器 —— BLAI-100 用于视频/音频检测/识别</td>
     </tr>
     <tr>
-        <td>内嵌 64MB DRAM</td>
+        <td>内置 768KB SRAM + 64MB UHS PSRAM</td>
     </tr>
     <tr>
         <td>编解码：<br>- MJPEG and H264(Baseline/Main)<br>- 1920x1080@30fps + 640x480@30fps
         </td>
-    </tr>
-    <tr>
-        <td>ISP（图像信号处理）：详情请查看<a href="https://dl.sipeed.com/shareURL/MAIX/M1s/M1s/6_Chip_Manual">芯片规格书</a></td>
     </tr>
     <tr>
         <td>接口：<br>- 摄像头接口 ：DVP 和 MIPI-CSI<br>- 显示接口：SPI、DBI、DPI(RGB)</td>
