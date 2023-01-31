@@ -29,7 +29,7 @@ desc: 矽速科技的开源软硬件 WIKI 资料站
 | 模型平台 | [MaixHub](https://www.maixhub.com) | [MaixHub](https://www.maixhub.com)          |
 | 尺寸     | 11(L)x10(W)mm                      |                                             |
 | 详情页   | [点我](./maixzero/m0s/m0s.md)      | [点我](./maixzero/sense/maix_zero_sense.md) |
-| 外观图  | <img src="./maixzero/m0s/assets/m0s/m0s_pin_map_voltage.png" alt="m0sense" width="360"> |<img src="./maixzero/sense/assets/m0sense_1.png" alt="m0sense" width="360">|
+| 外观图  | <img src="./maixzero/m0s/assets/m0s/m0s_pin_map.png" alt="m0sense" width="360"> |<img src="./maixzero/sense/assets/m0sense_1.png" alt="m0sense" width="360">|
 
 ## Maix-I
 
