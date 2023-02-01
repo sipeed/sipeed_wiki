@@ -366,7 +366,7 @@ lines 1-23
 
 > 目前 rtl8723bs WIFI 能打开，但连上会重启板子，网卡驱动问题暂时不修，更换成 rtl8189fs 即可正常使用。
 
-- **如何修改连接的 WIFI 账号密码（会开机自动联网）**
+- **如何修改连接的 WIFI 账号密码（已过时）**
 
 默认 WIFI 账号密码配置存放在 `/boot/wpa_supplicant.conf` 里，测试过并支持 Android 手机开放的 WPA-PSK2 热点，配置修改后会在重启后生效（**建议用 nmtui-connect 进行配置连接**)。
 
