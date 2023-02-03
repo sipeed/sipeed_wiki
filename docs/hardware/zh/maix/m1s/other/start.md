@@ -21,7 +21,7 @@ update:
 
 M1s Dock 设计精巧，可以用来所很多有意思的事，这里简单说明一下一些使用方法。要注意的是串口默认波特率 2000000。
 
-过 UART 口连接 PC 在 Windows 系统的设备管理器中显示有两个 Converter 设备。
+通过板子上的 UART 口连接 PC，在 Windows 系统的设备管理器中显示有两个 Converter 设备。
 
 ![start_bl808_uart_converter](./assets/start/start_bl808_uart_converter.png)
 
@@ -40,7 +40,7 @@ M1s Dock 设计精巧，可以用来所很多有意思的事，这里简单说�
 
 ![default_udisk](./assets/start/default_udisk.jpg)
 
-并且在 Windows 的设备管理器中会看到大容量存储设备
+并且在 Windows 的设备管理器中会看到大容量存储设备，在 linux 系统中也会出现一个可移动设备。
 
 ![udisk_device_manager](./assets/start/udisk_device_manager.jpg)
 
@@ -172,7 +172,7 @@ arc.center()
 
 <img src="./assets/start/firmware_choose.png" alt="firmware_choose" style="transform:rotate(0deg);">
 
-上图中，`boot2` 是固定的，位于 `BLDevCube\chips\bl808\builtin_imgs\boot2_isp_bl808_v6.4_rc6` 目录下，就是在解压的烧录程序文件夹的子目录里面；`firmware` 是 E907 核心运行的固件 ；`d0fw`是 C906 核心运行的固件，前面的 U 盘烧录里面的固件就是给这个核心烧录的。E907 的固件文件和 C906 的固件文件均可以通过 [M1s_dock example](https://gitee.com/sipeed/M1s_BL808_example) 来编译得到。
+上图中，`boot2` 是固定的，位于 `BLDevCube\chips\bl808\builtin_imgs\boot2_isp_bl808_xxxx_xxx` 目录下，就是在解压的烧录程序文件夹的子目录里面，要选择名称带有 `debug` 的文件；`firmware` 是 E907 核心运行的固件 ；`d0fw`是 C906 核心运行的固件，前面的 U 盘烧录里面的固件就是给这个核心烧录的。E907 的固件文件和 C906 的固件文件均可以通过 [M1s_dock example](https://gitee.com/sipeed/M1s_BL808_example) 来编译得到。
 
 首次烧录 `firmware` 和 `boot2` 都需要烧录进去，之后就可以按需烧录而不用全部勾选。
 
@@ -205,7 +205,7 @@ arc.center()
 
 在 `BLDevCube` 的文件夹下面，还有 `bflb_iot_tool` 工具，与 `BLDevCube` 一样，`bflb_iot_tool`、 `bflb_iot_tool-macos` 和 `bflb_iot_tool-ubuntu` 是在不同操作系统中来运行的。
 
-在 Windows 系统下执行下面的命令，其它系统自己更改命令行软件即可。其中 `firmware` 是 E907 核心的固件，可以在[默认固件](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmware/factory)处下载得到；`pt` 文件是分区表文件，默认在 `M1s_BL808_example\partition` 目录下，当然也可以 [点我](https://dl.sipeed.com/fileList/MAIX/M1s/M1s_Dock/7_Firmware/partition/partition_cfg_16M_m1sdock.toml) 直接下载到；`boot2` 文件默认位于 `BLDevCube\chips\bl808\builtin_imgs\boot2_isp_bl808` 目录下；波特率为 2M，这样烧录的时候会快点；`port` 应指定为串口号较大的串口。
+在 Windows 系统下执行下面的命令，其它系统自己更改命令行软件即可。其中 `firmware` 是 E907 核心的固件，可以在[默认固件](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmware/factory)处下载得到；`pt` 文件是分区表文件，默认在 `M1s_BL808_example\partition` 目录下，当然也可以 [点我](https://dl.sipeed.com/fileList/MAIX/M1s/M1s_Dock/7_Firmware/partition/partition_cfg_16M_m1sdock.toml) 直接下载到；`boot2` 文件默认位于 `BLDevCube\chips\bl808\builtin_imgs\boot2_isp_bl808` 目录下，是名称带有 `debug` 的文件；波特率为 2M，这样烧录的时候会快点；`port` 应指定为串口号较大的串口。
 
 ```bash
 .\bflb_iot_tool.exe --chipname=bl808 --port=COM38 --baudrate=2000000 --firmware="firmware_20221212.bin" --pt="M1s_BL808_example\partition\partition_cfg_16M_m1sdock.toml" --boot2="BLDevCube\chips\bl808\builtin_imgs\boot2_isp_bl808\boot2_isp_debug.bin"
@@ -274,7 +274,7 @@ arc.center()
 
 ### 给板载 bl702 进行烧录
 
-一般来说板子出问题才进行这里的烧录。
+一般来说板子出问题才进行这里的烧录。按住 BOOT 键后冷启动板子，就可以通过 UART 口烧录板载 bl702 了。
 
 在给板子通电前按住板子上的 BOOT 按键，然后通过板子上的 UART USB 接口连接电脑，此时板载 bl702 进入下载模式，打开 `BLDevCube` 烧录软件（根据自己系统选择），选择 `BL702` 芯片，在打开的软件界面选择 MCU 模式，接着可以在 [这里](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmware) 下载到 bl702 的固件，名称为 `usb2dualuart_bl702` 开头的就是我们需要烧录的文件。
 

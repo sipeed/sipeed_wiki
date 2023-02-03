@@ -21,7 +21,7 @@ update:
 
 The M1s Dock can be used for a variety of interesting things by its delicate design. Here we tell the usages of this device. Note that the default baudrate is 2000000.
 
-There are two Converter devices in Windows device manager if you connect the computer with the UART port of M1s Dock.
+There are two Converter devices in `Windows` device manager if you connect the computer with the UART port of M1s Dock.
 
 ![start_bl808_uart_converter](./../../../../zh/maix/m1s/other/assets/start/start_bl808_uart_converter.png)
 
@@ -32,7 +32,7 @@ There are two Serial Devices if connecting the board through UART USB port with 
 
 ## Power On
 
-the first time to start M1s Dock, screen displays what the camera captures, and the number on the screen which is the LED brightness changes when you press the keys on the side.
+Power the M1s Dock, screen displays what the camera captures, and the number on the screen which is the LED brightness changes when you press the keys on the side.
 
 ![default_firmware](./../../../../zh/maix/m1s/other/assets/start/default_firmware.jpg)
 ![led_brghtness](./../../../../zh/maix/m1s/other/assets/start/led_brghtness.jpg)
@@ -41,11 +41,11 @@ A virtual removable disk whose storage capacity is 3M will be shown on your comp
 
 ![default_udisk](./../../../../zh/maix/m1s/other/assets/start/default_udisk.jpg)
 
-And there is USB Mass Storge Device in Windows device manager
+And there is USB Mass Storge Device in `Windows` device manager, in `Linux` there is also a removable device.
 
 ![udisk_device_manager](./../../../../zh/maix/m1s/other/assets/start/udisk_device_manager.jpg)
 
-If there is no USB Mass Storge Device in Windows device manager of no, try to use other USB TypeC cable or use other USB port of computer, and if this problem remains, visit [Burn-with-UART](https://wiki.sipeed.com/hardware/en/maix/m1s/other/start.html#Burn-with-UART) to flash M1s Dock, we mainly burn `partition table`, `boot2`, `firmware` these three files. After finishing burnning, reconnect the board with computer.
+If there is no USB Mass Storge Device in Windows device manager, try to use other USB TypeC cable or connect with other USB port of computer, and if this problem remains, visit [Burn-with-UART](https://wiki.sipeed.com/hardware/en/maix/m1s/other/start.html#Burn-with-UART) to flash M1s Dock, we mainly burn `partition table`, `boot2`, `firmware` these three files. After finishing burnning, reconnect the board with computer.
 
 Two serial devices will be shown in your computer if you connect this board with your computer by TypeC UART port on this board.
 
@@ -172,7 +172,7 @@ After selecting the partition file, we have more choice in this page. We just ne
 
 <img src="./../../../../zh/maix/m1s/other/assets/start/firmware_choose.png" alt="firmware_choose" style="transform:rotate(0deg);">
 
-In the picture above, `boot2` stays the same, and it's in this directory: `BLDevCube\chips\bl808\builtin_imgs\boot2_isp_bl808_v6.4_rc6`, under where the path if this burning application is. `firmware` is the firmware file for E907 core, and `d0fw` is C906 core file, the previous [Burn with u-disk](#burn-with-u-disk) operation can also burn firmware for this core. 
+In the picture above, `boot2` stays the same, and it's in this directory: `BLDevCube\chips\bl808\builtin_imgs\boot2_isp_bl808_xxxx_xxx`, under where the path if this burning application is, and make sure your choosing file named with `debug`. `firmware` is the firmware file for E907 core, and `d0fw` is C906 core file, the previous [Burn with u-disk](#burn-with-u-disk) operation can also burn firmware for this core. 
 
 The firmware file for E907 or C906 can be gotten by compiling [M1s_dock example](https://gitee.com/sipeed/M1s_BL808_example).
 
@@ -209,7 +209,7 @@ In `BLDevCube` folder, there is `bflb_iot_tool` application, `bflb_iot_tool`、 
 
 Here I take Windows as example, and for other OS you need to change the commands by yourself.
 
-In this command, `firmware` is the bin file for E907 Core, the default bin file can be downloaded from [here](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmware/factory). `pt` is the partition file, it's in the `M1s_BL808_example\partition` folder, you can also [Click me](https://dl.sipeed.com/fileList/MAIX/M1s/M1s_Dock/7_Firmware/partition/partition_cfg_16M_m1sdock.toml) to get it.`boot2` is in `BLDevCube\chips\bl808\builtin_imgs\boot2_isp_bl808` folder. Set baudrate 2000000 to burn this board fast. `port` is the bigger port number.
+In this command, `firmware` is the bin file for E907 Core, the default bin file can be downloaded from [here](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmware/factory). `pt` is the partition file, it's in the `M1s_BL808_example\partition` folder, you can also [Click me](https://dl.sipeed.com/fileList/MAIX/M1s/M1s_Dock/7_Firmware/partition/partition_cfg_16M_m1sdock.toml) to get it.`boot2` is in `BLDevCube\chips\bl808\builtin_imgs\boot2_isp_bl808` folder, and is named with `debug`. Set baudrate 2000000 to burn this board fast. `port` is the bigger port number.
 
 ```bash
 .\bflb_iot_tool.exe --chipname=bl808 --port=COM38 --baudrate=2000000 --firmware="firmware_20221212.bin" --pt="M1s_BL808_example\partition\partition_cfg_16M_m1sdock.toml" --boot2="BLDevCube\chips\bl808\builtin_imgs\boot2_isp_bl808\boot2_isp_debug.bin"
@@ -237,7 +237,7 @@ There is no progress bar when erasing, and there is `SUCCESS` when it finished e
 
 ### Burn onboard bl702
 
-We do this only when there is some trouble with our board.
+We do this only when there is some trouble with our board. Hold BOOT key and cold boot the board, the bl702 is into download mode, then we burn its firmware.
 
 Hold BOOT key before power this device, then connect this board ti==with computer by the UART TypeC USB port, after this the onboard is in download mode. Run `BLDevCube`, choose `BL702`, then in MCU page, choose the firmware. Here we have provided the [firmware](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmware), download the file whose name starts with `usb2dualuart_bl702`.
 

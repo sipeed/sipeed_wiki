@@ -2,12 +2,19 @@
 title: M0sense guide
 keywords: M0sense
 update:
+  - date: 2023-02-03
+    version: v0.2
+    author: wonder
+    content:
+      - Add the previous firmware note.
   - date: 2022-12-15
     version: v0.1
     author: wonder
     content:
       - Create file
 ---
+
+> Because of the different firmware, there is no u-disk in computer after connecting computer with m0sense, visit [Burn bin file](#burn-bin-file) to solve this.
 
 ## Power On
 
@@ -20,7 +27,7 @@ The led lights up when M0sense is powered on, and the screen displays spectrum d
 
 M0sense can be burned by dragging and dropping firmware to u-disk.
 
-Hold BOOT key, then click RST key once, a removable disk is shown in computer.
+Hold BOOT key, then click RESET key once, a removable disk is shown in computer.
 
 ![m0sense_udisk](./../../../zh/maixzero/sense/assets/start/m0sense_udisk.jpg)
 
@@ -287,8 +294,8 @@ Run `BLDevCube`(Depends on your OS), choose `BL702`，and select MCU mode in app
 
 Click `Refresh`，choose the only one serial port, if you did not see the serial port, reconnect the 3.3V pin and boot pin before power M0sense, set uartRate 2000000, click `Create & Diwnload`.
 
-![burn_bl702](./../../../zh/maix/m1s/other/assets/start/burn_bl702.png)
+![burn_bl702](./../../../zh/maixzero/sense/assets/start/burn_bl702.png)
 
 Finishing flashing firmware, repower M0sense to load the new firmware.
 
-![finish_burn_702](./../../../zh/maix/m1s/other/assets/start/finish_burn_702.png)
+![finish_burn_702](./../../../zh/maixzero/sense/assets/start/finish_burn_702.png)

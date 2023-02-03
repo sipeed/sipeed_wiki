@@ -2,12 +2,19 @@
 title: M0sense 上手使用
 keywords: M0sense
 update:
+  - date: 2023-02-03
+    version: v0.2
+    author: wonder
+    content:
+      - 增加早期固件说明
   - date: 2022-11-28
     version: v0.1
     author: wonder
     content:
       - 初次编辑
 ---
+
+> 早期售出的 m0sense 由于固件不同而不能显示出 U 盘，可以自己通过 [烧录 bin 文件](#烧录-bin-文件) 的内容来来烧录固件解决没有 U 盘出现的问题。
 
 ## 初见
 
@@ -20,7 +27,7 @@ update:
 
 对于 M0sense 我们提供了使用虚拟 U 盘拖拽烧录固件的方式。
 
-按住板子上的 BOOT 键后按下 RST 键，就会在电脑上显示一个 U 盘了。
+按住板子上的 BOOT 键后按下 RESET 键，就会在电脑上显示一个 U 盘了。
 
 ![m0sense_udisk](./assets/start/m0sense_udisk.jpg)
 
@@ -288,8 +295,8 @@ gcc -I libs/uf2_format misc/utils/uf2_conv.c -o uf2_convert # 编译出固件转
 
 点击 `Refresh`，选择唯一的串口（如果看到的不是唯一串口，重新短接 boot 引脚和 3.3v 引脚后再上电使 M0sense 进入下载模式），设置波特率 2000000， 点击下载烧录。
 
-![burn_bl702](./../../maix/m1s/other/assets/start/burn_bl702.png)
+![burn_bl702](./assets/start/burn_bl702.png)
 
 烧录结束后，重新插拔一次 USB 来重新启动 bl702 以应用新的固件。
 
-![finish_burn_702](./../../maix/m1s/other/assets/start/finish_burn_702.png)
+![finish_burn_702](./assets/start/finish_burn_702.png)
