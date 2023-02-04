@@ -25,9 +25,10 @@ update:
 
 ## 准备工作
 
-无论是新手小白还是有基础的开发者在踏入 `K210 系列开发板` 学习之路前，做好充足的准备工作一定程度上可以避免在使用途中踩坑影响体验感。这篇文档是以一份避坑上手的指南为核心来构写的，所以切记！！新手小白千万不可以跳着看，下图是示例硬件 `MaixDuino` 开发板、摄像头、屏幕、以及 USB Type-c 数据线。
+无论是新手小白还是开发者在踏入 `K210 系列开发板` 学习之路前，做好充足的准备工作在一定程度上可以在使用途中避免踩坑。这篇文档是以一份避坑上手步骤的指南为核心来构写的，所以切记！！新手小白千万不可以跳着看，下图是示例硬件 `MaixDuino` 开发板、摄像头、屏幕、以及 USB Type-c 数据线。
 
 ![maixduino](./mixly_application/accets/k210_usage/maixduino.jpg)
+
 ### 使用流程图
 
 使用流程思维导图可以搭配文档一起使用更佳~
@@ -69,10 +70,6 @@ update:
 
 ![maixpy_logo](./mixly_application/accets/k210_usage/maixpy_logo.jpg)
 
-.. details::FAQ：如果出现 MaixPy 软件包失败的话，卸载掉之前下的包，重新下载并换磁盘安装。
-
-      ![maixpy](./mixly_application/accets/k210_usage/maixpy.jpg)
-
 ### 安装驱动
 
 因 K210 没有 USB 硬件支持功能需通过 USB 转串口设备与电脑连接，所以我们需要安装串口驱动去当板子与 MAIXP IDE 连接的桥梁，接入下方提供的链接，根据板子的型号下载相对应的驱动即可。
@@ -95,20 +92,10 @@ update:
 
 ![bin](./mixly_application/accets/k210_usage/bin.png)
 
-.. details::FAQ：烧录固件途中出现握手失败等报错信息，可参考以下解决方法。
-      ![kflash_gui](./mixly_application/accets/k210_usage/kflash_gui.jpg)
-      
-      一般出现这个问题，先从以下几个方面判断问题（因使用环境不同造就的设备握手失败）
-      1. 先判断板子上电后设备管理器是否有 `COM` 端口出现，如果没有端口出现返回安装驱动的步骤或者进行更换线材。
-      2. 设备管理器出现 `COM` 端口，查看是否被别的软件（串口根据、手机助手、蓝牙、外设）占用了串口，查询不出再次更换线材或重启设备也可以。
-      3. 查看 kflash_gui 的版本（是不是太低）下载页面的配置不要改动并调小波特率。
-      4. 烧录前按硬件的 BOOT 键后按复位，再松开 BOOT 键尝试能不能烧录。
-      5. 尝试过以上的方法都不行的话请更换电脑设备尝试，还是不行的话请联系淘宝官方客服。
-
 > 注意：因 MaixPy 系列的开发板中 MaixDuino 板载了一块 ESP32 WIFI SOC，一般情况下不推荐更新板载的 ESP32 模块，如在使用途中出现 bug 可以参考[更新板载 ESP32 固件](https://wiki.sipeed.com/soft/maixpy/zh/get_started/upgrade_esp32_firmware.html)进行更新固件
-## 学会使用文档
+## 学会使用文档（资源）
 
-为什么会写 **`学会使用文档`** 呢，众所周知 `K210` 系列的板卡已经是 `2020` 年的产物了，各方面的文档也好例程也好早已经是成熟的了，该踩的坑基本都在前几年就被踩完了，现在更多的新手小白踩坑可能都是因为性能上的不足或者是自身使用环境的乱导致出问题。这篇文档的初衷是想要让大家在使用的过程中避坑，但我们还是要学会把文档资源利用起来。
+为什么会写 **`学会使用文档`** 呢，众所周知 `K210` 系列的板卡已经是 `2019` 年的产物了，各方面的文档也好例程也好早已经是成熟的了，该踩的坑基本都在前几年就被踩完了，现在更多的新手小白踩坑可能都是因为性能上的不足或者是自身使用环境的乱导致出问题。这篇文档的初衷是想要让大家在使用的过程中避坑，但我们还是要学会把文档资源利用起来。
 
 1. 学会搜索并利用官方的`文档社区`以及 `github issue` 资源，会让新手小白少走很多弯路雷坑。
 2. 文档资源在 `常见问题 FAQ` 中基本涵盖了所有的坑，使用途中报错可以先查看这篇文档排错。
@@ -116,7 +103,7 @@ update:
 4. 想要实现更多的功能示例或需要更多的脚本源码，可前往 `MaixPy` 的源码例程仓库查找。
 
 **文档搜索例程：**[点击查看](https://wiki.sipeed.com/soft/maixpy/zh/how_to_read.html)
-**BBS 社区：**[点击前往](https://bbs.sipeed.com/)
+**BBS 社区教程贴：**[点击前往](https://bbs.sipeed.com/thread/492)
 **MaixPy issue：**[点击前往](https://github.com/sipeed/MaixPy/issues?page=5&q=is%3Aissue+is%3Aopen)
 **MaixPy 常见问题 FAQ：**[点击查看](https://wiki.sipeed.com/soft/maixpy/zh/others/maixpy_faq.html)
 **MaixPy 源码仓库：**[点击前往](https://github.com/sipeed/maixpy)
@@ -146,11 +133,6 @@ MaixPy 中的存储介质主要由 `Flash`、`SD` 卡组成，并分为三块区
 如果是新出厂的开发板的话，上电后会显示红色屏幕。
 
 ![red_lcd](./mixly_application/accets/k210_usage/red_lcd.jpg)
-
-.. details::FAQ：板子通电后显示白屏、黄屏、红蓝闪屏等的话，请参考以下方法进行处理解决。
-      ![yellow_lcd](./mixly_application/accets/k210_usage/yellow_lcd.png)
-      白屏黄屏请参考 [MaixPy 常见问题 FAQ ](https://wiki.sipeed.com/soft/maixpy/zh/others/maixpy_faq.html?highlight=%E7%99%BD%E5%B1%8F#%E7%83%A7%E5%BD%95-MaixPy-%E4%B9%8B%E5%90%8E%EF%BC%8CMaixPy-%E5%87%BA%E7%8E%B0%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8)解决。
-      出现红蓝闪屏，请运行下文程序判断摄像头是否能用，有可能是摄像头或摄像头接口出现问题导致。
 
 ### 使用 MaixPy IDE 运行程序（含测试程序）
 
@@ -211,20 +193,68 @@ MaixPy 中的存储介质主要由 `Flash`、`SD` 卡组成，并分为三块区
 
 **如何配置开机自启动脚本相关：**[点击查看](https://wiki.sipeed.com/soft/maixpy/zh/get_started/get_started_boot.html)
 
+### 定制专属固件
+
+出于满足部分小伙伴对内存的需求，可通过源码编译所需固件。
+
+[为何需要固件定制](https://wiki.sipeed.com/soft/maixpy/zh/firmware/why_customize_firware.html)
+[源码编译](https://wiki.sipeed.com/soft/maixpy/zh/firmware/compile.html)
+
 ## 更多功能应用
 
->这篇文档完全是按新手小白的使用步骤一步一步来写的，在【更多功能应用】里编写的是 MaixPy 的应用案例以及使用方式，如果是没有接触过 `Python 以及 MicroPython` 的小伙伴们一定要先学会基础的语法知识，切记！没有基础的小伙伴不可以跳过上文！！！更多功能应用是基于上文的基础下写的，可以搭配 API 文档和[MaixPy 例程仓库](https://github.com/sipeed/MaixPy_scripts)一同学习。
+>这篇文档完全是按新手小白的使用步骤一步一步来写的，在【更多功能应用】里编写的是 MaixPy 的应用案例以及使用方式，如果是没有接触过 `Python 以及 MicroPython` 的小伙伴们一定要先学会基础的语法知识，切记！没有基础的小伙伴不可以跳过上文！！！更多功能应用是基于上文的基础下写的，可以搭配 [API 文档](https://wiki.sipeed.com/soft/maixpy/zh/api_reference/standard/index.html)和[MaixPy 例程仓库](https://github.com/sipeed/MaixPy_scripts)一同学习。
 
-更多功能应用分为五大部分：`系统基础功能`、`外设模块拓展`、`图像处理基础（image）`、`传统算法应用`、`神经网络应用（AI）`点击可前往[更多功能应用](https://wiki.sipeed.com/soft/maixpy/zh/course/index.html)查看。
+【更多功能应用】分为五大部分：`系统基础功能`、`外设模块拓展`、`图像处理基础（image）`、`传统算法应用`、`神经网络应用（AI）`因示例较多，这里列举几种常用的可点击可前往[更多功能应用](https://wiki.sipeed.com/soft/maixpy/zh/course/index.html)目录下查看所需要的示例。
+
+- **系统基础功能：**
+
+包含了 [CPU & RAM](https://wiki.sipeed.com/soft/maixpy/zh/course/others/system.html)、[GUI 支持](https://wiki.sipeed.com/soft/maixpy/zh/course/image/image_draw_font/image_draw_font.html)、[网络支持](https://wiki.sipeed.com/soft/maixpy/zh/course/network/network_config.html)、[媒体功能](https://wiki.sipeed.com/soft/maixpy/zh/course/media/audio.html)、[游戏模拟](https://wiki.sipeed.com/soft/maixpy/zh/api_reference/media/nes.html)。
+
+- **外设模块拓展：**
+  
+包含了[片上外设](https://wiki.sipeed.com/soft/maixpy/zh/modules/on_chip/gpio.html)、[SP-MOD](https://wiki.sipeed.com/soft/maixpy/zh/modules/sp_mod/sp_bt.html)、[Grove](https://wiki.sipeed.com/soft/maixpy/zh/modules/grove/grove_ultrasonic_ranger.html)、[其他外设](https://wiki.sipeed.com/soft/maixpy/zh/develop_kit_board/module_microphone.html)。
+
+- **图像处理基础（image）**
+  
+包含了[获取图像](https://wiki.sipeed.com/soft/maixpy/zh/course/image/basic/get_images.html)、[显示图像](https://wiki.sipeed.com/soft/maixpy/zh/course/image/basic/display_images.html)、[图像处理基础](https://wiki.sipeed.com/soft/maixpy/zh/course/image/basic/vary.html)、[如何在图像上写字](https://wiki.sipeed.com/soft/maixpy/zh/course/image/basic/draw.html)、[硬件加速图像模块](https://wiki.sipeed.com/soft/maixpy/zh/course/image/basic/acc_image_deal.html)。
+
+- **传统算法应用**
+  
+传统算法应用里包含了[图像处理](https://wiki.sipeed.com/soft/maixpy/zh/course/image/find_color_blob.html)、[音频处理](https://wiki.sipeed.com/soft/maixpy/zh/course/speech/fft_waterfall.html)。
+
+- **神经网络应用（AI）**
+
+包含了[深度神经网络基础](https://wiki.sipeed.com/soft/maixpy/zh/course/ai/basic/dnn_basic.html)、[KPU 硬件加速介绍](https://wiki.sipeed.com/soft/maixpy/zh/course/ai/basic/maixpy_hardware_ai_basic.html)、[AI 图像处理](https://wiki.sipeed.com/soft/maixpy/zh/course/ai/image/face_detect.html)、[AI 音频处理](https://wiki.sipeed.com/soft/maixpy/zh/course/speech/recognizer_cnn.html)、[如何训练模型](https://wiki.sipeed.com/soft/maixpy/zh/course/ai/train/maixhub.html)。
 
 ### 如何正常使用 SD 卡
 
-在 `系统基础功能` 内有音频等
+在【更多功能应用】里的部分示例里需要用到 SD 卡存储模型或固件等，很多小伙伴会遇见 SD 卡文件读取不到，先判断路径是否正确，再判断是否挂载成功了。
+
+- 查询是否挂载成功的方法如下：
+
+```
+import os
+print(os.listdir("/"))
+>>['flash'] # 没有挂载 SD 卡
+
+>>['flash', 'sd'] # 挂载 SD 卡成功
+```
+
+如果挂载不成功的话请根据 [MaixPy 常见问题 FAQ](https://wiki.sipeed.com/soft/maixpy/zh/others/maixpy_faq.html?highlight=SD#Micro-SD-%E5%8D%A1%E8%AF%BB%E5%8F%96%E4%B8%8D%E5%88%B0) 排查相关错误再进行再次挂载尝试使用。
 
 ### 如何进行配置开发板
 
-在【更多功能应用】里的`外设模块拓展`在使用外设模块拓展的时候，很多的小伙伴跑例程会报错极多的片上外设示例因不同的板卡配置不同需要进行相对应手动配置才能使用。
-可参考 [Board](https://wiki.sipeed.com/soft/maixpy/zh/api_reference/builtin_py/board_info.html)文档进行配置。
+在使用 `外设模块拓展` 的示例时，K210 系列板子因硬件引脚的不同需要进行不同的配置写入，可参考 [Board](https://wiki.sipeed.com/soft/maixpy/zh/api_reference/builtin_py/board_info.html)文档进行配置。
+
+### 如何连接麦克风阵列
+
+[麦克风阵列例程](https://wiki.sipeed.com/hardware/zh/modules/micarray.html)
+
+**K210 系列板卡连接麦克风阵列有以下三种方式供参考：**
+
+1. 使用杜邦线连接板子与麦克风阵列的引脚，在使用例程提供的代码实现声源定位。
+2. 部分板子有 grove 接口，可使用转接板通过 grove 接口连接板子。
+3. 使用麦克风阵列标配排线直接连接板子。
 
 ### 如何获取开发板（机器码）
 
@@ -234,22 +264,114 @@ MaixPy 中的存储介质主要由 `Flash`、`SD` 卡组成，并分为三块区
   
 1. 将 key_gen.bin 这个固件通过 Kflash 烧录到开发板上。烧录这个机器码固件之后，开发板是处于一个不能使用的状态，上电屏幕只会变成一个白屏。
 2. 这时将开发板通过 USB 连接到电脑上，利用【串口连接】中的方式来连接开发板。注：IDE 中的串口终端和 IDE 的连接方式相对独立的，而且串口不能通过多种方式进行连接
-3. 利用串口软件连接上开发板，这时按下开发板上的 reset 的按键，就会出现一串字符在终端窗口上，这就机器码。如果机器码
+3. 利用串口软件连接上开发板，这时按下开发板上的 reset 的按键，就会出现一串字符在终端窗口上，这就机器码。
+
+[机器码固件：key_gen-v1.2.bin](https://dl.sipeed.com/shareURL/MaixHub_Tools)
+
+![key](./mixly_application/accets/k210_usage/key.png)
 
 >注意：烧录过 key_gen.bin 之后的开发板将永久禁用 K210 的 JTAG 调试功能。
 
-### 系统基础功能
+### 如何获取 AI 模型
 
-## Mind+ 积木编程
+除了在示例文档中给出的模型，用户还可在 [MaixHub](https://maixhub.com/model/zoo) 模型库中查找标签为 `nncase` 相关的 AI 模型供 k210 系列板子使用。
 
-**Maixduino K210 如何实现积木编程指南：**[点击查看](https://wiki.sipeed.com/news/MaixPy/mind_application/mind_application.html)
+### 如何训练模型及数据集
+
+云端训练以及相关文档介绍：[MaixHub](https://maixhub.com)  
+
+[什么是人工智能(AI)和机器学习](https://wiki.sipeed.com/ai/zh/basic/what_is_ai.html)
+[常见代码框架和工具](https://wiki.sipeed.com/ai/zh/basic/code_frameworks.html)
+[部署模型到 Maix-I(M1) K210 系列开发板](https://wiki.sipeed.com/ai/zh/deploy/k210.html)
+[MaixHub 训练调优方法](https://wiki.sipeed.com/ai/zh/maixhub/train_best.html)
+            
+`MaixHub` 提供模型训练功能和模型分享功能以及视频教学，用户不需要搭建训练环境以及代码，只需要准备好需要训练的数据集上传训练数据即可快速训练出模型，方便快速制作你的 AI 应用。
+
+本地训练：[Windows - 环境配置](https://wiki.sipeed.com/soft/maixpy/zh/course/ai/train/local_windows_1.html)、[Windows - 使用教程](https://wiki.sipeed.com/soft/maixpy/zh/course/ai/train/local_windows_2.html)、[Linux - 使用教程](https://wiki.sipeed.com/soft/maixpy/zh/course/ai/train/local.html)。
+如果是没有任何开发基础的同学们请谨慎使用本地训练，出现问题请自行解决。
+
+## 库函数 API 手册
+
+API 手册只罗列几种分类出来，如有需要更详细的请点击前往各分类查看下一级目录，可搭配上文【更多功能应用】使用更佳!
+
+[库函数 API 手册 - 标准库](https://wiki.sipeed.com/soft/maixpy/zh/api_reference/standard/index.html)
+[库函数 API 手册 - machine](https://wiki.sipeed.com/soft/maixpy/zh/api_reference/machine/i2c.html)
+[库函数 API 手册 - Maix](https://wiki.sipeed.com/soft/maixpy/zh/api_reference/Maix/fpioa.html)
+[库函数 API 手册 - helper](https://wiki.sipeed.com/soft/maixpy/zh/api_reference/builtin_py/index.html)
+[库函数 API 手册 - media](https://wiki.sipeed.com/soft/maixpy/zh/api_reference/machine_vision/index.html)
+[库函数 API 手册 - extend](https://wiki.sipeed.com/soft/maixpy/zh/api_reference/extend/index.html)
+
+## 如何编译与开发
+
+**对于想尝试开发 K210 的用户们我们也准备了相对应的文档供大家参考：**
+
+[代码框架结构](https://wiki.sipeed.com/soft/maixpy/zh/course/advance/project_framework.html)
+[如何编译 MaixPy 工程](https://wiki.sipeed.com/soft/maixpy/zh/course/advance/compile.html)
+[如何用 C 添加一个 MaixPy 模块](https://wiki.sipeed.com/soft/maixpy/zh/course/advance/add_c_module.html)
+[打包文件系统](https://wiki.sipeed.com/soft/maixpy/zh/course/advance/pack_fs.html)
+
+**MaixPy 源码：[点击查看](https://github.com/sipeed/MaixPy)**
+**相关原厂 K210 SDK：[点击查看](https://www.canaan-creative.com/developer)**
+
+**以下是裸机开发可参考文章：**
+
+[K210裸机开发（〇）简介及准备](https://blog.csdn.net/hgf_fgh/article/details/122402940#:~:text=%E6%89%93%E5%BC%80PlatformIO%E4%B8%BB%E9%A1%B5%EF%BC%8C%E5%9C%A8Boards%E9%A1%B5%E9%9D%A2%E6%90%9C%E7%B4%A2K210%EF%BC%8C%E5%9C%A8platform%E5%88%97%E6%89%BE%E5%88%B0kendryte,k210%E5%B9%B6%E7%82%B9%E8%BF%9B%E5%8E%BB%EF%BC%8C%E7%82%B9%E5%87%BBinstall%E5%AE%89%E8%A3%85%E7%AD%89%E5%BE%85%E5%8D%B3%E5%8F%AF%EF%BC%9B)
+
+## Mind+ & Mixly 积木编程
+
+- **Mind+ 积木编程**
+
+**MaixDuino K210 实现积木编程例程：**[点击查看](https://wiki.sipeed.com/news/MaixPy/mind_application/mind_application.html)
 
 Mind+ 从1.6.6版本开始支持基于 K210 主控的 Maixduino 开发板，可满足对于 K210 开发有兴趣的用户。
 
-## Mixly 积木编程
+- **Mixly 积木编程**
 
-Mixly（米思齐）是国内自主研发且免费开源的一款图形化编程软件，用户可以通过拼接积木的方式来编写程序，Mixly 支持基于 K210 主控的 Maixduino 等开发板，可满足对于 K210 实现积木编程有兴趣的用户。
+**MaixDuino K210 实现积木编程例程：**[点击查看](https://wiki.sipeed.com/news/MaixPy/mixly_application/mixly.html)
 
-**K210 如何在 Mixly 上实现积木编程指南：**[点击查看](https://wiki.sipeed.com/news/MaixPy/mixly_application/mixly.html)
+Mixly（米思齐）是国内自主研发且免费开源的一款图形化编程软件，用户可以通过拼接积木的方式来编写程序，Mixly 支持基于 K210 主控的 Maixduino 等开发板。
 
-可参考上文的 `K210 如何在 Mixly 上实现积木编程指南` 来实现.
+
+## 常见问题 FQA 
+
+### 出现 MaixPy 软件包失败现象
+
+卸载干净之前下的软件安装包，重新下载并换磁盘安装。
+
+![maixpy](./mixly_application/accets/k210_usage/maixpy.jpg)
+
+### 烧录固件途中出现握手失败等报错信息
+
+![kflash_gui](./mixly_application/accets/k210_usage/kflash_gui.jpg)
+      
+一般出现这个问题，先从以下几个方面判断问题（因使用环境不同造就的设备握手失败）
+1. 先判断板子上电后设备管理器是否有 `COM` 端口出现，如果没有端口出现返回安装驱动的步骤或者进行更换线材。
+2. 设备管理器出现 `COM` 端口，查看是否被别的软件（串口根据、手机助手、蓝牙、外设）占用了串口，查询不出再次更换线材或重启设备也可以。
+3. 查看 kflash_gui 的版本（是不是太低）下载页面的配置不要改动并调小波特率。
+4. 烧录前按硬件的 BOOT 键后按复位，再松开 BOOT 键尝试能不能烧录。
+5. 尝试过以上的方法都不行的话请更换电脑设备尝试，还是不行的话请联系淘宝官方客服。
+
+### 板子通电后显示白屏、黄屏、红蓝闪屏等现象
+
+![yellow_lcd](./mixly_application/accets/k210_usage/yellow_lcd.png)
+
+1. 白屏黄屏请参考 [MaixPy 常见问题 FAQ ](https://wiki.sipeed.com/soft/maixpy/zh/others/maixpy_faq.html?highlight=%E7%99%BD%E5%B1%8F#%E7%83%A7%E5%BD%95-MaixPy-%E4%B9%8B%E5%90%8E%EF%BC%8CMaixPy-%E5%87%BA%E7%8E%B0%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8)解决。
+2. 出现红蓝闪屏，请重新烧录固件后然后接稳摄像头运行[测试程序](https://wiki.sipeed.com/soft/maixpy/zh/get_started/get_started_cam_lcd.html)判断摄像头是否能用，有可能是摄像头或摄像头接口出现问题导致。
+
+### 摄像头出现黑斑现象
+
+![sensor_error](./mixly_application/accets/k210_usage/sensor_error.png)
+
+显示黑斑但是有正常画面就是摄像头内片不干净，可以把摄像头拆出来擦一擦。
+
+### 运行摄像头程序显示：RuntimeError：Sensor timeout!
+
+摄像头连接超时，重新连接下或者是换摄像头。
+
+### 烧录固件后画面反色
+
+重新擦除烧录，使用代码反色回来[点击](https://wiki.sipeed.com/soft/maixpy/zh/course/image/basic/display_images.html?highlight=%E5%8F%8D%E8%89%B2)查看。
+
+**更多报错信息请前往 [MaixPy 常见问题 FAQ](https://wiki.sipeed.com/soft/maixpy/zh/others/maixpy_faq.html?highlight=SD#Micro-SD-%E5%8D%A1%E8%AF%BB%E5%8F%96%E4%B8%8D%E5%88%B0) 或 [BBS【超实用】常见问题汇总贴](https://bbs.sipeed.com/thread/489) 排查问题。**
+
+

@@ -197,6 +197,7 @@ title: MAIX-III AXera-Pi 是什么？
 - [爱芯元智AX620A与百度飞桨完成 I 级兼容性测试 开源生态建设更进一步](https://mp.weixin.qq.com/s/k6G1pE-31VXlrBA3F6_Liw)
 - [AI 视觉新势力×微光全彩“黑”科技](https://mp.weixin.qq.com/s/JIvVprWlQPvE7bTxozAG_Q)
 - [爱芯派™AXera-Pi™亮相ICCAD 爱芯元智开源生态建设加速](https://mp.weixin.qq.com/s/_nZLfEjxOb4QLpGWgaLVWQ)
+- [新一代 Kaldi - 嵌入式端实时语音识别](https://mp.weixin.qq.com/s/r4nGu04o1sjdFZt_vYbUAA)
 
 正在联动的 AI 社区有：
 
