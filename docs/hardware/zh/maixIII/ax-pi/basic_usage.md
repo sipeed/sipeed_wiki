@@ -844,8 +844,8 @@ root@AXERA:~#
 >内置开箱应用传送门：[点击前往](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html#%E5%86%85%E7%BD%AE%E5%BC%80%E7%AE%B1%E5%BA%94%E7%94%A8)
 目前系统的摄像头驱动不经过 v4l2 驱动框架，所以必须通过代码配置的方式进行启用，相关摄像头驱动都是在应用层上完成的，
 
-- gc4653 （基础版）
-- os04a10（夜视版）
+- gc4653 （基础版）（使用 -c 2)
+- os04a10（夜视版）（使用 -c 0)
 
 ```bash
 sample_vin_vo -c 2 -e 1 -s 0 -v dsi0@480x854@60
