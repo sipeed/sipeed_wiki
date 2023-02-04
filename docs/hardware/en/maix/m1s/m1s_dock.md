@@ -102,6 +102,14 @@ Video of M1s Dock and M0Sense：M1s Dock is before 3:15，and time after 3:15 is
     </tbody> 
 </table>
 
+### Chip Cores
+
+Three cores in chip: M0，D0，LP。
+
+| M0                                                                         | D0                                                                         | LP                                                                         |
+| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| T-HEAD E907@320MHz | T-HEAD [C906](https://xrvm.com/cpu-details?id=4056751997003636736)@480MHz | T-HEAD [E902](https://xrvm.com/cpu-details?id=4056758197145440256)@160MHz |
+
 ### Function block
 
 <img alt="m1s_dock_function_block_top" src="./../../../zh/maix/m1s/assets/m1s_dock/m1s_dock_function_block_top.jpg"  width=20%>

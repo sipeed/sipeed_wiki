@@ -181,6 +181,7 @@ title: MAIX-III AXera-Pi 是什么？
 - [一款国产「3.6TOPS@INT8」视觉 AI 开发板](https://mp.weixin.qq.com/s/3bxFxO0Q0UmpzSM3_K794g)
 - [国产AI开发板测评 | MAIX-III AXera-Pi 上手 YOLOv5s 实时目标检测](https://mp.weixin.qq.com/s/lqxL-DmhBa-K9gu3uEyebQ)
 - [【AXPI】如何在 M1/M2 Mac上使用 Rndis](https://zhuanlan.zhihu.com/p/593627641)
+- [[m3axpi] YOLOv5 训练到部署全流程](https://github.com/Abandon-ht/m3axpi)
 
 产品相关的专栏内容有：
 

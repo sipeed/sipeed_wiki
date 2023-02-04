@@ -96,6 +96,14 @@ Buy one: [Aliexpress](https://www.aliexpress.com/item/1005004970779483.html)
 
 <img src="./../../../zh/maix/m1s/assets/m1s_module/m1s_module_size.png" alt="m1s_module_size" width=35%>
 
+## Chip Cores
+
+Three cores in chip: M0，D0，LP。
+
+| M0                                                                         | D0                                                                         | LP                                                                         |
+| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| T-HEAD E907@320MHz | T-HEAD [C906](https://xrvm.com/cpu-details?id=4056751997003636736)@480MHz | T-HEAD [E902](https://xrvm.com/cpu-details?id=4056758197145440256)@160MHz |
+
 ## Pin map
 
 Visit Schematic for details：[Click me](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s/2_Schematic)

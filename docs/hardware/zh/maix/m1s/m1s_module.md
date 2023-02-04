@@ -28,7 +28,7 @@ Sipeed M1s 模组是基于[博流智能科技](http://www.bouffalolab.com/)的 B
 
 - 主芯片 BL808 RV64 480MHz + RV32 320MHz + NPU BLAI 100GOPS
 - 板载 SPI FLASH（默认 16MByte）
-- 支持2.4G WIFI / BT / BLE
+- 支持 2.4G WIFI / BT / BLE
 - 支持 IPEX 一代天线座子和 PCB 板载天线
 - 邮票孔引出所有 IO
 
@@ -102,6 +102,14 @@ Sipeed M1s 模组是基于[博流智能科技](http://www.bouffalolab.com/)的 B
 </table>
 
 <img src="./assets/m1s_module/m1s_module_size.png" alt="m1s_module_size" width=35%>
+
+## 主控核心
+
+三核异构 M0，D0，LP。
+
+| M0                                                                         | D0                                                                         | LP                                                                         |
+| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| 平头哥 [E907](https://occ.t-head.cn/product?id=3900588052540035072)@320MHz | 平头哥 [C906](https://occ.t-head.cn/product?id=3817197695983423488)@480MHz | 平头哥 [E902](https://occ.t-head.cn/product?id=3806460569050419200)@160MHz |
 
 ## 引脚分布
 
@@ -365,7 +373,7 @@ Sipeed M1s 模组是基于[博流智能科技](http://www.bouffalolab.com/)的 B
 
 ---
 
-- [SDK](https://gitee.com/sipeed/M1s_BL808_SDK) (gitee) 
+- [SDK](https://gitee.com/sipeed/M1s_BL808_SDK) (gitee)
 - [Examples](https://gitee.com/sipeed/M1s_BL808_example)（gitee）
 - [Linux](https://github.com/sipeed/M1s_BL808_Linux_SDK)（Github）
 - 交流 QQ 群：`592731168` 。[点我加群](https://jq.qq.com/?_wv=1027&k=uyKNhTeu)

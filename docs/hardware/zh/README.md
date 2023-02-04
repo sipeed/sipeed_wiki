@@ -19,30 +19,30 @@ desc: 矽速科技的开源软硬件 WIKI 资料站
 
 ## Maix Zero
 
-| 项目     | M0S                                | M0                                          |
-| :------- | :--------------------------------- | :------------------------------------------ |
-| 主控     | BL616                              | BL702                                       |
-| 核心     | RV32GCP@320MHz                     | RV32@144MHz                                 |
-| RAM      | 480KB                              | 132KB                                       |
-| 储存     | 内置 4MB Flash                     | 内置 192KB ROM, 512KB Flash                 |
-| 无线     | · Wifi<br>· 蓝牙<br>· Zigbee       | 蓝牙                                        |
-| 模型平台 | [MaixHub](https://www.maixhub.com) | [MaixHub](https://www.maixhub.com)          |
-| 尺寸     | 11(L)x10(W)mm                      |                                             |
-| 详情页   | [点我](./maixzero/m0s/m0s.md)      | [点我](./maixzero/sense/maix_zero_sense.md) |
-| 外观图  | <img src="./maixzero/m0s/assets/m0s/m0s_pin_map.png" alt="m0sense" width="360"> |<img src="./maixzero/sense/assets/m0sense_1.png" alt="m0sense" width="360">|
+| 项目     | M0S                                                                             | M0                                                                          |
+| :------- | :------------------------------------------------------------------------------ | :-------------------------------------------------------------------------- |
+| 主控     | BL616                                                                           | BL702                                                                       |
+| 核心     | RV32GCP@320MHz                                                                  | RV32@144MHz                                                                 |
+| RAM      | 480KB                                                                           | 132KB                                                                       |
+| 储存     | 内置 4MB Flash                                                                  | 内置 192KB ROM, 512KB Flash                                                 |
+| 无线     | · Wifi<br>· 蓝牙<br>· Zigbee                                                    | 蓝牙                                                                        |
+| 模型平台 | [MaixHub](https://www.maixhub.com)                                              | [MaixHub](https://www.maixhub.com)                                          |
+| 尺寸     | 11(L)x10(W)mm                                                                   |                                                                             |
+| 详情页   | [点我](./maixzero/m0s/m0s.md)                                                   | [点我](./maixzero/sense/maix_zero_sense.md)                                 |
+| 外观图   | <img src="./maixzero/m0s/assets/m0s/m0s_pin_map.png" alt="m0sense" width="360"> | <img src="./maixzero/sense/assets/m0sense_1.png" alt="m0sense" width="360"> |
 
 ## Maix-I
 
-| 项目     | M1/M1w                             | M1n                                | M1s                                                | M0                                          |
-| :------- | :--------------------------------- | :--------------------------------- | :------------------------------------------------- | :------------------------------------------ |
-| 主控     | K210                               | K210                               | BL808                                              | BL702                                       |
-| 核心     | RV64@400MHz \* 2                   | RV64@400MHz \* 2                   | RV64GCV@480MHz<br>RV32GCP@320MHz<br>RV32EMC@160MHz | RV32@144MHz                                 |
-| RAM      | 8MB                                | 8MB                                | 64MB                                               | 132KB                                       |
-| 无线     | M1w 支持 Wifi                      |                                    | · Wifi<br>· 蓝牙<br>· Zigbee                       | 蓝牙                                        |
-| 封装样式 | 邮票孔                             | 金手指                             | 邮票孔                                             |                                             |
-| 模型平台 | [MaixHub](https://www.maixhub.com) | [MaixHub](https://www.maixhub.com) | [MaixHub](https://www.maixhub.com)                 | [MaixHub](https://www.maixhub.com)          |
-| 尺寸     | 25.4(L)x25.4(W)mm                  | 25.0(L)x22.0(W)mm                  | 31.0(L)x18.0(W)mm                                  |                                             |
-| 详情页   | [点我](./maix/core_module.md)      | [点我](./maix/M1n.md)              | [点我](./maix/m1s/m1s_module.md)                   | [点我](./maixzero/sense/maix_zero_sense.md) |
+| 项目     | M1/M1w                             | M1n                                | M1s                                                |
+| :------- | :--------------------------------- | :--------------------------------- | :------------------------------------------------- |
+| 主控     | K210                               | K210                               | BL808                                              |
+| 核心     | RV64@400MHz \* 2                   | RV64@400MHz \* 2                   | RV64GCV@480MHz<br>RV32GCP@320MHz<br>RV32EMC@160MHz |
+| RAM      | 8MB                                | 8MB                                | 64MB                                               |
+| 无线     | M1w 支持 Wifi                      |                                    | · Wifi<br>· 蓝牙<br>· Zigbee                       |
+| 封装样式 | 邮票孔                             | 金手指                             | 邮票孔                                             |
+| 模型平台 | [MaixHub](https://www.maixhub.com) | [MaixHub](https://www.maixhub.com) | [MaixHub](https://www.maixhub.com)                 |
+| 尺寸     | 25.4(L)x25.4(W)mm                  | 25.0(L)x22.0(W)mm                  | 31.0(L)x18.0(W)mm                                  |
+| 详情页   | [点我](./maix/core_module.md)      | [点我](./maix/M1n.md)              | [点我](./maix/m1s/m1s_module.md)                   |
 
 ### Maix-I S
 

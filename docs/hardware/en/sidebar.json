@@ -199,13 +199,11 @@
                 "file": "maixIII/ax-pi/flash_system.md"
               },
               {
-                "label": "Python programming(Building)"
+                "label": "Python programming(Building)",
+                "file": "maixIII/ax-pi/python_api.ipynb"
               },
               {
                 "label": "C/C++ programming(Building)"
-              },
-              {
-                "label": "SDK development guide(Building)"
               },
               {
                 "label": "AI development guide",
