@@ -682,7 +682,8 @@ This is a demo for testing camera, visit [built in application](#built-in-applic
 - os04a10（Night enhanced camera）
 
 ```bash
-sample_vin_vo -c 2 -e 1 -s 0 -v dsi0@480x854@60
+sample_vin_vo -c 2 -e 1 -s 0 -v dsi0@480x854@60 # For gc4653 camera
+# sample_vin_vo -c 0 -e 1 -s 0 -v dsi0@480x854@60 # For os04a10 camera
 ```
 
 ![video](./../../../zh/maixIII/assets/video.jpg)

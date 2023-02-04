@@ -265,6 +265,7 @@ gcc -I libs/uf2_format misc/utils/uf2_conv.c -o uf2_convert # 编译出固件转
 
 1. 第一次搭建环境最好自己编译一份 uf2 文件转换工具
 2. 每次新开终端编译记得配置一下 [编译工具链路径](#配置编译工具链路径)
+3. SDK 编译失败时确定自己是按照 [编译 demo](#编译-demo) 里面所说的使用 `./build.sh m0sense_apps/blink/blink_baremetal` 命令来执行编译的，而不是 `./build.sh m0sense_apps/blink/blink_baremetal/` （注意结尾处的 `/` ）命令
 
 ## 烧录 bin 文件
 

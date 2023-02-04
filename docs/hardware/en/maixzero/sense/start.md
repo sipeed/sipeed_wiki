@@ -264,6 +264,7 @@ The demo of uf2 format which can be burned to M0sense by u-disk is in the uf2_de
 
 1. Compiling your own firmware conversion application if it's the first time compiling.
 2. Everytime compiling the firmware, make sure you have [set the toolcahin path](#set-toolcahin-path)
+3. If failing to compile SDK. make sure the compiling command is `./build.sh m0sense_apps/blink/blink_baremetal`, not `./build.sh m0sense_apps/blink/blink_baremetal/` (Pay attention to the `/` in the end)
 
 ## Burn bin file
 
