@@ -8,7 +8,7 @@ update:
     author: lyx
     content:
       - 初次编写文档
-  - date: 2023-01-30
+  - date: 2023-02-03
     version: v0.2
     author: lyx
     content:

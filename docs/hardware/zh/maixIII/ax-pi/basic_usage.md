@@ -8,20 +8,22 @@ title: Maix-III AXera-Pi 系统基础使用
 ## 系统登录
 ### 登录工具
 
-.. details::点此展开查看 MobaXterm 介绍
+这里介绍相关使用的终端登录工具，分别是：`MobaXterm`、`vscode remote`。
 
-    MobaXterm 是在 Windows 下使用的全能终端管理软件，而 Linux 系统可以使用 ssh 远程被操作，使用 MobaXterm 进行 ssh 登陆板子直接编辑板内的代码或执行命令，也能方便的拖拽文件上传或下载到电脑里，类似的工具还有 vscode remote 远程登录 linux 服务器。
+- **MobaXterm 介绍**
 
-    ![mobaxterm_ssh](./../assets/ssh.jpg)
+MobaXterm 是在 Windows 下使用的全能终端管理软件，而 Linux 系统可以使用 ssh 远程被操作，使用 MobaXterm 进行 ssh 登陆板子直接编辑板内的代码或执行命令，也能方便的拖拽文件上传或下载到电脑里，类似的工具还有 vscode remote 远程登录 linux 服务器。
+
+![mobaxterm_ssh](./../assets/ssh.jpg)
 
 下载链接：[点击跳转](https://mobaxterm.mobatek.net/download.html) 分别付费与免费双版本，下载免费版本即可。
 使用教程：[如何使用 MobaXterm](https://wiki.sipeed.com/hardware/zh/maixII/M2/tools/mobaxterm.html?highlight=ssh)
 
-.. details::点此展开查看 vscode remote 介绍
+- **vscode remote 介绍**
 
-    vscode remote 是 vscode 的一个插件，可以直接连接到远程的 linux 服务器，然后在本地编辑代码，同步到远程服务器上编译运行，这里以一台 Windows 10 的桌面计算机系统为例，只要能安装 vscode 编辑器软件计算机都行。
+vscode remote 是 vscode 的一个插件，可以直接连接到远程的 linux 服务器，然后在本地编辑代码，同步到远程服务器上编译运行，这里以一台 Windows 10 的桌面计算机系统为例，只要能安装 vscode 编辑器软件计算机都行。
 
-    ![vscode](./../assets/vscode.jpg)
+![vscode](./../assets/vscode.jpg)
 
 下载连接：[点击跳转](https://code.visualstudio.com/)
 连接教程：[如何使用 vscode remote 连接板子](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/dev_prepare.html?highlight=ssh#vscode-remote)

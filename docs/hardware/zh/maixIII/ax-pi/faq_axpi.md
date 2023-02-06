@@ -83,7 +83,7 @@ A: 运行一下`python3 -c "import os, binascii; os.system('sed -i \'/iface eth0
 
 **如果遇到 wlan0 不显示的话请参考以下解决方法：**
 
-1. 根据下图确定 WiFi 模块的版本来替换 `/boot` 目录下的相对应的驱动，更新内核驱动可以用 `cp /boot/kernel.img.rtl8723bs /boot/kernel.img`。
+1. 根据下图确定 WiFi 模块的版本来替换 `/boot` 目录下的相对应的驱动，更新内核驱动可以用 `cp /boot/kernel.img.rtl8723bs /boot/kernel.img` 更新后请重启板卡。
 2. 可能是运输导致核心板与底板衔接松了，重新插拔装紧核心板即可。
 3. 尝试以上方法后仍不显示 wlan0 的话，重新烧录镜像（未知系统问题、极少见）。
 
@@ -122,7 +122,7 @@ A: 运行一下`python3 -c "import os, binascii; os.system('sed -i \'/iface eth0
       <img src="./../assets/faq_dth.jpg" width=48%>
 </html>
 
-新旧版的屏幕设备树不同，根据上图日期区分并替换 `/boot` 目录下对应的 `dtb` 设备树驱动即可，请及时更换否则会导致烧屏，更新设备树可以用 `cp /boot/dtb.img.lcd20220830 /boot/dtb.img`。
+新旧版的屏幕设备树不同，根据上图日期区分并替换 `/boot` 目录下对应的 `dtb` 设备树驱动即可，请及时更换否则会导致烧屏，使用 `cp /boot/dtb.img.lcd20220830 /boot/dtb.img` 进行设备树替换后重启。
 
 ## Q：运行 opencv 相关后报错：can't open camera by index.
 
