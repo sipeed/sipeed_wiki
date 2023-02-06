@@ -89,7 +89,7 @@ Maix-III AXera-Pi 开发板的 Linux debian11 系统默认使用 root 用户登�
 
     ![otg](./../assets/otg.jpg)
 
-系统默认开启了 usb rndis 虚拟以太网，用户可通过板载 USB OTG 口连接 usb0 网卡的 IP `192.168.233.` 进行 ssh 登录操作。使用 ssh 登录前需要先登陆板子通过 `ifconfig -a` 命令得到板子 IP 后再使用 IP 进行 ssh 登录上 Linux 系统，下图的 IP 地址（除 `127.0.0.1` 外）都能登陆板子。
+系统默认开启了 usb rndis 虚拟以太网，用户可通过板载 USB OTG 口连接 usb0 网卡的 IP `192.168.233.1` 进行 ssh 登录操作。使用 ssh 登录前需要先登陆板子通过 `ifconfig -a` 命令得到板子 IP 后再使用 IP 进行 ssh 登录上 Linux 系统，下图的 IP 地址（除 `127.0.0.1` 外）都能登陆板子。
 
 ![ifconfig](./../assets/ifconfig.jpg)
 
