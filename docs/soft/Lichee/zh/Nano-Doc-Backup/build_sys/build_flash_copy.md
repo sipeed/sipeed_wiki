@@ -100,9 +100,9 @@ make ARCH=arm f1c100s_nano_linux_defconfig
 
 make ARCH=arm CROSS_COMPILE=arm-linux-gnueabi- -j8
 
-make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- -j16 INSTALL_MOD_PATH=out modules
+make ARCH=arm CROSS_COMPILE=arm-linux-gnueabi- -j16 INSTALL_MOD_PATH=out modules
 
-make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- -j16 INSTALL_MOD_PATH=out modules_install
+make ARCH=arm CROSS_COMPILE=arm-linux-gnueabi- -j16 INSTALL_MOD_PATH=out modules_install
 ```
 ## 编译Buildroot
 
