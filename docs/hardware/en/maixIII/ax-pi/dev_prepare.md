@@ -65,6 +65,10 @@ Windows user can use Mobaxterm to transfer file between computer and AXera-Pi vi
 
 Here we tell how to compile application on AXera-Pi.
 
+Because serial port connector is slow and can be only opened by only one application at one time, we usually login to AXera-Pi by SSH, which we can open many terminals and enter different commands in dirrerent ssh terminal at the same time.
+
+![ssh_mutiple_terminals](./assets/dev_prepare/ssh_mutiple_terminals.jpg)
+
 ### Vscode remote
 
 We have told how to login to AXera-Pi via SSH with vscode, login to AXera-Pi by Vscode first, make sure not install [C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) extension of vscode on AXera-Pi, this extension may close SSH connnection.
@@ -96,51 +100,52 @@ Click `Open Folder` to see your AXera-Pi directory structure.
 
 ![transfer_file_vscode](./assets/flash_system/transfer_file_vscode.jpg)
 
-接着就可以在 vscode 里编译运行 linux 系统的程序了，幸运的是在 debian 系统上可以直接通过 apt 得到本机的编译工具链，而不用交叉编译就可以直接编译运行程序，这些都已经提前准备好了，对用户来说可以节省不少搭建内部开发环境的时间。
+Use command <code>Ctrl + Shift + `</code> to new a terminal, run following command to compile <code>libmiax</code> application.
 
-所以可以直接在板子里编译运行 libmaix 项目：
+Example compiling command:
 
 ```bash
-cd /home/libmaix/examples/axpi/
-python3 project.py build
-fbon
-./dist/start_app.sh
+cd /home/libmaix/examples/axpi/ # Open source code directory
+python3 project.py build # Compile the project
+fbon # Enable screen control
+./dist/start_app.sh # Run compiled out application
 ```
 
-> 按 ctrl + c 中断停止程序直到退出。
+![compiling_example_code](./assets/dev_prepare/compiling_example_code.jpg)
 
-<!-- 附图： -->
+Running the commands above, screen displays camera content, use `Ctrl + c` to stop this application if you want to do other task.
 
-### mobaxterm
+![compiling_stop_example](./assets/dev_prepare/compiling_stop_example.jpg)
 
-在 Windows 上可以用 mobaxterm 这样的工具连接到板子进行 linux 服务器管理，但编译还是需要在 linux 系统上进行。
+### Mobaxterm
 
-![mobaxterm_ssh](./../assets/ssh.jpg)
+Using Mobaxtern to login AXera-Pi is a good idea for windows user.
 
-## 交叉编译上传程序再运行
+Complie libmaix example on AXera-Pi:
 
-在这之前需要有本地编译的认知，然后发现本地内存和性能不能满足自身开发需求的时候，就要准备交叉编译程序了，此时程序是在另一台更强的 x86 linux 系统上完成的，并且编译出来的程序需要拷贝到板子里运行。
+![mobaxterm_compile_application](./assets/dev_prepare/mobaxterm_compile_application.jpg)
 
-> **[20221010 现提供一种借助 docker qemu arm 虚拟机来实现在 x86 机器上实现本地编译 arm 程序的方法，这种方法既提高了编译效率又不用配环境的方法值得一试！](https://www.cnblogs.com/juwan/p/16769237.html)**
+## Cross compiling on computer
 
-首先得有一台 linux 系统，如 ubuntu20.04 这样的桌面计算机，接着和上面一样，也可以在这台计算机上安装 vscode remote 或 idea clion 这类开发工具直接连接到板子里，这可以方便你编辑代码或传输文件。
+We compile out the application for AXera-Pi on our computer first. 
 
-想要在 x86 的机器上编译出 arm 架构的程序，想要先配置专用的交叉编译工具链，例如这里使用的是 arm-linux-gnueabihf 这个工具链，这个编译链可以直接通过 apt 安装。
+AXera-Pi is based on Cortex-A7 arm architecture, while normally our computer is based on x86-64 architecture, these two different architecture use different instruction set.
+
+The binary executable program normally can not be executed on the same OS if the cpu architecture is not the same because different architecture means different instruction set.
+
+We can install the compiler for arm architecture on our computer, compiled by this compiler, we get the program which can execute on arm architecture device like AXera-Pi.
+
+Here we take ubuntu as the OS, on linux it's easy to install the compiler, while on Windows it may take a long time to fine the suitable compiler.
+
+Install compiler on our computer for AXera-Pi.
 
 - `sudo apt install gcc-arm-linux-gnueabihf`
 
-安装完成后，可以在 /usr/bin 目录下找到 `arm-linux-gnueabihf-gcc` 这个交叉编译工具，这个工具可以用来编译 linux 系统的程序。
+Finish installing the `gcc-arm-linux-gnueabihf`, run command `/usr/bin/arm-linux-gnueabihf-gcc -v` to check if succeed installing.
 
-```bash
-juwan@juwan-n85-dls:~$ /usr/bin/arm-linux-gnueabihf-gcc -v
-Using built-in specs.
-COLLECT_GCC=arm-linux-gnueabihf-gcc
-COLLECT_LTO_WRAPPER=/usr/lib/gcc-cross/arm-linux-gnueabihf/9/lto-wrapper
-Target: arm-linux-gnueabihf
-Configured with: ../src/configure -v --with-pkgversion='Ubuntu 9.4.0-1ubuntu1~20.04.1' --with-bugurl=file:///usr/share/doc/gcc-9/README.Bugs --enable-languages=c,ada,c++,go,d,fortran,objc,obj-c++,gm2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-9 --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --with-sysroot=/ --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-libitm --disable-libquadmath --disable-libquadmath-support --enable-plugin --enable-default-pie --with-system-zlib --without-target-system-zlib --enable-libpth-m2 --enable-multiarch --enable-multilib --disable-sjlj-exceptions --with-arch=armv7-a --with-fpu=vfpv3-d16 --with-float=hard --with-mode=thumb --disable-werror --enable-multilib --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=arm-linux-gnueabihf --program-prefix=arm-linux-gnueabihf- --includedir=/usr/arm-linux-gnueabihf/include
-Thread model: posix
-gcc version 9.4.0 (Ubuntu 9.4.0-1ubuntu1~20.04.1)
-```
+![gcc_arm_linux_gnueabihf_install_check](./assets/dev_prepare/gcc_arm_linux_gnueabihf_install_check.jpg)
+
+As the log above, we succeed installing `gcc-arm-linux-gnueabihf`. Then we need get libmaix source code on our computer, here we get the source from github
 
 
 
@@ -151,35 +156,35 @@ gcc version 9.4.0 (Ubuntu 9.4.0-1ubuntu1~20.04.1)
 除了修改交叉编译链，如果出现编译失败，还需要修改编译配置中所需要的依赖文件或头文件的路径：
 
 ```
-        list(APPEND ADD_INCLUDE "lib/arch/axpi/joint"
-                                "lib/arch/axpi/opt/include"
-                                "lib/arch/axpi/opt/include/opencv4"
-        )
-        "/lib/aarch64-linux-gnu/libm.so"
-        "/lib/aarch64-linux-gnu/libpthread.so"
-        "/lib/aarch64-linux-gnu/libopencv_videoio.so"
-        "/lib/aarch64-linux-gnu/libopencv_highgui.so"
-        "/lib/aarch64-linux-gnu/libopencv_imgcodecs.so"
-        "/lib/aarch64-linux-gnu/libopencv_imgproc.so"
-        "/lib/aarch64-linux-gnu/libopencv_core.so"
-        "/lib/aarch64-linux-gnu/libopencv_freetype.so"
+list(APPEND ADD_INCLUDE "lib/arch/axpi/joint"
+                        "lib/arch/axpi/opt/include"
+                        "lib/arch/axpi/opt/include/opencv4"
+)
+"/lib/aarch64-linux-gnu/libm.so"
+"/lib/aarch64-linux-gnu/libpthread.so"
+"/lib/aarch64-linux-gnu/libopencv_videoio.so"
+"/lib/aarch64-linux-gnu/libopencv_highgui.so"
+"/lib/aarch64-linux-gnu/libopencv_imgcodecs.so"
+"/lib/aarch64-linux-gnu/libopencv_imgproc.so"
+"/lib/aarch64-linux-gnu/libopencv_core.so"
+"/lib/aarch64-linux-gnu/libopencv_freetype.so"
 ```
 
 当换了编译链后也要修改到其他路径下的链接库：
 
 ```
-        list(APPEND ADD_INCLUDE "lib/arch/axpi/joint"
-                                "/opt/include"
-                                "/usr//local/include/opencv4"
-        )
-        "/lib/arm-linux-gnueabihf/libm.so"
-        "/lib/arm-linux-gnueabihf/libpthread.so"
-        "/lib/arm-linux-gnueabihf/libopencv_videoio.so"
-        "/lib/arm-linux-gnueabihf/libopencv_highgui.so"
-        "/lib/arm-linux-gnueabihf/libopencv_imgcodecs.so"
-        "/lib/arm-linux-gnueabihf/libopencv_imgproc.so"
-        "/lib/arm-linux-gnueabihf/libopencv_core.so"
-        "/lib/arm-linux-gnueabihf/libopencv_freetype.so"
+list(APPEND ADD_INCLUDE "lib/arch/axpi/joint"
+                        "/opt/include"
+                        "/usr//local/include/opencv4"
+)
+"/lib/arm-linux-gnueabihf/libm.so"
+"/lib/arm-linux-gnueabihf/libpthread.so"
+"/lib/arm-linux-gnueabihf/libopencv_videoio.so"
+"/lib/arm-linux-gnueabihf/libopencv_highgui.so"
+"/lib/arm-linux-gnueabihf/libopencv_imgcodecs.so"
+"/lib/arm-linux-gnueabihf/libopencv_imgproc.so"
+"/lib/arm-linux-gnueabihf/libopencv_core.so"
+"/lib/arm-linux-gnueabihf/libopencv_freetype.so"
 ```
 
 简而言之，更换了桌面系统和编译链，那源码中对应的一些依赖文件肯定也会发生改变，这需要看所用的 sdk 是如何解决这个问题的，通常来说只需要换交叉编译链和修改链接目录即可。
@@ -229,9 +234,6 @@ SDK 源码在 [libmaix](https://github.com/sipeed/libmaix)， 需要使用 git �
 ```bash
 git clone https://github.com/sipeed/libmaix.git --recursive
 ```
->! 注意这里`--recursive` 参数是必须的，用来下载仓库里面的子模块，如果没有这个参数，代码会不完整，导致编译出错。
-
-> 中国国内可能下载速度较慢，可以多取消重试几次，可能会遇到速度快的节点，当然最好还是通过设置代理来加速下载。
 
 另外， AI 模型及例程在 [MaixHub 模型库](https://maixhub.com/model/zoo) 可以找到， 以及 [AXERA-TECH/ax-samples](https://github.com/AXERA-TECH/ax-samples) 仓库。
 

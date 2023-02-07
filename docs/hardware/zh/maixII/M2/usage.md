@@ -6,6 +6,8 @@ desc: maixpy  MaixII M2dock 上手使用
 
 > 没有 Linux 系统使用基础的同学，不推荐以下的使用方式
 
+阅读 [MaixII-Dock Maixpy3](https://wiki.sipeed.com/soft/maixpy3/zh/tools/0.MaixII-Dock.html) 来查看更多用法
+
 ## 认识 openwrt 系统
 
 > 全志 V831 使用 Tina Linux 系统，移植自 [OpenWrt](https://openwrt.org) 。
