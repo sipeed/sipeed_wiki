@@ -14,6 +14,7 @@
         },
         {
             "label": "入门必看指南",
+            "url": "https://wiki.sipeed.com/news/MaixPy/K210_usage.html",
             "items": [
                 {
                     "label": "如何阅读本文档（重要）",

@@ -295,7 +295,7 @@ nmcli device wifi connect Sipeed_Guest password qwert123
   <img src="./../assets/nmtui_two.png" width=45%>
 </html>
 
-#### 启动 nmtui-connect 图形化联网
+#### nmtui-connect 图形化联网详解
 
 系统已预置 NetworkManager 在 `nano /etc/NetworkManager/NetworkManager.conf` 里的 `managed=false` 修改成 `managed=true` 和注释掉 `/etc/network/interfaces` 里的有关于 `wlan0` 的配置（可以打开 `allow-hotplug wlan0` ）后「拔线断电重启」即可使用 `nmtui-connect` 进行联网，但原来的 `wpa_supplicant.conf` 里的配置会失效。
 
@@ -360,7 +360,7 @@ IN-USE  BSSID              SSID                 MODE   CHAN  RATE        SIGNAL>
 lines 1-23
 ```
 
-- **打开 WIFI AP 热点模式（需要更换成 rtl8189fs wifi 模组）**
+#### 如何打开 WIFI AP 热点模式（需替换 rtl8189fs wifi 模组）
 
 基于 nmtui 联网成功后改用 nmcli 命令。
 
@@ -368,7 +368,7 @@ lines 1-23
 
 > 目前 rtl8723bs WIFI 能打开，但连上会重启板子，网卡驱动问题暂时不修，更换成 rtl8189fs 即可正常使用。
 
-- **如何修改连接的 WIFI 账号密码（已过时）**
+#### 如何修改连接的 WIFI 账号密码（已过时）
 
 默认 WIFI 账号密码配置存放在 `/boot/wpa_supplicant.conf` 里，测试过并支持 Android 手机开放的 WPA-PSK2 热点，配置修改后会在重启后生效（**建议用 nmtui-connect 进行配置连接**)。
 
@@ -385,7 +385,7 @@ network={
 ```
 
 
-- **（过时）如何扫描 WIFI 热点**
+#### 如何扫描 WIFI 热点（已过时）
 
 这需要了解 iwconfig 和 iwlist 命令去管理 WIFI 网卡，例如 WIFI 扫描方法 `iwlist wlan0 scanning`，由于 iwconfig 只支持无密码和 WEP 认证的热点，所以现已不使用这个命令，仅供简单的查询热点或测试 WIFI 的好与坏。
 
