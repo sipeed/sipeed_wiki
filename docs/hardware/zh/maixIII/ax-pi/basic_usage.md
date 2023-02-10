@@ -8,7 +8,7 @@ title: Maix-III AXera-Pi 系统基础使用
 ## 系统登录
 ### 登录工具
 
-这里介绍相关使用的终端登录工具，分别是：`MobaXterm`、`vscode remote`。
+这里介绍相关使用的终端登录工具，分别是：`MobaXterm`、`electerm`、`vscode remote`。
 
 - **MobaXterm 介绍**
 
@@ -18,6 +18,14 @@ MobaXterm 是在 Windows 下使用的全能终端管理软件，而 Linux 系统
 
 下载链接：[点击跳转](https://mobaxterm.mobatek.net/download.html) 分别付费与免费双版本，下载免费版本即可。
 使用教程：[如何使用 MobaXterm](https://wiki.sipeed.com/hardware/zh/maixII/M2/tools/mobaxterm.html?highlight=ssh)
+
+- **electerm 介绍**
+
+electerm 是一个基于 `electron/ssh2/node-pty/xterm/antd/useProxy` 等开源组件开发，支持跨平台的 `Terminal/SSH/SFTP` 客户端工具，同时支持 `Linux、MacOS、Windows` 等多种操作系统，它既可以作为终端工具来使用，还能传输文件并自带中文界面，更加满足用户日常对终端的需求。
+
+![electerm](./../assets/electerm.jpg)
+
+下载链接：[点击跳转](https://electerm.html5beta.com/) 根据操作系统来下载相对应的版本即可。
 
 - **vscode remote 介绍**
 
@@ -84,6 +92,8 @@ Maix-III AXera-Pi 开发板的 Linux debian11 系统默认使用 root 用户登�
     在厂商列表中选择 **Microsoft**，右侧列表中选择 **USB RNDIS Adapter**。
 
     ![rndis_3](./../assets/rndis_3.jpg)
+
+    点击下一步等待安装即可。
 
 .. details::点此展开查看 USB OTG 接口示意图
 
@@ -280,6 +290,9 @@ python3 -c "import os, binascii; os.system('sed -i \'/iface eth0 inet dhcp/ahwad
 
 ```bash
 nmcli device wifi connect Sipeed_Guest password qwert123
+# 示例
+nmcli device wifi connect AXera-Pi password 11111111
+# 改动 WiFi 名称以及 pssword 密码
 ```
 
 .. details::点击查看修改示例图
@@ -364,7 +377,9 @@ lines 1-23
 
 基于 nmtui 联网成功后改用 nmcli 命令。
 
-- `nmtui device wifi hotspot ifname wlan0 con-name MyHostspot ssid MyHostspotSSID password 12345678` 即可创建 MyHostspotSSID 的 ap 热点。
+- `nmcli device wifi hotspot ifname wlan0 con-name MyHostspot ssid MyHostspotSSID password 12345678` 即可创建 MyHostspotSSID 的 ap 热点。
+
+![nmcli_ssid](./../assets/nmcli_ssid.png)
 
 > 目前 rtl8723bs WIFI 能打开，但连上会重启板子，网卡驱动问题暂时不修，更换成 rtl8189fs 即可正常使用。
 
@@ -1737,8 +1752,6 @@ sample_rtsp_ivps_joint_rtsp_vo  sample_vin_ivps_joint_venc_rtsp_vo  sample_vin_i
 
 .. details::点击查看终端示例图
     ![sample](./../assets/sample.jpg)
-
-
 
 
 

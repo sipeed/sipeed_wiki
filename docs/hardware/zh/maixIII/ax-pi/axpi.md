@@ -190,6 +190,7 @@ title: MAIX-III AXera-Pi 是什么？
 - [MAIX-III AXera-Pi 系列文章（3）：Debian 系统 & 开箱案例](https://aijishu.com/a/1060000000374902)
 - [MAIX-III AXera-Pi 系列文章（4）：开箱 & 产品外观](https://aijishu.com/a/1060000000378968)
 - [MAIX-III AXera-Pi 系列文章（5）：开箱 & 烧录启动 Linux 系统](https://aijishu.com/a/1060000000380513)
+- [MAIX-III AXera-Pi 系列文章（6）：开箱 & 登录 Linux 系统](https://aijishu.com/a/1060000000383970)
 
 产品相关的新闻内容有：
 
