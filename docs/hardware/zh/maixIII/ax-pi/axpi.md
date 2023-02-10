@@ -373,12 +373,14 @@ AX-Pipeline 由爱芯主导开发。该项目基于 AXera-Pi 展示 ISP、图像
 | 其他资源  | 1x用户按键，3x系统按键，1xRTC时钟，2xLED |
 | 对外接口  | 引出CJTAG，可自行连接相应调试器，引出2x12排针，4个M2.5螺丝定位孔 |
 
-[硬件资源汇总](https://dl.sipeed.com/shareURL/MaixIII/AXera)
+[硬件资源汇总链接](https://dl.sipeed.com/shareURL/MaixIII/AXera)
 
+- [产品规格书](https://dl.sipeed.com/shareURL/MaixIII/AXera/01_Specification)
 - [原理图](https://dl.sipeed.com/shareURL/MaixIII/AXera/02_Schematic)
 - [点位图](https://dl.sipeed.com/shareURL/MaixIII/AXera/03_Bit_number_map)
 - [模型文件](https://dl.sipeed.com/shareURL/MaixIII/AXera/05_3D_file)
 - [尺寸图](https://dl.sipeed.com/shareURL/MaixIII/AXera/04_Dimensional_drawing)
+- [GC4653 摄像头参考使用手册](https://dl.sipeed.com/shareURL/MaixIII/AXera/07_Chip_manual)
 
 ### 摄像头一览
 

@@ -440,12 +440,14 @@ AX-Pipeline is provided by Axera. With m3axpi, this project is used for pepole t
 </tbody>
 </table>
 
-[Summary of Hardware imformations](https://dl.sipeed.com/shareURL/MaixIII/AXera)
+[Hardware summary informations](https://dl.sipeed.com/shareURL/MaixIII/AXera)
 
+- [Datasheet](https://dl.sipeed.com/shareURL/MaixIII/AXera/01_Specification)
 - [Schematic](https://dl.sipeed.com/shareURL/MaixIII/AXera/02_Schematic)
 - [Bit map](https://dl.sipeed.com/shareURL/MaixIII/AXera/03_Bit_number_map)
 - [3D file](https://dl.sipeed.com/shareURL/MaixIII/AXera/05_3D_file)
 - [Dimension](https://dl.sipeed.com/shareURL/MaixIII/AXera/04_Dimensional_drawing)
+- [GC4653 Camera DS](https://dl.sipeed.com/shareURL/MaixIII/AXera/07_Chip_manual)
 
 ### Camera comparison
 

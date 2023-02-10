@@ -129,63 +129,65 @@ Complie libmaix example on AXera-Pi:
 
 We compile out the application for AXera-Pi on our computer first. 
 
-AXera-Pi is based on Cortex-A7 arm architecture, while normally our computer is based on x86-64 architecture, these two different architecture use different instruction set.
+AXera-Pi is based on Cortex-A7 arm architecture, while normally our computer is based on x86-64 architecture, these two different architectures are based on different instruction set.
 
 The binary executable program normally can not be executed on the same OS if the cpu architecture is not the same because different architecture means different instruction set.
 
 We can install the compiler for arm architecture on our computer, compiled by this compiler, we get the program which can execute on arm architecture device like AXera-Pi.
 
-Here we take ubuntu as the OS, on linux it's easy to install the compiler, while on Windows it may take a long time to fine the suitable compiler.
+Here we compile the program based on ubuntu, then send the compiled program to AXera-Pi and run on it.
 
-Install compiler on our computer for AXera-Pi.
+Install the compiler for AXera-Pi first.
 
-- `sudo apt install gcc-arm-linux-gnueabihf`
-
-Finish installing the `gcc-arm-linux-gnueabihf`, run command `/usr/bin/arm-linux-gnueabihf-gcc -v` to check if succeed installing.
-
-![gcc_arm_linux_gnueabihf_install_check](./assets/dev_prepare/gcc_arm_linux_gnueabihf_install_check.jpg)
-
-As the log above, we succeed installing `gcc-arm-linux-gnueabihf`. Then we need get libmaix source code on our computer, here we get the source from github
-
-
-
-本地与交叉编译唯一不同的地方就是需要把将编译出来的程序，上传到板子运行，而不能直接运行程序。
-
-以 libmaix 这个项目为例：在 x86 的机器上编译时需要修改本机的交叉编译链，如：python3 project.py --board=axpi --toolchain /usr/bin --toolchain-prefix arm-linux-gnueabihf- config 之中的编译链可能会发生改变，这里需要根据你的实际情况进行修改，比如本机环境下可能有多个编译链，但一般来说是不需要修改的。
-
-除了修改交叉编译链，如果出现编译失败，还需要修改编译配置中所需要的依赖文件或头文件的路径：
-
-```
-list(APPEND ADD_INCLUDE "lib/arch/axpi/joint"
-                        "lib/arch/axpi/opt/include"
-                        "lib/arch/axpi/opt/include/opencv4"
-)
-"/lib/aarch64-linux-gnu/libm.so"
-"/lib/aarch64-linux-gnu/libpthread.so"
-"/lib/aarch64-linux-gnu/libopencv_videoio.so"
-"/lib/aarch64-linux-gnu/libopencv_highgui.so"
-"/lib/aarch64-linux-gnu/libopencv_imgcodecs.so"
-"/lib/aarch64-linux-gnu/libopencv_imgproc.so"
-"/lib/aarch64-linux-gnu/libopencv_core.so"
-"/lib/aarch64-linux-gnu/libopencv_freetype.so"
+```bash
+sudo apt install gcc-arm-linux-gnueabihf
 ```
 
-当换了编译链后也要修改到其他路径下的链接库：
+Run following command to check your installation.
 
+```bash
+arm-linux-gnueabihf-gcc
 ```
-list(APPEND ADD_INCLUDE "lib/arch/axpi/joint"
-                        "/opt/include"
-                        "/usr//local/include/opencv4"
-)
-"/lib/arm-linux-gnueabihf/libm.so"
-"/lib/arm-linux-gnueabihf/libpthread.so"
-"/lib/arm-linux-gnueabihf/libopencv_videoio.so"
-"/lib/arm-linux-gnueabihf/libopencv_highgui.so"
-"/lib/arm-linux-gnueabihf/libopencv_imgcodecs.so"
-"/lib/arm-linux-gnueabihf/libopencv_imgproc.so"
-"/lib/arm-linux-gnueabihf/libopencv_core.so"
-"/lib/arm-linux-gnueabihf/libopencv_freetype.so"
+
+The result should be as following.
+
+![arm_linux_gxx_file_not_found](./assets/dev_prepare/arm_linux_gxx_file_not_found.jpg)
+
+New a C file named `cross_test.c`, and compile it by `arm-linux-gnueabihf-gcc`. The content of the C file like this:
+
+```c
+#include <stdio.h>
+int main(){
+    printf("Hello, AxPi!\n");
+    return 0;
+}
 ```
+
+Then use following command to compile the C file.
+
+```bash
+arm-linux-gnueabihf-gcc -o test cross_test.c -static
+```
+
+Then we get the executable file named `test` on our computer, and if we run `./test`, it says `Exec format error`. Check file format of `test`, we can see it's `ELF 32-bit LSB executable, ARM, EABI5`
+
+![test_program_example](./assets/dev_prepare/test_program_example.jpg)
+
+So it can only be executed on Axera-Pi, sending the `test` executable file to AxPi, and on Axera-Pi this program works well.
+
+```bash
+csp test root@192.168.233.1:/home
+```
+
+By this command, we succeed upload the `test` executable file to Axera-Pi via rndis protocol by `scp` commmand. And note that the password requirement of running command above is `root`.
+
+Then we can run `test` executable file on Axera-Pi.
+
+![hello_axpi](./assets/dev_prepare/hello_axpi.jpg)
+
+We finish cross-compile.
+
+
 
 简而言之，更换了桌面系统和编译链，那源码中对应的一些依赖文件肯定也会发生改变，这需要看所用的 sdk 是如何解决这个问题的，通常来说只需要换交叉编译链和修改链接目录即可。
 
