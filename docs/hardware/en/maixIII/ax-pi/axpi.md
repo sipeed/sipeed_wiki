@@ -274,7 +274,7 @@ We provide source code, api documents, sdk usages, visit [sdk usage](https://wik
 
 ##### [ax-sample](https://github.com/AXERA-TECH/ax-samples)
 
-Here are typical AI models provided by Axera for development, evaluation and verification, those who are good at AI development or want to test these models can have a try, and there models are not involved with peripherals.
+Here are typical AI models provided by Axera for development, evaluation and verification, those who are good at AI development or want to test these models can have a try, and these are not involved with peripherals.
 
 1. [examples](https://github.com/AXERA-TECH/ax-samples/tree/main/examples)
 2. [PP-YOLOv3](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/README.md#yolov3paddle)
@@ -283,7 +283,7 @@ Here are typical AI models provided by Axera for development, evaluation and ver
 
 ##### [libmaix](https://github.com/sipeed/libmaix)
 
-A unified embedded development environment come by SIPEED, aimed to camera, screen, vision, image processing and pipelines-related deployment routines, is suitable for those who want to learn embedded Linux.
+A unified embedded development environment come by SIPEED, contains camera, screen, vision, image processing and pipelines-related deployment examples, is suitable for those who want to learn embedded Linux.
 
 1. [Test screen display](https://github.com/sipeed/libmaix/tree/release/examples/display)
 2. [Screen displays camera content](https://github.com/sipeed/libmaix/tree/release/examples/axpi)
@@ -299,27 +299,13 @@ BSP development package for business, provided by Axera. It's the original devel
 
 ##### [ax-pipeline](https://github.com/AXERA-TECH/ax-pipeline)
 
-AX-Pipeline is provided by Axera. With m3axpi, this project is used for pepole to know the usages of ISP, image processing, NPU, codec and display, which is convenient for community developers to quickly evaluate and develop their own multimedia applications.
+AX-Pipeline is provided by Axera. With m3axpi, this project is used for pepole to know the usages of ISP, image processing, NPU, codec and display, which is convenient for developers to quickly evaluate and develop their own multimedia applications.
 
 1. [Quick compilation](https://github.com/AXERA-TECH/ax-pipeline/blob/main/docs/compile.md) Simple cross-platform compilation based on cmake.
 2. [How to replace into my own trained yolov5 model](https://github.com/AXERA-TECH/ax-pipeline/blob/main/docs/how_to_deploy_custom_yolov5_model.md)
 3. [How to deploy my other models](https://github.com/AXERA-TECH/ax-pipeline/blob/main/docs/how_to_deploy_custom_model.md)
 4. [How to adjust the image orientation](https://github.com/AXERA-TECH/ax-pipeline/blob/main/docs/how_to_adjust_image_orientation.md)
 5. [ModelZoo](https://github.com/AXERA-TECH/ax-pipeline/blob/main/docs/modelzoo.md) descriptions for models which are supported or to be supported
-
-<!-- ## 社区资源
-
-以下是由社区开发者贡献的内容，欢迎你也来贡献喔！！！（直接丢群里都可以喔！） -->
-
-<!-- - [爱芯派-AI 微光全彩夜视-开箱体验](https://zhuanlan.zhihu.com/p/571233089)
-- [爱芯 AX620A NPU 初体验](https://neucrack.com/p/440)
-- [爱芯元智 AX620A 部署 yolov5 6.0 模型实录](https://zhuanlan.zhihu.com/p/569083585)
-- [ubuntu22.04 搭建 AX620A 官方例程开发环境](http://t.csdn.cn/p8Nno)
-- [AX620A 运行 yolov5s 自训练模型全过程记录（windows）](http://t.csdn.cn/oNeYG)
-- [MAIX-III AXera-Pi 爱芯派从零入门开发【1】开箱试玩](https://www.bilibili.com/video/BV1LP4y1274d/?spm_id_from=333.999.0.0)
-- [MAIX-III AXera-Pi 爱芯派从零入门开发【2】开发部署](https://www.bilibili.com/video/BV1Ne4y117U9/?spm_id_from=333.999.0.0)
-- [MAIX-III AXera-Pi 爱芯派从零入门开发【3】模型转换及部署](https://www.bilibili.com/video/BV1jg411z7C8/?spm_id_from=333.999.0.0)
-- [MAIX-III AXera-Pi 爱芯派从零入门开发【4】视频推理及推流](https://www.bilibili.com/video/BV14D4y147Ed/?spm_id_from=333.999.0.0) -->
 
 ## Hardware
 
