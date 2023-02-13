@@ -9,8 +9,6 @@ update:
       - Initialize Doc
 ---
 
-> This page is on building, please use translation application to see https://wiki.sipeed.com/m3axpi instead.
-
 If you think this AI development board are excellent enough and your friends may be interested with this, just share with them this link [http://wiki.sipeed.com/m3axpi](http://wiki.sipeed.com/en/m3axpi)
 
 ![maixiii_axpi](./../../../../../static/home/maixiii_axpi_en.jpg)
