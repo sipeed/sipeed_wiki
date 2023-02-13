@@ -40,5 +40,5 @@
 同时欢迎各位加入荔枝派交流群 `834585530` 或者 [荔枝派Telegram电报群](https://t.me/sipeed)与众多开发者、爱好者即时交流。
 
 另外，FPGA开发环境TD (Tang Dynasty) 可在如下网址下载：
-- [https://eyun.baidu.com/s/3i6FbQzr](https://eyun.baidu.com/s/3i6FbQzr)
+<!-- - [https://eyun.baidu.com/s/3i6FbQzr](https://eyun.baidu.com/s/3i6FbQzr) -->
 - [https://dl.sipeed.com/shareURL/TANG/Primer/IDE](https://dl.sipeed.com/shareURL/TANG/Primer/IDE)

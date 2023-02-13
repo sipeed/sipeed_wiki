@@ -932,7 +932,7 @@ except ModuleNotFoundError as e:
 
 GPIO input test:
 
-```python3
+```python
 
 led0 = gpio(16, gpio_chip=2, line_mode = line_request.DIRECTION_INPUT)
 led1 = gpio(17, gpio_chip=2, line_mode = line_request.DIRECTION_INPUT)
@@ -955,7 +955,7 @@ while True:
 
 GPIO output test：
 
-```python3
+```python
 
 led0 = gpio(0, gpio_chip=2, line_mode = line_request.DIRECTION_OUTPUT)
 led1 = gpio(1, gpio_chip=2, line_mode = line_request.DIRECTION_OUTPUT)

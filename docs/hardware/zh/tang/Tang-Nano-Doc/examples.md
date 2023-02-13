@@ -50,3 +50,4 @@ https://dl.sipeed.com/shareURL/TANG/programmer 里面的文件。
 - litex 在 9K 支持：https://github.com/litex-hub/litex-boards
 合作代理教程(英文)：
 <a href="https://learn.lushaylabs.com/tang-nano-series/"><img src="./assets/lushaylab_logo.png" alt="lushaylab_logo" width="35%"></a>
+- 

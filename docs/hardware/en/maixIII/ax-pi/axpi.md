@@ -9,7 +9,7 @@ update:
       - Initialize Doc
 ---
 
-If you think this AI development board are excellent enough and your friends may be interested with this, just share with them this link [http://wiki.sipeed.com/m3axpi](http://wiki.sipeed.com/en/m3axpi)
+If you think this AI development board are excellent enough and your friends may be interested with this, just share with them this link [http://wiki.sipeed.com/en/m3axpi](http://wiki.sipeed.com/en/m3axpi)
 
 ![maixiii_axpi](./../../../../../static/home/maixiii_axpi_en.jpg)
 
@@ -192,7 +192,7 @@ Apart from these, many models are uploaded to [github AXERA-TECH/ax-samples](htt
 - Human Face Detection
   - [scrfd](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/README.md#Scrfd)
   - [YOLOv5-Face](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/README.md#YOLOv5-Face)([original model](https://github.com/deepcam-cn/yolov5-face))
-- Human Body Segmentation
+- Human Face Segmentation
   - Face_Parsing
 - Obstacles Detection
   - Robot-Obstacle-Detect

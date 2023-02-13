@@ -20,9 +20,7 @@ Lichee MaixSense（以下简称R329）提供了以下两种系统镜像
 
 armbian 镜像获取：
 
-> 链接：[百度网盘](https://pan.baidu.com/s/1p4cCSFLIPVOnVXB_TT546g) 提取码：`r329`> 
-
-<!-- > (https://eyun.baidu.com/s/3htTXfaG#sharelink/path=%2F%E4%B8%8B%E8%BD%BD%E7%AB%99%E6%96%87%E4%BB%B6%2FMaixII%2FMaixII-A%2FSDK&parent_path=%2F%E6%B7%B1%E5%9C%B3%E7%9F%BD%E9%80%9F%E7%A7%91%E6%8A%80%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8) -->
+> 链接：[百度网盘](https://pan.baidu.com/s/1p4cCSFLIPVOnVXB_TT546g) 提取码：`r329`
 
 其中以 maixpy3 开头命名的镜像文件的是已经装载了 MaixPy3 库和相关驱动的镜像包。
 
