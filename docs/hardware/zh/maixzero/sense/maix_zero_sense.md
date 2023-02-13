@@ -96,7 +96,7 @@ M1s Dock 和 M0Sense 总览； M0Sense 在 3:15 处开始，之前的为 M1s Doc
     </tr>
     <tr>
       <td>
-        3D 模型文件下载：<a href="https://dl.sipeed.com/shareURL/Maix-Zero/Maix-Zero/5_3D_file">点击跳转</a>
+        3D 模型文件下载：<a href="https://dl.sipeed.com/shareURL/Maix-Zero/M0sense/5_3D_file">点击跳转</a>
       </td>
     </tr>
     <tr>
@@ -241,11 +241,11 @@ M1s Dock 和 M0Sense 总览； M0Sense 在 3:15 处开始，之前的为 M1s Doc
 
 ## 补充资料
 
-- [板卡规格书](https://dl.sipeed.com/shareURL/Maix-Zero/Maix-Zero/1_Specification)
-- [板卡原理图](https://dl.sipeed.com/shareURL/Maix-Zero/Maix-Zero/2_Schematic)
-- [板卡点位图](https://dl.sipeed.com/shareURL/Maix-Zero/Maix-Zero/3_Bit_number_map)
-- [板卡尺寸图](https://dl.sipeed.com/shareURL/Maix-Zero/Maix-Zero/4_Dimensional_drawing)
-- [3D 模型文件](https://dl.sipeed.com/shareURL/Maix-Zero/Maix-Zero/5_3D_file)
+- [板卡规格书](https://dl.sipeed.com/shareURL/Maix-Zero/M0sense/1_Specification)
+- [板卡原理图](https://dl.sipeed.com/shareURL/Maix-Zero/M0sense/2_Schematic)
+- [板卡点位图](https://dl.sipeed.com/shareURL/Maix-Zero/M0sense/3_Bit_number_map)
+- [板卡尺寸图](https://dl.sipeed.com/shareURL/Maix-Zero/M0sense/4_Dimensional_drawing)
+- [3D 模型文件](https://dl.sipeed.com/shareURL/Maix-Zero/M0sense/5_3D_file)
 - [博流官方文档](https://dev.bouffalolab.com/home/)
 - [BL702 数据手册](https://gitee.com/wonderfullook/bl_docs/tree/main/BL702_DS/zh_CN) (gitee)
 - [BL702 参考手册](https://gitee.com/wonderfullook/bl_docs/tree/main/BL702_RM/zh_CN) (gitee)

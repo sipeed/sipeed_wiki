@@ -35,7 +35,7 @@ Just drag the firmware you want to burn and drop it in the removable disk, the r
 
 ![m0sense_drag_burn](./../../../zh/maixzero/sense/assets/start/m0sense_drag_burn.gif)
 
-Here are some demos [Click me](https://dl.sipeed.com/shareURL/Maix-Zero/Maix-Zero/7_Example_demos), just use them by dragging and dropping firmware to u-disk to see their result, the source codes are in [github](https://github.com/sipeed/M0sense_BL702_example).
+Here are some demos [Click me](https://dl.sipeed.com/shareURL/Maix-Zero/M0sense/7_Example_demos), just use them by dragging and dropping firmware to u-disk to see their result, the source codes are in [github](https://github.com/sipeed/M0sense_BL702_example).
 
 And the result of each demo is as follows:
 
@@ -284,7 +284,7 @@ We use metal material or wire to connect the 3.3V pin and boot pin, then power u
 | ------------------------------------------ | -------------------------------------------------- |
 | ![boot_mode](./../../../zh/maixzero/sense/assets/start/boot_mode.jpg) | ![serial_device](./../../../zh/maixzero/sense/assets/start/serial_device.jpg) |
 
-Run `BLDevCube`(Depends on your OS), choose `BL702`，and select MCU mode in application interface，choose the firmware bin file you want to burn. The default downloaded firmware can be found here: [Click me](https://dl.sipeed.com/shareURL/Maix-Zero/Maix-Zero/7_Example_demos/default_firmware)
+Run `BLDevCube`(Depends on your OS), choose `BL702`，and select MCU mode in application interface，choose the firmware bin file you want to burn. The default downloaded firmware can be found here: [Click me](https://dl.sipeed.com/shareURL/Maix-Zero/M0sense/7_Example_demos/default_firmware)
 
 <table>
     <tr>

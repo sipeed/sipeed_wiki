@@ -105,7 +105,7 @@ Introduction video for [M1s Dock](https://wiki.sipeed.com/en/m1s#dock) and M0Sen
     </tr>
     <tr>
       <td>
-        3D file model：<a href="https://dl.sipeed.com/shareURL/Maix-Zero/Maix-Zero/5_3D_file">Click me</a>
+        3D file model：<a href="https://dl.sipeed.com/shareURL/Maix-Zero/M0sense/5_3D_file">Click me</a>
       </td>
     </tr>
     <tr>
@@ -248,11 +248,11 @@ Introduction video for [M1s Dock](https://wiki.sipeed.com/en/m1s#dock) and M0Sen
 
 ## Links
 
-- [Board Datasheet](https://dl.sipeed.com/shareURL/Maix-Zero/Maix-Zero/1_Specification)
-- [Board Schematic](https://dl.sipeed.com/shareURL/Maix-Zero/Maix-Zero/2_Schematic)
-- [Board Bit map](https://dl.sipeed.com/shareURL/Maix-Zero/Maix-Zero/3_Bit_number_map)
-- [Board Dimension](https://dl.sipeed.com/shareURL/Maix-Zero/Maix-Zero/4_Dimensional_drawing)
-- [3D model file](https://dl.sipeed.com/shareURL/Maix-Zero/Maix-Zero/5_3D_file)
+- [Board Datasheet](https://dl.sipeed.com/shareURL/Maix-Zero/M0sense/1_Specification)
+- [Board Schematic](https://dl.sipeed.com/shareURL/Maix-Zero/M0sense/2_Schematic)
+- [Board Bit map](https://dl.sipeed.com/shareURL/Maix-Zero/M0sense/3_Bit_number_map)
+- [Board Dimension](https://dl.sipeed.com/shareURL/Maix-Zero/M0sense/4_Dimensional_drawing)
+- [3D model file](https://dl.sipeed.com/shareURL/Maix-Zero/M0sense/5_3D_file)
 - [Bouffalolab official documents](https://dev.bouffalolab.com/home/)
 - [BL702 DataSheet](https://github.com/bouffalolab/bl_docs/tree/main/BL702_DS/en) (github)
 - [BL702 Reference Manual](https://github.com/bouffalolab/bl_docs/tree/main/BL702_RM/en) (github)
