@@ -356,7 +356,7 @@ And we can also use command `ifdown eth0` to disable Ethernet, and then use `ifu
 3. Run command `ifconfig wlan0` to see whether there is the ip address.
 ![nmtui_wlan0_ifconfig](./assets/flash_system/nmtui_wlan0_ifconfig.png)
 
-Besides, Run command `nmcli device wifi connect Sipeed_Guest password qwert123` can also connect to wireless network, change the `Sipeed_Guest` into your wireless network name and change `qwert123` into your wireless network password.
+Besides, Run command `nmcli device wifi connect Sipeed_Guest password qwert123` can also connect to wireless network, change the `Sipeed_Guest` into your wireless network name and change `qwert123` into your wireless network password. It will autoconnect to the wireless network when turnning on.
 
 ## Config System
 
@@ -900,9 +900,13 @@ GPIO2 A4 in AXera-Pi is GPIO C(2) 4(A4) in standard definition , and standard de
 
 In the future, we'll apply definition like PA0 and PC4, which is easier to understand.
 
-Here we use Python to control the GPIO, from the following picture, we can see that the BOT_GPIO_0-7 of the pin headers are GPIO2_A16_m - GPIO2_A23_m in the system.
+Here we use Python to control the GPIO, from the following figure, we can see that the BOT_GPIO_0-7 of the pin headers are GPIO2_A16_m - GPIO2_A23_m in the system.
 
 ![io_pin_map](./../../../zh/maixIII/assets/io_pin_map.png)
+
+The relationship between PA0-3 and the figure above is as follows:
+
+![](./../../../../hardware/zh/maixIII/assets/gpio_axpi.png)
 
 We use Python3 libgpiod to encapsulate gpio class.
 
@@ -957,10 +961,10 @@ GPIO output test：
 
 ```python
 
-led0 = gpio(0, gpio_chip=2, line_mode = line_request.DIRECTION_OUTPUT)
-led1 = gpio(1, gpio_chip=2, line_mode = line_request.DIRECTION_OUTPUT)
-led2 = gpio(2, gpio_chip=2, line_mode = line_request.DIRECTION_OUTPUT)
-led3 = gpio(3, gpio_chip=2, line_mode = line_request.DIRECTION_OUTPUT)
+led0 = gpio(16, gpio_chip=2, line_mode = line_request.DIRECTION_OUTPUT)
+led1 = gpio(17, gpio_chip=2, line_mode = line_request.DIRECTION_OUTPUT)
+led2 = gpio(18, gpio_chip=2, line_mode = line_request.DIRECTION_OUTPUT)
+led3 = gpio(19, gpio_chip=2, line_mode = line_request.DIRECTION_OUTPUT)
 
 def test():
     import time
@@ -976,7 +980,8 @@ def test():
     led3.set_value(0)
     print(time.asctime())
 
-test()
+while True:
+    test()
 
 ```
 

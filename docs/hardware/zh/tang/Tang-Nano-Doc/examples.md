@@ -48,6 +48,16 @@ https://dl.sipeed.com/shareURL/TANG/programmer 里面的文件。
 - [FPGA驱动1.14 SPI屏幕工程](./../Tang-Nano-9K/examples/spi_lcd.md)
 - HDMI 示例：参考 [PicoRV 在9K上运行的示例](./../Tang-Nano-9K/examples/picorv.md)
 - litex 在 9K 支持：https://github.com/litex-hub/litex-boards
+
 合作代理教程(英文)：
 <a href="https://learn.lushaylabs.com/tang-nano-series/"><img src="./assets/lushaylab_logo.png" alt="lushaylab_logo" width="35%"></a>
-- 
+<!-- 1. [Installation & Getting Started](https://learn.lushaylabs.com/getting-setup-with-the-tang-nano-9k/)
+2. [Debugging & UART](https://learn.lushaylabs.com/tang-nano-9k-debugging/)
+3. [OLED 101](https://learn.lushaylabs.com/tang-nano-9k-graphics/)
+4. [Creating a Text Engine](https://learn.lushaylabs.com/tang-nano-9k-creating-a-text-engine/)
+5. [Data Conversion & Visualization](https://learn.lushaylabs.com/tang-nano-9k-data-visualization/)
+6. [Reading from the External Flash](https://learn.lushaylabs.com/tang-nano-9k-reading-the-external-flash/)
+7. [Generating Random Numbers](https://learn.lushaylabs.com/tang-nano-9k-generating-random/)
+8. [Sharing Resources](https://learn.lushaylabs.com/tang-nano-9k-sharing-resources/)
+9. [I2C, ADC and Micro Procedures](https://learn.lushaylabs.com/i2c-adc-micro-procedures/)
+10. [Our First CPU](https://learn.lushaylabs.com/tang-nano-9k-first-processor/) -->

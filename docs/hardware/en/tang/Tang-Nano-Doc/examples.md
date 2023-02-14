@@ -63,7 +63,19 @@ https://github.com/sipeed/TangNano-9K-example
 - [LCD screen](./../Tang-Nano-9K/examples/rgb_screen.md)
 - [Examples of PicoRV](./../Tang-Nano-9K/examples/picorv.md)
 - [FPGA drives 1.14-inch SPI screen](./../Tang-Nano-9K/examples/spi_lcd.md)
-- HDMI display : Visit [Examples of PicoRV](./../Tang-Nano-9K/examples/picorv.md)
+- HDMI display : [Examples of PicoRV](./../Tang-Nano-9K/examples/picorv.md)
 - Litex running on 9K : https://github.com/litex-hub/litex-boards
-Partner tutorial:
+
+Partner tutorials:
 <a href="https://learn.lushaylabs.com/tang-nano-series/"><img src="./../../../zh/tang/Tang-Nano-Doc/assets/lushaylab_logo.png" alt="lushaylab_logo" width="35%"></a>
+
+1. [Installation & Getting Started](https://learn.lushaylabs.com/getting-setup-with-the-tang-nano-9k/)
+2. [Debugging & UART](https://learn.lushaylabs.com/tang-nano-9k-debugging/)
+3. [OLED 101](https://learn.lushaylabs.com/tang-nano-9k-graphics/)
+4. [Creating a Text Engine](https://learn.lushaylabs.com/tang-nano-9k-creating-a-text-engine/)
+5. [Data Conversion & Visualization](https://learn.lushaylabs.com/tang-nano-9k-data-visualization/)
+6. [Reading from the External Flash](https://learn.lushaylabs.com/tang-nano-9k-reading-the-external-flash/)
+7. [Generating Random Numbers](https://learn.lushaylabs.com/tang-nano-9k-generating-random/)
+8. [Sharing Resources](https://learn.lushaylabs.com/tang-nano-9k-sharing-resources/)
+9. [I2C, ADC and Micro Procedures](https://learn.lushaylabs.com/i2c-adc-micro-procedures/)
+10. [Our First CPU](https://learn.lushaylabs.com/tang-nano-9k-first-processor/)
