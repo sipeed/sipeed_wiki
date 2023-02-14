@@ -129,6 +129,8 @@ MaixPy 中的存储介质主要由 `Flash`、`SD` 卡组成，并分为三块区
 
 ## 上手运行程序
 
+>要使用 MaixPy IDE 板子需烧录固件，而且版本必须是 `v0.3.1` 以上, 否则 MaixPy IDE 会出现连接不上的现象，使用前请检查固件版本和 IDE 版本，请更新到最新的版本来保障后续使用。
+
 在运行程序前先使用准备的 USB type-c 数据线两端分别接入板子以及电脑端，给板子进行上电操作。
 如果是新出厂的开发板的话，上电后会显示红色屏幕。
 
@@ -142,8 +144,6 @@ MaixPy 中的存储介质主要由 `Flash`、`SD` 卡组成，并分为三块区
 **测试屏幕及摄像头源码：**[点击前往](https://wiki.sipeed.com/soft/maixpy/zh/get_started/get_started_cam_lcd.html)
 
 ![maixpy_run](./mixly_application/accets/k210_usage/maixpy_run.jpg)
-
-- **使用 `MaixPy IDE` 软件进行编辑代码运行。**
 
 ### 使用串口终端运行程序
 

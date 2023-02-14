@@ -286,13 +286,13 @@ python3 -c "import os, binascii; os.system('sed -i \'/iface eth0 inet dhcp/ahwad
 >注意：新镜像（**20230103**）已提前配置好 `nmtui-connect` 直接可以根据下文进行联网。
 >旧镜像使用前需先配置 `nmtui-connect` 才可使用，可点击前往[ 启动 nmtui-connect 图形化联网 ](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html#配置-nmtui-connect-使用图形化联网)查看。
 
-用户修改以下命令行的 `账户密码` 直接在终端运行连接即可，系统会自动保存连接过的 WiFi 账户以及密码。
+以下联网命令行已提前放置在开机脚本 `/boot/rc.local` 里，用户可参考示例修改命令行的 `账户 & 密码` 并在终端运行联网即可，系统会自动保存连接过的 WiFi 账户以及密码。
 
 ```bash
 nmcli device wifi connect Sipeed_Guest password qwert123
 # 示例
 nmcli device wifi connect AXera-Pi password 11111111
-# 改动 WiFi 名称以及 pssword 密码
+# 改动 WiFi 账户以及 pssword 密码
 ```
 
 .. details::点击查看修改示例图
@@ -1083,6 +1083,10 @@ echo 1 > /sys/class/gpio/gpio68/value
 
 ![io_pin_map](./../assets/io_pin_map.png)
 
+可见排针的 PA0-3 与上图的关系。
+
+![gpio_axpi](./../assets/gpio_axpi.png)
+
 先在 python3 中加载简易封装 gpio 类，使用的是 linux 的 libgpiod 的 python 版本。
 
 ```python
@@ -1136,10 +1140,10 @@ GPIO 输出测试：
 
 ```python
 
-led0 = gpio(0, gpio_chip=2, line_mode = line_request.DIRECTION_OUTPUT)
-led1 = gpio(1, gpio_chip=2, line_mode = line_request.DIRECTION_OUTPUT)
-led2 = gpio(2, gpio_chip=2, line_mode = line_request.DIRECTION_OUTPUT)
-led3 = gpio(3, gpio_chip=2, line_mode = line_request.DIRECTION_OUTPUT)
+led0 = gpio(16, gpio_chip=2, line_mode = line_request.DIRECTION_OUTPUT)
+led1 = gpio(17, gpio_chip=2, line_mode = line_request.DIRECTION_OUTPUT)
+led2 = gpio(18, gpio_chip=2, line_mode = line_request.DIRECTION_OUTPUT)
+led3 = gpio(19, gpio_chip=2, line_mode = line_request.DIRECTION_OUTPUT)
 
 def test():
     import time
@@ -1155,7 +1159,8 @@ def test():
     led3.set_value(0)
     print(time.asctime())
 
-test()
+while True:
+    test()
 
 ```
 
