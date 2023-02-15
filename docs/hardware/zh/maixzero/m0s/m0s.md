@@ -191,11 +191,15 @@ Sipeed M0S 模块是基于[博流智能科技](http://www.bouffalolab.com/)的 B
 
 ---
 
-- [SDK](https://github.com/bouffalolab/bl_mcu_sdk) (github)
-<!-- - [Examples](https://github.com/sipeed/M0s_BL616_example)（github） -->
+- SDK : https://github.com/bouffalolab/bl_mcu_sdk (github)
+- SDK : https://gitee.com/bouffalolab/bl_mcu_sdk) (gitee)
+- SDK 使用指南: https://bl-mcu-sdk.readthedocs.io/zh_CN/latest/index.html
+- [Examples](https://github.com/sipeed/M0s_BL616_example)（github）
+
+---
+
 - 交流 QQ 群：`816177882` 。[点我加群](https://jq.qq.com/?_wv=1027&k=CSnLIADN)
 - 论坛：[bbs.sipeed.com](https://bbs.sipeed.com/)
-
 
 ## 注意事项
 
