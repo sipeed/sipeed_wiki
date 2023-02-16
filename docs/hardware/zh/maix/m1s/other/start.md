@@ -36,7 +36,9 @@ M1s Dock 设计精巧，可以用来所很多有意思的事，这里简单说�
 ![default_firmware](./assets/start/default_firmware.jpg)
 ![led_brghtness](./assets/start/led_brghtness.jpg)
 
-通过 OTG 口连接 PC 的话会有一个大小为 3M 的 U 盘，部分电脑可能会因为兼容性问题显示不出来这个 U 盘，但是可以通过[串口烧录](https://wiki.sipeed.com/hardware/zh/maix/m1s/other/start.html#%E4%B8%B2%E5%8F%A3%E7%83%A7%E5%BD%95)来解决固件烧录相关的问题。
+> 通过 OTG 口连接 PC 的话会有一个大小为 3M 的 U 盘。
+
+部分电脑可能会因为兼容性问题显示不出来这个 U 盘，但是可以通过[串口烧录](https://wiki.sipeed.com/hardware/zh/maix/m1s/other/start.html#%E4%B8%B2%E5%8F%A3%E7%83%A7%E5%BD%95) 来重新烧录一次 M1s Dock 来解决该问题。
 
 ![default_udisk](./assets/start/default_udisk.jpg)
 
@@ -44,9 +46,9 @@ M1s Dock 设计精巧，可以用来所很多有意思的事，这里简单说�
 
 ![udisk_device_manager](./assets/start/udisk_device_manager.jpg)
 
-如果没有看到大容量存储设备或者 U 盘在电脑中显示，可以先更换数据线或者链接电脑其他 USB 接口来尝试解决问题，仍然看不到的话可以跳转到 [串口烧录](https://wiki.sipeed.com/hardware/zh/maix/m1s/other/start.html#%E4%B8%B2%E5%8F%A3%E7%83%A7%E5%BD%95) 章节了解烧录方法，并且勾选烧录 `partition table`, `boot2`, `firmware` 三个选项后，重新将板子与电脑连接。
+如果没有看到大容量存储设备或者 U 盘在电脑中显示，可以先更换数据线或者链接电脑其他 USB 接口来尝试解决问题，仍然看不到的话可以跳转到 [串口烧录](https://wiki.sipeed.com/hardware/zh/maix/m1s/other/start.html#%E4%B8%B2%E5%8F%A3%E7%83%A7%E5%BD%95) 来重新烧录一次 M1s Dock 来解决该问题；烧录的时候并且勾选烧录 `partition table`, `boot2`, `firmware` 三个选项，烧录结束后重新将板子连接电脑。
 
-通过 UART 口连接 PC 会显示有两个串口设备
+> 通过 UART 口连接 PC 会显示有两个串口设备
 
 ![dual_uart](./assets/start/dual_uart.jpg)
 
@@ -54,9 +56,11 @@ M1s Dock 设计精巧，可以用来所很多有意思的事，这里简单说�
 
 ![start_bl808_uart_converter](./assets/start/start_bl808_uart_converter.png)
 
-没有串口设备的话更换 USB 数据线或者使用电脑别的 USB 口。依旧没有的话可以查看 [给板载 bl702 进行烧录](https://wiki.sipeed.com/hardware/zh/maix/m1s/other/start.html#%E7%BB%99%E6%9D%BF%E8%BD%BD-bl702-%E8%BF%9B%E8%A1%8C%E7%83%A7%E5%BD%95) 章节并且重新烧录 bl702 来解决问题。
+没有串口设备的话更换 USB 数据线或者使用电脑别的 USB 口。
 
-只有一个串口设备的话查看 [给板载 bl702 进行烧录](https://wiki.sipeed.com/hardware/zh/maix/m1s/other/start.html#%E7%BB%99%E6%9D%BF%E8%BD%BD-bl702-%E8%BF%9B%E8%A1%8C%E7%83%A7%E5%BD%95) 章节并且重新烧录 bl702 来解决问题。
+依旧没有的话可以查看 [给板载 bl702 进行烧录](https://wiki.sipeed.com/hardware/zh/maix/m1s/other/start.html#%E7%BB%99%E6%9D%BF%E8%BD%BD-bl702-%E8%BF%9B%E8%A1%8C%E7%83%A7%E5%BD%95) 相关的内容来给 bl702 重新烧录一次固件。在 M1s Dock 上，我们使用 bl702 芯片作为 USB 转双串口芯片，由于某些原因串口功能不能正常使用的时候，可以重新烧录固件来解决这个问题。
+
+只有一个串口设备的话也可以查看 [给板载 bl702 进行烧录](https://wiki.sipeed.com/hardware/zh/maix/m1s/other/start.html#%E7%BB%99%E6%9D%BF%E8%BD%BD-bl702-%E8%BF%9B%E8%A1%8C%E7%83%A7%E5%BD%95) 章节并且重新烧录 bl702 来解决问题。
 
 设置波特率为 2000000，分别打开两个串口，会看到不同的信息。
 
@@ -70,7 +74,7 @@ M1s Dock 设计精巧，可以用来所很多有意思的事，这里简单说�
 
 ## U 盘烧录
 
-推荐使用这种方法来进行烧录，主要用来给板子上的 C906 核心烧录运行程序。
+为了便捷烧录，我们准备了 U 盘烧录的方法来给快速地烧录 M1s Dock 上 bl808 的 C906 核心所运行的程序。
 
 先使用 TypeC 数据线将电脑与板子的 OTG 口连接起来，再同时按住板子上面两侧的按键（已经在下面图片中指明），然后按一下板子上的 RST 键就可以进入 U 盘烧录模式。
 
@@ -91,9 +95,13 @@ M1s Dock 设计精巧，可以用来所很多有意思的事，这里简单说�
 
 文件存放进去后数秒后板子会重启，U 盘被弹出，表示烧录完成，看不到效果的话可以给板子重新插拔板子 USB 来完全重启一次再来查看烧录结果。
 
+下面的几个 Demo 都是从 M1s_bl808_example 里面编译出来的，可以烧录进板卡自己先体验一下。
+
 ### lvgl_demo
 
 [LVGL](https://lvgl.io/) (轻巧而多功能的图形库)是一个免费的开放源代码图形库，适合用于 mcu 构建图形界面。
+
+Demo 文件：[点我](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmware/demo_bin/lvgl_demo)
 
 烧录进 M1s Dock 后，屏幕显示着 lvgl 测试效果，设置波特率为 2000000，串口号较小的串口打印着最后一次触摸屏幕位置。
 
@@ -103,6 +111,8 @@ M1s Dock 设计精巧，可以用来所很多有意思的事，这里简单说�
 ### image_processing_demo
 
 一个简单的图像处理例子。
+
+Demo 文件：[点我](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmware/demo_bin/image_processing_demo)
 
 烧录进 M1s Dock 后，屏幕上显示摄像头画面，按下两侧的按键可以切换不同的图像算子。设置波特率为 2000000，串口号较小的串口显示着上次按键和其他信息。
 
@@ -115,6 +125,8 @@ M1s Dock 设计精巧，可以用来所很多有意思的事，这里简单说�
 
 [TinyMaix](https://github.com/sipeed/TinyMaix) 是面向单片机的超轻量级的神经网络推理库，即 TinyML 推理库，可以在任意单片机上运行轻量级深度学习模型。
 
+Demo 文件：[点我](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmware/demo_bin/tinymaix_mnist_demo)
+
 烧录进 M1s Dock 后，屏幕中间的红框识别数字。设置波特率为 2000000，串口号较小的串口打印着识别信息。
 
 <img src="./assets/start/example_tinymaix_mnist_demo.jpg" alt="example_tinymaix_mnist_demo" width="45%"> 
@@ -123,6 +135,8 @@ M1s Dock 设计精巧，可以用来所很多有意思的事，这里简单说�
 ### pikascript_demo
 
 [PikaScript](http://pikascript.com/) 是一个跨平台的超轻量级嵌入式 Python 引擎。
+
+Demo 文件：[点我](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmware/demo_bin/pikascript_demo)
 
 烧录进 M1s Dock 后，屏幕白屏，无内容。设置波特率为 2000000，打开串口号较小的串口来进行命令行交互。
 
