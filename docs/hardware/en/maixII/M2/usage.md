@@ -17,6 +17,62 @@ For V831 we use adb shell to control it. Connect otg interface marked on board w
 - For linux we need to install adb first, then run command `adb shell` to connect V831.
 ---
 
+## Wireless connection
+
+There is a 2.4G wireless module on M2Dock, with which we can connect to wireless network.
+
+Because of the change of different system image, the ways to connect to wireless network on V0.5.4 system version and system version before V0.5.4 are different.
+
+### V0.5.4
+
+In this system version, we remove the way to connect wireless network by editting `wpa_supplicant.conf` file of the u-disk, and we use commands to connect wireless network.
+
+We can see there are many linux commands about wifi in this system.
+
+![wifi_test_command_list](./../../../zh/maixII/M2/asserts/usage/wifi_test_command_list.jpg)
+
+Here we use `wifi_connect_ap_test` to connect wireless network, and we can use `wifi_scan_results_test` to scan the wireless network to see whether M2Dock detects your target network.
+
+We use following command connect wireless network named `Sipeed_Guest` and its password is `qwert123`.
+
+```bash
+wifi_connect_ap_test Sipeed_Guest qwert123
+```
+
+Change `Sipeed_Guest` into your target wireless network name and change `qwert123` into your target wireless network password.
+
+![wifi_test_connect_wireless](./../../../zh/maixII/M2/asserts/usage/wifi_test_connect_wireless.jpg)
+
+From the connection message, we can see `192.168.3.158`, this is the IP address of M2Dock in this network enviroment.
+
+We can run `ifconfig` on M2Dock to see the ip address, from which we see that the ip address is the same as the wireless network connection message.
+
+![wifi_test_ifconfig](./../../../zh/maixII/M2/asserts/usage/wifi_test_ifconfig.jpg)
+
+### V0.5.4 and previous image
+
+Connect M2Dock USB-OTG port to computer, there is a u-disk in your computer.
+
+Edit the `wpa_supplicant.conf` file which is in the u-disk,
+
+![wap_conf_png](./../../../zh/maixII/M2/asserts/usage/wap_conf.png)
+
+Change `yourWIFIname` and `yourWIFIpassword` into your target wireless network name and password. Then remove the u-disk from your system, use your operating system command to remove the u-disk, otherwise this file will be damaged. After removing the u-disk, reboot M2Dock by press RST KEY.
+
+![wap_conf_gif](./../../../zh/maixII/M2/asserts/usage/wap_conf.gif)
+
+### Update MaixPy3
+
+Download MaixPy3 manually: https://pypi.org/project/maixpy3/#history
+
+![maixpy3_download](./../../../zh/maixII/M2/asserts/usage/maixpy3_download.png)
+
+Download the file whose name contains `cp38`, then rename it into `maixpy3-9.9.9-cp38-cp38-linux_armv7l.whl`, save it into the u-disk of M2Dock, reboot your board and maixpy3 will update automatically at boot up.
+
+![maixpy3_install](./../../../zh/maixII/M2/asserts/usage/maixpy3_install.png)
+
+Do Not Do Any Operation When Updating.
+
 ### Okpg package management
 
 The opkg utility is the lightweight package manager used for upgrading the functionality of the system rather significantly by downloading and installing pre-made packages from package repositories.
