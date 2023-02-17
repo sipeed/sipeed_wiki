@@ -246,32 +246,43 @@ Tang Primer 20K 是基于 [GW2A-V18PG256C8IC8I7](http://www.gowinsemi.com.cn/pro
 			<td></td>
 			<td></td>
 		</tr>
-		<!-- <tr>
+		<tr>
 			<td colspan="2">RGB LED</td>
 			<td>1</td>
-			<td>WS2812 灯珠</td>
+			<td>WS2812</td>
 			<td></td>
 			<td></td>
-		</tr> -->
+		</tr>
 	</body>
 </table>
 
-## 硬件资料汇总
+## 硬件资料
 
 规格书、原理图、尺寸图等均可在这里找到：[点击这里](https://dl.sipeed.com/shareURL/TANG/Primer_20K)
 
-## 上手指引
+- [板卡规格书](https://dl.sipeed.com/shareURL/TANG/Primer_20K/01_Specification)
+- [板卡原理图](https://dl.sipeed.com/shareURL/TANG/Primer_20K/02_Schematic)
+- [板卡点位图](https://dl.sipeed.com/shareURL/TANG/Primer_20K/03_Bit_number_map)
+- [布线长度表](https://dl.sipeed.com/shareURL/TANG/Primer_20K/04_Net_Length)
+- [板卡尺寸图](https://dl.sipeed.com/shareURL/TANG/Primer_20K/05_Dimensional_drawing)
+- [核心板封装](https://dl.sipeed.com/shareURL/TANG/Primer_20K/06_Footprint) (KICAD)
+- [芯片部分资料](https://dl.sipeed.com/shareURL/TANG/Primer_20K/07_Chip_manual)
+- [3D 模型文件](https://dl.sipeed.com/shareURL/TANG/Primer_20K/08_Dimensions)
+
+## 上手简明
+
+`准备开发环境` -> `学习相关语法` -> `查看开箱指南` -> `基础代码编写` -> `查看官方文档`
    
 1. 安装 IDE ：[点击这里](./../Tang-Nano-Doc/get_started/install-the-ide.md)
 
-2. 查看 [上手指南](./start.md) 来避免一些问题，并且从那里面可以开始进行代码实战。
+2. 查看 [上手指南](https://wiki.sipeed.com/hardware/zh/tang/tang-primer-20k/start.html) 来避免一些问题，并且从那里面可以开始进行代码实战。
 
 3. 如果进行完上面的点灯操作后后感觉有压力，可以自己查漏补缺：
    可以在下面的这些网站学习 Verilog:
 	+ 在线免费教程：[Verilog 教程](https://www.runoob.com/w3cnote/verilog-tutorial.html)（学习Verilog）
 	+ 在线免费 FPGA 教程：[Verilog](https://www.asic-world.com/verilog/index.html) （英文网站）
 	+ Verilog 刷题网站：[HDLBits](https://hdlbits.01xz.net/wiki/Main_Page)（英文网站）
-	+ 在线高云半导体视频教程：[点击这里](http://www.gowinsemi.com.cn/video_complex.aspx?FId=n15:15:26)
+	+ 在线高云半导体可参考视频教程：[点击这里](http://www.gowinsemi.com.cn/video_complex.aspx?FId=n15:15:26)
 
    对 IDE 使用有疑问的话，可以查看官方的一些文档来熟悉相关内容
    - [SUG100-2.6_Gowin云源软件用户指南.pdf](http://cdn.gowinsemi.com.cn/SUG100-2.6_Gowin%E4%BA%91%E6%BA%90%E8%BD%AF%E4%BB%B6%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97.pdf)
@@ -292,7 +303,7 @@ github 链接： https://github.com/sipeed/TangPrimer-20K-example
 ### 部分教程
 
 - Lite 底板点灯 ：<a href="https://wiki.sipeed.com/news/others/20k_lite_start/20k_lite_start.html" target="blank">点我跳转</a>
-- Dock 底板例程指南: [点我跳转](./example.md)
+- Dock 底板例程指南: [点我跳转](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/questions.html)
 
 ## 交流方式
 

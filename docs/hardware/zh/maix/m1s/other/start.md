@@ -25,13 +25,24 @@ M1s Dock 设计精巧，可以用来所很多有意思的事，这里简单说�
 
 ![start_bl808_uart_converter](./assets/start/start_bl808_uart_converter.png)
 
-<!-- 连接板载 UART 接口会显示有两个串口设备：小号串口连接的是 C906 核心，大号串口连接的是 E907 核心。
+## 硬件准备
 
-![dual_uart](./assets/start/dual_uart.jpg) -->
+- 两根 TypeC 数据线
+- 一个 M1s Dock
+- 一台电脑
 
-## 初见
+M1S Dock 搭载有两个 TypeC 接口。默认情况下 UART 口用做于电脑和 M1S Dock 的串口通信， OTG 口默认用于给板子上的 BL808 芯片里面的 C906 核心烧录固件。
 
-首次对 M1s Dock 板子上电，屏幕会显示摄像头所拍摄到的内容，且按两侧的按键显示屏上的数字会有变化，那个数字表示着 LED 的亮度。
+<img alt="m1s_doc_pin_map" src="./../assets/m1s_dock/m1s_doc_pin_map.png">
+
+1. 上图中可以看到 `S1` 、 `S2` 两个按键，另外还有 `BOOT` 按键和 `RST` 按键
+2. 上图中板子的左下角有 UART 口，默认有 USB 转双串口功能连接到 BL808 芯片的两个核心上
+3. 上图中板子的右下角有 OTG 口，M1s Dock 默认固件将它作用于烧录 C906 核心的固件。
+
+
+## 初次通电
+
+首次对 M1s Dock 板子上电，屏幕会显示摄像头所拍摄到的内容。按下 `S1` 或者 `S2` 按键后屏幕上的数字会发生变化，那个数字表示着板子上 LED 的亮度百分比。
 
 ![default_firmware](./assets/start/default_firmware.jpg)
 ![led_brghtness](./assets/start/led_brghtness.jpg)
@@ -68,11 +79,15 @@ M1s Dock 设计精巧，可以用来所很多有意思的事，这里简单说�
 
 ![start_smaller_uart](./assets/start/start_smaller_uart.jpg)
 
-打开大号串口可以进行命令行交互：
+打开大号串口可以进行简单的命令行交互：
 
 ![start_bigger_uart](./assets/start/start_bigger_uart.jpg)
 
-## U 盘烧录
+## 烧录方法
+
+想要让板子运行自己预期的程序，就要先知道怎么样烧录固件到板卡。
+
+### U 盘烧录
 
 为了便捷烧录，我们准备了 U 盘烧录的方法来给快速地烧录 M1s Dock 上 bl808 的 C906 核心所运行的程序。
 
@@ -97,7 +112,7 @@ M1s Dock 设计精巧，可以用来所很多有意思的事，这里简单说�
 
 下面的几个 Demo 都是从 M1s_bl808_example 里面编译出来的，可以烧录进板卡自己先体验一下。
 
-### lvgl_demo
+#### lvgl_demo
 
 [LVGL](https://lvgl.io/) (轻巧而多功能的图形库)是一个免费的开放源代码图形库，适合用于 mcu 构建图形界面。
 
@@ -108,7 +123,7 @@ Demo 文件：[点我](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmwa
 <img src="./assets/start/example_lvgl.gif" alt="example_lvgl" width="45%"> 
 <img src="./assets/start/example_lvgl.jpg" alt="example_lvgl" width="45%">
 
-### image_processing_demo
+#### image_processing_demo
 
 一个简单的图像处理例子。
 
@@ -121,7 +136,7 @@ Demo 文件：[点我](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmwa
 <img src="./assets/start/example_image_processing_demo.jpg" alt="example_image_processing_demo" width="45%"> 
 <img src="./assets/start/example_image_processing_demo_uart.jpg" alt="example_image_processing_demo_uart" width="45%">
 
-### tinymaix_mnist_demo
+#### tinymaix_mnist_demo
 
 [TinyMaix](https://github.com/sipeed/TinyMaix) 是面向单片机的超轻量级的神经网络推理库，即 TinyML 推理库，可以在任意单片机上运行轻量级深度学习模型。
 
@@ -132,7 +147,7 @@ Demo 文件：[点我](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmwa
 <img src="./assets/start/example_tinymaix_mnist_demo.jpg" alt="example_tinymaix_mnist_demo" width="45%"> 
 <img src="./assets/start/example_tinymaix_mnist_demo_uart.jpg" alt="example_tinymaix_mnist_demo_uart" width="45%">
 
-### pikascript_demo
+#### pikascript_demo
 
 [PikaScript](http://pikascript.com/) 是一个跨平台的超轻量级嵌入式 Python 引擎。
 
@@ -155,11 +170,11 @@ arc.center()
 
 ![example_pikascript_demo_uart](./assets/start/example_pikascript_demo_screen.jpg)
 
-## 串口烧录
+### 串口烧录
 
-上面的 U 盘烧录方法适用于给 C906 核心烧录代码，当板子出现固件错误或者需要进行固件升级等操作时，我们需要通过串口来给板子烧录固件。
+上面的 U 盘烧录方法适用于给 C906 核心烧录固件。当板子出现固件异常或者需要将板子的固件全部升级时，我们需要通过串口烧录这种方法来重新烧录 M1s Dock, 这可以解决所有问题。
 
-### 给 M1s 烧录
+#### 给 M1s 烧录
 
 使用 TypeC 数据线将电脑与板子的 UART 口连接起来，此时电脑上会出现两个串口 （如果出现鼠标不能动的现象请拔掉 USB 并且查看 [更新板载 bl702 固件](#给板载-bl702-进行烧录) 相关内容来修复问题)。
 
