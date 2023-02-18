@@ -25,19 +25,30 @@ There are two Converter devices in `Windows` device manager if you connect the c
 
 ![start_bl808_uart_converter](./../../../../zh/maix/m1s/other/assets/start/start_bl808_uart_converter.png)
 
-<!-- 
-There are two Serial Devices if connecting the board through UART USB port with computer. The smaller number serial port is connected with C906 core，and the bigger number serial port is connected with E907 core.
+## Hardware preparation
 
-![dual_uart](./../../../../zh/maix/m1s/other/assets/start/dual_uart.jpg) -->
+- Two TypeC Cables
+- One M1s Dock
+- One Computer
 
-## Power On
+There are two TypeC Ports on M1s Dock. The UART TypeC Port is for serial communication between M1s Dock and computer. The OTG Port is designed for burning firmware of the C906 Core in BL808 chip, and you can change its function by programming it as if you want to learn USB protocol.
 
-Power the M1s Dock, screen displays what the camera captures, and the number on the screen which is the LED brightness changes when you press the keys on the side.
+<img alt="m1s_doc_pin_map" src="./../../../../zh/maix/m1s/assets/m1s_dock/m1s_doc_pin_map.png">
+
+1. We can see there are `S1_Button` and `S2_button`, and there are also `BOOT` key and `RST` key.
+2. There is a `UART` on the left bottom, it's used for communication with two cores of BL808.
+3. A `OTG` port is on the tighe bottom, we use burn the C906 Core firmware of BL808 bia this port.
+
+## First time boot
+
+Power the M1s Dock, screen displays what the camera captures. Press `S1_Button` or `S2_button` the number on the right top of the screen changes, which is the brightness of the LED.
 
 ![default_firmware](./../../../../zh/maix/m1s/other/assets/start/default_firmware.jpg)
 ![led_brghtness](./../../../../zh/maix/m1s/other/assets/start/led_brghtness.jpg)
 
-A virtual removable disk whose storage capacity is 3M will be shown on your computer if you connect this board with your computer by TypeC OTG port on this board. Because the driver is not compatible well with some computers, we can flash the firmware by [UART](https://wiki.sipeed.com/hardware/en/maix/m1s/other/start.html#Burn-with-UART).
+> A virtual removable disk with 3MB storage capacity is on your computer if you connect this board with your computer via TypeC OTG port on this board. 
+
+Because the driver is not compatible well with some computers, we can flash the firmware via [UART](https://wiki.sipeed.com/hardware/en/maix/m1s/other/start.html#Burn-with-UART) to solve this problem.
 
 ![default_udisk](./../../../../zh/maix/m1s/other/assets/start/default_udisk.jpg)
 
@@ -45,7 +56,7 @@ And there is USB Mass Storge Device in `Windows` device manager, in `Linux` ther
 
 ![udisk_device_manager](./../../../../zh/maix/m1s/other/assets/start/udisk_device_manager.jpg)
 
-If there is no USB Mass Storge Device in Windows device manager, try to use other USB TypeC cable or connect with other USB port of computer, and if this problem remains, visit [Burn-with-UART](https://wiki.sipeed.com/hardware/en/maix/m1s/other/start.html#Burn-with-UART) to flash M1s Dock, we mainly burn `partition table`, `boot2`, `firmware` these three files. After finishing burnning, reconnect the board with computer.
+If there is no USB Mass Storge Device in Windows device manager, try to use other USB TypeC cable or connect with other USB port of computer, if this problem remains, read [Burn-with-UART](https://wiki.sipeed.com/hardware/en/maix/m1s/other/start.html#Burn-with-UART) to flash M1s Dock to solve this problem. Make sure you have choose `partition table`, `boot2`, `firmware` these three files, after finishing burnning, reconnect the board with computer.
 
 Two serial devices will be shown in your computer if you connect this board with your computer by TypeC UART port on this board.
 
@@ -55,7 +66,9 @@ There are two Converter devices in Windows device manager.
 
 ![start_bl808_uart_converter](./../../../../zh/maix/m1s/other/assets/start/start_bl808_uart_converter.png)
 
-If there is no serial device，try to use other USB TypeC cable or use other USB port of computer, and if this problem remains, visit [Burn onboard bl702](https://wiki.sipeed.com/hardware/en/maix/m1s/other/start.html#Burn-onboard-bl702) to reflash the download debugger firmware.
+If there is no serial device，try to use other USB TypeC cable or use other USB port of computer.
+
+If this problem remains, visit [Burn onboard bl702](https://wiki.sipeed.com/hardware/en/maix/m1s/other/start.html#Burn-onboard-bl702) to reburn the download debugger firmware. we set a BL702 on M1s Dock, and use it as USB to two uart convertor.
 
 If there is only one serial device, visit [Burn onboard bl702](https://wiki.sipeed.com/hardware/en/maix/m1s/other/start.html#Burn-onboard-bl702) to reflash the download debugger firmware
 
@@ -69,9 +82,13 @@ Open the big serial port for command-line interaction:
 
 ![start_bigger_uart](./../../../../zh/maix/m1s/other/assets/start/start_bigger_uart.jpg)
 
-## Burn with u-disk
+## Burn firmware
 
-It's suggested using this way to burn firmware, by which we can burn the program for C906 core in the chip.
+To run our program on M1s Dock, we should know how to burn the firmware into M1s Dock first.
+
+### Burn with u-disk
+
+To make it easier to burn firmware, we design u-disk burning method to burn the program for C906 core of BL808 in the chip.
 
 Connect this board by its TypeC OTG port with computer, hold the 2 sides keys (which have been marked on the following figure) of M1s Dock, then press RST button to make this board into u-disk burn mode.
 
@@ -92,18 +109,24 @@ A removable disk with tiny storage capacity will be shown on your computer if th
 
 After succeed dragging the firmware bin into removable disk, the board will reboot and the u-disk is removed. Try to repower this board if its not working well after burnning firmware.
 
-### lvgl_demo
+There are some demos compiled from M1s_BL808_example, with which you can have a test on M1s Dock.
+
+#### lvgl_demo
 
 [LVGL](https://lvgl.io/) (Light and Versatile Graphics Library) is a free open source graphics library suitable for mcu graphical interfaces.
+
+Demo File: [Click me](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmware/demo_bin/lvgl_demo)
 
 After burning into M1s Dock, the screen displays the lvgl test. And then sets the baudrate to 2000000, the serial port with the smaller serial port number prints the last touch screen position.
 
 <img src="./../../../../zh/maix/m1s/other/assets/start/example_lvgl.gif" alt="example_lvgl" width="45%"> 
 <img src="./../../../../zh/maix/m1s/other/assets/start/example_lvgl.jpg" alt="example_lvgl" width="45%"> 
 
-### image_processing_demo
+#### image_processing_demo
 
 A simple image processing example.
+
+Demo File: [Click me](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmware/demo_bin/image_processing_demo)
 
 Burning into M1s Dock, screen displays what the camera captured, press the side key to change image operator. Set the baudrate to 2000000, to see the image operator state by the small serial port.
 
@@ -112,18 +135,22 @@ Click the RST key to reset the bl808, and we can see the information about the c
 <img src="./../../../../zh/maix/m1s/other/assets/start/example_image_processing_demo.jpg" alt="example_image_processing_demo" width="45%"> 
 <img src="./../../../../zh/maix/m1s/other/assets/start/example_image_processing_demo_uart.jpg" alt="example_image_processing_demo_uart" width="45%"> 
 
-### tinymaix_mnist_demo
+#### tinymaix_mnist_demo
 
 [TinyMaix](https://github.com/sipeed/TinyMaix) is a tiny inference Neural Network library specifically for microcontrollers (TinyML), can run lightweight deep learning model on any Single Chip Microcomputer.
+
+Demo File: [Click me](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmware/demo_bin/tinymaix_mnist_demo)
 
 Burning into M1s Dock, recognizing number through the red box in the center of screen. Set the baudrate to 2000000, to see the process and result by the small serial port.
 
 <img src="./../../../../zh/maix/m1s/other/assets/start/example_tinymaix_mnist_demo.jpg" alt="example_tinymaix_mnist_demo" width="45%"> 
 <img src="./../../../../zh/maix/m1s/other/assets/start/example_tinymaix_mnist_demo_uart.jpg" alt="example_tinymaix_mnist_demo_uart" width="45%"> 
 
-### pikascript_demo
+#### pikascript_demo
 
 [PikaScript](http://pikascript.com/) is a cross-platform, ultra-lightweight embedded Python engine.
+
+Demo File: [Click me](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmware/demo_bin/pikascript_demo)
 
 Burning into M1s Dock, the screen is white. Set the baudrate to 2000000, open the small serial port for command-line interaction:
 
@@ -143,9 +170,12 @@ Then the screen displays as shown(Ignore the bad shoot):
 
 ## Burn with UART
 
-The u-disk burnning method above is used to burn firmware for C906 core, and if there are some trouble with firmware or when we need to upgrade the whole firmware, we need to burn this board by UART.
+The u-disk burnning method above is used to burn firmware for C906 core of BL808. If we want to burn other firmware for other cores of BL808, we need to burn M1s Dock via UART.
 
-### Burn M1s
+
+ and if there are some trouble with firmware or when we need to upgrade the whole firmware, we need to burn this board by UART.
+
+#### Burn M1s
 
 Connect this board by its TypeC UART port with computer, 2 serial ports will be shown on your computer (If your mouse doesn't work after connecting board with computer, please disconnect board with computer and visit [Burn onboard bl702](#burn-onboard-bl702) to solve this problem).
 

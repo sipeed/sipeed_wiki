@@ -191,7 +191,11 @@ Buy one: [Aliexpress](https://www.aliexpress.com/item/1005005142466936.html)
 
 ---
 
+- [Examples](https://github.com/sipeed/M0s_BL616_example)（github）
 - [SDK](https://github.com/bouffalolab/bl_mcu_sdk) (Github)
+
+---
+
 - [Telegram](https://t.me/sipeed)
 - [Twitter](https://twitter.com/SipeedIO)
 - [Reddit](https://www.reddit.com/r/Sipeed/)

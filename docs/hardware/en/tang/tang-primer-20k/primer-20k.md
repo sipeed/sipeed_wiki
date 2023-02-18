@@ -239,24 +239,34 @@ The corresponding pin numbering between R8 and P9 is P8. See the mark on the top
 			<td>TL8201F</td>
 			<td></td>
 		</tr>
-		<!-- <tr>
+		<tr>
 			<td colspan="2">RGB LED</td>
 			<td>1</td>
 			<td>WS2812</td>
 			<td></td>
-		</tr> -->
+		</tr>
 	</body>
 </table>
 
 ## Hardware information
 
-Datasheet, Schematic and dimensional drawing about hardware design can be found [here](https://dl.sipeed.com/shareURL/TANG/Primer_20K)
+- [Datesheet](https://dl.sipeed.com/shareURL/TANG/Primer_20K/01_Specification)
+- [Schematic](https://dl.sipeed.com/shareURL/TANG/Primer_20K/02_Schematic)
+- [Bit map](https://dl.sipeed.com/shareURL/TANG/Primer_20K/03_Bit_number_map)
+- [Net Length](https://dl.sipeed.com/shareURL/TANG/Primer_20K/04_Net_Length)
+- [Dimension](https://dl.sipeed.com/shareURL/TANG/Primer_20K/05_Dimensional_drawing)
+- [Core board package](https://dl.sipeed.com/shareURL/TANG/Primer_20K/06_Footprint) (KICAD)
+
+- [Chip manual](https://dl.sipeed.com/shareURL/TANG/Primer_20K/07_Chip_manual)
+- [3D model](https://dl.sipeed.com/shareURL/TANG/Primer_20K/08_Dimensions)
 
 ## User guide
 
+`Install IDE` -> `Learn coding programmer` -> `Read Tutorial` -> `Program by yourself` -> `Read more official documents`
+
 1. Install IDE: [Click me](./../Tang-Nano-Doc/install-the-ide.md).
 
-2. Visit [Start to use](./start.md) to avoid some problems, and we can start coding for FPGA there.
+2. Visit [Start to use](https://wiki.sipeed.com/hardware/en/tang/tang-primer-20k/start.html) to avoid some problems, and we can start coding for FPGA there.
 
 3. After coding for FPGA, if you think it difficult, here we collect some useful learning resource.
    + Online FPGA tutorial: [Verilog](https://www.asic-world.com/verilog/index.html)
@@ -266,7 +276,7 @@ Datasheet, Schematic and dimensional drawing about hardware design can be found 
 
 ## Reference examples summary
 
-### Opensource codes
+### Examples
 
 github ：https://github.com/sipeed/TangPrimer-20K-example
 
