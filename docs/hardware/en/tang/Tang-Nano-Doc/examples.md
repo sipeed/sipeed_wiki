@@ -60,6 +60,7 @@ Github Repository:
 https://github.com/sipeed/TangNano-9K-example
 
 - [Blink](./../Tang-Nano-9K/examples/led.md)
+- [Blink by Softcore](https://blog.ruux.de/tang-nano-9k-softcore-blink)
 - [LCD screen](./../Tang-Nano-9K/examples/rgb_screen.md)
 - [Examples of PicoRV](./../Tang-Nano-9K/examples/picorv.md)
 - [FPGA drives 1.14-inch SPI screen](./../Tang-Nano-9K/examples/spi_lcd.md)
