@@ -29,9 +29,9 @@ update:
 
 ![maixduino](./mixly_application/accets/k210_usage/maixduino.jpg)
 
-### 使用流程图
+<!-- ### 使用流程图
 
-使用流程思维导图可以搭配文档一起使用更佳~
+使用流程思维导图可以搭配文档一起使用更佳~ -->
 
 ### 硬件接线
 
@@ -82,17 +82,21 @@ update:
 
 **更多的不显示 `COM` 端口参考解决方法：**[点击前往](https://wiki.sipeed.com/soft/maixpy/zh/get_started/env_install_driver.html#%E5%85%B3%E4%BA%8E-USB-%E4%B8%B2%E5%8F%A3%E7%9A%84%E7%96%91%E9%9A%BE%E6%9D%82%E7%97%87%E6%8E%92%E6%9F%A5)
 
-### 升级固件
+## 如何升级固件（必看）
 
-所有的板子出厂前会烧录基础固件，用户可根据需求烧录专用固件来进行进阶使用。
-建议大家使用最新版本的固件，搭配使用工具 `kflash_gui` 软件进行烧录。
+> 升级固件对 K210 系列板子来说至关重要，快速避免掉用户在使用中无限踩雷影响体验感，例如常见的 MaxiPy IDE 连接失败、屏幕白屏/黄屏等现象，所以板子到手后更新固件成了必不可少的一件事情。
 
-**更新固件例程传送门：**[点击前往](https://wiki.sipeed.com/soft/maixpy/zh/get_started/upgrade_maixpy_firmware.html)
-**MaixPy 存储系统介绍：**[点击前往](https://wiki.sipeed.com/soft/maixpy/zh/get_started/get_started_fs.html)
+所有板子出厂前会烧录固定版本的固件，用户直接更新到最新版本即可。
+
+![bin_two](./mixly_application/accets/k210_usage/bin_two.png)
+ 
+用户根据以下说明图选择所需固件（正常使用：标准固件）使用 kflash_gui 软件工具进行烧录固件。
+具体操作可参考：[升级固件示例](https://wiki.sipeed.com/soft/maixpy/zh/get_started/upgrade_maixpy_firmware.html) 可搭配[ MaixPy 存储系统](https://wiki.sipeed.com/soft/maixpy/zh/get_started/get_started_fs.html)一起食用更佳。
 
 ![bin](./mixly_application/accets/k210_usage/bin.png)
 
 > 注意：因 MaixPy 系列的开发板中 MaixDuino 板载了一块 ESP32 WIFI SOC，一般情况下不推荐更新板载的 ESP32 模块，如在使用途中出现 bug 可以参考[更新板载 ESP32 固件](https://wiki.sipeed.com/soft/maixpy/zh/get_started/upgrade_esp32_firmware.html)进行更新固件
+> 
 ## 学会使用文档（资源）
 
 为什么会写 **`学会使用文档`** 呢，众所周知 `K210` 系列的板卡已经是 `2019` 年的产物了，各方面的文档也好例程也好早已经是成熟的了，该踩的坑基本都在前几年就被踩完了，现在更多的新手小白踩坑可能都是因为性能上的不足或者是自身使用环境的乱导致出问题。这篇文档的初衷是想要让大家在使用的过程中避坑，但我们还是要学会把文档资源利用起来。
