@@ -14,9 +14,11 @@ update:
       - 初次编辑
 ---
 
-> 早期售出的 m0sense 由于固件不同而不能显示出 U 盘，可以自己通过 [烧录 bin 文件](#烧录-bin-文件) 的内容来来烧录固件解决没有 U 盘出现的问题。
+> 因为固件不同，m0sense 可能显示不出 U 盘，需要自己根据 [烧录 bin 文件](#烧录-bin-文件) 篇章的内容烧录后才能显示 U 盘。
 
 ## 初见
+
+> 因为固件不同，可能不会有频谱图显示。
 
 通电后板子上的 led 亮起，且屏幕显示出周围环境音的频谱图。
 
@@ -26,6 +28,8 @@ update:
 ## U 盘烧录
 
 对于 M0sense 我们提供了使用虚拟 U 盘拖拽烧录固件的方式。
+
+> 因为固件不同，m0sense 可能显示不出 U 盘，需要自己根据 [烧录 bin 文件](#烧录-bin-文件) 篇章的内容烧录后才能显示 U 盘。
 
 按住板子上的 BOOT 键后按下 RESET 键，就会在电脑上显示一个 U 盘了。
 
@@ -43,11 +47,15 @@ update:
 
 ### hello_world.uf2
 
-通过串口软件打开板子串口，可以看到板子打印出的 `Hello,World`
+[点我下载](https://dl.sipeed.com/shareURL/Maix-Zero/M0sense/7_Example_demos/hello_world)
+
+通过 U 盘烧录方式将它烧录进板子后，可以通过串口软件打开板子串口，可以看到板子打印出的 `Hello,World`
 
 ![m0sense_hello_world](./assets/start/m0sense_hello_world.gif)
 
 ### blink_baremetal.uf2
+
+[点我下载](https://dl.sipeed.com/shareURL/Maix-Zero/M0sense/7_Example_demos/blink_baremetal)
 
 拖拽到 U 盘烧录完后，断电重新连接一下板子，LED 开始闪灯。打开串口后会显示灯的状态。
 
@@ -60,6 +68,8 @@ update:
 ![m0sense_blink_baremetal_led](./assets/start/m0sense_blink_baremetal_led.gif)
 
 ### blink_rtos.uf2
+
+[点我下载](https://dl.sipeed.com/shareURL/Maix-Zero/M0sense/7_Example_demos/blink_rtos)
 
 这个 demo 效果与上面的一样，只是是基于 RTOS 实现的，上面那个 demo 是裸机程序。
 
@@ -75,6 +85,8 @@ update:
 
 ### lcd_flush.uf2
 
+[点我下载](https://dl.sipeed.com/shareURL/Maix-Zero/M0sense/7_Example_demos/lcd_flush)
+
 烧录进板子后，板子配套的 lcd 背景色变化，打开串口会显示当前屏幕颜色的数值。
 
 ![m0sense_lcd_flush](./assets/start/m0sense_lcd_flush.gif)
@@ -82,11 +94,15 @@ update:
 
 ### imu.uf2
 
+[点我下载](https://dl.sipeed.com/shareURL/Maix-Zero/M0sense/7_Example_demos/imu)
+
 烧录进板子后，从串口可以看到板子上面 6 轴 IMU (惯性传感器)的数据。
 
 ![m0sense_imu_uart](./assets/start/m0sense_imu_uart.gif)
 
 ### single_button_control.uf2
+
+[点我下载](https://dl.sipeed.com/shareURL/Maix-Zero/M0sense/7_Example_demos/single_button_control)
 
 烧录到板子中后，按下 BOOT 键，LED 会切换颜色，串口会打印当前 LED IO 状态。
 
@@ -96,6 +112,8 @@ update:
 ![single_button_control_uart](./assets/start/single_button_control_uart.gif)
 
 ### audio_recording.uf2
+
+[点我下载](https://dl.sipeed.com/shareURL/Maix-Zero/M0sense/7_Example_demos/audio_recording)
 
 烧录进板子后，串口会持续打印麦克风所获得的周围环境音的 16bit pcm 格式数据。
 
@@ -301,3 +319,15 @@ gcc -I libs/uf2_format misc/utils/uf2_conv.c -o uf2_convert # 编译出固件转
 烧录结束后，重新插拔一次 USB 来重新启动 bl702 以应用新的固件。
 
 ![finish_burn_702](./assets/start/finish_burn_702.png)
+
+## 补充说明
+
+板子上有 BOOT 按键和 BOOT 引脚这两处 BOOT 丝印说明。
+
+![boot_description](./assets/start/boot_description.png)
+
+从 [原理图](https://dl.sipeed.com/shareURL/Maix-Zero/M0sense/2_Schematic) 可以看到。两个按键分别连接到了 GPIO_2 和 AU_CHIP，根据芯片参考手册可以知道 `AU_CHIP` 引脚是芯片的复位引脚，因此对应着 Reset 按键， 所以另一个按键为自定义的软件 Boot 引脚，需要搭配[固件](https://dl.sipeed.com/shareURL/Maix-Zero/M0sense/7_Example_demos/default_firmware)才能通过 U 盘烧录方式来快速烧录。
+
+上面标识的原理图中， Boot_Strap 为芯片的硬件 BOOT 引脚，上电前将他拉高就可以进入完整固件烧录模式 （需要配合官方烧录工具来烧录固件）。
+
+U 盘烧录模式是基于软件实现的一种特殊的烧录方式，串口烧录方式是芯片最原始的烧录方式。
