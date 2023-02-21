@@ -62,7 +62,7 @@ Requests 允许你发送纯天然，植物饲养的 HTTP/1.1 请求，无需手�
 
 更多请看该文档[Requests: 让 HTTP 服务人类](https://docs.python-requests.org/zh_CN/latest/)。
 
-> 有菜鸡不知道怎么发 png 图像打包到 base 发到服务器上，这里放一份示例代码。
+> 有菜鸡不知道怎么发 png 图像打包到 base64 通过 http post 发到服务器上，所以在这里放一份示例代码。
 
 ```python
 from maix import image, display
