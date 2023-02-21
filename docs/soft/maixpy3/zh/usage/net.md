@@ -62,6 +62,29 @@ Requests 允许你发送纯天然，植物饲养的 HTTP/1.1 请求，无需手�
 
 更多请看该文档[Requests: 让 HTTP 服务人类](https://docs.python-requests.org/zh_CN/latest/)。
 
+> 有菜鸡不知道怎么发 png 图像打包到 base 发到服务器上，这里放一份示例代码。
+
+```
+from maix import image, display
+
+img = image.new(size=(240, 240), mode="RGB", color=(255, 255, 255))
+img.draw_line(0, 0, 240, 240)
+img.draw_rectangle(40, 120, 160, 200, color=(255, 0, 0), thickness=16) #
+img.draw_circle(120, 120, 20, color=(0, 255, 0))
+img.draw_string(40, 40, "dalaoshu", 2, color=(0, 0, 255))
+
+import base64, requests, json
+
+url = 'http://127.0.0.1:5000/api'
+
+base64_data = base64.b64encode(img.tobytes('png')) # base64 编码
+base64_data = base64_data.decode()
+data = {'img':base64_data} # 传输的数据格式
+r = requests.post(url,data =json.dumps(data)) # post 传递数据 没联上网会报异常
+print(r.text)
+ 
+```
+
 ## MQTT 有什么用？怎么用？
 
 你可以在终端里 `pip3 install paho.mqtt` 获取这个模块。
