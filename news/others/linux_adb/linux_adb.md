@@ -34,13 +34,20 @@ Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
 
 根据上面显示出来的 `Bus 001 Device 002: ID 18d1:0002 Google Inc.` 信息，我们需要在 `/etc/udev/rules.d/` 新建一个名为 `51-android.rules` 的文件，其内容应该为 `SUBSYSTEM=="usb", ATTRS{idVendor}=="18d1", ATTRS{idProduct}=="0002",MODE="0666"` ，其中 `ATTRS{idVendor}` 和 `ATTRS{idProduct}` 的值应该根据前面 `lsusb` 命令中的而修改，这里自己注意一下；最后更改文件权限：
 
+> 小白一键式命令
+
 ```bash
 sudo echo "SUBSYSTEM=="usb", ATTRS{idVendor}=="18d1", ATTRS{idProduct}=="0002",MODE="0666"" | sudo tee /etc/udev/rules.d/51-android.rules
 sudo chmod a+x /etc/udev/rules.d/51-android.rules
+sudo udevadm control --reload-rules
+sudo service udev restart
+sudo udevadm trigger
+adb kill-server
+adb start-server
 ```
 
-上面的两行代码中，第一行写入了 `SUBSYSTEM=="usb", ATTRS{idVendor}=="18d1", ATTRS{idProduct}=="0002",MODE="0666"` 内容到 `/etc/udev/rules.d/51-android.rules` 文件。
-第二行更改了对应的文件权限。
+上面的代码中，第一行写入了 `SUBSYSTEM=="usb", ATTRS{idVendor}=="18d1", ATTRS{idProduct}=="0002",MODE="0666"` 内容到 `/etc/udev/rules.d/51-android.rules` 文件。
+第二行更改了对应的文件权限，最后重启了一下 adb 服务将权限激活。
 
 接着重新插拔 USB，在使用 `adb shell` 就发现可以正常操作 M2Dock 了。
 
