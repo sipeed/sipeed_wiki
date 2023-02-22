@@ -324,6 +324,11 @@ gcc -I libs/uf2_format misc/utils/uf2_conv.c -o uf2_convert # 编译出固件转
 
 板子上有 BOOT 按键和 BOOT 引脚这两处 BOOT 丝印说明。
 
+<img src="./assets/start/m0sense_boot_key.jpg" width="40%" alt="m0sense_boot_key">
+<img src="./assets/start/m0sense_boot_silkprint.jpg" width="40%" alt="m0sense_boot_silkprint">
+
+上面可以看出来两个有 BOOT 说明，在原理图中分别如下：
+
 ![boot_description](./assets/start/boot_description.png)
 
 从 [原理图](https://dl.sipeed.com/shareURL/Maix-Zero/M0sense/2_Schematic) 可以看到。两个按键分别连接到了 GPIO_2 和 AU_CHIP，根据芯片参考手册可以知道 `AU_CHIP` 引脚是芯片的复位引脚，因此对应着 Reset 按键， 所以另一个按键为自定义的软件 Boot 引脚，需要搭配[固件](https://dl.sipeed.com/shareURL/Maix-Zero/M0sense/7_Example_demos/default_firmware)才能通过 U 盘烧录方式来快速烧录。

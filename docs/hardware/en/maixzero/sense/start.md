@@ -18,6 +18,8 @@ update:
 
 ## Power On
 
+> Because of the different firmware, there may not be spectrum diagram of ambient sound on the screen,
+
 The led lights up when M0sense is powered on, and the screen displays spectrum diagram of ambient sound.
 
 <img src="./../../../zh/maixzero/sense/assets/start/m0sense_start.jpg" alt="m0sense_start" width="45%">
@@ -26,6 +28,8 @@ The led lights up when M0sense is powered on, and the screen displays spectrum d
 ## Burn by U-Disk
 
 M0sense can be burned by dragging and dropping firmware to u-disk.
+
+> There maybe no u-disk because of diferent firmware, visit [Burn bin file](#burn-bin-file) to solve this.
 
 Hold BOOT key, then click RESET key once, a removable disk is shown in computer.
 
@@ -41,11 +45,15 @@ And the result of each demo is as follows:
 
 ### hello_world.uf2
 
-Run serial application, and open the serial port, `Hello, World` is being printed.
+[Click me to download](https://dl.sipeed.com/shareURL/Maix-Zero/M0sense/7_Example_demos/hello_world)
+
+Burn it into m0sense via u-disk burn. Run serial application, and open the serial port, `Hello, World` is being printed.
 
 ![m0sense_hello_world](./../../../zh/maixzero/sense/assets/start/m0sense_hello_world.gif)
 
 ### blink_baremetal.uf2
+
+[Click me to download](https://dl.sipeed.com/shareURL/Maix-Zero/M0sense/7_Example_demos/blink_baremetal)
 
 Dragging and dropping this file to u-disk, then repower M0sense, LED flashes, open the serial port and the LED states are printed.
 
@@ -59,6 +67,8 @@ Dragging and dropping this file to u-disk, then repower M0sense, LED flashes, op
 
 ### blink_rtos.uf2
 
+[Click me to download](https://dl.sipeed.com/shareURL/Maix-Zero/M0sense/7_Example_demos/blink_rtos)
+
 This demo has the same effect as the previous one, but this demo is based on RTOS.
 
 - Open the serial port
@@ -71,12 +81,16 @@ This demo has the same effect as the previous one, but this demo is based on RTO
 
 ### lcd_flush.uf2
 
+[Click me to download](https://dl.sipeed.com/shareURL/Maix-Zero/M0sense/7_Example_demos/lcd_flush)
+
 Burn this demo to M0sense, lcd background color flushes, and the color of screen is printed by serial port.
 
 ![m0sense_lcd_flush](./../../../zh/maixzero/sense/assets/start/m0sense_lcd_flush.gif)
 ![m0sense_lcd_flush_uart](./../../../zh/maixzero/sense/assets/start/m0sense_lcd_flush_uart.gif)
 
 ### imu.uf2
+
+[Click me to download](https://dl.sipeed.com/shareURL/Maix-Zero/M0sense/7_Example_demos/imu)
 
 Burn this demo to board, the data of onboard 6 axi IMU is printed by serial port.
 
@@ -86,6 +100,8 @@ Burn this demo to board, the data of onboard 6 axi IMU is printed by serial port
 
 ### single_button_control.uf2
 
+[Click me to download](https://dl.sipeed.com/shareURL/Maix-Zero/M0sense/7_Example_demos/single_button_control)
+
 Burn this demo to M0sense, press BOOT key, LED changes the color, and the state of LED is printed by serial port.
 
 The detailed usage can be analysised by reading <a href="https://github.com/Sipeed/M0sense_BL702_example/blob/main/m0sense_apps/rtos_demos/single_button_control/main.c">source code</a>.
@@ -94,6 +110,8 @@ The detailed usage can be analysised by reading <a href="https://github.com/Sipe
 ![single_button_control_uart](./../../../zh/maixzero/sense/assets/start/single_button_control_uart.gif)
 
 ### audio_recording.uf2
+
+[Click me to download](https://dl.sipeed.com/shareURL/Maix-Zero/M0sense/7_Example_demos/audio_recording)
 
 Burn this demo to M0sense, the 16bit pcm format data of the onboard microphone is printed by serial port.
 
@@ -300,3 +318,20 @@ Click `Refresh`，choose the only one serial port, if you did not see the serial
 Finishing flashing firmware, repower M0sense to load the new firmware.
 
 ![finish_burn_702](./../../../zh/maixzero/sense/assets/start/finish_burn_702.png)
+
+## Notes
+
+There is a BOOT key and a BOOT silkprint pin on M0sense.
+
+<img src="./../../../zh/maixzero/sense/assets/start/m0sense_boot_key.jpg" width="40%" alt="m0sense_boot_key">
+<img src="./../../../zh/maixzero/sense/assets/start/m0sense_boot_silkprint.jpg" width="40%" alt="m0sense_boot_silkprint">
+
+There are 2 BOOT on M0sense, here are their differences:
+
+![boot_description](./../../../zh/maixzero/sense/assets/start/boot_description.png)
+
+From the [schematic](https://dl.sipeed.com/shareURL/Maix-Zero/M0sense/2_Schematic) above, we can see that the two keys on Mosense are routed to GPIO_2 and AU_CHIP, from the chip manual we can know that `AU_CHIP` is the reset pin, so SW1 is the reset key, and another key is the soft BOOT key on M0sense, it requires the [firmware](https://dl.sipeed.com/shareURL/Maix-Zero/M0sense/7_Example_demos/default_firmware) for u-disk burn.
+
+And we can see that the BOOT silkprint pin is Boot_Strap on M0sense, it's the hardware Boot key. Hold it before powering it to burn the firmware into M0sense.
+
+U-disk is a special burn method based on firmware, while uart burn method is the basic way to burn this chip.
