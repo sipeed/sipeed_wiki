@@ -333,9 +333,9 @@ AX-Pipeline 由爱芯主导开发。该项目基于 AXera-Pi 展示 ISP、图像
 
 ## 选择 M3AXPI 的理由
 
->为什么要选择 M3axpi 呢？由这个视频来回答你的所有疑问吧！
+>为什么要选择 M3AXPI 呢？由这个视频来回答你的所有疑问吧！
 
-视频简述了 M3Axpi 比起 M2Dock 的优势，还有超多实际使用效果案例以及彩蛋！
+视频简述了 M3AXPI 比起 M2DOCK 的优势，还有超多实际使用效果案例以及彩蛋！
 
 <iframe src="//player.bilibili.com/player.html?aid=992194128&bvid=BV1px4y1w75T&cid=1018084963&page=1&t=372" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
