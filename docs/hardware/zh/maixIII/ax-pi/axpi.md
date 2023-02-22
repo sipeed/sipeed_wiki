@@ -128,6 +128,7 @@ keywords: MAIX-III, AXera-Pi, Maix3, Sipeed, ax620a, axera, sipeed, AI, model, m
   - [YOLOv5s](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/README.md#YOLOv5s)
   - [YOLOv5-Lite](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/README.md#YOLOv5-Lite)([original model](https://github.com/ppogg/YOLOv5-Lite))
   - [YOLOv7-Tiny](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/README.md#YOLOv7-Tiny)
+  - [YOLOv8s](https://github.com/AXERA-TECH/ax-samples/tree/main/examples#YOLOv8s)
   - [YOLOX-S](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/README.md#YOLOX-S)
   - YOLO-Fastest-XL
   - NanoDet
@@ -182,6 +183,7 @@ keywords: MAIX-III, AXera-Pi, Maix3, Sipeed, ax620a, axera, sipeed, AI, model, m
 - [国产AI开发板测评 | MAIX-III AXera-Pi 上手 YOLOv5s 实时目标检测](https://mp.weixin.qq.com/s/lqxL-DmhBa-K9gu3uEyebQ)
 - [【AXPI】如何在 M1/M2 Mac上使用 Rndis](https://blog.csdn.net/flamebox/article/details/127103964)
 - [[m3axpi] YOLOv5 训练到部署全流程](https://github.com/Abandon-ht/m3axpi)
+- [[m3axpi] YOLOv8 训练到部署全流程](https://github.com/Abandon-ht/m3axpi_model/tree/main/yolov8)
 
 产品相关的专栏内容有：
 
@@ -329,6 +331,14 @@ AX-Pipeline 由爱芯主导开发。该项目基于 AXera-Pi 展示 ISP、图像
 4. [如何调整图像方向](https://github.com/AXERA-TECH/ax-pipeline/blob/main/docs/how_to_adjust_image_orientation.md)
 5. [ModelZoo](https://github.com/AXERA-TECH/ax-pipeline/blob/main/docs/modelzoo.md) 一些支持或将支持的模型和一些模型的说明。
 
+## 选择 M3AXPI 的理由
+
+>为什么要选择 M3axpi 呢？由这个视频来回答你的所有疑问吧！
+
+视频简述了 M3Axpi 比起 M2Dock 的优势，还有超多实际使用效果案例以及彩蛋！
+
+<iframe src="//player.bilibili.com/player.html?aid=992194128&bvid=BV1px4y1w75T&cid=1018084963&page=1&t=372" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
 ## 硬件参数
 
 <p align="center">
@@ -398,12 +408,6 @@ AX-Pipeline 由爱芯主导开发。该项目基于 AXera-Pi 展示 ISP、图像
 </p>
 
 > [更换摄像头常见问题](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html)
-
-## 选择 M3AXPI 的理由
-
-下面的视频简述 M3Axpi 比起 M2Dock 的优势，里面有很多实际使用效果。
-
-<iframe src="//player.bilibili.com/player.html?aid=992194128&bvid=BV1px4y1w75T&cid=1018084963&page=1&t=372" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
 ## 常见问题（FAQ）
 

@@ -20,7 +20,6 @@ MobaXterm 是在 Windows 下使用的全能终端管理软件，而 Linux 系统
 使用教程：[如何使用 MobaXterm](https://wiki.sipeed.com/hardware/zh/maixII/M2/tools/mobaxterm.html?highlight=ssh)
 
 - **electerm 介绍**
-
 electerm 是一个基于 `electron/ssh2/node-pty/xterm/antd/useProxy` 等开源组件开发，支持跨平台的 `Terminal/SSH/SFTP` 客户端工具，同时支持 `Linux、MacOS、Windows` 等多种操作系统，它既可以作为终端工具来使用，还能传输文件并自带中文界面，更加满足用户日常对终端的需求。
 
 ![electerm](./../assets/electerm.jpg)
@@ -1425,7 +1424,7 @@ cat /proc/ax_proc/uid
 
 >**注意**：启动命令默认的镜头型号为 **gc4653** ，因不同的摄像头配置文件不一致，使用别的型号时需点击右侧[更换摄像头](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html#Q%EF%BC%9A%E5%A6%82%E4%BD%95%E6%9B%B4%E6%8D%A2-os04a10-%E6%91%84%E5%83%8F%E5%A4%B4%EF%BC%9F)进行修改。
 
-在终端运行下面的命令即可启动软件，服务默认绑定到 0.0.0.0 地址，直接在浏览器输入 usb0 的 IP 即可访问，使用板子上其他 IP 也可以访问页面（例如：`192.168.233.1:8080`）.
+在终端运行下面的命令即可启动网页，服务默认绑定到 0.0.0.0 地址，直接在浏览器输入 usb0 的 IP 即可访问，使用板子上其他 IP 也可以访问页面（例如：`192.168.233.1:8080`）.
 
 ```bash
 /opt/bin/IPCDemo/run.sh /opt/bin/IPCDemo/config/gc4653_config.json
@@ -1444,8 +1443,8 @@ cat /proc/ax_proc/uid
 
 - **抓拍图像**
 
-软件经过上文的启动后显示画面，右下角有抓拍和录制的功能图标。
-用户可点击摄像头图标进行抓拍喜欢的场景，抓拍的照片浏览器会自动弹出进行下载方便用户查看存储。
+网页经过上文的启动后显示画面，右下角有抓拍和录制的功能图标。
+用户可点击摄像头图标进行抓拍喜欢的场景，抓拍的照片会在页面自动弹出进行下载方便用户查看存储。
 
 ![ipc-web](./../assets/ipc-web.jpg)
 
@@ -1460,20 +1459,21 @@ cat /proc/ax_proc/uid
 ![ipc-config](./../assets/ipc-config.jpg)
 
 >**注意**：
->**20221017** 后的镜像默认打开了录制保存到`/opt/mp4`的目录下。
+>版本为 **20221017** 的镜像后默认打开了录制保存到`/opt/mp4`的目录下。
 >视频录制要储存到文件系统后才能打开，某种意义上用户也可以挂载网络路径来当监控录像使用。
 
 #### 人脸检测
->基于上文的基础功能，IPCDemo 自身还附带其他一些功能应用.例如**：人脸检测、车牌识别**。
 
-使用前请参考上文使用命令行登录 IPC 网页，登录后先进行相机结构化配置，具体配置流程看下文。
+>IPCDemo 除了上文的基础功能还有进阶的 AI 功能应用，例如**：人脸检测、车牌识别**。
+
+使用前先进行相机结构化配置再进行人脸检测，具体配置参考以下示例。
 
 .. details::点击查看配置流程
     接入页面后选择**配置**在**智能配置**里再进行**结构化配置**，用户可根据自己的需要进行勾选即可。
 
     ![ipc-video](./../assets/ipc-video.jpg)
 
-设置完成后回到预览页面即可进行人脸及人形识别，IPC 会自动框出识别人脸并且截取人脸的图片，可在预览页面下方点击截取图样放大查看附带信息。
+配置完成后回到预览页面即可进行人脸及人形识别，IPC 会自动框出识别人脸并且截取人脸的图片，可在预览页面下方点击截取图样放大查看附带信息。
 - 左侧：人脸检测 右侧：人形检测
 
 <html>
@@ -1483,14 +1483,14 @@ cat /proc/ax_proc/uid
 
 #### 车牌识别
 
-使用前请参考上文基础功能使用命令行登录网页，再进行**结构化配置**勾选车牌所需的检测画框即可。
+使用前先进行**结构化配置**勾选车牌所需的检测画框即可。
 
 .. details::点击查看 IPC 配置流程
     接入页面后选择**配置**在**智能配置**里再进行**结构化配置**，用户可根据自己的需要进行勾选即可。
 
     ![ipc-video](./../assets/ipc-video.jpg)
 
-设置完成即可回到预览页面进行车牌识别，IPC 会自动框出识别到得车牌及读取车牌数字信息，用户可在预览下方点击图片放大查看截取到车牌图片及信息。
+设置完成即可回到预览页面进行车牌识别，IPC 会自动框出识别到得车牌及读取车牌数字信息，用户在页面下方点击图片可查看截取到的车牌图片及信息。
 
 ![ipc-car](./../assets/ipc-car.jpg)
 
@@ -1499,20 +1499,20 @@ cat /proc/ax_proc/uid
     <iframe src="//player.bilibili.com/player.html?aid=773227207&bvid=BV1B14y1Y7A4&cid=837154353&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="max-width:640px; max-height:480px;"> </iframe>
 </p> -->
 
-### rtsp
+### RTSP
 
->**rtsp**：也称实时流传输协议，该协议定义了一对多应用程序如何有效地通过 IP 网络传送多媒体数据。
-
-**VLC Media Player**：[点击下载](https://www.videolan.org/vlc/)
+>**RTSP**：也称实时流传输协议，该协议定义了一对多应用程序如何有效地通过 IP 网络传送多媒体数据。
 
 使用 RTSP 传送数据前，我们需要先认识工具 `VLC Media Player`。
+
+**VLC Media Player**：[点击下载](https://www.videolan.org/vlc/)
 
 .. details::点此展开查看 VLC Media Player 介绍
     VLC Media Player（VLC 多媒体播放器），是一款可播放大多数格式，而无需安装编解码器包的媒体播放器，以及支持多平台使用、支持 DVD 影音光盘，VCD 影音光盘及各类流式协议。
 
     ![vl-yolov5s](./../assets/vlc-yolov5s.jpg)
 
-运行命令后终端会弹出调试信息，打开 `VLC Media Player` 进行配置网络串流后即可看到画面效果。
+运行下文命令后终端会弹出调试信息，打开 `VLC Media Player` 进行配置网络串流后即可看到画面效果。
 
 ```bash
 /home/examples/vin_ivps_joint_venc_rtsp_vo_onvif_mp4v2/run.sh
@@ -1538,7 +1538,8 @@ cat /proc/ax_proc/uid
 >**注意**：默认摄像头为 gc4653 型号不同请移步[Maix-III 系列 AXera-Pi 常见问题(FAQ)](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html)更换参数。
 #### ffplay
 
-工具除了 `VCL` 还可以直接使用 `ffplay`。
+RTSP 拉流工具除了 `VCL` 还可以直接使用 `ffplay`。
+
 **ffplay** :[点击下载](https://dl.sipeed.com/shareURL/MaixIII/AXera/09_Software_tool)
 
 ```bash
@@ -1548,63 +1549,71 @@ ffplay rtsp://192.168.233.1:8554/axstream0 -fflags nobuffer
 
 ### ONVIF ODM
 
->在 **20221111** 后的更新的镜像系统，内置了按键录像 mp4 和支持更换 yolov5s 人脸/物体检测模型以及对 ODM（ONVIF）进行支持。
+>版本为 **20221111** 后的镜像系统内置了按键录像 mp4 和支持更换 yolov5s 人脸/物体检测模型以及对软件 ODM（ONVIF）进行支持。
+
+在进行体验之前，我们先来认识即将使用的软件：`ONVIF Device Manager`
 
 **ONVIF Device Manager**：[点击下载](https://sourceforge.net/projects/onvifdm/)
 
-.. details::点击查看 ODM 软件介绍
+.. details::点击查看 ONVIF ODM 软件介绍
 
     ONVIF 协议作为全球性的网络视频监控开放接口标准，推进了网络视频在安防市场的应用，特别是促进了高清网络摄像头的普及和运用。 越来越多的前端 IPC 厂家和后端 NVR 及存储提供商加入进来。而 ONVIF Device Manager 是 ONVIF 官方基于协议提供的免费第三方的 ONVIF 协议测试工具，与上文的 VLC 相比性能不同，但 ODM 的内容形式更加多样丰富。
 
    ![odm](./../assets/odm.jpg)
 
-在终端运行下方命令，设备屏幕会跳出 yolov5s 模型运行画面，接着我们来配置 `ODM` 实现 PC 端显示。
-
->**注意**：ODM 受网络影响较大，如果有卡顿现象把网络更换成以太网即可。
->默认摄像头为 gc4653 如型号不同请移步[Maix-III 系列 AXera-Pi 常见问题(FAQ)](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html)更换参数。
-
-.. details::点击设备运行效果图
-    ![odm-mipi](./../assets/odm-mipi.jpg)
+运行下文命令，设备屏幕会跳出 yolov5s 模型运行画面，接着我们来配置 `ODM` 实现 PC 端显示。
 
 ```bash
 /home/examples/vin_ivps_joint_venc_rtsp_vo_onvif_mp4v2/run.sh
 ```
 
-打开我们下载好的 `ODM` 软件点击左侧白框的 `Refresh` 按键扫描设备，扫描成功会显示 `IP-Camera` 方框点击后选择下方的 `Live video` 即可在 PC 端看到画面。
+.. details::点击设备运行效果图
+    ![odm-mipi](./../assets/odm-mipi.jpg)
+
+打开下载好的 `ODM` 软件点击左侧白框的 `Refresh` 按键扫描设备，扫描成功会显示 `IP-Camera` 方框点击后选择下方的 `Live video` 即可在 PC 端看到画面。
 
 ![odm-config](./../assets/odm-config.jpg)
 
 还可通过下方命令去查看文件配置：
 
 ```bash
- cd /home/examples/vin_ivps_joint_venc_rtsp_vo_onvif_mp4v2/
- ls -l
+cd /home/examples/vin_ivps_joint_venc_rtsp_vo_onvif_mp4v2/
+ls -l
 ```
 
+>**注意**：ODM 受网络影响较大，如果有卡顿现象把网络更换成以太网即可。
+>默认摄像头为 gc4653 如型号不同请移步[Maix-III 系列 AXera-Pi 常见问题(FAQ)](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html)更换参数。
+
 - **更换模型**
->20221116 后更新的镜像已在 `run.sh` 内置了不同摄像头参数的源码。
->20221111 镜像内置 yolov5s 的人脸/物体检测模型，可使用以下命令更改运行脚本内容更换模型。
+>**20221116** 后更新的镜像已在 `run.sh` 内置了不同摄像头参数的源码。
+>**20221111** 镜像内置 yolov5s 的人脸/物体检测模型，可使用以下命令更改运行脚本内容更换模型。
 
 ``` bash
 nano /home/examples/vin_ivps_joint_venc_rtsp_vo_onvif_mp4v2/run.sh
 ```
 
 .. details::点击查看修改操作示例
+
     运行后会显示 `run.sh` 的编辑页面，对当前启动的模型进行注释或调用其他模型即可，
     按 **ctrl+X** 键后会提示是否保存修改内容。
+
     ![model-save](./../assets/model-save.jpg)
+    
     根据提示按下 **Y** 键保存，界面会显示修改内容写入的文件名按**回车**键确定，
     再次运行 `run.sh` 脚本即可看到模型更换成功。
+    
     ![model-file](./../assets/model-file.jpg)
-    除了上方通过命令修改 `run.sh` 更换还可以通过 `MdbaXterm` 工具查看 `/home/examples/vin_ivps_joint_venc_rtsp_vo_onvif_mp4v2/` 目录下的`run.sh`脚本文件直接修改保存。
+    
+    除了直接在板端修改 `run.sh` 脚本，还可以通过 `MdbaXterm` 软件使用 ssh 登录查看 `/home/examples/vin_ivps_joint_venc_rtsp_vo_onvif_mp4v2/` 目录下的`run.sh` 直接进行修改保存。
 
 - **按键录制 MP4**
+
 运行 `run.sh` 期间可按下板载的按键 `user` 进行录制视频，按下后 **LED0** 会亮起代表开始录制 MP4，
 
 .. details::点击查看按键示意图
     ![odm-mp4](./../assets/odm-mp4.jpg)
 
-终端界面会显示下图 `delete file`，当录制完成后再次按下按键停止录制而 LED0 会灭掉，
+终端界面会显示下图 `delete file`，再次按下按键板卡会停止录制而 LED0 会灭掉，
 
 ![odm-adb](./../assets/odm-adb.png)
 
@@ -1614,8 +1623,7 @@ nano /home/examples/vin_ivps_joint_venc_rtsp_vo_onvif_mp4v2/run.sh
 
 ### PP_human
 
->**20221116** 后更新的系统镜像已内置了 `pp_human` 人体分割应用。
->还内置了不同摄像头的参数命令在 `run.sh`，只需要调用注释相应源码即可使用。
+>版本为 **20221116** 后的系统镜像内置了 `pp_human` 人体分割应用，并且内置了不同摄像头的参数命令在目录下的启动脚本 `run.sh` 里，用户使用只需要修改注释相应命令行即可使用。
 
 运行下方的命令后终端会输出调试信息，设备屏幕会显示运行画面。
 
@@ -1623,7 +1631,8 @@ nano /home/examples/vin_ivps_joint_venc_rtsp_vo_onvif_mp4v2/run.sh
 /home/examples/vin_ivps_joint_vo_pp_human_seg/run.sh
 ```
 ![pp_human](./../assets/pp_human.jpg)
-可使用下方命令进入图形化页面，对 `run.sh` 里不同摄像头参数的源码进行调用或注释。
+
+使用下方命令进入图形化页面，对 `run.sh` 里不同摄像头参数的源码进行调用或注释。
 
 ```bash
 nano /home/examples/vin_ivps_joint_vo_pp_human_seg/run.sh
@@ -1631,17 +1640,18 @@ nano /home/examples/vin_ivps_joint_vo_pp_human_seg/run.sh
 
 .. details::点击查看图形化页面
     修改后按 **ctrl+x** 退出键会提示是否保存页面，后续按终端提示操作即可。
+
     ![pp_human_adb](./../assets/pp_humana_adb.png)
 
 ### uvc_vo
 
 **usb-uvc-gadget**：[点击查看相关仓库](https://github.com/junhuanchen/usb-uvc-gadget)
 
->**20221123** 镜像内置了 uvc vo 应用，并且还可以在手机端软件使用。
+>版本为 **20221123** 的镜像系统内置了 uvc vo 应用，并且还可以在手机端软件使用。
 >目前应用还处于不稳定的状态，第一次启动程序会改变 usb otg rndis 转成 usb otg uvc 模式导致设备重启，重启再运行即可，画面绿屏是启动脚本里摄像头配置不对。
 
-使用前需要准备两条 USB type_c  的数据线以及一条双 type_c 口的数据线。
-把设备的 **UART** 及 **OTG** 口用`USB type-c` 线全部接入 `PC` 端，再运行下方命令终端会弹出无报错调试信息。
+使用前准备两条 USB type_c  的数据线以及一条双 type_c 口的数据线。
+把设备的 **UART** 及 **OTG** 口用 `USB type-c` 线全部接入 `PC` 端，再运行下方命令终端会弹出无报错调试信息。
 
 ```bash
 /home/examples/vin_ivps_joint_venc_uvc_vo/run.sh
@@ -1675,22 +1685,31 @@ UVC 也能在安卓手机端的 `app` 上当虚拟摄像头使用，使用前在
 
 >**注意**：如果需要完全脱离电脑端用手机端供电的话，需要把 uvc 程序写入开机脚本即可。
 
+### Python API
+
+除了在板端上使用命令行去直接运行程序，还可以使用 Python 来编程直接运行调用 AI 模型和各种库。
+
+**传送门**：[试试 Python 编程](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/python_api.html)
+
 ### 人体关键点
 
->镜像系统已内置人体关键点模型，直接使用终端命令行运行模型或使用 `Python` 调用模型.
+镜像系统已内置人体关键点模型，用户可直接使用终端命令行运行模型或使用 `Python` 调用模型.
 
 - **终端使用命令行调用模型**
 
-用户先使用 `nano /home/run.sh` 进入 `run.sh` 可视化编辑页面修改相关命令行并退出。
-修改示例可参考下文，再运行启动 `run.sh` 脚本命令调用模型。
+用户先修改内置在 `/home/run.sh` 的启动脚本，再运行 `run.sh` 脚本命令调用模型。
 
 **如何修改 `run.sh` 脚本，以人体关键点 `ax_poes` 为例。**
 
 ![ax_poes_sh](./../assets/ax_poes_sh.jpg)
 
-使用命令 `nano /home/run.sh` 进入后找到自己需要调用的模型及命令，使用上下左右键移动取消注释更换 `-c 2` 的不同摄像头参数，然后按 `ctrl+x` 键退出会提示保存，按提示进行操作即修改完成。
+使用下文命令进入后找到自己需要调用的模型及命令，使用方向键移动取消注释更换 `-c 2` 不同摄像头参数，然后按 `ctrl+x` 键退出会提示保存，按提示操作即修改完成。
 
-**修改后使用 `/home/run.sh` 运行程序，即可体验人体关键点。**
+```bash
+nano /home/run.sh
+```
+
+**修改后在终端输入 `/home/run.sh` 命令运行程序，即可体验人体关键点。**
 
 <p align="center">
 <iframe src="//player.bilibili.com/player.html?aid=647932316&bvid=BV1Pe4y1W7n6&cid=901750338&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
@@ -1714,7 +1733,6 @@ yolov5_seg.json         yolov7.json           yolox.json
 yolov5s_face.json       pp_human_seg.json     ax_pose.json
 hrnet_animal_pose.json  hand_pose.json
 ```
-
 
 ### lvgl7 UI
 
@@ -1758,5 +1776,48 @@ sample_rtsp_ivps_joint_rtsp_vo  sample_vin_ivps_joint_venc_rtsp_vo  sample_vin_i
 .. details::点击查看终端示例图
     ![sample](./../assets/sample.jpg)
 
+###  Sherpa-ncnn 中英文语音识别
 
+>版本为 `20230214` 后的镜像内置了 sherpa-ncnn 中英文语音识别应用。
 
+先运行命令先进入到 `/home/sherpa-ncnn-m3axpi` 的目录下，再运行中英文的启动命令体验语音识别应用。
+
+```bash
+cd /home/sherpa-ncnn-m3axpi
+```
+
+- 中文语音识别
+
+```bash
+./sherpa-ncnn-alsa \
+./sherpa-ncnn-streaming-zipformer-small-bilingual-zh-en-2023-02-16/tokens.txt \
+./sherpa-ncnn-streaming-zipformer-small-bilingual-zh-en-2023-02-16/encoder_jit_trace-pnnx.ncnn.param \
+./sherpa-ncnn-streaming-zipformer-small-bilingual-zh-en-2023-02-16/encoder_jit_trace-pnnx.ncnn.bin \
+./sherpa-ncnn-streaming-zipformer-small-bilingual-zh-en-2023-02-16/decoder_jit_trace-pnnx.ncnn.param \
+./sherpa-ncnn-streaming-zipformer-small-bilingual-zh-en-2023-02-16/decoder_jit_trace-pnnx.ncnn.bin \
+./sherpa-ncnn-streaming-zipformer-small-bilingual-zh-en-2023-02-16/joiner_jit_trace-pnnx.ncnn.param \
+./sherpa-ncnn-streaming-zipformer-small-bilingual-zh-en-2023-02-16/joiner_jit_trace-pnnx.ncnn.bin \
+"hw:0,0" \
+4 \
+greedy_search
+```
+
+- 英文语音识别
+
+```bash
+./sherpa-ncnn-alsa \
+./sherpa-ncnn-conv-emformer-transducer-small-2023-01-09/tokens.txt \
+./sherpa-ncnn-conv-emformer-transducer-small-2023-01-09/encoder_jit_trace-pnnx.ncnn.int8.param \
+./sherpa-ncnn-conv-emformer-transducer-small-2023-01-09/encoder_jit_trace-pnnx.ncnn.int8.bin \
+./sherpa-ncnn-conv-emformer-transducer-small-2023-01-09/decoder_jit_trace-pnnx.ncnn.param \
+./sherpa-ncnn-conv-emformer-transducer-small-2023-01-09/decoder_jit_trace-pnnx.ncnn.bin \
+./sherpa-ncnn-conv-emformer-transducer-small-2023-01-09/joiner_jit_trace-pnnx.ncnn.int8.param \
+./sherpa-ncnn-conv-emformer-transducer-small-2023-01-09/joiner_jit_trace-pnnx.ncnn.int8.bin \
+"hw:0,0" \
+2 \
+greedy_search
+```
+
+运行命令后可对着 AXera-Pi 板卡**（麦克风靠近卡槽区域）**说话或播放声音，板卡会自动识别并把结果打印到终端，如下图使用中文运行效果示例。
+
+![sherpa](./../assets/sherpa.png)
