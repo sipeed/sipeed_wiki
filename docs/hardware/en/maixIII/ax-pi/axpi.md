@@ -1,6 +1,6 @@
 ---
 title: MAIX-III AXera-Pi
-keywords: MAIX-III, AXera-Pi, Maix3, Sipeed, ax620a, axera
+keywords: MAIX-III, AXera-Pi, Maix3, Sipeed, ax620a, axera, sipeed, AI, model, maixhub
 update:
   - date: 2022-12-08
     version: v0.1

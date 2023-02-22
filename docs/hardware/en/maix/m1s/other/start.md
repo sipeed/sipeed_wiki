@@ -808,3 +808,29 @@ Finish there, we can use M1s Dock to distinguish Tom and Jerry.
 <img src="./../../../../zh/maix/m1s/other/assets/start/tom_jerry_model_tom.jpg" alt="tom_jerry_model_tom" width=42%>
 
 Because this ai model is a big one, it's heavy for M1s Dock.
+
+## Notes
+
+## Why there is a BL702 chip on M1s Dock?
+
+We use this chip as a USB to 2 UART convertor.
+
+If there is some problem with your serial COM port, you can burn its firmware to solve this problem.
+
+### Why there are 2 serial COM ports on M1s Dock
+
+We can know there are 3 cores in BL808, and 2 serial COM ports are connecting with 2 different cores of BL808, with which you can see their own logs if you need.
+
+### Why choose u-disk burn
+
+This u-disk is built on a firmware, via which user can burn demos and experience M1s Dock.
+
+If you full-erase the flash, there is no u-disk anymore.
+
+If you want to use this u-disk again, reburn the default firmware into bl808 via serial burn.
+
+### Why use serial burn
+
+U-disk burn is based on firmware, we need a way to burn this firmware into M1s Dock when it's produced.
+
+So we use serial burn to flash the defaule firmware into M1s Dock.

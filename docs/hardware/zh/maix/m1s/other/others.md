@@ -1,5 +1,5 @@
 ---
-title: M1s DOCK 额外事项
+title: M1s DOCK 安装外壳
 keywords: M1s DOCK ,BL808, M1s
 update:
   - date: 2022-11-22
@@ -9,7 +9,7 @@ update:
       - 新建文档
 ---
 
-这里写一些使用相关的注意事项
+这里说明一下摄像头和屏幕的拆装方法，并补充下外壳的安装方法。
 
 ## 拆卸屏幕
 

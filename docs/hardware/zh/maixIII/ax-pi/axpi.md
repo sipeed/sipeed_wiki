@@ -1,6 +1,6 @@
 ---
 title: MAIX-III AXera-Pi 是什么？
-
+keywords: MAIX-III, AXera-Pi, Maix3, Sipeed, ax620a, axera, sipeed, AI, model, maixhub
 ---
 
 > 如果你想分享这款 AI 开发板给其他同学了解，请使用唯一的传送门「[ wiki.sipeed.com/m3axpi ](http://wiki.sipeed.com/m3axpi) 」。
@@ -398,6 +398,12 @@ AX-Pipeline 由爱芯主导开发。该项目基于 AXera-Pi 展示 ISP、图像
 </p>
 
 > [更换摄像头常见问题](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html)
+
+## 选择 M3AXPI 的理由
+
+下面的视频简述 M3Axpi 比起 M2Dock 的优势，里面有很多实际使用效果。
+
+<iframe src="//player.bilibili.com/player.html?aid=992194128&bvid=BV1px4y1w75T&cid=1018084963&page=1&t=372" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
 ## 常见问题（FAQ）
 

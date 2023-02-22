@@ -1,5 +1,5 @@
 ---
-title: M1s DOCK other usages
+title: M1s DOCK Install shell
 keywords: M1s DOCK ,BL808, M1s
 update:
   - date: 2022-12-04
@@ -9,9 +9,7 @@ update:
       - Create file
 ---
 
-> Please use translation tool to read this page.
-
-Here are some steps like how to remove the camera or screen.
+Here are some steps on how to remove or install the camera or screen. And how to use the shell.
 
 ## Remove the screen
 
