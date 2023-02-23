@@ -48,10 +48,14 @@ Github Repository:
 https://github.com/sipeed/TangNano-4K-example
 
 - [Blink](./../Tang-Nano-4K/examples/led.md)
-- Blink by Cortex-M3：[Github](https://github.com/verilog-indeed/gowin_fpga_tutorials)
 - HDMI display project ：https://github.com/sipeed/TangNano-4K-example/tree/main/dk_video/project
 - Display camera content on HDMI：https://github.com/sipeed/TangNano-4K-example/tree/main/dk_video/project
 - Run GBA on Nano 4K ：https://github.com/Martoni/GbHdmi
+- Litex on Tang Nano 4K : https://github.com/litex-hub/litex-boards
+
+#### Other examples
+
+- Blink by Cortex-M3：[Github](https://github.com/verilog-indeed/gowin_fpga_tutorials)
 
 ---
 ### Tang Nano 9K
@@ -64,7 +68,7 @@ https://github.com/sipeed/TangNano-9K-example
 - [Examples of PicoRV](./../Tang-Nano-9K/examples/picorv.md)
 - [FPGA drives 1.14-inch SPI screen](./../Tang-Nano-9K/examples/spi_lcd.md)
 - HDMI display : [Examples of PicoRV](./../Tang-Nano-9K/examples/picorv.md)
-- Litex running on 9K : https://github.com/litex-hub/litex-boards
+- Litex on Tang Nano 9K : https://github.com/litex-hub/litex-boards
 
 Partner tutorials:
 <a href="https://learn.lushaylabs.com/tang-nano-series/"><img src="./../../../zh/tang/Tang-Nano-Doc/assets/lushaylab_logo.png" alt="lushaylab_logo" width="35%"></a>
@@ -83,3 +87,14 @@ Partner tutorials:
 Other Blogs
 
 - [Blink by Softcore](https://blog.ruux.de/tang-nano-9k-softcore-blink)
+
+## Others
+
+If you have questions to discuss, join the [reddit](https://www.reddit.com/r/GowinFPGA) or [telegram group](https://t.me/sipeed).
+
+Reddit: https://www.reddit.com/r/GowinFPGA
+Telegram: https://t.me/sipeed
+
+## Troubles
+
+Here are the most common troubles or questions we gathered: [Tang Solutions](https://wiki.sipeed.com/hardware/en/tang/Tang-Nano-Doc/questions.html)

@@ -19,17 +19,32 @@ update:
     author: wonder
     content:
       - 增加设置顶层相关说明
+  - date: 2023-02-23
+    version: v0.4
+    author: wonder
+    content:
+      - 补充 programmer 相关的说明
 ---
 
 这里汇总一些常见问题。
 
 ## Programmer 相关
 
-**首先确定设备管理器里面有两个 converter，在进行下面的操作**
+首先确定设备管理器中有两个 `converter` 设备和一个 `COM` 设备，这说明设备正常连接到电脑并且电脑成功加载驱动了。
 
-![converter](./../assets/questions/converter.png)
+![tang_bl702_device_convertor](./assets/qusetions/tang_bl702_device_convertor.png)
 
-与上图中一样的话说明电脑与板子连接没问题；不存在的话请稍微等待数秒，可能电脑正在加载驱动；数秒后仍未显示出来 converter 请更换电脑别的 USB 接口或者重新安装驱动[点我跳转到驱动下载页面](https://dl.sipeed.com/shareURL/TANG/programmer)。
+### 只有两个 `convertor`
+
+![tang_bl702_device_convertor_no_com](./assets/qusetions/tang_bl702_device_convertor_no_com.png)
+
+如果出现没有 `COM` 设备但是有两个 `converter` 设备，可以 `鼠标右键点击` `converter B` -> `属性` -> `高级` -> `加载 VCP` ，然后点击 `OK` ，重新插拔一下 USB 数据线就行了。
+
+![tang_bl702_device_convertor_load_vcp](./assets/qusetions/tang_bl702_device_convertor_load_vcp.png)
+
+### 没有 `convertor`
+
+调试器连接电脑后，需要十多秒时间加载驱动。不想等待加载驱动的话可以手动下载驱动并安装驱动 [点我跳转到驱动下载页面](https://dl.sipeed.com/shareURL/TANG/programmer)。
 
 ### 下载频率
 
@@ -45,11 +60,13 @@ update:
 
 ### Error found
 
-没有扫描到下载器或者驱动错误，要求使用 [这里](https://dl.sipeed.com/shareURL/TANG/programmer) 的压缩包文件。
+<!-- 没有扫描到下载器或者驱动错误，要求使用 [这里](https://dl.sipeed.com/shareURL/TANG/programmer) 的压缩包文件。
 下载后解压替换掉 Gowin IDE 对应安装目录的 Programmer 文件夹即可。
-不会替换的话可以在下载解压后的 Programmer 程序中手动添加对应下载文件来进行烧录。
+不会替换的话可以在下载解压后的 Programmer 程序中手动添加对应下载文件来进行烧录。 -->
 
-替换下载器软件后出现这个问题的话，可以先重启一下 programmer 软件；
+<!-- 替换下载器软件后出现这个问题的话， -->
+
+确定设备管理器中的 `convertor` 和 `COM` 都存在时，可以先重启一下 programmer 软件。
 
 ### Cabel open failed
 

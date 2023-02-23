@@ -9,17 +9,30 @@ update:
     author: wonder
     content:
       - Rewrite some solutions
+  - date: 2023-02-23
+    version: v0.2
+    author: wonder
+    content:
+      - Add extra information about programmer
 ---
 
 Here are some normal questions.
 
 ## Programmer 
 
-**Make sure there are 2 converters in **Device Manager** before reading.**
+Make sure there are 2 `converter` and 1 `COM` device, this means the debugger works well.
 
-![usb_converter](./assets/questions/usb_converter.png)
+![tang_bl702_device_convertor](./../../../zh/tang/Tang-Nano-Doc/assets/qusetions/tang_bl702_device_convertor.png)
 
-These two converters mean the computer connects the debugger well. If there is no converter shown, you may try another USB port or try to install drivers[Click me to download drivers](https://dl.sipeed.com/shareURL/TANG/programmer).
+### Only 2 `converter` devices
+
+If there is no `COM` device but 2 `converter` devices, right click `converter B` -> `Properties` -> `Advanced` -> `Load VCP` , then Click `OK` and reconnect your USB device.
+
+![tang_bl702_device_convertor_load_vcp](./assets/qusetions/tang_bl702_device_convertor_load_vcp.png)
+
+### No `convertor` device
+
+It takes 10 seconds for debugger loading the driver. And you can install the driver manually. [Click me to download driver](https://dl.sipeed.com/shareURL/TANG/programmer)
 
 ### Download frequency
 

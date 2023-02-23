@@ -11,12 +11,14 @@ update:
 
 ## 前言
 
-对于Programmer(下载程序)建议使用
+基本上手使用和相关的历程
+
+<!-- 对于Programmer(下载程序)建议使用
 https://dl.sipeed.com/shareURL/TANG/programmer 里面的文件。
 下载后解压替换掉Gowin对应安装目录的Programmer文件夹即可。
 不会替换的话可以在下载解压后的Programmer程序中手动添加对应下载文件来进行烧录。
 
-另外欢迎投稿或者提供例程，有什么例程想法的话也可以提出。
+另外欢迎投稿或者提供例程，有什么例程想法的话也可以提出。 -->
 
 ## 板型
 
@@ -39,6 +41,7 @@ https://dl.sipeed.com/shareURL/TANG/programmer 里面的文件。
 - HDMI显示工程：https://github.com/sipeed/TangNano-4K-example/tree/main/dk_video/project
 - 摄像头内容显示在HDMI工程：https://github.com/sipeed/TangNano-4K-example/tree/main/dk_video/project
 - 在Nano 4K上运行GBA的工程：https://github.com/Martoni/GbHdmi
+- litex 在 4K 支持：https://github.com/litex-hub/litex-boards
 
 ### Tang Nano 9K
 
