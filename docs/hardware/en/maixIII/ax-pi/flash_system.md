@@ -1291,7 +1291,7 @@ Run this command on AXera-Pi:
 /home/examples/vin_ivps_joint_venc_rtsp_vo_onvif_mp4v2/run.sh
 ```
  
-The lof of AXera-Pi running rtsp stream video
+The log of AXera-Pi running rtsp stream video
 ![vlr-run](./../../../zh/maixIII/assets/vlc-run.jpg)
 
 Enter the ip address of AXera-Pi for playing the stream video, use hoykey `Ctrl + P` to play after entering the ip address of AXera-Pi.
@@ -1438,7 +1438,7 @@ This demo can run at system finishing boot if it's written into [rc.local](#boot
 
 Run following command we can run this lvgl demo.
 
-```
+```bash
 /home/bin/sample_vin_ivps_joint_vo_lvgl -c 0
 ```
 
@@ -1447,3 +1447,101 @@ Run following command we can run this lvgl demo.
 <p align="center">
     <iframe src="//player.bilibili.com/player.html?aid=690497396&bvid=BV1n24y1C7DN&cid=901748014&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 </p>
+
+### Python API
+
+It's also good to program your application via python, read [Python on Maix-III AXera-Pi](https://wiki.sipeed.com/hardware/en/maixIII/ax-pi/python_api.html) for more.
+
+### Human Parts detection
+
+This demo has been built in system, run following command to experience it.
+
+```bash
+./home/run.sh
+```
+
+And there are many other models in this system, edit `run.sh` to load and test other models.
+
+```bash
+sample_vin_ivps_joint_vo
+sample_vin_ivps_joint_venc_rtsp_vo
+```
+
+```bash
+yolov5_seg.json         yolov7.json           yolox.json
+yolov5s_face.json       pp_human_seg.json     ax_pose.json
+hrnet_animal_pose.json  hand_pose.json
+```
+
+Use command `nano /home/run.sh` to enable the model you want to try. And change the camera by edit `-c 2` to switch to another camera.
+
+![ax_poes_sh](./../../../zh/maixIII/assets/ax_poes_sh.jpg)
+
+<p align="center">
+<iframe src="//player.bilibili.com/player.html?aid=647932316&bvid=BV1Pe4y1W7n6&cid=901750338&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+</p>
+
+- More built-in examples
+
+There are more examples in `/home/bin`, run then if you want.
+
+```bash
+root@AXERA:~# ls /home/bin
+sample_h264_ivps_joint_vo       sample_v4l2_user_ivps_joint_vo      sample_vin_ivps_joint_vo       sample_vin_joint
+sample_rtsp_ivps_joint          sample_vin_ivps_joint_venc_rtsp     sample_vin_ivps_joint_vo_h265
+sample_rtsp_ivps_joint_rtsp_vo  sample_vin_ivps_joint_venc_rtsp_vo  sample_vin_ivps_joint_vo_lvgl
+```
+
+Here is an example runnning `sample_vin_ivps_joint_vo_h265`, and `-c 2` means the camera choice.
+
+```bash
+/home/bin/sample_vin_ivps_joint_vo_h265 -c 2
+```
+
+These are the command logs.
+
+![sample](./../../../zh/maixIII/assets/sample.jpg)
+
+###  Sherpa-ncnn Chinese and English audio detection
+
+Open directory `/home/sherpa-ncnn-m3axpi`, here are the demos.
+
+```bash
+cd /home/sherpa-ncnn-m3axpi
+```
+
+- Chinese audio detection
+
+```bash
+./sherpa-ncnn-alsa \
+./sherpa-ncnn-streaming-zipformer-small-bilingual-zh-en-2023-02-16/tokens.txt \
+./sherpa-ncnn-streaming-zipformer-small-bilingual-zh-en-2023-02-16/encoder_jit_trace-pnnx.ncnn.param \
+./sherpa-ncnn-streaming-zipformer-small-bilingual-zh-en-2023-02-16/encoder_jit_trace-pnnx.ncnn.bin \
+./sherpa-ncnn-streaming-zipformer-small-bilingual-zh-en-2023-02-16/decoder_jit_trace-pnnx.ncnn.param \
+./sherpa-ncnn-streaming-zipformer-small-bilingual-zh-en-2023-02-16/decoder_jit_trace-pnnx.ncnn.bin \
+./sherpa-ncnn-streaming-zipformer-small-bilingual-zh-en-2023-02-16/joiner_jit_trace-pnnx.ncnn.param \
+./sherpa-ncnn-streaming-zipformer-small-bilingual-zh-en-2023-02-16/joiner_jit_trace-pnnx.ncnn.bin \
+"hw:0,0" \
+4 \
+greedy_search
+```
+
+- English audio detection
+
+```bash
+./sherpa-ncnn-alsa \
+./sherpa-ncnn-conv-emformer-transducer-small-2023-01-09/tokens.txt \
+./sherpa-ncnn-conv-emformer-transducer-small-2023-01-09/encoder_jit_trace-pnnx.ncnn.int8.param \
+./sherpa-ncnn-conv-emformer-transducer-small-2023-01-09/encoder_jit_trace-pnnx.ncnn.int8.bin \
+./sherpa-ncnn-conv-emformer-transducer-small-2023-01-09/decoder_jit_trace-pnnx.ncnn.param \
+./sherpa-ncnn-conv-emformer-transducer-small-2023-01-09/decoder_jit_trace-pnnx.ncnn.bin \
+./sherpa-ncnn-conv-emformer-transducer-small-2023-01-09/joiner_jit_trace-pnnx.ncnn.int8.param \
+./sherpa-ncnn-conv-emformer-transducer-small-2023-01-09/joiner_jit_trace-pnnx.ncnn.int8.bin \
+"hw:0,0" \
+2 \
+greedy_search
+```
+
+Running the command above, speak to the MIC on AXera-Pi or play audio, detection results are printed to terminal.
+
+![sherpa](./assets/flash_system/axpi_english_audio_detection.png)
