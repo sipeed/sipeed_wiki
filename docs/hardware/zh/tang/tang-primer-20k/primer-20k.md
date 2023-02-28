@@ -25,8 +25,8 @@ Tang Primer 20K 是基于 [GW2A-V18PG256C8IC8I7](http://www.gowinsemi.com.cn/pro
 	</thead>
 	<tbody>
 		<tr>
-			<td style="text-align:left">主控</td>
-			<td style="text-align:left"><a href="http://www.gowinsemi.com.cn/prod_view.aspx?TypeId=10&amp;FId=t3:10:3&amp;Id=167#GW2A">GW2A-LV18PG256C8IC8I7</a>
+			<td style="text-align:left">FPGA 芯片</td>
+			<td style="text-align:left"><a href="http://www.gowinsemi.com.cn/prod_view.aspx?TypeId=10&amp;FId=t3:10:3&amp;Id=167#GW2A">GW2A-LV18PG256C8/I7</a>
 			</td>
 			<td style="text-align:left">
 				<table>

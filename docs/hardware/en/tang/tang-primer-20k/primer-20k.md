@@ -34,8 +34,8 @@ Tang Primer 20K is a core board with DDR3 sodimm shape based on [GW2A-V18PG256C8
 	</thead>
 	<tbody>
 		<tr>
-			<td style="text-align:left">Chip</td>
-			<td style="text-align:left"><a href="https://www.gowinsemi.com/en/product/detail/38/">GW2A-LV18PG256C8IC8I7</a>
+			<td style="text-align:left">FPGA Chip</td>
+			<td style="text-align:left"><a href="https://www.gowinsemi.com/en/product/detail/38/">GW2A-LV18PG256C8/I7</a>
 			</td>
 			<td style="text-align:left">
 				<table>
