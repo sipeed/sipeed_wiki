@@ -1776,9 +1776,10 @@ sample_rtsp_ivps_joint_rtsp_vo  sample_vin_ivps_joint_venc_rtsp_vo  sample_vin_i
 .. details::点击查看终端示例图
     ![sample](./../assets/sample.jpg)
 
-###  Sherpa-ncnn 中英文语音识别
+###  sherpa-ncnn 中英文语音识别
 
 >版本为 `20230214` 后的镜像内置了 sherpa-ncnn 中英文语音识别应用。
+>`20230223` sherpa-ncnn 语音模型进行了升级识别效果更加灵敏，用户可手动完成语音识别升级即可。
 
 先运行命令先进入到 `/home/sherpa-ncnn-m3axpi` 的目录下，再运行中英文的启动命令体验语音识别应用。
 
@@ -1821,3 +1822,27 @@ greedy_search
 运行命令后可对着 AXera-Pi 板卡**（麦克风靠近卡槽区域）**说话或播放声音，板卡会自动识别并把结果打印到终端，如下图使用中文运行效果示例。
 
 ![sherpa](./../assets/sherpa.png)
+
+- 如何升级语音识别模型
+
+先前往传送门通过 `git clone` 把更新包拷贝到本地，点击前往[传送门](https://huggingface.co/marcoyang/sherpa-ncnn-streaming-zipformer-zh-14M-2023-02-23)。
+
+![bash_sherpa](./../assets/bash_sherpa.png)
+
+拷贝后可参考[【文件传输】](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html#%E5%A6%82%E4%BD%95%E4%BC%A0%E8%BE%93%E6%96%87%E4%BB%B6)把更新包放置到 `AXera-Pi` 板卡上的 `/home/sherpa-ncnn-m3axpi` 目录下即可。
+
+使用下文的文件放置的目录后再启动应用，即可体验升级版更灵敏的语音识别。
+
+```bash
+cd /home/sherpa-ncnn-m3axpi #先进入放置文件的目录
+```
+
+```bash
+./sherpa-ncnn-alsa ./sherpa-ncnn-streaming-zipformer-zh-14M-2023-02-23/tokens.txt
+./sherpa-ncnn-streaming-zipformer-zh-14M-2023-02-23/encoder_jit_trace-pnnx.ncnn.param
+./sherpa-ncnn-streaming-zipformer-zh-14M-2023-02-23/encoder_jit_trace-pnnx.ncnn.bin
+./sherpa-ncnn-streaming-zipformer-zh-14M-2023-02-23/decoder_jit_trace-pnnx.ncnn.param
+./sherpa-ncnn-streaming-zipformer-zh-14M-2023-02-23/decoder_jit_trace-pnnx.ncnn.bin
+./sherpa-ncnn-streaming-zipformer-zh-14M-2023-02-23/joiner_jit_trace-pnnx.ncnn.param
+./sherpa-ncnn-streaming-zipformer-zh-14M-2023-02-23/joiner_jit_trace-pnnx.ncnn.bin "hw:0,0" 4 greedy_search
+```
