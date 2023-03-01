@@ -1829,9 +1829,9 @@ greedy_search
 
 ![bash_sherpa](./../assets/bash_sherpa.png)
 
-拷贝后可参考[【文件传输】](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html#%E5%A6%82%E4%BD%95%E4%BC%A0%E8%BE%93%E6%96%87%E4%BB%B6)把更新包放置到 `AXera-Pi` 板卡上的 `/home/sherpa-ncnn-m3axpi` 目录下即可。
+更新包拷贝完成后需放置到 AXera-Pi 板卡上的 `/home/sherpa-ncnn-m3axpi` 相对应目录下，具体的文件传输方法可参考[【文件传输】](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html#%E5%A6%82%E4%BD%95%E4%BC%A0%E8%BE%93%E6%96%87%E4%BB%B6)进行板卡与电脑互传。
 
-使用下文的文件放置的目录后再启动应用，即可体验升级版更灵敏的语音识别。
+放置完成后先使用 `cd + 目录` 进入更新包存放的位置目录，再运行启动命令即可开始体验更灵敏的语音识别。
 
 ```bash
 cd /home/sherpa-ncnn-m3axpi #先进入放置文件的目录
