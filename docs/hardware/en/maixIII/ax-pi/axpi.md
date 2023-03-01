@@ -220,6 +220,11 @@ Visit [Deploy models to AX-Pi (Maix-III(M3) series) board](/ai/en/deploy/ax-pi.h
   <img src="./../../../en/maixIII/assets/ai_guide.jpg" style="zoom: 75%;" />
 </p> -->
 
+#### Tranning your models
+
+- [[m3axpi] YOLOv5 train and convert model guide](https://github.com/Abandon-ht/m3axpi_model/blob/main/yolov5/README.md)
+- [[m3axpi] YOLOv8 train and convert model guide](https://github.com/Abandon-ht/m3axpi_model/blob/main/yolov8/README.md)
+
 #### Online tranning model
 
 Now the [MaixHub](https://maixhub.com/welcome) has been upgraded, with more friendly interface and more functions, here are steps to tranning model online.

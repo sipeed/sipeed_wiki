@@ -1502,7 +1502,9 @@ These are the command logs.
 
 ![sample](./../../../zh/maixIII/assets/sample.jpg)
 
-###  Sherpa-ncnn Chinese and English audio detection
+###  sherpa-ncnn (Chinese and English speech recognition)
+
+#### Basic usage
 
 Open directory `/home/sherpa-ncnn-m3axpi`, here are the demos.
 
@@ -1510,7 +1512,7 @@ Open directory `/home/sherpa-ncnn-m3axpi`, here are the demos.
 cd /home/sherpa-ncnn-m3axpi
 ```
 
-- Chinese audio detection
+- Chinese speech recognition
 
 ```bash
 ./sherpa-ncnn-alsa \
@@ -1526,7 +1528,7 @@ cd /home/sherpa-ncnn-m3axpi
 greedy_search
 ```
 
-- English audio detection
+- English speech recognition
 
 ```bash
 ./sherpa-ncnn-alsa \
@@ -1545,3 +1547,41 @@ greedy_search
 Running the command above, speak to the MIC on AXera-Pi or play audio, detection results are printed to terminal.
 
 ![sherpa](./assets/flash_system/axpi_english_audio_detection.png)
+
+#### Update sherpa-ncnn
+
+You can update the speech model to get better experience.
+
+Open the directory `/home/sherpa-ncnn-m3axpi` first.
+
+```bash
+cd /home/sherpa-ncnn-m3axpi
+```
+
+We need to enable the large files first, install `git-lfs` in your Axpi, and enable it.
+
+```bash
+sudo apt install git-lfs
+git lfs install
+```
+
+Then clone the latest sherpa-ncnn speech model, make sure you are in `/home/sherpa-ncnn-m3axpi` directory.
+
+```bash
+git clone https://huggingface.co/marcoyang/sherpa-ncnn-streaming-zipformer-zh-14M-2023-02-23
+```
+
+![sherpa_ncnn_update_model](./assets/flash_system/sherpa_ncnn_update_model.png)
+
+Then you can run following code to test the model(Make sure you are in `/home/sherpa-ncnn-m3axpi` directory):
+
+```bash
+./sherpa-ncnn-alsa ./sherpa-ncnn-streaming-zipformer-zh-14M-2023-02-23/tokens.txt  \
+./sherpa-ncnn-streaming-zipformer-zh-14M-2023-02-23/encoder_jit_trace-pnnx.ncnn.param \
+./sherpa-ncnn-streaming-zipformer-zh-14M-2023-02-23/encoder_jit_trace-pnnx.ncnn.bin \
+./sherpa-ncnn-streaming-zipformer-zh-14M-2023-02-23/decoder_jit_trace-pnnx.ncnn.param \
+./sherpa-ncnn-streaming-zipformer-zh-14M-2023-02-23/decoder_jit_trace-pnnx.ncnn.bin \
+./sherpa-ncnn-streaming-zipformer-zh-14M-2023-02-23/joiner_jit_trace-pnnx.ncnn.param \
+./sherpa-ncnn-streaming-zipformer-zh-14M-2023-02-23/joiner_jit_trace-pnnx.ncnn.bin \
+"hw:0,0" 2 greedy_search
+```
