@@ -150,7 +150,7 @@ update:
 **接线前我们需要进行准备工作：**
 
 - 一块 AXera-Pi 开发板
-- 至少一个 USB3.0 的电脑接口来连接板子（USB2.0 的供电不足可能导致板子启动失败）
+- 一个 USB3.0 （或者两个 USB2.0）的电脑接口来连接板子
 - 一张已经烧录适用于 m3axpi 的系统镜像的 SD 卡
 - GC4653 Sensor 普通版摄像头 或者 OS04a10 Sensor 夜视版摄像头
 - 配套的 5 寸 MIPI 屏
@@ -185,7 +185,12 @@ update:
 
 >因物料更换屏幕现有不同的版本，需区别版本以及使用屏幕时出现锯齿等画面请移步到[ Maix-III 系列 AXera-Pi 常见问题(FAQ) ](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html#Q：硬件物料更改说明、没有-wlan0-、屏幕烧屏、摄像头倒过来怎么解决？)查询。
 
-把设备的 `USB-UART` 及 `USB-OTG` 接口用 USB type-c 线全部接入 PC 端通电后设备会自启。
+如果 PC 支持 USB3.0
+* 用 type-c 接入 `USB-UART`，串口方式登录开发板
+* 或者接 `USB-OTG`， ssh 方式登录开发板
+
+如果 PC 只支持 USB2.0
+* 需要两个 USB2.0 端口、两根 type-c，同时连接 `USB-UART` 和 `USB-OTG` ，否则电流不足无法开机
 
 ![start](./../assets/start.jpg)
 
