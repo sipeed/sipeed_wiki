@@ -136,20 +136,24 @@ A：进入 uboot 模式了输入 boot 后即可启动。
 
 ## Q：芯片为什么显示 1G 内存以及用户为什么只能用 1.3g 内存
 
+![faq_mem](./../assets/faq_mem.png)
+
 - 第一个是 uboot 显示 bug 我们贴的都是 2GB 内存.
 - 第二个是 系统上显示的内存为什么不是刚好 2GB，这里根据原厂芯片方案可知官方设计的 1G 内存分配方案为 256M + 768M CMM.
 
 ![faq_ddr](./../assets/faq_ddr.png)
 ![faq_uboot](./../assets/faq_dram.png)
 
-- 而我们贴的是 2GB 内存采用的是 1536M + 512M CMM 的方案，所以用户空间可用的内存为 1536M 减去 256M kernel 约等于 1.22G（1.28G)
+- 而我们贴的是 2GB 内存采用的是 512M CMM 的内存方案，其余的内存 2048M - 512M = 1536M 为用户空间内存，再除去 256M kernel 内存后剩下 1536M - 256M 约等于 1.3G 供用户使用
 
 什么是 CMM 内存，简单理解就是一段独立于 linux 系统之外的大段线性物理内存，一般是分给 NPU ISP GPU 用的线性物理空间，这意味着加载模型不需要消耗 1.22G 用户空间内存，消耗的是 CMM 内存，如推理、编码、ISP处理都不会吃用户空间内存。
 
 现在带 NPU ISP GPU 的芯片都会有类似的设计或概念，可以从芯片手册或驱动代码中得知。
 如爱芯的 `/soc/scripts/auto_load_all_drv.sh` 存放有 `insmod /soc/ko/ax_cmm.ko cmmpool=anonymous,0,0x60000000,512M` 这个字段。
 
+![cmm_memory_size_script](./../../../en/maixIII/ax-pi/assets/qa/cmm_memory_size_script.png)
+
 以及系统启动配置：
 `/* bootargs for SD */#define BOOTAGRS_SD "mem=1536M initcall_debug=0 loglevel=0 ax_boot_delay=0 vmalloc=768M console=ttyS0,115200n8 earlyprintk=dw_uart, init=/sbin/init noinitrd root=/dev/mmcblk2p2 rw rootdelay=3 rootfstype=ext4"`
 
-![faq_mem](./../assets/faq_mem.png)
+![bootargs_command](./../../../en/maixIII/ax-pi/assets/qa/bootargs_command.png)

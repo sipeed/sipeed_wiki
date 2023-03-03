@@ -99,7 +99,7 @@ A: Reboot device after run Run command `python3 -c "import os, binascii; os.syst
       <img src="./../../../zh/maixIII/assets/faq_sawtooth.jpg" width=48%>
 </html>
 
-A：Because of the because of the different batches of screen, the configuration for screen is different, replace the `dtb` file in `/boot/` folder to apply the screen. Make sure not use the wrong configuration file for a long time, which will burn the screen. Read []
+A：Because of the because of the different batches of screen, the configuration for screen is different, replace the `dtb` file in `/boot/` folder to apply the screen. Make sure not use the wrong configuration file for a long time, which will burn the screen.
 
 ```bash
 ls /boot/
@@ -118,7 +118,7 @@ A：This happens when autoboot is canceled when booting device, use command `boo
 
 ## The change of hardware
 
-Because of some reasons, we change some hardwares, here tells what we changed.
+Because of some reasons, we change some hardwares, here are what we changed.
 
 ### Change of the ext-board
 
@@ -128,7 +128,8 @@ Because of some reasons, we change some hardwares, here tells what we changed.
 
 ```bash
 ls /boot/
-cp kernel.img.rtl8723bs kernel.img #cp /boot/kernel.img.rtl8189fs kernel.img  
+cp kernel.img.rtl8723bs kernel.img # For the previous ext-board
+#cp /boot/kernel.img.rtl8189fs kernel.img  
 ```
 
 ![faq_borad](./../../../zh/maixIII/assets/faq_board.jpg)
@@ -141,6 +142,28 @@ The connector direction of camera changed, make sure the `1` on the connector of
 
 ### Change of screen
 
-We change the screen into new version, and the dafalut image use the latest version screen, see following photo to know your screen version, and for pervious version screen if need to run command `cp /boot/dtb.img.lcd20220830 dtb.img` to apply the hardware. Read [wrong display(#qscreen-display-wrong) to know more.
+We change the screen into new version, and the dafalut image use the latest version screen, see following photo to know your screen version, and for pervious version screen if need to run command `cp /boot/dtb.img.lcd20220830 dtb.img` to apply the hardware. Read [wrong display](#qscreen-display-wrong) to know more.
 
 ![fqa_newdisplay](./../../../zh/maixIII/assets/fqa_newdisplay.jpg)
+
+## Q：Why I can only use less than 2G ram
+
+Why we can only see there is about 1.3G ram for us.
+
+![htop_memory_usage](./assets/qa/htop_memory_usage.png)
+
+From the following diagram we cansee the original memory map of Axera 620A evb-board, it's equipeed with 1GB ram and is divided into 256MB kernel memory block and 768MB CMM (Contiguous Memory Model) memory block
+
+![faq_ddr](./../../../zh/maixIII/assets/faq_ddr.png)
+
+And on Axera-Pi we equip 2GB ram, and set 512M CMM memory block and 256M kernel memory block, so there is less than 2GB ram for use.
+
+We can see the `insmod /soc/ko/ax_cmm.ko cmmpool=anonymous,0,0x60000000,512M` to initialize 512M MMC memery from the `auto_load_all_drv.sh`.
+
+![cmm_memory_size_script](./assets/qa/cmm_memory_size_script.png)
+
+CCM memory block is used for NPU and ISP processing, processor will use this CMM memory for imaging processing and model processing task.
+
+And the boot args in system.
+
+![bootargs_command](./assets/qa/bootargs_command.png)
