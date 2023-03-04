@@ -34,7 +34,7 @@ We design a core module for this chip, which is convenient if you want to design
 <tbody>
 <tr>
   <td>CPU</td>
-  <td>Cortex-A7@1.0Ghz*4</td>
+  <td>4 * Cortex-A7, with NEON and FPU</td>
 </tr>
 <tr>
   <td>NPU</td>
@@ -337,7 +337,7 @@ AX-Pipeline is provided by Axera. With m3axpi, this project is used for pepole t
 <tbody>
 <tr>
   <td>CPU</td>
-  <td>Cortex-A7@1.0Ghz*4</td>
+  <td>4 * Cortex-A7, with NEON and FPU</td>
 </tr>
 <tr>
   <td>NPU</td>
