@@ -9,7 +9,12 @@ RNDIS is the abbreviation of Remote Network Driver Interface Specification, is a
 
 In Windows7 and later operating systems, RNDIS is already built-in. But we need do some operations to make the computer generally recognize the relevant RNDIS-compliant device.
 
-### Install drivers
+### Download driver
+
+<!-- **Windows Driver:**[Click me](https://dl.sipeed.com/shareURL/MaixSense/Drivers) -->
+**Windows Driver:**[Click me](https://dl.sipeed.com/fileList/MaixSense/Drivers/Ethernet_RNDIS_drivers_20220808.zip)
+
+### Install driver
 
 Connect the device with computer, then we can see Serial Device in computer device manager. If there is no Serial Device in the computer device manager, maybe because of insufficient power supply. For desktop we recommend use the USB port on the back, for those who use USB hub we recommend use extra power supply for the hub, and we suggest to use the USB 3.0 port because USB 2.0 may lack of power to drive.
 

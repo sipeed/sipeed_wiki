@@ -10,6 +10,11 @@ RNDIS 全称为 Remote Network Driver Interface Specification，即远程网络�
 
 在 Windows7 及其以上的操作系统中，均已经内置了 RNDIS，但是如果不进行一些特殊操作的话，电脑一般是识别不到相关符合 RNDIS 设备的。
 
+### 下载驱动
+
+<!-- **Windows 驱动**：[点击获取](https://dl.sipeed.com/shareURL/MaixSense/Drivers) -->
+**Windows 驱动**：[点击获取](https://dl.sipeed.com/fileList/MaixSense/Drivers/Ethernet_RNDIS_drivers_20220808.zip)
+
 ### 安装驱动
 
 将目标设备与电脑通过 USB 接口连接起来，且能够在电脑的设备管理器中看到串行设备。如果没有看到有串行设备的话大概率是供电不足所导致的：对于台式机建议使用主机背部的 USB 接口；使用 USB hub 的话建议使用带有额外供电的；另外建议使用 USB 3.0 的数据口，因为 USB 2.0 驱动供电可能不足。

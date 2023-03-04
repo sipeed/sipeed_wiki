@@ -12,7 +12,6 @@ MS-A075V is a 3D TOF camera module with RGB designed by Sipeed, can display the 
 
 To run preview MaixSense-A075V on Windows, install the driver.
 
-**Windows Driver:**[Click Get](https://dl.sipeed.com/shareURL/MaixSense/Drivers)
 **Windows Installation driver tutorial:**[Click to view](./install_drivers.md)
 
 ### On-page preview

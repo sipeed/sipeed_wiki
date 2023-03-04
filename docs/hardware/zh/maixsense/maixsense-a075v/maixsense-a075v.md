@@ -17,7 +17,7 @@
 ### 准备工作
 
 在 Windows 系统上运行预览 **MaixSense-A075V** 的话需要安装驱动。
-**Windows 驱动**：[点击获取](https://dl.sipeed.com/shareURL/MaixSense/Drivers)
+
 **Windows 安装驱动教程**：[点击查看](./install_drivers.md)
 
 ### 网页上位机预览
