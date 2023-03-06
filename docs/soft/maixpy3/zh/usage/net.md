@@ -147,7 +147,7 @@ while True:
 
 ```
 
-- 如果使用 MaixII-Dock 开发板，连接 OTG 接口可以实现通过有线实时显示摄像头画面。打开 MaixPy3 IDE，在图片的右键菜单中将 maixpy3_notebook 停止，然后在 adb 终端的 进入 python 环境，运行以上代码，可以直接在下面的中显示画面、
+- 如果使用 MaixII-Dock 开发板，连接 OTG 接口可以实现通过有线实时显示摄像头画面。打开 MaixPy3 IDE，在托盘的右键菜单中将 maixpy3_notebook 停止，然后在 adb 终端的 进入 python 环境，运行以上代码，可以直接在下面的中显示画面（必须经过 IDE 的 ADB 转发才能使用 `127.0.0.1` 地址段）。
 
     > <img src="http://127.0.0.1:18811"> 图传画面（没有成功运行代码是不会显示出来的）
 
