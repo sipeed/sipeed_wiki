@@ -11,7 +11,7 @@ update:
 
 ## Summary
 
-Sipeed M1s module is an AIOT module based on BL808 of [Bouffalo Lab](https://en.bouffalolab.com/), it contains 3 cores inside, with WiFi/BT/BLE/Zigbee wireless units, including multiple cpus, audio encoder and decoder, video encoder and decoder and AI hardware accelerator (BLAI-100), suitable for a variety of high performance and low power applications. 
+Sipeed M1s module is an AIOT module based on BL808 of [Bouffalo Lab](https://en.bouffalolab.com/), it incorporates 3 cores inside, with WiFi/BT/BLE/Zigbee wireless units, including multiple cpus, audio encoder and decoder, video encoder and decoder and AI hardware accelerator (BLAI-100), suitable for a variety of high performance and low power applications. 
 
 Buy one: [Aliexpress](https://www.aliexpress.com/item/1005004970779483.html)
 

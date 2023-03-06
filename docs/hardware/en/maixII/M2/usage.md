@@ -67,7 +67,7 @@ Download MaixPy3 manually: https://pypi.org/project/maixpy3/#history
 
 ![maixpy3_download](./../../../zh/maixII/M2/asserts/usage/maixpy3_download.png)
 
-Download the file whose name contains `cp38`, then rename it into `maixpy3-9.9.9-cp38-cp38-linux_armv7l.whl`, save it into the u-disk of M2Dock, reboot your board and maixpy3 will update automatically at boot up.
+Download the file whose name incorporates `cp38`, then rename it into `maixpy3-9.9.9-cp38-cp38-linux_armv7l.whl`, save it into the u-disk of M2Dock, reboot your board and maixpy3 will update automatically at boot up.
 
 ![maixpy3_install](./../../../zh/maixII/M2/asserts/usage/maixpy3_install.png)
 

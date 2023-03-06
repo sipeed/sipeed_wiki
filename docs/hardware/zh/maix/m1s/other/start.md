@@ -549,13 +549,13 @@ PC 软件环境：`python3`， `OpenCV`
 
 ### PC 显示流
 
-在 `M1s_BL808_example/c906_app/camera_streaming_through_wifi` 路径下，直接执行命令 `python main.py` 来使用 python 接收 M1s dock 的流并且调用 opencv 来显示画面。
+在 `M1s_BL808_example/c906_app/camera_streaming_through_wifi` 路径下，直接执行命令 `python3 main.py` 来使用 python 接收 M1s dock 的流并且调用 opencv 来显示画面。
 
 ![camera_stream_success](./assets/start/camera_stream_success.png)
 
 ### 注意事项
 
-1. 确认自己对 M1s Dock 烧录了修复 bug 后的 `firmware_20230227.bin`(https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmware/factory) 固件
+1. 确认自己对 M1s Dock 烧录了修复 bug 后的 [firmware_20230227.bin](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmware/factory) 固件
 2. 确定板子连接到了目标网络；成功连接到网络后板子的大号串口会显示出板卡的 IP 地址
 3. 确定板子与 PC 在同一网络，且正确地修改了 `main.c` 中 PC 的 IPV4 地址
 

@@ -142,9 +142,9 @@ For other boards, just make sure your device selection corresponds to the laser 
 
 ### spi flash selected mismatch
 
-The board using GOWIN Semiconductor LittleBee product family (Series of chip names beginning with GW1N) contains embedded FLASH in main chip, so when burning firmware we burn into embedded FLASH, and reagrd the external FLASH as a peripheral. 
+The board using GOWIN Semiconductor LittleBee product family (Series of chip names beginning with GW1N) incorporates embedded FLASH in main chip, so when burning firmware we burn into embedded FLASH, and reagrd the external FLASH as a peripheral. 
 
-The board using GOWIN Semiconductor Arora product family (Series of chip names beginning with GW1N) does not contain embedded FLASH, so when burning firmware we burn into external FLASH, and the operations are as followed . 
+The board using GOWIN Semiconductor Arora product family (Series of chip names beginning with GW1N) does not incorporate embedded FLASH, so when burning firmware we burn into external FLASH, and the operations are as followed . 
 
 <table>
   <tr>

@@ -200,11 +200,11 @@ Here are repositories for AXera-Pi, check them if you need.
 
 ### libmaix
 
-[libmaix](https://github.com/sipeed/libmaix) is unified embedded development environment come by SIPEED, contains camera, screen, vision, image processing and pipelines-related deployment examples, is suitable for those who want to learn embedded Linux.
+[libmaix](https://github.com/sipeed/libmaix) is unified embedded development environment come by SIPEED, includes camera, screen, vision, image processing and pipelines-related deployment examples, is suitable for those who want to learn embedded Linux.
 
 ### ax-sample
 
-[ax-sample](https://github.com/AXERA-TECH/ax-samples) contains typical AI models provided by Axera for development, evaluation and verification, those who are good at AI development or want to test these models can have a try, and these are not involved with peripherals.
+[ax-sample](https://github.com/AXERA-TECH/ax-samples) includes typical AI models provided by Axera for development, evaluation and verification, those who are good at AI development or want to test these models can have a try, and these are not involved with peripherals.
 
 ### axpi_bsp_sdk
 

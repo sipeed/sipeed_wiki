@@ -22,7 +22,7 @@ Because of the limited performance, it's suggested running this system by comman
 <img src="./../../../zh/lichee/assets/RV/ubuntu/d1_ubuntu_desktop.jpg" alt="d1_ubuntu_desktop" width="45%">
 <img src="./../../../zh/lichee/assets/RV/ubuntu/d1_ubuntu_desktop_picture.jpg" alt="d1_ubuntu_desktop_picture" width="45%">
 
-The photo above is D1 Dock Pro，and it's different with Dock board, Dock Pro board contains USB uart port, by which we can communicate the board card with the computer with only one USB TypeC cable. The relevant peripherals can be seen in the following figure.
+The photo above is D1 Dock Pro，and it's different with Dock board, Dock Pro board incorporates USB uart port, by which we can communicate the board card with the computer with only one USB TypeC cable. The relevant peripherals can be seen in the following figure.
 
 <img src="./../../../zh/lichee/assets/RV/ubuntu/dock_pro_top_block.jpg" alt="dock_pro_top_block" width="45%">
 <img src="./../../../zh/lichee/assets/RV/ubuntu/dock_pro_bottom_block.jpg" alt="dock_pro_bottom_block" width="45%">

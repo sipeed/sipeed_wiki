@@ -166,7 +166,7 @@ Besides, we can adjust volume by alsamixer application
 
 #### USB Function
 
-Default kernel contains driver for external USB flash disk. 
+Default kernel incorporates driver for external USB flash disk. 
 
 After Plug in the USB flash disk, you can use `fdisk -l` command to see the new `/dev/sda` device
 
@@ -324,7 +324,7 @@ Same as operating dock motherboard.
 
 #### Touch screen test
 
-<font color=#16B2C>Only tina OS contains touch demo</font>
+<font color=#16B2C>Only tina OS incorporates touch demo</font>
 
 IF you buy 86panel package, just use command `ts_test` to test touch screen
 

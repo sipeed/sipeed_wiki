@@ -30,7 +30,7 @@ The IDE is available in two editions: Standard Edition and Education Edition.
 
 The Standard Edition IDE requires license, which you can get from GOWIN Semiconductor Corp.
 
-The Education Edition IDE is free to use, but supports fewer devices and contains fewer IP cores.
+The Education Edition IDE is free to use, but supports fewer devices and includes fewer IP cores.
 
 The following figure (updated 2022/11/09) shows the part numbers supported in the latest Education Edition IDE
 

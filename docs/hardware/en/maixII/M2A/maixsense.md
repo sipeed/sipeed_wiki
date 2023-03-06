@@ -1,6 +1,6 @@
 # MaixSense
 
-This board is different from Maix-I series, it's main chip not only contains AI acceleration hardcore, but also supports running armbian operating systems.
+This board is different from Maix-I series, it's main chip not only incorporates AI acceleration hardcore, but also supports running armbian operating systems.
 
 ## M2A core board
 

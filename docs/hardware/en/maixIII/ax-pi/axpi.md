@@ -287,7 +287,7 @@ Here are typical AI models provided by Axera for development, evaluation and ver
 
 ##### [libmaix](https://github.com/sipeed/libmaix)
 
-A unified embedded development environment come by SIPEED, contains camera, screen, vision, image processing and pipelines-related deployment examples, is suitable for those who want to learn embedded Linux.
+A unified embedded development environment come by SIPEED, includes camera, screen, vision, image processing and pipelines-related deployment examples, is suitable for those who want to learn embedded Linux.
 
 1. [Test screen display](https://github.com/sipeed/libmaix/tree/release/examples/display)
 2. [Screen displays camera content](https://github.com/sipeed/libmaix/tree/release/examples/axpi)

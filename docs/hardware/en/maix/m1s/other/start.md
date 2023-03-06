@@ -2,6 +2,11 @@
 title: M1s DOCK guides
 keywords: M1s DOCK ,BL808, M1s
 update:  
+  - date: 2023-03-06
+    version: v0.3
+    author: wonder
+    content:
+      - Add wifi stream demo usage
   - date: 2022-12-20
     version: v0.3
     author: wonder
@@ -19,11 +24,11 @@ update:
       - Create file
 ---
 
-The M1s Dock can be used for a variety of interesting things by its delicate design. Here we tell the usages of this device. Note that the default baudrate is 2000000.
+<!-- The M1s Dock can be used for a variety of interesting things by its delicate design. Here we tell the usages of this device. Note that the default baudrate is 2000000.
 
 There are two Converter devices in `Windows` device manager if you connect the computer with the UART port of M1s Dock.
 
-![start_bl808_uart_converter](./../../../../zh/maix/m1s/other/assets/start/start_bl808_uart_converter.png)
+![start_bl808_uart_converter](./../../../../zh/maix/m1s/other/assets/start/start_bl808_uart_converter.png) -->
 
 ## Hardware preparation
 
@@ -41,10 +46,19 @@ There are two TypeC Ports on M1s Dock. The UART TypeC Port is for serial communi
 
 ## First time boot
 
-Power the M1s Dock, screen displays what the camera captures. Press `S1_Button` or `S2_button` the number on the right top of the screen changes, which is the brightness of the LED.
+### Board state
+
+Power the M1s Dock, screen displays what the camera captures. 
+
+Press `S1_Button` or `S2_button` the number on the right top of the screen changes, which is the brightness percentage of the LED.
 
 ![default_firmware](./../../../../zh/maix/m1s/other/assets/start/default_firmware.jpg)
+
+This is the state of 50% LED brightness.
+
 ![led_brghtness](./../../../../zh/maix/m1s/other/assets/start/led_brghtness.jpg)
+
+### OTG PORT
 
 > A virtual removable disk with 3MB storage capacity is on your computer if you connect this board with your computer via TypeC OTG port on this board. 
 
@@ -56,7 +70,9 @@ And there is USB Mass Storge Device in `Windows` device manager, in `Linux` ther
 
 ![udisk_device_manager](./../../../../zh/maix/m1s/other/assets/start/udisk_device_manager.jpg)
 
-If there is no USB Mass Storge Device in Windows device manager, try to use other USB TypeC cable or connect with other USB port of computer, if this problem remains, read [Burn-with-UART](https://wiki.sipeed.com/hardware/en/maix/m1s/other/start.html#Burn-with-UART) to flash M1s Dock to solve this problem. Make sure you have choose `partition table`, `boot2`, `firmware` these three files, after finishing burnning, reconnect the board with computer.
+If there is no USB Mass Storge Device in Windows device manager, try to use other USB TypeC cable or connect with other USB port of computer, if this problem remains, read [Burn-with-UART](https://wiki.sipeed.com/hardware/en/maix/m1s/other/start.html#Burn-with-UART) to flash M1s Dock to solve this problem. Make sure you have choose `partition table`, `boot2`, `firmware` these three files, after finishing burning, reconnect the board with computer.
+
+### UART PORT
 
 Two serial devices will be shown in your computer if you connect this board with your computer by TypeC UART port on this board.
 
@@ -86,7 +102,7 @@ Open the big serial port for command-line interaction:
 
 To run our program on M1s Dock, we should know how to burn the firmware into M1s Dock first.
 
-### Burn with u-disk
+### Burn via u-disk
 
 To make it easier to burn firmware, we design u-disk burning method to burn the program for C906 core of BL808 in the chip.
 
@@ -107,89 +123,31 @@ A removable disk with tiny storage capacity will be shown on your computer if th
 
 <img src="./../../../../zh/maix/m1s/other/assets/start/udisk_burn.gif" alt="udisk_burn" style="transform:rotate(0deg);">
 
-After succeed dragging the firmware bin into removable disk, the board will reboot and the u-disk is removed. Try to repower this board if its not working well after burnning firmware.
+After succeed dragging the firmware bin into removable disk, the board will reboot and the u-disk is removed. Try to repower this board if its not working well after burning firmware.
 
-There are some demos compiled from M1s_BL808_example, with which you can have a test on M1s Dock.
+### Burn via UART
 
-#### lvgl_demo
-
-[LVGL](https://lvgl.io/) (Light and Versatile Graphics Library) is a free open source graphics library suitable for mcu graphical interfaces.
-
-Demo File: [Click me](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmware/demo_bin/lvgl_demo)
-
-After burning into M1s Dock, the screen displays the lvgl test. And then sets the baudrate to 2000000, the serial port with the smaller serial port number prints the last touch screen position.
-
-<img src="./../../../../zh/maix/m1s/other/assets/start/example_lvgl.gif" alt="example_lvgl" width="45%"> 
-<img src="./../../../../zh/maix/m1s/other/assets/start/example_lvgl.jpg" alt="example_lvgl" width="45%"> 
-
-#### image_processing_demo
-
-A simple image processing example.
-
-Demo File: [Click me](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmware/demo_bin/image_processing_demo)
-
-Burning into M1s Dock, screen displays what the camera captured, press the side key to change image operator. Set the baudrate to 2000000, to see the image operator state by the small serial port.
-
-Click the RST key to reset the bl808, and we can see the information about the camera from the small serial port when the board boots, to know if there is some error with the camera.
-
-<img src="./../../../../zh/maix/m1s/other/assets/start/example_image_processing_demo.jpg" alt="example_image_processing_demo" width="45%"> 
-<img src="./../../../../zh/maix/m1s/other/assets/start/example_image_processing_demo_uart.jpg" alt="example_image_processing_demo_uart" width="45%"> 
-
-#### tinymaix_mnist_demo
-
-[TinyMaix](https://github.com/sipeed/TinyMaix) is a tiny inference Neural Network library specifically for microcontrollers (TinyML), can run lightweight deep learning model on any Single Chip Microcomputer.
-
-Demo File: [Click me](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmware/demo_bin/tinymaix_mnist_demo)
-
-Burning into M1s Dock, recognizing number through the red box in the center of screen. Set the baudrate to 2000000, to see the process and result by the small serial port.
-
-<img src="./../../../../zh/maix/m1s/other/assets/start/example_tinymaix_mnist_demo.jpg" alt="example_tinymaix_mnist_demo" width="45%"> 
-<img src="./../../../../zh/maix/m1s/other/assets/start/example_tinymaix_mnist_demo_uart.jpg" alt="example_tinymaix_mnist_demo_uart" width="45%"> 
-
-#### pikascript_demo
-
-[PikaScript](http://pikascript.com/) is a cross-platform, ultra-lightweight embedded Python engine.
-
-Demo File: [Click me](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmware/demo_bin/pikascript_demo)
-
-Burning into M1s Dock, the screen is white. Set the baudrate to 2000000, open the small serial port for command-line interaction:
-
-Use these commands:
-```bash
-arc = lv.arc(lv.scr_act())
-arc.set_end_angle(200)
-arc.set_size(150, 150)
-arc.center()
-```
-
-![example_pikascript_demo_uart](./../../../../zh/maix/m1s/other/assets/start/example_pikascript_demo_uart.jpg)
-
-Then the screen displays as shown(Ignore the bad shoot):
-
-![example_pikascript_demo_uart](./../../../../zh/maix/m1s/other/assets/start/example_pikascript_demo_screen.jpg)
-
-## Burn with UART
-
-The u-disk burnning method above is used to burn firmware for C906 core of BL808. If we want to burn other firmware for other cores of BL808, we need to burn M1s Dock via UART.
-
-
- and if there are some trouble with firmware or when we need to upgrade the whole firmware, we need to burn this board by UART.
-
-#### Burn M1s
+The u-disk burning method above is used to burn firmware for C906 core of BL808. If we want to burn other firmware for other cores or when we need to upgrade the whole firmware of BL808, we need to burn M1s Dock via UART.
 
 Connect this board by its TypeC UART port with computer, 2 serial ports will be shown on your computer (If your mouse doesn't work after connecting board with computer, please disconnect board with computer and visit [Burn onboard bl702](#burn-onboard-bl702) to solve this problem).
 
-#### Burn with graphical application
+#### Get the burn software
 
 To burn for M1s, we need bouffalolab official burning application, visit https://dev.bouffalolab.com/download and download the file named `Bouffalo Lab Dev Cube`. Decompress the downloaded file then we get the application to burn the board.
 
 ![bouffalo_cube](./../../../../zh/maix/m1s/other/assets/start/bouffalo_cube.png)
 
+Backup download: [Sipeed Download Station](https://dl.sipeed.com/shareURL/others/BouffaloLabDevCube)
+
 We mainly use `BLDevCube`, `BLDevCube-macos` and `BLDevCube-ubuntu` these three files, by which to burn our board with graphical interface on different OS.
 
 ![application](./../../../../zh/maix/m1s/other/assets/start/application.png)
 
-Run the application, choose bl808, then we put this [partition file](https://dl.sipeed.com/fileList/MAIX/M1s/M1s_Dock/7_Firmware/partition/partition_cfg_16M_m1sdock.toml) in partition table (marked with ②) in IOT page.
+And there are `bflb_iot_tool`、`bflb_iot_tool-macos`、`bflb_iot_tool-ubuntu` three applications, with which we can burn this board via commad line.
+
+#### Burn via graphical interface
+
+Run the software based on your operating system, choose bl808, then we put this [partition file](https://dl.sipeed.com/fileList/MAIX/M1s/M1s_Dock/7_Firmware/partition/partition_cfg_16M_m1sdock.toml) in partition table (marked with ②) in IOT page.
 
 <table>
     <tr>
@@ -231,39 +189,67 @@ Reburn this if it `SHAKEHAND FAIL`. Try to release the keys in order (Release RS
 
 <img src="./../../../../zh/maix/m1s/other/assets/start/burn_press_boot_failed.jpg" alt="burn_press_boot_failed" style="transform:rotate(0deg);" width="70%">
 
-#### Burn with command-line
+#### Burn via command-line
 
 We can burn M1s Dock by command-line through serial port on this board.
 
-In `BLDevCube` folder, there is `bflb_iot_tool` application, `bflb_iot_tool`、 `bflb_iot_tool-macos` and `bflb_iot_tool-ubuntu` are used for different OS.
+In `BLDevCube` folder, there is `bflb_iot_tool` application, `bflb_iot_tool`、 `bflb_iot_tool-macos` and `bflb_iot_tool-ubuntu` are used for different OS to burn the bouffalolab chip.
 
-Here I take Windows as example, and for other OS you need to change the commands by yourself.
-
-In this command, `firmware` is the bin file for E907 Core, the default bin file can be downloaded from [here](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmware/factory). `pt` is the partition file, it's in the `M1s_BL808_example\partition` folder, you can also [Click me](https://dl.sipeed.com/fileList/MAIX/M1s/M1s_Dock/7_Firmware/partition/partition_cfg_16M_m1sdock.toml) to get it.`boot2` is in `BLDevCube\chips\bl808\builtin_imgs\boot2_isp_bl808` folder, and is named with `debug`. Set baudrate 2000000 to burn this board fast. `port` is the bigger port number.
+Here I take Windows command line as example to burn M1s Dock, and for other OS you need to change the commands by yourself.
 
 ```bash
 .\bflb_iot_tool.exe --chipname=bl808 --port=COM38 --baudrate=2000000 --firmware="firmware_20221212.bin" --pt="M1s_BL808_example\partition\partition_cfg_16M_m1sdock.toml" --boot2="BLDevCube\chips\bl808\builtin_imgs\boot2_isp_bl808\boot2_isp_debug.bin"
 ```
 
-Of course, make sure you have make this board into UART burning mode: Press BOOT key and RST key, then release RST key first then release BOOT key.
+In this command, `firmware` is the bin file for E907 Core, the default bin file can be downloaded from [here](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmware/factory). `pt` is the partition file, it's in the `M1s_BL808_example\partition` folder, you can also [Click me](https://dl.sipeed.com/fileList/MAIX/M1s/M1s_Dock/7_Firmware/partition/partition_cfg_16M_m1sdock.toml) to get it.`boot2` is in `BLDevCube\chips\bl808\builtin_imgs\boot2_isp_bl808` folder, and is named with `debug`. Set baudrate 2000000 to burn this board fast. `port` is the bigger port number.
+
+Of course, make sure you have made this board into UART burning mode: Press BOOT key and RST key, then release RST key first then release BOOT key.
 
 ![command_burn_flash](./../../../../zh/maix/m1s/other/assets/start/command_burn_flash.jpg)
 
 After burning these, you can burn the bin file for C906 core according to [Burn with u-disk](#burn-with-u-disk). You can also burn this board based on the adderss, from `partition_cfg_16M_m1sdock.toml` file you can know the burn address and modify it.
 
-#### Erase flash
+### Trobules when burning
 
-We need advanced mode first.
+#### BFLB IMG LOAD SHAKEHAND FAIL
 
-![erase_advanede_mode](./../../../../zh/maix/m1s/other/assets/start/erase_advanede_mode.jpg)
+This means M1s Dock is not at the burning state. Make sure you have held the RST key and BOOT key together when M1s Dock is powered on, then release RST key first, and then release BOOT key. When release RST key, the BOOT key is being pressed to make the board into UART burning mode.
 
-Then in FLASH interface, we choose the bigger serial port, tick Whole Chip. Make this board into UART burning mode: Press BOOT key and RST key, then release RST key first then release BOOT key. Click `Erase Flash` to erase the chip
+![uart_burn_bl808_shakehand_fail](./../../../../zh/maix/m1s/other/assets/start/uart_burn_bl808_shakehand_fail.jpg)
 
-![erase_configurations](./../../../../zh/maix/m1s/other/assets/start/erase_configurations.jpg)
+Make sure you choose the bigger COM port to burn M1s Dock, not the smaller COM port.
 
-There is no progress bar when erasing, and there is `SUCCESS` when it finished erasing.
+![uart_burn_bl808_shakehand_fail_com_port](./../../../../zh/maix/m1s/other/assets/start/uart_burn_bl808_shakehand_fail_com_port.jpg)
 
-![erase_success](./../../../../zh/maix/m1s/other/assets/start/erase_success.jpg)
+#### Only one COM port
+
+This means you are in the bl702 burning mode. Make sure power on this board before pressing BOOT key. 
+
+![uart_burn_bl808_only_one_port](./../../../../zh/maix/m1s/other/assets/start/uart_burn_bl808_only_one_port.jpg)
+
+#### No COM port
+
+Make sure you connected the computer and M1s Dock UART port, not that OTG port.
+
+#### Burn single firmware
+
+In the burning software, we need to tick and choose `partition table`, `boot2`, `firmware`, `d0fw` for the first time burning. If we want to burn only one firmware not all firmware, tick your target firmware and burn it.
+
+`firmware` can be compiled out via e907_demo.
+`d0fw` can be compiled out via c906_demo.
+
+`partition table` and `boot2` are needed to burn every time.
+
+<table>
+<tr>
+  <td>Burn c906_demo firmware</td>
+  <td>Burn e907_demo firmware</td>
+</tr>
+<tr>
+  <td><img src="./../../../../zh/maix/m1s/other/assets/start/uart_burn_c906.jpg" alt="uart_burn_c906"></td>
+  <td><img src="./../../../../zh/maix/m1s/other/assets/start/uart_burn_e907.jpg" alt="uart_burn_e907"></td>
+</tr>
+</table>
 
 ### Burn onboard bl702
 
@@ -285,6 +271,67 @@ Click `Refresh`，choose the serial port (there is only one port, if you can't s
 After finishing burning, repower this board to use the new firmware.
 
 ![finish_burn_702](./../../../../zh/maix/m1s/other/assets/start/finish_burn_702.png)
+
+## Burn examples
+
+There are some demos compiled from M1s_BL808_example, with which you can have a test on M1s Dock.
+
+### lvgl_demo
+
+[LVGL](https://lvgl.io/) (Light and Versatile Graphics Library) is a free open source graphics library suitable for mcu graphical interfaces.
+
+Demo File: [Click me](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmware/demo_bin/lvgl_demo)
+
+After burning into M1s Dock, the screen displays the lvgl test. And then sets the baudrate to 2000000, the serial port with the smaller serial port number prints the last touch screen position.
+
+<img src="./../../../../zh/maix/m1s/other/assets/start/example_lvgl.gif" alt="example_lvgl" width="45%"> 
+<img src="./../../../../zh/maix/m1s/other/assets/start/example_lvgl.jpg" alt="example_lvgl" width="45%"> 
+
+### image_processing_demo
+
+A simple image processing example.
+
+Demo File: [Click me](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmware/demo_bin/image_processing_demo)
+
+Burning into M1s Dock, screen displays what the camera captured, press the side key to change image operator. Set the baudrate to 2000000, to see the image operator state by the small serial port.
+
+Click the RST key to reset the bl808, and we can see the information about the camera from the small serial port when the board boots, to know if there is some error with the camera.
+
+<img src="./../../../../zh/maix/m1s/other/assets/start/example_image_processing_demo.jpg" alt="example_image_processing_demo" width="45%"> 
+<img src="./../../../../zh/maix/m1s/other/assets/start/example_image_processing_demo_uart.jpg" alt="example_image_processing_demo_uart" width="45%"> 
+
+### tinymaix_mnist_demo
+
+[TinyMaix](https://github.com/sipeed/TinyMaix) is a tiny inference Neural Network library specifically for microcontrollers (TinyML), can run lightweight deep learning model on any Single Chip Microcomputer.
+
+Demo File: [Click me](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmware/demo_bin/tinymaix_mnist_demo)
+
+Burning into M1s Dock, recognizing number through the red box in the center of screen. Set the baudrate to 2000000, to see the process and result by the small serial port.
+
+<img src="./../../../../zh/maix/m1s/other/assets/start/example_tinymaix_mnist_demo.jpg" alt="example_tinymaix_mnist_demo" width="45%"> 
+<img src="./../../../../zh/maix/m1s/other/assets/start/example_tinymaix_mnist_demo_uart.jpg" alt="example_tinymaix_mnist_demo_uart" width="45%"> 
+
+### pikascript_demo
+
+[PikaScript](http://pikascript.com/) is a cross-platform, ultra-lightweight embedded Python engine.
+
+Demo File: [Click me](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmware/demo_bin/pikascript_demo)
+
+Burning into M1s Dock, the screen is white. Set the baudrate to 2000000, open the small serial port for command-line interaction:
+
+Use these commands:
+```bash
+arc = lv.arc(lv.scr_act())
+arc.set_end_angle(200)
+arc.set_size(150, 150)
+arc.center()
+```
+
+![example_pikascript_demo_uart](./../../../../zh/maix/m1s/other/assets/start/example_pikascript_demo_uart.jpg)
+
+Then the screen displays as shown(Ignore the bad shoot):
+
+![example_pikascript_demo_uart](./../../../../zh/maix/m1s/other/assets/start/example_pikascript_demo_screen.jpg)
 
 ## SDK Compile
 
@@ -447,6 +494,59 @@ Then the compiled bin file is in M1s_BL808_example/e907_app/build_out folder, an
 
 When compiling your firmware, make sure your command is `./build.sh demo_name`, like  `./build.sh hello_world`, not `./build.sh hello_world/` (pay atention to the end symbol `/`)
 
+## WIFI stream DEMO
+
+Wireless SDK will open in May. Before that we use this example to test the wireless of M1s Dock.
+
+### Preparation
+
+Network: PC and M1s Dock are in a same network, M1s Dock supports 2.4G wireless network.
+
+PC Software：`python3`， `OpenCV`
+
+M1s Dock firmware: Use this [Firmware](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmware/factory) named with `firmware_20230227.bin`, burn it via [UART](https://wiki.sipeed.com/hardware/en/maix/m1s/other/start.html#Burn-via-UART).
+
+![camera_stream_e907](./../../../../zh/maix/m1s/other/assets/start/camera_stream_e907.png)
+
+### Edit Code
+
+Open the `main.c` which is in the `M1s_BL808_example/c906_app/camera_streaming_through_wifi` directory.
+
+![camera_stream_original_source_code](./../../../../zh/maix/m1s/other/assets/start/camera_stream_original_source_code.png)
+
+Pay attention to `m1s_xram_wifi_connect()` 和 `m1s_xram_wifi_upload_stream()`.
+
+- Edit `liuxo_desktop` into your wireless network, and change `12345678` into the wireless network password.
+- Change `10.42.0.1` to your PC ip address.
+
+Here is an example, this computer connects to the network named `Test` and its ip address in this network is `192.168.43.183`, the password of the `Test` wireless work is `testtest`.
+
+![camera_stream_source_code](./../../../../zh/maix/m1s/other/assets/start/camera_stream_source_code.png)
+
+Save `main.c` after editing it.
+
+### Compile and burn
+
+Finishing editing the code, follow the [sdk compile](http://wiki.sipeed.com/hardware/en/maix/m1s/other/start.html#SDK-Compile) steps to compile this `camera_streaming_through_wifi` demo.
+
+Burn the compiled out `d0fw.bin` firmware via u-disk burn into M1s Dock, open the bigger COM port on your computer, press the RST ket on the M1s Dock.
+
+If M1s Dock succeeds in connecting the wireless work, its IP address is printed out via UART, and message `Socket connect` means it's waiting the computer to receive the data.
+
+![camera_stream_socket_wait](./../../../../zh/maix/m1s/other/assets/start/camera_stream_socket_wait.png)
+
+### PC show screen
+
+Run `python3 main.py` in the `M1s_BL808_example/c906_app/camera_streaming_through_wifi` directory to receive the data with opencv from M1s dock.
+
+![camera_stream_success](./../../../../zh/maix/m1s/other/assets/start/camera_stream_success.png)
+
+### Note
+
+1. Make sure you use M1s Dock firmware named with [firmware_20230227.bin](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmware/factory)
+2. The IP address of M1s Dock is printed via bigger COM port if it succeeds in connecting the wireless work
+3. Make sure computer and M1s Dock are in a same network, and the PC IP address has been edited in `main.c`.
+
 ## Linux Demo
 
 This is a basic Linux Demo to run on M1s Dock.
@@ -461,7 +561,7 @@ Login in with `root`
 Visit CPU information
 ![linux_cpuinfo](./../../../../zh/maix/m1s/other/assets/start/linux_cpuinfo.jpg)
 
-## Using Jtag
+## Use Jtag
 
 The jtag debugger is sold in [Sipeed aliexpress store](https://sipeed.aliexpress.com/store/1101739727), you can buy one if you need.
 

@@ -540,7 +540,7 @@ If you connect the board with computer by [serial port](#serial-communication), 
 
 ### Built in application
 
-Maix-III AXera-Pi contains some Built-in Linux applications, and they are in `ls /opt` directory.
+Maix-III AXera-Pi includes some Built-in Linux applications, and they are in `ls /opt` directory.
 
 ```bash
 root@AXERA:~# ls /opt
