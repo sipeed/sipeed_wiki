@@ -23,10 +23,9 @@ title: Windows 下烧录指南
     - 在 `Select card` 选中目标盘符
     - 点击右下角 `Format` 
     - 等待弹框提示 `successful`
-<details>
-  <summary>点开查看格式化简图</summary>
-  <img src="./../static/System_Development/format.gif" >
-</details>
+
+<img src="./../static/System_Development/format.gif" >
+
 
 -  打开Etcher
 
@@ -35,9 +34,8 @@ title: Windows 下烧录指南
     - 点击`Select target`选中sd卡
     - 点击`Flash`烧录
     - 等待烧录完成
-<details>
-  <summary>点开查看烧录简图</summary>
-  <img src="./../static/System_Development/flash.gif" >
-</details>
+
+<img src="./../static/System_Development/flash.gif" >
+
 
 到此就已经结束烧录了。
