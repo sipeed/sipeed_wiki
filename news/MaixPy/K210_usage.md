@@ -13,6 +13,11 @@ update:
     author: lyx
     content:
       - 整理框架 补充内容
+  - date: 2023-03-03
+    version: v0.3
+    author: lyx
+    content:
+      - 补充应用案例以及细节
 ---
 
 ## 前言
@@ -23,37 +28,52 @@ update:
 
 ![maixduino_0](./mixly_application/accets/k210_usage/maixduino_0.jpg)
 
+## 基础知识
+
+在使用板子上手之前，我们需要先掌握一些基础知识**（有基础的小伙伴可跳过）**由于 `MaixPy` 是基于 `MicroPython` 之上进行开发构建的，提供给用户最终的接口是 `Micropython`，所以在使用 `MaixPy` 之初我们需要熟悉下 `MicroPython` 的基础知识与语法以及常用的 `Git` 与 `Github`。
+
+**MaixPy 语法基础知识：**[点击查看](https://wiki.sipeed.com/soft/maixpy/zh/get_started/knowledge_micropython.html)
+**Git 和 Github 介绍：**[点击查看](https://wiki.sipeed.com/soft/maixpy/zh/get_started/knowledge_git_github.html)
+
+以下是图像及音频的背景知识，有需要或感兴趣的小伙伴可以查看。
+
+**图像处理背景知识：**[点击查看](https://wiki.sipeed.com/soft/maixpy/zh/get_started/knowledge_image.html)
+**音频处理背景知识：**[点击查看](https://wiki.sipeed.com/soft/maixpy/zh/get_started/knowledge_audio.html)
+
 ## 准备工作
 
 无论是新手小白还是开发者在踏入 `K210 系列开发板` 学习之路前，做好充足的准备工作在一定程度上可以在使用途中避免踩坑。这篇文档是以一份避坑上手步骤的指南为核心来构写的，所以切记！！新手小白千万不可以跳着看，下图是示例硬件 `MaixDuino` 开发板、摄像头、屏幕、以及 USB Type-c 数据线。
 
 ![maixduino](./mixly_application/accets/k210_usage/maixduino.jpg)
 
-<!-- ### 使用流程图
+### 上手流程图
 
-使用流程思维导图可以搭配文档一起使用更佳~ -->
+避坑指南可以搭配上手流程图一起使用更佳~
+
+![steps](./mixly_application/accets/k210_usage/steps.jpg)
 
 ### 硬件接线
 
 - **USB Type-C 数据线**
 
-在 SIPEED 淘宝官方店购买开发板会赠送 USB Type-C 连接线，如果需自行准备的话请选用质量可靠的数据线，或者是用手机附送的数据线，质量差的数据线会因电压问题造成开发板处于非正常工作状态。
+在 SIPEED 淘宝店购买开发板会赠送 USB Type-C 连接线，自行准备的话请选用质量可靠或者是手机附赠的数据线，质量差的数据线会因电压问题造成开发板处于非正常工作状态导致后续影响使用。
 
 ![type-c](./mixly_application/accets/k210_usage/type_c.jpg)
 
 - **Micro SD/TF 卡（可选）**
 
-在 K210 开发板上不使用 Micro SD 卡也可以操作文件的, 我们在内部 Flash 上保留了一部分作为文件系统, 只是 Flash 速度很慢，为了操作方便的话可以选购 Micro SD/TF 卡，以下图例为 SD 卡安装卡槽。
+在 K210 开发板上不使用 Micro SD 卡也可操作文件, 我们在内部 Flash 上保留了一部分作为文件系统, 只是 Flash 速度很慢，为了操作方便的话可以选购 Micro SD/TF 卡，以下图例为 SD 卡安装卡槽。
 
 **如何选购 SD/TF 卡传送门：**[点击前往](eed.com/soft/maixpy/zh/develop_kit_board/get_hardware.html#Micro-SD-卡-%28TF-卡%29-%28可选%29)
 
 ![sd](./mixly_application/accets/k210_usage/sd.jpg)
 
->注意：MaixPy 不支持挂载文件系统到电脑！！！K210 芯片没有 USB 功能无法模拟 U 盘设备！！！不要再问为什么没有 U 盘或者是显示 SD 卡了！那不是 K210 那是 M2dock 跟 openmv!
+>注意：MaixPy 不支持挂载文件系统到电脑！！！K210 芯片没有 USB 功能无法模拟 U 盘设备！！！
+>不要再问为什么没有 U 盘或者是显示 SD 卡了！那不是 K210 那是 M2dock 跟 openmv!
 
 - **屏幕及摄像头接线**
 
-当我们收到开发板后，首先对硬件进行检查看有没有外表损坏，然后再根据屏幕及摄像头排线上的丝印提示把外设安装到开发板上，即排线上的数字 **“1”** 和板子卡座边上引脚丝印 **“1”** 方位对应接上。
+当我们收到开发板后，首先对硬件进行检查是否有外表损坏，接着再根据屏幕以及摄像头的排线丝印安装到开发板上，即排线上的数字 **“1”** 和板子卡座边上引脚丝印 **“1”** 方位对应接上。
 
 <html>
       <img src="./assets/../mixly_application/accets/k210_usage/lcd.jpg" width=45%>
@@ -70,9 +90,18 @@ update:
 
 ![maixpy_logo](./mixly_application/accets/k210_usage/maixpy_logo.jpg)
 
+### 给板子通电
+
+先使用准备的 USB type-c 数据线两端分别接入板子及电脑端进行上电操作，方便后续更新固件等使用。
+**如果是新购买出厂的开发板的话，上电后会显示红色屏幕。**
+
+![red_lcd](./mixly_application/accets/k210_usage/red_lcd.jpg)
+
+> **上电后出现白屏、黄屏、绿屏、蓝屏、闪屏等更多报错现象请前往 [MaixPy 常见问题 FAQ](https://wiki.sipeed.com/soft/maixpy/zh/others/maixpy_faq.html?highlight=SD#Micro-SD-%E5%8D%A1%E8%AF%BB%E5%8F%96%E4%B8%8D%E5%88%B0) 或 [BBS【超实用】常见问题汇总贴](https://bbs.sipeed.com/thread/489) 排查问题。**
+
 ### 安装驱动
 
-因 K210 没有 USB 硬件支持功能需通过 USB 转串口设备与电脑连接，所以我们需要安装串口驱动去当板子与 MAIXP IDE 连接的桥梁，接入下方提供的链接，根据板子的型号下载相对应的驱动即可。
+因 K210 没有 USB 硬件支持功能需通过 USB 转串口与电脑连接，所以用户需安装串口搭建板子与电脑的连接桥梁，点击文档链接根据板子的型号下载相对应的驱动，安装成功后设备管理器会显示（COMx）端口。
 
 **串口驱动下载传送门：**[点击前往](https://wiki.sipeed.com/soft/maixpy/zh/get_started/env_install_driver.html)
 
@@ -81,71 +110,35 @@ update:
 如果出现安装失败、安装后设备接入 `PC` 端的设备管理器不显示 `COM` 端口的现象，需要检查系统是不是正版或更新下（Win7 Win8）系统，部分盗版系统会导致驱动安装失败或是安装后不显示。
 
 **更多的不显示 `COM` 端口参考解决方法：**[点击前往](https://wiki.sipeed.com/soft/maixpy/zh/get_started/env_install_driver.html#%E5%85%B3%E4%BA%8E-USB-%E4%B8%B2%E5%8F%A3%E7%9A%84%E7%96%91%E9%9A%BE%E6%9D%82%E7%97%87%E6%8E%92%E6%9F%A5)
-
 ## 如何升级固件（必看）
 
 > 升级固件对 K210 系列板子来说至关重要，快速避免掉用户在使用中无限踩雷影响体验感，例如常见的 MaxiPy IDE 连接失败、屏幕白屏/黄屏等现象，所以板子到手后更新固件成了必不可少的一件事情。
-
-所有板子出厂前会烧录固定版本的固件，用户直接更新到最新版本即可。
-
-![bin_two](./mixly_application/accets/k210_usage/bin_two.png)
  
-用户根据以下说明图选择所需固件（正常使用：标准固件）使用 kflash_gui 软件工具进行烧录固件。
-具体操作可参考：[升级固件示例](https://wiki.sipeed.com/soft/maixpy/zh/get_started/upgrade_maixpy_firmware.html) 可搭配[ MaixPy 存储系统](https://wiki.sipeed.com/soft/maixpy/zh/get_started/get_started_fs.html)一起食用更佳。
+- **怎么去判定自己需要的什么固件？**
+
+**如果是第一次使用 k210 系列版更新固件，请无脑看图选标准固件（序号：15）！**
+**如果是因为应用需要特殊固件，看应用文档需要什么下载什么！其余一律看功能尾缀！功能尾缀！选择固件。**
+**K210 Amigo 开发板固件与以上不通用，固件请在（序号 3-6）里选择下载。**
 
 ![bin](./mixly_application/accets/k210_usage/bin.png)
 
+参考上方描述选择（**日期最新**）所需的固件并下载到本地，使用 `kflash_gui` 烧录工具对板子进行升级固件。
+
+![bin_two](./mixly_application/accets/k210_usage/bin_two.png)
+
+具体操作可参考：[升级固件示例文档](https://wiki.sipeed.com/soft/maixpy/zh/get_started/upgrade_maixpy_firmware.html) 可搭配[ MaixPy 存储系统](https://wiki.sipeed.com/soft/maixpy/zh/get_started/get_started_fs.html)一起食用更佳。
+
 > 注意：因 MaixPy 系列的开发板中 MaixDuino 板载了一块 ESP32 WIFI SOC，一般情况下不推荐更新板载的 ESP32 模块，如在使用途中出现 bug 可以参考[更新板载 ESP32 固件](https://wiki.sipeed.com/soft/maixpy/zh/get_started/upgrade_esp32_firmware.html)进行更新固件
-> 
-## 学会使用文档（资源）
-
-为什么会写 **`学会使用文档`** 呢，众所周知 `K210` 系列的板卡已经是 `2019` 年的产物了，各方面的文档也好例程也好早已经是成熟的了，该踩的坑基本都在前几年就被踩完了，现在更多的新手小白踩坑可能都是因为性能上的不足或者是自身使用环境的乱导致出问题。这篇文档的初衷是想要让大家在使用的过程中避坑，但我们还是要学会把文档资源利用起来。
-
-1. 学会搜索并利用官方的`文档社区`以及 `github issue` 资源，会让新手小白少走很多弯路雷坑。
-2. 文档资源在 `常见问题 FAQ` 中基本涵盖了所有的坑，使用途中报错可以先查看这篇文档排错。
-3. 在使用途中出现故障但无法自行判断（代码/硬件）问题，可以先根据下文运行程序测试屏幕及摄像头。
-4. 想要实现更多的功能示例或需要更多的脚本源码，可前往 `MaixPy` 的源码例程仓库查找。
-
-**文档搜索例程：**[点击查看](https://wiki.sipeed.com/soft/maixpy/zh/how_to_read.html)
-**BBS 社区教程贴：**[点击前往](https://bbs.sipeed.com/thread/492)
-**MaixPy issue：**[点击前往](https://github.com/sipeed/MaixPy/issues?page=5&q=is%3Aissue+is%3Aopen)
-**MaixPy 常见问题 FAQ：**[点击查看](https://wiki.sipeed.com/soft/maixpy/zh/others/maixpy_faq.html)
-**MaixPy 源码仓库：**[点击前往](https://github.com/sipeed/maixpy)
-**MaixPy 例程仓库：**[点击前往](https://github.com/sipeed/MaixPy_scripts)
-
-## 编程基础知识（适合新手）
-
-在编辑代码运行程序之前，我们需要先掌握一些基础知识**（适合新手有基础的小伙伴可跳过）**由于 MaixPy 是基于 MicroPython 之上进行开发构建的，提供给用户最终的接口是 Micropython，所以在使用 MaixPy 之初我们需要熟悉下 MicroPython 的基础知识与语法以及常用的 Git 与 Github。
-
-**MaixPy 语法基础知识：**[点击查看](https://wiki.sipeed.com/soft/maixpy/zh/get_started/knowledge_micropython.html)
-**Git 和 Github 介绍：**[点击查看](https://wiki.sipeed.com/soft/maixpy/zh/get_started/knowledge_git_github.html)
-
-以下是图像及音频的背景知识，有需要或感兴趣的小伙伴可以查看。
-
-**图像处理背景知识：**[点击查看](https://wiki.sipeed.com/soft/maixpy/zh/get_started/knowledge_image.html)
-**音频处理背景知识：**[点击查看](https://wiki.sipeed.com/soft/maixpy/zh/get_started/knowledge_audio.html)
-
-## 存储系统介绍
-
-MaixPy 中的存储介质主要由 `Flash`、`SD` 卡组成，并分为三块区域分别是 `MaixPy.bin 固件区`、`xxx.kmodel 模型区`、`文件系统区：Flash 上为 spiffs（SPI Flash File System）、SD 卡为 Fatfs（FAT file system)` 后续方便小伙伴们使用模型或烧写固件时参考，注意烧写时的不同区域防止报错或烧写失败。
-
-**存储系统介绍：**[点击查看](https://wiki.sipeed.com/soft/maixpy/zh/get_started/get_started_fs.html)
 
 ## 上手运行程序
 
->要使用 MaixPy IDE 板子需烧录固件，而且版本必须是 `v0.3.1` 以上, 否则 MaixPy IDE 会出现连接不上的现象，使用前请检查固件版本和 IDE 版本，请更新到最新的版本来保障后续使用。
-
-在运行程序前先使用准备的 USB type-c 数据线两端分别接入板子以及电脑端，给板子进行上电操作。
-如果是新出厂的开发板的话，上电后会显示红色屏幕。
-
-![red_lcd](./mixly_application/accets/k210_usage/red_lcd.jpg)
+>使用 MaixPy IDE 进行调试操作的话，板子需烧录固件而且版本必须是 `v0.3.1` 以上, 否则 MaixPy IDE 会出现连接不上的现象。
 
 ### 使用 MaixPy IDE 运行程序（含测试程序）
 
-参考 `MaixPy IDE 软件使用例程` 先学习怎么使软用件直连开发板，然后运行 `MaixPy IDE` 打开就显示的 `helloworld.py` 文件测试摄像头及屏幕是否正常可用，运行后屏幕会显示摄像头的画面。
+参考 `MaixPy IDE 软件使用例程` 先学习怎么使软用件直连开发板，然后运行 `MaixPy IDE` 打开就显示的 `helloworld.py` 程序测试摄像头及屏幕是否正常可用，运行后屏幕会显示摄像头的画面。
 
-**MaixPy 软件使用例程：**[点击前往](https://wiki.sipeed.com/soft/maixpy/zh/get_started/env_maixpyide.html#%E6%B5%8B%E8%AF%95%E8%BF%90%E8%A1%8C)
-**测试屏幕及摄像头源码：**[点击前往](https://wiki.sipeed.com/soft/maixpy/zh/get_started/get_started_cam_lcd.html)
+**MaixPy 软件使用例程：**[点击前往](https://wiki.sipeed.com/soft/maixpy/zh/get_started/env_maixpyide.html#%E6%B5%8B%E8%AF%95%E8%BF%90%E8%A1%8C) / **测试屏幕及摄像头源码：**[点击前往](https://wiki.sipeed.com/soft/maixpy/zh/get_started/get_started_cam_lcd.html)
 
 ![maixpy_run](./mixly_application/accets/k210_usage/maixpy_run.jpg)
 
@@ -153,13 +146,20 @@ MaixPy 中的存储介质主要由 `Flash`、`SD` 卡组成，并分为三块区
 
 使用前可以先简单的了解 `串口的定义`以及`串口是什么？`方便我们理解后续使用更方便。文档提供了多种串口连接工具供用户使用，有 `MaixPy IDE 终端工具`、`Mobaxterm`、`mpfshell-lite` 等在 `Windows` 环境下的工具，以及 `Linux` 下的使用方法。
 
-![adb](./mixly_application/accets/k210_usage/adb.jpg)
-
 **串口是什么？**[点击前往](https://wiki.sipeed.com/soft/maixpy/zh/get_started/uart.html)
 **MobaXterm 下载及使用方法：**[点击前往](https://wiki.sipeed.com/soft/maixpy/zh/get_started/env_serial_tools.html#Mobaxterm)
 **MaixPy IDE 终端使用方法：**[点击前往](https://wiki.sipeed.com/soft/maixpy/zh/get_started/env_serial_tools.html#MaixPy-IDE%E7%BB%88%E7%AB%AF%E5%B7%A5%E5%85%B7)
 **mpfshell-lite 工具介绍及用法：**[点击前往](https://wiki.sipeed.com/soft/maixpy/zh/get_started/mpfshell-lite/mpfshell-lite.html)
 **mpfshell-lite 使用手册：**[点击前往](https://wiki.sipeed.com/soft/maixpy/zh/get_started/mpfshell-lite/mpfshell-lite-help.html)
+
+- **演示图是基于 MaixPy IDE 程序的串口终端执行命令的示例。**
+
+```bash
+print("hello maixpy") #命令
+hello maixpy  #终端打印结果
+```
+
+![adb](./mixly_application/accets/k210_usage/adb.jpg)
 
 >有一定基础的同学们比较推荐使用终端来运行程序，`MaixPy IDE` 虽然运行出错会弹框显示错误但信息可能会不完整，而终端会输出更详细的报错信息方便排错。如果出现串口连接终端失败的现象，看看串口是否被占用。
 
@@ -203,6 +203,12 @@ MaixPy 中的存储介质主要由 `Flash`、`SD` 卡组成，并分为三块区
 
 [为何需要固件定制](https://wiki.sipeed.com/soft/maixpy/zh/firmware/why_customize_firware.html)
 [源码编译](https://wiki.sipeed.com/soft/maixpy/zh/firmware/compile.html)
+
+## 存储系统介绍
+
+MaixPy 中的存储介质主要由 `Flash`、`SD` 卡组成，并分为三块区域分别是 `MaixPy.bin 固件区`、`xxx.kmodel 模型区`、`文件系统区：Flash 上为 spiffs（SPI Flash File System）、SD 卡为 Fatfs（FAT file system)` 后续方便小伙伴们使用模型或烧写固件时参考，注意烧写时的不同区域防止报错或烧写失败。
+
+**存储系统介绍：**[点击查看](https://wiki.sipeed.com/soft/maixpy/zh/get_started/get_started_fs.html)
 
 ## 更多功能应用
 
@@ -320,6 +326,24 @@ API 手册只罗列几种分类出来，如有需要更详细的请点击前往�
 **以下是裸机开发可参考文章：**
 
 [K210裸机开发（〇）简介及准备](https://blog.csdn.net/hgf_fgh/article/details/122402940#:~:text=%E6%89%93%E5%BC%80PlatformIO%E4%B8%BB%E9%A1%B5%EF%BC%8C%E5%9C%A8Boards%E9%A1%B5%E9%9D%A2%E6%90%9C%E7%B4%A2K210%EF%BC%8C%E5%9C%A8platform%E5%88%97%E6%89%BE%E5%88%B0kendryte,k210%E5%B9%B6%E7%82%B9%E8%BF%9B%E5%8E%BB%EF%BC%8C%E7%82%B9%E5%87%BBinstall%E5%AE%89%E8%A3%85%E7%AD%89%E5%BE%85%E5%8D%B3%E5%8F%AF%EF%BC%9B)
+
+## 学会使用文档（资源）
+
+为什么会写 **`学会使用文档`** 呢，众所周知 `K210` 系列的板卡已经是 `2019` 年的产物了，各方面的文档也好例程也好早已经是成熟的了，该踩的坑基本都在前几年就被踩完了，现在更多的新手小白踩坑可能都是因为性能上的不足或者是自身使用环境的乱导致出问题。这篇文档的初衷是想要让大家在使用的过程中避坑，但我们还是要学会把文档资源利用起来。
+
+1. 学会搜索并利用官方的`文档社区`以及 `github issue` 资源，会让新手小白少走很多弯路雷坑。
+2. 文档资源在 `常见问题 FAQ` 中基本涵盖了所有的坑，使用途中报错可以先查看这篇文档排错。
+3. 在使用途中出现故障但无法自行判断（代码/硬件）问题，可以先运行测试程序测试屏幕及摄像头。
+4. 想要实现更多的功能示例或需要更多的脚本源码，可前往 `MaixPy` 的源码例程仓库查找。
+
+**文档搜索例程：**[点击查看](https://wiki.sipeed.com/soft/maixpy/zh/how_to_read.html)
+**BBS 社区教程贴：**[点击前往](https://bbs.sipeed.com/thread/492)
+**MaixPy 源码仓库：**[点击前往](https://github.com/sipeed/maixpy)
+**MaixPy 例程仓库：**[点击前往](https://github.com/sipeed/MaixPy_scripts)
+**MaixPy issue：**[点击前往](https://github.com/sipeed/MaixPy/issues?page=5&q=is%3Aissue+is%3Aopen)
+**MaixPy 常见问题 FAQ：**[点击查看](https://wiki.sipeed.com/soft/maixpy/zh/others/maixpy_faq.html)
+**BBS 社区常见问题汇总贴：**[点击查看](https://bbs.sipeed.com/thread/489)
+
 
 ## Mind+ & Mixly 积木编程
 
