@@ -26,7 +26,6 @@ title: Windows 下烧录指南
 
 <img src="./../static/System_Development/format.gif" >
 
-
 -  打开Etcher
 
     - 解压镜像，得到 .img镜像文件
@@ -36,6 +35,5 @@ title: Windows 下烧录指南
     - 等待烧录完成
 
 <img src="./../static/System_Development/flash.gif" >
-
 
 到此就已经结束烧录了。

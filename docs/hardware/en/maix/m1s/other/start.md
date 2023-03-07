@@ -129,7 +129,7 @@ After succeed dragging the firmware bin into removable disk, the board will rebo
 
 The u-disk burning method above is used to burn firmware for C906 core of BL808. If we want to burn other firmware for other cores or when we need to upgrade the whole firmware of BL808, we need to burn M1s Dock via UART.
 
-Connect this board by its TypeC UART port with computer, 2 serial ports will be shown on your computer (If your mouse doesn't work after connecting board with computer, please disconnect board with computer and visit [Burn onboard bl702](#burn-onboard-bl702) to solve this problem).
+Connect this board by its TypeC UART port with computer, 2 serial ports will be shown on your computer (If your mouse doesn't work after connecting board with computer, please disconnect board with computer and visit [Burn onboard bl702](https://wiki.sipeed.com/hardware/en/maix/m1s/other/start.html#Burn-onboard-bl702) to solve this problem).
 
 #### Get the burn software
 
@@ -168,7 +168,7 @@ First time burning, both `firmware` and `boot2` are needed, after this you just 
 
 The default firmware can be downloaded [here](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmware/factory).
 
-After choose the firmware, click the `Refresh` in the righr to refresh the serial port, then we can see 2 serial ports. If there are not 2 serial ports, visit [Burn onboard bl702](#burn-onboard-bl702) to solve this. We choose the bigger number serial port, and set uartrate 2000000 .
+After choose the firmware, click the `Refresh` in the righr to refresh the serial port, then we can see 2 serial ports. If there are not 2 serial ports, visit [Burn onboard bl702](https://wiki.sipeed.com/hardware/en/maix/m1s/other/start.html#Burn-onboard-bl702) to solve this. We choose the bigger number serial port, and set uartrate 2000000 .
 
 ![burn_steps](./../../../../zh/maix/m1s/other/assets/start/burn_steps.png)
 
@@ -251,27 +251,6 @@ In the burning software, we need to tick and choose `partition table`, `boot2`, 
 </tr>
 </table>
 
-### Burn onboard bl702
-
-We do this only when there is some trouble with our board. Hold BOOT key and cold boot the board, the bl702 is into download mode, then we burn its firmware.
-
-Hold BOOT key before power this device, then connect this board ti==with computer by the UART TypeC USB port, after this the onboard is in download mode. Run `BLDevCube`, choose `BL702`, then in MCU page, choose the firmware. Here we have provided the [firmware](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmware), download the file whose name starts with `usb2dualuart_bl702`.
-
-<table>
-    <tr>
-        <td><img src="./../../../../zh/maix/m1s/other/assets/start/select_bl702.png" alt="select_bl702" style="transform:rotate(0deg);"></td>    
-        <td><img src="./../../../../zh/maix/m1s/other/assets/start/mcu_mode.png" alt="mcu_mode" style="transform:rotate(0deg);" width="70%"></td>
-    </tr>
-</table>
-
-Click `Refresh`，choose the serial port (there is only one port, if you can't see this port, make sure you have hold BOOT key before powering this device), set UartRate 2000000, click `Create & Diwnload`.
-
-![burn_bl702](./../../../../zh/maix/m1s/other/assets/start/burn_bl702.png)
-
-After finishing burning, repower this board to use the new firmware.
-
-![finish_burn_702](./../../../../zh/maix/m1s/other/assets/start/finish_burn_702.png)
-
 ## Burn examples
 
 There are some demos compiled from M1s_BL808_example, with which you can have a test on M1s Dock.
@@ -331,7 +310,7 @@ arc.center()
 
 Then the screen displays as shown(Ignore the bad shoot):
 
-![example_pikascript_demo_uart](./../../../../zh/maix/m1s/other/assets/start/example_pikascript_demo_screen.jpg)
+![example_pikascript_demo_screen](./../../../../zh/maix/m1s/other/assets/start/example_pikascript_demo_screen.jpg)
 
 ## SDK Compile
 
@@ -909,9 +888,9 @@ Finish there, we can use M1s Dock to distinguish Tom and Jerry.
 
 Because this ai model is a big one, it's heavy for M1s Dock.
 
-## Notes
+## Questions
 
-## Why there is a BL702 chip on M1s Dock?
+### Why there is a BL702 chip on M1s Dock?
 
 We use this chip as a USB to 2 UART convertor.
 
@@ -934,3 +913,92 @@ If you want to use this u-disk again, reburn the default firmware into bl808 via
 U-disk burn is based on firmware, we need a way to burn this firmware into M1s Dock when it's produced.
 
 So we use serial burn to flash the defaule firmware into M1s Dock.
+
+### How to erase bl808 flash
+
+To erase the flash. we need [Bouffalo Lab Dev Cube](https://dev.bouffalolab.com/download), download and run it, choose Chip BL808.
+
+![chip_selection](./../../../../zh/maix/m1s/other/assets/start/chip_selection.png)
+
+`Show advnaced Page` first.
+
+![erase_advanede_mode](./../../../../zh/maix/m1s/other/assets/start/erase_advanede_mode.jpg)
+
+Do following steps:
+- Choose Flash interface
+- Make sure you have made M1s Dock in burning status(Hold BOOT ket and RST key, then relase RST key first, then release BOOT key.)
+- Selest the bigger COM port
+- Tick Whole Chip
+- Click Erase Flash
+
+![erase_configurations](./../../../../zh/maix/m1s/other/assets/start/erase_configurations.jpg)
+
+Then your M1s Dock is being erased, there is no progress bar, but `Success` shows when finishing erasing.
+
+![erase_success](./../../../../zh/maix/m1s/other/assets/start/erase_success.jpg)
+
+### BFLB IMG LOAD SHAKEHAND FAIL
+
+This means M1s Dock is not in burning mode. Hold BOOT ket and RST key, then relase RST key first, then release BOOT key to make it into burning mode.
+
+![uart_burn_bl808_shakehand_fail](./../../../../zh/maix/m1s/other/assets/start/uart_burn_bl808_shakehand_fail.jpg)
+
+And Make sure you choose the bigger COM port.
+
+![uart_burn_bl808_shakehand_fail_com_port](./../../../../zh/maix/m1s/other/assets/start/uart_burn_bl808_shakehand_fail_com_port.jpg)
+
+### Only one COM port
+
+This means you are in the bl702 burning mode. Make sure power on this board before pressing BOOT key. 
+
+![uart_burn_bl808_only_one_port](./../../../../zh/maix/m1s/other/assets/start/uart_burn_bl808_only_one_port.jpg)
+
+### Burn single firmware
+
+In the burning software, we need to tick and choose `partition table`, `boot2`, `firmware`, `d0fw` for the first time burning. If we want to burn only one firmware not all firmware, tick your target firmware and burn it.
+
+`firmware` can be compiled out via e907_demo.
+`d0fw` can be compiled out via c906_demo.
+
+`partition table` and `boot2` are needed to burn every time.
+
+<table>
+<tr>
+  <td>Burn c906_demo firmware</td>
+  <td>Burn e907_demo firmware</td>
+</tr>
+<tr>
+  <td><img src="./../../../../zh/maix/m1s/other/assets/start/uart_burn_c906.jpg" alt="uart_burn_c906"></td>
+  <td><img src="./../../../../zh/maix/m1s/other/assets/start/uart_burn_e907.jpg" alt="uart_burn_e907"></td>
+</tr>
+</table>
+
+### Trouble about compiling SDK
+
+1. Run command `build.sh` and get error `Makefile:14: *** BL_SDK_PATH not found, please enter: export BL_SDK_PATH={sdk_path}.  Stop.`, Visit [Set toolcahin path](#set-toolcahin-path) to set `BL_SDK_PATH` correctly.
+
+2. Failed compiling
+
+When compiling your firmware, make sure your command is `./build.sh demo_name`, like  `./build.sh hello_world`, not `./build.sh hello_world/` (pay atention to the end symbol `/`)
+
+### Burn onboard bl702
+
+We do this only when there is some trouble with our board. Hold BOOT key and cold boot the board, the bl702 is into download mode, then we burn its firmware.
+
+Hold BOOT key before power this device, then connect this board ti==with computer by the UART TypeC USB port, after this the onboard is in download mode. Run `BLDevCube`, choose `BL702`, then in MCU page, choose the firmware. Here we have provided the [firmware](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmware), download the file whose name starts with `usb2dualuart_bl702`.
+
+<table>
+    <tr>
+        <td><img src="./../../../../zh/maix/m1s/other/assets/start/select_bl702.png" alt="select_bl702" style="transform:rotate(0deg);"></td>    
+        <td><img src="./../../../../zh/maix/m1s/other/assets/start/mcu_mode.png" alt="mcu_mode" style="transform:rotate(0deg);" width="70%"></td>
+    </tr>
+</table>
+
+Click `Refresh`，choose the serial port (there is only one port, if you can't see this port, make sure you have hold BOOT key before powering this device), set UartRate 2000000, click `Create & Diwnload`.
+
+![burn_bl702](./../../../../zh/maix/m1s/other/assets/start/burn_bl702.png)
+
+After finishing burning, repower this board to use the new firmware.
+
+![finish_burn_702](./../../../../zh/maix/m1s/other/assets/start/finish_burn_702.png)
+

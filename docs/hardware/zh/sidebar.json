@@ -103,18 +103,10 @@
                   "file": "maix/m1s/other/start.md"
                 },
                 {
-                  "label": "其他事项",
+                  "label": "其他事项（摄像头和外壳）",
                   "file": "maix/m1s/other/others.md"
                 }
               ]
-            },
-            {
-              "label": "M1s 获取机器码",
-              "file": "maix/m1s/other/get_key.md"
-            },
-            {
-              "label": "M1s 常见问题",
-              "file": "maix/m1s/other/questions.md"
             }
           ]
         },

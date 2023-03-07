@@ -308,7 +308,7 @@ arc.center()
 
 然后可以看到屏幕上显示出来一些画面（忽略这糟糕的拍照）：
 
-![example_pikascript_demo_uart](./assets/start/example_pikascript_demo_screen.jpg)
+![example_pikascript_demo_screen](./assets/start/example_pikascript_demo_screen.jpg)
 
 ## SDK 编译
 
@@ -984,6 +984,8 @@ BL702 芯片在这里担任着 USB 转双串口芯片功能。
 ### 烧录 BL808 时候没有串口设备
 
 确定自己连接的是板子上的 UART 接口，换一根数据线或者连接电脑另一个 USB 口。
+
+![uart_burn_bl808_only_one_port](./assets/start/uart_burn_bl808_only_one_port.jpg)
 
 ### 烧录 BL808 时候只想要烧录单个固件
 

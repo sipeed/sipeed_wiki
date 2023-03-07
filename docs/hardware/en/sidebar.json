@@ -100,18 +100,14 @@
                   "file": "maix/m1s/m1s_dock.md"
                 },
                 {
-                  "label": "Usage",
+                  "label": "Basic Usage",
                   "file": "maix/m1s/other/start.md"
                 },
                 {
-                  "label": "Others",
+                  "label": "Others (Camera and Shell)",
                   "file": "maix/m1s/other/others.md"
                 }
               ]
-            },
-            {
-              "label": "M1s Machine Key",
-              "file": "maix/m1s/other/get_key.md"
             }
           ]
         },
