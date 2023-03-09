@@ -21,6 +21,19 @@
           ]
         },
         {
+          "label": "Maix M0P",
+          "items": [
+            {
+              "label":"M0P",
+              "file": "./maixzero/m0p/m0p.md"
+            },
+            {
+              "label":"M0P Dock",
+              "file": "./maixzero/m0p/m0p_dock.md"
+            }
+          ]
+        },
+        {
           "label": "Maix M0S",
           "file": "./maixzero/m0s/m0s.md"
         }
@@ -287,6 +300,9 @@
               "file": "tang/Tang-Nano-9K/Nano-9K.md"
             },
             {
+              "label": "Tang Nano 20K"
+            },
+            {
               "label": "Tang Nano (售罄)",
               "file": "tang/Tang-Nano/Nano.md"
             },
@@ -369,6 +385,9 @@
               ]
             }
           ]
+        },
+        {
+          "label":"Tang Mega"
         }
       ]
     },
@@ -383,6 +402,22 @@
         {
           "label": "MaixSense-a075v",
           "file": "maixsense/maixsense-a075v/maixsense-a075v.md"
+        }
+      ]
+    },
+    {
+      "label": "Maix Audio",
+      "items": [
+        {
+          "label": "MA USB 16"
+        }
+      ]
+    },
+    {
+      "label": "SLogic",
+      "items": [
+        {
+          "label": "SLogic Combo8"
         }
       ]
     },

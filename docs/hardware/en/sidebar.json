@@ -269,7 +269,7 @@
       ]
     },
     {
-      "label": " Tang",
+      "label": "Tang",
       "file": "tang/readme.md",
       "items": [
         {
@@ -292,6 +292,9 @@
             {
               "label": "Tang Nano 9K",
               "file": "tang/Tang-Nano-9K/Nano-9K.md"
+            },
+            {
+              "label": "Tang Nano 20K"
             },
             {
               "label": "Install IDE",
@@ -366,6 +369,39 @@
               ]
             }
           ]
+        },
+        {
+          "label":"Tang Mega"
+        }
+      ]
+    },
+    {
+      "label": "MaixSense",
+      "file": "maixsense/readme.md",
+      "items": [
+        {
+          "label": "MaixSense-a010",
+          "file": "maixsense/maixsense-a010/maixsense-a010.md"
+        },
+        {
+          "label": "MaixSense-a075v",
+          "file": "maixsense/maixsense-a075v/maixsense-a075v.md"
+        }
+      ]
+    },
+    {
+      "label": "SLogic",
+      "items": [
+        {
+          "label": "SLogic Combo8"
+        }
+      ]
+    },
+    {
+      "label": "Maix Audio",
+      "items": [
+        {
+          "label": "MA USB 16"
         }
       ]
     },
@@ -385,20 +421,6 @@
               "file": "longan/Nano/blink.md"
             }
           ]
-        }
-      ]
-    },
-    {
-      "label": "MaixSense",
-      "file": "maixsense/readme.md",
-      "items": [
-        {
-          "label": "MaixSense-a010",
-          "file": "maixsense/maixsense-a010/maixsense-a010.md"
-        },
-        {
-          "label": "MaixSense-a075v",
-          "file": "maixsense/maixsense-a075v/maixsense-a075v.md"
         }
       ]
     },

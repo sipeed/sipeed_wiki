@@ -6,16 +6,17 @@ desc: 矽速科技的开源软硬件 WIKI 资料站
 
 ## 总览
 
-- [Maix Zero](#maix-zero) 以 MCU 为主控的 AIOT 开发板
-- [Maix-I](#maix-i) 以 MCU 为主控的 AI 开发板
-- [Maix-II](#maix-ii-系列)：Linux AI 开发板，小巧便携且实用
-- [Maix-III](#maix-iii)： Linux AI 开发板，超强算力超大内存多种玩法
-- [LicheePI](#licheepi-系列)： Linux 开发板
-- [Tang](#tang-fpga-系列)：FPGA 开发板
-- [MaixSense](#maixsense-系列)：3D TOF 模组
-- [Longon](#longon-系列)：MCU 开发板
-- [MaixFace](#maixface-模组)：商业项目板卡
-- [其他外设](#外设模组)
+- [Maix Zero](https://wiki.sipeed.com/hardware/zh/index.html#Maix-Zero) 以 MCU 为主控的 AIOT 开发板
+- [Maix-I](https://wiki.sipeed.com/hardware/zh/index.html#Maix-I) 以 MCU 为主控的 AI 开发板
+- [Maix-II](https://wiki.sipeed.com/hardware/zh/index.html#Maix-II-系列)：Linux AI 开发板，小巧便携且实用
+- [Maix-III](https://wiki.sipeed.com/hardware/zh/index.html#Maix-III)： Linux AI 开发板，超强算力超大内存多种玩法
+- [LicheePI](https://wiki.sipeed.com/hardware/zh/index.html#LicheePi-系列)： Linux 开发板
+- [Tang](https://wiki.sipeed.com/hardware/zh/index.html#Tang-FPGA-系列)：FPGA 开发板
+- [MaixSense](https://wiki.sipeed.com/hardware/zh/index.html#Maixsense-系列)：3D TOF 模组
+- [SLogic](https://wiki.sipeed.com/hardware/zh/index.html#SLogic-系列): 多功能逻辑分析仪
+- [Longon](https://wiki.sipeed.com/hardware/zh/index.html#Longon-系列)：MCU 开发板
+- [MaixFace](https://wiki.sipeed.com/hardware/zh/index.html#Maixface-模组)：商业项目板卡
+- [其他外设](https://wiki.sipeed.com/hardware/zh/index.html#外设模组)
 
 ## Maix Zero
 
@@ -182,6 +183,8 @@ Maix 系列产品可以在多种场景实现客户不同方面的需要，在 AI
 
 ## Tang FPGA 系列
 
+### 在售产品
+
 | 项目            | <p style="white-space:nowrap">Tang Primer 20K</p> | <p style="white-space:nowrap">Tang Nano 9K</p> | <p style="white-space:nowrap">Tang Nano 4K</p> | <p style="white-space:nowrap">Tang Nano 1K</p> |
 | :-------------- | :------------------------------------------------ | :--------------------------------------------- | :--------------------------------------------- | ---------------------------------------------- |
 | 逻辑单元(LUT4)  | 20736                                             | 8640                                           | 4608                                           | 1152                                           |
@@ -242,6 +245,21 @@ Maix 系列产品可以在多种场景实现客户不同方面的需要，在 AI
 | 激光发射器                                     | 40nm VCSEL                                   | 940nm,3W                                    |
 | 测量范围                                       | 0.2-2.5m                                     | 0.15-1.5m                                   |
 | 测量精度                                       | &lt;=1%/cm                                   | &lt;=1%/cm                                  |
+
+## SLogic 系列
+
+SLogic 全称为 Sipeed Logic Analyzer，是逻辑分析仪。
+
+|                  | Combo8                                        |
+| ---------------- | --------------------------------------------- |
+| 采样芯片         | BL616                                         |
+| 通讯方式         | USB2.0   HS                                   |
+| 采样率@通道数    | 160M@2Channel<br>80M@4Channel<br>40M@8Channel |
+| 信号输入范围     | 0～3.6V                                       |
+| 高低电平识别范围  | VIH: >2V<br>VIL: <0.8V                        |
+| CKLink 功能      | 支持                                          |
+| DapLink 功能     | 支持                                          |
+| 串口功能         | 支持四串口功能，每个串口最大20MBps            | 
 
 ## Longon 系列
 
