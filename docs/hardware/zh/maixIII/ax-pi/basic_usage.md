@@ -1499,7 +1499,7 @@ cat /proc/ax_proc/uid
     <iframe src="//player.bilibili.com/player.html?aid=773227207&bvid=BV1B14y1Y7A4&cid=837154353&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="max-width:640px; max-height:480px;"> </iframe>
 </p> -->
 
-### RTSP
+### RTSP 推流
 
 >**RTSP**：也称实时流传输协议，该协议定义了一对多应用程序如何有效地通过 IP 网络传送多媒体数据。
 
@@ -1547,7 +1547,7 @@ sudo apt install ffmpeg
 ffplay rtsp://192.168.233.1:8554/axstream0 -fflags nobuffer
 ```
 
-### ONVIF ODM
+### ONVIF ODM 
 
 >版本为 **20221111** 后的镜像系统内置了按键录像 mp4 和支持更换 yolov5s 人脸/物体检测模型以及对软件 ODM（ONVIF）进行支持。
 
@@ -1621,7 +1621,7 @@ nano /home/examples/vin_ivps_joint_venc_rtsp_vo_onvif_mp4v2/run.sh
 
 ![mp4-file](./../assets/mp4-file.png)
 
-### PP_human
+### PP_human 人体分割 
 
 >版本为 **20221116** 后的系统镜像内置了 `pp_human` 人体分割应用，并且内置了不同摄像头的参数命令在目录下的启动脚本 `run.sh` 里，用户使用只需要修改注释相应命令行即可使用。
 
@@ -1630,7 +1630,11 @@ nano /home/examples/vin_ivps_joint_venc_rtsp_vo_onvif_mp4v2/run.sh
 ```bash
 /home/examples/vin_ivps_joint_vo_pp_human_seg/run.sh
 ```
-![pp_human](./../assets/pp_human.jpg)
+<!-- ![pp_human](./../assets/pp_human.jpg) -->
+
+<p align="center">
+    <iframe src="//player.bilibili.com/player.html?aid=902571856&bvid=BV1iP4y1y75t&cid=889419118&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+</p>
 
 使用下方命令进入图形化页面，对 `run.sh` 里不同摄像头参数的源码进行调用或注释。
 
@@ -1643,7 +1647,7 @@ nano /home/examples/vin_ivps_joint_vo_pp_human_seg/run.sh
 
     ![pp_human_adb](./../assets/pp_humana_adb.png)
 
-### uvc_vo
+### uvc_vo 虚拟 USB 摄像头输入
 
 **usb-uvc-gadget**：[点击查看相关仓库](https://github.com/junhuanchen/usb-uvc-gadget)
 
@@ -1662,7 +1666,11 @@ nano /home/examples/vin_ivps_joint_vo_pp_human_seg/run.sh
 
 打开 `PC` 端自带相机应用即可在设备屏幕以及 `PC` 端观察到模型检测画面。
 
-![uvc_vo](./../assets/uvc_vo.jpg)
+<!-- ![uvc_vo](./../assets/uvc_vo.jpg) -->
+
+<p align="center">
+<iframe src="//player.bilibili.com/player.html?aid=353176926&bvid=BV1fX4y1U7CH&cid=1046620857&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+</p>
 
 可以使用以下的命令行更换尾缀 `start` 开启、`stop` 停止、`restore` 重启来对 `uvc` 程序进行操作。
 
