@@ -883,6 +883,24 @@ fbon
 fbv /home/res/logo.png
 fboff
 ```
+播放视频可以使用ffmpeg的命令，但是注意ffmpeg播放视频之前需要将视频顺时针旋转90°，RGB视频变成BGR，分辨率resize成480*854，并且如果有遇到视频播放速度太快的情况，就需要使用 `ffmpeg -i /home/kun_1_output.mp4  -vf  "setpts=2*PTS" test3.mp4` 重新生成一个慢速的视频文件，再次播放即可
+
+```bash
+fbon
+ffmpeg -i /home/test3.mp4 -pix_fmt rgba -f fbdev /dev/fb0
+fboff
+```
+而在python中可以使用os.system()将上面的命令包裹起来，以便使用
+```bash
+import os
+os.system("fbon")
+os.system("fbv /home/res/logo.png")
+os.system("fboff")
+os.system("fbon")
+os.system("ffmpeg -i /home/test3.mp4 -pix_fmt rgba -f fbdev /dev/fb0")
+os.system("fboff")
+```
+
 
 ![fbv_logo](./../assets/fbv_logo.jpg)
 
