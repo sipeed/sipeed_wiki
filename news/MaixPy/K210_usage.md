@@ -68,8 +68,8 @@ update:
 
 ![sd](./mixly_application/accets/k210_usage/sd.jpg)
 
->注意：MaixPy 不支持挂载文件系统到电脑！！！K210 芯片没有 USB 功能无法模拟 U 盘设备！！！
->不要再问为什么没有 U 盘或者是显示 SD 卡了！那不是 K210 那是 M2dock 跟 openmv!
+>**注意：MaixPy 不支持挂载文件系统到电脑！！！K210 芯片没有 USB 功能无法模拟 U 盘设备！！！**
+>**不要再问为什么没有 U 盘或者是显示 SD 卡了！那不是 K210 那是 M2dock 跟 openmv!**
 
 - **屏幕及摄像头接线**
 
@@ -89,6 +89,8 @@ update:
 **MaixPy IDE 安装与使用例程：**[点击前往](https://wiki.sipeed.com/soft/maixpy/zh/get_started/env_maixpyide.html)
 
 ![maixpy_logo](./mixly_application/accets/k210_usage/maixpy_logo.jpg)
+
+> **MaixPy IDE 支持 Linux、Windows、Macos 等系统如出现安装报错现象请前往 [MaixPy 常见问题 FAQ](https://wiki.sipeed.com/soft/maixpy/zh/others/maixpy_faq.html?highlight=SD#Micro-SD-%E5%8D%A1%E8%AF%BB%E5%8F%96%E4%B8%8D%E5%88%B0) 或 [BBS【超实用】常见问题汇总贴](https://bbs.sipeed.com/thread/489) 排查问题。**
 
 ### 给板子通电
 
@@ -126,7 +128,7 @@ update:
 
 ![bin_two](./mixly_application/accets/k210_usage/bin_two.png)
 
-具体操作可参考：[升级固件示例文档](https://wiki.sipeed.com/soft/maixpy/zh/get_started/upgrade_maixpy_firmware.html) 可搭配[ MaixPy 存储系统](https://wiki.sipeed.com/soft/maixpy/zh/get_started/get_started_fs.html)一起食用更佳。
+如何正确烧录固件示例可参考：[升级固件示例文档](https://wiki.sipeed.com/soft/maixpy/zh/get_started/upgrade_maixpy_firmware.html) 可搭配[ MaixPy 存储系统](https://wiki.sipeed.com/soft/maixpy/zh/get_started/get_started_fs.html)一起食用更佳。
 
 > 注意：因 MaixPy 系列的开发板中 MaixDuino 板载了一块 ESP32 WIFI SOC，一般情况下不推荐更新板载的 ESP32 模块，如在使用途中出现 bug 可以参考[更新板载 ESP32 固件](https://wiki.sipeed.com/soft/maixpy/zh/get_started/upgrade_esp32_firmware.html)进行更新固件
 
@@ -136,23 +138,29 @@ update:
 
 ### 使用 MaixPy IDE 运行程序（含测试程序）
 
-参考 `MaixPy IDE 软件使用例程` 先学习怎么使软用件直连开发板，然后运行 `MaixPy IDE` 打开就显示的 `helloworld.py` 程序测试摄像头及屏幕是否正常可用，运行后屏幕会显示摄像头的画面。
+根据下图将 K210 开发板连接 `MaixPy IDE` 软件，连接成功后步骤 3 的图标会变成红色，接下来运行 `helloworld.py` 测试摄像头及屏幕是否可用，运行后开发板屏幕以及软件会显示摄像头画面。
+
+![maixpyide](./mixly_application/accets/k210_usage/maixpyide.jpg)
 
 **MaixPy 软件使用例程：**[点击前往](https://wiki.sipeed.com/soft/maixpy/zh/get_started/env_maixpyide.html#%E6%B5%8B%E8%AF%95%E8%BF%90%E8%A1%8C) / **测试屏幕及摄像头源码：**[点击前往](https://wiki.sipeed.com/soft/maixpy/zh/get_started/get_started_cam_lcd.html)
+如出现软件无画面的话，请参考步骤 5 是否被缩放了，更详细的连接过程请参考下文链接，测完后可在文件里`新建文件夹`编辑自己的代码并运行。
 
 ![maixpy_run](./mixly_application/accets/k210_usage/maixpy_run.jpg)
 
 ### 使用串口终端运行程序
 
-使用前可以先简单的了解 `串口的定义`以及`串口是什么？`方便我们理解后续使用更方便。文档提供了多种串口连接工具供用户使用，有 `MaixPy IDE 终端工具`、`Mobaxterm`、`mpfshell-lite` 等在 `Windows` 环境下的工具，以及 `Linux` 下的使用方法。
+>如果是有基础的用户较推荐使用终端来调试，`MaixPy IDE` 虽然运行报错会显示但信息可能不完整，而终端会输出更详细的报错信息方便排错。如果出现串口连接终端失败的现象，看看串口是否被占用。
 
-**串口是什么？**[点击前往](https://wiki.sipeed.com/soft/maixpy/zh/get_started/uart.html)
-**MobaXterm 下载及使用方法：**[点击前往](https://wiki.sipeed.com/soft/maixpy/zh/get_started/env_serial_tools.html#Mobaxterm)
-**MaixPy IDE 终端使用方法：**[点击前往](https://wiki.sipeed.com/soft/maixpy/zh/get_started/env_serial_tools.html#MaixPy-IDE%E7%BB%88%E7%AB%AF%E5%B7%A5%E5%85%B7)
-**mpfshell-lite 工具介绍及用法：**[点击前往](https://wiki.sipeed.com/soft/maixpy/zh/get_started/mpfshell-lite/mpfshell-lite.html)
-**mpfshell-lite 使用手册：**[点击前往](https://wiki.sipeed.com/soft/maixpy/zh/get_started/mpfshell-lite/mpfshell-lite-help.html)
+使用前可以先点击了解 [串口定义是什么？](https://wiki.sipeed.com/soft/maixpy/zh/get_started/uart.html) 方便我们理解后续使用更方便。文档提供了多种串口连接工具供用户使用，有 `MaixPy IDE 终端工具`、`Mobaxterm`、`mpfshell-lite` 等在 `Windows` 环境下的工具，以及 `Linux` 下的使用方法。
 
-- **演示图是基于 MaixPy IDE 程序的串口终端执行命令的示例。**
+- **这里我们更推荐使用 MaixPy IDE 串口终端，以下时连接以及运行示例。**
+
+点击 MaixPy IDE 软件页面上方的 `工具`->`打开终端`->`新终端`->`连接到串口`->`确定默认串口号`->`波特率：115200` 确定自动连接，连接后按复位即可正常编辑。
+
+![maixpy_tty](./mixly_application/accets/k210_usage/maixpy_tty.png)
+![tty_usage](./mixly_application/accets/k210_usage/tty_usage.jpg)
+
+- 运行 `hello maixpy` 终端会输出打印结果，更详细的资料以及更多连接串口方式请点击下文链接查看。
 
 ```bash
 print("hello maixpy") #命令
@@ -161,11 +169,14 @@ hello maixpy  #终端打印结果
 
 ![adb](./mixly_application/accets/k210_usage/adb.jpg)
 
->有一定基础的同学们比较推荐使用终端来运行程序，`MaixPy IDE` 虽然运行出错会弹框显示错误但信息可能会不完整，而终端会输出更详细的报错信息方便排错。如果出现串口连接终端失败的现象，看看串口是否被占用。
+**MobaXterm 下载及使用方法：**[点击前往](https://wiki.sipeed.com/soft/maixpy/zh/get_started/env_serial_tools.html#Mobaxterm)
+**MaixPy IDE 终端使用方法：**[点击前往](https://wiki.sipeed.com/soft/maixpy/zh/get_started/env_serial_tools.html#MaixPy-IDE%E7%BB%88%E7%AB%AF%E5%B7%A5%E5%85%B7)
+**mpfshell-lite 工具介绍及用法：**[点击前往](https://wiki.sipeed.com/soft/maixpy/zh/get_started/mpfshell-lite/mpfshell-lite.html)
+**mpfshell-lite 使用手册：**[点击前往](https://wiki.sipeed.com/soft/maixpy/zh/get_started/mpfshell-lite/mpfshell-lite-help.html)
 
 ### 如何编辑代码并运行
 
-相较于上文简单了介绍 MaixPy IDE 以及串口的的使用方法，但在实际运行时我们更希望代码保存在文件系统，这样不需要再次敲代码可直接运行程序更为便利快捷，小伙伴们可以参考以下的示例方法进行操作。
+上文我们简单介绍了在 MaixPy IDE 上如何运行代码以及使用串口终端，但实际这些运行都是一次性并不保存到设备里，我们更希望代码保存在文件系统，这样不需要再次敲代码可直接运行程序更为便利快捷，小伙伴们可以参考以下的示例方法进行操作。
 
 **如何编辑并保存文件请参考以下示例：**
 
@@ -260,11 +271,10 @@ print(os.listdir("/"))
 
 [麦克风阵列例程](https://wiki.sipeed.com/hardware/zh/modules/micarray.html)
 
-**K210 系列板卡连接麦克风阵列有以下三种方式供参考：**
+**K210 系列板卡连接麦克风阵列有以下两种方式供参考：**
 
-1. 使用杜邦线连接板子与麦克风阵列的引脚，在使用例程提供的代码实现声源定位。
-2. 部分板子有 grove 接口，可使用转接板通过 grove 接口连接板子。
-3. 使用麦克风阵列标配排线直接连接板子。
+1. **推荐：使用杜邦线连接板子与麦克风阵列的引脚，在使用例程提供的代码实现声源定位。**
+2. 使用麦克风阵列标配排线搭配转接板连接板子
 
 ### 如何获取开发板（机器码）
 
@@ -345,20 +355,11 @@ API 手册只罗列几种分类出来，如有需要更详细的请点击前往�
 **BBS 社区常见问题汇总贴：**[点击查看](https://bbs.sipeed.com/thread/489)
 
 
-## Mind+ & Mixly 积木编程
-
-- **Mind+ 积木编程**
+## Mind+ 积木编程
 
 **MaixDuino K210 实现积木编程例程：**[点击查看](https://wiki.sipeed.com/news/MaixPy/mind_application/mind_application.html)
 
 Mind+ 从1.6.6版本开始支持基于 K210 主控的 Maixduino 开发板，可满足对于 K210 开发有兴趣的用户。
-
-- **Mixly 积木编程**
-
-**MaixDuino K210 实现积木编程例程：**[点击查看](https://wiki.sipeed.com/news/MaixPy/mixly_application/mixly.html)
-
-Mixly（米思齐）是国内自主研发且免费开源的一款图形化编程软件，用户可以通过拼接积木的方式来编写程序，Mixly 支持基于 K210 主控的 Maixduino 等开发板。
-
 
 ## 常见问题 FQA 
 

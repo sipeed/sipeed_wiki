@@ -1855,9 +1855,16 @@ greedy_search
 
 ![sherpa](./../assets/sherpa.png)
 
-- 如何升级语音识别模型
+- **如何升级语音识别模型**
 
-先前往传送门通过 `git clone` 把更新包拷贝到本地，点击前往[传送门](https://huggingface.co/marcoyang/sherpa-ncnn-streaming-zipformer-zh-14M-2023-02-23)。
+> 镜像版本日期为 `20230313` 的已内置好升级版的中文语音识别模型，用户不需要自行下载模型包更新。  
+
+使用 `git bash` 用下文命令行把更新的模型包下载到本地备用。
+
+```bash
+git lfs install
+git clone https://huggingface.co/marcoyang/sherpa-ncnn-streaming-zipformer-zh-14M-2023-02-23
+```
 
 ![bash_sherpa](./../assets/bash_sherpa.png)
 
@@ -1870,11 +1877,15 @@ cd /home/sherpa-ncnn-m3axpi #先进入放置文件的目录
 ```
 
 ```bash
-./sherpa-ncnn-alsa ./sherpa-ncnn-streaming-zipformer-zh-14M-2023-02-23/tokens.txt
-./sherpa-ncnn-streaming-zipformer-zh-14M-2023-02-23/encoder_jit_trace-pnnx.ncnn.param
-./sherpa-ncnn-streaming-zipformer-zh-14M-2023-02-23/encoder_jit_trace-pnnx.ncnn.bin
-./sherpa-ncnn-streaming-zipformer-zh-14M-2023-02-23/decoder_jit_trace-pnnx.ncnn.param
-./sherpa-ncnn-streaming-zipformer-zh-14M-2023-02-23/decoder_jit_trace-pnnx.ncnn.bin
-./sherpa-ncnn-streaming-zipformer-zh-14M-2023-02-23/joiner_jit_trace-pnnx.ncnn.param
-./sherpa-ncnn-streaming-zipformer-zh-14M-2023-02-23/joiner_jit_trace-pnnx.ncnn.bin "hw:0,0" 4 greedy_search
+./sherpa-ncnn-alsa \
+./sherpa-ncnn-streaming-zipformer-zh-14M-2023-02-23/tokens.txt \
+./sherpa-ncnn-streaming-zipformer-zh-14M-2023-02-23/encoder_jit_trace-pnnx.ncnn.param \
+./sherpa-ncnn-streaming-zipformer-zh-14M-2023-02-23/encoder_jit_trace-pnnx.ncnn.bin \
+./sherpa-ncnn-streaming-zipformer-zh-14M-2023-02-23/decoder_jit_trace-pnnx.ncnn.param \
+./sherpa-ncnn-streaming-zipformer-zh-14M-2023-02-23/decoder_jit_trace-pnnx.ncnn.bin \
+./sherpa-ncnn-streaming-zipformer-zh-14M-2023-02-23/joiner_jit_trace-pnnx.ncnn.param \
+./sherpa-ncnn-streaming-zipformer-zh-14M-2023-02-23/joiner_jit_trace-pnnx.ncnn.bin  \
+"hw:0,0" \
+4 \
+greedy_search
 ```
