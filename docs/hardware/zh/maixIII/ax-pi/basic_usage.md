@@ -874,24 +874,37 @@ sample_vin_vo -c 2 -e 1 -s 0 -v dsi0@480x854@60
 
 ### DISPLAY
 
->因物料更换屏幕现有不同的版本，需区别版本以及使用屏幕时出现锯齿等画面请移步到[ Maix-III 系列 AXera-Pi 常见问题(FAQ) ](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html#Q：硬件物料更改说明、没有-wlan0-、屏幕烧屏、摄像头倒过来怎么解决？)查询。
+> 因物料更换屏幕现有不同的版本，需区别版本以及使用屏幕时出现锯齿等画面请移步到[ Maix-III 系列 AXera-Pi 常见问题(FAQ) ](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html#Q：硬件物料更改说明、没有-wlan0-、屏幕烧屏、摄像头倒过来怎么解决？)查询。
+
+目前想要使用 libdrm 需要搭配代码使用，请参考 sdk 的源码实现，因为目前系统还未移植好 gpu 驱动所以无法使用 modetest 进行测试，但可以参考下面进行测试。
+
+测试屏幕是否能用, 可以直接运行命令 `sample_vo -v dsi0@480x854@60 -m 0` 命令屏幕会显示出彩色条纹。但使用前务必调用 `fboff` 关闭 fb 设备。
 
 目前系统默认使用的是最简单的 framebuffer 显示驱动（/dev/fb0），在系统里内置了 `fbon / fboff / fbv xxx.jpg` 三个命令负责管理 fb 设备的启用和显示。
+
+#### 显示一张图片
 
 ```bash
 fbon
 fbv /home/res/logo.png
 fboff
 ```
-播放视频可以使用ffmpeg的命令，但是注意ffmpeg播放视频之前需要将视频顺时针旋转90°，RGB视频变成BGR，分辨率resize成480*854，并且如果有遇到视频播放速度太快的情况，就需要使用 `ffmpeg -i /home/kun_1_output.mp4  -vf  "setpts=2*PTS" test3.mp4` 重新生成一个慢速的视频文件，再次播放即可
+
+![fbv_logo](./../assets/fbv_logo.jpg)
+
+#### 播放视频
+
+播放视频可以使用 ffmpeg 的命令。但是注意 ffmpeg 播放视频之前需要将视频顺时针旋转 90°， RGB 视频变成 BGR 格式，分辨率 resize 成 480*854 。并且如果有遇到视频播放速度太快的情况，就需要使用 `ffmpeg -i /home/kun_1_output.mp4 -vf "setpts=2*PTS" test3.mp4` 重新生成一个慢速的视频文件，再次播放即可。
 
 ```bash
 fbon
 ffmpeg -i /home/test3.mp4 -pix_fmt rgba -f fbdev /dev/fb0
 fboff
 ```
-而在python中可以使用os.system()将上面的命令包裹起来，以便使用
-```bash
+
+在 python 中可以使用 `os.system()` 将上面的命令包裹起来，直接在代码里面运行。
+
+```python
 import os
 os.system("fbon")
 os.system("fbv /home/res/logo.png")
@@ -900,13 +913,6 @@ os.system("fbon")
 os.system("ffmpeg -i /home/test3.mp4 -pix_fmt rgba -f fbdev /dev/fb0")
 os.system("fboff")
 ```
-
-
-![fbv_logo](./../assets/fbv_logo.jpg)
-
-目前想要使用 libdrm 需要搭配代码使用，请参考 sdk 的源码实现，因为目前系统还未移植好 gpu 驱动所以无法使用 modetest 进行测试，但可以参考下面进行测试。
-
-测试屏幕是否能用运行右侧 `sample_vo -v dsi0@480x854@60 -m 0` 命令屏幕会显示彩条，但使用前务必调用 `fboff` 关闭 fb 设备。
 
 ### NPU
 

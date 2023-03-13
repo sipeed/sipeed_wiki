@@ -694,6 +694,10 @@ sample_vin_vo -c 2 -e 1 -s 0 -v dsi0@480x854@60 # For gc4653 camera
 
 Because of the change of screen version, visit [bad display](https://wiki.sipeed.com/hardware/en/maixIII/ax-pi/faq_axpi.html#Q%EF%BC%9AThe-screen-is-blurred-after-booting.) if your screen does not display well.
 
+Run command `sample_vo -v dsi0@480x854@60 -m 0` we can see there is colorbar on the screen to test the screen display, make sure you have disabled the framebuffer with command `fboff`, otherwise this `sample_vo -v dsi0@480x854@60 -m 0` will not work, and use command hotkey `Ctrl` + `c` to cancel the command is you want to stop running the application.
+
+#### Show a picture
+
 Now we use framebuffer (/dev/fb0) to control the camera content, run command `fbon` to enable the framebuffer, and `fboff` to disable the framebuffer. When `/dev/fb0` is enabled, we can display picture on the screen by command `fbv xxx.jpg`, and some pictures have been stored in `/home/res/` directory, display them by yourself.
 
 ![_home_res](./assets/flash_system/_home_res.jpg)
@@ -701,11 +705,34 @@ Now we use framebuffer (/dev/fb0) to control the camera content, run command `fb
 ```
 fbon                        # enable framebuffer
 fbv /home/res/logo.png      # display picture
+fboff                       # disable framebuffer
 ```
 
 ![fbv_logo](./../../../zh/maixIII/assets/fbv_logo.jpg)
 
-Run command `sample_vo -v dsi0@480x854@60 -m 0` we can see there is colorbar on the screen to test the screen display, make sure you have disabled the framebuffer with command `fboff`, otherwise this `sample_vo -v dsi0@480x854@60 -m 0` will not work, and use command hotkey `Ctrl` + `c` to cancel the command is you want to stop running the application.
+#### Play video
+
+We can play video via `ffmpeg`. The video should be `BGR format`, with `90° clockwise rotation` and `480*854 resolution`.
+
+If you think the video plays too fast, run `ffmpeg -i /home/kun_1_output.mp4 -vf "setpts=2*PTS" test3.mp4` to rebuild a slow video.
+
+```bash
+fbon
+ffmpeg -i /home/test3.mp4 -pix_fmt rgba -f fbdev /dev/fb0
+fboff
+```
+
+In python we can run all commands above by `os.system()`.
+
+```python
+import os
+os.system("fbon")
+os.system("fbv /home/res/logo.png")
+os.system("fboff")
+os.system("fbon")
+os.system("ffmpeg -i /home/test3.mp4 -pix_fmt rgba -f fbdev /dev/fb0")
+os.system("fboff")
+```
 
 ### NPU
 
