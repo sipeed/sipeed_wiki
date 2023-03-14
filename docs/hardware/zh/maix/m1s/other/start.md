@@ -1036,3 +1036,13 @@ BL702 芯片在这里担任着 USB 转双串口芯片功能。
 烧录结束后，重新插拔一次 USB 来重新启动 bl702 以应用新的固件。
 
 ![finish_burn_702](./assets/start/finish_burn_702.png)
+
+### 给 bl702 烧录时没有串口
+
+如果没有出现，就需要确认自己是在板子未通电的时候按住板子上的 BOOT 键后再通过板子上的 UART 接口来给板子通电。
+
+Windows 用户可以在设备管理器中先查看一下有没有一个 `Bouffalo CDC` 设备。
+
+Windows 10 以下的系统不会自动加载 USB CDC 驱动，需要自己手动搜索 `Windows7 CDC` 相关的问题解决。
+
+![burn_bl702_cdc_error](./assets/start/burn_bl702_cdc_error.png)

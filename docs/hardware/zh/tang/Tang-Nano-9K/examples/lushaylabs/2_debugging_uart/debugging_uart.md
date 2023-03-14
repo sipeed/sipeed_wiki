@@ -9,6 +9,8 @@ update:
       - 新建文档
 ---
 
+[原文链接](https://learn.lushaylabs.com/tang-nano-9k-debugging/)
+
 > This is the second article in our series on the Tang Nano 9K, the first section on getting your development environment setup can be found [here](./../1_installation_getting_started/installation_getting_started.md).
 
 When programming FPGAs or really any embedded system you usually have a lot less visibility into whats going on, in comparison to programming for computers. When everything works its great, but more times then not you won't get your design perfect on the first try and not having this visibility can make it hard to troubleshoot.
@@ -25,11 +27,11 @@ To efficiently debug an issue, like in most things, it works best when you use t
     <li>Integration Errors.</li>
 </ol>
 
-#### Syntax Errors
+### Syntax Errors
 
 This is the type of error where you mistyped, forgot to close a block, misused a verilog feature etc... All these kinds of issues are the least severe in my opinion, as they are brought up during the synthesis stage while compiling your design and you will usually get an exact file and line number. So even if the error message is not that clear, you still have the exact location of the problem which makes it easy to fix. We won't go too much into this type of bugs as like I mentioned you will immediately know about this kind of bug during syntheses - if not before from the editor itself. 
 
-#### Logic / Implementation Errors
+### Logic / Implementation Errors
 
 Logic errors are the types of errors where you had a flaw in your original design, maybe you forgot to handle edge cases or had a mistake in your original plan.
 
@@ -39,7 +41,7 @@ Both these kinds of issues are a bit harder to catch, since you won't receive an
 
 In these situations though, we are talking about cases where you understand and know how it is meant to perform. For these cases we can use simulations and visual logic debugging with VCD files to see what our design is doing over time and track down at which stage there is a problem. We will cover both of these method below.
 
-#### Integration Errors
+### Integration Errors
 
 Integrations errors are errors that occur only when run on the actual FPGA and are usually because of misunderstanding, or not fulling knowing how to interface with another device or a specific protocol.
 
@@ -53,12 +55,12 @@ In-order to use the onboard UART debugger we need to implement our own UART tran
 
 But before we get into the implementation, let's go over the protocol itself so we understand what we are going to be doing.
 
-#### The Protocol
+### The Protocol
 
 With UART you send data from one device to another over a single wire. You send 1 start bit of data, then an agreed upon amount of data bits (usually 8) and finally a stop bit. There are some more complex configurations, like multiple stop bits, or adding a parity bit as a checksum. But in our case we will be looking at the simple case of 1 start bit, 8 data bits and a stop bit. The data is transferred least significant bit first. &nbsp;
 
-
 Example sending the byte 01010101 or 85 in decimal:
+
 ![uart_2](./assets/uart_2.jpg)
 
 There is no clock signal to synchronize both sides like in some other common protocols here both sides need to agree in advance on a frequency or "baud rate" which is the amount of bits per second and then each side needs to manage their own clocks to meet the desired frequency.
@@ -67,7 +69,7 @@ Because there is no common clock, one side cannot react to the "rising edge" for
 
 The UART on the Tang Nano 9K runs in full-duplex mode which means it uses two lines like the one above, allowing for each to device to both send and receive data at the same time. Other than the direction, the protocol is exactly the same for both directions, there is no single side which acts as the controller or schedules when to send or receive they both can decide to send data whenever they want over the appropriate line.
 
-#### The Implementation
+### The Implementation
 
 For this project we will need to connect to the onboard debugger's UART pins, which will transfer the UART data we send it to the computer over USB. So lets start with the constraints file. In a new project let's create a file called `tangnano9k.cst`
 
@@ -199,7 +201,7 @@ always @(posedge clk) begin
 end
 ```
 
-#### The UART Receiver States
+### The UART Receiver States
 
 The first state is the idle state:
 
@@ -292,7 +294,7 @@ end
 
 This block runs in parallel to the UART receiver and will update the LED's register on every clock pulse that the data is ready. We are inverting because the LEDs light up when a bit is set low.
 
-#### Testing our Module
+### Testing our Module
 
 Now before running this on the FPGA let's look at the first form of debugging which is simulation and visual logic debugging.
 
@@ -531,120 +533,139 @@ localparam TX_STATE_STOP_BIT = 3;
 localparam TX_STATE_DEBOUNCE = 4;
 ```
 
-<h4 id="the-transmit-states">The Transmit States</h4><pre class="language-verilog" tabindex="0"><code class="language-verilog">TX_STATE_IDLE<span class="token punctuation">:</span> <span class="token keyword">begin</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>btn1 <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">begin</span>
-        txState <span class="token operator">&lt;=</span> TX_STATE_START_BIT<span class="token punctuation">;</span>
-        txCounter <span class="token operator">&lt;=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-        txByteCounter <span class="token operator">&lt;=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-    <span class="token keyword">end</span>
-    <span class="token keyword">else</span> <span class="token keyword">begin</span>
-        txPinRegister <span class="token operator">&lt;=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-    <span class="token keyword">end</span>
-<span class="token keyword">end</span> `
+### The Transmit States
+
+```v
+TX_STATE_IDLE: begin
+    if (btn1 == 0) begin
+        txState <= TX_STATE_START_BIT;
+        txCounter <= 0;
+        txByteCounter <= 0;
+    end
+    else begin
+        txPinRegister <= 1;
+    end
+end 
+```
 
 The idle state waits for the button to be pressed (which will make it go low) at which point we will move to the start bit state. If the button is not pressed we set the `uart_tx` to be high as in UART we have a high idle state.
 
-<pre class="language-verilog" tabindex="0"><code class="language-verilog">TX_STATE_START_BIT<span class="token punctuation">:</span> <span class="token keyword">begin</span>
-    txPinRegister <span class="token operator">&lt;=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>txCounter <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">==</span> DELAY_FRAMES<span class="token punctuation">)</span> <span class="token keyword">begin</span>
-        txState <span class="token operator">&lt;=</span> TX_STATE_WRITE<span class="token punctuation">;</span>
-        dataOut <span class="token operator">&lt;=</span> testMemory<span class="token punctuation">[</span>txByteCounter<span class="token punctuation">]</span><span class="token punctuation">;</span>
-        txBitNumber <span class="token operator">&lt;=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-        txCounter <span class="token operator">&lt;=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-    <span class="token keyword">end</span> <span class="token keyword">else</span> 
-        txCounter <span class="token operator">&lt;=</span> txCounter <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
-<span class="token keyword">end</span>`
+```v
+TX_STATE_IDLE: begin
+    if (btn1 == 0) begin
+        txState <= TX_STATE_START_BIT;
+        txCounter <= 0;
+        txByteCounter <= 0;
+    end
+    else begin
+        txPinRegister <= 1;
+    end
+end 
+```
 
 The start bit is a low signal for `DELAY_FRAMES`, once reached we put the next byte we need to send into `dataOut` and reset the `txBitNumber` back to 0.
 
-<pre class="language-verilog" tabindex="0"><code class="language-verilog">TX_STATE_WRITE<span class="token punctuation">:</span> <span class="token keyword">begin</span>
-    txPinRegister <span class="token operator">&lt;=</span> dataOut<span class="token punctuation">[</span>txBitNumber<span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>txCounter <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">==</span> DELAY_FRAMES<span class="token punctuation">)</span> <span class="token keyword">begin</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>txBitNumber <span class="token operator">==</span> <span class="token number">3'b111</span><span class="token punctuation">)</span> <span class="token keyword">begin</span>
-            txState <span class="token operator">&lt;=</span> TX_STATE_STOP_BIT<span class="token punctuation">;</span>
-        <span class="token keyword">end</span> <span class="token keyword">else</span> <span class="token keyword">begin</span>
-            txState <span class="token operator">&lt;=</span> TX_STATE_WRITE<span class="token punctuation">;</span>
-            txBitNumber <span class="token operator">&lt;=</span> txBitNumber <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
-        <span class="token keyword">end</span>
-        txCounter <span class="token operator">&lt;=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-    <span class="token keyword">end</span> <span class="token keyword">else</span> 
-        txCounter <span class="token operator">&lt;=</span> txCounter <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
-<span class="token keyword">end</span>`
+```v
+TX_STATE_WRITE: begin
+    txPinRegister <= dataOut[txBitNumber];
+    if ((txCounter + 1) == DELAY_FRAMES) begin
+        if (txBitNumber == 3'b111) begin
+            txState <= TX_STATE_STOP_BIT;
+        end else begin
+            txState <= TX_STATE_WRITE;
+            txBitNumber <= txBitNumber + 1;
+        end
+        txCounter <= 0;
+    end else 
+        txCounter <= txCounter + 1;
+end
+```
 
 The write state is very similar, except instead of setting the tx pin to low, we set it to the current bit of the current byte. When the frame is over we check if we are already on the last bit, if so we go to the stop bit state, otherwise we increment the bit number and keep the current state of `TX_STATE_WRITE`.
 
-<pre class="language-verilog" tabindex="0"><code class="language-verilog">TX_STATE_STOP_BIT<span class="token punctuation">:</span> <span class="token keyword">begin</span>
-    txPinRegister <span class="token operator">&lt;=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>txCounter <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">==</span> DELAY_FRAMES<span class="token punctuation">)</span> <span class="token keyword">begin</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>txByteCounter <span class="token operator">==</span> MEMORY_LENGTH <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">begin</span>
-            txState <span class="token operator">&lt;=</span> TX_STATE_DEBOUNCE<span class="token punctuation">;</span>
-        <span class="token keyword">end</span> <span class="token keyword">else</span> <span class="token keyword">begin</span>
-            txByteCounter <span class="token operator">&lt;=</span> txByteCounter <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
-            txState <span class="token operator">&lt;=</span> TX_STATE_START_BIT<span class="token punctuation">;</span>
-        <span class="token keyword">end</span>
-        txCounter <span class="token operator">&lt;=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-    <span class="token keyword">end</span> <span class="token keyword">else</span> 
-        txCounter <span class="token operator">&lt;=</span> txCounter <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
-<span class="token keyword">end</span>`
+```v
+TX_STATE_STOP_BIT: begin
+    txPinRegister <= 1;
+    if ((txCounter + 1) == DELAY_FRAMES) begin
+        if (txByteCounter == MEMORY_LENGTH - 1) begin
+            txState <= TX_STATE_DEBOUNCE;
+        end else begin
+            txByteCounter <= txByteCounter + 1;
+            txState <= TX_STATE_START_BIT;
+        end
+        txCounter <= 0;
+    end else 
+        txCounter <= txCounter + 1;
+end
+```
 
 The stop bit is a high output bit, after waiting `DELAY_FRAMES` we check if there are any other bytes to send, if there are, we go back to send another start bit and the cycle will repeat for the next byte. If not we go to the debounce state.
 
-<pre class="language-verilog" tabindex="0"><code class="language-verilog">TX_STATE_DEBOUNCE<span class="token punctuation">:</span> <span class="token keyword">begin</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>txCounter <span class="token operator">==</span> <span class="token number">23'b111111111111111111</span><span class="token punctuation">)</span> <span class="token keyword">begin</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>btn1 <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span> 
-            txState <span class="token operator">&lt;=</span> TX_STATE_IDLE<span class="token punctuation">;</span>
-    <span class="token keyword">end</span> <span class="token keyword">else</span>
-        txCounter <span class="token operator">&lt;=</span> txCounter <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
-<span class="token keyword">end</span>`
+```v
+TX_STATE_DEBOUNCE: begin
+    if (txCounter == 23'b111111111111111111) begin
+        if (btn1 == 1) 
+            txState <= TX_STATE_IDLE;
+    end else
+        txCounter <= txCounter + 1;
+end
+```
 
 Here we are just waiting a minimum time (about 10 ms) on top of the sending time, and making sure the button is released after this time. This is to ensure that for each button press we only get one transmission event.
 
-Run `make load` to reprogram the Tang Nano 9K and reopen the serial terminal. You should see that every time you press the button the FPGA should send the message we stored in memory over UART.
+Press on "FPGA Toolchain" > "Build and Program" or Run `make load` to reprogram the Tang Nano 9K and reopen the serial terminal. You should see that every time you press the button the FPGA should send the message we stored in memory over UART.
 
-<figure class="kg-card kg-image-card"><img src="https://learn.lushaylabs.com/content/images/2022/08/uart-transmit.jpg" class="kg-image" alt="" loading="lazy" width="1826" height="539" srcset="https://learn.lushaylabs.com/content/images/size/w600/2022/08/uart-transmit.jpg 600w, https://learn.lushaylabs.com/content/images/size/w1000/2022/08/uart-transmit.jpg 1000w, https://learn.lushaylabs.com/content/images/size/w1600/2022/08/uart-transmit.jpg 1600w, https://learn.lushaylabs.com/content/images/2022/08/uart-transmit.jpg 1826w" sizes="(min-width: 720px) 720px">
+<img src="./assets/uart_transmit.jpg" alt="uart_transmit">
 
 For sending data that isn't ascii, you have a few options, the first being you can setup in tabby to print the data out in hex, and then manually decode it, or you can convert the data on device. So for example you can have another module which takes a number and converts it into text by encoding each digit into ascii. As to not make this article too long, we will cover these conversion methods in another article.
 
-<h2 id="interacting-programmatically">Interacting Programmatically</h2>Serial terminal is great for quickly debugging or viewing data, but sometimes you need some processing on the data on the computer side, or you may just want to use the UART to communicate / control an application on one of the sides. To do this we need to open the serial port programmatically. We will be looking at a simple javascript example using node.js and the serialport library.
+## Interacting Programmatically
+
+Serial terminal is great for quickly debugging or viewing data, but sometimes you need some processing on the data on the computer side, or you may just want to use the UART to communicate / control an application on one of the sides. To do this we need to open the serial port programmatically. We will be looking at a simple javascript example using node.js and the serialport library.
 
 To install the library run the following from a terminal in your project directory:
 
-<pre class="language-bash" tabindex="0"><code class="language-bash"><span class="token function">npm</span> i serialport`
+```bash
+npm i serialport
+```
 
 This will install the library we can then create a test script to print out the serial devices it sees, so create a file for example called `list-devices.js`:
 
-<pre class="language-javascript" tabindex="0"><code class="language-javascript"><span class="token keyword">const</span> <span class="token punctuation">{</span>SerialPort<span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'serialport'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+```javascript
+const {SerialPort} = require('serialport');
 
-SerialPort<span class="token punctuation">.</span><span class="token function">list</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>console<span class="token punctuation">.</span>log<span class="token punctuation">)</span><span class="token punctuation">;</span>`
+SerialPort.list().then(console.log);
+```
 
 and then you can run it with `node list-devices.js` you should see something like the following:
 
-<figure class="kg-card kg-image-card"><img src="https://learn.lushaylabs.com/content/images/2022/08/uart_devices.jpg" class="kg-image" alt="" loading="lazy" width="1054" height="594" srcset="https://learn.lushaylabs.com/content/images/size/w600/2022/08/uart_devices.jpg 600w, https://learn.lushaylabs.com/content/images/size/w1000/2022/08/uart_devices.jpg 1000w, https://learn.lushaylabs.com/content/images/2022/08/uart_devices.jpg 1054w" sizes="(min-width: 720px) 720px">
+![uart_devices](./assets/uart_devices.jpg)
 
 With the `path` for the device we can write a simple program to interact with the tang nano:
 
-<pre class="language-javascript" tabindex="0"><code class="language-javascript"><span class="token keyword">const</span> <span class="token punctuation">{</span>SerialPort<span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'serialport'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+```javascript
+const {SerialPort} = require('serialport');
 
-<span class="token keyword">const</span> tangnano <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SerialPort</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-    <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token string">'/dev/tty.usbserial-2101'</span><span class="token punctuation">,</span>
-    <span class="token literal-property property">baudRate</span><span class="token operator">:</span> <span class="token number">115200</span><span class="token punctuation">,</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+const tangnano = new SerialPort({
+    path: '/dev/tty.usbserial-2101',
+    baudRate: 115200,
+});
 
-<span class="token keyword">let</span> counter <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+let counter = 0;
 
-tangnano<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'data'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">data</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Data In Text:'</span><span class="token punctuation">,</span> data<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Data In Hex:'</span><span class="token punctuation">,</span> data<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token string">'hex'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+tangnano.on('data', function (data) {
+    console.log('Data In Text:', data.toString());
+    console.log('Data In Hex:', data.toString('hex'));
 
-    <span class="token keyword">const</span> binary <span class="token operator">=</span> data<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">byte</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
-        <span class="token keyword">return</span> byte<span class="token punctuation">.</span><span class="token function">charCodeAt</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">padStart</span><span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">,</span> <span class="token string">'0'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Data In Binary: '</span><span class="token punctuation">,</span> binary<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">' '</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    counter <span class="token operator">+=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-    tangnano<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>Buffer<span class="token punctuation">.</span><span class="token function">from</span><span class="token punctuation">(</span><span class="token punctuation">[</span>counter<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-`
+    const binary = data.toString().split('').map((byte) => {
+        return byte.charCodeAt(0).toString(2).padStart(8, '0');
+    });
+    console.log('Data In Binary: ', binary.join(' '));
+    console.log("\n");
+    counter += 1;
+    tangnano.write(Buffer.from([counter]));
+});
+```
 
 We start by importing the library, then we initialize our device by sending the correct path and baud rate.
 
@@ -652,12 +673,12 @@ Next we initialize a counter variable which we will use to count the number of t
 
 The next block will run every time there is a new message from the tang nano over the serial port. In this example we will simply print out the data in multiple formats as an example, and the final two lines increment the counter and send it to the tang nano.
 
-<figure class="kg-card kg-image-card"><img src="https://learn.lushaylabs.com/content/images/2022/08/uart_program.jpg" class="kg-image" alt="" loading="lazy" width="1960" height="570" srcset="https://learn.lushaylabs.com/content/images/size/w600/2022/08/uart_program.jpg 600w, https://learn.lushaylabs.com/content/images/size/w1000/2022/08/uart_program.jpg 1000w, https://learn.lushaylabs.com/content/images/size/w1600/2022/08/uart_program.jpg 1600w, https://learn.lushaylabs.com/content/images/2022/08/uart_program.jpg 1960w" sizes="(min-width: 720px) 720px">
+![uart_program](./assets/uart_program.jpg)
 
 Running the script with you should something like the above, also see every time you press the button the LEDs count up in binary since they are connected to the byte being sent over UART and we are sending the counter. To exit the application you can press `ctrl-c` which will stop the process to regain control over the terminal.
 
-<h2 id="conclusion">Conclusion</h2>In this article we created our own UART module and went over some common issues and debugging methods. In the next article we will take a look at using a screen as another method of displaying data or relaying information from the FPGA.
+## Conclusion
 
-For those that made it this far I would like to thank you, and I hope you enjoyed reading. As always the code is available <a href="https://github.com/lushaylabs/tangnano9k-series-examples">here</a>. And if you have any questions or comments feel free to leave them below or contact me on twitter <a href="https://twitter.com/LushayLabs">@LushayLabs</a>.
+In this article we created our own UART module and went over some common issues and debugging methods. In the next article we will take a look at using a screen as another method of displaying data or relaying information from the FPGA.
 
-If you would like to support the site and get your own Tang Nano 9K you can visit our store link <a href="https://store.lushaylabs.com/products/tang-nano-9k">here</a>.
+For those that made it this far I would like to thank you, and I hope you enjoyed reading. As always the code is available <a href="https://github.com/lushaylabs/tangnano9k-series-examples">here(github)</a>. And if you have any questions or comments feel free to leave them below or contact me on twitter <a href="https://twitter.com/LushayLabs">@LushayLabs</a>.

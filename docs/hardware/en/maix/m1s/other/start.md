@@ -1002,3 +1002,12 @@ After finishing burning, repower this board to use the new firmware.
 
 ![finish_burn_702](./../../../../zh/maix/m1s/other/assets/start/finish_burn_702.png)
 
+### No serial port when burn bl702
+
+Make sure you hold BOOT key, then power up this board via UART port on M1s Dock.
+
+Windows user needs check whether there is a `Bouffalo CDC` device.
+
+If there is an error on this CDC device, search `Windows7 CDC` on the internet and find the answer.
+
+![burn_bl702_cdc_error](./../../../../zh/maix/m1s/other/assets/start/burn_bl702_cdc_error.png)

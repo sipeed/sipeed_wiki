@@ -58,7 +58,7 @@ AND Gate:
         <td>1</td>
     </tr>
 </tbody>
-</table><!--kg-card-end: html-->
+</table>
 
 Usually the lookup tables (LUTs) in an FPGA have more inputs and outputs so they are a bit bigger, but by being able to reprogram these tables you can change the AND gate into an OR gate as follows:
 
@@ -121,7 +121,7 @@ In verilog you write your program in terms of modules with registers / connectio
 
 ### Place and Route
 
-Once you have a list of connections and FPGA primitives from the synthesis stage the next step - like the name suggests - is to map each of the primitives to their physical counterpart. Like to map each of the generated look up tables to one of &nbsp;the physical 8640 internal luts.
+Once you have a list of connections and FPGA primitives from the synthesis stage the next step - like the name suggests - is to map each of the primitives to their physical counterpart. Like to map each of the generated look up tables to one of the physical 8640 internal luts.
 
 This step must take into account all the routing requirements when selecting where to place each component, the output of this stage is similar to the output of the synthesis stage, except each of the components are physically mapped.
 
@@ -142,13 +142,15 @@ We recommend setting up the toolchain with OSS-CAD-Suite and our VS code extensi
 
 The first step to get this setup is to download and install Visual Studio Code:
 
-#### VSCode
+### VSCode
 
 This is a popular lightweight cross-platform editor with many plugins some of which specifically for FPGA development. The editor itself can be downloaded from <a href="https://code.visualstudio.com/">here</a>.
 
 Once installed, you can open it up and go to the Extensions tab to install plugins. To install our plugin you can search for "Lushay Code" or by going to the following <a href="https://marketplace.visualstudio.com/items?itemName=lushay-labs.lushay-code&amp;ssr=false">link</a>. 
 
-Besides for that we also recommend these two plugins, although not mandatory we find these useful.<ol><li><a href="https://marketplace.visualstudio.com/items?itemName=mshr-h.VerilogHDL">Verilog-HDL/SystemVerilog </a> - provides syntax highlighting support for Verilog</li><li><a href="https://marketplace.visualstudio.com/items?itemName=wavetrace.wavetrace">WaveTrace</a> - provides built in waveform viewing which can be used for debugging.</li></ol>
+Besides for that we also recommend these two plugins, although not mandatory we find these useful.
+1. <a href="https://marketplace.visualstudio.com/items?itemName=mshr-h.VerilogHDL">Verilog-HDL/SystemVerilog </a> - provides syntax highlighting support for Verilog
+2. <a href="https://marketplace.visualstudio.com/items?itemName=wavetrace.wavetrace">WaveTrace</a> - provides built in waveform viewing which can be used for debugging.
 
 With VsCode and the 3 extensions installed the next thing we need is OSS-Cad-Suite, you can find the latest version download from <a href="https://github.com/YosysHQ/oss-cad-suite-build/releases">here</a>.
 
@@ -162,7 +164,9 @@ With the folder ready open up VSCode and click on the button on the bottom right
 
 You should receive a popup that says the OSS-CAD-Suite path is not setup, click on the "Setup Now" button and a file browser will appear, you need to select the OSS-CAD-Suite folder we just extracted you should select the actual folder called `oss-cad-suite` (the one with the `bin` folder inside).
 
-Once selected you have successfully setup the toolchain.<h3 id="ubuntu-usb-permission-fix">Ubuntu USB Permission Fix</h3>
+Once selected you have successfully setup the toolchain.
+
+### Ubuntu USB Permission Fix
 
 On Ubuntu you will need to give permissions to you user so that we can run openFPGALoader without being root. To do this you need to run the following from a terminal:
 
@@ -170,7 +174,9 @@ On Ubuntu you will need to give permissions to you user so that we can run openF
 curl -sSL https://raw.githubusercontent.com/lushaylabs/openfpgaloader-ubuntufix/main/setup.sh | sh`
 ```
 
-And then once completed you will need to log-out and log back in so that the user permissions take effect and you will need to unplug and replug in the tang nano board.<h4 id="windows-usb-driver-fix">Windows USB Driver Fix</h4>
+And then once completed you will need to log-out and log back in so that the user permissions take effect and you will need to unplug and replug in the tang nano board.
+
+### Windows USB Driver Fix
 
 On windows the default driver does not work with `openFPGALoader` so to get it to work we need to replace the default driver. To do this you need a program called Zadig which can be downloaded <a href="https://zadig.akeo.ie/">here</a>.
 
@@ -188,15 +194,19 @@ So select "JTAG Debugger (Interface 0)" and underneath you should see it show th
 
 Once selected just the replace driver button and wait a minute or two, once done it should work in openFPGALoader.
 
-If you ever want to uninstall this driver and go back to the default driver (for example to use the official gowin IDE) all you have to do is go to "Device Manager" select the device called "JTAG Debugger" under "Universal Serial Bus devices" right-click on it and press "uninstall device" from the popup also select the checkbox to attempt to remove the driver. Once removed right click on any item in the device manager window and press "Scan for hardware changes" this should reconnect the device back with the original driver.<h2 id="other-recommended-software">Other Recommended Software</h2>
+If you ever want to uninstall this driver and go back to the default driver (for example to use the official gowin IDE) all you have to do is go to "Device Manager" select the device called "JTAG Debugger" under "Universal Serial Bus devices" right-click on it and press "uninstall device" from the popup also select the checkbox to attempt to remove the driver. Once removed right click on any item in the device manager window and press "Scan for hardware changes" this should reconnect the device back with the original driver.
 
-Besides for the toolchain itself there is some other software which can aid in the development of FPGA cores, and will be used throughout this series.<h4 id="nodejs">Node.js</h4>
+## Other Recommended Software
+
+Besides for the toolchain itself there is some other software which can aid in the development of FPGA cores, and will be used throughout this series.
+
+### Node.js
 
 During the course of development you may find yourself needing to prepare / convert data or even communicate with the FPGA from your computer. Node.js is just my personal preference and is what I will be using in this series, but any programming language will probably have a way to do the same things if you have a different preference.
 
 To install node.js you can either grab the official installer from the <a href="https://nodejs.org/en/">node.js site</a> or install using a node version manager like so:
 
-<strong>Mac / Ubuntu / Windows WSL</strong>
+**Mac / Ubuntu / Windows WSL**
 
 ```bash
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
@@ -205,19 +215,23 @@ nvm use v17.0.1
 nvm alias default v17.0.1`
 ```
 
-#### Tabby
+### Tabby
 
 Tabby is a cross-platform terminal which has support for serial terminal which will allow us to communicate over UART with the tangnano9k. Here as-well it is a matter of personal preference, I chose to mention tabby since it supports all operating systems and has some extra features like choosing how the data will be read / shown (ascii, hex) and each side can be configured independently.
 
 Tabby can be downloaded <a href="https://tabby.sh/">here</a>
 
-If you only need basic serial support, the Lushay Code extension comes with a basic built-in serial console. But I still recommend Tabby since the extra features can be nice.<h2 id="creating-a-new-project">Creating a New Project</h2>
+If you only need basic serial support, the Lushay Code extension comes with a basic built-in serial console. But I still recommend Tabby since the extra features can be nice.
+
+## Creating a New Project
 
 We should now have everything we need to effectively develop an FPGA core. To get started open up your editor (VSCode), from the explorer tab you will have a button to open a folder, click it to choose a new directory that we can use for this project. 
 
 Once inside you should see your folder in the explorer tab and we can now create some files.
 
-Every FPGA project needs at least two files:<ol><li>A file that describes your circuit (in our case a verilog `.v` file)</li><li>A file that describes the connection between your circuit and your physical board. (in our case a physical constraints `.cst` file)</li></ol>
+Every FPGA project needs at least two files:
+1. A file that describes your circuit (in our case a verilog `.v` file)
+2. A file that describes the connection between your circuit and your physical board. (in our case a physical constraints `.cst` file)
 
 Verilog is an HDL language which is what get's synthesized. Inside the code you will usually want to use specific pins from the actual FPGA, to do this in verilog you create a name for the pin (it can be whatever you want), and then in the `.cst` file you define the mapping of pin name to pin along with other configuration for the pin.
 
@@ -225,7 +239,7 @@ So let's start with a simple example which display a binary counter using the on
 
 Now onboard we have 6 leds and if each will represent one bit in our counter then it means we can count up from 0 to 63 (binary `111111`). Now our onboard clock frequency is 27 Mhz so counting up every clock pulse would mean the counter would cycle through all the options 428 million times a second, t0o fast to be able to see the counting. So let's say we want it to count once every half a second. Then we would need to wait 13,500,000 clock cycles between incrementing the counter.
 
-We can also say that our counting module will require the clock signal on-board as input since we will need it to react to clock cycles and we know we want our output to be the status of the 6 leds. &nbsp; 
+We can also say that our counting module will require the clock signal on-board as input since we will need it to react to clock cycles and we know we want our output to be the status of the 6 leds.
 
 So now that we have a general plan, let's create a verilog file called `counter.v` and we can start off with what we know.
 
@@ -323,7 +337,7 @@ But with all that said, in our example we are not using any of the GPIO pins we 
 
 Tang Nano 9K Schematic: [Click me](https://dl.sipeed.com/shareURL/TANG/Nano%209K/2_Schematic)
 
-Opening up the file we can see a section called "LED x 7" defining how the 6 LEDs are connected (not sure why x7 probably a mixup with the 7th LED which is connected to the UART module.
+Opening up the file we can see a section called "LED x 6" defining how the 6 LEDs are connected.
 
 ![led_pins](./assets/led_pins.jpg)
 
@@ -364,7 +378,9 @@ You can view a little bit more information about this format from the official p
 
 [Gowin Appendix A](http://cdn.gowinsemi.com.cn/UG289.pdf)
 
-Or more in-depth by searching for the system IO and GPIO specification documents if you would like a more in-depth read. To some extent you can also view some of the options in the apicula longvals documentation <a href="https://github.com/YosysHQ/apicula/blob/master/doc/longval-tables.md">here</a>.<h4 id="constraints-with-lushaycode">Constraints with LushayCode</h4>
+Or more in-depth by searching for the system IO and GPIO specification documents if you would like a more in-depth read. To some extent you can also view some of the options in the apicula longvals documentation <a href="https://github.com/YosysHQ/apicula/blob/master/doc/longval-tables.md">here</a>.
+
+### Constraints with LushayCode
 
 With the extension simply create a new file in vscode for example `tangnano9k.cst` and clicking on it you should see something like the following:
 
@@ -378,7 +394,9 @@ Clicking on "Add Constraints" will add them to the current file and you will see
 
 ![constraints_filled](./assets/constraints_filled.jpg)
 
-Just save the file and we are done with the constraints. You can see that the pin numbers are the same as we saw when doing the manual investigation.<h2 id="running-the-example">Running the Example</h2>
+Just save the file and we are done with the constraints. You can see that the pin numbers are the same as we saw when doing the manual investigation.
+
+## Running the Example
 
 Our project is now ready so how do we compile it with the toolchain. To do this you can click again on the "FPGA Toolchain" button from our VSCode extension and you should get a dropdown with the different options:
 
@@ -396,10 +414,10 @@ To update the verilog code in our example invert the counter so that the leds ma
 assign led = ~ledCounter;
 ```
 
-Re-click on "Build and Program" from the "FPGA Toolchain" button to rebuild and program the FPGA with our fix.<h2 id="conclusion">Conclusion</h2>
+Re-click on "Build and Program" from the "FPGA Toolchain" button to rebuild and program the FPGA with our fix.
+
+## Conclusion
 
 In this article we went through a lot of different topics getting the development environment setup and running a basic example. In the next part of this series we will go more in depth on debugging FPGA projects in-order to visually see what's going on internally.
 
-I would like to thank you for reading and if you have any questions / comments feel free to leave a comment below or reach out on twitter <a href="https://twitter.com/LushayLabs">@LushayLabs</a>.
-
-All the code from the example is also available on in our github repo <a href="https://github.com/lushaylabs/tangnano9k-series-examples">here</a>, and if you would like to order a tang nano 9K and support this site you can do so from our <a href="https://store.lushaylabs.com/products/tang-nano-9k">store</a>.
+All the code from the example is also available on in lushaylabs github repo <a href="https://github.com/lushaylabs/tangnano9k-series-examples">here</a>. And if you have any questions or comments feel free to leave them below or contact me on twitter <a href="https://twitter.com/LushayLabs">@LushayLabs</a>.
