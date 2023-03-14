@@ -76,7 +76,7 @@ update:
 当我们收到开发板后，首先对硬件进行检查是否有外表损坏，接着再根据屏幕以及摄像头的排线丝印安装到开发板上，即排线上的数字 **“1”** 和板子卡座边上引脚丝印 **“1”** 方位对应接上。
 
 <html>
-      <img src="./assets/../mixly_application/accets/k210_usage/lcd.jpg" width=45%>
+      <img src="./mixly_application/accets/k210_usage/lcd.jpg" width=45%>
       <img src="./mixly_application/accets/k210_usage/sensor.jpg" width=45%>
 </html>
 
@@ -162,9 +162,9 @@ update:
 
 - 运行 `hello maixpy` 终端会输出打印结果，更详细的资料以及更多连接串口方式请点击下文链接查看。
 
-```bash
+```python
 print("hello maixpy") #命令
-hello maixpy  #终端打印结果
+#hello maixpy  #终端打印结果
 ```
 
 ![adb](./mixly_application/accets/k210_usage/adb.jpg)
@@ -253,7 +253,7 @@ MaixPy 中的存储介质主要由 `Flash`、`SD` 卡组成，并分为三块区
 
 - 查询是否挂载成功的方法如下：
 
-```
+```python
 import os
 print(os.listdir("/"))
 >>['flash'] # 没有挂载 SD 卡
@@ -359,9 +359,9 @@ API 手册只罗列几种分类出来，如有需要更详细的请点击前往�
 
 **MaixDuino K210 实现积木编程例程：**[点击查看](https://wiki.sipeed.com/news/MaixPy/mind_application/mind_application.html)
 
-Mind+ 从1.6.6版本开始支持基于 K210 主控的 Maixduino 开发板，可满足对于 K210 开发有兴趣的用户。
+Mind+ 从1.6.6 版本开始支持基于 K210 主控的 Maixduino 开发板，可满足对于 K210 开发有兴趣的用户。
 
-## 常见问题 FQA 
+## 常见问题 FAQ
 
 ### 出现 MaixPy 软件包失败现象
 
