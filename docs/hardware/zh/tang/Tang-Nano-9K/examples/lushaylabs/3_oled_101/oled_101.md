@@ -1,5 +1,5 @@
 ---
-title: Tang Nano 9K OLED 屏幕
+title: Tang Nano 9K SSD1306 OLED 屏幕
 keywords: FPGA, Tang, Nano, 9K
 update:
   - date: 2023-03-14
@@ -8,7 +8,6 @@ update:
     content:
       - 新建文档
 ---
-
 
 This is part 3 in our Tang Nano 9K series. In this article we will be starting a mini-project creating an OLED text engine core. 
 

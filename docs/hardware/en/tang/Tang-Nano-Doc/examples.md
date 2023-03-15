@@ -83,6 +83,7 @@ Partner tutorials:
 8. [Sharing Resources](https://learn.lushaylabs.com/tang-nano-9k-sharing-resources/)
 9. [I2C, ADC and Micro Procedures](https://learn.lushaylabs.com/i2c-adc-micro-procedures/)
 10. [Our First CPU](https://learn.lushaylabs.com/tang-nano-9k-first-processor/)
+11. [Read HDMI EDID](https://learn.lushaylabs.com/tang-nano-9k-project-edid/)
 
 Other Blogs
 
