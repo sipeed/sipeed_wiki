@@ -170,6 +170,8 @@ keywords: MAIX-III, AXera-Pi, Maix3, Sipeed, ax620a, axera, sipeed, AI, model, m
 
 - [爱芯派-AI微光全彩夜视-开箱体验](https://zhuanlan.zhihu.com/p/571233089)
 - [爱芯 AX620A NPU 初体验](https://neucrack.com/p/440)
+- [MMYOLO 检测算法部署在 AX620A 记录](https://zhuanlan.zhihu.com/p/614698969?utm_campaign=&utm_medium=social&utm_oi=815507548294770688&utm_psn=1620047438693208065&utm_source=qq)
+- [部署你的yolov8来识别杠精（bushi）](https://www.yuque.com/prophetmu/chenmumu/pd3sdkb8z4vvvgai)
 - [[m3axpi] YOLOv5 训练到部署全流程（最新）](https://github.com/Abandon-ht/m3axpi_model/blob/main/yolov5/README_zh-CN.md)
 - [[m3axpi] YOLOv8 训练到部署全流程（最新）](https://github.com/Abandon-ht/m3axpi_model/blob/main/yolov8/README_zh-CN.md)
 - [爱芯元智AX620A部署yolov5 6.0模型实录（已过时）](https://zhuanlan.zhihu.com/p/569083585)

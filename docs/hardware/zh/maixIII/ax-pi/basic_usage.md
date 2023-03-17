@@ -1690,11 +1690,7 @@ nano /home/examples/vin_ivps_joint_vo_pp_human_seg/run.sh
 
 打开 `PC` 端自带相机应用即可在设备屏幕以及 `PC` 端观察到模型检测画面。
 
-<!-- ![uvc_vo](./../assets/uvc_vo.jpg) -->
-
-<p align="center">
-<iframe src="//player.bilibili.com/player.html?aid=353176926&bvid=BV1fX4y1U7CH&cid=1046620857&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
-</p>
+![uvc_vo](./../assets/uvc_vo.jpg)
 
 可以使用以下的命令行更换尾缀 `start` 开启、`stop` 停止、`restore` 重启来对 `uvc` 程序进行操作。
 
