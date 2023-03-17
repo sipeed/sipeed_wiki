@@ -76,6 +76,11 @@ Tang Nano 20K 是采用高云半导体 [GW2AR-18 QN88](http://www.gowinsemi.com.
     		</td>
     	</tr>
     	<tr>
+    		<td style="text-align:left">板载下载器</td>
+    		<td style="text-align:left">BL616</td>
+    		<td style="text-align:left">· 给 FPGA 提供 JTAG 下载功能<br>· 提供 USB 转串口与 FPGA 通信<br>· 提供虚拟串口用于 FPGA 通过 SPI 通信<br>· 提供虚拟串口控制 MS5351 输出时钟</td>
+    	</tr>
+    	<tr>
     		<td style="text-align:left">时钟芯片</td>
     		<td style="text-align:left">MS5351</td>
     		<td style="text-align:left">给 FPGA 芯片提供额外的两路时钟<br>· 一路差分时钟<br>· 一路单端时钟</td>
@@ -146,9 +151,38 @@ Tang Nano 20K 是采用高云半导体 [GW2AR-18 QN88](http://www.gowinsemi.com.
 
 [板卡规格书](https://dl.sipeed.com/shareURL/TANG/Nano_20K/1_Datasheet)
 [板卡原理图](https://dl.sipeed.com/shareURL/TANG/Nano_20K/2_Schematic)
-[板卡封装库]()
 [板卡点位图](https://dl.sipeed.com/shareURL/TANG/Nano_20K/3_Bit_number_map)
 [板卡尺寸图](https://dl.sipeed.com/shareURL/TANG/Nano_20K/4_Dimensional_drawing)
-3D 模型文件
-模组芯片数据手册
-博流官方文档
+[板卡 3D 模型](https://dl.sipeed.com/shareURL/TANG/Nano_20K/4_Dimensional_drawing)
+[部分芯片手册](https://dl.sipeed.com/shareURL/TANG/Nano_20K/6_Chip_manual)
+
+## 上手使用
+
+安装 IDE -> 编写代码 -> 烧录进板子
+
+- 安装 IDE [点我]()
+- 点灯上手指南 [点我]()
+
+更多例程 [点我]()
+
+### 其他学习资源
+
+- 在线免费教程：[Verilog 教程](https://www.runoob.com/w3cnote/verilog-tutorial.html)（学习Verilog）
+- 在线免费 FPGA 教程：[Verilog](https://www.asic-world.com/verilog/index.html) （英文网站）
+- Verilog 刷题网站：[HDLBits](https://hdlbits.01xz.net/wiki/Main_Page)（英文网站）
+- 在线高云半导体可参考视频教程：[点击这里](http://www.gowinsemi.com.cn/video_complex.aspx?FId=n15:15:26)
+
+## 交流方式
+
+- **交流论坛: [bbs.sipeed.com](https://bbs.sipeed.com)**
+- **QQ 交流群：[834585530](https://jq.qq.com/?_wv=1027&k=wBb8XUan)**
+- 直接本页下方留言
+- 商业邮箱 : [support@sipeed.com](support@sipeed.com)
+
+## 常见问题
+
+### 怎么让固件上电启动
+
+Tang Nano 20K 使用外部 Flash 来存放固件，所以想要让固件存在板子上我们需要烧录到外部 Flash.
+
+### 更多问题前往 [Tang 常见问题](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/questions.html) 查看

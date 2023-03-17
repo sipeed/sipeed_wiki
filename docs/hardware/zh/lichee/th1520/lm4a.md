@@ -11,7 +11,12 @@ update:
 
 ## 简介
 
-LicheePi Module 4A 是一款采用 [平头哥半导体](https://www.t-head.cn/) 的 [曳影1520](https://www.t-head.cn/product/yeying) 作为主控的核心板，主控核心包含四核玄铁C910 CPU, 搭载 4TOPS@int8 AI 算力的 NPU，拥有 4K视频处理能力，最大支持 16GB LPDDR4 和 128G eMMC 存储，支持双千兆以太网和最大 4K 分表率视频输出等特性，核心还额外包含一颗 C906 处理器用于音频处理。
+LicheePi Module 4A 是一款采用 [平头哥半导体](https://www.t-head.cn/) 的 [曳影1520](https://www.t-head.cn/product/yeying) 作为主控的核心模组，主控核心包含四核玄铁C910 CPU, 搭载 4TOPS@int8 AI 算力的 NPU，拥有 4K 视频处理能力，最大支持 16GB LPDDR4X 内存和 128G eMMC 存储，支持双千兆以太网和最大 4K 分辨率视频输出等特性，核心还额外包含一颗 C906 处理器用于音频处理。得益于 SODIMM 样式的封装， LicheePi Module 4A 可以用于多种场合，目前已经适配了多款底板。
+
+主要特性：
+- TH1520 主控芯片
+- LPDDR4X 内存
+- SODIMM 封装核心板
 
 
 ROCK5 is a series of Rockchip RK3588(s) based SBC(Single Board Computer) by Radxa. It can run Linux, Android, BSD and other distributions.

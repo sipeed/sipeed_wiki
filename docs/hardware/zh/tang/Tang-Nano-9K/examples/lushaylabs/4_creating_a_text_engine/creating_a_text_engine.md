@@ -9,6 +9,8 @@ update:
       - 新建文档
 ---
 
+[原文链接](https://learn.lushaylabs.com/tang-nano-9k-creating-a-text-engine/)
+
 In the previous article ([here](./../3_oled_101/oled_101.md)) we developed a screen driver core which allows us to render pixels onto an OLED screen. In this article we will be building a text engine on top of our pixel driver to give us an easy abstraction for rendering text to pixels.
 
 ## Drawing Text
