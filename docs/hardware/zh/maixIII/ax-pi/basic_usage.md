@@ -1424,7 +1424,7 @@ cat /proc/ax_proc/uid
 
 ## 内置开箱应用
 
-### IPCDemo
+### IPCDemo 
 
 这是一个典型的 IPC 演示程序，对应的功能模块有：
 
@@ -1552,12 +1552,16 @@ cat /proc/ax_proc/uid
     勾选下方更多选项进行调整缓存后点击下方播放即可。
     ![vlc-urt](./../assets/vlc-urt.jpg)
 
-- 双屏效果如下图示例：
+- 双屏tui效果如下示例：
 
 <html>
   <img src="./../assets/rtsp-display.jpg" width=48%>
   <img src="./../assets/rtsp-axpi.jpg" width=48%>
 </html>
+
+<p align="center">
+    <iframe src="//player.bilibili.com/player.html?aid=731837313&bvid=BV1XD4y1r7eP&cid=866903759&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+</p>
 
 >**注意**：默认摄像头为 gc4653 型号不同请移步[Maix-III 系列 AXera-Pi 常见问题(FAQ)](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html)更换参数。
 #### ffplay
@@ -1571,7 +1575,7 @@ sudo apt install ffmpeg
 ffplay rtsp://192.168.233.1:8554/axstream0 -fflags nobuffer
 ```
 
-### ONVIF ODM 
+### ONVIF ODM 拉流
 
 >版本为 **20221111** 后的镜像系统内置了按键录像 mp4 和支持更换 yolov5s 人脸/物体检测模型以及对软件 ODM（ONVIF）进行支持。
 
@@ -1645,7 +1649,7 @@ nano /home/examples/vin_ivps_joint_venc_rtsp_vo_onvif_mp4v2/run.sh
 
 ![mp4-file](./../assets/mp4-file.png)
 
-### PP_human 人体分割 
+### PP-Humanseg 人体分割 
 
 >版本为 **20221116** 后的系统镜像内置了 `pp_human` 人体分割应用，并且内置了不同摄像头的参数命令在目录下的启动脚本 `run.sh` 里，用户使用只需要修改注释相应命令行即可使用。
 
@@ -1671,7 +1675,7 @@ nano /home/examples/vin_ivps_joint_vo_pp_human_seg/run.sh
 
     ![pp_human_adb](./../assets/pp_humana_adb.png)
 
-### uvc_vo 虚拟 USB 摄像头输入
+### UVC 虚拟 USB 摄像头
 
 **usb-uvc-gadget**：[点击查看相关仓库](https://github.com/junhuanchen/usb-uvc-gadget)
 
@@ -1713,15 +1717,21 @@ UVC 也能在安卓手机端的 `app` 上当虚拟摄像头使用，使用前在
 
 >**注意**：如果需要完全脱离电脑端用手机端供电的话，需要把 uvc 程序写入开机脚本即可。
 
-### Python API
+### Python API 编程
 
 除了在板端上使用命令行去直接运行程序，还可以使用 Python 来编程直接运行调用 AI 模型和各种库。
 
 **传送门**：[试试 Python 编程](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/python_api.html)
 
-### 人体关键点
+<p align="center">
+<iframe src="//player.bilibili.com/player.html?aid=518756219&bvid=BV1Ug411n7DC&cid=923425798&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+</p>
 
-镜像系统已内置人体关键点模型，用户可直接使用终端命令行运行模型或使用 `Python` 调用模型.
+### 姿态关键点检测（人体/手势/动物）
+
+>镜像已内置了 `人体\手势\动物` 等模型及调用命令行在 `/home/run.sh` 目录下，用户可直接修改进行调用。
+
+#### AX-POSE-PPL 人体姿态关键点
 
 - **终端使用命令行调用模型**
 
@@ -1762,7 +1772,23 @@ yolov5s_face.json       pp_human_seg.json     ax_pose.json
 hrnet_animal_pose.json  hand_pose.json
 ```
 
-### lvgl7 UI
+#### HandPose 手势姿态关键点
+
+如上文的 `人体姿态关键点` 修改为参考示例，直接在 `run.sh` 脚本进行修改相关命令（图标注为需取消注释的命令）并运行 `run.sh` 即可体验模型，运行效果可看最下文的视频。
+
+![hand_run](./../assets/hand_run.jpg)
+
+#### HRNet_animal 动物姿态关键点
+
+如上文的 `人体姿态关键点` 修改为参考示例，直接在 `run.sh` 脚本进行修改相关命令（图标注为需取消注释的命令）并运行 `run.sh` 即可体验模型，运行效果可看最下文的视频。
+
+![animal](./../assets/animal.jpg)
+
+<p align="center">
+<iframe src="//player.bilibili.com/player.html?aid=903331499&bvid=BV1DP4y197hF&cid=909711786&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+</p>
+
+### LVGL7 UI
 
 > 在 **20221125** 后更新的镜像系统里，我们内置了 lvgl7 UI 应用。
 
@@ -1885,3 +1911,6 @@ cd /home/sherpa-ncnn-m3axpi #先进入放置文件的目录
 4 \
 greedy_search
 ```
+
+### YOLO 模型系列（内含 YOLOv8）
+

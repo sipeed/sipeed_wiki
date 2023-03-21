@@ -157,3 +157,10 @@ A：进入 uboot 模式了输入 boot 后即可启动。
 `/* bootargs for SD */#define BOOTAGRS_SD "mem=1536M initcall_debug=0 loglevel=0 ax_boot_delay=0 vmalloc=768M console=ttyS0,115200n8 earlyprintk=dw_uart, init=/sbin/init noinitrd root=/dev/mmcblk2p2 rw rootdelay=3 rootfstype=ext4"`
 
 ![bootargs_command](./../../../en/maixIII/ax-pi/assets/qa/bootargs_command.png)
+
+## Q：关于 M3axpi 支持双摄的说明（支持 gc4653）
+
+![dual_gc4653](./../assets/dual_gc4653.jpg)
+
+这是 m3axpi 支持 gc4653 双摄的说明，硬件上不能支持 os04a10 双摄，软件支持但需要自己画底板。
+具体资料可参考：[点我](https://dl.sipeed.com/shareURL/MaixIII/AXera/11_patch/dual_gc4653_patch)
