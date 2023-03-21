@@ -91,7 +91,7 @@ while True:
 
 可以看到结果如下：
 
-![m2dock_opencv_command_result](./assets/m2dock_opencv_command_result.png)
+![m2dock_opencv_command_result](./assets/m2dock_opencv_result_download.jpg)
 
 ## 常见问题
 
