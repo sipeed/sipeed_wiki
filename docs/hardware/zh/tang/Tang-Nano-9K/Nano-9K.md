@@ -106,24 +106,32 @@ Tang Nano 9K 是 Sipeed 所推出的第五款 FPGA 开发板，与在售前代�
 
 访问 [相关例程](./../Tang-Nano-Doc/examples.md)
 
-## 硬件资料汇总
+## 硬件资料
 
-规格书、原理图、尺寸图、3D文件等均可在这里找到：[点击这里](https://dl.sipeed.com/shareURL/TANG/Nano%209K)
+- [规格书](https://dl.sipeed.com/shareURL/TANG/Nano%209K/1_Specification)
+- [原理图](https://dl.sipeed.com/shareURL/TANG/Nano%209K/2_Schematic)
+- [位号图](https://dl.sipeed.com/shareURL/TANG/Nano%209K/3_Bit_number_map)
+- [尺寸图](https://dl.sipeed.com/shareURL/TANG/Nano%209K/4_Dimensional_drawing)
+- [3D 模型文件](https://dl.sipeed.com/shareURL/TANG/Nano%209K/5_3D_file)
+- [部分手册](https://dl.sipeed.com/shareURL/TANG/Nano%209K/6_Chip_Manual)
+
+硬件资料总链接：[点击这里](https://dl.sipeed.com/shareURL/TANG/Nano%209K)
 
 ## 注意事项
 
-1. 如果有什么疑问，欢迎加群 `834585530`, 或者去[论坛](bbs.sipeed.com)发帖
+1. 如果有什么疑问，欢迎加群 `834585530`, 或者直接在本页下方留言讨论。
    
-2. 下载 FPGA 是要求使用 [这里](https://dl.sipeed.com/shareURL/TANG/programmer) 的 Programmer 软件。不然有极大概率不能下载固件到板子。
-   
-3. 有问题的话先去 [常见问题](./../Tang-Nano-Doc/questions.md) 自查，通常来说使用 [这里](https://dl.sipeed.com/shareURL/TANG/programmer) 的 Programmer 软件能解决 99% 问题。
+2. 有问题的话先去 [常见问题](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/questions.html) 自查。
 
-4. 避免使用JTAG、MODE、DONE等引脚。如果一定要使用这些引脚，请查看 [UG292-1.0原理图指导手册](http://cdn.gowinsemi.com.cn/UG293-1.0_GW1NZ%E7%B3%BB%E5%88%97FPGA%E4%BA%A7%E5%93%81%E5%8E%9F%E7%90%86%E5%9B%BE%E6%8C%87%E5%AF%BC%E6%89%8B%E5%86%8C.pdf)
+3. 避免使用JTAG、MODE、DONE等引脚。如果一定要使用这些引脚，请查看 [UG292-1.0原理图指导手册](http://cdn.gowinsemi.com.cn/UG293-1.0_GW1NZ%E7%B3%BB%E5%88%97FPGA%E4%BA%A7%E5%93%81%E5%8E%9F%E7%90%86%E5%9B%BE%E6%8C%87%E5%AF%BC%E6%89%8B%E5%86%8C.pdf)
 
-5. 请注意避免静电打到PCBA上；接触PCBA之前请把手的静电释放掉
+4. 请注意避免静电打到PCBA上；接触PCBA之前请把手的静电释放掉
 
-6. 每个GPIO的工作电压已经在原理图中标注出来，请不要让GPIO的实际工作的电压超过额定值，否则会引起PCBA的永久性损坏
+5. 每个GPIO的工作电压已经在原理图中标注出来，请不要让GPIO的实际工作的电压超过额定值，否则会引起PCBA的永久性损坏
 
-7. 在连接FPC软排线的时候，请确保排线无偏移、完整地插入到排线中，且线序正确没有接反
+6. 在连接FPC软排线的时候，请确保排线无偏移、完整地插入到排线中，且线序正确没有接反
 
-8. 请在上电过程中，避免任何液体和金属触碰到PCBA上的元件的焊盘，否则会导致短路，烧毁PCBA 
+7. 请在上电过程中，避免任何液体和金属触碰到PCBA上的元件的焊盘，否则会导致短路，烧毁PCBA 
+
+8. 使用途中需要注意复用的 IO，比如 HDMI 的 IO 默认被外部上拉，因此在排针上使用相关引脚的时候可能会与自己想要的结果不符。
+    ![nano_9k_hdmi_io](./assets/nano_9k_hdmi_io.png)

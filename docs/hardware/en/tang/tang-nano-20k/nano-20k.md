@@ -45,15 +45,15 @@ Tang Nano 20K is a development board, using the [GW2AR-18 QN88](http://www.gowin
     					<td>15552</td>
     				</tr>
     				<tr>
-    					<td>分布式静态随机存储器S-SRAM(bits)</td>
+    					<td>Shadow SRAM (S-SRAM)(bits)</td>
     					<td>41472</td>
     				</tr>
     				<tr>
-    					<td>块状静态随机存储器B-SRAM(bits)</td>
+    					<td>Block SRAM (B-SRAM)(bits)</td>
     					<td>828K</td>
     				</tr>
     				<tr>
-    					<td>块状静态随机存储器数目B-SRAM(个)</td>
+    					<td>Numbers of B-SRAM(个)</td>
     					<td>46</td>
     				</tr>
     				<tr>
@@ -61,29 +61,29 @@ Tang Nano 20K is a development board, using the [GW2AR-18 QN88](http://www.gowin
     					<td>64M bits</td>
     				</tr>
     				<tr>
-    					<td>乘法器(18x18 Multiplier)</td>
+    					<td>Numbers of 18x18 Multiplier</td>
     					<td>48</td>
     				</tr>
     				<tr>
-    					<td>锁相环(PLLs)</td>
+    					<td>Numbers of PLLs</td>
     					<td>4</td>
     				</tr>
     				<tr>
-    					<td>I/O Bank 总数</td>
+    					<td>I/O Bank</td>
     					<td>8</td>
     				</tr>
     			</tbody></table>
     		</td>
     	</tr>
     	<tr>
-    		<td style="text-align:left">板载下载器</td>
+    		<td style="text-align:left">Onboard debugger</td>
     		<td style="text-align:left">BL616</td>
-    		<td style="text-align:left">· 给 FPGA 提供 JTAG 下载功能<br>· 提供 USB 转串口与 FPGA 通信<br>· 提供虚拟串口用于 FPGA 通过 SPI 通信<br>· 提供虚拟串口控制 MS5351 输出时钟</td>
+    		<td style="text-align:left">· JTAG for FPGA<br>· USB to UART for FPGA<br>· USB to SPI for FPGA communication<br>· Control MS5351 generate frequency</td>
     	</tr>
     	<tr>
-    		<td style="text-align:left">时钟芯片</td>
+    		<td style="text-align:left">Clock generator</td>
     		<td style="text-align:left">MS5351</td>
-    		<td style="text-align:left">给 FPGA 芯片提供额外的两路时钟<br>· 一路差分时钟<br>· 一路单端时钟</td>
+    		<td style="text-align:left">Provide extra 2 clocks for FPGA<br>· One 一路差分时钟<br>· 一路单端时钟</td>
     	</tr>
     	<tr>
     		<td style="text-align:left">显示接口</td>

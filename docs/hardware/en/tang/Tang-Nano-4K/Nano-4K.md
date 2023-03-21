@@ -32,30 +32,26 @@ Tang Nano 4K is a development board designed based on [Gowin](https://www.gowins
 
 ![Pinmap](./../../../zh/tang/Tang-Nano/assets/Tang_nano_4K_0813.png)
 
-## Development methods
+## Development software
 
-Note:
+Visit [install ide](https://wiki.sipeed.com/hardware/en/tang/Tang-Nano-Doc/install-the-ide.html) to setup your programming environment.
 
-- GOWIN IDE verision should over v1.9.7.01 Beta.
-- The programmer application used for burning FPGA should be this one: [Click me](https://dl.sipeed.com/shareURL/TANG/programmer)
-- Visit [Install-IDE](./../Tang-Nano-Doc/install-the-ide.md) to install IDE.
+## Burn firmware
 
-## Burn methods
+Tang Nano 4K uses the onboard BL702 for jtag, with which to burn bitstream.
 
-Tang Nano 4K contains a on-board BL702 chip, used for burning GW1NSR-4C chip. Just connect this coard with computer and use this [GOWIN programmer](https://dl.sipeed.com/shareURL/TANG/programmer) to burn bitstream, not need extra debugger to download.
+Run the Programmer in Gowin IDE to download firmware into FPGA.
 
 ## Information
 
-- [Examples](./../Tang-Nano-Doc/examples.md)
+- [Examples](https://wiki.sipeed.com/hardware/en/tang/Tang-Nano-Doc/examples.html)
 - [Schematic](https://dl.sipeed.com/shareURL/TANG/Nano%204K/HDK/02_Schematic)
 - [Download center](https://dl.sipeed.com/shareURL/TANG/Nano%204K/)
 
 ## Addition
 
-1. If you have trouble with this board, you can join our telegram (t.me/sipeed) or contact us on twitter (https://twitter.com/SipeedIO).
-
-2. For Fpga burning we require using [this](https://dl.sipeed.com/shareURL/TANG/programmer) Programmer application. Because other version Programmer application may fail burning this board.
-
-3. If you meet problems, please visit [problems](./../Tang-Nano-Doc/questions.md) first, normally most problems will be solved after using this programmer [Click me](https://dl.sipeed.com/shareURL/TANG/programmer).
-
-4. For debugging Cortex-M3, we suggest to use serial-port debug way. If you are excellent enough you can try other ways to debug it.
+1. If you have trouble with this board, you can join our telegram (t.me/sipeed) or contact us on twitter (https://twitter.com/SipeedIO). Leaving message below is also OK.
+2. Visit [Tang questions](https://wiki.sipeed.com/hardware/en/tang/Tang-Nano-Doc/questions.html) first if you have any trouble.
+3. Debugging Cortex-M3, we suggest to use serial-port debug way. If you are excellent enough you can try other ways to debug it.
+4. THe HDMI ports are multiplexed as IO and routed to the pin headers. The actual results of the IO which are multiplexed with HDMI pins on the pin headers may not be consistent with what you want because of the external pull up.
+    ![nano_4k_hdmi_io](./../../../zh/tang/Tang-Nano-4K/assets/nano_4k_hdmi_io.png)

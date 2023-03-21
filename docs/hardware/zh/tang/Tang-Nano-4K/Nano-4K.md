@@ -35,23 +35,22 @@ Tang Nano 4K开发板板载的GW1NSR-LV4C，是一款系统级封装芯片，内
 
 ## 开发环境
 
-特别注意：
-使用ide的时候版本需要>= v1.9.7.01 Beta；烧录软件要求使用我们所提供的 [Programmer](https://dl.sipeed.com/shareURL/TANG/programmer)
-- 安装IDE的方法[参考](./../Tang-Nano-Doc/get_started/install-the-ide.md)
+- 安装IDE的方法 [参考](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/get_started/install-the-ide.html)
 
 ## 下载方式
 
-Tang Nano 4K 开发板板载 BL702 芯片，为 GW1NSR-4C 提供 JTAG 调试功能，开发板可以直接连接电脑使用 [GOWIN programmer](https://dl.sipeed.com/shareURL/TANG/programmer) 进行下载比特流，不需要额外准备下载器。
+Tang Nano 4K 开发板板载 BL702 芯片，为 GW1NSR-4C 提供 JTAG 调试功能，可以直接使用 IDE 里面的 Programmer 软件来下载固件到 FPGA。
 
 ## 资料
 
-- [相关例程](./../Tang-Nano-Doc/examples.html)
+- [相关例程](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/examples.html)
 - [Schematic](https://dl.sipeed.com/shareURL/TANG/Nano%204K/HDK/02_Schematic)
 - [Tang Nano 4K 资料库](https://dl.sipeed.com/shareURL/TANG/Nano%204K)
 
 ## 补充
 
-1. 如果有什么疑问，欢迎加群 `834585530`, 或者去[论坛](bbs.sipeed.com)发帖。
-2. 下载 FPGA 是要求使用 [这里](https://dl.sipeed.com/shareURL/TANG/programmer) 的 Programmer 软件。不然有极大概率不能下载固件到板子。
-3. 有问题的话先去 [常见问题](./../Tang-Nano-Doc/questions.md) 自查，通常来说使用 [这里](https://dl.sipeed.com/shareURL/TANG/programmer) 的 Programmer 软件能解决 99% 问题。
-4. 对于 Cortex-M3 硬核建议使用串口来打印调试信息来纠错，或者有能力的可以选择其他方式。
+1. 如果有什么疑问，欢迎加群 `834585530`, 或者直接在本页下方留言讨论。
+2. 有问题的话先去 [常见问题](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/questions.html) 自查。
+3. 对于 Cortex-M3 硬核建议使用串口来打印调试信息来纠错，或者有能力的可以选择其他方式。
+4. 对于板子上面的 IO 引脚使用，需要注意与 HDMI 引脚复用的 IO，可能因为外部上拉而导致排针上与 HDMI 复用的 IO 所表现的实际结果与自己想要的不符合。
+    ![nano_4k_hdmi_io](./assets/nano_4k_hdmi_io.png)

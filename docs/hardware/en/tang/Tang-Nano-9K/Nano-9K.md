@@ -109,23 +109,26 @@ Visit [examples](./../Tang-Nano-Doc/examples.md)
 
 - [Datasheet](https://dl.sipeed.com/shareURL/TANG/Nano%209K/6_Chip_Manual/EN)
 - [Schematic](https://dl.sipeed.com/shareURL/TANG/Nano%209K/2_Schematic)
+- [Bit map](https://dl.sipeed.com/shareURL/TANG/Nano%209K/3_Bit_number_map)
 - [Size](https://dl.sipeed.com/shareURL/TANG/Nano%209K/4_Dimensional_drawing)
 - [3D file](https://dl.sipeed.com/shareURL/TANG/Nano%209K/5_3D_file)
+- [Some manuals](https://dl.sipeed.com/shareURL/TANG/Nano%209K/6_Chip_Manual)
 
 ## Attention
 
-1. If you have trouble with this board, you can join our telegram (t.me/sipeed) or contact us on twitter (https://twitter.com/SipeedIO).
+1. If you have trouble with this board, you can join our telegram (t.me/sipeed) or contact us on twitter (https://twitter.com/SipeedIO). Leaving message below is also OK.
 
-2. For fpga burning we require using [this](https://dl.sipeed.com/shareURL/TANG/programmer) Programmer application. Because other version Programmer application may fail burning this board.
-
-3. If you meet problems, please visit [problems](./../Tang-Nano-Doc/questions.md) first, normally most problems will be solved after using this programmer [Click me](https://dl.sipeed.com/shareURL/TANG/programmer).
+2. Visit [Tang questions](https://wiki.sipeed.com/hardware/en/tang/Tang-Nano-Doc/questions.html) first if you have any trouble.
    
-4. Avoid using JTAG, MODE0/1 and DONE pins. If you really need to use these pins, please refer to [SUG100-2.6E_Gowin Software User Guide.pdf](https://dl.sipeed.com/fileList/TANG/Nano%209K/6_Chip_Manual/EN/General%20Guide/SUG100-2.6E_Gowin%20Software%20User%20Guide.pdf).
+3. DO NOT USE JTAG, MODE0/1 and DONE pins. If you really need to use these pins, please refer to [SUG100-2.6E_Gowin Software User Guide.pdf](https://dl.sipeed.com/fileList/TANG/Nano%209K/6_Chip_Manual/EN/General%20Guide/SUG100-2.6E_Gowin%20Software%20User%20Guide.pdf).
 
-5. Please avoid static electricity hitting PCBA; Please release the static electricity from the hand before contacting PCBA.
+4. Please avoid static electricity hitting PCBA; Please release the static electricity from the hand before contacting PCBA.
 
-6. The working voltage of each GPIO has been marked in the schematic . Please do not let the actual working voltage of GPIO exceed the rated value, because it will cause permanent damage to PCBA.
+5. The working voltage of each GPIO has been marked in the schematic . Please do not let the actual working voltage of GPIO exceed the rated value, because it will cause permanent damage to PCBA.
 
-7. When connecting FPC flexible cable, make sure the cable is completely inserted into the base with on offset.
+6. When connecting FPC flexible cable, make sure the cable is completely inserted into the base with on offset.
 
-8. Avoid any liquid or metal touching the pads of components on PCBA during working, because this will cause short circuit and damage PCBA.
+7. Avoid any liquid or metal touching the pads of components on PCBA during working, because this will cause short circuit and damage PCBA.
+
+8. Pay attention to the multiplexed IO. The HDMI io ports are pulled up, when using these ios which are routed to pin headers, then may not meets your command.
+    ![nano_9k_hdmi_io](./assets/nano_9k_hdmi_io.png)
