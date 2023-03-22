@@ -32,50 +32,11 @@
                 <div>Telegram group: <a href="https://t.me/maixhub" traget="_blank">t.me/maixhub</a></div>
             </strong></span</td>
         </tr>
-    </tbody>
-</table>
-
-<table role="table" class="center_table">
-    <thead>
-    <tr>
-        <th colspan="2">Tencect QQ group</th>
-    </tr>
         <tr>
-            <th>QQ Group</th>
-            <th>Address</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><span class="limit_width"></span><strong>MaixPy QQ Group</strong></td>
-            <td>
-            <strong><span class="limit_width"></span><span class="limit_width">Group②: 1129095405</span></strong><br>
-            <span class="limit_width"></span><span class="limit_width"><strong>Group④: 256336487</strong></span><br>
-            <span class="limit_width"><strong>Group⑤（Newer）: 696014576</strong></span>
-            </td>
-        </tr>
-        <tr>
-            <td><span class="limit_width"></span><strong>MaixPy3 QQ Group</strong></td>
-            <td><span class="limit_width"></span><span class=""><strong>756313869</strong></span></td>
-        </tr>
-        <tr>
-            <td><span class="limit_width"></span><strong>Licheepi-linux QQ Group</strong></td>
-            <td><span class="limit_width"></span><span class=""><strong>712961164</strong></span></td>
-        </tr>
-        <tr>
-            <td><span class="limit_width"></span><strong>Tang-FPGA QQ Group</strong></td>
-            <td><span class="limit_width"></span><span class=""><strong>834585530</strong></span></td>
-        </tr>
-        <tr>
-            <td><span class="limit_width"></span><strong>Longan-Mcu QQ Group</strong></td>
-            <td><span class="limit_width"></span><span class=""><strong>816177882</strong></span></td>
-        </tr>
-        <tr>
-            <td><span class="limit_width"></span><strong>MaixHub</strong></td>
+            <td><span class="limit_width"></span><strong>FPGA Reddit</strong></td>
             <td><span class="limit_width"></span><span class="">
             <strong>
-                <div>Model and projects sharing: <a href="https://maixhub.com" target="_blank">MaixHub</a></div>
-                <div>QQ group：766140795</div>
+                <div>GowinFPGA<a href="https://www.reddit.com/r/GowinFPGA/" traget="_blank">t.me/maixhub</a></div>
             </strong></span</td>
         </tr>
     </tbody>
@@ -93,8 +54,18 @@
             <td><span class="limit_width"></span><strong>DFROBOT MaixPy community</strong></td>
             <td><span class="limit_width"></span><span class=""><a href="https://mc.dfrobot.com.cn/forum-maixpy-1.html" target="_blank"><strong>mc.dfrobot.com.cn/forum-maixpy-1.html</strong></a></span</td>
         </tr>
-        <tr><td><span class="limit_width"></span><strong>whycan V3S/F1C100s/X3</strong></td>
+        <tr><td><span class="limit_width"></span><strong>whycan Fourm (Allwinnder SOC)</strong></td>
             <td><span class="limit_width"></span><span class=""><a href="https://whycan.com/f_17.html" target="_blank"><strong>whycan.com/f_17.html</strong></a></span</td>
+        </tr>
+        <tr>
+            <td><span class="limit_width"></span><strong>Pikapython Forum</strong></td>
+            <td><span class="limit_width"></span><a href="https://whycan.com/f_55.html"
+                    target="_blank"><strong>https://whycan.com/f_55.html</strong></a></span></td>
+        </tr>
+        <tr>
+            <td><span class="limit_width"></span><strong>Allwinner online fourm</strong></td>
+            <td><span class="limit_width"></span><a href="https://www.aw-ol.com/"
+                    target="_blank"><strong>https://www.aw-ol.com/</strong></a></span></td>
         </tr>
     </tbody>
 </table>

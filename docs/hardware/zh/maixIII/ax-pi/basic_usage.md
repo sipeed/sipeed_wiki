@@ -1911,6 +1911,3 @@ cd /home/sherpa-ncnn-m3axpi #先进入放置文件的目录
 4 \
 greedy_search
 ```
-
-### YOLO 模型系列（内含 YOLOv8）
-
