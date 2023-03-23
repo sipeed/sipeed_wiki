@@ -326,9 +326,12 @@ Check the Python code error line and check ValueError error. This normally happe
 
 ## OSError reset failed
 
-This error means there is something wrong with your camera.
+This error means that the board failed to initialize the camera. from `sensor.reset()` we see that this function initializing the camera.
 
-Check your connection of board with camera, if you make sure your connection of board with camera is right, then you can only another camera to slove this because this camera has been broken.
+![os_error](./assets/maixpy_faq/os_error.png)
+
+1. Camera connection wrong, so the board can not initialize the camera.
+2. Camera is damaged, board can not initialize the camera.
 
 It's suggested to use camera provided by Sipeed, this can reduce many troubles like the different line sequence of camera to the board or the lack of your camrea driver on this board.
 
