@@ -226,6 +226,26 @@ display.show(camera.capture())
 
 > 如果屏幕没有显示内容。那么首先确认一下镜像镜像版本，并且确认一下外设和驱动对的上
 
+## 怎么样使用 USB 摄像头
+
+M2Dock 有两个 TypeC 接口。其中一个标识有 UART，作为板子与电脑进行串口通信的接口。另一个口有 OTG 标识，默认是作为 USB 从机来使用的，比如我们能够在电脑上使用 `adb` 来操作 M2Dock 就是因为这个接口默认是从机模式。
+
+想要连接摄像头，需要手动更改这个端口为主机模式。从板子上的串口 USB 来操作板子，并执行下面的命令就可以将 OTG 口作为主机模式使用。
+
+```bash
+echo "usb_host" > /sys/devices/platform/soc/usbc0/otg_role
+```
+
+接着就能向通常的 linux 系统一样操作 /dev 目录下的摄像头了。
+
+## 如何将 USB OTG 口作为从机
+
+M2Dock 默认的 OTG 口就是 USB 从机设备了，要是有因为其他原因需要重新设置成从机设备的话，在 M2Dock 上执行下面的命令就可以了。
+
+```bash
+echo "usb_device" > /sys/devices/platform/soc/usbc0/otg_role
+```
+
 ## 工具链
 
 [这里](https://dl.sipeed.com/shareURL/MaixII/MaixII-Dock/SDK/Toolchain)提供了在 linux 系统下的编译工具链，有能力的可以自己试一下。无相关支持

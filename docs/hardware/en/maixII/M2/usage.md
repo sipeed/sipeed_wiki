@@ -150,6 +150,26 @@ display.show(camera.capture())
 
 > If your screen doesn't display anything, make sure your mirror is the latest one and your drivers are correct.
 
+## How to use USB camera
+
+There are 2 USB Type-C ports on M2Dock. One is masked UART for the serial communication between this board and computer, another port masked with OTG is used for user-defined functions. We set it's `usb_device` so that we can use `adb` to control this board by default.
+
+To connect USB camera, we need to set the OTG port to be the usb_host. Run the following command on M2Dock to change its function.
+
+```bash
+echo "usb_host" > /sys/devices/platform/soc/usbc0/otg_role
+```
+
+Then we can control the USB camera device which is in the /dev directory.
+
+## How to set USB OTG port usb_device mode
+
+The OTG port is usb device mode by default, by which we can control this board via `adb`. And maybe we changed its function to be a USB host for some reason and now we want to change it back to being a USB device. Just run the following command on M2Dock(You can run the following command on M2Dock via UART with 115200 baudrate).
+
+```bash
+echo "usb_device" > /sys/devices/platform/soc/usbc0/otg_role
+```
+
 ## ToolChain
 
 [Here](https://dl.sipeed.com/shareURL/MaixII/MaixII-Dock/SDK/Toolchain) is a toolchain for V831, it can be run in linux system.
