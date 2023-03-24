@@ -29,18 +29,20 @@ M2Dock 既然能够运行 Python, 那么我们也可以给它安装 Opencv。
 
 把下载下来的名为 `opencv_python_headless-4.5.5.62-cp38-cp38-linux_armv7l.whl` 文件复制到由 M2Dock 在电脑上所显示的 U 盘中。
 
-> 下载站： [点我](https://dl.sipeed.com/shareURL/others/m2dock_opencv)
+> 下载站备份站： [点我](https://dl.sipeed.com/shareURL/others/m2dock_opencv)
 
-### 安装 opencv 文件
+### 安装 opencv 软件包
 
 在 adb 命令行终端中依次执行下面的命令来在 M2Dock 上安装刚刚所下载的 Opencv Python 安装包：
+
+安装的时候显示内存不足的话，可以在 M2Dock 上执行 `rm -rf home/model/` 删除内置模型文件来腾出空间安装 Opencv.
+
+下面的安装操作都在 M2Dock 的命令终端执行。
 
 ```shell
 sync  #刷新所有文件
 pip install /root/opencv_python_headless-4.5.5.62-cp38-cp38-linux_armv7l.whl --upgrade #安装刚刚下载的 Opencv Python 安装包
 ```
-
-要注意的是上面的操作是需要在 M2Dock 的命令终端执行。
 
 ### 查看运行结果
 
@@ -59,7 +61,7 @@ with open("/tmp/tmp.log") as f:
 
 ![m2dock_opencv_command_result](./assets/m2dock_opencv_command_result.png)
 
-从上面可以看到有 `opencv` 和 `numpy`。
+从上面可以看到有 `opencv` 和 `numpy`。在自己的执行结果中没有看到 `Numpy` 的话, 可以重新烧录最新的 m2dock 镜像来得到。
 
 ## 体验 opencv
 
