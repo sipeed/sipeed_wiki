@@ -165,7 +165,7 @@ Buy one: [Aliexpress](https://www.aliexpress.com/item/1005005142466936.html)
         </tr>
         <tr>
           <td>AI model</td>
-          <td>· <a herf="https://maixhub.com/"> MaixHub </td>
+          <td>· <a href="https://maixhub.com/"> MaixHub </td>
         </tr>
         <tr>
           <td>Sipeed examples</td>

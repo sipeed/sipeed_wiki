@@ -83,7 +83,7 @@ kflash -p /dev/ttyUSB0 -b 1500000 -B goE maixpy.bin
 
 ### Sipeed RV JATG 调试器
 
-<a herf="https://github.com/sipeed/kflash_gui">Sipeed USB-JTAG/TTL RISC-V调试器 STLINK V2 STM8/STM32模拟器</a>
+<a href="https://github.com/sipeed/kflash_gui">Sipeed USB-JTAG/TTL RISC-V调试器 STLINK V2 STM8/STM32模拟器</a>
 
 
 **烧录常见问题FAQ**

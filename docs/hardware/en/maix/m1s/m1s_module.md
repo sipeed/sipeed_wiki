@@ -238,7 +238,7 @@ Visit Schematic for details：[Click me](https://dl.sipeed.com/shareURL/MAIX/M1s
         </tr>
         <tr>
           <td>AI model store</td>
-          <td>· Download from <a herf="https://maixhub.com/">MaixHub</a>. Support Face detection and recognition, posture detection and gesture detection, etc.</td>
+          <td>· Download from <a href="https://maixhub.com/">MaixHub</a>. Support Face detection and recognition, posture detection and gesture detection, etc.</td>
         </tr>
         <tr>
           <td>Sipeed examples</td>

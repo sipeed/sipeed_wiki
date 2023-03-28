@@ -237,7 +237,7 @@ Introduction video for [M1s Dock](https://wiki.sipeed.com/en/m1s#dock) and M0Sen
         </tr>
         <tr>
           <td>AI model</td>
-          <td>· Download from <a herf="https://maixhub.com/">MaixHub</a>. Support voice response, gesture detection and other models</td>
+          <td>· Download from <a href="https://maixhub.com/">MaixHub</a>. Support voice response, gesture detection and other models</td>
         </tr>
         <tr>
           <td>Sipeed examples</td>

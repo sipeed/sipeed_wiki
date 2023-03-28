@@ -165,7 +165,7 @@ Sipeed M0S 模块是基于[博流智能科技](http://www.bouffalolab.com/)的 B
         </tr>
         <tr>
           <td>AI 模型下载</td>
-          <td>· <a herf="https://maixhub.com/"> MaixHub </td>
+          <td>· <a href="https://maixhub.com/"> MaixHub </td>
         </tr>
         <tr>
           <td>Sipeed 参考示例</td>

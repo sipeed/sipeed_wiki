@@ -243,7 +243,7 @@ Sipeed M1s 模组是基于[博流智能科技](http://www.bouffalolab.com/)的 B
         </tr>
         <tr>
           <td>AI 模型下载</td>
-          <td>· <a herf="https://maixhub.com/">MaixHub</a> 下载。支持 人脸检测，识别，姿态检测，手势检测 等</td>
+          <td>· <a href="https://maixhub.com/">MaixHub</a> 下载。支持 人脸检测，识别，姿态检测，手势检测 等</td>
         </tr>
         <tr>
           <td>Sipeed 参考示例</td>

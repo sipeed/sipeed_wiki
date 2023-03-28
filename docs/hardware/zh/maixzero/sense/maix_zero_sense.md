@@ -230,7 +230,7 @@ M1s Dock 和 M0Sense 总览； M0Sense 在 3:15 处开始，之前的为 M1s Doc
         </tr>
         <tr>
           <td>AI 模型下载</td>
-          <td>· <a herf="https://maixhub.com/">MaixHub</a> 下载。支持 关键词唤醒，手势识别 等模型</td>
+          <td>· <a href="https://maixhub.com/">MaixHub</a> 下载。支持 关键词唤醒，手势识别 等模型</td>
         </tr>
         <tr>
           <td>Sipeed 参考示例</td>

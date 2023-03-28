@@ -89,7 +89,7 @@ Sipeed M0P Dock 是使用 [Sipeed M0P](https://wiki.sipeed.com//hardware/zh/maix
         </tr>
         <tr>
             <td> 无线：<br>· 支持Wi-Fi 802.11 b/g/n/ax（WiFi6）<br>· 支持蓝牙 5.x 双模(BT+BLE)<br>· 支持Wi-Fi / 蓝牙/ Zigbee
-                共存<br>（更详细的特性请查看芯片 <a herf="https://gitee.com/wonderfullook/bl_docs/tree/main/BL616_DS/zh_CN">
+                共存<br>（更详细的特性请查看芯片 <a href="https://gitee.com/wonderfullook/bl_docs/tree/main/BL616_DS/zh_CN">
                     datasheet</a>）</td>
         </tr>
         </td>
@@ -172,11 +172,11 @@ Sipeed M0P Dock 是使用 [Sipeed M0P](https://wiki.sipeed.com//hardware/zh/maix
         </tr>
         <tr>
           <td> SDK </td>
-          <td><a herf="https://github.com/bouffalolab/bl_mcu_sdk"> github </a></td>
+          <td><a href="https://github.com/bouffalolab/bl_mcu_sdk"> github </a></td>
         </tr>
         <tr>
           <td>Examples</td>
-          <td><a herf="https://github.com/sipeed/M0P_BL618_examples"> github </a></td>
+          <td><a href="https://github.com/sipeed/M0P_BL618_examples"> github </a></td>
         </tr>
     </tbody>
 </table>
