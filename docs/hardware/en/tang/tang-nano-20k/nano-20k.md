@@ -53,7 +53,7 @@ Tang Nano 20K is a development board, using the [GW2AR-18 QN88](http://www.gowin
     					<td>828K</td>
     				</tr>
     				<tr>
-    					<td>Numbers of B-SRAM(个)</td>
+    					<td>Numbers of B-SRAM</td>
     					<td>46</td>
     				</tr>
     				<tr>
@@ -83,106 +83,108 @@ Tang Nano 20K is a development board, using the [GW2AR-18 QN88](http://www.gowin
     	<tr>
     		<td style="text-align:left">Clock generator</td>
     		<td style="text-align:left">MS5351</td>
-    		<td style="text-align:left">Provide extra 2 clocks for FPGA<br>· One 一路差分时钟<br>· 一路单端时钟</td>
+    		<td style="text-align:left">Provide extra 2 clocks for FPGA<br>· One differential clock<br>· One single clock</td>
     	</tr>
     	<tr>
-    		<td style="text-align:left">显示接口</td>
-    		<td style="text-align:left">· 40Pins RGB lcd 连接器<br>· HDMI 接口</td>
+    		<td style="text-align:left">Display interface</td>
+    		<td style="text-align:left">· 40Pins RGB lcd connector<br>· HDMI interface</td>
     		<td style="text-align:left"></td>
     	</tr>
     	<tr>
-    		<td style="text-align:left"> 单色 LED </td>
-    		<td style="text-align:left"> 6 个 </td>
-    		<td style="text-align:left"> 共阳极连接 </td>
+    		<td style="text-align:left"> LED </td>
+    		<td style="text-align:left"> 6 </td>
+    		<td style="text-align:left"> Low voltage level enable</td>
     	</tr>
     	<tr>
     		<td style="text-align:left"> RGB LED </td>
-    		<td style="text-align:left"> 1 个 </td>
-    		<td style="text-align:left"> 型号是 WS2812 </td>
+    		<td style="text-align:left"> 1 </td>
+    		<td style="text-align:left"> WS2812 </td>
     	</tr>
     	<tr>
-    		<td style="text-align:left"> 用户按键 </td>
-    		<td style="text-align:left"> 2 个 </td>
-    		<td style="text-align:left"> 用于自定义逻辑功能 </td>
+    		<td style="text-align:left"> User key </td>
+    		<td style="text-align:left"> 2 </td>
+    		<td style="text-align:left"> </td>
     	</tr>
     	<tr>
-    		<td style="text-align:left"> TF 卡槽 </td>
-    		<td style="text-align:left"> 1 个 </td>
-    		<td style="text-align:left"> 推拉式 </td>
+    		<td style="text-align:left"> TF Card Slot </td>
+    		<td style="text-align:left"> 1 </td>
+    		<td style="text-align:left">  </td>
     	</tr>
     	<tr>
-    		<td style="text-align:left"> 功率放大器 </td>
-    		<td style="text-align:left"> 1 个 </td>
-    		<td style="text-align:left"> 型号是 MAX98357A，用于播放音频 </td>
+    		<td style="text-align:left"> PCM Amplifier </td>
+    		<td style="text-align:left"> 1 </td>
+    		<td style="text-align:left"> MAX98357A，for audio driving</td>
     	</tr>
     	<tr>
-    		<td style="text-align:left"> 存储 </td>
+    		<td style="text-align:left"> Storage </td>
     		<td style="text-align:left"> 64Mbits Flash </td>
-    		<td style="text-align:left"> 下载方式参考底部相关问题 </td>
+    		<td style="text-align:left"> To save bitstream </td>
     	</tr>
     	<tr>
-    		<td style="text-align:left"> 尺寸 </td>
+    		<td style="text-align:left"> Size </td>
     		<td style="text-align:left"> 22.55mm x 54.04mm </td>
-    		<td style="text-align:left"> 精确尺寸可以参考 3D 文件 </td>
+    		<td style="text-align:left"> Visit 3D file for more information </td>
     	</tr>
     </tbody>
 </table>
 
-## 外设框图
+## Function diagram
 
 ![tang_nano_20k_functionalannotation](./../../../../hardware/zh/tang/tang-nano-20k/assets/nano_20k/tang_nano_20k_functionalannotation.jpg)
 
-下面是更详细的外设框图
+Detailed Function diagram
 
 <img src="./../../../../hardware/zh/tang/tang-nano-20k/assets/nano_20k/tang_nano_20k_functionalannotation_top.png" width="40%" alt="tang_nano_20k_functionalannotation_top">
 <img src="./../../../../hardware/zh/tang/tang-nano-20k/assets/nano_20k/tang_nano_20k_functionalannotation_bot.png" width="40%" alt="tang_nano_20k_functionalannotation_bot">
 
-## 引脚框图
+## Pin diagram
 
 ![tang_nano_20k_pinlabel](./../../../../hardware/zh/tang/tang-nano-20k/assets/nano_20k/tang_nano_20k_pinlabel.png)
 
-## FPGA Jtag 触点指示图
+## FPGA Jtag test point
 
-我们在 Tang Nano 20K 上引出了 Jtag 触点，方便想要使用额外下载器的用户。
+We reserved jtag test point on Tang Nano 20K, for those who want to use their own debugger.
+
+Note: There is onboard Jtag for download FPGA firmware, so this Jtag test point is only for those who want to use their own debugger.
 
 ![tang_nano_20k_testpointlannotation](./../../../../hardware/zh/tang/tang-nano-20k/assets/nano_20k/tang_nano_20k_testpointlannotation.png)
 
-## 硬件资料
+## Hardware information
 
-[板卡规格书](https://dl.sipeed.com/shareURL/TANG/Nano_20K/1_Datasheet)
-[板卡原理图](https://dl.sipeed.com/shareURL/TANG/Nano_20K/2_Schematic)
-[板卡点位图](https://dl.sipeed.com/shareURL/TANG/Nano_20K/3_Bit_number_map)
-[板卡尺寸图](https://dl.sipeed.com/shareURL/TANG/Nano_20K/4_Dimensional_drawing)
-[板卡 3D 模型](https://dl.sipeed.com/shareURL/TANG/Nano_20K/4_Dimensional_drawing)
-[部分芯片手册](https://dl.sipeed.com/shareURL/TANG/Nano_20K/6_Chip_manual)
+[Datesheet](https://dl.sipeed.com/shareURL/TANG/Nano_20K/1_Datasheet)
+[Schematic](https://dl.sipeed.com/shareURL/TANG/Nano_20K/2_Schematic)
+[PCB BOM](https://dl.sipeed.com/shareURL/TANG/Nano_20K/3_Bit_number_map)(Visit the `html` file in your board version)
+[Board Size](https://dl.sipeed.com/shareURL/TANG/Nano_20K/4_Dimensional_drawing)
+[Bosrd 3D File](https://dl.sipeed.com/shareURL/TANG/Nano_20K/4_Dimensional_drawing)
+[Part of chip datasheet](https://dl.sipeed.com/shareURL/TANG/Nano_20K/6_Chip_manual)
 
-## 上手使用
+## Using guide
 
-安装 IDE -> 编写代码 -> 烧录进板子
+Install IDE -> Prepare your code -> Burn into board
 
-- 安装 IDE [点我]()
-- 点灯上手指南 [点我]()
+- Install IDE [Click me](https://wiki.sipeed.com/hardware/en/tang/Tang-Nano-Doc/install-the-ide.html)
+- Blink the leds [Click me]()
 
-更多例程 [点我]()
+<!-- https://wiki.sipeed.com/hardware/en/tang/tang-nano-20k/example/led.html -->
 
-### 其他学习资源
+More example codes [Github](https://github.com/sipeed/TangNano-20K-example)
 
-- 在线免费教程：[Verilog 教程](https://www.runoob.com/w3cnote/verilog-tutorial.html)（学习Verilog）
-- 在线免费 FPGA 教程：[Verilog](https://www.asic-world.com/verilog/index.html) （英文网站）
-- Verilog 刷题网站：[HDLBits](https://hdlbits.01xz.net/wiki/Main_Page)（英文网站）
-- 在线高云半导体可参考视频教程：[点击这里](http://www.gowinsemi.com.cn/video_complex.aspx?FId=n15:15:26)
+### Studying resource
 
-## 交流方式
+- Verilog tutorial:[Verilog](https://www.asic-world.com/verilog/index.html)
+- Verilog Practice：[HDLBits](https://hdlbits.01xz.net/wiki/Main_Page)
 
-- **交流论坛: [bbs.sipeed.com](https://bbs.sipeed.com)**
-- **QQ 交流群：[834585530](https://jq.qq.com/?_wv=1027&k=wBb8XUan)**
-- 直接本页下方留言
-- 商业邮箱 : [support@sipeed.com](support@sipeed.com)
+## Contact
 
-## 常见问题
+- **Reddit** : [reddit.com/r/GowinFPGA/](reddit.com/r/GowinFPGA/)
+- **Telegram** : [t.me/sipeed](t.me/sipeed)
+- Leave message in the end of this page
+- Business email : [support@sipeed.com](support@sipeed.com)
 
-### 怎么让固件上电启动
+## Questions
 
-Tang Nano 20K 使用外部 Flash 来存放固件，所以想要让固件存在板子上我们需要烧录到外部 Flash.
+### How to store bitstream
 
-### 更多问题前往 [Tang 常见问题](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/questions.html) 查看
+Tang Nano 20K uses the external Flash to save the firmware, we need to download the bitstream to store the firmware.
+
+### Visit [Tang Questions](http://127.0.0.1:2333/hardware/en/tang/Tang-Nano-Doc/questions.html) to find more solutions

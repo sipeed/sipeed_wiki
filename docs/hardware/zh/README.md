@@ -20,17 +20,17 @@ desc: 矽速科技的开源软硬件 WIKI 资料站
 
 ## Maix Zero
 
-| 项目     | M0S                                                                             | M0                                                                          |
-| :------- | :------------------------------------------------------------------------------ | :-------------------------------------------------------------------------- |
-| 主控     | BL616                                                                           | BL702                                                                       |
-| 核心     | RV32GCP@320MHz                                                                  | RV32@144MHz                                                                 |
-| RAM      | 480KB                                                                           | 132KB                                                                       |
-| 储存     | 内置 4MB Flash                                                                  | 内置 192KB ROM, 512KB Flash                                                 |
-| 无线     | · Wifi<br>· 蓝牙<br>· Zigbee                                                    | 蓝牙                                                                        |
-| 模型平台 | [MaixHub](https://www.maixhub.com)                                              | [MaixHub](https://www.maixhub.com)                                          |
-| 尺寸     | 11(L)x10(W)mm                                                                   |                                                                             |
-| 详情页   | [点我](./maixzero/m0s/m0s.md)                                                   | [点我](./maixzero/sense/maix_zero_sense.md)                                 |
-| 外观图   | <img src="./maixzero/m0s/assets/m0s/m0s_pin_map.png" alt="m0sense" width="360"> | <img src="./maixzero/sense/assets/m0sense_1.png" alt="m0sense" width="360"> |
+| 项目     | M0S                                                                             | M0P                                                                                               | M0sense                                                                     |
+| :------- | :------------------------------------------------------------------------------ | :------------------------------------------------------------------------------------------------ | :-------------------------------------------------------------------------- |
+| 主控     | BL616                                                                           | BL618                                                                                             | BL702                                                                       |
+| 核心     | RV32GCP@320MHz                                                                  | RV32@320MHz                                                                                       | RV32@144MHz                                                                 |
+| RAM      | 480KB                                                                           | 480KB                                                                                             | 132KB                                                                       |
+| 储存     | 内置 4MB Flash                                                                  | 内置 8MB Flash                                                                                    | 内置 192KB ROM, 512KB Flash                                                 |
+| 无线     | · Wifi<br>· 蓝牙<br>· Zigbee                                                    | · Wifi<br>· 蓝牙<br>· Zigbee                                                                      | 蓝牙                                                                        |
+| 模型平台 | [MaixHub](https://www.maixhub.com)                                              | [MaixHub](https://www.maixhub.com)                                                                | [MaixHub](https://www.maixhub.com)                                          |
+| 尺寸     | 11(L)x10(W)mm                                                                   | 25.5(L) x 18(W) mm                                                                                |                                                                             |
+| 详情页   | [点我](./maixzero/m0s/m0s.md)                                                   | [点我](./maixzero/m0p/m0p.md)                                                                     | [点我](./maixzero/sense/maix_zero_sense.md)                                 |
+| 外观图   | <img src="./maixzero/m0s/assets/m0s/m0s_pin_map.png" alt="m0sense" width="230"> | <img src="./maixzero/m0p/assets/m0p/m0p_module_outlook.png" alt="m0p_module_outlook" width="230"> | <img src="./maixzero/sense/assets/m0sense_1.png" alt="m0sense" width="230"> |
 
 ## Maix-I
 

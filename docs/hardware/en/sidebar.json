@@ -21,6 +21,17 @@
           ]
         },
         {
+          "label": "Maix M0P",
+          "items": [
+            {
+              "label":"M0P"
+            },
+            {
+              "label":"M0P Dock"
+            }
+          ]
+        },
+        {
           "label": "Maix M0s",
           "file": "./maixzero/m0s/m0s.md"
         }
@@ -294,7 +305,8 @@
               "file": "tang/Tang-Nano-9K/Nano-9K.md"
             },
             {
-              "label": "Tang Nano 20K"
+              "label": "Tang Nano 20K",
+              "file": "tang/tang-nano-20K/nano-20k.md"
             },
             {
               "label": "Install IDE",

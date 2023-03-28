@@ -145,13 +145,15 @@ Tang Nano 20K 是采用高云半导体 [GW2AR-18 QN88](http://www.gowinsemi.com.
 
 我们在 Tang Nano 20K 上引出了 Jtag 触点，方便想要使用额外下载器的用户。
 
+> Tang Nano 20K 板卡上是带有下载器的，这个测试点只是给有额外需要的人准备的。
+
 ![tang_nano_20k_testpointlannotation](./assets/nano_20k/tang_nano_20k_testpointlannotation.png)
 
 ## 硬件资料
 
 [板卡规格书](https://dl.sipeed.com/shareURL/TANG/Nano_20K/1_Datasheet)
 [板卡原理图](https://dl.sipeed.com/shareURL/TANG/Nano_20K/2_Schematic)
-[板卡点位图](https://dl.sipeed.com/shareURL/TANG/Nano_20K/3_Bit_number_map)
+[PCB BOM](https://dl.sipeed.com/shareURL/TANG/Primer_20K/03_Bit_number_map) (根据自己板子的版本查看里面的 html 文件)
 [板卡尺寸图](https://dl.sipeed.com/shareURL/TANG/Nano_20K/4_Dimensional_drawing)
 [板卡 3D 模型](https://dl.sipeed.com/shareURL/TANG/Nano_20K/4_Dimensional_drawing)
 [部分芯片手册](https://dl.sipeed.com/shareURL/TANG/Nano_20K/6_Chip_manual)
@@ -160,10 +162,12 @@ Tang Nano 20K 是采用高云半导体 [GW2AR-18 QN88](http://www.gowinsemi.com.
 
 安装 IDE -> 编写代码 -> 烧录进板子
 
-- 安装 IDE [点我]()
+- 安装 IDE [点我](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/get_started/install-the-ide.html)
 - 点灯上手指南 [点我]()
 
-更多例程 [点我]()
+<!-- https://wiki.sipeed.com/hardware/zh/tang/tang-nano-20k/example/led.html -->
+
+更多例程代码 [github](https://github.com/sipeed/TangNano-20K-example)
 
 ### 其他学习资源
 
