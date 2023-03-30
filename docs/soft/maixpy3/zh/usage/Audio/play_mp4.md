@@ -67,44 +67,40 @@ finally:
 
 ```python
 
-from maix import display, image
+import pyaudio, av, _thread
+from maix import display, camera, image
+path_to_video = '/root/output_240_240.mp4'
 
-path_to_video = 'test.mp4'
+try:
+    container = av.open(path_to_video)
+    ai_stream = container.streams.audio[0]
+    vi_stream = container.streams.video[0]
+    fifo = av.AudioFifo()
+    p = pyaudio.PyAudio()
+    ao = p.open(format=pyaudio.paFloat32, channels=1, rate=44100, output=True)
+    audio = [p, ao, fifo]
+    def play_audio(audio):
+        try:
+            while len(audio):
+                for frame in audio[2].read_many(4096):
+                    audio[1].write(frame.planes[0].to_bytes())
+        except Exception as e:
+            print(e)
+    _thread.start_new_thread(play_audio, (audio, ) )
+    for frame in container.decode(video=0, audio=0):
+        if 'Audio' in repr(frame):
+            frame.pts = None
+            frame.time_base = None
+            fifo.write(frame)
+        if 'Video' in repr(frame):
+            img = image.load(bytes(frame.to_rgb().planes[0]), (vi_stream.width, vi_stream.height))
+            display.show(img)
+finally:
+    ao.stop_stream()
+    ao.close()
+    p.terminate()
+    audio = []
 
-import av
-
-duration, fps = 4, 10
-total_frames = duration * fps
-container = av.open(path_to_video, mode='w')
-stream = container.add_stream('h264', rate=fps) # h264 or mpeg4
-stream.width = 320
-stream.height = 240
-stream.pix_fmt = 'yuv420p'
-
-for frame_i in range(total_frames):
-    img = image.new(size=(stream.width, stream.height), mode='RGB')
-    import time
-    img.draw_string(0, 0, str(time.time()), 2)
-    frame = av.VideoFrame(img.width, img.height, 'rgb24')
-    frame.planes[0].update(img.tobytes())
-    for packet in stream.encode(frame):
-        container.mux(packet)
-
-#Flush stream
-for packet in stream.encode():
-    container.mux(packet)
-
-#Close the file
-container.close()
-
-#Play the video
-
-container = av.open(path_to_video)
-stream = container.streams.video[0]
-for frame in container.decode(video=0):
-    if 'Video' in repr(frame):
-        img = image.load(bytes(frame.to_rgb().planes[0]), (stream.width, stream.height))
-        display.show(img)
 ```
 
 试试吧，可以看到录制的是我们填充的 image 图像，打印了时间字符串。
