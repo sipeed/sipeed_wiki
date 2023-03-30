@@ -24,35 +24,41 @@ PyAV 是一个用于 FFmpeg 的 python 绑定。通过容器、流、包、编�
 
 这里使用的是转换后的 output_240_240.mp4 [测试视频](https://dl.sipeed.com/shareURL/MaixII/MaixII-Dock/example)，从这里获得视频后存放到 Linux 系统的 root 目录中，将 `path_to_video` 的参数修改成所存放视频路径，如：`'/root/output_240_240.mp4'`，其他视频同理，需要注意的是 v831 的性能很弱，可能最高就播放到软解 h264 30fps 了，硬解资源不被 FFmpeg 所提供。
 
-> ffmpeg 转换命令 ffmpeg -r 30 -i badapple_240_60fps.mp4 -vf scale=240:240,setdar=1:1 output.mp4
+> ffmpeg 转换命令 ffmpeg -r 30 -i badapple_240_60fps.mp4 -af volume=+10dB -vf scale=240:240,setdar=1:1 output.mp4
 
 ```python
-import pyaudio, av, os
+import pyaudio, av, time
 from maix import display, camera, image
-# ffmpeg -r 30 -i badapple_240_60fps.mp4 -vf scale=240:240,setdar=1:1 output.mp4
-# adb push ./output.mp4 /root/
 path_to_video = '/root/output_240_240.mp4'
-if os.path.exists(path_to_video):
-    try:
-        container = av.open(path_to_video)
-        ai_stream = container.streams.audio[0]
-        vi_stream = container.streams.video[0]
-        fifo = av.AudioFifo()
-        p = pyaudio.PyAudio()
-        ao = p.open(format=pyaudio.paFloat32, channels=1, rate=44100, output=True)
-        for frame in container.decode(video=0, audio=0):
-            if 'Audio' in repr(frame):
-                frame.pts = None
-                fifo.write(frame)
-                for frame in fifo.read_many(4096):
-                    ao.write(frame.planes[0].to_bytes())
-            if 'Video' in repr(frame):
-                img = image.load(bytes(frame.to_rgb().planes[0]), (vi_stream.width, vi_stream.height))
-                display.show(img)
-    finally:
-        ao.stop_stream()
-        ao.close()
-        p.terminate()
+
+import _thread
+
+try:
+    container = av.open(path_to_video)
+    ai_stream = container.streams.audio[0]
+    vi_stream = container.streams.video[0]
+    fifo = av.AudioFifo()
+    p = pyaudio.PyAudio()
+    ao = p.open(format=pyaudio.paFloat32, channels=1, rate=44100, output=True)
+    audio = [p, ao, fifo]
+    def play_audio(audio):
+        while len(audio):
+            for frame in audio[2].read_many(4096):
+                audio[1].write(frame.planes[0].to_bytes())
+    _thread.start_new_thread(play_audio, (audio, ) )
+    for frame in container.decode(video=0, audio=0):
+        if 'Audio' in repr(frame):
+            frame.pts = None
+            frame.time_base = None
+            fifo.write(frame)
+        if 'Video' in repr(frame):
+            img = image.load(bytes(frame.to_rgb().planes[0]), (vi_stream.width, vi_stream.height))
+            display.show(img)
+finally:
+    ao.stop_stream()
+    ao.close()
+    p.terminate()
+    audio = []
 ```
 
 ## 如何录制视频？
