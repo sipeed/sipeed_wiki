@@ -46,6 +46,8 @@ update:
 
 调试器连接电脑后，需要十多秒时间加载驱动。不想等待加载驱动的话可以手动下载驱动并安装驱动 [点我跳转到驱动下载页面](https://dl.sipeed.com/shareURL/TANG/programmer)。
 
+![no_convertor_install_driver](./assets/qusetions/no_convertor_install_driver.png)
+
 ### 下载频率
 
 要注意下载频率应该为 `2.5M` 或者更低的数值。不然很可能导致下载极其缓慢或者下载失败等问题。

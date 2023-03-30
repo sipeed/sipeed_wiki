@@ -34,6 +34,8 @@ If there is no `COM` device but 2 `converter` devices, right click `converter B`
 
 It takes 10 seconds for debugger loading the driver. And you can install the driver manually. [Click me to download driver](https://dl.sipeed.com/shareURL/TANG/programmer)
 
+![no_convertor_install_driver](./../../../zh/tang/Tang-Nano-Doc/assets/qusetions/no_convertor_install_driver.png)
+
 ### Download frequency
 
 Make sure the frquency is equal or lower than `2.5MHz`, otherwise it may lead some troubles like burnning bitstream file really slow or failed burnning bitstream file.
