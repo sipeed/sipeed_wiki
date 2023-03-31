@@ -149,7 +149,7 @@ It's about 400MB memory storage.
 
 ```bash
 cd M0sense_BL702_example
-git clone https://github.com/bouffalolab/bl_mcu_sdk
+git clone https://github.com/bouffalolab/bouffalo_sdk
 ```
 
 Then the file tree should be like this(The main folder and files):

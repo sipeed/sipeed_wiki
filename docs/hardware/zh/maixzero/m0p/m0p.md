@@ -149,7 +149,7 @@ Sipeed M0P 模组是基于[博流智能科技](http://www.bouffalolab.com/)的 B
         </tr>
         <tr>
           <td> SDK </td>
-          <td><a href="https://github.com/bouffalolab/bl_mcu_sdk"> github </a></td>
+          <td><a href="https://github.com/bouffalolab/bouffalo_sdk"> github </a></td>
         </tr>
         <tr>
           <td>Examples</td>
@@ -171,7 +171,7 @@ Sipeed M0P 模组是基于[博流智能科技](http://www.bouffalolab.com/)的 B
 - [BL618 参考手册](https://gitee.com/wonderfullook/bl_docs/tree/main/BL616_RM/zh_CN) (gitee)
 ---
 
-- [SDK](https://github.com/bouffalolab/bl_mcu_sdk) (github)
+- [SDK](https://github.com/bouffalolab/bouffalo_sdk) (github)
 - [Examples](https://github.com/sipeed/M0P_BL618_examples)（github）
 - 交流 QQ 群：`816177882` 。[点我加群](https://jq.qq.com/?_wv=1027&k=4lroNFnI)
 - 论坛：[bbs.sipeed.com](https://bbs.sipeed.com/)

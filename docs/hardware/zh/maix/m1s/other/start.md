@@ -44,6 +44,10 @@ M1S Dock 搭载有两个 TypeC 接口。默认情况下 UART 口用做于电脑�
 2. 上图中板子的左下角有 UART 口，默认有 USB 转双串口功能连接到 BL808 芯片的两个核心上
 3. 上图中板子的右下角有 OTG 口，M1s Dock 默认固件将它作用于烧录 C906 核心的固件。
 
+## 上电说明
+
+![m1s_dock_power_supply](./assets/start/m1s_dock_power_supply.png)
+
 ## 初次通电
 
 ### 板卡现象

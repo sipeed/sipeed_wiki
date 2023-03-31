@@ -276,6 +276,19 @@
               "file": "lichee/RV/ubuntu.md"
             }
           ]
+        },
+        {
+          "label": "LicheePI 4A",
+          "items":[
+          {
+            "label": "Lichee Module 4A",
+            "file": "lichee/th1520/lm4a.md"
+          },
+          {
+            "label": "Lichee PI 4A",
+            "file": "lichee/th1520/lp4a.md"
+          }
+        ]
         }
       ]
     },

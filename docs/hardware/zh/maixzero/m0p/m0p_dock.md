@@ -172,7 +172,7 @@ Sipeed M0P Dock 是使用 [Sipeed M0P](https://wiki.sipeed.com//hardware/zh/maix
         </tr>
         <tr>
           <td> SDK </td>
-          <td><a href="https://github.com/bouffalolab/bl_mcu_sdk"> github </a></td>
+          <td><a href="https://github.com/bouffalolab/bouffalo_sdk"> github </a></td>
         </tr>
         <tr>
           <td>Examples</td>
@@ -197,7 +197,7 @@ Sipeed M0P Dock 是使用 [Sipeed M0P](https://wiki.sipeed.com//hardware/zh/maix
 
 ---
 
-- [SDK](https://github.com/bouffalolab/bl_mcu_sdk) (github)
+- [SDK](https://github.com/bouffalolab/bouffalo_sdk) (github)
 - [Examples](https://github.com/sipeed/M0P_BL618_examples)（github）
 - 交流 QQ 群：`816177882` 。[点我加群](https://jq.qq.com/?_wv=1027&k=4lroNFnI)
 - 论坛：[bbs.sipeed.com](https://bbs.sipeed.com/)
