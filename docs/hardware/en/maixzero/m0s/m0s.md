@@ -191,8 +191,8 @@ Buy one: [Aliexpress](https://www.aliexpress.com/item/1005005142466936.html)
 
 ---
 
-- [Examples](https://github.com/sipeed/M0s_BL616_example)（github）
-- [SDK](https://github.com/bouffalolab/bouffalo_sdk) (Github)
+- [Sipeed Examples](https://github.com/sipeed/M0s_BL616_example)（Github）
+- [Bouffalolab SDK](https://github.com/bouffalolab/bouffalo_sdk) (Github)
 
 ---
 

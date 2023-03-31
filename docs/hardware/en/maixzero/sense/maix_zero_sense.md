@@ -259,7 +259,11 @@ Introduction video for [M1s Dock](https://wiki.sipeed.com/en/m1s#dock) and M0Sen
 
 ---
 
-- [SDK](https://github.com/bouffalolab/bouffalo_sdk) (Github) 
+- [Bouffalolab SDK](https://github.com/bouffalolab/bouffalo_sdk)(Github) 
+- [Sipeed example](https://gitee.com/Sipeed/M0sense_BL702_example)(Github) 
+
+---
+
 - [Telegram](https://t.me/sipeed)
 - [Twitter](https://twitter.com/SipeedIO)
 - [Reddit](https://www.reddit.com/r/Sipeed/)

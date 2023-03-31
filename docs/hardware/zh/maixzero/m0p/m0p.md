@@ -166,13 +166,16 @@ Sipeed M0P 模组是基于[博流智能科技](http://www.bouffalolab.com/)的 B
 - [模组尺寸图](https://dl.sipeed.com/shareURL/Maix-Zero/M0P/M0P/3_Dimensional_drawing)
 
 ---
+
 - [博流官方文档](https://dev.bouffalolab.com/home/)
 - [BL618 数据手册](https://gitee.com/wonderfullook/bl_docs/tree/main/BL616_DS/zh_CN) (gitee)
 - [BL618 参考手册](https://gitee.com/wonderfullook/bl_docs/tree/main/BL616_RM/zh_CN) (gitee)
+
 ---
 
-- [SDK](https://github.com/bouffalolab/bouffalo_sdk) (github)
-- [Examples](https://github.com/sipeed/M0P_BL618_examples)（github）
+
+- [Sipeed Examples](https://github.com/sipeed/M0P_BL618_examples)（github）
+- [Bouffalolab SDK](https://github.com/bouffalolab/bouffalo_sdk) (github)
 - 交流 QQ 群：`816177882` 。[点我加群](https://jq.qq.com/?_wv=1027&k=4lroNFnI)
 - 论坛：[bbs.sipeed.com](https://bbs.sipeed.com/)
 

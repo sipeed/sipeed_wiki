@@ -475,7 +475,7 @@ When compiling your firmware, make sure your command is `./build.sh demo_name`, 
 
 ## WIFI stream DEMO
 
-Wireless SDK will open in May. Before that we use this example to test the wireless of M1s Dock.
+An easy camera streaming demo.
 
 ### Preparation
 

@@ -253,6 +253,7 @@ M1s Dock 和 M0Sense 总览； M0Sense 在 3:15 处开始，之前的为 M1s Doc
 ---
 
 - [例程](https://github.com/sipeed/M0sense_BL702_example) (Github) 
+- [Bouffalolab SDK](https://github.com/bouffalolab/bouffalo_sdk)(Github) 
 - 交流 QQ 群：`816177882` 。[点我加群](https://jq.qq.com/?_wv=1027&k=CSnLIADN)
 - 论坛：[bbs.sipeed.com](https://bbs.sipeed.com/)
 

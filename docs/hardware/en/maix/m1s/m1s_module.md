@@ -368,9 +368,10 @@ Visit Schematic for details：[Click me](https://dl.sipeed.com/shareURL/MAIX/M1s
 
 ---
 
-- [SDK](https://github.com/sipeed/M1s_BL808_SDK) (Github) 
-- [Examples](https://github.com/sipeed/M1s_BL808_example)（Github）
-- [Linux](https://github.com/sipeed/M1s_BL808_Linux_SDK)（Github）
+- [Sipeed SDK](https://github.com/sipeed/M1s_BL808_SDK) (Github) 
+- [Sipeed Examples](https://github.com/sipeed/M1s_BL808_example)（Github）
+- [Bouffalolab SDK](https://github.com/bouffalolab/bouffalo_sdk)（Github）
+- [Linux SDK](https://github.com/sipeed/M1s_BL808_Linux_SDK)（Github）
 - [Telegram](https://t.me/sipeed)
 - [Twitter](https://twitter.com/SipeedIO)
 - [Reddit](https://www.reddit.com/r/Sipeed/)
