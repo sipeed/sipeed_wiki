@@ -1845,17 +1845,18 @@ cd /home/sherpa-ncnn-m3axpi
 
 ```bash
 ./sherpa-ncnn-alsa \
-./sherpa-ncnn-streaming-zipformer-small-bilingual-zh-en-2023-02-16/tokens.txt \
-./sherpa-ncnn-streaming-zipformer-small-bilingual-zh-en-2023-02-16/encoder_jit_trace-pnnx.ncnn.param \
-./sherpa-ncnn-streaming-zipformer-small-bilingual-zh-en-2023-02-16/encoder_jit_trace-pnnx.ncnn.bin \
-./sherpa-ncnn-streaming-zipformer-small-bilingual-zh-en-2023-02-16/decoder_jit_trace-pnnx.ncnn.param \
-./sherpa-ncnn-streaming-zipformer-small-bilingual-zh-en-2023-02-16/decoder_jit_trace-pnnx.ncnn.bin \
-./sherpa-ncnn-streaming-zipformer-small-bilingual-zh-en-2023-02-16/joiner_jit_trace-pnnx.ncnn.param \
-./sherpa-ncnn-streaming-zipformer-small-bilingual-zh-en-2023-02-16/joiner_jit_trace-pnnx.ncnn.bin \
+./sherpa-ncnn-streaming-zipformer-zh-14M-2023-02-23/tokens.txt \
+./sherpa-ncnn-streaming-zipformer-zh-14M-2023-02-23/encoder_jit_trace-pnnx.ncnn.param \
+./sherpa-ncnn-streaming-zipformer-zh-14M-2023-02-23/encoder_jit_trace-pnnx.ncnn.bin \
+./sherpa-ncnn-streaming-zipformer-zh-14M-2023-02-23/decoder_jit_trace-pnnx.ncnn.param \
+./sherpa-ncnn-streaming-zipformer-zh-14M-2023-02-23/decoder_jit_trace-pnnx.ncnn.bin \
+./sherpa-ncnn-streaming-zipformer-zh-14M-2023-02-23/joiner_jit_trace-pnnx.ncnn.param \
+./sherpa-ncnn-streaming-zipformer-zh-14M-2023-02-23/joiner_jit_trace-pnnx.ncnn.bin  \
 "hw:0,0" \
 4 \
 greedy_search
 ```
+
 
 - 英文语音识别
 
@@ -1891,23 +1892,3 @@ git clone https://huggingface.co/marcoyang/sherpa-ncnn-streaming-zipformer-zh-14
 ![bash_sherpa](./../assets/bash_sherpa.png)
 
 更新包拷贝完成后需放置到 AXera-Pi 板卡上的 `/home/sherpa-ncnn-m3axpi` 相对应目录下，具体的文件传输方法可参考[【文件传输】](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html#%E5%A6%82%E4%BD%95%E4%BC%A0%E8%BE%93%E6%96%87%E4%BB%B6)进行板卡与电脑互传。
-
-放置完成后先使用 `cd + 目录` 进入更新包存放的位置目录，再运行启动命令即可开始体验更灵敏的语音识别。
-
-```bash
-cd /home/sherpa-ncnn-m3axpi #先进入放置文件的目录
-```
-
-```bash
-./sherpa-ncnn-alsa \
-./sherpa-ncnn-streaming-zipformer-zh-14M-2023-02-23/tokens.txt \
-./sherpa-ncnn-streaming-zipformer-zh-14M-2023-02-23/encoder_jit_trace-pnnx.ncnn.param \
-./sherpa-ncnn-streaming-zipformer-zh-14M-2023-02-23/encoder_jit_trace-pnnx.ncnn.bin \
-./sherpa-ncnn-streaming-zipformer-zh-14M-2023-02-23/decoder_jit_trace-pnnx.ncnn.param \
-./sherpa-ncnn-streaming-zipformer-zh-14M-2023-02-23/decoder_jit_trace-pnnx.ncnn.bin \
-./sherpa-ncnn-streaming-zipformer-zh-14M-2023-02-23/joiner_jit_trace-pnnx.ncnn.param \
-./sherpa-ncnn-streaming-zipformer-zh-14M-2023-02-23/joiner_jit_trace-pnnx.ncnn.bin  \
-"hw:0,0" \
-4 \
-greedy_search
-```

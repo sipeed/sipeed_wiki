@@ -162,5 +162,4 @@ A：进入 uboot 模式了输入 boot 后即可启动。
 
 ![dual_gc4653](./../assets/dual_gc4653.jpg)
 
-这是 m3axpi 支持 gc4653 双摄的说明，硬件上不能支持 os04a10 双摄，软件支持但需要自己画底板。
-具体资料可参考：[点我](https://dl.sipeed.com/shareURL/MaixIII/AXera/11_patch/dual_gc4653_patch)
+在硬件上不能支持 os04a10 双摄，软件支持但需要自行画底板使用，使用 GC4653 双摄的话需替换设备树文件，具体资料可参考：[点我](https://dl.sipeed.com/shareURL/MaixIII/AXera/11_patch/dual_gc4653_patch)
