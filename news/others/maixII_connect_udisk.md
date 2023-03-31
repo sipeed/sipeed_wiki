@@ -6,7 +6,10 @@ tags: MaixII, U盘
 ---
 
 MaixII的USB口是用来做device连接电脑跑adb的。
+
 但是有没有方法可以在不跑adb的时候（总不能天天跑adb吧，再说adb也可以网络跑啊）连接一些USB设备玩玩呢。
+
+> 2023年02月以后的 0.5.4 镜像支持 UVC 摄像头 TTY 串口 等设备了。
 
 <!-- more -->
 
