@@ -1892,3 +1892,33 @@ git clone https://huggingface.co/marcoyang/sherpa-ncnn-streaming-zipformer-zh-14
 ![bash_sherpa](./../assets/bash_sherpa.png)
 
 更新包拷贝完成后需放置到 AXera-Pi 板卡上的 `/home/sherpa-ncnn-m3axpi` 相对应目录下，具体的文件传输方法可参考[【文件传输】](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html#%E5%A6%82%E4%BD%95%E4%BC%A0%E8%BE%93%E6%96%87%E4%BB%B6)进行板卡与电脑互传。
+
+## 商业应用方案
+
+### GC4653 支持双摄方案
+
+![dual_gc4653](./../assets/dual_gc4653.jpg)
+
+AXera-Pi 目前支持 GC4653 实现双摄方案，而 OS04A10 在硬件上不支持使用双摄，软件上支持但需自行画底板使用。使用 GC4653 双摄方案需替换相关的设备树文件，详情资料可参考：[资料包。](https://dl.sipeed.com/shareURL/MaixIII/AXera/11_patch/dual_gc4653_patch)
+
+```bash
+juwan@juwan-n85-dls:~/Downloads/m3axpi_dual_gc4653_notes$ tree .
+.
+├── 0001-support-dual-gc4653-camera.patch // 给软件 sample_vin 的示例补丁，用于说明如何在应用层添加双摄支持。
+├── dtb.img.lcd20221025.dual.gc4653       // 需要更新设备树，主要原因是第二个摄像头的 i2c 设备结点不对需要启用和修改，注 emmc 方案没有这个问题
+├── res.jpg                               // 用于给硬件接线排查 接线是否正常，正常的情况是怎样的，配合 sample_vin_-c_3 测试确认。
+├── run.png                               // 接线图   同上
+└── sample_vin_-c_3                       // 测试程序 同上
+
+0 directories, 5 files
+```
+
+基于此，就可以实现双摄支持了！
+
+### EMMC 量产相关方案
+
+目前已经支持 M3AXPI EMMC 量产的相关方案实现。
+
+**相关资料例程**：[[m3axpi]关于爱芯 ax620a 方案如何采用 EMMC 商业化量产成品这件事](https://www.cnblogs.com/juwan/p/17266132.html)
+
+![emmc](./../assets/emmc.jpg)

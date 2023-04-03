@@ -158,22 +158,4 @@ A：进入 uboot 模式了输入 boot 后即可启动。
 
 ![bootargs_command](./../../../en/maixIII/ax-pi/assets/qa/bootargs_command.png)
 
-## Q：关于 M3axpi 支持双摄的说明（支持 gc4653）
 
-![dual_gc4653](./../assets/dual_gc4653.jpg)
-
-在硬件上不能支持 os04a10 双摄，软件支持但需要自行画底板使用，使用 GC4653 双摄的话需替换设备树文件，具体资料可参考：[点我](https://dl.sipeed.com/shareURL/MaixIII/AXera/11_patch/dual_gc4653_patch)
-
-```bash
-juwan@juwan-n85-dls:~/Downloads/m3axpi_dual_gc4653_notes$ tree .
-.
-├── 0001-support-dual-gc4653-camera.patch // 给软件 sample_vin 的示例补丁，用于说明如何在应用层添加双摄支持。
-├── dtb.img.lcd20221025.dual.gc4653       // 需要更新设备树，主要原因是第二个摄像头的 i2c 设备结点不对需要启用和修改，注 emmc 方案没有这个问题
-├── res.jpg                               // 用于给硬件接线排查 接线是否正常，正常的情况是怎样的，配合 sample_vin_-c_3 测试确认。
-├── run.png                               // 接线图   同上
-└── sample_vin_-c_3                       // 测试程序 同上
-
-0 directories, 5 files
-```
-
-基于此，就可以实现双摄支持了！
