@@ -13,7 +13,7 @@ update:
 
 Sipeed M0P 模组是基于[博流智能科技](http://www.bouffalolab.com/)的 BL618 芯片所设计的一款 AIOT 模组，支持 WIFI6、蓝牙 5.2 等无线协议，邮票孔的让它能快速应用在多种 AIOT 场合。
 
-购买链接：[淘宝]()
+购买链接：[淘宝](https://item.taobao.com/item.htm?id=710359411812)
 
 <img src="./assets/m0p/m0p_module_outlook.png" alt="m0p_module_outlook" width=15%>
 

@@ -13,7 +13,7 @@ update:
 
 Sipeed M0P Dock 是使用 [Sipeed M0P](https://wiki.sipeed.com//hardware/zh/maixzero/m0p/m0p.html) 模组设计的开发板，主控是 [博流智能科技](http://www.bouffalolab.com/) 的 BL618 芯片，支持 Wifi6 和蓝牙 5.2 无线协议，默认最高主频 320MHz，支持 USB2.0 HS。板卡上有 DVP 接口来连接摄像头，有 FPC 座子来连接屏幕，有 TF 卡槽来扩展存储，还有一颗 WMM7027ATSN1 MEMS 麦克风用于自定义功能，板卡上还有电池充电管理电路，支持使用锂电池供电。
 
-购买链接：[淘宝]()
+购买链接：[淘宝](https://item.taobao.com/item.htm?id=710359411812)
 
 <img src="./assets/m0p_dock/m0p_dock_outlook.png" alt="m0p_dock_outlook" width=15%>
 
