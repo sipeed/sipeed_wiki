@@ -11,7 +11,7 @@ update:
 
 ## Introduction
 
-Tang Primer 20K is a core board with DDR3 sodimm shape based on [GW2A-V18PG256C8IC8I7](https://www.gowinsemi.com/en/product/detail/38/) as the main chip, with 2 ext-boards are prepared, the Dock and the Lite.
+Tang Primer 20K is a core board with DDR3 sodimm shape based on [GW2A-LV18PG256C8/I7](https://www.gowinsemi.com/en/product/detail/38/) as the main chip, with 2 ext-boards are prepared, the Dock and the Lite.
 
 <div>
     <img src="./assets/20k_front.png" width=45%>
