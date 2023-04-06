@@ -47,9 +47,10 @@ https://github.com/sipeed/TangNano-1K-examples
 Github Repository:
 https://github.com/sipeed/TangNano-4K-example
 
-- [Blink](./../Tang-Nano-4K/examples/led.md)
-- HDMI display project ：https://github.com/sipeed/TangNano-4K-example/tree/main/dk_video/project
-- Display camera content on HDMI：https://github.com/sipeed/TangNano-4K-example/tree/main/dk_video/project
+- [Blink](./../Tang-Nano-4K/examples/led.md) (Basic tutorial)
+- [Keyflag Blink](https://github.com/sipeed/TangNano-4K-example/tree/main/key_blink)(github)
+- [HDMI display project](https://github.com/sipeed/TangNano-4K-example/tree/main/hdmi_720p)(github)
+- [Display camera content on HDMI](https://github.com/sipeed/TangNano-4K-example/tree/main/camera_hdmi)(github)
 - Run GBA on Nano 4K ：https://github.com/Martoni/GbHdmi
 - Litex on Tang Nano 4K : https://github.com/litex-hub/litex-boards
 

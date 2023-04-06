@@ -35,7 +35,7 @@ Tang Nano 4K开发板板载的GW1NSR-LV4C，是一款系统级封装芯片，内
 
 ## 开发环境
 
-- 安装IDE的方法 [参考](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/get_started/install-the-ide.html)
+- 安装 IDE [点我](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/get_started/install-the-ide.html)
 
 ## 下载方式
 
@@ -43,9 +43,14 @@ Tang Nano 4K 开发板板载 BL702 芯片，为 GW1NSR-4C 提供 JTAG 调试功�
 
 ## 资料
 
+- [规格书](https://dl.sipeed.com/shareURL/TANG/Nano%204K/HDK/01_Specification)
+- [原理图](https://dl.sipeed.com/shareURL/TANG/Nano%204K/HDK/02_Schematic)
+- [点位图](https://dl.sipeed.com/shareURL/TANG/Nano%204K/HDK/03_Bit%20number%20map)
+- [尺寸图](https://dl.sipeed.com/shareURL/TANG/Nano%204K/HDK/04_Dimensional%20drawing)
+- [3D 文件](https://dl.sipeed.com/shareURL/TANG/Nano%204K/HDK/05_3D%20file)
+- [芯片手册](https://dl.sipeed.com/shareURL/TANG/Nano%204K/HDK/06_Chip%20Manual)
+
 - [相关例程](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/examples.html)
-- [Schematic](https://dl.sipeed.com/shareURL/TANG/Nano%204K/HDK/02_Schematic)
-- [Tang Nano 4K 资料库](https://dl.sipeed.com/shareURL/TANG/Nano%204K)
 
 ## 补充
 

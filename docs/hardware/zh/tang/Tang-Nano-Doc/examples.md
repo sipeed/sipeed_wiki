@@ -36,13 +36,17 @@ https://dl.sipeed.com/shareURL/TANG/programmer 里面的文件。
 
 ### Tang Nano 4K
 
-- [点灯例程](./../Tang-Nano-4K/examples/LED.md)
-- 使用 Cortex-M3 点灯例程：[Github](https://github.com/verilog-indeed/gowin_fpga_tutorials) (英文)
-- HDMI显示工程：https://github.com/sipeed/TangNano-4K-example/tree/main/dk_video/project
-- 摄像头内容显示在HDMI工程：https://github.com/sipeed/TangNano-4K-example/tree/main/dk_video/project
+- [点灯例程](./../Tang-Nano-4K/examples/LED.md) （快速上手）
+- [按键标志点灯](https://github.com/sipeed/TangNano-4K-example/tree/main/key_blink)(github)
+- [HDMI显示工程](https://github.com/sipeed/TangNano-4K-example/tree/main/hdmi_720p)(github)
+- [HDMI 显示摄像头内容](https://github.com/sipeed/TangNano-4K-example/tree/main/camera_hdmi)(github)
 - 在Nano 4K上运行GBA的工程：https://github.com/Martoni/GbHdmi
 - litex 在 4K 支持：https://github.com/litex-hub/litex-boards
 
+其他： 
+
+- 使用 Cortex-M3 点灯例程：[Github](https://github.com/verilog-indeed/gowin_fpga_tutorials) (英文)
+- 
 ### Tang Nano 9K
 
 - [点灯例程](./../Tang-Nano-9K/examples/LED.md)
