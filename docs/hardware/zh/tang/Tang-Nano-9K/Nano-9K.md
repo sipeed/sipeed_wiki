@@ -8,25 +8,25 @@ Tang Nano 9K 是基于高云半导体 GW1NR-9 FPGA芯片设计的精简型开发
 
 ## 产品参数
 
-| 类别 |数值 |
-| --------------------------------- | ------------------------------------------------------------ |
-| 逻辑单元(LUT4)                    | 8640                                                         |
-| 寄存器(FF)                        | 6480                                                         |
-| 分布式静态随机存储器  <br>SSRAM(bits) | 17280                                                        |
-| 块状静态随机存储器  <br>B-SRAM(bits)  | 468K                                                         |
-| 块状静态随机存储器数目<br>BSRAM（个） | 26                                                           |
-| 用户闪存(bits)                    | 608K                                                         |
-| PSRAM(bits)                       | 64M                                                          |
-| 高性能DSP模块                     | 支持9x9,18x18,36x36bit的乘法运算和54bit累加器                |
-| 乘法器  <br>(18 x 18 Multiplier)      | 20                                                           |
-| SPI FLASH                         | 32M-bits                                                  |
-| 灵活的PLL资源                     | 2个锁相环（PLLs）                                            |
-| 显示屏幕接口                      | HDMI接口, SPI屏幕接口和RGB屏幕接口                           |
-| 调试器                            | 板载BL702芯片，为GW1NR-9提供USB-JTAG下载和USB-UART串口打印功能 |
-| IO                                | • 支持4mA、8mA、16mA、24mA等驱动能力   <br>• 对每个I/O提供独立的Bus Keeper、上拉/下拉电阻及Open Drain输出选项 |
-| 连接器                            | TF卡座子, 2x24P  2.54mm 排针焊盘                             |
-| 按键                              | 2个用户可编程按键                                            |
-| LED                               | 板载6个可编程LED                                             |
+| 类别                                  | 数值                                                                                                          |
+| ------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| 逻辑单元(LUT4)                        | 8640                                                                                                          |
+| 寄存器(FF)                            | 6480                                                                                                          |
+| 分布式静态随机存储器  <br>SSRAM(bits) | 17280                                                                                                         |
+| 块状静态随机存储器  <br>B-SRAM(bits)  | 468K                                                                                                          |
+| 块状静态随机存储器数目<br>BSRAM（个） | 26                                                                                                            |
+| 用户闪存(bits)                        | 608K                                                                                                          |
+| PSRAM(bits)                           | 64M                                                                                                           |
+| 高性能DSP模块                         | 支持9x9,18x18,36x36bit的乘法运算和54bit累加器                                                                 |
+| 乘法器  <br>(18 x 18 Multiplier)      | 20                                                                                                            |
+| SPI FLASH                             | 32M-bits                                                                                                      |
+| 灵活的PLL资源                         | 2个锁相环（PLLs）                                                                                             |
+| 显示屏幕接口                          | HDMI接口, SPI屏幕接口和RGB屏幕接口                                                                            |
+| 调试器                                | 板载BL702芯片，为GW1NR-9提供USB-JTAG下载和USB-UART串口打印功能                                                |
+| IO                                    | • 支持4mA、8mA、16mA、24mA等驱动能力   <br>• 对每个I/O提供独立的Bus Keeper、上拉/下拉电阻及Open Drain输出选项 |
+| 连接器                                | TF卡座子, 2x24P  2.54mm 排针焊盘                                                                              |
+| 按键                                  | 2个用户可编程按键                                                                                             |
+| LED                                   | 板载6个可编程LED                                                                                              |
 
 ### 板载功能框图
 
@@ -40,25 +40,25 @@ Tang Nano 9K 是基于高云半导体 GW1NR-9 FPGA芯片设计的精简型开发
 
 Tang Nano 9K 是 Sipeed 所推出的第五款 FPGA 开发板，与在售前代产品参数对比如下：
 
-| 版型               | Tang Nano 1K                             | Tang Nano 4K                             | Tang Nano 9K                                            |
-| :------------------ | :--------------------------------------- | :--------------------------------------- | :------------------------------------------------------ |
-| 外观图          | <img src="./../../../zh/tang/Tang-Nano/assets/clip_image002.gif" width="180" > | <img src="./../../../zh/tang/Tang-Nano/assets/clip_image004.gif" width="180" > | <img src="./../../../zh/tang/Tang-Nano/assets/clip_image006.gif" width="180" >                |
-| 逻辑单元 (LUT4)  | 1152                                     | 4608                                     | 8640                                                    |
-| 硬核处理器 |                                         | Cortex M3                                |                                                        |
-| 板载晶振  | 27MHZ                                    | 27MHZ                                    | 27MHZ                                                   |
-| 屏幕接口   | RGB 屏幕接口                   | HDMI 接口                                    | HDMI 接口, <br>RGB 屏幕接口,<br>SPI 屏幕接口 |
-| 摄像头接口              |                                        | 默认 OV2640                           |                                                        |
-| 外部存储  | 仅预留焊盘                       | 32Mbits SPI flash                        | 32Mbits SPI flash                                       |
-| TF 卡槽        |                                         |                                         | 有                                                     |
-| 下载器            | 板载 USB-JTAG                         | 板载 USB-JTAG                         | 板载 USB-JTAG & USB-UART                             |
+| 版型            | Tang Nano 1K                                                                   | Tang Nano 4K                                                                   | Tang Nano 9K                                                                   |
+| :-------------- | :----------------------------------------------------------------------------- | :----------------------------------------------------------------------------- | :----------------------------------------------------------------------------- |
+| 外观图          | <img src="./../../../zh/tang/Tang-Nano/assets/clip_image002.gif" width="180" > | <img src="./../../../zh/tang/Tang-Nano/assets/clip_image004.gif" width="180" > | <img src="./../../../zh/tang/Tang-Nano/assets/clip_image006.gif" width="180" > |
+| 逻辑单元 (LUT4) | 1152                                                                           | 4608                                                                           | 8640                                                                           |
+| 硬核处理器      |                                                                                | Cortex M3                                                                      |                                                                                |
+| 板载晶振        | 27MHZ                                                                          | 27MHZ                                                                          | 27MHZ                                                                          |
+| 屏幕接口        | RGB 屏幕接口                                                                   | HDMI 接口                                                                      | HDMI 接口, <br>RGB 屏幕接口,<br>SPI 屏幕接口                                   |
+| 摄像头接口      |                                                                                | 默认 OV2640                                                                    |                                                                                |
+| 外部存储        | 仅预留焊盘                                                                     | 32Mbits SPI flash                                                              | 32Mbits SPI flash                                                              |
+| TF 卡槽         |                                                                                |                                                                                | 有                                                                             |
+| 下载器          | 板载 USB-JTAG                                                                  | 板载 USB-JTAG                                                                  | 板载 USB-JTAG & USB-UART                                                       |
 
 ## 适用人群
 
-| 用法     | FPGA                             | MCU                                | FPGA+MCU                     |
-| :---- | :---------- | :------------- | :----------------- |
-| 语言     | Verilog HDL/Verilog         | C/C++               | Verilog HDL/Verilog ，  C/C++                |
-| 简介     | 上板验证用户HDL | 用户将软核的比特流文件下载到芯片后可将<br>GW1NR-9当做普通的MCU来使用  | 烧入软核后可以进行双核开发 |
-| 适用人群 | 初学者，FPGA开发者        | RISC-V开发者，Cortex-M开发者          | 资深软硬件工程师             |
+| 用法     | FPGA                | MCU                                                                  | FPGA+MCU                      |
+| :------- | :------------------ | :------------------------------------------------------------------- | :---------------------------- |
+| 语言     | Verilog HDL/Verilog | C/C++                                                                | Verilog HDL/Verilog ，  C/C++ |
+| 简介     | 上板验证用户HDL     | 用户将软核的比特流文件下载到芯片后可将<br>GW1NR-9当做普通的MCU来使用 | 烧入软核后可以进行双核开发    |
+| 适用人群 | 初学者，FPGA开发者  | RISC-V开发者，Cortex-M开发者                                         | 资深软硬件工程师              |
 
 ## 上手指引
 

@@ -26,11 +26,16 @@ Tang Nano 1K is a core board designed based on [Gowin](https://www.gowinsemi.com
 
 ![pinmap](./assets/1k-pin.png)
 
-## Others
+## Informations
 
+- [Datasheet](https://dl.sipeed.com/shareURL/TANG/Nano%201K/1_Specification)
 - [Schematic](https://dl.sipeed.com/shareURL/TANG/Nano%201K/2_Schematic)
-- [Download center](https://dl.sipeed.com/shareURL/TANG/Nano%201K)
-- [Examples](./../Tang-Nano-Doc/examples.md)
+- [Bit number map](https://dl.sipeed.com/shareURL/TANG/Nano%201K/3_Bit_number_map)
+- [Dimensional drawing](https://dl.sipeed.com/shareURL/TANG/Nano%201K/4_Dimensional_drawing)
+- [3D File](https://dl.sipeed.com/shareURL/TANG/Nano%201K/5_3D_file)
+- [Chip Manual](https://dl.sipeed.com/shareURL/TANG/Nano%201K/6_Chip_Manual)
+
+- [Examples](https://wiki.sipeed.com/hardware/en/tang/Tang-Nano-Doc/examples.html)
 
 ## Addition
 

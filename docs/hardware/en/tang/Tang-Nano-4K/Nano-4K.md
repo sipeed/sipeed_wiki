@@ -42,11 +42,16 @@ Tang Nano 4K uses the onboard BL702 for jtag, with which to burn bitstream.
 
 Run the Programmer in Gowin IDE to download firmware into FPGA.
 
-## Information
+## Informations
+
+- [Datasheet](https://dl.sipeed.com/shareURL/TANG/Nano%204K/HDK/01_Specification)
+- [Schematic](https://dl.sipeed.com/shareURL/TANG/Nano%204K/HDK/02_Schematic)
+- [Bit number map](https://dl.sipeed.com/shareURL/TANG/Nano%204K/HDK/03_Bit%20number%20map)
+- [Dimensional drawing](https://dl.sipeed.com/shareURL/TANG/Nano%204K/HDK/04_Dimensional%20drawing)
+- [3D File](https://dl.sipeed.com/shareURL/TANG/Nano%204K/HDK/05_3D%20file)
+- [hip Manual](https://dl.sipeed.com/shareURL/TANG/Nano%204K/HDK/06_Chip%20Manual)
 
 - [Examples](https://wiki.sipeed.com/hardware/en/tang/Tang-Nano-Doc/examples.html)
-- [Schematic](https://dl.sipeed.com/shareURL/TANG/Nano%204K/HDK/02_Schematic)
-- [Download center](https://dl.sipeed.com/shareURL/TANG/Nano%204K/)
 
 ## Addition
 

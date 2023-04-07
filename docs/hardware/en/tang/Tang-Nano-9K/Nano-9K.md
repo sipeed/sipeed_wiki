@@ -12,41 +12,41 @@ Tang nano 9K is a development board based on [Gowin](https://www.gowinsemi.com/e
 
 Tang Nano 9K is the 5th product of Sipeed Tang series. Before purchasing, you can compare and choose from the following table according to your demands:
 
-| Model               | Tang Nano 1K                             | Tang Nano 4K                             | Tang Nano 9K                                            |
-| :------------------ | :--------------------------------------- | :--------------------------------------- | :------------------------------------------------------ |
-| Appearance          | <img src="./../../../zh/tang/Tang-Nano/assets/clip_image002.gif" width="180" > | <img src="./../../../zh/tang/Tang-Nano/assets/clip_image004.gif" width="180" > | <img src="./../../../zh/tang/Tang-Nano/assets/clip_image006.gif" width="180" >                |
-| Logic Units (LUT4)  | 1152                                     | 4608                                     | 8640                                                    |
-| Hard core processor | /                                        | Cortex m3                                | /                                                       |
-| Crystal oscillator  | 27MHZ                                    | 27MHZ                                    | 27MHZ                                                   |
-| Display interface   | RGB screen interface                     | HDMI                                     | HDMI, <br>RGB screen interface,<br>SPI screen interface |
-| Camera              | /                                        | Support OV2640                           | /                                                       |
-| External SPI FLASH  | Reserved pads only                       | 32Mbits SPI flash                        | 32Mbits SPI flash                                       |
-| TF card slot        | /                                        | /                                        | Yes                                                     |
-| Debugger            | Onboard USB-JTAG                         | Onboard USB-JTAG                         | Onboard USB-JTAG & USB-UART                             |
+| Model               | Tang Nano 1K                                                                   | Tang Nano 4K                                                                   | Tang Nano 9K                                                                   |
+| :------------------ | :----------------------------------------------------------------------------- | :----------------------------------------------------------------------------- | :----------------------------------------------------------------------------- |
+| Appearance          | <img src="./../../../zh/tang/Tang-Nano/assets/clip_image002.gif" width="180" > | <img src="./../../../zh/tang/Tang-Nano/assets/clip_image004.gif" width="180" > | <img src="./../../../zh/tang/Tang-Nano/assets/clip_image006.gif" width="180" > |
+| Logic Units (LUT4)  | 1152                                                                           | 4608                                                                           | 8640                                                                           |
+| Hard core processor | /                                                                              | Cortex m3                                                                      | /                                                                              |
+| Crystal oscillator  | 27MHZ                                                                          | 27MHZ                                                                          | 27MHZ                                                                          |
+| Display interface   | RGB screen interface                                                           | HDMI                                                                           | HDMI, <br>RGB screen interface,<br>SPI screen interface                        |
+| Camera              | /                                                                              | Support OV2640                                                                 | /                                                                              |
+| External SPI FLASH  | Reserved pads only                                                             | 32Mbits SPI flash                                                              | 32Mbits SPI flash                                                              |
+| TF card slot        | /                                                                              | /                                                                              | Yes                                                                            |
+| Debugger            | Onboard USB-JTAG                                                               | Onboard USB-JTAG                                                               | Onboard USB-JTAG & USB-UART                                                    |
 
 
 ## Characteristic
 
 This form shows detail specs of Tang Nano 9K
 
-| Item                                                                                                       | value                                                                   |
-| ---------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| Logic units(LUT4)                                                                                          | 8640                                                                    |
-| Registers(FF)                                                                                              | 6480                                                                    |
-| ShadowSRAM SSRAM(bits)                                                                                     | 17280                                                                   |
-| Block SRAM BSRAM(bits)                                                                                     | 468K                                                                    |
-| Number of B-SRAM                                                                                           | 26                                                                      |
-| User flash(bits)                                                                                           | 608K                                                                    |
-| SDR SDRAM(bits)                                                                                            | 64M                                                                     |
-| 18 x 18 Multiplier                                                                                         | 20                                                                      |
-| SPI FLASH                                                                                                  | 32M-bit                                                                 |
-| Number of PLL                                                                                              | 2                                                                       |
-| Display interface                                                                                          | HDMI interface, SPI screen interface and RGB screen interface           |
-| Debugger                                                                                                   | Onboard BL702 chip provides USB-JTAG and USB-UART functions for GW1NR-9 |
-| IO                                                                                                         | • support 4mA、8mA、16mA、24mA other driving capabilities <br>• Provides independent Bus Keeper, pull-up/pull-down resistors, and Open Drain output options for each I/O |
-| Connector                                                                                                  | TF card slot, 2x24P 2.54mm Header pads                                  |
-| Button                                                                                                     | 2 programmable buttons for users                                        |
-| LED                                                                                                        | Onboard 6 programmable LEDs                                             |
+| Item                   | value                                                                                                                                                                    |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Logic units(LUT4)      | 8640                                                                                                                                                                     |
+| Registers(FF)          | 6480                                                                                                                                                                     |
+| ShadowSRAM SSRAM(bits) | 17280                                                                                                                                                                    |
+| Block SRAM BSRAM(bits) | 468K                                                                                                                                                                     |
+| Number of B-SRAM       | 26                                                                                                                                                                       |
+| User flash(bits)       | 608K                                                                                                                                                                     |
+| SDR SDRAM(bits)        | 64M                                                                                                                                                                      |
+| 18 x 18 Multiplier     | 20                                                                                                                                                                       |
+| SPI FLASH              | 32M-bit                                                                                                                                                                  |
+| Number of PLL          | 2                                                                                                                                                                        |
+| Display interface      | HDMI interface, SPI screen interface and RGB screen interface                                                                                                            |
+| Debugger               | Onboard BL702 chip provides USB-JTAG and USB-UART functions for GW1NR-9                                                                                                  |
+| IO                     | • support 4mA、8mA、16mA、24mA other driving capabilities <br>• Provides independent Bus Keeper, pull-up/pull-down resistors, and Open Drain output options for each I/O |
+| Connector              | TF card slot, 2x24P 2.54mm Header pads                                                                                                                                   |
+| Button                 | 2 programmable buttons for users                                                                                                                                         |
+| LED                    | Onboard 6 programmable LEDs                                                                                                                                              |
 
 ### On-board Function block
 
@@ -56,11 +56,11 @@ This form shows detail specs of Tang Nano 9K
 
 ![Generated](./../../../zh/tang/Tang-Nano-9K/assets/clip_image010.gif)
 
-| Usage           | FPGA                     | MCU                                                                               | FPGA+MCU                                                              |
-| :-------------- | :----------------------- | :-------------------------------------------------------------------------------- | :-------------------------------------------------------------------- |
-| Language        | Verilog HDL/Verilog      | C/C++                                                                             | Verilog HDL/Verilog ，  C/C++                                         |
-| Introduction         | verify HDL design        | After flashing the softcore bitstream, <br>this board can be used as a normal microcontroller unit | After flashing the softcore bitstream,<br>it can be used as two chips |
-| User | Beginner，FPGA developer | RISC-V developers，Cortex-M developers                                            | Senior engineer                                 |
+| Usage        | FPGA                     | MCU                                                                                                | FPGA+MCU                                                              |
+| :----------- | :----------------------- | :------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------- |
+| Language     | Verilog HDL/Verilog      | C/C++                                                                                              | Verilog HDL/Verilog ，  C/C++                                         |
+| Introduction | verify HDL design        | After flashing the softcore bitstream, <br>this board can be used as a normal microcontroller unit | After flashing the softcore bitstream,<br>it can be used as two chips |
+| User         | Beginner，FPGA developer | RISC-V developers，Cortex-M developers                                                             | Senior engineer                                                       |
 
 ## User guide
 
@@ -131,4 +131,4 @@ Visit [examples](./../Tang-Nano-Doc/examples.md)
 7. Avoid any liquid or metal touching the pads of components on PCBA during working, because this will cause short circuit and damage PCBA.
 
 8. Pay attention to the multiplexed IO. The HDMI io ports are pulled up, when using these ios which are routed to pin headers, then may not meets your command.
-    ![nano_9k_hdmi_io](./assets/nano_9k_hdmi_io.png)
+    ![nano_9k_hdmi_io](./../../../zh/tang/Tang-Nano-9K/assets/nano_9k_hdmi_io.png)
