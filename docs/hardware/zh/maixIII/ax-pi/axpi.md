@@ -192,10 +192,10 @@ keywords: MAIX-III, AXera-Pi, Maix3, Sipeed, ax620a, axera, sipeed, AI, model, m
 - [MAIX-III AXera-Pi 系列文章（1）：新一代 3.6T 视觉 AI 板卡面世](https://aijishu.com/a/1060000000374898)
 - [MAIX-III AXera-Pi 系列文章（2）：丰富多采的 AI 应用](https://aijishu.com/a/1060000000374900)
 - [MAIX-III AXera-Pi 系列文章（3）：Debian 系统 & 开箱案例](https://aijishu.com/a/1060000000374902)
-- [MAIX-III AXera-Pi 系列文章（4）：开箱之硬件初体验](https://aijishu.com/a/1060000000378968)
-- [MAIX-III AXera-Pi 系列文章（5）：玩转 AI 板卡，来学超丝滑上手！](https://aijishu.com/a/1060000000380513)
-- [MAIX-III AXera-Pi 系列文章（6）：开箱 & 登录 Linux 系统](https://aijishu.com/a/1060000000383970)
-- [MAIX-III AXera-Pi 系列文章（7）：开箱 & 配置网络](https://aijishu.com/a/1060000000384867)
+- [MAIX-III AXera-Pi 系列文章：开箱之硬件初体验](https://aijishu.com/a/1060000000378968)
+- [MAIX-III AXera-Pi 系列文章：上手之丝滑玩转 AI 板卡【一】](https://aijishu.com/a/1060000000380513)
+- [MAIX-III AXera-Pi 系列文章：上手之丝滑玩转 AI 板卡【二】](https://aijishu.com/a/1060000000383970)
+- [YOLOv8 目标检测：训练自定义数据集并部署到爱芯派（一）](https://aijishu.com/a/1060000000395215)
 
 产品相关的新闻内容有：
 
