@@ -183,53 +183,73 @@ Maix 系列产品可以在多种场景实现客户不同方面的需要，在 AI
 
 ## Tang FPGA 系列
 
-### 在售产品
+Tang FPGA 目前分为 Tang Nano 和 Tang Primer 两个系列。
+- Tang Nano 是尽可能小体积的核心板
+- Tang Primer 是多引脚多拓展性的开发板。
 
-| 项目            | <p style="white-space:nowrap">Tang Primer 20K</p> | <p style="white-space:nowrap">Tang Nano 9K</p> | <p style="white-space:nowrap">Tang Nano 4K</p> | <p style="white-space:nowrap">Tang Nano 1K</p> |
-| :-------------- | :------------------------------------------------ | :--------------------------------------------- | :--------------------------------------------- | ---------------------------------------------- |
-| 逻辑单元(LUT4)  | 20736                                             | 8640                                           | 4608                                           | 1152                                           |
-| 寄存器（FF）    | 15552                                             | 6480                                           | 3456                                           | 864                                            |
-| S-SRAM (bits)   | 41472                                             | 17280                                          |                                                |                                                |
-| B-SRAM (bits)   | 828K x 46                                         | 468K x 26                                      | 180K x 10                                      | 72K x 4                                        |
-| 用户闪存 (bits) |                                                   | 608K                                           | 256K                                           | 96K                                            |
-| 锁相环 (PLL)    | 4                                                 | 2                                              | 2                                              | 1                                              |
-| 板载 Flash      | 32Mbits NOR Flash                                 | 32Mbits NOR Flash                              | 32Mbits NOR Flash                              | 预留焊盘                                       |
-| 硬核处理器      |                                                   |                                                | Cortex-M3                                      |
+### Tang Nano
 
-- Tang FPGA 系列开发板主要分为 Tang Nano 和 Tang Primer 两个系列。
+| 项目            | <p style="white-space:nowrap">Tang Nano 20K</p> | <p style="white-space:nowrap">Tang Nano 9K</p> | <p style="white-space:nowrap">Tang Nano 4K</p> | <p style="white-space:nowrap">Tang Nano 1K</p> |
+| :-------------- | :---------------------------------------------- | :--------------------------------------------- | :--------------------------------------------- | ---------------------------------------------- |
+| 逻辑单元(LUT4)  | 20736                                           | 8640                                           | 4608                                           | 1152                                           |
+| 寄存器（FF）    | 15552                                           | 6480                                           | 3456                                           | 864                                            |
+| S-SRAM (bits)   | 41472                                           | 17280                                          |                                                |                                                |
+| B-SRAM (bits)   | 828K x 46                                       | 468K x 26                                      | 180K x 10                                      | 72K x 4                                        |
+| 用户闪存 (bits) |                                                 | 608K                                           | 256K                                           | 96K                                            |
+| 锁相环 (PLL)    | 2                                               | 2                                              | 2                                              | 1                                              |
+| RAM             | 32bits SDR SDRAM                                | 16 bits PSRAM                                  | 8bits HyperRam                                 |                                                |
+| RAM 容量        | 64Mb                                            | 64M                                            | 64Mb                                           |                                                |
+| 板载 Flash      | 64Mbits NOR Flash                               | 32Mbits NOR Flash                              | 32Mbits NOR Flash                              | 预留焊盘                                       |
+| 硬核处理器      |                                                 |                                                | Cortex-M3                                      |                                                |
 
 <table>
 <thead>
 <tr>
-<th style="text-align:center">Tang Primer 20K（核心板）</th>
-<th style="text-align:center">Tang Nano 1K</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"><a href="./tang/tang-primer-20k/primer-20k.html"><img src="./tang/../../assets/Tang/primer_20k/primer_20k.png" alt="Tang Primer 20K（核心板）"></a></td>
-<td style="text-align:center"><a href="./tang/Tang-Nano-1K/Nano-1k.html"><img src="./tang/../../assets/Tang/Nano-1K/1K.png" alt="Tang Nano 1K"></a></td>
-</tr>
-</tbody>
-<thead>
-<tr>
-<th style="text-align:center">Tang Nano 4K</th>
+<th style="text-align:center">Tang Nano 20K</th>
 <th style="text-align:center">Tang Nano 9K</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center"><a href="./tang/Tang-Nano-4K/Nano-4K.html"><img src="./tang/../../assets/Tang/Nano_4K/Nano_4K.png" alt="Tang Nano 4K"></a></td>
-<td style="text-align:center"><a href="./tang/Tang-Nano-9K/Nano-9K.html"><img src="./tang/../../assets/Tang/Nano-9K/9K.png" alt="Tang Nano 9K"></a></td>
+<td style="text-align:center"><a href="./tang/tang-nano-20k/nano-20k.html"><img src="./../assets/Tang/nano_20k/tang_nano_20k_3920_top.png" alt="Tang Nano 20K"></a></td>
+<td style="text-align:center"><a href="./tang/Tang-Nano-9K/Nano-9K.html"><img src="./../assets/Tang/Nano-9K/9K.png" alt="Tang Nano 9K"></a></td>
+</tr>
+</tbody>
+<thead>
+<tr>
+<th style="text-align:center">Tang Nano 4K</th>
+<th style="text-align:center">Tang Nano 1K</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><a href="./tang/Tang-Nano-4K/Nano-4K.html"><img src="./../assets/Tang/Nano_4K/Nano_4K.png" alt="Tang Nano 4K"></a></td>
+<td style="text-align:center"><a href="./tang/Tang-Nano-1K/Nano-1k.html"><img src="./../assets/Tang/Nano-1K/1K.png" alt="Tang Nano 1K"></a></td>
 </tr>
 </tbody>
 </table>
 
+### Tang Primer
+
+| 项目           | <p style="white-space:nowrap">Tang Primer 20K</p>                                      |
+| :------------- | :------------------------------------------------------------------------------------- |
+| 逻辑单元(LUT4) | 20736                                                                                  |
+| 寄存器（FF）   | 15552                                                                                  |
+| S-SRAM (bits)  | 41472                                                                                  |
+| B-SRAM (bits)  | 828K x 46                                                                              |
+| 锁相环 (PLL)   | 4                                                                                      |
+| 板载内存       | 16bits DDR3 RAM                                                                        |
+| 板载内存容量   | 128MB                                                                                  |
+| 板载 Flash     | 32Mbits NOR Flash                                                                      |
+| 核心板照片     | <img src="./../assets/Tang/primer_20k/primer_20k.png" alt="Tang Primer 20K（核心板）"> |
+| 底板数量       | 2                                                                                      |
+| 详情页         | <a href="./tang/tang-primer-20k/primer-20k.html"> 点我 </a>                            |
+
 ### 售罄产品
 
-|                                       Tang Nano                                       |                                              Tang Primer                                               |
-| :-----------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------: |
-| [![Tang Nano](./tang/../../assets/Tang/Nano/Tang_Nano.jpg)](./tang/Tang-Nano/Nano.md) | [![Tang Primer](./tang/../../assets/Tang/permier/Tang_permier.jpg)](./tang/Tang-primer/Tang-primer.md) |
+|                                   Tang Nano                                   |                                          Tang Primer                                           |
+| :---------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------: |
+| [![Tang Nano](./../assets/Tang/Nano/Tang_Nano.jpg)](./tang/Tang-Nano/Nano.md) | [![Tang Primer](./../assets/Tang/permier/Tang_permier.jpg)](./tang/Tang-primer/Tang-primer.md) |
 
 ## MaixSense 系列
 

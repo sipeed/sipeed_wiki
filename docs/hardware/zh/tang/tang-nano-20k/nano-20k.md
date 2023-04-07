@@ -83,7 +83,7 @@ Tang Nano 20K 是采用高云半导体 [GW2AR-18 QN88](http://www.gowinsemi.com.
     	<tr>
     		<td style="text-align:left">时钟芯片</td>
     		<td style="text-align:left">MS5351</td>
-    		<td style="text-align:left">给 FPGA 芯片提供额外的两路时钟<br>· 一路差分时钟<br>· 一路单端时钟</td>
+    		<td style="text-align:left">给 FPGA 芯片提供额外的三路时钟</td>
     	</tr>
     	<tr>
     		<td style="text-align:left">显示接口</td>
