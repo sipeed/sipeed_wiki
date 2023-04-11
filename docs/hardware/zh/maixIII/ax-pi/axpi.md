@@ -166,6 +166,17 @@ keywords: MAIX-III, AXera-Pi, Maix3, Sipeed, ax620a, axera, sipeed, AI, model, m
 
 #### 丰富的社区资源！
 
+产品相关的专栏内容有（官方维护）：
+
+- [MAIX-III AXera-Pi 系列文章（1）：新一代 3.6T 视觉 AI 板卡面世](https://aijishu.com/a/1060000000374898)
+- [MAIX-III AXera-Pi 系列文章（2）：丰富多采的 AI 应用](https://aijishu.com/a/1060000000374900)
+- [MAIX-III AXera-Pi 系列文章（3）：Debian 系统 & 开箱案例](https://aijishu.com/a/1060000000374902)
+- [MAIX-III AXera-Pi 系列文章：开箱之硬件初体验](https://aijishu.com/a/1060000000378968)
+- [MAIX-III AXera-Pi 系列文章：上手之丝滑玩转 AI 板卡【一】](https://aijishu.com/a/1060000000380513)
+- [MAIX-III AXera-Pi 系列文章：上手之丝滑玩转 AI 板卡【二】](https://aijishu.com/a/1060000000383970)
+- [YOLOv8 目标检测：训练自定义数据集并部署到爱芯派（一）](https://aijishu.com/a/1060000000395215)
+- [YOLOv8 目标检测：训练自定义数据集并部署到爱芯派（二）](https://aijishu.com/a/1060000000395812)
+
 以下是由社区开发者贡献的内容，欢迎你也来贡献喔！！！（直接丢群里都可以喔！）
 
 - [爱芯派-AI微光全彩夜视-开箱体验](https://zhuanlan.zhihu.com/p/571233089)
@@ -187,15 +198,6 @@ keywords: MAIX-III, AXera-Pi, Maix3, Sipeed, ax620a, axera, sipeed, AI, model, m
 - [国产AI开发板测评 | MAIX-III AXera-Pi 上手 YOLOv5s 实时目标检测](https://mp.weixin.qq.com/s/lqxL-DmhBa-K9gu3uEyebQ)
 - [【AXPI】如何在 M1/M2 Mac上使用 Rndis](https://blog.csdn.net/flamebox/article/details/127103964)
 
-产品相关的专栏内容有：
-
-- [MAIX-III AXera-Pi 系列文章（1）：新一代 3.6T 视觉 AI 板卡面世](https://aijishu.com/a/1060000000374898)
-- [MAIX-III AXera-Pi 系列文章（2）：丰富多采的 AI 应用](https://aijishu.com/a/1060000000374900)
-- [MAIX-III AXera-Pi 系列文章（3）：Debian 系统 & 开箱案例](https://aijishu.com/a/1060000000374902)
-- [MAIX-III AXera-Pi 系列文章：开箱之硬件初体验](https://aijishu.com/a/1060000000378968)
-- [MAIX-III AXera-Pi 系列文章：上手之丝滑玩转 AI 板卡【一】](https://aijishu.com/a/1060000000380513)
-- [MAIX-III AXera-Pi 系列文章：上手之丝滑玩转 AI 板卡【二】](https://aijishu.com/a/1060000000383970)
-- [YOLOv8 目标检测：训练自定义数据集并部署到爱芯派（一）](https://aijishu.com/a/1060000000395215)
 
 产品相关的新闻内容有：
 
