@@ -229,26 +229,29 @@
       "label": "LicheePi",
       "items": [
         {
-          "label": "LicheePI Zero",
-          "file": "lichee/Zero/Zero.md"
-        },
-        {
-          "label": "LicheePI Nano",
-          "file": "lichee/Nano/Nano.md"
-        },
-        {
-          "label": "LicheePI ZeroPlus",
-          "file": "lichee/ZeroPlus/ZeroPlus.md"
+          "label": "LicheePI 4A",
+          "items":[
+          {
+            "label": "Lichee Module 4A",
+            "file": "lichee/th1520/lm4a.md"
+          },
+          {
+            "label": "Lichee PI 4A",
+            "file": "lichee/th1520/lp4a.md"
+          }
+        ]
         },
         {
           "label": "LicheePI RV",
-          "file": "lichee/RV/RV.md",
-          "collapsed": false,
           "items": [
             {
-              "label": "版型介绍",
+              "label": "板卡介绍",
               "collapsed": false,
               "items": [
+                {
+                  "label": "LicheePI RV",
+                  "file": "lichee/RV/RV.md"
+                },
                 {
                   "label": "LicheePI RV 86 Panel",
                   "file": "lichee/RV/86_panel.md"
@@ -278,17 +281,16 @@
           ]
         },
         {
-          "label": "LicheePI 4A",
-          "items":[
-          {
-            "label": "Lichee Module 4A",
-            "file": "lichee/th1520/lm4a.md"
-          },
-          {
-            "label": "Lichee PI 4A",
-            "file": "lichee/th1520/lp4a.md"
-          }
-        ]
+          "label": "LicheePI Zero",
+          "file": "lichee/Zero/Zero.md"
+        },
+        {
+          "label": "LicheePI Nano",
+          "file": "lichee/Nano/Nano.md"
+        },
+        {
+          "label": "LicheePI ZeroPlus",
+          "file": "lichee/ZeroPlus/ZeroPlus.md"
         }
       ]
     },
@@ -296,9 +298,7 @@
       "label": "Tang FPGA",
       "items": [
         {
-          "label": "Tang Nano 系列",
-          "file": "tang/Tang-Nano-Doc/SUMMARY.md",
-          "collapsed": false,
+          "label": "Tang Nano",
           "items": [
             {
               "label": "Tang Nano 1K",
@@ -337,13 +337,14 @@
         },
         {
           "label": "Tang Primer",
-          "file": "tang/Tang-primer/Tang-primer-summary.md",
-          "collapsed": false,
           "items": [
             {
               "label": "Tang Primer 20K",
-              "file": "tang/tang-primer-20k/primer-20k.md",
               "items": [
+                {
+                  "label": "板卡介绍",
+                  "file": "tang/tang-primer-20k/primer-20k.md"
+                },
                 {
                   "label": "开箱指南",
                   "file": "tang/tang-primer-20k/start.md"
@@ -368,11 +369,11 @@
               "file": "tang/Tang-primer/Tang-primer.md",
               "items": [
                 {
-                  "label": "前言",
+                  "label": "板卡介绍",
                   "file": "tang/Tang-primer/readme.md"
                 },
                 {
-                  "label": "安装TD",
+                  "label": "安装 TD",
                   "items": [
                     {
                       "label": "Windows安装TD",

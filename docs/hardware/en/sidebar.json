@@ -2,7 +2,7 @@
   "items": [
     {
       "label": "Hardware",
-      "file": "maix/README.md"
+      "file": "README.md"
     },
     {
       "label": "Maix Zero",
@@ -227,28 +227,31 @@
       },
     {
       "label": "LicheePI",
-      "file": "lichee/README.md",
       "items": [
         {
-          "label": "Lichee Zero",
-          "file": "lichee/Zero/Zero.md"
-        },
-        {
-          "label": "Lichee Nano",
-          "file": "lichee/Nano/Nano.md"
-        },
-        {
-          "label": "Lichee ZeroPlus",
-          "file": "lichee/ZeroPlus/ZeroPlus.md"
+          "label": "LicheePI 4A",
+          "items":[
+          {
+            "label": "Lichee Module 4A",
+            "file": "lichee/th1520/lm4a.md"
+          },
+          {
+            "label": "Lichee PI 4A",
+            "file": "lichee/th1520/lp4a.md"
+          }
+        ]
         },
         {
           "label": "Lichee RV",
-          "file": "lichee/RV/RV.md",
           "collapsed": false,
           "items": [
             {
-              "label": "Board introduction",
+              "label": "Board Introduction",
               "items": [
+                {
+                  "label": "Lichee RV",
+                  "file": "lichee/RV/RV.md"
+                },
                 {
                   "label": "Lichee RV 86 Panel",
                   "file": "lichee/RV/86_panel.md"
@@ -278,28 +281,24 @@
           ]
         },
         {
-          "label": "LicheePI 4A",
-          "items":[
-          {
-            "label": "Lichee Module 4A",
-            "file": "lichee/th1520/lm4a.md"
-          },
-          {
-            "label": "Lichee PI 4A",
-            "file": "lichee/th1520/lp4a.md"
-          }
-        ]
+          "label": "Lichee Zero",
+          "file": "lichee/Zero/Zero.md"
+        },
+        {
+          "label": "Lichee Nano",
+          "file": "lichee/Nano/Nano.md"
+        },
+        {
+          "label": "Lichee ZeroPlus",
+          "file": "lichee/ZeroPlus/ZeroPlus.md"
         }
       ]
     },
     {
-      "label": "Tang",
-      "file": "tang/readme.md",
+      "label": "Tang FPGA",
       "items": [
         {
-          "label": "Tang Nano series",
-          "file": "tang/Tang-Nano-Doc/summary.md",
-          "collapsed": false,
+          "label": "Tang Nano",
           "items": [
             {
               "label": "Tang Nano",
@@ -331,21 +330,23 @@
             },
             {
               "label": "Questions&Answers",
-              "file": "tang/Tang-Nano-Doc/questions.md"
+              "file": "tang/Tang-Nano-Doc/questions.md",
+              "target": "_blank"
             }
           ]
         },
         {
           "label": "Tang Primer",
-          "file": "tang/Tang-primer/Tang-primer-summary.md",
-          "collapsed": false,
           "items": [
             {
               "label": "Tang Primer 20K",
-              "file": "tang/tang-primer-20k/primer-20k.md",
               "items": [
                 {
-                  "label": "Attention",
+                  "label": "Introduction",
+                  "file": "tang/tang-primer-20k/primer-20k.md"
+                },
+                {
+                  "label": "Notice",
                   "file": "tang/tang-primer-20k/start.md"
                 },
                 {
@@ -358,7 +359,8 @@
                 },
                 {
                   "label": "Questions&Answers",
-                  "file": "tang/Tang-Nano-Doc/questions.md"
+                  "file": "tang/Tang-Nano-Doc/questions.md",
+                  "target": "_blank"
                 }
               ]
             },
@@ -384,7 +386,7 @@
                   "file": "tang/Tang-primer/fpga/led.md"
                 },
                 {
-                  "label": "Setup up hummingbird-E203 development enviroument",
+                  "label": " Prepare E203 enviroument",
                   "file": "tang/Tang-primer/get_started/E203.md"
                 },
                 {
@@ -415,18 +417,18 @@
       ]
     },
     {
-      "label": "SLogic",
-      "items": [
-        {
-          "label": "SLogic Combo8"
-        }
-      ]
-    },
-    {
       "label": "Maix Audio",
       "items": [
         {
           "label": "MA USB 16"
+        }
+      ]
+    },
+    {
+      "label": "SLogic",
+      "items": [
+        {
+          "label": "SLogic Combo8"
         }
       ]
     },

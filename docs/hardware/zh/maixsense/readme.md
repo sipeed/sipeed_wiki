@@ -10,7 +10,7 @@ MaixSense 系列产品搭载 TOF 深度摄像头，目前有 MaixSense-A010 和 
 
 <img src="./assets/meta.jpg" alt="summary" width=100%>
 
-购买方式：[众筹预售购买连接](https://igg.me/at/MaixSense )
+购买方式：[淘宝链接](https://item.taobao.com/item.htm?id=684566484141)
 
 |                                                | <p style="white-space:nowrap">MaixSense-A010</p> | <p style="white-space:nowrap">MaixSense-A075V</p> |
 | :--------------------------------------------- | :----------------------------------------------- | :------------------------------------------------ |

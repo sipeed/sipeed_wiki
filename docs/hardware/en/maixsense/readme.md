@@ -11,21 +11,20 @@ MaixSense series products are equipped with TOF depth cameras, currently there a
 - While MS-A075V is a 3D TOF camera module with RGB function, this module can realize Linux driver-free plug-and-play and real-time color 3D display.
 
 
-Purchase method:[Crowdfunding pre-sale](https://igg.me/at/MaixSense)
+Purchase method:[Aliexpress](https://www.aliexpress.com/item/1005004984020473.html)
 
-|              |<p style="white-space:nowrap">MaixSense-A010</p> | <p style="white-space:nowrap">MaixSense-A075V</p> | 
-| :----------- |:----------------------------------------------- | :------------------------------------------------- | 
-|              |![me-small](./../../zh/maixsense/assets/me_small.jpg)                | ![me-big](./../../zh/maixsense/assets/me_big.jpg)                  | 
-| Interface         |  UART 1.25mm  connector \*1<br>Type-C USB2.0 connector \*1       | UART 1.25mm connector \*1 <br>Type-C USB2.0 connector \*1         |
-|  Resolution      |TOF：100x100@30fps                               | RGB：1600x1200@30fps<br>TOF：320x240@60fps         | 
-|  FOV      |RGB：无<br>TOF：70°(H) * 60°(V)                  | RGB：120°<br>TOF：55°(H)*72°(H)                    | 
-| <p style="white-space:nowrap">TOF pixel size</p> |                                                 | 15um                                               | 
-| Laser transmitter   |940nm VCSEL                                       | 940nm,3W                                           | 
-| Distance     |0.2-2.5m                                         | 0.15-1.5m                                          | 
-| Accuracy   |&lt;=1%/cm                                       | &lt;=1%/cm                                         | 
+|                                                  | <p style="white-space:nowrap">MaixSense-A010</p>          | <p style="white-space:nowrap">MaixSense-A075V</p>          |
+| :----------------------------------------------- | :-------------------------------------------------------- | :--------------------------------------------------------- |
+|                                                  | ![me-small](./../../zh/maixsense/assets/me_small.jpg)     | ![me-big](./../../zh/maixsense/assets/me_big.jpg)          |
+| Interface                                        | UART 1.25mm connector \*1<br>USB2.0 Type-C  connector \*1 | UART 1.25mm connector \*1 <br>USB2.0 Type-C  connector \*1 |
+| Resolution                                       | TOF: 100x100@30fps                                        | RGB: 1600x1200@30fps<br>TOF: 320x240@60fps                 |
+| FOV                                              | RGB: No<br>TOF: 70°(H) * 60°(V)                           | RGB: 120°<br>TOF: 55°(H)*72°(H)                            |
+| <p style="white-space:nowrap">TOF pixel size</p> |                                                           | 15um                                                       |
+| Laser transmitter                                | 940nm VCSEL                                               | 940nm,3W                                                   |
+| Distance                                         | 0.2-2.5m                                                  | 0.15-1.5m                                                  |
+| Accuracy                                         | &lt;=1%/cm                                                | &lt;=1%/cm                                                 |
 
 ## What can MaixSense do?
-
 
 ### Case:Real shot of far, middle and near objects
 
