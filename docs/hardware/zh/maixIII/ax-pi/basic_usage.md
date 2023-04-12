@@ -1895,9 +1895,9 @@ git clone https://huggingface.co/marcoyang/sherpa-ncnn-streaming-zipformer-zh-14
 
 ## 商业应用方案
 
-### SENSOR 支持双摄方案
+### SENSOR 支持双摄方案（20230412 暂时废弃，软件上调不出来）
 
-> 在 20230412 之前的 AXera-Pi 板卡只支持 GC4653 实现双摄方案，而 OS04A10 在硬件上不支持使用双摄，软件上支持但底板不支持，属于硬件设计 BUG 需要改 MCK2 和 MIPI RX2 完整接口。
+> 目前 AXera-Pi 板卡物理上理论支持 GC4653 实现双摄方案，而 OS04A10 在硬件上不支持使用双摄 2 * 4lane，软件上支持但硬件不支持，属于设计意外。
 
 ![dual_gc4653](./../assets/dual_gc4653.jpg)
 
