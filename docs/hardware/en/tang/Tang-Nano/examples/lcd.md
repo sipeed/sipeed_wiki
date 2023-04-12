@@ -183,28 +183,28 @@ assign  LCD_DE = (  ( PixelCount >= H_BackPorch )&&
 
 - This code generates color bars to test LCD
 
-```verilog
-assign  LCD_R   =   (PixelCount<200)? 5'b00000 : 
-                    (PixelCount<240 ? 5'b00001 :    
-                    (PixelCount<280 ? 5'b00010 :    
-                    (PixelCount<320 ? 5'b00100 :    
-                    (PixelCount<360 ? 5'b01000 :    
-                    (PixelCount<400 ? 5'b10000 :  5'b00000 )))));
+```verilog    
+    localparam          Colorbar_width   =   WidthPixel / 16;
 
-assign  LCD_G   =   (PixelCount<400)? 6'b000000 : 
-                    (PixelCount<440 ? 6'b000001 :    
-                    (PixelCount<480 ? 6'b000010 :    
-                    (PixelCount<520 ? 6'b000100 :    
-                    (PixelCount<560 ? 6'b001000 :    
-                    (PixelCount<600 ? 6'b010000 :  
-                    (PixelCount<640 ? 6'b100000 : 6'b000000 ))))));
+    assign  LCD_R     = ( PixelCount < ( H_BackPorch +  Colorbar_width * 0  )) ? 5'b00000 :
+                        ( PixelCount < ( H_BackPorch +  Colorbar_width * 1  )) ? 5'b00001 : 
+                        ( PixelCount < ( H_BackPorch +  Colorbar_width * 2  )) ? 5'b00010 :    
+                        ( PixelCount < ( H_BackPorch +  Colorbar_width * 3  )) ? 5'b00100 :    
+                        ( PixelCount < ( H_BackPorch +  Colorbar_width * 4  )) ? 5'b01000 :    
+                        ( PixelCount < ( H_BackPorch +  Colorbar_width * 5  )) ? 5'b10000 :  5'b00000;
 
-assign  LCD_B   =   (PixelCount<640)? 5'b00000 : 
-                    (PixelCount<680 ? 5'b00001 :    
-                    (PixelCount<720 ? 5'b00010 :    
-                    (PixelCount<760 ? 5'b00100 :    
-                    (PixelCount<800 ? 5'b01000 :    
-                    (PixelCount<840 ? 5'b10000 :  5'b00000 )))));
+    assign  LCD_G    =  ( PixelCount < ( H_BackPorch +  Colorbar_width * 6  )) ? 6'b000001: 
+                        ( PixelCount < ( H_BackPorch +  Colorbar_width * 7  )) ? 6'b000010:    
+                        ( PixelCount < ( H_BackPorch +  Colorbar_width * 8  )) ? 6'b000100:    
+                        ( PixelCount < ( H_BackPorch +  Colorbar_width * 9  )) ? 6'b001000:    
+                        ( PixelCount < ( H_BackPorch +  Colorbar_width * 10 )) ? 6'b010000:    
+                        ( PixelCount < ( H_BackPorch +  Colorbar_width * 11 )) ? 6'b100000:  6'b000000;
+
+    assign  LCD_B    =  ( PixelCount < ( H_BackPorch +  Colorbar_width * 12 )) ? 5'b00001 : 
+                        ( PixelCount < ( H_BackPorch +  Colorbar_width * 13 )) ? 5'b00010 :    
+                        ( PixelCount < ( H_BackPorch +  Colorbar_width * 14 )) ? 5'b00100 :    
+                        ( PixelCount < ( H_BackPorch +  Colorbar_width * 15 )) ? 5'b01000 :    
+                        ( PixelCount < ( H_BackPorch +  Colorbar_width * 16 )) ? 5'b10000 :  5'b00000;
 ```
 
 **Do not forget to add endmodule in the end of the driver file**
