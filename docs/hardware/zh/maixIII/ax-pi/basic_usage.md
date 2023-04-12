@@ -1895,7 +1895,7 @@ git clone https://huggingface.co/marcoyang/sherpa-ncnn-streaming-zipformer-zh-14
 
 ## 商业应用方案
 
-### GC4653 支持双摄方案
+### GC4653 支持双摄方案（20230412 发现存在 bug 还需要软件支持到读取图像数据）
 
 ![dual_gc4653](./../assets/dual_gc4653.jpg)
 
