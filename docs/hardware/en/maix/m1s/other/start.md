@@ -44,6 +44,10 @@ There are two TypeC Ports on M1s Dock. The UART TypeC Port is for serial communi
 2. There is a `UART` on the left bottom, it's used for communication with two cores of BL808.
 3. A `OTG` port is on the tighe bottom, we use burn the C906 Core firmware of BL808 bia this port.
 
+## Power guide
+
+![m1s_dock_power_supply](./start/m1s_dock_power_supply.png)
+
 ## First time boot
 
 ### Board state

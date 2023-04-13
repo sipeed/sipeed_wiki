@@ -13,15 +13,15 @@ Here are Tang Nano series examples and continuously updated
 
 ## Preface
 
-Before reading, we suggest using this [Programmer](https://dl.sipeed.com/shareURL/TANG/programmer) not that installed with IDE
+Basic guide to use Tang FPGA
 
-In addition, we are glad you submit or provide a example, and if you have any feasible ideas, you can come up and we'll try it if possible.
+<!-- Before reading, we suggest using this [Programmer](https://dl.sipeed.com/shareURL/TANG/programmer) not that installed with IDE
 
-## Examples
+In addition, we are glad you submit or provide a example, and if you have any feasible ideas, you can come up and we'll try it if possible. -->
 
 ---
 
-### Tang Nano
+## Tang Nano
 
 - The onboard downloader is ch552
 
@@ -33,7 +33,7 @@ https://github.com/sipeed/Tang-Nano-examples
 
 ---
 
-### Tang Nano 1K
+## Tang Nano 1K
 
 Github Repository:
 https://github.com/sipeed/TangNano-1K-examples
@@ -42,7 +42,7 @@ https://github.com/sipeed/TangNano-1K-examples
 - [LCD screen](./../Tang-Nano-1K/examples/lcd.md)
 
 ---
-### Tang Nano 4K
+## Tang Nano 4K
 
 Github Repository:
 https://github.com/sipeed/TangNano-4K-example
@@ -54,12 +54,12 @@ https://github.com/sipeed/TangNano-4K-example
 - Run GBA on Nano 4K ：https://github.com/Martoni/GbHdmi
 - Litex on Tang Nano 4K : https://github.com/litex-hub/litex-boards
 
-#### Other examples
+Other example
 
 - Blink by Cortex-M3：[Github](https://github.com/verilog-indeed/gowin_fpga_tutorials)
 
 ---
-### Tang Nano 9K
+## Tang Nano 9K
 
 Github Repository:
 https://github.com/sipeed/TangNano-9K-example
@@ -90,7 +90,7 @@ Other Blogs
 
 - [Blink by Softcore](https://blog.ruux.de/tang-nano-9k-softcore-blink)
 
-## Others
+## End
 
 If you have questions to discuss, join the [reddit](https://www.reddit.com/r/GowinFPGA) or [telegram group](https://t.me/sipeed).
 

@@ -23,7 +23,7 @@ desc: maixpy  MaixII M2dock 烧录系统
 
 > 如果下载站下载的很慢，建议使用百度网盘进行下载，下载站的下载带宽有限。链接：[点我](https://pan.baidu.com/s/1Yrqpk26BL3sOCm4P1cMpBQ)，提取码 `v831`
 
-### 镜像文件命名方式
+### 镜像文件命名说明
 
 对于 V831 的镜像文件名字是有对应的规则，以后大家可以根据自己的需求来进行下载
 
@@ -36,9 +36,13 @@ desc: maixpy  MaixII M2dock 烧录系统
 | m2dock        | 可使用 MaixII-Dock 开发板平台                                                                                     |
 | 20220701      | 镜像更新日期                                                                                                      |
 
+> 上述镜像均为开源版，只适用于 TF 卡烧录启动
+
 ## Windows 上使用 PhoenixCard 烧录镜像
 
-PhoenixSuit 和 PhoenixCard 是常用来烧录全志科技芯片的两种工具，前者通过 USB 烧录到 flash，后者常常用于烧录镜像到 TF 卡中。
+PhoenixSuit 和 PhoenixCard 是常用来烧录全志科技芯片的两种工具，前者通过 USB 烧录到板载的 flash，后者用于烧录镜像到 TF 卡中。
+
+零售开源版的 M2 模组上没有焊接 Flash，因此需要使用 TF 卡来作为启动介质，需要用 PhoenixCard 烧录镜像到 TF 卡中来启动
 
 ### 准备工作
 
@@ -50,11 +54,15 @@ PhoenixSuit 和 PhoenixCard 是常用来烧录全志科技芯片的两种工具�
 
 ### 系统烧录
 
-1. 将内存卡通过读卡器接到电脑的 USB 口，打开 SD Card Formatter 软件，对内存卡进行格式化。Refresh（刷新）后点击Format（格式化），注意应正确选择选目标SD卡。
+1. 将内存卡通过读卡器接到电脑的 USB 口，如果弹出格式化通知的话，点击取消即可
+
+     ![windows_format_tf](./asserts/windows_format_tf.png)
+
+2. 打开 SD Card Formatter 软件，对内存卡进行格式化。Refresh（刷新）后点击Format（格式化），注意不要格式化错了分区。
 
      ![image-20210802102810041](./../../../assets/maixII/V831/image-20210802102810041.png)
 
-2. 打开PhoenixCard
+3. 打开PhoenixCard
      - 选择 `启动卡` 选项
      - 选择正确的盘符
      - 点击 `烧卡`

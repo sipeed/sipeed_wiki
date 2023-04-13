@@ -12,7 +12,7 @@ Download the newest V831 system image from Download website [SDK_MaixII/release]
 
 > If it slows to download, you can use MEGA: https://mega.nz/folder/5dJSWJDD#nQmiOeJsX6pEl2Q0cBrj2A
 
-## Image file name rule
+## Image name rule
 
 For V831 there is name rule for all files.
 
@@ -25,29 +25,30 @@ Here I take `v831-m2dock-maixhub-0.5.1-20220701.zip` and ` v831-m2dock-maixpy3-0
 | m2dock        | Image for MaixII-Dock                                                                                |
 | 20220701      | Update date                                                                                          |
 
-## Buring System 
+> These images is not the business edition, only can be burned into TF card.
 
-### Using Windows
+## Buring System on Windows
 
-We use PhoenixCard and PhoenixSuit to burn image in Windows OS. The first one is used for burning image file into TF card and PhoenixSuit is used for burning image file into flash through USB.
+We use `PhoenixCard` and `PhoenixSuit` to burn image on Windows. The first one is used for burning image file into TF card, and PhoenixSuit is used for burning image file into onboard flash via USB.
 
-Here we take PhoenixCard for example.
+Only bussiness edition M2 model contains the Flash, so we need to start the system via TF card on OpenSource edition M2.
 
-#### Prepear
+### Preparation
 
 - Get burnning tool [PhoenixCard](https://dl.sipeed.com/shareURL/MaixII/MaixII-Dock/SDK/tools)
 - Get [image file](https://dl.sipeed.com/shareURL/MaixII/MaixII-Dock/SDK/release)
-- Get SD card [Formatter Tool](https://www.sdcard.org/downloads/formatter/eula_windows/SDCardFormatterv5_WinEN.zip)
+- Get SD card Formatter Tool [SD Card Formatter](https://www.sdcard.org/downloads/formatter/eula_windows/SDCardFormatterv5_WinEN.zip)
 
-#### Start burning system
+### Burning system
 
-Connect you sd card reader inserted with sd card with your computer
+1. Connect you sd card reader inserted with sd card with your computer, if following information comes out, click `Cancel`
+   ![windows_format_tf](./assets/windows_format_tf.png)
 
-Use SD Card Formatter to format your TF card first: Click Refresh then choose your target disk carefully, click Format
+2. Run `SD Card Formatter` to format your TF card: Click `Refresh` then choose your target `card`, click `Format`
 
 ![Format SD card](./../../../assets/maixII/V831/image-20210802102810041.png)
 
-Follow the steps below to complete burning
+3. Run Follow the steps below to complete burning
 
 ![burn image](./../../lichee/assets/RV/flash.png)
 
@@ -58,9 +59,9 @@ Follow the steps below to complete burning
 - From `Status bar` marked with ④ to see your progress；If it's red when finishing this means it fails burning, then we should rerun `SD Card Formatter` to format the TF card to increase its success possibility.
 - Click `Close` to close PhoenixCard
 
-### Using Linux(Ubuntu)
+## Buring System on Windows(Ubuntu)
 
-#### Prepare
+### Preparation
 
 - Install Livesuit
 
@@ -100,7 +101,7 @@ Follow the steps below to complete burning
      sudo ./LiveSuit.sh
      ```
 
-#### Start burning system
+### Burning system
 
 - Run command `sudo livesuit` to run livesuit software, then click the red box marked in the picture below to choose your image file.
 
