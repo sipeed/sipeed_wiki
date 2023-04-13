@@ -104,7 +104,7 @@ Tang Nano 9K 是 Sipeed 所推出的第五款 FPGA 开发板，与在售前代�
 
 ## 例程汇总
 
-访问 [相关例程](./../Tang-Nano-Doc/examples.md)
+访问 [相关例程](./../Tang-Nano-Doc/examples.md) 查看所有说明
 
 ## 硬件资料
 

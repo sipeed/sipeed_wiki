@@ -94,14 +94,14 @@ keywords: MAIX-III, AXera-Pi, Maix3, Sipeed, ax620a, axera, sipeed, AI, model, m
 
 下表统计一下目前（20221012）千元内在售的 AI 主板（仅单主板，全套太贵）的 NPU 算力性能从高到低的排行（商品价格会受市场波动影响，若发现表格数据过于离谱请指正）。
 
-| 芯片            | 产品             | 价格    | CPU                                                 | RAM   | NPU |
-| --------------- | -------------------------- | ------- | --------------------------------------------------- | ----- | ----------- |
-| 晶晨 A311D      | Khadas VIM3                | ¥850.00 | 四核 ARM Cortex-A73@2.2GHz <br> 双核 ARM Cortex-A53@1.8GHz | 2GB   | 5TOPs          |
-| 地平线 X3       | 旭日派                     | ¥499.00 | 四核 ARM Cortex-A53@1.2GHz                          | 2GB   | 5TOPs          |
-| 爱芯元智 AX620A | MAIX-III AXera-Pi          | ¥399.00 | 四核 ARM Cortex-A7@1.0GHz                             | 2GB   | 3.6TOPs        |
-| 堪智 K510       | K510 CRB-KIT Lite          | ¥699.00 | 双核 RISCV 64 位 800Mhz                             | 512MB | 3TOPs          |
-| 瑞芯微 RV1126   | EASY EAI Nano              | ¥328.00 | 四核 ARM Cortex-A7@1.5GHz                            | 1GB   | 2TOPs          |
-| 全志 V85X       | 全志 V853 单主板            | ¥973.00 | 单核 ARM Cortex-A7@1.2GHz | 512MB | 1TOPs          |
+| 芯片            | 产品              | 价格    | CPU                                                        | RAM   | NPU     |
+| --------------- | ----------------- | ------- | ---------------------------------------------------------- | ----- | ------- |
+| 晶晨 A311D      | Khadas VIM3       | ¥850.00 | 四核 ARM Cortex-A73@2.2GHz <br> 双核 ARM Cortex-A53@1.8GHz | 2GB   | 5TOPs   |
+| 地平线 X3       | 旭日派            | ¥499.00 | 四核 ARM Cortex-A53@1.2GHz                                 | 2GB   | 5TOPs   |
+| 爱芯元智 AX620A | MAIX-III AXera-Pi | ¥399.00 | 四核 ARM Cortex-A7@1.0GHz                                  | 2GB   | 3.6TOPs |
+| 堪智 K510       | K510 CRB-KIT Lite | ¥699.00 | 双核 RISCV 64 位 800Mhz                                    | 512MB | 3TOPs   |
+| 瑞芯微 RV1126   | EASY EAI Nano     | ¥328.00 | 四核 ARM Cortex-A7@1.5GHz                                  | 1GB   | 2TOPs   |
+| 全志 V85X       | 全志 V853 单主板  | ¥973.00 | 单核 ARM Cortex-A7@1.2GHz                                  | 512MB | 1TOPs   |
 
 #### 大量现成的模型！
 
@@ -254,15 +254,15 @@ keywords: MAIX-III, AXera-Pi, Maix3, Sipeed, ax620a, axera, sipeed, AI, model, m
 
 别搞那些虚的。来点实际点的，以下是目前（20221014）市场上销量排行的典型 AI 开发产品，**商品价格会随时变动，有疑问可查询或指出并纠正**。（已除去低成本 38 板摄像头和芯片原厂超昂贵开发板）
 
-| AI 开发板                                            | 全家桶套餐的主要内容                                         | 大致价格（20221013）      |
-| ---------------------------------------------------- | ------------------------------------------------------------ | ------------------------- |
-| 英伟达JETSON NANO开发板                              | 4GB 主板、铝合金外壳（带风扇）、5V4A 电源、双频无线网卡、64G U盘、IMX279 摄像头、HDMI 线 + 网线、7 寸触摸屏+支架、 | ¥2129.00                  |
-| Raspberry Pi 树莓派4B                                | 4GB 主板、七寸触摸屏+支架、64G U盘、散热片、HDMI 线 + 网线、5V3A 电源、亚克力外壳（带风扇）、500w USB 摄像头、入门指导手册 | ¥1439.00                  |
-| Khadas vim3物联网a311d（目前线上销量不高，但很典型） | VIM3（4GB+32G）开发板、外壳、散热器、风扇、30W 电源、HDMI 线 | ¥1399.00                  |
-| 迅为RK3568开发板瑞芯微                               | 商业级2G+16G、7寸MIPI屏、OV5695摄像头、（没有配电源）    | ¥1380.00                  |
-| EASY EAI Nano AI开发板 瑞芯微RV1126                  | 1GB 单主板、200w双目摄像头（gc2xxx）、5寸ips屏、天线、喇叭、铜柱、2A电源 | ¥799.00                   |
-| 亚博智能 旭日X3派开发板                              | 2GB 主板、古月居课程、WIFI 天线、铝合金外壳、gc4663 摄像头、32G U盘、5V3A 开关电源、HDMI 线 | ¥769.00                   |
-| Sipeed M3AXPI Linux AI 微光夜视 爱芯派              | 2GB 单主板、400w gc4653 摄像头、5寸ips屏、外壳、数据线、32G TF 卡、在线模型训练服务、活力四射的开源社区       | ¥579.00 |
+| AI 开发板                                            | 全家桶套餐的主要内容                                                                                                       | 大致价格（20221013） |
+| ---------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | -------------------- |
+| 英伟达JETSON NANO开发板                              | 4GB 主板、铝合金外壳（带风扇）、5V4A 电源、双频无线网卡、64G U盘、IMX279 摄像头、HDMI 线 + 网线、7 寸触摸屏+支架、         | ¥2129.00             |
+| Raspberry Pi 树莓派4B                                | 4GB 主板、七寸触摸屏+支架、64G U盘、散热片、HDMI 线 + 网线、5V3A 电源、亚克力外壳（带风扇）、500w USB 摄像头、入门指导手册 | ¥1439.00             |
+| Khadas vim3物联网a311d（目前线上销量不高，但很典型） | VIM3（4GB+32G）开发板、外壳、散热器、风扇、30W 电源、HDMI 线                                                               | ¥1399.00             |
+| 迅为RK3568开发板瑞芯微                               | 商业级2G+16G、7寸MIPI屏、OV5695摄像头、（没有配电源）                                                                      | ¥1380.00             |
+| EASY EAI Nano AI开发板 瑞芯微RV1126                  | 1GB 单主板、200w双目摄像头（gc2xxx）、5寸ips屏、天线、喇叭、铜柱、2A电源                                                   | ¥799.00              |
+| 亚博智能 旭日X3派开发板                              | 2GB 主板、古月居课程、WIFI 天线、铝合金外壳、gc4663 摄像头、32G U盘、5V3A 开关电源、HDMI 线                                | ¥769.00              |
+| Sipeed M3AXPI Linux AI 微光夜视 爱芯派               | 2GB 单主板、400w gc4653 摄像头、5寸ips屏、外壳、数据线、32G TF 卡、在线模型训练服务、活力四射的开源社区                    | ¥579.00              |
 
 想想某些产品为什么卖这么贵，销量还这么好？凭什么？
 
@@ -362,39 +362,41 @@ AX-Pipeline 由爱芯主导开发。该项目基于 AXera-Pi 展示 ISP、图像
 
 | 项目       | 参数                                  |
 | ---------- | ------------------------------------- |
-| CPU        | 四核 Cortex-A7, 支持 NEON 和 FPU       |
+| CPU        | 四核 Cortex-A7, 支持 NEON 和 FPU      |
 | NPU        | 14.4Tops@int4，3.6Tops@int8           |
 | ISP        | 4K@30fps                              |
 | 编解码格式 | H.264, H.265                          |
 | 视频编码   | 4K@30fps                              |
 | 视频解码   | 1080P@60fps                           |
 | Ethernet   | 支持双路RGMII / RMII 接口模式的以太网 |
-| 显示输出   | MIPI DSI 4 Lane，最高支持4K@30FPS |
-| DRAM       | 2GB LPDDR4X 3733Mhz                 |
-| 存储       | 可选16GB EMMC（默认是 TF 卡启动）       |
-| IO 引出    | DDR4 SODIMM 260P 金手指全 IO 引出       |
+| 显示输出   | MIPI DSI 4 Lane，最高支持4K@30FPS     |
+| DRAM       | 2GB LPDDR4X 3733Mhz                   |
+| 存储       | 可选16GB EMMC（默认是 TF 卡启动）     |
+| IO 引出    | DDR4 SODIMM 260P 金手指全 IO 引出     |
 
 ### 底板参数
 
-| 项目       | 参数                                   |
-| ---------- | ------------------------------------- |
-| 摄像头输入 | （默认单摄）最高支持 3 摄:1个MIPI4-LANE+2个MIPI2-LANE |
-| 屏幕输出 | 支持最高 4-LANE MIPI DSI 屏幕 |
-| SD 插槽 | 默认从 SD 卡启动 |
-| 录音输入 | 板载两个 MEMS MIC 支持双麦降噪 |
-| 音频输出  | 3.5MM耳机接口 支持立体声输入和 MIC 输入 |
-| 网络接口 | 支持 千兆以太网（ETH） 和 2.4GHZ WI-FI 板载天线 |
-| USB 接口  | 1xUSB2.0HS 支持 OTG 或 HOST 功能，1xUSB-UART 系统串口 |
-| 其他资源  | 1x用户按键，3x系统按键，1xRTC时钟，2xLED |
-| 对外接口  | 引出CJTAG，可自行连接相应调试器，引出2x12排针，4个M2.5螺丝定位孔 |
+| 项目       | 参数                                                             |
+| ---------- | ---------------------------------------------------------------- |
+| 摄像头输入 | （默认单摄）最高支持 3 摄:1个MIPI4-LANE+2个MIPI2-LANE            |
+| 屏幕输出   | 支持最高 4-LANE MIPI DSI 屏幕                                    |
+| SD 插槽    | 默认从 SD 卡启动                                                 |
+| 录音输入   | 板载两个 MEMS MIC 支持双麦降噪                                   |
+| 音频输出   | 3.5MM耳机接口 支持立体声输入和 MIC 输入                          |
+| 网络接口   | 支持 千兆以太网（ETH） 和 2.4GHZ WI-FI 板载天线                  |
+| USB 接口   | 1xUSB2.0HS 支持 OTG 或 HOST 功能，1xUSB-UART 系统串口            |
+| 其他资源   | 1x用户按键，3x系统按键，1xRTC时钟，2xLED                         |
+| 对外接口   | 引出CJTAG，可自行连接相应调试器，引出2x12排针，4个M2.5螺丝定位孔 |
+
+### 硬件资料下载
 
 [硬件资源汇总链接](https://dl.sipeed.com/shareURL/MaixIII/AXera)
 
 - [产品规格书](https://dl.sipeed.com/shareURL/MaixIII/AXera/01_Specification)
-- [原理图](https://dl.sipeed.com/shareURL/MaixIII/AXera/02_Schematic)
-- [点位图](https://dl.sipeed.com/shareURL/MaixIII/AXera/03_Bit_number_map)
-- [模型文件](https://dl.sipeed.com/shareURL/MaixIII/AXera/05_3D_file)
-- [尺寸图](https://dl.sipeed.com/shareURL/MaixIII/AXera/04_Dimensional_drawing)
+- [产品原理图](https://dl.sipeed.com/shareURL/MaixIII/AXera/02_Schematic)
+- [产品点位图](https://dl.sipeed.com/shareURL/MaixIII/AXera/03_Bit_number_map)
+- [产品 3D 模型](https://dl.sipeed.com/shareURL/MaixIII/AXera/05_3D_file)
+- [产品尺寸图](https://dl.sipeed.com/shareURL/MaixIII/AXera/04_Dimensional_drawing)
 - [GC4653 摄像头参考使用手册](https://dl.sipeed.com/shareURL/MaixIII/AXera/07_Chip_manual)
 
 ### 摄像头一览
