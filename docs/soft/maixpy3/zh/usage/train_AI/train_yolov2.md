@@ -79,7 +79,9 @@ python3 train.py -d custom --cuda -v slim_yolo_v2 -hr -ms
 python3 test.py -d custom -v slim_yolo_v2 --trained_model weights/custom/slim_yolo_v2/slim_yolo_v2_1000.pth --visual_threshold 0.3 -size 224 --export
 ~~~
 
-运行导出模型命令后会在 out 目录下生成 test 测试图片效果和模型文件,模型转换请参考上面模型转换章节.
+运行导出模型命令后会在 out 目录下生成 test 测试图片效果和模型文件,模型转换请参考下面模型转换章节.
+
+> [关于如何使用 MaixHub 在线量化工具进行网络量化](https://wiki.sipeed.com/soft/maixpy3/zh/usage/train_AI/v831_sobel.html#%E4%BD%BF%E7%94%A8-MaixHub-%E5%9C%A8%E7%BA%BF%E9%87%8F%E5%8C%96%E5%B7%A5%E5%85%B7%E8%BF%9B%E8%A1%8C%E7%BD%91%E7%BB%9C%E9%87%8F%E5%8C%96)
 
 ### 模型部署  
 等待模型转换完成,下载转换好的模型文件.  
