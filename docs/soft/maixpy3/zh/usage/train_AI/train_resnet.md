@@ -109,6 +109,8 @@ python3 classifier_resnet_train.py
 
 ## 模型量化 
 
+> [关于如何使用 MaixHub 在线量化工具进行网络量化](https://wiki.sipeed.com/soft/maixpy3/zh/usage/train_AI/v831_sobel.html#%E4%BD%BF%E7%94%A8-MaixHub-%E5%9C%A8%E7%BA%BF%E9%87%8F%E5%8C%96%E5%B7%A5%E5%85%B7%E8%BF%9B%E8%A1%8C%E7%BD%91%E7%BB%9C%E9%87%8F%E5%8C%96)
+
 生成的 ncnn 模型此时还无法被 v831 直接使用，需要使用 [MaixHub](https://maixhub.com/modelConvert) 在线模型转换工具进行量化模型，转换成 MaixII-Dock 可以直接使用的 awnn 模型
 将一下内容整合到一个压缩包中：
 - 创建为 images 的文件夹，内容一些校正图片，可考虑直接采用训练中的验证数据集，并务必保证校正时图像的预处理方式与训练和部署时一致。（数量在50张左右）
