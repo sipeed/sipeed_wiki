@@ -62,6 +62,12 @@ Github: https://github.com/sipeed/TangNano-9K-example
 - HDMI 示例：参考 [PicoRV 在9K上运行的示例](./../Tang-Nano-9K/examples/picorv.md)
 - litex 在 9K 支持：https://github.com/litex-hub/litex-boards
 
+## Tang Nano 20K
+
+Github: https://github.com/sipeed/TangNano-20K-example
+
+
+
 ## 哔哩哔哩视频
 
 > 感谢 [ZQ坐看云起时](https://space.bilibili.com/375786914/video) 友情制作
