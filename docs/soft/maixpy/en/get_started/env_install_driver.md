@@ -24,7 +24,7 @@ Install the driver according to the board's USB to serial chip model.
 | Maix Nano               | CH552                                   | CH552 USB Driver | [Nano](install_driver/nano.md)    |
 | Grove AI HAT            | GD32                                    | GD32  USB Driver | [Amigo](install_driver/ft2232.md) |
 
-> Use the CH340 IC board to directly install the CH340 driver, and all others use the FT2232 driver.
+> Use the CH340 IC board to directly install the CH340 driver, and all others use the special driver.
 
 ## About the troubleshooting of USB serial ports
 
