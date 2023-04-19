@@ -19,9 +19,9 @@ Windows 下载 [ch340 ch341 driver](https://api.dl.sipeed.com/fileList/MAIX/tool
 
 ### `Maix Bit` 新版带麦克风版本（使用`CH552`） 开发板
 
-开发板使用了 `CH552` 芯片来实现 `USB` 转串口功能，没有 `JTAG` 模拟功能，`Windows` 需要安装 `FT2232` 的驱动，
+开发板使用了 `CH552` 芯片来实现 `USB` 转串口功能，没有 `JTAG` 模拟功能，`Windows` 需要安装 特定的驱动，
 
-- USB 驱动: **FT2232** ->[下载链接点这里](https://dl.sipeed.com/shareURL/MAIX/tools/ftdi_vcp_driver)
+- USB 驱动: [点我](https://dl.sipeed.com/shareURL/MAIX/tools/ftdi_vcp_driver)
 
 我们在拿到 MaixPy 开发板并连接到电脑的时候, 可以打开设备管理器查看串口驱动是否已经安装,打开设备管理器的方法有:
 - 此电脑(右键) -> 属性 -> 设备管理器

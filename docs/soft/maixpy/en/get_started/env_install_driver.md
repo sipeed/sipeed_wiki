@@ -13,17 +13,16 @@ Install the driver according to the board's USB to serial chip model.
 
 - Description of the USB to serial port IC on the existing development board
 
-| Development board model | USB to serial port IC | Description |Installation tutorial|
-| --- | --- | --- | --- |
-| Maix Go | STM32 | STM32 USB emulation FT2232 |[Go](install_driver/go.md)|
-| Maix Dock | CH340 | |[Dock](install_driver/dock.md)|
-| Maix Duino | CH552 | CH552 Simulation FT2232 |[Duino](install_driver/duino.md)|
-| Maix Bit | CH552 (new version)/CH340 (old version) | CH552 analog FT2232 |[Bit](install_driver/bit.md)|
-| Maix Cube | GD32(new version)/CH552(old version) | CH552 simulation FT2232 |[Cube](install_driver/ft2232.md)|
-| Maix Amigo | GD32 | GD32 simulation FT2232 |[Amigo](install_driver/ft2232.md)|
-| Maix Nano | CH552 | CH552 Analog FT2232 |[Nano](install_driver/nano.md)|
-| Grove AI HAT | GD32 | GD32 simulation FT2232 |[Amigo](install_driver/ft2232.md)|
-
+| Development board model | USB to serial port IC                   | Description      | Installation tutorial             |
+| ----------------------- | --------------------------------------- | ---------------- | --------------------------------- |
+| Maix Go                 | STM32                                   | STM32 USB Driver | [Go](install_driver/go.md)        |
+| Maix Dock               | CH340                                   |                  | [Dock](install_driver/dock.md)    |
+| Maix Duino              | CH552                                   | CH552 USB Driver | [Duino](install_driver/duino.md)  |
+| Maix Bit                | CH552 (new version)/CH340 (old version) | CH552 USB Driver | [Bit](install_driver/bit.md)      |
+| Maix Cube               | GD32(new version)/CH552(old version)    | CH552 USB Driver | [Cube](install_driver/ft2232.md)  |
+| Maix Amigo              | GD32                                    | GD32  USB Driver | [Amigo](install_driver/ft2232.md) |
+| Maix Nano               | CH552                                   | CH552 USB Driver | [Nano](install_driver/nano.md)    |
+| Grove AI HAT            | GD32                                    | GD32  USB Driver | [Amigo](install_driver/ft2232.md) |
 
 > Use the CH340 IC board to directly install the CH340 driver, and all others use the FT2232 driver.
 

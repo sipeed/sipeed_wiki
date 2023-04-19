@@ -11,9 +11,9 @@ Linux does not need to install the driver, the system comes with it, use `ls /de
 
 ## Windows
 
-The development board uses the `CH552` chip to realize the `USB` to serial port function. There is no `JTAG` simulation function. `Windows` needs to install the `FT2232` driver.
+The development board uses the `CH552` chip to realize the `USB` to serial port function. There is no `JTAG` simulation function. `Windows` needs to install the special driver.
 
-- USB driver: **FT2232** ->[[download link here](https://dl.sipeed.com/MAIX/tools/ftdi_vcp_driver)](https://dl.sipeed.com/MAIX/tools/ftdi_vcp_driver)
+- USB driver: [Click me](https://dl.sipeed.com/MAIX/tools/ftdi_vcp_driver)
 
 When we get the MaixPy development board and connect it to the computer, we can open the device manager to check whether the serial port driver has been installed. The methods to open the device manager are:
 

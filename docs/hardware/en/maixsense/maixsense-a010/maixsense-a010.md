@@ -66,7 +66,7 @@ Install COMTOOL on the upper computer before previewing and modifying the Settin
 
 **Linux system**:[Users need to compile/click to jump](https://github.com/sipeed/MetaSense-ComTool)
 
->Note: Windows 7 and below systems need to install the driver, you can go to the FTDI official website to download.
+> Note: Windows 7 and below systems need to install the driver, you can go to the FTDI official website to download.
 
 Open the COMTOOL software and select the Graph interface. If there is no Graph above the software, you can add a Graph at the + sign in the upper right corner. If the middle part is blank after creation, double-click MaixSenseLite in the lower left corner
 

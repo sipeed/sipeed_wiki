@@ -1,7 +1,7 @@
 ---
 title: Maixpy Amigo USB 驱动安装
 keywords: maixpy, k210, AIOT, 边缘计算
-desc: maixpy  FT2232 USB 驱动安装
+desc: maixpy  USB 驱动安装
 ---
 
 
@@ -11,9 +11,9 @@ Linux 不需要装驱动，系统自带了，使用 `ls /dev/ttyUSB*` 即可看�
 
 ## Windows
 
-`Windows` 用户需要安装 `FT2232` 的驱动。
+`Windows` 用户需要安装 特定的驱动。
 
-- USB 驱动: **FT2232** ->[下载链接点这里](https://dl.sipeed.com/shareURL/MAIX/tools/ftdi_vcp_driver)
+- USB 驱动: [点我](https://dl.sipeed.com/shareURL/MAIX/tools/ftdi_vcp_driver)
 
 我们在拿到 MaixPy 开发板并连接到电脑的时候, 可以打开设备管理器查看串口驱动是否已经安装,打开设备管理器的方法有:
 - 此电脑(右键) -> 属性 -> 设备管理器

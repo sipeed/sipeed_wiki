@@ -77,7 +77,7 @@ MaixAmigo 同样使用 MaixPy 入门 AIoT ，由于硬件特殊性，请在[配�
 
 软件准备:
 
-  - USB 驱动：**FT2232** ->[[下载链接点这里](https://dl.sipeed.com/shareURL/MAIX/tools/ftdi_vcp_driver)](https://dl.sipeed.com/shareURL/MAIX/tools/ftdi_vcp_driver)
+  - USB 驱动：[点我](https://dl.sipeed.com/shareURL/MAIX/tools/ftdi_vcp_driver)
   - Kflash_gui：[https://dl.sipeed.com/shareURL/MAIX/tools/kflash_gui](https://dl.sipeed.com/shareURL/MAIX/tools/kflash_gui)
   - MaixPy IDE ：[https://dl.sipeed.com/shareURL/MAIX/MaixPy/ide/_/v0.2.5](https://dl.sipeed.com/shareURL/MAIX/MaixPy/ide/_/v0.2.5)
   - 例程程序库：[https://github.com/sipeed/MaixPy_scripts](https://github.com/sipeed/MaixPy_scripts)
