@@ -77,7 +77,7 @@ Hardware preparation:
 
 Software preparation:
 
-  - USB driver: [Click me](https://dl.sipeed.com/MAIX/tools/ftdi_vcp_driver)
+  - USB driver: [Click me](https://dl.sipeed.com/MAIX/tools/driver)
   - Kflash_gui: [https://dl.sipeed.com/MAIX/tools/kflash_gui](https://dl.sipeed.com/MAIX/tools/kflash_gui)
   - MaixPy IDE: [https://dl.sipeed.com/MAIX/MaixPy/ide/_/v0.2.5](https://dl.sipeed.com/MAIX/MaixPy/ide/_/v0.2.5)
   - Routine library: [https://github.com/sipeed/MaixPy_scripts](https://github.com/sipeed/MaixPy_scripts)

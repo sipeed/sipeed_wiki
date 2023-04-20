@@ -23,7 +23,7 @@ Linux does not need to install the driver, the system comes with it, use `ls /de
 
 The development board uses a `STM32` to realize the analog serial port and the `JTAG` function. `Windows` needs to install the driver of special driver.
 
--USB driver: [Click me](https://dl.sipeed.com/MAIX/tools/ftdi_vcp_driver)
+-USB driver: [Click me](https://dl.sipeed.com/MAIX/tools/driver)
 
 When we get the MaixPy development board and connect it to the computer, we can open the device manager to check whether the serial port driver has been installed. The methods to open the device manager are:
 

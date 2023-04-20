@@ -77,7 +77,7 @@ MaixCube  板载 I2C 传感器/IC
 
 软件准备:
 
-  - USB 驱动：[点我](https://dl.sipeed.com/shareURL/MAIX/tools/ftdi_vcp_driver)
+  - USB 驱动：[点我](https://dl.sipeed.com/shareURL/MAIX/tools/driver)
   - Kflash_gui：[https://dl.sipeed.com/shareURL/MAIX/tools/kflash_gui](https://dl.sipeed.com/shareURL/MAIX/tools/kflash_gui)
   - MaixPy IDE ：[https://dl.sipeed.com/shareURL/MAIX/MaixPy/ide/_/v0.2.5](https://dl.sipeed.com/shareURL/MAIX/MaixPy/ide/_/v0.2.5)
   - 例程程序库：[https://github.com/sipeed/MaixPy_scripts](https://github.com/sipeed/MaixPy_scripts)
