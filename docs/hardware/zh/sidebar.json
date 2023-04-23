@@ -237,7 +237,16 @@
           },
           {
             "label": "Lichee PI 4A",
-            "file": "lichee/th1520/lp4a.md"
+            "items":[
+              {
+                "label": "资料详情",
+                "file": "lichee/th1520/lp4a.md"
+              },
+              {
+                "label": "基础上手(更新中)",
+                "file": "lichee/th1520/lpi4a/usage.md"
+              }
+            ]
           }
         ]
         },
