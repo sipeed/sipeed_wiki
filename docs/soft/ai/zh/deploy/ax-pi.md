@@ -316,10 +316,12 @@ print(out.argmax(), out.max())
 更多详情看[superpulsar](https://pulsar-docs.readthedocs.io)， 文档会持续更新，如果你擅长这方面，也欢迎点击右上角`编辑本页`在这里添加说明。
 
 
-## 其它参考
+## 其它参考和分享汇总
 
 > 欢迎贴上你的分享，点击右上角`编辑本页`添加。
 
 * [爱芯元智AX620A部署yolov5 6.0模型实录](https://zhuanlan.zhihu.com/p/569083585)
 * [AX620A运行yolov5s自训练模型全过程记录（windows）](http://t.csdn.cn/oNeYG)
-
+* [MOT：如何在爱芯派上实现多目标跟踪的神奇效果！](https://www.yuque.com/prophetmu/chenmumu/ax_tracker)
+* [MMPose：在爱芯派上玩转你的关键点检测！](https://www.yuque.com/prophetmu/chenmumu/m3axpi_keypoint)
+* [2023年最新 使用 YOLOv8 训练自己的数据集，并在 爱芯派硬件 上实现 目标检测 和 钢筋检测 ！！](https://www.yuque.com/prophetmu/chenmumu/m3axpi)
