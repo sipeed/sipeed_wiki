@@ -63,6 +63,7 @@ desc: maixpy  其他事项
 | sipeed_2.4_240x320_sp2305.dtb | 2.4寸 | sp2305 |
 | sipeed_1.3_240x240_vs3205.dtb | 1.3寸 | vs3205 |
 | sipeed_1.3_240x240_sp2305.dtb | 1.3寸 | sp2305 |
+| sipeed_1.3_240x240_ov2685.dtb | 1.3寸 | ov2685 |
 
 将设备树文件存放到开发板中在电脑中显示的虚拟U盘中。
 接着在 adb 终端里面执行下面命令
@@ -79,7 +80,7 @@ reboot #重启设备来更新配置
 
 这里贴一张正常显示的图样
 
-![](./asserts/show.jpg)
+![show](./asserts/show.jpg)
 
 ## 更换摄像头
 
