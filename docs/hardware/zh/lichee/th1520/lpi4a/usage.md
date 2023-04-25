@@ -7,11 +7,12 @@
 - HDMI 显示器，或者与 LicheePi 4A 拍套售卖的显示屏；图形化操作系统很方便操作。
 - 键盘和鼠标；用来操作图形化系统。
 - 电源适配器；最好购买与 LicheePi 4A 配套的电源适配器；这会给 LicheePi 4A 提供足够的供电。
-- 一张 8G 以上内存容量的 TF 卡，或者直接使用搭载了 eMMC 的核心板；没有这个可启动不了 LicheePi 4A。
 
 ## 烧录系统
 
 ### 获取镜像
+
+
 
 ### 烧录系统
 
@@ -34,6 +35,8 @@
 2. 检查串口引脚接线情况；可以更换 `TX` 和 `RX` 接线来尝试排除串口接线错误导致串口不能正常通信的情况
 3. 检查系统烧录情况；在底板 TypeC 接口与天线接口之间有一个复位按键，尝试按下后可以从串口终端中开到启动信息日志；多次重启说明系统有缺失，需要重新烧录镜像。
 
+输入用户名 `root`，密码 `sipeed` 就可以登录进系统了。
+
 登录系统后，使用 `rm /lib/libGLESv1_CM_PVR_MESA.so` 和`rm /lib/libGLESv2_PVR_MESA.so` 命令来删除两处文件，暂时解决图形化系统卡顿的情况。
 
 ![usage_login_remove_gpu_file](./assets/usage/usage_login_remove_gpu_file.png)
@@ -51,6 +54,10 @@
 在 Lichee Pi 4A 的 Debian 图形化系统中，使用快捷键 `Ctrl` + `Alt` + `T` 三个组合键可以直接打开命令行终端，来快速方便地操作系统。
 
 ![usage_debian_terminal_shell_hotkey](./assets/usage/usage_debian_terminal_shell_hotkey.png)
+
+## 控制风扇
+
+在 Lichee Pi 4A 上，风扇是通过 PWM 来控制的，有
 
 ## 连接网络
 
@@ -141,15 +148,27 @@ mount /dev/sda2 ~/Desktop/udisk # 挂载 U 盘的 sda2 分区到 udisk 文件夹
     </tr>
 </table>
 
-## 挂载 SD 卡
+## 挂载 TF 卡
+
+将 tf 卡插入
 
 ## 音频测试
 
-### 测试耳机接口
+### 测试音频播放
 
-### 测试扬声器接口
+Lichee Pi 4A 底板上有扬声器接口和 3.5mm 音频接口两处可以播放音频的地方。
 
-### 测试 HDMI 音频输出
+要注意的是 3.5mm 音频接口和扬声器接口是互斥的：接上 3.5mm 音频设备后，板载的扬声器接口是被禁用的；断开 3.5mm 音频设备才能使用板载的扬声器。
+
+系统内置了一些 wav 音频文件用来测试，直接使用 `aplay` 命令来播放音频文件就可以。
+
+![usage_debian_list_audio_file](./assets/usage/usage_debian_list_audio_file.png)
+
+运行下面的命令后，可以从耳机孔音频设备中听到 `Rear` `Left` 两个单词的声音。
+
+```bash
+aplay /usr/share/sounds/alsa/Rear_Left.wav
+```
 
 ## 设置中文显示
 
@@ -157,9 +176,29 @@ mount /dev/sda2 ~/Desktop/udisk # 挂载 U 盘的 sda2 分区到 udisk 文件夹
 
 ## 更换软件源
 
+在 Debian 系统中，可以使用 apt (Advanced Packaging Tool) 来进行软件的安装。
+
+安装软件的时候，会从系统指定的软件网站中搜索并下载目标软件，当目标网站访问困难（比如服务器距离太远或者服务器网络不佳）时，可以手动设置编辑软件源网站，改成距离自己当前最近的源，来减少下载时间。
+
+软件源默认使用 `/etc/apt/sources.list` 文件里面的内容，有额外需要的话可以自行更改。但是要注意需要使用支持 Risc-V 架构的软件源。
+
+![usage_debian_apt_change_source](./assets/usage/usage_debian_apt_change_source.png)
+
 ## 升级软件
 
+使用 `sudo apt update` 可以更新软件列表，一般在更换软件源之后需要使用这个命令。
+
+然后使用 `sudo apt upgrade package_name` 可以更新名称为 `package_name` 的软件。
+
+比如下面是使用 `sudo apt upgrade vim` 来更新 `vim` 这个软件的示例
+
+![usage_debian_apt_upgrade_vim](./assets/usage/usage_debian_apt_upgrade_vim.png)
+
 ## 安装程序
+
+可以借助于 apt 命令来安装软件；比如使用 `sudo apt install package_name` 命令来安装 `package_name`，下面是使用 apt 来安装 `net-tools` 的例子。
+
+![usage_debian_apt_install_nettools](./assets/usage/usage_debian_apt_install_nettools.png)
 
 ## 更改开机 LOGO
 
