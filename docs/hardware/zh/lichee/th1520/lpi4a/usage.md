@@ -12,7 +12,7 @@
 
 ### 获取镜像
 
-
+百度网盘：[点我](https://pan.baidu.com/s/1jnjz0KO_xnO5R8tWlXtx0A)
 
 ### 烧录系统
 
@@ -47,6 +47,8 @@
 
 在登录界面，输入用户名 `root`，密码 `sipeed` 就可以登录进系统了。
 
+> 2023 年 4 月 45 日更新镜像的登录密码为 `licheepi`
+
 ![usage_login_userpasserward](./assets/usage/usage_login_userpasserward.png)
 
 ## 打开命令行
@@ -57,7 +59,6 @@
 
 ## 控制风扇
 
-在 Lichee Pi 4A 上，风扇是通过 PWM 来控制的，有
 
 ## 连接网络
 
@@ -200,9 +201,18 @@ aplay /usr/share/sounds/alsa/Rear_Left.wav
 
 ![usage_debian_apt_install_nettools](./assets/usage/usage_debian_apt_install_nettools.png)
 
+安装 `net-tools` 后，就可以使用 `ifconfig` 命令了。
+
+![usage_debian_ifconfig_result_list](./assets/usage/usage_debian_ifconfig_result_list.png)
+
+箭头指向的地方就是常说的 IP 地址了。
+
 ## 更改开机 LOGO
 
+
+
 ## 操作 GPIO
+
 
 > 进阶使用
 
