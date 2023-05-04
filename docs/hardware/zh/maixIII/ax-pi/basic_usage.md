@@ -856,7 +856,7 @@ root@AXERA:~#
 
 ### VIDEO
 
->**注意**：以下例程是原始测试时检查硬件好坏的程序，请用下面内置应用看正常的效果！
+>**注意**：VIDEO 的以下命令只用于测试摄像头硬件是否有成像能用的作用，正常效果角度请点击应用传送门查看！！
 >内置开箱应用传送门：[点击前往](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html#%E5%86%85%E7%BD%AE%E5%BC%80%E7%AE%B1%E5%BA%94%E7%94%A8)
 目前系统的摄像头驱动不经过 v4l2 驱动框架，所以必须通过代码配置的方式进行启用，相关摄像头驱动都是在应用层上完成的，
 
@@ -894,7 +894,7 @@ fboff
 
 #### 播放视频
 
-播放视频可以使用 ffmpeg 的命令。但是注意 ffmpeg 播放视频之前需要将视频顺时针旋转 90°， RGB 视频变成 BGR 格式，分辨率 resize 成 480*854 。并且如果有遇到视频播放速度太快的情况，就需要使用 `ffmpeg -i /home/kun_1_output.mp4 -vf "setpts=2*PTS" test3.mp4` 重新生成一个慢速的视频文件，再次播放即可。
+播放视频可以使用 ffmpeg 的命令，但请注意 ffmpeg 播放视频前需要将视频顺时针旋转 90°，将 RGB 视频变成 BGR 格式以及分辨率 resize 改成 480*854。如果出现视频播放速度太快的现象就需要使用 `ffmpeg -i /home/kun_1_output.mp4 -vf "setpts=2*PTS" test3.mp4` 重新生成一个慢速的视频文件，再次播放即可。
 
 ```bash
 fbon
@@ -1028,7 +1028,7 @@ root@AXERA:~# mkdir /mnt/sdcard && mount /dev/sda1 /mnt/sdcard
 
 **usb-uvc-gadget**：[usb-uvc-gadget](https://github.com/junhuanchen/usb-uvc-gadget)
 
-**更多详情请移步内置应用查看**：[应用传送门](http://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html#uvc_vo)
+**更多详情请移步内置应用查看**：[应用传送门](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html#UVC-%E8%99%9A%E6%8B%9F-USB-%E6%91%84%E5%83%8F%E5%A4%B4)
 
 #### 如何配置 USB HOST 读取一个 USB 摄像头
 
@@ -1222,7 +1222,7 @@ echo 2084 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle
 echo 1 > /sys/class/pwm/pwmchip0/pwm0/enable
 ```
 
-PWM 使用参考：[点击查看](https://wiki.sipeed.com/soft/maixpy3/zh/usage/hardware/PWM.html#%E5%BC%80%E5%A7%8B).
+PWM 使用参考：[点击查看](https://wiki.sipeed.com/soft/maixpy3/zh/usage/hardware/PWM.html#%E5%BC%80%E5%A7%8B)
 
 ### I2C
 
@@ -1774,13 +1774,13 @@ hrnet_animal_pose.json  hand_pose.json
 
 #### HandPose 手势姿态关键点
 
-如上文的 `人体姿态关键点` 修改为参考示例，直接在 `run.sh` 脚本进行修改相关命令（图标注为需取消注释的命令）并运行 `run.sh` 即可体验模型，运行效果可看最下文的视频。
+如上文的 `人体姿态关键点` 修改为示例，直接在 `run.sh` 脚本进行修改（图标注为需取消注释的命令）并运行 `run.sh` 即可体验模型，运行效果可看最下文的视频。
 
 ![hand_run](./../assets/hand_run.jpg)
 
 #### HRNet_animal 动物姿态关键点
 
-如上文的 `人体姿态关键点` 修改为参考示例，直接在 `run.sh` 脚本进行修改相关命令（图标注为需取消注释的命令）并运行 `run.sh` 即可体验模型，运行效果可看最下文的视频。
+如上文的 `人体姿态关键点` 修改为示例，直接在 `run.sh` 脚本进行修改（图标注为需取消注释的命令）并运行 `run.sh` 即可体验模型，运行效果可看最下文的视频。
 
 ![animal](./../assets/animal.jpg)
 
@@ -1832,8 +1832,7 @@ sample_rtsp_ivps_joint_rtsp_vo  sample_vin_ivps_joint_venc_rtsp_vo  sample_vin_i
 
 ###  sherpa-ncnn 中英文语音识别
 
->版本为 `20230214` 后的镜像内置了 sherpa-ncnn 中英文语音识别应用。
->`20230223` sherpa-ncnn 语音模型进行了升级识别效果更加灵敏，用户可手动完成语音识别升级即可。
+>版本为 `20230214` 后的镜像内置了 sherpa-ncnn 中英文语音识别应用，`20230223` 模型进行了升级效果更加灵敏，用户可手动升级即可。如出现运行后无反应请先测试 [`AUDIO`](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html#AUDIO) 基本的录音回放是否可用。
 
 先运行命令先进入到 `/home/sherpa-ncnn-m3axpi` 的目录下，再运行中英文的启动命令体验语音识别应用。
 
