@@ -231,4 +231,4 @@ SPMOD_Eink(墨水屏模块)采用 GDEW0154M09 电子墨水屏。
 |E-mail(技术支持和商业合作) | [Support@sipeed.com](mailto:support@sipeed.com) |
 |telgram link | https://t.me/sipeed |
 |MaixPy AI QQ 交流群 | 878189804 |
-|MaixPy AI QQ 交流群(二群) | 1129095405 |
+

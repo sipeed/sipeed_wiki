@@ -212,10 +212,6 @@ The following communication methods provide assistance:
             <td>878189804</td>
         </tr>
         <tr>
-            <td>MaixPy AI QQ Group (Second Group)</td>
-            <td>1129095405</td>
-        </tr>
-        <tr>
             <td>telgram</td>
             <td><a href="https://t.me/sipeed" rel="nofollow">https://t.me/sipeed</a></td>
         </tr>

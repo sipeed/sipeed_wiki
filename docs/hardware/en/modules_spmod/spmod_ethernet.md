@@ -79,5 +79,4 @@ SPMOD_Ethernet(网络扩展模块)采用 W5500 以太网主控芯片。
 |HDK 相关信息 | [https://dl.sipeed.com/MAIX/HDK](https://dl.sipeed.com/MAIX/HDK) |
 |E-mail(技术支持和商业合作) | [Support@sipeed.com](mailto:support@sipeed.com) |
 |telgram link | https://t.me/sipeed |
-|MaixPy AI QQ 交流群 (四群）| 256336487 |
-|MaixPy AI QQ 交流群 (二群) | 1129095405 |
+|MaixPy AI QQ 交流群（六群）| 636551897 |

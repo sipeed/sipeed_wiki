@@ -167,8 +167,8 @@ please read doc before run it!
             <td>878189804</td>
         </tr>
         <tr>
-            <td>MaixPy AI QQ 交流群(四群)</td>
-            <td>256336487</td>
+            <td>MaixPy AI QQ 交流群(六群)</td>
+            <td>636551897</td>
         </tr>
         <tr>
             <td>telgram</td>
