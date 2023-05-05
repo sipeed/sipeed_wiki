@@ -188,7 +188,7 @@ keywords: MAIX-III, AXera-Pi, Maix3, Sipeed, ax620a, axera, sipeed, AI, model, m
   <img src="./../assets/test_yolov5s.jpg" style="zoom: 100%;" >
 </p>
 
-## 丰富的资源案例
+## 丰富の案例资源
 
 产品相关的专栏内容有（官方维护）：
 
@@ -237,8 +237,8 @@ keywords: MAIX-III, AXera-Pi, Maix3, Sipeed, ax620a, axera, sipeed, AI, model, m
 > 截止更新时间：20221205
 
 <p align="center">
-  <img src="./../assets/demo_one.jpg" style="zoom: 50%;">
-  <img src="./../assets/demo_two.jpg" style="zoom: 50%;">
+  <img src="./../assets/demo_one.jpg" style="zoom: 100%;">
+  <img src="./../assets/demo_two.jpg" style="zoom: 100%;">
 </p>
 
 ## Linux 内容
