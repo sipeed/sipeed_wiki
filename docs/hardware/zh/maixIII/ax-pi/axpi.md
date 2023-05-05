@@ -62,33 +62,31 @@ keywords: MAIX-III, AXera-Pi, Maix3, Sipeed, ax620a, axera, sipeed, AI, model, m
 - 摄像效果太差？芯片主打 AI ISP 夜视增强！由原厂亲手为你调试白天到夜间的超强影像！！！！！
 - 价格太贵？从核心+底板+屏幕+摄像头+卡+外壳支架全套总共人民币 **579** ！（咆哮！！！！！！）
 
-## 产品特色
-
 说这么多没用的，还是赶紧把东西掏出来，让大家瞧瞧都有些什么吧！
 
-### 影像效果
+## 影像效果
 
-#### 夜景增强效果
+### 夜景增强效果
 
 <p align="center">
     <iframe src="//player.bilibili.com/player.html?aid=561523949&bvid=BV1Ee4y1v7iF&cid=860676576&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="max-width:640px; max-height:480px;"> </iframe>
 </p>
 
-#### 展会暗室现场
+### 展会暗室现场
 
 <p align="center">
     <iframe src="//player.bilibili.com/player.html?aid=430541632&bvid=BV1iG41137tx&cid=831645988&page=1&t=83.6" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="max-width:640px; max-height:480px;"> </iframe>
 </p>
 
-#### AI 应用实拍
+### AI 应用实拍
 
 <p align="center">
     <iframe src="//player.bilibili.com/player.html?aid=773227207&bvid=BV1B14y1Y7A4&cid=837154353&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="max-width:640px; max-height:480px;"> </iframe>
 </p>
 
-### AI 生态
+## AI 生态
 
-#### 大算力超多算子！
+### 大算力超多算子！
 
 [点此 >>> 「查看 AX620A 算子支持列表」 <<< 喔！](https://pulsar-docs.readthedocs.io/zh_CN/latest/appendix/op_support_list.html)
 
@@ -103,7 +101,7 @@ keywords: MAIX-III, AXera-Pi, Maix3, Sipeed, ax620a, axera, sipeed, AI, model, m
 | 瑞芯微 RV1126   | EASY EAI Nano              | ¥328.00 | 四核 ARM Cortex-A7@1.5GHz                            | 1GB   | 2TOPs          |
 | 全志 V85X       | 全志 V853 单主板            | ¥973.00 | 单核 ARM Cortex-A7@1.2GHz | 512MB | 1TOPs          |
 
-#### 大量现成的模型！
+### 大量现成的模型！
 
 没有拿到板子之前，你可以到 [MaixHub 模型库](https://maixhub.com/model/zoo) 找到你需要的模型，可以在过滤选项中选择 `AX-Pi` 来查找能在 `AXera-Pi` 上运行的模型。
 
@@ -164,7 +162,40 @@ keywords: MAIX-III, AXera-Pi, Maix3, Sipeed, ax620a, axera, sipeed, AI, model, m
   <img src="./../assets/ai_guide.jpg" style="zoom: 75%;" />
 </p>
 
-#### 丰富的社区资源！
+### 在线训练模型吧！
+
+如今 [新版 MaixHub 正式上线啦！](https://wiki.sipeed.com/news/maixhub/new_maixhub.html)下为 maixhub 在线训练模型流程示意。
+
+<p align="center">
+  <img src="./../assets/test_maixhub.jpg" style="zoom: 100%;" />
+</p>
+
+> m3axpi 不支持上一代 m2dock 的扫码部署，只能选择本地上传文件部署。
+
+<p align="center">
+    <iframe src="//player.bilibili.com/player.html?aid=597374704&bvid=BV1eB4y1Q74i&cid=741940038&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="max-width:640px; max-height:480px;"> </iframe>
+</p>
+
+### 分享有趣的模型！
+
+在你部署成功后会有一份模型文件，以及能运行模型的代码或程序，你可以将这些文件分享到 [MaixHub 模型库](https://maixhub.com/model/zoo) ，大家一起交流学习成长！（请开始你的表演吧）
+
+<p align="center">
+  <img src="./../assets/share_model.jpg" style="zoom: 75%;" >
+</p>
+
+<p align="center">
+  <img src="./../assets/test_yolov5s.jpg" style="zoom: 100%;" >
+</p>
+
+## 丰富的资源案例
+
+> 截止更新时间：20221205
+
+<p align="center">
+  <img src="./../assets/demo_one.jpg" style="zoom: 50%;">
+  <img src="./../assets/demo_two.jpg" style="zoom: 50%;">
+</p>
 
 产品相关的专栏内容有（官方维护）：
 
@@ -210,49 +241,9 @@ keywords: MAIX-III, AXera-Pi, Maix3, Sipeed, ax620a, axera, sipeed, AI, model, m
 - [爱芯派™AXera-Pi™亮相ICCAD 爱芯元智开源生态建设加速](https://mp.weixin.qq.com/s/_nZLfEjxOb4QLpGWgaLVWQ)
 - [新一代 Kaldi - 嵌入式端实时语音识别](https://mp.weixin.qq.com/s/r4nGu04o1sjdFZt_vYbUAA)
 
-正在联动的 AI 社区有：
+## Linux 内容
 
-- [sipeed maixhub.com](https://maixhub.com)
-
-#### 在线训练模型吧！
-
-如今 [新版 MaixHub 正式上线啦！](https://wiki.sipeed.com/news/maixhub/new_maixhub.html)下为 maixhub 在线训练模型流程示意。
-
-<p align="center">
-  <img src="./../assets/test_maixhub.jpg" style="zoom: 100%;" />
-</p>
-
-> m3axpi 不支持上一代 m2dock 的扫码部署，只能选择本地上传文件部署。
-
-<p align="center">
-    <iframe src="//player.bilibili.com/player.html?aid=597374704&bvid=BV1eB4y1Q74i&cid=741940038&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="max-width:640px; max-height:480px;"> </iframe>
-</p>
-
-#### 分享有趣的模型！
-
-在你部署成功后会有一份模型文件，以及能运行模型的代码或程序，你可以将这些文件分享到 [MaixHub 模型库](https://maixhub.com/model/zoo) ，大家一起交流学习成长！（请开始你的表演吧）
-
-<p align="center">
-  <img src="./../assets/share_model.jpg" style="zoom: 75%;" >
-</p>
-
-<p align="center">
-  <img src="./../assets/test_yolov5s.jpg" style="zoom: 100%;" >
-</p>
-
-### 众多开箱案例
-
-> 截止更新时间：20221205
-
-<p align="center">
-  <img src="./../assets/demo_one.jpg" style="zoom: 100%;">
-  <img src="./../assets/demo_two.jpg" style="zoom: 100%;">
-</p>
-
-
-### Linux 开发
-
-#### 超高性价比与能效比
+### 超高性价比与能效比
 
 别搞那些虚的。来点实际点的，以下是目前（20221014）市场上销量排行的典型 AI 开发产品，**商品价格会随时变动，有疑问可查询或指出并纠正**。（已除去低成本 38 板摄像头和芯片原厂超昂贵开发板）
 
@@ -284,7 +275,7 @@ keywords: MAIX-III, AXera-Pi, Maix3, Sipeed, ax620a, axera, sipeed, AI, model, m
 
 > 从实测结果上来看，这个功耗和温度控制得挺好，用 USB3.0 5V@1A 承载了底板、核心板、WIFI、以太网、摄像头、5寸屏的工作。
 
-#### 基于 debian 系统开发
+### 基于 debian 系统开发
 
 提供 debian11 Linux 系统，支持 SD 卡启动 DD 烧录系统，方便用户开箱上手，同时支持 Python API 编程开发 AI 应用。
 
@@ -298,11 +289,11 @@ keywords: MAIX-III, AXera-Pi, Maix3, Sipeed, ax620a, axera, sipeed, AI, model, m
 
 4. 开发笔记：[[maixpy3 axpi] 编辑发布 debian 镜像与在 PC 上交叉编译程序 ](https://www.cnblogs.com/juwan/p/16769237.html)
 
-#### 开放 BSP SDK 源码
+### 开放 BSP SDK 源码
 
 提供各类开发源码，提供 API 开发文档，SDK 开发方法等说明，细节可以从[准备 C/C++ 编程](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/dev_prepare.html#%E8%8E%B7%E5%8F%96-SDK-%E6%BA%90%E7%A0%81) 得知。
 
-##### [ax-sample](https://github.com/AXERA-TECH/ax-samples)
+#### [ax-sample](https://github.com/AXERA-TECH/ax-samples)
 
 由爱芯提供典型 AI 模型的开发与评估验证，提供给有经验的 AI 开发者使用或只想蹭模型的同学，不涉及任何硬件外设有关的内容。
 
@@ -311,7 +302,7 @@ keywords: MAIX-III, AXera-Pi, Maix3, Sipeed, ax620a, axera, sipeed, AI, model, m
 3. [人体分割 PP-HumanSeg](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/README.md#MobileSeg)
 4. [语义分割 PP-Seg](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/README.md#PP-HumanSeg)
 
-##### [libmaix](https://github.com/sipeed/libmaix)
+#### [libmaix](https://github.com/sipeed/libmaix)
 
 由 SIPEED 提供在嵌入式平台统一的嵌入式开发环境，主要有摄像头、屏幕、视觉、图像处理、部署 Pipeline 相关的实机例程，适合刚入门嵌入式 linux 开发的同学使用。
 
@@ -327,7 +318,7 @@ keywords: MAIX-III, AXera-Pi, Maix3, Sipeed, ax620a, axera, sipeed, AI, model, m
 2. 框架应用 [ipcdmeo](https://github.com/sipeed/axpi_bsp_sdk/tree/main/app/IPCDemo)
 3. 外设验证 [sample](https://github.com/sipeed/axpi_bsp_sdk/tree/main/msp/sample)
 
-##### [ax-pipeline](https://github.com/AXERA-TECH/ax-pipeline)
+#### [ax-pipeline](https://github.com/AXERA-TECH/ax-pipeline)
 
 AX-Pipeline 由爱芯主导开发。该项目基于 AXera-Pi 展示 ISP、图像处理、NPU、编码、显示 等功能模块软件调用方法，方便社区开发者进行快速评估和二次开发自己的多媒体应用。
 
