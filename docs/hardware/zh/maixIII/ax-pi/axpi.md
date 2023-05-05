@@ -190,13 +190,6 @@ keywords: MAIX-III, AXera-Pi, Maix3, Sipeed, ax620a, axera, sipeed, AI, model, m
 
 ## 丰富的资源案例
 
-> 截止更新时间：20221205
-
-<p align="center">
-  <img src="./../assets/demo_one.jpg" style="zoom: 50%;">
-  <img src="./../assets/demo_two.jpg" style="zoom: 50%;">
-</p>
-
 产品相关的专栏内容有（官方维护）：
 
 - [MAIX-III AXera-Pi 系列文章（1）：新一代 3.6T 视觉 AI 板卡面世](https://aijishu.com/a/1060000000374898)
@@ -240,6 +233,13 @@ keywords: MAIX-III, AXera-Pi, Maix3, Sipeed, ax620a, axera, sipeed, AI, model, m
 - [AI 视觉新势力×微光全彩“黑”科技](https://mp.weixin.qq.com/s/JIvVprWlQPvE7bTxozAG_Q)
 - [爱芯派™AXera-Pi™亮相ICCAD 爱芯元智开源生态建设加速](https://mp.weixin.qq.com/s/_nZLfEjxOb4QLpGWgaLVWQ)
 - [新一代 Kaldi - 嵌入式端实时语音识别](https://mp.weixin.qq.com/s/r4nGu04o1sjdFZt_vYbUAA)
+
+> 截止更新时间：20221205
+
+<p align="center">
+  <img src="./../assets/demo_one.jpg" style="zoom: 50%;">
+  <img src="./../assets/demo_two.jpg" style="zoom: 50%;">
+</p>
 
 ## Linux 内容
 
