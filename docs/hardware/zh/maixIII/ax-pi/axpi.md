@@ -202,6 +202,7 @@ keywords: MAIX-III, AXera-Pi, Maix3, Sipeed, ax620a, axera, sipeed, AI, model, m
 - [YOLOv8 目标检测：训练自定义数据集并部署到爱芯派（二）](https://aijishu.com/a/1060000000395812)
 - [MMPose：在爱芯派上玩转你的关键点检测](https://aijishu.com/a/1060000000396746)
 - [MOT：如何在爱芯派上实现多目标跟踪的神奇效果！](https://aijishu.com/a/1060000000399566)
+- [MMPoes（衍生章）：如何在爱芯派上实现跌倒检测并预警](https://aijishu.com/a/1060000000401084)
 
 以下是由社区开发者贡献的内容，欢迎你也来贡献喔！！！（直接丢群里都可以喔！）
 
