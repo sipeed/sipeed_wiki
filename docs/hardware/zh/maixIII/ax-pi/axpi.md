@@ -64,7 +64,7 @@ keywords: MAIX-III, AXera-Pi, Maix3, Sipeed, ax620a, axera, sipeed, AI, model, m
 
 说这么多没用的，还是赶紧把东西掏出来，让大家瞧瞧都有些什么吧！
 
-## 影像效果
+## 微光影像效果
 
 ### 夜景增强效果
 
@@ -84,7 +84,7 @@ keywords: MAIX-III, AXera-Pi, Maix3, Sipeed, ax620a, axera, sipeed, AI, model, m
     <iframe src="//player.bilibili.com/player.html?aid=773227207&bvid=BV1B14y1Y7A4&cid=837154353&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="max-width:640px; max-height:480px;"> </iframe>
 </p>
 
-## AI 生态
+## 多元 AI 生态
 
 ### 大算力超多算子！
 
@@ -188,7 +188,7 @@ keywords: MAIX-III, AXera-Pi, Maix3, Sipeed, ax620a, axera, sipeed, AI, model, m
   <img src="./../assets/test_yolov5s.jpg" style="zoom: 100%;" >
 </p>
 
-## 丰富の案例资源
+## 活跃 の 社区资源
 
 产品相关的专栏内容有（官方维护）：
 
@@ -242,7 +242,7 @@ keywords: MAIX-III, AXera-Pi, Maix3, Sipeed, ax620a, axera, sipeed, AI, model, m
   <img src="./../assets/demo_two.jpg" style="zoom: 100%;">
 </p>
 
-## Linux 内容
+## 丰富 の Linux 内容
 
 ### 超高性价比与能效比
 
@@ -337,7 +337,7 @@ AX-Pipeline 由爱芯主导开发。该项目基于 AXera-Pi 展示 ISP、图像
 
 <iframe src="//player.bilibili.com/player.html?aid=992194128&bvid=BV1px4y1w75T&cid=1018084963&page=1&t=372" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
-## 硬件参数
+## 相关硬件参数
 
 <p align="center">
   <img src="./../assets/waiguan1.jpg" style="zoom: 51%;" />
