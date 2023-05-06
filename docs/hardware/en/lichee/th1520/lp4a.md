@@ -13,6 +13,8 @@ update:
 
 Lichee Pi 4A is the Risc-V linux development board using [Lichee Module 4A](http://wiki.sipeed.com/hardware/en/lichee/th1520/lm4a.html) core module, its main chip is [TH1520](https://www.t-head.cn/product/yeying), contains 4TOPS@int8 AI NPU, supports dual screen 4K resolution display and 4K mipi camera input, dual Gigabit Ethernets and Mutiple USB interfaces provides enough connections. And there is a Riscv C906 Core for audio decode.
 
+Online store:[Aliexpress](https://www.aliexpress.com/item/1005005532736080.html)
+
 ## Parameters
 
 <table>
@@ -86,5 +88,10 @@ Lichee Pi 4A is the Risc-V linux development board using [Lichee Module 4A](http
 
 ## Links
 
+[Specification](https://dl.sipeed.com/shareURL/LICHEE/licheepi4a/01_Specification)
+[Schematic](https://dl.sipeed.com/shareURL/LICHEE/licheepi4a/02_Schematic)
+[Bit_number_map](https://dl.sipeed.com/shareURL/LICHEE/licheepi4a/03_Bit_number_map)
+[Dimensional_drawing](https://dl.sipeed.com/shareURL/LICHEE/licheepi4a/04_Dimensional_drawing)
+[3D_model](https://dl.sipeed.com/shareURL/LICHEE/licheepi4a/05_3D_model)
+
 [Github](https://github.com/sipeed/LicheePi4A)
-[Sipeed Download station(Blank now)]()

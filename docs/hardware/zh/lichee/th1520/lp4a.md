@@ -13,6 +13,8 @@ update:
 
 Lichee Pi 4A 是使用了 [Lichee Module 4A](http://wiki.sipeed.com/hardware/zh/lichee/th1520/lm4a.html) 核心板组合出来的 Linux 开发板，以 [TH1520](https://www.t-head.cn/product/yeying)  为主控核心，搭载 4TOPS@int8 AI 算力的 NPU，支持双屏 4K 显示输出，支持 4K 摄像头接入，双千兆 POE 网口和多个 USB 接口，音频由 C906 核心处理。
 
+购买链接：[淘宝](https://item.taobao.com/item.htm?id=715508771884)
+
 ## 基本参数
 
 <table>
@@ -86,5 +88,10 @@ Lichee Pi 4A 是使用了 [Lichee Module 4A](http://wiki.sipeed.com/hardware/zh/
 
 ## 相关链接
 
+[板卡规格书](https://dl.sipeed.com/shareURL/LICHEE/licheepi4a/01_Specification)
+[底板原理图](https://dl.sipeed.com/shareURL/LICHEE/licheepi4a/02_Schematic)
+[底板点位图](https://dl.sipeed.com/shareURL/LICHEE/licheepi4a/03_Bit_number_map)
+[底板尺寸图](https://dl.sipeed.com/shareURL/LICHEE/licheepi4a/04_Dimensional_drawing)
+[模型文件](https://dl.sipeed.com/shareURL/LICHEE/licheepi4a/05_3D_model)
+
 [Github](https://github.com/sipeed/LicheePi4A)
-[Sipeed 下载站(暂时空白)]()

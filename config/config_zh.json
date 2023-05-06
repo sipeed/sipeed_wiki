@@ -38,7 +38,7 @@
             },
 
             {
-                "label": "在线服务",
+                "label": "在线网站",
                 "position": "left",
                 "type":"list",
                 "items":[
@@ -51,13 +51,13 @@
                         "label":"下载中心",
                         "url":"https://dl.sipeed.com/",
                         "target": "_blank"
-                    },
-                    {
-                        "label": "社区: 沟通交流",
-                        "url": "/community.html",
-                        "position": "left"
                     }
                 ]
+            },
+            {
+                "label": "交流社群",
+                "url": "/community.html",
+                "position": "left"
             },
             {
                 "label":"博文精选",
@@ -91,7 +91,7 @@
     "footer":{
         "top":[
             {
-                "label": "其他链接",
+                "label": "相关链接",
                 "items": [
                     {
                         "label": "Sipeed 官网",

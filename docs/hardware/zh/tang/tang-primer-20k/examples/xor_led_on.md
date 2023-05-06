@@ -160,6 +160,7 @@ Tang Primer 20K DOCK 底板配备有一个 5P 的拨码开关。其中一号拨�
 .. tabset::
 
     ## xor_led_on.v
+
     Verilog文件；
     定义了 4 个拨码开关输入端口，和 1 个 LED 输出端口。根据拨码开关输入的状态，异或运算后输出到对应的端口。
     ```verilog
@@ -172,6 +173,7 @@ Tang Primer 20K DOCK 底板配备有一个 5P 的拨码开关。其中一号拨�
     ```
 
     ## xor_led_on.cst
+
     物理约束文件；
     将 verilog 代码里的端口绑定到 FPGA 引脚上面
     ```txt
@@ -201,16 +203,16 @@ Tang Primer 20K DOCK 底板配备有一个 5P 的拨码开关。其中一号拨�
 
 对于 CLS 的解释可以查看高云半导体官方文档 [UG288](http://cdn.gowinsemi.com.cn/UG288.pdf) 中的第二章。
 
-Tang Primer 20K 的主控芯片 [GW2A-LV18PG256C8/I7](http://www.gowinsemi.com.cn/prod_view.aspx?TypeId=10&amp;FId=t3:10:3&amp;Id=167#GW2A) 内部基本逻辑单元为 LUT4。LUT 即为查找表（Look-Up-Table)，本质上就是一个 RAM。它将数据事先写入 RAM 后，每个输入信号就相当于目标内容地址，找出地址对应的内容，然后输出。LUT4 指的是 4 个输入信号的查找表。其简单解释图如下：
+Tang Primer 20K 的主控芯片 [GW2A-LV18PG256C8/I7](http://www.gowinsemi.com.cn/prod_view.aspx?TypeId=10&amp;FId=t3:10:3&amp;Id=167#GW2A) 内部基本逻辑单元为 LUT4。LUT 即为查找表（Look-Up-Table），本质上就是一个 RAM。它将数据事先写入 RAM 后，每个输入信号就相当于目标内容地址，找出地址对应的内容，然后输出。LUT4 指的是 4 个输入信号的查找表。其简单解释图如下：
 
 > 这里用一个4输入与门为例
 
 <table>
-<tr>
-<td><img src="./assets/xor_led_on/lut_actual.jpeg"></td>
-<td><img src="./assets/xor_led_on/lut_actual.jpeg"></td>
-</tr>
-<table>
+  <tr>
+    <td><img src="./assets/xor_led_on/lut_actual.jpeg"></td>
+    <td><img src="./assets/xor_led_on/lut_actual.jpeg"></td>
+  </tr>
+</table>
 
 本地代码中，我们恰好 4 个输入和 1 个输出。所以使用 1 个 lut4 就够了。
 
@@ -221,5 +223,5 @@ Tang Primer 20K 的主控芯片 [GW2A-LV18PG256C8/I7](http://www.gowinsemi.com.c
 这是因为拨码开关引脚上拉了，自己将物理约束文件 (.cst) 文件里面的 `PULL_MODE=UP` 改成 `PULL_MODE=DOWN`
 
 <p id="back">
-    <a href="#" onClick="javascript :history.back(-1);">返回上一页(Back)</a>
+    <a href="#" onClick="javascript:history.back(-1);">返回上一页(Back)</a>
 </p>

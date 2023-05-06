@@ -259,7 +259,7 @@ endmodule
 
 ## 烧录固件
 
-Dock 板载了下载器，在 [安装IDE](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/get_started/install-the-ide.html) 地时候我们已经安装了驱动。因此我们将板子与电脑连接起来就行。
+Dock 板载了下载器，在 [安装IDE](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/get_started/install-the-ide.html) 的时候我们已经安装了驱动。因此我们将板子与电脑连接起来就行。
 
 ![connected](./assets/led_assets/connected.png)
 

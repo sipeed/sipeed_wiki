@@ -93,7 +93,7 @@ This is a series of AIOT development boards based on K210 in 2019.
             <td><a href="./maix/maixpy_develop_kit_board/maix_Amigo.html"
                     target="_blank"><img
                         src="./maix/assets/dk_board/maxi_amigo/maix_amigo_0.png" ></a></td>
-            <td><a href="./maix/maixpy_develop_kit_board/maix_go.html"><img
+            <td><a href="./maix/maixpy_develop_kit_board/maix_hat.html"><img
                         src="./../../soft/maixpy/assets/hardware/grove_ai_hat/grove_ai_hat1.png"  alt="Maix HAT"></a></td>
             <td><a href="./maix/maixpy_develop_kit_board/maix_go.html"
                     target="_blank"><img
