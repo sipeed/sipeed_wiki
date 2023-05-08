@@ -1,43 +1,61 @@
 # MicArray 麦克风阵列
 
-## 概述
-
-麦克风阵列由沿板的六个麦克风和一个中心的麦克风组成，阵列板上的 12 颗 LED 可以用来可视化识别声源方位，可以用来做声源定位实验。
-
-购买链接：
-- [淘宝](https://item.taobao.com/item.htm?id=591820993474)
-- [Aliexpress](https://www.aliexpress.com/item/1005002687541143.html)
-
-## 产品视图
+## 产品介绍
 
 <img src="./../../assets/spmod/spmod_micarray/spmod_micarray.png" width=55%>
 
-[点我下载产品规格书](https://dl.sipeed.com/fileList/MAIX/HDK/Sipeed-R6+1_MicArray/Specifications/Sipeed%20R6+1%20%E9%BA%A6%E5%85%8B%E9%A3%8E%E9%98%B5%E5%88%97%20%E8%A7%84%E6%A0%BC%E4%B9%A6%20V1.0.pdf)
-[点我下载产品原理图](https://dl.sipeed.com/fileList/MAIX/HDK/Sipeed-R6+1_MicArray/Sipeed-R6+1_MicArray_11.16/Sipeed-R6+1_MicArray_11.16(Schematic).pdf)
-[点我下载点位图](https://dl.sipeed.com/fileList/MAIX/HDK/Sipeed-R6+1_MicArray/Sipeed-R6+1_MicArray_11.16/Sipeed-R6+1_MicArray_11.16(Assembly%20drawing).pdf)
+麦克风阵列模块是 Sipeed 基于 MSM261S4030H0 数字麦克风芯片设计的，模块声音识别灵敏度、信噪比高，由沿板的六个麦克风和一个中心的麦克风组成，阵列板上的 12 颗 LED 可以用来可视化识别声源方位，基于 `GCC-PHAT` 算法实现声源定位、语音识别、波束成形等需求场合。
 
-## 麦克风阵列介绍
+>购买链接：
+>- [淘宝](https://item.taobao.com/item.htm?id=591820993474)
+>- [Aliexpress](https://www.aliexpress.com/item/1005002687541143.html)
 
-- MEMS 麦克风 :7 个 MSM261S4030H0 组成阵列  
+## 相关参数资料
+
+### 数据手册
+
   [点我下载 MSM261S4030H0 数据手册](https://dl.sipeed.com/fileList/MAIX/HDK/Chip_DS/%E9%BA%A6%E5%85%8B_MSM261S4030H0(%E4%BD%BF%E7%94%A8%E7%9A%84).pdf)
-- 灵敏度 : -26(dB,dBFS @1kHz 1Pa)
-- 信噪比 : 57dB(20kHz bandwidth, A-weighted)
-- 尺寸 :78.1*88.8mm
-- 灯光 :12 个 SK9822 LED 组成一个环形 LED 阵列 
   [点我下载 SK9822 数据手册](https://dl.sipeed.com/fileList/MAIX/HDK/Chip_DS/sk9822_micarray_led.PDF)
-    - 多个 LED 通过双信号线级联
-    - 8 Bit(256 级) 可调颜色,5 Bit (32 级)亮度调节 
-- 连接器 :支持 2*5P 2.54mm 端子和 10P 0.5mm FPC 连接器
 
-## 参数
+### 硬件资料
+
+  [点我前往硬件资料合集](https://dl.sipeed.com/shareURL/MAIX/HDK/Sipeed-R6+1_MicArray)
+  [点我下载产品规格书](https://dl.sipeed.com/fileList/MAIX/HDK/Sipeed-R6+1_MicArray/Specifications/Sipeed%20R6+1%20%E9%BA%A6%E5%85%8B%E9%A3%8E%E9%98%B5%E5%88%97%20%E8%A7%84%E6%A0%BC%E4%B9%A6%20V1.0.pdf)
+  [点我下载产品原理图](https://dl.sipeed.com/fileList/MAIX/HDK/Sipeed-R6+1_MicArray/Sipeed-R6+1_MicArray_11.16/Sipeed-R6+1_MicArray_11.16(Schematic).pdf)
+  [点我下载点位图](https://dl.sipeed.com/fileList/MAIX/HDK/Sipeed-R6+1_MicArray/Sipeed-R6+1_MicArray_11.16/Sipeed-R6+1_MicArray_11.16(Assembly%20drawing).pdf)
+
+### 相关参数
+  
 | 功能特点 | 参数 |
 | --- | --- |
 | 声压级 | 140 dB SPL |
 | 灵敏度 | -26(dB,dBFS @1kHz 1Pa) |
 | 信噪比 | 57 dB (20kHz bandwidth,A-weighted) <br>THD<1% (100dB SPL @1kHz S=Nom,Rload>2k ) |
 | 时钟频率 | 1.0-4.0Mhz(正常模式) <br>150-800khz(低功耗模式) |
+| MEMS 麦克风 | 7 个 MSM261S4030H0 组成阵列 |
+| 连接器 | 支持 2*5P 2.54mm 端子和 10P 0.5mm FPC 连接器 |
+| 灯光 | 12 个 SK9822 LED 组成一个环形 LED 阵列 |
+|  | 多个 LED 通过双信号线级联 / 8 Bit（256 级）可调颜色 / 5 Bit（32 级）亮度调节  |
+| 尺寸 | 78.1*88.8mm |
 
-## 模块引脚定义
+## 使用方法
+
+在进行上手使用麦克风阵列前，我们需要先完成一些准备工作。
+
+### 准备工作
+
+- **烧录固件**
+
+前往 [下载站](https://dl.sipeed.com/shareURL/MAIX/MaixPy/release/master) 下载固件，下载 [固件说明](https://wiki.sipeed.com/soft/maixpy/zh/get_started/upgrade_maixpy_firmware.html#%E5%9B%BA%E4%BB%B6%E5%91%BD%E5%90%8D%E8%AF%B4%E6%98%8E) 里面的默认固件即可使用。
+
+- **掌握 K210 系列开发板的基础使用（使用开发板为前提）**
+  
+前往 [K210 上手（避坑）指南](https://wiki.sipeed.com/news/MaixPy/K210_usage.html) 学习相关基础使用，下一步操作开始默认会运行代码会使用开发板。
+
+### 模块引脚定义
+
+因麦克风阵列需与开发板进行搭配才能使用，连接方式有两种（**2.54mm 杜邦线及 10P 0.5mm FPC 排线**）
+如适配板卡上无 FPC 排线接口需使用杜邦线进行连接，需使用下列引脚的定义信息。
 
 | 引脚序号 | 引脚名称 | 类型 | 引脚说明 | 
 | --- | --- | --- | --- |
@@ -54,11 +72,10 @@
 
 <img src="./../../assets/spmod/spmod_micarray/MicArray.png" width=55%>
 
-## 例程代码
+### 接线参考
 
-### 接线
-
-杜邦线接法
+>文档以杜邦线接法为示例，接线前参照自己所用板卡原理图，确定自己选择的引脚没有被其他外设使用。
+>**（比如不应该与 LCD 引脚或者摄像头的引脚等外设引脚复用）**
 
 | 麦克风阵列 | 开发板上的对应管脚 | 代码中所对应的参数 |
 | ---- | ---- | ---- |
@@ -73,36 +90,32 @@
 | MIC_WS | I/O 口 | i2s_ws |
 | MIC_CK | I/O 口 | i2s_sclk |
 
-因为 K210 的 FPIOA 的特性, 支持每个外设随意映射到任意引脚；所以将上面的表格中的 `I/O 口` 与自己的板子上带有数字标识的引脚连起来即可，类似于标有 GND 这种特殊标识的就不算所谓的数字标识引脚。连接完引脚后可以查看下面代码下方关于代码中引脚的说明。
-
-### 烧录固件
-
-前往 [下载站](https://dl.sipeed.com/shareURL/MAIX/MaixPy/release/master) 下载固件，下载 [固件说明](https://wiki.sipeed.com/soft/maixpy/zh/get_started/upgrade_maixpy_firmware.html#%E5%9B%BA%E4%BB%B6%E5%91%BD%E5%90%8D%E8%AF%B4%E6%98%8E) 里面的默认固件即可使用。
+**注意**：因为 K210 的 FPIOA 的特性, 支持每个外设随意映射到任意引脚；所以将上面的表格中的 `I/O 口` 与（自行使用）开发板上带有数字标识的引脚连起来即可，类似于标有 GND 这种特殊标识（参考板子原理图）的就不算所谓的数字标识引脚，连接完后可以查看（例程代码下方）关于代码中引脚的说明。
 
 ### Micropython 代码
+
+> 以下是声源定位实现的代码，运行即可在开发板上体验声源定位的效果。
 
 ```python
 from Maix import MIC_ARRAY as mic
 import lcd
 
 lcd.init()
-mic.init()
-#mic.init(i2s_d0=23, i2s_d1=22, i2s_d2=21, i2s_d3=20, i2s_ws=19, i2s_sclk=18, sk9822_dat=24, sk9822_clk=25)
+mic.init()#默认配置
+#mic.init(i2s_d0=23, i2s_d1=22, i2s_d2=21, i2s_d3=20, i2s_ws=19, i2s_sclk=18, sk9822_dat=24, sk9822_clk=25)#可自定义配置 IO
 
 while True:
-    imga = mic.get_map()
-    b = mic.get_dir(imga)
-    a = mic.set_led(b,(0,0,255))
+    imga = mic.get_map()    # 获取声音源分布图像
+    b = mic.get_dir(imga)   # 计算、获取声源方向
+    a = mic.set_led(b,(0,0,255))# 配置 RGB LED 颜色值
     imgb = imga.resize(160,160)
-    imgc = imgb.to_rainbow(1)
+    imgc = imgb.to_rainbow(1) # 将图像转换为彩虹图像
     a = lcd.display(imgc)
 mic.deinit()
 
 ```
 
-需要自行根据自己的连接的管脚号，对应着修改`mic.init(i2s_d0=23, i2s_d1=22, i2s_d2=21, i2s_d3=20, i2s_ws=19, i2s_sclk=18, sk9822_dat=24, sk9822_clk=25)`里面的参数。比如如果将麦克风阵列上的 `MIC_D0` 与 K210 板子上面的标号为 25 的引脚相连，那么对应在代码中的参数需要修改为 `i2s_d0=25`，其他七个引脚也是同理。因为每个人的配置是不同的，所以使用杜邦线的话没有固定的连接说明，个人自行修改引脚参数，并且不要忘记删掉`mic.init(...)`前面的注释（删掉`#`就行）。
-
-> 接线前参照自己所用板卡原理图，确定自己选择的引脚没有被其他外设使用（比如不应该与 LCD 引脚或者摄像头的引脚等外设引脚复用）。
+**注意**：请自行根据自己的连接的引脚号，对应着修改 `mic.init(i2s_d0=23, i2s_d1=22, i2s_d2=21, i2s_d3=20, i2s_ws=19, i2s_sclk=18, sk9822_dat=24, sk9822_clk=25)` 里面的参数（**示例：将麦克风阵列上的 `MIC_D0` 与 K210 板子上标号为 25 的引脚相连，那么代码中的相关参数需要修改为 `i2s_d0=25`**）其他引脚同理修改，因用户自行配置的不同无固定杜邦线连接说明，个人自行修改引脚参数，并且不要忘记删掉 `mic.init(...)` 前面的注释（删掉`#`就行）。
 
 ### C 语言代码
 
@@ -391,13 +404,23 @@ void sipeed_init_mic_array_led(void)
 
 仅供参考用，来源：[github](https://github.com/sipeed/MaixPy/blob/master/components/micropython/port/src/Maix/Maix_mic_array.c)；需要分析代码的话建议复制代码到电脑本地编辑器中查看。
 
-## 其他资料
+## 更多拓展用法
 
-[麦克风阵列硬件资料](https://dl.sipeed.com/shareURL/MAIX/HDK/Sipeed-R6+1_MicArray)
+>这里收集了社区小伙伴们贡献的关于麦克风阵列更多的拓展用法，供大家进行参考实现。
 
-## 更多使用方法
+### 如何获取数据格式
 
-请移步到[论坛](https://bbs.sipeed.com)上查看
+麦克风阵列与 K210 是通过 I2S 协议进行通信的，可通过麦克风的通信协议手册查询接收的数据格式。 
+
+### 如何获取声音的强度及角度
+
+- [点灯鼠教程](https://bbs.sipeed.com/thread/68)
+- [Github 原文教程](https://github.com/USTHzhanglu/Maixpy/tree/master/code/script/mic)
+
+### 声源定位
+
+- [K210——声源定位、声音识别](https://qichenxi.blog.csdn.net/article/details/126022738?spm=1001.2101.3001.6661.1&utm_medium=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1-126022738-blog-129727127.235%5Ev33%5Epc_relevant_default_base3&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1-126022738-blog-129727127.235%5Ev33%5Epc_relevant_default_base3&utm_relevant_index=1)
+- [2022 年电赛 E 题声源定位跟踪系统](https://blog.csdn.net/qq_53357019/article/details/126982978)
 
 ## 常见问题
 
