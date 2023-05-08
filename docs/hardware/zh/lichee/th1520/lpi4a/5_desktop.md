@@ -65,12 +65,7 @@ LicheePi 4A 板载无线模组，支持蓝牙和 wifi 。
     </tr>
 </table>
 
-在输入密码的弹出窗口中，`Wi-Fi adapter` 中需要选择 `wlan0` 来连接网络。  
-
-
-联网完成后，即可通过`ip a`命令查看当前分配到的ip：
-![ipaddress](./assets/desktop/ipaddress.png)  
-
+在输入密码的弹出窗口中，`Wi-Fi adapter` 中需要选择 `wlan0` 来连接网络。
 
 <!-- ## TODO 连接蓝牙 -->
 

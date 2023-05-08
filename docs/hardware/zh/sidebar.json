@@ -239,13 +239,48 @@
             "label": "Lichee PI 4A",
             "items":[
               {
-                "label": "资料详情",
-                "file": "lichee/th1520/lp4a.md"
+                  "label":"板卡介绍",
+                  "file":"lichee/th1520/lpi4a/1_intro.md"
               },
               {
-                "label": "使用指南 (点我跳转)",
-                "file": "../../soft/Lichee/zh/lpi4a/1_intro.md",
-                "target": "_blank"
+                  "label":"开箱体验",
+                  "file":"lichee/th1520/lpi4a/2_unbox.md"
+              },
+              {
+                  "label":"镜像集合",
+                  "file":"lichee/th1520/lpi4a/3_images.md"
+              },
+              {
+                  "label":"烧录镜像",
+                  "file":"lichee/th1520/lpi4a/4_burn_image.md"
+              },
+              {
+                  "label":"桌面系统基础使用",
+                  "file":"lichee/th1520/lpi4a/5_desktop.md"
+              },
+              {
+                  "label":"外设使用",
+                  "file":"lichee/th1520/lpi4a/6_peripheral.md"
+              },
+              {
+                  "label":"系统开发",
+                  "file":"lichee/th1520/lpi4a/7_develop.md"
+              },
+              {
+                  "label":"典型应用",
+                  "file":"lichee/th1520/lpi4a/8_application.md"
+              },
+              {
+                  "label":"CPU 跑分测试",
+                  "file":"lichee/th1520/lpi4a/9_benchmark.md"
+              },
+              {
+                  "label":"硬件测试报告",
+                  "file":"lichee/th1520/lpi4a/10_test_report.md"
+              },
+              {
+                  "label":"致谢",
+                  "file":"lichee/th1520/lpi4a/11_credits.md"
               }
             ]
           }
