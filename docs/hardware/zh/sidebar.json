@@ -243,8 +243,9 @@
                 "file": "lichee/th1520/lp4a.md"
               },
               {
-                "label": "基础上手(更新中)",
-                "file": "lichee/th1520/lpi4a/usage.md"
+                "label": "使用指南 (点我跳转)",
+                "file": "../../soft/Lichee/zh/lpi4a/1_intro.md",
+                "target": "_blank"
               }
             ]
           }

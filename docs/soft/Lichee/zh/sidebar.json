@@ -1,6 +1,55 @@
 {
     "items": [
         {
+            "label":"Lichee Pi 4A",
+            "items":[
+                {
+                    "label":"板卡介绍",
+                    "file":"./lpi4a/1_intro.md"
+                },
+                {
+                    "label":"开箱体验",
+                    "file":"./lpi4a/2_unbox.md"
+                },
+                {
+                    "label":"镜像集合",
+                    "file":"./lpi4a/3_images.md"
+                },
+                {
+                    "label":"烧录镜像",
+                    "file":"./lpi4a/4_burn_image.md"
+                },
+                {
+                    "label":"桌面系统基础使用",
+                    "file":"./lpi4a/5_desktop.md"
+                },
+                {
+                    "label":"外设使用",
+                    "file":"./lpi4a/6_peripheral.md"
+                },
+                {
+                    "label":"系统开发",
+                    "file":"./lpi4a/7_develop.md"
+                },
+                {
+                    "label":"典型应用",
+                    "file":"./lpi4a/8_application.md"
+                },
+                {
+                    "label":"CPU 跑分测试",
+                    "file":"./lpi4a/9_benchmark.md"
+                },
+                {
+                    "label":"硬件测试报告",
+                    "file":"./lpi4a/10_test_report.md"
+                },
+                {
+                    "label":"致谢",
+                    "file":"./lpi4a/11_credits.md"
+                }
+            ]
+        },
+        {
             "label": "Linux 简介",
             "file": "linux/start/introduction.md",
             "items":[
@@ -21,7 +70,6 @@
         {
             "label": "LicheePI Zero",
             "file": "Zero-Doc/Start/board_intro.md",
-            "collapsed": false,
             "items": [
                 {
                     "label": "初来乍到",
@@ -391,7 +439,6 @@
         {
             "label": "LicheePI Nano",
             "file": "Nano-Doc-Backup/index.md",
-            "collapsed": false,
             "items": [
                 {
                     "label": "上手体验",
@@ -486,7 +533,6 @@
         },
         {
             "label": "MaixSense",
-            "collapsed": false,
             "items": [
                 {
                     "label": "R329主线armbian内核 系统 驱动开发方法",
@@ -504,7 +550,6 @@
         },
         {
             "label": "Lichee RV",
-            "collapsed": false,
             "items": [
                 {
                     "label": "使用Buildroot",

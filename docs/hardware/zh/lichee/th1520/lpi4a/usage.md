@@ -16,9 +16,13 @@
 
 ### 烧录系统
 
+烧录镜像需要使用 
+
 参考：https://gitee.com/thead-yocto/light_deploy_images
 
 ## 串口登录
+
+
 
 20230423 记录:
 
@@ -47,7 +51,7 @@
 
 在登录界面，输入用户名 `root`，密码 `sipeed` 就可以登录进系统了。
 
-> 2023 年 4 月 45 日更新镜像的登录密码为 `licheepi`
+> 2023 年 4 月 25 日更新镜像的登录密码为 `licheepi`
 
 ![usage_login_userpasserward](./assets/usage/usage_login_userpasserward.png)
 
@@ -59,6 +63,7 @@
 
 ## 控制风扇
 
+在 Lichee Pi 4A 上，风扇是通过 PWM 来控制的，使用 
 
 ## 连接网络
 
@@ -151,7 +156,7 @@ mount /dev/sda2 ~/Desktop/udisk # 挂载 U 盘的 sda2 分区到 udisk 文件夹
 
 ## 挂载 TF 卡
 
-将 tf 卡插入
+将 tf 卡插入到 Lichee Pi 4A 底板，使用 
 
 ## 音频测试
 
@@ -212,7 +217,6 @@ aplay /usr/share/sounds/alsa/Rear_Left.wav
 
 
 ## 操作 GPIO
-
 
 > 进阶使用
 
