@@ -213,7 +213,7 @@ Of course, make sure you have made this board into UART burning mode: Press BOOT
 
 After burning these, you can burn the bin file for C906 core according to [Burn with u-disk](#burn-with-u-disk). You can also burn this board based on the adderss, from `partition_cfg_16M_m1sdock.toml` file you can know the burn address and modify it.
 
-### Trobules when burning
+### Troubles when burning
 
 #### BFLB IMG LOAD SHAKEHAND FAIL
 
@@ -625,7 +625,7 @@ Finishing installing the driver, use command `lsusb` to see there is `CKlink-Lit
 
 ![cklink_linux_lsusb](./../../../../zh/maix/m1s/other/assets/start/cklink_linux_lsusb.jpg)
 
-### Debug denive
+### Debug device
 
 Before debugging, we need to enable core debug. Connect computer with UART port on M1s Dock, and open the bigger serial port.
 
