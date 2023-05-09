@@ -625,7 +625,7 @@ Finishing installing the driver, use command `lsusb` to see there is `CKlink-Lit
 
 ![cklink_linux_lsusb](./../../../../zh/maix/m1s/other/assets/start/cklink_linux_lsusb.jpg)
 
-### Debug denive
+### Debug device
 
 Before debugging, we need to enable core debug. Connect computer with UART port on M1s Dock, and open the bigger serial port.
 
