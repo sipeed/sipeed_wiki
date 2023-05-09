@@ -19,8 +19,9 @@ update:
 LicheePi 4A 的镜像不定期更新中，初期的镜像可能不太稳定，或者无法发挥 TH1520 的完全性能，请关注本页面，获取最新镜像。
 Sipeed 官方镜像基于 Debian 系统修改适配。 
 
-镜像里总共有三个用户，`root`，`debian`，`sipeed`，初始密码均为`licheepi` 
-有些版本的 debian 系统的用户的密码为`sipeed`
+> 默认镜像有两类帐号密码配置，可以都尝试下：
+> 1. 帐号：`root`，`debian`，`sipeed`；密码均为 `licheepi`
+> 2. 帐号`debian`，密码`debian`；帐号`sipeed`，密码`licheepi`
 
 下载地址：
 百度网盘：[点我](https://pan.baidu.com/e/1jnjz0KO_xnO5R8tWlXtx0A)
