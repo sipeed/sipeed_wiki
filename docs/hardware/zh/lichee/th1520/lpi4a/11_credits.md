@@ -25,13 +25,15 @@ update:
 ## PLCT
 
 Wu Wei：感谢吴老板大力支持！老板大气！   
+[Icenowy Zheng](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/log/?qt=author&q=Icenowy+Zheng)：冰激凌，永远的神，手打 binary patch，真人快打！  
 高涵：revyos之父！
 Estela ad Astra：预订 OpenWRT！
+
 
 ## 开源社区
 
 [Jisheng Zhang](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/log/?qt=author&q=Jisheng+Zhang): TH1520 主线化支持 
 
-[Icenowy Zheng](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/log/?qt=author&q=Icenowy+Zheng)：冰激凌，永远的神，手打 binary patch，真人快打！
+
 
 范文捷：Wine-CE 作者，在LPi4A上进行相关移植测试。
