@@ -26,7 +26,7 @@ update:
 
 Wu Wei：感谢吴老板大力支持！老板大气！   
 [Icenowy Zheng](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/log/?qt=author&q=Icenowy+Zheng)：冰激凌，永远的神，手打 binary patch，真人快打！  
-高涵：revyos之父！
+高涵：revyos之父！   
 Estela ad Astra：预订 OpenWRT！
 
 
