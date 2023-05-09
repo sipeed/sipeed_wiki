@@ -19,7 +19,7 @@ TH1520 的官方开发环境是平头哥的基于 yocto 的开发环境，大家
 
 Linux SDK 使用 Yocto 构建镜像。Yocto 编译环境使用 Ubuntu18.04，推荐在 Linux 上使用 Docker 部署,也可直接在 Ubuntu18.04 下搭建环境（见[T-Head曳影1520Yocto用户指南.pdf](https://gitee.com/thead-yocto/documents/blob/master/zh/user_guide/T-Head%E6%9B%B3%E5%BD%B11520Yocto%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97.pdf)2.2）。
 
-这里仅介绍 Linux 上使用 Docker 部署的方式。
+这里仅介绍 Linux 上使用 Docker 部署的方式。**建议编译机器预留200G磁盘空间，内存为4G以上，编译时间因网络情况差异很大，在使用代理的情况下编译典型linux系统配置（最小系统加上必要的相关基础组件）时间约为1.5h（CPU为i5-11400，时间供参考）**。
 - 使用官方脚本安装 docker
 	```bash
 	curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
@@ -136,7 +136,7 @@ MACHINE=light-lpi4a bitbake thead-image-linux
 	sudo dpkg-reconfigure locales 
 	```
 	然后在打印出来的列表中找到`en_US.UTF8`这一项（大概在第158项）,输入这一项对应的序号后回车，接下来也选择这一项后回车。
-	完成上述设置步骤后接着运行如下命令
+	完成上述设置步骤后接着运行如下命令（也可考虑将下面的命令加入到docker的`.bashrc`中）
 	```bash
 	sudo locale-gen en_US.UTF-8
 	sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
@@ -145,7 +145,7 @@ MACHINE=light-lpi4a bitbake thead-image-linux
 	完成上述步骤后再编译就不会出现原来的报错。
 - 报错信息
 	```bash
-	lease install them in order to proceed: lz4c pzstd zstd
+	please install them in order to proceed: lz4c pzstd zstd
 	```
 	安装对应的依赖即可
 	```bash
