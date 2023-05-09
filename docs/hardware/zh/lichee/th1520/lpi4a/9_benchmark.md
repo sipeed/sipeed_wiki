@@ -26,20 +26,21 @@ update:
 ```txt
 2K performance run parameters for coremark.
 CoreMark Size    : 666
-Total ticks      : 17990
-Total time (secs): 17.990000
-Iterations/Sec   : 11117.287382
+Total ticks      : 15129
+Total time (secs): 15.129000
+Iterations/Sec   : 13219.644392
 Iterations       : 200000
 Compiler version : GCC10.4.0
-Compiler flags   : -O2 -march=rv64gv0p7_zihintpause_zvamo0p7_zvlsseg0p7_zfh_xtheadc -O3 -mcmodel=medany -fno-common -funroll-loops -finline-functions -finline-limit=1000 -fno-if-conversion2 -fselective-scheduling -fno-crossjumping -freorder-blocks-and-partition -falign-functions=8 -falign-jumps=8 -falign-loops=8 --param inline-min-speedup=10 -mtune=c920 -ffast-math -fno-if-conversion2 -DPERFORMANCE_RUN=1  -lrt
-Memory location  : Please put data memory location here  (e.g. code in flash, data on heap etc)
+Compiler flags   : -O2 -march=rv64gv0p7_zfh_xtheadc -O3 -funroll-all-loops -finline-limit=500 -fgcse-sm -fno-schedule-insns  -msignedness-cmpiv -fno-code-hoisting -mno-thread-jumps1 -mno-iv-adjust-addr-cost -mno-expand-split-imm -DPERFORMANCE_RUN=1  -lrt
+Memory location  : Please put data memory location here
+                        (e.g. code in flash, data on heap etc)
 seedcrc          : 0xe9f5
 [0]crclist       : 0xe714
 [0]crcmatrix     : 0x1fd7
 [0]crcstate      : 0x8e3a
 [0]crcfinal      : 0x4983
 Correct operation validated. See README.md for run and reporting rules.
-CoreMark 1.0 : 11117.287382 / GCC10.4.0 -O2 -march=rv64gv0p7_zihintpause_zvamo0p7_zvlsseg0p7_zfh_xtheadc -O3 -mcmodel=medany -fno-common -funroll-loops -finline-functions -finline-limit=1000 -fno-if-conversion2 -fselective-scheduling -fno-crossjumping -freorder-blocks-and-partition -falign-functions=8 -falign-jumps=8 -falign-loops=8 --param inline-min-speedup=10 -mtune=c920 -ffast-math -fno-if-conversion2 -DPERFORMANCE_RUN=1  -lrt / Heap
+CoreMark 1.0 : 13219.644392 / GCC10.4.0 -O2 -march=rv64gv0p7_zfh_xtheadc -O3 -funroll-all-loops -finline-limit=500 -fgcse-sm -fno-schedule-insns  -msignedness-cmpiv -fno-code-hoisting -mno-thread-jumps1 -mno-iv-adjust-addr-cost -mno-expand-split-imm -DPERFORMANCE_RUN=1  -lrt / Heap  -lrt / Heap
 ```
 
 ![coremarks](./assets/benchmark/coremarks.png) 
