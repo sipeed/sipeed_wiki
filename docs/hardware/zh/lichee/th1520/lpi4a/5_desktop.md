@@ -148,7 +148,7 @@ sudo apt install -y ibus-libpinyin
 
 ## 办公软件
 
-系统内置了基础的 Office 办公软件（LibreOffice）：
+部分镜像里内置了基础的 Office 办公软件（LibreOffice）：
 ![office0](./assets/desktop/office0.png)  
 
 LibreOffice Calc 即 XLS 功能：
