@@ -13,7 +13,7 @@ update:
 
 平头哥官方数据，C910 为 5.6 分左右。
 
-![dmips](./assets/benchmark/dmips.png)  
+![dmips](./../../../../zh/lichee/th1520/lpi4a/assets/benchmark/dmips.png)  
 
 ## CoreMarks 
 
@@ -42,20 +42,20 @@ Correct operation validated. See README.md for run and reporting rules.
 CoreMark 1.0 : 11117.287382 / GCC10.4.0 -O2 -march=rv64gv0p7_zihintpause_zvamo0p7_zvlsseg0p7_zfh_xtheadc -O3 -mcmodel=medany -fno-common -funroll-loops -finline-functions -finline-limit=1000 -fno-if-conversion2 -fselective-scheduling -fno-crossjumping -freorder-blocks-and-partition -falign-functions=8 -falign-jumps=8 -falign-loops=8 --param inline-min-speedup=10 -mtune=c920 -ffast-math -fno-if-conversion2 -DPERFORMANCE_RUN=1  -lrt / Heap
 ```
 
-![coremarks](./assets/benchmark/coremarks.png) 
+![coremarks](./../../../../zh/lichee/th1520/lpi4a/assets/benchmark/coremarks.png) 
 
 ## Geekbench5
 
 > 注：这里的测试使用公版工具链，若使用thead专用工具链，性能预计可提升50%以上
 
-![geekbench5](./assets/benchmark/geekbench5.png) 
+![geekbench5](./../../../../zh/lichee/th1520/lpi4a/assets/benchmark/geekbench5.png) 
 
 https://browser.geekbench.com/v5/cpu/compare/21100603?baseline=21092115
 
 ## 7-Zip LZMA 
 
 [7-Zip LZMA Benchmark](https://7-cpu.com/)
-![7z](./assets/benchmark/7z.png) 
+![7z](./../../../../zh/lichee/th1520/lpi4a/assets/benchmark/7z.png) 
 
 ## OpenSSL
 

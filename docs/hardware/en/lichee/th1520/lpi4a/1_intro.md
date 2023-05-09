@@ -12,12 +12,12 @@ update:
 ## 简介
 
 LicheePi 4A 是基于 [Lichee Module 4A](http://wiki.sipeed.com/hardware/zh/lichee/th1520/lm4a.html) 核心板的 高性能 RISC-V Linux 开发板，以 [TH1520](https://www.t-head.cn/product/yeying)  为主控核心（4xC910@1.85G， RV64GCV，4TOPS@int8 NPU， 50GFLOP GPU），板载最大 16GB 64bit LPDDR4X，128GB eMMC，支持 HDMI+MIPI 双4K 显示输出，支持 4K 摄像头接入，双千兆网口（其中一个支持POE供电）和 4 个 USB3.0 接口，多种音频输入输出（由专用 C906 核心处理）。  
-![lpi4a](./assets/intro/lpi4a.png)
+![lpi4a](./../../../../zh/lichee/th1520/lpi4a/assets/intro/lpi4a.png)
 
 LicheePi 4A 是截止目前（2023Q2）为止最强的 RISC-V SBC。性能约为上一代 RISC-V SBC [VisionFive2](https://www.starfivetech.com/en/site/boards)的2倍；未开启专用指令集加速的情况下，性能逼近基于 ARM A72 的树莓派 4，在开启相关指令集加速的情况下，可以与树莓派 4 持平。而且最高具备 16GB 超大内存，是树莓派 4 最高配置 8GB 内存的两倍！
 
-![benchmark](./assets/intro/benchmark.png)
-![geekbench5](./assets/intro/geekbench5.png)
+![benchmark](./../../../../zh/lichee/th1520/lpi4a/assets/intro/benchmark.png)
+![geekbench5](./../../../../zh/lichee/th1520/lpi4a/assets/intro/geekbench5.png)
  
 LicheePi 4A 可以用作典型的 RISC-V 验证平台，其强大的性能可以较快速地实现本地编译，而无需使用 QEMU 进行编译。
 
@@ -25,7 +25,7 @@ LicheePi 4A 可以用作典型的 RISC-V 验证平台，其强大的性能可以
 
 在保持高性能的同时，我们也尽量进行了 CostDown 设计，8GB 内存版本价格在 ￥749~ 899（\\$100 ~ \\$130），16GB 内存版本在 ￥1100~1300 （\\$155 ~\\$185）, 性价比上超越了树莓派 4（8GB ~\\$150）!
 无论你是否是 RISC-V 粉丝，你都值得入手体验下 LicheePi 4A 这款划时代的高性能 RISC-V SBC！
-![desktop](./assets/intro/desktop.png)
+![desktop](./../../../../zh/lichee/th1520/lpi4a/assets/intro/desktop.png)
 
 ## 欢迎投稿
 
@@ -113,12 +113,11 @@ LicheePi 4A 可以用作典型的 RISC-V 验证平台，其强大的性能可以
 
 ## 其他链接
 
+Online store: [Aliexpress](https://www.aliexpress.com/item/1005005532736080.html)
+
 [Github](https://github.com/sipeed/LicheePi4A)
-[淘宝](https://item.taobao.com/item.htm?id=715508771884)
 [Sipeed 下载站](https://dl.sipeed.com/shareURL/LICHEE/licheepi4a)
 
-QQ群: 559614960 [点我自动加群](http://qm.qq.com/cgi-bin/qm/qr?k=5YkapIhdtWHp8AEfM5_bFFYQIX3CUQN6)
 Telegram: https://t.me/linux4rv
 
-论坛：bbs.sipeed.com
 联系邮箱：support@sipeed.com

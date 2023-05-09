@@ -27,7 +27,7 @@ update:
 ### 内测版硬件
 
 按住板上的BOOT按键不放，然后插入 USB-C 线缆上电（线缆另一头接 PC ），即可进入 USB 烧录模式。
-![press_boot](./assets/burn_image/press_boot.png)
+![press_boot](./../../../../zh/lichee/th1520/lpi4a/assets/burn_image/press_boot.png)
 
 在 Windows 下使用设备管理器查看，会出现 “USB download gadget” 设备。
 在 Linux 下，使用 `lsusb` 查看设备，会显示以下设备： `ID 2345:7654 T-HEAD USB download gadget`
@@ -39,8 +39,8 @@ TODO
 ### Windows 下驱动安装
 
 Windows 下初次使用需要安装驱动，注意由于该驱动未经过数字签名，需要用户手工禁用数字签名。
-![before_install_driver](./assets/burn_image/before_install_driver.png)
-![install_driver](./assets/burn_image/install_driver.png)
+![before_install_driver](./../../../../zh/lichee/th1520/lpi4a/assets/burn_image/before_install_driver.png)
+![install_driver](./../../../../zh/lichee/th1520/lpi4a/assets/burn_image/install_driver.png)
 
 ## 烧录镜像
 
@@ -74,7 +74,7 @@ light-lpi4a-ddr2G.dtb #history dtb
 
 烧录镜像的典型 log 输出如下：
 
-![](./assets/burn_image/burn_image_progress_result.png)
+![](./../../../../zh/lichee/th1520/lpi4a/assets/burn_image/burn_image_progress_result.png)
 
 <!--  
 ```bash

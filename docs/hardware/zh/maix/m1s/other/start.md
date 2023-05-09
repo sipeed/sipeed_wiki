@@ -2,6 +2,13 @@
 title: M1s DOCK 上手
 keywords: M1s DOCK ,BL808, M1s
 update:
+  - date: 2023-05-09
+    version: v0.5
+    author: wonder
+    content:
+      - 默认固件更改
+      - 重新编写开箱
+      - 新出厂固件不提供
   - date: 2023-02-27
     version: v0.4
     author: wonder
@@ -12,6 +19,10 @@ update:
     author: wonder
     content:
       - 增加部分blai相关内容
+---
+
+<!-- 
+
   - date: 2022-12-12
     version: v0.2
     author: wonder
@@ -22,13 +33,27 @@ update:
     author: wonder
     content:
       - 初次编辑
----
 
-<!-- M1s Dock 设计精巧，可以用来所很多有意思的事，这里简单说明一下一些使用方法。要注意的是串口默认波特率 2000000。
+
+M1s Dock 设计精巧，可以用来所很多有意思的事，这里简单说明一下一些使用方法。要注意的是串口默认波特率 2000000。
 
 通过板子上的 UART 口连接 PC，在 Windows 系统的设备管理器中显示有两个 Converter 设备。
 
 ![start_bl808_uart_converter](./assets/start/start_bl808_uart_converter.png) -->
+
+> 
+
+## 开箱
+
+下面地开箱说明以 M1S Dock 带屏幕和摄像头的套餐为例。
+
+打开 M1S Dock 的包装盒后，看到里面有如下内容：
+
+- 一根 USB 数据线
+- 一块 M1S Dock
+- 两条排针
+
+<img src="./assets/start/unbox_m1s_dock.jpg" alt="unbox_m1s_dock" width="50%">
 
 ## 硬件准备
 
@@ -52,13 +77,21 @@ M1S Dock 搭载有两个 TypeC 接口。默认情况下 UART 口用做于电脑�
 
 ### 板卡现象
 
-首次对 M1s Dock 板子上电，屏幕会显示摄像头所拍摄到的内容。
+首次对 M1s Dock 板子上电，按下板子上的 RST (复位) 按键。
 
-按下 `S1` 或者 `S2` 按键后屏幕上的数字会发生变化，那个数字表示着板子上 LED 的亮度百分比。
+![m1s_dock_rst_key_position](./assets/start/m1s_dock_rst_key_position.png)
 
-![default_firmware](./assets/start/default_firmware.jpg)
+会有如下现象：
 
-可以看到下图中的 LED 亮度为 50% 时候的亮起状态。
+![default_firmware](./assets/start/default_firmware_20230509.png)
+
+- 按下 ① 处所指向的按键，屏幕上 ④ 处 `btn` 会变成绿色，并且 ⑥ 处的数字会增加，最大为 100
+- ② 是摄像头，屏幕会默认显示摄像头所拍摄到的画面
+- 按下 ③ 处所指向的按键，屏幕上另一个 `btn` 会变成绿色，并且 ⑥ 处的数字会减小，最小为 0
+- ⑤ 是出货时所测试的无线 wifi 功能及其强度检测，用户手中此处空白
+- ⑦ 是板载麦克风测试，麦克风在背面位于板载 LED 的对称位置
+
+另一面的 LED 会闪烁。
 
 ![led_brghtness](./assets/start/led_brghtness.jpg)
 
@@ -123,17 +156,19 @@ M1S Dock 搭载有两个 TypeC 接口。默认情况下 UART 口用做于电脑�
 
 <img src="./assets/start/udisk_in_computer.png" alt="udisk_in_computer" style="transform:rotate(0deg);">
 
-板子成功进入 U 盘烧录模式后在电脑上会显示出一个容量很小的磁盘，直接把固件 <a href="https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmware/demo_bin">点我跳转部分例程固件</a> 拖拽进去即可完成烧录。。
+板子成功进入 U 盘烧录模式后在电脑上会显示出一个容量很小的磁盘，直接把固件 <a href="https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmware/demo_bin">点我跳转部分例程固件</a> 拖拽进去即可完成烧录。
 
 <img src="./assets/start/udisk_burn.gif" alt="udisk_burn" style="transform:rotate(0deg);">
 
-文件存放进去后数秒后板子会重启，U 盘被弹出，表示烧录完成，看不到效果的话可以给板子重新插拔板子 USB 来完全重启一次再来查看烧录结果。
+文件存放进去后数秒后板子会重启，U 盘被弹出，表示烧录完成。
+
+但是因为 bl702 固件的差异，可能需要按下 RST 按键才能成功加载固件。[点我查看 bl702 固件差异](https://wiki.sipeed.com/hardware/zh/maix/m1s/other/start.html#bl702-%E5%9B%BA%E4%BB%B6%E5%B7%AE%E5%BC%82) 。
 
 ### 串口烧录
 
 上面的 U 盘烧录方法适用于给 C906 核心烧录固件。当板子出现固件异常或者需要将板子的固件全部升级时，我们需要通过串口烧录这种方法来重新烧录 M1s Dock, 这可以解决所有问题。
 
-使用 TypeC 数据线将电脑与板子的 UART 口连接起来，此时电脑上会出现两个串口 （如果出现鼠标不能动的现象请拔掉 USB 并且查看 [更新板载 bl702 固件](#给板载-bl702-进行烧录) 相关内容来修复问题)。
+使用 TypeC 数据线将电脑与板子的 UART 口连接起来，此时电脑上会出现两个串口 (如果出现鼠标不能动的现象请拔掉 USB 并且查看 [更新板载 bl702 固件](https://wiki.sipeed.com/hardware/zh/maix/m1s/other/start.html#%E7%BB%99%E6%9D%BF%E8%BD%BD-bl702-%E8%BF%9B%E8%A1%8C%E7%83%A7%E5%BD%95) 相关内容来修复问题)。
 
 #### 软件获取
 
@@ -168,9 +203,9 @@ M1S Dock 搭载有两个 TypeC 接口。默认情况下 UART 口用做于电脑�
 
 首次烧录 `firmware` 和 `boot2` 都需要烧录进去，之后就可以按需烧录而不用全部勾选。
 
-默认固件可以在 [这里下载到](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmware/factory)。
+旧默认固件可以在 [这里下载到](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmware/factory)，新默认固件不再提供。对应的旧默认固件测试方法查看 [旧固件测试](https://wiki.sipeed.com/hardware/zh/maix/m1s/other/start.html#%E6%97%A7%E5%9B%BA%E4%BB%B6%E5%BC%80%E7%AE%B1%E6%B5%8B%E8%AF%95)
 
-正确的选择固件后，在窗口右侧点击一下 `Refresh` 来刷新串口，正常情况有两个串口号相邻的串口可供选择，如果没有两个串口请参考下面的 [烧录 BL702](#给板载-bl702-进行烧录)来查看解决方法。在本烧录应用中，对 M1s Dock 操作均需要通过串口号较大的串口，而不是小号串口。
+正确的选择固件后，在窗口右侧点击一下 `Refresh` 来刷新串口，正常情况有两个串口号相邻的串口可供选择，如果没有两个串口请参考下面的 [烧录 BL702](https://wiki.sipeed.com/hardware/zh/maix/m1s/other/start.html#%E7%BB%99%E6%9D%BF%E8%BD%BD-bl702-%E8%BF%9B%E8%A1%8C%E7%83%A7%E5%BD%95)来查看解决方法。在本烧录应用中，对 M1s Dock 操作均需要通过串口号较大的串口，而不是小号串口。
 
 ![burn_steps](./assets/start/burn_steps.png)
 
@@ -197,7 +232,7 @@ M1S Dock 搭载有两个 TypeC 接口。默认情况下 UART 口用做于电脑�
 
 在 `BLDevCube` 的文件夹下面，还有 `bflb_iot_tool`、`bflb_iot_tool-macos`、`bflb_iot_tool-ubuntu` 这三个程序，用于在不同系统通过命令行进行烧录。
 
-下面是在 `Windows` 系统中通过命令行烧录的命令。其中 `firmware` 是 E907 核心的固件，可以在[默认固件](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmware/factory)处下载得到；`pt` 文件是分区表文件，默认在 `M1s_BL808_example\partition` 目录下，当然也可以 [点我](https://dl.sipeed.com/fileList/MAIX/M1s/M1s_Dock/7_Firmware/partition/partition_cfg_16M_m1sdock.toml) 直接下载到；`boot2` 文件默认位于 `BLDevCube\chips\bl808\builtin_imgs\boot2_isp_bl808` 目录下，是名称带有 `debug` 的文件；波特率为 2M，这样烧录的时候会快点；`port` 应指定为串口号较大的串口。
+下面是在 `Windows` 系统中通过命令行烧录的命令。其中 `firmware` 是 E907 核心的固件，可以在[旧默认固件](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmware/factory)处下载得到；`pt` 文件是分区表文件，默认在 `M1s_BL808_example\partition` 目录下，当然也可以 [点我](https://dl.sipeed.com/fileList/MAIX/M1s/M1s_Dock/7_Firmware/partition/partition_cfg_16M_m1sdock.toml) 直接下载到；`boot2` 文件默认位于 `BLDevCube\chips\bl808\builtin_imgs\boot2_isp_bl808` 目录下，是名称带有 `debug` 的文件；波特率为 2M，这样烧录的时候会快点；`port` 应指定为串口号较大的串口。
 
 ```bash
 .\bflb_iot_tool.exe --chipname=bl808 --port=COM38 --baudrate=2000000 --firmware="firmware_20221212.bin" --pt="M1s_BL808_example\partition\partition_cfg_16M_m1sdock.toml" --boot2="BLDevCube\chips\bl808\builtin_imgs\boot2_isp_bl808\boot2_isp_debug.bin"
@@ -207,7 +242,7 @@ M1S Dock 搭载有两个 TypeC 接口。默认情况下 UART 口用做于电脑�
 
 ![command_burn_flash](./assets/start/command_burn_flash.jpg)
 
-烧录完之后，可以参考前面的 [U 盘烧录](#u-盘烧录) 来给 C906 核心烧录固件。也可以自己根据烧录地址来烧录固件，烧录地址可以在 `partition_cfg_16M_m1sdock.toml` 文件查看到，也可以自己更改，此处不述。
+烧录完之后，可以参考前面的 [U 盘烧录](https://wiki.sipeed.com/hardware/zh/maix/m1s/other/start.html#U-%E7%9B%98%E7%83%A7%E5%BD%95) 来给 C906 核心烧录固件。也可以自己根据烧录地址来烧录固件，烧录地址可以在 `partition_cfg_16M_m1sdock.toml` 文件查看到，也可以自己更改，此处不述。
 
 ### 烧录时候的常见问题
 
@@ -504,7 +539,7 @@ cd M1s_BL808_example/e907_app
 
 ### 常见问题
 
-1. 执行完 build.sh 后提示 `Makefile:14: *** BL_SDK_PATH not found, please enter: export BL_SDK_PATH={sdk_path}.  Stop.`，查看 [配置编译工具链路径](#配置编译工具链路径) 来配置自己的 BL_SDK_PATH。
+1. 执行完 build.sh 后提示 `Makefile:14: *** BL_SDK_PATH not found, please enter: export BL_SDK_PATH={sdk_path}.  Stop.`，查看 [配置编译工具链路径](https://wiki.sipeed.com/hardware/zh/maix/m1s/other/start.html#%E9%85%8D%E7%BD%AE%E7%BC%96%E8%AF%91%E5%B7%A5%E5%85%B7%E9%93%BE%E8%B7%AF%E5%BE%84) 来配置自己的 BL_SDK_PATH。
 
 2. 编译出错
 
@@ -893,7 +928,7 @@ models
 
 首先根据前面搭建 SDK 环境所描述的内容，编译出 [tom_and_jerry_classification_demo](https://dl.sipeed.com/fileList/MAIX/M1s/M1s_Dock/7_Firmware/demo_bin/tom_and_jerry_classification_demo.bin) 这个例程固件。
 
-```
+```bash
 #c906_app
 ./build.sh tom_and_jerry_classification_demo
 ```
@@ -1012,11 +1047,23 @@ BL702 芯片在这里担任着 USB 转双串口芯片功能。
 
 ### 编译 SDK 相关的常见问题
 
-1. 执行完 build.sh 后提示 `Makefile:14: *** BL_SDK_PATH not found, please enter: export BL_SDK_PATH={sdk_path}.  Stop.`，查看 [配置编译工具链路径](#配置编译工具链路径) 来配置自己的 BL_SDK_PATH。
+1. 执行完 build.sh 后提示 `Makefile:14: *** BL_SDK_PATH not found, please enter: export BL_SDK_PATH={sdk_path}.  Stop.`，查看 [配置编译工具链路径](https://wiki.sipeed.com/hardware/zh/maix/m1s/other/start.html#%E9%85%8D%E7%BD%AE%E7%BC%96%E8%AF%91%E5%B7%A5%E5%85%B7%E9%93%BE%E8%B7%AF%E5%BE%84) 来配置自己的 BL_SDK_PATH。
 
 2. 编译出错
 
     注意编译的时候使用的命令为 `./build.sh demo_name`，比如  `./build.sh hello_world`，而不是 `./build.sh hello_world/` （注意最后面的路径符号`/`）
+
+### 旧固件开箱测试
+
+对 M1s Dock 板子上电，屏幕会显示摄像头所拍摄到的内容。
+
+按下 `S1` 或者 `S2` 按键后屏幕上的数字会发生变化，那个数字表示着板子上 LED 的亮度百分比。
+
+![default_firmware](./assets/start/default_firmware.jpg)
+
+可以看到下图中的 LED 亮度为 50% 时候的亮起状态。
+
+![led_brghtness](./assets/start/led_brghtness.jpg)
 
 ### 给板载 bl702 进行烧录
 
@@ -1025,6 +1072,8 @@ BL702 芯片在这里担任着 USB 转双串口芯片功能。
 按住 BOOT 键后冷启动板子，就可以通过 UART 口烧录板载 bl702 了。
 
 在给板子通电前按住板子上的 BOOT 按键，然后通过板子上的 UART USB 接口连接电脑，此时板载 bl702 进入下载模式，打开 `BLDevCube` 烧录软件（根据自己系统选择），选择 `BL702` 芯片，在打开的软件界面选择 MCU 模式，接着可以在 [这里](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmware) 下载到 bl702 的固件，名称为 `usb2dualuart_bl702` 开头的就是我们需要烧录的文件。
+
+固件差异可以查看 [bl702 固件差异](https://wiki.sipeed.com/hardware/zh/maix/m1s/other/start.html#bl702-%E5%9B%BA%E4%BB%B6%E5%B7%AE%E5%BC%82)
 
 <table>
     <tr>
@@ -1050,3 +1099,22 @@ Windows 用户可以在设备管理器中先查看一下有没有一个 `Bouffal
 Windows 10 以下的系统不会自动加载 USB CDC 驱动，需要自己手动搜索 `Windows7 CDC` 相关的问题解决。
 
 ![burn_bl702_cdc_error](./assets/start/burn_bl702_cdc_error.png)
+
+### 烧录固件后板卡没有启动
+
+这种情况是 bl702 的固件差异导致的，有下面两个解决方法：
+
+- 通电后，按下板子上的 RST 按键来启动 M1S Dock
+- 重新烧录 bl702 的双串口固件 [烧录 bl702](https://wiki.sipeed.com/hardware/zh/maix/m1s/other/start.html#%E7%BB%99%E6%9D%BF%E8%BD%BD-bl702-%E8%BF%9B%E8%A1%8C%E7%83%A7%E5%BD%95)
+
+### bl702 固件差异
+
+在 [下载站](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmware) 中，有两个 bl702 可用的双串口固件，他们的差异如下：
+
+| 固件名称 | usb2dualuart_bl702_221118                       | usb2dualuart_bl702_20230221                 |
+| -------- | ----------------------------------------------- | ------------------------------------------- |
+| 来源     | SIPEED                                          | 博流智能                                    |
+| 详细说明 | 具有软复位功能，<br>不用按下 RST 按键就能运行 BL808 | 没有复位功能，<br>需要按下 RST 键才能启动 BL808 |
+| 驱动情况 | 部分电脑可能需要手动安装 [驱动](https://dl.sipeed.com/shareURL/MAIX/tools/driver) <br>才能系统识别 | 免驱 |
+
+[点我查看如何烧录 BL702 固件](https://wiki.sipeed.com/hardware/zh/maix/m1s/other/start.html#%E7%BB%99%E6%9D%BF%E8%BD%BD-bl702-%E8%BF%9B%E8%A1%8C%E7%83%A7%E5%BD%95)

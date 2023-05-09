@@ -77,23 +77,23 @@ rm test
 
 ## LPDDR4X
 
-![lpddr4x](./assets/test_report/lpddr4x.png) 
+![lpddr4x](./../../../../zh/lichee/th1520/lpi4a/assets/test_report/lpddr4x.png) 
 
 ## GbE
 
 `iperf3  -c 192.168.3.18 -t 15`
 
-![iperf](./assets/test_report/iperf.png) 
+![iperf](./../../../../zh/lichee/th1520/lpi4a/assets/test_report/iperf.png) 
 
 ## 温度
 
 散热器: 风扇+铝散热片(25*25*5)
 硅脂垫: Laird 500
 待机状态：
-![temp_idle](./assets/test_report/temp_idle.png) 
+![temp_idle](./../../../../zh/lichee/th1520/lpi4a/assets/test_report/temp_idle.png) 
 
 压测结束：
-![temp_press](./assets/test_report/temp_press.png) 
+![temp_press](./../../../../zh/lichee/th1520/lpi4a/assets/test_report/temp_press.png) 
 
 ## 其它
 

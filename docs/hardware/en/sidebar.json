@@ -236,8 +236,53 @@
             "file": "lichee/th1520/lm4a.md"
           },
           {
-            "label": "Lichee PI 4A",
-            "file": "lichee/th1520/lp4a.md"
+            "label": "Lichee PI 4A",            
+            "items":[
+              {
+                  "label":"Introduction",
+                  "file":"lichee/th1520/lpi4a/1_intro.md"
+              },
+              {
+                  "label":"Unbox guide(Building)",
+                  "file":"lichee/th1520/lpi4a/2_unbox.md"
+              },
+              {
+                  "label":"Image summary(Building)",
+                  "file":"lichee/th1520/lpi4a/3_images.md"
+              },
+              {
+                  "label":"Burn image(Building)",
+                  "file":"lichee/th1520/lpi4a/4_burn_image.md"
+              },
+              {
+                  "label":"Desktop usage(Building)",
+                  "file":"lichee/th1520/lpi4a/5_desktop.md"
+              },
+              {
+                  "label":"Peripheral test(Building)",
+                  "file":"lichee/th1520/lpi4a/6_peripheral.md"
+              },
+              {
+                  "label":"Build system(Building)",
+                  "file":"lichee/th1520/lpi4a/7_develop.md"
+              },
+              {
+                  "label":"Application(Building)",
+                  "file":"lichee/th1520/lpi4a/8_application.md"
+              },
+              {
+                  "label":"Benchmark(Building)",
+                  "file":"lichee/th1520/lpi4a/9_benchmark.md"
+              },
+              {
+                  "label":"Hardware report(Building)",
+                  "file":"lichee/th1520/lpi4a/10_test_report.md"
+              },
+              {
+                  "label":"Credits(Building)",
+                  "file":"lichee/th1520/lpi4a/11_credits.md"
+              }
+            ]
           }
         ]
         },

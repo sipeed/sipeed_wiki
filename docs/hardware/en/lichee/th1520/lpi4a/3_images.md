@@ -24,13 +24,13 @@ Sipeed 官方镜像基于 Debian 系统修改适配。
 2. 帐号`debian`，密码`debian`；帐号`sipeed`，密码`licheepi`
 
 下载地址：
-百度网盘：[点我](https://pan.baidu.com/e/1jnjz0KO_xnO5R8tWlXtx0A)
+<!-- 百度网盘：[点我](https://pan.baidu.com/e/1jnjz0KO_xnO5R8tWlXtx0A) -->
 Mega 云盘：[点我](https://mega.nz/folder/phoQlBTZ#cZeQ3qZ__pDvP94PT3_bGA)
 ISCAS 镜像站：[点我](https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/)
 
 ### Debian
 
-![debian](./assets/images/debian.png)
+![debian](./../../../../zh/lichee/th1520/lpi4a/assets/images/debian.png)
 
 1. LPi4A_Test_0425
    1. 发布日期：2023年4月25日
@@ -55,13 +55,13 @@ ISCAS 镜像站：[点我](https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/
 
 ### OpenWRT
 
-![openwrt](./assets/images/openwrt.png)
+![openwrt](./../../../../zh/lichee/th1520/lpi4a/assets/images/openwrt.png)
 
 TODO
 
 ### Andriod
 
-![android](./assets/images/android.png)
+![android](./../../../../zh/lichee/th1520/lpi4a/assets/images/android.png)
 
 TODO
 
@@ -73,22 +73,22 @@ TODO
 
 ### openEuler
 
-![openEuler](./assets/images/openEuler.png)
+![openEuler](./../../../../zh/lichee/th1520/lpi4a/assets/images/openEuler.png)
 Download: [Click me](https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/preview/openEuler-23.03-V1-riscv64/lpi4a/)
 Twitter: https://twitter.com/openEuler
 
 ### Fedora
 
-![fedora](./assets/images/fedora.png)
+![fedora](./../../../../zh/lichee/th1520/lpi4a/assets/images/fedora.png)
 
 ### Ubuntu
 
-![ubuntu](./assets/images/ubuntu.png)
+![ubuntu](./../../../../zh/lichee/th1520/lpi4a/assets/images/ubuntu.png)
 
 ### NixOS
 
-![nixos](./assets/images/nixos.png)
+![nixos](./../../../../zh/lichee/th1520/lpi4a/assets/images/nixos.png)
 
 ### Gentoo
 
-![gentoo](./assets/images/gentoo.jpg)
+![gentoo](./../../../../zh/lichee/th1520/lpi4a/assets/images/gentoo.jpg)

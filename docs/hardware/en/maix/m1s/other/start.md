@@ -1,9 +1,16 @@
 ---
 title: M1s DOCK guides
 keywords: M1s DOCK ,BL808, M1s
-update:  
+update:
+  - date: 2023-05-09
+    version: v0.5
+    author: wonder
+    content:
+      - Change default firmware
+      - Edit start guide
+      - Latest firmware is not provided
   - date: 2023-03-06
-    version: v0.3
+    version: v0.4
     author: wonder
     content:
       - Add wifi stream demo usage
@@ -12,6 +19,9 @@ update:
     author: wonder
     content:
       - Add contents about blai
+---
+
+<!-- 
   - date: 2022-12-13
     version: v0.1
     author: wonder
@@ -22,13 +32,24 @@ update:
     author: wonder
     content:
       - Create file
----
 
-<!-- The M1s Dock can be used for a variety of interesting things by its delicate design. Here we tell the usages of this device. Note that the default baudrate is 2000000.
+The M1s Dock can be used for a variety of interesting things by its delicate design. Here we tell the usages of this device. Note that the default baudrate is 2000000.
 
 There are two Converter devices in `Windows` device manager if you connect the computer with the UART port of M1s Dock.
 
 ![start_bl808_uart_converter](./../../../../zh/maix/m1s/other/assets/start/start_bl808_uart_converter.png) -->
+
+## Open the box
+
+Here we open the box which contains M1S Dock with camera and screen.
+
+Open the box, these things are shown:
+
+- One USB cable
+- One M1S Dock
+- Two pin-headers
+
+<img src="./../../../../zh/maix/m1s/other/assets/start/unbox_m1s_dock.jpg" alt="unbox_m1s_dock" width="50%">
 
 ## Hardware preparation
 
@@ -52,13 +73,21 @@ There are two TypeC Ports on M1s Dock. The UART TypeC Port is for serial communi
 
 ### Board state
 
-Power the M1s Dock, screen displays what the camera captures. 
+Power the M1s Dock，Click the RST (reset) key。
 
-Press `S1_Button` or `S2_button` the number on the right top of the screen changes, which is the brightness percentage of the LED.
+![m1s_dock_rst_key_position](./../../../../zh/maix/m1s/other/assets/start/m1s_dock_rst_key_position.png)
 
-![default_firmware](./../../../../zh/maix/m1s/other/assets/start/default_firmware.jpg)
+And it will be as follows：
 
-This is the state of 50% LED brightness.
+![default_firmware](./../../../../zh/maix/m1s/other/assets/start/default_firmware_20230509.png)
+
+- Click the ① key, the btn marked ④ turns green, and the number marked ⑥ increases, maximum number is 100.
+- ② is the camera, and screen shows what the camera captures
+- Click the ③ key, another btn on the screen turns green, and the number marked ⑥ decreases, minimum number is 100.
+- ⑤ is the wifi test and its intensity.The user will not see this result as there is no this corresponding wifi test.
+- ⑦ is the test of the onboard microphone, which is in the symmetrical position with the led on the back
+
+The LED on the back blinks.
 
 ![led_brghtness](./../../../../zh/maix/m1s/other/assets/start/led_brghtness.jpg)
 
@@ -127,7 +156,9 @@ A removable disk with tiny storage capacity will be shown on your computer if th
 
 <img src="./../../../../zh/maix/m1s/other/assets/start/udisk_burn.gif" alt="udisk_burn" style="transform:rotate(0deg);">
 
-After succeed dragging the firmware bin into removable disk, the board will reboot and the u-disk is removed. Try to repower this board if its not working well after burning firmware.
+After succeed dragging the firmware bin into removable disk, the board will reboot and the u-disk is removed. 
+
+Because of the different bl702 firmwares, clicking the RST key to boot M1S Dock maybe necessary. [Click me](https://wiki.sipeed.com/hardware/en/maix/m1s/other/start.html#bl702-firmware-difference) to see the differences between BL702 firmwares.
 
 ### Burn via UART
 
@@ -164,13 +195,13 @@ After selecting the partition file, we have more choice in this page. We just ne
 
 <img src="./../../../../zh/maix/m1s/other/assets/start/firmware_choose.png" alt="firmware_choose" style="transform:rotate(0deg);">
 
-In the picture above, `boot2` stays the same, and it's in this directory: `BLDevCube\chips\bl808\builtin_imgs\boot2_isp_bl808_xxxx_xxx`, under where the path if this burning application is, and make sure your choosing file named with `debug`. `firmware` is the firmware file for E907 core, and `d0fw` is C906 core file, the previous [Burn with u-disk](#burn-with-u-disk) operation can also burn firmware for this core. 
+In the picture above, `boot2` stays the same, and it's in this directory: `BLDevCube\chips\bl808\builtin_imgs\boot2_isp_bl808_xxxx_xxx`, under where the path if this burning application is, and make sure your choosing file named with `debug`. `firmware` is the firmware file for E907 core, and `d0fw` is C906 core file, the previous [Burn via u-disk](https://wiki.sipeed.com/hardware/en/maix/m1s/other/start.html#Burn-via-u-disk) operation can also burn firmware for this core. 
 
 The firmware file for E907 or C906 can be gotten by compiling [M1s_dock example](https://gitee.com/sipeed/M1s_BL808_example).
 
 First time burning, both `firmware` and `boot2` are needed, after this you just need tick what you want to burn not all.
 
-The default firmware can be downloaded [here](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmware/factory).
+The default old firmware can be downloaded [here](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmware/factory), and the newest firmware is not frovided any more. [Click me](https://wiki.sipeed.com/hardware/en/maix/m1s/other/start.html#Old-firmware-test) to see the old factory firmware details.
 
 After choose the firmware, click the `Refresh` in the righr to refresh the serial port, then we can see 2 serial ports. If there are not 2 serial ports, visit [Burn onboard bl702](https://wiki.sipeed.com/hardware/en/maix/m1s/other/start.html#Burn-onboard-bl702) to solve this. We choose the bigger number serial port, and set uartrate 2000000 .
 
@@ -205,13 +236,13 @@ Here I take Windows command line as example to burn M1s Dock, and for other OS y
 .\bflb_iot_tool.exe --chipname=bl808 --port=COM38 --baudrate=2000000 --firmware="firmware_20221212.bin" --pt="M1s_BL808_example\partition\partition_cfg_16M_m1sdock.toml" --boot2="BLDevCube\chips\bl808\builtin_imgs\boot2_isp_bl808\boot2_isp_debug.bin"
 ```
 
-In this command, `firmware` is the bin file for E907 Core, the default bin file can be downloaded from [here](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmware/factory). `pt` is the partition file, it's in the `M1s_BL808_example\partition` folder, you can also [Click me](https://dl.sipeed.com/fileList/MAIX/M1s/M1s_Dock/7_Firmware/partition/partition_cfg_16M_m1sdock.toml) to get it.`boot2` is in `BLDevCube\chips\bl808\builtin_imgs\boot2_isp_bl808` folder, and is named with `debug`. Set baudrate 2000000 to burn this board fast. `port` is the bigger port number.
+In this command, `firmware` is the bin file for E907 Core, the default old bin file can be downloaded from [here](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmware/factory). `pt` is the partition file, it's in the `M1s_BL808_example\partition` folder, you can also [Click me](https://dl.sipeed.com/fileList/MAIX/M1s/M1s_Dock/7_Firmware/partition/partition_cfg_16M_m1sdock.toml) to get it.`boot2` is in `BLDevCube\chips\bl808\builtin_imgs\boot2_isp_bl808` folder, and is named with `debug`. Set baudrate 2000000 to burn this board fast. `port` is the bigger port number.
 
 Of course, make sure you have made this board into UART burning mode: Press BOOT key and RST key, then release RST key first then release BOOT key.
 
 ![command_burn_flash](./../../../../zh/maix/m1s/other/assets/start/command_burn_flash.jpg)
 
-After burning these, you can burn the bin file for C906 core according to [Burn with u-disk](#burn-with-u-disk). You can also burn this board based on the adderss, from `partition_cfg_16M_m1sdock.toml` file you can know the burn address and modify it.
+After burning these, you can burn the bin file for C906 core according to [Burn via u-disk](https://wiki.sipeed.com/hardware/en/maix/m1s/other/start.html#Burn-via-u-disk). You can also burn this board based on the adderss, from `partition_cfg_16M_m1sdock.toml` file you can know the burn address and modify it.
 
 ### Troubles when burning
 
@@ -402,9 +433,9 @@ sipeed@DESKTOP:~$ tree -L 2
     ...
 ```
 
-### Set toolcahin path
+### Set toolchain path
 
-Everytime compling for M1s, we need to set toolcahin path once.
+Everytime compling for M1s, we need to set toolchain path once.
 
 First we need to know the path of `M1s_BL808_SDK`:
 
@@ -414,7 +445,7 @@ sipeed@DESKTOP:~/M1s_BL808_SDK$ pwd
 /home/lee/bl808/M1s_BL808_SDK
 ```
 
-We copy the result (the result of everyone is different) of `pwd` command, then run following commamd to set toolcahin path.
+We copy the result (the result of everyone is different) of `pwd` command, then run following commamd to set toolchain path.
 
 ```bash
 export BL_SDK_PATH=/home/lee/bl808/M1s_BL808_SDK
@@ -456,7 +487,7 @@ cd M1s_BL808_example/c906_app
 ./build.sh lvgl_demo
 ```
 
-Then the compiled bin file is in M1s_BL808_example/c906_app/build_out folder, and its name is `d0fw.bin`, we can burn it by [u-disk](#burn-with-u-disk).
+Then the compiled bin file is in M1s_BL808_example/c906_app/build_out folder, and its name is `d0fw.bin`, we can burn it by [u-disk](https://wiki.sipeed.com/hardware/en/maix/m1s/other/start.html#Burn-via-u-disk).
 
 ### Compile firmware
 
@@ -469,9 +500,9 @@ cd M1s_BL808_example/e907_app
 
 Then the compiled bin file is in M1s_BL808_example/e907_app/build_out folder, and its name is `firmware.bin`, we can burn it with the burning application provided by Bouffalo.
 
-### Questions
+### Compile Questions
 
-1. Run command `build.sh` and get error `Makefile:14: *** BL_SDK_PATH not found, please enter: export BL_SDK_PATH={sdk_path}.  Stop.`, Visit [Set toolcahin path](#set-toolcahin-path) to set `BL_SDK_PATH` correctly.
+1. Run command `build.sh` and get error `Makefile:14: *** BL_SDK_PATH not found, please enter: export BL_SDK_PATH={sdk_path}.  Stop.`, Visit [Set toolchain path](https://wiki.sipeed.com/hardware/en/maix/m1s/other/start.html#Set-toolchain-path) to set `BL_SDK_PATH` correctly.
 
 2. Failed compiling
 
@@ -858,9 +889,9 @@ Screen displays camera contents, and show recognition result.
 
 This ai model file can be downloaded from [MaixHub](https://maixhub.com/model/zoo/127). We can upload dataset, label and train out model file in this website. Here we tell how to deploy the detection model downloaded from [Maixhub](https://maixhub.com/) on M1s Dock.
 
-To start this, refer to the [SDK compile](#sdk-compile) chapter and compile out the [tom_and_jerry_classification_demo](https://dl.sipeed.com/fileList/MAIX/M1s/M1s_Dock/7_Firmware/demo_bin/tom_and_jerry_classification_demo.bin) firmware first.
+To start this, refer to the [SDK compile](https://wiki.sipeed.com/hardware/en/maix/m1s/other/start.html#SDK-Compile) chapter and compile out the [tom_and_jerry_classification_demo](https://dl.sipeed.com/fileList/MAIX/M1s/M1s_Dock/7_Firmware/demo_bin/tom_and_jerry_classification_demo.bin) firmware first.
 
-```
+```bash
 #c906_app
 ./build.sh tom_and_jerry_classification_demo
 ```
@@ -979,17 +1010,31 @@ In the burning software, we need to tick and choose `partition table`, `boot2`, 
 
 ### Trouble about compiling SDK
 
-1. Run command `build.sh` and get error `Makefile:14: *** BL_SDK_PATH not found, please enter: export BL_SDK_PATH={sdk_path}.  Stop.`, Visit [Set toolcahin path](#set-toolcahin-path) to set `BL_SDK_PATH` correctly.
+1. Run command `build.sh` and get error `Makefile:14: *** BL_SDK_PATH not found, please enter: export BL_SDK_PATH={sdk_path}.  Stop.`, Visit [Set toolchain path](https://wiki.sipeed.com/hardware/en/maix/m1s/other/start.html#Set-toolchain-path) to set `BL_SDK_PATH` correctly.
 
 2. Failed compiling
 
 When compiling your firmware, make sure your command is `./build.sh demo_name`, like  `./build.sh hello_world`, not `./build.sh hello_world/` (pay atention to the end symbol `/`)
+
+### Old firmware test
+
+Power the M1s Dock, screen displays what the camera captures. 
+
+Press `S1_Button` or `S2_button` the number on the right top of the screen changes, which is the brightness percentage of the LED.
+
+![default_firmware](./../../../../zh/maix/m1s/other/assets/start/default_firmware.jpg)
+
+This is the state of 50% LED brightness.
+
+![led_brghtness](./../../../../zh/maix/m1s/other/assets/start/led_brghtness.jpg)
 
 ### Burn onboard bl702
 
 We do this only when there is some trouble with our board. Hold BOOT key and cold boot the board, the bl702 is into download mode, then we burn its firmware.
 
 Hold BOOT key before power this device, then connect this board ti==with computer by the UART TypeC USB port, after this the onboard is in download mode. Run `BLDevCube`, choose `BL702`, then in MCU page, choose the firmware. Here we have provided the [firmware](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmware), download the file whose name starts with `usb2dualuart_bl702`.
+
+Click [bl702 firmware difference](https://wiki.sipeed.com/hardware/en/maix/m1s/other/start.html#bl702-firmware-difference) to find more information.
 
 <table>
     <tr>
@@ -1015,3 +1060,22 @@ Windows user needs check whether there is a `Bouffalo CDC` device.
 If there is an error on this CDC device, search `Windows7 CDC` on the internet and find the answer.
 
 ![burn_bl702_cdc_error](./../../../../zh/maix/m1s/other/assets/start/burn_bl702_cdc_error.png)
+
+### Failed booting device
+
+Different bl702 firmware causes this error. Here are two ways to solve this.
+
+- Power this board, then click the RST key to boot M1S Dock
+- Reflash the USB to dual serial port firmware for bl702 [Burn onboard bl702](https://wiki.sipeed.com/hardware/en/maix/m1s/other/start.html#Burn-onboard-bl702)
+
+### bl702 firmware difference
+
+In [download site](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmware)，there are two bl702 firmwares, and their differences are in the following:
+
+| Firmware name | usb2dualuart_bl702_221118                                                                  | usb2dualuart_bl702_20230221                           |
+| ------------- | ------------------------------------------------------------------------------------------ | ----------------------------------------------------- |
+| Author        | SIPEED                                                                                     | Bouffalolab                                           |
+| Detail        | Containing software reset, <br> boot M1S Dock without clicking RST key                     | No software reset，<br>clicking RST key to boot BL808 |
+| Driver        | Some Windows computers require [Drivers](https://dl.sipeed.com/shareURL/MAIX/tools/driver) | Don't require Driver                                  |
+
+[Click me](https://wiki.sipeed.com/hardware/en/maix/m1s/other/start.html#Burn-onboard-bl702) to see how to flash the firmware for BL702

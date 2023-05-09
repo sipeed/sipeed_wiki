@@ -99,7 +99,7 @@ SOM 上的 GPIO 对应表格为：
 |14  |GPIO1_6 |
 
 LicheePi 4A上的插针的 GPIO 对应关系为：  
-![io_map](./assets/peripheral/io_map.png)  
+![io_map](./../../../../zh/lichee/th1520/lpi4a/assets/peripheral/io_map.png)  
 
 > 以文档的标注为准，内测版的丝印标注可能有误 
 
@@ -130,7 +130,7 @@ sipeed@lpi4a:~$ sudo cat /sys/kernel/debug/gpio
 
 下面是示例结果:
 
-![peripheral_gpio_information](./assets/peripheral/peripheral_gpio_information.png)
+![peripheral_gpio_information](./../../../../zh/lichee/th1520/lpi4a/assets/peripheral/peripheral_gpio_information.png)
 
 <!--
 ```bash
@@ -187,17 +187,17 @@ gpiochip0: GPIOs 504-511, parent: i2c/0-0018, 0-0018, can sleep:    IO expend 1
 
 LicheePi 4A 的系统串口是 UART0,在侧边插针中有引出。  
 你可以使用 USB 转串口模块连接该串口，即 `U0-RX` 和 `U0-TX`，注意交叉连接，以及 GND 连接。   
-![ttl_link](./assets/peripheral/ttl_link.png)  
+![ttl_link](./../../../../zh/lichee/th1520/lpi4a/assets/peripheral/ttl_link.png)  
 
 连接完成后，即可使用串口工具进行通信，Windows 下推荐 `XShell`，`mobaterm`，Linux下推荐 `minicom`   
 设置串口波特率为 `115200`，即可在串口终端下登录并进行指令操作：  
 > 注：刚连接后可以敲几个回车查看是否有反应，如果没有反应则检查接线或者串口配置
 
-![ttl_login](./assets/peripheral/ttl_login.png)  
+![ttl_login](./../../../../zh/lichee/th1520/lpi4a/assets/peripheral/ttl_login.png)  
 
 ### 一般串口
 
-LicheePi 4A的侧边插针中还引出了 UART1/2/3, 同样可以操作。
+LicheePi 4A的侧边插针中还引出了 UART1/2/3, 同样可以操作。  
 默认镜像中仅使能了 UART1, 其它串口可能需要重新配置设备树操作。
 
 > 注意：SOC串口电平为1.8V，刚好处于3.3V的高电平阈值附近，可能某些串口模块无法正确输入输出，建议使用我们提供配套串口模块，或者微调其他串口模块的3.3V电压到2.8V 
@@ -276,10 +276,11 @@ sipeed@lpi4a:~$ sudo /sbin/i2cdetect -r -y 0
 70: -- -- -- -- -- -- -- --  
 ``` 
 
-![i2c_io](./assets/peripheral/i2c_io.png)  
+![i2c_io](./../../../../zh/lichee/th1520/lpi4a/assets/peripheral/i2c_io.png)  
 
 此外还可以使用 `i2cdump` 来 dump 指定 i2c 地址的所有寄存器，用 `i2cget` 来读出指定 i2c 地址的指定寄存器值，用 `i2cset` 来写入指定 i2c 地址的指定寄存器值。   
 不过由于 IO 扩展芯片已经被内核使用，所以无法直接使用这些命令验证。用户可以自行在 I2C2 上外接外设来验证。  
+
 
 ## SPI   
 
