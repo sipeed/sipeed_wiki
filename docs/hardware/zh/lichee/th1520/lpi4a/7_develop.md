@@ -158,6 +158,22 @@ MACHINE=light-lpi4a bitbake thead-image-linux
 最后，可以将 docker 编译好的镜像及相关文件复制到先前通过 -v 选项挂载的共享文件夹中，宿主机即可使用该文件进行烧录。
 到这里，我们已经完成了编译和打包，得到了一个可以烧录到开发板中运行的镜像。
 
+### 单独编译
+如何单独编译thead官方发布的组件
+- OpenSBI
+
+- Uboot
+	```bash
+	git clone https://gitee.com/thead-yocto/u-boot
+	cd u-boot
+	make CROSS_COMPILE=riscv64-unknown-linux-gnu- ARCH=riscv light_lpi4a_defconfig
+	make CROSS_COMPILE=riscv64-unknown-linux-gnu- ARCH=riscv
+	```
+	生成的固件路径为，u-boot-with-spl.bin，可使用fastboot进行烧录
+
+- Kernel
+
+
 ### 设备树解析
 
 TODO  
