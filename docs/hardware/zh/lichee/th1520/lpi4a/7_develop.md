@@ -174,9 +174,30 @@ TODO
 - 包含所有发布的 SDK 相关文档
 - 仓库地址：[https://gitee.com/thead-yocto/documents](https://gitee.com/thead-yocto/documents)
 
-## Mainline Linux
+## Mainline
 
-TODO  
+如何使用主线正在开发的版本
+
+### OpenSBI
+- 下载，编译
+    ```bash
+	git clone https://github.com/riscv-software-src/opensbi
+	cd opensbi
+	make CROSS_COMPILE=riscv64-unknown-linux-gnu- PLATFORM=generic
+	```
+	生成的固件路径为，build/platform/generic/firmware/fw_dynamic.bin，拷贝到/boot/
+
+### U-boot
+- 下载，编译
+	```bash
+	git clone -b th1520 https://github.com/dlan17/u-boot.git
+	cd u-boot
+	make CROSS_COMPILE=riscv64-unknown-linux-gnu- ARCH=riscv light_lpi4a_defconfig
+	make CROSS_COMPILE=riscv64-unknown-linux-gnu- ARCH=riscv
+	```
+	生成的固件路径为，u-boot-dtb.bin，拷贝到/boot/
+
+### Linux
 
 ## OpenWRT
 
