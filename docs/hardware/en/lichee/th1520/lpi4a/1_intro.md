@@ -9,6 +9,8 @@ update:
       - Release docs
 ---
 
+English documents are being translated, please read these documents via web translate application at present if necessary .
+
 ## 简介
 
 LicheePi 4A 是基于 [Lichee Module 4A](http://wiki.sipeed.com/hardware/zh/lichee/th1520/lm4a.html) 核心板的 高性能 RISC-V Linux 开发板，以 [TH1520](https://www.t-head.cn/product/yeying)  为主控核心（4xC910@1.85G， RV64GCV，4TOPS@int8 NPU， 50GFLOP GPU），板载最大 16GB 64bit LPDDR4X，128GB eMMC，支持 HDMI+MIPI 双4K 显示输出，支持 4K 摄像头接入，双千兆网口（其中一个支持POE供电）和 4 个 USB3.0 接口，多种音频输入输出（由专用 C906 核心处理）。  

@@ -239,7 +239,7 @@
             "label": "Lichee PI 4A",            
             "items":[
               {
-                  "label":"Introduction",
+                  "label":"Introduction(Building)",
                   "file":"lichee/th1520/lpi4a/1_intro.md"
               },
               {
@@ -259,7 +259,7 @@
                   "file":"lichee/th1520/lpi4a/5_desktop.md"
               },
               {
-                  "label":"Peripheral test(Building)",
+                  "label":"Peripheral(Building)",
                   "file":"lichee/th1520/lpi4a/6_peripheral.md"
               },
               {

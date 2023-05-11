@@ -264,7 +264,33 @@
               },
               {
                   "label":"系统开发",
-                  "file":"lichee/th1520/lpi4a/7_develop.md"
+                  "items":[
+                    {
+                      "label":"THead Yocto",
+                      "file":"lichee/th1520/lpi4a/7_develop_thead.md"
+                    },
+                    {
+                      "label":"Linux 主线 (编写中)"
+                    },
+                    {
+                      "label":"Andriod (编写中)"
+                    },
+                    {
+                      "label":"其他",
+                      "collapsed": false,
+                      "items":[
+                          {
+                            "labe":"OpenWRT (编写中)"
+                          },
+                          {
+                            "labe":"OpenHarmony (编写中)"
+                          },
+                          {
+                            "labe":"OpenWRT (编写中)"
+                          }
+                      ]
+                    }
+                  ]
               },
               {
                   "label":"典型应用",
