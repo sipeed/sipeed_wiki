@@ -86,6 +86,7 @@ Project address: [Click me](https://github.com/chainsx/armbian-riscv-build)
 ### Fedora
 
 ![fedora](./assets/images/fedora.png)
+Project address: [Click me](https://github.com/chainsx/fedora-riscv-builder)  
 
 ### Ubuntu
 
