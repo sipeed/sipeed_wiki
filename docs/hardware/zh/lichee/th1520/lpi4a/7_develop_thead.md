@@ -163,6 +163,129 @@ MACHINE=light-lpi4a bitbake thead-image-linux
 最后，可以将 docker 编译好的镜像及相关文件复制到先前通过 -v 选项挂载的共享文件夹中，宿主机即可使用该文件进行烧录。
 到这里，我们已经完成了编译和打包，得到了一个可以烧录到开发板中运行的镜像。
 
+简单介绍yocto中的常用概念和一些实用技巧。
+### 基础概念
+Yocto用来构建定制的Linux镜像，有广泛的硬件支持，它是一个集合了很多工具的开源项目。
+先对Yocto在构建镜像时的大致工作流程简单介绍：
+Fetch->Extract->Patch->Configure->Build->Install->Package
+Fetch：在编译时获取需要的源码。
+Extract：对获取到的源码进行解压。
+Patch：应用补丁以修复bug和添加新功能。
+Configure：配置开发环境。
+Build：构建镜像，编译链接。
+Install：拷贝文件到目标目录。
+Package：镜像打包。
+下图展示了流程中的一些具体步骤：
+![](https://gitee.com/cindycyber/blog-pic/raw/e87498543df4f56c423509546cbd378ab85baa34/img/Pasted%20image%2020230508114904.png)
+Yocto project的大概构成如下图，构建所用到的主要是OpenEmbedded构建系统（下文用OE简称），它的核心是任务执行器Bitbake。
+![](https://gitee.com/cindycyber/blog-pic/raw/e87498543df4f56c423509546cbd378ab85baa34/img/Pasted%20image%2020230508081704.png)
+
+常用到的一些概念如下：
+recipes：以`.bb`结尾的文件，里面会包含下载软件包时需要的相关信息，如下载固定源码的文件位置，需要应用到该软件包的patch信息,编译需要的信息等。例如`xuantie-yocto`的中的`gnome-shell`，它的recipes文件存储在`/home/thead/xuantie-yocto/meta-openembedded/meta-gnome/recipes-gnome/gnome-shell`目录下。
+build directory：该目录即为构建时的输出目录，同时也会存放一些环境配置文件，`source`命令指定编译环境时就会生成该目录，默认命名为`build`，也可在`source`时更改为其他名字，如`sourece oe-init-build-env mybuild`。
+configurations：以`.conf`结尾的文件，主要是配置文件。比如存储在`build directory`的`conf`目录中的`local.conf`，在编译时可能会在根据需要更改其中一些参数。
+layers：通常会在这里存储所需要的各种metadata(如，`.bb`文件，`patches`和一些其他的附加文件)，主要是用于告诉OE构建系统如何构建目标文件。将metadata按层分类有助于项目维护。
+bitbake：OE构建系统中用来执行各种任务的任务执行器。
+### 常用操作 
+##### 常用task
+Yocto以package为单位管理开源软件组件，如需要编译某个package，方法如下：
+```shell
+bitbake "package-name"
+```
+每个package都在recipes文件中定义支持的task，有些task如clean，是所有包通用的，可以用一下命令列出package支持的task：
+```shell
+bitbake "package-name" -c listtasks
+```
+##### 查找编译后package的位置
+Yocto集成了大量开源的package，这些 package 编译的时候的工作目录通常在以下目录：
+- tmp-glibc/work/riscv64-oe-linux  
+- tmp-glibc/work/${MACHINE} 
+例如
+```shell
+thead@b9461db16a58:~/xuantie-yocto/thead-build/light-fm/tmp-glibc/work/light_lpi4a-oe-linux/u-boot$ tree -L 2
+.
+└── 1_2020.10-r0
+    ├── 0001-no-strip-fw_printenv.patch
+    ├── build
+    ├── deploy-debs
+```
+可以通过`bitbake -e linux-thead | grep ^S=`命令查找package目录。例如，查看内核的编译目录
+```shell
+$ bitbake -e linux-thead | grep ^S=
+S="/home/thead/xuantie-yocto/thead-build/light-fm/tmp-glibc/work/light_a_val-oe-linux/linux-thead/5.10.y-r0/linux-5.10.y"
+```
+编译完成后文件输出的位置，例如，镜像编译完成后相关的各类文件都位于`light-fm/tmp/glibc/work/light_lpi4a-oe-linux`下，例如镜像就位于该目录的`linux-thead`下，最后只需要打包即可。
+##### 编译时fetch包的速度过慢
+在编译时，可能会遇到fetch包过慢问题，这是除了使用代理，也可以将包下载到本地，然后根据得到的包地址让fetch时直接使用本地的repo。例如：
+```shell
+WARNING: bzip2-native-1.0.8-r0 do_fetch: Failed to fetch URL git://sourceware.org/git/bzip2-tests.git;name=bzip2-tests;branch=master, attempting MIRRORS if available
+```
+那么可以使用如下命令找到包的下载地址
+```shell
+$ bitbake -e bzip2 | grep ^SRC_URI=
+SRC_URI="https://sourceware.org/pub/bzip2/bzip2-1.0.8.tar.gz            git://sourceware.org/git/bzip2-tests.git;name=bzip2-tests;branch=master            file://configure.ac;subdir=bzip2-1.0.8            file://Makefile.am;subdir=bzip2-1.0.8            file://run-ptest            "
+```
+得到地址后，手动将该仓库`clone`下来，然后找到它对应的`.bb`文件
+```shell
+$ find -name bzip*.bb
+./openembedded-core/meta/recipes-extended/bzip2/bzip2_1.0.8.bb
+```
+在该文件中找到`SRC_URI`这一项
+```shell
+SRC_URI = "https://sourceware.org/pub/${BPN}/${BPN}-${PV}.tar.gz \
+           git://sourceware.org/git/bzip2-tests.git;protocol=file;name=bzip2-tests;branch=master \
+           file://configure.ac;subdir=${BP} \
+           file://Makefile.am;subdir=${BP} \
+           file://run-ptest \
+           "
+```
+加上`protocol`指定为`file`，若需要切换分支，直接在`clone`下来的本地repo中`checkout`到对应的分支即可，修改好后，直接fetch这个包即可。
+```shell
+bitbake bzip2 -c fetch
+```
+若编译速度过慢，找到`build_directory`的`conf`目录下的`local.conf`文件，修改相应的参数即可，参考[此文档](https://docs.yoctoproject.org/dev-manual/speeding-up-build.html?highlight=bb_numbers)，例如，增加下载和编译时的速度，可以在文件中增加如下代码，将并行数量调大（注意根据CPU具体参数来）
+```
+BB_NUMBER_THREADS = '16'
+PARALLEL_MAKE = '-j 12'
+```
+yocto编译后对package有缓存机制，可以在后面编译时减少所花费的时间。
+除此之外，也可在编译前提前下载好一些包，放入某个文件夹，然后在`build_directory`的`conf`文件夹的`local.conf`找到`DL_DIR`这一项，这就是共享文件夹，更改到指定目录或软链接共享即可。
+##### 单独构建u-boot
+在编译时将源码下载到`light-fm/tmp-glibc/work/light_lpi4a-oe-linux/u-boot/1_2020.10-r0/git`路径下（倒数第二级目录名为版本号），修改源码后执行该命令即可：
+```shell
+bitbake u-boot -C compile
+```
+##### 单独构建opensbi
+在编译时将源码下载到`light-fm/tmp-glibc/work/light_lpi4a-oe-linux/opensbi/0.9-r0/git`路径下，修改源码后执行该命令即可：
+```shell
+bitbake opensbi -C compile
+```
+-----
+编译完成后，为了简化打包流程，在`light_deploy_images`提供了打包脚本`sdk.sh`。编译完成后，在`light-fm`文件夹下创建一个`sdk`文件夹，将该镜像打包脚本下载到该文件夹下，运行即可。
+打包后典型的目录结构应如下所示：
+```shell
+.
+├── deb
+│   ├── all
+│   ├── light_lpi4a
+│   └── riscv64
+├── images
+│   └── light-lpi4a
+│       ├── boot.ext4
+│       ├── light_fastboot_image_single_rank
+│       │   └── u-boot-with-spl.bin
+│       ├── rootfs.thead-image-linux.ext4
+│       └── vmlinux
+├── sdk.sh
+└── tarball
+    └── prebuild_light-lpi4a.tar.gz
+```
+烧录时主要是用`images`目录下的文件，如果少了哪个文件，也可以手动复制进去。`tarball`目录下为打包好的镜像文件的压缩包，`deb`目录下为软件包。
+参考：
+[bitbake官方文档](https://docs.yoctoproject.org/bitbake.html?highlight=bitbake)
+[yocto官方文档](https://docs.yoctoproject.org/overview-manual/yp-intro.html)
+[T-Head 曳影 1520 Yocto 用户指南](https://gitee.com/thead-yocto/documents/raw/master/zh/user_guide/T-Head%E6%9B%B3%E5%BD%B11520Yocto%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97.pdf)
+
 ### 设备树解析
 
 TODO  
