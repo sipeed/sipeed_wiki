@@ -93,7 +93,7 @@ wire [5:0] c = {a,b} ;
         input key,
         output [5:0] led
     );
-        assign led[5:0] = {3{key},3{~key}}; // led[5:0] = {key,key,key,~key,~key,~key};
+        assign led[5:0] = {{3{key}},{3{~key}}}; // led[5:0] = {key,key,key,~key,~key,~key};
     endmodule
     ```
 
