@@ -267,7 +267,7 @@ sipeed@lpi4a:~$ cat /etc/fstab
 - 第一个数字：0 表示开机不检查磁盘，1 表示开机检查磁盘；
 - 第二个数字：0 表示交换分区，1 代表启动分区（Linux），2 表示普通分区
 
-/dev/mmcblk1p1 也可使用磁盘 UUID，即写成 UUIS=xxxx-xxx 的形式，UUID 可以使用`sudo blkid`查看：
+/dev/mmcblk1p1 也可使用磁盘 UUID，即写成 UUID=xxxx-xxx 的形式，UUID 可以使用`sudo blkid`查看：
 `/dev/mmcblk1p1: UUID="033173ff-b3ab-494c-ab14-4dcd656a9214" BLOCK_SIZE="4096" TYPE="ext4" PARTUUID="8e4e28df-01"`
 
 ## 更多
