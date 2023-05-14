@@ -212,6 +212,31 @@ TODO
 	make CROSS_COMPILE=riscv64-unknown-linux-gnu- ARCH=riscv
 	```
 	生成的固件路径为，u-boot-dtb.bin，拷贝到/boot/
+- 使用板载的 U-boot 启动主线开发中的 U-boot
+	开发板内预烧录的 U-boot 已经包含 Ethernet 功能，可以通过 tftp 协议获取新 U-boot 镜像。
+
+	在开发机启动一 tftp 实例，以 Alpine 为例，安装包 `tftp-hpa` 并启用相应服务
+
+	```bash
+	apk add tftp-hpa
+	rc-update add in.tftp
+	rc-service in.tftp start
+	```
+
+	tftp 默认使用 `/var/tftpboot` 作为文件根目录，将编译好的 U-boot `u-boot-dtb.bin` 拷贝到 `/var/tftpboot`。
+
+	连接好 LicheePi 4A 开发版的串口和网线，上电启动并在串口显示
+	```
+	Press any key to stop autoboot
+	```
+	时按任意键停止自动启动进入 U-boot Shell。
+
+	输入 DHCP 使用 DHCP 协议配置网卡。开发中的主线 U-boot 加载地址为 0x1c00000，在 U-boot 输入
+	```
+	tftp 0x1c00000 TFTP_SERVER_IP:u-boot-dtb.bin
+	go 0x1c00000
+	```
+	将 U-boot 载入 0x1c00000 地址并跳转启动之。
 
 ### Linux
 
