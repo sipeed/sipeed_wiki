@@ -231,7 +231,7 @@ TODO
 	```
 	时按任意键停止自动启动进入 U-boot Shell。
 
-	输入 DHCP 使用 DHCP 协议配置网卡。开发中的主线 U-boot 加载地址为 0x1c00000，在 U-boot 输入
+	输入 `dhcp` 使用 DHCP 协议配置网卡。开发中的主线 U-boot 加载地址为 0x1c00000，在 U-boot 输入
 	```
 	tftp 0x1c00000 TFTP_SERVER_IP:u-boot-dtb.bin
 	go 0x1c00000
