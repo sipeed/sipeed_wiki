@@ -47,16 +47,23 @@ Windows 下初次使用需要安装驱动，注意由于该驱动未经过数字
 进入烧录模式后，可使用 burn_tool.zip 内的 fastboot 进行烧录操作，注意可能需要先赋予 fastboot 可执行权限。
 以 linux 下为例：
 
+
+在按住BOOT按键的条件下，系统在reset启动后，会默认进入fastboot模式，
+这时侯我们可以通过fastboot下载并启动u-boot镜像的命令，来进入到u-boot的fastboot烧录模式（相比Brom阶段，会有更大下载buffer，速度会更快）
+下面的指令会检查并格式化分区，请务必执行，否则后面烧录 rootfs 会很慢。
 ```bash
 sudo ./fastboot flash ram ./images/u-boot-with-spl.bin
 sudo ./fastboot reboot
-sleep 10
+sleep 1
+```
+
+分别烧录下面三个镜像：启动引导镜像-uboot，启动分区-boot，操作系统根分区-root
+```bash
 sudo ./fastboot flash uboot ./images/u-boot-with-spl.bin
 sudo ./fastboot flash boot ./images/boot.ext4
 sudo ./fastboot flash root ./images/rootfs.ext4
 ```
 
-前面3行指令会检查并格式化分区，请务必执行，否则后面烧录 rootfs 会很慢。 
 `boot.ext4` 为 boot 分区，包含以下内容： 
 
 ```bash
