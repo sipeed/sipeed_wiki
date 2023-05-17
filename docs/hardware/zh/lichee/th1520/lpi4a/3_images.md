@@ -98,4 +98,10 @@ Project address: [Click me](https://github.com/chainsx/fedora-riscv-builder)
 
 ### Gentoo
 
+Project address: [Click me](https://wiki.gentoo.org/wiki/Project:RISC-V)
+
+下面链接说明如何从stage3制作一个Gentoo Linux系统
+
+Deplay Gentoo Linux [Click me](https://wiki.gentoo.org/wiki/User:Dlan/RISC-V/TH1520)
+
 ![gentoo](./assets/images/gentoo.jpg)
