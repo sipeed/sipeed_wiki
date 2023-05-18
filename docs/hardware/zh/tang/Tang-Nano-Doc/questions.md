@@ -4,7 +4,14 @@ tags: Tang
 keywords: Programmer
 desc: 
 update:
-  - date: 2022-06-29
+  - date: 2023-05-18
+    version: v0.5
+    author: wonder
+    content:
+      - 补充 programmer 相关的说明
+---
+
+  <!-- - date: 2022-06-29
     version: v0.1
     author: wonder
     content:
@@ -18,13 +25,14 @@ update:
     version: v0.3
     author: wonder
     content:
-      - 增加设置顶层相关说明
+      - 增加设置顶层相关说明 
   - date: 2023-02-23
     version: v0.4
     author: wonder
     content:
       - 补充 programmer 相关的说明
----
+-->
+
 
 这里汇总一些常见问题。
 
@@ -33,6 +41,8 @@ update:
 首先确定设备管理器中有两个 `converter` 设备和一个 `COM` 设备，这说明设备正常连接到电脑并且电脑成功加载驱动了。
 
 ![tang_bl702_device_convertor](./assets/qusetions/tang_bl702_device_convertor.png)
+
+> 下载器都有 串口 和 Jtag 功能，但是要注意的是在使用串口的时候， Jtag 功能是不能用的。解决串口占用这种情况，重新插拔一下板卡的 USB 数据线就好了。
 
 ### 只有两个 `convertor`
 
@@ -226,6 +236,14 @@ Nano 9K 在设计的时候将 JTAG_SEL 引脚连接到了 S2 按键上，根据�
   <p></p>
   <p> 然后那个拓展名为 .fs 的文件就是下载到 fpga 的固件</p>
 </details>
+
+### Directory *** has null character.
+
+文件路径有不支持的字符。
+
+- 关掉 IDE
+- 检查文件路径，要求路径只包含英文和下划线，检查路径是否有空格
+- 重新打开工程，清除综合缓存后再重新重新综合。
 
 ### 烧录结束后没反应
 

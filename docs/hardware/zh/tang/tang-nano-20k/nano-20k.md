@@ -13,6 +13,8 @@ update:
 
 Tang Nano 20K 是采用高云半导体 [GW2AR-18 QN88](http://www.gowinsemi.com.cn/prod_view.aspx?TypeId=10&FId=t3:10:3&Id=167#GW2AR) 的一款核心板，芯片内部具有 20736 个逻辑查找表(LUT4) 和 15552 个寄存器(FF)，内部有两个 PLL，还带有多个 DSP 单元支持 18位 x 18位 的乘法运算来加速数字运算。板载 [BL616](https://bouffalolab.com/product/?type=detail&id=21) 芯片来作为 FPGA JTAG 下载器和与 FPGA 通信的串口。板上默认使用 27MHz 晶振用于倍频出 HDMI 显示所需要的时钟，还额外搭载 MS5351 时钟发生芯片来随意生成多种所需要的时钟。
 
+淘宝购买链接：[点我](https://item.taobao.com/item.htm?id=717932028073)
+
 ## 外观渲染图
 
 <img src="./assets/nano_20k/tang_nano_20k_3920_top.png" width="40%">
@@ -163,9 +165,8 @@ Tang Nano 20K 是采用高云半导体 [GW2AR-18 QN88](http://www.gowinsemi.com.
 安装 IDE -> 编写代码 -> 烧录进板子
 
 - 安装 IDE [点我](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/get_started/install-the-ide.html)
-- 点灯上手指南 [点我]()
-
-<!-- https://wiki.sipeed.com/hardware/zh/tang/tang-nano-20k/example/led.html -->
+- 开箱说明 [点我]()
+- 点灯上手指南 [点我](https://wiki.sipeed.com/hardware/zh/tang/tang-nano-20k/example/led.html)
 
 更多例程代码 [github](https://github.com/sipeed/TangNano-20K-example)
 
@@ -188,5 +189,7 @@ Tang Nano 20K 是采用高云半导体 [GW2AR-18 QN88](http://www.gowinsemi.com.
 ### 怎么让固件上电启动
 
 Tang Nano 20K 使用外部 Flash 来存放固件，所以想要让固件存在板子上我们需要烧录到外部 Flash.
+
+![nano_20k_flash_mode](./assets/led/nano_20k_flash_mode.png)
 
 ### 更多问题前往 [Tang 常见问题](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/questions.html) 查看

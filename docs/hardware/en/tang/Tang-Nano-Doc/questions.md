@@ -4,7 +4,15 @@ tags: Tang
 keywords: Programmer
 desc: 
 update:
-  - date: 2022-10-19
+  - date: 2023-05-18
+    version: v0.3
+    author: wonder
+    content:
+      - Add some informations
+---
+
+
+  <!-- - date: 2022-10-19
     version: v0.1
     author: wonder
     content:
@@ -13,8 +21,7 @@ update:
     version: v0.2
     author: wonder
     content:
-      - Add extra information about programmer
----
+      - Add extra information about programmer -->
 
 Here are some normal questions.
 
@@ -23,6 +30,8 @@ Here are some normal questions.
 Make sure there are 2 `converter` and 1 `COM` device, this means the debugger works well.
 
 ![tang_bl702_device_convertor](./../../../zh/tang/Tang-Nano-Doc/assets/qusetions/tang_bl702_device_convertor.png)
+
+The debugger can be used for Jtag and UART, when using its uart function, Jtag is disabled. To solve this, replug the TypeC cable of your board to disconnect the uart connection.
 
 ### Only 2 `converter` devices
 
@@ -174,6 +183,14 @@ Make sure the frquency is equal or lower than `2.5MHz`, normally `2.5MHz` everyt
   <p>Then cilck Save</p>
 </details>
 
+### Directory *** has null character.
+
+Error character of the project path.
+
+- Close IDE.
+- Check projrct path, only English works and `_` are Ok, take care of the blank character ` ` in the path.
+- Reopen the project, clean and rerun your project.
+
 ### Can't find download file
 
 Normally the download file with extension name `.fs` is in the impl/pnr folder under the project path.
@@ -227,11 +244,10 @@ If your Hierarchy interface is the same as what is in the left picture, this mea
 </tr>
 </table>
 
-
 ### Using GAO
 
 GAO is Gowin Analyzer Oscilloscope, its document can be found in the path like what is shown below
 
-![GAO path](./assets/gao.png)
+![gao](./assets/gao.png)
 
 Using this [programmer application](https://dl.sipeed.com/shareURL/TANG/programmer) instead of the programmer application installed with, then you can use GAO.(GAO need run by IDE, so you need to replace the Programmer bin folder by your downloaded one)

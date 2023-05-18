@@ -258,7 +258,7 @@ Tang Nano 20K 板卡上搭载了 BL616 芯片，用来烧录 FPGA 固件到板�
 
 在 [安装IDE](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/get_started/install-the-ide.html) 的时候已经安装了驱动。因此我们将板子与电脑连接起来就行。
 
-<!-- ![connected](./../../tang-primer-20k/examples/assets/led_assets/connected.png) -->
+![nano_20k_led_connect_debug](./../assets/led/nano_20k_led_connect_debug.png)
 
 ### 扫描设备
 
@@ -311,7 +311,7 @@ Tang Nano 20K 板卡上搭载了 BL616 芯片，用来烧录 FPGA 固件到板�
 
 如图所示，只有一个灯在闪。
 
-![led_blink](./../../tang-primer-20k/examples/assets/led_assets/led_blink.gif)
+![nano_20k_led_blink](./../assets/led/nano_20k_led_blink.gif)
 
 ## 结语
 
@@ -352,19 +352,5 @@ endmodule
 - 第二、每次触发特定时钟边沿，对应的 `always` 块就会从头到尾执行一次代码（如绿框所示），而不是从中间某处执行。
 
 ## 常见问题
-
-### No Cable found
-
-检查设备管理器里有没有下图这两个，没有的话需要安装 Programmer 驱动。
-
-![converter](./../../../../tang-primer-20k/examples/assets/questions/converter.png)
-
-确定有 converter 设备的话在确认用的是不是所要求使用的 Programmer, 本文[这里](#烧录固件)有写过。
-
-### No gowin device found
-
-确认自己使能了核心板。
-
-### 其他问题
 
 前往 [Gowin 板卡常见问题查看](./../../Tang-Nano-Doc/questions.md)
