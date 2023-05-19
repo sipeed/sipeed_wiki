@@ -112,8 +112,27 @@ MS5351 由支持三路时钟输出，在原理图中可以看到以下对应关�
 
 ![unbox_uart_bl616_choose_list](./../assets/unbox/unbox_uart_bl616_choose_list.png)
 
-打开串口时默认使用的是 `uart` 模式。在使用命令 `Ctrl + x` 后， BL616 退出串口模式，回到终端模式。
+打开串口时默认使用的是 `uart` 模式。在使用命令 `Ctrl + x`和 `Ctrl + c`，再敲下回车后， BL616 退出串口模式，回到终端模式。
 
 - `uart` 模式测试
 
+在 BL616 终端执行 `choose uart` 命令，BL616 与 FPGA 进行串口通信。
+
+![unbox_uart_bl616_choose_uart](./../assets/unbox/unbox_uart_bl616_choose_uart.png)
+
+输入完命令后终端会看起来卡住了一样，实际上这是因为 FPGA 没有向 BL616 发送串口消息。
+
+默认的固件没有被清除的话，继续敲击回车就会重新回到 litex 终端了。
+
+与前面的叙述一样，使用命令 `Ctrl + x`和 `Ctrl + c`，再敲下回车后， BL616 退出串口模式，回到终端模式。
+
+![unbox_uart_bl616_quit_uart_mode](./../assets/unbox/unbox_uart_bl616_quit_uart_mode.png)
+
 - `spi` 模式测试
+
+SPI 模式时，BL616 作为 FPGA 的 SPI 从机，接收 FPGA 发送过来的数据。
+
+## 游戏机套装
+
+Tang Nano 20K 可以加载/运行开源 FPGA NES 模拟器 [NESTang](https://github.com/nand2mario/nestang)，下面简述使用步骤。源码可以查看 [Tang Nano 20K nestang github example](https://github.com/sipeed/TangNano-20K-example/tree/main/nestang) 或者 [NESTang](https://github.com/nand2mario/nestang)。
+
