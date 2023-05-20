@@ -75,11 +75,18 @@ TODO
 
 ![openEuler](./assets/images/openEuler.png)   
 Download: [Click me](https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/preview/openEuler-23.03-V1-riscv64/lpi4a/)   
-Twitter: https://twitter.com/openEuler   
+Twitter: https://twitter.com/openEuler
+
+### DeepinOS 深度
+
+![deepin](./assets/images/deepin.jpg) 
+
+Readme and image download link: [Click me](https://github.com/aiminickwong/licheepi4a-images)
 
 ### armbian
 
-![armbian](https://cdn.armbian.com/wp-content/uploads/2018/03/logo2.png)     
+![armbian](https://cdn.armbian.com/wp-content/uploads/2018/03/logo2.png) 
+
 Project address: [Click me](https://github.com/chainsx/armbian-riscv-build)  
 
 
