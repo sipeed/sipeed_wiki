@@ -81,14 +81,13 @@ Twitter: https://twitter.com/openEuler
 
 ![deepin](./assets/images/deepin.jpg) 
 
-Readme and image download address: [Link](https://github.com/aiminickwong/licheepi4a-images)
+Readme and image download link: [Click me](https://github.com/aiminickwong/licheepi4a-images)
 
 ### armbian
 
 ![armbian](https://cdn.armbian.com/wp-content/uploads/2018/03/logo2.png) 
 
 Project address: [Click me](https://github.com/chainsx/armbian-riscv-build)  
-
 
 ### Fedora
 
