@@ -89,7 +89,6 @@ Readme and image download link: [Click me](https://github.com/aiminickwong/liche
 
 Project address: [Click me](https://github.com/chainsx/armbian-riscv-build)  
 
-
 ### Fedora
 
 ![fedora](./assets/images/fedora.png)
