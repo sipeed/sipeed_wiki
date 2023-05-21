@@ -281,184 +281,206 @@
                                     </n-divider>
                                 </n-layout>
                              </n-tab-pane>
-                             <n-tab-pane name=" Tang Primer 20K 上新">
+                             <n-tab-pane name=" Tang FPGA 选型">
                                  <n-layout style="position: relative" has-sider position="absolute" hoverable>
-                                     <n-card class="base_background"
-                                         style="margin: auto; display: fit-content; max-height: 600px;">
-                                             Tang Primer 20K 是基于 GW2A-LV18PG256C8/I7 所设计的一款 DDR3 sodimm 封装的核心板，为了方便使用我们设计了两款配套的底板
-                                             <hr>
-                                        <div style="display: grid; gap: 2%; grid-template-columns: minmax(400px, 60%) minmax(0px, 1fr); align-items: flex-start;">
-                                            <div style="display: grid; gap: 16px; grid-template-columns: 100%;">
+                                    <n-card style="margin: auto; display: fit-content; height: 600px;">
+                                         <h1> Tang FPGA 板卡参数对比</h1>
+                                            <n-card style="display: grid; gap: 16px; grid-template-columns: 100%;">
+                                            <p>Tang 系列 FPGA 到目前已经有多个板卡可以选择了，每个板卡的特点都不一样。下面是每个在售板卡的资源对比表格。</p>
                                                 <table>
+                                                    <thead>
                                                     <tr>
-                                                        <td colspan="3"><strong> Tang Primer 20K </strong></td>
+                                                      <th style="text-align:left">项目</th>
+                                                      <th style="white-space:nowrap">Tang Primer 20K</th>
+                                                      <th style="white-space:nowrap">Tang Nano 20K</th>
+                                                      <th style="white-space:nowrap">Tang Nano 9K</th>
+                                                      <th style="white-space:nowrap">Tang Nano 4K</th>
+                                                      <th style="white-space:nowrap">Tang Nano 1K</th>
                                                     </tr>
-                                                		<tr>
-                                                			<th style="text-align:center">项目</th>
-                                                			<th style="text-align:center">参数</th>
-                                                			<th style="text-align:center">补充</th>
-                                                		</tr>
-                                                		<tr>
-                                                			<td style="text-align:left">主控</td>
-                                                			<td style="text-align:left"><a href="http://www.gowinsemi.com.cn/prod_view.aspx?TypeId=10&amp;FId=t3:10:3&amp;Id=167#GW2A">GW2A-LV18PG256C8/I7</a>
-                                                			</td>
-                                                			<td style="text-align:left">
-                                                				<table>
-                                                					<tr>
-                                                						<td>逻辑单元(LUT4)</td>
-                                                						<td>20736</td>
-                                                					</tr>
-                                                					<tr>
-                                                						<td>寄存器(FF)</td>
-                                                						<td>15552</td>
-                                                					</tr>
-                                                					<tr>
-                                                						<td>分布式静态随机存储器S-SRAM(bits)</td>
-                                                						<td>41472</td>
-                                                					</tr>
-                                                					<tr>
-                                                						<td>块状静态随机存储器B-SRAM(bits)</td>
-                                                						<td>828K</td>
-                                                					</tr>
-                                                					<tr>
-                                                						<td>块状静态随机存储器数目B-SRAM(个)</td>
-                                                						<td>46</td>
-                                                					</tr>
-                                                					<tr>
-                                                						<td>乘法器(18x18 Multiplier)</td>
-                                                						<td>48</td>
-                                                					</tr>
-                                                					<tr>
-                                                						<td>锁相环(PLLs)</td>
-                                                						<td>4</td>
-                                                					</tr>
-                                                				</table>
-                                                			</td>
-                                                		</tr>
-                                                		<tr>
-                                                			<td style="text-align:left">内存</td>
-                                                			<td style="text-align:left">128M DDR3</td>
-                                                			<td style="text-align:left">128Meg x 16</td>
-                                                		</tr>
-                                                		<tr>
-                                                			<td style="text-align:left">Flash</td>
-                                                			<td style="text-align:left">32Mbits NOR Flash</td>
-                                                			<td style="text-align:left"></td>
-                                                		</tr>
-                                                		<tr>
-                                                			<td style="text-align:left">整体封装</td>
-                                                			<td style="text-align:left">204P DDR3 Sodimm 金手指</td>
-                                                			<td style="text-align:left"></td>
-                                                		</tr>
-                                                		<tr>
-                                                			<td style="text-align:left">可用 IO</td>
-                                                			<td style="text-align:left">一共 117 个</td>
-                                                			<td style="text-align:left"></td>
-                                                		</tr>
-                                                		<tr>
-                                                            <td colspan="3"><a href="https://wiki.sipeed.com/primer20k"> 点击跳转到 Tang Primer 20K 文档 </a></td>
-                                                		</tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr>
+                                                      <td style="text-align:left">芯片系列  </td>
+                                                      <td style="text-align:left">GW2A-18  </td>
+                                                      <td style="text-align:left">GW2AR-18 </td>
+                                                      <td style="text-align:left">GW1NR-9  </td>
+                                                      <td style="text-align:left">GW1NSR-4C</td>
+                                                      <td style="text-align:left">GW1NZ-1  </td>
+                                                    </tr>
+                                                    <tr>
+                                                      <td style="text-align:left">芯片版本  </td>
+                                                      <td style="text-align:left">C        </td>
+                                                      <td style="text-align:left">C        </td>
+                                                      <td style="text-align:left">C        </td>
+                                                      <td style="text-align:left">         </td>
+                                                      <td style="text-align:left">         </td>
+                                                    </tr>
+                                                    <tr>
+                                                      <td style="text-align:left">逻辑单元(LUT4)</td>
+                                                      <td style="text-align:left">20736        </td>
+                                                      <td style="text-align:left">20736        </td>
+                                                      <td style="text-align:left">8640         </td>
+                                                      <td style="text-align:left">4608         </td>
+                                                      <td style="text-align:left">1152         </td>
+                                                    </tr>
+                                                    <tr>
+                                                      <td style="text-align:left">寄存器(FF)</td>
+                                                      <td style="text-align:left">15552    </td>
+                                                      <td style="text-align:left">15552    </td>
+                                                      <td style="text-align:left">6480     </td>
+                                                      <td style="text-align:left">3456     </td>
+                                                      <td style="text-align:left">864      </td>
+                                                    </tr>
+                                                    <tr>
+                                                      <td style="text-align:left">分布式静态随机存储器<br>S-SRAM (bits)</td>
+                                                      <td style="text-align:left">41472</td>
+                                                      <td style="text-align:left">41472</td>
+                                                      <td style="text-align:left">17280</td>
+                                                      <td style="text-align:left"></td>
+                                                      <td style="text-align:left">4K</td>
+                                                    </tr>
+                                                    <tr>
+                                                      <td style="text-align:left">块状静态随机存储器<br>B-SRAM (bits)</td>
+                                                      <td style="text-align:left">828K x 46</td>
+                                                      <td style="text-align:left">828K x 46</td>
+                                                      <td style="text-align:left">468K x 26</td>
+                                                      <td style="text-align:left">180K x 10</td>
+                                                      <td style="text-align:left">72K x 1</td>
+                                                    </tr>
+                                                    <tr>
+                                                      <td style="text-align:left">用户闪存</td>
+                                                      <td style="text-align:left"></td>
+                                                      <td style="text-align:left"></td>
+                                                      <td style="text-align:left">608K</td>
+                                                      <td style="text-align:left">256K</td>
+                                                      <td style="text-align:left">64K</td>
+                                                    </tr>
+                                                    <tr>
+                                                      <td style="text-align:left">乘法器（个）</td>
+                                                      <td style="text-align:left">48</td>
+                                                      <td style="text-align:left">48</td>
+                                                      <td style="text-align:left">20</td>
+                                                      <td style="text-align:left">16</td>
+                                                      <td style="text-align:left"> </td>
+                                                    </tr>
+                                                    <tr>
+                                                      <td style="text-align:left">大容量 RAM</td>
+                                                      <td style="text-align:left">DDR SDRAM<br>容量 1G bits<br>位宽 16 bits</td>
+                                                      <td style="text-align:left">SDR SDRAM<br>容量 64M bits<br>位宽 32 bits</td>
+                                                      <td style="text-align:left">PSRAM<br>容量 64M bits<br>位宽 32 bits</td>
+                                                      <td style="text-align:left">HyperRAM<br>容量 64M bits<br>位宽 8 bits</td>
+                                                      <td style="text-align:left"></td>
+                                                    </tr>
+                                                    <tr>
+                                                      <td style="text-align:left">锁相环 (PLL)</td>
+                                                      <td style="text-align:left">4</td>
+                                                      <td style="text-align:left">2</td>
+                                                      <td style="text-align:left">2</td>
+                                                      <td style="text-align:left">2</td>
+                                                      <td style="text-align:left">1</td>
+                                                    </tr>
+                                                    <tr>
+                                                      <td style="text-align:left">板载 Flash</td>
+                                                      <td style="text-align:left">64Mbits Flash</td>
+                                                      <td style="text-align:left">32Mbits Flash</td>
+                                                      <td style="text-align:left">32Mbits Flash</td>
+                                                      <td style="text-align:left">32Mbits Flash</td>
+                                                      <td style="text-align:left"> </td>
+                                                    </tr>
+                                                    <tr>
+                                                      <td style="text-align:left">硬核处理器</td>
+                                                      <td style="text-align:left"></td>
+                                                      <td style="text-align:left"></td>
+                                                      <td style="text-align:left"></td>
+                                                      <td style="text-align:left">Cortex-M3</td>
+                                                      <td style="text-align:left"></td>
+                                                    </tr>
+                                                    <tr>
+                                                      <td style="text-align:left">摄像头接口</td>
+                                                      <td style="text-align:left">有</td>
+                                                      <td style="text-align:left"></td>
+                                                      <td style="text-align:left"></td>
+                                                      <td style="text-align:left">有</td>
+                                                      <td style="text-align:left"></td>
+                                                    </tr>
+                                                    <tr>
+                                                      <td style="text-align:left">HDMI 接口</td>
+                                                      <td style="text-align:left">有</td>
+                                                      <td style="text-align:left">有</td>
+                                                      <td style="text-align:left">有</td>
+                                                      <td style="text-align:left">有</td>
+                                                      <td style="text-align:left"></td>
+                                                    </tr>
+                                                    <tr>
+                                                      <td style="text-align:left">RGB 屏幕接口</td>
+                                                      <td style="text-align:left">有</td>
+                                                      <td style="text-align:left">有</td>
+                                                      <td style="text-align:left">有</td>
+                                                      <td style="text-align:left"></td>
+                                                      <td style="text-align:left">有</td>
+                                                    </tr>
+                                                    <tr>
+                                                      <td style="text-align:left">SPI 排线接口</td>
+                                                      <td style="text-align:left">有</td>
+                                                      <td style="text-align:left"></td>
+                                                      <td style="text-align:left">有</td>
+                                                      <td style="text-align:left"></td>
+                                                      <td style="text-align:left"></td>
+                                                    </tr>
+                                                    <tr>
+                                                      <td style="text-align:left">以太网口</td>
+                                                      <td style="text-align:left">有</td>
+                                                      <td style="text-align:left"></td>
+                                                      <td style="text-align:left"></td>
+                                                      <td style="text-align:left"></td>
+                                                      <td style="text-align:left"></td>
+                                                    </tr>
+                                                    <tr>
+                                                      <td style="text-align:left">USB 2.0</td>
+                                                      <td style="text-align:left">有</td>
+                                                      <td style="text-align:left"></td>
+                                                      <td style="text-align:left"></td>
+                                                      <td style="text-align:left"></td>
+                                                      <td style="text-align:left"></td>
+                                                    </tr>
+                                                    <tr>
+                                                      <td style="text-align:left">WS2812</td>
+                                                      <td style="text-align:left">有</td>
+                                                      <td style="text-align:left">有</td>
+                                                      <td style="text-align:left"></td>
+                                                      <td style="text-align:left"></td>
+                                                      <td style="text-align:left"></td>
+                                                    </tr>
+                                                    <tr>
+                                                      <td style="text-align:left">MS5351</td>
+                                                      <td style="text-align:left"></td>
+                                                      <td style="text-align:left">有</td>
+                                                      <td style="text-align:left"></td>
+                                                      <td style="text-align:left"></td>
+                                                      <td style="text-align:left"></td>
+                                                    </tr>
+                                                    <tr>
+                                                      <td style="text-align:left">特点</td>
+                                                      <td style="text-align:left">大容量，多外设，能用于多种验证</td>
+                                                      <td style="text-align:left">大容量，小体积，具有多路时钟可以使用</td>
+                                                      <td style="text-align:left">价格实惠，能够进行软核试验</td>
+                                                      <td style="text-align:left">内含 mcu 的 FPGA，板卡能够直接驱动摄像头</td>
+                                                      <td style="text-align:left">最小系统板</td>
+                                                    </tr>
+                                                    <tr>
+                                                      <td style="text-align:left">详细信息</td>
+                                                      <td style="text-align:left"><a href="https://wiki.sipeed.com/primer20k">点我跳转</a></td>
+                                                      <td style="text-align:left"><a href="https://wiki.sipeed.com/nano20k">点我跳转</a></td>
+                                                      <td style="text-align:left"><a href="https://wiki.sipeed.com/tang9k">点我跳转</a></td>
+                                                      <td style="text-align:left"><a href="https://wiki.sipeed.com/tang4k">点我跳转</a></td>
+                                                      <td style="text-align:left"><a href="https://wiki.sipeed.com/tang1k">点我跳转</a></td>
+                                                    </tr>
+                                                </tbody>
                                                 </table>
-                                            </div>
-                                            <div style="display: grid; gap: 16px; grid-template-columns: 100%;">
-                                                <lite_20K_start><strong> 配套的两款底板 </strong></lite_20K_start>
-                                                <lite_20K_start style="text-align:left"> 因为 sodimm 封装的核心板到手后不方便直接进行使用，所以我们提供了两款底板来便于使用 </lite_20K_start>
-                                                    <table>
-                                                        <tr>
-                                                            <th> Dock </th>
-                                                            <th> Lite </th>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><img src="/hardware/zh/tang/tang-primer-20k/assets/20k_dock_home.png" alt="20k_dock_home" height="105"></td>
-                                                            <td><img src="/hardware/zh/tang/tang-primer-20k/assets/20k_lite_home.png" alt="20k_lite_home" height="105"></td>
-                                                        </tr>
-                                                    </table>
-                                                 <n-divider title-placement="right">
-                                                     <n-button-group>
-                                                         <n-button-group style="margin: 5px; font-size: 16px;">
-                                                             <n-button size="large"
-                                                                 href="https://item.taobao.com/item.htm?&id=680099020807"
-                                                                 target="_blank" tag="a" type="error" ghost>
-                                                                 购买链接
-                                                             </n-button>
-                                                             <n-button size="large" style="color:#ffffff;" color="#e34548"
-                                                                 href="/primer20k" tag="a"
-                                                                 target="_blank" round>
-                                                                 阅读更多
-                                                             </n-button>
-                                                         </n-button-group>
-                                                     </n-button-group>
-                                                 </n-divider>
-                                            </div>
-                                        </div>
-                                     </n-card>
+                                            </n-card>
+                                    </n-card>
                                  </n-layout>
                              </n-tab-pane>
-                             <!-- <n-tab-pane name="全国 FPGA 创新设计大赛">
-                                <n-layout style="position: relative" has-sider position="absolute" hoverable>
-                                    <n-card class="base_background"
-                                        style="margin: auto; display: fit-content; max-height: 600px;">
-                                        <h1> FPGA 创新设计竞赛高云半导体 Sipeed 站点 </h1>
-                                        <p>
-                                            今年的 FPGA 创新设计竞赛如期开展，作为本次比赛中高云半导体的板卡供货商，这边存放一些资料来帮助大家解决难找资料这类问题
-                                        </p>
-                                        <div style="display: grid; gap: 2%; grid-template-columns: minmax(400px, 60%) minmax(0px, 1fr); align-items: flex-start;">
-                                            <div style="display: grid; gap: 16px; grid-template-columns: 100%;">
-                                            <table>
-                                                <tr>
-                                                    <td> 板卡相关文档 </td>
-                                                    <td><a href="/primer20k"  target="_blank"> wiki.sipeed.com/primer20k </a></td>
-                                                </tr>
-                                                <tr>
-                                                    <td> 高云原厂资料 </td>
-                                                    <td><a href="http://www.gowinsemi.com.cn/down.aspx?FId=n14:14:26"  target="_blank"> 点我跳转 </a></td>
-                                                </tr>
-                                                <tr>
-                                                    <td> Github 例程 </td>
-                                                    <td><a href="https://github.com/sipeed/TangPrimer-20K-example" target="_blank">github.com/sipeed/TangPrimer-20K-example</a></td>
-                                                </tr>
-                                                <tr>
-                                                    <td> TinyMaix 推理框架 </td>
-                                                    <td>
-                                                        <tinymaix_20k style="float:left"> Tinymaix 在 PicoRV32 软核上的运行结果：</tinymaix_20k>
-                                                            <table>
-                                                                <tr><td>Core</td><td>Flash</td><td>RAM </td><td>Freq</td><td>cifar</td><td>mnist</td></tr>
-                                                                <tr><td>RV32</td><td>  1MB</td><td>64KB</td><td> 54M</td><td>26935</td><td>385</td></tr>
-                                                            </table>
-                                                        <tinymaix_20k style="float:left"> 跳转链接：<a href="https://github.com/sipeed/TinyMaix" target="_blank"> https://github.com/sipeed/TinyMaix </a></tinymaix_20k>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td> 开源 IP core  </td>
-                                                    <td><a href="https://opencores.org/" target="_blank"> https://opencores.org/ </a></td>
-                                                </tr>
-                                                <tr>
-                                                    <td style="white-space:nowrap"> FPGA 竞赛高云官方指导群 </td>
-                                                    <td> 721849943 <a href="https://jq.qq.com/?_wv=1027&k=qR44sQWA" target="_blank"> 点我自动加群 </a></td>
-                                                </tr>
-                                                <tr>
-                                                    <td> 开箱指南 </td>
-                                                    <td><a href="https://wiki.sipeed.com/hardware/zh/tang/tang-primer-20k/start.html" target="_blank"> 点我跳转 </a></td>
-                                                </tr>
-                                                <tr>
-                                                    <td> 上手点灯 </td>
-                                                    <td><a href="https://wiki.sipeed.com/hardware/zh/tang/tang-primer-20k/examples/led.html" target="_blank"> 点我跳转 </a></td>
-                                                </tr>
-                                                <tr>
-                                                    <td> 板卡疑难解答汇总 </td>
-                                                    <td><a href="https://docs.qq.com/sheet/DY3FraVV6cHppS2xJ" target="_blank">点我跳转</a></td>
-                                                </tr>
-                                            </table>
-                                        </div>
-                                        <div style="display: grid; gap: 16px; grid-template-columns: 100%;">
-                                                <strong style="float:left">放一个 UP 主整活视频</strong>
-                                                    <iframe src="//player.bilibili.com/player.html?bvid=BV1Z24y197qr" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%"> </iframe>
-                                            <img src="/static/home/fpga_competition_2022.jpg" alt="hope">
-                                        </div>
-                                        </div>
-                                    </n-card>
-                                </n-layout>
-                             </n-tab-pane> -->
                              <n-tab-pane name="声源系列主题专场">
                                  <n-layout style="position: relative" has-sider position="absolute" hoverable>
                                      <n-card class="base_background"
@@ -622,8 +644,7 @@
                                                 </n-divider>
                                               </n-tab-pane>
                                             </n-tabs>
-                                          </n-card>
-                                        
+                                          </n-card>                                        
                                      </n-card>
                                  </n-layout>
                              </n-tab-pane>
@@ -1341,7 +1362,7 @@
                         title: "Tang Nano 20K (GW2AR-18)",
                         src: window.location.origin + "/hardware/zh/tang/tang-nano-20k/assets/nano_20k/tang_nano_20k_3920_top.png",
                         lbtn_text: "btn_buy",
-                        lbtn_href: "",
+                        lbtn_href: "https://item.taobao.com/item.htm?id=717932028073",
                         rbtn_text: "btn_detail",
                         rbtn_href: window.location.origin + "/nano20k",
                     },
@@ -1855,9 +1876,9 @@
                         title: "Tang Nano 20K (GW2AR-18)",
                         src: window.location.origin + "/hardware/zh/tang/tang-nano-20k/assets/nano_20k/tang_nano_20k_3920_top.png",
                         lbtn_text: "btn_buy",
-                        lbtn_href: "",
+                        lbtn_href: "https://www.aliexpress.com/item/1005005581148230.html",
                         rbtn_text: "btn_detail",
-                        rbtn_href: window.location.origin + "nano20k",
+                        rbtn_href: window.location.origin + "/nano20k",
                     },
                     {
                         title: "Tang Nano 9K (GW1NR-9)",
