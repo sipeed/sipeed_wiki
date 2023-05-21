@@ -83,6 +83,12 @@ Twitter: https://twitter.com/openEuler
 
 Readme and image download link: [Click me](https://github.com/aiminickwong/licheepi4a-images)
 
+### openKylin
+
+![openKylin](./assets/images/openkylin.png) 
+
+Readme and image download link: [Click me](https://github.com/aiminickwong/licheepi4a-images)
+
 ### armbian
 
 ![armbian](https://cdn.armbian.com/wp-content/uploads/2018/03/logo2.png) 
