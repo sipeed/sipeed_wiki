@@ -1,4 +1,13 @@
-# Tang Nano 20K 开箱
+---
+title: Tang Nano 20K 开箱
+keywords: FPGA, Tang, Nano, 20K
+update:
+  - date: 2023-05-22
+    version: v0.1
+    author: wonder
+    content:
+      - 新建文档
+---
 
 Tang Nano 20K 主要有游戏套餐和普通开发板两种购买选项。
 
@@ -22,7 +31,11 @@ Tang Nano 20K 默认的固件内容是 [litex](https://github.com/litex-hub) ，
 
 ![unbox_uart_litex_command_list](./../assets/unbox/unbox_uart_litex_command_list.png)
 
-以最简单的 leds 为例，输入 `leds` 命令，在后面加上一个数字，接着回车，就可以看到板子上 LED 的变化。
+以最简单的 leds 为例，输入 `leds` 命令。
+
+![unbox_uart_litex_leds_command_help](./../assets/unbox/unbox_uart_litex_leds_command_help.png)
+
+可以看到它要求 `leds` 命令后面加上一个 value .
 
 下面是在串口终端中输入了 `leds 62` 后板子上 led 的变化。
 
@@ -56,7 +69,7 @@ Tang Nano 20K 板子上带有一颗 MS5351 精准时钟发生器，它由 BL616 
 
 ![unbox_uart_bl616_pllclk_command](./../assets/unbox/unbox_uart_bl616_pllclk_command.png)
 
-MS5351 由支持三路时钟输出，在原理图中可以看到以下对应关系：
+MS5351 支持三路时钟输出，在原理图中可以看到以下对应关系：
 
 ![unbox_uart_bl616_ms351_clk_pin](./../assets/unbox/unbox_uart_bl616_ms351_clk_pin.png)
 
@@ -71,7 +84,7 @@ MS5351 由支持三路时钟输出，在原理图中可以看到以下对应关�
         <td><img src="./../assets/unbox/unbox_uart_bl616_ms351_set_o1_clk_50m.png" alt="unbox_uart_bl616_ms351_set_o1_clk_50m"></td>
         <td>
             ① 输入命令后可以看到下面有一些 log <br>
-            ② 再次输入 `pll_clk` 查看当前的配置状态 <br>
+            ② 再次输入 `pll_clk` 查看当前的配置 <br>
             ③ 可以看到 O1 目前是 50M 配置 <br>
             ④ 此处的 [EN] 表示 O1 正常工作，[DIS] 表示被禁用
         </td>
@@ -124,7 +137,7 @@ MS5351 由支持三路时钟输出，在原理图中可以看到以下对应关�
 
 默认的固件没有被清除的话，继续敲击回车就会重新回到 litex 终端了。
 
-与前面的叙述一样，使用命令 `Ctrl + x`和 `Ctrl + c`，再敲下回车后， BL616 退出串口模式，回到终端模式。
+与前面的叙述一样，使用组合键 `Ctrl + x`和 `Ctrl + c`，再敲下回车后， BL616 退出串口模式，回到终端模式。
 
 ![unbox_uart_bl616_quit_uart_mode](./../assets/unbox/unbox_uart_bl616_quit_uart_mode.png)
 
@@ -153,7 +166,7 @@ Linux 烧录方法可以参考  [Tang Nano 20K nestang github example](https://g
 
 ### 烧录 FPGA 固件
 
-使用 [Gowin Programmer](http://www.gowinsemi.com.cn/faq.aspx) 将[这个固件](https://dl.sipeed.com/shareURL/TANG/Nano_20K/7_Nestang/firmware) 烧录到 FPGA 的 FLash 中。
+使用 [Gowin Programmer](http://www.gowinsemi.com.cn/faq.aspx) 将 [这个固件](https://dl.sipeed.com/shareURL/TANG/Nano_20K/7_Nestang/firmware) 烧录到 FPGA 的 Flash 中。
 
 ![unbox_burn_nestang_firmware_into_flash](./../assets/unbox/unbox_burn_nestang_firmware_into_flash.png)
 
@@ -196,7 +209,7 @@ python nes2img.py -o games.img 1.nes 2.nes 3.nes
 <img src="./../assets/unbox/unbox_burn_nestang_game_burn_game_image.png" alt="unbox_burn_nestang_game_burn_game_image" width="48%">
 <img src="./../assets/unbox/unbox_burn_nestang_game_finish_burn_game_image.png" alt="unbox_burn_nestang_game_finish_burn_game_image" width="48%">
 
-### 组装板子[label](https://www.armbbs.cn/)
+### 组装板子
 
 - 插入 TF 卡到板子中
 

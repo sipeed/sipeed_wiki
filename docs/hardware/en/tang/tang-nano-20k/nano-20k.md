@@ -163,6 +163,7 @@ Note: There is onboard Jtag for download FPGA firmware, so this Jtag test point 
 Install IDE -> Prepare your code -> Burn into board
 
 - Install IDE [Click me](https://wiki.sipeed.com/hardware/en/tang/Tang-Nano-Doc/install-the-ide.html)
+- [Unbox](./example/unbox.md)
 - Blink the leds [Click me]()
 
 <!-- https://wiki.sipeed.com/hardware/en/tang/tang-nano-20k/example/led.html -->
