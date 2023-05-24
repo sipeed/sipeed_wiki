@@ -240,7 +240,7 @@ After finishing constrainting, we run Place & Route. The purpose is to synthesiz
 
 Double click Place&Route marked with red box to run.
 
-![place_route](./../../../../zh/tang/tang-primer-20k/examples/assets/led_assets/place_route.png)。
+![place_route](./../../../../zh/tang/tang-primer-20k/examples/assets/led_assets/place_route.png)
 
 Then there is no error, everything works well, we can burn our fpga.
 
@@ -254,7 +254,7 @@ There is onboard programmer for downloading bitstream, and drivers have been ins
 
 Make sure you have enabled the core board first, put the 1 switch on the dip switch down.
 
-![Enable_core_board](./../../../../zh/tang/tang-primer-20k/examples/assets/start/switch_1_on.png)
+![Enable_core_board](./../../../../../hardware/zh/tang/tang-primer-20k/assets/start/switch_1_on.png)
 
 Double click `Program Device` to run Programmer application
 
@@ -264,7 +264,7 @@ Click scan_device to scan device
 
 ![scan_device](./../../../../zh/tang/tang-primer-20k/examples/assets/led_assets/scan_device.png)
 
-Click OK to burn device.
+Click OK to finish selecting device.
 
 ### Burn to SRAM
 
@@ -357,4 +357,4 @@ Make sure you have enabled the core board.
 
 ### Other questions
 
-Visit [Gowin errors to solve this problem](./../../Tang-Nano-Doc/questions.md)
+Visit [Gowin errors to solve this problem](https://wiki.sipeed.com/hardware/en/tang/Tang-Nano-Doc/questions.html)

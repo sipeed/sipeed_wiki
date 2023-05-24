@@ -49,7 +49,7 @@ Then click OK to set the file name, here we take `led` as the verilog file name 
 
 Up to now we have finished creating file, then we need to prepare our code.
 
-![created_file](./../../../../zh/tang/tang-nano-20k/assets/led/nano_20k_created_file.png)
+![created_file](./../../../../../hardware/zh/tang/tang-nano-20k/assets/led/nano_20k_created_file.png.png)
 
 ### Verilog introduction
 
@@ -220,100 +220,98 @@ According to [Schematic of core board](https://dl.sipeed.com/fileList/TANG/Prime
 
 <img src="./../../../../zh/tang/tang-nano-20k/assets/led/nano_20k_crystal_port.png" alt="nano_20k_crystal_port" width=45%>
 
-结合原理图上 LED 所连接的引脚，这里只对 LED0 进行操作
+Here we only blink LED0, and we can see it's connected with FPGA PIN15.
 
 ![nano_20k_led_port](./../../../../zh/tang/tang-nano-20k/assets/led/nano_20k_led_port.png)
 
-因此对于在 FloorPlanner 交互窗口下面的 IO Constranins 中将 PORT（端口）与 Location（引脚） 分别填入下面的值：
+So for the IO Constranins under the FloorPlanner interactive window, we fill in the following values for PORT and Location:：
 
-![nano_20k_io_constrain_value](./../assets/led/nano_20k_io_constrain_value.png)
+![nano_20k_io_constrain_value](./../../../../zh/tang/tang-nano-20k/assets/led/nano_20k_io_constrain_value.png)
 
-输入完毕后快捷键 Ctrl + S 来保存一下引脚约束，然后接可以关闭 FloorPlanner 的交互图形界面了。
+Finishing filling, use `Ctrl + S` to save constraints file, then close FloorPlanner interactive graphical interface.
 
-接着发现在工程项目里面多出来刚刚创建的 cst 文件了，里面的内容也比较好理解。
+Then we see there is a .cst file in our project, and its content are easy to understand. 
 
-![nano_20k_cst_content](./../assets/led/nano_20k_cst_content.png)
+![nano_20k_cst_content](./../../../../zh/tang/tang-nano-20k/assets/led/nano_20k_cst_content.png)
 
-### 布局布线
+### Place & Route
 
-完成约束后就要开始运行布局布线了，目的是为了把综合所生成的网表与我们自己定义的约束来通过 IDE 算出最优解然后将资源合理地分配在 FPGA 芯片上。
+After finishing constrainting, we run Place & Route. The purpose is to synthesize the generated netlist and our defined constraints to calculate the optimal solution through IDE, then allocate resources reasonably on the FPGA chip.
 
-双击下图红框处的 Place&Route 就开始运行了。
+Double click Place&Route marked with red box to run.
 
-![nano_20k_place_route](./../assets/led/nano_20k_place_route.png)。
+![nano_20k_place_route](./../../../../zh/tang/tang-nano-20k/assets/led/nano_20k_place_route.png)。
 
-紧接着没有报错，全部通过。就可以开始进行烧录了。
+Then there is no error, everything works well, we can burn our fpga.
 
-## 烧录固件
+## FPGA bitstream
 
-Tang Nano 20K 板卡上搭载了 BL616 芯片，用来烧录 FPGA 固件到板卡中。
+There is a BL616 Chip on Tang Nano 20K for Jtag, we can flash FPGA bitstream with this jtag chip.
 
-在 [安装IDE](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/get_started/install-the-ide.html) 的时候已经安装了驱动。因此我们将板子与电脑连接起来就行。
+There is onboard programmer for downloading bitstream, and drivers have been installed when [install IDE](https://wiki.sipeed.com/hardware/en/tang/Tang-Nano-Doc/install-the-ide.html), we connect dock ext-board with computer.
 
-![nano_20k_led_connect_debug](./../assets/led/nano_20k_led_connect_debug.png)
+![nano_20k_led_connect_debug](./../../../../zh/tang/tang-nano-20k/assets/led/nano_20k_led_connect_debug.png)
 
-### 扫描设备
+### Scan device
 
-双击下图中的下载程序(Program Device) 来运行 Programmer 软件
+Double click `Program Device` to run the Programmer program
 
-![open_programmer](./../../tang-primer-20k/examples/assets/led_assets/open_programmer.png)
+![open_programmer](./../../../../zh/tang/tang-primer-20k/examples/assets/led_assets/open_programmer.png)
 
-然后在打开的页面中点击一下 scan_device 来扫描到我们的设备。
+Click scan_device to scan device
 
-![nano_20k_scan_device](./../assets/led/nano_20k_scan_device.png)
+![nano_20k_scan_device](./../../../../zh/tang/tang-nano-20k/assets/led/nano_20k_scan_device.png)
 
-点击 OK 后就可以接下来对 FPGA 进行操作了。
+Click OK to finish selecting device.
 
-烧录相关的文档可以参考 [SUG502-1.3_Gowin_Programmer用户指南.pdf](http://cdn.gowinsemi.com.cn/SUG502-1.3_Gowin_Programmer%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97.pdf)
+### Burn to SRAM
 
-### 下载到 SRAM
+Normally this mode is used to verify biststream.
 
-一般来说这个模式是以用来快速验证所生成的固件是否满足自己目的的。
+Because of its fast burning characteristics so the use of more, but of course the power will lose data, so if you want to power on the running program you can't choose this mode.
 
-因为其烧录快的特性所以使用的较多，然是当然断电会丢失数据，所以如果想上电运行程序的话是不能选这个的。
+Click the function box below Operation to open the device configuration interface, then select the SRAM Mode option in Access Mode to set to download to SRAM, and finally click the three dots box below to select our generated `.fs` bitstream file . Generally speaking, bitstream firmware file is in the impl -> pnr directory.
 
-点击 Operation 下面的功能框来打开设备设置界面，接着在 Operation 框中选择 SRAM Program 选项来设置为下载到 SRAM ，最后点击下面的那三个点点框来选择我们所生成的 .fs 下载固件。通常来说下载固件生成与工程文件目录下的 impl -> pnr 目录下。
+![sram_mode](./../../../../zh/tang/tang-nano-20k/assets/led/nano_20K_sram_mode.png)
 
-![sram_mode](./../assets/led/nano_20K_sram_mode.png)
+Click where the red box is to burn firmware.
 
-接着来点击红框处开始进行烧录 
+![nano_20k_sram_download](./../../../../zh/tang/tang-nano-20k/assets/led/nano_20k_sram_download.png)
 
-![nano_20k_sram_download](./../assets/led/nano_20k_sram_download.png)
+Go to [Questions](https://wiki.sipeed.com/hardware/en/tang/Tang-Nano-Doc/questions.html) if you have any trouble。
 
-有问题的话可以前往 [常见问题](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/questions.html) 自行排查。
+Here we finished downloading into SRAM。
 
-到这里就下载完成了。
+### Burn into Flash
 
-### 下载到 Flash
+Burnning into sram is used for verifying biststream, but can't store program.
+If we want to run application at startup, we need to burn into flash.
 
-上面说过下载到 SRAM 是为了快速验证，但是不能上电运行程序。
-所以想要上电运行的话我们需要设置下载到 Flash。
+This steps are similar to the steps above of burnning to SRAM.
 
-和上面下载到 SRAM 的步骤几乎类似，先点开 Operation 下面的功能框来打开设备设置界面，接着在 Operation 框中选择 External Flash Mode 选项来设置为下载到外部 Flash ，最后点击下面的那三个点点框来选择我们所生成的 .fs 下载固件，通常来说下载固件生成与工程文件目录下的 impl -> pnr 目录下。最后在下面的外部 Flash 选项中选择设备为 Generic Flash 。
+Click the function box below Operation to open the device configuration interface, then select the External Flash Mode in the Access Mode to burn into external Flash. Finally click the three dots below to select the.fs we generated to download the firmware. Choose the three dots box below to select our generated `.fs` bitstream file. Generally speaking, bitstream firmware file is in the impl -> pnr directory. Finally, select the Generic Flash device from the following external Flash options.
 
-![nano_20k_flash_mode](./../assets/led/nano_20k_flash_mode.png)
+![nano_20k_flash_mode](./../../../../zh/tang/tang-nano-20k/assets/led/nano_20k_flash_mode.png)
 
-接着来点击红框处开始进行烧录 
+Click where the red box is to burn firmware.
 
-![nano_20k_flash_download](./../assets/led/nano_20k_flash_download.png)
+![nano_20k_flash_download](./../../../../zh/tang/tang-nano-20k/assets/led/nano_20k_flash_download.png)
 
-然后我们的程序重新上电也能照样运行了。
+Then we can run our program when power on.
 
-## 代码结果
+## Result
 
-如图所示，只有一个灯在闪。
+One led flashes like below.
 
-![nano_20k_led_blink](./../assets/led/nano_20k_led_blink.gif)
+![nano_20k_led_blink](./../../../../zh/tang/tang-nano-20k/assets/led/nano_20k_led_blink.gif)
 
-## 结语
+## End
 
-到这里我们就已经完成了 FPGA 的 “Hello world” 了。以后的示例工程不会再叙述新建文件等操作了。
+Up to now we have finished blinking led on fpga, and know how to use GOWIN IDE with fpga.。
 
-## 阻塞赋值与非阻塞赋值区别
+## Difference between Blocking and Non-blocking assignments
 
-以下内容搬运自 `大猪蹄子` （有改动）：
-
-编写一段简单的代码，对它进行简单的仿真：
+Write a simple codes and simulate it:
 
 ```v
 module test(
@@ -333,16 +331,17 @@ end
 endmodule
 ```
 
-![simulation_result](./../../tang-primer-20k/examples/assets/led_assets/simulation_result.png)
+![simulation_result](./../../../../zh/tang/tang-primer-20k/examples/assets/led_assets/simulation_result.png)
 
-根据仿真结果我们可以看出阻塞和非阻塞赋值的差别。这里对比 `B` `C` `D` `E` 四种结果。`<=` 叫做非阻塞赋值，同一个 `always` 中的 `<=` 会同时执行。这就造成了绿框内的情况：`B` 直接被赋予 `A` 的值同时 `C` 被赋予 `B` 的值。由于这两步是同时进行的，就导致 `C` 被赋予的值是 `B` 的旧值，也就造成了图中所示，`C` 的数据变化时钟要慢 `B` 一个时钟周期。再说阻塞赋值 `=`，也就是说同一个 `always` 中上一个 `=` 语句执行完才会执行下一个 `=` 语句。在这个代码中，上一个语句 `D` 已经被赋予了 `A` 的值，才执行把 `D` 的值赋给 `E`，所以 `D` 、`E` 的值在仿真中始终保持一致。
+According to the simulation results, we can see the difference between blocking and non-blocking assignments by comparing the `B` `C` `D` `E` four results. `<=` is non-blocking assignments, and all `<=` in a `always` run at the same time, this lead the result in green box, `B` is assigned the value of `A` while `C` is assigned the value of `B`, this happens at the same time, so `C` is assigned the old value of `B`, the value of `C` is one clock delay of `B`. `=` is blocking assignments, all `=` in a `always` runs sequentially. In this code, `D` is assigned the value of `A`, then `D` is assigned the value of `E`, so `D` and `E` are the same value.
 
-> 不过一般来说，不建议在时序逻辑中使用阻塞赋值 `=`。
+> In general, however, blocking assignment is not recommended in timing logic.
 
-也得出了额外两个结论：
-- 第一，输入的数据不是完全有效，以时钟边沿时刻的输入数据为准。`posedge` 就是以上升沿执行，`negedge` 就是以下降沿执行。如果数据维持的时间小于一个时钟周期，就很有可能采集不到（如红框所示）。
-- 第二、每次触发特定时钟边沿，对应的 `always` 块就会从头到尾执行一次代码（如绿框所示），而不是从中间某处执行。
+And we get two results:
+- Input data is not always valid, it depends on the clock edge. If the data is maintained for less than one clock cycle, it may regard useless data.
+- Everytime Triggerring the edge clock, the `always` block runs from begin to the end, not runs from the middle.
+
 
 ## 常见问题
 
-前往 [Gowin 板卡常见问题查看](./../../Tang-Nano-Doc/questions.md)
+Visit [Gowin errors to solve this problem](https://wiki.sipeed.com/hardware/en/tang/Tang-Nano-Doc/questions.html)
