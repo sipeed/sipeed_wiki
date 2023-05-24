@@ -32,7 +32,8 @@ update:
 
 ![project_path](./../../tang-primer-20k/examples/assets/led_assets/project_path.png)
 
-然后在下面的芯片型号中选择 GW2AR-LV18QN88C8/I7，使用上面的筛选能够更快地选择到正确的型号。注意 Device 那一栏为 GW2A-18C
+然后在下面的芯片型号中选择 GW2AR-LV18QN88C8/I7，使用上面的筛选能够更快地选择到正确的型号。注意 Device 那一栏为 GW2AR-18C。
+
 ![device_choose](./../assets/led/nano_20k_device_device_choose.png)
 
 然后点击确定后就可以进行最终项目预览了。确认无误后就完成工程创建了。

@@ -21,7 +21,7 @@ For linux user we suggest using [openfpgaLoader](https://wiki.sipeed.com/hardwar
 
 ## New Project
 
-New Project：File-->NEW-->FPGA Dsign Project-->OK
+New Project：File-->NEW-->FPGA Design Project-->OK
 
 <img src="./../../Tang-Nano-1K/assets/LED-1.png" width=58% alt="new_project">
 
@@ -29,7 +29,8 @@ Set Project Name and path, Project Name and project path should be English.
 
 ![project_path](./../../../../zh/tang/tang-primer-20k/examples/assets/led_assets/project_path.png)
 
-Select Device we choose GW2A-LV18PG256C8/I7, use filter like below to help us choose device more easy. Note that the Device is GW2A-18C.
+Select Device we choose GW2A-LV18PG256C8/I7, use filter like below to help us choose device more easily. Note that the Device is GW2A-18C.
+
 ![device_choose](./../../../../zh/tang/tang-primer-20k/examples/assets/led_assets/device_choose.png)
 
 Then click OK to preview the project. After confirming no error, the project is created.
@@ -237,7 +238,7 @@ Then we see there is a .cst file in our project, and its content are easy to und
 
 After finishing constrainting, we run Place & Route. The purpose is to synthesize the generated netlist and our defined constraints to calculate the optimal solution through IDE, then allocate resources reasonably on the FPGA chip.
 
-Couble click Place&Route marked with red box to run.
+Double click Place&Route marked with red box to run.
 
 ![place_route](./../../../../zh/tang/tang-primer-20k/examples/assets/led_assets/place_route.png)。
 

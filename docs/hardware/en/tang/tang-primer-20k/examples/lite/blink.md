@@ -242,7 +242,7 @@ Then we see there is a .cst file in our project, and its content are easy to und
 
 After finishing constrainting, we run Place & Route. The purpose is to synthesize the generated netlist and our defined constraints to calculate the optimal solution through IDE, then allocate resources reasonably on the FPGA chip.
 
-Couble click Place&Route marked with red box to run.
+Double click Place&Route marked with red box to run.
 
 ![place_route](./../../../../../../../news/others/20k_lite_start/assets/place_route.png)。
 

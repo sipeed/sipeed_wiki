@@ -1,69 +1,65 @@
 ---
-title: Tang Nano 20K 点灯
+title: Tang Nano 20K Blink led
 keywords: FPGA, Tang, Nano, 20K
 update:
-  - date: 2023-03-24
+  - date: 2023-05-24
     version: v0.1
     author: wonder
     content:
-      - 新建文档
+      - Release doc
 ---
 
-这里我们用点亮板子上的LED来作为例程来快速熟悉一下高云半导体 IDE 的使用流程
+Here we take blinking a led on Tang Nano 20K as the example to know the usage of GOWIN IDE.
 
-对于软件开发来说，输出 `hello world` 就是入门了。对于硬件相关的开发而言，点灯就是同款入门。
+To know a programming language, we start with `hello world`. But in hardware development, we start by blinking a led.
 
-## 安装 IDE
+## Install IDE
 
-参考 [安装IDE](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/get_started/install-the-ide.html) 来完成我们需要准备的软件环境。
+Visit [install IDE](https://wiki.sipeed.com/hardware/en/tang/Tang-Nano-Doc/install-the-ide.html) to prepare the development environment.
 
-对于 Linux 用户的话建议使用 [openfpgaLoader](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/get_started/flash_in_linux.html) 这软件来烧录这款设备。
+For linux user we suggest using [openfpgaLoader](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/get_started/flash_in_linux.html) to burn the firmware into fpga.
 
-## 新建工程
+## New Project
 
-文件 -> 新建 -> FPGA Design -> Project
+New Project：File-->NEW-->FPGA Design Project-->OK
 
-<div>
-    <img src="./../../tang-primer-20k/examples/assets/led_assets/new_project.png" width=58% alt="new_project">
-    <img src="./../../tang-primer-20k/examples/assets/led_assets/fpga_project.png" width=35% alt="fpga_project">
-</div>
+<img src="./../../Tang-Nano-1K/assets/LED-1.png" width=58% alt="new_project">
 
-设置工程名称，要求只用英文的下划线命名，存放路径中不要有中文字符或者空格等特殊符号。
+Set Project Name and path, Project Name and project path should be English.
 
-![project_path](./../../tang-primer-20k/examples/assets/led_assets/project_path.png)
+![project_path](./../../../../zh/tang/tang-primer-20k/examples/assets/led_assets/project_path.png)
 
-然后在下面的芯片型号中选择 GW2AR-LV18QN88C8/I7，使用上面的筛选能够更快地选择到正确的型号。注意 Device 那一栏为 GW2A-18C
-![device_choose](./../assets/led/nano_20k_device_device_choose.png)
+Select Device we choose GW2AR-LV18QN88C8/I7, use filter like below to help us choose device more easily. Note that the Device is GW2AR-18C.
 
-然后点击确定后就可以进行最终项目预览了。确认无误后就完成工程创建了。
+![nano_20k_device_device_choose](./../../../../zh/tang/tang-nano-20k/assets/led/nano_20k_device_device_choose.png)
 
-## 编写代码
+Then click OK to preview the project. After confirming no error, the project is created.
 
-### 新建文件
+## New file
 
-高云半导体 IDE 提供了三种新建文件的方法。在此我们直接使用快捷键 `Ctrl + N` 来新建文件，其他两种不在此讲述。
+Gowin IDE contains 3 ways to create file. Here we use shortcut keys `Ctrl + N` to new a file. The other 2 ways to new file are not mentioned here,
 
-在弹出的窗口中选择 `Verilog File`，会 VHDL 的也可以选择下面的 `VHDL File`，这篇文章只用 Verilog 来做点灯示例。
+In the pop-up windows, we choose `Verilog File`, you can also choose `VHDL File` if you are good at it. Here we just use Verilog as example.
 
-<img src="./../../tang-primer-20k/examples/assets/led_assets/new_verilog_file.png" width=50% alt="new_verilog_file">
+<img src="./../../../../zh/tang/tang-primer-20k/examples/assets/led_assets/new_verilog_file.png" width=50% alt="new_verilog_file">
     
-点击 OK 之后会提示让我们输入文件名称，此处以 `led` 为文件名做示范。
+Then click OK to set the file name, here we take `led` as the verilog file name as example.
 
-<img src="./../../tang-primer-20k/examples/assets/led_assets/file_name.png" width=75% alt="file_name">
+<img src="./../../../../zh/tang/tang-primer-20k/examples/assets/led_assets/file_name.png" width=75% alt="file_name">
 
-到这里我们就完成文件的创建了，可以直接编写代码了。
+Up to now we have finished creating file, then we need to prepare our code.
 
-![nano_20k_created_file.png](./../assets/led/nano_20k_created_file.png.png)
+![created_file](./../../../../zh/tang/tang-nano-20k/assets/led/nano_20k_created_file.png)
 
-### Verilog 简单说明
+### Verilog introduction
 
-Verilog 是一种硬件描述语言，用来对数字电路进行抽象化描述。
+Verilog is a kind of Hardware Description Language(HDL), it's used to describe digital circuits.
 
-Verilog 的基本设计单元是“模块”(module)。
+The basic unit in Verilog is module.
 
-一个模块是由两部分组成的：一部分描述接口，另一部分描述内部逻辑功能，即定义输入是如何影响输出的。
+A module is composed of two parts: one describes the interface, and the other describes the internal logic function, that is, defines how the input affects the output.
 
-一个模块长成这样：
+A module is like this:
 
 ```v
 module module_name
@@ -73,38 +69,37 @@ module module_name
 endmodule
 ```
 
-模块整体结构由 module 和 endmodule 组成，module 后面跟着的是模块的名称(module_name)，可传递变量参数(parameter)，端口及其方向的申明(port)，紧接着就是内部逻辑功能描述(function) ,最后用 endmodule 来表示这一个模块，描述完毕。
+The module starts from module and ends by endmodule. The module is followed by the module name (module_name), transitable variable parameters (parameter), port and direction declaration (port), followed by internal logic function description (function), and finally, endmodule is used to represent this module.
 
-内部逻辑功能通常由 assign 和 always 块完成；其中 assign 语句描述逻辑功能，always 块常用于描述时序功能。
+The internal logic function is usually composed by the assign and always blocks; The assign statement describes logical circuit, and the always block is used to describe timing circuit.
 
-### 阻塞赋值与非阻塞赋值
+### Blocking and Non-blocking assignments
 
-在时序逻辑描述中，赋值符号有 `=` 和 `<=` 两种。注意 `<=` 在 if 判断语句中为小于或等于，不是赋值符号。
+In timing logic, there are two assignment symbols: `=` and `<=`. Note that `<=` means less than or equal to in the if statement, and is not an assignment symbol in the if statement.
 
-详细解释查看底部的 [阻塞赋值与非阻塞赋值区别](#阻塞赋值与非阻塞赋值区别)
+Visit the [difference between Blocking and Non-blocking assignments](#difference-between-blocking-and-non-blocking-assignments)
 
+### Think storm
 
-### 代码思路
+Before coding, we need to think our purpose: The led flashes every 0.5S.
 
-写代码前我们需要先想清楚代码目的：每隔 0.5S 灯闪一次。
+Then we draw a demand block diagram as follows:
 
-对此所画的需求框图如下：
+![block_method](./../../tang-primer-20k/examples/lite/assets/block_method.png)
 
-![block_method](./../../tang-primer-20k/examples/assets/led_assets/block_method.png)
+Then we need a counter to time of every 0.5S, LED flashes means IO flip.
 
-然后对于 0.5S 我们需要一个计数器来计时，LED 灯闪就是 IO 翻转
+![count_block](./../../tang-primer-20k/examples/lite/assets/time_count.png)
 
-![count_block](./../../tang-primer-20k/examples/assets/led_assets/time_count.png)
+Put the thought diagram into practical use, then it will look like this:
 
-把上面的思维框图具体到实际使用的话，就变成下面的样式了:
+![clock_time_count](./../../tang-primer-20k/examples/lite/assets/clock_time_count.png)
 
-![clock_time_count](./../../tang-primer-20k/examples/assets/led_assets/clock_time_count.png)
+The Clock is the clock source, providing the accurate time for the time counter.
 
-其中 Clock 为时钟源，用来给计时器提供准确的时间。
+### Code description
 
-### 代码描述
-
-根据上文 Verilog 简单说明和所描述的框图，可以所要编写 Verilog 模块有 Clock 和 IO电平 两个端口；
+From the verilog introduction and think storm diagram above, we can see the module we will create contains 2 ports:
 
 ```v
 module led(
@@ -115,42 +110,41 @@ module led(
 endmodule
 ```
 
-对于内部的计时模块，Primer 20K 核心板上的晶振为 27MHZ，因此我们每秒钟会有 27000000 个时钟上升沿，想要 0.5S 计数的话那么只需要计数 13500000 次上升沿就好。计数是从 0 开始的，数 13500000 的话就是从 0 数到 13499999。计数完后我们需要设置一个标志位，来通知 LED 的 IO 翻转一下电平。整体计数代码如下：
+For time counter inside module, crystal oscillator on the Primer 20K core board is 27MHZ, so we have 27 million times rising edges per second, and we just need to count 13500000 times rising edges to get 0.5 seconds. The counter starts from `0`, and to count 13500000 times rising edges, we count to 13499999. When counted to 0.5S, we set a flag to inform LED IO to flip its voltage. The overall count code is as follows:
 
 ```v
-//parameter Clock_frequency = 27_000_000; // 时钟频率为27Mhz
-parameter count_value       = 13_499_999; // 计时 0.5S 所需要的计数次数
+//parameter Clock_frequency = 27_000_000; // Crystal oscillator frequency is 27Mhz
+parameter count_value       = 13_499_999; // The number of times needed to time 0.5S
 
-reg [23:0]  count_value_reg ; // 计数器
-reg         count_value_flag; // IO 电平翻转标志
+reg [23:0]  count_value_reg ; // counter_value
+reg         count_value_flag; // IO chaneg flag
 
 always @(posedge Clock) begin
-    if ( count_value_reg <= count_value ) begin //没有计数到 0.5S
-        count_value_reg  <= count_value_reg + 1'b1; // 继续计数
-        count_value_flag <= 1'b0 ; // 不产生翻转标志
+    if ( count_value_reg <= count_value ) begin //not count to 0.5S
+        count_value_reg  <= count_value_reg + 1'b1; // Continue counting
+        count_value_flag <= 1'b0 ; // No flip flag
     end
-    else begin //计数到 0.5S 了
-        count_value_reg  <= 23'b0; // 清零计数器，为重新计数最准备
-        count_value_flag <= 1'b1 ; // 产生翻转标志
+    else begin //Count to 0.5S
+        count_value_reg  <= 23'b0; // Clear counter,prepare for next time counting.
+        count_value_flag <= 1'b1 ; // Flip flag
     end
 end
 ```
 
-对于 LED IO 电平翻转代码如下：
+The code to change IO voltage are as follows:
 
 ```v
-reg IO_voltage_reg = 1'b0; // 声明 IO 电平状态用于达到计时时间后的翻转，并赋予一个低电平初始态
+reg IO_voltage_reg = 1'b0; // Initial state
 
 always @(posedge Clock) begin
-    if ( count_value_flag )  //  电平翻转标志有效
-        IO_voltage_reg <= ~IO_voltage_reg; // IO 电平翻转
-    else //  电平翻转标志无效
-        IO_voltage_reg <= IO_voltage_reg; // IO 电平不变
+    if ( count_value_flag )  //  Flip flag 
+        IO_voltage_reg <= ~IO_voltage_reg; // IO voltage filp
+    else //  No flip flag
+        IO_voltage_reg <= IO_voltage_reg; // IO voltage constant
 end
 ```
 
-
-将上面的代码整合后就变成了下面的内容:
+Combined with the codes above, it goes like this:
 
 ```v
 module led(
@@ -158,79 +152,77 @@ module led(
     output IO_voltage
 );
 
-/**********计时部分**********/
-//parameter Clock_frequency = 27_000_000; // 时钟频率为27Mhz
-parameter count_value       = 13_499_999; // 计时 0.5S 所需要的计数次数
+/********** Counter **********/
+//parameter Clock_frequency = 27_000_000; // Crystal oscillator frequency is 27Mhz
+parameter count_value       = 13_499_999; // The number of times needed to time 0.5S
 
-reg [23:0]  count_value_reg ; // 计数器
-reg         count_value_flag; // IO 电平翻转标志
+reg [23:0]  count_value_reg ; // counter_value
+reg         count_value_flag; // IO chaneg flag
 
 always @(posedge Clock) begin
-    if ( count_value_reg <= count_value ) begin //没有计数到 0.5S
-        count_value_reg  <= count_value_reg + 1'b1; // 继续计数
-        count_value_flag <= 1'b0 ; // 不产生翻转标志
+    if ( count_value_reg <= count_value ) begin //not count to 0.5S
+        count_value_reg  <= count_value_reg + 1'b1; // Continue counting
+        count_value_flag <= 1'b0 ; // No flip flag
     end
-    else begin //计数到 0.5S 了
-        count_value_reg  <= 23'b0; // 清零计数器，为重新计数最准备
-        count_value_flag <= 1'b1 ; // 产生翻转标志
+    else begin //Count to 0.5S
+        count_value_reg  <= 23'b0; // Clear counter,prepare for next time counting.
+        count_value_flag <= 1'b1 ; // Flip flag
     end
 end
-reg IO_voltage_reg = 1'b0; // 声明 IO 电平状态用于达到计时时间后的翻转，并赋予一个低电平初始态
 
-/**********电平翻转部分**********/
+/********** IO voltage flip **********/
+reg IO_voltage_reg = 1'b0; // Initial state
+
 always @(posedge Clock) begin
-    if ( count_value_flag )  //  电平翻转标志有效
-        IO_voltage_reg <= ~IO_voltage_reg; // IO 电平翻转
-    else //  电平翻转标志无效
-        IO_voltage_reg <= IO_voltage_reg; // IO 电平不变
+    if ( count_value_flag )  //  Flip flag 
+        IO_voltage_reg <= ~IO_voltage_reg; // IO voltage filp
+    else //  No flip flag
+        IO_voltage_reg <= IO_voltage_reg; // IO voltage constant
 end
 
-
-/**********补充一行代码**********/
+/***** Add an extra line of code *****/
 assign IO_voltage = IO_voltage_reg;
 
 endmodule
 ```
 
-上面代码最后面补充了一行代码，是因为 IO_voltage 声明在了 port 位置，默认为 wire 型，想要将它与 reg 变量 IO_voltage_reg 连接起来，需要用到 assign 语句。
+Because the `IO_voltage` is declared in the port position, which is wire type by default. To connect it to the reg variable `IO_voltage_reg`, we need to use assign. 
 
-## 综合，约束，布局布线
+## Synthesize, constrain, place&route
 
-### 综合
+### Synthesize
 
-代码保存后，可以双击 IDE 内部的 Process -> Synthesize 来进行代码综合，将 verilog 代码内容转换为综合网表。
+After finishing the code, go to the "Process" interface and double click "Synthesize" to synthesize our code to convert the verilog code content to netlist.
 
-![synthesize](./../../tang-primer-20k/examples/assets/led_assets/synthesize.png)
+![Synthesize](./../../../../../../news/others/20k_lite_start/assets/synthesize.png)
 
-关于网表有兴趣的可以自己去查阅相关资料，此处不再额外说明。
+### Constraint
 
-### 约束
+After Synthesizing our code, we need to set constrains to bind the ports defined in our code to fpga pins, by which we can realize our module function on fpga. 
 
-综合完之后我们需要进行管脚约束，才能将所编写的模块端口与 FPGA 引脚相对应，并且实现模块的功能。
+Click the FloorPlanner in the top of Synthesize to set constrains.
 
-点击上图 Synthesize 上面的 FloorPlanner 来进行管脚约束。
+![floorplanner](./../../../../zh/tang/tang-primer-20k/examples/assets/led_assets/floorplanner.png)
 
-![floorplanner](./../../tang-primer-20k/examples/assets/led_assets/floorplanner.png)
+Since this is the first time we create it, the following dialog box will pop up. Click OK and the graphical constraint interface will pop up.
 
-由于是首次创建，所以会弹出下面的对话框，点击 OK 后就弹出了图形化约束交互界面。
+![create_constrain_file](./../../../../zh/tang/tang-primer-20k/examples/assets/led_assets/create_constrain_file.png)
 
-![create_constrain_file](./../../tang-primer-20k/examples/assets/led_assets/create_constrain_file.png)
+![floorplanner_intreface](./../../../../zh/tang/tang-nano-20k/assets/led/nano_20k_floorplanner_interface.png)
 
-![nano_20k_floorplanner_interface](./../assets/led/nano_20k_floorplanner_interface.png)
+The ways to constraint the file can be get from this docs: [SUG935-1.3E_Gowin Design Physical Constraints User Guide.pdf](https://dl.sipeed.com/fileList/TANG/Nano%209K/6_Chip_Manual/EN/General%20Guide/SUG935-1.3E_Gowin%20Design%20Physical%20Constraints%20User%20Guide.pdf)
 
-关于约束的方法可以查看 [SUG935-1.3_Gowin设计物理约束用户指南.pdf](http://cdn.gowinsemi.com.cn/SUG935-1.3_Gowin%E8%AE%BE%E8%AE%A1%E7%89%A9%E7%90%86%E7%BA%A6%E6%9D%9F%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97.pdf)
+Here we only use the IO Constranins method shown below to constrain the pins:
 
-此处因个人喜所以仅使用下图中 IO Constranins 方法来约束引脚：
+![floor_planner_ioconstrain](./../../../../zh/tang/tang-primer-20k/examples/assets/led_assets/floor_planner_ioconstrain.png)
 
-![floor_planner_ioconstrain](./../../tang-primer-20k/examples/assets/led_assets/floor_planner_ioconstrain.png)
+According to [Schematic of core board](https://dl.sipeed.com/fileList/TANG/Primer_20K/02_Schematic/), we can know the input pin of crystal oscillator is PIN04。
 
-根据[核心板原理图](https://dl.sipeed.com/fileList/TANG/Primer_20K/02_Schematic/)，我们可以知道晶振所输入的引脚为 PIN04。
-
-<img src="./../assets/led/nano_20k_crystal_port.png" alt="nano_20k_crystal_port" width=45%>
+<img src="./../../../../zh/tang/tang-nano-20k/assets/led/nano_20k_crystal_port.png" alt="nano_20k_crystal_port" width=45%>
 
 结合原理图上 LED 所连接的引脚，这里只对 LED0 进行操作
 
-![nano_20k_led_port](./../assets/led/nano_20k_led_port.png)
+![nano_20k_led_port](./../../../../zh/tang/tang-nano-20k/assets/led/nano_20k_led_port.png)
 
 因此对于在 FloorPlanner 交互窗口下面的 IO Constranins 中将 PORT（端口）与 Location（引脚） 分别填入下面的值：
 
