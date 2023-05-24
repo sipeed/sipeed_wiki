@@ -286,6 +286,42 @@ bitbake opensbi -C compile
 [yocto官方文档](https://docs.yoctoproject.org/overview-manual/yp-intro.html)
 [T-Head 曳影 1520 Yocto 用户指南](https://gitee.com/thead-yocto/documents/raw/master/zh/user_guide/T-Head%E6%9B%B3%E5%BD%B11520Yocto%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97.pdf)
 
+### SDK开发注意事项
+**注意，SDK有两种来源，下面的第二部分Others中的SDK为[PCLT实验室的SDK](https://github.com/revyos)，而上述步骤只针对于yocto环境下开发的SDK。**
+对于yocto环境下的SDK可以使用打patch的方式，目前PLCT实验室已经更新的patch及说明如下：
+##### kernel的patch（对应PLCT的SDK的kernel仓库https://github.com/revyos/thead-kernel）
+0001-pca9557.patch：修改设备树中pcal9554b为pca9557
+0002-cpufreq-to-2GHz.patch：增加cpu频率2GHz支持
+0003-remove-audio-pcal9554b.patch：移除audio pcal9554b
+0004-sync-audio-patch.patch：同步修改audio参数
+0005-8G-ddr.patch：修改支持8g ddr
+0006-set-cpu_max_frq-1.992GHz.patch：修改cpu最大频率支持
+0007-set-cpu_max_frq-1.848GHz.patch：修改cpu最大频率支持
+0008-RISC-V-Enable-container-related-kernel-configs.patch：增加内核配置选项
+0009-remove-mipi-screen.patch：增加mipi屏幕设备树信息（这里本来应该是删除信息，patch0014会删除这里误增加的信息）
+0010-Add-kernel-build-ci.patch：添加内核ci流程
+0011-riscv-dts-thead-lpi4a-add-PWM-Fan.patch：增加PWM风扇支持
+0012-riscv-defconfig-revyos-enable-kernel-PWM-fan.patch：增加内核配置选项
+0013-ci-run-on-pull-requests.patch：ci流程中增加pull-request
+0014-riscv-dts-thead-lpi4a-really-remove-mipi-screen.patch：删除之前的patch中误增加的mipi屏幕设备树信息
+0015-fix-fix-iotop-not-working.patch：修复iotop问题
+0016-drm-dc8200-disable-gamma-lut-now.patch：移除gamma lut
+0017-drm-verisilicon-fix-fbcon.patch：修复 fbcon
+0018-riscv-dts-thead-lpi4a-change-fan-PWM-frequency.patch：修改PWM频率参数，改善风扇噪声问题
+0019-feat-ci-build-perf.patch：增加测试工具
+0020-chore-add-commit-id.patch：增加commi-id信息
+0021-chore-rename-perf-to-perf-thead.patch：修改测试工具存储路径
+##### opensbi的patch（对应PLCT的SDK的opensbi仓库https://github.com/revyos/thead-opensbi）
+0001-lib-sbi_illegal_insn-Add-emulation-for-fence.tso.patch：增加fence.tso仿真
+0002-lib-sbi_illegal_insn-Fix-FENCE.TSO-emulation-infinit.patch：修复 FENCE.TSO 无限循环问题
+##### uboot的patch（对应PLCT的SDK的opensbi仓库https://github.com/revyos/thead-u-boot）
+0001-ENV_SETTINGS.patch：修改分区信息
+0002-fix-fix-bootargs.patch：修改bootargs
+0003-fix-ftbfs.patch：修复ftbfs中的变量定义问题
+0004-feat-add-ci-build.patch：添加ci流程
+0005-fix-set-fixed-mac-addrs-1.patch：修复随机mac地址问题，设置为固定mac地址
+
+
 ### 设备树解析
 
 TODO  
