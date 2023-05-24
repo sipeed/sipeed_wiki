@@ -289,7 +289,7 @@ bitbake opensbi -C compile
 ### SDK开发注意事项
 **注意，SDK有两种来源，下面的第二部分Others中的SDK为[PCLT实验室的SDK](https://github.com/revyos)，而上述步骤只针对于yocto环境下开发的SDK。**
 对于yocto环境下的SDK可以使用打patch的方式，目前PLCT实验室已经更新的patch及说明如下：
-#### kernel的patch（对应PLCT的SDK的kernel仓库https://github.com/revyos/thead-kernel）
+##### kernel的patch（对应PLCT的SDK的kernel仓库https://github.com/revyos/thead-kernel）
 0001-pca9557.patch：修改设备树中pcal9554b为pca9557
 0002-cpufreq-to-2GHz.patch：增加cpu频率2GHz支持
 0003-remove-audio-pcal9554b.patch：移除audio pcal9554b
@@ -311,10 +311,10 @@ bitbake opensbi -C compile
 0019-feat-ci-build-perf.patch：增加测试工具
 0020-chore-add-commit-id.patch：增加commi-id信息
 0021-chore-rename-perf-to-perf-thead.patch：修改测试工具存储路径
-#### opensbi的patch（对应PLCT的SDK的opensbi仓库https://github.com/revyos/thead-opensbi）
+##### opensbi的patch（对应PLCT的SDK的opensbi仓库https://github.com/revyos/thead-opensbi）
 0001-lib-sbi_illegal_insn-Add-emulation-for-fence.tso.patch：增加fence.tso仿真
 0002-lib-sbi_illegal_insn-Fix-FENCE.TSO-emulation-infinit.patch：修复 FENCE.TSO 无限循环问题
-#### uboot的patch（对应PLCT的SDK的opensbi仓库https://github.com/revyos/thead-u-boot）
+##### uboot的patch（对应PLCT的SDK的opensbi仓库https://github.com/revyos/thead-u-boot）
 0001-ENV_SETTINGS.patch：修改分区信息
 0002-fix-fix-bootargs.patch：修改bootargs
 0003-fix-ftbfs.patch：修复ftbfs中的变量定义问题
