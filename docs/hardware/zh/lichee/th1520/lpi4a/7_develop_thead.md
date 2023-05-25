@@ -75,8 +75,41 @@ Linux SDK 使用 Yocto 构建镜像。Yocto 编译环境使用 Ubuntu18.04，推
 	```bash
 	ln -s ~/yocto-downloads ../downloads
 	```
+- 打patch
+由于写文档时xuantie-yocto的commit-d296c2345fe2c2521eb0e1a2772bcba637029bc8还未合并下述patch中的改动，所以需要手动打patch来同步这些改动再进行后续开发。
+##### kernel的patch
+0001-pca9557.patch：修改设备树中pcal9554b为pca9557
+0002-cpufreq-to-2GHz.patch：增加cpu频率2GHz支持
+0003-remove-audio-pcal9554b.patch：移除audio pcal9554b
+0004-sync-audio-patch.patch：同步修改audio参数
+0005-8G-ddr.patch：修改支持8g ddr
+0006-set-cpu_max_frq-1.992GHz.patch：修改cpu最大频率支持
+0007-set-cpu_max_frq-1.848GHz.patch：修改cpu最大频率支持
+0008-RISC-V-Enable-container-related-kernel-configs.patch：增加内核配置选项
+0009-remove-mipi-screen.patch：增加mipi屏幕设备树信息（这里本来应该是删除信息，patch0014会删除这里误增加的信息）
+0010-Add-kernel-build-ci.patch：添加内核ci流程
+0011-riscv-dts-thead-lpi4a-add-PWM-Fan.patch：增加PWM风扇支持
+0012-riscv-defconfig-revyos-enable-kernel-PWM-fan.patch：增加内核配置选项
+0013-ci-run-on-pull-requests.patch：ci流程中增加pull-request
+0014-riscv-dts-thead-lpi4a-really-remove-mipi-screen.patch：删除之前的patch中误增加的mipi屏幕设备树信息
+0015-fix-fix-iotop-not-working.patch：修复iotop问题
+0016-drm-dc8200-disable-gamma-lut-now.patch：移除gamma lut
+0017-drm-verisilicon-fix-fbcon.patch：修复 fbcon
+0018-riscv-dts-thead-lpi4a-change-fan-PWM-frequency.patch：修改PWM频率参数，改善风扇噪声问题
+0019-feat-ci-build-perf.patch：增加测试工具
+0020-chore-add-commit-id.patch：增加commi-id信息
+0021-chore-rename-perf-to-perf-thead.patch：修改测试工具存储路径
+##### opensbi的patch
+0001-lib-sbi_illegal_insn-Add-emulation-for-fence.tso.patch：增加fence.tso仿真
+0002-lib-sbi_illegal_insn-Fix-FENCE.TSO-emulation-infinit.patch：修复 FENCE.TSO 无限循环问题
+##### uboot的patch
+0001-ENV_SETTINGS.patch：修改分区信息
+0002-fix-fix-bootargs.patch：修改bootargs
+0003-fix-ftbfs.patch：修复ftbfs中的变量定义问题
+0004-feat-add-ci-build.patch：添加ci流程
+0005-fix-set-fixed-mac-addrs-1.patch：修复随机mac地址问题，设置为固定mac地址
 
-至此，搭建环境已经完成。
+至此，编译环境已经配置完成。
 
 ### Machine/Target支持列表
 
@@ -286,41 +319,6 @@ bitbake opensbi -C compile
 [yocto官方文档](https://docs.yoctoproject.org/overview-manual/yp-intro.html)
 [T-Head 曳影 1520 Yocto 用户指南](https://gitee.com/thead-yocto/documents/raw/master/zh/user_guide/T-Head%E6%9B%B3%E5%BD%B11520Yocto%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97.pdf)
 
-### SDK开发注意事项
-**注意，SDK有两种来源，下面的第二部分Others中的SDK为[PCLT实验室的SDK](https://github.com/revyos)，而上述步骤只针对于yocto环境下开发的SDK。**
-对于yocto环境下的SDK可以使用打patch的方式，目前PLCT实验室已经更新的patch及说明如下：
-##### kernel的patch（对应PLCT的SDK的kernel仓库https://github.com/revyos/thead-kernel）
-0001-pca9557.patch：修改设备树中pcal9554b为pca9557
-0002-cpufreq-to-2GHz.patch：增加cpu频率2GHz支持
-0003-remove-audio-pcal9554b.patch：移除audio pcal9554b
-0004-sync-audio-patch.patch：同步修改audio参数
-0005-8G-ddr.patch：修改支持8g ddr
-0006-set-cpu_max_frq-1.992GHz.patch：修改cpu最大频率支持
-0007-set-cpu_max_frq-1.848GHz.patch：修改cpu最大频率支持
-0008-RISC-V-Enable-container-related-kernel-configs.patch：增加内核配置选项
-0009-remove-mipi-screen.patch：增加mipi屏幕设备树信息（这里本来应该是删除信息，patch0014会删除这里误增加的信息）
-0010-Add-kernel-build-ci.patch：添加内核ci流程
-0011-riscv-dts-thead-lpi4a-add-PWM-Fan.patch：增加PWM风扇支持
-0012-riscv-defconfig-revyos-enable-kernel-PWM-fan.patch：增加内核配置选项
-0013-ci-run-on-pull-requests.patch：ci流程中增加pull-request
-0014-riscv-dts-thead-lpi4a-really-remove-mipi-screen.patch：删除之前的patch中误增加的mipi屏幕设备树信息
-0015-fix-fix-iotop-not-working.patch：修复iotop问题
-0016-drm-dc8200-disable-gamma-lut-now.patch：移除gamma lut
-0017-drm-verisilicon-fix-fbcon.patch：修复 fbcon
-0018-riscv-dts-thead-lpi4a-change-fan-PWM-frequency.patch：修改PWM频率参数，改善风扇噪声问题
-0019-feat-ci-build-perf.patch：增加测试工具
-0020-chore-add-commit-id.patch：增加commi-id信息
-0021-chore-rename-perf-to-perf-thead.patch：修改测试工具存储路径
-##### opensbi的patch（对应PLCT的SDK的opensbi仓库https://github.com/revyos/thead-opensbi）
-0001-lib-sbi_illegal_insn-Add-emulation-for-fence.tso.patch：增加fence.tso仿真
-0002-lib-sbi_illegal_insn-Fix-FENCE.TSO-emulation-infinit.patch：修复 FENCE.TSO 无限循环问题
-##### uboot的patch（对应PLCT的SDK的opensbi仓库https://github.com/revyos/thead-u-boot）
-0001-ENV_SETTINGS.patch：修改分区信息
-0002-fix-fix-bootargs.patch：修改bootargs
-0003-fix-ftbfs.patch：修复ftbfs中的变量定义问题
-0004-feat-add-ci-build.patch：添加ci流程
-0005-fix-set-fixed-mac-addrs-1.patch：修复随机mac地址问题，设置为固定mac地址
-
 
 ### 设备树解析
 
@@ -371,123 +369,6 @@ TODO
                     }
 -->
 
-## Others
 
-在本机配置编译环境使用`make`构建。该构建流程运行于ubuntu-22.04系统，请预留约20G空间。
-首先安装所需的软件包并设置好环境变量就配置好了构建所需环境
-```
-export xuetie_toolchain=https://occ-oss-prod.oss-cn-hangzhou.aliyuncs.com/resource//1663142514282
-export toolchain_file_name=Xuantie-900-gcc-linux-5.10.4-glibc-x86_64-V2.6.1-20220906.tar.gz
-export toolchain_tripe=riscv64-unknown-linux-gnu-
-export ARCH=riscv
-export nproc=12 #请根据自身CPU配置设置，该文档使用cpu为i5-11400
-mkdir th1520_build && cd th1520_build
-export GITHUB_WORKSPACE="~/th1520_build" #本文假设均下载到用户目录下，可根据自身需要更改
-sudo apt update && \
-              sudo apt install -y gdisk dosfstools g++-12-riscv64-linux-gnu build-essential \
-                                  libncurses-dev gawk flex bison openssl libssl-dev tree \
-                                  dkms libelf-dev libudev-dev libpci-dev libiberty-dev autoconf device-tree-compiler
-              sudo update-alternatives --install \
-                  /usr/bin/riscv64-linux-gnu-gcc riscv64-gcc /usr/bin/riscv64-linux-gnu-gcc-12 10
-              sudo update-alternatives --install \
-                  /usr/bin/riscv64-linux-gnu-g++ riscv64-g++ /usr/bin/riscv64-linux-gnu-g++-12 10
-```
-#### 构建kernel
-首先请clone用到的repo，并建立好对应文件夹（下列路径均假设根目录为用户目录下）
-```shell
-git clone https://github.com/revyos/thead-kernel.git kernel
-git clone https://github.com/revyos/gpu_bxm_4_64-kernel.git img_module
-```
-配置编译工具链
-```shell
-mkdir rootfs && mkdir rootfs/boot
-wget ${xuetie_toolchain}/${toolchain_file_name}
-tar -xvf ${toolchain_file_name} -C /opt
-export PATH="/opt/Xuantie-900-gcc-linux-5.10.4-glibc-x86_64-V2.6.1/bin:$PATH"
-```
-编译内核
-```shell
-pushd kernel
-make CROSS_COMPILE=${toolchain_tripe} ARCH=${ARCH} light_defconfig
-make CROSS_COMPILE=${toolchain_tripe} ARCH=${ARCH} -j$(nproc)
-make CROSS_COMPILE=${toolchain_tripe} ARCH=${ARCH} -j$(nproc) dtbs
-if [ x"$(cat .config | grep CONFIG_MODULES=y)" = x"CONFIG_MODULES=y" ]; then
-sudo make CROSS_COMPILE=${toolchain_tripe} ARCH=${ARCH} INSTALL_MOD_PATH=${GITHUB_WORKSPACE}/rootfs/ modules_install -j$(nproc)
-fi
-sudo make CROSS_COMPILE=${toolchain_tripe} ARCH=${ARCH} INSTALL_PATH=${GITHUB_WORKSPACE}/rootfs/boot zinstall -j$(nproc)
-```
-初步打包内核、设备树文件
-```shell
-sudo cp -v arch/riscv/boot/Image ${GITHUB_WORKSPACE}/rootfs/boot/
-sudo cp -v arch/riscv/boot/Image.gz ${GITHUB_WORKSPACE}/rootfs/boot/
-sudo cp -v arch/riscv/boot/dts/thead/*.dtb ${GITHUB_WORKSPACE}/rootfs/boot/
-popd
-```
-编译模块
-```shell
-export PVR_BUILD_DIR=thead_linux
-export PVR_ARCH=rogue
-export RGX_BVNC=36.52.104.182
-export RGX_BNC=36.52.104.182
-export CROSS_COMPILE=${toolchain_tripe}
-
-pushd img_module/rogue_km
-export KERNELDIR=${GITHUB_WORKSPACE}/kernel/
-make
-for kernel_version in $(ls ${GITHUB_WORKSPACE}/rootfs/lib/modules/);
-do
-	  sudo install -D -p -m 644 binary_thead_linux_wayland_release/target_riscv64/kbuild/drm_nulldisp.ko \
-"${GITHUB_WORKSPACE}/rootfs/lib/modules/${kernel_version}/extra/drm_nulldisp.ko"
-	sudo install -D -p -m 644 binary_thead_linux_wayland_release/target_riscv64/kbuild/pvrsrvkm.ko \
-"${GITHUB_WORKSPACE}/rootfs/lib/modules/${kernel_version}/extra/pvrsrvkm.ko"
-	sudo depmod -a -b "${GITHUB_WORKSPACE}/rootfs" "${kernel_version}"
-done
-popd
-```
-查看编译生成的文件
-```shell
-tree ${GITHUB_WORKSPACE}/rootfs
-```
-### 构建uboot
-注意，此时仍在th1520_build目录下，且已经配置好环境变量和工具链，步骤参考构建kernel。
-```shell
-git clone https://github.com/revyos/thead-u-boot.git uboot
-```
-然后开始执行编译命令
-```shell
-pushd uboot
-sed -i "s/YYLTYPE yylloc;/extern YYLTYPE yylloc;/" scripts/dtc/dtc-lexer.l
-make ARCH=${ARCH} CROSS_COMPILE=${toolchain_tripe} light_lpi4a_defconfig
-make ARCH=${ARCH} CROSS_COMPILE=${toolchain_tripe} -j$(nproc)
-find . -name "u-boot-with-spl.bin" | xargs -I{} cp -av {} ${GITHUB_WORKSPACE}/rootfs/boot/u-boot-with-spl-lpi4a.bin
-popd
-```
-上述过程中，可能会遇到重复定义`YYLTYPE yylloc`问题，按照报错信息找到重复定义的那一行删掉多余的`extern`即可，典型文件位置如下`uboot/scripts/dtc/dtc-lexer.lex.c`。
-检查输出的文件
-```shell
-tree ${GITHUB_WORKSPACE}/rootfs
-```
-### 构建opensbi
-注意，此时仍在th1520_build目录下，且已经配置好环境变量和工具链，步骤参考构建kernel。
-```shell
-git clone https://github.com/revyos/thead-opensbi.git opensbi
-```
-然后开始执行编译命令
-```shell
-pushd opensbi
-make PLATFORM=generic ARCH=${ARCH} CROSS_COMPILE=${toolchain_tripe} 
-sudo install -D -p -m 644 build/platform/generic/firmware/fw_payload.bin \
-"${GITHUB_WORKSPACE}/rootfs/boot/"
-popd
-```
-检查输出的文件
-```
-tree ${GITHUB_WORKSPACE}/rootfs
-```
-将目前构建好的kernel, uboot, opensbi相关文件打包为压缩包
-```shell
-tar -zcvf kernel.tar.gz rootfs
-```
-完成上述步骤后仍可以继续使用yocto来进行开发，yocto使用技巧可参考thead-yocto相关介绍。
 
 欢迎投稿～ 投稿接受后可得￥5～150（$1~20）优惠券！
