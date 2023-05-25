@@ -33,7 +33,7 @@ Tang Nano 20K 是采用高云半导体 [GW2AR-18 QN88](http://www.gowinsemi.com.
     <tbody>
     	<tr>
     		<td style="text-align:left">FPGA 芯片</td>
-    		<td style="text-align:left"><a href="http://www.gowinsemi.com.cn/prod_view.aspx?TypeId=10&amp;FId=t3:10:3&amp;Id=167#GW2AR">GW2A-LV18QN88C8I7</a>
+    		<td style="text-align:left"><a href="http://www.gowinsemi.com.cn/prod_view.aspx?TypeId=10&amp;FId=t3:10:3&amp;Id=167#GW2AR">GW2AR-LV18QN88C8/I7</a>
     		</td>
     		<td style="text-align:left">
     			<table>
