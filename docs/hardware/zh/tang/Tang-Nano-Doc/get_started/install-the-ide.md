@@ -2,8 +2,14 @@
 title: 安装 IDE 
 keywords: Sipeed, Gowin, Tang, Nano, fpga, 矽速
 update:
+  - date: 2023-05-25
+    version: v1.1
+    author: wonder
+    content:
+      - 更新到 Gowin 1.9.8.11 IDE
+      - 编辑 IDE 支持器件
   - date: 2022-09-19
-    version: none
+    version: v1.0
     author: wonder
     content:
       - 根据高云半导体下载链接新页面重新截图
@@ -22,7 +28,7 @@ update:
 
 前往 http://www.gowinsemi.com.cn/faq.aspx 下载 IDE。
 
-由于高云半导体的IDE在不断的更新中，下图为 2022 年 09 月 19 日截图
+由于高云半导体的IDE在不断的更新中，下图为 2023 年 05 月 25 日截图
 
 ![IDE](./assets/IDE-1.png)
 
@@ -38,7 +44,7 @@ IDE 分为商业版和教育版：
 
 ![educational_device](./assets/educational_device.png)
 
-由于高云半导体的IDE在不断的更新中，上图为 2022 年 11 月 09 日截图
+由于高云半导体的IDE在不断的更新中，上图为 2023 年 05 月 25 日截图
 
 | 芯片全程               | 芯片系列  | 芯片型号   | 适用板卡     |
 | --------------------- | --------- | --------  | ----------- |
@@ -54,7 +60,7 @@ IDE 分为商业版和教育版：
 
 #### Linux 系统
 
-Linux 版本的解压后里面存在着一个 bin 文件夹，然后可执行文件 `gw_ide` 就在所解压路径的 /IDE/bin/ 文件夹中，用命令行来运行即可；运行软件失败的话记得改软件的可执行权限 `chmod + x`。
+Linux 版本 IDE 下载解压后，打开 `IDE/bin` 文件夹，然后可执行文件 `gw_ide` 就在所解压路径的 `/IDE/bin/` 文件夹中，用命令行来运行即可；运行软件失败的话记得改软件的可执行权限 `chmod + x`。
 
 #### Windows 系统
 

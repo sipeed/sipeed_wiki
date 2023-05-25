@@ -19,17 +19,15 @@ git clone https://github.com/trabucayre/openFPGALoader.git
 cd openFPGALoader
 mkdir build
 cd build
-cmake ../ # add -DBUILD_STATIC=ON to build a static version
-          # add -DENABLE_UDEV=OFF to disable udev support and -d /dev/xxx
-          # add -DENABLE_CMSISDAP=OFF to disable CMSIS DAP support
-cmake --build .
-# or
-# make -j$(nproc)
+cmake ../ 
+#build
+cmake --build . -j$(nproc)
 # install
 sudo make install
 ```
 
 ### 烧录方法
+
 检测板卡
 ```bash
 $ sudo ./openFPGALoader --detect # 对于这行命令应当在你上一步执行make install的目录下执行 
@@ -41,8 +39,6 @@ index 0:
         family GW1N
         model  GW1N(R)-9C
         irlength 8
-
-
 ```
 
 下载码流
@@ -69,9 +65,11 @@ CRC check: Success
 
 其中-b表示目标板型，可以使用以下取值：
 
-| Board name | FPGA            | Memory | Flash                         |
-| ---------- | --------------- | ------ | ----------------------------- |
-| tangnano   | GW1N-1 QFN48    | OK     | Internal Flash                |
-| tangnano1k | GW1NZ-1 QFN48   | OK     | Internal Flash                |
-| tangnano4k | GW1NSR-4C QFN48 | OK     | Internal Flash/External Flash |
-| tangnano9k | GW1NR-9C QFN88  | OK     | Internal Flash/External Flash |
+| Board name    | FPGA            | Memory | Flash          |
+| ------------- | --------------- | ------ | -------------- |
+| tangnano      | GW1N-1 QN48     | OK     | Internal Flash |
+| tangnano1k    | GW1NZ-1 QN48    | OK     | Internal Flash |
+| tangnano4k    | GW1NSR-4C QN48  | OK     | Internal Flash |
+| tangnano9k    | GW1NR-9C QN88P  | OK     | Internal Flash |
+| tangnano20k   | GW2AR-18C QN88  | OK     | External Flash |
+| tangprimer20k | GW2A-18C BGA256 | OK     | External Flash |
