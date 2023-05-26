@@ -76,7 +76,7 @@ Linux SDK 使用 Yocto 构建镜像。Yocto 编译环境使用 Ubuntu18.04，推
 	ln -s ~/yocto-downloads ../downloads
 	```
 - 打patch
-由于写文档时xuantie-yocto的commit-d296c2345fe2c2521eb0e1a2772bcba637029bc8还未合并下述patch中的改动，所以需要手动打patch来同步这些改动再进行后续开发。
+由于写文档时xuantie-yocto的commit-d296c2345fe2c2521eb0e1a2772bcba637029bc8还未合并下述patch中的改动，所以需要手动打patch来同步这些改动再进行后续开发。patch文件请在[下载站](https://dl.sipeed.com/shareURL/LICHEE/licheepi4a/06_Patch)下载。
 ##### kernel的patch
 0001-pca9557.patch：修改设备树中pcal9554b为pca9557
 0002-cpufreq-to-2GHz.patch：增加cpu频率2GHz支持
