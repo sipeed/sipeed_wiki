@@ -175,10 +175,11 @@ Nano 9K 在设计的时候将 JTAG_SEL 引脚连接到了 S2 按键上，根据�
 
 | 板卡型号 | 芯片系列 | 芯片设备 | 封装 | 速度等级 |
 | --- | --- | --- | --- | --- |
-| Tang Nano | GW1N | GW1N-1 | QFN48 | C6/I5 |
-| Tang Nano 1K | GW1NZ | GW1NZ-1 | QFN48 | C6/I5 |
-| Tang Nano 4K | GW1NSR | GW1NSR-4C | QFN48P | C6/I5 或者 C7/I6 |
-| Tang Nano 9K | GW1NR | GW1NR-9C | QFN88P | C6/I5 |
+| Tang Nano | GW1N | GW1N-1 | QN48 | C6/I5 |
+| Tang Nano 1K | GW1NZ | GW1NZ-1 | QN48 | C6/I5 |
+| Tang Nano 4K | GW1NSR | GW1NSR-4C | QN48P | C6/I5 或者 C7/I6 |
+| Tang Nano 9K | GW1NR | GW1NR-9C | QN88P | C6/I5 |
+| Tang Nano 20K | GW2AR | GW2AR-18C | QN88 | C8/I7 |
 | Tang Primer 20K | GW2A | GW2A-18C | PBGA256 | C8/I7 |
 
 <!-- <details>

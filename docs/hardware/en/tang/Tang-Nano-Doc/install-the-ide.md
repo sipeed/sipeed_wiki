@@ -2,6 +2,11 @@
 title: Install IDE 
 keywords: Sipeed, Gowin, Tang, Nano, fpga, primer
 update:
+  - date: 2023-05-29
+    version: v1.1
+    author: wonder
+    content:
+      - Update to Gowin 1.9.8.11 IDE Education version
   - date: 2023-01-13
     version: none
     author: ali-raheem
@@ -22,7 +27,7 @@ We need to use the Gowin IDE to program Gowin FPGA chips, and documentation abou
 
 ![download_ide](./assets/download_ide.png)
 
-It may look difference as this screenshot is from 2022.10.18 and the IDE has since been updated.
+It may look difference as this screenshot is from 2023.05.29 and the IDE has since been updated.
 
 ---
 
@@ -32,7 +37,7 @@ The Standard Edition IDE requires license, which you can get from GOWIN Semicond
 
 The Education Edition IDE is free to use, but supports fewer devices and includes fewer IP cores.
 
-The following figure (updated 2022/11/09) shows the part numbers supported in the latest Education Edition IDE
+The following figure (updated 2023/05/29) shows the part numbers supported in the latest Education Edition IDE
 
 ![educational_device](./assets/educational_device.png)
 
@@ -43,7 +48,7 @@ The supported chips and boards are listed in the following table.
 | GW1NZ-LV1QN48C6/I5    | GW1NZ     |GW1NZ      | Nano 1K     |
 | GW1NSR-LV4CQN48PC6/I5 | GW1NSR    |GW1NSR-4C  | Nano 4K     |
 | GW1NR-LV9QN88PC6/I5   | GW1NR     |GW1NR-9C   | Nano 9K     |
-| GW2AR-LV18QN88PC8/I7  | GW2AR     |GW2AR-LV18 | Nano 20K    |
+| GW2AR-LV18QN88C8/I7   | GW2AR     |GW2AR-LV18 | Nano 20K    |
 | GW2A-LV18PG256C8/I7   | GW2A      |GW2A-18C   | Primer 20K  |
 
 So for those who want to use Tang Nano (Onboard jtag is CH552), you'll need to use the Standard Edition IDE and apply for a license from GOWIN Semiconductor Corp.

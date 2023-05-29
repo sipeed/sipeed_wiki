@@ -136,10 +136,11 @@ This means the selected device in the project mismatch your burnning chip. All t
 
 | Board name | Series | Device | Package | Speed |
 | --- | --- | --- | --- | --- |
-| Tang Nano | GW1N | GW1N-1 | QFN48 | C6/I5 |
-| Tang Nano 1K | GW1NZ | GW1NZ-1 | QFN48 | C6/I5 |
-| Tang Nano 4K | GW1NSR | GW1NSR-4C | QFN48P | C6/I5 or C7/I6 |
-| Tang Nano 9K | GW1NR | GW1NR-9C | QFN88P | C6/I5 |
+| Tang Nano | GW1N | GW1N-1 | QN48 | C6/I5 |
+| Tang Nano 1K | GW1NZ | GW1NZ-1 | QN48 | C6/I5 |
+| Tang Nano 4K | GW1NSR | GW1NSR-4C | QN48P | C6/I5 或者 C7/I6 |
+| Tang Nano 9K | GW1NR | GW1NR-9C | QN88P | C6/I5 |
+| Tang Nano 20K | GW2AR | GW2AR-18C | QN88 | C8/I7 |
 | Tang Primer 20K | GW2A | GW2A-18C | PBGA256 | C8/I7 |
 
 <!-- For Nano 9K it should be choose as follow: -->

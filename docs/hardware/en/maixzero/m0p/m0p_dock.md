@@ -16,6 +16,7 @@ Sipeed M0P Dock 是使用 [Sipeed M0P](https://wiki.sipeed.com//hardware/zh/maix
 购买链接：[Aliexpress](https://item.taobao.com/item.htm?id=710359411812)
 
 <img src="./../../../zh/maixzero/m0p/assets/m0p_dock/m0p_dock_outlook.png" alt="m0p_dock_outlook" width=15%>
+<img src="./../../../zh/maixzero/m0p/assets/m0p_dock/m0p_dock_outlook_back.png" alt="m0p_dock_outlook" width=15%>
 
 ## 板卡特点
 
@@ -136,6 +137,9 @@ Sipeed M0P Dock 是使用 [Sipeed M0P](https://wiki.sipeed.com//hardware/zh/maix
 
 ![m0p_dock_pinmap](./../../../zh/maixzero/m0p/assets/m0p_dock/m0p_dock_pinmap.png)
 
+- STATE LED 接到 GPIO21
+- POW LED 接到 3.3V。板卡正常运行时亮起
+
 ## 产品对比
 
 | ---           | M0P Dock                          | ESP32-S3-DevKitC                 |
@@ -236,6 +240,15 @@ Sipeed M0P Dock 是使用 [Sipeed M0P](https://wiki.sipeed.com//hardware/zh/maix
         </td>
     </tr>
 </table>
+
+## 充电说明
+
+板卡上板载了 TP4057 充电 IC，板卡底面有两个锂电池状态指示 LED。
+
+<img src="./../../../zh/maixzero/m0p/assets/m0p_dock/m0p_dock_outlook_back.png" alt="m0p_dock_outlook" width=45%>
+
+- FULL LED：锂电池充电 IC 的 STDBY 脚，当电池充电结束后，该灯亮起
+- CHRG LED：处于充电状态时，该灯亮起
 
 ## 联系方式
 

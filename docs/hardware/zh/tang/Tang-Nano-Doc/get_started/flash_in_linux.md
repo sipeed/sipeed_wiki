@@ -3,6 +3,8 @@ title: Linux 下烧录方法
 keyeords: Linux, FPGA, Gowin
 ---
 
+## openFPGAloader
+
 在Ubuntu系统下我们建议使用**openFPGALoader**烧写，其他发行版尚未验证。以下为具体步骤
 
 ### 安装openFPGALoader
