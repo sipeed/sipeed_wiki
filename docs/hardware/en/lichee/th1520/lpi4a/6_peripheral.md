@@ -316,8 +316,11 @@ TODO
 
 ### PoE
 
-TODO
+LicheePi 4A的Ethernet 0接口具有PoE功能，可通过PoE实现供电。
 
+PoE供电模块需要自行购买，使用5V电压，35.6mm长度的规格，可以通过搜索“5V PoE 插针”关键词搜索得到。
+
+当目视方向正对“POE POWER”标识时，针脚左边4根针脚定义从左到右依次为：VA1、VA2、VB1、VB2，右边为：GND、5VIN。
 
 
 ## Audio

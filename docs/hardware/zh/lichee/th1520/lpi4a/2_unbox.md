@@ -96,7 +96,16 @@ LicheePi 4A 是高性能 SBC，需要安装主动散热器对 SOM 进行散热�
 
 ### POE模块安装
 
-选配，TODO。
+该模块需额外购买，规格为35.6mm长度的5V PoE供电模块，焊接在开发板的POE POWER位置。
+
+PoE模块安装如图所示：
+
+   <table>
+    <tr>
+      <td><img src="./assets/unbox/unbox_poe_0.jpg" alt="poe_back"></td>
+      <td><img src="./assets/unbox/unbox_poe_1.jpg" alt="poe_front"></td>
+    </tr>
+   </table>
 
 ### 组装完成
 
