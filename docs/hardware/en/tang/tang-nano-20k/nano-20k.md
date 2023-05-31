@@ -83,7 +83,9 @@ Tang Nano 20K is a development board, using the [GW2AR-18 QN88](http://www.gowin
     	<tr>
     		<td style="text-align:left">Clock generator</td>
     		<td style="text-align:left">MS5351</td>
-    		<td style="text-align:left">Provide extra 3 clocks for FPGA</td>
+    		<td style="text-align:left">Provide extra 3 clocks for FPGA<br>
+			<a href="https://wiki.sipeed.com/hardware/en/tang/tang-nano-20k/example/unbox.html#pll_clk">CLick me to see how to config MS5351</a>
+			</td></td>
     	</tr>
     	<tr>
     		<td style="text-align:left">Display interface</td>

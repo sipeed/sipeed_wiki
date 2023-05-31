@@ -276,19 +276,13 @@
                       "label":"Android (编写中)"
                     },
                     {
-                      "label":"其他",
-                      "collapsed": false,
-                      "items":[
-                          {
-                            "labe":"OpenWRT (编写中)"
-                          },
-                          {
-                            "labe":"OpenHarmony (编写中)"
-                          },
-                          {
-                            "labe":"OpenWRT (编写中)"
-                          }
-                      ]
+                      "labe":"OpenWRT (编写中)"
+                    },
+                    {
+                      "labe":"OpenHarmony (编写中)"
+                    },
+                    {
+                      "labe":"OpenWRT (编写中)"
                     }
                   ]
               },
@@ -385,7 +379,17 @@
             },
             {
               "label": "Tang Nano 20K",
-              "file": "tang/tang-nano-20k/nano-20k.md"
+              "items":[
+                {
+                  "label":"介绍",
+                  "file": "tang/tang-nano-20k/nano-20k.md"
+                },
+                {
+                  "label":"开箱",
+                  "file":"tang/tang-nano-20k/example/unbox.md",
+                  "target": "_blank"
+                }
+              ]
             },
             {
               "label": "Tang Nano (售罄)",
@@ -396,8 +400,9 @@
               "file": "tang/Tang-Nano-Doc/get_started/install-the-ide.md"
             },
             {
-              "label": "相关例程",
-              "file": "tang/Tang-Nano-Doc/examples.md"
+              "label": "例程汇总",
+              "file": "tang/Tang-Nano-Doc/examples.md",
+              "target": "_blank"
             },
             {
               "label": "常见问题",
@@ -417,7 +422,7 @@
                   "file": "tang/tang-primer-20k/primer-20k.md"
                 },
                 {
-                  "label": "开箱指南",
+                  "label": "开箱使用",
                   "file": "tang/tang-primer-20k/start.md"
                 },
                 {
@@ -425,7 +430,7 @@
                   "file": "tang/Tang-Nano-Doc/get_started/install-the-ide.md"
                 },
                 {
-                  "label": "例程指南",
+                  "label": "例程汇总",
                   "file": "tang/tang-primer-20k/example.md"
                 },
                 {

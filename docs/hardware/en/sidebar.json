@@ -363,7 +363,17 @@
             },
             {
               "label": "Tang Nano 20K",
-              "file": "tang/tang-nano-20K/nano-20k.md"
+              "items":[
+                {
+                  "label":"Introduction",
+                  "file": "tang/tang-nano-20k/nano-20k.md"
+                },
+                {
+                  "label":"Unbox",
+                  "file":"tang/tang-nano-20k/example/unbox.md",
+                  "target": "_blank"
+                }
+              ]
             },
             {
               "label": "Install IDE",
@@ -371,7 +381,8 @@
             },
             {
               "label": "Tang Nano examples",
-              "file": "tang/Tang-Nano-Doc/examples.md"
+              "file": "tang/Tang-Nano-Doc/examples.md",
+              "target": "_blank"
             },
             {
               "label": "Questions&Answers",
