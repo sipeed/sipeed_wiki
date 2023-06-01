@@ -1078,6 +1078,10 @@ for i in range(30):
 
 ### GPIO
 
+#### 进入休眠模式：通过按 awake 键唤醒
+
+echo mem > /sys/power/state 
+
 #### 读取 KEY 按键输入：GPIO2 21
 
 ```bash
@@ -1422,7 +1426,6 @@ cat /proc/ax_proc/uid
 
     '''
     ```
-
 
 ## 内置开箱应用
 
@@ -1898,13 +1901,17 @@ git clone https://huggingface.co/marcoyang/sherpa-ncnn-streaming-zipformer-zh-14
 
 ### SENSOR 支持双摄方案
 
+> （20230529 GC4653 软件上还不行，图中测试可用的是 os04a10）
 > （20230412 暂时废弃，目前 GC4653 双摄在软件上调不出来，折衷方案可以用 USB 摄像头过度，只验证过 OS04A10 双摄）
 
-目前 AXera-Pi 板卡物理上理论支持 GC4653 实现双摄方案，而 OS04A10 在硬件上不支持使用双摄 2 * 4lane，软件上支持但硬件不支持，属于设计意外。
+目前 AXera-Pi 板卡物理上理论支持 GC4653 及 OS04A10 实现双摄方案，而 GC4653 软件上还不行，图中测试可用的是 OS04A10.
 
-![dual_gc4653](./../assets/dual_gc4653.jpg)
+ OS04A10 在硬件上不支持使用双摄 2 * 4lane，软件上支持但硬件不支持，属于设计意外。
 
-使用双摄方案需替换相关的设备树文件，此处设备树只是配置 I2C 设备与摄像头型号无关，详情资料可参考：[资料包。](https://dl.sipeed.com/shareURL/MaixIII/AXera/11_patch/dual_gc4653_patch)
+![os04a10](./../assets/os04a10.jpg)
+
+使用双摄方案需替换相关的设备树文件，此处设备树只是配置 I2C 设备与摄像头型号无关。
+详情资料可参考：[资料包。](https://dl.sipeed.com/shareURL/MaixIII/AXera/11_patch/dual_gc4653_patch)
 
 ```bash
 juwan@juwan-n85-dls:~/Downloads/m3axpi_dual_gc4653_notes$ tree .
