@@ -2,11 +2,24 @@
 title: Tang 系列开发板
 ---
 
-Tang 系列开发板主要分为 Tang Nano 和 Tang Primer 两个系列。
+Tang 系列开发板主要有 Tang Nano 和 Tang Primer 两个系列。
 
 ## 当前产品
 
-### 外观总览
+### Tang Nano
+
+| 条目            | Tang Nano 20K     | Tang Nano 9K      | Tang Nano 4K      | Tang Nano 1K |
+| :-------------- | :---------------- | :---------------- | :---------------- | ------------ |
+| 逻辑单元(LUT4)  | 20736             | 8640              | 4608              | 1152         |
+| 寄存器（FF）    | 15552             | 6480              | 3456              | 864          |
+| S-SRAM (bits)   | 41472             | 17280             |                   |              |
+| B-SRAM (bits)   | 828K x 46         | 468K x 26         | 180K x 10         | 72K x 4      |
+| 用户闪存 (bits) |                   | 608K              | 256K              | 96K          |
+| 锁相环 (PLL)    | 4                 | 2                 | 2                 | 1            |
+| 板载 Flash      | 32Mbits NOR Flash | 32Mbits NOR Flash | 32Mbits NOR Flash | 预留焊盘     |
+| 硬核处理器      |                   |                   | Cortex-M3         |              |
+
+
 <table>
 <thead>
 <tr>
@@ -34,18 +47,19 @@ Tang 系列开发板主要分为 Tang Nano 和 Tang Primer 两个系列。
 </tbody>
 </table>
 
+## Tang Primer
 ### 主要参数对比
 
-| 条目            |<p style="white-space:nowrap">Tang Primer 20K</p>| <p style="white-space:nowrap">Tang Nano 9K</p>|<p style="white-space:nowrap">Tang Nano 4K</p>|<p style="white-space:nowrap">Tang Nano 1K</p>|
-| :-------------- | :---------------- | :---------------- | :---------------- | ------------ |
-| 逻辑单元(LUT4)  | 20736             | 8640              | 4608              | 1152         |
-| 寄存器（FF）    | 15552             | 6480              | 3456              | 864          |
-| S-SRAM (bits)   | 41472             | 17280             |                   |              |
-| B-SRAM (bits)   | 828K x 46         | 468K x 26         | 180K x 10         | 72K x 4      |
-| 用户闪存 (bits) |                   | 608K              | 256K              | 96K          |
-| 锁相环 (PLL)    | 4                 | 2                 | 2                 | 1            |
-| 板载 Flash      | 32Mbits NOR Flash | 32Mbits NOR Flash | 32Mbits NOR Flash | 预留焊盘     |
-| 硬核处理器      |                   |                   | Cortex-M3         |              | |
+| 条目            | <p style="white-space:nowrap">Tang Primer 20K</p> | <p style="white-space:nowrap">Tang Nano 9K</p> | <p style="white-space:nowrap">Tang Nano 4K</p> | <p style="white-space:nowrap">Tang Nano 1K</p> |
+| :-------------- | :------------------------------------------------ | :--------------------------------------------- | :--------------------------------------------- | ---------------------------------------------- |
+| 逻辑单元(LUT4)  | 20736                                             | 8640                                           | 4608                                           | 1152                                           |
+| 寄存器（FF）    | 15552                                             | 6480                                           | 3456                                           | 864                                            |
+| S-SRAM (bits)   | 41472                                             | 17280                                          |                                                |                                                |
+| B-SRAM (bits)   | 828K x 46                                         | 468K x 26                                      | 180K x 10                                      | 72K x 4                                        |
+| 用户闪存 (bits) |                                                   | 608K                                           | 256K                                           | 96K                                            |
+| 锁相环 (PLL)    | 4                                                 | 2                                              | 2                                              | 1                                              |
+| 板载 Flash      | 32Mbits NOR Flash                                 | 32Mbits NOR Flash                              | 32Mbits NOR Flash                              | 预留焊盘                                       |
+| 硬核处理器      |                                                   |                                                | Cortex-M3                                      |                                                |
 
 ## 售罄产品
 

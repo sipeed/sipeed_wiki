@@ -10,11 +10,8 @@
 
  {% block content %}
 
- <!-- <script src="https://unpkg.com/vue"></script> -->
- <!-- <script src="https://unpkg.com/naive-ui"></script> -->
  <script src="/static/js/vue.global.prod.js"></script>
  <script src="/static/js/naive-ui.prod.js"></script>
- <!-- <script src="/static/js/vue.js"></script> -->
  <script src="/static/js/vue_i18n.js"></script>
 
 <div id="products">
@@ -24,25 +21,155 @@
                      <n-card size="small" style="margin: auto; display: flex; height: 740px; " hoverable>
                          <n-tabs type="line" trigger='hover' justify-content="space-evenly">
                             <template v-if="$t('language') === 'zh'">
+                                <n-tab-pane name="Tang FPGA 选型">
+                                   <n-layout style="position: relative" has-sider position="absolute" hoverable>
+                                       <n-card class="base_background"
+                                           style="margin: auto; display: fit-content; max-width: 50%; max-height: 600px;">
+                                           <n-divider>现在已经有多款 Tang FPGA 可供选择，来看看该怎么选购</n-divider>
+                                               <n-collapse>
+                                                   <n-collapse-item title="FPGA 是什么" name="1">
+                                                     <div>
+                                                       FPGA 英文全称为 Field Programmable Gate Array (现场可编程逻辑阵列)，<br>特点是用户可以自行定义芯片内部数字逻辑<br>
+                                                       <img class="carousel-img" src="/static/home/fpga_inside_logic_cell.png" style="max-width:400px; max-height:480px;" alt="fpga_inside_logic_cell"><br>
+                                                     </div>
+                                                   </n-collapse-item>
+                                                   <n-collapse-item title="FPGA 能做什么" name="2">
+                                                       <div>
+                                                           一般来说，在 MCU 或者简单的逻辑芯片满足不了当前需求时，<br>就应当选择 FPGA 了。主要有以下方面的用途：
+                                                           <p align="left">
+                                                               ①: 协议转换；比如一路 SPI 转十路 IIC<br>
+                                                               ②：数字信号处理；FPGA 内部可以同时处理多路数据<br>
+                                                               ④：逻辑验证；自己最低成本在现实中复现自己设计的数字电路逻辑
+                                                           </p>
+                                                       </div>
+                                                   </n-collapse-item>
+                                                   <n-collapse-item title="怎么样选择 TANG FPGA" name="3">
+                                                     <div><p align="left">
+                                                       Tang FPGA 各自特点如下：<br>
+                                                       <strong>Tang Nano 1K：</strong> 最实惠的 FPGA 开发板，可以用来做一些简单的接口转换或者低成本体验 FPGA<br>
+                                                       <strong>Tang Nano 4K：</strong> 性价比高的异构 SOC FPGA 图像开发板， 可以学习 AHB 总线和图像入门处理<br>
+                                                       <strong>Tang Nano 9K：</strong> 逻辑单元足够验证软核的 FPGA，适合于验证自己的数字逻辑电路<br>
+                                                       <strong>Tang Nano 20K：</strong> Tang Nano 9K 的升级款，逻辑单元容量加倍，体积更小<br>
+                                                       <strong>Tang Primer 20K：</strong> 内存条样式封装的 FPGA 核心板，适合集成在自定义底板上<br>
+                                                       <strong>Tang Primer 20K Dock：</strong> 基于 Tang Primer 20K 核心板的多功能开发板，多种外设适合 FPGA 入门<br>
+                                                       <strong>Tang Primer 20K Lite：</strong> 基于 Tang Primer 20K 核心板的最简拓展版，适用于自己设计外部拓展<br>
+                                                       <a href="https://wiki.sipeed.com/tang">点我查看更详细的参数说明</a>
+                                                       </p>
+                                                     </div>
+                                                   </n-collapse-item>
+                                               </n-collapse>
+                                       </n-card>
+                                       <n-divider title-placement="center">
+                                        <n-space vertical>
+                                            <div id="fpga_item">
+                                                <a href="./k210.html">
+                                                    <div class="card">
+                                                        <img src="/hardware/zh/tang/tang-primer-20k/assets/dock-up.png" alt="Tang Primer 20K">
+                                                        <div class="card_info card_red">
+                                                            <h2>Tang Primer 20K</h2>
+                                                            <div class="brief">
+                                                                <div>内存条样式封装的 FPGA 核心板，<br>适合集成在自定义底板上</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                <a href="./v831.html">
+                                                    <div class="card">
+                                                        <img src="/hardware/assets/maixII/m2dock.jpg" alt="V831 模型转换和部署">
+                                                        <div class="card_info card_blue">
+                                                            <h2>Maix-II 系列 v831</h2>
+                                                            <div class="brief">
+                                                                <div>高性价比带硬件 AI 加速，支持 Linux</div>
+                                                                <div>0.2Tops@INT8，有限算子加速</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                <a href="./v831.html">
+                                                    <div class="card">
+                                                        <img src="/hardware/assets/maixII/m2dock.jpg" alt="V831 模型转换和部署">
+                                                        <div class="card_info card_blue">
+                                                            <h2>Maix-II 系列 v831</h2>
+                                                            <div class="brief">
+                                                                <div>高性价比带硬件 AI 加速，支持 Linux</div>
+                                                                <div>0.2Tops@INT8，有限算子加速</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                           <div id="fpga_item">
+                                               <a href="./k210.html">
+                                                   <div class="card">
+                                                       <img src="/hardware/zh/maix/assets/dk_board/maix_duino/maixduino_0.png" alt="K210 模型转换和部署">
+                                                       <div class="card_info card_red">
+                                                           <h2>Maix-I 系列 K210</h2>
+                                                           <div class="brief">
+                                                               <div>高性价比带硬件 AI 加速的单片机</div>
+                                                               <div>1Tops@INT8，有限算子加速</div>
+                                                           </div>
+                                                       </div>
+                                                   </div>
+                                               </a>
+                                               <a href="./v831.html">
+                                                   <div class="card">
+                                                       <img src="/hardware/assets/maixII/m2dock.jpg" alt="V831 模型转换和部署">
+                                                       <div class="card_info card_blue">
+                                                           <h2>Maix-II 系列 v831</h2>
+                                                           <div class="brief">
+                                                               <div>高性价比带硬件 AI 加速，支持 Linux</div>
+                                                               <div>0.2Tops@INT8，有限算子加速</div>
+                                                           </div>
+                                                       </div>
+                                                   </div>
+                                               </a>
+                                               <a href="./v831.html">
+                                                   <div class="card">
+                                                       <img src="/hardware/assets/maixII/m2dock.jpg" alt="V831 模型转换和部署">
+                                                       <div class="card_info card_blue">
+                                                           <h2>Maix-II 系列 v831</h2>
+                                                           <div class="brief">
+                                                               <div>高性价比带硬件 AI 加速，支持 Linux</div>
+                                                               <div>0.2Tops@INT8，有限算子加速</div>
+                                                           </div>
+                                                       </div>
+                                                   </div>
+                                               </a>
+                                               <a href="./v831.html">
+                                                   <div class="card">
+                                                       <img src="/hardware/assets/maixII/m2dock.jpg" alt="V831 模型转换和部署">
+                                                       <div class="card_info card_blue">
+                                                           <h2>Maix-II 系列 v831</h2>
+                                                           <div class="brief">
+                                                               <div>高性价比带硬件 AI 加速，支持 Linux</div>
+                                                               <div>0.2Tops@INT8，有限算子加速</div>
+                                                           </div>
+                                                       </div>
+                                                   </div>
+                                               </a>
+                                               <a href="./v831.html">
+                                                   <div class="card">
+                                                       <img src="/hardware/assets/maixII/m2dock.jpg" alt="V831 模型转换和部署">
+                                                       <div class="card_info card_blue">
+                                                           <h2>Maix-II 系列 v831</h2>
+                                                           <div class="brief">
+                                                               <div>高性价比带硬件 AI 加速，支持 Linux</div>
+                                                               <div>0.2Tops@INT8，有限算子加速</div>
+                                                           </div>
+                                                       </div>
+                                                   </div>
+                                               </a>
+                                           </div>
+                                        </n-space>
+                                    </n-divider>
+                                   </n-layout>
+                                </n-tab-pane>
                              <n-tab-pane name="近期热点事件">
                                  <n-card style="margin: auto; display: fit-content; max-height: fit-content;">
                                      <n-carousel effect="card" class="base_background"
                                          prev-slide-style="transform: translateX(-150%) translateZ(-1200px);"
                                          next-slide-style="transform: translateX(50%) translateZ(-1200px);"
                                          :show-dots="false" autoplay draggable style="height: 620px">
-                                         <!-- <n-carousel-item :style="{ width: '80%' }">
-                                             <n-card size="small" hoverable>
-                                                 <img class="carousel-img" src="https://sipeed.com/static/images/banner-1.jpg">
-                                                 <n-divider title-placement="right">
-                                                    <n-button-group style="margin: 5px; font-size: 16px;">
-                                                    <n-button size="large"
-                                                        href="https://sipeed.com"
-                                                        target="_blank" tag="a" type="error" ghost>
-                                                        官网链接
-                                                    </n-button-group>
-                                                </n-divider>
-                                             </n-card>
-                                            </n-carousel-item> -->
                                         <n-carousel-item :style="{ width: '75%' }">
                                             <n-card size="small" hoverable>
                                                 <a href="https://wiki.sipeed.com/licheepi4a" target="_blank"><img class="carousel-img" src="/static/home/licheepi4a_post.jpg" alt="licheepi4a_post"></a>
@@ -278,49 +405,6 @@
                                     </n-card>
                                     <n-divider title-placement="center">
                                         <iframe src="//player.bilibili.com/player.html?aid=218150917&bvid=BV1q8411t7xb&cid=838335610&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="min-width:540px; min-height:480px;"> </iframe>
-                                    </n-divider>
-                                </n-layout>
-                             </n-tab-pane>                             
-                             <n-tab-pane name="Tang FPGA 选型">
-                                <n-layout style="position: relative" has-sider position="absolute" hoverable>
-                                    <n-card class="base_background"
-                                        style="margin: auto; display: fit-content; max-width: 50%; max-height: 600px;">
-                                        <n-divider>现在已经有多款 Tang FPGA 可供选择，来看看该怎么选购</n-divider>
-                                            <n-collapse>
-                                                <n-collapse-item title="FPGA 是什么" name="1">
-                                                  <div>
-                                                    FPGA 英文全称为 Field Programmable Gate Array (现场可编程逻辑阵列)，<br>特点是用户可以自行定义芯片内部数字逻辑<br>
-                                                    <img class="carousel-img" src="/static/home/fpga_inside_logic_cell.png" style="max-width:400px; max-height:480px;" alt="fpga_inside_logic_cell"><br>
-                                                  </div>
-                                                </n-collapse-item>
-                                                <n-collapse-item title="FPGA 能做什么" name="2">
-                                                    <div>
-                                                        一般来说，在 MCU 或者简单的逻辑芯片满足不了当前需求时，<br>就应当选择 FPGA 了。主要有以下方面的用途：
-                                                        <p align="left">
-                                                            ①: 协议转换；比如一路 SPI 转十路 IIC<br>
-                                                            ②：数字信号处理；FPGA 内部可以同时处理多路数据<br>
-                                                            ④：逻辑验证；自己最低成本在现实中复现自己设计的数字电路逻辑
-                                                        </p>
-                                                    </div>
-                                                </n-collapse-item>
-                                                <n-collapse-item title="怎么样选择 TANG FPGA" name="3">
-                                                  <div><p align="left">
-                                                    Tang FPGA 各自特点如下：<br>
-                                                    <strong>Tang Nano 1K：</strong> 最实惠的 FPGA 开发板，可以用来做一些简单的接口转换或者低成本体验 FPGA<br>
-                                                    <strong>Tang Nano 4K：</strong> 性价比高的异构 SOC FPGA 图像开发板， 可以学习 AHB 总线和图像入门处理<br>
-                                                    <strong>Tang Nano 9K：</strong> 逻辑单元足够验证软核的 FPGA，适合于验证自己的数字逻辑电路<br>
-                                                    <strong>Tang Nano 20K：</strong> Tang Nano 9K 的升级款，逻辑单元容量加倍，体积更小<br>
-                                                    <strong>Tang Primer 20K：</strong> 内存条样式封装的 FPGA 核心板，适合集成在自定义地板上<br>
-                                                    <strong>Tang Primer 20K Dock：</strong> 基于 Tang Primer 20K 核心板的多功能开发板，多种外设适合 FPGA 入门<br>
-                                                    <strong>Tang Primer 20K Lite：</strong> 基于 Tang Primer 20K 核心板的最简拓展版，适用于自己设计外部拓展<br>
-                                                    <a href="https://wiki.sipeed.com/tang">点我查看更详细的参数说明</a>
-                                                    </p>
-                                                  </div>
-                                                </n-collapse-item>
-                                            </n-collapse>
-                                    </n-card>
-                                    <n-divider title-placement="center">
-                                        <iframe src="" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="min-width:540px; min-height:480px;"> </iframe>
                                     </n-divider>
                                 </n-layout>
                              </n-tab-pane>
@@ -2152,8 +2236,73 @@
         flex-direction: row;
     }
 </style>
-
-
+<style>
+    #fpga_item {
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: nowrap;
+        margin: 0 -10px;
+    }
+    #fpga_item a:hover {
+        background-color: transparent;
+    }
+    #fpga_item > a {
+        margin: 1em;
+    }
+    .card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 5px 6px 20px 4px  rgba(0, 0, 0, 0.1);
+        border-radius: 0.6rem;
+        transition: 0.4s;
+        background: white;
+    }
+    .card:hover {
+        box-shadow: 5px 6px 40px 4px  rgba(0, 0, 0, 0.1);
+        scale: 1.05;
+    }
+    .card_info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 0 0 0.6rem 0.6rem;
+    }
+    .card img {
+        height: 10em;
+        width: 14em;
+        object-fit: cover;
+    }
+    .card_info > h2 {
+        font-size: 1.2em;
+        margin: 0.2em;
+        padding: 0.2em 1em;
+    }
+    .card_info > .brief {
+        margin: 0.2em;
+        padding: 0.2em 1em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .card_red {
+        background-color: #ffcdd2;
+        color: #cf4f5a;
+    }
+    .card_blue {
+        background-color: #90caf9;
+        color: #105aa9;
+    }
+    .card_green {
+        background-color: #b2dfdb;
+        color: #009688;
+    }
+    .card_purple {
+        background-color: #d1c4e9;
+        color: #673ab7;
+    }
+</style>
 
 {{ body|safe }}
 
