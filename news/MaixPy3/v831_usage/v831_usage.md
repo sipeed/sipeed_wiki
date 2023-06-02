@@ -15,7 +15,7 @@ update:
 > 铛 ~ 新的 2023 年当然要有新的上手指南辣（虽然已经过去5个月）总有事情要被鸽但能填上就是好坑。
 > 新的上手指南还是旧的目的，希望大家可以借助这篇文章在使用 M2DOCK 时更加顺利一点吧！
 
-![m2dock](./../../../docs/hardware/assets/maixII/m2dock.jpg)
+![m2dock](https://wiki.sipeed.com/hardware/assets/maixII/m2dock.jpg)
 
 本篇文章以 `视觉` 为主题阐述如何在 M2DOCK（V831）从基础的开箱上手再到视觉的衍生（深度开发）的使用全过程，因篇幅的有限这里不再对产品进行详细介绍，想要了解相关产品介绍可点击资料进行查看。
 
@@ -218,7 +218,7 @@ from maix import camera, display, image
 display.show(camera.capture())
 ```
 
-<center><img src="./../../../out/hardware/zh/maixII/M2/asserts/hello_world.jpg" width="500"></center>
+![hello_world](https://wiki.sipeed.com/hardware/zh/maixII/M2/asserts/hello_world.jpg)
 
 > 如果屏幕没有显示内容。那么首先确认一下镜像镜像版本，并且确认一下外设和驱动对的上
 
@@ -293,24 +293,6 @@ for i in range(120):
 **第二步**：存储后务必使用电脑系统自带的 U 盘移除相关的功能来断开电脑与 U 盘的通信。
 **第三步**：最后进行重启（按下 RST 键或者重新插拔 USB）来使 m2dock 再次重新加载文件系统，否则会因为板卡与电脑非正常断开通信而导致文件系统损坏，保存失败。
 
-## 学会使用文档（资源）
-
-无论是在 K210 还是 M2DOCK（V831）上一定要学会使用我们公开的文档资料，去借助资料的力量帮助自己在学习的道路上往前走，学会借助资源完善自身的不足，可以让你少走很多的坑以及弯路。
-
-1. 学会搜索并利用官方的 `文档社区` 以及 `github issue` 资源，会让新手小白少走很多弯路雷坑。
-2. 文档资源在 `常见问题 FAQ` 中基本涵盖了所有的坑，使用途中报错可以先查看排错。
-3. 想要实现更多的功能示例或需要更多的脚本源码，可前往 MaixPy3 的源码例程仓库查找。
-
-**文档搜索例程**：[点击查看](https://wiki.sipeed.com/soft/maixpy/zh/how_to_read.html)
-**BBS 社区教程贴**：[点击前往](https://bbs.sipeed.com/thread/492)
-**MaixPy3 源码仓库**：[点击前往](https://github.com/sipeed/maixpy3)
-**MaixPy3 issue**：[点击前往](https://github.com/sipeed/MaixPy3/issues)
-**MaixPy3 常见问题指南**：[点击前往](https://wiki.sipeed.com/soft/maixpy3/zh/tools/0.MaixII-Dock.html#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E6%8C%87%E5%8D%97)
-**V831 源码**：[点击前往](https://github.com/Tina-Linux/tina-V83x)
-**V83 工具链**：[点击前往](https://dl.sipeed.com/shareURL/MaixII/MaixII-Dock/SDK/Toolchain)
-**V831 常见问题与解决方法**：[点击前往](https://wiki.sipeed.com/soft/maixpy3/zh/question/maixpy3_faq.html)
-**BBS 社区常见问题汇总贴**：[点击查看](https://bbs.sipeed.com/thread/489)
-
 ## 进阶使用
 
 > 到达进阶使用这里后，这里则需要小伙伴们具备一些 Linux 基础了才能继续往下走学习。
@@ -380,20 +362,41 @@ echo "usb_device" > /sys/devices/platform/soc/usbc0/otg_role
 
 **Linux 系统下 V831 使用编译链**：[toolchain-sunxi-musl-pack-2021-01-09.tar.xz](https://dl.sipeed.com/shareURL/MaixII/MaixII-Dock/SDK/Toolchain)
 
-## 如何编译与开发
+## 学会使用文档（资源）
+
+无论是在 K210 还是 M2DOCK（V831）上一定要学会使用我们公开的文档资料，去借助资料的力量帮助自己在学习的道路上往前走，学会借助资源完善自身的不足，可以让你少走很多的坑以及弯路。
+
+1. 学会搜索并利用官方的 `文档社区` 以及 `github issue` 资源，会让新手小白少走很多弯路雷坑。
+2. 文档资源在 `常见问题 FAQ` 中基本涵盖了所有的坑，使用途中报错可以先查看排错。
+3. 想要实现更多的功能示例或需要更多的脚本源码，可前往 MaixPy3 的源码例程仓库查找。
+
+**文档搜索例程**：[点击查看](https://wiki.sipeed.com/soft/maixpy/zh/how_to_read.html)
+**BBS 社区教程贴**：[点击前往](https://bbs.sipeed.com/thread/492)
+**MaixPy3 源码仓库**：[点击前往](https://github.com/sipeed/maixpy3)
+**MaixPy3 issue**：[点击前往](https://github.com/sipeed/MaixPy3/issues)
+**MaixPy3 常见问题指南**：[点击前往](https://wiki.sipeed.com/soft/maixpy3/zh/tools/0.MaixII-Dock.html#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E6%8C%87%E5%8D%97)
+**V831 源码**：[点击前往](https://github.com/Tina-Linux/tina-V83x)
+**V83 工具链**：[点击前往](https://dl.sipeed.com/shareURL/MaixII/MaixII-Dock/SDK/Toolchain)
+**V831 常见问题与解决方法**：[点击前往](https://wiki.sipeed.com/soft/maixpy3/zh/question/maixpy3_faq.html)
+**BBS 社区常见问题汇总贴**：[点击查看](https://bbs.sipeed.com/thread/489)
+
+
+## 编译与开发
+
+> 当你走到这时已经代表你熟悉（V831）的基础操作准备深层了解，以下的文档是为了开发者写的参考文，希望可以基于此让更多的伙伴进入 Linux 嵌入式开发的领域。
 
 ### 系统环境搭建
 
 - 安装 vscode 和换源：[点击前往](https://fishros.org.cn/forum/topic/20/%E5%B0%8F%E9%B1%BC%E7%9A%84%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85%E7%B3%BB%E5%88%97)
 - 安装输入法：[点击前往](https://shurufa.sogou.com/linux/guide)
-- 安装截图工具：[点击前往](https://zhuanlan.zhihu.com/p/88325211)，并设置快捷键为 `ctrl + alt + a`.
+- 安装截图工具：[点击安装](https://zhuanlan.zhihu.com/p/88325211)并设置快捷键为 `ctrl + alt + a`。
 - 安装魔法上网工具：自行安装
 
-### MaixPY3 架构介绍
+### MaixPy3 架构介绍
 
-篇幅过多这里不详细介绍，小伙伴可根据指路前往：[MaixPy3 架构介绍](https://wiki.sipeed.com/soft/maixpy3/zh/others/framework.html)
+因篇幅过多这里不详细介绍，小伙伴们可根据指路前往：[MaixPy3 架构介绍](https://wiki.sipeed.com/soft/maixpy3/zh/others/framework.html)
 
-### 为什么采用 libmax 开发
+### 为什么采用 libmaix 开发
 
 ```C++
 +----------------------------------------+
@@ -437,17 +440,17 @@ echo "usb_device" > /sys/devices/platform/soc/usbc0/otg_role
 
 ```
 
-可以清楚的看到我们平时用的 Python 的接口底层实现也是通过了 libmaix 的开发成果，我们平时需要 Python 语言调参验证原型功能，是为了快速验证我们的开发板可用于不同的场景和功能，方便我们快速验证功能外设是否正常，同时我们也需要 C / C++ 优化性能和减少内存占用用于开发商业项目，那么，直接使用 libmaix 进行开发就显得尤为重要了。
-一开始采用的 python 需要一定时间过渡到 c++ ，特别是成熟的项目，更需要脱离 python 了，为了更成熟精简的项目结构和更好的性能，这就不得不看看 libmaix 了喵。
+上文中我们可以清楚的看到平时用的 `Python` 的接口底层实现也是通过了 `libmaix` 的开发成果，平时需要 `Python` 语言调参验证原型功能，是为了快速验证我们的开发板可用于不同的场景和功能，方便我们快速验证功能外设是否正常，同时我们也需要 `C / C++` 优化性能和减少内存占用用于开发商业项目，那么，直接使用 libmaix 进行开发就显得尤为重要了。
+一开始采用的 `Python` 需要一定时间过渡到 `C++` ，特别是成熟的项目更需要脱离 `Python`，为了更成熟精简的项目结构和更好的性能就得看看 `libmaix` 的表现了。
 
 #### 首先要配置好开发环境
 
-参考下面连接完成你的开发环境配置
+> 参考下文给出的资料文章链接配置相关开发环境。
 
 1. [V831 如何使用 libmaix SDK C++ 开发](https://wiki.sipeed.com/news/MaixPy3/run_lvgl/run_lvgl.html)
 2. [Linux 连接不上 adb 设备](https://wiki.sipeed.com/news/others/linux_adb/linux_adb.html)
 
-完成了上面的环境配置后，这里提供了一个Demo，内容就是如何使用 V831 LINUX C++ 进行图像视觉处理和开发，在此我提供了一个 串口 + mv cv ai 的示例项目，供开发者评估使用，此处不涉及到 ISP 调试，需要进一步 ISP 图像调试则需要联系大佬鼠。
+完成上面的环境配置后，这里提供了可运行的 `Demo` 内容就是如何使用 V831 LINUX C++ 进行图像视觉处理和开发，在此我们提供了 `串口 + mv cv ai` 的示例项目，供开发者评估使用，此处不涉及到 ISP 调试，需要进一步 ISP 图像调试则需要联系大佬鼠。
 
 >相关资料：[libmaix](https://github.com/sipeed/libmaix/blob/6ad1102a0527bd3d394c0b1de82cbf64d6eac40d/components/maix_dls831/src/dls831_uvai.cpp#L435-L663)
 
@@ -455,12 +458,730 @@ echo "usb_device" > /sys/devices/platform/soc/usbc0/otg_role
 
 ![libmaix](./assest/libmaix.jpg)
 
-我们可以看到程序是稳定三十帧的运行速率。
+我们可以看到程序是保持稳定三十帧的运行速率。
 
 <html>
   <img src="./assest/h26x_831.jpg" width=45%>
   <img src="./assest/fps.jpg" width=45%>
 </html>
 
+## 库
+
+接下来我们来认识一下现有的库：分别是 AI、Opencv、Openmv、LVGL。
+
+### AI 
+
+它的实现方式与 `Python` 的流程类似，并在 `C++` 中也需配置相关模型的参数。
+
+#### 以 YOLOv2 为例
+
+>YOLOv2 是一种基于深度学习的目标检测算法，它是 YOLO（you only look once）的改进版本。
+
+**YOLOv2 相比于 YOLO 主要有以下几个不同的改进点：**
+
+1. 使用 `batch normalization` 来提高模型的稳定性和泛化能力，同时去掉了 `dropout` 层。
+2. 使用了高分辨率的图像（448×448）来微调分类网络，然后再用于检测网络并提高了检测的精度。
+3. 引入 `anchor boxes` 的概念，根据数据集的边界框分布进行 `k-means` 聚类，得到最合适的 `anchor boxes` 的尺寸和比例提高了召回率。
+4. 使用了直接位置预测的方法，将边界框的中心坐标相对于网格单元的偏移量用 `logistic` 回归函数进行归一化，使得模型更容易学习。
+5. 使用了多尺度训练的策略动态地改变输入图像的尺寸，使得模型能够适应不同大小的目标。
+
+**YOLOv2 的优点主要有以下几个方面：**
+
+1. 速度快：YOLOv2 相比于基于区域提议的方法，只需对图像进行一次前向传播大大减少计算量和时间。
+2. 精度高：YOLOv2 相比于 YOLO 来说在 `mAP`（平均精度）上提升了约 10 个百分点，在小目标上也有明显的改善。
+3. 通用性强：YOLOv2 可以同时在 `COCO` 和 `ImageNet` 数据集上进行训练，得到一个能够检测 9000 多种物体的模型。
+
+![YOLOv2](./assest/YOLOv2.jpg)
+
+**接下来我们来尝试采用人脸模型为测试：**
+
+在出厂镜像中我们已内置了相关的人脸检测的模型，无需用户再次下载。
+
+```C++
+static struct _nn_yolo_face_
+  { 
+	//模型地址，需要提前通过adb传到板子里，下列模型出厂固件已经自带
+    const char *model_path_param = "/home/model/face/yolo2_face_awnn.param";
+    const char *model_path_bin = "/home/model/face/yolo2_face_awnn.bin";
+    const char *inputs_names[1] = {"input0"};
+    const char *outputs_names[1] = {"output0"};
+    const float opt_param_mean = 127.5;
+    const float opt_param_norm = 0.0078125;
+    //网络的输入参数
+    libmaix_nn_layer_t input = {
+        .w = 224,
+        .h = 224,
+        .c = 3,
+        .dtype = LIBMAIX_NN_DTYPE_UINT8,
+    };
+    libmaix_nn_layer_t out_fmap = {
+        .w = 7,
+        .h = 7,
+        .c = 30,//根据上图的网络结构计算公式(sizeof(labels)+5) * 5
+        .dtype = LIBMAIX_NN_DTYPE_FLOAT,
+    };
+    libmaix_nn_t *nn;
+    libmaix_nn_model_path_t model_path;
+    libmaix_nn_opt_param_t opt_param;
+    // -------------- yolo2 decode -----------------------
+    const char *labels[1] = {"face"};//你有多少个类别，就填多少
+    const float anchors[10] = {1.19, 1.98, 2.79, 4.59, 4.53, 8.92, 8.06, 5.29, 10.32, 10.65};
+    libmaix_nn_decoder_t *yolo2_decoder;
+    libmaix_nn_decoder_yolo2_result_t yolo2_result;
+    libmaix_nn_decoder_yolo2_config_t yolo2_config = {
+        .classes_num = sizeof(labels) / sizeof(anchors[0]),
+        .threshold = 0.5,
+        .nms_value = 0.3,
+        .anchors_num = (sizeof(anchors) / sizeof(anchors[0])) / 2,
+        .anchors = (float *)anchors,
+        .net_in_width = 224,
+        .net_in_height = 224,
+        .net_out_width = 7,
+        .net_out_height = 7,
+        .input_width = 224,
+        .input_height = 224
+    };
+  } nn_yolo_face_app;
+
+auto self = (_nn_yolo_face_ *)app->userdata;
+self->opt_param.awnn.input_names = (char **)self->inputs_names;
+self->opt_param.awnn.output_names = (char **)self->outputs_names;
+self->opt_param.awnn.input_num = sizeof(self->inputs_names) / sizeof(self->inputs_names[0]);
+self->opt_param.awnn.output_num = sizeof(self->outputs_names) / sizeof(self->outputs_names[0]);
+
+self->opt_param.awnn.mean[0] = self->opt_param_mean;
+self->opt_param.awnn.mean[1] = self->opt_param.awnn.mean[0];
+self->opt_param.awnn.mean[2] = self->opt_param.awnn.mean[0];
+
+self->opt_param.awnn.norm[0] = self->opt_param_norm;
+self->opt_param.awnn.norm[1] = self->opt_param.awnn.norm[0];
+self->opt_param.awnn.norm[2] = self->opt_param.awnn.norm[0];
+
+self->model_path.awnn.param_path = (char *)self->model_path_param;
+self->model_path.awnn.bin_path = (char *)self->model_path_bin;
+
+self->input.need_quantization = true;
+
+self->out_fmap.data = (float *)malloc(self->out_fmap.w * self->out_fmap.h * self->out_fmap.c * sizeof(float));
+if (!self->out_fmap.data)
+{
+  LIBMAIX_INFO_PRINTF("no memory!!!\n");
+  return -1;
+}
+
+self->input.buff_quantization = (uint8_t *)malloc(self->input.w * self->input.h * self->input.c);
+if (!self->input.buff_quantization)
+{
+  LIBMAIX_INFO_PRINTF("no memory!!!\n");
+  return -1;
+}
+
+LIBMAIX_INFO_PRINTF("-- nn create\n");
+self->nn = libmaix_nn_create();
+if (!self->nn)
+{
+  LIBMAIX_INFO_PRINTF("libmaix_nn object create fail\n");
+  return -1;
+}
+LIBMAIX_INFO_PRINTF("-- nn object init\n");
+err = self->nn->init(self->nn);
+if (err != LIBMAIX_ERR_NONE)
+{
+  LIBMAIX_INFO_PRINTF("libmaix_nn init fail: %s\n", libmaix_get_err_msg(err));
+  return -1;
+}
+LIBMAIX_INFO_PRINTF("-- nn object load model\n");
+err = self->nn->load(self->nn, &self->model_path, &self->opt_param);
+if (err != LIBMAIX_ERR_NONE)
+{
+  LIBMAIX_INFO_PRINTF("libmaix_nn load fail: %s\n", libmaix_get_err_msg(err));
+  return -1;
+}
+
+LIBMAIX_INFO_PRINTF("-- yolo2 decoder create\n");
+self->yolo2_decoder = libmaix_nn_decoder_yolo2_create(libmaix_nn_decoder_yolo2_init,
+                                                      libmaix_nn_decoder_yolo2_deinit,
+                                                      libmaix_nn_decoder_yolo2_decode);
+if (!self->yolo2_decoder)
+{
+  LIBMAIX_INFO_PRINTF("no mem\n");
+  return -1;
+}
+LIBMAIX_INFO_PRINTF("-- yolo2 decoder init\n");
+err = self->yolo2_decoder->init(self->yolo2_decoder, (void *)&self->yolo2_config);
+if (err != LIBMAIX_ERR_NONE)
+{
+  LIBMAIX_INFO_PRINTF("decoder init error:%d\n", err);
+  return -1;
+}
+
+err = self->nn->forward(self->nn, &self->input, &self->out_fmap);
+if (err != LIBMAIX_ERR_NONE)
+{
+printf("libmaix_nn forward fail: %s\n", libmaix_get_err_msg(err));
+}
+
+err = self->yolo2_decoder->decode(self->yolo2_decoder, &self->out_fmap, (void *)&self->yolo2_result);
+if (err != LIBMAIX_ERR_NONE)
+{
+printf("yolo2 decode fail: %s\n", libmaix_get_err_msg(err));
+}
+if (self->yolo2_result.boxes_num > 0)
+{
+LIBMAIX_INFO_PRINTF("yolo2_result.boxes_num %d", self->yolo2_result.boxes_num);
+}
+```
+
+### OpenCV
+
+> 相关的函数可以去官方文档查看：[OpenCV Tutorials](https://docs.opencv.org/4.x/d9/df8/tutorial_root.html)
+
+为了照顾 C 程序在 `/libmaix/components/maix_cv_image/src/libmaix_cv_image.cpp` 下对 Opencv 的函数又做了一层封装，当时还没有全面用 C++ 但现在已经全部迁移到 C++ 了。
+
+可以在提供的 `libmaix/components/maix_dls831/src/dls831_uvai.cpp` 的例子中，看到是如何采用了 Opencv 实现滤波和二值化等操作。
+
+```C++
+    void AdaptiveThreshold(cv::Mat &src, cv::Mat &dst, double Maxval, int Subsize, double c, adaptiveMethod method = meanFilter)
+    {
+
+        if (src.channels() > 1)
+            cv::cvtColor(src, src, cv::COLOR_RGB2GRAY);
+
+        cv::Mat smooth;
+        switch (method)
+        {
+        case meanFilter:
+            cv::blur(src, smooth, cv::Size(Subsize, Subsize)); // 均值滤波
+            break;
+        case gaaussianFilter:
+            cv::GaussianBlur(src, smooth, cv::Size(Subsize, Subsize), 0, 0); // 高斯滤波
+            break;
+        case medianFilter:
+            cv::medianBlur(src, smooth, Subsize); // 中值滤波
+            break;
+        default:
+            break;
+        }
+        smooth = smooth - c;
+        src.copyTo(dst);
+        for (int r = 0; r < src.rows; ++r)
+        {
+            const uchar *srcptr = src.ptr<uchar>(r);
+            const uchar *smoothptr = smooth.ptr<uchar>(r);
+            uchar *dstptr = dst.ptr<uchar>(r);
+            for (int c = 0; c < src.cols; ++c)
+            {
+                if (srcptr[c] > smoothptr[c])
+                {
+                    dstptr[c] = Maxval;
+                }
+                else
+                    dstptr[c] = 0;
+            }
+        }
+    }
+// 自适应阈值 提取边缘
+AdaptiveThreshold(gray, gray, 255, 21, 10, meanFilter);`
+```
+
+**前文的例子中不仅有 Opencv 的常用算法，也提供了 Opencv 的画图方法。**
+
+```C++
+// 绘制十字线
+for (size_t i = 0; i < reticle_results.size(); i++)
+{
+    reticle_result reticle_result = reticle_results[i];
+    cv::line(bgra, Point(reticle_result.lines[0][0], reticle_result.lines[0][1]), Point(reticle_result.lines[0][2], reticle_result.lines[0][3]), Scalar(255, 0, 0, 255), 2, LINE_AA);
+    cv::line(bgra, Point(reticle_result.lines[1][0], reticle_result.lines[1][1]), Point(reticle_result.lines[1][2], reticle_result.lines[1][3]), Scalar(255, 0, 0, 255), 2, LINE_AA);
+    cv::circle(bgra, reticle_result.crossPoint, 5, Scalar(0, 0, 255, 255), -1, LINE_AA);
+}
+```
+### Openmv
+
+当然为了更好的兼容 Openmv 玩家，我们也提供了 Openmv 的函数在 `components/third_party/imlib` 下，函数全部增加了一个 `imlib` 的前缀，其他的功能与Openmv 是一致的。
+
+举个栗子：比如 Openmv 的寻找色块函数 [寻找色块 · OpenMV中文入门教程](https://book.openmv.cc/image/blob.html)
+
+```C++
+image.find_blobs(thresholds, roi=Auto, x_stride=2, y_stride=1, invert=False, 
+    area_threshold=10, pixels_threshold=10, merge=False, margin=0, 
+    threshold_cb=None, merge_cb=None)
+```
+
+根据上面的链接描述，我们再看看 `imlib` 中的使用几乎一模一样。
+
+```C++
+void imlib_find_blobs(list_t *out, image_t *ptr, rectangle_t *roi, unsigned int x_stride, unsigned int y_stride,
+                      list_t *thresholds, bool invert, unsigned int area_threshold, unsigned int pixels_threshold,
+                      bool merge, int margin,
+                      bool (*threshold_cb)(void*,find_blobs_list_lnk_data_t*), void *threshold_cb_arg,
+                      bool (*merge_cb)(void*,find_blobs_list_lnk_data_t*,find_blobs_list_lnk_data_t*), void *merge_cb_arg,
+                      unsigned int x_hist_bins_max, unsigned int y_hist_bins_max)
+
+imlib_find_blobs(&out, img, &roi, x_stride, y_stride, &thresholds, invert, area_threshold,
+                           pixels_threshold, merge, margin, NULL, NULL, NULL, NULL, x_hist_bins_max, y_hist_bins_max);
+```
+
+再看看最经典的巡线功能中最重要的识别直线函数：[find_lines 识别直线 · OpenMV中文入门教程](https://book.openmv.cc/example/09-Feature-Detection/find-lines.html)
+
+```C++
+imlib_find_lines(&out, img, &roi, x_stride, y_stride, threshold, theta_margin, rho_margin);
+```
+
+在上面提供的例子中就采用了寻找直线的功能。
+
+### LVGL
+
+LVGL（**注意提供的版本为LVGL7**）的相关函数资料：[百问网 LVGL 中文教程手册文档](http://lvgl.100ask.net/7.11/)
+
+## 外设
+
+接下来我们来认识一下外设以及相关的使用方法，例如串口、SPI、PWM、IIC 等。
+
+### 串口
+
+串口的使用非常的简单，我们先设置好波特率，数据位，停止位等参数，打开串口后挂载到 `select` 中，当串口收到数据后会打印一个字节出来。
+
+```C++
+int ret = 0;
+uart_t uart_dev_parm = {
+.baud = 115200,
+.data_bits = 8,
+.stop_bits = 1,
+.parity = 'n'};
+dls831->dev_ttyS1 = linux_uart_init((char *)"/dev/ttyS1", &uart_dev_parm);
+if (dls831->dev_ttyS1 < 0)
+{
+    perror(" uart /dev/ttyS1 open err!");
+    abort();
+}
+FD_ZERO(&dls831->readfd);
+write(dls831->dev_ttyS1, "dls831!\r\n", sizeof("dls831!\r\n"));I2C
+```
+
+```C++
+// serial
+FD_SET(dls831->dev_ttyS1, &dls831->readfd);
+ret = select(dls831->dev_ttyS1 + 1, &dls831->readfd, NULL, NULL, &dls831->timeout);
+if (ret != -1 && FD_ISSET(dls831->dev_ttyS1, &dls831->readfd))
+{
+  char tmp[2] = {0};
+  int readByte = read(dls831->dev_ttyS1, &tmp, 1);
+  if (readByte != -1)
+  {
+    printf("readByte %d %X\n", readByte, tmp);
+  }
+}
+```
+
+### SPI
+
+以 WS2812 为例，首先搞清楚设备的 SPI 的四种时序模式：[一文搞懂 spi 协议 4 种模式时序](https://zhuanlan.zhihu.com/p/386787861)
+
+```C++
+#define WS2812_SPI_DEVICE "/dev/spidev1.0"
+unsigned char spi_init()
+{
+    //初始化
+    int i;
+    _ws2812_fd = open (WS2812_SPI_DEVICE, O_RDWR);
+    printf("\r\n*****ws2812 open success******\r\n");                                    /* open spi device */
+    if ((_ws2812_fd) < 0)                                                   /* check result */
+    {
+        printf("spi: open failed.\n");                               /* open failed */
+        return 1;                                                    /* return error */
+    }
+    else
+    {
+        i = SPI_MODE_3;                                                    /* set mode */
+        if (ioctl(_ws2812_fd, SPI_IOC_WR_MODE, &i) < 0)                     /* config write mode */
+        {
+            printf("spi: write mode set failed.\n");                 /* write mode set failed */
+            return 1;                                                /* return error */
+        }
+        if (ioctl(_ws2812_fd, SPI_IOC_RD_MODE, &i) < 0)                     /* config read mode */
+        {
+            printf("spi: read mode set failed.\n");                  /* read mode set failed */
+            return 1;                                                /* return error */
+        }
+        i = 20000000;                                                    /* set spi frequence */
+        if (ioctl(_ws2812_fd, SPI_IOC_WR_MAX_SPEED_HZ, &i) < 0)             /* set write max frequence */
+        {
+            printf("spi: set spi write speed failed.\n");            /* set spi write speed failed */
+            return 1;                                                /* return error */
+        }
+        if (ioctl(_ws2812_fd, SPI_IOC_RD_MAX_SPEED_HZ, &i) < 0)             /* set read max frequence */
+        {
+            printf("spi: set spi read speed failed.\n");             /* set spi read speed failed */
+            return 1;                                                /* return error */
+        }
+        i = 0;
+        if (ioctl(_ws2812_fd, SPI_IOC_WR_LSB_FIRST, &i) < 0)                /* set write MSB first */
+        {
+            printf("spi: set spi write msb first failed.\n");        /* set spi write msb first failed */
+            return 1;                                                /* return error */
+        }
+        if (ioctl(_ws2812_fd, SPI_IOC_RD_LSB_FIRST, &i) < 0)                /* set read MSB first */
+        {
+            printf("spi: set spi read msb first failed.\n");         /* set spi read msb first failed */
+            return 1;                                                /* return error */
+        }
+        i = 8;                                                       /* set 8 bits */
+        if (ioctl(_ws2812_fd, SPI_IOC_WR_BITS_PER_WORD, &i) < 0)            /* set write bits */
+        {
+            printf("spi: set spi wirte 8 bit failed.\n");            /* set spi wirte 8 bit failed */
+            return 1;                                                /* return error */
+        }
+        if (ioctl(_ws2812_fd, SPI_IOC_RD_BITS_PER_WORD, &i) < 0)            /* set read bits */
+        {
+            printf("spi: set spi read 8 bit failed.\n");             /* set spi read 8 bit failed */
+            return 1;                                                /* return error */
+        }
+        return 0;                                                    /* success return 0 */
+    }
+}
+```
+
+```C++
+unsigned char spi_write_data(unsigned char *buf, uint16_t len)
+{
+    struct spi_ioc_transfer k;
+    int l;
+    // ws2812b_interface_debug_print("\r\n***const char *const fmt***\r\n");
+    memset(&k, 0, sizeof(k));                         /* clear ioc transfer */
+    k.tx_buf = (unsigned long) buf;                   /* set tx buffer */
+    k.len = len;                                      /* set tx length */
+    k.cs_change = 0;                                  /* set cs change */
+    l = ioctl(_ws2812_fd, SPI_IOC_MESSAGE(1), &k);            /* send data */
+    if (l != len)                                     /* check length */
+    {
+        printf("spi: length check error.\n");         /* length check error */
+
+        return 1;                                     /* return error */
+    }
+
+    return 0;
+}
+
+// spi.xfer(tx, int(4/1.05e-6))
+unsigned char spi_xfer_data(unsigned char *buf, uint16_t len, int clk)
+{
+    struct spi_ioc_transfer k;
+    int l;
+    // ws2812b_interface_debug_print("\r\n***const char *const fmt***\r\n");
+    memset(&k, 0, sizeof(k));                         /* clear ioc transfer */
+    k.tx_buf = (unsigned long) buf;                   /* set tx buffer */
+    k.len = len;                                      /* set tx length */
+    k.cs_change = 0;                                  /* set cs change */
+    k.speed_hz = clk;                                 /* set spi clk */
+    k.bits_per_word = 8;
+    l = ioctl(_ws2812_fd, SPI_IOC_MESSAGE(1), &k);            /* send data */
+    if (l != len)                                     /* check length */
+    {
+        printf("spi: length check error.\n");         /* length check error */
+
+        return 1;                                     /* return error */
+    }
+
+    return 0;
+}
+```
+
+读写数据的函数编写好后，就可以愉快的封装 WS2812 的亮灯程序啦！
+
+```C++
+uint8_t _set_rgbs_color(uint8_t *color_buf)
+{
+    uint8_t ret = 0;
+    uint8_t i = 0;
+    uint8_t j = 0;
+    uint8_t k = 0;
+    uint8_t tx[25] = {0};
+    uint8_t rgb[3] = {0};
+    uint8_t byte = 0;
+    uint8_t ibit = 0;
+    uint8_t *p = color_buf;
+    for (i = 0; i < 2; i++)
+    {
+        rgb[0] = p[0];
+        rgb[1] = p[1];
+        rgb[2] = p[2];
+        for (j = 0; j < 3; j++)
+        {
+            
+            uint8_t colorBit[4] = {0};
+            byte = rgb[j];
+            for (ibit = 0; ibit < 4; ibit++)
+            {
+                colorBit[ibit] = (((byte >> (2 * ibit + 1)) & 1) * 0x60 + ((byte >> (2 * ibit + 0)) & 1) * 0x06 + 0x88);
+            }
+
+            tx[k++] = colorBit[3];
+            tx[k++] = colorBit[2];
+            tx[k++] = colorBit[1];
+            tx[k++] = colorBit[0];
+        }
+        p += 3;
+    }
+    tx[0] &=0x0f;
+    // spi need clear head high level
+    tx[0] |=0x40;
+    tx[24] = 0b1000000; // spi need clear end high level
+
+    ret = spi_xfer_data(tx, 25, (int)(4/1.05e-6));
+    return ret;
+}
+```
+
+### PWM
+
+通过写寄存器的方式直接对三个 PWM 进行初始化操作。
+
+```C++
+  /*pwm*/
+  void pwm_init()//刚开始初始化50HZ 2.5%占空比
+  {
+
+    _pwm_init("PH6", 100, 2.5/100);//为了初始化引脚
+    _pwm_init("PH7", 100, 2.5/100);//为了初始化引脚
+    _pwm_init("PH8", 100, 2.5/100);//为了初始化引脚
+
+    usleep(100);
+    chdir("/sys/class/sunxi_dump");
+    system("echo 0x0300A080 0x00 > write");  //PWM DISABLE
+    system("echo 0x0300A040 0x00  > write");//PWM CLOCK DISABLE
+
+    system("echo 0x0300A028 0x00 > write");//PWM45
+    system("echo 0x0300A02C 0x00 > write");//PWM67 CLOCK CONFIG PCCR67 24M 不分频
+    system("echo 0x0300A030 0x00 > write");//PWM89 CLOCK CONFIG PCCR89 24M 不分频
+    system("echo 0x0300A040 0x1D0 > write");//PWM Clock Gating 打开PWM4 6,7,8时钟
 
 
+    system("echo 0x0300A180 0x107 > write");//PWM4
+    system("echo 0x0300A184 0xea6005dc > write");//PWM
+    system("echo 0x0300A188 0x00 > write");//PWM
+
+    system("echo 0x0300A1C0 0x107 > write");//PWM6配置8分频，循环模式
+    system("echo 0x0300A1C4 0xea6005dc > write");//PWM6初始波形定义
+    system("echo 0x0300A1C8 0x00 > write");//PWM6初始计数值为0
+
+    system("echo 0x0300A1E0 0x107 > write");//PWM7配置8分频，循环模式
+    system("echo 0x0300A1E4 0xea6005dc > write");//PWM7初始波形定义
+    system("echo 0x0300A1E8 0x00 > write");//PWM7初始计数值为0
+
+    system("echo 0x0300A200 0x107 > write");//PWM8配置8分频，循环模式
+    system("echo 0x0300A204 0xea6005dc > write");//PWM8初始波形定义
+    system("echo 0x0300A208 0x00 > write");//PWM8初始计数值为0
+
+    system("echo 0x0300A080 0x1D0 > write");//ENABLE PWM4 6,7,8
+  }
+
+  void pwm_deinit()
+  {
+    chdir("/sys/class/sunxi_dump");
+    system("echo 0x0300A080 0x00 > write");
+    system("echo 0x0300A040 0x00  > write");
+    _pwm_deinit("PH6");
+    _pwm_deinit("PH7");
+    _pwm_deinit("PH8");
+  }
+
+  //设置PWM输出的频率，占空比，最大30KHZ
+  //0--pwm6
+  //1--pwm7
+  //2--pwm8
+  void pwm_set(uint8_t pwm_id,uint32_t freq,float duty)
+  {
+    char data_buf[128];
+    unsigned int reg_freq_count = 0;
+    unsigned int reg_duty_count = 0;
+    unsigned int reg_data = 0;
+    memset(data_buf,0,sizeof(data_buf));
+
+    reg_freq_count = (int)(3000000/freq);
+    reg_duty_count = (int)(reg_freq_count*duty/100);
+    reg_data = (reg_freq_count<<16)+reg_duty_count;
+    switch (pwm_id)
+    {
+    case 0:
+      sprintf(data_buf,"echo 0x0300A1C4 0x%x > write",reg_data);
+      break;
+    case 1:
+      sprintf(data_buf,"echo 0x0300A1E4 0x%x > write",reg_data);
+      break;
+    case 2:
+      sprintf(data_buf,"echo 0x0300A204 0x%x > write",reg_data);
+      break;
+    default:
+      break;
+    }
+```
+
+通过封装好的 `pwm_set` 就可以简单的控制三个 `pwm` 的输出频率了。
+
+### IIC
+
+以 MPU6050 为例，首先查询你所用芯片的寄存器手册，配置相关寄存器设置。
+
+```C++
+#define WHO_AM_I_REG    0x75
+#define POWR_MGNT_REG   0x6B
+#define ACCL_CONF_REG   0x1C
+#define GYRO_CONF_REG   0x1B
+#define SMPL_DVDR_REG   0x19
+#define CONFIG_REG      0x1A
+#define ACCL_XH_REG     0x3B
+#define ACCL_XL_REG     0x3C
+#define ACCL_YH_REG     0x3D
+#define ACCL_YL_REG     0x3E
+#define ACCL_ZH_REG     0x3F
+#define ACCL_ZL_REG     0x40
+#define GYRO_XH_REG     0x43
+#define GYRO_XL_REG     0x44
+#define GYRO_YH_REG     0x45
+#define GYRO_YL_REG     0x46
+#define GYRO_ZH_REG     0x47
+#define GYRO_ZL_REG     0x48
+#define TEMP_HI_REG     0x41
+#define TEMP_LO_REG     0x42
+#define FIFO EN_REG     0x23
+#define FIFO_CH_REG     0x72
+#define FIFO_CL_REG     0x73
+#define FIFO_REG        0x74
+
+char i2c_write(int file, uint8_t address, uint8_t command, uint8_t value)
+{
+    uint8_t buf[2] = {command, value};
+    struct i2c_msg msgs[1] = {
+        {
+            .addr = address,
+            .flags = 0,
+            .len = 2,
+            .buf = buf,
+        },
+    };
+    struct i2c_rdwr_ioctl_data data = {
+        .msgs = msgs,
+        .nmsgs = 1,
+    };
+    if (ioctl(file, I2C_RDWR, &data) < 0) {
+        return -1;
+    }
+    return 0;
+}
+
+char i2c_read(int file, uint8_t address, uint8_t command)
+{
+    uint8_t buf[1];
+    struct i2c_msg msgs[2] = {
+        {
+            .addr = address,
+            .flags = 0,
+            .len = 1,
+            .buf = &command,
+        },
+        {
+            .addr = address,
+            .flags = I2C_M_RD,
+            .len = 1,
+            .buf = buf,
+        },
+    };
+    struct i2c_rdwr_ioctl_data data = {
+        .msgs = msgs,
+        .nmsgs = 2,
+    };
+    if (ioctl(file, I2C_RDWR, &data) < 0) {
+        return -1;
+    }
+    return buf[0];
+}
+
+void mpu6050_init(uint8_t i2c_number, uint8_t slave_addr)
+{
+	file = open("/dev/i2c-2", O_RDWR);
+    if (file < 0) {
+        printf("I2C %hhu Not Found\n", i2c_number);
+  		exit(1);
+    }
+	i2c_address = slave_addr;
+    if (ioctl(file, I2C_SLAVE, i2c_address) < 0) {
+        close(file);
+        printf("I2C Slave Not Found");
+		exit(1);
+    }
+	i2c_write(file,slave_addr,POWR_MGNT_REG, 0x00);
+	i2c_write(file,slave_addr,ACCL_CONF_REG, 0x01);
+	i2c_write(file,slave_addr,GYRO_CONF_REG, 0x18);
+    i2c_write(file,slave_addr,SMPL_DVDR_REG, 0x07);
+	i2c_write(file,slave_addr,CONFIG_REG, 0x06);
+}
+```
+
+在初始化 mpu6050 时需先查阅原理图，根据 `M2DCOK` 的原理图可得知 `IIC` 的 `PH11` 和 `PH12` 分别是 `SCL` 和 `SDA` 两根信号线，且对应的设备是 `/dev/i2c-2`，这样看来 `i2c_number` 就应该为 `/dev/i2c-2`。
+
+**第一步**：我们可以通过命令去查找 `mpu6050` 在 `IIC` 上的地址
+
+```shell
+i2cdetetc -y 2
+```
+
+![i2c](./assest/i2c.jpg)
+
+>我们可从上图得知有两个地址：62 以及 68，62 是板卡上自带的三轴传感器，而 68 则是我们的 mpu6050 挂载在 IIC 上的地址。
+
+**第二步**：拿到地址后也可以通过命令直接去查看 mpu6050 中寄存器的值
+
+```shell
+i2cdump -y 2 0x68
+```
+
+![6050](./assest/6050.jpg)
+
+**第三步**：分别取出高八位和低八位的值后，拼接起来后再通过一层换算才能得到真实的数据，以加速度、角速度和温度为例，打印出换算后的个值。
+
+```C++
+int16_t twos_complement(uint8_t higher_byte, uint8_t lower_byte)
+{
+	uint16_t word = (uint16_t)((higher_byte << 8) | lower_byte);
+	int16_t signed_word;
+	if((word & 0x8000) != 0)
+	{
+		word = ~word + 0x0001;
+		signed_word = (int16_t)(word * -1);
+		return signed_word;
+	}
+	else 
+	{
+		signed_word = (int16_t)word;
+		return signed_word;
+	}
+}
+mpu6050_init(2, 0x68);
+axh = i2c_read(file,i2c_address,ACCL_XH_REG);
+axl = i2c_read(file,i2c_address,ACCL_XL_REG);
+ayh = i2c_read(file,i2c_address,ACCL_YH_REG);
+ayl = i2c_read(file,i2c_address,ACCL_YL_REG);
+azh = i2c_read(file,i2c_address,ACCL_ZH_REG);
+azl = i2c_read(file,i2c_address,ACCL_ZL_REG);
+gxh = i2c_read(file,i2c_address,GYRO_XH_REG);
+gxl = i2c_read(file,i2c_address,GYRO_XL_REG);
+gyh = i2c_read(file,i2c_address,GYRO_YH_REG);
+gyl = i2c_read(file,i2c_address,GYRO_YL_REG);
+gzh = i2c_read(file,i2c_address,GYRO_ZH_REG);
+gzl = i2c_read(file,i2c_address,GYRO_ZL_REG);
+th = i2c_read(file,i2c_address,TEMP_HI_REG);
+tl = i2c_read(file,i2c_address,TEMP_LO_REG);
+
+axw = twos_complement(axh, axl);
+ayw = twos_complement(ayh, ayl);
+azw = twos_complement(azh, azl);
+gxw = twos_complement(gxh, gxl);
+gyw = twos_complement(gyh, gyl);
+gzw = twos_complement(gzh, gzl);
+tw = twos_complement(th, tl);
+```
+
+最后打印结果如下图：
+
+![print](./assest/print.jpg)
