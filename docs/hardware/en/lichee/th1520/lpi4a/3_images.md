@@ -109,3 +109,9 @@ Project address: [Click me](https://github.com/chainsx/armbian-riscv-build)
 ### Gentoo
 
 ![gentoo](./../../../../zh/lichee/th1520/lpi4a/assets/images/gentoo.jpg)
+
+### slarm64
+
+![slarm64](./../../../../zh/lichee/th1520/lpi4a/assets/images/slarm64.png)  
+Project address: [Click me](https://gitlab.com/sndwvs/images_build_kit)  
+Download: [Click me](https://dl.slarm64.org/slackware/images/lichee_pi_4a/)  
