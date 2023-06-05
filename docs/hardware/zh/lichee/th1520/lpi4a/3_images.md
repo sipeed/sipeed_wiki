@@ -117,3 +117,9 @@ Project address: [Click me](https://wiki.gentoo.org/wiki/Project:RISC-V)
 Deplay Gentoo Linux [Click me](https://wiki.gentoo.org/wiki/User:Dlan/RISC-V/TH1520)
 
 ![gentoo](./assets/images/gentoo.jpg)
+
+### slarm64
+
+![slarm64](./../../../../zh/lichee/th1520/lpi4a/assets/images/slarm64.png)  
+Project address: [Click me](https://gitlab.com/sndwvs/images_build_kit)  
+Download: [Click me](https://dl.slarm64.org/slackware/images/lichee_pi_4a/)  
