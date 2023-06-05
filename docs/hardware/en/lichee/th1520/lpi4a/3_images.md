@@ -59,7 +59,7 @@ ISCAS 镜像站：[点我](https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/
 
 TODO
 
-### Andriod
+### Android
 
 ![android](./../../../../zh/lichee/th1520/lpi4a/assets/images/android.png)
 
@@ -73,7 +73,7 @@ TODO
 
 ### openEuler
 
-![openEuler](./assets/images/openEuler.png)   
+![openEuler](./../../../../zh/lichee/th1520/lpi4a/assets/images/openEuler.png)   
 Download: [Click me](https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/preview/openEuler-23.03-V1-riscv64/lpi4a/)   
 Twitter: https://twitter.com/openEuler   
 
@@ -98,6 +98,8 @@ Project address: [Click me](https://github.com/chainsx/armbian-riscv-build)
 
 ![fedora](./../../../../zh/lichee/th1520/lpi4a/assets/images/fedora.png)
 
+Project address: [Click me](https://github.com/chainsx/fedora-riscv-builder)  
+
 ### Ubuntu
 
 ![ubuntu](./../../../../zh/lichee/th1520/lpi4a/assets/images/ubuntu.png)
@@ -108,4 +110,16 @@ Project address: [Click me](https://github.com/chainsx/armbian-riscv-build)
 
 ### Gentoo
 
+Project address: [Click me](https://wiki.gentoo.org/wiki/Project:RISC-V)
+
+下面链接说明如何从stage3制作一个Gentoo Linux系统
+
+Deplay Gentoo Linux [Click me](https://wiki.gentoo.org/wiki/User:Dlan/RISC-V/TH1520)
+
 ![gentoo](./../../../../zh/lichee/th1520/lpi4a/assets/images/gentoo.jpg)
+
+### slarm64
+
+![slarm64](./../../../../zh/lichee/th1520/lpi4a/assets/images/slarm64.png)  
+Project address: [Click me](https://gitlab.com/sndwvs/images_build_kit)  
+Download: [Click me](https://dl.slarm64.org/slackware/images/lichee_pi_4a/)  

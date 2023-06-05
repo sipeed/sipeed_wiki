@@ -59,7 +59,7 @@ ISCAS 镜像站：[点我](https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/
 
 TODO
 
-### Andriod
+### Android
 
 ![android](./assets/images/android.png)
 
@@ -98,6 +98,7 @@ Project address: [Click me](https://github.com/chainsx/armbian-riscv-build)
 ### Fedora
 
 ![fedora](./assets/images/fedora.png)
+
 Project address: [Click me](https://github.com/chainsx/fedora-riscv-builder)  
 
 ### Ubuntu
@@ -120,6 +121,6 @@ Deplay Gentoo Linux [Click me](https://wiki.gentoo.org/wiki/User:Dlan/RISC-V/TH1
 
 ### slarm64
 
-![slarm64](./../../../../zh/lichee/th1520/lpi4a/assets/images/slarm64.png)  
+![slarm64](./assets/images/slarm64.png)  
 Project address: [Click me](https://gitlab.com/sndwvs/images_build_kit)  
 Download: [Click me](https://dl.slarm64.org/slackware/images/lichee_pi_4a/)  
