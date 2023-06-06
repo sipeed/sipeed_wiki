@@ -22,7 +22,7 @@
         </tr>
         <tr>
             <td><span class="limit_width"><strong>MaixPy 交流QQ群<br>(K210)</strong></span></td>
-            <td><span class="limit_width"><strong>① 群 (已满): 878189804<br>② 群 (已满): 1129095405<br>④ 群 (已满): 256336487<br>⑤ 群 (已满): 636551897<br>⑥ 群 : 636551897</strong></span></td>
+            <td><span class="limit_width"><strong>① 群 (已满): 878189804<br>② 群 (已满): 1129095405<br>④ 群 (已满): 256336487<br>⑤ 群 (已满): 696014576<br>⑥ 群 : 636551897</strong></span></td>
         </tr>
         <tr>
             <td><span class="limit_width"><strong>MaixPy3 交流QQ群<br>(V831, AX620)</strong></span></td>
