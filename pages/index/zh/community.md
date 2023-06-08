@@ -16,7 +16,18 @@
     </thead>
     <tbody>
         <tr>
-            <td><span class="limit_width"><strong>Sipeed 交流社区(推荐使用)</strong></span></td>
+            <td><span class="limit_width"><strong>MaixHub (推荐使用)</strong><br><p style="font-size: small;">Sipeed 旗下 AI 平台和分享社区</p></span></td>
+            <td><span class="limit_width">
+                    <strong>
+                        <div><a href="https://maixhub.com/model/zoo" target="_blank">模型分享</a></div>
+                        <div><a href="https://maixhub.com/share" target="_blank">项目分享</a></div>
+                        <div><a href="https://maixhub.com/share?type=2" target="_blank">经验分享</a></div>
+                        <div><a href="https://maixhub.com/app" target="_blank">嵌入式应用分享</a></div>
+                        <div style="color: #bdbdbd;">MaixHub QQ群：766140795</div>
+                    </strong></span></td>
+        </tr>
+        <tr>
+            <td><span class="limit_width"><strong>Sipeed 交流社区 (推荐使用)</strong><p style="font-size: small;">7月会迁移到 MaixHub<br>目前只推荐提问</p></span></td>
             <td><span class="limit_width"><a href="https://bbs.sipeed.com"
                         target="_blank"><strong>bbs.sipeed.com</strong></a></span></td>
         </tr>
@@ -55,14 +66,6 @@
         <tr>
             <td><span class="limit_width"><strong>电赛 QQ 群</strong></span></td>
             <td><span class="limit_width"><strong>750799296</strong></span></td>
-        </tr>
-        <tr>
-            <td><span class="limit_width"><strong>MaixHub</strong></span></td>
-            <td><span class="limit_width">
-                    <strong>
-                        <div>模型和项目分享：<a href="https://maixhub.com" target="_blank">MaixHub 官网</a></div>
-                        <div>QQ群：766140795</div>
-                    </strong></span></td>
         </tr>
     </tbody>
 </table>
