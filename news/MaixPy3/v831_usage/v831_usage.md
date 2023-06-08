@@ -8,6 +8,16 @@ update:
     author: lyx
     content:
       - 编写文档
+  - date: 2023-06-01
+    version: v0.2
+    author: lyx
+    content:
+      - 填充大纲
+  - date: 2023-06-08
+    version: v0.3
+    author: lyx
+    content:
+      - 补充内容细节
 ---
 
 ## 产品介绍
@@ -25,7 +35,7 @@ update:
 
 ## 前情提要
 
-**【有基础可跳过】**促使我们做上手指南的原因永远都是以降低用户使用难度为目的，但一些基础知识（Python 语法）我们还是需掌握熟悉的，而大部分的小伙伴是从 `K210（MaixPy)` 换代升级到 `M2DOCK（MaixPy3)` 的，但我们区分这两者之间的不同吗？显然（萌新）小伙伴们是不清楚的。
+**【有基础可跳过】**促使我们做上手指南的原因永远都是以降低用户使用难度为目的，但一些基础知识（Python 语法）我们还是需掌握熟悉的，而大部分的小伙伴是从 `K210（MaixPy)` 换代升级到 `M2DOCK（MaixPy3)` 的，但我们区分这两者之间的不同吗？显然刚接触的小伙伴们是不清楚的。
 
 >**我们可以这么来理解**：本质上它们都是专门为 AloT 提供的 Python 开发环境，提供了各类各样的模块。MaixPy 基于 MicroPython 的环境制作和 MCU 无系统的，而后者 MaixPy3 则是基于 Linux Python3 的环境以及 Linux 系统，可点击：[[关于 MaixPy 与 MaixPy3 的区别]](https://wiki.sipeed.com/news/MaixPy3/difference.html) 查看更多。
 
@@ -86,6 +96,8 @@ update:
 **烧录流程示例**：可前往 [Windows/Linux M2dock 系统烧录](https://wiki.sipeed.com/hardware/zh/maixII/M2/flash.html) 查看相关示例，下图显示绿色代表烧录成功。
 
 ![img](./assest/img.png)
+
+系统相当于燃机的原料，我们把系统烧录完成好后接着下一步安装需使用到的软件。
 
 ### 安装 MaixPy3 IDE 
 
@@ -156,13 +168,14 @@ MaixPy3 IDE 百度云：[点击](https://eyun.baidu.com/s/3htTXfaG#sharelink/pat
 
 IDE 软件启动时会附带一个 `keep_adb.exe` 命令行终端的程序提供给熟悉 linux 终端操作开发板的同学，软件版本 0.4.2 后 keep_adb 服务会自动调用 adb 配置映射（forward）端口（22，18811，18812）与板子连接的 ide 服务是否工作。
 
-**如何进行判断**：可以在交互终端输入 ps | grep mjpg 查看是否存在下图红框所指示的服务。
+**如何进行判断**：可以在交互终端输入 `ps | grep mjpg` 查看是否存在下图红框所指示的服务。
 
 ![keep_adb](./assest/keep_adb.jpg)
 
 > 如果发现不存在 ide 服务（`python -c 'from maix import mjpg;mjpg.start();`）我们可以手动运行相关服务，并把现象汇报到社群，目前发现该现象主要出现在 Windows 11 系统之间的差异上。
 
 最后确认系统防火墙是否阻止了软件底层所需要 `TCP 18811 18812` 的端口号（主用于运行程序和图像传输）
+
 **了解更多**：可以点此查看关于 [MaixPy3](https://wiki.sipeed.com/soft/maixpy3/zh/tools/MaixPy3_IDE.html) IDE 的更加详细的介绍，此处不再赘述。
 
 > **启动 MaixPy3 IDE 时会弹出 Jupyter 的编辑网页，我们先来测试板卡的连接以及外设是否正常可用。**
@@ -220,21 +233,21 @@ display.show(camera.capture())
 
 ![hello_world](https://wiki.sipeed.com/hardware/zh/maixII/M2/asserts/hello_world.jpg)
 
-> 如果屏幕没有显示内容。那么首先确认一下镜像镜像版本，并且确认一下外设和驱动对的上
+> **如果屏幕没有显示内容**：那么首先确认一下镜像镜像版本，并且确认一下外设和驱动对的上。
 
 ## 基础使用
 
-上文我们使用了基本的（搭载 Python）Jupyter 并运行代码测试了相关外设走出了使用的第一步，接下来我们来使用命令行运行代码并联网。
+上文我们使用了 Maixpy3 IDE 搭载的 **Jupyter（Python）**运行代码并测试了屏幕及摄像头的功能，接下来我们来体验 Linux shell 命令行的使用并给 M2DOCK 进行联网。
 
->命令行也就是所谓的 Linux Shell，它是用户使用 Linux 的桥梁，Shell 是指一种应用程序，这个应用程序提供了一个界面，用户通过这个界面访问操作系统内核的服务，使用 shell 需要使用者具备一定的 Linux 基础知识 [Shell 教程](https://www.runoob.com/linux/linux-shell.html)/[部分常用 Linux 命令](https://wiki.sipeed.com/hardware/zh/maixII/M2/usage.html#%E9%83%A8%E5%88%86%E5%B8%B8%E7%94%A8-Linux-%E5%91%BD%E4%BB%A4)可根据需求进行学习。
+>命令行也就是所谓的 Linux Shell 还是用户使用 Linux 的桥梁，Shell 是指一种应用程序，这个应用程序提供了操作界面，用户通过这个界面访问操作系统内核的服务，使用 shell 需要使用者具备一定的 Linux 基础知识 [Shell 教程](https://www.runoob.com/linux/linux-shell.html)/[部分常用 Linux 命令](https://wiki.sipeed.com/hardware/zh/maixII/M2/usage.html#%E9%83%A8%E5%88%86%E5%B8%B8%E7%94%A8-Linux-%E5%91%BD%E4%BB%A4)可根据需求进行学习。
 
-### 使用命令行联网
+### 联网
 
 M2Dock 带有 2.4G 无线模组，可以用来连接 2.4G 频段的无线网络，因镜像的更新（WiFi）链接方式有两种可供大家选择，但是文档示例以最新镜像方法为示例标准，更多可查询下文给出的参考链接。
 
 - **使用以下命令行进行联网 确保镜像系统：0.5.4（20230207）**
 
-使用下面的命令来连接名称为 Sipeed_Guest， 且密码为 qwert123 的无线网络。
+使用下面的命令来连接名称：`Sipeed_Guest` 密码：`qwert123` 的无线网络。
 
 ```
 wifi_connect_ap_test Sipeed_Guest qwert123
@@ -242,13 +255,13 @@ wifi_connect_ap_test Sipeed_Guest qwert123
 
 ![wlan](./assest/wlan.jpg)
 
-连接成功后可使用 `ifconfig` 命令查询 `wlan0` 的 IP 地址，关于命令行联网的详情请看[ V0.5.4 联网.](https://wiki.sipeed.com/hardware/zh/maixII/M2/usage.html#V0.5.4)
+连接成功后可使用 `ifconfig` 命令查询 `wlan0` 的 IP 地址，更多命令行联网的详情请看[ V0.5.4 联网.](https://wiki.sipeed.com/hardware/zh/maixII/M2/usage.html#V0.5.4)
 
 - **修改 wpa_supplicant.conf 进行联网：（V0.5.4）前镜像**
 
-这个办法适用于 V0.5.4 前的镜像系统，通过修改 U 盘里的 `wpa_supplicant.conf` 文件修改名称及密码来联网，更加具体的操作请看[ V0.5.4 前镜像联网。](https://wiki.sipeed.com/hardware/zh/maixII/M2/usage.html#V0.5.4-%E4%B9%8B%E5%89%8D%E7%9A%84%E9%95%9C%E5%83%8F)
+这个办法适用于 V0.5.4 前的镜像系统，通过修改 U 盘里的 `wpa_supplicant.conf` 文件修改名称及密码来联网，更加具体的操作请看[ V0.5.4 前镜像联网](https://wiki.sipeed.com/hardware/zh/maixII/M2/usage.html#V0.5.4-%E4%B9%8B%E5%89%8D%E7%9A%84%E9%95%9C%E5%83%8F) 相关资料。
 
-### 使用 U 盘配置开机脚本
+### 配置开机脚本
 
 >上文我们尝试了怎么使用 Linux shell 来进行联网操作，这里我们来尝试使用 U 盘配置开机脚本。
 
@@ -258,9 +271,9 @@ wifi_connect_ap_test Sipeed_Guest qwert123
 **第二步**：判断 U 盘目录下是否有 app 的文件夹，如果有就把 `main.py` 存进 `app` 文件夹后进行下一步，如果没有直接把 `main.py` 存放在 U 盘即可进行下一步。
 **第三步**：存放好后使用电脑操作系统自带的移除 U 盘方式来保证文件在没有损坏的情况下保存进板卡，否则会因为不当操作而导致 `main.py` 没有正常保存到 U 盘（板卡系统）里面。
 
->**注意事项：**MaixPy3 IDE 运行时会停止 M2Dock 的开机脚本程序，所以我们应该在电脑托盘找到并退出 MaixPy3 IDE 或者选择仅使用板子上的 TypeC 串口来进行供电以查看开机运行脚本效果。
+>**注意事项：MaixPy3 IDE 运行时会停止 M2Dock 的开机脚本程序，所以我们应该在电脑托盘找到并退出 MaixPy3 IDE 或者选择仅使用板子上的 TypeC 串口来进行供电以查看开机运行脚本效果。**
 
-以下为 root 目录下 main.py 文件里的默认内容：
+以下为 root 目录下 main.py 文件里的出厂默认开机脚本：
 
 ```python
 #!/usr/bin/env python
@@ -279,9 +292,10 @@ for i in range(120):
 
 ![logo](./assest/logo.jpg)
 
-> 关于更多的 [配置开机脚本](https://wiki.sipeed.com/soft/maixpy3/zh/tools/0.MaixII-Dock.html#%E9%85%8D%E7%BD%AE%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC) 的详情资料可前往查看。
+> 上手里不再关于开机脚本有关于更多的 [配置开机脚本](https://wiki.sipeed.com/soft/maixpy3/zh/tools/0.MaixII-Dock.html#%E9%85%8D%E7%BD%AE%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC) 的详情资料可前往查看。
+> 如何退出 MaixPy3 IDE：[操作流程](https://wiki.sipeed.com/soft/maixpy3/zh/tools/0.MaixII-Dock.html#%E5%A6%82%E4%BD%95%E9%80%80%E5%87%BA-MaixPy3-IDE) 可前往查看。
 
-### 使用 U 盘传输文件
+### 传输文件
 
 在使用 U 盘进行传输文件之前我们需要先了解电脑端 U 盘的目录与 M2DOCK 文件系统目录的对应规则。
 
@@ -293,6 +307,47 @@ for i in range(120):
 **第二步**：存储后务必使用电脑系统自带的 U 盘移除相关的功能来断开电脑与 U 盘的通信。
 **第三步**：最后进行重启（按下 RST 键或者重新插拔 USB）来使 m2dock 再次重新加载文件系统，否则会因为板卡与电脑非正常断开通信而导致文件系统损坏，保存失败。
 
+### 图像处理
+
+通过上文我们清楚了如何使用 Python 运行程序、如何使用 Linux shell 进行联网以及使用 U 盘设置开机脚本，熟悉的朋友们都知道 MAIX 系列主打的就是视觉 + AI 芯片，那图像处理是我们必不可少的体验过程。
+
+>图像处理还分传统以及 AI 视觉，而在 M2dock 上我们主要学习传统的背景知识以及用法。
+
+**传统视觉背景知识**：[点击前往](https://wiki.sipeed.com/soft/maixpy3/zh/usage/vision/back-information.html)
+我们需要了解图像传感器-摄像头、以及颜色空间和坐标系统的相关知识，方便后续在体验用法时更好理解。
+
+**MaixPy 基础使用示例**：[点击前往](https://wiki.sipeed.com/soft/maixpy3/zh/usage/vision/maixpy3-example.html)
+这里涵盖了一些基础使用（画线圈框）还有传统视觉应用（寻迹寻色寻线阈值处理）的示例。
+
+**传统图像处理模块**：[点击前往](https://wiki.sipeed.com/soft/maixpy3/zh/usage/vision/image_example.html)
+这里涵盖了传统视觉、颜色统计追踪、标记追踪、图像滤波、特征检测等模块使用的示例。
+
+### 硬件外设
+
+这个章节更多的讲述的是认识一些经典外设并学会使用调用它的示例。
+
+1. [【GPIO】](https://wiki.sipeed.com/soft/maixpy3/zh/usage/hardware/GPIO.html)在？点个灯用个按键。
+2. [【I2C】](https://wiki.sipeed.com/soft/maixpy3/zh/usage/hardware/I2C.html)如何连接以及使用 I2C。
+3. [【PWM 脉冲宽度调制】](https://wiki.sipeed.com/soft/maixpy3/zh/usage/hardware/PWM.html)关于 PWM 的基础使用以及深入了解示例。
+4. [【UART】](https://wiki.sipeed.com/soft/maixpy3/zh/usage/hardware/UART.html)认识定义并学会使用 UART 进行传递字符串。
+5. [【SPI】](https://wiki.sipeed.com/soft/maixpy3/zh/usage/hardware/SPI.html)熟悉 SPI 的基础使用以及如何驱动 WS2812B 灯珠。
+6. [【EVENT】](https://wiki.sipeed.com/soft/maixpy3/zh/usage/hardware/event.html)如何通过输入事件设备来检测外接设备的变化。
+7. [【ADC】](https://wiki.sipeed.com/soft/maixpy3/zh/usage/hardware/ADC.html)了解相关的 ADC 通讯协议并实现旋钮控制、触控测试等。
+8. [【WATCHDOG 看门狗】](https://wiki.sipeed.com/soft/maixpy3/zh/usage/hardware/watchdog.html)了解看门狗的相关原理并实现它。
+
+### 网络应用
+
+**Python3 网络应用**：[点击前往](https://wiki.sipeed.com/soft/maixpy3/zh/usage/net.html)
+
+这一章是相关的 Python 网络应用的一些示例以及库的使用方法，讲述了上云需了解的 HTTP/MQTT 相关的定义基础知识（网络应用不代表联网，联网请看同级目录第一个）以及如何进行 MJPG 图传。
+
+### 媒体功能
+
+这一章节讲述的是在 M2DOCK 上如何实现播放视频以及录音播放的使用示例。
+
+**播放视频**：[点击前往](https://wiki.sipeed.com/soft/maixpy3/zh/usage/Audio/play_mp4.html)
+**录音与播放**：[点击前往](https://wiki.sipeed.com/soft/maixpy3/zh/usage/Audio/audio.html)
+
 ## 进阶使用
 
 > 到达进阶使用这里后，这里则需要小伙伴们具备一些 Linux 基础了才能继续往下走学习。
@@ -303,21 +358,19 @@ for i in range(120):
 
 OpenWrt 可以被描述为一个嵌入式的 Linux 发行版，详情可看 [官方网址](https://openwrt.org) 和 [官方开源仓库](https://github.com/openwrt/openwrt)。
 
-更多相关的详情点击:[详情资料](https://wiki.sipeed.com/hardware/zh/maixII/M2/usage.html#%E8%AE%A4%E8%AF%86-openwrt-%E7%B3%BB%E7%BB%9F)
+**更多相关的详情点击**：[详情资料](https://wiki.sipeed.com/hardware/zh/maixII/M2/usage.html#%E8%AE%A4%E8%AF%86-openwrt-%E7%B3%BB%E7%BB%9F)
 
 ### Opkg 包管理器
 
 Opkg 是一个轻量快速的套件管理系统，目前已成为 Opensource 界嵌入式系统标准。常用于 路由、交换机等 嵌入式设备中，用来管理软件包的安装升级与下载。
 
-相关的常用命令：[点击查看](https://wiki.sipeed.com/hardware/zh/maixII/M2/usage.html#Opkg-%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8)
-
-### pip 包管理器
+**相关的常用命令**：[点击查看](https://wiki.sipeed.com/hardware/zh/maixII/M2/usage.html#Opkg-%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8)
 
 [pip](https://pypi.org/project/pip/) 是 Python 包管理工具，该工具提供了对 Python 包的查找、下载、安装、卸载的功能。
 
-如何使用示例：[点击查看](https://wiki.sipeed.com/hardware/zh/maixII/M2/usage.html#pip-%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8)
+**如何使用示例**：[点击查看](https://wiki.sipeed.com/hardware/zh/maixII/M2/usage.html#pip-%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8)
 
-### 如何更新 MaixPy3 包
+### 更新 MaixPy3 包
 
 有时镜像包更新但我们确不想再次进行烧录板子以作更新，这时可以手工更新 MaixPy3 达到更新目的。
 
@@ -326,7 +379,7 @@ Opkg 是一个轻量快速的套件管理系统，目前已成为 Opensource 界
 
 ![maixpy3_cp38](./assest/maixpy3_cp38.jpg)
 
-### 如何使用 USB 摄像头（主机模式）
+### 使用 USB 摄像头（主机模式）
 
 >M2DOCK 是双 Type-c 接口的（分别是 UART/OTG）而 OTG 接口是默认作为 USB 从机来使用的。
 
@@ -336,7 +389,7 @@ Opkg 是一个轻量快速的套件管理系统，目前已成为 Opensource 界
 echo "usb_host" > /sys/devices/platform/soc/usbc0/otg_role
 ```
 
-### 如何将 USB OTG 口作为从机
+### 将 USB OTG 口作为从机
 
 M2Dock 默认的 OTG 口就是 USB 从机设备，如有其他原因需重新设置成从机设备的话，只需在 M2DOCK 上执行以下命令即可。
 
@@ -362,7 +415,7 @@ echo "usb_device" > /sys/devices/platform/soc/usbc0/otg_role
 
 **Linux 系统下 V831 使用编译链**：[toolchain-sunxi-musl-pack-2021-01-09.tar.xz](https://dl.sipeed.com/shareURL/MaixII/MaixII-Dock/SDK/Toolchain)
 
-## 学会使用文档（资源）
+## 使用文档（资源）
 
 无论是在 K210 还是 M2DOCK（V831）上一定要学会使用我们公开的文档资料，去借助资料的力量帮助自己在学习的道路上往前走，学会借助资源完善自身的不足，可以让你少走很多的坑以及弯路。
 
@@ -379,11 +432,70 @@ echo "usb_device" > /sys/devices/platform/soc/usbc0/otg_role
 **V83 工具链**：[点击前往](https://dl.sipeed.com/shareURL/MaixII/MaixII-Dock/SDK/Toolchain)
 **V831 常见问题与解决方法**：[点击前往](https://wiki.sipeed.com/soft/maixpy3/zh/question/maixpy3_faq.html)
 **BBS 社区常见问题汇总贴**：[点击查看](https://bbs.sipeed.com/thread/489)
+**相关社群汇总贴**：[点击查看](https://wiki.sipeed.com/community.html)
 
+### 更多资源（教程文章）
+
+这里的文章大多数是来自社区以及博文精选，可供参考。
+
+1. **MaixPy3 Image.lens_corr 畸变矫正的用法**：[点击前往](https://wiki.sipeed.com/news/MaixPy3/camera_lens_corr/v831_lens_corr.html)
+2. **给 M2Dock 安装 Opencv**：[点击前往](https://wiki.sipeed.com/news/others/v831_opencv/v831_opencv.html)
+3. **使用 SSH 来连接 M2Dock**：[点击前往](https://wiki.sipeed.com/news/others/831_ssh/831_ssh.html)
+4. **在线图传调试 LAB 阈值**：[点击前往](https://wiki.sipeed.com/news/others/threshold/threshold.html)
+5. **MaixPy3 Image.resize 的效果**：[点击前往](https://wiki.sipeed.com/news/MaixPy3/camera_resize/camera_resize.html)
+6. **MaixII 通过 USB OTG 口连接U盘**：[点击前往](https://wiki.sipeed.com/news/others/maixII_connect_udisk.html)
+7. **在V831上（awnn）跑 pytorch resnet18 模型**：[点击前往](https://wiki.sipeed.com/news/others/v831_resnet18/v831_resnet18.html)
+8. **V831 如何使用 libmaix SDK C++ 开发**：[点击前往](https://wiki.sipeed.com/news/MaixPy3/run_lvgl/run_lvgl.html)
+9. **V831完美的单目测距**：[点击前往](https://wiki.sipeed.com/news/MaixPy3/v831_Distance/v831_Distance.html)
+10. **V831的人脸识别**：[点击前往](https://wiki.sipeed.com/news/MaixPy3/key_face_recognize.html)
+
+## 体验 AI 应用
+
+上文我们说过了 MAIX 系列主打的就是 视觉 + AI 的特性，所以 AI 算法应用也是上手体验里不可少的一环。
+
+- [边缘检测](https://wiki.sipeed.com/soft/maixpy3/zh/usage/AI_net/Edge_detection.html)
+- [物品分类](https://wiki.sipeed.com/soft/maixpy3/zh/usage/AI_net/resnet.html)
+- [物体检测](https://wiki.sipeed.com/soft/maixpy3/zh/usage/AI_net/yolo.html)
+- [数字识别](https://wiki.sipeed.com/soft/maixpy3/zh/usage/AI_net/number_recognize.html)
+- [人脸识别](https://wiki.sipeed.com/soft/maixpy3/zh/usage/AI_net/face_recognize.html)
+- [自学习分类](https://wiki.sipeed.com/soft/maixpy3/zh/usage/AI_net/self_learn.html)
+- [车牌识别](https://wiki.sipeed.com/soft/maixpy3/zh/usage/AI_net/car_registration_plate_recognition.html)
+
+## 训练 AI 模型
+
+>训练自己的 AI 模型有两种方法：分别是在线训练以及本地训练。
+
+**在线训练**：则是指适配了 MaixPy3 的 MaixHub 在线训练平台，还有支持的相关设备端镜像，更多详细资料请前往 [相关使用](https://maixhub.com/app/1)查看。
+
+**本地训练**：则是不依靠任何在线训练平台，自行了解相关知识并进行环境搭建、制作数据集、训练相关模型。
+
+相关资料教程文档：
+1. [深度神经网络（DNN）基础知识](https://wiki.sipeed.com/soft/maixpy3/zh/usage/train_AI/information.html)
+2. [本地训练环境搭建](https://wiki.sipeed.com/soft/maixpy3/zh/usage/train_AI/ready.html)
+3. [v831 部署 Sobel 卷积边缘检测](https://wiki.sipeed.com/soft/maixpy3/zh/usage/train_AI/v831_sobel.html)
+4. [如何制作数据集](https://wiki.sipeed.com/soft/maixpy3/zh/usage/train_AI/data.html)
+5. [图像分类模型训练过程](https://wiki.sipeed.com/soft/maixpy3/zh/usage/train_AI/train_resnet.html)
+6. [目标检测本地训练教程](https://wiki.sipeed.com/soft/maixpy3/zh/usage/train_AI/train_yolov2.html)
+
+## 核心 API 手册
+
+这个章节可以搭配下文的编译与开发一起食用更佳噢~
+
+- [MaixPy3 image 模块](https://wiki.sipeed.com/soft/maixpy3/zh/api/maix/image.html)
+- [MaixPy3 display 模块](https://wiki.sipeed.com/soft/maixpy3/zh/api/maix/display.html)
+- [MaixPy3 camera 模块](https://wiki.sipeed.com/soft/maixpy3/zh/api/maix/camera.html)
+- [MaixPy3 nn模块（maix.nn）](https://wiki.sipeed.com/soft/maixpy3/zh/api/maix/nn.html)
 
 ## 编译与开发
 
 > 当你走到这时已经代表你熟悉（V831）的基础操作准备深层了解，以下的文档是为了开发者写的参考文，希望可以基于此让更多的伙伴进入 Linux 嵌入式开发的领域。
+
+**相关资料系列合集：**
+
+1. [MaixPy3 架构介绍](https://wiki.sipeed.com/soft/maixpy3/zh/others/framework.html)
+2. [MaixPy3 开发文档](https://wiki.sipeed.com/soft/maixpy3/zh/others/develop.html)
+3. [如何适配你的平台](https://wiki.sipeed.com/soft/maixpy3/zh/others/platform.html)
+4. [MaixPy3 视觉模块开发](https://wiki.sipeed.com/soft/maixpy3/zh/develop/opmv_cv.html)
 
 ### 系统环境搭建
 
@@ -465,15 +577,13 @@ echo "usb_device" > /sys/devices/platform/soc/usbc0/otg_role
   <img src="./assest/fps.jpg" width=45%>
 </html>
 
-## 库
-
-接下来我们来认识一下现有的库：分别是 AI、Opencv、Openmv、LVGL。
+> 接下来我们来认识一下现有的库：分别是 AI、Opencv、Openmv、LVGL。
 
 ### AI 
 
 它的实现方式与 `Python` 的流程类似，并在 `C++` 中也需配置相关模型的参数。
 
-#### 以 YOLOv2 为例
+- **以 YOLOv2 为例**
 
 >YOLOv2 是一种基于深度学习的目标检测算法，它是 YOLO（you only look once）的改进版本。
 
@@ -734,9 +844,7 @@ imlib_find_lines(&out, img, &roi, x_stride, y_stride, threshold, theta_margin, r
 
 LVGL（**注意提供的版本为LVGL7**）的相关函数资料：[百问网 LVGL 中文教程手册文档](http://lvgl.100ask.net/7.11/)
 
-## 外设
-
-接下来我们来认识一下外设以及相关的使用方法，例如串口、SPI、PWM、IIC 等。
+>接下来我们来认识一下外设以及相关的使用方法，例如串口、SPI、PWM、IIC 等。
 
 ### 串口
 
@@ -1185,3 +1293,13 @@ tw = twos_complement(th, tl);
 最后打印结果如下图：
 
 ![print](./assest/print.jpg)
+
+## 常见问题 A&Q
+
+很多的问题的出现都是误操导致的，如果 AQ 里没有你遇见的问题，那就自己尝试解决问题，一步一步往回溯源根据报错信息遗漏哪一步哪一环。
+
+- [MaixPy3 常见问题与解决方法](https://wiki.sipeed.com/soft/maixpy3/zh/question/maixpy3_faq.html)
+- [M2DOCK 常见问题指南](https://wiki.sipeed.com/soft/maixpy3/zh/tools/0.MaixII-Dock.html#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E6%8C%87%E5%8D%97)
+- [Github issues](https://github.com/sipeed/MaixPy3/issues)
+- [BBS 社区常见问题汇总贴](https://bbs.sipeed.com/thread/489)
+- [相关讨论社群](https://wiki.sipeed.com/community.html)
