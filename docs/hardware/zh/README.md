@@ -108,7 +108,7 @@ desc: 矽速科技的开源软硬件 WIKI 资料站
 
 Maix 系列产品可以在多种场景实现客户不同方面的需要，在 AIoT 上已经广泛的使用，品质和性能在行业内已经有非常好的口碑，专业的技术团队为广大客户解决硬件设计和软件功能上的各种各样问题。商业合作可以联系 <support@sipeed.com>。
 
-## Maix-II 系列
+## Maix-II
 
 | 项目     | MaixII-Dock                                                                                                                                                                                                                    | MaixII-Sense                                                                                                                                                            | MaixII-S                                                                                                                                                            |
 | :------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -141,7 +141,19 @@ Maix 系列产品可以在多种场景实现客户不同方面的需要，在 AI
 
 更多内容请前往[详情页](./maixIII/ax-pi/axpi.md)查看
 
-## LicheePi 系列
+## Lichee
+
+### Lichee 4A
+
+- 使用 TH1520 SOC 的设备
+
+|      | Lichee Pi 4A                                  |
+| :--- | :-------------------------------------------- |
+| 外观 | ![](./../assets/lichee/th1520/licheepi4a.png) |
+
+### Lichee Linux
+
+- Lichee Linux 开发板使用了全志科技的 SOC 芯片，是为了实战 linux 底层相关的内容的产品。
 
 | 类别      | Lichee RV    | Lichee Zero Plus                             | Lichee Zero                    | Lichee nano         |
 | :-------- | :----------- | :------------------------------------------- | :----------------------------- | :------------------ |
@@ -151,8 +163,6 @@ Maix 系列产品可以在多种场景实现客户不同方面的需要，在 AI
 | RAM       | 512MB DDR3   | 128Mbyte DDR3                                | 64MB DRAM                      | 32MB DDR            |
 | FLASH     | 可选 SD-nand | 可选 SD Nand、<br>SPI Nor Flash<br>或者 eMMC | 预留<br>SOP8 SPI Flash<br>焊盘 | 板载 16MB NOR FLASH |
 | TF 连接器 | 有           | 有                                           | 有                             | 有                  |
-
-- LicheePI 是为了能让用户获得优廉的 linux 设备，实战 linux 底层相关的内容的产品。
 
 <table>
 <thead>
@@ -181,6 +191,7 @@ Maix 系列产品可以在多种场景实现客户不同方面的需要，在 AI
 </tbody>
 </table>
 
+
 ## Tang FPGA 系列
 
 Tang FPGA 目前分为 Tang Nano 和 Tang Primer 两个系列。
@@ -194,7 +205,7 @@ Tang FPGA 目前分为 Tang Nano 和 Tang Primer 两个系列。
 | 逻辑单元(LUT4)  | 20736                                           | 8640                                           | 4608                                           | 1152                                           |
 | 寄存器（FF）    | 15552                                           | 6480                                           | 3456                                           | 864                                            |
 | S-SRAM (bits)   | 41472                                           | 17280                                          |                                                |                                                |
-| B-SRAM (bits)   | 828K x 46                                       | 468K x 26                                      | 180K x 10                                      | 72K x 4                                        |
+| B-SRAM (bits)   | 828K                                            | 468K                                           | 180K                                           | 72K                                            |
 | 用户闪存 (bits) |                                                 | 608K                                           | 256K                                           | 96K                                            |
 | 锁相环 (PLL)    | 2                                               | 2                                              | 2                                              | 1                                              |
 | RAM             | 32bits SDR SDRAM                                | 16 bits PSRAM                                  | 8bits HyperRam                                 |                                                |
@@ -231,19 +242,19 @@ Tang FPGA 目前分为 Tang Nano 和 Tang Primer 两个系列。
 
 ### Tang Primer
 
-| 项目           | <p style="white-space:nowrap">Tang Primer 20K</p>                                      |
-| :------------- | :------------------------------------------------------------------------------------- |
-| 逻辑单元(LUT4) | 20736                                                                                  |
-| 寄存器（FF）   | 15552                                                                                  |
-| S-SRAM (bits)  | 41472                                                                                  |
-| B-SRAM (bits)  | 828K x 46                                                                              |
-| 锁相环 (PLL)   | 4                                                                                      |
-| 板载内存       | 16bits DDR3 RAM                                                                        |
-| 板载内存容量   | 128MB                                                                                  |
-| 板载 Flash     | 32Mbits NOR Flash                                                                      |
-| 核心板照片     | <img src="./../assets/Tang/primer_20k/primer_20k.png" alt="Tang Primer 20K（核心板）"> |
-| 底板数量       | 2                                                                                      |
-| 详情页         | <a href="./tang/tang-primer-20k/primer-20k.html"> 点我 </a>                            |
+| 项目           | <p style="white-space:nowrap">Tang Primer 20K</p>                                                | <p style="white-space:nowrap">Tang Primer 25K</p> |
+| :------------- | :----------------------------------------------------------------------------------------------- | ------------------------------------------------- |
+| 逻辑单元(LUT4) | 20736                                                                                            | 23040                                             |
+| 寄存器（FF）   | 15552                                                                                            | 23040                                             |
+| S-SRAM (bits)  | 41472                                                                                            | 180K                                              |
+| B-SRAM (bits)  | 828K                                                                                             | 1008K                                             |
+| 锁相环 (PLL)   | 4                                                                                                |                                                   |
+| 板载内存       | 16bits DDR3 RAM                                                                                  |                                                   |
+| 板载内存容量   | 128MB                                                                                            |                                                   |
+| 板载 Flash     | 32Mbits NOR Flash                                                                                |                                                   |
+| 核心板照片     | <img src="./../assets/Tang/primer_20k/primer_20k.png" alt="Tang Primer 20K（核心板）" width=45%> |                                                   |
+| 底板数量       | 2                                                                                                |                                                   |
+| 详情页         | <a href="./tang/tang-primer-20k/primer-20k.html"> 点我 </a>                                      |                                                   |
 
 ### 售罄产品
 
