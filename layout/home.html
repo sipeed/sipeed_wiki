@@ -1,10 +1,7 @@
 <!--
     Sipeed Wiki 官方首页，包含了各种产品资料和文档
-    首页修改指南：
-        添加或修改产品卡片只需要修改 products 变量
-        修改或这添加翻译，只需要修改 messages 变量
-        保存此文件后如果需要立刻看到使用了这个模板的文件的效果，可以打开那个文件保存一次就会触发 teedoc 构建,
-        比如 README.md 使用了此layout，要想此修改生效，转到 README.md 按 Ctrl+S 保存一次 README.md 即可
+    保存此文件后如果需要立刻看到使用了这个模板的文件的效果，可以打开那个文件保存一次就会触发 teedoc 构建,
+    比如 README.md 使用了此layout，要想此修改生效，转到 README.md 按 Ctrl+S 保存一次 README.md 即可
  -->
  {% extends "page_base.html" %}
 
@@ -36,14 +33,14 @@
                                                             href="https://wiki.sipeed.com/licheepi4a"
                                                             target="_blank" tag="a" type="error" ghost>
                                                             性能卓越的 Risc-V Linux 开发板
-                                                        </n-button>
-                                                        <n-button size="large" style="color:#ffffff; " color="#e34548"
-                                                             href="https://item.taobao.com/item.htm?id=715508771884"
-                                                             tag="a" target="_blank" round>
-                                                            购买链接
+                                                </n-button>
+                                                <n-button size="large" style="color:#ffffff; " color="#e34548"
+                                                         href="https://item.taobao.com/item.htm?id=715508771884"
+                                                         tag="a" target="_blank" round>
+                                                        购买链接
                                                     </n-button>
                                                     </n-button-group>
-                                                </n-divider>    
+                                                </n-divider>   
                                             </n-card>
                                         </n-carousel-item>
                                         <n-carousel-item :style="{ width: '75%' }">
@@ -62,7 +59,7 @@
                                                             购买链接
                                                     </n-button>
                                                     </n-button-group>
-                                                </n-divider>    
+                                                </n-divider>   
                                             </n-card>
                                         </n-carousel-item>
                                         <n-carousel-item :style="{ width: '75%' }">
@@ -96,7 +93,7 @@
                                                             </n-button>
                                                         </n-button-group>
                                                     </n-button-group>
-                                                </n-divider>    
+                                                </n-divider>   
                                             </n-card>
                                         </n-carousel-item>
                                         <n-carousel-item :style="{ width: '80%' }">
@@ -135,7 +132,7 @@
                                                         购买链接
                                                 </n-button>
                                                 </n-button-group>
-                                            </n-divider>    
+                                            </n-divider>   
                                         </n-card>
                                     </n-carousel-item>
                                      <n-carousel-item :style="{ width: '80%' }">
@@ -267,7 +264,7 @@
 
 
                              </n-tab-pane>
-                             <n-tab-pane name="Lichee Pi 高性能 RISC-V SBC 登场">
+                             <n-tab-pane name="Lichee Pi 4A 高性能 RISC-V SBC 登场">
                                 <n-layout style="position: relative" has-sider position="absolute" hoverable>
                                     <n-card class="base_background"
                                        style="margin: auto; display: fit-content; height: 600px;">
@@ -407,8 +404,139 @@
                                     </n-card>
                                 </n-layout>
                             </n-tab-pane>
-
-
+                            <n-tab-pane name="Tang FPGA 选型">
+                                <n-layout style="position: relative" has-sider position="absolute" hoverable>
+                                <!-- <n-layout vertical style="position: relative" has-sider position="absolute" hoverable style="width: 100%;"> -->
+                                <n-card class="base_background"
+                                    style="margin: auto; display: fit-content; max-height: 600px; width:60%">
+                                        <h1>多款 FPGA 如何选择</h1>
+                                            <n-collapse>
+                                                <n-collapse-item title="FPGA 是什么" name="1">
+                                                    <div>
+                                                        <p align="left">
+                                                        FPGA 英文全称为 Field Programmable Gate Array (现场可编程逻辑阵列)，<br>特点是用户可以自行定义芯片内部数字逻辑<br>
+                                                        </p>
+                                                    <img class="carousel-img" src="/static/home/fpga_inside_logic_cell.png" style="max-width:400px; max-height:480px;" alt="fpga_inside_logic_cell"><br>
+                                                    </div>
+                                                </n-collapse-item>
+                                                <n-collapse-item title="FPGA 能做什么" name="2">
+                                                    <div>
+                                                        一般来说，在 MCU 或者简单的逻辑芯片满足不了当前需求时，<br>就应当选择 FPGA 了。主要有以下方面的用途：
+                                                        <p align="left">
+                                                            ①: 协议转换；比如一路 SPI 转十路 IIC<br>
+                                                            ②: 数字信号处理; FPGA 内部可以同时处理多路数据<br>
+                                                            ③：逻辑验证；自己最低成本在现实中复现自己设计的数字电路逻辑
+                                                        </p>
+                                                    </div>
+                                                </n-collapse-item>
+                                                <n-collapse-item title="怎么样选择 TANG FPGA" name="3">
+                                                  <div><p align="left">
+                                                    Tang FPGA 各自特点如下：<br>
+                                                    <strong>Tang Nano 1K:</strong> 最实惠的 FPGA 开发板，可以用来做一些简单的接口转换或者低成本体验 FPGA<br>
+                                                    <strong>Tang Nano 4K:</strong> 性价比高的异构 SOC FPGA 图像开发板， 可以学习 AHB 总线和图像入门处理<br>
+                                                    <strong>Tang Nano 9K:</strong> 逻辑单元足够验证软核的 FPGA， 适合于验证自己的数字逻辑电路<br>
+                                                    <strong>Tang Nano 20K:</strong> Tang Nano 9K 的升级款，逻辑单元容量加倍，体积更小<br>
+                                                    <strong>Tang Primer 20K:</strong> 内存条样式封装的 FPGA 核心板，适合集成在自定义底板上<br>
+                                                    <strong>Tang Primer 20K Dock:</strong> 基于 Tang Primer 20K 核心板的多功能开发板，多种外设适合 FPGA 入门<br>
+                                                    <strong>Tang Primer 20K Lite:</strong> 基于 Tang Primer 20K 核心板的最简拓展版，适用于自己设计外部拓展<br>
+                                                    <a href="https://wiki.sipeed.com/tang">点我查看更详细的参数说明</a>
+                                                    </p>
+                                                  </div>
+                                                </n-collapse-item>
+                                            </n-collapse>
+                                    </n-card>
+                                    <n-layout-content>
+                                        <n-scrollbar height="300px">
+                                        <table width="40%" bordered:false>
+                                            <tr>
+                                                <td>
+                                                <a href="./tang1k">
+                                                    <div class="card">
+                                                        <img src="/hardware/assets/Tang/Nano-1K/1K.png" alt="1K">
+                                                        <div class="card_info card_blue">
+                                                            <h2 style="white-space:nowrap">Tang Nano 1K</h2>
+                                                            <div class="brief">
+                                                                <div>最实惠的 FPGA 显示屏开发板</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                </td>
+                                                <td>
+                                                <a href="./tang4k">
+                                                    <div class="card">
+                                                        <img src="/hardware/assets/Tang/Nano_4K/Nano_4K.png" alt="Nano_4K">
+                                                        <div class="card_info card_blue">
+                                                            <h2 style="white-space:nowrap">Tang Nano 4K</h2>
+                                                            <div class="brief">
+                                                                <div>最小巧的图像 FPGA SOC 开发板</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <a href="./tang9k">
+                                                        <div class="card">
+                                                            <img src="/hardware/assets/Tang/Nano-9K/9K.png" alt="9K">
+                                                            <div class="card_info card_blue">
+                                                                <h2 style="white-space:nowrap">Tang Nano 9K</h2>
+                                                                <div class="brief">
+                                                                    <div>足够运行软核的 FPGA 开发板</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                     <a href="./nano20k">
+                                                         <div class="card">
+                                                             <img src="/hardware/zh/tang/tang-nano-20k/assets/nano_20k/tang_nano_20k_3920_board_top.png" alt="tang_nano_20k_3920_top">
+                                                             <div class="card_info card_blue">
+                                                                 <h2 style="white-space:nowrap">Tang Nano 20K</h2>
+                                                                 <div class="brief">
+                                                                     <div>绝佳的 FPGA 模拟游戏机开发板</div>
+                                                                 </div>
+                                                             </div>
+                                                         </div>
+                                                     </a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <a href="./primer20k">
+                                                        <div class="card">
+                                                            <img src="/hardware/zh/tang/tang-primer-20k/assets/dock-up.png" alt="primer20k_dock">
+                                                            <div class="card_info card_red">
+                                                                <h2 style="white-space:nowrap">Tang Primer 20K Dock</h2>
+                                                                <div class="brief">
+                                                                    <div>带有多种板载外设的 FPGA 开发板</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <a href="./primer20k">
+                                                        <div class="card">
+                                                            <img src="https://wiki.sipeed.com/hardware/zh/tang/tang-primer-20k/assets/lite-up.png" alt="primer20k_lite">
+                                                            <div class="card_info card_red">
+                                                                <h2 style="white-space:nowrap">Tang Primer 20K Lite</h2>
+                                                                <div class="brief">
+                                                                    <div>容易二次设计的 FPGA 开发板</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        </n-scrollbar>
+                                    </n-layout-content>  
+                                </n-layout>                                      
+                            </n-tab-pane>
                              <n-tab-pane name="声源系列主题专场">
                                  <n-layout style="position: relative" has-sider position="absolute" hoverable>
                                      <n-card class="base_background"
@@ -572,18 +700,18 @@
                                                 </n-divider>
                                               </n-tab-pane>
                                             </n-tabs>
-                                          </n-card>                                        
+                                          </n-card>                                       
                                      </n-card>
                                  </n-layout>
                              </n-tab-pane>
                         </template>
-                        <template v-else>                                    
+                        <template v-else>                                   
                             <n-tab-pane name="Hot on sale">
                                  <n-card style="margin: auto; display: fit-content; max-height: fit-content;">
                                      <n-carousel effect="card" class="base_background"
                                          prev-slide-style="transform: translateX(-150%) translateZ(-1200px);"
                                          next-slide-style="transform: translateX(50%) translateZ(-1200px);"
-                                         :show-dots="false" autoplay draggable style="height: 620px"> 
+                                         :show-dots="false" autoplay draggable style="height: 620px">
                                          <n-carousel-item :style="{ width: '75%' }">
                                              <n-card size="small" hoverable>
                                                  <a href= "/en/m1s#dock" target="_blank"><img class="carousel-img" src="/static/home/m1s_dock_m0sense.jpg" alt="m1s_dock_m0sense"></a>
@@ -612,7 +740,7 @@
                                                                  Get one
                                                         </n-button>
                                                     </n-button-group>
-                                                 </n-divider>    
+                                                 </n-divider>   
                                              </n-card>
                                          </n-carousel-item>
                                          <n-carousel-item :style="{ width: '75%' }">
@@ -631,7 +759,7 @@
                                                             Buy one
                                                     </n-button>
                                                     </n-button-group>
-                                                </n-divider>    
+                                                </n-divider>   
                                             </n-card>
                                         </n-carousel-item>
                                          <n-carousel-item :style="{ width: '75%' }">
@@ -650,7 +778,7 @@
                                                               Get it
                                                      </n-button>
                                                      </n-button-group>
-                                                 </n-divider>    
+                                                 </n-divider>   
                                              </n-card>
                                          </n-carousel-item>
                                          <n-carousel-item :style="{ width: '80%' }">
@@ -688,7 +816,7 @@
                                                              Buy it
                                                      </n-button>
                                                      </n-button-group>
-                                                 </n-divider>    
+                                                 </n-divider>   
                                              </n-card>
                                          </n-carousel-item>
                                          <n-carousel-item :style="{ width: '80%' }">
@@ -1857,12 +1985,12 @@
                         lbtn_href: "https://github.com/sipeed/MaixSense_ROS",
                         rbtn_text: "A075v ROS",
                         rbtn_href: window.location.origin + "/hardware/en/maixsense/maixsense-a075v/maixsense-a075v.html#Use-ROS",
-                    },                    
+                    },                   
                     {
                         title: "A075V",
                         src: window.location.origin + "/hardware/zh/maixsense/assets/me_big.jpg",
                         lbtn_text: "btn_buy",
-                        lbtn_href: "https://www.aliexpress.com/item/1005004984020473.html",                        
+                        lbtn_href: "https://www.aliexpress.com/item/1005004984020473.html",                       
                         rbtn_text: "btn_detail",
                         rbtn_href: window.location.origin + "/hardware/en/maixsense/maixsense-a075v/maixsense-a075v.html",
                     },
@@ -2169,20 +2297,6 @@
         font-size: 36px;
     }
 
-    .n-layout-header,
-    .n-layout-footer {
-        background: rgba(128, 128, 128, 0.2);
-        padding: 24px;
-    }
-
-    .n-layout-sider {
-        background: rgba(128, 128, 128, 0.3);
-    }
-
-    .n-layout-content {
-        background: rgba(128, 128, 128, 0.4);
-    }
-
     .card-img {
         object-fit: scale-down;
         height: 280px;
@@ -2192,7 +2306,7 @@
     .carousel-img {
         margin: 0 auto;
         width: 100%;
-        height: 100%;
+       
         max-width: 960px;
         object-fit: cover;
     }
@@ -2236,21 +2350,16 @@
         display: flex;
         flex-direction: row;
     }
+    .n-layout-sider {
+        height: 600px;
+        background: rgb(255, 255, 255);
+    }
+    .n-layout-content {
+        background: rgb(255, 255, 255);
+    }
 </style>
 <style>
-    #fpga_item {
-        display: flex;
-        justify-content: space-evenly;
-        flex-wrap: nowrap;
-        margin: 0 -10px;
-    }
-    #fpga_item a:hover {
-        background-color: transparent;
-    }
-    #fpga_item > a {
-        margin: 1em;
-    }
-    .card {
+    .card{
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -2259,7 +2368,9 @@
         border-radius: 0.6rem;
         transition: 0.4s;
         background: white;
-    }
+        min-width: calc((100% - 90%) / 2);
+
+  }
     .card:hover {
         box-shadow: 5px 6px 40px 4px  rgba(0, 0, 0, 0.1);
         scale: 1.05;
@@ -2271,17 +2382,16 @@
         border-radius: 0 0 0.6rem 0.6rem;
     }
     .card img {
-        height: 10em;
         width: 14em;
         object-fit: cover;
     }
     .card_info > h2 {
-        font-size: 1.2em;
+        font-size: 1.0em;
         margin: 0.2em;
         padding: 0.2em 1em;
     }
     .card_info > .brief {
-        margin: 0.2em;
+        margin: 0.1em;
         padding: 0.2em 1em;
         display: flex;
         flex-direction: column;
