@@ -19,7 +19,7 @@ MobaXterm 是在 Windows 下使用的全能终端管理软件，而 Linux 系统
 下载链接：[点击跳转](https://mobaxterm.mobatek.net/download.html) 分别付费与免费双版本，下载免费版本即可。
 使用教程：[如何使用 MobaXterm](https://wiki.sipeed.com/hardware/zh/maixII/M2/tools/mobaxterm.html?highlight=ssh)
 
-- **electerm 介绍**
+- **electerm 介绍（推荐）**
 electerm 是一个基于 `electron/ssh2/node-pty/xterm/antd/useProxy` 等开源组件开发，支持跨平台的 `Terminal/SSH/SFTP` 客户端工具，同时支持 `Linux、MacOS、Windows` 等多种操作系统，它既可以作为终端工具来使用，还能传输文件并自带中文界面，更加满足用户日常对终端的需求。
 
 ![electerm](./../assets/electerm.jpg)
@@ -1080,7 +1080,11 @@ for i in range(30):
 
 #### 进入休眠模式：通过按 awake 键唤醒
 
+使用下文命令可进入休眠模式，但需注意（部分因 WiFi 模块旧 `RTL8723bs` 版本）的问题会导致命令报错（可进行多次尝试）进入休眠后终端会掉线，通过 `awake` 键可重新唤醒。
+
+```
 echo mem > /sys/power/state 
+```
 
 #### 读取 KEY 按键输入：GPIO2 21
 
@@ -1835,6 +1839,30 @@ sample_rtsp_ivps_joint_rtsp_vo  sample_vin_ivps_joint_venc_rtsp_vo  sample_vin_i
 .. details::点击查看终端示例图
     ![sample](./../assets/sample.jpg)
 
+### 车牌识别（可输出效果）
+
+系统镜像是没有内置任何关于车牌识别的调用命令的，所以我们需要在 `/home/run.sh` 内写入或改动模型名称，再运行车牌识别的应用。
+
+- **在 `/home/run.sh` 内写入相关调用命令**
+
+用户先使用 `nano /home/run.sh` 进入编辑页面，再复制下文命令在 `run.sh` 内粘贴并退出保存，然后编辑页面关闭后运行 `/home/run.sh` 体验车牌识别应用。
+
+```
+./bin/sample_vin_ivps_joint_vo -p ./config/license_plate_recognition.json -c 2 
+```
+
+![car](./../assets/car.jpg)
+
+- **在 `/home/run.sh` 内修改其他命令的模型名称**
+
+依旧是先用 `nano /home/run.sh` 进入编辑页面，然后就是将原有的调用的模型名称换成车牌识别的名称（修改完退出并保存）最后运行 `/home/run.sh` 体验车牌识别应用。
+
+```
+license_plate_recognition.json
+```
+
+<iframe src="//player.bilibili.com/player.html?aid=401504443&bvid=BV1wd4y1f7g1&cid=1141368672&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
 ###  sherpa-ncnn 中英文语音识别
 
 >版本为 `20230214` 后的镜像内置了 sherpa-ncnn 中英文语音识别应用，`20230223` 模型进行了升级效果更加灵敏，用户可手动升级即可。如出现运行后无反应请先测试 [`AUDIO`](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html#AUDIO) 基本的录音回放是否可用。
@@ -1860,7 +1888,6 @@ cd /home/sherpa-ncnn-m3axpi
 4 \
 greedy_search
 ```
-
 
 - 英文语音识别
 

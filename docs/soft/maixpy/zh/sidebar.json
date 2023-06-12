@@ -14,7 +14,6 @@
         },
         {
             "label": "入门必看指南",
-            "url": "https://wiki.sipeed.com/news/MaixPy/K210_usage.html",
             "items": [
                 {
                     "label": "如何阅读本文档（重要）",
@@ -27,6 +26,11 @@
                 {
                     "label": "开发板选购指南(对比)",
                     "file": "develop_kit_board/get_hardware.md"
+                },
+                {
+                    "label": "K210 上手避坑指南（必看）",
+                    "url": "https://wiki.sipeed.com/news/MaixPy/K210_usage.html",
+                    "target": "_blank"
                 },
                 {
                     "label": "准备你的开发环境",

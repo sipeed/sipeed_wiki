@@ -28,6 +28,10 @@ update:
 
 ![maixduino_0](./mixly_application/accets/k210_usage/maixduino_0.jpg)
 
+>以下为 MaixDuino 全引脚标注图
+
+![pin](./mixly_application/accets/k210_usage/pin.png)
+
 ## 基础知识
 
 在使用板子上手之前，我们需要先掌握一些基础知识**（有基础的小伙伴可跳过）**由于 `MaixPy` 是基于 `MicroPython` 之上进行开发构建的，提供给用户最终的接口是 `Micropython`，所以在使用 `MaixPy` 之初我们需要熟悉下 `MicroPython` 的基础知识与语法以及常用的 `Git` 与 `Github`。
