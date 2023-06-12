@@ -273,16 +273,17 @@
                       "label":"Linux 主线 (编写中)"
                     },
                     {
+                      "label":"revyos",
+                      "file":"lichee/th1520/lpi4a/7_develop_revyos.md"
+                    },
+                    {
                       "label":"Android (编写中)"
                     },
                     {
-                      "labe":"OpenWRT (编写中)"
+                      "label":"OpenHarmony (编写中)"
                     },
                     {
-                      "labe":"OpenHarmony (编写中)"
-                    },
-                    {
-                      "labe":"OpenWRT (编写中)"
+                      "label":"OpenWRT (编写中)"
                     }
                   ]
               },

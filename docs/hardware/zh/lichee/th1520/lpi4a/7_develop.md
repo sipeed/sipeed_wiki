@@ -240,16 +240,6 @@ TODO
 
 ### Linux
 
-## OpenWRT
-
-TODO
-
-## Andriod 
-TODO  
-
-## OpenHarmony  
-TODO
-
 ## Others
 
 欢迎投稿～ 投稿接受后可得￥5～150（$1~20）优惠券！

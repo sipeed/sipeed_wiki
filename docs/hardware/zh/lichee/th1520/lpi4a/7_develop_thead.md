@@ -1,5 +1,5 @@
 ---
-title: 系统开发
+title: Yocto Linux  
 keywords: Linux, Lichee, TH1520, SBC, RISCV, Kernel, SDK, Develop
 update:
   - date: 2023-05-12
@@ -14,13 +14,11 @@ update:
       - Release docs
 ---
 
-## Yocto Linux  
-
 TH1520 的官方开发环境是平头哥的基于 yocto 的开发环境，大家可以在这里获取开发环境： https://gitee.com/thead-yocto/   
 
 本节简单介绍如何搭建 Linux Yocto 环境并使用 Yocto 构建可在开发板上运行的完整镜像。
 
-### 搭建Yocto编译环境
+## 搭建Yocto编译环境
 
 Linux SDK 使用 Yocto 构建镜像。Yocto 编译环境使用 Ubuntu18.04，推荐在 Linux 上使用 Docker 部署,也可直接在 Ubuntu18.04 下搭建环境（见[T-Head曳影1520Yocto用户指南.pdf](https://gitee.com/thead-yocto/documents/blob/master/zh/user_guide/T-Head%E6%9B%B3%E5%BD%B11520Yocto%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97.pdf)2.2）。
 
@@ -76,8 +74,10 @@ Linux SDK 使用 Yocto 构建镜像。Yocto 编译环境使用 Ubuntu18.04，推
 	ln -s ~/yocto-downloads ../downloads
 	```
 - 打patch
+
 由于写文档时xuantie-yocto的commit-d296c2345fe2c2521eb0e1a2772bcba637029bc8还未合并下述patch中的改动，所以需要手动打patch来同步这些改动再进行后续开发。patch文件请在[下载站](https://dl.sipeed.com/shareURL/LICHEE/licheepi4a/06_Patch)下载。
-##### kernel的patch
+### kernel的patch
+
 0001-pca9557.patch：修改设备树中pcal9554b为pca9557
 0002-cpufreq-to-2GHz.patch：增加cpu频率2GHz支持
 0003-remove-audio-pcal9554b.patch：移除audio pcal9554b
@@ -99,10 +99,13 @@ Linux SDK 使用 Yocto 构建镜像。Yocto 编译环境使用 Ubuntu18.04，推
 0019-feat-ci-build-perf.patch：增加测试工具
 0020-chore-add-commit-id.patch：增加commi-id信息
 0021-chore-rename-perf-to-perf-thead.patch：修改测试工具存储路径
-##### opensbi的patch
+### opensbi的patch
+
 0001-lib-sbi_illegal_insn-Add-emulation-for-fence.tso.patch：增加fence.tso仿真
 0002-lib-sbi_illegal_insn-Fix-FENCE.TSO-emulation-infinit.patch：修复 FENCE.TSO 无限循环问题
-##### uboot的patch
+
+### uboot的patch
+
 0001-ENV_SETTINGS.patch：修改分区信息
 0002-fix-fix-bootargs.patch：修改bootargs
 0003-fix-ftbfs.patch：修复ftbfs中的变量定义问题
@@ -111,7 +114,7 @@ Linux SDK 使用 Yocto 构建镜像。Yocto 编译环境使用 Ubuntu18.04，推
 
 至此，编译环境已经配置完成。
 
-### Machine/Target支持列表
+## Machine/Target支持列表
 
 在上面的加载环境变量步骤中，设置完成后可看到以下信息
 
@@ -147,7 +150,7 @@ machines（SDK 支持的板级配置）：
 |light-beagle|beagleV-Ahead开发板|
 |light-lpi4a|Lichee Pi 4A开发板|
 
-### 构建镜像
+## 构建镜像
 
 构建命令格式如下：
 
@@ -160,7 +163,7 @@ MACHINE={machine} bitbake {target}
 ```bash
 MACHINE=light-lpi4a bitbake thead-image-linux
 ```
-#### 构建镜像时可能会出现的问题
+### 构建镜像时可能会出现的问题
 
 - 由于网络原因，这一步可能仍会出现下载失败或下载很慢的情况，有条件的话推荐使用代理。
 - 报错信息
@@ -197,7 +200,9 @@ MACHINE=light-lpi4a bitbake thead-image-linux
 到这里，我们已经完成了编译和打包，得到了一个可以烧录到开发板中运行的镜像。
 
 简单介绍yocto中的常用概念和一些实用技巧。
+
 ### 基础概念
+
 Yocto用来构建定制的Linux镜像，有广泛的硬件支持，它是一个集合了很多工具的开源项目。
 先对Yocto在构建镜像时的大致工作流程简单介绍：
 Fetch->Extract->Patch->Configure->Build->Install->Package
@@ -219,17 +224,23 @@ build directory：该目录即为构建时的输出目录，同时也会存放�
 configurations：以`.conf`结尾的文件，主要是配置文件。比如存储在`build directory`的`conf`目录中的`local.conf`，在编译时可能会在根据需要更改其中一些参数。
 layers：通常会在这里存储所需要的各种metadata(如，`.bb`文件，`patches`和一些其他的附加文件)，主要是用于告诉OE构建系统如何构建目标文件。将metadata按层分类有助于项目维护。
 bitbake：OE构建系统中用来执行各种任务的任务执行器。
-### 常用操作 
-##### 常用task
+
+## 常用操作
+
+### 常用task
+
 Yocto以package为单位管理开源软件组件，如需要编译某个package，方法如下：
 ```shell
 bitbake "package-name"
 ```
 每个package都在recipes文件中定义支持的task，有些task如clean，是所有包通用的，可以用一下命令列出package支持的task：
+
 ```shell
 bitbake "package-name" -c listtasks
 ```
-##### 查找编译后package的位置
+
+### 查找编译后package的位置
+
 Yocto集成了大量开源的package，这些 package 编译的时候的工作目录通常在以下目录：
 - tmp-glibc/work/riscv64-oe-linux  
 - tmp-glibc/work/${MACHINE} 
@@ -248,7 +259,9 @@ $ bitbake -e linux-thead | grep ^S=
 S="/home/thead/xuantie-yocto/thead-build/light-fm/tmp-glibc/work/light_a_val-oe-linux/linux-thead/5.10.y-r0/linux-5.10.y"
 ```
 编译完成后文件输出的位置，例如，镜像编译完成后相关的各类文件都位于`light-fm/tmp/glibc/work/light_lpi4a-oe-linux`下，例如镜像就位于该目录的`linux-thead`下，最后只需要打包即可。
-##### 编译时fetch包的速度过慢
+
+### 编译时fetch包的速度过慢
+
 在编译时，可能会遇到fetch包过慢问题，这是除了使用代理，也可以将包下载到本地，然后根据得到的包地址让fetch时直接使用本地的repo。例如：
 ```shell
 WARNING: bzip2-native-1.0.8-r0 do_fetch: Failed to fetch URL git://sourceware.org/git/bzip2-tests.git;name=bzip2-tests;branch=master, attempting MIRRORS if available
@@ -283,19 +296,24 @@ PARALLEL_MAKE = '-j 12'
 ```
 yocto编译后对package有缓存机制，可以在后面编译时减少所花费的时间。
 除此之外，也可在编译前提前下载好一些包，放入某个文件夹，然后在`build_directory`的`conf`文件夹的`local.conf`找到`DL_DIR`这一项，这就是共享文件夹，更改到指定目录或软链接共享即可。
-##### 单独构建u-boot
+
+### 单独构建u-boot
+
 在编译时将源码下载到`light-fm/tmp-glibc/work/light_lpi4a-oe-linux/u-boot/1_2020.10-r0/git`路径下（倒数第二级目录名为版本号），修改源码后执行该命令即可：
 ```shell
 bitbake u-boot -C compile
 ```
-##### 单独构建opensbi
+### 单独构建opensbi
+
 在编译时将源码下载到`light-fm/tmp-glibc/work/light_lpi4a-oe-linux/opensbi/0.9-r0/git`路径下，修改源码后执行该命令即可：
+
 ```shell
 bitbake opensbi -C compile
 ```
 -----
 编译完成后，为了简化打包流程，在`light_deploy_images`提供了打包脚本`sdk.sh`。编译完成后，在`light-fm`文件夹下创建一个`sdk`文件夹，将该镜像打包脚本下载到该文件夹下，运行即可。
 打包后典型的目录结构应如下所示：
+
 ```shell
 .
 ├── deb
@@ -313,6 +331,7 @@ bitbake opensbi -C compile
 └── tarball
     └── prebuild_light-lpi4a.tar.gz
 ```
+
 烧录时主要是用`images`目录下的文件，如果少了哪个文件，也可以手动复制进去。`tarball`目录下为打包好的镜像文件的压缩包，`deb`目录下为软件包。
 参考：
 [bitbake官方文档](https://docs.yoctoproject.org/bitbake.html?highlight=bitbake)
@@ -320,11 +339,11 @@ bitbake opensbi -C compile
 [T-Head 曳影 1520 Yocto 用户指南](https://gitee.com/thead-yocto/documents/raw/master/zh/user_guide/T-Head%E6%9B%B3%E5%BD%B11520Yocto%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97.pdf)
 
 
-### 设备树解析
+## 设备树解析
 
 TODO  
 
-### 其他参考资料
+## 其他参考资料
 
 **light_deploy_images 仓库：**
 
@@ -350,23 +369,6 @@ TODO
 ## OpenHarmony  
 TODO 
 
-
-                    {
-                      "label":"THead Yocto",
-                      "file":"lichee/th1520/lpi4a/7_develop_thead.md"
-                    },
-                    {
-                      "label":"Mainline Linux",
-                      "file":"lichee/th1520/lpi4a/7_develop_mainline.md"
-                    },
-                    {
-                      "label":"Andriod",
-                      "file":"lichee/th1520/lpi4a/7_develop_andriod.md"
-                    },
-                    {
-                      "label":"Other",
-                      "file":"lichee/th1520/lpi4a/7_develop_other.md"
-                    }
 -->
 
 
