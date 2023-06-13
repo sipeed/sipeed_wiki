@@ -10,7 +10,7 @@ Tang 系列开发板主要有 Tang Nano 和 Tang Primer 两个系列。
 
 ## Tang Nano
 
-Tang Nano 系列板卡都有迷你的体积，板载了 Jatg 调试器，能够只通过一根 TypeC 数据线来烧录、仿真固件。多个可选的 FPGA 容量能够让你购买到最合适的 FPGA。
+Tang Nano 系列板卡都有迷你的体积，板载了 Jtag 调试器，能够只通过一根 TypeC 数据线来烧录、仿真固件。多个可选的 FPGA 容量能够让你购买到最合适的 FPGA。
 
 ### 参数
 

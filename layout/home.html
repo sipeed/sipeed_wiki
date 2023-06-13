@@ -176,6 +176,146 @@
                                      </n-carousel>
                                  </n-card>
                             </n-tab-pane>
+                            <n-tab-pane name="Lichee Pi 4A 高性能 RISC-V SBC 登场">
+                               <n-layout style="position: relative" has-sider position="absolute" hoverable>
+                                   <n-card class="base_background"
+                                      style="margin: auto; display: fit-content; height: 600px;">
+                                      <h1>Lichee Pi 4A<br>你的第一块国产高性能 RISC-V SBC 来了~</h1>
+                                      <n-ellipsis expand-trigger="click" line-clamp="1" :tooltip="false">
+                                          来看看 SIPEED Q2 季度又带来了什么好玩的高性能新品呢？ 当然是万众瞩目的 Lichee Pi 4A 啦 ~ 快与我们一起认识这块性能卓越的 Risc-V 开发板吧！
+                                      </n-ellipsis>
+                                      <n-divider title-placement="left">
+                                          <n-button-group style="margin: 5px; font-size: 16px;">
+                                              <n-button size="small" style="color:#ffffff;" color="#e34548"
+                                                  href="https://sipeed.com/licheepi4a" tag="a"
+                                                  target="_blank" round>
+                                                  Lichee Pi 4A 产品介绍
+                                              </n-button>
+                                              <n-button size="small"
+                                                  href="https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/2_unbox.html"
+                                                  target="_blank" tag="a" type="error" ghost>
+                                                  开箱体验及其使用资料
+                                              </n-button>
+                                              <n-button size="small"
+                                                  href="https://item.taobao.com/item.htm?id=715508771884"
+                                                  target="_blank" tag="a" type="error" ghost>
+                                                  购买链接
+                                              </n-button>
+                                          </n-button-group>
+                                      </n-divider>
+                                      <n-card content-style="padding: 0;">
+                                          <n-tabs type="line" size="large" :tabs-padding="10" pane-style="padding: 10px;">
+                                            <n-tab-pane name="《初识 Lichee Pi 4A》">
+                                              <n-ellipsis expand-trigger="click" line-clamp="1" :tooltip="false">
+                                                  <h2>高性能国产 Risc-V Linux 板卡：Lichee Pi 4A</h2>
+                                              </n-ellipsis>
+                                              <br><img src="https://wiki.sipeed.com/static/home/licheepi4a_post.jpg" style="max-width:560px; max-height:560px;" alt="" />
+                                              <p>眼尖的小伙伴们可能发现，早在 3 月 2 日的时候 Lichee Pi 4A 已经在平头哥 2023 “玄铁RISC-V生态大会” 正式亮相过啦！<br>
+                                               <br><img src="/static/home/risc_v.jpg" style="max-width:560px; max-height:560px;" alt="" />
+                                               <n-ellipsis expand-trigger="click" line-clamp="1" :tooltip="false">
+                                                   <h2>接下来看看 SIPEED 对 Lichee Pi 4A 的介绍吧</h2>
+                                               </n-ellipsis>
+                                               LicheePi 4A 是基于 Lichee Module 4A 核心板的高性能 RISC-V Linux 开发板，以曳影 TH1520 为主控核心（4xC910@1.85G、RV64GCV、4TOPS@int8 NPU、50GFLOP GPU）板载最大 16GB 64bit LPDDR4X、128GB eMMC、支持 HDMI+MIPI 双 4K 显示输出、支持 4K 摄像头接入、双千兆网口（其中一个支持 POE 供电）和 4 个 USB3.0 接口，多种音频输入输出（由专用 C906 核心处理）</p>
+                                              <n-divider title-placement="center">
+                                                  <iframe src="//player.bilibili.com/player.html?aid=782156613&bvid=BV1Q24y157Nn&cid=1086606123&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="min-width:540px; min-height:480px;"> </iframe>
+                                              </n-divider>
+                                            </n-tab-pane>
+                                            <n-tab-pane name="《 超硬核配置？性能抗打？》">
+                                              <n-ellipsis expand-trigger="click" line-clamp="1" :tooltip="false">
+                                                  <h2>揭秘小团队：配置以及性能怎么样？上跑分参数</h2>
+                                              </n-ellipsis>
+                                              <br><img src="https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/assets/intro/desktop.png" style="max-width:560px; max-height:px;" alt="" />
+                                              <p>LicheePi 4A 是截止目前（2023Q2）为止最强的 RISC-V SBC，性能约为上一代 RISC-V SBC VisionFive2 的两倍；在未开启专用指令集加速的情况下，性能逼近基于 ARM A72 的树莓派 4。<br>在开启相关指令集加速的情况下，可以与树莓派 4 持平。而且最高具备 16GB 超大内存，是树莓派 4 最高配置 8GB 内存的两倍！</p>
+                                              <n-ellipsis expand-trigger="click" line-clamp="1" :tooltip="false">
+                                                  <h2>接下来我们看看 Lichee Pi 4A 的跑分测试</h2>
+                                              </n-ellipsis>
+                                              <br><img src="https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/assets/intro/benchmark.png" style="max-width:640px; max-height:320px;" alt="" />
+                                              <img src="https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/assets/intro/geekbench5.png" style="max-width:480px; max-height:480px;" alt="" />
+                                              <P>LicheePi 4A 可以用作典型的 RISC-V 验证平台，其强大的性能可以较快速地实现本地编译，而无需使用 QEMU 进行编译。</P>
+                                              <n-ellipsis expand-trigger="click" line-clamp="1" :tooltip="false">
+                                               <h2>最后是大家关心的硬件配置说明：</h2>
+                                           </n-ellipsis>
+                                           <br><img src="https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/assets/unbox/pi_view.png" style="max-width:720px; max-height:560px;" alt="" /><br>
+                                                  <br>点击这里了解板卡的基础参数：<a href="https://sipeed.com/licheepi4a" target="_blank">传送门：Lichee Pi 4A</a><br>在保持高性能的同时，我们也尽量进行了 CostDown 设计保证高性价比，无论你是否是 RISC-V 粉丝，你都值得入手体验下 LicheePi 4A 这款划时代的高性能 RISC-V SBC！</p>
+                                              <n-divider title-placement="center">
+                                               <n-button-group style="margin: 5px; font-size: 16px;">
+                                                   <n-button size="small" style="color:#ffffff;" color="#e34548"
+                                                       href="https://item.taobao.com/item.htm?id=715508771884" tag="a"
+                                                       target="_blank" round>
+                                                       Lichee Pi 4A 淘宝链接
+                                                   </n-button>
+                                                   <n-button size="small"
+                                                       href="https://www.aliexpress.com/item/1005005532736080.html"
+                                                       target="_blank" tag="a" type="error" ghost>
+                                                       Lichee Pi 4A 速卖通链接
+                                                   </n-button>
+                                               </n-button-group>
+                                           </n-divider>
+                                            </n-tab-pane>
+                                            <n-tab-pane name="《镜像系统大揭秘》">
+                                              <n-ellipsis expand-trigger="click" line-clamp="1" :tooltip="false">
+                                                  <h2>铛 ~ 揭秘 LicheePi 4A 支持的镜像系统</h2>
+                                              </n-ellipsis>
+                                              <br>
+                                              <img src="https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/assets/images/debian.png" style="max-width:360px; max-height:360px;" alt="" />
+                                              <img src="https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/assets/images/android.png" style="max-width:360px; max-height:360px;" alt="" />
+                                              <img src="https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/assets/images/openwrt.png" style="max-width:360px; max-height:360px;" alt="" />
+                                              <br><p>Lichee Pi 4A 除了官方适配的 Debian、Android、Openwrt 还有众多社区小伙伴贡献的第三方镜像并一直在不断更新中。<br>三方镜像仅供各类用户体验效果，例如有 openEuler、DeepinOS 深度、openKylin、armbian、Fedora、Ubuntu、NixOS、Gentoo、 slarm64 拉足体验感~</p>
+                                              <n-ellipsis expand-trigger="click" line-clamp="1" :tooltip="false">
+                                               <h2>以下是镜像合集以及如何烧录的例程文档 ~ 供大家参考使用</h2>
+                                           </n-ellipsis><br>
+                                           <n-button-group style="margin: 5px; font-size: 16px;">
+                                               <n-button size="small" style="color:#ffffff;" color="#e34548"
+                                                   href="https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/3_images.html" tag="a"
+                                                   target="_blank" round>
+                                                   Lichee Pi 4A 镜像合集
+                                               </n-button>
+                                               <n-button size="small"
+                                                   href="https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/4_burn_image.html"
+                                                   target="_blank" tag="a" type="error" ghost>
+                                                   Lichee Pi 4A 镜像烧录例程
+                                               </n-button>
+                                           </n-button-group>
+                                            </n-tab-pane>
+                                            <n-tab-pane name="《来自社区の更多资源》">
+                                              <n-ellipsis expand-trigger="click" line-clamp="1" :tooltip="false">
+                                                  <h2>请加入我们更多元的开源社区一起玩耍吧！</h2>
+                                              </n-ellipsis>
+                                              <br><img src="https://sipeed.com/assets/board.265bad67.png" style="max-width:360px; max-height:360px;" alt="" /><br>
+                                              <p>官方资料里我们罗列了板卡介绍、开箱体验、镜像合集、烧录镜像、基础使用、外设使用、系统开发、典型应用、硬件报告等资料供开发者使用。</p>
+                                              <n-button-group style="margin: 5px; font-size: 16px;">
+                                               <n-button size="small"
+                                                   href="https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/5_desktop.html" tag="a"
+                                                   target="_blank" tag="a" type="error" ghost>
+                                                   Lichee Pi 4A：使用文档
+                                               </n-button>
+                                           </n-button-group><br>
+                                           <n-ellipsis expand-trigger="click" line-clamp="1" :tooltip="false">
+                                               <h2>Lichee Pi 4A 相关新闻合集</h2>
+                                           </n-ellipsis><br>
+                                           <a href="https://mp.weixin.qq.com/s/clTsu6yS-7Mj9G0eShzm6w" target="_blank">矽速高性能LicheePi4A于平头哥玄铁生态大会首发！</a><br>
+                                           <a href="https://juejin.cn/post/7229502555087552570" target="_blank">openEuler RISC-V 成功适配 LicheePi 4A 开发板，推动 RISC-V 生态发展！</a><br>
+                                           <n-ellipsis expand-trigger="click" line-clamp="1" :tooltip="false">
+                                               <h2>接下来请欣赏来自社区们小伙伴的热心开箱分享吧 ~（排名不分先后） </h2>
+                                           </n-ellipsis><br>
+                                           <a href="https://zhuanlan.zhihu.com/p/627565509" target="_blank">1. 最新 RISC-V 高性能开发板-LicheePi4A 尝鲜开箱笔记</a><br>
+                                           <a href="https://zhuanlan.zhihu.com/p/631506574" target="_blank">2. Lichee Pi 4A 评测——概要</a><br>
+                                           <a href="https://zhuanlan.zhihu.com/p/631501282" target="_blank">3. Lichee Pi 4A 评测——开箱体验、接口与配置</a><br>
+                                           <a href="https://zhuanlan.zhihu.com/p/631502999" target="_blank">4. Lichee Pi 4A 评测——硬件 IO 性能测试</a><br>
+                                           <a href="https://zhuanlan.zhihu.com/p/631503595" target="_blank">5. Lichee Pi 4A 评测——benchmark、软件性能、编译性能</a><br>
+                                           <a href="https://zhuanlan.zhihu.com/p/631502522" target="_blank">6. Lichee Pi 4A 评测——桌面使用、系统烧录</a><br>
+                                           <a href="https://zhuanlan.zhihu.com/p/631502999" target="_blank">7. Lichee Pi 4A 评测——硬件 IO 性能测试</a><br>
+                                           <n-ellipsis expand-trigger="click" line-clamp="1" :tooltip="false">
+                                               <h2>欢迎投稿贡献属于你的开源力量</h2>
+                                           </n-ellipsis>
+                                           <p>屏幕前如果有更好更优质的天马行空想法，欢迎投稿给 SIPEED 为开源社区贡献一份微弱且光亮的力量！<br>
+                                               我们视文档相关质量提供 ￥5 ~ 150（$1 ~ 20）的优惠券~</p>
+                                            </n-tab-pane>
+                                          </n-tabs>
+                                        </n-card>                                        
+                                   </n-card>
+                               </n-layout>
+                           </n-tab-pane>
                             <n-tab-pane name="MAIX-III AI 高端战力新品">
                                 <n-layout style="position: relative" has-sider position="absolute" hoverable>
                                     <n-card class="base_background"
@@ -221,189 +361,6 @@
                                     </n-divider>
                                 </n-layout>
                              </n-tab-pane>
-                             <!-- <n-tab-pane name="Lichee Pi 高性能 RISC-V SBC 登场">
-                                <n-layout style="position: relative" has-sider position="absolute" hoverable>
-                                    <n-card class="base_background"
-                                        style="margin: auto; display: fit-content; max-width: 50%; max-height: 600px;">
-                                        <h1>Lichee Pi 4A<br>你的第一块国产高性能 RISC-V SBC 来了~</h1>
-                                        <n-divider>
-                                        </n-divider>
-                                            <n-collapse>
-                                                <n-collapse-item title="听说 Lichee Pi 4A 配置硬核？在哪？超强 TH1520 主控" name="1">
-                                                  <div>
-                                                    <img src="" style="max-width:400px; max-height:480px;" alt="" />
-                                                    <br>本次上新我们带来期待已久的 TOF 模组，分别是 A010 以及 A075V
-                                                    <a href="https://wiki.sipeed.com/hardware/zh/maixsense/index.html" target="_blank">[点击了解更多]</a>
-                                                  </div>
-                                                </n-collapse-item>
-                                            <n-collapse-item title="TOF 科普小课堂上课啦！解答 MaixSense 是什么？" name="2">
-                                                <div>
-                                                  <img src="https://wiki.sipeed.com/hardware/zh/maixsense/assets/tof_two.jpg" style="max-width:400px; max-height:480px;" alt="" />
-                                                    <br>TOF 是“飞行时间”指是光飞行到目标物体并反射回来所经历的时间，我们可以根据这时间计算出距离，来得到深度信息，然后构建出 3D 模型。
-                                                    而 MaixSense 就是使用 ToF 技术来采集并得出真实世界的 3D 信息
-                                                    <a href="https://wiki.sipeed.com/hardware/zh/maixsense/index.html" target="_blank">传送门：去看看 MaixSense 是什么?</a>
-                                                </div>
-                                            </n-collapse-item>
-                                                <n-collapse-item title="MaixSense 系列的新奇玩法！你想的都有！" name="3">
-                                                  <div>
-                                                    <img class="carousel-img" src="/static/home/metasense_effect.jpg" style="max-width:400px; max-height:480px;" alt="" />
-                                                       <br>上电即用？随手伪彩点云图？接入 ROS 或 MCU 系统？人脸识别？小车避障？<br>你想玩的我们通通都有！新玩法还开放 SDK 及例程耶
-                                                       <br><a href="https://wiki.sipeed.com/hardware/zh/maixsense/index.html#MaixSense-%E8%83%BD%E5%81%9A%E4%BB%80%E4%B9%88%EF%BC%9F" target="_blank">传送门：让我比隔壁的卷王抢先知道新玩法？</a>
-                                                  </div>
-                                                </n-collapse-item>
-                                                <n-collapse-item title="如何拥有 MaixSense 呢？" name="4">
-                                                    <div>目前淘宝渠道已上架 MaixSense A010，想要购入的小伙伴可以前往<a href="https://item.taobao.com/item.htm?id=684566484141" target="_blank"> 淘宝购买。</a>
-                                                    </div>
-                                                  </n-collapse-item>
-                                            </n-collapse>
-                                    </n-card>
-                                    <n-divider title-placement="center">
-                                        <iframe src="//player.bilibili.com/player.html?aid=782156613&bvid=BV1Q24y157Nn&cid=1086606123&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="min-width:540px; min-height:480px;"> </iframe>
-                                    </n-divider>
-                                </n-layout> -->
-
-
-                             </n-tab-pane>
-                             <n-tab-pane name="Lichee Pi 4A 高性能 RISC-V SBC 登场">
-                                <n-layout style="position: relative" has-sider position="absolute" hoverable>
-                                    <n-card class="base_background"
-                                       style="margin: auto; display: fit-content; height: 600px;">
-                                       <h1>Lichee Pi 4A<br>你的第一块国产高性能 RISC-V SBC 来了~</h1>
-                                       <n-ellipsis expand-trigger="click" line-clamp="1" :tooltip="false">
-                                           来看看 SIPEED Q2 季度又带来了什么好玩的高性能新品呢？ 当然是万众瞩目的 Lichee Pi 4A 啦 ~ 快与我们一起认识这块性能卓越的 Risc-V 开发板吧！
-                                       </n-ellipsis>
-                                       <n-divider title-placement="left">
-                                           <n-button-group style="margin: 5px; font-size: 16px;">
-                                               <n-button size="small" style="color:#ffffff;" color="#e34548"
-                                                   href="https://sipeed.com/licheepi4a" tag="a"
-                                                   target="_blank" round>
-                                                   Lichee Pi 4A 产品介绍
-                                               </n-button>
-                                               <n-button size="small"
-                                                   href="https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/2_unbox.html"
-                                                   target="_blank" tag="a" type="error" ghost>
-                                                   开箱体验及其使用资料
-                                               </n-button>
-                                               <n-button size="small"
-                                                   href="https://item.taobao.com/item.htm?id=715508771884"
-                                                   target="_blank" tag="a" type="error" ghost>
-                                                   购买链接
-                                               </n-button>
-                                           </n-button-group>
-                                       </n-divider>
-                                       <n-card content-style="padding: 0;">
-                                           <n-tabs type="line" size="large" :tabs-padding="10" pane-style="padding: 10px;">
-                                             <n-tab-pane name="《初识 Lichee Pi 4A》">
-                                               <n-ellipsis expand-trigger="click" line-clamp="1" :tooltip="false">
-                                                   <h2>高性能国产 Risc-V Linux 板卡：Lichee Pi 4A</h2>
-                                               </n-ellipsis>
-                                               <br><img src="https://wiki.sipeed.com/static/home/licheepi4a_post.jpg" style="max-width:560px; max-height:560px;" alt="" />
-                                               <p>眼尖的小伙伴们可能发现，早在 3 月 2 日的时候 Lichee Pi 4A 已经在平头哥 2023 “玄铁RISC-V生态大会” 正式亮相过啦！<br>
-                                                <br><img src="/static/home/risc_v.jpg" style="max-width:560px; max-height:560px;" alt="" />
-                                                <n-ellipsis expand-trigger="click" line-clamp="1" :tooltip="false">
-                                                    <h2>接下来看看 SIPEED 对 Lichee Pi 4A 的介绍吧</h2>
-                                                </n-ellipsis>
-                                                LicheePi 4A 是基于 Lichee Module 4A 核心板的高性能 RISC-V Linux 开发板，以曳影 TH1520 为主控核心（4xC910@1.85G、RV64GCV、4TOPS@int8 NPU、50GFLOP GPU）板载最大 16GB 64bit LPDDR4X、128GB eMMC、支持 HDMI+MIPI 双 4K 显示输出、支持 4K 摄像头接入、双千兆网口（其中一个支持 POE 供电）和 4 个 USB3.0 接口，多种音频输入输出（由专用 C906 核心处理）</p>
-                                               <n-divider title-placement="center">
-                                                   <iframe src="//player.bilibili.com/player.html?aid=782156613&bvid=BV1Q24y157Nn&cid=1086606123&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="min-width:540px; min-height:480px;"> </iframe>
-                                               </n-divider>
-                                             </n-tab-pane>
-                                             <n-tab-pane name="《 超硬核配置？性能抗打？》">
-                                               <n-ellipsis expand-trigger="click" line-clamp="1" :tooltip="false">
-                                                   <h2>揭秘小团队：配置以及性能怎么样？上跑分参数</h2>
-                                               </n-ellipsis>
-                                               <br><img src="https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/assets/intro/desktop.png" style="max-width:560px; max-height:px;" alt="" />
-                                               <p>LicheePi 4A 是截止目前（2023Q2）为止最强的 RISC-V SBC，性能约为上一代 RISC-V SBC VisionFive2 的两倍；在未开启专用指令集加速的情况下，性能逼近基于 ARM A72 的树莓派 4。<br>在开启相关指令集加速的情况下，可以与树莓派 4 持平。而且最高具备 16GB 超大内存，是树莓派 4 最高配置 8GB 内存的两倍！</p>
-                                               <n-ellipsis expand-trigger="click" line-clamp="1" :tooltip="false">
-                                                   <h2>接下来我们看看 Lichee Pi 4A 的跑分测试</h2>
-                                               </n-ellipsis>
-                                               <br><img src="https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/assets/intro/benchmark.png" style="max-width:640px; max-height:320px;" alt="" />
-                                               <img src="https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/assets/intro/geekbench5.png" style="max-width:480px; max-height:480px;" alt="" />
-                                               <P>LicheePi 4A 可以用作典型的 RISC-V 验证平台，其强大的性能可以较快速地实现本地编译，而无需使用 QEMU 进行编译。</P>
-                                               <n-ellipsis expand-trigger="click" line-clamp="1" :tooltip="false">
-                                                <h2>最后是大家关心的硬件配置说明：</h2>
-                                            </n-ellipsis>
-                                            <br><img src="https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/assets/unbox/pi_view.png" style="max-width:720px; max-height:560px;" alt="" /><br>
-                                                   <br>点击这里了解板卡的基础参数：<a href="https://sipeed.com/licheepi4a" target="_blank">传送门：Lichee Pi 4A</a><br>在保持高性能的同时，我们也尽量进行了 CostDown 设计保证高性价比，无论你是否是 RISC-V 粉丝，你都值得入手体验下 LicheePi 4A 这款划时代的高性能 RISC-V SBC！</p>
-                                               <n-divider title-placement="center">
-                                                <n-button-group style="margin: 5px; font-size: 16px;">
-                                                    <n-button size="small" style="color:#ffffff;" color="#e34548"
-                                                        href="https://item.taobao.com/item.htm?id=715508771884" tag="a"
-                                                        target="_blank" round>
-                                                        Lichee Pi 4A 淘宝链接
-                                                    </n-button>
-                                                    <n-button size="small"
-                                                        href="https://www.aliexpress.com/item/1005005532736080.html"
-                                                        target="_blank" tag="a" type="error" ghost>
-                                                        Lichee Pi 4A 速卖通链接
-                                                    </n-button>
-                                                </n-button-group>
-                                            </n-divider>
-                                             </n-tab-pane>
-                                             <n-tab-pane name="《镜像系统大揭秘》">
-                                               <n-ellipsis expand-trigger="click" line-clamp="1" :tooltip="false">
-                                                   <h2>铛 ~ 揭秘 LicheePi 4A 支持的镜像系统</h2>
-                                               </n-ellipsis>
-                                               <br>
-                                               <img src="https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/assets/images/debian.png" style="max-width:360px; max-height:360px;" alt="" />
-                                               <img src="https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/assets/images/android.png" style="max-width:360px; max-height:360px;" alt="" />
-                                               <img src="https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/assets/images/openwrt.png" style="max-width:360px; max-height:360px;" alt="" />
-                                               <br><p>Lichee Pi 4A 除了官方适配的 Debian、Android、Openwrt 还有众多社区小伙伴贡献的第三方镜像并一直在不断更新中。<br>三方镜像仅供各类用户体验效果，例如有 openEuler、DeepinOS 深度、openKylin、armbian、Fedora、Ubuntu、NixOS、Gentoo、 slarm64 拉足体验感~</p>
-                                               <n-ellipsis expand-trigger="click" line-clamp="1" :tooltip="false">
-                                                <h2>以下是镜像合集以及如何烧录的例程文档 ~ 供大家参考使用</h2>
-                                            </n-ellipsis><br>
-                                            <n-button-group style="margin: 5px; font-size: 16px;">
-                                                <n-button size="small" style="color:#ffffff;" color="#e34548"
-                                                    href="https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/3_images.html" tag="a"
-                                                    target="_blank" round>
-                                                    Lichee Pi 4A 镜像合集
-                                                </n-button>
-                                                <n-button size="small"
-                                                    href="https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/4_burn_image.html"
-                                                    target="_blank" tag="a" type="error" ghost>
-                                                    Lichee Pi 4A 镜像烧录例程
-                                                </n-button>
-                                            </n-button-group>
-                                             </n-tab-pane>
-                                             <n-tab-pane name="《来自社区の更多资源》">
-                                               <n-ellipsis expand-trigger="click" line-clamp="1" :tooltip="false">
-                                                   <h2>请加入我们更多元的开源社区一起玩耍吧！</h2>
-                                               </n-ellipsis>
-                                               <br><img src="https://sipeed.com/assets/board.265bad67.png" style="max-width:360px; max-height:360px;" alt="" /><br>
-                                               <p>官方资料里我们罗列了板卡介绍、开箱体验、镜像合集、烧录镜像、基础使用、外设使用、系统开发、典型应用、硬件报告等资料供开发者使用。</p>
-                                               <n-button-group style="margin: 5px; font-size: 16px;">
-                                                <n-button size="small"
-                                                    href="https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/5_desktop.html" tag="a"
-                                                    target="_blank" tag="a" type="error" ghost>
-                                                    Lichee Pi 4A：使用文档
-                                                </n-button>
-                                            </n-button-group><br>
-                                            <n-ellipsis expand-trigger="click" line-clamp="1" :tooltip="false">
-                                                <h2>Lichee Pi 4A 相关新闻合集</h2>
-                                            </n-ellipsis><br>
-                                            <a href="https://mp.weixin.qq.com/s/clTsu6yS-7Mj9G0eShzm6w" target="_blank">矽速高性能LicheePi4A于平头哥玄铁生态大会首发！</a><br>
-                                            <a href="https://juejin.cn/post/7229502555087552570" target="_blank">openEuler RISC-V 成功适配 LicheePi 4A 开发板，推动 RISC-V 生态发展！</a><br>
-                                            <n-ellipsis expand-trigger="click" line-clamp="1" :tooltip="false">
-                                                <h2>接下来请欣赏来自社区们小伙伴的热心开箱分享吧 ~（排名不分先后） </h2>
-                                            </n-ellipsis><br>
-                                            <a href="https://zhuanlan.zhihu.com/p/627565509" target="_blank">1. 最新 RISC-V 高性能开发板-LicheePi4A 尝鲜开箱笔记</a><br>
-                                            <a href="https://zhuanlan.zhihu.com/p/631506574" target="_blank">2. Lichee Pi 4A 评测——概要</a><br>
-                                            <a href="https://zhuanlan.zhihu.com/p/631501282" target="_blank">3. Lichee Pi 4A 评测——开箱体验、接口与配置</a><br>
-                                            <a href="https://zhuanlan.zhihu.com/p/631502999" target="_blank">4. Lichee Pi 4A 评测——硬件 IO 性能测试</a><br>
-                                            <a href="https://zhuanlan.zhihu.com/p/631503595" target="_blank">5. Lichee Pi 4A 评测——benchmark、软件性能、编译性能</a><br>
-                                            <a href="https://zhuanlan.zhihu.com/p/631502522" target="_blank">6. Lichee Pi 4A 评测——桌面使用、系统烧录</a><br>
-                                            <a href="https://zhuanlan.zhihu.com/p/631502999" target="_blank">7. Lichee Pi 4A 评测——硬件 IO 性能测试</a><br>
-                                            <n-ellipsis expand-trigger="click" line-clamp="1" :tooltip="false">
-                                                <h2>欢迎投稿贡献属于你的开源力量</h2>
-                                            </n-ellipsis>
-                                            <p>屏幕前如果有更好更优质的天马行空想法，欢迎投稿给 SIPEED 为开源社区贡献一份微弱且光亮的力量！<br>
-                                                我们视文档相关质量提供 ￥5 ~ 150（$1 ~ 20）的优惠券~</p>
-                                             </n-tab-pane>
-                                           </n-tabs>
-                                         </n-card>                                        
-                                    </n-card>
-                                </n-layout>
-                            </n-tab-pane>
                             <n-tab-pane name="Tang FPGA 选型">
                                 <n-layout style="position: relative" has-sider position="absolute" hoverable>
                                 <!-- <n-layout vertical style="position: relative" has-sider position="absolute" hoverable style="width: 100%;"> -->
@@ -941,120 +898,140 @@
                                         <iframe src="//player.bilibili.com/player.html?aid=218150917&bvid=BV1q8411t7xb&cid=838335610&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="min-width:540px; min-height:480px;"> </iframe>
                                     </n-divider>
                                 </n-layout>
-                             </n-tab-pane>                             
-                             <n-tab-pane name=" New Tang Primer 20K ">
-                                <n-layout style="position: relative" has-sider position="absolute" hoverable>
-                                    <n-card class="base_background"
-                                        style="margin: auto; display: fit-content; max-height: 600px;">
-                                            Tang Primer 20K is a DDR3 sodimm packaged core board designed on GW2A-LV18PG256C8/I7, we also design 2 ext-board for using this FPGA development board more easily
-                                            <hr>
-                                       <div style="display: grid; gap: 2%; grid-template-columns: minmax(400px, 60%) minmax(0px, 1fr); align-items: flex-start;">
-                                           <div style="display: grid; gap: 16px; grid-template-columns: 100%;">
-                                               <table>
-                                                   <tr>
-                                                       <td colspan="3"><strong> Tang Primer 20K </strong></td>
-                                                   </tr>
-                                                       <tr>
-                                                           <th style="text-align:center">Item</th>
-                                                           <th style="text-align:center">Parameter</th>
-                                                           <th style="text-align:center">Addition</th>
-                                                       </tr>
-                                                       <tr>
-                                                           <td style="text-align:left">MainChip</td>
-                                                           <td style="text-align:left"><a href="https://www.gowinsemi.com/en/product/detail/38/">GW2A-LV18PG256C8/I7</a>
-                                                           </td>
-                                                           <td style="text-align:left">
-                                                                <table>
-                                                                    <tr>
-                                                                        <td>Logic units(LUT4)</td>
-                                                                        <td>20736</td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>Flip-Flop(FF)</td>
-                                                                        <td>15552</td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>Shadow SRAM S-SRAM(bits)</td>
-                                                                        <td>41472</td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>Block SRAM B-SRAM(bits)</td>
-                                                                        <td>828K</td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>Number of B-SRAM</td>
-                                                                        <td>46</td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>18x18 Multiplier</td>
-                                                                        <td>48</td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>PLLs</td>
-                                                                        <td>4</td>
-                                                                    </tr>
-                                                                </table>
-                                                           </td>
-                                                       </tr>
-                                                       <tr>
-                                                           <td style="text-align:left">Memory</td>
-                                                           <td style="text-align:left">128M DDR3</td>
-                                                           <td style="text-align:left">128Meg x 16</td>
-                                                       </tr>
-                                                       <tr>
-                                                           <td style="text-align:left">Flash</td>
-                                                           <td style="text-align:left">32Mbits NOR Flash</td>
-                                                           <td style="text-align:left"></td>
-                                                       </tr>
-                                                       <tr>
-                                                           <td style="text-align:left">Package</td>
-                                                           <td style="text-align:left">204P DDR3 Sodimm</td>
-                                                           <td style="text-align:left"></td>
-                                                       </tr>
-                                                       <tr>
-                                                           <td style="text-align:left">Avaliable IO</td>
-                                                           <td style="text-align:left">  117 </td>
-                                                           <td style="text-align:left"></td>
-                                                       </tr>
-                                                       <tr>
-                                                           <td colspan="3"><a href="https://wiki.sipeed.com/primer20k"> Click to see Tang Primer 20K document </a></td>
-                                                       </tr>
-                                               </table>
-                                           </div>
-                                           <div style="display: grid; gap: 16px; grid-template-columns: 100%;">
-                                               <lite_20K_start><strong> Two ext-boards </strong></lite_20K_start>
-                                               <lite_20K_start style="text-align:left"> Beacuse the sodimm packaged core board is easy to be used alone, so we provide 2 ext-boards for it </lite_20K_start>
-                                                   <table>
-                                                       <tr>
-                                                           <th> Dock </th>
-                                                           <th> Lite </th>
-                                                       </tr>
-                                                       <tr>
-                                                           <td><img src="/hardware/zh/tang/tang-primer-20k/assets/20k_dock_home.png" alt="20k_dock_home" height="105"></td>
-                                                           <td><img src="/hardware/zh/tang/tang-primer-20k/assets/20k_lite_home.png" alt="20k_lite_home" height="105"></td>
-                                                       </tr>
-                                                   </table>
-                                                <n-divider title-placement="right">
-                                                    <n-button-group>
-                                                        <n-button-group style="margin: 5px; font-size: 16px;">
-                                                            <n-button size="large"
-                                                                href="https://www.aliexpress.com/item/1005004653308809.html"
-                                                                target="_blank" tag="a" type="error" ghost>
-                                                                Buy this
-                                                            </n-button>
-                                                            <n-button size="large" style="color:#ffffff;" color="#e34548"
-                                                                href="/en/primer20k" tag="a"
-                                                                target="_blank" round>
-                                                                Read more
-                                                            </n-button>
-                                                        </n-button-group>
-                                                    </n-button-group>
-                                                </n-divider>
-                                           </div>
-                                       </div>
-                                    </n-card>
-                                </n-layout>
-                            </n-tab-pane>
+                             </n-tab-pane>
+                             <n-tab-pane name="Tang FPGA Selection Guides">
+                                 <n-layout style="position: relative" has-sider position="absolute" hoverable>
+                                 <!-- <n-layout vertical style="position: relative" has-sider position="absolute" hoverable style="width: 100%;"> -->
+                                 <n-card class="base_background"
+                                     style="margin: auto; display: fit-content; max-height: 600px; width:60%">
+                                         <h1>How to choose FPGA</h1>
+                                             <n-collapse>
+                                                 <n-collapse-item title="What is FPGA" name="1">
+                                                     <div>
+                                                         <p align="left">
+                                                         FPGA is Field Programmable Gate Array, user can deploy their own digital logic design on fpga, to achieve the design in the real world with low cost.<br>
+                                                         </p>
+                                                     <img class="carousel-img" src="/static/home/fpga_inside_logic_cell.png" style="max-width:400px; max-height:480px;" alt="fpga_inside_logic_cell"><br>
+                                                     </div>
+                                                 </n-collapse-item>
+                                                 <n-collapse-item title="Why choose FPGA" name="2">
+                                                     <div>
+                                                        <p align="left">
+                                                            Normally when MCU can not meet the request, we can consider to choose FPGA, here are part of their situations.<br>
+                                                             ① Interface convert: SPI to 10 IIC<br>
+                                                             ② Digital Signal Processing: Parallel computing in FPGA<br>
+                                                             ③ Logical verification: Achieve the digital design at low cost in the real world
+                                                         </p>
+                                                     </div>
+                                                 </n-collapse-item>
+                                                 <n-collapse-item title="How to choose TANG FPGA" name="3">
+                                                   <div><p align="left">
+                                                     Each Tang FPGA has its own features：<br>
+                                                     <strong>Tang Nano 1K:</strong> Cheapest FPGA board, can be used for experiencing FPGA with low cost.<br>
+                                                     <strong>Tang Nano 4K:</strong> Heterogeneous FPGA SOC image board, is good for trying FPGA image processing<br>
+                                                     <strong>Tang Nano 9K:</strong> Rich logic units FPGA board, is fit for logic verification, like softcore.<br>
+                                                     <strong>Tang Nano 20K:</strong> Tang Nano 9K upgraded version, double logic units, but less size<br>
+                                                     <strong>Tang Primer 20K:</strong> FPGA SOM in SODIMM socket, is good for secondary design.<br>
+                                                     <strong>Tang Primer 20K Dock:</strong> Multifunctional FPGA development board, with many peripherals<br>
+                                                     <strong>Tang Primer 20K Lite:</strong> Ext-board based on Tang Primer 20K, to make it easier for secondary design<br>
+                                                     <a href="https://wiki.sipeed.com/tang">Click me to see details</a>
+                                                     </p>
+                                                   </div>
+                                                 </n-collapse-item>
+                                             </n-collapse>
+                                     </n-card>
+                                     <n-layout-content>
+                                         <n-scrollbar height="300px">
+                                         <table width="40%" bordered:false>
+                                             <tr>
+                                                 <td>
+                                                 <a href="./tang1k">
+                                                     <div class="card">
+                                                         <img src="/hardware/assets/Tang/Nano-1K/1K.png" alt="1K">
+                                                         <div class="card_info card_blue">
+                                                             <h2 style="white-space:nowrap">Tang Nano 1K</h2>
+                                                             <div class="brief">
+                                                                 <div>Cheapest FPGA Board with screen interface</div>
+                                                             </div>
+                                                         </div>
+                                                     </div>
+                                                 </a>
+                                                 </td>
+                                                 <td>
+                                                 <a href="./tang4k">
+                                                     <div class="card">
+                                                         <img src="/hardware/assets/Tang/Nano_4K/Nano_4K.png" alt="Nano_4K">
+                                                         <div class="card_info card_blue">
+                                                             <h2 style="white-space:nowrap">Tang Nano 4K</h2>
+                                                             <div class="brief">
+                                                                 <div>Tiny FPGA SOC image development board</div>
+                                                             </div>
+                                                         </div>
+                                                     </div>
+                                                 </a>
+                                                 </td>
+                                             </tr>
+                                             <tr>
+                                                 <td>
+                                                     <a href="./tang9k">
+                                                         <div class="card">
+                                                             <img src="/hardware/assets/Tang/Nano-9K/9K.png" alt="9K">
+                                                             <div class="card_info card_blue">
+                                                                 <h2 style="white-space:nowrap">Tang Nano 9K</h2>
+                                                                 <div class="brief">
+                                                                     <div>FPGA board enought for softcore</div>
+                                                                 </div>
+                                                             </div>
+                                                         </div>
+                                                     </a>
+                                                 </td>
+                                                 <td>
+                                                      <a href="./nano20k">
+                                                          <div class="card">
+                                                              <img src="/hardware/zh/tang/tang-nano-20k/assets/nano_20k/tang_nano_20k_3920_board_top.png" alt="tang_nano_20k_3920_top">
+                                                              <div class="card_info card_blue">
+                                                                  <h2 style="white-space:nowrap">Tang Nano 20K</h2>
+                                                                  <div class="brief">
+                                                                      <div>Excellent Retro Game Emulator</div>
+                                                                  </div>
+                                                              </div>
+                                                          </div>
+                                                      </a>
+                                                 </td>
+                                             </tr>
+                                             <tr>
+                                                 <td>
+                                                     <a href="./primer20k">
+                                                         <div class="card">
+                                                             <img src="/hardware/zh/tang/tang-primer-20k/assets/dock-up.png" alt="primer20k_dock">
+                                                             <div class="card_info card_red">
+                                                                 <h2 style="white-space:nowrap">Tang Primer 20K Dock</h2>
+                                                                 <div class="brief">
+                                                                     <div>FPGA Development board with many peripherals</div>
+                                                                 </div>
+                                                             </div>
+                                                         </div>
+                                                     </a>
+                                                 </td>
+                                                 <td>
+                                                     <a href="./primer20k">
+                                                         <div class="card">
+                                                             <img src="https://wiki.sipeed.com/hardware/zh/tang/tang-primer-20k/assets/lite-up.png" alt="primer20k_lite">
+                                                             <div class="card_info card_red">
+                                                                 <h2 style="white-space:nowrap">Tang Primer 20K Lite</h2>
+                                                                 <div class="brief">
+                                                                     <div>Easy secondary design FPGA board</div>
+                                                                 </div>
+                                                             </div>
+                                                         </div>
+                                                     </a>
+                                                 </td>
+                                             </tr>
+                                         </table>
+                                         </n-scrollbar>
+                                     </n-layout-content>  
+                                 </n-layout>                                      
+                             </n-tab-pane>
                             </template>
                          </n-tabs>
                      </n-card>
