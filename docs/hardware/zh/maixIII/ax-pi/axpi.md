@@ -214,8 +214,8 @@ keywords: MAIX-III, AXera-Pi, Maix3, Sipeed, ax620a, axera, sipeed, AI, model, m
 - [[m3axpi] YOLOv5 训练到部署全流程（最新）](https://github.com/Abandon-ht/m3axpi_model/blob/main/yolov5/README_zh-CN.md)
 - [[m3axpi] YOLOv8 训练到部署全流程（最新）](https://github.com/Abandon-ht/m3axpi_model/blob/main/yolov8/README_zh-CN.md)
 - [爱芯元智AX620A部署yolov5 6.0模型实录（已过时）](https://zhuanlan.zhihu.com/p/569083585)
-- [ubuntu22.04搭建AX620A官方例程开发环境](http://t.csdn.cn/p8Nno)
-- [AX620A运行yolov5s自训练模型全过程记录（windows）](http://t.csdn.cn/oNeYG)
+- [ubuntu22.04搭建AX620A官方例程开发环境](https://blog.csdn.net/flamebox/article/details/127103964)
+- [AX620A运行yolov5s自训练模型全过程记录（windows）](https://blog.csdn.net/flamebox/article/details/127249243)
 - [MAIX-III AXera-Pi爱芯派从零入门开发【1】开箱试玩](https://www.bilibili.com/video/BV1LP4y1274d/?spm_id_from=333.999.0.0)
 - [MAIX-III AXera-Pi爱芯派从零入门开发【2】开发部署](https://www.bilibili.com/video/BV1Ne4y117U9/?spm_id_from=333.999.0.0)
 - [MAIX-III AXera-Pi爱芯派从零入门开发【3】模型转换及部署](https://www.bilibili.com/video/BV1jg411z7C8/?spm_id_from=333.999.0.0)
@@ -224,7 +224,7 @@ keywords: MAIX-III, AXera-Pi, Maix3, Sipeed, ax620a, axera, sipeed, AI, model, m
 - [HonestQiao —— 矽速 MAIX-III AXera-Pi 开箱](https://bbs.elecfans.com/m/jishu_2314161_1_1.html)
 - [一款国产「3.6TOPS@INT8」视觉 AI 开发板](https://mp.weixin.qq.com/s/3bxFxO0Q0UmpzSM3_K794g)
 - [国产AI开发板测评 | MAIX-III AXera-Pi 上手 YOLOv5s 实时目标检测](https://mp.weixin.qq.com/s/lqxL-DmhBa-K9gu3uEyebQ)
-- [【AXPI】如何在 M1/M2 Mac上使用 Rndis](https://blog.csdn.net/flamebox/article/details/127103964)
+- [【AXPI】如何在 M1/M2 Mac上使用 Rndis](https://zhuanlan.zhihu.com/p/593627641)
 
 
 产品相关的新闻内容有：
