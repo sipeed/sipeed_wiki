@@ -4,7 +4,7 @@ tags: AXera-Pi, Burn image
 keywords: AXera-Pi，Burn, image
 desc: AXera-Pi Burn image
 update:
-  - date: 2022-01-09
+  - date: 2023-01-09
     version: v0.2
     author: wonder
     content:

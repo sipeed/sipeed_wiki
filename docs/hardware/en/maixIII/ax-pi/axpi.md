@@ -79,8 +79,6 @@ We design a core module for this chip, which is convenient if you want to design
 </tbody>
 </table>
 
-<!-- 没错，它就是来自「[爱芯元智](https://axera-tech.com/)」的 [AX620A](https://axera-tech.com/product/T7297367876123493768)，这是一款高算力，高能效比，低功耗的 AI SoC 芯片，芯片集成了四核 Cortex A7 @ 1Ghz CPU，拥有 3.6TOPs@INT8 的高算力 NPU，支持 4K@30fps 的 ISP，以及支持 H.264、H.265 编码的 VPU，AX620A 还支持 32bit LPDDR4x，支持 EMMC v5.1 / SPI Flash，最多支持 6 路 MIPI 输入，同时最多支持 4 路工作，支持多路子码流，支持 1 路千兆 Ethernet，支持 1 路 USB2.0，支持 2 路 MIPI DSI/CSI 输出。拥有大算力和优异画质处理能力的 AX620A 可以实现更多的 AI 功能，带来最优的 AI 体验！（来自官方） -->
-
 ## Introduction
 
 In WORLD ARTIFICIAL INTELLIGENCE CONFERENCE 2022, this AI board is shown the first tima, like what's in the following picture.
@@ -89,7 +87,7 @@ In WORLD ARTIFICIAL INTELLIGENCE CONFERENCE 2022, this AI board is shown the fir
   <img src="./../../../zh/maixIII/assets/waic-axpi.jpg" style="zoom: 70%;" />
 </p>
 
-And finally we launched this AI development board equipped with AX620A in 20221001. Its official name is **MAIX-III AXera-Pi**, while we like to call it **m3axpi** in the following content.
+And finally we launched this AI development board equipped with AX620A in 20221001. Its official name is **MAIX-III AXera-Pi**, while we like to call it **M3AXPI** in the following content.
 
 <p align="center">
   <video src="../../../zh/maixIII/assets/axpi_boom.mp4"
@@ -105,17 +103,56 @@ And finally we launched this AI development board equipped with AX620A in 202210
 
 So, why is this AI development board good?
 
-- Lack of documents? Follow our guides, to start journey from embedded Linux development to AI model deployment.
+- Need documents? Follow our guides, to start journey from embedded Linux development to AI model deployment.
 - High power consumption? Just use one usb cable connecting with USB3.0 port to boot this device, no need of other power supply.
-- Hard in development? Compile your own application just by this board, or train your own AI model online and deploy it on board.
-- Bad camera result? This chip is aimed for AI ISP night vision enhancement, we have adjust the camera to best state.
+- Difficult to develop? Compile your own application on this board, or train your own AI model online and deploy it on board.
+- Awful camera image? This chip is aimed for AI ISP night vision enhancement, we have adjust the camera to best state.
 - Too expensive? This board sold about 100$, chiper than any other similar board.
 
-## Features
+## Special column Documents
 
-### Camera effect
+These documents are from Chinese club, read these via browser translator is a good idea.
 
-#### Night vision enhancement
+Official Documents:
+
+- [MAIX-III AXera-Pi：New generation of 3.6T visual AI board comes out](https://aijishu.com/a/1060000000374898)
+- [MAIX-III AXera-Pi: Many kinds of AI usage](https://aijishu.com/a/1060000000374900)
+- [MAIX-III AXera-Pi: Plenty of demos on this board](https://aijishu.com/a/1060000000374902)
+- [MAIX-III AXera-Pi: Unbox this board](https://aijishu.com/a/1060000000378968)
+- [MAIX-III AXera-Pi: Start this board ①](https://aijishu.com/a/1060000000380513)
+- [MAIX-III AXera-Pi: Start this board ②](https://aijishu.com/a/1060000000383970)
+
+- [YOLOv8 object detection：Train and deploy model on Axera-Pi ①](https://aijishu.com/a/1060000000395215)
+- [YOLOv8 object detection：Train and deploy model on Axera-Pi ②](https://aijishu.com/a/1060000000395812)
+- [MMPose：Human Keypoints Detection on AXera-Pi](https://aijishu.com/a/1060000000396746)
+- [MOT：Mutiple Object Tracking on AXera-Pi](https://aijishu.com/a/1060000000399566)
+- [MMPose (Extra section) ：Fall Detection and alert on AXera-Pi](https://aijishu.com/a/1060000000401084)
+- [OCR：Optical Character Recognition on AXera-Pi](https://aijishu.com/a/1060000000403913)
+
+Community Documents:
+
+- [Axera-Pi unbox experience](https://zhuanlan.zhihu.com/p/571233089)
+- [HonestQiao —— unbox Axera-Pi](https://bbs.elecfans.com/m/jishu_2314161_1_1.html)
+- [Axera-Pi NPU experience](https://neucrack.com/p/440)
+- [MMYOLO object detection algorithm on AX620A](https://zhuanlan.zhihu.com/p/614698969)
+- [Deploy yolov8 on Axera-Pi](https://www.yuque.com/prophetmu/chenmumu/pd3sdkb8z4vvvgai)
+- [[m3axpi] YOLOv5 Train and deploy model](https://github.com/Abandon-ht/m3axpi_model/blob/main/yolov5/README_zh-CN.md)
+- [[m3axpi] YOLOv8 Train and deploy model](https://github.com/Abandon-ht/m3axpi_model/blob/main/yolov8/README_zh-CN.md)
+- [Prepare AX620A development enviroment on ubuntu22.04](https://blog.csdn.net/flamebox/article/details/127103964)
+- [Train and deploy yolo5s on Axera-Pi](https://blog.csdn.net/flamebox/article/details/127249243)
+- [[AXPI] Use RNDIS on m1/m2 MAC](https://zhuanlan.zhihu.com/p/593627641)
+- [Kaldi - Real-time speech recognition on embedded device](https://mp.weixin.qq.com/s/r4nGu04o1sjdFZt_vYbUAA)
+
+Video reference:
+
+- [MAIX-III AXera-Pi unbox and start](https://www.bilibili.com/video/BV1LP4y1274d)
+- [MAIX-III AXera-Pi development deployment](https://www.bilibili.com/video/BV1Ne4y117U9)
+- [MAIX-III AXera-Pi model transformer and deploy](https://www.bilibili.com/video/BV1jg411z7C8)
+- [MAIX-III AXera-Pi video inference and push](https://www.bilibili.com/video/BV14D4y147Ed)
+
+## Camera effect
+
+### Night vision enhancement
 
 <table>
     <tr>
@@ -131,35 +168,35 @@ So, why is this AI development board good?
     </tr>
 </table>
 
-<!-- <p align="center">
+<p align="center">
     <iframe src="//player.bilibili.com/player.html?aid=561523949&bvid=BV1Ee4y1v7iF&cid=860676576&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="max-width:640px; max-height:480px;"> </iframe>
-</p> -->
+</p>
 
-#### Exhibition darkroom
+### Exhibition darkroom
 
 - The left screen shows the enhanced picture and the righr screen is the original one.
 
 <div align="center"><img src="./assets/axpi/exhibition_darkroom.jpg" alt="exhibition_darkroom" ></div>
 
-<!-- <p align="center">
+<p align="center">
     <iframe src="//player.bilibili.com/player.html?aid=430541632&bvid=BV1iG41137tx&cid=831645988&page=1&t=83.6" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="max-width:640px; max-height:480px;"> </iframe>
-</p> -->
+</p>
 
-#### Actual AI effect
+### Actual AI effect
 
 <p align="center">
     <iframe src="//player.bilibili.com/player.html?aid=773227207&bvid=BV1B14y1Y7A4&cid=837154353&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="max-width:640px; max-height:480px;"> </iframe>
 </p>
 
-### AI resources
+## AI Ecology
 
-#### Support many Operators
+### Support many Operators
 
 ![many_operator](./assets/axpi/many_operator.jpg)
 
 Screenshots of part operators. [Click me to see whole operator support list](https://pulsar-docs.readthedocs.io/en/latest/appendix/op_support_list.html)
 
-#### Many archived models
+### Many archived models
 
 Before receiving this board, visit [MaixHub](https://maixhub.com/model/zoo) to see your interested model, choose Platform `axera-pi` at the Lower left corner to find model can be deployed on `AX-PI`
 
@@ -169,46 +206,46 @@ Apart from these, many models are uploaded to [github AXERA-TECH/ax-samples](htt
 
 - Objects Classification
   - MobileNetv1
-  - [MobileNetv2](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/README.md#MobileNetv2)
+  - [MobileNetv2](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/ax620/README.md#MobileNetv2)
   - MobileOne-s0
   - ResNet18
   - ResNet50
   - Others......
 - Objects Detection
-  - [PP-YOLOv3](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/README.md#yolov3paddle)
+  - [PP-YOLOv3](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/ax620/README.md#yolov3paddle)
   - YOLOv3
   - YOLOv3-Tiny
   - YOLOv4
   - YOLOv4-Tiny
   - YOLOv4-Tiny-3l
-  - [YOLOv5s](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/README.md#YOLOv5s)
-  - [YOLOv5-Lite](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/README.md#YOLOv5-Lite)([original model](https://github.com/ppogg/YOLOv5-Lite))
-  - [YOLOv7-Tiny](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/README.md#YOLOv7-Tiny)  
+  - [YOLOv5s](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/ax620/README.md#YOLOv5s)
+  - [YOLOv5-Lite](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/ax620/README.md#YOLOv5-Lite)([original model](https://github.com/ppogg/YOLOv5-Lite))
+  - [YOLOv7-Tiny](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/ax620/README.md#YOLOv7-Tiny)  
   - [YOLOv8s](https://github.com/AXERA-TECH/ax-samples/tree/main/examples#YOLOv8s)
-  - [YOLOX-S](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/README.md#YOLOX-S)
+  - [YOLOX-S](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/ax620/README.md#YOLOX-S)
   - YOLO-Fastest-XL
   - NanoDet
 - Human Body Detection
   - YOLO-Fastest-Body
 - Human Face Detection
-  - [scrfd](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/README.md#Scrfd)
-  - [YOLOv5-Face](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/README.md#YOLOv5-Face)([original model](https://github.com/deepcam-cn/yolov5-face))
+  - [scrfd](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/ax620/README.md#Scrfd)
+  - [YOLOv5-Face](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/ax620/README.md#YOLOv5-Face)([original model](https://github.com/deepcam-cn/yolov5-face))
 - Human Face Segmentation
   - Face_Parsing
 - Obstacles Detection
   - Robot-Obstacle-Detect
 - Object detection of Uav view
-  - [YOLOv5s_visdrone](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/README.md#YOLOv5s_visdrone)
+  - [YOLOv5s_visdrone](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/ax620/README.md#YOLOv5s_visdrone)
 - Monocular 3D Vehicle Detection
-  - [Monodlex](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/README.md#Monodlex)
+  - [Monodlex](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/ax620/README.md#Monodlex)
 - Human body Key points
-  - [HRNet](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/README.md#HRNet)
-  - [AX-POSE-PPL](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/README.md#AX-POSE-PPL)
-  - [HandPose](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/README.md#HandPose)
+  - [HRNet](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/ax620/README.md#HRNet)
+  - [AX-POSE-PPL](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/ax620/README.md#AX-POSE-PPL)
+  - [HandPose](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/ax620/README.md#HandPose)
 - Human body Segmentation
-  - [PP-HumanSeg](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/README.md#PP-HumanSeg)
+  - [PP-HumanSeg](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/ax620/README.md#PP-HumanSeg)
 - Semantics Segmentation
-  - [PP-Seg](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/README.md#MobileSeg)
+  - [PP-Seg](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/ax620/README.md#MobileSeg)
 - Classic CV
   - CropResize
 - Pipeline example
@@ -220,34 +257,28 @@ Visit [Deploy models to AX-Pi (Maix-III(M3) series) board](/ai/en/deploy/ax-pi.h
   <img src="./../../../en/maixIII/assets/ai_guide.jpg" style="zoom: 75%;" />
 </p> -->
 
-#### Tranning your models
+### Tranning your models
 
 - [[m3axpi] YOLOv5 train and convert model guide](https://github.com/Abandon-ht/m3axpi_model/blob/main/yolov5/README.md)
 - [[m3axpi] YOLOv8 train and convert model guide](https://github.com/Abandon-ht/m3axpi_model/blob/main/yolov8/README.md)
 
-#### Online tranning model
+### Tranning model online
 
-Now the [MaixHub](https://maixhub.com/welcome) has been upgraded, with more friendly interface and more functions, here are steps to tranning model online.
+Now [MaixHub](https://maixhub.com/welcome) has been upgraded, with more friendly interface and more functions, here are steps to tranning model online.
 
 <p align="center">
   <img src="./assets/axpi/test_maixhub.jpg" style="zoom: 100%;" />
 </p>
 
-<!-- > m3axpi does not support deploy model by scanning QR code while m2dock can do, m3axpi only can be deployed models by local operations. -->
+### Share your model
 
-<!-- <p align="center">
-    <iframe src="//player.bilibili.com/player.html?aid=597374704&bvid=BV1eB4y1Q74i&cid=741940038&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="max-width:640px; max-height:480px;"> </iframe>
-</p> -->
-
-#### Share your model
-
-There are your model and codes or programs to run the model after you finish training the model, you can share these on [Maixhub](https://maixhub.com/model/zoo) to others, let's have fun and build the model Community together.
+There is a model and codes or programs to load your model after you finish training, you can share these on [Maixhub](https://maixhub.com/model/zoo) to others. Let's have fun and build the model Community together.
 
 <p align="center">
   <img src="./assets/axpi/share_model.jpg" style="zoom: 75%;" >
 </p>
 
-### Cases
+## Cases
 
 > Updated in 20221205
 
@@ -256,36 +287,36 @@ There are your model and codes or programs to run the model after you finish tra
   <img src="./assets/axpi/demo_two.jpg" style="zoom: 100%;">
 </p>
 
-### Linux development
+## Linux development
 
-#### Used on debian
+### Run debian
 
 We provide a linux image based on debian11, and you can boot this board from SD card after you burn the system image into SD card. We aim to make it easiler for user to use. Besides, it's really conveient to program AI development with Python API.
 
 1. Burning image: [WIKI AXera-Pi Burn image](https://wiki.sipeed.com/hardware/en/maixIII/ax-pi/flash_system.html#Burn-system-image)
 
-2. Basic usage：[WIKI AXera-Pi guide](./flash_system.md)
+2. Basic usage：[WIKI AXera-Pi guide](https://wiki.sipeed.com/hardware/en/maixIII/ax-pi/flash_system.html)
 
 3. Program with Python：[ax_pipeline_api](https://github.com/junhuanchen/ax_pipeline_api)
 
-<!-- 4. 开发笔记：[[maixpy3 axpi] 关于爱芯 ax620a 移植 debian11 系统这件事](https://www.cnblogs.com/juwan/p/16751348.html)
+4. Development Note：[[maixpy3 axpi] How to port debian11 to ax620a](https://www.cnblogs.com/juwan/p/16751348.html) (中文)
 
-5. 开发笔记：[[maixpy3 axpi] 编辑发布 debian 镜像与在 PC 上交叉编译程序 ](https://www.cnblogs.com/juwan/p/16769237.html) -->
+5. Development Note：[[maixpy3 axpi] Edit and pack the compiled debian image](https://www.cnblogs.com/juwan/p/16769237.html) (中文)
 
-#### BSP SDK
+### BSP SDK
 
 We provide source code, api documents, sdk usages, visit [sdk usage](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/sdk_usage.html) to get more.
 
-##### [ax-sample](https://github.com/AXERA-TECH/ax-samples)
+#### [ax-sample](https://github.com/AXERA-TECH/ax-samples)
 
 Here are typical AI models provided by Axera for development, evaluation and verification, those who are good at AI development or want to test these models can have a try, and these are not involved with peripherals.
 
 1. [examples](https://github.com/AXERA-TECH/ax-samples/tree/main/examples)
-2. [PP-YOLOv3](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/README.md#yolov3paddle)
-3. [PP-HumanSeg](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/README.md#MobileSeg)
-4. [PP-Seg](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/README.md#PP-HumanSeg)
+2. [PP-YOLOv3](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/ax620/README.md#yolov3paddle)
+3. [PP-HumanSeg](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/ax620/README.md#MobileSeg)
+4. [PP-Seg](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/ax620/README.md#PP-HumanSeg)
 
-##### [libmaix](https://github.com/sipeed/libmaix)
+#### [libmaix](https://github.com/sipeed/libmaix)
 
 A unified embedded development environment come by SIPEED, includes camera, screen, vision, image processing and pipelines-related deployment examples, is suitable for those who want to learn embedded Linux.
 
@@ -293,7 +324,7 @@ A unified embedded development environment come by SIPEED, includes camera, scre
 2. [Screen displays camera content](https://github.com/sipeed/libmaix/tree/release/examples/axpi)
 3. [camera + screen + yolov5 model](https://github.com/sipeed/libmaix/tree/release/examples/axpi_yolov5_cam)
 
-##### [axpi_bsp_sdk](https://github.com/sipeed/axpi_bsp_sdk)
+#### [axpi_bsp_sdk](https://github.com/sipeed/axpi_bsp_sdk)
 
 BSP development package for business, provided by Axera. It's the original development package for this chip, containing components like uboot、linux、msp 、sample、rtsp、ipcdemo, and this is progressively open source, you can get these codes for commercial evaluation, such as ipcdemo, but normally these codes are complex and highly coupled, those who are experienced enough and want to use this board for business cooperation can try this.
 
@@ -301,11 +332,11 @@ BSP development package for business, provided by Axera. It's the original devel
 2. Platform application [ipcdmeo](https://github.com/sipeed/axpi_bsp_sdk/tree/main/app/IPCDemo)
 3. Peripheral Verification[sample](https://github.com/sipeed/axpi_bsp_sdk/tree/main/msp/sample)
 
-##### [ax-pipeline](https://github.com/AXERA-TECH/ax-pipeline)
+#### [ax-pipeline](https://github.com/AXERA-TECH/ax-pipeline)
 
-AX-Pipeline is provided by Axera. With m3axpi, this project is used for pepole to know the usages of ISP, image processing, NPU, codec and display, which is convenient for developers to quickly evaluate and develop their own multimedia applications.
+AX-Pipeline is provided by Axera. With M3AXPI, this project is used for pepole to know the usages of ISP, image processing, NPU, codec and display, which is convenient for developers to quickly evaluate and develop their own multimedia applications.
 
-1. [Quick compilation](https://github.com/AXERA-TECH/ax-pipeline/blob/main/docs/compile.md) Simple cross-platform compilation based on cmake.
+1. [Quick compilation](https://github.com/AXERA-TECH/ax-pipeline/blob/main/docs/compile.md) Simple cross-platform compilation via cmake.
 2. [How to replace into my own trained yolov5 model](https://github.com/AXERA-TECH/ax-pipeline/blob/main/docs/how_to_deploy_custom_yolov5_model.md)
 3. [How to deploy my other models](https://github.com/AXERA-TECH/ax-pipeline/blob/main/docs/how_to_deploy_custom_model.md)
 4. [How to adjust the image orientation](https://github.com/AXERA-TECH/ax-pipeline/blob/main/docs/how_to_adjust_image_orientation.md)
@@ -365,10 +396,10 @@ AX-Pipeline is provided by Axera. With m3axpi, this project is used for pepole t
 </tr>
 <tr>
   <td>Display</td>
-  <td>MIPI DSI 4 Lane，up to 4K@30FPS</td>
+  <td>MIPI DSI 4 Lane</td>
 </tr>
 <tr>
-  <td>DRAM</td>
+  <td>RAM</td>
   <td>2GB LPDDR4X 3733Mhz</td>
 </tr>
 <tr>
@@ -417,7 +448,7 @@ AX-Pipeline is provided by Axera. With m3axpi, this project is used for pepole t
 </tr>
 <tr>
   <td>USB </td>
-  <td>1 x USB2.0HS osed for OTG or HOST<br>1 x USB-UART</td>
+  <td>1 x USB2.0HS used for OTG or HOST<br>1 x USB-UART</td>
 </tr>
 <tr>
   <td>Others</td>
@@ -453,12 +484,13 @@ AX-Pipeline is provided by Axera. With m3axpi, this project is used for pepole t
   <img src="./../../../zh/maixIII/assets/ax620a_os.jpg" style="zoom: 100%;" />
 </p>
 
-> [How to change camera](./faq_axpi.md)
+> [How to change camera](https://wiki.sipeed.com/hardware/en/maixIII/ax-pi/faq_axpi.html)
 
 ## Others
 
-- Online AI: http://maixhub.com
-- Documents: http://wiki.sipeed.com
-- Github: http://github.com/sipeed
+- Online AI: https://maixhub.com
+- Documents: https://wiki.sipeed.com
+- Telegram: https://t.me/sipeed
+- Github: https://github.com/sipeed
 
-> Visit [Maix-III AXera-Pi (FAQ)](./faq_axpi.md) if you have trobule.
+> Visit [Maix-III AXera-Pi (FAQ)](https://wiki.sipeed.com/hardware/en/maixIII/ax-pi/faq_axpi.html) if you have trobule.

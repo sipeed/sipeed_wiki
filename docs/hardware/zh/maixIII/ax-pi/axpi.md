@@ -111,46 +111,46 @@ keywords: MAIX-III, AXera-Pi, Maix3, Sipeed, ax620a, axera, sipeed, AI, model, m
 
 - 物体分类
   - MobileNetv1
-  - [MobileNetv2](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/README.md#MobileNetv2)
+  - [MobileNetv2](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/ax620/README.md#MobileNetv2)
   - MobileOne-s0
   - ResNet18
   - ResNet50
   - Others......
 - 物体检测
-  - [PP-YOLOv3](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/README.md#yolov3paddle)
+  - [PP-YOLOv3](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/ax620/README.md#yolov3paddle)
   - YOLOv3
   - YOLOv3-Tiny
   - YOLOv4
   - YOLOv4-Tiny
   - YOLOv4-Tiny-3l
-  - [YOLOv5s](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/README.md#YOLOv5s)
-  - [YOLOv5-Lite](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/README.md#YOLOv5-Lite)([original model](https://github.com/ppogg/YOLOv5-Lite))
-  - [YOLOv7-Tiny](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/README.md#YOLOv7-Tiny)
+  - [YOLOv5s](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/ax620/README.md#YOLOv5s)
+  - [YOLOv5-Lite](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/ax620/README.md#YOLOv5-Lite)([original model](https://github.com/ppogg/YOLOv5-Lite))
+  - [YOLOv7-Tiny](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/ax620/README.md#YOLOv7-Tiny)
   - [YOLOv8s](https://github.com/AXERA-TECH/ax-samples/tree/main/examples#YOLOv8s)
-  - [YOLOX-S](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/README.md#YOLOX-S)
+  - [YOLOX-S](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/ax620/README.md#YOLOX-S)
   - YOLO-Fastest-XL
   - NanoDet
 - 人型检测
   - YOLO-Fastest-Body
 - 人脸检测
-  - [scrfd](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/README.md#Scrfd)
-  - [YOLOv5-Face](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/README.md#YOLOv5-Face)([original model](https://github.com/deepcam-cn/yolov5-face))
+  - [scrfd](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/ax620/README.md#Scrfd)
+  - [YOLOv5-Face](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/ax620/README.md#YOLOv5-Face)([original model](https://github.com/deepcam-cn/yolov5-face))
 - 人脸分割
   - Face_Parsing
 - 障碍物检测 (扫地机场景)
   - Robot-Obstacle-Detect
 - 无人机视角物体检测
-  - [YOLOv5s_visdrone](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/README.md#YOLOv5s_visdrone)
+  - [YOLOv5s_visdrone](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/ax620/README.md#YOLOv5s_visdrone)
 - 3D单目车辆检测
-  - [Monodlex](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/README.md#Monodlex)
+  - [Monodlex](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/ax620/README.md#Monodlex)
 - 人体关键点
-  - [HRNet](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/README.md#HRNet)
-  - [AX-POSE-PPL](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/README.md#AX-POSE-PPL)
-  - [HandPose](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/README.md#HandPose)
+  - [HRNet](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/ax620/README.md#HRNet)
+  - [AX-POSE-PPL](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/ax620/README.md#AX-POSE-PPL)
+  - [HandPose](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/ax620/README.md#HandPose)
 - 人体分割
-  - [PP-HumanSeg](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/README.md#PP-HumanSeg)
+  - [PP-HumanSeg](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/ax620/README.md#PP-HumanSeg)
 - 语义分割
-  - [PP-Seg](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/README.md#MobileSeg)
+  - [PP-Seg](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/ax620/README.md#MobileSeg)
 - 传统 CV 操作
   - CropResize
 - Pipeline 示例
@@ -300,9 +300,9 @@ keywords: MAIX-III, AXera-Pi, Maix3, Sipeed, ax620a, axera, sipeed, AI, model, m
 由爱芯提供典型 AI 模型的开发与评估验证，提供给有经验的 AI 开发者使用或只想蹭模型的同学，不涉及任何硬件外设有关的内容。
 
 1. [示例项目 examples](https://github.com/AXERA-TECH/ax-samples/tree/main/examples)
-2. [物体检测 PP-YOLOv3](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/README.md#yolov3paddle)
-3. [人体分割 PP-HumanSeg](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/README.md#MobileSeg)
-4. [语义分割 PP-Seg](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/README.md#PP-HumanSeg)
+2. [物体检测 PP-YOLOv3](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/ax620/README.md#yolov3paddle)
+3. [人体分割 PP-HumanSeg](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/ax620/README.md#MobileSeg)
+4. [语义分割 PP-Seg](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/ax620/README.md#PP-HumanSeg)
 
 #### [libmaix](https://github.com/sipeed/libmaix)
 
@@ -312,7 +312,7 @@ keywords: MAIX-III, AXera-Pi, Maix3, Sipeed, ax620a, axera, sipeed, AI, model, m
 2. [把摄像头显示到屏幕](https://github.com/sipeed/libmaix/tree/release/examples/axpi)
 3. [摄像头+yolov5 模型+屏幕](https://github.com/sipeed/libmaix/tree/release/examples/axpi_yolov5_cam)
 
-##### [axpi_bsp_sdk](https://github.com/sipeed/axpi_bsp_sdk)
+#### [axpi_bsp_sdk](https://github.com/sipeed/axpi_bsp_sdk)
 
 芯片商用时所用的 bsp 开发包，这里主要提供的是芯片的原始开发资料，如 uboot、linux、msp 、sample、rtsp、ipcdemo 等工程代码，这个部分是逐步开源的，你可以从这里得到商业评估用的代码，例如 ipcdemo 这样的程序，但这些代码会很复杂且高耦合，适合有经验的同行出于商业落地的目的使用。
 
@@ -418,5 +418,5 @@ AX-Pipeline 由爱芯主导开发。该项目基于 AXera-Pi 展示 ISP、图像
 - AXERA 技术交流群：（ 139953715 ）专供 AI ISP 技术交流
 - 荔枝 MaixPy3 AI 交流群：（ 756313869 ）给产品开箱小白答疑
 
-Q & A 请到 [Maix-III 系列 AXera-Pi 常见问题（FAQ）](./faq_axpi.md) 了解喔。
+Q & A 请到 [Maix-III 系列 AXera-Pi 常见问题(FAQ)](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html) 了解喔。
 
