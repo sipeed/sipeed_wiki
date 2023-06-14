@@ -1562,7 +1562,7 @@ cat /proc/ax_proc/uid
     勾选下方更多选项进行调整缓存后点击下方播放即可。
     ![vlc-urt](./../assets/vlc-urt.jpg)
 
-- 双屏tui效果如下示例：
+- 双屏效果如下：
 
 <html>
   <img src="./../assets/rtsp-display.jpg" width=48%>
