@@ -1,6 +1,7 @@
 ---
 title: Sensor 感光元件曝光控制
-tags: Sebsor, 曝光控制, 修改曝光
+tags: Sensor, 曝光控制, 修改曝光
+date: 2023-06-10
 keywords: Sebsor, 曝光控制, 修改曝光
 ---
 

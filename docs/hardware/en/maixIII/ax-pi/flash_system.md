@@ -4,23 +4,18 @@ tags: AXera-Pi, Burn image
 keywords: AXera-Pi，Burn, image
 desc: AXera-Pi Burn image
 update:
-  - date: 2023-01-09
-    version: v0.2
+  - date: 2023-06-15
+    version: v0.3
     author: wonder
     content:
-      - Finish editing
-  - date: 2022-12-09
-    version: v0.1
-    author: wonder
-    content:
-      - Create this File
+      - Updated
 ---
 
 ---
 
-## Product guideline
+## Board Usage
 
-To make it easier to use this board, we prepare this guide.
+To make it easier to use this board, we make this guide.
 
 ## OS introduction
 
@@ -31,7 +26,7 @@ For Axera-Pi, we provide Debian11 Bullseye image file.
 > ![debian_logo](./../../../zh/maixIII/assets/debian_logo.jpg)
 > [Reasons to use Debian](https://www.debian.org/intro/why_debian.en.html).
 
-TF card which has been burned system image can be bought from [Sipeed aliexpress](https://sipeed.aliexpress.com/store/1101739727), otherwise you need to prepare your own system image TF card by following steps.
+TF card which has been flashed system image can be bought from [Sipeed aliexpress](https://sipeed.aliexpress.com/store/1101739727), otherwise you need to prepare your own system image TF card by following steps.
 
 ## Choose TF card
 
@@ -166,7 +161,7 @@ There are 2 versions of camera, make sure the `1` on the camera matches the `1` 
 <img src="./../../../zh/maixIII/assets/senror_v3751.jpg" width=48%>
 <img src="./../../../zh/maixIII/assets/sensor_v3753.jpg" width=48%>
 
-Different onboard fpc camera connector meets different driver, we use `CAM0` as the default one.
+Different onboard camera FPC connector needs different configuration, we use `CAM0` as the default one.
 
 ### Boot AXera-Pi
 
@@ -178,7 +173,7 @@ Because of the change of screen version, visit [bad display](https://wiki.sipeed
 
 > In **20221013** we update the power-on phenomenon:
 
-- The 3.5mm connector plays the music if connected with device.
+- The 3.5mm stereo connector plays the music if connected with device.
 - 5 inches screen displays picture.
 - The logs are printed to USB-UART port, run serial port application to see it if you need.
 
@@ -191,72 +186,9 @@ If logs are not printed on serial terminal, press `RST` key on AXera-Pi to resta
 
 And those who use Ubuntu22.04 may not be able to open serial port (ttyUSB), read [this](https://www.chippiko.com/ch340-dev-ttyusb-not-showing) to see the solution.
 
-.. details:: Click to see the system boot log of debian11
+![m3axpi_debian_boot_log_screenshot](./assets/flash_system/m3axpi_debian_boot_log_screenshot.png)
 
-    ```bash
-    Vddr init success!
-    The system boot form EMMC
-    enter boot normal mode
-
-    U-Boot 2020.04 (Jun 16 2022 - 00:16:34 +0800)
-
-    Model: AXERA AX620_demo Board
-    DRAM:  1 GiB
-    NAND:  unknown raw ID 77ee0178
-    uclass_get_device: Invalid bus 0 (err=-524)
-    0 MiB
-    initr_pinmux: delay pinmux_init for env board id
-    MMC:   enter sdhci_cdns_get_cd call mmc_getcd
-    enter sdhci_cdns_get_cd call mmc_getcd
-    mmc@10000000: 0, mmc@4950000: 1
-    Loading Environment from MMC... OK
-    In:    serial
-    Out:   serial
-    Err:   serial
-    MMC: no card present
-    sd card is not present
-    enter normal boot mode
-    Net:
-    reset EMAC0: ethernet@0x4970000 ...
-    Warning: ethernet@0x4970000 (eth0) using random MAC address - 6a:e4:fd:58:97:ea
-    eth0: ethernet@0x4970000
-    Hit any key to stop autoboot:  0
-    reading DTB and BOOT image ...
-    reading bootimg header...
-    MAGIC:       AXERA!
-    img size:    4841536
-    kernel_size: 4841472
-    kernel_addr: 64
-    id:bc 19 bb a7 2d 27 74 de 7c 91 4b 70 ea c9 ab 96 50 61 bd e0 2b 02 8b e5 c8 ee 22 ce df b1 cf ea
-    load kernel image addr = 0x40008000,load dtb image addr = 0x48008000
-    boot cmd is :bootm 0x40008000 - 0x48008000
-    ## Booting kernel from Legacy Image at 40008000 ...
-      Image Name:   Linux-4.19.125
-      Image Type:   ARM Linux Kernel Image (uncompressed)
-      Data Size:    4839952 Bytes = 4.6 MiB
-      Load Address: 40008000
-      Entry Point:  40008000
-      Verifying Checksum ... OK
-    ## Flattened Device Tree blob at 48008000
-      Booting using the fdt blob at 0x48008000
-      Loading Kernel Image
-      Using Device Tree in place at 48008000, end 480103d6
-
-    Starting kernel ...
-
-
-    Welcome to Debian GNU/Linux 11 (bullseye)!
-
-    [  OK  ] Created slice system-getty.slice.
-    [  OK  ] Created slice system-modprobe.slice.
-    [  OK  ] Created slice system-serial\x2dgetty.slice.
-    [  OK  ] Created slice User and Session Slice.
-    [  OK  ] Started Dispatch Password …ts to Console Directory Watch.
-    [  OK  ] Started Forward Password R…uests to Wall Directory Watch.
-    [  OK  ] Reached target Local Encrypted Volumes.
-    [  OK  ] Reached target Network is Online.
-    ......
-    ```
+- `DRAM 1 GiB` in the log is not accuracy, in system we can check there is `2 GiB` memory.
 
 ## Login AXera-Pi
 
@@ -272,7 +204,7 @@ The first time to login to device, we need to use serial port application to ope
 
 ![ssh](https://wiki.sipeed.com/hardware/zh/maixIII/assets/ssh.jpg)
 
-### Login by serial port
+### Login via serial port
 
 We take MobaXterm as an example serial port software, you can use your favorite one.
 
@@ -330,7 +262,7 @@ ssh root@192.168.233.1
 
 ## Connect to network
 
-Axera-Pi connects to network through network cable or wireless.
+Axera-Pi connects to network via network cable or wireless module.
 
 ### Connect by Ethernet
 
@@ -356,7 +288,7 @@ And we can also use command `ifdown eth0` to disable Ethernet, and then use `ifu
 3. Run command `ifconfig wlan0` to see whether there is the ip address.
 ![nmtui_wlan0_ifconfig](./assets/flash_system/nmtui_wlan0_ifconfig.png)
 
-Besides, Run command `nmcli device wifi connect Sipeed_Guest password qwert123` can also connect to wireless network, change the `Sipeed_Guest` into your wireless network name and change `qwert123` into your wireless network password. It will autoconnect to the wireless network when turnning on.
+Besides, Run command `nmcli device wifi connect Sipeed_Guest password qwert123` can also connect to wireless network, change the `Sipeed_Guest` into your wireless network name and change `qwert123` into your wireless network password. It will autoconnect to the wireless network when board boots.
 
 ## Config System
 
@@ -405,7 +337,7 @@ Run command `shutdown` to power off device.
 poweroff
 ```
 
-### Enlarge system memory
+### Resize system storage
 
 Run command `lsblk` to see the partition information, then resize the memory partition by command `cfdisk /dev/mmcblk2`.
 
@@ -431,7 +363,7 @@ Finishing these, we run command `df -h` to see the disk space usage, and we can 
 
 ![df-mmcblk2](./../../../zh/maixIII/assets/df-mmcblk2.jpg)
 
-> `reboot` first if there is some trouble resizing the storage memory.
+> Run `reboot` if there is some trouble resizing the storage memory.
 
 ### Boot script
 
@@ -494,7 +426,6 @@ From the boot script `rc.local`, we can see that `/home/res/2_480x854.jpeg` is w
 ### Update kernel and driver
 
 The first partition of system image card is mounted at `/boot` after booting, and replace with the file we can update the firmware to fit our hardware after rebooting the device.
-
 
 - `boot.bin` spl initialize file
 

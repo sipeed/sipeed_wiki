@@ -592,73 +592,12 @@ exit 0
 .. details::点此展开查看示例图
     ![start](./../assets/start.jpg)
 
-.. details::点击查看连接后串口输出的 debian11 系统启动日志。
+下面是启动日志（截取）：
 
-    ```bash
-    Vddr init success!
-    The system boot form EMMC
-    enter boot normal mode
+![m3axpi_debian_boot_log_screenshot](./../../../en/maixiii/ax-pi/assets/flash_system/m3axpi_debian_boot_log_screenshot.png)
 
-    U-Boot 2020.04 (Jun 16 2022 - 00:16:34 +0800)
-
-    Model: AXERA AX620_demo Board
-    DRAM:  1 GiB
-    NAND:  unknown raw ID 77ee0178
-    uclass_get_device: Invalid bus 0 (err=-524)
-    0 MiB
-    initr_pinmux: delay pinmux_init for env board id
-    MMC:   enter sdhci_cdns_get_cd call mmc_getcd
-    enter sdhci_cdns_get_cd call mmc_getcd
-    mmc@10000000: 0, mmc@4950000: 1
-    Loading Environment from MMC... OK
-    In:    serial
-    Out:   serial
-    Err:   serial
-    MMC: no card present
-    sd card is not present
-    enter normal boot mode
-    Net:
-    reset EMAC0: ethernet@0x4970000 ...
-    Warning: ethernet@0x4970000 (eth0) using random MAC address - 6a:e4:fd:58:97:ea
-    eth0: ethernet@0x4970000
-    Hit any key to stop autoboot:  0
-    reading DTB and BOOT image ...
-    reading bootimg header...
-    MAGIC:       AXERA!
-    img size:    4841536
-    kernel_size: 4841472
-    kernel_addr: 64
-    id:bc 19 bb a7 2d 27 74 de 7c 91 4b 70 ea c9 ab 96 50 61 bd e0 2b 02 8b e5 c8 ee 22 ce df b1 cf ea
-    load kernel image addr = 0x40008000,load dtb image addr = 0x48008000
-    boot cmd is :bootm 0x40008000 - 0x48008000
-    ## Booting kernel from Legacy Image at 40008000 ...
-    Image Name:   Linux-4.19.125
-    Image Type:   ARM Linux Kernel Image (uncompressed)
-    Data Size:    4839952 Bytes = 4.6 MiB
-    Load Address: 40008000
-    Entry Point:  40008000
-    Verifying Checksum ... OK
-    ## Flattened Device Tree blob at 48008000
-    Booting using the fdt blob at 0x48008000
-    Loading Kernel Image
-    Using Device Tree in place at 48008000, end 480103d6
-
-    Starting kernel ...
-
-
-    Welcome to Debian GNU/Linux 11 (bullseye)!
-
-    [  OK  ] Created slice system-getty.slice.
-    [  OK  ] Created slice system-modprobe.slice.
-    [  OK  ] Created slice system-serial\x2dgetty.slice.
-    [  OK  ] Created slice User and Session Slice.
-    [  OK  ] Started Dispatch Password …ts to Console Directory Watch.
-    [  OK  ] Started Forward Password R…uests to Wall Directory Watch.
-    [  OK  ] Reached target Local Encrypted Volumes.
-    [  OK  ] Reached target Network is Online.
-    ......
-
->因物料更换屏幕现有不同的版本，需区别版本以及使用屏幕时出现锯齿等画面请移步到[ Maix-III 系列 AXera-Pi 常见问题(FAQ) ](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html#Q：硬件物料更改说明、没有-wlan0-、屏幕烧屏、摄像头倒过来怎么解决？)查询。
+1. 虽然上面显示 `DRAM: 1 GiB`，但是在系统中弄可以查到实际的存储是 `2 GiB`.
+2. 因物料更换屏幕现有不同的版本，需区别版本以及使用屏幕时出现锯齿等画面请移步到[ Maix-III 系列 AXera-Pi 常见问题(FAQ) ](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html#Q：硬件物料更改说明、没有-wlan0-、屏幕烧屏、摄像头倒过来怎么解决？)查询。
 
 ### 更新内核与驱动
 
@@ -692,7 +631,7 @@ exit 0
 
 ### 板子与电脑的文件互传
 
->基于让用户的使用更加快速便捷，还可以选择直接在板子上与电脑端通过工具实现文件互传。
+> 基于让用户的使用更加快速便捷，还可以选择直接在板子上与电脑端通过工具实现文件互传。
 
 **使用 SSH 远程管理工具进行文件传输：**
 
