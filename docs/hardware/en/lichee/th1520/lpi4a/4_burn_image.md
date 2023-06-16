@@ -9,43 +9,47 @@ update:
       - Release docs
 ---
 
-## 准备工作
+## Preparation
 
-### 获取镜像
+### Download an image
 
-参见上一章“镜像集合”，选取需要的镜像下载。
-以下的烧录方式以 Debian 镜像 `LPi4A_Test_0425.7z` 为例。
+Refer to the previous chapter "Images" to find the desired image.
+The image burning method below uses the Debian image `LPi4A_Test_0425.7z` as an example .
 
-### 获取烧录工具
+### Get the burning tool
+The burning tool can be obtained from the Mega cloud disk and is found in the `burn_tool.zip` file.
+After decompresseion the fastboot binary is found in the win/linux/mac subfolders.
 
-在镜像集合的网盘内可以获得 `burn_tool.zip`, 解压可得 win/linux/mac 三个系统下的 fastboot 烧录工具。
+## How to enter burning mode
 
-## 进入烧录模式
+Note that different versions of hardware have slightly different ways to enter the burning mode, see the following chapters.
 
-注意不同版本硬件进入烧录模式的方式略有不同，参见以下章节。
+### Beta Hardware
 
-### 内测版硬件
-
-按住板上的BOOT按键不放，然后插入 USB-C 线缆上电（线缆另一头接 PC ），即可进入 USB 烧录模式。
+Press and hold the BOOT button on the board while plugging in the USB-C cable to power on the board
+(the other side of the USB-C cable should be connected to your PC)
+This will enter USB burning mode.
 ![press_boot](./../../../../zh/lichee/th1520/lpi4a/assets/burn_image/press_boot.png)
 
-在 Windows 下使用设备管理器查看，会出现 “USB download gadget” 设备。
-在 Linux 下，使用 `lsusb` 查看设备，会显示以下设备： `ID 2345:7654 T-HEAD USB download gadget`
+Windows: The board should show up in the Device Manager as “USB download gadget”.
+Linux: Use `lsusb`, the board should show up in burning mode as `ID 2345:7654 T-HEAD USB download gadget`
 
-### 正式版硬件
+### Official Hardware / Release Hardware
 
 TODO
 
-### Windows 下驱动安装
+### Windows Driver installation
 
-Windows 下初次使用需要安装驱动，注意由于该驱动未经过数字签名，需要用户手工禁用数字签名。
+The driver needs to be installed manually the first time you use the device.
+Note that the driver is not digitally signed and you need to manually disable the driver signature checks.
 ![before_install_driver](./../../../../zh/lichee/th1520/lpi4a/assets/burn_image/before_install_driver.png)
 ![install_driver](./../../../../zh/lichee/th1520/lpi4a/assets/burn_image/install_driver.png)
 
-## 烧录镜像
+## Burn the image
 
-进入烧录模式后，可使用 burn_tool.zip 内的 fastboot 进行烧录操作，注意可能需要先赋予 fastboot 可执行权限。
-以 linux 下为例：
+After putting the board into burning mode, you can use fastboot from `burn_tool.zip` to burn the image.
+Let´s take linux as an example:
+Note that you need to mark the fastboot binary as executable first via `chmod +x fastboot`
 
 ```bash
 sudo ./fastboot flash ram ./images/u-boot-with-spl.bin
@@ -56,8 +60,10 @@ sudo ./fastboot flash boot ./images/boot.ext4
 sudo ./fastboot flash root ./images/rootfs.ext4
 ```
 
-前面3行指令会检查并格式化分区，请务必执行，否则后面烧录 rootfs 会很慢。 
-`boot.ext4` 为 boot 分区，包含以下内容： 
+The first three lines will check and create the partitions on the flash. If you skip this step,
+burning the rootfs will be very slow later on.
+
+`boot.ext4` contains the following content：
 
 ```bash
 fw_dynamic.bin        #opensbi
@@ -70,9 +76,9 @@ light-lpi4a_2Ghz.dtb  #2GHz overclock dtb
 light-lpi4a-ddr2G.dtb #history dtb
 ```
 
-`rootfs.ext4` 为根文件系统，默认为 Debian 系统。
+`rootfs.ext4` is the root filesystem, the default is a debian system.
 
-烧录镜像的典型 log 输出如下：
+Log output you typically see while burning an image:
 
 ![](./../../../../zh/lichee/th1520/lpi4a/assets/burn_image/burn_image_progress_result.png)
 
@@ -173,13 +179,13 @@ Finished. Total time: 281.671s
 ```
 -->
 
-## 启动机制
+## Board Boot Process
 
 brom -> uboot spl -> uboot -> opensbi -> kernel
 
 TODO
 
-## 批量烧录
+## Batch programming / flashing
 
-如果你有商业需求，需要批量烧录固件，可以使用 sipeed 提供的 ARM/RV 版 fastboot 制作离线批量烧录器。
-如果你需要烧录的数量很大，也可以直接联系 support@sipeed.com，我们提供预烧录镜像服务。
+If you have commercial needs and need to burn firmware in batches, you can use the ARM/RV version of fastboot provided by sipeed to make an offline batch burner.
+If you need to burn a large number, you can also contact support@sipeed.com directly , we provide pre-burning image service.
