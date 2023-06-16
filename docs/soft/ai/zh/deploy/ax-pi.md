@@ -229,7 +229,7 @@ docker run --rm --gpus all nvidia/cuda:11.0.3-base-ubuntu20.04 nvidia-smi
 ```
 docker run -it --net host --rm --gpus all --shm-size 32g -v $PWD:/data sipeed/pulsar
 ```
-
+注意当前版本（0.6.1.20）的 `pulsar build` 仅支持 sm_37 sm_50 sm_60 sm_70 sm_75 架构 GPU，30/40 系列 GPU 暂不支持。
 
 
 ## 在 AXera-Pi 上测试运行模型
