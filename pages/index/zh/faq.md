@@ -12,12 +12,12 @@ title: FAQ 常见问题汇总
 > 如果是 MaixHub 讨论版块，可以直接在版块下面发帖即可。
 
 
-| 产品和项目 | FAQ 页面 |
-| -------- | -------- |
-| 1. Maix-I (K210)<br>2. MaixPy     | K210 和 MaixPy 问题全在 [MaixPy FAQ](/soft/maixpy/zh/others/maixpy_faq.html) |
-| Maix-II (V831)    | 1. [基本使用 FAQ](/hardware/zh/maixII/M2/faq.html)<br>2. [MaixPy3 FAQ](/soft/maixpy3/zh/question/maixpy3_faq.html)|
-| MaixPy3 | [MaixPy3 FAQ](/soft/maixpy3/zh/question/maixpy3_faq.html) |
-| Maix-III AXeraPi (AX620A) | [AXeraPi FAQ](/hardware/zh/maixIII/ax-pi/faq_axpi.html) |
-| MaixHub | [MaixHub FAQ 汇总](/ai/zh/maixhub/faq.html) |
-| Tang FPGA | [Tang FAQ 汇总](/hardware/zh/tang/Tang-Nano-Doc/questions.html) |
+| 产品和项目 | 资料 | FAQ 页面 |
+| -------- | ---- | -------- |
+| 1. Maix-I (K210)<br>2. MaixPy     | 1. [M1 模块](/hardware/zh/maix/core_module.html)<br>2. [MaixBit 开发板](/hardware/zh/maix/maixpy_develop_kit_board/maix_bit.html)<br>3. [MaixPy](/maixpy)  | K210 和 MaixPy 问题全在 [MaixPy FAQ](/soft/maixpy/zh/others/maixpy_faq.html) |
+| Maix-II (V831)  | [Maix-II Dock](/m2dock)   | 1. [基本使用 FAQ](/hardware/zh/maixII/M2/faq.html)<br>2. [MaixPy3 FAQ](/soft/maixpy3/zh/question/maixpy3_faq.html)|
+| MaixPy3 | [MaixPy3](/maixpy3) | [MaixPy3 FAQ](/soft/maixpy3/zh/question/maixpy3_faq.html) |
+| Maix-III AXeraPi (AX620A) | [M3-AXeraPi](/m3axpi) | [AXeraPi FAQ](/hardware/zh/maixIII/ax-pi/faq_axpi.html) |
+| MaixHub | [maixhub.com](https://maixhub.com) | [MaixHub FAQ 汇总](/ai/zh/maixhub/faq.html) |
+| Tang FPGA | [Tang](/tang)  | [Tang FAQ 汇总](/hardware/zh/tang/Tang-Nano-Doc/questions.html) |
 

@@ -12,12 +12,12 @@ The sharing location is the FAQ page of the corresponding product in the table b
 > If it is a MaixHub discussion, you can post directly under the corresponding topic.
 
 
-| 产品和项目 | FAQ 页面 |
-| -------- | -------- |
-| 1. Maix-I (K210)<br>2. MaixPy     | K210 and MaixPy all: [MaixPy FAQ](/soft/maixpy/en/others/maixpy_faq.html)|
-| Maix-II (V831)    | 1. [Basic FAQ](/hardware/en/maixII/M2/faq.html)<br>2. [MaixPy3 FAQ](/soft/maixpy3/en/question/maixpy3_faq.html)|
-| MaixPy3 | [MaixPy3 FAQ](/soft/maixpy3/zh/question/maixpy3_faq.html) |
-| Maix-III AXeraPi (AX620A) | [AXeraPi FAQ](/hardware/en/maixIII/ax-pi/faq_axpi.html) |
-| MaixHub | [MaixHub FAQ](/ai/en/maixhub/faq.html) |
-| Tang FPGA | [Tang FAQ](/hardware/en/tang/Tang-Nano-Doc/questions.html) |
+| Products/Projects | Documentation | FAQ page |
+| -------- | ---- | -------- |
+| 1. Maix-I (K210)<br>2. MaixPy     | 1. [M1 module](/hardware/zh/maix/core_module.html)<br>2. [MaixBit board](/hardware/zh/maix/maixpy_develop_kit_board/maix_bit.html)<br>3. [MaixPy](/maixpy)  | K210 和 MaixPy 问题全在 [MaixPy FAQ](/soft/maixpy/zh/others/maixpy_faq.html) |
+| Maix-II (V831)  | [Maix-II Dock](/m2dock)   | 1. [Basic usage FAQ](/hardware/zh/maixII/M2/faq.html)<br>2. [MaixPy3 FAQ](/soft/maixpy3/zh/question/maixpy3_faq.html)|
+| MaixPy3 | [MaixPy3](/maixpy3) | [MaixPy3 FAQ](/soft/maixpy3/zh/question/maixpy3_faq.html) |
+| Maix-III AXeraPi (AX620A) | [M3-AXeraPi](/m3axpi) | [AXeraPi FAQ](/hardware/zh/maixIII/ax-pi/faq_axpi.html) |
+| MaixHub | [maixhub.com](https://maixhub.com) | [MaixHub FAQ](/ai/zh/maixhub/faq.html) |
+| Tang FPGA | [Tang](/tang)  | [Tang FAQ](/hardware/zh/tang/Tang-Nano-Doc/questions.html) |
 
