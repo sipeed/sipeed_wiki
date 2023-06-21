@@ -65,7 +65,7 @@
         </tr>
         <tr>
             <td><span class="limit_width"><strong>电赛 QQ 群</strong></span></td>
-            <td><span class="limit_width"><strong>750799296</strong></span></td>
+            <td><span class="limit_width"><strong>862461090</strong></span></td>
         </tr>
     </tbody>
 </table>
