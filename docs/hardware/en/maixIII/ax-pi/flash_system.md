@@ -272,8 +272,7 @@ Run command `ifconfig eth0` to see whether there is the ip address.
 
 ![nmtui_eth0_ifconfig](./assets/flash_system/nmtui_eth0_ifconfig.jpg)
 
-If there is no ip address of eth0 after connecting with network gateway, run command `dhclient eth0 &
-` to get the ip address manually.
+If there is no ip address of eth0 after connecting with network gateway, run command `dhclient eth0 &` to get the ip address manually.
 ![nmtui_eth0_dhclient](./assets/flash_system/nmtui_eth0_dhclient.jpg)
 
 And we can also use command `ifdown eth0` to disable Ethernet, and then use `ifup eth0 --force` to restart Ethernet to get the ip address.
@@ -308,7 +307,7 @@ Maix-III AXera-Pi default timezone is GMT+8, you can change it with command `dpk
 
 Run `ntpdate-debian` command after connecting Maix-III AXera-Pi to network to update time.
 
-### Install software
+### Install application
 
 Based on debian, we can use `apt` to install the software on Maix-III AXera-Pi. Change the software resource if you think it's slow to download the software.
 
