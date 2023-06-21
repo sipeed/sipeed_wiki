@@ -400,6 +400,36 @@ th {
     background: #1b1b1b;
 }
 
+#navbar #navbar_items {
+    flex-direction: row;
+}
+
+#page_content > div {
+    text-align: left;
+}
+
+@media screen and (max-width: 1560px) {
+    #navbar #navbar_items {
+        flex-direction: column;
+        align-items: start;
+    }
+    #navbar #navbar_items > div:last-child {
+        align-self: end;
+    }
+    #navbar {
+        align-items: self-start;
+    }
+    #navbar h2 {
+        margin: 0.5em 0;
+    }
+    #navbar #navbar_items > div:last-child ul {
+        margin: 0 0;
+    }
+    #navbar #navbar_items > div ul {
+        margin-bottom: 0;
+    }
+}
+
 @media screen and (max-width: 900px) {
     #big_btn_wrapper {
         flex-direction: column;

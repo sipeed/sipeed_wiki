@@ -70,12 +70,12 @@
         },
 
         {
-            "label": "Online Service",
+            "label": "Platforms",
             "position": "left",
             "type":"list",
             "items":[
                 {
-                    "label":"MaixHub: AI online training and sharing platform",
+                    "label":"MaixHub: AI platform and sharing community",
                     "url":"https://maixhub.com",
                     "target": "_blank"
                 },
@@ -98,6 +98,11 @@
         {
             "label": "Online Store",
             "url": "/en/store.html",
+            "position": "left"
+        },
+        {
+            "label": "FAQ",
+            "url": "/en/faq.html",
             "position": "left"
         },
         {

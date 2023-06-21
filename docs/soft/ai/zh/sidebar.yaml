@@ -38,4 +38,6 @@ items:
   file: maixhub/README.md
 - label: MaixHub 在线训练调优
   file: maixhub/train_best.md
+- label: MaixHub FAQ 汇总
+  file: maixhub/faq.md
 

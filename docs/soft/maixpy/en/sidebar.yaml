@@ -390,11 +390,7 @@ items:
         -   label: modules.onewire
             file: api_reference/extend/onewire.md
 -   label: FAQ
-    items:
-    -   label: MaixPy FAQ
-        file: others/maixpy_faq.md
-    -   label: MaixHub FAQ
-        file: others/maixhub_faq.md
+    file: others/maixpy_faq.md
 -   label: Advanced
     items:
     -   label: Advanced Development

@@ -38,12 +38,12 @@
             },
 
             {
-                "label": "在线网站",
+                "label": "在线平台",
                 "position": "left",
                 "type":"list",
                 "items":[
                     {
-                        "label":"MaixHub: AI 训练和分享平台",
+                        "label":"MaixHub: AI 平台和分享社区",
                         "url":"https://maixhub.com",
                         "target": "_blank"
                     },
@@ -67,6 +67,11 @@
             {
                 "label": "线上商城",
                 "url": "/store.html",
+                "position": "left"
+            },
+            {
+                "label": "FAQ 汇总",
+                "url": "/faq.html",
                 "position": "left"
             },
             {

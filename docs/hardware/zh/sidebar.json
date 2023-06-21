@@ -152,6 +152,10 @@
               "label": "连接MaixPy3",
               "file": "../../soft/maixpy3/zh/tools/0.MaixII-Dock.ipynb",
               "target": "_blank"
+            },
+            {
+              "label": "FAQ",
+              "file": "maixII/M2/faq.md"
             }
           ]
         },

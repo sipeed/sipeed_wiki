@@ -755,16 +755,7 @@
         },
         {
             "label": "常见问题 FAQ",
-            "items": [
-                {
-                    "label": "MaixPy 常见问题 FAQ",
-                    "file": "others/maixpy_faq.md"
-                },
-                {
-                    "label": "MaixHub 平台 FAQ",
-                    "file": "others/maixhub_faq.md"
-                }
-            ]
+            "file": "others/maixpy_faq.md"
         },
         {
             "label": "开发与贡献",

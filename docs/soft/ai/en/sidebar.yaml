@@ -39,4 +39,5 @@ items:
   file: maixhub/README.md
 - label: MaixHub online train optimization
   file: maixhub/train_best.md
-
+- label: MaixHub FAQ
+  file: maixhub/faq.md
