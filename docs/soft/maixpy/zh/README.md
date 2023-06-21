@@ -164,7 +164,7 @@ please read doc before run it!
         </tr>
         <tr>
             <td>MaixPy AI QQ 交流群</td>
-            <td>878189804</td>
+            <td>862340358</td>
         </tr>
         <tr>
             <td>MaixPy AI QQ 交流群(六群)</td>

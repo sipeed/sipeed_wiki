@@ -209,7 +209,7 @@ The following communication methods provide assistance:
         </tr>
         <tr>
             <td>MaixPy AI QQ group</td>
-            <td>878189804</td>
+            <td>862340358</td>
         </tr>
         <tr>
             <td>telgram</td>

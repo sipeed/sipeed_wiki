@@ -73,5 +73,5 @@ SPMOD_PSRAM(PSRAM模块)采用 IPS6404L-SQ 芯片。
 |HDK 相关信息 | [https://dl.sipeed.com/MAIX/HDK](https://dl.sipeed.com/MAIX/HDK) |
 |E-mail(技术支持和商业合作) | [Support@sipeed.com](mailto:support@sipeed.com) |
 |telgram link | https://t.me/sipeed |
-|MaixPy AI QQ 交流群（六群）| 636551897 |
+|MaixPy AI QQ 交流群（四群）| 862340358|
 
