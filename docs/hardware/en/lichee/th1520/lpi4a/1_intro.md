@@ -107,11 +107,11 @@ LicheePi 4A 可以用作典型的 RISC-V 验证平台，其强大的性能可以
 
 ### 硬件资料下载
 
-[板卡规格书](https://dl.sipeed.com/shareURL/LICHEE/licheepi4a/01_Specification)
-[底板原理图](https://dl.sipeed.com/shareURL/LICHEE/licheepi4a/02_Schematic)
-[底板点位图](https://dl.sipeed.com/shareURL/LICHEE/licheepi4a/03_Bit_number_map)
-[底板尺寸图](https://dl.sipeed.com/shareURL/LICHEE/licheepi4a/04_Dimensional_drawing)
-[模型文件](https://dl.sipeed.com/shareURL/LICHEE/licheepi4a/05_3D_model)
+[Specification / Datasheet](https://dl.sipeed.com/shareURL/LICHEE/licheepi4a/01_Specification)
+[Schematic](https://dl.sipeed.com/shareURL/LICHEE/licheepi4a/02_Schematic)
+[BOM](https://dl.sipeed.com/shareURL/LICHEE/licheepi4a/03_Bit_number_map)
+[Dimensional Drawing](https://dl.sipeed.com/shareURL/LICHEE/licheepi4a/04_Dimensional_drawing)
+[3D Model](https://dl.sipeed.com/shareURL/LICHEE/licheepi4a/05_3D_model)
 
 ## 其他链接
 
