@@ -24,7 +24,7 @@ Sipeed 官方镜像基于 Debian 系统修改适配。
 2. 帐号`debian`，密码`debian`；帐号`sipeed`，密码`licheepi`
 
 下载地址：
-百度网盘：[点我](https://pan.baidu.com/e/1jnjz0KO_xnO5R8tWlXtx0A)
+百度网盘：[点我](https://pan.baidu.com/s/1xH56ZlewB6UOMlke5BrKWQ)
 Mega 云盘：[点我](https://mega.nz/folder/phoQlBTZ#cZeQ3qZ__pDvP94PT3_bGA)
 ISCAS 镜像站：[点我](https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/)
 

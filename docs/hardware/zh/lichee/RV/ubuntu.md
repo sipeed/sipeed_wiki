@@ -35,12 +35,11 @@ Ubuntu 是基于另一个 Linux 发行版 Debian 发展而来，网上大多数 
 
 提供了百度网盘下载方式。
 
-百度网盘: https://pan.baidu.com/s/1OrePh_HamqAuLi5T_66ScA
-提取码: dock
+百度网盘: https://pan.baidu.com/s/1n-Y1EoOCdfV4QzaHXY61Wg
 
-### 软件获取
+### 烧录软件
 
-可以前往 [balenaEtcher](https://www.balena.io/etcher/) 官网下载软件或者[下载站](https://dl.sipeed.com/shareURL/others/balenaEtcher)下载，其中下载站仅提供 Windows 版本软件，其他系统想用这个软件自行前往 [balenaEtcher](https://www.balena.io/etcher/) 官网下载。
+前往 [balenaEtcher](https://www.balena.io/etcher/) 官网下载软件或者[下载站](https://dl.sipeed.com/shareURL/others/balenaEtcher)下载，其中下载站仅提供 Windows 版本软件，其他系统想用这个软件自行前往 [balenaEtcher](https://www.balena.io/etcher/) 官网下载。
 
 ### 烧录系统
 

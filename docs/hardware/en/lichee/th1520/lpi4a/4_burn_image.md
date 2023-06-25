@@ -41,11 +41,23 @@ TODO
 ### Windows Driver installation
 
 The driver needs to be installed manually the first time you use the device.
-Note that the driver is not digitally signed and you need to manually disable the driver signature checks.
+
+Note that the driver is not digitally signed, and you need to disable the driver signature checks.
+
+Refer to [Disable Driver signature verification](https://answers.microsoft.com/en-us/windows/forum/all/permanent-disable-driver-signature-verification/009c3498-bef8-4564-bb52-1d05812506e0#:~:text=Start%20your%20computer%20and%20then%20keep%20pressing%20the,your%20keyboard%20to%20select%20Disable%20driver%20signature%20enforcement.)
+
 ![before_install_driver](./../../../../zh/lichee/th1520/lpi4a/assets/burn_image/before_install_driver.png)
 ![install_driver](./../../../../zh/lichee/th1520/lpi4a/assets/burn_image/install_driver.png)
 
 ## Burn the image
+
+### Windows
+
+Edit the `burn_lpi4a.bat` decompressed from burn_tool.zip, replace the example image path into your real image path. Then run this `burn_lpi4a.bat` to burn image into LPi4A.
+
+![target_burn_image_path](./../../../../zh/lichee/th1520/lpi4a/assets/burn_image/target_burn_image_path.png)
+
+### Linux
 
 After putting the board into burning mode, you can use fastboot from `burn_tool.zip` to burn the image.
 Let´s take linux as an example:
