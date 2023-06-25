@@ -127,7 +127,7 @@ Use an HDMI cable (not included) to connect a display (not included) to the HDMI
 The LicheePi 4A will automatically boot into the default image and the login screen should appear within 30 seconds.
 ![boot_login](./../../../../zh/lichee/th1520/lpi4a/assets/unbox/boot_login.png)
 
-The default image has two types of account password configurations, you can try both:
+The default image has two types of account and password configurations, you can try both:
 1. User：`root`，`debian`，`sipeed`； the password for all accounts is `licheepi`
 2. User: `debian`，password: `debian`； user: `sipeed`，password: `licheepi`
 
