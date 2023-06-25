@@ -243,27 +243,27 @@
             "label": "Lichee PI 4A",            
             "items":[
               {
-                  "label":"Introduction(Building)",
+                  "label":"Introduction(Work in Progress)",
                   "file":"lichee/th1520/lpi4a/1_intro.md"
               },
               {
-                  "label":"Unbox guide(Building)",
+                  "label":"Unbox guide(Work in Progress)",
                   "file":"lichee/th1520/lpi4a/2_unbox.md"
               },
               {
-                  "label":"Image summary(Building)",
+                  "label":"Image summary(Work in Progress)",
                   "file":"lichee/th1520/lpi4a/3_images.md"
               },
               {
-                  "label":"Burn image(Building)",
+                  "label":"Burn image(Work in Progress)",
                   "file":"lichee/th1520/lpi4a/4_burn_image.md"
               },
               {
-                  "label":"Desktop usage(Building)",
+                  "label":"Desktop usage(Work in Progress)",
                   "file":"lichee/th1520/lpi4a/5_desktop.md"
               },
               {
-                  "label":"Peripheral(Building)",
+                  "label":"Peripheral(Work in Progress)",
                   "file":"lichee/th1520/lpi4a/6_peripheral.md"
               },
               {

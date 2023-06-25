@@ -1,5 +1,5 @@
 ---
-title: 镜像集合
+title: Collection of images
 keywords: Linux, Lichee, TH1520, SBC, RISCV, image
 update:
   - date: 2023-05-08
@@ -9,49 +9,49 @@ update:
       - Release docs
 ---
 
-## 内核支持
+## Supported kernels
 
-目前平头哥官方 SDK 使用 Linux5.10 内核： https://gitee.com/thead-yocto
-主线 linux6.x 内核正在移植中，主要社区贡献者：`Jisheng Zhang `
+Currently T-Heads SDK uses Linux Kernel 5.10: https://gitee.com/thead-yocto
+Support is currently added to Linux 6.x, the main contributor of this is `Jisheng Zhang `
 
-## Sipeed官方镜像
+## Official Sipeed image
 
-LicheePi 4A 的镜像不定期更新中，初期的镜像可能不太稳定，或者无法发挥 TH1520 的完全性能，请关注本页面，获取最新镜像。
-Sipeed 官方镜像基于 Debian 系统修改适配。 
+The image for the LicheePi 4A is updated irregularly. The initial image may not be stable, or it may not be able to fully utilize the performance of the TH1520. Please follow the steps below to get the latest image.
+The official Sipeed image is based on an adapted Debian.
 
-默认镜像有两类帐号密码配置，可以都尝试下：
-1. 帐号：`root`，`debian`，`sipeed`；密码均为 `licheepi`
-2. 帐号`debian`，密码`debian`；帐号`sipeed`，密码`licheepi`
+The default image has two types of account and password configurations, you can try both:
+1. User：`root`，`debian`，`sipeed`； the password for all accounts is `licheepi`
+2. User: `debian`，password: `debian`； user: `sipeed`，password: `licheepi`
 
-下载地址：
+Download Links:
 <!-- 百度网盘：[点我](https://pan.baidu.com/e/1jnjz0KO_xnO5R8tWlXtx0A) -->
-Mega 云盘：[点我](https://mega.nz/folder/phoQlBTZ#cZeQ3qZ__pDvP94PT3_bGA)
-ISCAS 镜像站：[点我](https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/)
+Mega Cloud Storage：[click me](https://mega.nz/folder/phoQlBTZ#cZeQ3qZ__pDvP94PT3_bGA)
+ISCAS mirror: [click me](https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/)
 
 ### Debian
 
 ![debian](./../../../../zh/lichee/th1520/lpi4a/assets/images/debian.png)
 
 1. LPi4A_Test_0425
-   1. 发布日期：2023年4月25日
-   2. 内核：5.10
-   3. 根文件系统：ext4, 4.3GB
-   4. 主要预装软件包：
-      1. 开发类
-      2. 办公类
-   5. 修复问题：
-   6. 已知问题：
-      1. 关闭GPU
-      2. 安装ibus输入法后会导致GPU开启，复现GPU双缓冲卡顿（终端+图形界面）问题
+   1. Release date: April 25, 2023
+   2. Linux Kernel version: 5.10
+   3. rootfs: ext4, 4.3GB
+   4. Pre-Installed packages:
+      1. Development utilities
+      2. Office suite
+   5. Fixed issues:
+   6. Known problems：
+      1. GPU sometimes turns off
+      2. After installing the ibus input method, the GPU will be turned on, and the problem of GPU double-buffering (terminal + graphical interface) will be reproduced.
 2. LPI4A-tempfix0428
-   1. 发布日期：2023年4月28日
-   2. 内核：5.10
-   3. 根文件系统：ext4, 4.3GB
-   4. 主要预装软件包：TODO
-   5. 修复问题：
-      1. 临时修复0425版本中终端显示滞后的问题，但是会导致CPU占用率提升，GPU效率减半
-   6. 已知问题：
-      1. 安装ibus输入法后会导致GPU开启，复现GPU双缓冲卡顿（图形界面）问题
+   1. Release date: April 28, 2023
+   2. Linux Kernel version: 5.10
+   3. rootfs: ext4, 4.3GB
+   4. Pre-Installed packages: TODO
+   5. Fixed issues:
+      1. Temporarily fix the problem of terminal display lag in version 0425, but it will increase CPU usage and halve GPU efficiency
+   6. Known issues:
+      1. After installing the ibus input method, the GPU will be turned on, and the problem of GPU double-buffering (graphical interface) will be reproduced.
 
 ### OpenWRT
 
@@ -65,11 +65,11 @@ TODO
 
 TODO
 
-系统安装：提示默认已安装到 eMMC。升级系统的方式（镜像下载，烧录工具，步骤）
+System installation: Prompt that it has been installed to eMMC by default. How to upgrade the system (mirror download, burning tools, steps)
 
-## 第三方镜像
+## Third-party images
 
-这里整理了第三方提供的镜像，仅供用户体验，sipeed 不保证此类镜像的可用性，稳定性。
+The images provided by third parties are listed here for informational purposes only. Sipeed does not guarantee the availability and stability of these images.
 
 ### openEuler
 
@@ -112,7 +112,7 @@ Project address: [Click me](https://github.com/chainsx/fedora-riscv-builder)
 
 Project address: [Click me](https://wiki.gentoo.org/wiki/Project:RISC-V)
 
-下面链接说明如何从stage3制作一个Gentoo Linux系统
+The link below shows how to create a Gentoo Linux system from stage3
 
 Deplay Gentoo Linux [Click me](https://wiki.gentoo.org/wiki/User:Dlan/RISC-V/TH1520)
 
