@@ -59,4 +59,6 @@ Zero 提供了 **Linux主线** 支持和 全志官方原生 Camdriod（适用于
 
 国内下载链接：
 
+百度网盘: [https://pan.baidu.com/s/138PYwV2gjnO74qTLX0TVtA](https://pan.baidu.com/s/138PYwV2gjnO74qTLX0TVtA)
+
 下载站：[dl.sipeed.com/shareURL/LICHEE/Zero/HDK](https://dl.sipeed.com/shareURL/LICHEE/Zero/HDK)

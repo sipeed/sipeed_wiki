@@ -41,8 +41,4 @@
 
 同时欢迎各位加入[荔枝派交流群826307240](https://jq.qq.com/?_wv=1027&k=5uWO21P) | [荔枝派Telegram电报群](https://t.me/sipeed)与众多开发者、爱好者即时交流，并获取 FPGA 开发环境 TD (Tang Dynasty)，其中 TD 软件自带全系列的参考文档。
 
-另外，TD 亦可在如下网址下载：
-[https://eyun.baidu.com/s/3i6FbQzr](https://eyun.baidu.com/s/3i6FbQzr)
-下载站文件->TANG->Primer->IDE
-
 ![](./../assets/QQ_Group_2.jpg)

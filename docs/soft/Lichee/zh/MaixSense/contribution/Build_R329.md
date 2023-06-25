@@ -8,7 +8,7 @@ keywords: R329, maixsnse, MaixSense, Maixsense, armbian, build, kernel
 * Ubuntu20.04
 * [MaixSense](https://wiki.sipeed.com/hardware/zh/maixII/M2A/maixsense.html)
 * 一张已经烧录`r329-armbian-maixpy3-0.4.0.img`的TF卡
-* [Armbian_21.08.0-trunk_Maixsense_bullseye_edge_5.14.1.img.xz](https://eyun.baidu.com/s/3htTXfaG)镜像,网盘里对应的路径为`./MaixII-a/SDK`
+* [Armbian_21.08.0-trunk_Maixsense_bullseye_edge_5.14.1.img.xz](https://pan.baidu.com/s/1D8pr2y0-3jNwI5wzdgqb9Q)镜像
 
 ##修改 boot.cmd 的方法
 想要改变 uboot 的一些启动配置，就可以通过这个方式进行修改，修改 boot.cmd 后直接在系统里运行完成更新。

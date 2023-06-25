@@ -6,8 +6,6 @@
 
 想要进行FPGA开发需要安装TD，可以通过[下载站](https://dl.sipeed.com/shareURL/TANG)，下载TD安装包和license。
 
-<!-- ，如果下载速度过慢，建议使用[百度网盘](https://eyun.baidu.com/s/3htTXfaG)进行下载 -->
-
 安装包 ：`TD_5.0.4_27252_Win7_64bit_NL.msi`
 License文件：`Anlogic_20230606.lic`
 
