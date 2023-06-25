@@ -9,52 +9,55 @@ update:
       - Release docs
 ---
 
-## 开箱内容
+## Unboxing / Box contents
 
-LicheePi 4A 分为两个版本，内测版与正式版。 
-内测版于 2023 年 5 月发售，仅有 8+8（DDR+eMMC）版本，各部分功能基本正常。
-正式版预计于 2023 年 6 月发售，将有 8+32,16+128 版本，也会针对内测版用户提出的相关建议进行局部微调优化，功能/镜像与内测版会保持一致。
+There are two versions of the LicheePi 4A board, the closed beta version and the official version.
+The closed beta version was released in May 2023. There is only one version of the board with 8+8 (DDR+eMMC).
+The official version is expected to release in June 2023. There will be a 8+32, 16+128 version, with some minor adjustments and fixes based on the feedback from the closed beta version users. The functionality and images will
+stay the same as the closed beta version.
 
-### 内测版
+### Closed Beta Version
 
-如果你是第一批内测版 LicheePi 4A 用户，你收到的包裹内将是如下包装：
+If you received the board as part of the closed beta program, you will receive the following package:
 ![package_alpha](./../../../../zh/lichee/th1520/lpi4a/assets/unbox/package_alpha.png)
 
-打开塑料盒包装，你将看到如下的内容：
+The opened box will look like this：
 ![unbox_alpha](./../../../../zh/lichee/th1520/lpi4a/assets/unbox/unbox_alpha.png) 
-包裹在黑色泡棉内的就是 LicheePi 4A 主体，其余标号部件为：
-1. 30x30mm 散热硅脂
-2. 30mm 5V 散热风扇，右边已连接至风扇插针。如果松动脱出，请自行安装回去，注意红线为正极，装反后风扇不会转动。
-3. 2.4G WiFi 天线，已安装至 IPEX 座子。如果松动脱出，请自行安装回去。
-4. USB-C 线缆，作为供电和下载镜像使用。
+the main body of LicheePi 4A is wrapped in black foam, and the other labeled parts are:
+1. 30x30mm thermal grease pad, used to attach the heatsink to the CPU.
+2. 30mm 5V cooling fan. The connector should be plugged into the 5V fan header on the board. Note: The red wire is the positive wire and should be connected to the + pole. The fan will not work if you reverse the polarity.
+3. 2.4G WiFi Antenna, already connected to the IPEX socket. If it comes loose please re-attach it yourself.
+4. USB-C cable, used for power supply and image flashing.
 
-如果开箱后发现缺少相关部件，请联系客服咨询。
+If you miss any part during unpacking, please contact customer service for help.
 
-### 正式版
 
-（预计2023年6月发售）
+### Offical Version
 
-### 选配件
+(Scheduled to be released in June 2023)
 
-如果你购买了选配件的话，包裹里还可能有：
+### Optional Accessories
+
+If you have purchased the optional accessories, these parts may also be included in the package:
 ![option_alpha](./../../../../zh/lichee/th1520/lpi4a/assets/unbox/option_alpha.png)
-图中上半部分是选配的 RVDebugger Plus，具有 JTAG+UART 功能，如果你需要进行底层调试，可选购买。
-图中下半部分是选配的 12V2A 电源适配器，如果你需要在板子上外接大量耗电外设（如 USB，MIPI 屏），可选购买。
+In the upper part of the picture is the optional RVDebugger Plus, which has JTAG+UART function. If you need to do low-level debugging, you can purchase it as an option.
 
-5V2A USB 供电可满足板卡在 1.85GHz 下的满载烤机运行
+The lower part of the picture is the optional 12V2A power adapter, if you need to connect a lot of power-consuming peripherals (such as USB, MIPI screen) to the board, you can buy it as an option.
 
-以及未来还会有POE供电模块（TODO）
+A 5V 2A USB power supply can run the board with full-load at 1.85GHz
 
-## 组装板卡
+There will be an POE Power Add-on Module/Board in the future as well.
 
-### SOM安装
+## Assembling the board
 
-默认情况下 LM4A SOM 已经安装至主板上，如果你需要升级/替换 SOM，可按如下说明进行 SOM 的取出和安装
+### SOM installation
 
-1. 取出 SOM:
+By default, the LM4A SOM has been installed on the motherboard. If you need to upgrade/replace the SOM, you can follow the instructions below to remove and install the SOM
+
+1. Removing the SOM:
    <table>
     <tr>
-      <td colspan=2>先用手指往外拨动弹片解锁 SOM, 然后将 SOM 取出</td>
+      <td colspan=2>Unlock the board by pushing the retainer tabs outwards and lift up the SOM</td>
     </tr>
     <tr>
       <td><img src="./../../../../zh/lichee/th1520/lpi4a/assets/unbox/unlock_som.png" alt="unlock_som"></td>
@@ -62,10 +65,10 @@ LicheePi 4A 分为两个版本，内测版与正式版。
     </tr>
    </table>
 
-2. 安装 SOM:
+2. Installing the SOM:
    <table>
     <tr>
-      <td colspan=2>先把 SOM 斜着插入连接器插槽, 然后按压SOM，两边弹片会自动锁住SOM</td>
+      <td colspan=2>First insert the SOM into the connector, ensure that it´s pushed all the way in and push down on both sides till the retainer clips automatically hold the board.</td>
     </tr>
     <tr>
       <td><img src="./../../../../zh/lichee/th1520/lpi4a/assets/unbox/insert_som.png" alt="insert_som"></td>
@@ -73,32 +76,34 @@ LicheePi 4A 分为两个版本，内测版与正式版。
     </tr>
    </table>
 
-### 散热器安装
+### Cooler Installation 
 
-LicheePi 4A 是高性能 SBC，需要安装主动散热器对 SOM 进行散热，否则在满载时可能由于核心过热而自动降频，无法达到最优性能。
-1. 安装导热硅脂片
-    取出导热硅脂片，撕开两面薄膜，将硅脂片放置在下图位置并轻轻按压固定（硅脂片自己具备一定粘性可以固定住），注意完整覆盖住主芯片与两颗内存芯片
+LicheePi 4A is a high performance SBC，you need to install an active cooler to dissipate the heat. Otherwise it might automatically throttle the frequency due to overheating and is unable to deliver the full performance.
+1. Installing the thermal pad,
+    take the thermal pad and remove the protective film from both sides, then place the thermal pad in the location shown below, the thermal pad can be re-arragnet if needed. Please ensure that you cover the main CPU as well as both memory chips fully.
     ![silicone_pad](./../../../../zh/lichee/th1520/lpi4a/assets/unbox/silicone_pad.png)
 
-2. 安装散热风扇
-    在硅脂片上对齐安装30mm的散热风扇，并轻轻按压固定住。
+2. Installing the fan / heatsink
+    Allign the 30x30mm heatsink and fan with the thermal pad and press down lightly.
     ![insert_fan](./../../../../zh/lichee/th1520/lpi4a/assets/unbox/insert_fan.png)
 
-3. 安装散热风扇电源
-    默认收到时应该已经插入好了风扇电源，如果风扇电源线脱出，请按下图所示插入，注意电源线顺序，装反风扇不会旋转。
-    注意，该位置上的插针电源受 linux 内核控制，需正确配置内核才会旋转，如果风扇不转，也可插到板卡下方的 20pin 插针的 5V + GND 处测试风扇好坏。
+3. Connecting the cooling fan
+    By default the cooling fan should already be plugged in when you received the board. If the fan power cables was unplugged, please re-plug it as shown in the image below.
+    Pay attention to the polarity of the fan, in case the fan is plugged-in backwards it will not work.
+    Note: The fan is controlled by a linux kernel driver which needs to be configured correctly to work. (fan does not spin per default)
+    If you are unsure if the fan works, you can test it by plugging it into a +5V and GND pin on the 20-pin GPIO header.
     ![insert_fan_cable](./../../../../zh/lichee/th1520/lpi4a/assets/unbox/insert_fan_cable.png)
 
-### WIFI天线安装 
+### WiFi Antenna Installation 
 
-默认情况下WIFI天线已经安装在主板上，如果脱出，请按照下图安装回去：
+The WiFi antenna is already connected when you receive the board. If it got unplugged, here is how to install it:
 ![insert_ant](./../../../../zh/lichee/th1520/lpi4a/assets/unbox/insert_ant.png)
 
-### POE模块安装
+### POE module installation
 
-该模块需额外购买，规格为35.6mm长度的5V PoE供电模块，焊接在开发板的POE POWER位置。
+The POE module can be purchased seperatly. It´s a 5V POE power module with a length of 35.6mm, which can be soldered to the POE POWER holes on the development board.
 
-PoE模块安装如图所示：
+The PoE module should be installed like this：
 
    <table>
     <tr>
@@ -107,49 +112,52 @@ PoE模块安装如图所示：
     </tr>
    </table>
 
-### 组装完成
+### Assembly completed
 
-组装完成后的状态如下所示：
+This is how the fully assembled board looks like:
 ![assemble_ok](./../../../../zh/lichee/th1520/lpi4a/assets/unbox/assemble_ok.png)
 
-## 启动板卡
+## Booting the board
 
-LicheePi 4A出库已预烧录了基础系统镜像，至此你已可以快速进行开机体验！
-注意：预烧录的系统镜像版本可能比较旧，体验不佳，完成上电体验后，可以根据下章教程进行镜像更新。
+LicheePi 4A is pre-loaded with a basic system image, so you can try it out directly!
 
-使用 HDMI 线缆(自备)连接显示器(自备)与 LicheePi 4A 的 HDMI 口，使用配套的 USB-C 线缆连接到至少 5V2A 输出的 USB 电源(自备)上，LicheePi 4A 即会开机启动，默认镜像会在 30s 内启动到桌面系统的登录界面。
+Note: The pre-loaded system image might be very old. After you booted the system for the first time, please have a look at the next section on how to flash / update the image.
+
+Use an HDMI cable (not included) to connect a display (not included) to the HDMI port of LicheePi 4A. Use the supplied USB-C cable to connect the board to a USB power supply (not included) with at least 5V and 2A output.
+The LicheePi 4A will automatically boot into the default image and the login screen should appear within 30 seconds.
 ![boot_login](./../../../../zh/lichee/th1520/lpi4a/assets/unbox/boot_login.png)
 
-默认镜像有两类帐号密码配置，可以都尝试下：
-1. 帐号：`root`，`debian`，`sipeed`；密码均为 `licheepi`
-2. 帐号`debian`，密码`debian`；帐号`sipeed`，密码`licheepi`
+The default image has two types of account password configurations, you can try both:
+1. User：`root`，`debian`，`sipeed`； the password for all accounts is `licheepi`
+2. User: `debian`，password: `debian`； user: `sipeed`，password: `licheepi`
 
-如果按照上述操作，没能点亮显示器，进入系统，有以下可能请自查：
-1. 检查电源电压是否正常，USB-C 口连接是否正常，电源指示灯是否点亮
-2. 检查散热器是否正常安装，风扇是否旋转
-3. 检查 HDMI 是否稳固连接，显示器是否开机，以及可以尝试更换显示器测试
-4. 也可能是出厂遗漏固件烧录，请按下章方法进行镜像烧录后再试
-5. 如果以上均不奏效，请联系客服售后
+If you followed the above procedure, but your display fails to show any image, please check the following:
+1. Check whether the USB-Power supply is connected correctly, works and whether the power LED is lit on the board.
+2. Check that the heatsink is installed correctly and that the fan is spinning.
+3. Check that the HDMI connection is correct and that the display is turned on and the correct input is selected.
+4. It might be the case that there is no pre-loaded image from the factory, in this case check the next section on how to flash an image.
+5. If none of the above works, please contact us for support.
 
-## 板卡硬件说明
+## Board hardware overview
 
-完成初次点亮板卡后，可以静下心来认识下 LicheePi 4A 的硬件，方便后期可能的维护工作。
+After booting up the board for the first time, let´s take a look at the hardware of LicheePi 4A, so you can get familiar with it and maybe do some maintenance work in the future.
 ![pi_view](./../../../../zh/lichee/th1520/lpi4a/assets/unbox/pi_view.png) 
 
-### 超频说明
+### Overclocking
 
-TH1520 标称频率为 1.85GHz，我们仅保证你收到的板卡可以稳定工作在 1.85GHz。
-如果你是发烧玩家，想进行超频操作，那么你有一定概率可以超频到 2GHz，但我们不保证在该频率下的稳定性。
-经不完全测试，约有 80% 的 SOM 可以超频至 2GHz 启动系统，约有 50% 的 SOM 可以在 2GHz 下跑通压力测试。
+The nominal operating frequency of the TH1520 is 1.85GHz, and we only guarantee that the board you receive can work stably at 1.85GHz.
+If you are an enthusiast you can try to overclock the board to 2GHz, but we don´t guarantee that the board will work stable at this frequency.
+After some testing, about 80% of the boards can boot into the system when overclocked to 2GHz and about 50% of the boards sucessfully pass the stress test at 2GHz.
 
-### USB 限流说明
+### USB Power Limitation
 
-由于系统最大电源输入能力为 12V2A，即约 24W，转换为 5V 后，大约有 20W 左右有效功率。
-为了更好地为 SOM 供电（SOM 在超频满载情况下可达 12W 功率），所以 USB HUB 处进行了电流限制，限制了 1.5A 的电流（内测版硬件。正式版硬件会根据反馈调整此处电流限制），即 7.5W 功率。
-再接入大量 USB 设备时可能会超出该电流限制，此时建议对 USB 设备进行外部辅助供电。
-如果需要解除此处电流限制，请进行如下操作：TODO。
+The maximum input power of the board is 12V at 2A which is 24W. After it is converted to 5V on the board, there is about 20W of effective power available.
 
-### 内测版已知问题
+In order to provide maximum power to the SOM (the SOM can pull up to 12W when overclocked), the output of the USB-Hub is limited to 1.5A. This is for the pre-production version of the board, the final version will have a higher current limit based on feedback from the community.
+When you connect a large number of USB-Devices, you might exceed this current limit, in this case we recommend to use an external power supply for the USB devices.
+If you need to disable the current limit, please do the following: TODO
+
+### Known issues of closed beta version board
 
 1. 仅支持原生eMMC启动，不支持 SD / SPI Flash 启动。正式版会增加拨码开关选择。
 2. HDMI电平转换可能在个别显示器上存在兼容性问题，导致无法设置分辨率。可以尝试更换显示器。
