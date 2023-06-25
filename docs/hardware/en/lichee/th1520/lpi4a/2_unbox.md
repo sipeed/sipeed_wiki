@@ -157,27 +157,27 @@ In order to provide maximum power to the SOM (the SOM can pull up to 12W when ov
 When you connect a large number of USB-Devices, you might exceed this current limit, in this case we recommend to use an external power supply for the USB devices.
 If you need to disable the current limit, please do the following: TODO
 
-### Known issues of closed beta version board
+### Known issues and limitations of closed beta version board
 
-1. 仅支持原生eMMC启动，不支持 SD / SPI Flash 启动。正式版会增加拨码开关选择。
-2. HDMI电平转换可能在个别显示器上存在兼容性问题，导致无法设置分辨率。可以尝试更换显示器。
-3. 板载音频输出电路的高通滤波电路的截止频率过高（500Hz），导致低音丢失。正式版中会修正RC参数
+1. Booting is only supported from built-in eMMC flash. Booting from SD / SPI Flash is not supported. The official board version will have DIP-Switches to select the boot device.
+2. HDMI level shifting may be incompatible with some monitors that prevent the setting of the resolution. You can try to use another monitor.
+3. The cut-off frequency of the on-board audio high-pass filter circuit is too high (500Hz), which results in the loss of bass. The RC-Filter component values will be changed in the official version.
 
-### 硬件资料下载
+### Board info download links
 
-[板卡规格书](https://dl.sipeed.com/shareURL/LICHEE/licheepi4a/01_Specification)
-[底板原理图](https://dl.sipeed.com/shareURL/LICHEE/licheepi4a/02_Schematic)
-[底板点位图](https://dl.sipeed.com/shareURL/LICHEE/licheepi4a/03_Bit_number_map)
-[底板尺寸图](https://dl.sipeed.com/shareURL/LICHEE/licheepi4a/04_Dimensional_drawing)
-[模型文件](https://dl.sipeed.com/shareURL/LICHEE/licheepi4a/05_3D_model)
+[Datasheet](https://dl.sipeed.com/shareURL/LICHEE/licheepi4a/01_Specification)
+[Schematic](https://dl.sipeed.com/shareURL/LICHEE/licheepi4a/02_Schematic)
+[BOM](https://dl.sipeed.com/shareURL/LICHEE/licheepi4a/03_Bit_number_map)
+[Dimensional Drawing](https://dl.sipeed.com/shareURL/LICHEE/licheepi4a/04_Dimensional_drawing)
+[3D Model](https://dl.sipeed.com/shareURL/LICHEE/licheepi4a/05_3D_model)
 
-## 其他链接
+## Other links
 
 Online store: [Aliexpress](https://www.aliexpress.com/item/1005005532736080.html)
 
 [Github](https://github.com/sipeed/LicheePi4A)
-[Sipeed 下载站](https://dl.sipeed.com/shareURL/LICHEE/licheepi4a)
+[Sipeed Site](https://dl.sipeed.com/shareURL/LICHEE/licheepi4a)
 
 Telegram: https://t.me/linux4rv
 
-联系邮箱：support@sipeed.com
+Contact email: support@sipeed.com
