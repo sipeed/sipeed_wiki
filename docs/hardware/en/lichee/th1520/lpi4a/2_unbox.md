@@ -1,5 +1,5 @@
 ---
-title: 开箱体验
+title: Unboxing
 keywords: Linux, Lichee, TH1520, SBC, RISCV, unbox
 update:
   - date: 2023-05-08
@@ -165,7 +165,7 @@ If you need to disable the current limit, please do the following: TODO
 
 ### Board info download links
 
-[Datasheet](https://dl.sipeed.com/shareURL/LICHEE/licheepi4a/01_Specification)
+[Specification / Datasheet](https://dl.sipeed.com/shareURL/LICHEE/licheepi4a/01_Specification)
 [Schematic](https://dl.sipeed.com/shareURL/LICHEE/licheepi4a/02_Schematic)
 [BOM](https://dl.sipeed.com/shareURL/LICHEE/licheepi4a/03_Bit_number_map)
 [Dimensional Drawing](https://dl.sipeed.com/shareURL/LICHEE/licheepi4a/04_Dimensional_drawing)
