@@ -11,6 +11,13 @@ desc: maixpy  MaixPy 常见问题
 MaixPy 是基于 Micropython 的脚本语言， 不需要编译，在运行时解析，编写起来更简单方便，只是运行时时实性不如 C 语言。
 所以如果是快速验证、新手、只会 python、头发少等都可以用 MaixPy; 追求极限性能效率或者熟悉 C ，以及对 MaixPy 的长期运行的稳定性不太有信心的都可以使用 C 语言开发
 
+## MaixPy 软件包失败现象
+
+1. 卸载干净之前下的软件安装包，重新下载并换磁盘安装。
+2. 卸载软件，删除释放的文件，清理注册表后，重装即可
+   
+<img src="" alt="maixpy">
+
 ## MaixPy IDE 无法成功连接开发板
 
 **现象:**
@@ -223,7 +230,7 @@ print(sd_check())
 1. 这时需要跟换 mini 固件得以解决，如果还是不行，那就要减少训练的时候使用的数据集
 2. 或者通过查看【[内存管理](./../course/others/mem.md)】这篇教程进行对内存和 GC 进行调整
 
-## OSEerror: [Errno 2] ENOENT
+## OSEerror: [Errno 2] ENOENT/OSError:[Error 5] EIO
 
 所需要读取的文件不存在对应的路径上，如果这个文件是在sd卡上的话，建议查看sd卡是否挂载了
 
@@ -273,13 +280,15 @@ SDCard.remount()
 
 烧录模型到 flsah 的时候一定要注意烧录的位置，是否正确（数清楚对应 0 的个数）。
 
-比如常见的白色花屏就是固件烧错，需要擦除重烧标准固件就正常了，主要因为屏幕配置不同导致的。
+比如常见的白色花屏以及黄屏就是固件烧错，需要擦除重烧标准固件就正常了，主要因为屏幕配置不同导致的。
 
 比如绿屏可能是摄像头损坏了输出了绿色图像。
 
 比如红屏是正常的，但需要用户下载程序。
 
 蓝屏的话需要完全擦除片内 flash 后再重新烧录。
+
+![yellow_lcd](./../../../../../news/MaixPy/mixly_application/accets/k210_usage/yellow_lcd.png)
 
 ## TypeError: Can't convert to type 错误
 
@@ -350,3 +359,55 @@ Maix Dock 不能使用 MobaXterm 或其他 不支持手动串口流控制的软�
 可以在 MaixPy IDE 顶部菜单栏 工具->打开终端->新终端->连接到串口->选择正确的串口->115200波特率 来新建一个终端，在这里面使用串口。
 
 ![sipeed_maix_dock_terminal](./../../assets/hardware/maix_dock/sipeed_maix_dock_terminal.png)
+
+## 烧录固件途中出现握手失败等报错信息
+
+![kflash_gui](./k210_usage/../../../../../../news/MaixPy/mixly_application/accets/k210_usage/kflash_gui.jpg)
+
+一般出现这个问题，先从以下几个方面判断问题（因使用环境不同造就的设备握手失败）
+1. 先判断板子上电后设备管理器是否有 `COM` 端口出现，如果没有端口出现返回安装驱动的步骤或者进行更换线材。
+2. 设备管理器出现 `COM` 端口，查看是否被别的软件（串口根据、手机助手、蓝牙、外设）占用了串口，查询不出再次更换线材或重启设备也可以。
+3. 查看 kflash_gui 的版本（是不是太低）下载页面的配置不要改动并调小波特率。
+4. 烧录前按硬件的 BOOT 键后按复位，再松开 BOOT 键尝试能不能烧录。
+5. 尝试过以上的方法都不行的话请更换电脑设备尝试，还是不行的话请联系淘宝官方客服。
+
+## 摄像头出现黑斑现象
+
+![sensor_error](./../../../../../news/MaixPy/mixly_application/accets/k210_usage/sensor_error.png)
+
+显示黑斑但是有正常画面就是摄像头内片不干净，可以把摄像头拆出来擦一擦。
+
+## 运行摄像头程序显示：RuntimeError：Sensor timeout!
+
+摄像头连接超时，尝试重新换线上电或者是换摄像头。
+
+## 烧录固件后画面反色
+
+重新擦除烧录，使用代码反色回来[点击](https://wiki.sipeed.com/soft/maixpy/zh/course/image/basic/display_images.html?highlight=%E5%8F%8D%E8%89%B2)查看。
+
+## 孤词语句模块进入录音状态后显示：空转2
+
+查看是否录音前就播放了声音导致空转，到达 `speak` 或 `speak5` 即可进一步进行操作。
+
+## k210 是否支持 TensorFlow .h5/.tflite 格式模型
+
+k210 支持 TensorFlow .h5/.tflite 格式模型，但使用的时候用 nncase 工具转化成 `kmodel.` 格式才可进行使用。相关文档链接：[MaixPy AI 硬件加速基本知识](https://wiki.sipeed.com/soft/maixpy/zh/course/ai/basic/maixpy_hardware_ai_basic.html?highlight=tensorflow#%E6%A8%A1%E5%9E%8B%E8%BD%AC%E6%8D%A2)
+
+## 当操作失误需判断 K210 主控芯片是否短路
+
+使用万用表查看芯片的 `1.8/3.3` 是否有输出，下图红框都是输出点。
+
+![k210](./assets/maixpy_faq/k210.jpg)
+
+## 使用 k210 曝光过重过低如何解决
+
+这个解决方法只基于 k210 开发板及配套的摄像头（OV2640）才可进行调整曝光。
+参考文档：[sensor 感光元件曝光控制](https://wiki.sipeed.com/news/MaixPy/sensor.html)
+
+## K210 是否支持 U 盘挂载到电脑
+
+MaixPy 不支持挂载文件系统到电脑，芯片没有 USB 功能无法模拟 U 盘设备，不要再问为什么没有 U 盘或者是显示 SD 卡了！那不是 K210 那是 M2dock 跟 openmv!
+
+## K210 上电后电脑弹出 USB 集线有电涌
+
+通常来说这是 K210 太吸电了导致电脑进入保护状态了，如果串口消失考虑换线换口进行使用，如果以上操作后还是无反应的话则要考虑更换电脑设备使用，反之串口存在的话即可正常使用。
