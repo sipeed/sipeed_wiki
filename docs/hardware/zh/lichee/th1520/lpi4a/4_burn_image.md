@@ -30,6 +30,7 @@ update:
 ![press_boot](./assets/burn_image/press_boot.png)
 
 在 Windows 下使用设备管理器查看，会出现 “USB download gadget” 设备。
+
 在 Linux 下，使用 `lsusb` 查看设备，会显示以下设备： `ID 2345:7654 T-HEAD USB download gadget`
 
 ### 正式版硬件
@@ -38,19 +39,27 @@ TODO
 
 ### Windows 下驱动安装
 
-Windows 下初次使用需要安装驱动，注意由于该驱动未经过数字签名，需要用户手工禁用数字签名。
+Windows 下烧录时，需要先进入高级启动模式，禁用数字签名。才能正常安装下面的驱动。
+
 ![before_install_driver](./assets/burn_image/before_install_driver.png)
 ![install_driver](./assets/burn_image/install_driver.png)
 
 ## 烧录镜像
 
 进入烧录模式后，可使用 burn_tool.zip 内的 fastboot 进行烧录操作，注意可能需要先赋予 fastboot 可执行权限。
-以 linux 下为例：
 
+### Windows 系统步骤
+
+编辑 burn_tool.zip 文件夹里面的 `burn_lpi4a.bat` 文件，将对应的镜像路径更改成自己实际使用的镜像及名称。然后双击运行 `burn_lpi4a.bat` 就能够正常进行烧录了。
+
+![target_burn_image_path](./assets/burn_image/target_burn_image_path.png)
+
+### Linux 系统步骤
 
 在按住BOOT按键的条件下，系统在reset启动后，会默认进入fastboot模式，
 这时侯我们可以通过fastboot下载并启动u-boot镜像的命令，来进入到u-boot的fastboot烧录模式（相比Brom阶段，会有更大下载buffer，速度会更快）
 下面的指令会检查并格式化分区，请务必执行，否则后面烧录 rootfs 会很慢。
+
 ```bash
 sudo ./fastboot flash ram ./images/u-boot-with-spl.bin
 sudo ./fastboot reboot
