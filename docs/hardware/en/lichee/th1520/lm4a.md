@@ -11,7 +11,7 @@ update:
 
 ## Introduction
 
-Tje LicheePi 4A Module is the Core Module using the [T-Head](https://www.t-head.cn/) RISC-V [TH1520](https://www.t-head.cn/product/yeying) SOC, which contains 4 RISC-V C910 based cores and a 4TOPS@int8 AI NPU. It supports 16GB of LPDDR4X RAM and 128GB of eMMC storage. The board features two Gigabit Ethernet controllers and up to 4K video output. The SOC also contains an additional C906 processor for audio processing. Because of the SODIMM style board, the LicheePi 4A Module can be used in various scenarios and is suitable for various types of baseboards.
+The LicheePi 4A Module is the Core Module using the [T-Head](https://www.t-head.cn/) RISC-V [TH1520](https://www.t-head.cn/product/yeying) SOC, which contains 4 RISC-V C910 based cores and a 4TOPS@int8 AI NPU. It supports 16GB of LPDDR4X RAM and 128GB of eMMC storage. The board features two Gigabit Ethernet controllers and up to 4K video output. The SOC also contains an additional C906 processor for audio processing. Because of the SODIMM style board, the LicheePi 4A Module can be used in various scenarios and is suitable for various types of baseboards.
 
 ## Parameters
 

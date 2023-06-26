@@ -267,27 +267,27 @@
                   "file":"lichee/th1520/lpi4a/6_peripheral.md"
               },
               {
-                  "label":"系统开发",
+                  "label":"System building",
                   "items":[
                     {
                       "label":"THead Yocto",
                       "file":"lichee/th1520/lpi4a/7_develop_thead.md"
                     },
                     {
-                      "label":"Linux 主线 (编写中)"
+                      "label":"Linux Mainline (Work in Progress)"
                     },
                     {
                       "label":"revyos",
                       "file":"lichee/th1520/lpi4a/7_develop_revyos.md"
                     },
                     {
-                      "label":"Android (编写中)"
+                      "label":"Android (Work in Progress)"
                     },
                     {
-                      "label":"OpenHarmony (编写中)"
+                      "label":"OpenHarmony (Work in Progress)"
                     },
                     {
-                      "label":"OpenWRT (编写中)"
+                      "label":"OpenWRT (Work in Progress)"
                     }
                   ]
               },

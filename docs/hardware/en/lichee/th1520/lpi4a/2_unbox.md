@@ -13,8 +13,7 @@ update:
 
 There are two versions of the LicheePi 4A board, the closed beta version and the official version.
 The closed beta version was released in May 2023. There is only one version of the board with 8+8 (DDR+eMMC).
-The official version is expected to release in June 2023. There will be a 8+32, 16+128 version, with some minor adjustments and fixes based on the feedback from the closed beta version users. The functionality and images will
-stay the same as the closed beta version.
+The official version is expected to release in June 2023. There will be a 8+32, 16+128 version, with some minor adjustments and fixes based on the feedback from the closed beta version users. The functionality and images will stay the same as the closed beta version.
 
 ### Closed Beta Version
 
@@ -23,14 +22,14 @@ If you received the board as part of the closed beta program, you will receive t
 
 The opened box will look like this：
 ![unbox_alpha](./../../../../zh/lichee/th1520/lpi4a/assets/unbox/unbox_alpha.png) 
-the main body of LicheePi 4A is wrapped in black foam, and the other labeled parts are:
+
+The main body of LicheePi 4A is wrapped in black foam, and the other labeled parts are:
 1. 30x30mm thermal grease pad, used to attach the heatsink to the CPU.
 2. 30mm 5V cooling fan. The connector should be plugged into the 5V fan header on the board. Note: The red wire is the positive wire and should be connected to the + pole. The fan will not work if you reverse the polarity.
 3. 2.4G WiFi Antenna, already connected to the IPEX socket. If it comes loose please re-attach it yourself.
 4. USB-C cable, used for power supply and image flashing.
 
 If you miss any part during unpacking, please contact customer service for help.
-
 
 ### Offical Version
 
@@ -40,11 +39,12 @@ If you miss any part during unpacking, please contact customer service for help.
 
 If you have purchased the optional accessories, these parts may also be included in the package:
 ![option_alpha](./../../../../zh/lichee/th1520/lpi4a/assets/unbox/option_alpha.png)
-In the upper part of the picture is the optional RVDebugger Plus, which has JTAG+UART function. If you need to do low-level debugging, you can purchase it as an option.
+
+In the upper part of the picture is the optional RVDebugger Plus, which has JTAG+UART function. If you need to do underlying debugging, you can purchase it as an option.
 
 The lower part of the picture is the optional 12V2A power adapter, if you need to connect a lot of power-consuming peripherals (such as USB, MIPI screen) to the board, you can buy it as an option.
 
-A 5V 2A USB power supply can run the board with full-load at 1.85GHz
+A `5V 2A USB power supply` can run the board with full-load at 1.85GHz
 
 There will be an POE Power Add-on Module/Board in the future as well.
 
@@ -114,7 +114,7 @@ The PoE module should be installed like this：
 
 ### Assembly completed
 
-This is how the fully assembled board looks like:
+This is what the fully assembled board looks like:
 ![assemble_ok](./../../../../zh/lichee/th1520/lpi4a/assets/unbox/assemble_ok.png)
 
 ## Booting the board

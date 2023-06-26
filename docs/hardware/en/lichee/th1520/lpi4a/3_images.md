@@ -24,7 +24,7 @@ The default image has two types of account and password configurations, you can 
 2. User: `debian`，password: `debian`； user: `sipeed`，password: `licheepi`
 
 Download Links:
-<!-- 百度网盘：[点我](https://pan.baidu.com/e/1jnjz0KO_xnO5R8tWlXtx0A) -->
+
 Mega Cloud Storage：[click me](https://mega.nz/folder/phoQlBTZ#cZeQ3qZ__pDvP94PT3_bGA)
 ISCAS mirror: [click me](https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/)
 
