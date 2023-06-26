@@ -1,5 +1,5 @@
 ---
-title: 烧录镜像
+title: Flashing an Image
 keywords: Linux, Lichee, TH1520, SBC, RISCV, image
 update:
   - date: 2023-05-08

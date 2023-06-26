@@ -11,7 +11,7 @@ update:
 
 ## Introduction
 
-LicheePi Module 4A is the Core Module using the [T-Head](https://www.t-head.cn/) RISC-V [TH1520](https://www.t-head.cn/product/yeying) SOC, containing 4 Risc-V C910 cores and 4TOPS@int8 AI NPU inside, supports 16GB LPDDR4X ram and 128GB eMMC storage, supports double gigabit Ethernet and maximum 4K resolution video output. The core also contains an additional C906 processor for audio processing. Because of the SODIMM style package, the LicheePi Module 4A can be used in various scenarios and is suitable for various types of baseboards.
+Tje LicheePi 4A Module is the Core Module using the [T-Head](https://www.t-head.cn/) RISC-V [TH1520](https://www.t-head.cn/product/yeying) SOC, which contains 4 RISC-V C910 based cores and a 4TOPS@int8 AI NPU. It supports 16GB of LPDDR4X RAM and 128GB of eMMC storage. The board features two Gigabit Ethernet controllers and up to 4K video output. The SOC also contains an additional C906 processor for audio processing. Because of the SODIMM style board, the LicheePi 4A Module can be used in various scenarios and is suitable for various types of baseboards.
 
 ## Parameters
 
@@ -28,7 +28,7 @@ LicheePi Module 4A is the Core Module using the [T-Head](https://www.t-head.cn/)
 </tr>
 <tr>
   <td>CPU</td>
-  <td>RISC-V 64GCV C910*4@2GHz <br>· Each core contains 64KB I cache amd 64KB D Cache <br>· Shared 1MB L2 Cache <br>· Support TEE and REE, configered at core booting<br>· Support multi-core debugging framework of custom and RISC-V compatible interface<br>· Independent power domain, supports DVFS</td>
+  <td>RISC-V 64GCV C910*4@2GHz <br>· Each core contains 64KB I cache amd 64KB D Cache <br>· 1MB of Shared L2 Cache <br>· Support TEE and REE, configured during core booting<br>· Support multi-core debugging framework of custom and RISC-V compatible interface<br>· Independent power domain, supports DVFS</td>
 </tr>
 <tr>
   <td>GPU</td>
@@ -40,18 +40,18 @@ LicheePi Module 4A is the Core Module using the [T-Head](https://www.t-head.cn/)
 </tr>
 <tr>
   <td>Decode</td>
-  <td>Real-time decoder, support H.265/H.264/VP9/8/7/6/AVS/AVS+/AVS2.0/VC1/MPEG4 <br>· Support H.264 BP/MP/HP@level 5.1 decoding, up to 4K resolution<br>· Support H.265/HEVC Main Profile@level 5.1 decoding, up to 4K resolution<br>· Support VP9 Profile-2 decoding, up to 4K resolution<br>· Support AVS2.0 decoding, up to 4K resolution<br>· Support VP6/7/8/AVS/AVS+/VC1/MPEG4 decoding, up to 1920x1080 resolution<br>· Decoding at 4K@75fps maximum</td>
+  <td>Real-time decoder, support H.265/H.264/VP9/8/7/6/AVS/AVS+/AVS2.0/VC1/MPEG4 <br>· Supports H.264 BP/MP/HP@level 5.1 decoding, up to 4K resolution<br>· Supports H.265/HEVC Main Profile@level 5.1 decoding, up to 4K resolution<br>· Supports VP9 Profile-2 decoding, up to 4K resolution<br>· Supports AVS2.0 decoding, up to 4K resolution<br>· Supports VP6/7/8/AVS/AVS+/VC1/MPEG4 decoding, up to 1920x1080 resolution<br>· Decoding at 4K@75fps maximum</td>
 </tr>
 <tr>
   <td>Encode</td>
-  <td>· Support H.264 BP/MP/HP@level4.2 encoding, up to 4K resolution<br>· Support H.265/HEVC Main Profile encoding, up to 4K resolution<br>· Only support I-frame and P-frame<br>· Encoding at 4K@40fps maximum</td>
+  <td>· Supports H.264 BP/MP/HP@level4.2 encoding, up to 4K resolution<br>· Supports H.265/HEVC Main Profile encoding, up to 4K resolution<br>· Only supports I-frames and P-frames<br>· Encoding at 4K@40fps maximum</td>
 </tr>
 <tr>
   <th colspan=2>Hardware information</th>
 </tr>
 <tr>
   <td>RAM</td>
-  <td>· 8GB 64bits LPDDR4<br>· 16GB 64bits LPDDR4<br></td>
+  <td>· 8GB 64bit LPDDR4<br>· 16GB 64bit LPDDR4<br></td>
 </tr>
 <tr>
   <td>ROM</td>
@@ -59,7 +59,7 @@ LicheePi Module 4A is the Core Module using the [T-Head](https://www.t-head.cn/)
 </tr>
 <tr>
   <td>Ethernet</td>
-  <td> Gigabit PHY x 2</td>
+  <td> 2x Gigabit PHY</td>
 </tr>
 </tbody>
 </table>

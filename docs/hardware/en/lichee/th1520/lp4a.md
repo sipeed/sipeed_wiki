@@ -88,10 +88,10 @@ Online store:[Aliexpress](https://www.aliexpress.com/item/1005005532736080.html)
 
 ## Links
 
-[Specification](https://dl.sipeed.com/shareURL/LICHEE/licheepi4a/01_Specification)
+[Specification / Datasheet](https://dl.sipeed.com/shareURL/LICHEE/licheepi4a/01_Specification)
 [Schematic](https://dl.sipeed.com/shareURL/LICHEE/licheepi4a/02_Schematic)
-[Bit_number_map](https://dl.sipeed.com/shareURL/LICHEE/licheepi4a/03_Bit_number_map)
-[Dimensional_drawing](https://dl.sipeed.com/shareURL/LICHEE/licheepi4a/04_Dimensional_drawing)
-[3D_model](https://dl.sipeed.com/shareURL/LICHEE/licheepi4a/05_3D_model)
+[BOM](https://dl.sipeed.com/shareURL/LICHEE/licheepi4a/03_Bit_number_map)
+[Dimensional Drawing](https://dl.sipeed.com/shareURL/LICHEE/licheepi4a/04_Dimensional_drawing)
+[3D Model](https://dl.sipeed.com/shareURL/LICHEE/licheepi4a/05_3D_model)
 
 [Github](https://github.com/sipeed/LicheePi4A)
