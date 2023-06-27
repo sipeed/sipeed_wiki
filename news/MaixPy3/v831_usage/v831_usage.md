@@ -499,10 +499,9 @@ echo "usb_device" > /sys/devices/platform/soc/usbc0/otg_role
 
 ### 系统环境搭建
 
-- 安装 vscode 和换源：[点击前往](https://fishros.org.cn/forum/topic/20/%E5%B0%8F%E9%B1%BC%E7%9A%84%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85%E7%B3%BB%E5%88%97)
-- 安装输入法：[点击前往](https://shurufa.sogou.com/linux/guide)
-- 安装截图工具：[点击安装](https://zhuanlan.zhihu.com/p/88325211)并设置快捷键为 `ctrl + alt + a`。
-- 安装魔法上网工具：自行安装
+- Ubuntu 镜像下载: [中科大源](https://mirrors.ustc.edu.cn/ubuntu-releases/)
+- 安装 vscode 和换源：这里借助一下 [小鱼脚本](https://fishros.org.cn/forum/topic/20/%E5%B0%8F%E9%B1%BC%E7%9A%84%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85%E7%B3%BB%E5%88%97)
+- 工具链: [toolchain-sunxi-musl-pack-2021-01-09.tar.xz](https://dl.sipeed.com/shareURL/MaixII/MaixII-Dock/SDK/Toolchain)
 
 ### MaixPy3 架构介绍
 
@@ -559,12 +558,12 @@ echo "usb_device" > /sys/devices/platform/soc/usbc0/otg_role
 
 > 参考下文给出的资料文章链接配置相关开发环境。
 
-1. [V831 如何使用 libmaix SDK C++ 开发](https://wiki.sipeed.com/news/MaixPy3/run_lvgl/run_lvgl.html)
-2. [Linux 连接不上 adb 设备](https://wiki.sipeed.com/news/others/linux_adb/linux_adb.html)
+1. V831 如何使用 libmaix SDK C++ 开发: [点我跳转](https://wiki.sipeed.com/news/MaixPy3/run_lvgl/run_lvgl.html)
+2. Linux 连接不上 adb 设备: [点我跳转](https://wiki.sipeed.com/news/others/linux_adb/linux_adb.html)
 
 完成上面的环境配置后，这里提供了可运行的 `Demo` 内容就是如何使用 V831 LINUX C++ 进行图像视觉处理和开发，在此我们提供了 `串口 + mv cv ai` 的示例项目，供开发者评估使用，此处不涉及到 ISP 调试，需要进一步 ISP 图像调试则需要联系 SIPEED。
 
->相关资料：[libmaix](https://github.com/sipeed/libmaix/blob/6ad1102a0527bd3d394c0b1de82cbf64d6eac40d/components/maix_dls831/src/dls831_uvai.cpp#L435-L663)
+> 相关资料：[libmaix](https://github.com/sipeed/libmaix/blob/6ad1102a0527bd3d394c0b1de82cbf64d6eac40d/components/maix_dls831/src/dls831_uvai.cpp#L435-L663)
 
 **操作步骤**：连接上板子的 OTG 接口后，在 `/libmaix/libmaix/examples/app_dls831` 目录下使用 `make` 下进行编译（编写好的脚本会自动把编译好的文件上传并运行）。
 
@@ -607,7 +606,7 @@ echo "usb_device" > /sys/devices/platform/soc/usbc0/otg_role
 
 在出厂镜像中我们已内置了相关的人脸检测的模型，无需用户再次下载。
 
-```C++
+```cpp
 static struct _nn_yolo_face_
   { 
 	//模型地址，需要提前通过adb传到板子里，下列模型出厂固件已经自带
@@ -794,9 +793,9 @@ LIBMAIX_INFO_PRINTF("yolo2_result.boxes_num %d", self->yolo2_result.boxes_num);
 AdaptiveThreshold(gray, gray, 255, 21, 10, meanFilter);`
 ```
 
-**前文的例子中不仅有 Opencv 的常用算法，也提供了 Opencv 的画图方法。**
+** 前文的例子中不仅有 Opencv 的常用算法，也提供了 Opencv 的画图方法。 **
 
-```C++
+```cpp
 // 绘制十字线
 for (size_t i = 0; i < reticle_results.size(); i++)
 {
