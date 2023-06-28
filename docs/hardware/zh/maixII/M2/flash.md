@@ -38,6 +38,9 @@ desc: maixpy  MaixII M2dock 烧录系统
 
 > 上述镜像均为开源版，只适用于 TF 卡烧录启动
 
+在内置 maixhub 的镜像中，删除 `/root/app` 文件夹里面的内容就等同于烧录了不含 maixhub 的镜像。
+在没有内置 maixhub 的系统镜像镜像中，按照 [maixhub app](https://maixhub.com/app/1) 页面的说明，将 app 文件夹存放到正确的位置，就相当于烧录了内置 maixhub 的镜像。
+
 ## Windows 上使用 PhoenixCard 烧录镜像
 
 PhoenixSuit 和 PhoenixCard 是常用来烧录全志科技芯片的两种工具，前者通过 USB 烧录到板载的 flash，后者用于烧录镜像到 TF 卡中。
