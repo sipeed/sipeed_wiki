@@ -21,7 +21,7 @@ desc: maixpy  MaixII M2dock 烧录系统
 
 从下载站获取最新的 V831 系统镜像 [SDK_MaixII/release](https://dl.sipeed.com/shareURL/MaixII/MaixII-Dock/SDK/release) ,得到一个压缩包，解压之后就得到一个 .img 文件，这个就是系统镜像文件
 
-> 如果下载站下载的很慢，建议使用百度网盘进行下载，下载站的下载带宽有限。链接：[点我](https://pan.baidu.com/s/1Yrqpk26BL3sOCm4P1cMpBQ)，提取码 `v831`
+> 如果下载站下载的很慢，建议使用百度网盘进行下载，下载站的下载带宽有限。链接：[点我](https://pan.baidu.com/s/1vCExI3_48Q90JrxO70JdiQ)
 
 ### 镜像文件命名说明
 
