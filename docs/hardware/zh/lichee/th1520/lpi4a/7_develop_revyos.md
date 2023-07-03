@@ -22,7 +22,6 @@ sudo apt update && \
 ```
 **注意，clone下面的repo时请检查是否为对应分支：**
 **kernel分支为lpi4a**
-**gpu驱动模块分支为master**
 **uboot分支为lpi4a**
 **opensbi分支为lpi4a**
 **各仓库请使用最新版本**
@@ -30,58 +29,47 @@ sudo apt update && \
 首先请clone用到的repo，并建立好对应文件夹（下列路径均假设根目录为用户目录下）
 ```shell
 git clone https://github.com/revyos/thead-kernel.git kernel
-git clone https://github.com/revyos/gpu_bxm_4_64-kernel.git img_module
 ```
 配置编译工具链
 ```shell
-mkdir rootfs && mkdir rootfs/boot
 wget ${xuetie_toolchain}/${toolchain_file_name}
 tar -xvf ${toolchain_file_name} -C /opt
 export PATH="/opt/Xuantie-900-gcc-linux-5.10.4-glibc-x86_64-V2.6.1/bin:$PATH"
 ```
+创建安装目标目录
+```shell
+mkdir rootfs && mkdir rootfs/boot
+```
 编译内核
 ```shell
 pushd kernel
-make CROSS_COMPILE=${toolchain_tripe} ARCH=${ARCH} light_defconfig
+make CROSS_COMPILE=${toolchain_tripe} ARCH=${ARCH} revyos_defconfig
 make CROSS_COMPILE=${toolchain_tripe} ARCH=${ARCH} -j$(nproc)
 make CROSS_COMPILE=${toolchain_tripe} ARCH=${ARCH} -j$(nproc) dtbs
 if [ x"$(cat .config | grep CONFIG_MODULES=y)" = x"CONFIG_MODULES=y" ]; then
-sudo make CROSS_COMPILE=${toolchain_tripe} ARCH=${ARCH} INSTALL_MOD_PATH=${GITHUB_WORKSPACE}/rootfs/ modules_install -j$(nproc)
+    sudo make CROSS_COMPILE=${toolchain_tripe}  ARCH=${ARCH} INSTALL_MOD_PATH=${GITHUB_WORKSPACE}/rootfs/ modules_install -j$(nproc)
 fi
-sudo make CROSS_COMPILE=${toolchain_tripe} ARCH=${ARCH} INSTALL_PATH=${GITHUB_WORKSPACE}/rootfs/boot zinstall -j$(nproc)
+sudo make CROSS_COMPILE=${toolchain_tripe}  ARCH=${ARCH} INSTALL_PATH=${GITHUB_WORKSPACE}/rootfs/boot zinstall -j$(nproc)
 ```
-初步打包内核、设备树文件
+构建perf（根据需要构建）
+```shell
+make CROSS_COMPILE=riscv64-unknown-linux-gnu- ARCH=riscv LDFLAGS=-static NO_LIBELF=1 NO_JVMTI=1 VF=1 -C tools/perf/
+sudo cp -v tools/perf/perf ${GITHUB_WORKSPACE}/rootfs/sbin/perf-thead
+```
+记录 commit-id
+```shell
+git rev-parse HEAD > kernel-commitid
+sudo cp -v kernel-commitid ${GITHUB_WORKSPACE}/rootfs/boot/
+```
+安装内核、设备树到目标目录
 ```shell
 sudo cp -v arch/riscv/boot/Image ${GITHUB_WORKSPACE}/rootfs/boot/
 sudo cp -v arch/riscv/boot/Image.gz ${GITHUB_WORKSPACE}/rootfs/boot/
-sudo cp -v arch/riscv/boot/dts/thead/*.dtb ${GITHUB_WORKSPACE}/rootfs/boot/
+sudo cp -v arch/riscv/boot/dts/thead/light-lpi4a.dtb ${GITHUB_WORKSPACE}/rootfs/boot/
 popd
 ```
-编译驱动模块
-```shell
-export PVR_BUILD_DIR=thead_linux
-export PVR_ARCH=rogue
-export RGX_BVNC=36.52.104.182
-export RGX_BNC=36.52.104.182
-export CROSS_COMPILE=${toolchain_tripe}
+之后只需要把rootfs中内容拷贝或覆盖到对应目录即可，注意内核Image和内核module目录一定要对应，不然会因缺失内核模块导致外设功能失效。
 
-pushd img_module/rogue_km
-export KERNELDIR=${GITHUB_WORKSPACE}/kernel/
-make
-for kernel_version in $(ls ${GITHUB_WORKSPACE}/rootfs/lib/modules/);
-do
-	  sudo install -D -p -m 644 binary_thead_linux_wayland_release/target_riscv64/kbuild/drm_nulldisp.ko \
-"${GITHUB_WORKSPACE}/rootfs/lib/modules/${kernel_version}/extra/drm_nulldisp.ko"
-	sudo install -D -p -m 644 binary_thead_linux_wayland_release/target_riscv64/kbuild/pvrsrvkm.ko \
-"${GITHUB_WORKSPACE}/rootfs/lib/modules/${kernel_version}/extra/pvrsrvkm.ko"
-	sudo depmod -a -b "${GITHUB_WORKSPACE}/rootfs" "${kernel_version}"
-done
-popd
-```
-查看编译生成的文件
-```shell
-tree ${GITHUB_WORKSPACE}/rootfs
-```
 ### 构建uboot
 注意，此时仍在th1520_build目录下，且已经配置好环境变量和工具链，步骤参考构建kernel。
 ```shell
@@ -90,13 +78,11 @@ git clone https://github.com/revyos/thead-u-boot.git uboot
 然后开始执行编译命令
 ```shell
 pushd uboot
-sed -i "s/YYLTYPE yylloc;/extern YYLTYPE yylloc;/" scripts/dtc/dtc-lexer.l
 make ARCH=${ARCH} CROSS_COMPILE=${toolchain_tripe} light_lpi4a_defconfig
 make ARCH=${ARCH} CROSS_COMPILE=${toolchain_tripe} -j$(nproc)
 find . -name "u-boot-with-spl.bin" | xargs -I{} cp -av {} ${GITHUB_WORKSPACE}/rootfs/boot/u-boot-with-spl-lpi4a.bin
 popd
 ```
-上述过程中，可能会遇到重复定义`YYLTYPE yylloc`问题，按照报错信息找到重复定义的那一行删掉多余的`extern`即可，典型文件位置如下`uboot/scripts/dtc/dtc-lexer.lex.c`。
 检查输出的文件
 ```shell
 tree ${GITHUB_WORKSPACE}/rootfs
@@ -122,5 +108,3 @@ tree ${GITHUB_WORKSPACE}/rootfs
 ```shell
 tar -zcvf kernel.tar.gz rootfs
 ```
-### 提示
-第一次修改源码编译后，若只替换内核部分可能会导致USB hub无法正常工作，因为USB是模块，还需要将编译出来的/lib/modules这个目录整个替换进去，并且替换时注意编译后使用的内核版本是否对应这里的版本（可在kernel中使用uname -r查看你现在所使用的版本信息）
