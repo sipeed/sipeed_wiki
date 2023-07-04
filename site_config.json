@@ -139,10 +139,7 @@
         "teedoc-plugin-baidu-tongji":{
             "from": "pypi",
             "config": {
-                "code": [
-                    "9cb07365544a53067c56c346c838181a",
-                    "0eaf7207e594d0eccb06dcc2cd84d018"
-                ]
+                "code": "9cb07365544a53067c56c346c838181a"
             }
         },
         "teedoc-plugin-google-analytics":{
