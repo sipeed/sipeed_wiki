@@ -53,7 +53,6 @@ export PATH="/opt/Xuantie-900-gcc-linux-5.10.4-glibc-x86_64-V2.6.1/bin:$PATH"
 ```
 
 创建安装目标目录
-
 ```shell
 mkdir rootfs && mkdir rootfs/boot
 ```
@@ -69,8 +68,6 @@ if [ x"$(cat .config | grep CONFIG_MODULES=y)" = x"CONFIG_MODULES=y" ]; then
     sudo make CROSS_COMPILE=${toolchain_tripe}  ARCH=${ARCH} INSTALL_MOD_PATH=${GITHUB_WORKSPACE}/rootfs/ modules_install -j$(nproc)
 fi
 sudo make CROSS_COMPILE=${toolchain_tripe}  ARCH=${ARCH} INSTALL_PATH=${GITHUB_WORKSPACE}/rootfs/boot zinstall -j$(nproc)
-sudo make CROSS_COMPILE=riscv64-unknown-linux-gnu- ARCH=riscv INSTALL_MOD_PATH=${GITHUB_WORKSPACE}/rootfs/ modules_install -j$(nproc)
-sudo make CROSS_COMPILE=riscv64-unknown-linux-gnu- ARCH=riscv INSTALL_PATH=${GITHUB_WORKSPACE}/rootfs/boot zinstall -j$(nproc)
 ```
 
 构建perf（根据需要构建）
@@ -92,14 +89,13 @@ sudo cp -v kernel-commitid ${GITHUB_WORKSPACE}/rootfs/boot/
 ```shell
 sudo cp -v arch/riscv/boot/Image ${GITHUB_WORKSPACE}/rootfs/boot/
 sudo cp -v arch/riscv/boot/Image.gz ${GITHUB_WORKSPACE}/rootfs/boot/
-sudo cp -v arch/riscv/boot/dts/thead/*.dtb ${GITHUB_WORKSPACE}/rootfs/boot/
+sudo cp -v arch/riscv/boot/dts/thead/light-lpi4a.dtb ${GITHUB_WORKSPACE}/rootfs/boot/
 popd
 ```
 
 之后只需要把rootfs中内容拷贝或覆盖到对应目录即可，注意内核Image和内核module目录一定要对应，不然会因缺失内核模块导致外设功能失效。
 
-## 构建uboot
-
+### 构建uboot
 注意，此时仍在th1520_build目录下，且已经配置好环境变量和工具链，步骤参考构建kernel。
 
 ```shell
@@ -115,6 +111,8 @@ make ARCH=${ARCH} CROSS_COMPILE=${toolchain_tripe} -j$(nproc)
 find . -name "u-boot-with-spl.bin" | xargs -I{} cp -av {} ${GITHUB_WORKSPACE}/rootfs/boot/u-boot-with-spl-lpi4a.bin
 popd
 ```
+
+检查输出的文件
 
 ```shell
 tree ${GITHUB_WORKSPACE}/rootfs
