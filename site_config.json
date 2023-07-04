@@ -139,7 +139,10 @@
         "teedoc-plugin-baidu-tongji":{
             "from": "pypi",
             "config": {
-                "code": "9cb07365544a53067c56c346c838181a"
+                "code": [
+                    "9cb07365544a53067c56c346c838181a",
+                    "0eaf7207e594d0eccb06dcc2cd84d018"
+                ]
             }
         },
         "teedoc-plugin-google-analytics":{
@@ -156,7 +159,7 @@
                     "clientSecret": "105f1bf3dee8f3b8c0cecfcfbdb1c273a3babb12",
                     "repo": "sipeed_wiki",
                     "owner": "sipeed",
-                    "admin": ["Neutree", "STRfarfar"],
+                    "admin": ["Neutree", "wonderfullook"],
                     "main_color": "#FF6B63",
                     "second_color": "#e25d55",
                     "adminAutoCreate": false

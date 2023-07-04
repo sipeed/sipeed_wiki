@@ -292,6 +292,20 @@ SLogic 全称为 Sipeed Logic Analyzer，是逻辑分析仪。
 | DapLink 功能     |                                               | 支持                                          |
 | 串口功能         |                                               | 支持四串口功能，每个串口最大20MBps            |
 
+SLogic Combo8 功能指示
+
+| LED 状态 | 功能 |
+| --- | --- |
+
+| 111 | SLogic | 110 | UARTx4 | 101 | DAPLink | 100 | CKLink |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| CH7 | CH6 | RX1 | RX3 | RTS | TMS/SWDIO | RTS | TMS |
+| CH5 | CH4 | TX1 | TX3 | DTR | TDO | DTR | TDO |
+| CH3 | CH2 | RX0 | RX2 | RXD | TDI | RXD | TDI |
+| CH1 | CH0 | TX0 | TX2 | TXD | TCK/SWCLK | TXD | TCK |
+| 3V3 | 5V | 3V3 | 5V | 3V3 | 5V | 3V3 | 5V  |
+| GND | GND | GND | GND | GND | GND | GND | GND |
+
 ## Longon 系列
 
 MCU 开发板
