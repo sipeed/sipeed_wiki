@@ -85,7 +85,7 @@ update:
 - **获取相关的镜像包及工具**
 
 1. V831 系统镜像下载站 [SDK_MaixII/release](https://dl.sipeed.com/shareURL/MaixII/MaixII-Dock/SDK/release) 
-2. V831 系统镜像百度云 [点我 提取码：v831](https://pan.baidu.com/e/verify?surl=Yrqpk26BL3sOCm4P1cMpBQ)
+2. V831 系统镜像百度云 [点我](https://pan.baidu.com/e/1vCExI3_48Q90JrxO70JdiQ)
 3. 烧录工具 [PhoenixCard](https://dl.sipeed.com/shareURL/MaixII/MaixII-Dock/SDK/tools)
 4. 内存卡格式化工具 [SD Card Formatter](https://www.sdcard.org/downloads/formatter/eula_windows/SDCardFormatterv5_WinEN.zip)
 
