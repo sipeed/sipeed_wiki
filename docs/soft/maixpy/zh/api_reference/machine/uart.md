@@ -130,7 +130,7 @@ uart.deinit()
 
 ### 例程 1
 
-在运行里程之前，请确认 `PIN4` 已经连接到 `PIN10`， `PIN3` 已经连接到 `PIN11`
+在运行例程之前，请确认 `PIN4` 已经连接到 `PIN10`， `PIN3` 已经连接到 `PIN11`
 
 运行程序后，可以在终端看到 `baudrate:115200 bits:8 parity:0 stop:0 ---check Successfully` 的打印信息
 
