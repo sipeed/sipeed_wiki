@@ -65,6 +65,10 @@ If you don't know how to replace the programmer folder, just excute the programm
 
 If this problem still occurs after you use our recommended programmer application, try to rerun this application. If all attemps fail, see the begin of this documents about `converter`.
 
+### Cable lost
+
+Reflash bitstream to solve this. This occurs when flashing bitsteram, board and computer does not well disconneted.
+
 ### Cabel open failed
 
 ![cable_open_failed](./../../../zh/tang/Tang-Nano-Doc/assets/qusetions/cable_open_failed.png)
