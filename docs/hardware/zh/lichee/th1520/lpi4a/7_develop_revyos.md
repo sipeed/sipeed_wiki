@@ -88,7 +88,6 @@ sudo cp -v kernel-commitid ${GITHUB_WORKSPACE}/rootfs/boot/
 
 ```shell
 sudo cp -v arch/riscv/boot/Image ${GITHUB_WORKSPACE}/rootfs/boot/
-sudo cp -v arch/riscv/boot/Image.gz ${GITHUB_WORKSPACE}/rootfs/boot/
 sudo cp -v arch/riscv/boot/dts/thead/light-lpi4a.dtb ${GITHUB_WORKSPACE}/rootfs/boot/
 popd
 ```
@@ -108,7 +107,7 @@ git clone https://github.com/revyos/thead-u-boot.git uboot
 pushd uboot
 make ARCH=${ARCH} CROSS_COMPILE=${toolchain_tripe} light_lpi4a_defconfig
 make ARCH=${ARCH} CROSS_COMPILE=${toolchain_tripe} -j$(nproc)
-find . -name "u-boot-with-spl.bin" | xargs -I{} cp -av {} ${GITHUB_WORKSPACE}/rootfs/boot/u-boot-with-spl-lpi4a.bin
+find . -name "u-boot-with-spl.bin" | xargs -I{} cp -av {} ${GITHUB_WORKSPACE}/rootfs/u-boot-with-spl.bin
 popd
 ```
 
@@ -131,7 +130,7 @@ git clone https://github.com/revyos/thead-opensbi.git opensbi
 ```shell
 pushd opensbi
 make PLATFORM=generic ARCH=${ARCH} CROSS_COMPILE=${toolchain_tripe} 
-sudo install -D -p -m 644 build/platform/generic/firmware/fw_payload.bin \
+sudo install -D -p -m 644 build/platform/generic/firmware/fw_dynamic.bin \
 "${GITHUB_WORKSPACE}/rootfs/boot/"
 popd
 ```
@@ -146,3 +145,8 @@ tree ${GITHUB_WORKSPACE}/rootfs
 ```shell
 tar -zcvf kernel.tar.gz rootfs
 ```
+要使用构建的文件，则将压缩包中文件替换到相应位置即可。
+将boot.ext4中要替换的文件删掉，然后rootfs/boot/下的文件放到boot.ext4中；
+将rootfs/lib/modules/替换掉rootfs.ext4中的/lib/modules/目录；
+若构建了perf了，将rootfs/sbin下的文件替换掉rootfs.ext4中/sbin下的文件；
+uboot直接烧录即可。
