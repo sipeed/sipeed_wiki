@@ -80,6 +80,10 @@ update:
 
 确定设备管理器中的 `convertor` 和 `COM` 都存在时，可以先重启一下 programmer 软件。
 
+### Cable lost
+
+这种情况一般是因为在烧录固件时，因为数据线与开发板连接不稳定导致的。可以重新烧录一下。
+
 ### Cabel open failed
 
 ![cable_open_failed](./assets/qusetions/cable_open_failed.png)

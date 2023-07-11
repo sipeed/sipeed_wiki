@@ -7,6 +7,11 @@ update:
     author: wonder
     content:
       - Release docs
+  - date: 2023-05-08
+    version: v1.1
+    author: wonder
+    content:
+      - Update docs
 ---
 
 ## Supported kernels
@@ -32,7 +37,39 @@ ISCAS mirror: [click me](https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/)
 
 ![debian](./../../../../zh/lichee/th1520/lpi4a/assets/images/debian.png)
 
-1. LPi4A_Test_0425
+#### LPI4A_20230706.zip
+   - Release date: July 06, 2023
+   - Linux Kernel version：5.10
+   - rootfs：ext4, 4.3GB
+   4. Pre-Installed packages:
+      1. Development utilities
+      2. Office suite
+   5. Fixed issues:
+      - HDMI Display and HDMI audio detectation
+      - Fix bluebooth
+   6. Addition：
+      1. HDMI Display only, not support mipi ext-screen
+      2. Pay attention to the DDR memory.
+         1. 8gddr/16gddr means it suits board with 8g/16g ddr memory. Wrong image will not boot device.   
+#### LPI4A_20230706_mipi.zip
+   - Release date: July 06, 2023
+   - Linux Kernel version：5.10
+   - rootfs：ext4, 4.3GB
+   1. Pre-Installed packages:
+      1. Development utilities
+      2. Office suite
+   2. Fixed issues:
+      - HDMI Display and HDMI audio detectation
+      - Fix bluebooth
+   3. Known problems:
+      1. Dual display mode, mipi screen is at low resolution display, font is not clear.
+      2. Touch point is not accure when landscape display.
+   4. Addition：
+      1. Both support HDMI and mipi DSI
+      2. 8gddr/16gddr means it suits board with 8g/16g ddr memory. Wrong image will not boot device.  
+      3. mipi_720p/mipi_1080p fits the mipi DSI screen of 800x1280/1200x1920 resolution and 
+
+<!-- 1. LPi4A_Test_0425
    1. Release date: April 25, 2023
    2. Linux Kernel version: 5.10
    3. rootfs: ext4, 4.3GB
@@ -51,7 +88,7 @@ ISCAS mirror: [click me](https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/)
    5. Fixed issues:
       1. Temporarily fix the problem of terminal display lag in version 0425, but it will increase CPU usage and halve GPU efficiency
    6. Known issues:
-      1. After installing the ibus input method, the GPU will be turned on, and the problem of GPU double-buffering (graphical interface) will be reproduced.
+      1. After installing the ibus input method, the GPU will be turned on, and the problem of GPU double-buffering (graphical interface) will be reproduced. -->
 
 ### OpenWRT
 
