@@ -23,11 +23,10 @@ Tang Nano 是基于高云半导体小蜜蜂系列 GW1N-1 FPGA 的简约型开发
 
 ## 引脚定义
 
-![Nano 引脚](./../../assets/tang_nano_pinout_v1.0.0_w5676_h4000_large.png)
+![Nano 引脚](./assets/tang_nano_pinout_v1.0.0_w5676_h4000_large.png)
 
 ## 资源下载链接
 
 + [高云半导体官方下载站](http://www.gowinsemi.com.cn/faq.aspx)
-+ [dl 下载站](http://dl.sipeed.com/TANG/Nano)
-+ [Tang nano 原理图](../assets/files/Tang-NANO.pdf)
-
++ [下载站](http://dl.sipeed.com/TANG/Nano)
++ [Tang Nano 原理图](https://dl.sipeed.com/shareURL/TANG/Nano/HDK)

@@ -192,6 +192,22 @@ Maix 系列产品可以在多种场景实现客户不同方面的需要，在 AI
 </table>
 
 
+### Lichee 4A
+
+Lichee 4A 是使用了 TH1520 芯片的一系列设备，目前有 Lichee Module 4A 和 Lichee Pi 4A 两款产品
+
+Lichee Module 4A 介绍：[点我](https://wiki.sipeed.com/licheem4a)
+Lichee Pi 4A 介绍：[点我](https://wiki.sipeed.com/licheepi4a)
+
+| 条目 | 说明 |
+|:---|:---|
+|主控芯片|	TH1520|
+|CPU处理器|	RISC-V 64GCV C910*4@1.85GHz <br>· 每核支持 64KB I cache 和 64KB D Cache<br>· 四核共享 1MB L2 Cache<br>· 支持 TEE 和 REE，TEE/REE 支持核数启动时可配置<br>· 支持自定义且接口兼容 RISC-V 的多核调试框架<br>· 独立电源域，支持 DVFS|
+|图形处理器|	· OpenCL 1.1/1.2/2.0<br>· OpenGL ES 3.0/3.1/3.2<br>· Vulkan 1.1/1.2<br>· Android NN HAL<br>|
+|NPU处理器|	支持 4TOPS@INT8 通用 NNA 算力，主频 1GHz<br>· 支持 TensorFlow、ONNX、Caffe<br>· 支持 CNN、RNN、DNN 等<br>|
+|视频解码器|	实时解码器，支持 H.265/H.264/VP9/8/7/6/AVS/AVS+/AVS2.0/VC1/MPEG4<br>· 支持 H.264 BP/MP/HP@level 5.1 解码，最大 4K 分辨率<br>· 支持 H.265/HEVC Main Profile@level 5.1 解码，最大 4K 分辨率<br>· 支持 VP9 Profile-2 解码，最大 4K 分辨率<br>· 支持 AVS2.0 解码，最大 4K 分辨率<br>· 支持 VP6/7/8/AVS/AVS+/VC1/MPEG4 解码，最大 1920x1080 分辨率<br>· 解码性能最大 4K@75fps|
+|视频编码器|	· 支持 H.264 BP/MP/HP@level4.2 编码，最大 4K 分辨率<br>· 支持 H.265/HEVC Main Profile 编码，最大 4K 分辨率<br>· 仅支持 I 帧和 P 帧<br>· 编码性能最大 4K@40fps|
+
 ## Tang FPGA 系列
 
 Tang FPGA 目前分为 Tang Nano 和 Tang Primer 两个系列。

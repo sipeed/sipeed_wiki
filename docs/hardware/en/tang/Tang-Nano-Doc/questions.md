@@ -27,17 +27,17 @@ Here are some normal questions.
 
 ## Programmer 
 
-Make sure there are 2 `converter` and 1 `COM` device, this means the debugger works well.
+Make sure there are 2 `converter` and `COM` device, this means the debugger works well.
 
 ![tang_bl702_device_convertor](./../../../zh/tang/Tang-Nano-Doc/assets/qusetions/tang_bl702_device_convertor.png)
 
 The debugger can be used for Jtag and UART, when using its uart function, Jtag is disabled. To solve this, replug the TypeC cable of your board to disconnect the uart connection.
 
-### Only 2 `converter` devices
+### No `COM` devices
 
 If there is no `COM` device but 2 `converter` devices, right click `converter B` -> `Properties` -> `Advanced` -> `Load VCP` , then Click `OK` and reconnect your USB device.
 
-![tang_bl702_device_convertor_load_vcp](./assets/qusetions/tang_bl702_device_convertor_load_vcp.png)
+![tang_bl702_device_convertor_load_vcp](./../../../zh/tang/Tang-Nano-Doc/assets/qusetions/tang_bl702_device_convertor_load_vcp.png)
 
 ### No `convertor` device
 
@@ -49,13 +49,13 @@ It takes 10 seconds for debugger loading the driver. And you can install the dri
 
 Make sure the frquency is equal or lower than `2.5MHz`, otherwise it may lead some troubles like burnning bitstream file really slow or failed burnning bitstream file.
 
-<details>
-  <summary><font color="#4F84FF">Click to see steps</font></summary>
-  <img src="./../../../zh/tang/assets/questions/cable.png">
-  <p>Choose Frequency equal to or lower than 2.5MHz</p>
-  <img src="./../../../zh/tang/assets/questions/frequency.png" >
-  <p>Then cilck Save</p>
-</details>
+<img src="./../../../zh/tang/assets/questions/cable.png">
+
+Choose Frequency equal to or lower than 2.5MHz
+
+<img src="./../../../zh/tang/assets/questions/frequency.png" >
+
+Then cilck Save
 
 ### Error found
 
@@ -93,7 +93,21 @@ Click Edit->Cable Setting->Cable->Query in the top menu bar,then save.
 
 ### No Gowin devices found
 
-This means the debugger does not detect the gowin chip, try this programmer application mentioned in [Error found](#error-found).
+![no_gowin_device_found](./../../../zh/tang/Tang-Nano-Doc/assets/qusetions/no_gowin_device_found.png)
+
+This means the debugger does not detect the FPGA chip, you can use the latest [GOWIN Programmer](http://www.gowinsemi.com.cn/faq.aspx) to slove this problem.
+
+![gowin_programmer_download](./assets/questions/gowin_programmer_download.png)
+
+#### Nano 9K
+
+Because the FPGA JTAG_SEL pin is routed to Key S2, from the GOWIN mannual we can see when JTAGSEL_N=0 (Active low), Jtag is enabled.
+
+![gw1nr_9c_jtag_sel](./assets/questions/gw1nr_9c_jtag_sel.png)
+
+For Nano 9K, hold S2 key to solve the trouble caused by JTAGSEL_N and JTAG pins are being used as I/O.
+
+#### Primer 20K
 
 For 20K Dock kits, it's necessary to enable the core board before using debugger debug the chip, just put the 1 switch on the dip switch down, otherwise this error occurs.
 
@@ -142,7 +156,7 @@ This means the selected device in the project mismatch your burnning chip. All t
 | --- | --- | --- | --- | --- |
 | Tang Nano | GW1N | GW1N-1 | QN48 | C6/I5 |
 | Tang Nano 1K | GW1NZ | GW1NZ-1 | QN48 | C6/I5 |
-| Tang Nano 4K | GW1NSR | GW1NSR-4C | QN48P | C6/I5 或者 C7/I6 |
+| Tang Nano 4K | GW1NSR | GW1NSR-4C | QN48P | C6/I5 or C7/I6 |
 | Tang Nano 9K | GW1NR | GW1NR-9C | QN88P | C6/I5 |
 | Tang Nano 20K | GW2AR | GW2AR-18C | QN88 | C8/I7 |
 | Tang Primer 20K | GW2A | GW2A-18C | PBGA256 | C8/I7 |
@@ -180,13 +194,13 @@ Don't choose Operation containing Verify
 
 Make sure the frquency is equal or lower than `2.5MHz`, normally `2.5MHz` everything is ok.
 
-<details>
-  <summary><font color="#4F84FF">Click to see steps</font></summary>
-  <img src="./../../../zh/tang/assets/questions/cable.png">
-  <p>Choose Frequency equal to or lower than 2.5MHz</p>
-  <img src="./../../../zh/tang/assets/questions/frequency.png" >
-  <p>Then cilck Save</p>
-</details>
+<img src="./../../../zh/tang/assets/questions/cable.png">
+
+Choose Frequency equal to or lower than 2.5MHz
+
+<img src="./../../../zh/tang/assets/questions/frequency.png" >
+
+Then cilck Save
 
 ### Directory *** has null character.
 
@@ -196,19 +210,17 @@ Error character of the project path.
 - Check projrct path, only English works and `_` are Ok, take care of the blank character ` ` in the path.
 - Reopen the project, clean and rerun your project.
 
-### Can't find download file
+### Can't find bistream file
 
-Normally the download file with extension name `.fs` is in the impl/pnr folder under the project path.
+Normally the bistream file with extension name `.fs` is in the impl/pnr folder under the project path.
 
-<details>
-  <summary><font color="#4F84FF">Click to see steps by picture</font></summary>
-  <img src="./../../../zh/tang/assets/questions/fs_path.png">
-  <p>From the picture above we can know the path of this download file is fpga_project1/impl/pnr/fpga_project1.fs </p>
-  <p></p>
-  <p> The fpga_project1 is the project directory, the impl is generated by IDE, and the download is in the folder named pnr</p>
-  <p></p>
-  <p> The file  with extension name `.fs` is the firmware we will burn into fpga</p>
-</details>
+<img src="./../../../zh/tang/assets/questions/fs_path.png">
+
+From the picture above we can know the  of this bistream file path is `fpga_project1/impl/pnr/fpga_project1.fs`
+
+The fpga_project1 is the project directory, the impl folder is generated by IDE, and the download is in the pnr folder.
+
+The file  with extension name `.fs` is the firmware we will burn into fpga.
 
 ## IDE
 

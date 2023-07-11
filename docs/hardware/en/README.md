@@ -4,6 +4,8 @@ keywords: Sipeed, Hardware, Sipeed, Hardware specifications, Documentation, Down
 desc: Sipeed hardware documentation website
 ---
 
+> Updating, [Chinese site](https://wiki.sipeed.com/hardware/zh/index.html) is the latest one.
+
 ## Summary
 
 - [Maix-I & Zero](#maix-i--zero) AI devemopment board based on MCU

@@ -49,7 +49,7 @@ fm.fpioa.help(fm.fpioa.JTAG_TCLK)
 
 ```
 
-##### Back
+##### Return
 
 Peripheral name and its brief description
 

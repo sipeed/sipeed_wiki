@@ -14,7 +14,7 @@ Sipeed所使用的SDK是该文档中的SDK。
 
 首先安装所需的软件包并设置好环境变量
 
-```
+```bash
 export xuetie_toolchain=https://occ-oss-prod.oss-cn-hangzhou.aliyuncs.com/resource//1663142514282
 export toolchain_file_name=Xuantie-900-gcc-linux-5.10.4-glibc-x86_64-V2.6.1-20220906.tar.gz
 export toolchain_tripe=riscv64-unknown-linux-gnu-
@@ -137,11 +137,12 @@ popd
 
 检查输出的文件
 
-```
+```shell
 tree ${GITHUB_WORKSPACE}/rootfs
 ```
 
 将目前构建好的kernel, uboot, opensbi相关文件打包为压缩包
+
 ```shell
 tar -zcvf kernel.tar.gz rootfs
 ```

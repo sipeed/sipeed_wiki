@@ -62,13 +62,14 @@ update:
 
 要注意下载频率应该为 `2.5M` 或者更低的数值。不然很可能导致下载极其缓慢或者下载失败等问题。
 
-<details>
-  <summary><font color="#4F84FF">点开查看操作步骤图片</font></summary>
-  <img src="./../assets/questions/cable.png">
-  <p>点击下图中的 Frequency，设置频率小于或者等于 2.5MHz</p>
-  <img src="./../assets/questions/frequency.png" >
-  <p>接着再点击 Save 即可</p>
-</details>
+<img src="./../assets/questions/cable.png">
+
+点击下图中的 Frequency，设置频率小于或者等于 2.5MHz
+
+<img src="./../assets/questions/frequency.png" >
+
+接着再点击 Save 即可
+
 
 ### Error found
 
@@ -96,8 +97,6 @@ update:
 
 使用新版本下载器后出现这个问题的话，可以先重启一下 programmer 软件；依旧没找到的话可以看看本篇开头的 converter 相关的内容。
 
-<!-- 可以尝试使用要求使用 [这里](https://dl.sipeed.com/shareURL/TANG/programmer) 的文件来解决无法正常烧录问题 -->
-
 ![educational_edition_programmer](./../tang-primer-20k/assets/start/educational_edition_programmer.png)
 
 <!-- 参考上一步 No Gowin devices found 的操作后，再 programmer 里面进行下面操作：
@@ -116,13 +115,13 @@ update:
 
 ![no_gowin_device_found](./assets/qusetions/no_gowin_device_found.png)
 
-这里指的是没有扫描到高云设备，可以尝试使用高云半导体所提供的最新的教育版的编程器 [点我跳转](http://www.gowinsemi.com.cn/faq.aspx) 来尝试解决老版本 Programmer 软件的 bug。
+这里指的是没有扫描到高云设备，可以尝试使用高云半导体所提供的最新的教育版的编程器 [点我跳转](http://www.gowinsemi.com.cn/faq.aspx) 来尝试解决老版本 Programmer 不识别 Tang Jtag 的问题。
 
 ![educational_edition_programmer](./../tang-primer-20k/assets/start/educational_edition_programmer.png)
 
 #### Nano 9K
 
-Nano 9K 在设计的时候将 JTAG_SEL 引脚连接到了 S2 按键上，根据高云手册可以知道  JTAGSEL_N=0 的时候，芯片的 Jtag 引脚可以正常使用。
+Nano 9K 在设计的时候将 JTAG_SEL 引脚连接到了 S2 按键上，根据高云手册可以知道 JTAGSEL_N=0 的时候，芯片的 Jtag 引脚可以正常使用。
 
 ![jtag_sel_function](./assets/qusetions/jtag_sel_function.jpg)
 

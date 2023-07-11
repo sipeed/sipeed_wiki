@@ -13,11 +13,7 @@ Here are Tang Nano series examples and continuously updated
 
 ## Preface
 
-Basic guide to use Tang FPGA
-
-<!-- Before reading, we suggest using this [Programmer](https://dl.sipeed.com/shareURL/TANG/programmer) not that installed with IDE
-
-In addition, we are glad you submit or provide a example, and if you have any feasible ideas, you can come up and we'll try it if possible. -->
+Basic guide to use Tang FPGA.
 
 ---
 
@@ -25,8 +21,7 @@ In addition, we are glad you submit or provide a example, and if you have any fe
 
 - The onboard downloader is ch552
 
-Github Repository:
-https://github.com/sipeed/Tang-Nano-examples
+Github: https://github.com/sipeed/Tang-Nano-examples
 
 - [Blink](./../Tang-Nano/examples/led/led.md)
 - [LCD screen](./../Tang-Nano/examples/lcd.md)
@@ -35,8 +30,7 @@ https://github.com/sipeed/Tang-Nano-examples
 
 ## Tang Nano 1K
 
-Github Repository:
-https://github.com/sipeed/TangNano-1K-examples
+Github: https://github.com/sipeed/TangNano-1K-examples
 
 - [Blink](./../Tang-Nano-1K/examples/led/led.md)
 - [LCD screen](./../Tang-Nano-1K/examples/lcd.md)
@@ -44,8 +38,7 @@ https://github.com/sipeed/TangNano-1K-examples
 ---
 ## Tang Nano 4K
 
-Github Repository:
-https://github.com/sipeed/TangNano-4K-example
+Github: https://github.com/sipeed/TangNano-4K-example
 
 - [Blink](./../Tang-Nano-4K/examples/led.md) (Basic tutorial)
 - [Keyflag Blink](https://github.com/sipeed/TangNano-4K-example/tree/main/key_blink)(github)
@@ -61,8 +54,7 @@ Other example
 ---
 ## Tang Nano 9K
 
-Github Repository:
-https://github.com/sipeed/TangNano-9K-example
+Github: https://github.com/sipeed/TangNano-9K-example
 
 - [Blink](./../Tang-Nano-9K/examples/led.md)
 - [LCD screen](./../Tang-Nano-9K/examples/rgb_screen.md)
@@ -73,6 +65,10 @@ https://github.com/sipeed/TangNano-9K-example
 
 Partner tutorials:
 <a href="https://learn.lushaylabs.com/tang-nano-series/"><img src="./../../../zh/tang/Tang-Nano-Doc/assets/lushaylab_logo.png" alt="lushaylab_logo" width="35%"></a>
+
+[Lushay Labs](https://lushaylabs.com/) are willing to make series around ethernet, graphics and GPU basics, and in the future there is 2 processor project.
+
+Those who are interested in these projects can read the following guides provided by [Lushay Labs](https://lushaylabs.com/), and if you want to join these projects, contact to `contact@lushaylabs.com`.
 
 1. [Installation & Getting Started](https://learn.lushaylabs.com/getting-setup-with-the-tang-nano-9k/)
 2. [Debugging & UART](https://learn.lushaylabs.com/tang-nano-9k-debugging/)
@@ -90,9 +86,16 @@ Other Blogs
 
 - [Blink by Softcore](https://blog.ruux.de/tang-nano-9k-softcore-blink)
 
+## Tang Nano 20K
+
+Github: https://github.com/sipeed/TangNano-20K-example
+
+- [Unbox device](https://wiki.sipeed.com/hardware/en/tang/tang-nano-20k/example/unbox.html)
+- [Drive led](https://wiki.sipeed.com/hardware/en/tang/tang-nano-20k/example/led.html)
+
 ## End
 
-If you have questions to discuss, join the [reddit](https://www.reddit.com/r/GowinFPGA) or [telegram group](https://t.me/sipeed).
+If you have questions to discuss, join the [reddit](https://www.reddit.com/r/GowinFPGA) or [telegram group](https://t.me/sipeed). Leave message in this site is also ok.
 
 Reddit: https://www.reddit.com/r/GowinFPGA
 Telegram: https://t.me/sipeed

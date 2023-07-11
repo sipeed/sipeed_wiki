@@ -47,7 +47,7 @@ LicheePi 4A 可以用作典型的 RISC-V 验证平台，其强大的性能可以
 </tr>
 <tr>
   <td>CPU处理器</td>
-  <td>RISC-V 64GCV C910*4@2GHz <br>· 每核支持 64KB I cache 和 64KB D Cache <br>· 四核共享 1MB L2 Cache <br>· 支持 TEE 和 REE，TEE/REE 支持核数启动时可配置<br>· 支持自定义且接口兼容 RISC-V 的多核调试框架<br>· 独立电源域，支持 DVFS</td>
+  <td>RISC-V 64GCV C910*4@1.85GHz <br>· 每核支持 64KB I cache 和 64KB D Cache <br>· 四核共享 1MB L2 Cache <br>· 支持 TEE 和 REE，TEE/REE 支持核数启动时可配置<br>· 支持自定义且接口兼容 RISC-V 的多核调试框架<br>· 独立电源域，支持 DVFS</td>
 </tr>
 <tr>
   <td>图形处理器</td>

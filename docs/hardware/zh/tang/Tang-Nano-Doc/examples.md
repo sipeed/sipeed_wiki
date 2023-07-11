@@ -13,13 +13,6 @@ update:
 
 基本上手使用和相关的历程
 
-<!-- 对于Programmer(下载程序)建议使用
-https://dl.sipeed.com/shareURL/TANG/programmer 里面的文件。
-下载后解压替换掉Gowin对应安装目录的Programmer文件夹即可。
-不会替换的话可以在下载解压后的Programmer程序中手动添加对应下载文件来进行烧录。
-
-另外欢迎投稿或者提供例程，有什么例程想法的话也可以提出。 -->
-
 ## Tang Nano
 
 > 板载下载器为CH552
@@ -62,15 +55,18 @@ Github: https://github.com/sipeed/TangNano-9K-example
 - HDMI 示例：参考 [PicoRV 在9K上运行的示例](./../Tang-Nano-9K/examples/picorv.md)
 - litex 在 9K 支持：https://github.com/litex-hub/litex-boards
 
+[Lushay Labs](https://lushaylabs.com/) 有意做以太网、图形卡或者双核处理器的 FPGA 开发教程计划，有意者可以阅读本文末尾处他们提供的 [部分教程](#lushay-labs) 来了解他们。有兴趣参与项目的话可以发邮件到 `contact@lushaylabs.com` 
+
 ## Tang Nano 20K
 
 Github: https://github.com/sipeed/TangNano-20K-example
 
-
+- [开箱使用](https://wiki.sipeed.com/hardware/zh/tang/tang-nano-20k/example/unbox.html)
+- [点灯例程](https://wiki.sipeed.com/hardware/zh/tang/tang-nano-20k/example/led.html)
 
 ## 哔哩哔哩视频
 
-> 感谢 [ZQ坐看云起时](https://space.bilibili.com/375786914/video) 友情制作
+> 感谢 [ZQ坐看云起时](https://space.bilibili.com/375786914) 友情制作
 
 <table>
 <tr><td><a href="https://www.bilibili.com/video/BV1Jv4y1Q7u6/" target="_blank_">TANG NANO 9K 开发板应用《1: 云源IDE安装》</a></td></tr>
@@ -97,6 +93,8 @@ Github: https://github.com/sipeed/TangNano-20K-example
 <tr><td><a href="https://www.bilibili.com/video/BV1yL411S7T5/" target="_blank_">TANG NANO 9K 开发板应用《22：串口接收模块的实现》</a></td></tr>
 <tr><td><a href="https://www.bilibili.com/video/BV1xM411T7kv/" target="_blank_">TANG NANO 9K 开发板应用《23：环形队列(FIFO)的实现》</a></td></tr>
 <tr><td><a href="https://www.bilibili.com/video/BV1Xh4y1p7x7/" target="_blank_">TANG NANO 9K 开发板应用《24：串口转SPI操作flash》</a></td></tr>
+<tr><td><a href="https://www.bilibili.com/video/BV1rc411J7vP/" target="_blank_">TANG NANO 9K 开发板应用《25：串口转SPI文件传输上位机》</a></td></tr>
+<tr><td><a href="https://www.bilibili.com/video/BV1BM4y1t7xu/" target="_blank_">TANG NANO 9K 开发板应用《26：PWM》</a></td></tr>
 </table>
 <table>
 <tr><td><a href="https://www.bilibili.com/video/BV1iA411R7Zi/" target="_blank_">iverilog + gtkwave 开源仿真工具《1：软件安装篇》</a></tr></td>
@@ -106,6 +104,8 @@ Github: https://github.com/sipeed/TangNano-20K-example
 ## 其他上手说明
 
 Tang Nano 9K 合作代理教程(英文)：
+
+### Lushay Labs
 
 <a href="https://learn.lushaylabs.com/tang-nano-series/"><img src="./assets/lushaylab_logo.png" alt="lushaylab_logo" width="35%"></a>
 
