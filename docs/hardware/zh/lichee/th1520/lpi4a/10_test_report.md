@@ -85,6 +85,15 @@ rm test
 
 ![iperf](./assets/test_report/iperf.png) 
 
+## WiFi
+
+![wifi_test](./assets/test_report/wifi_test.png)
+
+## Bluetooth
+
+![bluetooth_phone](./assets/test_report/bluetooth_phone.jpg)
+![bluetooth_1520](./assets/test_report/bluetooth_1520.png)
+
 ## 温度
 
 散热器: 风扇+铝散热片(25*25*5)
