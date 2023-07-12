@@ -1,16 +1,19 @@
 <script>
     var hash = window.location.hash
-    if (hash.indexOf("start")!= -1){
-        location.href = "https://wiki.sipeed.com/hardware/zh/tang/tang-primer-20k/start.html"
+    var url_language = "zh"
+
+    if( navigator.language  != "zh-CN" )
+    {
+        url_language = "en"
+    }
+
+
+    if (hash.indexOf("start")!= -1)
+    {
+        location.href = window.location.origin + "/hardware/" + url_language + "/tang/tang-nano-20k/example/unbox.html"
     }
     else
-    {   if( navigator.language  == "zh-CN" )
-        {
-            location.href = window.location.origin + "/hardware/zh/tang/tang-nano-20k/nano-20k.html"
-        }
-        else
-        {
-            location.href = window.location.origin + "/hardware/en/tang/tang-nano-20k/nano-20k.html"
-        }
+    {
+        location.href = window.location.origin + "/hardware/" + url_language + "/tang/tang-nano-20k/nano-20k.html"
     }
 </script>
