@@ -4,7 +4,7 @@ title: Maix-III AXera-Pi Q&A
 
 ## Q：Device not work
 
-A: Try to plug connect the 2 USB on m3axpi, by this m3axpi can get enough power to boot. m3axpi comsume 5V*1A maximum.
+A: Try to plug both 2 USB on m3axpi, by this m3axpi can get enough power to boot. m3axpi comsume 5V*1A maximum.
 
 ## Q：How to switch to os04a10 camera？
 
@@ -116,7 +116,7 @@ A：This happens when autoboot is canceled when booting device, use command `boo
 
 ![faq_boot](./../../../zh/maixIII/assets/faq_boot.jpg)
 
-## The change of hardware
+## The change of hardware {#version}
 
 Because of some reasons, we change some hardwares, here are what we changed.
 
@@ -132,19 +132,19 @@ cp kernel.img.rtl8723bs kernel.img # For the previous ext-board
 #cp /boot/kernel.img.rtl8189fs kernel.img  
 ```
 
-![faq_borad](./../../../zh/maixIII/assets/faq_board.jpg)
+![qa_board_change](./assets/qa/qa_board_change.jpg)
 
 ### Change of camera
 
 The connector direction of camera changed, make sure the `1` on the connector of ext-board matches the `1` the connector of the camera.
 
-![faq_sensor](./../../../zh/maixIII/assets/faq_sensor.jpg)
+![qa_camera_change](./assets/qa/qa_camera_change.jpg)
 
 ### Change of screen
 
 We change the screen into new version, and the dafalut image use the latest version screen, see following photo to know your screen version, and for pervious version screen if need to run command `cp /boot/dtb.img.lcd20220830 dtb.img` to apply the hardware. Read [wrong display](#qscreen-display-wrong) to know more.
 
-![fqa_newdisplay](./../../../zh/maixIII/assets/fqa_newdisplay.jpg)
+![qa_screen_change](./assets/qa/qa_screen_change.jpg)
 
 ## Q：Why I can only use less than 2G ram
 

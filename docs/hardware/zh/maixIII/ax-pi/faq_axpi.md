@@ -73,7 +73,7 @@ A：重启即可
 A: 运行一下`python3 -c "import os, binascii; os.system('sed -i \'/iface eth0 inet dhcp/ahwaddress ether {}\' /etc/network/interfaces'.format(binascii.hexlify(bytes.fromhex(open('/proc/ax_proc/uid').read().split('0x')[1][:-5]),':').decode('iso8859-1'))) if os.system('grep \'hwaddress ether\' /etc/network/interfaces -q') != 0 else exit();"` 后重启即可。
 
 
-## Q：硬件物料更改说明、没有 wlan0 、屏幕烧屏、摄像头倒过来怎么解决？
+## Q：硬件物料更改说明、没有 wlan0 、屏幕烧屏、摄像头倒过来怎么解决？ {#version}
 
 > **新旧版底板区别**
 > 

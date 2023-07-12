@@ -1,17 +1,15 @@
 <script>
     var hash = window.location.hash
     var url_language = "zh"
-    var board_version = "Q%EF%BC%9A%E7%A1%AC%E4%BB%B6%E7%89%A9%E6%96%99%E6%9B%B4%E6%94%B9%E8%AF%B4%E6%98%8E%E3%80%81%E6%B2%A1%E6%9C%89-wlan0-%E3%80%81%E5%B1%8F%E5%B9%95%E7%83%A7%E5%B1%8F%E3%80%81%E6%91%84%E5%83%8F%E5%A4%B4%E5%80%92%E8%BF%87%E6%9D%A5%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3%EF%BC%9F"
 
     if( navigator.language  != "zh-CN" )
     {
         url_language = "en"
-        board_version="Change-of-the-ext-board"
     }
 
     if (hash.indexOf("version")!= -1)
     {
-        location.href = window.location.origin + "/hardware/" + url_language + "/maixIII/ax-pi/faq_axpi.html#" + board_version
+        location.href = window.location.origin + "/hardware/" + url_language + "/maixIII/ax-pi/faq_axpi.html#version" + board_version
     }
     else if (hash.indexOf("spec")!= -1){
         location.href = "https://dl.sipeed.com/shareURL/MaixIII/AXera/"
@@ -24,3 +22,28 @@
         location.href = window.location.origin + "/hardware/" + url_language + "maixIII/ax-pi/axpi.html"
     }
 </script>
+
+
+<!-- <script>
+    var hash = window.location.hash
+    var url_language = "zh"
+
+    if( navigator.language  != "zh-CN" )
+    {
+        url_language = "en"
+    }
+
+    switch (window.location.hash) {
+        case "version" : 
+            location.href = window.location.origin + "/hardware/" + url_language + "/maixIII/ax-pi/faq_axpi.html#version"
+            break;
+        case "spec" : 
+            location.href = "https://dl.sipeed.com/shareURL/MaixIII/AXera/"
+            break;
+        case "issue" : 
+            location.href = window.location.origin + "/hardware/" + url_language + "/maixIII/ax-pi/faq_axpi.html"
+            break;
+        default : 
+            location.href = window.location.origin + "/hardware/" + url_language + "/maixIII/ax-pi/axpi.html"
+    }
+</script> -->
