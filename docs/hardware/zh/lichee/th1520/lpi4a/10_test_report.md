@@ -87,7 +87,25 @@ rm test
 
 ## WiFi
 
-![wifi_test](./assets/test_report/wifi_test.png)
+在不同距离的测试结果如下：
+5m
+![wifi_test_5m.png](./assets/test_report/wifi_test_5m.png)
+
+10m
+![wifi_test_10m.png](./assets/test_report/wifi_test_10m.png)
+
+15m
+![wifi_test_15m.png](./assets/test_report/wifi_test_15m.png)
+
+20m
+![wifi_test_20m.png](./assets/test_report/wifi_test_20m.png)
+
+25m
+![wifi_test_25m.png](./assets/test_report/wifi_test_25m.png)
+
+30m
+![wifi_test_30m.png](./assets/test_report/wifi_test_30m.png)
+
 
 ## Bluetooth
 
