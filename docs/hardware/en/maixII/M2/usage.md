@@ -152,9 +152,11 @@ display.show(camera.capture())
 
 ## How to use USB camera
 
-There are 2 USB Type-C ports on M2Dock. One is masked UART for the serial communication between this board and computer, another port masked with OTG is used for user-defined functions. We set it's `usb_device` so that we can use `adb` to control this board by default.
+There are 2 USB Type-C ports on M2Dock. One masked UART is for the serial communication between this board and computer, another port masked with OTG is used for user-defined functions. We set it `usb_device` default, so we can use `adb` to control this board by default. And by `adb forware`, we can run jupyter code on M2Dock without network but only one usb cable.
 
-To connect USB camera, we need to set the OTG port to be the usb_host. Run the following command on M2Dock to change its function.
+To connect USB camera, we need to set the OTG port to be the usb_host. 
+
+Run the following command on M2Dock to change its function, but remember this command will stop the communication between computer and M2Dock via ADB USB OTG port.
 
 ```bash
 echo "usb_host" > /sys/devices/platform/soc/usbc0/otg_role
@@ -176,7 +178,7 @@ echo "usb_device" > /sys/devices/platform/soc/usbc0/otg_role
 
 ## MaixPy3
 
-For this device we suggest you use [Maixpy3] to develop , and its English documents will come out soon.
+We suggest you use [Maixpy3](/maixpy3) to develop , and its English documents will come out soon.
 
 ## SDK development
 

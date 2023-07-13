@@ -230,7 +230,11 @@ display.show(camera.capture())
 
 M2Dock 有两个 TypeC 接口。其中一个标识有 UART，作为板子与电脑进行串口通信的接口。另一个口有 OTG 标识，默认是作为 USB 从机来使用的，比如我们能够在电脑上使用 `adb` 来操作 M2Dock 就是因为这个接口默认是从机模式。
 
-想要连接摄像头，需要手动更改这个端口为主机模式。从板子上的串口 USB 来操作板子，并执行下面的命令就可以将 OTG 口作为主机模式使用。
+需要注意的是 M2Dock 系统默认将 OTG 标识设置为 adb 设备，可以在 PC 端通过 `adb` 命令来操作板子，也可以通过使得电脑上的 jypyter 通过 `adb forward` 功能在板子上运行 python 代码。
+
+想要连接摄像头，需要手动更改这个端口为主机模式。从板子上的 USB UART 来操作板子，并执行下面的命令就可以将 OTG 口作为主机模式使用。
+
+要注意的是之子那个下面的命令后，板子上将与电脑通过 USB OTG 口进行通信。
 
 ```bash
 echo "usb_host" > /sys/devices/platform/soc/usbc0/otg_role
