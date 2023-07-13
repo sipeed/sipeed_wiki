@@ -44,9 +44,9 @@ IDE 分为商业版和教育版：
 
 ![educational_device](./assets/educational_device.png)
 
-由于高云半导体的IDE在不断的更新中，上图为 2023 年 05 月 25 日截图
+高云半导体的IDE在不断的更新中，上图为 2023 年 05 月 25 日截图。
 
-| 芯片全程               | 芯片系列  | 芯片型号   | 适用板卡     |
+| 芯片名称               | 芯片系列  | 芯片型号   | 适用板卡     |
 | --------------------- | --------- | --------  | ----------- |
 | GW1NZ-LV1QN48C6/I5    | GW1NZ     |GW1NZ      | Nano 1K     |
 | GW1NSR-LV4CQN48PC6/I5 | GW1NSR    |GW1NSR-4C  | Nano 4K     |
@@ -54,7 +54,9 @@ IDE 分为商业版和教育版：
 | GW2AR-LV18QN88C8/I7   | GW2AR     |GW2AR-LV18 | Nano 20K    |
 | GW2A-LV18PG256C8/I7   | GW2A      |GW2A-18C   | Primer 20K  |
 
-所以对于购买了 Tang Nano （板载 jtag 芯片为 CH552），目前需要使用商业版的 IDE 且需要自行向高云半导体官方申请 license。
+上表中的板卡均可在教育版的 IDE 中使用。
+
+对于购买了 Tang Nano （板载 jtag 芯片为 CH552），目前需要使用商业版的 IDE 且需要自行向高云半导体官方申请 license。
 
 ### 开始安装
 

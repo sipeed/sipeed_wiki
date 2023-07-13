@@ -37,11 +37,11 @@ The Standard Edition IDE requires license, which you can get from GOWIN Semicond
 
 The Education Edition IDE is free to use, but supports fewer devices and includes fewer IP cores.
 
-The following figure (updated 2023/05/29) shows the part numbers supported in the latest Education Edition IDE
+The following figure (updated 2023/05/29) shows the part numbers (PN) supported in the latest Education Edition IDE
 
 ![educational_device](./assets/educational_device.png)
 
-The supported chips and boards are listed in the following table.
+The chips and boards in the following table can be synthesized and programmed via Educational IDE.
 
 | Chip full name        |Chip Series|Chip model | Board       |
 | --------------------- | --------- | --------  | ----------- |
@@ -51,7 +51,7 @@ The supported chips and boards are listed in the following table.
 | GW2AR-LV18QN88C8/I7   | GW2AR     |GW2AR-LV18 | Nano 20K    |
 | GW2A-LV18PG256C8/I7   | GW2A      |GW2A-18C   | Primer 20K  |
 
-So for those who want to use Tang Nano (Onboard jtag is CH552), you'll need to use the Standard Edition IDE and apply for a license from GOWIN Semiconductor Corp.
+For those who want to use Tang Nano (Onboard jtag is CH552), you'll need to use the Standard Edition IDE and apply for a license from GOWIN Semiconductor Corp.
 
 ### Install
 
