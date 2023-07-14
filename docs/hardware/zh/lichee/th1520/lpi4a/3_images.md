@@ -7,6 +7,9 @@ update:
     author: wonder
     content:
       - Release docs
+  - date: 2023-07-14
+    version: v1.1
+    author: ztd
 ---
 
 ## 内核支持
@@ -32,38 +35,49 @@ ISCAS 镜像站：[点我](https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/
 
 ![debian](./assets/images/debian.png)
 
-1. LPI4A_20230706.zip
-   - 发布日期：2023年7月6日
+1. LPI4A_20230714.zip
+   - 发布日期：2023年7月14日
    - 内核：5.10
    - 根文件系统：ext4, 4.3GB
    - 主要预装软件包：
       - 开发类
       - 办公类
    - 修复问题：
-      - HDMI显示设备和HDMI音频设备识别问题
-      - 修复蓝牙问题，现在蓝牙设备功能正常
+      - HDMI 显示设备和 HDMI 音频设备识别问题
+      - 修复蓝牙问题，现在蓝牙设备功能正常，蓝牙耳机也能正常播放音频
+      - 添加自动登录，免密码 sudo 功能
+      - 修复桌面底部启动栏浏览器快捷方式不可用的问题，现在能点击这里进入 chromium
    - 已知问题：
+      - HDMI 音频在 chromium 下播放音质有问题
+      - 在长时间连接 USB 摄像头情况下，可能会导致 kernel panic
    - 使用说明：
-      - 该压缩包为仅支持HDMI显示，烧录时请注意boot的后缀和设备对应
-         - 8gddr/16gddr分别对应8g/16g内存
+      - 该压缩包为仅支持 HDMI 显示，烧录时请注意 boot 的后缀和设备对应
+         - 8gddr/16gddr 分别对应 8g/16g 内存
 
-2. LPI4A_20230706_mipi.zip
-   - 发布日期：2023年7月6日
+2. LPI4A_20230714_mipi.zip
+   - 发布日期：2023年7月14日
    - 内核：5.10
    - 根文件系统：ext4, 4.3GB
    - 主要预装软件包：
       - 开发类
       - 办公类
    - 修复问题：
-      - HDMI显示设备和HDMI音频设备识别问题
-      - 修复蓝牙问题，现在蓝牙设备功能正常
+      - HDMI 显示设备和 HDMI 音频设备识别问题
+      - 修复蓝牙问题，现在蓝牙设备功能正常，蓝牙耳机也能正常播放音频
+      - 添加自动登录，免密码 sudo 功能
+      - 修复桌面底部启动栏浏览器快捷方式不可用的问题，现在能点击这里进入 chromium
    - 已知问题：
-      - 双屏异显下，mipi屏幕作扩展显示器时分辨率较低，导致字体有些模糊
-      - 触摸屏横屏显示时坐标不准
+      - 双屏异显下，MIPI 屏幕作扩展显示器时分辨率较低，导致字体有些模糊
+      - 在没连接 MIPI 屏幕时，系统仍会识别为连接，暂时需要在设置中手动关闭 MIPI 屏幕的输出
+         - 切换为 root 用户，执行`echo off > /sys/class/drm/card0-DSI-1/status`
+      - MIPI 屏幕暂时只能通过手动写值调节亮度
+         - 切换为 root 用户，执行`echo 亮度值(0-7的整数值) > /sys/class/backlight/pwm-backlight@0/brightness`
+      - HDMI 音频在 chromium 下播放音质有问题
+      - 在长时间连接 USB 摄像头情况下，可能会导致 kernel panic
    - 使用说明：
-      - 该压缩包为支持mipi屏幕的镜像，烧录时请注意boot的后缀和设备对应
-         - 8gddr/16gddr分别对应8g/16g内存
-         - mipi_720p/mipi_1080p分别对应800x1280的mipi屏幕（带触摸）/1200x1920的mipi屏幕
+      - 该压缩包为支持 MIPI 屏幕的镜像，烧录时请注意 boot 的后缀和设备对应
+         - 8gddr/16gddr 分别对应 8g/16g 内存
+         - mipi_720p/mipi_1080p 分别对应800x1280的 MIPI 屏幕（带触摸）/1200x1920的mipi屏幕
 
 ### OpenWRT
 
