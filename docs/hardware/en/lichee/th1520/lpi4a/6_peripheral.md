@@ -353,6 +353,29 @@ echo "Start Play"
 
 > 注：早期镜像的HDMI音频不生效，请升级到较新版本使能HDMI音频功能。  
 
+## Bluetooth
+
+找到桌面右上角的蓝牙图标，确认蓝牙功能已经打开，若没打开，右键单击蓝牙图标即可打开：
+
+![bluetooth_icon.png](./../../../../zh/lichee/th1520/lpi4a/assets/peripheral/bluetooth_icon.png)
+
+打开后，左键单击蓝牙图标，可以看到蓝牙设备扫描界面。
+
+点击该界面左上角的Search即可搜索蓝牙设备，将蓝牙键鼠、蓝牙耳机等设备的配对模式打开即可被扫描到。
+
+右键选择想要连接的设备，即可连接。成功连接后还可以右键该设备，点击Trust，下次扫描到即可自动连接。
+
+![bluetooth_devices.png](./../../../../zh/lichee/th1520/lpi4a/assets/peripheral/bluetooth_devices.png)
+
+若蓝牙图形管理界面无法搜索到设备，也可以现在命令行界面下使用`bluetoothctl`来进行配对，步骤如下：
+
+```shell
+bluetoothctl
+scan on # 找到想要配对设备的mac地址
+pair 目标设备的mac地址
+```
+配对成功后可以在蓝牙图形界面进行连接、保存设备等操作。
+
 ## MIPI CSI
 
 LicheePi 4A 具有 CAM0/CAM1/CAM2 三个摄像头接口， CAM0 最大 4lane，CAM1/2 为 2lane，默认使用 CSI0 接口，接 OV5693 摄像头。  

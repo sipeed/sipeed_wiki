@@ -1,10 +1,17 @@
 <script>
     var hash = window.location.hash
-    if (hash.indexOf("hardware")!= -1){
-        location.href = "https://dl.sipeed.com/shareURL/Maix-Zero/M0sense"
-    }
-    else
+    var url_language = "zh"
+
+    if( navigator.language  != "zh-CN" )
     {
-        location.href = window.location.origin + "/hardware/zh/maixzero/sense/maix_zero_sense.html"
+        url_language = "en"
+    }
+
+    switch (window.location.hash) {
+        case "#hardware" : 
+            location.href = "https://dl.sipeed.com/shareURL/Maix-Zero/M0sense"
+            break;
+        default :
+            location.href = window.location.origin + "/hardware/" + url_language + "/maixzero/sense/maix_zero_sense.html"
     }
 </script>

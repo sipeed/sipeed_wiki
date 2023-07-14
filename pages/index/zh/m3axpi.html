@@ -7,43 +7,17 @@
         url_language = "en"
     }
 
-    if (hash.indexOf("version")!= -1)
-    {
-        location.href = window.location.origin + "/hardware/" + url_language + "/maixIII/ax-pi/faq_axpi.html#version"
-    }
-    else if (hash.indexOf("spec")!= -1){
-        location.href = "https://dl.sipeed.com/shareURL/MaixIII/AXera/"
-    }
-    else if (hash.indexOf("trouble")!= -1){
-        location.href = window.location.origin + "/hardware/" + url_language + "/maixIII/ax-pi/faq_axpi.html"
-    }
-    else
-    {
-        location.href = window.location.origin + "/hardware/" + url_language + "/maixIII/ax-pi/axpi.html"
-    }
-</script>
-
-
-<!-- <script>
-    var hash = window.location.hash
-    var url_language = "zh"
-
-    if( navigator.language  != "zh-CN" )
-    {
-        url_language = "en"
-    }
-
     switch (window.location.hash) {
-        case "version" : 
+        case "#version" : 
             location.href = window.location.origin + "/hardware/" + url_language + "/maixIII/ax-pi/faq_axpi.html#version"
             break;
-        case "spec" : 
+        case "#spec" : 
             location.href = "https://dl.sipeed.com/shareURL/MaixIII/AXera/"
             break;
-        case "issue" : 
+        case "#issue" : 
             location.href = window.location.origin + "/hardware/" + url_language + "/maixIII/ax-pi/faq_axpi.html"
             break;
         default : 
             location.href = window.location.origin + "/hardware/" + url_language + "/maixIII/ax-pi/axpi.html"
     }
-</script> -->
+</script>
