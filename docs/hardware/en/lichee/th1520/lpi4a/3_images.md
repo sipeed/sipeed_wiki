@@ -37,37 +37,53 @@ ISCAS mirror: [click me](https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/)
 
 ![debian](./../../../../zh/lichee/th1520/lpi4a/assets/images/debian.png)
 
-#### LPI4A_20230706.zip
-   - Release date: July 06, 2023
+1. LPI4A_20230714.zip
+
+   - Release date：: July 14, 2023
    - Linux Kernel version：5.10
    - rootfs：ext4, 4.3GB
-   4. Pre-Installed packages:
-      1. Development utilities
-      2. Office suite
-   5. Fixed issues:
+   - Pre-Installed packages:
+      - Development utilities
+      - Office suite
+   - Fixed issues：
       - HDMI Display and HDMI audio detectation
-      - Fix bluebooth
-   6. Addition：
-      1. HDMI Display only, not support mipi ext-screen
-      2. Pay attention to the DDR memory.
-         1. 8gddr/16gddr means it suits board with 8g/16g ddr memory. Wrong image will not boot device.   
-#### LPI4A_20230706_mipi.zip
-   - Release date: July 06, 2023
+      - Fix bluebooth, bluetooth audio is OK
+      - Enable auto login, run sudo command without password.
+      - Fix shortcut issue, click to run chromium is OK.
+   - Known issues：
+      - HDMI audio bug in chromium
+      - Kernel panic when using USB camera for a long time
+   - Addition：
+      - HDMI Display only, not support mipi ext-screen, pay attention to the image name.
+      - 8gddr/16gddr footfs means it suits board with 8g/16g ddr memory. 
+      - Wrong image will not boot device.
+
+2. LPI4A_20230714_mipi.zip
+
+   - Release date：: July 14, 2023
    - Linux Kernel version：5.10
    - rootfs：ext4, 4.3GB
-   1. Pre-Installed packages:
-      1. Development utilities
-      2. Office suite
-   2. Fixed issues:
+   - Pre-Installed packages:
+      - Development utilities
+      - Office suite
+   - Fixed issues：
       - HDMI Display and HDMI audio detectation
-      - Fix bluebooth
-   3. Known problems:
-      1. Dual display mode, mipi screen is at low resolution display, font is not clear.
-      2. Touch point is not accure when landscape display.
-   4. Addition：
-      1. Both support HDMI and mipi DSI
-      2. 8gddr/16gddr means it suits board with 8g/16g ddr memory. Wrong image will not boot device.  
-      3. mipi_720p/mipi_1080p fits the mipi DSI screen of 800x1280/1200x1920 resolution and 
+      - Fix bluebooth, bluetooth audio is OK
+      - Enable auto login, run sudo command without password.
+      - Fix shortcut issue, click to run chromium is OK.
+   - Known issues：
+      - Dual display mode, mipi screen is at low resolution display, font is not clear.
+      - Not connect the MIPI screen, system still recognize the device. Disable the MIPI screen display Manually
+         - Run `echo off > /sys/class/drm/card0-DSI-1/status` with root permission
+      - The brightness of MIPI screen can only adjusted MIPI Manually
+         - Run`echo Brightness(0 to 7) > /sys/class/backlight/pwm-backlight@0/brightness` with root permission
+      - HDMI audio bug in chromium
+      - Kernel panic when using USB camera for a long time
+   - Addition：
+      - MIPI Display supported, pay attention to the image name.
+         - 8gddr/16gddr footfs means it suits board with 8g/16g ddr memory.
+         - mipi_720p/mipi_1080p fits the mipi DSI screen of 800x1280(With touching panel)/1200x1920 resolution
+      - Wrong image will not boot device.
 
 <!-- 1. LPi4A_Test_0425
    1. Release date: April 25, 2023
@@ -100,7 +116,7 @@ TODO
 
 ![android](./../../../../zh/lichee/th1520/lpi4a/assets/images/android.png)
 
-TODO
+https://gitee.com/thead-android/thead-android
 
 System installation: Prompt that it has been installed to eMMC by default. How to upgrade the system (mirror download, burning tools, steps)
 

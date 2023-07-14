@@ -36,6 +36,7 @@ ISCAS 镜像站：[点我](https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/
 ![debian](./assets/images/debian.png)
 
 1. LPI4A_20230714.zip
+
    - 发布日期：2023年7月14日
    - 内核：5.10
    - 根文件系统：ext4, 4.3GB
@@ -55,6 +56,7 @@ ISCAS 镜像站：[点我](https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/
          - 8gddr/16gddr 分别对应 8g/16g 内存
 
 2. LPI4A_20230714_mipi.zip
+
    - 发布日期：2023年7月14日
    - 内核：5.10
    - 根文件系统：ext4, 4.3GB
@@ -89,8 +91,7 @@ TODO
 
 ![android](./assets/images/android.png)
 
-TODO
-
+https://gitee.com/thead-android/thead-android
 
 ## 第三方镜像
 
