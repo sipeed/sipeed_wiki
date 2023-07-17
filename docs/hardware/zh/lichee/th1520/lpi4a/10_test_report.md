@@ -87,7 +87,11 @@ rm test
 
 ## WiFi
 
-在不同距离的测试结果如下：
+测试环境：室内空旷长走廊
+测试方法：使用 iperf3，笔记本电脑作为 server，LPi4A 作为 client
+测试设备：路由器使用 newifi D2, 笔记本电脑型号为 宏碁掠夺者战斧300
+
+在路由器与 LPi4A 间隔不同距离的测试结果如下：
 5m
 ![wifi_test_5m.png](./assets/test_report/wifi_test_5m.png)
 
@@ -108,6 +112,10 @@ rm test
 
 
 ## Bluetooth
+
+测试环境：室内近距离
+测试方法：手机开启蓝牙共享网络，与开发板配对并连接蓝牙，使用iperf3测试
+测试设备：小米13，LPi4A
 
 ![bluetooth_phone](./assets/test_report/bluetooth_phone.jpg)
 ![bluetooth_1520](./assets/test_report/bluetooth_1520.png)

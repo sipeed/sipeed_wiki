@@ -30,7 +30,8 @@ ISCAS 镜像站：[点我](https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/
 
 ### Debian
 
-![debian](./assets/images/debian.png)
+![debian](./assets/images/debian.png)  
+![debian_neofetch](./assets/images/debian_neofetch.png)  
 
 1. LPI4A_20230706.zip
    - 发布日期：2023年7月6日
@@ -75,8 +76,7 @@ TODO
 
 ![android](./assets/images/android.png)
 
-TODO
-
+Readme and image download link: [Click me](https://gitee.com/thead-android/thead-android)
 
 ## 第三方镜像
 
@@ -85,12 +85,15 @@ TODO
 ### openEuler
 
 ![openEuler](./assets/images/openEuler.png)   
+![openeuler_neofetch](./assets/images/openeuler_neofetch.png)  
+
 Download: [Click me](https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/preview/openEuler-23.03-V1-riscv64/lpi4a/)   
 Twitter: https://twitter.com/openEuler
 
 ### DeepinOS 深度
 
-![deepin](./assets/images/deepin.jpg) 
+![deepin](./assets/images/deepin.jpg)   
+![deepin_neofetch](./assets/images/deepin_neofetch.png)  
 
 Readme and image download link: [Click me](https://github.com/aiminickwong/licheepi4a-images)
 

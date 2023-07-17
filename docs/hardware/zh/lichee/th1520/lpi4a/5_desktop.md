@@ -19,15 +19,16 @@ update:
 
 > 总共有三个用户，`root`，`debian`，`sipeed`，初始密码均为`licheepi` 
 > 有些版本的`debian`用户的密码为`sipeed`
+**0714及以后版本的镜像，默认开启了自动登录，自动登录的用户为 `sipeed`**
 
 ![usage_login_userpasserward](./assets/desktop/usage_login_userpasserward.png)
 
 ## 打开命令行
 
 在 LicheePi 4A 的 Debian 图形化系统中，使用快捷键 `Ctrl` + `Alt` + `T` 三个组合键可以直接打开命令行终端，来快速方便地操作系统。
+**0714及以后版本的镜像，默认开启了免密码`sudo`**
 
 ![usage_debian_terminal_shell_hotkey](./assets/desktop/usage_debian_terminal_shell_hotkey.png)
-
 
 ## 连接网络
 
@@ -93,6 +94,34 @@ LicheePi 4A 板载无线模组，支持蓝牙和 wifi 。
 
 ![usage_debian_apt_upgrade_vim](./assets/desktop/usage_debian_apt_upgrade_vim.png)
 
+若使用 `sudo apt update` 命令时遇到类似下面的提示信息：  
+```shell
+Ign:1 https://mirror.iscas.ac.cn/deepin-riscv/deepin-stage1 beige InRelease
+Ign:2 https://community-packages.deepin.com/driver driver InRelease
+Ign:3 https://mirror.iscas.ac.cn/deepin-riscv/deepin-addons beige InRelease
+Ign:2 https://community-packages.deepin.com/driver driver InRelease
+Ign:1 https://mirror.iscas.ac.cn/deepin-riscv/deepin-stage1 beige InRelease
+Ign:3 https://mirror.iscas.ac.cn/deepin-riscv/deepin-addons beige InRelease
+Ign:1 https://mirror.iscas.ac.cn/deepin-riscv/deepin-stage1 beige InRelease
+Ign:2 https://community-packages.deepin.com/driver driver InRelease
+Ign:3 https://mirror.iscas.ac.cn/deepin-riscv/deepin-addons beige InRelease
+Err:2 https://community-packages.deepin.com/driver driver InRelease
+  Could not resolve 'community-packages.deepin.com'
+Err:1 https://mirror.iscas.ac.cn/deepin-riscv/deepin-stage1 beige InRelease
+  Could not resolve 'mirror.iscas.ac.cn'
+Err:3 https://mirror.iscas.ac.cn/deepin-riscv/deepin-addons beige InRelease
+  Could not resolve 'mirror.iscas.ac.cn'
+Reading package lists... Done
+W: Failed to fetch https://mirror.iscas.ac.cn/deepin-riscv/deepin-stage1/dists/beige/InRelease  Could not resolve 'mirror.iscas.ac'
+W: Failed to fetch https://mirror.iscas.ac.cn/deepin-riscv/deepin-addons/dists/beige/InRelease  Could not resolve 'mirror.iscas.ac'
+W: Failed to fetch https://community-packages.deepin.com/driver/dists/driver/InRelease  Could not resolve 'community-packages.deep'
+W: Some index files failed to download. They have been ignored, or old ones used instead.
+```
+可以尝试如下命令进行修复：  
+```shell
+sudo apt-get update --fix-missing
+```
+
 ### 安装程序
 
 可以借助于 apt 命令来安装软件；比如使用 `sudo apt install package_name` 命令来安装 `package_name`，下面是使用 apt 来安装 `net-tools` 的例子。
@@ -104,6 +133,17 @@ LicheePi 4A 板载无线模组，支持蓝牙和 wifi 。
 ![usage_debian_ifconfig_result_list](./assets/desktop/usage_debian_ifconfig_result_list.png)
 
 箭头指向的地方就是常说的 IP 地址了。
+
+若在下载软件的过程中遇到类似下面的提示信息：  
+```shell
+W: GPG error: http://archive.ubuntu.com trusty-updates Release: The following signatures couldn't be verified because the public key is not available: NO_PUBKEY 40976EAF437D05B5 NO_PUBKEY 3B4FE6ACC0B21F32
+```
+可以尝试用下列命令修复：  
+```shell
+sudo apt-key adv --keyserver keyring.debian.org --recv-keys '替换成报错中的NO_PUBKEY 后面的key值'
+# 或使用
+gpg --keyserver keyring.debian.org --recv-keys '替换成报错中的NO_PUBKEY 后面的key值'
+```
 
 ## SSH
 
