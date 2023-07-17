@@ -2,6 +2,11 @@
 title: 桌面系统基础使用
 keywords: Linux, Lichee, TH1520, SBC, RISCV, Debian, Desktop
 update:
+  - date: 2023-07-17
+    version: v1.1
+    author: ztd
+    content:
+      - Update docs
   - date: 2023-05-08
     version: v1.0
     author: wonder

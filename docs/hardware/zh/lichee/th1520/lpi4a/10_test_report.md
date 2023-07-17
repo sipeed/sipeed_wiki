@@ -2,6 +2,12 @@
 title: 板卡性能测试
 keywords: Linux, Lichee, TH1520, SBC, RISCV, report
 update:
+  - date: 2023-07-13
+    version: v1.1
+    author: ztd
+    content:
+      - Update docs
+
   - date: 2023-05-08
     version: v1.0
     author: wonder

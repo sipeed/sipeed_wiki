@@ -2,6 +2,11 @@
 title: 外设使用
 keywords: Linux, Lichee, TH1520, SBC, RISCV, Peripheral
 update:
+  - date: 2023-07-17
+    version: v1.1
+    author: ztd
+    content:
+      - Update docs
   - date: 2023-05-08
     version: v1.0
     author: wonder

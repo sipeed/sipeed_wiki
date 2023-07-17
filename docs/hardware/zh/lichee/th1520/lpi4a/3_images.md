@@ -2,14 +2,16 @@
 title: 镜像集合
 keywords: Linux, Lichee, TH1520, SBC, RISCV, image
 update:
+  - date: 2023-07-14
+    version: v1.1
+    author: ztd
+    content: 
+      - Update docs
   - date: 2023-05-08
     version: v1.0
     author: wonder
     content:
       - Release docs
-  - date: 2023-07-14
-    version: v1.1
-    author: ztd
 ---
 
 ## 内核支持
@@ -115,7 +117,8 @@ Readme and image download link: [Click me](https://github.com/aiminickwong/liche
 
 ### openKylin
 
-![openKylin](./assets/images/openkylin.png) 
+![openKylin](./assets/images/openkylin.png)
+![oepnkylin_neofetch](./assets/images/oepnkylin_neofetch.png)
 
 Readme and image download link: [Click me](https://github.com/aiminickwong/licheepi4a-images)
 
