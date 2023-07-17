@@ -122,7 +122,6 @@ sensor.set_jb_quality(95)
 ```
 This sets the quality of the preview image to 95%, but the frame rate will be significantly reduced
 
-
 ## How to increase the camera frame rate
 
 * Change to a better camera. For example, the frame rate of `ov7740` will be higher than that of `ov2640`. But the premise is that the camera circuit must be compatible with the circuit of the development board
@@ -162,7 +161,7 @@ lcd.rotation(dir)
 lcd.mirror(invert)
 ```
 
-## After burning MaixPy, MaixPy fails to start
+## After burning MaixPy, K210 boots fail
 
 Phenomenon: We may encounter MaixPy cannot be started after burning MaixPy (it appears that the screen cannot be turned on, the screen shows white, etc.).
 
@@ -175,7 +174,6 @@ Use kflash_gui to select the `erase` function in the upper right corner, then lo
 Or reburn the erase firmware: Click to download [K210-chip_erase.kfpkg](https://dl.sipeed.com/fileList/MAIX/MaixPy/release/Erase_all/K210-chip_erase.kfpkg)
 
 After erasing device do remember to reburn your target firmware
-
 
 ## Using JTAG debugger has been unable to connect to K210
 
@@ -368,3 +366,69 @@ To avoid wasting time, it is recommended to use MaixPy IDE for communication.
 You can open terminal in MaixPy IDE top menu bar tools->open terminals->new terminal->Connect to serial ports ->select the correct serial port->baudrate 115200, to create a new terminal.
 
 ![sipeed_maix_dock_terminal](./../../assets/hardware/maix_dock/sipeed_maix_dock_terminal.png)
+
+## Error when burning K210 firmware via Kflash
+
+![kflash_gui](./../../../../../news/MaixPy/mixly_application/accets/k210_usage/kflash_gui.jpg)
+
+Here are several solvement ways.
+1. There is no `COM` port in computer device manager, try to install serial driver or change the USB cable.
+2. THere is `COM` port in computer device manager, but it's occupied by other application. Replug the USB cable to stop serial port in use.
+3. Update the Kflash into the latest version [Click me](https://dl.sipeed.com/shareURL/MAIX/tools/kflash_gui)。
+4. Hold BOOT ket and RST key, release RST key first then release BOOT key manually to make K210 into burning mode 
+5. If all above fails, try to use another computer to avoid the error caused by USB hub or cable
+
+## Black dot in camera image
+
+![sensor_error](./../../../../../news/MaixPy/mixly_application/accets/k210_usage/sensor_error.png)
+
+The screen displays, but there is black dot in the image. This means the lens is dirty, try to disassemble the sensor and wipe it.
+
+## RuntimeError：Sensor timeout!
+
+Rerun the code, or use another camera.
+
+## Screen displays reverse colour
+
+Erase the firmware, and reburn the firmware, use the code `lcd.init(type=2)` to reverse the color again. [Click me](https://wiki.sipeed.com/soft/maixpy/en/course/image/basic/display_images.html?highlight=reverse) to see the example.
+
+## isolated_word module: Idle 2
+
+Read [Keyword Identification](https://wiki.sipeed.com/soft/maixpy/en/course/speech/recognizer_mfcc.html) and [isolated_word API](https://wiki.sipeed.com/soft/maixpy/zh/api_reference/machine_vision/isolated_word.html) to know more.
+
+## How to run TensorFlow `.h5/.tflite` model on K210
+
+Read [Maixpy convert](https://wiki.sipeed.com/soft/maixpy/en/course/ai/basic/maixpy_hardware_ai_basic.html#Model-conversion) to see how to convert the model into `.kmodel` format.
+
+## How to check whether K210 is short-circuit
+
+Measure the `1.8/3.3V` voltage, here are the measure points.
+
+![board_voltage_checkpoint](./../../../../soft/maixpy/zh/others/assets/maixpy_faq/board_voltage_checkpoint.jpg)
+
+## K210 image is overexposed or underexposed
+
+The camera explore can only be adjusted by camera OV2640 with code `sensor_exposure_control`.
+
+Use the translation assistant to read [Sensor explore control example](https://wiki.sipeed.com/news/MaixPy/sensor.html)。
+
+## How to mount K210 U disk on computer
+
+K210 Does NOT SUPPORT USB device, this chip contains no USB peripheral, can not simulate the U disk.
+
+## Use power surge
+
+The board is short-circuit, this makes use current surge.
+
+## Loading model...
+
+The model requires much RAM, flash the minimal firmware to have a test, then try the normal firmware.
+
+## OSError: [Errno 5] EIO
+
+1. Check if the address of the I2C device is correct, it should be `0x20` instead of `20`.
+2. Check if the format of the I2C write data is correct, it should use `b'\x03'` and `b'\x80'` instead of `b'x3'` and `b'x80'`.
+3. Check if the I2C write command is correct, if you want to set the input/output mode of PCA9534, you should use `i2c.writeto_mem (0x20,0x3,b'\x80')` instead of `i2c.writeto (0x20, 2, b'x80')`.
+4. Check if the I2C wires are reliable, and there are no loose or broken connections.
+5. Check if the I2C device is damaged or overheated.
+Add some delays between the I2C initialization and usage, to make sure the I2C port is activated.

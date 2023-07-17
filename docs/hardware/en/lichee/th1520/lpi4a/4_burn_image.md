@@ -55,6 +55,8 @@ Refer to [Disable Driver signature verification](https://answers.microsoft.com/e
 
 Edit the `burn_lpi4a.bat` decompressed from burn_tool.zip, replace the example image path into your real image path. Then run this `burn_lpi4a.bat` to burn image into LPi4A.
 
+And `fastboot.exe` path also needs verifying, otherwise it reports file not found.
+
 ![target_burn_image_path](./../../../../zh/lichee/th1520/lpi4a/assets/burn_image/target_burn_image_path.png)
 
 ### Linux

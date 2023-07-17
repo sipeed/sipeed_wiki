@@ -52,6 +52,8 @@ Windows 下烧录时，需要先进入高级启动模式，禁用数字签名。
 
 编辑 burn_tool.zip 文件夹里面的 `burn_lpi4a.bat` 文件，将对应的镜像路径更改成自己实际使用的镜像及名称。然后双击运行 `burn_lpi4a.bat` 就能够正常进行烧录了。
 
+需要注意的是 `fastboot.exe` 的路径也需要匹配上，不然会被提示找不到文件。
+
 ![target_burn_image_path](./assets/burn_image/target_burn_image_path.png)
 
 ### Linux 系统步骤

@@ -188,4 +188,4 @@ More example codes [Github](https://github.com/sipeed/TangNano-20K-example)
 
 Tang Nano 20K uses the external Flash to save the firmware, we need to download the bitstream to store the firmware.
 
-### Visit [Tang Questions](http://127.0.0.1:2333/hardware/en/tang/Tang-Nano-Doc/questions.html) to find more solutions
+### Visit [Tang Questions](/hardware/en/tang/Tang-Nano-Doc/questions.html) to find more solutions

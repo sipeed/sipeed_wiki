@@ -4,8 +4,6 @@ keywords: maixpy, k210, AIOT, 边缘计算
 desc: maixpy  MaixPy 常见问题
 ---
 
-> 编辑于 2022.07.19
-
 ## MaixPy 与 C 开发有什么异同，我该怎么选择
 
 MaixPy 是基于 Micropython 的脚本语言， 不需要编译，在运行时解析，编写起来更简单方便，只是运行时时实性不如 C 语言。
@@ -149,7 +147,7 @@ lcd.rotation(dir)
 lcd.mirror(invert)
 ```
 
-## 烧录 MaixPy 之后，MaixPy 出现无法启动
+## 烧录 MaixPy 之后， K210 无法启动
 
 现象：我们在使用过程中可能遇到烧录 MaixPy 之后，MaixPy 出现无法启动(表象为 无法点亮屏幕，白屏 等)，
 
@@ -190,9 +188,11 @@ kflash_gui 配置选项
   - 下载波特率过高
 
 ## 出现 type object 'board_info' has no attribute 'XX'
+
 请看[开发板配置文件](./../get_started/board_info.md),对开发板进行重新配置
 
 ## TF卡格式没有问题，但是无法读取TF卡，挂载失败
+
 请使用
 ```python
 from machine import SDCard
@@ -324,6 +324,7 @@ Maixpy ide 挂着运行时内存不足，就会出现的常见错误，解决方
 ## 后缀名为 kmodel 和 smodel 的模型文件有什么区别？
 
 后缀名为 kmodel 的模型文件是用来阐述这个模型的形状结构和参数。
+
 而 smodel 模型需要用到机器码；机器码是一机一码的一种加密方式，用于模型文件的加密。如果使用别的机器码去加密或者下载其他以 smodel 为文件后缀的模型文件，开发板是无法使用这些模型文件的!!
 
 ## MemoryError: Out of normal MicroPython Heap Memory
@@ -354,7 +355,8 @@ Maixpy ide 挂着运行时内存不足，就会出现的常见错误，解决方
 ## Maix Dock 串口不能用
 
 Maix Dock 不能使用 MobaXterm 或其他 不支持手动串口流控制的软件 来进行串口通信。
-为了不浪费时间，建议使用 MaixPy IDE 来进行通信。
+
+为了节省时间，建议使用 MaixPy IDE 来进行通信。
 
 可以在 MaixPy IDE 顶部菜单栏 工具->打开终端->新终端->连接到串口->选择正确的串口->115200波特率 来新建一个终端，在这里面使用串口。
 
@@ -362,61 +364,66 @@ Maix Dock 不能使用 MobaXterm 或其他 不支持手动串口流控制的软�
 
 ## 烧录固件途中出现握手失败等报错信息
 
-![kflash_gui](./k210_usage/../../../../../../news/MaixPy/mixly_application/accets/k210_usage/kflash_gui.jpg)
+![kflash_gui](./../../../../../news/MaixPy/mixly_application/accets/k210_usage/kflash_gui.jpg)
 
 一般出现这个问题，先从以下几个方面判断问题（因使用环境不同造就的设备握手失败）
-1. 先判断板子上电后设备管理器是否有 `COM` 端口出现，如果没有端口出现返回安装驱动的步骤或者进行更换线材。
-2. 设备管理器出现 `COM` 端口，查看是否被别的软件（串口根据、手机助手、蓝牙、外设）占用了串口，查询不出再次更换线材或重启设备也可以。
-3. 查看 kflash_gui 的版本（是不是太低）下载页面的配置不要改动并调小波特率。
-4. 烧录前按硬件的 BOOT 键后按复位，再松开 BOOT 键尝试能不能烧录。
-5. 尝试过以上的方法都不行的话请更换电脑设备尝试，还是不行的话请联系淘宝官方客服。
+1. 设备管理器没有 `COM` 端口，重新安装串口驱动或者更换 USB 线材再次尝试。
+2. 设备管理器出现 `COM` 端口，但是串口被其它软件占用了，重新插拔一次 USB 即可。
+3. 更新烧录软件到最新版本：[点我](https://dl.sipeed.com/shareURL/MAIX/tools/kflash_gui)。
+4. 烧录前依次按住 BOOT 和 RST 按键，然后按顺序松开 RST 按键和 BOOT 按键，使芯片进行烧录模式。
+5. 尝试过以上的方法都不行的话请更换电脑设备尝试，可能由于 USB HUB 或者 USB 线缆等外部因素导致的。
 
 ## 摄像头出现黑斑现象
 
 ![sensor_error](./../../../../../news/MaixPy/mixly_application/accets/k210_usage/sensor_error.png)
 
-显示黑斑但是有正常画面就是摄像头内片不干净，可以把摄像头拆出来擦一擦。
+显示黑斑，但是有正常画面。说明摄像头内片不干净，拆开摄像头后小心擦拭下。
 
 ## 运行摄像头程序显示：RuntimeError：Sensor timeout!
 
-摄像头连接超时，尝试重新换线上电或者是换摄像头。
+摄像头连接超时，更换摄像头。
 
 ## 烧录固件后画面反色
 
-重新擦除烧录，使用代码反色回来[点击](https://wiki.sipeed.com/soft/maixpy/zh/course/image/basic/display_images.html?highlight=%E5%8F%8D%E8%89%B2)查看。
+擦除、烧录固件，使用代码反色屏幕：[点我查看](https://wiki.sipeed.com/soft/maixpy/zh/course/image/basic/display_images.html?highlight=%E5%8F%8D%E8%89%B2)。
 
-## 孤词语句模块进入录音状态后显示：空转2
+## 孤词语句模块进入录音状态后显示：Idle 2
 
-查看是否录音前就播放了声音导致空转，到达 `speak` 或 `speak5` 即可进一步进行操作。
+阅读 [录入词汇模板](https://wiki.sipeed.com/soft/maixpy/zh/course/speech/recognizer_mfcc.html#%E5%BD%95%E5%85%A5%E8%AF%8D%E6%B1%87%E6%A8%A1%E6%9D%BF) 和 [isolated_word API](https://wiki.sipeed.com/soft/maixpy/zh/api_reference/machine_vision/isolated_word.html)来了解更多
 
-## k210 是否支持 TensorFlow .h5/.tflite 格式模型
+## K210 是否支持 TensorFlow .h5/.tflite 格式模型
 
-k210 支持 TensorFlow .h5/.tflite 格式模型，但使用的时候用 nncase 工具转化成 `kmodel.` 格式才可进行使用。相关文档链接：[MaixPy AI 硬件加速基本知识](https://wiki.sipeed.com/soft/maixpy/zh/course/ai/basic/maixpy_hardware_ai_basic.html?highlight=tensorflow#%E6%A8%A1%E5%9E%8B%E8%BD%AC%E6%8D%A2)
+K210 支持 TensorFlow .h5/.tflite 格式模型，但使用的时候用 nncase 工具转化成 `.kmodel` 格式才可进行使用。相关文档链接：[MaixPy AI 硬件加速基本知识](https://wiki.sipeed.com/soft/maixpy/zh/course/ai/basic/maixpy_hardware_ai_basic.html#%E6%A8%A1%E5%9E%8B%E8%BD%AC%E6%8D%A2)
 
 ## 当操作失误需判断 K210 主控芯片是否短路
 
-使用万用表查看芯片的 `1.8/3.3` 是否有输出，下图红框都是输出点。
+使用万用表查看芯片的 `1.8/3.3` 是否有电压，下图红框都是输出点。
 
-![k210](./assets/maixpy_faq/k210.jpg)
+![board_voltage_checkpoint](./assets/maixpy_faq/board_voltage_checkpoint.jpg)
 
 ## 使用 k210 曝光过重过低如何解决
 
-这个解决方法只基于 k210 开发板及配套的摄像头（OV2640）才可进行调整曝光。
-参考文档：[sensor 感光元件曝光控制](https://wiki.sipeed.com/news/MaixPy/sensor.html)
+只有 K210 配套的 OV2640 摄像头支持曝光调节，阅读 [sensor 感光元件曝光控制](https://wiki.sipeed.com/news/MaixPy/sensor.html) 了解更多
 
 ## K210 是否支持 U 盘挂载到电脑
 
-MaixPy 不支持挂载文件系统到电脑，芯片没有 USB 功能无法模拟 U 盘设备，不要再问为什么没有 U 盘或者是显示 SD 卡了！那不是 K210 那是 M2dock 跟 openmv!
+K210 不支持 USB 设备，芯片没有 USB 功能，无法模拟 U 盘设备，不支持挂载文件系统到电脑。
+
+不要再问为什么没有 U 盘或者是显示 SD 卡了！那示例设备不是 K210 。
 
 ## K210 上电后电脑弹出 USB 集线有电涌
 
-通常来说这是 K210 太吸电了导致电脑进入保护状态了，如果串口消失考虑换线换口进行使用，如果以上操作后还是无反应的话则要考虑更换电脑设备使用，反之串口存在的话即可正常使用。
+这是板卡短路了，导致 usb 电流过大电脑提示保护。
 
 ## MaixHub 训练的模型，放到开发板运行时一直显示 Loading model...
 
 可能是烧录了内存占用比较大的固件，可以先换成 minimum 版本的固件试试，可以再可以尝试普通固件
 
+## OSError: [Errno 5] EIO
 
-
-
-
+1. 检查 I2C 设备的地址是否正确，应该是 0x20 而不是 20。
+2. 检查 I2C 写入数据的格式是否正确，应该使用 `b'\x03'` 和 `b'\x80'` 而不是 `b'x3'` 和 `b'x80'`。
+3. 检查 I2C 写入命令是否正确，如果您想要设置 PCA9534 的输入/输出模式，应该使用 `i2c.writeto_mem (0x20,0x3,b'\x80')` 而不是 `i2c.writeto (0x20, 2, b'x80')`。
+4. 检查 I2C 连接线是否牢固，是否有松动或断裂的情况。
+5. 检查 I2C 设备是否有损坏或过热的情况。
+6. 在 I2C 初始化和使用之间添加一些延时，以确保 I2C 端口已经激活。
