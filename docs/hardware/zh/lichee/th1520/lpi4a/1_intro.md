@@ -70,7 +70,7 @@ LicheePi 4A 可以用作典型的 RISC-V 验证平台，其强大的性能可以
 </tr>
 <tr>
   <td>RAM</td>
-  <td>· 8GB 64bits LPDDR4<br>· 16GB 64bits LPDDR4<br></td>
+  <td>· 8GB 64bits LPDDR4X<br>· 16GB 64bits LPDDR4X<br></td>
 </tr>
 <tr>
   <td>存储</td>
