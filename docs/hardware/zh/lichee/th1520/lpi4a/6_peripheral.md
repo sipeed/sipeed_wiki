@@ -373,9 +373,12 @@ echo "Start Play"
 > 注：早期镜像的HDMI音频不生效，请升级到较新版本使能HDMI音频功能。  
 
 点击屏幕右上角的喇叭图标，进入 Audio mixer，可以看到下面的界面：  
+
 ![audiomixer](./assets/peripheral/audiomixer.png)  
+
 名字为 Build-in Audio Stereo 设备即 HDMI 音频，可以在这个界面进行相关配置，也可以在直接单击小喇叭图标后进行设备的切换。
 若确认连接无误，且使用的 HDMI 显示器支持 HDMI音频功能，但没有在设备列表中看到相应设备，可以尝试运行以下命令：  
+
 ```shell
 systemctl --user restart pulseaudio.service
 ```
@@ -414,9 +417,14 @@ LicheePi 4A 具有 CAM0/CAM1/CAM2 三个摄像头接口， CAM0 最大 4lane，C
 
 目前暂时需要烧录专用的镜像测试，在文档镜像集合页面中的[百度网盘](https://pan.baidu.com/e/1xH56ZlewB6UOMlke5BrKWQ)，下载 /image/latest_20230714/LPI4A_YOCTO_CAM.zip 镜像文件。
 烧录后，进入到 /usr/share/csi_hal/ 目录下，运行如下命令：
-`./cam_demo_simple 2 0 1 0 640 480 1 30`
+
+```shell
+./cam_demo_simple 2 0 1 0 640 480 1 30
+```
+
 运行完成后，可以在当前目录看到dump下来的拍摄照片，典型命名为 demo_save_img_OV5693_ch0_0_* ，分辨率为640\*480(当前仅支持640*480分辨率)，格式为 YUV420SP(NV12)，该格式下UV分量交织存储， bit depth 为 8bit，查看时注意相关参数配置是否正确。
 Linux 下可以使用 YUView 设置相关参数查看图片；此外，还可以使用 python 处理相关参数后查看图片，参考代码如下：
+
 ```python
 import numpy as np
 import cv2
@@ -467,6 +475,7 @@ MIPI 屏软排线连接：
 确认连接无误后，使用支持 MIPI 屏幕的固件，开机即可看到 MIPI 屏幕显示。
 
 若只使用 MIPI 屏幕，可以在系统设置中关闭 HDMI 显示，将 MIPI 屏幕设置为主屏幕，也可使用以下命令：  
+
 ```shell
 xrandr --output HDMI-1 --off
 xrandr --output DSI-1 --rotate normal --primary
@@ -474,13 +483,17 @@ xrandr --output DSI-1 --rotate normal --primary
 上述命令中 `rotate` 参数为屏幕的旋转方向，`normal` 表示为不旋转，即竖屏显示，若要继续横屏显示可以改为 `left` 或者 `right`。 
 
 若同时使用 MIPI 屏幕和 HDMI 屏幕，也可以根据上述命令来设置主屏幕和两个屏幕间的关系，例如下面的命令，将 HDMI 设置为主屏幕，MIPI 屏幕设置为主屏幕下方的扩展屏幕且为横屏显示：
+
 ```shell
 xrandr --output HDMI-1 --auto --primary
 xrandr --output DSI-1 --rotate left --below HDMI-1
 ```
 上述的屏幕标识符和可供设置的分辨率可以直接输入 `xrandr` 命令来查看。  
+
 若修改设置后发现触摸屏的坐标不对，可以按照下面的步骤修正：  
+
 查看触摸屏设备对应的 ID 
+
 ```shell
 xinput
 ```
@@ -494,7 +507,8 @@ xinput map-output-of 7 DSI-1
 xinput disable 7
 ```
 
-若只使用 HDMI 屏幕，先断电，将 MIPI 屏幕和触摸板的软排线都拔掉后再上电。再运行下面的命令（需要切换到 root 用户执行，直接 sudo 可能会遇到权限不够的问题）：  
+若只使用 HDMI 屏幕，先断电，将 MIPI 屏幕和触摸板的软排线都拔掉后再上电。再运行下面的命令（需要切换到 root 用户执行，直接 sudo 可能会遇到权限不够的问题）： 
+
 ```shell
 echo off > /sys/class/drm/card0-DSI-1/status
 ```
