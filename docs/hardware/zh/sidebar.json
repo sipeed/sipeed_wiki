@@ -270,15 +270,15 @@
                   "label":"系统开发",
                   "items":[
                     {
-                      "label":"THead Yocto",
-                      "file":"lichee/th1520/lpi4a/7_develop_thead.md"
+                      "label":"revyos",
+                      "file":"lichee/th1520/lpi4a/7_develop_revyos.md"
                     },
                     {
                       "label":"Linux 主线 (编写中)"
                     },
                     {
-                      "label":"revyos",
-                      "file":"lichee/th1520/lpi4a/7_develop_revyos.md"
+                      "label":"THead Yocto",
+                      "file":"lichee/th1520/lpi4a/7_develop_thead.md"
                     },
                     {
                       "label":"Android (编写中)"
