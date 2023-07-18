@@ -165,7 +165,7 @@ LicheePi 4A出库已预烧录了基础系统镜像，至此你已可以快速进
 ## 铝合金外壳安装说明
 ### 外壳配件概览
 外壳配件应包含如下内容，如有缺失，请联系客服。    
-![asm0](./assets/unbox/asm0.jpg)  
+![20230718_assemble_0](./assets/unbox/20230718_assemble_0.jpg)  
 从左到右分别是：
 1. 3507涡轮风扇
 2. 40x40x5mm 铝散热片
@@ -178,35 +178,35 @@ LicheePi 4A出库已预烧录了基础系统镜像，至此你已可以快速进
 
 ### 安装散热片
 1. 准备开发板
-![asm1](./assets/unbox/asm1.jpg)  
+![20230718_assemble_1](./assets/unbox/20230718_assemble_1.jpg)  
 2. 粘贴导热硅脂
-![asm2](./assets/unbox/asm2.jpg)  
+![20230718_assemble_2](./assets/unbox/20230718_assemble_2.jpg)  
 3. 按方向安装散热片
-![asm3](./assets/unbox/asm3.jpg) 
+![20230718_assemble_3](./assets/unbox/20230718_assemble_3.jpg) 
 
 ### 安装盖板
 1. 滑入开发板
-![asm4](./assets/unbox/asm4.jpg) 
+![20230718_assemble_4](./assets/unbox/20230718_assemble_4.jpg) 
 2. 安装天线到盖板
-![asm5](./assets/unbox/asm5.jpg) 
+![20230718_assemble_5](./assets/unbox/20230718_assemble_5.jpg) 
 3. 安装天线到PCB
-![asm6](./assets/unbox/asm6.jpg) 
+![20230718_assemble_6](./assets/unbox/20230718_assemble_6.jpg) 
 4. 安装前盖板（2颗螺丝）
-![asm7](./assets/unbox/asm7.jpg) 
+![20230718_assemble_7](./assets/unbox/20230718_assemble_7.jpg) 
 5. 撕开后盖板泡棉胶
-![asm8](./assets/unbox/asm8.jpg) 
+![20230718_assemble_8](./assets/unbox/20230718_assemble_8.jpg) 
 6. 安装后盖板（2颗螺丝）
-![asm9](./assets/unbox/asm9.jpg) 
+![20230718_assemble_9](./assets/unbox/20230718_assemble_9.jpg) 
 
 ### 安装风扇
 1. 插如风扇电源线到板卡插针（上正下负），粘贴风扇到顶壳（注意风扇靠近外壳边缘粘贴，拉直连接线，否则会卡住外壳）
-![asm10](./assets/unbox/asm10.jpg) 
+![20230718_assemble_10](./assets/unbox/20230718_assemble_10.jpg) 
 2. 从右侧小心向左侧盖住顶壳（务必注意方向，否则风扇插针会卡住）
-![asm11](./assets/unbox/asm11.jpg) 
+![20230718_assemble_11](./assets/unbox/20230718_assemble_11.jpg) 
 
 ### 安装剩余螺丝
-![asm12](./assets/unbox/asm12.jpg) 
-![asm13](./assets/unbox//asm13.jpg) 
+![20230718_assemble_12](./assets/unbox/20230718_assemble_12.jpg) 
+![20230718_assemble_13](./assets/unbox/20230718_assemble_13.jpg) 
 
 ### 最终效果
 ![last](./assets/unbox/last.png) 
