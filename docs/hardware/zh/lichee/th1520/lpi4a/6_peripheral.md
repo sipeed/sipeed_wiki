@@ -297,9 +297,7 @@ sipeed@lpi4a:~$ ls /dev/spidev2.0
 
 TODO
 
-## USB
-
-TODO  
+## USB 
 
 ### USB SSD
 
@@ -331,6 +329,7 @@ guvcview
 
 ### USB 声卡
 
+TODO
 
 ## ETH
 
@@ -387,31 +386,6 @@ echo "Start Play"
 ```shell
 systemctl --user restart pulseaudio.service
 ```
-
-## Bluetooth
-
-找到桌面右上角的蓝牙图标，确认蓝牙功能已经打开，若没打开，右键单击蓝牙图标即可打开：
-
-![bluetooth_icon.png](./assets/peripheral/bluetooth_icon.png)
-
-打开后，左键单击蓝牙图标，可以看到蓝牙设备扫描界面
-
-点击该界面左上角的Search即可搜索蓝牙设备，将蓝牙键鼠、蓝牙耳机等设备的配对模式打开即可被扫描到。
-
-右键选择想要连接的设备，即可连接。成功连接后还可以右键该设备，点击Trust，下次扫描到即可自动连接。
-
-![bluetooth_devices.png](./assets/peripheral/bluetooth_devices.png)
-
-若蓝牙图形管理界面无法搜索到设备，也可以现在命令行界面下使用`bluetoothctl`来进行配对，步骤如下：
-
-```shell
-bluetoothctl
-scan on
-# 找到想要配对设备的mac地址
-pair 目标设备的mac地址
-```
-
-配对成功后可以在蓝牙图形界面进行连接、保存设备等操作。
 
 ## MIPI CSI
 
