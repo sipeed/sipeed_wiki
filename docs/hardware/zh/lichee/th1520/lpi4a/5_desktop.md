@@ -407,7 +407,11 @@ vncserver -localhost no
 接下来，为了访问远程主机（LPi4A），我们需要在本地主机（你正在使用的电脑）上下载安装 [vncviewer](https://www.realvnc.com/en/connect/download/viewer/)，安装完成后，启动 VNCviewer，在窗口顶部输入远程主机的 IP 地址和端口号（格式为 `你的IP地址:VNC服务器的显示端口号）：  
 ![vnc_viewer_connect](./assets/desktop/vnc_viewer_connect.png)
 
-默认会根据网络情况来设置远程桌面的画质，也可以手动指定：  
+默认会根据网络情况来设置远程桌面的画质，低画质时可能会导致远程桌面画面颜色异常，此时可以手动指定为高画质。
+在第一次成功连接后，右键单击新出现的会话窗口，选择 properties：  
+![vnc_viewer_change_properties](./assets/desktop/vnc_viewer_change_properties.png)
+
+修改 Options 选项中的 Picture quality 为 High：  
 ![vnc_viewer_settings](./assets/desktop/vnc_viewer_settings.png)  
 
 显示的效果如下：  
