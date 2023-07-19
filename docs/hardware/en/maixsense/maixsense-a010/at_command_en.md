@@ -159,3 +159,11 @@ Image data encapsulated into packets (not stabilized):
 4. Image frame
 5. Check 1 byte: the lower eight bits of the "sum" of all previous bytes
 6. 1 byte at the end of the packet: 0XDD
+
+AT+UNIT?  Query the `UNIT` value
+
+Take `p` as the image frame pixel values, here are two results:
+
+- If `UNIT` is not 0，the distance between this pixel and top is `p` x `UNIT` ;
+
+- If `UNIT` is 0，the distance between this pixel and top is (`p`/5.1)^2 。

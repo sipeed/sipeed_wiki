@@ -110,7 +110,6 @@ print(os.listdir("/"))
 
 K210 has no USB peripherals, so it can only use the serial port to communicate with the IDE. The speed is not as fast as the USB device, so it will affect the frame rate. You can turn off the IDE camera preview
 
-
 ## Why the camera image previewed on the IDE is blurry
 
 K210 has no USB peripherals, so it can only use the serial port to communicate with the IDE. The speed is not as fast as the USB device. Therefore, the picture is compressed. If you need to see a clear picture, please watch it on the screen of the development board, or save it as a picture and upload it to the computer View
@@ -127,7 +126,6 @@ This sets the quality of the preview image to 95%, but the frame rate will be si
 * Change to a better camera. For example, the frame rate of `ov7740` will be higher than that of `ov2640`. But the premise is that the camera circuit must be compatible with the circuit of the development board
 * Increase the camera clock frequency (`sensor.reset(freq=)`), but be careful not to be too high, too high will make the picture worse
 * You can compile the source code yourself, turn on the camera double buffering option (by default), and `sensor.reset(dual_buff=True)`, the frame rate will increase, but the memory consumption will increase accordingly (approximately 384KiB)
-
 
 ## IDE frame buffer imaging direction is incorrect, LCD display direction is incorrect
 
@@ -236,7 +234,7 @@ print(sd_check())
 
 1. Update firmware, using the latest MaixPy firmware with v3/v4 supported. The update way has been tole before.
 2. Check the location you store the model whether matches your read location. For example, if you store the model on sd card, but you read your flash address 0x300000, this error will occour.
-3. If you use module named with .smodel, you should redownload it with your own machine-key from maixhub.
+3. If you use model named with `.smodel`, you need redownload this model with your own machine-key from maixhub.
 
 ## No any response when run boot.py in MaixPy IDE
 
@@ -431,4 +429,10 @@ The model requires much RAM, flash the minimal firmware to have a test, then try
 3. Check if the I2C write command is correct, if you want to set the input/output mode of PCA9534, you should use `i2c.writeto_mem (0x20,0x3,b'\x80')` instead of `i2c.writeto (0x20, 2, b'x80')`.
 4. Check if the I2C wires are reliable, and there are no loose or broken connections.
 5. Check if the I2C device is damaged or overheated.
-Add some delays between the I2C initialization and usage, to make sure the I2C port is activated.
+6. Add some delays between the I2C initialization and usage, to make sure the I2C port is activated.
+
+## AttributeError: 'Image' object has no attribute 'find_blobs'
+
+Flash the firmware bin named with `openmv`. Firmware named with `minimum` does not support this function.
+
+If this does not meet your command, you can compile the firmware by yourself.

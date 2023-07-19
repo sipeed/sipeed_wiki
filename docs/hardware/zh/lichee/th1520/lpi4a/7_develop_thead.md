@@ -473,22 +473,4 @@ TODO
 - 包含所有发布的 SDK 相关文档
 - 仓库地址：[https://gitee.com/thead-yocto/documents](https://gitee.com/thead-yocto/documents)
 
-<!-- ## Mainline Linux
-
-TODO  
-
-## OpenWRT
-
-TODO
-
-## Andriod 
-TODO  
-
-## OpenHarmony  
-TODO 
-
--->
-
-
-
 欢迎投稿～ 投稿接受后可得￥5～150（$1~20）优惠券！

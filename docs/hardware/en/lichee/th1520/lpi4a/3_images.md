@@ -2,16 +2,16 @@
 title: Collection of images
 keywords: Linux, Lichee, TH1520, SBC, RISCV, image
 update:
+  - date: 2023-07-19
+    version: v1.1
+    author: ztd
+    content: 
+      - Update docs
   - date: 2023-05-08
     version: v1.0
     author: wonder
     content:
       - Release docs
-  - date: 2023-05-08
-    version: v1.1
-    author: wonder
-    content:
-      - Update docs
 ---
 
 ## Supported kernels
@@ -36,6 +36,7 @@ ISCAS mirror: [click me](https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/)
 ### Debian
 
 ![debian](./../../../../zh/lichee/th1520/lpi4a/assets/images/debian.png)
+![debian_neofetch](./../../../../zh/lichee/th1520/lpi4a/assets/images/debian_neofetch.png)
 
 1. LPI4A_20230714.zip
 
@@ -115,10 +116,7 @@ TODO
 ### Android
 
 ![android](./../../../../zh/lichee/th1520/lpi4a/assets/images/android.png)
-
-https://gitee.com/thead-android/thead-android
-
-System installation: Prompt that it has been installed to eMMC by default. How to upgrade the system (mirror download, burning tools, steps)
+Readme and image download link: [Click me](https://gitee.com/thead-android/thead-android)
 
 ## Third-party images
 
@@ -126,19 +124,22 @@ The images provided by third parties are listed here for informational purposes 
 
 ### openEuler
 
-![openEuler](./../../../../zh/lichee/th1520/lpi4a/assets/images/openEuler.png)   
+![openEuler](./../../../../zh/lichee/th1520/lpi4a/assets/images/openEuler.png)
+![openeuler_neofetch](./../../../../zh/lichee/th1520/lpi4a/assets/images/openeuler_neofetch.png)
 Download: [Click me](https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/preview/openEuler-23.03-V1-riscv64/lpi4a/)   
 Twitter: https://twitter.com/openEuler   
 
 ### DeepinOS
 
 ![deepin](./../../../../zh/lichee/th1520/lpi4a/assets/images/deepin.jpg) 
+![deepin_neofetch](./../../../../zh/lichee/th1520/lpi4a/assets/images/deepin_neofetch.png)
 
 Readme and image download address: [Link](https://github.com/aiminickwong/licheepi4a-images)
 
 ### openKylin
 
-![openKylin](./../../../../zh/lichee/th1520/lpi4a/assets/images/openkylin.png) 
+![openKylin](./../../../../zh/lichee/th1520/lpi4a/assets/images/openkylin.png)
+![oepnkylin_neofetch](./../../../../zh/lichee/th1520/lpi4a/assets/images/oepnkylin_neofetch.png) 
 
 Readme and image download link: [Click me](https://github.com/aiminickwong/licheepi4a-images)
 

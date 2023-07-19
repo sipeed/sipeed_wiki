@@ -19,12 +19,14 @@ update:
 
 > 总共有三个用户，`root`，`debian`，`sipeed`，初始密码均为`licheepi` 
 > 有些版本的`debian`用户的密码为`sipeed`
+**0714及以后版本的镜像，默认开启了自动登录，自动登录的用户为 `sipeed`**
 
 ![usage_login_userpasserward](./../../../../zh/lichee/th1520/lpi4a/assets/desktop/usage_login_userpasserward.png)
 
 ## 打开命令行
 
 在 LicheePi 4A 的 Debian 图形化系统中，使用快捷键 `Ctrl` + `Alt` + `T` 三个组合键可以直接打开命令行终端，来快速方便地操作系统。
+**0714及以后版本的镜像，默认开启了免密码`sudo`**
 
 ![usage_debian_terminal_shell_hotkey](./../../../../zh/lichee/th1520/lpi4a/assets/desktop/usage_debian_terminal_shell_hotkey.png)
 
@@ -66,7 +68,32 @@ LicheePi 4A 板载无线模组，支持蓝牙和 wifi 。
 
 在输入密码的弹出窗口中，`Wi-Fi adapter` 中需要选择 `wlan0` 来连接网络。
 
-<!-- ## TODO 连接蓝牙 -->
+## 连接蓝牙
+
+找到桌面右上角的蓝牙图标，确认蓝牙功能已经打开，若没打开，右键单击蓝牙图标即可打开：
+
+![bluetooth_icon.png](./../../../../zh/lichee/th1520/lpi4a/assets/desktop/bluetooth_icon.png)
+
+打开后，左键单击蓝牙图标，可以看到蓝牙设备扫描界面
+
+点击该界面左上角的Search即可搜索蓝牙设备，将蓝牙键鼠、蓝牙耳机等设备的配对模式打开即可被扫描到。
+
+右键选择想要连接的设备，即可连接。成功连接后还可以右键该设备，点击Trust，下次扫描到即可自动连接。
+
+![bluetooth_devices.png](./../../../../zh/lichee/th1520/lpi4a/assets/desktop/bluetooth_devices.png)
+
+若蓝牙图形管理界面无法搜索到设备，也可以现在命令行界面下使用`bluetoothctl`来进行配对，步骤如下：
+
+```shell
+bluetoothctl
+scan on
+# 找到想要配对设备的mac地址
+pair 目标设备的mac地址
+connect 目标设备的mac地址
+```
+
+上述步骤也可以在蓝牙图形界面进行操作，但蓝牙图形界面能够展示的搜索到的蓝牙设备有限，此时可以先用 `bluetoothctl` 工具来进行搜索和配对，配对成功后图形界面就会出现这个设备，就可以切换到图形界面进行操作了。
+
 
 ## 软件安装
 
@@ -92,6 +119,34 @@ LicheePi 4A 板载无线模组，支持蓝牙和 wifi 。
 
 ![usage_debian_apt_upgrade_vim](./../../../../zh/lichee/th1520/lpi4a/assets/desktop/usage_debian_apt_upgrade_vim.png)
 
+若使用 `sudo apt update` 命令时遇到类似下面的提示信息：  
+```shell
+Ign:1 https://mirror.iscas.ac.cn/deepin-riscv/deepin-stage1 beige InRelease
+Ign:2 https://community-packages.deepin.com/driver driver InRelease
+Ign:3 https://mirror.iscas.ac.cn/deepin-riscv/deepin-addons beige InRelease
+Ign:2 https://community-packages.deepin.com/driver driver InRelease
+Ign:1 https://mirror.iscas.ac.cn/deepin-riscv/deepin-stage1 beige InRelease
+Ign:3 https://mirror.iscas.ac.cn/deepin-riscv/deepin-addons beige InRelease
+Ign:1 https://mirror.iscas.ac.cn/deepin-riscv/deepin-stage1 beige InRelease
+Ign:2 https://community-packages.deepin.com/driver driver InRelease
+Ign:3 https://mirror.iscas.ac.cn/deepin-riscv/deepin-addons beige InRelease
+Err:2 https://community-packages.deepin.com/driver driver InRelease
+  Could not resolve 'community-packages.deepin.com'
+Err:1 https://mirror.iscas.ac.cn/deepin-riscv/deepin-stage1 beige InRelease
+  Could not resolve 'mirror.iscas.ac.cn'
+Err:3 https://mirror.iscas.ac.cn/deepin-riscv/deepin-addons beige InRelease
+  Could not resolve 'mirror.iscas.ac.cn'
+Reading package lists... Done
+W: Failed to fetch https://mirror.iscas.ac.cn/deepin-riscv/deepin-stage1/dists/beige/InRelease  Could not resolve 'mirror.iscas.ac'
+W: Failed to fetch https://mirror.iscas.ac.cn/deepin-riscv/deepin-addons/dists/beige/InRelease  Could not resolve 'mirror.iscas.ac'
+W: Failed to fetch https://community-packages.deepin.com/driver/dists/driver/InRelease  Could not resolve 'community-packages.deep'
+W: Some index files failed to download. They have been ignored, or old ones used instead.
+```
+可以尝试如下命令进行修复：  
+```shell
+sudo apt-get update --fix-missing
+```
+
 ### 安装程序
 
 可以借助于 apt 命令来安装软件；比如使用 `sudo apt install package_name` 命令来安装 `package_name`，下面是使用 apt 来安装 `net-tools` 的例子。
@@ -103,6 +158,17 @@ LicheePi 4A 板载无线模组，支持蓝牙和 wifi 。
 ![usage_debian_ifconfig_result_list](./../../../../zh/lichee/th1520/lpi4a/assets/desktop/usage_debian_ifconfig_result_list.png)
 
 箭头指向的地方就是常说的 IP 地址了。
+
+若在下载软件的过程中遇到类似下面的提示信息：  
+```shell
+W: GPG error: http://archive.ubuntu.com trusty-updates Release: The following signatures couldn't be verified because the public key is not available: NO_PUBKEY 40976EAF437D05B5 NO_PUBKEY 3B4FE6ACC0B21F32
+```
+可以尝试用下列命令修复：  
+```shell
+sudo apt-key adv --keyserver keyring.debian.org --recv-keys '替换成报错中的NO_PUBKEY 后面的key值'
+# 或使用
+gpg --keyserver keyring.debian.org --recv-keys '替换成报错中的NO_PUBKEY 后面的key值'
+```
 
 ## SSH
 
@@ -161,21 +227,24 @@ LibreOffice Writer 即 WORD 功能：
 
 ## 浏览器
 
-系统内置了火狐浏览器（Firefox）：  
-![browser0](./../../../../zh/lichee/th1520/lpi4a/assets/desktop/browser0.png)
+系统内置了 Chromium 浏览器，点击桌面下方的浏览器图标即可使用：  
+![browser_location](./../../../../zh/lichee/th1520/lpi4a/assets/desktop/browser_location.png)
 
 使用搜索引擎：  
-![browser_bing](./../../../../zh/lichee/th1520/lpi4a/assets/desktop/browser_bing.png)  
+![browser_search_engine_use](./../../../../zh/lichee/th1520/lpi4a/assets/desktop/browser_search_engine_use.jpg)
 
 观看在线视频：  
-![browser_bili](./../../../../zh/lichee/th1520/lpi4a/assets/desktop/browser_bili.png)  
+![browser_play_video](./../../../../zh/lichee/th1520/lpi4a/assets/desktop/browser_play_video.jpg)
 
-> 注：由于目前（0425）版本还未完全适配好 GPU，视频编解码使用 CPU 软解，所以浏览器下播放视频占用率较高。实际性能以未来的 GPU 适配完成的镜像为准。
+> 注：目前的 0714镜像中，Chromium 下播放视频或音频时，若为 HDMI 音频输出，会有噪音，可以暂时切换为 Firefox 浏览器来播放。
 
 ## 播放器
 
 系统内置了一些开源播放器，我们建议使用 VLC Player 作为视频播放器
 ![player](./../../../../zh/lichee/th1520/lpi4a/assets/desktop/player.png)
+
+使用 VLC Player 查看 MP4 格式的视频效果如下：  
+![vlc_player_use](./../../../../zh/lichee/th1520/lpi4a/assets/desktop/vlc_player_use.jpg)
 
 ## 编程开发 
 
@@ -268,6 +337,82 @@ sipeed@lpi4a:~$ cat /etc/fstab
 
 /dev/mmcblk1p1 也可使用磁盘 UUID，即写成 UUID=xxxx-xxx 的形式，UUID 可以使用`sudo blkid`查看：
 `/dev/mmcblk1p1: UUID="033173ff-b3ab-494c-ab14-4dcd656a9214" BLOCK_SIZE="4096" TYPE="ext4" PARTUUID="8e4e28df-01"`
+
+
+### VNC远程桌面
+安装需要的软件包，远程桌面使用轻量化的 Xfce 桌面环境。
+```shell
+sudo apt install xfce4 xfce4-goodies xorg dbus-x11 x11-xserver-utils
+sudo apt install tigervnc-standalone-server tigervnc-common
+```
+
+安装好之后，输入 vncserver 命令，配置相关密码，系统会提示配置密码，根据自身需要设置，第二个密码用于仅供查看的用户登录：
+```shell
+sipeed@lpi4a:~$ vncserver
+
+You will require a password to access your desktops.
+
+Password:
+Verify:
+Would you like to enter a view-only password (y/n)? n
+A view-only password is not used
+```
+相关密码会创建文件存储在 `~/.vnc` 中。
+
+设置完密码后会接着显示下面的信息
+```shell
+New Xtigervnc server 'lpi4a:1 (sipeed)' on port 5901 for display :1.
+Use xtigervncviewer -SecurityTypes VncAuth -passwd /tmp/tigervnc.I5Af7X/passwd :1 to connect to the VNC server.
+```
+注意上面输出中的主机名后有一个 `:1`，这表示 VNC 服务器的显示端口号。 VNC 服务器将会监听端口 `5901`，即 5900+1。类似的，运行 vncserver 命令创建第二个示例时，将使用下一个显示端口 `:2`，对于这个显示端口，监听的端口则为 `5902`。
+
+接下来，先 kill 掉刚刚创建的 VNC 实例，先进行一些配置。
+```shell
+vncserver -kill :1
+```
+
+
+xstartup 文件是 TigerVNC 服务器启动时运行的脚本，创建并编辑文件 `~/.vnc/xstartup`，写入下面的内容：  
+```shell
+#!/bin/sh
+unset SESSION_MANAGER
+unset DBUS_SESSION_BUS_ADDRESS
+exec startxfce4 
+```
+
+并赋予权限
+```shell
+chmod +x ~/.vnc/xstartup
+```
+
+接下来增加 VNC 服务器的启动参数，创建并编辑 `~/.vnc/config` 文件，加入需要的启动参数，比如想要设置启动时的分辨率和 dpi，可以写入下面的内容：  
+```shell
+geometry=your_prefer_resolution
+dpi=your_prefer_dpi
+```
+
+若因为防火墙连接不上 VNC，可以使用 ufw 来添加允许的端口，比如使用 VNC服务器的显示端口5901：  
+```shell
+sudo ufw allow 5901
+```
+
+最后，就可以运行 vnc 服务器了：
+```shell
+vncserver -localhost no
+```
+
+接下来，为了访问远程主机（LPi4A），我们需要在本地主机（你正在使用的电脑）上下载安装 [vncviewer](https://www.realvnc.com/en/connect/download/viewer/)，安装完成后，启动 VNCviewer，在窗口顶部输入远程主机的 IP 地址和端口号（格式为 `你的IP地址:VNC服务器的显示端口号）：  
+![vnc_viewer_connect](./../../../../zh/lichee/th1520/lpi4a/assets/desktop/vnc_viewer_connect.png)
+
+默认会根据网络情况来设置远程桌面的画质，低画质时可能会导致远程桌面画面颜色异常，此时可以手动指定为高画质。
+在第一次成功连接后，右键单击新出现的会话窗口，选择 properties：  
+![vnc_viewer_change_properties](./../../../../zh/lichee/th1520/lpi4a/assets/desktop/vnc_viewer_change_properties.png)
+
+修改 Options 选项中的 Picture quality 为 High：  
+![vnc_viewer_settings](./../../../../zh/lichee/th1520/lpi4a/assets/desktop/vnc_viewer_settings.png)  
+
+显示的效果如下：  
+![vnc_viewer_use](./../../../../zh/lichee/th1520/lpi4a/assets/desktop/vnc_viewer_use.png)
 
 ## 更多
 欢迎投稿～ 投稿接受后可得￥5～150（$1~20）优惠券！
