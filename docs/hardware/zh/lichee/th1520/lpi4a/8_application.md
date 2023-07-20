@@ -2,6 +2,11 @@
 title: 典型应用
 keywords: Linux, Lichee, TH1520, SBC, RISCV, application
 update:
+  - date: 2023-07-20
+    version: v1.1
+    author: ztd
+    content:
+      - Update docs
   - date: 2023-05-08
     version: v1.0
     author: wonder
@@ -170,13 +175,154 @@ python3 onnx_inference.py -m yolox_s.onnx -i soccer.jpg -o outdir -s 0.3 --input
 
 ![yolox_detection_soccer_output.jpg](./assets/application/yolox_detection_soccer_output.jpg)
 
+## Docker
+
+首先安装所需要的软件包
+```shell
+sudo apt-get update
+sudo apt-get install docker docker-compose
+```
+
+安装完成后，使用 `sudo docker info` 命令验证安装是否成功：  
+```shell
+sipeed@lpi4a:~$ sudo docker info
+Client: 
+ Context: default
+ Debug Mode: false  
+Server:
+ Containers: 0
+  Running: 0 
+  Paused: 0  
+  Stopped: 0 
+ Images: 0
+ Server Version: 20.10.24+dfsg1 
+ Storage Driver: overlay2 
+  Backing Filesystem: extfs  
+  Supports d_type: true
+  Native Overlay Diff: true  
+  userxattr: false  
+ Logging Driver: json-file
+ Cgroup Driver: systemd
+ Cgroup Version: 2
+ Plugins:
+  Volume: local  
+  Network: bridge host ipvlan macvlan null overlay
+  Log: awslogs fluentd gcplogs gelf journald json-file local logentries splunk syslog 
+ Swarm: inactive 
+ Runtimes: io.containerd.runc.v2 io.containerd.runtime.v1.linux runc 
+ Default Runtime: runc 
+ Init Binary: docker-init 
+ containerd version: 1.6.20~ds1-1+b1
+ runc version: 1.1.5+ds1-1+b1
+ init version:
+ Security Options:
+  seccomp 
+Profile: default 
+  cgroupns
+ Kernel Version: 5.10.113-gfac22a756532
+ Operating System: Debian GNU/Linux 12 (bookworm)  
+ OSType: linux
+ Architecture: riscv64 
+ CPUs: 4  
+ Total Memory: 15.47GiB
+ Name: lpi4a 
+ ID: MCKE:SEGQ:EBUX:ZMLC:P2WK:GIJ7:XAEQ:F56H:73HK:C3L5:IA5A:7GJI  
+ Docker Root Dir: /var/lib/docker
+ Debug Mode: false  
+ Registry: https://index.docker.io/v1/ 
+ Labels:  
+ Experimental: false
+ Insecure Registries:  
+  127.0.0.0/8
+ Live Restore Enabled: false
+```
+
+若想让普通用户也有 Docker 的执行权限，可以执行以下命令来实现：  
+```shell
+sudo groupadd docker
+sudo usermod -aG docker $USER
+newgrp docker
+```
+这些命令添加普通用户权限的用户名到 `docker` 用户组，并激活组权限。若不添加，则每次执行 Docker 相关命令时，需要以 sudo 权限来执行。
+
+接下来，我们拉取 hello-world 镜像体验 Docker 的使用：  
+```shell
+sipeed@lpi4a:~$ docker pull hello-world
+Using default tag: latest
+latest: Pulling from library/hello-world   
+b102dd09f2b3: Pull complete 
+Digest: sha256:926fac19d22aa2d60f1a276b66a20eb765fbeea2db5dbdaafeb456ad8ce81598      
+Status: Downloaded newer image for hello-world:latest    
+docker.io/library/hello-world:latest 
+```
+
+接下来，启动刚刚拉取下来的容器：
+```shell
+sipeed@lpi4a:~$ docker run hello-world
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
+```
+
+查看 hello-world 镜像的相关信息：
+```shell
+sipeed@lpi4a:~$ docker images hello-world
+REPOSITORY    TAG       IMAGE ID       CREATED        SIZE
+hello-world   latest    eb6f80695a28   2 months ago   4.98kB
+```
+
+若要体验更完整的镜像，去[这里](https://hub.docker.com/)搜索想要使用的发行版名称，拉取即可。
+
 ## Minecraft Server
 
 TODO
 
 ## Wine-CE
 
-TODO
+首先在[这里](https://gitee.com/wine-ce/wine-ce/releases/tag/v8.9)下载 `wine-ce_dlls_8.9.0.all.tar.xz`，`wine-ce_core_8.9.0.riscv64.tar.xz`这两个文件，这里假设下载到用户主目录（撰写该文档时最新版本为8.9）。
+
+然后根据文档中的步骤进行安装：
+```shell
+sudo apt install fonts-liberation fonts-wine glib-networking libpulse0 gstreamer1.0-plugins-good gstreamer1.0-x libaa1 libaom3 libasound2-plugins  libcaca0 libcairo-gobject2 libcodec2-1.0 libdav1d6 libdv4 libgdk-pixbuf-2.0-0 libgomp1 libgpm2 libiec61883-0 libjack-jackd2-0 libmp3lame0 libncurses6 libncursesw6 libnuma1 libodbc2 libproxy1v5 libraw1394-11 librsvg2-2 librsvg2-common libsamplerate0 libshine3 libshout3 libslang2 libsnappy1v5 libsoup2.4-1 libsoxr0 libspeex1 libspeexdsp1 libtag1v5 libtag1v5-vanilla libtwolame0 libva-drm2 libva-x11-2 libva2 libvdpau1 libvkd3d-shader1 libvkd3d1 libvpx7 libwavpack1 libwebpmux3 libx265-199 libxdamage1 libxvidcore4 libzvbi-common libzvbi0 mesa-va-drivers mesa-vdpau-drivers va-driver-all vdpau-driver-all vkd3d-compiler
+
+sudo tar -Jxvf wine-ce_core_8.9.0.riscv64.tar.xz -C /opt/
+sudo tar -Jxvf wine-ce_dlls_8.9.0.all.tar.xz -C /opt/
+sudo ln -sf /opt/wine-ce/bin/wine /usr/bin/wine
+sudo ln -sf /opt/wine-ce/bin/winecfg /usr/bin/winecfg
+rm -rf ~/.wine
+```
+
+接下来进行一些初始化设置：  
+```shell
+winecfg
+```
+
+这里使用的设置如下：
+![wine_ce_settings](./assets/application/wine_ce_settings.png)
+
+设置完成后，即可运行 Windows 下的程序，比如这里的命令运行 Windows 下的记事本
+```shell
+wine notepad.exe
+```
+![wine_ce_use](./assets/application/wine_ce_use.png)
+
 
 ## 其它
 
