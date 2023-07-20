@@ -12,7 +12,7 @@ Demo video: [youtube](https://www.youtube.com/watch?v=aLW1YQrT-2A) or [bilibili]
 ## Instructions
 
 * [Here](https://dl.sipeed.com/MAIX/MaixPy/release/master/maixpy_v0.5.0_33_gfcd6d8a) Download version >= v0.5.0-33 firmware
-* [Download kmodel](https://maixhub.com/modelInfo?modelId=16)
+* [Download kmodel](https://maixhub.com/model/zoo/61)
 * Use [kflash_gui](https://github.com/sipeed/kflash_gui) to download firmware and model
 * Run [Sample script](https://github.com/sipeed/MaixPy_scripts/blob/master/machine_vision/self_learning_classifier/self_learning_classifier.py)
 > If use the lite version kmodel, you should add `fea_len` arg as `512` when create classifier object, when use the bigger kmodel this param is not needed:
