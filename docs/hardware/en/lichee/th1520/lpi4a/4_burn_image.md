@@ -2,6 +2,11 @@
 title: Flashing an Image
 keywords: Linux, Lichee, TH1520, SBC, RISCV, image
 update:
+  - date: 2023-07-21
+    version: v1.1
+    author: ztd
+    content:
+      - Update English docs
   - date: 2023-05-08
     version: v1.0
     author: wonder
@@ -36,7 +41,11 @@ Linux: Use `lsusb`, the board should show up in burning mode as `ID 2345:7654 T-
 
 ### Official Hardware / Release Hardware
 
-TODO
+Pay attention to check whether the DIP switch on the bottom board is in EMMC startup mode:
+
+![switch_boot_mode](./../../../../zh/lichee/th1520/lpi4a/assets/burn_image/switch_boot_mode.jpg)
+
+After confirming that it is correct, it can be burned, and the next burning steps are the same as the internal test version.
 
 ### Windows Driver installation
 
@@ -197,22 +206,22 @@ Finished. Total time: 281.671s
 
 brom -> U-Boot SPL -> U-Boot -> OpenSBI -> Kernel
 
-接下来简单介绍一下每个阶段，并展示使用串口工具连接开发板时能够看到的相应日志。
-正式版开发板中，系统串口IO新增电平转换IC到3.3V，可以使用普通串口模块连接。
+Here is a brief overview of each stage and sample console output.
+The board now has a level shifter for the serial port to 3.3V logic, so a regular USB serial adapter can be used.
 
 ### brom
 
-该阶段的典型输出如下：   
+Typical output: 
 ```shell
 brom_ver 8
 [APP][E] protocol_connect failed, exit. 
 ```
 
-brom 阶段会从 SoC 的 ROM 中获取核心代码，并寻找下一阶段的 bootloader。
+The brom stage loads initial code from the SoC's ROM and looks for the next stage bootloader.
 
 ### U-Boot SPL
 
-该阶段的典型输出如下：   
+Typical output:  
 ```shell
 U-Boot SPL 2020.01-gd6c9182f (Jul 07 2023 - 12:31:51 +0200)
 FM[1] lpddr4x dualrank freq=3733 64bit dbi_off=n sdram init
@@ -220,12 +229,11 @@ ddr initialized, jump to uboot
 image has no header
 ```
 
-这里的 U-Boot SPL 中的 SPL 指的是 Secondary Program Loader，其中的 Secondary，也就是第二阶段，是相对于前面的 brom 来说的。
-U-Boot SPL 的主要功能是加载真正的 U-Boot 运行，因为一些 SoC 中无法装下一个完整的 U-Boot 镜像，那么就需要 U-Boot SPL 来初始化外部 RAM 和环境，加载真正的 U-Boot 到外部 RAM 中执行。
+U-Boot SPL stands for Secondary Program Loader. It initializes RAM, loads the main U-Boot into RAM and jumps to it.
 
 ### U-Boot
 
-该阶段的典型输出如下：
+Typical output:
 ```shell
 U-Boot 2020.01-gd6c9182f (Jul 07 2023 - 12:31:51 +0200)
 
@@ -256,37 +264,40 @@ ethernet@ffe7060000 (eth1) using MAC address - ae:be:2a:50:5e:8a
 Hit any key to stop autoboot:  0
 ```
 
-这个阶段，看到 `Hit any key to stop autoboot:` 时，在2秒倒计时结束前可以按回车键进入 U-Boot，在这里可以设置各种环境变量，对于常用的环境变量举例设置如下：  
+Press enter within 2 seconds of seeing `Hit any key to stop autoboot:` to enter the U-Boot console.
 
-设置 MAC 地址：  
+Typical environment variable configuration:
+
+Set MAC addresses: 
 ```shell
 setenv ethaddr ae:be:2a:50:5e:89
 setenv eth1addr ae:be:2a:50:5e:8a
 saveenv
 ```
-将上述命令中的 MAC 地址替换为自己的 MAC 地址即可，注意 `eth1addr` 的值为 `ethaddr` 的值加1。
+Just replace the MAC address in the above command with your own MAC address. Note that the value of `eth1addr` is the value of `ethaddr` plus 1.
 
-设置内核使用的设备树：  
+Set kernel device tree: 
 ```shell
 setenv fdt_file light-lpi4a.dtb
 saveenv
 ```
-上述命令中的 `light-lpi4a.dtb` 替换为存放在 `boot.ext4` 中想使用的设备树的文件名。
-设置完成后也可以使用 `printenv` 命令检查是否正确，然后输入 `boot` 命令即可进入内核。
+Replace `light-lpi4a.dtb` in the above command with the file name of the desired device tree stored in `boot.ext4`.
+After the setting is complete, you can also use the `printenv` command to check whether it is correct, and then enter the `boot` command to enter the kernel.
 
-此外，也可以在这里设置启动参数来选择启动方式，比如使用 SD 卡启动。
-烧录镜像到 SD 卡中后，将 SD 卡插入开发板，进入到 U-Boot：
+In addition, you can also set startup parameters here to choose a startup method, such as using an SD card to start.
+After burning the image to the SD card, insert the SD card into the development board and enter U-Boot:
 ```shell
 env set -f set_bootargs 'setenv bootargs console=ttyS0,115200 root=/dev/mmcblk1 rootfstype=ext4 rootwait rw earlycon clk_ignore_unused loglevel=7 eth=ethaddr rootrwoptions=rw,noatime rootrwreset={factory_reset} init=/lib/systemd/systemd'
 env save
 ```
-上述步骤完成后，输入 `reset` 命令重启开发板，即可从 SD 卡启动系统。
+After the above steps are completed, enter the `reset` command to restart the development board, and the system can be booted from the SD card.
 
-对于正式版开发板则可以使用底板上的拨码开关来选择启动方式：   
-![switch_boot_mode](./assets/burn_image/switch_boot_mode.jpg)
+For the official version of the development board, you can use the DIP switch on the bottom board to select the startup mode:  
+
+![switch_boot_mode](./../../../../zh/lichee/th1520/lpi4a/assets/burn_image/switch_boot_mode.jpg)
 
 ### OpenSBI
-OpenSBI 的 sbi_init.c 文件中的一些初始化打印不会在启动 log 中展示出来，但能够在 Kernel 启动时看到一些关于 OpenSBI 的信息被打印出来：   
+Some initialization prints in OpenSBI's sbi_init.c file will not be displayed in the startup log, but you can see some information about OpenSBI being printed out when the Kernel starts:
 ```shell
 [    0.000000] SBI specification v0.3 detected
 [    0.000000] SBI implementation ID=0x1 Version=0x9
@@ -295,10 +306,10 @@ OpenSBI 的 sbi_init.c 文件中的一些初始化打印不会在启动 log 中�
 [    0.000000] SBI v0.2 RFENCE extension detected
 [    0.000000] SBI v0.2 HSM extension detected
 ```
-OpenSBI 有三种 firmware，这里所使用的是 FW_DYNAMIC，它会根据前一个阶段传入的信息加载下一个阶段。OpenSBI 的 fw_dynamic.bin 固件被存放在 boot.ext4 中，这个阶段会引导内核启动。
+OpenSBI has three kinds of firmware, the one used here is FW_DYNAMIC, which will load the next stage according to the information passed in the previous stage. The fw_dynamic.bin firmware of OpenSBI is stored in boot.ext4, which will boot the kernel at this stage.
 
 ### Kernel
-该阶段的典型 log 如下（由于太长，仅截取部分）：  
+A typical log of this stage is as follows (because it is too long, only part of it is intercepted):
 ```shell
 [    0.000000] Linux version 5.10.113-g387b6863253c-dirty
 [    0.000000] OF: fdt: Ignoring memory range 0x0 - 0x200000
@@ -356,7 +367,7 @@ OpenSBI 有三种 firmware，这里所使用的是 FW_DYNAMIC，它会根据前�
 [    0.008693] Console: colour dummy device 80x25
 ```
 
-都可以在启动内核后，可以替换设备树 DTB 文件、OpenSBI 固件、内核镜像文件 Image 等文件，它们位于 `/boot/` 目录下：  
+After starting the kernel, you can replace the device tree DTB file, OpenSBI firmware, kernel image file Image and other files, which are located in the `/boot/` directory:
 ```shell
 sipeed@lpi4a:~$ ls /boot/
 Image                                    light-lpi4a.dtb

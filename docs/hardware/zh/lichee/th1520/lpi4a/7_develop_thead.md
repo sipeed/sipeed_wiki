@@ -139,7 +139,7 @@ Linux SDK 使用 Yocto 构建镜像。Yocto 编译环境使用 Ubuntu18.04，推
 
 由于写文档时 xuantie-yocto 的 commit-d296c2345fe2c2521eb0e1a2772bcba637029bc8 还未合并下述 patch 中的改动，所以需要手动打 patch 来同步这些改动再进行后续开发。patch 文件请在[下载站](https://dl.sipeed.com/shareURL/LICHEE/licheepi4a/06_Patch)下载，请使用最新版本的patch 压缩包。
 
-### xuantie-yocto的patch
+### xuantie-yocto 的 patch
 
 0001-Allow-download-without-logging-in-gitee.patch
 允许在没有登录的情况下拉取 gitee仓库
@@ -332,9 +332,12 @@ Build：构建镜像，编译链接。
 Install：拷贝文件到目标目录。
 Package：镜像打包。
 下图展示了流程中的一些具体步骤：
-![](https://gitee.com/cindycyber/blog-pic/raw/e87498543df4f56c423509546cbd378ab85baa34/img/Pasted%20image%2020230508114904.png)
+
+![yocto_flows](./assets/develop_thead/yocto_flows.png)
+
 Yocto project的大概构成如下图，构建所用到的主要是OpenEmbedded构建系统（下文用OE简称），它的核心是任务执行器Bitbake。
-![](https://gitee.com/cindycyber/blog-pic/raw/e87498543df4f56c423509546cbd378ab85baa34/img/Pasted%20image%2020230508081704.png)
+
+![yocto_structure](./assets/develop_thead/yocto_structure.png)
 
 常用到的一些概念如下：
 recipes：以`.bb`结尾的文件，里面会包含下载软件包时需要的相关信息，如下载固定源码的文件位置，需要应用到该软件包的patch信息,编译需要的信息等。例如`xuantie-yocto`的中的`gnome-shell`，它的recipes文件存储在`/home/thead/xuantie-yocto/meta-openembedded/meta-gnome/recipes-gnome/gnome-shell`目录下。
@@ -362,6 +365,7 @@ bitbake "package-name" -c listtasks
 Yocto集成了大量开源的package，这些 package 编译的时候的工作目录通常在以下目录：
 - tmp-glibc/work/riscv64-oe-linux  
 - tmp-glibc/work/${MACHINE} 
+
 例如
 ```shell
 thead@b9461db16a58:~/xuantie-yocto/thead-build/light-fm/tmp-glibc/work/light_lpi4a-oe-linux/u-boot$ tree -L 2

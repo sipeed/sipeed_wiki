@@ -77,7 +77,7 @@ ISCAS mirror: [click me](https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/)
       - Not connect the MIPI screen, system still recognize the device. Disable the MIPI screen display Manually
          - Run `echo off > /sys/class/drm/card0-DSI-1/status` with root permission
       - The brightness of MIPI screen can only adjusted MIPI Manually
-         - Run`echo Brightness(0 to 7) > /sys/class/backlight/pwm-backlight@0/brightness` with root permission
+         - Run `echo Brightness(0 to 7) > /sys/class/backlight/pwm-backlight@0/brightness` with root permission
       - HDMI audio bug in chromium
       - Kernel panic when using USB camera for a long time
    - Addition：

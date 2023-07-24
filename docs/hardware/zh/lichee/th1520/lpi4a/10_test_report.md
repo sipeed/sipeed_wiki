@@ -136,6 +136,12 @@ rm test
 压测结束：
 ![temp_press](./assets/test_report/temp_press.png) 
 
+## 浏览器测试
+
+在 Chromium 中进行鱼缸测试，结果如图：
+
+![web_browser_fishbowl](./assets/test_report/web_browser_fishbowl.png)
+
 ## 其它
 
 欢迎投稿～ 投稿接受后可得￥5～150（$1~20）优惠券！

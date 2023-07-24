@@ -1,5 +1,5 @@
 ---
-title: 桌面系统基础使用
+title: Basic Usage of Desktop System
 keywords: Linux, Lichee, TH1520, SBC, RISCV, Debian, Desktop
 update:
   - date: 2023-05-08
@@ -9,52 +9,53 @@ update:
       - Release docs
 ---
 
-## 登录系统
+## Log in to the System
 
-本篇文档以默认的 Debian 桌面系统为例，介绍基础系统使用操作。
+This document provides an introduction to basic system usage using the default Debian desktop system as an example.
 
-将 LicheePi 4A 连接上显示器后，可以看到图形化交互界面了。
+Once LicheePi 4A is connected to a monitor, you will see the graphical user interface.
 
-在登录界面，输入用户名 `sipeed`，密码 `licheepi` 就可以登录进系统了。
+At the login screen, enter the username sipeed and the password licheepi to log in to the system.
 
-> 总共有三个用户，`root`，`debian`，`sipeed`，初始密码均为`licheepi` 
-> 有些版本的`debian`用户的密码为`sipeed`
-**0714及以后版本的镜像，默认开启了自动登录，自动登录的用户为 `sipeed`**
+> There are three users: root, debian, and sipeed, all with the initial password licheepi.
+> For some versions, the password for the debian user is sipeed.
+
+**Starting from version 0714, the image enables automatic login with the user sipeed.**
 
 ![usage_login_userpasserward](./../../../../zh/lichee/th1520/lpi4a/assets/desktop/usage_login_userpasserward.png)
 
-## 打开命令行
+## Open the Command Line
 
-在 LicheePi 4A 的 Debian 图形化系统中，使用快捷键 `Ctrl` + `Alt` + `T` 三个组合键可以直接打开命令行终端，来快速方便地操作系统。
-**0714及以后版本的镜像，默认开启了免密码`sudo`**
+In the Debian graphical system on LicheePi 4A, you can directly open the command line terminal using the shortcut `Ctrl` + `Alt` + `T` for quick and convenient system operations.
+**Starting from version 0714, the image enables passwordless `sudo`**
 
 ![usage_debian_terminal_shell_hotkey](./../../../../zh/lichee/th1520/lpi4a/assets/desktop/usage_debian_terminal_shell_hotkey.png)
 
-## 连接网络
+## Connect to the Network
 
-### 连接有线网络
+### Connect to Wired Network
 
-LicheePi 4A 由两个千兆网络接口；将已经接通网络的网线插入到 LicheePi 4A 的网络接口中节能实现连接有线网络了。
+LicheePi 4A has two gigabit network interfaces. To connect to a wired network, simply plug in the Ethernet cable into the network interface of LicheePi 4A.
 
 <table>
     <tr>
-        <td>插上网线之前</td>
-        <td>插上网线之后</td>
+        <td>Before connecting the cable</td>
+        <td>After connecting the cable</td>
     </tr>
     <tr>
         <td><img src="./../../../../zh/lichee/th1520/lpi4a/assets/desktop/usage_debian_ethernet_port_disconnect_one.png" alt="usage_debian_ethernet_port_connect_one"></td>
         <td><img src="./../../../../zh/lichee/th1520/lpi4a/assets/desktop/usage_debian_ethernet_port_connect_one.png" alt="usage_debian_ethernet_port_connect_one"></td>
     </tr>
     <tr>
-        <td colspan=2> 上面两张图对比可以看到：在接上网线前，系统中 <code>Ethernet Network</code> 下面显示着 <code>disconnected</code>, 接上网线后显示 <code>Wired connection </code></td>
+        <td colspan=2> By comparing the two images above, you can see that before connecting the cable, it shows <code>Ethernet Network</code> under <code>disconnected</code>, and after connecting the cable, it shows<code>Wired connection </code></td>
     </tr>
 </table>
 
-### 连接无线网络
+### Connect to Wireless Network
 
-LicheePi 4A 板载无线模组，支持蓝牙和 wifi 。
+LicheePi 4A has an onboard wireless module that supports Bluetooth and Wi-Fi.
 
-从状态栏中的 `Avaliable networks` 中查看自己想要连接到的无线网络，输入密码之后就自动连接上了。
+From the Available networks in the status bar, select the desired wireless network and enter the password to connect automatically.
 
 <table>
     <tr>
@@ -66,60 +67,64 @@ LicheePi 4A 板载无线模组，支持蓝牙和 wifi 。
     </tr>
 </table>
 
-在输入密码的弹出窗口中，`Wi-Fi adapter` 中需要选择 `wlan0` 来连接网络。
+In the password input dialog, make sure to select `wlan0` under `Wi-Fi adapter` to connect to the network.
 
-## 连接蓝牙
+## Connect to Bluetooth Devices
 
-找到桌面右上角的蓝牙图标，确认蓝牙功能已经打开，若没打开，右键单击蓝牙图标即可打开：
+Find the Bluetooth icon in the top right corner of the desktop. Make sure that the Bluetooth function is enabled. If it's not enabled, right-click on the Bluetooth icon to turn it on:
 
 ![bluetooth_icon.png](./../../../../zh/lichee/th1520/lpi4a/assets/desktop/bluetooth_icon.png)
 
-打开后，左键单击蓝牙图标，可以看到蓝牙设备扫描界面
+Once enabled, left-click on the Bluetooth icon to access the Bluetooth device scanning interface.
 
-点击该界面左上角的Search即可搜索蓝牙设备，将蓝牙键鼠、蓝牙耳机等设备的配对模式打开即可被扫描到。
+Click on the "Search" button in the top left corner of this interface to start searching for Bluetooth devices. Make sure the Bluetooth keyboard, mouse, or headphones are in pairing mode so they can be detected.
 
-右键选择想要连接的设备，即可连接。成功连接后还可以右键该设备，点击Trust，下次扫描到即可自动连接。
+Right-click on the desired device and select "Connect" to establish the connection. Once connected successfully, you can also right-click on the device and click "Trust" to enable automatic connection the next time it's detected.
 
 ![bluetooth_devices.png](./../../../../zh/lichee/th1520/lpi4a/assets/desktop/bluetooth_devices.png)
 
-若蓝牙图形管理界面无法搜索到设备，也可以现在命令行界面下使用`bluetoothctl`来进行配对，步骤如下：
+If the Bluetooth graphic interface fails to detect devices, you can also run `bluetoothctl` in the command-line interface to pair devices. Follow these steps:
 
 ```shell
 bluetoothctl
 scan on
-# 找到想要配对设备的mac地址
-pair 目标设备的mac地址
-connect 目标设备的mac地址
+# Find the mac address of the desired device
+pair "The mac address of the target device"
+connect "The mac address of the target device"
 ```
 
-上述步骤也可以在蓝牙图形界面进行操作，但蓝牙图形界面能够展示的搜索到的蓝牙设备有限，此时可以先用 `bluetoothctl` 工具来进行搜索和配对，配对成功后图形界面就会出现这个设备，就可以切换到图形界面进行操作了。
+The above steps can also be performed in the Bluetooth graphic interface. However, the graphic interface may have limitations in showing all detected Bluetooth devices. In such cases, you can use the `bluetoothctl` tool first to search and pair the devices. Once the pairing is successful, the device will appear in the graphic interface, and you can switch to the graphic interface for further operations.
 
+## Software Installation
 
-## 软件安装
+After completing the network connection, you can update the software package and install it.
 
-在完成网络连接后，即可进行软件包的更新，安装。
+### Software Source
 
-### 软件源
+On Debian systems, you can use apt (Advanced Packaging Tool) to install software.
 
-在 Debian 系统中，可以使用 apt (Advanced Packaging Tool) 来进行软件的安装。
+When installing software, it will search for and download the target software from the system's designated repositories. If the repositories are difficult to access (e.g. the server is too far away or the server network is poor), you can manually edit the repositories to the nearest repository to minimize the download time.
 
-安装软件的时候，会从系统指定的软件网站中搜索并下载目标软件，当目标网站访问困难（比如服务器距离太远或者服务器网络不佳）时，可以手动设置编辑软件源网站，改成距离自己当前最近的源，来减少下载时间。
-
-软件源默认使用 `/etc/apt/sources.list` 文件里面的内容，有额外需要的话可以自行更改。但是要注意需要使用支持 Risc-V 架构的软件源。
+By default, the sources are listed in the `/etc/apt/sources.list` file, but you can change it if you need to. You can change this if you need to. However, please note that you need to use sources that support the Risc-V architecture.
 
 ![usage_debian_apt_change_source](./../../../../zh/lichee/th1520/lpi4a/assets/desktop/usage_debian_apt_change_source.png)
 
-### 升级软件
+### Upgrading the Software
 
-使用 `sudo apt update` 可以更新软件列表，一般在更换软件源之后需要使用这个命令。
+Use `sudo apt update` to update the software list, which is usually needed after changing sources.
 
-然后使用 `sudo apt upgrade package_name` 可以更新名称为 `package_name` 的软件。
+Before using this command, check the time with the ``date`'' command. If the time is incorrect, you can manually update it to make sure that the packages in the source are up to date:
+```shell
+sudo date -s "20230717 12:00:00"
+```
 
-比如下面是使用 `sudo apt upgrade vim` 来更新 `vim` 这个软件的示例
+Then use `sudo apt upgrade package_name` to update the software with the name `package_name`.
+
+For example, the following is an example of using `sudo apt upgrade vim` to update the program `vim`.
 
 ![usage_debian_apt_upgrade_vim](./../../../../zh/lichee/th1520/lpi4a/assets/desktop/usage_debian_apt_upgrade_vim.png)
 
-若使用 `sudo apt update` 命令时遇到类似下面的提示信息：  
+If you use the `sudo apt update` command, you encounter a message similar to the following:  
 ```shell
 Ign:1 https://mirror.iscas.ac.cn/deepin-riscv/deepin-stage1 beige InRelease
 Ign:2 https://community-packages.deepin.com/driver driver InRelease
@@ -142,187 +147,211 @@ W: Failed to fetch https://mirror.iscas.ac.cn/deepin-riscv/deepin-addons/dists/b
 W: Failed to fetch https://community-packages.deepin.com/driver/dists/driver/InRelease  Could not resolve 'community-packages.deep'
 W: Some index files failed to download. They have been ignored, or old ones used instead.
 ```
-可以尝试如下命令进行修复：  
+
+You can try the following command to fix it:  
 ```shell
 sudo apt-get update --fix-missing
 ```
 
-### 安装程序
+### Installing Programs
 
-可以借助于 apt 命令来安装软件；比如使用 `sudo apt install package_name` 命令来安装 `package_name`，下面是使用 apt 来安装 `net-tools` 的例子。
+Software can be installed with the aid of the apt command; for example, `sudo apt install package_name` is used to install `package_name`, and the following is an example of using apt to install `net-tools`.
 
 ![usage_debian_apt_install_nettools](./../../../../zh/lichee/th1520/lpi4a/assets/desktop/usage_debian_apt_install_nettools.png)
 
-安装 `net-tools` 后，就可以使用 `ifconfig` 命令了。
+After installing `net-tools`, you can use the `ifconfig` command.
 
 ![usage_debian_ifconfig_result_list](./../../../../zh/lichee/th1520/lpi4a/assets/desktop/usage_debian_ifconfig_result_list.png)
 
-箭头指向的地方就是常说的 IP 地址了。
+The arrow points to what is often referred to as the IP address.
 
-若在下载软件的过程中遇到类似下面的提示信息：  
+If you encounter a message similar to the one below while downloading the software: 
 ```shell
 W: GPG error: http://archive.ubuntu.com trusty-updates Release: The following signatures couldn't be verified because the public key is not available: NO_PUBKEY 40976EAF437D05B5 NO_PUBKEY 3B4FE6ACC0B21F32
 ```
-可以尝试用下列命令修复：  
+
+You can try the following command to fix it:   
 ```shell
-sudo apt-key adv --keyserver keyring.debian.org --recv-keys '替换成报错中的NO_PUBKEY 后面的key值'
-# 或使用
-gpg --keyserver keyring.debian.org --recv-keys '替换成报错中的NO_PUBKEY 后面的key值'
+sudo apt-key adv --keyserver keyring.debian.org --recv-keys 'Replace the key value after NO_PUBKEY in the error message here'
+# or
+gpg --keyserver keyring.debian.org --recv-keys 'Replace the key value after NO_PUBKEY in the error message here'
 ```
 
 ## SSH
 
-如果你的镜像里没有 ssh 或 sshd 指令，可以先通过以下指令安装：
+If you don't have the ssh or sshd command in your image, you can install it first with the following command:
 
 ```bash
 sudo apt install ssh openssh-server
 ```
 
-安装之后即可使用 ssh 来远程登录到其它机器操作，或者在其它机器上使用 ssh 登录到 LicheePi 4A
-还可以使用 scp 进行文件传输：
+Once installed, you can use ssh to log in remotely to other machines, or use ssh to log in to LicheePi 4A on other machines.
+You can also use scp to transfer files:
 
 ```bash
 scp demo.zip sipeed@192.168.1.9:~/
-```
+``
 
-## 输入法
+## Input Methods
 
-如果你需要进行非 ascii 的字符输入，就需要安装输入法，这里以中文输入法为例，其它语言请自行查找相关教程。
+If you need to input non-ascii characters, you need to install an input method, here is an example of Chinese input method, for other languages, please look for tutorials.
 
-先安装 ibus-libpinyin：
+First install ibus-libpinyin:
 
 ```bash
 sudo apt install -y ibus-libpinyin
 ```
 
-> 注意这里会消耗约200MB磁盘空间
+> Note that this will consume about 200MB of disk space.
 
-安装完后，重启板卡，即可在 Applications 下看到 `IBus Preference` 选项，点击进入设置。  
+After installation, reboot the card and you will see the `IBus Preference` option under Applications, click on it to enter the settings.  
+
 ![pinyin_cfg0](./../../../../zh/lichee/th1520/lpi4a/assets/desktop/pinyin_cfg0.png)
 
-在出现的界面里点击 `Input Method`，点击 `Add`，选择 `Chinese`，选择 `Intelligent Pinyin`，点击 `Add`，即可添加中文拼音输入法。  
+In the interface that appears, click `Input Method`, click `Add`, select `Chinese`, select `Intelligent Pinyin`, and click `Add` to add Chinese Pinyin input method.  
+
 ![pinyin_cfg1](./../../../../zh/lichee/th1520/lpi4a/assets/desktop/pinyin_cfg1.png) 
 
-在右上角点击输入法图标，可见以下选项，选择 `Chinese - Intelligent Pinyin` 即可。  
+Click on the Input Method icon in the upper right corner to see the following options, select `Chinese - Intelligent Pinyin`.  
+
 ![pinyin_cfg2](./../../../../zh/lichee/th1520/lpi4a/assets/desktop/pinyin_cfg2.png)
 
-此时即可在系统中顺利输入中文：  
+Now you can enter Chinese into your system without any problem:    
 ![pinyin_cfg3](./../../../../zh/lichee/th1520/lpi4a/assets/desktop/pinyin_cfg3.png)  
 
-> 注：在 0425 版本镜像中，可能会由于 GPU 支持问题，导致安装了输入法后，出现图形界面卡顿滞后的问题。
+> Note: In the 0425 version of the image, there may be a GPU support issue that causes the GUI to stutter and lag after the input method is installed.
 
-## 办公软件
+## Office Software
 
-部分镜像内置了基础的 Office 办公软件（LibreOffice）：
+Some of the mirrors have the basic Office office software (LibreOffice) built in:
+
 ![office0](./../../../../zh/lichee/th1520/lpi4a/assets/desktop/office0.png)  
 
-LibreOffice Calc 即 XLS 功能：
+LibreOffice Calc is the XLS function:
+
 ![office_calc](./../../../../zh/lichee/th1520/lpi4a/assets/desktop/office_calc.png) 
 
-LibreOffice Impress 即 PPT 功能：
+LibreOffice Impress is the PPT function:
+
 ![office_impress](./../../../../zh/lichee/th1520/lpi4a/assets/desktop/office_impress.png) 
 
-LibreOffice Writer 即 WORD 功能：
+LibreOffice Writer is the WORD function:
+
 ![office_writer](./../../../../zh/lichee/th1520/lpi4a/assets/desktop/office_writer.png) 
 
-## 浏览器
+## Web Browser
 
-系统内置了 Chromium 浏览器，点击桌面下方的浏览器图标即可使用：  
+The Chromium browser is built-in and is available by clicking the browser icon at the bottom of the desktop: 
+
 ![browser_location](./../../../../zh/lichee/th1520/lpi4a/assets/desktop/browser_location.png)
 
-使用搜索引擎：  
+Use a search engine:  
+
 ![browser_search_engine_use](./../../../../zh/lichee/th1520/lpi4a/assets/desktop/browser_search_engine_use.jpg)
 
-观看在线视频：  
+Watch online videos:  
+
 ![browser_play_video](./../../../../zh/lichee/th1520/lpi4a/assets/desktop/browser_play_video.jpg)
 
-> 注：目前的 0714镜像中，Chromium 下播放视频或音频时，若为 HDMI 音频输出，会有噪音，可以暂时切换为 Firefox 浏览器来播放。
+WebGL support test:
 
-## 播放器
+![browser_webgl](./assets/desktop/browser_webgl.png)
 
-系统内置了一些开源播放器，我们建议使用 VLC Player 作为视频播放器
+> Note: In the current 0714 mirror, when playing video or audio under Chromium, there will be noise if it is HDMI audio output, you can switch to Firefox browser to play it temporarily.
+
+Use the following commands to install the Firefox browser and related dependencies:
+```shell
+sudo apt install firefox ffmpeg
+```
+
+## Media Player
+
+There are some open source players built into the system, and we recommend using VLC Player as the video player:
+
 ![player](./../../../../zh/lichee/th1520/lpi4a/assets/desktop/player.png)
 
-使用 VLC Player 查看 MP4 格式的视频效果如下：  
+The effect of using VLC Player to view videos in MP4 format is as follows:
+
 ![vlc_player_use](./../../../../zh/lichee/th1520/lpi4a/assets/desktop/vlc_player_use.jpg)
 
-## 编程开发 
+## Programming 
 
 ### Python
 
-系统已内置了 python3 环境，可以在终端直接运行：  
+The python3 environment is built-in and can be run directly from the terminal:
+
 ![python](./../../../../zh/lichee/th1520/lpi4a/assets/desktop/python.png)  
 
-如果需要安装Python包，则使用：`sudo apt install python3-XXX`
-比如安装pyserial包：`sudo apt install python3-serial` 即可
+If you need to install Python packages, use: `sudo apt install python3-XXX`.
+For example, to install the pyserial package: `sudo apt install python3-serial`.
 
 ### C
 
-需要安装 `build-essential` 包，占用约800MB磁盘空间
+The `build-essential` package is required and takes up about 800MB of disk space.
 
 ```bash
 sudo apt install build-essential
 ```
 
-然后即可使用 gcc 进行相关编译操作：  
+Then you can compile it with gcc:  
 ![gcc](./../../../../zh/lichee/th1520/lpi4a/assets/desktop/gcc.png)  
 
-## 扩展存储空间
+## Extended Storage
 
-内测版板载 eMMC 容量较小，留给用户的空间只有 2～3GB，如果需要进行大容量存储，则需要扩展存储空间，可选使用 USB 存储或者 TF 存储。
+The onboard eMMC capacity of the beta version is small, leaving only 2~3GB of space for the user. If you need to carry out mass storage, you need to expand the storage space, and you can choose to use USB storage or TF storage.
 
-### 挂载 U 盘
+### Mounting a USB Flash Drive
 
-将一个 U 盘插入 LicheePi 4A 的 USB 口后，可以在命令终端窗口使用 `dmesg` 查看板卡硬件变动信息。
+After inserting a USB flash drive into the USB port of the LicheePi 4A, you can use `dmesg` in the command terminal window to view the hardware change information of the board.
 
-如下是连接 U 盘后，使用 `dmesg` 在命令行终端看到的最新信息（截取）。
+The following is the latest information seen in the command line terminal using `dmesg` after connecting the USB flash drive (screenshot).
 
 ![usage_debian_udisk_dmesg](./../../../../zh/lichee/th1520/lpi4a/assets/desktop/usage_debian_udisk_dmesg.png)
 
-上面的信息显示出了板卡的外设更改信息；从中可以看到有一个大容量 USB 存储设备连接到了 LicheePi 4A。
+The message above shows the peripheral change information for the board; from this you can see that there is a mass USB storage device connected to the LicheePi 4A.
 
-使用命令 `cat /proc/partitions | grep "sd*"` 命令可以查看到 U 内部的分区个数
+Use the command `cat /proc/partitions | grep "sd*"` to see the number of partitions within the USB.
 
 ![usage_debian_udisk_partition_detail](./../../../../zh/lichee/th1520/lpi4a/assets/desktop/usage_debian_udisk_partition_detail.png)
 
-以上面的结果为例，其中 `sda` 指代的是整个 U 盘，`sda1` 和 `sda2` 表示的是 U 盘里面的两个分区。
+Take the above result as an example, where `sda` refers to the whole USB flash drive, and `sda1` and `sda2` represent the two partitions inside the USB flash drive.
 
-先在桌面系统创建一个文件夹，然后使用 `mount` 命令将 U 盘的某一分区挂载到该文件夹下。
+First create a folder on the desktop system, and then use the `mount` command to mount a partition of the USB flash disk under the folder.
 
 ```bash
-mkdir ~/Desktop/udisk # 在桌面创建一个名为 udisk 的文件夹
-mount /dev/sda2 ~/Desktop/udisk # 挂载 U 盘的 sda2 分区到 udisk 文件夹
+mkdir ~/Desktop/udisk # Create a folder on your desktop called udisk
+mount /dev/sda2 ~/Desktop/udisk # Mount the sda2 partition of the USB flash drive to the udisk folder
 ```
 
 <table>
     <tr>
-        <td> 运行命令前 </td>
-        <td> 运行命令后 </td>
+        <td> Before running the command </td>
+        <td> After running the command </td>
     </tr>
     <tr>
         <td style="white-space:nowrap"><img src="./../../../../zh/lichee/th1520/lpi4a/assets/desktop/usage_debian_udisk_before_mount.png" alt="usage_debian_udisk_before_mount"></td>
         <td style="white-space:nowrap"><img src="./../../../../zh/lichee/th1520/lpi4a/assets/desktop/usage_debian_udisk_after_mount.png" alt="usage_debian_udisk_after_mount"></td>
     </tr>
     <tr>
-        <td colspan=2> 运行命令后桌面新增了一个名为 udisk 的文件夹，使用鼠标双击打开 udisk 文件夹后可以看到文件夹里面的内容与 U 盘里面的实际内容一致 <img src="./../../../../zh/lichee/th1520/lpi4a/assets/desktop/usage_debian_udisk_open_folder.png" alt="usage_debian_udisk_open_folder"></td>
+        <td colspan=2> After running the command, a new folder named udisk has been added to the desktop, double-click the mouse to open the udisk folder and you can see that the contents of the folder are the same as the actual contents of the USB flash drive. <img src="./../../../../zh/lichee/th1520/lpi4a/assets/desktop/usage_debian_udisk_open_folder.png" alt="usage_debian_udisk_open_folder"></td>
     </tr>
 </table>
 
-### 挂载 TF卡
+### Mount TF Card
 
-将 TF 卡插入 LicheePi 4A 背面的 TF 卡槽中，即可在系统下看到 `/dev/mmcblk1` 设备 （/dev/mmcblk0 是 SOM 上的 eMMC）
+Insert the TF card into the TF slot on the back of the LicheePi 4A and you will see the device `/dev/mmcblk1` under the system (/dev/mmcblk0 is eMMC on the SOM).
 
-如果 TF 卡尚未分区或者格式化，用户可以使用 `sudo fdisk /dev/mmcblk1` 指令进行分区，
-然后使用 `sudo mkfs.ext4 /dev/mmcblk1p1` 或者 `sudo mkfs.vfat /dev/mmcblk1p1` 对新建的分区进行格式化操作。
-如果想作为扩展分区使用，建议使用 ext4；如果想作为与 Windows 交换数据的 TF 卡，建议使用 vfat。
+If the TF card has not been partitioned or formatted, you can use the `sudo fdisk /dev/mmcblk1` command to partition the card.
+Then use `sudo mkfs.ext4 /dev/mmcblk1p1` or `sudo mkfs.vfat /dev/mmcblk1p1` to format the newly created partition.
+If you want to use it as an extended partition, it is recommended to use ext4; if you want to use it as a TF card for exchanging data with Windows, it is recommended to use vfat.
 
-格式化好后，即可与上节内容一样进行挂载操作，确认是否挂载正常。
+After formatting, you can mount the partition as in the previous section to make sure it is mounted properly.
 
-### 设置开机挂载
+### Setting up power-on mounting
 
-验证手工挂载成功后，你可以进一步设置开机挂载。
+After verifying the success of manual mounting, you can further set up boot mounting.
 
-只需要在 /etc/fstab 文件内加上需要开机自动挂载的设备信息即可，以下是在最后一行添加TF卡自动挂载的示例。
+You only need to add the device information that needs to be mounted automatically in /etc/fstab file, the following is an example of adding TF card to be mounted automatically in the last line.
 
 ```bash
 sipeed@lpi4a:~$ cat /etc/fstab
@@ -332,21 +361,22 @@ sipeed@lpi4a:~$ cat /etc/fstab
 /dev/mmcblk1p1 /mnt    auto    defaults    0 2
 ```
 
-- 第一个数字：0 表示开机不检查磁盘，1 表示开机检查磁盘；
-- 第二个数字：0 表示交换分区，1 代表启动分区（Linux），2 表示普通分区
+- The first number: 0 means that the disk is not checked at boot, 1 means that the disk is checked at boot;
+- The second number: 0 for the swap partition, 1 for the boot partition (Linux), and 2 for the normal partition.
 
-/dev/mmcblk1p1 也可使用磁盘 UUID，即写成 UUID=xxxx-xxx 的形式，UUID 可以使用`sudo blkid`查看：
+/dev/mmcblk1p1 can also use the disk UUID, which is written as UUID=xxxx-xxx, and can be viewed using `sudo blkid`:
 `/dev/mmcblk1p1: UUID="033173ff-b3ab-494c-ab14-4dcd656a9214" BLOCK_SIZE="4096" TYPE="ext4" PARTUUID="8e4e28df-01"`
 
 
-### VNC远程桌面
-安装需要的软件包，远程桌面使用轻量化的 Xfce 桌面环境。
+### VNC Remote Desktop
+
+Install the required packages and remote desktop using the lightweight Xfce desktop environment.
 ```shell
 sudo apt install xfce4 xfce4-goodies xorg dbus-x11 x11-xserver-utils
 sudo apt install tigervnc-standalone-server tigervnc-common
 ```
 
-安装好之后，输入 vncserver 命令，配置相关密码，系统会提示配置密码，根据自身需要设置，第二个密码用于仅供查看的用户登录：
+After installation, run the `vncserver` command to configure the relevant password. The system will prompt you to configure the password, set it according to your own needs, and the second password is used for view-only user login:
 ```shell
 sipeed@lpi4a:~$ vncserver
 
@@ -357,22 +387,22 @@ Verify:
 Would you like to enter a view-only password (y/n)? n
 A view-only password is not used
 ```
-相关密码会创建文件存储在 `~/.vnc` 中。
+The associated password is created and stored in a file `~/.vnc`.
 
-设置完密码后会接着显示下面的信息
+After the password is set, the following message is displayed
 ```shell
 New Xtigervnc server 'lpi4a:1 (sipeed)' on port 5901 for display :1.
 Use xtigervncviewer -SecurityTypes VncAuth -passwd /tmp/tigervnc.I5Af7X/passwd :1 to connect to the VNC server.
 ```
-注意上面输出中的主机名后有一个 `:1`，这表示 VNC 服务器的显示端口号。 VNC 服务器将会监听端口 `5901`，即 5900+1。类似的，运行 vncserver 命令创建第二个示例时，将使用下一个显示端口 `:2`，对于这个显示端口，监听的端口则为 `5902`。
+Note that the hostname in the above output is followed by a `:1`, which indicates the display port number of the VNC server. The VNC server will be listening on port `5901`, i.e. 5900+1. Similarly, running the vncserver command to create a second instance will use the next display port `:2`, for which the listening port will be `5902`.
 
-接下来，先 kill 掉刚刚创建的 VNC 实例，先进行一些配置。
+Next, kill the VNC instance you just created and do some configuration first.
 ```shell
 vncserver -kill :1
 ```
 
 
-xstartup 文件是 TigerVNC 服务器启动时运行的脚本，创建并编辑文件 `~/.vnc/xstartup`，写入下面的内容：  
+The xstartup file is a script that runs when the TigerVNC server starts up. Create and edit the file `~/.vnc/xstartup` and write the following:
 ```shell
 #!/bin/sh
 unset SESSION_MANAGER
@@ -380,39 +410,44 @@ unset DBUS_SESSION_BUS_ADDRESS
 exec startxfce4 
 ```
 
-并赋予权限
+and give permission
 ```shell
 chmod +x ~/.vnc/xstartup
 ```
 
-接下来增加 VNC 服务器的启动参数，创建并编辑 `~/.vnc/config` 文件，加入需要的启动参数，比如想要设置启动时的分辨率和 dpi，可以写入下面的内容：  
+Next, add the startup parameters for the VNC server. Create and edit the `~/.vnc/config` file and add the required startup parameters. For example, if you want to set the resolution and dpi at startup, you can write the following:
 ```shell
 geometry=your_prefer_resolution
 dpi=your_prefer_dpi
 ```
 
-若因为防火墙连接不上 VNC，可以使用 ufw 来添加允许的端口，比如使用 VNC服务器的显示端口5901：  
+If you cannot connect to VNC because of a firewall, you can use ufw to add allowed ports, for example, using the VNC server's display port 5901:
 ```shell
 sudo ufw allow 5901
 ```
 
-最后，就可以运行 vnc 服务器了：
+Finally, it's time to run the vnc server:
 ```shell
 vncserver -localhost no
 ```
 
-接下来，为了访问远程主机（LPi4A），我们需要在本地主机（你正在使用的电脑）上下载安装 [vncviewer](https://www.realvnc.com/en/connect/download/viewer/)，安装完成后，启动 VNCviewer，在窗口顶部输入远程主机的 IP 地址和端口号（格式为 `你的IP地址:VNC服务器的显示端口号）：  
+Next, in order to access the remote host (LPi4A), we need to download and install [vncviewer](https://www.realvnc.com/en/connect/download/viewer/) on the local host (the computer you're using), and once it's installed, start VNCviewer, and on the window At the top, enter the IP address and port number of the remote host (in the format `Your IP address:VNC server's display port number):
+
 ![vnc_viewer_connect](./../../../../zh/lichee/th1520/lpi4a/assets/desktop/vnc_viewer_connect.png)
 
-默认会根据网络情况来设置远程桌面的画质，低画质时可能会导致远程桌面画面颜色异常，此时可以手动指定为高画质。
-在第一次成功连接后，右键单击新出现的会话窗口，选择 properties：  
+By default, the image quality of remote desktop will be set according to the network conditions, low image quality may cause the remote desktop screen color abnormality, at this time, you can manually specify the high image quality.
+
+After the first successful connection, right-click on the newly appeared session window and select properties:
+
 ![vnc_viewer_change_properties](./../../../../zh/lichee/th1520/lpi4a/assets/desktop/vnc_viewer_change_properties.png)
 
-修改 Options 选项中的 Picture quality 为 High：  
+Modify the Picture quality in the Options option to High:
+
 ![vnc_viewer_settings](./../../../../zh/lichee/th1520/lpi4a/assets/desktop/vnc_viewer_settings.png)  
 
-显示的效果如下：  
+The effect displayed is as follows:
+
 ![vnc_viewer_use](./../../../../zh/lichee/th1520/lpi4a/assets/desktop/vnc_viewer_use.png)
 
-## 更多
-欢迎投稿～ 投稿接受后可得￥5～150（$1~20）优惠券！
+## More
+Contributions are welcome~ You can get ￥5~150 ($1~20) coupon after your submission is accepted!

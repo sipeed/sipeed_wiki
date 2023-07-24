@@ -2,6 +2,11 @@
 title: Unboxing
 keywords: Linux, Lichee, TH1520, SBC, RISCV, unbox
 update:
+  - date: 2023-07-21
+    version: v1.3
+    author: ztd
+    content:
+      - Update English docs
   - date: 2023-07-19
     version: v1.2
     author: wonder
@@ -33,44 +38,51 @@ If you miss any part during unpacking, please contact customer service for help.
 
 ### Offical Version
 
-如果你购买了正式版 LicheePi 4A，你收到的包裹内将是如下包装：
-![package_v1](./../../../../zh/lichee/th1520/lpi4a/assets/unbox/package_v1.jpg) 
+Here is what you will receive if you purchase the official LicheePi 4A:
 
-在包装侧面可以看到当前硬件的 内存/eMMC 版本，如果发现与你购买的版本不符，请与客服联系：
-![package_v1mem](./../../../../zh/lichee/th1520/lpi4a/assets/unbox/package_v1mem.jpg)
+![package_v1](./../../../../zh/lichee/th1520/lpi4a/assets/unbox/package_v1.jpg)
 
-移除蓝色封盖，是白色纸盒包装：
+The side of the package shows the memory/eMMC version of the enclosed hardware. If it does not match your purchase, please contact customer support:
+
+![package_v1mem](./../../../../zh/lichee/th1520/lpi4a/assets/unbox/package_v1mem.jpg) 
+
+Removing the blue cover reveals a white box package:
+
 ![package_v1box](./../../../../zh/lichee/th1520/lpi4a/assets/unbox/package_v1box.jpg)
 
-打开白色纸盒，就可以看到LicheePi 4A板卡：
+Opening the white box reveals the LicheePi 4A board:
+
 ![package_v1board](./../../../../zh/lichee/th1520/lpi4a/assets/unbox/package_v1board.jpg)
 
-可以看到板卡上贴了两个二维码，在底板USB上贴的二维码为底板生产信息，代表了底板型号版本，生产日期，如：  
-`LPI4A0-23070702067`   
-在SOM上贴的二维码为SOM生产信息，代表了 SOM型号版本，内存eMMC，MAC地址（第二个网口地址为此地址+1），生产日期，如：
-`LM4A0-16128-48DA3560003E-23071100318`   
+Note the two QR codes on the board. The one on the USB port is the base board production info, indicating the base board model, version, production date, e.g.  
+`LPI4A0-23070702067`.
 
-拿出开发板后，纸盒底部装着默认配件，USB线，散热器，散热硅脂：   
-![package_v1misc](./../../../../zh/lichee/th1520/lpi4a/assets/unbox/package_v1misc.jpg)
+The one on the SOM is the SOM production info, indicating the SOM model, memory, eMMC, MAC addresses (second port is address+1), and production date, e.g. 
+`LM4A0-16128-48DA3560003E-23071100318`.
 
-如果开箱后发现缺少相关部件，请联系客服咨询。
+Removing the board reveals the included accessories in the bottom of the box, a USB cable, heatsink, and thermal paste:
+
+![package_v1misc](./../../../../zh/lichee/th1520/lpi4a/assets/unbox/package_v1misc.jpg) 
+
+Please contact customer support if any items are missing from your order.
 
 ### Optional Accessories
 
-LicheePi 4A还有丰富的配件可供选择，如下图所示：
+The LicheePi 4A also has a variety of optional accessories as shown below:
+
 ![accessory](./../../../../zh/lichee/th1520/lpi4a/assets/unbox/accessory.jpg)
 
-选购说明：
+Purchase recommendations:
 
-|配件名|选购说明|
-|---|---|
-|铝合金外壳|适合作为小主机，软路由的外壳|
-|10.1寸触摸屏|1280x800 4lane MIPI，适合作为车机，安卓 调试使用|
-|OV5693 摄像头 |5MP摄像头，适合作为移动设备，如安卓的原生摄像头调试|
-|USB摄像头|5MP USB摄像头，板载麦克风，适合作为openCV的摄像头使用|
-|PoE电源模块|5V2.4A PoE电源模块，网关类应用使用网线PoE供电|
-|12V电源|12V2A电源适配器，板卡外接很多耗电外设时选购|
-|RV Debugger Plus|UART+JTAG调试小板，连接系统串口终端调试用|
+|Accessory|Description|
+|-|-|  
+|Aluminum Case|Suitable as a small host or router case|
+|10.1" Touch Screen|1280x800 4lane MIPI, suitable for vehicle computers, Android debugging| 
+|OV5693 Camera|5MP camera, suitable as a native camera for mobile devices like Android debugging|
+|USB Camera|5MP USB camera with onboard mic, suitable as a webcam for OpenCV|
+|PoE Power Module|5V2.4A PoE power module, for PoE power over Ethernet for gateway applications| 
+|12V Power Adapter|12V2A power adapter, for powering many external peripherals|
+|RV Debugger Plus|UART+JTAG debugger board for connecting to serial console|
 
 
 ## Assembling the board
@@ -164,60 +176,74 @@ If you followed the above procedure, but your display fails to show any image, p
 4. It might be the case that there is no pre-loaded image from the factory, in this case check the next section on how to flash an image.
 5. If none of the above works, please contact us for support.
 
-## 铝合金外壳安装说明 {#install_shell}
-### 外壳配件概览
-外壳配件应包含如下内容，如有缺失，请联系客服。    
-![20230718_assemble_0](./../../../../zh/lichee/th1520/lpi4a/assets/unbox/20230718_assemble_0.jpg)  
-从左到右分别是：
-1. 3507涡轮风扇
-2. 40x40x5mm 铝散热片
-3. 小号十字螺丝刀
-4. M3x5 平头螺丝 8颗
-5. 外壳挡板x2
-6. IPEX转SMA转接线 + SMA棒状天线
-7. 30x30mm 导热硅脂片
-8. 铝合金外壳x2
+## Aluminum Case Installation Guide
 
-### 安装散热片
-1. 准备开发板
-![20230718_assemble_1](./../../../../zh/lichee/th1520/lpi4a/assets/unbox/20230718_assemble_1.jpg)  
-2. 粘贴导热硅脂
-![20230718_assemble_2](./../../../../zh/lichee/th1520/lpi4a/assets/unbox/20230718_assemble_2.jpg)  
-3. 按方向安装散热片
-![20230718_assemble_3](./../../../../zh/lichee/th1520/lpi4a/assets/unbox/20230718_assemble_3.jpg) 
+### Case Accessory Overview
+The shell accessories should include the following contents, if there is something missing, please contact customer service.
 
-### 安装盖板
-1. 滑入开发板
-![20230718_assemble_4](./../../../../zh/lichee/th1520/lpi4a/assets/unbox/20230718_assemble_4.jpg) 
-2. 安装天线到盖板
-![20230718_assemble_5](./../../../../zh/lichee/th1520/lpi4a/assets/unbox/20230718_assemble_5.jpg) 
-3. 安装天线到PCB
-![20230718_assemble_6](./../../../../zh/lichee/th1520/lpi4a/assets/unbox/20230718_assemble_6.jpg) 
-4. 安装前盖板（2颗螺丝）
-![20230718_assemble_7](./../../../../zh/lichee/th1520/lpi4a/assets/unbox/20230718_assemble_7.jpg) 
-5. 撕开后盖板泡棉胶
-![20230718_assemble_8](./../../../../zh/lichee/th1520/lpi4a/assets/unbox/20230718_assemble_8.jpg) 
-6. 安装后盖板（2颗螺丝）
-![20230718_assemble_9](./../../../../zh/lichee/th1520/lpi4a/assets/unbox/20230718_assemble_9.jpg) 
+![20230718_assemble_0](./../../../../zh/lichee/th1520/lpi4a/assets/unbox/20230718_assemble_0.jpg)
 
-### 安装风扇
-1. 插如风扇电源线到板卡插针（上正下负），粘贴风扇到顶壳（注意风扇靠近外壳边缘粘贴，拉直连接线，否则会卡住外壳）
-![20230718_assemble_10](./../../../../zh/lichee/th1520/lpi4a/assets/unbox/20230718_assemble_10.jpg) 
-2. 从右侧小心向左侧盖住顶壳（务必注意方向，否则风扇插针会卡住）
-![20230718_assemble_11](./../../../../zh/lichee/th1520/lpi4a/assets/unbox/20230718_assemble_11.jpg) 
+From left to right:
 
-### 安装剩余螺丝
-![20230718_assemble_12](./../../../../zh/lichee/th1520/lpi4a/assets/unbox/20230718_assemble_12.jpg) 
-![20230718_assemble_13](./../../../../zh/lichee/th1520/lpi4a/assets/unbox/20230718_assemble_13.jpg) 
+1. 3507 Turbo Fan 
+2. 40x40x5mm Aluminum Heat Sink  
+3. Small Phillips Screwdriver
+4. M3x5 Flat Head Screws x 8
+5. Case Cover Plates x 2
+6. IPEX to SMA Pigtail + SMA Whip Antenna
+7. 30x30mm Thermal Paste Sheet
+8. Aluminum Case x 2
 
-### 最终效果
-![last](./../../../../zh/lichee/th1520/lpi4a/assets/unbox/last.png) 
+### Install Heat Sink
+1. Prepare board  
+![20230718_assemble_1](./../../../../zh/lichee/th1520/lpi4a/assets/unbox/20230718_assemble_1.jpg)
 
-## POE模块安装说明
-POE模块需要用户手工焊接安装，请按下图焊接：  
-![poe](./../../../../zh/lichee/th1520/lpi4a/assets/unbox/poe.jpg) 
-  
-> 注意 POE模块焊接后无法装入铝合金外壳。
+2. Apply thermal paste
+![20230718_assemble_2](./../../../../zh/lichee/th1520/lpi4a/assets/unbox/20230718_assemble_2.jpg)   
+
+3. Install heat sink in orientation
+![20230718_assemble_3](./../../../../zh/lichee/th1520/lpi4a/assets/unbox/20230718_assemble_3.jpg)
+
+### Install Cover Plates 
+1. Slide in board  
+![20230718_assemble_4](./../../../../zh/lichee/th1520/lpi4a/assets/unbox/20230718_assemble_4.jpg)
+
+2. Install antenna to plate
+![20230718_assemble_5](./../../../../zh/lichee/th1520/lpi4a/assets/unbox/20230718_assemble_5.jpg)   
+
+3. Install antenna to PCB
+![20230718_assemble_6](./../../../../zh/lichee/th1520/lpi4a/assets/unbox/20230718_assemble_6.jpg)   
+
+4. Install front plate (2 screws)
+![20230718_assemble_7](./../../../../zh/lichee/th1520/lpi4a/assets/unbox/20230718_assemble_7.jpg)
+
+5. Remove foam from back plate  
+![20230718_assemble_8](./../../../../zh/lichee/th1520/lpi4a/assets/unbox/20230718_assemble_8.jpg)
+
+6. Install back plate (2 screws) 
+![20230718_assemble_9](./../../../../zh/lichee/th1520/lpi4a/assets/unbox/20230718_assemble_9.jpg)
+
+### Install Fan
+1. Connect fan power to pins (red on top, black on bottom), attach fan to top shell (ensure fan is close to shell edge to straighten wires)   
+![20230718_assemble_10](./../../../../zh/lichee/th1520/lpi4a/assets/unbox/20230718_assemble_10.jpg)
+
+2. Carefully cover from right, ensure wires are not snagged
+![20230718_assemble_11](./../../../../zh/lichee/th1520/lpi4a/assets/unbox/20230718_assemble_11.jpg)
+
+### Install Remaining Screws
+![20230718_assemble_12](./../../../../zh/lichee/th1520/lpi4a/assets/unbox/20230718_assemble_12.jpg)
+![20230718_assemble_13](./../../../../zh/lichee/th1520/lpi4a/assets/unbox/20230718_assemble_13.jpg)
+
+### Final Result
+![last](./../../../../zh/lichee/th1520/lpi4a/assets/unbox/last.png)
+
+## POE Module Installation
+
+The POE module requires manual soldering as shown:
+
+![poe](./../../../../zh/lichee/th1520/lpi4a/assets/unbox/poe.jpg)
+
+> Note that the POE module can be inserted into the metal case after soldering.
 
 ## Board hardware overview
 
@@ -238,14 +264,14 @@ In order to provide maximum power to the SOM (the SOM can pull up to 12W when ov
 When you connect a large number of USB-Devices, you might exceed this current limit, in this case we recommend to use an external power supply for the USB devices.
 If you need to disable the current limit, please do the following: TODO
 
-### 正式版相对内测版差异说明
+### Differences between the official version and the beta version
 
-1. 新增USB-C口输入处的高压保护，防止某些快充适配器输入高压烧毁SOM
-2. 系统串口IO新增电平转换IC到3.3V，可以使用普通串口模块连接
-3. 修复耳机，扬声器 自动切换电路 （内测版扬声器电路切换不到位而不稳定）
-4. 耳机座中新增一路mic输入
-5. 新增启动介质拨码开关（SOM底部），可选TF/eMMC启动
-6. 其他细节丝印，元件微调  
+1. Added high-voltage protection at the input of the USB-C port to prevent some fast charging adapters from burning the SOM due to high-voltage input
+2. The system serial port IO adds a level conversion IC to 3.3V, which can be connected with a common serial port module
+3. Repair the automatic switching circuit of the earphone and speaker (the speaker circuit of the beta version is not in place and unstable)
+4. Add a new mic input in the headphone socket
+5. Added boot media dial switch (bottom of SOM), optional TF/eMMC boot
+6. Other details silk screen, component fine-tuning 
 
 ### Board info download links
 

@@ -22,8 +22,6 @@ update:
 
 ## 进入烧录模式
 
-注意不同版本硬件进入烧录模式的方式略有不同，参见以下章节。
-
 ### 内测版硬件
 
 按住板上的BOOT按键不放，然后插入 USB-C 线缆上电（线缆另一头接 PC ），即可进入 USB 烧录模式。
@@ -35,7 +33,11 @@ update:
 
 ### 正式版硬件
 
-TODO
+注意检查底板的拨码开关是否为 EMMC 启动模式：  
+
+![switch_boot_mode](./assets/burn_image/switch_boot_mode.jpg)
+
+确认无误后即可烧录，接下来的烧录步骤同内测版。
 
 ### Windows 下驱动安装
 

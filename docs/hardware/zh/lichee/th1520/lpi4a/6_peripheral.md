@@ -119,6 +119,15 @@ echo 1 > /sys/class/gpio/gpio${num}/value
 echo 0 > /sys/class/gpio/gpio{num}/value
 ```
 
+比如要操作插针上的4个 GPIO，对应关系如下，将上述代码的num改为想要操作的 GPIO 脚对应的数字即可: 
+ 
+|num|IO Number|
+|---|---|
+|427|IO 1_3|
+|428|IO 1_4|
+|429|IO 1_5|
+|430|IO 1_6|
+
 也可以直接操作寄存器：
 
 > devmem 可以从此处下载编译：https://github.com/VCTLabs/devmem2/blob/master/devmem2.c   
@@ -318,14 +327,23 @@ TODO
 ### USB 摄像头
 
 连接好 USB 摄像头：  
+
 ![usb_cam_connect](./assets/peripheral/usb_cam_connect.jpg)  
+
 安装 guvcview 后，使用相应的命令，即可看到 USB 摄像头的图像流：  
 ```shell
 sudo apt-get install guvcview
 guvcview
 ```
 ![usb_cam_use](./assets/peripheral/usb_cam_use.png)  
+
 按下 Ctrl+C 或点击 guvcview 窗口的 quit 按钮都可以结束图像流。
+
+也可以使用 fswebcam 来直接在命令行中 dump USB 摄像头的图像。
+```shell
+sudo apt-get install fswebcam
+fswebcam /dev/video0 image.jpg
+```
 
 ### USB 声卡
 
@@ -380,7 +398,7 @@ echo "Start Play"
 
 ![audiomixer](./assets/peripheral/audiomixer.png)  
 
-名字为 Build-in Audio Stereo 设备即 HDMI 音频，可以在这个界面进行相关配置，也可以在直接单击小喇叭图标后进行设备的切换。
+名字为 Build-in Audio 设备即 HDMI 音频，可以在这个界面点击它对应的绿色对勾图标进行音频设备切换，也可以在直接单击小喇叭图标后进行设备的切换。
 若确认连接无误，且使用的 HDMI 显示器支持 HDMI音频功能，但没有在设备列表中看到相应设备，可以尝试运行以下命令：  
 
 ```shell

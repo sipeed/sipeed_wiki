@@ -1,7 +1,12 @@
 ---
-title: 板卡介绍
+title: Board introduction
 keywords: Linux, Lichee, TH1520, SBC, RISCV
 update:
+  - date: 2023-07-21
+    version: v1.1
+    author: ztd
+    content:
+      - Update English docs
   - date: 2023-05-08
     version: v1.0
     author: wonder
@@ -9,30 +14,30 @@ update:
       - Release docs
 ---
 
-English documents are being translated, please read these documents via web translate application at present if necessary .
-
-## 简介
+## Introduction
 
 LicheePi 4A is the high performance RISC-V linux development board using [Lichee Module 4A](http://wiki.sipeed.com/hardware/en/lichee/th1520/lm4a.html), based on [TH1520](https://www.t-head.cn/product/yeying) SOC (4xC910@1.85G, RV64GCV, 4TOPS@int8 NPU,  50GFLOP GPU), LicheePi 4A contains maximum 16GB 64bit LPDDR4X, 128GB eMMC, supports HDMI+MIPI dual 4K display, supports 4K camera input, dual Gigabit Ethernet interfaces (one of these supports POE) amd 4 USB3.0 interfaces, supports kinds of audio processing by C906 core.
 ![lpi4a](./../../../../zh/lichee/th1520/lpi4a/assets/intro/lpi4a.png)
 
-LicheePi 4A 是截止目前（2023Q2）为止最强的 RISC-V SBC。性能约为上一代 RISC-V SBC [VisionFive2](https://www.starfivetech.com/en/site/boards)的2倍；未开启专用指令集加速的情况下, 性能逼近基于 ARM A72 的树莓派 4, 在开启相关指令集加速的情况下, 可以与树莓派 4 持平。而且最高具备 16GB 超大内存, 是树莓派 4 最高配置 8GB 内存的两倍！
+The LicheePi 4A is the most powerful RISC-V SBC as of now (Q2 2023). Its performance is about 2 times that of the previous generation RISC-V SBC [VisionFive2](https://www.starfivetech.com/en/site/boards). Without enabled custom instruction set acceleration, its performance is close to the Raspberry Pi 4 based on ARM A72. With acceleration enabled, it can match the Raspberry Pi 4. It also has a maximum 16GB ultra-large memory, twice that of the Raspberry Pi 4's max 8GB! 
 
 ![benchmark](./../../../../zh/lichee/th1520/lpi4a/assets/intro/benchmark.png)
 ![geekbench5](./../../../../zh/lichee/th1520/lpi4a/assets/intro/geekbench5.png)
  
-LicheePi 4A 可以用作典型的 RISC-V 验证平台, 其强大的性能可以较快速地实现本地编译, 而无需使用 QEMU 进行编译。
+The LicheePi 4A can be used as a typical RISC-V verification platform. Its powerful performance allows faster native compilation without the need for QEMU emulation. 
 
-我们在近期（2023Q2）还会放出基于LM4A的集群计算板卡 LicheeCluster 4A, 最大支持 7xLM4A 进行集群计算, 编译, 非常适合发行版编译农场场景, 尽情期待。
+We will soon (Q2 2023) release the LicheeCluster 4A based on the LM4A for cluster computing, supporting up to 7xLM4A for cluster build and compilation, ideal for distribution build farms. Stay tuned!
 
-在保持高性能的同时, 我们也尽量进行了 CostDown 设计, 8GB 内存版本价格在 ￥749~ 899（\\$100 ~ \\$130）, 16GB 内存版本在 ￥1100~1300 （\\$155 ~\\$185）, 性价比上超越了树莓派 4（8GB ~\\$150）!
-无论你是否是 RISC-V 粉丝, 你都值得入手体验下 LicheePi 4A 这款划时代的高性能 RISC-V SBC！
+While maintaining high performance, we have also done our best to design for cost. The 8GB RAM version is priced at ¥749 - 899 ($100 - $130), while the 16GB version is ¥1100-1300 ($155-$185). This is a better price/performance ratio than the Raspberry Pi 4 8GB (~$150)!
+
+Whether you are a RISC-V enthusiast or not, the LicheePi 4A is a game-changing high-performance RISC-V SBC worth getting!
+
 ![desktop](./../../../../zh/lichee/th1520/lpi4a/assets/intro/desktop.png)
 
-## 欢迎投稿
+## Contributions Welcome
 
-本文档为在线文档, 托管在 github 上, 大家可以点击右上角 `编辑本页` 链接来进行编辑~ 
-对成功提交文档的用户, 我们视文档质量酌情提供 ￥5 ~ 150（\\$1 ~ 20）的优惠券~
+This is an online document hosted on GitHub. You can click the `Edit this page` link in the top right to edit it.
+For quality contributions to the docs, we offer discount coupons from ¥5 to ¥150 ($1 to $20) based on the content.
 
 ## Parameters
 
