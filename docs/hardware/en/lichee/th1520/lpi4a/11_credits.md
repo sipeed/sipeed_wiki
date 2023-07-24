@@ -1,5 +1,5 @@
 ---
-title: 致谢
+title: Credits
 keywords: Linux, Lichee, TH1520, SBC, RISCV, credits
 update:
   - date: 2023-05-08

@@ -117,6 +117,11 @@ connect 目标设备的mac地址
 
 使用 `sudo apt update` 可以更新软件列表，一般在更换软件源之后需要使用这个命令。
 
+使用这个命令前，先用 `date` 命令查看一下时间，若时间不对，可以手动更新一下，确保软件源内的软件包是最新版本：
+```shell
+sudo date -s "20230717 12:00:00"
+```
+
 然后使用 `sudo apt upgrade package_name` 可以更新名称为 `package_name` 的软件。
 
 比如下面是使用 `sudo apt upgrade vim` 来更新 `vim` 这个软件的示例
@@ -146,6 +151,7 @@ W: Failed to fetch https://mirror.iscas.ac.cn/deepin-riscv/deepin-addons/dists/b
 W: Failed to fetch https://community-packages.deepin.com/driver/dists/driver/InRelease  Could not resolve 'community-packages.deep'
 W: Some index files failed to download. They have been ignored, or old ones used instead.
 ```
+
 可以尝试如下命令进行修复：  
 ```shell
 sudo apt-get update --fix-missing
@@ -202,15 +208,19 @@ sudo apt install -y ibus-libpinyin
 > 注意这里会消耗约200MB磁盘空间
 
 安装完后，重启板卡，即可在 Applications 下看到 `IBus Preference` 选项，点击进入设置。  
+
 ![pinyin_cfg0](./assets/desktop/pinyin_cfg0.png)
 
 在出现的界面里点击 `Input Method`，点击 `Add`，选择 `Chinese`，选择 `Intelligent Pinyin`，点击 `Add`，即可添加中文拼音输入法。  
+
 ![pinyin_cfg1](./assets/desktop/pinyin_cfg1.png) 
 
 在右上角点击输入法图标，可见以下选项，选择 `Chinese - Intelligent Pinyin` 即可。  
+
 ![pinyin_cfg2](./assets/desktop/pinyin_cfg2.png)
 
-此时即可在系统中顺利输入中文：  
+此时即可在系统中顺利输入中文：
+
 ![pinyin_cfg3](./assets/desktop/pinyin_cfg3.png)  
 
 > 注：在 0425 版本镜像中，可能会由于 GPU 支持问题，导致安装了输入法后，出现图形界面卡顿滞后的问题。
@@ -218,36 +228,54 @@ sudo apt install -y ibus-libpinyin
 ## 办公软件
 
 部分镜像里内置了基础的 Office 办公软件（LibreOffice）：
+
 ![office0](./assets/desktop/office0.png)  
 
 LibreOffice Calc 即 XLS 功能：
+
 ![office_calc](./assets/desktop/office_calc.png) 
 
 LibreOffice Impress 即 PPT 功能：
+
 ![office_impress](./assets/desktop/office_impress.png) 
 
 LibreOffice Writer 即 WORD 功能：
+
 ![office_writer](./assets/desktop/office_writer.png) 
 
 ## 浏览器
 
-系统内置了 Chromium 浏览器，点击桌面下方的浏览器图标即可使用：  
+系统内置了 Chromium 浏览器，点击桌面下方的浏览器图标即可使用： 
+
 ![browser_location](./assets/desktop/browser_location.png)
 
 使用搜索引擎：  
+
 ![browser_search_engine_use](./assets/desktop/browser_search_engine_use.jpg)
 
 观看在线视频：  
+
 ![browser_play_video](./assets/desktop/browser_play_video.jpg)
 
-> 注：目前的 0714镜像中，Chromium 下播放视频或音频时，若为 HDMI 音频输出，会有噪音，可以暂时切换为 Firefox 浏览器来播放。
+WebGL 支持测试：
+
+![browser_webgl](./assets/desktop/browser_webgl.png)
+
+> 注：目前的 0714 镜像中，Chromium 下播放视频或音频时，若为 HDMI 音频输出，会有噪音，可以暂时切换为 Firefox 浏览器来播放。
+
+使用下列命令安装 Firefox 浏览器和相关依赖：
+```shell
+sudo apt install firefox ffmpeg
+```
 
 ## 播放器
 
-系统内置了一些开源播放器，我们建议使用 VLC Player 作为视频播放器
+系统内置了一些开源播放器，我们建议使用 VLC Player 作为视频播放器：
+
 ![player](./assets/desktop/player.png)
 
 使用 VLC Player 查看 MP4 格式的视频效果如下：  
+
 ![vlc_player_use](./assets/desktop/vlc_player_use.jpg)
 
 ## 编程开发 
@@ -285,7 +313,7 @@ sudo apt install build-essential
 
 上面的信息显示出了板卡的外设更改信息；从中可以看到有一个大容量 USB 存储设备连接到了 LicheePi 4A。
 
-使用命令 `cat /proc/partitions | grep "sd*"` 命令可以查看到 U 内部的分区个数
+使用命令 `cat /proc/partitions | grep "sd*"` 命令可以查看到 U 盘内部的分区个数
 
 ![usage_debian_udisk_partition_detail](./assets/desktop/usage_debian_udisk_partition_detail.png)
 
@@ -343,13 +371,14 @@ sipeed@lpi4a:~$ cat /etc/fstab
 `/dev/mmcblk1p1: UUID="033173ff-b3ab-494c-ab14-4dcd656a9214" BLOCK_SIZE="4096" TYPE="ext4" PARTUUID="8e4e28df-01"`
 
 ### VNC远程桌面
+
 安装需要的软件包，远程桌面使用轻量化的 Xfce 桌面环境。
 ```shell
 sudo apt install xfce4 xfce4-goodies xorg dbus-x11 x11-xserver-utils
 sudo apt install tigervnc-standalone-server tigervnc-common
 ```
 
-安装好之后，输入 vncserver 命令，配置相关密码，系统会提示配置密码，根据自身需要设置，第二个密码用于仅供查看的用户登录：
+安装好之后，输入 `vncserver` 命令，配置相关密码，系统会提示配置密码，根据自身需要设置，第二个密码用于仅供查看的用户登录：
 ```shell
 sipeed@lpi4a:~$ vncserver
 
@@ -405,16 +434,21 @@ vncserver -localhost no
 ```
 
 接下来，为了访问远程主机（LPi4A），我们需要在本地主机（你正在使用的电脑）上下载安装 [vncviewer](https://www.realvnc.com/en/connect/download/viewer/)，安装完成后，启动 VNCviewer，在窗口顶部输入远程主机的 IP 地址和端口号（格式为 `你的IP地址:VNC服务器的显示端口号）：  
+
 ![vnc_viewer_connect](./assets/desktop/vnc_viewer_connect.png)
 
 默认会根据网络情况来设置远程桌面的画质，低画质时可能会导致远程桌面画面颜色异常，此时可以手动指定为高画质。
-在第一次成功连接后，右键单击新出现的会话窗口，选择 properties：  
+
+在第一次成功连接后，右键单击新出现的会话窗口，选择 properties： 
+
 ![vnc_viewer_change_properties](./assets/desktop/vnc_viewer_change_properties.png)
 
-修改 Options 选项中的 Picture quality 为 High：  
+修改 Options 选项中的 Picture quality 为 High： 
+
 ![vnc_viewer_settings](./assets/desktop/vnc_viewer_settings.png)  
 
 显示的效果如下：  
+
 ![vnc_viewer_use](./assets/desktop/vnc_viewer_use.png)
 
 

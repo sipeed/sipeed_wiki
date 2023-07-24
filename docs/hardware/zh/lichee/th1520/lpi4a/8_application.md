@@ -43,7 +43,9 @@ llama 是 META 开源的大语言模型，[llama.cpp](https://github.com/ggergan
 
 **基础 Python 环境配置**
 **基本软硬件配置**
+
 参考 LPi4A 的 《[开箱体验](https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/2_unbox.html)》中的描述，正确安装好开发板，上电启动后以 root 权限进入。
+
 确保已联网的状态下，更新 apt 源
 ```bash
 sudo apt update
@@ -90,7 +92,9 @@ source /root/ort/bin/activate
 至此，基本 python 环境已经创建完成，与其他体系结构类似，可以直接通过 pip install 安装纯 python 包。
 
 opencv 安装是会依赖其他 python 包，如果 pip 不能自动下载，则可以先手动安装依赖项的安装包。如何获取安装包可以参考 [下载 riscv whl](https://www.yuque.com/za4k4z/uzn618/zsp0krgg9dlp0fhx)。
+
 **获取 YOLOX 模型**
+
 [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) 是一个类 YOLO 的目标检测模型，有相当优异的性能表现。
 可以直接下载 github 上的源码和模型
 ```bash
@@ -100,6 +104,7 @@ wget https://github.com/Megvii-BaseDetection/YOLOX/releases/download/0.1.1rc0/yo
 ```
 
 **修改源码**
+
 本教程将使用 HHB-onnxruntime 执行模型，因此切换到。在源码中的 onnxruntime 示例目录，修改文件 demo/ONNXRuntime/onnx_inference.py 的开头新增两行代码
 ```bash
 #!/usr/bin/env python3
@@ -111,10 +116,10 @@ wget https://github.com/Megvii-BaseDetection/YOLOX/releases/download/0.1.1rc0/yo
 import argparse
 import os
 ```
-
-
 代码中使用 sys.path.insert 指定搜索路径，以此免去从源码中安装 YOLOX 的安装包的操作。
+
 **安装依赖包**
+
 RISC-V 体系结构的 python 生态还有欠缺，未来完善之后，YOLOX 中依赖的包可以通过 [requirements.txt](https://github.com/Megvii-BaseDetection/YOLOX/blob/main/requirements.txt) 文件直接安装。
 本教程中的 YOLOX 示例依赖了较多的 python 包，下载预编译好的 python 包
 ```bash
@@ -140,7 +145,9 @@ pip3 install tabulate-0.9.0-py3-none-any.whl
 ```
 
 安装过程中会涉及到其他纯 python 依赖包，pip 会自动从官方源下载。
+
 **安装 HHB-onnxruntime**
+
 HHB-onnxuruntime 是移植了 SHL 后端（execution providers），让 onnxruntime 能复用到 SHL 中针对玄铁 CPU 的高性能优化代码。
 
 ```bash
@@ -149,6 +156,7 @@ pip install onnxruntime-1.14.1-cp311-cp311-linux_riscv64.whl
 ```
 
 **执行**
+
 在示例目录中执行 onnx_inference.py 示例
 
 ```bash
@@ -156,6 +164,7 @@ python3 onnx_inference.py -m yolox_s.onnx -i soccer.jpg -o outdir -s 0.3 --input
 ```
 
 `python3 onnx_inference.py -m yolox_s.onnx -i soccer.jpg -o outdir -s 0.3 --input_shape640,640`
+
 参数说明：
 - -m：指定模型
 - -i：指定图片
@@ -315,12 +324,14 @@ winecfg
 ```
 
 这里使用的设置如下：
+
 ![wine_ce_settings](./assets/application/wine_ce_settings.png)
 
 设置完成后，即可运行 Windows 下的程序，比如这里的命令运行 Windows 下的记事本
 ```shell
 wine notepad.exe
 ```
+
 ![wine_ce_use](./assets/application/wine_ce_use.png)
 
 

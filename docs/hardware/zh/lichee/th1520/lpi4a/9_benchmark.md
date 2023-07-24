@@ -21,7 +21,28 @@ update:
 
 `-funroll-all-loops -finline-limit=500 -fgcse-sm -fno-schedule-insns  -msignedness-cmpiv -fno-code-hoisting -mno-thread-jumps1 -mno-iv-adjust-addr-cost -mno-expand-split-imm`
 
-测试结果（1.85GHz）：
+使用公版工具链，GCC 版本为`13.1.0`的测试结果（1.85GHz）：
+```txt
+2K performance run parameters for coremark.
+CoreMark Size    : 666
+Total ticks      : 11989
+Total time (secs): 11.989000
+Iterations/Sec   : 9175.077154
+Iterations       : 110000
+Compiler version : GCC13.1.0
+Compiler flags   : -O2 -DPERFORMANCE_RUN=1  -lrt -funroll-all-loops -finline-limit=500 -fgcse-sm -fno-schedule-insns -msignedness-cmpiv -fno-code-hoisting -mno-thread-jumps1 -mno-iv-adjust-addr-cost -mno-expand-split-im
+Memory location  : Please put data memory location here
+                        (e.g. code in flash, data on heap etc)
+seedcrc          : 0xe9f5
+[0]crclist       : 0xe714
+[0]crcmatrix     : 0x1fd7
+[0]crcstate      : 0x8e3a
+[0]crcfinal      : 0x33ff
+Correct operation validated. See README.md for run and reporting rules.
+CoreMark 1.0 : 9175.077154 / GCC13.1.0 -O2 -DPERFORMANCE_RUN=1 -lrt -funroll-all-loops -finline-limit=500 -fgcse-sm -fno-schedule-insns -msignedness-cmpiv -fno-code-hoisting -mno-thread-jumps1 -mno-iv-adjust-addr-cost -mno-expand-split-im / Heap
+```
+
+使用公版工具链，GCC 版本为`10.4.0`的测试结果（1.85GHz）：
 
 ```txt
 2K performance run parameters for coremark.
@@ -76,7 +97,14 @@ openssl speed -evp sha256
 
 ## LLVM 
 
-TODO
+编译脚本使用[scriptlets](https://github.com/AOSC-Dev/scriptlets/tree/master/buildbot-benchmark)仓库下的 `buildbot-benchmark.bash`，CPU频率为1.843Ghz，内存为16G。
+
+编译用时：
+```text
+real    265m50.172s
+user    980m15.164s
+sys     60m51.329s
+```
 
 ## 其它
 

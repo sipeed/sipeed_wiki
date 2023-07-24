@@ -1,7 +1,12 @@
 ---
-title: 板卡性能测试
+title: Board Performance Test
 keywords: Linux, Lichee, TH1520, SBC, RISCV, report
 update:
+  - date: 2023-07-21
+    version: v1.1
+    author: ztd
+    content:
+      - Update English docs
   - date: 2023-05-08
     version: v1.0
     author: wonder
@@ -9,45 +14,45 @@ update:
       - Release docs
 ---
 
-## 功耗测试 
+## Power Consumption Test
 
-### 静态功耗
+### Static Power Consumption
 
-| 场景(静态)     | 电压  | 电流  | 功耗  | 备注                                 |
+| Scene (Static) | Voltage | Current | Power Consumption | Note |
 | -------------- | ----- | ----- | ----- | ------------------------------------ |
-| 待机           | 5.11V | 0.46A | 2.35W | 开启风扇，后续所有测试中风扇均不关闭 |
-| 单网口连接网线 | 5.06V | 0.52A | 2.63W |                                      |
-| 双网口连接网线 | 5.08V | 0.53A | 2.69W |                                      |
-| 连接 HDMI 显示器 | 5.04V | 0.53A | 2.67W |                                      |
+| Standby | 5.11V | 0.46A | 2.35W | Fan on, fan not turned off in all subsequent tests |
+| Single port to network cable | 5.06V | 0.52A | 2.63W | |
+| Dual port to network cable | 5.08V | 0.53A | 2.69W | |
+| Connecting an HDMI Display | 5.04V | 0.53A | 2.67W | |
 
-### 动态功耗
+### Dynamic Power Consumption
 
-| 场景(动态)                 | 电压  | 电流  | 功耗  | 备注                                |
+| Scene (Dynamic)                 | Voltage  | Current  | Power Consumption  | Note                                |
 | -------------------------- | ----- | ----- | ----- | ----------------------------------- |
-| 待机                       | 5.04V | 0.71A | 3.58W | 连接显示器、键盘、鼠标 使用一个网口 |
-| STRESS-NG 压测<br>( CPU 矩阵运算) | 4.95V | 1.22A | 6.04W | CPU 频率上限 1.845GHz，电压 1V      |
-| 浏览器播放视频             | 4.96V | 1.06A | 5.26W | 使用 GPU、无硬件解码, firefox 浏览器  |
+| Standby                       | 5.04V | 0.71A | 3.58W | Connecting a monitor, keyboard, and mouse Using a network port |
+| STRESS-NG Pressure testing <br>(CPU matrix operations) | 4.95V | 1.22A | 6.04W | CPU frequency limit 1.845GHz, voltage 1V      |
+| Play video in browser             | 4.96V | 1.06A | 5.26W | Using GPU, no hardware decoding, firefox browser  |
 
 ## eMMC
 
 ```bash
-#4k写入
+#4k write
 dd if=/dev/zero of=test bs=4k count=100000 oflag=direct
-#4k读取
+#4k read
 dd if=test of=/dev/null bs=4k count=100000 iflag=direct
-#删除测试文件
+#Deleting test files
 rm test
-#连续写入(4MB)
+#Continuous Write(4MB)
 dd if=/dev/zero of=test bs=4096k count=100 oflag=direct
-#连续读取(4MB)
+#Continuous Read(4MB)
 dd if=test of=/dev/null bs=4096k count=100 iflag=direct
-#删除测试文件
+#Deleting test files
 rm test
-#连续写入(64MB)
+#Continuous Write(64MB)
 dd if=/dev/zero of=test bs=65536k count=10 oflag=direct
-#连续读取(64MB)
+#Continuous Read(64MB)
 dd if=test of=/dev/null bs=65536k count=10 iflag=direct
-#删除测试文件
+#Deleting test files
 rm test
 ```
 
@@ -87,11 +92,11 @@ rm test
 
 ## WiFi
 
-测试环境：室内空旷长走廊
-测试方法：使用 iperf3，笔记本电脑作为 server，LPi4A 作为 client
-测试设备：路由器使用 newifi D2, 笔记本电脑型号为 宏碁掠夺者战斧300
+Test Environment: Long open corridor
+Test method: using iperf3, laptop as server, LPi4A as client
+Test equipment: newifi D2 router, Acer Predator Tomahawk 300 laptop.
 
-在路由器与 LPi4A 间隔不同距离的测试结果如下：
+The test results at different distances between the router and LPi4A are as follows:
 
 5m
 ![wifi_test_5m.png](./../../../../zh/lichee/th1520/lpi4a/assets/test_report/wifi_test_5m.png)
@@ -113,23 +118,29 @@ rm test
 
 ## Bluetooth
 
-测试环境：室内近距离
-测试方法：手机开启蓝牙共享网络，与开发板配对并连接蓝牙，使用iperf3测试
-测试设备：小米13，LPi4A
+Test environment: indoor proximity
+Test Method: Mobile phone open bluetooth sharing network, pair with development board and connect bluetooth, use iperf3 test
+Test Equipment: Xiaomi 13, LPi4A
 
 ![bluetooth_phone](./../../../../zh/lichee/th1520/lpi4a/assets/test_report/bluetooth_phone.jpg)
 ![bluetooth_1520](./../../../../zh/lichee/th1520/lpi4a/assets/test_report/bluetooth_1520.png)
 
-## 温度
+## Temperature
 
-散热器: 风扇+铝散热片(25*25*5)
-硅脂垫: Laird 500
-待机状态：
+Heat Sink: Fan + Aluminum Heat Sink(25*25*5)
+Silicon pad: Laird 500
+Standby Status:
 ![temp_idle](./../../../../zh/lichee/th1520/lpi4a/assets/test_report/temp_idle.png) 
 
-压测结束：
+End of pressure test:
 ![temp_press](./../../../../zh/lichee/th1520/lpi4a/assets/test_report/temp_press.png) 
 
-## 其它
+## Browser Testing
 
-欢迎投稿～ 投稿接受后可得￥5～150（$1~20）优惠券！
+Fishbowl test in Chromium with results as shown:
+
+![web_browser_fishbowl](./../../../../zh/lichee/th1520/lpi4a/assets/test_report/web_browser_fishbowl.png)
+
+## Other
+
+Contributions are welcome~ You can get ￥5~150 ($1~20) coupon if your contribution is accepted!

@@ -1,7 +1,12 @@
 ---
-title: 典型应用
+title: Typical Application
 keywords: Linux, Lichee, TH1520, SBC, RISCV, application
 update:
+  - date: 2023-07-21
+    version: v1.1
+    author: ztd
+    content:
+      - Update English docs
   - date: 2023-05-08
     version: v1.0
     author: wonder
@@ -11,45 +16,47 @@ update:
 
 ## llama.cpp
 
-llama 是 META 开源的大语言模型，[llama.cpp](https://github.com/ggerganov/llama.cpp) 是 ggerganov 开源的纯 cpp 运行的 llama 推理项目。
-感谢 llama.cpp 这个优秀的项目，我们可以在 LicheePi 4A 上运行 LLM。
+llama is the META Open Source Large Language Model, and [llama.cpp](https://github.com/ggerganov/llama.cpp) is the ggerganov Open Source pure cpp runtime llama inference project.
+Thanks to llama.cpp, an excellent project, we can run LLM on LicheePi 4A.
 
-笔者在早些时候稍微修改了 llama.cpp [https://github.com/Zepan/llama.cpp](https://github.com/Zepan/llama.cpp)，使其可以在更小内存（低至 700MB 左右）运行 7B 模型。
+Zepan slightly modified llama.cpp [https://github.com/Zepan/llama.cpp](https://github.com/Zepan/llama.cpp) earlier to allow it to run the 7B model with less memory (down to about 700MB).
 
-可以看到 TH1520 花费约 6s 计算一个 token（未使用 V 扩展加速，V 扩展加速预计可加速 4～8 倍，如果你加入了 V 扩展支持，欢迎投稿！）
-![llama_th1520](./../../../../zh/lichee/th1520/lpi4a/assets/application/llama_th1520.png)  
+You can see that TH1520 takes about 6s to compute a token (without V-extension acceleration, which is expected to accelerate it by a factor of 4-8, so feel free to pitch in if you've added V-extension support!)
+![llama_th1520](. /... /... /... /... /zh/lichee/th1520/lpi4a/assets/application/llama_th1520.png) 
 
-同时还简单测试了下在入门级 C906 内核上运行7B模型的可行性，由于 D1 的内存过小，使用了 mmap 方式只读扩展，所以引入了大量低速 IO 操作，使得运行速度大为降低，最后仅 18s/token
+The feasibility of running the 7B model on an entry-level C906 core was also briefly tested, and due to the small amount of memory in the D1 and the use of mmap read-only extensions, a large number of low-speed IO operations were introduced, which slowed down the speed of the run, ending up at only 18s/token.
 
 ![llama_d1](./../../../../zh/lichee/th1520/lpi4a/assets/application/llama_d1.png)  
 
-## YOLOX 目标检测
+## YOLOX Target Detection
 
-本教程是一个如何在 LPi4A（LicheePi 4A） 开发板平台上部署 [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) 模型完成目标检测的示例。
-教程中包括了：
-- 在 LPi4A 开发版上安装 Python 环境
-- 使用 YOLOX 项目中的源码执行模型
+This tutorial is an example of how to deploy the [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) model to accomplish target detection on the LPi4A (LicheePi 4A) development board platform.
+Included in the tutorial:
+- Installing the Python environment on the LPi4A development board
+- Executing the model using the source code from the YOLOX project.
 
-教程遵循通常的模型部署流程：
-1. LPi4A 上的基础 Python 环境配置
-2. 获取 yolox 源码和模型
-3. 安装 yolox 所依赖的 python 包
-4. LPi4A 上的使用 HHB-onnxruntime 执行示例
+The tutorial follows the usual model deployment process:
+1. Basic Python environment configuration on LPi4A. 2.
+2. Obtaining the yolox source code and models
+3. Installing python packages that yolox depends on
+4. Example execution using HHB-onnxruntime on LPi4A
 
-**基础 Python 环境配置**
-**基本软硬件配置**
-参考 LPi4A 的 《[开箱体验](https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/2_unbox.html)》中的描述，正确安装好开发板，上电启动后以 root 权限进入。
-确保已联网的状态下，更新 apt 源
+**Basic Python Environment Configuration**
+**Basic Hardware and Software Configuration**
+
+Refer to the description in LPi4A's "[Out-of-the-box experience](https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/2_unbox.html)", install the development board correctly, and enter with root privileges after powering on and booting up.
+
+Ensure that you are connected to the Internet, and update the apt source.
 ```bash
 sudo apt update
 ```
 
-安装一些软件，用于示例中后续使用
+Install some software for subsequent use in the example
 ```bash
 sudo apt install wget git vim
 ```
 
-安装 SHL 库
+Installing the SHL Library
 ```bash
 wget https://github.com/T-head-Semi/csi-nn2/releases/download/v2.4-beta.1/c920.tar.gz
 tar xf c920.tar.gz
@@ -57,24 +64,24 @@ cp c920/lib/* /usr/lib/riscv64-linux-gnu/ -rf
 ```
 
 
-**Python 环境配置**
-LPi4A 烧录的系统中已默认安装 python 3.11 版本。可以使用如下命令确认
+**Python Environment Configuration**
+Python version 3.11 is installed by default on the system where LPi4A is burned. You can confirm this with the following command
 ```bash
 python --version
 ```
 
-后续均以 python3.11 版本为例，其他版本在安装依赖时需要修改到对应版本的命令。
-各种 python 程序软件依赖的软件包大多可通过 pip 安装，可以使用如下命令安装 pip
+We will use python 3.11 as an example, but for other versions, you will need to change to the corresponding version of the command when installing dependencies.
+Most of the packages that the various python programs depend on can be installed via pip, which can be installed with the following command
 ```bash
 apt install python3-pip
 ```
 
-安装其他python包之前，先安装 venv 包，用于创建python虚拟环境
+Before installing other python packages, install the venv package, which is used to create a python virtual environment
 ```bash
 apt install python3.11-venv
 ```
 
-创建 python虚拟环境，并激活
+Create a python virtual environment and activate it
 ```bash
 cd /root
 python3 -m venv ort
@@ -82,20 +89,23 @@ source /root/ort/bin/activate
 ```
 
 
-至此，基本 python 环境已经创建完成，与其他体系结构类似，可以直接通过 pip install 安装纯 python 包。
+At this point, the basic python environment has been created. Similar to other architectures, you can install pure python packages directly via pip install.
 
-opencv 安装是会依赖其他 python 包，如果 pip 不能自动下载，则可以先手动安装依赖项的安装包。如何获取安装包可以参考 [下载 riscv whl](https://www.yuque.com/za4k4z/uzn618/zsp0krgg9dlp0fhx)。
+The opencv installation will depend on other python packages, so if pip does not download them automatically, you can install the dependencies manually first. See [download riscv whl](https://www.yuque.com/za4k4z/uzn618/zsp0krgg9dlp0fhx) for more information on how to get the packages.
+
 **获取 YOLOX 模型**
-[YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) 是一个类 YOLO 的目标检测模型，有相当优异的性能表现。
-可以直接下载 github 上的源码和模型
+
+[YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) is a YOLO-like target detection model with quite excellent performance.
+The source code and model can be downloaded directly from github
 ```bash
 git clone https://github.com/Megvii-BaseDetection/YOLOX.git
 cd YOLOX/demo/ONNXRuntime
 wget https://github.com/Megvii-BaseDetection/YOLOX/releases/download/0.1.1rc0/yolox_s.onnx
 ```
 
-**修改源码**
-本教程将使用 HHB-onnxruntime 执行模型，因此切换到。在源码中的 onnxruntime 示例目录，修改文件 demo/ONNXRuntime/onnx_inference.py 的开头新增两行代码
+**Modify the source code**
+
+This tutorial will use the HHB-onnxruntime execution model, so switch to. In the onnxruntime example directory in the source code, modify the beginning of the file demo/ONNXRuntime/onnx_inference.py to add two new lines of code
 ```bash
 #!/usr/bin/env python3
 # Copyright (c) Megvii, Inc. and its affiliates.
@@ -106,18 +116,18 @@ wget https://github.com/Megvii-BaseDetection/YOLOX/releases/download/0.1.1rc0/yo
 import argparse
 import os
 ```
+The code uses sys.path.insert to specify the search path, thus eliminating the need to install the YOLOX installer from the source code.
 
+**Installing dependencies
 
-代码中使用 sys.path.insert 指定搜索路径，以此免去从源码中安装 YOLOX 的安装包的操作。
-**安装依赖包**
-RISC-V 体系结构的 python 生态还有欠缺，未来完善之后，YOLOX 中依赖的包可以通过 [requirements.txt](https://github.com/Megvii-BaseDetection/YOLOX/blob/main/requirements.txt) 文件直接安装。
-本教程中的 YOLOX 示例依赖了较多的 python 包，下载预编译好的 python 包
+The python ecosystem for the RISC-V architecture is still lacking, but in the future, packages dependent on YOLOX can be installed directly from the [requirements.txt](https://github.com/Megvii-BaseDetection/YOLOX/blob/main/) file. requirements.txt) file.
+The YOLOX example in this tutorial relies on a large number of python packages, download the pre-compiled python packages
 ```bash
 git clone -b python3.11 https://github.com/zhangwm-pt/prebuilt_whl.git
 cd prebuilt_whl
 ```
 
-可以按照以下顺序，手工处理。
+It can be handled manually in the following order.
 ```bash
 pip install numpy-1.25.0-cp311-cp311-linux_riscv64.whl
 pip install opencv_python-4.5.4+4cd224d-cp311-cp311-linux_riscv64.whl
@@ -134,41 +144,159 @@ pip3 install tqdm-4.65.0-py3-none-any.whl
 pip3 install tabulate-0.9.0-py3-none-any.whl
 ```
 
-安装过程中会涉及到其他纯 python 依赖包，pip 会自动从官方源下载。
-**安装 HHB-onnxruntime**
-HHB-onnxuruntime 是移植了 SHL 后端（execution providers），让 onnxruntime 能复用到 SHL 中针对玄铁 CPU 的高性能优化代码。
+The installation process will involve other pure python dependencies, which pip will automatically download from the official sources.
+
+**Installation of HHB-onnxruntime**
+
+HHB-onnxuruntime is a port of the SHL backend (execution providers) that allows onnxruntime to reuse the high-performance optimized code in SHL for the Gentei CPU.
 
 ```bash
 wget https://github.com/zhangwm-pt/onnxruntime/releases/download/riscv_whl/onnxruntime-1.14.1-cp311-cp311-linux_riscv64.whl
 pip install onnxruntime-1.14.1-cp311-cp311-linux_riscv64.whl
 ```
 
-**执行**
-在示例目录中执行 onnx_inference.py 示例
+**Execute**
+
+Execute the onnx_inference.py example in the example directory
 
 ```bash
 python3 onnx_inference.py -m yolox_s.onnx -i soccer.jpg -o outdir -s 0.3 --input_shape 640,640
 ```
 
 `python3 onnx_inference.py -m yolox_s.onnx -i soccer.jpg -o outdir -s 0.3 --input_shape640,640`
-参数说明：
-- -m：指定模型
-- -i：指定图片
-- -o：指定输出目录
-- -s：指定检测的阈值
-- --input_shape：指定检测时使用的图片尺寸
 
-**参考结果**
+Parameter Description:
+-m: specify model
+-i: specify image
+-o: specify output directory
+--s: specify the detection threshold
+--input_shape: specify the size of the image to be used for detection
 
-本教程中输入如下图，是运动员踢足球的图片，预期的检测结果是检测到两个人和一个足球。
+**Reference results**
 
-> 图片来源于网络
+The input for this tutorial is the following image, which is an image of an athlete playing soccer, and the expected detection result is to detect two people and a soccer ball.
+
+> Image from the web
 
 ![yolox_detection_soccer_input.jpg](./../../../../zh/lichee/th1520/lpi4a/assets/application/yolox_detection_soccer_input.jpg)
 
-示例正常执行后，会在 outdir 目录下生成结果图片 soccer.jpg。图片中会用框画出检测到的目标，并标注概率，效果如下图：
+After the example executes normally, the result image soccer.jpg will be generated in the outdir directory. the image will draw the detected target with a box and labeled with the probability, and the effect is as shown in the following figure:
 
 ![yolox_detection_soccer_output.jpg](./../../../../zh/lichee/th1520/lpi4a/assets/application/yolox_detection_soccer_output.jpg)
+
+## Docker
+
+First install the required packages
+```shell
+sudo apt-get update
+sudo apt-get install docker docker-compose
+```
+
+Once the installation is complete, use the ``sudo docker info`` command to verify that the installation was successful:
+```shell
+sipeed@lpi4a:~$ sudo docker info
+Client: 
+ Context: default
+ Debug Mode: false  
+Server:
+ Containers: 0
+  Running: 0 
+  Paused: 0  
+  Stopped: 0 
+ Images: 0
+ Server Version: 20.10.24+dfsg1 
+ Storage Driver: overlay2 
+  Backing Filesystem: extfs  
+  Supports d_type: true
+  Native Overlay Diff: true  
+  userxattr: false  
+ Logging Driver: json-file
+ Cgroup Driver: systemd
+ Cgroup Version: 2
+ Plugins:
+  Volume: local  
+  Network: bridge host ipvlan macvlan null overlay
+  Log: awslogs fluentd gcplogs gelf journald json-file local logentries splunk syslog 
+ Swarm: inactive 
+ Runtimes: io.containerd.runc.v2 io.containerd.runtime.v1.linux runc 
+ Default Runtime: runc 
+ Init Binary: docker-init 
+ containerd version: 1.6.20~ds1-1+b1
+ runc version: 1.1.5+ds1-1+b1
+ init version:
+ Security Options:
+  seccomp 
+Profile: default 
+  cgroupns
+ Kernel Version: 5.10.113-gfac22a756532
+ Operating System: Debian GNU/Linux 12 (bookworm)  
+ OSType: linux
+ Architecture: riscv64 
+ CPUs: 4  
+ Total Memory: 15.47GiB
+ Name: lpi4a 
+ ID: MCKE:SEGQ:EBUX:ZMLC:P2WK:GIJ7:XAEQ:F56H:73HK:C3L5:IA5A:7GJI  
+ Docker Root Dir: /var/lib/docker
+ Debug Mode: false  
+ Registry: https://index.docker.io/v1/ 
+ Labels:  
+ Experimental: false
+ Insecure Registries:  
+  127.0.0.0/8
+ Live Restore Enabled: false
+```
+If you want a normal user to have Docker execution privileges as well, you can execute the following command to do so:  
+```shell
+sudo groupadd docker
+sudo usermod -aG docker $USER
+newgrp docker
+```
+These commands add a username with normal user privileges to the `docker` user group and activate group privileges. If you don't add them, you'll need to execute Docker-related commands with sudo privileges every time you execute them.
+
+Next, let's pull up the hello-world image to get a taste of Docker:
+```shell
+sipeed@lpi4a:~$ docker pull hello-world
+Using default tag: latest
+latest: Pulling from library/hello-world   
+b102dd09f2b3: Pull complete 
+Digest: sha256:926fac19d22aa2d60f1a276b66a20eb765fbeea2db5dbdaafeb456ad8ce81598      
+Status: Downloaded newer image for hello-world:latest    
+docker.io/library/hello-world:latest 
+```
+
+Next, start the container you just pulled off:
+```shell
+sipeed@lpi4a:~$ docker run hello-world
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
+```
+
+View information about the hello-world mirror:
+```shell
+sipeed@lpi4a:~$ docker images hello-world
+REPOSITORY TAG IMAGE ID CREATED SIZE
+hello-world latest eb6f80695a28 2 months ago 4.98kB
+```
+
+To experience a more complete image, go [here](https://hub.docker.com/) and search for the name of the distribution you want to use and pull it.
 
 ## Minecraft Server
 
@@ -176,7 +304,35 @@ TODO
 
 ## Wine-CE
 
-TODO
+First download [here](https://gitee.com/wine-ce/wine-ce/releases/tag/v8.9) the `wine-ce_dlls_8.9.0.all.tar.xz`, `wine-ce_core_8.9.0.riscv64.tar.xz` files. Both files are assumed to be downloaded to the user's home directory (the latest version is 8.9 at the time of writing this document).
+
+Then follow the steps in the documentation to install them:
+```shell
+sudo apt install fonts-liberation fonts-wine glib-networking libpulse0 gstreamer1.0-plugins-good gstreamer1.0-x libaa1 libaom3 libasound2-plugins  libcaca0 libcairo-gobject2 libcodec2-1.0 libdav1d6 libdv4 libgdk-pixbuf-2.0-0 libgomp1 libgpm2 libiec61883-0 libjack-jackd2-0 libmp3lame0 libncurses6 libncursesw6 libnuma1 libodbc2 libproxy1v5 libraw1394-11 librsvg2-2 librsvg2-common libsamplerate0 libshine3 libshout3 libslang2 libsnappy1v5 libsoup2.4-1 libsoxr0 libspeex1 libspeexdsp1 libtag1v5 libtag1v5-vanilla libtwolame0 libva-drm2 libva-x11-2 libva2 libvdpau1 libvkd3d-shader1 libvkd3d1 libvpx7 libwavpack1 libwebpmux3 libx265-199 libxdamage1 libxvidcore4 libzvbi-common libzvbi0 mesa-va-drivers mesa-vdpau-drivers va-driver-all vdpau-driver-all vkd3d-compiler
+
+sudo tar -Jxvf wine-ce_core_8.9.0.riscv64.tar.xz -C /opt/
+sudo tar -Jxvf wine-ce_dlls_8.9.0.all.tar.xz -C /opt/
+sudo ln -sf /opt/wine-ce/bin/wine /usr/bin/wine
+sudo ln -sf /opt/wine-ce/bin/winecfg /usr/bin/winecfg
+rm -rf ~/.wine
+```
+
+Next some initialization settings:
+```shell
+winecfg
+```
+
+The settings used here are as follows:
+
+![wine_ce_settings](./../../../../zh/lichee/th1520/lpi4a/assets/application/wine_ce_settings.png)
+
+Once the settings are complete, you can run programs under Windows, such as the command here to run Notepad under Windows:
+```shell
+wine notepad.exe
+```
+
+![wine_ce_use](./../../../../zh/lichee/th1520/lpi4a/assets/application/wine_ce_use.png)
+
 
 ## 其它
 
