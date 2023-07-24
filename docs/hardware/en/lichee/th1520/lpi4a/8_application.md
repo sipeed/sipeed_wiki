@@ -300,7 +300,76 @@ To experience a more complete image, go [here](https://hub.docker.com/) and sear
 
 ## Minecraft Server
 
-TODO
+Here we take `1.20.1` version as an example, LPi4A as Server and PC (Ubuntu 22.04) as Client.
+
+First download the Fizzed optimized nitro JDK 19 from [here](https://github.com/fizzed/nitro/releases/tag/builds), extract it, rename the folder and move it to the `/opt/` directory:
+```shell
+tar xvf fizzed19.36-jdk19.0.1-linux_riscv64.tar.gz
+sudo mv fizzed19.36-jdk19.0.1-linux_riscv64 /opt/jdk_19
+```
+
+Test if this JDK is available:
+```shell
+sipeed@lpi4a:~$ /opt/jdk_19/bin/java -version
+openjdk version "19.0.1" 2022-09-20
+OpenJDK Runtime Environment Fizzed19.36 (build 19.0.1+10)
+OpenJDK 64-Bit Server VM Fizzed19.36 (build 19.0.1+10, mixed mode)
+```
+
+If the version number appears, it is available. If you have already pre-installed a different version of the JDK, you can change the softlinks by checking the original softlinks and making a note of them so that you can change them back later:
+```shell
+sipeed@lpi4a:~$ ls /usr/bin/java -l
+lrwxrwxrwx 1 root root 22 Apr 26 10:40 /usr/bin/java -> /etc/alternatives/java
+```
+
+Then change the softlink to point to the JDK you just installed:
+```shell
+sudo rm /usr/bin/java
+sudo ln -s /opt/jdk_19/bin/java /usr/bin/java
+```
+
+Verify that the soft link was configured successfully with the command
+```shell
+java -version
+```
+If the version appears, the configuration was successful.
+
+Next, download the original server-side jar file to LPi4A at [here](https://www.minecraft.net/zh-hans/download), noting that the version is ``1.20.1``, and then execute it on LPi4A first:
+```shell
+java -jar server.jar nogui
+```
+
+If prompted
+```shell
+[ServerMain/WARN]: Failed to load eula.txt
+[ServerMain/INF0]:You need to agree to the EULA in order to run the server. Go to e ula.txt for more info.
+Go to eula.txt for more info.
+
+Changes false to true on the corresponding line in the `eula.txt` file in the current directory:
+```shell
+eula=true
+```
+
+Save and exit, restart the server, the first startup will be slower, be patient, the startup time will be displayed after the startup is complete (the following time is not the first startup time):
+```shell
+[03:51:02] [Server thread/INFO]: Time elapsed: 36394 ms
+[03:51:02] [Server thread/INFO]: Done (52.927s)! For help, type "help"
+```
+
+Next, you can connect after launching the client on the PC, we recommend using the third-party client launcher HMCL (download link https://hmcl.huangyuhui.net/download/).
+Once the download is complete, launch HMCL:
+```shell
+java -jar HMCL-3.5.5.jar
+```
+
+You can download ``1.20.1`` version directly in the launcher and configure the game account, then you can enter the game, after entering the game, enter the server IP (LPi4A's IP) to add the server to connect (make sure that the computer and LPi4A are under the same network), the effect is as follows:
+![mc_server_menu](./../../../../zh/lichee/th1520/lpi4a/assets/application/mc_server_menu.png)
+
+> Note that if you want to change back to the original version of the JDK, run:
+> ```shell.
+> sudo rm /usr/bin/java
+> sudo ln -s /opt/jdk_19/bin/java /etc/alternatives/java
+> ```
 
 ## Wine-CE
 
@@ -333,7 +402,47 @@ wine notepad.exe
 
 ![wine_ce_use](./../../../../zh/lichee/th1520/lpi4a/assets/application/wine_ce_use.png)
 
+## SuperTuxKart
 
-## 其它
+SuperTuxKart is a 3D open-source arcade racer with a variety characters, tracks, and modes to play. It can also be experienced on LPi4A by compiling the source code:
 
-欢迎投稿～ 投稿接受后可得￥5～150（$1~20）优惠券！
+First install dependencies:
+```shell
+sudo apt-get install build-essential cmake libbluetooth-dev libsdl2-dev \
+libcurl4-openssl-dev libenet-dev libfreetype6-dev libharfbuzz-dev \
+libjpeg-dev libogg-dev libopenal-dev libpng-dev \
+libssl-dev libvorbis-dev libmbedtls-dev pkg-config zlib1g-dev
+```
+
+Next, refer to [documentation](https://github.com/supertuxkart/stk-code/blob/master/INSTALL.md#building-supertuxkart-on-linux) step to compile:
+```shell
+# clone and configure src
+git clone https://github.com/supertuxkart/stk-code stk-code
+svn co https://svn.code.sf.net/p/supertuxkart/code/stk-assets stk-assets
+
+# go into the stk-code directory
+cd stk-code
+
+# create and enter the cmake_build directory
+mkdir cmake_build
+cd cmake_build
+
+# run cmake to generate the makefile
+cmake .. -DBUILD_RECORDER=off -DNO_SHADERC=on
+
+#compile
+make -j$(nproc)
+```
+
+After compiling, you can find the `supertuxkart` program in the `bin/` folder in the current directory. Just run:
+```shell
+./bin/supertuxkart
+```
+
+The effect is as follows:
+
+![supertuxkart_play](./../../../../zh/lichee/th1520/lpi4a/assets/application/supertuxkart_play.png)
+
+## Other
+
+Contributions are welcome~ You can get ￥5~150 ($1~20) coupon if your contribution is accepted!

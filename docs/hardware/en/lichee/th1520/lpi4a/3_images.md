@@ -38,53 +38,53 @@ ISCAS mirror: [click me](https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/)
 ![debian](./../../../../zh/lichee/th1520/lpi4a/assets/images/debian.png)
 ![debian_neofetch](./../../../../zh/lichee/th1520/lpi4a/assets/images/debian_neofetch.png)
 
-1. LPI4A_20230714.zip
+1. LPI4A_20230721.zip
 
-   - Release date：: July 14, 2023
-   - Linux Kernel version：5.10
-   - rootfs：ext4, 4.3GB
-   - Pre-Installed packages:
-      - Development utilities
-      - Office suite
-   - Fixed issues：
-      - HDMI Display and HDMI audio detectation
-      - Fix bluebooth, bluetooth audio is OK
-      - Enable auto login, run sudo command without password.
-      - Fix shortcut issue, click to run chromium is OK.
-   - Known issues：
-      - HDMI audio bug in chromium
-      - Kernel panic when using USB camera for a long time
-   - Addition：
-      - HDMI Display only, not support mipi ext-screen, pay attention to the image name.
-      - 8gddr/16gddr footfs means it suits board with 8g/16g ddr memory. 
-      - Wrong image will not boot device.
+    - Release date: July 21, 2023
+    - Kernel: 5.10
+    - Root file system: ext4, 4.3GB
+    - Main pre-installed packages:
+       - Development
+       - Office
+    - Fixed issues:
+       - HDMI display device and HDMI audio device recognition issues
+       - Fix bluetooth issue, now bluetooth devices function normally, and bluetooth headsets can also play audio normally
+       - Add auto-login, password-free sudo functionality
+       - Fixed the problem that the browser shortcut in the launch bar at the bottom of the desktop is not available, now you can click here to enter chromium
+       - Fix the problem that the kernel panic will occur when the USB camera is connected for a long time
+       - Fix 16GB memory recognition problem, please update this image if you need to fully recognize 16GB memory
+    - Known issues:
+       - There is a problem with the sound quality of HDMI audio playing under chromium
+    - Instructions for use:
+       - This compressed package only supports HDMI display, please pay attention to the boot suffix and device correspondence when burning
+          - 8gddr/16gddr corresponds to 8g/16g memory respectively
 
-2. LPI4A_20230714_mipi.zip
+2. LPI4A_20230721_mipi.zip
 
-   - Release date：: July 14, 2023
-   - Linux Kernel version：5.10
-   - rootfs：ext4, 4.3GB
-   - Pre-Installed packages:
-      - Development utilities
-      - Office suite
-   - Fixed issues：
-      - HDMI Display and HDMI audio detectation
-      - Fix bluebooth, bluetooth audio is OK
-      - Enable auto login, run sudo command without password.
-      - Fix shortcut issue, click to run chromium is OK.
-   - Known issues：
-      - Dual display mode, mipi screen is at low resolution display, font is not clear.
-      - Not connect the MIPI screen, system still recognize the device. Disable the MIPI screen display Manually
-         - Run `echo off > /sys/class/drm/card0-DSI-1/status` with root permission
-      - The brightness of MIPI screen can only adjusted MIPI Manually
-         - Run `echo Brightness(0 to 7) > /sys/class/backlight/pwm-backlight@0/brightness` with root permission
-      - HDMI audio bug in chromium
-      - Kernel panic when using USB camera for a long time
-   - Addition：
-      - MIPI Display supported, pay attention to the image name.
-         - 8gddr/16gddr footfs means it suits board with 8g/16g ddr memory.
-         - mipi_720p/mipi_1080p fits the mipi DSI screen of 800x1280(With touching panel)/1200x1920 resolution
-      - Wrong image will not boot device.
+    - Release date: July 21, 2023
+    - Kernel: 5.10
+    - Root file system: ext4, 4.3GB
+    - Main pre-installed packages:
+       - Development
+       - Office
+    - Fixed issues:
+       - HDMI display device and HDMI audio device recognition issues
+       - Fix bluetooth issue, now bluetooth devices function normally, and bluetooth headsets can also play audio normally
+       - Add auto-login, password-free sudo functionality
+       - Fixed the problem that the browser shortcut in the launch bar at the bottom of the desktop is not available, now you can click here to enter chromium
+       - Fixed a problem that may cause a kernel panic when the USB camera is connected for a long time
+       - Fix 16GB memory recognition problem, please update this image if you need to fully recognize 16GB memory
+    - Known issues:
+       - Under dual-screen different display, when the MIPI screen is used as an extended display, the resolution is low, resulting in some blurred fonts
+       - When the MIPI screen is not connected, the system will still recognize it as connected, temporarily need to manually turn off the output of the MIPI screen in the settings
+          - Switch to root user, execute `echo off > /sys/class/drm/card0-DSI-1/status`
+       - For the time being, the brightness of the MIPI screen can only be adjusted by manually writing a value
+          - Switch to root user, execute `echo brightness value (integer value from 0-7) > /sys/class/backlight/pwm-backlight@0/brightness`
+       - There is a problem with the sound quality of HDMI audio playing under chromium
+    - Instructions for use:
+       - The compressed package is an image that supports MIPI screen, please pay attention to the boot suffix and device correspondence when burning
+          - 8gddr/16gddr correspond to 8g/16g memory respectively
+          - mipi_720p/mipi_1080p correspond to 800x1280 MIPI screen (with touch)/1200x1920 mipi screen respectively
 
 <!-- 1. LPi4A_Test_0425
    1. Release date: April 25, 2023

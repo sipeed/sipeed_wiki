@@ -301,7 +301,76 @@ hello-world   latest    eb6f80695a28   2 months ago   4.98kB
 
 ## Minecraft Server
 
-TODO
+这里以`1.20.1`版本为例，LPi4A 作为 Server，电脑端（Ubuntu 22.04）作为 Client。
+
+首先在[这里](https://github.com/fizzed/nitro/releases/tag/builds)下载由 Fizzed 优化的 nitro JDK 19，下载完成后解压，重命名文件夹并移动到 `/opt/` 目录下：
+```shell
+tar xvf fizzed19.36-jdk19.0.1-linux_riscv64.tar.gz
+sudo mv fizzed19.36-jdk19.0.1-linux_riscv64 /opt/jdk_19
+```
+
+测试该 JDK 是否可用：
+```shell
+sipeed@lpi4a:~$ /opt/jdk_19/bin/java -version
+openjdk version "19.0.1" 2022-09-20
+OpenJDK Runtime Environment Fizzed19.36 (build 19.0.1+10)
+OpenJDK 64-Bit Server VM Fizzed19.36 (build 19.0.1+10, mixed mode)
+```
+
+若出现版本号则可用。若已经预装了别的版本的 JDK，那么可以更改下软连接，先查看原先的软链接信息，记录下方便后面改回来：
+```shell
+sipeed@lpi4a:~$ ls /usr/bin/java -l
+lrwxrwxrwx 1 root root 22 Apr 26 10:40 /usr/bin/java -> /etc/alternatives/java
+```
+
+然后更改软链接指向刚刚安装的 JDK：
+```shell
+sudo rm /usr/bin/java
+sudo ln -s /opt/jdk_19/bin/java /usr/bin/java
+```
+
+使用命令验证软链接是否配置成功：
+```shell
+java -version
+```
+出现版本，则配置成功。
+
+接下来，在[这里](https://www.minecraft.net/zh-hans/download)下载原版服务端 jar 文件到 LPi4A，注意版本为`1.20.1`，然后在 LPi4A 上先执行：
+```shell
+java -jar server.jar nogui
+```
+
+若出现提示
+```shell
+[ServerMain/WARN]: Failed to load eula.txt
+[ServerMain/INF0]:You need to agree to the EULA in order to run the server. Go to e ula.txt for more info.
+```
+
+则将当前目录下的 `eula.txt`文件中对应行改为的 false 改为 true：
+```shell
+eula=true
+```
+
+保存后退出，重新启动服务器，第一次启动会比较慢，耐心等待，启动完成后会显示启动用时（下列用时并非第一次启动用时）：
+```shell
+[03:51:02] [Server thread/INFO]: Time elapsed: 36394 ms
+[03:51:02] [Server thread/INFO]: Done (52.927s)! For help, type "help"
+```
+
+接下来，在 PC 端启动客户端后即可连接，建议使用第三方客户端启动器 HMCL（下载链接https://hmcl.huangyuhui.net/download/）。
+下载完成后，启动 HMCL：
+```shell
+java -jar HMCL-3.5.5.jar
+```
+
+可以直接在启动器中下载`1.20.1`版本，并且配置好游戏账户，然后即可进入游戏，进入游戏后，输入 服务器 IP（LPi4A 的 IP）添加服务器后即可连接（确保电脑和 LPi4A 处于同一网络下），效果如下：
+![mc_server_menu](./assets/application/mc_server_menu.png)
+
+> 注意，若想改回原来版本的 JDK，则执行：
+> ```shell
+> sudo rm /usr/bin/java
+> sudo ln -s /opt/jdk_19/bin/java /etc/alternatives/java
+> ``` 
 
 ## Wine-CE
 
@@ -334,6 +403,46 @@ wine notepad.exe
 
 ![wine_ce_use](./assets/application/wine_ce_use.png)
 
+## SuperTuxKart
+
+SuperTuxKart 是一款 3D 开源街机赛车游戏，有各种角色、赛道和模式可供选择。在 LPi4A 上也可以通过源码编译来体验：  
+
+首先安装依赖：
+```shell
+sudo apt-get install build-essential cmake libbluetooth-dev libsdl2-dev \
+libcurl4-openssl-dev libenet-dev libfreetype6-dev libharfbuzz-dev \
+libjpeg-dev libogg-dev libopenal-dev libpng-dev \
+libssl-dev libvorbis-dev libmbedtls-dev pkg-config zlib1g-dev
+```
+
+接下来参考[文档](https://github.com/supertuxkart/stk-code/blob/master/INSTALL.md#building-supertuxkart-on-linux)步骤编译：
+```shell
+# clone and configure src
+git clone https://github.com/supertuxkart/stk-code stk-code
+svn co https://svn.code.sf.net/p/supertuxkart/code/stk-assets stk-assets
+
+# go into the stk-code directory
+cd stk-code
+
+# create and enter the cmake_build directory
+mkdir cmake_build
+cd cmake_build
+
+# run cmake to generate the makefile
+cmake .. -DBUILD_RECORDER=off -DNO_SHADERC=on
+
+# compile
+make -j$(nproc)
+```
+
+编译完成后，在当前目录下的 `bin/` 文件夹中即可找到 `supertuxkart` 程序。运行即可：
+```shell
+./bin/supertuxkart
+```
+
+效果如下：
+
+![supertuxkart_play](./assets/application/supertuxkart_play.png)
 
 ## 其它
 
