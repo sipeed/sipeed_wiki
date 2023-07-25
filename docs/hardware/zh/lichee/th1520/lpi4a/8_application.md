@@ -444,6 +444,67 @@ make -j$(nproc)
 
 ![supertuxkart_play](./assets/application/supertuxkart_play.png)
 
+## llama2.c
+
+[项目链接](https://github.com/karpathy/llama2.c)
+我们可以根据项目链接文档中的步骤来运行一个 Llama 2 的小模型。
+
+首先 clone 该项目，并切换到改项目目录下：
+```shell
+git clone https://github.com/karpathy/llama2.c.git
+```
+
+然后下载 model.bin 文件，并放到指定目录下：
+```shell
+wget https://karpathy.ai/llama2c/model.bin -P out
+```
+
+然后编译并运行：
+```shell
+gcc -O3 -o run run.c -lm
+./run out/model.bin
+```
+
+可以得到如下输出：
+```text
+<s>
+ Once upon a time, there was a little girl named Lily. She loved to play with her dolls and teddy bea
+rs. One day, she saw her friend Lucy playing with her favorite doll. 
+Lily: "Lucy, can I play with you?"
+Lucy: "Sure, but can you be careful with my doll?"
+Lily: "Sure, I promise I won't break her."
+Lucy: "That's very original. I really love it."
+Lily smiled and showed her doll to her mom. Her mom said, "That's nice, Lily. Let's put your doll on 
+the shelf and play with her some more."
+From that day on, Lily and her doll played together every day. They were the best of friends and didn
+'t break anyone's possession.
+<s>
+ Once upon a time, there was a little boy named Timmy. Timmy loved to eat sandwiches. One day, Timmy'
+s mom made him a sandwich for lunch. It was so yummy and tasty! But then, something unexpected happen
+ed. Timmy's little sister spilled some juice on his sandwich. Tim
+achieved tok/s: 30.955260
+```
+
+也可以修改一些编译参数来加速：
+```text
+sipeed@lpi4a:~/llama2.c$ gcc -Ofast -fopenmp run.c  -lm  -o run
+sipeed@lpi4a:~/llama2.c$ OMP_NUM_THEADS=4 ./run out/model.bin 
+<s>
+ Once upon a time, there was a boy named Tom. He liked to run fast. One day, he saw a big tree. Under
+ the tree, he found a hole. Tom was curious. He looked inside and saw something shiny.
+Tom looked closer, and it was not a shiny thing. It was a key! He was very surprised. He took the key
+ and ran home. He showed his mom the key.
+Tom's mom said the key was for a sneeze. The sneeze was a sneeze. Tom's mom put the key next to her p
+ocket. Tom said, "Now you can have a sneeze too!"
+Tom put his nose under his ears. He went home and took a nap. When he woke up, he had a small sneeze 
+from the key. It was not food or water. Tom was happy and laughed.
+<s>
+ Once upon a time, there was a bunny. The bunny was very restless and wanted to explore, so he hopped
+ off his little house. 
+The bunny hopped and hopped until he saw a shiny silver carrot. He was so excited to eat it, he
+achieved tok/s: 52.043098
+```
+
 ## 其它
 
 欢迎投稿～ 投稿接受后可得￥5～150（$1~20）优惠券！

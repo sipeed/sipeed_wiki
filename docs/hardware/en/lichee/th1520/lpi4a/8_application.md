@@ -443,6 +443,67 @@ The effect is as follows:
 
 ![supertuxkart_play](./../../../../zh/lichee/th1520/lpi4a/assets/application/supertuxkart_play.png)
 
+## llama2.c
+
+[project_link](https://github.com/karpathy/llama2.c)
+We can run a small model of Llama 2 by following the steps in the project link documentation.
+
+First, clone the project and switch to the changed project directory:
+```shell
+git clone https://github.com/karpathy/llama2.c.git
+```
+
+Then download the model.bin file and place it in the specified directory:
+```shell
+wget https://karpathy.ai/llama2c/model.bin -P out
+```
+
+Then compile and run:
+```shell
+gcc -O3 -o run run.c -lm
+./run out/model.bin
+```
+
+You can get the following output:
+```text
+<s>
+ Once upon a time, there was a little girl named Lily. She loved to play with her dolls and teddy bea
+rs. One day, she saw her friend Lucy playing with her favorite doll. 
+Lily: "Lucy, can I play with you?"
+Lucy: "Sure, but can you be careful with my doll?"
+Lily: "Sure, I promise I won't break her."
+Lucy: "That's very original. I really love it."
+Lily smiled and showed her doll to her mom. Her mom said, "That's nice, Lily. Let's put your doll on 
+the shelf and play with her some more."
+From that day on, Lily and her doll played together every day. They were the best of friends and didn
+'t break anyone's possession.
+<s>
+ Once upon a time, there was a little boy named Timmy. Timmy loved to eat sandwiches. One day, Timmy'
+s mom made him a sandwich for lunch. It was so yummy and tasty! But then, something unexpected happen
+ed. Timmy's little sister spilled some juice on his sandwich. Tim
+achieved tok/s: 30.955260
+```
+
+You can also modify some compilation parameters to speed things up:
+```text
+sipeed@lpi4a:~/llama2.c$ gcc -Ofast -fopenmp run.c  -lm  -o run
+sipeed@lpi4a:~/llama2.c$ OMP_NUM_THEADS=4 ./run out/model.bin 
+<s>
+ Once upon a time, there was a boy named Tom. He liked to run fast. One day, he saw a big tree. Under
+ the tree, he found a hole. Tom was curious. He looked inside and saw something shiny.
+Tom looked closer, and it was not a shiny thing. It was a key! He was very surprised. He took the key
+ and ran home. He showed his mom the key.
+Tom's mom said the key was for a sneeze. The sneeze was a sneeze. Tom's mom put the key next to her p
+ocket. Tom said, "Now you can have a sneeze too!"
+Tom put his nose under his ears. He went home and took a nap. When he woke up, he had a small sneeze 
+from the key. It was not food or water. Tom was happy and laughed.
+<s>
+ Once upon a time, there was a bunny. The bunny was very restless and wanted to explore, so he hopped
+ off his little house. 
+The bunny hopped and hopped until he saw a shiny silver carrot. He was so excited to eat it, he
+achieved tok/s: 52.043098
+```
+
 ## Other
 
 Contributions are welcome~ You can get ￥5~150 ($1~20) coupon if your contribution is accepted!
