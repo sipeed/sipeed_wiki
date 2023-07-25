@@ -158,6 +158,8 @@ Project address: [Click me](https://github.com/chainsx/fedora-riscv-builder)
 
 ![ubuntu](./../../../../zh/lichee/th1520/lpi4a/assets/images/ubuntu.png)
 
+![ubuntu_neofetch](./../../../../zh/lichee/th1520/lpi4a/assets/images/ubuntu_neofetch.jpg)
+
 ### NixOS
 
 ![nixos](./../../../../zh/lichee/th1520/lpi4a/assets/images/nixos.png)
