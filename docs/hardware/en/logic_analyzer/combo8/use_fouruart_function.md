@@ -1,6 +1,12 @@
 ---
 title: Using as Serial Module
 keywords: LogicAnalyzer, debugger, link, RISCV, tool
+update:
+  - date: 2023-07-26
+    version: v0.1
+    author: ctx
+    content:
+      - Release docs
 ---
 
 SLogic Combo8 has 4 independent high-speed serial port functionalities. The first two ports based on UART can achieve a super-high speed baud rate of up to 20Mbps simultaneously, while the latter two ports can reach up to 1Mbps through IO simulation. It is highly suitable for scenarios such as batch programming and production testing.
@@ -9,13 +15,13 @@ SLogic Combo8 has 4 independent high-speed serial port functionalities. The firs
 
 Press the toggle button to switch the indicator light to red.
 
-![](../../../zh/logic_analyzer/assets/slogic_led_red.png)
+![slogic_led_red](./../../../zh/logic_analyzer/combo8/assets/use_fouruart_function/slogic_led_red.png)
 
 > To verify if Serial Module functionality is enabled:
 >
 > Linux: Use the lsusb command to check if the UARTx4 HS USB device appears.
 
-![](../../../zh/logic_analyzer/assets/slogic_linux_equipment_uart.png)
+![slogic_linux_equipment_uart](./../../../zh/logic_analyzer/combo8/assets/use_fouruart_function/slogic_linux_equipment_uart.png)
 
 ## Getting Started
 
@@ -46,7 +52,7 @@ sudo apt install minicom
 
 For example, to use **minicom** with UART0 to communicate with the test device, open the Linux terminal using **CTRL+ALT+T**, enter the installation commands, and enter the administrator user password when prompted. Wait for the package installation to complete.
 
-![](../../../zh/logic_analyzer/assets/minicom_install_uart.png)
+![minicom_install_uart](./../../../zh/logic_analyzer/combo8/assets/use_fouruart_function/minicom_install_uart.png)
 
 After installation, communicate with the test device using UART0. In the terminal, enter the command:
 
@@ -58,16 +64,14 @@ The **-b** parameter specifies the desired baud rate, which should be the same a
 
 The **-D** parameter specifies the port to listen to.
 
-![](../../../zh/logic_analyzer/assets/minicom_uart.png)
+![minicom_uart](./../../../zh/logic_analyzer/combo8/assets/use_fouruart_function/minicom_uart.png)
 
 After entering the command, you can communicate with the test device, receive and print messages in the terminal, and send data to the test device.
 
-
-
 #### Serial Loopback Test：
 
-![](../../../zh/logic_analyzer/assets/uart_line_uart.jpg)
+![uart_line_uart](./../../../zh/logic_analyzer/combo8/assets/use_fouruart_function/uart_line_uart.jpg)
 (Above: Serial module wiring diagram)
 
 Loopback test result:
-![](../../../zh/logic_analyzer/assets/minicom_test_uart.png)
+![minicom_test_uart](./../../../zh/logic_analyzer/combo8/assets/use_fouruart_function/minicom_test_uart.png)

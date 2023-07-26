@@ -1,6 +1,12 @@
 ---
 title:  Basic Operations
 keywords: LogicAnalyzer, debugger, link, RISCV, tool
+update:
+  - date: 2023-07-26
+    version: v0.1
+    author: ctx
+    content:
+      - Release docs
 ---
 
 The SLogic combo8 has four functions (SLogic, CKLink Debugger, DAP-Link Debugger, USB2UART). This document is intended to guide you on how to select the functions.
@@ -9,9 +15,7 @@ The SLogic combo8 has four functions (SLogic, CKLink Debugger, DAP-Link Debugger
 
 After power on, **press the button** to switch functions, and you can see the **indicator light change** when the switching is successful.
 
-
-
-![](../../../zh/logic_analyzer/assets/slogic_btn.png)
+![slogic_btn](./../../../zh/logic_analyzer/combo8/assets/basic_operation/slogic_btn.png)
 
 （Up：The red box indicates the position of the function switch button）
 
@@ -37,13 +41,9 @@ You can check the current function and corresponding wire sequence through the p
 
 - The right side shows the wire sequence for **SLogic (Blue)**.
 
-
-
-
-![](../../../zh/logic_analyzer/assets/slogic_panel.png)
+![slogic_panel](./../../../zh/logic_analyzer/combo8/assets/basic_operation/slogic_panel.png)
 
 （Above：Color/Function/Wire Sequence Correspondence Diagram）
-
 
 Here's an example:
 

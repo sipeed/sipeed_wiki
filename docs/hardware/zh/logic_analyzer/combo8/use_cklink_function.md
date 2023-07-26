@@ -19,10 +19,10 @@ SLogic Combo8 具备高速CK-Link功能，且速率远超CK-Link Lite，接近CK
 
 按下切换按键，将指示灯切换为黄色
 
-![](./assets/use_cklink_function/slogic_led_yellow.png)
+![slogic_led_yellow](./assets/use_cklink_function/slogic_led_yellow.png)
 
 > 验证SLogic功能是否开启的方法:
->
+
 > Linux使用lsusb命令/Windows使用设备管理器，可以找到CKLink HS设备
 
 ## 开始使用

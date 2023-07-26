@@ -1,6 +1,12 @@
 ---
 title: Using as DAPLink
 keywords: LogicAnalyzer, debugger, link, RISCV, tool
+update:
+  - date: 2023-07-26
+    version: v0.1
+    author: ctx
+    content:
+      - Release docs
 ---
 
 SLogic Combo8 features high-speed DAP-Link functionality, suitable for various common chips, especially for debugging STM32 chips using IDE on Windows.
@@ -9,7 +15,7 @@ SLogic Combo8 features high-speed DAP-Link functionality, suitable for various c
 
 Press the toggle button to switch the indicator light to green.
 
-![](../../../zh/logic_analyzer/assets/slogic_led_green.png)
+![slogic_led_green](./../../../zh/logic_analyzer/combo8/assets/use_daplink_function/slogic_led_green.png)
 
 > To verify if DAPLink functionality is enabled:
 >
@@ -23,12 +29,12 @@ Here's a step-by-step guide on using the STM32F103C8T6 chip with Windows MDK IDE
 
 2. Connect to DAPLink using MDK:
 
-![](../../../zh/logic_analyzer/assets/cfg_dap_debugger_of_mdk.png)
+![cfg_dap_debugger_of_mdk](./../../../zh/logic_analyzer/combo8/assets/use_daplink_function/cfg_dap_debugger_of_mdk.png)
 
 3. Download the firmware using MDK:
 
-![](../../../zh/logic_analyzer/assets/download_fw_in_mdk.png)
+![download_fw_in_mdk](./../../../zh/logic_analyzer/combo8/assets/use_daplink_function/download_fw_in_mdk.png)
 
 4. Debug the firmware using MDK:
 
-![](../../../zh/logic_analyzer/assets/start_debugger_in_mdk.png)
+![start_debugger_in_mdk](./../../../zh/logic_analyzer/combo8/assets/use_daplink_function/start_debugger_in_mdk.png)

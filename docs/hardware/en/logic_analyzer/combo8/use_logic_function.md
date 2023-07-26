@@ -1,10 +1,19 @@
-# Using as a Logic Analyzer
+---
+title: Using as a Logic Analyzer
+keywords: LogicAnalyzer, debugger, link, RISCV, tool
+update:
+  - date: 2023-07-26
+    version: v0.1
+    author: ctx
+    content:
+      - Release docs
+---
 
 ## Enabling the Logic Analyzer Function
 
 Press the button to switch the indicator light to blue. As shown below:
 
-![](../../../zh/logic_analyzer/assets/slogic_led_blue.png)
+![slogic_led_blue](./../../../zh/logic_analyzer/combo8/assets/use_logic_function/slogic_led_blue.png)
 
 ## Verifying that the Logic Analyzer Function is Enabled
 
@@ -12,11 +21,11 @@ Linux:
 
 Use the lsusb command to see the USB TO LA USB device appear
 
-![](../../../zh/logic_analyzer/assets/slogic_linux_equipment_pulseview.png)
+![slogic_linux_equipment_pulseview](./../../../zh/logic_analyzer/combo8/assets/use_logic_function/slogic_linux_equipment_pulseview.png)
 
 ## Using USB TO LA
 
->Currently, the logic analyzer only supports Linux systems
+> Currently, the logic analyzer only supports Linux systems
 
 ### Quick Use
 
@@ -24,7 +33,7 @@ Use the lsusb command to see the USB TO LA USB device appear
 
 Connect the signal points to be tested on the target device to any free CH port of SLogic, and make sure that the GND of the device to be tested is connected to the GND of SLogic
 
-![](../../../zh/logic_analyzer/assets/slogic_panel.png)
+![slogic_panel](./../../../zh/logic_analyzer/combo8/assets/use_logic_function/slogic_panel.png)
 
 #### Connect SLogic and Computer
 
@@ -41,11 +50,9 @@ sudo ./PulseView-x86_64-032323-1101.AppImage
 4.  Scan for devices that meet the requirements
 5.  Select the device that has been found
 
-![](../../../zh/logic_analyzer/assets/set_connect_cfg_of_pulseview.png)
+![set_connect_cfg_of_pulseview](./../../../zh/logic_analyzer/combo8/assets/use_logic_function/set_connect_cfg_of_pulseview.png)
 
 > If no device is found in the third step, you can try to switch the module function, switch back to the logic analyzer mode, and repeat the third step
-
-
 
 ### Start Sampling
 
@@ -55,17 +62,17 @@ Note!!! The sampling bandwidth must not be equal to or exceed 320MHz, that is, t
 
 The figure below sets the number of channels to **8**, the number of samples to **1M samples**, and the sampling rate to **10Mhz**
 
-![](../../../zh/logic_analyzer/assets/equ_selec_complete_of_pulseview.png)
+![equ_selec_complete_of_pulseview](./../../../zh/logic_analyzer/combo8/assets/use_logic_function/equ_selec_complete_of_pulseview.png)
 
 2. Set the trigger mode of channel D0 to **rising and falling edge trigger**
 
 Click on the label icon of channel D0 to set the trigger mode
 
-![](../../../zh/logic_analyzer/assets/set_channel_of_pulseview.png)
+![set_channel_of_pulseview](./../../../zh/logic_analyzer/combo8/assets/use_logic_function/set_channel_of_pulseview.png)
 
 3. Start acquisition and get sampling results
 
-![](../../../zh/logic_analyzer/assets/waveform_fast_of_pulseview.png)
+![waveform_fast_of_pulseview](./../../../zh/logic_analyzer/combo8/assets/use_logic_function/waveform_fast_of_pulseview.png)
 
 ### Detailed Configuration
 
@@ -74,7 +81,7 @@ Click on the label icon of channel D0 to set the trigger mode
 Open the **"red probe"** icon in the top toolbar, select the channels you want to enable, and the number of sampling channels for the logic analyzer. The optional options are 1ch, 2ch, 4ch and 8ch. There are also shortcut keys for quick switching of channels that meet the corresponding conditions
 
 
-![](../../../zh/logic_analyzer/assets/set_Logic_cfg_of_pulseview.png)
+![set_Logic_cfg_of_pulseview](./../../../zh/logic_analyzer/combo8/assets/use_logic_function/set_Logic_cfg_of_pulseview.png)
 
 #### Sampling Parameters
 
@@ -84,7 +91,7 @@ Sampling parameters include sample quantity, sampling frequency and sampling tim
 2.  Sampling frequency: select according to the frequency of the signal to be measured, **recommended to choose more than 10 times the frequency of the signal to be measured**
 3.  Sampling time: sampling time is calculated based on the **sample quantity** and **sampling frequency**, the calculation formula is:</br>**Time (seconds) = Number of samples / Sampling rate**</br>For example, when 1M samples and 1Mhz, the sampling time is 1s
 
-![](../../../zh/logic_analyzer/assets/set_total_sampling_time_of_pulseview.png)
+![set_total_sampling_time_of_pulseview](./../../../zh/logic_analyzer/combo8/assets/use_logic_function/set_total_sampling_time_of_pulseview.png)
 
 > After setting the sample quantity and sampling frequency, place the mouse over the sample quantity selection box, and it will display the sampling time for the current parameters
 
@@ -97,9 +104,7 @@ Click on the channel label to set the channel parameters, which include label na
 3. Channel waveform display window width: set according to the signal amplitude, unit is pixels, when the signal amplitude changes greatly, you can increase this parameter to observe the signal amplitude change
 4. **Signal trigger mode**: has **direct sampling**, **high level trigger**, **low level trigger**, **falling edge trigger**, **rising edge trigger** and **edge trigger**
 
-
-
-![](../../../zh/logic_analyzer/assets/set_channel_cfg_of_pulseview.png)
+![set_channel_cfg_of_pulseview](./../../../zh/logic_analyzer/combo8/assets/use_logic_function/set_channel_cfg_of_pulseview.png)
 
 ### Debugging Waveforms
 
@@ -112,21 +117,21 @@ Click on the channel label to set the channel parameters, which include label na
 > -   **Time measurement**: You can mark a position by right-clicking on the desired position and clicking "Create Marker Here". When you repeat marking another position, the software will automatically calculate and display the time length between the two markers on the time axis
 > -   **Adjust channel order**: mouse drag channel label can drag channel to specified position
 
-![](../../../zh/logic_analyzer/assets/tag_of_pulseview.png)
+![tag_of_pulseview](./../../../zh/logic_analyzer/combo8/assets/use_logic_function/tag_of_pulseview.png)
 
 #### Protocol Decoding
 
 > Clicking on the **yellow-blue waveform icon** from the top toolbar will list the currently supported protocol list, you can directly search for the protocol you want to decode on the list to add a new protocol, new protocol can be viewed in the waveform display area
 
-![](../../../zh/logic_analyzer/assets/decoder_selector_of_pulseview.png)
+![decoder_selector_of_pulseview](./../../../zh/logic_analyzer/combo8/assets/use_logic_function/decoder_selector_of_pulseview.png)
 
 > On the waveform chart, a new protocol will occupy a row of channel waveform display window, click on the **protocol label**, you can set the basic parameters of the protocol. Taking UART protocol as an example, set UART protocol frequency to 115200, data bits to 8 bits, use ascii format decoding. After setting, the system will decode the waveform of the selected channel, so that you can more intuitively observe and analyze the communication data.
 
-![](../../../zh/logic_analyzer/assets/set_decoder_cfg_of_pulseview.png)
+![set_decoder_cfg_of_pulseview](./../../../zh/logic_analyzer/combo8/assets/use_logic_function/set_decoder_cfg_of_pulseview.png)
 
 > After setting, the waveform display area will show the corresponding protocol decoding results of the waveform
 
-![](../../../zh/logic_analyzer/assets/value_of_pulseview.png)
+![value_of_pulseview](./../../../zh/logic_analyzer/combo8/assets/use_logic_function/value_of_pulseview.png)
 
 ### Precautions
 

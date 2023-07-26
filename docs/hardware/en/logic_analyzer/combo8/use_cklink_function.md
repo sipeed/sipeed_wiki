@@ -1,6 +1,12 @@
 ---
 title:  Using as CKLink
 keywords: LogicAnalyzer, debugger, link, RISCV, tool
+update:
+  - date: 2023-07-26
+    version: v0.1
+    author: ctx
+    content:
+      - Release docs
 ---
 
 SLogic Combo8 features high-speed CK-Link functionality, with a speed that surpasses CK-Link Lite and comes close to CK-Link Pro, making it a great tool for debugging RISC-V chips. In this mode, it also has a high-speed serial port (20Mbps).
@@ -13,10 +19,10 @@ Let's get started with using CK-LINK!
 
 Press the toggle button to switch the indicator light to yellow.
 
-![](../../../zh/logic_analyzer/assets/slogic_led_yellow.png)
+![slogic_led_yellow](./../../../zh/logic_analyzer/combo8/assets/use_cklink_function/slogic_led_yellow.png)
 
 > To verify if SLogic functionality is enabled:
->
+
 > On Linux, use the lsusb command / On Windows, check in Device Manager to find the CKLink HS device.
 
 ## Getting Started
