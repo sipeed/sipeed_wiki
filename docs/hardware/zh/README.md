@@ -297,7 +297,7 @@ Tang FPGA 目前分为 Tang Nano 和 Tang Primer 两个系列。
 
 SLogic 全称为 Sipeed Logic Analyzer，是逻辑分析仪。
 
-|                  | Lite8                                         | Combo8                                        |
+<!-- |                  | Lite8                                         | Combo8                                        |
 | ---------------- | --------------------------------------------- | --------------------------------------------- |
 | 采样芯片         | BL616                                         | BL616                                         |
 | 通讯方式         | USB2.0   HS                                   | USB2.0   HS                                   |
@@ -320,7 +320,7 @@ SLogic Combo8 功能指示
 | CH3 | CH2 | RX0 | RX2 | RXD | TDI | RXD | TDI |
 | CH1 | CH0 | TX0 | TX2 | TXD | TCK/SWCLK | TXD | TCK |
 | 3V3 | 5V | 3V3 | 5V | 3V3 | 5V | 3V3 | 5V  |
-| GND | GND | GND | GND | GND | GND | GND | GND |
+| GND | GND | GND | GND | GND | GND | GND | GND | -->
 
 ## Longon 系列
 

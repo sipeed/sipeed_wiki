@@ -33,7 +33,7 @@ Linux:
 
 将目标设备的待测信号点连接至SLogic任意空闲CH端口，并确保待测设备的GND与SLogic的GND相连接
 
-![slogic_panel](./assets/use_logic_function/slogic_panel.png)
+![slogic_panel](./assets/basic_operation/slogic_panel.png)
 
 #### 连接SLogic和电脑
 
