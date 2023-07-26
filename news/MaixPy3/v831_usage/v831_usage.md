@@ -809,7 +809,7 @@ for (size_t i = 0; i < reticle_results.size(); i++)
 
 当然为了更好的兼容 Openmv 玩家，我们也提供了 Openmv 的函数在 `components/third_party/imlib` 下，函数全部增加了一个 `imlib` 的前缀，其他的功能与Openmv 是一致的。
 
-举个栗子：比如 Openmv 的寻找色块函数 [寻找色块 · OpenMV中文入门教程](https://book.openmv.cc/image/blob.html)
+举个例子：比如 Openmv 的寻找色块函数 [寻找色块 · OpenMV中文入门教程](https://book.openmv.cc/image/blob.html)
 
 ```C++
 image.find_blobs(thresholds, roi=Auto, x_stride=2, y_stride=1, invert=False, 

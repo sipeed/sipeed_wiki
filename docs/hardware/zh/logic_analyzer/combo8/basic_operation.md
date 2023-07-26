@@ -1,6 +1,12 @@
 ---
 title:  基础操作
 keywords: LogicAnalyzer, debugger, link, RISCV, tool
+update:
+  - date: 2023-07-23
+    version: v0.1
+    author: lxo
+    content:
+      - Release docs
 ---
 
 SLogic combo8共有4个功能（SLogic、CKLink Debugger、DAP-Link Debugger、USB2UART）。这篇文档用来指导如何选择功能。
@@ -9,8 +15,7 @@ SLogic combo8共有4个功能（SLogic、CKLink Debugger、DAP-Link Debugger、U
 
 上电后，**按下按键**切换功能，切换成功后可以看到**指示灯变化**。
 
-
-![](../assets/slogic_btn.png)
+![slogic_btn](./assets/basic_operation/slogic_btn.png)
 
 （上：红框是切换按键的位置）
 
@@ -26,8 +31,6 @@ SLogic combo8共有4个功能（SLogic、CKLink Debugger、DAP-Link Debugger、U
 
 （上：指示灯颜色/功能对应表）
 
-
-
 ## 面板信息
 
 通过面板信息可以查阅当前的功能和对应线序：
@@ -38,18 +41,14 @@ SLogic combo8共有4个功能（SLogic、CKLink Debugger、DAP-Link Debugger、U
 
 - 右侧是**SLogic（蓝色）**线序。
 
-
-
-![](../assets/slogic_panel.png)
+![slogic_panel](./assets/basic_operation/slogic_panel.png)
 
 （上：颜色/功能/线序对应图）
 
-
-举个栗子：
+举个例子：
 
 1. 如果要使用SLogic功能，那么需要按下按键将指示灯切换为蓝色，就可以切换到SLogic功能，通过面板的蓝色字体下对应的线序找到SLogic的引脚线序。
 
 2. 如果要使用UART功能，那么需要按下按键将指示灯切换为红色，就可以切换到UART功能，通过面板的红色字体下对应的线序找到UART的引脚线序。
 
 好的，现在你已经可以切换到你需要的功能了，进入下一步使用吧~
-

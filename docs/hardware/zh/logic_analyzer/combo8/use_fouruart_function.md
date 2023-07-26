@@ -1,6 +1,12 @@
 ---
 title:  作为串口模块使用
 keywords: LogicAnalyzer, debugger, link, RISCV, tool
+update:
+  - date: 2023-07-23
+    version: v0.1
+    author: lxo
+    content:
+      - Release docs
 ---
 
 SLogic Combo8 具备4路独立高速串口功能，前两路基于UART可同时达到20Mbps的超高速波特率，后两路通过IO模拟最高可达1Mbps。非常适合批量烧录，生产测试等场景。
@@ -9,14 +15,13 @@ SLogic Combo8 具备4路独立高速串口功能，前两路基于UART可同时�
 
 按下切换按键，将指示灯切换为红色
 
-![](../assets/slogic_led_red.png)
+![slogic_led_red](./assets/use_fouruart_function/slogic_led_red.png)
 
 > 验证SLogic功能是否开启的方法:
->
+
 > Linux：使用lsusb命令可以看到出现了UARTx4 HS的USB设备
 
-
-![](../assets/slogic_linux_equipment_uart.png)
+![slogic_linux_equipment_uart](./assets/use_fouruart_function/slogic_linux_equipment_uart.png)
 
 
 ## 开始使用
@@ -47,7 +52,7 @@ sudo apt install minicom
 
 以minicom为例，使用`CTRL+ALT+T`打开Linux终端，输入安装指令，将会提示输入该Linux系统管理员用户密码，输入密码后回车，静待软件包安装完成
 
-  ![](../assets/minicom_install_uart.png)
+  ![minicom_install_uart](./assets/use_fouruart_function/minicom_install_uart.png)
 
 完成安装后，使用UART0与测试设备进行通信，于终端输入命令：
 
@@ -57,14 +62,15 @@ sudo minicom -b 2000000 -D /dev/ttyACM0
 
 -b参数指定所需的波特率，与测试设备UART串口设置波特率相同即可
 -D参数指定监听的端口号
-![](../assets/minicom_uart.png)
+![minicom_uart](./assets/use_fouruart_function/minicom_uart.png)
 
 命令输入后即与测试设备进行通信，收到信息将于终端进行打印；以及向测试设备发送数据。
 
 #### 串口回传测试：
 
-![](../assets/uart_line_uart.jpg)
+![uart_line_uart](./assets/use_fouruart_function/uart_line_uart.jpg)
 (上：串口模块接线图)
 
 回传测试结果：
-![](../assets/minicom_test_uart.png)
+
+![minicom_test_uart](./assets/use_fouruart_function/minicom_test_uart.png)
