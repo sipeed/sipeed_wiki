@@ -27,6 +27,11 @@ Use the lsusb command to see the USB TO LA USB device appear
 
 > Currently, the logic analyzer only supports Linux systems
 
+Attention!!!
+
+> 1. When using the host computer, ensure that the sampling bandwidth does not exceed 320MHz, i.e., the number of channels * sampling rate must be less than 320MHz. For example, if you set the number of channels to 8, the sampling rate can only be set to 40MHz or lower; otherwise, it may cause host computer malfunctions.
+> 2. If there is a disconnection issue with the device during the host computer's startup process, please rescan and reconnect the device before performing any other operations; otherwise, it may result in software crashes.
+
 ### Quick Use
 
 #### Connect SLogic and Target Device
@@ -37,7 +42,7 @@ Connect the signal points to be tested on the target device to any free CH port 
 
 #### Connect SLogic and Computer
 
-You need to download [the upper computer]() software for data decoding and visualization. After downloading, go to the directory where the file is located, use `CTRL+ALT+T` to open the Linux terminal, and enter the following command to **add permissions** and **run** the program **as administrator**:：
+You need to download the host computer software for data decoding and visualization from the [here](https://dl.sipeed.com/shareURL/SLogic/SLogic_combo_8/4_application/PulseView).Please make sure to use the latest uploaded version of the software for optimal performance.After downloading, go to the directory where the file is located, use `CTRL+ALT+T` to open the Linux terminal, and enter the following command to **add permissions** and **run** the program **as administrator**:：
 
 ```bash
 chmod +x PulseView-x86_64-032323-1101.AppImage
@@ -57,8 +62,6 @@ sudo ./PulseView-x86_64-032323-1101.AppImage
 ### Start Sampling
 
 1. Configure the number of channels, number of samples, and sampling rate of PulseView
-
-Note!!! The sampling bandwidth must not be equal to or exceed 320MHz, that is, the number of channels * sampling rate must be less than 320MHz. For example: set the number of channels to 8, then the sampling rate can only be set to 32MHz or lower, not 40MHz, otherwise it may cause the upper computer to malfunction.
 
 The figure below sets the number of channels to **8**, the number of samples to **1M samples**, and the sampling rate to **10Mhz**
 

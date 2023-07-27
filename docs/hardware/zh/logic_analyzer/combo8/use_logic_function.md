@@ -27,6 +27,11 @@ Linux:
 
 > 目前逻辑分析仪仅支持Linux系统使用
 
+注意！！！！
+
+> 1. 使用上位机时需要保证采样带宽不能超过320MHz,即通道数 * 采样率必须小于320MHz。例如：设置通道数为8，那么采样率就只能设置为40MHz或更低，否则可能引起上位机故障。
+> 2. 如果上位机启动过程中，设备出现断连的情况，请重新扫描并连接设备，再做其他操作，否则可能导致软件崩溃
+
 ### 快速使用
 
 #### 连接SLogic和目标设备
@@ -37,7 +42,7 @@ Linux:
 
 #### 连接SLogic和电脑
 
-需下载[上位机]()软件供数据解码与可视化，下载后进入文件所在目录，使用`CTRL+ALT+T`打开Linux终端，输入以下命令，为其**添加权限**并**以管理员权限运行**该程序：：
+需下载[上位机](https://dl.sipeed.com/shareURL/SLogic/SLogic_combo_8/4_application/PulseView)软件供数据解码与可视化，上位机使用最新上传的版本即可。下载后进入文件所在目录，使用`CTRL+ALT+T`打开Linux终端，输入以下命令，为其**添加权限**并**以管理员权限运行**该程序：
 
 ```bash
 chmod +x PulseView-x86_64-032323-1101.AppImage
@@ -58,9 +63,6 @@ sudo ./PulseView-x86_64-032323-1101.AppImage
 ### 开始采样
 
 1. 配置PulseView的通道数、采样点数和采样率
-
-注意！！！需要保证采样带宽不能等于或超过320MHz,即通道数 * 采样率必须小于320MHz。例如：设置通道数为8，那么采样率就只能设置为32MHz或更低，不能设置成40MHz，否则可能引起上位机故障。
-
 下图设置通道数为**8**，采样点数为**1M samples**,采样率为**10Mhz**
 
 ![equ_selec_complete_of_pulseview](./assets/use_logic_function/equ_selec_complete_of_pulseview.png)
