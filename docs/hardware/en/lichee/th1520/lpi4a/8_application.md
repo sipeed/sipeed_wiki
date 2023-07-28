@@ -504,6 +504,53 @@ The bunny hopped and hopped until he saw a shiny silver carrot. He was so excite
 achieved tok/s: 52.043098
 ```
 
+### OnnxStream
+
+[OnnxStream](https://github.com/vitoplantamura/OnnxStream)
+
+This example runs Stable Diffusion on LPi4A with this project.
+
+First, we need to build the XNNPACK:
+```shell
+git clone https://github.com/google/XNNPACK.git
+cd XNNPACK
+git checkout 3f56c91b492c93676a9b5ca4dd51f528b704c309
+mkdir build
+cd build
+cmake -DXNNPACK_BUILD_TESTS=OFF -DXNNPACK_BUILD_BENCHMARKS=OFF ..
+cmake --build . --config Release
+```
+
+Next, build the Stable Diffusion example:
+```shell
+git clone https://github.com/vitoplantamura/OnnxStream.git
+cd OnnxStream
+cd src
+mkdir build
+cd build
+cmake -DXNNPACK_DIR=<此处替换为clone的XNNPACK存放路径> ..
+cmake --build . --config Release
+```
+
+Now we have the runnable Stable Diffusion example file ``sd``, run with the following parameters:
+```shell
+. /sd --models-path . --rpi
+```
+Where `--models-path` is the model file downloaded from the project's Release page, which can be placed in the directory where the `sd` file is located.
+
+The runtime configuration is as follows:
+```shell
+----------------[start]------------------
+positive_prompt: a photo of an astronaut riding a horse on mars
+negative_prompt: ugly, blurry
+output_png_path: . /result.png
+steps: 10 
+```
+
+The result is the `result.png` file, and the image from the above prompt is as follows:
+
+![onnxstream_result](./../../../../zh/lichee/th1520/lpi4a/assets/application/onnxstream_result.png)
+
 ## Other
 
 Contributions are welcome~ You can get ￥5~150 ($1~20) coupon if your contribution is accepted!

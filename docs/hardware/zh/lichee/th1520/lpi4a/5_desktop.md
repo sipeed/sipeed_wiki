@@ -117,7 +117,7 @@ connect 目标设备的mac地址
 
 使用 `sudo apt update` 可以更新软件列表，一般在更换软件源之后需要使用这个命令。
 
-使用这个命令前，先用 `date` 命令查看一下时间，若时间不对，可以手动更新一下，确保软件源内的软件包是最新版本：
+使用这个命令前，先用 `date` 命令查看一下时间，若时间不对或连接网络后没有自动更新时间，可以手动更新一下，确保软件源内的软件包是最新版本：
 ```shell
 sudo date -s "20230717 12:00:00"
 ```
@@ -248,6 +248,8 @@ LibreOffice Writer 即 WORD 功能：
 系统内置了 Chromium 浏览器，点击桌面下方的浏览器图标即可使用： 
 
 ![browser_location](./assets/desktop/browser_location.png)
+
+> 
 
 使用搜索引擎：  
 
@@ -451,6 +453,19 @@ vncserver -localhost no
 
 ![vnc_viewer_use](./assets/desktop/vnc_viewer_use.png)
 
+
+### btop
+
+btop 是一个兼顾美观与实用性的资源监视器，显示处理器、内存、磁盘、网络和进程的使用情况和统计​​信息。
+
+使用以下命令可以安装：
+```shell
+sudo apt install btop
+```
+
+然后在命令行中运行 `btop` 命令即可使用，效果如下：
+
+![btop_use](./assets/application/btop_use.png)
 
 ## 更多
 欢迎投稿～ 投稿接受后可得￥5～150（$1~20）优惠券！

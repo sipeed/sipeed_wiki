@@ -141,6 +141,68 @@ Fishbowl test in Chromium with results as shown:
 
 ![web_browser_fishbowl](./../../../../zh/lichee/th1520/lpi4a/assets/test_report/web_browser_fishbowl.png)
 
+## GPU
+
+The test results using `glmark2` are as follows:
+```shell
+root@lpi4a:~# glmark2-es2
+==================================================== =====
+     glmark2 2021.12
+==================================================== =====
+     OpenGL Information
+     GL_VENDOR: Imagination Technologies
+     GL_RENDERER: PowerVR B-Series BXM-4-64
+     GL_VERSION: OpenGL ES 3.2 build 1.16@6099580
+     Surface Config: buf=32 r=8 g=8 b=8 a=8 depth=24 stencil=8
+     Surface Size: 800x600 windowed
+==================================================== =====
+[build] use-vbo=false: FPS: 460 FrameTime: 2.174 ms
+[build] use-vbo=true: FPS: 434 FrameTime: 2.304 ms
+[texture] texture-filter=nearest: FPS: 489 FrameTime: 2.045 ms
+[texture] texture-filter=linear: FPS: 493 FrameTime: 2.028 ms
+[texture] texture-filter=mipmap: FPS: 776 FrameTime: 1.289 ms
+[shading] shading=gouraud: FPS: 1055 FrameTime: 0.948 ms
+[shading] shading=blinn-phong-inf: FPS: 1049 FrameTime: 0.953 ms
+[shading] shading=phong: FPS: 832 FrameTime: 1.202 ms
+[shading] shading=cel: FPS: 781 FrameTime: 1.280 ms
+[bump] bump-render=high-poly: FPS: 481 FrameTime: 2.079 ms
+[bump] bump-render=normals: FPS: 1056 FrameTime: 0.947 ms
+[bump] bump-render=height: FPS: 730 FrameTime: 1.370 ms
+[effect2d] kernel=0,1,0;1,-4,1;0,1,0;:1 FPS: 456 FrameTime: 2.193 ms
+[effect2d] kernel=1,1,1,1,1;1,1,1,1,1;1,1,1,1,1;:2 FPS: 184 FrameTime: 5.435 ms
+[pulsar] light=false:quads=5:texture=false: FPS: 585 FrameTime: 1.709 ms
+[desktop] blur-radius=5:effect=blur:passes=1:separable=true:windows=4: FPS: 177 FrameTime: 5.650 ms
+[desktop] effect=shadow:windows=4: FPS: 405 FrameTime: 2.469 ms
+[buffer] columns=200:interleave=false:update-dispersion=0.9:update-fraction=0.5:update-method=map: FPS: 135 FrameTime: 7.407 ms
+[buffer] columns=200:interleave=false:update-dispersion=0.9:update-fraction=0.5:update-method=subdata: FPS: 160 FrameTime: 6.250 ms
+[buffer] columns=200:interleave=true:update-dispersion=0.9:update-fraction=0.5:update-method=map: FPS: 197 FrameTime: 5.076 ms
+[ideas] speed=duration: FPS: 442 FrameTime: 2.262 ms
+[jellyfish] <default>: FPS: 433 FrameTime: 2.309 ms
+[terrain] <default>: FPS: 31 FrameTime: 32.258 ms
+[shadow] <default>: FPS: 275 FrameTime: 3.636 ms
+[refract] <default>: FPS: 45 FrameTime: 22.222 ms
+[conditionals] fragment-steps=0:vertex-steps=0: FPS: 775 FrameTime: 1.290 ms
+[conditionals] fragment-steps=5:vertex-steps=0: FPS: 484 FrameTime: 2.066 ms
+[conditionals] fragment-steps=0:vertex-steps=5: FPS: 819 FrameTime: 1.221 ms
+[function] fragment-complexity=low:fragment-steps=5: FPS: 1048 FrameTime: 0.954 ms
+[function] fragment-complexity=medium:fragment-steps=5: FPS: 694 FrameTime: 1.441 ms
+[loop] fragment-loop=false:fragment-steps=5:vertex-steps=5: FPS: 1093 FrameTime: 0.915 ms
+[loop] fragment-steps=5:fragment-uniform=false:vertex-steps=5: FPS: 678 FrameTime: 1.475 ms
+[loop] fragment-steps=5:fragment-uniform=true:vertex-steps=5: FPS: 438 FrameTime: 2.283 ms
+=========================================================
+                                   glmark2 Score: 551
+=========================================================
+```
+
+![gpu_test_glmark2](./../../../../zh/lichee/th1520/lpi4a/assets/test_report/gpu_test_glmark2.png)
+
+Running `glxgears` results in the following:
+```shell
+es2gears_x11
+```
+
+![gpu_test_gears](./../../../../zh/lichee/th1520/lpi4a/assets/test_report/gpu_test_gears.png)
+
 ## Other
 
 Contributions are welcome~ You can get ￥5~150 ($1~20) coupon if your contribution is accepted!

@@ -496,7 +496,7 @@ Check the corresponding ID of the touch screen device
 ```shell
 xinput
 ```
-! [list_touchsreen](. /assets/peripheral/list_touchsreen.png)  
+![list_touchsreen](./../../../../zh/lichee/th1520/lpi4a/assets/peripheral/list_touchsreen.png)  
 Here you can see that it is a touch screen device Goodix 7, then enter the following command to map the touch device to the correct screen:  
 ```shell
 xinput map-output-of 7 DSI-1
@@ -514,9 +514,19 @@ echo off > /sys/class/drm/card0-DSI-1/status
 
 ## GPU
 
-`sudo watch cat /sys/kernel/debug/pvr/status`
+Use the following command to view the status of the GPU in real time:
+```shell
+sudo watch cat /sys/kernel/debug/pvr/status
+```
 
-TODO
+Under the xfce desktop, the status of the GPU is as follows:
+
+![gpu_status_desktop](./../../../../zh/lichee/th1520/lpi4a/assets/peripheral/gpu_status_desktop.png)
+
+When playing video with Chromium browser, the state of GPU is as follows:
+
+![gpu_status_play_video](./../../../../zh/lichee/th1520/lpi4a/assets/peripheral/gpu_status_play_video.png)
+
 ## NPU
 
 TODO

@@ -56,8 +56,8 @@ ISCAS mirror: [click me](https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/)
     - Known issues:
        - There is a problem with the sound quality of HDMI audio playing under chromium
     - Instructions for use:
-       - This compressed package only supports HDMI display, please pay attention to the boot suffix and device correspondence when burning
-          - 8gddr/16gddr corresponds to 8g/16g memory respectively
+       - This zip file only supports HDMI display, when burning, please note that the suffix in the file name corresponds to the relevant parameters of the device.
+         - boot, 8gddr/16gddr in the u-boot file name corresponds to 8g/16g memory respectively.
 
 2. LPI4A_20230721_mipi.zip
 
@@ -82,9 +82,9 @@ ISCAS mirror: [click me](https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/)
           - Switch to root user, execute `echo brightness value (integer value from 0-7) > /sys/class/backlight/pwm-backlight@0/brightness`
        - There is a problem with the sound quality of HDMI audio playing under chromium
     - Instructions for use:
-       - The compressed package is an image that supports MIPI screen, please pay attention to the boot suffix and device correspondence when burning
-          - 8gddr/16gddr correspond to 8g/16g memory respectively
-          - mipi_720p/mipi_1080p correspond to 800x1280 MIPI screen (with touch)/1200x1920 mipi screen respectively
+      - This zip file is the image of the MIPI screen, please note that the suffix in the file name corresponds to the relevant parameters of the device when burning.
+         - 8gddr/16gddr in the boot and u-boot file names correspond to 8g/16g memory respectively.
+         - mipi_720p/mipi_1080p in the boot file name corresponds to 800x1280 MIPI screen (with touch)/1200x1920 mipi screen respectively.
 
 <!-- 1. LPi4A_Test_0425
    1. Release date: April 25, 2023
@@ -141,7 +141,8 @@ Readme and image download address: [Link](https://github.com/aiminickwong/lichee
 ![openKylin](./../../../../zh/lichee/th1520/lpi4a/assets/images/openkylin.png)
 ![oepnkylin_neofetch](./../../../../zh/lichee/th1520/lpi4a/assets/images/oepnkylin_neofetch.png) 
 
-Readme and image download link: [Click me](https://github.com/aiminickwong/licheepi4a-images)
+Readme link: [Click me](https://github.com/aiminickwong/licheepi4a-images)
+[openKylin V1.0 Download address](https://www.openkylin.top/downloads/index-cn.html)
 
 ### armbian
 
