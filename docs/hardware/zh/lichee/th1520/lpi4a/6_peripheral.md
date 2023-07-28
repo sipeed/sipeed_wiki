@@ -512,9 +512,19 @@ echo off > /sys/class/drm/card0-DSI-1/status
 
 ## GPU
 
-`sudo watch cat /sys/kernel/debug/pvr/status`
+使用命令以下命令可以实时查看 GPU 的状态：
+```shell
+sudo watch cat /sys/kernel/debug/pvr/status
+```
 
-TODO
+在 xfce 桌面下，GPU 的状态如下：
+
+![gpu_status_desktop](./assets/peripheral/gpu_status_desktop.png)
+
+使用 Chromium 浏览器播放视频时，GPU 的状态如下：
+
+![gpu_status_play_video](./assets/peripheral/gpu_status_play_video.png)
+
 ## NPU
 
 TODO

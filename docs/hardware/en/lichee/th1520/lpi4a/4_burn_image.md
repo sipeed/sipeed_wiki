@@ -19,7 +19,7 @@ update:
 ### Download an image
 
 Refer to the previous chapter "Images" to find the desired image.
-The image burning method below uses the Debian image `LPi4A_Test_0425.7z` as an example .
+The following burning method takes Debian single-screen image `LPI4A_20230721.zip`, 16+128 core board as an example.
 
 ### Get the burning tool
 The burning tool can be obtained from the Mega cloud disk and is found in the `burn_tool.zip` file.
@@ -74,32 +74,31 @@ After putting the board into burning mode, you can use fastboot from `burn_tool.
 Let´s take linux as an example:
 Note that you need to mark the fastboot binary as executable first via `chmod +x fastboot`
 
+`u-boot-with-spl-ddr8g.bin` and `u-boot-with-spl-ddr16g.bin` are u-boot firmware, please refer to the image description for specific differences.
 ```bash
-sudo ./fastboot flash ram ./images/u-boot-with-spl.bin
+sudo ./fastboot flash ram ./images/u-boot-with-spl-ddr16g.bin
 sudo ./fastboot reboot
 sleep 10
-sudo ./fastboot flash uboot ./images/u-boot-with-spl.bin
-sudo ./fastboot flash boot ./images/boot.ext4
-sudo ./fastboot flash root ./images/rootfs.ext4
+sudo ./fastboot flash uboot ./images/u-boot-with-spl-ddr16g.bin
+sudo ./fastboot flash boot ./images/boot_16gddr.ext4
+sudo ./fastboot flash root ./images/rootfs-thead-image-linux_sing.ext4.ext4
 ```
 
 The first three lines will check and create the partitions on the flash. If you skip this step,
 burning the rootfs will be very slow later on.
 
-`boot.ext4` contains the following content：
-
+`boot_8gddr.ext4`, `boot_8gddr_mipi_720p.ext4`, `boot_8gddr_mipi_1080p.ext4`, `boot_16gddr.ext4`, `boot_16gddr_mipi_720p.ext4` and `boot_16gddr_mipi_1080p.ext4` for boot For specific differences, please refer to the image description. They mainly include the following:
 ```bash
 fw_dynamic.bin        #opensbi
 Image                 #kernel image
 kernel-release        #commit id of kernel
 light_aon_fpga.bin    #fw for E902 aon
 light_c906_audio.bin  #fw for C906 audio
-light-lpi4a.dtb       #1.85GHz dtb
-light-lpi4a_2Ghz.dtb  #2GHz overclock dtb
-light-lpi4a-ddr2G.dtb #history dtb
+light-lpi4a.dtb       # ddr8G dtb
+light-lpi4a-ddr16g.dtb # ddr16G dtb
 ```
 
-`rootfs.ext4` is the root filesystem, the default is a debian system.
+`rootfs-thead-image-linux_sing.ext4` and `rootfs-thead-image-linux_mipi.ext4` are the root file system, and the default is Debian system. For the specific differences between the two, please refer to the image description.
 
 Log output you typically see while burning an image:
 

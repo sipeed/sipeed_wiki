@@ -505,6 +505,55 @@ The bunny hopped and hopped until he saw a shiny silver carrot. He was so excite
 achieved tok/s: 52.043098
 ```
 
+### OnnxStream
+
+[项目地址](https://github.com/vitoplantamura/OnnxStream)
+
+本示例通过这个项目在 LPi4A 上运行 Stable Diffusion。
+
+首先，我们需要构建 XNNPACK：
+```shell
+git clone https://github.com/google/XNNPACK.git
+cd XNNPACK
+git checkout 3f56c91b492c93676a9b5ca4dd51f528b704c309
+mkdir build
+cd build
+cmake -DXNNPACK_BUILD_TESTS=OFF -DXNNPACK_BUILD_BENCHMARKS=OFF ..
+cmake --build . --config Release
+```
+
+接下来，构建 Stable Diffusion example：
+```shell
+git clone https://github.com/vitoplantamura/OnnxStream.git
+cd OnnxStream
+cd src
+mkdir build
+cd build
+cmake -DXNNPACK_DIR=<此处替换为clone的XNNPACK存放路径> ..
+cmake --build . --config Release
+```
+
+现在我们得到了可运行的 Stable Diffusion example 文件 `sd` ，使用如下参数运行：
+```shell
+./sd --models-path . --rpi
+```
+其中，`--models-path` 是从该项目 Release 页面中下载的模型文件，可以放到 `sd` 文件的所在目录下。
+
+运行时的配置如下：
+```shell
+----------------[start]------------------
+positive_prompt: a photo of an astronaut riding a horse on mars
+negative_prompt: ugly, blurry
+output_png_path: ./result.png
+steps: 10 
+```
+
+得到的结果为`result.png`文件，上述 prompt 得到的图片如下：
+
+![onnxstream_result](./assets/application/onnxstream_result.png)
+
+
+
 ## 其它
 
 欢迎投稿～ 投稿接受后可得￥5～150（$1~20）优惠券！

@@ -113,7 +113,7 @@ By default, the sources are listed in the `/etc/apt/sources.list` file, but you 
 
 Use `sudo apt update` to update the software list, which is usually needed after changing sources.
 
-Before using this command, check the time with the ``date`'' command. If the time is incorrect, you can manually update it to make sure that the packages in the source are up to date:
+Before using this command, check the time with the `date` command. If the time is not correct or the time is not updated automatically after connecting to the network, you can update it manually to make sure that the packages in the repository are the latest versions:
 ```shell
 sudo date -s "20230717 12:00:00"
 ```
@@ -448,6 +448,19 @@ Modify the Picture quality in the Options option to High:
 The effect displayed is as follows:
 
 ![vnc_viewer_use](./../../../../zh/lichee/th1520/lpi4a/assets/desktop/vnc_viewer_use.png)
+
+## btop
+
+Btop is an aesthetically pleasing resource that displays processor, memory, disk, network, and process usage and statistics.
+
+It can be installed using the following command:
+```shell
+sudo apt install btop
+```
+
+Then run the `btop` command on the command line to use it, the effect is as follows:
+
+![btop_use](./../../../../zh/lichee/th1520/lpi4a/assets/application/btop_use.png)
 
 ## More
 Contributions are welcome~ You can get ￥5~150 ($1~20) coupon after your submission is accepted!

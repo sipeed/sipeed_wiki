@@ -56,8 +56,8 @@ ISCAS 镜像站：[点我](https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/
    - 已知问题：
       - HDMI 音频在 chromium 下播放音质有问题
    - 使用说明：
-      - 该压缩包为仅支持 HDMI 显示，烧录时请注意 boot 的后缀和设备对应
-         - 8gddr/16gddr 分别对应 8g/16g 内存
+      - 该压缩包为仅支持 HDMI 显示，烧录时请注意文件名中的后缀和设备相关参数对应
+         - boot，u-boot 文件名中的 8gddr/16gddr 分别对应 8g/16g 内存
 
 2. LPI4A_20230721_mipi.zip
 
@@ -82,9 +82,9 @@ ISCAS 镜像站：[点我](https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/
          - 切换为 root 用户，执行`echo 亮度值(0-7的整数值) > /sys/class/backlight/pwm-backlight@0/brightness`
       - HDMI 音频在 chromium 下播放音质有问题
    - 使用说明：
-      - 该压缩包为支持 MIPI 屏幕的镜像，烧录时请注意 boot 的后缀和设备对应
-         - 8gddr/16gddr 分别对应 8g/16g 内存
-         - mipi_720p/mipi_1080p 分别对应800x1280的 MIPI 屏幕（带触摸）/1200x1920的mipi屏幕
+      - 该压缩包为支持 MIPI 屏幕的镜像，烧录时请注意文件名中的后缀和设备相关参数对应
+         - boot，u-boot 文件名中的 8gddr/16gddr 分别对应 8g/16g 内存
+         - boot 文件名中的 mipi_720p/mipi_1080p 分别对应800x1280的 MIPI 屏幕（带触摸）/1200x1920的mipi屏幕
 
 ### OpenWRT
 
@@ -122,7 +122,8 @@ Readme and image download link: [Click me](https://github.com/aiminickwong/liche
 ![openKylin](./assets/images/openkylin.png)
 ![oepnkylin_neofetch](./assets/images/oepnkylin_neofetch.png)
 
-Readme and image download link: [Click me](https://github.com/aiminickwong/licheepi4a-images)
+Readme link: [Click me](https://github.com/aiminickwong/licheepi4a-images)
+[openKylin V1.0 Download address](https://www.openkylin.top/downloads/index-cn.html)
 
 ### armbian (unofficial)
 
