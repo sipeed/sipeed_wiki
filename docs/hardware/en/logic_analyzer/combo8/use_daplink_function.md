@@ -28,7 +28,7 @@ Here's a step-by-step guide on using the STM32F103C8T6 chip with Windows MDK IDE
 
 > CKLink and DAPLink have similar pin connections, so they are shown together in one diagram. Please ignore the 'CK' label.
 
-![1690857341367](./../../../zh/logic_analyzer/combo8/assets/use_daplink_function/daplink_cklink_line_order.png)
+![daplink_cklink_line_order](./../../../zh/logic_analyzer/combo8/assets/use_daplink_function/daplink_cklink_line_order.png)
 
 In DAPLink mode, it can simultaneously support one DAPLink interface and one UART interface.
 

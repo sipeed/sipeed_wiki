@@ -11,7 +11,6 @@ update:
 
 SLogic Combo8 features high-speed CK-Link functionality, with a speed that surpasses CK-Link Lite and comes close to CK-Link Pro, making it a great tool for debugging RISC-V chips. In this mode, it also has a high-speed serial port (20Mbps).
 
-
 Let's get started with using CK-LINK!
 
 ## Enable CKLink Functionality
@@ -29,7 +28,7 @@ Press the toggle button to switch the indicator light to yellow.
 
 > CKLink and DAPLink have similar pin connections, so they are shown together in one diagram. Please ignore the 'DAP' label.
 
-![1690857341367](./../../../zh/logic_analyzer/combo8/assets/use_daplink_function/daplink_cklink_line_order.png)
+![daplink_cklink_line_order](./../../../zh/logic_analyzer/combo8/assets/use_daplink_function/daplink_cklink_line_order.png)
 
 In CKLink mode, it can simultaneously support one CKLink interface and one UART interface.
 

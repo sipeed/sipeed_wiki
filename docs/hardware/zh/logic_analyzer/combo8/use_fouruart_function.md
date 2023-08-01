@@ -35,7 +35,7 @@ sudo udevadm control --reload
 
 ### 引脚连接
 
-![](./assets/use_fouruart_function/fouruart_line_order.png)
+![fouruart_line_order](./assets/use_fouruart_function/fouruart_line_order.png)
 
 SLogic combo8总共有4个串口，UART0和UART1最高支持20M波特率，UART3和UART4最高支持1M波特率。
 

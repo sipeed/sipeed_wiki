@@ -36,9 +36,7 @@ Linux:
 
 #### 引脚连接
 
-![](./assets/use_logic_function/slogic_line_order.png)
-
-
+![slogic_line_order](./assets/use_logic_function/slogic_line_order.png)
 
 上图为SLogic 8个通道的线序图，将目标设备的待测信号点连接至SLogic任意空闲CH端口，并确保待测设备的GND与SLogic的GND相连接
 

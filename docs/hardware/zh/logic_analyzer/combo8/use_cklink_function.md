@@ -28,7 +28,7 @@ SLogic Combo8 具备高速CK-Link功能，且速率远超CK-Link Lite，接近CK
 
 > CKLink和DAPLink线序相似，所以放到了一张图里，请忽略掉“DAP”
 
-![](./assets/use_daplink_function/daplink_cklink_line_order.png)
+![daplink_cklink_line_order](./assets/use_daplink_function/daplink_cklink_line_order.png)
 
 CKLink模式下可以同时支持一路CKLink和一路UART
 

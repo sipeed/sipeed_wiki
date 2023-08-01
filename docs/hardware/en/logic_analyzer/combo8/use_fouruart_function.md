@@ -18,7 +18,7 @@ Press the toggle button to switch the indicator light to red.
 ![slogic_led_red](./../../../zh/logic_analyzer/combo8/assets/use_fouruart_function/slogic_led_red.png)
 
 > To verify if Serial Module functionality is enabled:
->
+
 > Linux: Use the lsusb command to check if the UARTx4 HS USB device appears.
 
 ![slogic_linux_equipment_uart](./../../../zh/logic_analyzer/combo8/assets/use_fouruart_function/slogic_linux_equipment_uart.png)
@@ -35,7 +35,7 @@ sudo udevadm control --reload
 
 ### Pin sequence
 
-![1690857341367](./../../../zh/logic_analyzer/combo8/assets/use_fouruart_function/fouruart_line_order.png)
+![fouruart_line_order](./../../../zh/logic_analyzer/combo8/assets/use_fouruart_function/fouruart_line_order.png)
 
 SLogic Combo 8 has a total of 4 serial ports. UART0 and UART1 support a maximum baud rate of 20M, while UART3 and UART4 support a maximum baud rate of 1M. 
 

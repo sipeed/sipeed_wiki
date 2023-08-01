@@ -28,7 +28,7 @@ SLogic Combo8 具备高速DAP-Link功能，适用于各种常规芯片，尤其�
 
 > CKLink和DAPLink线序相似，所以放到了一张图里，请忽略掉“CK”
 
-![1690857341367](./assets/use_daplink_function/daplink_cklink_line_order.png)
+![daplink_cklink_line_order](./assets/use_daplink_function/daplink_cklink_line_order.png)
 
 DAPLink模式下可以同时支持一路DAPLink和一路UART
 
@@ -51,13 +51,10 @@ DAPLink模式下可以同时支持一路DAPLink和一路UART
 
 ![start_debugger_in_mdk](./assets/use_daplink_function/start_debugger_in_mdk.png)
 
-
-
 ## 问题
 
 1. MDK找不到DAPLink设备
 - 检查MDK版本是否过低，低版本的MDK可能无法识别DAPLink。本文测试使用的MDK版本是V5.38
 - 如果MDK版本低导致无法识别DAPLink，但是不想升级版本，可以参考[这里](https://developer.arm.com/documentation/ka003663/latest/)的方法来更新CMSIS-DAP的调试驱动
-
 
 感谢群友`dragonforward`的文档贡献
