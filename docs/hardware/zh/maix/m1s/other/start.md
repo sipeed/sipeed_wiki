@@ -360,7 +360,7 @@ M1s 需要在 Linux 环境下进行编译
 下面是在 debian 系 Linux 发行版（比如 Ubuntu）中安装上述三个软件的示例命令。
 
 ```bash
-sudo apt-get install git make tree
+sudo apt-get install git make tree build-essential
 ```
 
 其它 Linux 发行版本安装上述所需的三个软件所使用的命令自行网上查找解决。
