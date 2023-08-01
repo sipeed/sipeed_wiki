@@ -34,11 +34,11 @@ Attention!!!
 
 ### Quick Use
 
-#### Connect SLogic and Target Device
+#### Pin sequence
 
-Connect the signal points to be tested on the target device to any free CH port of SLogic, and make sure that the GND of the device to be tested is connected to the GND of SLogic
+![slogic_line_order](./../../../zh/logic_analyzer/combo8/assets/use_logic_function/slogic_line_order.png)
 
-![slogic_panel](./../../../zh/logic_analyzer/combo8/assets/use_logic_function/slogic_panel.png)
+The diagram above shows the pinout for the SLogic 8-channel logic analyzer. Connect the test signals from the target device to any available CH (Channel) port on the SLogic, and ensure that the GND (Ground) of the target device is connected to the GND of the SLogic.
 
 #### Connect SLogic and Computer
 
@@ -82,7 +82,6 @@ Click on the label icon of channel D0 to set the trigger mode
 #### Channel Settings
 
 Open the **"red probe"** icon in the top toolbar, select the channels you want to enable, and the number of sampling channels for the logic analyzer. The optional options are 1ch, 2ch, 4ch and 8ch. There are also shortcut keys for quick switching of channels that meet the corresponding conditions
-
 
 ![set_Logic_cfg_of_pulseview](./../../../zh/logic_analyzer/combo8/assets/use_logic_function/set_Logic_cfg_of_pulseview.png)
 

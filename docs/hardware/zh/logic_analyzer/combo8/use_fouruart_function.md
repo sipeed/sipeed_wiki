@@ -33,9 +33,11 @@ sudo echo "ATTRS{idVendor}==\"359f\", ATTRS{idProduct}==\"3101\", ENV{ID_MM_DEVI
 sudo udevadm control --reload
 ```
 
-### 硬件连接
+### 引脚连接
 
-SLogic combo8总共有4个串口，UART0和UART1最高支持20M波特率，UART3和UART4最高支持1M波特率。参考面板线序图，将任意UART的TX、RX和GND连接到目标设备的RX、TX和GND管脚(注意RX和TX需要交叉连接)。
+![fouruart_line_order](./assets/use_fouruart_function/fouruart_line_order.png)
+
+SLogic combo8总共有4个串口，UART0和UART1最高支持20M波特率，UART3和UART4最高支持1M波特率。
 
 注意：
 1. 保证模块与目标设备共地，防止出现乱码等情况。

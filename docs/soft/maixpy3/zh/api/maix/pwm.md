@@ -1,14 +1,12 @@
----
+<!-- ---
 title: MaixII M2dock PWM 调试
 keywords: MaixII, MaixPy3, Python, Python3, M2dock
 desc: maixpy  MaixII M2dock PWM 调试
 ---
 
-## PWM介绍
+## PWM 介绍
 
 PWM（Pulse Width Modulation）控制——脉冲宽度调制技术，通过对一系列脉冲的宽度进行调制，来等效地获得所需要波形（含形状和幅值）.PWM控制技术在逆变电路中应用最广，应用的逆变电路绝大部分是PWM型，PWM控制技术正是有赖于在逆变电路中的应用，才确定了它在电力电子技术中的重要地位。V831的PWM功能是由硬件产生的,所以我们只用配置好硬件寄存器即可.芯片寄存器请参考[V833／V831 Datasheet V1.0.pdf](https://linux-sunxi.org/images/b/b9/V833%EF%BC%8FV831_Datasheet_V1.0.pdf).
-
-
 
 ## V831 Dock PWM 引脚
 
@@ -43,15 +41,9 @@ PWM（Pulse Width Modulation）控制——脉冲宽度调制技术，通过对�
 | 226(224+2)  | PH2      | PWM_2I2S0_LRCKSPI1_MISOUART3_CTSPH_EINT2   | SPI1_MISO |           |     |
 | 227(224+3)  | PH3      | PWM_3I2S0_DOUTSPI1_CS0UART3_RTSPH_EINT3    | SPI1_CS0  |           |     |
 
-
-
-
-
 ## PWM LED 测试
 
 使用 sysfs 操作 PWM 的例子：
-     
-<!-- 678 -->
 
 ```shell
 #首先打开PWM6通道
@@ -87,9 +79,7 @@ def handle_signal_z(signum,frame):
     print("APP OVER")
     exit(0)
 
-
 signal.signal(signal.SIGINT,handle_signal_z)
-
 
 with pwm.PWM(6) as pwm6:
         pwm6.period = 1000000
@@ -102,32 +92,34 @@ with pwm.PWM(6) as pwm6:
                 time.sleep(1)
 ```
 
-
 ## V831 Dock 改变引脚复用关系
 
 以PH0为例,查询v831的datasheet手册我们能得到:
+
 ![](./../../assets/linux/PWM/2021-09-22_10-37.png)
 ![](./../../assets/linux/PWM/2021-09-22_10-35.png)
+
 `0x0300B0FC`寄存器的最低三位是控制PH0的引脚复用关系的,我们通过linux指令进行查看该寄存器中的值.
 
-~~~ shell
+```shell
 root@sipeed:/sys/class/sunxi_dump# ls
 compare  dump     rw_byte  write
 root@sipeed:/sys/class/sunxi_dump# echo 0x0300B0FC > dump 
 root@sipeed:/sys/class/sunxi_dump# cat dump 
 0x77114444
-~~~
+```
+
 由寄存器中的值我们知道最低两位是00,为此我们改变最低位的值,然后再写回去.
 
-~~~ shell
+```shell
 root@sipeed:/sys/class/sunxi_dump# echo 0x0300B0FC 0x77114442 > write 
 root@sipeed:/sys/class/sunxi_dump# cat dump 
 0x77114442
-~~~
+```
+
 修改成功后,我们就可以正常使用PWM0通道的PWM波输出了.
 
-
-~~~ python
+```python
 #使用PWM0的python3模块,使用其他复用引脚可以参考该写法
 #import PWM就可以使用
 """Linux PWM driver sysfs interface"""
@@ -298,4 +290,4 @@ class PWM(object):
                 f.write('inversed')
             else:
                 f.write('normal')
-~~~
+``` -->
