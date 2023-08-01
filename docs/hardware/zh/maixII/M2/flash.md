@@ -44,7 +44,7 @@ update:
 | maixpy3-0.5.1 | 此镜像是内置了 [MaixPy3](https://wiki.sipeed.com/maixpy3)`0.5.1`的版本，但其中 **无** 内置 [maixhub app](https://maixhub.com/app/1) |
 
 > 注意点：
-> * 上述镜像均为开源版，如果需要从 Flash 启动而不是从 TF 卡启动的镜像，请联系 support@sipeed.com 或者商业支持。
+> * 上述镜像均为开源版，如果需要从 Flash 启动而不是从 TF 卡启动的镜像，请联系 support@sipeed.com 获取商业支持。
 > * 内置 maixhub app 的镜像就是没有内置 maixhub app 版本在 `/root/app` 放置了 [maixhub app](https://maixhub.com/app/1)
 
 ## Windows 上使用 PhoenixCard 烧录镜像
