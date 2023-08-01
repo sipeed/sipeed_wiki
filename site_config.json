@@ -168,7 +168,7 @@
             "config": {
                 "type": "hint",
                 "label": "☆",
-                "content": "新版 MaixHub 已上线，在线标注、一键部署，更稳定的网络和流畅的体验，支持Maix-I, Maix-II, 手机, web，<a href='https://maixhub.com'>快来体验吧！</a></br>最新开源项目<a href='https://github.com/sipeed/TinyMaix'>TinyMaix</a>，运行在任意单片机上的模型推理库，甚至能在低至2KiB内存Arduino上跑",
+                "content": "无需本地 GPU 环境，云端免费一键 AI 模型训练、部署，快来<a href='https://maixhub.com'>MaixHub </a>体验！<br>和大家分享你的<a href='https://maixhub.com/share'>项目</a>和<a href='https://maixhub.com/share'>开发经验</a>吧！新分享广场上线，管理员真金白银打赏中，在线等！",
                 "show_after_s": 432000,
                 "date": "2022-06-01 14:00"
             }

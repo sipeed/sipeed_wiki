@@ -1,7 +1,5 @@
 <!--
     Sipeed Wiki 官方首页，包含了各种产品资料和文档
-    保存此文件后如果需要立刻看到使用了这个模板的文件的效果，可以打开那个文件保存一次就会触发 teedoc 构建,
-    比如 README.md 使用了此layout，要想此修改生效，转到 README.md 按 Ctrl+S 保存一次 README.md 即可
  -->
  {% extends "page_base.html" %}
 
@@ -11,1076 +9,314 @@
  <script src="/static/js/naive-ui.prod.js"></script>
  <script src="/static/js/vue_i18n.js"></script>
 
-<div id="products">
-     <n-card class="head_background" hoverable>
-         <n-grid cols="9" item-responsive responsive="screen">
-                 <n-grid-item span="0 s:0 m:0 l:9" style="margin-left: 6%; margin-right: 6%; margin-bottom: 1%; ">
-                     <n-card size="small" style="margin: auto; display: flex; height: 740px; " hoverable>
-                         <n-tabs type="line" trigger='hover' justify-content="space-evenly">
-                            <template v-if="$t('language') === 'zh'">
-                             <n-tab-pane name="近期热点事件">
-                                 <n-card style="margin: auto; display: fit-content; max-height: fit-content;">
-                                     <n-carousel effect="card" class="base_background"
-                                         prev-slide-style="transform: translateX(-150%) translateZ(-1200px);"
-                                         next-slide-style="transform: translateX(50%) translateZ(-1200px);"
-                                         :show-dots="false" autoplay draggable style="height: 620px">
-                                        <n-carousel-item :style="{ width: '75%' }">
-                                            <n-card size="small" hoverable>
-                                                <a href="https://wiki.sipeed.com/licheepi4a" target="_blank"><img class="carousel-img" src="/static/home/licheepi4a_post.jpg" alt="licheepi4a_post"></a>
-                                                <n-divider title-placement="right">
-                                                    <n-button-group style="margin: 5px; font-size: 16px;">
-                                                    <n-button size="large"
-                                                            href="https://wiki.sipeed.com/licheepi4a"
-                                                            target="_blank" tag="a" type="error" ghost>
-                                                            性能卓越的 Risc-V Linux 开发板
+<div id="products" class="head_background">
+     <n-card style="max-width: 2048px; background: transparent; margin: auto" hoverable>
+         <n-grid cols="2" item-responsive responsive="screen">
+            <n-grid-item span="0 s:0 m:0 l:9" style="margin-left: 6%; margin-right: 6%; margin-bottom: 1%; ">
+                <n-tabs type="line" trigger='hover' justify-content="space-evenly">
+                    <template v-if="$t('language') === 'zh'">
+                        <n-tab-pane>
+                            <n-card style="margin: auto; display: fit-content; max-height: fit-content;">
+                                <n-carousel effect="card" class="base_background"
+                                    prev-slide-style="transform: translateX(-150%) translateZ(-1200px);"
+                                    next-slide-style="transform: translateX(50%) translateZ(-1200px);"
+                                    :show-dots="false" autoplay draggable style="height: 620px">
+                                <n-carousel-item :style="{ width: '75%' }">
+                                    <n-card size="small" hoverable>
+                                        <a href="https://wiki.sipeed.com/licheepi4a" target="_blank"><img class="carousel-img" src="/static/home/licheepi4a_post.jpg" alt="licheepi4a_post"></a>
+                                        <n-divider title-placement="right">
+                                            <n-button-group style="margin: 5px; font-size: 16px;">
+                                            <n-button size="large"
+                                                    href="https://wiki.sipeed.com/licheepi4a"
+                                                    target="_blank" tag="a" type="error" ghost>
+                                                    性能卓越的 Risc-V Linux 开发板
+                                        </n-button>
+                                        <n-button size="large" style="color:#ffffff; " color="#e34548"
+                                                    href="https://item.taobao.com/item.htm?id=715508771884"
+                                                    tag="a" target="_blank" round>
+                                                购买链接
+                                            </n-button>
+                                            </n-button-group>
+                                        </n-divider>   
+                                    </n-card>
+                                </n-carousel-item>
+                                <n-carousel-item :style="{ width: '75%' }">
+                                    <n-card size="small" hoverable>
+                                        <a href="https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/axpi.html" target="_blank"><img class="carousel-img" src="/static/home/maixiii_axpi.jpg" alt="maixiii_axpi"></a>
+                                        <n-divider title-placement="right">
+                                            <n-button-group style="margin: 5px; font-size: 16px;">
+                                            <n-button size="large"
+                                                    href="https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/axpi.html"
+                                                    target="_blank" tag="a" type="error" ghost>
+                                                    认识 MAIX-III AXera-Pi AI 开发板
                                                 </n-button>
                                                 <n-button size="large" style="color:#ffffff; " color="#e34548"
-                                                         href="https://item.taobao.com/item.htm?id=715508771884"
-                                                         tag="a" target="_blank" round>
-                                                        购买链接
-                                                    </n-button>
-                                                    </n-button-group>
-                                                </n-divider>   
-                                            </n-card>
-                                        </n-carousel-item>
-                                        <n-carousel-item :style="{ width: '75%' }">
-                                            <n-card size="small" hoverable>
-                                                <a href="https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/axpi.html" target="_blank"><img class="carousel-img" src="/static/home/axpi_a.jpg" alt="maixiii_axpi"></a>
-                                                <n-divider title-placement="right">
-                                                    <n-button-group style="margin: 5px; font-size: 16px;">
-                                                    <n-button size="large"
-                                                            href="https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/axpi.html"
-                                                            target="_blank" tag="a" type="error" ghost>
-                                                            认识 MAIX-III AXera-Pi AI 开发板
-                                                        </n-button>
-                                                        <n-button size="large" style="color:#ffffff; " color="#e34548"
-                                                             href="https://item.taobao.com/item.htm?id=682169792430"
-                                                             tag="a" target="_blank" round>
-                                                            购买链接
-                                                    </n-button>
-                                                    </n-button-group>
-                                                </n-divider>   
-                                            </n-card>
-                                        </n-carousel-item>
-                                        <n-carousel-item :style="{ width: '75%' }">
-                                            <n-card size="small" hoverable>
-                                                <a href= "/m1s#dock" target="_blank"><img class="carousel-img" src="/static/home/m1s_dock_m0sense.jpg" alt="m1s_dock_m0sense"></a>
-                                                <n-divider title-placement="right">
-                                                    <n-button-group vertical style="margin: 5px; font-size: 16px;">
-                                                        <n-button-group>
-                                                            <n-button size="large"
-                                                                    href="https://wiki.sipeed.com/m1s#dock"
-                                                                    target="_blank" tag="a" type="error" ghost>
-                                                                    M1s Dock
-                                                                </n-button>
-                                                            <n-button size="large" style="color:#ffffff; " color="#e34548"
-                                                                     href="https://item.taobao.com/item.htm?id=691108452443"
-                                                                     tag="a" target="_blank">
-                                                                    购买链接
-                                                            </n-button>
-                                                        </n-button-group>
-                                                        <n-button-group>
-                                                            <n-button size="large"
-                                                                    href="https://wiki.sipeed.com/m0sense"
-                                                                    target="_blank" tag="a" type="error" ghost>
-                                                                    M0Sense
-                                                                </n-button>
-                                                            <n-button size="large" style="color:#ffffff; " color="#e34548"
-                                                                     href="https://item.taobao.com/item.htm?id=693997918701"
-                                                                     tag="a" target="_blank"
-                                                                     >
-                                                                    购买链接
-                                                            </n-button>
-                                                        </n-button-group>
-                                                    </n-button-group>
-                                                </n-divider>   
-                                            </n-card>
-                                        </n-carousel-item>
-                                        <n-carousel-item :style="{ width: '80%' }">
-                                            <n-card size="small" hoverable>
-                                                <img class="carousel-img" src="/static/home/maixsense.jpg">
-                                                <n-divider title-placement="right">
-                                                    <n-button-group style="margin: 5px; font-size: 16px;">
-                                                    <n-button size="large"
-                                                            href="https://wiki.sipeed.com/hardware/zh/maixsense/index.html"
-                                                            target="_blank" tag="a" type="error" ghost>
-                                                            体验 TOF 有趣玩法
-                                                        </n-button>
-                                                        <n-button size="large" style="color:#ffffff; " color="#e34548"
-                                                             href="https://item.taobao.com/item.htm?id=684566484141"
-                                                             tag="a" target="_blank" round>
-                                                            购买链接
-                                                    </n-button>
-                                                    </n-button-group>
-                                                </n-divider>
-                                            </n-card>
-                                        </n-carousel-item>
-                                    </n-carousel-item>
-                                    <n-carousel-item :style="{ width: '75%' }">
+                                                        href="https://item.taobao.com/item.htm?id=682169792430"
+                                                        tag="a" target="_blank" round>
+                                                    购买链接
+                                            </n-button>
+                                            </n-button-group>
+                                        </n-divider>   
+                                    </n-card>
+                                </n-carousel-item>
+                                <n-carousel-item :style="{ width: '80%' }">
+                                    <n-card size="small" hoverable>
+                                        <img class="carousel-img" src="/static/home/maixsense.jpg">
+                                        <n-divider title-placement="right">
+                                            <n-button-group style="margin: 5px; font-size: 16px;">
+                                            <n-button size="large"
+                                                    href="https://wiki.sipeed.com/hardware/zh/maixsense/index.html"
+                                                    target="_blank" tag="a" type="error" ghost>
+                                                    体验 TOF 有趣玩法
+                                                </n-button>
+                                                <n-button size="large" style="color:#ffffff; " color="#e34548"
+                                                        href="https://item.taobao.com/item.htm?id=684566484141"
+                                                        tag="a" target="_blank" round>
+                                                    购买链接
+                                            </n-button>
+                                            </n-button-group>
+                                        </n-divider>
+                                    </n-card>
+                                </n-carousel-item>
+                            </n-carousel-item>
+                            <n-carousel-item :style="{ width: '75%' }">
+                                <n-card size="small" hoverable>
+                                    <a href= "/primer20k" target="_blank"><img class="carousel-img" src="/static/home/primer20k.png" alt="primer20k"></a>
+                                    <n-divider title-placement="right">
+                                        <n-button-group style="margin: 5px; font-size: 16px;">
+                                        <n-button size="large"
+                                                href="https://wiki.sipeed.com/primer20k"
+                                                target="_blank" tag="a" type="error" ghost>
+                                                速览板卡资料
+                                            </n-button>
+                                        <n-button size="large" style="color:#ffffff; " color="#e34548"
+                                                    href="https://item.taobao.com/item.htm?id=680099020807"
+                                                    tag="a" target="_blank" round>
+                                                购买链接
+                                        </n-button>
+                                        </n-button-group>
+                                    </n-divider>   
+                                </n-card>
+                            </n-carousel-item>
+                                <n-carousel-item :style="{ width: '80%' }">
+                                    <n-card size="small" hoverable>
+                                        <a href="https://maixhub.com/signin" target="_blank" ><img class="carousel-img" src="/static/image/maixhub_banner.jpg"></a>
+                                        <n-divider title-placement="right">
+                                        <n-button-group style="margin: 5px; font-size: 16px;">
+                                            <n-button size="large"
+                                                href="https://wiki.sipeed.com/ai/zh/index.html"
+                                                target="_blank" tag="a" type="error" ghost>
+                                                AI 指南
+                                            </n-button>
+                                            <n-button size="large"
+                                                href="https://maixhub.com/share"
+                                                target="_blank" tag="a" type="error" ghost>
+                                                分享广场
+                                            </n-button>
+                                            <n-button size="large" style="color:#ffffff; " color="#e34548"
+                                                href="https://maixhub.com/"
+                                                tag="a" target="_blank" round>
+                                                MaixHub 官网
+                                        </n-button>
+                                        </n-button-group>
+                                    </n-divider>
+                                    </n-card>
+                                </n-carousel-item>
+                                    <n-carousel-item :style="{ width: '80%', 'max-width': '1920px' }">
                                         <n-card size="small" hoverable>
-                                            <a href= "/primer20k" target="_blank"><img class="carousel-img" src="/static/home/primer20k.png" alt="primer20k"></a>
+                                            <img class="carousel-img" src="/static/home/banner-2.jpg">
                                             <n-divider title-placement="right">
                                                 <n-button-group style="margin: 5px; font-size: 16px;">
                                                 <n-button size="large"
-                                                        href="https://wiki.sipeed.com/primer20k"
-                                                        target="_blank" tag="a" type="error" ghost>
-                                                        速览板卡资料
-                                                    </n-button>
+                                                    href="https://wiki.sipeed.com/hardware/zh/maixII/M2/resources.html"
+                                                    target="_blank" tag="a" type="error" ghost>
+                                                    精致的 AI + Linux 开发板
+                                                </n-button>
                                                 <n-button size="large" style="color:#ffffff; " color="#e34548"
-                                                         href="https://item.taobao.com/item.htm?id=680099020807"
-                                                         tag="a" target="_blank" round>
-                                                        购买链接
+                                                    href="https://item.taobao.com/item.htm?id=635874427363"
+                                                    tag="a" target="_blank" round>
+                                                    购买链接：￥245.00
+                                                </n-button>
+                                                </n-button-group>
+                                            </n-divider>
+                                        </n-card>
+                                    </n-carousel-item>
+                                </n-carousel>
+                            </n-card>
+                    </n-tab-pane>
+                    </template>
+                    <template v-else>
+                        <n-tab-pane>
+                            <n-card style="margin: auto; display: fit-content; max-height: fit-content;">
+                                <n-carousel effect="card" class="base_background"
+                                    prev-slide-style="transform: translateX(-150%) translateZ(-1200px);"
+                                    next-slide-style="transform: translateX(50%) translateZ(-1200px);"
+                                    :show-dots="false" autoplay draggable style="height: 620px">
+                                    <n-carousel-item :style="{ width: '75%' }">
+                                    <n-card size="small" hoverable>
+                                        <a href="https://wiki.sipeed.com/licheepi4a" target="_blank"><img class="carousel-img" src="/static/home/licheepi4a_post.jpg" alt="licheepi4a_post"></a>
+                                        <n-divider title-placement="right">
+                                            <n-button-group style="margin: 5px; font-size: 16px;">
+                                            <n-button size="large"
+                                                    href="https://wiki.sipeed.com/licheepi4a"
+                                                    target="_blank" tag="a" type="error" ghost>
+                                                    Outstanding performance Risc-V Linux development board
+                                                </n-button>
+                                                <n-button size="large" style="color:#ffffff; " color="#e34548"
+                                                        href="https://www.aliexpress.com/item/1005005532736080.html"
+                                                        tag="a" target="_blank" round>
+                                                    Buy one
+                                            </n-button>
+                                            </n-button-group>
+                                        </n-divider>   
+                                    </n-card>
+                                </n-carousel-item>
+                                    <n-carousel-item :style="{ width: '75%' }">
+                                        <n-card size="small" hoverable>
+                                            <a href="https://wiki.sipeed.com/hardware/en/maixIII/ax-pi/axpi.html" target="_blank"><img class="carousel-img" src="/static/home/maixiii_axpi_en.jpg" alt="maixiii_axpi"></a>
+                                            <n-divider title-placement="right">
+                                                <n-button-group style="margin: 5px; font-size: 16px;">
+                                                <n-button size="large"
+                                                        href="https://wiki.sipeed.com/hardware/en/maixIII/ax-pi/axpi.html"
+                                                        target="_blank" tag="a" type="error" ghost>
+                                                        Get to know MAIX-III AXera-Pi AI board
+                                                    </n-button>
+                                                    <n-button size="large" style="color:#ffffff; " color="#e34548"
+                                                        href="https://www.aliexpress.com/item/1005005016931077.html"
+                                                        tag="a" target="_blank" round>
+                                                        Get it
                                                 </n-button>
                                                 </n-button-group>
                                             </n-divider>   
                                         </n-card>
                                     </n-carousel-item>
-                                     <n-carousel-item :style="{ width: '80%' }">
-                                         <n-card size="small" hoverable>
-                                             <a href="https://maixhub.com/signin" target="_blank" ><img class="carousel-img" src="/static/image/maixhub_banner.jpg"></a>
-                                             <n-divider title-placement="right">
+                                    <n-carousel-item :style="{ width: '80%' }">
+                                        <n-card size="small" hoverable>
+                                            <img class="carousel-img" src="/static/home/maixsense.jpg">
+                                            <n-divider title-placement="right">
                                                 <n-button-group style="margin: 5px; font-size: 16px;">
                                                 <n-button size="large"
-                                                        href="https://wiki.sipeed.com/ai/zh/index.html"
+                                                        href="https://wiki.sipeed.com/hardware/en/maixsense/index.html"
                                                         target="_blank" tag="a" type="error" ghost>
-                                                        AI 指南
+                                                        Try this toy
                                                     </n-button>
                                                     <n-button size="large" style="color:#ffffff; " color="#e34548"
-                                                        href="https://maixhub.com/"
+                                                        href="https://www.aliexpress.com/item/1005004984020473.html"
                                                         tag="a" target="_blank" round>
-                                                        MaixHub 官网
+                                                    Get it
                                                     </n-button>
                                                 </n-button-group>
                                             </n-divider>
-                                         </n-card>
-                                     </n-carousel-item>
-                                            <n-carousel-item :style="{ width: '80%' }">
-                                                <n-card size="small" hoverable>
-                                                    <img class="carousel-img" src="/static/home/banner-2.jpg">
-                                                    <n-divider title-placement="right">
-                                                        <n-button-group style="margin: 5px; font-size: 16px;">
-                                                        <n-button size="large"
-                                                            href="https://wiki.sipeed.com/hardware/zh/maixII/M2/resources.html"
-                                                            target="_blank" tag="a" type="error" ghost>
-                                                            看看使用方法
-                                                        </n-button>
-                                                        <n-button size="large" style="color:#ffffff; " color="#e34548"
-                                                            href="https://item.taobao.com/item.htm?id=635874427363"
-                                                            tag="a" target="_blank" round>
-                                                            购买链接：￥245.00
-                                                        </n-button>
-                                                        </n-button-group>
-                                                    </n-divider>
-                                                </n-card>
-                                            </n-carousel-item>
-                                     </n-carousel>
-                                 </n-card>
-                            </n-tab-pane>
-                            <n-tab-pane name="Lichee Pi 4A 高性能 RISC-V SBC 登场">
-                               <n-layout style="position: relative" has-sider position="absolute" hoverable>
-                                   <n-card class="base_background"
-                                      style="margin: auto; display: fit-content; height: 600px;">
-                                      <h1>Lichee Pi 4A<br>你的第一块国产高性能 RISC-V SBC 来了~</h1>
-                                      <n-ellipsis expand-trigger="click" line-clamp="1" :tooltip="false">
-                                          来看看 SIPEED Q2 季度又带来了什么好玩的高性能新品呢？ 当然是万众瞩目的 Lichee Pi 4A 啦 ~ 快与我们一起认识这块性能卓越的 Risc-V 开发板吧！
-                                      </n-ellipsis>
-                                      <n-divider title-placement="left">
-                                          <n-button-group style="margin: 5px; font-size: 16px;">
-                                              <n-button size="small" style="color:#ffffff;" color="#e34548"
-                                                  href="https://sipeed.com/licheepi4a" tag="a"
-                                                  target="_blank" round>
-                                                  Lichee Pi 4A 产品介绍
-                                              </n-button>
-                                              <n-button size="small"
-                                                  href="https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/2_unbox.html"
-                                                  target="_blank" tag="a" type="error" ghost>
-                                                  开箱体验及其使用资料
-                                              </n-button>
-                                              <n-button size="small"
-                                                  href="https://item.taobao.com/item.htm?id=715508771884"
-                                                  target="_blank" tag="a" type="error" ghost>
-                                                  购买链接
-                                              </n-button>
-                                          </n-button-group>
-                                      </n-divider>
-                                      <n-card content-style="padding: 0;">
-                                          <n-tabs type="line" size="large" :tabs-padding="10" pane-style="padding: 10px;">
-                                            <n-tab-pane name="《初识 Lichee Pi 4A》">
-                                              <n-ellipsis expand-trigger="click" line-clamp="1" :tooltip="false">
-                                                  <h2>高性能国产 Risc-V Linux 板卡：Lichee Pi 4A</h2>
-                                              </n-ellipsis>
-                                              <br><img src="https://wiki.sipeed.com/static/home/licheepi4a_post.jpg" style="max-width:560px; max-height:560px;" alt="" />
-                                              <p>眼尖的小伙伴们可能发现，早在 3 月 2 日的时候 Lichee Pi 4A 已经在平头哥 2023 “玄铁RISC-V生态大会” 正式亮相过啦！<br>
-                                               <br><img src="/static/home/risc_v.jpg" style="max-width:560px; max-height:560px;" alt="" />
-                                               <n-ellipsis expand-trigger="click" line-clamp="1" :tooltip="false">
-                                                   <h2>接下来看看 SIPEED 对 Lichee Pi 4A 的介绍吧</h2>
-                                               </n-ellipsis>
-                                               LicheePi 4A 是基于 Lichee Module 4A 核心板的高性能 RISC-V Linux 开发板，以曳影 TH1520 为主控核心（4xC910@1.85G、RV64GCV、4TOPS@int8 NPU、50GFLOP GPU）板载最大 16GB 64bit LPDDR4X、128GB eMMC、支持 HDMI+MIPI 双 4K 显示输出、支持 4K 摄像头接入、双千兆网口（其中一个支持 POE 供电）和 4 个 USB3.0 接口，多种音频输入输出（由专用 C906 核心处理）</p>
-                                              <n-divider title-placement="center">
-                                                  <iframe src="//player.bilibili.com/player.html?aid=782156613&bvid=BV1Q24y157Nn&cid=1086606123&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="min-width:540px; min-height:480px;"> </iframe>
-                                              </n-divider>
-                                            </n-tab-pane>
-                                            <n-tab-pane name="《 超硬核配置？性能抗打？》">
-                                              <n-ellipsis expand-trigger="click" line-clamp="1" :tooltip="false">
-                                                  <h2>揭秘小团队：配置以及性能怎么样？上跑分参数</h2>
-                                              </n-ellipsis>
-                                              <br><img src="https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/assets/intro/desktop.png" style="max-width:560px; max-height:px;" alt="" />
-                                              <p>LicheePi 4A 是截止目前（2023Q2）为止最强的 RISC-V SBC，性能约为上一代 RISC-V SBC VisionFive2 的两倍；在未开启专用指令集加速的情况下，性能逼近基于 ARM A72 的树莓派 4。<br>在开启相关指令集加速的情况下，可以与树莓派 4 持平。而且最高具备 16GB 超大内存，是树莓派 4 最高配置 8GB 内存的两倍！</p>
-                                              <n-ellipsis expand-trigger="click" line-clamp="1" :tooltip="false">
-                                                  <h2>接下来我们看看 Lichee Pi 4A 的跑分测试</h2>
-                                              </n-ellipsis>
-                                              <br><img src="https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/assets/intro/benchmark.png" style="max-width:640px; max-height:320px;" alt="" />
-                                              <img src="https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/assets/intro/geekbench5.png" style="max-width:480px; max-height:480px;" alt="" />
-                                              <P>LicheePi 4A 可以用作典型的 RISC-V 验证平台，其强大的性能可以较快速地实现本地编译，而无需使用 QEMU 进行编译。</P>
-                                              <n-ellipsis expand-trigger="click" line-clamp="1" :tooltip="false">
-                                               <h2>最后是大家关心的硬件配置说明：</h2>
-                                           </n-ellipsis>
-                                           <br><img src="https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/assets/unbox/pi_view.png" style="max-width:720px; max-height:560px;" alt="" /><br>
-                                                  <br>点击这里了解板卡的基础参数：<a href="https://sipeed.com/licheepi4a" target="_blank">传送门：Lichee Pi 4A</a><br>在保持高性能的同时，我们也尽量进行了 CostDown 设计保证高性价比，无论你是否是 RISC-V 粉丝，你都值得入手体验下 LicheePi 4A 这款划时代的高性能 RISC-V SBC！</p>
-                                              <n-divider title-placement="center">
-                                               <n-button-group style="margin: 5px; font-size: 16px;">
-                                                   <n-button size="small" style="color:#ffffff;" color="#e34548"
-                                                       href="https://item.taobao.com/item.htm?id=715508771884" tag="a"
-                                                       target="_blank" round>
-                                                       Lichee Pi 4A 淘宝链接
-                                                   </n-button>
-                                                   <n-button size="small"
-                                                       href="https://www.aliexpress.com/item/1005005532736080.html"
-                                                       target="_blank" tag="a" type="error" ghost>
-                                                       Lichee Pi 4A 速卖通链接
-                                                   </n-button>
-                                               </n-button-group>
-                                           </n-divider>
-                                            </n-tab-pane>
-                                            <n-tab-pane name="《镜像系统大揭秘》">
-                                              <n-ellipsis expand-trigger="click" line-clamp="1" :tooltip="false">
-                                                  <h2>铛 ~ 揭秘 LicheePi 4A 支持的镜像系统</h2>
-                                              </n-ellipsis>
-                                              <br>
-                                              <img src="https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/assets/images/debian.png" style="max-width:360px; max-height:360px;" alt="" />
-                                              <img src="https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/assets/images/android.png" style="max-width:360px; max-height:360px;" alt="" />
-                                              <img src="https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/assets/images/openwrt.png" style="max-width:360px; max-height:360px;" alt="" />
-                                              <br><p>Lichee Pi 4A 除了官方适配的 Debian、Android、Openwrt 还有众多社区小伙伴贡献的第三方镜像并一直在不断更新中。<br>三方镜像仅供各类用户体验效果，例如有 openEuler、DeepinOS 深度、openKylin、armbian、Fedora、Ubuntu、NixOS、Gentoo、 slarm64 拉足体验感~</p>
-                                              <n-ellipsis expand-trigger="click" line-clamp="1" :tooltip="false">
-                                               <h2>以下是镜像合集以及如何烧录的例程文档 ~ 供大家参考使用</h2>
-                                           </n-ellipsis><br>
-                                           <n-button-group style="margin: 5px; font-size: 16px;">
-                                               <n-button size="small" style="color:#ffffff;" color="#e34548"
-                                                   href="https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/3_images.html" tag="a"
-                                                   target="_blank" round>
-                                                   Lichee Pi 4A 镜像合集
-                                               </n-button>
-                                               <n-button size="small"
-                                                   href="https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/4_burn_image.html"
-                                                   target="_blank" tag="a" type="error" ghost>
-                                                   Lichee Pi 4A 镜像烧录例程
-                                               </n-button>
-                                           </n-button-group>
-                                            </n-tab-pane>
-                                            <n-tab-pane name="《来自社区の更多资源》">
-                                              <n-ellipsis expand-trigger="click" line-clamp="1" :tooltip="false">
-                                                  <h2>请加入我们更多元的开源社区一起玩耍吧！</h2>
-                                              </n-ellipsis>
-                                              <br><img src="https://sipeed.com/assets/board.265bad67.png" style="max-width:360px; max-height:360px;" alt="" /><br>
-                                              <p>官方资料里我们罗列了板卡介绍、开箱体验、镜像合集、烧录镜像、基础使用、外设使用、系统开发、典型应用、硬件报告等资料供开发者使用。</p>
-                                              <n-button-group style="margin: 5px; font-size: 16px;">
-                                               <n-button size="small"
-                                                   href="https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/5_desktop.html" tag="a"
-                                                   target="_blank" tag="a" type="error" ghost>
-                                                   Lichee Pi 4A：使用文档
-                                               </n-button>
-                                           </n-button-group><br>
-                                           <n-ellipsis expand-trigger="click" line-clamp="1" :tooltip="false">
-                                               <h2>Lichee Pi 4A 相关新闻合集</h2>
-                                           </n-ellipsis><br>
-                                           <a href="https://mp.weixin.qq.com/s/clTsu6yS-7Mj9G0eShzm6w" target="_blank">矽速高性能LicheePi4A于平头哥玄铁生态大会首发！</a><br>
-                                           <a href="https://juejin.cn/post/7229502555087552570" target="_blank">openEuler RISC-V 成功适配 LicheePi 4A 开发板，推动 RISC-V 生态发展！</a><br>
-                                           <n-ellipsis expand-trigger="click" line-clamp="1" :tooltip="false">
-                                               <h2>接下来请欣赏来自社区们小伙伴的热心开箱分享吧 ~（排名不分先后） </h2>
-                                           </n-ellipsis><br>
-                                           <a href="https://zhuanlan.zhihu.com/p/627565509" target="_blank">1. 最新 RISC-V 高性能开发板-LicheePi4A 尝鲜开箱笔记</a><br>
-                                           <a href="https://zhuanlan.zhihu.com/p/631506574" target="_blank">2. Lichee Pi 4A 评测——概要</a><br>
-                                           <a href="https://zhuanlan.zhihu.com/p/631501282" target="_blank">3. Lichee Pi 4A 评测——开箱体验、接口与配置</a><br>
-                                           <a href="https://zhuanlan.zhihu.com/p/631502999" target="_blank">4. Lichee Pi 4A 评测——硬件 IO 性能测试</a><br>
-                                           <a href="https://zhuanlan.zhihu.com/p/631503595" target="_blank">5. Lichee Pi 4A 评测——benchmark、软件性能、编译性能</a><br>
-                                           <a href="https://zhuanlan.zhihu.com/p/631502522" target="_blank">6. Lichee Pi 4A 评测——桌面使用、系统烧录</a><br>
-                                           <a href="https://zhuanlan.zhihu.com/p/631502999" target="_blank">7. Lichee Pi 4A 评测——硬件 IO 性能测试</a><br>
-                                           <n-ellipsis expand-trigger="click" line-clamp="1" :tooltip="false">
-                                               <h2>欢迎投稿贡献属于你的开源力量</h2>
-                                           </n-ellipsis>
-                                           <p>屏幕前如果有更好更优质的天马行空想法，欢迎投稿给 SIPEED 为开源社区贡献一份微弱且光亮的力量！<br>
-                                               我们视文档相关质量提供 ￥5 ~ 150（$1 ~ 20）的优惠券~</p>
-                                            </n-tab-pane>
-                                          </n-tabs>
-                                        </n-card>                                        
-                                   </n-card>
-                               </n-layout>
-                           </n-tab-pane>
-                            <n-tab-pane name="MAIX-III AI 高端战力新品">
-                                <n-layout style="position: relative" has-sider position="absolute" hoverable>
-                                    <n-card class="base_background"
-                                        style="margin: auto; display: fit-content; max-width: 50%; max-height: 600px;">
-                                        <h1>欢迎来到新频道<br>开启攻略 M3AXPI 之旅吧!</h1>
-                                        <n-divider>
-                                        </n-divider>
-                                            <n-collapse>
-                                                <n-collapse-item title="惊！原来你这样的 M3AXPI" name="1">
-                                                  <div>
-                                                    <img src="https://wiki.sipeed.com/static/home/maixiii_axpi.jpg" style="max-width:400px; max-height:480px;" alt="" />
-                                                    <br>这是一款搭载了「爱芯元智 AX620A」的视觉 Linux AI 开发板，支持 400w 像素 AI ISP 夜景增强算法，在带来了出色影像效果的同时，通过多元化的 AI 生态加持，使得在边缘设备部署模型更加快速和容易。
-                                                    <br><a href="https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/axpi.html" target="_blank">[点击了解更多]</a>
-                                                  </div>
-                                                </n-collapse-item>
-                                            <n-collapse-item title="超丰富彩蛋：萌新上手特辑带你“硬件”到“软件”重新认识 M3AXPI " name="2">
-                                                <div>
-                                                    这是官方认证彩蛋频道（快订阅码住传送门）噢~<br>
-                                                    <a href="https://aijishu.com/a/1060000000378968" target="_blank">开箱之硬件初体验</a><br>
-                                                    <a href="https://aijishu.com/a/1060000000380513" target="_blank">上手之丝滑玩转 AI 板卡【一】</a><br>
-                                                    <a href="https://aijishu.com/a/1060000000383970" target="_blank">上手之丝滑玩转 AI 板卡【二】</a><br>
-                                                </div>
-                                            </n-collapse-item>
-                                                <n-collapse-item title="终极彩蛋（必看）：最新 YOLOv8 + 关键点检测从“训练”到“部署”" name="3">
-                                                  <div>彩蛋！当然是双份快乐（快来一起探索新玩法）！
-
-                                                       <br>小叮当传送门
-                                                       <br><a href="https://aijishu.com/a/1060000000395215" target="_blank">YOLOv8 目标检测：训练自定义数据集并部署到爱芯派（一）</a>
-                                                       <br><a href="https://aijishu.com/a/1060000000395812" target="_blank">YOLOv8 目标检测：训练自定义数据集并部署到爱芯派（二）</a>
-                                                       <br><a href="https://aijishu.com/a/1060000000396746" target="_blank">MMPose：在爱芯派上玩转你的关键点检测</a>
-                                                       <br><a href="https://aijishu.com/a/1060000000399566" target="_blank">MOT：如何在爱芯派上实现多目标跟踪的神奇效果</a>
-                                                  </div>
-                                                </n-collapse-item>
-                                                <n-collapse-item title="如何变强？答案是拥有一台 MAIX-III AXera-Pi " name="4">
-                                                    <div>话不多说 我先偷偷变强了：
-                                                    <a href="https://item.taobao.com/item.htm?id=682169792430" target="_blank"> 淘宝购买渠道</a><br>
-                                                    </div>
-                                                  </n-collapse-item>
-                                            </n-collapse>
-                                    </n-card>
-                                    <n-divider title-placement="center">
-                                        <iframe src="//player.bilibili.com/player.html?aid=992194128&bvid=BV1px4y1w75T&cid=1018084963&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="min-width:540px; min-height:480px;"> </iframe>
-                                    </n-divider>
-                                </n-layout>
-                             </n-tab-pane>
-                            <n-tab-pane name="Tang FPGA 选型">
-                                <n-layout style="position: relative" has-sider position="absolute" hoverable>
-                                <!-- <n-layout vertical style="position: relative" has-sider position="absolute" hoverable style="width: 100%;"> -->
-                                <n-card class="base_background"
-                                    style="margin: auto; display: fit-content; max-height: 600px; width:60%">
-                                        <h1>多款 FPGA 如何选择</h1>
-                                            <n-collapse>
-                                                <n-collapse-item title="FPGA 是什么" name="1">
-                                                    <div>
-                                                        <p align="left">
-                                                        FPGA 英文全称为 Field Programmable Gate Array (现场可编程逻辑阵列)，<br>特点是用户可以自行定义芯片内部数字逻辑<br>
-                                                        </p>
-                                                    <img class="carousel-img" src="/static/home/fpga_inside_logic_cell.png" style="max-width:400px; max-height:480px;" alt="fpga_inside_logic_cell"><br>
-                                                    </div>
-                                                </n-collapse-item>
-                                                <n-collapse-item title="FPGA 能做什么" name="2">
-                                                    <div>
-                                                        一般来说，在 MCU 或者简单的逻辑芯片满足不了当前需求时，<br>就应当选择 FPGA 了。主要有以下方面的用途：
-                                                        <p align="left">
-                                                            ①: 协议转换；比如一路 SPI 转十路 IIC<br>
-                                                            ②: 数字信号处理; FPGA 内部可以同时处理多路数据<br>
-                                                            ③：逻辑验证；自己最低成本在现实中复现自己设计的数字电路逻辑
-                                                        </p>
-                                                    </div>
-                                                </n-collapse-item>
-                                                <n-collapse-item title="怎么样选择 TANG FPGA" name="3">
-                                                  <div><p align="left">
-                                                    Tang FPGA 各自特点如下：<br>
-                                                    <strong>Tang Nano 1K:</strong> 最实惠的 FPGA 开发板，可以用来做一些简单的接口转换或者低成本体验 FPGA<br>
-                                                    <strong>Tang Nano 4K:</strong> 性价比高的异构 SOC FPGA 图像开发板， 可以学习 AHB 总线和图像入门处理<br>
-                                                    <strong>Tang Nano 9K:</strong> 逻辑单元足够验证软核的 FPGA， 适合于验证自己的数字逻辑电路<br>
-                                                    <strong>Tang Nano 20K:</strong> Tang Nano 9K 的升级款，逻辑单元容量加倍，体积更小<br>
-                                                    <strong>Tang Primer 20K:</strong> 内存条样式封装的 FPGA 核心板，适合集成在自定义底板上<br>
-                                                    <strong>Tang Primer 20K Dock:</strong> 基于 Tang Primer 20K 核心板的多功能开发板，多种外设适合 FPGA 入门<br>
-                                                    <strong>Tang Primer 20K Lite:</strong> 基于 Tang Primer 20K 核心板的最简拓展版，适用于自己设计外部拓展<br>
-                                                    <a href="https://wiki.sipeed.com/tang">点我查看更详细的参数说明</a>
-                                                    </p>
-                                                  </div>
-                                                </n-collapse-item>
-                                            </n-collapse>
-                                    </n-card>
-                                    <n-layout-content>
-                                        <n-scrollbar height="300px">
-                                        <table width="40%" bordered:false>
-                                            <tr>
-                                                <td>
-                                                <a href="./tang1k">
-                                                    <div class="card">
-                                                        <img src="/hardware/assets/Tang/Nano-1K/1K.png" alt="1K">
-                                                        <div class="card_info card_blue">
-                                                            <h2 style="white-space:nowrap">Tang Nano 1K</h2>
-                                                            <div class="brief">
-                                                                <div>最实惠的 FPGA 显示屏开发板</div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                                </td>
-                                                <td>
-                                                <a href="./tang4k">
-                                                    <div class="card">
-                                                        <img src="/hardware/assets/Tang/Nano_4K/Nano_4K.png" alt="Nano_4K">
-                                                        <div class="card_info card_blue">
-                                                            <h2 style="white-space:nowrap">Tang Nano 4K</h2>
-                                                            <div class="brief">
-                                                                <div>最小巧的图像 FPGA SOC 开发板</div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <a href="./tang9k">
-                                                        <div class="card">
-                                                            <img src="/hardware/assets/Tang/Nano-9K/9K.png" alt="9K">
-                                                            <div class="card_info card_blue">
-                                                                <h2 style="white-space:nowrap">Tang Nano 9K</h2>
-                                                                <div class="brief">
-                                                                    <div>足够运行软核的 FPGA 开发板</div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                </td>
-                                                <td>
-                                                     <a href="./nano20k">
-                                                         <div class="card">
-                                                             <img src="/hardware/zh/tang/tang-nano-20k/assets/nano_20k/tang_nano_20k_3920_board_top.png" alt="tang_nano_20k_3920_top">
-                                                             <div class="card_info card_blue">
-                                                                 <h2 style="white-space:nowrap">Tang Nano 20K</h2>
-                                                                 <div class="brief">
-                                                                     <div>绝佳的 FPGA 模拟游戏机开发板</div>
-                                                                 </div>
-                                                             </div>
-                                                         </div>
-                                                     </a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <a href="./primer20k">
-                                                        <div class="card">
-                                                            <img src="/hardware/zh/tang/tang-primer-20k/assets/dock-up.png" alt="primer20k_dock">
-                                                            <div class="card_info card_red">
-                                                                <h2 style="white-space:nowrap">Tang Primer 20K Dock</h2>
-                                                                <div class="brief">
-                                                                    <div>带有多种板载外设的 FPGA 开发板</div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                </td>
-                                                <td>
-                                                    <a href="./primer20k">
-                                                        <div class="card">
-                                                            <img src="https://wiki.sipeed.com/hardware/zh/tang/tang-primer-20k/assets/lite-up.png" alt="primer20k_lite">
-                                                            <div class="card_info card_red">
-                                                                <h2 style="white-space:nowrap">Tang Primer 20K Lite</h2>
-                                                                <div class="brief">
-                                                                    <div>容易二次设计的 FPGA 开发板</div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                        </n-scrollbar>
-                                    </n-layout-content>  
-                                </n-layout>                                      
-                            </n-tab-pane>
-                             <n-tab-pane name="声源系列主题专场">
-                                 <n-layout style="position: relative" has-sider position="absolute" hoverable>
-                                     <n-card class="base_background"
-                                        style="margin: auto; display: fit-content; height: 600px;">
-                                        <h1>新栏目来袭：声源主题专场</h1>
-                                        <n-ellipsis expand-trigger="click" line-clamp="1" :tooltip="false">
-                                            嘿 SIPEED 又来玩点不一样的事情辣！开设首个精选专场栏目，本次万众期待的主题是【声源系列-声源定位】快来与我们一起重新认识声源定位吧！
-                                        </n-ellipsis>
-                                        <n-divider title-placement="left">
+                                        </n-card>
+                                    </n-carousel-item>
+                                    <n-carousel-item :style="{ width: '75%' }">
+                                        <n-card size="small" hoverable>
+                                            <a href= "/en/primer20k" target="_blank"><img class="carousel-img" src="/static/home/primer20k.png" alt="primer20k"></a>
+                                            <n-divider title-placement="right">
+                                                <n-button-group style="margin: 5px; font-size: 16px;">
+                                                <n-button size="large"
+                                                        href="https://wiki.sipeed.com/en/primer20k"
+                                                        target="_blank" tag="a" type="error" ghost>
+                                                        See details
+                                                    </n-button>
+                                                <n-button size="large" style="color:#ffffff; " color="#e34548"
+                                                        href="https://www.aliexpress.com/item/1005004653308809.html"
+                                                        tag="a" target="_blank" round>
+                                                        Buy it
+                                                </n-button>
+                                                </n-button-group>
+                                            </n-divider>   
+                                        </n-card>
+                                    </n-carousel-item>
+                                    <n-carousel-item :style="{ width: '80%' }">
+                                        <n-card size="small" hoverable>
+                                            <a href="https://maixhub.com/signin?tab=email"><img class="carousel-img" src="/static/image/maixhub_banner_en.jpg"></a>
+                                            <n-divider title-placement="right">
                                             <n-button-group style="margin: 5px; font-size: 16px;">
-                                                <n-button size="small" style="color:#ffffff;" color="#e34548"
-                                                    href="https://wiki.sipeed.com/hardware/zh/modules/micarray.html" tag="a"
-                                                    target="_blank" round>
-                                                    麦克风阵列：使用文档及资料
+                                            <n-button size="large"
+                                                    href="https://wiki.sipeed.com/ai/en/index.html"
+                                                    target="_blank" tag="a" type="error" ghost>
+                                                    AI Guide
                                                 </n-button>
-                                                <n-button size="small"
-                                                    href="https://item.taobao.com/item.htm?spm=a1z10.1-c-s.w4004-24053782153.50.3c0652b1SsPMqn&id=591820993474"
-                                                    target="_blank" tag="a" type="error" ghost>
-                                                    如何拥有：麦克风阵列（淘宝购买）
-                                                </n-button>
-                                            </n-button-group>
-                                        </n-divider>
-                                        <n-card content-style="padding: 0;">
-                                            <n-tabs type="line" size="large" :tabs-padding="10" pane-style="padding: 10px;">
-                                              <n-tab-pane name="《声源定位是什么》">
-                                                <n-ellipsis expand-trigger="click" line-clamp="1" :tooltip="false">
-                                                    <h2>声源定位是什么？</h2>
-                                                </n-ellipsis>
-                                                <p>指利用多个麦克风在环境不同位置点对声信号进行测量，由于声信号到达各麦克风的时间有不同程度的延迟，利用算法对测量到的声信号进行处理。<br>由此获得声源点相对于麦克风的到达方向（包括方位角、俯仰角）和距离等。</p>
-                                                <n-divider title-placement="center">
-                                                    <iframe src="//player.bilibili.com/player.html?aid=37058760&bvid=BV1Ft411X7J8&cid=65120313&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="min-width:540px; min-height:480px;"> </iframe>
-                                                </n-divider>
-                                              </n-tab-pane>
-                                              <n-tab-pane name="《如何实现声源定位》">
-                                                <n-ellipsis expand-trigger="click" line-clamp="1" :tooltip="false">
-                                                    <h2>首先我们要先来认识能实现声源定位的硬件【麦克风阵列】</h2>
-                                                </n-ellipsis>
-                                                <br><img src="https://wiki.sipeed.com/hardware/assets/spmod/spmod_micarray/spmod_micarray.png" style="max-width:240px; max-height:240px;" alt="" />
-                                                <p>麦克风阵列模块是 Sipeed 基于 MSM261S4030H0 数字麦克风芯片设计的，模块声音识别灵敏度、信噪比高。<br>由沿板的六个麦克风和一个中心的麦克风组成，阵列板上的 12 颗 LED 可以用来可视化识别声源方位，基于 GCC-PHAT 算法实现声源定位、语音识别、波束成形等需求场合。</p>
-                                                <n-ellipsis expand-trigger="click" line-clamp="1" :tooltip="false">
-                                                    <h2>其次，麦克风阵列是需搭配开发板（K210）才能实现声源定位</h2>
-                                                </n-ellipsis>
-                                                <br><img src="./static/home/micarray.png" style="max-width:320px; max-height:320px;" alt="" />
-                                                <P>当然有实力的小伙伴可以自由发挥创意并实现不一样的麦克风阵列新玩法，萌新的小伙伴们可以参考我们例程来实现声源应用。
-                                                    <br>这里为小伙伴们附上了相关的 K210 选型以及上手指南。</p>
-                                                <n-button-group style="margin: 3px; font-size: 16px;">
-                                                    <n-button size="small"
-                                                    href="https://wiki.sipeed.com/hardware/zh/maix/maixpy_develop_kit_board/maix_bit.html" tag="a"
-                                                    target="_blank" tag="a" type="error" ghost>
-                                                    K210 系列开发板选型指南
-                                                    </n-button>
-                                                    <n-button size="small"
-                                                        href="https://wiki.sipeed.com/news/MaixPy/K210_usage.html"
-                                                        target="_blank" tag="a" type="error" ghost>
-                                                        K210 上手避坑指南
-                                                    </n-button>
-                                                </n-button-group>
-                                                <br>
-                                                <n-ellipsis expand-trigger="click" line-clamp="1" :tooltip="false">
-                                                    <h2>最后是大家关心的《声源定位》实现例程~</h2>
-                                                </n-ellipsis><br>
-                                                <n-button-group style="margin: 5px; font-size: 16px;">
-                                                    <n-button size="small"
-                                                        href="https://wiki.sipeed.com/hardware/zh/modules/micarray.html"
-                                                        target="_blank" tag="a" type="error" ghost>
-                                                        点击前往变强：实现声源定位文档
-                                                    </n-button>
-                                                </n-button-group>
-                                                <p>这里涵盖了从硬件准备以及到如何接线以及运行代码的步骤，萌新小伙伴们值得拥有！</p>
-                                              </n-tab-pane>
-                                              <n-tab-pane name="《算法大揭秘》">
-                                                <n-ellipsis expand-trigger="click" line-clamp="1" :tooltip="false">
-                                                    <h2>铛 ~ 揭秘声源定位算法：GCC-PHAT</h2>
-                                                </n-ellipsis>
-                                                <br>
-                                                <img src="https://wiki.sipeed.com/hardware/assets/spmod/spmod_micarray/MicArray.png" style="max-width:240px; max-height:240px;" alt="" />
-                                                <br><p>GCC-PHAT 是一种基于广义互相关函数的时延估计算法，多用于声源定位的应用以及实现。它通过引入一个相位变换加权函数，对互功率谱密度进行调整，从而优化时延估计的性能。<br>广义互相关函数有多种不同的变形，其中广义互相关-相位变换方法（Generalized Cross Correlation PHAse Transformation，GCC-PHAT）方法应用最为广泛。<br>而 GCC-PHAT 方法本身具有一定的抗噪声和抗混响能力。</p>
-                                              </n-tab-pane>
-                                              <n-tab-pane name="《来自社区の更多用法》">
-                                                <n-ellipsis expand-trigger="click" line-clamp="1" :tooltip="false">
-                                                    <h2>快来接收社区的小伙伴们的热心分享（泰裤辣~！）</h2>
-                                                </n-ellipsis>
-                                                <br>
-                                                <n-button-group style="margin: 5px; font-size: 16px;">
-                                                <n-button size="small"
-                                                    href="https://wiki.sipeed.com/hardware/zh/modules/micarray.html" tag="a"
-                                                    target="_blank" tag="a" type="error" ghost>
-                                                    麦克风阵列：使用文档及资料
+                                                <n-button size="large" style="color:#ffffff; " color="#e34548"
+                                                    href="https://maixhub.com/"
+                                                    tag="a" target="_blank" round>
+                                                    MaixHub
                                                 </n-button>
                                             </n-button-group>
-                                                <p>官方资料里我们罗列了数据手册、引脚定义、如何使用、以及相关源码，玩声源定位的小伙伴给我冲！<br>接下来为大家献上来自社区小伙伴们的关于声源系列的更多用法，如果屏幕前的你也有更好的用法分享可以给 SIPEED 投稿。</p>
-                                                <n-button-group style="margin: 3px; font-size: 16px;">
-                                                    <n-button size="small"
-                                                    href="https://bbs.sipeed.com/thread/68" tag="a"
-                                                    target="_blank" tag="a" type="error" ghost>
-                                                    点灯鼠教程：如何获取声音的强度及角度
-                                                    </n-button>
-                                                    <n-button size="small"
-                                                        href="https://github.com/USTHzhanglu/Maixpy/tree/master/code/script/mic"
-                                                        target="_blank" tag="a" type="error" ghost>
-                                                        Github 相关原文
-                                                    </n-button>
-                                                </n-button-group>
-                                              </n-tab-pane>
-                                              <n-tab-pane name="《精彩回顾：电赛声源 E 题专场》">
-                                                <n-ellipsis expand-trigger="click" line-clamp="1" :tooltip="false">
-                                                    <h2>2022 年 TI 杯大学生电子设计竞赛声源定位跟踪系统（E题）</h2>
-                                                </n-ellipsis>
-                                                <br>
+                                        </n-divider>
+                                        </n-card>
+                                    </n-carousel-item>
+                                    <n-carousel-item :style="{ width: '80%' }">
+                                        <n-card size="small" hoverable>
+                                            <img class="carousel-img" src="/static/home/banner-2.jpg">
+                                            <n-divider title-placement="right">
                                                 <n-button-group style="margin: 5px; font-size: 16px;">
-                                                    <n-button size="small" style="color:#ffffff;" color="#e34548"
-                                                        href="https://blog.csdn.net/qq_53357019/article/details/126982978" tag="a"
-                                                        target="_blank" round>
-                                                        博文：[池子tt] 2022年电赛声源定位跟踪系统（E题）
-                                                    </n-button>
-                                                    <n-button size="small"
-                                                        href="https://blog.csdn.net/qq_51963216/article/details/126022738"
-                                                        target="_blank" tag="a" type="error" ghost>
-                                                        博文：[我与nano] K210 声源定位、声音识别
-                                                    </n-button>
+                                                <n-button size="large"
+                                                    href="https://wiki.sipeed.com/hardware/en/maixII/M2/resources.html"
+                                                    target="_blank" tag="a" type="error" ghost>
+                                                    User Manual
+                                                </n-button>
+                                                <n-button size="large" style="color:#ffffff; " color="#e34548"
+                                                    href="https://www.aliexpress.com/item/1005002538932487.html"
+                                                    tag="a" target="_blank" round>
+                                                    Get it
+                                                </n-button>
                                                 </n-button-group>
-                                                <br>
-                                                <p>本题是设计制作一个声源定位跟踪系统，能够实时显示及指示声源的位置。<br>当声源移动时能够用激光笔动态跟踪声源。
-                                                    是的，这题我们可以重新拿出 K210 了，下面是一些小伙伴在比赛后的结果展示。</p>
-                                                <n-space justify="space-around" size="large">
-                                                    <iframe src="//player.bilibili.com/player.html?bvid=BV1PV4y1j73P" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="min-width:320px; min-height:240px;"> </iframe>
-                                                    <iframe src="//player.bilibili.com/player.html?bvid=BV1RS4y1p7JJ" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="min-width:320px; min-height:240px;"> </iframe>
-                                                    <iframe src="//player.bilibili.com/player.html?bvid=BV1jd4y1U76A" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="min-width:320px; min-height:240px;"> </iframe>
-                                                    <iframe src="//player.bilibili.com/player.html?bvid=BV1md4y1U7hU" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="min-width:320px; min-height:240px;"> </iframe>
-                                                    <iframe src="//player.bilibili.com/player.html?bvid=BV1nd4y1T7vr" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="min-width:320px; min-height:240px;"> </iframe>
-                                                    <iframe src="//player.bilibili.com/player.html?bvid=BV1zd4y1g7ee" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="min-width:320px; min-height:240px;"> </iframe>
-                                                    <iframe src="//player.bilibili.com/player.html?bvid=BV1Ee4y1X7mZ" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="min-width:320px; min-height:240px;"> </iframe>
-                                                    <iframe src="//player.bilibili.com/player.html?bvid=BV18W4y1y7gv" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="min-width:320px; min-height:240px;"> </iframe>
-                                                </n-space>
-                                                <n-ellipsis expand-trigger="click" line-clamp="1" :tooltip="false">
-                                                    <h2>以下是 Sipeed 的同学为这次电赛做的一些资料，提供给大家评估效果，使用成品不一定能拿满分，但一定不会弃赛 ：）。</h2>
-                                                </n-ellipsis>
-                                                <n-space justify="space-around" size="large">
-                                                    <iframe src="//player.bilibili.com/player.html?bvid=BV1Nd4y1D7Qj" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="min-width:320px; min-height:240px;"> </iframe>
-                                                    <iframe src="//player.bilibili.com/player.html?bvid=BV1tT411j7no" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="min-width:320px; min-height:240px;"> </iframe>
-                                                </n-space>
-                                                <n-ellipsis expand-trigger="click" line-clamp="1" :tooltip="false">
-                                                    <h2>另外，还有小伙伴在此之前就成功用 stm32 驱动声源定位板来识别了</h2>
-                                                </n-ellipsis>
-                                                <n-space justify="space-around" size="large">
-                                                    <iframe src="//player.bilibili.com/player.html?bvid=BV1SV411e7p8" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="min-width:320px; min-height:240px;"></iframe>
-                                                </n-space>
-                                                <n-divider title-placement="right">
-                                                    <n-button-group style="margin: 5px; font-size: 16px;">
-                                                        <n-button size="small"
-                                                            href="https://wiki.sipeed.com/hardware/zh/modules/micarray.html"
-                                                            target="_blank" tag="a" type="error" ghost>
-                                                            [WIKI] 麦克风阵列资料
-                                                        </n-button>
-                                                        <n-button size="small" style="color:#ffffff;" color="#e34548"
-                                                            href="https://bbs.sipeed.com/thread/1682" tag="a"
-                                                            target="_blank" round>
-                                                            [BBS] 电赛交流贴（2022-07-27）
-                                                        </n-button>
-                                                    </n-button-group>
-                                                </n-divider>
-                                              </n-tab-pane>
-                                            </n-tabs>
-                                          </n-card>                                       
-                                     </n-card>
-                                 </n-layout>
-                             </n-tab-pane>
-                        </template>
-                        <template v-else>                                   
-                            <n-tab-pane name="Hot on sale">
-                                 <n-card style="margin: auto; display: fit-content; max-height: fit-content;">
-                                     <n-carousel effect="card" class="base_background"
-                                         prev-slide-style="transform: translateX(-150%) translateZ(-1200px);"
-                                         next-slide-style="transform: translateX(50%) translateZ(-1200px);"
-                                         :show-dots="false" autoplay draggable style="height: 620px">
-                                         <n-carousel-item :style="{ width: '75%' }">
-                                             <n-card size="small" hoverable>
-                                                 <a href= "/en/m1s#dock" target="_blank"><img class="carousel-img" src="/static/home/m1s_dock_m0sense.jpg" alt="m1s_dock_m0sense"></a>
-                                                 <n-divider title-placement="right">
-                                                    <n-button-group style="margin: 5px; font-size: 16px;">
-                                                     <n-button size="large"
-                                                             href="https://wiki.sipeed.com/en/m1s#dock"
-                                                             target="_blank" tag="a" type="error" ghost>
-                                                             M1s Dock
-                                                         </n-button>
-                                                         <n-button size="large" style="color:#ffffff; " color="#e34548"
-                                                              href="https://www.aliexpress.com/item/1005004970779483.html"
-                                                              tag="a" target="_blank" round>
-                                                              Get this
-                                                        </n-button>
-                                                    </n-button-group>
-                                                    <n-button-group style="margin: 5px; font-size: 16px;">
-                                                        <n-button size="large"
-                                                                href="https://wiki.sipeed.com/en/m0sense"
-                                                                target="_blank" tag="a" type="error" ghost>
-                                                                M0Sense
-                                                            </n-button>
-                                                            <n-button size="large" style="color:#ffffff; " color="#e34548"
-                                                                 href="https://www.aliexpress.com/item/1005005012406688.html"
-                                                                 tag="a" target="_blank" round>
-                                                                 Get one
-                                                        </n-button>
-                                                    </n-button-group>
-                                                 </n-divider>   
-                                             </n-card>
-                                         </n-carousel-item>
-                                         <n-carousel-item :style="{ width: '75%' }">
-                                            <n-card size="small" hoverable>
-                                                <a href="https://wiki.sipeed.com/licheepi4a" target="_blank"><img class="carousel-img" src="/static/home/licheepi4a_post.jpg" alt="licheepi4a_post"></a>
-                                                <n-divider title-placement="right">
-                                                    <n-button-group style="margin: 5px; font-size: 16px;">
-                                                    <n-button size="large"
-                                                            href="https://wiki.sipeed.com/licheepi4a"
-                                                            target="_blank" tag="a" type="error" ghost>
-                                                            Outstanding performance Risc-V Linux development board
-                                                        </n-button>
-                                                        <n-button size="large" style="color:#ffffff; " color="#e34548"
-                                                             href="https://www.aliexpress.com/item/1005005532736080.html"
-                                                             tag="a" target="_blank" round>
-                                                            Buy one
-                                                    </n-button>
-                                                    </n-button-group>
-                                                </n-divider>   
-                                            </n-card>
-                                        </n-carousel-item>
-                                         <n-carousel-item :style="{ width: '75%' }">
-                                             <n-card size="small" hoverable>
-                                                 <a href="https://wiki.sipeed.com/hardware/en/maixIII/ax-pi/axpi.html" target="_blank"><img class="carousel-img" src="/static/home/maixiii_axpi_en.jpg" alt="maixiii_axpi"></a>
-                                                 <n-divider title-placement="right">
-                                                     <n-button-group style="margin: 5px; font-size: 16px;">
-                                                     <n-button size="large"
-                                                             href="https://wiki.sipeed.com/hardware/en/maixIII/ax-pi/axpi.html"
-                                                             target="_blank" tag="a" type="error" ghost>
-                                                             Get to know MAIX-III AXera-Pi AI board
-                                                         </n-button>
-                                                         <n-button size="large" style="color:#ffffff; " color="#e34548"
-                                                              href="https://www.aliexpress.com/item/1005005016931077.html"
-                                                              tag="a" target="_blank" round>
-                                                              Get it
-                                                     </n-button>
-                                                     </n-button-group>
-                                                 </n-divider>   
-                                             </n-card>
-                                         </n-carousel-item>
-                                         <n-carousel-item :style="{ width: '80%' }">
-                                             <n-card size="small" hoverable>
-                                                 <img class="carousel-img" src="/static/home/maixsense.jpg">
-                                                 <n-divider title-placement="right">
-                                                     <n-button-group style="margin: 5px; font-size: 16px;">
-                                                     <n-button size="large"
-                                                             href="https://wiki.sipeed.com/hardware/en/maixsense/index.html"
-                                                             target="_blank" tag="a" type="error" ghost>
-                                                             Try this toy
-                                                         </n-button>
-                                                         <n-button size="large" style="color:#ffffff; " color="#e34548"
-                                                             href="https://www.aliexpress.com/item/1005004984020473.html"
-                                                             tag="a" target="_blank" round>
-                                                            Get it
-                                                         </n-button>
-                                                     </n-button-group>
-                                                 </n-divider>
-                                             </n-card>
-                                         </n-carousel-item>
-                                         <n-carousel-item :style="{ width: '75%' }">
-                                             <n-card size="small" hoverable>
-                                                 <a href= "/en/primer20k" target="_blank"><img class="carousel-img" src="/static/home/primer20k.png" alt="primer20k"></a>
-                                                 <n-divider title-placement="right">
-                                                     <n-button-group style="margin: 5px; font-size: 16px;">
-                                                     <n-button size="large"
-                                                             href="https://wiki.sipeed.com/en/primer20k"
-                                                             target="_blank" tag="a" type="error" ghost>
-                                                             See details
-                                                         </n-button>
-                                                     <n-button size="large" style="color:#ffffff; " color="#e34548"
-                                                              href="https://www.aliexpress.com/item/1005004653308809.html"
-                                                              tag="a" target="_blank" round>
-                                                             Buy it
-                                                     </n-button>
-                                                     </n-button-group>
-                                                 </n-divider>   
-                                             </n-card>
-                                         </n-carousel-item>
-                                         <n-carousel-item :style="{ width: '80%' }">
-                                             <n-card size="small" hoverable>
-                                                 <a href="https://maixhub.com/signin?tab=email"><img class="carousel-img" src="/static/image/maixhub_banner_en.jpg"></a>
-                                                 <n-divider title-placement="right">
-                                                    <n-button-group style="margin: 5px; font-size: 16px;">
-                                                    <n-button size="large"
-                                                            href="https://wiki.sipeed.com/ai/en/index.html"
-                                                            target="_blank" tag="a" type="error" ghost>
-                                                            AI Guide
-                                                        </n-button>
-                                                        <n-button size="large" style="color:#ffffff; " color="#e34548"
-                                                            href="https://maixhub.com/"
-                                                            tag="a" target="_blank" round>
-                                                            MaixHub
-                                                        </n-button>
-                                                    </n-button-group>
-                                                </n-divider>
-                                             </n-card>
-                                         </n-carousel-item>
-                                         <n-carousel-item :style="{ width: '80%' }">
-                                             <n-card size="small" hoverable>
-                                                 <img class="carousel-img" src="/static/home/banner-2.jpg">
-                                                 <n-divider title-placement="right">
-                                                     <n-button-group style="margin: 5px; font-size: 16px;">
-                                                     <n-button size="large"
-                                                         href="https://wiki.sipeed.com/hardware/en/maixII/M2/resources.html"
-                                                         target="_blank" tag="a" type="error" ghost>
-                                                         User Manual
-                                                     </n-button>
-                                                     <n-button size="large" style="color:#ffffff; " color="#e34548"
-                                                         href="https://www.aliexpress.com/item/1005002538932487.html"
-                                                         tag="a" target="_blank" round>
-                                                         Get it
-                                                     </n-button>
-                                                     </n-button-group>
-                                                 </n-divider>
-                                             </n-card>
-                                         </n-carousel-item>
-                                     </n-carousel>
-                                 </n-card>
-                             </n-tab-pane>
-                            <n-tab-pane name="MAIX-III High Performance AI Vision SBC">
-                                <n-layout style="position: relative" has-sider position="absolute" hoverable>
-                                    <n-card class="base_background"
-                                        style="margin: auto; display: fit-content; max-width: 50%; max-height: 600px;">
-                                        <h1>Let us start with M3AXPI</h1>
-                                        <n-divider>
-                                        </n-divider>
-                                            <n-collapse>
-                                                <n-collapse-item title="What is M3AXPI" name="1">
-                                                  <div>
-                                                    <img src="https://wiki.sipeed.com/static/home/maixiii_axpi_en.jpg" style="max-width:400px; max-height:480px;" alt="" />
-                                                    <br>M3AXPI is a Linux AI development board with Axera AX620A, it supports AI night enhancement vision with up to 400w pixel camera, apart from this, its also supports mutiple AI models, which make it an excellent linux AI SBC for it's easier and more quickly to deploy models.
-                                                    <br><a href="https://wiki.sipeed.com/hardware/en/maixIII/ax-pi/axpi.html" target="_blank">[Click me to see more]</a>
-                                                  </div>
-                                                </n-collapse-item>
-                                            <n-collapse-item title="Part of examples to reknow M3AXPI" name="2">
-                                                <div>
-                                                    Here are some basic tutorials<br>
-                                                    <a href="https://aijishu.com/a/1060000000378968" target="_blank">New to M3AXPI</a><br>
-                                                    <a href="https://aijishu.com/a/1060000000380513" target="_blank">Start Guide (1)</a><br>
-                                                    <a href="https://aijishu.com/a/1060000000383970" target="_blank">Start Guide (2)</a><br>
-                                                </div>
-                                            </n-collapse-item>
-                                                <n-collapse-item title="Advanced tutorials: Train YOLOv8 and deploy on M3AXPI" name="3">
-                                                  <div>
-                                                       <br><a href="https://aijishu.com/a/1060000000395215" target="_blank">YOLOv8 Object detection: Train model and deploy on M3AXPI (1) </a>
-                                                       <br><a href="https://aijishu.com/a/1060000000395812" target="_blank">YOLOv8 Object detection: Train model and deploy on M3AXPI (2) </a>
-                                                       <br><a href="https://aijishu.com/a/1060000000396746" target="_blank">MMPose: Keypoint Detection on M3AXPI </a>
-                                                  </div>
-                                                </n-collapse-item>
-                                                <n-collapse-item title="How to taste this? Get a M3AXPI" name="4">
-                                                    <div>Get one to study more skills:
-                                                    <a href="https://www.aliexpress.com/item/1005005016931077.html" target="_blank"> Aliexpress</a><br>
-                                                    </div>
-                                                  </n-collapse-item>
-                                            </n-collapse>
-                                    </n-card>
-                                    <n-divider title-placement="center">
-                                        <iframe src="//player.bilibili.com/player.html?aid=992194128&bvid=BV1px4y1w75T&cid=1018084963&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="min-width:540px; min-height:480px;"> </iframe>
-                                    </n-divider>
-                                </n-layout>
-                             </n-tab-pane>
-                             <n-tab-pane name="MaixSense TOF">
-                                <n-layout style="position: relative" has-sider position="absolute" hoverable>
-                                    <n-card class="base_background"
-                                        style="margin: auto; display: fit-content; max-width: 50%; max-height: 600px;">
-                                        <h1>Let's use MaixSense to have a good experience <br>in TOF world</h1>
-                                        <n-divider>
-                                        </n-divider>
-                                            <n-collapse>
-                                                <n-collapse-item title="Sipeed brings up MaixSense series TOF camera module" name="1">
-                                                  <div>
-                                                    <img src="https://wiki.sipeed.com/hardware/zh/maixsense/assets/meta.jpg" style="max-width:400px; max-height:480px;" alt="" />
-                                                    <br>This time we bring up 2 TOF modules, they are A010 and A075V.
-                                                    <a href="https://wiki.sipeed.com/hardware/en/maixsense/index.html" target="_blank">[Click to know more]</a>
-                                                  </div>
-                                                </n-collapse-item>
-                                            <n-collapse-item title="Introduction to TOF! What is MaixSense? " name="2">
-                                                <div>
-                                                  <img src="https://wiki.sipeed.com/hardware/zh/maixsense/assets/tof_two.jpg" style="max-width:400px; max-height:480px;" alt="" />
-                                                    <br>TOF is "Time-Of-Flight", means the time that light travels to the target and reflects back, by which calculating the distense, and get the target shape by mutiple depth data. MaixSense reflects the real 3D world information by this technology.
-                                                    <a href="https://wiki.sipeed.com/hardware/en/maixsense/index.html" target="_blank">Portal: What's MaixSense?</a>
-                                                </div>
-                                            </n-collapse-item>
-                                                <n-collapse-item title="Many different usages with MaixSense series, meet all you want" name="3">
-                                                  <div>
-                                                    <img class="carousel-img" src="/static/home/metasense_effect.jpg" style="max-width:400px; max-height:480px;" alt="" />
-                                                       <br>Easy to use? Dot cloud image? Access to ROS or MCU? Face recognition? Car obstacle avoidance?<br>All what you want are offered! And SDK and examples are also provided.
-                                                       <br><a href="https://wiki.sipeed.com/hardware/en/maixsense/index.html#What-can-MaixSense-do%3F" target="_blank">Know their functions earlier than others</a>
-                                                  </div>
-                                                </n-collapse-item>
-                                                <n-collapse-item title="How to get MaixSense ?" name="4">
-                                                    <div>Up to now the raise has stopped, consult the saler for details.<a href="https://sipeed.aliexpress.com/store/1101739727" target="_blank"> Aliexpress</a>
-                                                    </div>
-                                                  </n-collapse-item>
-                                            </n-collapse>
-                                    </n-card>
-                                    <n-divider title-placement="center">
-                                        <iframe src="//player.bilibili.com/player.html?aid=218150917&bvid=BV1q8411t7xb&cid=838335610&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="min-width:540px; min-height:480px;"> </iframe>
-                                    </n-divider>
-                                </n-layout>
-                             </n-tab-pane>
-                             <n-tab-pane name="Tang FPGA Selection Guides">
-                                 <n-layout style="position: relative" has-sider position="absolute" hoverable>
-                                 <!-- <n-layout vertical style="position: relative" has-sider position="absolute" hoverable style="width: 100%;"> -->
-                                 <n-card class="base_background"
-                                     style="margin: auto; display: fit-content; max-height: 600px; width:60%">
-                                         <h1>How to choose FPGA</h1>
-                                             <n-collapse>
-                                                 <n-collapse-item title="What is FPGA" name="1">
-                                                     <div>
-                                                         <p align="left">
-                                                         FPGA is Field Programmable Gate Array, user can deploy their own digital logic design on fpga, to achieve the design in the real world with low cost.<br>
-                                                         </p>
-                                                     <img class="carousel-img" src="/static/home/fpga_inside_logic_cell.png" style="max-width:400px; max-height:480px;" alt="fpga_inside_logic_cell"><br>
-                                                     </div>
-                                                 </n-collapse-item>
-                                                 <n-collapse-item title="Why choose FPGA" name="2">
-                                                     <div>
-                                                        <p align="left">
-                                                            Normally when MCU can not meet the request, we can consider to choose FPGA, here are part of their situations.<br>
-                                                             ① Interface convert: SPI to 10 IIC<br>
-                                                             ② Digital Signal Processing: Parallel computing in FPGA<br>
-                                                             ③ Logical verification: Achieve the digital design at low cost in the real world
-                                                         </p>
-                                                     </div>
-                                                 </n-collapse-item>
-                                                 <n-collapse-item title="How to choose TANG FPGA" name="3">
-                                                   <div><p align="left">
-                                                     Each Tang FPGA has its own features：<br>
-                                                     <strong>Tang Nano 1K:</strong> Cheapest FPGA board, can be used for experiencing FPGA with low cost.<br>
-                                                     <strong>Tang Nano 4K:</strong> Heterogeneous FPGA SOC image board, is good for trying FPGA image processing<br>
-                                                     <strong>Tang Nano 9K:</strong> Rich logic units FPGA board, is fit for logic verification, like softcore.<br>
-                                                     <strong>Tang Nano 20K:</strong> Tang Nano 9K upgraded version, double logic units, but less size<br>
-                                                     <strong>Tang Primer 20K:</strong> FPGA SOM in SODIMM socket, is good for secondary design.<br>
-                                                     <strong>Tang Primer 20K Dock:</strong> Multifunctional FPGA development board, with many peripherals<br>
-                                                     <strong>Tang Primer 20K Lite:</strong> Ext-board based on Tang Primer 20K, to make it easier for secondary design<br>
-                                                     <a href="https://wiki.sipeed.com/tang">Click me to see details</a>
-                                                     </p>
-                                                   </div>
-                                                 </n-collapse-item>
-                                             </n-collapse>
-                                     </n-card>
-                                     <n-layout-content>
-                                         <n-scrollbar height="300px">
-                                         <table width="40%" bordered:false>
-                                             <tr>
-                                                 <td>
-                                                 <a href="./tang1k">
-                                                     <div class="card">
-                                                         <img src="/hardware/assets/Tang/Nano-1K/1K.png" alt="1K">
-                                                         <div class="card_info card_blue">
-                                                             <h2 style="white-space:nowrap">Tang Nano 1K</h2>
-                                                             <div class="brief">
-                                                                 <div>Cheapest FPGA Board with screen interface</div>
-                                                             </div>
-                                                         </div>
-                                                     </div>
-                                                 </a>
-                                                 </td>
-                                                 <td>
-                                                 <a href="./tang4k">
-                                                     <div class="card">
-                                                         <img src="/hardware/assets/Tang/Nano_4K/Nano_4K.png" alt="Nano_4K">
-                                                         <div class="card_info card_blue">
-                                                             <h2 style="white-space:nowrap">Tang Nano 4K</h2>
-                                                             <div class="brief">
-                                                                 <div>Tiny FPGA SOC image development board</div>
-                                                             </div>
-                                                         </div>
-                                                     </div>
-                                                 </a>
-                                                 </td>
-                                             </tr>
-                                             <tr>
-                                                 <td>
-                                                     <a href="./tang9k">
-                                                         <div class="card">
-                                                             <img src="/hardware/assets/Tang/Nano-9K/9K.png" alt="9K">
-                                                             <div class="card_info card_blue">
-                                                                 <h2 style="white-space:nowrap">Tang Nano 9K</h2>
-                                                                 <div class="brief">
-                                                                     <div>FPGA board enought for softcore</div>
-                                                                 </div>
-                                                             </div>
-                                                         </div>
-                                                     </a>
-                                                 </td>
-                                                 <td>
-                                                      <a href="./nano20k">
-                                                          <div class="card">
-                                                              <img src="/hardware/zh/tang/tang-nano-20k/assets/nano_20k/tang_nano_20k_3920_board_top.png" alt="tang_nano_20k_3920_top">
-                                                              <div class="card_info card_blue">
-                                                                  <h2 style="white-space:nowrap">Tang Nano 20K</h2>
-                                                                  <div class="brief">
-                                                                      <div>Excellent Retro Game Emulator</div>
-                                                                  </div>
-                                                              </div>
-                                                          </div>
-                                                      </a>
-                                                 </td>
-                                             </tr>
-                                             <tr>
-                                                 <td>
-                                                     <a href="./primer20k">
-                                                         <div class="card">
-                                                             <img src="/hardware/zh/tang/tang-primer-20k/assets/dock-up.png" alt="primer20k_dock">
-                                                             <div class="card_info card_red">
-                                                                 <h2 style="white-space:nowrap">Tang Primer 20K Dock</h2>
-                                                                 <div class="brief">
-                                                                     <div>FPGA Development board with many peripherals</div>
-                                                                 </div>
-                                                             </div>
-                                                         </div>
-                                                     </a>
-                                                 </td>
-                                                 <td>
-                                                     <a href="./primer20k">
-                                                         <div class="card">
-                                                             <img src="https://wiki.sipeed.com/hardware/zh/tang/tang-primer-20k/assets/lite-up.png" alt="primer20k_lite">
-                                                             <div class="card_info card_red">
-                                                                 <h2 style="white-space:nowrap">Tang Primer 20K Lite</h2>
-                                                                 <div class="brief">
-                                                                     <div>Easy secondary design FPGA board</div>
-                                                                 </div>
-                                                             </div>
-                                                         </div>
-                                                     </a>
-                                                 </td>
-                                             </tr>
-                                         </table>
-                                         </n-scrollbar>
-                                     </n-layout-content>  
-                                 </n-layout>                                      
-                             </n-tab-pane>
-                            </template>
-                         </n-tabs>
-                     </n-card>
-                 </n-grid-item>
+                                            </n-divider>
+                                        </n-card>
+                                    </n-carousel-item>
+                                </n-carousel>
+                            </n-card>
+                        </n-tab-pane>
+                    </template>
+                </n-tabs>
+            </n-grid-item>
 
-             <n-grid-item span="9 s:9 m:9 l:9" >
-                 <n-card size="small" style="margin: auto; display: flex; min-height: fit-content; " hoverable>
-                     <n-tabs type="line" justify-content="space-evenly"
-                         tab-style="justify-content:center; display: flex; padding-left: 15px; padding-right: 15px; text-align: center; margin: 0 auto; font-size: 20px; "
-                         class="custom-tabs" trigger='hover'>
-                         <n-tab-pane v-bind:tab="key" v-bind:name="key"
-                             v-for="(value, key) in datas['products'][$t('language')]">
-                             <n-layout has-sider position="absolute" style="min-height: 700px; position: relative"
-                                 class="news_background" hoverable>
-                                 <n-grid cols="10" item-responsive responsive="screen">
-                                     <n-grid-item span="10 s:5 m:2 l:2" style="padding: 4%;" v-for="product in value">
-                                         <n-card v-bind:title="product.title" size="small" hoverable>
-                                             <img class="normal-img" v-bind:src="product.src">
-                                             <n-button-group style="margin: 5px; font-size: 16px;">
-                                                <template v-if="product.other_text">
-                                                    <n-button style="color:#ffffff;" color="#e34548" tag="a"
-                                                    v-bind:href="product.other_href" target="_blank" round>
-                                                    {[ $t(product.other_text) ]}
+            <n-grid-item span="9 s:9 m:9 l:9" >
+                <n-card size="small" style="margin: auto; display: flex; min-height: fit-content; " hoverable>
+                    <n-tabs type="line" justify-content="space-evenly"
+                        tab-style="justify-content:center; display: flex; padding-left: 15px; padding-right: 15px; text-align: center; margin: 0 auto; font-size: 20px; "
+                        class="custom-tabs" trigger='hover'>
+                        <n-tab-pane v-bind:tab="key" v-bind:name="key"
+                            v-for="(value, key) in datas['products'][$t('language')]">
+                            <n-layout has-sider position="absolute" style="min-height: 700px; position: relative"
+                                class="news_background" hoverable>
+                                <n-grid cols="10" item-responsive responsive="screen">
+                                    <n-grid-item span="10 s:5 m:2 l:2" style="padding: 4%;" v-for="product in value">
+                                        <n-card v-bind:title="product.title" size="small" hoverable>
+                                            <img class="normal-img" v-bind:src="product.src">
+                                            <n-button-group style="margin: 5px; font-size: 16px;">
+                                            <template v-if="product.other_text">
+                                                <n-button style="color:#ffffff;" color="#e34548" tag="a"
+                                                v-bind:href="product.other_href" target="_blank" round>
+                                                {[ $t(product.other_text) ]}
+                                            </n-button>
+                                            </template>
+                                            <template v-if="product.lbtn_text === 'btn_eol'">
+                                                <n-button disabled round>
+                                                    {[ $t(product.lbtn_text) ]}
                                                 </n-button>
-                                                </template>
-                                                <template v-if="product.lbtn_text === 'btn_eol'">
-                                                    <n-button disabled round>
-                                                        {[ $t(product.lbtn_text) ]}
-                                                    </n-button>
-                                                </template>
-                                                <template v-else>
-                                                    <n-button tag="a" v-bind:href="product.lbtn_href" target="_blank"
-                                                        round>
-                                                        {[ $t(product.lbtn_text) ]}
-                                                    </n-button>
-                                                </template>
-                                                 <n-button style="color:#ffffff;" color="#e34548" tag="a"
-                                                     v-bind:href="product.rbtn_href" target="_blank" round>
-                                                     {[ $t(product.rbtn_text) ]}
-                                                 </n-button>
-                                             </n-button-group>
-                                         </n-card>
-                                     </n-grid-item>
-                                 </n-grid>
-                             </n-layout>
-                         </n-tab-pane>
-                     </n-tabs>
-                 </n-card>
-            </n-grid>
+                                            </template>
+                                            <template v-else>
+                                                <n-button tag="a" v-bind:href="product.lbtn_href" target="_blank"
+                                                    round>
+                                                    {[ $t(product.lbtn_text) ]}
+                                                </n-button>
+                                            </template>
+                                                <n-button style="color:#ffffff;" color="#e34548" tag="a"
+                                                    v-bind:href="product.rbtn_href" target="_blank" round>
+                                                    {[ $t(product.rbtn_text) ]}
+                                                </n-button>
+                                            </n-button-group>
+                                        </n-card>
+                                    </n-grid-item>
+                                </n-grid>
+                            </n-layout>
+                        </n-tab-pane>
+                    </n-tabs>
+                </n-card>
+            </n-grid-item>
          </n-grid>
      </n-card>
 

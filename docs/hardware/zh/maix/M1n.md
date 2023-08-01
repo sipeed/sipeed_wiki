@@ -119,6 +119,11 @@ M1n模块以K210作为核心单元，功能非常很强大，芯片内置64位�
 M1n 资料下载: [Click me](https://dl.sipeed.com/shareURL/MAIX/HDK/Sipeed-M1n)
 M1n 原理图下载：[Sipeed M1n Datasheet V1.0.pdf](https://dl.sipeed.com/fileList/MAIX/HDK/Sipeed-M1n/Sipeed%20M1n%20Datasheet%20V1.0.pdf)
 
+## 软件开发
+
+1. [MaixPy](https://wiki.sipeed.com/maixpy)：MicroPython 语言开发
+2. C 语言 SDK: [kendryte-standalone-sdk](https://github.com/kendryte/kendryte-standalone-sdk)
 
 ## 产品技术支持
+
 Maix系列产品可以在多种场景实现客户不同方面的需要，在AIoT上已经广泛的使用，品质和性能在行业内已经有非常好的口碑，专业的技术团队为广大客户解决硬件设计和软件功能上的各种各样问题。专业技术支持和更详细资料请联系商务<support@sipeed.com>。

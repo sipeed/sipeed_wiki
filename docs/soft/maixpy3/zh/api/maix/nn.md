@@ -10,7 +10,7 @@ desc: MaixPy3 nn模块 API文档, 以及使用说明
 
 * 准备模型
 
-比如从 MaixHub 下载, 这里以边缘检测模型为例, 先[下载模型](https://maixhub.com/modelInfo?modelId=24)(需要先注册登录)
+比如从 MaixHub 下载, 这里以边缘检测模型为例, 先[下载模型](https://maixhub.com/model/zoo/67)(需要先注册登录)
 
 * 准备一张 `224 x 224` 分辨率的图像, 比如这里放到了开发板文件系统的`/root/test.png`位置
 
@@ -370,7 +370,7 @@ class FaceRecognize:
 
 [这里](https://github.com/sipeed/MaixPy3/blob/main/ext_modules/_maix_nn/example/face_recognize.py)有一个`Face_Recognizer`类提供了人脸识别的简单封装， 推荐使用
 
-使用的模型可以到[这里下载](https://maixhub.com/modelInfo?modelId=29)
+使用的模型可以到[这里下载](https://maixhub.com/model/zoo/59)
 
 ##### 构造方法: __init__(self, model_detect, model_fea, fea_len, input_shape, threshold, nms, max_face_num)
 

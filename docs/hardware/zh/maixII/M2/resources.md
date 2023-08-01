@@ -4,18 +4,26 @@ keywords: MaixII, MaixPy3, Python, Python3, M2dock
 desc: 板级资源介绍
 ---
 
-Maix-II-Dock 定位于高性价比的 AIOT 开发板， 支持常规 Linux 开发的同时， 有特有的 **AI 硬件加速** 特性，配合 Sipeed 提供的完整的软件生态，让你快速实现你的边缘 AI 应用。
+Maix-II-Dock 是一块精致小巧的 `AI` + `IOT` + `音视频处理` 开发板， 支持常规 Linux 开发的同时， 有特有的 **AI 硬件加速** 特性，配合 Sipeed 提供的易用的软件生态，快速让你的边缘 AI 应用落地。
 
-* **硬件**上， 基于全志 V831 芯片， 以【核心板】+【底板】的形式组成开发板，可以直接使用开发板，也可以只使用核心板根据需求自行设计底板，方便快速完成开发。
-* **软件**上， 除了可以直接使用全志提供的资料进行开发（部分可能需要找全志获取）外，Sipeed 提供了非常方便的 Python SDK（[MaixPy3](/maixpy3)）以及 C SDK （[libmaix](https://github.com/sipeed/libmaix)）；
-更是提供了在线模型训练服务（[MaixHub](https://maixhub.com)），方便刚入门也能快速训练能使用的 AI 模型。
-* **购买**：[sipeed.taobao.com](https://item.taobao.com/item.htm?id=635874427363)
+Maix-II Dock 已经集成了大量开箱即用的功能，比如 `AI 图像和物体识别`，`AI 语音识别`，`AI 人脸识别`，`AI 车牌识别`，`小车巡线`， 传统`OpenCV`支持，`常用硬件外设库`等等。
 
+下面是部分功能展示视频：
 <p align="center">
     <iframe src="//player.bilibili.com/player.html?aid=298543445&bvid=BV1sF411u7xb&cid=586467021&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 </p>
 
+常见应用场景：`STEM 和大学教育`, `工业流水线工具`，`智能家居`，`智能机器人`，`智能监控场景`等等。
+
+**硬件**上， 基于全志 V831 芯片， 以【核心板】+【底板】的形式组成开发板，可以直接使用开发板，也可以只使用核心板根据需求自行设计底板，方便快速完成开发。
+**软件**上， 除了可以直接使用全志提供的资料进行开发（部分可能需要找全志获取）外，Sipeed 提供了非常方便的 Python SDK（[MaixPy3](/maixpy3)）以及 C SDK （[libmaix](https://github.com/sipeed/libmaix)）。
+**平台**上，提供在线模型训练服务（[MaixHub](https://maixhub.com)），方便刚入门也能无门槛快速训练 AI 模型。
+**购买**：[sipeed.taobao.com](https://item.taobao.com/item.htm?id=635874427363)
+
+
 ## M2 核心板
+
+22mm x  24.5mm 的尺寸，使用金手指引出引脚，体积小巧又方便开发。
 
 <img style="max-height: 260px" src="./asserts/maix_v831.jpg" alt="core_board"/>
 
@@ -23,7 +31,7 @@ Maix-II-Dock 定位于高性价比的 AIOT 开发板， 支持常规 Linux 开�
 
 ### V831 芯片介绍
 
-全志 V831, 单核 Cortex-A7 800MHz， 64MiB 片内 DDR2 内存， 高性价比能跑 Linux 的SOC，同时支持硬件 AI 加速（0.2Tops 算力），可以当成普通 Linux SOC 使用， 也可以用于边缘 AI 应用， 更详细的参数请看手册和下文。
+全志 V831, 单核 Cortex-A7 800MHz， 64MiB 片内 DDR2 内存， 高性价比能跑 Linux 的SOC，同时支持硬件 AI 加速（0.2Tops 算力）(yolov2 45 ms ~ 60 ms)，可以当成普通 Linux SOC 使用， 也可以用于边缘 AI 应用， 更详细的参数请看手册和下文。
 
 芯片手册： [V833／V831 Datasheet V1.0.pdf](https://linux-sunxi.org/images/b/b9/V833%EF%BC%8FV831_Datasheet_V1.0.pdf)
 
@@ -39,7 +47,7 @@ Maix-II-Dock 定位于高性价比的 AIOT 开发板， 支持常规 Linux 开�
 | ---------------------------- | ------------------------------------ | ------------------------------------------------------------------------------ |
 | 主控芯片<br> CPU             | 400~600Mhz                           | 800~1000Mhz                                                                    |
 | 视频编码器 <br>Video encoder | None                                 | H.264, up to 1080p@30fps<br>H265, up to 1080p@30fps<br>JPEG, up to 1080p@30fps |
-| AI加速器<br>NPU              | 0.23TOPS<br>support Conv+BN+ACT+POOL | 0.2TOPS<br>support Conv,Inner_Product,Pool,Eltwise,ACT,BN,Split,Concat         |
+| AI加速器<br>NPU              | 0.23TOPS（官方宣称 1TOPS 计算方法不同）<br>support Conv+BN+ACT+POOL | 0.2TOPS<br>support Conv,Inner_Product,Pool,Eltwise,ACT,BN,Split,Concat         |
 | 内存<br>Memory               | 8MB SRAM                             | SIP 64MB DDR2                                                                  |
 | 存储<br>Storage              | 16MB SPI Nor Flash                   | 可选的16M flash(默认空贴)                                                      |
 | 摄像头<br>Camera             | DVP, 最高输入30W像素                 | 2lane MIPI, 最高支持1080P@60fps                                                |
@@ -51,7 +59,7 @@ Maix-II-Dock 定位于高性价比的 AIOT 开发板， 支持常规 Linux 开�
 | Ethernet                     | None                                 | 10/100 Mbit/s Ethernet port with RMII interface                                |
 | ADC                          | None                                 | 1-ch 6bit LRADC for key                                                        |
 | Audio                        | None                                 | LINEOUTP + MICIN1P/N                                                           |
-| 开发软件                     | Maixpy/C                             | MaixPy3/linux                                                                  |
+| 开发软件                     | Maixpy/C                             | MaixPy3/C/linux                                                                  |
 
 ## 底板
 
@@ -96,18 +104,18 @@ Maix-II-Dock 定位于高性价比的 AIOT 开发板， 支持常规 Linux 开�
 硬件: [MaixII 硬件资料库](https://api.dl.sipeed.com/shareURL/MaixII/MaixII-Dock/HDK)
 
 软件：
-* Python SDK： [MaixPy3 软件文档](/maixpy3)
-* C SDK: [libmiax](https://github.com/sipeed/libmaix)
+* Python SDK： [MaixPy3 软件文档](/maixpy3) （Python 语法，有大量易用 API，适合上手开发）
+* C SDK: [libmiax](https://github.com/sipeed/libmaix) （适合高级开发者，另外要使用 OpenCV 也推荐使用此 SDK， Python 版本的 OpenCV 占用内存比较大，可能会导致内存不足）
 * MaixHub 模型平台（AI 模型下载、在线训练、项目分享）： [MaixHub](https://maixhub.com)
 * 全志 tina-V83x SDK： [Tina-Linux/tina-V83x](https://github.com/Tina-Linux/tina-V83x)
 * 工具链： [dl.sipeed.com](https://dl.sipeed.com/shareURL/MaixII/MaixII-Dock/SDK/Toolchain) 或者 [github](https://github.com/sipeed/libmaix/releases/download/v0.1.0/toolchain-sunxi-musl-pack-2021-01-09.tar.xz)
 
 ## Maix-II-Dock 上手开发路线指南
 
-* 因为需要使用 linux 系统（tina-linx）， 所以需要先学习烧录系统镜像，就类似学会电脑重装系统一样，这样在遇到问题就可以重来，在左侧目录找到“烧录系统”文章查看
+* **烧录系统镜像**： 因为需要使用 Linux 系统（tina-linux）， 所以需要先学习烧录系统镜像，就类似学会电脑重装系统一样，这样在遇到问题就可以重来，在左侧目录找到“烧录系统”文章查看
 <!-- 这里不给烧录系统的链接，让用户学会查看左边目录 -->
-* 学会基础的 Linux 操作，比如如何打开终端，基础的终端命令，以及如何传输文件到开发板等，比如 串口使用， adb 使用等等基础操作
-* 选择开发语言：
-  * 如果你熟悉 C 有一定的开发经验，可以选择使用[libmaix](https://github.com/sipeed/libmaix)
+* **基本 Linux 操作**： 学会基础的 Linux 操作，比如如何打开终端，基础的终端命令，以及如何传输文件到开发板等，比如 串口使用， adb 使用等等基础操作
+* **选择开发语言**：
+  * 如果你熟悉 C 有一定的开发经验，可以选择使用[libmaix](https://github.com/sipeed/libmaix)，按照其 `REAME.md` 文档搭建开发环境
   * 如果你希望快速上手，并使用 Python 语言开发， 请使用[MaixPy3](/maixpy3)，仔细阅读其文档即可
-* 如果需要使用 AI 功能，可以搭配 [MaixHub](https://maixhub.com) 在线训练平台使用，平台提供了 AI 模型或者项目分享功能，节约大家不少时间。
+* **平台和分享**：如果需要使用 AI 功能，可以搭配 [MaixHub](https://maixhub.com) 在线训练平台使用，平台提供了 AI 模型或者项目分享功能，节约大家不少时间。

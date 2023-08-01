@@ -1,119 +1,147 @@
 ---
-title: 进阶使用
-keywords: MaixII, MaixPy3, Python, Python3, M2dock, Tina, Openwrt
-desc: maixpy  MaixII M2dock 上手使用
+title: Maix-II Dock 基础使用
 ---
 
-> 没有 Linux 系统使用基础的同学，不推荐以下的使用方式
+## 连接电脑
 
-阅读 [MaixII-Dock Maixpy3](https://wiki.sipeed.com/soft/maixpy3/zh/tools/0.MaixII-Dock.html) 来查看更多用法
+<img src="./asserts/m2dock.jpg" height=350>
 
-## 认识 openwrt 系统
+如图，有两个 Type-C 口，一个 `USB UART`，一个 `USB OTG`。
 
-> 全志 V831 使用 Tina Linux 系统，移植自 [OpenWrt](https://openwrt.org) 。
+两者都可以给板子 5V 供电。
 
-OpenWrt 可以被描述为一个嵌入式的 Linux 发行版，详情可看 [官方网址](https://openwrt.org) 和 [官方开源仓库](https://github.com/openwrt/openwrt)。
+`USB UART` 是 板子的系统交互串口转 USB，连接此接口可以通过电脑的串口终端工具和开发板交互。
+`USB OTG` 是 `USB` 从机接口，连接此接口可以通过电脑的 `adb` 工具和开发板交互。
 
-OpenWRT 是一个高度模块化、高度自动化的嵌入式 Linux 系统，拥有强大的网络组件和扩展性，常常被用于工控设备、电话、小型机器人、智能家居、路由器以及 VOIP 设备中。 同时，它还提供了 100 多个已编译好的软件，而且数量还在不断增加，而 OpenWrt SDK 更简化了开发软件的工序。
+在前面文档中已经烧录了系统，现在只需要讲电脑与板子`USB OTG`口连接起来即可，等待开机，等一会儿，电脑会出现一个 `U盘`。
+> 如果开发板屏幕已经有画面了，但是电脑没有弹出 U盘，可以在电脑`设备管理器`中卸载`Android Device` -> `Android ADB Interface`，注意勾选`删除此设备的驱动软件`。
+> 如果还没出现则拔掉开发板重新插上尝试，一般都是 `ADB` 驱动问题。
+> ![](/news/MaixPy3/v831_usage/assest/adb.jpg)
+> ![](/news/MaixPy3/v831_usage/assest/delete.jpg)
 
-V831 tina 系统支持使用 adb 来操作系统。需要将主机于板子的OTG标识的接口相连。
+在 U盘 里面我们可以看到一个 `app` 文件夹，默认是[MaixHub APP](https://maixhub.com/app/1) 应用，上电会自动执行`app`目录下的`main.py`或者`main.sh`文件，可以在此目录下替换自己的应用。
+> 在给开发板断电前，一定要记得**弹出 U盘**，否则会损坏开发板文件系统导致文件系统只读（只读后可以通过烧录系统来恢复）。
 
----
-- Windows 系统需要先下载最新的 adb 然后将其解压并添加到系统路径，接着就可以在命令行中使用 adb shell 连接上 v831.
-- 对于 linux 直接安装 adb 即可，然后在终端执行 adb shell 连接 V831
----
+## 在 Linux shell 执行命令
+
+保证前面 U盘 会出现的情况下，我们可以通过 ADB 来和开发板进行交互。
+
+ADB 程序在 windows 下需要手动安装， Linux 或者 MacOS，一般直接内置 adb 命令。
+
+
+Windows 安装 ADB 有两种方法：
+1. 直接下载 [ADB driver](https://adbdriver.com/downloads/) 安装（不需要使用 Python 开发可以用这种方式）。
+2. 直接安装 [MaixPy3 IDE](https://dl.sipeed.com/shareURL/MaixII/MaixPy3-IDE)([百度网盘连接](https://pan.baidu.com/s/1d5zbIDSOBUvIta_rRhLx_A)) 会同时自动安装 adb 驱动。
+
+
+然后键盘`Win+R`输入 `cmd`进入终端，输入`adb shell`即可进入开发板的 shell 环境。
+然后我们就可以执行`Linux`命令了，比如`ls`查看目录下文件，`cd /root`进入到`/root`目录，执行`Python`文件用`python3 main.py`等。
+比如我看看`/root`目录下有什么文件：
+
+```bash
+root@sipeed:/# ls /root
+app
+```
+可以看到和 U盘一样的 `app` 文件夹。
+> 更多 Linux 常用命令可自行学习，注意 这里的 Linux 实际上是一个定制版本的 OpenWrt 系统，叫作 Tina Linux，所以有些命令和 PC 的 Linux 可能会有写差异。
+
+
+## 通过串口与 shell 交互
+
+除了通过 ADB 交互，开发板的另一个串口也可以用来交互。
+* 板子 USB UART 口连接电脑
+* 使用串口终端软件，比如 putty 或者 mobaxterm， 具体教程查看【<a href='https://wiki.sipeed.com/hardware/zh/maixII/M2/tools/mobaxterm.html' target=_blank>如何使用 mobaxterm</a>】
+
+![mobaxterm_connect](./asserts/usage/mobaxterm_connect.png)
+
+
+## Python 开发
+
+### Hello world
+
+通过上面的终端交互的方法：
+```
+cd /root
+vim hello.py
+```
+然后输入`i`进入编辑模式，输入下面的代码：
+```python
+print("Hello world")
+```
+然后按`ESC`退出编辑模式，输入`:wq`保存并退出。
+然后执行`python3 hello.py`即可看到输出`Hello world`。
+
+### MaixPy3 开发
+
+
+MaixPy3 提供了大量的易用 API，这里可以先测试一下摄像头和屏幕：
+基于上面的 hello world 代码，我们创建一个`camera_show.py`：
+
+```python
+from maix import camera, display
+while 1:
+   img = camera.capture()
+   display.show(img)
+```
+
+在执行代码之前，确保屏幕和摄像头没有程序在使用，比如默认的`MaixHub APP`，可以操作按钮选择`退出`功能来退出`MaixHub APP`。
+
+然后在终端执行`python3 camera_show.py` 就可以在屏幕看到摄像头的画面了。
+
+更多使用方法参考 [MaixPy3 文档](/maixpy3)
+
 
 ## M2Dock 联网
 
 M2Dock 带有 2.4G 无线模组，可以用来连接 2.4G 频段的无线网络。
 
-因为镜像更新会更改部分内容，所以下面以 V0.5.4 版本的系统镜像和 V0.5.4 之前的镜像来分别说明怎么样来使用 M2Dock 连接到无线网络。
+**推荐**：可以用 [MaixHub APP](https://maixhub.com/app/1) 扫码连接。
 
-### V0.5.4
+也可以通过以下方式在命令行连接。
+v0.5.4 版本系统镜像和之前的镜像联网方法未兼容，根据烧录的镜像版本选择对应的联网方法：
 
-在 0.5.4 (时间戳为 20230207 )的镜像中，移除了之前编辑配置文件然后再连接网络的方法，改为用命令行来连接无线网络。
+* v0.5.4
+.. details::, 点击展开
+      在 0.5.4 的镜像中，移除了之前编辑配置文件然后再连接网络的方法，改为用命令行来连接无线网络。
 
-可以看到板子中内置了许多 wifi 相关的命令（按 TAB 补全剩余命令，没有就自己手动敲完整）
+      可以看到板子中内置了许多 wifi 相关的命令（按 TAB 补全剩余命令，没有就自己手动敲完整）
 
-![wifi_test_command_list](./asserts/usage/wifi_test_command_list.jpg)
+      ![wifi_test_command_list](./asserts/usage/wifi_test_command_list.jpg)
 
-这里只使用 `wifi_connect_ap_test` 命令来连接无线网络，在使用之前可以先直接执行 `wifi_scan_results_test` 命令来扫描周围网络，确定板子可以识别到目标无线网络。
+      这里只使用 `wifi_connect_ap_test` 命令来连接无线网络，在使用之前可以先直接执行 `wifi_scan_results_test` 命令来扫描周围网络，确定板子可以识别到目标无线网络。
 
-使用下面的命令来连接名称为 `Sipeed_Guest`， 且密码为 `qwert123` 的无线网络。
+      使用下面的命令来连接名称为 `Sipeed_Guest`， 且密码为 `qwert123` 的无线网络。
 
-```bash
-wifi_connect_ap_test Sipeed_Guest qwert123
-```
+      ```bash
+      wifi_connect_ap_test Sipeed_Guest qwert123
+      ```
 
-![wifi_test_connect_wireless](./asserts/usage/wifi_test_connect_wireless.jpg)
+      ![wifi_test_connect_wireless](./asserts/usage/wifi_test_connect_wireless.jpg)
 
-在连接的信息中可以看到 `192.168.3.158` 这串数字，这是板子在当前网络环境中的 IP 地址。
+      在连接的信息中可以看到 `192.168.3.158` 这串数字，这是板子在当前网络环境中的 IP 地址。
 
-执行 `ifconfig` 命令可以看到 wlan0 的 IP 地址为 `192.168.3.158`，与连接 WiFi 时候的信息一样。
+      执行 `ifconfig` 命令可以看到 wlan0 的 IP 地址为 `192.168.3.158`，与连接 WiFi 时候的信息一样。
 
-![wifi_test_ifconfig](./asserts/usage/wifi_test_ifconfig.jpg)
+      ![wifi_test_ifconfig](./asserts/usage/wifi_test_ifconfig.jpg)
 
-### V0.5.4 之前的镜像
 
-开发板上的 OTG 接口与电脑连接之后，就会在资源管理器中得到一个 U 盘 设备。通过编辑器打开里面名为 `wpa_supplicant.conf` 文件
+* v0.5.4 前
 
-![wap_conf_png](./asserts/usage/wap_conf.png)
+.. details::, 点击展开
+      开发板上的 OTG 接口与电脑连接之后，就会在资源管理器中得到一个 U 盘 设备。通过编辑器打开里面名为 `wpa_supplicant.conf` 文件
 
-可以看到里面有 `yourWIFIname` 和 `yourWIFIpassword` 两项，将他们更改成你想要连接的无线网络和对应的无线网络密码并保存后，使用电脑系统自带的弹出 U 盘操作方式来移除 U 盘，这样可以避免损坏 U 盘的文件系统。接着在 m2dock 命令行终端执行 `reboot` 命令来重启板卡，开机后就自动连接 WiFi 了。
+      ![wap_conf_png](./asserts/usage/wap_conf.png)
 
-![wap_conf_gif](./asserts/usage/wap_conf.gif)
+      可以看到里面有 `yourWIFIname` 和 `yourWIFIpassword` 两项，将他们更改成你想要连接的无线网络和对应的无线网络密码并保存后，使用电脑系统自带的弹出 U 盘操作方式来移除 U 盘，这样可以避免损坏 U 盘的文件系统。接着在 m2dock 命令行终端执行 `reboot` 命令来重启板卡，开机后就自动连接 WiFi 了。
 
-### 如何更新 MaixPy3 包
+      ![wap_conf_gif](./asserts/usage/wap_conf.gif)
 
-可以手动下载最新的 MaixPy3 [安装包](https://pypi.org/project/maixpy3/#history)
 
-![maixpy3_download](./asserts/usage/maixpy3_download.png)
+## Opkg 软件包管理器
 
-下载带有 cp8 的安装包，cp9 是给别的平台使用的。将这个安装的名字修改成 `maixpy3-9.9.9-cp38-cp38-linux_armv7l.whl`,直接存放到开发板中，重启开发板就会自动更新和安装 MaixPy3。
+在命令行可以通过包管理器命令安装新的软件。
 
-![maixpy3_install](./asserts/usage/maixpy3_install.png)
-
-更新前请关闭 IDE 或不接 OTG 口，防止有其他操作影响系统的软件更新，在放入 U 盘后，断电开机会看到如下画面，如果超过 3 分钟画面没有变化，那可能就是失败了，就请重烧系统吧。（2022 年 1 月 14 日至今还没出现过失败样本）
-
-### 更多连接方式
-
-使用 mobaxterm 可以进行串口连接和 ssh 连接，具体教程查看【<a href='https://wiki.sipeed.com/hardware/zh/maixII/M2/tools/mobaxterm.html' target=_blank>如何使用 mobaxterm</a>】
-
-![mobaxterm_connect](./asserts/usage/mobaxterm_connect.png)
-
-## 部分常用 Linux 命令
-
-<details>
-  <summary>点击查看部分常用命令</summary>
-   <pre>
-ls 查看目录下文件
-cd 打开目录
-pwd 打印当前目录
-mv 移动/重命名 文件/文件夹
-cp 复制 文件/文件夹
-rm 删除
-vi 编辑文件内容 #需要使用特定的adb版本能正常显示内容
-top 查看系统内存
-df 查看磁盘信息
-time 查看时间
-ifconfig 查看网络信息
-free 查看剩余内存
-ps 查看运行的进程
-kill 终止进程
-killall 终止所有进程
-chmod 更改 文件/文件夹 权限
-passwd 设置/更改 用户密码
-cat 查看文件内容
-ping 检测某网址是否连通
-wget 下载某链接文件
-grep 搜索文件内容
-ln 建立文件链接
-</pre>
-</details>
-
-## Opkg 包管理器
-
-Opkg 是一个轻量快速的套件管理系统，目前已成为 Opensource 界嵌入式系统标准。常用于 路由、 交换机等 嵌入式设备中，用来管理软件包的安装升级与下载。
+Opkg 是一个轻量快速的套件管理系统，类似 Ubuntu 下面的 apt 工具， 目前已成为 Opensource 界嵌入式系统标准。常用于 路由、 交换机等 嵌入式设备中，用来管理软件包的安装升级与下载。
 
 ### 相关常用命令
 
@@ -122,7 +150,7 @@ Opkg 是一个轻量快速的套件管理系统，目前已成为 Opensource 界
 - opkg list 获取软件列表
 - opkg install 安装指定的软件包
 - opkg remove 卸载已经安装的指定的软件包
-  
+
 例如：
 
 ```bash
@@ -140,23 +168,21 @@ eyesee-mpp-middleware - 1.0-1
 eyesee-mpp-system - 1.0-1
 ```
 
-## pip 包管理器
+## Python 包管理器
 
-[pip](https://pypi.org/project/pip/) 是 Python 包管理工具，该工具提供了对 Python 包的查找、下载、安装、卸载的功能。
-
-> 以下讯息由[YanxingLiu](https://github.com/YanxingLiu)提供与测试。
+[pip](https://pypi.org/project/pip/) 是 Python 包管理工具，该工具提供了对 Python 软件包的查找、下载、安装、卸载的功能。
 
 ### pip换源
 
-在安装系统后可以更换镜像源，加速 pip 安装。
+对于国内可能只接访问 pypi.org 速度比较慢，用国内的镜像源可以加速 pip 安装。
 
 ### 临时使用
 
 ```python
-pip install -i https://pypi.tuna.tsinghua.edu.cn/simple some-package
+pip install -i https://pypi.tuna.tsinghua.edu.cn/simple package-name
 ```
 
-some-package 请自行更换成你想要安装的包
+package-name 更换成你想要安装的包名
 
 ### 设为默认
 
@@ -171,95 +197,3 @@ pip install -i https://pypi.tuna.tsinghua.edu.cn/simple pip -U
 ```python
 pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
 ```
-
-## 测试屏幕方法
-
-- 请测试前观察系统上电后屏幕是否会闪烁一次；这表示屏幕已经通电、驱动起来，并对其复位（RST）后产生的。
-
-在 Linux Shell 运行 `cat /dev/urandom > /dev/fb0` 就会输入随机数据到 fb0 产生雪花屏了，这表示屏幕显示是正常的。
-
-<center><img src="./asserts/lcd_test.jpg" width="400"></center>
-
-<details>
-  <summary>帧缓冲相关知识</summary>
-   帧缓冲（framebuffer）是 Linux 为显示设备提供的一个接口，把显存抽象后的一种设备。
-   它允许上层应用程序在图形模式下直接对显示缓冲区进行 读写操作。framebuffer 是 LCD 对应的一种 HAL（硬件抽象层），提供抽象的，统一的接口操作，用户不必关心硬件层是怎么实施的。这些都是由 Framebuffer 设备驱动来完成的。帧缓冲设备对应的设备文件为 /dev/fb*，如果系统有多个显示卡，Linux下还可支持多个帧缓冲设备，最多可达 32 个，分别为 /dev/fb0 到 /dev/fb31，而 /dev/fb 则为当前缺省的帧缓冲设备，通常指向 /dev/fb0，在嵌入式系统中支持一个显示设备就够了。帧缓冲设备为标准字 符设备，主设备号为 29 ，次设备号则从 0 到 31 。分别对应 /dev/fb0-/dev/fb31 。
-</details>
-
-## 运行 Python3 解释器
-
-在 Linux 上使用 Python 编程只需要在 adb shell 命令行交互的接口输入 python3 即可启动，可直接复制代码粘贴后按回车键运行。
-
-```python
-import platform
-print(platform.uname())
-```
-
-2022年7月6日 实际操作结果：
-
-```bash
-   __   _
-  / /  (_)__  __ ____ __ ------------------------
- / /__/ / _ \/ // /\ \ /  sipeed.com (Neptune)
-/____/_/_//_/\_,_//_\_\  ------------------------
-
-root@sipeed:/# python3
-Python 3.8.5 (default, Jun 14 2022, 09:51:56)
-[GCC 6.4.1] on linux
-Type "help", "copyright", "credits" or "license" for more information.
->>> import platform
->>> print(platform.uname())
-uname_result(system='Linux', node='sipeed', release='4.9.118', version='#3242 PREEMPT Tue Jun 28 04:03:38 UTC 2022', 
-machine='armv7l', processor='')
-```
-
-## 测试拍照功能
-
-这里我们使用 [MaixPy3](/maixpy3) 来测试一下摄像头，先以交互模式启动一下 Python,
-
-```python
-from maix import camera, display, image 
-display.show(camera.capture())
-```
-
-<center><img src="./asserts/hello_world.jpg" width="500"></center>
-
-> 如果屏幕没有显示内容。那么首先确认一下镜像镜像版本，并且确认一下外设和驱动对的上
-
-## 怎么样使用 USB 摄像头
-
-M2Dock 有两个 TypeC 接口。其中一个标识有 UART，作为板子与电脑进行串口通信的接口。另一个口有 OTG 标识，默认是作为 USB 从机来使用的，比如我们能够在电脑上使用 `adb` 来操作 M2Dock 就是因为这个接口默认是从机模式。
-
-需要注意的是 M2Dock 系统默认将 OTG 标识设置为 adb 设备，可以在 PC 端通过 `adb` 命令来操作板子，也可以通过使得电脑上的 jypyter 通过 `adb forward` 功能在板子上运行 python 代码。
-
-想要连接摄像头，需要手动更改这个端口为主机模式。从板子上的 USB UART 来操作板子，并执行下面的命令就可以将 OTG 口作为主机模式使用。
-
-要注意的是之子那个下面的命令后，板子上将与电脑通过 USB OTG 口进行通信。
-
-```bash
-echo "usb_host" > /sys/devices/platform/soc/usbc0/otg_role
-```
-
-接着就能向通常的 linux 系统一样操作 /dev 目录下的摄像头了。
-
-## 如何将 USB OTG 口作为从机
-
-M2Dock 默认的 OTG 口就是 USB 从机设备了，要是有因为其他原因需要重新设置成从机设备的话，在 M2Dock 上执行下面的命令就可以了。
-
-```bash
-echo "usb_device" > /sys/devices/platform/soc/usbc0/otg_role
-```
-
-## 工具链
-
-[这里](https://dl.sipeed.com/shareURL/MaixII/MaixII-Dock/SDK/Toolchain)提供了在 linux 系统下的编译工具链，有能力的可以自己试一下。无相关支持
-
-建议使用 [MaixPy3](/soft/maixpy3/zh/index.html) 来操作设备
-
-## MaixPy3
-
-本设备建议使用 [MaixPy3](/soft/maixpy3/zh/index.html) 来进行相应的快速开发，相关文档请仔细阅读
-
-## 源码
-
-V831 的源码已经放在  https://github.com/Tina-Linux/tina-V83x ，有需要的可以自行尝试一下

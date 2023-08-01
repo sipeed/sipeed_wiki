@@ -73,7 +73,7 @@
                     ]
                 },
                 {
-                    "label":"开发者更新速览",
+                    "label":"开发者更新日志",
                     "file": "develop/readme.md",
                     "items": [
                         {

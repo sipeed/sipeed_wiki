@@ -60,7 +60,7 @@
                 "position": "left"
             },
             {
-                "label":"博文精选",
+                "label":"最新动态",
                 "url":"/news/",
                 "position":"left"
             },
@@ -224,7 +224,7 @@
         "teedoc-plugin-thumbs-up": {
             "config": {
                 "label_up": "有帮助",
-                "label_down": "没帮助",
+                "label_down": "待改进",
                 "msg_already_voted": "您已经投过票了",
                 "msg_thanks": "感谢您的反馈",
                 "msg_down_prompt": "感谢反馈，请告诉我们可以改进什么地方?（最少 10 个字）",

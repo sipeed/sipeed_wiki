@@ -57,8 +57,6 @@ items:
                 file: maix/m1s/other/start.md
             -   label: 其他事项（摄像头和外壳）
                 file: maix/m1s/other/others.md
-    -   label: Maix M1a
-        # items: []
 -   label: Maix-II
     items:
     -   label: MaixII-Dock
@@ -66,11 +64,13 @@ items:
         items:
         -   label: 烧录系统
             file: maixII/M2/flash.md
+        -   label: 训练自己的 AI 模型
+            file: maixII/M2/maixhub_train.md
         -   label: 基础使用
             file: maixII/M2/usage.md
         -   label: 其他事项
             file: maixII/M2/other.md
-        -   label: 连接MaixPy3
+        -   label: 使用 MaixPy3 开发
             file: ../../soft/maixpy3/zh/tools/0.MaixII-Dock.ipynb
             target: _blank
         -   label: FAQ

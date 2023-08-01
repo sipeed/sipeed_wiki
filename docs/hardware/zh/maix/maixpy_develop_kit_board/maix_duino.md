@@ -13,6 +13,11 @@
 ![MaixDuino](./../assets/dk_board/maix_duino/maixduino_1.png)
 ![MaixDuino](./../assets/dk_board/maix_duino/maixduino_2.png)
 
+
+### 引脚图
+
+![maixduino pins](../assets/dk_board/maix_duino/maixduino_pins_1080.png)
+
 ### 板载功能介绍
 
 - 电源输入 DC05: 6~12V 直流
@@ -153,6 +158,13 @@ Maixduino开发板以M1Al模块作为核心单元，功能非常很强大，模�
 - [MaixDuino 原理图](https://dl.sipeed.com/shareURL/MAIX/HDK/Sipeed-Maixduino)
 - <a href="/soft/maixpy/zh/" target="_blank"> MaixPy的使用教程入口 </a> （推荐）
 - <a href="/soft/maixduino/zh/" target="_blank"> arduino的使用教程入口 </a>
+
+## 软件开发
+
+1. [MaixPy](https://wiki.sipeed.com/maixpy)：MicroPython 语言开发
+2. C 语言 SDK: [kendryte-standalone-sdk](https://github.com/kendryte/kendryte-standalone-sdk)
+3. [Maixduino](https://github.com/sipeed/Maixduino): 适配 Arduino 库开发环境
+
 
 ## 产品技术支持
 Maix系列产品可以在多种场景实现客户不同方面的需要，在AIoT上已经广泛的使用，品质和性能在行业内已经有非常好的口碑，专业的技术团队为广大客户解决硬件设计和软件功能上的各种各样问题。专业技术支持和更详细资料请联系商务<support@sipeed.com>。
