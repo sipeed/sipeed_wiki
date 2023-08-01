@@ -93,7 +93,7 @@ At this point, the basic python environment has been created. Similar to other a
 
 The opencv installation will depend on other python packages, so if pip does not download them automatically, you can install the dependencies manually first. See [download riscv whl](https://www.yuque.com/za4k4z/uzn618/zsp0krgg9dlp0fhx) for more information on how to get the packages.
 
-**获取 YOLOX 模型**
+**Get YOLOX**
 
 [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) is a YOLO-like target detection model with quite excellent performance.
 The source code and model can be downloaded directly from github
@@ -298,6 +298,187 @@ hello-world latest eb6f80695a28 2 months ago 4.98kB
 
 To experience a more complete image, go [here](https://hub.docker.com/) and search for the name of the distribution you want to use and pull it.
 
+## K3s-RISCV
+
+This chapter will show how to run the lightweight Kubernetes distribution K3s on LPi4A.
+
+First download the precompiled K3s package:
+https://github.com/CARV-ICS-FORTH/k3s/releases
+
+Then merge the downloaded packages into a `.gz` file and decompress it. After completion, add execution permission to k3s:
+```shell
+wget https://github.com/CARV-ICS-FORTH/k3s/releases/download/20230721/k3s-riscv64.gz.aa
+wget https://github.com/CARV-ICS-FORTH/k3s/releases/download/20230721/k3s-riscv64.gz.ab
+wget https://github.com/CARV-ICS-FORTH/k3s/releases/download/20230721/k3s-riscv64.gz.ac
+# The following commands need root user to execute
+sudo -i
+cat k3s-riscv64.gz.* | gunzip > /usr/local/bin/k3s
+chmod +x /usr/local/bin/k3s
+exit
+```
+
+Verify whether it can run successfully. The typical output of a successful run is as follows:
+```shell
+sipeed@lpi4a:~$ k3s
+NAME:
+    k3s-riscv64 - Kubernetes, but small and simple
+                                                                                
+USAGE:
+    k3s-riscv64 [global options] command [command options] [arguments...]
+                                                                                
+VERSION:
+    v1.27.3+k3s-9d376dfb-dirty (9d376dfb)
+                                                                                
+COMMANDS:
+    server Run management server
+    agent Run node agent
+    kubectl Run kubectl
+    crictl Run crictl
+    ctr Run ctr
+    check-config Run config check
+    token Manage bootstrap tokens
+    etcd-snapshot
+    secrets-encrypt Control secrets encryption and keys rotation
+    certificate Manage K3s certificates
+    completion Install shell completion script
+    help, h Shows a list of commands or help for one command
+                                                                                
+GLOBAL OPTIONS:
+    --debug (logging) Turn on debug logs [$K3S_DEBUG]
+    --data-dir value, -d value (data) Folder to hold state (default: /var/lib/r)
+    --help, -h show help
+    --version, -v print the version
+```
+
+Now, download and run the k3s install script:
+```shell
+curl -sfL https://get.k3s.io > k3s-install.sh
+chmod +x k3s-install.sh
+INSTALL_K3S_EXEC="server --disable metrics-server" INSTALL_K3S_SKIP_DOWNLOAD="true" bash -x ./k3s-install.sh
+```
+
+After running, use the following command to check whether k3s is running normally. Typical output is as follows:
+```shell
+sipeed@lpi4a:~$ systemctl status k3s
+● k3s.service - Lightweight Kubernetes
+      Loaded: loaded (8;;file://lpi4a/etc/systemd/system/k3s.service/etc/systemd)
+      Active: active (running) since Mon 2023-07-31 06:48:34 UTC; 6s ago
+        Docs: 8;;https://k3s.iohttps://k3s.io8;;
+     Process: 3240 ExecStartPre=/bin/sh -xc ! /usr/bin/systemctl is-enabled --qu>
+     Process: 3242 ExecStartPre=/sbin/modprobe br_netfilter (code=exited, status>
+     Process: 3243 ExecStartPre=/sbin/modprobe overlay (code=exited, status=0/SU>
+    Main PID: 3244 (k3s-server)
+       Tasks: 37
+      Memory: 529.5M
+         CPU: 54.841s
+      CGroup: /system.slice/k3s.service
+              ├─3244 "/usr/local/bin/k3s server"
+              └─3361 "containerd
+```
+
+Next, we create a new configuration file to run the k3s container:
+```shell
+vi hello-lpi4a.yaml
+```
+
+The content of the file is as follows (refer to https://raw.githubusercontent.com/CARV-ICS-FORTH/kubernetes-riscv64/main/examples/hello-kubernetes.yaml):
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+   name: hello
+spec:
+   type: ClusterIP
+   ports:
+   - port: 8080
+   selector:
+     app: hello
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+   name: hello
+spec:
+   replicas: 1
+   selector:
+     matchLabels:
+       app: hello
+   template:
+     metadata:
+       labels:
+         app: hello
+     spec:
+       containers:
+       - name: hello-kubernetes
+         image: carvicsforth/hello-kubernetes:1.10.1
+         env:
+         - name: MESSAGE
+           value: "Hello Lichee Pi 4A!"
+```
+
+Then start a container with this configuration file. A typical input is as follows:
+```shell
+sipeed@lpi4a:~$ sudo kubectl apply -f hello-lpi4a.yaml
+service/hello created
+deployment.apps/hello created
+```
+
+Then check the status of pods (if the IP address is not displayed in the output, you can wait a little longer and check again):
+```shell
+sipeed@lpi4a:~$
+NAME READY STATUS RESTARTS AGE IP NODE NOMINATED NODE READINESS GATES
+hello-5b576d45d7-fdjgh 1/1 Running 0 16m 10.42.0.6 lpi4a <none> <none>
+```
+
+Next, use curl to test whether the k3s container runs successfully. The typical output is as follows:
+```shell
+sipeed@lpi4a:~$ curl 10.42.0.6:8080
+<!DOCTYPE html>
+<html>
+<head>
+     <title>Hello Kubernetes!</title>
+     <link rel="stylesheet" type="text/css" href="/css/main.css">
+     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300">
+</head>
+<body>
+
+   <div class="main">
+     <img src="/images/kubernetes.png"/>
+     <div class="content">
+       <div id="message">
+   Hello Lichee Pi 4A!
+</div>
+<div id="info">
+   <table>
+     <tr>
+       <th>namespace:</th>
+       <td>-</td>
+     </tr>
+     <tr>
+       <th>pod:</th>
+       <td>hello-5b576d45d7-fdjgh</td>
+     </tr>
+     <tr>
+       <th>node:</th>
+       <td>- (Linux 5.10.113-gfac22a756532)</td>
+     </tr>
+   </table>
+</div>
+<div id="footer">
+   paulbouwer/hello-kubernetes:1.10.1 (linux/riscv64)
+</div>
+     </div>
+   </div>
+
+</body>
+</html>
+```
+So far, the k3s container has run successfully.
+
+The page shows as follows:
+
+![k3s_hello_world](./../../../../zh/lichee/th1520/lpi4a/assets/application/k3s_hello_world.png)
+
 ## Minecraft Server
 
 Here we take `1.20.1` version as an example, LPi4A as Server and PC (Ubuntu 22.04) as Client.
@@ -363,7 +544,10 @@ java -jar HMCL-3.5.5.jar
 ```
 
 You can download ``1.20.1`` version directly in the launcher and configure the game account, then you can enter the game, after entering the game, enter the server IP (LPi4A's IP) to add the server to connect (make sure that the computer and LPi4A are under the same network), the effect is as follows:
+
 ![mc_server_menu](./../../../../zh/lichee/th1520/lpi4a/assets/application/mc_server_menu.png)
+
+![mc_server_use](./../../../../zh/lichee/th1520/lpi4a/assets/application/mc_server_use.png)
 
 > Note that if you want to change back to the original version of the JDK, run:
 > ```shell.

@@ -134,9 +134,10 @@ items:
                 -   label: revyos
                     file: lichee/th1520/lpi4a/7_develop_revyos.md
                 -   label: Linux Mainline (Work in Progress)
+                -   label: Android
+                    file: lichee/th1520/lpi4a/7_develop_android.md
                 -   label: THead Yocto
                     file: lichee/th1520/lpi4a/7_develop_thead.md
-                -   label: Android (Work in Progress)
                 -   label: OpenHarmony (Work in Progress)
                 -   label: OpenWRT (Work in Progress)
             -   label: Application(Building)

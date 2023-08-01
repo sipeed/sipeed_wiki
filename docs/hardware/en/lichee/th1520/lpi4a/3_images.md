@@ -118,6 +118,34 @@ TODO
 ![android](./../../../../zh/lichee/th1520/lpi4a/assets/images/android.png)
 Readme and image download link: [Click me](https://gitee.com/thead-android/thead-android)
 
+> The Android 13 SDK is still in its infancy, and the problems will be gradually fixed
+
+The precompiled image file of Android 13 is provided in the network disk download link of Sipeed official image, and the burning method after downloading is as follows. Please use the version downloaded from here for the fastboot tool:
+https://developer.android.com/tools/releases/platform-tools
+
+There are also fastboot files in the network disk.
+
+```shell
+#Burn uboot and initialize boot environment variables
+fastboot flash ram u-boot-with-spl.bin
+fastboot reboot
+fastboot flash uboot u-boot-with-spl.bin
+
+#Burn all partitions
+#In the non-boot burning mode, you can enter the command fastboot usb 0 in the uboot command line to burn the partition separately
+fastboot flash bootpart bootpart.ext4
+fastboot flash boot boot.img
+fastboot flash vendor_boot vendor_boot.img
+fastboot flash super super.img
+fastboot flash userdata userdata.img
+fastboot flash vbmeta vbmeta.img
+fastboot flash vbmeta_system vbmeta_system.img
+
+#Initialize metadata and misc partition
+fastboot erase metadata
+fastboot erase misc
+```
+
 ## Third-party images
 
 The images provided by third parties are listed here for informational purposes only. Sipeed does not guarantee the availability and stability of these images.

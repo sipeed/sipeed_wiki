@@ -22,7 +22,7 @@ This project is a repository supported by the Android Open Source Project (AOSP)
 
 > Note that the project is still in the early stage, the current AOSP on Licheepi 4A is not stable and the functionality is not yet complete. A stable version with improved functionality will be updated later, so please keep an eye on this document for updates.
 
-### 快速上手
+### Get Started
 
 Before downloading the source code of Android open source project , please check your working environment , it is recommended to use a Linux system with at least 250G free disk space , 16GB + RAM (Ubuntu 20.04 or later version is recommended ) of the working environment , compilation time and the number of processor cores of the host computer is related to the host computer , it is recommended to use a host computer with more cores . It is recommended to use a host with more cores. Due to the network, the download time may vary greatly depending on the network conditions, and it is recommended to use a proxy to download the source code.
 

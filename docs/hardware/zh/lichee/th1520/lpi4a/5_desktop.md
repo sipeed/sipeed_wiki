@@ -175,7 +175,7 @@ W: GPG error: http://archive.ubuntu.com trusty-updates Release: The following si
 ```
 可以尝试用下列命令修复：  
 ```shell
-sudo apt-key adv --keyserver keyring.debian.org --recv-keys '替换成报错中的NO_PUBKEY 后面的key值'
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys '替换成报错中的NO_PUBKEY 后面的key值'
 # 或使用
 gpg --keyserver keyring.debian.org --recv-keys '替换成报错中的NO_PUBKEY 后面的key值'
 ```
@@ -249,7 +249,11 @@ LibreOffice Writer 即 WORD 功能：
 
 ![browser_location](./assets/desktop/browser_location.png)
 
-> 
+> 若桌面下方启动栏图标显示异常，可以尝试使用以下命令修复：
+```shell
+cp /etc/xdg/xfce4/panel/default.xml /home/sipeed/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml
+chown sipeed:sipeed /home/sipeed/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml
+```
 
 使用搜索引擎：  
 
