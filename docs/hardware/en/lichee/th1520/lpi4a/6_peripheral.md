@@ -346,6 +346,59 @@ sudo apt-get install fswebcam
 fswebcam /dev/video0 image.jpg
 ```
 
+To allow the USB camera to automatically save images, a reference script is given below. The script uses the uvccapture tool, which makes it easy to adjust capture parameters as needed.
+
+Install this tool first
+```shell
+sudo apt install uvccapture
+```
+
+This tool supports various parameters, use `-x -y` to adjust the shooting resolution, `-B` to adjust the brightness, `-C` to adjust the contrast, `-S` to adjust the saturation, and `-o` to specify the shooting image storage Path, for specific use, refer to the following script code:
+```shell
+#!/bin/bash
+
+# Check if the interval time parameter is passed in
+if [ -z "$1" ]; then
+   echo -e "The interval time parameter is not specified, and the default interval is 1 second"
+   interval=1
+else
+   interval=$1
+the fi
+
+# Check if the output file path parameter is passed in
+if [ -z "$2" ]; then
+   echo -e "The output file path parameter is not specified, the default output is to the current directory"
+   output_file="$PWD"
+else
+   output_file=$2
+the fi
+
+# Check whether the number of shots parameter is passed in
+if [ -z "$3" ]; then
+   echo -e "The number of shots is not specified, the default is 10 shots"
+   num_executions=10
+else
+   num_executions=$3
+the fi
+
+echo -e "script started, press q to stop"
+
+for ((i = 1; i <= num_executions; i++)); do
+     echo -e "capture img $i"
+     uvccapture -x640 -y480 -m -o$output_file/$image$i.jpg
+# Take pictures at specified time intervals
+sleep $interval
+# Press the q key to exit
+read -t 1 -n 1 key
+if [[ $key = "q" ]]; then
+break
+the fi
+done
+
+echo -e "Script execution ended"
+```
+The above script can also be operated with fswebcam, just make corresponding changes.
+
 ### USB Sound Card
 
 TODO

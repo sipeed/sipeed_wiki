@@ -174,7 +174,7 @@ You can try the following command to fix it:
 ```shell
 sudo apt-key adv --keyserver keyring.debian.org --recv-keys 'Replace the key value after NO_PUBKEY in the error message here'
 # or
-gpg --keyserver keyring.debian.org --recv-keys 'Replace the key value after NO_PUBKEY in the error message here'
+gpg --keyserver keyserver.ubuntu.com --recv-keys 'Replace the key value after NO_PUBKEY in the error message here'
 ```
 
 ## SSH
@@ -244,6 +244,12 @@ LibreOffice Writer is the WORD function:
 The Chromium browser is built-in and is available by clicking the browser icon at the bottom of the desktop: 
 
 ![browser_location](./../../../../zh/lichee/th1520/lpi4a/assets/desktop/browser_location.png)
+
+> If the launch bar icon at the bottom of the desktop is displayed abnormally, you can try to use the following commands to fix it:
+```shell
+cp /etc/xdg/xfce4/panel/default.xml /home/sipeed/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml
+chown sipeed:sipeed /home/sipeed/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml
+```
 
 Use a search engine:  
 

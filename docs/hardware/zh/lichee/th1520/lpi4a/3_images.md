@@ -98,6 +98,34 @@ TODO
 
 Readme and image download link: [Click me](https://gitee.com/thead-android/thead-android)
 
+> 安卓13 SDK 仍处于初期状态，会逐步修复其中的问题
+
+Sipeed 官方镜像的网盘下载链接中提供了 Android 13的预编译镜像文件，下载后烧录方式如下，fastboot工具请使用从这里下载的版本：
+https://developer.android.com/tools/releases/platform-tools
+
+网盘中也有提供 fastboot 的文件
+
+```shell
+#烧录uboot并初始化boot环境变量
+fastboot flash ram u-boot-with-spl.bin
+fastboot reboot
+fastboot flash uboot u-boot-with-spl.bin
+
+#烧录各个分区
+#在非boot烧写模式，可以在uboot的命令行中输入命令fastboot usb 0，单独烧录分区
+fastboot flash bootpart bootpart.ext4
+fastboot flash boot boot.img
+fastboot flash vendor_boot vendor_boot.img
+fastboot flash super super.img 
+fastboot flash userdata userdata.img
+fastboot flash vbmeta vbmeta.img
+fastboot flash vbmeta_system vbmeta_system.img
+
+#初始化metadata和misc分区
+fastboot erase metadata 
+fastboot erase misc
+```
+
 ## 第三方镜像
 
 这里整理了第三方提供的镜像，仅供用户体验，sipeed 不保证此类镜像的可用性，稳定性。

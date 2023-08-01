@@ -345,6 +345,59 @@ sudo apt-get install fswebcam
 fswebcam /dev/video0 image.jpg
 ```
 
+若要让 USB 摄像头自动存图，以下给出一个参考脚本。该脚本使用 uvccapture 工具，可以方便地根据需要调整拍摄参数。
+
+首先安装这个工具
+```shell
+sudo apt install uvccapture
+```
+
+这个工具支持各种参数，使用 `-x -y` 调整拍摄分辨率，`-B`调整亮度，`-C`调整对比度，`-S`调整饱和度，`-o`可以指定拍摄图像存储路径，具体使用参考下面的脚本代码：
+```shell
+#!/bin/bash
+
+# 检查是否传入了间隔时间参数
+if [ -z "$1" ]; then
+  echo -e "未指定间隔时间参数，默认使用1秒间隔"
+  interval=1
+else
+  interval=$1
+fi
+
+# 检查是否传入了输出文件路径参数
+if [ -z "$2" ]; then
+  echo -e "未指定输出文件路径参数，默认输出到当前目录下"
+  output_file="$PWD"
+else
+  output_file=$2
+fi
+
+# 检查是否传入了拍摄次数参数
+if [ -z "$3" ]; then
+  echo -e "未指定拍摄次数，默认拍摄10张"
+  num_executions=10
+else
+  num_executions=$3
+fi
+
+echo -e "脚本开始执行，按下q键停止"
+
+for ((i = 1; i <= num_executions; i++)); do
+    echo -e "capture img $i"
+    uvccapture -x640 -y480 -m -o$output_file/$image$i.jpg
+	  # 间隔指定时间再拍照
+	  sleep $interval
+	  # 按下q键退出
+	  read -t 1 -n 1 key
+	  if [[ $key = "q" ]]; then
+	    break
+	  fi
+done
+
+echo -e "脚本执行结束"
+```
+上述脚本中也可以使用 fswebcam 来操作，做相应更改即可。
+
 ### USB 声卡
 
 TODO

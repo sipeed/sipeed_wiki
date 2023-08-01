@@ -299,6 +299,236 @@ hello-world   latest    eb6f80695a28   2 months ago   4.98kB
 
 若要体验更完整的镜像，去[这里](https://hub.docker.com/)搜索想要使用的发行版名称，拉取即可。
 
+## K3s-RISCV
+
+该章节将展示如何在 LPi4A 上运行轻量级的 Kubernetes 发行版本 K3s。
+
+先下载预编译的 K3s包：
+https://github.com/CARV-ICS-FORTH/k3s/releases
+
+然后将下载下来的包合并为一个 `.gz` 文件并解压，完成后给 k3s 添加执行权限：
+```shell
+wget https://github.com/CARV-ICS-FORTH/k3s/releases/download/20230721/k3s-riscv64.gz.aa
+wget https://github.com/CARV-ICS-FORTH/k3s/releases/download/20230721/k3s-riscv64.gz.ab
+wget https://github.com/CARV-ICS-FORTH/k3s/releases/download/20230721/k3s-riscv64.gz.ac
+# 下面的命令需要root用户来执行
+sudo -i
+cat k3s-riscv64.gz.* | gunzip > /usr/local/bin/k3s
+chmod +x /usr/local/bin/k3s
+exit
+```
+
+验证是否能成功运行，成功运行的典型输出如下：
+```shell
+sipeed@lpi4a:~$ k3s                                                
+NAME:                                                                           
+   k3s-riscv64 - Kubernetes, but small and simple                               
+                                                                                
+USAGE:                                                                          
+   k3s-riscv64 [global options] command [command options] [arguments...]        
+                                                                                
+VERSION:                                                                        
+   v1.27.3+k3s-9d376dfb-dirty (9d376dfb)                                        
+                                                                                
+COMMANDS:                                                                       
+   server           Run management server                                       
+   agent            Run node agent                                              
+   kubectl          Run kubectl                                                 
+   crictl           Run crictl                                                  
+   ctr              Run ctr                                                     
+   check-config     Run config check                                            
+   token            Manage bootstrap tokens                                     
+   etcd-snapshot                                                                
+   secrets-encrypt  Control secrets encryption and keys rotation                
+   certificate      Manage K3s certificates                                     
+   completion       Install shell completion script                             
+   help, h          Shows a list of commands or help for one command            
+                                                                                
+GLOBAL OPTIONS:                                                                 
+   --debug                     (logging) Turn on debug logs [$K3S_DEBUG]        
+   --data-dir value, -d value  (data) Folder to hold state (default: /var/lib/r)
+   --help, -h                  show help                                        
+   --version, -v               print the version
+```
+
+现在，下载并运行 k3s 的安装脚本：
+```shell
+curl -sfL https://get.k3s.io > k3s-install.sh
+chmod +x k3s-install.sh
+INSTALL_K3S_EXEC="server --disable metrics-server" INSTALL_K3S_SKIP_DOWNLOAD="true" bash -x ./k3s-install.sh
+```
+
+运行完成后，使用如下命令检查 k3s 是否正常运行。典型输出如下：
+```shell
+sipeed@lpi4a:~$ systemctl status k3s
+● k3s.service - Lightweight Kubernetes                                          
+     Loaded: loaded (8;;file://lpi4a/etc/systemd/system/k3s.service/etc/systemd)
+     Active: active (running) since Mon 2023-07-31 06:48:34 UTC; 6s ago         
+       Docs: 8;;https://k3s.iohttps://k3s.io8;;                                 
+    Process: 3240 ExecStartPre=/bin/sh -xc ! /usr/bin/systemctl is-enabled --qu>
+    Process: 3242 ExecStartPre=/sbin/modprobe br_netfilter (code=exited, status>
+    Process: 3243 ExecStartPre=/sbin/modprobe overlay (code=exited, status=0/SU>
+   Main PID: 3244 (k3s-server)                                                  
+      Tasks: 37                                                                 
+     Memory: 529.5M                                                             
+        CPU: 54.841s                                                            
+     CGroup: /system.slice/k3s.service                                          
+             ├─3244 "/usr/local/bin/k3s server"                                 
+             └─3361 "containerd
+```
+
+接下来我们新建一个配置文件，运行 k3s 容器：
+```shell
+vi hello-lpi4a.yaml
+```
+
+文件内容如下（参考https://raw.githubusercontent.com/CARV-ICS-FORTH/kubernetes-riscv64/main/examples/hello-kubernetes.yaml）：
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello
+spec:
+  type: ClusterIP
+  ports:
+  - port: 8080
+  selector:
+    app: hello
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello
+  template:
+    metadata:
+      labels:
+        app: hello
+    spec:
+      containers:
+      - name: hello-kubernetes
+        image: carvicsforth/hello-kubernetes:1.10.1
+        env:
+        - name: MESSAGE
+          value: "Hello Lichee Pi 4A!"
+```
+
+然后使用这个配置文件启动一个容器。典型输入如下：
+```shell
+sipeed@lpi4a:~$ sudo kubectl apply -f hello-lpi4a.yaml 
+service/hello created
+deployment.apps/hello created
+```
+
+然后查看 pods 情况（若输出中没显示 IP 地址，可以多等待一会儿再查看）：
+```shell
+sipeed@lpi4a:~$ 
+NAME                     READY   STATUS    RESTARTS   AGE   IP          NODE    NOMINATED NODE   READINESS GATES
+hello-5b576d45d7-fdjgh   1/1     Running   0          16m   10.42.0.6   lpi4a   <none>           <none>
+```
+
+接下来使用 curl 测试 k3s 容器是否运行成功，典型输出如下：
+```shell
+sipeed@lpi4a:~$ curl 10.42.0.6:8080
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hello Kubernetes!</title>
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300" >
+</head>
+<body>
+
+  <div class="main">
+    <img src="/images/kubernetes.png"/>
+    <div class="content">
+      <div id="message">
+  Hello Lichee Pi 4A!
+</div>
+<div id="info">
+  <table>
+    <tr>
+      <th>namespace:</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>pod:</th>
+      <td>hello-5b576d45d7-fdjgh</td>
+    </tr>
+    <tr>
+      <th>node:</th>
+      <td>- (Linux 5.10.113-gfac22a756532)</td>
+    </tr>
+  </table>
+</div>
+<div id="footer">
+  paulbouwer/hello-kubernetes:1.10.1 (linux/riscv64)
+</div>
+    </div>
+  </div>
+
+</body>
+</html>
+```
+至此，k3s容器已经运行成功。
+
+页面效果如下：
+
+![k3s_hello_world](./assets/application/k3s_hello_world.png)
+
+<!--
+最后，修改配置文件使得容器能够被外部设备访问：
+```shell
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello
+spec:
+  type: NodePort
+  ports:
+  - port: 8080
+    targetPort: 8080
+    nodePort: 30080
+    protocol: TCP
+  selector:
+    app: hello
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello
+  template:
+    metadata:
+      labels:
+        app: hello
+    spec:
+      containers:
+      - name: hello-kubernetes
+        image: carvicsforth/hello-kubernetes:1.10.1
+        env:
+        - name: MESSAGE
+          value: "Hello Lichee Pi 4A!"
+```
+其中的 `nodePort` 为 30000-32767 中的任意一个数字。
+
+更改后，应用新的配置文件：
+```shell
+sipeed@lpi4a:~$ sudo kubectl apply -f hello-lpi4a.yaml 
+service/hello configured
+deployment.apps/hello unchanged
+```
+-->
+
+
 ## Minecraft Server
 
 这里以`1.20.1`版本为例，LPi4A 作为 Server，电脑端（Ubuntu 22.04）作为 Client。
@@ -364,7 +594,10 @@ java -jar HMCL-3.5.5.jar
 ```
 
 可以直接在启动器中下载`1.20.1`版本，并且配置好游戏账户，然后即可进入游戏，进入游戏后，输入 服务器 IP（LPi4A 的 IP）添加服务器后即可连接（确保电脑和 LPi4A 处于同一网络下），效果如下：
+
 ![mc_server_menu](./assets/application/mc_server_menu.png)
+
+![mc_server_use](./assets/application/mc_server_use.png)
 
 > 注意，若想改回原来版本的 JDK，则执行：
 > ```shell
