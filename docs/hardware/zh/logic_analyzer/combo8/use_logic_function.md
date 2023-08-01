@@ -34,11 +34,13 @@ Linux:
 
 ### 快速使用
 
-#### 连接SLogic和目标设备
+#### 引脚连接
 
-将目标设备的待测信号点连接至SLogic任意空闲CH端口，并确保待测设备的GND与SLogic的GND相连接
+![](./assets/use_logic_function/slogic_line_order.png)
 
-![slogic_panel](./assets/basic_operation/slogic_panel.png)
+
+
+上图为SLogic 8个通道的线序图，将目标设备的待测信号点连接至SLogic任意空闲CH端口，并确保待测设备的GND与SLogic的GND相连接
 
 #### 连接SLogic和电脑
 
