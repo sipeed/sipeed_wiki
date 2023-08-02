@@ -73,6 +73,8 @@ items:
         -   label: 使用 MaixPy3 开发
             file: ../../soft/maixpy3/zh/tools/0.MaixII-Dock.ipynb
             target: _blank
+        -   label: 使用 OpenCV
+            file: maixII/M2/opencv.md
         -   label: FAQ
             file: maixII/M2/faq.md
     -   label: MaixII-S
