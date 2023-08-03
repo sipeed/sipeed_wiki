@@ -31,7 +31,9 @@ The default image has two types of account and password configurations, you can 
 2. User: `debian`，password: `debian`； user: `sipeed`，password: `licheepi`
 
 ### Memory Problem Repair Instructions
-Please use the following command to burn a new u-boot to the board. The u-boot used by 16G memory is in the Mega Cloud Storage link: https://mega.nz/folder/phoQlBTZ#cZeQ3qZ__pDvP94PT3_bGA , and can also be downloaded from this link: https://dl.sipeed.com/shareURL/LICHEE/licheepi4a/07_Tools
+IMPORTANT：16GB memory board sendout before 2023.8.1 have a buggy images that can't correctly recognize 16GB memory (occupy errors running big applications), please follow the next instructions to fix this error.
+
+Please use the following command to burn a new u-boot to the board. The u-boot used by 16G memory is in the [Mega Cloud Storage link]( https://mega.nz/folder/phoQlBTZ#cZeQ3qZ__pDvP94PT3_bGA), and can also be downloaded from [this link](https://dl.sipeed.com/shareURL/LICHEE/licheepi4a/07_Tools)
 The relevant files are in the `20230803_tempfix.zip` compressed package.
 (images of 0721 and later versions can be used normally, no need to replace it with the file here)
 
@@ -44,15 +46,15 @@ sudo ./fastboot flash uboot ./images/u-boot-with-spl-ddr16g.bin
 sudo ./fastboot flash boot ./images/boot_16gddr.ext4
 ```
 
-Download Links:
-
-Mega Cloud Storage：[click me](https://mega.nz/folder/phoQlBTZ#cZeQ3qZ__pDvP94PT3_bGA)
-ISCAS mirror: [click me](https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/)
-
 ### Debian
 
 ![debian](./../../../../zh/lichee/th1520/lpi4a/assets/images/debian.png)
 ![debian_neofetch](./../../../../zh/lichee/th1520/lpi4a/assets/images/debian_neofetch.png)
+
+Download Links:
+
+Mega Cloud Storage：[click me](https://mega.nz/folder/phoQlBTZ#cZeQ3qZ__pDvP94PT3_bGA)
+ISCAS mirror: [click me](https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/)
 
 1. LPI4A_20230721.zip
 
@@ -133,6 +135,10 @@ TODO
 
 ![android](./../../../../zh/lichee/th1520/lpi4a/assets/images/android.png)
 Readme and image download link: [Click me](https://gitee.com/thead-android/thead-android)
+
+Prebuild Image Download Links:
+
+Mega Cloud Storage：[click me](https://mega.nz/folder/phoQlBTZ#cZeQ3qZ__pDvP94PT3_bGA)
 
 > The Android 13 SDK is still in its infancy, and the problems will be gradually fixed
 
