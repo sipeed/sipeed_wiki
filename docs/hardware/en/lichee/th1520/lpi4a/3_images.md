@@ -24,6 +24,18 @@ Support is currently added to Linux 6.x, the main contributor of this is `Jishen
 The image for the LicheePi 4A is updated irregularly. The initial image may not be stable, or it may not be able to fully utilize the performance of the TH1520. Please follow the steps below to get the latest image.
 The official Sipeed image is based on an adapted Debian.
 
+There may be problems with the memory identification of some 16G memory core boards, which may cause the system to crash when the memory usage is high.
+Please use the following command to burn a new u-boot to the board, the u-boot used by 16G memory is in the link of the network disk in the **Download Links** below.
+
+```shell
+sudo ./fastboot flash ram ./images/u-boot-with-spl-ddr16g.bin
+sudo ./fastboot reboot
+sleep 1
+sudo ./fastboot flash uboot ./images/u-boot-with-spl-ddr16g.bin
+# If there is no device tree corresponding to 16G ddr in the boot.ext4 you use, you need to burn the boot.ext4 corresponding to 16G ddr
+sudo ./fastboot flash boot ./images/boot_16gddr.ext4
+```
+
 The default image has two types of account and password configurations, you can try both:
 1. User：`root`，`debian`，`sipeed`； the password for all accounts is `licheepi`
 2. User: `debian`，password: `debian`； user: `sipeed`，password: `licheepi`
