@@ -24,8 +24,15 @@ update:
 LicheePi 4A 的镜像不定期更新中，初期的镜像可能不太稳定，或者无法发挥 TH1520 的完全性能，请关注本页面，获取最新镜像。
 Sipeed 官方镜像基于 Debian 系统修改适配。 
 
+默认镜像有两类帐号密码配置，可以都尝试下：
+1. 帐号：`root`，`debian`，`sipeed`；密码均为 `licheepi`
+2. 帐号`debian`，密码`debian`；帐号`sipeed`，密码`licheepi`
+
+### 内存问题修复说明
 部分 16G 内存核心板的内存识别可能存在问题，导致内存占用较高时会使得系统崩溃。
-请使用下面的命令烧录新的 u-boot 到板子中，16G 内存使用的 u-boot 在下面的**下载地址**的网盘的链接中。
+请使用下面的命令烧录新的 u-boot 到板子中，16G 内存使用的 u-boot 在下面的**下载地址**的网盘的链接 https://pan.baidu.com/s/1xH56ZlewB6UOMlke5BrKWQ 中，也能在这个链接中下载：https://dl.sipeed.com/shareURL/LICHEE/licheepi4a/07_Tools
+相关文件在 `20230803_tempfix.zip` 压缩包中。
+（0721及以后版本的镜像内存能正常使用，无需替换为此处的文件）
 
 ```shell
 sudo ./fastboot flash ram ./images/u-boot-with-spl-ddr16g.bin
@@ -35,10 +42,6 @@ sudo ./fastboot flash uboot ./images/u-boot-with-spl-ddr16g.bin
 # 若自己使用的 boot.ext4 中没有 16G ddr 对应的设备树，则需要再烧录 16G ddr 对应的 boot.ext4
 sudo ./fastboot flash boot ./images/boot_16gddr.ext4
 ```
-
-默认镜像有两类帐号密码配置，可以都尝试下：
-1. 帐号：`root`，`debian`，`sipeed`；密码均为 `licheepi`
-2. 帐号`debian`，密码`debian`；帐号`sipeed`，密码`licheepi`
 
 下载地址：
 百度网盘：[点我](https://pan.baidu.com/s/1xH56ZlewB6UOMlke5BrKWQ)
