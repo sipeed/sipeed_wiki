@@ -29,8 +29,9 @@ Sipeed 官方镜像基于 Debian 系统修改适配。
 2. 帐号`debian`，密码`debian`；帐号`sipeed`，密码`licheepi`
 
 ### 内存问题修复说明
-部分 16G 内存核心板的内存识别可能存在问题，导致内存占用较高时会使得系统崩溃。
-请使用下面的命令烧录新的 u-boot 到板子中，16G 内存使用的 u-boot 在下面的**下载地址**的网盘的链接 https://pan.baidu.com/s/1xH56ZlewB6UOMlke5BrKWQ 中，也能在这个链接中下载：https://dl.sipeed.com/shareURL/LICHEE/licheepi4a/07_Tools
+重要提示：2023.8.1 之前发出的 16GB 内存板存在错误图像，无法正确识别 16GB 内存（运行大型应用程序可能导致系统崩溃），请按照以下说明修复此错误。
+
+请使用下面的命令烧录新的 u-boot 到板子中，16G 内存使用的 u-boot 在[网盘链接](https://pan.baidu.com/s/1xH56ZlewB6UOMlke5BrKWQ)中，也能在[这个链接](https://dl.sipeed.com/shareURL/LICHEE/licheepi4a/07_Tools)中下载
 相关文件在 `20230803_tempfix.zip` 压缩包中。
 （0721及以后版本的镜像内存能正常使用，无需替换为此处的文件）
 
@@ -43,15 +44,15 @@ sudo ./fastboot flash uboot ./images/u-boot-with-spl-ddr16g.bin
 sudo ./fastboot flash boot ./images/boot_16gddr.ext4
 ```
 
-下载地址：
-百度网盘：[点我](https://pan.baidu.com/s/1xH56ZlewB6UOMlke5BrKWQ)
-Mega 云盘：[点我](https://mega.nz/folder/phoQlBTZ#cZeQ3qZ__pDvP94PT3_bGA)
-ISCAS 镜像站：[点我](https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/)
-
 ### Debian
 
 ![debian](./assets/images/debian.png)  
 ![debian_neofetch](./assets/images/debian_neofetch.png)  
+
+下载地址：
+百度网盘：[点我](https://pan.baidu.com/s/1xH56ZlewB6UOMlke5BrKWQ)
+Mega 云盘：[点我](https://mega.nz/folder/phoQlBTZ#cZeQ3qZ__pDvP94PT3_bGA)
+ISCAS 镜像站：[点我](https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/)
 
 1. LPI4A_20230721.zip
 
@@ -112,6 +113,10 @@ TODO
 ![android](./assets/images/android.png)
 
 Readme and image download link: [Click me](https://gitee.com/thead-android/thead-android)
+
+预构建镜像下载地址：
+百度网盘：[点我](https://pan.baidu.com/s/1xH56ZlewB6UOMlke5BrKWQ)
+Mega 云盘：[点我](https://mega.nz/folder/phoQlBTZ#cZeQ3qZ__pDvP94PT3_bGA)
 
 > 安卓13 SDK 仍处于初期状态，会逐步修复其中的问题
 
