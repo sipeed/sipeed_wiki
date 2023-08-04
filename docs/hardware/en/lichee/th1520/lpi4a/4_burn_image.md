@@ -53,6 +53,39 @@ The driver needs to be installed manually the first time you use the device.
 
 Note that the driver is not digitally signed, and you need to disable the driver signature checks.
 
+To disable digital signatures follow the steps below:
+
+**Win10**
+1. Find the settings of WIN10, click "Settings":
+
+![win10_find_windows_settings](./../../../../zh/lichee/th1520/lpi4a/assets/burn_image/win10_find_windows_settings.png)
+
+2. Click the last "Update and Security", then click "Recovery":
+
+![win10_click_the_restore](./../../../../zh/lichee/th1520/lpi4a/assets/burn_image/win10_click_the_restore.png)
+
+3. After clicking "Recovery", click "Restart" under Advanced Startup on the right, and the computer will restart at this time. If there are other important programs running, please be careful:
+
+![win10_click_the_restart](./../../../../zh/lichee/th1520/lpi4a/assets/burn_image/win10_click_the_restart.png)
+
+**Win11**
+1. Find "System Menu" in Settings and tap "Restore".
+![win11_click_the_restore](./../../../../zh/lichee/th1520/lpi4a/assets/burn_image/win11_click_the_restore.png)
+2. Click "Restart" under Advanced Startup on the right, and the computer will restart at this time. If there are other important programs running, please be careful.
+![win11_click_the_restart](./../../../../zh/lichee/th1520/lpi4a/assets/burn_image/win11_click_the_restart.png)
+
+**Same Part**
+1. After restarting, several options will appear, click on the option "Troubleshooting", then click on "Advanced", start the settings, and restart.
+
+![click_the_advanced_option](./../../../../zh/lichee/th1520/lpi4a/assets/burn_image/click_the_advanced_option.png)
+
+2. After this will restart, a list will pop up, including options such as safe mode, including the "prohibit mandatory driver signature" we care about here, select "disable mandatory driver signature", press the corresponding number, and then The computer will restart.
+![ban_the_signature](./../../../../zh/lichee/th1520/lpi4a/assets/burn_image/ban_the_signature.png)
+
+3. After restarting, the driver can be installed successfully. If prompted, click to continue the installation. The specific steps of fastboot driver installation are as follows:
+a. The development board is connected to the computer via usb.
+b. Open the device manager and the "USB download gadget" device will appear.
+
 Refer to [Disable Driver signature verification](https://answers.microsoft.com/en-us/windows/forum/all/permanent-disable-driver-signature-verification/009c3498-bef8-4564-bb52-1d05812506e0#:~:text=Start%20your%20computer%20and%20then%20keep%20pressing%20the,your%20keyboard%20to%20select%20Disable%20driver%20signature%20enforcement.)
 
 ![before_install_driver](./../../../../zh/lichee/th1520/lpi4a/assets/burn_image/before_install_driver.png)

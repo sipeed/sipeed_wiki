@@ -43,6 +43,39 @@ update:
 
 Windows 下烧录时，需要先进入高级启动模式，禁用数字签名。才能正常安装下面的驱动。
 
+禁用数字签名请按照下面的步骤：
+
+**Win10**
+1. 找到 WIN10 的设置，点击“设置”：
+
+![win10_find_windows_settings](./assets/burn_image/win10_find_windows_settings.png)
+
+2. 点击最后一个“更新和安全”，然后点击“恢复”：
+
+![win10_click_the_restore](./assets/burn_image/win10_click_the_restore.png)
+
+3. 点击“恢复”之后，在右边点击高级启动下面的“重新启动”，此时电脑会重新启动，如果有其他重要 程序在跑，请慎重：
+
+![win10_click_the_restart](./assets/burn_image/win10_click_the_restart.png)
+
+**Win11**
+1. 在设置中找到"系统菜单"，然后点击“恢复”。 
+![win11_click_the_restore](./assets/burn_image/win11_click_the_restore.png)
+2. 在右边点击高级启动下面的“重新启动”，此时电脑会重新启动，如果有其他重要 程序在跑，请慎重。
+![win11_click_the_restart](./assets/burn_image/win11_click_the_restart.png)
+
+**相同部分**
+1. 重启之后会出现几个选项，点击选项“疑难解答”，然后点击“高级”，启动设置，重启。 
+
+![click_the_advanced_option](./assets/burn_image/click_the_advanced_option.png)
+
+2. 这会重启之后就跳出一个列表，其中有安全模式等选项，也包括这里我们关心的“禁止强制驱动程序签名”，选择“禁用强制驱动程序签名”，对应哪个数字就按那个数字，之后电脑会重新启动。
+![ban_the_signature](./assets/burn_image/ban_the_signature.png)
+
+3. 重启之后，驱动就可以成功安装。若有提示点击继续安装即可。 fastboot 驱动安装具体步骤如下： 
+a. 开发板通过 usb 连接到电脑。 
+b. 打开设备管理器出现“USB download gadget”设备。 
+
 ![before_install_driver](./assets/burn_image/before_install_driver.png)
 ![install_driver](./assets/burn_image/install_driver.png)
 
