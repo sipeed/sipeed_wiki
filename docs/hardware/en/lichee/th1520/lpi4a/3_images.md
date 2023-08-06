@@ -211,9 +211,14 @@ Project address: [Click me](https://github.com/chainsx/fedora-riscv-builder)
 
 ![ubuntu_neofetch](./../../../../zh/lichee/th1520/lpi4a/assets/images/ubuntu_neofetch.jpg)
 
-### NixOS
+### NixOS (unofficial)
+
 
 ![nixos](./../../../../zh/lichee/th1520/lpi4a/assets/images/nixos.png)
+
+![nixos_neofetch](./../../../../zh/lichee/th1520/lpi4a/assets/images/nixos-licheepi-neofetch.jpg)
+
+Project address: [Click me](https://github.com/ryan4yin/nixos-licheepi4a)
 
 ### Gentoo
 
