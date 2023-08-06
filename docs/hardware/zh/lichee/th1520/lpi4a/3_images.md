@@ -200,9 +200,13 @@ Project address: [Click me](https://github.com/chainsx/openwrt-th1520)
 
 ![ubuntu_neofetch](./assets/images/ubuntu_neofetch.jpg)
 
-### NixOS
+### NixOS (unofficial)
 
 ![nixos](./assets/images/nixos.png)
+
+![nixos_neofetch](./assets/images/nixos-licheepi-neofetch.jpg)
+
+Project address: [Click me](https://github.com/ryan4yin/nixos-licheepi4a)
 
 ### Gentoo
 
