@@ -880,6 +880,79 @@ unzip [压缩包名].zip
 ![game_result](./assets/application/psp2.png)
 ![game_result](./assets/application/psp3.png)
 
+## opencv 的使用
+首先安装依赖，以及python3环境
+```shell
+sudo apt install python3 python3-pip
+sudo apt install python3-opencv 
+sudo apt install libqt5gui5-gles
+```
+opencv读取图片demo：
+
+```shell
+#!/bin/bash
+import cv2
+
+img2 = cv2.imread('aContour.jpg', cv2.IMREAD_UNCHANGED)
+cv2.namedWindow('show_img', 0)          # 定义窗口名称，三个函数（namedWindow、 resizeWindow、 imshow）中窗口名称要一致
+cv2.resizeWindow('show_img', 736, 416)
+cv2.imshow("show_img",img2)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+cv2.destroyWindow("show_img")
+
+```
+运行程序：
+```shell
+python3 show_pic.py
+```
+运行结果：
+
+![opencv_result](./assets/application/opencv.png)
+
+PIL-numpy-opencv 综合测试demo：
+
+```shell
+#!/bin/bash
+from typing import List, Any, Tuple
+import matplotlib.pyplot as plt
+import cv2
+
+import numpy as np
+from PIL import Image
+from PIL import ImageFilter
+
+im = Image.open('a.jpg')
+om = im.filter(ImageFilter.CONTOUR)
+om.save('aContour.jpg')
+
+b = np.random.randint(0, 255, (200, 300), dtype=np.uint8)
+g = np.random.randint(0, 255, (200, 300), dtype=np.uint8)
+r = np.random.randint(0, 255, (200, 300), dtype=np.uint8)
+print(b)
+
+img=np.empty([20,30,3],dtype=np.uint8)
+bgr=()
+rowlist=[]
+collist: List[List[Tuple[Any, Any, Any]]]=[]
+for row in range(200):
+    rowlist=[]
+    for col in range(300):
+        bgr=(r[row][col],g[row][col],b[row][col])
+        rowlist.append(bgr)
+    collist.append(rowlist)
+
+img=np.asarray(collist)
+
+img2 = cv2.imread('aContour.jpg', cv2.IMREAD_UNCHANGED)
+cv2.namedWindow('show_img', 0)        
+cv2.resizeWindow('show_img', 736, 416)
+cv2.imshow("show_img",img2)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+cv2.destroyWindow("show_img")
+
+```
 ## ncnn 的使用
 
 首先，git源码和安装相关的依赖库
@@ -889,7 +962,7 @@ git clone https://github.com/Tencent/ncnn.git
 cd ncnn
 git submodule update --init
 
-sudo apt install build-essential git cmake libprotobuf-dev protobuf-compiler libvulkan-dev vulkan-utils libopencv-dev
+sudo apt install build-essential git cmake libprotobuf-dev protobuf-compiler libvulkan-dev vulkan-utils libopencv-dev libqt5gui5-gles
 
 ```
 编译源码
@@ -915,6 +988,7 @@ make -j$(nproc)
 ```
 运行结果
 ![ncnn_result](./assets/application/ncnn_result.png)
+![ncnn_result](./assets/application/ncnn_pic.png)
 
 ## 其它
 

@@ -739,7 +739,7 @@ The result is the `result.png` file, and the image from the above prompt is as f
 ## PSP Simulator
 
 
-[项目地址](https://github.com/hrydgard/ppsspp)
+[Project address](https://github.com/hrydgard/ppsspp)
 
 This example runs the PSP simulator on LPi4A through this project.
 
@@ -817,7 +817,7 @@ As shown in the figure:
 
 Game download:
 
-[psp游戏下载](https://playdreamcreate.com/)
+[PSP game Download](https://playdreamcreate.com/)
 
 Download completed:
 
@@ -846,6 +846,83 @@ The operation effect is shown in the figure:
 ![game_result](./../../../../zh/lichee/th1520/lpi4a/assets/application/psp2.png)
 ![game_result](./../../../../zh/lichee/th1520/lpi4a/assets/application/psp3.png)
 
+## use of opencv
+
+First, install the dependencies and the Python 3 environment
+
+```shell
+sudo apt install python3 python3-pip
+sudo apt install python3-opencv 
+sudo apt install libqt5gui5-gles
+```
+OpenCV reads image demo:
+
+
+```shell
+#!/bin/bash
+import cv2
+
+img2 = cv2.imread('aContour.jpg', cv2.IMREAD_UNCHANGED)
+cv2.namedWindow('show_img', 0)          # 定义窗口名称，三个函数（namedWindow、 resizeWindow、 imshow）中窗口名称要一致
+cv2.resizeWindow('show_img', 736, 416)
+cv2.imshow("show_img",img2)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+cv2.destroyWindow("show_img")
+
+```
+Run program:
+
+```shell
+python3 show_pic.py
+```
+Running results:
+
+![opencv_result](./../../../../zh/lichee/th1520/lpi4a/assets/application/opencv.png)
+
+PIL numpy opencv comprehensive test demo:
+
+```shell
+#!/bin/bash
+from typing import List, Any, Tuple
+import matplotlib.pyplot as plt
+import cv2
+
+import numpy as np
+from PIL import Image
+from PIL import ImageFilter
+
+im = Image.open('a.jpg')
+om = im.filter(ImageFilter.CONTOUR)
+om.save('aContour.jpg')
+
+b = np.random.randint(0, 255, (200, 300), dtype=np.uint8)
+g = np.random.randint(0, 255, (200, 300), dtype=np.uint8)
+r = np.random.randint(0, 255, (200, 300), dtype=np.uint8)
+print(b)
+
+img=np.empty([20,30,3],dtype=np.uint8)
+bgr=()
+rowlist=[]
+collist: List[List[Tuple[Any, Any, Any]]]=[]
+for row in range(200):
+    rowlist=[]
+    for col in range(300):
+        bgr=(r[row][col],g[row][col],b[row][col])
+        rowlist.append(bgr)
+    collist.append(rowlist)
+
+img=np.asarray(collist)
+
+img2 = cv2.imread('aContour.jpg', cv2.IMREAD_UNCHANGED)
+cv2.namedWindow('show_img', 0)        
+cv2.resizeWindow('show_img', 736, 416)
+cv2.imshow("show_img",img2)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+cv2.destroyWindow("show_img")
+
+```
 ## Use of ncnn
 
 Firstly, the Git source code and installation related dependency libraries
@@ -887,6 +964,7 @@ execute
 Running results
 
 ![ncnn_result](./../../../../zh/lichee/th1520/lpi4a/assets/application/ncnn_result.png)
+![ncnn_result](./../../../../zh/lichee/th1520/lpi4a/assets/application/ncnn_pic.png)
 
 ## Other
 
