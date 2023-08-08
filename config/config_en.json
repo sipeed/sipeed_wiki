@@ -10,43 +10,12 @@
         "items": [
             {
             "label": "Products",
-            "url": "/hardware/en/index.html",
-            "position": "left",
-            "type": "list",
-            "items": [
-                {
-                    "url": "/hardware/en/maix/index.html",
-                    "label": "Maix-I"
-                },
-
-                {
-                    "url": "/hardware/en/maixII/index.html",
-                    "label": "Maix-II"
-                },
-                {
-                    "url": "/hardware/en/lichee/index.html",
-                    "label": "LicheePi"
-                },
-                {
-                    "url": "/hardware/en/tang/index.html",
-                    "label": "Tang"
-                },
-                {
-                    "url": "/hardware/en/longan/Nano/Longan_nano.html",
-                    "label": "Longan"
-                },
-                {
-                    "url": "/hardware/en/maixsense/index.html",
-                    "label": "MaixSense"
-                },
-                {
-                    "url":"/hardware/en/modules_spmod/spmod_extender.html",
-                    "label":"SP-Mod"
-                }
-            ]
+            "url": "/#products",
+            "position": "left"
         },
         {
             "label": "Software Docs",
+            "desc": "software projects or general software documentation and tutorials",
             "position": "left",
             "type": "list",
             "items": [
@@ -70,25 +39,10 @@
         },
 
         {
-            "label": "Platforms",
+            "label": "MaixHub",
             "position": "left",
-            "type":"list",
-            "items":[
-                {
-                    "label":"MaixHub: AI platform and sharing community",
-                    "url":"https://maixhub.com",
-                    "target": "_blank"
-                },
-                {
-                    "label":"Download center",
-                    "url":"https://dl.sipeed.com/",
-                    "target": "_blank"
-                },
-                {
-                    "label": "community",
-                    "url": "/en/community.html"
-                }
-            ]
+            "url":"https://maixhub.com",
+            "target": "_blank"
         },
         {
             "label":"News",
@@ -96,29 +50,24 @@
             "position":"left"
         },
         {
-            "label": "Online Store",
-            "url": "/en/store.html",
-            "position": "left"
-        },
-        {
             "label": "FAQ",
             "url": "/en/faq.html",
             "position": "left"
         },
         {
-            "label":"Contribute docs",
-            "url":"/share_docs/en/",
+            "label": "<img src='/static/image/shop.svg' style='height: 1.5em;vertical-align: middle;'>",
+            "url": "/en/store.html",
             "position": "right"
         },
         {
-            "label": "Github ",
+            "label": "<img src='/static/image/github.svg' style='height: 1.5em;vertical-align: middle;'>",
             "position": "right",
             "url": "https://github.com/sipeed",
             "target": "_blank"
         },
         {
             "id": "language",
-            "label": "Language: ",
+            "label": "<img src='/static/image/language.svg' style='height: 1.5em;vertical-align: middle;'>&nbsp;",
             "position": "right",
             "type": "language"
         }
@@ -127,7 +76,7 @@
 "footer":{
     "top":[
         {
-            "label": "Other links",
+            "label": "links",
             "items": [
                 {
                     "label": "Sipeed",
@@ -137,11 +86,6 @@
                 {
                     "label": "MaixHub",
                     "url": "https://maixhub.com/",
-                    "target": "_blank"
-                },
-                {
-                    "label": "BBS ",
-                    "url": "https://bbs.sipeed.com/",
                     "target": "_blank"
                 },
                 {
@@ -160,12 +104,12 @@
             "label": "Source Code",
             "items": [
                 {
-                    "label": "Website source code",
+                    "label": "Wiki source",
                     "url": "https://github.com/sipeed/sipeed_wiki",
                     "target": "_blank"
                 },
                 {
-                    "label": "Open Souecr Code",
+                    "label": "Open Souece Projects",
                     "url": "https://github.com/sipeed",
                     "target": "_blank"
                 }
@@ -174,11 +118,6 @@
         {
             "label": "Follow us",
             "items": [
-                {
-                    "label": "github",
-                    "url": "https://github.com/sipeed",
-                    "target":"_blank"
-                },
                 {
                     "label": "twitter",
                     "url": "https://twitter.com/SipeedIO",
@@ -190,8 +129,12 @@
                     "target":"_blank"
                 },
                 {
-                    "label": "more",
-                    "url": "/community.html"
+                    "label": "github",
+                    "url": "https://github.com/sipeed",
+                    "target":"_blank"
+                },
+                {
+                    "label": "<a>Wechat</a><img src='/static/image/wechat.png'>"
                 }
             ]
         },
@@ -202,7 +145,7 @@
                     "label": "Tel: +86 0755-27808509"
                 },
                 {
-                    "label": "Business mail: support@sipeed.com"
+                    "label": "Business support: support@sipeed.com"
                 },
                 {
                     "label": "Adress: 深圳市宝安区新湖路4008号蘅芳科技办公大厦A座-2101C"
@@ -248,5 +191,5 @@
         }
     }
 },
-"show_source": "Edit this page"
+"show_source": "<span id='editPage'>Edit this page</span>"
 }
