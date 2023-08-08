@@ -172,7 +172,7 @@ W: GPG error: http://archive.ubuntu.com trusty-updates Release: The following si
 
 You can try the following command to fix it:   
 ```shell
-sudo apt-key adv --keyserver keyring.debian.org --recv-keys 'Replace the key value after NO_PUBKEY in the error message here'
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 'Replace the key value after NO_PUBKEY in the error message here'
 # or
 gpg --keyserver keyserver.ubuntu.com --recv-keys 'Replace the key value after NO_PUBKEY in the error message here'
 ```
@@ -374,7 +374,7 @@ sipeed@lpi4a:~$ cat /etc/fstab
 `/dev/mmcblk1p1: UUID="033173ff-b3ab-494c-ab14-4dcd656a9214" BLOCK_SIZE="4096" TYPE="ext4" PARTUUID="8e4e28df-01"`
 
 
-### VNC Remote Desktop
+## VNC Remote Desktop
 
 Install the required packages and remote desktop using the lightweight Xfce desktop environment.
 ```shell
