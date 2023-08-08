@@ -194,6 +194,206 @@ gpiochip0: GPIOs 504-511, parent: i2c/0-0018, 0-0018, can sleep:    IO expend 1
  gpio-510 (                    |aon:soc_cam2_dovdd18) out lo 
  gpio-511 (                    |aon:soc_cam2_avdd25_) out lo
 ```  -->
+## Use of gpiod library
+
+
+The GPiod library is a library that can call GPIO in the same user space, making it convenient for users to operate GPIO in applications.
+
+Firstly, install and deploy the GPIO library:
+
+```shell
+sudo apt install wget
+wget https://git.kernel.org/pub/scm/libs/libgpiod/libgpiod.git/snapshot/libgpiod-2.0.tar.gz
+
+tar zxvf libgpiod-2.0.tar.gz
+
+cd libgpiod-2.0
+sudo apt-get install build-essential pkg-config m4 automake autoconf libtool autoconf-archive
+sudo apt install gcc g++
+
+export CC=gcc
+export CXX=g++
+
+
+#Deploy the relevant files of the library to the project folder: -- The path after prefix should be changed to the path where the project is located for future operations
+
+./autogen.sh --enable-tools=yes --prefix=/home/sipeed/mylib_local
+make
+sudo make install
+```
+
+
+If executed: .Autogen.sh -- enable tools=yes -- prefix=/home/pipeed/mylib_ The following error occurred in local:
+
+
+```shell
+aclocal: warning: couldn't open directory 'm4': No such file or directory
+
+#You can execute the following commands
+
+mkdir m4
+./autogen.sh --enable-tools=yes --prefix=/home/sipeed/mylib_local
+make 
+make install
+```
+
+Start operating GPIO:
+
+```shell
+sudo vim gpio.c
+
+#The content of gpio. c is as follows:
+
+#include<stdio.h>
+#include<unistd.h>
+#include<gpiod.h>
+
+#define PIN_IO1_3   3
+#define PIN_IO1_4   4
+#define PIN_IO1_5   5
+
+int main() {
+  struct gpiod_chip *gchip;
+  struct gpiod_line_info *glinein, *glineout;
+  struct gpiod_line_settings *gline_settings_in, *gline_settings_out;
+  struct gpiod_line_config   *gline_config_in, *gline_config_out;
+  struct gpiod_request_config *gline_request_config_in, *gline_request_config_out;
+  struct gpiod_line_request   *gline_request_in, *gline_request_out;
+  int offset_in[1] = {PIN_IO1_5};
+  int offset_out[2] = {PIN_IO1_3, PIN_IO1_4};
+  int value;
+
+  if ((gchip=gpiod_chip_open("/dev/gpiochip4")) == NULL) {
+    perror("gpiod_chip_open");
+    return 1;
+  }
+
+  
+  gline_settings_in = gpiod_line_settings_new();
+  if ((value=gpiod_line_settings_set_direction(gline_settings_in, GPIOD_LINE_DIRECTION_INPUT)) != 0)  {
+    perror("gpiod_line_settings_set_direction");
+  }
+
+  gline_config_in = gpiod_line_config_new();
+  value=gpiod_line_config_add_line_settings(gline_config_in, offset_in, 1, gline_settings_in);
+  gline_request_config_in = gpiod_request_config_new();
+  gline_request_in = gpiod_chip_request_lines(gchip, gline_request_config_in, gline_config_in);
+
+
+
+
+  value=gpiod_line_request_get_value(gline_request_in, PIN_IO1_5);
+  printf("IO1-5 = %d\n", value);
+
+
+
+
+  gline_settings_out = gpiod_line_settings_new();
+  if (gpiod_line_settings_set_direction(gline_settings_out, GPIOD_LINE_DIRECTION_OUTPUT) != 0) {
+    perror("gpiod_line_settings_set_direction");
+  }
+  gline_config_out = gpiod_line_config_new();
+
+  gpiod_line_config_add_line_settings(gline_config_out, offset_out, 2, gline_settings_out);
+  gline_request_config_out = gpiod_request_config_new();
+  gline_request_out = gpiod_chip_request_lines(gchip, gline_request_config_out, gline_config_out);
+
+
+
+  value=gpiod_line_request_set_value(gline_request_out, PIN_IO1_3, 1);
+
+  value=gpiod_line_request_set_value(gline_request_out, PIN_IO1_4, 0);
+
+  printf("IO1-3 = 1, IO1-4 = 0\n");
+  sleep(1);
+
+
+  for (int i = 0; i < 10; i++) {
+
+
+      value=gpiod_line_request_get_value(gline_request_in, PIN_IO1_5);
+      printf("IO1-5 = %d\n", value);
+
+      
+      value=gpiod_line_request_set_value(gline_request_out, PIN_IO1_3, 0);
+      value=gpiod_line_request_set_value(gline_request_out, PIN_IO1_4, 1);
+   
+      printf("IO1-3 = 0, IO1-4 = 1\n");
+      sleep(1);
+
+
+
+      value=gpiod_line_request_get_value(gline_request_in, PIN_IO1_5);
+      printf("IO1-5 = %d\n", value);
+
+
+      value=gpiod_line_request_set_value(gline_request_out, PIN_IO1_3, 1);
+      value=gpiod_line_request_set_value(gline_request_out, PIN_IO1_4, 0);
+
+      printf("IO1-3 = 1, IO1-4 = 0\n");
+      sleep(1);
+
+  }
+
+  gpiod_chip_close(gchip);
+  return 0;
+}
+
+```
+
+Save and compile
+
+```shell
+gcc  -I/home/sipeed/mylib_local/include -L/home/sipeed/mylib_local/lib -o test_libgpiod_gpio01 test_libgpiod_gpio01.c -lgpiod
+
+```
+Some device permissions need to be granted before execution
+
+```shell
+export LD_LIBRARY_PATH=/home/sipeed/mylib_local/lib:$LD_LIBRARY_PATH
+export PATH=/home/sipeed/mylib_local/bin:$PATH
+sudo chmod o+rw /dev/gpiochip4
+sudo chmod o+rw /dev/spidev2.0
+
+#可以直接放在一个.sh文件里面执行
+
+```
+
+Run program:
+
+```shell
+
+./gpio
+
+```
+
+The console output is as follows:
+
+```shell
+
+sipeed@lpi4a:~/gpio$ ./gpio 
+IO1-5 = 1
+IO1-3 = 1, IO1-4 = 0
+IO1-5 = 1
+IO1-3 = 0, IO1-4 = 1
+IO1-5 = 1
+IO1-3 = 1, IO1-4 = 0
+IO1-5 = 1
+IO1-3 = 0, IO1-4 = 1
+IO1-5 = 1
+IO1-3 = 1, IO1-4 = 0
+IO1-5 = 1
+IO1-3 = 0, IO1-4 = 1
+IO1-5 = 1
+IO1-3 = 1, IO1-4 = 0
+IO1-5 = 1
+IO1-3 = 0, IO1-4 = 1
+IO1-5 = 1
+IO1-3 = 1, IO1-4 = 0
+IO1-5 = 1
+IO1-3 = 0, IO1-4 = 1
+
+```
 
 ## UART 
 

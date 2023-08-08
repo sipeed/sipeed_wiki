@@ -735,6 +735,237 @@ The result is the `result.png` file, and the image from the above prompt is as f
 
 ![onnxstream_result](./../../../../zh/lichee/th1520/lpi4a/assets/application/onnxstream_result.png)
 
+
+## PSP Simulator
+
+
+[Project address](https://github.com/hrydgard/ppsspp)
+
+This example runs the PSP simulator on LPi4A through this project.
+
+Firstly, we need to build PPSSPP:
+
+```shell
+#Install the required packages first
+sudo apt install build-essential cmake libgl1-mesa-dev libsdl2-dev libvulkan-dev mesa-common-dev  libglu1-mesa-dev  libsdl2-dev libcurl4-openssl-dev
+git clone --recurse-submodules https://github.com/hrydgard/ppsspp.git
+cd ppsspp
+git submodule update --init --recursive
+git pull --rebase https://github.com/hrydgard/ppsspp.git
+cmake .
+make -j4
+
+```
+Compilation may take some time, and successful compilation occurs when the following output occurs:
+
+```shell
+sipeed@lpi4a:~/ppsspp$ make -j4
+[  0%] Built target unix_based_hardware_detection
+[  0%] Built target utils
+[  0%] Built target gason
+[  1%] Built target snappy
+[  1%] Built target cityhash
+[  1%] Built target vma
+[  2%] Built target png17
+[  3%] Built target udis86
+[  3%] Built target basis_universal
+[ 16%] Built target libzip
+[ 16%] Built target glew
+[ 16%] Built target sfmt19937
+[ 17%] Built target kirk
+[ 18%] Built target xbrz
+[ 18%] Built target xxhash
+[ 19%] Generating something_that_never_exists
+[ 21%] Built target miniupnpc
+[ 25%] Built target libzstd_static
+-- Could NOT find Git (missing: GIT_EXECUTABLE) 
+CMake Warning at git-version.cmake:16 (message):
+  git not found, unable to include version.
+
+
+[ 25%] Built target GitVersion
+[ 25%] Built target GenericCodeGen
+[ 25%] Built target OGLCompiler
+[ 25%] Built target OSDependent
+[ 31%] Built target armips
+[ 31%] Built target spirv-cross-core
+[ 34%] Built target rcheevos
+[ 35%] Built target cpu_features
+[ 35%] Built target discord-rpc
+[ 36%] Built target spirv-cross-glsl
+[ 41%] Built target MachineIndependent
+[ 41%] Built target spirv-cross-cpp
+[ 41%] Built target spirv-cross-msl
+[ 41%] Built target spirv-cross-hlsl
+[ 41%] Built target glslang
+[ 42%] Built target SPIRV
+[ 58%] Built target Common
+[ 59%] Built target native
+[ 95%] Built target Core
+[100%] Built target PPSSPPSDL
+
+```
+
+After installation, you can try running it (in root mode)：
+
+```shell
+./PPSSPPSDL
+```
+As shown in the figure:
+
+![game_result](./../../../../zh/lichee/th1520/lpi4a/assets/application/psp.png)
+
+Game download:
+
+[PSP game Download](https://playdreamcreate.com/)
+
+Download completed:
+
+We only need to use the EBOOT.PBP file in the compressed package
+
+1. If using a graphical interface, extract directly
+
+2. If using the command line, you need to change the compressed package to a zip suffix before decompressing it
+
+```shell
+
+Mv [compressed package name] [compressed package name]. zip
+
+Unzip [compressed package name]. zip
+
+```
+
+Start the game: Open EBOOT.PBP under the PPSSPPSDL command
+
+```shell
+./PPSSPPSDL  ./game/01/EBOOT.PBP
+```
+
+The operation effect is shown in the figure:
+
+![game_result](./../../../../zh/lichee/th1520/lpi4a/assets/application/psp2.png)
+![game_result](./../../../../zh/lichee/th1520/lpi4a/assets/application/psp3.png)
+
+## use of opencv
+
+First, install the dependencies and the Python 3 environment
+
+```shell
+sudo apt install python3 python3-pip
+sudo apt install python3-opencv 
+sudo apt install libqt5gui5-gles
+```
+OpenCV reads image demo:
+
+
+```shell
+#!/bin/bash
+import cv2
+
+img2 = cv2.imread('aContour.jpg', cv2.IMREAD_UNCHANGED)
+cv2.namedWindow('show_img', 0)          # 定义窗口名称，三个函数（namedWindow、 resizeWindow、 imshow）中窗口名称要一致
+cv2.resizeWindow('show_img', 736, 416)
+cv2.imshow("show_img",img2)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+cv2.destroyWindow("show_img")
+
+```
+Run program:
+
+```shell
+python3 show_pic.py
+```
+Running results:
+
+![opencv_result](./../../../../zh/lichee/th1520/lpi4a/assets/application/opencv.png)
+
+PIL numpy opencv comprehensive test demo:
+
+```shell
+#!/bin/bash
+from typing import List, Any, Tuple
+import matplotlib.pyplot as plt
+import cv2
+
+import numpy as np
+from PIL import Image
+from PIL import ImageFilter
+
+im = Image.open('a.jpg')
+om = im.filter(ImageFilter.CONTOUR)
+om.save('aContour.jpg')
+
+b = np.random.randint(0, 255, (200, 300), dtype=np.uint8)
+g = np.random.randint(0, 255, (200, 300), dtype=np.uint8)
+r = np.random.randint(0, 255, (200, 300), dtype=np.uint8)
+print(b)
+
+img=np.empty([20,30,3],dtype=np.uint8)
+bgr=()
+rowlist=[]
+collist: List[List[Tuple[Any, Any, Any]]]=[]
+for row in range(200):
+    rowlist=[]
+    for col in range(300):
+        bgr=(r[row][col],g[row][col],b[row][col])
+        rowlist.append(bgr)
+    collist.append(rowlist)
+
+img=np.asarray(collist)
+
+img2 = cv2.imread('aContour.jpg', cv2.IMREAD_UNCHANGED)
+cv2.namedWindow('show_img', 0)        
+cv2.resizeWindow('show_img', 736, 416)
+cv2.imshow("show_img",img2)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+cv2.destroyWindow("show_img")
+
+```
+## Use of ncnn
+
+Firstly, the Git source code and installation related dependency libraries
+
+
+```shell
+git clone https://github.com/Tencent/ncnn.git
+cd ncnn
+git submodule update --init
+
+sudo apt install build-essential git cmake libprotobuf-dev protobuf-compiler libvulkan-dev vulkan-utils libopencv-dev
+
+```
+Compile source code
+
+```shell
+cd ncnn
+mkdir -p build
+cd build
+cmake -DCMAKE_BUILD_TYPE=Release -DNCNN_VULKAN=OFF -DNCNN_BUILD_EXAMPLES=ON ..
+make -j$(nproc)
+```
+
+Download the relevant model files and parameters, and place them in the same folder as the executable file：
+
+[Download](https://github.com/nihui/ncnn-assets)
+
+```shell
+~/ncnn/build/example
+```
+![ncnn2](./../../../../zh/lichee/th1520/lpi4a/assets/application/ncnn2.png)
+
+execute
+
+```shell
+./nanodet/ a.jpg
+```
+
+Running results
+
+![ncnn_result](./../../../../zh/lichee/th1520/lpi4a/assets/application/ncnn_result.png)
+![ncnn_result](./../../../../zh/lichee/th1520/lpi4a/assets/application/ncnn_pic.png)
+
 ## Other
 
 Contributions are welcome~ You can get ￥5~150 ($1~20) coupon if your contribution is accepted!
