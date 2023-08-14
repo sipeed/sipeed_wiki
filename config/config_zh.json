@@ -10,12 +10,12 @@
         "items": [
             {
                 "label": "产品",
-                "url": "/#products",
+                "url": "/hardware/zh/",
                 "position": "left"
             },
             {
-                "label": "软件文档",
-                "desc": "软件项目或者通用的软件文档和教程",
+                "label": "开源软件",
+                "desc": "开源软件项目或者通用的软件文档和教程",
                 "position": "left",
                 "type": "list",
                 "items": [

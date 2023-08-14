@@ -48,7 +48,7 @@ Correct operation validated. See README.md for run and reporting rules.
 CoreMark 1.0 : 9175.077154 / GCC13.1.0 -O2 -DPERFORMANCE_RUN=1 -lrt -funroll-all-loops -finline-limit=500 -fgcse-sm -fno-schedule-insns -msignedness-cmpiv -fno-code-hoisting -mno-thread-jumps1 -mno-iv-adjust-addr-cost -mno-expand-split-im / Heap
 ```
 
-Test results (1.85GHz) using the public toolchain, GCC version `10.4.0`:
+Test results (1.85GHz) using the Thead toolchain, GCC version `10.4.0`:
 
 ```txt
 2K performance run parameters for coremark.

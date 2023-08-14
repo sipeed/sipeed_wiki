@@ -177,7 +177,7 @@ W: GPG error: http://archive.ubuntu.com trusty-updates Release: The following si
 ```shell
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys '替换成报错中的NO_PUBKEY 后面的key值'
 # 或使用
-gpg --keyserver keyring.debian.org --recv-keys '替换成报错中的NO_PUBKEY 后面的key值'
+gpg --keyserver keyserver.ubuntu.com --recv-keys '替换成报错中的NO_PUBKEY 后面的key值'
 ```
 
 ## SSH
@@ -376,7 +376,7 @@ sipeed@lpi4a:~$ cat /etc/fstab
 /dev/mmcblk1p1 也可使用磁盘 UUID，即写成 UUID=xxxx-xxx 的形式，UUID 可以使用`sudo blkid`查看：
 `/dev/mmcblk1p1: UUID="033173ff-b3ab-494c-ab14-4dcd656a9214" BLOCK_SIZE="4096" TYPE="ext4" PARTUUID="8e4e28df-01"`
 
-### VNC远程桌面
+## VNC远程桌面
 
 安装需要的软件包，远程桌面使用轻量化的 Xfce 桌面环境。
 ```shell
@@ -458,7 +458,7 @@ vncserver -localhost no
 ![vnc_viewer_use](./assets/desktop/vnc_viewer_use.png)
 
 
-### btop
+## btop
 
 btop 是一个兼顾美观与实用性的资源监视器，显示处理器、内存、磁盘、网络和进程的使用情况和统计​​信息。
 

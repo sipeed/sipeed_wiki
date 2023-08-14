@@ -119,7 +119,7 @@
             "config": {
                 "dark": true,
                 "env":{
-                    "main_color": "#FF6B63"
+                    "main_color": "#c62828"
                 },
                 "code_highlight_css":  "/static/css/prism.css",
                 "code_highlight_js": "/static/js/prism.js"
@@ -130,7 +130,7 @@
             "config": {
                 "search_hint": "Search",
                 "env":{
-                    "main_color": "#FF6B63",
+                    "main_color": "#c62828",
                     "main_color_dark": "#923732",
                     "hint_shadow_color": "rgba(146, 55, 50, 0.38)"
                 }
@@ -157,7 +157,7 @@
                     "repo": "sipeed_wiki",
                     "owner": "sipeed",
                     "admin": ["Neutree", "wonderfullook"],
-                    "main_color": "#FF6B63",
+                    "main_color": "#c62828",
                     "second_color": "#e25d55",
                     "adminAutoCreate": false
                 }
@@ -167,7 +167,7 @@
             "from": "pypi",
             "config": {
                 "type": "hint",
-                "label": "☆",
+                "label": "NEW",
                 "content": "无需本地 GPU 环境，云端免费一键 AI 模型训练、部署，快来<a href='https://maixhub.com'>MaixHub </a>体验！<br>和大家分享你的<a href='https://maixhub.com/share'>项目</a>和<a href='https://maixhub.com/share'>开发经验</a>吧！新分享广场上线，管理员真金白银打赏中，在线等！",
                 "show_after_s": 432000,
                 "date": "2022-06-01 14:00"
@@ -183,8 +183,8 @@
                     "/static/js/custom.js"
                 ],
                 "env":{
-                    "main_color": "#FF6B63",
-                    "second_color": "#e25d55"
+                    "main_color": "#b71c1c",
+                    "second_color": "#b71c1c"
                 }
             }
         },

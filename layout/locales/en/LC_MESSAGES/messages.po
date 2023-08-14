@@ -1,0 +1,249 @@
+#
+msgid ""
+msgstr ""
+
+#: home.html:95
+msgid "/static/home/licheepi4a_post.jpg"
+msgstr ""
+
+#: home.html:98 home.html:111 home.html:124 home.html:137 licheepi.html:132
+#: licheepi.html:148 licheepi.html:164 licheepi.html:180 maix.html:110
+#: maix.html:127 maix.html:143 maixsense.html:40 maixsense.html:56 tang.html:40
+#: tang.html:56 tang.html:72 tang.html:88
+msgid "文档"
+msgstr "Documentation"
+
+#: home.html:102 home.html:115 home.html:128 home.html:141 licheepi.html:136
+#: licheepi.html:152 licheepi.html:168 licheepi.html:184 maix.html:114
+#: maix.html:131 maix.html:147 maixsense.html:44 maixsense.html:60 tang.html:44
+#: tang.html:60 tang.html:76 tang.html:92
+msgid "购买"
+msgstr "Buy"
+
+#: home.html:150
+msgid "分享广场"
+msgstr "Share Center"
+
+#: home.html:154
+msgid "MaixHub 官网"
+msgstr "MaixHub"
+
+#: home.html:164
+msgid "产品动态"
+msgstr "Product News"
+
+#: home.html:168
+msgid "Maix AI 视觉"
+msgstr "Maix AI Vision"
+
+#: home.html:180
+msgid "MaixSense 传感器"
+msgstr "MaixSense Sensor"
+
+#: home.html:184
+msgid "其它"
+msgstr "Others"
+
+#: licheepi.html:4
+msgid "Linux SBC 系列"
+msgstr "Linux SBC Series"
+
+#: licheepi.html:25
+msgid "Lichee SBC 系列产品参数对比"
+msgstr "Lichee SBC Series Product Comparison"
+
+#: licheepi.html:29 maix.html:29
+msgid "参数"
+msgstr "Parameter"
+
+#: licheepi.html:38 maix.html:38
+msgid "处理器"
+msgstr "CPU"
+
+#: licheepi.html:45 maix.html:45
+msgid "内存"
+msgstr "memory"
+
+#: licheepi.html:52 maix.html:59
+msgid "储存"
+msgstr "storage"
+
+#: licheepi.html:53 licheepi.html:54 licheepi.html:55
+msgid "预留"
+msgstr "reserved"
+
+#: licheepi.html:53 licheepi.html:54 licheepi.html:55 licheepi.html:56
+#: maix.html:60 maix.html:61 maix.html:62 maix.html:63
+msgid "卡"
+msgstr "card"
+
+#: licheepi.html:56 maix.html:60 maix.html:61
+msgid "板载"
+msgstr "onboard"
+
+#: licheepi.html:59
+msgid "GPU和显示"
+msgstr "GPU and display"
+
+#: licheepi.html:65 licheepi.html:66 licheepi.html:67 licheepi.html:98
+#: licheepi.html:99 licheepi.html:100
+msgid "无"
+msgstr "no"
+
+#: licheepi.html:70
+msgid "编解码器"
+msgstr "codec"
+
+#: licheepi.html:73 licheepi.html:76 licheepi.html:80 licheepi.html:84
+#: licheepi.html:85
+msgid "解码"
+msgstr "decode"
+
+#: licheepi.html:73 licheepi.html:77 licheepi.html:81 licheepi.html:85
+msgid "编码"
+msgstr "encode"
+
+#: licheepi.html:89 maix.html:73
+msgid "操作系统"
+msgstr "operating system"
+
+#: licheepi.html:90 licheepi.html:93
+msgid "主线"
+msgstr "mainline"
+
+#: licheepi.html:103 maix.html:80
+msgid "典型外设"
+msgstr "typical peripherals"
+
+#: licheepi.html:129
+msgid "高性能 RISC-V@1.85GHz x4 开发板/平板/笔记本电脑"
+msgstr "High performance RISC-V@1.85GHz x4 development board/tablet/laptop"
+
+#: licheepi.html:145
+msgid "高集成度入门级 RISC-V Linux 开发板"
+msgstr "Highly integrated entry-level RISC-V Linux development board"
+
+#: licheepi.html:161 licheepi.html:177
+msgid "迷你"
+msgstr "mini"
+
+#: licheepi.html:161 licheepi.html:177
+msgid "开发板"
+msgstr "dev board"
+
+#: maix.html:4
+msgid "Maix AI 视觉系列"
+msgstr "Maix AI Vision"
+
+#: maix.html:25
+msgid "Maix 系列产品参数对比"
+msgstr "Maix Series Product Comparison"
+
+#: maix.html:39
+msgid "双核"
+msgstr "Dual core"
+
+#: maix.html:39
+msgid "位"
+msgstr "bit"
+
+#: maix.html:53 maix.html:54
+msgid "支持有限"
+msgstr "limited support"
+
+#: maix.html:53 maix.html:54
+msgid "算子"
+msgstr "operations"
+
+#: maix.html:55 maix.html:56
+msgid "支持常用"
+msgstr "support common"
+
+#: maix.html:55 maix.html:56
+msgid "模型"
+msgstr "model"
+
+#: maix.html:56
+msgid "和"
+msgstr "and"
+
+#: maix.html:60
+msgid "支持"
+msgstr "support"
+
+#: maix.html:61 maix.html:62 maix.html:63
+msgid "或者"
+msgstr "or"
+
+#: maix.html:66
+msgid "软件支持"
+msgstr "software support"
+
+#: maix.html:90 maix.html:91 maix.html:92 maix.html:93
+msgid "支持度"
+msgstr "support"
+
+#: maix.html:90 maix.html:92 maix.html:93
+msgid "良"
+msgstr "ok"
+
+#: maix.html:91
+msgid "优"
+msgstr "good"
+
+#: maix.html:107
+msgid "带硬件 AI 加速的 MCU，配合易用的软件快速落地低成本 AI 应用"
+msgstr ""
+"MCU with hardware AI acceleration, combined with easy-to-use software to "
+"quickly land low-cost AI applications"
+
+#: maix.html:124
+msgid "硬件 AI 加速 + Linux + 易用的软件，教育、工业视觉、智能家居场景绝配"
+msgstr ""
+"Hardware AI acceleration + Linux + easy-to-use software, education, "
+"industrial vision, smart home scene"
+
+#: maix.html:140
+msgid "3.6Tops AI ISP，微光夜视，大量常见 AI 模型支持，安防智能 IPC"
+msgstr ""
+"3.6Tops AI ISP, low-light night vision, a large number of common AI model"
+" support, security smart IPC"
+
+#: maix.html:156
+msgid "10Tops AI 算力，32 路 1080p 高清 AI 视频监控，AI 大模型支持"
+msgstr ""
+"10Tops AI computing power, 32 channels of 1080p HD AI video surveillance,"
+" AI large model support"
+
+#: maix.html:159
+msgid "了解更多"
+msgstr "Learn more"
+
+#: maixsense.html:4
+msgid "MaixSense 传感器模组系列"
+msgstr "MaixSense Sensor Module"
+
+#: maixsense.html:37
+msgid "深度传感器模组"
+msgstr "Depth Sensor Module"
+
+#: maixsense.html:53
+msgid "深度摄像头模组"
+msgstr "Depth Camera Module"
+
+#: others.html:5
+msgid "其它未列出的产品请进入"
+msgstr "For other products not listed, please enter"
+
+#: others.html:5
+msgid "产品文档"
+msgstr "Product documentation"
+
+#: others.html:5
+msgid "在左侧目录查找"
+msgstr "Find in the left menu"
+
+#: tang.html:4
+msgid "Tang FPGA 系列"
+msgstr "Tang FPGA Series"
+

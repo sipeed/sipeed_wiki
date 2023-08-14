@@ -1,7 +1,7 @@
 ---
 title: Sipeed 开源产品速览
-keywords: Sipeed, Hardware, 矽速, 硬件资料, 文档, 资料下载, 深度学习, 人工智能, K210
-desc: 矽速科技的开源软硬件 WIKI 资料站
+layout: redirect
+redirect_url: /
 ---
 
 ## 总览

@@ -1,7 +1,7 @@
 ---
 title: Sipeed Hardware
-keywords: Sipeed, Hardware, Sipeed, Hardware specifications, Documentation, Downloaden, Deeplearning, Artificial Intelligence, K210
-desc: Sipeed hardware documentation website
+layout: redirect
+redirect_url: /
 ---
 
 > Updating, [Chinese site](https://wiki.sipeed.com/hardware/zh/index.html) is the latest one.

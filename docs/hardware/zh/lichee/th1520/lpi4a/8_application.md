@@ -786,6 +786,209 @@ steps: 10
 ![onnxstream_result](./assets/application/onnxstream_result.png)
 
 
+##PSP模拟器
+
+[项目地址](https://github.com/hrydgard/ppsspp)
+
+本示例通过这个项目在 LPi4A 上运行 PSP模拟器。
+
+首先，我们需要构建 PPSSPP：
+```shell
+#先安装所需要的包
+sudo apt install build-essential cmake libgl1-mesa-dev libsdl2-dev libvulkan-dev mesa-common-dev  libglu1-mesa-dev  libsdl2-dev libcurl4-openssl-dev
+git clone --recurse-submodules https://github.com/hrydgard/ppsspp.git
+cd ppsspp
+git submodule update --init --recursive
+git pull --rebase https://github.com/hrydgard/ppsspp.git
+cmake .
+make -j4
+
+```
+编译可能需要一段时间，出现以下输出时，编译成功：
+```shell
+sipeed@lpi4a:~/ppsspp$ make -j4
+[  0%] Built target unix_based_hardware_detection
+[  0%] Built target utils
+[  0%] Built target gason
+[  1%] Built target snappy
+[  1%] Built target cityhash
+[  1%] Built target vma
+[  2%] Built target png17
+[  3%] Built target udis86
+[  3%] Built target basis_universal
+[ 16%] Built target libzip
+[ 16%] Built target glew
+[ 16%] Built target sfmt19937
+[ 17%] Built target kirk
+[ 18%] Built target xbrz
+[ 18%] Built target xxhash
+[ 19%] Generating something_that_never_exists
+[ 21%] Built target miniupnpc
+[ 25%] Built target libzstd_static
+-- Could NOT find Git (missing: GIT_EXECUTABLE) 
+CMake Warning at git-version.cmake:16 (message):
+  git not found, unable to include version.
+
+
+[ 25%] Built target GitVersion
+[ 25%] Built target GenericCodeGen
+[ 25%] Built target OGLCompiler
+[ 25%] Built target OSDependent
+[ 31%] Built target armips
+[ 31%] Built target spirv-cross-core
+[ 34%] Built target rcheevos
+[ 35%] Built target cpu_features
+[ 35%] Built target discord-rpc
+[ 36%] Built target spirv-cross-glsl
+[ 41%] Built target MachineIndependent
+[ 41%] Built target spirv-cross-cpp
+[ 41%] Built target spirv-cross-msl
+[ 41%] Built target spirv-cross-hlsl
+[ 41%] Built target glslang
+[ 42%] Built target SPIRV
+[ 58%] Built target Common
+[ 59%] Built target native
+[ 95%] Built target Core
+[100%] Built target PPSSPPSDL
+
+```
+安装完之后可以试运行一下（root模式下）：
+```shell
+./PPSSPPSDL
+```
+如图：
+![game_result](./assets/application/psp1.png)
+
+游戏下载：
+[psp游戏下载](https://playdreamcreate.com/)
+
+下载完成：
+我们只需要用到压缩包里的EBOOT.PBP文件
+1.如果是使用图形界面则直接解压
+2.如果使用命令行的话，需要将压缩包改成zip后缀再进行解压
+```shell
+mv [压缩包名] [压缩包名].zip
+unzip [压缩包名].zip
+```
+
+开始游戏：在PPSSPPSDL命令下打开EBOOT.PBP即可
+```shell
+./PPSSPPSDL  ./game/01/EBOOT.PBP
+```
+
+运行效果如图：
+![game_result](./assets/application/psp_2.png)
+![game_result](./assets/application/psp_3.png)
+
+## opencv 的使用
+首先安装依赖，以及python3环境
+```shell
+sudo apt install python3 python3-pip
+sudo apt install python3-opencv 
+sudo apt install libqt5gui5-gles
+```
+opencv读取图片demo：
+
+```shell
+#!/bin/bash
+import cv2
+
+img2 = cv2.imread('aContour.jpg', cv2.IMREAD_UNCHANGED)
+cv2.namedWindow('show_img', 0)          # 定义窗口名称，三个函数（namedWindow、 resizeWindow、 imshow）中窗口名称要一致
+cv2.resizeWindow('show_img', 736, 416)
+cv2.imshow("show_img",img2)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+cv2.destroyWindow("show_img")
+
+```
+运行程序：
+```shell
+python3 show_pic.py
+```
+运行结果：
+
+![opencv_result](./assets/application/opencv_o.png)
+
+PIL-numpy-opencv 综合测试demo：
+
+```shell
+#!/bin/bash
+from typing import List, Any, Tuple
+import matplotlib.pyplot as plt
+import cv2
+
+import numpy as np
+from PIL import Image
+from PIL import ImageFilter
+
+im = Image.open('a.jpg')
+om = im.filter(ImageFilter.CONTOUR)
+om.save('aContour.jpg')
+
+b = np.random.randint(0, 255, (200, 300), dtype=np.uint8)
+g = np.random.randint(0, 255, (200, 300), dtype=np.uint8)
+r = np.random.randint(0, 255, (200, 300), dtype=np.uint8)
+print(b)
+
+img=np.empty([20,30,3],dtype=np.uint8)
+bgr=()
+rowlist=[]
+collist: List[List[Tuple[Any, Any, Any]]]=[]
+for row in range(200):
+    rowlist=[]
+    for col in range(300):
+        bgr=(r[row][col],g[row][col],b[row][col])
+        rowlist.append(bgr)
+    collist.append(rowlist)
+
+img=np.asarray(collist)
+
+img2 = cv2.imread('aContour.jpg', cv2.IMREAD_UNCHANGED)
+cv2.namedWindow('show_img', 0)        
+cv2.resizeWindow('show_img', 736, 416)
+cv2.imshow("show_img",img2)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+cv2.destroyWindow("show_img")
+
+```
+## ncnn 的使用
+
+首先，git源码和安装相关的依赖库
+
+```shell
+git clone https://github.com/Tencent/ncnn.git
+cd ncnn
+git submodule update --init
+
+sudo apt install build-essential git cmake libprotobuf-dev protobuf-compiler libvulkan-dev vulkan-utils libopencv-dev libqt5gui5-gles
+
+```
+编译源码
+
+```shell
+cd ncnn
+mkdir -p build
+cd build
+cmake -DCMAKE_BUILD_TYPE=Release -DNCNN_VULKAN=OFF -DNCNN_BUILD_EXAMPLES=ON ..
+make -j$(nproc)
+```
+
+下载相关的模型文件以及参数，将它们放在与可执行文件同个文件夹下
+[下载链接](https://github.com/nihui/ncnn-assets)
+```shell
+~/ncnn/build/example
+```
+![ncnn2](./assets/application/ncnn2_o.png)
+
+执行
+```shell
+./nanodet/ a.jpg
+```
+运行结果
+![ncnn_result](./assets/application/ncnn_result_o.png)
+![ncnn_result](./assets/application/ncnn_pic_o.png)
 
 ## 其它
 
