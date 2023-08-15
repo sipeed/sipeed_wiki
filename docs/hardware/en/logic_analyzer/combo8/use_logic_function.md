@@ -25,86 +25,69 @@ Use the lsusb command to see the USB TO LA USB device appear
 
 ## Using USB TO LA
 
-> Currently, the logic analyzer only supports Linux systems
+> 1. When using the host computer, ensure that the sampling bandwidth does not exceed 320MHz, which means the channel count multiplied by the sampling rate must be less than 320MHz. For example: if the channel count is 8, then the sampling rate can only be set to 40MHz or lower, otherwise it may cause issues with the host software.
+> 2. If there is a disconnection during the startup process of the host software, please rescan and reconnect the device before performing other operations, otherwise it may lead to software crashes.
 
-Attention!!!
+### Quick Start
 
-> 1. When using the host computer, ensure that the sampling bandwidth does not exceed 320MHz, i.e., the number of channels * sampling rate must be less than 320MHz. For example, if you set the number of channels to 8, the sampling rate can only be set to 40MHz or lower; otherwise, it may cause host computer malfunctions.
-> 2. If there is a disconnection issue with the device during the host computer's startup process, please rescan and reconnect the device before performing any other operations; otherwise, it may result in software crashes.
-
-### Quick Use
-
-#### Pin sequence
+#### Pin Connections
 
 ![slogic_line_order](./../../../zh/logic_analyzer/combo8/assets/use_logic_function/slogic_line_order.png)
 
-The diagram above shows the pinout for the SLogic 8-channel logic analyzer. Connect the test signals from the target device to any available CH (Channel) port on the SLogic, and ensure that the GND (Ground) of the target device is connected to the GND of the SLogic.
+The above diagram shows the pinout for the 8 channels of SLogic. Connect the target device's test signal points to any available CH port on SLogic, and ensure that the ground of the target device is connected to the ground of SLogic.
 
-#### Connect SLogic and Computer
+#### Download the Host Software
 
-You need to download the host computer software for data decoding and visualization from the [here](https://dl.sipeed.com/shareURL/SLogic/SLogic_combo_8/4_application/PulseView).Please make sure to use the latest uploaded version of the software for optimal performance.After downloading, go to the directory where the file is located, use `CTRL+ALT+T` to open the Linux terminal, and enter the following command to **add permissions** and **run** the program **as administrator**:：
+1. Download the latest version of the [host software](https://dl.sipeed.com/shareURL/SLogic/SLogic_combo_8/4_application/PulseView) for data decoding and visualization.
+
+2. After downloading, navigate to the directory where the software is located. Open a terminal using the shortcut `CTRL+ALT+T` and use the following command to give the software execution permissions and run it as an administrator:
 
 ```bash
 chmod +x PulseView-x86_64-032323-1101.AppImage
 sudo ./PulseView-x86_64-032323-1101.AppImage
 ```
-**Connection Steps**
-1.  Select the device to connect
-2.  Select the driver **Sipeed Slogic Analyzer(sipeed-slogic-analyzer)**
-3.  Select the connection mode as USB
-4.  Scan for devices that meet the requirements
-5.  Select the device that has been found
 
-![set_connect_cfg_of_pulseview](./../../../zh/logic_analyzer/combo8/assets/use_logic_function/set_connect_cfg_of_pulseview.png)
+### Starting Sampling
 
-> If no device is found in the third step, you can try to switch the module function, switch back to the logic analyzer mode, and repeat the third step
+1. Configure the channel count, sample count, and sampling rate in PulseView.
 
-### Start Sampling
+   _In the following example, the channel count is set to **8**, the sample count is **1M samples**, and the sampling rate is **10MHz**._
+   ![equ_selec_complete_of_pulseview](./../../../zh/logic_analyzer/combo8/assets/use_logic_function/equ_selec_complete_of_pulseview.png)
 
-1. Configure the number of channels, number of samples, and sampling rate of PulseView
+2. Set the trigger type for channel D0 to **Rising/Falling Edge Trigger**.
 
-The figure below sets the number of channels to **8**, the number of samples to **1M samples**, and the sampling rate to **10Mhz**
+   _Click on the label icon of channel D0 to set the trigger type._
+   ![set_channel_of_pulseview](./../../../zh/logic_analyzer/combo8/assets/use_logic_function/set_channel_of_pulseview.png)
 
-![equ_selec_complete_of_pulseview](./../../../zh/logic_analyzer/combo8/assets/use_logic_function/equ_selec_complete_of_pulseview.png)
+3. Start the capture to obtain the sampling result.
 
-2. Set the trigger mode of channel D0 to **rising and falling edge trigger**
+   ![waveform_fast_of_pulseview](./../../../zh/logic_analyzer/combo8/assets/use_logic_function/waveform_fast_of_pulseview.png)
 
-Click on the label icon of channel D0 to set the trigger mode
-
-![set_channel_of_pulseview](./../../../zh/logic_analyzer/combo8/assets/use_logic_function/set_channel_of_pulseview.png)
-
-3. Start acquisition and get sampling results
-
-![waveform_fast_of_pulseview](./../../../zh/logic_analyzer/combo8/assets/use_logic_function/waveform_fast_of_pulseview.png)
+> If you're not using channel D7 during the sampling process, you might observe a level inversion phenomenon on that channel. This phenomenon is normal and does not affect regular usage.
 
 ### Detailed Configuration
 
-#### Channel Settings
-
-Open the **"red probe"** icon in the top toolbar, select the channels you want to enable, and the number of sampling channels for the logic analyzer. The optional options are 1ch, 2ch, 4ch and 8ch. There are also shortcut keys for quick switching of channels that meet the corresponding conditions
-
-![set_Logic_cfg_of_pulseview](./../../../zh/logic_analyzer/combo8/assets/use_logic_function/set_Logic_cfg_of_pulseview.png)
-
 #### Sampling Parameters
 
-Sampling parameters include sample quantity, sampling frequency and sampling time
+Sampling parameters include the sample count, sampling frequency, and sampling time.
 
-1.  Sample quantity: select an appropriate value according to your needs
-2.  Sampling frequency: select according to the frequency of the signal to be measured, **recommended to choose more than 10 times the frequency of the signal to be measured**
-3.  Sampling time: sampling time is calculated based on the **sample quantity** and **sampling frequency**, the calculation formula is:</br>**Time (seconds) = Number of samples / Sampling rate**</br>For example, when 1M samples and 1Mhz, the sampling time is 1s
+1. Sample Count: Choose an appropriate value for the sample count based on your requirements.
+2. Sampling Frequency: Select a value greater than 10 times the frequency of the signal under test (**recommended** to adhere to Nyquist theorem).
+3. Sampling Time: Calculate the sampling time based on the **sample count** and **sampling frequency** using the formula:</br>**Time (seconds) = Sample Count / Sampling Rate**</br>For example, with 1M samples and 1MHz sampling rate, the sampling time would be 1 second.
 
-![set_total_sampling_time_of_pulseview](./../../../zh/logic_analyzer/combo8/assets/use_logic_function/set_total_sampling_time_of_pulseview.png)
+   ![set_total_sampling_time_of_pulseview](./../../../zh/logic_analyzer/combo8/assets/use_logic_function/set_total_sampling_time_of_pulseview.png)
 
-> After setting the sample quantity and sampling frequency, place the mouse over the sample quantity selection box, and it will display the sampling time for the current parameters
+> After setting the sample count and sampling frequency, placing the mouse cursor over the sample count selection box will display the calculated sampling time for the current parameters.
 
 #### Channel Parameters
 
-Click on the channel label to set the channel parameters, which include label name, label color, channel waveform display window width and signal trigger mode
+Click on a channel's label to set its parameters. Channel parameters include label name, label color, channel waveform display window width, and signal triggering mode.
 
-1. Label name: can be set according to the meaning of the sampling signal, for easy distinction of multiple signals
-2. Label color: set according to personal preference, for easy distinction of different signals
-3. Channel waveform display window width: set according to the signal amplitude, unit is pixels, when the signal amplitude changes greatly, you can increase this parameter to observe the signal amplitude change
-4. **Signal trigger mode**: has **direct sampling**, **high level trigger**, **low level trigger**, **falling edge trigger**, **rising edge trigger** and **edge trigger**
+1. Label Name: Set based on the meaning of the sampled signal to facilitate distinguishing between multiple signals.
+2. Label Color: Set according to personal preference to differentiate between different signals during multi-signal sampling.
+3. Channel Waveform Display Window Width: Adjust based on the signal amplitude. This value is in pixels. When the signal amplitude changes significantly, increasing this parameter can help observe amplitude changes more clearly.
+4. **Signal Triggering Mode**: Choose from **Direct Sample**, **High Level Trigger**, **Low Level Trigger**, **Falling Edge Trigger**, **Rising Edge Trigger**, and **Edge Trigger**.
+   (Prior to signal collection, there might be many irrelevant signals. Setting the triggering mode based on the signal pattern can effectively filter out irrelevant signals, thereby improving sampling efficiency and accuracy.)
 
 ![set_channel_cfg_of_pulseview](./../../../zh/logic_analyzer/combo8/assets/use_logic_function/set_channel_cfg_of_pulseview.png)
 
@@ -112,34 +95,87 @@ Click on the channel label to set the channel parameters, which include label na
 
 #### View Operations
 
-> -   **Waveform zoom**: mouse wheel (middle button) scroll up to zoom in waveform, scroll down to zoom out waveform
-> -   **Drag waveform**: mouse left button hold can drag the waveform display area left and right up and down
-> -   **Area zoom**: mouse double click on an area can zoom in the waveform of that area
-> -   **Channel scroll**: "waveform display area" use Ctrl+mouse wheel (middle button) can quickly scroll channels up and down
-> -   **Time measurement**: You can mark a position by right-clicking on the desired position and clicking "Create Marker Here". When you repeat marking another position, the software will automatically calculate and display the time length between the two markers on the time axis
-> -   **Adjust channel order**: mouse drag channel label can drag channel to specified position
+Through view operations, you can observe waveforms in more detail.
 
 ![tag_of_pulseview](./../../../zh/logic_analyzer/combo8/assets/use_logic_function/tag_of_pulseview.png)
 
+**Waveform Zoom**: Use the mouse scroll wheel (middle button) to zoom in and out of the waveform.
+**Drag Waveform**: Hold down the left mouse button to drag the waveform display area horizontally and vertically.
+**Region Zoom**: Double-click on a specific region to zoom in on that area of the waveform.
+**Channel Scroll**: In the waveform display area, use Ctrl + mouse scroll wheel (middle button) to quickly scroll the channels up and down.
+**Time Measurement**: You can create marker points by right-clicking the desired position and selecting "Create Marker Here." The software will automatically calculate and display the time length between two marker points on the time axis.
+**Adjust Channel Order**: Drag and drop a channel's label to rearrange the order of channels as needed.
+
 #### Protocol Decoding
 
-> Clicking on the **yellow-blue waveform icon** from the top toolbar will list the currently supported protocol list, you can directly search for the protocol you want to decode on the list to add a new protocol, new protocol can be viewed in the waveform display area
+After capturing the required data, protocol decoding can be used to analyze the data more effectively. Below are the decoding processes for some common protocols.
 
-![decoder_selector_of_pulseview](./../../../zh/logic_analyzer/combo8/assets/use_logic_function/decoder_selector_of_pulseview.png)
+##### UART Protocol Data Decoding
 
-> On the waveform chart, a new protocol will occupy a row of channel waveform display window, click on the **protocol label**, you can set the basic parameters of the protocol. Taking UART protocol as an example, set UART protocol frequency to 115200, data bits to 8 bits, use ascii format decoding. After setting, the system will decode the waveform of the selected channel, so that you can more intuitively observe and analyze the communication data.
+1. Connect the TX pin of the UART to the D0 channel.
 
-![set_decoder_cfg_of_pulseview](./../../../zh/logic_analyzer/combo8/assets/use_logic_function/set_decoder_cfg_of_pulseview.png)
+2. Click on the **Yellow and Blue waveform icon** in the top toolbar, search for "UART," and double-click to select the UART option.
 
-> After setting, the waveform display area will show the corresponding protocol decoding results of the waveform
+   ![uart_select](./../../../zh/logic_analyzer/combo8/assets/use_logic_function/logic_uart_select.png)
 
-![value_of_pulseview](./../../../zh/logic_analyzer/combo8/assets/use_logic_function/value_of_pulseview.png)
+3. Click on the **protocol label** of the newly added UART channel in the waveform display window.
+   Set the TX corresponding channel, data format, signal baud rate, and byte order.
+
+   ![uart_set](./../../../zh/logic_analyzer/combo8/assets/use_logic_function/logic_uart_set.png)
+
+4. Capture the data and the decoded result will be displayed:
+
+   Example: UART's TX pin sends data "Hello SLogic!" (ASCII data format, baud rate 115200, little-endian byte order)
+
+   ![uart_tx](./../../../zh/logic_analyzer/combo8/assets/use_logic_function/logic_uart_tx.jpg)
+
+##### I2C Protocol Data Decoding
+
+1. Connect the SCL pin of the I2C to the D0 channel and the SDA pin to the D1 channel.
+
+2. Click on the **Yellow and Blue waveform icon** in the top toolbar, search for "I2C," and double-click to select the first option.
+
+    ![i2c_select](./../../../zh/logic_analyzer/combo8/assets/use_logic_function/logic_i2c_select.png)
+
+3. Click on the **protocol label** of the newly added I2C channel in the waveform display window.
+   Click on the added I2C **protocol label** and set the SCL and SDA channels.
+
+   ![i2c_set](./../../../zh/logic_analyzer/combo8/assets/use_logic_function/logic_i2c_set.png)
+
+4. Capture the data and the decoded result will be displayed:
+
+   Example: I2C sends 0x68
+
+   ![i2c_value](./../../../zh/logic_analyzer/combo8/assets/use_logic_function/logic_i2c_0x68_write.jpg)
+
+##### SPI Protocol Data Decoding
+
+1. Connect the MISO, MOSI, CLK, and CS pins of the SPI to the D0, D1, D2, and D3 channels respectively.
+
+2. Click on the **Yellow and Blue waveform icon** in the top toolbar, search for "SPI," and double-click to select the SPI option.
+
+   ![spi_select](./../../../zh/logic_analyzer/combo8/assets/use_logic_function/logic_spi_select.png)
+
+3. Click on the **protocol label** of the newly added SPI channel in the waveform display window.
+   Set the CLK, MISO, MOSI, and CS corresponding channels, and specify the active level of the chip select signal.
+
+   ![spi_set](./../../../zh/logic_analyzer/combo8/assets/use_logic_function/logic_spi_set.png)
+
+4. Capture the data and the decoded result will be displayed:
+
+   Example: SPI sends 0x00~0x09 (clock 10MHz, low-active chip select)
+
+   ![spi_10mhz](./../../../zh/logic_analyzer/combo8/assets/use_logic_function/logic_spi_10mhz.jpg)
+
+   Example: SPI sends 0x00~0x09 (clock 26MHz, low-active chip select)
+
+   ![spi_26mhz](./../../../zh/logic_analyzer/combo8/assets/use_logic_function/logic_spi_26mhz.jpg)
 
 ### Precautions
 
-When connecting logic analyzer to test system, pay attention to the following points:
+When connecting the logic analyzer to the system under test, please note the following precautions:
 
-1. **The logic analyzer and computer are grounded together. If the device under test is a strong electric system, be sure to use a "USB isolator" for isolation measures. Otherwise, there is a high risk of damaging the logic analyzer or computer**
-2. GND channel and GND of test system must be reliably connected, as short as possible
-3. Signal channel must be reliably connected to the test signal position of test system, not randomly "grafted", causing interference introduction
-4. If you do not pay attention to wiring method, it may introduce a lot of glitches, causing software unable to analyze data
+1. The logic analyzer shares a common ground with the computer. If the system under test is a high-voltage system, be sure to use a "USB isolator" for isolation. Otherwise, there is a risk of damaging the logic analyzer or computer.
+2. The GND channel must be reliably connected to the ground of the system under test and kept as short as possible.
+3. The signal channels must be securely connected to the test points of the system under test. Avoid haphazard "tapping" that could introduce interference.
+4. Improper wiring may introduce glitches that could prevent proper data analysis in the software.
