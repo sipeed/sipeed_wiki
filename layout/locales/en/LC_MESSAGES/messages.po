@@ -3,9 +3,8 @@ msgid ""
 msgstr ""
 
 #: home.html:93
-#, fuzzy
 msgid "/static/home/licheepi4a_post.jpg"
-msgstr "/static/home/maixiii_axpi_en.jpg"
+msgstr ""
 
 #: home.html:96 home.html:109 home.html:122 licheepi.html:132 licheepi.html:148
 #: licheepi.html:164 licheepi.html:180 maix.html:110 maix.html:127
@@ -27,33 +26,31 @@ msgstr "/static/home/maixiii_axpi_en.jpg"
 
 #: home.html:135
 msgid "分享广场"
-msgstr ""
+msgstr "Share Center"
 
 #: home.html:139
 msgid "MaixHub 官网"
-msgstr ""
+msgstr "MaixHub"
 
 #: home.html:149
 msgid "产品动态"
-msgstr ""
+msgstr "Product News"
 
 #: home.html:153
-#, fuzzy
 msgid "Maix AI 视觉"
 msgstr "Maix AI Vision"
 
 #: home.html:165
-#, fuzzy
 msgid "MaixSense 传感器"
-msgstr "MaixSense Sensor Module"
+msgstr "MaixSense Sensor"
 
 #: home.html:169
 msgid "其它"
-msgstr ""
+msgstr "Others"
 
 #: licheepi.html:4
 msgid "Linux SBC 系列"
-msgstr ""
+msgstr "Linux SBC Series"
 
 #: licheepi.html:25
 msgid "Lichee SBC 系列产品参数对比"
@@ -269,25 +266,3 @@ msgstr "MCU inside Chip FPGA Board"
 #: tang.html:85
 msgid "自带多种外设接口的 FPGA 开发板"
 msgstr "Mutiple interfaces FPGA board"
-
-#~ msgid "/static/home/licheepi4a_post.jpg"
-#~ msgstr ""
-
-#~ msgid "分享广场"
-#~ msgstr "Share Center"
-
-#~ msgid "MaixHub 官网"
-#~ msgstr "MaixHub"
-
-#~ msgid "产品动态"
-#~ msgstr "Product News"
-
-#~ msgid "Maix AI 视觉"
-#~ msgstr "Maix AI Vision"
-
-#~ msgid "MaixSense 传感器"
-#~ msgstr "MaixSense Sensor"
-
-#~ msgid "其它"
-#~ msgstr "Others"
-

@@ -175,7 +175,7 @@
   function isLimitedNetwork() {
     var connection = navigator.connection ||
       navigator.mozConnection ||
-      navigator.webkitConnection || { tyep: "unknown" };
+      navigator.webkitConnection || { type: "unknown" };
     const notLimitTypes = ["ethernet", "wifi", "wimax"];
     const limitTypes = ["bluetooth", "cellular"];
     var system = {
