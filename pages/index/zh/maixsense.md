@@ -1,4 +1,4 @@
 ---
 layout: redirect
-redirect_url: https://wiki.sipeed.com/hardware/zh/maixsense/index.html
+redirect_url: /hardware/zh/maixsense/index.html
 ---

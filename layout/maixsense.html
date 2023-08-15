@@ -1,0 +1,68 @@
+<!-- 修改后保存一下 include 这个文件的 html 模板（比如home.html）就会渲染 -->
+
+<div class="flex flex-col justify-center items-center">
+  <h2 class="text-2xl font-bold my-8 block_simple">{{_('MaixSense 传感器模组系列')}}</h2>
+  <div class="flex flex-col justify-center">
+    <div class="cards">
+      <!-- cards -->
+      <div class="card" v-for="item in data_maixsense.cards">
+        <div class="img_wrapper">
+          <img class="card_img" :src="item.img" />
+        </div>
+        <h3 class="card_title" class="text-lg">{[item.title]}</h3>
+        <div class="card_brief">{[item.brief]}</div>
+        <div class="card_btns">
+          <a
+            v-for="btn in item.btns"
+            :href="btn.link"
+            :target="btn.new_tab ? '_blank' : '_self'"
+            >{[btn.label]}</a
+          >
+        </div>
+      </div>
+      <!-- cards end -->
+    </div>
+    <div class="flex flex-col justify-center items-center mt-10 mb-5">
+      <!-- a table to compare upper products' parameters -->
+    </div>
+  </div>
+</div>
+
+<script lang="ts">
+  const data_maixsense = {
+    cards: [
+      {
+        img: "/hardware/zh/maixsense/assets/me_small.jpg",
+        title: "MaixSense A010",
+        brief: "100x100 3D TOF {{_('深度传感器模组')}}",
+        btns: [
+          {
+            label: "{{_('文档')}}",
+            link: "/hardware/zh/maixsense/index.html",
+          },
+          {
+            label: "{{_('购买')}}",
+            link: "https://item.taobao.com/item.htm?id=684566484141",
+            new_tab: true,
+          },
+        ],
+      },
+      {
+        img: "/hardware/zh/maixsense/assets/me_big.jpg",
+        title: "MaixSense A075v",
+        brief: "RGB 3D TOF {{_('深度摄像头模组')}}",
+        btns: [
+          {
+            label: "{{_('文档')}}",
+            link: "/hardware/zh/maixsense/index.html",
+          },
+          {
+            label: "{{_('购买')}}",
+            link: "https://item.taobao.com/item.htm?id=684566484141",
+            new_tab: true,
+          },
+        ],
+      },
+    ],
+  };
+</script>

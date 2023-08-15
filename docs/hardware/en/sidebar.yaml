@@ -1,6 +1,4 @@
 items:
--   label: SUMMARY
-    file: README.md
 -   label: Maix Zero
     items:
     -   label: Maix M0
