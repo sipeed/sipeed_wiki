@@ -50,7 +50,7 @@ If you are using docker then make sure that docker greets you when you run `$ do
 Proceed to build the image, since this support is in Work-In-Progress state then you will need to use the `EXPERT=yes` configuration to reveal the hidden configuration for the board
 
 ```console
-~/src/armbian-build $ ./combile.sh EXPERT=yes # Launch Armbian-build framework
+~/src/armbian-build $ ./compile.sh EXPERT=yes # Launch Armbian-build framework
 ```
 
 If everything goes as designed then you will find yourself in the interactive Terminal User Interface ("TUI") of the Armbian framework:
