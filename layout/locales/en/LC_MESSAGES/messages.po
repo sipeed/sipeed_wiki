@@ -266,3 +266,4 @@ msgstr "MCU inside Chip FPGA Board"
 #: tang.html:85
 msgid "自带多种外设接口的 FPGA 开发板"
 msgstr "Mutiple interfaces FPGA board"
+
