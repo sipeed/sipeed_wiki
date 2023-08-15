@@ -42,7 +42,7 @@ Correct operation validated. See README.md for run and reporting rules.
 CoreMark 1.0 : 9175.077154 / GCC13.1.0 -O2 -DPERFORMANCE_RUN=1 -lrt -funroll-all-loops -finline-limit=500 -fgcse-sm -fno-schedule-insns -msignedness-cmpiv -fno-code-hoisting -mno-thread-jumps1 -mno-iv-adjust-addr-cost -mno-expand-split-im / Heap
 ```
 
-使用公版工具链，GCC 版本为`10.4.0`的测试结果（1.85GHz）：
+使用平头哥专用工具链，GCC 版本为`10.4.0`的测试结果（1.85GHz）：
 
 ```txt
 2K performance run parameters for coremark.

@@ -211,11 +211,17 @@ MaixCube  板载 I2C 传感器/IC
 </table>
 
 ## 相关资料下载
+
 Sipeed-Maix-Cube 资料下载：[Sipeed-Maix-Cube](https://dl.sipeed.com/shareURL/MAIX/HDK/Sipeed-Maix-Cube)
 
 Sipeed-Maix-Cube 规格书下载：[Sipeed-Maix-Cube](https://dl.sipeed.com/shareURL/MAIX/HDK/Sipeed-Maix-Cube/ProductSpecification/Sipeed%20Maix%20Cube%20Datasheet%20V1.0.pdf)
 
 Sipeed-Maix-Cube 原理图下载：[Sipeed-Maix-Cube.pdf](https://dl.sipeed.com/shareURL/MAIX/HDK/Sipeed-Maix-Cube/Maix-Cube-2757)
+
+## 软件开发
+
+1. [MaixPy](https://wiki.sipeed.com/maixpy)：MicroPython 语言开发
+2. C 语言 SDK: [kendryte-standalone-sdk](https://github.com/kendryte/kendryte-standalone-sdk)
 
 
 ## 产品技术支持

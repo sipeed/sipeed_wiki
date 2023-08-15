@@ -14,7 +14,7 @@ update:
 ### 获取镜像
 
 参见上一章“镜像集合”，选取需要的镜像下载。
-以下的烧录方式以 Debian 镜像 `LPi4A_Test_0425.7z` 为例。
+以下的烧录方式以 Debian 单屏镜像 `LPI4A_20230721.zip`，16+128核心板为例。
 
 ### 获取烧录工具
 
@@ -43,6 +43,39 @@ update:
 
 Windows 下烧录时，需要先进入高级启动模式，禁用数字签名。才能正常安装下面的驱动。
 
+禁用数字签名请按照下面的步骤：
+
+**Win10**
+1. 找到 WIN10 的设置，点击“设置”：
+
+![win10_find_windows_settings](./assets/burn_image/win10_find_windows_settings.png)
+
+2. 点击最后一个“更新和安全”，然后点击“恢复”：
+
+![win10_click_the_restore](./assets/burn_image/win10_click_the_restore.png)
+
+3. 点击“恢复”之后，在右边点击高级启动下面的“重新启动”，此时电脑会重新启动，如果有其他重要 程序在跑，请慎重：
+
+![win10_click_the_restart](./assets/burn_image/win10_click_the_restart.png)
+
+**Win11**
+1. 在设置中找到"系统菜单"，然后点击“恢复”。 
+![win11_click_the_restore](./assets/burn_image/win11_click_the_restore.png)
+2. 在右边点击高级启动下面的“重新启动”，此时电脑会重新启动，如果有其他重要 程序在跑，请慎重。
+![win11_click_the_restart](./assets/burn_image/win11_click_the_restart.png)
+
+**相同部分**
+1. 重启之后会出现几个选项，点击选项“疑难解答”，然后点击“高级”，启动设置，重启。 
+
+![click_the_advanced_option](./assets/burn_image/click_the_advanced_option.png)
+
+2. 这会重启之后就跳出一个列表，其中有安全模式等选项，也包括这里我们关心的“禁止强制驱动程序签名”，选择“禁用强制驱动程序签名”，对应哪个数字就按那个数字，之后电脑会重新启动。
+![ban_the_signature](./assets/burn_image/ban_the_signature.png)
+
+3. 重启之后，驱动就可以成功安装。若有提示点击继续安装即可。 fastboot 驱动安装具体步骤如下： 
+a. 开发板通过 usb 连接到电脑。 
+b. 打开设备管理器出现“USB download gadget”设备。 
+
 ![before_install_driver](./assets/burn_image/before_install_driver.png)
 ![install_driver](./assets/burn_image/install_driver.png)
 
@@ -64,37 +97,36 @@ Windows 下烧录时，需要先进入高级启动模式，禁用数字签名。
 这时侯我们可以通过fastboot下载并启动u-boot镜像的命令，来进入到u-boot的fastboot烧录模式（相比Brom阶段，会有更大下载buffer，速度会更快）
 下面的指令会检查并格式化分区，请务必执行，否则后面烧录 rootfs 会很慢。
 
+`u-boot-with-spl-ddr8g.bin` 和 `u-boot-with-spl-ddr16g.bin` 为u-boot 固件，具体差异请参考镜像说明。
 ```bash
-sudo ./fastboot flash ram ./images/u-boot-with-spl.bin
+sudo ./fastboot flash ram ./images/u-boot-with-spl-ddr16g.bin
 sudo ./fastboot reboot
 sleep 1
 ```
 
 分别烧录下面三个镜像：启动引导镜像-uboot，启动分区-boot，操作系统根分区-root
 ```bash
-sudo ./fastboot flash uboot ./images/u-boot-with-spl.bin
-sudo ./fastboot flash boot ./images/boot.ext4
-sudo ./fastboot flash root ./images/rootfs.ext4
+sudo ./fastboot flash uboot ./images/u-boot-with-spl-ddr16g.bin
+sudo ./fastboot flash boot ./images/boot_16gddr.ext4
+sudo ./fastboot flash root ./images/rootfs-thead-image-linux_sing.ext4.ext4
 ```
 
-`boot.ext4` 为 boot 分区，包含以下内容： 
-
+`boot_8gddr.ext4`，`boot_8gddr_mipi_720p.ext4`，`boot_8gddr_mipi_1080p.ext4`，`boot_16gddr.ext4`，`boot_16gddr_mipi_720p.ext4` 和 `boot_16gddr_mipi_1080p.ext4` 为 boot 分区，具体差异请参考镜像说明。它们主要包含以下内容： 
 ```bash
 fw_dynamic.bin        #opensbi
 Image                 #kernel image
 kernel-release        #commit id of kernel
 light_aon_fpga.bin    #fw for E902 aon
 light_c906_audio.bin  #fw for C906 audio
-light-lpi4a.dtb       #1.85GHz dtb
-light-lpi4a_2Ghz.dtb  #2GHz overclock dtb
-light-lpi4a-ddr2G.dtb #history dtb
+light-lpi4a.dtb       # ddr8G dtb
+light-lpi4a-ddr16g.dtb # ddr16G dtb
 ```
 
-`rootfs.ext4` 为根文件系统，默认为 Debian 系统。
+`rootfs-thead-image-linux_sing.ext4` 和 `rootfs-thead-image-linux_mipi.ext4` 为根文件系统，默认为 Debian 系统。两者的具体差异请参考镜像说明。
 
 烧录镜像的典型 log 输出如下：
 
-![](./assets/burn_image/burn_image_progress_result.png)
+![burn_image_progress_result](./assets/burn_image/burn_image_progress_result.png)
 
 <!--  
 ```bash

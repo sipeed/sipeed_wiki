@@ -62,9 +62,21 @@ display.show(camera.capture().draw_string(0, 0, "hello world!"))
 
 ## MaixII-Dock (m2dock) 安装与更新 MaixPy3
 
-MaixII-Dock 需要[烧录官方提供预置 MaixPy3 的 Openwrt 镜像](https://wiki.sipeed.com/hardware/zh/maixII/M2/flash.html)，你也可以手动 pip 安装更新 whl 软件包。
+MaixII-Dock 需要[烧录官方已预置 MaixPy3 的镜像](https://wiki.sipeed.com/hardware/zh/maixII/M2/flash.html)，你也可以手动 pip 安装更新 whl 软件包。
 
 ![](./asserts/V831.jpg)
+
+**如何更新 MaixPy3 包**：
+
+可以手动下载最新的 MaixPy3 [安装包](https://pypi.org/project/maixpy3/#history)
+
+![maixpy3_download](/hardware/zh/maixII/M2/asserts/usage/maixpy3_download.png)
+
+下载带有 cp8 的安装包，cp9 是给别的平台使用的。将这个安装的名字修改成 `maixpy3-9.9.9-cp38-cp38-linux_armv7l.whl`,直接存放到开发板中，重启开发板就会自动更新和安装 MaixPy3。
+
+![maixpy3_install](/hardware/zh/maixII/M2/asserts/usage/maixpy3_install.png)
+
+更新前请关闭 IDE 或不接 OTG 口，防止有其他操作影响系统的软件更新，在放入 U 盘后，断电开机会看到如下画面，如果超过 3 分钟画面没有变化，那可能就是失败了，就请重烧系统吧。（2022 年 1 月 14 日至今还没出现过失败样本）
 
 ## MaixSense 安装 MaixPy3
 

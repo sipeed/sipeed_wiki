@@ -194,6 +194,195 @@ gpiochip0: GPIOs 504-511, parent: i2c/0-0018, 0-0018, can sleep:    IO expend 1
  gpio-510 (                    |aon:soc_cam2_dovdd18) out lo 
  gpio-511 (                    |aon:soc_cam2_avdd25_) out lo
 ```  -->
+## gpiod库的使用
+gpiod库是一个可以在同户空间调用GPIO的库，方便用户在应用程序中对GPIO进行操作。
+首先安装和部署GPIO库：
+```shell
+sudo apt install wget
+wget https://git.kernel.org/pub/scm/libs/libgpiod/libgpiod.git/snapshot/libgpiod-2.0.tar.gz
+
+tar zxvf libgpiod-2.0.tar.gz
+
+cd libgpiod-2.0
+sudo apt-get install build-essential pkg-config m4 automake autoconf libtool autoconf-archive
+sudo apt install gcc g++
+
+export CC=gcc
+export CXX=g++
+
+#部署库的相关文件到项目文件夹：--prefix后面的路径要换成自己项目所在的路径，方便后续操作
+./autogen.sh --enable-tools=yes --prefix=/home/sipeed/mylib_local
+make
+sudo make install
+```
+
+如果执行：./autogen.sh --enable-tools=yes --prefix=/home/sipeed/mylib_local 出现以下错误：
+
+```shell
+aclocal: warning: couldn't open directory 'm4': No such file or directory
+#可以执行以下命令
+mkdir m4
+./autogen.sh --enable-tools=yes --prefix=/home/sipeed/mylib_local
+make 
+make install
+```
+开始操作GPIO：
+```shell
+sudo vim gpio.c
+
+#gpio.c的内容如下：
+
+#include<stdio.h>
+#include<unistd.h>
+#include<gpiod.h>
+
+#define PIN_IO1_3   3
+#define PIN_IO1_4   4
+#define PIN_IO1_5   5
+
+int main() {
+  struct gpiod_chip *gchip;
+  struct gpiod_line_info *glinein, *glineout;
+  struct gpiod_line_settings *gline_settings_in, *gline_settings_out;
+  struct gpiod_line_config   *gline_config_in, *gline_config_out;
+  struct gpiod_request_config *gline_request_config_in, *gline_request_config_out;
+  struct gpiod_line_request   *gline_request_in, *gline_request_out;
+  int offset_in[1] = {PIN_IO1_5};
+  int offset_out[2] = {PIN_IO1_3, PIN_IO1_4};
+  int value;
+
+  if ((gchip=gpiod_chip_open("/dev/gpiochip4")) == NULL) {
+    perror("gpiod_chip_open");
+    return 1;
+  }
+
+  
+  gline_settings_in = gpiod_line_settings_new();
+  if ((value=gpiod_line_settings_set_direction(gline_settings_in, GPIOD_LINE_DIRECTION_INPUT)) != 0)  {
+    perror("gpiod_line_settings_set_direction");
+  }
+
+  gline_config_in = gpiod_line_config_new();
+  value=gpiod_line_config_add_line_settings(gline_config_in, offset_in, 1, gline_settings_in);
+  gline_request_config_in = gpiod_request_config_new();
+  gline_request_in = gpiod_chip_request_lines(gchip, gline_request_config_in, gline_config_in);
+
+
+
+
+  value=gpiod_line_request_get_value(gline_request_in, PIN_IO1_5);
+  printf("IO1-5 = %d\n", value);
+
+
+
+
+  gline_settings_out = gpiod_line_settings_new();
+  if (gpiod_line_settings_set_direction(gline_settings_out, GPIOD_LINE_DIRECTION_OUTPUT) != 0) {
+    perror("gpiod_line_settings_set_direction");
+  }
+  gline_config_out = gpiod_line_config_new();
+
+  gpiod_line_config_add_line_settings(gline_config_out, offset_out, 2, gline_settings_out);
+  gline_request_config_out = gpiod_request_config_new();
+  gline_request_out = gpiod_chip_request_lines(gchip, gline_request_config_out, gline_config_out);
+
+
+
+  value=gpiod_line_request_set_value(gline_request_out, PIN_IO1_3, 1);
+
+  value=gpiod_line_request_set_value(gline_request_out, PIN_IO1_4, 0);
+
+  printf("IO1-3 = 1, IO1-4 = 0\n");
+  sleep(1);
+
+
+  for (int i = 0; i < 10; i++) {
+
+
+      value=gpiod_line_request_get_value(gline_request_in, PIN_IO1_5);
+      printf("IO1-5 = %d\n", value);
+
+      
+      value=gpiod_line_request_set_value(gline_request_out, PIN_IO1_3, 0);
+      value=gpiod_line_request_set_value(gline_request_out, PIN_IO1_4, 1);
+   
+      printf("IO1-3 = 0, IO1-4 = 1\n");
+      sleep(1);
+
+
+
+      value=gpiod_line_request_get_value(gline_request_in, PIN_IO1_5);
+      printf("IO1-5 = %d\n", value);
+
+
+      value=gpiod_line_request_set_value(gline_request_out, PIN_IO1_3, 1);
+      value=gpiod_line_request_set_value(gline_request_out, PIN_IO1_4, 0);
+
+      printf("IO1-3 = 1, IO1-4 = 0\n");
+      sleep(1);
+
+  }
+
+  gpiod_chip_close(gchip);
+  return 0;
+}
+
+```
+
+保存，进行编译
+
+```shell
+gcc  -I/home/sipeed/mylib_local/include -L/home/sipeed/mylib_local/lib -o gpio gpio.c -lgpiod
+
+```
+执行前需要给一些设备权限
+
+```shell
+export LD_LIBRARY_PATH=/home/sipeed/mylib_local/lib:$LD_LIBRARY_PATH
+export PATH=/home/sipeed/mylib_local/bin:$PATH
+sudo chmod o+rw /dev/gpiochip4
+sudo chmod o+rw /dev/spidev2.0
+
+#可以直接放在一个.sh文件里面执行
+
+```
+
+运行程序：
+
+```shell
+
+./gpio
+
+```
+
+控制台输出如下：
+
+```shell
+
+sipeed@lpi4a:~/gpio$ ./gpio 
+IO1-5 = 1
+IO1-3 = 1, IO1-4 = 0
+IO1-5 = 1
+IO1-3 = 0, IO1-4 = 1
+IO1-5 = 1
+IO1-3 = 1, IO1-4 = 0
+IO1-5 = 1
+IO1-3 = 0, IO1-4 = 1
+IO1-5 = 1
+IO1-3 = 1, IO1-4 = 0
+IO1-5 = 1
+IO1-3 = 0, IO1-4 = 1
+IO1-5 = 1
+IO1-3 = 1, IO1-4 = 0
+IO1-5 = 1
+IO1-3 = 0, IO1-4 = 1
+IO1-5 = 1
+IO1-3 = 1, IO1-4 = 0
+IO1-5 = 1
+IO1-3 = 0, IO1-4 = 1
+
+```
+
 
 ## UART 
 
@@ -304,7 +493,54 @@ sipeed@lpi4a:~$ ls /dev/spidev2.0
 /dev/spidev2.0
 ```
 
-TODO
+
+### 开始
+ 
+ 注意IO驱动能力，Licheepi4A需要外置电平转化芯片，自用TXS0108E）
+ 该例程所有程序均在板子上编译，如有需要交叉编，在编译的时候更换工具链即可。
+ 以下例程的GPIO操作基于上面的GPIOD库。
+
+ #### 1.下载源码
+
+```shell
+git clone https://github.com/fffdee/ST7735_for_Licheepi4A.git
+```
+#### 2. 构建GPIOD库
+安装所需要的依赖：
+```shell
+sudo apt-get install build-essential pkg-config m4 automake autoconf libtool autoconf-archive
+sudo apt install gcc g++ gpiod cmake
+```
+安装GPIOD库(源文件已安装,需要更改库路径参考以下操作)：
+```shell
+tar zxvf libgpiod-2.0.tar.gz
+cd libgpiod-2.0
+
+export CC=gcc
+export CXX=g++
+
+#部署库的相关文件到项目文件夹：--prefix后面的路径要换成自己项目所在的路径，方便后续操作
+./autogen.sh --enable-tools=yes --prefix=/home/sipeed/TFT_demo/
+make
+sudo make install
+#安装完毕
+```
+
+#### 3.编译以及运行
+```shell
+
+cd TFT_demo
+cmake .
+make -j4
+
+#授予设备权限，每次开机执行一次即可
+. exec.sh
+./tft_demo
+```
+
+### 效果图
+
+![效果图1](./assets/peripheral/tft_demo.png)
 
 ## USB 
 
@@ -344,6 +580,59 @@ guvcview
 sudo apt-get install fswebcam
 fswebcam /dev/video0 image.jpg
 ```
+
+若要让 USB 摄像头自动存图，以下给出一个参考脚本。该脚本使用 uvccapture 工具，可以方便地根据需要调整拍摄参数。
+
+首先安装这个工具
+```shell
+sudo apt install uvccapture
+```
+
+这个工具支持各种参数，使用 `-x -y` 调整拍摄分辨率，`-B`调整亮度，`-C`调整对比度，`-S`调整饱和度，`-o`可以指定拍摄图像存储路径，具体使用参考下面的脚本代码：
+```shell
+#!/bin/bash
+
+# 检查是否传入了间隔时间参数
+if [ -z "$1" ]; then
+  echo -e "未指定间隔时间参数，默认使用1秒间隔"
+  interval=1
+else
+  interval=$1
+fi
+
+# 检查是否传入了输出文件路径参数
+if [ -z "$2" ]; then
+  echo -e "未指定输出文件路径参数，默认输出到当前目录下"
+  output_file="$PWD"
+else
+  output_file=$2
+fi
+
+# 检查是否传入了拍摄次数参数
+if [ -z "$3" ]; then
+  echo -e "未指定拍摄次数，默认拍摄10张"
+  num_executions=10
+else
+  num_executions=$3
+fi
+
+echo -e "脚本开始执行，按下q键停止"
+
+for ((i = 1; i <= num_executions; i++)); do
+    echo -e "capture img $i"
+    uvccapture -x640 -y480 -m -o$output_file/$image$i.jpg
+	  # 间隔指定时间再拍照
+	  sleep $interval
+	  # 按下q键退出
+	  read -t 1 -n 1 key
+	  if [[ $key = "q" ]]; then
+	    break
+	  fi
+done
+
+echo -e "脚本执行结束"
+```
+上述脚本中也可以使用 fswebcam 来操作，做相应更改即可。
 
 ### USB 声卡
 
@@ -512,9 +801,19 @@ echo off > /sys/class/drm/card0-DSI-1/status
 
 ## GPU
 
-`sudo watch cat /sys/kernel/debug/pvr/status`
+使用命令以下命令可以实时查看 GPU 的状态：
+```shell
+sudo watch cat /sys/kernel/debug/pvr/status
+```
 
-TODO
+在 xfce 桌面下，GPU 的状态如下：
+
+![gpu_status_desktop](./assets/peripheral/gpu_status_desktop.png)
+
+使用 Chromium 浏览器播放视频时，GPU 的状态如下：
+
+![gpu_status_play_video](./assets/peripheral/gpu_status_play_video.png)
+
 ## NPU
 
 TODO

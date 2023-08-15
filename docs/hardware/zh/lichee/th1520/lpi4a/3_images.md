@@ -28,15 +28,31 @@ Sipeed 官方镜像基于 Debian 系统修改适配。
 1. 帐号：`root`，`debian`，`sipeed`；密码均为 `licheepi`
 2. 帐号`debian`，密码`debian`；帐号`sipeed`，密码`licheepi`
 
-下载地址：
-百度网盘：[点我](https://pan.baidu.com/s/1xH56ZlewB6UOMlke5BrKWQ)
-Mega 云盘：[点我](https://mega.nz/folder/phoQlBTZ#cZeQ3qZ__pDvP94PT3_bGA)
-ISCAS 镜像站：[点我](https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/)
+### 内存问题修复说明
+重要提示：2023.8.1 之前发出的 16GB 内存板存在错误图像，无法正确识别 16GB 内存（运行大型应用程序可能导致系统崩溃），请按照以下说明修复此错误。
+
+请使用下面的命令烧录新的 u-boot 到板子中，16G 内存使用的 u-boot 在[网盘链接](https://pan.baidu.com/s/1xH56ZlewB6UOMlke5BrKWQ)中，也能在[这个链接](https://dl.sipeed.com/shareURL/LICHEE/licheepi4a/07_Tools)中下载
+相关文件在 `20230803_tempfix.zip` 压缩包中。
+（0721及以后版本的镜像内存能正常使用，无需替换为此处的文件）
+
+```shell
+sudo ./fastboot flash ram ./images/u-boot-with-spl-ddr16g.bin
+sudo ./fastboot reboot
+sleep 1
+sudo ./fastboot flash uboot ./images/u-boot-with-spl-ddr16g.bin
+# 若自己使用的 boot.ext4 中没有 16G ddr 对应的设备树，则需要再烧录 16G ddr 对应的 boot.ext4
+sudo ./fastboot flash boot ./images/boot_16gddr.ext4
+```
 
 ### Debian
 
 ![debian](./assets/images/debian.png)  
 ![debian_neofetch](./assets/images/debian_neofetch.png)  
+
+下载地址：
+百度网盘：[点我](https://pan.baidu.com/s/1xH56ZlewB6UOMlke5BrKWQ)
+Mega 云盘：[点我](https://mega.nz/folder/phoQlBTZ#cZeQ3qZ__pDvP94PT3_bGA)
+ISCAS 镜像站：[点我](https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/)
 
 1. LPI4A_20230721.zip
 
@@ -56,8 +72,8 @@ ISCAS 镜像站：[点我](https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/
    - 已知问题：
       - HDMI 音频在 chromium 下播放音质有问题
    - 使用说明：
-      - 该压缩包为仅支持 HDMI 显示，烧录时请注意 boot 的后缀和设备对应
-         - 8gddr/16gddr 分别对应 8g/16g 内存
+      - 该压缩包为仅支持 HDMI 显示，烧录时请注意文件名中的后缀和设备相关参数对应
+         - boot，u-boot 文件名中的 8gddr/16gddr 分别对应 8g/16g 内存
 
 2. LPI4A_20230721_mipi.zip
 
@@ -82,9 +98,9 @@ ISCAS 镜像站：[点我](https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/
          - 切换为 root 用户，执行`echo 亮度值(0-7的整数值) > /sys/class/backlight/pwm-backlight@0/brightness`
       - HDMI 音频在 chromium 下播放音质有问题
    - 使用说明：
-      - 该压缩包为支持 MIPI 屏幕的镜像，烧录时请注意 boot 的后缀和设备对应
-         - 8gddr/16gddr 分别对应 8g/16g 内存
-         - mipi_720p/mipi_1080p 分别对应800x1280的 MIPI 屏幕（带触摸）/1200x1920的mipi屏幕
+      - 该压缩包为支持 MIPI 屏幕的镜像，烧录时请注意文件名中的后缀和设备相关参数对应
+         - boot，u-boot 文件名中的 8gddr/16gddr 分别对应 8g/16g 内存
+         - boot 文件名中的 mipi_720p/mipi_1080p 分别对应800x1280的 MIPI 屏幕（带触摸）/1200x1920的mipi屏幕
 
 ### OpenWRT
 
@@ -97,6 +113,38 @@ TODO
 ![android](./assets/images/android.png)
 
 Readme and image download link: [Click me](https://gitee.com/thead-android/thead-android)
+
+预构建镜像下载地址：
+百度网盘：[点我](https://pan.baidu.com/s/1xH56ZlewB6UOMlke5BrKWQ)
+Mega 云盘：[点我](https://mega.nz/folder/phoQlBTZ#cZeQ3qZ__pDvP94PT3_bGA)
+
+> 安卓13 SDK 仍处于初期状态，会逐步修复其中的问题
+
+Sipeed 官方镜像的网盘下载链接中提供了 Android 13的预编译镜像文件，下载后烧录方式如下，fastboot工具请使用从这里下载的版本：
+https://developer.android.com/tools/releases/platform-tools
+
+网盘中也有提供 fastboot 的文件
+
+```shell
+#烧录uboot并初始化boot环境变量
+fastboot flash ram u-boot-with-spl.bin
+fastboot reboot
+fastboot flash uboot u-boot-with-spl.bin
+
+#烧录各个分区
+#在非boot烧写模式，可以在uboot的命令行中输入命令fastboot usb 0，单独烧录分区
+fastboot flash bootpart bootpart.ext4
+fastboot flash boot boot.img
+fastboot flash vendor_boot vendor_boot.img
+fastboot flash super super.img 
+fastboot flash userdata userdata.img
+fastboot flash vbmeta vbmeta.img
+fastboot flash vbmeta_system vbmeta_system.img
+
+#初始化metadata和misc分区
+fastboot erase metadata 
+fastboot erase misc
+```
 
 ## 第三方镜像
 
@@ -122,9 +170,16 @@ Readme and image download link: [Click me](https://github.com/aiminickwong/liche
 ![openKylin](./assets/images/openkylin.png)
 ![oepnkylin_neofetch](./assets/images/oepnkylin_neofetch.png)
 
-Readme and image download link: [Click me](https://github.com/aiminickwong/licheepi4a-images)
+Readme link: [Click me](https://github.com/aiminickwong/licheepi4a-images)
+[openKylin V1.0 Download address](https://www.openkylin.top/downloads/index-cn.html)
 
-### armbian (unofficial)
+### armbian (official, use RV64GC toolchain)
+
+![armbian](https://cdn.armbian.com/wp-content/uploads/2018/03/logo2.png)
+
+Project address: [Click me](https://github.com/armbian/build)
+
+### armbian (unofficial, use T-Head optimized toolchain)
 
 ![armbian](https://cdn.armbian.com/wp-content/uploads/2018/03/logo2.png)
 ![armbian_neofetch](./assets/images/armbian_neofetch.png)
@@ -151,9 +206,13 @@ Project address: [Click me](https://github.com/chainsx/openwrt-th1520)
 
 ![ubuntu_neofetch](./assets/images/ubuntu_neofetch.jpg)
 
-### NixOS
+### NixOS (unofficial)
 
 ![nixos](./assets/images/nixos.png)
+
+![nixos_neofetch](./assets/images/nixos-licheepi-neofetch.jpg)
+
+Project address: [Click me](https://github.com/ryan4yin/nixos-licheepi4a)
 
 ### Gentoo
 

@@ -107,88 +107,33 @@ keywords: MAIX-III, AXera-Pi, Maix3, Sipeed, ax620a, axera, sipeed, AI, model, m
 
 ![models](./../assets/models.jpg)
 
-还可以在 [AXERA-TECH/ax-samples](https://github.com/AXERA-TECH/ax-samples) 仓库也可以找到模型，板子系统里也预置了模型资源，后续模型更新会在这里[「ax-models」](https://github.com/AXERA-TECH/ax-models)，而 [ AX-Samples 将不断更新最流行的、实用的、有趣的示例代码](https://github.com/AXERA-TECH/ax-samples/tree/main/examples#examples)，目前有如下模型支持列表：
+还可以在 [AXERA-TECH/ax-samples](https://github.com/AXERA-TECH/ax-samples) 仓库也可以找到模型，板子系统里也预置了模型资源，后续模型更新会在这里[「ax-models」](https://github.com/AXERA-TECH/ax-models)，而 [ AX-Samples 将不断更新最流行的、实用的、有趣的示例代码](https://github.com/AXERA-TECH/ax-samples/tree/main/examples#examples)，目前比较典型的模型支持：
 
-- 物体分类
-  - MobileNetv1
-  - [MobileNetv2](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/ax620/README.md#MobileNetv2)
-  - MobileOne-s0
-  - ResNet18
-  - ResNet50
-  - Others......
-- 物体检测
-  - [PP-YOLOv3](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/ax620/README.md#yolov3paddle)
-  - YOLOv3
-  - YOLOv3-Tiny
-  - YOLOv4
-  - YOLOv4-Tiny
-  - YOLOv4-Tiny-3l
-  - [YOLOv5s](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/ax620/README.md#YOLOv5s)
-  - [YOLOv5-Lite](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/ax620/README.md#YOLOv5-Lite)([original model](https://github.com/ppogg/YOLOv5-Lite))
-  - [YOLOv7-Tiny](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/ax620/README.md#YOLOv7-Tiny)
-  - [YOLOv8s](https://github.com/AXERA-TECH/ax-samples/tree/main/examples#YOLOv8s)
-  - [YOLOX-S](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/ax620/README.md#YOLOX-S)
-  - YOLO-Fastest-XL
-  - NanoDet
-- 人型检测
-  - YOLO-Fastest-Body
-- 人脸检测
-  - [scrfd](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/ax620/README.md#Scrfd)
-  - [YOLOv5-Face](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/ax620/README.md#YOLOv5-Face)([original model](https://github.com/deepcam-cn/yolov5-face))
-- 人脸分割
-  - Face_Parsing
-- 障碍物检测 (扫地机场景)
-  - Robot-Obstacle-Detect
-- 无人机视角物体检测
-  - [YOLOv5s_visdrone](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/ax620/README.md#YOLOv5s_visdrone)
-- 3D单目车辆检测
-  - [Monodlex](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/ax620/README.md#Monodlex)
-- 人体关键点
-  - [HRNet](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/ax620/README.md#HRNet)
-  - [AX-POSE-PPL](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/ax620/README.md#AX-POSE-PPL)
-  - [HandPose](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/ax620/README.md#HandPose)
-- 人体分割
-  - [PP-HumanSeg](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/ax620/README.md#PP-HumanSeg)
-- 语义分割
-  - [PP-Seg](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/ax620/README.md#MobileSeg)
-- 传统 CV 操作
-  - CropResize
-- Pipeline 示例
-  - NV12 -> CropResize -> NN(Classification)
+- 物体分类: MobileNet, Resnet
+- 物体检测: YOLO v3~v8
+- 分割: Face_Parsing, [PP-HumanSeg](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/ax620/README.md#PP-HumanSeg)
+- 3D单目车辆检测： [Monodlex](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/ax620/README.md#Monodlex)
+- 人体关键点：[HRNet](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/ax620/README.md#HRNet)，[AX-POSE-PPL](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/ax620/README.md#AX-POSE-PPL)， [HandPose](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/ax620/README.md#HandPose)
+- 语义分割: [PP-Seg](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/ax620/README.md#MobileSeg)
+- 传统 CV 操作: CropResize 加速
 
-想要在板子上运行模型请看[「部署模型到 Maix-III AXera-Pi 开发板」](/ai/zh/deploy/ax-pi.html)
-
-<p align="center">
-  <img src="./../assets/ai_guide.jpg" style="zoom: 75%;" />
-</p>
 
 ### 在线训练模型吧！
 
-如今 [新版 MaixHub 正式上线啦！](https://wiki.sipeed.com/news/maixhub/new_maixhub.html)下为 maixhub 在线训练模型流程示意。
+支持 零代码，免费云端服务器的 [MaixHub](https://wiki.sipeed.com/news/maixhub/new_maixhub.html)在线训练，小白也能定制自己的 AI 模型！
 
-<p align="center">
-  <img src="./../assets/test_maixhub.jpg" style="zoom: 100%;" />
-</p>
+### 移植自己的模型
 
-> m3axpi 不支持上一代 m2dock 的扫码部署，只能选择本地上传文件部署。
+想要在板子上移植你的模型请看[「部署模型到 Maix-III AXera-Pi 开发板」](/ai/zh/deploy/ax-pi.html)
 
-<p align="center">
-    <iframe src="//player.bilibili.com/player.html?aid=597374704&bvid=BV1eB4y1Q74i&cid=741940038&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="max-width:640px; max-height:480px;"> </iframe>
-</p>
 
 ### 分享有趣的模型！
 
-在你部署成功后会有一份模型文件，以及能运行模型的代码或程序，你可以将这些文件分享到 [MaixHub 模型库](https://maixhub.com/model/zoo) ，大家一起交流学习成长！（请开始你的表演吧）
+* 社区可以找到大家分享的模型，方便快速验证想法。
+* 在线训练的模型，或者移植的自己的模型，均可以分享到 [MaixHub 模型库](https://maixhub.com/model/zoo) ，大家一起交流学习成长！（请开始你的表演吧）
 
-<p align="center">
-  <img src="./../assets/share_model.jpg" style="zoom: 75%;" >
-</p>
 
-<p align="center">
-  <img src="./../assets/test_yolov5s.jpg" style="zoom: 100%;" >
-</p>
-
-## 活跃 の 社区资源
+## 活跃的社区资源
 
 产品相关的专栏内容有（官方维护）：
 
@@ -243,7 +188,80 @@ keywords: MAIX-III, AXera-Pi, Maix3, Sipeed, ax620a, axera, sipeed, AI, model, m
   <img src="./../assets/demo_two.jpg" style="zoom: 100%;">
 </p>
 
-## 丰富 の Linux 内容
+## 硬件参数
+
+<p align="center">
+  <img src="./../assets/waiguan1.jpg" style="zoom: 51%;" />
+  <img src="./../assets/maix-iii-small.jpg" style="zoom: 80%;" />
+  <img src="./../assets/waiguan2.jpg" style="zoom: 45%;" />
+</p>
+
+### 硬件标注图
+
+<p align="center">
+  <img src="./../assets/layout_axpi_2.png" alt="layout_axpi_2" width="45%">
+  <img src="./../assets/layout_axpi_1.png" alt="layout_axpi_1" width="45%">
+</p>
+
+### 核心板参数
+
+| 项目       | 参数                                  |
+| ---------- | ------------------------------------- |
+| CPU        | 四核 Cortex-A7, 支持 NEON 和 FPU       |
+| NPU        | 14.4Tops@int4，3.6Tops@int8           |
+| ISP        | 4K@30fps                              |
+| 编解码格式 | H.264, H.265                          |
+| 视频编码   | 4K@30fps                              |
+| 视频解码   | 1080P@60fps                           |
+| Ethernet   | 支持双路RGMII / RMII 接口模式的以太网 |
+| 显示输出   | MIPI DSI 4 Lane，最高支持4K@30FPS |
+| DRAM       | 2GB LPDDR4X 3733Mhz                 |
+| 存储       | 可选16GB EMMC（默认是 TF 卡启动）       |
+| IO 引出    | DDR4 SODIMM 260P 金手指全 IO 引出       |
+
+### 底板参数
+
+| 项目       | 参数                                   |
+| ---------- | ------------------------------------- |
+| 摄像头输入 | （默认单摄）最高支持 3 摄:1个MIPI4-LANE+2个MIPI2-LANE |
+| 屏幕输出 | 支持最高 4-LANE MIPI DSI 屏幕 |
+| SD 插槽 | 默认从 SD 卡启动 |
+| 录音输入 | 板载两个 MEMS MIC 支持双麦降噪 |
+| 音频输出  | 3.5MM耳机接口 支持立体声输入和 MIC 输入 |
+| 网络接口 | 支持 千兆以太网（ETH） 和 2.4GHZ WI-FI 板载天线 |
+| USB 接口  | 1xUSB2.0HS 支持 OTG 或 HOST 功能，1xUSB-UART 系统串口 |
+| 其他资源  | 1x用户按键，3x系统按键，1xRTC时钟，2xLED |
+| 对外接口  | 引出CJTAG，可自行连接相应调试器，引出2x12排针，4个M2.5螺丝定位孔 |
+
+### 摄像头一览
+
+- 低配 gc4653 400w 基础体验版本。
+
+<p align="center">
+  <img src="./../assets/ax620a_gc.jpg" style="zoom: 100%;" />
+</p>
+
+- 高配 os04a10 400w 夜景增强版本。
+
+<p align="center">
+  <img src="./../assets/ax620a_os.jpg" style="zoom: 100%;" />
+</p>
+
+> [更换摄像头常见问题](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html)
+
+## 硬件资源
+
+[硬件资源汇总链接](https://dl.sipeed.com/shareURL/MaixIII/AXera)
+
+- [产品规格书](https://dl.sipeed.com/shareURL/MaixIII/AXera/01_Specification)
+- [原理图](https://dl.sipeed.com/shareURL/MaixIII/AXera/02_Schematic)
+- [点位图](https://dl.sipeed.com/shareURL/MaixIII/AXera/03_Bit_number_map)
+- [模型文件](https://dl.sipeed.com/shareURL/MaixIII/AXera/05_3D_file)
+- [尺寸图](https://dl.sipeed.com/shareURL/MaixIII/AXera/04_Dimensional_drawing)
+- [GC4653 摄像头参考使用手册](https://dl.sipeed.com/shareURL/MaixIII/AXera/07_Chip_manual)
+
+
+## 软件开发
 
 ### 超高性价比与能效比
 
@@ -330,83 +348,6 @@ AX-Pipeline 由爱芯主导开发。该项目基于 AXera-Pi 展示 ISP、图像
 4. [如何调整图像方向](https://github.com/AXERA-TECH/ax-pipeline/blob/main/docs/how_to_adjust_image_orientation.md)
 5. [ModelZoo](https://github.com/AXERA-TECH/ax-pipeline/blob/main/docs/modelzoo.md) 一些支持或将支持的模型和一些模型的说明。
 
-## 选择 M3AXPI 的理由
-
->为什么要选择 M3AXPI 呢？由这个视频来回答你的所有疑问吧！
-
-视频简述了 M3AXPI 比起 M2DOCK 的优势，还有超多实际使用效果案例以及彩蛋！
-
-<iframe src="//player.bilibili.com/player.html?aid=992194128&bvid=BV1px4y1w75T&cid=1018084963&page=1&t=372" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
-
-## 相关硬件参数
-
-<p align="center">
-  <img src="./../assets/waiguan1.jpg" style="zoom: 51%;" />
-  <img src="./../assets/maix-iii-small.jpg" style="zoom: 80%;" />
-  <img src="./../assets/waiguan2.jpg" style="zoom: 45%;" />
-</p>
-
-### 硬件标注图
-
-<p align="center">
-  <img src="./../assets/layout_axpi_2.png" alt="layout_axpi_2" width="45%">
-  <img src="./../assets/layout_axpi_1.png" alt="layout_axpi_1" width="45%">
-</p>
-
-### 核心板参数
-
-| 项目       | 参数                                  |
-| ---------- | ------------------------------------- |
-| CPU        | 四核 Cortex-A7, 支持 NEON 和 FPU       |
-| NPU        | 14.4Tops@int4，3.6Tops@int8           |
-| ISP        | 4K@30fps                              |
-| 编解码格式 | H.264, H.265                          |
-| 视频编码   | 4K@30fps                              |
-| 视频解码   | 1080P@60fps                           |
-| Ethernet   | 支持双路RGMII / RMII 接口模式的以太网 |
-| 显示输出   | MIPI DSI 4 Lane，最高支持4K@30FPS |
-| DRAM       | 2GB LPDDR4X 3733Mhz                 |
-| 存储       | 可选16GB EMMC（默认是 TF 卡启动）       |
-| IO 引出    | DDR4 SODIMM 260P 金手指全 IO 引出       |
-
-### 底板参数
-
-| 项目       | 参数                                   |
-| ---------- | ------------------------------------- |
-| 摄像头输入 | （默认单摄）最高支持 3 摄:1个MIPI4-LANE+2个MIPI2-LANE |
-| 屏幕输出 | 支持最高 4-LANE MIPI DSI 屏幕 |
-| SD 插槽 | 默认从 SD 卡启动 |
-| 录音输入 | 板载两个 MEMS MIC 支持双麦降噪 |
-| 音频输出  | 3.5MM耳机接口 支持立体声输入和 MIC 输入 |
-| 网络接口 | 支持 千兆以太网（ETH） 和 2.4GHZ WI-FI 板载天线 |
-| USB 接口  | 1xUSB2.0HS 支持 OTG 或 HOST 功能，1xUSB-UART 系统串口 |
-| 其他资源  | 1x用户按键，3x系统按键，1xRTC时钟，2xLED |
-| 对外接口  | 引出CJTAG，可自行连接相应调试器，引出2x12排针，4个M2.5螺丝定位孔 |
-
-[硬件资源汇总链接](https://dl.sipeed.com/shareURL/MaixIII/AXera)
-
-- [产品规格书](https://dl.sipeed.com/shareURL/MaixIII/AXera/01_Specification)
-- [原理图](https://dl.sipeed.com/shareURL/MaixIII/AXera/02_Schematic)
-- [点位图](https://dl.sipeed.com/shareURL/MaixIII/AXera/03_Bit_number_map)
-- [模型文件](https://dl.sipeed.com/shareURL/MaixIII/AXera/05_3D_file)
-- [尺寸图](https://dl.sipeed.com/shareURL/MaixIII/AXera/04_Dimensional_drawing)
-- [GC4653 摄像头参考使用手册](https://dl.sipeed.com/shareURL/MaixIII/AXera/07_Chip_manual)
-
-### 摄像头一览
-
-- 低配 gc4653 400w 基础体验版本。
-
-<p align="center">
-  <img src="./../assets/ax620a_gc.jpg" style="zoom: 100%;" />
-</p>
-
-- 高配 os04a10 400w 夜景增强版本。
-
-<p align="center">
-  <img src="./../assets/ax620a_os.jpg" style="zoom: 100%;" />
-</p>
-
-> [更换摄像头常见问题](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html)
 
 ## 常见问题（FAQ）
 

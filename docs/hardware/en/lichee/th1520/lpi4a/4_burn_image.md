@@ -19,7 +19,7 @@ update:
 ### Download an image
 
 Refer to the previous chapter "Images" to find the desired image.
-The image burning method below uses the Debian image `LPi4A_Test_0425.7z` as an example .
+The following burning method takes Debian single-screen image `LPI4A_20230721.zip`, 16+128 core board as an example.
 
 ### Get the burning tool
 The burning tool can be obtained from the Mega cloud disk and is found in the `burn_tool.zip` file.
@@ -53,6 +53,39 @@ The driver needs to be installed manually the first time you use the device.
 
 Note that the driver is not digitally signed, and you need to disable the driver signature checks.
 
+To disable digital signatures follow the steps below:
+
+**Win10**
+1. Find the settings of WIN10, click "Settings":
+
+![win10_find_windows_settings](./../../../../zh/lichee/th1520/lpi4a/assets/burn_image/win10_find_windows_settings.png)
+
+2. Click the last "Update and Security", then click "Recovery":
+
+![win10_click_the_restore](./../../../../zh/lichee/th1520/lpi4a/assets/burn_image/win10_click_the_restore.png)
+
+3. After clicking "Recovery", click "Restart" under Advanced Startup on the right, and the computer will restart at this time. If there are other important programs running, please be careful:
+
+![win10_click_the_restart](./../../../../zh/lichee/th1520/lpi4a/assets/burn_image/win10_click_the_restart.png)
+
+**Win11**
+1. Find "System Menu" in Settings and tap "Restore".
+![win11_click_the_restore](./../../../../zh/lichee/th1520/lpi4a/assets/burn_image/win11_click_the_restore.png)
+2. Click "Restart" under Advanced Startup on the right, and the computer will restart at this time. If there are other important programs running, please be careful.
+![win11_click_the_restart](./../../../../zh/lichee/th1520/lpi4a/assets/burn_image/win11_click_the_restart.png)
+
+**Same Part**
+1. After restarting, several options will appear, click on the option "Troubleshooting", then click on "Advanced", start the settings, and restart.
+
+![click_the_advanced_option](./../../../../zh/lichee/th1520/lpi4a/assets/burn_image/click_the_advanced_option.png)
+
+2. After this will restart, a list will pop up, including options such as safe mode, including the "prohibit mandatory driver signature" we care about here, select "disable mandatory driver signature", press the corresponding number, and then The computer will restart.
+![ban_the_signature](./../../../../zh/lichee/th1520/lpi4a/assets/burn_image/ban_the_signature.png)
+
+3. After restarting, the driver can be installed successfully. If prompted, click to continue the installation. The specific steps of fastboot driver installation are as follows:
+a. The development board is connected to the computer via usb.
+b. Open the device manager and the "USB download gadget" device will appear.
+
 Refer to [Disable Driver signature verification](https://answers.microsoft.com/en-us/windows/forum/all/permanent-disable-driver-signature-verification/009c3498-bef8-4564-bb52-1d05812506e0#:~:text=Start%20your%20computer%20and%20then%20keep%20pressing%20the,your%20keyboard%20to%20select%20Disable%20driver%20signature%20enforcement.)
 
 ![before_install_driver](./../../../../zh/lichee/th1520/lpi4a/assets/burn_image/before_install_driver.png)
@@ -74,32 +107,31 @@ After putting the board into burning mode, you can use fastboot from `burn_tool.
 Let´s take linux as an example:
 Note that you need to mark the fastboot binary as executable first via `chmod +x fastboot`
 
+`u-boot-with-spl-ddr8g.bin` and `u-boot-with-spl-ddr16g.bin` are u-boot firmware, please refer to the image description for specific differences.
 ```bash
-sudo ./fastboot flash ram ./images/u-boot-with-spl.bin
+sudo ./fastboot flash ram ./images/u-boot-with-spl-ddr16g.bin
 sudo ./fastboot reboot
 sleep 10
-sudo ./fastboot flash uboot ./images/u-boot-with-spl.bin
-sudo ./fastboot flash boot ./images/boot.ext4
-sudo ./fastboot flash root ./images/rootfs.ext4
+sudo ./fastboot flash uboot ./images/u-boot-with-spl-ddr16g.bin
+sudo ./fastboot flash boot ./images/boot_16gddr.ext4
+sudo ./fastboot flash root ./images/rootfs-thead-image-linux_sing.ext4.ext4
 ```
 
 The first three lines will check and create the partitions on the flash. If you skip this step,
 burning the rootfs will be very slow later on.
 
-`boot.ext4` contains the following content：
-
+`boot_8gddr.ext4`, `boot_8gddr_mipi_720p.ext4`, `boot_8gddr_mipi_1080p.ext4`, `boot_16gddr.ext4`, `boot_16gddr_mipi_720p.ext4` and `boot_16gddr_mipi_1080p.ext4` for boot For specific differences, please refer to the image description. They mainly include the following:
 ```bash
 fw_dynamic.bin        #opensbi
 Image                 #kernel image
 kernel-release        #commit id of kernel
 light_aon_fpga.bin    #fw for E902 aon
 light_c906_audio.bin  #fw for C906 audio
-light-lpi4a.dtb       #1.85GHz dtb
-light-lpi4a_2Ghz.dtb  #2GHz overclock dtb
-light-lpi4a-ddr2G.dtb #history dtb
+light-lpi4a.dtb       # ddr8G dtb
+light-lpi4a-ddr16g.dtb # ddr16G dtb
 ```
 
-`rootfs.ext4` is the root filesystem, the default is a debian system.
+`rootfs-thead-image-linux_sing.ext4` and `rootfs-thead-image-linux_mipi.ext4` are the root file system, and the default is Debian system. For the specific differences between the two, please refer to the image description.
 
 Log output you typically see while burning an image:
 

@@ -4,3 +4,5 @@ temp
 .vscode
 .ipynb_checkpoints
 .qiniu_pythonsdk_hostscache.json
+*.temp
+*.mo

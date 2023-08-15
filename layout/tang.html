@@ -1,0 +1,100 @@
+<!-- 修改后保存一下 include 这个文件的 html 模板（比如home.html）就会渲染 -->
+
+<div class="flex flex-col justify-center items-center">
+  <h2 class="text-2xl font-bold my-8 block_simple">{{_('Tang FPGA 系列')}}</h2>
+  <div class="flex flex-col justify-center">
+    <div class="cards">
+      <!-- cards -->
+      <div class="card" v-for="item in data_tang.cards">
+        <div class="img_wrapper">
+          <img class="card_img" :src="item.img" />
+        </div>
+        <h3 class="card_title" class="text-lg">{[item.title]}</h3>
+        <div class="card_brief">{[item.brief]}</div>
+        <div class="card_btns">
+          <a
+            v-for="btn in item.btns"
+            :href="btn.link"
+            :target="btn.new_tab ? '_blank' : '_self'"
+            >{[btn.label]}</a
+          >
+        </div>
+      </div>
+      <!-- cards end -->
+    </div>
+    <div class="flex flex-col justify-center items-center mt-10 mb-5">
+      <!-- a table to compare upper products' parameters -->
+    </div>
+  </div>
+</div>
+
+<script lang="ts">
+  const data_tang = {
+    cards: [
+      {
+        img: "/hardware/assets/Tang/Nano_4K/Nano_4K.png",
+        title: "Tang Nano 4K",
+        brief: "",
+        btns: [
+          {
+            label: "{{_('文档')}}",
+            link: "/hardware/zh/tang/Tang-Nano-4K/Nano-4K.html",
+          },
+          {
+            label: "{{_('购买')}}",
+            link: "https://item.taobao.com/item.htm?id=661994055100",
+            new_tab: true,
+          },
+        ],
+      },
+      {
+        img: "/hardware/assets/Tang/Nano-9K/9K.png",
+        title: "Tang Nano 9K",
+        brief: "",
+        btns: [
+          {
+            label: "{{_('文档')}}",
+            link: "/hardware/zh/tang/Tang-Nano-9K/Nano-9K.html",
+          },
+          {
+            label: "{{_('购买')}}",
+            link: "https://item.taobao.com/item.htm?id=666055424174",
+            new_tab: true,
+          },
+        ],
+      },
+      {
+        img: "/hardware/zh/tang/tang-nano-20k/assets/nano_20k/tang_nano_20k_3920_top.png",
+        title: "Tang Nano 20K",
+        brief: "",
+        btns: [
+          {
+            label: "{{_('文档')}}",
+            link: "/nano20k",
+          },
+          {
+            label: "{{_('购买')}}",
+            link: "https://item.taobao.com/item.htm?id=717932028073",
+            new_tab: true,
+          },
+        ],
+      },
+      {
+        img: "/hardware/zh/tang/tang-primer-20k/assets/dock-up.png",
+        title: "Tang Primer 20K",
+        brief: "",
+        btns: [
+          {
+            label: "{{_('文档')}}",
+            link: "/hardware/zh/tang/tang-primer-20k/primer-20k.html",
+          },
+          {
+            label: "{{_('购买')}}",
+            link: "https://item.taobao.com/item.htm?id=680099020807",
+            new_tab: true,
+          },
+        ],
+      },
+    ],
+  };
+</script>

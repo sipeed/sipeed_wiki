@@ -1,4 +1,4 @@
----
+<!-- ---
 title: MaixII M2dock wifi 调试
 keywords: MaixII, MaixPy3, Python, Python3, M2dock
 desc: maixpy  MaixII M2dock wifi 调试
@@ -200,4 +200,4 @@ iperf3 -c [serve ip] -p [port]
 
 - WIFI 吞吐量（带宽测试）
 
-- WIFI 丢包/时延测试
+- WIFI 丢包/时延测试 -->

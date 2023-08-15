@@ -358,7 +358,7 @@ We need `git` to get the SDK complie envorioument, and use `make` to compile SDK
 The following command can be used in debian Linux distribution like Ubuntu to install the three softwares mentioned above.
 
 ```bash
-sudo apt-get install git make tree
+sudo apt-get install git make tree build-essential
 ```
 
 For the command of other Linux distribution to install the three softwares mentioned above can be searched on the Internet by yourself.

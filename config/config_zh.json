@@ -1,5 +1,5 @@
 {
-    "locale": "zh_CN",
+    "locale": "zh",
     "navbar": {
         "title": "wiki",
         "logo": {
@@ -10,11 +10,12 @@
         "items": [
             {
                 "label": "产品",
-                "url": "/hardware/zh/index.html",
+                "url": "/",
                 "position": "left"
             },
             {
-                "label": "软件文档",
+                "label": "开源软件",
+                "desc": "开源软件项目或者通用的软件文档和教程",
                 "position": "left",
                 "type": "list",
                 "items": [
@@ -36,38 +37,16 @@
                     }
                 ]
             },
-
             {
-                "label": "在线平台",
+                "label": "MaixHub",
                 "position": "left",
-                "type":"list",
-                "items":[
-                    {
-                        "label":"MaixHub: AI 平台和分享社区",
-                        "url":"https://maixhub.com",
-                        "target": "_blank"
-                    },
-                    {
-                        "label":"下载中心",
-                        "url":"https://dl.sipeed.com/",
-                        "target": "_blank"
-                    }
-                ]
+                "url":"https://maixhub.com",
+                "target": "_blank"
             },
             {
-                "label": "交流社群",
-                "url": "/community.html",
-                "position": "left"
-            },
-            {
-                "label":"博文精选",
+                "label":"动态",
                 "url":"/news/",
                 "position":"left"
-            },
-            {
-                "label": "线上商城",
-                "url": "/store.html",
-                "position": "left"
             },
             {
                 "label": "FAQ 汇总",
@@ -75,19 +54,19 @@
                 "position": "left"
             },
             {
-                "label":"贡献文档",
-                "url":"/share_docs/zh/",
+                "label": "<img src='/static/image/shop.svg' style='height: 1.5em;vertical-align: middle;'>",
+                "url": "/store.html",
                 "position": "right"
             },
             {
-                "label": "Github ",
+                "label": "<img src='/static/image/github.svg' style='height: 1.5em;vertical-align: middle;'>",
                 "position": "right",
                 "url": "https://github.com/sipeed",
                 "target": "_blank"
             },
             {
                 "id": "language",
-                "label": "Language: ",
+                "label": "<img src='/static/image/language.svg' style='height: 1.5em;vertical-align: middle;'>&nbsp;",
                 "position": "right",
                 "type": "language"
             }
@@ -106,11 +85,6 @@
                     {
                         "label": "MaixHub",
                         "url": "https://maixhub.com/",
-                        "target": "_blank"
-                    },
-                    {
-                        "label": "BBS 论坛",
-                        "url": "https://bbs.sipeed.com/",
                         "target": "_blank"
                     },
                     {
@@ -143,12 +117,12 @@
                 "label": "源码",
                 "items": [
                     {
-                        "label": "网站源码",
+                        "label": "Wiki 源码",
                         "url": "https://github.com/sipeed/sipeed_wiki",
                         "target": "_blank"
                     },
                     {
-                        "label": "开源项目源码",
+                        "label": "开源项目",
                         "url": "https://github.com/sipeed",
                         "target": "_blank"
                     }
@@ -157,11 +131,6 @@
             {
                 "label": "关注我们",
                 "items": [
-                    {
-                        "label": "github",
-                        "url": "https://github.com/sipeed",
-                        "target":"_blank"
-                    },
                     {
                         "label": "twitter",
                         "url": "https://twitter.com/SipeedIO",
@@ -173,8 +142,12 @@
                         "target":"_blank"
                     },
                     {
-                        "label": "更多",
-                        "url": "/community.html"
+                        "label": "github",
+                        "url": "https://github.com/sipeed",
+                        "target":"_blank"
+                    },
+                    {
+                        "label": "<a>微信公众号</a><img src='/static/image/wechat.png'>"
                     }
                 ]
             },
@@ -224,7 +197,7 @@
         "teedoc-plugin-thumbs-up": {
             "config": {
                 "label_up": "有帮助",
-                "label_down": "没帮助",
+                "label_down": "待改进",
                 "msg_already_voted": "您已经投过票了",
                 "msg_thanks": "感谢您的反馈",
                 "msg_down_prompt": "感谢反馈，请告诉我们可以改进什么地方?（最少 10 个字）",
@@ -233,5 +206,5 @@
             }
         }
     },
-    "show_source": "编辑本页"
+    "show_source": "<span id='editPage'>编辑本页</span>"
 }

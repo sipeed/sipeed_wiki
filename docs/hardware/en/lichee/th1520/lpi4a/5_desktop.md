@@ -113,7 +113,7 @@ By default, the sources are listed in the `/etc/apt/sources.list` file, but you 
 
 Use `sudo apt update` to update the software list, which is usually needed after changing sources.
 
-Before using this command, check the time with the ``date`'' command. If the time is incorrect, you can manually update it to make sure that the packages in the source are up to date:
+Before using this command, check the time with the `date` command. If the time is not correct or the time is not updated automatically after connecting to the network, you can update it manually to make sure that the packages in the repository are the latest versions:
 ```shell
 sudo date -s "20230717 12:00:00"
 ```
@@ -172,9 +172,9 @@ W: GPG error: http://archive.ubuntu.com trusty-updates Release: The following si
 
 You can try the following command to fix it:   
 ```shell
-sudo apt-key adv --keyserver keyring.debian.org --recv-keys 'Replace the key value after NO_PUBKEY in the error message here'
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 'Replace the key value after NO_PUBKEY in the error message here'
 # or
-gpg --keyserver keyring.debian.org --recv-keys 'Replace the key value after NO_PUBKEY in the error message here'
+gpg --keyserver keyserver.ubuntu.com --recv-keys 'Replace the key value after NO_PUBKEY in the error message here'
 ```
 
 ## SSH
@@ -244,6 +244,12 @@ LibreOffice Writer is the WORD function:
 The Chromium browser is built-in and is available by clicking the browser icon at the bottom of the desktop: 
 
 ![browser_location](./../../../../zh/lichee/th1520/lpi4a/assets/desktop/browser_location.png)
+
+> If the launch bar icon at the bottom of the desktop is displayed abnormally, you can try to use the following commands to fix it:
+```shell
+cp /etc/xdg/xfce4/panel/default.xml /home/sipeed/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml
+chown sipeed:sipeed /home/sipeed/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml
+```
 
 Use a search engine:  
 
@@ -368,7 +374,7 @@ sipeed@lpi4a:~$ cat /etc/fstab
 `/dev/mmcblk1p1: UUID="033173ff-b3ab-494c-ab14-4dcd656a9214" BLOCK_SIZE="4096" TYPE="ext4" PARTUUID="8e4e28df-01"`
 
 
-### VNC Remote Desktop
+## VNC Remote Desktop
 
 Install the required packages and remote desktop using the lightweight Xfce desktop environment.
 ```shell
@@ -448,6 +454,19 @@ Modify the Picture quality in the Options option to High:
 The effect displayed is as follows:
 
 ![vnc_viewer_use](./../../../../zh/lichee/th1520/lpi4a/assets/desktop/vnc_viewer_use.png)
+
+## btop
+
+Btop is an aesthetically pleasing resource that displays processor, memory, disk, network, and process usage and statistics.
+
+It can be installed using the following command:
+```shell
+sudo apt install btop
+```
+
+Then run the `btop` command on the command line to use it, the effect is as follows:
+
+![btop_use](./../../../../zh/lichee/th1520/lpi4a/assets/application/btop_use.png)
 
 ## More
 Contributions are welcome~ You can get ￥5~150 ($1~20) coupon after your submission is accepted!

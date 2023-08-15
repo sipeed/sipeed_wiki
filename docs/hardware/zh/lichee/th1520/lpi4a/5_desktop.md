@@ -117,7 +117,7 @@ connect 目标设备的mac地址
 
 使用 `sudo apt update` 可以更新软件列表，一般在更换软件源之后需要使用这个命令。
 
-使用这个命令前，先用 `date` 命令查看一下时间，若时间不对，可以手动更新一下，确保软件源内的软件包是最新版本：
+使用这个命令前，先用 `date` 命令查看一下时间，若时间不对或连接网络后没有自动更新时间，可以手动更新一下，确保软件源内的软件包是最新版本：
 ```shell
 sudo date -s "20230717 12:00:00"
 ```
@@ -175,9 +175,9 @@ W: GPG error: http://archive.ubuntu.com trusty-updates Release: The following si
 ```
 可以尝试用下列命令修复：  
 ```shell
-sudo apt-key adv --keyserver keyring.debian.org --recv-keys '替换成报错中的NO_PUBKEY 后面的key值'
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys '替换成报错中的NO_PUBKEY 后面的key值'
 # 或使用
-gpg --keyserver keyring.debian.org --recv-keys '替换成报错中的NO_PUBKEY 后面的key值'
+gpg --keyserver keyserver.ubuntu.com --recv-keys '替换成报错中的NO_PUBKEY 后面的key值'
 ```
 
 ## SSH
@@ -248,6 +248,12 @@ LibreOffice Writer 即 WORD 功能：
 系统内置了 Chromium 浏览器，点击桌面下方的浏览器图标即可使用： 
 
 ![browser_location](./assets/desktop/browser_location.png)
+
+> 若桌面下方启动栏图标显示异常，可以尝试使用以下命令修复：
+```shell
+cp /etc/xdg/xfce4/panel/default.xml /home/sipeed/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml
+chown sipeed:sipeed /home/sipeed/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml
+```
 
 使用搜索引擎：  
 
@@ -370,7 +376,7 @@ sipeed@lpi4a:~$ cat /etc/fstab
 /dev/mmcblk1p1 也可使用磁盘 UUID，即写成 UUID=xxxx-xxx 的形式，UUID 可以使用`sudo blkid`查看：
 `/dev/mmcblk1p1: UUID="033173ff-b3ab-494c-ab14-4dcd656a9214" BLOCK_SIZE="4096" TYPE="ext4" PARTUUID="8e4e28df-01"`
 
-### VNC远程桌面
+## VNC远程桌面
 
 安装需要的软件包，远程桌面使用轻量化的 Xfce 桌面环境。
 ```shell
@@ -451,6 +457,19 @@ vncserver -localhost no
 
 ![vnc_viewer_use](./assets/desktop/vnc_viewer_use.png)
 
+
+## btop
+
+btop 是一个兼顾美观与实用性的资源监视器，显示处理器、内存、磁盘、网络和进程的使用情况和统计​​信息。
+
+使用以下命令可以安装：
+```shell
+sudo apt install btop
+```
+
+然后在命令行中运行 `btop` 命令即可使用，效果如下：
+
+![btop_use](./assets/application/btop_use.png)
 
 ## 更多
 欢迎投稿～ 投稿接受后可得￥5～150（$1~20）优惠券！

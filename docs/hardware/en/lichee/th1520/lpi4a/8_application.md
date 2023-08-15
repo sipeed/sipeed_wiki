@@ -93,7 +93,7 @@ At this point, the basic python environment has been created. Similar to other a
 
 The opencv installation will depend on other python packages, so if pip does not download them automatically, you can install the dependencies manually first. See [download riscv whl](https://www.yuque.com/za4k4z/uzn618/zsp0krgg9dlp0fhx) for more information on how to get the packages.
 
-**获取 YOLOX 模型**
+**Get YOLOX**
 
 [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) is a YOLO-like target detection model with quite excellent performance.
 The source code and model can be downloaded directly from github
@@ -298,6 +298,187 @@ hello-world latest eb6f80695a28 2 months ago 4.98kB
 
 To experience a more complete image, go [here](https://hub.docker.com/) and search for the name of the distribution you want to use and pull it.
 
+## K3s-RISCV
+
+This chapter will show how to run the lightweight Kubernetes distribution K3s on LPi4A.
+
+First download the precompiled K3s package:
+https://github.com/CARV-ICS-FORTH/k3s/releases
+
+Then merge the downloaded packages into a `.gz` file and decompress it. After completion, add execution permission to k3s:
+```shell
+wget https://github.com/CARV-ICS-FORTH/k3s/releases/download/20230721/k3s-riscv64.gz.aa
+wget https://github.com/CARV-ICS-FORTH/k3s/releases/download/20230721/k3s-riscv64.gz.ab
+wget https://github.com/CARV-ICS-FORTH/k3s/releases/download/20230721/k3s-riscv64.gz.ac
+# The following commands need root user to execute
+sudo -i
+cat k3s-riscv64.gz.* | gunzip > /usr/local/bin/k3s
+chmod +x /usr/local/bin/k3s
+exit
+```
+
+Verify whether it can run successfully. The typical output of a successful run is as follows:
+```shell
+sipeed@lpi4a:~$ k3s
+NAME:
+    k3s-riscv64 - Kubernetes, but small and simple
+                                                                                
+USAGE:
+    k3s-riscv64 [global options] command [command options] [arguments...]
+                                                                                
+VERSION:
+    v1.27.3+k3s-9d376dfb-dirty (9d376dfb)
+                                                                                
+COMMANDS:
+    server Run management server
+    agent Run node agent
+    kubectl Run kubectl
+    crictl Run crictl
+    ctr Run ctr
+    check-config Run config check
+    token Manage bootstrap tokens
+    etcd-snapshot
+    secrets-encrypt Control secrets encryption and keys rotation
+    certificate Manage K3s certificates
+    completion Install shell completion script
+    help, h Shows a list of commands or help for one command
+                                                                                
+GLOBAL OPTIONS:
+    --debug (logging) Turn on debug logs [$K3S_DEBUG]
+    --data-dir value, -d value (data) Folder to hold state (default: /var/lib/r)
+    --help, -h show help
+    --version, -v print the version
+```
+
+Now, download and run the k3s install script:
+```shell
+curl -sfL https://get.k3s.io > k3s-install.sh
+chmod +x k3s-install.sh
+INSTALL_K3S_EXEC="server --disable metrics-server" INSTALL_K3S_SKIP_DOWNLOAD="true" bash -x ./k3s-install.sh
+```
+
+After running, use the following command to check whether k3s is running normally. Typical output is as follows:
+```shell
+sipeed@lpi4a:~$ systemctl status k3s
+● k3s.service - Lightweight Kubernetes
+      Loaded: loaded (8;;file://lpi4a/etc/systemd/system/k3s.service/etc/systemd)
+      Active: active (running) since Mon 2023-07-31 06:48:34 UTC; 6s ago
+        Docs: 8;;https://k3s.iohttps://k3s.io8;;
+     Process: 3240 ExecStartPre=/bin/sh -xc ! /usr/bin/systemctl is-enabled --qu>
+     Process: 3242 ExecStartPre=/sbin/modprobe br_netfilter (code=exited, status>
+     Process: 3243 ExecStartPre=/sbin/modprobe overlay (code=exited, status=0/SU>
+    Main PID: 3244 (k3s-server)
+       Tasks: 37
+      Memory: 529.5M
+         CPU: 54.841s
+      CGroup: /system.slice/k3s.service
+              ├─3244 "/usr/local/bin/k3s server"
+              └─3361 "containerd
+```
+
+Next, we create a new configuration file to run the k3s container:
+```shell
+vi hello-lpi4a.yaml
+```
+
+The content of the file is as follows (refer to https://raw.githubusercontent.com/CARV-ICS-FORTH/kubernetes-riscv64/main/examples/hello-kubernetes.yaml):
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+   name: hello
+spec:
+   type: ClusterIP
+   ports:
+   - port: 8080
+   selector:
+     app: hello
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+   name: hello
+spec:
+   replicas: 1
+   selector:
+     matchLabels:
+       app: hello
+   template:
+     metadata:
+       labels:
+         app: hello
+     spec:
+       containers:
+       - name: hello-kubernetes
+         image: carvicsforth/hello-kubernetes:1.10.1
+         env:
+         - name: MESSAGE
+           value: "Hello Lichee Pi 4A!"
+```
+
+Then start a container with this configuration file. A typical input is as follows:
+```shell
+sipeed@lpi4a:~$ sudo kubectl apply -f hello-lpi4a.yaml
+service/hello created
+deployment.apps/hello created
+```
+
+Then check the status of pods (if the IP address is not displayed in the output, you can wait a little longer and check again):
+```shell
+sipeed@lpi4a:~$
+NAME READY STATUS RESTARTS AGE IP NODE NOMINATED NODE READINESS GATES
+hello-5b576d45d7-fdjgh 1/1 Running 0 16m 10.42.0.6 lpi4a <none> <none>
+```
+
+Next, use curl to test whether the k3s container runs successfully. The typical output is as follows:
+```shell
+sipeed@lpi4a:~$ curl 10.42.0.6:8080
+<!DOCTYPE html>
+<html>
+<head>
+     <title>Hello Kubernetes!</title>
+     <link rel="stylesheet" type="text/css" href="/css/main.css">
+     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300">
+</head>
+<body>
+
+   <div class="main">
+     <img src="/images/kubernetes.png"/>
+     <div class="content">
+       <div id="message">
+   Hello Lichee Pi 4A!
+</div>
+<div id="info">
+   <table>
+     <tr>
+       <th>namespace:</th>
+       <td>-</td>
+     </tr>
+     <tr>
+       <th>pod:</th>
+       <td>hello-5b576d45d7-fdjgh</td>
+     </tr>
+     <tr>
+       <th>node:</th>
+       <td>- (Linux 5.10.113-gfac22a756532)</td>
+     </tr>
+   </table>
+</div>
+<div id="footer">
+   paulbouwer/hello-kubernetes:1.10.1 (linux/riscv64)
+</div>
+     </div>
+   </div>
+
+</body>
+</html>
+```
+So far, the k3s container has run successfully.
+
+The page shows as follows:
+
+![k3s_hello_world](./../../../../zh/lichee/th1520/lpi4a/assets/application/k3s_hello_world.png)
+
 ## Minecraft Server
 
 Here we take `1.20.1` version as an example, LPi4A as Server and PC (Ubuntu 22.04) as Client.
@@ -363,7 +544,10 @@ java -jar HMCL-3.5.5.jar
 ```
 
 You can download ``1.20.1`` version directly in the launcher and configure the game account, then you can enter the game, after entering the game, enter the server IP (LPi4A's IP) to add the server to connect (make sure that the computer and LPi4A are under the same network), the effect is as follows:
+
 ![mc_server_menu](./../../../../zh/lichee/th1520/lpi4a/assets/application/mc_server_menu.png)
+
+![mc_server_use](./../../../../zh/lichee/th1520/lpi4a/assets/application/mc_server_use.png)
 
 > Note that if you want to change back to the original version of the JDK, run:
 > ```shell.
@@ -503,6 +687,284 @@ from the key. It was not food or water. Tom was happy and laughed.
 The bunny hopped and hopped until he saw a shiny silver carrot. He was so excited to eat it, he
 achieved tok/s: 52.043098
 ```
+
+### OnnxStream
+
+[OnnxStream](https://github.com/vitoplantamura/OnnxStream)
+
+This example runs Stable Diffusion on LPi4A with this project.
+
+First, we need to build the XNNPACK:
+```shell
+git clone https://github.com/google/XNNPACK.git
+cd XNNPACK
+git checkout 3f56c91b492c93676a9b5ca4dd51f528b704c309
+mkdir build
+cd build
+cmake -DXNNPACK_BUILD_TESTS=OFF -DXNNPACK_BUILD_BENCHMARKS=OFF ..
+cmake --build . --config Release
+```
+
+Next, build the Stable Diffusion example:
+```shell
+git clone https://github.com/vitoplantamura/OnnxStream.git
+cd OnnxStream
+cd src
+mkdir build
+cd build
+cmake -DXNNPACK_DIR=<此处替换为clone的XNNPACK存放路径> ..
+cmake --build . --config Release
+```
+
+Now we have the runnable Stable Diffusion example file ``sd``, run with the following parameters:
+```shell
+. /sd --models-path . --rpi
+```
+Where `--models-path` is the model file downloaded from the project's Release page, which can be placed in the directory where the `sd` file is located.
+
+The runtime configuration is as follows:
+```shell
+----------------[start]------------------
+positive_prompt: a photo of an astronaut riding a horse on mars
+negative_prompt: ugly, blurry
+output_png_path: . /result.png
+steps: 10 
+```
+
+The result is the `result.png` file, and the image from the above prompt is as follows:
+
+![onnxstream_result](./../../../../zh/lichee/th1520/lpi4a/assets/application/onnxstream_result.png)
+
+
+## PSP Simulator
+
+
+[Project address](https://github.com/hrydgard/ppsspp)
+
+This example runs the PSP simulator on LPi4A through this project.
+
+Firstly, we need to build PPSSPP:
+
+```shell
+#Install the required packages first
+sudo apt install build-essential cmake libgl1-mesa-dev libsdl2-dev libvulkan-dev mesa-common-dev  libglu1-mesa-dev  libsdl2-dev libcurl4-openssl-dev
+git clone --recurse-submodules https://github.com/hrydgard/ppsspp.git
+cd ppsspp
+git submodule update --init --recursive
+git pull --rebase https://github.com/hrydgard/ppsspp.git
+cmake .
+make -j4
+
+```
+Compilation may take some time, and successful compilation occurs when the following output occurs:
+
+```shell
+sipeed@lpi4a:~/ppsspp$ make -j4
+[  0%] Built target unix_based_hardware_detection
+[  0%] Built target utils
+[  0%] Built target gason
+[  1%] Built target snappy
+[  1%] Built target cityhash
+[  1%] Built target vma
+[  2%] Built target png17
+[  3%] Built target udis86
+[  3%] Built target basis_universal
+[ 16%] Built target libzip
+[ 16%] Built target glew
+[ 16%] Built target sfmt19937
+[ 17%] Built target kirk
+[ 18%] Built target xbrz
+[ 18%] Built target xxhash
+[ 19%] Generating something_that_never_exists
+[ 21%] Built target miniupnpc
+[ 25%] Built target libzstd_static
+-- Could NOT find Git (missing: GIT_EXECUTABLE) 
+CMake Warning at git-version.cmake:16 (message):
+  git not found, unable to include version.
+
+
+[ 25%] Built target GitVersion
+[ 25%] Built target GenericCodeGen
+[ 25%] Built target OGLCompiler
+[ 25%] Built target OSDependent
+[ 31%] Built target armips
+[ 31%] Built target spirv-cross-core
+[ 34%] Built target rcheevos
+[ 35%] Built target cpu_features
+[ 35%] Built target discord-rpc
+[ 36%] Built target spirv-cross-glsl
+[ 41%] Built target MachineIndependent
+[ 41%] Built target spirv-cross-cpp
+[ 41%] Built target spirv-cross-msl
+[ 41%] Built target spirv-cross-hlsl
+[ 41%] Built target glslang
+[ 42%] Built target SPIRV
+[ 58%] Built target Common
+[ 59%] Built target native
+[ 95%] Built target Core
+[100%] Built target PPSSPPSDL
+
+```
+
+After installation, you can try running it (in root mode)：
+
+```shell
+./PPSSPPSDL
+```
+As shown in the figure:
+
+![game_result](./../../../../zh/lichee/th1520/lpi4a/assets/application/psp1.png)
+
+Game download:
+
+[PSP game Download](https://playdreamcreate.com/)
+
+Download completed:
+
+We only need to use the EBOOT.PBP file in the compressed package
+
+1. If using a graphical interface, extract directly
+
+2. If using the command line, you need to change the compressed package to a zip suffix before decompressing it
+
+```shell
+
+Mv [compressed package name] [compressed package name]. zip
+
+Unzip [compressed package name]. zip
+
+```
+
+Start the game: Open EBOOT.PBP under the PPSSPPSDL command
+
+```shell
+./PPSSPPSDL  ./game/01/EBOOT.PBP
+```
+
+The operation effect is shown in the figure:
+
+![game_result](./../../../../zh/lichee/th1520/lpi4a/assets/application/psp_2.png)
+![game_result](./../../../../zh/lichee/th1520/lpi4a/assets/application/psp_3.png)
+
+## use of opencv
+
+First, install the dependencies and the Python 3 environment
+
+```shell
+sudo apt install python3 python3-pip
+sudo apt install python3-opencv 
+sudo apt install libqt5gui5-gles
+```
+OpenCV reads image demo:
+
+
+```shell
+#!/bin/bash
+import cv2
+
+img2 = cv2.imread('aContour.jpg', cv2.IMREAD_UNCHANGED)
+cv2.namedWindow('show_img', 0)          # 定义窗口名称，三个函数（namedWindow、 resizeWindow、 imshow）中窗口名称要一致
+cv2.resizeWindow('show_img', 736, 416)
+cv2.imshow("show_img",img2)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+cv2.destroyWindow("show_img")
+
+```
+Run program:
+
+```shell
+python3 show_pic.py
+```
+Running results:
+
+![opencv_result](./../../../../zh/lichee/th1520/lpi4a/assets/application/opencv_o.png)
+
+PIL numpy opencv comprehensive test demo:
+
+```shell
+#!/bin/bash
+from typing import List, Any, Tuple
+import matplotlib.pyplot as plt
+import cv2
+
+import numpy as np
+from PIL import Image
+from PIL import ImageFilter
+
+im = Image.open('a.jpg')
+om = im.filter(ImageFilter.CONTOUR)
+om.save('aContour.jpg')
+
+b = np.random.randint(0, 255, (200, 300), dtype=np.uint8)
+g = np.random.randint(0, 255, (200, 300), dtype=np.uint8)
+r = np.random.randint(0, 255, (200, 300), dtype=np.uint8)
+print(b)
+
+img=np.empty([20,30,3],dtype=np.uint8)
+bgr=()
+rowlist=[]
+collist: List[List[Tuple[Any, Any, Any]]]=[]
+for row in range(200):
+    rowlist=[]
+    for col in range(300):
+        bgr=(r[row][col],g[row][col],b[row][col])
+        rowlist.append(bgr)
+    collist.append(rowlist)
+
+img=np.asarray(collist)
+
+img2 = cv2.imread('aContour.jpg', cv2.IMREAD_UNCHANGED)
+cv2.namedWindow('show_img', 0)        
+cv2.resizeWindow('show_img', 736, 416)
+cv2.imshow("show_img",img2)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+cv2.destroyWindow("show_img")
+
+```
+## Use of ncnn
+
+Firstly, the Git source code and installation related dependency libraries
+
+
+```shell
+git clone https://github.com/Tencent/ncnn.git
+cd ncnn
+git submodule update --init
+
+sudo apt install build-essential git cmake libprotobuf-dev protobuf-compiler libvulkan-dev vulkan-utils libopencv-dev
+
+```
+Compile source code
+
+```shell
+cd ncnn
+mkdir -p build
+cd build
+cmake -DCMAKE_BUILD_TYPE=Release -DNCNN_VULKAN=OFF -DNCNN_BUILD_EXAMPLES=ON ..
+make -j$(nproc)
+```
+
+Download the relevant model files and parameters, and place them in the same folder as the executable file：
+
+[Download](https://github.com/nihui/ncnn-assets)
+
+```shell
+~/ncnn/build/example
+```
+![ncnn2](./../../../../zh/lichee/th1520/lpi4a/assets/application/ncnn2_o.png)
+
+execute
+
+```shell
+./nanodet/ a.jpg
+```
+
+Running results
+
+![ncnn_result](./../../../../zh/lichee/th1520/lpi4a/assets/application/ncnn_result_o.png)
+![ncnn_result](./../../../../zh/lichee/th1520/lpi4a/assets/application/ncnn_pic_o.png)
 
 ## Other
 

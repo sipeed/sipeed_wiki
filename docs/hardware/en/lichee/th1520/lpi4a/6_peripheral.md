@@ -195,6 +195,201 @@ gpiochip0: GPIOs 504-511, parent: i2c/0-0018, 0-0018, can sleep:    IO expend 1
  gpio-511 (                    |aon:soc_cam2_avdd25_) out lo
 ```  -->
 
+## Use of gpiod library
+
+The GPiod library is a library that can call GPIO in the same user space, making it convenient for users to operate GPIO in applications.
+Firstly, install and deploy the GPIO library:
+
+```shell
+sudo apt install wget
+wget https://git.kernel.org/pub/scm/libs/libgpiod/libgpiod.git/snapshot/libgpiod-2.0.tar.gz
+
+tar zxvf libgpiod-2.0.tar.gz
+
+cd libgpiod-2.0
+sudo apt-get install build-essential pkg-config m4 automake autoconf libtool autoconf-archive
+sudo apt install gcc g++
+
+export CC=gcc
+export CXX=g++
+
+#Deploy the relevant files of the library to the project folder: -- The path after prefix should be changed to the path where the project is located for future operations
+./autogen.sh --enable-tools=yes --prefix=/home/sipeed/mylib_local
+make
+sudo make install
+```
+
+如果执行：./autogen.sh --enable-tools=yes --prefix=/home/sipeed/mylib_local 出现以下错误：
+
+```shell
+aclocal: warning: couldn't open directory 'm4': No such file or directory
+#You can execute the following commands
+mkdir m4
+./autogen.sh --enable-tools=yes --prefix=/home/sipeed/mylib_local
+make 
+make install
+```
+
+Start operating GPIO:
+
+```shell
+sudo vim gpio.c
+
+#The content of gpio. c is as follows:
+
+#include<stdio.h>
+#include<unistd.h>
+#include<gpiod.h>
+
+#define PIN_IO1_3   3
+#define PIN_IO1_4   4
+#define PIN_IO1_5   5
+
+int main() {
+  struct gpiod_chip *gchip;
+  struct gpiod_line_info *glinein, *glineout;
+  struct gpiod_line_settings *gline_settings_in, *gline_settings_out;
+  struct gpiod_line_config   *gline_config_in, *gline_config_out;
+  struct gpiod_request_config *gline_request_config_in, *gline_request_config_out;
+  struct gpiod_line_request   *gline_request_in, *gline_request_out;
+  int offset_in[1] = {PIN_IO1_5};
+  int offset_out[2] = {PIN_IO1_3, PIN_IO1_4};
+  int value;
+
+  if ((gchip=gpiod_chip_open("/dev/gpiochip4")) == NULL) {
+    perror("gpiod_chip_open");
+    return 1;
+  }
+
+  
+  gline_settings_in = gpiod_line_settings_new();
+  if ((value=gpiod_line_settings_set_direction(gline_settings_in, GPIOD_LINE_DIRECTION_INPUT)) != 0)  {
+    perror("gpiod_line_settings_set_direction");
+  }
+
+  gline_config_in = gpiod_line_config_new();
+  value=gpiod_line_config_add_line_settings(gline_config_in, offset_in, 1, gline_settings_in);
+  gline_request_config_in = gpiod_request_config_new();
+  gline_request_in = gpiod_chip_request_lines(gchip, gline_request_config_in, gline_config_in);
+
+
+
+
+  value=gpiod_line_request_get_value(gline_request_in, PIN_IO1_5);
+  printf("IO1-5 = %d\n", value);
+
+
+
+
+  gline_settings_out = gpiod_line_settings_new();
+  if (gpiod_line_settings_set_direction(gline_settings_out, GPIOD_LINE_DIRECTION_OUTPUT) != 0) {
+    perror("gpiod_line_settings_set_direction");
+  }
+  gline_config_out = gpiod_line_config_new();
+
+  gpiod_line_config_add_line_settings(gline_config_out, offset_out, 2, gline_settings_out);
+  gline_request_config_out = gpiod_request_config_new();
+  gline_request_out = gpiod_chip_request_lines(gchip, gline_request_config_out, gline_config_out);
+
+
+
+  value=gpiod_line_request_set_value(gline_request_out, PIN_IO1_3, 1);
+
+  value=gpiod_line_request_set_value(gline_request_out, PIN_IO1_4, 0);
+
+  printf("IO1-3 = 1, IO1-4 = 0\n");
+  sleep(1);
+
+
+  for (int i = 0; i < 10; i++) {
+
+
+      value=gpiod_line_request_get_value(gline_request_in, PIN_IO1_5);
+      printf("IO1-5 = %d\n", value);
+
+      
+      value=gpiod_line_request_set_value(gline_request_out, PIN_IO1_3, 0);
+      value=gpiod_line_request_set_value(gline_request_out, PIN_IO1_4, 1);
+   
+      printf("IO1-3 = 0, IO1-4 = 1\n");
+      sleep(1);
+
+
+
+      value=gpiod_line_request_get_value(gline_request_in, PIN_IO1_5);
+      printf("IO1-5 = %d\n", value);
+
+
+      value=gpiod_line_request_set_value(gline_request_out, PIN_IO1_3, 1);
+      value=gpiod_line_request_set_value(gline_request_out, PIN_IO1_4, 0);
+
+      printf("IO1-3 = 1, IO1-4 = 0\n");
+      sleep(1);
+
+  }
+
+  gpiod_chip_close(gchip);
+  return 0;
+}
+
+```
+
+Save and compile
+
+```shell
+gcc  -I/home/sipeed/mylib_local/include -L/home/sipeed/mylib_local/lib -o gpio gpio.c -lgpiod
+
+```
+Some device permissions need to be granted before execution
+
+```shell
+export LD_LIBRARY_PATH=/home/sipeed/mylib_local/lib:$LD_LIBRARY_PATH
+export PATH=/home/sipeed/mylib_local/bin:$PATH
+sudo chmod o+rw /dev/gpiochip4
+sudo chmod o+rw /dev/spidev2.0
+
+#It can be directly executed in an. sh file
+
+```
+
+Run program:
+
+```shell
+
+./gpio
+
+```
+
+
+The console output is as follows:
+
+```shell
+
+sipeed@lpi4a:~/gpio$ ./gpio 
+IO1-5 = 1
+IO1-3 = 1, IO1-4 = 0
+IO1-5 = 1
+IO1-3 = 0, IO1-4 = 1
+IO1-5 = 1
+IO1-3 = 1, IO1-4 = 0
+IO1-5 = 1
+IO1-3 = 0, IO1-4 = 1
+IO1-5 = 1
+IO1-3 = 1, IO1-4 = 0
+IO1-5 = 1
+IO1-3 = 0, IO1-4 = 1
+IO1-5 = 1
+IO1-3 = 1, IO1-4 = 0
+IO1-5 = 1
+IO1-3 = 0, IO1-4 = 1
+IO1-5 = 1
+IO1-3 = 1, IO1-4 = 0
+IO1-5 = 1
+IO1-3 = 0, IO1-4 = 1
+
+```
+
+
 ## UART 
 
 ### System Serial Port
@@ -304,7 +499,61 @@ sipeed@lpi4a:~$ ls /dev/spidev2.0
 /dev/spidev2.0
 ```
 
-TODO
+### Start
+
+Pay attention to the IO drive capability. Licheepi4A requires an external level conversion chip and uses TXS10108E for its own use
+
+All programs of this routine are compiled on the board. If cross coding is necessary, the tool chain can be replaced during compilation.
+
+The GPIO operation of the following routine is based on the GPIOD library above.
+
+#### 1.Download the source code
+
+```shell
+git clone https://github.com/fffdee/ST7735_for_Licheepi4A.git
+```
+#### 2.Building the GPIOD library
+
+Dependencies required for installation:
+
+```shell
+sudo apt-get install build-essential pkg-config m4 automake autoconf libtool autoconf-archive
+sudo apt install gcc g++ gpiod cmake
+```
+
+Install the GPIOD library (the source file is already installed, and the library path needs to be changed. Please refer to the following steps):
+
+```shell
+tar zxvf libgpiod-2.0.tar.gz
+cd libgpiod-2.0
+
+export CC=gcc
+export CXX=g++
+
+
+#Deploy the relevant files of the library to the project folder: -- The path after prefix should be changed to the path where the project is located for future operations
+./autogen.sh --enable-tools=yes --prefix=/home/sipeed/TFT_demo/
+make
+sudo make install
+#Installation completed
+```
+
+#### 3.Compile and Run
+
+```shell
+
+cd TFT_demo
+cmake .
+make -j4
+
+#授予设备权限，每次开机执行一次即可
+. exec.sh
+./tft_demo
+```
+
+#### Renderings
+
+![效果图1](./../../../../zh/lichee/th1520/lpi4a/assets/peripheral/tft_demo.png)
 
 ## USB 
 
@@ -345,6 +594,59 @@ You can also use fswebcam to dump the USB camera image directly from the command
 sudo apt-get install fswebcam
 fswebcam /dev/video0 image.jpg
 ```
+
+To allow the USB camera to automatically save images, a reference script is given below. The script uses the uvccapture tool, which makes it easy to adjust capture parameters as needed.
+
+Install this tool first
+```shell
+sudo apt install uvccapture
+```
+
+This tool supports various parameters, use `-x -y` to adjust the shooting resolution, `-B` to adjust the brightness, `-C` to adjust the contrast, `-S` to adjust the saturation, and `-o` to specify the shooting image storage Path, for specific use, refer to the following script code:
+```shell
+#!/bin/bash
+
+# Check if the interval time parameter is passed in
+if [ -z "$1" ]; then
+   echo -e "The interval time parameter is not specified, and the default interval is 1 second"
+   interval=1
+else
+   interval=$1
+the fi
+
+# Check if the output file path parameter is passed in
+if [ -z "$2" ]; then
+   echo -e "The output file path parameter is not specified, the default output is to the current directory"
+   output_file="$PWD"
+else
+   output_file=$2
+the fi
+
+# Check whether the number of shots parameter is passed in
+if [ -z "$3" ]; then
+   echo -e "The number of shots is not specified, the default is 10 shots"
+   num_executions=10
+else
+   num_executions=$3
+the fi
+
+echo -e "script started, press q to stop"
+
+for ((i = 1; i <= num_executions; i++)); do
+     echo -e "capture img $i"
+     uvccapture -x640 -y480 -m -o$output_file/$image$i.jpg
+# Take pictures at specified time intervals
+sleep $interval
+# Press the q key to exit
+read -t 1 -n 1 key
+if [[ $key = "q" ]]; then
+break
+the fi
+done
+
+echo -e "Script execution ended"
+```
+The above script can also be operated with fswebcam, just make corresponding changes.
 
 ### USB Sound Card
 
@@ -496,7 +798,7 @@ Check the corresponding ID of the touch screen device
 ```shell
 xinput
 ```
-! [list_touchsreen](. /assets/peripheral/list_touchsreen.png)  
+![list_touchsreen](./../../../../zh/lichee/th1520/lpi4a/assets/peripheral/list_touchsreen.png)  
 Here you can see that it is a touch screen device Goodix 7, then enter the following command to map the touch device to the correct screen:  
 ```shell
 xinput map-output-of 7 DSI-1
@@ -514,9 +816,19 @@ echo off > /sys/class/drm/card0-DSI-1/status
 
 ## GPU
 
-`sudo watch cat /sys/kernel/debug/pvr/status`
+Use the following command to view the status of the GPU in real time:
+```shell
+sudo watch cat /sys/kernel/debug/pvr/status
+```
 
-TODO
+Under the xfce desktop, the status of the GPU is as follows:
+
+![gpu_status_desktop](./../../../../zh/lichee/th1520/lpi4a/assets/peripheral/gpu_status_desktop.png)
+
+When playing video with Chromium browser, the state of GPU is as follows:
+
+![gpu_status_play_video](./../../../../zh/lichee/th1520/lpi4a/assets/peripheral/gpu_status_play_video.png)
+
 ## NPU
 
 TODO

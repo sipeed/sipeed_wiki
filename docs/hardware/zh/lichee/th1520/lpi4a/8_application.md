@@ -299,6 +299,236 @@ hello-world   latest    eb6f80695a28   2 months ago   4.98kB
 
 若要体验更完整的镜像，去[这里](https://hub.docker.com/)搜索想要使用的发行版名称，拉取即可。
 
+## K3s-RISCV
+
+该章节将展示如何在 LPi4A 上运行轻量级的 Kubernetes 发行版本 K3s。
+
+先下载预编译的 K3s包：
+https://github.com/CARV-ICS-FORTH/k3s/releases
+
+然后将下载下来的包合并为一个 `.gz` 文件并解压，完成后给 k3s 添加执行权限：
+```shell
+wget https://github.com/CARV-ICS-FORTH/k3s/releases/download/20230721/k3s-riscv64.gz.aa
+wget https://github.com/CARV-ICS-FORTH/k3s/releases/download/20230721/k3s-riscv64.gz.ab
+wget https://github.com/CARV-ICS-FORTH/k3s/releases/download/20230721/k3s-riscv64.gz.ac
+# 下面的命令需要root用户来执行
+sudo -i
+cat k3s-riscv64.gz.* | gunzip > /usr/local/bin/k3s
+chmod +x /usr/local/bin/k3s
+exit
+```
+
+验证是否能成功运行，成功运行的典型输出如下：
+```shell
+sipeed@lpi4a:~$ k3s                                                
+NAME:                                                                           
+   k3s-riscv64 - Kubernetes, but small and simple                               
+                                                                                
+USAGE:                                                                          
+   k3s-riscv64 [global options] command [command options] [arguments...]        
+                                                                                
+VERSION:                                                                        
+   v1.27.3+k3s-9d376dfb-dirty (9d376dfb)                                        
+                                                                                
+COMMANDS:                                                                       
+   server           Run management server                                       
+   agent            Run node agent                                              
+   kubectl          Run kubectl                                                 
+   crictl           Run crictl                                                  
+   ctr              Run ctr                                                     
+   check-config     Run config check                                            
+   token            Manage bootstrap tokens                                     
+   etcd-snapshot                                                                
+   secrets-encrypt  Control secrets encryption and keys rotation                
+   certificate      Manage K3s certificates                                     
+   completion       Install shell completion script                             
+   help, h          Shows a list of commands or help for one command            
+                                                                                
+GLOBAL OPTIONS:                                                                 
+   --debug                     (logging) Turn on debug logs [$K3S_DEBUG]        
+   --data-dir value, -d value  (data) Folder to hold state (default: /var/lib/r)
+   --help, -h                  show help                                        
+   --version, -v               print the version
+```
+
+现在，下载并运行 k3s 的安装脚本：
+```shell
+curl -sfL https://get.k3s.io > k3s-install.sh
+chmod +x k3s-install.sh
+INSTALL_K3S_EXEC="server --disable metrics-server" INSTALL_K3S_SKIP_DOWNLOAD="true" bash -x ./k3s-install.sh
+```
+
+运行完成后，使用如下命令检查 k3s 是否正常运行。典型输出如下：
+```shell
+sipeed@lpi4a:~$ systemctl status k3s
+● k3s.service - Lightweight Kubernetes                                          
+     Loaded: loaded (8;;file://lpi4a/etc/systemd/system/k3s.service/etc/systemd)
+     Active: active (running) since Mon 2023-07-31 06:48:34 UTC; 6s ago         
+       Docs: 8;;https://k3s.iohttps://k3s.io8;;                                 
+    Process: 3240 ExecStartPre=/bin/sh -xc ! /usr/bin/systemctl is-enabled --qu>
+    Process: 3242 ExecStartPre=/sbin/modprobe br_netfilter (code=exited, status>
+    Process: 3243 ExecStartPre=/sbin/modprobe overlay (code=exited, status=0/SU>
+   Main PID: 3244 (k3s-server)                                                  
+      Tasks: 37                                                                 
+     Memory: 529.5M                                                             
+        CPU: 54.841s                                                            
+     CGroup: /system.slice/k3s.service                                          
+             ├─3244 "/usr/local/bin/k3s server"                                 
+             └─3361 "containerd
+```
+
+接下来我们新建一个配置文件，运行 k3s 容器：
+```shell
+vi hello-lpi4a.yaml
+```
+
+文件内容如下（参考https://raw.githubusercontent.com/CARV-ICS-FORTH/kubernetes-riscv64/main/examples/hello-kubernetes.yaml）：
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello
+spec:
+  type: ClusterIP
+  ports:
+  - port: 8080
+  selector:
+    app: hello
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello
+  template:
+    metadata:
+      labels:
+        app: hello
+    spec:
+      containers:
+      - name: hello-kubernetes
+        image: carvicsforth/hello-kubernetes:1.10.1
+        env:
+        - name: MESSAGE
+          value: "Hello Lichee Pi 4A!"
+```
+
+然后使用这个配置文件启动一个容器。典型输入如下：
+```shell
+sipeed@lpi4a:~$ sudo kubectl apply -f hello-lpi4a.yaml 
+service/hello created
+deployment.apps/hello created
+```
+
+然后查看 pods 情况（若输出中没显示 IP 地址，可以多等待一会儿再查看）：
+```shell
+sipeed@lpi4a:~$ 
+NAME                     READY   STATUS    RESTARTS   AGE   IP          NODE    NOMINATED NODE   READINESS GATES
+hello-5b576d45d7-fdjgh   1/1     Running   0          16m   10.42.0.6   lpi4a   <none>           <none>
+```
+
+接下来使用 curl 测试 k3s 容器是否运行成功，典型输出如下：
+```shell
+sipeed@lpi4a:~$ curl 10.42.0.6:8080
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hello Kubernetes!</title>
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300" >
+</head>
+<body>
+
+  <div class="main">
+    <img src="/images/kubernetes.png"/>
+    <div class="content">
+      <div id="message">
+  Hello Lichee Pi 4A!
+</div>
+<div id="info">
+  <table>
+    <tr>
+      <th>namespace:</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>pod:</th>
+      <td>hello-5b576d45d7-fdjgh</td>
+    </tr>
+    <tr>
+      <th>node:</th>
+      <td>- (Linux 5.10.113-gfac22a756532)</td>
+    </tr>
+  </table>
+</div>
+<div id="footer">
+  paulbouwer/hello-kubernetes:1.10.1 (linux/riscv64)
+</div>
+    </div>
+  </div>
+
+</body>
+</html>
+```
+至此，k3s容器已经运行成功。
+
+页面效果如下：
+
+![k3s_hello_world](./assets/application/k3s_hello_world.png)
+
+<!--
+最后，修改配置文件使得容器能够被外部设备访问：
+```shell
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello
+spec:
+  type: NodePort
+  ports:
+  - port: 8080
+    targetPort: 8080
+    nodePort: 30080
+    protocol: TCP
+  selector:
+    app: hello
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello
+  template:
+    metadata:
+      labels:
+        app: hello
+    spec:
+      containers:
+      - name: hello-kubernetes
+        image: carvicsforth/hello-kubernetes:1.10.1
+        env:
+        - name: MESSAGE
+          value: "Hello Lichee Pi 4A!"
+```
+其中的 `nodePort` 为 30000-32767 中的任意一个数字。
+
+更改后，应用新的配置文件：
+```shell
+sipeed@lpi4a:~$ sudo kubectl apply -f hello-lpi4a.yaml 
+service/hello configured
+deployment.apps/hello unchanged
+```
+-->
+
+
 ## Minecraft Server
 
 这里以`1.20.1`版本为例，LPi4A 作为 Server，电脑端（Ubuntu 22.04）作为 Client。
@@ -364,7 +594,10 @@ java -jar HMCL-3.5.5.jar
 ```
 
 可以直接在启动器中下载`1.20.1`版本，并且配置好游戏账户，然后即可进入游戏，进入游戏后，输入 服务器 IP（LPi4A 的 IP）添加服务器后即可连接（确保电脑和 LPi4A 处于同一网络下），效果如下：
+
 ![mc_server_menu](./assets/application/mc_server_menu.png)
+
+![mc_server_use](./assets/application/mc_server_use.png)
 
 > 注意，若想改回原来版本的 JDK，则执行：
 > ```shell
@@ -504,6 +737,258 @@ from the key. It was not food or water. Tom was happy and laughed.
 The bunny hopped and hopped until he saw a shiny silver carrot. He was so excited to eat it, he
 achieved tok/s: 52.043098
 ```
+
+### OnnxStream
+
+[项目地址](https://github.com/vitoplantamura/OnnxStream)
+
+本示例通过这个项目在 LPi4A 上运行 Stable Diffusion。
+
+首先，我们需要构建 XNNPACK：
+```shell
+git clone https://github.com/google/XNNPACK.git
+cd XNNPACK
+git checkout 3f56c91b492c93676a9b5ca4dd51f528b704c309
+mkdir build
+cd build
+cmake -DXNNPACK_BUILD_TESTS=OFF -DXNNPACK_BUILD_BENCHMARKS=OFF ..
+cmake --build . --config Release
+```
+
+接下来，构建 Stable Diffusion example：
+```shell
+git clone https://github.com/vitoplantamura/OnnxStream.git
+cd OnnxStream
+cd src
+mkdir build
+cd build
+cmake -DXNNPACK_DIR=<此处替换为clone的XNNPACK存放路径> ..
+cmake --build . --config Release
+```
+
+现在我们得到了可运行的 Stable Diffusion example 文件 `sd` ，使用如下参数运行：
+```shell
+./sd --models-path . --rpi
+```
+其中，`--models-path` 是从该项目 Release 页面中下载的模型文件，可以放到 `sd` 文件的所在目录下。
+
+运行时的配置如下：
+```shell
+----------------[start]------------------
+positive_prompt: a photo of an astronaut riding a horse on mars
+negative_prompt: ugly, blurry
+output_png_path: ./result.png
+steps: 10 
+```
+
+得到的结果为`result.png`文件，上述 prompt 得到的图片如下：
+
+![onnxstream_result](./assets/application/onnxstream_result.png)
+
+
+##PSP模拟器
+
+[项目地址](https://github.com/hrydgard/ppsspp)
+
+本示例通过这个项目在 LPi4A 上运行 PSP模拟器。
+
+首先，我们需要构建 PPSSPP：
+```shell
+#先安装所需要的包
+sudo apt install build-essential cmake libgl1-mesa-dev libsdl2-dev libvulkan-dev mesa-common-dev  libglu1-mesa-dev  libsdl2-dev libcurl4-openssl-dev
+git clone --recurse-submodules https://github.com/hrydgard/ppsspp.git
+cd ppsspp
+git submodule update --init --recursive
+git pull --rebase https://github.com/hrydgard/ppsspp.git
+cmake .
+make -j4
+
+```
+编译可能需要一段时间，出现以下输出时，编译成功：
+```shell
+sipeed@lpi4a:~/ppsspp$ make -j4
+[  0%] Built target unix_based_hardware_detection
+[  0%] Built target utils
+[  0%] Built target gason
+[  1%] Built target snappy
+[  1%] Built target cityhash
+[  1%] Built target vma
+[  2%] Built target png17
+[  3%] Built target udis86
+[  3%] Built target basis_universal
+[ 16%] Built target libzip
+[ 16%] Built target glew
+[ 16%] Built target sfmt19937
+[ 17%] Built target kirk
+[ 18%] Built target xbrz
+[ 18%] Built target xxhash
+[ 19%] Generating something_that_never_exists
+[ 21%] Built target miniupnpc
+[ 25%] Built target libzstd_static
+-- Could NOT find Git (missing: GIT_EXECUTABLE) 
+CMake Warning at git-version.cmake:16 (message):
+  git not found, unable to include version.
+
+
+[ 25%] Built target GitVersion
+[ 25%] Built target GenericCodeGen
+[ 25%] Built target OGLCompiler
+[ 25%] Built target OSDependent
+[ 31%] Built target armips
+[ 31%] Built target spirv-cross-core
+[ 34%] Built target rcheevos
+[ 35%] Built target cpu_features
+[ 35%] Built target discord-rpc
+[ 36%] Built target spirv-cross-glsl
+[ 41%] Built target MachineIndependent
+[ 41%] Built target spirv-cross-cpp
+[ 41%] Built target spirv-cross-msl
+[ 41%] Built target spirv-cross-hlsl
+[ 41%] Built target glslang
+[ 42%] Built target SPIRV
+[ 58%] Built target Common
+[ 59%] Built target native
+[ 95%] Built target Core
+[100%] Built target PPSSPPSDL
+
+```
+安装完之后可以试运行一下（root模式下）：
+```shell
+./PPSSPPSDL
+```
+如图：
+![game_result](./assets/application/psp1.png)
+
+游戏下载：
+[psp游戏下载](https://playdreamcreate.com/)
+
+下载完成：
+我们只需要用到压缩包里的EBOOT.PBP文件
+1.如果是使用图形界面则直接解压
+2.如果使用命令行的话，需要将压缩包改成zip后缀再进行解压
+```shell
+mv [压缩包名] [压缩包名].zip
+unzip [压缩包名].zip
+```
+
+开始游戏：在PPSSPPSDL命令下打开EBOOT.PBP即可
+```shell
+./PPSSPPSDL  ./game/01/EBOOT.PBP
+```
+
+运行效果如图：
+![game_result](./assets/application/psp_2.png)
+![game_result](./assets/application/psp_3.png)
+
+## opencv 的使用
+首先安装依赖，以及python3环境
+```shell
+sudo apt install python3 python3-pip
+sudo apt install python3-opencv 
+sudo apt install libqt5gui5-gles
+```
+opencv读取图片demo：
+
+```shell
+#!/bin/bash
+import cv2
+
+img2 = cv2.imread('aContour.jpg', cv2.IMREAD_UNCHANGED)
+cv2.namedWindow('show_img', 0)          # 定义窗口名称，三个函数（namedWindow、 resizeWindow、 imshow）中窗口名称要一致
+cv2.resizeWindow('show_img', 736, 416)
+cv2.imshow("show_img",img2)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+cv2.destroyWindow("show_img")
+
+```
+运行程序：
+```shell
+python3 show_pic.py
+```
+运行结果：
+
+![opencv_result](./assets/application/opencv_o.png)
+
+PIL-numpy-opencv 综合测试demo：
+
+```shell
+#!/bin/bash
+from typing import List, Any, Tuple
+import matplotlib.pyplot as plt
+import cv2
+
+import numpy as np
+from PIL import Image
+from PIL import ImageFilter
+
+im = Image.open('a.jpg')
+om = im.filter(ImageFilter.CONTOUR)
+om.save('aContour.jpg')
+
+b = np.random.randint(0, 255, (200, 300), dtype=np.uint8)
+g = np.random.randint(0, 255, (200, 300), dtype=np.uint8)
+r = np.random.randint(0, 255, (200, 300), dtype=np.uint8)
+print(b)
+
+img=np.empty([20,30,3],dtype=np.uint8)
+bgr=()
+rowlist=[]
+collist: List[List[Tuple[Any, Any, Any]]]=[]
+for row in range(200):
+    rowlist=[]
+    for col in range(300):
+        bgr=(r[row][col],g[row][col],b[row][col])
+        rowlist.append(bgr)
+    collist.append(rowlist)
+
+img=np.asarray(collist)
+
+img2 = cv2.imread('aContour.jpg', cv2.IMREAD_UNCHANGED)
+cv2.namedWindow('show_img', 0)        
+cv2.resizeWindow('show_img', 736, 416)
+cv2.imshow("show_img",img2)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+cv2.destroyWindow("show_img")
+
+```
+## ncnn 的使用
+
+首先，git源码和安装相关的依赖库
+
+```shell
+git clone https://github.com/Tencent/ncnn.git
+cd ncnn
+git submodule update --init
+
+sudo apt install build-essential git cmake libprotobuf-dev protobuf-compiler libvulkan-dev vulkan-utils libopencv-dev libqt5gui5-gles
+
+```
+编译源码
+
+```shell
+cd ncnn
+mkdir -p build
+cd build
+cmake -DCMAKE_BUILD_TYPE=Release -DNCNN_VULKAN=OFF -DNCNN_BUILD_EXAMPLES=ON ..
+make -j$(nproc)
+```
+
+下载相关的模型文件以及参数，将它们放在与可执行文件同个文件夹下
+[下载链接](https://github.com/nihui/ncnn-assets)
+```shell
+~/ncnn/build/example
+```
+![ncnn2](./assets/application/ncnn2_o.png)
+
+执行
+```shell
+./nanodet/ a.jpg
+```
+运行结果
+![ncnn_result](./assets/application/ncnn_result_o.png)
+![ncnn_result](./assets/application/ncnn_pic_o.png)
 
 ## 其它
 
