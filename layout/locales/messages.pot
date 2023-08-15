@@ -243,3 +243,19 @@ msgstr ""
 msgid "Tang FPGA 系列"
 msgstr ""
 
+#: tang.html:37
+msgid "适用于模拟复古游戏机的 FPGA 开发板"
+msgstr ""
+
+#: tang.html:53
+msgid "适合 RiscV 软核验证的 FPGA 开发板"
+msgstr ""
+
+#: tang.html:69
+msgid "芯片内部含有 MCU 的 FPGA 开发板"
+msgstr ""
+
+#: tang.html:85
+msgid "自带多种外设接口的 FPGA 开发板"
+msgstr ""
+
