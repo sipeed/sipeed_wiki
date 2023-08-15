@@ -1,11 +1,10 @@
 <!-- 翻译:
           1. teedoc serve 预览
           2. 使用 {{_("翻译内容")}} 标记需要翻译的文字
-          3. 由于 teedoc 对翻译文件还没有做试试预览,需要:
-             新开一个终端执行 teedoc translate 生成翻译文件, teedoc 会自动搜索需要翻译的文字
-          4. 在 layout/locales 目录下手动翻译 po 文件,
-          5. 然后再执行 teedoc translate 生成 mo 文件
-          6. 最后保存一下本页面预览会自动刷新
+          3. 由于 teedoc 对翻译文件还没有做实时监测更改,需要:
+            保存一下此页面，teedoc 会自动搜索需要翻译的文字
+          4. 在 layout/locales 目录下手动翻译 po 文件
+          5. 最后保存一下本页面预览会自动刷新
  -->
 {% extends "page_base.html" %} {% block content %}
 
@@ -30,7 +29,6 @@
       </ul>
     </div>
     <div
-      class="w-[95%]"
       id="content"
       style="overflow-wrap: anywhere"
     >
@@ -105,7 +103,7 @@
         ],
       },
       {
-        img: "/static/home/maixiii_axpi.jpg",
+        img: "{{_('/static/home/maixiii_axpi.jpg')}}",
         btns: [
           {
             lable: "{{_('文档')}}",
@@ -127,19 +125,6 @@
           {
             lable: "{{_('购买')}}",
             link: "https://item.taobao.com/item.htm?id=684566484141",
-          },
-        ],
-      },
-      {
-        img: "/static/home/primer20k.png",
-        btns: [
-          {
-            lable: "{{_('文档')}}",
-            link: "/primer20k",
-          },
-          {
-            lable: "{{_('购买')}}",
-            link: "https://item.taobao.com/item.htm?id=680099020807",
           },
         ],
       },

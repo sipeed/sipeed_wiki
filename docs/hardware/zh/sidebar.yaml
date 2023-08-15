@@ -1,6 +1,4 @@
 items:
--   label: 产品总览
-    file: README.md
 -   label: Maix Zero
     items:
     -   label: Maix M0

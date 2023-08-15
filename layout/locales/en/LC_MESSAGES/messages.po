@@ -2,51 +2,58 @@
 msgid ""
 msgstr ""
 
-#: home.html:95
+#: home.html:93
+#, fuzzy
 msgid "/static/home/licheepi4a_post.jpg"
-msgstr ""
+msgstr "/static/home/maixiii_axpi_en.jpg"
 
-#: home.html:98 home.html:111 home.html:124 home.html:137 licheepi.html:132
-#: licheepi.html:148 licheepi.html:164 licheepi.html:180 maix.html:110
-#: maix.html:127 maix.html:143 maixsense.html:40 maixsense.html:56 tang.html:40
-#: tang.html:56 tang.html:72 tang.html:88
+#: home.html:96 home.html:109 home.html:122 licheepi.html:132 licheepi.html:148
+#: licheepi.html:164 licheepi.html:180 maix.html:110 maix.html:127
+#: maix.html:143 maixsense.html:40 maixsense.html:56 tang.html:40 tang.html:56
+#: tang.html:72 tang.html:88
 msgid "文档"
 msgstr "Documentation"
 
-#: home.html:102 home.html:115 home.html:128 home.html:141 licheepi.html:136
+#: home.html:100 home.html:113 home.html:126 licheepi.html:136
 #: licheepi.html:152 licheepi.html:168 licheepi.html:184 maix.html:114
 #: maix.html:131 maix.html:147 maixsense.html:44 maixsense.html:60 tang.html:44
 #: tang.html:60 tang.html:76 tang.html:92
 msgid "购买"
 msgstr "Buy"
 
-#: home.html:150
+#: home.html:106
+msgid "/static/home/maixiii_axpi.jpg"
+msgstr "/static/home/maixiii_axpi_en.jpg"
+
+#: home.html:135
 msgid "分享广场"
-msgstr "Share Center"
+msgstr ""
 
-#: home.html:154
+#: home.html:139
 msgid "MaixHub 官网"
-msgstr "MaixHub"
+msgstr ""
 
-#: home.html:164
+#: home.html:149
 msgid "产品动态"
-msgstr "Product News"
+msgstr ""
 
-#: home.html:168
+#: home.html:153
+#, fuzzy
 msgid "Maix AI 视觉"
 msgstr "Maix AI Vision"
 
-#: home.html:180
+#: home.html:165
+#, fuzzy
 msgid "MaixSense 传感器"
-msgstr "MaixSense Sensor"
+msgstr "MaixSense Sensor Module"
 
-#: home.html:184
+#: home.html:169
 msgid "其它"
-msgstr "Others"
+msgstr ""
 
 #: licheepi.html:4
 msgid "Linux SBC 系列"
-msgstr "Linux SBC Series"
+msgstr ""
 
 #: licheepi.html:25
 msgid "Lichee SBC 系列产品参数对比"
@@ -246,4 +253,25 @@ msgstr "Find in the left menu"
 #: tang.html:4
 msgid "Tang FPGA 系列"
 msgstr "Tang FPGA Series"
+
+#~ msgid "/static/home/licheepi4a_post.jpg"
+#~ msgstr ""
+
+#~ msgid "分享广场"
+#~ msgstr "Share Center"
+
+#~ msgid "MaixHub 官网"
+#~ msgstr "MaixHub"
+
+#~ msgid "产品动态"
+#~ msgstr "Product News"
+
+#~ msgid "Maix AI 视觉"
+#~ msgstr "Maix AI Vision"
+
+#~ msgid "MaixSense 传感器"
+#~ msgstr "MaixSense Sensor"
+
+#~ msgid "其它"
+#~ msgstr "Others"
 

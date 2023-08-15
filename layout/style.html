@@ -57,7 +57,6 @@
   .carousel-img {
     margin: 0 auto;
     width: 100%;
-    height: 600px;
     object-fit: cover;
     flex-grow: 1;
   }
@@ -105,6 +104,9 @@
     margin-top: 12em;
     padding: 0;
   }
+  #content {
+    width: 1680px;
+  }
   #content table {
     width: 90%;
   }
@@ -116,6 +118,7 @@
     border: 1px solid #d3e2ff;
     border-radius: 1em;
     overflow: hidden;
+    justify-content: center;
   }
   #navbar h2 {
     font-size: 1.8em;
@@ -223,12 +226,20 @@
     box-shadow: 0 0 2em rgba(255, 255, 255, 0.5);
   }
   @media screen and (max-width: 1920px) {
+    #content {
+      width: 75%
+    }
   }
   @media screen and (max-width: 1310px) {
+    #content {
+      width: 85%
+    }
   }
   @media screen and (max-width: 1024px) {
+    #content {
+      width: 100%
+    }
     .carousel {
-      height: 20em;
       width: 100%;
       padding: 0 0 5em 0;
     }

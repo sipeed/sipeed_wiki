@@ -1,5 +1,5 @@
 {
-    "locale": "zh_CN",
+    "locale": "zh",
     "navbar": {
         "title": "wiki",
         "logo": {
@@ -10,7 +10,7 @@
         "items": [
             {
                 "label": "产品",
-                "url": "/hardware/zh/",
+                "url": "/",
                 "position": "left"
             },
             {
