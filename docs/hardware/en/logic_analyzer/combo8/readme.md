@@ -6,23 +6,48 @@ update:
     version: v0.1
     author: wonder
     content:
-      - 新建文件
+      - New file
 ---
 
-## 简介
+## Introduction
 
-SLogic Combo8 是基于 Sipeed M0s Dock 进行二次开发而成的逻辑分析仪，除此之外还有 Cklink、Daplink 和 USB 转四串口的功能。
+SLogic combo8 is a logic analyzer based on Sipeed M0s Dock for secondary development, and also has CKLink Debugger, DAP-Link Debugger, USB2UART functions, which can be switched arbitrarily by buttons.
 
-## 参数
 
-## 引脚分布
+![](../../../zh/logic_analyzer/assets/slogic_combo8_main.png)
 
-## 使用说明
+## Function Parameters
 
-### 逻辑分析仪
+### SLogic Function Parameters
 
-### Cklink
+| Logic Analyzer (Linux only) | **SLogic Combo8** |
+| --------------------------- | ----------------- |
+| Maximum Channel Number      | 8CH               |
+| Maximum Sampling Rate       | 80M               |
+| Transmission Bandwidth      | 320Mb/s           |
+| Sampling Mode               | Stream            |
+| Typical Configuration       | 80M@3CH 32M@8CH   |
+| Signal Input Range          | 0～3.6V           |
+| High and Low Level Thresholds | VIH>2V VIL<0.8V   |
 
-### Daplink
+### CKLink Function Parameters
 
-### USB 转四串口
+| CKLink       | SLogic Combo8 |
+| ------------ | ------------- |
+| JTAG Clock Rate | 16M           |
+| Typical Dump Speed | 1200KB/s      |
+| Debug Serial Port | Up to 20Mbps    |
+
+### DAPLink Function Parameters
+
+| DAPLink      | SLogic Combo8 |
+| ------------ | ------------- |
+| Debug Serial Port | Up to 20Mbps    |
+| Typical Burning Speed | 110KB/s       |
+
+### UART Function Parameters
+
+| High Speed Four Serial Ports | **SLogic Combo8** |
+| ---------------------------- | ----------------- |
+| Maximum Baud Rate            | 2x20Mbps+2x1Mbps  |
+| Total Bandwidth              | 42Mbps            |

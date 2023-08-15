@@ -512,7 +512,30 @@
       "label": "SLogic",
       "items": [
         {
-          "label": "SLogic Combo8"
+          "label": "SLogic Combo8",
+          "file": "logic_analyzer/combo8/readme.md",
+          "items": [
+            {
+              "label": "Basic Operation",
+              "file": "logic_analyzer/combo8/basic_operation.md"
+            },
+            {
+              "label": "Using as Logic Analyzer",
+              "file": "logic_analyzer/combo8/use_logic_function.md"
+            },
+            {
+              "label": "Using as CKLink",
+              "file": "logic_analyzer/combo8/use_cklink_function.md"
+            },
+            {
+              "label": "Using as DAPLink",
+              "file": "logic_analyzer/combo8/use_daplink_function.md"
+            },
+            {
+              "label": "Using as Serial Module",
+              "file": "logic_analyzer/combo8/use_fouruart_function.md"
+            }
+          ]
         }
       ]
     },

@@ -21,13 +21,6 @@ SLogic Combo8 具备4路独立高速串口功能，前两路基于UART可同时�
 
 ## 开始使用
 
-注意：Linux由于系统原因，当设备拥有大于一个的ttyACM后，Linux会认为其为调制解调器，会临时占用发送AT指令。此时无法打开串口，会报资源占用设备忙碌，属正常现象，稍等片刻即可恢复正常。要解决该问题，可以添加udev规则来规避该问题,参考以下指令：
-```shell
-sudo touch /etc/udev/rules.d/49-sipeed.rules
-sudo echo "ATTRS{idVendor}==\"359f\", ATTRS{idProduct}==\"3101\", ENV{ID_MM_DEVICE_IGNORE}=\"1\"" > /etc/udev/rules.d/49-sipeed.rules
-sudo udevadm control --reload
-```
-
 ### 硬件连接
 
 SLogic combo8总共有4个串口，UART0和UART1最高支持20M波特率，UART3和UART4最高支持1M波特率。参考面板线序图，将任意UART的TX、RX和GND连接到目标设备的RX、TX和GND管脚(注意RX和TX需要交叉连接)。
@@ -36,7 +29,17 @@ SLogic combo8总共有4个串口，UART0和UART1最高支持20M波特率，UART3
 1. 保证模块与目标设备共地，防止出现乱码等情况。
 2. Windows平台的设备号可能是乱序的，需要手动尝试来找到对应的串口
 
-### 数据收发
+
+### Linux
+
+注意：Linux由于系统原因，当设备拥有大于一个的ttyACM后，Linux会认为其为调制解调器，会临时占用发送AT指令。此时无法打开串口，会报资源占用设备忙碌，属正常现象，稍等片刻即可恢复正常。要解决该问题，可以添加udev规则来规避该问题,参考以下指令：
+```shell
+sudo touch /etc/udev/rules.d/49-sipeed.rules
+sudo echo "ATTRS{idVendor}==\"359f\", ATTRS{idProduct}==\"3101\", ENV{ID_MM_DEVICE_IGNORE}=\"1\"" > /etc/udev/rules.d/49-sipeed.rules
+sudo udevadm control --reload
+```
+
+#### 数据收发
 
 Linux可使用picocom或minicom作为串口收发工具，安装指令为：
 
@@ -68,3 +71,63 @@ sudo minicom -b 2000000 -D /dev/ttyACM0
 
 回传测试结果：
 ![](../assets/minicom_test_uart.png)
+
+### Windows
+
+在Windows系统中，您可以使用SSCOM、MobaXterm等串口助手作为串口收发工具。以下以**SSCOM**为例，演示如何使用SSCOM进行串口通信测试
+
+1. 首先，下载SSCOM，该软件为开源软件，请自行百度下载
+
+2. 下载完成后，解压并启动串口助手。您将看到如下界面：
+
+   ![SSCOM界面](../assets/sscom_gui.png)
+
+3. 将模块连接到PC上。然后在Windows设备管理器中（快捷键`Win + X + M`）查看是否成功连接，以及获取串口号信息
+
+   ![设备管理器](../assets/sscom_device_manage.png)
+
+   由于Windows系统的特性，串口号可能会是乱序的。因此，您可以按照以下步骤测试对应的串口号：
+
+   - 连接模块的TX*和RX*引脚（*为0-3）
+   - 设置波特率，通常使用115200
+   - 开启串口
+   - 逐个尝试不同的端口号设备，点击“发送”按钮，检查是否收到数据，以确认每个端口对应的串口号
+
+   ![确认串口号](../assets/sscom_determine_port.png)
+
+4. 确认了每个串口的端口号后，您可以在数据输入窗口中输入需要发送的数据。同时，接收到的数据也会显示在窗口中
+
+#### 收发测试
+
+   使用SLogic 4xUART模块进行串口通信测试，前两路虚拟串口最高速率可达20Mbps。以下以使用SSCOM测试性能为例
+   
+##### 测试 1Mbps（256kbps，512kbps）
+
+   1. 连接TX2和RX3
+   2. 启动两个SSCOM实例，分别连接到两个串口
+   3. 将波特率设置为1000000，然后开启串口
+   4. 创建一个256KB的文本文件，其中的内容为重复的常见字符
+   5. 使用SSCOM的文件发送功能，选择刚创建的文本文件并发送
+   6. 另一个SSCOM实例将接收数据并检查接收到的文件内容
+
+   以下是1Mbps测试的结果，检查文件大小以及数据内容确认1Mbps时，收发256kb数据测试成功
+
+   ![1Mbps测试（256KB）](../assets/uart_sscom_1mbps_256kb.png)
+
+   将文本文件的数据增大至512KB，并重复测试，确认1Mbps时，收发512kb数据测试成功
+
+   ![](../assets/uart_sscom_1mbps_512kb.png)
+
+##### 测试 20Mbps（256kbps）
+
+   1. 连接TX0和RX1
+   2. 启动两个SSCOM实例，分别连接到两个串口
+   3. 将波特率设置为20000000，然后开启串口
+   4. 创建一个256KB的文本文件，其中的内容为重复的常见字符
+   5. 使用SSCOM的文件发送功能，选择刚创建的文本文件并发送
+   6. 另一个SSCOM实例将接收数据并检查接收到的文件内容
+
+   以下是测试结果截图，可以通过检查文件大小和数据内容来确认测试是否成功
+
+   ![20Mbps测试](../assets/uart_sscom_20mbps_256kb.png)
+
