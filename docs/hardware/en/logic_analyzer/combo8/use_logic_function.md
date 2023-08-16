@@ -36,16 +36,25 @@ Use the lsusb command to see the USB TO LA USB device appear
 
 The above diagram shows the pinout for the 8 channels of SLogic. Connect the target device's test signal points to any available CH port on SLogic, and ensure that the ground of the target device is connected to the ground of SLogic.
 
-#### Download the Host Software
+#### Downloading and Running the Host Computer
 
-1. Download the latest version of the [host software](https://dl.sipeed.com/shareURL/SLogic/SLogic_combo_8/4_application/PulseView) for data decoding and visualization.
+Click [here](https://dl.sipeed.com/shareURL/SLogic/SLogic_combo_8/4_application/PulseView) to download the latest version of the host computer software for observing digital signals and decoding. For Windows users, download the .exe file, and for Linux users, download the .AppImage file. It is recommended to download the latest version available.
 
-2. After downloading, navigate to the directory where the software is located. Open a terminal using the shortcut `CTRL+ALT+T` and use the following command to give the software execution permissions and run it as an administrator:
+Linux Environment:
+
+1. After downloading, navigate to the directory where the software is located. Open the terminal using the shortcut CTRL+ALT+T. Then, use the following command to give the software execution permissions and run it with administrator privileges:
 
 ```bash
 chmod +x PulseView-x86_64-032323-1101.AppImage
 sudo ./PulseView-x86_64-032323-1101.AppImage
 ```
+
+Windows Environment:
+
+1. After downloading, click on the .exe file to begin the installation. Follow the installation prompts and click "Next" consistently to complete the installation.
+2. After the installation is complete, you can find the host computer software icon in the shortcut menu. Double-click to run it.
+
+> Note: In the Linux environment, the maximum supported sampling rate is 80M for 4 channels and 40M for 8 channels. Due to limitations in USB transmission stability on Windows, the maximum supported sampling rate is 80M for 2 channels and 20M for 8 channels.
 
 ### Starting Sampling
 
@@ -170,6 +179,15 @@ After capturing the required data, protocol decoding can be used to analyze the 
    Example: SPI sends 0x00~0x09 (clock 26MHz, low-active chip select)
 
    ![spi_26mhz](./../../../zh/logic_analyzer/combo8/assets/use_logic_function/logic_spi_26mhz.jpg)
+
+
+### Issues
+1. After clicking "Run," a popup window shows the message "device closed but should be open."
+
+    ![image-20230816113213933](./assets/tips_capture_failed.png)
+
+
+    This could be due to an unstable connection leading to the device being disconnected. Try unplugging and re-plugging the device, and then reconnecting to resolve the issue.
 
 ### Precautions
 

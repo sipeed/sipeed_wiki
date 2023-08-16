@@ -36,16 +36,25 @@ Linux:
 
 上图为SLogic 8个通道的线序图，将目标设备的待测信号点连接至SLogic任意空闲CH端口，并确保待测设备的GND与SLogic的GND相连接
 
-#### 下载上位机
+#### 下载和运行上位机
 
-1. 下载最新版本的[上位机](https://dl.sipeed.com/shareURL/SLogic/SLogic_combo_8/4_application/PulseView)软件，用于数据解码和可视化。
+点击[这里](https://dl.sipeed.com/shareURL/SLogic/SLogic_combo_8/4_application/PulseView)下载最新版本的上位机软件，用于观察数字信号和解码。Windows用户下载exe文件，Linux用户下载AppImage文件，建议下载日期最新的版本。
 
-2. 下载完成后，进入软件所在目录，使用快捷键`CTRL+ALT+T`打开终端，使用以下命令为软件赋予执行权限并以管理员身份运行：
+**Linux环境：**
+
+1. 下载完成后，进入软件所在目录，使用快捷键`CTRL+ALT+T`打开终端，使用以下命令为软件赋予执行权限并以管理员身份运行：
 
 ```bash
 chmod +x PulseView-x86_64-032323-1101.AppImage
 sudo ./PulseView-x86_64-032323-1101.AppImage
 ```
+
+**Windows环境：**
+
+1. 下载完成后，点击exe文件并开始安装，根据安装引导一直点击next即可安装完成。
+2. 安装完成后，在快捷菜单界面可以找到上位机图标，双击运行
+
+> 注：在Linux环境最大可支持80M@4通道、40M@8通道采样；由于Windows环境下USB传输不稳定的限制，在Windows上最大只能支持到80M@2通道、20M@8通道采样。
 
 #### 连接SLogic和电脑
 
@@ -187,6 +196,17 @@ sudo ./PulseView-x86_64-032323-1101.AppImage
    示例为SPI发送0x00~0X09(时钟26Mhz，片选低电平有效)
 
    ![spi_26mhz](./assets/use_logic_function/logic_spi_26mhz.jpg)
+
+
+
+### 常见问题
+
+1. 点击run后弹窗提示"device closed but should be open"
+
+    ![image-20230816113213933](./assets/use_logic_function/tips_capture_failed.png)
+
+    这可能是接触不稳定导致设备断连了，尝试重新插拔设备后再重新连接即可。
+
 
 
 ### 注意事项
