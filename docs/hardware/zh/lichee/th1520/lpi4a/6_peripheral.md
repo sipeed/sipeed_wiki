@@ -2,6 +2,11 @@
 title: 外设使用
 keywords: Linux, Lichee, TH1520, SBC, RISCV, Peripheral
 update:
+  - date: 2023-08-18
+    version: v1.2
+    author: ztd
+    content:
+      - Update jtag user guide
   - date: 2023-07-17
     version: v1.1
     author: ztd
@@ -798,6 +803,35 @@ xinput disable 7
 ```shell
 echo off > /sys/class/drm/card0-DSI-1/status
 ```
+
+## JTAG
+
+在核心板上预留了 JTAG 接口，但需要自己将 GND，TDI，TDO，TMS，TCK 飞线引出，需要引出的线示意图如下：
+
+![jtag_connect_out](./assets/peripheral/jtag_connect_out.jpg)
+
+然后通过排针用杜邦线连接到调试器
+
+![jtag_connect_pin](./assets/peripheral/jtag_connect_pin.jpg)
+
+连接到 JTAG 调试器后，在串口中使用 memtool 工具设置一下 pinmux：
+```shell
+sudo apt install memtool
+sudo memtool mw 0xfffff4a404 0
+```
+
+该 pinmux 设置会在关机后失效。因为 JTAG 引脚用作了 USB 路选的功能，在每次调试时设置一下 pinmux 即可。
+
+接下来下载安装 debug server，在[平头哥官网下载](https://xuantie.t-head.cn/community/download?id=4209675990638596096)。
+下载完成后，参考[平头哥官方文档](https://occ-oss-prod.oss-cn-hangzhou.aliyuncs.com/resource//1682234034575/T-Head+Debugger+Server+User+Guide+%28ZH-CN%29.pdf)安装。
+
+确认连接好设备，并且正确设置 pinmux 之后， 以 Linux 为例，使用命令 `DebugServerConsole` 打开 DebugServerConsole：
+
+![open_debugserver](./assets/peripheral/open_debugserver.png)
+
+即可看到成功连接：
+
+![check_debugserver](./assets/peripheral/check_debugserver.png)
 
 ## GPU
 
