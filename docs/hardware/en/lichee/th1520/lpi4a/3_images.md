@@ -26,9 +26,10 @@ The official Sipeed image is based on an adapted Debian.
 
 There may be problems with the memory identification of some 16G memory core boards, which may cause the system to crash when the memory usage is high.
 
-The default image has two types of account and password configurations, you can try both:
-1. User：`root`，`debian`，`sipeed`； the password for all accounts is `licheepi`
-2. User: `debian`，password: `debian`； user: `sipeed`，password: `licheepi`
+The default image's account and password configurations is:
+User: `debian`，password: `debian`;
+User: `sipeed`，password: `licheepi`;
+root has no password by default.
 
 ### Memory Problem Repair Instructions
 IMPORTANT：16GB memory board sendout before 2023.8.1 have a buggy images that can't correctly recognize 16GB memory (occupy errors running big applications), please follow the next instructions to fix this error.

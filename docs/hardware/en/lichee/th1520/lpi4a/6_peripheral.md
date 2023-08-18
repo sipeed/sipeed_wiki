@@ -814,6 +814,35 @@ If you are using only the HDMI screen, first power down and unplug both the MIPI
 echo off > /sys/class/drm/card0-DSI-1/status
 ```
 
+## JTAG
+
+The JTAG interface is reserved on the core board, but you need to lead out the GND, TDI, TDO, TMS, TCK flying wires yourself. The schematic diagram of the wires that need to be led out is as follows:
+
+![jtag_connect_out](./../../../../zh/lichee/th1520/lpi4a/assets/peripheral/jtag_connect_out.jpg)
+
+Then connect to the debugger with a DuPont line through the pin header
+
+![jtag_connect_pin](./../../../../zh/lichee/th1520/lpi4a/assets/peripheral/jtag_connect_pin.jpg)
+
+After connecting to the JTAG debugger, use the memtool tool in the serial port to set up pinmux:
+```shell
+sudo apt install memtool
+sudo memtool mw 0xfffff4a404 0
+```
+
+This pinmux setting will not work after shutdown. Because the JTAG pin is used as the USB route selection function, it is enough to set pinmux every time you debug.
+
+Next, download and install the debug server from [Pingtouge official website](https://xuantie.t-head.cn/community/download?id=4209675990638596096).
+After the download is complete, refer to [Pingtouge Official Document](https://occ-oss-prod.oss-cn-hangzhou.aliyuncs.com/resource//1682234034575/T-Head+Debugger+Server+User+Guide+%28ZH-CN%29.pdf) installation.
+
+After confirming that the device is connected and pinmux is set correctly, take Linux as an example, use the command `DebugServerConsole` to open DebugServerConsole:
+
+![open_debugserver](./../../../../zh/lichee/th1520/lpi4a/assets/peripheral/open_debugserver.png)
+
+You can see a successful connection:
+
+![check_debugserver](./../../../../zh/lichee/th1520/lpi4a/assets/peripheral/check_debugserver.png)
+
 ## GPU
 
 Use the following command to view the status of the GPU in real time:
