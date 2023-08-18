@@ -15,18 +15,15 @@ Press the button to switch the indicator light to blue. As shown below:
 
 ![slogic_led_blue](./../../../zh/logic_analyzer/combo8/assets/use_logic_function/slogic_led_blue.png)
 
-## Verifying that the Logic Analyzer Function is Enabled
+> To verify if Slogic functionality is enabled:
+> Open the device manager in Windows environment, and use the lsusb command in Linux environment to find the "USB TO LA" device
 
-Linux:
+## Getting Started
 
-Use the lsusb command to see the USB TO LA USB device appear
-
-![slogic_linux_equipment_pulseview](./../../../zh/logic_analyzer/combo8/assets/use_logic_function/slogic_linux_equipment_pulseview.png)
-
-## Using USB TO LA
-
-> 1. When using the host computer, ensure that the sampling bandwidth does not exceed 320MHz, which means the channel count multiplied by the sampling rate must be less than 320MHz. For example: if the channel count is 8, then the sampling rate can only be set to 40MHz or lower, otherwise it may cause issues with the host software.
-> 2. If there is a disconnection during the startup process of the host software, please rescan and reconnect the device before performing other operations, otherwise it may lead to software crashes.
+> Notice:
+> 1. The maximum transmission bandwidth of SLogic combo 8 in Linux environment is 320Mb/s, and the typical configuration is 80M@4CH 40M@8CH.
+> 2. The maximum transmission bandwidth of SLogic combo 8 in Windows environment is 160Mb/s, and the typical configuration is 80M@2CH 20M@8CH.
+> 3. If there is a disconnection during the startup process of the host software, please rescan and reconnect the device before performing other operations, otherwise it may lead to software crashes.
 
 ### Quick Start
 

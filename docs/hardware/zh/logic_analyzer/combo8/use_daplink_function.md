@@ -18,7 +18,7 @@ SLogic Combo8 具备高速DAP-Link功能，适用于各种常规芯片，尤其�
 ![slogic_led_green](./assets/use_daplink_function/slogic_led_green.png)
 
 > 验证DAPLink功能是否开启的方法:
-> Linux：使用lsusb命令可以看到出现了CMSIS-DAP HS的USB设备
+> Windows环境打开设备管理器，Linux环境使用lsusb命令，可以找到"CMSIS-DAP HS"设备
 
 ## 开始使用
 

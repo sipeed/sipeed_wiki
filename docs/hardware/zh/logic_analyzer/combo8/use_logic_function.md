@@ -15,18 +15,15 @@ update:
 
 ![slogic_led_blue](./assets/use_logic_function/slogic_led_blue.png)
 
-## 验证逻辑分析仪功能是否开启
+> 验证逻辑分析仪功能是否开启:
+> Windows环境打开设备管理器，Linux环境使用lsusb命令，可以找到"USB TO LA"设备
 
-Linux:
+## 开始使用
 
-使用lsusb命令可以看到出现了USB TO LA的USB设备
-
-![slogic_linux_equipment_pulseview](./assets/use_logic_function/slogic_linux_equipment_pulseview.png)
-
-## 使用USB TO LA
-
-> 1. 使用上位机时需要保证采样带宽不能超过320MHz,即通道数 * 采样率必须小于320MHz。例如：设置通道数为8，那么采样率就只能设置为40MHz或更低，否则可能引起上位机故障。
-> 2. 如果上位机启动过程中，设备出现断连的情况，请重新扫描并连接设备，再做其他操作，否则可能导致软件崩溃
+> 注意：
+> 1. Linux环境下SLogic combo 8最大传输带宽320Mb/s，典型配置80M@4CH 40M@8CH。
+> 2. Windows环境下SLogic combo 8最大传输带宽160Mb/s，典型配置80M@2CH 20M@8CH。
+> 3. 如果上位机启动过程中，设备出现断连的情况，需要重新扫描并连接设备
 
 ### 快速使用
 

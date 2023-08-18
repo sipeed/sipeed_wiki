@@ -1,5 +1,5 @@
 ---
-title:  SLogic Combo8
+title:  SLogic Combo 8
 keywords: LogicAnalyzer, debugger, link, RISCV, tool
 update:
   - date: 2023-07-26
@@ -11,7 +11,7 @@ update:
 
 ## Introduction
 
-SLogic combo8 is a logic analyzer based on Sipeed M0s Dock for secondary development, and also has CKLink Debugger, DAP-Link Debugger, USB2UART functions, which can be switched arbitrarily by buttons.
+SLogic combo 8 is a development tool with functions of logic analyzer, CKLink debugger, DAP-Link debugger and USB2UART, which can be switched arbitrarily by buttons.
 
 ![slogic_combo8_main](./../../../zh/logic_analyzer/combo8/assets/readme/slogic_combo8_main.png)
 

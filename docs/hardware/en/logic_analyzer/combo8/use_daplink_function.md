@@ -18,7 +18,7 @@ Press the toggle button to switch the indicator light to green.
 ![slogic_led_green](./../../../zh/logic_analyzer/combo8/assets/use_daplink_function/slogic_led_green.png)
 
 > To verify if DAPLink functionality is enabled:
-> Linux: Use the lsusb command to check if the CMSIS-DAP HS USB device appears.
+> Open the device manager in Windows environment, and use the lsusb command in Linux environment to find the "CMSIS-DAP HS" device
 
 ## Getting Started
 
