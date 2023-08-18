@@ -24,6 +24,85 @@
     </div>
     <div class="w-full flex flex-col justify-center items-center mt-10 mb-5">
       <!-- a table to compare upper products' parameters -->
+      <h3 class="text-2xl font-bold my-8">{{_('Tang 系列板卡参数对比')}}</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>{{_('参数')}}</th>
+            <th>Mega 138K</th>
+            <th>Nano 20K</th>
+            <th>Nano 9K</th>
+            <th>Nano 4K</th>
+            <th>Primer 20K</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{_('芯片')}}</td>
+            <td>GW5AST-138</td>
+            <td>GW2AR-18</td>
+            <td>GW1NR-9</td>
+            <td>GW1NSR-4C</td>
+            <td>GW2A-18</td>
+          </tr>
+          <tr>
+            <td>{{_('查找表(LUT)')}}</td>
+            <td>138240</td>
+            <td>20736</td>
+            <td>8640</td>
+            <td>4608</td>
+            <td>20736</td>
+          </tr>
+          <tr>
+            <td>{{_('寄存器(FF)')}}</td>
+            <td>138240</td>
+            <td>15552</td>
+            <td>6480</td>
+            <td>4608</td>
+            <td>15552</td>
+          </tr>
+          <tr>
+            <td>SSRAM(Kbits)</td>
+            <td>1080</td>
+            <td>41</td>
+            <td>17</td>
+            <td></td>
+            <td>41</td>
+          </tr>
+          <tr>
+            <td>BSRAM(Kbits)</td>
+            <td>6120</td>
+            <td>828</td>
+            <td>468</td>
+            <td>180</td>
+            <td>828</td>
+          </tr>
+          <tr>
+            <td>{{_('内嵌处理器')}}</td>
+            <td>RiscV AE350_SOC</td>
+            <td></td>
+            <td></td>
+            <td>Cortex-M3</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>{{_('储存')}}</td>
+            <td>{{_('板载_fpga')}} 32Mb Flash * 2</td>
+            <td>{{_('板载_fpga')}} 32Mb Flash</td>
+            <td>{{_('内含')}} 608Kb Flash<br>{{_('板载_fpga')}} 32Mb Flash</td>
+            <td>{{_('内含')}} 256Kb Flash<br>{{_('板载_fpga')}} 32Mb Flash</td>
+            <td>{{_('板载_fpga')}} 32Mb Flash</td>
+          </tr>
+          <tr>
+            <td>{{_('其他特点')}}</td>
+            <td nowrap="nowrap">{{_('板载_fpga')}} 4G bits DDR3 SDRAM * 2<br>{{_('内含 12.5G Transceivers')}}<br>{{_('支持 PCIE 通信')}}<br>{{_('支持 SFP+ 数据传输')}}</td>
+            <td nowrap="nowrap">{{_('内含')}} 64M bits SDR SDRAM</td>
+            <td nowrap="nowrap">{{_('内含')}} 64M bits PSRAM</td>
+            <td nowrap="nowrap">{{_('内含')}} 64M bits HyperRAM</td>
+            <td nowrap="nowrap">{{_('板载_fpga')}} 1G bits DDR3 SDRAM</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>
@@ -31,6 +110,16 @@
 <script lang="ts">
   const data_tang = {
     cards: [
+      {
+        img: "/hardware/assets/Tang/mega_138k/mega_138k_top.png",
+        title: "Tang Mega 138K",
+        brief: "{{_('可以高速通信的大容量 FPGA 开发板')}}",
+        btns: [
+          {
+            label: "{{_('敬请期待')}}",
+          }
+        ],
+      },
       {
         img: "/hardware/zh/tang/tang-nano-20k/assets/nano_20k/tang_nano_20k_3920_top.png",
         title: "Tang Nano 20K",
