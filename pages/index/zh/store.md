@@ -29,7 +29,7 @@ id: store
     </thead>
     <tbody>
         <tr>
-            <td rowspan="1"><a href="https://shop365481095.taobao.com/"  target="_blank"><img src="/static/image/taobao.png" alt="sipeed taobao shop"></a></td>
+            <td rowspan="1"><a href="https://sipeed.taobao.com/"  target="_blank"><img src="/static/image/taobao.png" alt="sipeed taobao shop"></a></td>
             <td><a href="https://www.aliexpress.com/store/911876460" target="_blank"><img src="/static/image/aliexpress.png" alt="sipeed aliexpress shop"></a>
 			</td>
         </tr>		

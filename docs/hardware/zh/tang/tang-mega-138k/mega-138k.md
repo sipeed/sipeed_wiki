@@ -1,6 +1,6 @@
 ---
-title: Tang Mega 20K
-keywords: FPGA, Tang, Mega, 20K
+title: Tang Mega 138K
+keywords: FPGA, Tang, Mega, 138K
 update:
   - date: 2023-06-29
     version: v0.1
@@ -8,7 +8,6 @@ update:
     content:
       - 新建文档
 ---
-
 
 ## 芯片参数
 

@@ -1,5 +1,5 @@
 ---
-title:  SLogic Combo8
+title:  SLogic Combo 8
 keywords: LogicAnalyzer, debugger, link, RISCV, tool
 update:
   - date: 2023-07-23
@@ -11,7 +11,7 @@ update:
 
 ## 简介
 
-SLogic combo8是一款基于 Sipeed M0s Dock 进行二次开发而成的逻辑分析仪，同时还兼有CKLink Debugger、DAP-Link Debugger、USB2UART功能，通过按键可以任意切换功能。
+SLogic combo 8是一款兼有逻辑分析仪、CKLink Debugger、DAP-Link Debugger、USB2UART功能的开发工具，使用时可以通过按键任意切换功能。
 
 ![slogic_combo8_main](./assets/readme/slogic_combo8_main.png)
 
@@ -19,15 +19,17 @@ SLogic combo8是一款基于 Sipeed M0s Dock 进行二次开发而成的逻辑�
 
 ### SLogic功能参数
 
-| 逻辑分析仪（仅Linux） | **SLogic Combo8** |
+| 逻辑分析仪 | **SLogic Combo8** |
 | --------------------- | ----------------- |
 | 最大通道数            | 8CH               |
 | 最高采样率            | 80M               |
 | 传输带宽              | 320Mb/s           |
 | 采样模式              | Stream            |
-| 典型配置              | 80M@3CH 32M@8CH   |
+| 典型配置              | 80M@4CH 40M@8CH   |
 | 信号输入范围          | 0～3.6V           |
 | 高低电平门限          | VIH>2V VIL<0.8V   |
+
+注：Windows环境下SLogic combo 8最大传输带宽160Mb/s，典型配置80M@2CH 20M@8CH
 
 ### CKLink功能参数
 

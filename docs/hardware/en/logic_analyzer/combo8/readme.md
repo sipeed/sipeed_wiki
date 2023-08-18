@@ -1,5 +1,5 @@
 ---
-title:  SLogic Combo8
+title:  SLogic Combo 8
 keywords: LogicAnalyzer, debugger, link, RISCV, tool
 update:
   - date: 2023-07-26
@@ -11,7 +11,7 @@ update:
 
 ## Introduction
 
-SLogic combo8 is a logic analyzer based on Sipeed M0s Dock for secondary development, and also has CKLink Debugger, DAP-Link Debugger, USB2UART functions, which can be switched arbitrarily by buttons.
+SLogic combo 8 is a development tool with functions of logic analyzer, CKLink debugger, DAP-Link debugger and USB2UART, which can be switched arbitrarily by buttons.
 
 ![slogic_combo8_main](./../../../zh/logic_analyzer/combo8/assets/readme/slogic_combo8_main.png)
 
@@ -19,15 +19,17 @@ SLogic combo8 is a logic analyzer based on Sipeed M0s Dock for secondary develop
 
 ### SLogic Function Parameters
 
-| Logic Analyzer (Linux only) | **SLogic Combo8** |
+| Logic Analyzer | **SLogic Combo8** |
 | --------------------------- | ----------------- |
 | Maximum Channel Number      | 8CH               |
 | Maximum Sampling Rate       | 80M               |
 | Transmission Bandwidth      | 320Mb/s           |
 | Sampling Mode               | Stream            |
-| Typical Configuration       | 80M@3CH 32M@8CH   |
+| Typical Configuration       | 80M@4CH 40M@8CH   |
 | Signal Input Range          | 0～3.6V           |
 | High and Low Level Thresholds | VIH>2V VIL<0.8V   |
+
+In Windows environment, the SLogic combo 8 has maximum transmission bandwidth of 160 Mb/s. The typical configuration includes 80M@2CH and 20M@8CH.
 
 ### CKLink Function Parameters
 

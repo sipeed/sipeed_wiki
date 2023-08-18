@@ -1,8 +1,8 @@
 <!-- 修改后保存一下 include 这个文件的 html 模板就会渲染 -->
 
-<div class="flex flex-col justify-center items-center">
+<div class="w-full flex flex-col justify-center items-center">
   <h2 class="text-2xl font-bold my-8 block_simple">{{_('Maix AI 视觉系列')}}</h2>
-  <div class="flex flex-col justify-center">
+  <div class="w-full flex flex-col justify-center">
     <div class="cards">
       <!-- cards -->
       <div class="card" v-for="item in data_maix.cards">
@@ -20,7 +20,7 @@
       </div>
       <!-- cards end -->
     </div>
-    <div class="flex flex-col justify-center items-center mt-10 mb-5">
+    <div class="w-full flex flex-col justify-center items-center mt-10 mb-5">
       <!-- a table to compare upper products' parameters -->
       <h3 class="text-2xl font-bold my-8">{{_('Maix 系列产品参数对比')}}</h3>
       <table>

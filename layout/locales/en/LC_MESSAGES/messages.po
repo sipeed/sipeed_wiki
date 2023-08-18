@@ -3,63 +3,64 @@ msgid ""
 msgstr ""
 
 #: home.html:93
-#, fuzzy
-msgid "/static/home/licheepi4a_post.jpg"
-msgstr "/static/home/maixiii_axpi_en.jpg"
+msgid "/static/home/ax650_presell.jpg"
+msgstr ""
 
-#: home.html:96 home.html:109 home.html:122 licheepi.html:132 licheepi.html:148
-#: licheepi.html:164 licheepi.html:180 maix.html:110 maix.html:127
-#: maix.html:143 maixsense.html:40 maixsense.html:56 tang.html:40 tang.html:56
-#: tang.html:72 tang.html:88
-msgid "文档"
-msgstr "Documentation"
-
-#: home.html:100 home.html:113 home.html:126 licheepi.html:136
+#: home.html:96 home.html:109 home.html:122 home.html:135 licheepi.html:136
 #: licheepi.html:152 licheepi.html:168 licheepi.html:184 maix.html:114
-#: maix.html:131 maix.html:147 maixsense.html:44 maixsense.html:60 tang.html:44
-#: tang.html:60 tang.html:76 tang.html:92
+#: maix.html:131 maix.html:147 maixsense.html:44 maixsense.html:60
+#: tang.html:133 tang.html:149 tang.html:165 tang.html:181
 msgid "购买"
 msgstr "Buy"
 
-#: home.html:106
+#: home.html:102
+msgid "/static/home/licheepi4a_post.jpg"
+msgstr ""
+
+#: home.html:105 home.html:118 home.html:131 licheepi.html:132
+#: licheepi.html:148 licheepi.html:164 licheepi.html:180 maix.html:110
+#: maix.html:127 maix.html:143 maixsense.html:40 maixsense.html:56
+#: tang.html:129 tang.html:145 tang.html:161 tang.html:177
+msgid "文档"
+msgstr "Documentation"
+
+#: home.html:115
 msgid "/static/home/maixiii_axpi.jpg"
 msgstr "/static/home/maixiii_axpi_en.jpg"
 
-#: home.html:135
+#: home.html:144
 msgid "分享广场"
-msgstr ""
+msgstr "Share Center"
 
-#: home.html:139
+#: home.html:148
 msgid "MaixHub 官网"
-msgstr ""
+msgstr "MaixHub"
 
-#: home.html:149
+#: home.html:158
 msgid "产品动态"
-msgstr ""
+msgstr "Product News"
 
-#: home.html:153
-#, fuzzy
+#: home.html:162
 msgid "Maix AI 视觉"
 msgstr "Maix AI Vision"
 
-#: home.html:165
-#, fuzzy
+#: home.html:174
 msgid "MaixSense 传感器"
-msgstr "MaixSense Sensor Module"
+msgstr "MaixSense Sensor"
 
-#: home.html:169
+#: home.html:178
 msgid "其它"
-msgstr ""
+msgstr "Others"
 
 #: licheepi.html:4
 msgid "Linux SBC 系列"
-msgstr ""
+msgstr "Linux SBC Series"
 
 #: licheepi.html:25
 msgid "Lichee SBC 系列产品参数对比"
 msgstr "Lichee SBC Series Product Comparison"
 
-#: licheepi.html:29 maix.html:29
+#: licheepi.html:29 maix.html:29 tang.html:31
 msgid "参数"
 msgstr "Parameter"
 
@@ -71,7 +72,7 @@ msgstr "CPU"
 msgid "内存"
 msgstr "memory"
 
-#: licheepi.html:52 maix.html:59
+#: licheepi.html:52 maix.html:59 tang.html:89
 msgid "储存"
 msgstr "storage"
 
@@ -254,24 +255,81 @@ msgstr "Find in the left menu"
 msgid "Tang FPGA 系列"
 msgstr "Tang FPGA Series"
 
-#~ msgid "/static/home/licheepi4a_post.jpg"
+#: tang.html:27
+msgid "Tang 系列板卡参数对比"
+msgstr "Maix Series Products Comparison"
+
+#: tang.html:41
+msgid "芯片"
+msgstr "Chip"
+
+#: tang.html:49
+msgid "查找表(LUT)"
+msgstr "LUT"
+
+#: tang.html:57
+msgid "寄存器(FF)"
+msgstr "FF"
+
+#: tang.html:81
+msgid "内嵌处理器"
+msgstr "Embedded CPU"
+
+#: tang.html:90 tang.html:91 tang.html:92 tang.html:93 tang.html:94
+#: tang.html:98 tang.html:102
+msgid "板载_fpga"
+msgstr "Onboard"
+
+#: tang.html:92 tang.html:93 tang.html:99 tang.html:100 tang.html:101
+msgid "内含"
+msgstr "Contain"
+
+#: tang.html:97
+msgid "其他特点"
+msgstr "Features"
+
+#: tang.html:98
+msgid "内含 12.5G Transceivers"
+msgstr "Contain 12.5G Transceivers"
+
+#: tang.html:98
+msgid "支持 PCIE 通信"
+msgstr "Support PCIE interface"
+
+#: tang.html:98
+msgid "支持 SFP+ 数据传输"
+msgstr "Support SFP+ transmission"
+
+#: tang.html:116
+msgid "可以高速通信的大容量 FPGA 开发板"
+msgstr "High speed communication FPGA Board"
+
+#: tang.html:119
+msgid "敬请期待"
+msgstr "To See"
+
+#: tang.html:126
+msgid "适用于模拟复古游戏机的 FPGA 开发板"
+msgstr "Retro Games friendly FPGA Board"
+
+#: tang.html:142
+msgid "适合 RiscV 软核验证的 FPGA 开发板"
+msgstr "RiscV softcore FPGA Board"
+
+#: tang.html:158
+msgid "芯片内部含有 MCU 的 FPGA 开发板"
+msgstr "MCU inside Chip FPGA Board"
+
+#: tang.html:174
+msgid "自带多种外设接口的 FPGA 开发板"
+msgstr "Mutiple interfaces FPGA board"
+
+#~ msgid "预定"
 #~ msgstr ""
 
-#~ msgid "分享广场"
-#~ msgstr "Share Center"
+#~ msgid "带有高速通信接口的大容量 FPGA 开发板"
+#~ msgstr ""
 
-#~ msgid "MaixHub 官网"
-#~ msgstr "MaixHub"
-
-#~ msgid "产品动态"
-#~ msgstr "Product News"
-
-#~ msgid "Maix AI 视觉"
-#~ msgstr "Maix AI Vision"
-
-#~ msgid "MaixSense 传感器"
-#~ msgstr "MaixSense Sensor"
-
-#~ msgid "其它"
-#~ msgstr "Others"
+#~ msgid "尽情期待"
+#~ msgstr ""
 
