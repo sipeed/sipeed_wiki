@@ -18,11 +18,7 @@ SLogic Combo8 具备4路独立高速串口功能，前两路基于UART可同时�
 ![slogic_led_red](./assets/use_fouruart_function/slogic_led_red.png)
 
 > 验证SLogic功能是否开启的方法:
-
-> Linux：使用lsusb命令可以看到出现了UARTx4 HS的USB设备
-
-![slogic_linux_equipment_uart](./assets/use_fouruart_function/slogic_linux_equipment_uart.png)
-
+> Windows环境打开设备管理器，Linux环境使用lsusb命令，可以找到"UARTx4 HS"设备。
 
 ## 开始使用
 

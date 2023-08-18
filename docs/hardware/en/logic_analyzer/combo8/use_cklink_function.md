@@ -19,8 +19,8 @@ Press the toggle button to switch the indicator light to yellow.
 
 ![slogic_led_yellow](./../../../zh/logic_analyzer/combo8/assets/use_cklink_function/slogic_led_yellow.png)
 
-> To verify if SLogic functionality is enabled:
-> On Linux, use the lsusb command / On Windows, check in Device Manager to find the CKLink HS device.
+> To verify if CKLink functionality is enabled:
+> Open the device manager in Windows environment, and use the lsusb command in Linux environment to find the "CKLink HS" device
 
 ## Getting Started
 

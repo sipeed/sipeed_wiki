@@ -18,10 +18,7 @@ Press the toggle button to switch the indicator light to red.
 ![slogic_led_red](./../../../zh/logic_analyzer/combo8/assets/use_fouruart_function/slogic_led_red.png)
 
 > To verify if Serial Module functionality is enabled:
-
-> Linux: Use the lsusb command to check if the UARTx4 HS USB device appears.
-
-![slogic_linux_equipment_uart](./../../../zh/logic_analyzer/combo8/assets/use_fouruart_function/slogic_linux_equipment_uart.png)
+> Open the device manager in Windows environment, and use the lsusb command in Linux environment to find the "UARTx4 HS" device
 
 ## Getting Started
 

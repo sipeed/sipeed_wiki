@@ -20,7 +20,7 @@ SLogic Combo8 具备高速CK-Link功能，且速率远超CK-Link Lite，接近CK
 ![slogic_led_yellow](./assets/use_cklink_function/slogic_led_yellow.png)
 
 > 验证CKLink功能是否开启的方法:
-> Linux使用lsusb命令/Windows使用设备管理器，可以找到CKLink HS设备
+> Windows环境打开设备管理器，Linux环境使用lsusb命令，可以找到"CKLink HS"设备
 
 ## 开始使用
 
