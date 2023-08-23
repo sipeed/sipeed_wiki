@@ -243,7 +243,7 @@ The POE module requires manual soldering as shown:
 
 ![poe](./../../../../zh/lichee/th1520/lpi4a/assets/unbox/poe.jpg)
 
-> Note that the POE module can be inserted into the metal case after soldering.
+> Note that the POE module **cannot** be inserted into the metal case after soldering.
 
 ## Board hardware overview
 
