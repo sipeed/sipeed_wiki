@@ -227,4 +227,4 @@ Sipeed M0S 模块是基于[博流智能科技](http://www.bouffalolab.com/)的 B
 
 ## 联系方式
 
-M0S 模块可以在多种场景实现客户不同方面的需要，技术支持和商业合作请联系使用邮箱 [support@sipeed.com](support@sipeed.com)
+M0S 模块可以在多种场景实现客户不同方面的需要，技术支持和商业合作请联系邮箱 [support@sipeed.com](support@sipeed.com)

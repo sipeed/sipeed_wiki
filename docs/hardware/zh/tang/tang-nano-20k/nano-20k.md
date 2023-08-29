@@ -157,7 +157,7 @@ Tang Nano 20K 是采用高云半导体 [GW2AR-18 QN88](http://www.gowinsemi.com.
 
 [板卡规格书](https://dl.sipeed.com/shareURL/TANG/Nano_20K/1_Datasheet)
 [板卡原理图](https://dl.sipeed.com/shareURL/TANG/Nano_20K/2_Schematic)
-[PCB BOM](https://dl.sipeed.com/shareURL/TANG/Primer_20K/03_Bit_number_map) (根据自己板子的版本查看里面的 html 文件)
+[PCB BOM](https://dl.sipeed.com/shareURL/TANG/Nano_20K/3_Bit_number_map) (根据自己板子的版本查看里面的 html 文件)
 [板卡尺寸图](https://dl.sipeed.com/shareURL/TANG/Nano_20K/4_Dimensional_drawing)
 [板卡 3D 模型](https://dl.sipeed.com/shareURL/TANG/Nano_20K/4_Dimensional_drawing)
 [部分芯片手册](https://dl.sipeed.com/shareURL/TANG/Nano_20K/6_Chip_manual)

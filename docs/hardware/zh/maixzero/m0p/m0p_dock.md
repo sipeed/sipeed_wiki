@@ -252,4 +252,4 @@ Sipeed M0P Dock 是使用 [Sipeed M0P](https://wiki.sipeed.com//hardware/zh/maix
 
 ## 联系方式
 
-M0P Dock 开发板可以在多种场景实现客户不同方面的需要，技术支持和商业合作请联系使用邮箱 [support@sipeed.com](support@sipeed.com)
+M0P Dock 开发板可以在多种场景实现客户不同方面的需要，技术支持和商业合作请联系邮箱 [support@sipeed.com](support@sipeed.com)
