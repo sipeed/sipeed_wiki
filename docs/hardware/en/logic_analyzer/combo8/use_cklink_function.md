@@ -40,7 +40,7 @@ The pins on the right side of the diagram (TCK, TDI, TDO, TMS) are used for CKLi
 
 On both Windows and Linux systems, you can directly refer to [Using CDK + Sipeed RV-Debugger Plus for Compilation and Debugging](https://bouffalolab.gitee.io/bl_mcu_sdk/get_started/cdk_rv_debugger_plus.html#cdk-sipeed-rv-debugger-plus) and [T-HEAD Debug Server User Manual](https://occ.t-head.cn/document?temp=introduction-2&slug=t-head-debug-server-user-manual), the usage is exactly the same.
 
-### Debugging with CDK
+#### Debugging with CDK
 
 - Click the `Start/Stop Debugger` button on the toolbar to enter the debug interface, as shown in the image below:
 
@@ -51,6 +51,6 @@ On both Windows and Linux systems, you can directly refer to [Using CDK + Sipeed
 
 - Click the single-step run button to execute the code. You will see the cursor move to the next line of code, and at the same time, the serial panel will display the output "Hello World!"
 
-### Debugging with T-HEAD Debug Server
+#### Debugging with T-HEAD Debug Server
 
 > Please refer to the **Section Ten: Debugging with JTAG** in the [Getting Started with M1s DOCK](../../maix/m1s/other/start.md) guide for details.
