@@ -39,7 +39,7 @@ CKLink模式下可以同时支持一路CKLink和一路UART
 
  在Windows、Linux系统可以直接参考[使用 CDK + Sipeed RV-Debugger Plus 编译调试](https://bouffalolab.gitee.io/bl_mcu_sdk/get_started/cdk_rv_debugger_plus.html#cdk-sipeed-rv-debugger-plus)和[T-HEAD Debug Server 用户手册](https://occ.t-head.cn/document?temp=introduction-2&slug=t-head-debug-server-user-manual)，用法完全一样
  
-### 使用CDK进行调试
+#### 使用CDK进行调试
 
 - 点击工具栏上方的`Start/Stop Debugger`按钮，进入debug界面，如下图所示
 
@@ -50,6 +50,6 @@ _Debug HellowWorld!_
 
 - 点击单步运行按钮，运行代码，即可看到指示光标移动到下一句代码，同时可以看到串口面板中显示输出的 Hello World！
 
-### 使用T-HEAD Debug Server进行调试
+#### 使用T-HEAD Debug Server进行调试
 
 > 请[参考](../../maix/m1s/other/start.md)M1s DOCK 上手**第十节 使用JTAG调试**的内容。

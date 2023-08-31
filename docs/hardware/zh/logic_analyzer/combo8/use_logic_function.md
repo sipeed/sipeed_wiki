@@ -35,7 +35,9 @@ update:
 
 #### 下载和运行上位机
 
-点击[这里](https://dl.sipeed.com/shareURL/SLogic/SLogic_combo_8/4_application/PulseView)下载最新版本的上位机软件，用于观察数字信号和解码。Windows用户下载exe文件，Linux用户下载AppImage文件，建议下载日期最新的版本。
+[点击这里下载上位机](https://dl.sipeed.com/shareURL/SLogic/SLogic_combo_8/4_application/PulseView)
+
+上位机软件用于观察数字信号和解码。Windows用户请下载exe后缀的文件，Linux用户请下载AppImage后缀的文件，建议下载日期最新的版本。
 
 **Linux环境：**
 

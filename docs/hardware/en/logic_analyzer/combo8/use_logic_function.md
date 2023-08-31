@@ -35,7 +35,9 @@ The above diagram shows the pinout for the 8 channels of SLogic. Connect the tar
 
 #### Downloading and Running the Host Computer
 
-Click [here](https://dl.sipeed.com/shareURL/SLogic/SLogic_combo_8/4_application/PulseView) to download the latest version of the host computer software for observing digital signals and decoding. For Windows users, download the .exe file, and for Linux users, download the .AppImage file. It is recommended to download the latest version available.
+[Download PulseView](https://dl.sipeed.com/shareURL/SLogic/SLogic_combo_8/4_application/PulseView)
+
+PulseView is used for observing digital signals and decoding. Windows users should download files with the .exe extension, while Linux users should download files with the .AppImage extension. It is recommended to download the latest version with the most recent date.
 
 Linux Environment:
 
