@@ -262,6 +262,8 @@ items:
             file: logic_analyzer/combo8/use_daplink_function.md
         -   label: 作为串口模块使用
             file: logic_analyzer/combo8/use_fouruart_function.md
+        -   label: 更新固件
+            file: logic_analyzer/combo8/update_firmware.md
 # -   label: Maix Audio
 #     items:
 #     -   label: MA USB 16
