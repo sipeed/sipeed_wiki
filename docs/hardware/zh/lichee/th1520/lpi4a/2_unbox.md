@@ -149,9 +149,10 @@ LicheePi 4A出库已预烧录了基础系统镜像，至此你已可以快速进
 使用 HDMI 线缆(自备)连接显示器(自备)与 LicheePi 4A 的 HDMI 口，使用配套的 USB-C 线缆连接到至少 5V2A 输出的 USB 电源(自备)上，LicheePi 4A 即会开机启动，默认镜像会在 30s 内启动到桌面系统的登录界面，或者自动使用sipeed账户登录到桌面。
 ![boot_login](./assets/unbox/boot_login.png)
 
-默认镜像有两类帐号密码配置，可以都尝试下：
-1. 帐号：`root`，`debian`，`sipeed`；密码均为 `licheepi`
-2. 帐号`debian`，密码`debian`；帐号`sipeed`，密码`licheepi`
+默认镜像的帐号密码配置如下：
+账户：`debian`，密码： `debian`；
+账户： `sipeed`，密码：`licheepi`；
+root 账户默认没有设置密码。
 
 插入键鼠，输入用户名密码后即可登录体验，具体操作请查看后续章节。
 

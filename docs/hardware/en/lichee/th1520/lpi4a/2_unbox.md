@@ -165,9 +165,10 @@ The LicheePi 4A will automatically boot into the default image and the login scr
 
 ![boot_login](./../../../../zh/lichee/th1520/lpi4a/assets/unbox/boot_login.png)
 
-The default image has two types of account and password configurations, you can try both:
-1. User：`root`，`debian`，`sipeed`； the password for all accounts is `licheepi`
-2. User: `debian`，password: `debian`； user: `sipeed`，password: `licheepi`
+The default image's account and password configurations is:
+User: `debian`，password: `debian`;
+User: `sipeed`，password: `licheepi`;
+root has no password by default.
 
 If you followed the above procedure, but your display fails to show any image, please check the following:
 1. Check whether the USB-Power supply is connected correctly, works and whether the power LED is lit on the board.
