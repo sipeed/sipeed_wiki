@@ -6,7 +6,7 @@ update:
     version: v1.2
     author: ztd
     content:
-      - Update jtag user guide
+      - Update JTAG user guide
   - date: 2023-07-17
     version: v1.1
     author: ztd
@@ -119,9 +119,9 @@ GPIO 操作：
 ```bash
 num=xxx
 echo ${num} > /sys/class/gpio/export  
-echo out>/sys/class/gpio/gpio${num}/direction 
+echo out > /sys/class/gpio/gpio${num}/direction 
 echo 1 > /sys/class/gpio/gpio${num}/value  
-echo 0 > /sys/class/gpio/gpio{num}/value
+echo 0 > /sys/class/gpio/gpio${num}/value
 ```
 
 比如要操作插针上的4个 GPIO，对应关系如下，将上述代码的num改为想要操作的 GPIO 脚对应的数字即可: 
@@ -199,7 +199,7 @@ gpiochip0: GPIOs 504-511, parent: i2c/0-0018, 0-0018, can sleep:    IO expend 1
  gpio-510 (                    |aon:soc_cam2_dovdd18) out lo 
  gpio-511 (                    |aon:soc_cam2_avdd25_) out lo
 ```  -->
-## gpiod库的使用
+### gpiod库的使用
 gpiod库是一个可以在同户空间调用GPIO的库，方便用户在应用程序中对GPIO进行操作。
 首先安装和部署GPIO库：
 ```shell
@@ -791,7 +791,7 @@ xinput
 ![list_touchsreen](./assets/peripheral/list_touchsreen.png)  
 这里可以看到是触摸屏设备 Goodix  7，那么则输入下面命令，将触摸设备映射到正确的屏幕上：  
 ```shell
-xinput map-output-of 7 DSI-1
+xinput map-to-output 7 DSI-1
 ```
 同样的，根据 ID，也可以使用下列命令来关闭相应的触摸设备：  
 ```shell

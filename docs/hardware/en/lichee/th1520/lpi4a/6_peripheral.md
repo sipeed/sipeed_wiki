@@ -2,6 +2,11 @@
 title: Peripheral Use
 keywords: Linux, Lichee, TH1520, SBC, RISCV, Peripheral
 update:
+  - date: 2023-08-18
+    version: v1.2
+    author: ztd
+    content:
+      - Update JTAG user guide
   - date: 2023-07-21
     version: v1.1
     author: ztd
@@ -114,9 +119,9 @@ GPIO operation:
 ```bash
 num=xxx
 echo ${num} > /sys/class/gpio/export  
-echo out>/sys/class/gpio/gpio${num}/direction 
+echo out > /sys/class/gpio/gpio${num}/direction 
 echo 1 > /sys/class/gpio/gpio${num}/value  
-echo 0 > /sys/class/gpio/gpio{num}/value
+echo 0 > /sys/class/gpio/gpio${num}/value
 ```
 
 For example, if you want to operate the 4 GPIOs on the pin, the correspondence is as follows, change the num in the above code to the number corresponding to the GPIO pin you want to operate. 
@@ -195,7 +200,7 @@ gpiochip0: GPIOs 504-511, parent: i2c/0-0018, 0-0018, can sleep:    IO expend 1
  gpio-511 (                    |aon:soc_cam2_avdd25_) out lo
 ```  -->
 
-## Use of gpiod library
+### Use of gpiod library
 
 The GPiod library is a library that can call GPIO in the same user space, making it convenient for users to operate GPIO in applications.
 Firstly, install and deploy the GPIO library:
@@ -801,7 +806,7 @@ xinput
 ![list_touchsreen](./../../../../zh/lichee/th1520/lpi4a/assets/peripheral/list_touchsreen.png)  
 Here you can see that it is a touch screen device Goodix 7, then enter the following command to map the touch device to the correct screen:  
 ```shell
-xinput map-output-of 7 DSI-1
+xinput map-to-output 7 DSI-1
 ```
 Similarly, depending on the ID, the following command can be used to turn off the appropriate touch device:  
 ```shell
