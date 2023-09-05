@@ -83,6 +83,14 @@ Right-click on the desired device and select "Connect" to establish the connecti
 
 ![bluetooth_devices.png](./../../../../zh/lichee/th1520/lpi4a/assets/desktop/bluetooth_devices.png)
 
+If you experience the error `br-connection-profile-unavailable` while trying to connect your Bluetooth audio device after pairing the following commands might help. Make sure to execute them under your user and not root:
+
+```shell
+systemctl --user enable pulseaudio
+systemctl --user start pulseaudio
+sudo apt install bluetooth rfkill blueman bluez bluez-tools pulseaudio-module-bluetooth
+```
+
 If the Bluetooth graphic interface fails to detect devices, you can also run `bluetoothctl` in the command-line interface to pair devices. Follow these steps:
 
 ```shell
