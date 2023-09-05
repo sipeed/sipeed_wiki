@@ -30,76 +30,94 @@
           <tr>
             <th>{{_('参数')}}</th>
             <th>Mega 138K</th>
+            <th>Primer 25K</th>
+            <th>Primer 20K</th>
             <th>Nano 20K</th>
             <th>Nano 9K</th>
             <th>Nano 4K</th>
-            <th>Primer 20K</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>{{_('芯片')}}</td>
             <td>GW5AST-138</td>
+            <td>GW5A-25</td>
+            <td>GW2A-18</td>
             <td>GW2AR-18</td>
             <td>GW1NR-9</td>
             <td>GW1NSR-4C</td>
-            <td>GW2A-18</td>
           </tr>
           <tr>
             <td>{{_('查找表(LUT)')}}</td>
             <td>138240</td>
+            <td>23040</td>
+            <td>20736</td>
             <td>20736</td>
             <td>8640</td>
             <td>4608</td>
-            <td>20736</td>
           </tr>
           <tr>
             <td>{{_('寄存器(FF)')}}</td>
             <td>138240</td>
+            <td>23040</td>
+            <td>15552</td>
             <td>15552</td>
             <td>6480</td>
             <td>4608</td>
-            <td>15552</td>
           </tr>
           <tr>
             <td>SSRAM(Kbits)</td>
             <td>1080</td>
+            <td>180</td>
+            <td>41</td>
             <td>41</td>
             <td>17</td>
             <td></td>
-            <td>41</td>
           </tr>
           <tr>
             <td>BSRAM(Kbits)</td>
             <td>6120</td>
+            <td>1008</td>
+            <td>828</td>
             <td>828</td>
             <td>468</td>
             <td>180</td>
-            <td>828</td>
           </tr>
           <tr>
-            <td>{{_('内嵌处理器')}}</td>
-            <td>RiscV AE350_SOC</td>
+            <td nowrap="nowrap"> RAM </td>
+            <td nowrap="nowrap">{{_('板载_fpga')}} 4Gb DDR3 SDRAM * 2</td>
+            <td nowrap="nowrap"></td>
+            <td nowrap="nowrap">{{_('板载_fpga')}} 1Gb DDR3 SDRAM</td>
+            <td nowrap="nowrap">{{_('内含')}} 64Mb SDR SDRAM</td>
+            <td nowrap="nowrap">{{_('内含')}} 64Mb PSRAM</td>
+            <td nowrap="nowrap">{{_('内含')}} 64Mb HyperRAM</td>
+          </tr>
+          <tr>
+            <td nowrap="nowrap">{{_('内嵌处理器')}}</td>
+            <td nowrap="nowrap">RiscV AE350_SOC</td>
+            <td></td>
+            <td></td>
             <td></td>
             <td></td>
             <td>Cortex-M3</td>
-            <td></td>
           </tr>
           <tr>
-            <td>{{_('储存')}}</td>
-            <td>{{_('板载_fpga')}} 32Mb Flash * 2</td>
-            <td>{{_('板载_fpga')}} 32Mb Flash</td>
-            <td>{{_('内含')}} 608Kb Flash<br>{{_('板载_fpga')}} 32Mb Flash</td>
-            <td>{{_('内含')}} 256Kb Flash<br>{{_('板载_fpga')}} 32Mb Flash</td>
-            <td>{{_('板载_fpga')}} 32Mb Flash</td>
+            <td nowrap="nowrap">{{_('储存')}}</td>
+            <td nowrap="nowrap">{{_('板载_fpga')}} 32Mb Flash * 2</td>
+            <td nowrap="nowrap">{{_('板载_fpga')}} 32Mb Flash</td>
+            <td nowrap="nowrap">{{_('板载_fpga')}} 32Mb Flash</td>
+            <td nowrap="nowrap">{{_('板载_fpga')}} 32Mb Flash</td>
+            <td nowrap="nowrap">{{_('内含')}} 608Kb Flash<br>{{_('板载_fpga')}} 32Mb Flash</td>
+            <td nowrap="nowrap">{{_('内含')}} 256Kb Flash<br>{{_('板载_fpga')}} 32Mb Flash</td>
           </tr>
           <tr>
             <td>{{_('其他特点')}}</td>
-            <td nowrap="nowrap">{{_('板载_fpga')}} 4G bits DDR3 SDRAM * 2<br>{{_('内含 12.5G Transceivers')}}<br>{{_('支持 PCIE 通信')}}<br>{{_('支持 SFP+ 数据传输')}}</td>
-            <td nowrap="nowrap">{{_('内含')}} 64M bits SDR SDRAM</td>
-            <td nowrap="nowrap">{{_('内含')}} 64M bits PSRAM</td>
-            <td nowrap="nowrap">{{_('内含')}} 64M bits HyperRAM</td>
-            <td nowrap="nowrap">{{_('板载_fpga')}} 1G bits DDR3 SDRAM</td>
+            <td nowrap="nowrap">{{_('内含 12.5G Transceivers')}}<br>{{_('支持 PCIE 通信')}}<br>{{_('支持 SFP+ 数据传输')}}</td>
+            <td nowrap="nowrap"></td>
+            <td nowrap="nowrap"></td>
+            <td nowrap="nowrap"></td>
+            <td nowrap="nowrap"></td>
+            <td nowrap="nowrap"></td>
           </tr>
         </tbody>
       </table>
@@ -118,6 +136,32 @@
           {
             label: "{{_('敬请期待')}}",
           }
+        ],
+      },
+      {
+        img: "/hardware/assets/Tang/primer_25k/primer_25k.png",
+        title: "Tang Primer 25K",
+        brief: "{{_('自由拓展的 FPGA 开发板')}}",
+        btns: [
+          {
+            label: "{{_('敬请期待')}}",
+          }
+        ],
+      },
+      {
+        img: "/hardware/zh/tang/tang-primer-20k/assets/dock-up.png",
+        title: "Tang Primer 20K",
+        brief: "{{_('自带多种外设接口的 FPGA 开发板')}}",
+        btns: [
+          {
+            label: "{{_('文档')}}",
+            link: "/hardware/zh/tang/tang-primer-20k/primer-20k.html",
+          },
+          {
+            label: "{{_('购买')}}",
+            link: "https://item.taobao.com/item.htm?id=680099020807",
+            new_tab: true,
+          },
         ],
       },
       {
@@ -164,22 +208,6 @@
           {
             label: "{{_('购买')}}",
             link: "https://item.taobao.com/item.htm?id=661994055100",
-            new_tab: true,
-          },
-        ],
-      },
-      {
-        img: "/hardware/zh/tang/tang-primer-20k/assets/dock-up.png",
-        title: "Tang Primer 20K",
-        brief: "{{_('自带多种外设接口的 FPGA 开发板')}}",
-        btns: [
-          {
-            label: "{{_('文档')}}",
-            link: "/hardware/zh/tang/tang-primer-20k/primer-20k.html",
-          },
-          {
-            label: "{{_('购买')}}",
-            link: "https://item.taobao.com/item.htm?id=680099020807",
             new_tab: true,
           },
         ],

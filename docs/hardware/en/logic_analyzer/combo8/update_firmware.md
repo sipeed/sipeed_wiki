@@ -33,17 +33,17 @@ Just select the latest version of the burning tool and firmware, and unzip it af
 
     After startup, select BL616/618 and click Finish
 
-    ![image-20230901095004741](./../../../zh/logic_analyzer/combo8/assets/download_firmware/chip_selection.png)
+    ![chip_selection](./../../../zh/logic_analyzer/combo8/assets/download_firmware/chip_selection.png)
 
 3. Enable `Single Download Options` and add the downloaded firmware
 
-    ![image-20230901095354294](./../../../zh/logic_analyzer/combo8/assets/download_firmware/config_download_firmware.png)
+    ![config_download_firmware](./../../../zh/logic_analyzer/combo8/assets/download_firmware/config_download_firmware.png)
 
 ## Configure device
 
 Put SLogic combo 8 into burning mode
 
-![image-20230901101839362](./../../../zh/logic_analyzer/combo8/assets/download_firmware/enter_the_burn_mode.png)
+![enter_the_burn_mode](./../../../zh/logic_analyzer/combo8/assets/download_firmware/enter_the_burn_mode.png)
 
 Steps:
 
@@ -55,6 +55,6 @@ Steps:
 
 Configure the serial port and baud rate, and click `Create & Download` to download
 
-![image-20230901102645831](./../../../zh/logic_analyzer/combo8/assets/download_firmware/download_firmware.png)
+![download_firmware](./../../../zh/logic_analyzer/combo8/assets/download_firmware/download_firmware.png)
 
 After the download is completed, the progress bar displays a green box, indicating that the download is successful and the firmware update is completed.

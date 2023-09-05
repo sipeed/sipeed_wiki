@@ -71,7 +71,7 @@ Tang Primer 20K 是基于 [GW2A-LV18PG256C8/I7](http://www.gowinsemi.com.cn/prod
 		<tr>
 			<td style="text-align:left">Flash</td>
 			<td style="text-align:left">32Mbits NOR Flash</td>
-			<td style="text-align:left">下载方式参考底部相关问题</td>
+			<td style="text-align:left">查看 <a href="#burn_flash">烧录到Flash</a></td>
 		</tr>
 		<tr>
 			<td style="text-align:left">调试接口</td>
@@ -240,7 +240,7 @@ Tang Primer 20K 是基于 [GW2A-LV18PG256C8/I7](http://www.gowinsemi.com.cn/prod
 		<tr>
 			<td colspan="2">以太网接口</td>
 			<td>1</td>
-			<td>TL8201F 芯片实现以太网功能</td>
+			<td>RTL8201F 芯片实现以太网功能</td>
 			<td></td>
 			<td></td>
 		</tr>
@@ -332,7 +332,7 @@ github 链接： https://github.com/sipeed/TangPrimer-20K-example
 
 <!-- <img src="./assets/start/switch_1_on.png" alt="switch_1_on" width=20%> -->
 
-### 如何下载到外部 FLASH
+### 如何下载到外部 FLASH {#burn_flash}
 
 进行如下选项设置：
 

@@ -80,7 +80,7 @@ Buy it: [Aliexpress](https://www.aliexpress.com/item/1005004653308809.html)
 		<tr>
 			<td style="text-align:left">Flash</td>
 			<td style="text-align:left">32Mbits NOR Flash</td>
-			<td style="text-align:left">W25Q32JVS</td>
+			<td style="text-align:left">Read <a href="#burn_flash">burn Flash</a></td>
 		</tr>
 		<tr>
 			<td style="text-align:left">Debugger</td>
@@ -234,7 +234,7 @@ The corresponding pin numbering between R8 and P9 is P8. See the mark on the top
 		<tr>
 			<td colspan="2">Ethernet Interface</td>
 			<td>1</td>
-			<td>TL8201F</td>
+			<td>RTL8201F</td>
 			<td></td>
 		</tr>
 		<tr>
@@ -311,7 +311,7 @@ For 20K Dock kits, it's necessary to enable the core board before using debugger
 | --- | --- | --- |
 |<img src="./../../../zh/tang/tang-primer-20k/assets/start/switch_1_on.png" alt="switch_1_on" width=100%>|<img src="./../../../zh/tang/tang-primer-20k/assets/start/reset_led_on.png" alt="reset_led_on" width=100%> | When disabled, the LDE0 and LED1 is on, and core board doesn't work.|
 
-### How to burn into flash
+### How to burn into flash {#burn_flash}
 
 Do following configurations:
 

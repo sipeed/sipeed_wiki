@@ -9,7 +9,7 @@ msgstr ""
 #: home.html:96 home.html:109 home.html:122 home.html:135 licheepi.html:136
 #: licheepi.html:152 licheepi.html:168 licheepi.html:184 maix.html:114
 #: maix.html:131 maix.html:147 maixsense.html:44 maixsense.html:60
-#: tang.html:133 tang.html:149 tang.html:165 tang.html:181
+#: tang.html:161 tang.html:177 tang.html:193 tang.html:209
 msgid "购买"
 msgstr ""
 
@@ -20,7 +20,7 @@ msgstr ""
 #: home.html:105 home.html:118 home.html:131 licheepi.html:132
 #: licheepi.html:148 licheepi.html:164 licheepi.html:180 maix.html:110
 #: maix.html:127 maix.html:143 maixsense.html:40 maixsense.html:56
-#: tang.html:129 tang.html:145 tang.html:161 tang.html:177
+#: tang.html:157 tang.html:173 tang.html:189 tang.html:205
 msgid "文档"
 msgstr ""
 
@@ -72,7 +72,7 @@ msgstr ""
 msgid "内存"
 msgstr ""
 
-#: licheepi.html:52 maix.html:59 tang.html:89
+#: licheepi.html:52 maix.html:59 tang.html:105
 msgid "储存"
 msgstr ""
 
@@ -251,69 +251,73 @@ msgstr ""
 msgid "Tang 系列板卡参数对比"
 msgstr ""
 
-#: tang.html:41
+#: tang.html:42
 msgid "芯片"
 msgstr ""
 
-#: tang.html:49
+#: tang.html:51
 msgid "查找表(LUT)"
 msgstr ""
 
-#: tang.html:57
+#: tang.html:60
 msgid "寄存器(FF)"
 msgstr ""
 
-#: tang.html:81
-msgid "内嵌处理器"
-msgstr ""
-
-#: tang.html:90 tang.html:91 tang.html:92 tang.html:93 tang.html:94
-#: tang.html:98 tang.html:102
+#: tang.html:88 tang.html:90 tang.html:106 tang.html:107 tang.html:108
+#: tang.html:109 tang.html:110 tang.html:111
 msgid "板载_fpga"
 msgstr "板载"
 
-#: tang.html:92 tang.html:93 tang.html:99 tang.html:100 tang.html:101
+#: tang.html:91 tang.html:92 tang.html:93 tang.html:110 tang.html:111
 msgid "内含"
 msgstr ""
 
-#: tang.html:97
+#: tang.html:96
+msgid "内嵌处理器"
+msgstr ""
+
+#: tang.html:114
 msgid "其他特点"
 msgstr ""
 
-#: tang.html:98
+#: tang.html:115
 msgid "内含 12.5G Transceivers"
 msgstr ""
 
-#: tang.html:98
+#: tang.html:115
 msgid "支持 PCIE 通信"
 msgstr ""
 
-#: tang.html:98
+#: tang.html:115
 msgid "支持 SFP+ 数据传输"
 msgstr ""
 
-#: tang.html:116
+#: tang.html:134
 msgid "可以高速通信的大容量 FPGA 开发板"
 msgstr ""
 
-#: tang.html:119
+#: tang.html:137 tang.html:147
 msgid "敬请期待"
 msgstr ""
 
-#: tang.html:126
+#: tang.html:144
+msgid "自由拓展的 FPGA 开发板"
+msgstr ""
+
+#: tang.html:154
+msgid "自带多种外设接口的 FPGA 开发板"
+msgstr ""
+
+#: tang.html:170
 msgid "适用于模拟复古游戏机的 FPGA 开发板"
 msgstr ""
 
-#: tang.html:142
+#: tang.html:186
 msgid "适合 RiscV 软核验证的 FPGA 开发板"
 msgstr ""
 
-#: tang.html:158
+#: tang.html:202
 msgid "芯片内部含有 MCU 的 FPGA 开发板"
-msgstr ""
-
-#: tang.html:174
-msgid "自带多种外设接口的 FPGA 开发板"
 msgstr ""
 
 #~ msgid "/static/home/licheepi4a_post.jpg"
@@ -347,5 +351,8 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "尽情期待"
+#~ msgstr ""
+
+#~ msgid "Tang 系列主流板卡参数对比"
 #~ msgstr ""
 

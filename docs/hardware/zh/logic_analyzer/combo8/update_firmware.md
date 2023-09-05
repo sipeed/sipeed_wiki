@@ -19,8 +19,6 @@ update:
 
 烧录工具和固件选择最新版本即可，下载完成后自行解压
 
-
-
 ## 配置烧录工具
 
 1. 启动烧录工具
@@ -35,17 +33,17 @@ update:
 
     启动后，选择BL616/618并点击Finish
 
-    ![image-20230901095004741](./assets/download_firmware/chip_selection.png)
+    ![chip_selection](./assets/download_firmware/chip_selection.png)
 
 3. 使能Single Download Options，并添加下载好的固件
 
-    ![image-20230901095354294](./assets/download_firmware/config_download_firmware.png)
+    ![config_download_firmware](./assets/download_firmware/config_download_firmware.png)
 
 ## 配置设备
 
 让SLogic combo 8进入烧录模式
 
-![image-20230901104542310](./assets/download_firmware/enter_the_burn_mode.png)
+![enter_the_burn_mode](./assets/download_firmware/enter_the_burn_mode.png)
 
 操作步骤：
 
@@ -57,6 +55,6 @@ update:
 
 配置串口号和波特率，并点击`Create & Download`即可下载
 
-![image-20230901102645831](./assets/download_firmware/download_firmware.png)
+![download_firmware](./assets/download_firmware/download_firmware.png)
 
 下载完成后，进度条显示绿框说明下载成功，更新固件完成
