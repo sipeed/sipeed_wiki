@@ -11,7 +11,7 @@ update:
 
 ## Introduction
 
-SLogic combo 8 is a development tool with functions of logic analyzer, CKLink debugger, DAP-Link debugger and USB2UART, which can be switched arbitrarily by buttons.
+SLogic Combo 8 is a development tool with functions of logic analyzer, CKLink debugger, DAP-Link debugger and USB2UART, which can be switched arbitrarily by buttons.
 
 ![slogic_combo8_main](./../../../zh/logic_analyzer/combo8/assets/readme/slogic_combo8_main.png)
 
@@ -19,7 +19,7 @@ SLogic combo 8 is a development tool with functions of logic analyzer, CKLink de
 
 ### SLogic Function Parameters
 
-| Logic Analyzer | **SLogic Combo8** |
+| Logic Analyzer | **SLogic Combo 8** |
 | --------------------------- | ----------------- |
 | Maximum Channel Number      | 8CH               |
 | Maximum Sampling Rate       | 80M               |
@@ -29,11 +29,11 @@ SLogic combo 8 is a development tool with functions of logic analyzer, CKLink de
 | Signal Input Range          | 0～3.6V           |
 | High and Low Level Thresholds | VIH>2V VIL<0.8V   |
 
-In Windows environment, the SLogic combo 8 has maximum transmission bandwidth of 160 Mb/s. The typical configuration includes 80M@2CH and 20M@8CH.
+In Windows environment, the SLogic Combo 8 has maximum transmission bandwidth of 160 Mb/s. The typical configuration includes 80M@2CH and 40M@4CH.
 
 ### CKLink Function Parameters
 
-| CKLink       | SLogic Combo8 |
+| CKLink       | SLogic Combo 8 |
 | ------------ | ------------- |
 | JTAG Clock Rate | 16M           |
 | Typical Dump Speed | 1200KB/s      |
@@ -41,14 +41,24 @@ In Windows environment, the SLogic combo 8 has maximum transmission bandwidth of
 
 ### DAPLink Function Parameters
 
-| DAPLink      | SLogic Combo8 |
+| DAPLink      | SLogic Combo 8 |
 | ------------ | ------------- |
 | Debug Serial Port | Up to 20Mbps    |
 | Typical Burning Speed | 110KB/s       |
 
 ### UART Function Parameters
 
-| High Speed Four Serial Ports | **SLogic Combo8** |
+| High Speed Four Serial Ports | **SLogic Combo 8** |
 | ---------------------------- | ----------------- |
 | Maximum Baud Rate            | 2x20Mbps+2x1Mbps  |
 | Total Bandwidth              | 42Mbps            |
+
+## Get started now
+
+Click the link below to enter the corresponding chapter:
+[Basic Operation](./basic_operation.md)
+[Using as Logic Analyzer](./use_logic_function.md)
+[Using as CKLink](./use_cklink_function.md)
+[Using as DAPLink](./use_daplink_function.md)
+[Using as Serial Module](./use_fouruart_function.md)
+[Update firmware](./update_firmware.md)

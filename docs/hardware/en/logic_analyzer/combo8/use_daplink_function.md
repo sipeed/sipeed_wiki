@@ -9,7 +9,7 @@ update:
       - Release docs
 ---
 
-SLogic Combo8 features high-speed DAP-Link functionality, suitable for various common chips, especially for debugging STM32 chips using IDE on Windows.
+SLogic Combo 8 features high-speed DAP-Link functionality, suitable for various common chips, especially for debugging STM32 chips using IDE on Windows.
 
 ## Enable DAPLink Functionality
 

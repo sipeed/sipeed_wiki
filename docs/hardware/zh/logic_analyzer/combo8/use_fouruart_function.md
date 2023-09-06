@@ -9,7 +9,7 @@ update:
       - Release docs
 ---
 
-SLogic Combo8 具备4路独立高速串口功能，前两路基于UART可同时达到20Mbps的超高速波特率，后两路通过IO模拟最高可达1Mbps。非常适合批量烧录，生产测试等场景。
+SLogic Combo 8 具备4路独立高速串口功能，前两路基于UART可同时达到20Mbps的超高速波特率，后两路通过IO模拟最高可达1Mbps。非常适合批量烧录，生产测试等场景。
 
 ## 开启串口模块功能
 
@@ -26,7 +26,7 @@ SLogic Combo8 具备4路独立高速串口功能，前两路基于UART可同时�
 
 ![fouruart_line_order](./assets/use_fouruart_function/fouruart_line_order.png)
 
-SLogic combo8总共有4个串口，UART0和UART1最高支持20M波特率，UART3和UART4最高支持1M波特率。
+SLogic Combo 8总共有4个串口，UART0和UART1最高支持20M波特率，UART3和UART4最高支持1M波特率。
 
 注意：
 1. 保证模块与目标设备共地，防止出现乱码等情况。

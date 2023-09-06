@@ -9,7 +9,7 @@ update:
       - Release docs
 ---
 
-SLogic Combo8 具备高速DAP-Link功能，适用于各种常规芯片，尤其是在Windows下使用IDE调试的STM32等芯片
+SLogic Combo 8 具备高速DAP-Link功能，适用于各种常规芯片，尤其是在Windows下使用IDE调试的STM32等芯片
 
 ## 开启DAPLink功能
 

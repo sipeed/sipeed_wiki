@@ -21,8 +21,8 @@ update:
 ## 开始使用
 
 > 注意：
-> 1. Linux环境下SLogic combo 8最大传输带宽320Mb/s，典型配置80M@4CH 40M@8CH。
-> 2. Windows环境下SLogic combo 8最大传输带宽160Mb/s，典型配置80M@2CH 20M@8CH。
+> 1. Linux环境下SLogic Combo 8最大传输带宽320Mb/s，典型配置80M@4CH 40M@8CH。
+> 2. Windows环境下SLogic Combo 8最大传输带宽160Mb/s，典型配置80M@2CH 40M@4CH。
 > 3. 如果上位机启动过程中，设备出现断连的情况，需要重新扫描并连接设备
 
 ### 快速使用
@@ -53,7 +53,7 @@ sudo ./PulseView-x86_64-032323-1101.AppImage
 1. 下载完成后，点击exe文件并开始安装，根据安装引导一直点击next即可安装完成。
 2. 安装完成后，在快捷菜单界面可以找到上位机图标，双击运行
 
-> 注：在Linux环境最大可支持80M@4通道、40M@8通道采样；由于Windows环境下USB传输不稳定的限制，在Windows上最大只能支持到80M@2通道、20M@8通道采样。
+> 注：在Linux环境最大可支持80M@4通道、40M@8通道采样；由于Windows环境下USB传输不稳定的限制，在Windows上最大只能支持到80M@2通道、40M@4通道采样。
 
 #### 连接SLogic和电脑
 
@@ -200,12 +200,15 @@ sudo ./PulseView-x86_64-032323-1101.AppImage
 
 ### 常见问题
 
-1. 点击run后弹窗提示"device closed but should be open"
+1. Q:点击run后弹窗提示"device closed but should be open"
 
-    ![image-20230816113213933](./assets/use_logic_function/tips_capture_failed.png)
+   ![image-20230816113213933](./assets/use_logic_function/tips_capture_failed.png)
 
-    这可能是接触不稳定导致设备断连了，尝试重新插拔设备后再重新连接即可。
+   A:这可能是接触不稳定导致设备断连了，尝试重新插拔设备后再重新连接即可。
 
+2. Q:使用8通道采集时发现D7通道在悬空时也会出现波形
+   
+   A:很抱歉这个问题为您带来了困扰，这是一个待解决的问题，但不会影响波形采集，给D7通道接入外部信号后可以用正常采集波形。如果不想观察这个现象也可以隐藏这个通道。
 
 
 ### 注意事项

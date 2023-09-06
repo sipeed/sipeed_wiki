@@ -9,7 +9,7 @@ update:
       - Release docs
 ---
 
-The SLogic combo 8 has four functions (SLogic, CKLink Debugger, DAP-Link Debugger, USB2UART). This document is intended to guide you on how to select the functions.
+The SLogic Combo 8 has four functions (SLogic, CKLink Debugger, DAP-Link Debugger, USB2UART). This document is intended to guide you on how to select the functions.
 
 ## Button Functions
 

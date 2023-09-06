@@ -9,7 +9,7 @@ update:
       - Release docs
 ---
 
-SLogic combo 8共有4个功能（SLogic、CKLink Debugger、DAP-Link Debugger、USB2UART）。这篇文档用来指导如何选择功能。
+SLogic Combo 8共有4个功能（SLogic、CKLink Debugger、DAP-Link Debugger、USB2UART）。这篇文档用来指导如何选择功能。
 
 ## 按键功能
 
