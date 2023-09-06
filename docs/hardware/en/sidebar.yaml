@@ -283,7 +283,7 @@ items:
     items:
     -   label: SP-MOD Peripheral modules
         items:
-        -   label: Adapter borad
+        -   label: Adapter board
             items:
             -   label: SP-Extender
                 file: modules_spmod/spmod_extender.md
