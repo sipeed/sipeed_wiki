@@ -21,8 +21,8 @@ Press the button to switch the indicator light to blue. As shown below:
 ## Getting Started
 
 > Notice:
-> 1. The maximum transmission bandwidth of SLogic combo 8 in Linux environment is 320Mb/s, and the typical configuration is 80M@4CH 40M@8CH.
-> 2. The maximum transmission bandwidth of SLogic combo 8 in Windows environment is 160Mb/s, and the typical configuration is 80M@2CH 20M@8CH.
+> 1. The maximum transmission bandwidth of SLogic Combo 8 in Linux environment is 320Mb/s, and the typical configuration is 80M@4CH 40M@8CH.
+> 2. The maximum transmission bandwidth of SLogic Combo 8 in Windows environment is 160Mb/s, and the typical configuration is 80M@2CH 40M@4CH.
 > 3. If there is a disconnection during the startup process of the host software, please rescan and reconnect the device before performing other operations, otherwise it may lead to software crashes.
 
 ### Quick Start
@@ -181,12 +181,15 @@ After capturing the required data, protocol decoding can be used to analyze the 
 
 
 ### Issues
-1. After clicking "Run," a popup window shows the message "device closed but should be open."
+1. Q:After clicking "Run," a popup window shows the message "device closed but should be open."
 
-    ![image-20230816113213933](./assets/tips_capture_failed.png)
+   ![image-20230816113213933](./assets/tips_capture_failed.png)
 
+   A:This could be due to an unstable connection leading to the device being disconnected. Try unplugging and re-plugging the device, and then reconnecting to resolve the issue.
 
-    This could be due to an unstable connection leading to the device being disconnected. Try unplugging and re-plugging the device, and then reconnecting to resolve the issue.
+2. Q:When using 8-channel acquisition, it is found that the D7 channel will also have a waveform when it is suspended
+   
+   A:We are very sorry that this problem has caused trouble to you. This is a problem that needs to be solved, but it will not affect waveform collection. After connecting an external signal to the D7 channel, you can collect waveforms normally. If you don't want to observe this phenomenon, you can also hide this channel.
 
 ### Precautions
 

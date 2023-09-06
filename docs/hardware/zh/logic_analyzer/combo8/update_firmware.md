@@ -9,7 +9,7 @@ update:
       - Release docs
 ---
 
-以下是SLogic Combo8 更新固件的步骤
+以下是SLogic Combo 8 更新固件的步骤
 
 ## 下载烧录工具和固件
 
@@ -41,7 +41,7 @@ update:
 
 ## 配置设备
 
-让SLogic combo 8进入烧录模式
+让SLogic Combo 8进入烧录模式
 
 ![enter_the_burn_mode](./assets/download_firmware/enter_the_burn_mode.png)
 

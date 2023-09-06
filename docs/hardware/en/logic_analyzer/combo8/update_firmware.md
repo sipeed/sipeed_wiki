@@ -9,7 +9,7 @@ update:
       - Release docs
 ---
 
-The following are the steps to update the firmware of SLogic Combo8
+The following are the steps to update the firmware of SLogic Combo 8
 
 ## Download Tool and Firmware
 
@@ -41,7 +41,7 @@ Just select the latest version of the burning tool and firmware, and unzip it af
 
 ## Configure device
 
-Put SLogic combo 8 into burning mode
+Put SLogic Combo 8 into burning mode
 
 ![enter_the_burn_mode](./../../../zh/logic_analyzer/combo8/assets/download_firmware/enter_the_burn_mode.png)
 

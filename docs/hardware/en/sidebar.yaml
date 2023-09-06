@@ -239,7 +239,7 @@ items:
         file: maixsense/maixsense-a075v/maixsense-a075v.md
 -   label: SLogic
     items:
-    -   label: SLogic Combo8
+    -   label: SLogic Combo 8
         items:
         -   label: Introduction
             file: logic_analyzer/combo8/readme.md
