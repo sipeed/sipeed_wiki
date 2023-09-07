@@ -1,0 +1,17 @@
+<script>
+    var hash = window.location.hash
+    var url_language = "zh"
+
+    if( navigator.language  != "zh-CN" )
+    {
+        url_language = "en"
+    }
+
+    switch (window.location.hash) {
+        case "#desktop" : 
+            location.href = window.location.origin + "/hardware/" + url_language + "/lichee/th1520/lc4a/lc4a.html"
+            break;
+        default : 
+            location.href = window.location.origin + "/hardware/" + url_language + "/lichee/th1520/lc4a/lc4a.html"
+    }
+</script>
