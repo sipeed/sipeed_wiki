@@ -41,7 +41,7 @@ Linux: Use `lsusb`, the board should show up in burning mode as `ID 2345:7654 T-
 
 ### Official Hardware / Release Hardware
 
-Pay attention to check whether the DIP switch on the bottom board is in EMMC startup mode:
+In addition to holding the BOOT button as mentioned above, pay attention to check whether the DIP switch on the bottom board is in EMMC startup mode:
 
 ![switch_boot_mode](./../../../../zh/lichee/th1520/lpi4a/assets/burn_image/switch_boot_mode.jpg)
 
