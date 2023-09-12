@@ -266,6 +266,8 @@ items:
             file: logic_analyzer/combo8/use_fouruart_function.md
         -   label: 更新固件
             file: logic_analyzer/combo8/update_firmware.md
+        -   label: 常见问题(FAQ)
+            file: logic_analyzer/combo8/faq.md
 # -   label: Maix Audio
 #     items:
 #     -   label: MA USB 16

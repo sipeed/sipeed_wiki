@@ -50,12 +50,5 @@ The pins on the right side of the diagram (TCK, TDI, TDO, TMS) are used for DAPL
 
 ![start_debugger_in_mdk](./../../../zh/logic_analyzer/combo8/assets/use_daplink_function/start_debugger_in_mdk.png)
 
-## Issues
-
-1. Can't find DAPLink device
-
-- Check if the MDK version is too low, as older versions of MDK may not recognize DAPLink. The MDK version used in this document for testing is V5.38.
-- If the low MDK version is causing DAPLink recognition issues and you prefer not to upgrade, you can refer to the methods provided [here](https://developer.arm.com/documentation/ka003663/latest/) to update the debug driver for CMSIS-DAP.
-
 Thank you for the document contribution from 'dragonforward'.
 

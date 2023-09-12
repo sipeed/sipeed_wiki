@@ -62,3 +62,11 @@ SLogic Combo 8是一款兼有逻辑分析仪、CKLink Debugger、DAP-Link Debugg
 [作为DAPLink使用](./use_daplink_function.md)
 [作为串口模块使用](./use_fouruart_function.md)
 [更新固件](./update_firmware.md)
+
+## 其他链接
+
+[淘宝](https://item.taobao.com/item.htm?spm=a21n57.1.0.0.14dd523cuZ61oI&id=737788586308&ns=1&abbucket=5#detail)
+[Sipeed 下载站](https://dl.sipeed.com/shareURL/SLogic/SLogic_combo_8/4_application/Firmware)
+[交流论坛](maixhub.com/discussion)
+
+联系邮箱：support@sipeed.com

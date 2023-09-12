@@ -33,11 +33,15 @@ Press the button to switch the indicator light to blue. As shown below:
 
 The above diagram shows the pinout for the 8 channels of SLogic. Connect the target device's test signal points to any available CH port on SLogic, and ensure that the ground of the target device is connected to the ground of SLogic.
 
+> Note: The GND line of the SLogic needs to be as close as possible to the location of the point to be measured, even 1cm closer may increase the quality of the sample.
+
 #### Downloading and Running the Host Computer
 
 [Download PulseView](https://dl.sipeed.com/shareURL/SLogic/SLogic_combo_8/4_application/PulseView)
 
 PulseView is used for observing digital signals and decoding. Windows users should download files with the .exe extension, while Linux users should download files with the .AppImage extension. It is recommended to download the latest version with the most recent date.
+
+> Note:When the software is named `PulseView-xxxx-230811-xxx.AppImage`, the date is 11/08/2023. The date naming rules are similar for other software.
 
 Linux Environment:
 
@@ -55,23 +59,54 @@ Windows Environment:
 
 > Note: In the Linux environment, the maximum supported sampling rate is 80M for 4 channels and 40M for 8 channels. Due to limitations in USB transmission stability on Windows, the maximum supported sampling rate is 80M for 2 channels and 20M for 8 channels.
 
-### Starting Sampling
 
-1. Configure the channel count, sample count, and sampling rate in PulseView.
+#### Scan SLogic and Connect
 
-   _In the following example, the channel count is set to **8**, the sample count is **1M samples**, and the sampling rate is **10MHz**._
+The connection will be made automatically on first startup, or you can choose to connect SLogic manually.
+
+**Steps for manual connection**
+
+1. Click on "Scan for devices xxx" to scan for devices.
+
+2. 选择"SIPEED USB TO LA xxx" and click OK to connect the device.
+
+    ![image-20230912140845449](./../../../zh/logic_analyzer/combo8/assets/use_logic_function/set_connect_cfg_of_pulseview.png)
+
+#### Ready to Sample
+
+1. Set the sampling parameters
+
+   The following figure sets the number of channels to **8**, the number of samples to **1M samples**, and the sampling rate to **10Mhz**. At this time the **sampling time** is 1M / 10Mhz = 0.1s
+
    ![equ_selec_complete_of_pulseview](./../../../zh/logic_analyzer/combo8/assets/use_logic_function/equ_selec_complete_of_pulseview.png)
 
-2. Set the trigger type for channel D0 to **Rising/Falling Edge Trigger**.
+#### Start Sampling
 
-   _Click on the label icon of channel D0 to set the trigger type._
-   ![set_channel_of_pulseview](./../../../zh/logic_analyzer/combo8/assets/use_logic_function/set_channel_of_pulseview.png)
+1. Click on the "run" button to start sampling.
 
-3. Start the capture to obtain the sampling result.
+    ![waveform_fast_of_pulseview](./../../../zh/logic_analyzer/combo8/assets/use_logic_function/waveform_fast_of_pulseview.png)
 
-   ![waveform_fast_of_pulseview](./../../../zh/logic_analyzer/combo8/assets/use_logic_function/waveform_fast_of_pulseview.png)
+> Note:If the D7 channel is not used during the sampling process, a level inversion of the channel may be observed, but this is normal and does not affect normal use.
 
-> If you're not using channel D7 during the sampling process, you might observe a level inversion phenomenon on that channel. This phenomenon is normal and does not affect regular usage.
+#### Analyze the Sampling Result
+
+1. Open the protocol analysis function
+
+    ![image-20230912150905946](./../../../zh/logic_analyzer/combo8/assets/use_logic_function/open_ptl_field.png)
+
+2. Select the target protocol
+
+    ![image-20230912153947189](./../../../zh/logic_analyzer/combo8/assets/use_logic_function/select_the_target_protocol.png)
+
+3. Configure the protocol parameters
+
+    ![image-20230912152007703](./../../../zh/logic_analyzer/combo8/assets/use_logic_function/config_param_of_protocol.png)
+
+4. Observe the analysis results
+
+    ![image-20230912152105530](./../../../zh/logic_analyzer/combo8/assets/use_logic_function/observe_the_analysis_res.png)
+
+Based on the results of the analysis, let's start debugging.
 
 ### Detailed Configuration
 
@@ -178,18 +213,6 @@ After capturing the required data, protocol decoding can be used to analyze the 
    Example: SPI sends 0x00~0x09 (clock 26MHz, low-active chip select)
 
    ![spi_26mhz](./../../../zh/logic_analyzer/combo8/assets/use_logic_function/logic_spi_26mhz.jpg)
-
-
-### Issues
-1. Q:After clicking "Run," a popup window shows the message "device closed but should be open."
-
-   ![image-20230816113213933](./assets/tips_capture_failed.png)
-
-   A:This could be due to an unstable connection leading to the device being disconnected. Try unplugging and re-plugging the device, and then reconnecting to resolve the issue.
-
-2. Q:When using 8-channel acquisition, it is found that the D7 channel will also have a waveform when it is suspended
-   
-   A:We are very sorry that this problem has caused trouble to you. This is a problem that needs to be solved, but it will not affect waveform collection. After connecting an external signal to the D7 channel, you can collect waveforms normally. If you don't want to observe this phenomenon, you can also hide this channel.
 
 ### Precautions
 

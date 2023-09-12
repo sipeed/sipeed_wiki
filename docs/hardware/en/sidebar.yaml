@@ -253,8 +253,10 @@ items:
             file: logic_analyzer/combo8/use_daplink_function.md
         -   label: Using as Serial Module
             file: logic_analyzer/combo8/use_fouruart_function.md
-        -   label: Update firmware
+        -   label: Update Firmware
             file: logic_analyzer/combo8/update_firmware.md
+        -   label: FAQ
+            file: logic_analyzer/combo8/faq.md
 # -   label: Maix Audio
 #     items:
 #     -   label: MA USB 16
