@@ -53,7 +53,7 @@ In Windows environment, the SLogic Combo 8 has maximum transmission bandwidth of
 | Maximum Baud Rate            | 2x20Mbps+2x1Mbps  |
 | Total Bandwidth              | 42Mbps            |
 
-## Get started now
+## Get Started Now
 
 Click the link below to enter the corresponding chapter:
 [Basic Operation](./basic_operation.md)
@@ -62,3 +62,10 @@ Click the link below to enter the corresponding chapter:
 [Using as DAPLink](./use_daplink_function.md)
 [Using as Serial Module](./use_fouruart_function.md)
 [Update firmware](./update_firmware.md)
+
+## Others Links
+
+[Sipeed Download station](https://dl.sipeed.com/shareURL/SLogic/SLogic_combo_8/4_application/Firmware)
+[Forum](maixhub.com/discussion)
+
+Support Email：support@sipeed.com

@@ -19,6 +19,8 @@ Firmware: [Click to download](https://dl.sipeed.com/shareURL/SLogic/SLogic_combo
 
 Just select the latest version of the burning tool and firmware, and unzip it after downloading.
 
+> Note:When the firmware is named `slogic_combo8_pack_202308171404.bin`, the date is 17/08/2023. The date naming rules are similar for other firmware.
+
 ## Configure Tool
 
 1. Start the tool

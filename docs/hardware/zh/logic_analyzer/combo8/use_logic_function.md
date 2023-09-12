@@ -31,13 +31,17 @@ update:
 
 ![slogic_line_order](./assets/use_logic_function/slogic_line_order.png)
 
-上图为SLogic 8个通道的线序图，将目标设备的待测信号点连接至SLogic任意空闲CH端口，并确保待测设备的GND与SLogic的GND相连接
+上图为SLogic 8个通道的线序图，将目标设备的待测信号点连接至SLogic任意空闲CH端口，并确保待测设备的GND与SLogic的GND相连接。
+
+> 注意SLogic的GND线需要离待测点的位置越近越好，哪怕更近1cm也可能会增加采样质量
 
 #### 下载和运行上位机
 
 [点击这里下载上位机](https://dl.sipeed.com/shareURL/SLogic/SLogic_combo_8/4_application/PulseView)
 
-上位机软件用于观察数字信号和解码。Windows用户请下载exe后缀的文件，Linux用户请下载AppImage后缀的文件，建议下载日期最新的版本。
+上位机软件用于观察和分析数字信号。Windows用户请下载exe后缀的文件，Linux用户请下载AppImage后缀的文件，建议下载日期最新的版本。
+
+> 当软件名为`PulseView-xxxx-230811-xxx.AppImage`时，日期则是2023年08月11日。其他软件的日期命名规则类似。
 
 **Linux环境：**
 
@@ -55,36 +59,55 @@ sudo ./PulseView-x86_64-032323-1101.AppImage
 
 > 注：在Linux环境最大可支持80M@4通道、40M@8通道采样；由于Windows环境下USB传输不稳定的限制，在Windows上最大只能支持到80M@2通道、40M@4通道采样。
 
-#### 连接SLogic和电脑
+#### 扫描SLogic并连接
 
-**连接步骤**
-1.  选择连接设备
-2.  选择驱动程序 **Sipeed Slogic Analyzer(sipeed-slogic-analyzer)**
-3.  选择连接方式为USB
-4.  扫描符合要求的设备
-5.  选择已找到的设备
+首次启动时会自动连接，也可以选择手动连接SLogic
 
-   ![set_connect_cfg_of_pulseview](./assets/use_logic_function/set_connect_cfg_of_pulseview.png)
+**手动连接步骤**
 
-> 若第三步未找到设备 可尝试切换模块功能 重新切换至逻辑分析仪模式 并重复第三步
+1. 点击"Scan for devices xxx"扫描设备
 
-### 开始采样
+2. 选择"SIPEED USB TO LA xxx"并点击OK连接设备
 
-1. 配置PulseView的通道数、采样点数和采样率
+    ![image-20230912140845449](./assets/use_logic_function/set_connect_cfg_of_pulseview.png)
 
-   _下图设置通道数为**8**，采样点数为**1M samples**,采样率为**10Mhz**_
+
+
+#### 准备采样
+
+1. 设置PulseView的通道数、采样点数和采样率
+
+   下图设置通道数为**8**，采样点数为**1M samples**,采样率为**10Mhz**。此时的**采样时间**为1M / 10Mhz = 0.1s
+
    ![equ_selec_complete_of_pulseview](./assets/use_logic_function/equ_selec_complete_of_pulseview.png)
 
-2. 设置D0通道的触发方式为**上下边沿触发**
+#### 开始采样
 
-   _点击D0通道的标签图案来设置触发方式_
-   ![set_channel_of_pulseview](./assets/use_logic_function/set_channel_of_pulseview.png)
+1. 点击Run启动采集，并获得采样结果
 
-3. 启动采集，并获得采样结果
-
-   ![waveform_fast_of_pulseview](./assets/use_logic_function/waveform_fast_of_pulseview.png)
+    ![waveform_fast_of_pulseview](./assets/use_logic_function/waveform_fast_of_pulseview.png)
 
 > 若在采样过程中未使用D7通道，可能会观察到该通道的电平反转现象，该现象为正常情况不影响正常使用
+
+#### 分析采样结果
+
+1. 打开协议选择栏
+
+    ![image-20230912150905946](./assets/use_logic_function/open_ptl_field.png)
+
+2. 选择需要分析的协议
+
+    ![image-20230912153947189](./assets/use_logic_function/select_the_target_protocol.png)
+
+3. 配置协议的参数
+
+    ![image-20230912152007703](./assets/use_logic_function/config_param_of_protocol.png)
+
+4. 观察分析结果
+
+    ![image-20230912152105530](./assets/use_logic_function/observe_the_analysis_res.png)
+
+根据分析结果然后开始调试吧~
 
 ### 详细配置
 
@@ -195,21 +218,6 @@ sudo ./PulseView-x86_64-032323-1101.AppImage
    示例为SPI发送0x00~0X09(时钟26Mhz，片选低电平有效)
 
    ![spi_26mhz](./assets/use_logic_function/logic_spi_26mhz.jpg)
-
-
-
-### 常见问题
-
-1. Q:点击run后弹窗提示"device closed but should be open"
-
-   ![image-20230816113213933](./assets/use_logic_function/tips_capture_failed.png)
-
-   A:这可能是接触不稳定导致设备断连了，尝试重新插拔设备后再重新连接即可。
-
-2. Q:使用8通道采集时发现D7通道在悬空时也会出现波形
-   
-   A:很抱歉这个问题为您带来了困扰，这是一个待解决的问题，但不会影响波形采集，给D7通道接入外部信号后可以用正常采集波形。如果不想观察这个现象也可以隐藏这个通道。
-
 
 ### 注意事项
 
