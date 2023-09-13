@@ -20,7 +20,9 @@ update:
 
 This project is a repository supported by the Android Open Source Project (AOSP), which contains board-level configuration, peripheral HAL layer, kernel, u-boot and pre-compiled component support for the LPi4A board, while the rest of the components can be pulled directly from the upstream AOSP repository.
 
-> Note that the project is still in the early stage, the current AOSP on Licheepi 4A is not stable and the functionality is not yet complete. A stable version with improved functionality will be updated later, so please keep an eye on this document for updates.
+### Precautions
+
+**The image offered in this document only support basic functions such as HDMI display and Ethernet after compilation. Touch screens and USB peripherals are not supported yet. It is expected to update the SDK and documentation with more complete functions in October.**
 
 ### Get Started
 
