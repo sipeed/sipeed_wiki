@@ -1052,6 +1052,34 @@ kdenlive
 视频编辑效果如下：
 ![kdenlive_use](./assets/application/kdenlive_use.png)
 
+## GStreamer
+
+GStreamer 是一个基于管道的多媒体框架，基于 GObject，以 C 语言写成。凭借 GStreamer，可以很容易地创建各种多媒体功能组件，包括简单的音频回放、音频和视频播放、录音、流媒体和音频编辑。基于流水线设计，可以创建诸如视频编辑器、流媒体广播和媒体播放器等等的很多多媒体应用。
+
+接下来，展示如何在 LPi4A 上运行 GStreamer 的 demo。
+首先，需要安装相关的依赖：
+```shell
+sudo apt install git build-essential libgstreamer* gstreamer1.0-tools
+```
+
+然后拉取相关源码仓库
+```shell
+git clone https://gitlab.freedesktop.org/gstreamer/gst-docs
+```
+
+进入到 `gst-docs/examples/tutorials` 目录下，编译出 `basic-tutorial-1` 可执行程序
+```shell
+cd gst-docs/examples/tutorials
+gcc basic-tutorial-1.c -o basic-tutorial-1 `pkg-config --cflags --libs gstreamer-1.0`
+```
+
+编译成功后会在当前目录下生成可执行程序，使用下面的命令运行即可看到效果：
+```shell
+./basic-tutorial-1
+```
+
+![gstreamer_demo](./assets/application/gstreamer_demo.png)
+
 ## 其它
 
 欢迎投稿～ 投稿接受后可得￥5～150（$1~20）优惠券！

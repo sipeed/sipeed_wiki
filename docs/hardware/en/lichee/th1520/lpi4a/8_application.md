@@ -1028,6 +1028,35 @@ kdenlive
 The video editing view is as follows:
 ![kdenlive_use](./../../../../zh/lichee/th1520/lpi4a/assets/application/kdenlive_use.png)
 
+## GStreamer
+
+GStreamer is a pipeline-based multimedia framework based on GObject and written in C. It is designed to be used with a wide variety of applications and applications. With GStreamer, it is easy to create a wide range of multimedia-capable components, including simple audio playback, audio and video playback, recording, streaming and audio editing. Based on the pipelined design , you can create many multimedia applications such as video editors , streaming media broadcasting and media players and so on .
+
+Next, a demo showing how to run GStreamer on LPi4A.
+First, you need to install the relevant dependencies:
+```shell
+sudo apt install git build-essential libgstreamer* gstreamer1.0-tools
+```
+
+Then pull the relevant source code repository
+```shell
+git clone https://gitlab.freedesktop.org/gstreamer/gst-docs
+```
+
+Go to the `gst-docs/examples/tutorials` directory and compile, we'll get the `basic-tutorial-1` executable
+```shell
+cd gst-docs/examples/tutorials
+gcc basic-tutorial-1.c -o basic-tutorial-1 `pkg-config --cflags --libs gstreamer-1.0`
+```
+
+After successful compilation, an executable program will be generated in the current directory, use the following command to run
+```shell
+./basic-tutorial-1
+```
+
+![gstreamer_demo](./../../../../zh/lichee/th1520/lpi4a/assets/application/gstreamer_demo.png)
+
+
 ## Other
 
 Contributions are welcome~ You can get ￥5~150 ($1~20) coupon if your contribution is accepted!
