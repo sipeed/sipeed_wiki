@@ -87,6 +87,13 @@ LicheePi 4A 板载无线模组，支持蓝牙和 wifi 。
 
 ![bluetooth_devices.png](./assets/desktop/bluetooth_devices.png)
 
+如果在配对后尝试连接蓝牙音频设备时遇到错误`br-connection-profile-unavailable`，可以尝试**以普通用户权限**下执行下列命令：
+```shell
+systemctl --user enable pulseaudio
+systemctl --user start pulseaudio
+sudo apt install bluetooth rfkill blueman bluez bluez-tools pulseaudio-module-bluetooth
+```
+
 若蓝牙图形管理界面无法搜索到设备，也可以现在命令行界面下使用`bluetoothctl`来进行配对，步骤如下：
 
 ```shell
