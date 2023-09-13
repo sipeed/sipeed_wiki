@@ -658,7 +658,7 @@ PoE供电模块需要自行购买，使用5V电压，35.6mm长度的规格，可
 当目视方向正对“POE POWER”标识时，针脚左边4根针脚定义从左到右依次为：VA1、VA2、VB1、VB2，右边为：GND、5VIN。
 
 
-## Audio
+## Speaker Audio
 
 LicheePi 4A 上有两个模拟硅麦，使用 ES7210 CODEC，以及有一路板载的扬声器，和立体声耳机，使用 ES8156 CODEC。
 
@@ -684,7 +684,7 @@ echo "Start Play"
 
 你还可以使用alsa相关工具，如`alsamixer`，进行音量调整等操作。
 
-## HDMI
+## HDMI 音频
 
 > 注：早期镜像的HDMI音频不生效，请升级到较新版本使能HDMI音频功能。  
 
@@ -692,8 +692,8 @@ echo "Start Play"
 
 ![audiomixer](./assets/peripheral/audiomixer.png)  
 
-名字为 Build-in Audio 设备即 HDMI 音频，可以在这个界面点击它对应的绿色对勾图标进行音频设备切换，也可以在直接单击小喇叭图标后进行设备的切换。
-若确认连接无误，且使用的 HDMI 显示器支持 HDMI音频功能，但没有在设备列表中看到相应设备，可以尝试运行以下命令：  
+名字为 **Built-in Audio** 设备即 HDMI 音频，可以在这个界面点击它对应的绿色对勾图标进行音频设备切换，也可以在直接单击小喇叭图标后进行设备的切换。
+若确认连接无误，且使用的 HDMI 显示器支持 HDMI 音频功能，但没有在设备列表中看到相应设备，可以尝试运行以下命令：  
 
 ```shell
 systemctl --user restart pulseaudio.service

@@ -698,7 +698,7 @@ echo "Start Play"
 
 You can also use alsa-related tools, such as `alsamixer`, to do things like volume adjustments.
 
-## HDMI
+## HDMI Audio
 
 > Note: HDMI audio does not work for earlier mirrors, please upgrade to a newer version to enable HDMI audio function.
 
@@ -706,7 +706,7 @@ Tap the speaker icon at the top right corner of the screen to enter Audio mixer,
 
 ![audiomixer](./../../../../zh/lichee/th1520/lpi4a/assets/peripheral/audiomixer.png)  
 
-The name of the device is Build-in Audio, i.e. HDMI audio, and you can switch between audio devices by clicking on its corresponding green checkmark icon in this interface, or you can switch between devices by clicking on the small speaker icon directly.
+The name of the device is **Built-in Audio**, i.e. HDMI audio, and you can switch between audio devices by clicking on its corresponding green checkmark icon in this interface, or you can switch between devices by clicking on the small speaker icon directly.
 If you confirm that the connection is correct and the HDMI monitor you are using supports HDMI audio, but you do not see the corresponding device in the device list, you can try to run the following command:
 
 ```shell
