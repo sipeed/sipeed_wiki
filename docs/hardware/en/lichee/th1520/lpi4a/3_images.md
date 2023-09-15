@@ -39,12 +39,12 @@ The relevant files are in the `20230803_tempfix.zip` compressed package.
 (images of 0721 and later versions can be used normally, no need to replace it with the file here)
 
 ```shell
-sudo ./fastboot flash ram ./images/u-boot-with-spl-ddr16g.bin
+sudo ./fastboot flash ram ./images/u-boot-with-spl-lpi4a-16g.bin
 sudo ./fastboot reboot
 sleep 1
-sudo ./fastboot flash uboot ./images/u-boot-with-spl-ddr16g.bin
+sudo ./fastboot flash ram ./images/u-boot-with-spl-lpi4a-16g.bin
 # If there is no device tree corresponding to 16G ddr in the boot.ext4 you use, you need to burn the boot.ext4 corresponding to 16G ddr
-sudo ./fastboot flash boot ./images/boot_16gddr.ext4
+sudo ./fastboot flash boot ./images/boot.ext4
 ```
 
 ### Debian
@@ -57,9 +57,9 @@ Download Links:
 Mega Cloud Storage：[click me](https://mega.nz/folder/phoQlBTZ#cZeQ3qZ__pDvP94PT3_bGA)
 ISCAS mirror: [click me](https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/)
 
-1. LPI4A_20230721.zip
+1. LPI4A_20230912.zip
 
-    - Release date: July 21, 2023
+    - Release date: September 12, 2023
     - Kernel: 5.10
     - Root file system: ext4, 4.3GB
     - Main pre-installed packages:
@@ -76,11 +76,11 @@ ISCAS mirror: [click me](https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/)
        - There is a problem with the sound quality of HDMI audio playing under chromium
     - Instructions for use:
        - This zip file only supports HDMI display, when burning, please note that the suffix in the file name corresponds to the relevant parameters of the device.
-         - boot, 8gddr/16gddr in the u-boot file name corresponds to 8g/16g memory respectively.
+         - u-boot with 16g suffix is u-boot that supports 16g memory, without suffix is u-boot that supports 8g memory.
 
-2. LPI4A_20230721_mipi.zip
+2. LPI4A_20230912_MIPI.zip
 
-    - Release date: July 21, 2023
+    - Release date: September 12, 2023
     - Kernel: 5.10
     - Root file system: ext4, 4.3GB
     - Main pre-installed packages:
@@ -102,8 +102,7 @@ ISCAS mirror: [click me](https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/)
        - There is a problem with the sound quality of HDMI audio playing under chromium
     - Instructions for use:
       - This zip file is the image of the MIPI screen, please note that the suffix in the file name corresponds to the relevant parameters of the device when burning.
-         - 8gddr/16gddr in the boot and u-boot file names correspond to 8g/16g memory respectively.
-         - mipi_720p/mipi_1080p in the boot file name corresponds to 800x1280 MIPI screen (with touch)/1200x1920 mipi screen respectively.
+         - u-boot with 16g suffix is u-boot that supports 16g memory, without suffix is u-boot that supports 8g memory.
 
 <!-- 1. LPi4A_Test_0425
    1. Release date: April 25, 2023

@@ -2,6 +2,11 @@
 title: Typical Application
 keywords: Linux, Lichee, TH1520, SBC, RISCV, application
 update:
+  - date: 2023-09-12
+    version: v1.2
+    author: ztd
+    content:
+      - Add some NPU applications
   - date: 2023-07-21
     version: v1.1
     author: ztd
@@ -30,7 +35,7 @@ The feasibility of running the 7B model on an entry-level C906 core was also bri
 
 ## YOLOX Target Detection
 
-This tutorial is an example of how to deploy the [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) model to accomplish target detection on the LPi4A (LicheePi 4A) development board platform.
+This tutorial is an example of how to deploy the [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) model to accomplish target detection on the LPi4A (LicheePi 4A) development board platform(CPU inference).
 Included in the tutorial:
 - Installing the Python environment on the LPi4A development board
 - Executing the model using the source code from the YOLOX project.
@@ -183,6 +188,540 @@ The input for this tutorial is the following image, which is an image of an athl
 After the example executes normally, the result image soccer.jpg will be generated in the outdir directory. the image will draw the detected target with a box and labeled with the probability, and the effect is as shown in the following figure:
 
 ![yolox_detection_soccer_output.jpg](./../../../../zh/lichee/th1520/lpi4a/assets/application/yolox_detection_soccer_output.jpg)
+
+## MobilenertV2 
+
+This tutorial is an example of how to deploy the mobilenetv2 model for image classification on the LicheePi4A platform.
+ The tutorial includes:
+ - Compiling the onnx model into a binary available on LicheePi4A using HHB
+ - Preprocessing the mobilenetv2 model using opencv c++ version on LicheePi4A
+ - Differences between using CPU and NPU on LicheePi4A
+
+### NPU
+
+#### Setup
+
+After setting up the NPU environment according to the [peripheral](https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/6_peripheral.html#NPU) documentation, we can go to the Docker image of HHB environment.
+
+ First, we need to get the model of this tutorial, which is downloaded to the example directory `/home/example/th1520_npu/onnx_mobilenetv2_c++`: [mobilenetv2-12.onnx](https://github.com/onnx/models/blob/main/vision/classification/mobilenet/model/mobilenetv2-12.onnx)
+
+To get the libraries for the optimized version of opencv used in this tutorial, go to [github](https://xuantie.t-head.cn/community/download?id=4112956065753141248) and download them to the directory `/home/example/th1520_npu/`.
+```shell
+cd /home/example/th1520_npu/
+git clone https://github.com/zhangwm-pt/prebuilt_opencv.git
+```
+
+#### Compile
+
+**HHB Compiling Model:**
+To cross-compile the ONNX model into an executable program on the NPU, you need to use the hhb command. Note that the NPU only supports 8-bit or 16-bit fixed point operations, which in this case are int8 asymmetric quantization. To compile, you need to go to the directory `/home/example/th1520_npu/onnx_mobilenetv2_c++`:
+```shell
+cd /home/example/th1520_npu/onnx_mobilenetv2_c++
+hhb -D --model-file mobilenetv2-12.onnx --data-scale 0.017 --data-mean "124 117 104"  --board th1520  --postprocess save_and_top5 --input-name "input" --output-name "output" --input-shape "1 3 224 224" --calibrate-dataset persian_cat.jpg  --quantization-scheme "int8_asym"
+```
+
+The options are:
+- -D: Specifies that the HHB process will run until the executable is generated
+- --model-file: Specifies the mobilenet model that has been downloaded in the current directory
+- --data-mean: Specifies the mean value
+- --data-scale: Specifies the scale value
+- --board: Specifies that the target platform is th1520
+- --input-name: The input name of the model
+- --output-name: The output name of the model
+- --input-shape: The input size of the model
+- --postprocess: Saves the output results and prints the top5 results
+- --calibrate-dataset: Specifies the calibration images required for quantization
+- --quantization-scheme: Specifies the quantization scheme as int8 asymmetric
+
+After the command is executed, the hhb_out subdirectory will be generated in the current directory, which includes hhb_runtime, model.c and other files:
+- hhb. bm: The HHB model file, including the quantized weight data and other information
+- hhb_runtime: The executable on the th1520 platform, compiled from the c file in the directory
+- main. c: A temporary file, the reference entry of the sample program
+- model. c: A temporary file, the model structure file, related to the model structure
+- model.params: A temporary file, the weight values
+- io. c: A temporary file, the auxiliary functions for reading and writing files
+- io. h: A temporary file, the auxiliary functions for reading and writing files declaration
+- process. c: A temporary file, the image preprocessing function
+- process. h: A temporary file, the image preprocessing function declaration
+
+For more detailed HHB options, refer to the command line options in the [HHBUserManual](https://www.yuque.com/za4k4z/kvkcoh/shl1nybhel6iviwt).
+
+**g++ Compiling**
+```shell
+riscv64-unknown-linux-gnu-g++ main.cpp -I../prebuilt_opencv/include/opencv4 -L../prebuilt_opencv/lib   -lopencv_imgproc   -lopencv_imgcodecs -L../prebuilt_opencv/lib/opencv4/3rdparty/ -llibjpeg-turbo -llibwebp -llibpng -llibtiff -llibopenjp2    -lopencv_core -ldl  -lpthread -lrt -lzlib -lcsi_cv -latomic -static -o mobilenetv2_example
+```
+
+The mobilenetv2_example file is generated in the example directory after the compilation command is executed correctly.
+
+#### Execute
+
+After the cross-compilation is complete, you can copy the files needed for program execution to the directory of the development board. The scp command can be used:
+```shell
+scp -r ../onnx_mobilenetv2_c++ sipeed@your_ip:~
+```
+
+First confirm whether the driver in the development board is loaded:
+```shell
+lsmod
+```
+If there are 'img_mem', 'vha' and 'vha_info' in the output of the three modules, the NPU driver is loaded successfully, if not, you can run the following command to manually load it:
+```shell
+sudo npu_init
+```
+
+Refer to [YOLOX](https://wiki.sipeed.com/hardware/en/lichee/th1520/lpi4a/8_application.html#YOLOX-Target-Detection) Install and configure the python virtual environment:
+```shell
+sudo apt update
+sudo apt install wget git vim
+
+wget https://github.com/T-head-Semi/csi-nn2/releases/download/v2.4-beta.1/c920.tar.gz
+tar xf c920.tar.gz
+cp c920/lib/* /usr/lib/riscv64-linux-gnu/ -rf
+
+sudo apt install python3-pip
+sudo apt install python3.11-venv
+
+cd /root
+python3 -m venv ort
+source /root/ort/bin/activate
+
+git clone -b python3.11 https://github.com/zhangwm-pt/prebuilt_whl.git
+cd prebuilt_whl
+
+pip install numpy-1.25.0-cp311-cp311-linux_riscv64.whl
+pip install opencv_python-4.5.4+4cd224d-cp311-cp311-linux_riscv64.whl
+pip install kiwisolver-1.4.4-cp311-cp311-linux_riscv64.whl
+pip install Pillow-9.5.0-cp311-cp311-linux_riscv64.whl
+pip install matplotlib-3.7.2.dev0+gb3bd929cf0.d20230630-cp311-cp311-linux_riscv64.whl
+pip install pycocotools-2.0.6-cp311-cp311-linux_riscv64.whl
+pip3 install loguru-0.7.0-py3-none-any.whl
+pip3 install torch-2.0.0a0+gitc263bd4-cp311-cp311-linux_riscv64.whl
+pip3 install MarkupSafe-2.1.3-cp311-cp311-linux_riscv64.whl
+pip3 install torchvision-0.15.1a0-cp311-cp311-linux_riscv64.whl
+pip3 install psutil-5.9.5-cp311-abi3-linux_riscv64.whl
+pip3 install tqdm-4.65.0-py3-none-any.whl
+pip3 install tabulate-0.9.0-py3-none-any.whl
+```
+
+Run the just-compiled example in the appropriate directory on the development board:
+```shell
+./mobilenetv2_example
+```
+
+After the execution, the terminal will prompt the stages of the execution:
+1. Preprocessing
+2. Model execution
+3. Post-processing
+
+The files used in the execution of mobilenetv2_example are:
+- persian_cat.jpg: the input image
+- input_img.bin: the intermediate results generated by the input image during the preprocessing stage
+- hhb_out/hhb_runtime: the file used in the model execution stage, generated by HHB on the x86 host
+- hhb_out/hhb. bm: the file used in the model execution stage, generated by HHB on the x86 host
+- input_img.bin_output0_1_1000.txt: the output file of the model execution stage, including 1000 results of the model execution output
+
+#### Results
+
+```shell
+(ort) root@lpi4a:/home/sipeed/onnx_mobilenetv2_c++# ./mobilenetv2_example
+ ********** preprocess image **********
+ ********** run mobilenetv2 **********
+INFO: NNA clock:792000 [kHz]
+INFO: Heap :ocm (0x18)
+INFO: Heap :anonymous (0x2)
+INFO: Heap :dmabuf (0x2)
+INFO: Heap :unified (0x5)
+Run graph execution time: 7.87149ms, FPS=127.04
+
+=== tensor info ===
+shape: 1 3 224 224 
+data pointer: 0x857ca0
+
+=== tensor info ===
+shape: 1 1000 
+data pointer: 0x3fc9abe000
+The max_value of output: 16.053827
+The min_value of output: -8.026914
+The mean_value of output: -0.001889
+The std_value of output: 9.203342
+ ============ top5: ===========
+283: 16.053827
+281: 14.165141
+287: 11.709850
+285: 11.615416
+282: 11.332113
+ ********** postprocess result **********
+ ********** probability top5: ********** 
+n02123394 Persian cat
+n02123045 tabby, tabby cat
+n02127052 lynx, catamount
+n02124075 Egyptian cat
+n02123159 tiger cat
+```
+
+### CPU
+Replace the HHB compile command in the NPU step above with:
+```shell
+hhb -D --model-file mobilenetv2-12.onnx --data-scale 0.017 --data-mean "124 117 104"  --board c920  --postprocess save_and_top5 --input-name "input" --output-name "output" --input-shape "1 3 224 224"
+```
+
+g++ compilation command replaced with:
+```shell
+riscv64-unknown-linux-gnu-g++ main.cpp -I../prebuilt_opencv/include/opencv4 -L../prebuilt_opencv/lib   -lopencv_imgproc   -lopencv_imgcodecs -L../prebuilt_opencv/lib/opencv4/3rdparty/ -llibjpeg-turbo -llibwebp -llibpng -llibtiff -llibopenjp2    -lopencv_core -ldl  -lpthread -lrt -lzlib -lcsi_cv -latomic -static -o mobilenetv2_example
+```
+
+Then send the compiled binary file to the development board to run. The reference results are as follows:
+```shell
+(ort) root@lpi4a:/home/sipeed/onnx_mobilenetv2_c++# ./mobilenetv2_example 
+ ********** preprocess image **********
+ ********** run mobilenetv2 **********
+Run graph execution time: 79.77252ms, FPS=12.54
+
+=== tensor info ===
+shape: 1 3 224 224 
+data pointer: 0x259240
+
+=== tensor info ===
+shape: 1 1000 
+data pointer: 0x1c5200
+The max_value of output: 16.843750
+The min_value of output: -7.414062
+The mean_value of output: 0.001131
+The std_value of output: 9.056762
+ ============ top5: ===========
+283: 16.843750
+281: 13.789062
+287: 12.257812
+282: 10.898438
+285: 10.765625
+ ********** postprocess result **********
+ ********** probability top5: ********** 
+n02123394 Persian cat
+n02123045 tabby, tabby cat
+n02127052 lynx, catamount
+n02123159 tiger cat
+n02124075 Egyptian cat
+```
+
+## Yolov5n 
+
+### NPU
+
+#### Setup
+
+Refer to [Peripheral](https://wiki.sipeed.com/hardware/en/lichee/th1520/lpi4a/6_peripheral.html#NPU)After the NPU usage environment is set up, the document enters the Docker image of the HHB environment.
+
+First get the model for this tutorial and download it to the sample directory `/home/example/th1520_npu/yolov5n` :
+```shell
+git clone https://github.com/ultralytics/yolov5.git
+cd yolov5
+pip3 install ultralytics
+python3 export.py --weights yolov5n.pt --include onnx
+```
+
+#### Compile
+
+**HHB Compile**
+To cross-compile the ONNX model into an executable program on the NPU, you need to use the hhb command. Note that only 8-bit or 16-bit fixed-point operations are supported on the NPU, which is defined as int8 asymmetric quantization in this example. When compiling, you need to go to the directory where the sample is stored `/home/example/th1520_npu/yolov5n`:
+```shell
+cd /home/example/th1520_npu/yolov5n
+hhb -D --model-file yolov5n.onnx --data-scale-div 255 --board th1520 --input-name "images" --output-name "/model.24/m.0/Conv_output_0;/model.24/m.1/Conv_output_0;/model.24/m.2/Conv_output_0" --input-shape "1 3 384 640" --calibrate-dataset kite.jpg  --quantization-scheme "int8_asym"
+```
+
+Option description:
+- -D: specify the HHB process to generate the executable file until the end
+- --model-file: specify the yolov5 model that has been downloaded in the current directory
+- --data-mean: specify the mean value
+- --data-scale: specify the scale value
+- --board: specify the target platform as th1520
+- --input-name: the input name of the model
+- --output-name: the output name of the model
+- --input-shape: the input size of the model
+- --postprocess: save the output results and print the top5 results
+- --calibrate-dataset: specify the calibration images required for quantization
+- --quantization-scheme: specify the quantization scheme as int8 asymmetric
+
+After the command is executed, the hhb_out subdirectory will be generated in the current directory, which includes hhb_runtime, model. c and other files:
+- hhb. bm: HHB model file, including the weight data after quantization
+- hhb_runtime: the executable file on the th1520 platform, compiled from the c file in the directory
+- main. c: temporary file, the reference entry of the sample program
+- model. c: temporary file, model structure file, related to the model structure
+- model. params: temporary file, weight value
+- io. c: temporary file, auxiliary functions for reading and writing files
+- io. h: temporary file, auxiliary function declaration for reading and writing files
+- process. c: temporary file, image preprocessing function
+- process. h: temporary file, image preprocessing function declaration
+
+For more detailed HHB options, refer to the command line options in the [HHBUserManual](https://www.yuque.com/za4k4z/kvkcoh/shl1nybhel6iviwt).
+
+**g++ compile**
+```shell
+riscv64-unknown-linux-gnu-gcc yolov5n.c -o yolov5n_example hhb_out/io.c hhb_out/model.c -Wl,--gc-sections -O2 -g -mabi=lp64d -I hhb_out/ -L /usr/local/lib/python3.8/dist-packages/hhb/install_nn2/th1520/lib/ -lshl -L /usr/local/lib/python3.8/dist-packages/hhb/prebuilt/decode/install/lib/rv -L /usr/local/lib/python3.8/dist-packages/hhb/prebuilt/runtime/riscv_linux -lprebuilt_runtime -ljpeg -lpng -lz -lstdc++ -lm -I /usr/local/lib/python3.8/dist-packages/hhb/install_nn2/th1520/include/ -mabi=lp64d -march=rv64gcv0p7_zfh_xtheadc -Wl,-unresolved-symbols=ignore-in-shared-libs
+```
+
+The yolov5n_example file is generated in the example directory after the compilation command is executed correctly.
+
+#### Excute
+
+After the cross-compilation is complete, you can copy the files needed for program execution to the directory of the development board. The scp command can be used:
+```shell
+scp -r ../yolov5n sipeed@your_ip:~
+```
+
+First confirm whether the driver in the development board is loaded:
+```shell
+lsmod
+```
+If there are 'img_mem', 'vha' and 'vha_info' in the output of the three modules, the NPU driver is loaded successfully, if not, you can run the following command to manually load it:
+```shell
+sudo npu_init
+```
+
+Refer to [YOLOX](https://wiki.sipeed.com/hardware/en/lichee/th1520/lpi4a/8_application.html#YOLOX-Target-Detection) Install and configure the python virtual environment:
+```shell
+sudo apt update
+sudo apt install wget git vim
+
+wget https://github.com/T-head-Semi/csi-nn2/releases/download/v2.4-beta.1/c920.tar.gz
+tar xf c920.tar.gz
+cp c920/lib/* /usr/lib/riscv64-linux-gnu/ -rf
+
+sudo apt install python3-pip
+sudo apt install python3.11-venv
+
+cd /root
+python3 -m venv ort
+source /root/ort/bin/activate
+
+git clone -b python3.11 https://github.com/zhangwm-pt/prebuilt_whl.git
+cd prebuilt_whl
+
+pip install numpy-1.25.0-cp311-cp311-linux_riscv64.whl
+pip install opencv_python-4.5.4+4cd224d-cp311-cp311-linux_riscv64.whl
+pip install kiwisolver-1.4.4-cp311-cp311-linux_riscv64.whl
+pip install Pillow-9.5.0-cp311-cp311-linux_riscv64.whl
+pip install matplotlib-3.7.2.dev0+gb3bd929cf0.d20230630-cp311-cp311-linux_riscv64.whl
+pip install pycocotools-2.0.6-cp311-cp311-linux_riscv64.whl
+pip3 install loguru-0.7.0-py3-none-any.whl
+pip3 install torch-2.0.0a0+gitc263bd4-cp311-cp311-linux_riscv64.whl
+pip3 install MarkupSafe-2.1.3-cp311-cp311-linux_riscv64.whl
+pip3 install torchvision-0.15.1a0-cp311-cp311-linux_riscv64.whl
+pip3 install psutil-5.9.5-cp311-abi3-linux_riscv64.whl
+pip3 install tqdm-4.65.0-py3-none-any.whl
+pip3 install tabulate-0.9.0-py3-none-any.whl
+```
+
+Run the just-compiled example in the appropriate directory on the development board:
+```shell
+python3 inference.py 
+```
+
+After the execution, the terminal will prompt the stages of the execution:
+1. Preprocessing: fill and scale the original image to 384 * 640
+2. Model execution and post-processing: perform model inference and do post-processing such as nms
+3. Frame: draw the detection results on the 384 * 640 size graph and output the new image
+
+Files used in the execution of inference.py:
+- kite.jpg: the input image
+- image_preprocessed.bin: the intermediate results generated from the input image in the preprocessing stage
+- yolov5n_example: the file used in the model execution stage, compiled by gcc on an x86 host
+- hhb_out/hhb.bm: the file used in the model execution stage, generated by HHB on an x86 host
+- detect.txt: the output file of the post-processing stage, including the four targets detected in the image
+- kite_result.jpg: the output image, which adds the detection frame to the results of the input graph
+
+#### Results
+
+```shell
+(ort) root@lpi4a:/home/sipeed/yolov5n_npu# python3 inference.py 
+ ********** preprocess image **********
+ ******* run yolov5 and postprocess *******
+INFO: NNA clock:792000 [kHz]
+INFO: Heap :ocm (0x18)
+INFO: Heap :anonymous (0x2)
+INFO: Heap :dmabuf (0x2)
+INFO: Heap :unified (0x5)
+Run graph execution time: 11.68591ms, FPS=85.57
+detect num: 4
+id:     label   score           x1              y1              x2              y2
+[0]:    0       0.895277        273.492188      161.245056      359.559814      330.644257
+[1]:    0       0.887368        79.860062       179.181244      190.755692      354.304474
+[2]:    0       0.815214        222.054550      224.477600      279.828979      333.717285
+[3]:    33      0.563324        67.625580       173.948883      201.687988      219.065765
+ ********** draw bbox **********
+[273.492188, 161.245056, 359.559814, 330.644257, 0.895277, 0]
+[79.860062, 179.181244, 190.755692, 354.304474, 0.887368, 0]
+[222.05455, 224.4776, 279.828979, 333.717285, 0.815214, 0]
+[67.62558, 173.948883, 201.687988, 219.065765, 0.563324, 33]
+```
+
+> The sample image is from the web.
+
+![yolov5n_detection_soccer_output](./../../../../zh/lichee/th1520/lpi4a/assets/application/yolov5n_detection_soccer_output.jpg)
+
+### CPU
+Replace the HHB compile command in the NPU step above with:
+```shell
+hhb -D --model-file yolov5n.onnx --data-scale-div 255 --board c920 --input-name "images" --output-name "/model.24/m.0/Conv_output_0;/model.24/m.1/Conv_output_0;/model.24/m.2/Conv_output_0" --input-shape "1 3 384 640"
+```
+
+gcc compile command replaced with:
+```shell
+riscv64-unknown-linux-gnu-gcc yolov5n.c -static -o yolov5n_example hhb_out/io.c hhb_out/model.c -Wl,--gc-sections -O2 -g -mabi=lp64d -I hhb_out/ -L /usr/local/lib/python3.8/dist-packages/hhb/install_nn2/c920/lib/ -lshl -static -L /usr/local/lib/python3.8/dist-packages/hhb/prebuilt/decode/install/lib/rv -L /usr/local/lib/python3.8/dist-packages/hhb/prebuilt/runtime/riscv_linux -lprebuilt_runtime -ljpeg -lpng -lz -lstdc++ -lm -I /usr/local/lib/python3.8/dist-packages/hhb/install_nn2/c920/include/ -mabi=lp64d -march=rv64gcv0p7_zfh_xtheadc
+```
+
+Then send the compiled binary file to the development board to run. The reference results are as follows:
+```shell
+(ort) root@lpi4a:/home/sipeed/yolov5n_cpu# python3 inference.py 
+ ********** preprocess image **********
+ ******* run yolov5 and postprocess *******
+Run graph execution time: 387.34067ms, FPS=2.58
+detect num: 4
+id:     label   score           x1              y1              x2              y2
+[0]:    0       0.901887        274.524475      158.559036      359.169312      332.431702
+[1]:    0       0.879545        80.073883       184.767792      190.130157      349.906281
+[2]:    0       0.845192        219.378418      221.662415      283.860413      333.798584
+[3]:    33      0.666908        67.099136       174.128189      202.971451      220.213608
+ ********** draw bbox **********
+[274.524475, 158.559036, 359.169312, 332.431702, 0.901887, 0]
+[80.073883, 184.767792, 190.130157, 349.906281, 0.879545, 0]
+[219.378418, 221.662415, 283.860413, 333.798584, 0.845192, 0]
+[67.099136, 174.128189, 202.971451, 220.213608, 0.666908, 33]
+```
+
+## BERT
+
+### CPU
+
+#### Setup
+
+Refer to [Peripheral](https://wiki.sipeed.com/hardware/en/lichee/th1520/lpi4a/6_peripheral.html#NPU)After the NPU usage environment is set up, the document enters the Docker image of the HHB environment.
+
+The model used in this tutorial is from the google bert repository and has been converted to the onnx version of the BERT model, which can be downloaded to the `/home/example/c920/bert_small` directory with the following command:
+```shell
+cd home/example/c920/bert_small
+wget https://github.com/zhangwm-pt/bert/releases/download/onnx/bert_small_int32_input.onnx
+```
+
+#### Compile
+
+**HHB Compile**
+To cross-compile the ONNX model into an executable program on the NPU, you need to use the hhb command. Note that only 8-bit or 16-bit fixed-point operations are supported on the NPU, which is defined as int8 asymmetric quantization in this example. To compile, you need to first go to the directory where the sample is located `/home/example/c920/bert_small` :
+```shell
+cd /home/example/c920/bert_small
+hhb --model-file bert_small_int32_input.onnx --input-name "input_ids;input_mask;segment_ids" --input-shape '1 384;1 384;1 384' --output-name "output_start_logits;output_end_logits" --board c920 --quantization-scheme "float16" --postprocess save_and_top5 -D --without-preprocess
+```
+
+The options are:
+- -D: Specifies that the HHB process will run until the executable is generated
+- --model-file: Specifies that the bert model has been downloaded in the current directory
+- --data-mean: Specifies the mean value
+- --data-scale: Specifies the scale value
+- --board: Specifies that the target platform is th1520
+- --input-name: The input name of the model
+- --output-name: The output name of the model
+- --input-shape: The input size of the model
+- --postprocess: Saves the output results and prints the top 5 results
+- --calibrate-dataset: Specifies the calibration images required for quantization
+- --quantization-scheme: Specifies that the quantization scheme is int8 asymmetric
+
+After the command is executed, the hhb_out subdirectory will be generated in the current directory, which includes hhb_runtime, model.c and other files:
+- hhb. bm: The HHB model file, including the quantized weight data and other information
+- hhb_runtime: The executable on the th1520 platform, compiled from the c file in the directory
+- main. c: A temporary file, the reference entry of the sample program
+- model. c: A temporary file, the model structure file, related to the model structure
+- model.params: A temporary file, the weight values
+- io. c: A temporary file, the auxiliary functions for reading and writing files
+- io. h: A temporary file, the auxiliary functions for reading and writing files declaration
+- process. c: A temporary file, the image preprocessing function
+- process. h: A temporary file, the image preprocessing function declaration
+
+
+
+For more detailed HHB options, refer to the command line options in the [HHBUserManual](https://www.yuque.com/za4k4z/kvkcoh/shl1nybhel6iviwt).
+
+
+After the compilation command is executed correctly, an executable file is generated in the example directory. You can copy the example directory to the development board and run it.
+
+```shell
+scp -r ../bert_small sipeed@your_ip:~
+```
+
+#### Excute
+
+The preceding steps to execute the example program are the same as YOLOv5n, which will not be described here.
+After the preceding steps are correct, you can run commands in the example directory
+```shell
+python3 inference.py
+```
+
+#### Results
+
+The reference input in this example comes from the SQuAD dataset, a reading comprehension dataset consisting of questions posed by a set of Wikipedia articles, where the answer to each question is a piece of text from the corresponding reading article or question.
+The input for this example is as follows. The article describes the game of a rugby game and asks the question of who participated in the game.
+
+```
+[Context]:  Super Bowl 50 was an American football game to determine the champion of the National Football League (NFL) for the 2015 season. The American Football Conference (AFC) champion Denver Broncos defeated the National Football Conference (NFC) champion Carolina Panthers 24–10 to earn their third Super Bowl title. The game was played on February 7, 2016, at Levi's Stadium in the San Francisco Bay Area at Santa Clara, California. As this was the 50th Super Bowl, the league emphasized the "golden anniversary" with various gold-themed initiatives, as well as temporarily suspending the tradition of naming each Super Bowl game with Roman numerals (under which the game would have been known as "Super Bowl L"), so that the logo could prominently feature the Arabic numerals 50.
+
+[Question]:  Which NFL team represented the AFC at Super Bowl 50?
+```
+Based on the reading comprehension results, the expected output would be the Denver Broncos
+
+```shell
+(ort) root@lpi4a:/home/sipeed/bert_small_cpu# python3 inference.py
+ ********** preprocess test **********
+[Context]:  Super Bowl 50 was an American football game to determine the champion of the National Football League (N
+FL) for the 2015 season. The American Football Conference (AFC) champion Denver Broncos defeated the National Footba
+ll Conference (NFC) champion Carolina Panthers 24–10 to earn their third Super Bowl title. The game was played on Fe
+bruary 7, 2016, at Levi's Stadium in the San Francisco Bay Area at Santa Clara, California. As this was the 50th Sup
+er Bowl, the league emphasized the "golden anniversary" with various gold-themed initiatives, as well as temporarily
+ suspending the tradition of naming each Super Bowl game with Roman numerals (under which the game would have been k
+nown as "Super Bowl L"), so that the logo could prominently feature the Arabic numerals 50.
+[Question]:  Which NFL team represented the AFC at Super Bowl 50?
+ ******* run bert *******
+Run graph execution time: 1713.15491ms, FPS=0.58
+
+=== tensor info ===
+shape: 1 384 
+data pointer: 0x183d60
+
+=== tensor info ===
+shape: 1 384 
+data pointer: 0x185380
+
+=== tensor info ===
+shape: 1 384 
+data pointer: 0x1869a0
+
+=== tensor info ===
+shape: 1 384 
+data pointer: 0x2a8610
+The max_value of output: 3.826172
+The min_value of output: -9.968750
+The mean_value of output: -8.412353
+The std_value of output: 5.128320
+ ============ top5: ===========
+ 46: 3.826172
+ 57: 3.142578
+ 39: 1.303711
+ 38: 1.179688
+ 27: 0.624512
+
+=== tensor info ===
+shape: 1 384 
+data pointer: 0x2a8300
+The max_value of output: 3.617188
+The min_value of output: -9.625000
+The mean_value of output: -7.798176
+The std_value of output: 4.820137
+ ============ top5: ===========
+ 47: 3.617188
+ 58: 3.482422
+ 32: 2.523438
+ 29: 1.541992
+ 41: 1.473633
+ ********** postprocess **********
+[Answer]:  Denver Broncos
+```
 
 ## Docker
 

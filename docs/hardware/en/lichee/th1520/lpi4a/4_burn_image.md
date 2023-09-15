@@ -107,20 +107,20 @@ After putting the board into burning mode, you can use fastboot from `burn_tool.
 Let´s take linux as an example:
 Note that you need to mark the fastboot binary as executable first via `chmod +x fastboot`
 
-`u-boot-with-spl-ddr8g.bin` and `u-boot-with-spl-ddr16g.bin` are u-boot firmware, please refer to the image description for specific differences.
+`u-boot-with-spl-lpi4a.bin` and `u-boot-with-spl-lpi4a-16g.bin` are u-boot firmware, please refer to the image description for specific differences.
 ```bash
-sudo ./fastboot flash ram ./images/u-boot-with-spl-ddr16g.bin
+sudo ./fastboot flash ram ./images/u-boot-with-spl-lpi4a-16g.bin
 sudo ./fastboot reboot
-sleep 10
-sudo ./fastboot flash uboot ./images/u-boot-with-spl-ddr16g.bin
-sudo ./fastboot flash boot ./images/boot_16gddr.ext4
-sudo ./fastboot flash root ./images/rootfs-thead-image-linux_sing.ext4.ext4
+sleep 1
+sudo ./fastboot flash uboot ./images/u-boot-with-spl-lpi4a-16g.bin
+sudo ./fastboot flash boot ./images/boot_sing.ext4
+sudo ./fastboot flash root ./images/rootfs-sing.ext4
 ```
 
 The first three lines will check and create the partitions on the flash. If you skip this step,
 burning the rootfs will be very slow later on.
 
-`boot_8gddr.ext4`, `boot_8gddr_mipi_720p.ext4`, `boot_8gddr_mipi_1080p.ext4`, `boot_16gddr.ext4`, `boot_16gddr_mipi_720p.ext4` and `boot_16gddr_mipi_1080p.ext4` for boot For specific differences, please refer to the image description. They mainly include the following:
+`boot-sing.ext4` and `boot-dual.ext4` for boot For specific differences, please refer to the image description. They mainly include the following:
 ```bash
 fw_dynamic.bin        #opensbi
 Image                 #kernel image
@@ -131,7 +131,7 @@ light-lpi4a.dtb       # ddr8G dtb
 light-lpi4a-ddr16g.dtb # ddr16G dtb
 ```
 
-`rootfs-thead-image-linux_sing.ext4` and `rootfs-thead-image-linux_mipi.ext4` are the root file system, and the default is Debian system. For the specific differences between the two, please refer to the image description.
+`rootfs-sing.ext4` and `rootfs-mipi.ext4` are the root file system, and the default is Debian system. For the specific differences between the two, please refer to the image description.
 
 Log output you typically see while burning an image:
 

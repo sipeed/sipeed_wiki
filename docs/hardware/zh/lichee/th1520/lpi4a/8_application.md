@@ -2,6 +2,11 @@
 title: 典型应用
 keywords: Linux, Lichee, TH1520, SBC, RISCV, application
 update:
+  - date: 2023-09-12
+    version: v1.2
+    author: ztd
+    content:
+      - Add some NPU applications
   - date: 2023-07-20
     version: v1.1
     author: ztd
@@ -30,7 +35,7 @@ llama 是 META 开源的大语言模型，[llama.cpp](https://github.com/ggergan
 
 ## YOLOX 目标检测
 
-本教程是一个如何在 LPi4A（LicheePi 4A） 开发板平台上部署 [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) 模型完成目标检测的示例。
+本教程是一个如何在 LPi4A（LicheePi 4A） 开发板平台上部署 [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) 模型完成目标检测的示例（CPU推理）。
 教程中包括了：
 - 在 LPi4A 开发版上安装 Python 环境
 - 使用 YOLOX 项目中的源码执行模型
@@ -183,6 +188,540 @@ python3 onnx_inference.py -m yolox_s.onnx -i soccer.jpg -o outdir -s 0.3 --input
 示例正常执行后，会在 outdir 目录下生成结果图片 soccer.jpg。图片中会用框画出检测到的目标，并标注概率，效果如下图：
 
 ![yolox_detection_soccer_output.jpg](./assets/application/yolox_detection_soccer_output.jpg)
+
+## MobilenertV2 
+
+本教程是一个如何在 LicheePi4A 平台上部署 mobilenetv2 模型完成图像分类的示例。
+
+教程中包括了：
+- 使用 HHB 编译 onnx 模型为 LicheePi4A 上可用的二进制
+- 在 LicheePi4A 上使用 opencv c++ 版本做 mobilenetv2 模型的预处理
+- 在 LicheePi4A 上使用 CPU 和 NPU 的差异
+
+### NPU
+
+#### 环境配置
+
+参考[外设使用](https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/6_peripheral.html#NPU)文档搭建好 NPU 使用相关环境后，进入到 HHB 环境的 Docker 镜像中。
+
+首先获取本节教程的模型，下载到示例目录 `/home/example/th1520_npu/onnx_mobilenetv2_c++` 下：
+[mobilenetv2-12.onnx](https://github.com/onnx/models/blob/main/vision/classification/mobilenet/model/mobilenetv2-12.onnx)
+
+并获取本次教程所使用的优化版本 opencv 所需的库文件，前往 [github仓库下载](https://xuantie.t-head.cn/community/download?id=4112956065753141248)下载到上一级目录 `/home/example/th1520_npu/` 下。
+```shell
+cd /home/example/th1520_npu/
+git clone https://github.com/zhangwm-pt/prebuilt_opencv.git
+```
+
+#### 编译
+
+**HHB 编译模型：**
+将 ONNX 模型交叉编译成 NPU 上可执行的程序，需要使用 hhb 命令。注意，NPU 上仅支持8位或者16位定点运算，本示例中指定为 int8 非对称量化。编译时需要先进入到示例所在目录 `/home/example/th1520_npu/onnx_mobilenetv2_c++`：
+```shell
+cd /home/example/th1520_npu/onnx_mobilenetv2_c++
+hhb -D --model-file mobilenetv2-12.onnx --data-scale 0.017 --data-mean "124 117 104"  --board th1520  --postprocess save_and_top5 --input-name "input" --output-name "output" --input-shape "1 3 224 224" --calibrate-dataset persian_cat.jpg  --quantization-scheme "int8_asym"
+```
+
+选项说明：
+- -D ：指定 HHB 流程执行到生成可执行文件的阶段为止
+- --model-file ：指定当前目录中已经下载好的 mobilenet 模型
+- --data-mean ：指定均值
+- --data-scale ：指定缩放值
+- --board ：指定目标平台为 th1520
+- --input-name： 模型的输入名
+- --output-name：模型的输出名
+- --input-shape：模型的输入大小
+- --postprocess：保存输出结果，并且打印 top5 结果
+- --calibrate-dataset：指定量化时所需的校准图片
+- --quantization-scheme：指定量化方式为 int8 非对称
+
+命令执行完成后，会在当前目录生成 hhb_out 子目录，里面的包括了 hhb_runtime，model.c 等多个文件：
+- hhb.bm：HHB 的模型文件，包括了量化后的权重数据等信息
+- hhb_runtime：th1520 平台上的可执行文件，由目录中的c文件编译而成
+- main.c：临时文件，示例程序的参考入口
+- model.c：临时文件，模型结构文件，与模型结构相关
+- model.params：临时文件，权重数值
+- io.c：临时文件，读写文件的辅助函数
+- io.h：临时文件，读写文件的辅助函数声明
+- process.c：临时文件，图像预处理函数
+- process.h：临时文件，图像预处理函数声明
+
+更详细的 HHB 选项说明可以参考 [HHB用户手册](https://www.yuque.com/za4k4z/oxlbxl/keyg70qggt5n3fpa)中的命令行选项说明。
+
+**g++编译示例：**
+```shell
+riscv64-unknown-linux-gnu-g++ main.cpp -I../prebuilt_opencv/include/opencv4 -L../prebuilt_opencv/lib   -lopencv_imgproc   -lopencv_imgcodecs -L../prebuilt_opencv/lib/opencv4/3rdparty/ -llibjpeg-turbo -llibwebp -llibpng -llibtiff -llibopenjp2    -lopencv_core -ldl  -lpthread -lrt -lzlib -lcsi_cv -latomic -static -o mobilenetv2_example
+```
+
+编译命令正确执行完成后会在示例目录生成 mobilenetv2_example 文件。
+
+#### 执行
+
+交叉编译完成后，即可将程序执行所需的文件复制到开发板的目录中。可以使用 scp 命令：
+```shell
+scp -r ../onnx_mobilenetv2_c++ sipeed@你的开发板ip:~
+```
+
+先确认开发板中驱动是否加载：
+```shell
+lsmod
+```
+若在输出中有 `img_mem`，`vha` 和 `vha_info` 这三个模块，NPU驱动即加载成功，若没有则可以先运行下面的命令手动加载一下：
+```shell
+sudo npu_init
+```
+
+参考 [YOLOX章节](https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/8_application.html#YOLOX-%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B) 安装并配置好 python 虚拟环境：
+```shell
+sudo apt update
+sudo apt install wget git vim
+
+wget https://github.com/T-head-Semi/csi-nn2/releases/download/v2.4-beta.1/c920.tar.gz
+tar xf c920.tar.gz
+cp c920/lib/* /usr/lib/riscv64-linux-gnu/ -rf
+
+sudo apt install python3-pip
+sudo apt install python3.11-venv
+
+cd /root
+python3 -m venv ort
+source /root/ort/bin/activate
+
+git clone -b python3.11 https://github.com/zhangwm-pt/prebuilt_whl.git
+cd prebuilt_whl
+
+pip install numpy-1.25.0-cp311-cp311-linux_riscv64.whl
+pip install opencv_python-4.5.4+4cd224d-cp311-cp311-linux_riscv64.whl
+pip install kiwisolver-1.4.4-cp311-cp311-linux_riscv64.whl
+pip install Pillow-9.5.0-cp311-cp311-linux_riscv64.whl
+pip install matplotlib-3.7.2.dev0+gb3bd929cf0.d20230630-cp311-cp311-linux_riscv64.whl
+pip install pycocotools-2.0.6-cp311-cp311-linux_riscv64.whl
+pip3 install loguru-0.7.0-py3-none-any.whl
+pip3 install torch-2.0.0a0+gitc263bd4-cp311-cp311-linux_riscv64.whl
+pip3 install MarkupSafe-2.1.3-cp311-cp311-linux_riscv64.whl
+pip3 install torchvision-0.15.1a0-cp311-cp311-linux_riscv64.whl
+pip3 install psutil-5.9.5-cp311-abi3-linux_riscv64.whl
+pip3 install tqdm-4.65.0-py3-none-any.whl
+pip3 install tabulate-0.9.0-py3-none-any.whl
+```
+
+在开发板相应目录下运行刚刚编译好的示例：
+```shell
+./mobilenetv2_example
+```
+
+执行完成后，会在终端上提示执行到的各个阶段：
+1. 预处理
+2. 模型执行
+3. 后处理
+
+mobilenetv2_example 执行会使用到的文件：
+- persian_cat.jpg：输入图片
+- input_img.bin：预处理阶段，根据输入图片生成的中间结果
+- hhb_out/hhb_runtime：模型执行阶段使用的文件，由x86主机上 HHB 生成
+- hhb_out/hhb.bm：模型执行阶段使用的文件，由x86主机上 HHB 生成
+- input_img.bin_output0_1_1000.txt：模型执行阶段的输出文件，包括了模型执行输出的 1000 个结果数值
+
+#### 参考结果
+
+```shell
+(ort) root@lpi4a:/home/sipeed/onnx_mobilenetv2_c++# ./mobilenetv2_example
+ ********** preprocess image **********
+ ********** run mobilenetv2 **********
+INFO: NNA clock:792000 [kHz]
+INFO: Heap :ocm (0x18)
+INFO: Heap :anonymous (0x2)
+INFO: Heap :dmabuf (0x2)
+INFO: Heap :unified (0x5)
+Run graph execution time: 7.87149ms, FPS=127.04
+
+=== tensor info ===
+shape: 1 3 224 224 
+data pointer: 0x857ca0
+
+=== tensor info ===
+shape: 1 1000 
+data pointer: 0x3fc9abe000
+The max_value of output: 16.053827
+The min_value of output: -8.026914
+The mean_value of output: -0.001889
+The std_value of output: 9.203342
+ ============ top5: ===========
+283: 16.053827
+281: 14.165141
+287: 11.709850
+285: 11.615416
+282: 11.332113
+ ********** postprocess result **********
+ ********** probability top5: ********** 
+n02123394 Persian cat
+n02123045 tabby, tabby cat
+n02127052 lynx, catamount
+n02124075 Egyptian cat
+n02123159 tiger cat
+```
+
+### CPU
+将上述 NPU 步骤中的 HHB 编译命令替换为：
+```shell
+hhb -D --model-file mobilenetv2-12.onnx --data-scale 0.017 --data-mean "124 117 104"  --board c920  --postprocess save_and_top5 --input-name "input" --output-name "output" --input-shape "1 3 224 224"
+```
+
+g++ 编译后处理命令替换为：
+```shell
+riscv64-unknown-linux-gnu-g++ main.cpp -I../prebuilt_opencv/include/opencv4 -L../prebuilt_opencv/lib   -lopencv_imgproc   -lopencv_imgcodecs -L../prebuilt_opencv/lib/opencv4/3rdparty/ -llibjpeg-turbo -llibwebp -llibpng -llibtiff -llibopenjp2    -lopencv_core -ldl  -lpthread -lrt -lzlib -lcsi_cv -latomic -static -o mobilenetv2_example
+```
+
+再将编译的到的二进制文件发送到开发板上运行即可。参考结果如下：
+```shell
+(ort) root@lpi4a:/home/sipeed/onnx_mobilenetv2_c++# ./mobilenetv2_example 
+ ********** preprocess image **********
+ ********** run mobilenetv2 **********
+Run graph execution time: 79.77252ms, FPS=12.54
+
+=== tensor info ===
+shape: 1 3 224 224 
+data pointer: 0x259240
+
+=== tensor info ===
+shape: 1 1000 
+data pointer: 0x1c5200
+The max_value of output: 16.843750
+The min_value of output: -7.414062
+The mean_value of output: 0.001131
+The std_value of output: 9.056762
+ ============ top5: ===========
+283: 16.843750
+281: 13.789062
+287: 12.257812
+282: 10.898438
+285: 10.765625
+ ********** postprocess result **********
+ ********** probability top5: ********** 
+n02123394 Persian cat
+n02123045 tabby, tabby cat
+n02127052 lynx, catamount
+n02123159 tiger cat
+n02124075 Egyptian cat
+```
+
+## Yolov5n 
+
+### NPU
+
+#### 环境配置
+
+参考[外设使用](https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/6_peripheral.html#NPU)文档搭建好 NPU 使用相关环境后，进入到 HHB 环境的 Docker 镜像中。
+
+首先获取本节教程的模型，下载到示例目录 `/home/example/th1520_npu/yolov5n` 下：
+```shell
+git clone https://github.com/ultralytics/yolov5.git
+cd yolov5
+pip3 install ultralytics
+python3 export.py --weights yolov5n.pt --include onnx
+```
+
+#### 编译
+
+**HHB 编译模型：**
+将 ONNX 模型交叉编译成 NPU 上可执行的程序，需要使用 hhb 命令。注意，NPU 上仅支持8位或者16位定点运算，本示例中指定为 int8 非对称量化。编译时需要先进入到示例所在目录 `/home/example/th1520_npu/yolov5n`：
+```shell
+cd /home/example/th1520_npu/yolov5n
+hhb -D --model-file yolov5n.onnx --data-scale-div 255 --board th1520 --input-name "images" --output-name "/model.24/m.0/Conv_output_0;/model.24/m.1/Conv_output_0;/model.24/m.2/Conv_output_0" --input-shape "1 3 384 640" --calibrate-dataset kite.jpg  --quantization-scheme "int8_asym"
+```
+
+选项说明：
+- -D ：指定 HHB 流程执行到生成可执行文件的阶段为止
+- --model-file ：指定当前目录中已经下载好的 yolov5 模型
+- --data-mean ：指定均值
+- --data-scale ：指定缩放值
+- --board ：指定目标平台为 th1520
+- --input-name： 模型的输入名
+- --output-name：模型的输出名
+- --input-shape：模型的输入大小
+- --postprocess：保存输出结果，并且打印 top5 结果
+- --calibrate-dataset：指定量化时所需的校准图片
+- --quantization-scheme：指定量化方式为 int8 非对称
+
+命令执行完成后，会在当前目录生成 hhb_out 子目录，里面的包括了 hhb_runtime，model.c 等多个文件：
+- hhb.bm：HHB 的模型文件，包括了量化后的权重数据等信息
+- hhb_runtime：th1520 平台上的可执行文件，由目录中的c文件编译而成
+- main.c：临时文件，示例程序的参考入口
+- model.c：临时文件，模型结构文件，与模型结构相关
+- model.params：临时文件，权重数值
+- io.c：临时文件，读写文件的辅助函数
+- io.h：临时文件，读写文件的辅助函数声明
+- process.c：临时文件，图像预处理函数
+- process.h：临时文件，图像预处理函数声明
+
+更详细的 HHB 选项说明可以参考 [HHB用户手册](https://www.yuque.com/za4k4z/oxlbxl/keyg70qggt5n3fpa)中的命令行选项说明。
+
+**g++编译示例：**
+```shell
+riscv64-unknown-linux-gnu-gcc yolov5n.c -o yolov5n_example hhb_out/io.c hhb_out/model.c -Wl,--gc-sections -O2 -g -mabi=lp64d -I hhb_out/ -L /usr/local/lib/python3.8/dist-packages/hhb/install_nn2/th1520/lib/ -lshl -L /usr/local/lib/python3.8/dist-packages/hhb/prebuilt/decode/install/lib/rv -L /usr/local/lib/python3.8/dist-packages/hhb/prebuilt/runtime/riscv_linux -lprebuilt_runtime -ljpeg -lpng -lz -lstdc++ -lm -I /usr/local/lib/python3.8/dist-packages/hhb/install_nn2/th1520/include/ -mabi=lp64d -march=rv64gcv0p7_zfh_xtheadc -Wl,-unresolved-symbols=ignore-in-shared-libs
+```
+
+编译命令正确执行完成后会在示例目录生成 yolov5n_example 文件。
+
+#### 执行
+
+交叉编译完成后，即可将程序执行所需的文件复制到开发板的目录中。可以使用 scp 命令：
+```shell
+scp -r ../yolov5n sipeed@你的开发板ip:~
+```
+
+先确认开发板中驱动是否加载：
+```shell
+lsmod
+```
+若在输出中有 `img_mem`，`vha` 和 `vha_info` 这三个模块，NPU驱动即加载成功，若没有则可以先运行下面的命令手动加载一下：
+```shell
+sudo npu_init
+```
+
+参考 [YOLOX章节](https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/8_application.html#YOLOX-%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B) 安装并配置好 python 虚拟环境：
+```shell
+sudo apt update
+sudo apt install wget git vim
+
+wget https://github.com/T-head-Semi/csi-nn2/releases/download/v2.4-beta.1/c920.tar.gz
+tar xf c920.tar.gz
+cp c920/lib/* /usr/lib/riscv64-linux-gnu/ -rf
+
+sudo apt install python3-pip
+sudo apt install python3.11-venv
+
+cd /root
+python3 -m venv ort
+source /root/ort/bin/activate
+
+git clone -b python3.11 https://github.com/zhangwm-pt/prebuilt_whl.git
+cd prebuilt_whl
+
+pip install numpy-1.25.0-cp311-cp311-linux_riscv64.whl
+pip install opencv_python-4.5.4+4cd224d-cp311-cp311-linux_riscv64.whl
+pip install kiwisolver-1.4.4-cp311-cp311-linux_riscv64.whl
+pip install Pillow-9.5.0-cp311-cp311-linux_riscv64.whl
+pip install matplotlib-3.7.2.dev0+gb3bd929cf0.d20230630-cp311-cp311-linux_riscv64.whl
+pip install pycocotools-2.0.6-cp311-cp311-linux_riscv64.whl
+pip3 install loguru-0.7.0-py3-none-any.whl
+pip3 install torch-2.0.0a0+gitc263bd4-cp311-cp311-linux_riscv64.whl
+pip3 install MarkupSafe-2.1.3-cp311-cp311-linux_riscv64.whl
+pip3 install torchvision-0.15.1a0-cp311-cp311-linux_riscv64.whl
+pip3 install psutil-5.9.5-cp311-abi3-linux_riscv64.whl
+pip3 install tqdm-4.65.0-py3-none-any.whl
+pip3 install tabulate-0.9.0-py3-none-any.whl
+```
+
+在开发板相应目录下运行刚刚编译好的示例：
+```shell
+python3 inference.py 
+```
+
+执行完成后，会在终端上提示执行到的各个阶段：
+1. 预处理：将原图填充缩放到 384 * 640 的大小
+2. 模型执行和后处理：执行模型推理，并做 nms 等后处理
+3. 画框：将检测结果画在 384 *640 尺寸的图上，并输出新图片
+
+inference.py 执行会使用到的文件：
+- kite.jpg：输入图片
+- image_preprocessed.bin：预处理阶段，根据输入图片生成的中间结果
+- yolov5n_example：模型执行阶段使用的文件，由x86主机上 gcc 编译生成
+- hhb_out/hhb.bm：模型执行阶段使用的文件，由x86主机上 HHB 生成
+- detect.txt：后处理阶段的输出文件，包括了图片中检测出来的 4 个目标
+- kite_result.jpg：输出图片，将检测框加入到输入图上的结果
+
+#### 参考结果
+
+```shell
+(ort) root@lpi4a:/home/sipeed/yolov5n_npu# python3 inference.py 
+ ********** preprocess image **********
+ ******* run yolov5 and postprocess *******
+INFO: NNA clock:792000 [kHz]
+INFO: Heap :ocm (0x18)
+INFO: Heap :anonymous (0x2)
+INFO: Heap :dmabuf (0x2)
+INFO: Heap :unified (0x5)
+Run graph execution time: 11.68591ms, FPS=85.57
+detect num: 4
+id:     label   score           x1              y1              x2              y2
+[0]:    0       0.895277        273.492188      161.245056      359.559814      330.644257
+[1]:    0       0.887368        79.860062       179.181244      190.755692      354.304474
+[2]:    0       0.815214        222.054550      224.477600      279.828979      333.717285
+[3]:    33      0.563324        67.625580       173.948883      201.687988      219.065765
+ ********** draw bbox **********
+[273.492188, 161.245056, 359.559814, 330.644257, 0.895277, 0]
+[79.860062, 179.181244, 190.755692, 354.304474, 0.887368, 0]
+[222.05455, 224.4776, 279.828979, 333.717285, 0.815214, 0]
+[67.62558, 173.948883, 201.687988, 219.065765, 0.563324, 33]
+```
+
+> 示例图片来源于网络。
+
+![yolov5n_detection_soccer_output](./assets/application/yolov5n_detection_soccer_output.jpg)
+
+### CPU
+将上述 NPU 步骤中的 HHB 编译命令替换为：
+```shell
+hhb -D --model-file yolov5n.onnx --data-scale-div 255 --board c920 --input-name "images" --output-name "/model.24/m.0/Conv_output_0;/model.24/m.1/Conv_output_0;/model.24/m.2/Conv_output_0" --input-shape "1 3 384 640"
+```
+
+gcc 编译后处理命令替换为：
+```shell
+riscv64-unknown-linux-gnu-gcc yolov5n.c -static -o yolov5n_example hhb_out/io.c hhb_out/model.c -Wl,--gc-sections -O2 -g -mabi=lp64d -I hhb_out/ -L /usr/local/lib/python3.8/dist-packages/hhb/install_nn2/c920/lib/ -lshl -static -L /usr/local/lib/python3.8/dist-packages/hhb/prebuilt/decode/install/lib/rv -L /usr/local/lib/python3.8/dist-packages/hhb/prebuilt/runtime/riscv_linux -lprebuilt_runtime -ljpeg -lpng -lz -lstdc++ -lm -I /usr/local/lib/python3.8/dist-packages/hhb/install_nn2/c920/include/ -mabi=lp64d -march=rv64gcv0p7_zfh_xtheadc
+```
+
+再将编译的到的二进制文件发送到开发板上运行即可。参考结果如下：
+```shell
+(ort) root@lpi4a:/home/sipeed/yolov5n_cpu# python3 inference.py 
+ ********** preprocess image **********
+ ******* run yolov5 and postprocess *******
+Run graph execution time: 387.34067ms, FPS=2.58
+detect num: 4
+id:     label   score           x1              y1              x2              y2
+[0]:    0       0.901887        274.524475      158.559036      359.169312      332.431702
+[1]:    0       0.879545        80.073883       184.767792      190.130157      349.906281
+[2]:    0       0.845192        219.378418      221.662415      283.860413      333.798584
+[3]:    33      0.666908        67.099136       174.128189      202.971451      220.213608
+ ********** draw bbox **********
+[274.524475, 158.559036, 359.169312, 332.431702, 0.901887, 0]
+[80.073883, 184.767792, 190.130157, 349.906281, 0.879545, 0]
+[219.378418, 221.662415, 283.860413, 333.798584, 0.845192, 0]
+[67.099136, 174.128189, 202.971451, 220.213608, 0.666908, 33]
+```
+
+## BERT
+
+### CPU
+
+#### 环境配置
+
+参考[外设使用](https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/6_peripheral.html#NPU)文档搭建好 NPU 使用相关环境后，进入到 HHB 环境的 Docker 镜像中。
+
+首先获取模型，本教程中使用的模型来自 google bert 仓库，已转换成 onnx 版本的 BERT 模型，可以用如下命令下载到 `/home/example/c920/bert_small` 目录下:
+```shell
+cd home/example/c920/bert_small
+wget https://github.com/zhangwm-pt/bert/releases/download/onnx/bert_small_int32_input.onnx
+```
+
+#### 编译
+
+**HHB 编译模型：**
+将 ONNX 模型交叉编译成 NPU 上可执行的程序，需要使用 hhb 命令。注意，NPU 上仅支持8位或者16位定点运算，本示例中指定为 int8 非对称量化。编译时需要先进入到示例所在目录 `/home/example/c920/bert_small`：
+```shell
+cd /home/example/c920/bert_small
+hhb --model-file bert_small_int32_input.onnx --input-name "input_ids;input_mask;segment_ids" --input-shape '1 384;1 384;1 384' --output-name "output_start_logits;output_end_logits" --board c920 --quantization-scheme "float16" --postprocess save_and_top5 -D --without-preprocess
+```
+
+选项说明：
+- -D ：指定 HHB 流程执行到生成可执行文件的阶段为止
+- --model-file ：指定当前目录中已经下载好的 bert 模型
+- --data-mean ：指定均值
+- --data-scale ：指定缩放值
+- --board ：指定目标平台为 th1520
+- --input-name： 模型的输入名
+- --output-name：模型的输出名
+- --input-shape：模型的输入大小
+- --postprocess：保存输出结果，并且打印 top5 结果
+- --calibrate-dataset：指定量化时所需的校准图片
+- --quantization-scheme：指定量化方式为 int8 非对称
+
+命令执行完成后，会在当前目录生成 hhb_out 子目录，里面的包括了 hhb_runtime，model.c 等多个文件：
+- hhb.bm：HHB 的模型文件，包括了量化后的权重数据等信息
+- hhb_runtime：th1520 平台上的可执行文件，由目录中的c文件编译而成
+- main.c：临时文件，示例程序的参考入口
+- model.c：临时文件，模型结构文件，与模型结构相关
+- model.params：临时文件，权重数值
+- io.c：临时文件，读写文件的辅助函数
+- io.h：临时文件，读写文件的辅助函数声明
+- process.c：临时文件，图像预处理函数
+- process.h：临时文件，图像预处理函数声明
+
+更详细的 HHB 选项说明可以参考 [HHB用户手册](https://www.yuque.com/za4k4z/oxlbxl/keyg70qggt5n3fpa) 中的命令行选项说明。
+
+
+编译命令正确执行完成后会在示例目录生成可执行文件，将该示例目录拷贝至开发板中即可运行。
+
+```shell
+scp -r ../bert_small sipeed@你的ip:~
+```
+
+#### 执行
+
+执行示例程序的前置步骤同 YOLOv5n，此处不在赘述。
+前置步骤准确无误后，即可在示例目录执行命令
+```shell
+python3 inference.py
+```
+
+#### 参考结果
+
+本示例中的参考输入来自 SQuAD 数据集，SQuAD 是一个阅读理解数据集，由一组维基百科文章提出的问题组成，其中每个问题的答案都是来自相应阅读文章或问题的一段文本。
+本示例的输入如下，文章内容描述了一次橄榄球比赛的赛况，提出的问题是谁参加了比赛。
+
+```
+[Context]:  Super Bowl 50 was an American football game to determine the champion of the National Football League (NFL) for the 2015 season. The American Football Conference (AFC) champion Denver Broncos defeated the National Football Conference (NFC) champion Carolina Panthers 24–10 to earn their third Super Bowl title. The game was played on February 7, 2016, at Levi's Stadium in the San Francisco Bay Area at Santa Clara, California. As this was the 50th Super Bowl, the league emphasized the "golden anniversary" with various gold-themed initiatives, as well as temporarily suspending the tradition of naming each Super Bowl game with Roman numerals (under which the game would have been known as "Super Bowl L"), so that the logo could prominently feature the Arabic numerals 50.
+
+[Question]:  Which NFL team represented the AFC at Super Bowl 50?
+```
+根据阅读理解的结果，预期输出将是 Denver Broncos
+
+```shell
+(ort) root@lpi4a:/home/sipeed/bert_small_cpu# python3 inference.py
+ ********** preprocess test **********
+[Context]:  Super Bowl 50 was an American football game to determine the champion of the National Football League (N
+FL) for the 2015 season. The American Football Conference (AFC) champion Denver Broncos defeated the National Footba
+ll Conference (NFC) champion Carolina Panthers 24–10 to earn their third Super Bowl title. The game was played on Fe
+bruary 7, 2016, at Levi's Stadium in the San Francisco Bay Area at Santa Clara, California. As this was the 50th Sup
+er Bowl, the league emphasized the "golden anniversary" with various gold-themed initiatives, as well as temporarily
+ suspending the tradition of naming each Super Bowl game with Roman numerals (under which the game would have been k
+nown as "Super Bowl L"), so that the logo could prominently feature the Arabic numerals 50.
+[Question]:  Which NFL team represented the AFC at Super Bowl 50?
+ ******* run bert *******
+Run graph execution time: 1713.15491ms, FPS=0.58
+
+=== tensor info ===
+shape: 1 384 
+data pointer: 0x183d60
+
+=== tensor info ===
+shape: 1 384 
+data pointer: 0x185380
+
+=== tensor info ===
+shape: 1 384 
+data pointer: 0x1869a0
+
+=== tensor info ===
+shape: 1 384 
+data pointer: 0x2a8610
+The max_value of output: 3.826172
+The min_value of output: -9.968750
+The mean_value of output: -8.412353
+The std_value of output: 5.128320
+ ============ top5: ===========
+ 46: 3.826172
+ 57: 3.142578
+ 39: 1.303711
+ 38: 1.179688
+ 27: 0.624512
+
+=== tensor info ===
+shape: 1 384 
+data pointer: 0x2a8300
+The max_value of output: 3.617188
+The min_value of output: -9.625000
+The mean_value of output: -7.798176
+The std_value of output: 4.820137
+ ============ top5: ===========
+ 47: 3.617188
+ 58: 3.482422
+ 32: 2.523438
+ 29: 1.541992
+ 41: 1.473633
+ ********** postprocess **********
+[Answer]:  Denver Broncos
+```
 
 ## Docker
 

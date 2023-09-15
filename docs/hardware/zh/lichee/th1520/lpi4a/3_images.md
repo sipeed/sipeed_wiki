@@ -37,12 +37,12 @@ root 账户默认没有设置密码。
 （0721及以后版本的镜像内存能正常使用，无需替换为此处的文件）
 
 ```shell
-sudo ./fastboot flash ram ./images/u-boot-with-spl-ddr16g.bin
+sudo ./fastboot flash ram ./images/u-boot-with-spl-lpi4a-16g.bin
 sudo ./fastboot reboot
 sleep 1
-sudo ./fastboot flash uboot ./images/u-boot-with-spl-ddr16g.bin
+sudo ./fastboot flash uboot ./images/u-boot-with-spl-lpi4a-16g.bin
 # 若自己使用的 boot.ext4 中没有 16G ddr 对应的设备树，则需要再烧录 16G ddr 对应的 boot.ext4
-sudo ./fastboot flash boot ./images/boot_16gddr.ext4
+sudo ./fastboot flash boot ./images/boot.ext4
 ```
 
 ### Debian
@@ -55,9 +55,9 @@ sudo ./fastboot flash boot ./images/boot_16gddr.ext4
 Mega 云盘：[点我](https://mega.nz/folder/phoQlBTZ#cZeQ3qZ__pDvP94PT3_bGA)
 ISCAS 镜像站：[点我](https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/)
 
-1. LPI4A_20230721.zip
+1. LPI4A_20230912.zip
 
-   - 发布日期：2023年7月21日
+   - 发布日期：2023年9月12日
    - 内核：5.10
    - 根文件系统：ext4, 4.3GB
    - 主要预装软件包：
@@ -74,11 +74,11 @@ ISCAS 镜像站：[点我](https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/
       - HDMI 音频在 chromium 下播放音质有问题
    - 使用说明：
       - 该压缩包为仅支持 HDMI 显示，烧录时请注意文件名中的后缀和设备相关参数对应
-         - boot，u-boot 文件名中的 8gddr/16gddr 分别对应 8g/16g 内存
+         - u-boot 带 16g 后缀的为支持 16g 内存的u-boot，不带后缀的为支持 8g 内存的 u-boot
 
-2. LPI4A_20230721_mipi.zip
+2. LPI4A_20230912_MIPI.zip
 
-   - 发布日期：2023年7月21日
+   - 发布日期：2023年9月12日
    - 内核：5.10
    - 根文件系统：ext4, 4.3GB
    - 主要预装软件包：
@@ -100,8 +100,7 @@ ISCAS 镜像站：[点我](https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/
       - HDMI 音频在 chromium 下播放音质有问题
    - 使用说明：
       - 该压缩包为支持 MIPI 屏幕的镜像，烧录时请注意文件名中的后缀和设备相关参数对应
-         - boot，u-boot 文件名中的 8gddr/16gddr 分别对应 8g/16g 内存
-         - boot 文件名中的 mipi_720p/mipi_1080p 分别对应800x1280的 MIPI 屏幕（带触摸）/1200x1920的mipi屏幕
+         - u-boot 带 16g 后缀的为支持 16g 内存的u-boot，不带后缀的为支持 8g 内存的 u-boot
 
 ### OpenWRT
 
