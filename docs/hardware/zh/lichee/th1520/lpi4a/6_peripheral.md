@@ -2,6 +2,11 @@
 title: 外设使用
 keywords: Linux, Lichee, TH1520, SBC, RISCV, Peripheral
 update:
+  - date: 2023-09-12
+    version: v1.3
+    author: ztd
+    content:
+      - Update NPU user guide
   - date: 2023-08-18
     version: v1.2
     author: ztd
@@ -658,7 +663,7 @@ PoE供电模块需要自行购买，使用5V电压，35.6mm长度的规格，可
 当目视方向正对“POE POWER”标识时，针脚左边4根针脚定义从左到右依次为：VA1、VA2、VB1、VB2，右边为：GND、5VIN。
 
 
-## Audio
+## Speaker Audio
 
 LicheePi 4A 上有两个模拟硅麦，使用 ES7210 CODEC，以及有一路板载的扬声器，和立体声耳机，使用 ES8156 CODEC。
 
@@ -684,7 +689,7 @@ echo "Start Play"
 
 你还可以使用alsa相关工具，如`alsamixer`，进行音量调整等操作。
 
-## HDMI
+## HDMI 音频
 
 > 注：早期镜像的HDMI音频不生效，请升级到较新版本使能HDMI音频功能。  
 
@@ -692,8 +697,8 @@ echo "Start Play"
 
 ![audiomixer](./assets/peripheral/audiomixer.png)  
 
-名字为 Build-in Audio 设备即 HDMI 音频，可以在这个界面点击它对应的绿色对勾图标进行音频设备切换，也可以在直接单击小喇叭图标后进行设备的切换。
-若确认连接无误，且使用的 HDMI 显示器支持 HDMI音频功能，但没有在设备列表中看到相应设备，可以尝试运行以下命令：  
+名字为 **Built-in Audio** 设备即 HDMI 音频，可以在这个界面点击它对应的绿色对勾图标进行音频设备切换，也可以在直接单击小喇叭图标后进行设备的切换。
+若确认连接无误，且使用的 HDMI 显示器支持 HDMI 音频功能，但没有在设备列表中看到相应设备，可以尝试运行以下命令：  
 
 ```shell
 systemctl --user restart pulseaudio.service
@@ -850,7 +855,73 @@ sudo watch cat /sys/kernel/debug/pvr/status
 
 ## NPU
 
-TODO
+> **注意**：使用 NPU 驱动，需要升级到[20230912](https://pan.baidu.com/e/1xH56ZlewB6UOMlke5BrKWQ)版本镜像。
+
+NPU 相关驱动初始化命令
+```shell
+sudo npu_init
+```
+
+LicheePi4A 板载了一颗支持 4TOPS@INT8 通用 NNA 算力，主频 1GHz 的 NPU。Wiki 中包含的支持 NPU 的示例如下：
+
+|示例名称|示例功能|使用模型|接口|HHB版本|
+|---|---|---|---|---|
+|Mobilenetv2 做图像分类|图像分类|mobilenetv2|c/c++|2.4及以上|
+|YOLOv5 做目标检测|目标检测|YOLOv5|python|2.4及以上|
+|RTMPose 做姿态估计|姿态估计|RTMPose|python|2.6及以上|
+
+为了将上述示例中的模型交叉编译为 LicheePi4A 上的可执行程序，我们首先需要在自己的电脑上搭建 HHB 开发环境。
+> 推荐环境：ubuntu20.04 系统，Docker 使用20.10.21版本。推荐使用 Docker 镜像来搭建环境。
+
+### 安装
+首先要在自己的电脑上安装 Docker，先卸载可能存在的 Docker 版本：
+```shell
+sudo apt-get remove docker docker-engine docker.io containerd runc
+```
+
+安装Docker依赖的基础软件：
+```shell
+sudo apt-get update
+sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+```
+
+添加官方源：
+```shell
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+```
+
+安装 Docker：
+```shell
+sudo apt-get update
+sudo apt-get install docker-ce docker-ce-cli containerd.io
+```
+
+安装完毕后，获取 HHB 环境的 Docker 镜像：
+```shell
+docker pull hhb4tools/hhb:2.4.5
+```
+
+拉取镜像完毕后，使用下面的命令进入 Docker 镜像：
+```shell
+docker run -itd --name=your.hhb2.4 -p 22 "hhb4tools/hhb:2.4.5"
+docker exec -it your.hhb2.4 /bin/bash
+```
+
+进入 Docker 镜像后，可使用下面的命令确认 HHB 版本：
+```shell
+hhb --version
+```
+
+进入 Docker 镜像中后，还需要配置交叉编译环境。注意必须要使用这这里的工具链，否则编译出的二进制文件无法在 LicheePi4A 上运行。
+```shell
+export PATH=/tools/Xuantie-900-gcc-linux-5.10.4-glibc-x86_64-V2.6.1-light.1/bin/:$PATH
+```
+
+至此，HHB 环境初步搭建完成。可以尝试以下的 NPU 示例：
+
+[Mobilenetv2 做图像分类](https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/8_application.html#MobilenertV2)
+[YOLOv5 做目标检测](https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/8_application.html#Yolov5n)
 
 ## 其它
 欢迎投稿～ 投稿接受后可得￥5～150（$1~20）优惠券！

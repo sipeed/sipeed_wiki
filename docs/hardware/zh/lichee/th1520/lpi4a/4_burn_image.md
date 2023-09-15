@@ -97,21 +97,21 @@ b. 打开设备管理器出现“USB download gadget”设备。
 这时侯我们可以通过fastboot下载并启动u-boot镜像的命令，来进入到u-boot的fastboot烧录模式（相比Brom阶段，会有更大下载buffer，速度会更快）
 下面的指令会检查并格式化分区，请务必执行，否则后面烧录 rootfs 会很慢。
 
-`u-boot-with-spl-ddr8g.bin` 和 `u-boot-with-spl-ddr16g.bin` 为u-boot 固件，具体差异请参考镜像说明。
+`u-boot-with-spl-lpi4a.bin` 和 `u-boot-with-spl-lpi4a-16g.bin` 为u-boot 固件，具体差异请参考镜像说明。
 ```bash
-sudo ./fastboot flash ram ./images/u-boot-with-spl-ddr16g.bin
+sudo ./fastboot flash ram ./images/u-boot-with-spl-lpi4a-16g.bin
 sudo ./fastboot reboot
 sleep 1
 ```
 
 分别烧录下面三个镜像：启动引导镜像-uboot，启动分区-boot，操作系统根分区-root
 ```bash
-sudo ./fastboot flash uboot ./images/u-boot-with-spl-ddr16g.bin
-sudo ./fastboot flash boot ./images/boot_16gddr.ext4
-sudo ./fastboot flash root ./images/rootfs-thead-image-linux_sing.ext4.ext4
+sudo ./fastboot flash uboot ./images/u-boot-with-spl-lpi4a-16g.bin
+sudo ./fastboot flash boot ./images/boot_sing.ext4
+sudo ./fastboot flash root ./images/rootfs-sing.ext4
 ```
 
-`boot_8gddr.ext4`，`boot_8gddr_mipi_720p.ext4`，`boot_8gddr_mipi_1080p.ext4`，`boot_16gddr.ext4`，`boot_16gddr_mipi_720p.ext4` 和 `boot_16gddr_mipi_1080p.ext4` 为 boot 分区，具体差异请参考镜像说明。它们主要包含以下内容： 
+`boot-sing.ext4` 和 `boot-dual.ext4` 为 boot 分区，具体差异请参考镜像说明。它们主要包含以下内容： 
 ```bash
 fw_dynamic.bin        #opensbi
 Image                 #kernel image
@@ -122,7 +122,7 @@ light-lpi4a.dtb       # ddr8G dtb
 light-lpi4a-ddr16g.dtb # ddr16G dtb
 ```
 
-`rootfs-thead-image-linux_sing.ext4` 和 `rootfs-thead-image-linux_mipi.ext4` 为根文件系统，默认为 Debian 系统。两者的具体差异请参考镜像说明。
+`rootfs-sing.ext4` 和 `rootfs-mipi.ext4` 为根文件系统，默认为 Debian 系统。两者的具体差异请参考镜像说明。
 
 烧录镜像的典型 log 输出如下：
 

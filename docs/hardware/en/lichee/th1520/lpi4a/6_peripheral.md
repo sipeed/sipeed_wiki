@@ -2,6 +2,11 @@
 title: Peripheral Use
 keywords: Linux, Lichee, TH1520, SBC, RISCV, Peripheral
 update:
+  - date: 2023-09-12
+    version: v1.3
+    author: ztd
+    content:
+      - Update NPU user guide
   - date: 2023-08-18
     version: v1.2
     author: ztd
@@ -698,7 +703,7 @@ echo "Start Play"
 
 You can also use alsa-related tools, such as `alsamixer`, to do things like volume adjustments.
 
-## HDMI
+## HDMI Audio
 
 > Note: HDMI audio does not work for earlier mirrors, please upgrade to a newer version to enable HDMI audio function.
 
@@ -706,7 +711,7 @@ Tap the speaker icon at the top right corner of the screen to enter Audio mixer,
 
 ![audiomixer](./../../../../zh/lichee/th1520/lpi4a/assets/peripheral/audiomixer.png)  
 
-The name of the device is Build-in Audio, i.e. HDMI audio, and you can switch between audio devices by clicking on its corresponding green checkmark icon in this interface, or you can switch between devices by clicking on the small speaker icon directly.
+The name of the device is **Built-in Audio**, i.e. HDMI audio, and you can switch between audio devices by clicking on its corresponding green checkmark icon in this interface, or you can switch between devices by clicking on the small speaker icon directly.
 If you confirm that the connection is correct and the HDMI monitor you are using supports HDMI audio, but you do not see the corresponding device in the device list, you can try to run the following command:
 
 ```shell
@@ -865,7 +870,68 @@ When playing video with Chromium browser, the state of GPU is as follows:
 
 ## NPU
 
-TODO
+> **Note**: To use the NPU driver, you need to upgrade to the [20230912](https://mega.nz/folder/phoQlBTZ#cZeQ3qZ__pDvP94PT3_bGA) version image.
+
+NPU-related driver initialization commands 
+```shell
+sudo npu_init
+```
+LicheePi4A contains a 1GHz NPU supporting 4TOPS@INT8 general purpose NNA computing power. The Wiki contains examples of NPU support as follows:
+ 
+|Example Name|Example Functionality|Usage Model|Interface|HHB Version| 
+|---|---|---|---|---|
+|Mobilenetv2 do image classification|image classification|mobilenetv2|c/c++|2.4 and above|
+|YOLOv5 do object detection|object detection|YOLOv5|python|2.4 and above|
+|RTMPose do pose estimation|pose estimation|RTMPose|python|2.6 and above|
+
+In order to cross-compile the models in the above examples into executables on LicheePi4A, we first need to set up the HHB development environment on our own computer.
+> Recommended environment: Ubuntu 20.04 system, Docker version 20.10.21.It is recommended to use the Docker image to set up the environment.
+
+### Installation
+
+First, we need to install Docker on our own computer. Uninstall any existing Docker version: 
+```shell
+sudo apt-get remove docker docker-engine docker.io containerd runc
+```
+
+Install the basic software Docker depends on: 
+```shell
+sudo apt-get update
+sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+Add the official source: ```shell
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+```
+
+Install Docker:
+```shell
+sudo apt-get update
+sudo apt-get install docker-ce docker-ce-cli containerd.io
+```
+After installation, get the Docker image of the HHB environment:
+```shell
+docker pull hhb4tools/hhb:2.4.5
+```
+
+Once the image is pulled, enter the Docker image using the following command:
+```shell
+docker run -itd --name=your.hhb2.4 -p 22 "hhb4tools/hhb:2.4.5"
+docker exec -it your.hhb2.4 /bin/bash
+```
+
+Once you are inside the Docker image, you can use the following command to verify the HHB version: 
+```shell
+hhb --version
+```
+
+Once you are in the Docker image, you need to configure the cross-compile environment. Note that you must use the toolchain here, otherwise the compiled binaries will not run on LicheePi4A. 
+```shell
+export PATH=/tools/Xuantie-900-gcc-linux-5.10.4-glibc-x86_64-V2.6.1-light.1/bin/:$PATH
+```
+
+At this point, the HHB environment is preliminarily built. You can try the following NPU examples:
+[Mobilenetv2 for image classification](https://wiki.sipeed.com/hardware/eh/lichee/th1520/lpi4a/8_application.html#MobilenertV2)
+[YOLOv5 for object detection](https://wiki.sipeed.com/hardware/eh/lichee/th1520/lpi4a/8_application.html#Yolov5n)
 
 ## Other
 Contributions are welcome~ You can get ￥5~150 ($1~20) coupon if your contribution is accepted!
