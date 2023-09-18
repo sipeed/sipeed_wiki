@@ -1219,9 +1219,10 @@ Installation steps
 # Add optimization source
 sudo sed -i '1ideb https://mirror.iscas.ac.cn/revyos/revyos-c910v/ revyos-c910v main' /etc/apt/sources.list
 # update software
-sudo apt update && sudo apt upgrade -y
-# install gcc-10/gcc-13
-sudo apt install -y build-essential gcc-13 g++-13
+sudo apt update
+# install gcc-10 or gcc-13
+sudo apt install -y build-essential # gcc-10
+sudo apt install -y gcc-13 g++-13 # gcc-13
 # Restart to avoid other problems
 sudo reboot
 ```

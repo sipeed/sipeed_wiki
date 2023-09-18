@@ -1269,9 +1269,10 @@ wine notepad.exe
 # 增加优化源
 sudo sed -i '1ideb https://mirror.iscas.ac.cn/revyos/revyos-c910v/ revyos-c910v main' /etc/apt/sources.list
 # 更新软件
-sudo apt update && sudo apt upgrade -y
+sudo apt update
 # 安装 gcc-10/gcc-13
-sudo apt install -y build-essential gcc-13 g++-13
+sudo apt install -y build-essential # gcc-10
+sudo apt install -y gcc-13 g++-13 # gcc-13
 # 重启避免其他问题
 sudo reboot
 ```
