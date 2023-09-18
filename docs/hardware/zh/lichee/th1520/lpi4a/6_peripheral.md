@@ -815,7 +815,11 @@ echo off > /sys/class/drm/card0-DSI-1/status
 
 ![jtag_connect_out](./assets/peripheral/jtag_connect_out.jpg)
 
-然后通过排针用杜邦线连接到调试器
+连接调试器前，确定调试器处于 CKLink 模式。接下来，以[SLogic Combo 8](https://en.wiki.sipeed.com/hardware/zh/logic_analyzer/combo8/index.html) 和 RV-Debugger Plus 为例。
+对于 SLogic Combo 8，请参考[相应文档](https://en.wiki.sipeed.com/hardware/zh/logic_analyzer/combo8/use_cklink_function.html)切换为CKLink模式。
+对于 RV-Debugger Plus，请参考[该仓库](https://github.com/bouffalolab/bouffalo_sdk/tree/master/tools/cklink_firmware)刷入 CKLink 专用固件。
+
+完成上述步骤后，通过排针用杜邦线连接到调试器
 
 ![jtag_connect_pin](./assets/peripheral/jtag_connect_pin.jpg)
 
