@@ -18,7 +18,7 @@ SLogic Combo 8 具备高速DAP-Link功能，适用于各种常规芯片，尤其
 ![slogic_led_green](./assets/use_daplink_function/slogic_led_green.png)
 
 > 验证DAPLink功能是否开启的方法:
-> Windows环境打开设备管理器，Linux环境使用lsusb命令，可以找到"CMSIS-DAP HS"设备
+> Windows环境打开设备管理器，Linux环境使用lsusb命令，可以找到"RV CMSIS-DAP"设备
 
 ## 开始使用
 
@@ -39,7 +39,7 @@ DAPLink模式下可以同时支持一路DAPLink和一路UART
 ### 使用MDK连接DAPLink
 
 1. 设置Reset Options为SYSRESETREQ
-2. 在CMSIS-DAP中找到并寻找CMSIS-DAP HS设备
+2. 在CMSIS-DAP中找到并寻找RV CMSIS-DAP设备
 
 ![cfg_dap_debugger_of_mdk](./assets/use_daplink_function/cfg_dap_debugger_of_mdk.png)
 
