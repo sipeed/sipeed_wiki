@@ -1,5 +1,5 @@
 ---
-title: 系统开发
+title: OpenWrt
 keywords: Linux, Lichee, TH1520, SBC, RISCV, Kernel, SDK, Develop
 update:
   - date: 2023-09-17
