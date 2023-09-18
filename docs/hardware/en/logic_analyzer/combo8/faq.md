@@ -60,6 +60,11 @@ The following lists some common problems according to the form of Q&A, please tr
 
 **A:**Please refer [here](./update_firmware.md) to update the firmware to the latest version before trying again
 
+**Q:**DAPLink error while burning firmware:`Connection refused due to device mismatch!`
+
+![image-20230816113213933](./assets/err_device_mismatch.jpg)
+
+**A:**It may be caused by the mismatch between the chip package and the actual chip. For example, MDK uses `STM32F103` configuration, but the actual chip is `CS32F103`, the IDCODE of `STM32F103` is **0x1B10417**, and the IDCODE of `CS32F103` is **0x2BA01477**, which causes a device mismatch and refuses to connect. The solution is to find and install the software package for the actual chip, and since there are so many packages, please find the download method by yourself.
 
 ## CKLink
 
