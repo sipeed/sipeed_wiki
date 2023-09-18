@@ -106,7 +106,7 @@ ISCAS 镜像站：[点我](https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/
 
 ![openwrt](./assets/images/openwrt.png)
 
-TODO
+[Click me](https://github.com/ruyisdk/openwrt)
 
 ### Android
 
