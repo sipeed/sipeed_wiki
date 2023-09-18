@@ -588,6 +588,91 @@ id:     label   score           x1              y1              x2              
 [67.099136, 174.128189, 202.971451, 220.213608, 0.666908, 33]
 ```
 
+## Yolov5s
+
+Referring to the compilation steps for yolov5n, simply replace the yolov5n. onnx file with yolov5s. onnx and change the arguments `yolov5n. onnx` to `yolov5s. onnx` in the HHB and GCC compilation commands.
+
+### Setup
+On an x86 host, after setting up the NPU usage environment according to the [peripheral](https://wiki.sipeed.com/hardware/en/lichee/th1520/lpi4a/6_peripheral.html#NPU) documentation, go into the Docker image of the HHB environment.
+On the 1520, initialize the NPU driver with `sudo npu_init` and install and configure the python virtual environment refer to [YOLOX](https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/8_application.html#YOLOX-%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B).
+
+### CPU
+
+#### Compile
+
+**HBB Compile**
+```shell
+hhb -D --model-file yolov5s.onnx --data-scale-div 255 --board c920 --input-name "images" --output-name "/model.24/m.0/Conv_output_0;/model.24/m.1/Conv_output_0;/model.24/m.2/Conv_output_0" --input-shape "1 3 384 640"
+```
+
+In the HHB command, extract up to the last convolution layer. The post-processing after the convolution layers is handled by the yolov5s.c file. The `yolov5s.c` file can refer to the `yolov5n.c` file under the yolov5n example.
+**GCC Compile**
+```shell
+riscv64-unknown-linux-gnu-gcc yolov5s.c -static -o yolov5s_example hhb_out/io.c hhb_out/model.c -Wl,--gc-sections -O2 -g -mabi=lp64d -I hhb_out/ -L /usr/local/lib/python3.8/dist-packages/hhb/install_nn2/c920/lib/ -lshl -static -L /usr/local/lib/python3.8/dist-packages/hhb/prebuilt/decode/install/lib/rv -L /usr/local/lib/python3.8/dist-packages/hhb/prebuilt/runtime/riscv_linux -lprebuilt_runtime -ljpeg -lpng -lz -lstdc++ -lm -I /usr/local/lib/python3.8/dist-packages/hhb/install_nn2/c920/include/ -mabi=lp64d -march=rv64gcv0p7_zfh_xtheadc
+```
+
+#### Results
+
+```shell
+(ort) root@lpi4a:/home/sipeed/yolov5s# python3 inference.py 
+ ********** preprocess image **********
+ ******* run yolov5 and postprocess *******
+Run graph execution time: 821.20135ms, FPS=1.22
+detect num: 4
+id:     label   score           x1              y1              x2              y2
+[0]:    0       0.932165        275.538910      159.163147      359.211151      329.072205
+[1]:    0       0.888989        219.883255      222.074265      285.310486      334.005676
+[2]:    0       0.840487        85.319901       184.137268      186.844284      346.103210
+[3]:    33      0.783095        70.033737       176.102921      202.740250      218.405075
+ ********** draw bbox **********
+[275.53891, 159.163147, 359.211151, 329.072205, 0.932165, 0]
+[219.883255, 222.074265, 285.310486, 334.005676, 0.888989, 0]
+[85.319901, 184.137268, 186.844284, 346.10321, 0.840487, 0]
+[70.033737, 176.102921, 202.74025, 218.405075, 0.783095, 33]
+```
+
+### NPU
+
+#### Compile
+
+Refer to yolov5n.
+
+**HHB Compile**
+```shell
+hhb -D --model-file yolov5s.onnx --data-scale-div 255 --board th1520 --input-name "images" --output-name "/model.24/m.0/Conv_output_0;/model.24/m.1/Conv_output_0;/model.24/m.2/Conv_output_0" --input-shape "1 3 384 640" --calibrate-dataset kite.jpg  --quantization-scheme "int8_asym"
+```
+
+**GCC Compile**
+In the HHB command, extract up to the last convolution layer. The post-processing after the convolution layers is handled by the yolov5s.c file. The `yolov5s.c` file can refer to the `yolov5n.c` file under the yolov5n example.
+```shell
+riscv64-unknown-linux-gnu-gcc yolov5s.c -o yolov5s_example hhb_out/io.c hhb_out/model.c -Wl,--gc-sections -O2 -g -mabi=lp64d -I hhb_out/ -L /usr/local/lib/python3.8/dist-packages/hhb/install_nn2/th1520/lib/ -lshl -L /usr/local/lib/python3.8/dist-packages/hhb/prebuilt/decode/install/lib/rv -L /usr/local/lib/python3.8/dist-packages/hhb/prebuilt/runtime/riscv_linux -lprebuilt_runtime -ljpeg -lpng -lz -lstdc++ -lm -I /usr/local/lib/python3.8/dist-packages/hhb/install_nn2/th1520/include/ -mabi=lp64d -march=rv64gcv0p7_zfh_xtheadc -Wl,-unresolved-symbols=ignore-in-shared-libs
+```
+
+#### Results
+
+```shell
+(ort) root@lpi4a:/home/sipeed/yolov5s_npu# python3 inference.py 
+ ********** preprocess image **********
+ ******* run yolov5 and postprocess *******
+INFO: NNA clock:792000 [kHz]
+INFO: Heap :ocm (0x18)
+INFO: Heap :anonymous (0x2)
+INFO: Heap :dmabuf (0x2)
+INFO: Heap :unified (0x5)
+Run graph execution time: 16.04289ms, FPS=62.33
+detect num: 4
+id:     label   score           x1              y1              x2              y2
+[0]:    0       0.933075        276.321838      157.925751      358.274475      329.757538
+[1]:    0       0.893568        219.203781      221.895264      286.790039      334.801636
+[2]:    0       0.848185        83.283234       182.688538      187.325684      346.702515
+[3]:    33      0.800765        68.743454       175.539230      204.108292      218.260056
+ ********** draw bbox **********
+[276.321838, 157.925751, 358.274475, 329.757538, 0.933075, 0]
+[219.203781, 221.895264, 286.790039, 334.801636, 0.893568, 0]
+[83.283234, 182.688538, 187.325684, 346.702515, 0.848185, 0]
+[68.743454, 175.53923, 204.108292, 218.260056, 0.800765, 33]
+```
+
 ## BERT
 
 ### CPU
