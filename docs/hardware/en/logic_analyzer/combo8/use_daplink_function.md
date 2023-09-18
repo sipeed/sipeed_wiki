@@ -18,7 +18,7 @@ Press the toggle button to switch the indicator light to green.
 ![slogic_led_green](./../../../zh/logic_analyzer/combo8/assets/use_daplink_function/slogic_led_green.png)
 
 > To verify if DAPLink functionality is enabled:
-> Open the device manager in Windows environment, and use the lsusb command in Linux environment to find the "CMSIS-DAP HS" device
+> Open the device manager in Windows environment, and use the lsusb command in Linux environment to find the "RV CMSIS-DAP" device
 
 ## Getting Started
 
@@ -38,7 +38,7 @@ The pins on the right side of the diagram (TCK, TDI, TDO, TMS) are used for DAPL
 
 ### Connecting DAPLink using MDK
 - Set the Reset Options to SYSRESETREQ.
-- In CMSIS-DAP, locate and select the CMSIS-DAP HS device.
+- In CMSIS-DAP, locate and select the RV CMSIS-DAP device.
 
 ![cfg_dap_debugger_of_mdk](./../../../zh/logic_analyzer/combo8/assets/use_daplink_function/cfg_dap_debugger_of_mdk.png)
 

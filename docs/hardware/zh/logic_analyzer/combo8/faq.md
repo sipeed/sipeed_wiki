@@ -59,7 +59,11 @@ update:
 
 **A:**请在更新固件章节中将固件更新到最新版本后再尝试
 
+**Q:**DAPLink在烧录固件时报错`Connection refused due to device mismatch!`
 
+![image-20230816113213933](./assets/use_daplink_function/err_device_mismatch.jpg)
+
+**A:**可能是实际芯片型号与芯片包不匹配导致。例如MDK使用`STM32F103`的配置，但实际芯片是`CS32F103`，由于`STM32F103`的IDCODE是**0x1B10417**，`CS32F103`的IDCODE是**0x2BA01477**，由此发生设备不匹配导致拒绝连接。解决方法是找到并安装实际芯片的软件包，软件包数量较多，下载方法请自行查找。
 
 ## CKLink
 
