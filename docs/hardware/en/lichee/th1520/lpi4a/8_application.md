@@ -1517,7 +1517,7 @@ The operation effect is shown in the figure:
 ![game_result](./../../../../zh/lichee/th1520/lpi4a/assets/application/psp_2.png)
 ![game_result](./../../../../zh/lichee/th1520/lpi4a/assets/application/psp_3.png)
 
-## use of opencv
+## Use of OpenCV
 
 First, install the dependencies and the Python 3 environment
 
@@ -1594,7 +1594,44 @@ cv2.destroyAllWindows()
 cv2.destroyWindow("show_img")
 
 ```
-## Use of ncnn
+
+USB camera demo
+
+```python
+
+import cv2
+
+# Open the camera
+cap = cv2.VideoCapture(0)
+
+# Check if camera opened successfully
+if not cap.isOpened():
+    print("Unable to open camera")
+    exit()
+
+# Loop to capture continuous frames
+while True:
+    # Capture frame-by-frame
+    ret, frame = cap.read()
+
+    # Check if frame is read correctly
+    if not ret:
+        print("Can't receive frame")
+        break
+
+    # Display the resulting frame
+    cv2.imshow("USB Camera", frame)
+
+    # Exit on ESC key
+    if cv2.waitKey(1) == 27:
+        break
+
+# Release camera and close windows
+cap.release()
+cv2.destroyAllWindows()
+```
+
+## Use of NCNN
 
 Firstly, the Git source code and installation related dependency libraries
 
