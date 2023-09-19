@@ -179,7 +179,7 @@ XXXX为mac地址后四位，用于区分每个slot
 
 如果需要使能USB，可以在Linux设备树中应用以下PATCH: [点我下载](https://dl.sipeed.com/fileList/LICHEE/LicheeCluster4A/lpi4a/src/linux/0001-arch-riscv-boot-dts-lpi4a-disable-i2c-io-expander-fo.patch)
 
-或者直接使用预编译镜像：[点我下载](https://dl.sipeed.com/shareURL/LICHEE/LicheeCluster4A/lpi4a/bin)
+或者直接使用预编译镜像：[点我下载](https://dl.sipeed.com/shareURL/LICHEE/LicheeCluster4A/04_Firmware/lpi4a/bin)
 
 镜像烧录方法：
 
@@ -191,7 +191,7 @@ XXXX为mac地址后四位，用于区分每个slot
 
 主板上的 LicheeRV SOM 运行 OpenBMC 来管理主板上的 SOM。
 
-镜像下载地址: [点我跳转](https://dl.sipeed.com/shareURL/LICHEE/LicheeCluster4A/bmc/bin)
+镜像下载地址: [点我跳转](https://dl.sipeed.com/shareURL/LICHEE/LicheeCluster4A/04_Firmware/bmc/bin)
 
 镜像烧录方法:
 
@@ -207,7 +207,7 @@ bmaptool copy obmc-phosphor-image-licheepi-rv.wic.gz /dev/YOUR_SDCARD
 
 如果需要开发定制，请下载PATCH:
 
-https://dl.sipeed.com/shareURL/LICHEE/LicheeCluster4A/bmc/src
+https://dl.sipeed.com/shareURL/LICHEE/LicheeCluster4A/04_Firmware/bmc/src
 
 并应用到OpenBMC源码:
 
