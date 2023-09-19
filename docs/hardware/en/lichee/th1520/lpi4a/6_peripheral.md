@@ -830,7 +830,11 @@ The JTAG interface is reserved on the core board, but you need to lead out the G
 
 ![jtag_connect_out](./../../../../zh/lichee/th1520/lpi4a/assets/peripheral/jtag_connect_out.jpg)
 
-Then connect to the debugger with a DuPont line through the pin header
+Before connecting the debugger, make sure the debugger is in CKLink mode. Next, take [SLogic Combo 8](https://en.wiki.sipeed.com/hardware/zh/logic_analyzer/combo8/index.html) and RV-Debugger Plus as examples.
+For SLogic Combo 8, please refer to the [corresponding document](https://en.wiki.sipeed.com/hardware/en/logic_analyzer/combo8/use_cklink_function.html) to switch to CKLink mode.
+For RV-Debugger Plus, please refer to [this repository](https://github.com/bouffalolab/bouffalo_sdk/tree/master/tools/cklink_firmware) to flash the CKLink dedicated firmware.
+
+After completing the above steps, connect to the debugger using dupont wires through the pin headers.
 
 ![jtag_connect_pin](./../../../../zh/lichee/th1520/lpi4a/assets/peripheral/jtag_connect_pin.jpg)
 

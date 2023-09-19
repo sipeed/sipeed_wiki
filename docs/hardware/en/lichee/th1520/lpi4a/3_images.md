@@ -129,7 +129,7 @@ ISCAS mirror: [click me](https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/)
 
 ![openwrt](./../../../../zh/lichee/th1520/lpi4a/assets/images/openwrt.png)
 
-TODO
+[Click me](https://github.com/ruyisdk/openwrt)
 
 ### Android
 

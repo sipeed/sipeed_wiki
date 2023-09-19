@@ -40,7 +40,6 @@ sudo apt update && \
 **kernel branch is lpi4a**
 **uboot branch is lpi4a**.
 **opensbi branch is lpi4a**
-**Please use the latest version for all repositories**
 
 ## Build kernel
 
@@ -74,9 +73,7 @@ make CROSS_COMPILE=${toolchain_tripe} ARCH=${ARCH} -j$(nproc) dtbs
 if [ x"$(cat .config | grep CONFIG_MODULES=y)" = x"CONFIG_MODULES=y" ]; then
     sudo make CROSS_COMPILE=${toolchain_tripe}  ARCH=${ARCH} INSTALL_MOD_PATH=${GITHUB_WORKSPACE}/rootfs/ modules_install -j$(nproc)
 fi
-sudo make CROSS_COMPILE=${toolchain_tripe}  ARCH=${ARCH} INSTALL_PATH=${GITHUB_WORKSPACE}/rootfs/boot zinstall -j$(nproc)
-sudo make CROSS_COMPILE=riscv64-unknown-linux-gnu- ARCH=riscv INSTALL_MOD_PATH=${GITHUB_WORKSPACE}/rootfs/ modules_install -j$(nproc)
-sudo make CROSS_COMPILE=riscv64-unknown-linux-gnu- ARCH=riscv INSTALL_PATH=${GITHUB_WORKSPACE}/rootfs/boot zinstall -j$(nproc)
+#sudo make CROSS_COMPILE=${toolchain_tripe}  ARCH=${ARCH} INSTALL_PATH=${GITHUB_WORKSPACE}/rootfs/boot zinstall -j$(nproc)
 ```
 
 Build perf (build as needed)
@@ -97,11 +94,13 @@ Install kernel, device tree to target directory
 
 ```shell
 sudo cp -v arch/riscv/boot/Image ${GITHUB_WORKSPACE}/rootfs/boot
-sudo cp -v arch/riscv/boot/dts/thead/*.dtb ${GITHUB_WORKSPACE}/rootfs/boot/
+sudo cp -v arch/riscv/boot/dts/thead/{light-lpi4a.dtb,light-lpi4a-16gb.dtb} ${GITHUB_WORKSPACE}/rootfs/boot/
 popd
 ```
 
 After that, you only need to copy or overwrite the contents of the rootfs to the corresponding directory. Note that the kernel image and kernel module directories must correspond to each other, or else the peripheral functions will be disabled due to the missing kernel module.
+
+Starting from commit `c56347a43e850de287a2249d3d9118910718527b`, the kernel defaults to include a 16GB memory device tree, so 8G/16G share one kernel, with only uboot being different.
 
 ## Building uboot
 
@@ -115,10 +114,22 @@ Note that at this point, you are still in the th1520_build directory and have al
 
 ```shell
 pushd uboot
-make ARCH=${ARCH} CROSS_COMPILE=${toolchain_tripe} light_lpi4a_defconfig
-make ARCH=${ARCH} CROSS_COMPILE=${toolchain_tripe} -j$(nproc)
-find . -name "u-boot-with-spl.bin" | xargs -I{} cp -av {} ${GITHUB_WORKSPACE}/rootfs/u-boot-with-spl.bin
+# Build uboot for 16G memory version
+make light_lpi4a_16g_defconfig
+make -j$(nproc)
+find . -name "u-boot-with-spl.bin" | xargs -I{} cp -av {} ${GITHUB_WORKSPACE}/rootfs/u-boot-with-spl-lpi4a-16g.bin
+make clean
+# Build uboot for 8G memory version
+make light_lpi4a_defconfig
+make -j$(nproc)
+find . -name "u-boot-with-spl.bin" | xargs -I{} cp -av {} ${GITHUB_WORKSPACE}/rootfs/u-boot-with-spl-lpi4a.bin
+make clean
 popd
+```
+
+When flashing, pay attention to flash the uboot corresponding to the development board you are using. When flashing, please pay attention to the command you use. If the image version you are using is `0912` or above, you only need to run the following command to upgrade uboot:
+```shell
+sudo ./fastboot flash uboot u-boot-with-spl-lpi4a-16g.bin
 ```
 
 Check the output files

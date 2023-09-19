@@ -35,7 +35,7 @@ sudo apt update && \
 **kernel分支为lpi4a**
 **uboot分支为lpi4a**
 **opensbi分支为lpi4a**
-**各仓库请使用最新版本**
+
 
 ## 构建kernel
 
@@ -67,7 +67,7 @@ make CROSS_COMPILE=${toolchain_tripe} ARCH=${ARCH} -j$(nproc) dtbs
 if [ x"$(cat .config | grep CONFIG_MODULES=y)" = x"CONFIG_MODULES=y" ]; then
     sudo make CROSS_COMPILE=${toolchain_tripe}  ARCH=${ARCH} INSTALL_MOD_PATH=${GITHUB_WORKSPACE}/rootfs/ modules_install -j$(nproc)
 fi
-sudo make CROSS_COMPILE=${toolchain_tripe}  ARCH=${ARCH} INSTALL_PATH=${GITHUB_WORKSPACE}/rootfs/boot zinstall -j$(nproc)
+#sudo make CROSS_COMPILE=${toolchain_tripe}  ARCH=${ARCH} INSTALL_PATH=${GITHUB_WORKSPACE}/rootfs/boot zinstall -j$(nproc)
 ```
 
 构建perf（根据需要构建）
@@ -88,11 +88,12 @@ sudo cp -v kernel-commitid ${GITHUB_WORKSPACE}/rootfs/boot/
 
 ```shell
 sudo cp -v arch/riscv/boot/Image ${GITHUB_WORKSPACE}/rootfs/boot/
-sudo cp -v arch/riscv/boot/dts/thead/light-lpi4a.dtb ${GITHUB_WORKSPACE}/rootfs/boot/
+sudo cp -v arch/riscv/boot/dts/thead/{light-lpi4a.dtb,light-lpi4a-16gb.dtb} ${GITHUB_WORKSPACE}/rootfs/boot/
 popd
 ```
 
 之后只需要把rootfs中内容拷贝或覆盖到对应目录即可，注意内核Image和内核module目录一定要对应，不然会因缺失内核模块导致外设功能失效。
+从 commit `c56347a43e850de287a2249d3d9118910718527b` 开始，内核中默认包含 16GB 内存设备树，故 8G/16G 是共用一个 kernel，仅 uboot 有所区别。
 
 ## 构建uboot
 注意，此时仍在th1520_build目录下，且已经配置好环境变量和工具链，步骤参考构建kernel。
@@ -101,14 +102,27 @@ popd
 git clone https://github.com/revyos/thead-u-boot.git uboot
 ```
 
-然后开始执行编译命令
+然后开始执行编译命令。
+需要注意的是，8G 与 16G 内存版本使用的 uboot 不同，所以对应的构建命令也不同，基于此仓库构建命令如下：
 
 ```shell
 pushd uboot
-make ARCH=${ARCH} CROSS_COMPILE=${toolchain_tripe} light_lpi4a_defconfig
-make ARCH=${ARCH} CROSS_COMPILE=${toolchain_tripe} -j$(nproc)
-find . -name "u-boot-with-spl.bin" | xargs -I{} cp -av {} ${GITHUB_WORKSPACE}/rootfs/u-boot-with-spl.bin
+# 构建16G内存版本使用的uboot
+make light_lpi4a_16g_defconfig
+make -j$(nproc)
+find . -name "u-boot-with-spl.bin" | xargs -I{} cp -av {} ${GITHUB_WORKSPACE}/rootfs/u-boot-with-spl-lpi4a-16g.bin
+make clean
+# 构建8G内存版本使用的uboot
+make light_lpi4a_defconfig
+make -j$(nproc)
+find . -name "u-boot-with-spl.bin" | xargs -I{} cp -av {} ${GITHUB_WORKSPACE}/rootfs/u-boot-with-spl-lpi4a.bin
+make clean
 popd
+```
+
+烧录时注意烧录和你所使用的开发板所对应的 uboot。在烧录时请注意使用的命令，若使用的镜像版本为 `0912` 及以上版本，升级 uboot 只需要运行：
+```shell
+sudo ./fastboot flash uboot u-boot-with-spl-lpi4a-16g.bin
 ```
 
 检查输出的文件

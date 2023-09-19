@@ -136,16 +136,16 @@ items:
                 items:
                 -   label: revyos
                     file: lichee/th1520/lpi4a/7_develop_revyos.md
-                -   label: Linux 主线 (编写中)
-                    # file:
+                -   label: Linux 主线
+                    file: lichee/th1520/lpi4a/7_develop_mainline.md
                 -   label: Android
                     file: lichee/th1520/lpi4a/7_develop_android.md
                 -   label: THead Yocto
                     file: lichee/th1520/lpi4a/7_develop_thead.md
                 -   label: OpenHarmony (编写中)
                     # file:
-                -   label: OpenWRT (编写中)
-                    # file:
+                -   label: OpenWRT
+                    file: lichee/th1520/lpi4a/7_develop_openwrt.md
             -   label: 典型应用
                 file: lichee/th1520/lpi4a/8_application.md
             -   label: CPU 跑分测试
