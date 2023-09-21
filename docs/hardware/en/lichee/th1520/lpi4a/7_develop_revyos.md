@@ -116,12 +116,12 @@ Note that at this point, you are still in the th1520_build directory and have al
 pushd uboot
 # Build uboot for 16G memory version
 make light_lpi4a_16g_defconfig
-make -j$(nproc)
+make CROSS_COMPILE=${toolchain_tripe} ARCH=${ARCH} -j$(nproc)
 find . -name "u-boot-with-spl.bin" | xargs -I{} cp -av {} ${GITHUB_WORKSPACE}/rootfs/u-boot-with-spl-lpi4a-16g.bin
 make clean
 # Build uboot for 8G memory version
 make light_lpi4a_defconfig
-make -j$(nproc)
+make CROSS_COMPILE=${toolchain_tripe} ARCH=${ARCH} -j$(nproc)
 find . -name "u-boot-with-spl.bin" | xargs -I{} cp -av {} ${GITHUB_WORKSPACE}/rootfs/u-boot-with-spl-lpi4a.bin
 make clean
 popd

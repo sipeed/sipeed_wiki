@@ -109,12 +109,12 @@ git clone https://github.com/revyos/thead-u-boot.git uboot
 pushd uboot
 # 构建16G内存版本使用的uboot
 make light_lpi4a_16g_defconfig
-make -j$(nproc)
+make CROSS_COMPILE=${toolchain_tripe} ARCH=${ARCH} -j$(nproc)
 find . -name "u-boot-with-spl.bin" | xargs -I{} cp -av {} ${GITHUB_WORKSPACE}/rootfs/u-boot-with-spl-lpi4a-16g.bin
 make clean
 # 构建8G内存版本使用的uboot
 make light_lpi4a_defconfig
-make -j$(nproc)
+make CROSS_COMPILE=${toolchain_tripe} ARCH=${ARCH} -j$(nproc)
 find . -name "u-boot-with-spl.bin" | xargs -I{} cp -av {} ${GITHUB_WORKSPACE}/rootfs/u-boot-with-spl-lpi4a.bin
 make clean
 popd
