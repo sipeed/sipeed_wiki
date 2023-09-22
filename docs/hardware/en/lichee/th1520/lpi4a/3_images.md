@@ -57,50 +57,56 @@ Download Links:
 Mega Cloud Storage：[click me](https://mega.nz/folder/phoQlBTZ#cZeQ3qZ__pDvP94PT3_bGA)
 ISCAS mirror: [click me](https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/)
 
-1. LPI4A_20230912.zip
+1. LPI4A_20230920.zip
 
-    - Release date: September 12, 2023
+    - Release date: September 20, 2023
     - Kernel: 5.10
     - Root file system: ext4, 4.3GB
     - Main pre-installed packages:
        - Development
        - Office
+       - Media player Parole that supports playing 4K videos
     - Fixed issues:
-       - HDMI display device and HDMI audio device recognition issues
-       - Fix bluetooth issue, now bluetooth devices function normally, and bluetooth headsets can also play audio normally
-       - Add auto-login, password-free sudo functionality
-       - Fixed the problem that the browser shortcut in the launch bar at the bottom of the desktop is not available, now you can click here to enter chromium
-       - Fix the problem that the kernel panic will occur when the USB camera is connected for a long time
-       - Fix 16GB memory recognition problem, please update this image if you need to fully recognize 16GB memory
-    - Known issues:
-       - There is a problem with the sound quality of HDMI audio playing under chromium
+       - Fixed HDMI display device and HDMI audio device identification issues
+       - Fixed Bluetooth issues, Bluetooth devices now work properly, Bluetooth headphones can also play audio normally
+       - Fixed the issue where browser shortcuts in the bottom launch bar on the desktop were not working, now you can click here to launch Chromium
+       - Fixed the kernel panic issue that occurred after connecting a USB camera for a long time
+       - Fixed the 16GB memory recognition issue, to fully recognize 16GB memory please update this image
+       - Fixed the audio quality issue when playing HDMI audio in Chromium
     - Instructions for use:
+       - This image has auto login enabled, the default login user is sipeed
+       - This image has passwordless sudo enabled
+       - This image will automatically load NPU related drivers, no need for manual initialization
        - This zip file only supports HDMI display, when burning, please note that the suffix in the file name corresponds to the relevant parameters of the device.
          - u-boot with 16g suffix is u-boot that supports 16g memory, without suffix is u-boot that supports 8g memory.
 
-2. LPI4A_20230912_MIPI.zip
+2. LPI4A_20230920_MIPI.zip
 
-    - Release date: September 12, 2023
+    - Release date: September 20, 2023
     - Kernel: 5.10
     - Root file system: ext4, 4.3GB
     - Main pre-installed packages:
        - Development
        - Office
+       - Media player Parole that supports playing 4K videos
     - Fixed issues:
-       - HDMI display device and HDMI audio device recognition issues
-       - Fix bluetooth issue, now bluetooth devices function normally, and bluetooth headsets can also play audio normally
-       - Add auto-login, password-free sudo functionality
-       - Fixed the problem that the browser shortcut in the launch bar at the bottom of the desktop is not available, now you can click here to enter chromium
-       - Fixed a problem that may cause a kernel panic when the USB camera is connected for a long time
-       - Fix 16GB memory recognition problem, please update this image if you need to fully recognize 16GB memory
+       - Fixed HDMI display device and HDMI audio device identification issues
+       - Fixed Bluetooth issues, Bluetooth devices now work properly, Bluetooth headphones can also play audio normally
+       - Fixed the issue where browser shortcuts in the bottom launch bar on the desktop were not working, now you can click here to enter Chromium
+       - Fixed the kernel panic issue that might occur after connecting a USB camera for a long time
+       - Fixed the 16GB memory recognition issue, to fully recognize 16GB memory please update this image
+       - Fixed the audio quality issue when playing HDMI audio in Chromium
+       - Fixed the issue of missing font pixels when using dual different displays
     - Known issues:
-       - Under dual-screen different display, when the MIPI screen is used as an extended display, the resolution is low, resulting in some blurred fonts
        - When the MIPI screen is not connected, the system will still recognize it as connected, temporarily need to manually turn off the output of the MIPI screen in the settings
           - Switch to root user, execute `echo off > /sys/class/drm/card0-DSI-1/status`
        - For the time being, the brightness of the MIPI screen can only be adjusted by manually writing a value
           - Switch to root user, execute `echo brightness value (integer value from 0-7) > /sys/class/backlight/pwm-backlight@0/brightness`
        - There is a problem with the sound quality of HDMI audio playing under chromium
     - Instructions for use:
+      - This image has auto login enabled, the default login user is sipeed
+      - This image has passwordless sudo enabled
+      - This image will automatically load NPU related drivers, no need for manual initialization
       - This zip file is the image of the MIPI screen, please note that the suffix in the file name corresponds to the relevant parameters of the device when burning.
          - u-boot with 16g suffix is u-boot that supports 16g memory, without suffix is u-boot that supports 8g memory.
 
