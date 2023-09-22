@@ -1409,7 +1409,7 @@ The bunny hopped and hopped until he saw a shiny silver carrot. He was so excite
 achieved tok/s: 52.043098
 ```
 
-### OnnxStream
+### Stable Diffusion
 
 [项目地址](https://github.com/vitoplantamura/OnnxStream)
 
