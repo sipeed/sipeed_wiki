@@ -152,6 +152,8 @@ items:
                 file: lichee/th1520/lpi4a/9_benchmark.md
             -   label: 硬件测试报告
                 file: lichee/th1520/lpi4a/10_test_report.md
+            -   label: 常见问题
+                file: lichee/th1520/lpi4a/12_faq.md
             -   label: 致谢
                 file: lichee/th1520/lpi4a/11_credits.md
     -   label: LicheePI RV

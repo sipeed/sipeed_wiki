@@ -115,36 +115,40 @@ items:
             file: lichee/th1520/lm4a.md
         -   label: Lichee PI 4A
             items:
-            -   label: Introduction(Work in Progress)
+            -   label: Introduction
                 file: lichee/th1520/lpi4a/1_intro.md
-            -   label: Unbox guide(Work in Progress)
+            -   label: Unbox guide
                 file: lichee/th1520/lpi4a/2_unbox.md
-            -   label: Image summary(Work in Progress)
+            -   label: Image summary
                 file: lichee/th1520/lpi4a/3_images.md
-            -   label: Burn image(Work in Progress)
+            -   label: Burn image
                 file: lichee/th1520/lpi4a/4_burn_image.md
-            -   label: Desktop usage(Work in Progress)
+            -   label: Desktop usage
                 file: lichee/th1520/lpi4a/5_desktop.md
-            -   label: Peripheral(Work in Progress)
+            -   label: Peripheral
                 file: lichee/th1520/lpi4a/6_peripheral.md
             -   label: System building
                 items:
                 -   label: revyos
                     file: lichee/th1520/lpi4a/7_develop_revyos.md
                 -   label: Linux Mainline (Work in Progress)
+                    file: lichee/th1520/lpi4a/7_develop_mainline.md
                 -   label: Android
                     file: lichee/th1520/lpi4a/7_develop_android.md
                 -   label: THead Yocto
                     file: lichee/th1520/lpi4a/7_develop_thead.md
                 -   label: OpenHarmony (Work in Progress)
-                -   label: OpenWRT (Work in Progress)
-            -   label: Application(Building)
+                -   label: OpenWRT
+                    file: lichee/th1520/lpi4a/7_develop_openwrt.md
+            -   label: Application
                 file: lichee/th1520/lpi4a/8_application.md
-            -   label: Benchmark(Building)
+            -   label: Benchmark
                 file: lichee/th1520/lpi4a/9_benchmark.md
-            -   label: Hardware report(Building)
+            -   label: Hardware report
                 file: lichee/th1520/lpi4a/10_test_report.md
-            -   label: Credits(Building)
+            -   label: FAQ
+                file: lichee/th1520/lpi4a/12_faq.md
+            -   label: Credits
                 file: lichee/th1520/lpi4a/11_credits.md
     -   label: Lichee RV
         collapsed: false
