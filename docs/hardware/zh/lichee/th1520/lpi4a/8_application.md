@@ -1700,6 +1700,13 @@ sudo apt install libqt5gui5-gles
 sudo apt install kdenlive
 ```
 
+若通过上面的命令安装的 Kdenlive 无法正常运行，可以尝试运行下面的命令：
+```shell
+sudo apt update
+sudo apt reinstall libqt5gui5-gles
+sudo apt reinstall kdenlive
+```
+
 安装完成后即可使用命令打开 kdenlive：
 ```shell
 kdenlive

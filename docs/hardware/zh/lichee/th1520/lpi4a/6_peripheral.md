@@ -823,7 +823,7 @@ echo off > /sys/class/drm/card0-DSI-1/status
 
 ![jtag_connect_pin](./assets/peripheral/jtag_connect_pin.jpg)
 
-连接到 JTAG 调试器后，在串口中使用 memtool 工具设置一下 pinmux：
+连接到 JTAG 调试器后，在串口中使用 memtool 工具设置一下 pinmux（这一步是在开发板上执行，memtool工具也是在开发板中安装）：
 ```shell
 sudo apt install memtool
 sudo memtool mw 0xfffff4a404 0

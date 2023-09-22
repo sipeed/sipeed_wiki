@@ -838,7 +838,7 @@ After completing the above steps, connect to the debugger using dupont wires thr
 
 ![jtag_connect_pin](./../../../../zh/lichee/th1520/lpi4a/assets/peripheral/jtag_connect_pin.jpg)
 
-After connecting to the JTAG debugger, use the memtool tool in the serial port to set up pinmux:
+After connecting to the JTAG debugger, use the memtool in the serial port to set up pinmux(This step runs on the LPI4A board, the memtool is also installed on the LPI4A board):
 ```shell
 sudo apt install memtool
 sudo memtool mw 0xfffff4a404 0
