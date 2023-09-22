@@ -874,12 +874,8 @@ When playing video with Chromium browser, the state of GPU is as follows:
 
 ## NPU
 
-> **Note**: To use the NPU driver, you need to upgrade to the [20230912](https://mega.nz/folder/phoQlBTZ#cZeQ3qZ__pDvP94PT3_bGA) version image.
+> **Note**: To use the NPU driver, you need to upgrade to the [20230920](https://mega.nz/folder/phoQlBTZ#cZeQ3qZ__pDvP94PT3_bGA) version image, this image will automatically load NPU related drivers on boot.
 
-NPU-related driver initialization commands 
-```shell
-sudo npu_init
-```
 LicheePi4A contains a 1GHz NPU supporting 4TOPS@INT8 general purpose NNA computing power. The Wiki contains examples of NPU support as follows:
  
 |Example Name|Example Functionality|Usage Model|Interface|HHB Version| 

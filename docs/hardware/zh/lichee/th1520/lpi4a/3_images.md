@@ -55,50 +55,56 @@ sudo ./fastboot flash boot ./images/boot.ext4
 Mega 云盘：[点我](https://mega.nz/folder/phoQlBTZ#cZeQ3qZ__pDvP94PT3_bGA)
 ISCAS 镜像站：[点我](https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/)
 
-1. LPI4A_20230912.zip
+1. LPI4A_20230920.zip
 
-   - 发布日期：2023年9月12日
+   - 发布日期：2023年9月20日
    - 内核：5.10
    - 根文件系统：ext4, 4.3GB
    - 主要预装软件包：
       - 开发类
       - 办公类
+      - 支持播放4K视频的播放器 Parole
    - 修复问题：
       - HDMI 显示设备和 HDMI 音频设备识别问题
       - 修复蓝牙问题，现在蓝牙设备功能正常，蓝牙耳机也能正常播放音频
-      - 添加自动登录，免密码 sudo 功能
       - 修复桌面底部启动栏浏览器快捷方式不可用的问题，现在能点击这里进入 chromium
       - 修复在长时间连接 USB 摄像头情况下，会导致 kernel panic 的问题
       - 修复16GB内存识别问题，需完全识别16GB内存请更新此镜像
-   - 已知问题：
-      - HDMI 音频在 chromium 下播放音质有问题
+      - 修复HDMI 音频在 chromium 下播放音质的问题
    - 使用说明：
+      - 该镜像开启了自动登陆，默认登陆用户为 sipeed；
+      - 该镜像开启了免密码 sudo 功能；
+      - 该镜像会自动加载 NPU 相关的驱动，无需手动初始化;
       - 该压缩包为仅支持 HDMI 显示，烧录时请注意文件名中的后缀和设备相关参数对应
          - u-boot 带 16g 后缀的为支持 16g 内存的u-boot，不带后缀的为支持 8g 内存的 u-boot
 
-2. LPI4A_20230912_MIPI.zip
+2. LPI4A_20230920_MIPI.zip
 
-   - 发布日期：2023年9月12日
+   - 发布日期：2023年9月20日
    - 内核：5.10
    - 根文件系统：ext4, 4.3GB
    - 主要预装软件包：
       - 开发类
       - 办公类
+      - 支持播放4K视频的播放器 Parole
    - 修复问题：
       - HDMI 显示设备和 HDMI 音频设备识别问题
       - 修复蓝牙问题，现在蓝牙设备功能正常，蓝牙耳机也能正常播放音频
-      - 添加自动登录，免密码 sudo 功能
       - 修复桌面底部启动栏浏览器快捷方式不可用的问题，现在能点击这里进入 chromium
       - 修复在长时间连接 USB 摄像头情况下，可能会导致 kernel panic 的问题
       - 修复16GB内存识别问题，需完全识别16GB内存请更新此镜像
+      - 修复HDMI 音频在 chromium 下播放音质的问题
+      - 修复双屏异显时字体显示像素缺失的问题
    - 已知问题：
-      - 双屏异显下，MIPI 屏幕作扩展显示器时分辨率较低，导致字体有些模糊
       - 在没连接 MIPI 屏幕时，系统仍会识别为连接，暂时需要在设置中手动关闭 MIPI 屏幕的输出
          - 切换为 root 用户，执行`echo off > /sys/class/drm/card0-DSI-1/status`
       - MIPI 屏幕暂时只能通过手动写值调节亮度
          - 切换为 root 用户，执行`echo 亮度值(0-7的整数值) > /sys/class/backlight/pwm-backlight@0/brightness`
       - HDMI 音频在 chromium 下播放音质有问题
    - 使用说明：
+      - 该镜像开启了自动登陆，默认登陆用户为 sipeed；
+      - 该镜像开启了免密码 sudo 功能；
+      - 该镜像会自动加载 NPU 相关的驱动，无需手动初始化;
       - 该压缩包为支持 MIPI 屏幕的镜像，烧录时请注意文件名中的后缀和设备相关参数对应
          - u-boot 带 16g 后缀的为支持 16g 内存的u-boot，不带后缀的为支持 8g 内存的 u-boot
 

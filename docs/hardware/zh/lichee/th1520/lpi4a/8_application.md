@@ -266,10 +266,7 @@ scp -r ../onnx_mobilenetv2_c++ sipeed@你的开发板ip:~
 ```shell
 lsmod
 ```
-若在输出中有 `img_mem`，`vha` 和 `vha_info` 这三个模块，NPU驱动即加载成功，若没有则可以先运行下面的命令手动加载一下：
-```shell
-sudo npu_init
-```
+若在输出中有 `img_mem`，`vha` 和 `vha_info` 这三个模块，NPU驱动即加载成功。
 
 参考 [YOLOX章节](https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/8_application.html#YOLOX-%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B) 安装并配置好 python 虚拟环境：
 ```shell
@@ -474,10 +471,7 @@ scp -r ../yolov5n sipeed@你的开发板ip:~
 ```shell
 lsmod
 ```
-若在输出中有 `img_mem`，`vha` 和 `vha_info` 这三个模块，NPU驱动即加载成功，若没有则可以先运行下面的命令手动加载一下：
-```shell
-sudo npu_init
-```
+若在输出中有 `img_mem`，`vha` 和 `vha_info` 这三个模块，NPU驱动即加载成功。
 
 参考 [YOLOX章节](https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/8_application.html#YOLOX-%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B) 安装并配置好 python 虚拟环境：
 ```shell
@@ -596,7 +590,7 @@ id:     label   score           x1              y1              x2              
 
 ### 环境配置
 在 x86 主机中，参考[外设使用](https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/6_peripheral.html#NPU)文档搭建好 NPU 使用相关环境后，进入到 HHB 环境的 Docker 镜像中。
-在 1520 上，使用 `sudo npu_init` 命令将 NPU 驱动初始化，并参考 [YOLOX章节](https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/8_application.html#YOLOX-%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B) 安装并配置好 python 虚拟环境。
+在 1520 上，参考 [YOLOX章节](https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/8_application.html#YOLOX-%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B) 安装并配置好 python 虚拟环境。
 
 ### CPU
 
@@ -1409,7 +1403,7 @@ The bunny hopped and hopped until he saw a shiny silver carrot. He was so excite
 achieved tok/s: 52.043098
 ```
 
-### OnnxStream
+### Stable Diffusion
 
 [项目地址](https://github.com/vitoplantamura/OnnxStream)
 

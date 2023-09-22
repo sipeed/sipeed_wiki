@@ -859,12 +859,7 @@ sudo watch cat /sys/kernel/debug/pvr/status
 
 ## NPU
 
-> **注意**：使用 NPU 驱动，需要升级到[20230912](https://pan.baidu.com/e/1xH56ZlewB6UOMlke5BrKWQ)版本镜像。
-
-NPU 相关驱动初始化命令
-```shell
-sudo npu_init
-```
+> **注意**：使用 NPU 驱动，需要升级到[20230920](https://pan.baidu.com/e/1xH56ZlewB6UOMlke5BrKWQ)版本镜像，该镜像开机会自动加载 NPU 相关驱动。
 
 LicheePi4A 板载了一颗支持 4TOPS@INT8 通用 NNA 算力，主频 1GHz 的 NPU。Wiki 中包含的支持 NPU 的示例如下：
 

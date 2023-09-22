@@ -264,10 +264,7 @@ First confirm whether the driver in the development board is loaded:
 ```shell
 lsmod
 ```
-If there are 'img_mem', 'vha' and 'vha_info' in the output of the three modules, the NPU driver is loaded successfully, if not, you can run the following command to manually load it:
-```shell
-sudo npu_init
-```
+If there are 'img_mem', 'vha' and 'vha_info' in the output of the three modules, the NPU driver is loaded successfully.
 
 Refer to [YOLOX](https://wiki.sipeed.com/hardware/en/lichee/th1520/lpi4a/8_application.html#YOLOX-Target-Detection) Install and configure the python virtual environment:
 ```shell
@@ -472,9 +469,7 @@ First confirm whether the driver in the development board is loaded:
 ```shell
 lsmod
 ```
-If there are 'img_mem', 'vha' and 'vha_info' in the output of the three modules, the NPU driver is loaded successfully, if not, you can run the following command to manually load it:
-```shell
-sudo npu_init
+If there are 'img_mem', 'vha' and 'vha_info' in the output of the three modules, the NPU driver is loaded successfully.
 ```
 
 Refer to [YOLOX](https://wiki.sipeed.com/hardware/en/lichee/th1520/lpi4a/8_application.html#YOLOX-Target-Detection) Install and configure the python virtual environment:
@@ -594,7 +589,7 @@ Referring to the compilation steps for yolov5n, simply replace the yolov5n. onnx
 
 ### Setup
 On an x86 host, after setting up the NPU usage environment according to the [peripheral](https://wiki.sipeed.com/hardware/en/lichee/th1520/lpi4a/6_peripheral.html#NPU) documentation, go into the Docker image of the HHB environment.
-On the 1520, initialize the NPU driver with `sudo npu_init` and install and configure the python virtual environment refer to [YOLOX](https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/8_application.html#YOLOX-%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B).
+On the 1520, configure the python virtual environment refer to [YOLOX](https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/8_application.html#YOLOX-%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B).
 
 ### CPU
 
@@ -1359,7 +1354,7 @@ The bunny hopped and hopped until he saw a shiny silver carrot. He was so excite
 achieved tok/s: 52.043098
 ```
 
-### OnnxStream
+### Stable Diffusion
 
 [OnnxStream](https://github.com/vitoplantamura/OnnxStream)
 
