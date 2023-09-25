@@ -13,7 +13,7 @@ update:
 
 Tang Mega 138K 使用 22nm 制程 GW5AST-LV138FPG676A FPGA 芯片，具有 138240 个查找表单元和近 300 个 DSP 单元。含有八个速度范围在 270Mbps ~ 12.5Gbps 高速收发器，适合用于光纤或者 PCIE 等高速口传递数据。此外，芯片含有硬核 PCIE，在使用 PCIE 的时候消耗更好的资源，并且得到更佳的性能。适用于高速通信、协议转换、高性能计算等场合。
 
-淘宝购买链接：[点我](https://item.taobao.com/item.htm?id=717932028073)
+淘宝购买链接：[点我](https://item.taobao.com/item.htm?id=740536508140)
 
 ## 板卡特点
 
@@ -124,7 +124,7 @@ Tang Mega 138K 使用 22nm 制程 GW5AST-LV138FPG676A FPGA 芯片，具有 13824
 		<tr>
 			<td style="text-align:left">内存</td>
 			<td style="text-align:left">1GB DDR3</td>
-			<td style="text-align:left">512M x 2</td>
+			<td style="text-align:left">512MB x 2</td>
 		</tr>
 		<tr>
 			<td style="text-align:left">Flash</td>
@@ -141,11 +141,6 @@ Tang Mega 138K 使用 22nm 制程 GW5AST-LV138FPG676A FPGA 芯片，具有 13824
 			<td style="text-align:left">50mm x 70mm 大小</td>
 			<td style="text-align:left">BTB连接器连接核心板和底板</td>
 		</tr>
-		<!-- <tr>
-			<td style="text-align:left">可用 IO</td>
-			<td style="text-align:left">一共 117 个</td>
-			<td style="text-align:left"></td>
-		</tr> -->
 	</tbody>
 </table>
 
@@ -181,32 +176,24 @@ Tang Mega 138K 使用 22nm 制程 GW5AST-LV138FPG676A FPGA 芯片，具有 13824
 | 电源开关            | 1    |                                                   |
 | 12V DC              | 1    |                                                   |
 
-## 外设框图
-
-![tang_mega_138k_function_map](./assets/tang_mega_138k_function_map.png)
-
-## 尺寸图
-
-## 产品对比
-
 ## 硬件资料
 
 [板卡规格书](https://dl.sipeed.com/shareURL/TANG/Nano_20K/1_Datasheet)
-[板卡原理图](https://dl.sipeed.com/shareURL/TANG/Nano_20K/2_Schematic)
-[PCB BOM](https://dl.sipeed.com/shareURL/TANG/Primer_20K/03_Bit_number_map) (根据自己板子的版本查看里面的 html 文件)
-[板卡尺寸图](https://dl.sipeed.com/shareURL/TANG/Nano_20K/4_Dimensional_drawing)
-[板卡 3D 模型](https://dl.sipeed.com/shareURL/TANG/Nano_20K/4_Dimensional_drawing)
-[部分芯片手册](https://dl.sipeed.com/shareURL/TANG/Nano_20K/6_Chip_manual)
+[板卡原理图](https://dl.sipeed.com/shareURL/TANG/Mega_138K_Pro/02_Schematic)
+[PCB BOM](https://dl.sipeed.com/shareURL/TANG/Mega_138K_Pro/03_Designator_drawing)
+[板卡尺寸图](https://dl.sipeed.com/shareURL/TANG/Mega_138K_Pro/04_Mechanical_drawing)
+[板卡 3D 模型](https://dl.sipeed.com/shareURL/TANG/Mega_138K_Pro/05_3D_file)
+[部分芯片手册](https://dl.sipeed.com/shareURL/TANG/Mega_138K_Pro/07_Datasheet)
 
 ## 上手使用
 
 安装 IDE -> 编写代码 -> 烧录进板子
 
-- 安装 IDE [点我](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/get_started/install-the-ide.html)
+<!-- - 安装 IDE [点我](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/get_started/install-the-ide.html)
 - 开箱说明 [点我](https://wiki.sipeed.com/hardware/zh/tang/tang-nano-20k/example/unbox.html)
-- 点灯上手指南 [点我](https://wiki.sipeed.com/hardware/zh/tang/tang-nano-20k/example/led.html)
+- 点灯上手指南 [点我](https://wiki.sipeed.com/hardware/zh/tang/tang-nano-20k/example/led.html) -->
 
-更多例程代码 [github](https://github.com/sipeed/TangNano-20K-example)
+例程代码 [github](https://github.com/sipeed/TangMega-138KPro-example)
 
 ### 其他学习资源
 
@@ -217,7 +204,7 @@ Tang Mega 138K 使用 22nm 制程 GW5AST-LV138FPG676A FPGA 芯片，具有 13824
 
 ## 交流方式
 
-- **交流论坛: [bbs.sipeed.com](https://bbs.sipeed.com)**
+- **交流论坛: [maixhub.com/discussion](https://maixhub.com/discussion)**
 - **QQ 交流群：[834585530](https://jq.qq.com/?_wv=1027&k=wBb8XUan)**
 - 直接本页下方留言
 - 商业邮箱 : [support@sipeed.com](support@sipeed.com)
@@ -230,7 +217,11 @@ Tang Mega 138K 使用 22nm 制程 GW5AST-LV138FPG676A FPGA 芯片，具有 13824
         <th>注意事项</th>
     </tr>
     <tr>
-        <td>说明</td>
+        <td>芯片型号</td>
+        <td>Tang Mega 138K Pro 使用的 FPGA 芯片具体型号是 GW5AST-LV138FPG676A ，在 IDE 中选择封装型号 FCPBG676A</td>
+    </tr>
+    <tr>
+        <td>静电</td>
         <td>请避免静电打到 PCBA 上；接触 PCBA 之前请把手的静电释放掉</td>
     </tr>
     <tr>
@@ -258,3 +249,10 @@ Tang Mega 138K 使用 22nm 制程 GW5AST-LV138FPG676A FPGA 芯片，具有 13824
 ## 联系
 
 Tang Mega 138K 可以在多种场景实现客户不同方面的需要，技术支持和商业合作请联系邮箱 [support@sipeed.com](support@sipeed.com)
+
+## 常见问题
+
+### 板子通电后电源灯没亮
+
+1. 请检查是否开启了板子的电源开关。
+2. 检查自己的供电方式。

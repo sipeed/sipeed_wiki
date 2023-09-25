@@ -224,7 +224,6 @@ items:
                 file: tang/Tang-Nano-Doc/questions.md
                 target: _blank
         -   label: Tang Primer 25K
-            # file:
         -   label: Tang Primer (售罄)
             file: tang/Tang-primer/Tang-primer.md
             items:
@@ -243,6 +242,16 @@ items:
             -   label: FPGA码流烧录
                 file: tang/Tang-primer/get_started/fpga_download.md
     -   label: Tang Mega
+        items:
+        -   label: Tang Mega 138K Pro
+            items:
+            -   label: 板卡介绍
+                file: tang/tang-mega-138k/mega-138k.md
+            -   label: 安装 IDE
+                file: tang/Tang-Nano-Doc/get_started/install-the-ide.md
+            -   label: 常见问题
+                file: tang/Tang-Nano-Doc/questions.md
+                target: _blank
 -   label: MaixSense
     file: maixsense/readme.md
     items:
