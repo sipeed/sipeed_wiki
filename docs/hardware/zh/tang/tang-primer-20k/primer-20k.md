@@ -66,7 +66,7 @@ Tang Primer 20K 是基于 [GW2A-LV18PG256C8/I7](http://www.gowinsemi.com.cn/prod
 		<tr>
 			<td style="text-align:left">内存</td>
 			<td style="text-align:left">128M DDR3</td>
-			<td style="text-align:left">128Meg x 16</td>
+			<td style="text-align:left"></td>
 		</tr>
 		<tr>
 			<td style="text-align:left">Flash</td>

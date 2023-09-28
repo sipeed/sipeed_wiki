@@ -75,7 +75,7 @@ Buy it: [Aliexpress](https://www.aliexpress.com/item/1005004653308809.html)
 		<tr>
 			<td style="text-align:left">Memory</td>
 			<td style="text-align:left">128M DDR3</td>
-			<td style="text-align:left">13Row x 10Col x 8banks x 16bits</td>
+			<td style="text-align:left"></td>
 		</tr>
 		<tr>
 			<td style="text-align:left">Flash</td>
