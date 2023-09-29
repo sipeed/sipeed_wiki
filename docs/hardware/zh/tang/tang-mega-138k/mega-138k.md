@@ -178,7 +178,7 @@ Tang Mega 138K 使用 22nm 制程 GW5AST-LV138FPG676A FPGA 芯片，具有 13824
 
 ## 硬件资料
 
-[板卡规格书](https://dl.sipeed.com/shareURL/TANG/Mega_138K_Pro/1_Datasheet)
+[板卡规格书](https://dl.sipeed.com/shareURL/TANG/Mega_138K_Pro/01_Specification)
 [板卡原理图](https://dl.sipeed.com/shareURL/TANG/Mega_138K_Pro/02_Schematic)
 [PCB BOM](https://dl.sipeed.com/shareURL/TANG/Mega_138K_Pro/03_Designator_drawing)
 [板卡尺寸图](https://dl.sipeed.com/shareURL/TANG/Mega_138K_Pro/04_Mechanical_drawing)
