@@ -2,25 +2,25 @@
 
 ## Use Dock motherboard
 
-### Connnect Board
+### Connect Board
 
 - We can easily note the TX and RX pins marked on the bottom of motherboard, so we can use serial port of the ttl level wo communicate with computer(Both Tina and Debian os are OK).
 
 - For Tina OS we can use typeC cable to connect the core board with computer and use adb shell to communicate.
 
-- For Debian OS we can use keyboard and mouse to contorl the system.
+- For Debian OS we can use keyboard and mouse to control the system.
 
 #### Notes about Debian
 
 It may run slow because of the speed of TF card.
 
-The users name is `root` and passwork is `licheepi`
+The users name is `root` and password is `licheepi`
 
 **When using serial port connets board it always print kernel message, do following steps to stop it:**
 - Edit `/etc/rsyslog.conf` by root and change `*.emerg` located in lht last line into `#*.emerg` in this file
 - Restart rsyslog service by this command `/etc/init.d/rsyslog restart`
 
-**Want to use termial in GUI**
+**Want to use terminal in GUI**
 - Use command `Alt+F2` to run "run", then input `termit` to open a terminal.
 
 ### Light LED
@@ -68,7 +68,7 @@ echo 0 > /sys/class/gpio/gpio64/value   #Set IO low  voltage level
 
 This is the easiest way to control IO.
 
-We shoule cancel export if we don't use this IO.
+We should cancel export if we don't use this IO.
 
 ```bash
 echo 64 > /sys/class/gpio/unexport    # cancel export GPIO64
@@ -194,7 +194,7 @@ If the USB flash disk has not been formatted, you can use `mkfs.vfat` command to
 
 It's not supported to use command line to connect network
 
-  Click System menu -> Preferenes -> Connman Settings，Enable Network Settings ，check whether the interface in the network property is wlan0. Double click the network name and input WiFi password to connect wifi.
+  Click System menu -> Preferences -> Connman Settings，Enable Network Settings ，check whether the interface in the network property is wlan0. Double click the network name and input WiFi password to connect wifi.
 
   ![](./../../../zh/lichee/assets/RV/wifi-1.jpg)
 
@@ -242,7 +242,7 @@ Recording command：
 ffmpeg -f fbdev -framerate 10 -i /dev/fb0 record.avi
 ```
 
-Play commamd (They are play audio from speaker and HDMI)
+Play command (They are play audio from speaker and HDMI)
 
 ```
 ffmpeg -i /mnt/UDISK/badapple_640480_xvid.mp4 -pix_fmt bgra -f fbdev /dev/fb0 -f alsa hw:0,0  ## speaker
@@ -340,7 +340,7 @@ ts_finddev    ts_print      ts_print_raw  ts_test_mt    tshowimg
 
 To make it easy for user to develop custom function, Sipeed provide bsp docker image of LicheeRV.
 
-Download link:[Mege netdisk](https://mega.nz/folder/lx4CyZBA#PiFhY7oSVQ3gp2ZZ_AnwYA)
+Download link:[Mega netdisk](https://mega.nz/folder/lx4CyZBA#PiFhY7oSVQ3gp2ZZ_AnwYA)
 
 After finishing downloading docker file, decompress into tar file.
 
@@ -349,7 +349,7 @@ gzip -d licheerv_d1_compile.tar.gz                                #Decompress in
 docker import licheerv_d1_compile.tar licheerv_d1_compile:latest  #import docker image
 ```
 
-After succeed running it's suggessted to relogin and username `nihao` password `sipeed123`
+After succeed running it's suggested to relogin and username `nihao` password `sipeed123`
 
 ```bash
 sudo docker run -it licheerv_d1_compile:latest /bin/bash # Start D1 compile docker image in interactive mode
