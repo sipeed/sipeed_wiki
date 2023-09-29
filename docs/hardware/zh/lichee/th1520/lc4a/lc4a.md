@@ -177,7 +177,7 @@ XXXX为mac地址后四位，用于区分每个slot
 
 集群中的LM4A SOM可以直接使用LicheePi4A的镜像.
 
-如果需要使能USB，可以在Linux设备树中应用以下PATCH: [点我下载](https://dl.sipeed.com/fileList/LICHEE/LicheeCluster4A/lpi4a/src/linux/0001-arch-riscv-boot-dts-lpi4a-disable-i2c-io-expander-fo.patch)
+如果需要使能USB，可以在Linux设备树中应用以下PATCH: [点我下载](https://dl.sipeed.com/fileList/LICHEE/LicheeCluster4A/04_Firmware/lpi4a/src/linux/0001-arch-riscv-boot-dts-lpi4a-disable-i2c-io-expander-fo.patch)
 
 或者直接使用预编译镜像：[点我下载](https://dl.sipeed.com/shareURL/LICHEE/LicheeCluster4A/04_Firmware/lpi4a/bin)
 
