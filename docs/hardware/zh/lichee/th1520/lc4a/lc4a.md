@@ -201,7 +201,7 @@ bmaptool copy obmc-phosphor-image-licheepi-rv.wic.gz /dev/YOUR_SDCARD
 
 默认用户名: `root`
 
-默认密码:   `0penBmc`
+默认密码: `0penBmc`
 
 0 是零，不是 O
 
