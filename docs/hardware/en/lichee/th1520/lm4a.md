@@ -67,4 +67,4 @@ The LicheePi 4A Module is the Core Module using the [T-Head](https://www.t-head.
 ## Links
 
 [Github](https://github.com/sipeed/LicheePi4A)
-[Sipeed Download station(Blank now)]()
+[Sipeed Download station](https://dl.sipeed.com/shareURL/LICHEE/licheepi4a/01_Specification)
