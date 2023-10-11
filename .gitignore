@@ -6,3 +6,4 @@ temp
 .qiniu_pythonsdk_hostscache.json
 *.temp
 *.mo
+.venv
