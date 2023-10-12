@@ -32,10 +32,10 @@ M4N-Dock 是 Sipeed 公司推出的端侧混合精度高算力边缘计算盒子
 
 ### 硬件相关资料汇总
 
-AX650N 芯片规格书：<下载站>
+AX650N 芯片规格书：https://dl.sipeed.com/shareURL/MaixIV/M4N-Dock
 
 ### 软件开发资料汇总
-软件开发文档：<下载站>
+软件开发文档：https://dl.sipeed.com/shareURL/MaixIV/M4N-Dock
 软件开发SDK：https://github.com/AXERA-TECH/ax650n_bsp_sdk
 
 ### AI 开发资料汇总
@@ -47,7 +47,7 @@ Pulsar2 由爱芯元智自主研发的 ALL-IN-ONE 新一代神经网络编译器
 模型算子支持列表：https://pulsar2-docs.readthedocs.io/zh_CN/latest/appendix/op_support_list.html
 
 爱芯 Pipeline 例程：https://github.com/AXERA-TECH/ax-pipeline
-已转换模型：<我们放下载站>
+已转换模型：https://dl.sipeed.com/shareURL/MaixIV/M4N-Dock
 
 
 ## 技术支持
