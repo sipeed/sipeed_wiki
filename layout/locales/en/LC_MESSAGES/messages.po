@@ -19,8 +19,9 @@ msgstr ""
 
 #: home.html:105 home.html:118 home.html:131 licheepi.html:132
 #: licheepi.html:148 licheepi.html:164 licheepi.html:180 maix.html:110
-#: maix.html:127 maix.html:143 maixsense.html:40 maixsense.html:56
-#: tang.html:137 tang.html:163 tang.html:179 tang.html:195 tang.html:211
+#: maix.html:127 maix.html:143 maix.html:159 maixsense.html:40
+#: maixsense.html:56 tang.html:137 tang.html:163 tang.html:179 tang.html:195
+#: tang.html:211
 msgid "文档"
 msgstr "Documentation"
 
@@ -223,7 +224,7 @@ msgstr ""
 "10Tops AI computing power, 32 channels of 1080p HD AI video surveillance,"
 " AI large model support"
 
-#: maix.html:159
+#: maix.html:163
 msgid "了解更多"
 msgstr "Learn more"
 

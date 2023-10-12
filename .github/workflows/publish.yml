@@ -51,6 +51,8 @@ jobs:
           user_email=`git log -1 --pretty=format:'%ae'`
           echo "== checkout gh-pages branch =="
           git fetch origin gh-pages
+          git status
+          git checkout .
           git checkout gh-pages
           git pull origin gh-pages
           echo "== upload to cloud server =="
@@ -62,7 +64,8 @@ jobs:
           git config user.name ${user_name}
           git config user.email ${user_email}
           remote_addr=https://${user_name}:${{ secrets.GITHUB_TOKEN }}@${remote_addr}
-          echo "-- remote addr: https://${user_name}:token@${remote_addr}"
+          echo "-- user ${user_name}"
+          echo "-- remote addr: ${remote_addr}"
           git remote add origin ${remote_addr}
           git add -A
           git commit -m "rebuild website ad $GITHUB_REF"
