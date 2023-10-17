@@ -50,6 +50,7 @@ The chips and boards in the following table can be synthesized and programmed vi
 | GW1NR-LV9QN88PC6/I5   | GW1NR     |GW1NR-9C   | Nano 9K     |
 | GW2AR-LV18QN88C8/I7   | GW2AR     |GW2AR-LV18 | Nano 20K    |
 | GW2A-LV18PG256C8/I7   | GW2A      |GW2A-18C   | Primer 20K  |
+| GW5A-LV25MG121NC1/I0   | GW5A      |GW5A-25   | Primer 25K  |
 
 For those who want to use Tang Nano (Onboard jtag is CH552), you'll need to use the Standard Edition IDE and apply for a license from GOWIN Semiconductor Corp.
 
@@ -89,6 +90,13 @@ After installing everything there will be an IDE icon, like the one below, on yo
 The Educational edition IDE does not require a license. 
 
 The Standard edition IDE requires a license, which you should apply for from the Gowin official website, visit https://www.gowinsemi.com/en/support/license/ for more information, and there you will be able to make a choice of software between `GOWIN EDA` and `GOWIN GMD`. `GOWIN EDA` is what we use to program FPGA and the `GOWIN GMD` is what we use to program the hardcore or softcore in FPGA, so you should choose `GOWIN EDA` to get a license to run GOWIN IDE.
+
+
+If you don't want to apply lic, you can use online lic server from Sipeed too:
+~~~
+ip: 43.128.7.128
+port: 10559
+~~~
 
 ### Verify license
 
