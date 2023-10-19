@@ -34,12 +34,13 @@ DAPLink模式下可以同时支持一路DAPLink和一路UART
 
 - 上图左侧的引脚（TXD、RXD、DTR、RTS）可以作为串口使用
 
-- 上图右侧的引脚（TCK、TDI、TDO、TMS）作为DAPLink调试使用
+- 上图右侧的引脚（TCK(SWCLK)、TDI、TDO、TMS(SWDIO)）作为DAPLink调试使用
 
 ### 使用MDK连接DAPLink
 
 1. 设置Reset Options为SYSRESETREQ
-2. 在CMSIS-DAP中找到并寻找RV CMSIS-DAP设备
+2. 在CMSIS-DAP中找到并寻找RV CMSIS-DAP设备（图中 Port 默认为 SW 两线调试，可选 JTAG 4 线调试）
+SW 两线调试只需要连接 TCK(SWCLK)及 TMS(SWDIO) 即可。
 
 ![cfg_dap_debugger_of_mdk](./assets/use_daplink_function/cfg_dap_debugger_of_mdk.png)
 
