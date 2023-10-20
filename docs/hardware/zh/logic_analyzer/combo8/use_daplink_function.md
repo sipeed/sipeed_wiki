@@ -52,4 +52,20 @@ SW 两线调试只需要连接 TCK(SWCLK)及 TMS(SWDIO) 即可。
 
 ![start_debugger_in_mdk](./assets/use_daplink_function/start_debugger_in_mdk.png)
 
+### 使用openocd连接
+
+先前有用户[反映](https://maixhub.com/discussion/100020)clion无法使用Slogic进行调试，深入确认后发现是openocd的版本问题。
+
+xpack 版本 openocd 下载链接为https://xpack.github.io/dev-tools/openocd/releases
+
+下载的是 v0.12.0-2 版本运行截图
+
+![](./assets/use_daplink_function/xpack_openocd.png)
+
+来自https://gnutoolchains.com/arm-eabi/openocd 下载的`20231002`版本会出现无法发现Slogic的问题，报错截图如下
+
+![](./assets/use_daplink_function/gnu_openocd.png)
+![](./assets/use_daplink_function/dap_clion_not_found.jpg)
+
+
 感谢群友`dragonforward`的文档贡献
