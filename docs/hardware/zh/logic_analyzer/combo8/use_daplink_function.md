@@ -52,6 +52,20 @@ SW 两线调试只需要连接 TCK(SWCLK)及 TMS(SWDIO) 即可。
 
 ![start_debugger_in_mdk](./assets/use_daplink_function/start_debugger_in_mdk.png)
 
+### MDK使用视频
+
+<p align="center">
+  <video src="./assets/use_daplink_function/slogic_daplink_keil_usage.mp4"
+    width="100%" controls="controls" autoplay="autoplay"
+    x5-playsinline=""
+ 		playsinline
+ 		webkit-playsinline="true"
+ 		poster="./assets/use_daplink_function/start_debugger_in_mdk.png"
+ 		preload="auto"
+  >
+  </video>
+</p>
+
 ### 使用openocd连接
 
 先前有用户[反映](https://maixhub.com/discussion/100020)clion无法使用Slogic进行调试，深入确认后发现是openocd的版本问题。
