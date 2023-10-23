@@ -247,6 +247,8 @@ Project address: [Click me](https://github.com/chainsx/fedora-riscv-builder)
 
 ![ubuntu](./../../../../zh/lichee/th1520/lpi4a/assets/images/ubuntu.png)
 
+[Click me](http://cdimage.ubuntu.com/ubuntu-base/releases/22.04/release/)
+
 ![ubuntu_neofetch](./../../../../zh/lichee/th1520/lpi4a/assets/images/ubuntu_neofetch.jpg)
 
 ### NixOS (unofficial)

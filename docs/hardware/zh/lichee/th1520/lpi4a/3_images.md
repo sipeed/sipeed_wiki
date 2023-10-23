@@ -236,6 +236,8 @@ Project address: [Click me](https://github.com/chainsx/openwrt-th1520)
 
 ![ubuntu](./assets/images/ubuntu.png)
 
+[Click me](http://cdimage.ubuntu.com/ubuntu-base/releases/22.04/release/)
+
 ![ubuntu_neofetch](./assets/images/ubuntu_neofetch.jpg)
 
 ### NixOS (unofficial)
