@@ -33,7 +33,7 @@ update:
 
 2. 选择芯片
 
-    启动后，选择BL616/618并点击Finish
+    启动后，选择 **BL616/618** 并点击Finish
 
     ![chip_selection](./assets/download_firmware/chip_selection.png)
 
