@@ -2,6 +2,11 @@
 title: Collection of images
 keywords: Linux, Lichee, TH1520, SBC, RISCV, image
 update:
+  - date: 2023-10-23
+    version: v1.2
+    author: ztd
+    content: 
+      - Update image info and upload new images
   - date: 2023-07-19
     version: v1.1
     author: ztd
@@ -55,60 +60,87 @@ sudo ./fastboot flash boot ./images/boot.ext4
 Download Links:
 
 Mega Cloud Storage：[click me](https://mega.nz/folder/phoQlBTZ#cZeQ3qZ__pDvP94PT3_bGA)
-ISCAS mirror: [click me](https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/)
+ISCAS mirror(including test mirror, ordinary users please use the mirror in the previous network disk): [click me](https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/)
 
-1. LPI4A_20230920.zip
+1. LPI4A_20231023_BASIC.zip
 
-    - Release date: September 20, 2023
-    - Kernel: 5.10
-    - Root file system: ext4, 4.3GB
-    - Main pre-installed packages:
-       - Development
-       - Office
-       - Media player Parole that supports playing 4K videos
-    - Fixed issues:
-       - Fixed HDMI display device and HDMI audio device identification issues
-       - Fixed Bluetooth issues, Bluetooth devices now work properly, Bluetooth headphones can also play audio normally
-       - Fixed the issue where browser shortcuts in the bottom launch bar on the desktop were not working, now you can click here to launch Chromium
-       - Fixed the kernel panic issue that occurred after connecting a USB camera for a long time
-       - Fixed the 16GB memory recognition issue, to fully recognize 16GB memory please update this image
-       - Fixed the audio quality issue when playing HDMI audio in Chromium
-    - Instructions for use:
-       - This image has auto login enabled, the default login user is sipeed
-       - This image has passwordless sudo enabled
-       - This image will automatically load NPU related drivers, no need for manual initialization
-       - This zip file only supports HDMI display, when burning, please note that the suffix in the file name corresponds to the relevant parameters of the device.
-         - u-boot with 16g suffix is u-boot that supports 16g memory, without suffix is u-boot that supports 8g memory.
+- Release Date: October 23, 2023
+- Kernel: 5.10
+- Root Filesystem: ext4, 4.3GB  
+- Preinstalled Software Packages:
+  - Development: python3.11
+  - Office: libreoffice suite 
+  - Browser: chromium
+  - Media: 4K video players like Parole, VLC, GIMP
+- Bug Fixes:
+  - HDMI display and audio device recognition issue (20230706) 
+  - Bluetooth issues fixed, Bluetooth devices working normally now, Bluetooth headphones can play audio now (20230706)
+  - Fixed browser shortcut issue in bottom launch bar, can launch chromium now (20230706)
+  - Fixed kernel panic issue when using USB camera for long time (20230706) 
+  - Fixed 16GB memory recognition issue, please update to identify full 16GB memory (20230721)
+  - Fixed HDMI audio quality issue in chromium (20230912)
+  - Fixed font pixel missing issue in dual screen mode (20230912)
+  - Fixed inaccurate mouse cursor issue (20231023)
+  - Fixed NPU driver kernel and user version mismatch (20231023)
+  - Fixed issue burning rootfs over 4GB (20231023)
+- Usage Instructions:
+  - Auto login enabled, default login user is sipeed
+  - Sudo without password enabled
+  - NPU drivers loaded automatically, no manual initialization needed
+  - Supports both HDMI and MIPI display, switch in boot menu
+    - Boot menu config at /boot/extlinux/extlinux.conf in boot.ext4. 3 options, distinguished by suffix:
+       - Suffix (HDMI only) - HDMI only
+       - Suffix (HDMI and MIPI) - Dual display
+       - Suffix (rescue target) - Recovery
+    - Default is HDMI only. Two ways to switch to MIPI:  
+       1. Connect serial tool, press 2 to choose MIPI display when boot menu appears, one time only
+       2. Edit extlinux.conf, change default l0 to default l1 to change default to MIPI
+  - The zip contains two u-boot, note the suffix and device parameters when burning
+     - u-boot with 16g suffix is for 16GB memory, no suffix is for 8GB memory
+- Known Issues:
+  - MIPI screen brightness can only be adjusted manually now
+     - Switch to root, run `echo brightness_value(0-7) > /sys/class/backlight/pwm-backlight@0/brightness`
 
-2. LPI4A_20230920_MIPI.zip
+2. LPI4A_20231023_FULL.zip
 
-    - Release date: September 20, 2023
-    - Kernel: 5.10
-    - Root file system: ext4, 4.3GB
-    - Main pre-installed packages:
-       - Development
-       - Office
-       - Media player Parole that supports playing 4K videos
-    - Fixed issues:
-       - Fixed HDMI display device and HDMI audio device identification issues
-       - Fixed Bluetooth issues, Bluetooth devices now work properly, Bluetooth headphones can also play audio normally
-       - Fixed the issue where browser shortcuts in the bottom launch bar on the desktop were not working, now you can click here to enter Chromium
-       - Fixed the kernel panic issue that might occur after connecting a USB camera for a long time
-       - Fixed the 16GB memory recognition issue, to fully recognize 16GB memory please update this image
-       - Fixed the audio quality issue when playing HDMI audio in Chromium
-       - Fixed the issue of missing font pixels when using dual different displays
-    - Known issues:
-       - When the MIPI screen is not connected, the system will still recognize it as connected, temporarily need to manually turn off the output of the MIPI screen in the settings
-          - Switch to root user, execute `echo off > /sys/class/drm/card0-DSI-1/status`
-       - For the time being, the brightness of the MIPI screen can only be adjusted by manually writing a value
-          - Switch to root user, execute `echo brightness value (integer value from 0-7) > /sys/class/backlight/pwm-backlight@0/brightness`
-       - There is a problem with the sound quality of HDMI audio playing under chromium
-    - Instructions for use:
-      - This image has auto login enabled, the default login user is sipeed
-      - This image has passwordless sudo enabled
-      - This image will automatically load NPU related drivers, no need for manual initialization
-      - This zip file is the image of the MIPI screen, please note that the suffix in the file name corresponds to the relevant parameters of the device when burning.
-         - u-boot with 16g suffix is u-boot that supports 16g memory, without suffix is u-boot that supports 8g memory.
+- Release Date: October 23, 2023  
+- Kernel: 5.10
+- Root Filesystem: ext4, 9.7GB
+- Preinstalled Software Packages:
+  - Development: python3.11, GCC, VScode, Kicad (with demo projects), AI env (with precompiled yolov5n/yolov5s executables)
+  - Office: libreoffice suite
+  - Browser: chromium 
+  - Media: 4K video players like Parole (with demo 4K videos), VLC, GIMP, video editor Kdenlive (with demo video clips), kodi
+  - Game: SuperTuxKart
+  - Other: btop, neofetch
+- Bug Fixes:
+  - HDMI display and audio device recognition issue (20230706)
+  - Bluetooth issues fixed, Bluetooth devices working normally now, Bluetooth headphones can play audio now (20230706) 
+  - Fixed browser shortcut issue in bottom launch bar, can launch chromium now (20230706)
+  - Fixed kernel panic issue when using USB camera for long time (20230706)
+  - Fixed 16GB memory recognition issue, please update to identify full 16GB memory (20230721) 
+  - Fixed HDMI audio quality issue in chromium (20230912)
+  - Fixed font pixel missing issue in dual screen mode (20230912)
+  - Fixed inaccurate mouse cursor issue (20231023) 
+  - Fixed NPU driver kernel and user version mismatch (20231023)
+  - Fixed issue burning rootfs over 4G (20231023)
+- Usage Instructions: 
+  - Auto login enabled, default login user is sipeed
+  - Sudo without password enabled
+  - NPU drivers loaded automatically, no manual initialization needed
+  - Supports both HDMI and MIPI display, switch in boot menu
+     - Boot menu config at /boot/extlinux/extlinux.conf in boot.ext4. 3 options, distinguished by suffix:
+        - Suffix (HDMI only) - HDMI only  
+        - Suffix (HDMI and MIPI) - Dual display
+        - Suffix (rescue target) - Recovery 
+     - Default is HDMI only. Two ways to switch to MIPI:
+        1. Connect serial tool, press 2 to choose MIPI display when boot menu appears, one time only
+        2. Edit extlinux.conf, change default l0 to default l1 to change default to MIPI
+  - The zip contains two u-boot, note the suffix and device parameters when burning
+     - u-boot with 16g suffix is for 16GB memory, no suffix is for 8GB memory
+- Known Issues:
+  - MIPI screen brightness can only be adjusted manually now
+     - Switch to root, run `echo brightness_value(0-7) > /sys/class/backlight/pwm-backlight@0/brightness`
 
 <!-- 1. LPi4A_Test_0425
    1. Release date: April 25, 2023
