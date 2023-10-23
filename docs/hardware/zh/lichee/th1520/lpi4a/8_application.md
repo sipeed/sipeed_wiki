@@ -1743,6 +1743,51 @@ gcc basic-tutorial-1.c -o basic-tutorial-1 `pkg-config --cflags --libs gstreamer
 
 ![gstreamer_demo](./assets/application/gstreamer_demo.png)
 
+## Kicad
+
+**注意，仅20231023及以上版本支持 kicad !**
+
+首先安装 Kicad ：
+```shell
+sudo apt update
+sudo apt install kicad
+```
+
+安装完毕后，需要先运行以下命令才能运行 kicad：
+```shell
+sudo switch-gl gl4es
+rm ~/.cache
+```
+
+打开 kicad：
+```shell
+kicad
+```
+
+![kicad_startpage](./assets/application/kicad_startpage.png)
+
+![kicad_pcbview](./assets/application/kicad_pcbview.png)
+
+在使用完 kicad 后，需要运行下面的命令以避免兼容性问题：
+```shell
+sudo switch-gl mesa
+rm ~/.cache
+```
+
+## KODI
+
+直接安装运行即可：
+```shell
+sudo apt install kodi
+kodi
+```
+
+![kodi_homepage](./assets/application/kodi_homepage.png)
+
+![kodi_iconmenu](./assets/application/kodi_iconmenu.png)
+
+![kodi_settings](./assets/application/kodi_settings.png)
+
 ## 其它
 
 欢迎投稿～ 投稿接受后可得￥5～150（$1~20）优惠券！

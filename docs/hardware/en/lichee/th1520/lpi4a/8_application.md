@@ -1720,6 +1720,56 @@ After successful compilation, an executable program will be generated in the cur
 
 ![gstreamer_demo](./../../../../zh/lichee/th1520/lpi4a/assets/application/gstreamer_demo.png)
 
+## Kicad 
+
+**Note, only versions 20231023 and above support Kicad!**
+
+First install Kicad:
+
+```shell
+sudo apt update
+sudo apt install kicad 
+```
+
+After installation, run the following commands before launching Kicad:
+
+```shell 
+sudo switch-gl gl4es
+rm ~/.cache
+```
+
+Launch Kicad:
+
+```shell
+kicad
+```
+
+![kicad_startpage](./../../../../zh/lichee/th1520/lpi4a/assets/application/kicad_startpage.png)
+
+![kicad_pcbview](./../../../../zh/lichee/th1520/lpi4a/assets/application/kicad_pcbview.png)
+
+After using Kicad, run these commands to avoid compatibility issues:
+
+```shell
+sudo switch-gl mesa 
+rm ~/.cache
+```
+
+## KODI
+
+Install and launch directly:
+
+```shell
+sudo apt install kodi
+kodi
+```
+
+![kodi_homepage](./../../../../zh/lichee/th1520/lpi4a/assets/application/kodi_homepage.png)
+
+![kodi_iconmenu](./../../../../zh/lichee/th1520/lpi4a/assets/application/kodi_iconmenu.png)
+
+![kodi_settings](./../../../../zh/lichee/th1520/lpi4a/assets/application/kodi_settings.png)
+
 
 ## Other
 
