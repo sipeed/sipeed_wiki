@@ -2,6 +2,11 @@
 title: FAQ
 keywords: Linux, Lichee, TH1520, SBC, RISCV, Debian, Desktop
 update:
+  - date: 2023-10-23
+    version: v1.1
+    author: ztd
+    content:
+      - Update NPU's FAQ
   - date: 2023-09-22
     version: v1.0
     author: ztd
@@ -37,6 +42,7 @@ update:
 1. To use the NPU, please use image versions 0920 or later.
 2. JTAG requires manual wiring and setting pinmux on the board, refer to [JTAG](https://en.wiki.sipeed.com/hardware/en/lichee/th1520/lpi4a/6_peripheral.html#JTAG).
 3. When connecting multiple peripherals (e.g. HDMI, USB keyboard/mouse), use 12V DC power if possible. If the computer's USB port already has many peripherals connected, it may not have enough power for the dev board and connected peripherals.
+4. When using the NPU for inference, the first run will optimize on the board, which is a slow process. It will generate a shl.hhb.bm file afterwards. Using this weight file for inference will be much faster.
 
 ## System building
 ### revyos
