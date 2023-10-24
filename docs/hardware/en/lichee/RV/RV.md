@@ -95,3 +95,12 @@ Download the Debian system image from Mega netdisk:
 If you want to build your own custom image, you can visit the BSP SDK in the following link.
 
 [BSP SDK](./user.html#BSP-SDK-development)
+
+## Pre made images
+[**Sipeed Lichee RV** Archlinux 6.1.0-rc3 with LED and 1.14 Display support](https://github.com/miloserdev/sunxi_licheerv)  
+Default login `root` and password `archriscv`  
+```console
+git clone https://github.com/miloserdev/sunxi_licheerv.git
+cd ./sunxi_licheerv
+./create_sd.sh /dev/mmcblk0
+```
