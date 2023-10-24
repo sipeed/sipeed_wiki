@@ -2,6 +2,11 @@
 title: 常见问题
 keywords: Linux, Lichee, TH1520, SBC, RISCV, Debian, Desktop
 update:
+  - date: 2023-10-23
+    version: v1.1
+    author: ztd
+    content:
+      - Update NPU's FAQ
   - date: 2023-09-22
     version: v1.0
     author: ztd
@@ -37,6 +42,7 @@ update:
 1. 若要使用 NPU，请使用0920及以上版本的镜像；
 2. 使用 JTAG 需要自行飞线，并在板子上设置 pinmux，参考[JTAG](https://en.wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/6_peripheral.html#JTAG)
 3. 在接入外设较多时（比如 HDMI，USB键鼠）尽量使用12V DC供电。电脑的USB口若本身接入外设较多，可能会没有多余的能力给开发板及开发板所连接的外设供电。
+4. 在使用 NPU 进行推理时，第一次运行时会在板上进行一次优化，这个过程比较慢。之后会生成 shl.hhb.bm 文件，使用这个权重文件进行推理会比较快。
 
 ## 系统开发
 ### revyos

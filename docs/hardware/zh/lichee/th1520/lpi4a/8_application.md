@@ -536,7 +536,7 @@ INFO: Heap :ocm (0x18)
 INFO: Heap :anonymous (0x2)
 INFO: Heap :dmabuf (0x2)
 INFO: Heap :unified (0x5)
-Run graph execution time: 11.68591ms, FPS=85.57
+Run graph execution time: 5.36258ms, FPS=186.48
 detect num: 4
 id:     label   score           x1              y1              x2              y2
 [0]:    0       0.895277        273.492188      161.245056      359.559814      330.644257
@@ -655,7 +655,7 @@ INFO: Heap :ocm (0x18)
 INFO: Heap :anonymous (0x2)
 INFO: Heap :dmabuf (0x2)
 INFO: Heap :unified (0x5)
-Run graph execution time: 16.04289ms, FPS=62.33
+Run graph execution time: 9.85487ms, FPS=101.47
 detect num: 4
 id:     label   score           x1              y1              x2              y2
 [0]:    0       0.933075        276.321838      157.925751      358.274475      329.757538
@@ -1742,6 +1742,51 @@ gcc basic-tutorial-1.c -o basic-tutorial-1 `pkg-config --cflags --libs gstreamer
 ```
 
 ![gstreamer_demo](./assets/application/gstreamer_demo.png)
+
+## Kicad
+
+**注意，仅20231023及以上版本支持 kicad !**
+
+首先安装 Kicad ：
+```shell
+sudo apt update
+sudo apt install kicad
+```
+
+安装完毕后，需要先运行以下命令才能运行 kicad：
+```shell
+sudo switch-gl gl4es
+rm ~/.cache
+```
+
+打开 kicad：
+```shell
+kicad
+```
+
+![kicad_startpage](./assets/application/kicad_startpage.png)
+
+![kicad_pcbview](./assets/application/kicad_pcbview.png)
+
+在使用完 kicad 后，需要运行下面的命令以避免兼容性问题：
+```shell
+sudo switch-gl mesa
+rm ~/.cache
+```
+
+## KODI
+
+直接安装运行即可：
+```shell
+sudo apt install kodi
+kodi
+```
+
+![kodi_homepage](./assets/application/kodi_homepage.png)
+
+![kodi_iconmenu](./assets/application/kodi_iconmenu.png)
+
+![kodi_settings](./assets/application/kodi_settings.png)
 
 ## 其它
 

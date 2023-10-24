@@ -535,7 +535,7 @@ INFO: Heap :ocm (0x18)
 INFO: Heap :anonymous (0x2)
 INFO: Heap :dmabuf (0x2)
 INFO: Heap :unified (0x5)
-Run graph execution time: 11.68591ms, FPS=85.57
+Run graph execution time: 5.36258ms, FPS=186.48
 detect num: 4
 id:     label   score           x1              y1              x2              y2
 [0]:    0       0.895277        273.492188      161.245056      359.559814      330.644257
@@ -654,7 +654,7 @@ INFO: Heap :ocm (0x18)
 INFO: Heap :anonymous (0x2)
 INFO: Heap :dmabuf (0x2)
 INFO: Heap :unified (0x5)
-Run graph execution time: 16.04289ms, FPS=62.33
+Run graph execution time: 9.85487ms, FPS=101.47
 detect num: 4
 id:     label   score           x1              y1              x2              y2
 [0]:    0       0.933075        276.321838      157.925751      358.274475      329.757538
@@ -1719,6 +1719,56 @@ After successful compilation, an executable program will be generated in the cur
 ```
 
 ![gstreamer_demo](./../../../../zh/lichee/th1520/lpi4a/assets/application/gstreamer_demo.png)
+
+## Kicad 
+
+**Note, only versions 20231023 and above support Kicad!**
+
+First install Kicad:
+
+```shell
+sudo apt update
+sudo apt install kicad 
+```
+
+After installation, run the following commands before launching Kicad:
+
+```shell 
+sudo switch-gl gl4es
+rm ~/.cache
+```
+
+Launch Kicad:
+
+```shell
+kicad
+```
+
+![kicad_startpage](./../../../../zh/lichee/th1520/lpi4a/assets/application/kicad_startpage.png)
+
+![kicad_pcbview](./../../../../zh/lichee/th1520/lpi4a/assets/application/kicad_pcbview.png)
+
+After using Kicad, run these commands to avoid compatibility issues:
+
+```shell
+sudo switch-gl mesa 
+rm ~/.cache
+```
+
+## KODI
+
+Install and launch directly:
+
+```shell
+sudo apt install kodi
+kodi
+```
+
+![kodi_homepage](./../../../../zh/lichee/th1520/lpi4a/assets/application/kodi_homepage.png)
+
+![kodi_iconmenu](./../../../../zh/lichee/th1520/lpi4a/assets/application/kodi_iconmenu.png)
+
+![kodi_settings](./../../../../zh/lichee/th1520/lpi4a/assets/application/kodi_settings.png)
 
 
 ## Other
