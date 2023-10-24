@@ -117,7 +117,7 @@ Burn this demo to M0sense, the 16bit pcm format data of the onboard microphone i
 
 ![audio_recording](./../../../zh/maixzero/sense/assets/start/audio_recording.gif)
 
-## SDK uasge
+## SDK usage
 
 M0sense can be compiled in Linux.
 
