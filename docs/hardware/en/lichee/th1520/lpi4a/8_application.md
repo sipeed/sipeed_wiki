@@ -1636,7 +1636,7 @@ git clone https://github.com/Tencent/ncnn.git
 cd ncnn
 git submodule update --init
 
-sudo apt install build-essential git cmake libprotobuf-dev protobuf-compiler libvulkan-dev vulkan-utils libopencv-dev
+sudo apt install build-essential git cmake libprotobuf-dev protobuf-compiler libvulkan-dev libopencv-dev
 
 ```
 Compile source code
@@ -1661,7 +1661,7 @@ Download the relevant model files and parameters, and place them in the same fol
 execute
 
 ```shell
-./nanodet/ a.jpg
+./nanodet a.jpg
 ```
 
 Running results
