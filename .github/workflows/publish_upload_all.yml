@@ -56,7 +56,7 @@ jobs:
           git config user.name ${user_name}
           git config user.email ${user_email}
           remote_addr="https://${user_name}:${{ secrets.GITHUB_TOKEN }}@${remote_addr}"
-          git remote add origin ${remote_addr}
+          git remote add origin "${remote_addr}"
           git add -A
           git commit -m "rebuild website ad $GITHUB_REF"
           git push origin HEAD:gh-pages --force
