@@ -1663,7 +1663,7 @@ git clone https://github.com/Tencent/ncnn.git
 cd ncnn
 git submodule update --init
 
-sudo apt install build-essential git cmake libprotobuf-dev protobuf-compiler libvulkan-dev vulkan-utils libopencv-dev libqt5gui5-gles
+sudo apt install build-essential git cmake libprotobuf-dev protobuf-compiler libvulkan-dev libopencv-dev libqt5gui5-gles
 
 ```
 编译源码
@@ -1685,7 +1685,7 @@ make -j$(nproc)
 
 执行
 ```shell
-./nanodet/ a.jpg
+./nanodet a.jpg
 ```
 运行结果
 ![ncnn_result](./assets/application/ncnn_result_o.png)
