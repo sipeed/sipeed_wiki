@@ -132,6 +132,8 @@ items:
             file: lichee/th1520/lm4a.md
         -   label: Lichee Cluster 4A
             file: lichee/th1520/lc4a/lc4a.md
+        -   label: Lichee Console 4A
+            file: lichee/th1520/lcon4a/lcon4a.md
         -   label: Lichee PI 4A
             collapsed: false
             items:

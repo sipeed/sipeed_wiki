@@ -120,5 +120,5 @@ LicheePi 4A 可以用作典型的 RISC-V 验证平台，其强大的性能可以
 QQ群: 559614960 [点我自动加群](http://qm.qq.com/cgi-bin/qm/qr?k=5YkapIhdtWHp8AEfM5_bFFYQIX3CUQN6)
 Telegram: https://t.me/linux4rv
 
-论坛：bbs.sipeed.com
+论坛：Maixhub.com/discussion
 联系邮箱：support@sipeed.com
