@@ -20,18 +20,20 @@ update:
 
 | Scene (Static) | Voltage | Current | Power Consumption | Note |
 | -------------- | ----- | ----- | ----- | ------------------------------------ |
-| Standby | 5.11V | 0.46A | 2.35W | Fan on, fan not turned off in all subsequent tests |
-| Single port to network cable | 5.06V | 0.52A | 2.63W | |
-| Dual port to network cable | 5.08V | 0.53A | 2.69W | |
-| Connecting an HDMI Display | 5.04V | 0.53A | 2.67W | |
+| Standby | 12V | 0.3A | 3.6W | No peripheral connected |
+| Standby | 12V | 0.32A | 3.84W | Fan on, fan not turned off in all subsequent tests |
+| Single port to network cable | 12V | 0.36A | 4.32W | |
+| Dual port to network cable | 12V | 0.39A | 4.68W | |
+| Connecting an HDMI Display | 12V | 0.33A | 3.96W | |
 
 ### Dynamic Power Consumption
 
 | Scene (Dynamic)                 | Voltage  | Current  | Power Consumption  | Note                                |
 | -------------------------- | ----- | ----- | ----- | ----------------------------------- |
-| Standby                       | 5.04V | 0.71A | 3.58W | Connecting a monitor, keyboard, and mouse Using a network port |
-| STRESS-NG Pressure testing <br>(CPU matrix operations) | 4.95V | 1.22A | 6.04W | CPU frequency limit 1.845GHz, voltage 1V      |
-| Play video in browser             | 4.96V | 1.06A | 5.26W | Using GPU, no hardware decoding, firefox browser  |
+| NPU Calculate                 | 12V | 0.39A | 4.68W | Connecting serial port, fan, NPU frequency upper limit 0.792GHz |
+| Standby                       | 12V | 0.43A | 5.16W | Connecting a monitor, keyboard, and mouse Using a network port |
+| STRESS-NG Pressure testing <br>(CPU matrix operations) | 12V | 0.65A | 7.8W | CPU frequency limit 1.845GHz, voltage 1V |
+| Play video in browser             | 12V | 0.6A | 7.2W | Using GPU, no hardware decoding, chromium browser |
 
 ## eMMC
 
