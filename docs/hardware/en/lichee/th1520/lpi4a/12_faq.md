@@ -2,6 +2,11 @@
 title: FAQ
 keywords: Linux, Lichee, TH1520, SBC, RISCV, Debian, Desktop
 update:
+  - date: 2023-10-30
+    version: v1.2
+    author: ztd
+    content:
+      - Update official development docs.
   - date: 2023-10-23
     version: v1.1
     author: ztd
@@ -132,3 +137,7 @@ update:
 	Build sandboxing disabled due to nsjail error. 
 	```
 	This error can be ignored for now, it does not affect subsequent build steps. To run nsjail, you can try upgrading the kernel version to 5.XX or passing these parameters when starting docker: `--security-opt apparmor=unconfined --security-opt seccomp=unconfined --security-opt systempaths=unconfined` or `--privileged`.
+
+## Development Documentation
+
+The development documentation can be found at [this link](https://dl.sipeed.com/shareURL/LICHEE/licheepi4a/09_Doc).
