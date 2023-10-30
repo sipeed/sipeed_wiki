@@ -34,6 +34,7 @@ update:
 ## 烧录镜像
 - Windows系统下烧录，请先确认驱动是否按照正确安装。若正确安装驱动，烧录时还是没有反应，可尝试更换 USB 线，注意使用的 USB 线必须是能供电和传输数据的线，并且烧录时使用的 USB 口尽量不要使用主机前面板的 USB 口，也不要使用笔记本电脑中的数据口，否则会因为供电原因导致识别不到设备。
 - 想要切换启动模式，比如切换为从 SD 卡启动，正式版底板可以通过拨码开关（注意需要制作专用镜像）来切换，非正式版也可以通过传递启动参数来切换，详见[烧录镜像的对应章节](https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/4_burn_image.html#U-Boot)。
+- 20231023后更新了大镜像烧录支持，从该版本起，烧录需要使用最新版本的 fastboot，可以在镜像集合的[网盘链接](https://pan.baidu.com/e/1xH56ZlewB6UOMlke5BrKWQ)中找到，文件名为 `burn_tools_support_bigimage.zip`。
 
 ## 桌面系统基础使用
 - 若桌面下方启动器的图标功能异常，可以自己手动配置为自己想要的方案，也可以使用如下命令恢复为默认配置，默认配置效果参考[桌面系统基础使用相关章节](https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/5_desktop.html#%E6%B5%8F%E8%A7%88%E5%99%A8)：

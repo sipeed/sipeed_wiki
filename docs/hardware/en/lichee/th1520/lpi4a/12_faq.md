@@ -34,6 +34,7 @@ update:
 ## Burn image
 - When flashing on Windows, please confirm if the driver is installed correctly first. If the driver is installed correctly but there is still no reaction during flashing, try changing the USB cable. Note that the USB cable used must be able to supply power and transmit data, and try not to use the USB ports on the front panel of the PC case when flashing, or the data ports on a laptop, otherwise the device may not be recognized due to power supply issues.
 - To switch boot modes, for example to boot from SD card, formal version boards can switch via dip switches (note a dedicated image is needed), beta version boards can also switch by passing boot arguments, see[Board Boot Process](https://en.wiki.sipeed.com/hardware/en/lichee/th1520/lpi4a/4_burn_image.html#Board-Boot-Process).
+- After 20231023, large image burning support has been updated. From this version, burning requires using the latest version of fastboot, which can be found in the image collection's [cloud disk link](https://mega.nz/folder/phoQlBTZ#cZeQ3qZ__pDvP94PT3_bGA). The file's name is `burn_tools_support_bigimage.zip`.
 
 ## Desktop Usage
 - If the icons in the desktop bottom launcher are not working properly, you can manually configure them as desired, or use the following command to restore the default configuration. See [Web Browser](https://en.wiki.sipeed.com/hardware/en/lichee/th1520/lpi4a/5_desktop.html#Web-Browser) for the default configuration.
