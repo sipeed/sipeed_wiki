@@ -108,6 +108,12 @@ CLIP DEMO 正常运行
 ![34c8b68b1a8721d4ebff3b4b7184733](https://github.com/AXERA-TECH/CLIP-ONNX-AX650-CPP/assets/13964381/7d0b9740-3598-492c-ad42-2de23e7764e2)
 
 
+## **运行下列 DEMO 提前须知**
+默认是 HDMI1 是桌面，而以下的 DEMO 需要使用 HDMI0 输出画面，受限于显示驱动，它们之间存在冲突，即不能同时显示。
+
+因此，若想运行后续 DEMO ，则要先杀掉 fb_vo 这个进程，`ps aux|grep fb_vo`找到进程号后`kill -9 实际pid`杀掉即可，此时 HDMI1 的桌面将停止刷新（停止下列 Demo 后，执行 `/root/runVoHook.sh`即可恢复桌面使用）。
+
+然后，在通过 ssh 或者串口的命令行里面执行对应的 run.sh，这时候接到 HDMI0 的显示器就会正常出显示画面了
 
 ## 32路AI BOX（人车检测）
 BoxDemo 是本机搭载的 BOX 产品类的演示应用程序，包括从 ××H264/H.265×× 视频解码，经 AI 全结构化检测，最后经 HDMI 显示的 PIPE 流程。
