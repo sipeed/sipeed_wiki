@@ -280,7 +280,19 @@ sudo apt install firefox ffmpeg
 
 ## Media Player
 
-There are some open source players built into the system, and we recommend using VLC Player as the video player:
+There are some open source players built in the system. The default player is Parole, which supports playing 4K videos. The effect of playing 4K videos with Parole is as follows:
+
+![4k_video_play](./../../../../zh/lichee/th1520/lpi4a/assets/desktop/4k_video_play.png)
+
+Also supports kodi, using the effect as follows:
+
+![kodi_homepage](./../../../../zh/lichee/th1520/lpi4a/assets/desktop/kodi_homepage.png)
+
+![kodi_iconmenu](./../../../../zh/lichee/th1520/lpi4a/assets/desktop/kodi_iconmenu.png)
+
+![kodi_settings](./../../../../zh/lichee/th1520/lpi4a/assets/desktop/kodi_settings.png)
+
+In addition, also preinstalled VLC Player player:
 
 ![player](./../../../../zh/lichee/th1520/lpi4a/assets/desktop/player.png)
 

@@ -19,6 +19,7 @@ update:
 ### 获取烧录工具
 
 在镜像集合的网盘内可以获得 `burn_tool.zip`, 解压可得 win/linux/mac 三个系统下的 fastboot 烧录工具。
+**注意：**20231023及之后版本的镜像，添加了大镜像文件烧录支持，需要配合最新版本的 fastboot 使用，最新版本的 fastboot 可以在[网盘链接](https://pan.baidu.com/e/1xH56ZlewB6UOMlke5BrKWQ)中找到，文件名为`burn_tools_support_bigimage.zip`。
 
 ## 进入烧录模式
 

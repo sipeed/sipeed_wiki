@@ -283,7 +283,19 @@ sudo apt install firefox ffmpeg
 
 ## 播放器
 
-系统内置了一些开源播放器，我们建议使用 VLC Player 作为视频播放器：
+系统内置了一些开源播放器，默认使用的播放器是支持播放 4K 视频的 Parole，使用 Parole 播放 4K 视频的效果如下：
+
+![4k_video_play](./assets/desktop/4k_video_play.png)
+
+同时还支持 kodi，使用效果如下：
+
+![kodi_homepage](./assets/desktop/kodi_homepage.png)
+
+![kodi_iconmenu](./assets/desktop/kodi_iconmenu.png)
+
+![kodi_settings](./assets/desktop/kodi_settings.png)
+
+此外，还预装了 VLC Player 播放器：
 
 ![player](./assets/desktop/player.png)
 

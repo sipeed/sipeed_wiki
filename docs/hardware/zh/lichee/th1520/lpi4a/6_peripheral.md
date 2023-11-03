@@ -859,7 +859,7 @@ sudo watch cat /sys/kernel/debug/pvr/status
 
 ## NPU
 
-> **注意**：使用 NPU 驱动，需要升级到[20230920](https://pan.baidu.com/e/1xH56ZlewB6UOMlke5BrKWQ)版本镜像，该镜像开机会自动加载 NPU 相关驱动。
+> **注意**：使用 NPU 驱动，需要使用[20230920](https://pan.baidu.com/e/1xH56ZlewB6UOMlke5BrKWQ)以上版本镜像，该镜像开机会自动加载 NPU 相关驱动。
 
 LicheePi4A 板载了一颗支持 4TOPS@INT8 通用 NNA 算力，主频 1GHz 的 NPU。Wiki 中包含的支持 NPU 的示例如下：
 
@@ -872,7 +872,63 @@ LicheePi4A 板载了一颗支持 4TOPS@INT8 通用 NNA 算力，主频 1GHz 的 
 为了将上述示例中的模型交叉编译为 LicheePi4A 上的可执行程序，我们首先需要在自己的电脑上搭建 HHB 开发环境。
 > 推荐环境：ubuntu20.04 系统，Docker 使用20.10.21版本。推荐使用 Docker 镜像来搭建环境。
 
-### 安装
+### 环境配置
+
+**开发板配置**
+
+#### SHL 库安装
+
+使用 pip 安装
+```shell
+pip3 install shl-python
+```
+
+安装后，使用 --whereis 查看安装位置
+```shell
+python3 -m shl --whereis th1520
+# 若使用纯 CPU 推理，则替换为 python3 -m shl --whereis c920
+```
+
+根据打印的位置，将目录中的动态库复制到 /usr/lib 目录中，比如，打印的是：
+```shell
+/home/sipeed/ort/lib/python3.11/site-packages/shl/install_nn2/th1520
+```
+
+可以使用复制命令：
+```shell
+sudo cp /home/sipeed/ort/lib/python3.11/site-packages/shl/install_nn2/th1520/lib/* /usr/lib/
+```
+
+#### python 虚拟环境
+
+需要先安装 python 虚拟环境，再使用 pip3 安装 python 包。
+使用如下命令，安装 venv 包，用于创建python虚拟环境（以在 root 目录中创建 python 虚拟环境为例）：
+```shell
+sudo -i
+apt install python3.11-venv
+cd /root
+python3 -m venv ort
+source /root/ort/bin/activate
+```
+
+#### HHB-onnxruntime 安装
+
+HHB-onnxuruntime 是移植了 SHL 后端（execution providers），让 onnxruntime 能复用到 SHL 中针对玄铁 CPU 的高性能优化代码。
+
+CPU 版本
+```shell
+wget https://github.com/zhangwm-pt/onnxruntime/releases/download/riscv_whl_v2.6.0/hhb_onnxruntime_c920-2.6.0-cp311-cp311-linux_riscv64.whl
+pip install hhb_onnxruntime_c920-2.6.0-cp311-cp311-linux_riscv64.whl
+```
+
+NPU 版本
+```shell
+wget https://github.com/zhangwm-pt/onnxruntime/releases/download/riscv_whl_v2.6.0/hhb_onnxruntime_th1520-2.6.0-cp311-cp311-linux_riscv64.whl
+pip install hhb_onnxruntime_th1520-2.6.0-cp311-cp311-linux_riscv64.whl
+```
+
+**x86主机配置**
+
 首先要在自己的电脑上安装 Docker，先卸载可能存在的 Docker 版本：
 ```shell
 sudo apt-get remove docker docker-engine docker.io containerd runc
@@ -917,10 +973,17 @@ hhb --version
 export PATH=/tools/Xuantie-900-gcc-linux-5.10.4-glibc-x86_64-V2.6.1-light.1/bin/:$PATH
 ```
 
+clone NPU 示例代码：
+```shell
+git clone https://github.com/zhangwm-pt/lpi4a-example.git
+```
+
 至此，HHB 环境初步搭建完成。可以尝试以下的 NPU 示例：
 
 [Mobilenetv2 做图像分类](https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/8_application.html#MobilenertV2)
 [YOLOv5 做目标检测](https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/8_application.html#Yolov5n)
+
+NPU 相关 API 等其他信息，请查看[hhb-tools 语雀文档](https://www.yuque.com/za4k4z)。
 
 ## 其它
 欢迎投稿～ 投稿接受后可得￥5～150（$1~20）优惠券！

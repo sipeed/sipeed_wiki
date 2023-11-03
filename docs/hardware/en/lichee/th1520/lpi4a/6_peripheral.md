@@ -874,7 +874,7 @@ When playing video with Chromium browser, the state of GPU is as follows:
 
 ## NPU
 
-> **Note**: To use the NPU driver, you need to upgrade to the [20230920](https://mega.nz/folder/phoQlBTZ#cZeQ3qZ__pDvP94PT3_bGA) version image, this image will automatically load NPU related drivers on boot.
+> **Note**: To use the NPU driver, you need to upgrade to the [20230920](https://mega.nz/folder/phoQlBTZ#cZeQ3qZ__pDvP94PT3_bGA) or newer version image, this image will automatically load NPU related drivers on boot.
 
 LicheePi4A contains a 1GHz NPU supporting 4TOPS@INT8 general purpose NNA computing power. The Wiki contains examples of NPU support as follows:
  
@@ -888,6 +888,67 @@ In order to cross-compile the models in the above examples into executables on L
 > Recommended environment: Ubuntu 20.04 system, Docker version 20.10.21.It is recommended to use the Docker image to set up the environment.
 
 ### Installation
+
+**LPi4A setup**
+
+#### SHL Library Installation
+
+To install the SHL library, you can use pip:
+
+```shell
+pip3 install shl-python
+```
+
+After the installation, you can use the `--whereis` option to check the installation location. For example:
+
+```shell
+python3 -m shl --whereis th1520
+# Replace with 
+# python3 -m shl --whereis c920
+# if using CPU inference only
+```
+
+Based on the printed location, copy the dynamic library files from that directory to the `/usr/lib` directory. For example, if the printed location is:
+
+```shell
+/home/sipeed/ort/lib/python3.11/site-packages/shl/install_nn2/th1520
+```
+
+You can use the following copy command:
+
+```shell
+sudo cp /home/sipeed/ort/lib/python3.11/site-packages/shl/install_nn2/th1520/lib/* /usr/lib/
+```
+
+#### Python Virtual Environment
+
+Before installing the Python package, you need to set up a Python virtual environment. Use the following commands to install the `venv` package for creating a Python virtual environment (here, creating a Python virtual environment in the root directory):
+
+```shell
+sudo -i
+apt install python3.11-venv
+cd /root
+python3 -m venv ort
+source /root/ort/bin/activate
+```
+
+#### HHB-onnxruntime Installation
+
+HHB-onnxruntime is a ported backend (execution providers) for SHL, enabling onnxruntime to reuse the high-performance optimization code for XuanTie CPUs.
+
+For CPU version:
+```shell
+wget https://github.com/zhangwm-pt/onnxruntime/releases/download/riscv_whl_v2.6.0/hhb_onnxruntime_c920-2.6.0-cp311-cp311-linux_riscv64.whl
+pip install hhb_onnxruntime_c920-2.6.0-cp311-cp311-linux_riscv64.whl
+```
+
+For NPU version:
+```shell
+wget https://github.com/zhangwm-pt/onnxruntime/releases/download/riscv_whl_v2.6.0/hhb_onnxruntime_th1520-2.6.0-cp311-cp311-linux_riscv64.whl
+pip install hhb_onnxruntime_th1520-2.6.0-cp311-cp311-linux_riscv64.whl
+```
+
+**x86 Hosts setup**
 
 First, we need to install Docker on our own computer. Uninstall any existing Docker version: 
 ```shell
@@ -929,9 +990,16 @@ Once you are in the Docker image, you need to configure the cross-compile enviro
 export PATH=/tools/Xuantie-900-gcc-linux-5.10.4-glibc-x86_64-V2.6.1-light.1/bin/:$PATH
 ```
 
+clone NPU example code：
+```shell
+git clone https://github.com/zhangwm-pt/lpi4a-example.git
+```
+
 At this point, the HHB environment is preliminarily built. You can try the following NPU examples:
 [Mobilenetv2 for image classification](https://wiki.sipeed.com/hardware/eh/lichee/th1520/lpi4a/8_application.html#MobilenertV2)
 [YOLOv5 for object detection](https://wiki.sipeed.com/hardware/eh/lichee/th1520/lpi4a/8_application.html#Yolov5n)
+
+For further infomation please check [hhb-tools doc](https://www.yuque.com/za4k4z).
 
 ## Other
 Contributions are welcome~ You can get ￥5~150 ($1~20) coupon if your contribution is accepted!
