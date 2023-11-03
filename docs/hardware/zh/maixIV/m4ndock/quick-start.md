@@ -51,7 +51,7 @@ apt install cmake
 
 ![samqt](../assets/samqt.jpg)
 
-代码由爱芯官方开源于 GITHUB：https://github.com/ZHEQIUSHUI/SAM-ONNX-AX650-CPP 可下载官方预编译版本或按仓库内文档自行编译进行体验，下图是移除照片某球员的效果展示。
+原始代码由爱芯官方开源于 GITHUB：[SAM-ONNX-AX650-CPP](https://github.com/AXERA-TECH/SAM-ONNX-AX650-CPP) 可下载官方预编译版本或按仓库内文档自行编译进行体验，下图是移除照片某球员的效果展示。
 
 <div><table><tr>
 <td><img src="../assets/sam_example_before.png" alt=sam_example_before border=0></td>
@@ -71,6 +71,49 @@ apt install cmake
 </tr></table></div>
 
 
+## 交互式以文搜图（CLIP）
+交互式以文搜图示例，基于QT的GUI交互解码，采用 OpenAI 在 2021 年开源的 Zero-Shot 视觉分类模型 CLIP(Contrastive Language–Image Pre-training) 通过文本输入快速检索出相关图片并显示，支持中文、英文两种文本语言输入。
+
+原始代码由爱芯官方开源于 GITHUB：[CLIP-ONNX-AX650-CPP](https://github.com/AXERA-TECH/CLIP-ONNX-AX650-CPP)
+
+https://github.com/sipeed/sipeed_wiki/assets/13964381/df4cec7f-29af-465f-bfad-e54312274437
+
+准备 QT 运行环境
+```
+apt update
+apt install cmake qt6-base-dev
+```
+
+下载预编译好的可执行文件、模型文件、测试图片、测试文本
+- [Baidu Pan](https://pan.baidu.com/s/1E0aR4OzTdqV90r002hNhLg?pwd=i3jp)
+
+将下载获得的 *CLIP.zip* 在 `/root/Desktop/` 路径下解压得到以下内容
+```
+root@maixbox:~/Desktop/CLIP# tree -L 1
+.
+├── CLIPQT
+├── cn_vocab.txt
+├── coco_1000
+├── libonnxruntime.so
+├── libonnxruntime.so.1.16.0
+├── onnx_models
+├── run_en.sh
+├── run_zh.sh
+└── vocab.txt
+```
+使用 HDMI 基于 HDMI1 接口链接显示器并登录进入桌面, 打开控制终端运行 `run_zh.sh`
+![b38722991915fa54f17df18ca1f1447](https://github.com/AXERA-TECH/CLIP-ONNX-AX650-CPP/assets/13964381/8fa2c4b8-b061-413e-b72d-298bb4a445aa)
+
+CLIP DEMO 正常运行
+![34c8b68b1a8721d4ebff3b4b7184733](https://github.com/AXERA-TECH/CLIP-ONNX-AX650-CPP/assets/13964381/7d0b9740-3598-492c-ad42-2de23e7764e2)
+
+
+## **运行下列 DEMO 提前须知**
+默认是 HDMI1 是桌面，而以下的 DEMO 需要使用 HDMI0 输出画面，受限于显示驱动，它们之间存在冲突，即不能同时显示。
+
+因此，若想运行后续 DEMO ，则要先杀掉 fb_vo 这个进程，`ps aux|grep fb_vo`找到进程号后`kill -9 实际pid`杀掉即可，此时 HDMI1 的桌面将停止刷新（停止下列 Demo 后，执行 `/root/runVoHook.sh`即可恢复桌面使用）。
+
+然后，在通过 ssh 或者串口的命令行里面执行对应的 run.sh，这时候接到 HDMI0 的显示器就会正常出显示画面了
 
 ## 32路AI BOX（人车检测）
 BoxDemo 是本机搭载的 BOX 产品类的演示应用程序，包括从 ××H264/H.265×× 视频解码，经 AI 全结构化检测，最后经 HDMI 显示的 PIPE 流程。

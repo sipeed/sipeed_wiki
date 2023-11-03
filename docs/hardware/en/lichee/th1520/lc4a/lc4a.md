@@ -2,30 +2,30 @@
 title: LicheePi Cluster 4A
 keywords: LicheePi, Sodimm, TH1520, RISCV, SBC, Cluster
 update:
-  - date: 2023-09-07
+  - date: 2023-10-29
     version: v0.1
     author: 0x754C
     content:
-      - 初次编写文档
+      - initial version
 ---
 
-## 简介
+## Introduction
 
-Lichee Cluster 4A (以下简称 LC4A ) 是矽速科技研发的高性能 RISC-V 集群计算平台，可以用于构建多节点计算集群，而且还是学习 Kubernetes、自动化、边缘人工智能计算、本地迷你服务器，托管应用程序、容器等的优秀工具。单个 Lichee Cluster 4A 最多可装配 7 个 LM4A 核心板，每个 LM4A 核心板含有 4TOPS@int8 AI 算力的 NPU，单核心板最大支持 16GB LPDDR4X 内存和 128G eMMC 存储，整个集群有强大的灵活性和可扩展性。
+Lichee Cluster 4A (hereinafter referred to as LC4A) is a high-performance RISC-V cluster computing platform developed by SiliconSpeed Technology. It can be used to build multi-node computing clusters, and can also learn Kubernetes, automation, edge artificial intelligence computing, local mini servers, and hosted applications. Excellent tool for programs, containers, etc. A single Lichee Cluster 4A can be equipped with up to 7 LM4A core boards. Each LM4A core board contains an NPU with 4TOPS@int8 AI computing power. A single core board supports up to 16GB LPDDR4X memory and 128G eMMC storage. The entire cluster has strong flexibility and reliability. Scalability.
 
-Lichee Cluster 4A 板载八口千兆交换机以提供高速连接，轻松将多个节点连接起来，组成强大的计算集群，还支持 USB3.0 和 SD 卡存储扩展，能够轻松地将扩展额外存储或者增加外围设备。
+Lichee Cluster 4A has an onboard eight-port Gigabit switch to provide high-speed connections and easily connect multiple nodes to form a powerful computing cluster. It also supports USB3.0 and SD card storage expansion, making it easy to expand additional storage or add peripherals. equipment.
 
-Lichee Cluster 4A 还带有 BMC (带外管理)，BMC 独立连接了每个 LM4A 的系统串口和复位引脚。BMC 可以从硬件上复位单个计算节点，还可以通过串口执行命令,比如执行 ser2net 或 kermit 来管理 Slot。
+Lichee Cluster 4A also comes with BMC (out-of-band management), which independently connects the system serial port and reset pin of each LM4A. BMC can reset a single computing node from the hardware, and can also execute commands through the serial port, such as executing ser2net or kermit to manage slots.
 
-## 技术规格
+## Technical specifications
 
 <table>
 <colgroup>
-<col  class="org-left" />
-<col  class="org-left" />
+<col class="org-left" />
+<col class="org-left" />
 </colgroup>
 <tr>
-<td class="org-left">支持的核心板</td>
+<td class="org-left">Supported core boards</td>
 <td class="org-left"> <a href="https://wiki.sipeed.com/lm4a">LM4A</a> * 7</td>
 </tr>
 <tr>
@@ -34,7 +34,7 @@ Lichee Cluster 4A 还带有 BMC (带外管理)，BMC 独立连接了每个 LM4A 
 </tr>
 <tr>
 <td class="org-left">GPU</td>
-<td class="org-left">IMG™ B 系列 BXM-4-64 * 7</td>
+<td class="org-left">IMG™ B Series BXM-4-64 * 7</td>
 </tr>
 <tr>
 <td class="org-left">NPU</td>
@@ -42,23 +42,23 @@ Lichee Cluster 4A 还带有 BMC (带外管理)，BMC 独立连接了每个 LM4A 
 </tr>
 <tr>
 <td class="org-left">RAM</td>
-<td class="org-left">最大 16GB * 7</td>
+<td class="org-left">Max 16GB * 7</td>
 </tr>
 <tr>
 <td class="org-left">EMMC</td>
-<td class="org-left">最大 128GB * 7</td>
+<td class="org-left">Max 128GB * 7</td>
 </tr>
 <tr>
 <td class="org-left">BMC</td>
 <td class="org-left"><a href="https://wiki.sipeed.com/Lichee-RV">SIPEED Lichee RV</a></td>
 </tr>
 <tr>
-<td class="org-left">电源管理</td>
+<td class="org-left">Power management</td>
 <td class="org-left"><a href="https://wiki.sipeed.com/m0sense"> Sipeed M0 Sense</a></td>
 </tr>
 <tr>
 <td class="org-left">Ethernet</td>
-<td class="org-left">千兆以太网1(Slot#1)<br>千兆以太网2(交换机)<br>百兆以太网(BMC)</td>
+<td class="org-left">Gigabit Ethernet 1 (Slot#1)<br>Gigabit Ethernet 2 (Switch)<br>100 Mbit Ethernet (BMC)</td>
 </tr>
 <tr>
 <td class="org-left">USB</td>
@@ -73,170 +73,171 @@ Lichee Cluster 4A 还带有 BMC (带外管理)，BMC 独立连接了每个 LM4A 
 <td class="org-left">TF * 7</td>
 </tr>
 <tr>
-<td class="org-left">电源支持</td>
-<td class="org-left">支持 DC 口直流电源供电<br>支持 ATX 24PIN 电源</td>
+<td class="org-left">Power support</td>
+<td class="org-left">Supports DC port DC power supply<br>Supports ATX 24PIN power supply</td>
 </tr>
 <tr>
-<td class="org-left">RTC 供电</td>
-<td class="org-left">CR2032 纽扣电池</td>
+<td class="org-left">RTC power supply</td>
+<td class="org-left">CR2032 button battery</td>
 </tr>
 <tr>
-<td class="org-left">散热</td>
-<td class="org-left">5V PWM 风扇接口 * 7<br>12V 4PIN PWM 风扇接口 * 1</td>
+<td class="org-left">Heat dissipation</td>
+<td class="org-left">5V PWM fan interface * 7<br>12V 4PIN PWM fan interface * 1</td>
 </tr>
 <tr>
-<td class="org-left">尺寸</td>
-<td class="org-left">Mini ITX, 17 * 17 cm (6.7 * 6.7 inch)<br>可选配 MINI ITX 机箱, 20 * 12 * 22 cm</td>
+<td class="org-left">Dimensions</td>
+<td class="org-left">Mini ITX, 17 * 17 cm (6.7 * 6.7 inch)<br> Optional MINI ITX chassis, 20 * 12 * 22 cm</td>
 </tr>
 </table>
 
-## 硬件系统
+## Hardware system
 
-### 主板介绍
+### Motherboard introduction
 
 ![lc4a_top](./assets/lc4a/lc4a_top.png)
 
-### 主板框架图
+### Motherboard frame diagram
 
 ![lc4a_architecture](./assets/lc4a/lc4a_architecture.png)
 
-LicheeRV SOM（D1 C906@1GHz）有5个原生串口，以及两个USB串口，分别独立连接到了7个SOM上。
+LicheeRV SOM (D1 C906@1GHz) has 5 native serial ports and two USB serial ports, which are independently connected to 7 SOMs.
 
-每个 LM4A 的 RST/BOOT 均可通过模拟开关进行控制。
+Each LM4A's RST/BOOT can be controlled via an analog switch.
 
-1号LM4A默认引出了第二千兆口和HDMI口，方便该SOM进行整个集群的任务分发操作。
+LM4A No. 1 has the second Gigabit port and HDMI port by default, which facilitates the SOM to perform task distribution operations for the entire cluster.
 
-主板可通过12V DC充电头供电（推荐12V9A以上），或者使用标准ATX电源供电。
+The motherboard can be powered by a 12V DC charging head (12V9A or above recommended), or by a standard ATX power supply.
 
-### 机箱介绍
+### Chassis introduction
 
-推荐选配MINI-ITX机箱，该机箱具备良好的外观和散热性能，方便计算集群的部署展示。
+It is recommended to choose the MINI-ITX chassis. This chassis has good appearance and heat dissipation performance, and is convenient for the deployment and display of computing clusters.
 
-机箱适配MINI-ITX主板，配备250W大功率电源，并安装了12cm静音风扇散热，可以保证CPU在满载运行时的温度低于70度。
+The chassis is adapted to the MINI-ITX motherboard, equipped with a 250W high-power power supply, and installed with a 12cm silent fan for heat dissipation, which can ensure that the CPU temperature is below 70 degrees when running at full load.
 
 ![lc4a_box](./assets/lc4a/lc4a_box.png)
 
-### 硬件安装指南
+### Hardware Installation Guide
 
-默认运输途中LC4A已经安装了所有SOM，如果你需要拆卸或者升级SOM，可以参考以下说明。
+By default, all SOMs have been installed on the LC4A during transportation. If you need to remove or upgrade the SOM, please refer to the following instructions.
 
-#### 安装核心板
+#### Install core board
 
-向两侧拉开白色锁扣，插入前请确认缺口为止，避免方向错误导致损坏
+Pull the white lock buckle to both sides. Please confirm the gap before inserting to avoid damage caused by incorrect direction.
 
 ![lc4a_install_goldfinger](./assets/lc4a/lc4a_install_goldfinger.png)
 
-放入核心板后均匀的向下施加压力
+After placing the core board, apply downward pressure evenly
 
 ![lc4a_install_install_lm4a](./assets/lc4a/lc4a_install_install_lm4a.png)
 
-听到喀哒声后，确认白色锁扣正确扣上，安装完成。如果需要取出核心板，向两侧拉开白色锁扣即可。
+After hearing a click, confirm that the white lock is properly engaged and the installation is complete. If you need to take out the core board, just pull the white locks to both sides.
 
 ![lc4a_install_slot](./assets/lc4a/lc4a_install_slot.jpeg)
 
-#### 安装BMC
+#### Install BMC
 
-安装烧录好镜像的SD卡到LicheeRV, 然后将LicheeRV的模块安装至交换机芯片旁边的座子,然后拧上螺丝.
+Install the burned image SD card to LicheeRV, then install the LicheeRV module to the seat next to the switch chip, and then tighten the screws.
 
-#### 插入电源
+#### Plug in power
 
-可选ATX电源供电或者DC电影供电。
+Optional ATX power supply or DC movie power supply.
 
-确认ATX电源插座的卡扣已经扣紧，避免接触不良导致连接器升温
+Make sure the buckle of the ATX power socket is fastened to avoid poor contact causing the connector to heat up.
 
 ![lc4a_power_atx20_cable](./assets/lc4a/lc4a_power_atx20_cable.png)
 
-插上跳线帽
+Plug in the jumper cap
 
 ![lc4a_power_jumpwire](./assets/lc4a/lc4a_power_jumpwire.png)
 
-#### 网络连接
+#### Internet connection
 
-集群系统对外主要连接两个网口：1. 板载千兆交换机网口 2. BMC网口
-板载千兆交换机网口建议连接入用户所在内网或者主网络，用于集群获取所需网络数据。
-BMC网口建议连入独立网络进行集群控制，更具安全性。
-集群内部通过千兆交换机连接。
+The cluster system mainly connects to two external network ports: 1. Onboard Gigabit switch network port 2. BMC network port
+It is recommended that the onboard Gigabit switch network port be connected to the user's intranet or main network for the cluster to obtain required network data.
+It is recommended that the BMC network port be connected to an independent network for cluster control, which is more secure.
+The clusters are connected internally through Gigabit switches.
 
-如何获得集群的IP地址:
+How to get the cluster’s IP address:
 
-预装的固件安装启用了mdns服务
-在你的PC上启用avahi服务(Linux)
-使用mdns扫描整个网络获得lc4a的mdns域名信息:
+The pre-installed firmware installation has the mdns service enabled
+Enable avahi service on your PC (Linux)
+Use mdns to scan the entire network to obtain the mdns domain name information of lc4a:
 ```
-avahi-browse -art | grep lc4a
+avahi-browse-art | grep lc4a
 ```
-然后使用:
+Then use:
 ```
 ssh debin@lc4aXXXX.local
 ```
-XXXX为mac地址后四位，用于区分每个slot
+XXXX is the last four digits of the mac address, used to distinguish each slot
 
-## 软件系统
+## Software system
 
-### LM4A镜像
+### LM4A Mirror
 
-集群中的LM4A SOM可以直接使用LicheePi4A的镜像.
+The LM4A SOM in the cluster can directly use the LicheePi4A image.
 
-如果需要使能USB，可以在Linux设备树中应用以下PATCH: [点我下载](https://dl.sipeed.com/fileList/LICHEE/LicheeCluster4A/04_Firmware/lpi4a/src/linux/0001-arch-riscv-boot-dts-lpi4a-disable-i2c-io-expander-fo.patch)
+If you need to enable USB, you can apply the following PATCH in the Linux device tree: [Click here to download](https://dl.sipeed.com/fileList/LICHEE/LicheeCluster4A/04_Firmware/lpi4a/src/linux/0001-arch- riscv-boot-dts-lpi4a-disable-i2c-io-expander-fo.patch)
 
-或者直接使用预编译镜像：[点我下载](https://dl.sipeed.com/shareURL/LICHEE/LicheeCluster4A/04_Firmware/lpi4a/bin)
+Or use the precompiled image directly: [Click here to download](https://dl.sipeed.com/shareURL/LICHEE/LicheeCluster4A/04_Firmware/lpi4a/bin)
 
-镜像烧录方法：
+Image burning method:
 
-1. 按下BOOT按键的同时按一下RST按键，然后使用A TO A公头的USB线缆连接到电脑
+1. Press the BOOT button and press the RST button at the same time, then use the A to A male USB cable to connect to the computer
 
-2. 使用fastboot工具烧录
+2. Burn using fastboot tool
 
-### OpenBMC镜像
+### OpenBMC Image
 
-主板上的 LicheeRV SOM 运行 OpenBMC 来管理主板上的 SOM。
+The LicheeRV SOM on the motherboard runs OpenBMC to manage the SOM on the motherboard.
 
-镜像下载地址: [点我跳转](https://dl.sipeed.com/shareURL/LICHEE/LicheeCluster4A/04_Firmware/bmc/bin)
+Mirror download address: [Click here to jump](https://dl.sipeed.com/shareURL/LICHEE/LicheeCluster4A/04_Firmware/bmc/bin)
 
-镜像烧录方法:
+Image burning method:
 
 ```
-bmaptool copy obmc-phosphor-image-licheepi-rv.wic.gz /dev/YOUR_SDCARD
+bmaptool copy obmc-phosphor-image-lichepi-rv.wic.gz /dev/YOUR_SDCARD
 ```
 
-默认用户名: `root`
+Default username: `root`
 
-默认密码: `0penBmc`
+Default password: `0penBmc`
 
-0 是零，不是 O
+0 is zero, not O
 
-如果需要开发定制，请下载PATCH:
+If you need to develop customization, please download PATCH:
 
 https://dl.sipeed.com/shareURL/LICHEE/LicheeCluster4A/04_Firmware/bmc/src
 
-并应用到OpenBMC源码:
+And applied to OpenBMC source code:
 
 ```
 git clone https://github.com/openbmc/openbmc/
 git checkout commit-id
-git am xxx.patch
+git amxxx.patch
 ```
 
-### OpenBMC管理
+### OpenBMC Management
 
-从SSH访问Slot的串口:
+Access Slot's serial port from SSH:
 
 ```
 ssh -p 2301 root@bmcip # access first slot's serial port
 ```
 
-* 端口 22: OpenBMC的shell
+* Port 22: OpenBMC shell
 
-* 端口 2301: slot1 的 SOL (Serial Over LAN)
-* 端口 2302: slot2 的 SOL
-* 端口 2303: slot3 的 SOL
-* 端口 2304: slot4 的 SOL
-* 端口 2305: slot5 的 SOL
-* 端口 2306: slot6 的 SOL
-* 端口 2307: slot7 的 SOL
+* Port 2301: SOL (Serial Over LAN) of slot1
+* Port 2302: SOL for slot2
+* Port 2303: SOL for slot3
+* Port 2304: SOL for slot4
+* Port 2305: SOL for slot5
+* Port 2306: SOL for slot6
+* Port 2307: SOL for slot7
 
-每个Slot的串口输出到日志:
+The serial port of each Slot is output to the log:
 
 ```
 cat /var/log/obmc-cons*.log
 ```
+
