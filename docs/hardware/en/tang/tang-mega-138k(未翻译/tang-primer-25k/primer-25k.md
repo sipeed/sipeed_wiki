@@ -1,4 +1,4 @@
-# Tang Primer 25K
+#  Primer 25K
 
 ## 概述
 
@@ -14,7 +14,7 @@ Tang Primer 25K 是基于 [GW5A-LV25MG121](http://www.gowinsemi.com.cn/prod_view
     <img src="./assets/25k_dock_45.jpg" width=45%>
 </div>
 
-购买链接：[淘宝](https://item.taobao.com/item.htm?spm=a1z10.5-c-s.w4002-24984936573.29.19b22db2a329yr&id=746293292946)
+购买链接：[淘宝](https://item.taobao.com/item.htm?&id=xxx)
 
 
 
