@@ -14,7 +14,7 @@ Tang Primer 25K 是基于 [GW5A-LV25MG121](http://www.gowinsemi.com.cn/prod_view
     <img src="./assets/25k_dock_45.jpg" width=45%>
 </div>
 
-购买链接：[淘宝](https://item.taobao.com/item.htm?&id=xxx)
+购买链接：[淘宝](https://item.taobao.com/item.htm?spm=a1z10.5-c-s.w4002-24984936573.29.19b22db2a329yr&id=746293292946)
 
 
 
@@ -172,7 +172,7 @@ Tang Primer 25K 是基于 [GW5A-LV25MG121](http://www.gowinsemi.com.cn/prod_view
 ## 上手简明
 
 `准备开发环境` -> `学习相关语法` -> `查看开箱指南` -> `基础代码编写` -> `查看官方文档`
-   
+
 1. 安装 IDE ：[点击这里](./../Tang-Nano-Doc/get_started/install-the-ide.md)
 
 2. 查看 [上手指南](https://wiki.sipeed.com/hardware/zh/tang/tang-primer-20k/start.html) 来避免一些问题，并且从那里面可以开始进行代码实战。
