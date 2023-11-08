@@ -449,6 +449,96 @@ echo "12345" > /dev/ttyS1
 
 也可以使用`minicom`，或者pyserial库进行串口操作，请用户自行查找相关资料使用。  
 
+##### 使用USB转ttl模块接licheepi 4a usb连接进行串口通信
+
+（1）安装pyserial库并查看usb串口模块端口
+
+- 安装pyserial库
+```
+pip3 install pyserial
+pip list查看
+```
+终端输出信息：可以看到pyserial已经安装上去了
+```
+(ort) root@lpi4a:/home/sipeed/Desktop/udisk/test_py# pip list
+Package                Version
+---------------------- --------------------------------
+certifi                2023.7.22
+charset-normalizer     3.3.1
+coloredlogs            15.0.1
+cycler                 0.12.1
+filelock               3.12.4
+flatbuffers            23.5.26
+fonttools              4.43.1
+hhb-onnxruntime-th1520 2.6.0
+humanfriendly          10.0
+idna                   3.4
+Jinja2                 3.1.2
+kiwisolver             1.4.4
+loguru                 0.7.0
+MarkupSafe             2.1.3
+matplotlib             3.7.2.dev0+gb3bd929cf0.d20230630
+mpmath                 1.3.0
+networkx               3.2
+numpy                  1.25.0
+opencv-python          4.5.4+4cd224d
+packaging              23.2
+Pillow                 9.5.0
+pip                    23.0.1
+protobuf               4.24.4
+psutil                 5.9.5
+pycocotools            2.0.6
+pyparsing              3.1.1
+pyserial               3.5
+python-dateutil        2.8.2
+requests               2.31.0
+setuptools             66.1.1
+setuptools-scm         8.0.4
+six                    1.16.0
+sympy                  1.12
+tabulate               0.9.0
+torch                  2.0.0a0+gitc263bd4
+torchvision            0.15.1a0
+tqdm                   4.65.0
+typing_extensions      4.8.0
+urllib3                2.0.7
+
+```
+- 查看usb串口模块端口
+**（串口模块那么就是/dev/serial/by-id/usb-1a86_USB_Serial-if00-port0）**
+```
+root@lpi4a:~# ls /dev/serial/by-id/
+usb-1a86_USB_Serial-if00-port0
+```
+
+（2）程序与实测
+```
+# -*- coding: utf-8 -*-
+import serial
+import time
+import threading
+serialPort = "/dev/serial/by-id/usb-1a86_USB_Serial-if00-port0"  # 串口
+baudRate = 115200  # 波特率
+ser = serial.Serial(serialPort, baudRate, timeout=0.5)
+def receive_message_wxw():
+    global ser
+    while True:
+        data_count = ser.inWaiting()
+        if data_count != 0:
+            recv = ser.read(ser.in_waiting).decode("utf-8")
+            print(recv)
+tmp1 = threading.Thread(target=receive_message_wxw)
+tmp1.start()
+
+while True:
+    str="test message\n"
+    ser.write((str).encode('utf-8'))
+    time.sleep(1);
+
+```
+
+![i2c_io](./assets/peripheral/usb_serial_use.png)  
+
 ## I2C
 
 LicheePi 4A 上有多个 I2C 设备（I2C0/1/2/3），其中 0/1/3 用于连接 I2C IO 扩展芯片，I2C2 预留在对外插针上。  
