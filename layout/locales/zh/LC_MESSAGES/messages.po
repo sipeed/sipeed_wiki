@@ -9,7 +9,8 @@ msgstr ""
 #: home.html:96 home.html:109 home.html:122 home.html:135 licheepi.html:136
 #: licheepi.html:152 licheepi.html:168 licheepi.html:184 maix.html:114
 #: maix.html:131 maix.html:147 maixsense.html:44 maixsense.html:60
-#: tang.html:141 tang.html:167 tang.html:183 tang.html:199 tang.html:215
+#: tang.html:141 tang.html:157 tang.html:173 tang.html:189 tang.html:205
+#: tang.html:221
 msgid "购买"
 msgstr ""
 
@@ -20,8 +21,8 @@ msgstr ""
 #: home.html:105 home.html:118 home.html:131 licheepi.html:132
 #: licheepi.html:148 licheepi.html:164 licheepi.html:180 maix.html:110
 #: maix.html:127 maix.html:143 maix.html:159 maixsense.html:40
-#: maixsense.html:56 tang.html:137 tang.html:163 tang.html:179 tang.html:195
-#: tang.html:211
+#: maixsense.html:56 tang.html:137 tang.html:153 tang.html:169 tang.html:185
+#: tang.html:201 tang.html:217
 msgid "文档"
 msgstr ""
 
@@ -293,6 +294,34 @@ msgstr ""
 msgid "支持 SFP+ 数据传输"
 msgstr ""
 
+#: tang.html:116
+msgid "内含 2.5G MIPI DPHY RX/TX"
+msgstr ""
+
+#: tang.html:116
+msgid "支持 PMOD, 64MByte SDRAM模块"
+msgstr ""
+
+#: tang.html:116
+msgid "支持 USB手柄"
+msgstr ""
+
+#: tang.html:117
+msgid "丰富外设，HDMI/以太网/USB"
+msgstr ""
+
+#: tang.html:118
+msgid "for RetroGame ~"
+msgstr ""
+
+#: tang.html:119
+msgid "for RISCV softcore"
+msgstr ""
+
+#: tang.html:120
+msgid "GOAI~"
+msgstr ""
+
 #: tang.html:134
 msgid "可以高速通信的大容量 FPGA 开发板"
 msgstr ""
@@ -301,23 +330,19 @@ msgstr ""
 msgid "自由拓展的 FPGA 开发板"
 msgstr ""
 
-#: tang.html:153
-msgid "敬请期待"
-msgstr ""
-
-#: tang.html:160
+#: tang.html:166
 msgid "自带多种外设接口的 FPGA 开发板"
 msgstr ""
 
-#: tang.html:176
+#: tang.html:182
 msgid "适用于模拟复古游戏机的 FPGA 开发板"
 msgstr ""
 
-#: tang.html:192
+#: tang.html:198
 msgid "适合 RiscV 软核验证的 FPGA 开发板"
 msgstr ""
 
-#: tang.html:208
+#: tang.html:214
 msgid "芯片内部含有 MCU 的 FPGA 开发板"
 msgstr ""
 
@@ -355,5 +380,8 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "Tang 系列主流板卡参数对比"
+#~ msgstr ""
+
+#~ msgid "敬请期待"
 #~ msgstr ""
 
