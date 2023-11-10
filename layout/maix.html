@@ -1,7 +1,9 @@
 <!-- 修改后保存一下 include 这个文件的 html 模板就会渲染 -->
 
 <div class="w-full flex flex-col justify-center items-center">
-  <h2 class="text-2xl font-bold my-8 block_simple">{{_('Maix AI 视觉系列')}}</h2>
+  <h2 class="text-2xl font-bold my-8 block_simple">
+    {{_('Maix AI 视觉系列')}}
+  </h2>
   <div class="w-full flex flex-col justify-center">
     <div class="cards">
       <!-- cards -->
@@ -53,7 +55,10 @@
             <td>0.25Tops@INT8，{{_('支持有限')}} CNN {{_('算子')}}</td>
             <td>0.2Tops@INT8，{{_('支持有限')}} CNN {{_('算子')}}</td>
             <td>3.6Tops@INT8，{{_('支持常用')}} CNN {{_('模型')}}</td>
-            <td>10Tops@INT8，{{_('支持常用')}} CNN {{_('和')}} transformer {{_('模型')}}</td>
+            <td>
+              10Tops@INT8，{{_('支持常用')}} CNN {{_('和')}} transformer
+              {{_('模型')}}
+            </td>
           </tr>
           <tr>
             <td>{{_('储存')}}</td>
@@ -104,7 +109,8 @@
       {
         img: "/static/home/maixbit.jpg",
         title: "Maix-I (K210)",
-        brief: "{{_('带硬件 AI 加速的 MCU，配合易用的软件快速落地低成本 AI 应用')}}",
+        brief:
+          "{{_('带硬件 AI 加速的 MCU，配合易用的软件快速落地低成本 AI 应用')}}",
         btns: [
           {
             label: "{{_('文档')}}",
@@ -137,7 +143,8 @@
       {
         img: "/static/home/m3axpi.jpg",
         title: "Maix-III (AXeraPi)",
-        brief: "{{_('3.6Tops AI ISP，微光夜视，大量常见 AI 模型支持，安防智能 IPC')}}",
+        brief:
+          "{{_('3.6Tops AI ISP，微光夜视，大量常见 AI 模型支持，安防智能 IPC')}}",
         btns: [
           {
             label: "{{_('文档')}}",
@@ -153,15 +160,16 @@
       {
         img: "/static/home/m4ndock.jpg",
         title: "Maix-IV (AXeraPi-Pro)",
-        brief: "{{_('10Tops AI 算力，32 路 1080p 高清 AI 视频监控，AI 大模型支持')}}",
+        brief:
+          "{{_('10Tops AI 算力，32 路 1080p 高清 AI 视频监控，AI 大模型支持')}}",
         btns: [
           {
             label: "{{_('文档')}}",
-            link: "/m4ndock",
+            link: "/m3axpi",
           },
           {
-            label: "{{_('了解更多')}}",
-            link: "https://sipeed.com/m4ndock",
+            label: "{{_('购买')}}",
+            link: "https://item.taobao.com/item.htm?id=682169792430",
             new_tab: true,
           },
         ],
