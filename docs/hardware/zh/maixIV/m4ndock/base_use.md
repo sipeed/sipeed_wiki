@@ -40,13 +40,13 @@ M4N-Dock 有两个网络接口（靠近HDMI1的为eth1，另一个为eth0）；�
 3. 出现下图三，点击是
 4. 会出现以太网（未识别的网络）是因为我已经插上了和板子连接的网线，查看以太网IPV4是否为下图四框选一样，如果没有，则手动设置为下图一样。
 
-![picture 4](../assets/base_use5.jpg)  
+![picture 4](../assets/base_use5.png)  
 
-![picture 5](../assets/base_use6.jpg)  
+![picture 5](../assets/base_use6.png)  
 
-![picture 6](../assets/base_use7.jpg)  
+![picture 6](../assets/base_use7.png)  
 
-![picture 7](../assets/base_use8.jpg)  
+![picture 7](../assets/base_use8.png)  
 
 
 - 开发板设置
@@ -70,7 +70,7 @@ reboot
 ping www.baidu.com
 ```
 
-![A9A57DA9DA4E6BDD2D344D8D137752F6.jpg 1](../assets/base_use10.jpg)  
+![picture 1](../assets/base_use10.jpg)  
 
 
 ## 基本软件安装
@@ -82,7 +82,6 @@ apt install build-essential
 apt install libopencv-dev
 apt install cmake
 apt-get install net-tools
-![picture 11](https://img2023.cnblogs.com/blog/2915785/202311/2915785-20231111203855075-1679372748.jpg)  
 sudo apt install mousepad
 ```
 
@@ -102,6 +101,6 @@ service sshd restart
 ![picture 12](../assets/base_use12.jpg)  
 
 登录成功：
-![picture 13](../assets/base_use13.jpg)  
+![picture 13](../assets/base_use13.png)  
 
 
