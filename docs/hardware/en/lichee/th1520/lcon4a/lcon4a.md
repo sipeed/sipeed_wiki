@@ -15,7 +15,7 @@ Introduction
 
 Lichee Console 4A (hereinafter referred to as Console) is a high-performance RISC-V portable terminal developed by SiliconSpeed Technology. It is designed to allow RISC-V developers to experience the application of RISC-V products in real life in advance.
 Lichee Console 4A integrates a high-performance RISC-V TH1520 SOM (8+32/16+128 optional), a 7-inch 1280x800 capacitive touch screen, a 72-key keyboard, and USB-A and USB-C in a size smaller than an A5 notebook. , 2242 SSD card slot, TF card slot, miniHDMI, 3.5mm headphone jack, Ethernet port and other rich interfaces, truly putting the RISC-V development terminal into your pocket~
-The software support of Lichee Console 4A has also been relatively complete. It is equipped with the Debian operating system by default and supports Chrome browser, VSCode IDE, KiCAD PCB drawing software, Office software, 4K player, and various game simulators, which basically meets the needs of daily work. Learn to use.
+The software support of Lichee Console 4A has also been relatively completed. It is equipped with the Debian operating system by default and supports Chrome browser, VSCode IDE, KiCAD PCB drawing software, Office software, 4K player, and various game simulators, which basically meets the needs of daily work. Learn to use.
 Lichee Console 4A uses a modular design. If you have purchased LicheePi4A before, you can reuse the SOM to the Console.
 
 > Note: High-performance RISCV consumer electronics are still in a relatively early stage at present (2023). Lichee Console 4A is mainly for RISC-V developers to experience development and use. It requires at least skilled Linux operating experience. Ordinary consumers cannot get started directly. in use.
@@ -125,7 +125,7 @@ After the log is printed for about 20 seconds, the Debian desktop system starts 
 After entering the desktop system, you can test whether the screen touch, pointing stick, and keyboard are working. If you find that they are not working, you can contact customer service.
 
 The default system is Debian, which is pre-installed with Chrome, VSCode, Office, KiCAD, KODI, Parole and other application software, you can experience them one by one.
-You can use sudo apt instal xxx to install the software. The default username and password are sipeed, lichepi
+You can use sudo apt instal xxx to install the software. The default username and password are sipeed, licheepi
 For other general software usage, please refer to the relevant documentation chapters of LicheePi4A.
 
 ### SSD Installation Guide
@@ -183,7 +183,7 @@ Under continuous high-load work (such as browser video soft decoding), the CPU t
 ![heat1](./assets/lcon4a/heat3.png)
 
 If you have better cooling suggestions, you can send an email to support@sipeed.com
-> At present (2023.11), the browser hard decryption has not yet been adapted, so it will occupy a lot of CPU when watching browser videos. It is expected that the browser hard decryption function will be incorporated in December.
+> At present (2023.11), the browser hardware decoding has not yet been adapted, so it will occupy a lot of CPU when watching browser videos. It is expected that the browser hardware decoding function will be incorporated in December.
 
 ### Standby
 The hardware circuit design of the Console takes the standby situation into consideration and adds power control to each relevant peripheral. However, currently (2023.11) the low-power consumption function of TH1520 has not been added to the SDK, so the standby function still needs to be updated.
