@@ -18,11 +18,11 @@ From the timing picture, we know both display a horizon of data or display a ver
 
 Each horizon of data contains back porch, visible data **(this is normally  thought as active data)** and front porch.
 
-The visible data is resolution we normally think, while the parameter of back porch and front porch depends on the resolution and frame rate. Its typical parameters can be found in this web. http://www.tinyvga.com/vga-timing
+The visible data is resolution we normally think, while the parameter of back porch and front porch depends on the resolution and frame rate. Its typical parameters can be found at <http://www.tinyvga.com/vga-timing>.
 
-The timing of this 5-inch screen we sell is a bit different, its parameters can be downloaded here. [Detail book](https://dl.sipeed.com/fileList/TANG/Nano%209K/6_Chip_Manual/EN/LCD_Datasheet/5.0inch_LCD_Datashet%20_RGB_.pdf)
+The timing of this 5-inch screen we sell is a bit different, its parameters can be downloaded [here (PDF)](https://dl.sipeed.com/fileList/TANG/Nano%209K/6_Chip_Manual/EN/LCD_Datasheet/5.0inch_LCD_Datashet%20_RGB_.pdf).
 
-For other size screen parameters, they can be downloaded here. [Click me](https://dl.sipeed.com/TANG/Nano%209K/6_Chip_Manual/EN/LCD_Datasheet/)
+For other size screen parameters, they can be downloaded [here](https://dl.sipeed.com/TANG/Nano%209K/6_Chip_Manual/EN/LCD_Datasheet/).
 
 The following picture shows the screenshot about this LCD timing.
 
@@ -44,15 +44,16 @@ Please refer to this [article](./../led/led.md) to see how to create project.
 
 The crystal oscillator onboard is 27MHz, but our screen needs 33.3MHZ clock, so we need to use the corresponding ip core to generate the corresponding clock. 
 
-Here we use  `IP Core Generate` which can be find in Tools -> IP Core Generate
+Here we use `IP Core Generate` which can be find in *Tools -> IP Core Generate*.
 
 ![](./../../../../zh/tang/Tang-Nano-1K/assets/Gowin_IP_rpll.png)
 
-Double click `rPLL` and select Verilog in the pop-up window language, set CLKIN 27MHz, CLKOUT is 33.00MHz. Also config the tolerance.
+Double click `rPLL` and select `Verilog` in the pop-up window language, set CLKIN 27MHz, CLKOUT to 33.00MHz.
+Also config the tolerance.
 
 ![](./../../../../zh/tang/Tang-Nano-1K/assets/lcd_rpll.png)
 
-After click OK it asks whether add it to current project, here we choose yes.
+After clicking OK it asks whether to add it to the current project - choose `yes`.
 
 ![](./../../../../zh/tang/Tang-Nano-1K/examples/led/assets/add_ip_file_in_project.png)
 
@@ -111,11 +112,12 @@ localparam      LineForVS   =   HightPixel + V_BackPorch + V_FrontPorch;
 
 First we define front porch, back porch and valid pixel data.
 
-As for the front porch timing and back porch timing which have been mentioned earlier, it can be combined into an erasing time, that is, one can be set to 0, and the other can be set to the erasing time. Anyway, the front porch timing and back porch timing can be added up to meet the timing requirements in the table is ok.
+As for the front porch timing and back porch timing which have been mentioned earlier, it can be combined into an erasing time, that is, one can be set to 0, and the other can be set to the erasing time.
+Anyway, the front porch timing and back porch timing can be added up to meet the timing requirements in the table is ok.
 
 ### Define variables
 
-- Define some variables helps us to meet timing requirment
+- Define some variables helps us to meet timing requirement
   
 ```verilog 
 
@@ -130,7 +132,8 @@ reg	[9:0]  Data_B;
 
 ### Synchronization signals
 
-This code generates synchronization signals. It should be noted that the synchronization signals of this screen enabled by negative polarity 
+This code generates synchronization signals.
+It should be noted that the synchronization signals of this screen enabled by negative polarity.
 
 ```verilog
     always @(  posedge PixelClk or negedge nRST  )begin
@@ -207,20 +210,20 @@ assign  LCD_DE = (  ( PixelCount >= H_BackPorch )&&
                         ( PixelCount < ( H_BackPorch +  Colorbar_width * 16 )) ? 5'b10000 :  5'b00000;
 ```
 
-**Do not forget to add endmodule in the end of the driver file**
+**Do not forget to add `endmodule` in the end of the driver file.**
 
 Up to now we have finished the driver module.
 
 ## Instantiated in the top
 
-- **New a verilog file**
-- Just copy the content below and save it is ok
+- **Create a new verilog file**
+- Just copy the content below and save it.
 
 ```verilog
 module TOP //Name TOP module
 (
 	input			nRST,
-    input           XTAL_IN,
+	input           XTAL_IN,
 
 	output			LCD_CLK,
 	output			LCD_HYNC,
@@ -250,7 +253,7 @@ module TOP //Name TOP module
 		.PixelClk	(	CLK_PIX		),
 		.LCD_DE		(	LCD_DEN	 	),
 		.LCD_HSYNC	(	LCD_HYNC 	),
-    	.LCD_VSYNC	(	LCD_SYNC 	),
+		.LCD_VSYNC	(	LCD_SYNC 	),
 
 		.LCD_B		(	LCD_B		),
 		.LCD_G		(	LCD_G		),
@@ -284,7 +287,7 @@ The corresponding pins and ports are as follows form shows
 
 The way to constain pins can refer to the [Light led](./../led/led.md), it contains a way to constain pins.
 
-If you feel troublesome about the method above,  you can copy the content in this [page](./../../../../zh/tang/Tang-Nano-9K/examples/lcd_constrains.md)， and paste it in ".cst" file in this project (If there is no ".cst" file, just create a "physicsl constrains file"). 
+If you feel troublesome about the method above, you can copy the content from this [page](./../../../../zh/tang/Tang-Nano-9K/examples/lcd_constrains.md)， and paste it in ".cst" file in this project (if there is no ".cst" file, just create a "physicsl constrains file").
 
 | PORT        | I/O    | PIN | PORT         | I/O    | PIN |
 | ----------- | ------ | --- | ------------ | ------ | --- |
@@ -304,18 +307,18 @@ If you feel troublesome about the method above,  you can copy the content in thi
 
 After constraining, we need to open IO mux to complete Place&Route.
 
-Tick Project -> Configuration -> Place&Route -> Dual-Purpose Pin which is in the Menu Bar.
+Tick *Project -> Configuration -> Place&Route -> Dual-Purpose Pin* in the Menu Bar.
 ![](./../../../../zh/tang/Tang-Nano/examples/led/assets/enable_io_mux.png)
 
 Then we can run Place&Route.
 
 ## Program
 
-Finishing Place&Route, we can download the generated .fs file to the development board to see color bar.
+Finishing Place&Route, we can download the generated `.fs` file to the development board to see color bar.
 
 ## End
 
-Now the tutorial ends, if you have any suggestions, just leave a message.
+If you have any suggestions, just leave a message.
 
 <p id="back">
     <a href="#" onClick="javascript :history.back(-1);">Back to the previous page</a>
