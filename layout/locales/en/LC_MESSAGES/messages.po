@@ -22,6 +22,10 @@ msgstr "Documentation"
 msgid "购买"
 msgstr "Buy"
 
+#: home.html:101 maix.html:172
+msgid "https://item.taobao.com/item.htm?id=744014549573"
+msgstr "https://www.aliexpress.us/item/3256806030962938.html"
+
 #: home.html:106
 msgid "/static/home/licheepi4a_post.jpg"
 msgstr ""
