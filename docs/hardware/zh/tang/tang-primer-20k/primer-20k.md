@@ -312,7 +312,7 @@ github 链接： https://github.com/sipeed/TangPrimer-20K-example
 
 ## 补充说明
 
-对于板子上的 bank 0、bank 1、bank 7 这 3 个 bank 电压，默认所接的是 3.3V，对应的 bank IO 会对外输出 3.3V 电压。如果需要输入自定义的 IO bank 电压，请拆除 R5 和 R9，请参考对应 Assembly [点我跳转](https://dl.sipeed.com/shareURL/TANG/Primer_20K/03_Bit_number_map) 图来确定 R5 和 R9 的位置。
+对于板子上的 bank 0、bank 1、bank 7 这 3 个 bank 电压，默认所接的是 3.3V，对应的 bank IO 会对外输出 3.3V 电压。如果需要输入自定义的 IO bank 电压，请拆除 R5 和 R9，请参考对应 Assembly [点我跳转](https://api.dl.sipeed.com/shareURL/TANG/Primer_20K/03_Bit_number_map/CoreModule) 图来确定 R5 和 R9 的位置。
 
 ![io_vltage](./assets/io_vltage.png)
 

@@ -222,6 +222,14 @@ items:
                 file: tang/Tang-Nano-Doc/questions.md
                 target: _blank
         -   label: Tang Primer 25K
+            items:
+            -   label: Introduction
+                file: tang/tang-primer-25k/primer-25k.md
+            -   label: Install IDE
+                file: tang/Tang-Nano-Doc/get_started/install-the-ide.md
+            -   label: Questions&Answers
+                file: tang/Tang-Nano-Doc/questions.md
+                target: _blank
         -   label: Tang Primer (Sold out)
             file: tang/Tang-primer/Tang-primer.md
             items:

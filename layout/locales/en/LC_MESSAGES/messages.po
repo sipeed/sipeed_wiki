@@ -6,50 +6,55 @@ msgstr ""
 msgid "/static/home/ax650_presell.jpg"
 msgstr ""
 
-#: home.html:96 home.html:109 home.html:122 home.html:135 licheepi.html:136
-#: licheepi.html:152 licheepi.html:168 licheepi.html:184 maix.html:114
-#: maix.html:131 maix.html:147 maixsense.html:44 maixsense.html:60
-#: tang.html:141 tang.html:167 tang.html:183 tang.html:199 tang.html:215
-msgid "购买"
-msgstr "Buy"
-
-#: home.html:102
-msgid "/static/home/licheepi4a_post.jpg"
-msgstr ""
-
-#: home.html:105 home.html:118 home.html:131 licheepi.html:132
-#: licheepi.html:148 licheepi.html:164 licheepi.html:180 maix.html:110
-#: maix.html:127 maix.html:143 maix.html:159 maixsense.html:40
-#: maixsense.html:56 tang.html:137 tang.html:163 tang.html:179 tang.html:195
-#: tang.html:211
+#: home.html:96 home.html:109 home.html:122 home.html:135 licheepi.html:132
+#: licheepi.html:148 licheepi.html:164 licheepi.html:180 maix.html:116
+#: maix.html:133 maix.html:150 maix.html:167 maixsense.html:40
+#: maixsense.html:56 tang.html:137 tang.html:153 tang.html:169 tang.html:185
+#: tang.html:201 tang.html:217
 msgid "文档"
 msgstr "Documentation"
 
-#: home.html:115
+#: home.html:100 home.html:113 home.html:126 home.html:139 licheepi.html:136
+#: licheepi.html:152 licheepi.html:168 licheepi.html:184 maix.html:120
+#: maix.html:137 maix.html:154 maix.html:171 maixsense.html:44
+#: maixsense.html:60 tang.html:141 tang.html:157 tang.html:173 tang.html:189
+#: tang.html:205 tang.html:221
+msgid "购买"
+msgstr "Buy"
+
+#: home.html:101 maix.html:172
+msgid "https://item.taobao.com/item.htm?id=744014549573"
+msgstr "https://www.aliexpress.us/item/3256806030962938.html"
+
+#: home.html:106
+msgid "/static/home/licheepi4a_post.jpg"
+msgstr ""
+
+#: home.html:119
 msgid "/static/home/maixiii_axpi.jpg"
 msgstr "/static/home/maixiii_axpi_en.jpg"
 
-#: home.html:144
+#: home.html:148
 msgid "分享广场"
 msgstr "Share Center"
 
-#: home.html:148
+#: home.html:152
 msgid "MaixHub 官网"
 msgstr "MaixHub"
 
-#: home.html:158
+#: home.html:162
 msgid "产品动态"
 msgstr "Product News"
 
-#: home.html:162
+#: home.html:166
 msgid "Maix AI 视觉"
 msgstr "Maix AI Vision"
 
-#: home.html:174
+#: home.html:178
 msgid "MaixSense 传感器"
 msgstr "MaixSense Sensor"
 
-#: home.html:178
+#: home.html:182
 msgid "其它"
 msgstr "Others"
 
@@ -61,19 +66,19 @@ msgstr "Linux SBC Series"
 msgid "Lichee SBC 系列产品参数对比"
 msgstr "Lichee SBC Series Product Comparison"
 
-#: licheepi.html:29 maix.html:29 tang.html:31
+#: licheepi.html:29 maix.html:31 tang.html:31
 msgid "参数"
 msgstr "Parameter"
 
-#: licheepi.html:38 maix.html:38
+#: licheepi.html:38 maix.html:40
 msgid "处理器"
 msgstr "CPU"
 
-#: licheepi.html:45 maix.html:45
+#: licheepi.html:45 maix.html:47
 msgid "内存"
 msgstr "memory"
 
-#: licheepi.html:52 maix.html:59 tang.html:105
+#: licheepi.html:52 maix.html:64 tang.html:105
 msgid "储存"
 msgstr "storage"
 
@@ -82,11 +87,11 @@ msgid "预留"
 msgstr "reserved"
 
 #: licheepi.html:53 licheepi.html:54 licheepi.html:55 licheepi.html:56
-#: maix.html:60 maix.html:61 maix.html:62 maix.html:63
+#: maix.html:65 maix.html:66 maix.html:67 maix.html:68
 msgid "卡"
 msgstr "card"
 
-#: licheepi.html:56 maix.html:60 maix.html:61
+#: licheepi.html:56 maix.html:65 maix.html:66
 msgid "板载"
 msgstr "onboard"
 
@@ -112,7 +117,7 @@ msgstr "decode"
 msgid "编码"
 msgstr "encode"
 
-#: licheepi.html:89 maix.html:73
+#: licheepi.html:89 maix.html:78
 msgid "操作系统"
 msgstr "operating system"
 
@@ -120,7 +125,7 @@ msgstr "operating system"
 msgid "主线"
 msgstr "mainline"
 
-#: licheepi.html:103 maix.html:80
+#: licheepi.html:103 maix.html:85
 msgid "典型外设"
 msgstr "typical peripherals"
 
@@ -140,93 +145,89 @@ msgstr "mini"
 msgid "开发板"
 msgstr "dev board"
 
-#: maix.html:4
+#: maix.html:5
 msgid "Maix AI 视觉系列"
 msgstr "Maix AI Vision"
 
-#: maix.html:25
+#: maix.html:27
 msgid "Maix 系列产品参数对比"
 msgstr "Maix Series Product Comparison"
 
-#: maix.html:39
+#: maix.html:41
 msgid "双核"
 msgstr "Dual core"
 
-#: maix.html:39
+#: maix.html:41
 msgid "位"
 msgstr "bit"
 
-#: maix.html:53 maix.html:54
+#: maix.html:55 maix.html:56
 msgid "支持有限"
 msgstr "limited support"
 
-#: maix.html:53 maix.html:54
+#: maix.html:55 maix.html:56
 msgid "算子"
 msgstr "operations"
 
-#: maix.html:55 maix.html:56
+#: maix.html:57 maix.html:59
 msgid "支持常用"
 msgstr "support common"
 
-#: maix.html:55 maix.html:56
+#: maix.html:57 maix.html:60
 msgid "模型"
 msgstr "model"
 
-#: maix.html:56
+#: maix.html:59
 msgid "和"
 msgstr "and"
 
-#: maix.html:60
+#: maix.html:65
 msgid "支持"
 msgstr "support"
 
-#: maix.html:61 maix.html:62 maix.html:63
+#: maix.html:66 maix.html:67 maix.html:68
 msgid "或者"
 msgstr "or"
 
-#: maix.html:66
+#: maix.html:71
 msgid "软件支持"
 msgstr "software support"
 
-#: maix.html:90 maix.html:91 maix.html:92 maix.html:93
+#: maix.html:95 maix.html:96 maix.html:97 maix.html:98
 msgid "支持度"
 msgstr "support"
 
-#: maix.html:90 maix.html:92 maix.html:93
+#: maix.html:95 maix.html:97 maix.html:98
 msgid "良"
 msgstr "ok"
 
-#: maix.html:91
+#: maix.html:96
 msgid "优"
 msgstr "good"
 
-#: maix.html:107
+#: maix.html:113
 msgid "带硬件 AI 加速的 MCU，配合易用的软件快速落地低成本 AI 应用"
 msgstr ""
 "MCU with hardware AI acceleration, combined with easy-to-use software to "
 "quickly land low-cost AI applications"
 
-#: maix.html:124
+#: maix.html:130
 msgid "硬件 AI 加速 + Linux + 易用的软件，教育、工业视觉、智能家居场景绝配"
 msgstr ""
 "Hardware AI acceleration + Linux + easy-to-use software, education, "
 "industrial vision, smart home scene"
 
-#: maix.html:140
+#: maix.html:147
 msgid "3.6Tops AI ISP，微光夜视，大量常见 AI 模型支持，安防智能 IPC"
 msgstr ""
 "3.6Tops AI ISP, low-light night vision, a large number of common AI model"
 " support, security smart IPC"
 
-#: maix.html:156
+#: maix.html:164
 msgid "10Tops AI 算力，32 路 1080p 高清 AI 视频监控，AI 大模型支持"
 msgstr ""
 "10Tops AI computing power, 32 channels of 1080p HD AI video surveillance,"
 " AI large model support"
-
-#: maix.html:163
-msgid "了解更多"
-msgstr "Learn more"
 
 #: maixsense.html:4
 msgid "MaixSense 传感器模组系列"
@@ -301,6 +302,34 @@ msgstr "Support PCIE Interface"
 msgid "支持 SFP+ 数据传输"
 msgstr "Support SFP+ Transmission"
 
+#: tang.html:116
+msgid "内含 2.5G MIPI DPHY RX/TX"
+msgstr "2.5G MIPI DPHY RX/TX inside"
+
+#: tang.html:116
+msgid "支持 PMOD, 64MByte SDRAM模块"
+msgstr "Support PMOD,64MByte SDRAM Module"
+
+#: tang.html:116
+msgid "支持 USB手柄"
+msgstr "Support USB Joystick"
+
+#: tang.html:117
+msgid "丰富外设，HDMI/以太网/USB"
+msgstr "Rich peripherals, HDMI/Ethernet/USB"
+
+#: tang.html:118
+msgid "for RetroGame ~"
+msgstr "for RetroGame ~"
+
+#: tang.html:119
+msgid "for RISCV softcore"
+msgstr "for RISCV softcore"
+
+#: tang.html:120
+msgid "GOAI~"
+msgstr "GOAI~"
+
 #: tang.html:134
 msgid "可以高速通信的大容量 FPGA 开发板"
 msgstr "High Speed Interface FPGA Board"
@@ -309,23 +338,19 @@ msgstr "High Speed Interface FPGA Board"
 msgid "自由拓展的 FPGA 开发板"
 msgstr "Free Expansion FPGA board"
 
-#: tang.html:153
-msgid "敬请期待"
-msgstr "To See"
-
-#: tang.html:160
+#: tang.html:166
 msgid "自带多种外设接口的 FPGA 开发板"
 msgstr "Mutiple Interfaces FPGA Board"
 
-#: tang.html:176
+#: tang.html:182
 msgid "适用于模拟复古游戏机的 FPGA 开发板"
 msgstr "Retro Games Friendly FPGA Board"
 
-#: tang.html:192
+#: tang.html:198
 msgid "适合 RiscV 软核验证的 FPGA 开发板"
 msgstr "RiscV Softcore FPGA Board"
 
-#: tang.html:208
+#: tang.html:214
 msgid "芯片内部含有 MCU 的 FPGA 开发板"
 msgstr "Hardcore Inside FPGA Board"
 
@@ -337,4 +362,7 @@ msgstr "Hardcore Inside FPGA Board"
 
 #~ msgid "尽情期待"
 #~ msgstr ""
+
+#~ msgid "了解更多"
+#~ msgstr "Learn more"
 
