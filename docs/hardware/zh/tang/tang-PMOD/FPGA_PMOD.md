@@ -81,10 +81,11 @@ TANG PMOD 模組是相容于 **Digilent Pmod™** 接口标准的FGPA拓展模�
 
 <div>
 <img src="./assets/PMOD_HUB75E_top.jpg"  width=45%>
-<img src="./assets/PMOD_HUB75E_bot.jpg"  width=45%>
-<img src="./assets/PMOD_HUB75E_sample1.jpg"  width=45%>
+<img src="./assets/PMOD_HUb75E_bot.jpg"  width=45%>
+<img src="./assets/PMOD_HUb75E_sample1.jpg"  width=45%>
 <img src="./assets/PMOD_HUB75E_sample2.jpg"  width=45%>
 </div>
+
 
 
 ## PMOD_DS2x2
