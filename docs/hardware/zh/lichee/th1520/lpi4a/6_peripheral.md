@@ -94,25 +94,6 @@ TH1520 SOC 具有4个GPIO bank，每个bank最大有32个IO：
 
 其中 0x0 偏移处的 4Byte（32bit）是 GPIO 数据寄存器，0x4 偏移处的 4Byte（32bit）是 GPIO 方向寄存器
 
-SOM 上的 GPIO 对应表格为：
-
-|名称 |GPIO|
-|--- |---|
-|01  |GPIO0_27|
-|02  |GPIO0_28|
-|03  |GPIO2_0 |
-|04  |AOGPIO4 |
-|05  |GPIO2_1 |
-|06  |GPIO1_22|
-|07  |GPIO0_24|
-|08  |GPIO0_25|
-|09  |GPIO3_2 |
-|10  |GPIO3_3 |
-|11  |GPIO1_3 |
-|12  |GPIO1_4 |
-|13  |GPIO1_5 |
-|14  |GPIO1_6 |
-
 LicheePi 4A上的插针的 GPIO 对应关系为：  
 ![io_map](./assets/peripheral/io_map.png)  
 
@@ -128,6 +109,10 @@ echo out > /sys/class/gpio/gpio${num}/direction
 echo 1 > /sys/class/gpio/gpio${num}/value  
 echo 0 > /sys/class/gpio/gpio${num}/value
 ```
+
+GPIO 号的对应关系如下图所示：
+
+[gpio_num](./assets/peripheral/gpio_num.png)
 
 比如要操作插针上的4个 GPIO，对应关系如下，将上述代码的num改为想要操作的 GPIO 脚对应的数字即可: 
  
@@ -203,7 +188,7 @@ gpiochip0: GPIOs 504-511, parent: i2c/0-0018, 0-0018, can sleep:    IO expend 1
  gpio-509 (                    |aon:soc_avdd25_ir   ) out lo 
  gpio-510 (                    |aon:soc_cam2_dovdd18) out lo 
  gpio-511 (                    |aon:soc_cam2_avdd25_) out lo
-```  -->
+```  
 ### gpiod库的使用
 gpiod库是一个可以在同户空间调用GPIO的库，方便用户在应用程序中对GPIO进行操作。
 首先安装和部署GPIO库：
@@ -391,7 +376,7 @@ IO1-3 = 1, IO1-4 = 0
 IO1-5 = 1
 IO1-3 = 0, IO1-4 = 1
 
-```
+```-->
 
 
 ## UART 
@@ -503,7 +488,7 @@ sipeed@lpi4a:~$ ls /dev/spidev2.0
 /dev/spidev2.0
 ```
 
-
+<!--
 ### 开始
  
  注意IO驱动能力，Licheepi4A需要外置电平转化芯片，自用TXS0108E）
@@ -550,7 +535,103 @@ make -j4
 
 ### 效果图
 
-![效果图1](./assets/peripheral/tft_demo.png)
+![效果图1](./assets/peripheral/tft_demo.png)-->
+
+SPI 常用的 ioctl 命令：
+
+- SPI_IOC_MESSAGE：用于发送和接收 SPI 消息，可以用于读写数据、控制设备等操作
+- SPI_IOC_WR_MODE：用于设置 SPI 设备的工作模式, 如 CPOL、CPHA 等
+- SPI_IOC_RD_MODE：用于读取 SPI 设备的工作模式
+- SPI_IOC_WR_LSB_FIRST：用于设置 SPI 设备的字节顺序，即最高位先传输还是最低位先传输
+- SPI_IOC_RD_LSB_FIRST：用于读取 SPI 设备的字节顺序
+- SPI_IOC_WR_BITS_PER_WORD：用于设置 SPI 设备的数据位宽
+- SPI_IOC_RD_BITS_PER_WORD：用于读取 SPI 设备的数据位宽
+- SPI_IOC_WR_MAX_SPEED_HZ：用于设置 SPI 设备的最大时钟频率
+- SPI_IOC_RD_MAX_SPEED_HZ：用于读取 SPI 设备的最大时钟频率
+- SPI_IOC_WR_MODE32：用于设置 SPI 设备的 32 位模式, 如 CPOL、CPHA 等
+- SPI_IOC_RD_MODE32：用于读取 SPI 设备的 32 位模式
+
+以上是一些常用的 SPI 设备 ioctl 命令，可以用于配置和控制 SPI 设备的各种参数。
+
+打开/关闭 SPI 设备：
+```c
+int open(const char *pathname, int flags);
+int close(int fd);
+```
+需要引用的头文件：
+```c
+#include<fcntl.h>
+#include<unistd.h>
+```
+
+示例代码：
+
+```c
+#include <stdint.h>
+#include <unistd.h> // C 语言标准头文件，定义了 POSIX API 的一部分，如文件操作、进程管理等
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <getopt.h>
+#include <fcntl.h>  // C 语言头文件，定义了文件控制相关的宏和函数
+#include <sys/ioctl.h>  // C 语言头文件，定义了 ioctl 函数和相关宏
+#include <linux/types.h>  // Linux 内核头文件，定义了内核中使用的一些基本数据类型
+#include <linux/spi/spidev.h> // Linux SPI 子系统头文件，定义了 SPI 设备驱动程序使用的数据结构和 ioctl 命令
+
+#define DATA_NUM 2  // 自定义数据长度
+#define CHECK(ret, str) if (ret < 0) {printf("%s\r\n", str); return ret;}
+static uint8_t bits = 8;
+static uint32_t speed = 1000000; // 1M Hz
+static int mode = 0;
+
+int main(int argc, char *argv[]) {
+    int ret, fd;
+    fd = open("/dev/spidev2.0", O_RDWR);
+    CHECK(fd, "can't open device"); // 打开具体 spi 设备
+    mode = SPI_MODE_0 | SPI_CS_HIGH;
+    ret = ioctl(fd, SPI_IOC_WR_MODE32, &mode); //设置 SPI 模式
+    CHECK(ret, "can't set spi mode");
+    ret = ioctl(fd, SPI_IOC_RD_MODE32, &mode); //获取 SPI 模式设置
+    CHECK(ret, "can't get spi mode");
+
+    ret = ioctl(fd, SPI_IOC_WR_BITS_PER_WORD, &bits); //设置 SPI 的 bit/word
+    CHECK(ret, "can't set bits per word");
+    ret = ioctl(fd, SPI_IOC_RD_BITS_PER_WORD, &bits); //获取 SPI 的 bit/word 设置
+    CHECK(ret, "can't get bits per word");
+
+    ret = ioctl(fd, SPI_IOC_WR_MAX_SPEED_HZ, &speed); //设置 SPI 的最大传输速度
+    CHECK(ret, "can't set max speed hz");
+
+    ret = ioctl(fd, SPI_IOC_RD_MAX_SPEED_HZ, &speed); //获取 SPI 的最大传输速度设置
+    CHECK(ret, "can't get max speed hz");
+
+    printf("spi mode: %d\n", mode);
+    printf("bits per word: %d\n", bits);
+    printf("max speed: %d Hz (%d KHz)\n", speed, speed/1000);
+    //数据传输
+    uint8_t tx[] = {0x11, 0x22};
+    uint8_t rx[DATA_NUM] = {0};
+
+    struct spi_ioc_transfer tr = {
+        .tx_buf = (unsigned long)tx,  //定义发送缓冲区指针
+        .rx_buf = (unsigned long)rx,  //定义接收缓冲区指针
+        .len = DATA_NUM,
+        .delay_usecs = 0,
+        .speed_hz = speed,
+        .bits_per_word = bits
+    };
+
+    ret = ioctl(fd, SPI_IOC_MESSAGE(1), &tr); //执行 spidev.c 中 ioctl 的 default 进行数据传输
+    CHECK(ret, "can't send spi message");
+
+    printf("tx: %.2X %.2X\r\n", tx[0], tx[1]);
+    printf("rx: %.2X %.2X\r\n", rx[0], rx[1]);
+
+    close(fd);
+
+    return ret;
+}
+```
 
 ## USB 
 
