@@ -8,7 +8,7 @@ Different modules provide various expansion functions, and they can be combined 
 
 <div> <img src="./assets/PMOD-all.jpg" width=45%> <img src="./assets/25K_PMOD.jpg" width=45%> <img src="./assets/138K_PMOD.jpg" width=45%> </div>
 
-Purchase link: [AliExpress](https://item.taobao.com/item.htm?spm=a1z10.5-c-s.w4002-24984936573.29.19b22db2a329yr&id=746293292946)
+Purchase link: [AliExpress](https://www.aliexpress.us/item/1005006265716790.html?pdp_npi)
 
 
 
