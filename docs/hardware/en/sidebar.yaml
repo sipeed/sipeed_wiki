@@ -226,7 +226,7 @@ items:
             -   label: Introduction
                 file: tang/tang-primer-25k/primer-25k.md
             -   label: Install IDE
-                file: tang/Tang-Nano-Doc/get_started/install-the-ide.md
+                file: tang/Tang-Nano-Doc/install-the-ide.md
             -   label: Questions&Answers
                 file: tang/Tang-Nano-Doc/questions.md
                 target: _blank
@@ -246,6 +246,18 @@ items:
             -   label: Burn FPGA
                 file: tang/Tang-primer/get_started/fpga_download.md
     -   label: Tang Mega
+        items:
+        -   label: Tang Mega 138K Pro
+            items:
+            -   label: Introduction
+                file: tang/tang-mega-138k/mega-138k Pro.md
+            -   label: Install IDE
+                file: tang/Tang-Nano-Doc/install-the-ide.md
+            -   label: Questions&Answers
+                file: tang/Tang-Nano-Doc/questions.md
+                target: _blank
+    -   label: Tang PMOD
+        file: tang/tang-PMOD/FPGA_PMOD.md         
 -   label: MaixSense
     file: maixsense/readme.md
     items:

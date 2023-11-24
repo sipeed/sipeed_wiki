@@ -10,7 +10,7 @@ It can also be paired with the series of PMOD modules produced by Sipeed, for us
 
 <div> <img src="./assets/25k_45.jpg" width=45%> <img src="./assets/25k_dock_45.jpg" width=45%> </div>
 
-Purchase link: [Taobao](https://item.taobao.com/item.htm?spm=a1z10.5-c-s.w4002-24984936573.29.19b22db2a329yr&id=746293292946)
+Purchase link: [ALIEXPRESS](https://www.aliexpress.us/item/3256806038278266.html?gatewayAdapt=glo2usa4itemAdapt)
 
 ## Core Board Overview
 

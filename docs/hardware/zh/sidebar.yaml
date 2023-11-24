@@ -277,6 +277,8 @@ items:
             -   label: 常见问题
                 file: tang/Tang-Nano-Doc/questions.md
                 target: _blank
+    -   label: Tang PMOD
+        file: tang/tang-PMOD/FPGA_PMOD.md
 -   label: MaixSense
     file: maixsense/readme.md
     items:

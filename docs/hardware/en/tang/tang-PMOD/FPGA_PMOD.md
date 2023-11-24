@@ -6,9 +6,9 @@ The TANG PMOD module is a FPGA expansion module compatible with the **Digilent P
 
 Different modules provide various expansion functions, and they can be combined freely to achieve the required functionalities.
 
-<div> <img src="./assets/PMOD-all.jpg" width=45%> <img src="./assets/25k_PMOD.jpg" width=45%> <img src="./assets/138k_PMOD.jpg" width=45%> </div>
+<div> <img src="./assets/PMOD-all.jpg" width=45%> <img src="./assets/25K_PMOD.jpg" width=45%> <img src="./assets/138K_PMOD.jpg" width=45%> </div>
 
-Purchase link: [AliExpress](https://item.taobao.com/item.htm?spm=a1z10.5-c-s.w4002-24984936573.29.19b22db2a329yr&id=746293292946)
+Purchase link: [AliExpress](https://www.aliexpress.us/item/1005006265716790.html?pdp_npi)
 
 
 
@@ -83,9 +83,9 @@ Example: [pmod_hub75e](https://github.com/sipeed/TangPrimer-25K-example/tree/mai
 
 <div>
 <img src="./assets/PMOD_HUB75E_top.jpg"  width=45%>
-<img src="./assets/PMOD_HUb75E_bot.jpg"  width=45%>
-<img src="./assets/PMOD_HUb75E_sample1.jpg"  width=45%>
-<img src="./assets/PMOD_HUb75E_sample2.jpg"  width=45%>
+<img src="./assets/PMOD_HUB75E_bot.jpg"  width=45%>
+<img src="./assets/PMOD_HUB75E_sample1.jpg"  width=45%>
+<img src="./assets/PMOD_HUB75E_sample2.jpg"  width=45%>
 </div>
 
 
