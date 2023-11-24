@@ -67,14 +67,14 @@ If it boots successfully, then you can check the following values to confirm tha
 
 Take PWM1 which is connected to the cooling fan as an example, you can enable the fan with the following code:
 
-``bash
+```bash
 echo 1 > /sys/class/pwm/pwmchip0/export
 echo 1000000 > /sys/class/pwm/pwmchip0/pwm1/period
 echo 1000000 > /sys/class/pwm/pwmchip0/pwm1/duty_cycle
 echo 1 > /sys/class/pwm/pwmchip0/pwm1/enable
 ```
 
-## GPIOs
+## GPIO
 
 The LicheePi 4A has 2x10pin pins on board with 16 native IOs, including 6 normal IOs, 3 pairs of serial ports, and one SPI.
 > Note: All native IOs of the SOC are at 1.8V level, please pay attention to the level shift. 
@@ -96,7 +96,7 @@ Where the 4Byte (32bit) at offset 0x0 is the GPIO data register and the 4Byte (3
 
 
 
-The GPIO correspondences of the pins on the LicheePi 4A are: 
+The GPIO correspondences of the pins on the LicheePi 4A are(from the perspective of overlooking the front of the BOTTOM plate, TOP is the left side, BOTTOM is the right side): 
 ![io_map](./../../../../zh/lichee/th1520/lpi4a/assets/peripheral/io_map.png)  
 
 > Subject to the labeling of the document, the silkscreen labeling of the internal test version may be incorrect 
@@ -114,7 +114,7 @@ echo 0 > /sys/class/gpio/gpio${num}/value
 
 The mapping of GPIO is shown in the following figure：
 
-[gpio_num](./../../../../zh/lichee/th1520/lpi4a/assets/peripheral/gpio_num.png)
+![gpio_num](./../../../../zh/lichee/th1520/lpi4a/assets/peripheral/gpio_num.png)
 
 For example, if you want to operate the 4 GPIOs on the pin, the correspondence is as follows, change the num in the above code to the number corresponding to the GPIO pin you want to operate. 
 
@@ -142,6 +142,75 @@ sipeed@lpi4a:~$ sudo cat /sys/kernel/debug/gpio
 Here are the sample results:
 
 ![peripheral_gpio_information](./../../../../zh/lichee/th1520/lpi4a/assets/peripheral/peripheral_gpio_information.png)
+
+Next, taking GPIO1_3 on the baseplate pin as an example, we use libgpiod to operate gpio in user space. First install libgpiod:
+```shell
+sudo apt update
+sudo apt install libgpiod-dev
+```
+
+Then run the `vi gpio.c` command, and write the following code to the file:
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <gpiod.h>
+
+int main()
+{
+    int i;
+    int ret;
+
+    struct gpiod_chip * chip;
+    struct gpiod_line * line;
+
+    chip = gpiod_chip_open("/dev/gpiochip1");
+    if(chip == NULL)
+    {
+        printf("gpiod_chip_open error\n");
+        return -1;
+    }
+
+    line = gpiod_chip_get_line(chip, 3);
+    if(line == NULL)
+    {
+        printf("gpiod_chip_get_line error\n");
+        gpiod_line_release(line);
+    }
+
+    ret = gpiod_line_request_output(line,"gpio",0);
+    if(ret < 0)
+    {
+        printf("gpiod_line_request_output error\n");
+        gpiod_chip_close(chip);
+    }
+
+    for(i = 0; i < 10; i++)
+    {
+        gpiod_line_set_value(line,1);
+        sleep(1);
+        gpiod_line_set_value(line,0);
+        sleep(1);
+    }
+
+    gpiod_line_release(line);
+    gpiod_chip_close(chip);
+
+    return 0;
+}
+```
+
+Compile with the following command:
+```shell
+gcc gpio.c -I /usr/include/ -L /usr/lib/riscv64-linux-gnu/ -lgpiod -o gpio
+```
+
+Then execute with root privileges:
+```shell
+sudo ./gpio
+```
+
+At this time, use a multimeter to measure the IO1_3 pin on the baseplate. You can find that the voltage of the pin changes every second.
 
 <!--
 ```bash
@@ -547,7 +616,12 @@ make -j4
 #授予设备权限，每次开机执行一次即可
 . exec.sh
 ./tft_demo
-``` -->
+``` 
+#### Renderings
+
+![效果图1](./../../../../zh/lichee/th1520/lpi4a/assets/peripheral/tft_demo.png)
+
+-->
 
 Common ioctl commands for SPI:
 
@@ -643,10 +717,6 @@ int main(int argc, char *argv[]) {
     return ret;
 }
 ```
-
-#### Renderings
-
-![效果图1](./../../../../zh/lichee/th1520/lpi4a/assets/peripheral/tft_demo.png)
 
 ## USB 
 
