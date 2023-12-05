@@ -12,7 +12,7 @@
 - 外壳上开关处于已打开状态（有外壳版本）
 - Button 丝印处保持跳线帽短接（裸板版本）
 
-![top](../assets/top.png)
+![top](https://github.com/sipeed/sipeed_wiki/assets/13964381/1d79c9c8-cf46-48e3-aaad-f860ef9ab1fc)
 
 ### 正常开机
 通过 HDMI1 连接显示器并接入 12V DC 供电，等待片刻约 20 多秒后显示器屏幕将会如下显示 LightDM 登录界面，表示系统启动成功。
