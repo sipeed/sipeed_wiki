@@ -62,9 +62,9 @@ Download Links:
 Mega Cloud Storage：[click me](https://mega.nz/folder/phoQlBTZ#cZeQ3qZ__pDvP94PT3_bGA)
 ISCAS mirror(including test mirror, ordinary users please use the mirror in the previous network disk): [click me](https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/)
 
-1. LPI4A_20231023_BASIC.zip
+1. LPI4A_20231214_BASIC.zip
 
-- Release Date: October 23, 2023
+- Release Date: Dec 14, 2023
 - Kernel: 5.10
 - Root Filesystem: ext4, 4.3GB  
 - Preinstalled Software Packages:
@@ -72,17 +72,24 @@ ISCAS mirror(including test mirror, ordinary users please use the mirror in the 
   - Office: libreoffice suite 
   - Browser: chromium
   - Media: 4K video players like Parole, VLC, GIMP
-- Bug Fixes:
-  - HDMI display and audio device recognition issue (20230706) 
-  - Bluetooth issues fixed, Bluetooth devices working normally now, Bluetooth headphones can play audio now (20230706)
-  - Fixed browser shortcut issue in bottom launch bar, can launch chromium now (20230706)
-  - Fixed kernel panic issue when using USB camera for long time (20230706) 
-  - Fixed 16GB memory recognition issue, please update to identify full 16GB memory (20230721)
-  - Fixed HDMI audio quality issue in chromium (20230912)
-  - Fixed font pixel missing issue in dual screen mode (20230912)
-  - Fixed inaccurate mouse cursor issue (20231023)
-  - Fixed NPU driver kernel and user version mismatch (20231023)
-  - Fixed issue burning rootfs over 4GB (20231023)
+- changelog:
+  20230706:
+    - Fixed HDMI display device and HDMI audio device recognition issues.
+    - Fixed Bluetooth issues. Bluetooth devices now function properly, and Bluetooth headphones can play audio normally.
+    - Fixed the issue with the browser shortcut in the bottom launch bar not being available. It is now clickable to access Chromium.
+    - Fixed kernel panic issue caused by prolonged connection to a USB camera.
+  20230721:
+    - Fixed the issue with recognizing 16GB of memory. To fully recognize 16GB of memory, please update this image.
+  20230912:
+    - Fixed audio quality issue when playing HDMI audio in Chromium.
+    - Fixed font pixel loss issue when using dual monitors with different resolutions.
+  20231023:
+    - Fixed cursor misalignment issue.
+    - Fixed the mismatch between NPU driver kernel and user versions.
+    - Fixed the failure to burn root file system larger than 4GB.
+  20231214:
+    - Fixed cursor flickering issue.
+    - Added support for Wifi6 driver.
 - Usage Instructions:
   - Auto login enabled, default login user is sipeed
   - Sudo without password enabled
@@ -101,9 +108,9 @@ ISCAS mirror(including test mirror, ordinary users please use the mirror in the 
   - MIPI screen brightness can only be adjusted manually now
      - Switch to root, run `echo brightness_value(0-7) > /sys/class/backlight/pwm-backlight@0/brightness`
 
-2. LPI4A_20231023_FULL.zip
+2. LPI4A_20231214_FULL.zip
 
-- Release Date: October 23, 2023  
+- Release Date: Dec 14, 2023  
 - Kernel: 5.10
 - Root Filesystem: ext4, 9.7GB
 - Preinstalled Software Packages:
@@ -113,17 +120,24 @@ ISCAS mirror(including test mirror, ordinary users please use the mirror in the 
   - Media: 4K video players like Parole (with demo 4K videos), VLC, GIMP, video editor Kdenlive (with demo video clips), kodi
   - Game: SuperTuxKart
   - Other: btop, neofetch
-- Bug Fixes:
-  - HDMI display and audio device recognition issue (20230706)
-  - Bluetooth issues fixed, Bluetooth devices working normally now, Bluetooth headphones can play audio now (20230706) 
-  - Fixed browser shortcut issue in bottom launch bar, can launch chromium now (20230706)
-  - Fixed kernel panic issue when using USB camera for long time (20230706)
-  - Fixed 16GB memory recognition issue, please update to identify full 16GB memory (20230721) 
-  - Fixed HDMI audio quality issue in chromium (20230912)
-  - Fixed font pixel missing issue in dual screen mode (20230912)
-  - Fixed inaccurate mouse cursor issue (20231023) 
-  - Fixed NPU driver kernel and user version mismatch (20231023)
-  - Fixed issue burning rootfs over 4G (20231023)
+- changelog:
+  20230706:
+    - Fixed HDMI display device and HDMI audio device recognition issues.
+    - Fixed Bluetooth issues. Bluetooth devices now function properly, and Bluetooth headphones can play audio normally.
+    - Fixed the issue with the browser shortcut in the bottom launch bar not being available. It is now clickable to access Chromium.
+    - Fixed kernel panic issue caused by prolonged connection to a USB camera.
+  20230721:
+    - Fixed the issue with recognizing 16GB of memory. To fully recognize 16GB of memory, please update this image.
+  20230912:
+    - Fixed audio quality issue when playing HDMI audio in Chromium.
+    - Fixed font pixel loss issue when using dual monitors with different resolutions.
+  20231023:
+    - Fixed cursor misalignment issue.
+    - Fixed the mismatch between NPU driver kernel and user versions.
+    - Fixed the failure to burn root file system larger than 4GB.
+  20231214:
+    - Fixed cursor flickering issue.
+    - Added support for Wifi6 driver.
 - Usage Instructions: 
   - Auto login enabled, default login user is sipeed
   - Sudo without password enabled

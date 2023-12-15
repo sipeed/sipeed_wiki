@@ -292,6 +292,12 @@ Also supports kodi, using the effect as follows:
 
 ![kodi_settings](./../../../../zh/lichee/th1520/lpi4a/assets/desktop/kodi_settings.png)
 
+mpv player supported as well, which can be installed through commands below:
+```shell
+sudo apt update
+sudo apt install mpv
+```
+
 In addition, also preinstalled VLC Player player:
 
 ![player](./../../../../zh/lichee/th1520/lpi4a/assets/desktop/player.png)
