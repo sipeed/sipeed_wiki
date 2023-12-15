@@ -61,6 +61,10 @@ dtc -I dts -O dtb light-lpi4a.dts -o light-lpi4a.dtb  # For 16GB ddr, change the
 sync
 ```
 After modifying the device tree, restart the development board to apply the changes.
+6. If after connecting a Bluetooth mouse, there is no response when moving, you can try restarting the Bluetooth service:
+```shell
+sudo systemctl restart bluetooth.service
+```
 
 ## System building
 ### revyos
