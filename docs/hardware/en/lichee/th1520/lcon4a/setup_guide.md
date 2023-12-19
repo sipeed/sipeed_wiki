@@ -1,3 +1,14 @@
+---
+title: setup—guide
+keywords: Lichee, TH1520, Console, RISCV,
+update:
+  - date: 2023-12-19
+    version: v1.0
+    author: sinky
+    content:
+      - Release docs
+---
+
 For customers who purchased Package A, the following accessories are included. Please check whether all the product accessories have been received:
 
 - Back case x1

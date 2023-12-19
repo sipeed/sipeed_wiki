@@ -117,8 +117,13 @@ items:
             file: lichee/th1520/lc4a/lc4a.md
         -   label: Lichee Console 4A
             items:
-            -   label: Assembly Guide
+            -   label: setup_guide
                 file: lichee/th1520/lcon4a/setup_guide.md
+            -   label: images
+                file: lichee/th1520/lcon4a/3_images.md
+            -   label: burn_image
+                file: lichee/th1520/lcon4a/4_burn_image.md
+            
             file: lichee/th1520/lcon4a/lcon4a.md
         -   label: Lichee PI 4A
             items:

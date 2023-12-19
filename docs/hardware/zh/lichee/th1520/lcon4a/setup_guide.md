@@ -1,3 +1,14 @@
+---
+title: 组装指南
+keywords:  Lichee, TH1520, Console, RISCV, 
+update:
+  - date: 2023-12-19
+    version: v1.0
+    author: sinky
+    content:
+      - 新建文档
+---
+
 **购买A套餐用户收到配件如下，请先核对收到的产品配件是否齐全**
 后壳x1、SSD盖板x1、SSD盖板螺丝x1、螺丝刀x1、导热垫x2、热管x1、后盖螺丝x6
 
