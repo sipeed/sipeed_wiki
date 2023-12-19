@@ -205,13 +205,14 @@ Readme and image download link: [Click me](https://github.com/aiminickwong/liche
 Readme link: [Click me](https://github.com/aiminickwong/licheepi4a-images)
 [openKylin V1.0 Download address](https://www.openkylin.top/downloads/index-cn.html)
 
-### armbian (official, use RV64GC toolchain)
+### armbian (official build-framework, use RV64GC toolchain)
 
 ![armbian](https://cdn.armbian.com/wp-content/uploads/2018/03/logo2.png)
 
 Project address: [Click me](https://github.com/armbian/build)
+Download and Infomations: [Click me](https://www.armbian.com/licheepi-4a/)
 
-### armbian (unofficial, use T-Head optimized toolchain)
+### armbian (unofficial build-framework, use T-Head optimized toolchain)
 
 ![armbian](https://cdn.armbian.com/wp-content/uploads/2018/03/logo2.png)
 ![armbian_neofetch](./assets/images/armbian_neofetch.png)
