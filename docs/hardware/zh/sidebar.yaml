@@ -133,6 +133,9 @@ items:
         -   label: Lichee Cluster 4A
             file: lichee/th1520/lc4a/lc4a.md
         -   label: Lichee Console 4A
+            items:
+            -   label: 组装指南
+                file: lichee/th1520/lcon4a/setup_guide.md
             file: lichee/th1520/lcon4a/lcon4a.md
         -   label: Lichee PI 4A
             collapsed: false
@@ -271,7 +274,7 @@ items:
         -   label: Tang Mega 138K Pro
             items:
             -   label: 板卡介绍
-                file: tang/tang-mega-138k/mega-138k.md
+                file: tang/tang-mega-138k/mega-138k-pro.md
             -   label: 安装 IDE
                 file: tang/Tang-Nano-Doc/get_started/install-the-ide.md
             -   label: 常见问题
