@@ -136,6 +136,10 @@ items:
             items:
             -   label: 组装指南
                 file: lichee/th1520/lcon4a/setup_guide.md
+            -   label: 镜像集合
+                file: lichee/th1520/lcon4a/3_images.md
+            -   label: 烧录镜像
+                file: lichee/th1520/lcon4a/4_burn_image.md
             file: lichee/th1520/lcon4a/lcon4a.md
         -   label: Lichee PI 4A
             collapsed: false
@@ -262,7 +266,7 @@ items:
                 -   label: Windows安装TD
                     file: tang/Tang-primer/get_started/install_TD_win.md
                 -   label: Linux安装TD
-                    file: tang/Tang-primer/get_started/install_linux.md
+                    file: tang/Tang-primer/get_started/install_Linux.md
             -   label: 使用FPGA点灯
                 file: tang/Tang-primer/fpga/led.md
             -   label: 搭建蜂鸟开发环境
@@ -312,9 +316,25 @@ items:
 # -   label: Maix Audio
 #     items:
 #     -   label: MA USB 16
--   label: Longon
+-   label: Longan
     items:
-    -   label: Longon Nano
+    -   label: LonganPI 3H
+        items:
+        -   label: 板卡介绍
+            file: longan/H618/lpi3h/1_intro.md
+        -   label: 镜像集合
+            file: longan/H618/lpi3h/3_images.md
+        -   label: 烧录镜像
+            file: longan/H618/lpi3h/4_burn_image.md
+        -   label: 桌面系统基础使用
+            file: longan/H618/lpi3h/5_desktop.md
+        -   label: 外设使用
+            file: longan/H618/lpi3h/6_peripheral.md
+        -   label: 系统开发
+            file: longan/H618/lpi3h/7_develop_mainline.md
+        -   label: 板卡测试
+            file: longan/H618/lpi3h/8_test_report.md
+    -   label: Longan Nano
         file: longan/Nano/Longan_nano.md
         collapsed: false
         items:

@@ -43,12 +43,24 @@ update:
 	chown sipeed:sipeed /home/sipeed/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml
 	```
 - If you encounter errors when installing software, please update to the latest image or refer to [Software Source](https://en.wiki.sipeed.com/hardware/en/lichee/th1520/lpi4a/5_desktop.html#Software-Installation) for solutions.
+- If you find that the Wifi/BT function of the development board cannot be used or if you cannot see the Wifi device after rebooting, unplug the power supply of the development board, completely disconnect it, and then power it back on to restart.
 
 ## Peripheral Use
 1. To use the NPU, please use image versions 0920 or later.
 2. JTAG requires manual wiring and setting pinmux on the board, refer to [JTAG](https://en.wiki.sipeed.com/hardware/en/lichee/th1520/lpi4a/6_peripheral.html#JTAG).
 3. When connecting multiple peripherals (e.g. HDMI, USB keyboard/mouse), use 12V DC power if possible. If the computer's USB port already has many peripherals connected, it may not have enough power for the dev board and connected peripherals.
 4. When using the NPU for inference, the first run will optimize on the board, which is a slow process. It will generate a shl.hhb.bm file afterwards. Using this weight file for inference will be much faster.
+5. For certain TF cards that do not support UHS and may result in I/O errors when reading or writing large files, you can switch to the root user and execute the following commands:
+```shell
+apt update
+apt install device-tree-compiler
+cd /boot/dtbs/linux-image-5.10.113-lpi4a/thead/  # For dual-screen, cd /boot/dtbs/linux-image-5.10.113-lpi4a/dual/thead/
+dtc -I dtb -O dts light-lpi4a.dtb -o light-lpi4a.dts  # For 16GB ddr, change the dt name to light-lpi4a-16gb.dtb(light-lpi4a-16gb.dts)
+awk -v RS="}" '/sd@ffe7090000/ {sub("max-frequency = <0xbcd3d80>;", "max-frequency = <100000000>;")} {printf "%s}", $0}' light-lpi4a.dts > temp.dts && mv temp.dts light-lpi4a.dts  # For 16GB ddr, change the dt name to light-lpi4a-16gb.dtb(light-lpi4a-16gb.dts)
+dtc -I dts -O dtb light-lpi4a.dts -o light-lpi4a.dtb  # For 16GB ddr, change the dt name to light-lpi4a-16gb.dtb(light-lpi4a-16gb.dts)
+sync
+```
+After modifying the device tree, restart the development board to apply the changes.
 
 ## System building
 ### revyos

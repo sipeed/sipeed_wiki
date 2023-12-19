@@ -295,6 +295,12 @@ sudo apt install firefox ffmpeg
 
 ![kodi_settings](./assets/desktop/kodi_settings.png)
 
+也支持 mpv 播放器，可以使用如下命令安装：
+```shell
+sudo apt update
+sudo apt install mpv
+```
+
 此外，还预装了 VLC Player 播放器：
 
 ![player](./assets/desktop/player.png)

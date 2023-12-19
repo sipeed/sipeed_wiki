@@ -94,7 +94,7 @@ TH1520 SOC 具有4个GPIO bank，每个bank最大有32个IO：
 
 其中 0x0 偏移处的 4Byte（32bit）是 GPIO 数据寄存器，0x4 偏移处的 4Byte（32bit）是 GPIO 方向寄存器
 
-LicheePi 4A上的插针的 GPIO 对应关系为：  
+LicheePi 4A上的插针的 GPIO 对应关系为（以俯视底板正面为视角，TOP为左侧，BOTTOM为右侧）：  
 ![io_map](./assets/peripheral/io_map.png)  
 
 > 以文档的标注为准，内测版的丝印标注可能有误 
@@ -112,7 +112,7 @@ echo 0 > /sys/class/gpio/gpio${num}/value
 
 GPIO 号的对应关系如下图所示：
 
-[gpio_num](./assets/peripheral/gpio_num.png)
+![gpio_num](./assets/peripheral/gpio_num.png)
 
 比如要操作插针上的4个 GPIO，对应关系如下，将上述代码的num改为想要操作的 GPIO 脚对应的数字即可: 
  
@@ -140,6 +140,75 @@ sipeed@lpi4a:~$ sudo cat /sys/kernel/debug/gpio
 下面是示例结果:
 
 ![peripheral_gpio_information](./assets/peripheral/peripheral_gpio_information.png)
+
+接下来，以底板插针上的 GPIO1_3 为例，我们通过 libgpiod 在用户空间操作 gpio。首先安装 libgpiod：
+```shell
+sudo apt update
+sudo apt install libgpiod-dev
+```
+
+使用 `vi gpio.c` 命令，将下面的代码写入文件：
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <gpiod.h>
+
+int main()
+{
+    int i;
+    int ret;
+
+    struct gpiod_chip * chip;
+    struct gpiod_line * line;
+
+    chip = gpiod_chip_open("/dev/gpiochip1");
+    if(chip == NULL)
+    {
+        printf("gpiod_chip_open error\n");
+        return -1;
+    }
+
+    line = gpiod_chip_get_line(chip, 3);
+    if(line == NULL)
+    {
+        printf("gpiod_chip_get_line error\n");
+        gpiod_line_release(line);
+    }
+
+    ret = gpiod_line_request_output(line,"gpio",0);
+    if(ret < 0)
+    {
+        printf("gpiod_line_request_output error\n");
+        gpiod_chip_close(chip);
+    }
+
+    for(i = 0; i < 10; i++)
+    {
+        gpiod_line_set_value(line,1);
+        sleep(1);
+        gpiod_line_set_value(line,0);
+        sleep(1);
+    }
+
+    gpiod_line_release(line);
+    gpiod_chip_close(chip);
+
+    return 0;
+}
+```
+
+通过以下命令编译：
+```shell
+gcc gpio.c -I /usr/include/ -L /usr/lib/riscv64-linux-gnu/ -lgpiod -o gpio
+```
+
+然后以 root 权限执行：
+```shell
+sudo ./gpio
+```
+
+此时用万用表测量底板上的 IO1_3 引脚，可以发现每隔一秒该引脚电压会发生变化。
 
 <!--
 ```bash

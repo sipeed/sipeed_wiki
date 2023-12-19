@@ -43,12 +43,24 @@ update:
 	chown sipeed:sipeed /home/sipeed/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml
 	```
 - 若安装软件时遇到报错，请更新到最新镜像或参考[软件安装](https://en.wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/5_desktop.html#%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85)
+- 若在重启后发现开发板的 Wifi/BT 功能无法使用，或看不到 Wifi 设备，此时拔掉开发板的供电，完全断点后再上电重启即可。
 
 ## 外设使用
 1. 若要使用 NPU，请使用0920及以上版本的镜像；
 2. 使用 JTAG 需要自行飞线，并在板子上设置 pinmux，参考[JTAG](https://en.wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/6_peripheral.html#JTAG)
 3. 在接入外设较多时（比如 HDMI，USB键鼠）尽量使用12V DC供电。电脑的USB口若本身接入外设较多，可能会没有多余的能力给开发板及开发板所连接的外设供电。
 4. 在使用 NPU 进行推理时，第一次运行时会在板上进行一次优化，这个过程比较慢。之后会生成 shl.hhb.bm 文件，使用这个权重文件进行推理会比较快。
+5. 针对于某些不支持 UHS 的 TF 卡，可能在读写大文件时会出现 I/O error，此时可以切换到 root 用户，执行下面的命令：
+```shell
+apt update
+apt install device-tree-compiler
+cd /boot/dtbs/linux-image-5.10.113-lpi4a/thead/  # 双屏则运行：cd /boot/dtbs/linux-image-5.10.113-lpi4a/dual/thead/
+dtc -I dtb -O dts light-lpi4a.dtb -o light-lpi4a.dts  # 16g注意将名字更换为light-lpi4a-16gb.dtb(light-lpi4a-16gb.dts)
+awk -v RS="}" '/sd@ffe7090000/ {sub("max-frequency = <0xbcd3d80>;", "max-frequency = <100000000>;")} {printf "%s}", $0}' light-lpi4a.dts > temp.dts && mv temp.dts light-lpi4a.dts  # 16g注意将名字更换为light-lpi4a-16gb.dtb(light-lpi4a-16gb.dts)
+dtc -I dts -O dtb light-lpi4a.dts -o light-lpi4a.dtb # 16g注意将名字更换为light-lpi4a-16gb.dtb(light-lpi4a-16gb.dts)
+sync
+```
+修改设备树后，重启开发板即可。
 
 ## 系统开发
 ### revyos
