@@ -138,9 +138,8 @@ Console支持M.2 2242 SATA 接口的SSD，可以拆卸掉后壳的SSD盖板后�
 
 ## 系统
 Console的镜像与LicheePi4A的镜像一同发布，默认为Full镜像，建议使用8+32及以上配置的SOM。如果使用8+8的SOM需要自行裁剪文件系统。
-下载地址：  
-百度网盘：[点我](https://pan.baidu.com/s/1xH56ZlewB6UOMlke5BrKWQ)  
-Mega 云盘：[点我](https://mega.nz/folder/phoQlBTZ#cZeQ3qZ__pDvP94PT3_bGA)  
+
+可以到[这里](https://wiki.sipeed.com/hardware/zh/lichee/th1520/lcon4a/3_images.html)下载镜像。
 
 
 常见应用展示：

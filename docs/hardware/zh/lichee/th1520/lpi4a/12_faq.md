@@ -61,6 +61,10 @@ dtc -I dts -O dtb light-lpi4a.dts -o light-lpi4a.dtb # 16g注意将名字更换�
 sync
 ```
 修改设备树后，重启开发板即可。
+6. 若连接上蓝牙鼠标后，移动时没有反应，可以尝试重启一下蓝牙服务：
+```shell
+sudo systemctl restart bluetooth.service
+```
 
 ## 系统开发
 ### revyos

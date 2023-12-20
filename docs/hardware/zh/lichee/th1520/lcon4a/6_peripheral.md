@@ -15,3 +15,9 @@ SSD 电源默认关闭，可以使用以下命令打开，即可看到 SSD 硬�
 ```shell
 sh /opt/ssd-power-cycle.sh
 ```
+
+## 屏幕&触摸
+若遇到屏幕旋转方向不对，或者触摸位置不准，可以运行以下脚本：
+```shell
+sh /opt/touch-setup.sh
+```

@@ -26,15 +26,27 @@ update:
 
 ## 连接网络
 
+桌面系统默认使用 connman 来管理网络连接。
+
+可以在左上角的应用菜单中找到 `connman settings`，点击后桌面右上角会出现一个网络图标，点击右上角的网络图标即可新建网络连接和查看网络连接信息：
+
+![connman_enable](./assets/desktop/connman_enable.png)
+
 ### 连接有线网络
 
-LonganPi 3H 由两个千兆网络接口；将已经接通网络的网线插入到 LonganPi 3H 的网络接口中节能实现连接有线网络了：
+LonganPi 3H 有一个千兆网络接口；将已经接通网络的网线插入到 LonganPi 3H 的网络接口中，就能实现连接有线网络了，可以点击右上角的图标看到连接信息：
 
-![eth_connect](./assets/peripheral/eth_connect.png)
+![connman_connect_eth](./assets/desktop/connman_connect_eth.png)
 
 ### 连接无线网络
 
 LonganPi 3H 板载无线模组，支持蓝牙和 wifi 。
+
+图形界面方式：
+
+点击右上角的网络图标，切换到 wifi 连接的页面，选中想要连接的 wifi 再点击 connect 即可：
+
+![connman_connect_wifi](./assets/desktop/connman_connect_wifi.png)
 
 命令行方式：
 打开命令行，使用 `wpa_supplicant` 可以连接 wifi。下面的步骤需要切换到 root 用户执行：
@@ -49,6 +61,8 @@ wpa_supplicant -D nl80211 -i 网卡名 -c /etc/wpa_supplicant.conf &
 
 
 ## 连接蓝牙
+
+桌面系统默认使用 blueman 来管理蓝牙连接。
 
 找到桌面右上角的蓝牙图标，确认蓝牙功能已经打开，若没打开，右键单击蓝牙图标即可打开：
 
