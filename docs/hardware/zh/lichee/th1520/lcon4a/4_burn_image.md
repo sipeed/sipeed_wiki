@@ -10,6 +10,22 @@ update:
 ---
 
 
+## 最小镜像
+
+针对使用 8+8 内测版核心板的用户，全量烧录镜像会因为容量不够从而无法烧录，可以先在[这里](https://pan.baidu.com/e/1xH56ZlewB6UOMlke5BrKWQ)下载烧录开发板的 BASIC 镜像，然后进行部分替换，即可得到适用于 console 的最小镜像。
+
+需要替换的部分可以在[github](https://github.com/sipeed/LicheePi4A-Build/releases)中下载。
+下载完成后，使用 scp 上传到开发板，然后在开发板上执行如下命令即可完成替换：
+```shell
+sudo apt update
+sudo apt install squashfs-tools
+unsquashfs overlay_20231215.sqfs
+sudo cp -r squashfs-root/* /
+```
+替换完成后重启即可。
+
+## 全量镜像
+
 1. 拆掉SSD后盖
 
 2. 找到BOOT按键和RST按键
