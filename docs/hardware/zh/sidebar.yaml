@@ -134,6 +134,8 @@ items:
             file: lichee/th1520/lc4a/lc4a.md
         -   label: Lichee Console 4A
             items:
+            -   label: 组装指南
+                file: lichee/th1520/lcon4a/setup_guide.md
             -   label: 镜像集合
                 file: lichee/th1520/lcon4a/3_images.md
             -   label: 烧录镜像
@@ -276,7 +278,7 @@ items:
         -   label: Tang Mega 138K Pro
             items:
             -   label: 板卡介绍
-                file: tang/tang-mega-138k/mega-138k.md
+                file: tang/tang-mega-138k/mega-138k-pro.md
             -   label: 安装 IDE
                 file: tang/Tang-Nano-Doc/get_started/install-the-ide.md
             -   label: 常见问题
