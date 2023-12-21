@@ -26,7 +26,7 @@ Sipeed 官方镜像基于 Debian 系统修改适配。
 
 下载地址：
 百度网盘：[点我](https://pan.baidu.com/s/1VGaARAq6dbicFy4VOytRuw) 提取码: cd68
-Mega 云盘：[点我]()
+Mega 云盘：[点我](https://mega.nz/folder/gt50zDoC#LgRvHVCzWTUgGohKoMtlqA)
 
 <!--
 ### Android 12
