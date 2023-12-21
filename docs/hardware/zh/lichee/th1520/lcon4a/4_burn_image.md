@@ -22,7 +22,8 @@ sudo apt install squashfs-tools
 unsquashfs overlay_20231215.sqfs
 sudo cp -r squashfs-root/* /
 ```
-替换完成后重启即可。
+
+替换完成后，再烧录一下 console 对应的 u-boot（注意是只烧录u-boot），烧录完成后重启即可。
 
 ## 全量镜像
 
