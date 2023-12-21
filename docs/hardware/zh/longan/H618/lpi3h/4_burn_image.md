@@ -13,7 +13,7 @@ update:
 
 ### 获取镜像
 
-参见上一章“镜像集合”，选取需要的镜像下载。
+参见上一章[镜像集合](https://wiki.sipeed.com/hardware/zh/longan/H618/lpi3h/3_images.html)，选取需要的镜像下载。
 
 ### 获取烧录工具
 
