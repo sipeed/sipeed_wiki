@@ -7,8 +7,14 @@ update:
     author: ztd
     content:
       - Release docs
+  - date: 2023-12-21
+    version: v1.1
+    author: LordCasser
+    content:
+      - Update doc for flashing u-boot+spl
 ---
 
+## 使用fastboot
 
 1. 拆掉SSD后盖
 
@@ -33,3 +39,17 @@ update:
 9. 在另外一台机器上执行 `fastboot flash root root.ext4`
 
 10. 按下 BOOT 旁边的 RST 按键重启笔记本。
+
+## 直接使用dd命令烧录u-boot+spl（用于更新）
+
+1. 在当前荔枝派中下载好镜像：[点我下载](https://wiki.sipeed.com/hardware/zh/lichee/th1520/lcon4a/3_images.html)，也可以使用sftp等方式传入
+
+2. 切换到root用户 `sudo su`，并使用bash `bash`
+
+3. 使分区可写 `echo 0 > /sys/block/mmcblk0boot0/force_ro`
+
+4. 烧录镜像 `dd if=u-boot-with-spl-console.bin of=/dev/mmcblk0boot0`
+
+5. 重新开启保护锁 `echo 1 > /sys/block/mmcblk0boot0/force_ro`
+
+6. 重新启动
