@@ -27,6 +27,8 @@ sudo cp -r squashfs-root/* /
 
 ## 全量镜像
 
+### 通过 typeC 口烧录
+
 1. 拆掉SSD后盖
 
 2. 找到BOOT按键和RST按键
@@ -50,3 +52,23 @@ sudo cp -r squashfs-root/* /
 9. 在烧录镜像的 PC 上执行 `fastboot flash root root.ext4`
 
 10. 按下 BOOT 旁边的 RST 按键重启 Console 笔记本。
+
+### 通过 u-boot 进行网络烧录
+
+1. console 连接网线（注意和用于烧录镜像的 PC 处于同一局域网中）
+
+2. 用串口工具连接 console 上的串口，上电，进入到 uboot 命令行中
+
+3. console 执行 dhcp 命令分配一个 ip 地址
+
+4. console 执行 fastboot udp 开启监听
+
+5. 烧录镜像的 PC 机上运行如下命令
+```shell
+./fastboot -s udp:刚刚板子上设置的ip地址 flash uboot uboot文件名
+./fastboot -s udp:刚刚板子上设置的ip地址 flash boot boot文件名
+./fastboot -s udp:刚刚板子上设置的ip地址 flash root root文件名
+```
+
+效果如下：
+![fastboot_udp](./assets/burn_image/fastboot_udp.png)
