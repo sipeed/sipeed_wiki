@@ -33,20 +33,20 @@ sudo cp -r squashfs-root/* /
 
 ![boot_and_rst_key](./assets/burn_image/boot_and_rst_key.png)
 
-3. 按着BOOT按键，然后按键盘上的电源按键开机，然后连接typec口到另外一台机器。
+3. 按着BOOT按键，然后按键盘上的电源按键开机，然后将 console 连接 typec 口到烧录镜像的 PC。
 
 ![typec_connect](./assets/burn_image/typec_connect.png)
 
-4. 在另外一台机器上下载用于烧录的镜像: [点我下载](https://wiki.sipeed.com/hardware/zh/lichee/th1520/lcon4a/3_images.html)
+4. 在烧录镜像的 PC 上下载用于烧录的镜像: [点我下载](https://wiki.sipeed.com/hardware/zh/lichee/th1520/lcon4a/3_images.html)
 
-5. 在另外一台机器上执行 `fastboot flash ram u-boot-with-spl-console.bin`
+5. 在烧录镜像的 PC 上执行 `fastboot flash ram u-boot-with-spl-console.bin`
 
-6. 在另外一台机器上执行 `fastboot reboot`
+6. 在烧录镜像的 PC 上执行 `fastboot reboot`
 
-7. 在另外一台机器上执行 `fastboot flash uboot u-boot-with-spl-console.bin`
+7. 在烧录镜像的 PC 上执行 `fastboot flash uboot u-boot-with-spl-console.bin`
 
-8. 在另外一台机器上执行 `fastboot flash boot boot.ext4`
+8. 在烧录镜像的 PC 上执行 `fastboot flash boot boot.ext4`
 
-9. 在另外一台机器上执行 `fastboot flash root root.ext4`
+9. 在烧录镜像的 PC 上执行 `fastboot flash root root.ext4`
 
-10. 按下 BOOT 旁边的 RST 按键重启笔记本。
+10. 按下 BOOT 旁边的 RST 按键重启 Console 笔记本。
