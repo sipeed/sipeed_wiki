@@ -167,13 +167,13 @@ sudo umount /tmp/rootfs
 首先制作空的 img 文件：
 ```shell
 export DATE=$(date +"%Y%m%d")
-dd if=/dev/zero of=LPI3H_${DATE}.img bs=1M count=2560
+dd if=/dev/zero of=LPI3H_${DATE}.img bs=1M count=3072
 ```
 
 接下来对该 img 文件进行分区操作。类似地，使用 fdisk 命令，将其分为 boot 分区和 rootfs 分区：
 ```shell
 # 过程类似，此处不再赘述
-sudo fdisk LPI3H_${DATE}.img
+fdisk LPI3H_${DATE}.img
 n
 p
 1
@@ -211,7 +211,7 @@ sudo losetup -f LPI3H_${DATE}.img
 # fdisk 查看的分区信息用于挂载
 # sudo losetup -f -o $[Start*512] --sizelimit $[Sectors*512] LPI3H_${DATE}.img
 sudo losetup -f -o $[2048*512] --sizelimit $[131072*512] LPI3H_${DATE}.img
-sudo losetup -f -o $[133120*512] --sizelimit $[5109760*512] LPI3H_${DATE}.img
+sudo losetup -f -o $[133120*512] --sizelimit $[6158336*512] LPI3H_${DATE}.img
 ```
 
 

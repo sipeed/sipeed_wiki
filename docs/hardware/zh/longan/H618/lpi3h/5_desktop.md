@@ -34,6 +34,11 @@ update:
 
 ### 连接有线网络
 
+串口中可以通过 connmanctl 来启用有线网络连接和查看相关信息：
+```shell
+connmanctl enable ethernet
+```
+
 LonganPi 3H 有一个千兆网络接口；将已经接通网络的网线插入到 LonganPi 3H 的网络接口中，就能实现连接有线网络了，可以点击右上角的图标看到连接信息：
 
 ![connman_connect_eth](./assets/desktop/connman_connect_eth.png)
@@ -49,6 +54,11 @@ LonganPi 3H 板载无线模组，支持蓝牙和 wifi 。
 ![connman_connect_wifi](./assets/desktop/connman_connect_wifi.png)
 
 命令行方式：
+可以使用 connmanctl 来启用 wifi 连接和查看相关信息：
+```shell
+connmanctl enable wifi
+```
+
 打开命令行，使用 `wpa_supplicant` 可以连接 wifi。下面的步骤需要切换到 root 用户执行：
 ```shell
 sudo -i
@@ -61,6 +71,11 @@ wpa_supplicant -D nl80211 -i 网卡名 -c /etc/wpa_supplicant.conf &
 
 
 ## 连接蓝牙
+
+串口中，可以通过 connmanctl 启用蓝牙连接和查看相关信息：
+```shell
+connmanctl enable bluetooth
+```
 
 桌面系统默认使用 blueman 来管理蓝牙连接。
 

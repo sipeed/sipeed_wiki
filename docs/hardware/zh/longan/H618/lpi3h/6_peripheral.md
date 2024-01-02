@@ -33,14 +33,17 @@ TODO
 ### 系统串口
 
 LonganPi 3H 的系统串口是 UART0,在侧边插针中有引出。  
-你可以使用 USB 转串口模块连接该串口，即 `U0-RX` 和 `U0-TX`，注意交叉连接，以及 GND 连接。   
-![ttl_link](./assets/peripheral/ttl_link.png)  
+
+![uart_pin](./assets/peripheral/uart_pin.png)  
+
+你可以使用 USB 转串口模块连接该串口，即 `U0-RX` 和 `U0-TX`，注意交叉连接，以及 GND 连接(下图中还多接了一根供电线，若用 typeC 口供电可以不接这根供电线)。
+
+![uart_connect](./assets/peripheral/uart_connect.png)  
 
 连接完成后，即可使用串口工具进行通信，Windows 下推荐 `XShell`，`mobaterm`，Linux下推荐 `minicom`   
 设置串口波特率为 `115200`，即可在串口终端下登录并进行指令操作：  
 > 注：刚连接后可以敲几个回车查看是否有反应，如果没有反应则检查接线或者串口配置
 
-![ttl_login](./assets/peripheral/ttl_login.png) 
 
 ### 一般串口
 
