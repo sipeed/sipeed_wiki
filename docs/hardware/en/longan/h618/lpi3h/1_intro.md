@@ -78,7 +78,7 @@ Longan Pi 3H is an ARM Linux development board based on the Longan Module 3H cor
 ## Other links
 
 [Github](https://github.com/sipeed/LonganPi-3H-SDK)  
-[淘宝]()  
+[Aliexpress](https://www.aliexpress.us/item/3256806204597847.html)  
 
 Forum：Maixhub.com/discussion  
 Email：support@sipeed.com
