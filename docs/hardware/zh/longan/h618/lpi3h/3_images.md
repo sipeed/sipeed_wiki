@@ -2,7 +2,7 @@
 title: 镜像集合
 keywords: Linux, Longan, H618, SBC, ARM, image
 update:
-  - date: 2023-05-08
+  - date: 2023-12-08
     version: v1.0
     author: ztd
     content:
