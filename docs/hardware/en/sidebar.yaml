@@ -298,6 +298,22 @@ items:
 #     -   label: MA USB 16
 -   label: Longon
     items:
+    -   label: LonganPI 3H
+        items:
+        -   label: Introduction
+            file: longan/h618/lpi3h/1_intro.md
+        -   label: Images
+            file: longan/h618/lpi3h/3_images.md
+        -   label: Burn images
+            file: longan/h618/lpi3h/4_burn_image.md
+        -   label: Desktop Usage
+            file: longan/h618/lpi3h/5_desktop.md
+        -   label: Peripheral
+            file: longan/h618/lpi3h/6_peripheral.md
+        -   label: Development
+            file: longan/h618/lpi3h/7_develop_mainline.md
+        -   label: Test report
+            file: longan/h618/lpi3h/8_test_report.md
     -   label: Longon Nano
         file: longan/Nano/Longan_nano.md
         items:
