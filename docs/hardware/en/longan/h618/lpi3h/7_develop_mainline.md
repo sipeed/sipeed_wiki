@@ -1,5 +1,5 @@
 ---
-title: 主线 Linux
+title: Mainline Linux
 keywords: Linux, Longan, H618, SBC, ARM, Kernel, SDK, Develop
 update:
   - date: 2023-12-08
@@ -9,19 +9,18 @@ update:
       - Release docs
 ---
 
-该文档以 Ubuntu 22.04 为例，演示如何搭建 LonganPi 3H 开发环境并进行主线Linux的开发。
+This document takes Ubuntu 22.04 as an example to demonstrate how to build a LonganPi 3H development environment and develop mainline Linux.
+Before the official merger into the mainline, it is necessary to pull the Github repository to obtain patch development, which is expected to be merged into the mainline Linux in 2024Q1.
 
-在正式合并入主线前，需要拉取 Github 仓库，获取patch开发，预计将于 2024Q1 合并入主线Linux。
-
-## 环境配置
-首先用 git 拉取仓库到本地，并安装工具链：
+## Environment Configuration
+First, use git to pull the repository to the local, and install the toolchain:
 ```shell
 sudo apt install gcc-aarch64-linux-gnu mmdebstrap git 
 git clone https://github.com/sipeed/LonganPi-3H-SDK.git
 ```
 
-## 构建
-然后进入到仓库所在目录，运行其中的脚本即可得到构建出的 uboot, kernel, dtb 和 rootfs。
+## Build
+Then go to the directory where the repository is located and run the script to get the uboot, kernel, dtb and rootfs built.
 ```shell
 cd LonganPi-3H-SDK
 ./mkatf.sh
@@ -30,22 +29,23 @@ cd LonganPi-3H-SDK
 ./mkrootfs.sh
 ```
 
-生成的 Image 文件，设备树文件，会复制到该仓库目录下的 overlay/boot/ 文件夹中，生成的内核模块会复制到该仓库目录下的 overlay/usr/ 文件夹中。
+The generated Image files, device tree files will be copied to the overlay/boot/ folder under the repository directory. The generated kernel modules will be copied to the overlay/usr/ folder under the repository directory.
 
-接下来介绍 SDK 仓库的主要文件构成及其作用：
-`linux` 文件夹下，存放的是 kernel 的 patch 文件，在运行 mklinux.sh 时会自动将这些 patch 打入到 kernel 源码中。
+Next, we will introduce the main files and their functions in the SDK repository:
 
-`uboot` 文件夹下，存放的是 uboot 的 patch 文件， 在运行 mkuboot.sh 时会自动将这些 patch 打入到uboot 源码中。
+The `linux` folder stores the kernel patch files, which will be automatically applied to the kernel source code when running mklinux.sh.
 
-`overlay` 文件夹下有一些必要的文件，在运行 mkrootfs.sh 时会自动将这些文件覆盖到构建出来的 rootfs 中。
-mkrootfs.sh 用于构建烧录所需要的根文件系统，可以根据需要选择是否跳过 debian rootfs 的构建，具体请看脚本中的注释。
+The `uboot` folder stores the U-Boot patch files, which will be automatically applied to the U-Boot source code when running mkuboot.sh.
 
-构建完成后，接下来介绍如何制作一张启动 TF 卡，以及如何打包制作可烧录的 TF 卡启动镜像。
+The `overlay` folder contains some necessary files that will be automatically overlayed to the constructed rootfs when running mkrootfs.sh. mkrootfs.sh is used to build the required root file system for burning, you can choose whether to skip the construction of the Debian rootfs according to actual needs, see the script comments for details.
 
-## 制作启动 TF 卡
+After the construction is complete, the next step is to introduce how to make a TF card for booting and how to package the burnable TF card boot image.
 
-准备一张 TF 卡，先进行格式化。
-然后对 TF 卡进行分区（下面中的命令请修改为自己 TF 卡对应的**盘符**，请仔细核对并谨慎操作），下面步骤使用 fdisk 为 TF 添加两个分区，boot 分区大小为 64M，剩余空间分配给根文件系统（uboot烧录到裸分区中，一般位于 TF 空间中的前1M）：
+## Make a boot TF card
+
+To prepare a TF card, first format it.
+
+Then partition the TF card (please modify the commands below to the proper drive letter for your own TF card, carefully verify and operate prudently), the following steps use fdisk to add two partitions to the TF card, the boot partition size is 64M, and the remaining space is allocated to the root file system (U-Boot is burned to the raw partition, which is usually located in the first 1M of the TF card space):
 ```shell
 sudo fdisk /dev/sdc
 n
@@ -88,7 +88,7 @@ Last sector, +/-sectors or +/-size{K,M,G,T,P} (133120-60506111, default 60506111
 
 Created a new partition 2 of type 'Linux' and of size 28.8 GiB.
 ```
-接下来按两次回车，即可将剩余空间都分配给根文件系统。分区完成后，先不要退出 fdisk ，还需要设置第一个分区为 boot 分区：
+Then pressing Enter twice, the remaining space will be allocated to the root file system. After partitioning is complete, do not exit fdisk yet, and still need to set the first partition as the boot partition:
 ```shell
 t
 1
@@ -107,7 +107,7 @@ Partition number (1,2, default 2): 1
 
 The bootable flag on partition 1 is enabled now.
 ```
-设置完成后，输入 p 来检查刚刚的分区信息是否有误：
+After setting, input p to check if the partition information just set is correct:
 ```shell
 Command (m for help): p
 Disk /dev/sdc: 28.85 GiB, 30979129344 bytes, 60506112 sectors
@@ -123,7 +123,7 @@ Device     Boot  Start      End  Sectors  Size Id Type
 /dev/sdc2       133120 60506111 60372992 28.8G 83 Linux
 ```
 
-确认无误后，输入 w 并按下回车将刚刚的分区信息写入：
+Once verified the partition information is correct, input w and press Enter to write the partition table configuration:
 ```shell
 Command (m for help): w
 The partition table has been altered.
@@ -131,18 +131,18 @@ Calling ioctl() to re-read partition table.
 Syncing disks.
 ```
 
-接下来对**分区**进行格式化：
+Next, format the **partitions**:
 ```shell
 sudo mkfs.vfat -F 32 -n "boot" /dev/sdc1
 sudo mke2fs -t ext4 -F -L "rootfs" /dev/sdc2
 ```
 
-格式化完成后烧录 uboot：
+Then flash uboot：
 ```shell
 sudo dd if=build/u-boot-sunxi-with-spl.bin of=/dev/sdc bs=1k seek=8 conv=fsync
 ```
 
-烧录 kernel：
+Flash kernel：
 ```shell
 mkdir -p /tmp/kernel
 sudo mount /dev/sdc1 /tmp/kernel
@@ -151,7 +151,7 @@ sync
 sudo umount /tmp/kernel
 ```
 
-烧录 rootfs：
+Flash rootfs：
 ```shell
 mkdir -p /tmp/rootfs
 sudo mount /dev/sdc2 /tmp/rootfs
@@ -160,17 +160,17 @@ sync
 sudo umount /tmp/rootfs
 ```
 
-完成上述步骤后，就得到了一张启动 TF 卡。
+Now we get a boot TF card.
 
-## 制作 TF 卡启动镜像
+## Make a boot TF card image
 
-首先制作空的 img 文件：
+First, create an empty img file:
 ```shell
 export DATE=$(date +"%Y%m%d")
 dd if=/dev/zero of=LPI3H_${DATE}.img bs=1M count=3072
 ```
 
-接下来对该 img 文件进行分区操作。类似地，使用 fdisk 命令，将其分为 boot 分区和 rootfs 分区：
+Then partition the img file. Similarly, use the fdisk command to divide it into a boot partition and a rootfs partition:
 ```shell
 # 过程类似，此处不再赘述
 fdisk LPI3H_${DATE}.img
@@ -191,7 +191,7 @@ a
 w
 ```
 
-使用 `fdisk -l LPI3H_${DATE}.img` 查看分区信息：
+Use fdisk -l LPI3H_${DATE}.img to view the partition information:
 ```shell
 Disk LPI3H_20231215.img: 2.5 GiB, 2684354560 bytes, 5242880 sectors
 Units: sectors of 1 * 512 = 512 bytes
@@ -205,7 +205,7 @@ LPI3H_20231215.img1 *      2048  133119  131072   64M  c W95 FAT32 (LBA)
 LPI3H_20231215.img2      133120 5242879 5109760  2.4G 83 Linux
 ```
 
-完成分区后，使用 losetup 命令设置循环设备：
+After partitioning, use the losetup command to set up the loop device:
 ```shell
 sudo losetup -f LPI3H_${DATE}.img
 # fdisk 查看的分区信息用于挂载
@@ -215,22 +215,22 @@ sudo losetup -f -o $[133120*512] --sizelimit $[6158336*512] LPI3H_${DATE}.img
 ```
 
 
-`sudo losetup -l | grep LPI3H` 查看循环设备信息：
+`sudo losetup -l | grep LPI3H`  to check the loop device information:
 ```shell
 /dev/loop23   67108864  1048576         0  0 LPI3H_20231215.img               0     512
 /dev/loop24 2616197120 68157440         0  0 LPI3H_20231215.img               0     512
 /dev/loop3           0        0         0  0 LPI3H_20231215.img               0     512
 ```
 
-根据上面查到的循环设备信息，进行后面的操作。上面的信息中可以看到 /dev/loop3 是 img 文件，/dev/loop23 是 boot 分区，/dev/loop24 是 rootfs 分区。
+According to the loop device information found above, continue with the following operations.
 
-对分区进行格式化
+Next, format the **partitions**:
 ```shell
 sudo mkfs.fat /dev/loop23
 sudo mkfs.ext4 /dev/loop24
 ```
 
-格式化完成后需要的文件 ：
+And flash the uboot, kernel, rootfs into the img files:
 ```shell
 # 写入 uboot
 sudo dd if=build/u-boot-sunxi-with-spl.bin of=/dev/loop3 bs=1k seek=8 conv=fsync
@@ -253,4 +253,5 @@ sudo losetup -d /dev/loop24 # 删除 rootfs 分区对应的循环设备
 sudo losetup -d /dev/loop3 # 删除 img 文件对应的循环设备
 ```
 
-接下来，可以参考[烧录镜像](https://wiki.sipeed.com/hardware/zh/longan/H618/lpi3h/4_burn_image.html)把得到的 img 镜像文件烧录到 TF 卡中。
+
+According to the instructions on the [burn image](https://wiki.sipeed.com/hardware/en/longan/h618/lpi3h/4_burn_image.html) page, here are the steps to burn the obtained img image file to the TF card:
