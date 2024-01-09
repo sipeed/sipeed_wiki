@@ -64,11 +64,23 @@ sudo -i
 nano /etc/wpa_supplicant.conf
 ```
 
-Create the wpa_supplicant.conf file and enter the SSID and passphrase of the Wi-Fi network. After filling in the information, run the following command to connect to Wi-Fi:
+Create the wpa_supplicant.conf file and enter the SSID and passphrase of the Wi-Fi network:
+```txt
+network={
+        ssid="your_wifi_name"          
+        #psk="your_wifi_password"        
+}
+```
+
+After filling in the information, run the following command to connect to Wi-Fi:
 ```shell
 wpa_supplicant -D nl80211 -i 网卡名 -c /etc/wpa_supplicant.conf &
 ```
 
+If there's no IP address, use dhcp to get a ip address:
+```shell
+dhclient
+```
 
 ## Connecting to Bluetooth
 

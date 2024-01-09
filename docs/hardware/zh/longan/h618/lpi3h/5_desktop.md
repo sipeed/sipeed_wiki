@@ -64,11 +64,24 @@ connmanctl enable wifi
 sudo -i
 nano /etc/wpa_supplicant.conf
 ```
-创建 wpa_supplicant.conf 文件并填入 wifi 的 ssid 和 psk 信息，填写完成后运行下面的命令即可连接 wifi。
+
+创建 wpa_supplicant.conf 文件并填入 wifi 的 ssid 和 psk 信息：
+```txt
+network={
+        ssid="your_wifi_name"          
+        #psk="your_wifi_password"        
+}
+```
+
+填写完成后运行下面的命令即可连接 wifi。
 ```shell
 wpa_supplicant -D nl80211 -i 网卡名 -c /etc/wpa_supplicant.conf &
 ```
 
+若连接后没有 IP 地址，用 dhcp 获取一个ip地址即可：
+```shell
+dhclient
+```
 
 ## 连接蓝牙
 
