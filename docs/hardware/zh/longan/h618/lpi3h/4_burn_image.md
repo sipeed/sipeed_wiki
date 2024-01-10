@@ -49,3 +49,5 @@ dd if=/opt/your_image_file of=/dev/mmcblk1
 sync
 ```
 等到烧录完成后，拔掉 SD 卡，即可从EMMC进入系统。
+
+若要使用 EMMC 启动，并使用SD卡扩容，需要确保SD卡已格式化，其中不包含启动镜像，否则因为优先级的问题可能会变为SD卡启动。
