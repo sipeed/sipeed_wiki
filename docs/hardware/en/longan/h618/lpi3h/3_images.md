@@ -24,6 +24,16 @@ Account: `sipeed`, Password: `licheepi`.
 ![debian](./../../../../zh/longan/h618/lpi3h/assets/images/debian.png)  
 ![debian_neofetch](./../../../../zh/longan/h618/lpi3h/assets/images/debian_neofetch.png)  
 
+#### Changelog
+
+20231220:
+- Release of the first version of the image
+20240106:
+- Update EMMC boot support
+20240110:
+- Add SD, EMMC bootable burnable image files
+- Fix DNS issues
+
 Download:
 
 百度网盘：[Click me](https://pan.baidu.com/s/1VGaARAq6dbicFy4VOytRuw) 提取码: cd68
