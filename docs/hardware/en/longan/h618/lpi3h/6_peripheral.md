@@ -130,6 +130,8 @@ xrandr xrandr --output HDMI-1 --mode 1440x900
 ```
 Some parameters may cause the screen to not light up. When you have no display when you plug in an HDMI display, you can use this command to adjust the display parameters to light up, or you can adjust them in the display graphical menu in the system settings.
 
+If you find that you have flickering problems with higher resolutions, try lowering the refresh rate in the graphical settings display menu.
+
 ## HDMI audio
 
 TODO

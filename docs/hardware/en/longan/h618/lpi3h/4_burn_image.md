@@ -45,3 +45,5 @@ The steps for Windows and Linux are similar.
 dd if=/opt/your_image_file of=/dev/mmcblk1
 sync
 When the burning is finished, unplug the SD card and you can enter the system from the EMMC.
+
+If you want to boot with EMMC and use SD card for expansion, you need to make sure that the SD card is formatted and does not contain a boot image, otherwise it may be changed to SD card boot due to priority issues.

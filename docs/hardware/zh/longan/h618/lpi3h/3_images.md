@@ -30,6 +30,9 @@ Sipeed 官方镜像基于 Debian 系统修改适配。
 - 发布初版镜像
 20240106：
 - 更新EMMC启动支持
+20240110：
+- 添加 SD、EMMC 启动可烧录镜像文件
+- 修复 DNS 问题
 
 下载地址：
 百度网盘：[点我](https://pan.baidu.com/s/1VGaARAq6dbicFy4VOytRuw) 提取码: cd68
