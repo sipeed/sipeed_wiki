@@ -1,16 +1,14 @@
 # Tang Nano 9K
 
->  Edit on 2022.05.13
-
 ## Introduction
 
-Tang nano 9K is a development board based on [Gowin](https://www.gowinsemi.com/en/) GW1NR-9 FPGA chip.It equips with HDMI connector, RGB screen interface connector, SPI screen connector, 32Mbit SPI flash and 6 LEDs, so users can use it for FPGA verification, risc-v soft core verification and basic function verification easily and quickly. Its 8640 LUT4 logic units can not only be used for various complex logic circuits designing, but also used for running a complete PicoRV soft core. It also meets various needs of users, such as learning FPGA, verifying soft core and further design.
+The Tang Nano 9K, powered by [Gowin's](https://www.gowinsemi.com/en/) GW1NR-9 FPGA chip, is a versatile and feature-rich development board. It features several often used connectors, including HDMI, RGB screen, and SPI screen interfaces, aswell as a 32Mbit SPI flash and six LEDs. It has 8640 LUT4 logic units, an onboard 27MHz clock and 2 PLLs meaning, as well as basic FPGA designs, it can also be used for full risc-v softcores such as PicoRV.
 
 ![](./../../../assets/Tang/Nano-9K/9K.png)
 
 ## Comparison
 
-Tang Nano 9K is the 5th product of Sipeed Tang series. Before purchasing, you can compare and choose from the following table according to your demands:
+Tang Nano 9K is the 5th product of Sipeed Tang series. Several Tang FPGA products are compared in the table below, if you need a more feature-rich board consider the [Tang Nano 20K](../tang-nano-20k/nano-20k.md).
 
 | Model               | Tang Nano 1K                                                                   | Tang Nano 4K                                                                   | Tang Nano 9K                                                                   |
 | :------------------ | :----------------------------------------------------------------------------- | :----------------------------------------------------------------------------- | :----------------------------------------------------------------------------- |
@@ -25,9 +23,9 @@ Tang Nano 9K is the 5th product of Sipeed Tang series. Before purchasing, you ca
 | Debugger            | Onboard USB-JTAG                                                               | Onboard USB-JTAG                                                               | Onboard USB-JTAG & USB-UART                                                    |
 
 
-## Characteristic
+## Specifications
 
-This form shows detail specs of Tang Nano 9K
+Indepth specifications of the tang nano 9k.
 
 | Item                   | value                                                                                                                                                                    |
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -62,73 +60,63 @@ This form shows detail specs of Tang Nano 9K
 | Introduction | verify HDL design        | After flashing the softcore bitstream, <br>this board can be used as a normal microcontroller unit | After flashing the softcore bitstream,<br>it can be used as two chips |
 | User         | Beginner，FPGA developer | RISC-V developers，Cortex-M developers                                                             | Senior engineer                                                       |
 
-## User guide
+## Getting Started
 
-1. Download our packaged user guide document : [Click me](https://dl.sipeed.com/shareURL/TANG/Nano%209K/6_Chip_Manual/EN/General%20Guide) (All PDFs mentioned below are here)
-   
-2. Install IDE and configure license : [Click me](./../Tang-Nano-Doc/install-the-ide.md)
-   
-3. Read this file (in the file downloaded in step 1) : [SUG100-2.6E_Gowin Software User Guide.pdf](https://dl.sipeed.com/fileList/TANG/Nano%209K/6_Chip_Manual/EN/General%20Guide/SUG100-2.6E_Gowin%20Software%20User%20Guide.pdf)
+1. **[Download User Guide](https://dl.sipeed.com/shareURL/TANG/Nano%209K/6_Chip_Manual/EN/General%20Guide)**: Access all necessary PDF documents by downloading our comprehensive user guide package.
 
-4. Read this [tutorial](./examples/led.md) (LEDs lighting experiment).
-   We suggest you recreate a project ang light the led by yourself, this can help you know more about the steps about fpga.
-   We recommended you read the following tips during this process:
-   - Verilog code specifications (please search by yourself. It is very necessary to obey good code specifications from beginning)
-   
-	The following documents are very useful for learning FPGA, so we should read them.
-	   - SUG949-1.1E_Gowin HDL Coding User Guide.pdf
-	   - UG286-1.9.1E_Gowin Clock User Guide.pdf
-	The documents mentioned above can be downloaded from our [Download station](https://dl.sipeed.com/shareURL/TANG/Nano%209K/6_Chip_Manual/EN/General%20Guide)
-   	And there has been a compressed package contains all documents
+2. **[Install IDE & License Configuration](./../Tang-Nano-Doc/install-the-ide.md)**: Set up your Integrated Development Environment (IDE) and configure your license by following this guide.
 
-   Online tutorial:  
-   We suggest two excellent learning sites about verilog : [HDLBITs](https://hdlbits.01xz.net/wiki/Main_Page) and [Verilog Page](https://www.asic-world.com/verilog/index.html)
+3. **[Software User Guide](https://dl.sipeed.com/fileList/TANG/Nano%209K/6_Chip_Manual/EN/General%20Guide/SUG100-2.6E_Gowin%20Software%20User%20Guide.pdf)**: Refer to the "SUG100-2.6E_Gowin Software User Guide.pdf" in the downloaded package for detailed software instructions.
 
-5. Read this [tutorial](./examples/rgb_screen.md) (5-inch RGB screen Display tutorial). If you can't complete this experiment, you can download our [9K examples](https://github.com/sipeed/TangNano-9K-example) (adapted to 9K + 5-inch screen) to see which step goes wrong.
-   **Note: for screen wiring, pay attention to the 1-pin silk screen next to the connector corresponding to 1-pin of the cable**
-   Documents to read:
-   - rPLL IP core reference: Click the menubar Tools>IP Core Generator>Hard Module>CLOCK>rPLL
-        <details>
-        <summary><font color="#4F84FF">Click to see reference</font></summary>
-        <img src="./../../../zh/tang/assets/ip-reference.png">
-        </details>
-   - [SUG284-2.1E_Gowin IP Core Generator User Guide.pdf](https://dl.sipeed.com/fileList/TANG/Nano%209K/6_Chip_Manual/EN/General%20Guide/SUG284-2.1E_Gowin%20IP%20Core%20Generator%20User%20Guide.pdf) (Page 28)
-   - [Datasheet of 5inch screen](https://dl.sipeed.com/fileList/TANG/Nano%209K/6_Chip_Manual/EN/LCD_Datasheet/5.0inch_LCD_Datashet%20_RGB_.pdf)
-   
-6. Explanation of HDMI display (to be updated)
+4. **[LED Tutorial](./examples/led.md)**: A simple project to get you acquianted to FPGAs and the tangnano9k.
+   - **Verilog Code Standards**: It's crucial to adhere to good coding practices.
+   - **Recommended Reading**:
+     - SUG949-1.1E_Gowin HDL Coding User Guide.pdf
+     - UG286-1.9.1E_Gowin Clock User Guide.pdf
 
-7. PicoRV soft core test ([Source code](https://github.com/sipeed/TangNano-9K-example))
+   These, and other important, documents are available at our [Download Station](https://dl.sipeed.com/shareURL/TANG/Nano%209K/6_Chip_Manual/EN/General%20Guide).
 
-## Reference examples summary
+   **Online Resources**: We recommend two excellent learning sites for Verilog: [HDLBITs](https://hdlbits.01xz.net/wiki/Main_Page) and [ASIC World's Verilog Page](https://www.asic-world.com/verilog/index.html).
 
-Visit [examples](./../Tang-Nano-Doc/examples.md)
+5. **[RGB Screen Tutorial](./examples/rgb_screen.md)**: Follow this step-by-step guide for setting up a 5-inch RGB screen display. If you encounter difficulties, refer to our [9K examples](https://github.com/sipeed/TangNano-9K-example) adapted for 9K + 5-inch screens.
+   - **Screen Wiring Note**: Ensure correct alignment of the 1-pin silk screen on the connector with the 1-pin of the cable.
+   - **Key Documents for Reference**:
+     - rPLL IP core reference: Navigate to Tools > IP Core Generator > Hard Module > CLOCK > rPLL.
+     - [SUG284-2.1E_Gowin IP Core Generator User Guide.pdf](https://dl.sipeed.com/fileList/TANG/Nano%209K/6_Chip_Manual/EN/General%20Guide/SUG284-2.1E_Gowin%20IP%20Core%20Generator%20User%20Guide.pdf) (Page 28)
+     - [Datasheet of 5-inch Screen](https://dl.sipeed.com/fileList/TANG/Nano%209K/6_Chip_Manual/EN/LCD_Datasheet/5.0inch_LCD_Datashet%20_RGB_.pdf)
 
-## Hardware files
+6. **Examples in the source code [repository](https://github.com/sipeed/TangNano-9K-example)** includes a PicoRV softcore and a HDMI display example, among other examples.
 
-[All files](https://dl.sipeed.com/shareURL/TANG/Nano%209K/)
+## Reference and Examples
 
-- [Datasheet](https://dl.sipeed.com/shareURL/TANG/Nano%209K/6_Chip_Manual/EN)
-- [Schematic](https://dl.sipeed.com/shareURL/TANG/Nano%209K/2_Schematic)
-- [Bit map](https://dl.sipeed.com/shareURL/TANG/Nano%209K/3_Bit_number_map)
-- [Size](https://dl.sipeed.com/shareURL/TANG/Nano%209K/4_Dimensional_drawing)
-- [3D file](https://dl.sipeed.com/shareURL/TANG/Nano%209K/5_3D_file)
-- [Some manuals](https://dl.sipeed.com/shareURL/TANG/Nano%209K/6_Chip_Manual)
+You can access several example projects on our [Examples Page](./../Tang-Nano-Doc/examples.md).
 
-## Attention
+## Hardware Resources
 
-1. If you have trouble with this board, you can join our telegram (t.me/sipeed) or contact us on twitter (https://twitter.com/SipeedIO). Leaving message below is also OK.
+- Access all necessary hardware files at [Hardware Files](https://dl.sipeed.com/shareURL/TANG/Nano%209K/).
+  - [Datasheet](https://dl.sipeed.com/shareURL/TANG/Nano%209K/6_Chip_Manual/EN)
+  - [Schematic](https://dl.sipeed.com/shareURL/TANG/Nano%209K/2_Schematic)
+  - [Bit map](https://dl.sipeed.com/shareURL/TANG/Nano%209K/3_Bit_number_map)
+  - [Size](https://dl.sipeed.com/shareURL/TANG/Nano%209K/4_Dimensional_drawing)
+  - [3D file](https://dl.sipeed.com/shareURL/TANG/Nano%209K/5_3D_file)
+  - [Some manuals](https://dl.sipeed.com/shareURL/TANG/Nano%209K/6_Chip_Manual)
 
-2. Visit [Tang questions](https://wiki.sipeed.com/hardware/en/tang/Tang-Nano-Doc/questions.html) first if you have any trouble.
-   
-3. DO NOT USE JTAG, MODE0/1 and DONE pins. If you really need to use these pins, please refer to [SUG100-2.6E_Gowin Software User Guide.pdf](https://dl.sipeed.com/fileList/TANG/Nano%209K/6_Chip_Manual/EN/General%20Guide/SUG100-2.6E_Gowin%20Software%20User%20Guide.pdf).
+## Attention and Best Practices
 
-4. Please avoid static electricity hitting PCBA; Please release the static electricity from the hand before contacting PCBA.
+1. **Support and Community**: For assistance, join our Telegram group (t.me/sipeed) or contact us on Twitter ([@SipeedIO](https://twitter.com/SipeedIO)). You can also leave a message below.
 
-5. The working voltage of each GPIO has been marked in the schematic . Please do not let the actual working voltage of GPIO exceed the rated value, because it will cause permanent damage to PCBA.
+2. **Troubleshooting**: If you encounter any issues, consult our [Tang Questions](https://wiki.sipeed.com/hardware/en/tang/Tang-Nano-Doc/questions.html) page first.
 
-6. When connecting FPC flexible cable, make sure the cable is completely inserted into the base with on offset.
+3. **Avoid using JTAG, MODE0/1, and DONE pins unless necessary**. For details, refer to [SUG100-2.6E_Gowin Software User Guide.pdf](https://dl.sipeed.com/fileList/TANG/Nano%209K/6_Chip_Manual/EN/General%20Guide/SUG100-2.6E_Gowin%20Software%20User%20Guide.pdf).
 
-7. Avoid any liquid or metal touching the pads of components on PCBA during working, because this will cause short circuit and damage PCBA.
+4. **Static Electricity Precautions**: Always discharge static electricity before handling the PCBA to prevent damage.
 
-8. Pay attention to the multiplexed IO. The HDMI io ports are pulled up, when using these ios which are routed to pin headers, then may not meets your command.
-    ![nano_9k_hdmi_io](./../../../zh/tang/Tang-Nano-9K/assets/nano_9k_hdmi_io.png)
+5. **GPIO Voltage Compliance**: Ensure that the actual working voltage of GPIOs does not exceed their rated value as indicated in the schematic. Exceeding these limits can cause permanent damage to the PCBA.
+
+6. **FPC Cable Connection**: When connecting FPC flexible cables, ensure that the cable is fully inserted into its base without any offset.
+
+7. **Avoid Short Circuits**: Prevent liquids or metals from coming into contact with the component pads on the PCBA while it's operating, as this could cause a short circuit and damage the PCBA.
+
+8. **Handling Multiplexed IO and HDMI Ports**: Be aware that the HDMI IO ports are pulled up. When using IOs routed to pin headers, they may not operate as intended.
+
+![HDMI IO Port Configuration](./../../../zh/tang/Tang-Nano-9K/assets/nano_9k_hdmi_io.png)
