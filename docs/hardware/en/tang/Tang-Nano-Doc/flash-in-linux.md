@@ -1,21 +1,21 @@
 ---
-title: Flash in linux
+title: Flashing on linux
 keyeords: Linux, FPGA, Gowin
 ---
 
-It's suggested to use **openFPGALoader** to flash te development board in Ubuntu.
-Other linux distributions have not been verified.
+It's recommended to use **openFPGALoader** to flash the development board from linux environments. This page covers installation instructions and has been verified on Ubuntu but may work on other linux distributions.
 
-The steps are as shown:
+The currently available package on Ubuntu is older ('openfpgaloader') and does not support the latest boards (i.e. tangnano20k), because of this compiling the latest git source is recommended and covered below (adapted from the offical projects documentation: https://trabucayre.github.io/openFPGALoader/guide/install.html).
 
-### Install openFPGALoader
+### Compiling openFPGALoader from git
 
-Reference：https://trabucayre.github.io/openFPGALoader/guide/install.html
-
-Using the following commands in terminal:
+1. Install build dependences
+2. Clone the source code
+3. Configure and compile the code
+4. Install
 
 ```bash
-# preprocess
+# Install build dependencies
 sudo apt-get install libftdi1-2 libftdi1-dev libhidapi-hidraw0 libhidapi-dev libudev-dev zlib1g-dev cmake pkg-config make g++
 # compile
 git clone https://github.com/trabucayre/openFPGALoader.git
@@ -32,9 +32,23 @@ cmake --build .
 sudo make install
 ```
 
-### Flash
+### Optionally install Udev rules
 
-Detect board
+Using the board may require root permissions if Uden rules are not used. If this is not done you will likely need to run `openFPGAloader` as root or with `sudo` each time.
+
+```bash
+# Working in the openFPGAloader/ directory
+# Copy the Udev rules to the correct directory
+sudo cp 99-openfpgaloader.rules /etc/udev/rules.d/
+# Reload the udev rules and activate them
+sudo udevadm control --reload-rules && sudo udevadm trigger # force udev to take new rule
+# Add the current user to the plugdev group
+sudo usermod -a $USER -G plugdev # add user to plugdev group
+```
+
+### Flashing the board
+
+First ensure openFPGAloader detects the cable and device.
 
 ```bash
 $ sudo ./openFPGALoader --detect # This command should be executed in the directory where you previously executed make install  
@@ -50,7 +64,7 @@ index 0:
 
 ```
 
-Download bitstream
+Flash the bitstream to the device as shown below. The board name must be speficied after the `-b` option, `-f` options means the file is programmed to the non-volatile flash, without it it will be stored in SRAM but lost if the device loses power.
 
 ```bash
 $ sudo ./openFPGALoader -b tangnano9k -f ../../nano9k_lcd/impl/pnr/Tang_nano_9K_LCD.fs
@@ -71,8 +85,9 @@ Done
 CRC check: Success
 
 ```
+#### Board names
 
--b means target development board, should be decided from the form below：
+You can find the list of supported tang boards using the command `openFPGAloader --list-boards | grep tang`.
 
 | Board name    | FPGA            | Memory | Flash          |
 | ------------- | --------------- | ------ | -------------- |
