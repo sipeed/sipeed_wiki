@@ -199,6 +199,22 @@ items:
             file: lichee/RV/problems.md
         -   label: 使用 Ubuntu 镜像
             file: lichee/RV/ubuntu.md
+    -   label: LicheeRV Nano
+        items:
+        -   label: 板卡介绍
+            file: lichee/RV_Nano/1_intro.md
+        -   label: 开箱体验
+            file: lichee/RV_Nano/2_unbox.md
+        -   label: 镜像集合
+            file: lichee/RV_Nano/3_images.md
+        -   label: 烧录镜像
+            file: lichee/RV_Nano/4_burn_image.md
+        -   label: 外设使用
+            file: lichee/RV_Nano/5_peripheral.md
+        -   label: 系统开发
+            file: llichee/RV_Nano/6_develop_mainline.md
+        -   label: 板卡测试
+            file: lichee/RV_Nano/7_test_report.md
     -   label: LicheePI Zero
         file: lichee/Zero/Zero.md
     -   label: LicheePI Nano
