@@ -8,7 +8,7 @@ update:
 ---
 
 ## 简介
-LicheeRV Nano 是一款迷你尺寸的开发板（仅22.86*35.56mm），搭载算能GC2002处理器，大核1GHZ （RISC-V/ARM可选）小核700MHZ RISC-V，256MB DDR3内存，内置 1Tops NPU；板载MIPI-CSI、MIPI-DSI、SDIO、ETH、USB、SPI、UART、I2C等丰富的接口，可扩展多种多样的应用；直插/半孔设计，方便量产贴片。
+LicheeRV Nano 是一款迷你尺寸的开发板（仅22.86*35.56mm），搭载算能SG2002处理器，大核1GHZ （RISC-V/ARM可选）小核700MHZ RISC-V，256MB DDR3内存，内置 1Tops NPU；板载MIPI-CSI、MIPI-DSI、SDIO、ETH、USB、SPI、UART、I2C等丰富的接口，可扩展多种多样的应用；直插/半孔设计，方便量产贴片。
 
 ![](./../assets/RV_Nano/intro/RV_Nano_1.jpg)
 
