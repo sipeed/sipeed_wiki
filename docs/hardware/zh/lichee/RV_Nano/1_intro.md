@@ -5,6 +5,8 @@ update:
   - date: 2024-1-24
     version: v0.1
     author: BuGu
+    content:
+      - Release docs
 ---
 
 ## 简介
