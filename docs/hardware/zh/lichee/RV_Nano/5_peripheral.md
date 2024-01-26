@@ -7,6 +7,9 @@ update:
     author: 0x754C
 ---
 
+## 引脚分布
+![](./../assets/RV_Nano/intro/RV_Nano_3.jpg)
+
 ## 连接到板子
 
 ### UART0
@@ -88,6 +91,58 @@ ssh root@lpirvnano-XXXX.local
 echo '#!/bin/sh' > /etc/rc.local
 # 重启
 reboot
+```
+
+## Audio
+
+licheerv nano 支持录音和播放，使用标准 ALSA 工具可以进行录音、播放等操作。
+
+### 录音
+
+首先设置麦克风音量，范围：0-24
+```shell
+amixer -Dhw:0 cset name='ADC Capture Volume' 24
+```
+
+设置完成后开始录音：
+```shell
+arecord -Dhw:0,0 -d 3 -r 48000 -f S16_LE -t wav test.wav & > /dev/null &
+```
+
+### 播放
+
+```shell
+./aplay -D hw:1,0 -f S16_LE test.wav
+```
+
+## I2C
+
+插针上引出了 I2C1 和 I2C3，将设备连接到其上即可。
+
+使用前需要先正确设置 PINMUX：
+```shell
+# I2C1
+devmem 0x030010D0 32 0x2
+devmem 0x030010DC 32 0x2
+# I2C3
+devmem 0x030010E4 32 0x2
+devmem 0x030010E0 32 0x2
+```
+
+然后可以使用 i2c-tools 进行 i2c 外设的操作，镜像中已经预装。
+
+## ADC
+
+插针上引出了一路 ADC，使用的是 ADC1。
+
+首先选择 ADC channel，这里以 ADC1 为例：
+```shell
+echo 1 > /sys/class/cvi-saradc/cvi-saradc0/device/cv_saradc
+```
+
+读取 ADC1 的值：
+```shell
+cat /sys/class/cvi-saradc/cvi-saradc0/device/cv_saradc
 ```
 
 ## LCD
