@@ -5,10 +5,17 @@ update:
   - date: 2024-1-24
     version: v0.1
     author: BuGu
+    content:
+      - Release docs
+  - date: 2024-1-26
+    version: v0.2
+    author: BuGu
+    content:
+      - Update docs
 ---
 
 ## 简介
-LicheeRV Nano 是一款迷你尺寸的开发板（仅22.86*35.56mm），搭载算能GC2002处理器，大核1GHZ （RISC-V/ARM可选）小核700MHZ RISC-V，256MB DDR3内存，内置 1Tops NPU；板载MIPI-CSI、MIPI-DSI、SDIO、ETH、USB、SPI、UART、I2C等丰富的接口，可扩展多种多样的应用；直插/半孔设计，方便量产贴片。
+LicheeRV Nano 是一款迷你尺寸的开发板（仅22.86*35.56mm），搭载算能SG2002处理器，大核1GHZ （RISC-V/ARM可选）小核700MHZ RISC-V，256MB DDR3内存，内置 1Tops NPU；板载MIPI-CSI、MIPI-DSI、SDIO、ETH、USB、SPI、UART、I2C等丰富的接口，可扩展多种多样的应用；直插/半孔设计，方便量产贴片。
 
 ![](./../assets/RV_Nano/intro/RV_Nano_1.jpg)
 
@@ -57,6 +64,17 @@ LicheeRV Nano 是一款迷你尺寸的开发板（仅22.86*35.56mm），搭载�
 + [3D 模型文件](http://cn.dl.sipeed.com/shareURL/LICHEE/LicheeRV_Nano/06_3D_file)
 + [核心板封装](http://cn.dl.sipeed.com/shareURL/LICHEE/LicheeRV_Nano/05_PCB_Lib)
 + [板卡芯片资料](http://cn.dl.sipeed.com/shareURL/LICHEE/LicheeRV_Nano/07_Datasheet)
+
+## 官方资料汇总
+
++ [datasheet](https://github.com/sophgo/sophgo-doc/releases)
++ [编译工具链下载地址](https://sophon-file.sophon.cn/sophon-prod-s3/drive/23/03/07/16/host-tools.tar.gz)
++ [软件SDK下载地址](https://github.com/sophgo/cvi_mmf_sdk)
++ [SDK开发文档汇总](https://developer.sophgo.com/thread/471.html)
++ [HDK 开发文档汇总](https://developer.sophgo.com/thread/472.html)
++ [TPU SDK 开发资料汇总](https://developer.sophgo.com/thread/473.html)
++ [TDL SDK开发指南：（提供的常用 AI 模型算法，基于 TPU SDK 的应用封装）](https://doc.sophgo.com/cvitek-develop-docs/master/docs_latest_release/CV180x_CV181x/zh/01.software/TPU/TDL_SDK_Software_Development_Guide/build/TDLSDKSoftwareDevelopmentGuide_zh.pdf)
++ [TDL SDK 开发资料汇总](https://developer.sophgo.com/thread/556.html)
 
 ## 注意事项
 
