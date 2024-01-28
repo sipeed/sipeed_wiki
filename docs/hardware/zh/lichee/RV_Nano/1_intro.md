@@ -79,8 +79,8 @@ LicheeRV Nano 是一款迷你尺寸的开发板（仅22.86*35.56mm），搭载�
 ## 注意事项
 
 + 内测版硬件（70405）NPU 仅支持工作在0.5T下，1.0T下运行不保证板卡运行的稳定性
-+ 若购买摄像头配件或WE版本套餐，包装内随附螺丝、焊接铜柱和螺丝刀，为避免焊接时烫伤，请参照[摄像头、WE网口小板安装指南](https://wiki.sipeed.com/hardware/zh/lichee/RV_Nano/unbox.html)
-+ 若购买3寸、4寸、10.1寸屏幕配件，包装内随附屏幕转接板以及排线，请参照[屏幕安装指南](https://wiki.sipeed.com/hardware/zh/lichee/RV_Nano/unbox.html)
++ 若购买摄像头配件或WE版本套餐，包装内随附螺丝、焊接铜柱和螺丝刀，为避免焊接时烫伤，请参照[摄像头、WE网口小板安装指南](https://wiki.sipeed.com/hardware/zh/lichee/RV_Nano/2_unbox.html)
++ 若购买3寸、4寸、10.1寸屏幕配件，包装内随附屏幕转接板以及排线，请参照[屏幕安装指南](https://wiki.sipeed.com/hardware/zh/lichee/RV_Nano/2_unbox.html)
 
 ## 相关问题
 
