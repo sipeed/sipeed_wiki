@@ -10,8 +10,6 @@ update:
 ## 引脚分布
 ![](./../assets/RV_Nano/intro/RV_Nano_3.jpg)
 
-## 连接到板子
-
 ### UART0
 
 将UART串口连接到板子的:
@@ -246,8 +244,3 @@ echo 1 | evtest
 ```
 
 然后按下USER按键，可以在终端看到对应的事件报告
-
-
-## HelloWorld
-
-https://github.com/sipeed/LicheeRV-Nano-Build/blob/v4.1.0/build/boards/cv181x/cv1812cp_licheerv_nano_sd/readme.md#compile-program-use-vendors-toolchain
