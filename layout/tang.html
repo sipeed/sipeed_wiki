@@ -2,125 +2,125 @@
 
 <div class="w-full flex flex-col justify-center items-center">
   <h2 class="text-2xl font-bold my-8 block_simple">{{_('Tang FPGA 系列')}}</h2>
-  <div class="w-full flex flex-col justify-center">
-    <div class="cards">
-      <!-- cards -->
-      <div class="card" v-for="item in data_tang.cards">
-        <div class="img_wrapper">
-          <img class="card_img" :src="item.img" />
-        </div>
-        <h3 class="card_title" class="text-lg">{[item.title]}</h3>
-        <div class="card_brief">{[item.brief]}</div>
-        <div class="card_btns">
-          <a
-            v-for="btn in item.btns"
-            :href="btn.link"
-            :target="btn.new_tab ? '_blank' : '_self'"
-            >{[btn.label]}</a
-          >
-        </div>
+  <div class="cards">
+    <!-- cards -->
+    <div class="card" v-for="item in data_tang.cards">
+      <div class="img_wrapper">
+        <img class="card_img" :src="item.img" />
       </div>
-      <!-- cards end -->
+      <h3 class="card_title" class="text-lg">{[item.title]}</h3>
+      <div class="card_brief">{[item.brief]}</div>
+      <div class="card_btns">
+        <a
+          v-for="btn in item.btns"
+          :href="btn.link"
+          :target="btn.new_tab ? '_blank' : '_self'"
+          >{[btn.label]}</a
+        >
+      </div>
     </div>
-    <div class="w-full flex flex-col justify-center items-center mt-10 mb-5">
-      <!-- a table to compare upper products' parameters -->
-      <h3 class="text-2xl font-bold my-8">{{_('Tang 系列板卡参数对比')}}</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>{{_('参数')}}</th>
-            <th>Mega 138K</th>
-            <th>Primer 25K</th>
-            <th>Primer 20K</th>
-            <th>Nano 20K</th>
-            <th>Nano 9K</th>
-            <th>Nano 4K</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>{{_('芯片')}}</td>
-            <td>GW5AST-138</td>
-            <td>GW5A-25</td>
-            <td>GW2A-18</td>
-            <td>GW2AR-18</td>
-            <td>GW1NR-9</td>
-            <td>GW1NSR-4C</td>
-          </tr>
-          <tr>
-            <td>{{_('查找表(LUT)')}}</td>
-            <td>138240</td>
-            <td>23040</td>
-            <td>20736</td>
-            <td>20736</td>
-            <td>8640</td>
-            <td>4608</td>
-          </tr>
-          <tr>
-            <td>{{_('寄存器(FF)')}}</td>
-            <td>138240</td>
-            <td>23040</td>
-            <td>15552</td>
-            <td>15552</td>
-            <td>6480</td>
-            <td>4608</td>
-          </tr>
-          <tr>
-            <td>SSRAM(Kbits)</td>
-            <td>1080</td>
-            <td>180</td>
-            <td>41</td>
-            <td>41</td>
-            <td>17</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>BSRAM(Kbits)</td>
-            <td>6120</td>
-            <td>1008</td>
-            <td>828</td>
-            <td>828</td>
-            <td>468</td>
-            <td>180</td>
-          </tr>
-          <tr>
-            <td nowrap="nowrap"> RAM </td>
-            <td nowrap="nowrap">{{_('板载_fpga')}} 4Gb DDR3 SDRAM * 2</td>
-            <td nowrap="nowrap"></td>
-            <td nowrap="nowrap">{{_('板载_fpga')}} 1Gb DDR3 SDRAM</td>
-            <td nowrap="nowrap">{{_('内含')}} 64Mb SDR SDRAM</td>
-            <td nowrap="nowrap">{{_('内含')}} 64Mb PSRAM</td>
-            <td nowrap="nowrap">{{_('内含')}} 64Mb HyperRAM</td>
-          </tr>
-          <tr>
-            <td nowrap="nowrap">{{_('内嵌处理器')}}</td>
-            <td nowrap="nowrap">RiscV AE350_SOC</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>Cortex-M3</td>
-          </tr>
-          <tr>
-            <td nowrap="nowrap">{{_('储存')}}</td>
-            <td nowrap="nowrap">{{_('板载_fpga')}} 32Mb Flash * 2</td>
-            <td nowrap="nowrap">{{_('板载_fpga')}} 32Mb Flash</td>
-            <td nowrap="nowrap">{{_('板载_fpga')}} 32Mb Flash</td>
-            <td nowrap="nowrap">{{_('板载_fpga')}} 32Mb Flash</td>
-            <td nowrap="nowrap">{{_('内含')}} 608Kb Flash<br>{{_('板载_fpga')}} 32Mb Flash</td>
-            <td nowrap="nowrap">{{_('内含')}} 256Kb Flash<br>{{_('板载_fpga')}} 32Mb Flash</td>
-          </tr>
-          <tr>
-            <td>{{_('其他特点')}}</td>
-            <td nowrap="nowrap">{{_('内含 12.5G Transceivers')}}<br>{{_('支持 PCIE 通信')}}<br>{{_('支持 SFP+ 数据传输')}}</td>
-            <td nowrap="nowrap">{{_('内含 2.5G MIPI DPHY RX/TX')}}<br>{{_('支持 PMOD, 64MByte SDRAM模块')}}<br>{{_('支持 USB手柄')}}</td>
-            <td nowrap="nowrap">{{_('丰富外设，HDMI/以太网/USB')}}</td>
-            <td nowrap="nowrap">{{_('for RetroGame ~')}}</td>
-            <td nowrap="nowrap">{{_('for RISCV softcore')}}</td>
-            <td nowrap="nowrap">{{_('GOAI~')}}</td>
-          </tr>
-        </tbody>
-      </table>
+    <!-- cards end -->
+  </div>
+  <h3 class="text-2xl font-bold my-8">{{_('Tang 系列板卡参数对比')}}</h3>
+  <div class="w-full my-8 overflow-auto px-2">
+    <div class="table_wrapper">
+    <!-- a table to compare upper products' parameters -->
+    <table>
+      <thead>
+        <tr>
+          <th>{{_('参数')}}</th>
+          <th>Mega 138K</th>
+          <th>Primer 25K</th>
+          <th>Primer 20K</th>
+          <th>Nano 20K</th>
+          <th>Nano 9K</th>
+          <th>Nano 4K</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{_('芯片')}}</td>
+          <td>GW5AST-138</td>
+          <td>GW5A-25</td>
+          <td>GW2A-18</td>
+          <td>GW2AR-18</td>
+          <td>GW1NR-9</td>
+          <td>GW1NSR-4C</td>
+        </tr>
+        <tr>
+          <td>{{_('查找表(LUT)')}}</td>
+          <td>138240</td>
+          <td>23040</td>
+          <td>20736</td>
+          <td>20736</td>
+          <td>8640</td>
+          <td>4608</td>
+        </tr>
+        <tr>
+          <td>{{_('寄存器(FF)')}}</td>
+          <td>138240</td>
+          <td>23040</td>
+          <td>15552</td>
+          <td>15552</td>
+          <td>6480</td>
+          <td>4608</td>
+        </tr>
+        <tr>
+          <td>SSRAM(Kbits)</td>
+          <td>1080</td>
+          <td>180</td>
+          <td>41</td>
+          <td>41</td>
+          <td>17</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>BSRAM(Kbits)</td>
+          <td>6120</td>
+          <td>1008</td>
+          <td>828</td>
+          <td>828</td>
+          <td>468</td>
+          <td>180</td>
+        </tr>
+        <tr>
+          <td nowrap="nowrap"> RAM </td>
+          <td nowrap="nowrap">{{_('板载_fpga')}} 4Gb DDR3 SDRAM * 2</td>
+          <td nowrap="nowrap"></td>
+          <td nowrap="nowrap">{{_('板载_fpga')}} 1Gb DDR3 SDRAM</td>
+          <td nowrap="nowrap">{{_('内含')}} 64Mb SDR SDRAM</td>
+          <td nowrap="nowrap">{{_('内含')}} 64Mb PSRAM</td>
+          <td nowrap="nowrap">{{_('内含')}} 64Mb HyperRAM</td>
+        </tr>
+        <tr>
+          <td nowrap="nowrap">{{_('内嵌处理器')}}</td>
+          <td nowrap="nowrap">RiscV AE350_SOC</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>Cortex-M3</td>
+        </tr>
+        <tr>
+          <td nowrap="nowrap">{{_('储存')}}</td>
+          <td nowrap="nowrap">{{_('板载_fpga')}} 32Mb Flash * 2</td>
+          <td nowrap="nowrap">{{_('板载_fpga')}} 32Mb Flash</td>
+          <td nowrap="nowrap">{{_('板载_fpga')}} 32Mb Flash</td>
+          <td nowrap="nowrap">{{_('板载_fpga')}} 32Mb Flash</td>
+          <td nowrap="nowrap">{{_('内含')}} 608Kb Flash<br>{{_('板载_fpga')}} 32Mb Flash</td>
+          <td nowrap="nowrap">{{_('内含')}} 256Kb Flash<br>{{_('板载_fpga')}} 32Mb Flash</td>
+        </tr>
+        <tr>
+          <td>{{_('其他特点')}}</td>
+          <td nowrap="nowrap">{{_('内含 12.5G Transceivers')}}<br>{{_('支持 PCIE 通信')}}<br>{{_('支持 SFP+ 数据传输')}}</td>
+          <td nowrap="nowrap">{{_('内含 2.5G MIPI DPHY RX/TX')}}<br>{{_('支持 PMOD, 64MByte SDRAM模块')}}<br>{{_('支持 USB手柄')}}</td>
+          <td nowrap="nowrap">{{_('丰富外设，HDMI/以太网/USB')}}</td>
+          <td nowrap="nowrap">{{_('for RetroGame ~')}}</td>
+          <td nowrap="nowrap">{{_('for RISCV softcore')}}</td>
+          <td nowrap="nowrap">{{_('GOAI~')}}</td>
+        </tr>
+      </tbody>
+    </table>
     </div>
   </div>
 </div>
