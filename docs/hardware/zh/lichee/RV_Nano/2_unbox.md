@@ -7,6 +7,11 @@ update:
     author: BuGu
     content:
       - Release docs
+  - date: 2024-2-4
+    version: v0.3
+    author: 源源圆球
+    content:
+      - Update 3D model
 ---
 
 ## LicheeRV Nano 套餐介绍
@@ -122,5 +127,9 @@ LicheeRV Nano根据网络分为四个版本：
   
      ![](./../assets/RV_Nano/unbox/CAM5.jpg)
 
+## 开源模型
 
-## 烧录镜像
+为提升用户使用体验，我们开源了LicheeRV Nano + 2.28寸屏幕（即将上架） + 摄像头 的3D打印框架
+ ![](./../assets/RV_Nano/unbox/3DP1.jpg)
+
+大家可以在[这里](https://makerworld.com/zh/models/167463#profileId-183872)下载到模型，喜欢的话别忘了给设计师点个赞哦
