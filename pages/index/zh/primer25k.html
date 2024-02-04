@@ -2,7 +2,7 @@
     var hash = window.location.hash
     if (hash.indexOf("start")!= -1)
     {
-        if( navigator.language  == "zh-CN" ) 
+        if( navigator.language.indexOf("zh") == 0 ) 
         {
         location.href = "https://wiki.sipeed.com/hardware/zh/tang/tang-primer-25k/start.html"
         }
@@ -13,7 +13,7 @@
     }
     else
     {
-        if( navigator.language  == "zh-CN" ) 
+        if( navigator.language.indexOf("zh") == 0 ) 
         {
         location.href = "https://wiki.sipeed.com/hardware/zh/tang/tang-primer-25k/primer-25k.html"
         }

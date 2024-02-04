@@ -62,9 +62,9 @@ Download Links:
 Mega Cloud Storage：[click me](https://mega.nz/folder/phoQlBTZ#cZeQ3qZ__pDvP94PT3_bGA)
 ISCAS mirror(including test mirror, ordinary users please use the mirror in the previous network disk): [click me](https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/)
 
-1. LPI4A_20231214_BASIC.zip
+1. LPI4A_20240111_BASIC.zip
 
-- Release Date: Dec 14, 2023
+- Release Date: Jan 11, 2024
 - Kernel: 5.10
 - Root Filesystem: ext4, 4.3GB  
 - Preinstalled Software Packages:
@@ -90,6 +90,9 @@ ISCAS mirror(including test mirror, ordinary users please use the mirror in the 
   20231214:
     - Fixed cursor flickering issue.
     - Added support for Wifi6 driver.
+  20240111:
+    - Fixed MIPI screen brightness not being adjustable
+    - Fixed Bluetooth not working with new WIFI/BT module
 - Usage Instructions:
   - Auto login enabled, default login user is sipeed
   - Sudo without password enabled
@@ -105,12 +108,10 @@ ISCAS mirror(including test mirror, ordinary users please use the mirror in the 
   - The zip contains two u-boot, note the suffix and device parameters when burning
      - u-boot with 16g suffix is for 16GB memory, no suffix is for 8GB memory
 - Known Issues:
-  - MIPI screen brightness can only be adjusted manually now
-     - Switch to root, run `echo brightness_value(0-7) > /sys/class/backlight/pwm-backlight@0/brightness`
 
-2. LPI4A_20231214_FULL.zip
+2. LPI4A_20240111_FULL.zip
 
-- Release Date: Dec 14, 2023  
+- Release Date: Jan 11, 2024
 - Kernel: 5.10
 - Root Filesystem: ext4, 9.7GB
 - Preinstalled Software Packages:
@@ -138,6 +139,9 @@ ISCAS mirror(including test mirror, ordinary users please use the mirror in the 
   20231214:
     - Fixed cursor flickering issue.
     - Added support for Wifi6 driver.
+  20240111:
+    - Fixed MIPI screen brightness not being adjustable
+    - Fixed Bluetooth not working with new WIFI/BT module
 - Usage Instructions: 
   - Auto login enabled, default login user is sipeed
   - Sudo without password enabled
@@ -153,8 +157,6 @@ ISCAS mirror(including test mirror, ordinary users please use the mirror in the 
   - The zip contains two u-boot, note the suffix and device parameters when burning
      - u-boot with 16g suffix is for 16GB memory, no suffix is for 8GB memory
 - Known Issues:
-  - MIPI screen brightness can only be adjusted manually now
-     - Switch to root, run `echo brightness_value(0-7) > /sys/class/backlight/pwm-backlight@0/brightness`
 
 <!-- 1. LPi4A_Test_0425
    1. Release date: April 25, 2023

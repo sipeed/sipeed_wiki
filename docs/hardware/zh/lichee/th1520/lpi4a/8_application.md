@@ -205,7 +205,7 @@ python3 onnx_inference.py -m yolox_s.onnx -i soccer.jpg -o outdir -s 0.3 --input
 参考[外设使用](https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/6_peripheral.html#NPU)文档搭建好 NPU 使用相关环境后，进入到 HHB 环境的 Docker 镜像中。
 
 首先获取本节教程的模型，下载到示例目录 `/home/example/th1520_npu/onnx_mobilenetv2_c++` 下：
-[mobilenetv2-12.onnx](https://github.com/onnx/models/blob/main/vision/classification/mobilenet/model/mobilenetv2-12.onnx)
+[mobilenetv2-12.onnx](https://github.com/onnx/models/raw/main/validated/vision/classification/mobilenet/model/mobilenetv2-12.onnx)
 
 并获取本次教程所使用的优化版本 opencv 所需的库文件，前往 [github仓库下载](https://xuantie.t-head.cn/community/download?id=4112956065753141248)下载到上一级目录 `/home/example/th1520_npu/` 下。
 ```shell

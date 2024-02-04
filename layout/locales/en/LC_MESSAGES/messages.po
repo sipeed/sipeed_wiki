@@ -3,145 +3,181 @@ msgid ""
 msgstr ""
 
 #: home.html:93
-msgid "/static/home/ax650_presell.jpg"
-msgstr ""
+#, fuzzy
+msgid "/static/home/LicheeRV-Nano.jpg"
+msgstr "/hardware/en/lichee/RV_Nano/1_intro.html"
 
-#: home.html:96 home.html:109 home.html:122 home.html:135 licheepi.html:132
-#: licheepi.html:148 licheepi.html:164 licheepi.html:180 maix.html:116
-#: maix.html:133 maix.html:150 maix.html:167 maixsense.html:40
-#: maixsense.html:56 tang.html:137 tang.html:153 tang.html:169 tang.html:185
-#: tang.html:201 tang.html:217
+#: home.html:96 home.html:109 home.html:122 home.html:135 home.html:148
+#: home.html:161 home.html:174 licheepi.html:217 licheepi.html:238
+#: licheepi.html:254 licheepi.html:275 licheepi.html:291 licheepi.html:307
+#: maix.html:116 maix.html:133 maix.html:150 maix.html:167 maixsense.html:40
+#: maixsense.html:56 others.html:38 tang.html:137 tang.html:153 tang.html:169
+#: tang.html:185 tang.html:201 tang.html:217
 msgid "文档"
 msgstr "Documentation"
 
-#: home.html:100 home.html:113 home.html:126 home.html:139 licheepi.html:136
-#: licheepi.html:152 licheepi.html:168 licheepi.html:184 maix.html:120
-#: maix.html:137 maix.html:154 maix.html:171 maixsense.html:44
-#: maixsense.html:60 tang.html:141 tang.html:157 tang.html:173 tang.html:189
-#: tang.html:205 tang.html:221
+#: home.html:100 home.html:113 home.html:126 home.html:139 home.html:152
+#: home.html:165 home.html:178 licheepi.html:221 licheepi.html:242
+#: licheepi.html:258 licheepi.html:279 licheepi.html:295 licheepi.html:311
+#: maix.html:120 maix.html:137 maix.html:154 maix.html:171 maixsense.html:44
+#: maixsense.html:60 others.html:42 tang.html:141 tang.html:157 tang.html:173
+#: tang.html:189 tang.html:205 tang.html:221
 msgid "购买"
 msgstr "Buy"
 
-#: home.html:101 maix.html:172
-msgid "https://item.taobao.com/item.htm?id=744014549573"
-msgstr "https://www.aliexpress.us/item/3256806030962938.html"
+#: home.html:101 licheepi.html:243
+msgid "https://item.taobao.com/item.htm?id=764939520376"
+msgstr "https://www.aliexpress.us/item/325680633"
 
 #: home.html:106
-msgid "/static/home/licheepi4a_post.jpg"
-msgstr ""
-
-#: home.html:119
-msgid "/static/home/maixiii_axpi.jpg"
+#, fuzzy
+msgid "/static/home/LonganPi3H.jpg"
 msgstr "/static/home/maixiii_axpi_en.jpg"
 
-#: home.html:148
-msgid "分享广场"
-msgstr "Share Center"
+#: home.html:114 licheepi.html:280
+msgid "https://item.taobao.com/item.htm?ft=t&id=758221950525"
+msgstr "https://www.aliexpress.us/item/100500639"
 
-#: home.html:152
-msgid "MaixHub 官网"
-msgstr "MaixHub"
+#: home.html:119
+#, fuzzy
+msgid "/static/home/console-4A.jpg"
+msgstr "/static/home/maixiii_axpi_en.jpg"
 
-#: home.html:162
+#: home.html:166 home.html:179 others.html:43
+msgid "https://item.taobao.com/item.htm?id=737788586308"
+msgstr "https://www.aliexpress.com/item/1005006022974163.html"
+
+#: home.html:188
 msgid "产品动态"
 msgstr "Product News"
 
-#: home.html:166
+#: home.html:192
 msgid "Maix AI 视觉"
 msgstr "Maix AI Vision"
 
-#: home.html:178
+#: home.html:204
 msgid "MaixSense 传感器"
 msgstr "MaixSense Sensor"
 
-#: home.html:182
+#: home.html:208
 msgid "其它"
 msgstr "Others"
 
 #: licheepi.html:4
-msgid "Linux SBC 系列"
-msgstr "Linux SBC Series"
+msgid "Linux RISC-V SBC 系列"
+msgstr "Linux RISC-V SBC Series"
 
-#: licheepi.html:25
-msgid "Lichee SBC 系列产品参数对比"
-msgstr "Lichee SBC Series Product Comparison"
+#: licheepi.html:23
+msgid "Linux ARM SBC 系列"
+msgstr "Linux ARM SBC Series"
 
-#: licheepi.html:29 maix.html:31 tang.html:31
+#: licheepi.html:41
+msgid "RISC-V SBC 系列产品参数对比"
+msgstr "RISC-V SBC Series Product Comparison"
+
+#: licheepi.html:49 licheepi.html:132 maix.html:31 tang.html:31
 msgid "参数"
 msgstr "Parameter"
 
-#: licheepi.html:38 maix.html:40
+#: licheepi.html:57 licheepi.html:140 maix.html:40
 msgid "处理器"
 msgstr "CPU"
 
-#: licheepi.html:45 maix.html:47
+#: licheepi.html:63 licheepi.html:146 maix.html:47
 msgid "内存"
 msgstr "memory"
 
-#: licheepi.html:52 maix.html:64 tang.html:105
+#: licheepi.html:69 licheepi.html:152 maix.html:64 tang.html:105
 msgid "储存"
 msgstr "storage"
 
-#: licheepi.html:53 licheepi.html:54 licheepi.html:55
+#: licheepi.html:70 licheepi.html:71 licheepi.html:72 licheepi.html:153
+#: licheepi.html:154
 msgid "预留"
 msgstr "reserved"
 
-#: licheepi.html:53 licheepi.html:54 licheepi.html:55 licheepi.html:56
-#: maix.html:65 maix.html:66 maix.html:67 maix.html:68
+#: licheepi.html:70 licheepi.html:71 licheepi.html:72 licheepi.html:153
+#: licheepi.html:154 licheepi.html:155 maix.html:65 maix.html:66 maix.html:67
+#: maix.html:68
 msgid "卡"
 msgstr "card"
 
-#: licheepi.html:56 maix.html:65 maix.html:66
-msgid "板载"
-msgstr "onboard"
-
-#: licheepi.html:59
+#: licheepi.html:75 licheepi.html:158
 msgid "GPU和显示"
 msgstr "GPU and display"
 
-#: licheepi.html:65 licheepi.html:66 licheepi.html:67 licheepi.html:98
-#: licheepi.html:99 licheepi.html:100
+#: licheepi.html:81 licheepi.html:82 licheepi.html:108 licheepi.html:160
+#: licheepi.html:161 licheepi.html:185 licheepi.html:186 licheepi.html:187
 msgid "无"
 msgstr "no"
 
-#: licheepi.html:70
+#: licheepi.html:85 licheepi.html:164
 msgid "编解码器"
 msgstr "codec"
 
-#: licheepi.html:73 licheepi.html:76 licheepi.html:80 licheepi.html:84
-#: licheepi.html:85
+#: licheepi.html:88 licheepi.html:91 licheepi.html:94 licheepi.html:166
+#: licheepi.html:169 licheepi.html:173 licheepi.html:174
 msgid "解码"
 msgstr "decode"
 
-#: licheepi.html:73 licheepi.html:77 licheepi.html:81 licheepi.html:85
+#: licheepi.html:88 licheepi.html:91 licheepi.html:95 licheepi.html:166
+#: licheepi.html:170 licheepi.html:174
 msgid "编码"
 msgstr "encode"
 
-#: licheepi.html:89 maix.html:78
+#: licheepi.html:99 licheepi.html:178 maix.html:78
 msgid "操作系统"
 msgstr "operating system"
 
-#: licheepi.html:90 licheepi.html:93
+#: licheepi.html:100 licheepi.html:101 licheepi.html:179 licheepi.html:181
 msgid "主线"
 msgstr "mainline"
 
-#: licheepi.html:103 maix.html:85
+#: licheepi.html:111 licheepi.html:190 maix.html:85
 msgid "典型外设"
 msgstr "typical peripherals"
 
-#: licheepi.html:129
+#: licheepi.html:126
+msgid "ARM SBC 系列产品参数对比"
+msgstr "ARM SBC Product Comparison"
+
+#: licheepi.html:155 maix.html:65 maix.html:66
+msgid "板载"
+msgstr "onboard"
+
+#: licheepi.html:214
 msgid "高性能 RISC-V@1.85GHz x4 开发板/平板/笔记本电脑"
-msgstr "High performance RISC-V@1.85GHz x4 development board/tablet/laptop"
+msgstr "High performance RISC-V@1.85GHz x4 dev board/tablet/laptop"
 
-#: licheepi.html:145
+#: licheepi.html:222
+msgid "https://item.taobao.com/item.htm?id=715508771884"
+msgstr "https://www.aliexpress.com//item/1005005532736080.html"
+
+#: licheepi.html:226
+msgid "更多"
+msgstr "More"
+
+#: licheepi.html:235
+msgid "高性价比迷你 RISC-V IPC/屏显开发板"
+msgstr "High cost-effective mini RISC-V IPC/display dev board"
+
+#: licheepi.html:251
 msgid "高集成度入门级 RISC-V Linux 开发板"
-msgstr "Highly integrated entry-level RISC-V Linux development board"
+msgstr "Highly integrated entry-level RISC-V Linux dev board"
 
-#: licheepi.html:161 licheepi.html:177
+#: licheepi.html:272
+msgid "H618 4核A53@1.5GHz 小电脑"
+msgstr "H618 4-core A53@1.5GHz mini PC"
+
+#: licheepi.html:276
+msgid "/lpi3h.html"
+msgstr "/hardware/zh/longan/h618/lpi3h/1_intro.html"
+
+#: licheepi.html:288 licheepi.html:304
 msgid "迷你"
 msgstr "mini"
 
-#: licheepi.html:161 licheepi.html:177
+#: licheepi.html:288 licheepi.html:304
 msgid "开发板"
 msgstr "dev board"
 
@@ -149,7 +185,7 @@ msgstr "dev board"
 msgid "Maix AI 视觉系列"
 msgstr "Maix AI Vision"
 
-#: maix.html:27
+#: maix.html:24
 msgid "Maix 系列产品参数对比"
 msgstr "Maix Series Product Comparison"
 
@@ -229,6 +265,10 @@ msgstr ""
 "10Tops AI computing power, 32 channels of 1080p HD AI video surveillance,"
 " AI large model support"
 
+#: maix.html:172
+msgid "https://item.taobao.com/item.htm?id=744014549573"
+msgstr "https://www.aliexpress.us/item/3256806030962938.html"
+
 #: maixsense.html:4
 msgid "MaixSense 传感器模组系列"
 msgstr "MaixSense Sensor Module"
@@ -241,23 +281,27 @@ msgstr "Depth Sensor Module"
 msgid "深度摄像头模组"
 msgstr "Depth Camera Module"
 
-#: others.html:5
+#: others.html:24
 msgid "其它未列出的产品请进入"
 msgstr "For other products not listed, please enter"
 
-#: others.html:5
+#: others.html:24
 msgid "产品文档"
 msgstr "Product documentation"
 
-#: others.html:5
+#: others.html:24
 msgid "在左侧目录查找"
 msgstr "Find in the left menu"
+
+#: others.html:35
+msgid "逻辑分析仪+CKLink+DAPLink+USB转串口 多合一指尖工具"
+msgstr ""
 
 #: tang.html:4
 msgid "Tang FPGA 系列"
 msgstr "Tang FPGA Series"
 
-#: tang.html:27
+#: tang.html:24
 msgid "Tang 系列板卡参数对比"
 msgstr "Tang Series Main Products Comparison"
 
@@ -365,4 +409,25 @@ msgstr "Hardcore Inside FPGA Board"
 
 #~ msgid "了解更多"
 #~ msgstr "Learn more"
+
+#~ msgid "Linux SBC 系列"
+#~ msgstr "Linux SBC Series"
+
+#~ msgid "Linux ARM SBC 系列"
+#~ msgstr ""
+
+#~ msgid "/static/home/ax650_presell.jpg"
+#~ msgstr ""
+
+#~ msgid "/static/home/licheepi4a_post.jpg"
+#~ msgstr ""
+
+#~ msgid "分享广场"
+#~ msgstr "Share Center"
+
+#~ msgid "MaixHub 官网"
+#~ msgstr "MaixHub"
+
+#~ msgid "产品"
+#~ msgstr "Product documentation"
 
