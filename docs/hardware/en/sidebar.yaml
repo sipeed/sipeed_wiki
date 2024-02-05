@@ -197,6 +197,8 @@ items:
             file: lichee/RV_Nano/6_develop_mainline.md
         -   label: test
             file: lichee/RV_Nano/7_test_report.md
+        -   label: MMF Development Guide
+            file: lichee/RV_Nano/8_mmf_development_guide.md
     -   label: Lichee Zero
         file: lichee/Zero/Zero.md
     -   label: Lichee Nano
