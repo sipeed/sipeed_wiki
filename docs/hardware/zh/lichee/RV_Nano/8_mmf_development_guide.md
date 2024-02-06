@@ -74,6 +74,7 @@ scp sample_vio root@xxx.xxx.xxx.xxx:/root	# xxx.xxx.xxx.xxx是板子的IP地址
 ssh root@xxx.xxx.xxx.xxx
 
 # 如果需要使用显示屏，则需要运行fb_load.sh以确保加载了驱动（只需要执行一次）
+# 新版镜像不用执行这个，已经内置到uboot
 /opt/fb_load.sh
 
 # 运行示例

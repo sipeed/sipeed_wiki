@@ -66,7 +66,7 @@ PC会使用DHCP自动获取地址
 使用命令:
 
 ```
-avahi-browse -art | grep lpirvnano
+avahi-browse -art | grep licheervnano
 ```
 
 列出广播域中域名带有的lpirvnano的设备
@@ -76,20 +76,10 @@ avahi-browse -art | grep lpirvnano
 然后使用:
 
 ```
-ssh root@lpirvnano-XXXX.local
+ssh root@licheervnano-XXXX.local
 ```
 
 连接板子
-
-
-## 关闭镜像的的开机DEMO
-
-```
-# 清空rc.local
-echo '#!/bin/sh' > /etc/rc.local
-# 重启
-reboot
-```
 
 ## Audio
 
@@ -147,26 +137,20 @@ cat /sys/class/cvi-saradc/cvi-saradc0/device/cv_saradc
 
 将屏幕的排线接到板子的MIPI接口，注意线序
 
-编辑板子上的/opt/fb_load.sh，将具体型号的初始化命令的注释去掉
+然后在cvi_mmf_sdk的panel中选择对应的时序设置，（MIPI屏幕初始化代码放在uboot中）
 
-然后执行:
+然后编译出新的uboot: fip.bin，放在系统SD卡的第一个分区
 
-```
-/opt/fb_load.sh # 初始化屏幕驱动
-devmem # 测试彩条
-```
+LCD会提供framebuffer供用户空间程序访问：
 
-测试是否可用，如果可用，可以加入到开机脚本:
+一些用于测试的demo:
 
 ```
-echo /opt/fb_load.sh >> /etc/rc.local
+/opt/lcd/fbpattern # 测试LCD时序
+/otp/lcd/fbbar     # 在屏幕上显示字符串
 ```
-
-LCD会提供framebuffer供用户空间程序访问
 
 建议使用QT5，SDL1.2，或LVGL进行界面开发，也可以直接写入Framebuffer
-
-直接写入framebuffer可以参考板子文件系统内的/opt/src/vendortest
 
 ## 触摸屏
 
@@ -175,18 +159,10 @@ LCD会提供framebuffer供用户空间程序访问
 然后执行:
 
 ```
-/opt/touch.sh # 加载触摸屏驱动
-```
-
-然后执行:
-
-```
 echo 2 | evtest
 ```
 
 点击触摸屏会在终端看到具体坐标
-
-读取坐标和点击事件可以参考/opt/src/vendortest里面的输入部分
 
 ## WIFI
 
@@ -204,7 +180,7 @@ network={
 然后执行:
 
 ```
-/opt/wifi.sh
+wpa_supplicant -i wlan0 -c /etc/wpa_supplicant.conf
 ```
 
 验证网络是否可用:
@@ -213,11 +189,8 @@ network={
 ping 你的网关地址
 ```
 
-如果可用，可以加入到开机脚本:
+如果可用，可以加入到开机脚本 /etc/rc.local
 
-```
-echo '/opt/wifi.sh' >> /etc/rc.local
-```
 
 ## 摄像头
 
@@ -226,13 +199,7 @@ echo '/opt/wifi.sh' >> /etc/rc.local
 然后执行:
 
 ```
-/opt/camera.sh 0
-
-echo "
-1
-0
-1
-255" | sensor_test # 捕获一张图片，保存在当前目录
+/mnt/system/usr/bin/sample_vio 6 # 将摄像头画面实时显示到屏幕
 ```
 
 ## 按键

@@ -29,7 +29,7 @@ datasheet: https://github.com/sophgo/sophgo-doc/releases
 
 源码:
 
-https://github.com/sipeed/LicheeRV-Nano-Build/tree/v4.1.0
+https://github.com/sipeed/LicheeRV-Nano-Build/tree/v4.1.0-licheervnano
 
 构建环境搭建可以参考repo内的github cicd文件:
 
@@ -47,17 +47,11 @@ https://github.com/sipeed/LicheeRV-Nano-Build/blob/main/.github/workflows/lichee
  - https://developer.sophgo.com/thread/556.html
 - 如何交叉编译HelloWorld: https://github.com/sipeed/LicheeRV-Nano-Build/blob/v4.1.0/build/boards/cv181x/cv1812cp_licheerv_nano_sd/readme.md#compile-program-use-vendors-toolchain
 
-## buildroot
+## 主线buildroot
 
-基于crosstool-ng生成专用的交叉工具链，用在基于主线buildroot的SDK上，在cvi_mmf_sdk上验证好的功能可以移植到这里使用。
+TODO
 
-源码:
-
-https://github.com/0x754C/sipeed-toolchain
-
-构建环境搭建可以参考repo内的github cicd文件:
-
-https://github.com/0x754C/sipeed-toolchain/blob/master/.github/workflows/licheervnano-host-linux-amd64.yml
+基于主线buildroot，提供更干净的构建环境
 
 ## openwrt
 
@@ -95,7 +89,7 @@ https://github.com/sipeed/LicheeRV-Nano-Build/blob/926bbe94f4f00059ce0ff3857cc72
 
 1. 在middleware中的用户空间demo中添加屏幕初始化序列.
 
-2. 在uboot中添加屏幕的初始化序列.
+2. 在uboot中添加屏幕的初始化序列.（目前使用这种方式）
 
 ## 初始化MIPI RX
 
