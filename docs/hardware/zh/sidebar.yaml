@@ -212,9 +212,11 @@ items:
         -   label: 外设使用
             file: lichee/RV_Nano/5_peripheral.md
         -   label: 系统开发
-            file: llichee/RV_Nano/6_develop_mainline.md
+            file: lichee/RV_Nano/6_develop_mainline.md
         -   label: 板卡测试
             file: lichee/RV_Nano/7_test_report.md
+        -   label: MMF开发指南
+            file: lichee/RV_Nano/8_mmf_development_guide.md
     -   label: LicheePI Zero
         file: lichee/Zero/Zero.md
     -   label: LicheePI Nano

@@ -181,6 +181,24 @@ items:
             file: lichee/RV/problems.md
         -   label: Ubuntu Image
             file: lichee/RV/ubuntu.md
+    -   label: LicheeRV Nano
+        items:
+        -   label:  Introduction
+            file: lichee/RV_Nano/1_intro.md
+        -   label: Unboxing Experience
+            file: lichee/RV_Nano/2_unbox.md
+        -   label: Image Collection
+            file: lichee/RV_Nano/3_images.md
+        -   label: Flashing the Image
+            file: lichee/RV_Nano/4_burn_image.md
+        -   label: peripheral
+            file: lichee/RV_Nano/5_peripheral.md
+        -   label: System Development
+            file: lichee/RV_Nano/6_develop_mainline.md
+        -   label: test
+            file: lichee/RV_Nano/7_test_report.md
+        -   label: MMF Development Guide
+            file: lichee/RV_Nano/8_mmf_development_guide.md
     -   label: Lichee Zero
         file: lichee/Zero/Zero.md
     -   label: Lichee Nano

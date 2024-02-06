@@ -1,11 +1,50 @@
 <!-- 修改后保存一下 include 这个文件的 html 模板就会渲染 -->
 
-<div class="w-full h-full flex justify-center items-center">
+<div class="w-full h-full flex flex-col justify-center items-center">
+  <div class="w-full flex flex-col justify-center">
+    <div class="cards">
+      <!-- cards -->
+      <div class="card" v-for="item in data_others.cards">
+        <img class="card_img" :src="item.img" />
+        <h3 class="card_title" class="text-lg">{[item.title]}</h3>
+        <div class="card_brief">{[item.brief]}</div>
+        <div class="card_btns">
+          <a
+            v-for="btn in item.btns"
+            :href="btn.link"
+            :target="btn.new_tab ? '_blank' : '_self'"
+            >{[btn.label]}</a
+          >
+        </div>
+      </div>
+      <!-- cards end -->
+    </div>
+  </div>
   <div class="text-xl block_simple">
     {{_('其它未列出的产品请进入')}}<a href="/hardware/zh/">{{_('产品文档')}}</a>{{_('在左侧目录查找')}}。
   </div>
 </div>
 
 <script lang="ts">
-  const data_others = {};
+  const data_others = {
+    cards: [
+      {
+        img: "/static/home/slogic.png",
+        title: "SLogic",
+        brief:
+          "{{_('逻辑分析仪+CKLink+DAPLink+USB转串口 多合一指尖工具')}}",
+        btns: [
+          {
+            label: "{{_('文档')}}",
+            link: "/slogic",
+          },
+          {
+            label: "{{_('购买')}}",
+            link: "{{_('https://item.taobao.com/item.htm?id=737788586308')}}",
+            new_tab: true,
+          },
+        ],
+      }
+    ],
+  };
 </script>

@@ -65,7 +65,11 @@ LicheeRV Nano 是一款迷你尺寸的开发板（仅22.86*35.56mm），搭载�
 + [核心板封装](http://cn.dl.sipeed.com/shareURL/LICHEE/LicheeRV_Nano/05_PCB_Lib)
 + [板卡芯片资料](http://cn.dl.sipeed.com/shareURL/LICHEE/LicheeRV_Nano/07_Datasheet)
 
-## 官方资料汇总
+## 软件资料
+
++ [SDK LicheeRV-Nano-Build](https://github.com/sipeed/LicheeRV-Nano-Build)
+
+## 算能资料汇总
 
 + [datasheet](https://github.com/sophgo/sophgo-doc/releases)
 + [编译工具链下载地址](https://sophon-file.sophon.cn/sophon-prod-s3/drive/23/03/07/16/host-tools.tar.gz)
@@ -79,8 +83,12 @@ LicheeRV Nano 是一款迷你尺寸的开发板（仅22.86*35.56mm），搭载�
 ## 注意事项
 
 + 内测版硬件（70405）NPU 仅支持工作在0.5T下，1.0T下运行不保证板卡运行的稳定性
++ 内测版硬件（70405）的WIFI尚未完善匹配，速率较低，敬请谅解
 + 若购买摄像头配件或WE版本套餐，包装内随附螺丝、焊接铜柱和螺丝刀，为避免焊接时烫伤，请参照[摄像头、WE网口小板安装指南](https://wiki.sipeed.com/hardware/zh/lichee/RV_Nano/2_unbox.html)
 + 若购买3寸、4寸、10.1寸屏幕配件，包装内随附屏幕转接板以及排线，请参照[屏幕安装指南](https://wiki.sipeed.com/hardware/zh/lichee/RV_Nano/2_unbox.html)
++ 内测版WiFi模块旁有两颗电容距离较近，生产时存在贴合的可能，因引脚网络相同，无需担心短路问题
+
+ ![](./../assets/RV_Nano/intro/RV_Nano_5.jpg)
 
 ## 相关问题
 

@@ -1,121 +1,206 @@
 <!-- 修改后保存一下 include 这个文件的 html 模板就会渲染 -->
 
 <div class="w-full flex flex-col justify-center items-center">
-  <h2 class="text-2xl font-bold my-8 block_simple">{{_('Linux SBC 系列')}}</h2>
-  <div class="w-full flex flex-col justify-center items-center">
-    <div class="cards">
-      <!-- cards -->
-      <div class="card" v-for="item in data_lichee.cards">
-        <img class="card_img" :src="item.img" />
-        <h3 class="card_title" class="text-lg">{[item.title]}</h3>
-        <div class="card_brief">{[item.brief]}</div>
-        <div class="card_btns">
-          <a
-            v-for="btn in item.btns"
-            :href="btn.link"
-            :target="btn.new_tab ? '_blank' : '_self'"
-            >{[btn.label]}</a
-          >
-        </div>
+  <h2 class="text-2xl font-bold my-8 block_simple">{{_('Linux RISC-V SBC 系列')}}</h2>
+  <div class="cards">
+    <!-- cards risc-v-->
+    <div class="card" v-for="item in data_lichee.cards">
+      <img class="card_img" :src="item.img" />
+      <h3 class="card_title" class="text-lg">{[item.title]}</h3>
+      <div class="card_brief">{[item.brief]}</div>
+      <div class="card_btns">
+        <a
+          v-for="btn in item.btns"
+          :href="btn.link"
+          :target="btn.new_tab ? '_blank' : '_self'"
+          >{[btn.label]}</a
+        >
       </div>
-      <!-- cards end -->
     </div>
-    <div class="w-full flex flex-col justify-center items-center mt-10 mb-5">
-      <!-- a table to compare upper products' parameters -->
-      <h3 class="text-2xl font-bold my-8">{{_('Lichee SBC 系列产品参数对比')}}</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>{{_('参数')}}</th>
-            <th>LicheePi 4A</th>
-            <th>LicheeRV</th>
-            <th>LicheePi Zero</th>
-            <th>LicheePi Nano</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>{{_('处理器')}}</td>
-            <td>TH1520: 4xC910@1.85GHz RV64GCV</td>
-            <td>D1: C906@1.0GHz</td>
-            <td>V3S: Cortex-A7@1.2GHz</td>
-            <td>F1C100s: ARM9@408MHz</td>
-          </tr>
-          <tr>
-            <td>{{_('内存')}}</td>
-            <td>8GB/16GB 64bits LPDDR4X</td>
-            <td>512MB/1GB DDR3, 792MHz</td>
-            <td>64MB DDR2</td>
-            <td>32MB DDR</td>
-          </tr>
-          <tr>
-            <td>{{_('储存')}}</td>
-            <td>{{_('预留')}} EMMC/TF {{_('卡')}}</td>
-            <td>{{_('预留')}} SD-NAND/TF {{_('卡')}}</td>
-            <td>{{_('预留')}} SOP8 SPI Flash/TF {{_('卡')}}</td>
-            <td>{{_('板载')}} 16MB NOR Flash, TF {{_('卡')}}</td>
-          </tr>
-          <tr>
-            <td>{{_('GPU和显示')}}</td>
-            <td>
-              IMG BXM-4-64,<br />OpenCL 1.1/1.2/2.0<br />OpenGL ES
-              3.0/3.1/3.2<br />Vulkan 1.1/1.2,<br />HDMI2.0/4-lane MIPI DSI ·
-              Android NN HAL
-            </td>
-            <td>{{_('无')}} GPU, MIPI 4-lane MIPI DSI/ RGB888/MCUI80/SPI</td>
-            <td>{{_('无')}} GPU, 40P RGB LCD</td>
-            <td>{{_('无')}} GPU, 40P RGB LCD</td>
-          </tr>
-          <tr>
-            <td>{{_('编解码器')}}</td>
-            <td>
-              H.265 4K@40FPS/H.264 4K@40FPS/VP9/8/7/6/AVS/AVS+/AVS2.0/VC1/MPEG4
-              {{_('解码')}}<br />H.264 4K@40FPS/H.265 4K@40FPS {{_('编码')}}
-            </td>
-            <td>
-              H.264 1080p@30FPS/MJPEG 1080@30FPS {{_('解码')}}<br />1080p@40FPS/1080p@30FPS+VGA@30FPS
-              H.264 {{_('编码')}}
-            </td>
-            <td>
-              H.264 1280x720@30FPS/MPEG1/2/4 1280x720@30FPS {{_('解码')}}<br />MJPEG
-              1280x720@30FPS/JPEG 8192x8192 {{_('编码')}}
-            </td>
-            <td>
-              H.264 1280x720@30FPS {{_('解码')}}<br />MPEG1/2/4 1280x720@30FPS {{_('解码')}}<br />MJPEG
-              1280x720@30 FPS {{_('解码')}}<br />JPEG 8192x8192 {{_('编码')}}
-            </td>
-          </tr>
-          <tr>
-            <td>{{_('操作系统')}}</td>
-            <td>{{_('主线')}} Linux/Android/Deepin/Ubuntu/OpenWrt etc.</td>
-            <td>Tina Linux/Debian/Ubuntu/RTOS</td>
-            <td>Linux</td>
-            <td>4.19 {{_('主线')}} Linux/3.10 BSP Linux/Xboot/RT-Thread</td>
-          </tr>
-          <tr>
-            <td>NPU</td>
-            <td>4Tops@INT8 1GHz</td>
-            <td>{{_('无')}}</td>
-            <td>{{_('无')}}</td>
-            <td>{{_('无')}}</td>
-          </tr>
-          <tr>
-            <td>{{_('典型外设')}}</td>
-            <td>
-              USB3.0x4/UART/I2C/SPI/PWM/GPIO/ADC<br />2x2-lane MIPI CSI/1x4-lane
-              MIPI CSI/1000M Ethx2
-            </td>
-            <td>OTG USB/UART/I2C/SPI/PWM/GPIO/TWI/ADC</td>
-            <td>
-              OTG USBx1/UARTx3/SPIx1/PWMx2/<br />GPIO/LRADCx1/SDIOx2/TWI/I2Cx2/100M
-              Eth+EPHY/MIPI CSIx1
-            </td>
-            <td>
-              OTG USBx1/UARTx3/SPIx2/PWMx2/<br />GPIO/LRADCx1/SDIO/TWIx3/TV out
-            </td>
-          </tr>
-        </tbody>
-      </table>
+  </div>
+  <!-- cards end -->
+  <!-- cards arm-->
+  <h2 class="text-2xl font-bold my-8 block_simple">{{_('Linux ARM SBC 系列')}}</h2>
+  <div class="cards">
+    <!-- cards -->
+    <div class="card" v-for="item in data_arm.cards">
+      <img class="card_img" :src="item.img" />
+      <h3 class="card_title" class="text-lg">{[item.title]}</h3>
+      <div class="card_brief">{[item.brief]}</div>
+      <div class="card_btns">
+        <a
+          v-for="btn in item.btns"
+          :href="btn.link"
+          :target="btn.new_tab ? '_blank' : '_self'"
+          >{[btn.label]}</a
+        >
+      </div>
+    </div>
+  </div>
+  <!-- cards end -->
+  <h3 class="text-2xl font-bold my-8">{{_('RISC-V SBC 系列产品参数对比')}}</h3>
+  <div class="w-full my-8 overflow-auto px-2">
+    <!-- a table to compare upper products' parameters -->
+    <!-- RISC-V -->
+    <div class="table_wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>{{_('参数')}}</th>
+          <th>LicheePi 4A</th>
+          <th>LicheeRV-Nano</th>
+          <th>LicheeRV</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{_('处理器')}}</td>
+          <td>TH1520: 4xC910@1.85GHz RV64GCV</td>
+          <td>SG2002: C906@1.0GHz/ARM A53 + C906@700MHz + 8051@25~300MHz</td>
+          <td>D1: C906@1.0GHz</td>
+        </tr>
+        <tr>
+          <td>{{_('内存')}}</td>
+          <td>8GB/16GB 64bits LPDDR4X</td>
+          <td>256MB DDR3 SIP</td>
+          <td>512MB/1GB DDR3, 792MHz</td>
+        </tr>
+        <tr>
+          <td>{{_('储存')}}</td>
+          <td>{{_('预留')}} EMMC/TF {{_('卡')}}</td>
+          <td>{{_('预留')}} SD-NAND/TF {{_('卡')}}</td>
+          <td>{{_('预留')}} SD-NAND/TF {{_('卡')}}</td>
+        </tr>
+        <tr>
+          <td>{{_('GPU和显示')}}</td>
+          <td>
+            IMG BXM-4-64,<br />OpenCL 1.1/1.2/2.0<br />OpenGL ES
+            3.0/3.1/3.2<br />Vulkan 1.1/1.2,<br />HDMI2.0/4-lane MIPI DSI ·
+            Android NN HAL
+          </td>
+          <td>{{_('无')}} GPU, MIPI 2-lane MIPI DSI 31pin, 6pin touchscreen</td>
+          <td>{{_('无')}} GPU, MIPI 4-lane MIPI DSI/ RGB888/MCUI80/SPI</td>
+        </tr>
+        <tr>
+          <td>{{_('编解码器')}}</td>
+          <td>
+            H.265 4K@40FPS/H.264 4K@40FPS/VP9/8/7/6/AVS/AVS+/AVS2.0/VC1/MPEG4
+            {{_('解码')}}<br />H.264 4K@40FPS/H.265 4K@40FPS {{_('编码')}}
+          </td>
+          <td>
+            H.264 H.265 2k@30FPS {{_('解码')}}<br />H.264 H.265 2k@30FPS {{_('编码')}}
+          </td>
+          <td>
+            H.264 1080p@30FPS/MJPEG 1080@30FPS {{_('解码')}}<br />1080p@40FPS/1080p@30FPS+VGA@30FPS
+            H.264 {{_('编码')}}
+          </td>
+        </tr>
+        <tr>
+          <td>{{_('操作系统')}}</td>
+          <td>{{_('主线')}} Linux/Android/Deepin/Ubuntu/OpenWrt etc.</td>
+          <td>{{_('主线')}} Linux/BuildRoot/Debian etc.</td>
+          <td>Tina Linux/Debian/Ubuntu/RTOS</td>
+        </tr>
+        <tr>
+          <td>NPU</td>
+          <td>4Tops@INT8 1GHz</td>
+          <td>1Tops@INT8, BF16 support</td>
+          <td>{{_('无')}}</td>
+        </tr>
+        <tr>
+          <td>{{_('典型外设')}}</td>
+          <td>
+            USB3.0x4/UART/I2C/SPI/PWM/GPIO/ADC<br />2x2-lane MIPI CSI/1x4-lane
+            MIPI CSI/1000M Ethx2
+          </td>
+          <td>
+            USB2.0/UART/I2C/SPI/PWM/GPIO/ADC<br />2lane MIPI DSI/4lane MIPI CSI/100M Eth/WiFi6+BLE5
+          </td>
+          <td>OTG USB/UART/I2C/SPI/PWM/GPIO/TWI/ADC</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+  <!-- ARM -->
+  <h3 class="text-2xl font-bold my-8">{{_('ARM SBC 系列产品参数对比')}}</h3>
+  <div class="w-full my-8 overflow-auto px-2">
+    <div class="table_wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>{{_('参数')}}</th>
+          <th>LonganPi 3H</th>
+          <th>LicheePi Zero</th>
+          <th>LicheePi Nano</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{_('处理器')}}</td>
+          <td>H618: Cortex-A53x4@1.5GHz</td>
+          <td>V3S: Cortex-A7@1.2GHz</td>
+          <td>F1C100s: ARM9@408MHz</td>
+        </tr>
+        <tr>
+          <td>{{_('内存')}}</td>
+          <td>1/2/4GB 64bits LPDDR4</td>
+          <td>64MB DDR2</td>
+          <td>32MB DDR</td>
+        </tr>
+        <tr>
+          <td>{{_('储存')}}</td>
+          <td>{{_('预留')}} eMMC/TF {{_('卡')}}</td>
+          <td>{{_('预留')}} SOP8 SPI Flash/TF {{_('卡')}}</td>
+          <td>{{_('板载')}} 16MB NOR Flash, TF {{_('卡')}}</td>
+        </tr>
+        <tr>
+          <td>{{_('GPU和显示')}}</td>
+          <td>Arm Mali-G31 OpenCL2.0 OpenGL ES 1.0/2.0/3.2 Vulkan 1.1</td>
+          <td>{{_('无')}} GPU, 40P RGB LCD</td>
+          <td>{{_('无')}} GPU, 40P RGB LCD</td>
+        </tr>
+        <tr>
+          <td>{{_('编解码器')}}</td>
+          <td>
+            H.264 BP/MP/HP 4k@60FPS {{_('解码')}}<br>H.264 BP/MP/HP 4k@25FPS {{_('编码')}}
+          </td>
+          <td>
+            H.264 1280x720@30FPS/MPEG1/2/4 1280x720@30FPS {{_('解码')}}<br />MJPEG
+            1280x720@30FPS/JPEG 8192x8192 {{_('编码')}}
+          </td>
+          <td>
+            H.264 1280x720@30FPS {{_('解码')}}<br />MPEG1/2/4 1280x720@30FPS {{_('解码')}}<br />MJPEG
+            1280x720@30 FPS {{_('解码')}}<br />JPEG 8192x8192 {{_('编码')}}
+          </td>
+        </tr>
+        <tr>
+          <td>{{_('操作系统')}}</td>
+          <td>Linux {{_('主线')}}/Debian</td>
+          <td>Linux</td>
+          <td>4.19 {{_('主线')}} Linux/3.10 BSP Linux/Xboot/RT-Thread</td>
+        </tr>
+        <tr>
+          <td>NPU</td>
+          <td>{{_('无')}}</td>
+          <td>{{_('无')}}</td>
+          <td>{{_('无')}}</td>
+        </tr>
+        <tr>
+          <td>{{_('典型外设')}}</td>
+          <td>
+            USB2.0x2/OTG USB2.0x1/UART/SPI/1000M ETH
+          </td>
+          <td>
+            OTG USBx1/UARTx3/SPIx1/PWMx2/<br />GPIO/LRADCx1/SDIOx2/TWI/I2Cx2/100M
+            Eth+EPHY/MIPI CSIx1
+          </td>
+          <td>
+            OTG USBx1/UARTx3/SPIx2/PWMx2/<br />GPIO/LRADCx1/SDIO/TWIx3/TV out
+          </td>
+        </tr>
+      </tbody>
+    </table>
     </div>
   </div>
 </div>
@@ -124,7 +209,7 @@
   const data_lichee = {
     cards: [
       {
-        img: "/static/home/licheepi4a.jpg",
+        img: "/static/image/LicheePi_4A.png",
         title: "LicheePi 4A",
         brief: "{{_('高性能 RISC-V@1.85GHz x4 开发板/平板/笔记本电脑')}}",
         btns: [
@@ -134,13 +219,34 @@
           },
           {
             label: "{{_('购买')}}",
-            link: "https://item.taobao.com/item.htm?id=715508771884",
+            link: "{{_('https://item.taobao.com/item.htm?id=715508771884')}}",
+            new_tab: true,
+          },
+          {
+            label: "{{_('更多')}}",
+            link: "https://sipeed.com/licheepi4a",
+            new_tab: true,
+          }
+        ],
+      },
+      {
+        img: "/static/image/licheerv_nano.png",
+        title: "LicheeRV-Nano",
+        brief: "{{_('高性价比迷你 RISC-V IPC/屏显开发板')}}",
+        btns: [
+          {
+            label: "{{_('文档')}}",
+            link: "/licheerv-nano",
+          },
+          {
+            label: "{{_('购买')}}",
+            link: "{{_('https://item.taobao.com/item.htm?id=764939520376')}}",
             new_tab: true,
           },
         ],
       },
       {
-        img: "/static/image/licheeRV_dock.jpg",
+        img: "/static/image/licheeRV_dock.png",
         title: "LicheeRV",
         brief: "{{_('高集成度入门级 RISC-V Linux 开发板')}}",
         btns: [
@@ -154,9 +260,30 @@
             new_tab: true,
           },
         ],
+      }
+    ],
+  };
+
+  const data_arm = {
+    cards: [
+      {
+        img: "/static/image/longan_3h.png",
+        title: "LonganPi 3H",
+        brief: "{{_('H618 4核A53@1.5GHz 小电脑')}}",
+        btns: [
+          {
+            label: "{{_('文档')}}",
+            link: "{{_('/lpi3h.html')}}",
+          },
+          {
+            label: "{{_('购买')}}",
+            link: "{{_('https://item.taobao.com/item.htm?ft=t&id=758221950525')}}",
+            new_tab: true,
+          },
+        ],
       },
       {
-        img: "/static/home/lichee_zero.jpg",
+        img: "/static/home/lichee_zero.png",
         title: "LicheePi Zero",
         brief: "Cortex-A7 {{_('迷你')}} Linux {{_('开发板')}}",
         btns: [
@@ -172,7 +299,7 @@
         ],
       },
       {
-        img: "/static/home/lichee_nano.jpg",
+        img: "/static/home/lichee_nano.png",
         title: "LicheePi Nano",
         brief: "ARM9 {{_('迷你')}} Linux {{_('开发板')}}",
         btns: [

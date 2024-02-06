@@ -203,7 +203,7 @@ fastboot erase misc
 ![openEuler](./assets/images/openEuler.png)   
 ![openeuler_neofetch](./assets/images/openeuler_neofetch.png)  
 
-Download: [Click me](https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/preview/openEuler-23.03-V1-riscv64/lpi4a/)   
+Download: [Click me](https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/preview/openEuler-23.09-V1-riscv64/lpi4a/)
 Twitter: https://twitter.com/openEuler
 
 ### DeepinOS 深度

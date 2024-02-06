@@ -4,101 +4,101 @@
   <h2 class="text-2xl font-bold my-8 block_simple">
     {{_('Maix AI 视觉系列')}}
   </h2>
-  <div class="w-full flex flex-col justify-center">
-    <div class="cards">
-      <!-- cards -->
-      <div class="card" v-for="item in data_maix.cards">
-        <img class="card_img" :src="item.img" />
-        <h3 class="card_title" class="text-lg">{[item.title]}</h3>
-        <div class="card_brief">{[item.brief]}</div>
-        <div class="card_btns">
-          <a
-            v-for="btn in item.btns"
-            :href="btn.link"
-            :target="btn.new_tab ? '_blank' : '_self'"
-            >{[btn.label]}</a
-          >
-        </div>
+  <div class="cards">
+    <!-- cards -->
+    <div class="card" v-for="item in data_maix.cards">
+      <img class="card_img" :src="item.img" />
+      <h3 class="card_title" class="text-lg">{[item.title]}</h3>
+      <div class="card_brief">{[item.brief]}</div>
+      <div class="card_btns">
+        <a
+          v-for="btn in item.btns"
+          :href="btn.link"
+          :target="btn.new_tab ? '_blank' : '_self'"
+          >{[btn.label]}</a
+        >
       </div>
-      <!-- cards end -->
     </div>
-    <div class="w-full flex flex-col justify-center items-center mt-10 mb-5">
-      <!-- a table to compare upper products' parameters -->
-      <h3 class="text-2xl font-bold my-8">{{_('Maix 系列产品参数对比')}}</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>{{_('参数')}}</th>
-            <th>Maix-I</th>
-            <th>Maix-II</th>
-            <th>Maix-III</th>
-            <th>Maix-IV</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>{{_('处理器')}}</td>
-            <td>K210: {{_('双核')}} 64 {{_('位')}} RISC-V@400MHz</td>
-            <td>V831: Cortex-A7@800MHz</td>
-            <td>AX620A: Cortex-A7x4@1.0GHz</td>
-            <td>AX650N: Cortex-A55x8@1.7GHz</td>
-          </tr>
-          <tr>
-            <td>{{_('内存')}}</td>
-            <td>SIP 8MB SRAM</td>
-            <td>SIP 64MB DDR2</td>
-            <td>2GB LPDDR4X 3733MHz</td>
-            <td>8GB</td>
-          </tr>
-          <tr>
-            <td>NPU</td>
-            <td>0.25Tops@INT8，{{_('支持有限')}} CNN {{_('算子')}}</td>
-            <td>0.2Tops@INT8，{{_('支持有限')}} CNN {{_('算子')}}</td>
-            <td>3.6Tops@INT8，{{_('支持常用')}} CNN {{_('模型')}}</td>
-            <td>
-              10Tops@INT8，{{_('支持常用')}} CNN {{_('和')}} transformer
-              {{_('模型')}}
-            </td>
-          </tr>
-          <tr>
-            <td>{{_('储存')}}</td>
-            <td>{{_('板载')}} 16MB Flash，{{_('支持')}} SPI TF {{_('卡')}}</td>
-            <td>{{_('板载')}} Flash {{_('或者')}} TF {{_('卡')}}</td>
-            <td>EMMC {{_('或者')}} TF {{_('卡')}}</td>
-            <td>EMMC {{_('或者')}} TF {{_('卡')}}</td>
-          </tr>
-          <tr>
-            <td>{{_('软件支持')}}</td>
-            <td>CSDK, MaixPy</td>
-            <td>CSDK, MaixPy3</td>
-            <td>CSDK</td>
-            <td>CSDK</td>
-          </tr>
-          <tr>
-            <td>{{_('操作系统')}}</td>
-            <td>RTOS</td>
-            <td>Tina Linux</td>
-            <td>Linux</td>
-            <td>Linux</td>
-          </tr>
-          <tr>
-            <td>{{_('典型外设')}}</td>
-            <td>UART/I2C/SPI/PWM/FPIOA/GPIO/FFT/I2S</td>
-            <td>USB/UART/I2C/SPI/<br />PWM/GPIO/ADC</td>
-            <td>USB/UART/I2C/SPI/<br />PWM/GPIO/ADC</td>
-            <td>USB/UART/I2C/SPI/<br />PWM/GPIO/ADC</td>
-          </tr>
-          <tr>
-            <td>
-              <a href="https://maixhub.com" target="_blank">MaixHub</a>
-            </td>
-            <td>{{_('支持度')}}：{{_('良')}}</td>
-            <td>{{_('支持度')}}：{{_('优')}}</td>
-            <td>{{_('支持度')}}：{{_('良')}}</td>
-            <td>{{_('支持度')}}：{{_('良')}}</td>
-          </tr>
-        </tbody>
-      </table>
+    <!-- cards end -->
+  </div>
+  <h3 class="text-2xl font-bold my-8">{{_('Maix 系列产品参数对比')}}</h3>
+  <div class="w-full my-8 overflow-auto px-2">
+    <!-- a table to compare upper products' parameters -->
+    <div class="table_wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>{{_('参数')}}</th>
+          <th>Maix-I</th>
+          <th>Maix-II</th>
+          <th>Maix-III</th>
+          <th>Maix-IV</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{_('处理器')}}</td>
+          <td>K210: {{_('双核')}} 64 {{_('位')}} RISC-V@400MHz</td>
+          <td>V831: Cortex-A7@800MHz</td>
+          <td>AX620A: Cortex-A7x4@1.0GHz</td>
+          <td>AX650N: Cortex-A55x8@1.7GHz</td>
+        </tr>
+        <tr>
+          <td>{{_('内存')}}</td>
+          <td>SIP 8MB SRAM</td>
+          <td>SIP 64MB DDR2</td>
+          <td>2GB LPDDR4X 3733MHz</td>
+          <td>8GB</td>
+        </tr>
+        <tr>
+          <td>NPU</td>
+          <td>0.25Tops@INT8，{{_('支持有限')}} CNN {{_('算子')}}</td>
+          <td>0.2Tops@INT8，{{_('支持有限')}} CNN {{_('算子')}}</td>
+          <td>3.6Tops@INT8，{{_('支持常用')}} CNN {{_('模型')}}</td>
+          <td>
+            10Tops@INT8，{{_('支持常用')}} CNN {{_('和')}} transformer
+            {{_('模型')}}
+          </td>
+        </tr>
+        <tr>
+          <td>{{_('储存')}}</td>
+          <td>{{_('板载')}} 16MB Flash，{{_('支持')}} SPI TF {{_('卡')}}</td>
+          <td>{{_('板载')}} Flash {{_('或者')}} TF {{_('卡')}}</td>
+          <td>EMMC {{_('或者')}} TF {{_('卡')}}</td>
+          <td>EMMC {{_('或者')}} TF {{_('卡')}}</td>
+        </tr>
+        <tr>
+          <td>{{_('软件支持')}}</td>
+          <td>CSDK, MaixPy</td>
+          <td>CSDK, MaixPy3</td>
+          <td>CSDK</td>
+          <td>CSDK</td>
+        </tr>
+        <tr>
+          <td>{{_('操作系统')}}</td>
+          <td>RTOS</td>
+          <td>Tina Linux</td>
+          <td>Linux</td>
+          <td>Linux</td>
+        </tr>
+        <tr>
+          <td>{{_('典型外设')}}</td>
+          <td>UART/I2C/SPI/PWM/FPIOA/GPIO/FFT/I2S</td>
+          <td>USB/UART/I2C/SPI/<br />PWM/GPIO/ADC</td>
+          <td>USB/UART/I2C/SPI/<br />PWM/GPIO/ADC</td>
+          <td>USB/UART/I2C/SPI/<br />PWM/GPIO/ADC</td>
+        </tr>
+        <tr>
+          <td>
+            <a href="https://maixhub.com" target="_blank">MaixHub</a>
+          </td>
+          <td>{{_('支持度')}}：{{_('良')}}</td>
+          <td>{{_('支持度')}}：{{_('优')}}</td>
+          <td>{{_('支持度')}}：{{_('良')}}</td>
+          <td>{{_('支持度')}}：{{_('良')}}</td>
+        </tr>
+      </tbody>
+    </table>
     </div>
   </div>
 </div>
@@ -107,7 +107,7 @@
   const data_maix = {
     cards: [
       {
-        img: "/static/home/maixbit.jpg",
+        img: "/static/home/maixbit.png",
         title: "Maix-I (K210)",
         brief:
           "{{_('带硬件 AI 加速的 MCU，配合易用的软件快速落地低成本 AI 应用')}}",
@@ -124,7 +124,7 @@
         ],
       },
       {
-        img: "/static/home/m2dock.jpg",
+        img: "/static/home/m2dock.png",
         title: "Maix-II (V831)",
         brief:
           "{{_('硬件 AI 加速 + Linux + 易用的软件，教育、工业视觉、智能家居场景绝配')}}",
@@ -141,7 +141,7 @@
         ],
       },
       {
-        img: "/static/home/m3axpi.jpg",
+        img: "/static/home/m3axpi.png",
         title: "Maix-III (AXeraPi)",
         brief:
           "{{_('3.6Tops AI ISP，微光夜视，大量常见 AI 模型支持，安防智能 IPC')}}",
@@ -158,7 +158,7 @@
         ],
       },
       {
-        img: "/static/home/m4ndock.jpg",
+        img: "/static/home/m4ndock.png",
         title: "Maix-IV (AXeraPi-Pro)",
         brief:
           "{{_('10Tops AI 算力，32 路 1080p 高清 AI 视频监控，AI 大模型支持')}}",
