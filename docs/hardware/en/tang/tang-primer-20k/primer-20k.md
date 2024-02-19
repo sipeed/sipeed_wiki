@@ -167,7 +167,7 @@ The corresponding pin numbering between R8 and P9 is P8. See the mark on the top
 		<tr>
 			<td colspan="2">Touch Interface</td>
 			<td>1</td>
-			<td>4P FPC Connector</td>
+			<td>6P FPC Connector</td>
 			<td></td>
 		</tr>
 		<tr>
