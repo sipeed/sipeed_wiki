@@ -143,6 +143,7 @@ ISCAS mirror(including test mirror, ordinary users please use the mirror in the 
     - Fixed MIPI screen brightness not being adjustable
     - Fixed Bluetooth not working with new WIFI/BT module
 - Usage Instructions: 
+  - The image occupies a large amount of space, and the internal testing version cannot use this image due to the eMMC capacity being only 8GB. Therefore, internal testing users should use the BASIC version image;
   - Auto login enabled, default login user is sipeed
   - Sudo without password enabled
   - NPU drivers loaded automatically, no manual initialization needed
