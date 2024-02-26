@@ -33,14 +33,21 @@ Account: `sipeed`, Password: `licheepi`.
 20240110:
 - Add SD, EMMC bootable burnable image files
 - Fix DNS issues
+20240226:
+- Add GPIO sysfs
+- Allow SSH login as root user
+- Add USB gadget functionality
 
 Download:
 
-百度网盘：[Click me](https://pan.baidu.com/s/1VGaARAq6dbicFy4VOytRuw) 提取码: cd68
-Mega：[Click me](https://mega.nz/folder/gt50zDoC#LgRvHVCzWTUgGohKoMtlqA)
+BaiduNetdisk: [Click me](https://pan.baidu.com/s/1VGaARAq6dbicFy4VOytRuw) 提取码: cd68
+Mega: [Click me](https://mega.nz/folder/gt50zDoC#LgRvHVCzWTUgGohKoMtlqA)
 
-<!--
 ### Android 12
 
-TBD
--->
+20240226：
+- Release of the first version of the image (without wifi/bt support)
+
+Download:
+BaiduNetdisk: [Click me](https://pan.baidu.com/s/1t-cNlIIU0P8VDmkC518W6Q) 提取码: rb4d
+Mega: [Click me](https://mega.nz/folder/Z14klTRI#l4aMYdxgFzUf-SirkvdOhg)
