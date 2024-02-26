@@ -28,6 +28,21 @@ TODO
 
 ![io_map](./assets/peripheral/io_map.jpeg)
 
+![pin_num](./assets/peripheral/pin_num.png)
+
+参考上面的两个表格，可以找到要使用的 GPIO 对应的位置和序号，以点亮底板上的两个 LED 灯为例，可以使用命令在用户空间操作对应的 GPIO ：
+
+```shell
+num=194
+echo ${num} > /sys/class/gpio/export  
+echo out > /sys/class/gpio/gpio${num}/direction 
+echo 0 > /sys/class/gpio/gpio${num}/value
+num=196
+echo ${num} > /sys/class/gpio/export  
+echo out > /sys/class/gpio/gpio${num}/direction 
+echo 0 > /sys/class/gpio/gpio${num}/value
+```
+
 ## UART 
 
 ### 系统串口

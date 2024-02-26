@@ -28,6 +28,21 @@ TODO
 
 ![io_map](./../../../../zh/longan/h618/lpi3h/assets/peripheral/io_map.jpeg)
 
+![pin_num](./../../../../zh/longan/h618/lpi3h/assets/peripheral/pin_num.png)
+
+Referring to the two tables above, you can find the position and number of the GPIO to be used. Taking the example of lighting up the two LEDs on the board, you can use the following command to manipulate the corresponding GPIO in the user space:
+
+```shell
+num=194
+echo ${num} > /sys/class/gpio/export  
+echo out > /sys/class/gpio/gpio${num}/direction 
+echo 0 > /sys/class/gpio/gpio${num}/value
+num=196
+echo ${num} > /sys/class/gpio/export  
+echo out > /sys/class/gpio/gpio${num}/direction 
+echo 0 > /sys/class/gpio/gpio${num}/value
+```
+
 ## UART 
 
 ### System serial port
