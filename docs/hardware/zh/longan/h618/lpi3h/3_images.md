@@ -33,13 +33,21 @@ Sipeed 官方镜像基于 Debian 系统修改适配。
 20240110：
 - 添加 SD、EMMC 启动可烧录镜像文件
 - 修复 DNS 问题
+20240226：
+- 添加 GPIO sysfs
+- 允许使用 root 用户登陆 SSH
+- 添加 USB gadget 功能
 
 下载地址：
 百度网盘：[点我](https://pan.baidu.com/s/1VGaARAq6dbicFy4VOytRuw) 提取码: cd68
 Mega 云盘：[点我](https://mega.nz/folder/gt50zDoC#LgRvHVCzWTUgGohKoMtlqA)
 
-<!--
+
 ### Android 12
 
-TBD
--->
+20240226：
+- 发布初版镜像（无wifi/bt支持）
+
+下载地址：
+百度网盘：[点我](https://pan.baidu.com/s/1t-cNlIIU0P8VDmkC518W6Q) 提取码: rb4d
+Mega 云盘：[点我](https://mega.nz/folder/Z14klTRI#l4aMYdxgFzUf-SirkvdOhg)

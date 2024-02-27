@@ -22,7 +22,7 @@ Linux 下也可以使用 dd 命令直接写入。
 
 ## 烧录镜像
 
-### 烧录镜像至 SD 卡
+### 烧录 Linux 镜像至 SD 卡
 
 准备好要烧录的镜像后，打开 balenaEtcher，先选择要烧录的镜像文件：
 
@@ -38,7 +38,7 @@ Linux 下也可以使用 dd 命令直接写入。
 
 Windows 系统和 Linux 的步骤类似。
 
-### 烧录镜像至 EMMC
+### 烧录 Linux 镜像至 EMMC
 
 **注意需要使用20240106及以上版本的镜像**
 
@@ -51,3 +51,17 @@ sync
 等到烧录完成后，拔掉 SD 卡，即可从EMMC进入系统。
 
 若要使用 EMMC 启动，并使用SD卡扩容，需要确保SD卡已格式化，其中不包含启动镜像，否则因为优先级的问题可能会变为SD卡启动。
+
+### 烧录安卓镜像至 SD 卡
+
+**注意，安卓镜像不能使用 balenaEtcher 进行烧录，需要使用 PhoenixCard 烧录后才能启动。**
+
+首先下载网盘中的 PhoenixCard 工具，打开后选择第二项：启动卡。将安卓镜像烧录到 TF 卡中即可使用。
+
+![flash_to_sd](./assets/burn_image/flash_to_sd.png)
+
+### 烧录安卓镜像至 EMMC
+
+打开 PhoenixCard，选择第一项：量产卡。烧录安卓镜像到 TF 卡中，然后将TF卡插入到底板，上电，此时会自动将安卓镜像烧录到 EMMC 中，等待烧录完成后拔掉 TF 卡即可使用 EMMC 的中安卓镜像。
+
+![flash_to_emmc](./assets/burn_image/flash_to_emmc.png)
