@@ -39,11 +39,14 @@ The steps for Windows and Linux are similar.
 
 ### Flashing the Linux image to EMMC
 
- **Note that you need to use the image version 20240106 and above**
- First, copy the image file to be burned to the pre-made boot TF card, and then enter the system and use the dd command to write the image file to the EMMC: ```shell
+**Note that you need to use the image version 20240106 and above**
+
+First prepare a boot TF card, login to the system, and then use SCP or other tools to copy the EMMC image file to the system running on the TF card , and then use the dd command to write the image file to EMMC:
+```shell
 # Assuming the image file is copied to /opt/ directory
 dd if=/opt/your_image_file of=/dev/mmcblk1
 sync
+```
 When the burning is finished, unplug the SD card and you can enter the system from the EMMC.
 
 If you want to boot with EMMC and use SD card for expansion, you need to make sure that the SD card is formatted and does not contain a boot image, otherwise it may be changed to SD card boot due to priority issues.
