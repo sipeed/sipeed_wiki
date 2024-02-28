@@ -124,7 +124,7 @@ TANG 40P MODULE 模組是**部分相容**于DE10-Nano 40P接口标准的FGPA拓�
 
 ## 硬件资料
 
-原理图等均可在这里找到：[点击这里](https://dl.sipeed.com/shareURL/TANG/Pmod)
+原理图等均可在这里找到：[点击这里](https://dl.sipeed.com/shareURL/TANG/PMOD)
 
 
 ### 公开例程
