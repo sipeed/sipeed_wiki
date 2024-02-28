@@ -30,7 +30,12 @@ TODO
 
 ![pin_num](./assets/peripheral/pin_num.png)
 
-参考上面的两个表格，可以找到要使用的 GPIO 对应的位置和序号，以点亮底板上的两个 LED 灯为例，可以使用命令在用户空间操作对应的 GPIO ：
+参考上面的两个表格，可以找到要使用的 GPIO 对应的位置和序号，以点亮底板上的两个 LED 灯为例，可以使用命令在用户空间操作对应的 GPIO：
+
+使用前先检查 GPIO 是否被占用
+```shell
+sudo cat /sys/kernel/debug/gpio
+```
 
 ```shell
 num=194
@@ -41,6 +46,88 @@ num=196
 echo ${num} > /sys/class/gpio/export  
 echo out > /sys/class/gpio/gpio${num}/direction 
 echo 0 > /sys/class/gpio/gpio${num}/value
+```
+
+除了上述方法外，还可以通过 C 语言的 libgpiod 库来操作 GPIO，下面仍然以底板上的 LED 灯为例
+
+```c
+#include <gpiod.h>
+#include <stdio.h>
+#include <unistd.h>
+#include <stdlib.h>
+
+int main(int argc, char **argv)
+{
+    int i;
+    int ret;
+
+    struct gpiod_chip * chip;
+    struct gpiod_line * line;
+
+    chip = gpiod_chip_open("/dev/gpiochip0");
+    if(chip == NULL)
+    {
+        printf("gpiod_chip_open error\n");
+        return -1;
+    }
+
+    line = gpiod_chip_get_line(chip, 194);
+    if(line == NULL)
+    {
+        printf("gpiod_chip_get_line error\n");
+        gpiod_line_release(line);
+    }
+
+    ret = gpiod_line_request_output(line,"gpio",0);
+    if(ret < 0)
+    {
+        printf("gpiod_line_request_output error\n");
+        gpiod_chip_close(chip);
+    }
+
+    for(i = 0; i < 10; i++)
+    {
+        gpiod_line_set_value(line,1);
+        sleep(1);
+        gpiod_line_set_value(line,0);
+        sleep(1);
+    }
+
+    gpiod_line_release(line);
+    gpiod_chip_close(chip);
+
+    return 0;
+}
+```
+
+首先安装需要的依赖：
+```shell
+sudo apt update
+sudo apt install build-essential libgpiod-dev gpiod
+```
+
+编译后，需要使用 root 权限来执行程序：
+```shell
+gcc gpio.c -I /usr/include/ -L /usr/lib/aarch64-linux-gnu/ -lgpiod -o gpio
+sudo ./gpio
+```
+
+libgpiod 也提供了一些命令来操作 gpio，常用的命令如下：
+gpiodetect：列出所有的 GPIO 控制器 
+```shell
+sudo gpiodetect
+```
+gpioinfo：列出 GPIO 控制器的引脚情况，可以查看哪些引脚已经被使用
+```shell
+sudo gpioinfo gpiochip0
+```
+gpioset：设置 GPIO 引脚的状态
+```shell
+sudo gpioset gpiochip0 196=0
+```
+gpioget：获取 GPIO 引脚状态
+```shell
+sudo gpioget gpiochip0 196
 ```
 
 ## UART 
