@@ -42,7 +42,7 @@ Windows 系统和 Linux 的步骤类似。
 
 **注意需要使用20240106及以上版本的镜像**
 
-先将要烧录的镜像文件拷贝至预先制作好的启动TF卡中，然后进入到系统使用 dd 命令将镜像文件写入 EMMC：
+先准备一张启动 TF 卡，进入到系统，然后使用 SCP 等工具将 EMMC 镜像文件拷贝到 TF 卡的系统中，然后使用 dd 命令将镜像文件写入 EMMC：
 ```shell
 # 假设镜像文件复制到 /opt/ 目录下
 dd if=/opt/your_image_file of=/dev/mmcblk1
