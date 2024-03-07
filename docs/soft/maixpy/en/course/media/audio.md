@@ -9,7 +9,7 @@ Detailed API reference: [audio API](./../../api_reference/media/audio.md)
 
 ## Instructions
 
-> MaixAmigo, MaixCube needs [Initialize ES8374 audio decoder chip](https://github.com/sipeed/MaixPy_scripts/blob/master/modules/others/es8374/es8374.py) before using audio 
+> MaixAmigo, MaixCube needs [Initialize ES8374 audio decoder chip](https://github.com/sipeed/MaixPy-v1_scripts/blob/master/modules/others/es8374/es8374.py) before using audio 
 
 * Create audio object
 
@@ -67,7 +67,7 @@ player.finish()
 
 ## Routine
 
-> Test audio address: [6.wav](https://github.com/sipeed/MaixPy_scripts/blob/master/multimedia/audio/6.wav)
+> Test audio address: [6.wav](https://github.com/sipeed/MaixPy-v1_scripts/blob/master/multimedia/audio/6.wav)
 
-* Play wav files: [play_wav](https://github.com/sipeed/MaixPy_scripts/blob/master/multimedia/audio/play_wav.py)
-* Record audio as a wav file and save: [record_wav](https://github.com/sipeed/MaixPy_scripts/blob/master/multimedia/audio/record_wav.py)
+* Play wav files: [play_wav](https://github.com/sipeed/MaixPy-v1_scripts/blob/master/multimedia/audio/play_wav.py)
+* Record audio as a wav file and save: [record_wav](https://github.com/sipeed/MaixPy-v1_scripts/blob/master/multimedia/audio/record_wav.py)

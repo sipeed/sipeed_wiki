@@ -11,4 +11,4 @@ The tutorial is written on the basis that I have fully mastered the content of t
 
 
 This tutorial mainly introduces how to use the functions included in MaixPy in modules,
-When watching the tutorial, you may need to learn together with API documentation and routine warehouse [MaixPy_scripts](https://github.com/sipeed/maixpy_scripts)
+When watching the tutorial, you may need to learn together with API documentation and routine warehouse [MaixPy_scripts](https://github.com/sipeed/MaixPy-v1_scripts)

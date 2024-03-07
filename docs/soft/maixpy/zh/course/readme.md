@@ -11,4 +11,4 @@ desc: maixpy  MaixPy 手把手教程说明
 
 
 本教程主要分模块地介绍 MaixPy 包含的功能的使用方法，
-在看教程时，可能需要配合 API 文档 和 例程仓库[MaixPy_scripts](https://github.com/sipeed/maixpy_scripts) 一同学习
+在看教程时，可能需要配合 API 文档 和 例程仓库[MaixPy_scripts](https://github.com/sipeed/MaixPy-v1_scripts) 一同学习

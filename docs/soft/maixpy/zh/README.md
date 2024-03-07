@@ -128,14 +128,14 @@ please read doc before run it!
 如果想参与开发 MaixPy 的内置功能，可以下载进行开发，欢迎大家提交 `PR`
 
 
-本项目主要由 &copy;<a href="https://www.sipeed.com" style="color: #f14c42">Sipeed</a> Co.,Ltd. 维护， 并接受来自开源社区的贡献， 具体贡献这见[贡献者列表](https://github.com/sipeed/MaixPy/graphs/contributors)
+本项目主要由 &copy;<a href="https://www.sipeed.com" style="color: #f14c42">Sipeed</a> Co.,Ltd. 维护， 并接受来自开源社区的贡献， 具体贡献这见[贡献者列表](https://github.com/sipeed/MaixPy-v1graphs/contributors)
 
 
 ## 反馈
 
 关于本文档或者功能或者源码方面的问题，也欢迎提交issue:
 
-* [反馈](https://github.com/sipeed/MaixPy/issues)
+* [反馈](https://github.com/sipeed/MaixPy-v1issues)
 
 
 ## 交流
@@ -156,7 +156,7 @@ please read doc before run it!
     <tbody>
         <tr>
             <td>issue</td>
-            <td><a href="https://github.com/sipeed/MaixPy/issues">https://github.com/sipeed/MaixPy/issues</a></td>
+            <td><a href="https://github.com/sipeed/MaixPy-v1issues">https://github.com/sipeed/MaixPy-v1issues</a></td>
         </tr>
         <tr>
             <td>BBS</td>
@@ -195,7 +195,7 @@ please read doc before run it!
         </tr>
         <tr>
             <td><strong>MaixPy</strong> 例程仓库</td>
-            <td><span class="limit_width">github：</span> <span class=""><a href="https://github.com/sipeed/MaixPy_scripts"><strong>github/maixpy_script</strong></a></span> <br><span class="limit_width">国内：</span><span class=""><a href="https://gitee.com/Sipeed/maixpy_scripts" rel="nofollow"><strong>gitee/maixpy_scripts</strong></a></span></td>
+            <td><span class="limit_width">github：</span> <span class=""><a href="https://github.com/sipeed/MaixPy-v1_scripts"><strong>github/maixpy_script</strong></a></span> <br><span class="limit_width">国内：</span><span class=""><a href="https://gitee.com/Sipeed/maixpy_scripts" rel="nofollow"><strong>gitee/maixpy_scripts</strong></a></span></td>
         </tr>
         <tr>
             <td>MaixPy 源码</td>

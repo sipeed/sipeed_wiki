@@ -86,7 +86,7 @@ Each commit has an independent `commit ID`, such as `d28cb7ac7db5ad61c0738df95d7
 Submodule, called `submodule` in English, means that other warehouses can be referenced in the warehouse, which is equivalent to a soft link. You don't need to put actual code in the warehouse, just put a link.
 The advantage of this is that multiple warehouses can be managed separately. For example, `Warehouse 1` references `Warehouse 2` as a submodule. If the code of `Warehouse 2` is updated, `Warehouse 1` can choose to continue to use the old version of `Warehouse 2` Code, you can also choose to use the latest code of `Warehouse 2`, just update the submodule link
 
-For example, `MaixPy` uses `kendryte-standalone-sdk` as a submodule, see [here](https://github.com/sipeed/MaixPy/tree/master/components/kendryte_sdk)
+For example, `MaixPy` uses `kendryte-standalone-sdk` as a submodule, see [here](https://github.com/sipeed/MaixPy-v1tree/master/components/kendryte_sdk)
 ![submodule](../../assets/get_started/github_submodule.jpg)
 
 You can see that the icon of the folder here is not the same, it is just a link, click will jump to the corresponding warehouse instead of opening the folder directly
@@ -126,7 +126,7 @@ git clone https://github.com/sipeed/MaixPy --recursive
 
 ## What is issue
 
-That is the meaning of the question. On github, each warehouse has a special place for asking questions, such as [MaixPy's issue](https://github.com/sipeed/MaixPy/issues)
+That is the meaning of the question. On github, each warehouse has a special place for asking questions, such as [MaixPy's issue](https://github.com/sipeed/MaixPy-v1issues)
 Everyone asks questions here, similar to forums, they will be recorded for easy reference
 
 ## What is fork

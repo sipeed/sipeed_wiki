@@ -47,7 +47,7 @@ distance = device.measure(unit = ultrasonic.UNIT_CM, timeout = 3000000)
 
 ## 例程
 
-[Grove - Ultrasonic Ranger 例程](https://github.com/sipeed/MaixPy_scripts/tree/master/modules/grove/ultrasonic)
+[Grove - Ultrasonic Ranger 例程](https://github.com/sipeed/MaixPy-v1_scripts/tree/master/modules/grove/ultrasonic)
 
 ## 更多
 

@@ -26,7 +26,7 @@ For detailed module information, please refer to [LoRa Specification and Data Ma
 
 1. Preparation: Two development boards with the latest firmware burned, two sp_lora modules.
 
-2. Run: Connect the module, modify the configuration surrounded by config in [sample code](https://github.com/sipeed/MaixPy_scripts/tree/master/modules/spmod/sp_lora), and run the two development boards to send and receive separately Function, you can view the received and sent information on the terminal.
+2. Run: Connect the module, modify the configuration surrounded by config in [sample code](https://github.com/sipeed/MaixPy-v1_scripts/tree/master/modules/spmod/sp_lora), and run the two development boards to send and receive separately Function, you can view the received and sent information on the terminal.
 
 The procedure is as follows:
 

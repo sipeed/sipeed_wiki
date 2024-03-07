@@ -12,7 +12,7 @@ desc: maixpy  network
 **esp8285**
 在部分开发板上带了 一个 使用`AT`方式交互的网卡模块，比如`esp8285`，与`k210`通过串口连接
 
-引脚`8`是使能脚，可以创建一个`GPIO`对象来控制它的高低电平来实现使能和失能，也可以用它复位（先低后高），复位后需要等待一小段时间才能操作，可以查看例程[network_espat.py](https://github.com/sipeed/MaixPy_scripts/blob/79a5485ec983e67bb8861305a52418b29e0dc205/network/network_espat.py)
+引脚`8`是使能脚，可以创建一个`GPIO`对象来控制它的高低电平来实现使能和失能，也可以用它复位（先低后高），复位后需要等待一小段时间才能操作，可以查看例程[network_espat.py](https://github.com/sipeed/MaixPy-v1_scripts/blob/79a5485ec983e67bb8861305a52418b29e0dc205/network/network_espat.py)
 
  **esp32**
 目前在`MaixDuino`开发板中有一个 `esp32` 模块通过 `spi` 与`k210`相连，同时也有单独的`TF`插卡式模块
@@ -220,7 +220,7 @@ nic.enable_ap("maixpy", "12345678", 5, network.ESP8285.OPEN)
 ## 例程
 
 
-参考[network目录下的例程](https://github.com/sipeed/MaixPy_scripts/tree/master/network)
+参考[network目录下的例程](https://github.com/sipeed/MaixPy-v1_scripts/tree/master/network)
 
 
 ## network.ESP32_SPI(cs,rst,rdy,mosi,miso,sclk)
@@ -256,7 +256,7 @@ nic.enable_ap("maixpy", "12345678", 5, network.ESP8285.OPEN)
 
 #### 例程
 
-[demo_esp32_read_adc.py](https://github.com/sipeed/MaixPy_scripts/blob/master/network/demo_esp32_read_adc.py)
+[demo_esp32_read_adc.py](https://github.com/sipeed/MaixPy-v1_scripts/blob/master/network/demo_esp32_read_adc.py)
 
 
 ## network.WIZNET5K(spi, cs)
@@ -329,4 +329,4 @@ nic.isconnected()
 
 #### 例程
 
-[network_wiznet5k.py](https://github.com/sipeed/MaixPy_scripts/blob/master/network/network_wiznet5k.py)
+[network_wiznet5k.py](https://github.com/sipeed/MaixPy-v1_scripts/blob/master/network/network_wiznet5k.py)

@@ -9,7 +9,7 @@ The pre-compiled firmware may not meet specific usage scenarios. If you need to 
 
 ## Native environment compilation
 
-For the compilation method, please refer to the compilation instructions under the source code [build.md](https://github.com/sipeed/MaixPy/blob/master/build.md)
+For the compilation method, please refer to the compilation instructions under the source code [build.md](https://github.com/sipeed/MaixPy-v1blob/master/build.md)
 
 ## Use docker environment to compile
 
@@ -17,4 +17,4 @@ Docker can simplify development environment installation
 > If you have never used docker, please learn about docker by yourself,
 > If you haven't studied before, you can think of it as similar to a virtual machine, that is, a virtual machine with a compilation environment has been prepared for you, and you can download and run it directly to compile the source code
 
-The docker image has already packaged the environment, just pull the image and run it to start compiling, refer to [Use Docker to compile the source code](https://github.com/sipeed/MaixPy/tree/master/tools/docker)
+The docker image has already packaged the environment, just pull the image and run it to start compiling, refer to [Use Docker to compile the source code](https://github.com/sipeed/MaixPy-v1tree/master/tools/docker)

@@ -93,23 +93,13 @@
                         "target": "_blank"
                     },
                     {
-                        "label": "网站使用 teedoc 生成",
-                        "url": "https://github.com/neutree/teedoc",
-                        "target": "_blank"
-                    }
-                ]
-            },
-            {
-                "label": "网站统计",
-                "items": [
-                    {
-                        "label": "百度统计",
-                        "url": "https://tongji.baidu.com/web/welcome/ico?s=9cb07365544a53067c56c346c838181a",
-                        "target": "_blank"
-                    },
-                    {
                         "label": "网站地图",
                         "url": "/sitemap.xml"
+                    },
+                    {
+                        "label": "网站使用 teedoc 生成",
+                        "url": "https://github.com/teedoc/teedoc",
+                        "target": "_blank"
                     }
                 ]
             },

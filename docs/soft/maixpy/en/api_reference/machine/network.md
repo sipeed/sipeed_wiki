@@ -13,7 +13,7 @@ To use `WiFi` please make sure that the antenna is connected
 On some development boards, a network card module that uses `AT` to interact, such as `esp8285`, is connected to `k210` through a serial port
 
 Pin `8` is the enable pin. You can create a `GPIO` object to control its high and low levels to achieve enable and disable, or you can use it to reset (low first and then high), and you need to wait for a while after reset Time to operate,
-You can view the routine [network_espat.py](https://github.com/sipeed/MaixPy_scripts/blob/79a5485ec983e67bb8861305a52418b29e0dc205/network/network_espat.py)
+You can view the routine [network_espat.py](https://github.com/sipeed/MaixPy-v1_scripts/blob/79a5485ec983e67bb8861305a52418b29e0dc205/network/network_espat.py)
 
 ### [esp32](##network.ESP32_SPI(cs,rst,rdy,mosi,miso,sclk))
 Currently there is an `esp32` module in the `MaixDuino` development board which is connected to `k210` through `spi`
@@ -222,7 +222,7 @@ The encryption method of the hotspot is `WPA_WPA2_PSK`
 ## Routine
 
 
-Refer to [routines in the network directory](https://github.com/sipeed/MaixPy_scripts/tree/master/network)
+Refer to [routines in the network directory](https://github.com/sipeed/MaixPy-v1_scripts/tree/master/network)
 
 
 ## network.ESP32_SPI(cs,rst,rdy,mosi,miso,sclk)
@@ -258,7 +258,7 @@ no
 
 #### Routine
 
-[demo_esp32_read_adc.py](https://github.com/sipeed/MaixPy_scripts/blob/master/network/demo_esp32_read_adc.py)
+[demo_esp32_read_adc.py](https://github.com/sipeed/MaixPy-v1_scripts/blob/master/network/demo_esp32_read_adc.py)
 
 
 ## network.WIZNET5K(spi, cs)
@@ -330,4 +330,4 @@ no
 
 #### Routine
 
-[network_wiznet5k.py](https://github.com/sipeed/MaixPy_scripts/blob/master/network/network_wiznet5k.py)
+[network_wiznet5k.py](https://github.com/sipeed/MaixPy-v1_scripts/blob/master/network/network_wiznet5k.py)

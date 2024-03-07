@@ -68,4 +68,4 @@ amp = FFT.amplitude(FFT_res)
 
 Collect sound and perform FFT calculation, and display the calculated data as a histogram on the screen
 
-Example code: https://github.com/sipeed/MaixPy_scripts/blob/master/hardware/demo_fft_spectrum.py
+Example code: https://github.com/sipeed/MaixPy-v1_scripts/blob/master/hardware/demo_fft_spectrum.py

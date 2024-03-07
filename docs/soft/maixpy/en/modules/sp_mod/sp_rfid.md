@@ -29,7 +29,7 @@ For detailed module information, please refer to [RFID Specification and Data Ma
 
 1. Preparation: The development board with the latest firmware, sp_rfid module, M1 card.
 
-2. Run: Connect the module, modify the configuration surrounded by config in [Sample Code](https://github.com/sipeed/MaixPy_scripts/tree/master/modules/spmod/sp_rfid), and put the card close to the module antenna after running. See the card reading information printed by the terminal.
+2. Run: Connect the module, modify the configuration surrounded by config in [Sample Code](https://github.com/sipeed/MaixPy-v1_scripts/tree/master/modules/spmod/sp_rfid), and put the card close to the module antenna after running. See the card reading information printed by the terminal.
 
 The procedure is as follows:
 

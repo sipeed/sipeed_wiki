@@ -40,7 +40,7 @@ desc: maixpy  Introduction to MaixPy documentation
         <tr>
             <td><strong>MaixPy</strong> demo repository</td>
             <td><span class="limit_width">github:</span> <span class=""><a
-                        href="https://github.com/sipeed/MaixPy_scripts"><strong>github/maixpy_script
+                        href="https://github.com/sipeed/MaixPy-v1_scripts"><strong>github/maixpy_script
                         </strong></a></span> <br><span class="limit_width">Domestic:</span><span class=""><a
                         href="https://gitee.com/Sipeed/maixpy_scripts "
                         rel="nofollow"><strong>gitee/maixpy_scripts</strong></a></span></td>
@@ -175,14 +175,14 @@ To get these boards, you can visit the official website of Sipeed [www.sipeed.co
 If you want to participate in the development of MaixPy’s built-in functions, you can download for development, and welcome everyone to submit a PR
 
 
-This project is mainly maintained by &copy;<a href="https://www.sipeed.com" style="color: #f14c42">Sipeed</a> Co.,Ltd., and accepts contributions from the open source community, For specific contributions, see [Contributor List](https://github.com/sipeed/MaixPy/graphs/contributors)
+This project is mainly maintained by &copy;<a href="https://www.sipeed.com" style="color: #f14c42">Sipeed</a> Co.,Ltd., and accepts contributions from the open source community, For specific contributions, see [Contributor List](https://github.com/sipeed/MaixPy-v1graphs/contributors)
 
 
 ## Feedback
 
 For questions about this document or function or source code, you are also welcome to submit an issue:
 
-* [Feedback](https://github.com/sipeed/MaixPy/issues)
+* [Feedback](https://github.com/sipeed/MaixPy-v1issues)
 
 
 ## communicate with
@@ -201,7 +201,7 @@ The following communication methods provide assistance:
     <tbody>
         <tr>
             <td>issue(recommend)</td>
-            <td><a href="https://github.com/sipeed/MaixPy/issues">https://github.com/sipeed/MaixPy/issues</a></td>
+            <td><a href="https://github.com/sipeed/MaixPy-v1issues">https://github.com/sipeed/MaixPy-v1issues</a></td>
         </tr>
         <tr>
             <td>BBS</td>

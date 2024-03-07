@@ -14,7 +14,7 @@ The latest modern hash algorithm of the SHA256-SHA2 series. It is suitable for p
 
 There is hardware acceleration in K210, not software calculation
 
-[Example](https://github.com/sipeed/MaixPy_scripts/blob/master/basic/demo_sha256.py):
+[Example](https://github.com/sipeed/MaixPy-v1_scripts/blob/master/basic/demo_sha256.py):
 ```python
 a = bytes([0]*65)
 b = hashlib.sha256(a)

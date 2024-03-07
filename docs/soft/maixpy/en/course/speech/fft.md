@@ -27,7 +27,7 @@ For related API explanation, please refer to [FFT-API](../../api_reference/Maix/
 
 ## Routine
 
-Collect sound and perform FFT calculation, and display the calculated data as a histogram on the screen: [demo_fft_spectrum](https://github.com/sipeed/MaixPy_scripts/blob/master/hardware/demo_fft_spectrum.py)
+Collect sound and perform FFT calculation, and display the calculated data as a histogram on the screen: [demo_fft_spectrum](https://github.com/sipeed/MaixPy-v1_scripts/blob/master/hardware/demo_fft_spectrum.py)
 
 effect:
 <iframe width="600" height="350" src="//player.bilibili.com/player.html?aid=44617696&cid=78104545&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>

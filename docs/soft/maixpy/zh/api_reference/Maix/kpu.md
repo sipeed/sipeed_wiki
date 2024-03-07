@@ -24,7 +24,7 @@ KPU是通用的神经网络处理器，它可以在低功耗的情况下实现�
 
 模型下载地址：[http://dl.sipeed.com/MAIX/MaixPy/model](http://dl.sipeed.com/MAIX/MaixPy/model) , 下载`face_model_at_0x300000.kfpkg`
 
-完整例程： [face_find](https://github.com/sipeed/MaixPy_scripts/tree/master/machine_vision/face_find)
+完整例程： [face_find](https://github.com/sipeed/MaixPy-v1_scripts/tree/master/machine_vision/face_find)
 
 ### 运行特征图
 
@@ -95,7 +95,7 @@ KPU.load(offset, file_path)
 
 ##### 返回
 
-如果正确加载，会返回返回值， 否则会抛出错误， 请看抛出的错误提示， 另外错误代码参考[这里](https://github.com/sipeed/MaixPy/blob/fa3cf2c96353fa698e9386e42be8b3c9cf495114/components/kendryte_sdk/include/sipeed_kpu.h#L6-L23)
+如果正确加载，会返回返回值， 否则会抛出错误， 请看抛出的错误提示， 另外错误代码参考[这里](https://github.com/sipeed/MaixPy-v1blob/fa3cf2c96353fa698e9386e42be8b3c9cf495114/components/kendryte_sdk/include/sipeed_kpu.h#L6-L23)
 
 如果发现错误代码是小于 `2000` 的值， 则是固件版本太低，需要更新固件版本
 
@@ -111,7 +111,7 @@ kpu.load_flash(model_addr, is_dual_buf, batch_size, spi_speed)
 
 #### 参数
 
-* `model_addr`：Flash addr 经过预处理的模型烧录到 flash 中的偏移地址。注意，这里需要预处理模型文件[说明](https://github.com/sipeed/MaixPy_scripts/blob/master/machine_vision/load_big_model/README_ZH.md)。
+* `model_addr`：Flash addr 经过预处理的模型烧录到 flash 中的偏移地址。注意，这里需要预处理模型文件[说明](https://github.com/sipeed/MaixPy-v1_scripts/blob/master/machine_vision/load_big_model/README_ZH.md)。
 * `is_dual_buf`：`0`,单一缓冲区加载，使用较少的 RAM 和较慢的速度动态加载该模型文件； `1`，开启双缓冲加载，需要更大的 RAM， 运行速度相对较快。
 * `batch_size`：将 `is_dual_buf` 设置为 1 时，需要设置 load batch_size，建议值为 `0x4000~0x10000`，可以测试出模型的最佳值。如果 `is_dual_buf` 为 0 则设置为 0
 * `spi_speed`：使用 SPI flash 加载模型文件时，我们会暂时将 flash 设置为高速模式，并设置所需的 spi 时钟频率。该值应 <= 80000000(实际频率，设值可能不等于实际频率。)
@@ -202,7 +202,7 @@ kpu.init_yolo2(task, 0.5, 0.3, 5, anchor)
 img = image.Image()
 kpu.run_yolo2(task, img) 
 ```
-> 以上为节选代码，并不是完整部分，详细请看[人脸检测](https://github.com/sipeed/MaixPy_scripts/blob/master/machine_vision/face_find/demo_find_face.py)具体的代码
+> 以上为节选代码，并不是完整部分，详细请看[人脸检测](https://github.com/sipeed/MaixPy-v1_scripts/blob/master/machine_vision/face_find/demo_find_face.py)具体的代码
 
 #### 参数
 
@@ -321,7 +321,7 @@ success = set_outputs(kput_net, out_idx, width, height, channel)
 
 ##### 返回
 
-* `success`： 是否设置成功， 如果不成功，注意看输出的提示信息， 参考[错误代码](https://github.com/sipeed/MaixPy/blob/fa3cf2c96353fa698e9386e42be8b3c9cf495114/components/kendryte_sdk/include/sipeed_kpu.h#L6-L23)
+* `success`： 是否设置成功， 如果不成功，注意看输出的提示信息， 参考[错误代码](https://github.com/sipeed/MaixPy-v1blob/fa3cf2c96353fa698e9386e42be8b3c9cf495114/components/kendryte_sdk/include/sipeed_kpu.h#L6-L23)
 
 
 ### memtest
@@ -336,7 +336,7 @@ KPU.memtest()
 ```
 ### face_encode
 
-将 `forward` 返回的特征图进行量化，更多详情请查看：[kpu issue](https://github.com/sipeed/MaixPy/issues/342)
+将 `forward` 返回的特征图进行量化，更多详情请查看：[kpu issue](https://github.com/sipeed/MaixPy-v1issues/342)
 
 ```python
 feature = kpu.face_encode(fmap[:])

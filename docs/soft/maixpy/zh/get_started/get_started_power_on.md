@@ -33,7 +33,7 @@ desc: maixpy  MaixPy 开发板上电
 
 ## 检查固件版本
 
-使用**串口终端**打开串口，然后复位，看输出的版本信息，与[github](https://github.com/sipeed/MaixPy/releases) 或者 [master 分支](http://dl.sipeed.com/MAIX/MaixPy/release/master/) 的固件版本对比，根据当前版本情况考虑升级到最新版本
+使用**串口终端**打开串口，然后复位，看输出的版本信息，与[github](https://github.com/sipeed/MaixPy-v1releases) 或者 [master 分支](http://dl.sipeed.com/MAIX/MaixPy/release/master/) 的固件版本对比，根据当前版本情况考虑升级到最新版本
 
 比如：
 

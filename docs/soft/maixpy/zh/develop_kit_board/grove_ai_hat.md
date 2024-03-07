@@ -32,8 +32,8 @@ desc: maixpy  Grove AI HAT
 
 | 传感器  | 功能         | I2C 地址(7位地址) | SCL  | SDA  | 示例代码               |
 | ------- | ------------ | ----------------- | ---- | ---- | ---------------------- |
-| ADS1115 | ADC          | 0x48              | IO23 | IO24 | [script](https://github.com/sipeed/MaixPy_scripts/tree/master/modules/others/ads1115) |
-| ADXL345 | 三轴加速度计 | 0x53              | IO23 | IO24 | [script](https://github.com/sipeed/MaixPy_scripts/tree/master/modules/others/adxl345) |
+| ADS1115 | ADC          | 0x48              | IO23 | IO24 | [script](https://github.com/sipeed/MaixPy-v1_scripts/tree/master/modules/others/ads1115) |
+| ADXL345 | 三轴加速度计 | 0x53              | IO23 | IO24 | [script](https://github.com/sipeed/MaixPy-v1_scripts/tree/master/modules/others/adxl345) |
 
 ## 资源下载
 

@@ -24,7 +24,7 @@ For detailed module information, please refer to [TOF Specification and Data Man
 
 1. Preparation: The development board with the latest firmware, sp_tof module.
 
-2. Run: Connect the module, modify the configuration surrounded by config in [Sample Code](https://github.com/sipeed/MaixPy_scripts/tree/master/modules/spmod/sp_tof), and aim the laser aiming head to measure after running Click to see the distance information printed by the terminal.
+2. Run: Connect the module, modify the configuration surrounded by config in [Sample Code](https://github.com/sipeed/MaixPy-v1_scripts/tree/master/modules/spmod/sp_tof), and aim the laser aiming head to measure after running Click to see the distance information printed by the terminal.
 
 The procedure is as follows:
 

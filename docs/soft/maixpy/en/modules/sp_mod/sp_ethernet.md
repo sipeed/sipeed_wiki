@@ -22,7 +22,7 @@ For detailed module information, please refer to [Ethernet Specification](http:/
 ## Instructions
 
 1. Preparation: The development board with the latest firmware, sp_ethernet module, and network cable.
-2. Run: Connect the module, modify the configuration surrounded by config in [Sample Code](https://github.com/sipeed/MaixPy_scripts/tree/master/modules/spmod/sp_ethernet), the module will print the communication data after running.
+2. Run: Connect the module, modify the configuration surrounded by config in [Sample Code](https://github.com/sipeed/MaixPy-v1_scripts/tree/master/modules/spmod/sp_ethernet), the module will print the communication data after running.
 
 The procedure is as follows:
 

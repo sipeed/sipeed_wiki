@@ -18,7 +18,7 @@ Initialize the `NES` emulator
 #### Parameters
 
 * `tc_type`: remote control type, keyboard (`nes.KEYBOARD`) (note that the serial port communicates with the computer, not directly connecting the USB keyboard to the development board) or handle (`nes.JOYSTICK`).
-> It is recommended to use the `PS2` handle, the experience will be better, the keyboard may not be able to press multiple keys at the same time when inputting through the serial tool, of course, you can also write a script on the PC to forward the key value to solve the problem (go [here] (https ://github.com/sipeed/MaixPy_scripts/tree/master/multimedia/nes) Looking for it?)
+> It is recommended to use the `PS2` handle, the experience will be better, the keyboard may not be able to press multiple keys at the same time when inputting through the serial tool, of course, you can also write a script on the PC to forward the key value to solve the problem (go [here] (https ://github.com/sipeed/MaixPy-v1_scripts/tree/master/multimedia/nes) Looking for it?)
 
 * `cs`: If you use the `PS2` handle of the `SPI` interface, pass in the `cs` peripheral number (note that it is not a pin number, you need to map the pin first)
 * `mosi`: If you use the `PS2` handle of the `SPI` interface, pass in the `mosi` peripheral number (note that it is not a pin number, you need to map the pin first)

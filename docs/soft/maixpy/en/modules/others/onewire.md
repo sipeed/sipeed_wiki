@@ -23,4 +23,4 @@ bus = onewire(fm.fpioa.GPIOHS2)
 
 ## Routine
 
-ds18b20 temperature reading: [onwire_ds18b20](https://github.com/sipeed/MaixPy_scripts/blob/80f4eb71d3481b6f119f25f39f7c9b37404b99ce/hardware/demo_onewire_ds18x20.py)
+ds18b20 temperature reading: [onwire_ds18b20](https://github.com/sipeed/MaixPy-v1_scripts/blob/80f4eb71d3481b6f119f25f39f7c9b37404b99ce/hardware/demo_onewire_ds18x20.py)

@@ -25,7 +25,7 @@ For detailed module information, please refer to [LCD114 Specification and Data 
 
 1. Preparation: The development board with the latest firmware, sp_lcd114 module.
 
-2. Run: Connect the module, modify the configuration surrounded by config in [Sample Code](https://github.com/sipeed/MaixPy_scripts/tree/master/modules/spmod/sp_lcd114), the module will display the picture after running.
+2. Run: Connect the module, modify the configuration surrounded by config in [Sample Code](https://github.com/sipeed/MaixPy-v1_scripts/tree/master/modules/spmod/sp_lcd114), the module will display the picture after running.
 
 The procedure is as follows:
 

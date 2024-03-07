@@ -22,7 +22,7 @@ desc: maixpy  SP_Ethernet 的使用
 ## 使用方法
 
 1. 准备: 已烧录最新固件的开发板, sp_ethernet 模块， 网线。
-2. 运行: 连接模块, 修改[示例代码](https://github.com/sipeed/MaixPy_scripts/tree/master/modules/spmod/sp_ethernet)中 config 包围的配置, 运行后模块将打印通信数据。
+2. 运行: 连接模块, 修改[示例代码](https://github.com/sipeed/MaixPy-v1_scripts/tree/master/modules/spmod/sp_ethernet)中 config 包围的配置, 运行后模块将打印通信数据。
 
 程序如下：
 

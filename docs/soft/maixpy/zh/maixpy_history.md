@@ -8,7 +8,7 @@ desc: maixpy  MaixPy 发展历程
 写下本篇发展历程， 希望让后来的开发者们了解到 MaixPy 都经历了什么，以及一些重大的改变的原因是什么，以及在何时取得了重大的进步等
 
 
-代码提交历史可以在 [historic](https://github.com/sipeed/MaixPy/commits/historic) 和 [master](https://github.com/sipeed/MaixPy/commits/master) 分支看到
+代码提交历史可以在 [historic](https://github.com/sipeed/MaixPy-v1commits/historic) 和 [master](https://github.com/sipeed/MaixPy-v1commits/master) 分支看到
 
 
 ## 2018 年 9 月
@@ -30,7 +30,7 @@ k210 SDK 从 freertos 换成了 standalone SDK, 并且着手片上外设驱动�
 
 ## 2019 年 2 月
 
-发布第一版固件 [v0.1.1 beta](https://github.com/sipeed/MaixPy/releases/tag/v0.1.1), 支持了基本的外设， 继承了 openmv 的 image sensor lcd API，适配了一些开源的工具比如 upyloader，armpy等, 编写文档 并发布在 maixpy.sipeed.com
+发布第一版固件 [v0.1.1 beta](https://github.com/sipeed/MaixPy-v1releases/tag/v0.1.1), 支持了基本的外设， 继承了 openmv 的 image sensor lcd API，适配了一些开源的工具比如 upyloader，armpy等, 编写文档 并发布在 maixpy.sipeed.com
 
 另外这时也有了 Maix bit 和 Maix Go 两块新开发板
 
@@ -38,7 +38,7 @@ xiaohui 退出项目组
 
 ## 2019 年 3 月
 
-发布第二版固件 [v0.2.4](https://github.com/sipeed/MaixPy/releases/tag/v0.2.4), 增加了 jpeg， wav， kpu， nes， avi， lvgl 等支持
+发布第二版固件 [v0.2.4](https://github.com/sipeed/MaixPy-v1releases/tag/v0.2.4), 增加了 jpeg， wav， kpu， nes， avi， lvgl 等支持
 
 
 ## 2019 年 4 月

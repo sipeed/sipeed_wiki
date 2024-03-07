@@ -140,7 +140,7 @@ C 语言代码运行模型：
 MaixPy 运行模型：
     * 当运行 MaixPy (minimum版本) 时，能够加载 4MB 左右的模型。 如果不使用摄像头和 LCD， 最大可以加载 5MB 左右的模型（因为摄像头和 LCD 的缓冲区占用了很多内存，但实际应用也没多大意义了）
     * 当运行 MaixPy (完整版) 时，能够加载 2MB 左右的模型
-    * 另外也支持实时从 `Flash` 加载模型， 理论上只要单层使用内存不超过 2MB， 整体模型可以无限大，只不过要牺牲一点运算速度。 使用方法看[这里](https://github.com/sipeed/MaixPy_scripts/tree/master/machine_vision/load_big_model)。 如果对原理和实现感兴趣，可以看[这里](https://neucrack.com/p/313)
+    * 另外也支持实时从 `Flash` 加载模型， 理论上只要单层使用内存不超过 2MB， 整体模型可以无限大，只不过要牺牲一点运算速度。 使用方法看[这里](https://github.com/sipeed/MaixPy-v1_scripts/tree/master/machine_vision/load_big_model)。 如果对原理和实现感兴趣，可以看[这里](https://neucrack.com/p/313)
 
 
 

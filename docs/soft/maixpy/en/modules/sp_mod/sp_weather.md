@@ -50,7 +50,7 @@ For detailed module information, please refer to [Meteorological Module Specific
 
 1. Preparation: The development board with the latest firmware, sp_weather module.
 
-2. Run: Connect the module, modify the configuration surrounded by config in [Sample Code](https://github.com/sipeed/MaixPy_scripts/tree/master/modules/spmod/sp_weather), you can see the magnetism printed on the terminal after running Sensor and air pressure temperature and humidity sensor data
+2. Run: Connect the module, modify the configuration surrounded by config in [Sample Code](https://github.com/sipeed/MaixPy-v1_scripts/tree/master/modules/spmod/sp_weather), you can see the magnetism printed on the terminal after running Sensor and air pressure temperature and humidity sensor data
 
 The procedure is as follows:
 

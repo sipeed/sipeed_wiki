@@ -49,4 +49,4 @@ Get the sensor resolution width, which can only be called by the instance
 
 ## Examples
 
-[heimann_HTPA_32x32](https://github.com/sipeed/MaixPy_scripts/tree/master/modules/others/heimann_HTPA_32x32)
+[heimann_HTPA_32x32](https://github.com/sipeed/MaixPy-v1_scripts/tree/master/modules/others/heimann_HTPA_32x32)

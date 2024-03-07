@@ -28,22 +28,22 @@ led_r.value(0)
 选择自己对应的开发板类型
 
 1. Maix Bit
-[config_maix_bit.py](https://github.com/sipeed/MaixPy_scripts/tree/master/board/config_maix_bit.py)
+[config_maix_bit.py](https://github.com/sipeed/MaixPy-v1_scripts/tree/master/board/config_maix_bit.py)
 
 2. Maix Dock
-[config_maix_dock.py](https://github.com/sipeed/MaixPy_scripts/tree/master/board/config_maix_dock.py)
+[config_maix_dock.py](https://github.com/sipeed/MaixPy-v1_scripts/tree/master/board/config_maix_dock.py)
 
 3. Maix Go
-[config_maix_go.py](https://github.com/sipeed/MaixPy_scripts/tree/master/board/config_maix_go.py)
+[config_maix_go.py](https://github.com/sipeed/MaixPy-v1_scripts/tree/master/board/config_maix_go.py)
 
 4. Maix Duino
-[config_maix_duino.py](https://github.com/sipeed/MaixPy_scripts/tree/master/board/config_maix_duino.py)
+[config_maix_duino.py](https://github.com/sipeed/MaixPy-v1_scripts/tree/master/board/config_maix_duino.py)
 
 5. Maix Cube
-[config_maix_cube.py](https://github.com/sipeed/MaixPy_scripts/tree/master/board/config_maix_cube.py)
+[config_maix_cube.py](https://github.com/sipeed/MaixPy-v1_scripts/tree/master/board/config_maix_cube.py)
 
 6. Maix Amigo
-[config_maix_amigo.py](https://github.com/sipeed/MaixPy_scripts/tree/master/board/config_maix_amigo.py)
+[config_maix_amigo.py](https://github.com/sipeed/MaixPy-v1_scripts/tree/master/board/config_maix_amigo.py)
 
 7. Maix Nano
 > 这个没有硬件外设.....所以不要问为什么没有它的配置代码了。
@@ -58,7 +58,7 @@ print(board_info.BOOT_KEY, board_info.BOOT_KEY == 16)
 
 ## 创建你的专属硬件
 
-你可以借助该接口代码适配你的硬件，配置方法参考 [MaixPy_scripts/board](https://github.com/sipeed/MaixPy_scripts/tree/master/board) 里面有供你参考的配置文件。
+你可以借助该接口代码适配你的硬件，配置方法参考 [MaixPy_scripts/board](https://github.com/sipeed/MaixPy-v1_scripts/tree/master/board) 里面有供你参考的配置文件。
 
 ## board 的使用方法
 

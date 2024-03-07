@@ -19,7 +19,7 @@ This is a speech recognition module based on an acoustic model. When the user se
 
 > After TODO, it will be stored in a unified link to the download station.
 
-Get the acoustic model [maix_asr_2900k_0x500000](https://github.com/sipeed/MaixPy_scripts/blob/master/multimedia/speech_recognizer/maix_asr_2900k_0x500000.kmodel) from here, and burn it to 0x500000 address.
+Get the acoustic model [maix_asr_2900k_0x500000](https://github.com/sipeed/MaixPy-v1_scripts/blob/master/multimedia/speech_recognizer/maix_asr_2900k_0x500000.kmodel) from here, and burn it to 0x500000 address.
 
 > Load the module without burning the model, it will core dump, don't ask how to report the error.
 
@@ -132,4 +132,4 @@ We can see that the following words are defined in the code:
 
 That is, you can complete the recognition by saying [ni-hao], [hao-de], and [xiao-ai] into the microphone within 6 seconds. The configuration items are two fields, and the length of the first field does not exceed six.Group Pinyin, the second field indicates the lowest threshold of recognition (matching threshold). If it is higher than this value, it will be printed, and if it is lower than this value, it will be discarded.
 
-At the beginning of the test, you can speak a little louder, see [Demo Video](https://www.bilibili.com/video/BV1C5411L7JC/) for specific effects, complete example: [test_maix_asr.py](https://github.com/sipeed/MaixPy_scripts/blob/d1d95a4d2fbe4c4b87d683c5fb79fda1fe3f9aae/multimedia/speech_recognizer/test_maix_asr.py)
+At the beginning of the test, you can speak a little louder, see [Demo Video](https://www.bilibili.com/video/BV1C5411L7JC/) for specific effects, complete example: [test_maix_asr.py](https://github.com/sipeed/MaixPy-v1_scripts/blob/d1d95a4d2fbe4c4b87d683c5fb79fda1fe3f9aae/multimedia/speech_recognizer/test_maix_asr.py)

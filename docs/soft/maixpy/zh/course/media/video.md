@@ -9,7 +9,7 @@ desc: maixpy  video（视频） 的使用
 
 ## 使用方法
 
-> MaixAmigo, MaixCube在使用音频前需要[初始化 ES8374 音频解码芯片](https://github.com/sipeed/MaixPy_scripts/blob/master/modules/others/es8374/es8374.py)
+> MaixAmigo, MaixCube在使用音频前需要[初始化 ES8374 音频解码芯片](https://github.com/sipeed/MaixPy-v1_scripts/blob/master/modules/others/es8374/es8374.py)
 
 * 创建 video 对象，设置音量
 
@@ -61,7 +61,7 @@ v.__del__()
 
 > 测试用例中 avi 文件地址：[badapple.avi](https://api.dl.sipeed.com/shareURL/MAIX/MaixPy/assets)
 
-* 播放 avi 文件：[video_play](https://github.com/sipeed/MaixPy_scripts/blob/master/multimedia/video/demo_video_play.py)
-* 使用摄像头录制视频为 avi 文件并保存：[record_video](https://github.com/sipeed/MaixPy_scripts/blob/master/multimedia/video/demo_video_record.py)
-* 顺序捕获 avi 视频每个画面并显示：[video_capture](https://github.com/sipeed/MaixPy_scripts/blob/master/multimedia/video/demo_video_capture.py)
-* amigo 播放 avi 文件：[amigo_play_video](https://github.com/sipeed/MaixPy_scripts/blob/master/multimedia/video/amigo_play_video.py)
+* 播放 avi 文件：[video_play](https://github.com/sipeed/MaixPy-v1_scripts/blob/master/multimedia/video/demo_video_play.py)
+* 使用摄像头录制视频为 avi 文件并保存：[record_video](https://github.com/sipeed/MaixPy-v1_scripts/blob/master/multimedia/video/demo_video_record.py)
+* 顺序捕获 avi 视频每个画面并显示：[video_capture](https://github.com/sipeed/MaixPy-v1_scripts/blob/master/multimedia/video/demo_video_capture.py)
+* amigo 播放 avi 文件：[amigo_play_video](https://github.com/sipeed/MaixPy-v1_scripts/blob/master/multimedia/video/amigo_play_video.py)

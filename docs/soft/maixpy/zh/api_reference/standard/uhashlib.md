@@ -14,7 +14,7 @@ SHA256-SHA2系列的最新现代哈希算法。它适用于密码安全的目的
 
 在 K210 中有硬件加速，不是软件计算
 
-[例程](https://github.com/sipeed/MaixPy_scripts/blob/master/basic/demo_sha256.py)：
+[例程](https://github.com/sipeed/MaixPy-v1_scripts/blob/master/basic/demo_sha256.py)：
 ```python
 a = bytes([0]*65)
 b = hashlib.sha256(a)

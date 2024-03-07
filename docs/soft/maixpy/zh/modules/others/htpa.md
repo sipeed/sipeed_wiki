@@ -44,7 +44,7 @@ API 详情参考[modules.htpa](../../api_reference/extend/htpa.md)
 
 ## 例程
 
-* 在 LCD 绘制温度分布图：[htpa demo](https://github.com/sipeed/MaixPy_scripts/blob/79a5485ec983e67bb8861305a52418b29e0dc205/modules/others/heimann_HTPA_32x32/HTPA_32x32_demo.py)
+* 在 LCD 绘制温度分布图：[htpa demo](https://github.com/sipeed/MaixPy-v1_scripts/blob/79a5485ec983e67bb8861305a52418b29e0dc205/modules/others/heimann_HTPA_32x32/HTPA_32x32_demo.py)
 
 ## 更多
 

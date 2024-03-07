@@ -242,7 +242,7 @@ If you burn your model on flash, you should run boot.py in serial terminal. If i
 
 ## ValueError: [MAIXPY]kpu: load error:2006, ERR. NO_ MEM: memory not enough
 
-This error means out of memory, use smaller size firmware to comsume less ram. There will be about 1M memory left because standard firmware consumes 2MB bytes, if you choose firmware which consumes 600kB you will have 3MB bytes memory left. Visit this demo [demo_view_mem.py](https://github.com/sipeed/MaixPy_scripts/blob/master/basic/demo_view_mem.py) to see how to know the rest memory.
+This error means out of memory, use smaller size firmware to comsume less ram. There will be about 1M memory left because standard firmware consumes 2MB bytes, if you choose firmware which consumes 600kB you will have 3MB bytes memory left. Visit this demo [demo_view_mem.py](https://github.com/sipeed/MaixPy-v1_scripts/blob/master/basic/demo_view_mem.py) to see how to know the rest memory.
 
 1. Using mini firmware instead of which you used now, or you need to reduce your dataset used during training
 2. Visit [memory manegment](./../course/others/mem.md) to manage your memory amd adjust it by garbage collector.
@@ -349,7 +349,7 @@ If the RAM is not big enough to load multiple models, try to load one model, and
 
 Beacuse the limit of RAM in K210, if need load big model, try to load it from flash and run it.
 
-The detailed usage can be found in github: [Click me](https://github.com/sipeed/MaixPy_scripts/tree/master/machine_vision/load_big_model)
+The detailed usage can be found in github: [Click me](https://github.com/sipeed/MaixPy-v1_scripts/tree/master/machine_vision/load_big_model)
 
 ## could not open port 'COMxx':Permission denied
 

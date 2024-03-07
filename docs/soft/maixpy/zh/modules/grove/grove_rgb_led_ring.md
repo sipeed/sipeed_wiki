@@ -45,7 +45,7 @@ ws.display()
 
 ## 例程
 
-[Grove - RGB LED Ring 例程](https://github.com/sipeed/MaixPy_scripts/blob/master/modules/grove/ws2812/ws2812.py)
+[Grove - RGB LED Ring 例程](https://github.com/sipeed/MaixPy-v1_scripts/blob/master/modules/grove/ws2812/ws2812.py)
 
 ## 更多
 

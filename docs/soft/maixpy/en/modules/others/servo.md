@@ -29,6 +29,6 @@ PWM control API reference: [PWM API](../../api_reference/machine/pwm.md)
 
 ## Routine
 
-* Control the servo to rotate at different angles: [Servo](https://github.com/sipeed/MaixPy_scripts/blob/79a5485ec983e67bb8861305a52418b29e0dc205/modules/others/Servo/Servo.py)
+* Control the servo to rotate at different angles: [Servo](https://github.com/sipeed/MaixPy-v1_scripts/blob/79a5485ec983e67bb8861305a52418b29e0dc205/modules/others/Servo/Servo.py)
 
-* Servo pan/tilt: [gimbal](https://github.com/sipeed/MaixPy_scripts/tree/master/application/gimbal)
+* Servo pan/tilt: [gimbal](https://github.com/sipeed/MaixPy-v1_scripts/tree/master/application/gimbal)

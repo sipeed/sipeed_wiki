@@ -14,7 +14,7 @@ desc: maixpy  自学习分类器（self learning classifier）
 * [在这里](https://dl.sipeed.com/shareURL/MAIX/MaixPy/release/master) 下载版本 >= v0.5.0-33 的固件
 * [下载 kmodel](https://maixhub.com/model/zoo/61)
 * 使用 [kflash_gui](https://github.com/sipeed/kflash_gui) 下载固件和模型
-* 运行 [示例脚本](https://github.com/sipeed/MaixPy_scripts/blob/master/machine_vision/self_learning_classifier/self_learning_classifier.py)
+* 运行 [示例脚本](https://github.com/sipeed/MaixPy-v1_scripts/blob/master/machine_vision/self_learning_classifier/self_learning_classifier.py)
 > 如果使用 lite 版本的 kmodel, 应该在创建 classifier 的时候传入 `fea_len` 参数为`512`，使用另外一个大一点的（1.8MiB）模型的时候则不需要这个参数:
 ```python
 classifier = kpu.classifier(model, class_num, sample_num, fea_len=512)
@@ -32,7 +32,7 @@ classifier = kpu.classifier(model, class_num, sample_num, fea_len=512)
 ## 保存/加载学习好的特征
 
 * 使用 `classifier.save(path)` 来保存学习好的特征到`path`文件
-* 使用 `KPU.classifier.load()` 来加载特征, 参考 [self_learning_classifier_load.py](https://github.com/sipeed/MaixPy_scripts/blob/master/machine_vision/self_learning_classifier/self_learning_classifier_load.py) 文件
+* 使用 `KPU.classifier.load()` 来加载特征, 参考 [self_learning_classifier_load.py](https://github.com/sipeed/MaixPy-v1_scripts/blob/master/machine_vision/self_learning_classifier/self_learning_classifier_load.py) 文件
 
 
 

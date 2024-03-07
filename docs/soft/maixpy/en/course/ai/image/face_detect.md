@@ -35,6 +35,6 @@ Then enter the image data and run the model
 code = kpu.run_yolo2(task, img)
 ```
 
-To get the result, see [here](https://github.com/sipeed/MaixPy_scripts/blob/master/machine_vision/face_find/demo_find_face.py) for the complete example
+To get the result, see [here](https://github.com/sipeed/MaixPy-v1_scripts/blob/master/machine_vision/face_find/demo_find_face.py) for the complete example
 
 API documentation see [Maix.KPU](/api_reference/Maix/kpu.md)

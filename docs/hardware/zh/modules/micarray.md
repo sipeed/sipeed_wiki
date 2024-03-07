@@ -121,7 +121,7 @@ mic.deinit()
 
 #### SK9822 驱动代码
 
-仅供参考用，来源：[github](https://github.com/sipeed/MaixPy/blob/master/components/kendryte_sdk/src/sipeed_sk9822.c) ;需要分析代码的话建议复制代码到电脑本地编辑器中查看。
+仅供参考用，来源：[github](https://github.com/sipeed/MaixPy-v1blob/master/components/kendryte_sdk/src/sipeed_sk9822.c) ;需要分析代码的话建议复制代码到电脑本地编辑器中查看。
 
 <details>
   <summary>sipeed_sk9822.c</summary>
@@ -402,7 +402,7 @@ void sipeed_init_mic_array_led(void)
 
 #### Micarray 代码
 
-仅供参考用，来源：[github](https://github.com/sipeed/MaixPy/blob/master/components/micropython/port/src/Maix/Maix_mic_array.c)；需要分析代码的话建议复制代码到电脑本地编辑器中查看。
+仅供参考用，来源：[github](https://github.com/sipeed/MaixPy-v1blob/master/components/micropython/port/src/Maix/Maix_mic_array.c)；需要分析代码的话建议复制代码到电脑本地编辑器中查看。
 
 ## 更多拓展用法
 

@@ -31,8 +31,8 @@ Current hardware support level: Maix BIT / DOCK / DUINO / GO.
 
 ### Sample code out of the box
 
--Use the test case of maixduino/maixbit [isolated_word.py](https://github.com/sipeed/MaixPy_scripts/blob/master/multimedia/speech_recognizer/isolated_word.py), please read the code for the usage method, please pay attention to the microphone of the hardware Configuration and channel configuration.
--Maix DOCK can directly use the sample code [demo_isolated_word_on_maixdock.py](https://github.com/sipeed/MaixPy_scripts/blob/master/multimedia/speech_recognizer/demo_isolated_word_on_maixdock.py), just follow the on-screen instructions to speak, see [ Test video](https://www.bilibili.com/video/BV1oz4y1C7yE?from=search&seid=17464946072274851468).
+-Use the test case of maixduino/maixbit [isolated_word.py](https://github.com/sipeed/MaixPy-v1_scripts/blob/master/multimedia/speech_recognizer/isolated_word.py), please read the code for the usage method, please pay attention to the microphone of the hardware Configuration and channel configuration.
+-Maix DOCK can directly use the sample code [demo_isolated_word_on_maixdock.py](https://github.com/sipeed/MaixPy-v1_scripts/blob/master/multimedia/speech_recognizer/demo_isolated_word_on_maixdock.py), just follow the on-screen instructions to speak, see [ Test video](https://www.bilibili.com/video/BV1oz4y1C7yE?from=search&seid=17464946072274851468).
 
 ### Module call flow
 

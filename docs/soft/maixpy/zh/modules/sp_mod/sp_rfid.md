@@ -29,7 +29,7 @@ desc: maixpy  SP_RFID 的使用
 
 1. 准备: 已烧录最新固件的开发板, sp_rfid 模块, M1 卡片.
 
-2. 运行: 连接模块, 修改[示例代码](https://github.com/sipeed/MaixPy_scripts/tree/master/modules/spmod/sp_rfid)中 config 包围的配置, 运行后将卡片靠近模块天线, 可看到终端打印的读卡信息.
+2. 运行: 连接模块, 修改[示例代码](https://github.com/sipeed/MaixPy-v1_scripts/tree/master/modules/spmod/sp_rfid)中 config 包围的配置, 运行后将卡片靠近模块天线, 可看到终端打印的读卡信息.
 
 程序如下:
 

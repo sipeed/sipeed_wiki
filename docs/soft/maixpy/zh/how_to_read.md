@@ -34,12 +34,12 @@ desc: maixpy  如何正确 阅读 本文
 
 * 刚接触，可以根据左边侧边栏的目录从上到下一页一页仔细看，跟着做即可， 入门一定不要跳过！！！
 * 学会如何更新固件，如何写代码，其中学会使用串口终端也十分重要，不建议过分依赖 IDE， 特别是在程序死掉的时候， 用终端可能会获得更多报错信息，更有利于解决问题，在遇到问题在社区提问时，也尽量给出终端运行的完整信息
-* 每个模块/库文档里面的结尾都附有简单例程， 或者到这里: [MaixPy_script](https://github.com/sipeed/MaixPy_scripts) 查找需要的示例， 可以尝试运行看效果
+* 每个模块/库文档里面的结尾都附有简单例程， 或者到这里: [MaixPy_script](https://github.com/sipeed/MaixPy-v1_scripts) 查找需要的示例， 可以尝试运行看效果
 
 ## 学会搜索
 
 * 关于模块的接口及参数，在使用时根据自己的需求进行查阅，<code><strong><font size=4>页面顶部右上角有搜索框</font></strong></code>，可以好好利用，同时也可以使用浏览器的页面搜索功能，即按键盘<kbd> Ctrl+F </kbd>，然后输入要搜索的内容后按确认键
-* 如果有找不到的内容也请不要着急， 可以上 github 的 [issue](https://github.com/sipeed/MaixPy/issues) 页面找一找（搜一搜）是不是有人提过了，没有的话可以新建 issue， 或者到 [论坛](https://bbs.sipeed.com) 搜索问题，没有再向大家求助， 或者联系技术支持。
+* 如果有找不到的内容也请不要着急， 可以上 github 的 [issue](https://github.com/sipeed/MaixPy-v1issues) 页面找一找（搜一搜）是不是有人提过了，没有的话可以新建 issue， 或者到 [论坛](https://bbs.sipeed.com) 搜索问题，没有再向大家求助， 或者联系技术支持。
 
 ## MaixPy 常见问题
 

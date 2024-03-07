@@ -31,8 +31,8 @@ desc: maixpy  isolated word
 
 ### 开箱即用示例代码
 
-- 使用 maixduino / maixbit 的测试用例 [isolated_word.py](https://github.com/sipeed/MaixPy_scripts/blob/master/multimedia/speech_recognizer/isolated_word.py)，使用方法请阅读代码，请注意硬件的 麦克风 配置 和 声道 配置。
-- Maix DOCK 可直接使用的示例代码[demo_isolated_word_on_maixdock.py](https://github.com/sipeed/MaixPy_scripts/blob/master/multimedia/speech_recognizer/demo_isolated_word_on_maixdock.py)，按屏幕提示说话即可，具体看[测试录像](https://www.bilibili.com/video/BV1oz4y1C7yE?from=search&seid=17464946072274851468)。
+- 使用 maixduino / maixbit 的测试用例 [isolated_word.py](https://github.com/sipeed/MaixPy-v1_scripts/blob/master/multimedia/speech_recognizer/isolated_word.py)，使用方法请阅读代码，请注意硬件的 麦克风 配置 和 声道 配置。
+- Maix DOCK 可直接使用的示例代码[demo_isolated_word_on_maixdock.py](https://github.com/sipeed/MaixPy-v1_scripts/blob/master/multimedia/speech_recognizer/demo_isolated_word_on_maixdock.py)，按屏幕提示说话即可，具体看[测试录像](https://www.bilibili.com/video/BV1oz4y1C7yE?from=search&seid=17464946072274851468)。
 
 ### 模块调用流程
 

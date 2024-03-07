@@ -19,17 +19,17 @@ Please confirm the address and port before using the following client code.
 
 There are the following types of typical client code:
 
-- TCP client [demo_socket_tcp_client.py](https://github.com/sipeed/MaixPy_scripts/blob/master/network/demo_socket_tcp_client.py)
-- UDP client [demo_socket_udp_client.py](https://github.com/sipeed/MaixPy_scripts/blob/master/network/demo_socket_udp_client.py)
-- TCP video transmission client [demo_socket_pic_client.py](https://github.com/sipeed/MaixPy_scripts/blob/master/network/demo_socket_pic_client.py)
+- TCP client [demo_socket_tcp_client.py](https://github.com/sipeed/MaixPy-v1_scripts/blob/master/network/demo_socket_tcp_client.py)
+- UDP client [demo_socket_udp_client.py](https://github.com/sipeed/MaixPy-v1_scripts/blob/master/network/demo_socket_udp_client.py)
+- TCP video transmission client [demo_socket_pic_client.py](https://github.com/sipeed/MaixPy-v1_scripts/blob/master/network/demo_socket_pic_client.py)
 
 ### Prepare debugging tools (server code)
 
 Commonly used in network debugging assistants, or running the provided Python3 server script on your computer.
 
-- TCP server [demo_socket_tcp_server.py](https://github.com/sipeed/MaixPy_scripts/blob/master/network/demo_socket_tcp_server.py)
-- UDP server [demo_socket_udp_server.py](https://github.com/sipeed/MaixPy_scripts/blob/master/network/demo_socket_udp_server.py)
-- TCP image transmission server [demo_socket_pic_server.py](https://github.com/sipeed/MaixPy_scripts/blob/master/network/demo_socket_pic_server.py)
+- TCP server [demo_socket_tcp_server.py](https://github.com/sipeed/MaixPy-v1_scripts/blob/master/network/demo_socket_tcp_server.py)
+- UDP server [demo_socket_udp_server.py](https://github.com/sipeed/MaixPy-v1_scripts/blob/master/network/demo_socket_udp_server.py)
+- TCP image transmission server [demo_socket_pic_server.py](https://github.com/sipeed/MaixPy-v1_scripts/blob/master/network/demo_socket_pic_server.py)
 
 First start a network service with a known IP address and port, and wait for MaixPy as a client to send data to the server.
 
@@ -96,7 +96,7 @@ The following are special function codes.
 
 #### esp32's ping
 
-- [demo_esp32_ping.py](https://github.com/sipeed/MaixPy_scripts/blob/master/network/demo_esp32_ping.py)
+- [demo_esp32_ping.py](https://github.com/sipeed/MaixPy-v1_scripts/blob/master/network/demo_esp32_ping.py)
 
 ```shell
     ESP32_SPI firmware version: 1.4.0
@@ -111,7 +111,7 @@ The following are special function codes.
 
 #### ADC of esp32
 
-- [demo_esp32_read_adc.py](https://github.com/sipeed/MaixPy_scripts/blob/master/network/demo_esp32_read_adc.py)
+- [demo_esp32_read_adc.py](https://github.com/sipeed/MaixPy-v1_scripts/blob/master/network/demo_esp32_read_adc.py)
 
 ```shell
     MicroPython v0.5.1-136-g039f72b6c-dirty on 2020-11-18; Sipeed_M1 with kendryte-k210
@@ -134,19 +134,19 @@ The following are special function codes.
 
 #### HTTP support
 
-- [demo_http_get_jpg.py](https://github.com/sipeed/MaixPy_scripts/blob/master/network/demo_http_get_jpg.py)
+- [demo_http_get_jpg.py](https://github.com/sipeed/MaixPy-v1_scripts/blob/master/network/demo_http_get_jpg.py)
 
 #### https support
 
 This function is not compiled by default, but what is provided is the use of HTTP, and HTTP and HTTPS are only the difference of the path url. Note that the IP resolution of https depends on the firmware of the network card and is not completed on the K210.
 
-- [demo_socket_https.py](https://github.com/sipeed/MaixPy_scripts/blob/master/network/demo_socket_https.py)
+- [demo_socket_https.py](https://github.com/sipeed/MaixPy-v1_scripts/blob/master/network/demo_socket_https.py)
 
 #### scan WIFI AP hotspot of esp32, 82XX
 
-- [demo_esp32_ap_scan.py](https://github.com/sipeed/MaixPy_scripts/blob/master/network/demo_esp32_ap_scan.py)
+- [demo_esp32_ap_scan.py](https://github.com/sipeed/MaixPy-v1_scripts/blob/master/network/demo_esp32_ap_scan.py)
 
-- [demo_espat_ap_scan.py](https://github.com/sipeed/MaixPy_scripts/blob/master/network/demo_espat_ap_scan.py)
+- [demo_espat_ap_scan.py](https://github.com/sipeed/MaixPy-v1_scripts/blob/master/network/demo_espat_ap_scan.py)
 ```python
 '''
     >>>
@@ -173,12 +173,12 @@ This function is not compiled by default, but what is provided is the use of HTT
 
 This is the code provided by the official repository of micropython. If it is for commercial use, please configure the socket as non-blocking and add the MQTT keep-alive protocol.
 
-- [demo_socket_mqtt.py](https://github.com/sipeed/MaixPy_scripts/blob/master/network/demo_socket_mqtt.py)
+- [demo_socket_mqtt.py](https://github.com/sipeed/MaixPy-v1_scripts/blob/master/network/demo_socket_mqtt.py)
 
 #### Update the AT firmware of ESP82XX
 
 > This is a function provided for the AT firmware, so you can understand it naturally.
 
-- [demo_espat_ap_test.py](https://github.com/sipeed/MaixPy_scripts/blob/master/network/demo_espat_ap_test.py)
+- [demo_espat_ap_test.py](https://github.com/sipeed/MaixPy-v1_scripts/blob/master/network/demo_espat_ap_test.py)
 
-- [espat_upgrade.py](https://github.com/sipeed/MaixPy_scripts/blob/master/network/espat_upgrade.py)
+- [espat_upgrade.py](https://github.com/sipeed/MaixPy-v1_scripts/blob/master/network/espat_upgrade.py)

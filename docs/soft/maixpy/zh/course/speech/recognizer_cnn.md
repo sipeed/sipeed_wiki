@@ -19,7 +19,7 @@ desc: maixpy  maix asr（自动语音识别）
 
 > TODO 之后存放到下载站统一链接。
 
-从这里获取声学模型[maix_asr_2900k_0x500000](https://github.com/sipeed/MaixPy_scripts/blob/master/multimedia/speech_recognizer/maix_asr_2900k_0x500000.kmodel), 烧录到 0x500000 地址即可。
+从这里获取声学模型[maix_asr_2900k_0x500000](https://github.com/sipeed/MaixPy-v1_scripts/blob/master/multimedia/speech_recognizer/maix_asr_2900k_0x500000.kmodel), 烧录到 0x500000 地址即可。
 
 > 没有烧模型就加载模块会 core dump ，不要跑来问怎么报错了。
 
@@ -133,4 +133,4 @@ finally:
 
 也就是你对着麦克风在 6 秒内，说【你-好】、【好-的】、【小-爱】就可以完成识别了，配置项为两个字段，第一个字段长度不超过六组拼音，第二个字段表示识别的最低门限（匹配的阈值），高于该值就打印，低于该值就丢弃。
 
-最开始测试的时候，说话可以大声一点，具体效果看[演示视频](https://www.bilibili.com/video/BV1C5411L7JC/), 完整示例: [test_maix_asr.py](https://github.com/sipeed/MaixPy_scripts/blob/master/multimedia/speech_recognizer/test_maix_asr.py)
+最开始测试的时候，说话可以大声一点，具体效果看[演示视频](https://www.bilibili.com/video/BV1C5411L7JC/), 完整示例: [test_maix_asr.py](https://github.com/sipeed/MaixPy-v1_scripts/blob/master/multimedia/speech_recognizer/test_maix_asr.py)

@@ -224,7 +224,7 @@ print(sd_check())
 
 ## 运行模型的时候报 ValueError: [MAIXPY]kpu: load error:2006, ERR. NO_ MEM: memory not enough
 
-同上 Out of memory ，请使用更小的固件获得更多的运行内存，标准固件大于 2m 剩余 1m 多，同理选用 600kb 可以获得 3m 多的运行内存，查看剩余运行内存看 [demo_view_mem.py](https://github.com/sipeed/MaixPy_scripts/blob/master/basic/demo_view_mem.py)。
+同上 Out of memory ，请使用更小的固件获得更多的运行内存，标准固件大于 2m 剩余 1m 多，同理选用 600kb 可以获得 3m 多的运行内存，查看剩余运行内存看 [demo_view_mem.py](https://github.com/sipeed/MaixPy-v1_scripts/blob/master/basic/demo_view_mem.py)。
 这是内存不足了，不是 flash 或者是 sd 内存不够，是运行内存不够了。解决办法：
 
 1. 这时需要跟换 mini 固件得以解决，如果还是不行，那就要减少训练的时候使用的数据集
@@ -345,8 +345,8 @@ Maixpy ide 挂着运行时内存不足，就会出现的常见错误，解决方
 
 具体用法前往 github:
 
-使用说明:[点我github](https://github.com/sipeed/MaixPy_scripts/blob/master/machine_vision/load_big_model/README_ZH.md)
-具体仓库:[点我github](https://github.com/sipeed/MaixPy_scripts/tree/master/machine_vision/load_big_model)
+使用说明:[点我github](https://github.com/sipeed/MaixPy-v1_scripts/blob/master/machine_vision/load_big_model/README_ZH.md)
+具体仓库:[点我github](https://github.com/sipeed/MaixPy-v1_scripts/tree/master/machine_vision/load_big_model)
 
 ## could not open port 'COMxx':Permission 错误
 

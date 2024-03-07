@@ -13,4 +13,4 @@ Refer to the official document: [lvgl blog page](https://blog.littlevgl.com/2019
 
 ## Routine
 
-Reference [MaixPy_Scripts of github](https://github.com/sipeed/MaixPy_scripts/tree/master/multimedia/gui/lvgl)
+Reference [MaixPy_Scripts of github](https://github.com/sipeed/MaixPy-v1_scripts/tree/master/multimedia/gui/lvgl)

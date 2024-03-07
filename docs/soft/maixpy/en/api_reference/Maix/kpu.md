@@ -24,7 +24,7 @@ KPU is a general-purpose neural network processor, which can realize convolution
 
 Model download address: [http://dl.sipeed.com/MAIX/MaixPy/model](http://dl.sipeed.com/MAIX/MaixPy/model), download `face_model_at_0x300000.kfpkg`
 
-Complete example: [face_find](https://github.com/sipeed/MaixPy_scripts/tree/master/machine_vision/face_find)
+Complete example: [face_find](https://github.com/sipeed/MaixPy-v1_scripts/tree/master/machine_vision/face_find)
 
 ### Running feature map
 
@@ -95,7 +95,7 @@ The `offset` and `file_path` parameters can only choose one of the two, no keywo
 
 ##### Return
 
-If it is loaded correctly, the return value will be returned, otherwise an error will be thrown. Please see the error message thrown. In addition, please refer to [here](https://github.com/sipeed/MaixPy/blob/fa3cf2c96353fa698e9386e42be8b3c9cf495114/components/kendryte_sdk/include/sipeed_kpu.h#L6-L23)
+If it is loaded correctly, the return value will be returned, otherwise an error will be thrown. Please see the error message thrown. In addition, please refer to [here](https://github.com/sipeed/MaixPy-v1blob/fa3cf2c96353fa698e9386e42be8b3c9cf495114/components/kendryte_sdk/include/sipeed_kpu.h#L6-L23)
 
 If the error code is found to be less than the value of `2000`, the firmware version is too low, and the firmware version needs to be updated
 
@@ -111,7 +111,7 @@ kpu.load_flash(model_addr, is_dual_buf, batch_size, spi_speed)
 
 #### Parameters
 
-* `model_addr`: Flash addr's preprocessed model burned to the offset address in flash. Note that the model file [description](https://github.com/sipeed/MaixPy_scripts/blob/master/machine_vision/load_big_model/README_ZH.md) needs to be preprocessed here.
+* `model_addr`: Flash addr's preprocessed model burned to the offset address in flash. Note that the model file [description](https://github.com/sipeed/MaixPy-v1_scripts/blob/master/machine_vision/load_big_model/README_ZH.md) needs to be preprocessed here.
 * `is_dual_buf`: `0`, single buffer loading, using less RAM and slower speed to dynamically load the model file; `1`, enabling double buffer loading, requires larger RAM, and running speed is relatively fast .
 * `batch_size`: When setting `is_dual_buf` to 1, load batch_size needs to be set. The recommended value is `0x4000~0x10000`, which can test the best value of the model. If `is_dual_buf` is 0 then set to 0
 * `spi_speed`: When using SPI flash to load the model file, we will temporarily set the flash to high-speed mode and set the required spi clock frequency. The value should be <= 80000000 (the actual frequency, the set value may not be equal to the actual frequency.)
@@ -319,7 +319,7 @@ After `load`, you need to call this function to manually set the output layer sh
 
 ##### Return
 
-* `success`: Whether the setting is successful, if not, please pay attention to the output prompt information, refer to [error code](https://github.com/sipeed/MaixPy/blob/fa3cf2c96353fa698e9386e42be8b3c9cf495114/components/kendryte_sdk/include/sipeed_kpu.h#L6-L23)
+* `success`: Whether the setting is successful, if not, please pay attention to the output prompt information, refer to [error code](https://github.com/sipeed/MaixPy-v1blob/fa3cf2c96353fa698e9386e42be8b3c9cf495114/components/kendryte_sdk/include/sipeed_kpu.h#L6-L23)
 
 
 ### memtest
@@ -334,7 +334,7 @@ KPU.memtest()
 ```
 ### face_encode
 
-Quantify the feature map returned by `forward`. For more details, please see: [kpu issue](https://github.com/sipeed/MaixPy/issues/342)
+Quantify the feature map returned by `forward`. For more details, please see: [kpu issue](https://github.com/sipeed/MaixPy-v1issues/342)
 
 ```python
 feature = kpu.face_encode(fmap[:])

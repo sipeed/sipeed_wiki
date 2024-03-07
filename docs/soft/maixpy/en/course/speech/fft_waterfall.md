@@ -43,7 +43,7 @@ for i in range(hist_x_num):
 
 Acquire audio data in real time and draw it as an FFT waterfall chart
 
-[demo_fft_waterfall.py](https://github.com/sipeed/MaixPy_scripts/blob/master/hardware/demo_fft_waterfall.py)
+[demo_fft_waterfall.py](https://github.com/sipeed/MaixPy-v1_scripts/blob/master/hardware/demo_fft_waterfall.py)
 
 effect:
 

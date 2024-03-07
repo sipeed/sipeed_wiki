@@ -41,7 +41,7 @@ kflash -p /dev/ttyUSB0 -b 1500000 -B goE maixpy.bin
 
 ## Get the firmware
 
-* The released version of the firmware can be downloaded from the [github](https://github.com/sipeed/MaixPy/releases) page
+* The released version of the firmware can be downloaded from the [github](https://github.com/sipeed/MaixPy-v1releases) page
 * The latest submitted code is automatically constructed and generated firmware download: [master branch](http://dl.sipeed.com/MAIX/MaixPy/release/master/)
 
 

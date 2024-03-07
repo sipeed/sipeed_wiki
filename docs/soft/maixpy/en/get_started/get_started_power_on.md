@@ -28,7 +28,7 @@ After power on, if it is a new factory development board, it may display a red b
 
 ## Check the firmware version
 
-Use **Serial Terminal** to open the serial port, and then reset, see the output version information, and [github](https://github.com/sipeed/MaixPy/releases) or [master branch](http://dl. sipeed.com/MAIX/MaixPy/release/master/) firmware version comparison, consider upgrading to the latest version according to the current version
+Use **Serial Terminal** to open the serial port, and then reset, see the output version information, and [github](https://github.com/sipeed/MaixPy-v1releases) or [master branch](http://dl. sipeed.com/MAIX/MaixPy/release/master/) firmware version comparison, consider upgrading to the latest version according to the current version
 
 such as:
 

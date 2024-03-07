@@ -19,17 +19,17 @@ desc: maixpy  如何使用 Socket 网络编程
 
 有如下几类典型客户端代码：
 
-- TCP 客户端 [demo_socket_tcp_client.py](https://github.com/sipeed/MaixPy_scripts/blob/master/network/demo_socket_tcp_client.py)
-- UDP 客户端 [demo_socket_udp_client.py](https://github.com/sipeed/MaixPy_scripts/blob/master/network/demo_socket_udp_client.py)
-- TCP 图传 客户端 [demo_socket_pic_client.py](https://github.com/sipeed/MaixPy_scripts/blob/master/network/demo_socket_pic_client.py)
+- TCP 客户端 [demo_socket_tcp_client.py](https://github.com/sipeed/MaixPy-v1_scripts/blob/master/network/demo_socket_tcp_client.py)
+- UDP 客户端 [demo_socket_udp_client.py](https://github.com/sipeed/MaixPy-v1_scripts/blob/master/network/demo_socket_udp_client.py)
+- TCP 图传 客户端 [demo_socket_pic_client.py](https://github.com/sipeed/MaixPy-v1_scripts/blob/master/network/demo_socket_pic_client.py)
 
 ### 准备调试工具（服务端代码）
 
 常见于网络调试助手，或者自己在电脑上运行提供的 Python3 服务端脚本。
 
-- TCP 服务端 [demo_socket_tcp_server.py](https://github.com/sipeed/MaixPy_scripts/blob/master/network/demo_socket_tcp_server.py)
-- UDP 服务端 [demo_socket_udp_server.py](https://github.com/sipeed/MaixPy_scripts/blob/master/network/demo_socket_udp_server.py)
-- TCP 图传 服务端 [demo_socket_pic_server.py](https://github.com/sipeed/MaixPy_scripts/blob/master/network/demo_socket_pic_server.py)
+- TCP 服务端 [demo_socket_tcp_server.py](https://github.com/sipeed/MaixPy-v1_scripts/blob/master/network/demo_socket_tcp_server.py)
+- UDP 服务端 [demo_socket_udp_server.py](https://github.com/sipeed/MaixPy-v1_scripts/blob/master/network/demo_socket_udp_server.py)
+- TCP 图传 服务端 [demo_socket_pic_server.py](https://github.com/sipeed/MaixPy-v1_scripts/blob/master/network/demo_socket_pic_server.py)
 
 先起一个已知 IP 地址和端口的网络服务，等待 MaixPy 作为客户端发送数据过来服务器。
 
@@ -96,7 +96,7 @@ addr: ('192.168.0.107', 60000) data: b'HELLO\n'
 
 #### esp32 的 ping
 
-- [demo_esp32_ping.py](https://github.com/sipeed/MaixPy_scripts/blob/master/network/demo_esp32_ping.py)
+- [demo_esp32_ping.py](https://github.com/sipeed/MaixPy-v1_scripts/blob/master/network/demo_esp32_ping.py)
 
 ```shell
     ESP32_SPI firmware version: 1.4.0
@@ -111,7 +111,7 @@ addr: ('192.168.0.107', 60000) data: b'HELLO\n'
 
 #### esp32 的 ADC
 
-- [demo_esp32_read_adc.py](https://github.com/sipeed/MaixPy_scripts/blob/master/network/demo_esp32_read_adc.py)
+- [demo_esp32_read_adc.py](https://github.com/sipeed/MaixPy-v1_scripts/blob/master/network/demo_esp32_read_adc.py)
 
 ```shell
     MicroPython v0.5.1-136-g039f72b6c-dirty on 2020-11-18; Sipeed_M1 with kendryte-k210
@@ -134,19 +134,19 @@ addr: ('192.168.0.107', 60000) data: b'HELLO\n'
 
 #### HTTP 的支持
 
-- [demo_http_get_jpg.py](https://github.com/sipeed/MaixPy_scripts/blob/master/network/demo_http_get_jpg.py)
+- [demo_http_get_jpg.py](https://github.com/sipeed/MaixPy-v1_scripts/blob/master/network/demo_http_get_jpg.py)
 
 #### https 的支持
 
 该功能默认是不被编译的，但所以提供的是 HTTP 的使用方法，而 HTTP 和 HTTPS 只是路径 url 的区别，注意这个 https 的 IP 解析依赖于网卡固件，并不在 K210 上完成。
 
-- [demo_socket_https.py](https://github.com/sipeed/MaixPy_scripts/blob/master/network/demo_socket_https.py)
+- [demo_socket_https.py](https://github.com/sipeed/MaixPy-v1_scripts/blob/master/network/demo_socket_https.py)
 
 #### esp32、82XX 的 scan WIFI AP 热点
 
-- [demo_esp32_ap_scan.py](https://github.com/sipeed/MaixPy_scripts/blob/master/network/demo_esp32_ap_scan.py)
+- [demo_esp32_ap_scan.py](https://github.com/sipeed/MaixPy-v1_scripts/blob/master/network/demo_esp32_ap_scan.py)
 
-- [demo_espat_ap_scan.py](https://github.com/sipeed/MaixPy_scripts/blob/master/network/demo_espat_ap_scan.py)
+- [demo_espat_ap_scan.py](https://github.com/sipeed/MaixPy-v1_scripts/blob/master/network/demo_espat_ap_scan.py)
 
 ```python
 '''
@@ -174,12 +174,12 @@ addr: ('192.168.0.107', 60000) data: b'HELLO\n'
 
 这个是来自于 micropython 的官方仓库提供的代码，如果是商业用途，请将 socket 配置为非阻塞且添加 MQTT 保活的协议。
 
-- [demo_socket_mqtt.py](https://github.com/sipeed/MaixPy_scripts/blob/master/network/demo_socket_mqtt.py)
+- [demo_socket_mqtt.py](https://github.com/sipeed/MaixPy-v1_scripts/blob/master/network/demo_socket_mqtt.py)
 
 #### 更新 ESP82XX 的 AT 固件
 
 > 这是给 AT 固件提供的功能，懂的自然懂。
 
-- [demo_espat_ap_test.py](https://github.com/sipeed/MaixPy_scripts/blob/master/network/demo_espat_ap_test.py)
+- [demo_espat_ap_test.py](https://github.com/sipeed/MaixPy-v1_scripts/blob/master/network/demo_espat_ap_test.py)
 
-- [espat_upgrade.py](https://github.com/sipeed/MaixPy_scripts/blob/master/network/espat_upgrade.py)
+- [espat_upgrade.py](https://github.com/sipeed/MaixPy-v1_scripts/blob/master/network/espat_upgrade.py)

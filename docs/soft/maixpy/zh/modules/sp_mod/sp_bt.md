@@ -26,7 +26,7 @@ SP_BT 是一款蓝牙串口透传模块， 具备超低功率特性和高可靠�
 
 1. 准备: 已烧录最新固件的开发板, sp_bt 模块, 蓝牙调试助手.
 
-2. 运行: 连接模块, 修改[示例代码](https://github.com/sipeed/MaixPy_scripts/tree/master/modules/spmod/sp_bt)中 config 包围的配置, 运行后使用蓝牙调试助手连接并发送数据, 即可在终端查看收发信息.
+2. 运行: 连接模块, 修改[示例代码](https://github.com/sipeed/MaixPy-v1_scripts/tree/master/modules/spmod/sp_bt)中 config 包围的配置, 运行后使用蓝牙调试助手连接并发送数据, 即可在终端查看收发信息.
 
 程序如下:
 

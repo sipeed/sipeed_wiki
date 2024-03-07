@@ -121,7 +121,7 @@ def enable_espat():
 
 #### Maixduino + ESP32
 
-使用 Maixduino 的 esp32 联网，上传该类库 [network_esp32.py](https://github.com/sipeed/MaixPy_scripts/blob/master/network/network_esp32.py) 即可。
+使用 Maixduino 的 esp32 联网，上传该类库 [network_esp32.py](https://github.com/sipeed/MaixPy-v1_scripts/blob/master/network/network_esp32.py) 即可。
 
 ```python
 # This file is part of MaixPY
@@ -256,7 +256,7 @@ if __name__ == "__main__":
 
 #### ESP82XX 的 AT 固件
 
-使用 ESP8266/85 的 AT 固件联网，上传该类库 [network_espat.py](https://github.com/sipeed/MaixPy_scripts/blob/master/network/network_espat.py) 即可
+使用 ESP8266/85 的 AT 固件联网，上传该类库 [network_espat.py](https://github.com/sipeed/MaixPy-v1_scripts/blob/master/network/network_espat.py) 即可
 
 > `board_info` 与板卡相关，不同板卡配置不同，使用前需要[手动配置](../../api_reference/builtin_py/board_info.md)。
 
@@ -408,7 +408,7 @@ if __name__ == "__main__":
 
 #### Spmod 的 WIZNET5K
 
-使用 Spmod 的 WIZNET5K 网卡联网，运行此类中的代码 [network_wiznet5k.py](https://github.com/sipeed/MaixPy_scripts/blob/master/network/network_wiznet5k.py) 即可，可以直接获取对应的 IP 信息
+使用 Spmod 的 WIZNET5K 网卡联网，运行此类中的代码 [network_wiznet5k.py](https://github.com/sipeed/MaixPy-v1_scripts/blob/master/network/network_wiznet5k.py) 即可，可以直接获取对应的 IP 信息
 
 
 WIZNET5K 为有线网卡模块, 使用时只需要将网线插好即可, 使用 SPI 协议, 在完整固件中默认使能了此模块, 最小固件中没有.

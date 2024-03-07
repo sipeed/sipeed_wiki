@@ -38,4 +38,4 @@ API 详情请参考: [Sensor API](../../api_reference/machine_vision/sensor.md)
 
 捕捉图像并显示在 LCD 上
 
-[demo_binocular](https://github.com/sipeed/MaixPy_scripts/blob/5a03ab549d06cd713f2c0d19f0c18fbd24c69025/hardware/demo_binocular.py)
+[demo_binocular](https://github.com/sipeed/MaixPy-v1_scripts/blob/5a03ab549d06cd713f2c0d19f0c18fbd24c69025/hardware/demo_binocular.py)

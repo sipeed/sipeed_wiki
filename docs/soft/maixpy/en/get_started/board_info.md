@@ -27,22 +27,22 @@ This code can run on all MaixPy device, while its board_info.LED_R is not all th
 Copy the python code from the following links (like config_maix_bit.py), run it in MaixPy IDE, after this you have imported config.json of your downloaded hardware, this config.json will be stored on flash
 
 1. Maix Bit
-[config_maix_bit.py](https://github.com/sipeed/MaixPy_scripts/tree/master/board/config_maix_bit.py)
+[config_maix_bit.py](https://github.com/sipeed/MaixPy-v1_scripts/tree/master/board/config_maix_bit.py)
 
 2. Maix Dock
-[config_maix_dock.py](https://github.com/sipeed/MaixPy_scripts/tree/master/board/config_maix_dock.py)
+[config_maix_dock.py](https://github.com/sipeed/MaixPy-v1_scripts/tree/master/board/config_maix_dock.py)
 
 3. Maix Go
-[config_maix_go.py](https://github.com/sipeed/MaixPy_scripts/tree/master/board/config_maix_go.py)
+[config_maix_go.py](https://github.com/sipeed/MaixPy-v1_scripts/tree/master/board/config_maix_go.py)
 
 4. Maix Duino
-[config_maix_duino.py](https://github.com/sipeed/MaixPy_scripts/tree/master/board/config_maix_duino.py)
+[config_maix_duino.py](https://github.com/sipeed/MaixPy-v1_scripts/tree/master/board/config_maix_duino.py)
 
 5. Maix Cube
-[config_maix_cube.py](https://github.com/sipeed/MaixPy_scripts/tree/master/board/config_maix_cube.py)
+[config_maix_cube.py](https://github.com/sipeed/MaixPy-v1_scripts/tree/master/board/config_maix_cube.py)
 
 6. Maix Amigo
-[config_maix_amigo.py](https://github.com/sipeed/MaixPy_scripts/tree/master/board/config_maix_amigo.py)
+[config_maix_amigo.py](https://github.com/sipeed/MaixPy-v1_scripts/tree/master/board/config_maix_amigo.py)
 
 7. Maix Nano
 > There is no peripheral on this hardware, so here is no config code about it.
@@ -57,7 +57,7 @@ print(board_info.BOOT_KEY, board_info.BOOT_KEY == 16)
 
 ## Custome your own firmware
 
-You can use this interface code to adapt your hardware, refer to [MaixPy_scripts/board](https://github.com/sipeed/MaixPy_scripts/tree/master/board) to see the reference configuration file to know configuration method.
+You can use this interface code to adapt your hardware, refer to [MaixPy_scripts/board](https://github.com/sipeed/MaixPy-v1_scripts/tree/master/board) to see the reference configuration file to know configuration method.
 
 ## board usage
 

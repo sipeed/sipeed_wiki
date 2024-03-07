@@ -37,27 +37,27 @@ print(board_info.BOOT_KEY, board_info.BOOT_KEY == 16)
 
 ### Maix Bit
 
-[config_maix_bit.py](https://github.com/sipeed/MaixPy_scripts/tree/master/board/config_maix_bit.py)
+[config_maix_bit.py](https://github.com/sipeed/MaixPy-v1_scripts/tree/master/board/config_maix_bit.py)
 
 ### Maix Dock
 
-[config_maix_dock.py](https://github.com/sipeed/MaixPy_scripts/tree/master/board/config_maix_dock.py)
+[config_maix_dock.py](https://github.com/sipeed/MaixPy-v1_scripts/tree/master/board/config_maix_dock.py)
 
 ### Maix Go
 
-[config_maix_go.py](https://github.com/sipeed/MaixPy_scripts/tree/master/board/config_maix_go.py)
+[config_maix_go.py](https://github.com/sipeed/MaixPy-v1_scripts/tree/master/board/config_maix_go.py)
 
 ### Maix Duino
 
-[config_maix_duino.py](https://github.com/sipeed/MaixPy_scripts/tree/master/board/config_maix_duino.py)
+[config_maix_duino.py](https://github.com/sipeed/MaixPy-v1_scripts/tree/master/board/config_maix_duino.py)
 
 ### Maix Cube
 
-[config_maix_cube.py](https://github.com/sipeed/MaixPy_scripts/tree/master/board/config_maix_cube.py)
+[config_maix_cube.py](https://github.com/sipeed/MaixPy-v1_scripts/tree/master/board/config_maix_cube.py)
 
 ### Maix Amigo
 
-[config_maix_amigo.py](https://github.com/sipeed/MaixPy_scripts/tree/master/board/config_maix_amigo.py)
+[config_maix_amigo.py](https://github.com/sipeed/MaixPy-v1_scripts/tree/master/board/config_maix_amigo.py)
 
 ### Maix Nano
 
@@ -65,7 +65,7 @@ print(board_info.BOOT_KEY, board_info.BOOT_KEY == 16)
 
 ### Create your own hardware
 
-You can use this interface code to adapt to your hardware. For the configuration method, please refer to [MaixPy_scripts/board](https://github.com/sipeed/MaixPy_scripts/tree/master/board) There is a configuration file for your reference.
+You can use this interface code to adapt to your hardware. For the configuration method, please refer to [MaixPy_scripts/board](https://github.com/sipeed/MaixPy-v1_scripts/tree/master/board) There is a configuration file for your reference.
 
 ### How to use board
 

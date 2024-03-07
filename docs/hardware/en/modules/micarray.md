@@ -110,7 +110,7 @@ According to the pin number of your own connection, `init(i2s_d0=23, i2s_d1=22, 
 
 #### SK9822 driver codes
 
-For reference only, source：[github](https://github.com/sipeed/MaixPy/blob/master/components/kendryte_sdk/src/sipeed_sk9822.c); It is recommended to copy the code to the computer local editor to view if analyzing the code.
+For reference only, source：[github](https://github.com/sipeed/MaixPy-v1blob/master/components/kendryte_sdk/src/sipeed_sk9822.c); It is recommended to copy the code to the computer local editor to view if analyzing the code.
 
 <details>
   <summary>sipeed_sk9822.c</summary>
@@ -391,7 +391,7 @@ void sipeed_init_mic_array_led(void)
 
 #### Micarray code
 
-For reference only, source：[github](https://github.com/sipeed/MaixPy/blob/master/components/micropython/port/src/Maix/Maix_mic_array.c); It is recommended to copy the code to the computer local editor to view if analyzing the code.
+For reference only, source：[github](https://github.com/sipeed/MaixPy-v1blob/master/components/micropython/port/src/Maix/Maix_mic_array.c); It is recommended to copy the code to the computer local editor to view if analyzing the code.
 
 ## Other information
 

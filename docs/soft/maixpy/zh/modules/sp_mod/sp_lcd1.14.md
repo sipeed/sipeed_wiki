@@ -25,7 +25,7 @@ SP_LCD 拥有一块1.14’寸 LCD， 8P FPC(0.5mm 间距)接口的 TFT 液晶屏
 
 1. 准备: 已烧录最新固件的开发板, sp_lcd114 模块.
 
-2. 运行: 连接模块, 修改[示例代码](https://github.com/sipeed/MaixPy_scripts/tree/master/modules/spmod/sp_lcd114)中 config 包围的配置, 运行后模块将显示图片.
+2. 运行: 连接模块, 修改[示例代码](https://github.com/sipeed/MaixPy-v1_scripts/tree/master/modules/spmod/sp_lcd114)中 config 包围的配置, 运行后模块将显示图片.
 
 程序如下:
 

@@ -24,7 +24,7 @@ SP_EINK 模块所采用的 GDEW0154M09 是一款 1.54”, 拥有 24P FPC(0.5mm �
 
 1. 准备: 已烧录最新固件的开发板, sp_eink 模块.
 
-2. 运行: 连接模块, 修改[示例代码](https://github.com/sipeed/MaixPy_scripts/tree/master/modules/spmod/sp_eink)中 config 包围的配置, 运行后模块将显示图片.
+2. 运行: 连接模块, 修改[示例代码](https://github.com/sipeed/MaixPy-v1_scripts/tree/master/modules/spmod/sp_eink)中 config 包围的配置, 运行后模块将显示图片.
 
 程序如下:
 

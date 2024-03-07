@@ -48,14 +48,14 @@ MaixAmigo 板载 I2C 传感器/IC
 
 |             IC     | 设备 id     | I2C 地址(7位地址) | MaixPy 读取地址  | 示例代码 |
 | --------------------- | ----------- | ----------------- | ---------------------------- |----|
-| ES8374（音频解码芯片） | 0x08        | 0x10              | D(16)                        |[code](https://github.com/sipeed/MaixPy_scripts/blob/79a5485ec983e67bb8861305a52418b29e0dc205/modules/others/es8374/es8374.py)|
-| MSA301（三轴加速计） | 0x13        | 0x26              | D(38)                        |[code](https://github.com/sipeed/MaixPy_scripts/blob/7fea2359a7f0c05f586be915aa8e6112262e0caa/multimedia/gui/maixui/msa301.py)|
-| AXP173（电源管理芯片） | 0x68        | 0x34              | D(52)                        |[code](https://github.com/sipeed/MaixPy_scripts/blob/7fea2359a7f0c05f586be915aa8e6112262e0caa/multimedia/gui/maixui/pmu_axp173.py)|
+| ES8374（音频解码芯片） | 0x08        | 0x10              | D(16)                        |[code](https://github.com/sipeed/MaixPy-v1_scripts/blob/79a5485ec983e67bb8861305a52418b29e0dc205/modules/others/es8374/es8374.py)|
+| MSA301（三轴加速计） | 0x13        | 0x26              | D(38)                        |[code](https://github.com/sipeed/MaixPy-v1_scripts/blob/7fea2359a7f0c05f586be915aa8e6112262e0caa/multimedia/gui/maixui/msa301.py)|
+| AXP173（电源管理芯片） | 0x68        | 0x34              | D(52)                        |[code](https://github.com/sipeed/MaixPy-v1_scripts/blob/7fea2359a7f0c05f586be915aa8e6112262e0caa/multimedia/gui/maixui/pmu_axp173.py)|
 
 
 ## 上手把玩
 
-MaixAmigo 同样使用 MaixPy 入门 AIoT ，由于硬件特殊性，请在[配置 amigo 硬件](https://github.com/sipeed/MaixPy_scripts/blob/master/board/config_maix_amigo.py) 后再使用 MaixPy （如果不配置会导致摄像头拍摄的照片有噪点）。
+MaixAmigo 同样使用 MaixPy 入门 AIoT ，由于硬件特殊性，请在[配置 amigo 硬件](https://github.com/sipeed/MaixPy-v1_scripts/blob/master/board/config_maix_amigo.py) 后再使用 MaixPy （如果不配置会导致摄像头拍摄的照片有噪点）。
 
 而在开发之前我们需要了解并准备相关工具，以减少我们后边因为准备不足而走的坑路
 
@@ -80,7 +80,7 @@ MaixAmigo 同样使用 MaixPy 入门 AIoT ，由于硬件特殊性，请在[配�
   - USB 驱动：[点我](https://dl.sipeed.com/shareURL/MAIX/tools/driver)
   - Kflash_gui：[https://dl.sipeed.com/shareURL/MAIX/tools/kflash_gui](https://dl.sipeed.com/shareURL/MAIX/tools/kflash_gui)
   - MaixPy IDE ：[https://dl.sipeed.com/shareURL/MAIX/MaixPy/ide/_/v0.2.5](https://dl.sipeed.com/shareURL/MAIX/MaixPy/ide/_/v0.2.5)
-  - 例程程序库：[https://github.com/sipeed/MaixPy_scripts](https://github.com/sipeed/MaixPy_scripts)
+  - 例程程序库：[https://github.com/sipeed/MaixPy-v1_scripts](https://github.com/sipeed/MaixPy-v1_scripts)
 
 ###  安装驱动
 

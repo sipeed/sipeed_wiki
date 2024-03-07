@@ -138,7 +138,7 @@ C language code running model:
 MaixPy running model:
     * When running MaixPy (minimum version), a model of about 4MB can be loaded. If you don’t use the camera and LCD, you can load up to 5MiB of models (because the buffer of the camera and LCD takes up a lot of memory, but the actual application is not very meaningful)
     * When running MaixPy (full version), it can load a model of about 2MiB
-    * In addition, it also supports real-time loading of models from `Flash`. In theory, as long as the single-layer memory does not exceed 2MiB, the overall model can be infinitely large, but at the expense of computing speed. For usage, see [here](https://github.com/sipeed/MaixPy_scripts/tree/master/machine_vision/load_big_model). If you are interested in the principle and implementation, you can see [here](https://neucrack.com/p/313)
+    * In addition, it also supports real-time loading of models from `Flash`. In theory, as long as the single-layer memory does not exceed 2MiB, the overall model can be infinitely large, but at the expense of computing speed. For usage, see [here](https://github.com/sipeed/MaixPy-v1_scripts/tree/master/machine_vision/load_big_model). If you are interested in the principle and implementation, you can see [here](https://neucrack.com/p/313)
 
 
 

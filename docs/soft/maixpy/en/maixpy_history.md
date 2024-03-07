@@ -8,7 +8,7 @@ desc: maixpy  MaixPy development history
 Write down the development history of this article, hoping to let future developers know what MaixPy has gone through, what are the reasons for some major changes, and when major progress has been made.
 
 
-The code submission history can be seen in the [historic](https://github.com/sipeed/MaixPy/commits/historic) and [master](https://github.com/sipeed/MaixPy/commits/master) branches
+The code submission history can be seen in the [historic](https://github.com/sipeed/MaixPy-v1commits/historic) and [master](https://github.com/sipeed/MaixPy-v1commits/master) branches
 
 
 ## September 2018
@@ -30,7 +30,7 @@ K210 SDK was replaced from freertos to standalone SDK, and the on-chip periphera
 
 ## February 2019
 
-Release the first version of the firmware [v0.1.1 beta](https://github.com/sipeed/MaixPy/releases/tag/v0.1.1), support basic peripherals, inherit the image sensor lcd API of openmv, Equipped with some open source tools such as upyloader, armpy, etc., write documents and publish them on maixpy.sipeed.com
+Release the first version of the firmware [v0.1.1 beta](https://github.com/sipeed/MaixPy-v1releases/tag/v0.1.1), support basic peripherals, inherit the image sensor lcd API of openmv, Equipped with some open source tools such as upyloader, armpy, etc., write documents and publish them on maixpy.sipeed.com
 
 In addition, there are also two new development boards, Maix bit and Maix Go.
 
@@ -38,7 +38,7 @@ Xiaohui left the project team
 
 ## March 2019
 
-Release the second version of the firmware [v0.2.4](https://github.com/sipeed/MaixPy/releases/tag/v0.2.4), adding support for jpeg, wav, kpu, nes, avi, lvgl, etc.
+Release the second version of the firmware [v0.2.4](https://github.com/sipeed/MaixPy-v1releases/tag/v0.2.4), adding support for jpeg, wav, kpu, nes, avi, lvgl, etc.
 
 
 ## April 2019

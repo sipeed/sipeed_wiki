@@ -37,7 +37,7 @@ for i in range(led_num):
 
 ## 例程
 
-[Grove - Chainable RGB LED 例程](https://github.com/sipeed/MaixPy_scripts/tree/master/modules/grove/chainable_RGB_LED)
+[Grove - Chainable RGB LED 例程](https://github.com/sipeed/MaixPy-v1_scripts/tree/master/modules/grove/chainable_RGB_LED)
 
 ## 更多
 

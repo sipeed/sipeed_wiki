@@ -34,12 +34,12 @@ desc: maixpy  how to read this article correctly
 
 * Just contact, you can read carefully from top to next page according to the table of contents on the left sidebar, just follow along, don’t skip the entry! ! !
 * Learn how to update the firmware and how to write code. It is also very important to learn how to use a serial terminal. It is not recommended to rely too much on the IDE, especially when the program dies, the terminal may get more error messages, which is more conducive to solving the problem. When encountering problems and asking questions in the community, try to give complete information about the terminal operation
-* Each module/library document is accompanied by a simple routine at the end, or here: [MaixPy_script](https://github.com/sipeed/MaixPy_scripts) to find the examples you need, you can try to run it to see the effect
+* Each module/library document is accompanied by a simple routine at the end, or here: [MaixPy_script](https://github.com/sipeed/MaixPy-v1_scripts) to find the examples you need, you can try to run it to see the effect
 
 ## Learn to search
 
 * Regarding the interface and parameters of the module, please refer to it according to your needs when using it. **There is a search box** in the upper right corner, which can be used well. At the same time, you can also use the browser's page search function, that is, press the keyboard <kbd> Ctrl +F </kbd>, then enter the content to be searched and press the confirm key
-* Please don’t worry if there is anything you can’t find, you can go to the [issue](https://github.com/sipeed/MaixPy/issues) page of github to find (search and search) if anyone has mentioned it , If not, you can create a new issue, or go to [Forum](https://bbs.sipeed.com) to search for the issue, and don’t ask for help anymore, or contact technical support.
+* Please don’t worry if there is anything you can’t find, you can go to the [issue](https://github.com/sipeed/MaixPy-v1issues) page of github to find (search and search) if anyone has mentioned it , If not, you can create a new issue, or go to [Forum](https://bbs.sipeed.com) to search for the issue, and don’t ask for help anymore, or contact technical support.
 
 ## FAQ of this document
 

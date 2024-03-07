@@ -44,7 +44,7 @@ API details refer to [modules.htpa](../../api_reference/extend/htpa.md)
 
 ## Routine
 
-* Draw temperature distribution graph on LCD: [htpa demo](https://github.com/sipeed/MaixPy_scripts/blob/79a5485ec983e67bb8861305a52418b29e0dc205/modules/others/heimann_HTPA_32x32/HTPA_32x32_demo.py)
+* Draw temperature distribution graph on LCD: [htpa demo](https://github.com/sipeed/MaixPy-v1_scripts/blob/79a5485ec983e67bb8861305a52418b29e0dc205/modules/others/heimann_HTPA_32x32/HTPA_32x32_demo.py)
 
 ## More
 

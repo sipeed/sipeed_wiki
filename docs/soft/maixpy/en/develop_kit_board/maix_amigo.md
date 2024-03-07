@@ -48,14 +48,14 @@ MaixAmigo onboard I2C sensor/IC
 
 | IC     | Device id | I2C address (7-bit address) | MaixPy read address | Sample code |
 | ------ | --------- | --------------------------  | ------------------- | ----------- |
-| ES8374（Audio codec） | 0x08      | 0x10                        | D(16)               |[code](https://github.com/sipeed/MaixPy_scripts/blob/79a5485ec983e67bb8861305a52418b29e0dc205/modules/others/es8374/es8374.py)|
-| MSA301 (Triple Axis Accelerometer)| 0x13      | 0x26                        | D(38)               |[code](https://github.com/sipeed/MaixPy_scripts/blob/7fea2359a7f0c05f586be915aa8e6112262e0caa/multimedia/gui/maixui/msa301.py)|
-| AXP173 (Power management IC)| 0x68      | 0x34                        | D(52)               |[code](https://github.com/sipeed/MaixPy_scripts/blob/7fea2359a7f0c05f586be915aa8e6112262e0caa/multimedia/gui/maixui/pmu_axp173.py)| 
+| ES8374（Audio codec） | 0x08      | 0x10                        | D(16)               |[code](https://github.com/sipeed/MaixPy-v1_scripts/blob/79a5485ec983e67bb8861305a52418b29e0dc205/modules/others/es8374/es8374.py)|
+| MSA301 (Triple Axis Accelerometer)| 0x13      | 0x26                        | D(38)               |[code](https://github.com/sipeed/MaixPy-v1_scripts/blob/7fea2359a7f0c05f586be915aa8e6112262e0caa/multimedia/gui/maixui/msa301.py)|
+| AXP173 (Power management IC)| 0x68      | 0x34                        | D(52)               |[code](https://github.com/sipeed/MaixPy-v1_scripts/blob/7fea2359a7f0c05f586be915aa8e6112262e0caa/multimedia/gui/maixui/pmu_axp173.py)| 
 
 
 ## Get started
 
-MaixAmigo also uses MaixPy to get started with AIoT. Due to the particularity of the hardware, please use MaixPy after [Configure amigo hardware](https://github.com/sipeed/MaixPy_scripts/blob/master/board/config_maix_amigo.py)(If not configured, the photos taken by the camera will be noisy) .
+MaixAmigo also uses MaixPy to get started with AIoT. Due to the particularity of the hardware, please use MaixPy after [Configure amigo hardware](https://github.com/sipeed/MaixPy-v1_scripts/blob/master/board/config_maix_amigo.py)(If not configured, the photos taken by the camera will be noisy) .
 
 Before development, we need to understand and prepare related tools to reduce the pitfalls we have to follow because of insufficient preparation.
 
@@ -80,7 +80,7 @@ Software preparation:
   - USB driver: [Click me](https://dl.sipeed.com/MAIX/tools/driver)
   - Kflash_gui: [https://dl.sipeed.com/MAIX/tools/kflash_gui](https://dl.sipeed.com/MAIX/tools/kflash_gui)
   - MaixPy IDE: [https://dl.sipeed.com/MAIX/MaixPy/ide/_/v0.2.5](https://dl.sipeed.com/MAIX/MaixPy/ide/_/v0.2.5)
-  - Routine library: [https://github.com/sipeed/MaixPy_scripts](https://github.com/sipeed/MaixPy_scripts)
+  - Routine library: [https://github.com/sipeed/MaixPy-v1_scripts](https://github.com/sipeed/MaixPy-v1_scripts)
 
 ###  install driver
 

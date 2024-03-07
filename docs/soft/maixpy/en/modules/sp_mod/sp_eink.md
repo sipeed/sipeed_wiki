@@ -24,7 +24,7 @@ For detailed module information, please refer to [EINK Specification and Data Ma
 
 1. Preparation: The development board with the latest firmware, sp_eink module.
 
-2. Run: Connect the module, modify the configuration surrounded by config in [Sample Code](https://github.com/sipeed/MaixPy_scripts/tree/master/modules/spmod/sp_eink), the module will display the picture after running.
+2. Run: Connect the module, modify the configuration surrounded by config in [Sample Code](https://github.com/sipeed/MaixPy-v1_scripts/tree/master/modules/spmod/sp_eink), the module will display the picture after running.
 
 The procedure is as follows:
 

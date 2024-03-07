@@ -9,7 +9,7 @@ Detailed API reference: [video API](./../../api_reference/media/video.md)
 
 ## Instructions
 
-> MaixAmigo, MaixCube needs [Initialize ES8374 audio decoder chip](https://github.com/sipeed/MaixPy_scripts/blob/master/modules/others/es8374/es8374.py) before using audio 
+> MaixAmigo, MaixCube needs [Initialize ES8374 audio decoder chip](https://github.com/sipeed/MaixPy-v1_scripts/blob/master/modules/others/es8374/es8374.py) before using audio 
 
 * Create a video object, set the volume
 
@@ -61,7 +61,7 @@ v.__del__()
 
 > The avi file address in the test case: [badapple.avi](https://api.dl.sipeed.com/shareURL/MAIX/MaixPy/assets)
 
-* Play avi files: [video_play](https://github.com/sipeed/MaixPy_scripts/blob/master/multimedia/video/demo_video_play.py)
-* Use the camera to record the video as an avi file and save it: [record_video](https://github.com/sipeed/MaixPy_scripts/blob/master/multimedia/video/demo_video_record.py)
-* Sequentially capture and display each frame of avi video: [video_capture](https://github.com/sipeed/MaixPy_scripts/blob/master/multimedia/video/demo_video_capture.py)
-* Amigo play avi files: [amigo_play_video](https://github.com/sipeed/MaixPy_scripts/blob/master/multimedia/video/amigo_play_video.py)
+* Play avi files: [video_play](https://github.com/sipeed/MaixPy-v1_scripts/blob/master/multimedia/video/demo_video_play.py)
+* Use the camera to record the video as an avi file and save it: [record_video](https://github.com/sipeed/MaixPy-v1_scripts/blob/master/multimedia/video/demo_video_record.py)
+* Sequentially capture and display each frame of avi video: [video_capture](https://github.com/sipeed/MaixPy-v1_scripts/blob/master/multimedia/video/demo_video_capture.py)
+* Amigo play avi files: [amigo_play_video](https://github.com/sipeed/MaixPy-v1_scripts/blob/master/multimedia/video/amigo_play_video.py)

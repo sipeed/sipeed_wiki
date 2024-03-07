@@ -29,6 +29,6 @@ PWM 控制 API 参考: [PWM API](../../api_reference/machine/pwm.md)
 
 ## 例程
 
-* 控制舵机旋转不同角度: [Servo](https://github.com/sipeed/MaixPy_scripts/blob/79a5485ec983e67bb8861305a52418b29e0dc205/modules/others/Servo/Servo.py)
+* 控制舵机旋转不同角度: [Servo](https://github.com/sipeed/MaixPy-v1_scripts/blob/79a5485ec983e67bb8861305a52418b29e0dc205/modules/others/Servo/Servo.py)
 
-* 舵机云台: [gimbal](https://github.com/sipeed/MaixPy_scripts/tree/master/application/gimbal)
+* 舵机云台: [gimbal](https://github.com/sipeed/MaixPy-v1_scripts/tree/master/application/gimbal)

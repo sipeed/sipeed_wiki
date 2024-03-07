@@ -41,7 +41,7 @@ kflash -p /dev/ttyUSB0 -b 1500000 -B goE maixpy.bin
 
 ## 获得固件
 
-* 发布版本的固件从 <a href ="https://github.com/sipeed/MaixPy/releases" target="_break">github</a> 页面下载
+* 发布版本的固件从 <a href ="https://github.com/sipeed/MaixPy-v1releases" target="_break">github</a> 页面下载
 * 在Sipeed官方下载站获取：<a href ="http://dl.sipeed.com/MAIX/MaixPy/release/master/" target="_break">下载站</a>
 
 

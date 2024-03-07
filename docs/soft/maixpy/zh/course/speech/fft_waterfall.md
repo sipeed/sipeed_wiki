@@ -43,7 +43,7 @@ for i in range(hist_x_num):
 
 实时采集音频数据并绘制为 FFT 瀑布图
 
-[demo_fft_waterfall.py](https://github.com/sipeed/MaixPy_scripts/blob/master/hardware/demo_fft_waterfall.py)
+[demo_fft_waterfall.py](https://github.com/sipeed/MaixPy-v1_scripts/blob/master/hardware/demo_fft_waterfall.py)
 
 效果：
 

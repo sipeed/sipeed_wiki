@@ -12,7 +12,7 @@ Can recognize 1000 objects
 * Use `minimum` version firmware
 * [Download model file](https://dl.sipeed.com/MAIX/MaixPy/model), download `mobilenet_0x300000.kfpkg`
 * Use `kflash_gui` to burn this file to `Flash`, the default address is `0x300000`
-* Save the file [labels.txt](https://github.com/sipeed/MaixPy_scripts/tree/master/machine_vision/mobilenet_1000_class/labels.txt) ([Alternate Link](https://en.bbs.sipeed.com /uploads/default/original/1X/d41ad9dfbe01f228abe726986fbf1baf4e288f2e.zip)) to the file system, see the introductory tutorial (use your ingenuity) for specific methods (reference answer: because there is too much content, if you use the REPL to copy and paste directly, data may be wrong. So use a tool to transfer. The easiest way is to put it on the SD card; if you want to put it in `/flash`, the minimum may not support IDE, you can use `upyloader` to send files)
+* Save the file [labels.txt](https://github.com/sipeed/MaixPy-v1_scripts/tree/master/machine_vision/mobilenet_1000_class/labels.txt) ([Alternate Link](https://en.bbs.sipeed.com /uploads/default/original/1X/d41ad9dfbe01f228abe726986fbf1baf4e288f2e.zip)) to the file system, see the introductory tutorial (use your ingenuity) for specific methods (reference answer: because there is too much content, if you use the REPL to copy and paste directly, data may be wrong. So use a tool to transfer. The easiest way is to put it on the SD card; if you want to put it in `/flash`, the minimum may not support IDE, you can use `upyloader` to send files)
 * Because this model has `4.2MiB`, which is relatively large, so the firmware of `minimum` is used, and the memory used by `GC` is not too large. You can set a smaller size in the following way and leave the memory for the model
 
 ```python
@@ -65,4 +65,4 @@ print(fps)
 ```
 
 
-See the complete example [maixpy_scripts](https://github.com/sipeed/MaixPy_scripts/tree/master/machine_vision/mobilenet_1000_class)
+See the complete example [maixpy_scripts](https://github.com/sipeed/MaixPy-v1_scripts/tree/master/machine_vision/mobilenet_1000_class)

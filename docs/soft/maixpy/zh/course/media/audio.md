@@ -9,7 +9,7 @@ desc: maixpy  audio（音频） 的使用
 
 ## 使用方法
 
-> MaixAmigo, MaixCube 在使用音频前需要[初始化 ES8374 音频解码芯片](https://github.com/sipeed/MaixPy_scripts/blob/master/modules/others/es8374/es8374.py)
+> MaixAmigo, MaixCube 在使用音频前需要[初始化 ES8374 音频解码芯片](https://github.com/sipeed/MaixPy-v1_scripts/blob/master/modules/others/es8374/es8374.py)
 
 * 创建 audio 对象
 
@@ -67,7 +67,7 @@ player.finish()
 
 ## 例程
 
-> 测试音频地址：[6.wav](https://github.com/sipeed/MaixPy_scripts/blob/master/multimedia/audio/6.wav)
+> 测试音频地址：[6.wav](https://github.com/sipeed/MaixPy-v1_scripts/blob/master/multimedia/audio/6.wav)
 
-* 播放 wav 文件：[play_wav](https://github.com/sipeed/MaixPy_scripts/blob/master/multimedia/audio/play_wav.py)
-* 录制音频为 wav 文件并保存：[record_wav](https://github.com/sipeed/MaixPy_scripts/blob/master/multimedia/audio/record_wav.py)
+* 播放 wav 文件：[play_wav](https://github.com/sipeed/MaixPy-v1_scripts/blob/master/multimedia/audio/play_wav.py)
+* 录制音频为 wav 文件并保存：[record_wav](https://github.com/sipeed/MaixPy-v1_scripts/blob/master/multimedia/audio/record_wav.py)

@@ -13,7 +13,7 @@ desc: maixpy  LittlevGL
 
 ## 例程
 
-参考 [github 的 MaixPy_Scripts](https://github.com/sipeed/MaixPy_scripts/tree/master/multimedia/gui/lvgl)
+参考 [github 的 MaixPy_Scripts](https://github.com/sipeed/MaixPy-v1_scripts/tree/master/multimedia/gui/lvgl)
 
 
 

@@ -16,7 +16,7 @@ Effect video: [youtube](https://www.youtube.com/embed/hS_mcGptXeo) or [bilibili]
 
 * Download the model from [maixhub](https://www.maixhub.com/index/index/detail/id/235.html) and follow the instructions to obtain the model `smodel`, which is the encrypted version of `kmodel`
 * Download the model to the development board according to the method of the introductory tutorial
-* Run script [script](https://github.com/sipeed/MaixPy_scripts/blob/master/machine_vision/face_recognization/demo_face_recognization.py)
+* Run script [script](https://github.com/sipeed/MaixPy-v1_scripts/blob/master/machine_vision/face_recognization/demo_face_recognization.py)
 
 
 ## Program understanding

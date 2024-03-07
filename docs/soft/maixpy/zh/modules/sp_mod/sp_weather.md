@@ -50,7 +50,7 @@ SP_Weather 气象模块拥有两颗传感器, 磁性传感器 QMC7983, 这是一
 
 1. 准备: 已烧录最新固件的开发板, sp_weather 模块.
 
-2. 运行: 连接模块, 修改[示例代码](https://github.com/sipeed/MaixPy_scripts/tree/master/modules/spmod/sp_weather)中 config 包围的配置, 运行后可看到终端打印的磁性传感器和气压温湿度传感器数据
+2. 运行: 连接模块, 修改[示例代码](https://github.com/sipeed/MaixPy-v1_scripts/tree/master/modules/spmod/sp_weather)中 config 包围的配置, 运行后可看到终端打印的磁性传感器和气压温湿度传感器数据
 
 输出结果如下:
 
