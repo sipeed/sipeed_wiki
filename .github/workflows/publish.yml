@@ -62,10 +62,7 @@ jobs:
           git checkout .
           git checkout gh-pages
           git pull origin gh-pages
-          echo "== upload to cloud server =="
-          pip3 install cos-python-sdk-v5
-          teedoc-upload --progress raw --cloud tencent --region ${{ secrets.TENCENT_REGION }} --bucket ${{ secrets.TENCENT_BUCKET }} --secret_id ${{ secrets.TENCENT_SECRET_ID }} --secret_key ${{ secrets.TENCENT_SECRET_KEY }} --old ./ ../${out_dir}
-          echo "== upload to gh-pages for pages service =="
+          old_out_dir=`pwd`
           cd ../$out_dir
           git init
           git config user.name ${user_name}
@@ -78,6 +75,10 @@ jobs:
           git commit -m "rebuild website ad $GITHUB_REF"
           git push origin HEAD:gh-pages --force
           echo "== push complete =="
+          echo "== upload to cloud server =="
+          pip3 install cos-python-sdk-v5
+          teedoc-upload --progress raw --cloud tencent --region ${{ secrets.TENCENT_REGION }} --bucket ${{ secrets.TENCENT_BUCKET }} --secret_id ${{ secrets.TENCENT_SECRET_ID }} --secret_key ${{ secrets.TENCENT_SECRET_KEY }} --old $old_out_dir ./
+          echo "== upload to gh-pages for pages service =="
 
 
 #           SSHPATH="$HOME/.ssh"
