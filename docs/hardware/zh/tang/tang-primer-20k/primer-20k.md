@@ -162,7 +162,7 @@ Tang Primer 20K 是基于 [GW2A-LV18PG256C8/I7](http://www.gowinsemi.com.cn/prod
 		<tr>
 			<td colspan="2">触摸接口</td>
 			<td>1</td>
-			<td>4P FPC 连接器</td>
+			<td>6P FPC 连接器</td>
 			<td></td>
 			<td></td>
 		</tr>

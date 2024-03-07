@@ -124,7 +124,7 @@ Schematic: [Tang_sdram_xsds_V1.1_Schematic](https://github.com/sipeed/TangPrimer
 
 ## Hardware Information
 
-Schematics and other documentation can be found here: [Click here](https://dl.sipeed.com/shareURL/TANG/Pmod)
+Schematics and other documentation can be found here: [Click here](https://dl.sipeed.com/shareURL/TANG/PMOD)
 
 ### Public Examples
 

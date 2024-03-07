@@ -28,6 +28,103 @@ TODO
 
 ![io_map](./../../../../zh/longan/h618/lpi3h/assets/peripheral/io_map.jpeg)
 
+![pin_num](./../../../../zh/longan/h618/lpi3h/assets/peripheral/pin_num.png)
+
+Referring to the two tables above, you can find the position and number of the GPIO to be used. Taking the example of lighting up the two LEDs on the board, you can use the following command to manipulate the corresponding GPIO in the user space:
+
+```shell
+num=194
+echo ${num} > /sys/class/gpio/export  
+echo out > /sys/class/gpio/gpio${num}/direction 
+echo 0 > /sys/class/gpio/gpio${num}/value
+num=196
+echo ${num} > /sys/class/gpio/export  
+echo out > /sys/class/gpio/gpio${num}/direction 
+echo 0 > /sys/class/gpio/gpio${num}/value
+```
+
+In addition to the above methods, GPIO can also be controlled using the libgpiod library in the C language. The following example still uses the LED lights on the board:
+
+```c
+#include <gpiod.h>
+#include <stdio.h>
+#include <unistd.h>
+#include <stdlib.h>
+
+int main(int argc, char **argv)
+{
+    int i;
+    int ret;
+
+    struct gpiod_chip * chip;
+    struct gpiod_line * line;
+
+    chip = gpiod_chip_open("/dev/gpiochip0");
+    if(chip == NULL)
+    {
+        printf("gpiod_chip_open error\n");
+        return -1;
+    }
+
+    line = gpiod_chip_get_line(chip, 194);
+    if(line == NULL)
+    {
+        printf("gpiod_chip_get_line error\n");
+        gpiod_line_release(line);
+    }
+
+    ret = gpiod_line_request_output(line,"gpio",0);
+    if(ret < 0)
+    {
+        printf("gpiod_line_request_output error\n");
+        gpiod_chip_close(chip);
+    }
+
+    for(i = 0; i < 10; i++)
+    {
+        gpiod_line_set_value(line,1);
+        sleep(1);
+        gpiod_line_set_value(line,0);
+        sleep(1);
+    }
+
+    gpiod_line_release(line);
+    gpiod_chip_close(chip);
+
+    return 0;
+}
+```
+
+To install the required dependencies:
+```shell
+sudo apt update
+sudo apt install build-essential libgpiod-dev gpiod
+```
+
+After compiling, you need to execute the program with root privileges:
+```shell
+gcc gpio.c -I /usr/include/ -L /usr/lib/aarch64-linux-gnu/ -lgpiod -o gpio
+sudo ./gpio
+```
+
+The libgpiod library also provides some commands to manipulate GPIO. Here are some commonly used commands:
+gpiodetect: List all GPIO controllers
+```shell
+sudo gpiodetect
+```
+gpioinfo: Display the pin information of a GPIO controller, showing which pins are already in use.
+```shell
+sudo gpioinfo gpiochip0
+```
+gpioset: Set the state of a GPIO pin.
+```shell
+sudo gpioset gpiochip0 196=0
+```
+gpioget: Get the state of a GPIO pin.
+```shell
+sudo gpioget gpiochip0 196
+```
+
 ## UART 
 
 ### System serial port
