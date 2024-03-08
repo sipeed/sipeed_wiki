@@ -16,7 +16,7 @@ update:
 ## 环境配置
 首先用 git 拉取仓库到本地，并安装工具链：
 ```shell
-sudo apt install gcc-aarch64-linux-gnu mmdebstrap git 
+sudo apt install gcc-aarch64-linux-gnu mmdebstrap git debian-archive-keyring
 git clone https://github.com/sipeed/LonganPi-3H-SDK.git
 ```
 
