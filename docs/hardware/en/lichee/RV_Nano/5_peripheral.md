@@ -56,6 +56,35 @@ Then use ssh to connect: `ssh root@board's IP address`
 Username: root
 Password: cvitek
 
+On Windows system, some configurations need to be made.
+
+Open Device Manager and find the following option:
+![usb_rndis_step1](./../../../zh/lichee/assets/RV_Nano/peripheral/usb_rndis_step1.png)
+
+Select "Update driver":
+![usb_rndis_step2](./../../../zh/lichee/assets/RV_Nano/peripheral/usb_rndis_step2.png)
+
+Select "Browse my computer for driver software":
+![usb_rndis_step3](./../../../zh/lichee/assets/RV_Nano/peripheral/usb_rndis_step3.png)
+
+Select "Let me pick from a list of available drivers on my computer":
+![usb_rndis_step4](./../../../zh/lichee/assets/RV_Nano/peripheral/usb_rndis_step4.png)
+
+In the device type list, select "Network adapters":
+![usb_rndis_step5](./../../../zh/lichee/assets/RV_Nano/peripheral/usb_rndis_step5.png)
+
+For manufacturer, select "Microsoft"; for model, select "Remote NDIS Compatible Device":
+![usb_rndis_step6](./../../../zh/lichee/assets/RV_Nano/peripheral/usb_rndis_step6.png)
+
+If this warning pops up, please click "OK":
+![usb_rndis_step7](./../../../zh/lichee/assets/RV_Nano/peripheral/usb_rndis_step7.png)
+
+After the update is successful, it will show as follows:
+![usb_rndis_step8](./../../../zh/lichee/assets/RV_Nano/peripheral/usb_rndis_step8.png)
+
+Then you can find the "Remote NDIS Compatible Device" item under the Network adapters list in Device Manager:
+![usb_rndis_step9](./../../../zh/lichee/assets/RV_Nano/peripheral/usb_rndis_step9.png)
+
 ### Ethernet Connection
 
 Connect the Ethernet cable to the board; the board will automatically obtain an address using DHCP upon boot.

@@ -56,6 +56,34 @@ PC会使用DHCP自动获取地址
 用户名: root
 密码:   cvitek
 
+Windows 系统下，需要进行一些配置。
+
+打开设备管理器，找到下面的选项：
+![usb_rndis_step1](../assets/RV_Nano/peripheral/usb_rndis_step1.png)
+
+选择更新驱动程序：
+![usb_rndis_step2](../assets/RV_Nano/peripheral/usb_rndis_step2.png)
+
+选择浏览我的电脑以查找驱动程序：
+![usb_rndis_step3](../assets/RV_Nano/peripheral/usb_rndis_step3.png)
+
+选择让我从计算机上的可用驱动程序列表中选取：
+![usb_rndis_step4](../assets/RV_Nano/peripheral/usb_rndis_step4.png)
+
+在设备类型列表中选择网络适配器：
+![usb_rndis_step5](../assets/RV_Nano/peripheral/usb_rndis_step5.png)
+
+厂商选择 Microsoft，型号选择远程NDIS兼容设备：
+![usb_rndis_step6](../assets/RV_Nano/peripheral/usb_rndis_step6.png)
+
+若弹出这个警告请点击确定：
+![usb_rndis_step7](../assets/RV_Nano/peripheral/usb_rndis_step7.png)
+
+更新成功后显示如下：
+![usb_rndis_step8](../assets/RV_Nano/peripheral/usb_rndis_step8.png)
+
+然后可在设备管理器中的网络适配器列表下找到远程NDIS兼容设备项：
+![usb_rndis_step9](../assets/RV_Nano/peripheral/usb_rndis_step9.png)
 
 ### 网线连接
 
