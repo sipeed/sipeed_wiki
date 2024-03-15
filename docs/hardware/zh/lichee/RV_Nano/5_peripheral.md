@@ -146,8 +146,8 @@ LCD会提供framebuffer供用户空间程序访问：
 一些用于测试的demo:
 
 ```
-/opt/lcd/fbpattern # 测试LCD时序
-/otp/lcd/fbbar     # 在屏幕上显示字符串
+fbpattern # 测试LCD时序
+fbbar     # 在屏幕上显示字符串
 ```
 
 建议使用QT5，SDL1.2，或LVGL进行界面开发，也可以直接写入Framebuffer
@@ -168,28 +168,54 @@ echo 2 | evtest
 
 将天线安装到WIFI模块的天线座子上
 
-然后将AP的SSID和密码写入 /etc/wpa_supplicant.conf 文件:
+### STA
+
+在sd卡第一个分区创建wifi.sta文件启用sta模式:
 
 ```
-network={
-        ssid="ssid"
-   		psk="password"
-}
+touch wifi.sta
+rm wifi.ap wifi.mon
 ```
 
-然后执行:
+然后将AP的SSID和密码写入文件:
 
 ```
-wpa_supplicant -i wlan0 -c /etc/wpa_supplicant.conf
+echo ssid > wifi.ssid
+echo pass > wifi.pass
 ```
 
-验证网络是否可用:
+执行 /etc/init.d/S30wifi start 来切换模式
+
+### AP
+
+在sd卡第一个分区创建wifi.ap文件启用ap模式:
 
 ```
-ping 你的网关地址
+touch wifi.ap
+rm wifi.mon wifi.sta
 ```
 
-如果可用，可以加入到开机脚本 /etc/rc.local
+然后将要创建AP的SSID和密码写入文件:
+
+```
+echo ssid > wifi.ssid
+echo pass > wifi.pass
+```
+
+执行 /etc/init.d/S30wifi start 来切换模式
+
+### MON
+
+在sd卡第一个分区创建wifi.mon文件启用监听模式:
+
+```
+touch wifi.mon
+rm wifi.ap wifi.sta
+```
+
+执行 /etc/init.d/S30wifi start 来切换模式
+
+使用tcpdump或airodump-ng来捕获报文
 
 
 ## 摄像头

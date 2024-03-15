@@ -29,7 +29,7 @@ datasheet: https://github.com/sophgo/sophgo-doc/releases
 
 源码:
 
-https://github.com/sipeed/LicheeRV-Nano-Build/tree/v4.1.0-licheervnano
+https://github.com/sipeed/LicheeRV-Nano-Build
 
 构建环境搭建可以参考repo内的github cicd文件:
 
