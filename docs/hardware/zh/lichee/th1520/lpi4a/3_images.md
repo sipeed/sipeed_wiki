@@ -281,3 +281,9 @@ Deplay Gentoo Linux [Click me](https://wiki.gentoo.org/wiki/User:Dlan/RISC-V/TH1
 ![slarm64](./assets/images/slarm64.png)  
 Project address: [Click me](https://gitlab.com/sndwvs/images_build_kit)  
 Download: [Click me](https://dl.slarm64.org/slackware/images/lichee_pi_4a/)  
+
+### irradium
+[irradium](https://irradium.org/) - source based Linux distribution [CRUX](https://crux.nu/) adhering to ideology keep it simple, has its own [package system](https://crux.nu/Main/Handbook3-7#ntoc29), also supports the [port system](https://crux.nu/Main/Handbook3-7#ntoc47).
+
+Project address: [Click me](https://gitlab.com/sndwvs/irradium.git)  
+Download: [Click me](https://dl.irradium.org/irradium/images/lichee_pi_4a/)  
