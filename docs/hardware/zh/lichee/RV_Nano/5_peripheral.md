@@ -18,26 +18,6 @@ A17 A16 GND
 
 然后使用终端软件连接串口，波特率115200
 
-
-### usb cdc acm 串口
-
-将板子的usb typec口连接到电脑时会提供一个usb cdc acm串口设备(linux gadget 提供)
-
-Linux:
-
-```
-# 将/dev/ttyACMX替换为具体的设备，取决于你的电脑
-picoco -b 9600 /dev/ttyACMX
-```
-
-Windows:
-
-Win + R devmgmt.msc 回车
-
-在串口设备处找到新的设备的串口号
-
-然后使用putty或超级终端进行连接
-
 ### usb rndis 网口
 
 将板子的usb typec口连接到电脑时会提供一个usb rndis网卡设备(linux gadget 提供)
@@ -212,7 +192,12 @@ echo ssid > wifi.ssid
 echo pass > wifi.pass
 ```
 
-执行 /etc/init.d/S30wifi start 来切换模式
+重启Wifi服务
+
+```
+/etc/init.d/S30wifi stop
+/etc/init.d/S30wifi start
+```
 
 ### AP
 
@@ -230,7 +215,13 @@ echo ssid > wifi.ssid
 echo pass > wifi.pass
 ```
 
-执行 /etc/init.d/S30wifi start 来切换模式
+重启Wifi服务
+
+```
+/etc/init.d/S30wifi stop
+/etc/init.d/S30wifi start
+```
+
 
 ### MON
 
@@ -241,7 +232,12 @@ touch wifi.mon
 rm wifi.ap wifi.sta
 ```
 
-执行 /etc/init.d/S30wifi start 来切换模式
+重启Wifi服务
+
+```
+/etc/init.d/S30wifi stop
+/etc/init.d/S30wifi start
+```
 
 使用tcpdump或airodump-ng来捕获报文
 
