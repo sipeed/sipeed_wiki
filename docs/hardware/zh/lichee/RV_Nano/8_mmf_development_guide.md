@@ -29,10 +29,9 @@ tar xvf host-tools.tar.gz
 
 # 用build_middleware命令编译所有示例
 cd LicheeRV-Nano-Build
-git checkout v4.1.0-licheervnano
 ln -s ../host-tools ./
 source build/cvisetup.sh
-defconfig cv1812cp_licheerv_nano_sd
+defconfig sg2002_licheervnano_sd
 build_middleware
 ```
 
