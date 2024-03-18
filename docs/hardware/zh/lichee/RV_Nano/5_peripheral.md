@@ -54,7 +54,7 @@ PC会使用DHCP自动获取地址
 然后使用 ssh root@板子的IP地址进行连接:
 
 用户名: root
-密码:   cvitek
+密码:   root
 
 Windows 系统下，需要进行一些配置。
 
