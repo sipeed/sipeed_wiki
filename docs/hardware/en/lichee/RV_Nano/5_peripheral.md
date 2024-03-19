@@ -54,7 +54,7 @@ Replace the last digit of the automatically obtained IPv4 address with 1 to get 
 Then use ssh to connect: `ssh root@board's IP address`
 
 Username: root
-Password: cvitek
+Password: root
 
 On Windows system, some configurations need to be made.
 
