@@ -13,15 +13,19 @@ datasheet: https://github.com/sophgo/sophgo-doc/releases
 
 ## 芯片启动流程
 
-1. bootrom 判断sd卡第一个FAT32分区内是否拥有 fip.bin，如果有，则执行2，如果没有，则进入usb烧录模式(提供一个ACM串口从机设备)
+1. bootrom(bl1) 判断sd卡第一个FAT分区内是否拥有 fip.bin，如果有，则执行2，如果没有，则进入usb烧录模式(提供一个ACM串口从机设备),bl1会初始化uart0，波特率128000
 
-2. 加载fip.bin，跳转到fsbl,初始化clock,DRAM,执行3
+2. 加载fip.bin(bl2)里面的代码到0x0C000000(TPU SRAM)，跳转到bl2,初始化clock,DRAM,执行3
 
-3. 加载opensbi，执行，然后跳转到uboot,执行4
+3. 加载opensbi到DRAM，执行，然后加载uboot到DRAM，执行，执行4
 
 4. uboot加载第一个分区内的boot.sd文件到DRAM，如果文件没有问题,跳转到5
 
 5. 跳转到boot.sd内提供的代码(通常是Linux内核)
+
+一个简单的裸机HelloWorld demo，用于演示如何创建可以启动的fip.bin:
+
+https://github.com/0x754C/sg200x-bare
 
 ## cvi_mmf_sdk
 

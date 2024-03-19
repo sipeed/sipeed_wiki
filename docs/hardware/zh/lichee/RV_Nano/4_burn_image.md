@@ -14,9 +14,8 @@ update:
 ## Linux
 
 ```
-curl -O https://github.com/sipeed/LicheeRV-Nano-Build/releases/download/20240124/licheervnano-20230124.img.xz
 # 将sdX替换为SD卡的节点
-xzcat https://github.com/sipeed/LicheeRV-Nano-Build/releases/download/20240124/licheervnano-20230124.img.xz | dd of=/dev/sdX conv=sync
+dd if=xxx.img of=/dev/sdX conv=sync
 ```
 
 ## Windows
