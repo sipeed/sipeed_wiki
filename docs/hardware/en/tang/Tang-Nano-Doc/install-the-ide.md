@@ -94,9 +94,10 @@ The Standard edition IDE requires a license, which you should apply for from the
 
 If you don't want to apply lic, you can use online lic server from Sipeed too:
 ~~~
-ip: 43.128.7.128
+ip: 106.55.34.119
 port: 10559
 ~~~
+if the ip not work, try use "gowinlic.sipeed.com" domain's IP.
 
 ### Verify license
 
