@@ -191,9 +191,11 @@ Note that 138K is currently not supported by the education version, and you need
 Lic can be applied on the Gowin official website, or you can use the online Lic service provided by Sipeed. In the IDE, select Float Lic and fill in the following information:
 
 ~~~
-ip: 43.128.7.128
+ip: 106.55.34.119
 port: 10559
 ~~~
+
+if the ip not work, try use "gowinlic.sipeed.com" domain's IP.
 
 Install IDE [Click me](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/get_started/install-the-ide.html)
 
