@@ -189,9 +189,10 @@ Tang Mega 138K 使用 22nm 制程 GW5AST-LV138FPG676A FPGA 芯片，具有 13824
 注意138K目前未被教育版支持，需要下载 V1.9.9Beta-5 或更新版本的商业版IDE使用。  
 Lic 可以在高云官网申请，或者使用Sipeed提供的在线Lic服务，在IDE中选择Float Lic，填写以下信息即可：
 ~~~
-ip: 43.128.7.128
+ip: 106.55.34.119
 port: 10559
 ~~~
+如果上面的IP不能工作, 尝试使用 "gowinlic.sipeed.com" 域名对应的IP.
 
 安装 IDE [点我](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/get_started/install-the-ide.html)
 
