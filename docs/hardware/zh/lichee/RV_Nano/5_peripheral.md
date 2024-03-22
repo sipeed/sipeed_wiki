@@ -145,20 +145,37 @@ cat /sys/class/cvi-saradc/cvi-saradc0/device/cv_saradc
 
 将屏幕的排线接到板子的MIPI接口，注意线序
 
-然后在cvi_mmf_sdk的panel中选择对应的时序设置，（MIPI屏幕初始化代码放在uboot中）
+创建或编辑sd卡第一个分区中的uEnv.txt文件，添加或修改panel字段:
 
-然后编译出新的uboot: fip.bin，放在系统SD卡的第一个分区
-
-LCD会提供framebuffer供用户空间程序访问：
-
-一些用于测试的demo:
+7寸屏:
 
 ```
-fbpattern # 测试LCD时序
-fbbar     # 在屏幕上显示字符串
+panel=zct2133v1
 ```
 
-建议使用QT5，SDL1.2，或LVGL进行界面开发，也可以直接写入Framebuffer
+5寸屏:
+
+```
+panel=st7701_dxq5d0019b480854
+```
+
+3寸屏:
+
+```
+panel=st7701_d300fpc9307a
+```
+
+2.8寸屏:
+
+```
+panel=st7701_hd228001c31
+```
+
+如果想用framebuffer功能，则在sd卡第一个分区创建一个文件名为fb的文件:
+
+```
+touch /boot/fb
+```
 
 ## 触摸屏
 
