@@ -1,0 +1,20 @@
+<script>
+    var hash = window.location.hash
+    var url_language = "zh"
+
+    if( navigator.language.indexOf("zh") == -1 )
+    {
+        url_language = "en"
+    }
+
+    switch (window.location.hash) {
+        case "#shell" : 
+            location.href = window.location.origin + "/hardware/" + url_language + "/lichee/th1520/lpi4a/2_unbox.html#install_shell"
+            break;
+        case "#desktop" : 
+            location.href = window.location.origin + "/hardware/" + url_language + "/lichee/th1520/lpi4a/5_desktop.html"
+            break;
+        default : 
+            location.href = window.location.origin + "/hardware/" + url_language + "/lichee/th1520/lpi4a/1_intro.html"
+    }
+</script>
