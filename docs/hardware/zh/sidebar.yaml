@@ -124,6 +124,20 @@ items:
             file: maixIV/m4ndock/axmodel-deploy.md
         -   label: FAQ
             file: maixIV/m4ndock/FAQ.md
+-   label: MaixCAM
+    items:
+    -   label: MaixCAM 介绍和资料
+        file: maixcam/README.md
+    -   label: MaixCAM 外壳
+        file: maixcam/assemble.md
+    -   label: 系统镜像烧录
+        file: maixcam/os.md
+    -   label: 使用 MaixPy 开发
+        url: https://wiki.sipeed.com/maixpy/
+    -   label: 使用 MaixCDK 开发
+        file: maixcam/maixcdk.md
+    -   label: 常见问题 FAQ
+        file: maixcam/faq.md
 -   label: LicheePi
     items:
     -   label: LicheePI 4A

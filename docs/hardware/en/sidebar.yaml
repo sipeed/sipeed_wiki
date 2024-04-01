@@ -107,6 +107,20 @@ items:
             url: /ai/en/deploy/ax-pi.html
         -   label: Questions (FAQ)
             file: maixIII/ax-pi/faq_axpi.md
+-   label: MaixCAM
+    items:
+    -   label: MaixCAM Brief and Data
+        file: maixcam/README.md
+    -   label: MaixCAM Assembly
+        file: maixcam/assemble.md
+    -   label: System Upgrade
+        file: maixcam/os.md
+    -   label: Develop with MaixPy
+        url: https://wiki.sipeed.com/maixpy/
+    -   label: Develop with MaixCDK
+        file: maixcam/maixcdk.md
+    -   label: FAQ
+        file: maixcam/faq.md
 -   label: LicheePI
     items:
     -   label: LicheePI 4A
