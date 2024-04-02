@@ -51,7 +51,7 @@ MaixCAM **首发优惠价格 169 元**(Lite 版本 无屏幕和外壳)和 **249 
 | 名称 | 描述 | 图片/视频 |
 | --- | --- | --- |
 | [MaixPy](https://wiki.sipeed.com/maixpy/) | Python 开发包， 提供丰富且使用简单的 API，针对 MaixCAM 进行优化，支持硬件加速，提供丰富文档教程 | 请看[MaixPy 主页](https://wiki.sipeed.com/maixpy/) |
-| [MaixVision](https://wiki.sipeed.com/maixvision) | AI 视觉 IDE，编程、代码运行、图像实时预览，甚至图形化编程等等，大大降低开发环境搭建难度和使用门槛 | ![MaixVision](../../assets/maixcam/maixvision.jpg)  <video controls muted preload style="width:100%" src="https://wiki.sipeed.com/maixpy/static/video/maixvision.mp4"></video> |
+| [MaixVision](https://wiki.sipeed.com/maixvision) | AI 视觉 IDE，编程、代码运行、图像实时预览，甚至图形化编程等等，大大降低开发环境搭建难度和使用门槛 | ![MaixVision](../../assets/maixcam/maixvision.jpg)  <video playsinline controls muted preload style="width:100%" src="https://wiki.sipeed.com/maixpy/static/video/maixvision.mp4"></video> |
 | [MaixHub](https://maixhub.com) | 在线 AI 模型训练平台，无需 AI 知识和昂贵的训练设备，一键训练模型，一键部署到 MaixCAM | ![MaixVision](../../assets/maixcam/maixhub.jpg) |
 | [MaixCDK](https://github.com/sipeed/MaixCDK) | MaixPy 的 C++版本，熟悉 C/C++ 的开发者立刻上手 | 请看[MaixCDK 主页](https://github.com/sipeed/MaixCDK) |
 | [应用商城](https://maixhub.com) | 提供各种应用和工具，无需开发直接下载使用，开发者也可以上传分享应用 | 请看 [Maix 应用商城](https://maixhub.com/app) |
