@@ -9,18 +9,19 @@ msgstr ""
 #: home.html:96 home.html:109 home.html:122 home.html:135 home.html:148
 #: home.html:161 home.html:174 licheepi.html:217 licheepi.html:238
 #: licheepi.html:254 licheepi.html:275 licheepi.html:291 licheepi.html:307
-#: maix.html:116 maix.html:133 maix.html:150 maix.html:167 maixsense.html:40
-#: maixsense.html:56 others.html:38 tang.html:137 tang.html:153 tang.html:169
-#: tang.html:185 tang.html:201 tang.html:217
+#: maix.html:163 maix.html:180 maix.html:197 maix.html:237 maix.html:254
+#: maix.html:271 maix.html:288 maixsense.html:40 maixsense.html:56
+#: others.html:38 tang.html:137 tang.html:153 tang.html:169 tang.html:185
+#: tang.html:201 tang.html:217
 msgid "文档"
 msgstr ""
 
 #: home.html:100 home.html:113 home.html:126 home.html:139 home.html:152
 #: home.html:165 home.html:178 licheepi.html:221 licheepi.html:242
 #: licheepi.html:258 licheepi.html:279 licheepi.html:295 licheepi.html:311
-#: maix.html:120 maix.html:137 maix.html:154 maix.html:171 maixsense.html:44
-#: maixsense.html:60 others.html:42 tang.html:141 tang.html:157 tang.html:173
-#: tang.html:189 tang.html:205 tang.html:221
+#: maix.html:167 maix.html:241 maix.html:258 maix.html:275 maix.html:292
+#: maixsense.html:44 maixsense.html:60 others.html:42 tang.html:141
+#: tang.html:157 tang.html:173 tang.html:189 tang.html:205 tang.html:221
 msgid "购买"
 msgstr ""
 
@@ -72,19 +73,19 @@ msgstr ""
 msgid "RISC-V SBC 系列产品参数对比"
 msgstr ""
 
-#: licheepi.html:49 licheepi.html:132 maix.html:31 tang.html:31
+#: licheepi.html:49 licheepi.html:132 maix.html:53 tang.html:31
 msgid "参数"
 msgstr ""
 
-#: licheepi.html:57 licheepi.html:140 maix.html:40
+#: licheepi.html:57 licheepi.html:140 maix.html:63
 msgid "处理器"
 msgstr ""
 
-#: licheepi.html:63 licheepi.html:146 maix.html:47
+#: licheepi.html:63 licheepi.html:146 maix.html:71
 msgid "内存"
 msgstr ""
 
-#: licheepi.html:69 licheepi.html:152 maix.html:64 tang.html:105
+#: licheepi.html:69 licheepi.html:152 maix.html:90 tang.html:105
 msgid "储存"
 msgstr ""
 
@@ -94,8 +95,8 @@ msgid "预留"
 msgstr ""
 
 #: licheepi.html:70 licheepi.html:71 licheepi.html:72 licheepi.html:153
-#: licheepi.html:154 licheepi.html:155 maix.html:65 maix.html:66 maix.html:67
-#: maix.html:68
+#: licheepi.html:154 licheepi.html:155 maix.html:91 maix.html:92 maix.html:93
+#: maix.html:94 maix.html:95
 msgid "卡"
 msgstr ""
 
@@ -105,6 +106,7 @@ msgstr ""
 
 #: licheepi.html:81 licheepi.html:82 licheepi.html:108 licheepi.html:160
 #: licheepi.html:161 licheepi.html:185 licheepi.html:186 licheepi.html:187
+#: maix.html:129 maix.html:136 maix.html:137
 msgid "无"
 msgstr ""
 
@@ -122,7 +124,7 @@ msgstr ""
 msgid "编码"
 msgstr ""
 
-#: licheepi.html:99 licheepi.html:178 maix.html:78
+#: licheepi.html:99 licheepi.html:178 maix.html:106
 msgid "操作系统"
 msgstr ""
 
@@ -130,7 +132,7 @@ msgstr ""
 msgid "主线"
 msgstr ""
 
-#: licheepi.html:111 licheepi.html:190 maix.html:85
+#: licheepi.html:111 licheepi.html:190 maix.html:114
 msgid "典型外设"
 msgstr ""
 
@@ -138,7 +140,7 @@ msgstr ""
 msgid "ARM SBC 系列产品参数对比"
 msgstr ""
 
-#: licheepi.html:155 maix.html:65 maix.html:66
+#: licheepi.html:155 maix.html:92 maix.html:93
 msgid "板载"
 msgstr ""
 
@@ -179,82 +181,122 @@ msgid "开发板"
 msgstr ""
 
 #: maix.html:5
-msgid "Maix AI 视觉系列"
+msgid "全新 Maix 生态"
 msgstr ""
 
-#: maix.html:24
+#: maix.html:27
+msgid "经典 Maix 视觉系列"
+msgstr ""
+
+#: maix.html:46
 msgid "Maix 系列产品参数对比"
 msgstr ""
 
-#: maix.html:41
+#: maix.html:65
 msgid "双核"
 msgstr ""
 
-#: maix.html:41
+#: maix.html:65
 msgid "位"
 msgstr ""
 
-#: maix.html:55 maix.html:56
-msgid "支持有限"
-msgstr ""
-
-#: maix.html:55 maix.html:56
-msgid "算子"
-msgstr ""
-
-#: maix.html:57 maix.html:59
+#: maix.html:80 maix.html:83 maix.html:85
 msgid "支持常用"
 msgstr ""
 
-#: maix.html:57 maix.html:60
+#: maix.html:80 maix.html:83 maix.html:86
 msgid "模型"
 msgstr ""
 
-#: maix.html:59
-msgid "和"
-msgstr ""
-
-#: maix.html:65
+#: maix.html:80 maix.html:92
 msgid "支持"
 msgstr ""
 
-#: maix.html:66 maix.html:67 maix.html:68
+#: maix.html:81 maix.html:82
+msgid "支持有限"
+msgstr ""
+
+#: maix.html:81 maix.html:82
+msgid "算子"
+msgstr ""
+
+#: maix.html:85
+msgid "和"
+msgstr ""
+
+#: maix.html:91 maix.html:93 maix.html:94 maix.html:95
 msgid "或者"
 msgstr ""
 
-#: maix.html:71
+#: maix.html:98
 msgid "软件支持"
 msgstr ""
 
-#: maix.html:95 maix.html:96 maix.html:97 maix.html:98
+#: maix.html:125 maix.html:126 maix.html:127 maix.html:128 maix.html:129
 msgid "支持度"
 msgstr ""
 
-#: maix.html:95 maix.html:97 maix.html:98
-msgid "良"
-msgstr ""
-
-#: maix.html:96
+#: maix.html:125
 msgid "优"
 msgstr ""
 
-#: maix.html:113
+#: maix.html:126 maix.html:128
+msgid "中"
+msgstr ""
+
+#: maix.html:127
+msgid "良"
+msgstr ""
+
+#: maix.html:140
+msgid "文档和易用性"
+msgstr ""
+
+#: maix.html:160
+msgid "RISC-V 1GHz + 1Tops NPU, 4M高清摄像头，2.3寸553x368高清电容触摸屏，玩美支持全新 Maix 生态所有软件"
+msgstr ""
+
+#: maix.html:168
+msgid "https://sipeed.taobao.com"
+msgstr ""
+
+#: maix.html:177
+msgid "Python 语法，简易 API，快速落地 AI 视觉、听觉应用"
+msgstr ""
+
+#: maix.html:184 maix.html:202
+msgid "源码"
+msgstr ""
+
+#: maix.html:194
+msgid "C++ SDK, MaixPy 同款 API，稳定高效易上手"
+msgstr ""
+
+#: maix.html:210
+msgid "IDE 和云平台"
+msgstr ""
+
+#: maix.html:212
+msgid "代码编辑运行、图像实时预览，在线一键 AI 模型训练"
+msgstr ""
+
+#: maix.html:234
 msgid "带硬件 AI 加速的 MCU，配合易用的软件快速落地低成本 AI 应用"
 msgstr ""
 
-#: maix.html:130
+#: maix.html:251
 msgid "硬件 AI 加速 + Linux + 易用的软件，教育、工业视觉、智能家居场景绝配"
 msgstr ""
 
-#: maix.html:147
+#: maix.html:268
 msgid "3.6Tops AI ISP，微光夜视，大量常见 AI 模型支持，安防智能 IPC"
 msgstr ""
 
-#: maix.html:164
+#: maix.html:285
 msgid "10Tops AI 算力，32 路 1080p 高清 AI 视频监控，AI 大模型支持"
 msgstr ""
 
-#: maix.html:172
+#: maix.html:293
 msgid "https://item.taobao.com/item.htm?id=744014549573"
 msgstr ""
 
@@ -448,5 +490,53 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "产品"
+#~ msgstr ""
+
+#~ msgid "Maix AI 视觉系列"
+#~ msgstr ""
+
+#~ msgid "全新 Maix 生态"
+#~ msgstr ""
+
+#~ msgid "经典 Maix 系列"
+#~ msgstr ""
+
+#~ msgid "全新 Maix AI 视觉系列"
+#~ msgstr ""
+
+#~ msgid "RISC-V 1GHz + 1Tops NPU, 4M高清摄像头，2.3寸553x368高清屏，玩美支持全新 Maix 生态所有软件"
+#~ msgstr ""
+
+#~ msgid "和 MaixPy 同款 API，稳定高效易上手"
+#~ msgstr ""
+
+#~ msgid "C++ SDK, 和 MaixPy 同款 API，稳定高效易上手"
+#~ msgstr ""
+
+#~ msgid "Python 编程、代码运行、图像实时预览、应用打包等"
+#~ msgstr ""
+
+#~ msgid "下载"
+#~ msgstr ""
+
+#~ msgid "代码编辑运行、图像预览、在线 AI 模型训练"
+#~ msgstr ""
+
+#~ msgid "代码编辑运行、图像实时预览<br>在线一键 AI 模型训练"
+#~ msgstr ""
+
+#~ msgid "经典 Maix 视觉系列"
+#~ msgstr ""
+
+#~ msgid "软件和云平台"
+#~ msgstr ""
+
+#~ msgid "工具和云平台"
+#~ msgstr ""
+
+#~ msgid "Python 语法，快速落地 AI 视觉、听觉应用"
+#~ msgstr ""
+
+#~ msgid "文档丰富度"
 #~ msgstr ""
 

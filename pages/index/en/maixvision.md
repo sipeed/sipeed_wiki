@@ -52,7 +52,14 @@ title: MaixVision Workstation Official Website
         height: auto;
     }
 }
-
+.btn, #page_content .btn, #content_body .btn {
+    background: #005af2;
+    box-shadow: 0px 0px 2px 0px #005af2;
+}
+.btn, #page_content .btn:hover, #content_body .btn:hover {
+    background: #005af2;
+    box-shadow: 0px 0px 10px 0px #005af2;
+}
 </style>
 
 <div id="file_list_wrapper" class="flex justify-center items-center">
@@ -61,7 +68,8 @@ title: MaixVision Workstation Official Website
 </div>
 <div class="w-full flex flex-wrap-reverse justify-center items-center" style="min-height:80vh; background-color:#1f2022">
     <div class="flex flex-col justify-center items-center p-10">
-        <h1 class="text-4xl font-bold text-white">MaixVision</h1>
+        <h1 class="text-4xl font-bold text-white hidden">MaixVision</h1>
+        <img src="/static/image/maixvision_hor.svg">
         <p class="text-xm text-white">Empower edge AI projects</p>
         <div class="flex flex-row pt-10">
             <div id="win_download" class="btn mr-5 flex justify-center items-center">
