@@ -181,6 +181,7 @@ touch /boot/fb
 
 将触摸屏排线接到板子的触摸屏接口，注意线序
 
+
 然后执行:
 
 ```
@@ -268,6 +269,18 @@ rm wifi.ap wifi.sta
 ```
 /mnt/system/usr/bin/sample_vio 6 # 将摄像头画面实时显示到屏幕
 ```
+
+如果使用70405(内测版)的板子:
+
+```
+touch /boot/alpha # 内测版
+# rm /boot/alpha  # 正式版
+cd /mnt/data
+cp sensor_cfg.ini.alpha sensor_cfg.ini   # 内测版
+# cp sensor_cfg.ini.beta sensor_cfg.ini  # 正式版
+
+```
+
 
 ## 按键
 
