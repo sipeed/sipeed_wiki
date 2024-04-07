@@ -100,6 +100,8 @@ licheerv nano 支持录音和播放，使用标准 ALSA 工具可以进行录音
 amixer -Dhw:0 cset name='ADC Capture Volume' 24
 ```
 
+如果没有找到amixer工具，也可以使用alsamixer(tui)
+
 设置完成后开始录音：
 ```shell
 arecord -Dhw:0,0 -d 3 -r 48000 -f S16_LE -t wav test.wav & > /dev/null &
@@ -165,7 +167,7 @@ panel=st7701_dxq5d0019b480854
 panel=st7701_d300fpc9307a
 ```
 
-2.8寸屏:
+2.28寸屏:
 
 ```
 panel=st7701_hd228001c31
@@ -177,10 +179,27 @@ panel=st7701_hd228001c31
 touch /boot/fb
 ```
 
+然后加载驱动:
+
+```
+/etc/init.d/S04fb start
+```
+
 ## 触摸屏
 
 将触摸屏排线接到板子的触摸屏接口，注意线序
 
+如果是gt911芯片，则需要在第一个分区创建一个gt9xx文件:
+
+```
+touch /boot/gt9xx
+```
+
+然后加载驱动
+
+```
+/etc/init.d/S05tp start
+```
 
 然后执行:
 
@@ -199,15 +218,15 @@ echo 2 | evtest
 在sd卡第一个分区创建wifi.sta文件启用sta模式:
 
 ```
-touch wifi.sta
-rm wifi.ap wifi.mon
+touch /boot/wifi.sta
+rm /boot/wifi.ap /boot/wifi.mon
 ```
 
 然后将AP的SSID和密码写入文件:
 
 ```
-echo ssid > wifi.ssid
-echo pass > wifi.pass
+echo ssid > /boot/wifi.ssid
+echo pass > /boot/wifi.pass
 ```
 
 重启Wifi服务
@@ -222,15 +241,15 @@ echo pass > wifi.pass
 在sd卡第一个分区创建wifi.ap文件启用ap模式:
 
 ```
-touch wifi.ap
-rm wifi.mon wifi.sta
+touch /boot/wifi.ap
+rm /boot/wifi.mon /boot/wifi.sta
 ```
 
 然后将要创建AP的SSID和密码写入文件:
 
 ```
-echo ssid > wifi.ssid
-echo pass > wifi.pass
+echo ssid > /boot/wifi.ssid
+echo pass > /boot/wifi.pass
 ```
 
 重启Wifi服务
@@ -246,8 +265,8 @@ echo pass > wifi.pass
 在sd卡第一个分区创建wifi.mon文件启用监听模式:
 
 ```
-touch wifi.mon
-rm wifi.ap wifi.sta
+touch /boot/wifi.mon
+rm /boot/wifi.ap /boot/wifi.sta
 ```
 
 重启Wifi服务
@@ -268,6 +287,11 @@ rm wifi.ap wifi.sta
 
 ```
 /mnt/system/usr/bin/sample_vio 6 # 将摄像头画面实时显示到屏幕
+# 输入255回车，退出程序
+```
+
+```
+/mnt/system/usr/bin/sensor_test # 摄像头测试程序，可以用来dump单张yuv图像
 ```
 
 如果使用70405(内测版)的板子:
