@@ -73,7 +73,7 @@ MS5351 can generate 3 clock output, we can see its clock output pin via the sche
 
 ![unbox_uart_bl616_ms351_clk_pin](./../../../../zh/tang/tang-nano-20k/assets/unbox/unbox_uart_bl616_ms351_clk_pin.png)
 
-The CLK0 clock is connected with the PIN10 of FPGA, and CLK1 clock is connected with the PIN14 of FPGA, CLK2 clock is connected with the PIN13 of FPGA.
+The CLK0 clock is connected with the PIN10 of FPGA, and CLK1 clock is connected with the PIN11 of FPGA, CLK2 clock is connected with the PIN13 of FPGA.
 
 - Set CLK1 output 50M clock
 
