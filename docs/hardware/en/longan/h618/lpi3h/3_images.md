@@ -2,6 +2,11 @@
 title: Images
 keywords: Linux, Longan, H618, SBC, ARM, image
 update:
+  - date: 2023-04-07
+    version: v1.1
+    author: ztd
+    content:
+      - Add Debian CLI image
   - date: 2023-12-08
     version: v1.0
     author: ztd
@@ -37,6 +42,8 @@ Account: `sipeed`, Password: `licheepi`.
 - Add GPIO sysfs
 - Allow SSH login as root user
 - Add USB gadget functionality
+20240407：
+- Add Debian CLI image
 
 Download:
 

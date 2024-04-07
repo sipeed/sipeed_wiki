@@ -2,6 +2,11 @@
 title: 镜像集合
 keywords: Linux, Longan, H618, SBC, ARM, image
 update:
+  - date: 2023-04-07
+    version: v1.1
+    author: ztd
+    content:
+      - Add Debian CLI image
   - date: 2023-12-08
     version: v1.0
     author: ztd
@@ -37,6 +42,8 @@ Sipeed 官方镜像基于 Debian 系统修改适配。
 - 添加 GPIO sysfs
 - 允许使用 root 用户登陆 SSH
 - 添加 USB gadget 功能
+20240407：
+- 添加 Debian CLI 版本镜像
 
 下载地址：
 百度网盘：[点我](https://pan.baidu.com/s/1VGaARAq6dbicFy4VOytRuw) 提取码: cd68
