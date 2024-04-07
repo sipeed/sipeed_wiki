@@ -2,6 +2,11 @@
 title: 主线 Linux
 keywords: Linux, Longan, H618, SBC, ARM, Kernel, SDK, Develop
 update:
+  - date: 2024-04-07
+    version: v1.1
+    author: ztd
+    content:
+      - Add Debian & Ubuntu CLI image build instructions.
   - date: 2023-12-08
     version: v1.0
     author: ztd
@@ -27,7 +32,7 @@ cd LonganPi-3H-SDK
 ./mkatf.sh
 ./mklinux.sh
 ./mkuboot.sh
-./mkrootfs.sh
+sudo ./mkrootfs-debian-gui.sh
 ```
 
 生成的 Image 文件，设备树文件，会复制到该仓库目录下的 overlay/boot/ 文件夹中，生成的内核模块会复制到该仓库目录下的 overlay/usr/ 文件夹中。
@@ -38,7 +43,11 @@ cd LonganPi-3H-SDK
 `uboot` 文件夹下，存放的是 uboot 的 patch 文件， 在运行 mkuboot.sh 时会自动将这些 patch 打入到uboot 源码中。
 
 `overlay` 文件夹下有一些必要的文件，在运行 mkrootfs.sh 时会自动将这些文件覆盖到构建出来的 rootfs 中。
-mkrootfs.sh 用于构建烧录所需要的根文件系统，可以根据需要选择是否跳过 debian rootfs 的构建，具体请看脚本中的注释。
+
+`mkrootfs*.sh` 用于构建烧录所需要的根文件系统，可以根据需要选择根文件系统的版本：
+**mkrootfs-debian-gui.sh** 将构建包含桌面环境的 Debian 发行版 rootfs；
+**mkrootfs-debian-cli.sh** 将构建不包含桌面环境的 Debian 发行版 rootfs；
+**mkrootfs-ubuntu-cli.sh** 将构建不包含桌面环境的 Ubuntu 发行版 rootfs；
 
 构建完成后，接下来介绍如何制作一张启动 TF 卡，以及如何打包制作可烧录的 TF 卡启动镜像。
 
@@ -155,7 +164,7 @@ sudo umount /tmp/kernel
 ```shell
 mkdir -p /tmp/rootfs
 sudo mount /dev/sdc2 /tmp/rootfs
-sudo tar -vxf build/rootfs.tar -C /tmp/rootfs/
+sudo tar -vxf build/rootfs_debian_gui.tar -C /tmp/rootfs/
 sync
 sudo umount /tmp/rootfs
 ```
@@ -242,7 +251,7 @@ sudo cp -r overlay/boot/* /tmp/kernel
 # 写入 rootfs：
 mkdir -p /tmp/rootfs
 sudo mount /dev/loop24 /tmp/rootfs
-sudo tar -vxf build/rootfs.tar -C /tmp/rootfs/
+sudo tar -vxf build/rootfs_debian_gui.tar -C /tmp/rootfs/
 
 # 取消挂载
 sync

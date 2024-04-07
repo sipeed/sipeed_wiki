@@ -2,6 +2,11 @@
 title: Mainline Linux
 keywords: Linux, Longan, H618, SBC, ARM, Kernel, SDK, Develop
 update:
+  - date: 2024-04-07
+    version: v1.1
+    author: ztd
+    content:
+      - Add Debian & Ubuntu CLI image build instructions.
   - date: 2023-12-08
     version: v1.0
     author: ztd
@@ -26,7 +31,7 @@ cd LonganPi-3H-SDK
 ./mkatf.sh
 ./mklinux.sh
 ./mkuboot.sh
-./mkrootfs.sh
+sudo ./mkrootfs-debian-gui.sh
 ```
 
 The generated Image files, device tree files will be copied to the overlay/boot/ folder under the repository directory. The generated kernel modules will be copied to the overlay/usr/ folder under the repository directory.
@@ -38,6 +43,11 @@ The `linux` folder stores the kernel patch files, which will be automatically ap
 The `uboot` folder stores the U-Boot patch files, which will be automatically applied to the U-Boot source code when running mkuboot.sh.
 
 The `overlay` folder contains some necessary files that will be automatically overlayed to the constructed rootfs when running mkrootfs.sh. mkrootfs.sh is used to build the required root file system for burning, you can choose whether to skip the construction of the Debian rootfs according to actual needs, see the script comments for details.
+
+The `mkrootfs*.sh` is used to build the root file system required for flashing. You can choose the version of the root file system according to your needs:
+**mkrootfs-debian-gui.sh** will build the rootfs of the Debian distribution with a desktop environment included;
+**mkrootfs-debian-cli.sh** will build the rootfs of the Debian distribution without a desktop environment;
+**mkrootfs-ubuntu-cli.sh** will build the rootfs of the Ubuntu distribution without a desktop environment;
 
 After the construction is complete, the next step is to introduce how to make a TF card for booting and how to package the burnable TF card boot image.
 
@@ -155,7 +165,7 @@ Flash rootfs：
 ```shell
 mkdir -p /tmp/rootfs
 sudo mount /dev/sdc2 /tmp/rootfs
-sudo tar -vxf build/rootfs.tar -C /tmp/rootfs/
+sudo tar -vxf build/rootfs_debian_gui.tar -C /tmp/rootfs/
 sync
 sudo umount /tmp/rootfs
 ```
@@ -242,7 +252,7 @@ sudo cp -r overlay/boot/* /tmp/kernel
 # 写入 rootfs：
 mkdir -p /tmp/rootfs
 sudo mount /dev/loop24 /tmp/rootfs
-sudo tar -vxf build/rootfs.tar -C /tmp/rootfs/
+sudo tar -vxf build/rootfs_debian_gui.tar -C /tmp/rootfs/
 
 # 取消挂载
 sync
