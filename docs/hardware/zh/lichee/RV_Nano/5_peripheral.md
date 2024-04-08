@@ -185,6 +185,20 @@ touch /boot/fb
 /etc/init.d/S04fb start
 ```
 
+调整屏幕背光亮度:
+
+```
+echo 0 > /sys/class/pwm/pwmchip8/pwm2/enable
+echo 5000 > /sys/class/pwm/pwmchip8/pwm2/duty_cycle # 50%
+echo 1 > /sys/class/pwm/pwmchip8/pwm2/enable
+
+# some example:
+#echo 2000 > /sys/class/pwm/pwmchip8/pwm2/duty_cycle # 20%
+#echo 4000 > /sys/class/pwm/pwmchip8/pwm2/duty_cycle # 40%
+#echo 7000 > /sys/class/pwm/pwmchip8/pwm2/duty_cycle # 70%
+#echo 9000 > /sys/class/pwm/pwmchip8/pwm2/duty_cycle # 90%
+```
+
 ## 触摸屏
 
 将触摸屏排线接到板子的触摸屏接口，注意线序
