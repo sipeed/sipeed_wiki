@@ -18,6 +18,59 @@ A17 A16 GND
 
 然后使用终端软件连接串口，波特率115200
 
+### UART1 UART2
+
+UART1和2的引脚默认用作连接UART蓝牙芯片:
+
+https://github.com/sipeed/LicheeRV-Nano-Build/blob/61ecf59b8b3653e430c8905c7a1ae80201d60f84/build/boards/sg200x/sg2002_licheervnano_sd/u-boot/cvi_board_init.c#L91
+
+```
+mmio_write_32(0x03001070, 0x1); // GPIOA 28 UART1 TX
+mmio_write_32(0x03001074, 0x1); // GPIOA 29 UART1 RX
+mmio_write_32(0x03001068, 0x4); // GPIOA 18 UART1 CTS
+mmio_write_32(0x03001064, 0x4); // GPIOA 19 UART1 RTS
+```
+
+如果想要同时使用UART1和UART2的功能，则需要写入寄存器来设置引脚的PINMUX:
+
+在Linux用户空间可以使用devmem工具来写入寄存器
+
+C:
+
+```
+mmio_write_32(0x03001070, 0x2); // GPIOA 28 UART2 TX
+mmio_write_32(0x03001074, 0x2); // GPIOA 29 UART2 RX
+mmio_write_32(0x03001068, 0x6); // GPIOA 18 UART1 RX
+mmio_write_32(0x03001064, 0x6); // GPIOA 19 UART1 TX
+```
+
+shell:
+
+```
+devmem 0x03001070 32 0x2 // GPIOA 28 UART2 TX
+devmem 0x03001074 32 0x2 // GPIOA 29 UART2 RX
+devmem 0x03001068 32 0x6 // GPIOA 18 UART1 RX
+devmem 0x03001064 32 0x6 // GPIOA 19 UART1 TX
+```
+
+Linux系统中的串口使用:
+
+C:
+
+```
+/* TODO */
+```
+
+
+shell:
+
+```
+stty -F /dev/ttyS1 115200 # 设置UART1波特率为115200
+stty -F /dev/ttyS1 raw    # 设置tty为RAW模式
+echo -n UUU > /dev/ttyS1 # 发送 UUU(0x55 0x55 0x55)
+hexdump -C /dev/ttyS1     # 以HEX格式显示收到的数据
+```
+
 ### usb rndis 网口
 
 将板子的usb typec口连接到电脑时会提供一个usb rndis网卡设备(linux gadget 提供)
