@@ -253,7 +253,7 @@ msgid "文档和易用性"
 msgstr ""
 
 #: maix.html:160
-msgid "RISC-V 1GHz + 1Tops NPU, 4M高清摄像头，2.3寸553x368高清电容触摸屏，玩美支持全新 Maix 生态所有软件"
+msgid "RISC-V 1GHz + 1Tops NPU, 4M高清摄像头，2.3寸552x368高清电容触摸屏，完美支持全新 Maix 生态所有软件"
 msgstr ""
 
 #: maix.html:168
@@ -538,5 +538,8 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "文档丰富度"
+#~ msgstr ""
+
+#~ msgid "RISC-V 1GHz + 1Tops NPU, 4M高清摄像头，2.3寸553x368高清电容触摸屏，玩美支持全新 Maix 生态所有软件"
 #~ msgstr ""
 
