@@ -23,7 +23,7 @@ datasheet: https://github.com/sophgo/sophgo-doc/releases
 
 5. 跳转到boot.sd内提供的代码(通常是Linux内核)
 
-一个简单的裸机HelloWorld demo，用于演示如何创建可以启动的fip.bin:
+一个简单的裸机HelloWorld demo，用于演示如何创建可以启动的fip.bin(bl2):
 
 https://github.com/0x754C/sg200x-bare
 
@@ -97,4 +97,4 @@ https://github.com/sipeed/LicheeRV-Nano-Build/blob/926bbe94f4f00059ce0ff3857cc72
 
 ## 初始化MIPI RX
 
-算能SDK的MIPI RX只能在用户空间初始化，需要修改middleware中的代码
+算能SDK的MIPI RX目前只能在用户空间初始化，需要修改middleware中的代码

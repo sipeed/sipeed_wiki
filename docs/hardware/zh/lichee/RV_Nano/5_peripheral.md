@@ -18,6 +18,75 @@ A17 A16 GND
 
 然后使用终端软件连接串口，波特率115200
 
+### UART1 UART2 UART3
+
+UART1和2的引脚默认用作连接UART蓝牙芯片:
+
+https://github.com/sipeed/LicheeRV-Nano-Build/blob/61ecf59b8b3653e430c8905c7a1ae80201d60f84/build/boards/sg200x/sg2002_licheervnano_sd/u-boot/cvi_board_init.c#L91
+```
+mmio_write_32(0x03001070, 0x1); // GPIOA 28 UART1 TX
+mmio_write_32(0x03001074, 0x1); // GPIOA 29 UART1 RX
+mmio_write_32(0x03001068, 0x4); // GPIOA 18 UART1 CTS
+mmio_write_32(0x03001064, 0x4); // GPIOA 19 UART1 RTS
+```
+
+如果想要同时使用UART1和UART2的功能，则需要写入寄存器来设置引脚的PINMUX:
+
+在Linux用户空间可以使用devmem工具来写入寄存器
+
+shell:
+
+```
+devmem 0x03001070 32 0x2 # GPIOA 28 UART2 TX
+devmem 0x03001074 32 0x2 # GPIOA 29 UART2 RX
+devmem 0x03001068 32 0x6 # GPIOA 18 UART1 RX
+devmem 0x03001064 32 0x6 # GPIOA 19 UART1 TX
+```
+
+UART3 的引脚被默认复用为SDIO:
+
+https://github.com/sipeed/LicheeRV-Nano-Build/blob/61ecf59b8b3653e430c8905c7a1ae80201d60f84/build/boards/sg200x/sg2002_licheervnano_sd/u-boot/cvi_board_init.c#L83
+
+```
+mmio_write_32(0x030010D0, 0x0); // D3
+mmio_write_32(0x030010D4, 0x0); // D2
+mmio_write_32(0x030010D8, 0x0); // D1
+mmio_write_32(0x030010DC, 0x0); // D0
+mmio_write_32(0x030010E0, 0x0); // CMD
+mmio_write_32(0x030010E4, 0x0); // CLK
+```
+
+如果想要使用UART3的功能，则需要写入寄存器来设置引脚的PINMUX:
+
+在Linux用户空间可以使用devmem工具来写入寄存器
+
+shell:
+
+```
+devmem 0x030010D0 32 0x5 # GPIOP 18 UART3 CTS
+devmem 0x030010D4 32 0x5 # GPIOP 19 UART3 TX
+devmem 0x030010D8 32 0x5 # GPIOP 20 UART3 RX
+devmem 0x030010DC 32 0x5 # GPIOP 21 UART3 RTS
+```
+
+Linux系统中的串口使用:
+
+C:
+
+```
+/* TODO */
+```
+
+
+shell:
+
+```
+stty -F /dev/ttyS1 115200 # 设置UART1波特率为115200
+stty -F /dev/ttyS1 raw    # 设置tty为RAW模式
+echo -n UUU > /dev/ttyS1 # 发送 UUU(0x55 0x55 0x55)
+hexdump -C /dev/ttyS1     # 以HEX格式显示收到的数据
+```
+
 ### usb rndis 网口
 
 将板子的usb typec口连接到电脑时会提供一个usb rndis网卡设备(linux gadget 提供)
@@ -77,8 +146,7 @@ Windows 系统下，需要进行一些配置。
 avahi-browse -art | grep licheervnano
 ```
 
-列出广播域中域名带有的lpirvnano的设备
-
+列出广播域中域名带有的licheervrvnano的设备
 
 
 然后使用:
@@ -100,6 +168,8 @@ licheerv nano 支持录音和播放，使用标准 ALSA 工具可以进行录音
 amixer -Dhw:0 cset name='ADC Capture Volume' 24
 ```
 
+如果没有找到amixer工具，也可以使用alsamixer(tui)
+
 设置完成后开始录音：
 ```shell
 arecord -Dhw:0,0 -d 3 -r 48000 -f S16_LE -t wav test.wav & > /dev/null &
@@ -118,18 +188,53 @@ arecord -Dhw:0,0 -d 3 -r 48000 -f S16_LE -t wav test.wav & > /dev/null &
 使用前需要先正确设置 PINMUX：
 ```shell
 # I2C1
-devmem 0x030010D0 32 0x2
-devmem 0x030010DC 32 0x2
+devmem 0x030010D0 32 0x2 # GPIOP 18 I2C1 SCL
+devmem 0x030010DC 32 0x2 # GPIOP 21 I2C1 SDA
 # I2C3
-devmem 0x030010E4 32 0x2
-devmem 0x030010E0 32 0x2
+devmem 0x030010E0 32 0x2 # GPIOP 22 I2C3 SCL
+devmem 0x030010E4 32 0x2 # GPIOP 23 I2C3 SDA
 ```
 
 然后可以使用 i2c-tools 进行 i2c 外设的操作，镜像中已经预装。
 
+## SPI
+
+SPI2默认被复用作SDIO:
+
+https://github.com/sipeed/LicheeRV-Nano-Build/blob/61ecf59b8b3653e430c8905c7a1ae80201d60f84/build/boards/sg200x/sg2002_licheervnano_sd/u-boot/cvi_board_init.c#L83
+
+```
+mmio_write_32(0x030010D0, 0x0); // D3
+mmio_write_32(0x030010D4, 0x0); // D2
+mmio_write_32(0x030010D8, 0x0); // D1
+mmio_write_32(0x030010DC, 0x0); // D0
+mmio_write_32(0x030010E0, 0x0); // CMD
+mmio_write_32(0x030010E4, 0x0); // CLK
+```
+
+如果想要使用SPI2，则需要更改PINMUX:
+
+```
+devmem 0x030010D0 32 0x1 # GPIOP 18 SPI2 CS
+devmem 0x030010DC 32 0x1 # GPIOP 21 SPI2 MISO
+devmem 0x030010E0 32 0x1 # GPIOP 22 SPI2 MOSI
+devmem 0x030010E4 32 0x1 # GPIOP 22 SPI2 SCK
+```
+
+简单测试SPI:
+
+将SPI的MISO和MOSI连起来，然后执行:
+
+```
+spidev_test -D /dev/spidevN.N -p 1234 -v
+# 将N.N换成对应的BUS
+```
+
+如果TX和RX的数据一样，则引脚复用没有问题
+
 ## ADC
 
-插针上引出了一路 ADC，使用的是 ADC1。
+插针上引出了一路 ADC，引脚是GPIOB 3，使用的是 ADC1。
 
 首先选择 ADC channel，这里以 ADC1 为例：
 ```shell
@@ -165,7 +270,7 @@ panel=st7701_dxq5d0019b480854
 panel=st7701_d300fpc9307a
 ```
 
-2.8寸屏:
+2.3寸屏:
 
 ```
 panel=st7701_hd228001c31
@@ -177,10 +282,41 @@ panel=st7701_hd228001c31
 touch /boot/fb
 ```
 
+然后加载驱动:
+
+```
+/etc/init.d/S04fb start
+```
+
+调整屏幕背光亮度:
+
+```
+echo 0 > /sys/class/pwm/pwmchip8/pwm2/enable
+echo 5000 > /sys/class/pwm/pwmchip8/pwm2/duty_cycle # 50%
+echo 1 > /sys/class/pwm/pwmchip8/pwm2/enable
+
+# some example:
+#echo 2000 > /sys/class/pwm/pwmchip8/pwm2/duty_cycle # 20%
+#echo 4000 > /sys/class/pwm/pwmchip8/pwm2/duty_cycle # 40%
+#echo 7000 > /sys/class/pwm/pwmchip8/pwm2/duty_cycle # 70%
+#echo 9000 > /sys/class/pwm/pwmchip8/pwm2/duty_cycle # 90%
+```
+
 ## 触摸屏
 
 将触摸屏排线接到板子的触摸屏接口，注意线序
 
+如果是gt911芯片，则需要在第一个分区创建一个gt9xx文件:
+
+```
+touch /boot/gt9xx
+```
+
+然后加载驱动
+
+```
+/etc/init.d/S05tp start
+```
 
 然后执行:
 
@@ -199,15 +335,15 @@ echo 2 | evtest
 在sd卡第一个分区创建wifi.sta文件启用sta模式:
 
 ```
-touch wifi.sta
-rm wifi.ap wifi.mon
+touch /boot/wifi.sta
+rm /boot/wifi.ap /boot/wifi.mon
 ```
 
 然后将AP的SSID和密码写入文件:
 
 ```
-echo ssid > wifi.ssid
-echo pass > wifi.pass
+echo ssid > /boot/wifi.ssid
+echo pass > /boot/wifi.pass
 ```
 
 重启Wifi服务
@@ -222,15 +358,15 @@ echo pass > wifi.pass
 在sd卡第一个分区创建wifi.ap文件启用ap模式:
 
 ```
-touch wifi.ap
-rm wifi.mon wifi.sta
+touch /boot/wifi.ap
+rm /boot/wifi.mon /boot/wifi.sta
 ```
 
 然后将要创建AP的SSID和密码写入文件:
 
 ```
-echo ssid > wifi.ssid
-echo pass > wifi.pass
+echo ssid > /boot/wifi.ssid
+echo pass > /boot/wifi.pass
 ```
 
 重启Wifi服务
@@ -246,8 +382,8 @@ echo pass > wifi.pass
 在sd卡第一个分区创建wifi.mon文件启用监听模式:
 
 ```
-touch wifi.mon
-rm wifi.ap wifi.sta
+touch /boot/wifi.mon
+rm /boot/wifi.ap /boot/wifi.sta
 ```
 
 重启Wifi服务
@@ -268,6 +404,11 @@ rm wifi.ap wifi.sta
 
 ```
 /mnt/system/usr/bin/sample_vio 6 # 将摄像头画面实时显示到屏幕
+# 输入255回车，退出程序
+```
+
+```
+/mnt/system/usr/bin/sensor_test # 摄像头测试程序，可以用来dump单张yuv图像
 ```
 
 如果使用70405(内测版)的板子:
