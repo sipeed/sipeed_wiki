@@ -280,7 +280,9 @@ sudo apt install firefox ffmpeg
 
 ## Media Player
 
-There are some open source players built in the system. The default player is Parole, which supports playing 4K videos. The effect of playing 4K videos with Parole is as follows:
+There are some open source players built in the system. The default player is Parole, which supports playing 4K videos. It is recommended to use the hardware accelerated media player Parole as the preferred option. 
+
+The effect of playing 4K videos with Parole is as follows:
 
 ![4k_video_play](./../../../../zh/lichee/th1520/lpi4a/assets/desktop/4k_video_play.png)
 

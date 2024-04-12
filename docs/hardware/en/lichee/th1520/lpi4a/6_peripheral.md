@@ -985,7 +985,7 @@ The JTAG interface is reserved on the core board, but you need to lead out the G
 
 Before connecting the debugger, make sure the debugger is in CKLink mode. Next, take [SLogic Combo 8](https://en.wiki.sipeed.com/hardware/zh/logic_analyzer/combo8/index.html) and RV-Debugger Plus as examples.
 For SLogic Combo 8, please refer to the [corresponding document](https://en.wiki.sipeed.com/hardware/en/logic_analyzer/combo8/use_cklink_function.html) to switch to CKLink mode.
-For RV-Debugger Plus, please refer to [this repository](https://github.com/bouffalolab/bouffalo_sdk/tree/master/tools/cklink_firmware) to flash the CKLink dedicated firmware.
+For RV-Debugger Plus, please refer to [this repository](https://github.com/bouffalolab/bouffalo_sdk/tree/master/tools/cklink_firmware) to flash the CKLink dedicated firmware.**Note: it is better to connect a level conversion chip, direct connection has the risk of burning.**
 
 After completing the above steps, connect to the debugger using dupont wires through the pin headers.
 
