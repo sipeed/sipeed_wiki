@@ -283,7 +283,9 @@ sudo apt install firefox ffmpeg
 
 ## 播放器
 
-系统内置了一些开源播放器，默认使用的播放器是支持播放 4K 视频的 Parole，使用 Parole 播放 4K 视频的效果如下：
+系统内置了一些开源播放器，默认使用的播放器是支持播放 4K 视频的 Parole，**推荐优先使用支持硬件加速的播放器 Parole**。
+
+使用 Parole 播放 4K 视频的效果如下：
 
 ![4k_video_play](./assets/desktop/4k_video_play.png)
 

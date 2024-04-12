@@ -71,7 +71,7 @@ ISCAS mirror(including test mirror, ordinary users please use the mirror in the 
   - Development: python3.11
   - Office: libreoffice suite 
   - Browser: chromium
-  - Media: 4K video players like Parole, VLC, GIMP
+  - Media: 4K video players like Parole(Supports hardware acceleration, recommended for priority use), VLC, GIMP
 - changelog:
   20230706:
     - Fixed HDMI display device and HDMI audio device recognition issues.
@@ -118,7 +118,7 @@ ISCAS mirror(including test mirror, ordinary users please use the mirror in the 
   - Development: python3.11, GCC, VScode, Kicad (with demo projects), AI env (with precompiled yolov5n/yolov5s executables)
   - Office: libreoffice suite
   - Browser: chromium 
-  - Media: 4K video players like Parole (with demo 4K videos), VLC, GIMP, video editor Kdenlive (with demo video clips), kodi
+  - Media: 4K video players like Parole (Supports hardware acceleration, recommended for priority use.with demo 4K videos on desktop), VLC, GIMP, video editor Kdenlive (with demo video clips), kodi
   - Game: SuperTuxKart
   - Other: btop, neofetch
 - changelog:

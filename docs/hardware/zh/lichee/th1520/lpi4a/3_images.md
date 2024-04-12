@@ -69,7 +69,7 @@ ISCAS 镜像站（内含测试镜像，普通用户请使用前面网盘中的�
       - 开发类 python3.11
       - 办公类 libreoffice 套件
       - 浏览器 chromium
-      - 媒体类 支持播放4K视频的播放器 Parole、VLC、GIMP
+      - 媒体类 支持播放4K视频的播放器 Parole（支持硬件加速，推荐优先使用）、VLC、GIMP
    - 更新记录：
       20230706：
          - HDMI 显示设备和 HDMI 音频设备识别问题
@@ -113,7 +113,7 @@ ISCAS 镜像站（内含测试镜像，普通用户请使用前面网盘中的�
       - 开发类 python3.11、GCC、VScode、Kicad（含示例工程）、AI环境（含预编译yolov5n/yolov5s可执行示例）
       - 办公类 libreoffice 套件
       - 浏览器 chromium
-      - 媒体类 支持播放4K视频的播放器 Parole（含示例4k视频）、VLC、GIMP、视频编辑软件 Kdenlive（含示例视频素材）、kodi
+      - 媒体类 支持播放4K视频的播放器 Parole（支持硬件加速，推荐优先使用；含示例4k视频）、VLC、GIMP、视频编辑软件 Kdenlive（含示例视频素材）、kodi
       - 游戏 SuperTuxKart
       - 其他 btop、neofetch
    - 更新记录：
