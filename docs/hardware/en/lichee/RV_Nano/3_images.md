@@ -9,3 +9,7 @@ The image is compressed using xz. After decompression, use tools like Rufus, Win
 ## Images Based on the Mainline Buildroot SDK (WORK-IN-PROGRESS)
 
 [Download here](https://github.com/0x754C/sipeed-toolchain/releases)
+
+## Debian Sid Based image
+
+[Image Infomation and Downloads](https://github.com/Fishwaldo/sophgo-sg200x-debian)
