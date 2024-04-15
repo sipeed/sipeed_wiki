@@ -330,6 +330,11 @@ vi uEnv.txt
 7寸屏:
 
 ```
+panel=zct2133v1
+```
+
+5寸屏:
+```
 panel=st7701_dxq5d0019b480854
 ```
 
