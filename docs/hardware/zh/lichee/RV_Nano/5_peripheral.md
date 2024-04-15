@@ -5,87 +5,20 @@ update:
   - date: 2024-1-26
     version: v0.1
     author: 0x754C
+  - date: 2024-4-9
+    version: v0.2
+    author: BuGu
 ---
 
-## 引脚分布
-![](./../assets/RV_Nano/intro/RV_Nano_3.jpg)
+## 连接开发板
 
 ### UART0
 
-将UART串口连接到板子的:
-
-A17 A16 GND
+将UART串口连接到板子的 `GND `、`A16（TX） `、`A17（RX） `
 
 然后使用终端软件连接串口，波特率115200
 
-### UART1 UART2 UART3
-
-UART1和2的引脚默认用作连接UART蓝牙芯片:
-
-https://github.com/sipeed/LicheeRV-Nano-Build/blob/61ecf59b8b3653e430c8905c7a1ae80201d60f84/build/boards/sg200x/sg2002_licheervnano_sd/u-boot/cvi_board_init.c#L91
-```
-mmio_write_32(0x03001070, 0x1); // GPIOA 28 UART1 TX
-mmio_write_32(0x03001074, 0x1); // GPIOA 29 UART1 RX
-mmio_write_32(0x03001068, 0x4); // GPIOA 18 UART1 CTS
-mmio_write_32(0x03001064, 0x4); // GPIOA 19 UART1 RTS
-```
-
-如果想要同时使用UART1和UART2的功能，则需要写入寄存器来设置引脚的PINMUX:
-
-在Linux用户空间可以使用devmem工具来写入寄存器
-
-shell:
-
-```
-devmem 0x03001070 32 0x2 # GPIOA 28 UART2 TX
-devmem 0x03001074 32 0x2 # GPIOA 29 UART2 RX
-devmem 0x03001068 32 0x6 # GPIOA 18 UART1 RX
-devmem 0x03001064 32 0x6 # GPIOA 19 UART1 TX
-```
-
-UART3 的引脚被默认复用为SDIO:
-
-https://github.com/sipeed/LicheeRV-Nano-Build/blob/61ecf59b8b3653e430c8905c7a1ae80201d60f84/build/boards/sg200x/sg2002_licheervnano_sd/u-boot/cvi_board_init.c#L83
-
-```
-mmio_write_32(0x030010D0, 0x0); // D3
-mmio_write_32(0x030010D4, 0x0); // D2
-mmio_write_32(0x030010D8, 0x0); // D1
-mmio_write_32(0x030010DC, 0x0); // D0
-mmio_write_32(0x030010E0, 0x0); // CMD
-mmio_write_32(0x030010E4, 0x0); // CLK
-```
-
-如果想要使用UART3的功能，则需要写入寄存器来设置引脚的PINMUX:
-
-在Linux用户空间可以使用devmem工具来写入寄存器
-
-shell:
-
-```
-devmem 0x030010D0 32 0x5 # GPIOP 18 UART3 CTS
-devmem 0x030010D4 32 0x5 # GPIOP 19 UART3 TX
-devmem 0x030010D8 32 0x5 # GPIOP 20 UART3 RX
-devmem 0x030010DC 32 0x5 # GPIOP 21 UART3 RTS
-```
-
-Linux系统中的串口使用:
-
-C:
-
-```
-/* TODO */
-```
-
-
-shell:
-
-```
-stty -F /dev/ttyS1 115200 # 设置UART1波特率为115200
-stty -F /dev/ttyS1 raw    # 设置tty为RAW模式
-echo -n UUU > /dev/ttyS1 # 发送 UUU(0x55 0x55 0x55)
-hexdump -C /dev/ttyS1     # 以HEX格式显示收到的数据
-```
+在USB接口上的SBU1/2上也引出了UART0，可使用USB TypeC转接板引出RX0、TX0
 
 ### usb rndis 网口
 
@@ -157,6 +90,18 @@ ssh root@licheervnano-XXXX.local
 
 连接板子
 
+## SOC相关
+
+查看SOC温度：
+```shell
+cat /sys/class/thermal/thermal_zone0/temp
+```
+
+查看SOC时钟：
+```shell
+cat /sys/kernel/debug/clk/clk_summary
+```
+
 ## Audio
 
 licheerv nano 支持录音和播放，使用标准 ALSA 工具可以进行录音、播放等操作。
@@ -181,6 +126,109 @@ arecord -Dhw:0,0 -d 3 -r 48000 -f S16_LE -t wav test.wav & > /dev/null &
 ./aplay -D hw:1,0 -f S16_LE test.wav
 ```
 
+## GPIO
+
+### LicheeRV Nano引脚图&Linux GPIO编号：
+
+![GPIO](../assets/RV_Nano/peripheral/gpio.png)
+
+系统内GPIO查看：
+
+```shell
+cat /sys/kernel/debug/clk/clk_summary
+```
+
+### GPIO操作
+
+首先用 'devmem 0x0300xxxx 32 0xxx' 修改引脚的PINMUX到GPIO
+
+寄存器查找方式（以A22为例）：在[此处](https://github.com/sophgo/sophgo-doc/releases/download/sg2000-trm-v1.0-beta/sg2000_trm_cn.pdf)下载SG2002寄存器手册，手册中查找XGPIOA[22]，在表格中对应到GPIO，shell命令： 'devmem 0x03001050 32 0x03'
+
+```shell
+# xxx 为上图中Linux GPIO NUM，如A22：num=502
+num=xxx
+echo ${num} > /sys/class/gpio/export  
+# GPIO 写
+echo out > /sys/class/gpio/gpio${num}/direction 
+echo 1 > /sys/class/gpio/gpio${num}/value  
+echo 0 > /sys/class/gpio/gpio${num}/value
+# GPIO 读
+echo in > /sys/class/gpio/gpio${num}/direction 
+cat /sys/class/gpio/gpio${num}/value
+```
+
+## UART
+
+### UART1/2
+UART1和2的引脚默认用作连接UART蓝牙芯片:
+
+https://github.com/sipeed/LicheeRV-Nano-Build/blob/61ecf59b8b3653e430c8905c7a1ae80201d60f84/build/boards/sg200x/sg2002_licheervnano_sd/u-boot/cvi_board_init.c#L91
+```c
+mmio_write_32(0x03001070, 0x1); // GPIOA 28 UART1 TX
+mmio_write_32(0x03001074, 0x1); // GPIOA 29 UART1 RX
+mmio_write_32(0x03001068, 0x4); // GPIOA 18 UART1 CTS
+mmio_write_32(0x03001064, 0x4); // GPIOA 19 UART1 RTS
+```
+
+如果想要同时使用UART1和UART2的功能，则需要写入寄存器来设置引脚的PINMUX:
+
+在Linux用户空间可以使用devmem工具来写入寄存器
+
+shell:
+
+```shell
+devmem 0x03001070 32 0x2 # GPIOA 28 UART2 TX
+devmem 0x03001074 32 0x2 # GPIOA 29 UART2 RX
+devmem 0x03001068 32 0x6 # GPIOA 18 UART1 RX
+devmem 0x03001064 32 0x6 # GPIOA 19 UART1 TX
+```
+
+### UART3
+
+UART3 的引脚被默认复用为SDIO:
+
+https://github.com/sipeed/LicheeRV-Nano-Build/blob/61ecf59b8b3653e430c8905c7a1ae80201d60f84/build/boards/sg200x/sg2002_licheervnano_sd/u-boot/cvi_board_init.c#L83
+
+```c
+mmio_write_32(0x030010D0, 0x0); // D3
+mmio_write_32(0x030010D4, 0x0); // D2
+mmio_write_32(0x030010D8, 0x0); // D1
+mmio_write_32(0x030010DC, 0x0); // D0
+mmio_write_32(0x030010E0, 0x0); // CMD
+mmio_write_32(0x030010E4, 0x0); // CLK
+```
+
+如果想要使用UART3的功能，则需要写入寄存器来设置引脚的PINMUX:
+
+在Linux用户空间可以使用devmem工具来写入寄存器
+
+shell:
+
+```shell
+devmem 0x030010D0 32 0x5 # GPIOP 18 UART3 CTS
+devmem 0x030010D4 32 0x5 # GPIOP 19 UART3 TX
+devmem 0x030010D8 32 0x5 # GPIOP 20 UART3 RX
+devmem 0x030010DC 32 0x5 # GPIOP 21 UART3 RTS
+```
+
+Linux系统中的串口使用:
+
+C:
+
+```
+/* TODO */
+```
+
+
+shell:
+
+```shell
+stty -F /dev/ttyS1 115200 # 设置UART1波特率为115200
+stty -F /dev/ttyS1 raw    # 设置tty为RAW模式
+echo -n UUU > /dev/ttyS1 # 发送 UUU(0x55 0x55 0x55)
+hexdump -C /dev/ttyS1     # 以HEX格式显示收到的数据
+```
+
 ## I2C
 
 插针上引出了 I2C1 和 I2C3，将设备连接到其上即可。
@@ -196,6 +244,20 @@ devmem 0x030010E4 32 0x2 # GPIOP 23 I2C3 SDA
 ```
 
 然后可以使用 i2c-tools 进行 i2c 外设的操作，镜像中已经预装。
+
+带WiFi模块的板卡（W、WE版）I2C1和I2C3硬件上连接到WiFi模块的SDIO，存在I2C无法读写的可能，PINMUX到I2C时WiFi模块暂时不可用，可使用以下命令恢复WiFi连接：
+```shell
+# PINMUX到SDIO
+devmem 0x030010D0 32 0x0
+devmem 0x030010DC 32 0x0
+devmem 0x030010D0 32 0x0
+devmem 0x030010DC 32 0x0
+# 重启WiFi服务
+/etc/init.d/S30wifi stop
+/etc/init.d/S30wifi start
+```
+
+摄像头和触摸屏接口共用I2C4，可使用 'i2cdetect -ry 4' 扫描设备。需注意I2C4处于1.8V电源域，连接其他设备时请注意电平匹配。
 
 ## SPI
 
@@ -234,7 +296,11 @@ spidev_test -D /dev/spidevN.N -p 1234 -v
 
 ## ADC
 
-插针上引出了一路 ADC，引脚是GPIOB 3，使用的是 ADC1。
+LicheeRV Nano插针上引出了一路12位ADC，在板内已做分压处理，如图：
+
+![ADC](../assets/RV_Nano/peripheral/adc.png)
+
+经测试，ADC输入电压在0-4.6V时，对应ADC值为0000-4095 
 
 首先选择 ADC channel，这里以 ADC1 为例：
 ```shell
@@ -252,13 +318,16 @@ cat /sys/class/cvi-saradc/cvi-saradc0/device/cv_saradc
 
 创建或编辑sd卡第一个分区中的uEnv.txt文件，添加或修改panel字段:
 
+注：镜像将第一个分区已经挂载到/boot目录下，可在终端中直接操作：
+```shell
+cd /boot
+touch uEnv.txt
+vi uEnv.txt
+# 使用 'i' 进入编辑
+# 使用 'Esc',':wq'保存并退出
+```
+
 7寸屏:
-
-```
-panel=zct2133v1
-```
-
-5寸屏:
 
 ```
 panel=st7701_dxq5d0019b480854
