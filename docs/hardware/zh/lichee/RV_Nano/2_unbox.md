@@ -28,6 +28,8 @@ LicheeRV Nano根据网络分为四个版本：
 
   注：70415及以上版本可使用0402*4的排阻短接
 
+  ![](./../assets/RV_Nano/unbox/BLE_RES_2.jpg)
+
 + WiFi网口版（WE）板载WiFi6/BT5.2模块，同时提供一个网口小板，通过铜柱与排线连接到开发板上
 
 同时我们提供以下六种配件：
@@ -150,3 +152,21 @@ LicheeRV Nano的大核支持作为RISC-V（C906）或ARM（A53）启动，在开
   ![](./../assets/RV_Nano/unbox/A53-2.jpg)
 
 需注意，目前A53模式下的SDK视频编解码存在问题，测试镜像点击[这里](https://github.com/sipeed/LicheeRV-Nano-Build/releases/tag/20240326)下载
+
+## 屏幕背光
+
+LicheeRV Nano适配不同尺寸的屏幕，其中3寸、2.3寸为单串LED；5寸为双串LED；7寸、10.1寸为四串LED。
+
+![](./../assets/RV_Nano/unbox/BL_RES_1.png)
+
+如上图背光电阻默认使用两个10R 0201并联，适配5寸屏幕；
+接入2.8/3寸屏幕会明显发烫，内测版70405需拆掉BL电阻（下图位置），70415及后续版本可通过PWM自动适配小尺寸屏幕；
+接入7/10.1寸屏幕时屏幕略暗，若需达到100%亮度，要将该电阻修改为3.3R
+
+![](./../assets/RV_Nano/unbox/BL_RES.png)
+
+## 电池应用
+
+LicheeRV Nano 上不包含锂电池充电电路，如果用户需要嵌入电池，同时希望使用 RV Nano 自带的 USB TypeC 充电，则需要断开VBUS与VSYS的电阻（下图位置），VBUS接口作为PMU的外部电源输入，VSYS接口连接PMU的VSYS。如有疑问，请联系我们获得支持。
+
+![](./../assets/RV_Nano/unbox/5V_RES.png)
