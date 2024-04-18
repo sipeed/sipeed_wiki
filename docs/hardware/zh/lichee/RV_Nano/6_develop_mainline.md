@@ -23,7 +23,15 @@ datasheet: https://github.com/sophgo/sophgo-doc/releases
 
 5. 跳转到boot.sd内提供的代码(通常是Linux内核)
 
-一个简单的裸机HelloWorld demo，用于演示如何创建可以启动的fip.bin(bl2):
+一个简单的裸机HelloWorld demo，用于演示:
+
+1.  最小化可以启动的fip.bin(bl2):
+
+2. 启动C906小核
+
+3. 一些外设的裸机驱动(TODO)
+
+4. 启动8051(TODO)
 
 https://github.com/0x754C/sg200x-bare
 
