@@ -20,6 +20,120 @@ update:
 
 在USB接口上的SBU1/2上也引出了UART0，可使用USB TypeC转接板引出RX0、TX0
 
+#### 禁止 UART0 输出日志
+
+首先将用户空间的输出转到别的tty设备上:
+
+```
+#include <stdlib.h>
+#include <unistd.h>
+#include <sys/ioctl.h>
+#include <fcntl.h>
+
+int main(int argc, char *argv[]) {
+        int fd;
+        if (argc < 2) {
+                fprintf(stderr, "usage: %s /dev/ttyX\n", argv[0]);
+                exit(EXIT_FAILURE);
+        }
+        fd = open(argv[1], O_RDWR);
+        if (fd < 0) {
+                perror("open");
+                exit(EXIT_FAILURE);
+        }
+        ioctl(fd, TIOCCONS);
+        close(fd);
+        exit(EXIT_SUCCESS);
+}
+```
+
+```
+riscv64-unknown-linux-gcc tioccons.c -o tioccons
+./tioccons /dev/tty2 # 将/dev/console转接到tty2上
+```
+
+然后设置内核日志等级:
+
+```
+echo 0 > /proc/sys/kernel/printk
+```
+
+测试方法:
+
+```
+echo userspace > /dev/console
+echo kernel > /dev/kmsg
+```
+
+### UART1 UART2 UART3
+
+UART1和2的引脚默认用作连接UART蓝牙芯片:
+
+https://github.com/sipeed/LicheeRV-Nano-Build/blob/61ecf59b8b3653e430c8905c7a1ae80201d60f84/build/boards/sg200x/sg2002_licheervnano_sd/u-boot/cvi_board_init.c#L91
+```
+mmio_write_32(0x03001070, 0x1); // GPIOA 28 UART1 TX
+mmio_write_32(0x03001074, 0x1); // GPIOA 29 UART1 RX
+mmio_write_32(0x03001068, 0x4); // GPIOA 18 UART1 CTS
+mmio_write_32(0x03001064, 0x4); // GPIOA 19 UART1 RTS
+```
+
+如果想要同时使用UART1和UART2的功能，则需要写入寄存器来设置引脚的PINMUX:
+
+在Linux用户空间可以使用devmem工具来写入寄存器
+
+shell:
+
+```
+devmem 0x03001070 32 0x2 # GPIOA 28 UART2 TX
+devmem 0x03001074 32 0x2 # GPIOA 29 UART2 RX
+devmem 0x03001068 32 0x6 # GPIOA 18 UART1 RX
+devmem 0x03001064 32 0x6 # GPIOA 19 UART1 TX
+```
+
+UART3 的引脚被默认复用为SDIO:
+
+https://github.com/sipeed/LicheeRV-Nano-Build/blob/61ecf59b8b3653e430c8905c7a1ae80201d60f84/build/boards/sg200x/sg2002_licheervnano_sd/u-boot/cvi_board_init.c#L83
+
+```
+mmio_write_32(0x030010D0, 0x0); // D3
+mmio_write_32(0x030010D4, 0x0); // D2
+mmio_write_32(0x030010D8, 0x0); // D1
+mmio_write_32(0x030010DC, 0x0); // D0
+mmio_write_32(0x030010E0, 0x0); // CMD
+mmio_write_32(0x030010E4, 0x0); // CLK
+```
+
+如果想要使用UART3的功能，则需要写入寄存器来设置引脚的PINMUX:
+
+在Linux用户空间可以使用devmem工具来写入寄存器
+
+shell:
+
+```
+devmem 0x030010D0 32 0x5 # GPIOP 18 UART3 CTS
+devmem 0x030010D4 32 0x5 # GPIOP 19 UART3 TX
+devmem 0x030010D8 32 0x5 # GPIOP 20 UART3 RX
+devmem 0x030010DC 32 0x5 # GPIOP 21 UART3 RTS
+```
+
+Linux系统中的串口使用:
+
+C:
+
+```
+/* TODO */
+```
+
+
+shell:
+
+```
+stty -F /dev/ttyS1 115200 # 设置UART1波特率为115200
+stty -F /dev/ttyS1 raw    # 设置tty为RAW模式
+echo -n UUU > /dev/ttyS1 # 发送 UUU(0x55 0x55 0x55)
+hexdump -C /dev/ttyS1     # 以HEX格式显示收到的数据
+```
+
 ### usb rndis 网口
 
 将板子的usb typec口连接到电脑时会提供一个usb rndis网卡设备(linux gadget 提供)
