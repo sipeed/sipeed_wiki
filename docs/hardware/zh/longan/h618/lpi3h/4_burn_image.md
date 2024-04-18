@@ -43,9 +43,17 @@ Windows 系统和 Linux 的步骤类似。
 **注意需要使用20240106及以上版本的镜像**
 
 先准备一张启动 TF 卡，进入到系统，然后使用 SCP 等工具将 EMMC 镜像文件拷贝到 TF 卡的系统中，然后使用 dd 命令将镜像文件写入 EMMC：
+
+
+如何确定EMMC在系统内的节点:
+```
+ls /dev/mmcblk* | grep boot | head -n 1 | sed -e 's/boot0//g'
+```
+
 ```shell
 # 假设镜像文件复制到 /opt/ 目录下
-dd if=/opt/your_image_file of=/dev/mmcblk1
+# 将X替换为上面得到的节点
+dd if=/opt/your_image_file of=/dev/mmcblkX
 sync
 ```
 等到烧录完成后，拔掉 SD 卡，即可从EMMC进入系统。
