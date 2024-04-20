@@ -20,12 +20,12 @@
             "type": "list",
             "items": [
                 {
-                    "url": "/soft/maixpy/en/index.html",
+                    "url": "/maixpy/en/",
                     "label": "MaixPy"
                 },
                 {
-                    "url": "/soft/maixpy3/zh/index.html",
-                    "label": "MaixPy3"
+                    "url": "/soft/maixpy/zh/index.html",
+                    "label": "MaixPy_v1"
                 },
                 {
                     "url": "/soft/Lichee/zh/index.html",

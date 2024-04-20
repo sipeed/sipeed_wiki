@@ -68,7 +68,7 @@ MaixCAM **首发优惠价格 169 元**(Lite 版本 无屏幕和外壳)和 **249 
 * [原理图](https://cn.dl.sipeed.com/shareURL/LICHEE/LicheeRV_Nano/02_Schematic)
 * [核心板(LicheeRV-Nano) 硬件资料](https://cn.dl.sipeed.com/shareURL/LICHEE/LicheeRV_Nano)
 * 核心板引脚图：
-![](http://127.0.0.1:2333/hardware/zh/lichee/assets/RV_Nano/intro/RV_Nano_3.jpg)
+![](http://wiki.sipeed.com/hardware/zh/lichee/assets/RV_Nano/intro/RV_Nano_3.jpg)
 
 ## 芯片资料
 
