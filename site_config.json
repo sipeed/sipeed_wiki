@@ -168,7 +168,7 @@
             "config": {
                 "type": "hint",
                 "label": "NEW",
-                "content": "无需本地 GPU 环境，云端免费一键 AI 模型训练、部署，快来<a href='https://maixhub.com'>MaixHub </a>体验！<br>和大家分享你的<a href='https://maixhub.com/share'>项目</a>和<a href='https://maixhub.com/share'>开发经验</a>吧！新分享广场上线，管理员真金白银打赏中，在线等！",
+                "content": "全新 Maix 系列产品 <a href='https://wiki.sipeed.com/maixcam'>MaixCAM</a> 已上线, 全新 <a href='https://wiki.sipeed.com/maixpy/'>MaixPy</a> 功能更丰富，性能更强大，软件更易用，文档更全面！",
                 "show_after_s": 432000,
                 "date": "2022-06-01 14:00"
             }
