@@ -10,7 +10,7 @@ msgstr ""
 #: home.html:161 home.html:174 licheepi.html:217 licheepi.html:238
 #: licheepi.html:254 licheepi.html:275 licheepi.html:291 licheepi.html:307
 #: maix.html:163 maix.html:180 maix.html:197 maix.html:237 maix.html:254
-#: maix.html:271 maix.html:288 maixsense.html:40 maixsense.html:56
+#: maix.html:275 maix.html:292 maixsense.html:40 maixsense.html:56
 #: others.html:38 tang.html:137 tang.html:153 tang.html:169 tang.html:185
 #: tang.html:201 tang.html:217
 msgid "文档"
@@ -19,7 +19,7 @@ msgstr ""
 #: home.html:100 home.html:113 home.html:126 home.html:139 home.html:152
 #: home.html:165 home.html:178 licheepi.html:221 licheepi.html:242
 #: licheepi.html:258 licheepi.html:279 licheepi.html:295 licheepi.html:311
-#: maix.html:167 maix.html:241 maix.html:258 maix.html:275 maix.html:292
+#: maix.html:167 maix.html:241 maix.html:262 maix.html:279 maix.html:296
 #: maixsense.html:44 maixsense.html:60 others.html:42 tang.html:141
 #: tang.html:157 tang.html:173 tang.html:189 tang.html:205 tang.html:221
 msgid "购买"
@@ -288,15 +288,19 @@ msgstr ""
 msgid "硬件 AI 加速 + Linux + 易用的软件，教育、工业视觉、智能家居场景绝配"
 msgstr ""
 
-#: maix.html:268
+#: maix.html:258
+msgid "MaixPy3"
+msgstr ""
+
+#: maix.html:272
 msgid "3.6Tops AI ISP，微光夜视，大量常见 AI 模型支持，安防智能 IPC"
 msgstr ""
 
-#: maix.html:285
+#: maix.html:289
 msgid "10Tops AI 算力，32 路 1080p 高清 AI 视频监控，AI 大模型支持"
 msgstr ""
 
-#: maix.html:293
+#: maix.html:297
 msgid "https://item.taobao.com/item.htm?id=744014549573"
 msgstr ""
 

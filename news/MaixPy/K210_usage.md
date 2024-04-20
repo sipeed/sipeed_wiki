@@ -20,6 +20,29 @@ update:
       - 补充应用案例以及细节
 ---
 
+<div style="font-size: 1.2em;border: 2px solid green; border-color:#c33d45;padding:1em; text-align:center; background: #c33d45; color: white">
+    <div>
+    <span>新版 MaixPy (v4) 已经上线， 完整 Python3 支持，功能更强大， 请看:</span>
+    <a target="_blank" style="color: #ffe0e0" href="https://wiki.sipeed.com/maixpy">
+        wiki.sipeed.com/maixpy
+    </a>
+    <br>
+    <div style="height:0.4em"></div>
+    <span>全新硬件产品 MaixCAM，性能大升级，请看:</span>
+    <a target="_blank" style="color: #ffe0e0" href="https://wiki.sipeed.com/maixcam">
+        https://wiki.sipeed.com/maixcam
+    </a>
+    </div>
+    <div style="padding: 1em 0 0 0">
+      <a style="color: white; font-size: 0.9em; border-radius: 0.3em; padding: 0.5em; background-color: #a80202" href="https://item.taobao.com/item.htm?id=784724795837">淘宝</a>
+      <a style="color: white; font-size: 0.9em; border-radius: 0.3em; padding: 0.5em; background-color: #a80202" href="https://www.aliexpress.com/store/911876460">速卖通</a>
+    </div>
+</div>
+
+**Maix-I K210 系列正在被逐渐淘汰，如果你正准备购买 K210, 请立刻选择 MaixCAM;**
+**也欢迎 K210 用户升级到 MaixCAM**
+
+
 ## 前言
 
 >在 22 年的最后两天终于有时间开始整理填坑了，顶鸽逃跑（不是故意的）看见很多新手小白还是在文档海里扑腾找不到 K210 的资料文档，那就由这篇 K210 的避坑指南让小白的使用之路更顺利一点吧！

@@ -4,6 +4,39 @@ keywords: maixpy, k210, AIOT, 边缘计算, 人工智能, 深度学习
 desc: maixpy  MaixPy 文档简介
 ---
 
+
+<div style="font-size: 1.2em;border: 2px solid green; border-color:#c33d45;padding:1em; text-align:center; background: #c33d45; color: white">
+    <div>
+    <span>新版 MaixPy (v4) 已经上线， 完整 Python3 支持，功能更强大， 请看:</span>
+    <a target="_blank" style="color: #ffe0e0" href="https://wiki.sipeed.com/maixpy">
+        wiki.sipeed.com/maixpy
+    </a>
+    <br>
+    <div style="height:0.4em"></div>
+    <span>全新硬件产品 MaixCAM，性能大升级，请看:</span>
+    <a target="_blank" style="color: #ffe0e0" href="https://wiki.sipeed.com/maixcam">
+        https://wiki.sipeed.com/maixcam
+    </a>
+    </div>
+    <div style="padding: 1em 0 0 0">
+      <a style="color: white; font-size: 0.9em; border-radius: 0.3em; padding: 0.5em; background-color: #a80202" href="https://item.taobao.com/item.htm?id=784724795837">淘宝</a>
+      <a style="color: white; font-size: 0.9em; border-radius: 0.3em; padding: 0.5em; background-color: #a80202" href="https://www.aliexpress.com/store/911876460">速卖通</a>
+    </div>
+</div>
+
+**Maix-I K210 系列正在被逐渐淘汰，如果你正准备购买 K210, 请立刻选择 MaixCAM;**
+**也欢迎 K210 用户升级到 MaixCAM**
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
 <div class="title_pic">
     <div class="logo_maixpy">
     <img src="../assets/maixpy/maixpy.png" alt="maixpy ​​logo">
@@ -16,7 +49,6 @@ desc: maixpy  MaixPy 文档简介
     </span>
     </br>
 </div>
-
 ## 关于 MaixPy
 
 [**MaixPy**](https://wiki.sipeed.com/soft/maixpy/zh/index.html) 是将 [Micropython](http://micropython.org/) 移植到 [K210](https://canaan-creative.com/product/kendryteai)（一款 64 位双核带硬件 FPU、卷积加速器、FFT、Sha256 的 RISC-V CPU ） 的一个项目； [**MaixPy**](https://wiki.sipeed.com/soft/maixpy/zh/index.html) 不但支持 MCU 常规操作， 还集成了硬件加速的 `AI` 机器视觉和麦克风阵列相关的算法。相应的高达 `1TOPS` 算力核心模块却不到`￥50`， 凭借着快速开发和较低成本与其较小的体积很适合 `AIOT` 领域智能应用

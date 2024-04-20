@@ -4,6 +4,34 @@ keywords: Maixpy3 官方文档
 desc: maixpy  MaixPy3 是什么？能做什么？
 ---
 
+<div style="font-size: 1.2em;border: 2px solid green; border-color:#c33d45;padding:1em; text-align:center; background: #c33d45; color: white">
+    <div>
+    <span>新版 MaixPy (v4) 已经上线， 更完善的API和文档，功能更强大， 请看:</span>
+    <a target="_blank" style="color: #ffe0e0" href="https://wiki.sipeed.com/maixpy">
+        wiki.sipeed.com/maixpy
+    </a>
+    <br>
+    <div style="height:0.4em"></div>
+    <span>全新硬件产品 MaixCAM，性能大升级，请看:</span>
+    <a target="_blank" style="color: #ffe0e0" href="https://wiki.sipeed.com/maixcam">
+        https://wiki.sipeed.com/maixcam
+    </a>
+    </div>
+    <div style="padding: 1em 0 0 0">
+      <a style="color: white; font-size: 0.9em; border-radius: 0.3em; padding: 0.5em; background-color: #a80202" href="https://item.taobao.com/item.htm?id=784724795837">淘宝</a>
+      <a style="color: white; font-size: 0.9em; border-radius: 0.3em; padding: 0.5em; background-color: #a80202" href="https://www.aliexpress.com/store/911876460">速卖通</a>
+    </div>
+</div>
+
+**Maix-II V831 系列会被逐渐淘汰，如果你正准备购买 v831, 请立刻选择 MaixCAM;**
+**也欢迎 v831 用户升级到 MaixCAM**
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
 中国的 [Sipeed 开源组织](https://github.com/sipeed) 在 2020 年底推出了 [MaixPy3](https://github.com/sipeed/MaixPy3) 开源软件，这是一款基于 Python3 语言的软件开发工具包（SDK），借助开源 Python 编程语言实现跨平台统一和简化 Linux 嵌入式设备上开发 AIoT （人工智能物联网） = AI（人工智能） + IoT（物联网）应用，意在打造可落地的视觉 AI 应用生态，帮助更多人了解、使用 AI 技术来解决实际问题，推进全球边缘 AI 的落地化进程。
 
 ## MaixPy3 能做什么？

@@ -4,6 +4,11 @@ title: MaixCAM -- 快速落地 AI 视觉、听觉项目
 
 ![MaixCAM](https://wiki.sipeed.com/maixpy/static/image/maixcam.png)
 
+<div style="padding: 1em 0 0 0; display: flex; justify-content: center">
+    <a target="_blank" style="margin: 1em;color: white; font-size: 0.9em; border-radius: 0.3em; padding: 0.5em 2em; background-color: #a80202" href="https://item.taobao.com/item.htm?id=784724795837">淘宝</a>
+    <a target="_blank" style="margin: 1em;color: white; font-size: 0.9em; border-radius: 0.3em; padding: 0.5em 2em; background-color: #a80202" href="https://www.aliexpress.com/store/911876460">速卖通</a>
+</div>
+
 ## MaixCAM 简介
 
 MaixCAM 是为更好地落地 AI 视觉、听觉和 AIOT 应用而设计的一款硬件产品，一个能快速验证产品原型且能快速量产的平台。

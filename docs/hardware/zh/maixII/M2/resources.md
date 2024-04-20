@@ -4,6 +4,28 @@ keywords: MaixII, MaixPy3, Python, Python3, M2dock
 desc: 板级资源介绍
 ---
 
+<div style="font-size: 1.2em;border: 2px solid green; border-color:#c33d45;padding:1em; text-align:center; background: #c33d45; color: white">
+    <div>
+    <div style="height:0.4em"></div>
+    <span>全新硬件产品 MaixCAM，性能大升级，请看:</span>
+    <a target="_blank" style="color: #ffe0e0" href="https://wiki.sipeed.com/maixcam">
+        https://wiki.sipeed.com/maixcam
+    </a>
+    </div>
+    <div style="padding: 1em 0 0 0">
+      <a style="color: white; font-size: 0.9em; border-radius: 0.3em; padding: 0.5em; background-color: #a80202" href="https://item.taobao.com/item.htm?id=784724795837">淘宝</a>
+      <a style="color: white; font-size: 0.9em; border-radius: 0.3em; padding: 0.5em; background-color: #a80202" href="https://www.aliexpress.com/store/911876460">速卖通</a>
+    </div>
+</div>
+
+**Maix-II V831 系列会被逐渐淘汰，如果你正准备购买 v831, 请立刻选择 MaixCAM;**
+**也欢迎 v831 用户升级到 MaixCAM**
+
+<br>
+<br>
+<br>
+<br>
+
 Maix-II-Dock 是一块精致小巧的 `AI` + `IOT` + `音视频处理` 开发板， 支持常规 Linux 开发的同时， 有特有的 **AI 硬件加速** 特性，配合 Sipeed 提供的易用的软件生态，快速让你的边缘 AI 应用落地。
 
 Maix-II Dock 已经集成了大量开箱即用的功能，比如 `AI 图像和物体识别`，`AI 语音识别`，`AI 人脸识别`，`AI 车牌识别`，`小车巡线`， 传统`OpenCV`支持，`常用硬件外设库`等等。
