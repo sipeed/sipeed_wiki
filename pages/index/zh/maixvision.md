@@ -27,10 +27,11 @@ title: MaixVision 工作站官网
 }
 #file_list {
     background-color: #FAFAFA;
-    border-radius: 10px;
-    padding: 20px;
+    border-radius: 3px;
     max-width: 80%;
+    min-width: 400px;
     max-height: 80%;
+    min-height: 200px;
     overflow-y: auto;
 }
 #maixvision_video {
@@ -63,26 +64,27 @@ title: MaixVision 工作站官网
 </style>
 
 <div id="file_list_wrapper" class="flex justify-center items-center">
-    <div id="file_list" class="p-10">
+    <div id="file_list" class="flex flex-col justify-center items-center space-y-5 px-5 py-10">
     </div>
 </div>
+
 <div class="w-full flex flex-wrap-reverse justify-center items-center" style="min-height:80vh; background-color:#1f2022">
     <div class="flex flex-col justify-center items-center p-10">
         <h1 class="text-4xl font-bold text-white hidden">MaixVision</h1>
-        <img src="/static/image/maixvision_hor.svg">
+        <img src="/static/image/maixvision_hor.svg" class="pointer-events-none" />
         <p class="text-xm text-white">助力 AI 应用落地</p>
-        <div class="flex flex-row pt-10">
-            <div id="win_download" class="btn mr-5 flex justify-center items-center">
-                <img src="/static/image/download.svg">
-                <span>Windows</span>
+        <div class="flex flex-row space-x-4 pt-10">
+            <div id="win_download" class="btn flex w-32 space-x-1 justify-center items-center">
+                <img src="/static/image/download.svg" class="pointer-events-none h-6 w-6" />
+                <span class="text-lg">Windows</span>
             </div>
-            <div id="linux_download" class="btn mr-5 flex justify-center items-center">
-                <img src="/static/image/download.svg">
-                <span>Linux</span>
+            <div id="linux_download" class="btn flex w-32 space-x-1 justify-center items-center">
+                <img src="/static/image/download.svg" class="pointer-events-none h-6 w-6" />
+                <span class="text-lg">Linux</span>
             </div>
-            <div id="macos_download" class="btn mr-5 flex justify-center items-center">
-                <img src="/static/image/download.svg">
-                <span>MacOS</span>
+            <div id="macos_download" class="btn flex w-32 space-x-1 justify-center items-center">
+                <img src="/static/image/download.svg" class="pointer-events-none h-6 w-6" />
+                <span class="text-lg">MacOS</span>
             </div>
         </div>
         <div class="mt-10">
@@ -94,13 +96,12 @@ title: MaixVision 工作站官网
     </video>
 </div>
 
-
 <script>
 async function getLatestVersion(filename) {
     const response = await fetch('https://cdn.sipeed.com/maixvision/' + filename + '.json');
     const data = await response.json();
     if(data.error) {
-        showMsg("load data failed: " + data.error);
+        showMsgInfo("load data failed: " + data.error);
         return;
     }
     return data;
@@ -128,14 +129,19 @@ function showMsgInfo(msg) {
 function showList(files) {
     file_list_wrapper.style.display = 'flex';
     file_list.innerHTML = '';
-    files.forEach(function (file, index) {
+    for (let i = files.length - 1; i >= 0; i--) {
         var a = document.createElement('a');
-        a.href = 'https://cdn.sipeed.com/maixvision/' + win_info.version + '/' + file.url;
-        a.innerText = 'Download ' + file.url;
-        a.className = 'p-4';
-        file_list.appendChild(a);
-    });
 
+        a.href = 'https://cdn.sipeed.com/maixvision/' + win_info.version + '/' + files[i].url;
+        a.innerText = files[i].url;
+        a.className = 'p-4 bg-blue-700 text-lg rounded-md shadow hover:bg-blue-800 hover:shadow-xl';
+        a.style = 'color: #FFFFFF';
+        a.addEventListener('click', function () {
+            file_list_wrapper.style.display = 'none';
+        })
+
+        file_list.appendChild(a);
+    };
 }
 
 file_list_wrapper.addEventListener('click', function () {
@@ -148,11 +154,12 @@ win_download.addEventListener('click', async function () {
         showMsgInfo('加载中, 请稍候');
         return;
     }
-    if (win_info.files.length === 1) {
-        window.location.href = 'https://cdn.sipeed.com/maixvision/' + win_info.version + '/' + win_info.files[0].url;
-    } else {
-        showList(win_info.files);
-    }
+    // if (win_info.files.length === 1) {
+    //     window.location.href = 'https://cdn.sipeed.com/maixvision/' + win_info.version + '/' + win_info.files[0].url;
+    // } else {
+    //     showList(win_info.files);
+    // }
+    showList(win_info.files);
 });
 
 linux_download.addEventListener('click', async function () {
@@ -160,11 +167,12 @@ linux_download.addEventListener('click', async function () {
         showMsgInfo('加载中, 请稍候');
         return;
     }
-    if (linux_info.files.length === 1) {
-        window.location.href = 'https://cdn.sipeed.com/maixvision/' + linux_info.version + '/' + linux_info.files[0].url;
-    } else {
-        showList(linux_info.files);
-    }
+    // if (linux_info.files.length === 1) {
+    //     window.location.href = 'https://cdn.sipeed.com/maixvision/' + linux_info.version + '/' + linux_info.files[0].url;
+    // } else {
+    //     showList(linux_info.files);
+    // }
+    showList(linux_info.files);
 });
 
 macos_download.addEventListener('click', async function () {
@@ -172,11 +180,12 @@ macos_download.addEventListener('click', async function () {
         showMsgInfo('加载中, 请稍候');
         return;
     }
-    if (macos_info.files.length === 1) {
-        window.location.href = 'https://cdn.sipeed.com/maixvision/' + macos_info.version + '/' + macos_info.files[0].url;
-    } else {
-        showList(macos_info.files);
-    }
+    // if (macos_info.files.length === 1) {
+    //     window.location.href = 'https://cdn.sipeed.com/maixvision/' + macos_info.version + '/' + macos_info.files[0].url;
+    // } else {
+    //     showList(macos_info.files);
+    // }
+    showList(macos_info.files);
 });
 
 getLatestVersion("latest").then(function (data) {
