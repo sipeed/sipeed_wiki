@@ -90,6 +90,23 @@
     head: [
       // 图片分辨率为： 1800x600， 左右两边各留 200px 不包含实际内容只有背景，中间 1400px 是内容
       {
+        img: "{{_('/static/home/banner_maixcam.jpg')}}",
+        btns: [
+          {
+            lable: "{{_('文档')}}",
+            link: "{{_('/maixcam')}}",
+          },
+          {
+            lable: "MaixPy",
+            link: "{{_('/maixpy')}}",
+          },
+          {
+            lable: "{{_('购买')}}",
+            link: "{{_('https://item.taobao.com/item.htm?id=784724795837')}}",
+          },
+        ],
+      },
+      {
         img: "{{_('/static/home/LicheeRV-Nano.jpg')}}",
         btns: [
           {

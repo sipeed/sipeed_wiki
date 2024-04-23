@@ -1,3 +1,6 @@
-<head>
-<meta http-equiv="refresh" content="0.1;url=/soft/maixpy/en/">
-</head>
+---
+title: MaixCAM -- 快速落地 AI 视觉、听觉类项目
+layout: redirect
+redirect_url: /maixpy/en/
+---
+

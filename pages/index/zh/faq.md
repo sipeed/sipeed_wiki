@@ -17,7 +17,8 @@ class: faq
 
 | 产品和项目 | 资料 | FAQ 页面 |
 | -------- | ---- | -------- |
-| 1. Maix-I (K210)<br>2. MaixPy     | 1. [M1 模块](/hardware/zh/maix/core_module.html)<br>2. [MaixBit 开发板](/hardware/zh/maix/maixpy_develop_kit_board/maix_bit.html)<br>3. [MaixPy](/maixpy)  | K210 和 MaixPy 问题全在 [MaixPy FAQ](/soft/maixpy/zh/others/maixpy_faq.html) |
+| 1. MaixCAM<br>2. MaixPy (v4)     | 1. [MaixCAM](/maixcam)<br>2. [MaixPy](https://wiki.sipeed.com/maixpy)  | 1. [MaixCAM FAQ](/hardware/zh/maixcam/faq.html)<br>2. [MaixPy FAQ](https://wiki.sipeed.com/maixpy/doc/zh/faq.html)  |
+| 1. Maix-I (K210)<br>2. MaixPy-v1     | 1. [M1 模块](/hardware/zh/maix/core_module.html)<br>2. [MaixBit 开发板](/hardware/zh/maix/maixpy_develop_kit_board/maix_bit.html)<br>3. [MaixPy-v1](/soft/maixpy/zh/index.html)  | K210 和 MaixPy-v1 问题全在 [MaixPy-v1 FAQ](/soft/maixpy/zh/others/maixpy_faq.html) |
 | Maix-II (V831)  | [Maix-II Dock](/m2dock)   | 1. [基本使用 FAQ](/hardware/zh/maixII/M2/faq.html)<br>2. [MaixPy3 FAQ](/soft/maixpy3/zh/question/maixpy3_faq.html)|
 | MaixPy3 | [MaixPy3](/maixpy3) | [MaixPy3 FAQ](/soft/maixpy3/zh/question/maixpy3_faq.html) |
 | Maix-III AXeraPi (AX620A) | [M3-AXeraPi](/m3axpi) | [AXeraPi FAQ](/hardware/zh/maixIII/ax-pi/faq_axpi.html) |
@@ -35,7 +36,8 @@ class: faq
 | Sipeed 国内社区 | 地址 |
 | -------- | ---- |
 | MaixHub (推荐使用)<br>Sipeed 旗下 AI 平台和分享社区 | 1. [模型分享](https://maixhub.com/model/zoo)<br>2. [项目分享](https://maixhub.com/share)<br>3. [经验分享](https://maixhub.com/share?type=2)<br>4. [嵌入式应用分享](https://maixhub.com/app)<br>5. [MaixHub QQ群：766140795](https://jq.qq.com/?_wv=1027&k=5E8Z1X0) |
-| MaixPy 交流QQ群<br>(K210) | ① 群 (已满): 878189804<br>② 群 (已满): 1129095405<br>④ 群 (已满): 256336487<br>⑤ 群 (已满): 696014576<br>⑥ 群 : 636551897<br>新 ④ 群: 862340358 |
+| MaixPy (v4) 交流QQ群<br>(MaixCAM) | 862340358 |
+| MaixPy-v1 交流QQ群<br>(K210) | ① 群 (已满): 878189804<br>② 群 (已满): 1129095405<br>④ 群 (已满): 256336487<br>⑤ 群 (已满): 696014576<br>⑥ 群 : 636551897 |
 | MaixPy3 交流QQ群<br>(V831, AX620) | 756313869 |
 | LicheePi-linux 交流QQ群<br>(F1c, V3s, D1) | 712961164 |
 | Lichee Pi 4A 交流QQ群<br>(TH1520) | 559614960 |
@@ -49,6 +51,7 @@ class: faq
 | Sipeed 国外社区 | 地址 |
 | -------- | ---- |
 | Telegram | [t.me/sipeed](https://t.me/sipeed) |
+| Telegram MaixPy | [t.me/maixpy](https://t.me/maixpy) |
 | Twitter  | [twitter.com/SipeedIO](https://twitter.com/SipeedIO) |
 | MaixHub  | [maixhub.com/share](https://maixhub.com/share) |
 

@@ -16,6 +16,7 @@ The sharing location is the FAQ page of the corresponding product in the table b
 
 | Products/Projects | Documentation | FAQ page |
 | -------- | ---- | -------- |
+| 1. MaixCAM<br>2. MaixPy (v4)     | 1. [MaixCAM](/en/maixcam)<br>2. [MaixPy](https://wiki.sipeed.com/en/maixpy)  | 1. [MaixCAM FAQ](/hardware/en/maixcam/faq.html)<br>2. [MaixPy FAQ](https://wiki.sipeed.com/maixpy/doc/en/faq.html)  |
 | 1. Maix-I (K210)<br>2. MaixPy     | 1. [M1 module](/hardware/zh/maix/core_module.html)<br>2. [MaixBit board](/hardware/zh/maix/maixpy_develop_kit_board/maix_bit.html)<br>3. [MaixPy](/maixpy)  | K210 和 MaixPy 问题全在 [MaixPy FAQ](/soft/maixpy/zh/others/maixpy_faq.html) |
 | Maix-II (V831)  | [Maix-II Dock](/m2dock)   | 1. [Basic usage FAQ](/hardware/zh/maixII/M2/faq.html)<br>2. [MaixPy3 FAQ](/soft/maixpy3/zh/question/maixpy3_faq.html)|
 | MaixPy3 | [MaixPy3](/maixpy3) | [MaixPy3 FAQ](/soft/maixpy3/zh/question/maixpy3_faq.html) |
@@ -31,6 +32,7 @@ The sharing location is the FAQ page of the corresponding product in the table b
 | MaixHub (recommended) <br> Sipeed's AI platform and sharing community | 1. [Model sharing](https://maixhub.com/model/zoo)<br>2. [Project sharing](https://maixhub.com/share)<br>3. [Experience sharing](https://maixhub.com/share?type=2)<br>4. [Embedded application sharing](https://maixhub.com/app)|
 | Sipeed Community (recommended) <br> Will be migrated to MaixHub in July <br> Currently only recommended to ask questions | [bbs.sipeed.com](https://bbs.sipeed.com) |
 | Telegram | [t.me/sipeed](https://t.me/sipeed) |
+| Telegram MaixPy | [t.me/maixpy](https://t.me/maixpy) |
 | Twitter  | [twitter.com/SipeedIO](https://twitter.com/SipeedIO) |
 | FPGA Reddit | [GowinFPGA](https://www.reddit.com/r/GowinFPGA/) |
 

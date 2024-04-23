@@ -3,61 +3,78 @@ msgid "翻译内容"
 msgstr ""
 
 #: home.html:93
-msgid "/static/home/LicheeRV-Nano.jpg"
+msgid "/static/home/banner_maixcam.jpg"
 msgstr ""
 
-#: home.html:96 home.html:109 home.html:122 home.html:135 home.html:148
-#: home.html:161 home.html:174 licheepi.html:217 licheepi.html:238
-#: licheepi.html:254 licheepi.html:275 licheepi.html:291 licheepi.html:307
-#: maix.html:163 maix.html:180 maix.html:197 maix.html:237 maix.html:254
-#: maix.html:275 maix.html:292 maixsense.html:40 maixsense.html:56
-#: others.html:38 tang.html:137 tang.html:153 tang.html:169 tang.html:185
-#: tang.html:201 tang.html:217
+#: home.html:96 home.html:113 home.html:126 home.html:139 home.html:152
+#: home.html:165 home.html:178 home.html:191 licheepi.html:217
+#: licheepi.html:238 licheepi.html:254 licheepi.html:275 licheepi.html:291
+#: licheepi.html:307 maix.html:163 maix.html:180 maix.html:197 maix.html:237
+#: maix.html:254 maix.html:275 maix.html:292 maixsense.html:40
+#: maixsense.html:56 others.html:38 tang.html:137 tang.html:153 tang.html:169
+#: tang.html:185 tang.html:201 tang.html:217
 msgid "文档"
 msgstr ""
 
-#: home.html:100 home.html:113 home.html:126 home.html:139 home.html:152
-#: home.html:165 home.html:178 licheepi.html:221 licheepi.html:242
-#: licheepi.html:258 licheepi.html:279 licheepi.html:295 licheepi.html:311
-#: maix.html:167 maix.html:241 maix.html:262 maix.html:279 maix.html:296
-#: maixsense.html:44 maixsense.html:60 others.html:42 tang.html:141
-#: tang.html:157 tang.html:173 tang.html:189 tang.html:205 tang.html:221
+#: home.html:97
+msgid "/maixcam"
+msgstr ""
+
+#: home.html:101
+msgid "/maixpy"
+msgstr ""
+
+#: home.html:104 home.html:117 home.html:130 home.html:143 home.html:156
+#: home.html:169 home.html:182 home.html:195 licheepi.html:221
+#: licheepi.html:242 licheepi.html:258 licheepi.html:279 licheepi.html:295
+#: licheepi.html:311 maix.html:167 maix.html:241 maix.html:262 maix.html:279
+#: maix.html:296 maixsense.html:44 maixsense.html:60 others.html:42
+#: tang.html:141 tang.html:157 tang.html:173 tang.html:189 tang.html:205
+#: tang.html:221
 msgid "购买"
 msgstr ""
 
-#: home.html:101 licheepi.html:243
+#: home.html:105
+msgid "https://item.taobao.com/item.htm?id=784724795837"
+msgstr ""
+
+#: home.html:110
+msgid "/static/home/LicheeRV-Nano.jpg"
+msgstr ""
+
+#: home.html:118 licheepi.html:243
 msgid "https://item.taobao.com/item.htm?id=764939520376"
 msgstr ""
 
-#: home.html:106
+#: home.html:123
 msgid "/static/home/LonganPi3H.jpg"
 msgstr ""
 
-#: home.html:114 licheepi.html:280
+#: home.html:131 licheepi.html:280
 msgid "https://item.taobao.com/item.htm?ft=t&id=758221950525"
 msgstr ""
 
-#: home.html:119
+#: home.html:136
 msgid "/static/home/console-4A.jpg"
 msgstr ""
 
-#: home.html:166 home.html:179 others.html:43
+#: home.html:183 home.html:196 others.html:43
 msgid "https://item.taobao.com/item.htm?id=737788586308"
 msgstr ""
 
-#: home.html:188
+#: home.html:205
 msgid "产品动态"
 msgstr ""
 
-#: home.html:192
+#: home.html:209
 msgid "Maix AI 视觉"
 msgstr ""
 
-#: home.html:204
+#: home.html:221
 msgid "MaixSense 传感器"
 msgstr ""
 
-#: home.html:208
+#: home.html:225
 msgid "其它"
 msgstr ""
 
