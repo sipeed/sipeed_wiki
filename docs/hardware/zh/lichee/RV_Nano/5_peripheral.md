@@ -65,6 +65,12 @@ echo userspace > /dev/console
 echo kernel > /dev/kmsg
 ```
 
+另一种方法是在/boot/uEnv.txt中加入以下内容将console换到别的tty上:
+
+```
+consoledev=/dev/ttyX
+```
+
 ### UART1 UART2 UART3
 
 UART1和2的引脚默认用作连接UART蓝牙芯片:
@@ -76,6 +82,8 @@ mmio_write_32(0x03001074, 0x1); // GPIOA 29 UART1 RX
 mmio_write_32(0x03001068, 0x4); // GPIOA 18 UART1 CTS
 mmio_write_32(0x03001064, 0x4); // GPIOA 19 UART1 RTS
 ```
+
+如果只想使用UART1，则不需要更改PINMUX，只需要连接 GPIOA28 GPIOA29
 
 如果想要同时使用UART1和UART2的功能，则需要写入寄存器来设置引脚的PINMUX:
 
