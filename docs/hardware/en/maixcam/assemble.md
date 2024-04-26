@@ -23,15 +23,15 @@ Here are a few points to note:
 
 1. **Open the Case:** Gently pry open the clasps on both sides of the device to separate the front and back covers.
 
-   ![](./asset/assemble-1.png)
+   ![](../../assets/maixcam/assemble-1.jpg)
 
 2. **Access the TF Card:** Once the case that holds the screen is lifted, you will see the TF card.
 
-   ![](./asset/assemble-2.png)
+   ![](../../assets/maixcam/assemble-2.jpg)
 
 3. **Reassemble the Screen:** Before reattaching the screen, ensure that the screen's ribbon cable is properly connected. If it is misaligned, reconnect the ribbon cable correctly
 
-   ![](./asset/assemble-3.png)
+   ![](../../assets/maixcam/assemble-3.jpg)
 
 ## Open Source Case Files
 
