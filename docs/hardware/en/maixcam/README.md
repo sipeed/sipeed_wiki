@@ -68,7 +68,7 @@ We have not only developed the hardware, but also provided a complete software e
 * [Schematic](https://cn.dl.sipeed.com/shareURL/LICHEE/LicheeRV_Nano/02_Schematic)
 * [Core Board (LicheeRV-Nano) Hardware Information](https://cn.dl.sipeed.com/shareURL/LICHEE/LicheeRV_Nano)
 * Core board pin diagram:
-![](http://127.0.0.1:2333/hardware/zh/lichee/assets/RV_Nano/intro/RV_Nano_3.jpg)
+![](../../zh/lichee/assets/RV_Nano/intro/RV_Nano_3.jpg)
 
 ## Chip Information
 
