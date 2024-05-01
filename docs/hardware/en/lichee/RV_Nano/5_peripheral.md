@@ -256,14 +256,25 @@ Install the camera onto the camera mount, paying attention to the wire sequence.
 Then execute:
 
 ```
-/opt/camera.sh 0
-
-echo "
-1
-0
-1
-255" | sensor_test # Capture an image, saved in the current directory
+/mnt/system/usr/bin/sample_vio 6 # Real-time display of camera images on the screen
+# Type 255 to exit the program
 ```
+
+```
+/mnt/system/usr/bin/sensor_test # Camera test program that can be used to dump single YUV images.
+```
+
+When using the 70405 (beta) boards:
+
+```
+touch /boot/alpha # Beta version
+# rm /boot/alpha  # Official version
+cd /mnt/data
+cp sensor_cfg.ini.alpha sensor_cfg.ini   # Beta version
+# cp sensor_cfg.ini.beta sensor_cfg.ini  # Official version
+
+```
+
 
 ## Button
 
