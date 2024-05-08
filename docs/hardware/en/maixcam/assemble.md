@@ -2,7 +2,9 @@
 title: MaixCAM Case
 ---
 
-MaixCAM comes with a 3D printed case that can protect the MaixCAM hardware and can also be fixed on a bracket.
+**The screen protector and lens cover serve as protective measures during shipping. Please remove them before use.**
+
+MaixCAM comes with a 3D-printed case that protects the hardware of the MaixCAM.
 
 ## Disassembly
 
@@ -17,11 +19,22 @@ Here are a few points to note:
 * Be careful not to damage the camera, touch, and screen cables. Do not break the cables.
 * Pay attention to the direction of the cable, do not plug it in the wrong way.
 
-## Assembly
+### Replacing the TF Card
 
-TODO: Assembly steps and pictures
+1. **Open the Case:** Gently pry open the clasps on both sides of the device to separate the front and back covers.
+
+   ![](../../assets/maixcam/assemble-1.jpg)
+
+2. **Access the TF Card:** Once the case that holds the screen is lifted, you will see the TF card.
+
+   ![](../../assets/maixcam/assemble-2.jpg)
+
+3. **Reassemble the Screen:** Before reattaching the screen, ensure that the screen's ribbon cable is properly connected. If it is misaligned, reconnect the ribbon cable correctly
+
+   ![](../../assets/maixcam/assemble-3.jpg)
 
 ## Open Source Case Files
 
-TODO: 3D printing source files for the case
+**File Uploaded on MakerWorld:** [Click here to view](https://makerworld.com/zh/models/440321)
 
+**Recommended Material:** It is recommended to use a resin with a heat resistance of 70 degrees Celsius for photopolymerization printing.

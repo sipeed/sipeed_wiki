@@ -2,7 +2,9 @@
 title: MaixCAM 外壳
 ---
 
-MaixCAM 自带了一个 3D 打印外壳，可以保护 MaixCAM 的硬件，也可以固定在支架上。
+**屏幕保护膜及镜头透明盖在运输中起保护作用，使用时撕掉、取下即可。**
+
+MaixCAM 自带了一个 3D 打印外壳，可以保护 MaixCAM 的硬件。
 
 ## 拆机
 
@@ -19,17 +21,17 @@ MaixCAM 自带了一个 3D 打印外壳，可以保护 MaixCAM 的硬件，也�
 
 ## 更换TF卡
 
-1. 像外抠开机身两侧卡扣即可分离前后盖
+1. 向外抠开机身两侧卡扣即可分离前后盖
 
-![](./asset/assemble-1.png)
+![](../../assets/maixcam/assemble-1.jpg)
 
 2. 将固定屏幕的外壳掀开后即可看见TF卡
 
-![](./asset/assemble-2.png)
+![](../../assets/maixcam/assemble-2.jpg)
 
 3. 装回屏幕前请确认屏幕排线的连接是否正常，如果有歪斜，请先将排线重新插好
 
-![](./asset/assemble-3.png)
+![](../../assets/maixcam/assemble-3.jpg)
 
 ## 外壳开源文件
 

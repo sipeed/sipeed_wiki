@@ -20,20 +20,30 @@ Windows can also use [Win32DiskImager](https://sourceforge.net/projects/win32dis
 
 There are two ways to flash the TF card:
 
-## Flash TF Card with Card Reader
+### Flash TF Card with Card Reader
 
 * Directly remove the TF card, insert it into the card reader, and then insert it into the computer.
 * Open Etcher, select the image file, select the TF card, and click `Flash`.
 * Wait for the flashing to complete, eject the TF card, insert it into MaixCAM, then power on, wait for the system to start, the first boot will be slower, just wait a while.
 
-## Flash TF Card via USB
+### Flash TF Card via USB
 
 * Power off MaixCAM, keep the TF card inserted.
 * Hold down the `user` button on the device without releasing it, insert the USB cable connected to the computer, and wait for the USB device to appear on the computer.
 * Open Etcher, select the image file, select the USB device, and click `Flash`.
 * Wait for the flashing to complete, then press the `reset` button or re-power on, wait for the system to start, the first boot will be slower, just wait a while.
 
+## System Usage Precautions
 
+### Forced Shutdown
+
+It is **not recommended to press the `reset` button** during normal system use, except in the situations mentioned above. This button forces a power cut, and if your system is writing content to the TF card, it could cause system and data damage. Similarly, forcibly unplugging the power while the system is still running poses the same risk as pressing the `reset` button. Always try to **shut down the software before unplugging the power**.
+
+For normal operations, please **shut down or restart using software**. Here are the methods:
+
+- **Method 1:** Navigate to `Settings` -> `Power` to shut down or restart through the software.
+- **Method 2:** Use the `poweroff` or `reboot` commands in the terminal for software shutdown or restart.
+- **Method 3:** Other software calls, such as using Python `import os; os.system("poweroff")` to shut down or restart.
 
 
 

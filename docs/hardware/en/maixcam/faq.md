@@ -10,9 +10,9 @@ MaixCAM can use the resources of LicheeRV-Nano and SG2002, but **LicheeRV-Nano a
 
 If you want to quickly start developing applications, please choose MaixCAM. If you are a seasoned Linux developer and only want to develop based on the original SG2002 resources, you can choose LicheeRV-Nano.
 
-## Why is there no purchase link in the official Taobao store?
+## Why is there no purchase link in the official AliExpress store?
 
-Taobao may close the purchase link when it encounters a shortage of stock. The purchase link will be automatically opened when the stock is available. You can consult the official customer service.
+AliExpress may close the purchase link when it encounters a shortage of stock. The purchase link will be automatically opened when the stock is available. You can consult the official customer service.
 
 
 ## Power-on Black Screen, No Display on the Screen
