@@ -10,7 +10,7 @@ The system will create the `boot.py` file and `main.py` in the `/flash` or `/sd`
 - boot.py is mainly used to configure the hardware and only needs to be configured once.
 - main.py can be used for the main running program.
 
-The corresponding specific implementation [code here](https://github.com/sipeed/MaixPy-v1blob/972059491227ece63fbfc2cd0e78fe13ee78427d/components/micropython/port/src/maixpy_main.c#L586-L595), if you have any questions, just look at the source .
+The corresponding specific implementation [code here](https://github.com/sipeed/MaixPy-v1/blob/972059491227ece63fbfc2cd0e78fe13ee78427d/components/micropython/port/src/maixpy_main.c#L586-L595), if you have any questions, just look at the source .
 
 note:
     * The Micro SD card should be formatted as FAT (FAT32) file system

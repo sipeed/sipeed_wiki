@@ -98,3 +98,12 @@ wipping 退出项目组， zepan 和 xel 专注到其它项目组
 ## 2022 年 6 月
 
 全新 [Maixhub](maix.sipeed.com) 上线，更好的体验
+
+
+## 2024 年 4 月
+
+全新的 [MaixPy v4](https://wiki.sipeed.com/maixpy/) 更新，不再使用 MicroPython，转而使用标准 CPython3，适配性能更强大的 [MaixCAM](https://wiki.sipeed.com/maixcam) 硬件设备。
+
+为了区分 MicroPython 版本的 MaixPy， 将其名称改为 MaixPy-v1，并且暂停维护，等到未来如果有必要再考虑更新，新版的 MaixPy v4 采用 MaixPy 名称。
+
+

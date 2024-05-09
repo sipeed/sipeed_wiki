@@ -1,7 +1,7 @@
 items:
--   label: What is MaixPy?
+-   label: What is MaixPy-v1?
     file: README.md
--   label: What can MaixPy do?
+-   label: What can MaixPy-v1 do?
     file: what_maix_do.md
 -   label: MaixPy Development History
     file: maixpy_history.md

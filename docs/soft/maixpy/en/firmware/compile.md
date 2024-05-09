@@ -9,7 +9,7 @@ The pre-compiled firmware may not meet specific usage scenarios. If you need to 
 
 ## Native environment compilation
 
-For the compilation method, please refer to the compilation instructions under the source code [build.md](https://github.com/sipeed/MaixPy-v1blob/master/build.md)
+For the compilation method, please refer to the compilation instructions under the source code [build.md](https://github.com/sipeed/MaixPy-v1/blob/master/build.md)
 
 ## Use docker environment to compile
 

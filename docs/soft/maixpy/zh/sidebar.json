@@ -1,11 +1,11 @@
 {
     "items": [
         {
-            "label": "MaixPy 是什么？",
+            "label": "MaixPy-v1 是什么？",
             "file": "README.md"
         },
         {
-            "label": "MaixPy 能做哪些事？",
+            "label": "MaixPy-v1 能做哪些事？",
             "file": "what_maix_do.md"
         },
         {

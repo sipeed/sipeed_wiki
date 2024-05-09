@@ -9,7 +9,7 @@ desc: maixpy  源码编译
 
 ## 本机环境编译
 
-编译方法请参考 源码下的编译说明 [build.md](https://github.com/sipeed/MaixPy-v1blob/master/build.md)
+编译方法请参考 源码下的编译说明 [build.md](https://github.com/sipeed/MaixPy-v1/blob/master/build.md)
 
 在 `python project.py menuconfig` 命令部分可以 勾选 或者 去掉 功能和模块
 

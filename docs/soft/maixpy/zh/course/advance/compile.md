@@ -9,7 +9,7 @@ desc: maixpy  如何编译
 
 ## 获取 maixpy 开源项目
 
-请准备 linux 系统环境（在 Windows 上使用 WSL 也可以），挂上 XXX 代理，输入 `git clone https://github.com/sipeed/MaixPy` 拉取 MaixPy 仓库代码和子模块，确保拿到后阅读目录下的 [build.md](https://github.com/sipeed/MaixPy-v1blob/master/build.md) 文档。
+请准备 linux 系统环境（在 Windows 上使用 WSL 也可以），挂上 XXX 代理，输入 `git clone https://github.com/sipeed/MaixPy` 拉取 MaixPy 仓库代码和子模块，确保拿到后阅读目录下的 [build.md](https://github.com/sipeed/MaixPy-v1/blob/master/build.md) 文档。
 
 > 没有代理的同学可以用 github 镜像站列表（`https://github.com/rc1844/fastgithub`）加速拉取 maixpy 仓库，请不要用 gitee 拉取 maixpy 仓库，会掉子模块仓库的。
 
@@ -57,7 +57,7 @@ juwan@juwan-N85-N870HL:~/Desktop/maixpy$ git submodule status
 
 > 这节内容假设你没有任何搭建交叉编译链的经验。
 
-首先按 [build.md](https://github.com/sipeed/MaixPy-v1blob/master/build.md) 顺序执行各种操作即可，如果你不会英文你可以开翻译机。
+首先按 [build.md](https://github.com/sipeed/MaixPy-v1/blob/master/build.md) 顺序执行各种操作即可，如果你不会英文你可以开翻译机。
 
 步骤说明如下：
 

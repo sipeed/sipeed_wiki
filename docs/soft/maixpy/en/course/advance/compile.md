@@ -9,7 +9,7 @@ This article is an open source project development document written to help some
 
 ## Get maixpy ​​open source project
 
-Please prepare the linux system environment (WSL on Windows is also possible), hook up the XXX proxy, enter `git clone https://github.com/sipeed/MaixPy` to pull the MaixPy warehouse code and submodules, and make sure to read the catalog after you get it [Build.md](https://github.com/sipeed/MaixPy-v1blob/master/build.md) document under.
+Please prepare the linux system environment (WSL on Windows is also possible), hook up the XXX proxy, enter `git clone https://github.com/sipeed/MaixPy` to pull the MaixPy warehouse code and submodules, and make sure to read the catalog after you get it [Build.md](https://github.com/sipeed/MaixPy-v1/blob/master/build.md) document under.
 
 > Students who do not have an agent can use the github mirror station list (`https://github.com/rc1844/fastgithub`) to accelerate the pull of the maixpy ​​repository. Please do not use gitee to pull the maixpy ​​repository, which will drop the submodule repository.
 
@@ -57,7 +57,7 @@ juwan@juwan-N85-N870HL:~/Desktop/maixpy$ git submodule status
 
 > This section assumes that you do not have any experience in building cross-compilation chains.
 
-First press [build.md](https://github.com/sipeed/MaixPy-v1blob/master/build.md) to perform various operations in order. If you don’t speak English, you can open a translator.
+First press [build.md](https://github.com/sipeed/MaixPy-v1/blob/master/build.md) to perform various operations in order. If you don’t speak English, you can open a translator.
 
 The steps are as follows:
 

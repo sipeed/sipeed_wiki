@@ -1,8 +1,36 @@
 ---
-title: Introduction of MaixPy
+title: Introduction of MaixPy-v1
 keywords: maixpy, k210, AIOT, edge computing
-desc: maixpy  Introduction to MaixPy documentation
+desc: maixpy  Introduction to MaixPy-v1 documentation
 ---
+
+<div style="font-size: 1.2em;border: 2px solid green; border-color:#c33d45;padding:1em; text-align:center; background: #c33d45; color: white">
+    <div>
+    <span>The new version of MaixPy (v4) is now live, with full Python3 support, and more powerful features, see:</span>
+    <a target="_blank" style="color: #ffe0e0" href="https://wiki.sipeed.com/maixpy">
+        wiki.sipeed.com/maixpy
+    </a>
+    <br>
+    <div style="height:0.4em"></div>
+    <span>New hardware product MaixCAM, major performance upgrade, see:</span>
+    <a target="_blank" style="color: #ffe0e0" href="https://wiki.sipeed.com/maixcam">
+        https://wiki.sipeed.com/maixcam
+    </a>
+    </div>
+    <div style="padding: 1em 0 0 0">
+      <a style="color: white; font-size: 0.9em; border-radius: 0.3em; padding: 0.5em; background-color: #a80202" href="https://item.taobao.com/item.htm?id=784724795837">Taobao</a>
+      <a style="color: white; font-size: 0.9em; border-radius: 0.3em; padding: 0.5em; background-color: #a80202" href="https://www.aliexpress.us/item/1005006912917562.html">AliExpress</a>
+    </div>
+</div>
+
+**The Maix-I K210 series is being phased out; if you are planning to purchase a K210, please choose the MaixCAM immediately;**
+**K210 users are also encouraged to upgrade to MaixCAM**
+
+**In this document (under the path https://wiki.sipeed.com/soft/maixpy/en/), all references to MaixPy specifically refer to MaixPy-v1.**
+
+<br>
+<br>
+
 
 <div class="title_pic">
     <div class="logo_maixpy">
@@ -26,7 +54,7 @@ desc: maixpy  Introduction to MaixPy documentation
     </thead>
     <tbody>
         <tr>
-            <td><strong>MaixPy</strong> official document website</td>
+            <td><strong>MaixPy-v1</strong> official document website</td>
             <td><span class="limit_width">Official website:</span> <span class=""><a
                         href="https://wiki.sipeed.com/soft/maixpy/en/"
                         rel="nofollow"><strong>wiki.sipeed.com</strong></a></span><br><span class="limit_width">Chinese
@@ -38,7 +66,7 @@ desc: maixpy  Introduction to MaixPy documentation
             </td>
         </tr>
         <tr>
-            <td><strong>MaixPy</strong> demo repository</td>
+            <td><strong>MaixPy-v1</strong> demo repository</td>
             <td><span class="limit_width">github:</span> <span class=""><a
                         href="https://github.com/sipeed/MaixPy-v1_scripts"><strong>github/maixpy_script
                         </strong></a></span> <br><span class="limit_width">Domestic:</span><span class=""><a
@@ -46,9 +74,9 @@ desc: maixpy  Introduction to MaixPy documentation
                         rel="nofollow"><strong>gitee/maixpy_scripts</strong></a></span></td>
         </tr>
         <tr>
-            <td>MaixPy source code</td>
+            <td>MaixPy-v1 source code</td>
             <td><span class="limit_width"></span><span class=""><a
-                        href="https://github.com/sipeed/MaixPy"><strong>github: MaixPy</strong> </a></span></td>
+                        href="https://github.com/sipeed/MaixPy-v1"><strong>github: MaixPy-v1</strong> </a></span></td>
         </tr>
         <tr>
             <td>Hardware data download</td>
@@ -63,7 +91,7 @@ desc: maixpy  Introduction to MaixPy documentation
     </tbody>
 </table>
 
-## About MaixPy
+## About MaixPy-v1
 
 [**MaixPy**](https://maixpy.sipeed.com/zh/wiki.sipeed.com/maixpy) is to port [Micropython](http://micropython.org/) to [K210](https://canaan-creative.com/product/kendryteai) (a 64-bit dual-core RISC-V CPU with hardware FPU, convolution accelerator, FFT, Sha256) is a project that supports the normal operation of the MCU and integrates hardware acceleration. `AI` machine vision and microphone array, `1TOPS` computing power core module is less than `￥50`, in order to quickly develop intelligent applications in the field of `AIOT` with extremely low cost and practical size.
 

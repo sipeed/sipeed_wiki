@@ -95,7 +95,7 @@ The `offset` and `file_path` parameters can only choose one of the two, no keywo
 
 ##### Return
 
-If it is loaded correctly, the return value will be returned, otherwise an error will be thrown. Please see the error message thrown. In addition, please refer to [here](https://github.com/sipeed/MaixPy-v1blob/fa3cf2c96353fa698e9386e42be8b3c9cf495114/components/kendryte_sdk/include/sipeed_kpu.h#L6-L23)
+If it is loaded correctly, the return value will be returned, otherwise an error will be thrown. Please see the error message thrown. In addition, please refer to [here](https://github.com/sipeed/MaixPy-v1/blob/fa3cf2c96353fa698e9386e42be8b3c9cf495114/components/kendryte_sdk/include/sipeed_kpu.h#L6-L23)
 
 If the error code is found to be less than the value of `2000`, the firmware version is too low, and the firmware version needs to be updated
 
@@ -319,7 +319,7 @@ After `load`, you need to call this function to manually set the output layer sh
 
 ##### Return
 
-* `success`: Whether the setting is successful, if not, please pay attention to the output prompt information, refer to [error code](https://github.com/sipeed/MaixPy-v1blob/fa3cf2c96353fa698e9386e42be8b3c9cf495114/components/kendryte_sdk/include/sipeed_kpu.h#L6-L23)
+* `success`: Whether the setting is successful, if not, please pay attention to the output prompt information, refer to [error code](https://github.com/sipeed/MaixPy-v1/blob/fa3cf2c96353fa698e9386e42be8b3c9cf495114/components/kendryte_sdk/include/sipeed_kpu.h#L6-L23)
 
 
 ### memtest

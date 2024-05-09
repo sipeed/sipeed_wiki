@@ -10,7 +10,7 @@ desc: maixpy  开机自启动脚本
 - boot.py 主要用于配置硬件，只配置一次即可。
 - main.py 可以用于主要的运行的程序。
 
-对应的具体执行的[代码在此](https://github.com/sipeed/MaixPy-v1blob/972059491227ece63fbfc2cd0e78fe13ee78427d/components/micropython/port/src/maixpy_main.c#L586-L595)，有疑问就直接看源码。
+对应的具体执行的[代码在此](https://github.com/sipeed/MaixPy-v1/blob/972059491227ece63fbfc2cd0e78fe13ee78427d/components/micropython/port/src/maixpy_main.c#L586-L595)，有疑问就直接看源码。
 
 注意:
     * Micro SD 卡应该被格式化为 FAT(FAT32) 文件系统

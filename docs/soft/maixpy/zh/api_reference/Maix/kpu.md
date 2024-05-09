@@ -95,7 +95,7 @@ KPU.load(offset, file_path)
 
 ##### 返回
 
-如果正确加载，会返回返回值， 否则会抛出错误， 请看抛出的错误提示， 另外错误代码参考[这里](https://github.com/sipeed/MaixPy-v1blob/fa3cf2c96353fa698e9386e42be8b3c9cf495114/components/kendryte_sdk/include/sipeed_kpu.h#L6-L23)
+如果正确加载，会返回返回值， 否则会抛出错误， 请看抛出的错误提示， 另外错误代码参考[这里](https://github.com/sipeed/MaixPy-v1/blob/fa3cf2c96353fa698e9386e42be8b3c9cf495114/components/kendryte_sdk/include/sipeed_kpu.h#L6-L23)
 
 如果发现错误代码是小于 `2000` 的值， 则是固件版本太低，需要更新固件版本
 
@@ -321,7 +321,7 @@ success = set_outputs(kput_net, out_idx, width, height, channel)
 
 ##### 返回
 
-* `success`： 是否设置成功， 如果不成功，注意看输出的提示信息， 参考[错误代码](https://github.com/sipeed/MaixPy-v1blob/fa3cf2c96353fa698e9386e42be8b3c9cf495114/components/kendryte_sdk/include/sipeed_kpu.h#L6-L23)
+* `success`： 是否设置成功， 如果不成功，注意看输出的提示信息， 参考[错误代码](https://github.com/sipeed/MaixPy-v1/blob/fa3cf2c96353fa698e9386e42be8b3c9cf495114/components/kendryte_sdk/include/sipeed_kpu.h#L6-L23)
 
 
 ### memtest

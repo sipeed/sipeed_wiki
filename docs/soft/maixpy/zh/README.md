@@ -1,7 +1,7 @@
 ---
-title: MaixPy 文档简介
+title: MaixPy-v1 文档简介
 keywords: maixpy, k210, AIOT, 边缘计算, 人工智能, 深度学习
-desc: maixpy  MaixPy 文档简介
+desc: maixpy  MaixPy-v1 文档简介
 ---
 
 
@@ -20,21 +20,20 @@ desc: maixpy  MaixPy 文档简介
     </div>
     <div style="padding: 1em 0 0 0">
       <a style="color: white; font-size: 0.9em; border-radius: 0.3em; padding: 0.5em; background-color: #a80202" href="https://item.taobao.com/item.htm?id=784724795837">淘宝</a>
-      <a style="color: white; font-size: 0.9em; border-radius: 0.3em; padding: 0.5em; background-color: #a80202" href="https://www.aliexpress.com/store/911876460">速卖通</a>
+      <a style="color: white; font-size: 0.9em; border-radius: 0.3em; padding: 0.5em; background-color: #a80202" href="https://www.aliexpress.us/item/1005006912917562.html">速卖通</a>
     </div>
 </div>
 
 **Maix-I K210 系列正在被逐渐淘汰，如果你正准备购买 K210, 请立刻选择 MaixCAM;**
 **也欢迎 K210 用户升级到 MaixCAM**
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+**本文档中（https://wiki.sipeed.com/soft/maixpy/zh/ 路径下）的所有 MaixPy 均代指 MaixPy-v1**
 
+<br>
+<br>
+<br>
+<br>
+<br>
 
 
 <div class="title_pic">
@@ -49,9 +48,11 @@ desc: maixpy  MaixPy 文档简介
     </span>
     </br>
 </div>
-## 关于 MaixPy
 
-[**MaixPy**](https://wiki.sipeed.com/soft/maixpy/zh/index.html) 是将 [Micropython](http://micropython.org/) 移植到 [K210](https://canaan-creative.com/product/kendryteai)（一款 64 位双核带硬件 FPU、卷积加速器、FFT、Sha256 的 RISC-V CPU ） 的一个项目； [**MaixPy**](https://wiki.sipeed.com/soft/maixpy/zh/index.html) 不但支持 MCU 常规操作， 还集成了硬件加速的 `AI` 机器视觉和麦克风阵列相关的算法。相应的高达 `1TOPS` 算力核心模块却不到`￥50`， 凭借着快速开发和较低成本与其较小的体积很适合 `AIOT` 领域智能应用
+
+## 关于 MaixPy-v1
+
+[**MaixPy-v1**](https://wiki.sipeed.com/soft/maixpy/zh/index.html)（后文直接用 MaixPy 代之，注意与 MaixPy v4 区分） 是将 [Micropython](http://micropython.org/) 移植到 [K210](https://canaan-creative.com/product/kendryteai)（一款 64 位双核带硬件 FPU、卷积加速器、FFT、Sha256 的 RISC-V CPU ） 的一个项目； [**MaixPy**](https://wiki.sipeed.com/soft/maixpy/zh/index.html) 不但支持 MCU 常规操作， 还集成了硬件加速的 `AI` 机器视觉和麦克风阵列相关的算法。相应的高达 `1TOPS` 算力核心模块却不到`￥50`， 凭借着快速开发和较低成本与其较小的体积很适合 `AIOT` 领域智能应用
 
 > MicroPython 是基于 Python3 的语法做的一款解析器，包含了 Python3 的大多数基础语法， 主要运行在性能和内存有限的嵌入式芯片上。（注意 Micropython 不包含 Python3 的所有语法）
 

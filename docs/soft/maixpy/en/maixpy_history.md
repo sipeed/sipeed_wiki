@@ -90,3 +90,9 @@ Hardware update: Maix Amigo development board is online, with a shell added
 ## November 2020
 
 Reorganize the documents, more perfect documents and communities
+
+## April 2024
+
+The brand new [MaixPy v4](https://wiki.sipeed.com/maixpy/) update no longer uses MicroPython but has switched to standard CPython3 to better match the more powerful [MaixCAM](https://wiki.sipeed.com/maixcam) hardware.
+
+To differentiate it from the MicroPython version of MaixPy, the name has been changed to MaixPy-v1, and its maintenance will be paused. Future updates will be considered if necessary. The new MaixPy v4 will adopt the name MaixPy.
