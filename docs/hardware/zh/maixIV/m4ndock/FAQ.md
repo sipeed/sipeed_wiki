@@ -10,3 +10,13 @@ root@maixbox:~# df -h
 Filesystem      Size  Used Avail Use% Mounted on
 /dev/root        28G  6.0G   21G  23% /
 ```
+
+## Q：MAC物理地址重复，导致同一局域网下无法正常连接网络，如何解决？
+
+A：可通过进入`uboot`命令行模式设置环境变量`ethaddr`和`eth1addr`并保存，可永久修改对应网卡的mac地址：
+```bash
+# 例如
+setenv ethaddr d0:00:00:00:00:01
+setenv eth1addr d0:00:00:00:00:02
+saveenv
+```
