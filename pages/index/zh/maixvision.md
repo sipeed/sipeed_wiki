@@ -98,7 +98,10 @@ title: MaixVision 工作站官网
 
 <script>
 async function getLatestVersion(filename) {
-    const response = await fetch('https://cdn.sipeed.com/maixvision/' + filename + '.json');
+    const timestamp = new Date().getTime();
+    const url = `https://cdn.sipeed.com/maixvision/${filename}.json?t=${timestamp}`;
+
+    const response = await fetch(url);
     const data = await response.json();
     if(data.error) {
         showMsgInfo("load data failed: " + data.error);

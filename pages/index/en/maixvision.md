@@ -98,7 +98,10 @@ title: MaixVision Workstation Official Website
 
 <script>
 async function getLatestVersion(filename) {
-    const response = await fetch('https://cdn.sipeed.com/maixvision/' + filename + '.json');
+    const timestamp = new Date().getTime();
+    const url = `https://cdn.sipeed.com/maixvision/${filename}.json?t=${timestamp}`;
+
+    const response = await fetch(url);
     const data = await response.json();
     if(data.error) {
         showMsgInfo("load data failed: " + data.error);
@@ -106,6 +109,7 @@ async function getLatestVersion(filename) {
     }
     return data;
 }
+
 
 var win_download = document.getElementById('win_download');
 var linux_download = document.getElementById('linux_download');
