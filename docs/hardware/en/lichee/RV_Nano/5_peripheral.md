@@ -177,26 +177,65 @@ cat /sys/class/cvi-saradc/cvi-saradc0/device/cv_saradc
 
 Connect the screen's ribbon cable to the board's MIPI interface, paying attention to the wire order.
 
-Edit /opt/fb_load.sh on the board, and uncomment the specific model's initialization command.
+Create or edit the uEnv.txt file in the first partition of the sdcard, add or modify the panel field:
 
-Then execute:
-
-```
-/opt/fb_load.sh # Initialize the screen driver
-devmem # Test color bars
-```
-
-If it works, you can add it to the boot script:
-
-```
-echo /opt/fb_load.sh >> /etc/rc.local
+Note: The image will have the first partition already mounted in the /boot directory and can be used directly in the terminal:
+```shell
+cd /boot
+touch uEnv.txt
+vi uEnv.txt
+# Use 'i' to enter edit
+# Use 'Esc',':wq' to save and quit
 ```
 
-The LCD will provide a framebuffer for user space programs to access.
+7-inch screen:
 
-It is recommended to use QT5, SDL1.2, or LVGL for UI development, or you can write directly to the Framebuffer.
+```
+panel=zct2133v1
+```
 
-For direct framebuffer writing, refer to /opt/src/vendortest in the board's filesystem.
+5-inch screen:
+```
+panel=st7701_dxq5d0019b480854
+```
+
+3-inch screen:
+
+```
+panel=st7701_d300fpc9307a
+```
+
+2.3-inch screen:
+
+```
+panel=st7701_hd228001c31
+```
+
+If you want to use the framebuffer function, create a file named fb in the first partition of the sd card:
+
+```
+touch /boot/fb
+```
+
+Then load the driver:
+
+```
+/etc/init.d/S04fb start
+```
+
+Adjusting the Backlight Brightness:
+
+```
+echo 0 > /sys/class/pwm/pwmchip8/pwm2/enable
+echo 5000 > /sys/class/pwm/pwmchip8/pwm2/duty_cycle # 50%
+echo 1 > /sys/class/pwm/pwmchip8/pwm2/enable
+
+# some example:
+#echo 2000 > /sys/class/pwm/pwmchip8/pwm2/duty_cycle # 20%
+#echo 4000 > /sys/class/pwm/pwmchip8/pwm2/duty_cycle # 40%
+#echo 7000 > /sys/class/pwm/pwmchip8/pwm2/duty_cycle # 70%
+#echo 9000 > /sys/class/pwm/pwmchip8/pwm2/duty_cycle # 90%
+```
 
 ## Touch Screen
 
