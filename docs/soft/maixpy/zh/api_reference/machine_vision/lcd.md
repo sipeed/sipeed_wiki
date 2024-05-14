@@ -190,7 +190,8 @@ lcd.draw_string(100, 100, "hello maixpy", lcd.RED, lcd.BLACK)
 import lcd
 import image
 
-img = image.Image("/sd/pic.bmp")
+lcd.init()
+img = image.Image("/sd/pic.bmp")#320*240
 lcd.display(img)
 ```
 
