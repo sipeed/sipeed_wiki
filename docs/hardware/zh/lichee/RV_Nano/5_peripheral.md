@@ -75,7 +75,6 @@ consoledev=/dev/ttyX
 
 UART1和2的引脚默认用作连接UART蓝牙芯片:
 
-https://github.com/sipeed/LicheeRV-Nano-Build/blob/61ecf59b8b3653e430c8905c7a1ae80201d60f84/build/boards/sg200x/sg2002_licheervnano_sd/u-boot/cvi_board_init.c#L91
 ```
 mmio_write_32(0x03001070, 0x1); // GPIOA 28 UART1 TX
 mmio_write_32(0x03001074, 0x1); // GPIOA 29 UART1 RX
@@ -99,8 +98,6 @@ devmem 0x03001064 32 0x6 # GPIOA 19 UART1 TX
 ```
 
 UART3 的引脚被默认复用为SDIO:
-
-https://github.com/sipeed/LicheeRV-Nano-Build/blob/61ecf59b8b3653e430c8905c7a1ae80201d60f84/build/boards/sg200x/sg2002_licheervnano_sd/u-boot/cvi_board_init.c#L83
 
 ```
 mmio_write_32(0x030010D0, 0x0); // D3
@@ -224,6 +221,78 @@ cat /sys/class/thermal/thermal_zone0/temp
 cat /sys/kernel/debug/clk/clk_summary
 ```
 
+## USB
+
+### device
+
+在sd卡第一个分区创建 usb.dev 文件，并且删掉 usb.host 文件:
+
+```
+touch /boot/usb.dev
+rm /boot/host.host
+```
+
+如果需要启用acm虚拟串口:
+
+```
+touch /boot/usb.GS0
+```
+
+如果需要启用rndis虚拟网卡:
+
+```
+touch /boot/usb.rndis0
+```
+
+然后重启设备
+
+### host
+
+在sd卡第一个分区创建 usb.host 文件，并且删掉 usb.dev 文件:
+
+```
+touch /boot/usb.host
+rm /boot/usb.dev
+```
+
+然后重启设备，给排针的VBUS或VSYS供5V电源，连接设备到TYPEC口，在系统内使用lsusb检查设备是否连接
+
+## PWM
+
+### 引脚复用
+
+PWM的引脚默认被用作UART，如果想用作PWM，则需要设置寄存器:
+
+```
+devmem 0x03001064 32 2 # GPIOA19 PWM7
+devmem 0x03001068 32 2 # GPIOA18 PWM6
+```
+
+### SYSFS方式操纵PWM
+
+
+
+```shell
+# 如何获取PWM节点的位置:
+# SG2002有4个pwm chip:
+# pwmchip0 pwmchip4 pwmchip8 pwmchip12
+# 每个chip里面有4路pwm
+# 假设我们要使用pwm7:
+# 4 < 7 < 8
+# PWM7在pwmchip4中
+cd /sys/class/pwm/pwmchip4/
+# 7 - 4 = 3
+echo 3 > export
+cd pwm3
+# 设置period
+echo 10000 > period
+# 设置duty_cycle
+echo 5000 > duty_cycle
+# 使能pwm输出
+echo 1 > enable
+# 然后使用逻辑分析仪接到PWM引脚，就可以看到PWM7引脚输出方波
+```
+
 ## Audio
 
 licheerv nano 支持录音和播放，使用标准 ALSA 工具可以进行录音、播放等操作。
@@ -284,7 +353,6 @@ cat /sys/class/gpio/gpio${num}/value
 ### UART1/2
 UART1和2的引脚默认用作连接UART蓝牙芯片:
 
-https://github.com/sipeed/LicheeRV-Nano-Build/blob/61ecf59b8b3653e430c8905c7a1ae80201d60f84/build/boards/sg200x/sg2002_licheervnano_sd/u-boot/cvi_board_init.c#L91
 ```c
 mmio_write_32(0x03001070, 0x1); // GPIOA 28 UART1 TX
 mmio_write_32(0x03001074, 0x1); // GPIOA 29 UART1 RX
@@ -308,8 +376,6 @@ devmem 0x03001064 32 0x6 # GPIOA 19 UART1 TX
 ### UART3
 
 UART3 的引脚被默认复用为SDIO:
-
-https://github.com/sipeed/LicheeRV-Nano-Build/blob/61ecf59b8b3653e430c8905c7a1ae80201d60f84/build/boards/sg200x/sg2002_licheervnano_sd/u-boot/cvi_board_init.c#L83
 
 ```c
 mmio_write_32(0x030010D0, 0x0); // D3
@@ -384,8 +450,6 @@ devmem 0x030010DC 32 0x0
 ## SPI
 
 SPI2默认被复用作SDIO:
-
-https://github.com/sipeed/LicheeRV-Nano-Build/blob/61ecf59b8b3653e430c8905c7a1ae80201d60f84/build/boards/sg200x/sg2002_licheervnano_sd/u-boot/cvi_board_init.c#L83
 
 ```
 mmio_write_32(0x030010D0, 0x0); // D3
@@ -496,6 +560,14 @@ echo 1 > /sys/class/pwm/pwmchip8/pwm2/enable
 #echo 4000 > /sys/class/pwm/pwmchip8/pwm2/duty_cycle # 40%
 #echo 7000 > /sys/class/pwm/pwmchip8/pwm2/duty_cycle # 70%
 #echo 9000 > /sys/class/pwm/pwmchip8/pwm2/duty_cycle # 90%
+```
+
+测试屏幕显示:
+
+首先按照上面的方法打开fb，然后执行:
+
+```
+fbpattern # 显示SIPEED LOGO和测试用的图案
 ```
 
 ## 触摸屏

@@ -54,9 +54,9 @@ fastboot flash root root.ext4
 
 5. 烧录镜像的 PC 机上运行如下命令
 ```shell
-./fastboot -s udp:刚刚板子上设置的ip地址 flash uboot uboot文件名
-./fastboot -s udp:刚刚板子上设置的ip地址 flash boot boot文件名
-./fastboot -s udp:刚刚板子上设置的ip地址 flash root root文件名
+./fastboot -s udp:board_ip flash uboot uboot-xxxx.bin
+./fastboot -s udp:board_ip flash boot boot-xxxx.ext4
+./fastboot -s udp:board_ip flash root root-xxxx.ext4
 ```
 
 效果如下：

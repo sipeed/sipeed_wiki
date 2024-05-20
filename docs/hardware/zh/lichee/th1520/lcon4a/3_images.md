@@ -11,6 +11,18 @@ update:
 
 ## Sipeed官方镜像
 
+https://github.com/0x754C/sipeed-th1520-laptop-extra/releases
+
+linux-image-*.deb 是sipeed提供的内核安装包，如果只想升级内核可以安装这个，安装前记得更新到对应版本的uboot，以及备份文件。
+
+sipeed-th1520-laptop-extra-*.deb 是sipeed提供的附加文件安装包，包括配置文件，测试工具，和EC固件。
+
+u-boot-with-spl-*.bin 是uboot文件，请选择你电路板对应型号的uboot进行烧写，烧写前记得备份文件，如果烧写错误的uboot可能会导致无法开机。
+
+boot|root-*.ext.xz 是分区镜像，如果想整个重新烧录，使用这个。
+
+## Sipeed官方镜像(旧版)
+
 Sipeed 官方镜像基于 Debian 系统修改适配。 
 
 默认镜像的帐号密码配置如下：
