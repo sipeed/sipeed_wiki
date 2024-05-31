@@ -35,3 +35,9 @@ root 账户默认没有设置密码。
 [mega网盘](https://mega.nz/folder/p0oiwCqI#EFGgwRnoB9mX14pKI2pu4Q)
 
 烧录方式请参考[烧录镜像](https://wiki.sipeed.com/hardware/zh/lichee/th1520/lcon4a/4_burn_image.html)
+
+## PLCT官方镜像
+
+https://github.com/revyos/mkimg-th1520/releases
+
+烧录方法同上
