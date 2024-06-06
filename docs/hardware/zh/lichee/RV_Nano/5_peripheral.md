@@ -321,12 +321,12 @@ arecord -Dhw:0,0 -d 3 -r 48000 -f S16_LE -t wav test.wav & > /dev/null &
 
 ### LicheeRV Nano引脚图&Linux GPIO编号：
 
-![GPIO](../assets/RV_Nano/peripheral/gpio.png)
+![](./../assets/RV_Nano/intro/RV_Nano_3.jpg)
 
 系统内GPIO查看：
 
 ```shell
-cat /sys/kernel/debug/clk/clk_summary
+cat /sys/kernel/debug/gpio
 ```
 
 ### GPIO操作
@@ -347,6 +347,10 @@ echo 0 > /sys/class/gpio/gpio${num}/value
 echo in > /sys/class/gpio/gpio${num}/direction 
 cat /sys/class/gpio/gpio${num}/value
 ```
+
+带WiFI模块的版本 GPIO P18 ~ P23 连接 WiFi 模块的 SDIO 接口，用于 WiFi 通信；GPIO A26 用作 WiFi EN，请避免使用这些引脚，普通版和仅网口版用户可自由定义这些引脚功能
+
+GPIO A18、A19、A28、A29 由一颗0402*4排阻连接至WiFi模块的蓝牙接口，默认空贴，WiFi版用户可自由定义这些引脚的功能，若想启用蓝牙，请参照[此处](https://wiki.sipeed.com/hardware/zh/lichee/RV_Nano/2_unbox.html#LicheeRV-Nano-%E5%A5%97%E9%A4%90%E4%BB%8B%E7%BB%8D)焊接对应电阻
 
 ## UART
 
@@ -433,13 +437,13 @@ devmem 0x030010E4 32 0x2 # GPIOP 23 I2C3 SDA
 
 然后可以使用 i2c-tools 进行 i2c 外设的操作，镜像中已经预装。
 
-带WiFi模块的板卡（W、WE版）I2C1和I2C3硬件上连接到WiFi模块的SDIO，存在I2C无法读写的可能，PINMUX到I2C时WiFi模块暂时不可用，可使用以下命令恢复WiFi连接：
+带WiFi模块的板卡（W、WE版）I2C1和I2C3硬件上连接到WiFi模块的SDIO，存在I2C无法读写的可能，PINMUX到I2C时WiFi模块不可用，可使用以下命令恢复WiFi连接：
 ```shell
 # PINMUX到SDIO
 devmem 0x030010D0 32 0x0
 devmem 0x030010DC 32 0x0
-devmem 0x030010D0 32 0x0
-devmem 0x030010DC 32 0x0
+devmem 0x030010E0 32 0x0
+devmem 0x030010E4 32 0x0
 # 重启WiFi服务
 /etc/init.d/S30wifi stop
 /etc/init.d/S30wifi start
