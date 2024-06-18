@@ -197,7 +197,7 @@ Console目前的关机功耗约为1.3mA，可支撑约3个月关机时间。
 
 
 ## 其他链接
-[淘宝]
+[淘宝] (https://item.taobao.com/item.htm?id=754766940927)
 [Aliexpress](https://www.aliexpress.us/item/3256805987954160.html)
 
 QQ群: 559614960 [点我自动加群](http://qm.qq.com/cgi-bin/qm/qr?k=5YkapIhdtWHp8AEfM5_bFFYQIX3CUQN6)

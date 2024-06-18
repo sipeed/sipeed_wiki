@@ -155,6 +155,11 @@ items:
             -   label: 烧录镜像
                 file: lichee/th1520/lcon4a/4_burn_image.md
             file: lichee/th1520/lcon4a/lcon4a.md
+        -   label: Lichee Book 4A
+            items:
+            -   label: 烧录镜像
+                file: lichee/th1520/lbook4a/4_burn_image.md
+            file: lichee/th1520/lbook4a/lbook4a.md
         -   label: Lichee PI 4A
             collapsed: false
             items:
