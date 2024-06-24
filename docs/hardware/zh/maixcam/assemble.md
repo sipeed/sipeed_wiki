@@ -42,3 +42,8 @@ title: MaixCAM 外壳
 文件已上传MakerWorld，[点此跳转](https://makerworld.com/zh/models/440321)
 
 推荐使用耐温70度的树脂进行光固化打印
+
+## 支架开源文件
+
+更多开源 3D 文件，请到[makerworld.com](https://makerworld.com/) 搜索 `MaixCAM`。
+
