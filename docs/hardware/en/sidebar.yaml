@@ -331,6 +331,18 @@ items:
             file: logic_analyzer/combo8/update_firmware.md
         -   label: FAQ
             file: logic_analyzer/combo8/faq.md
+-   label: KVM
+    items:
+    -   label: Lichee Nano KVM
+        items:
+        -   label: Introduction
+            file: kvm/NanoKVM/1_intro.md
+        -   label: Unboxing Experience
+            file: kvm/NanoKVM/2_unbox.md
+        -   label: Update Firmware
+            file: kvm/NanoKVM/3_firmware.md
+        -   label: FAQ
+            file: kvm/NanoKVM/4_faq.md
 # -   label: Maix Audio
 #     items:
 #     -   label: MA USB 16
