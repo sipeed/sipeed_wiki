@@ -177,10 +177,12 @@ More example codes [Github](https://github.com/sipeed/TangNano-20K-example)
 
 ## Contact
 
-- **Reddit** : [reddit.com/r/GowinFPGA/](reddit.com/r/GowinFPGA/)
-- **Telegram** : [t.me/sipeed](t.me/sipeed)
-- Leave message in the end of this page
-- Business email : [support@sipeed.com](support@sipeed.com)
+  - **Reddit** : [reddit.com/r/GowinFPGA/](reddit.com/r/GowinFPGA/)
+  - **Telegram** : [t.me/sipeed](t.me/sipeed)
+  - Discussion forum: [maixhub.com/discussion](https://maixhub.com/discussion)
+  - QQ discussion group: [834585530](https://jq.qq.com/?_wv=1027&k=wBb8XUan)
+  - Leave message in the end of this page
+  - Business email : [support@sipeed.com](support@sipeed.com)
 
 ## Questions
 
