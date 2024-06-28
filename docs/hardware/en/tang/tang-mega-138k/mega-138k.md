@@ -1,5 +1,5 @@
 ---
-title: Tang Mega 138K ~Dock~
+title: Tang Mega 138K Dock
 keywords: FPGA, Tang, Mega, 138K
 update:
   - date: 06-26-2024
