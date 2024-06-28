@@ -21,7 +21,7 @@ update:
 
 ## 内核支持
 
-目前平头哥官方 SDK 使用 Linux5.10 内核： https://gitee.com/thead-yocto
+目前平头哥官方 SDK 使用 Linux5.10 内核： https://gitee.com/xuantie-linux
 主线 linux6.x 内核正在移植中，主要社区贡献者：`Jisheng Zhang `
 
 ## Sipeed官方镜像
