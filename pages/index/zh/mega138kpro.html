@@ -1,17 +1,16 @@
 <script>
     var hash = window.location.hash
-    var url_language = "zh"
-
-    if( navigator.language.indexOf("zh") == -1 )
-    {
-        url_language = "en"
+    if (hash.indexOf("start")!= -1){
+        location.href = window.location.origin + "/hardware/en/tang/tang-mega-138k/mega-138k-pro.html"
     }
-
-    switch (window.location.hash) {
-        case "#version" : 
-            location.href = window.location.origin + "/hardware/" + url_language + "/tang/tang-mega-138k/mega-138k.html"
-            break;
-        default : 
-            location.href = window.location.origin + "/hardware/" + url_language + "/tang/tang-mega-138k/mega-138k.html"
+    else
+    {   if( navigator.language.indexOf("en") == 0 )
+        {
+            location.href = window.location.origin + "/hardware/en/tang/tang-mega-138k/mega-138k-pro.html"
+        }
+        else
+        {
+            location.href = window.location.origin + "/hardware/en/tang/tang-mega-138k/mega-138k-pro.html"
+        }
     }
 </script>
