@@ -80,8 +80,10 @@ Specifications, schematics, dimension drawings, etc. can be found here: [Click h
 
   ## Communication Methods
 
-  - **Discussion Forum: [maixhub.com](maixhub.com/discussion)**
-  - **QQ Discussion Group: [834585530](https://jq.qq.com/?_wv=1027&k=wBb8XUan)**
+  - **Reddit** : [reddit.com/r/GowinFPGA/](reddit.com/r/GowinFPGA/)
+  - **Telegram** : [t.me/sipeed](t.me/sipeed)
+  - Discussion forum: [maixhub.com/discussion](https://maixhub.com/discussion)
+  - QQ discussion group: [834585530](https://jq.qq.com/?_wv=1027&k=wBb8XUan)
   - Leave a message directly below this page
   - Business email: [support@sipeed.com](support@sipeed.com)
 

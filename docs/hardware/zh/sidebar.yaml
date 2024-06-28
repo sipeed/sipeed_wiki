@@ -295,6 +295,15 @@ items:
             -   label: 常见问题
                 file: tang/Tang-Nano-Doc/questions.md
                 target: _blank
+        -   label: Tang Primer 15K
+            items:
+            -   label: 板卡介绍
+                file: tang/tang-primer-15k/primer-15k.md
+            -   label: 安装 IDE
+                file: tang/Tang-Nano-Doc/get_started/install-the-ide.md
+            -   label: 常见问题
+                file: tang/Tang-Nano-Doc/questions.md
+                target: _blank
         -   label: Tang Primer (售罄)
             file: tang/Tang-primer/Tang-primer.md
             items:
@@ -318,6 +327,24 @@ items:
             items:
             -   label: 板卡介绍
                 file: tang/tang-mega-138k/mega-138k-pro.md
+            -   label: 安装 IDE
+                file: tang/Tang-Nano-Doc/get_started/install-the-ide.md
+            -   label: 常见问题
+                file: tang/Tang-Nano-Doc/questions.md
+                target: _blank
+        -   label: Tang Mega 138K
+            items:
+            -   label: 板卡介绍
+                file: tang/tang-mega-138k/mega-138k.md
+            -   label: 安装 IDE
+                file: tang/Tang-Nano-Doc/get_started/install-the-ide.md
+            -   label: 常见问题
+                file: tang/Tang-Nano-Doc/questions.md
+                target: _blank
+        -   label: Tang Mega 60K
+            items:
+            -   label: 板卡介绍
+                file: tang/tang-mega-60k/mega-60k.md
             -   label: 安装 IDE
                 file: tang/Tang-Nano-Doc/get_started/install-the-ide.md
             -   label: 常见问题

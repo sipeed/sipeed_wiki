@@ -40,4 +40,17 @@ title: MaixCAM 外壳
 
 3. 装回屏幕前请确认屏幕排线的连接是否正常，如果有歪斜，请先将排线重新插好
 
+
 ![](../../assets/maixcam/assemble-3.jpg)
+
+## 外壳开源文件
+
+文件已上传MakerWorld，[点此跳转](https://makerworld.com/zh/models/440321)
+
+推荐使用耐温70度的树脂进行光固化打印
+
+## 支架开源文件
+
+更多开源 3D 文件，请到[makerworld.com](https://makerworld.com/) 搜索 `MaixCAM`。
+
+

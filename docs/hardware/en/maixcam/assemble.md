@@ -41,3 +41,8 @@ Here are some points to note:
 **File Uploaded on MakerWorld:** [Click here to view](https://makerworld.com/zh/models/440321)
 
 **Recommended Material:** It is recommended to use a resin with a heat resistance of 70 degrees Celsius for photopolymerization printing.
+
+
+## Stand Open Source Files
+
+For more open source 3D files, please visit [makerworld.com](https://makerworld.com/) and search for `MaixCAM`.

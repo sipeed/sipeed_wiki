@@ -11,8 +11,9 @@ msgstr ""
 #: licheepi.html:238 licheepi.html:254 licheepi.html:275 licheepi.html:291
 #: licheepi.html:307 maix.html:163 maix.html:180 maix.html:197 maix.html:237
 #: maix.html:254 maix.html:275 maix.html:292 maixsense.html:40
-#: maixsense.html:56 others.html:38 tang.html:137 tang.html:153 tang.html:169
-#: tang.html:185 tang.html:201 tang.html:217
+#: maixsense.html:56 others.html:38 tang.html:167 tang.html:183 tang.html:199
+#: tang.html:215 tang.html:231 tang.html:247 tang.html:263 tang.html:279
+#: tang.html:295
 msgid "文档"
 msgstr ""
 
@@ -29,8 +30,8 @@ msgstr ""
 #: licheepi.html:242 licheepi.html:258 licheepi.html:279 licheepi.html:295
 #: licheepi.html:311 maix.html:167 maix.html:241 maix.html:262 maix.html:279
 #: maix.html:296 maixsense.html:44 maixsense.html:60 others.html:42
-#: tang.html:141 tang.html:157 tang.html:173 tang.html:189 tang.html:205
-#: tang.html:221
+#: tang.html:171 tang.html:187 tang.html:203 tang.html:219 tang.html:235
+#: tang.html:251 tang.html:267 tang.html:283 tang.html:299
 msgid "购买"
 msgstr ""
 
@@ -102,7 +103,7 @@ msgstr ""
 msgid "内存"
 msgstr ""
 
-#: licheepi.html:69 licheepi.html:152 maix.html:90 tang.html:105
+#: licheepi.html:69 licheepi.html:152 maix.html:90 tang.html:129
 msgid "储存"
 msgstr ""
 
@@ -273,7 +274,7 @@ msgstr ""
 msgid "RISC-V 1GHz + 1Tops NPU, 4M高清摄像头，2.3寸552x368高清电容触摸屏，完美支持全新 Maix 生态所有软件"
 msgstr ""
 
-#: maix.html:168
+#: maix.html:168 tang.html:284 tang.html:300
 msgid "https://sipeed.taobao.com"
 msgstr ""
 
@@ -357,97 +358,191 @@ msgstr ""
 msgid "Tang 系列板卡参数对比"
 msgstr ""
 
-#: tang.html:42
+#: tang.html:45
 msgid "芯片"
 msgstr ""
 
-#: tang.html:51
+#: tang.html:57
 msgid "查找表(LUT)"
 msgstr ""
 
-#: tang.html:60
+#: tang.html:69
 msgid "寄存器(FF)"
 msgstr ""
 
-#: tang.html:88 tang.html:90 tang.html:106 tang.html:107 tang.html:108
-#: tang.html:109 tang.html:110 tang.html:111
+#: tang.html:106 tang.html:107 tang.html:108 tang.html:110 tang.html:130
+#: tang.html:131 tang.html:132 tang.html:133 tang.html:134 tang.html:135
+#: tang.html:136 tang.html:137 tang.html:138
 msgid "板载_fpga"
-msgstr "板载"
+msgstr ""
 
-#: tang.html:91 tang.html:92 tang.html:93 tang.html:110 tang.html:111
+#: tang.html:111 tang.html:112 tang.html:113 tang.html:114 tang.html:137
+#: tang.html:138
 msgid "内含"
 msgstr ""
 
-#: tang.html:96
+#: tang.html:117
 msgid "内嵌处理器"
 msgstr ""
 
-#: tang.html:114
+#: tang.html:141
 msgid "其他特点"
 msgstr ""
 
-#: tang.html:115
+#: tang.html:142 tang.html:144 tang.html:147
+msgid "内含 6.6G Transceivers"
+msgstr ""
+
+#: tang.html:142 tang.html:144 tang.html:147
+msgid "支持 PCIe 2.0 通信"
+msgstr ""
+
+#: tang.html:142 tang.html:144
+msgid "支持 USB3 数据传输"
+msgstr ""
+
+#: tang.html:143
 msgid "内含 12.5G Transceivers"
 msgstr ""
 
-#: tang.html:115
-msgid "支持 PCIE 通信"
+#: tang.html:143
+msgid "支持 PCIe 3.0 通信"
 msgstr ""
 
-#: tang.html:115
+#: tang.html:143
 msgid "支持 SFP+ 数据传输"
 msgstr ""
 
-#: tang.html:116
+#: tang.html:144 tang.html:147
+msgid "内含 2.5G MIPI C/DPHY RX/TX"
+msgstr ""
+
+#: tang.html:145
 msgid "内含 2.5G MIPI DPHY RX/TX"
 msgstr ""
 
-#: tang.html:116
+#: tang.html:145
 msgid "支持 PMOD, 64MByte SDRAM模块"
 msgstr ""
 
-#: tang.html:116
+#: tang.html:145
 msgid "支持 USB手柄"
 msgstr ""
 
-#: tang.html:117
+#: tang.html:146
 msgid "丰富外设，HDMI/以太网/USB"
 msgstr ""
 
-#: tang.html:118
+#: tang.html:147
+msgid "M.2 外形兼容"
+msgstr ""
+
+#: tang.html:148
 msgid "for RetroGame ~"
 msgstr ""
 
-#: tang.html:119
+#: tang.html:149
 msgid "for RISCV softcore"
 msgstr ""
 
-#: tang.html:120
+#: tang.html:150
 msgid "GOAI~"
 msgstr ""
 
-#: tang.html:134
+#: tang.html:164
+msgid "小体积的大容量 FPGA 开发板"
+msgstr ""
+
+#: tang.html:168
+msgid "/hardware/zh/tang/tang-mega-138k/mega-138k.html"
+msgstr ""
+
+#: tang.html:172
+msgid "https://item.taobao.com/item.htm?id=808924746746"
+msgstr ""
+
+#: tang.html:180
 msgid "可以高速通信的大容量 FPGA 开发板"
 msgstr ""
 
-#: tang.html:150
+#: tang.html:184
+msgid "/hardware/zh/tang/tang-mega-138k/mega-138k-pro.html"
+msgstr ""
+
+#: tang.html:188
+msgid "https://item.taobao.com/item.htm?id=740536508140"
+msgstr ""
+
+#: tang.html:196
 msgid "自由拓展的 FPGA 开发板"
 msgstr ""
 
-#: tang.html:166
+#: tang.html:200
+msgid "/hardware/zh/tang/tang-primer-25k/primer-25k.html"
+msgstr ""
+
+#: tang.html:204
+msgid "https://item.taobao.com/item.htm?id=746293292946"
+msgstr ""
+
+#: tang.html:212
 msgid "自带多种外设接口的 FPGA 开发板"
 msgstr ""
 
-#: tang.html:182
+#: tang.html:216
+msgid "/hardware/zh/tang/tang-primer-20k/primer-20k.html"
+msgstr ""
+
+#: tang.html:220
+msgid "https://item.taobao.com/item.htm?id=680099020807"
+msgstr ""
+
+#: tang.html:228
 msgid "适用于模拟复古游戏机的 FPGA 开发板"
 msgstr ""
 
-#: tang.html:198
+#: tang.html:232
+msgid "/hardware/zh/tang/tang-nano-20k/nano-20k.html"
+msgstr ""
+
+#: tang.html:236
+msgid "https://item.taobao.com/item.htm?id=717932028073"
+msgstr ""
+
+#: tang.html:244
 msgid "适合 RiscV 软核验证的 FPGA 开发板"
 msgstr ""
 
-#: tang.html:214
+#: tang.html:248
+msgid "/hardware/zh/tang/Tang-Nano-9K/Nano-9K.html"
+msgstr ""
+
+#: tang.html:252
+msgid "https://item.taobao.com/item.htm?id=666055424174"
+msgstr ""
+
+#: tang.html:260
 msgid "芯片内部含有 MCU 的 FPGA 开发板"
+msgstr ""
+
+#: tang.html:264
+msgid "/hardware/zh/tang/Tang-Nano-4K/Nano-4K.html"
+msgstr ""
+
+#: tang.html:268
+msgid "https://item.taobao.com/item.htm?id=661994055100"
+msgstr ""
+
+#: tang.html:276 tang.html:292
+msgid "开发中，敬请期待。。。"
+msgstr ""
+
+#: tang.html:280
+msgid "/hardware/zh/tang/tang-mega-60k/mega-60k.html"
+msgstr ""
+
+#: tang.html:296
+msgid "/hardware/zh/tang/tang-primer-15k/primer-15k.html"
 msgstr ""
 
 #~ msgid "/static/home/licheepi4a_post.jpg"
@@ -562,5 +657,137 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "RISC-V 1GHz + 1Tops NPU, 4M高清摄像头，2.3寸553x368高清电容触摸屏，玩美支持全新 Maix 生态所有软件"
+#~ msgstr ""
+
+#~ msgid "敬请期待。。。"
+#~ msgstr ""
+
+#~ msgid "/static/home/banner_maixcam.jpg"
+#~ msgstr ""
+
+#~ msgid "/maixcam"
+#~ msgstr ""
+
+#~ msgid "/maixpy"
+#~ msgstr ""
+
+#~ msgid "https://item.taobao.com/item.htm?id=784724795837"
+#~ msgstr ""
+
+#~ msgid "/static/home/LicheeRV-Nano.jpg"
+#~ msgstr ""
+
+#~ msgid "/static/home/LonganPi3H.jpg"
+#~ msgstr ""
+
+#~ msgid "/static/home/console-4A.jpg"
+#~ msgstr ""
+
+#~ msgid "支持 PCIE 通信"
+#~ msgstr ""
+
+#~ msgid "Tang FPGA 系列"
+#~ msgstr ""
+
+#~ msgid "Tang 系列板卡参数对比"
+#~ msgstr ""
+
+#~ msgid "芯片"
+#~ msgstr ""
+
+#~ msgid "查找表(LUT)"
+#~ msgstr ""
+
+#~ msgid "寄存器(FF)"
+#~ msgstr ""
+
+#~ msgid "板载_fpga"
+#~ msgstr ""
+
+#~ msgid "内含"
+#~ msgstr ""
+
+#~ msgid "内嵌处理器"
+#~ msgstr ""
+
+#~ msgid "其他特点"
+#~ msgstr ""
+
+#~ msgid "内含 6.6G Transceivers"
+#~ msgstr ""
+
+#~ msgid "支持 PCIe 2.0 通信"
+#~ msgstr ""
+
+#~ msgid "支持 USB3 数据传输"
+#~ msgstr ""
+
+#~ msgid "内含 12.5G Transceivers"
+#~ msgstr ""
+
+#~ msgid "支持 PCIe 3.0 通信"
+#~ msgstr ""
+
+#~ msgid "支持 SFP+ 数据传输"
+#~ msgstr ""
+
+#~ msgid "内含 2.5G MIPI C/DPHY RX/TX"
+#~ msgstr ""
+
+#~ msgid "内含 2.5G MIPI DPHY RX/TX"
+#~ msgstr ""
+
+#~ msgid "支持 PMOD, 64MByte SDRAM模块"
+#~ msgstr ""
+
+#~ msgid "支持 USB手柄"
+#~ msgstr ""
+
+#~ msgid "丰富外设，HDMI/以太网/USB"
+#~ msgstr ""
+
+#~ msgid "M.2 外形兼容"
+#~ msgstr ""
+
+#~ msgid "for RetroGame ~"
+#~ msgstr ""
+
+#~ msgid "for RISCV softcore"
+#~ msgstr ""
+
+#~ msgid "GOAI~"
+#~ msgstr ""
+
+#~ msgid "小体积的大容量 FPGA 开发板"
+#~ msgstr ""
+
+#~ msgid "/hardware/zh/tang/tang-mega-138k/mega-138k.html"
+#~ msgstr ""
+
+#~ msgid "可以高速通信的大容量 FPGA 开发板"
+#~ msgstr ""
+
+#~ msgid "自由拓展的 FPGA 开发板"
+#~ msgstr ""
+
+#~ msgid "自带多种外设接口的 FPGA 开发板"
+#~ msgstr ""
+
+#~ msgid "适用于模拟复古游戏机的 FPGA 开发板"
+#~ msgstr ""
+
+#~ msgid "适合 RiscV 软核验证的 FPGA 开发板"
+#~ msgstr ""
+
+#~ msgid "芯片内部含有 MCU 的 FPGA 开发板"
+#~ msgstr ""
+
+#~ msgid "开发中，敬请期待。。。"
+#~ msgstr ""
+
+#~ msgid "/hardware/zh/tang/tang-mega-138k/mega-138k-pro.html"
+#~ msgstr ""
+
+#~ msgid "https://item.taobao.com/item.htm?id=74053650814"
 #~ msgstr ""
 

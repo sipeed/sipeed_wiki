@@ -65,10 +65,13 @@ We have not only developed the hardware, but also provided a complete software e
 * [MaixPy Official Documentation](https://wiki.sipeed.com/maixpy/)
 * [MaixCDK](https://github.com/sipeed/MaixCDK)
 * [System Source Code](https://github.com/sipeed/LicheeRV-Nano-Build)
-* [Schematic](https://cn.dl.sipeed.com/shareURL/LICHEE/LicheeRV_Nano/02_Schematic)
-* [Core Board (LicheeRV-Nano) Hardware Information](https://cn.dl.sipeed.com/shareURL/LICHEE/LicheeRV_Nano)
+* [camera and lens](https://dl.sipeed.com/shareURL/MaixCAM/MaixCAM/Camera)
+* [Schematic](https://dl.sipeed.com/shareURL/LICHEE/LicheeRV_Nano/02_Schematic)
+* [Core Board (LicheeRV-Nano) Hardware Information](https://dl.sipeed.com/shareURL/LICHEE/LicheeRV_Nano)
 * Core board pin diagram:
 ![](../../zh/lichee/assets/RV_Nano/intro/RV_Nano_3.jpg)
+
+* **Enclosure and Stand:** You can find the introduction in [MaixCAM Enclosure](./assemble.md). Additionally, we provide 3D model files for stands and other components. Please visit [makerworld.com](https://makerworld.com/) and search for `MaixCAM`.
 
 ## Chip Information
 
