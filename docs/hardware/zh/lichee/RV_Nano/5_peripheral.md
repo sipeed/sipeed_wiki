@@ -517,15 +517,21 @@ vi uEnv.txt
 # 使用 'Esc',':wq'保存并退出
 ```
 
-7寸屏:
+7寸屏（型号以屏幕丝印为准）:
 
 ```
 panel=zct2133v1
+
+# 新屏
+panel=mtd700920b
 ```
 
-5寸屏:
+5寸屏（型号以屏幕丝印为准）:
 ```
-panel=st7701_dxq5d0019b480854
+panel=st7701_dxq5d0019_V0
+
+# 早期测试5寸屏使用：
+# panel=st7701_dxq5d0019b480854
 ```
 
 3寸屏:
@@ -593,7 +599,7 @@ touch /boot/gt9xx
 然后执行:
 
 ```
-echo 2 | evtest
+echo 1 | evtest
 ```
 
 点击触摸屏会在终端看到具体坐标
@@ -700,7 +706,7 @@ cp sensor_cfg.ini.alpha sensor_cfg.ini   # 内测版
 使用命令查看按键事件:
 
 ```
-echo 1 | evtest
+echo 0 | evtest
 ```
 
 然后按下USER按键，可以在终端看到对应的事件报告
