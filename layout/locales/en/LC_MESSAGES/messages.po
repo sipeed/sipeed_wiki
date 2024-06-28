@@ -15,7 +15,7 @@ msgstr ""
 #: tang.html:215 tang.html:231 tang.html:247 tang.html:263 tang.html:279
 #: tang.html:295
 msgid "文档"
-msgstr "Documentation"
+msgstr "Docs"
 
 #: home.html:97
 msgid "/maixcam"
