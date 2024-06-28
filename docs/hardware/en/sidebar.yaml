@@ -276,6 +276,15 @@ items:
             -   label: Questions&Answers
                 file: tang/Tang-Nano-Doc/questions.md
                 target: _blank
+        -   label: Tang Primer 15K
+            items:
+            -   label: Introduction
+                file: tang/tang-primer-15k/primer-15k.md
+            -   label: Install IDE
+                file: tang/Tang-Nano-Doc/install-the-ide.md
+            -   label: Questions&Answers
+                file: tang/Tang-Nano-Doc/questions.md
+                target: _blank
         -   label: Tang Primer (Sold out)
             file: tang/Tang-primer/Tang-primer.md
             items:
@@ -297,6 +306,24 @@ items:
             items:
             -   label: Introduction
                 file: tang/tang-mega-138k/mega-138k-pro.md
+            -   label: Install IDE
+                file: tang/Tang-Nano-Doc/install-the-ide.md
+            -   label: Questions&Answers
+                file: tang/Tang-Nano-Doc/questions.md
+                target: _blank
+        -   label: Tang Mega 138K
+            items:
+            -   label: Introduction
+                file: tang/tang-mega-138k/mega-138k.md
+            -   label: Install IDE
+                file: tang/Tang-Nano-Doc/install-the-ide.md
+            -   label: Questions&Answers
+                file: tang/Tang-Nano-Doc/questions.md
+                target: _blank
+        -   label: Tang Mega 60K
+            items:
+            -   label: Introduction
+                file: tang/tang-mega-60k/mega-60k.md
             -   label: Install IDE
                 file: tang/Tang-Nano-Doc/install-the-ide.md
             -   label: Questions&Answers

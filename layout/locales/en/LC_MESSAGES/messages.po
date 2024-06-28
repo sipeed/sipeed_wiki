@@ -4,61 +4,61 @@ msgstr ""
 
 #: home.html:93
 msgid "/static/home/banner_maixcam.jpg"
-msgstr "/static/home/banner_maixcam_en.jpg"
+msgstr ""
 
 #: home.html:96 home.html:113 home.html:126 home.html:139 home.html:152
 #: home.html:165 home.html:178 home.html:191 licheepi.html:217
 #: licheepi.html:238 licheepi.html:254 licheepi.html:275 licheepi.html:291
 #: licheepi.html:307 maix.html:163 maix.html:180 maix.html:197 maix.html:237
 #: maix.html:254 maix.html:275 maix.html:292 maixsense.html:40
-#: maixsense.html:56 others.html:38 tang.html:137 tang.html:153 tang.html:169
-#: tang.html:185 tang.html:201 tang.html:217
+#: maixsense.html:56 others.html:38 tang.html:167 tang.html:183 tang.html:199
+#: tang.html:215 tang.html:231 tang.html:247 tang.html:263 tang.html:279
+#: tang.html:295
 msgid "文档"
 msgstr "Documentation"
 
 #: home.html:97
 msgid "/maixcam"
-msgstr "/en/maixcam"
+msgstr ""
 
 #: home.html:101
 msgid "/maixpy"
-msgstr "/en/maixpy"
+msgstr ""
 
 #: home.html:104 home.html:117 home.html:130 home.html:143 home.html:156
 #: home.html:169 home.html:182 home.html:195 licheepi.html:221
 #: licheepi.html:242 licheepi.html:258 licheepi.html:279 licheepi.html:295
 #: licheepi.html:311 maix.html:167 maix.html:241 maix.html:262 maix.html:279
 #: maix.html:296 maixsense.html:44 maixsense.html:60 others.html:42
-#: tang.html:141 tang.html:157 tang.html:173 tang.html:189 tang.html:205
-#: tang.html:221
+#: tang.html:171 tang.html:187 tang.html:203 tang.html:219 tang.html:235
+#: tang.html:251 tang.html:267 tang.html:283 tang.html:299
 msgid "购买"
 msgstr "Buy"
 
 #: home.html:105
+#, fuzzy
 msgid "https://item.taobao.com/item.htm?id=784724795837"
-msgstr "https://www.aliexpress.com/store/911876460"
+msgstr "https://www.aliexpress.us/item/325680633"
 
 #: home.html:110
 msgid "/static/home/LicheeRV-Nano.jpg"
-msgstr "/static/home/LicheeRV-nano_en.jpg"
+msgstr ""
 
 #: home.html:118 licheepi.html:243
 msgid "https://item.taobao.com/item.htm?id=764939520376"
 msgstr "https://www.aliexpress.us/item/325680633"
 
 #: home.html:123
-#, fuzzy
 msgid "/static/home/LonganPi3H.jpg"
-msgstr "/static/home/maixiii_axpi_en.jpg"
+msgstr ""
 
 #: home.html:131 licheepi.html:280
 msgid "https://item.taobao.com/item.htm?ft=t&id=758221950525"
 msgstr "https://www.aliexpress.us/item/100500639"
 
 #: home.html:136
-#, fuzzy
 msgid "/static/home/console-4A.jpg"
-msgstr "/static/home/maixiii_axpi_en.jpg"
+msgstr ""
 
 #: home.html:183 home.html:196 others.html:43
 msgid "https://item.taobao.com/item.htm?id=737788586308"
@@ -70,19 +70,19 @@ msgstr "Product News"
 
 #: home.html:209
 msgid "Maix AI 视觉"
-msgstr "Maix AI Vision"
+msgstr "Maix Vision Series"
 
 #: home.html:221
 msgid "MaixSense 传感器"
-msgstr "MaixSense Sensor"
+msgstr "MaixSense Sensor Module"
 
 #: home.html:225
 msgid "其它"
-msgstr "Others"
+msgstr "Other Products"
 
 #: licheepi.html:4
 msgid "Linux RISC-V SBC 系列"
-msgstr "Linux RISC-V SBC Series"
+msgstr "Linux ARM SBC Series"
 
 #: licheepi.html:23
 msgid "Linux ARM SBC 系列"
@@ -104,7 +104,7 @@ msgstr "CPU"
 msgid "内存"
 msgstr "memory"
 
-#: licheepi.html:69 licheepi.html:152 maix.html:90 tang.html:105
+#: licheepi.html:69 licheepi.html:152 maix.html:90 tang.html:129
 msgid "储存"
 msgstr "storage"
 
@@ -269,7 +269,7 @@ msgstr "ok"
 
 #: maix.html:140
 msgid "文档和易用性"
-msgstr ""
+msgstr "Documentation and Usability"
 
 #: maix.html:160
 msgid "RISC-V 1GHz + 1Tops NPU, 4M高清摄像头，2.3寸552x368高清电容触摸屏，完美支持全新 Maix 生态所有软件"
@@ -277,7 +277,7 @@ msgstr ""
 "RISC-V 1GHz + 1Tops NPU, 4M HD camera, 2.3-inch 552x368 HD capacitive "
 "touch screen, perfect support for all new Maix ecosystem software"
 
-#: maix.html:168
+#: maix.html:168 tang.html:284 tang.html:300
 msgid "https://sipeed.taobao.com"
 msgstr "https://www.aliexpress.com/store/911876460"
 
@@ -362,6 +362,8 @@ msgstr "Find in the left menu"
 #: others.html:35
 msgid "逻辑分析仪+CKLink+DAPLink+USB转串口 多合一指尖工具"
 msgstr ""
+"Logic Analyzer + CKLink + DAPLink + USB to Serial Port, an all-in-one "
+"fingertip tool."
 
 #: tang.html:4
 msgid "Tang FPGA 系列"
@@ -369,109 +371,205 @@ msgstr "Tang FPGA Series"
 
 #: tang.html:24
 msgid "Tang 系列板卡参数对比"
-msgstr "Tang Series Main Products Comparison"
+msgstr "Tang Series Product Comparison"
 
-#: tang.html:42
+#: tang.html:45
 msgid "芯片"
 msgstr "Chip"
 
-#: tang.html:51
+#: tang.html:57
 msgid "查找表(LUT)"
-msgstr "LUT"
+msgstr "LUT4"
 
-#: tang.html:60
+#: tang.html:69
 msgid "寄存器(FF)"
 msgstr "FF"
 
-#: tang.html:88 tang.html:90 tang.html:106 tang.html:107 tang.html:108
-#: tang.html:109 tang.html:110 tang.html:111
+#: tang.html:106 tang.html:107 tang.html:108 tang.html:110 tang.html:130
+#: tang.html:131 tang.html:132 tang.html:133 tang.html:134 tang.html:135
+#: tang.html:136 tang.html:137 tang.html:138
 msgid "板载_fpga"
 msgstr "Onboard"
 
-#: tang.html:91 tang.html:92 tang.html:93 tang.html:110 tang.html:111
+#: tang.html:111 tang.html:112 tang.html:113 tang.html:114 tang.html:137
+#: tang.html:138
 msgid "内含"
 msgstr "Inchip"
 
-#: tang.html:96
+#: tang.html:117
+#, fuzzy
 msgid "内嵌处理器"
-msgstr "Embedded CPU"
+msgstr "CPU"
 
-#: tang.html:114
+#: tang.html:141
 msgid "其他特点"
-msgstr "Features"
+msgstr "Ohter Features"
 
-#: tang.html:115
+#: tang.html:142 tang.html:144 tang.html:147
+msgid "内含 6.6G Transceivers"
+msgstr "Inchip 6.6G Transceivers"
+
+#: tang.html:142 tang.html:144 tang.html:147
+msgid "支持 PCIe 2.0 通信"
+msgstr "Support PCIe 2.0 Interface"
+
+#: tang.html:142 tang.html:144
+msgid "支持 USB3 数据传输"
+msgstr "Support USB3 SS Transmission"
+
+#: tang.html:143
 msgid "内含 12.5G Transceivers"
 msgstr "Inchip 12.5G Transceivers"
 
-#: tang.html:115
-msgid "支持 PCIE 通信"
-msgstr "Support PCIE Interface"
+#: tang.html:143
+msgid "支持 PCIe 3.0 通信"
+msgstr "Support PCIe 3.0 Interface"
 
-#: tang.html:115
+#: tang.html:143
 msgid "支持 SFP+ 数据传输"
-msgstr "Support SFP+ Transmission"
+msgstr "Support SFP+ (10G) Transmission"
 
-#: tang.html:116
+#: tang.html:144 tang.html:147
+msgid "内含 2.5G MIPI C/DPHY RX/TX"
+msgstr "2.5G MIPI C/DPHY RX/TX inside"
+
+#: tang.html:145
 msgid "内含 2.5G MIPI DPHY RX/TX"
 msgstr "2.5G MIPI DPHY RX/TX inside"
 
-#: tang.html:116
+#: tang.html:145
 msgid "支持 PMOD, 64MByte SDRAM模块"
 msgstr "Support PMOD,64MByte SDRAM Module"
 
-#: tang.html:116
+#: tang.html:145
 msgid "支持 USB手柄"
 msgstr "Support USB Joystick"
 
-#: tang.html:117
+#: tang.html:146
 msgid "丰富外设，HDMI/以太网/USB"
 msgstr "Rich peripherals, HDMI/Ethernet/USB"
 
-#: tang.html:118
+#: tang.html:147
+msgid "M.2 外形兼容"
+msgstr "M.2 Golden Fingers compatible"
+
+#: tang.html:148
 msgid "for RetroGame ~"
-msgstr "for RetroGame ~"
+msgstr ""
 
-#: tang.html:119
+#: tang.html:149
 msgid "for RISCV softcore"
-msgstr "for RISCV softcore"
+msgstr ""
 
-#: tang.html:120
+#: tang.html:150
 msgid "GOAI~"
-msgstr "GOAI~"
+msgstr ""
 
-#: tang.html:134
+#: tang.html:164
+msgid "小体积的大容量 FPGA 开发板"
+msgstr "Campact High-capacity FPGA Board"
+
+#: tang.html:168
+msgid "/hardware/zh/tang/tang-mega-138k/mega-138k.html"
+msgstr "/hardware/en/tang/tang-mega-138k/mega-138k.html"
+
+#: tang.html:172
+msgid "https://item.taobao.com/item.htm?id=808924746746"
+msgstr "https://www.aliexpress.com/item/3256807078990410.html"
+
+#: tang.html:180
 msgid "可以高速通信的大容量 FPGA 开发板"
 msgstr "High Speed Interface FPGA Board"
 
-#: tang.html:150
+#: tang.html:184
+msgid "/hardware/zh/tang/tang-mega-138k/mega-138k-pro.html"
+msgstr "/hardware/en/tang/tang-mega-138k/mega-138k-pro.html"
+
+#: tang.html:188
+msgid "https://item.taobao.com/item.htm?id=740536508140"
+msgstr "https://www.aliexpress.com/item/1005006080116482.html"
+
+#: tang.html:196
 msgid "自由拓展的 FPGA 开发板"
 msgstr "Free Expansion FPGA board"
 
-#: tang.html:166
+#: tang.html:200
+msgid "/hardware/zh/tang/tang-primer-25k/primer-25k.html"
+msgstr "/hardware/en/tang/tang-primer-25k/primer-25k.html"
+
+#: tang.html:204
+msgid "https://item.taobao.com/item.htm?id=746293292946"
+msgstr "https://www.aliexpress.com/item/1005006224593018.html"
+
+#: tang.html:212
 msgid "自带多种外设接口的 FPGA 开发板"
 msgstr "Mutiple Interfaces FPGA Board"
 
-#: tang.html:182
+#: tang.html:216
+msgid "/hardware/zh/tang/tang-primer-20k/primer-20k.html"
+msgstr "/hardware/en/tang/tang-primer-20k/primer-20k.html"
+
+#: tang.html:220
+msgid "https://item.taobao.com/item.htm?id=680099020807"
+msgstr "https://www.aliexpress.com/item/1005004653308809.html"
+
+#: tang.html:228
 msgid "适用于模拟复古游戏机的 FPGA 开发板"
 msgstr "Retro Games Friendly FPGA Board"
 
-#: tang.html:198
+#: tang.html:232
+msgid "/hardware/zh/tang/tang-nano-20k/nano-20k.html"
+msgstr "/hardware/en/tang/tang-nano-20k/nano-20k.html"
+
+#: tang.html:236
+msgid "https://item.taobao.com/item.htm?id=717932028073"
+msgstr "https://www.aliexpress.com/item/1005005581148230.html"
+
+#: tang.html:244
 msgid "适合 RiscV 软核验证的 FPGA 开发板"
 msgstr "RiscV Softcore FPGA Board"
 
-#: tang.html:214
+#: tang.html:248
+msgid "/hardware/zh/tang/Tang-Nano-9K/Nano-9K.html"
+msgstr "/hardware/en/tang/Tang-Nano-9K/Nano-9K.html"
+
+#: tang.html:252
+msgid "https://item.taobao.com/item.htm?id=666055424174"
+msgstr " https://www.aliexpress.com/item/1005003803994525.html"
+
+#: tang.html:260
 msgid "芯片内部含有 MCU 的 FPGA 开发板"
 msgstr "Hardcore Inside FPGA Board"
 
+#: tang.html:264
+msgid "/hardware/zh/tang/Tang-Nano-4K/Nano-4K.html"
+msgstr "/hardware/en/tang/Tang-Nano-4K/Nano-4K.html"
+
+#: tang.html:268
+#, fuzzy
+msgid "https://item.taobao.com/item.htm?id=661994055100"
+msgstr "https://www.aliexpress.com/item/1005003152104886.html"
+
+#: tang.html:276 tang.html:292
+msgid "开发中，敬请期待。。。"
+msgstr "Comming Soon..."
+
+#: tang.html:280
+msgid "/hardware/zh/tang/tang-mega-60k/mega-60k.html"
+msgstr "/hardware/en/tang/tang-mega-60k/mega-60k.html"
+
+#: tang.html:296
+msgid "/hardware/zh/tang/tang-primer-15k/primer-15k.html"
+msgstr "/hardware/en/tang/tang-primer-15k/primer-15k.html"
+
 #~ msgid "预定"
-#~ msgstr ""
+#~ msgstr "Order"
 
 #~ msgid "带有高速通信接口的大容量 FPGA 开发板"
-#~ msgstr ""
+#~ msgstr "High-capacity FPGA board with high-speed ports"
 
 #~ msgid "尽情期待"
-#~ msgstr ""
+#~ msgstr "Coming soon"
 
 #~ msgid "了解更多"
 #~ msgstr "Learn more"
@@ -480,7 +578,7 @@ msgstr "Hardcore Inside FPGA Board"
 #~ msgstr "Linux SBC Series"
 
 #~ msgid "Linux ARM SBC 系列"
-#~ msgstr ""
+#~ msgstr "Linux ARM SBC Series"
 
 #~ msgid "/static/home/ax650_presell.jpg"
 #~ msgstr ""
@@ -498,44 +596,197 @@ msgstr "Hardcore Inside FPGA Board"
 #~ msgstr "Product documentation"
 
 #~ msgid "全新 Maix 生态"
-#~ msgstr ""
+#~ msgstr "Neo Maix ecosystem"
 
 #~ msgid "经典 Maix 系列"
-#~ msgstr ""
+#~ msgstr "Classic Maix Series"
 
 #~ msgid "全新 Maix AI 视觉系列"
-#~ msgstr "Maix AI Vision"
+#~ msgstr "Neo Maix AI Vision"
 
 #~ msgid "RISC-V 1GHz + 1Tops NPU, 4M高清摄像头，2.3寸553x368高清屏，玩美支持全新 Maix 生态所有软件"
 #~ msgstr ""
+#~ "RISC-V 1GHz + 1Tops NPU, 4M HD "
+#~ "camera, 2.3-inch 553x368 HD screen, "
+#~ "beautifully supports all new Maix "
+#~ "ecosystem software"
 
 #~ msgid "和 MaixPy 同款 API，稳定高效易上手"
-#~ msgstr ""
+#~ msgstr "With the same API as MaixPy, stable, efficient, and easy to get started"
 
 #~ msgid "C++ SDK, 和 MaixPy 同款 API，稳定高效易上手"
 #~ msgstr ""
+#~ "C++ SDK, with the same API as "
+#~ "MaixPy, stable, efficient, and easy to"
+#~ " get started"
 
 #~ msgid "Python 编程、代码运行、图像实时预览、应用打包等"
 #~ msgstr ""
+#~ "Python programming, code execution, real-"
+#~ "time image preview, application packaging, "
+#~ "etc."
 
 #~ msgid "下载"
-#~ msgstr ""
+#~ msgstr "Downloads"
 
 #~ msgid "代码编辑运行、图像预览、在线 AI 模型训练"
-#~ msgstr ""
+#~ msgstr "Code editing and execution, image preview, online AI model training"
 
 #~ msgid "代码编辑运行、图像实时预览<br>在线一键 AI 模型训练"
 #~ msgstr ""
+#~ "Code editing and execution, real-time"
+#~ " image preview, online one-click AI"
+#~ " model training"
 
 #~ msgid "软件和云平台"
-#~ msgstr ""
+#~ msgstr "Software and cloud platform"
 
 #~ msgid "工具和云平台"
-#~ msgstr ""
+#~ msgstr "Tools and cloud platform"
 
 #~ msgid "Python 语法，快速落地 AI 视觉、听觉应用"
 #~ msgstr ""
+#~ "Python syntax, quick implementation of "
+#~ "AI vision and auditory applications "
 
 #~ msgid "文档丰富度"
+#~ msgstr "Rich documentation"
+
+#~ msgid "敬请期待。。。"
+#~ msgstr "Coming Soon..."
+
+#~ msgid "/static/home/banner_maixcam.jpg"
+#~ msgstr "/static/home/banner_maixcam_en.jpg"
+
+#~ msgid "/maixcam"
+#~ msgstr "/en/maixcam"
+
+#~ msgid "/maixpy"
+#~ msgstr "/en/maixpy"
+
+#~ msgid "https://item.taobao.com/item.htm?id=784724795837"
+#~ msgstr "https://www.aliexpress.com/store/911876460"
+
+#~ msgid "/static/home/LicheeRV-Nano.jpg"
+#~ msgstr "/static/home/LicheeRV-nano_en.jpg"
+
+#~ msgid "/static/home/LonganPi3H.jpg"
+#~ msgstr "/static/home/maixiii_axpi_en.jpg"
+
+#~ msgid "/static/home/console-4A.jpg"
+#~ msgstr "/static/home/maixiii_axpi_en.jpg"
+
+#~ msgid "产品动态"
+#~ msgstr "Product News"
+
+#~ msgid "Maix AI 视觉"
+#~ msgstr "Maix AI Vision"
+
+#~ msgid "MaixSense 传感器"
+#~ msgstr "MaixSense Sensor"
+
+#~ msgid "其它"
+#~ msgstr "Others"
+
+#~ msgid "Tang FPGA 系列"
+#~ msgstr "Tang FPGA Series"
+
+#~ msgid "Tang 系列板卡参数对比"
+#~ msgstr "Tang Series Product Comparison"
+
+#~ msgid "芯片"
+#~ msgstr "Chip"
+
+#~ msgid "查找表(LUT)"
+#~ msgstr "LUT4"
+
+#~ msgid "寄存器(FF)"
+#~ msgstr "FF"
+
+#~ msgid "板载_fpga"
+#~ msgstr "Onboard"
+
+#~ msgid "内含"
+#~ msgstr "Inchip"
+
+#~ msgid "内嵌处理器"
+#~ msgstr "CPU"
+
+#~ msgid "其他特点"
+#~ msgstr "Ohter Features"
+
+#~ msgid "内含 6.6G Transceivers"
+#~ msgstr "Inchip 6.6G Transceivers"
+
+#~ msgid "支持 PCIe 2.0 通信"
+#~ msgstr "Support PCIe 2.0 Interface"
+
+#~ msgid "支持 USB3 数据传输"
+#~ msgstr "Support USB3 SS Transmission"
+
+#~ msgid "内含 12.5G Transceivers"
+#~ msgstr "Inchip 12.5G Transceivers"
+
+#~ msgid "支持 PCIe 3.0 通信"
+#~ msgstr "Support PCIe 3.0 Interface"
+
+#~ msgid "支持 SFP+ 数据传输"
+#~ msgstr "Support SFP+ (10G) Transmission"
+
+#~ msgid "内含 2.5G MIPI C/DPHY RX/TX"
+#~ msgstr "2.5G MIPI C/DPHY RX/TX inside"
+
+#~ msgid "内含 2.5G MIPI DPHY RX/TX"
+#~ msgstr "2.5G MIPI DPHY RX/TX inside"
+
+#~ msgid "支持 PMOD, 64MByte SDRAM模块"
+#~ msgstr "Support PMOD,64MByte SDRAM Module"
+
+#~ msgid "支持 USB手柄"
+#~ msgstr "Support USB Joystick"
+
+#~ msgid "丰富外设，HDMI/以太网/USB"
+#~ msgstr "Rich peripherals, HDMI/Ethernet/USB"
+
+#~ msgid "M.2 外形兼容"
+#~ msgstr "M.2 Golden Fingers compatible"
+
+#~ msgid "for RetroGame ~"
 #~ msgstr ""
+
+#~ msgid "for RISCV softcore"
+#~ msgstr ""
+
+#~ msgid "GOAI~"
+#~ msgstr ""
+
+#~ msgid "小体积的大容量 FPGA 开发板"
+#~ msgstr "Campact High-capacity FPGA Board"
+
+#~ msgid "/hardware/zh/tang/tang-mega-138k/mega-138k.html"
+#~ msgstr "/hardware/en/tang/tang-mega-138k/mega-138k.html"
+
+#~ msgid "可以高速通信的大容量 FPGA 开发板"
+#~ msgstr "High Speed Interface FPGA Board"
+
+#~ msgid "自由拓展的 FPGA 开发板"
+#~ msgstr "Free Expansion FPGA board"
+
+#~ msgid "自带多种外设接口的 FPGA 开发板"
+#~ msgstr "Mutiple Interfaces FPGA Board"
+
+#~ msgid "适用于模拟复古游戏机的 FPGA 开发板"
+#~ msgstr "Retro Games Friendly FPGA Board"
+
+#~ msgid "适合 RiscV 软核验证的 FPGA 开发板"
+#~ msgstr "RiscV Softcore FPGA Board"
+
+#~ msgid "芯片内部含有 MCU 的 FPGA 开发板"
+#~ msgstr "Hardcore Inside FPGA Board"
+
+#~ msgid "开发中，敬请期待。。。"
+#~ msgstr "Coming soon..."
+
+#~ msgid "/hardware/zh/tang/tang-mega-138k/mega-138k-pro.html"
+#~ msgstr "/hardware/en/tang/tang-mega-138k/mega-138k-pro.html"
 

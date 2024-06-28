@@ -3,7 +3,7 @@ title: Tang Mega 138K Pro Dock
 keywords: FPGA, Tang, Mega, 138K
 update:
   - date: 2023-08-29
-    version: v
+    version: v0.9
     author: wonder
     content:
       - 新建文档
@@ -11,7 +11,7 @@ update:
 
 ## 产品概述
 
-Tang Mega 138K 使用 22nm 制程 GW5AST-LV138FPG676A FPGA 芯片，具有 138240 个查找表单元和近 300 个 DSP 单元。含有八个速度范围在 270Mbps ~ 12.5Gbps 高速收发器，适合用于光纤或者 PCIE 等高速口传递数据。此外，芯片含有硬核 PCIE，在使用 PCIE 的时候消耗更好的资源，并且得到更佳的性能。适用于高速通信、协议转换、高性能计算等场合。
+**Tang Mega 138K** 使用 22nm 制程 **GW5AST-LV138FPG676A** FPGA 芯片，具有 138240 个查找表单元和近 300 个 DSP 单元。含有八个速度范围在 270Mbps ~ 12.5Gbps 高速收发器，适合用于光纤或者 PCIE 等高速口传递数据。此外，芯片含有硬核 PCIE，在使用 PCIE 的时候消耗更好的资源，并且得到更佳的性能。适用于高速通信、协议转换、高性能计算等场合。
 
 淘宝购买链接：[点我](https://item.taobao.com/item.htm?id=740536508140)
 
@@ -25,7 +25,7 @@ Tang Mega 138K 使用 22nm 制程 GW5AST-LV138FPG676A FPGA 芯片，具有 13824
 
 ## 产品外观
 
-<img src="./assets/mega_138k_top.png" width="45%">
+<img src="./assets/mega_138k_pro_top.png" width="45%">
 
 ## 硬件参数
 
@@ -42,7 +42,7 @@ Tang Mega 138K 使用 22nm 制程 GW5AST-LV138FPG676A FPGA 芯片，具有 13824
 	<tbody>
 		<tr>
 			<td style="text-align:left">FPGA 芯片</td>
-			<td style="text-align:left"><a href="http://www.gowinsemi.com.cn/prod_view.aspx?TypeId=10&amp;FId=t3:10:3&amp;Id=167#GW2A">GW5AST-LV138FPG676A</a>
+			<td style="text-align:left"><a href="https://www.gowinsemi.com.cn/prod_view.aspx?TypeId=74&FId=t3:10:3&Id=188#GW5AST">GW5AST-LV138FPG676A</a>
 			</td>
 			<td style="text-align:left">
 				<table>
@@ -92,7 +92,7 @@ Tang Mega 138K 使用 22nm 制程 GW5AST-LV138FPG676A FPGA 芯片，具有 13824
                     </tr>
                     <tr>
                         <td>PCIE 硬核</td>
-                        <td>1个<br>速度可选 x1, x2, x4, x8 PCIe 2.0</td>
+                        <td>1个<br>速度可选 x1, x2, x4, x8 PCIe 3.0</td>
                     </tr>
                     <tr>
                         <td>LVDS (Gbps)</td>
@@ -100,7 +100,7 @@ Tang Mega 138K 使用 22nm 制程 GW5AST-LV138FPG676A FPGA 芯片，具有 13824
                     </tr>
                     <tr>
                         <td>DDR3 (Mbps)</td>
-                        <td>1,333</td>
+                        <td>1333</td>
                     </tr>
                     <tr>
                         <td>MIPI D-PHY硬核</td>
@@ -115,8 +115,8 @@ Tang Mega 138K 使用 22nm 制程 GW5AST-LV138FPG676A FPGA 芯片，具有 13824
                         <td>2</td>
                     </tr>
 					<tr>
-						<td>I/O Bank 总数</td>
-						<td>10</td>
+						<td>GPIO Bank 总数</td>
+						<td>6</td>
 					</tr>
 				</table>
 			</td>
@@ -151,15 +151,15 @@ Tang Mega 138K 使用 22nm 制程 GW5AST-LV138FPG676A FPGA 芯片，具有 13824
 | LED                 | 6    |                                                   |
 | WS2812              | 1    |                                                   |
 | 按键                | 4    |                                                   |
-| PCIE                | 1    |                                                   |
+| PCIe                | 1    | 4 lane @ 5Gbps                                    |
 | SFP+                | 2    |                                                   |
 | 千兆以太网          | 1    |                                                   |
 | DVI RX              | 2    | 与 DVI TX 互相占用                                |
 | DVI TX              | 2    | 与 DVI RX 互相占用                                |
 | PMOD                | 3    |                                                   |
 | ADC                 | 2    |                                                   |
-| MIPI CSI            | 2    | 3 LANE MIPI CSI                                   |
-| ARGB                | 1    | 与 WS2812 同数据引脚                              |
+| MIPI CSI            | 2    | 4 LANE MIPI CSI                                   |
+| aRGB                | 1    | 与 WS2812 同数据引脚                              |
 | DVP Interface       | 1    |                                                   |
 | RGB Interface       | 1    | 支持 RGB888 屏幕                                  |
 | MIC ARRAY Interface | 1    | 支持连接 Sipeed 6+1 麦克风阵列                    |
@@ -186,7 +186,7 @@ Tang Mega 138K 使用 22nm 制程 GW5AST-LV138FPG676A FPGA 芯片，具有 13824
 [部分芯片手册](https://dl.sipeed.com/shareURL/TANG/Mega_138K_Pro/07_Datasheet)
 
 ## 上手使用
-注意138K目前未被教育版支持，需要下载 V1.9.9Beta-5 或更新版本的商业版IDE使用。  
+注意138K目前未被教育版支持，需要下载 V1.9.9 或更新版本的商业版IDE使用。  
 Lic 可以在高云官网申请，或者使用Sipeed提供的在线Lic服务，在IDE中选择Float Lic，填写以下信息即可：
 ~~~
 ip: 106.55.34.119
@@ -211,6 +211,7 @@ port: 10559
 - **交流论坛: [maixhub.com/discussion](https://maixhub.com/discussion)**
 - **QQ 交流群：[834585530](https://jq.qq.com/?_wv=1027&k=wBb8XUan)**
 - 直接本页下方留言
+- 前往**[Github项目主页](https://github.com/sipeed/TangMega-138KPro-example)**提交issue
 - 商业邮箱 : [support@sipeed.com](support@sipeed.com)
 
 ## 注意事项
@@ -222,7 +223,7 @@ port: 10559
     </tr>
     <tr>
         <td>芯片型号</td>
-        <td>Tang Mega 138K Pro 使用的 FPGA 芯片具体型号是 GW5AST-LV138FPG676A ，在 IDE 中选择封装型号 FCPBG676A</td>
+        <td>Tang Mega 138K Pro 使用的 FPGA 芯片具体型号是 <b>GW5AST-LV138FPG676A</b> <br>在 IDE 中选择封装型号 <b>FCPBG676A</b></br></td>
     </tr>
     <tr>
         <td>静电</td>
@@ -237,8 +238,8 @@ port: 10559
         <td>在连接 FPC 软排线的时候，请确保排线无偏侈地完整地插入到排线中</td>
     </tr>
     <tr>
-        <td>PCIE 金手指</td>
-        <td>在测试 PCIE 金手指时候，确保是主机端与板卡都处于关机或者未通电的状态，否则可能会因为插入过程中的易位导致金手指短路。</td>
+        <td>PCIe 金手指</td>
+        <td>在测试 PCIe 金手指时候，确保是主机端与板卡都处于关机或者未通电的状态，否则可能会因为插入过程中的易位导致金手指短路。</td>
     </tr>
     <tr>
         <td>插拔</td>
@@ -260,3 +261,20 @@ Tang Mega 138K 可以在多种场景实现客户不同方面的需要，技术�
 
 1. 请检查是否开启了板子的电源开关。
 2. 检查自己的供电方式。
+
+### 如何下载到外部 FLASH {#burn_flash}
+
+进行如下选项设置：
+
+<img src="./assets/flash_mode.png" alt="flash_mode" width=35%>
+
+### 烧录后没反应或者引脚现象不对
+
+1. 首先确定IDE选择了正确的型号 **GW5AST-LV138FPG676AC1/10**，下图中的每一个参数都要求一致.
+
+<img src="./assets/partno_138K_pro.png" alt="device_choose" width=35%>
+
+2. 然后检查自己的代码和对应的仿真波形是否满足要求
+
+
+### 更多问题及其解决办法前往[相关问题](./../Tang-Nano-Doc/questions.md)查看

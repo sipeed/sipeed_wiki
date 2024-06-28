@@ -19,30 +19,30 @@ update:
 
   - Large capacity LUT
   - Large capacity memory
-  - PCIE3.0 x 4
+  - PCIe 3.0 x 4
   - SFP+ x 2
   - RISCV hard core
 
 ## Product Appearance
 
-<img src="./assets/mega_138k_top.png" width="45%">
+<img src="./assets/mega_138k_pro_top.png" width="45%">
 
 ## Hardware Parameters
 
-### Core Board Parameters
+### SOM Board Parameters
 
 <table>
 	<thead>
 		<tr>
 			<th style="text-align:center">Item</th>
 			<th style="text-align:center">Parameter</th>
-			<th style="text-align:center">Supplement</th>
+			<th style="text-align:center">comment</th>
 		</tr>
 	</thead>
 	<tbody>
 		<tr>
 			<td style="text-align:left">FPGA Chip</td>
-			<td style="text-align:left"><a href="http://www.gowinsemi.com.cn/prod_view.aspx?TypeId=10&amp;FId=t3:10:3&amp;Id=167#GW2A">GW5AST-LV138FPG676A</a>
+			<td style="text-align:left"><a href="https://www.gowinsemi.com/en/product/detail/60/">GW5AST-LV138FPG676A</a>
 			</td>
 			<td style="text-align:left">
 				<table>
@@ -92,7 +92,7 @@ update:
                     </tr>
                     <tr>
                         <td>PCIE Hard Core</td>
-                        <td>1<br>Speed optional x1, x2, x4, x8 PCIe 2.0</td>
+                        <td>1<br>Speed optional x1, x2, x4, x8 PCIe 3.0</td>
                     </tr>
                     <tr>
                         <td>LVDS (Gbps)</td>
@@ -107,7 +107,7 @@ update:
                         <td>2.5Gbps (RX),<br>8 data channels,<br>2 clock channels</td>
                     </tr>
                     <tr>
-                        <td>Hard Core Processor</td>
+                        <td>Hard Core SoC</td>
                         <td>RiscV AE350_SOC</td>
                     </tr>
                     <tr>
@@ -139,17 +139,17 @@ update:
 		<tr>
 			<td style="text-align:left">Overall Package</td>
 			<td style="text-align:left">50mm x 70mm Size</td>
-			<td style="text-align:left">BTB Connector Connects the Core Board and the Base Board</td>
+			<td style="text-align:left">BTB CONN. Connects the SOM and the Dock Board</td>
 		</tr>
 	</tbody>
 </table>
 
-### Baseboard Parameters
+### Dock board Parameters
 
 | Item                | Quantity | Remarks                                           |
 | :------------------ | -------- | ------------------------------------------------- |
 | LED                 | 6        |                                                   |
-| WS2812              | 1        |                                                   |
+| WS2812              | 1        | The WS2812 & aRGB strip CONN. share the same pin  |
 | Button              | 4        |                                                   |
 | PCIE                | 1        |                                                   |
 | SFP+                | 2        |                                                   |
@@ -159,7 +159,7 @@ update:
 | PMOD                | 3        |                                                   |
 | ADC                 | 2        |                                                   |
 | MIPI CSI            | 2        | 3 LANE MIPI CSI                                   |
-| ARGB                | 1        | Same data pin with WS2812                         |
+| WS2812              | 1        | The aRGB strip CONN. & WS2812 share the same pin  |
 | DVP Interface       | 1        |                                                   |
 | RGB Interface       | 1        | Supports RGB888 screen                            |
 | MIC ARRAY Interface | 1        | Supports connecting Sipeed 6+1 microphone array   |
@@ -187,7 +187,7 @@ update:
 
 ## Getting Started
 
-Note that 138K is currently not supported by the education version, and you need to download V1.9.9Beta-5 or a newer version of the commercial IDE for use.  
+Note that 138K Pro is currently not supported by the education version, and you need to download V1.9.9 or a newer version of the commercial IDE for use.  
 Lic can be applied on the Gowin official website, or you can use the online Lic service provided by Sipeed. In the IDE, select Float Lic and fill in the following information:
 
 ~~~
@@ -211,8 +211,10 @@ Example code [github](https://github.com/sipeed/TangMega-138KPro-example)
 
   ## Communication Methods
 
-  - **Discussion forum: [maixhub.com/discussion](https://maixhub.com/discussion)**
-  - **QQ discussion group: [834585530](https://jq.qq.com/?_wv=1027&k=wBb8XUan)**
+  - **Reddit** : [reddit.com/r/GowinFPGA/](reddit.com/r/GowinFPGA/)
+  - **Telegram** : [t.me/sipeed](t.me/sipeed)
+  - Discussion forum: [maixhub.com/discussion](https://maixhub.com/discussion)
+  - QQ discussion group: [834585530](https://jq.qq.com/?_wv=1027&k=wBb8XUan)
   - Leave a message directly below this page
   - Business email : [support@sipeed.com](support@sipeed.com)
 
@@ -258,9 +260,12 @@ Example code [github](https://github.com/sipeed/TangMega-138KPro-example)
 
 Tang Mega 138K can meet different needs of customers in various scenarios. For technical support and business cooperation, please contact [support@sipeed.com](support@sipeed.com)
 
-## Frequently Asked Questions
+## Frequently Asked Questions (FAQs)
 
 ### The power light is not on after the board is powered on
 
 1. Please check if the power switch of the board is turned on.
 2. Check your power supply method.
+
+
+### For more questions and solutions, go to [Related Questions](./../Tang-Nano-Doc/questions.md) to view

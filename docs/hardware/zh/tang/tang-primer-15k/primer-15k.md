@@ -1,30 +1,25 @@
-# Tang Primer 25K
-
+---
+title: Tang Primer 15K Dock
+keywords: FPGA, Tang, Primer, 15K
+update:
+  - date: 2024-06-25
+    version: v0.1
+    author: Serika
+    content:
+      - 新建文档
+---
 ## 概述
 
-Tang Primer 25K 是基于 [GW5A-LV25MG121](http://www.gowinsemi.com.cn/prod_view.aspx?TypeId=74&FId=t3:10:3&Id=188) 所设计的一款极小封装的核心板（23x18mm），并配套全引脚引出(除MIPI高速脚外)的25K Dock底板。
+TBD
 
-极小的核心板尺寸可以应用于任何体积受限的场景。  
-简洁的底板可以连接USB手柄，插接40Pin SDRAM模块，3个PMOD接口可以连接HDMI显示器，PS2手柄组成典型的RetroGame主机形态。
-也可以搭配Sipeed出的系列PMOD模块产品，作为FPGA大学教学使用。
-
-
-<div>
-    <img src="./assets/25k_45.jpg" width=45%>
-    <img src="./assets/25k_dock_45.jpg" width=45%>
-</div>
-
-购买链接：[淘宝](https://item.taobao.com/item.htm?id=746293292946)
+购买链接：[淘宝](https://sipeed.taobao.com)
 
 
 
 
 ## 核心板概览
-<div>
-    <img src="./assets/25k_top.jpg" width=45%>
-    <img src="./assets/25k_bot.jpg" width=45%>
-</div>
 
+TBD
 
 
 ## 基础参数
@@ -40,63 +35,100 @@ Tang Primer 25K 是基于 [GW5A-LV25MG121](http://www.gowinsemi.com.cn/prod_view
 	<tbody>
 		<tr>
 			<td style="text-align:left">FPGA 芯片</td>
-			<td style="text-align:left"><a href="http://www.gowinsemi.com.cn/prod_view.aspx?TypeId=74&FId=t3:10:3&Id=188">GW5A-LV25MG121</a>
+			<td style="text-align:left"><a href="https://www.gowinsemi.com.cn/prod_view.aspx?TypeId=74&FId=t3:10:3&Id=188#G15K">GW5ART-15MG132P</a>
 			</td>
 			<td style="text-align:left">
 				<table>
 					<tr>
 						<td>逻辑单元(LUT4)</td>
-						<td>23040</td>
+						<td>15120</td>
 					</tr>
 					<tr>
 						<td>寄存器(FF)</td>
-						<td>23040</td>
+						<td>15120</td>
 					</tr>
 					<tr>
 						<td>分布式静态随机存储器S-SRAM(bits)</td>
-						<td>180K</td>
+						<td>118125</td>
 					</tr>
 					<tr>
 						<td>块状静态随机存储器B-SRAM(bits)</td>
-						<td>1008K</td>
+						<td>630</td>
 					</tr>
 					<tr>
 						<td>块状静态随机存储器数目B-SRAM(个)</td>
-						<td>56</td>
+						<td>35</td>
 					</tr>
 					<tr>
 						<td>乘法器(18x18 Multiplier)</td>
-						<td>28</td>
+						<td>28+12</td>
 					</tr>
 					<tr>
 						<td>锁相环(PLLs)</td>
-						<td>6</td>
+						<td>2</td>
 					</tr>
+					    <td>全局时钟</td>
+                        <td>16</td>
+                    </tr>
+                    <tr>
+                        <td>高速时钟</td>
+                        <td>2</td>
+                    </tr>
+					                    <tr>
+                        <td>Transceivers</td>
+                        <td>8</td>
+                    </tr>
+                    <tr>
+                        <td>Transceivers 速率</td>
+                        <td>270Mbps-12.5Gbps</td>
+                    </tr>
+                    <tr>
+                        <td>PCIE 硬核</td>
+                        <td>1个<br>速度可选 x1, x2, x4, x8 PCIe 2.0</td>
+                    </tr>
+                    <tr>
+                        <td>LVDS (Gbps)</td>
+                        <td>1.25</td>
+                    </tr>
+					    <td>MIPI D-PHY硬核</td>
+                        <td>2.5Gbps（RX/TX），<br>4个数据通道，<br>1个时钟通道</td>
+                    </tr>
+                    <tr>
+                        <td>MIPI C-PHY硬核</td>
+                        <td>2.5Gbps（RX/TX），<br>=5.75Gbps,RX/TX<br>3个三线数据通道</td>
+                    </tr>
 					<tr>
-						<td>I/O Bank 总数</td>
-						<td>8</td>
-					</tr>
+                        <td>PSRAM</td>
+                        <td>64Mb @ 667MHz</td>
+                    </tr>
+                    <tr>
+                        <td>ADC</td>
+                        <td>1</td>
+                    </tr>
+					<tr>
+						<td>GPIO Bank 总数</td>
+						<td>4</td>
 				</table>
 			</td>
 		</tr>
 		<tr>
 			<td style="text-align:left">Flash</td>
-			<td style="text-align:left">64Mbits NOR Flash</td>
+			<td style="text-align:left">64Mb</td>
 			<td style="text-align:left">查看 <a href="#burn_flash">烧录到Flash</a></td>
 		</tr>
 		<tr>
 			<td style="text-align:left">整体封装</td>
-			<td style="text-align:left">2x60P BTB 核心板</td>
+			<td style="text-align:left">TBD</td>
 			<td style="text-align:left"></td>
 		</tr>
 		<tr>
 			<td style="text-align:left">普通IO</td>
-			<td style="text-align:left"> 75</td>
+			<td style="text-align:left"> 53</td>
 			<td style="text-align:left"></td>
 		</tr>
 		<tr>
 			<td style="text-align:left"> MIPI IO </td>
-			<td style="text-align:left"> 4lane Data</td>
+			<td style="text-align:left"> 10</td>
 			<td style="text-align:left"></td>
 		</tr>
 	</tbody>
@@ -105,10 +137,7 @@ Tang Primer 25K 是基于 [GW5A-LV25MG121](http://www.gowinsemi.com.cn/prod_view
 ## Dock 底板产品图
 
 
-<div>
-<img src="./assets/25k_dock_top.jpg"  width=45%>
-<img src="./assets/25k_dock_bot.jpg"  width=45%>
-</div>
+TBD
 
 
 ## 板卡参数
@@ -124,32 +153,32 @@ Tang Primer 25K 是基于 [GW5A-LV25MG121](http://www.gowinsemi.com.cn/prod_view
 	<tbody>
 		<tr>
 			<td style="text-align:left">调试器</td>
-			<td style="text-align:left">板载高速调试器，支持JTAG+UART，使用USB-C口烧录</td>
+			<td style="text-align:left">TBD</td>
 			<td style="text-align:left"></td>
 		</tr>
 		<tr>
 			<td style="text-align:left">USB-A</td>
-			<td style="text-align:left">一个，可作为USB1.1 Host接游戏手柄等HID设备</td>
+			<td style="text-align:left">TBD</td>
 			<td style="text-align:left"></td>
 		</tr>
 		<tr>
 			<td style="text-align:left"> IO插针 </td>
-			<td style="text-align:left"> 一个2x20Pin 2.54插针</td>
-			<td style="text-align:left">支持SDRAM模块</td>
+			<td style="text-align:left"> TBD</td>
+			<td style="text-align:left"></td>
 		</tr>
 		<tr>
 			<td style="text-align:left"> PMOD </td>
-			<td style="text-align:left"> 3个</td>
+			<td style="text-align:left"> TBD</td>
 			<td style="text-align:left"></td>
 		</tr>
 		<tr>
 			<td style="text-align:left">按键</td>
-			<td style="text-align:left">2个</td>
+			<td style="text-align:left">TBD</td>
 			<td style="text-align:left"></td>
 		</tr>
 		<tr>
 			<td style="text-align:left">尺寸</td>
-			<td style="text-align:left">64x40mm</td>
+			<td style="text-align:left">TBD</td>
 			<td style="text-align:left"></td>
 		</tr>
 	</tbody>
@@ -157,16 +186,16 @@ Tang Primer 25K 是基于 [GW5A-LV25MG121](http://www.gowinsemi.com.cn/prod_view
 
 ## 硬件资料
 
-规格书、原理图、尺寸图等均可在这里找到：[点击这里](https://dl.sipeed.com/shareURL/TANG/Primer_25K)
+规格书、原理图、尺寸图等均可在这里找到：[点击这里](https://dl.sipeed.com/shareURL/TANG/Primer_15K)
 
-- [板卡规格书](https://dl.sipeed.com/shareURL/TANG/Primer_25K/01_Specification)
-- [板卡原理图](https://dl.sipeed.com/shareURL/TANG/Primer_25K/02_Schematic)
-- [板卡点位图](https://dl.sipeed.com/shareURL/TANG/Primer_25K/03_Designator_drawing)
-- [板卡尺寸图](https://dl.sipeed.com/shareURL/TANG/Primer_25K/04_Mechanical_drawing)
-- [3D 模型文件](https://dl.sipeed.com/shareURL/TANG/Primer_25K/05_3D_file)
-- [核心板封装](https://dl.sipeed.com/shareURL/TANG/Primer_25K/06_PCB_Lib) 
-- [芯片部分资料](https://dl.sipeed.com/shareURL/TANG/Primer_25K/07_Datasheet)
-- [走线长度表](https://dl.sipeed.com/shareURL/TANG/Primer_25K/08_Pin_Length_table)
+- [板卡规格书](https://dl.sipeed.com/shareURL/TANG/Primer_15K/01_Specification)
+- [板卡原理图](https://dl.sipeed.com/shareURL/TANG/Primer_15K/02_Schematic)
+- [板卡点位图](https://dl.sipeed.com/shareURL/TANG/Primer_15K/03_Designator_drawing)
+- [板卡尺寸图](https://dl.sipeed.com/shareURL/TANG/Primer_15K/04_Mechanical_drawing)
+- [3D 模型文件](https://dl.sipeed.com/shareURL/TANG/Primer_15K/05_3D_file)
+- [核心板封装](https://dl.sipeed.com/shareURL/TANG/Primer_15K/06_PCB_Lib) 
+- [芯片部分资料](https://dl.sipeed.com/shareURL/TANG/Primer_15K/07_Datasheet)
+- [走线长度表](https://dl.sipeed.com/shareURL/TANG/Primer_15K/08_Pin_Length_table)
 
 
 ## 上手简明
@@ -195,11 +224,11 @@ Tang Primer 25K 是基于 [GW5A-LV25MG121](http://www.gowinsemi.com.cn/prod_view
    上面的所有文档都已经打包进了下载站[点我跳转](https://dl.sipeed.com/shareURL/TANG/Primer_20K/07_Chip_manual/CN/%E9%80%9A%E7%94%A8%E6%8C%87%E5%BC%95)，需要的话可以点击压缩包全都下载下来。
 
 ## 例程汇总
-注意25K需要使用 V1.9.9Beta-4 或更新的IDE版本。
+注意15K需要使用 V1.9.9.04 或更新的IDE版本。
 http://www.gowinsemi.com.cn/faq.aspx
 
 ### 公开例程
-github 链接： https://github.com/sipeed/TangPrimer-25K-example
+github 链接： https://github.com/sipeed/TangPrimer-15K-example
 
 
 ## 交流方式
@@ -213,18 +242,8 @@ github 链接： https://github.com/sipeed/TangPrimer-25K-example
 
 ## 相关问题
 
-### 如何下载到外部 FLASH {#burn_flash}
+### TBD
 
-进行如下选项设置：
+TBD
 
-<img src="./assets/flash_mode.png" alt="flash_mode" width=75%>
 
-### 烧录后没反应或者引脚现象不对
-
-首先确定选择了正确的型号，下图中的每一个参数都要求一致
-
-<img src="./assets/partno.jpg" alt="device_choose" width=75%>
-
-然后检查自己的代码和对应的仿真波形是否满足要求
-
-### 更多问题及其解决办法前往[相关问题](./../Tang-Nano-Doc/questions.md)查看
