@@ -10,6 +10,12 @@ title: MaixCAM 外壳
 * **镜头手动对焦**： 镜头支持手动对焦，轻轻旋动镜头即可实现手动对焦，如果画面模糊则可能对焦不正确。
 * **外壳**：一个 3D 打印外壳，方便握持和安装，同时增加美观性。
 
+## 开源模型
+
+* [MaixCAM 外壳模型](https://makerworld.com/zh/models/440321)
+
+* [MaixCAM 支架模型](https://makerworld.com/zh/models/463622#profileId-372189)
+
 ## 拆机
 
 强烈建议选择带 TF 卡的套餐，出厂默认已经组装好了，可以跳过这一步直接使用。
@@ -21,7 +27,6 @@ title: MaixCAM 外壳
 * CPU和外壳之间有导热垫，拆机时请注意不要搞掉。
 * 注意不要破坏摄像头、触摸、屏幕的排线（比较容易松动），不要折断排线。
 * 注意排线的方向，不要插反。
-
 
 ## 更换TF卡
 
@@ -35,6 +40,7 @@ title: MaixCAM 外壳
 
 3. 装回屏幕前请确认屏幕排线的连接是否正常，如果有歪斜，请先将排线重新插好
 
+
 ![](../../assets/maixcam/assemble-3.jpg)
 
 ## 外壳开源文件
@@ -46,4 +52,5 @@ title: MaixCAM 外壳
 ## 支架开源文件
 
 更多开源 3D 文件，请到[makerworld.com](https://makerworld.com/) 搜索 `MaixCAM`。
+
 
