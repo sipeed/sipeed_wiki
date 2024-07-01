@@ -137,7 +137,7 @@ You can use sudo apt install xxx to install software. The default username and p
 Refer to the relevant sections of the LicheePi4A documentation for general software usage.
 
 ### SSDUsage Guide
-The Book supports M.2 2242 SATA SSDs, which can be installed by removing the SSD cover on the back.
+The Book supports M.2 2280 SATA SSDs, which can be installed by removing the SSD cover on the back.
 ![ssd1](./assets/lbook4a/ssd1.jpg)
 
 如果你不计划使用SSD，可以手工关闭USB转SSD芯片来降低功耗（约0.6Watt），提升续航：
@@ -214,7 +214,7 @@ Lichee Book 4A and Lichee Console 4A share the same motherboard and hardware res
 
 
 ## Other Links
-[Taobao] (https://item.taobao.com/item.htm?id=807162533118)
+[Taobao](https://item.taobao.com/item.htm?id=807162533118)
 [Aliexpress](https://www.aliexpress.com/item/3256807018240741.html)  
 
 QQ Group: 559614960 [Click to join](http://qm.qq.com/cgi-bin/qm/qr?k=5YkapIhdtWHp8AEfM5_bFFYQIX3CUQN6)
