@@ -138,7 +138,7 @@ Lichee Book 4A 使用了模块化的设计方式，如果你之前购买了Liche
 其它一般性软件使用可以参考LicheePi4A的相关文档章节。  
 
 ### SSD使用指南
-Book支持M.2 2242 SATA 接口的SSD，可以拆卸掉后壳的SSD盖板后安装
+Book支持M.2 2280 SATA 接口的SSD，可以拆卸掉后壳的SSD盖板后安装
 ![ssd1](./assets/lbook4a/ssd1.jpg)
 
 如果你不计划使用SSD，可以手工关闭USB转SSD芯片来降低功耗（约0.6Watt），提升续航：
@@ -200,12 +200,12 @@ Book 系统架构如下，细节可参照原理图或设备树文件。
 
 
 ## 资料下载
-Lichee Book 4A 与i Lichee Console 4A 为相同主板，共享一份硬件资料：
+Lichee Book 4A 与 Lichee Console 4A 为相同主板，共享一份硬件资料：
 [Sipeed 下载站](https://dl.sipeed.com/shareURL/LICHEE/LicheeConsole4A)
 
 
 ## 其他链接
-[淘宝] (https://item.taobao.com/item.htm?id=807162533118)
+[淘宝](https://item.taobao.com/item.htm?id=807162533118)
 [Aliexpress](https://www.aliexpress.com/item/3256807018240741.html)  
 
 QQ群: 559614960 [点我自动加群](http://qm.qq.com/cgi-bin/qm/qr?k=5YkapIhdtWHp8AEfM5_bFFYQIX3CUQN6)
