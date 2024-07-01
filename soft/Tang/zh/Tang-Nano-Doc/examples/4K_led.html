@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+
+<html lang="zh"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="">
+    
+    
+    <meta name="description" content="">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+        
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/prism.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?9cb07365544a53067c56c346c838181a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119047820-5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-119047820-5');
+    </script>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/js/thumbs_up/style.css" type="text/css"/>
+        
+    
+    
+    <title>Nano 4K 点灯 - Sipeed Wiki</title>
+    
+    <script type="text/javascript">js_vars = {"teedoc-plugin-ad-hint": {"type": "hint", "label": "NEW", "content": "全新 Maix 系列产品 <a href='https://wiki.sipeed.com/maixcam'>MaixCAM</a> 已上线, 全新 <a href='https://wiki.sipeed.com/maixpy/'>MaixPy</a> 功能更丰富，性能更强大，软件更易用，文档更全面！", "show_times": 2, "show_after_s": 432000, "date": "2022-06-01 14:00", "color": "#a0421d", "link_color": "#e53935", "link_bg_color": "#e6ae5c", "bg_color": "#ffcf89", "color_hover": "white", "bg_color_hover": "#f57c00", "close_color": "#eab971"}, "teedoc-plugin-thumbs-up": {"label_up": "有帮助", "label_down": "待改进", "icon": "/static/images/thumbs_up/up.svg", "icon_clicked": "/static/images/thumbs_up/upped.svg", "url": "https://thumbs-up.sipeed.com", "show_up_count": true, "show_down_count": false, "msg_already_voted": "您已经投过票了", "msg_thanks": "感谢您的反馈", "msg_down_prompt": "感谢反馈，请告诉我们可以改进什么地方?（最少 10 个字）", "msg_down_prompt_error": "消息最少需要 10 个字， 最多 256 个字", "msg_error": "请求服务器出现错误!"}}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": null, "update": [], "ts": 0, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/">
+                
+                    <img class="site_logo" src="/static/image/logo.svg" alt="sipeed wiki logo">
+                
+                
+                    <h2>wiki</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class=""><a  href="/">产品</a></li>
+<li class="sub_items "><a >开源软件</a><ul><li class=""><a  href="/maixpy/">MaixPy</a></li>
+<li class=""><a  href="/soft/maixpy/zh/index.html">MaixPy_v1</a></li>
+<li class=""><a  href="/soft/Lichee/zh/index.html">Lichee</a></li>
+<li class=""><a  href="/ai/zh/index.html">AI 指南</a></li>
+</ul>
+</li>
+<li class=""><a target="_blank" href="https://maixhub.com">MaixHub</a></li>
+<li class=""><a  href="/news/">动态</a></li>
+<li class=""><a  href="/faq.html">FAQ 汇总</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class=""><a  href="/store.html"><img src='/static/image/shop.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+<li class=""><a target="_blank" href="https://github.com/sipeed"><img src='/static/image/github.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+<li class="sub_items "><a  ><img src='/static/image/language.svg' style='height: 1.5em;vertical-align: middle;'>&nbsp;中文</a><ul><li class=""><a  href="/soft/Tang/en/Tang-Nano-Doc/examples/4K_led.html">English</a></li>
+<li class="active"><a  href="/soft/Tang/zh/Tang-Nano-Doc/examples/4K_led.html">中文</a></li>
+</ul></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">输入关键词，多关键词空格隔开</span>
+                                <span id="search_loading_hint">正在加载，请稍候。。。</span>
+                                <span id="search_download_err_hint">下载文件失败，请刷新重试或检查网络</span>
+                                <span id="search_other_docs_result_hint">来自其它文档的结果</span>
+                                <span id="search_curr_doc_result_hint">当前文档搜索结果</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="">
+<li class="not_active no_link"><a><span class="label">Tang Nano</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/soft/Tang/zh/Tang-Nano-Doc/index.html"><span class="label">简介</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/Tang/zh/Tang-Nano-Doc/get_started/install-the-ide.html"><span class="label">安装 IDE</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">示例</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/Tang/zh/Tang-Nano-Doc/examples/1_led.html"><span class="label">点灯教程</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/Tang/zh/Tang-Nano-Doc/examples/2_lcd.html"><span class="label">点LCD教程</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Permier</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/soft/Tang/zh/index_bak.html"><span class="label">简介</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">准备</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/Tang/zh/get_started/install_TD_win.html"><span class="label">安装TD驱动</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/Tang/zh/get_started/driver_linux_en.html"><span class="label">安装TD驱动——Linux</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/Tang/zh/get_started/E203.html"><span class="label">搭建蜂鸟开发环境</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/Tang/zh/get_started/fpga_download.html"><span class="label">FPGA码流烧录</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">FPGA例程</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/Tang/zh/fpga/led.html"><span class="label">LED</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>Nano 4K 点灯</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                                <span class="article_date" title="最后修改日期： 2022-07-06">
+                                    2022-07-06
+                                </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/sipeed/sipeed_wiki/blob/main/docs/soft/Tang/zh/Tang-Nano-Doc/examples/4K_led.md" target="_blank">
+                                    <span id='editPage'>编辑本页</span>
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <p id="back">
+    <a href="#" onClick="javascript :history.back(-1);">返回上一页(Back)</a>
+</p>
+<h2 id="%E6%9C%AC%E5%AE%9E%E4%BE%8B%E7%9A%84%E8%BF%87%E7%A8%8B">本实例的过程</h2>
+<p>新建工程 -&gt; 添加源代码文件 -&gt; 添加时序、引脚约束 -&gt; 综合 -&gt; 烧录</p>
+<p>在看这篇文档前，请再次确定自己看过<a href="http://cdn.gowinsemi.com.cn/SUG100-1.8_Gowin%E4%BA%91%E6%BA%90%E8%BD%AF%E4%BB%B6%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97.pdf"  target="_blank">Gowin云源软件用户指南</a>，第5章 云源软件使用</p>
+<p>本实验的源码地址：<a href="https://github.com/USTHzhanglu/TangNano-4K-example/tree/USTHzhanglu/led_test/project"  target="_blank">TangNano-4K-example/led_test/project</a></p>
+<h2 id="Verilog-%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86">Verilog 预备知识</h2>
+<p>这里只介绍接下来会用到的相关语法，更多的可以参考《Verilog 数字系统设计教程》</p>
+<p>Verilog 的基本设计单元是模块，每个 Verilog 程序包括 4个 主要部分：端口定义、I/O说明、内部信号声明和功能定义</p>
+<p>模块就像我们平时提到的黑匣子，当我们实现了模块后，就不需要去关心模块内部，只需要根据模块定义的输入输出格式，将模块实例化，给模块提供输入，就可以让模块自己工作了</p>
+<p>一个模块长成这样</p>
+
+<pre class="language-none"><code class="language-none">module block (input a, output b);
+reg [width-1:0] R_1;
+
+assign b = a;
+always @(posedge clk or negedge reset_n)
+begin
+// do something
+end
+
+endmodule
+</code></pre>
+<p>模块整体结构由 module 和 endmodule 组成，module 后面跟着的是模块接口的定义，声明了端口的方向是输入还是输出</p>
+<p>模块内部有时候会使用内部的信号，内部信号有 wire 和 reg 类型</p>
+<p>功能的定义可以通过 assign 和 always块 完成。 assign 是描述组合逻辑最常用的方法之一； always 块机可用于描述组合逻辑，也可描述时序逻辑</p>
+<h2 id="%E5%BC%95%E8%84%9A%E4%BD%BF%E7%94%A8%E6%83%85%E5%86%B5">引脚使用情况</h2>
+<p>板载的是一颗红色LED 灯，原理图如下</p>
+<img src="https://raw.githubusercontent.com/USTHzhanglu/picture/main/img/image-20210810160224782.png" alt="image-20210810160224782" style="zoom:50%;" />
+<p>整个程序使用到的引脚分布如下</p>
+<table>
+<thead>
+<tr>
+  <th>port</th>
+  <th>I/O</th>
+  <th>pin</th>
+  <th>desc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>sys_clk</td>
+  <td>input</td>
+  <td>45</td>
+  <td>时钟输入脚</td>
+</tr>
+<tr>
+  <td>sys_rst_n</td>
+  <td>input</td>
+  <td>15</td>
+  <td>系统复位脚</td>
+</tr>
+<tr>
+  <td>led</td>
+  <td>output</td>
+  <td>15</td>
+  <td>红灯</td>
+</tr>
+</tbody>
+</table>
+<h2 id="%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1">程序设计</h2>
+<p>本系统时钟为 27Mhz，一个机器周期为 1/27M s，也就是说每过 13500000 个时钟周期为 0.5s</p>
+<p>在程序中通过 counter 计算 13500000 个时钟周期，实现 0.5s 的等待，等时间到了之后将 counter 置 0，并改变 LED 的状态</p>
+
+<pre class="language-v"><code class="language-v">module led (
+    input sys_clk,
+    input sys_rst_n,        // reset input
+    output   reg led        //R
+);
+reg [23:0] counter;
+always @(posedge sys_clk or negedge sys_rst_n) begin
+    if (!sys_rst_n)
+        counter &lt;= 24'd0;
+    else if (counter &lt; 24'd1350_0000)       // 0.5s delay
+        counter &lt;= counter + 1'b1;
+    else
+        counter &lt;= 24'd0;
+end
+
+always @(posedge sys_clk or negedge sys_rst_n) begin
+    if (!sys_rst_n)
+        led &lt;= 1'b1;
+    else if (counter == 24'd1350_0000)       // 0.5s delay
+        led &lt;= ~led;                         // TogglePin
+end
+
+endmodule
+</code></pre>
+<h2 id="%E5%BC%95%E8%84%9A%E7%BA%A6%E6%9D%9F">引脚约束</h2>
+<p>要想让 fpga 实现代码的功能，还必须将代码中涉及的引脚操作约束到 fpga 实际的引脚上</p>
+<p>如下图，在左边的工作区点击 process，然后双击 FloorPlanner</p>
+<p><img src="./../../../assets/examples/led_pjt_2.png" alt="" /></p>
+<p>在工程中第一次点击，可能会提示说创建文件，点击确定即可</p>
+<p>在弹出窗口中，切换到 Package View ，将 Ports 下的端口拖到 fpga 对应的引脚上，保存即可，如下图</p>
+<p><img src="./../../../assets/Nano-4K/4K-led-1.png" alt="image-20210810161650281" /></p>
+<p>LED对应的IO10默认是mode Pin，无法直接约束，需要打开Project&gt;Configuration&gt;Dual-Purpose Pin,勾选 Use MODE as regular IO,如下图</p>
+<img src="./../../../Nano-4K/4K-led-2.png" alt="image-20210810161934170" style="zoom:50%;" />
+<h2 id="%E7%BB%BC%E5%90%88">综合</h2>
+<p>在左侧的工作区中，右键 Synthesize 或 Place&amp;Route 时，会有 run 的选项，点击即可</p>
+<p><img src="./../../../assets/examples/led_pjt_4.png" alt="" /></p>
+<h2 id="%E7%83%A7%E5%BD%95%E5%88%B0%E5%BC%80%E5%8F%91%E6%9D%BF">烧录到开发板</h2>
+<p>有两种选择，一种是烧录到 sram 中，一种是烧录到 flash 中</p>
+<p>烧录到 sram 中比较快，但是掉电后 fpga 中就没有固件了；烧录到 flash 中可以在系统掉电后保存之前烧录的固件</p>
+<p>烧录是通过 Programer 完成的</p>
+<p>双击左侧工作区的 Program Device 就可以打开 Programer</p>
+<p><img src="./../../../assets/examples/led_pjt_5.png" alt="" /></p>
+<p>不过在使用 Programer 前需要注意，要在 Synthesize 和 Place&amp;Route 都完成后才能使用 Programer ，否则软件会报错 <code>Bitstream file dose not exists</code></p>
+<p><img src="./../../../assets/examples/led_pjt_6.png" alt="" /></p>
+<p>Linux 用户需要注意</p>
+<blockquote>
+<p>Linux 安装包中的编程器适用于 Linux 版本 Red Hat 5.10，如需 Red Hat 6/7 版本的编程器，请到官网上下载安装后，将安装包替换为 Gowin 云源软件安装包中的文件夹“Programmer”。</p>
+</blockquote>
+<h3 id="%E6%9B%B4%E6%94%B9%E7%83%A7%E5%BD%95%E4%BD%8D%E7%BD%AE">更改烧录位置</h3>
+<p>要选择固件烧录的位置，可以在选中芯片的情况下，点击 Edit -&gt; Configure Device</p>
+<p><img src="./../../../assets/examples/led_pjt_7.png" alt="" /></p>
+<p>在弹出窗口中选择自己需要烧录到的位置，这里选择的是 flash ，默认烧录位置是 sram</p>
+<p><img src="./../../../assets/Nano-4K/4K-led-3.png" alt="image-20210810162149938" /></p>
+<h3 id="%E7%83%A7%E5%BD%95">烧录</h3>
+<p>在选择好烧录位置后，就可以烧录固件了，点击菜单栏的烧录即可</p>
+<p><img src="./../../../assets/examples/led_pjt_9.png" alt="" /></p>
+<p id="back">
+    <a href="#" onClick="javascript :history.back(-1);">返回上一页(Back)</a>
+</p>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                    </div>
+                    <div id="next">
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>相关链接</a><ul><li><a target="_blank" href="https://www.sipeed.com">Sipeed 官网</a></li>
+<li><a target="_blank" href="https://maixhub.com/">MaixHub</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">Sipeed 淘宝</a></li>
+<li><a  href="/sitemap.xml">网站地图</a></li>
+<li><a target="_blank" href="https://github.com/teedoc/teedoc">网站使用 teedoc 生成</a></li>
+</ul>
+</li>
+<li><a>源码</a><ul><li><a target="_blank" href="https://github.com/sipeed/sipeed_wiki">Wiki 源码</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">开源项目</a></li>
+</ul>
+</li>
+<li><a>关注我们</a><ul><li><a target="_blank" href="https://twitter.com/SipeedIO">twitter</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">淘宝</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">github</a></li>
+<li><a><a>微信公众号</a><img src='/static/image/wechat.png'></a>
+</li>
+</ul>
+</li>
+<li><a>联系我们</a><ul><li><a>电话: +86 0755-27808509</a>
+</li>
+<li><a>商业支持: support@sipeed.com</a>
+</li>
+<li><a>地址: 深圳市宝安区新湖路4008号蘅芳科技办公大厦A座-2101C</a>
+</li>
+<li><a  href="/join_us.html">加入我们</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://www.sipeed.com">©2018-2023 深圳矽速科技有限公司</a></li>
+<li><a target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index">粤ICP备19015433号</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/js/prism.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <link rel="stylesheet" href="/static/js/add_hint/style.css" type="text/css"/>
+    
+        <script src="/static/js/add_hint/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+        <script src="/static/js/thumbs_up/main.js"></script>
+    
+</body>
+
+</html>

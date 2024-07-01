@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+
+<html lang="zh"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="Primer 20K, Lite, FPGA">
+    
+    
+    <meta name="description" content="Primer 20K 上手">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+        
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/prism.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?9cb07365544a53067c56c346c838181a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119047820-5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-119047820-5');
+    </script>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/js/thumbs_up/style.css" type="text/css"/>
+        
+    
+    
+    <title>Primer 20K Lite 初见 - Sipeed Wiki</title>
+    
+    <script type="text/javascript">js_vars = {"teedoc-plugin-ad-hint": {"type": "hint", "label": "NEW", "content": "全新 Maix 系列产品 <a href='https://wiki.sipeed.com/maixcam'>MaixCAM</a> 已上线, 全新 <a href='https://wiki.sipeed.com/maixpy/'>MaixPy</a> 功能更丰富，性能更强大，软件更易用，文档更全面！", "show_times": 2, "show_after_s": 432000, "date": "2022-06-01 14:00", "color": "#a0421d", "link_color": "#e53935", "link_bg_color": "#e6ae5c", "bg_color": "#ffcf89", "color_hover": "white", "bg_color_hover": "#f57c00", "close_color": "#eab971"}, "teedoc-plugin-thumbs-up": {"label_up": "有帮助", "label_down": "待改进", "icon": "/static/images/thumbs_up/up.svg", "icon_clicked": "/static/images/thumbs_up/upped.svg", "url": "https://thumbs-up.sipeed.com", "show_up_count": true, "show_down_count": false, "msg_already_voted": "您已经投过票了", "msg_thanks": "感谢您的反馈", "msg_down_prompt": "感谢反馈，请告诉我们可以改进什么地方?（最少 10 个字）", "msg_down_prompt_error": "消息最少需要 10 个字， 最多 256 个字", "msg_error": "请求服务器出现错误!"}}</script>
+    <script type="text/javascript">metadata = {"tags": ["FPGA", "Primer 20K"], "date": "2022-10-18", "update": [{"date": "2022-10-18", "version": "v0.3", "author": "wonder", "content": ["修改部分表达语句"]}, {"date": "2022-09-23", "version": "v0.2", "author": "wonder", "content": ["更新常见问题"]}, {"date": "2022-08-22", "version": "v0.1", "author": "wonder", "content": ["初稿"]}], "ts": 1666051200, "author": "", "brief": "", "cover": "/news/others/20k_lite_start/assets/cover.png"}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/">
+                
+                    <img class="site_logo" src="/static/image/logo.svg" alt="sipeed wiki logo">
+                
+                
+                    <h2>wiki</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class=""><a  href="/">产品</a></li>
+<li class="sub_items "><a >开源软件</a><ul><li class=""><a  href="/maixpy/">MaixPy</a></li>
+<li class=""><a  href="/soft/maixpy/zh/index.html">MaixPy_v1</a></li>
+<li class=""><a  href="/soft/Lichee/zh/index.html">Lichee</a></li>
+<li class=""><a  href="/ai/zh/index.html">AI 指南</a></li>
+</ul>
+</li>
+<li class=""><a target="_blank" href="https://maixhub.com">MaixHub</a></li>
+<li class="active"><a  href="/news/">动态</a></li>
+<li class=""><a  href="/faq.html">FAQ 汇总</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class=""><a  href="/store.html"><img src='/static/image/shop.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+<li class=""><a target="_blank" href="https://github.com/sipeed"><img src='/static/image/github.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">输入关键词，多关键词空格隔开</span>
+                                <span id="search_loading_hint">正在加载，请稍候。。。</span>
+                                <span id="search_download_err_hint">下载文件失败，请刷新重试或检查网络</span>
+                                <span id="search_other_docs_result_hint">来自其它文档的结果</span>
+                                <span id="search_curr_doc_result_hint">当前文档搜索结果</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="">
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>Primer 20K Lite 初见</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                                <li>FPGA</li>
+                            
+                                <li>Primer 20K</li>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                                <span class="article_date" title="最后修改日期： 2022-10-18">
+                                    2022-10-18
+                                </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/sipeed/sipeed_wiki/blob/main/news/others/20k_lite_start/20k_lite_start.md" target="_blank">
+                                    <span id='editPage'>编辑本页</span>
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                        
+                        <details open>
+                        
+                            <summary>更新历史</summary>
+                            <div>
+                                <table>
+                                        <thead>
+                                            <tr>
+                                                <th>日期</th>
+                                                <th>版本</th>
+                                                <th>作者</th>
+                                                <th>更新内容</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            
+                                                <tr>
+                                                    <td>2022-10-18</td>
+                                                    <td>v0.3</td>
+                                                    <td>wonder</td>
+                                                    <td>
+                                                    
+                                                        <ul>
+                                                        
+                                                            <li>修改部分表达语句</li>
+                                                        
+                                                        </ul>
+                                                    
+                                                    </td>
+                                                </tr>
+                                            
+                                                <tr>
+                                                    <td>2022-09-23</td>
+                                                    <td>v0.2</td>
+                                                    <td>wonder</td>
+                                                    <td>
+                                                    
+                                                        <ul>
+                                                        
+                                                            <li>更新常见问题</li>
+                                                        
+                                                        </ul>
+                                                    
+                                                    </td>
+                                                </tr>
+                                            
+                                                <tr>
+                                                    <td>2022-08-22</td>
+                                                    <td>v0.1</td>
+                                                    <td>wonder</td>
+                                                    <td>
+                                                    
+                                                        <ul>
+                                                        
+                                                            <li>初稿</li>
+                                                        
+                                                        </ul>
+                                                    
+                                                    </td>
+                                                </tr>
+                                            
+                                        </tbody>
+                                </table>
+                            </div>
+                        </details>
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <span id="blog_start"></span><div class="blog_cover"><img src="/news/others/20k_lite_start/assets/cover.png" alt="Primer 20K Lite 初见 cover"></div><p>拿到 Primer 20K Lite 后上手点个灯</p>
+<!-- more -->
+<h2 id="%E5%89%8D%E8%A8%80">前言</h2>
+<p>本篇文档引导新用户熟悉 IDE 流程并且完成点灯操作。</p>
+<p>默认固件工程可以在 <a href="https://github.com/sipeed/TangPrimer-20K-example/tree/main/Lite-bottom%20test%20project/test_board"  target="_blank">github</a> 找到</p>
+<p>默认固件功能如下：</p>
+<ul>
+<li>所有引出到排针的 IO 电平逻辑定期翻转，spi lcd 连接器与 sd 卡槽连接器的可编程引脚也定期翻转</li>
+<li>DDR 测试；可以通过核心板上下载接口里面的串口引脚在电脑上位机上看到 DDR 测试结果</li>
+</ul>
+<p>因为固件里面有 DDR 测试，所以核心板上电后会发烫；介意这个发热的话可以把默认的固件给擦除了。</p>
+<h2 id="%E5%AE%89%E8%A3%85-IDE">安装 IDE</h2>
+<p>参考 <a href="https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/get_started/install-the-ide.html"  target="_blank">安装IDE</a> 来完成我们需要准备的软件环境。</p>
+<p>对于 Linux 用户，如果打开 Programmer 烧录软件困难的话，可以使用 <a href="https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/get_started/flash_in_linux.html"  target="_blank">openfpgaLoader</a> 这软件来烧录 GW2A-18，相关用法在 <a href="https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/get_started/flash_in_linux.html"  target="_blank">OpenFpgaloader</a> 一文中有说明。</p>
+<h2 id="%E6%96%B0%E5%BB%BA%E5%B7%A5%E7%A8%8B">新建工程</h2>
+<p>文件 -&gt; 新建 -&gt; FPGA Design -&gt; Project</p>
+<div>
+    <img src="./assets/new_project.png" width=58% alt="new_project">
+    <img src="./assets/fpga_project.png" width=35% alt="fpga_project">
+</div>
+<p>设置工程名称，要求只用英文和下划线命名，存放路径中不要有中文字符或者空格等。</p>
+<p><img src="./assets/project_path.png" alt="project_path" /></p>
+<p>然后在下面的芯片型号中选择 GW2A-LV18PG256C8/I7，使用上面的筛选能够更快地选择到正确的型号。注意 Device 那一栏为 GW2A-18C<br />
+<img src="./assets/device_choose.png" alt="device_choose" /></p>
+<p>然后点击确定后就可以进行最终项目预览了。确认无误后就完成工程创建了。</p>
+<h2 id="%E7%BC%96%E5%86%99%E4%BB%A3%E7%A0%81">编写代码</h2>
+<h3 id="%E6%96%B0%E5%BB%BA%E6%96%87%E4%BB%B6">新建文件</h3>
+<p>高云半导体 IDE 提供了三种新建文件的方法。在此我们直接使用快捷键 <code>Ctrl + N</code> 来新建文件，其他两种不在此讲述。</p>
+<p>在弹出的窗口中选择 <code>Verilog File</code>，会 VHDL 的也可以选择下面的 <code>VHDL File</code>，这篇文章只用 Verilog 来做点灯示例。</p>
+<img src="./assets/new_verilog_file.png" width=50% alt="new_verilog_file">
+<p>点击 OK 之后会提示让我们输入文件名称，此处以 <code>led</code> 为文件名做示范。</p>
+<img src="./assets/file_name.png" width=75% alt="file_name">
+<p>到这里我们就完成文件的创建了，可以直接编写代码了。</p>
+<p><img src="./assets/created_file.png" alt="created_file" /></p>
+<h3 id="Verilog-%E7%AE%80%E5%8D%95%E8%AF%B4%E6%98%8E">Verilog 简单说明</h3>
+<p>Verilog 是一种硬件描述语言，用来对数字电路进行抽象化描述。</p>
+<p>Verilog 的基本设计单元是“模块”(module)。</p>
+<p>一个模块是由两部分组成的：一部分描述接口，另一部分描述内部逻辑功能，即定义输入是如何影响输出的。</p>
+<p>一个模块长成这样：</p>
+
+<pre class="language-v"><code class="language-v">module module_name
+#(parameter)
+(port) ;
+    function   
+endmodule
+</code></pre>
+<p>模块整体结构由 module 和 endmodule 组成，module 后面跟着的是模块的名称(module_name)，可传递变量参数(parameter)，端口及其方向的申明(port)，紧接着就是内部逻辑功能描述(function) ,最后用 endmodule 来表示这一个模块，描述完毕。</p>
+<p>内部逻辑功能通常由 assign 和 always 块完成；其中 assign 语句描述逻辑功能，always 块常用于描述时序功能。</p>
+<h3 id="%E4%BB%A3%E7%A0%81%E6%80%9D%E8%B7%AF">代码思路</h3>
+<p>写代码前我们需要先想清楚代码目的：每隔 0.5S 灯闪一次。</p>
+<p>对此所画的需求框图如下：</p>
+<p><img src="./assets/block_method.png" alt="block_method" /></p>
+<p>然后对于 0.5S 我们需要一个计数器来计时，LED 灯闪就是 IO 翻转</p>
+<p><img src="./assets/time_count.png" alt="count_block" /></p>
+<p>把上面的思维框图具体到实际使用的话，就变成下面的样式了:</p>
+<p><img src="./assets/clock_time_count.png" alt="clock_time_count" /></p>
+<p>其中 Clock 为时钟源，用来给计时器提供准确的时间。</p>
+<h3 id="%E4%BB%A3%E7%A0%81%E6%8F%8F%E8%BF%B0">代码描述</h3>
+<p>根据上文 Verilog 简单说明和所描述的框图，可以知道所要编写 Verilog 模块有 Clock 和 IO电平 两个端口；</p>
+
+<pre class="language-v"><code class="language-v">module led(
+    input  Clock,
+    output IO_voltage
+);
+
+endmodule
+</code></pre>
+<p>对于内部的计时模块，Primer 20K 核心板上的晶振为 27MHZ，因此我们每秒钟会有 27000000 个时钟上升沿，想要 0.5S 计数的话那么只需要计数 13500000 次上升沿就好。计数是从 0 开始的，数 13500000 的话就是从 0 数到 13499999。计数完后我们设置一个标志位，来通知 LED 的 IO 翻转一下电平。整体计数代码如下：</p>
+
+<pre class="language-v"><code class="language-v">//parameter Clock_frequency = 27_000_000; // 时钟频率为27Mhz
+parameter count_value       = 13_499_999; // 计时 0.5S 所需要的计数次数
+
+reg [23:0]  count_value_reg ; // 计数器
+reg         count_value_flag; // IO 电平翻转标志
+
+always @(posedge Clock) begin
+    if ( count_value_reg &lt;= count_value ) begin //没有计数到 0.5S
+        count_value_reg  &lt;= count_value_reg + 1'b1; // 继续计数
+        count_value_flag &lt;= 1'b0 ; // 不产生翻转标志
+    end
+    else begin //计数到 0.5S 了
+        count_value_reg  &lt;= 23'b0; // 清零计数器，为重新计数最准备
+        count_value_flag &lt;= 1'b1 ; // 产生翻转标志
+    end
+end
+</code></pre>
+<p>对于 LED IO 电平翻转代码如下：</p>
+
+<pre class="language-v"><code class="language-v">reg IO_voltage_reg = 1'b0; // 声明 IO 电平状态用于达到计时时间后的翻转，并赋予一个低电平初始态
+
+always @(posedge Clock) begin
+    if ( count_value_flag )  //  电平翻转标志有效
+        IO_voltage_reg &lt;= ~IO_voltage_reg; // IO 电平翻转
+    else //  电平翻转标志无效
+        IO_voltage_reg &lt;= IO_voltage_reg; // IO 电平不变
+end
+</code></pre>
+<p>将上面的代码整合后就变成了下面的内容:</p>
+
+<pre class="language-v"><code class="language-v">module led(
+    input  Clock,
+    output IO_voltage
+);
+
+/**********计时部分**********/
+//parameter Clock_frequency = 27_000_000; // 时钟频率为27Mhz
+parameter count_value       = 13_499_999; // 计时 0.5S 所需要的计数次数
+
+reg [23:0]  count_value_reg ; // 计数器
+reg         count_value_flag; // IO 电平翻转标志
+
+always @(posedge Clock) begin
+    if ( count_value_reg &lt;= count_value ) begin //没有计数到 0.5S
+        count_value_reg  &lt;= count_value_reg + 1'b1; // 继续计数
+        count_value_flag &lt;= 1'b0 ; // 不产生翻转标志
+    end
+    else begin //计数到 0.5S 了
+        count_value_reg  &lt;= 23'b0; // 清零计数器，为重新计数最准备
+        count_value_flag &lt;= 1'b1 ; // 产生翻转标志
+    end
+end
+
+/**********电平翻转部分**********/
+reg IO_voltage_reg = 1'b0; // 声明 IO 电平状态用于达到计时时间后的翻转，并赋予一个低电平初始态
+
+always @(posedge Clock) begin
+    if ( count_value_flag )  //  电平翻转标志有效
+        IO_voltage_reg &lt;= ~IO_voltage_reg; // IO 电平翻转
+    else //  电平翻转标志无效
+        IO_voltage_reg &lt;= IO_voltage_reg; // IO 电平不变
+end
+
+/**********补充一行代码**********/
+assign IO_voltage = IO_voltage_reg;
+
+endmodule
+</code></pre>
+<p>上面代码最后面补充了一行代码，是因为 IO_voltage 声明在了 port 位置，默认为 wire 型，想要将它与 reg 变量 IO_voltage_reg 连接起来，需要用到 assign 语句。</p>
+<h2 id="%E7%BB%BC%E5%90%88%EF%BC%8C%E7%BA%A6%E6%9D%9F%EF%BC%8C%E5%B8%83%E5%B1%80%E5%B8%83%E7%BA%BF">综合，约束，布局布线</h2>
+<h3 id="%E7%BB%BC%E5%90%88">综合</h3>
+<p>代码保存后，可以双击 IDE 内部的 Process -&gt; Synthesize 来进行代码综合，将 verilog 代码内容转换为综合网表。</p>
+<p><img src="./assets/synthesize.png" alt="synthesize" /></p>
+<p>关于网表有兴趣的可以自己去查阅相关资料，此处不再额外说明。</p>
+<h3 id="%E7%BA%A6%E6%9D%9F">约束</h3>
+<p>综合完之后我们需要进行管脚约束，才能将所编写的模块端口与 FPGA 引脚相对应，并且实现模块的功能。</p>
+<p>点击上图 Synthesize 上面的 FloorPlanner 来进行管脚约束。</p>
+<p><img src="./assets/floorplanner.png" alt="floorplanner" /></p>
+<p>由于是首次创建，所以会弹出下面的对话框，点击 OK 后就弹出了图形化约束交互界面。</p>
+<p><img src="./assets/create_constrain_file.png" alt="create_constrain_file" /></p>
+<p><img src="./assets/floorplanner_interface.png" alt="floorplanner_intreface" /></p>
+<p>关于约束的方法可以查看 <a href="http://cdn.gowinsemi.com.cn/SUG935-1.3_Gowin%E8%AE%BE%E8%AE%A1%E7%89%A9%E7%90%86%E7%BA%A6%E6%9D%9F%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97.pdf"  target="_blank">SUG935-1.3_Gowin设计物理约束用户指南.pdf</a></p>
+<p>此处因个人喜所以仅使用下图中 IO Constranins 方法来约束引脚：</p>
+<p><img src="./assets/floor_planner_ioconstrain.png" alt="floor_planner_ioconstrain" /></p>
+<p>根据<a href="https://dl.sipeed.com/shareURL/TANG/Primer_20K/02_Schematic"  target="_blank">核心板原理图</a>，我们可以知道晶振所输入的引脚为 H11。</p>
+<img src="./assets/crystal_port.png" alt="crystal_port" width=45%>
+<p>然后结合底板上的 IO 丝印，决定用底板上的 L14 引脚进行点灯。</p>
+<p><img src="./assets/l14_port.png" alt="l14_port" /></p>
+<p>因此对于在 FloorPlanner 交互窗口下面的 IO Constranins 中将 PORT（端口）与 Location（引脚） 分别填入下面的值：</p>
+<p><img src="./assets/io_constrain_value.png" alt="io_constrain_value" /></p>
+<p>输入完毕后快捷键 Ctrl + S 来保存一下引脚约束，然后接可以关闭 FloorPlanner 的交互图形界面了。</p>
+<p>接着发现在工程项目里面多出来刚刚创建的 cst 文件了，里面的内容也比较好理解。</p>
+<p><img src="./assets/cst_content.png" alt="cst_content" /></p>
+<h3 id="%E5%B8%83%E5%B1%80%E5%B8%83%E7%BA%BF">布局布线</h3>
+<p>完成约束后就要开始运行布局布线了，目的是为了把综合所生成的网表与我们自己定义的约束来通过 IDE 算出最优解然后将资源合理地分配在 FPGA 芯片上。</p>
+<p>双击下图红框处的 Place&amp;Route 就开始运行了。</p>
+<p><img src="./assets/place_route.png" alt="place_route" />。</p>
+<p>紧接着没有报错，全部通过。就可以开始进行烧录了。</p>
+<h2 id="%E7%83%A7%E5%BD%95%E5%9B%BA%E4%BB%B6">烧录固件</h2>
+<p>建议使用高云教育版的 Programmer 软件，可以在高云官网下载到 <a href="http://www.gowinsemi.com.cn/faq.aspx"  target="_blank">点我跳转</a> ，下载下图所示的 Programmer 软件即可。</p>
+<p><img src="./assets/educational_edition_programmer.png" alt="educational_edition_programmer" /></p>
+<!-- 如果使用的是 bl702 下载器，那么要求使用  [此处](https://dl.sipeed.com/shareURL/TANG/programmer) 链接内的 Programmer 软件来进行烧录，来避免 Programmer 软件识别不到芯片等一系列问题。
+
+下载后解压替换掉 Gowin 对应安装目录的 Programmer 文件夹即可。 -->
+<!-- 不会替换的话可以在下载解压后的 Programmer 程序中手动添加需要下载的 .fs 文件来进行烧录。 -->
+<h3 id="%E6%8E%A5%E7%BA%BF%E8%AF%B4%E6%98%8E">接线说明</h3>
+<p>由于需要将核心板与下载器进行连线，这里说明一下所连接的对应端口。<br />
+核心板的引脚可以在核心板背面看到。</p>
+<table>
+    <tr>
+        <td>核心板</td>
+        <td>5V0</td>
+        <td>TMS</td>
+        <td>TDO</td>
+        <td>TCK</td>
+        <td>TDI</td>
+        <td>RX</td>
+        <td>TX</td>
+        <td>GND</td>
+    </tr>
+    <tr>
+        <td>调试器</td>
+        <td>5V0</td>
+        <td>TMS</td>
+        <td>TDO</td>
+        <td>TCK</td>
+        <td>TDI</td>
+        <td>TX</td>
+        <td>RX</td>
+        <td>GND</td>
+    </tr>
+</table>
+<p><img src="./assets/cable_connect.png" alt="cable_connect" /></p>
+<h3 id="%E6%89%AB%E6%8F%8F%E8%AE%BE%E5%A4%87">扫描设备</h3>
+<p>双击下图中的下载程序(Program Device) 来运行 Programmer 软件</p>
+<p><img src="./assets/open_programmer.png" alt="open_programmer" /></p>
+<!-- 正确运行我们所提供下载的 Programmer 软件的话软件上面所显示的软件名称为 `Programmer 2` ，点击下图红框处来扫描设备，且在设备选择中选择 GW2A-18C 。 -->
+<p>然后在打开的页面中点击一下 scan_device 来扫描到我们的设备。</p>
+<p><img src="./assets/scan_device.png" alt="scan_device" /></p>
+<p>点击 OK 后就可以进行烧录操作了。</p>
+<p>烧录相关的文档可以参考 <a href="http://cdn.gowinsemi.com.cn/SUG502-1.3_Gowin_Programmer%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97.pdf"  target="_blank">SUG502-1.3_Gowin_Programmer用户指南.pdf</a></p>
+<h3 id="%E4%B8%8B%E8%BD%BD%E5%88%B0-SRAM">下载到 SRAM</h3>
+<p>一般来说这个模式是以用来快速验证所生成的固件是否满足自己目的的。</p>
+<p>因为其烧录快的特性所以使用的较多，然是当然断电会丢失数据，所以如果想上电运行程序的话是不能选这个的。</p>
+<p>点击 Operation 下面的功能框来打开设备设置界面，接着在 Operation 框中选择 SRAM Program 选项来设置为下载到 SRAM ，最后点击下面的那三个点点框来选择我们所生成的 .fs 下载固件。通常来说下载固件生成与工程文件目录下的 impl -&gt; pnr 目录下。</p>
+<p><img src="./assets/sram_mode.png" alt="sram_mode" /></p>
+<p>接着来点击红框处开始进行烧录</p>
+<p><img src="./assets/sram_download.png" alt="sram_download" /></p>
+<p>有问题的话可以前往 <a href="https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/questions.html"  target="_blank">常见问题</a> 自行排查。</p>
+<p>到这里就下载完成了。</p>
+<h3 id="%E4%B8%8B%E8%BD%BD%E5%88%B0-Flash">下载到 Flash</h3>
+<p>上面说过下载到 SRAM 是为了快速验证，但是不能上电运行程序。<br />
+所以想要上电运行的话我们需要设置下载到 Flash。</p>
+<p>和上面下载到 SRAM 的步骤几乎类似，先点开 Operation 下面的功能框来打开设备设置界面，接着在 Operation 框中选择 External Flash Mode 选项来设置为下载到外部 Flash ，最后点击下面的那三个点点框来选择我们所生成的 .fs 下载固件，通常来说下载固件生成与工程文件目录下的 impl -&gt; pnr 目录下。最后在下面的外部 Flash 选项中选择设备为 Generic Flash 。</p>
+<p><img src="./assets/flash_mode.png" alt="flash_mode" /></p>
+<p>接着来点击红框处开始进行烧录</p>
+<p><img src="./assets/flash_download.png" alt="flash_download" /></p>
+<p>然后我们的程序重新上电也能照样运行了。</p>
+<p>有问题的话可以前往 <a href="https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/questions.html"  target="_blank">常见问题</a> 自行排查。</p>
+<h3 id="%E4%BB%A3%E7%A0%81%E6%95%88%E6%9E%9C">代码效果</h3>
+<p>使用 Sipeed 的 PMOD 后，如下图所示有一个灯在闪。</p>
+<p><img src="./assets/result.gif" alt="result" /></p>
+<h2 id="%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98">常见问题</h2>
+<p>前往 <a href="./../../../docs/hardware/zh/tang/Tang-Nano-Doc/questions.html"  >常见问题</a> 查看一般的解决方法</p>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                    </div>
+                    <div id="next">
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>相关链接</a><ul><li><a target="_blank" href="https://www.sipeed.com">Sipeed 官网</a></li>
+<li><a target="_blank" href="https://maixhub.com/">MaixHub</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">Sipeed 淘宝</a></li>
+<li><a  href="/sitemap.xml">网站地图</a></li>
+<li><a target="_blank" href="https://github.com/teedoc/teedoc">网站使用 teedoc 生成</a></li>
+</ul>
+</li>
+<li><a>源码</a><ul><li><a target="_blank" href="https://github.com/sipeed/sipeed_wiki">Wiki 源码</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">开源项目</a></li>
+</ul>
+</li>
+<li><a>关注我们</a><ul><li><a target="_blank" href="https://twitter.com/SipeedIO">twitter</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">淘宝</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">github</a></li>
+<li><a><a>微信公众号</a><img src='/static/image/wechat.png'></a>
+</li>
+</ul>
+</li>
+<li><a>联系我们</a><ul><li><a>电话: +86 0755-27808509</a>
+</li>
+<li><a>商业支持: support@sipeed.com</a>
+</li>
+<li><a>地址: 深圳市宝安区新湖路4008号蘅芳科技办公大厦A座-2101C</a>
+</li>
+<li><a  href="/join_us.html">加入我们</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://www.sipeed.com">©2018-2023 深圳矽速科技有限公司</a></li>
+<li><a target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index">粤ICP备19015433号</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/js/prism.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <link rel="stylesheet" href="/static/js/add_hint/style.css" type="text/css"/>
+    
+        <script src="/static/js/add_hint/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+        <script src="/static/js/thumbs_up/main.js"></script>
+    
+</body>
+
+</html>

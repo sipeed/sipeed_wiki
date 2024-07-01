@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+
+<html lang="zh"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="K210, Maixduino, Mind++">
+    
+    
+    <meta name="description" content="">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+        
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/prism.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?9cb07365544a53067c56c346c838181a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119047820-5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-119047820-5');
+    </script>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/js/thumbs_up/style.css" type="text/css"/>
+        
+    
+    
+    <title>Maixduino K210 如何实现积木编程 - Sipeed Wiki</title>
+    
+    <script type="text/javascript">js_vars = {"teedoc-plugin-ad-hint": {"type": "hint", "label": "NEW", "content": "全新 Maix 系列产品 <a href='https://wiki.sipeed.com/maixcam'>MaixCAM</a> 已上线, 全新 <a href='https://wiki.sipeed.com/maixpy/'>MaixPy</a> 功能更丰富，性能更强大，软件更易用，文档更全面！", "show_times": 2, "show_after_s": 432000, "date": "2022-06-01 14:00", "color": "#a0421d", "link_color": "#e53935", "link_bg_color": "#e6ae5c", "bg_color": "#ffcf89", "color_hover": "white", "bg_color_hover": "#f57c00", "close_color": "#eab971"}, "teedoc-plugin-thumbs-up": {"label_up": "有帮助", "label_down": "待改进", "icon": "/static/images/thumbs_up/up.svg", "icon_clicked": "/static/images/thumbs_up/upped.svg", "url": "https://thumbs-up.sipeed.com", "show_up_count": true, "show_down_count": false, "msg_already_voted": "您已经投过票了", "msg_thanks": "感谢您的反馈", "msg_down_prompt": "感谢反馈，请告诉我们可以改进什么地方?（最少 10 个字）", "msg_down_prompt_error": "消息最少需要 10 个字， 最多 256 个字", "msg_error": "请求服务器出现错误!"}}</script>
+    <script type="text/javascript">metadata = {"tags": ["K210", "Maixduino", "Mind++"], "date": "2022-08-18", "update": [], "ts": 1660780800, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/">
+                
+                    <img class="site_logo" src="/static/image/logo.svg" alt="sipeed wiki logo">
+                
+                
+                    <h2>wiki</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class=""><a  href="/">产品</a></li>
+<li class="sub_items "><a >开源软件</a><ul><li class=""><a  href="/maixpy/">MaixPy</a></li>
+<li class=""><a  href="/soft/maixpy/zh/index.html">MaixPy_v1</a></li>
+<li class=""><a  href="/soft/Lichee/zh/index.html">Lichee</a></li>
+<li class=""><a  href="/ai/zh/index.html">AI 指南</a></li>
+</ul>
+</li>
+<li class=""><a target="_blank" href="https://maixhub.com">MaixHub</a></li>
+<li class="active"><a  href="/news/">动态</a></li>
+<li class=""><a  href="/faq.html">FAQ 汇总</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class=""><a  href="/store.html"><img src='/static/image/shop.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+<li class=""><a target="_blank" href="https://github.com/sipeed"><img src='/static/image/github.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">输入关键词，多关键词空格隔开</span>
+                                <span id="search_loading_hint">正在加载，请稍候。。。</span>
+                                <span id="search_download_err_hint">下载文件失败，请刷新重试或检查网络</span>
+                                <span id="search_other_docs_result_hint">来自其它文档的结果</span>
+                                <span id="search_curr_doc_result_hint">当前文档搜索结果</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="">
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>Maixduino K210 如何实现积木编程</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                                <li>K210</li>
+                            
+                                <li>Maixduino</li>
+                            
+                                <li>Mind++</li>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                                <span class="article_date" title="最后修改日期： 2022-08-18">
+                                    2022-08-18
+                                </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/sipeed/sipeed_wiki/blob/main/news/MaixPy/mind_application/mind_application.md" target="_blank">
+                                    <span id='editPage'>编辑本页</span>
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <span id="blog_start"></span><p>快来体验 Maixduino 不一样的有趣玩法</p>
+<!-- more -->
+<p><a href="https://mindplus.dfrobot.com.cn/maixduino"  target="_blank">原文链接</a></p>
+<h2 id="%E8%AF%B4%E6%98%8E">说明</h2>
+<p>Mind+ 从1.6.6版本开始支持基于 K210 主控的 Maixduino 开发板，可满足对于 K210 开发有兴趣的用户。<br />
+<img src="assets/mind-1.jpg" alt="mind-1" /></p>
+<h2 id="%E4%BD%BF%E7%94%A8%E6%B5%81%E7%A8%8B">使用流程</h2>
+<h3 id="%E5%99%A8%E6%9D%90%E5%87%86%E5%A4%87">器材准备</h3>
+<ul>
+<li>Mind+ 1.6.6及以上版本</li>
+<li>Maixduino主控板</li>
+<li>Type-C数据线</li>
+</ul>
+<h3 id="%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87">环境准备</h3>
+<ol>
+<li>打开 Mind+ 切换至上传模式，扩展库中选择主控板下的 Maixduino 后返回主界面。</li>
+</ol>
+<p><img src="assets/mind-2.jpg" alt="mind-2" /><br />
+<img src="assets/mind-3.jpg" alt="mind-3" /></p>
+<ol>
+<li>使用 USB 线连接主控板与电脑，设备菜单中会出现两个 COM 口，选择其中 Maixduino 的 COM 口，软件会自动烧录固件，右下角小黑窗会显示提示语。</li>
+</ol>
+<table>
+<thead>
+<tr>
+  <th style="text-align:left"></th>
+  <th style="text-align:left"></th>
+  <th style="text-align:left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td style="text-align:left">打开设备管理器</td>
+  <td style="text-align:left">打开系统的设备管理器，方便检查端口或驱动问题。</td>
+  <td style="text-align:left"></td>
+</tr>
+<tr>
+  <td style="text-align:left">一键安装串口驱动</td>
+  <td style="text-align:left">如果首次使用软件板子没有出现 COM 口，则可以安装驱动。</td>
+  <td style="text-align:left"></td>
+</tr>
+<tr>
+  <td style="text-align:left">恢复设备初始设置</td>
+  <td style="text-align:left">首次使用 Mind+ 或出现异常情况时，可以使用恢复设备初始设置功能擦除板子内的固件,<br>使用时需要先选择 COM 口再选择此功能，恢复完成后手动断开连接再选择端口。</td>
+  <td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
+<p>注意</p>
+<ul>
+<li>如果是首次使用需要选择 ESP32 (网卡)的 COM 口然后选择恢复设备初始设置功能更新网卡，否则可能会出现模拟输入功能无法使用。</li>
+<li>Mind+ 中的固件与 Maixduino 官方固件不同，可以线选择 Maixduino 的 COM 口然后选择恢复设备初始设置，然后断开再次连接，即可自动刷入 Mind+ 固件。</li>
+</ul>
+<p><img src="assets/mind-4.jpg" alt="mind-4" /></p>
+<h3 id="%E7%BC%96%E7%A8%8B%E4%BD%BF%E7%94%A8">编程使用</h3>
+<p>编写一个程序，在屏幕中显示摄像头画面，完成后点击运行，程序即可运行，板子上就可以看到效果了。<br />
+<img src="assets/mind-5.jpg" alt="mind-5" /><br />
+<img src="assets/mind-6.jpg" alt="mind-6" /></p>
+<h2 id="%E6%89%8B%E5%8A%A8%E7%BC%96%E8%BE%91">手动编辑</h2>
+<p>手动编辑模式中可以手动编写代码，需要先在文件系统新建文件然后打开，再保存，运行程序需要右键选择运行。<br />
+<img src="assets/mind-7.jpg" alt="mind-7" /></p>
+<h2 id="%E5%9B%BA%E4%BB%B6%E8%AF%B4%E6%98%8E">固件说明</h2>
+<p>Maixduino 有各种版本的固件，Mind+ 图形化部分为保持积木生成代码的稳定，内置的固件包含了图形化需要的库，同时为保持 Maixduino 使用的灵活性，Mind+ 也支持使用其他固件。</p>
+<h3 id="%E5%A6%82%E4%BD%95%E5%8C%BA%E5%88%86%E6%98%AF%E5%90%A6%E4%B8%BA-Mind%2B-%E5%86%85%E7%BD%AE%E5%9B%BA%E4%BB%B6%EF%BC%9F">如何区分是否为 Mind+ 内置固件？</h3>
+<ol>
+<li>如下图，终端中的输出信息以 Maixduino 开头的即为 Mind+ 内置固件。</li>
+</ol>
+<p><img src="assets/mind-8.jpg" alt="mind-8" /><br />
+2. 如下图，终端中输出信息为 MiaxPy 或者其他则不是 Mind+ 内置固件，则这些固件可能会缺失图形化中的某些功能导致无法使用，如果需要使用图形化的功能请刷入 Mind+ 内置固件。<br />
+<img src="assets/mind-9.jpg" alt="mind-9" /></p>
+<h3 id="Mind%2B-%E4%B8%AD%E5%9B%BA%E4%BB%B6%E7%83%A7%E5%BD%95%E9%80%BB%E8%BE%91%E8%AF%B4%E6%98%8E">Mind+ 中固件烧录逻辑说明</h3>
+<p>选择 Maixduino 的 COM 口之后，软件会检测板子中是否有固件，如果有固件（不论是 Mind+ 内置的固件或第三方均为有固件）则连接终端开始使用，如果没有则自动烧录固件选择区所选择的固件。</p>
+<h3 id="%E5%9B%A0%E6%AD%A4%E5%A6%82%E6%9E%9C%E9%9C%80%E8%A6%81%E7%83%A7%E5%BD%95%E7%AC%AC%E4%B8%89%E6%96%B9%E5%9B%BA%E4%BB%B6%EF%BC%8C%E6%93%8D%E4%BD%9C%E6%96%B9%E6%B3%95%E4%B8%BA%EF%BC%9A">因此如果需要烧录第三方固件，操作方法为：</h3>
+<ol>
+<li>选择 Maixduino 的 COM 口，选择恢复设备初始设置（这个功能会擦除板子 flash 固件会被擦除）.</li>
+<li>在选择固件处点击本地加载，加载想烧录的第三方固件文件，然后点击加载的固件，然后再次选择 Maixduino 的 COM 口，此时因为固件被擦除了就会烧录这个新的固件，等待烧录完成即可。</li>
+<li>注意：因 Mind+ 积木生成的代码是固定的，因此如果烧录了第三方固件可能会出现部分功能无法使用（例如引脚映射文件在新的固件下没有会出错）此时可以使用手动编辑功能直接使用代码，如果继续想使用图形化，则可以使用开放扩展库自己写图形化积木扩展实现，教程<a href="https://mindplus.dfrobot.com.cn/extensions-user"  target="_blank">点击</a>.</li>
+</ol>
+<p><img src="assets/mind-10.jpg" alt="mind-10" /></p>
+<h3 id="%E5%90%8C%E7%90%86%E5%A6%82%E6%9E%9C%E8%A6%81%E4%BB%8E%E7%AC%AC%E4%B8%89%E6%96%B9%E5%9B%BA%E4%BB%B6%E5%88%87%E6%8D%A2%E4%B8%BA-Mind%2B-%E5%86%85%E7%BD%AE%E5%9B%BA%E4%BB%B6%EF%BC%8C%E6%93%8D%E4%BD%9C%E6%96%B9%E6%B3%95%E4%B8%BA%EF%BC%9A">同理如果要从第三方固件切换为 Mind+ 内置固件，操作方法为：</h3>
+<ol>
+<li>选择 Maixduino 的 COM 口，选择恢复设备初始设置（这个功能会擦除板子 flash，固件会被擦除）。</li>
+<li>在选择固件处点击官方固件，然后再次选择 Maixduino 的 COM 口，此时因为固件被擦除了就会烧录 Mind+ 内置的官方固件，等待烧录完成即可。</li>
+</ol>
+<p><img src="assets/mind-11.jpg" alt="mind-11" /></p>
+<h2 id="%E6%95%99%E7%A8%8B">教程</h2>
+<p><strong>社区用户驴友花雕的系列教程</strong></p>
+<ul>
+<li><a href="https://makelog.dfrobot.com.cn/article-311386.html"  target="_blank">【花雕测评】【AI】Mind+文字图片显示、呼吸灯及网络应用的22项小实验</a></li>
+<li><a href="https://makelog.dfrobot.com.cn/article-311405.html"  target="_blank">【花雕测评】【AI】Mind+机器视觉之数字图像处理和显示的22种小测试</a></li>
+<li><a href="https://makelog.dfrobot.com.cn/article-311417.html"  target="_blank">【花雕测评】【AI】Mind+机器视觉之颜色、维码与形状识别的8个小实验</a></li>
+</ul>
+<p><strong>社区用户 hockel 的系别教程</strong></p>
+<ul>
+<li><a href="https://mc.dfrobot.com.cn/thread-307857-1-1.html"  target="_blank">【mind+ 玩转MAIXDUINO 系列0】 工欲善其事，必先利其器</a></li>
+<li><a href="https://mc.dfrobot.com.cn/thread-307857-1-1.html"  target="_blank">【Mind+ 玩转Maixduino系列1】你好，世界</a></li>
+<li><a href="https://mc.dfrobot.com.cn/thread-308037-1-1.html"  target="_blank">【mind+ Maixduino用户库】NES 游戏扩展库 【mind+ 用户库】Maixduino 中文字模、图片英文显示</a></li>
+</ul>
+<p><strong>社区用户 DFByaoZQN5E 的系列教程</strong></p>
+<ul>
+<li><a href="https://mc.dfrobot.com.cn/thread-307820-1-1.html"  target="_blank">[教程]mind+ k210主板第一课 hello word!</a></li>
+<li><a href="https://mc.dfrobot.com.cn/thread-307850-1-1.html"  target="_blank">[教程]mind+ k210主板第二课 gpio(1)</a></li>
+<li><a href="https://mc.dfrobot.com.cn/thread-307877-1-1.html"  target="_blank">[教程]mind+ k210 第三课 gpio (2)</a></li>
+<li><a href="https://mc.dfrobot.com.cn/thread-307969-1-1.html"  target="_blank">[教程]mind+ k210 第四课 gpio (3)</a></li>
+</ul>
+<p><strong>社区用户肥罗-阿勇的教程</strong></p>
+<ul>
+<li><a href="https://mc.dfrobot.com.cn/thread-307946-1-1.html"  target="_blank">Mind+Maixduino应用案例集合</a></li>
+</ul>
+<p><strong>社区用户 hmilycheng 的系列教程</strong></p>
+<ul>
+<li><a href="https://makelog.dfrobot.com.cn/article-311375.html"  target="_blank">Maixduino轻松学系列 —— （1）初识Maixduino</a></li>
+<li><a href="https://makelog.dfrobot.com.cn/article-311392.html"  target="_blank">Maixduino轻松学系列 —— （2）Mind+带你畅玩经典红白机游戏</a></li>
+<li><a href="https://makelog.dfrobot.com.cn/article-311401.html"  target="_blank">Maixduino轻松学系列 —— （3）基于Mind+的简易NTP网络时钟</a></li>
+<li><a href="https://makelog.dfrobot.com.cn/article-311411.html"  target="_blank">Maixduino轻松学系列 —— （4）基于Mind+的图像识别：人脸检测</a></li>
+<li><a href="https://makelog.dfrobot.com.cn/article-311418.html"  target="_blank">Maixduino轻松学系列 —— （5）有屏幕的地方就有BAD APPLE</a></li>
+<li><a href="https://makelog.dfrobot.com.cn/article-311420.html"  target="_blank">Maixduino轻松学系列 —— （6）基于ASR语音识别控制红绿灯</a></li>
+<li><a href="https://makelog.dfrobot.com.cn/article-311425.html"  target="_blank">Maixduino轻松学系列 —— （7）超声波传感器的认识与使用</a></li>
+</ul>
+<h2 id="%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9-%26amp%3B-FAQ">注意事项 &amp; FAQ</h2>
+<ol start="0">
+<li>断电重启之后，按一下板子上的 RESET 键即可启动程序。</li>
+<li>如果是首次使用需要选择 ESP32 (网卡)的 COM 口然后选择恢复设备初始设置功能更新网卡，否则可能会出现模拟输入功能没有读值的情况。</li>
+<li>涉及到 SD 卡读取或存储的操作，需要插入内存卡（断电后插拔内存卡）才可正常使用。</li>
+</ol>
+<p><img src="assets/mind-13.jpg" alt="mind-13" /><br />
+<img src="assets/mind-12.jpg" alt="mind-12" /><br />
+3. 不支持的硬件可以使用用户库功能自行添加，详情查看官方文档中自定义用户库教程。<br />
+4. 人工智能项目需要导入模型文件，请将模型文件拷贝到内存卡目录下。<br />
+<a href="https://pan.baidu.com/share/init?surl=dTB0UHRKVrCtS4cMrxgDhQ"  target="_blank">下载连接</a> 提取码：mind<br />
+5. 注意变量名字不要与内置的库名字重复，例如不要命名变量为 image<br />
+<img src="assets/mind-14.jpg" alt="mind-14" /></p>
+<ol start="6">
+<li>FAQ</li>
+</ol>
+<table>
+<thead>
+<tr>
+  <th style="text-align:left">问题</th>
+  <th style="text-align:left">解决思路</th>
+  <th style="text-align:left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td style="text-align:left">在执行有模型的 AI 程序时出现 out of memory 或者 memory not enough 等内存不足的错误怎么办？</td>
+  <td style="text-align:left">程序使用的模型对应的固件可能不是 Mind+ 内置的，尝试找到对应的固件或<a href="https://mc.dfrobot.com.cn/thread-308995-1-1.html"  target="_blank">寻找maixpy的固件</a>。</td>
+  <td style="text-align:left"></td>
+</tr>
+<tr>
+  <td style="text-align:left">报错 kpu: img w=xxx,h=xxx, but model w=xxx,h=xxx kpu: check img format err! 怎么办？</td>
+  <td style="text-align:left">使用的 kmodel 模型文件训练的时候的分辨率与程序中使用的摄像头分辨率不同，尝试修改相机设置窗口。</td>
+  <td style="text-align:left"></td>
+</tr>
+<tr>
+  <td style="text-align:left">提示 no module named 'pin' 错误怎么办？</td>
+  <td style="text-align:left">说明固件不是 Mind+ 中的，如果需要使用 Mind+ 内置固件，则选择 Maixduino 的 COM 口,恢复设备初始设置擦除固件，然后断开再次连接即会自动刷入 Mind+ 提供的固件。如果依然要使用非 Mind+ 内置固件，则需要导入对应依赖库，<a href="https://mc.dfrobot.com.cn/thread-309510-1-1.html"  target="_blank">点击查看教程</a>。</td>
+  <td style="text-align:left"></td>
+</tr>
+<tr>
+  <td style="text-align:left">使用 WiFi 连接功能时提示 hard spi Get version fail hard spi 或卡住怎么办？<br><img src="assets/mind-15.jpg" alt="mind-15" /></td>
+  <td style="text-align:left">用到网络功能时需要插上内存卡再使用。</td>
+  <td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                    </div>
+                    <div id="next">
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>相关链接</a><ul><li><a target="_blank" href="https://www.sipeed.com">Sipeed 官网</a></li>
+<li><a target="_blank" href="https://maixhub.com/">MaixHub</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">Sipeed 淘宝</a></li>
+<li><a  href="/sitemap.xml">网站地图</a></li>
+<li><a target="_blank" href="https://github.com/teedoc/teedoc">网站使用 teedoc 生成</a></li>
+</ul>
+</li>
+<li><a>源码</a><ul><li><a target="_blank" href="https://github.com/sipeed/sipeed_wiki">Wiki 源码</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">开源项目</a></li>
+</ul>
+</li>
+<li><a>关注我们</a><ul><li><a target="_blank" href="https://twitter.com/SipeedIO">twitter</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">淘宝</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">github</a></li>
+<li><a><a>微信公众号</a><img src='/static/image/wechat.png'></a>
+</li>
+</ul>
+</li>
+<li><a>联系我们</a><ul><li><a>电话: +86 0755-27808509</a>
+</li>
+<li><a>商业支持: support@sipeed.com</a>
+</li>
+<li><a>地址: 深圳市宝安区新湖路4008号蘅芳科技办公大厦A座-2101C</a>
+</li>
+<li><a  href="/join_us.html">加入我们</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://www.sipeed.com">©2018-2023 深圳矽速科技有限公司</a></li>
+<li><a target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index">粤ICP备19015433号</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/js/prism.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <link rel="stylesheet" href="/static/js/add_hint/style.css" type="text/css"/>
+    
+        <script src="/static/js/add_hint/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+        <script src="/static/js/thumbs_up/main.js"></script>
+    
+</body>
+
+</html>
