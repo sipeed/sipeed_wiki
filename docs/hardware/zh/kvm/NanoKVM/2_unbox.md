@@ -11,7 +11,7 @@ update:
 
 ## 开箱
 
-![](./../assets/NanoKVM/2_unbox/unbox_0.jpg)
+![](./../assets/NanoKVM/2_unbox/unbox_0.png)
 
 Full版包含Nano KVM（带外壳，带卡）、KVM-B板、USB A to C 线 *2、杜邦线
 
@@ -25,13 +25,13 @@ NanoKVM-Full版接口示意图如下：
 
 + 一条HDMI（标准尺寸）连接远程主机和 NanoKVM 的 HDMI 接口
 
-  ![](./../assets/NanoKVM/2_unbox/unbox_3.jpg)
+  ![](./../assets/NanoKVM/2_unbox/unbox_3.png)
 
 + 使用网线连接路由器/交换机与 NanoKVM
 
 + 再使用一条 USB C to A 数据线连接 KVM-B 板和 NanoKVM 的 ATX 接口
 
-  ![](./../assets/NanoKVM/2_unbox/unbox_4.jpg)
+  ![](./../assets/NanoKVM/2_unbox/unbox_4.png)
 
   KVM-B板与主机9针接口连线如下图，双排排针上下联通，另一排可连接机箱的开机按键、Power LED 等接口
 
