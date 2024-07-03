@@ -1,5 +1,5 @@
 ---
-title: LicheeRV Nano
+title: Firmware
 keywords: NanoKVM, Remote desktop, Lichee, PiKVM, RISCV, tool
 update:
   - date: 2024-6-21
