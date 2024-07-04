@@ -366,10 +366,12 @@ items:
             file: kvm/NanoKVM/1_intro.md
         -   label: Unboxing Experience
             file: kvm/NanoKVM/2_unbox.md
+        -   label: User Guide
+            file: kvm/NanoKVM/3_user_guide.md
         -   label: Update Firmware
-            file: kvm/NanoKVM/3_firmware.md
+            file: kvm/NanoKVM/4_firmware.md
         -   label: FAQ
-            file: kvm/NanoKVM/4_faq.md
+            file: kvm/NanoKVM/5_faq.md
 # -   label: Maix Audio
 #     items:
 #     -   label: MA USB 16

@@ -383,14 +383,16 @@ items:
     items:
     -   label: Lichee Nano KVM
         items:
-        -   label: Introduction
+        -   label: 简介
             file: kvm/NanoKVM/1_intro.md
-        -   label: Unboxing Experience
+        -   label: 快速开始
             file: kvm/NanoKVM/2_unbox.md
-        -   label: Update Firmware
-            file: kvm/NanoKVM/3_firmware.md
+        -   label: 用户指南
+            file: kvm/NanoKVM/3_user_guide.md
+        -   label: 应用更新&固件烧录
+            file: kvm/NanoKVM/4_firmware.md
         -   label: FAQ
-            file: kvm/NanoKVM/4_faq.md
+            file: kvm/NanoKVM/5_faq.md
 # -   label: Maix Audio
 #     items:
 #     -   label: MA USB 16
