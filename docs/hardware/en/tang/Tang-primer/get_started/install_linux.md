@@ -9,19 +9,19 @@ But we need it to development tang primer
 IDE File name :  `TD_5.0.3_28716_NL_Linux.zip`
 License file：`Anlogic_20230606.lic`
 
-After finising downloading, new a terminal and cd into where we extract `TD_5.0.3_28716_NL_Linux.zip ` and rename the license file Anlogic_20230606.lic to Anlogic.lic, then move the license file to the TD5.0.28716\license folder in the extract path.
+After finishing downloading, new a terminal and cd into where we extract `TD_5.0.3_28716_NL_Linux.zip ` and rename the license file Anlogic_20230606.lic to Anlogic.lic, then move the license file to the TD5.0.28716\license folder in the extract path.
 
 ```bash
 cd <Application path >
 ```
 
-The /opt directory is reserved for all software and add-on packages that are not installed by default in Linux system, so we new a dirctionary for TD.
+The /opt directory is reserved for all software and add-on packages that are not installed by default in Linux system, so we new a directory for TD.
 
 ```bash
 sudo mkdir /opt/TD_DECEMBER2018
 ```
 
-Extract TD into /opt/TD_DECEMBER2018 dirctionary
+Extract TD into /opt/TD_DECEMBER2018 directory
 
 ```bash
 sudo tar -xvf  TD_5.0.3_28716_NL_Linux.zip -d /opt/TD_DECEMBER2018/
@@ -66,10 +66,10 @@ Go to <TD installation directory>/bin/ and execute the following command to open
 ./td -gui
 ```
 
-Plugin Tang Primer into your computer and hit Refresh buttion on Download Dialog box.
+Plugin Tang Primer into your computer and hit Refresh button on Download Dialog box.
 ![](./../../../../zh/tang/Tang-primer/get_started/assets/td_linux_gui.jpg)
 
-Plugin Tang Primer into your computer and hit Refresh buttion on Download Dialog box.
+Plugin Tang Primer into your computer and hit Refresh button on Download Dialog box.
 ![](./../../../../zh/tang/Tang-primer/get_started/assets/refresh.jpg)
 
 > Due to some unknown bug, JTAG only works with 400kbps or lower speed.

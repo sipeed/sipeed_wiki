@@ -41,7 +41,7 @@ Visit [balenaEtcher](https://www.balena.io/etcher/) to download application. We 
 
 ### Flash System
 
-Prepare a SD card over 8G, the card with better performance can have better experienxe.
+Prepare a SD card over 8G, the card with better performance can have better experience.
 
 Connect the TF card with computer by SD card reader or SD card slot in the computer. Here is an example about SD card slot in computer, if your computer dose not have SD card slot, you need the SD card reader.
 

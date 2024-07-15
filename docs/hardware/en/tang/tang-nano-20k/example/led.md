@@ -138,7 +138,7 @@ reg IO_voltage_reg = 1'b0; // Initial state
 
 always @(posedge Clock) begin
     if ( count_value_flag )  //  Flip flag 
-        IO_voltage_reg <= ~IO_voltage_reg; // IO voltage filp
+        IO_voltage_reg <= ~IO_voltage_reg; // IO voltage flip
     else //  No flip flag
         IO_voltage_reg <= IO_voltage_reg; // IO voltage constant
 end
@@ -157,7 +157,7 @@ module led(
 parameter count_value       = 13_499_999; // The number of times needed to time 0.5S
 
 reg [23:0]  count_value_reg ; // counter_value
-reg         count_value_flag; // IO chaneg flag
+reg         count_value_flag; // IO change flag
 
 always @(posedge Clock) begin
     if ( count_value_reg <= count_value ) begin //not count to 0.5S
@@ -175,7 +175,7 @@ reg IO_voltage_reg = 1'b0; // Initial state
 
 always @(posedge Clock) begin
     if ( count_value_flag )  //  Flip flag 
-        IO_voltage_reg <= ~IO_voltage_reg; // IO voltage filp
+        IO_voltage_reg <= ~IO_voltage_reg; // IO voltage flip
     else //  No flip flag
         IO_voltage_reg <= IO_voltage_reg; // IO voltage constant
 end
@@ -208,11 +208,11 @@ Since this is the first time we create it, the following dialog box will pop up.
 
 ![create_constrain_file](./../../../../zh/tang/tang-primer-20k/examples/assets/led_assets/create_constrain_file.png)
 
-![floorplanner_intreface](./../../../../zh/tang/tang-nano-20k/assets/led/nano_20k_floorplanner_interface.png)
+![floorplanner_interface](./../../../../zh/tang/tang-nano-20k/assets/led/nano_20k_floorplanner_interface.png)
 
 The ways to constraint the file can be get from this docs: [SUG935-1.3E_Gowin Design Physical Constraints User Guide.pdf](https://dl.sipeed.com/fileList/TANG/Nano%209K/6_Chip_Manual/EN/General%20Guide/SUG935-1.3E_Gowin%20Design%20Physical%20Constraints%20User%20Guide.pdf)
 
-Here we only use the IO Constranins method shown below to constrain the pins:
+Here we only use the IO Constrains method shown below to constrain the pins:
 
 ![floor_planner_ioconstrain](./../../../../zh/tang/tang-primer-20k/examples/assets/led_assets/floor_planner_ioconstrain.png)
 
@@ -224,7 +224,7 @@ Here we only blink LED0, and we can see it's connected with FPGA PIN15.
 
 ![nano_20k_led_port](./../../../../zh/tang/tang-nano-20k/assets/led/nano_20k_led_port.png)
 
-So for the IO Constranins under the FloorPlanner interactive window, we fill in the following values for PORT and Location:：
+So for the IO Constrains under the FloorPlanner interactive window, we fill in the following values for PORT and Location:：
 
 ![nano_20k_io_constrain_value](./../../../../zh/tang/tang-nano-20k/assets/led/nano_20k_io_constrain_value.png)
 
@@ -236,7 +236,7 @@ Then we see there is a .cst file in our project, and its content are easy to und
 
 ### Place & Route
 
-After finishing constrainting, we run Place & Route. The purpose is to synthesize the generated netlist and our defined constraints to calculate the optimal solution through IDE, then allocate resources reasonably on the FPGA chip.
+After finishing constraining, we run Place & Route. The purpose is to synthesize the generated netlist and our defined constraints to calculate the optimal solution through IDE, then allocate resources reasonably on the FPGA chip.
 
 Double click Place&Route marked with red box to run.
 
@@ -287,7 +287,7 @@ Here we finished downloading into SRAM。
 Burnning into sram is used for verifying biststream, but can't store program.
 If we want to run application at startup, we need to burn into flash.
 
-This steps are similar to the steps above of burnning to SRAM.
+This steps are similar to the steps above of burning to SRAM.
 
 Click the function box below Operation to open the device configuration interface, then select the External Flash Mode in the Access Mode to burn into external Flash. Finally click the three dots below to select the.fs we generated to download the firmware. Choose the three dots box below to select our generated `.fs` bitstream file. Generally speaking, bitstream firmware file is in the impl -> pnr directory. Finally, select the Generic Flash device from the following external Flash options.
 

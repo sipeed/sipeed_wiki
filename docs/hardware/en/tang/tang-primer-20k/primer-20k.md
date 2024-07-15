@@ -103,7 +103,7 @@ Buy it: [Aliexpress](https://www.aliexpress.com/item/1005004653308809.html)
 			<td style="text-align:left"></td>
 		</tr>
 		<tr>
-			<td style="text-align:left">Avaliable IO</td>
+			<td style="text-align:left">Available IO</td>
 			<td style="text-align:left">117</td>
 			<td style="text-align:left"></td>
 		</tr>
@@ -335,7 +335,7 @@ In this case, the default reason is that the wrong Dual-Purpose pin is enabled a
 
 Besides, if you have dock ext-board, this can be solved by the enable pin of dip switch. Here art the steps
 
-Firstlt, enable the core board, put the 1 switch on the dip switch down, then do something (like burnning fpga or erasing FPGA) in Programmer application, when the progress bar shows, switch the 1 switch on the dip switch up and down, after which you will find the progress bar works and finish your operations on fpga.
+Firstlt, enable the core board, put the 1 switch on the dip switch down, then do something (like burning fpga or erasing FPGA) in Programmer application, when the progress bar shows, switch the 1 switch on the dip switch up and down, after which you will find the progress bar works and finish your operations on fpga.
 
 <table>
 	<tr>

@@ -25,7 +25,7 @@ Lichee RV - Nezha CM is a compute module with modular design, equipped with Allw
 | Led                  | • A power led <br>• A user led (active high)                                                                                                                                                                                      |
 | PCB                  | 4 layers                                                                                                                                                                                                                          |
 | Fixed<br> way        | Connect the core board and bottom board by two sets of M.2B connecting finger and fasten with a M2 screw                                                                                                                          |
-| Development lanuguge | C/C++, Python, Golang, etc...                                                                                                                                                                                                     |
+| Development language | C/C++, Python, Golang, etc...                                                                                                                                                                                                     |
 | System Mirrors       | Tina Linux (Based on OpenWRT 14.07), Debian, YoC (RTOS )                                                                                                                                                                         |
 
 ![](./../assets/RV/D1-pin.png)

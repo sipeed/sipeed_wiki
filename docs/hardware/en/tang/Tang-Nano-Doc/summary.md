@@ -2,10 +2,10 @@
 title: Tang Nano
 ---
 
-Tang Nano series development boards are designed based on [Gowin](https://www.gowinsemi.com/en/) FPGA chip. Mutiple models of development board meets various requirements. 
+Tang Nano series development boards are designed based on [Gowin](https://www.gowinsemi.com/en/) FPGA chip. Multiple models of development board meets various requirements. 
 - Tang nano 1K with a extremely low price can lead user into FPGA fields
 - Tang nano 4K with a Cortex m3 hardcore, almost the cheapest heterogeneous core board
-- Tang nano 9K with rich logic units can be used to verify Riscv core 
+- Tang nano 9K with rich logic units can be used to verify RISC-V core 
 
 ## Comparation
 

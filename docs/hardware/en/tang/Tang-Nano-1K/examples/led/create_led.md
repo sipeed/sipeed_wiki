@@ -9,7 +9,7 @@ From this essay we can learn the basic usage of Gowin IDE
 Create Project：File-->NEW-->FPGA Dsign Project-->OK
 ![](./../../../../../zh/tang/Tang-Nano/assets/LED-1.png)
 
-Set project name and project path (File name and project path shoule be English)
+Set project name and project path (File name and project path should be English)
 ![](./../../../../../zh/tang/Tang-Nano/assets/LED-2.png)
 
 Choose correct device: 
@@ -18,7 +18,7 @@ Choose correct device:
 ## Prepare codes
 
 After creating project, we can start editing codes. 
-To creat a new file, we can click where the arrow points to in the picture or use shortcut key Ctrl+N.
+To create a new file, we can click where the arrow points to in the picture or use shortcut key Ctrl+N.
 Then choose Verilog File in the pop-up window.
 ![](./../../../../../zh/tang/Tang-Nano/assets/LED-5.png)
 

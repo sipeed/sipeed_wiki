@@ -78,7 +78,7 @@ Because of the FPIOA feature of K210, each peripheral can be mapped to any pin. 
 
 ### Burn firmware
 
-Go to [Download station](https://dl.sipeed.com/shareURL/MAIX/MaixPy/release/master) to download firmware, download the defalut firmware described in [Firmware naming instructions](https://wiki.sipeed.com/soft/maixpy/en/get_started/upgrade_maixpy_firmware.html#Get-the-firmware) .
+Go to [Download station](https://dl.sipeed.com/shareURL/MAIX/MaixPy/release/master) to download firmware, download the default firmware described in [Firmware naming instructions](https://wiki.sipeed.com/soft/maixpy/en/get_started/upgrade_maixpy_firmware.html#Get-the-firmware) .
 
 
 ### Micropython Code
@@ -102,7 +102,7 @@ mic.deinit()
 
 ```
 
-According to the pin number of your own connection, `init(i2s_d0=23, i2s_d1=22, i2s_d2=21, i2s_d3=20, i2s_ws=19, i2s_sclk=18, sk9822_dat=24, sk9822_clk=25) `. For example, if the `MIC_D0` on the microphone array is connected to the pin labeled 25 on the K210 board, then the corresponding parameter in this code needs to be changed to `i2s_d0=25`, the other seven pins should be changed by the same way. Since configuration of everyone is different, there are no identical connection instructions for using jumper wires, modify the pin parameters individually, and don't forget to delete the commect before `mic.init(...). `(just delete `#`).
+According to the pin number of your own connection, `init(i2s_d0=23, i2s_d1=22, i2s_d2=21, i2s_d3=20, i2s_ws=19, i2s_sclk=18, sk9822_dat=24, sk9822_clk=25) `. For example, if the `MIC_D0` on the microphone array is connected to the pin labeled 25 on the K210 board, then the corresponding parameter in this code needs to be changed to `i2s_d0=25`, the other seven pins should be changed by the same way. Since configuration of everyone is different, there are no identical connection instructions for using jumper wires, modify the pin parameters individually, and don't forget to delete the comment before `mic.init(...). `(just delete `#`).
 
 > Make sure not use the pin which has been used for peripherals(Like camera pins or lcd pins should not bu used for this micarray pin), which will make amazing error.
 

@@ -214,7 +214,7 @@ port: 10559
 
 if the ip not work, try use "gowinlic.sipeed.com" domain's IP.
 
-if you don't want to apply for a licence, you can  choose the education version IDE. The education version IDE can be used without a licence, but it usually only contains a limited number of IPs.
+if you don't want to apply for a license, you can  choose the education version IDE. The education version IDE can be used without a license, but it usually only contains a limited number of IPs.
 
 Install IDE [Click me](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/get_started/install-the-ide.html)
 
