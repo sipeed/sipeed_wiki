@@ -36,7 +36,7 @@ Get it:
 | Sound pressure level | 140 dB SPL |
 | Sensitivity | -26(dB,dBFS @1kHz 1Pa) |
 | Signal noise ratio | 57 dB (20kHz bandwidth,A-weighted) <br>THD<1% (100dB SPL @1kHz S=Nom,Rload>2k ) |
-| Clock frequenxy | 1.0-4.0Mhz(Normal mode) <br>150-800khz(Low energy mode) |
+| Clock frequency | 1.0-4.0Mhz(Normal mode) <br>150-800khz(Low energy mode) |
 
 ## Pin definition
 

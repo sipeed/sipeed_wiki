@@ -178,7 +178,7 @@ We mainly use `BLDevCube`, `BLDevCube-macos` and `BLDevCube-ubuntu` these three 
 
 ![application](./../../../../zh/maix/m1s/other/assets/start/application.png)
 
-And there are `bflb_iot_tool`、`bflb_iot_tool-macos`、`bflb_iot_tool-ubuntu` three applications, with which we can burn this board via commad line.
+And there are `bflb_iot_tool`、`bflb_iot_tool-macos`、`bflb_iot_tool-ubuntu` three applications, with which we can burn this board via command line.
 
 #### Burn via graphical interface
 
@@ -201,9 +201,9 @@ The firmware file for E907 or C906 can be gotten by compiling [M1s_dock example]
 
 First time burning, both `firmware` and `boot2` are needed, after this you just need tick what you want to burn not all.
 
-The default old firmware can be downloaded [here](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmware/factory), and the newest firmware is not frovided any more. [Click me](https://wiki.sipeed.com/hardware/en/maix/m1s/other/start.html#Old-firmware-test) to see the old factory firmware details.
+The default old firmware can be downloaded [here](https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmware/factory), and the newest firmware is not provided any more. [Click me](https://wiki.sipeed.com/hardware/en/maix/m1s/other/start.html#Old-firmware-test) to see the old factory firmware details.
 
-After choose the firmware, click the `Refresh` in the righr to refresh the serial port, then we can see 2 serial ports. If there are not 2 serial ports, visit [Burn onboard bl702](https://wiki.sipeed.com/hardware/en/maix/m1s/other/start.html#Burn-onboard-bl702) to solve this. We choose the bigger number serial port, and set uartrate 2000000 .
+After choose the firmware, click the `Refresh` in the righr to refresh the serial port, then we can see 2 serial ports. If there are not 2 serial ports, visit [Burn onboard bl702](https://wiki.sipeed.com/hardware/en/maix/m1s/other/start.html#Burn-onboard-bl702) to solve this. We choose the bigger number serial port, and set uart rate 2000000 .
 
 ![burn_steps](./../../../../zh/maix/m1s/other/assets/start/burn_steps.png)
 
@@ -242,7 +242,7 @@ Of course, make sure you have made this board into UART burning mode: Press BOOT
 
 ![command_burn_flash](./../../../../zh/maix/m1s/other/assets/start/command_burn_flash.jpg)
 
-After burning these, you can burn the bin file for C906 core according to [Burn via u-disk](https://wiki.sipeed.com/hardware/en/maix/m1s/other/start.html#Burn-via-u-disk). You can also burn this board based on the adderss, from `partition_cfg_16M_m1sdock.toml` file you can know the burn address and modify it.
+After burning these, you can burn the bin file for C906 core according to [Burn via u-disk](https://wiki.sipeed.com/hardware/en/maix/m1s/other/start.html#Burn-via-u-disk). You can also burn this board based on the address, from `partition_cfg_16M_m1sdock.toml` file you can know the burn address and modify it.
 
 ### Troubles when burning
 
@@ -353,7 +353,7 @@ M1s can be compiled in Linux.
 
 ### Preparation
 
-We need `git` to get the SDK complie envorioument, and use `make` to compile SDK, `tree` is also need to be installed to check the directory structure.
+We need `git` to get the SDK compile environment, and use `make` to compile SDK, `tree` is also need to be installed to check the directory structure.
 
 The following command can be used in debian Linux distribution like Ubuntu to install the three softwares mentioned above.
 
@@ -435,7 +435,7 @@ sipeed@DESKTOP:~$ tree -L 2
 
 ### Set toolchain path
 
-Everytime compling for M1s, we need to set toolchain path once.
+Every time compiling for M1s, we need to set toolchain path once.
 
 First we need to know the path of `M1s_BL808_SDK`:
 
@@ -445,7 +445,7 @@ sipeed@DESKTOP:~/M1s_BL808_SDK$ pwd
 /home/lee/bl808/M1s_BL808_SDK
 ```
 
-We copy the result (the result of everyone is different) of `pwd` command, then run following commamd to set toolchain path.
+We copy the result (the result of everyone is different) of `pwd` command, then run following command to set toolchain path.
 
 ```bash
 export BL_SDK_PATH=/home/lee/bl808/M1s_BL808_SDK
@@ -506,7 +506,7 @@ Then the compiled bin file is in M1s_BL808_example/e907_app/build_out folder, an
 
 2. Failed compiling
 
-When compiling your firmware, make sure your command is `./build.sh demo_name`, like  `./build.sh hello_world`, not `./build.sh hello_world/` (pay atention to the end symbol `/`)
+When compiling your firmware, make sure your command is `./build.sh demo_name`, like  `./build.sh hello_world`, not `./build.sh hello_world/` (pay attention to the end symbol `/`)
 
 ## WIFI stream DEMO
 

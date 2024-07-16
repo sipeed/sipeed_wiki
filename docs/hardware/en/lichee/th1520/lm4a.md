@@ -36,7 +36,7 @@ The LicheePi 4A Module is the Core Module using the [T-Head](https://www.t-head.
 </tr>
 <tr>
   <td>NPU</td>
-  <td>Support 4TOPS@INT8, up to 1GHz <br>· Support TensorFlow、ONNX、Caffe <br>· Support CNN、RNN、DNN </td>
+  <td>Support 4TOPS@INT8, up to 1GHz <br>· Support TensorFlow, ONNX, Caffe <br>· Support CNN, RNN, DNN </td>
 </tr>
 <tr>
   <td>Decode</td>

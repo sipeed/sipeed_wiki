@@ -1,6 +1,6 @@
 ---
 title: Questions&Answers
-keywords: debian, Rv, Problam, apt, img, sipeed
+keywords: debian, Rv, Problem, apt, img, sipeed
 ---
 
 ## Apt trouble
@@ -35,7 +35,7 @@ Then run `sudo apt-get update` to update apt.
 
 ## 86 panel screen no display/ display wrong
 
-Here we need use corresopnding fex file to overwrite the board-level configuration by using following command in linux system 
+Here we need use corresponding fex file to overwrite the board-level configuration by using following command in linux system 
 Download fex file here https://dl.sipeed.com/shareURL/LICHEE/D1/Lichee_RV/SDK/board
 Overwrite command:
 ```bash

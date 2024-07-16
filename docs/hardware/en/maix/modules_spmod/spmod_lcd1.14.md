@@ -10,7 +10,7 @@ SPMOD_LCD1.14(1.14 inch LCD) uses ST7735S TFT LCD.
 ## SPMOD - LCD1.14 Introduction
 
 - Using **Sipeed-SPMOD** interface(2.54mm * 8PIN )，unified MaixPy board interface
-- Using commom LCD driver IC ST7735S(4-wire SPI communicate)
+- Using common LCD driver IC ST7735S(4-wire SPI communicate)
 - Display Resolution:240\*135
 - Size:35.0\*20.0mm
 
@@ -214,5 +214,5 @@ The following parameters need to be modified.
 | Sipeed model shop | [https://maixhub.com/](https://maixhub.com/) |
 | SDK Relevant information | [dl.sipeed.com/MAIX/SDK](dl.sipeed.com/MAIX/SDK) |
 | HDK Relevant information | [dl.sipeed.com/MAIX/HDK](dl.sipeed.com/MAIX/HDK) |
-| E-mail(Technical Support and Business Cooperation) | [Support@sipeed.com](mailto:support@sipeed.com) |
-| telgram link | [https://t.me/sipeed](https://t.me/sipeed) |
+| E-mail(Technical Support and Business Cooperation) | [support@sipeed.com](mailto:support@sipeed.com) |
+| Telegram link | [https://t.me/sipeed](https://t.me/sipeed) |

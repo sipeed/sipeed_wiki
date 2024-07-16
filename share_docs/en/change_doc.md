@@ -13,7 +13,7 @@ So if you find something wrong or incorrect, you can edit this page.
 ![](./../assets/3.png)
 The content may show as below, just correct what you think need to be changed. 
 ![](./../assets/4.png)
-5. Pull requset after your finishing editing and add the reason why change it.   
+5. Pull request after your finishing editing and add the reason why change it.   
 ![](./../assets/5.png)
 
 We will merge request if ok.

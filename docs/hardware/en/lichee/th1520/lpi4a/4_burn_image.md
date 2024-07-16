@@ -23,7 +23,7 @@ The following burning method takes Debian single-screen image `LPI4A_20230721.zi
 
 ### Get the burning tool
 The burning tool can be obtained from the Mega cloud disk and is found in the `burn_tool.zip` file.
-After decompresseion the fastboot binary is found in the win/linux/mac subfolders.
+After decompression the fastboot binary is found in the win/linux/mac subfolders.
 **Note:** Images from 20231023 and later versions have added support for burning large image files, which require using the latest version of fastboot. You can find the latest version of fastboot in the [cloud disk link](https://mega.nz/folder/phoQlBTZ#cZeQ3qZ__pDvP94PT3_bGA). The file name is `burn_tools_support_bigimage.zip`.
 
 ## How to enter burning mode

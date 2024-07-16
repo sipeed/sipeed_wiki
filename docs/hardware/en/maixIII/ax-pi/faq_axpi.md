@@ -2,7 +2,7 @@
 title: Maix-III AXera-Pi Q&A
 ---
 
-## Q：Device not work
+## Q：Device does not work
 
 A: Try to plug both 2 USB on m3axpi, by this m3axpi can get enough power to boot. m3axpi comsume 5V*1A maximum.
 
@@ -31,7 +31,7 @@ A：Up to now we only provide screen with 5 inches, and for other screens you ne
 
 ## Q：Error `locale.Error: unsupported locale setting !` when running `xxxx menuconfig`
 
-A: Run `sudo localedef -i en_US -f UTF-8 en_US.UTF-8` to restore the configuration to slove this.
+A: Run `sudo localedef -i en_US -f UTF-8 en_US.UTF-8` to restore the configuration to solve this.
 
 ## Q：Error `VCEncInit:ERROR codecFormat NOT support by HW !` when running `IPC ODM`
 
@@ -66,7 +66,7 @@ A：This happens when data in the tf card system is broken because of the bad qu
 
 ## Q：No eth0 ip address after running `ifconfig -a`
 
-A：There is no ip address if the ethernet is not connected to the Internet, check your ethernet connection. Or use command `dhclient eth0` to get the ip address mannaly or visit [config eth0](https://wiki.sipeed.com/hardware/en/maixIII/ax-pi/flash_system.html#Connect-by-Ethernet) to know more.
+A：There is no ip address if the ethernet is not connected to the Internet, check your ethernet connection. Or use command `dhclient eth0` to get the ip address manually or visit [config eth0](https://wiki.sipeed.com/hardware/en/maixIII/ax-pi/flash_system.html#Connect-by-Ethernet) to know more.
 
 ## Q：Device not found after running uvc
 
@@ -142,7 +142,7 @@ The connector direction of camera changed, make sure the `1` on the connector of
 
 ### Change of screen
 
-We change the screen into new version, and the dafalut image use the latest version screen, see following photo to know your screen version, and for pervious version screen if need to run command `cp /boot/dtb.img.lcd20220830 dtb.img` to apply the hardware. Read [wrong display](#qscreen-display-wrong) to know more.
+We change the screen into new version, and the default image use the latest version screen, see following photo to know your screen version, and for pervious version screen if need to run command `cp /boot/dtb.img.lcd20220830 dtb.img` to apply the hardware. Read [wrong display](#qscreen-display-wrong) to know more.
 
 ![qa_screen_change](./assets/qa/qa_screen_change.jpg)
 
@@ -152,13 +152,13 @@ Why we can only see there is about 1.3G ram for us.
 
 ![htop_memory_usage](./assets/qa/htop_memory_usage.png)
 
-From the following diagram we cansee the original memory map of Axera 620A evb-board, it's equipeed with 1GB ram and is divided into 256MB kernel memory block and 768MB CMM (Contiguous Memory Model) memory block
+From the following diagram we can see the original memory map of Axera 620A evb-board, it's equipped with 1GB ram and is divided into 256MB kernel memory block and 768MB CMM (Contiguous Memory Model) memory block
 
 ![faq_ddr](./../../../zh/maixIII/assets/faq_ddr.png)
 
 And on Axera-Pi we equip 2GB ram, and set 512M CMM memory block and 256M kernel memory block, so there is less than 2GB ram for use.
 
-We can see the `insmod /soc/ko/ax_cmm.ko cmmpool=anonymous,0,0x60000000,512M` to initialize 512M MMC memery from the `auto_load_all_drv.sh`.
+We can see the `insmod /soc/ko/ax_cmm.ko cmmpool=anonymous,0,0x60000000,512M` to initialize 512M MMC memory from the `auto_load_all_drv.sh`.
 
 ![cmm_memory_size_script](./assets/qa/cmm_memory_size_script.png)
 

@@ -66,7 +66,7 @@ The rule of dtb file name is shown as following:
 | sipeed_1.3_240x240_vs3205.dtb | 1.3 inch | vs3205 |
 | sipeed_1.3_240x240_sp2305.dtb | 1.3 inch | sp2305 |
 
-Copy the compiled dtb file into the virtual U-disk, then run following commmand in adb shell.
+Copy the compiled dtb file into the virtual U-disk, then run following command in adb shell.
 
 ```bash
 sync  #Refresh contents
@@ -76,7 +76,7 @@ reboot #Restart to apply
 
 Then we succeed changing device tree. 
 
-- If your screen displays incorrectly, this means you choose wrond dtb file, just reupdate it to fix this.
+- If your screen displays incorrectly, this means you choose wrong dtb file, just reupdate it to fix this.
 
 Here is a correct display picture. 
 

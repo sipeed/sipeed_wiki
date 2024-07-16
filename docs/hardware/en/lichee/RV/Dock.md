@@ -32,4 +32,4 @@ Lichee RV Dock is a RISC-V Linux development kits with high integration, small s
 
 ## Support
 
-Email to support@sipeed.com for business cooperation or leave messge in this page for help.
+Email to support@sipeed.com for business cooperation or leave message on this page for help.
