@@ -16,9 +16,11 @@ Suitable **application scenarios and crowds**:
 * **Enterprise product upgrade and implementation**: Quickly implement products without expensive R&D costs, or use them to assist products such as production line QA, and use AI vision to realize intelligence of old equipment.
 * **Good helper for competitions**: MaixCAM + MaixPy + MaixCDK can quickly realize many innovations and functions, suitable as a designated software and hardware platform for competitions, and players can also rely on the development efficiency of the ecosystem to win the competition. Maix series products and MaixPy have been used in various competitions to win awards.
 
-**【For more application introductions, see [MaixPy Homepage](https://wiki.sipeed.com/maixpy/)】**
 
-MaixCAM **launch special price 169 yuan** (Lite version without screen and shell) and **249 yuan**, please consult [Sipeed Taobao](https://sipeed.taobao.com/) or [AliExpress](https://www.aliexpress.com/store/911876460) shopkeeper for details.
+<div style="padding: 1em 0 0 0; display: flex; justify-content: left">
+    <a target="_blank" style="margin: 1em;color: white; font-size: 0.9em; border-radius: 0.3em; padding: 0.5em 2em; background-color: #a80202" href="https://wiki.sipeed.com/maixpy/">For usage visit MaixPy</a>
+</div>
+
 
 ## Introduction to MaixCAM Hardware
 

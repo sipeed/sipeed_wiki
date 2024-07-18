@@ -11,7 +11,7 @@ Alternative download link:
 
 ## Prepare the Flashing Tool
 
-Download [Etcher](https://etcher.balena.io/), install and open it.
+Download [Etcher](https://etcher.balena.io/)(highly recommended), install and open it.
 
 Windows users can also use [Win32DiskImager](https://sourceforge.net/projects/win32diskimager/) or [Rufus](https://rufus.ie/).
 
@@ -25,7 +25,8 @@ There are two ways to flash the TF card:
 
 * Remove the TF card and insert it into a card reader, then plug it into the computer.
 * Open Etcher, select the image file, choose the TF card, and click `Flash`.
-* Wait for the flashing process to complete, eject the TF card, insert it into the MaixCAM, power it up, and wait for the system to boot. The first boot may be slow, just wait for a while.
+* Wait for the burning process to complete. If your computer prompts `You need to format the disk in drive G: before you can use it`, **do not** click on format disk! Otherwise, the newly burned system will be formatted again! Close the window, right-click the disk, and select eject TF card.
+* Insert it into the MaixCAM, power it up, and wait for the system to boot. The first boot may be slow, just wait for a while.
 
 ### Method Two: Update the TF Card Image via USB
 
@@ -35,7 +36,8 @@ Ensure that the system has already been flashed using a card reader and is **run
 * Power off the MaixCAM, keeping the TF card inserted.
 * Hold down the `user` button, plug in the USB cable to the computer, (or plug in the USB cable first, then hold down the `user` button, press the `reset` button briefly and release it), wait for the disk drive to appear on the computer, and then release the `user` button.
 * Open `Etcher`, select the image file, choose the disk drive, and click `Flash`.
-* Wait for the flashing to complete, then press the `reset` button or power it back on, wait for the system to boot. The first boot might be slow, wait until the screen displays content (to be safe, wait about 1 minute), and do not power off during boot-up to prevent file corruption during system initialization (if this happens, reflash the image).
+* Wait for the burning process to complete. If your computer prompts `You need to format the disk in drive G: before you can use it`, **do not** click on format disk! Otherwise, the newly burned system will be formatted again! Close the window, right-click the disk, and select eject TF card.
+* Then press the `reset` button or power it back on, wait for the system to boot. The first boot might be slow, wait until the screen displays content (to be safe, wait about 1 minute), and do not power off during boot-up to prevent file corruption during system initialization (if this happens, reflash the image).
 
 > If you cannot enter USB upgrade mode, the system files may be corrupted, and you should reflash the TF card using a card reader.
 

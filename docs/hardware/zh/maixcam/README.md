@@ -22,9 +22,11 @@ MaixCAM 是为更好地落地 AI 视觉、听觉和 AIOT 应用而设计的一�
 * **企业产品升级、落地**：无需昂贵的研发成本快速落地产品，或者用于辅助产品比如产线 QA，旧设备使用 AI 视觉实现智能化等。
 * **竞赛好帮手**：MaixCAM + MaixPy + MaixCDK 可以快速实现很多创新和功能，适合作为比赛指定软硬件平台，选手也可以依靠生态的开发效率赢得比赛， Maix 系列产品和 MaixPy 已经被用在各种比赛中获得奖项。
 
-**【更多应用介绍可以看 [MaixPy 主页](https://wiki.sipeed.com/maixpy/)】**
+<div style="padding: 1em 0 0 0; display: flex; justify-content: left">
+    <a target="_blank" style="margin: 1em;color: white; font-size: 0.9em; border-radius: 0.3em; padding: 0.5em 2em; background-color: #a80202" href="https://wiki.sipeed.com/maixpy/">更多功能介绍请看 MaixPy 主页</a>
+</div>
 
-MaixCAM **首发优惠价格 169 元**(Lite 版本 无屏幕和外壳)和 **249 元**，详情请咨询 [Sipeed 淘宝](https://sipeed.taobao.com/) 或者 [AliExpress](https://www.aliexpress.com/store/911876460) 店家。
+
 
 ## MaixCAM 硬件简介
 

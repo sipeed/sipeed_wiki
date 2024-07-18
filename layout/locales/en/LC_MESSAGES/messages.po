@@ -53,6 +53,11 @@ msgstr "Docs"
 msgid "/nanokvm"
 msgstr ""
 
+#: home.html:118
+#, fuzzy
+msgid "https://item.taobao.com/item.htm?id=811206560480"
+msgstr "https://www.aliexpress.com/item/1005006080116482.html"
+
 #: home.html:123
 msgid "/static/home/LicheeRV-Nano.jpg"
 msgstr ""
