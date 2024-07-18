@@ -15,6 +15,12 @@ Download [Etcher](https://etcher.balena.io/)(highly recommended), install and op
 
 Windows users can also use [Win32DiskImager](https://sourceforge.net/projects/win32diskimager/) or [Rufus](https://rufus.ie/).
 
+
+## Launching the Burning Tool
+
+Normally, you can start the application by double-clicking the application icon. If you encounter an error message saying `Something went wrong. If the source image was compressed, please check if it is corrupted. Error spawning the child process`, it may be due to insufficient permissions. Right-click the application icon and select "Run as administrator" to open it.
+
+
 ## Flashing the TF Card
 
 There are two ways to flash the TF card:

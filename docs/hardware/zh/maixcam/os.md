@@ -17,6 +17,11 @@ title: MaixCAM 系统烧录
 
 Windows 也可以用 [Win32DiskImager](https://sourceforge.net/projects/win32diskimager/) 或 [Rufus](https://rufus.ie/)。
 
+## 启动烧录工具
+
+正常情况下双击应用图标启动应用即可，如果遇到了`出了点问题。如果源镜像曾被压缩过，请检查它是否已损坏 Error spawning the child process`，可能是权限不够造成的，右键应用图标，使用管理员身份打开即可。
+
+
 ## 烧录 TF 卡
 
 有两种方式烧录 TF 卡：
