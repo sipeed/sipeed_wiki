@@ -71,7 +71,7 @@ NanoKVM 镜像在LicheeRV Nano SDK 和 MaixCDK 基础上构建，可以兼容使
 
 [淘宝官方购买地址](https://item.taobao.com/item.htm?id=811206560480)
 [速卖通购买地址]()
-[预售页面](sipeed.com/nanokvm)
+[预售页面](https://sipeed.com/nanokvm)
 
 ## 产品反馈
 
