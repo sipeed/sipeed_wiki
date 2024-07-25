@@ -10,7 +10,7 @@ SPMOD_FPC( SPMOD extension module )
 
 ## SPMOD - FPC Introduction
 
-- Using **Sipeed-SPMOD** interface(2.54mm * 8PIN )，unified MaixPy board interface
+- Using **Sipeed-SPMOD** interface(2.54mm * 8PIN ), unified MaixPy board interface
 - As an extension module, easily extend the SP-MOD interface with FPC.
 - Provide a pair of SP-MOD to FPC adapters(Male and female), one FPC cable(10P).
 - Size:15.0\*10.0\*3.3mm
@@ -45,5 +45,5 @@ SPMOD_FPC( SPMOD extension module )
 | Sipeed model shop | [https://maixhub.com/](https://maixhub.com/) |
 | SDK Relevant information | [dl.sipeed.com/MAIX/SDK](dl.sipeed.com/MAIX/SDK) |
 | HDK Relevant information | [dl.sipeed.com/MAIX/HDK](dl.sipeed.com/MAIX/HDK) |
-| E-mail(Technical Support and Business Cooperation) | [Support@sipeed.com](mailto:support@sipeed.com) |
-| telgram link | [https://t.me/sipeed](https://t.me/sipeed) |
+| E-mail(Technical Support and Business Cooperation) | [support@sipeed.com](mailto:support@sipeed.com) |
+| Telegram link | [https://t.me/sipeed](https://t.me/sipeed) |

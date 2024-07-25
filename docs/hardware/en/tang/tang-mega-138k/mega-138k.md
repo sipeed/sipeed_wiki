@@ -295,7 +295,7 @@ Tang Mega 138K can meet different needs of customers in various scenarios. For t
 
 ### No Response or Undesirable Pin Phenomenon After Burning
 
-1. First, ensure that the IDE has selected the correct model **GW5AST-LV138PG484AC1/10**; every parameter in the figure below **NUST** be consistent.
+1. First, ensure that the IDE has selected the correct model **GW5AST-LV138PG484AC1/10**; every parameter in the figure below **MUST** be consistent.
 
 <img src="./assets/partno_138K.png" alt="device_choose" width=35%>
 

@@ -4,7 +4,7 @@ keywords: MaixII, MaixPy3, Python, Python3, M2dock, Tina, Openwrt
 desc: maixpy  MaixII M2dock start to use
 ---
 
-## Introduct openwrt
+## Introduction openwrt
 
 > Allwinnner V831 use Tina Linux, which is created from [OpenWrt](https://openwrt.org).
 
@@ -25,7 +25,7 @@ Because of the change of different system image, the ways to connect to wireless
 
 ### V0.5.4
 
-In this system version, we remove the way to connect wireless network by editting `wpa_supplicant.conf` file of the u-disk, and we use commands to connect wireless network.
+In this system version, we remove the way to connect wireless network by editing `wpa_supplicant.conf` file of the u-disk, and we use commands to connect wireless network.
 
 We can see there are many linux commands about wifi in this system.
 
@@ -43,7 +43,7 @@ Change `Sipeed_Guest` into your target wireless network name and change `qwert12
 
 ![wifi_test_connect_wireless](./../../../zh/maixII/M2/asserts/usage/wifi_test_connect_wireless.jpg)
 
-From the connection message, we can see `192.168.3.158`, this is the IP address of M2Dock in this network enviroment.
+From the connection message, we can see `192.168.3.158`, this is the IP address of M2Dock in this network environment.
 
 We can run `ifconfig` on M2Dock to see the ip address, from which we see that the ip address is the same as the wireless network connection message.
 
@@ -77,7 +77,7 @@ Do Not Do Any Operation When Updating.
 
 The opkg utility is the lightweight package manager used for upgrading the functionality of the system rather significantly by downloading and installing pre-made packages from package repositories.
 
-#### Related commom commands
+#### Related common commands
 
 - opkg update # Update the updatable utility
 - opkg upgrade # Upgrade the upgradable utility
@@ -182,4 +182,4 @@ We suggest you use [Maixpy3](/maixpy3) to develop , and its English documents wi
 
 ## SDK development
 
-Now we have open V831 source sode here, use this https://github.com/Tina-Linux/tina-V83x if you need. 
+Now we have open V831 source code here, use this https://github.com/Tina-Linux/tina-V83x if you need. 

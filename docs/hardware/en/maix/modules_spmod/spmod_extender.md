@@ -18,9 +18,9 @@ SPMOD_Extender(8PIN SP-MOD Expander)
 
 | Features: | --- |
 | --- | -- |
-| Two-wire SP-MOD interface*3 | Connect to the D0 and D1 on the SP-MOD，Used as UART interface (Connect at most one device)
-or I2C interface(Connect at most three device) , can also be used as two independent GPIO |
-| Four-wire SP-MOD interface |  Connect to the D2-D5 on the SP-MOD，Uusually used as SPI interface，
+| Two-wire SP-MOD interface*3 | Connect to the D0 and D1 on the SP-MOD, Used as UART interface (Connect at most one device)
+or I2C interface(Connect at most three device), can also be used as two independent GPIO |
+| Four-wire SP-MOD interface |  Connect to the D2-D5 on the SP-MOD, Usually used as SPI interface,
 can also be used as four independent GPIO |
 | Supply voltage of external power supply | Depends on connected modules |
 | Supply current of external power supply | Depends on the working conditions of the module, usually less than 1000mA |
@@ -46,5 +46,5 @@ can also be used as four independent GPIO |
 | Sipeed model shop | [https://maixhub.com/](https://maixhub.com/) |
 | SDK Relevant information | [dl.sipeed.com/MAIX/SDK](dl.sipeed.com/MAIX/SDK) |
 | HDK Relevant information | [dl.sipeed.com/MAIX/HDK](dl.sipeed.com/MAIX/HDK) |
-| E-mail(Technical Support and Business Cooperation) | [Support@sipeed.com](mailto:support@sipeed.com) |
-| telgram link | [https://t.me/sipeed](https://t.me/sipeed) |
+| E-mail(Technical Support and Business Cooperation) | [support@sipeed.com](mailto:support@sipeed.com) |
+| Telegram link | [https://t.me/sipeed](https://t.me/sipeed) |

@@ -81,7 +81,7 @@ For quality contributions to the docs, we offer discount coupons from ¥5 to ¥1
 </tr>
 <tr>
   <td>Storage</td>
-  <td>· eMMC(Optional): None 、 8G、 32G、 128G<br>· Support TF card</td>
+  <td>· eMMC(Optional): None, 8G, 32G, 128G<br>· Support TF card</td>
 </tr>
 <tr>
   <td>Ethernet</td>

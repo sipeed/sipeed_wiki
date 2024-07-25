@@ -49,5 +49,5 @@ Pinout for **Old** Tang Primer Board.
 
 + Schematic of Lichee Tang [Click me](https://dl.sipeed.com/shareURL/TANG/Primer/HDK) and choose `LicheeTang_RV(Schematic).pdf`
 
-Besides, its development enviroument IDE TD(Tang Dynasty) can be downloaded from following sites
+Besides, its development environment IDE TD(Tang Dynasty) can be downloaded from following sites
 - [https://dl.sipeed.com/shareURL/TANG/Primer/IDE](https://dl.sipeed.com/shareURL/TANG/Primer/IDE)

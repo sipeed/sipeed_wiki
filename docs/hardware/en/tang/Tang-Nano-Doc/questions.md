@@ -8,7 +8,7 @@ update:
     version: v0.3
     author: wonder
     content:
-      - Add some informations
+      - Add some information
 ---
 
 
@@ -47,7 +47,7 @@ It takes 10 seconds for debugger loading the driver. And you can install the dri
 
 ### Download frequency
 
-Make sure the frquency is equal or lower than `2.5MHz`, otherwise it may lead some troubles like burnning bitstream file really slow or failed burnning bitstream file.
+Make sure the frequency is equal or lower than `2.5MHz`, otherwise it may lead some troubles like burning bitstream file really slow or failed burning bitstream file.
 
 <img src="./../../../zh/tang/assets/questions/cable.png">
 
@@ -61,21 +61,21 @@ Then cilck Save
 
 This error means the Programmer application does detect debugger or your driver is wrong. 
 Visit [this programmer](https://dl.sipeed.com/shareURL/TANG/programmer) compressed file, download it and extract it, replace the programmer folder install with GOWIN IDE by this extracted file.
-If you don't know how to replace the programmer folder, just excute the programmer application in the extracted folder to download bisdtream file instead of the programmer application installed with GOWIN IDE.
+If you don't know how to replace the programmer folder, just execute the programmer application in the extracted folder to download bitstream file instead of the programmer application installed with GOWIN IDE.
 
-If this problem still occurs after you use our recommended programmer application, try to rerun this application. If all attemps fail, see the begin of this documents about `converter`.
+If this problem still occurs after you use our recommended programmer application, try to rerun this application. If all attempts fail, see the begin of this documents about `converter`.
 
 ### Cable lost
 
-Reflash bitstream to solve this. This occurs when flashing bitsteram, board and computer does not well disconneted.
+Reflash bitstream to solve this. This occurs when flashing bitstream, board and computer does not well disconnected.
 
-### Cabel open failed
+### Cable open failed
 
 ![cable_open_failed](./../../../zh/tang/Tang-Nano-Doc/assets/qusetions/cable_open_failed.png)
 
 This means the programmer application does not detect the debugger, try this programmer application mentioned in [Error found](#error-found).
 
-If this problem still occurs after you use our recommended programmer application, try to rerun this application. If all attemps fail, see the begin of this documents about `converter`.
+If this problem still occurs after you use our recommended programmer application, try to rerun this application. If all attempts fail, see the begin of this documents about `converter`.
 
 <!-- 
 After finishing replacing **programmer** as mentioned previously,Do following steps in programmer application.
@@ -95,13 +95,13 @@ Click Edit->Cable Setting->Cable->Query in the top menu bar,then save.
 
 ![no_gowin_device_found](./../../../zh/tang/Tang-Nano-Doc/assets/qusetions/no_gowin_device_found.png)
 
-This means the debugger does not detect the FPGA chip, you can use the latest [GOWIN Programmer](http://www.gowinsemi.com.cn/faq.aspx) to slove this problem.
+This means the debugger does not detect the FPGA chip, you can use the latest [GOWIN Programmer](http://www.gowinsemi.com.cn/faq.aspx) to solve this problem.
 
 ![gowin_programmer_download](./assets/questions/gowin_programmer_download.png)
 
 #### Nano 9K
 
-Because the FPGA JTAG_SEL pin is routed to Key S2, from the GOWIN mannual we can see when JTAGSEL_N=0 (Active low), Jtag is enabled.
+Because the FPGA JTAG_SEL pin is routed to Key S2, from the GOWIN manual we can see when JTAGSEL_N=0 (Active low), Jtag is enabled.
 
 ![gw1nr_9c_jtag_sel](./assets/questions/gw1nr_9c_jtag_sel.png)
 
@@ -115,7 +115,7 @@ For 20K Dock kits, it's necessary to enable the core board before using debugger
 | --- | --- | --- |
 |<img src="./../../../zh/tang/tang-primer-20k/assets/start/switch_1_on.png" alt="switch_1_on" width=100%>|<img src="./../../../zh/tang/tang-primer-20k/assets/start/reset_led_on.png" alt="reset_led_on" width=100%> | When disabled, the LDE0 and LED1 is on, and core board doesn't work.|
 
-When using RV Debugger Plus burnning firmware into 20K core board this error occurs, possibly the order of connectting wire is wrong, make sure your connectting order is same as following sheet, or you can check your core board jtag connector inside pins, make sure none of them are crooked(One time we get problem connecting Debugger with core board and finnaly check out that there is a crooked pin in the jtag connector, this maybe because of doing wrong connection operations when connecting)
+When using RV Debugger Plus burning firmware into 20K core board this error occurs, possibly the order of connecting wire is wrong, make sure your connecting order is same as following sheet, or you can check your core board jtag connector inside pins, make sure none of them are crooked(One time we get problem connecting Debugger with core board and finally check out that there is a crooked pin in the jtag connector, this maybe because of doing wrong connection operations when connecting)
 
 The JTAG pin orders can be found in the back of 20K core board.
 
@@ -150,7 +150,7 @@ The JTAG pin orders can be found in the back of 20K core board.
 
 ![id_code_mismatch](./../../../zh/tang/Tang-Nano-Doc/assets/qusetions/id_code_mismatch.png)
 
-This means the selected device in the project mismatch your burnning chip. All that refers chip model(The project device, pin constrain, IP modules and programmer device choose) need to be reset.
+This means the selected device in the project mismatch your burning chip. All that refers chip model(The project device, pin constrain, IP modules and programmer device choose) need to be reset.
 
 | Board name | Series | Device | Package | Speed |
 | --- | --- | --- | --- | --- |
@@ -172,7 +172,7 @@ For other boards, just make sure your device selection corresponds to the laser 
 
 ### spi flash selected mismatch
 
-The board using GOWIN Semiconductor LittleBee product family (Series of chip names beginning with GW1N) incorporates embedded FLASH in main chip, so when burning firmware we burn into embedded FLASH, and reagrd the external FLASH as a peripheral. 
+The board using GOWIN Semiconductor LittleBee product family (Series of chip names beginning with GW1N) incorporates embedded FLASH in main chip, so when burning firmware we burn into embedded FLASH, and regard the external FLASH as a peripheral. 
 
 The board using GOWIN Semiconductor Arora product family (Series of chip names beginning with GW1N) does not incorporate embedded FLASH, so when burning firmware we burn into external FLASH, and the operations are as followed . 
 
@@ -200,23 +200,23 @@ Choose Frequency equal to or lower than 2.5MHz
 
 <img src="./../../../zh/tang/assets/questions/frequency.png" >
 
-Then cilck Save
+Then click Save
 
 ### Directory *** has null character.
 
 Error character of the project path.
 
 - Close IDE.
-- Check projrct path, only English works and `_` are Ok, take care of the blank character ` ` in the path.
+- Check project path, only English works and `_` are Ok, take care of the blank character ` ` in the path.
 - Reopen the project, clean and rerun your project.
 
-### Can't find bistream file
+### Can't find bitstream file
 
-Normally the bistream file with extension name `.fs` is in the impl/pnr folder under the project path.
+Normally the bitstream file with extension name `.fs` is in the impl/pnr folder under the project path.
 
 <img src="./../../../zh/tang/assets/questions/fs_path.png">
 
-From the picture above we can know the  of this bistream file path is `fpga_project1/impl/pnr/fpga_project1.fs`
+From the picture above we can know the  of this bitstream file path is `fpga_project1/impl/pnr/fpga_project1.fs`
 
 The fpga_project1 is the project directory, the impl folder is generated by IDE, and the download is in the pnr folder.
 
@@ -244,11 +244,11 @@ In the IP Core generate interface of IDE, click the folder icon next to device s
 
 ### Set top module
 
-For project containning muti-projects, if you succeed generating your module, right-click the module you want to set as the top module IDE -> Hierarchy interface.
+For project that contains multiple-projects, if you succeed generating your module, right-click the module you want to set as the top module IDE -> Hierarchy interface.
 
 ![set_top_module](./../../../zh/tang/Tang-Nano-Doc/assets/set_top_module.png)
 
-If your Hierarchy interface is the same as what is in the left picture, this means there are logic errors in the code, such as syntax errors or generate errors. Click 'RTL Anakysis Error' in the upper right corner then you can see the error type code and location of the error in the dialog box that pops up, as shown in the right picture in the following table.
+If your Hierarchy interface is the same as what is in the left picture, this means there are logic errors in the code, such as syntax errors or generate errors. Click 'RTL Analysis Error' in the upper right corner then you can see the error type code and location of the error in the dialog box that pops up, as shown in the right picture in the following table.
 
 <table>
 <tr>

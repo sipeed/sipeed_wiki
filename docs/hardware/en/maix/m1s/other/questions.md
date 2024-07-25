@@ -11,5 +11,5 @@ update:
 
 ## c906_app/build_out/xxxxx/.map:No such file or directory
 
-When compiling your firmware, make sure your command is `./build.sh demo_name`, like  `./build.sh hello_world`, not `./build.sh hello_world/` (pay atention to the end symbol `/`)
+When compiling your firmware, make sure your command is `./build.sh demo_name`, like  `./build.sh hello_world`, not `./build.sh hello_world/` (pay attention to the end symbol `/`)
 

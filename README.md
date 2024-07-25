@@ -27,7 +27,7 @@ teedoc serve
 
 More build tool usage see [teedoc](http://github.com/teedoc/teedoc)
 
-## For administator
+## For administrator
 
 GitHub action will automatically push changed doc to cloud server.
 But if you did some special things like force commit, some files maybe missing on server, manually trigger the publish_upload_all action to build doc and upload all files to server.

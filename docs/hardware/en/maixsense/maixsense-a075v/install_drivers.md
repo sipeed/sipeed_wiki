@@ -20,7 +20,7 @@ Connect the device with computer, then we can see Serial Device in computer devi
 
 ![Serial device](./assets/install_drivers/serial.png)
 
-Right click it, choose Update driver, then choose `Broswer my computer for drivers`
+Right click it, choose Update driver, then choose `Browser my computer for drivers`
 
 ![Update drivers](./assets/install_drivers/update.png)
 
@@ -32,9 +32,9 @@ We choose `Have Disk...`
 
 ![Install_from_dick](./assets/install_drivers/install.png)
 
-We choose `Broswe...`
+We choose `Browse...`
 
-![broswer](./assets/install_drivers/path.png)
+![browser](./assets/install_drivers/path.png)
 
 Open the extracted downloaded file path, choose one .inf file, click the `open`.
 

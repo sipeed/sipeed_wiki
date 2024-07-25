@@ -24,7 +24,7 @@ Click this to download the driver for this serial chip, after installing [ch340 
 
 ## Config Tina OS
 
-We suggest beginners use armbian OS because there are many informations about it on internet, and for Tina OS suits those who are good at Linux.
+We suggest beginners use Armbian OS because there is a lot of information about it on the internet, and for Tina OS suits those who are good at Linux.
 
 The Tina OS configuration steps of Lichee MaixSense are similar to [M2dock](./../M2/usage.md), so here will not retell its usages.
 <!-- 
@@ -104,7 +104,7 @@ Create password: *********
 Repeat password: *********
 ```
 
-The new creater user is granted root permission by default, and we can use this identity to login this board and control this system.
+The new created user is granted root permission by default, and we can use this identity to login this board and control this system.
 
 We can use command `passwd` to change the password or delete the password.
 

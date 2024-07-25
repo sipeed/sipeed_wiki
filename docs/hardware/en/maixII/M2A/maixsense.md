@@ -4,7 +4,7 @@ This board is different from Maix-I series, it's main chip not only incorporates
 
 ## M2A core board
 
-M2A core board use R329 as main chip, and also contains components like power management chip, fel burn key, wifi module, storge pad reserved and RMGII interface.
+M2A core board use R329 as main chip, and also contains components like power management chip, fel burn key, wifi module, storage pad reserved and RMGII interface.
 
 ![M2A](./../../maixII/M2A/assets/M2A.jpg)
 
@@ -34,7 +34,7 @@ R329 is a 64 bits processor designed by Allwinner containing dual Cortex-A53 ins
 
 ### MaixSense 
 
-MaixSense is a really small Linux card computer. Its package contains a SOM based on R329, and a multifunction IO expansion bottom board. Running Linux OS, it can be used for personal server, Intelligent voice assistant or robotis. Because of the AIPU npu core, this board can also be used for intelligent voice and video image processing, and AI model like  CV , NLP can also run on it.
+MaixSense is a really small Linux card computer. Its package contains a SOM based on R329, and a multifunction IO expansion bottom board. Running Linux OS, it can be used for personal server, Intelligent voice assistant or robotics. Because of the AIPU npu core, this board can also be used for intelligent voice and video image processing, and AI model like  CV , NLP can also run on it.
 
 **Tina Linux**：Tina Linux is an embedded system built for intelligent hardware products by Allwinner based on openwrt-14.07. Kernel source code, drivers, toolchain, system middleware and application packages can be found @ [https://github.com/sipeed/r329-linux-4.9](https://github.com/sipeed/r329-linux-4.9)
 
@@ -123,4 +123,4 @@ Camera Port pin：
 
 ## Support
 
-Email to support@sipeed.com for business cooperation or leave messge in this page for help.
+Email to support@sipeed.com for business cooperation or leave message on this page for help.

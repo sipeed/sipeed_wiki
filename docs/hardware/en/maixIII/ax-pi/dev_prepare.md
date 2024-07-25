@@ -23,7 +23,7 @@ Normally our computer have better performance than target embedded linux device,
 
 For example, `ax-sample` takes more than 10 minutes to be compiled on AXera-Pi, but it takes less than one minute on your computer.
 
-Above all, for embedded development, coree-compile technology is commom and it's necessary to know about this if you want to save your time.
+Above all, for embedded development, coree-compile technology is common and it's necessary to know about this if you want to save your time.
 
 ## Transfer files
 
@@ -40,7 +40,7 @@ There are many good SSH application on Windows, here we use [Mobaxterm](https://
 
 ![mobaxterm_transfer_file](./assets/dev_prepare/mobaxterm_transfer_file.jpg)
 
-Besides, [Vscode](https://code.visualstudio.com/) is also a gooe idea for transfering file. Install the [Remote - SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh) and [Remote Explorer](https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-explorer) extensions, then login to AXera-Pi via vscode SSH.
+Besides, [Vscode](https://code.visualstudio.com/) is also a good idea for transferring file. Install the [Remote - SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh) and [Remote Explorer](https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-explorer) extensions, then login to AXera-Pi via vscode SSH.
 
 ![transfer_file_vscode](./assets/flash_system/transfer_file_vscode.jpg)
 
@@ -72,13 +72,13 @@ Windows user can use Mobaxterm to transfer file between computer and AXera-Pi vi
 
 Here we tell how to compile application on AXera-Pi.
 
-Because serial port connector is slow and can be only opened by only one application at one time, we usually login to AXera-Pi by SSH, which we can open many terminals and enter different commands in dirrerent ssh terminal at the same time.
+Because serial port connector is slow and can be only opened by only one application at one time, we usually login to AXera-Pi by SSH, which we can open many terminals and enter different commands in different ssh terminal at the same time.
 
 ![ssh_mutiple_terminals](./assets/dev_prepare/ssh_mutiple_terminals.jpg)
 
 ### Vscode remote
 
-We have told how to login to AXera-Pi via SSH with vscode, login to AXera-Pi by Vscode first, make sure not install [C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) extension of vscode on AXera-Pi, this extension may close SSH connnection.
+We have told how to login to AXera-Pi via SSH with vscode, login to AXera-Pi by Vscode first, make sure not install [C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) extension of vscode on AXera-Pi, this extension may close SSH connection.
 
 Click ① and ② to open a SSH connection.
 
@@ -128,7 +128,7 @@ Running the commands above, screen displays camera content, use `Ctrl + c` to st
 
 Using Mobaxtern to login AXera-Pi is a good idea for windows user.
 
-Complie libmaix example on AXera-Pi:
+Compile libmaix example on AXera-Pi:
 
 ![mobaxterm_compile_application](./assets/dev_prepare/mobaxterm_compile_application.jpg)
 
@@ -186,7 +186,7 @@ So it can only be executed on Axera-Pi, sending the `test` executable file to Ax
 csp test root@192.168.233.1:/home
 ```
 
-By this command, we succeed upload the `test` executable file to Axera-Pi via rndis protocol by `scp` commmand. And note that the password requirement of running command above is `root`.
+By this command, we succeed upload the `test` executable file to Axera-Pi via rndis protocol by `scp` command. And note that the password requirement of running command above is `root`.
 
 Then we can run `test` executable file on Axera-Pi.
 
@@ -208,11 +208,11 @@ Here are repositories for AXera-Pi, check them if you need.
 
 ### axpi_bsp_sdk
 
-[axpi_bsp_sdk](https://github.com/sipeed/axpi_bsp_sdk) is the bsp development package for business usage. It's the original development package for this chip, containing components like uboot、linux、msp 、sample、rtsp、ipcdemo, and this is progressively open source, you can get these codes for commercial evaluation, such as ipcdemo, but normally these codes are complex and highly coupled, those who are experienced enough and want to use this board for business cooperation can try this.
+[axpi_bsp_sdk](https://github.com/sipeed/axpi_bsp_sdk) is the bsp development package for business usage. It's the original development package for this chip, containing components like uboot, linux, msp, sample, rtsp, ipcdemo, and this is progressively open source, you can get these codes for commercial evaluation, such as ipcdemo, but normally these codes are complex and highly coupled, those who are experienced enough and want to use this board for business cooperation can try this.
 
 ### ax-pipeline
 
-[ax-pipeline](https://github.com/AXERA-TECH/ax-pipeline) is provided by Axera. With m3axpi, this project is used for pepole to know the usages of ISP, image processing, NPU, codec and display, which is convenient for developers to quickly evaluate and develop their own multimedia applications.
+[ax-pipeline](https://github.com/AXERA-TECH/ax-pipeline) is provided by Axera. With m3axpi, this project is used for people to know the usages of ISP, image processing, NPU, codec and display, which is convenient for developers to quickly evaluate and develop their own multimedia applications.
 
 ## SDK usage
 
@@ -301,7 +301,7 @@ To load AI vision model, we need to use camera, screen and AI model. Here are se
 
 ### Build with ax-pipeline (Medium difficulty, for optimization)
 
-This SDK is based on `bsp sdk`(axpi_bsp_sdk), and with better proformance.
+This SDK is based on `bsp sdk`(axpi_bsp_sdk), and with better performance.
 
 - [Compile prepare](https://github.com/AXERA-TECH/ax-pipeline/blob/main/docs/compile.md)
 - [Use yolov5 model](https://github.com/AXERA-TECH/ax-pipeline/blob/main/docs/how_to_deploy_custom_yolov5_model.md)
@@ -309,6 +309,6 @@ This SDK is based on `bsp sdk`(axpi_bsp_sdk), and with better proformance.
 
 ### Build with ipcdemo (Hard for developmrnt, business suggessted)
 
-Based on axpi_bsp_sdk, difficult code with good proformance, it's suggessed for business development.
+Based on axpi_bsp_sdk, difficult code with good performance, it's suggested for business development.
 
 - [axpi_bsp_sdk/app/IPCDemo](https://github.com/sipeed/axpi_bsp_sdk/tree/main/app/IPCDemo)

@@ -3,7 +3,7 @@
 > Edit on 2022.05.13
 
 ## Overview
-Lichee RV - Nezha CM is a compute module with modular design, equipped with Allwinner D1 chip (based on T-Head XuanTie C906 core), 512MB DDR3 RAM. It can boot from TF card or SD-NAND, uses two sets of M.2 b key 67 pin connectors to route all IO, making it convient for wide use and easy to replace.
+Lichee RV - Nezha CM is a compute module with modular design, equipped with Allwinner D1 chip (based on T-Head XuanTie C906 core), 512MB DDR3 RAM. It can boot from TF card or SD-NAND, uses two sets of M.2 b key 67 pin connectors to route all IO, making it convenient for wide use and easy to replace.
 
 ![](./../assets/RV/D1-4.jpg)
 
@@ -15,7 +15,7 @@ Lichee RV - Nezha CM is a compute module with modular design, equipped with Allw
 | -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | CPU                  | Allwinner D1 chip (Based on T-Head XuanTie C906 core) up to 1GHZ                                                                                                                                                                  |
 | RAM                  | 16bits 512MB DDR3，Up to 792MHz                                                                                                                                                                                                   |
-| Storge               | Onboard TF card slot，can use tf card for storing,1TB storage capacity have been tested ok <br>Reserve SD-NAND pads (Conflict with 8pins lcd interface. using for business custom made )                                                                                    |
+| Storage               | Onboard TF card slot，can use tf card for storing,1TB storage capacity have been tested ok <br>Reserve SD-NAND pads (Conflict with 8pins lcd interface. using for business custom made )                                                                                    |
 | Display              | **MIPI**：4-lane MIPI DSI <br>**RGB**：RGB888 interface(partially multiplexed with DSI) <br>**MCU** : I80 interface<br>**SPI**：Onboard 8pins SPI screen interface，can be used for 1.14 inch screen                              |
 | Audio                | Analog audio headphone output(HPOUT); <br>Analog audio line input(LINEIN); <br>Digital Audio (I2S/SPDIF); <br>Analog microphone interface(MIC3);<br>Digital microphone interface(DMIC);<br>All above pin out to connecting finger |
 | Ethernet             | Pin out RMII/RGMII to connecting finger (Multiplexed with some GPIOs)                                                                                                                                                             |
@@ -25,7 +25,7 @@ Lichee RV - Nezha CM is a compute module with modular design, equipped with Allw
 | Led                  | • A power led <br>• A user led (active high)                                                                                                                                                                                      |
 | PCB                  | 4 layers                                                                                                                                                                                                                          |
 | Fixed<br> way        | Connect the core board and bottom board by two sets of M.2B connecting finger and fasten with a M2 screw                                                                                                                          |
-| Development lanuguge | C/C++, Python, Golang, etc...                                                                                                                                                                                                     |
+| Development language | C/C++, Python, Golang, etc...                                                                                                                                                                                                     |
 | System Mirrors       | Tina Linux (Based on OpenWRT 14.07), Debian, YoC (RTOS )                                                                                                                                                                         |
 
 ![](./../assets/RV/D1-pin.png)

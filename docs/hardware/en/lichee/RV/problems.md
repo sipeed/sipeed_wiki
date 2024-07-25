@@ -1,6 +1,6 @@
 ---
 title: Questions&Answers
-keywords: debian, Rv, Problam, apt, img, sipeed
+keywords: debian, Rv, Problem, apt, img, sipeed
 ---
 
 ## Apt trouble
@@ -11,7 +11,7 @@ keywords: debian, Rv, Problam, apt, img, sipeed
 
 This means built-in key expires and need updating manually, here are two ways to download key.
 
- - Doanload from web page：https://packages.debian.org/sid/all/debian-ports-archive-keyring/download
+ - Download from web page：https://packages.debian.org/sid/all/debian-ports-archive-keyring/download
  - wget : `wget http://ftp.cn.debian.org/debian/pool/main/d/debian-ports-archive-keyring/debian-ports-archive-keyring_2022.02.15_all.deb`
   
 Copy downloaded key (usr scp or lrzsz tool) into LicheeRV board, then run following command to update key:
@@ -22,7 +22,7 @@ Then run `sudo apt-get update` to update apt.
 
 ## Not work
 
-- Make sure you choose as what is shown below when burnning card by yourself
+- Make sure you choose as what is shown below when burning card by yourself
   <details>
   <summary><font color="#4F84FF">Click to see burn requirement</font></summary>
 <img src="./../assets/RV/flash.png">
@@ -35,7 +35,7 @@ Then run `sudo apt-get update` to update apt.
 
 ## 86 panel screen no display/ display wrong
 
-Here we need use corresopnding fex file to overwrite the board-level configuration by using following command in linux system 
+Here we need use corresponding fex file to overwrite the board-level configuration by using following command in linux system 
 Download fex file here https://dl.sipeed.com/shareURL/LICHEE/D1/Lichee_RV/SDK/board
 Overwrite command:
 ```bash

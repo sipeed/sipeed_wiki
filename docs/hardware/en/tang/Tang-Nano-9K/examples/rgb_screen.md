@@ -32,7 +32,7 @@ The following picture shows the screenshot about this LCD timing.
 
 The first picture form shows parameters of the screen and the the following picture is its timing. 
 
-From its timing picture, we can know we don't need to set front porch time and back proch time, we just need to set blanking time. 
+From its timing picture, we can know we don't need to set front porch time and back porch time, we just need to set blanking time. 
 
 ## Create project 
 
@@ -285,7 +285,7 @@ If there is some thing wrong, please fix by yourself.
 
 The corresponding pins and ports are as follows form shows
 
-The way to constain pins can refer to the [Light led](./../led/led.md), it contains a way to constain pins.
+The way to constain pins can refer to the [Light led](./../led/led.md), it contains a way to constrain pins.
 
 If you feel troublesome about the method above, you can copy the content from this [page](./../../../../zh/tang/Tang-Nano-9K/examples/lcd_constrains.md)， and paste it in ".cst" file in this project (if there is no ".cst" file, just create a "physicsl constrains file").
 

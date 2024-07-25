@@ -8,7 +8,7 @@ This tutorial will walk you through the basics of the Gowin IDE, which we'll use
 
 ## Create Project
 
-Create Project：File-->NEW-->FPGA Dsign Project-->OK
+Create Project：File-->NEW-->FPGA Design Project-->OK
 ![Create Project](./../../../../zh/tang/Tang-Nano/assets/LED-1.png)
 
 Set project name and project path (File name and project path should be English)
@@ -136,10 +136,10 @@ Once that's complete, the LEDs start flashing like this：
 
 ## Other
 
-If you need to store firmware with no power, just change Accsess mode and choose your target .fs file .
+If you need to store firmware with no power, just change Access mode and choose your target .fs file .
 ![Access_mode](./../../../../zh/tang/Tang-Nano-9K/nano_9k/access_mode.png)
 
-Visit [Qustions&Answers](./../../Tang-Nano-Doc/questions.md) if you have trouble
+Visit [Questions&Answers](./../../Tang-Nano-Doc/questions.md) if you have trouble
 
 ## End
 

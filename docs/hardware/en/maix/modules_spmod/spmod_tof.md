@@ -65,7 +65,7 @@ SPMOD_TOF(TOF module) uses VL53L0X .
 
 * Process
 
-  1. Initializatin
+  1. Initialization
   2. Adjust(option)
   3. Get distance
 
@@ -143,7 +143,7 @@ Modify the following parameters to fit other K210 boards.
 ```c
   // board_config.h
   #define VL53L0X_I2C_DEVICE 0 // i2c device number
-  #define VL53L0X_I2C_FREQ_KHZ 100 // i2c frequence
+  #define VL53L0X_I2C_FREQ_KHZ 100 // i2c frequency
   #define VL53L0X_SCL 6 // scl
   #define VL53L0X_SDA 7 // sda
   #define VL53L0X_SHT 8 // sht
@@ -181,5 +181,5 @@ Modify the following parameters to fit other K210 boards.
 | Sipeed model shop | [https://maixhub.com/](https://maixhub.com/) |
 | SDK Relevant information | [dl.sipeed.com/MAIX/SDK](dl.sipeed.com/MAIX/SDK) |
 | HDK Relevant information | [dl.sipeed.com/MAIX/HDK](dl.sipeed.com/MAIX/HDK) |
-| E-mail(Technical Support and Business Cooperation) | [Support@sipeed.com](mailto:support@sipeed.com) |
-| telgram link | [https://t.me/sipeed](https://t.me/sipeed) |
+| E-mail(Technical Support and Business Cooperation) | [support@sipeed.com](mailto:support@sipeed.com) |
+| Telegram link | [https://t.me/sipeed](https://t.me/sipeed) |
