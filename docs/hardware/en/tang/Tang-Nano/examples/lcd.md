@@ -32,7 +32,7 @@ The following picture shows the screenshot about this LCD timing.
 
 The first picture form shows parameters of the screen and the the following picture is its timing. 
 
-From its timing picture, we can know we don't need to set front porch time and back proch time, we just need to set blanking time. 
+From its timing picture, we can know we don't need to set front porch time and back porch time, we just need to set blanking time. 
 
 ## Create project 
 
@@ -115,7 +115,7 @@ As for the front porch timing and back porch timing which have been mentioned ea
 
 ### Define variables
 
-- Define some variables helps us to meet timing requirment
+- Define some variables helps us to meet timing requirement
   
 ```verilog 
 
@@ -282,7 +282,7 @@ If there is some thing wrong, please fix by yourself.
 
 The corresponding pins and ports are as follows form shows
 
-The way to constain pins can refer to the [Light led](./led/create_led.md), it contains two ways to constain pins.
+The way to constrain pins can refer to the [Light led](./led/create_led.md), it contains two ways to constrain pins.
 
 If you feel troublesome about the method above,  you can copy the content in this [page](./../../../../zh/tang/Tang-Nano/examples/lcd_constrains.md)， and paste it in ".cst" file in this project (If there is no ".cst" file, just create a "physicsl constrains file"). 
 

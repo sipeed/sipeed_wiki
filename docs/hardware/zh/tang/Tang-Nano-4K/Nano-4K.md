@@ -18,7 +18,7 @@ Tang Nano 4K开发板板载的GW1NSR-LV4C，是一款系统级封装芯片，内
 | FPGA芯片         | GW1N-1-LV           | GW1NSR-LV4C       |
 | 逻辑单元         | 1152                | 4608              |
 | 寄存器           | 864                 | 3456              |
-| 硬核处理器       | 无                  | Coetex M3         |
+| 硬核处理器       | 无                  | Cortex-M3         |
 | Block SRAM(bits) | 72K                 | 180K              |
 | 用户闪存(bits)   | 96K                 | 256K              |
 | 锁相环PLL        | 1                   | 2                 |

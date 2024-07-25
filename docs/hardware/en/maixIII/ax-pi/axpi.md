@@ -17,7 +17,7 @@ If you think this AI development board are excellent enough and your friends may
 
 In the past few years, many Linux AI chips come out.
 
-Raspberry Pi and Jetson Nano these boards are really popular by their good performance, but now MAIX-III AXera-Pi comes out, equipped with the high-performance 3.6TOPs@INT8 chip ax620a, which will be your good choice and provice you a really good experience.
+Raspberry Pi and Jetson Nano these boards are really popular by their good performance, but now MAIX-III AXera-Pi comes out, equipped with the high-performance 3.6TOPs@INT8 chip ax620a, which will be your good choice and provide you a really good experience.
 
 <p align="center">
 <img src="https://axera-tech.com/upload/8f/091a2540e7cdc5c7f62df022f80220.jpg" alt="img" style="zoom: 50%;" />
@@ -81,7 +81,7 @@ We design a core module for this chip, which is convenient if you want to design
 
 ## Introduction
 
-In WORLD ARTIFICIAL INTELLIGENCE CONFERENCE 2022, this AI board is shown the first tima, like what's in the following picture.
+In WORLD ARTIFICIAL INTELLIGENCE CONFERENCE 2022, this AI board is shown the first time, like what's in the following picture.
 
 <p align="center">
   <img src="./../../../zh/maixIII/assets/waic-axpi.jpg" style="zoom: 70%;" />
@@ -107,7 +107,7 @@ So, why is this AI development board good?
 - High power consumption? Just use one usb cable connecting with USB3.0 port to boot this device, no need of other power supply.
 - Difficult to develop? Compile your own application on this board, or train your own AI model online and deploy it on board.
 - Awful camera image? This chip is aimed for AI ISP night vision enhancement, we have adjust the camera to best state.
-- Too expensive? This board sold about 100$, chiper than any other similar board.
+- Too expensive? This board sold about 100$, cheaper than any other similar board.
 
 ## Special column Documents
 
@@ -264,7 +264,7 @@ Visit [Deploy models to AX-Pi (Maix-III(M3) series) board](/ai/en/deploy/ax-pi.h
 
 ### Tranning model online
 
-Now [MaixHub](https://maixhub.com/welcome) has been upgraded, with more friendly interface and more functions, here are steps to tranning model online.
+Now [MaixHub](https://maixhub.com/welcome) has been upgraded, with more friendly interface and more functions, here are steps to training model online.
 
 <p align="center">
   <img src="./assets/axpi/test_maixhub.jpg" style="zoom: 100%;" />
@@ -334,7 +334,7 @@ BSP development package for business, provided by Axera. It's the original devel
 
 #### [ax-pipeline](https://github.com/AXERA-TECH/ax-pipeline)
 
-AX-Pipeline is provided by Axera. With M3AXPI, this project is used for pepole to know the usages of ISP, image processing, NPU, codec and display, which is convenient for developers to quickly evaluate and develop their own multimedia applications.
+AX-Pipeline is provided by Axera. With M3AXPI, this project is used for people to know the usages of ISP, image processing, NPU, codec and display, which is convenient for developers to quickly evaluate and develop their own multimedia applications.
 
 1. [Quick compilation](https://github.com/AXERA-TECH/ax-pipeline/blob/main/docs/compile.md) Simple cross-platform compilation via cmake.
 2. [How to replace into my own trained yolov5 model](https://github.com/AXERA-TECH/ax-pipeline/blob/main/docs/how_to_deploy_custom_yolov5_model.md)
@@ -461,7 +461,7 @@ AX-Pipeline is provided by Axera. With M3AXPI, this project is used for pepole t
 </tbody>
 </table>
 
-[Hardware summary informations](https://dl.sipeed.com/shareURL/MaixIII/AXera)
+[Hardware summary information](https://dl.sipeed.com/shareURL/MaixIII/AXera)
 
 - [Datasheet](https://dl.sipeed.com/shareURL/MaixIII/AXera/01_Specification)
 - [Schematic](https://dl.sipeed.com/shareURL/MaixIII/AXera/02_Schematic)
@@ -493,4 +493,4 @@ AX-Pipeline is provided by Axera. With M3AXPI, this project is used for pepole t
 - Telegram: https://t.me/sipeed
 - Github: https://github.com/sipeed
 
-> Visit [Maix-III AXera-Pi (FAQ)](https://wiki.sipeed.com/hardware/en/maixIII/ax-pi/faq_axpi.html) if you have trobule.
+> Visit [Maix-III AXera-Pi (FAQ)](https://wiki.sipeed.com/hardware/en/maixIII/ax-pi/faq_axpi.html) if you have any trouble.

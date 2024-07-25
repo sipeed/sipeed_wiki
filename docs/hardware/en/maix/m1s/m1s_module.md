@@ -299,7 +299,7 @@ Visit Schematic for details：[Click me](https://dl.sipeed.com/shareURL/MAIX/M1s
 <tr>
   <td rowspan="4">Pooling</td>
   <td rowspan="2">MaxPool (NPU TBD)</td>
-  <td>Kerenl: 2x2</td>
+  <td>Kernel: 2x2</td>
   <td rowspan="2">DSP</td>
 </tr>
 <tr>
@@ -307,7 +307,7 @@ Visit Schematic for details：[Click me](https://dl.sipeed.com/shareURL/MAIX/M1s
 </tr>
 <tr>
   <td rowspan="2">MaxPool</td>
-  <td>Kerenl: 3x3</td>
+  <td>Kernel: 3x3</td>
   <td rowspan="2">:strong:<code>NPU</code></td>
 </tr>
 <tr>

@@ -23,7 +23,7 @@ Choose correct device:
 ## Prepare codes
 
 After creating project, we can start editing codes. 
-To creat a new file, we can click where the arrow points to in the picture or use shortcut key Ctrl+N.
+To create a new file, we can click where the arrow points to in the picture or use shortcut key Ctrl+N.
 Then choose Verilog File in the pop-up window.
 ![](./../../../../zh/tang/Tang-Nano/assets/LED-5.png)
 

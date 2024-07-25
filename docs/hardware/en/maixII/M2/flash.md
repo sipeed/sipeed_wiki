@@ -35,7 +35,7 @@ Only bussiness edition M2 model contains the Flash, so we need to start the syst
 
 ### Preparation
 
-- Get burnning tool [PhoenixCard](https://dl.sipeed.com/shareURL/MaixII/MaixII-Dock/SDK/tools)
+- Get burning tool [PhoenixCard](https://dl.sipeed.com/shareURL/MaixII/MaixII-Dock/SDK/tools)
 - Get [image file](https://dl.sipeed.com/shareURL/MaixII/MaixII-Dock/SDK/release)
 - Get SD card Formatter Tool [SD Card Formatter](https://www.sdcard.org/downloads/formatter/eula_windows/SDCardFormatterv5_WinEN.zip)
 

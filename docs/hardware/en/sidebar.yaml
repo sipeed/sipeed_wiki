@@ -296,7 +296,7 @@ items:
                     file: tang/Tang-primer/get_started/install_linux.md
             -   label: Blink by FPGA
                 file: tang/Tang-primer/fpga/led.md
-            -   label: ' Prepare E203 enviroument'
+            -   label: ' Prepare E203 environment'
                 file: tang/Tang-primer/get_started/E203.md
             -   label: Burn FPGA
                 file: tang/Tang-primer/get_started/fpga_download.md
@@ -396,7 +396,7 @@ items:
     -   label: Longon Nano
         file: longan/Nano/Longan_nano.md
         items:
-        -   label: Setup enviroument
+        -   label: Setup environment
             file: longan/Nano/pio.md
         -   label: Blink test
             file: longan/Nano/blink.md

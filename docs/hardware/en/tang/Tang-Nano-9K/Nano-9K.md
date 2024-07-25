@@ -2,7 +2,7 @@
 
 ## Introduction
 
-The Tang Nano 9K, powered by [Gowin's](https://www.gowinsemi.com/en/) GW1NR-9 FPGA chip, is a versatile and feature-rich development board. It features several often used connectors, including HDMI, RGB screen, and SPI screen interfaces, aswell as a 32Mbit SPI flash and six LEDs. It has 8640 LUT4 logic units, an onboard 27MHz clock and 2 PLLs meaning, as well as basic FPGA designs, it can also be used for full risc-v softcores such as PicoRV.
+The Tang Nano 9K, powered by [Gowin's](https://www.gowinsemi.com/en/) GW1NR-9 FPGA chip, is a versatile and feature-rich development board. It features several often used connectors, including HDMI, RGB screen, and SPI screen interfaces, as well as a 32Mbit SPI flash and six LEDs. It has 8640 LUT4 logic units, an onboard 27MHz clock and 2 PLLs meaning, as well as basic FPGA designs, it can also be used for full risc-v softcores such as PicoRV.
 
 ![](./../../../assets/Tang/Nano-9K/9K.png)
 
@@ -68,7 +68,7 @@ Indepth specifications of the tang nano 9k.
 
 3. **[Software User Guide](https://dl.sipeed.com/fileList/TANG/Nano%209K/6_Chip_Manual/EN/General%20Guide/SUG100-2.6E_Gowin%20Software%20User%20Guide.pdf)**: Refer to the "SUG100-2.6E_Gowin Software User Guide.pdf" in the downloaded package for detailed software instructions.
 
-4. **[LED Tutorial](./examples/led.md)**: A simple project to get you acquianted to FPGAs and the tangnano9k.
+4. **[LED Tutorial](./examples/led.md)**: A simple project to get you acquainted to FPGAs and the tangnano9k.
    - **Verilog Code Standards**: It's crucial to adhere to good coding practices.
    - **Recommended Reading**:
      - SUG949-1.1E_Gowin HDL Coding User Guide.pdf

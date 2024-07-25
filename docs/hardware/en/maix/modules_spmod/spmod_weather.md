@@ -150,5 +150,5 @@ low power consumption (75uA).
 | Sipeed model shop | [https://maixhub.com/](https://maixhub.com/) |
 | SDK Relevant information | [dl.sipeed.com/MAIX/SDK](dl.sipeed.com/MAIX/SDK) |
 | HDK Relevant information | [dl.sipeed.com/MAIX/HDK](dl.sipeed.com/MAIX/HDK) |
-| E-mail(Technical Support and Business Cooperation) | [Support@sipeed.com](mailto:support@sipeed.com) |
-| telgram link | [https://t.me/sipeed](https://t.me/sipeed) |
+| E-mail(Technical Support and Business Cooperation) | [support@sipeed.com](mailto:support@sipeed.com) |
+| Telegram link | [https://t.me/sipeed](https://t.me/sipeed) |

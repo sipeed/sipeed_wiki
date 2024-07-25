@@ -104,7 +104,7 @@ Burn this demo to board, the data of onboard 6 axi IMU is printed by serial port
 
 Burn this demo to M0sense, press BOOT key, LED changes the color, and the state of LED is printed by serial port.
 
-The detailed usage can be analysised by reading <a href="https://github.com/Sipeed/M0sense_BL702_example/blob/main/m0sense_apps/rtos_demos/single_button_control/main.c">source code</a>.
+The detailed usage can be analyzed by reading <a href="https://github.com/Sipeed/M0sense_BL702_example/blob/main/m0sense_apps/rtos_demos/single_button_control/main.c">source code</a>.
 
 ![single_button_control](./../../../zh/maixzero/sense/assets/start/single_button_control.gif)
 ![single_button_control_uart](./../../../zh/maixzero/sense/assets/start/single_button_control_uart.gif)
@@ -228,9 +228,9 @@ When it shows `Apply patch for you!`, we succeed in doing this.
 
 ![m0sense_patch](./../../../zh/maixzero/sense/assets/start/m0sense_patch.jpg)
 
-### Set toolcahin path
+### Set toolchain path
 
-Everytime compling for M0sense, we need to set toolcahin path once.
+Every time compiling for M0sense, we need to set toolchain path once.
 
 First we need to know the path of `M0sense_BL702_example`:
 
@@ -239,13 +239,13 @@ sipeed@DESKTOP:~$ pwd
 /home/lee/M0sense_BL702_example
 ```
 
-We copy the result (the result of everyone is different) of `pwd` command, then add `/toolchain_gcc_sifive_linux/bin` in the end，run following command, then we finish setting the toolcahin path.
+We copy the result (the result of everyone is different) of `pwd` command, then add `/toolchain_gcc_sifive_linux/bin` in the end，run following command, then we finish setting the toolchain path.
 
 ```bash
 PATH=$PATH:/home/lee/M0sense_BL702_example/toolchain_gcc_sifive_linux/bin
 ```
 
-Then we can use command `riscv64-unknown-elf-gcc -v` to test our toolcahin, here is the right result.
+Then we can use command `riscv64-unknown-elf-gcc -v` to test our toolchain, here is the right result.
 
 ```bash
 sipeed@DESKTOP:~$ riscv64-unknown-elf-gcc -v
@@ -255,7 +255,7 @@ COLLECT_LTO_WRAPPER=/home/lee/M0sense_BL702_example/toolchain_gcc_sifive_linux/b
 Target: riscv64-unknown-elf
 ```
 
-If not set the path right, the command `riscv64-unknown-elf-gcc` will be shown not found, try to reset the toolcahin path.
+If not set the path right, the command `riscv64-unknown-elf-gcc` will be shown not found, try to reset the toolchain path.
 
 ![m0sense_toolchain_notfound](./../../../zh/maixzero/sense/assets/start/m0sense_toolchain_notfound.jpg)
 
@@ -281,7 +281,7 @@ The demo of uf2 format which can be burned to M0sense by u-disk is in the uf2_de
 ## SDK Note
 
 1. Compiling your own firmware conversion application if it's the first time compiling.
-2. Everytime compiling the firmware, make sure you have [set the toolcahin path](#set-toolcahin-path)
+2. Everytime compiling the firmware, make sure you have [set the toolchain path](#set-toolchain-path)
 3. If failing to compile SDK. make sure the compiling command is `./build.sh m0sense_apps/blink/blink_baremetal`, not `./build.sh m0sense_apps/blink/blink_baremetal/` (Pay attention to the `/` in the end)
 
 ## Burn bin file

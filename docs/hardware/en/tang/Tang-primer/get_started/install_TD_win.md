@@ -18,7 +18,7 @@ Then we can run TD
 ## Install the USB serial port
 
 Connect Tang Primer with computer and open device manager to see device information.
-It may be named WinUsb Device or USB-JTAG-Cable duo to different Windows verison.
+It may be named WinUsb Device or USB-JTAG-Cable duo to different Windows version.
 Make sure USB VID:PID is 0547:1002
 
 - Windows7 without installing driver
@@ -64,7 +64,7 @@ The installation is successful and can be seen in the device manager.
 Click on Download button as shown in following image.
 ![](./../../../../zh/tang/assets/get_started/87078310026779781.jpg)
 
-Plugin Tang Primer into your computer and click Refresh buttion on Download Dialog box.
+Plugin Tang Primer into your computer and click Refresh button on Download Dialog box.
 ![](./../../../../zh/tang/assets/get_started/1823555291194601.jpg)
 
 Congratulations, you have setup the TD driver on Windows.

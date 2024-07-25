@@ -82,7 +82,7 @@ logout
 
 The new created user may need administrator privilege to do finish some work, so here we tell how to grant administrator privilege.
 
-To grant administrator privilege, we just neet to edit a file named `sudoers` in `/etc`.
+To grant administrator privilege, we just need to edit a file named `sudoers` in `/etc`.
 
 ```bash
 sudo nano /etc/sudoers
@@ -103,7 +103,7 @@ root    ALL=(ALL:ALL) ALL
 xxx     ALL=(ALL:ALL) ALL
 ```
 
-Then save this file and quie editing.
+Then save this file and quit editing.
 
 ## Install application
 
@@ -113,7 +113,7 @@ Here we take install `armbian-config` as example, just run following command:
 sudo apt install armbian-config -y
 ```
 
-The above command means to install armbian-config by running the apt application with root privileges and that everything whichi needs to be selected is the yes option
+The above command means to install armbian-config by running the apt application with root privileges and that everything which needs to be selected is the yes option
 
 ## Config Timezone
 
@@ -127,7 +127,7 @@ Just use `armbian-config` to change timezone. Here we take change to Shanghai ti
 
 We also use `armbian-config` to change language. 
 
-Just `armbian-config` -> `Personal` -> `Locales`, and select your target language, then choose the default sustem language.
+Just `armbian-config` -> `Personal` -> `Locales`, and select your target language, then choose the default system language.
 
 Dont't forget to download your language font to avoid wrong display.
 
@@ -357,7 +357,7 @@ After finishing compiling our code, run it.
 
 ## Prepare python code
 
-- See [Program C code](#program-c-code) to get explaination.
+- See [Program C code](#program-c-code) to get explanation.
 
 ```bash
 vim helloworld.py
@@ -453,7 +453,7 @@ echo "hello world!"
 
 Then restart the board.
 
-For example, after editing the auto-start script, it executs before user logs in, and the execution example log is as follows.
+For example, after editing the auto-start script, it executes before user logs in, and the execution example log is as follows.
 
 ```bash
 [  OK  ] Finished Permit User Sessions.

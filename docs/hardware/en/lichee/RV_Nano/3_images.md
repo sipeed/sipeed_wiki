@@ -12,4 +12,4 @@ The image is compressed using xz. After decompression, use tools like Rufus, Win
 
 ## Debian Sid Based image
 
-[Image Infomation and Downloads](https://github.com/Fishwaldo/sophgo-sg200x-debian)
+[Image Information and Downloads](https://github.com/Fishwaldo/sophgo-sg200x-debian)

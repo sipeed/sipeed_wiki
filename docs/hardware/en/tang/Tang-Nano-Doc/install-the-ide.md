@@ -103,7 +103,7 @@ if the ip not work, try use "gowinlic.sipeed.com" domain's IP.
 
 When you run GOWIN IDE, a license manager message box will appear. Once you have a license file you can click `Browse...` and select your license file, then `Check` and finally `Save`.
 
-<img src="./assets/IDE-13.png" alt="Broswer lic" width=45%>
+<img src="./assets/IDE-13.png" alt="Browser lic" width=45%>
 <img src="./assets/check.png"  alt="Check lic"   width=45%>
 
 Now you can use the GOWIN IDE.
@@ -116,7 +116,7 @@ For Linux users, go to the end of this page to see the section [burn-in-linux](#
 
 ## Other 
 
-It may take some time to receive a license. During this time we sugegst you read the GOWIN Semiconductor Corp official documents, which are installed with the IDE.
+It may take some time to receive a license. During this time we suggest you read the GOWIN Semiconductor Corp official documents, which are installed with the IDE.
 
 There are three things in the IDE installation path: IDE folder, Programmer folder, uninst.exe
 

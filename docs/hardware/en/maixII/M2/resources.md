@@ -4,10 +4,10 @@ keywords: MaixII, MaixPy3, Python, Python3, M2dock
 desc: maixpy  Onboard resources
 ---
 
-Maix-II-Dock is positioned as a cost-effective AIOT development board. While supporting conventional Linux development, it also has a unique AI hardware acceleration feature. With the complete software ecosystem provided by Sipeed, you can quickly realize your edge AI application.
+Maix-II-Dock is positioned as a cost-effective AIoT development board. While supporting conventional Linux development, it also has a unique AI hardware acceleration feature. With the complete software ecosystem provided by Sipeed, you can quickly realize your edge AI application.
 
 * **Hardware**, based on the Allwinner V831 chip, the development board is formed in the form of [core board] + [ext-board]. You can use the development board directly, or you can use only the core board to design your own ext-board according to your needs, which is convenient and fast to complete the development.
-* **Software**, in addition to directly using the datasheet provided by Allwinner for development (some satasheet may need to be obtained from Allwinner), Sipeed provides a very convenient Python SDK ([MaixPy3](/maixpy3)) and C SDK ([libmaix](https://github.com/sipeed/libmaix)). It also provides an online model training service ([MaixHub](https://maixhub.com), which is more convenient for beginners to quickly train their usable AI models.
+* **Software**, in addition to directly using the datasheet provided by Allwinner for development (some datasheet may need to be obtained from Allwinner), Sipeed provides a very convenient Python SDK ([MaixPy3](/maixpy3)) and C SDK ([libmaix](https://github.com/sipeed/libmaix)). It also provides an online model training service ([MaixHub](https://maixhub.com), which is more convenient for beginners to quickly train their usable AI models.
 * **Purchase**: [sipeed.aliexpress.com](https://www.aliexpress.com/item/1005002538932487.html)
 
 <p align="center">
@@ -67,14 +67,14 @@ Normally we think the screen panel is the front and camera is back.
 
 | Number | Maix II Part                       | Function                                              | Note                                                             |
 | ------ | ---------------------------------- | ----------------------------------------------------- | ---------------------------------------------------------------- |
-| 1      | M.2 B-KEY female slot*1            | Used for connect V831 core board                      | Have connectted with core board when sold                        |
+| 1      | M.2 B-KEY female slot*1            | Used for connect V831 core board                      | Have connected with core board when sold                        |
 | 2      | Core board M2 copper column nuts*1 | Fix core board with bottom board                      | Have been fixed when sold                                        |
 | 3      | Power LED*1                        | Show power state                                      | ---                                                              |
 | 4      | State LED*1                        | User programmable led                                 | ---                                                              |
 | 5      | CPU Reset button*1                 | Reset V831 chip                                       | ---                                                              |
-| 6      | User button*2                      | Change IO voltage value，custome usage                | ---                                                              |
+| 6      | User button*2                      | Change IO voltage value，custom usage                 | ---                                                              |
 | 7      | Wi-Fi module*1                     | RTL8189FTV，adds Wi-Fi function for this board        | SDIO Interface                                                   |
-| 8      | BTB camera interface*1             | Connect BTB camera module                             | Have connectted with bottom board when sold                      |
+| 8      | BTB camera interface*1             | Connect BTB camera module                             | Have connected with bottom board when sold                       |
 | 9      | Camera M2 copper column nuts*2     | Fix BTB camera with bottom board                      | Have been fixed when sold                                        |
 | 10     | FHD camera*1                       | Default SP2305 Sensor BTB style, 1080P                | Default 6mm focal length M12 lens，can use other Suitable camera |
 | 11     | USB to UART chip*1                 | Provide serial port communication                     | ---                                                              |
@@ -83,11 +83,11 @@ Normally we think the screen panel is the front and camera is back.
 | 14     | Three-axis accelerometer*1         | I2C interface，can read 3 axes acceleration data      | ---                                                              |
 | 15     | MicroSD card slot*1                | Connect microSD card                                  | Default boot from SD card                                        |
 | 16     | LCD interface*1                    | FPC0.5mm 24Pin，MCU interface                         |                                                                  |
-| 17     | IPS HD screen\*1                   | 1.3 inch IPS screen，resolution 240\*240              | Have connectted with core board when sold                        |
+| 17     | IPS HD screen\*1                   | 1.3 inch IPS screen，resolution 240\*240              | Have connected with core board when sold                         |
 | 18     | IPEX Wi-Fi antenna connector       | IPEX(first generation) Wi-Fi antenna                  | ---                                                              |
 | 19     | Extension female header            | Route V831 general IO，used for connecting peripheral | ---                                                              |
 | 20     | Speaker connector*1                | MX1.25 2P interface（1.25mm pitch）                   | ---                                                              |
-| 21     | Loudspeaker*1                      | 8Ω1W 1609 composite aluminum membrane speakers        | Have connectted with core board when sold                        |
+| 21     | Loudspeaker*1                      | 8Ω1W 1609 composite aluminum membrane speakers        | Have connected with core board when sold                         |
 | 22     | Microphone*1                       | Analog electret microphone                            | ---                                                              |
 
 ## Resource summary

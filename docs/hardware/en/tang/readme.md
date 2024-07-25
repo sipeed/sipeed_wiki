@@ -260,9 +260,9 @@ If you don't know how to design the PCB, but you want to know more about FPGA, [
   <td style="text-align:left"></td>
 </tr>
 <tr>
-  <td style="text-align:left">Feature</td>
-  <td style="text-align:left">Many Luts, many interface, easy use.</td>
-  <td style="text-align:left">Many Luts, tiny size, mutiple clock</td>
+  <td style="text-align:left">Features</td>
+  <td style="text-align:left">Many LUTs, many interfaces, easy to use.</td>
+  <td style="text-align:left">Many LUTs, tiny size, multiple clocks</td>
   <td style="text-align:left">Good price, enough for softcore</td>
   <td style="text-align:left">FPGA SOC board，can drive DVP camera</td>
   <td style="text-align:left">Cheapest FPGA board</td>

@@ -86,7 +86,7 @@ The camera can be assembled in two directions: the camera shooting direction is 
     <tr>
         <td>Rotate the shell to make the TF card slot on the board is in the same direction as the SiPEED logo on the shell</td>
         <td>Align the two TypeC ports with the holes in the shell to prepare for inserting the board into the shell</td>
-        <td>Press where the arrow points at, it's a bit difficult for first time inserting, make sure the two TypeC ports align with the holes. Inster board into the shell</td>
+        <td>Press where the arrow points at, it's a bit difficult for first time inserting, make sure the two TypeC ports align with the holes. Insert board into the shell</td>
     </tr>
     <tr>
         <td><img alt="insert_screen_direction_1" src="./../../../../zh/maix/m1s/other/assets/others/insert_screen_direction_1.jpg" ></td>
@@ -136,7 +136,7 @@ Up to now we have finished installing shell.
 <table>
     <tr>
         <td>Align the two TypeC ports with the holes in the shell to prepare for inserting the board into the shell</td>
-        <td>Press where the arrow points at, it's a bit difficult for first time inserting, make sure the two TypeC ports align with the holes. Inster board into the shell</td>
+        <td>Press where the arrow points at, it's a bit difficult for first time inserting, make sure the two TypeC ports align with the holes. Insert board into the shell</td>
     </tr>
     <tr>
         <td><img alt="insert_screen_direction_2" src="./../../../../zh/maix/m1s/other/assets/others/insert_screen_direction_2.jpg" ></td>

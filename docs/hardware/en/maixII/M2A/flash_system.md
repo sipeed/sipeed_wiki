@@ -26,7 +26,7 @@ This image file is created by [dd](https://en.wikipedia.org/wiki/Dd_(Unix)). So 
 
 ### Tina system image
 
-Tina os need to be compiled by yourself, visit [https://github.com/sipeed/R329-Tina-jishu](https://github.com/sipeed/R329-Tina-jishu) for imformation.
+Tina os need to be compiled by yourself, visit [https://github.com/sipeed/R329-Tina-jishu](https://github.com/sipeed/R329-Tina-jishu) for information.
 
 ## Burn system
 
@@ -42,7 +42,7 @@ Extract your downloaded image file to get the `.img` file, run Etcher, click `Fl
 
 ![burn](./../../maixII/M2A/assets/95133.gif)
 
-If failed burning, try to format your sdcard. For Windows and macos users we suggest use [SD Card Formatter](https://www.sdcard.org/downloads/formatter/eula_windows/SDCardFormatterv5_WinEN.zip "SDCardFormatter") to format sdcard, while for linuc users can try [Gparted](https://gparted.org/).
+If failed burning, try to format your sdcard. For Windows and macos users we suggest use [SD Card Formatter](https://www.sdcard.org/downloads/formatter/eula_windows/SDCardFormatterv5_WinEN.zip "SDCardFormatter") to format sdcard, while for linux users can try [Gparted](https://gparted.org/).
 
 ### Burn Tina image
 

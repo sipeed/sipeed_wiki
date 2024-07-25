@@ -5,7 +5,7 @@ keyeords: Linux, FPGA, Gowin
 
 It's recommended to use **openFPGALoader** to flash the development board from linux environments. This page covers installation instructions and has been verified on Ubuntu but may work on other linux distributions.
 
-The currently available package on Ubuntu is older ('openfpgaloader') and does not support the latest boards (i.e. tangnano20k), because of this compiling the latest git source is recommended and covered below (adapted from the offical projects documentation: https://trabucayre.github.io/openFPGALoader/guide/install.html).
+The currently available package on Ubuntu is older ('openfpgaloader') and does not support the latest boards (i.e. tangnano20k), because of this compiling the latest git source is recommended and covered below (adapted from the official projects documentation: https://trabucayre.github.io/openFPGALoader/guide/install.html).
 
 ### Compiling openFPGALoader from git
 
@@ -64,7 +64,7 @@ index 0:
 
 ```
 
-Flash the bitstream to the device as shown below. The board name must be speficied after the `-b` option, `-f` options means the file is programmed to the non-volatile flash, without it it will be stored in SRAM but lost if the device loses power.
+Flash the bitstream to the device as shown below. The board name must be specified after the `-b` option, `-f` options means the file is programmed to the non-volatile flash, without it it will be stored in SRAM but lost if the device loses power.
 
 ```bash
 $ sudo ./openFPGALoader -b tangnano9k -f ../../nano9k_lcd/impl/pnr/Tang_nano_9K_LCD.fs

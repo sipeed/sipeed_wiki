@@ -41,7 +41,7 @@ We have tested the read and write speed of some TF cards on Axera-pi, for users 
 | Number | Model                                    | <p style="white-space:nowrap">Write speed（Write 160MB）</p> | <p style="white-space:nowrap">Read speed（Read 160MB） </p> |
 | ------ | ---------------------------------------- | ------------------------------------------------------------ | ----------------------------------------------------------- |
 | 1.     | Netac A2  P500-HS-64GB                   | 2.04697 s, 80.0 MB/s                                         | 1.8759 s, 87.3 MB/s                                         |
-| 2.     | Samsung microSDXC UHS-I 128G (Bule card) | 2.53387 s, 64.7 MB/s                                         | 1.99882 s, 82.0 MB/s                                        |
+| 2.     | Samsung microSDXC UHS-I 128G (Blue card) | 2.53387 s, 64.7 MB/s                                         | 1.99882 s, 82.0 MB/s                                        |
 | 3.     | EAGET T1 series 64G                      | 6.56955 s, 24.9 MB/s                                         | 7.13792 s, 23.0 MB/s                                        |
 | 4.     | Keychron microSDXC UHS-I 128G            | 2.28133 s, 71.8 MB/s                                         | 1.92001 s, 85.3 MB/s                                        |
 | 5.     | KIOXIA microSDXC UHS-I 32G               | 6.71284 s, 24.4 MB/s                                         | 2.36794 s, 69.2 MB/s                                        |
@@ -156,7 +156,7 @@ Finishing burning system image into tf card, we can assemble this board and boot
 
 **Camera connection**
 
-There are 2 versions of camera, make sure the `1` on the camera matches the `1` on the board. Wrong connection will burn and distory the camera.
+There are 2 versions of camera, make sure the `1` on the camera matches the `1` on the board. Wrong connection will burn and destroy the camera.
 
 <img src="./../../../zh/maixIII/assets/senror_v3751.jpg" width=48%>
 <img src="./../../../zh/maixIII/assets/sensor_v3753.jpg" width=48%>
@@ -851,7 +851,7 @@ echo 1 > /sys/class/gpio/gpio68/value
 
 > Calculating Rule: GPIO2 A4 == 32 *  2 + 4 = 68
 
-For Axera chip, GPIO0 means A IO port and GPIO2 means C IO port, and example like A4 is just a siginal.
+For Axera chip, GPIO0 means A IO port and GPIO2 means C IO port, and example like A4 is just a signal.
 
 GPIO2 A4 in AXera-Pi is GPIO C(2) 4(A4) in standard definition , and standard definition GPIOA0 means IO GPIO0A4 in AXera-Pi.
 
@@ -1141,8 +1141,8 @@ cat /proc/ax_proc/uid
 
 This is an IPC (IP camera) demo program, and its functions are as follows:
 
-- ISP: Transfor the RAW data stream from Sensor into YUV data stream, and output it in 3 channels
-- IVPS: Image Video Processing submoule, Resize、Crop、Rotate the video image, or change the video image into multiple ones.
+- ISP: Transfers the RAW data stream from Sensor into YUV data stream, and output it in 3 channels
+- IVPS: Image Video Processing submodule, Resize, Crop, Rotate the video image, or change the video image into multiple ones.
 - VENC / JENC：Video / JPEG encoded output.
 - Detect: Face detection or structure detection.
 - Web display: H264 Web stream and provides to view real-time Web video.
@@ -1241,7 +1241,7 @@ Here we use [VLC Media Player](https://www.videolan.org/vlc/) to play the rtsp s
 
 ![vl-yolov5s](./../../../zh/maixIII/assets/vlc-yolov5s.jpg)
 
-Run the following cammand on AXera-Pi, open `VLC Media Player` and use hoykey `Ctrl + N` to open a network stream video, enter the ip address of AXera-Pi like `rtsp://192.168.233.1:8554/axstream0` to play the stream video.
+Run the following command on AXera-Pi, open `VLC Media Player` and use hotkey `Ctrl + N` to open a network stream video, enter the ip address of AXera-Pi like `rtsp://192.168.233.1:8554/axstream0` to play the stream video.
 
 Run this command on AXera-Pi:
 ```bash
@@ -1251,7 +1251,7 @@ Run this command on AXera-Pi:
 The log of AXera-Pi running rtsp stream video
 ![vlr-run](./../../../zh/maixIII/assets/vlc-run.jpg)
 
-Enter the ip address of AXera-Pi for playing the stream video, use hoykey `Ctrl + P` to play after entering the ip address of AXera-Pi.
+Enter the ip address of AXera-Pi for playing the stream video, use hotkey `Ctrl + P` to play after entering the ip address of AXera-Pi.
 ![vlc-urt](./../../../zh/maixIII/assets/vlc-urt.jpg)
 
 The rtsp example is as follows:
@@ -1303,7 +1303,7 @@ Run the `ONVIF Device Manager`, click `Refresh` to scan device, make sure you ha
 
 ![onvif_example](./assets/flash_system/onvif_example.jpg)
 
-And we just take RNDIS as example, other IP address like wireless or ethernrt are also fine. Make sure your nerwork is good, and bad network can not use `ONVIF Device Manager` with good experience.
+And we just take RNDIS as example, other IP address like wireless or ethernet are also fine. Make sure your network is good, and bad network can not use `ONVIF Device Manager` with good experience.
 
 - Switch model
 
@@ -1350,7 +1350,7 @@ Use the following command to edit the script file, change the annotation `#` to 
 nano /home/examples/vin_ivps_joint_vo_pp_human_seg/run.sh
 ```
 
-Use hoykey  `Ctrl + X` and follow instructions we save the change of editing.
+Use hotkey  `Ctrl + X` and follow instructions we save the change of editing.
 ![pp_human_adb](./../../../zh/maixIII/assets/pp_humana_adb.png)
 
 ### uvc_vo

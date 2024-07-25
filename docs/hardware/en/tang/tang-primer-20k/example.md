@@ -9,7 +9,7 @@ update:
       - Determine directory
 ---
 
-> All examples articles and github are continuing building, thanks for your unserstanding.
+> All examples articles and github are continuing building, thanks for your understanding.
 
 ## LED
 

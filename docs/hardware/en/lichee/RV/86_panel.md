@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Lichee RV-86 Panel is a development kit designed for smart home central control sence. it's equipped with LicheeRV Core board (ALlwinner D1 chip with 512MB ddr3), 4-inch touch IPS screen, Wifi+BT module, Ethernet, two digital silicon mic and GPIO expansion interface. For software it can use Linux OS (Openwrt or Debian) and Ali WATF(WAFT is a high-performance application research framework for aiot based on WebAssembly and their own rendering engine)
+Lichee RV-86 Panel is a development kit designed for smart home central control scene. It's equipped with LicheeRV Core board (Allwinner D1 chip with 512MB ddr3), 4-inch touch IPS screen, Wifi+BT module, Ethernet, two digital silicon mic and GPIO expansion interface. For software it can use Linux OS (OpenWrt or Debian) and Ali WAFT (WAFT is a high-performance application research framework for AIoT based on WebAssembly and their own rendering engine)
 
 ![Basic board](./../assets/RV/86_2.png)
 
@@ -35,4 +35,4 @@ Lichee RV-86 Panel is a development kit designed for smart home central control 
 
 ## Support
 
-Email to support@sipeed.com for business cooperation or leave messge in this page for help.
+Email to support@sipeed.com for business cooperation or leave message on this page for help.

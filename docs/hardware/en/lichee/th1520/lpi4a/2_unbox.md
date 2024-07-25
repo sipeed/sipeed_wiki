@@ -121,7 +121,7 @@ LicheePi 4A is a high performance SBC，you need to install an active cooler to 
     ![silicone_pad](./../../../../zh/lichee/th1520/lpi4a/assets/unbox/silicone_pad.png)
 
 2. Installing the fan / heatsink
-    Allign the 30x30mm heatsink and fan with the thermal pad and press down lightly.
+    Align the 30x30mm heatsink and fan with the thermal pad and press down lightly.
     ![insert_fan](./../../../../zh/lichee/th1520/lpi4a/assets/unbox/insert_fan.png)
 
 3. Connecting the cooling fan
@@ -161,7 +161,7 @@ LicheePi 4A is pre-loaded with a basic system image, so you can try it out direc
 Note: The pre-loaded system image might be very old. After you booted the system for the first time, please have a look at the next section on how to flash / update the image.
 
 Use an HDMI cable (not included) to connect a display (not included) to the HDMI port of LicheePi 4A. Use the supplied USB-C cable to connect the board to a USB power supply (not included) with at least 5V and 2A output.
-The LicheePi 4A will automatically boot into the default image and the login screen should appear within 30 seconds, or automaticly login via sipeed username.
+The LicheePi 4A will automatically boot into the default image and the login screen should appear within 30 seconds, or automatically login via sipeed username.
 
 ![boot_login](./../../../../zh/lichee/th1520/lpi4a/assets/unbox/boot_login.png)
 
@@ -255,7 +255,7 @@ After booting up the board for the first time, let´s take a look at the hardwar
 
 The nominal operating frequency of the TH1520 is 1.85GHz, and we only guarantee that the board you receive can work stably at 1.85GHz.
 If you are an enthusiast you can try to overclock the board to 2GHz, but we don´t guarantee that the board will work stable at this frequency.
-After some testing, about 80% of the boards can boot into the system when overclocked to 2GHz and about 50% of the boards sucessfully pass the stress test at 2GHz.
+After some testing, about 80% of the boards can boot into the system when overclocked to 2GHz and about 50% of the boards successfully pass the stress test at 2GHz.
 
 ### USB Power Limitation
 

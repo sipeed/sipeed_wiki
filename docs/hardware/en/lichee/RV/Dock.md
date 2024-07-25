@@ -16,7 +16,7 @@ Lichee RV Dock is a RISC-V Linux development kits with high integration, small s
 | USB | Onboard USB type-A host |
 | Audio | On-board speaker driver circuit (supports 4Ω 3W speakers) and speaker; connector<br>On-board electrical microphone circuit |
 | Memory | Reserved a SOP8 pad, and the connection protocol is the SPI; <br> Consult for the customer service staff for more information |
-| Extra connector | Onborad 30P FPC connector，supports our Mic Array R6 microphone array |
+| Extra connector | Onboard 30P FPC connector，supports our Mic Array R6 microphone array |
 | GPIO connector | Reserved 2x20P 2.54mm pads(Default welding pin headers) |
 | LED | An onboard WS2812 RGB LED<br> An onboard power LED |
 | KEY | An onboard reset key<br>An user's key |
@@ -32,4 +32,4 @@ Lichee RV Dock is a RISC-V Linux development kits with high integration, small s
 
 ## Support
 
-Email to support@sipeed.com for business cooperation or leave messge in this page for help.
+Email to support@sipeed.com for business cooperation or leave message on this page for help.

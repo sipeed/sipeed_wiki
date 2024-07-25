@@ -42,8 +42,8 @@ The preview webpage contained many function configurations, we can change them t
 Here tells the functions of each widgets.
 
 - **RGB_Map** checkbox, control RGB map. Display the deep pseudo-colored point map when checked, display the RGB-mapped point cloud map when unchecked.
-- **colorMap** drop-down bar, provides several pseudo-color mapping options(cmap)，jet is recommended. Avaliable when RGB_Map is unchecked.
-- **deepRangeMax** and **deepRangeMin** slide bar are used for setting the mapping range of cmap, the depth value between deepRangeMin and deepRangeMax are OK. Avaliable when RGB_Map is unchecked.
+- **colorMap** drop-down bar, provides several pseudo-color mapping options(cmap)，jet is recommended. Available when RGB_Map is unchecked.
+- **deepRangeMax** and **deepRangeMin** slide bar are used for setting the mapping range of cmap, the depth value between deepRangeMin and deepRangeMax are OK. Available when RGB_Map is unchecked.
 - **NormalPoint** checkbox, control the display of normal point(There maybe some invalidation points when TOF worked, need to do opposite action). Recommend checked.
 - **OE_Points** checkbox, control the display of OE point. Recommend unchecked.
 - **UE_Points** checkbox, control the display of UE point. Recommend unchecked.

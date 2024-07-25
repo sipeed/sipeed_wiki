@@ -34,7 +34,7 @@ python .\sw\pico-programmer.py .\example-fw-flash.v COM13
 The COM13 at the end of command line refers to the serial port number of the development board in the system.
 For example, if it is allocated COM14 in your system, you need change it into COM14.
 
-There is a countdown shows `- Waiting for reset -` when you succeed excute the command, in which time it's required to press the S1 button of the development board to complete the programming. 
+There is a countdown shows `- Waiting for reset -` when you succeed execute the command, in which time it's required to press the S1 button of the development board to complete the programming. 
 The succeed done log is as below:
 
 ```powershell

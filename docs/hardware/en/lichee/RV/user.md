@@ -16,7 +16,7 @@ It may run slow because of the speed of TF card.
 
 The users name is `root` and password is `licheepi`
 
-**When using serial port connets board it always print kernel message, do following steps to stop it:**
+**When using serial port connection board it always print kernel message, do following steps to stop it:**
 - Edit `/etc/rsyslog.conf` by root and change `*.emerg` located in lht last line into `#*.emerg` in this file
 - Restart rsyslog service by this command `/etc/init.d/rsyslog restart`
 
