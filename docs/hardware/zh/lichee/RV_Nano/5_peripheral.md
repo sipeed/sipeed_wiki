@@ -1,4 +1,4 @@
----
+![图片](https://github.com/sipeed/sipeed_wiki/assets/59745518/e7ccbe45-b019-4648-b11e-3b8ef88a5415)---
 title: LicheeRV Nano Peri Use
 keywords: riscv, licheerv,nano
 update:
