@@ -1,5 +1,5 @@
 ---
-title: 快速开始
+title: 总览
 keywords: NanoKVM, Remote desktop, Lichee, PiKVM, RISCV, tool
 update:
   - date: 2024-7-4
@@ -14,8 +14,6 @@ update:
 ![](./../assets/NanoKVM/2_unbox/unbox_0.png)
 
 Full版包含 NanoKVM（带外壳，带卡）、KVM-B板、USB A to C 线 *2、杜邦线。
-
-
 
 Lite版包含 NanoKVM（不带外壳和TF卡） 、散热片。
 

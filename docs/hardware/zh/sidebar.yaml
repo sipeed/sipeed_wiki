@@ -384,15 +384,29 @@ items:
     -   label: Lichee Nano KVM
         items:
         -   label: 简介
-            file: kvm/NanoKVM/1_intro.md
-        -   label: 快速开始
-            file: kvm/NanoKVM/2_unbox.md
-        -   label: 用户指南
-            file: kvm/NanoKVM/3_user_guide.md
-        -   label: 应用更新&固件烧录
-            file: kvm/NanoKVM/4_firmware.md
+            file: kvm/NanoKVM/introduction.md
+        -   label: 总览
+            file: kvm/NanoKVM/overview.md
+        -   label: 开始
+            items:
+            -   label: 烧录镜像
+                file: kvm/NanoKVM/start/flashing.md
+            -   label: 更新应用
+                file: kvm/NanoKVM/start/updating.md
+            -   label: 用户指南
+                file: kvm/NanoKVM/start/user_guide.md
+        -   label: 网络
+            items:
+            -   label: Tailscale
+                file: kvm/NanoKVM/network/tailscale.md
+            -   label: frp
+                file: kvm/NanoKVM/network/frp.md
+            -   label: 静态 IP
+                file: kvm/NanoKVM/network/static_ip.md
+        -   label: 配置文件
+            file: kvm/NanoKVM/configuration.md
         -   label: FAQ
-            file: kvm/NanoKVM/5_faq.md
+            file: kvm/NanoKVM/faq.md
 # -   label: Maix Audio
 #     items:
 #     -   label: MA USB 16
