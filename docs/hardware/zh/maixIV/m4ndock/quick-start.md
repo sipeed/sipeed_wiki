@@ -76,7 +76,7 @@ apt install cmake
 
 原始代码由爱芯官方开源于 GITHUB：[CLIP-ONNX-AX650-CPP](https://github.com/AXERA-TECH/CLIP-ONNX-AX650-CPP)
 
-https://github.com/sipeed/sipeed_wiki/assets/13964381/df4cec7f-29af-465f-bfad-e54312274437
+[DEMO VIDEO](https://github.com/sipeed/sipeed_wiki/assets/13964381/df4cec7f-29af-465f-bfad-e54312274437)
 
 准备 QT 运行环境
 ```
@@ -85,7 +85,7 @@ apt install cmake qt6-base-dev
 ```
 
 下载预编译好的可执行文件、模型文件、测试图片、测试文本
-- [Baidu Pan](https://pan.baidu.com/s/1E0aR4OzTdqV90r002hNhLg?pwd=i3jp)
+- [Baidu Pan](https://pan.baidu.com/s/17M5ugUyuf9mbi1cHLGJHXg)
 
 将下载获得的 *CLIP.zip* 在 `/root/Desktop/` 路径下解压得到以下内容
 ```
