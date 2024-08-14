@@ -9,11 +9,11 @@ update:
       - Release docs
 ---
 
+> 注意，直接在公网暴露服务十分危险！建议配置 HTTPS 后使用。
+
 想要使用 frp，你需要自己编写配置文件，可以参考 [frp 文档](https://gofrp.org)。
 
 这里给出一个示例，实现通过 frp [访问内网的 web 服务](https://gofrp.org/zh-cn/docs/examples/vhost-http/)
-
-注意：v1.0.0 版本的镜像不支持 frp。如果你的 NanoKVM 镜像版本是 v1.0.0，请先更新镜像。
 
 ## 启动 frps 服务
 

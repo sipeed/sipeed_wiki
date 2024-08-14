@@ -12,7 +12,7 @@ update:
 
 > **推荐将 NanoKVM 与 Tailscale 配合使用，来实现公网访问远程主机的目的。**
 
-*注意：v1.0.0 版本的镜像不支持 Tailscale。如果你的 NanoKVM 镜像版本是 v1.0.0，请先[更新镜像](https://wiki.sipeed.com/nanokvm/hardware/zh/kvm/NanoKVM/start/flashing.html)。*
+*注意：v1.0.0 版本的镜像不支持 Tailscale。如果你的 NanoKVM 镜像版本是 v1.0.0，请先[更新镜像](https://wiki.sipeed.com/hardware/zh/kvm/NanoKVM/start/flashing.html)。*
 
 目前 NanoKVM 已经内置了 Tailscale，只需要简单的操作即可开始使用。
 有两种配置 Tailscale 的方式：在浏览器中配置和在终端中配置。
