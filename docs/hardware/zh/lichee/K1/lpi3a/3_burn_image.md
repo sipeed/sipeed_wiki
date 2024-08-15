@@ -17,7 +17,7 @@ LicheePi3A 已被进迭官方bianbu镜像支持
 
 
 ### Fedora 镜像
-
+https://images.fedoravforce.com/LicheePi%203A
 
 ### openKylin 镜像
 

@@ -16,13 +16,17 @@ LicheePi3A has been supported by the official bianbu image of Spacemit
 You can go to the official mirror site of Spacemit https://archive.spacemit.com/image/k1/version/bianbu/ ）Download, please note to download images v1.0.11 or higher
 
 
-### Fedora 
 
+### Fedora 
+![fedora](./assets/images/fedora.png)
+https://images.fedoravforce.com/LicheePi%203A
 
 ### openKylin 
-
+![openKylin](./assets/images/openkylin.png)
+https://www.openkylin.top/downloads/
 
 ### Deepin 
+![deepin](./assets/images/deepin.jpg)   
 https://ci.deepin.com/repo/deepin/deepin-ports/cdimage/20240815/riscv64/
 
 

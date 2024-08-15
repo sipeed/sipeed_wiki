@@ -2,33 +2,25 @@
 msgid ""
 msgstr ""
 
-#: home.html:100
-msgid "淘宝"
-msgstr ""
-
-#: home.html:101 maix.html:168 tang.html:284 tang.html:300
-msgid "https://sipeed.taobao.com"
-msgstr "https://www.aliexpress.com/store/911876460"
-
-#: home.html:106
+#: home.html:93
 msgid "/static/home/banner_maixcam.jpg"
 msgstr ""
 
-#: home.html:109
+#: home.html:96
 #, fuzzy
 msgid "硬件文档"
 msgstr "Hardware Docs"
 
-#: home.html:110
+#: home.html:97
 msgid "/maixcam"
 msgstr ""
 
-#: home.html:114
+#: home.html:101
 msgid "/maixpy"
 msgstr ""
 
-#: home.html:117 home.html:130 home.html:143 home.html:156 home.html:169
-#: home.html:182 home.html:195 home.html:208 home.html:221 licheepi.html:221
+#: home.html:104 home.html:117 home.html:130 home.html:143 home.html:156
+#: home.html:169 home.html:182 home.html:195 home.html:208 licheepi.html:221
 #: licheepi.html:242 licheepi.html:258 licheepi.html:279 licheepi.html:295
 #: licheepi.html:311 maix.html:167 maix.html:241 maix.html:262 maix.html:279
 #: maix.html:296 maixsense.html:44 maixsense.html:60 others.html:42
@@ -37,17 +29,17 @@ msgstr ""
 msgid "购买"
 msgstr "Buy"
 
-#: home.html:118
+#: home.html:105
 #, fuzzy
 msgid "https://item.taobao.com/item.htm?id=784724795837"
 msgstr "https://www.aliexpress.us/item/325680633"
 
-#: home.html:123
+#: home.html:110
 msgid "/static/home/banner_nanokvm_zh.jpg"
 msgstr "/static/home/banner_nanokvm_en.jpg"
 
-#: home.html:126 home.html:139 home.html:152 home.html:165 home.html:178
-#: home.html:191 home.html:204 home.html:217 licheepi.html:217
+#: home.html:113 home.html:126 home.html:139 home.html:152 home.html:165
+#: home.html:178 home.html:191 home.html:204 licheepi.html:217
 #: licheepi.html:238 licheepi.html:254 licheepi.html:275 licheepi.html:291
 #: licheepi.html:307 maix.html:163 maix.html:180 maix.html:197 maix.html:237
 #: maix.html:254 maix.html:275 maix.html:292 maixsense.html:40
@@ -57,52 +49,52 @@ msgstr "/static/home/banner_nanokvm_en.jpg"
 msgid "文档"
 msgstr "Docs"
 
-#: home.html:127
+#: home.html:114
 msgid "/nanokvm"
 msgstr ""
 
-#: home.html:131
+#: home.html:118
 #, fuzzy
 msgid "https://item.taobao.com/item.htm?id=811206560480"
 msgstr "https://www.aliexpress.com/item/1005006080116482.html"
 
-#: home.html:136
+#: home.html:123
 msgid "/static/home/LicheeRV-Nano.jpg"
 msgstr ""
 
-#: home.html:144 licheepi.html:243
+#: home.html:131 licheepi.html:243
 msgid "https://item.taobao.com/item.htm?id=764939520376"
 msgstr "https://www.aliexpress.us/item/325680633"
 
-#: home.html:149
+#: home.html:136
 msgid "/static/home/LonganPi3H.jpg"
 msgstr ""
 
-#: home.html:157 licheepi.html:280
+#: home.html:144 licheepi.html:280
 msgid "https://item.taobao.com/item.htm?ft=t&id=758221950525"
 msgstr "https://www.aliexpress.us/item/100500639"
 
-#: home.html:162
+#: home.html:149
 msgid "/static/home/console-4A.jpg"
 msgstr ""
 
-#: home.html:209 home.html:222 others.html:43
+#: home.html:196 home.html:209 others.html:43
 msgid "https://item.taobao.com/item.htm?id=737788586308"
 msgstr "https://www.aliexpress.com/item/1005006022974163.html"
 
-#: home.html:231
+#: home.html:218
 msgid "产品动态"
 msgstr "Product News"
 
-#: home.html:235
+#: home.html:222
 msgid "Maix AI 视觉"
 msgstr "Maix Vision Series"
 
-#: home.html:247
+#: home.html:234
 msgid "MaixSense 传感器"
 msgstr "MaixSense Sensor Module"
 
-#: home.html:251
+#: home.html:238
 msgid "其它"
 msgstr "Other Products"
 
@@ -302,6 +294,10 @@ msgid "RISC-V 1GHz + 1Tops NPU, 4M高清摄像头，2.3寸552x368高清电容触
 msgstr ""
 "RISC-V 1GHz + 1Tops NPU, 4M HD camera, 2.3-inch 552x368 HD capacitive "
 "touch screen, perfect support for all new Maix ecosystem software"
+
+#: maix.html:168 tang.html:284 tang.html:300
+msgid "https://sipeed.taobao.com"
+msgstr "https://www.aliexpress.com/store/911876460"
 
 #: maix.html:177
 msgid "Python 语法，简易 API，快速落地 AI 视觉、听觉应用"
@@ -811,4 +807,7 @@ msgstr "/hardware/en/tang/tang-primer-15k/primer-15k.html"
 
 #~ msgid "/hardware/zh/tang/tang-mega-138k/mega-138k-pro.html"
 #~ msgstr "/hardware/en/tang/tang-mega-138k/mega-138k-pro.html"
+
+#~ msgid "淘宝"
+#~ msgstr ""
 
