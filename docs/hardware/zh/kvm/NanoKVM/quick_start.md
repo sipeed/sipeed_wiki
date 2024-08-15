@@ -37,7 +37,11 @@ NanoKVM-Full版接口示意图如下，Lite版仅包含 USB-C、HDMI和网口，
 
   ![](./../assets/NanoKVM/2_unbox/unbox_4.png)
 
-  KVM-B板与主机9针接口连线如下图，双排排针上下联通，另一排可连接机箱的开机按键、Power LED 等接口
+  新版KVM-B板自带主板通用的9Pin排母接口，可以直接插在主板上，机箱的开机按键、Power LED 等接口可按下图接到 KVM-B 的排针上
+
+
+
+  旧版KVM-B板与主机9针接口连线如下图，双排排针上下联通，另一排可连接机箱的开机按键、Power LED 等接口
 
   ![](./../assets/NanoKVM/2_unbox/unbox_2.png)
 
@@ -55,7 +59,7 @@ Full 版本出厂时已经烧录了镜像，可以跳过此步骤。
 
 ### 更新应用
 
-目前应用还处于快速迭代阶段，使用前请先将应用更新到最新版本。具体操作方式请参考 [更新应用](https://wiki.sipeed.com/hardware/zh/kvm/NanoKVM/system/updating.html)。
+新的应用往往带来更多功能或修复某些重要漏洞，建议您将 NanoKVM 应用更新到最新版本，具体操作方式请参考 [更新应用](https://wiki.sipeed.com/hardware/zh/kvm/NanoKVM/system/updating.html)。
 
 ## 基础操作
 
@@ -65,11 +69,11 @@ Full版NanoKVM自带OLED显示屏，联网之后会在显示屏第一行显示IP
 
 ![](./../assets/NanoKVM/2_unbox/unbox_5.png)
 
-Lite版用户在插入镜像卡启动后，可在路由器/交换机后台查看IP。用户也可按照[LicheeRV NANO](https://wiki.sipeed.com/hardware/zh/lichee/RV_Nano/5_peripheral.html#usb-rndis-%E7%BD%91%E5%8F%A3)的联网方式登录到板子，使用`ifconfig`查看`eth0`的地址
+Lite版用户请参考[获取IP](https://wiki.sipeed.com/hardware/zh/kvm/NanoKVM/system/updating.html)
 
 ### 查看远程桌面
 
-浏览器直接输入获取的IP，进入登录页面，默认账号密码为admin、admin，登录后请**先检查更新**（设置 -> 检查更新），详细步骤可参考 [更新应用](https://wiki.sipeed.com/hardware/zh/kvm/NanoKVM/system/updating.html)。
+浏览器直接输入获取的IP，进入登录页面，默认账号密码为admin、admin，登录后建议**先检查更新**（设置 -> 检查更新），详细步骤可参考 [更新应用](https://wiki.sipeed.com/hardware/zh/kvm/NanoKVM/system/updating.html)。
 
 Lite版用户，或Full用户重新烧卡登录后页面上无远程画面，请先升级应用后刷新网页，即可开始使用
 
@@ -80,14 +84,6 @@ Lite版用户，或Full用户重新烧卡登录后页面上无远程画面，请
 **为保障您的信息安全，请在测试功能正常后修改账号密码**
 
 ![](./../assets/NanoKVM/2_unbox/unbox_9.png)
-
-### 如何进行远程装机
-
-请参考[ISO镜像挂载](https://wiki.sipeed.com/hardware/zh/kvm/NanoKVM/3_user_guide.html)
-
-然后点击`开机（短按）`，迅速按键盘上的F11键（不同主机按键可能不同，请参照主机说明），选择对应的系统启动。
-
-![](./../assets/NanoKVM/2_unbox/unbox_8.png)
 
 ### ATX电源控制
 

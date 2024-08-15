@@ -7,7 +7,21 @@ update:
     author: BuGu
     content:
       - Release docs
+  - date: 2024-8-14
+    version: v0.1
+    author: BuGu
+    content:
+      - Update docs
 ---
+
+## OLED界面
+
++ 显示网线、USB、HDMI 连接状态，连接后图标将反色显示;
++ IP:连接网线后 NanoKVM 默认自动获取IP，并显示在 OLED 上，若无法Ping通网关，将在IP前显示`!`;
++ RES: 显示当前传输的分辨率，默认720P
++ TYPE: 显示传输的方式，暂时只支持MJPG，H264开发中
++ STREAM: 显示实时传输帧率，系统默认开启了帧差检测（画面静止时停止发送），画面静止时FPS显示为 0
++ QUALITY: 显示压缩质量，50-100%，默认为80%
 
 ## 管理页面功能
 
@@ -26,6 +40,11 @@ update:
 
 ![](../../assets/NanoKVM/3_user_guide/user2.png)
 
+### 帧差检测
+
++ NanoKVM 默认打开帧差检测功能，即画面静止时停止传输图像，用于节省流量。
++ 此功能产生约占用2.5%的CPU占用，从静止到画面变化时存在 0.2s 的延迟，点击`显示`->`帧差检测`即可关闭或开启此功能。
+
 ### 虚拟键鼠使用
 
 + NanoKVM 的 USB 接口模拟出了键鼠设备。打开浏览器页面后，系统将自动捕获键鼠输入，并将操作实时同步到 NanoKVM 连接的主机。用户可以选择隐藏鼠标或改变在画面上显示的样式。
@@ -33,20 +52,29 @@ update:
 
 ![](../../assets/NanoKVM/3_user_guide/user3.png)
 
-### ISO镜像挂载
+### ISO镜像挂载以及远程装机
 
 + Nano KVM的 USB-C 端口除模拟键鼠设备外，还模拟了一个U盘设备，挂载了TF卡内的一部分存储空间，用于装机等需求，该U盘默认格式化为exFAT格式，Full版NanoKVM内置TF卡，模拟出的U盘大小约21G。
 
-首先用户需要下载待安装的镜像（通常以.iso结尾），将 NanoKVM USB-C 插入电脑，直接将下载好的镜像复制到U盘内（可复制多个系统），即可拔出。
++ 与普通U盘不同，NanoKVM的虚拟U盘内可同时存放多个镜像，开机之前可以通过 web 页面的选项选择要安装的系统镜像进行挂载。
+
+首先用户需要下载待安装的镜像（通常以.iso结尾），将 NanoKVM USB-C 插入电脑，直接将下载好的镜像直接复制到U盘内（可复制多个系统），即可拔出。
 
 按上述步骤连接远程主机与Nano KVM，在浏览器登录系统后，点击光盘图标，选中待安装的系统，即可实现ISO挂载
 
 ![](../../assets/NanoKVM/2_unbox/unbox_7.png)
 
+接下来开始装机操作，点击`开机（短按）`，迅速按键盘上的F11键（不同主机按键可能不同，请参照主机说明），选择对应的镜像启动并完成装机流程。
+
+![](./../assets/NanoKVM/2_unbox/unbox_8.png)
+
 注：
 
-+ 虚拟U盘也可以当作普通U盘，使用常规的烧卡方式烧录镜像。
++ 虚拟U盘功能默认打开，如果不需要可通过点击`设置`->`虚拟U盘`关闭。
++ 虚拟U盘也可以当作普通U盘使用，web界面未选中任何镜像时，默认挂载整个21G的虚拟U盘。
++ 用户也可使用常规的烧卡方式烧录镜像，不推荐
 + 镜像拷入 NanoKVM 的速度受到 USB2.0 传输速度和 SG2002 写卡速度的限制，可能会比较慢，用户可将TF卡取出，插入电脑，[解除隐藏](https://jingyan.baidu.com/article/e4511cf34faece2b845eaf34.html)TF卡的第三个分区，直接将镜像拷入其中。
++ 虚拟U盘同时挂载到NanoKVM的 `/data` 目录，用户可在 NanoKVM 终端内直接读写该分区
 
 ### 网页终端
 
@@ -55,15 +83,37 @@ update:
 
 ![](../../assets/NanoKVM/3_user_guide/user4.png)
 
-### 电源灯，HDD灯
+### 串口终端
+
+NanoKVM 基于 LicheeRV Nano 构建，RVNano 核心板共有3个串口，UART0默认用于输出系统log，在 NanoKVM Full 版中，引出了 UART1/2，用户可自行拓展功能（第一批内测版仅在外壳处开孔）
+
+![](../../assets/NanoKVM/1_intro/NanoKVM_2.jpg)
+
+点击管理页面的`终端`，选择`串口终端`，选择使用的串口，填写波特率，点击开始后即可使用
+
+![]()
+
+注：串口终端功能使用 WebSSH + picocom 搭建，用法同 picocom
+
+### RNDIS
+
+NanoKVM 的 USB 会默认虚拟出 RNDIS USB网卡（从设备），当 NanoKVM 服务异常时可用于系统维护，请参照[这里]()连接电脑，更多用法请自行探索。
+
+若不使用 RNDIS 功能，可点击`设置`->`RNDIS`关闭。
+
+### 电源灯
 
 + 在悬浮栏右侧，有电源和硬盘图标，正常情况下是灰色状态，开机后电源图标变绿。Full版的ATX控制板受延长线芯数限制，只引出电源、重启按键和电源灯。Lite用户可根据原理图自行扩展。
+
+注：
++ 正式版 NanoKVM-A 硬件保留 WiFi 模块引脚，修改了OLED和部分的ATX引脚，固件会自动检测硬件版本并自适应。
++ Lite 版 NanoKVM 不包含 NanoKVM-A/B ，固件会直接识别为正式版
 
 ### 设置
 
 + 切换中英文
 + 关于NanoKVM：点击打开Wiki
-+ 检查更新：当有可用更新时，用户可点击更新，约10s左右，OLED上将重新刷一遍KVM状态信息，此时刷新网页即可更新完成。
++ 检查更新：当有可用更新时，用户可点击更新，约15s左右，网页自动刷新重新登录即可更新完成。
 
 ### 更多功能敬请期待
 
@@ -71,52 +121,24 @@ update:
 
 主机连接KVM和一个普通屏幕，播放秒表计时视频，拍照捕捉远程桌面和显示屏，计算差值即可估算网络延迟。
 
-## 串口使用
+## 拆解
 
-NanoKVM 基于 LicheeRV Nano 构建，RVNano 核心板共有3个串口，UART0默认用于输出系统log，在 NanoKVM Full 版中，引出了 UART1/2，用户可自行拓展功能（第一批内测版仅在外壳处开孔）
+Full 版 NanoKVM 在重新烧卡时需要对外壳拆解，请按下图提示拆开外壳
 
-![](../../assets/NanoKVM/1_intro/NanoKVM_2.jpg)
-
-点击管理页面的`Terminal`打开网页终端
-
-图标若需使用UART，请先确保对应引脚 Pinmux 正确
-
-``` shell
-devmem 0x03001068 32 0x6    # GPIOA 18 UART1 RX
-devmem 0x03001064 32 0x6    # GPIOA 19 UART1 TX
-devmem 0x03001070 32 0x2    # GPIOA 28 UART2 TX
-devmem 0x03001074 32 0x2    # GPIOA 29 UART2 RX
-```
-
-串口使用方法如下：
-
-``` shell
-stty -F /dev/ttyS1 115200   # 设置UART1波特率为115200
-stty -F /dev/ttyS1 raw      # 设置tty为RAW模式
-echo -n UUU > /dev/ttyS1    # 发送 UUU(0x55 0x55 0x55)
-hexdump -C /dev/ttyS1       # 以HEX格式显示收到的数据
-```
-
-## IPMI使用
-
-Todo
-
-## 外网远程访问
-
-Todo
-
-## WOL（wake-on-lan）
-
-Todo
+![]()
 
 ## 异常恢复
 
++ OLED上正常显示信息，但无法打开网页
+  1. 参考[这里]()连接开发板
+  2. 输入指令`rm /etc/kvm/server.yaml`
+  3. 执行 `reboot` 重启系统
 + 登录浏览器界面后，无画面
-  1. 进入网页终端，执行 `/etc/init.d/S95webkvm restart` 重启服务。
+  1. 进入网页终端，执行 `/etc/init.d/S95nanokvm restart` 重启服务。
   2. 如果上述方式无法恢复正常，点击界面上的检查更新，更新应用
 + 更新过程中如果出现断网等异常情况，可能导致更新失败，若旧应用也无法启动时，请参照以下解决方法：
-  1. 使用 SSH 连接 NanoKVM，如 `ssh root@192.168.1.2`，密码为 `root`
-  2. 执行 `rm -r /kvmapp && cp -r /root/old/ / && mv /old /kvmapp`
+  1. 参考[这里]()连接开发板
+  2. 执行 `rm -r /kvmapp && cp -r /root/old/ / && mv /old/kvmapp`
   3. 执行 `reboot` 重启系统
 + 尝试断电重启解决未知问题
 + 若上述方法不能解决异常，请在论坛或QQ群提出您的问题，我们会耐心解答
