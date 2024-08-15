@@ -16,7 +16,7 @@ update:
 
 ## 简介
 
-![](./../assets/NanoKVM/1_intro/NanoKVM_3.jpg)
+![](./../../../assets/NanoKVM/introduce/NanoKVM_3.jpg)
 
 Lichee NanoKVM 是基于 LicheeRV Nano 的 IP-KVM 产品，继承了 LicheeRV Nano 的极致体积 和 强大功能。
 
@@ -28,13 +28,15 @@ NanoKVM Full 为完整版配置，带精致外壳和完整配件，内置开机�
 
 ## 使用场景
 
-![](./../assets/NanoKVM/1_intro/web_ui.gif)
+![](./../../../assets/NanoKVM/introduce/web_ui.gif)
 
 + 服务器管理：用于实时监控服务器，获取服务器运行状态，并对其加以控制；
 + 远程桌面、开关机：NanoKVM 摆脱主机必须联网和系统软件的限制，作为主机外置硬件，直接提供远程控制的功能；
 + 远程装机：NanoKVM模拟U盘设备，可挂载装机镜像安装系统，也可进入BIOS对电脑设置；
 + 远程串口（Full内测版未引出至接口）：NanoKVM引出两组串口，可配合IPMI使用，或连接其他开发板使用网页串口终端交互，此外用户可自行拓展更多配件
 + 更多玩法功能将在后续开放（如直播推流机），敬请期待
+
+![](./../../../assets/NanoKVM/introduce/application.png)
 
 ## 参数
 

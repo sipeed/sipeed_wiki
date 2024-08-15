@@ -16,7 +16,7 @@ update:
 
 ## OLED界面
 
-![](./../assets/NanoKVM/2_unbox/oled.jpg)
+![](./../../../assets/NanoKVM/unbox/oled.jpg)
 
 + 显示网线、USB、HDMI 连接状态，连接后图标将反色显示;
 + IP:连接网线后 NanoKVM 默认自动获取IP，并显示在 OLED 上，若无法Ping通网关，将在IP前显示`!`;
@@ -27,7 +27,7 @@ update:
 
 ## 管理页面功能
 
-![](./../assets/NanoKVM/1_intro/web_ui.gif)
+![](./../../../assets/NanoKVM/introduce/web_ui.gif)
 
 悬浮栏从左到右依次为：图像设置、屏幕键盘、鼠标样式、镜像挂载、自定义脚本、KVM网页终端、WOL、ATX控制/指示、设置、全屏、隐藏悬浮栏。
 
@@ -59,11 +59,11 @@ update:
 
 按上述步骤连接远程主机与Nano KVM，在浏览器登录系统后，点击光盘图标，选中待安装的系统，即可实现ISO挂载
 
-![](./../assets/NanoKVM/3_user_guide/imgsl.png)
+![](./../../../assets/NanoKVM/guide/imgsl.png)
 
 接下来开始装机操作，点击`开机（短按）`，迅速按键盘上的F11键（不同主机按键可能不同，请参照主机说明），选择对应的镜像启动并完成装机流程。
 
-![](./../assets/NanoKVM/3_user_guide/install.png)
+![](./../../../assets/NanoKVM/guide/install.png)
 
 注：
 
@@ -78,18 +78,18 @@ update:
 + 用户点击悬浮栏的`终端`->`NanoKVM 终端`图标，即可打开网页终端，无需ssh直接访问 NanoKVM 系统
 + 当 NanoKVM 断网重连或系统重启后，网页终端界面会提示重新登录，账号`root`，密码`root`
 
-![](./../assets/NanoKVM/3_user_guide/ssh.png)
+![](./../../../assets/NanoKVM/guide/ssh.png)
 
 ### 串口终端
 
 NanoKVM 基于 LicheeRV Nano 构建，RVNano 核心板共有3个串口，UART0默认用于输出系统log，在 NanoKVM Full 版中，引出了 UART1/2，用户可自行拓展功能（第一批内测版仅在外壳处开孔）
 
-![](./../assets/NanoKVM/3_user_guide/uart_to_3H.jpg)
+![](./../../../assets/NanoKVM/guide/uart_to_3H.jpg)
 
 点击管理页面的`终端`，选择`串口终端`，选择使用的串口，填写波特率，点击开始后即可使用
 
-![](./../assets/NanoKVM/3_user_guide/uart1.png)
-![](./../assets/NanoKVM/3_user_guide/uart2.png)
+![](./../../../assets/NanoKVM/guide/uart1.png)
+![](./../../../assets/NanoKVM/guide/uart2.png)
 
 注：串口终端功能使用 WebSSH + picocom 搭建，用法同 picocom
 
@@ -128,7 +128,7 @@ NanoKVM 的 USB 会默认虚拟出 RNDIS USB网卡（从设备），当 NanoKVM 
 
 Full 版 NanoKVM 在重新烧卡时需要对外壳拆解，请按下图提示拆开外壳
 
-![](./../assets/NanoKVM/3_user_guide/fix1.png)
+![](./../../../assets/NanoKVM/guide/fix1.png)
 
 1. 拆下底部4颗螺丝
 2. 借助HDMI和网口将 NanoKVM 推出外壳
@@ -138,7 +138,7 @@ Full 版 NanoKVM 在重新烧卡时需要对外壳拆解，请按下图提示拆
 
 正式版硬件预留 WiFi 模块相关引脚，修改了 OLED 和 ATX 的引脚分配，如下所示
 
-![](./../assets/NanoKVM/3_user_guide/PinDefine.png)
+![](./../../../assets/NanoKVM/guide/PinDefine.png)
 
 为兼容前后两种硬件，软件上做了自适应设计，内测用户和正式版用户可以放心更新。
 
