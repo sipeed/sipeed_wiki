@@ -11,7 +11,7 @@ update:
 
 ## 管理页面功能
 
-![](./../assets/NanoKVM/3_user_guide/user1.png)
+![](../../assets/NanoKVM/3_user_guide/user1.png)
 
 悬浮栏从左到右依次为：图像设置、屏幕键盘、鼠标样式、镜像挂载、KVM网页终端、开机按钮、电源/HDD状态指示、设置、全屏、隐藏悬浮栏。
 
@@ -24,14 +24,14 @@ update:
 
 + 图像质量选项可以修改画面的压缩比例，当您认为画面较卡，延迟较高时，可以适当调低图像质量。
 
-![](./../assets/NanoKVM/3_user_guide/user2.png)
+![](../../assets/NanoKVM/3_user_guide/user2.png)
 
 ### 虚拟键鼠使用
 
 + NanoKVM 的 USB 接口模拟出了键鼠设备。打开浏览器页面后，系统将自动捕获键鼠输入，并将操作实时同步到 NanoKVM 连接的主机。用户可以选择隐藏鼠标或改变在画面上显示的样式。
 + 对于不方便使用键盘的用户，我们提供了屏幕键盘，点击悬浮栏的键盘图标即可唤出屏幕键盘。
 
-![](./../assets/NanoKVM/3_user_guide/user3.png)
+![](../../assets/NanoKVM/3_user_guide/user3.png)
 
 ### ISO镜像挂载
 
@@ -41,7 +41,7 @@ update:
 
 按上述步骤连接远程主机与Nano KVM，在浏览器登录系统后，点击光盘图标，选中待安装的系统，即可实现ISO挂载
 
-![](./../assets/NanoKVM/2_unbox/unbox_7.png)
+![](../../assets/NanoKVM/2_unbox/unbox_7.png)
 
 注：
 
@@ -53,8 +53,7 @@ update:
 + 用户点击悬浮栏的`Terminal`图标，即可打开网页终端，无需ssh直接访问 NanoKVM 系统
 + 当 NanoKVM 断网重连或系统重启后，网页终端界面会提示重新登录，账号`root`，密码`root`
 
-![](./../assets/NanoKVM/3_user_guide/user4.png)
-
+![](../../assets/NanoKVM/3_user_guide/user4.png)
 
 ### 电源灯，HDD灯
 
@@ -76,7 +75,7 @@ update:
 
 NanoKVM 基于 LicheeRV Nano 构建，RVNano 核心板共有3个串口，UART0默认用于输出系统log，在 NanoKVM Full 版中，引出了 UART1/2，用户可自行拓展功能（第一批内测版仅在外壳处开孔）
 
-![](./../assets/NanoKVM/1_intro/NanoKVM_2.jpg)
+![](../../assets/NanoKVM/1_intro/NanoKVM_2.jpg)
 
 点击管理页面的`Terminal`打开网页终端
 
@@ -117,8 +116,7 @@ Todo
   2. 如果上述方式无法恢复正常，点击界面上的检查更新，更新应用
 + 更新过程中如果出现断网等异常情况，可能导致更新失败，若旧应用也无法启动时，请参照以下解决方法：
   1. 使用 SSH 连接 NanoKVM，如 `ssh root@192.168.1.2`，密码为 `root`
-  2. 执行 `rm -r /kvmapp && cp -r /root/old/ / && mv /old /kvmapp` 
+  2. 执行 `rm -r /kvmapp && cp -r /root/old/ / && mv /old /kvmapp`
   3. 执行 `reboot` 重启系统
 + 尝试断电重启解决未知问题
 + 若上述方法不能解决异常，请在论坛或QQ群提出您的问题，我们会耐心解答
-
