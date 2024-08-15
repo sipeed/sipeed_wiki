@@ -201,6 +201,31 @@ items:
                 file: lichee/th1520/lpi4a/12_faq.md
             -   label: 致谢
                 file: lichee/th1520/lpi4a/11_credits.md
+    -   label: LicheePI 3A
+        items:
+        -   label: Lichee Module 3A
+            file: lichee/K1/lm3a.md
+        -   label: Lichee Cluster 3A
+            file: lichee/K1/lc3a/lc3a.md
+        -   label: Lichee PI 3A
+            collapsed: false
+            items:
+            -   label: 板卡介绍
+                file: lichee/K1/lpi3a/1_intro.md
+            -   label: 开箱体验
+                file: lichee/K1/lpi3a/2_unbox.md
+            -   label: 镜像烧录
+                file: lichee/K1/lpi3a/3_burn_image.md
+            -   label: 外设使用
+                file: lichee/K1/lpi3a/4_peripheral.md
+            -   label: 系统开发
+                file: lichee/K1/lpi3a/5_develop.md
+            -   label: 典型应用
+                file: lichee/K1/lpi3a/6_application.md
+            -   label: 常见问题
+                file: lichee/K1/lpi3a/7_faq.md
+            -   label: 致谢
+                file: lichee/K1/lpi3a/8_credits.md
     -   label: LicheePI RV
         items:
         -   label: 板卡介绍

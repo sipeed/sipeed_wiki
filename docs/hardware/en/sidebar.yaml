@@ -182,6 +182,31 @@ items:
                 file: lichee/th1520/lpi4a/12_faq.md
             -   label: Credits
                 file: lichee/th1520/lpi4a/11_credits.md
+    -   label: LicheePI 3A
+        items:
+        -   label: Lichee Module 3A
+            file: lichee/K1/lm3a.md
+        -   label: Lichee Cluster 3A
+            file: lichee/K1/lc3a/lc3a.md
+        -   label: Lichee PI 3A
+            collapsed: false
+            items:
+            -   label: SBC Intro
+                file: lichee/K1/lpi3a/1_intro.md
+            -   label: Unbox experience
+                file: lichee/K1/lpi3a/2_unbox.md
+            -   label: Burn Images
+                file: lichee/K1/lpi3a/3_burn_image.md
+            -   label: Peripheral Usage
+                file: lichee/K1/lpi3a/4_peripheral.md
+            -   label: System develop
+                file: lichee/K1/lpi3a/5_develop.md
+            -   label: Applications
+                file: lichee/K1/lpi3a/6_application.md
+            -   label: FAQs
+                file: lichee/K1/lpi3a/7_faq.md
+            -   label: Credits
+                file: lichee/K1/lpi3a/8_credits.md
     -   label: Lichee RV
         collapsed: false
         items:
