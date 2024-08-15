@@ -16,7 +16,7 @@ update:
 
 ## OLED界面
 
-![](./../assets/NanoKVM/2_unbox/============================)
+![](./../assets/NanoKVM/2_unbox/oled.jpg)
 
 + 显示网线、USB、HDMI 连接状态，连接后图标将反色显示;
 + IP:连接网线后 NanoKVM 默认自动获取IP，并显示在 OLED 上，若无法Ping通网关，将在IP前显示`!`;
@@ -57,15 +57,13 @@ update:
 
 用户需提前下载待安装的镜像（通常以.iso结尾），将 NanoKVM USB-C 插入电脑，将下载好的镜像直接复制到U盘内（可复制多个系统），即可拔出。
 
-![](./../assets/NanoKVM/1_intro/==================)
-
 按上述步骤连接远程主机与Nano KVM，在浏览器登录系统后，点击光盘图标，选中待安装的系统，即可实现ISO挂载
 
-![](../../assets/NanoKVM/2_unbox/====================)
+![](./../assets/NanoKVM/3_user_guide/imgsl.png)
 
 接下来开始装机操作，点击`开机（短按）`，迅速按键盘上的F11键（不同主机按键可能不同，请参照主机说明），选择对应的镜像启动并完成装机流程。
 
-![](./../assets/NanoKVM/2_unbox/unbox_8.png)
+![](./../assets/NanoKVM/3_user_guide/install.png)
 
 注：
 
@@ -80,17 +78,18 @@ update:
 + 用户点击悬浮栏的`终端`->`NanoKVM 终端`图标，即可打开网页终端，无需ssh直接访问 NanoKVM 系统
 + 当 NanoKVM 断网重连或系统重启后，网页终端界面会提示重新登录，账号`root`，密码`root`
 
-![](../../assets/NanoKVM/3_user_guide/===========)
+![](./../assets/NanoKVM/3_user_guide/ssh.png)
 
 ### 串口终端
 
 NanoKVM 基于 LicheeRV Nano 构建，RVNano 核心板共有3个串口，UART0默认用于输出系统log，在 NanoKVM Full 版中，引出了 UART1/2，用户可自行拓展功能（第一批内测版仅在外壳处开孔）
 
-![](../../assets/NanoKVM/1_intro/================)
+![](./../assets/NanoKVM/3_user_guide/uart_to_3H.jpg)
 
 点击管理页面的`终端`，选择`串口终端`，选择使用的串口，填写波特率，点击开始后即可使用
 
-![](../../assets/NanoKVM/1_intro/================)
+![](./../assets/NanoKVM/3_user_guide/uart1.png)
+![](./../assets/NanoKVM/3_user_guide/uart2.png)
 
 注：串口终端功能使用 WebSSH + picocom 搭建，用法同 picocom
 
@@ -127,13 +126,17 @@ NanoKVM 的 USB 会默认虚拟出 RNDIS USB网卡（从设备），当 NanoKVM 
 
 Full 版 NanoKVM 在重新烧卡时需要对外壳拆解，请按下图提示拆开外壳
 
-![](../../assets/NanoKVM/1_intro/================)
+![](./../assets/NanoKVM/3_user_guide/fix1.png)
+
+1. 拆下底部4颗螺丝
+2. 借助HDMI和网口将 NanoKVM 推出外壳
+3. 取下散热器即可拔出TF卡
 
 ## 内测版和稳定版的硬件差别
 
 稳定版硬件预留 WiFi 模块相关引脚，修改了 OLED 和 ATX 的引脚分配，如下所示
 
-![](../../assets/NanoKVM/1_intro/================)
+![](./../assets/NanoKVM/3_user_guide/PinDefine.png)
 
 为兼容前后两种硬件，软件上做了自适应设计，内测用户和稳定版用户可以放心更新。
 
@@ -146,6 +149,8 @@ Full 版 NanoKVM 在重新烧卡时需要对外壳拆解，请按下图提示拆
 + 登录浏览器界面后，无画面
   1. 进入网页终端，执行 `/etc/init.d/S95nanokvm restart` 重启服务。
   2. 如果上述方式无法恢复正常，点击界面上的检查更新，更新应用
++ 早期内测版 Full NanoKVM 使用普通排线连接 HDMI 采集板，可能因接触不良导致检测不到 HDMI 信号，可按下图所示拆解，并重新连接排线
+  ![](./../assets/NanoKVM/3_user_guide/Old_fix.png)
 + 更新过程中如果出现断网等异常情况，可能导致更新失败，若旧应用也无法启动时，请参照以下解决方法：
   1. 参考[这里](https://wiki.sipeed.com/hardware/zh/kvm/NanoKVM/system/updating.html#%E8%8E%B7%E5%8F%96-IP)连接开发板
   2. 执行 `rm -r /kvmapp && cp -r /root/old/ / && mv /old/kvmapp`
