@@ -33,7 +33,7 @@ NanoKVM Full 为完整版配置，带精致外壳和完整配件，内置开机�
 + 服务器管理：用于实时监控服务器，获取服务器运行状态，并对其加以控制；
 + 远程桌面、开关机：NanoKVM 摆脱主机必须联网和系统软件的限制，作为主机外置硬件，直接提供远程控制的功能；
 + 远程装机：NanoKVM模拟U盘设备，可挂载装机镜像安装系统，也可进入BIOS对电脑设置；
-+ 远程串口（Full内测版未引出至接口）：NanoKVM引出两组串口，可配合IPMI使用，用户可自行拓展更多配件
++ 远程串口（Full内测版未引出至接口）：NanoKVM引出两组串口，可配合IPMI使用，或连接其他开发板使用网页串口终端交互，此外用户可自行拓展更多配件
 + 更多玩法功能将在后续开放（如直播推流机），敬请期待
 
 ## 参数
@@ -63,8 +63,6 @@ NanoKVM Full 为完整版配置，带精致外壳和完整配件，内置开机�
 | 散热 | 静音无风扇 | 静音无风扇 | 需要风扇主动散热 |
 | 尺寸 | 23x37x15mm <br> ～1/30 PiKVM V4 体积 | 40x36x36mm <br/> ～1/7 PiKVM V4 体积 | 120x68x44mm |
 
-![](./../assets/NanoKVM/1_intro/NanoKVM_2.jpg)
-
 
 ## NanoKVM 软硬件资料
 
@@ -75,8 +73,8 @@ NanoKVM Lite 由 LicheeRV Nano E 和 HDMItoCSI 小板构成，NanoKVM FULL 在 N
 NanoKVM 镜像在LicheeRV Nano SDK 和 MaixCDK 基础上构建，可以兼容使用 LicheeRV Nano 的资料，反之LicheeRV Nano 或其他 SG2002 产品无法使用KVM软件。如果您想在 NanoKVM 上构建 HDMI 输入相关应用，请与我们联系，以获得技术支持。
 
 + [NanoKVM-A 原理图](https://cn.dl.sipeed.com/fileList/KVM/nanoKVM/HDK/02_Schematic/SCH_RV_Nano_KVM_A_30111.pdf)
-+ [NanoKVM-B 原理图](https://cn.dl.sipeed.com/fileList/KVM/nanoKVM/HDK/02_Schematic/SCH_HDMI_MIPI_31011.pdf)
-+ [NanoKVM 镜像下载](https://github.com/sipeed/NanoKVM/releases/tag/NanoKVM)
++ [NanoKVM-B 原理图](https://cn.dl.sipeed.com/fileList/KVM/nanoKVM/HDK/02_Schematic/SCH_RV_Nano_KVM_B_30131.pdf)
++ [NanoKVM 镜像下载](https://github.com/sipeed/NanoKVM/releases)
 
 ## 购买入口
 
