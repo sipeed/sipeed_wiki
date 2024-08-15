@@ -16,7 +16,7 @@ update:
 
 ## 简介
 
-![](./../../../assets/NanoKVM/introduce/NanoKVM_3.jpg)
+![](./../../../assets/NanoKVM/introduce/NanoKVM_3.png)
 
 Lichee NanoKVM 是基于 LicheeRV Nano 的 IP-KVM 产品，继承了 LicheeRV Nano 的极致体积 和 强大功能。
 
