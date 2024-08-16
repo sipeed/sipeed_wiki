@@ -28,14 +28,14 @@ update:
     cd frp_0.59.0_linux_amd64
     ```
 
-1. 创建配置文件 `frps.yaml`：
+2. 创建配置文件 `frps.yaml`：
 
     ```yaml
     bindPort: 7000
     vhostHTTPPort: 8080
     ```
 
-1. 运行 frps 服务：
+3. 运行 frps 服务：
 
     ```bash
     ./frps -c frps.yaml
@@ -44,11 +44,11 @@ update:
 ## 启动 frpc 服务
 
 1. 通过 SSH 登录到 NanoKVM；
-1. 执行 `frpc -v` 查看版本号，如果没有输出，则需要手动安装 frpc；
+2. 执行 `frpc -v` 查看版本号，如果没有输出，则需要手动安装 frpc；
     - 下载 [frp](https://github.com/fatedier/frp/releases/download/v0.59.0/frp_0.59.0_linux_riscv64.tar.gzf) 并解压；
     - 将 `frpc` 文件移动到 `/usr/bin/` 目录
 
-1. 创建配置文件 `/etc/kvm/frpc.yaml` ：
+3. 创建配置文件 `/etc/kvm/frpc.yaml` ：
 
     ```yaml
     serverAddr: 20.190.1.1 # 你的公网 IP
@@ -61,7 +61,7 @@ update:
         - 20.190.1.1
     ```
 
-1. 启动 frpc 服务：
+4. 启动 frpc 服务：
 
     ```bash
     frpc -c /etc/kvm/frpc.yaml
@@ -99,7 +99,7 @@ proxies:
     vhostHTTPSPort: 443
     ```
 
-1. 配置 `frpc.yaml` 文件
+2. 配置 `frpc.yaml` 文件
 
     ```yaml
     serverAddr: 20.190.1.1           # 你的公网 IP
@@ -120,4 +120,4 @@ proxies:
             x-from-where: frp
     ```
 
-1. 分别启动 frps 和 frpc 服务，然后在浏览器中访问 [`https://yourdomain.com`](https://yourdomain.com) 即可
+3. 分别启动 frps 和 frpc 服务，然后在浏览器中访问 [`https://yourdomain.com`](https://yourdomain.com) 即可

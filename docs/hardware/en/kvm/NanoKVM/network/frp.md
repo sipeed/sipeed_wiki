@@ -27,14 +27,14 @@ First, you need a server with a public IP address and start the frps service on 
     cd frp_0.59.0_linux_riscv64
     ```
 
-1. Create the configuration file `frps.yaml`:
+2. Create the configuration file `frps.yaml`:
 
     ```yaml
     bindPort: 7000
     vhostHTTPPort: 8080
     ```
 
-1. Start the frps service:
+3. Start the frps service:
 
     ```bash
     ./frps -c frps.yaml
@@ -43,11 +43,11 @@ First, you need a server with a public IP address and start the frps service on 
 ## Start the frpc Service
 
 1. SSH into the NanoKVM;
-1. Run `frpc -v` to check the version. If there is no output, install frpc manually;
+2. Run `frpc -v` to check the version. If there is no output, install frpc manually;
     - Download and extract [frp](https://github.com/fatedier/frp/releases/download/v0.59.0/frp_0.59.0_linux_riscv64.tar.gzf);
     - Move the `frpc` file to the `/usr/bin/` directory.
 
-1. Create the configuration file `/etc/kvm/frpc.yaml`:
+3. Create the configuration file `/etc/kvm/frpc.yaml`:
 
     ```yaml
     serverAddr: 20.190.1.1 # Your public IP
@@ -60,7 +60,7 @@ First, you need a server with a public IP address and start the frps service on 
           - 20.190.1.1
     ```
 
-1. Start the frpc service:
+4. Start the frpc service:
 
     ```bash
     frpc -c /etc/kvm/frpc.yaml
@@ -98,7 +98,7 @@ Refer to the frp documentation: [Enable HTTPS for local HTTP services](https://g
     vhostHTTPSPort: 443
     ```
 
-1. Configure the `frpc.yaml` file:
+2. Configure the `frpc.yaml` file:
 
     ```yaml
     serverAddr: 20.190.1.1           # Your public IP
@@ -119,4 +119,4 @@ Refer to the frp documentation: [Enable HTTPS for local HTTP services](https://g
               x-from-where: frp
     ```
 
-1. Start both frps and frpc services, then access [`https://yourdomain.com`](https://yourdomain.com) in your browser.
+3. Start both frps and frpc services, then access [`https://yourdomain.com`](https://yourdomain.com) in your browser.

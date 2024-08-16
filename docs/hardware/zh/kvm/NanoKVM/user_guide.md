@@ -8,7 +8,7 @@ update:
     content:
       - Release docs
   - date: 2024-8-14
-    version: v0.1
+    version: v1.1
     author: BuGu
     content:
       - Update docs
