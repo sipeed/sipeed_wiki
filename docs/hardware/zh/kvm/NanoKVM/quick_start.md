@@ -61,11 +61,11 @@ NanoKVM-Full版接口示意图如下，Lite版仅包含 USB-C、HDMI和网口，
 
 + 再使用一条 USB C to A 数据线连接 KVM-B 板和 NanoKVM 的 ATX 接口（位于网口上方）
 
-  新版KVM-B板自带主板通用的9Pin排母接口，可以直接插在主板上，机箱的开机按键、Power LED 等接口可接到 KVM-B 的排针上，参考示意图（此处机箱仅连接开机线）：
+  正式版KVM-B板自带主板通用的9Pin排母接口，可以直接插在主板上，机箱的开机按键、Power LED 等接口可接到 KVM-B 的排针上，参考示意图（此处机箱仅连接开机线）：
 
   ![](./../assets/NanoKVM/2_unbox/new-ATX-B.png)
 
-  旧版KVM-B板与主机9针接口连线如下图，双排排针上下联通，另一排可连接机箱的开机按键、Power LED 等接口
+  内测版KVM-B板与主机9针接口连线如下图，双排排针上下联通，另一排可连接机箱的开机按键、Power LED 等接口
 
   ![](./../assets/NanoKVM/2_unbox/old-ATX-B.png)
   ![](./../assets/NanoKVM/2_unbox/old-ATX-B-w.png)

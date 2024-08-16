@@ -1,5 +1,5 @@
 ---
-title: NanoKVM
+title: 简介
 keywords: NanoKVM, Remote desktop, Lichee, PiKVM, RISCV, tool
 update:
   - date: 2024-6-21
@@ -49,9 +49,8 @@ NanoKVM Full 为完整版配置，带精致外壳和完整配件，内置开机�
 | 模拟USB存储  | ✓ | ✓ | ✓ |
 | IPMI      | ✓ | ✓ | ✓ |
 | Wake-on-LAN | ✓ | ✓ | ✓ |
-| WebSSH | ✓ | ✓ | - |
 | Tailscale | ✓ | ✓ | ✓ |
-| WebSSH | ✓ | ✓ | - |
+| WebSSH | ✓ | ✓ | ✓ |
 | 自定义脚本 | ✓ | ✓ | - |
 | ATX电源控制 | 无，用户可自行连接 | USB接口IO控制板 | RJ45接口IO控制板 |
 | OLED显示 | 无，用户可自行扩展 | 128x64 0.96" white | 128x32 0.91" white |
@@ -70,7 +69,7 @@ NanoKVM 基于 Sipeed [LicheeRV Nano](https://wiki.sipeed.com/hardware/zh/lichee
 
 NanoKVM Lite 由 LicheeRV Nano E 和 HDMItoCSI 小板构成，NanoKVM FULL 在 NanoKVM Lite 基础上增加 NanoKVM-A/B 板和外壳。HDMItoCSI板用于转换HDMI信号；NanoKVM-A 包含 OLED、ATX控制输出（TypeC接口形式）、辅助供电（TypeC接口）以及ATX开关机、复位按键；NanoKVM-B 一端连接A板，一端连接电脑ATX针脚，用于电脑的远程开关机。
 
-NanoKVM 镜像在LicheeRV Nano SDK 和 MaixCDK 基础上构建，可以兼容使用 LicheeRV Nano 的资料，反之LicheeRV Nano 或其他 SG2002 产品无法使用KVM软件。如果您想在 NanoKVM 上构建 HDMI 输入相关应用，请与我们联系，以获得技术支持。
+> NanoKVM 镜像在LicheeRV Nano SDK 和 MaixCDK 基础上构建，可以兼容使用 LicheeRV Nano 的资料，反之LicheeRV Nano 或其他 SG2002 产品无法使用KVM软件。如果您想在 NanoKVM 上构建 HDMI 输入相关应用，请与我们联系，以获得技术支持。
 
 + [原理图](https://cn.dl.sipeed.com/shareURL/KVM/nanoKVM/HDK/02_Schematic)
 + [3D结构](https://cn.dl.sipeed.com/shareURL/KVM/nanoKVM/HDK/04_3D_file)

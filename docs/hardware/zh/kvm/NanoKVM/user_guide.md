@@ -134,19 +134,19 @@ Full 版 NanoKVM 在重新烧卡时需要对外壳拆解，请按下图提示拆
 2. 借助HDMI和网口将 NanoKVM 推出外壳
 3. 取下散热器即可拔出TF卡
 
-### 内测版和稳定版的硬件差别
+### 内测版和正式版的硬件差别
 
-稳定版硬件预留 WiFi 模块相关引脚，修改了 OLED 和 ATX 的引脚分配，如下所示
+正式版硬件预留 WiFi 模块相关引脚，修改了 OLED 和 ATX 的引脚分配，如下所示
 
 ![](./../assets/NanoKVM/3_user_guide/PinDefine.png)
 
-为兼容前后两种硬件，软件上做了自适应设计，内测用户和稳定版用户可以放心更新。
+为兼容前后两种硬件，软件上做了自适应设计，内测用户和正式版用户可以放心更新。
 
 ### 重启问题
 
-早期内测版 Full NanoKVM 在 reboot 系统时会短暂拉高 RST_SW 引脚，导致连接的主机复位，新版硬件已修复这个问题。
+早期内测版 Full NanoKVM 在 reboot 系统时会短暂拉高 RST_SW 引脚，导致连接的主机复位，正式版硬件已修复这个问题。
 
-如果您使用早期内测版 Full NanoKVM 并受次问题的困扰，可以拆机后按上图老版本引脚定义，在 RST_KEY 和 PWR_KEY 上添加1K下拉电阻
+如果您使用早期内测版 Full NanoKVM 并受次问题的困扰，可以拆机后按上图内测版引脚定义，在 RST_KEY 和 PWR_KEY 上添加1K下拉电阻
 
 ## 异常恢复
 
@@ -165,3 +165,6 @@ Full 版 NanoKVM 在重新烧卡时需要对外壳拆解，请按下图提示拆
   3. 执行 `reboot` 重启系统
 + 尝试断电重启解决未知问题
 + 若上述方法不能解决异常，请在论坛或QQ群提出您的问题，我们会耐心解答
+  * MaixHub 论坛：https://maixhub.com/discussion/nanokvm
+  * GitHub ：https://github.com/sipeed/NanoKVM
+  * QQ group: 703230713

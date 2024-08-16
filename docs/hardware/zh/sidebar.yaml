@@ -381,7 +381,7 @@ items:
             file: logic_analyzer/combo8/faq.md
 -   label: KVM
     items:
-    -   label: Lichee Nano KVM
+    -   label: NanoKVM Cube
         items:
         -   label: 简介
             file: kvm/NanoKVM/introduction.md
