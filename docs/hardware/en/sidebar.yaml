@@ -385,18 +385,34 @@ items:
             file: logic_analyzer/combo8/faq.md
 -   label: KVM
     items:
-    -   label: Lichee Nano KVM
+    -   label: NanoKVM Cube
         items:
         -   label: Introduction
-            file: kvm/NanoKVM/1_intro.md
-        -   label: Unboxing Experience
-            file: kvm/NanoKVM/2_unbox.md
+            file: kvm/NanoKVM/introduction.md
+        -   label: Quick start
+            file: kvm/NanoKVM/quick_start.md
         -   label: User Guide
-            file: kvm/NanoKVM/3_user_guide.md
-        -   label: Update Firmware
-            file: kvm/NanoKVM/4_firmware.md
+            file: kvm/NanoKVM/user_guide.md
+        -   label: Network
+            items:
+            -   label: Tailscale
+                file: kvm/NanoKVM/network/tailscale.md
+            -   label: frp
+                file: kvm/NanoKVM/network/frp.md
+            -   label: Static IP
+                file: kvm/NanoKVM/network/static_ip.md
+        -   label: System
+            items:
+            -   label: System Introduction
+                file: kvm/NanoKVM/system/introduction.md
+            -   label: Flashing
+                file: kvm/NanoKVM/system/flashing.md
+            -   label: Updating
+                file: kvm/NanoKVM/system/updating.md
+            -   label: Configuration
+                file: kvm/NanoKVM/system/configuration.md
         -   label: FAQ
-            file: kvm/NanoKVM/5_faq.md
+            file: kvm/NanoKVM/faq.md
 # -   label: Maix Audio
 #     items:
 #     -   label: MA USB 16

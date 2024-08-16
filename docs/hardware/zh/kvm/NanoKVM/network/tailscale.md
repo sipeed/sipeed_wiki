@@ -21,23 +21,23 @@ update:
 ## 在浏览器中配置
 
 1. 在浏览器中输入 NanoKVM 的 IP 并访问；
-1. 点击设置 - Tailscale：
+2. 点击设置 - Tailscale：
 
     ![ipconfig](../../../../assets/NanoKVM/tailscale/setting.png)
 
-1. 如果提示 Tailscale 未安装，请点击安装，并等待安装完成。如果显示已安装，则进行下一步：
+3. 如果提示 Tailscale 未安装，请点击安装，并等待安装完成。如果显示已安装，则进行下一步：
 
     ![ipconfig](../../../../assets/NanoKVM/tailscale/install.png)
 
-1. 点击登录，等待 Tailscale 启动并生成登录链接（该操作只需要执行一次，Tailscale 会开机自启）：
+4. 点击登录，等待 Tailscale 启动并生成登录链接（该操作只需要执行一次，Tailscale 会开机自启）：
 
     ![ipconfig](../../../../assets/NanoKVM/tailscale/login.png)
 
-1. 登录链接生成后，浏览器会自动打开该链接。如果未自动跳转，请手动访问生成的链接。然后登录 Tailscale 账号，并点击 `Connect` 将 NanoKVM 加入到你的账号。
+5. 登录链接生成后，浏览器会自动打开该链接。如果未自动跳转，请手动访问生成的链接。然后登录 Tailscale 账号，并点击 `Connect` 将 NanoKVM 加入到你的账号。
 
     ![ipconfig](../../../../assets/NanoKVM/tailscale/connect.png)
 
-1. 现在可以在你的 Tailscale 账号下看到 NanoKVM 了。在公网环境中，运行 Tailscale，然后在浏览器中访问 `100.79.236.88 (替换为你的 Tailscale IP)`即可：
+6. 现在可以在你的 Tailscale 账号下看到 NanoKVM 了。在公网环境中，运行 Tailscale，然后在浏览器中访问 `100.79.236.88 (替换为你的 Tailscale IP)`即可：
 
     ![ipconfig](../../../../assets/NanoKVM/tailscale/machines.png)
 
