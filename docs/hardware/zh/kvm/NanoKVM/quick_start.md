@@ -7,6 +7,12 @@ update:
     author: BuGu
     content:
       - Release docs
+update:
+  - date: 2024-8-15
+    version: v0.1
+    author: BuGu
+    content:
+      - Update docs
 ---
 
 ## 开箱
@@ -66,10 +72,6 @@ NanoKVM-Full版接口示意图如下，Lite版仅包含 USB-C、HDMI和网口，
 
 ## 更新
 
-### 更新应用
-
-新的应用往往带来更多功能或修复某些重要漏洞，建议您将 NanoKVM 应用更新到最新版本，具体操作方式请参考 [更新应用](https://wiki.sipeed.com/hardware/zh/kvm/NanoKVM/system/updating.html)。
-
 ### 更新镜像
 
 > **Lite 版本需要准备 TF 卡并且烧录镜像后才能开始使用！**
@@ -79,6 +81,10 @@ Full 版本出厂时已经烧录了镜像，可以跳过此步骤。
 镜像会不定期更新。建议更新到最新版本镜像，以获取更好的使用体验。
 
 具体操作方式请参考 [烧录镜像](https://wiki.sipeed.com/hardware/zh/kvm/NanoKVM/system/flashing.html)。
+
+### 更新应用
+
+新的应用往往带来更多功能或修复某些重要漏洞，建议您将 NanoKVM 应用更新到最新版本，具体操作方式请参考 [更新应用](https://wiki.sipeed.com/hardware/zh/kvm/NanoKVM/system/updating.html)。
 
 ## 基础操作
 
