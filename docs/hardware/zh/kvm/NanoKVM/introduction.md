@@ -81,7 +81,7 @@ NanoKVM Lite 由 LicheeRV Nano E 和 HDMItoCSI 小板构成，NanoKVM FULL 在 N
 ## 购买入口
 
 [淘宝官方购买地址](https://item.taobao.com/item.htm?id=811206560480)
-[速卖通购买地址]()
+[速卖通购买地址](https://www.aliexpress.com/item/1005007369816019.html)
 [预售页面](https://sipeed.com/nanokvm)
 
 ## 产品反馈

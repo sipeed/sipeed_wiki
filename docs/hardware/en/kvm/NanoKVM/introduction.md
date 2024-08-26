@@ -79,7 +79,7 @@ NanoKVM Lite consists of the LicheeRV Nano E and HDMItoCSI board, while NanoKVM 
 ## Purchase Links
 
 [Official Taobao Store](https://item.taobao.com/item.htm?id=811206560480)
-[AliExpress Store]()
+[AliExpress Store](https://www.aliexpress.com/item/1005007369816019.html)
 [Pre-sale Page](https://sipeed.com/nanokvm)
 
 ## Product Feedback
