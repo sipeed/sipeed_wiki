@@ -188,4 +188,6 @@ For further assistance and support, visit the NanoKVM [official website](https:/
 
 ---
 
+> Note: The TF card described in this article is a microSD card
+
 End of User Guide.

@@ -65,10 +65,12 @@ NanoKVM-Full版接口示意图如下，Lite版仅包含 USB-C、HDMI和网口，
 
   ![](./../../../assets/NanoKVM/unbox/new-ATX-B.png)
 
+  > 注:版本号为30132的KVM-B板不能用机箱自带9-Pin排母直接连接板上的排针,需按照上图使用附赠的公对母排线连接
+
   内测版KVM-B板与主机9针接口连线如下图，双排排针上下联通，另一排可连接机箱的开机按键、Power LED 等接口
 
   ![](./../../../assets/NanoKVM/unbox/old-ATX-B.png)
-  ![](./../../../assets/NanoKVM/unbox/old-ATX-B-w.png)
+  ![](./../../../assets/NanoKVM/unbox/old-ATX-B-w.png)  
 
 ## 更新
 
