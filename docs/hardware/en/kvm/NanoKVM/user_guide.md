@@ -68,10 +68,12 @@ Next, start the installation process by clicking `Power On (Short Press)` and qu
 Note:
 
 + The virtual USB drive feature is enabled by default. If not needed, it can be disabled by clicking `Settings` -> `Virtual USB Drive`.
++ Please eject the original 21G virtual USB flash drive on the host before mounting the image to avoid data loss.
 + The virtual USB drive can also be used as a regular USB drive. If no image is selected in the web interface, the entire 21GB virtual USB drive will be mounted by default.
 + Users can also use the conventional card burning method to burn images, though it's not recommended.
 + The speed of copying images to NanoKVM is limited by USB2.0 transfer speed and SG2002 card writing speed, which may be slow. Users can remove the TF card, insert it into the computer, [unlock the hidden](https://jingyan.baidu.com/article/e4511cf34faece2b845eaf34.html) third partition of the TF card, and directly copy the images into it.
 + The virtual USB drive is also mounted to the `/data` directory of NanoKVM, allowing users to read and write to this partition directly from the NanoKVM terminal.
++ Canceling the virtual USB flash drive operation in the settings will force the USB flash drive to eject the USB flash drive, please eject the USB flash drive safely before setting it up to avoid data loss.
 
 ### Web Terminal
 
