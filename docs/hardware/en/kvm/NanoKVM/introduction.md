@@ -39,31 +39,30 @@ To meet different user needs, NanoKVM is available in two versions:
 
 ## Specifications
 
-| Product                     | NanoKVM (Lite)                      | NanoKVM (Full)                                  | PiKVM V4                        |
-| --------------------------- | ----------------------------------- | ----------------------------------------------- | ------------------------------- |
-| Computing Unit              | LicheeRV Nano (RISCV)               | LicheeRV Nano (RISCV)                           | CM4 (ARM)                       |
-| Resolution                  | 1080P @ 60fps                       | 1080P @ 60fps                                   | 1080P, 1200P @ 60fps            |
-| Video Encoding              | MJPEG, H264 (WIP)                   | MJPEG, H264 (WIP)                               | MJPEG, H264                     |
-| Video Latency               | 90-230ms                            | 90-230ms                                        | 100-230ms                       |
-| UEFI/BIOS                   | ✓                                   | ✓                                               | ✓                               |
-| Emulated USB Keyboard/Mouse | ✓                                   | ✓                                               | ✓                               |
-| Emulated USB Storage        | ✓                                   | ✓                                               | ✓                               |
-| IPMI                        | ✓                                   | ✓                                               | ✓                               |
-| Wake-on-LAN                 | ✓                                   | ✓                                               | ✓                               |
-| Tailscale                   | ✓                                   | ✓                                               | ✓                               |
-| WebSSH                      | ✓                                   | ✓                                               | ✓                               |
-| Custom Scripts              | ✓                                   | ✓                                               | ✓                               |
-| RTC                         | -                                   | -                                               | ✓                               |
-| Ethernet                    | 10/100MbE                           | 10/100MbE                                       | 10/100/1GbE                     |
-| ATX Power Control           | None, user-configurable             | USB interface IO control board                  | RJ45 interface IO control board |
-| OLED Display                | None, user-expandable               | 128x64 0.96" white                              | 128x32 0.91" white              |
-| Serial Terminal             | 2 channels                          | 2 channels                                      | 1 channel                       |
-| TF Card                     | None, user-provided                 | Included, ready to use                          | Included                        |
-| Expansion Accessories       | None                                | WiFi or PoE                                     | WiFi/LTE, PoE                   |
-| Power Consumption           | 0.2A@5V                             | 0.2A@5V                                         | Peak 2.6A@5V                    |
-| Power Input                 | Powered by PC USB                   | Powered by PC USB <br> Supports auxiliary power | Requires DC 5V 3A               |
-| Cooling                     | Silent, fanless                     | Silent, fanless                                 | Requires active fan cooling     |
-| Dimensions                  | 23x37x15mm <br> ~1/30 PiKVM V4 size | 40x36x36mm <br> ~1/7 PiKVM V4 size              | 120x68x44mm                     |
+| Product | NanoKVM (Lite) | NanoKVM (Full) | PiKVM V4 |
+| --- | --- | --- | --- |
+| Computing Unit | LicheeRV Nano (RISCV) | LicheeRV Nano (RISCV) | CM4 (ARM) |
+| Resolution | 1080P @ 60fps | 1080P @ 60fps | 1080P @ 60fps |
+| Video Encoding | MJPEG, H264 (WIP) | MJPEG, H264 (WIP) | MJPEG, H264 |
+| Video Latency | 90-230ms | 90-230ms | 100-230ms |
+| UEFI/BIOS | ✓ | ✓ | ✓ |
+| Emulated USB Keyboard/Mouse | ✓ | ✓ | ✓ |
+| Emulated USB Storage | ✓ | ✓ | ✓ |
+| IPMI | ✓ | ✓ | ✓ |
+| Wake-on-LAN | ✓ | ✓ | ✓ |
+| Tailscale | ✓ | ✓ | ✓ |
+| WebSSH | ✓ | ✓ | ✓ |
+| Custom Scripts | ✓ | ✓ | - |
+| ETH | 100M/10M | 100M/10M | 1000M/100M/10M |
+| ATX Power Control | None, user-configurable | USB interface IO control board | RJ45 interface IO control board |
+| OLED Display | None, user-expandable | 128x64 0.96" white | 128x32 0.91" white |
+| Serial Terminal | 2 channels | 2 channels | - |
+| Micro SD Card | None, user-provided | Included, ready to use | Included |
+| Expansion Accessories | None | WiFi or PoE | WiFi/LTE |
+| Power Consumption | 0.2A@5V | 0.2A@5V | Peak 2.6A@5V |
+| Power Input | Powered by PC USB | Powered by PC USB <br> Supports auxiliary power | Requires DC 5V 3A |
+| Cooling | Silent, fanless | Silent, fanless | Requires active fan cooling |
+| Dimensions | 23x37x15mm <br> ~1/30 PiKVM V4 size | 40x36x36mm <br> ~1/7 PiKVM V4 size | 120x68x44mm |
 
 ## NanoKVM Hardware and Software Resources
 
