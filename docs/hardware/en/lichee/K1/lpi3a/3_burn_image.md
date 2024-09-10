@@ -29,6 +29,10 @@ https://www.openkylin.top/downloads/
 ![deepin](./assets/images/deepin.jpg)   
 https://ci.deepin.com/repo/deepin/deepin-ports/cdimage/20240815/riscv64/
 
+### irradium 
+![irradium](./assets/images/irradium.png)   
+https://dl.irradium.org/irradium/images/lichee_pi_3a/
+[mirror 1](https://mirror.serverion.com/irradium/images/lichee_pi_3a/), [mirror 2](https://ftp.cc.uoc.gr/mirrors/linux/irradium/images/lichee_pi_3a/), [mirror 3](https://mirror.accum.se/mirror/irradium.org/images/lichee_pi_3a/)
 
 ## Get burning tools
 LicheePi3A can be burned using fastboot or titan burning tools.

@@ -22,7 +22,7 @@
 ```bash
 wget http://releases.linaro.org/components/toolchain/binaries/7.2-2017.11/arm-linux-gnueabi/gcc-linaro-7.2.1-2017.11-x86_64_arm-linux-gnueabi.tar.xz
 tar -vxJf gcc-linaro-7.2.1-2017.11-x86_64_arm-linux-gnueabi.tar.xz
-sudo cp -r ./gcc-linaro-7.2.1-201711-x86_64_arm-linux-gnueabi /opt/
+sudo cp -r ./gcc-linaro-7.2.1-2017.11-x86_64_arm-linux-gnueabi /opt/
 sudo vim /etc/bash.bashrc
 ```
 在文件末尾 添加以下内容
