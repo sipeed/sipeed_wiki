@@ -23,7 +23,7 @@ The Full version includes NanoKVM (with case, with card), KVM-B board, 2 USB A t
 
 ![](./../../../assets/NanoKVM/unbox/lite_ubox.png)
 
-The Lite version includes NanoKVM (without case and TF card) and a heatsink.
+The Lite version includes NanoKVM (without case and Micro SD card) and a heatsink.
 
 ## Interface Introduction
 
@@ -65,6 +65,8 @@ The wiring diagram for the NanoKVM-Full version is as follows. The Lite version 
 
   ![](./../../../assets/NanoKVM/unbox/new-ATX-B.png)
 
+  > Note: The KVM-B board with version number 30132 cannot be directly connected to the pin header on the board with the built-in 9-pin bus header of the chassis, and must be connected with the included male to female cable according to the figure above.
+
   The wiring diagram for the internal test version of the KVM-B board and the host's 9-pin interface is shown below. The double-row headers are interconnected, allowing the connection of the case's power button and Power LED to the other row.
 
   ![](./../../../assets/NanoKVM/unbox/old-ATX-B.png)
@@ -74,7 +76,7 @@ The wiring diagram for the NanoKVM-Full version is as follows. The Lite version 
 
 ### Update Image
 
-> **The Lite version requires preparing a TF card and flashing the image before use!**
+> **The Lite version requires preparing a Micro SD card and flashing the image before use!**
 
 The Full version comes with a pre-flashed image and can skip this step.
 
