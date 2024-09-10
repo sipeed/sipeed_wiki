@@ -58,7 +58,7 @@ To meet different user needs, NanoKVM is available in two versions:
 | OLED Display | None, user-expandable | 128x64 0.96" white | 128x32 0.91" white |
 | Serial Terminal | 2 channels | 2 channels | - |
 | Micro SD Card | None, user-provided | Included, ready to use | Included |
-| Expansion Accessories | None | WiFi or PoE | WiFi/LTE |
+| Expansion Accessories | None | PoE | WiFi/LTE |
 | Power Consumption | 0.2A@5V | 0.2A@5V | Peak 2.6A@5V |
 | Power Input | Powered by PC USB | Powered by PC USB <br> Supports auxiliary power | Requires DC 5V 3A |
 | Cooling | Silent, fanless | Silent, fanless | Requires active fan cooling |
