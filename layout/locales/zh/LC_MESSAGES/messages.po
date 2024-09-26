@@ -290,7 +290,7 @@ msgstr ""
 msgid "RISC-V 1GHz + 1Tops NPU, 4M高清摄像头，2.3寸552x368高清电容触摸屏，完美支持全新 Maix 生态所有软件"
 msgstr ""
 
-#: maix.html:168 tang.html:284 tang.html:300
+#: maix.html:168 tang.html:300
 msgid "https://sipeed.taobao.com"
 msgstr ""
 
@@ -405,32 +405,36 @@ msgstr ""
 msgid "其他特点"
 msgstr ""
 
-#: tang.html:142 tang.html:144 tang.html:147
-msgid "内含 6.6G Transceivers"
-msgstr ""
-
-#: tang.html:142 tang.html:144 tang.html:147
-msgid "支持 PCIe 2.0 通信"
-msgstr ""
-
-#: tang.html:142 tang.html:144
-msgid "支持 USB3 数据传输"
-msgstr ""
-
-#: tang.html:143
+#: tang.html:142
 msgid "内含 12.5G Transceivers"
 msgstr ""
 
-#: tang.html:143
+#: tang.html:142 tang.html:143
 msgid "支持 PCIe 3.0 通信"
 msgstr ""
 
-#: tang.html:143
+#: tang.html:142
 msgid "支持 SFP+ 数据传输"
+msgstr ""
+
+#: tang.html:143
+msgid "内含 8.0G Transceivers"
+msgstr ""
+
+#: tang.html:143 tang.html:144
+msgid "支持 USB3 数据传输"
+msgstr ""
+
+#: tang.html:144 tang.html:147
+msgid "内含 6.6G Transceivers"
 msgstr ""
 
 #: tang.html:144 tang.html:147
 msgid "内含 2.5G MIPI C/DPHY RX/TX"
+msgstr ""
+
+#: tang.html:144 tang.html:147
+msgid "支持 PCIe 2.0 通信"
 msgstr ""
 
 #: tang.html:145
@@ -466,95 +470,99 @@ msgid "GOAI~"
 msgstr ""
 
 #: tang.html:164
-msgid "小体积的大容量 FPGA 开发板"
+msgid "小体积的中等量 FPGA 开发板"
 msgstr ""
 
 #: tang.html:168
-msgid "/hardware/zh/tang/tang-mega-138k/mega-138k.html"
+msgid "/hardware/zh/tang/tang-mega-60k/mega-60k.html"
 msgstr ""
 
-#: tang.html:172
+#: tang.html:172 tang.html:188
 msgid "https://item.taobao.com/item.htm?id=808924746746"
 msgstr ""
 
 #: tang.html:180
-msgid "可以高速通信的大容量 FPGA 开发板"
+msgid "小体积的大容量 FPGA 开发板"
 msgstr ""
 
 #: tang.html:184
-msgid "/hardware/zh/tang/tang-mega-138k/mega-138k-pro.html"
-msgstr ""
-
-#: tang.html:188
-msgid "https://item.taobao.com/item.htm?id=740536508140"
+msgid "/hardware/zh/tang/tang-mega-138k/mega-138k.html"
 msgstr ""
 
 #: tang.html:196
-msgid "自由拓展的 FPGA 开发板"
+msgid "可以高速通信的大容量 FPGA 开发板"
 msgstr ""
 
 #: tang.html:200
-msgid "/hardware/zh/tang/tang-primer-25k/primer-25k.html"
+msgid "/hardware/zh/tang/tang-mega-138k/mega-138k-pro.html"
 msgstr ""
 
 #: tang.html:204
-msgid "https://item.taobao.com/item.htm?id=746293292946"
+msgid "https://item.taobao.com/item.htm?id=740536508140"
 msgstr ""
 
 #: tang.html:212
-msgid "自带多种外设接口的 FPGA 开发板"
+msgid "自由拓展的 FPGA 开发板"
 msgstr ""
 
 #: tang.html:216
-msgid "/hardware/zh/tang/tang-primer-20k/primer-20k.html"
+msgid "/hardware/zh/tang/tang-primer-25k/primer-25k.html"
 msgstr ""
 
 #: tang.html:220
-msgid "https://item.taobao.com/item.htm?id=680099020807"
+msgid "https://item.taobao.com/item.htm?id=746293292946"
 msgstr ""
 
 #: tang.html:228
-msgid "适用于模拟复古游戏机的 FPGA 开发板"
+msgid "自带多种外设接口的 FPGA 开发板"
 msgstr ""
 
 #: tang.html:232
-msgid "/hardware/zh/tang/tang-nano-20k/nano-20k.html"
+msgid "/hardware/zh/tang/tang-primer-20k/primer-20k.html"
 msgstr ""
 
 #: tang.html:236
-msgid "https://item.taobao.com/item.htm?id=717932028073"
+msgid "https://item.taobao.com/item.htm?id=680099020807"
 msgstr ""
 
 #: tang.html:244
-msgid "适合 RiscV 软核验证的 FPGA 开发板"
+msgid "适用于模拟复古游戏机的 FPGA 开发板"
 msgstr ""
 
 #: tang.html:248
-msgid "/hardware/zh/tang/Tang-Nano-9K/Nano-9K.html"
+msgid "/hardware/zh/tang/tang-nano-20k/nano-20k.html"
 msgstr ""
 
 #: tang.html:252
-msgid "https://item.taobao.com/item.htm?id=666055424174"
+msgid "https://item.taobao.com/item.htm?id=717932028073"
 msgstr ""
 
 #: tang.html:260
-msgid "芯片内部含有 MCU 的 FPGA 开发板"
+msgid "适合 RiscV 软核验证的 FPGA 开发板"
 msgstr ""
 
 #: tang.html:264
-msgid "/hardware/zh/tang/Tang-Nano-4K/Nano-4K.html"
+msgid "/hardware/zh/tang/Tang-Nano-9K/Nano-9K.html"
 msgstr ""
 
 #: tang.html:268
-msgid "https://item.taobao.com/item.htm?id=661994055100"
+msgid "https://item.taobao.com/item.htm?id=666055424174"
 msgstr ""
 
-#: tang.html:276 tang.html:292
-msgid "开发中，敬请期待。。。"
+#: tang.html:276
+msgid "芯片内部含有 MCU 的 FPGA 开发板"
 msgstr ""
 
 #: tang.html:280
-msgid "/hardware/zh/tang/tang-mega-60k/mega-60k.html"
+msgid "/hardware/zh/tang/Tang-Nano-4K/Nano-4K.html"
+msgstr ""
+
+#: tang.html:284
+msgid "https://item.taobao.com/item.htm?id=661994055100"
+msgstr ""
+
+#: tang.html:292
+msgid "开发中，敬请期待。。。"
 msgstr ""
 
 #: tang.html:296
