@@ -7,23 +7,32 @@ update:
     author: Serika
     content:
       - 新建文档
+  - date: 2024-09-25
+    version: v0.2
+    author: Serika
+    content:
+      - 修正PCIe部分总线宽度的描述
+      - 更新GT收发器的最大速率为8.0Gbps  
 ---
 
 
 ## 产品概述
 
-**Tang Mega 138K** 使用 22nm 制程 **GW5AST-LV138P484A** FPGA 芯片，具有 138240 个查找表单元和近 300 个 DSP 单元。含有八个速度范围在 270Mbps ~ 6.6Gbps 高速收发器，适合用于 PCIE 等高速口传递数据。此外，芯片含有硬核 PCIE，在使用 PCIE 的时候消耗更好的资源，并且得到更佳的性能。适用于高速通信、协议转换、高性能计算等场合。
+**Tang Mega 138K** 使用 22nm 制程 **GW5AST-LV138P484A** FPGA 芯片，具有 138240 个查找表单元和近 300 个 DSP 单元。含有四个速度范围在 270Mbps ~ 8.0Gbps 高速收发器，适合用于 PCIe 等高速口传递数据。此外，芯片含有硬核 PCIe，在使用 PCIe 的时候消耗更好的资源，并且得到更佳的性能。适用于高速通信、协议转换、高性能计算等场合。
 相比138K Pro Dock，138K Dock具有更小的体积和更低的价格，并用USB3.0代替了SFP收发器。这不仅有效的降低了高速通讯的成本，还带来了更好的通用性。
 
 淘宝购买链接：[点我](https://item.taobao.com/item.htm?id=740536508140)
 
 ## 板卡特点
 
-- 大容量 LUT
+- 大容量 LUT4
 - 大容量 内存
-- PCIE2.0 x 4
-- USB3.0 x1
-- RISCV 硬核
+- PCIe3.0 x 4
+- USB3.0 x 1（5Gbps）
+- RISC-V 硬核（AE350 @800MHz）
+- HDMI TX/RX x 1
+- 千兆以太网 x 1
+- 板载3.7V锂离子电池（1S）充放电管理电路
 
 ## 产品外观
 
@@ -90,11 +99,11 @@ update:
                     </tr>
                     <tr>
                         <td>Transceivers 速率</td>
-                        <td>270Mbps-6.6Gbps</td>
+                        <td>270Mbps-8.0Gbps</td>
                     </tr>
                     <tr>
                         <td>PCIE 硬核</td>
-                        <td>1个<br>速度可选 x1, x2, x4, x8 PCIe 2.0</td>
+                        <td>1个<br>速度可选 x1, x2, x4 PCIe 3.0</td>
                     </tr>
                     <tr>
                         <td>LVDS (Gbps)</td>
@@ -102,7 +111,7 @@ update:
                     </tr>
                     <tr>
                         <td>DDR3 (Mbps)</td>
-                        <td>1333</td>
+                        <td>800</td>
                     </tr>
                         <td>硬核处理器</td>
                         <td>RiscV AE350_SOC</td>
@@ -120,8 +129,8 @@ update:
 		</tr>
 		<tr>
 			<td style="text-align:left">内存</td>
-			<td style="text-align:left">1GB DDR3</td>
-			<td style="text-align:left">512MB x 2</td>
+			<td style="text-align:left">1GiB DDR3</td>
+			<td style="text-align:left">512MiB x 2</td>
 		</tr>
 		<tr>
 			<td style="text-align:left">Flash</td>
@@ -130,7 +139,7 @@ update:
 		</tr>
 		<tr>
 			<td style="text-align:left">调试接口</td>
-			<td style="text-align:left">Jtag + Uart</td>
+			<td style="text-align:left">JTAG + UART</td>
 			<td style="text-align:left">JST SH1.0 8Pins 连接器</td>
 		</tr>
 		<tr>
@@ -172,15 +181,18 @@ update:
 
 ## 硬件资料
 
-[板卡规格书](https://dl.sipeed.com/shareURL/TANG/Mega_138K/01_Specification)
-[板卡原理图](https://dl.sipeed.com/shareURL/TANG/Mega_138K/02_Schematic)
-[PCB BOM](https://dl.sipeed.com/shareURL/TANG/Mega_138K/03_Designator_drawing)
-[板卡尺寸图](https://dl.sipeed.com/shareURL/TANG/Mega_138K/04_Mechanical_drawing)
-[板卡 3D 模型](https://dl.sipeed.com/shareURL/TANG/Mega_138K/05_3D_file)
-[部分芯片手册](https://dl.sipeed.com/shareURL/TANG/Mega_138K/07_Datasheet)
+[板卡规格书](https://dl.sipeed.com/shareURL/TANG/Mega_138K_60K/01_Specification)
+[板卡原理图](https://dl.sipeed.com/shareURL/TANG/Mega_138K_60K/02_Schematic)
+[PCB BOM](https://dl.sipeed.com/shareURL/TANG/Mega_138K_60K/03_Designator_drawing)
+[板卡尺寸图](https://dl.sipeed.com/shareURL/TANG/Mega_138K_60K/04_Mechanical_drawing)
+[板卡 3D 模型](https://dl.sipeed.com/shareURL/TANG/Mega_138K_60K/05_3D_file)
+[部分芯片手册](https://dl.sipeed.com/shareURL/TANG/Mega_138K_60K/07_Datasheet)
+[全引脚约束](https://dl.sipeed.com/shareURL/TANG/Mega_138K_60K/08_Misc)
 
 ## 上手使用
 注意138K目前未被教育版支持，需要下载 V1.9.9 或更新版本的商业版IDE使用。  
+V1.9.10.02版本的Programmer存在严重问题，无法正常下载本产品。 
+如需将码流下载到flash中固化，推荐使用 **exFlash Erase,Program thru GAO-Bridge 5A** 模式。
 Lic 可以在高云官网申请，或者使用Sipeed提供的在线Lic服务，在IDE中选择Float Lic，填写以下信息即可：
 ~~~
 ip: 106.55.34.119
@@ -268,6 +280,16 @@ Tang Mega 138K 可以在多种场景实现客户不同方面的需要，技术�
     b. 连接12V DC电源对板子进行供电，如使用配件中的USB-C转12V DC连接器，则需要连接有12V输出能力的PD电源；
     c. 连接3.7V锂电池对板子进行供电，注意电池电压必须≥3.6V且连续放电能力≥600mA。
 
+### 板子电源指示灯亮了，Programmer提示No USB Cable Connection
+
+1. 请检查USB线是否正确接入标记为**USB-DEBUG**的USB-C连接器。
+2. 尽量避免使用机箱前面板的USB连接器和没有独立供电的USB HUB。
+3. 检查自己是否正确安装FT2232的驱动：出现USB Serial Converter A/B。
+
+<img src="./../assets/FTDI_DEVICE.png" alt="flash_mode" width=35%>
+
+4. 通常情况下Windows会在联网后自动安装相应驱动。如果想要手动处理，请前往[相关问题](./../Tang-Nano-Doc/questions.md)查看相关内容。
+
 ### IDE找不到型号GW5AST-LV138PG484A
 
 1. 教育版不支持138K，请更换商业版。如下图所示即为教育版（不支持138K）；
@@ -275,11 +297,11 @@ Tang Mega 138K 可以在多种场景实现客户不同方面的需要，技术�
 
 2. IDE版本过老，必须更新IDE ≥ 1.9.9。
 
-### 如何下载到外部 FLASH {#burn_flash}
+### 如何下载到外部 FLASH（固化） {#burn_flash}
 
 1. 进行如下选项设置：
 
-<img src="./assets/flash_mode.png" alt="flash_mode" width=35%>
+<img src="./../assets/flash_mode_GAO.png" alt="flash_mode" width=35%>
 
 2. 检查拨码开关的位置，正确的位置如下图所示：
 

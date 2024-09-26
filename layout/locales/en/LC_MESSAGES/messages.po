@@ -295,7 +295,7 @@ msgstr ""
 "RISC-V 1GHz + 1Tops NPU, 4M HD camera, 2.3-inch 552x368 HD capacitive "
 "touch screen, perfect support for all new Maix ecosystem software"
 
-#: maix.html:168 tang.html:284 tang.html:300
+#: maix.html:168 tang.html:300
 msgid "https://sipeed.taobao.com"
 msgstr "https://www.aliexpress.com/store/911876460"
 
@@ -423,33 +423,37 @@ msgstr "CPU"
 msgid "其他特点"
 msgstr "Ohter Features"
 
-#: tang.html:142 tang.html:144 tang.html:147
-msgid "内含 6.6G Transceivers"
-msgstr "Inchip 6.6G Transceivers"
-
-#: tang.html:142 tang.html:144 tang.html:147
-msgid "支持 PCIe 2.0 通信"
-msgstr "Support PCIe 2.0 Interface"
-
-#: tang.html:142 tang.html:144
-msgid "支持 USB3 数据传输"
-msgstr "Support USB3 SS Transmission"
-
-#: tang.html:143
+#: tang.html:142
 msgid "内含 12.5G Transceivers"
 msgstr "Inchip 12.5G Transceivers"
 
-#: tang.html:143
+#: tang.html:142 tang.html:143
 msgid "支持 PCIe 3.0 通信"
 msgstr "Support PCIe 3.0 Interface"
 
-#: tang.html:143
+#: tang.html:142
 msgid "支持 SFP+ 数据传输"
 msgstr "Support SFP+ (10G) Transmission"
+
+#: tang.html:143
+msgid "内含 8.0G Transceivers"
+msgstr "Inchip 6.6G Transceivers"
+
+#: tang.html:143 tang.html:144
+msgid "支持 USB3 数据传输"
+msgstr "Support USB3 SS Transmission"
+
+#: tang.html:144 tang.html:147
+msgid "内含 6.6G Transceivers"
+msgstr "Inchip 6.6G Transceivers"
 
 #: tang.html:144 tang.html:147
 msgid "内含 2.5G MIPI C/DPHY RX/TX"
 msgstr "2.5G MIPI C/DPHY RX/TX inside"
+
+#: tang.html:144 tang.html:147
+msgid "支持 PCIe 2.0 通信"
+msgstr "Support PCIe 2.0 Interface"
 
 #: tang.html:145
 msgid "内含 2.5G MIPI DPHY RX/TX"
@@ -484,97 +488,101 @@ msgid "GOAI~"
 msgstr ""
 
 #: tang.html:164
-msgid "小体积的大容量 FPGA 开发板"
-msgstr "Campact High-capacity FPGA Board"
+msgid "小体积的中等量 FPGA 开发板"
+msgstr "Campact Medium-capacity FPGA Board"
 
 #: tang.html:168
-msgid "/hardware/zh/tang/tang-mega-138k/mega-138k.html"
-msgstr "/hardware/en/tang/tang-mega-138k/mega-138k.html"
+msgid "/hardware/zh/tang/tang-mega-60k/mega-60k.html"
+msgstr "/hardware/en/tang/tang-mega-60k/mega-60k.html"
 
-#: tang.html:172
+#: tang.html:172 tang.html:188
 msgid "https://item.taobao.com/item.htm?id=808924746746"
 msgstr "https://www.aliexpress.com/item/3256807078990410.html"
 
 #: tang.html:180
+msgid "小体积的大容量 FPGA 开发板"
+msgstr "Campact High-capacity FPGA Board"
+
+#: tang.html:184
+msgid "/hardware/zh/tang/tang-mega-138k/mega-138k.html"
+msgstr "/hardware/en/tang/tang-mega-138k/mega-138k.html"
+
+#: tang.html:196
 msgid "可以高速通信的大容量 FPGA 开发板"
 msgstr "High Speed Interface FPGA Board"
 
-#: tang.html:184
+#: tang.html:200
 msgid "/hardware/zh/tang/tang-mega-138k/mega-138k-pro.html"
 msgstr "/hardware/en/tang/tang-mega-138k/mega-138k-pro.html"
 
-#: tang.html:188
+#: tang.html:204
 msgid "https://item.taobao.com/item.htm?id=740536508140"
 msgstr "https://www.aliexpress.com/item/1005006080116482.html"
 
-#: tang.html:196
+#: tang.html:212
 msgid "自由拓展的 FPGA 开发板"
 msgstr "Free Expansion FPGA board"
 
-#: tang.html:200
+#: tang.html:216
 msgid "/hardware/zh/tang/tang-primer-25k/primer-25k.html"
 msgstr "/hardware/en/tang/tang-primer-25k/primer-25k.html"
 
-#: tang.html:204
+#: tang.html:220
 msgid "https://item.taobao.com/item.htm?id=746293292946"
 msgstr "https://www.aliexpress.com/item/1005006224593018.html"
 
-#: tang.html:212
+#: tang.html:228
 msgid "自带多种外设接口的 FPGA 开发板"
 msgstr "Mutiple Interfaces FPGA Board"
 
-#: tang.html:216
+#: tang.html:232
 msgid "/hardware/zh/tang/tang-primer-20k/primer-20k.html"
 msgstr "/hardware/en/tang/tang-primer-20k/primer-20k.html"
 
-#: tang.html:220
+#: tang.html:236
 msgid "https://item.taobao.com/item.htm?id=680099020807"
 msgstr "https://www.aliexpress.com/item/1005004653308809.html"
 
-#: tang.html:228
+#: tang.html:244
 msgid "适用于模拟复古游戏机的 FPGA 开发板"
 msgstr "Retro Games Friendly FPGA Board"
 
-#: tang.html:232
+#: tang.html:248
 msgid "/hardware/zh/tang/tang-nano-20k/nano-20k.html"
 msgstr "/hardware/en/tang/tang-nano-20k/nano-20k.html"
 
-#: tang.html:236
+#: tang.html:252
 msgid "https://item.taobao.com/item.htm?id=717932028073"
 msgstr "https://www.aliexpress.com/item/1005005581148230.html"
 
-#: tang.html:244
+#: tang.html:260
 msgid "适合 RiscV 软核验证的 FPGA 开发板"
 msgstr "RiscV Softcore FPGA Board"
 
-#: tang.html:248
+#: tang.html:264
 msgid "/hardware/zh/tang/Tang-Nano-9K/Nano-9K.html"
 msgstr "/hardware/en/tang/Tang-Nano-9K/Nano-9K.html"
 
-#: tang.html:252
+#: tang.html:268
 msgid "https://item.taobao.com/item.htm?id=666055424174"
 msgstr " https://www.aliexpress.com/item/1005003803994525.html"
 
-#: tang.html:260
+#: tang.html:276
 msgid "芯片内部含有 MCU 的 FPGA 开发板"
 msgstr "Hardcore Inside FPGA Board"
 
-#: tang.html:264
+#: tang.html:280
 msgid "/hardware/zh/tang/Tang-Nano-4K/Nano-4K.html"
 msgstr "/hardware/en/tang/Tang-Nano-4K/Nano-4K.html"
 
-#: tang.html:268
+#: tang.html:284
 #, fuzzy
 msgid "https://item.taobao.com/item.htm?id=661994055100"
 msgstr "https://www.aliexpress.com/item/1005003152104886.html"
 
-#: tang.html:276 tang.html:292
+#: tang.html:292
 msgid "开发中，敬请期待。。。"
 msgstr "Comming Soon..."
-
-#: tang.html:280
-msgid "/hardware/zh/tang/tang-mega-60k/mega-60k.html"
-msgstr "/hardware/en/tang/tang-mega-60k/mega-60k.html"
 
 #: tang.html:296
 msgid "/hardware/zh/tang/tang-primer-15k/primer-15k.html"

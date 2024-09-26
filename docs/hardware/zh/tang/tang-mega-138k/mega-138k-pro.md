@@ -7,6 +7,11 @@ update:
     author: wonder
     content:
       - 新建文档
+  - date: 2024-09-26
+    version: v0.91
+    author: Serika
+    content:
+      - 更新FAQs
 ---
 
 ## 产品概述
@@ -184,9 +189,12 @@ update:
 [板卡尺寸图](https://dl.sipeed.com/shareURL/TANG/Mega_138K_Pro/04_Mechanical_drawing)
 [板卡 3D 模型](https://dl.sipeed.com/shareURL/TANG/Mega_138K_Pro/05_3D_file)
 [部分芯片手册](https://dl.sipeed.com/shareURL/TANG/Mega_138K_Pro/07_Datasheet)
+[内部走线长度](https://dl.sipeed.com/shareURL/TANG/Mega_138K_Pro/08_Pinout_Length_table)
+[全引脚约束](https://dl.sipeed.com/shareURL/TANG/Mega_138K_Pro/09_Misc)
 
 ## 上手使用
-注意138K目前未被教育版支持，需要下载 V1.9.9 或更新版本的商业版IDE使用。  
+注意138K Pro目前未被教育版支持，需要下载 V1.9.9 或更新版本的商业版IDE使用。 
+V1.9.10.02版本的Programmer存在严重问题，无法正常下载本产品。  
 Lic 可以在高云官网申请，或者使用Sipeed提供的在线Lic服务，在IDE中选择Float Lic，填写以下信息即可：
 ~~~
 ip: 106.55.34.119
@@ -249,6 +257,10 @@ port: 10559
         <td>避免短路</td>
         <td>请在上电过程中，避免任何液体和金属触碰到 PCBA 上的元件的焊盘，否则会导致路，烧毁 PCBA</td>
     </tr>
+    <tr>
+        <td>保护晶圆</td>
+        <td>请在拆装散热片的过程中，避免裸露的晶圆收到任何冲击，在安装好散热片后请勿用力按压散热片。否则将导致晶圆损坏</td>
+    </tr>
 </table>
 
 ## 联系
@@ -257,16 +269,26 @@ Tang Mega 138K 可以在多种场景实现客户不同方面的需要，技术�
 
 ## 常见问题
 
-### 板子通电后电源灯没亮
+### 板子通电后电源指示灯没亮
 
 1. 请检查是否开启了板子的电源开关。
 2. 检查自己的供电方式。
+
+### 板子电源指示灯亮了，Programmer提示No USB Cable Connection
+
+1. 请检查USB线是否正确接入标记为**JTAG|UART**的USB-C连接器。
+2. 尽量避免使用机箱前面板的USB连接器和没有独立供电的USB HUB。
+3. 检查自己是否正确安装FT2232的驱动：出现USB Serial Converter A/B。
+
+<img src="./../assets/FTDI_DEVICE.png" alt="flash_mode" width=35%>
+
+4. 通常情况下Windows会在联网后自动安装相应驱动。如果想要手动处理，请前往[相关问题](./../Tang-Nano-Doc/questions.md)查看相关内容。
 
 ### 如何下载到外部 FLASH {#burn_flash}
 
 进行如下选项设置：
 
-<img src="./assets/flash_mode.png" alt="flash_mode" width=35%>
+<img src="./../assets/flash_mode_GAO.png" alt="flash_mode" width=35%>
 
 ### 烧录后没反应或者引脚现象不对
 
