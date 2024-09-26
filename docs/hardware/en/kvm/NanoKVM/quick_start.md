@@ -69,6 +69,8 @@ The wiring diagram for the NanoKVM-Full version is as follows. The Lite version 
 
   The wiring diagram for the internal test version of the KVM-B board and the host's 9-pin interface is shown below. The double-row headers are interconnected, allowing the connection of the case's power button and Power LED to the other row.
 
+  > Note: In the early stage, the NanoKVM reboot will briefly pull up the RESET control pin, causing the connected computer to restart, in order to avoid this problem, please do not connect the RESET jumper, which has been fixed in the later official version
+
   ![](./../../../assets/NanoKVM/unbox/old-ATX-B.png)
   ![](./../../../assets/NanoKVM/unbox/old-ATX-B-w.png)
 

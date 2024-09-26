@@ -414,6 +414,8 @@ items:
             file: kvm/NanoKVM/quick_start.md
         -   label: 用户指南
             file: kvm/NanoKVM/user_guide.md
+        -   label: 二次开发
+            file: kvm/NanoKVM/development.md
         -   label: 网络
             items:
             -   label: Tailscale
