@@ -150,23 +150,3 @@ Full 版 NanoKVM 在重新烧卡时需要对外壳拆解，请按下图提示拆
 
 如果您使用早期内测版 Full NanoKVM 并受次问题的困扰，可以拆机后按上图内测版引脚定义，在 RST_KEY 和 PWR_KEY 上添加1K下拉电阻
 
-## 异常恢复
-
-+ OLED上正常显示信息，但无法打开网页
-  1. 参考[这里](https://wiki.sipeed.com/hardware/zh/kvm/NanoKVM/system/updating.html#%E8%8E%B7%E5%8F%96-IP)连接开发板
-  2. 输入指令`rm /etc/kvm/server.yaml`
-  3. 执行 `reboot` 重启系统
-+ 登录浏览器界面后，无画面
-  1. 进入网页终端，执行 `/etc/init.d/S95nanokvm restart` 重启服务。
-  2. 如果上述方式无法恢复正常，点击界面上的检查更新，更新应用
-+ 早期内测版 Full NanoKVM 使用普通排线连接 HDMI 采集板，可能因接触不良导致检测不到 HDMI 信号，可按下图所示拆解，并重新连接排线
-  ![](./../assets/NanoKVM/3_user_guide/Old_fix.png)
-+ 更新过程中如果出现断网等异常情况，可能导致更新失败，若旧应用也无法启动时，请参照以下解决方法：
-  1. 参考[这里](https://wiki.sipeed.com/hardware/zh/kvm/NanoKVM/system/updating.html#%E8%8E%B7%E5%8F%96-IP)连接开发板
-  2. 执行 `rm -r /kvmapp && cp -r /root/old/ / && mv /old/kvmapp`
-  3. 执行 `reboot` 重启系统
-+ 尝试断电重启解决未知问题
-+ 若上述方法不能解决异常，请在论坛或QQ群提出您的问题，我们会耐心解答
-  * MaixHub 论坛：https://maixhub.com/discussion/nanokvm
-  * GitHub ：https://github.com/sipeed/NanoKVM
-  * QQ group: 703230713
