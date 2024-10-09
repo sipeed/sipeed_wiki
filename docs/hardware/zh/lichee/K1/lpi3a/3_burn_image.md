@@ -20,7 +20,7 @@ LicheePi3A 已被进迭官方bianbu镜像支持
 https://images.fedoravforce.com/LicheePi%203A
 
 ### openKylin 镜像
-
+https://www.openkylin.top/downloads/index-cn.html
 
 ### Deepin 镜像
 https://ci.deepin.com/repo/deepin/deepin-ports/cdimage/20240815/riscv64/

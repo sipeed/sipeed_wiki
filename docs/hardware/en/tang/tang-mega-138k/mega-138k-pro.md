@@ -7,6 +7,11 @@ update:
     author: wonder
     content:
       - 新建文档
+  - date: 2024-09-26
+    version: v0.2
+    author: Serika
+    content:
+      - Update FAQs
 ---
 
 - Product Overview
@@ -253,6 +258,10 @@ Example code [github](https://github.com/sipeed/TangMega-138KPro-example)
         <td>Avoid Short Circuit</td>
         <td>Please avoid any liquid or metal touching the solder pads of the components on the PCBA during the power-on process, otherwise it may cause a short circuit and burn the PCBA.</td>
     </tr>
+    <tr>
+        <td>Protecting the die</td>
+        <td>Please avoid any impact on the exposed chip die during the process of removing and installing the heat sink. Do not press the heat sink hard after installing it. Otherwise, the chip die will be damaged.</td>
+    </tr>
 </table>
 
 
@@ -266,6 +275,20 @@ Tang Mega 138K can meet different needs of customers in various scenarios. For t
 
 1. Please check if the power switch of the board is turned on.
 2. Check your power supply method.
+
+### How to burn the bitstream to FLASH {#burn_flash}
+
+1. Setting the **Programmer** as shown in the figure below:
+
+<img src="./assets/flash_mode.png" alt="flash_mode" width=35%>
+
+### No Response or Undesirable Pin Phenomenon After Burning
+
+1. First, ensure that the IDE has selected the correct model **GW5AST-LV138FPG676AC1/10**; every parameter in the figure below **MUST** be consistent.
+
+<img src="./assets/partno_138K_Pro.png" alt="device_choose" width=35%>
+
+2. Then, check your code and the corresponding simulation waveforms to meet the requirements. The GAO tools in GOWIN IDE maybe helpful. For more information, please refer to the GOWIN document [SUG100](https://www.gowinsemi.com/upload/database_doc/1885/document/660bb2366d0b3.pdf)(require login).
 
 
 ### For more questions and solutions, go to [Related Questions](./../Tang-Nano-Doc/questions.md) to view

@@ -2,16 +2,21 @@
 title: Tang Mega 138K Dock
 keywords: FPGA, Tang, Mega, 138K
 update:
-  - date: 06-26-2024
+  - date: 2024-06-26
     version: v0.1
     author: Serika
     content:
       - Create document
+  - date: 2024-09-26
+    version: v0.2
+    author: Serika
+    content:
+      - Corrected description of PCIe bus widths
 ---
 
 ## Overview
 
-  Tang Mega 138K uses a 22nm process **GW5AST-LV138PG484A** FPGA chip, which has 138,240 lookup table units and nearly 300 DSP units. It contains eight high-speed transceivers with a speed range of 270Mbps ~ 6.6Gbps, suitable for transmitting data through high-speed ports such as PCIe. In addition, the chip contains a hard-core PCIe, which consumes better resources when using PCIe and achieves better performance. It is suitable for high-speed communication, protocol conversion, high-performance computing, and other occasions.
+  Tang Mega 138K uses a 22nm process **GW5AST-LV138PG484A** FPGA chip, which has 138,240 lookup table units and nearly 300 DSP units. It contains eight high-speed transceivers with a speed range of 270Mbps ~ 8.0Gbps, suitable for transmitting data through high-speed ports such as PCIe. In addition, the chip contains a hard-core PCIe, which consumes better resources when using PCIe and achieves better performance. It is suitable for high-speed communication, protocol conversion, high-performance computing, and other occasions.
   
   Compared to the 138K Pro Dock, the 138K Dock has a smaller size and a lower price, and it replaces the SFP transceiver with USB3 SS(5Gbps). This not only effectively reduces the cost of high-speed communication but also brings better versatility.
 
@@ -22,8 +27,11 @@ update:
   - Large capacity LUT4
   - Large capacity memory
   - PCIe 2.0 x 4
-  - USB3.0 x 1
-  - RISCV hard core
+  - USB3.0 x 1(5Gbps)
+  - RISC-V hard core (AE350 @800MHz)
+  - HDMI TX/RX x 1
+  - Gigabit Ethernet x 1
+  - Onboard 3.7V li-on battery(1-Series) charge/discharge management
 
 ## Product Appearance
 
@@ -94,11 +102,11 @@ TBD
                     </tr>
                     <tr>
                         <td>Transceivers Rate</td>
-                        <td>270Mbps-6.6Gbps</td>
+                        <td>270Mbps-8.0Gbps</td>
                     </tr>
                     <tr>
                         <td>PCIe HardCore</td>
-                        <td>x1<br>Speed optional x1, x2, x4, x8 PCIe 2.0</td>
+                        <td>x1<br>Speed optional x1, x2, x4 PCIe 3.0</td>
                     </tr>
                     <tr>
                         <td>LVDS (Gbps)</td>
@@ -106,7 +114,7 @@ TBD
                     </tr>
                     <tr>
                         <td>DDR3 (Mbps)</td>
-                        <td>1333</td>
+                        <td>800</td>
                     </tr>
                         <td>Hard Core SoC</td>
                         <td>RiscV AE350_SOC</td>
@@ -181,10 +189,12 @@ TBD
 - [Dimension Diagram](https://dl.sipeed.com/shareURL/TANG/Mega_138K/04_Mechanical_drawing)
 - [3D Model](https://dl.sipeed.com/shareURL/TANG/Mega_138K/05_3D_file)
 - [Some Chip Manuals](https://dl.sipeed.com/shareURL/TANG/Mega_138K/07_Datasheet)
+- [All PIN Constraints](https://dl.sipeed.com/shareURL/TANG/Mega_138K_60K/08_Misc)
 
 ## Getting Started
 
 Note that 138K is currently not supported by the education version, and you need to download V1.9.9 or a newer version of the commercial IDE for use.  
+There are serious problems with the Programmer version V1.9.10.02, and this product cannot be programmed.
 Lic can be applied on the Gowin official website, or you can use the online Lic service provided by Sipeed. In the IDE, select Float Lic and fill in the following information:
 
 ~~~
@@ -287,7 +297,7 @@ Tang Mega 138K can meet different needs of customers in various scenarios. For t
 
 1. Setting the **Programmer** as shown in the figure below:
 
-<img src="./assets/flash_mode.png" alt="flash_mode" width=35%>
+<img src="./../assets/flash_mode_GAO.png" alt="flash_mode" width=35%>
 
 2. Check the position of the DIP switch; the correct position is shown in the figure below:
 

@@ -54,11 +54,12 @@ NanoKVM Full 为完整版配置，带精致外壳和完整配件，内置开机�
 | Tailscale | ✓ | ✓ | ✓ |
 | WebSSH | ✓ | ✓ | ✓ |
 | 自定义脚本 | ✓ | ✓ | - |
+| ETH | 100M/10M | 100M/10M | 1000M/100M/10M |
 | ATX电源控制 | 无，用户可自行连接 | USB接口IO控制板 | RJ45接口IO控制板 |
 | OLED显示 | 无，用户可自行扩展 | 128x64 0.96" white | 128x32 0.91" white |
 | 串口终端 | 2路 | 2路 | - |
-| TF卡 | 无，用户自备 | 有，开机即用 | 有 |
-| 扩展配件 | 无 | WiFi 或 PoE | WiFi/LTE |
+| Micro SD卡 | 无，用户自备 | 有，开机即用 | 有 |
+| 扩展配件 | 无 | PoE | WiFi/LTE |
 | 功耗 | 0.2A@5V | 0.2A@5V | Peak 2.6A@5V |
 | 电源输入 | PC USB即可供电 | PC USB即可供电 <br> 也支持额外辅助供电 | 需要DC 5V 3A供电 |
 | 散热 | 静音无风扇 | 静音无风扇 | 需要风扇主动散热 |
@@ -80,7 +81,7 @@ NanoKVM Lite 由 LicheeRV Nano E 和 HDMItoCSI 小板构成，NanoKVM FULL 在 N
 ## 购买入口
 
 [淘宝官方购买地址](https://item.taobao.com/item.htm?id=811206560480)
-[速卖通购买地址]()
+[速卖通购买地址](https://www.aliexpress.com/item/1005007369816019.html)
 [预售页面](https://sipeed.com/nanokvm)
 
 ## 产品反馈

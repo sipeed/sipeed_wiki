@@ -20,7 +20,7 @@ update:
 
 The Lichee NanoKVM is an IP-KVM product based on the LicheeRV Nano, inheriting its compact size and powerful features.
 
-NanoKVM includes an HDMI input interface that can be recognized as a monitor by a computer, capturing the computer's screen. It has a USB 2.0 interface to connect to the computer host, recognized as HID devices like keyboard, mouse, and touchpad, and uses extra storage space on the TF card, mounted as a USB flash drive. It comes with a 100 Mbps Ethernet port for video and control signal transmission. Additionally, the Full version features an ATX power control interface (USB-C form) for remote control and monitoring of the host's power status. Under the Full version's shell, there is an OLED display for showing the device's IP and KVM-related status.
+NanoKVM includes an HDMI input interface that can be recognized as a monitor by a computer, capturing the computer's screen. It has a USB 2.0 interface to connect to the computer host, recognized as HID devices like keyboard, mouse, and touchpad, and uses extra storage space on the Micro SD card, mounted as a USB flash drive. It comes with a 100 Mbps Ethernet port for video and control signal transmission. Additionally, the Full version features an ATX power control interface (USB-C form) for remote control and monitoring of the host's power status. Under the Full version's shell, there is an OLED display for showing the device's IP and KVM-related status.
 
 To meet different user needs, NanoKVM is available in two versions:
 - **NanoKVM Lite**: Basic version suitable for DIY enthusiasts and enterprises with bulk requirements.
@@ -53,11 +53,12 @@ To meet different user needs, NanoKVM is available in two versions:
 | Tailscale | ✓ | ✓ | ✓ |
 | WebSSH | ✓ | ✓ | ✓ |
 | Custom Scripts | ✓ | ✓ | - |
+| ETH | 100M/10M | 100M/10M | 1000M/100M/10M |
 | ATX Power Control | None, user-configurable | USB interface IO control board | RJ45 interface IO control board |
 | OLED Display | None, user-expandable | 128x64 0.96" white | 128x32 0.91" white |
 | Serial Terminal | 2 channels | 2 channels | - |
-| TF Card | None, user-provided | Included, ready to use | Included |
-| Expansion Accessories | None | WiFi or PoE | WiFi/LTE |
+| Micro SD Card | None, user-provided | Included, ready to use | Included |
+| Expansion Accessories | None | PoE | WiFi/LTE |
 | Power Consumption | 0.2A@5V | 0.2A@5V | Peak 2.6A@5V |
 | Power Input | Powered by PC USB | Powered by PC USB <br> Supports auxiliary power | Requires DC 5V 3A |
 | Cooling | Silent, fanless | Silent, fanless | Requires active fan cooling |
@@ -78,7 +79,7 @@ NanoKVM Lite consists of the LicheeRV Nano E and HDMItoCSI board, while NanoKVM 
 ## Purchase Links
 
 [Official Taobao Store](https://item.taobao.com/item.htm?id=811206560480)
-[AliExpress Store]()
+[AliExpress Store](https://www.aliexpress.com/item/1005007369816019.html)
 [Pre-sale Page](https://sipeed.com/nanokvm)
 
 ## Product Feedback

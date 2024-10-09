@@ -49,7 +49,7 @@ Pulsar2 由爱芯元智自主研发的 ALL-IN-ONE 新一代神经网络编译器
 
 模型算子支持列表：https://pulsar2-docs.readthedocs.io/zh_CN/latest/appendix/op_support_list.html
 
-爱芯 Pipeline 例程：https://github.com/AXERA-TECH/ax-pipeline
+爱芯 Samples 例程：https://github.com/AXERA-TECH/ax-samples
 已转换模型：https://dl.sipeed.com/shareURL/MaixIV/M4N-Dock
 
 
