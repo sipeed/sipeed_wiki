@@ -32,6 +32,21 @@ id: store
             <td rowspan="1"><a href="https://sipeed.taobao.com/"  target="_blank"><img src="/static/image/taobao.png" alt="sipeed taobao shop"></a></td>
             <td><a href="https://www.aliexpress.com/store/911876460" target="_blank"><img src="/static/image/aliexpress.png" alt="sipeed aliexpress shop"></a>
 			</td>
-        </tr>		
+        </tr>
+    </tbody>
+</table>
+
+<br>
+
+<table role="table" class="center_table">
+    <thead>
+        <tr>
+            <th>印度代理</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan="1"><a href="https://robu.in/brand/sipeed/"  target="_blank"><img src="/static/image/store_robu.png" alt="sipeed taobao shop"></a></td>
+        </tr>
     </tbody>
 </table>
