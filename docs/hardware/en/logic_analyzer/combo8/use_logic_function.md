@@ -37,6 +37,8 @@ The above diagram shows the pinout for the 8 channels of SLogic. Connect the tar
 
 #### Downloading and Running the Host Computer
 
+> Note: This is a special version of PulseView modified by Sipeed. There is likely a modified version of sigrok-cli inside. No source is provided by Sipeed, even though both are GPL v3-licensed applications.
+
 [Download PulseView](https://dl.sipeed.com/shareURL/SLogic/SLogic_combo_8/4_application/PulseView)
 
 PulseView is used for observing digital signals and decoding. Windows users should download files with the .exe extension, while Linux users should download files with the .AppImage extension. It is recommended to download the latest version with the most recent date.
@@ -59,6 +61,9 @@ Windows Environment:
 
 > Note: In the Linux environment, the maximum supported sampling rate is 80M for 4 channels and 40M for 8 channels. Due to limitations in USB transmission stability on Windows, the maximum supported sampling rate is 80M for 2 channels and 20M for 8 channels.
 
+MacOS Environment:
+
+> Note: There is no MacOS environment. Since source is not provided, the firmware is closed-source, and the API to the Combo-8 is not documented, you cannot build one.
 
 #### Scan SLogic and Connect
 
