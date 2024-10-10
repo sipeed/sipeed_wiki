@@ -40,6 +40,11 @@ jobs:
           teedoc build
           echo "== build complete =="
           out_dir=out`python3 -c 'import json; f=open("site_config.json");config=json.load(f);print(config["site_root_url"])'`
+          echo "== clone MaixPy gh-pages =="
+          git clone https://github.com/sipeed/MaixPy --depth=1 --branch=gh-pages
+          echo "== copy maixpy dir to out_dir =="
+          mv MaixPy/maixpy $out_dir
+          rm -rf MaixPy
           mv $out_dir ../
           remote_addr=`git remote get-url --push origin`
           remote_addr=`echo $remote_addr|  awk -F'://' '{print $2}'`
