@@ -1,0 +1,1154 @@
+<!DOCTYPE html>
+
+<html lang="en"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="Linux, Lichee, TH1520, SBC, RISCV, image">
+    
+    
+    <meta name="description" content="">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+        
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/prism.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?9cb07365544a53067c56c346c838181a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119047820-5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-119047820-5');
+    </script>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/js/thumbs_up/style.css" type="text/css"/>
+        
+    
+    
+    <title>Flashing an Image - Sipeed Wiki</title>
+    
+    <script type="text/javascript">js_vars = {"teedoc-plugin-ad-hint": {"type": "hint", "label": "NEW", "content": "New Maix series products <a href='https://wiki.sipeed.com/maixcam'>MaixCAM</a> online now, and new <a href='https://wiki.sipeed.com/maixpy/'>MaixPy</a>,feature richer functionalities, enhanced performance, and user-friendly software, with comprehensive documentation", "show_times": 2, "show_after_s": 432000, "date": "2022-06-01 14:00", "color": "#a0421d", "link_color": "#e53935", "link_bg_color": "#e6ae5c", "bg_color": "#ffcf89", "color_hover": "white", "bg_color_hover": "#f57c00", "close_color": "#eab971"}, "teedoc-plugin-thumbs-up": {"label_up": "Helpful", "label_down": "Not Helpful", "icon": "/static/images/thumbs_up/up.svg", "icon_clicked": "/static/images/thumbs_up/upped.svg", "url": "https://thumbs-up.sipeed.com", "show_up_count": true, "show_down_count": false, "msg_already_voted": "You have already voted", "msg_thanks": "Thanks for your vote", "msg_down_prompt": "Thanks to tell us where we can improve?(At least 10 characters)", "msg_down_prompt_error": "Message should be at least 10 characters and less than 256 characters", "msg_error": "Request server failed!"}}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": "2023-07-21", "update": [{"date": "2023-07-21", "version": "v1.1", "author": "ztd", "content": ["Update English docs"]}, {"date": "2023-05-08", "version": "v1.0", "author": "wonder", "content": ["Release docs"]}], "ts": 1689897600, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/en/">
+                
+                    <img class="site_logo" src="/static/image/logo.svg" alt="sipeed wiki logo">
+                
+                
+                    <h2>wiki</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class=""><a  href="/en/">Products</a></li>
+<li class="sub_items "><a >Software Docs</a><ul><li class=""><a  href="/maixpy/en/">MaixPy</a></li>
+<li class=""><a  href="/soft/maixpy/zh/index.html">MaixPy_v1</a></li>
+<li class=""><a  href="/soft/Lichee/zh/index.html">Lichee</a></li>
+<li class=""><a  href="/ai/en/index.html">AI Guide</a></li>
+</ul>
+</li>
+<li class=""><a target="_blank" href="https://maixhub.com">MaixHub</a></li>
+<li class=""><a  href="/news/">News</a></li>
+<li class=""><a  href="/en/faq.html">FAQ</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class=""><a  href="/en/store.html"><img src='/static/image/shop.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+<li class=""><a target="_blank" href="https://github.com/sipeed"><img src='/static/image/github.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+<li class="sub_items "><a  ><img src='/static/image/language.svg' style='height: 1.5em;vertical-align: middle;'>&nbsp;English</a><ul><li class="active"><a  href="/hardware/en/lichee/th1520/lpi4a/4_burn_image.html">English</a></li>
+<li class=""><a  href="/hardware/zh/lichee/th1520/lpi4a/4_burn_image.html">中文</a></li>
+</ul></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">Search</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">Input keyword. Using Space to separate multiple keywords</span>
+                                <span id="search_loading_hint">Loading, please wait</span>
+                                <span id="search_download_err_hint">Fail download, Please retry or check network</span>
+                                <span id="search_other_docs_result_hint">Results form other doc</span>
+                                <span id="search_curr_doc_result_hint">Result form current doc</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="not_active no_link"><a><span class="label">Maix Zero</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Maix M0</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/./maixzero/sense/maix_zero_sense.html"><span class="label">M0sense Board</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/./maixzero/sense/start.html"><span class="label">M0sense Guide</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Maix M0P</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">M0P</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">M0P Dock</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/./maixzero/m0s/m0s.html"><span class="label">Maix M0s</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Maix-I & Zero</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Maix M1</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">M1 Module</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/en/maix/core_module.html"><span class="label">M1/M1w</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maix/M1n.html"><span class="label">M1n</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">M1 Board</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maix/maixpy_develop_kit_board/Maix_dock.html"><span class="label">Maix Dock(M1/M1W)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maix/maixpy_develop_kit_board/maix_bit.html"><span class="label">Maix Bit</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maix/maixpy_develop_kit_board/maix_duino.html"><span class="label">Maix Duino</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maix/maixpy_develop_kit_board/maix_nano.html"><span class="label">Maix Nano</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maix/maixpy_develop_kit_board/maix_cube.html"><span class="label">Maix Cube</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maix/maixpy_develop_kit_board/maix_Amigo.html"><span class="label">Maix Amigo</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/no_translate.html?ref=/hardware/zh/maix/maixpy_develop_kit_board/maix_hat.html&from=/hardware/en/maix/maixpy_develop_kit_board/maix_hat.html"><span class="label">Maix HAT</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maix/maixpy_develop_kit_board/maix_go.html"><span class="label">Maix Go (Sold out)</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Maix M1s</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maix/m1s/m1s_module.html"><span class="label">M1s Module</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">M1s Dock</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maix/m1s/m1s_dock.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maix/m1s/other/start.html"><span class="label">Basic Usage</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maix/m1s/other/others.html"><span class="label">Others (Camera and Shell)</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Maix M1a</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/maixII/index.html"><span class="label">Maix-II</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maixII/M2/resources.html"><span class="label">MaixII-Dock</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maixII/M2/flash.html"><span class="label">Burn image</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixII/M2/usage.html"><span class="label">Basic usage</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixII/M2/other.html"><span class="label">Other notice</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/../../soft/maixpy3/zh/tools/0.MaixII-Dock.html"><span class="label">Using MaixPy3</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixII/M2/faq.html"><span class="label">FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/maixII/M2S/V833.html"><span class="label">M2S</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maixII/M2S/reources.html"><span class="label">Board introduction</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/maixII/M2A/maixsense.html"><span class="label">MaixSense</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maixII/M2A/flash_system.html"><span class="label">Burn image</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixII/M2A/config_system.html"><span class="label">Config system</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/no_translate.html?ref=/hardware/zh/maixII/M2A/first.html&from=/hardware/en/maixII/M2A/first.html"><span class="label">Test board</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/no_translate.html?ref=/hardware/zh/maixII/M2A/user.html&from=/hardware/en/maixII/M2A/user.html"><span class="label">Start to use</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/../../soft/maixpy3/zh/tools/maixsense.html"><span class="label">Using MaixPy3</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Maix-III</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maixIII/ax-pi/axpi.html"><span class="label">Maix-III AXera-Pi</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maixIII/ax-pi/flash_system.html"><span class="label">AXera-Pi manual</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixIII/ax-pi/python_api.html"><span class="label">Python programming</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixIII/ax-pi/dev_prepare.html"><span class="label">C/C++ programming</span><span class=""></span></a></li>
+<li class="not_active  with_link"><a href="/ai/en/deploy/ax-pi.html" ><span class="label">AI development guide</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixIII/ax-pi/faq_axpi.html"><span class="label">Questions (FAQ)</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">MaixCAM</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maixcam/index.html"><span class="label">MaixCAM Brief and Data</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixcam/assemble.html"><span class="label">MaixCAM Assembly</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixcam/os.html"><span class="label">System Upgrade</span><span class=""></span></a></li>
+<li class="not_active  with_link"><a href="https://wiki.sipeed.com/maixpy/" ><span class="label">Develop with MaixPy</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixcam/maixcdk.html"><span class="label">Develop with MaixCDK</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixcam/faq.html"><span class="label">FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="active_parent no_link"><a><span class="label">LicheePI</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="active_parent no_link"><a><span class="label">LicheePI 4A</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lm4a.html"><span class="label">Lichee Module 4A</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lc4a/lc4a.html"><span class="label">Lichee Cluster 4A</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lbook4a/lbook4a.html"><span class="label">Lichee Console 4A</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lcon4a/setup_guide.html"><span class="label">setup_guide</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lcon4a/3_images.html"><span class="label">images</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lcon4a/4_burn_image.html"><span class="label">burn_image</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lbook4a/lbook4a.html"><span class="label">Lichee Book 4A</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lbook4a/4_burn_image.html"><span class="label">burn_image</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="active_parent no_link"><a><span class="label">Lichee PI 4A</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/1_intro.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/2_unbox.html"><span class="label">Unbox guide</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/3_images.html"><span class="label">Image summary</span><span class=""></span></a></li>
+<li class="active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/4_burn_image.html"><span class="label">Burn image</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/5_desktop.html"><span class="label">Desktop usage</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/6_peripheral.html"><span class="label">Peripheral</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">System building</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/7_develop_revyos.html"><span class="label">revyos</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/7_develop_mainline.html"><span class="label">Linux Mainline (Work in Progress)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/7_develop_android.html"><span class="label">Android</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/7_develop_thead.html"><span class="label">THead Yocto</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">OpenHarmony (Work in Progress)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/7_develop_openwrt.html"><span class="label">OpenWRT</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/8_application.html"><span class="label">Application</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/9_benchmark.html"><span class="label">Benchmark</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/10_test_report.html"><span class="label">Hardware report</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/12_faq.html"><span class="label">FAQ</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/11_credits.html"><span class="label">Credits</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">LicheePI 3A</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/lichee/K1/lm3a.html"><span class="label">Lichee Module 3A</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/K1/lc3a/lc3a.html"><span class="label">Lichee Cluster 3A</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Lichee PI 3A</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/en/lichee/K1/lpi3a/1_intro.html"><span class="label">SBC Intro</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/K1/lpi3a/2_unbox.html"><span class="label">Unbox experience</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/K1/lpi3a/3_burn_image.html"><span class="label">Burn Images</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/K1/lpi3a/4_peripheral.html"><span class="label">Peripheral Usage</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/K1/lpi3a/5_develop.html"><span class="label">System develop</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/K1/lpi3a/6_application.html"><span class="label">Applications</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/K1/lpi3a/7_faq.html"><span class="label">FAQs</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/K1/lpi3a/8_credits.html"><span class="label">Credits</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Lichee RV</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active no_link"><a><span class="label">Board Introduction</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV/RV.html"><span class="label">Lichee RV</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV/86_panel.html"><span class="label">Lichee RV 86 Panel</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV/Dock.html"><span class="label">Lichee RV Dock</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV/flash.html"><span class="label">Burn System</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV/user.html"><span class="label">Basic usage</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV/problems.html"><span class="label">Questions&Answers</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV/ubuntu.html"><span class="label">Ubuntu Image</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">LicheeRV Nano</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV_Nano/1_intro.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV_Nano/2_unbox.html"><span class="label">Unboxing Experience</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV_Nano/3_images.html"><span class="label">Image Collection</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV_Nano/4_burn_image.html"><span class="label">Flashing the Image</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV_Nano/5_peripheral.html"><span class="label">peripheral</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV_Nano/6_develop_mainline.html"><span class="label">System Development</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV_Nano/7_test_report.html"><span class="label">test</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV_Nano/8_mmf_development_guide.html"><span class="label">MMF Development Guide</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/Zero/Zero.html"><span class="label">Lichee Zero</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/Nano/Nano.html"><span class="label">Lichee Nano</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/ZeroPlus/ZeroPlus.html"><span class="label">Lichee ZeroPlus</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang FPGA</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Tang Nano</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano/Nano.html"><span class="label">Tang Nano</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-1K/Nano-1k.html"><span class="label">Tang Nano 1K</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-4K/Nano-4K.html"><span class="label">Tang Nano 4k</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-9K/Nano-9K.html"><span class="label">Tang Nano 9K</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Tang Nano 20K</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/tang/tang-nano-20k/nano-20k.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/tang-nano-20k/example/unbox.html"><span class="label">Unbox</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/install-the-ide.html"><span class="label">Install IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/examples.html"><span class="label">Tang Nano examples</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/questions.html"><span class="label">Questions&Answers</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Primer</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Tang Primer 20K</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/tang/tang-primer-20k/primer-20k.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/tang-primer-20k/start.html"><span class="label">Notice</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/install-the-ide.html"><span class="label">Install IDE</span><span class=""></span></a></li>
+<li class="not_active  with_link"><a href="https://github.com/sipeed/TangPrimer-20K-example" ><span class="label">Examples(Github)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/questions.html"><span class="label">Questions&Answers</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Primer 25K</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/tang/tang-primer-25k/primer-25k.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/install-the-ide.html"><span class="label">Install IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/questions.html"><span class="label">Questions&Answers</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Primer 15K</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/tang/tang-primer-15k/primer-15k.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/install-the-ide.html"><span class="label">Install IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/questions.html"><span class="label">Questions&Answers</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-primer/Tang-primer.html"><span class="label">Tang Primer (Sold out)</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Install TD</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-primer/get_started/install_TD_win.html"><span class="label">In Windows</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-primer/get_started/install_linux.html"><span class="label">In Linux</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-primer/fpga/led.html"><span class="label">Blink by FPGA</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-primer/get_started/E203.html"><span class="label"> Prepare E203 environment</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-primer/get_started/fpga_download.html"><span class="label">Burn FPGA</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Mega</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Tang Mega 138K Pro</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/tang/tang-mega-138k/mega-138k-pro.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/install-the-ide.html"><span class="label">Install IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/questions.html"><span class="label">Questions&Answers</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Mega 138K</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/tang/tang-mega-138k/mega-138k.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/install-the-ide.html"><span class="label">Install IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/questions.html"><span class="label">Questions&Answers</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Mega 60K</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/tang/tang-mega-60k/mega-60k.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/install-the-ide.html"><span class="label">Install IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/questions.html"><span class="label">Questions&Answers</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/tang/tang-PMOD/FPGA_PMOD.html"><span class="label">Tang PMOD</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/maixsense/index.html"><span class="label">MaixSense</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maixsense/maixsense-a010/maixsense-a010.html"><span class="label">MaixSense-a010</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixsense/maixsense-a075v/maixsense-a075v.html"><span class="label">MaixSense-a075v</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">SLogic</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">SLogic Combo 8</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/logic_analyzer/combo8/index.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/logic_analyzer/combo8/basic_operation.html"><span class="label">Basic Operation</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/logic_analyzer/combo8/use_logic_function.html"><span class="label">Using as Logic Analyzer</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/logic_analyzer/combo8/use_cklink_function.html"><span class="label">Using as CKLink</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/logic_analyzer/combo8/use_daplink_function.html"><span class="label">Using as DAPLink</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/logic_analyzer/combo8/use_fouruart_function.html"><span class="label">Using as Serial Module</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/logic_analyzer/combo8/update_firmware.html"><span class="label">Update Firmware</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/logic_analyzer/combo8/faq.html"><span class="label">FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">KVM</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">NanoKVM Cube</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/introduction.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/quick_start.html"><span class="label">Quick start</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/user_guide.html"><span class="label">User Guide</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Network</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/network/tailscale.html"><span class="label">Tailscale</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/network/frp.html"><span class="label">frp</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/network/static_ip.html"><span class="label">Static IP</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">System</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/system/introduction.html"><span class="label">System Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/system/flashing.html"><span class="label">Flashing</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/system/updating.html"><span class="label">Updating</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/system/configuration.html"><span class="label">Configuration</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/faq.html"><span class="label">FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Longon</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">LonganPI 3H</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/longan/h618/lpi3h/1_intro.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/longan/h618/lpi3h/3_images.html"><span class="label">Images</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/longan/h618/lpi3h/4_burn_image.html"><span class="label">Burn images</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/longan/h618/lpi3h/5_desktop.html"><span class="label">Desktop Usage</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/longan/h618/lpi3h/6_peripheral.html"><span class="label">Peripheral</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/longan/h618/lpi3h/7_develop_mainline.html"><span class="label">Development</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/longan/h618/lpi3h/8_test_report.html"><span class="label">Test report</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/longan/Nano/Longan_nano.html"><span class="label">Longon Nano</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/longan/Nano/pio.html"><span class="label">Setup environment</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/longan/Nano/blink.html"><span class="label">Blink test</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">MaixFace</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maixface/mf_ml_module/mf0_ml_module.html"><span class="label">MF0&&MF0 Dock</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixface/mf_ml_module/mf1_ml_module.html"><span class="label">MF1 && MF2</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixface/mf_ml_module/mf5_product.html"><span class="label">MF4 && MF5</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixface/mf_ml_module/mf_precautions.html"><span class="label">Maixface PCB Design</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixface/mf_ml_module/mf_update_firmwave.html"><span class="label">Maixface Update firmware</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Peripheral modules</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">SP-MOD Peripheral modules</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Adapter board</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_extender.html"><span class="label">SP-Extender</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_grove.html"><span class="label">SP-Grove</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_fpc.html"><span class="label">SP-FPC</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_micarray.html"><span class="label">SP-MicArray</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_joystick.html"><span class="label">SP-JotStick</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_servo.html"><span class="label">SP-Servo</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/.html"><span class="label">SP-TypeC</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Sensor</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_weather.html"><span class="label">SP-Weather</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_tof.html"><span class="label">SP-TOF-1P</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Communication</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_bt.html"><span class="label">SP-BT</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_lora.html"><span class="label">SP-LoRa</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_psram.html"><span class="label">SP-PSRAM</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_rfid.html"><span class="label">SP-RFID</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_ethernet.html"><span class="label">SP-Ethernet</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Display</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_lcd1.14.html"><span class="label">SP-LCD 1.14</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_eink.html"><span class="label">SP-Eink</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Module && Debugger</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Debugger</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Sipeed RV Debugger</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Dual uart USB module</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">module</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">camera</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">GC0328</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Dual cam module(GC0328)</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">OV7740</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">OV2640</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">OV2640-M12</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Dual cam module(OV2640)</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Mic module</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/modules/micarray.html"><span class="label">Mic array</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/modules/Gamepad.html"><span class="label">Sipeed Gamepad</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>Flashing an Image</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                                <span class="article_date" title="Last modify date: 2023-07-21">
+                                    2023-07-21
+                                </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/sipeed/sipeed_wiki/blob/main/docs/hardware/en/lichee/th1520/lpi4a/4_burn_image.md" target="_blank">
+                                    <span id='editPage'>Edit this page</span>
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                        
+                        <details open>
+                        
+                            <summary>Update history</summary>
+                            <div>
+                                <table>
+                                        <thead>
+                                            <tr>
+                                                <th>Date</th>
+                                                <th>Version</th>
+                                                <th>Author</th>
+                                                <th>Update content</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            
+                                                <tr>
+                                                    <td>2023-07-21</td>
+                                                    <td>v1.1</td>
+                                                    <td>ztd</td>
+                                                    <td>
+                                                    
+                                                        <ul>
+                                                        
+                                                            <li>Update English docs</li>
+                                                        
+                                                        </ul>
+                                                    
+                                                    </td>
+                                                </tr>
+                                            
+                                                <tr>
+                                                    <td>2023-05-08</td>
+                                                    <td>v1.0</td>
+                                                    <td>wonder</td>
+                                                    <td>
+                                                    
+                                                        <ul>
+                                                        
+                                                            <li>Release docs</li>
+                                                        
+                                                        </ul>
+                                                    
+                                                    </td>
+                                                </tr>
+                                            
+                                        </tbody>
+                                </table>
+                            </div>
+                        </details>
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <h2 id="Preparation">Preparation</h2>
+<h3 id="Download-an-image">Download an image</h3>
+<p>Refer to the previous chapter &quot;Images&quot; to find the desired image.<br />
+The following burning method takes Debian single-screen image <code>LPI4A_20230721.zip</code>, 16+128 core board as an example.</p>
+<h3 id="Get-the-burning-tool">Get the burning tool</h3>
+<p>The burning tool can be obtained from the Mega cloud disk and is found in the <code>burn_tool.zip</code> file.<br />
+After decompression the fastboot binary is found in the win/linux/mac subfolders.<br />
+<strong>Note:</strong> Images from 20231023 and later versions have added support for burning large image files, which require using the latest version of fastboot. You can find the latest version of fastboot in the <a href="https://mega.nz/folder/phoQlBTZ#cZeQ3qZ__pDvP94PT3_bGA"  target="_blank">cloud disk link</a>. The file name is <code>burn_tools_support_bigimage.zip</code>.</p>
+<h2 id="How-to-enter-burning-mode">How to enter burning mode</h2>
+<p>Note that different versions of hardware have slightly different ways to enter the burning mode, see the following chapters.</p>
+<h3 id="Beta-Hardware">Beta Hardware</h3>
+<p>Press and hold the BOOT button on the board while plugging in the USB-C cable to power on the board<br />
+(the other side of the USB-C cable should be connected to your PC)<br />
+This will enter USB burning mode.<br />
+<img src="./../../../../zh/lichee/th1520/lpi4a/assets/burn_image/press_boot.png" alt="press_boot" /></p>
+<p>Windows: The board should show up in the Device Manager as “USB download gadget”.<br />
+Linux: Use <code>lsusb</code>, the board should show up in burning mode as <code>ID 2345:7654 T-HEAD USB download gadget</code></p>
+<h3 id="Official-Hardware-/-Release-Hardware">Official Hardware / Release Hardware</h3>
+<p>In addition to holding the BOOT button as mentioned above, pay attention to check whether the DIP switch on the bottom board is in EMMC startup mode:</p>
+<p><img src="./../../../../zh/lichee/th1520/lpi4a/assets/burn_image/switch_boot_mode.jpg" alt="switch_boot_mode" /></p>
+<p>After confirming that it is correct, it can be burned, and the next burning steps are the same as the internal test version.</p>
+<h3 id="Windows-Driver-installation">Windows Driver installation</h3>
+<p>The driver needs to be installed manually the first time you use the device.</p>
+<p>Note that the driver is not digitally signed, and you need to disable the driver signature checks.</p>
+<p>To disable digital signatures follow the steps below:</p>
+<p><strong>Win10</strong></p>
+<ol>
+<li>Find the settings of WIN10, click &quot;Settings&quot;:</li>
+</ol>
+<p><img src="./../../../../zh/lichee/th1520/lpi4a/assets/burn_image/win10_find_windows_settings.png" alt="win10_find_windows_settings" /></p>
+<ol start="2">
+<li>Click the last &quot;Update and Security&quot;, then click &quot;Recovery&quot;:</li>
+</ol>
+<p><img src="./../../../../zh/lichee/th1520/lpi4a/assets/burn_image/win10_click_the_restore.png" alt="win10_click_the_restore" /></p>
+<ol start="3">
+<li>After clicking &quot;Recovery&quot;, click &quot;Restart&quot; under Advanced Startup on the right, and the computer will restart at this time. If there are other important programs running, please be careful:</li>
+</ol>
+<p><img src="./../../../../zh/lichee/th1520/lpi4a/assets/burn_image/win10_click_the_restart.png" alt="win10_click_the_restart" /></p>
+<p><strong>Win11</strong></p>
+<ol>
+<li>Find &quot;System Menu&quot; in Settings and tap &quot;Restore&quot;.</li>
+</ol>
+<p><img src="./../../../../zh/lichee/th1520/lpi4a/assets/burn_image/win11_click_the_restore.png" alt="win11_click_the_restore" /><br />
+2. Click &quot;Restart&quot; under Advanced Startup on the right, and the computer will restart at this time. If there are other important programs running, please be careful.<br />
+<img src="./../../../../zh/lichee/th1520/lpi4a/assets/burn_image/win11_click_the_restart.png" alt="win11_click_the_restart" /></p>
+<p><strong>Same Part</strong></p>
+<ol>
+<li>After restarting, several options will appear, click on the option &quot;Troubleshooting&quot;, then click on &quot;Advanced&quot;, start the settings, and restart.</li>
+</ol>
+<p><img src="./../../../../zh/lichee/th1520/lpi4a/assets/burn_image/click_the_advanced_option.png" alt="click_the_advanced_option" /></p>
+<ol start="2">
+<li>After this will restart, a list will pop up, including options such as safe mode, including the &quot;prohibit mandatory driver signature&quot; we care about here, select &quot;disable mandatory driver signature&quot;, press the corresponding number, and then The computer will restart.</li>
+</ol>
+<p><img src="./../../../../zh/lichee/th1520/lpi4a/assets/burn_image/ban_the_signature.png" alt="ban_the_signature" /></p>
+<ol start="3">
+<li>After restarting, the driver can be installed successfully. If prompted, click to continue the installation. The specific steps of fastboot driver installation are as follows:</li>
+</ol>
+<p>a. The development board is connected to the computer via usb.<br />
+b. Open the device manager and the &quot;USB download gadget&quot; device will appear.</p>
+<p>Refer to <a href="https://answers.microsoft.com/en-us/windows/forum/all/permanent-disable-driver-signature-verification/009c3498-bef8-4564-bb52-1d05812506e0#:~:text=Start%20your%20computer%20and%20then%20keep%20pressing%20the,your%20keyboard%20to%20select%20Disable%20driver%20signature%20enforcement."  target="_blank">Disable Driver signature verification</a></p>
+<p><img src="./../../../../zh/lichee/th1520/lpi4a/assets/burn_image/before_install_driver.png" alt="before_install_driver" /><br />
+<img src="./../../../../zh/lichee/th1520/lpi4a/assets/burn_image/install_driver.png" alt="install_driver" /></p>
+<h2 id="Burn-the-image">Burn the image</h2>
+<h3 id="Windows">Windows</h3>
+<p>Edit the <code>burn_lpi4a.bat</code> decompressed from burn_tool.zip, replace the example image path into your real image path. Then run this <code>burn_lpi4a.bat</code> to burn image into LPi4A.</p>
+<p>And <code>fastboot.exe</code> path also needs verifying, otherwise it reports file not found.</p>
+<p><img src="./../../../../zh/lichee/th1520/lpi4a/assets/burn_image/target_burn_image_path.png" alt="target_burn_image_path" /></p>
+<h3 id="Linux">Linux</h3>
+<p>After putting the board into burning mode, you can use fastboot from <code>burn_tool.zip</code> to burn the image.<br />
+Let´s take linux as an example:<br />
+Note that you need to mark the fastboot binary as executable first via <code>chmod +x fastboot</code></p>
+<p><code>u-boot-with-spl-lpi4a.bin</code> and <code>u-boot-with-spl-lpi4a-16g.bin</code> are u-boot firmware, please refer to the image description for specific differences.</p>
+
+<pre class="language-bash"><code class="language-bash">sudo ./fastboot flash ram ./images/u-boot-with-spl-lpi4a-16g.bin
+sudo ./fastboot reboot
+sleep 1
+sudo ./fastboot flash uboot ./images/u-boot-with-spl-lpi4a-16g.bin
+sudo ./fastboot flash boot ./images/boot_sing.ext4
+sudo ./fastboot flash root ./images/rootfs-sing.ext4
+</code></pre>
+<p>The first three lines will check and create the partitions on the flash. If you skip this step,<br />
+burning the rootfs will be very slow later on.</p>
+<p><code>boot-sing.ext4</code> and <code>boot-dual.ext4</code> for boot For specific differences, please refer to the image description. They mainly include the following:</p>
+
+<pre class="language-bash"><code class="language-bash">fw_dynamic.bin        #opensbi
+Image                 #kernel image
+kernel-release        #commit id of kernel
+light_aon_fpga.bin    #fw for E902 aon
+light_c906_audio.bin  #fw for C906 audio
+light-lpi4a.dtb       # ddr8G dtb
+light-lpi4a-ddr16g.dtb # ddr16G dtb
+</code></pre>
+<p><code>rootfs-sing.ext4</code> and <code>rootfs-mipi.ext4</code> are the root file system, and the default is Debian system. For the specific differences between the two, please refer to the image description.</p>
+<p>Log output you typically see while burning an image:</p>
+<p><img src="./../../../../zh/lichee/th1520/lpi4a/assets/burn_image/burn_image_progress_result.png" alt="burn_image_progress_result" /></p>
+<!--  
+```bash
+(base) pc@n5105:~/work/$ sudo ./fastboot flash ram u-boot-with-spl.bin
+Sending 'ram' (935 KB)                             OKAY [  0.248s]
+Writing 'ram'                                      OKAY [  0.002s]
+Finished. Total time: 0.255s
+(base) pc@n5105:~/work/$ sudo ./fastboot reboot
+Rebooting                                          OKAY [  0.001s]
+Finished. Total time: 0.202s
+(base) pc@n5105:~/work/$ sudo ./fastboot flash uboot u-boot-with-spl.bin
+Sending 'uboot' (935 KB)                           OKAY [  0.054s]
+Writing 'uboot'                                    OKAY [  0.030s]
+Finished. Total time: 0.107s
+(base) pc@n5105:~/work/$ sudo ./fastboot flash boot boot_20230420.ext4 
+Sending 'boot' (40000 KB)                          OKAY [  1.705s]
+Writing 'boot'                                     OKAY [  0.877s]
+Finished. Total time: 2.770s
+(base) pc@n5105:~/work/$ sudo ./fastboot flash root rootfs-20230425-001635-nogpu.ext4 
+Invalid sparse file format at header magic
+Sending sparse 'root' 1/37 (114572 KB)             OKAY [  4.793s]
+Writing 'root'                                     OKAY [  3.087s]
+Sending sparse 'root' 2/37 (105264 KB)             OKAY [  4.465s]
+Writing 'root'                                     OKAY [  2.330s]
+Sending sparse 'root' 3/37 (111970 KB)             OKAY [  4.814s]
+Writing 'root'                                     OKAY [  2.861s]
+Sending sparse 'root' 4/37 (114684 KB)             OKAY [  4.902s]
+Writing 'root'                                     OKAY [  2.658s]
+Sending sparse 'root' 5/37 (101490 KB)             OKAY [  4.305s]
+Writing 'root'                                     OKAY [  2.652s]
+Sending sparse 'root' 6/37 (114684 KB)             OKAY [  4.648s]
+Writing 'root'                                     OKAY [  2.657s]
+Sending sparse 'root' 7/37 (113862 KB)             OKAY [  4.755s]
+Writing 'root'                                     OKAY [  2.826s]
+Sending sparse 'root' 8/37 (111189 KB)             OKAY [  4.741s]
+Writing 'root'                                     OKAY [  2.695s]
+Sending sparse 'root' 9/37 (114625 KB)             OKAY [  4.865s]
+Writing 'root'                                     OKAY [  2.660s]
+Sending sparse 'root' 10/37 (104030 KB)            OKAY [  4.506s]
+Writing 'root'                                     OKAY [  4.108s]
+Sending sparse 'root' 11/37 (111701 KB)            OKAY [  4.744s]
+Writing 'root'                                     OKAY [  2.717s]
+Sending sparse 'root' 12/37 (107317 KB)            OKAY [  4.568s]
+Writing 'root'                                     OKAY [  2.583s]
+Sending sparse 'root' 13/37 (114629 KB)            OKAY [  4.830s]
+Writing 'root'                                     OKAY [  2.753s]
+Sending sparse 'root' 14/37 (109798 KB)            OKAY [  4.711s]
+Writing 'root'                                     OKAY [  2.778s]
+Sending sparse 'root' 15/37 (112203 KB)            OKAY [  4.795s]
+Writing 'root'                                     OKAY [  2.982s]
+Sending sparse 'root' 16/37 (112502 KB)            OKAY [  4.827s]
+Writing 'root'                                     OKAY [  2.991s]
+Sending sparse 'root' 17/37 (114110 KB)            OKAY [  4.849s]
+Writing 'root'                                     OKAY [  2.853s]
+Sending sparse 'root' 18/37 (114681 KB)            OKAY [  4.888s]
+Writing 'root'                                     OKAY [  2.802s]
+Sending sparse 'root' 19/37 (112042 KB)            OKAY [  4.799s]
+Writing 'root'                                     OKAY [  3.674s]
+Sending sparse 'root' 20/37 (109101 KB)            OKAY [  4.631s]
+Writing 'root'                                     OKAY [  2.582s]
+Sending sparse 'root' 21/37 (114225 KB)            OKAY [  4.623s]
+Writing 'root'                                     OKAY [  2.782s]
+Sending sparse 'root' 22/37 (114365 KB)            OKAY [  4.703s]
+Writing 'root'                                     OKAY [  2.667s]
+Sending sparse 'root' 23/37 (103529 KB)            OKAY [  4.133s]
+Writing 'root'                                     OKAY [  2.442s]
+Sending sparse 'root' 24/37 (114664 KB)            OKAY [  4.631s]
+Writing 'root'                                     OKAY [  2.581s]
+Sending sparse 'root' 25/37 (114550 KB)            OKAY [  4.749s]
+Writing 'root'                                     OKAY [  2.878s]
+Sending sparse 'root' 26/37 (114686 KB)            OKAY [  4.796s]
+Writing 'root'                                     OKAY [  2.853s]
+Sending sparse 'root' 27/37 (114466 KB)            OKAY [  4.800s]
+Writing 'root'                                     OKAY [  2.894s]
+Sending sparse 'root' 28/37 (110689 KB)            OKAY [  4.711s]
+Writing 'root'                                     OKAY [  2.616s]
+Sending sparse 'root' 29/37 (114687 KB)            OKAY [  4.880s]
+Writing 'root'                                     OKAY [  2.992s]
+Sending sparse 'root' 30/37 (110984 KB)            OKAY [  4.710s]
+Writing 'root'                                     OKAY [  2.451s]
+Sending sparse 'root' 31/37 (114685 KB)            OKAY [  4.920s]
+Writing 'root'                                     OKAY [  2.749s]
+Sending sparse 'root' 32/37 (114684 KB)            OKAY [  4.825s]
+Writing 'root'                                     OKAY [  2.503s]
+Sending sparse 'root' 33/37 (114684 KB)            OKAY [  4.816s]
+Writing 'root'                                     OKAY [  3.262s]
+Sending sparse 'root' 34/37 (114686 KB)            OKAY [  4.745s]
+Writing 'root'                                     OKAY [  2.825s]
+Sending sparse 'root' 35/37 (114684 KB)            OKAY [  4.913s]
+Writing 'root'                                     OKAY [  2.630s]
+Sending sparse 'root' 36/37 (114684 KB)            OKAY [  4.838s]
+Writing 'root'                                     OKAY [  2.593s]
+Sending sparse 'root' 37/37 (21324 KB)             OKAY [  0.926s]
+Writing 'root'                                     OKAY [  0.487s]
+Finished. Total time: 281.671s
+```
+-->
+<h2 id="Board-Boot-Process">Board Boot Process</h2>
+<p>brom -&gt; U-Boot SPL -&gt; U-Boot -&gt; OpenSBI -&gt; Kernel</p>
+<p>Here is a brief overview of each stage and sample console output.<br />
+The board now has a level shifter for the serial port to 3.3V logic, so a regular USB serial adapter can be used.</p>
+<h3 id="brom">brom</h3>
+<p>Typical output:</p>
+
+<pre class="language-shell"><code class="language-shell">brom_ver 8
+[APP][E] protocol_connect failed, exit. 
+</code></pre>
+<p>The brom stage loads initial code from the SoC's ROM and looks for the next stage bootloader.</p>
+<h3 id="U-Boot-SPL">U-Boot SPL</h3>
+<p>Typical output:</p>
+
+<pre class="language-shell"><code class="language-shell">U-Boot SPL 2020.01-gd6c9182f (Jul 07 2023 - 12:31:51 +0200)
+FM[1] lpddr4x dualrank freq=3733 64bit dbi_off=n sdram init
+ddr initialized, jump to uboot
+image has no header
+</code></pre>
+<p>U-Boot SPL stands for Secondary Program Loader. It initializes RAM, loads the main U-Boot into RAM and jumps to it.</p>
+<h3 id="U-Boot">U-Boot</h3>
+<p>Typical output:</p>
+
+<pre class="language-shell"><code class="language-shell">U-Boot 2020.01-gd6c9182f (Jul 07 2023 - 12:31:51 +0200)
+
+CPU:   rv64imafdcvsu
+Model: T-HEAD c910 light
+DRAM:  8 GiB
+C910 CPU FREQ: 750MHz
+AHB2_CPUSYS_HCLK FREQ: 250MHz
+AHB3_CPUSYS_PCLK FREQ: 125MHz
+PERISYS_AHB_HCLK FREQ: 250MHz
+PERISYS_APB_PCLK FREQ: 62MHz
+GMAC PLL POSTDIV FREQ: 1000MHZ
+DPU0 PLL POSTDIV FREQ: 1188MHZ
+DPU1 PLL POSTDIV FREQ: 1188MHZ
+MMC:   sdhci@ffe7080000: 0, sd@ffe7090000: 1
+Loading Environment from MMC... OK
+Error reading output register
+Warning: cannot get lcd-en GPIO
+LCD panel cannot be found : -121
+splash screen startup cost 15 ms
+In:    serial
+Out:   serial
+Err:   serial
+Net:   ethernet@ffe7070000 (eth0) using MAC address - ae:be:2a:50:5e:89
+eth0: ethernet@ffe7070000ethernet@ffe7070000:0 is connected to ethernet@ffe7070000.
+ethernet@ffe7060000 (eth1) using MAC address - ae:be:2a:50:5e:8a
+, eth1: ethernet@ffe7060000
+Hit any key to stop autoboot:  0
+</code></pre>
+<p>Press enter within 2 seconds of seeing <code>Hit any key to stop autoboot:</code> to enter the U-Boot console.</p>
+<p>Typical environment variable configuration:</p>
+<p>Set MAC addresses:</p>
+
+<pre class="language-shell"><code class="language-shell">setenv ethaddr ae:be:2a:50:5e:89
+setenv eth1addr ae:be:2a:50:5e:8a
+saveenv
+</code></pre>
+<p>Just replace the MAC address in the above command with your own MAC address. Note that the value of <code>eth1addr</code> is the value of <code>ethaddr</code> plus 1.</p>
+<p>Set kernel device tree:</p>
+
+<pre class="language-shell"><code class="language-shell">setenv fdt_file light-lpi4a.dtb
+saveenv
+</code></pre>
+<p>Replace <code>light-lpi4a.dtb</code> in the above command with the file name of the desired device tree stored in <code>boot.ext4</code>.<br />
+After the setting is complete, you can also use the <code>printenv</code> command to check whether it is correct, and then enter the <code>boot</code> command to enter the kernel.</p>
+<p>In addition, you can also set startup parameters here to choose a startup method, such as using an SD card to start.<br />
+After burning the image to the SD card, insert the SD card into the development board and enter U-Boot:</p>
+
+<pre class="language-shell"><code class="language-shell">env set -f set_bootargs 'setenv bootargs console=ttyS0,115200 root=/dev/mmcblk1 rootfstype=ext4 rootwait rw earlycon clk_ignore_unused loglevel=7 eth=ethaddr rootrwoptions=rw,noatime rootrwreset={factory_reset} init=/lib/systemd/systemd'
+env save
+</code></pre>
+<p>After the above steps are completed, enter the <code>reset</code> command to restart the development board, and the system can be booted from the SD card.</p>
+<p>For the official version of the development board, you can use the DIP switch on the bottom board to select the startup mode:</p>
+<p><img src="./../../../../zh/lichee/th1520/lpi4a/assets/burn_image/switch_boot_mode.jpg" alt="switch_boot_mode" /></p>
+<h3 id="OpenSBI">OpenSBI</h3>
+<p>Some initialization prints in OpenSBI's sbi_init.c file will not be displayed in the startup log, but you can see some information about OpenSBI being printed out when the Kernel starts:</p>
+
+<pre class="language-shell"><code class="language-shell">[    0.000000] SBI specification v0.3 detected
+[    0.000000] SBI implementation ID=0x1 Version=0x9
+[    0.000000] SBI v0.2 TIME extension detected
+[    0.000000] SBI v0.2 IPI extension detected
+[    0.000000] SBI v0.2 RFENCE extension detected
+[    0.000000] SBI v0.2 HSM extension detected
+</code></pre>
+<p>OpenSBI has three kinds of firmware, the one used here is FW_DYNAMIC, which will load the next stage according to the information passed in the previous stage. The fw_dynamic.bin firmware of OpenSBI is stored in boot.ext4, which will boot the kernel at this stage.</p>
+<h3 id="Kernel">Kernel</h3>
+<p>A typical log of this stage is as follows (because it is too long, only part of it is intercepted):</p>
+
+<pre class="language-shell"><code class="language-shell">[    0.000000] Linux version 5.10.113-g387b6863253c-dirty
+[    0.000000] OF: fdt: Ignoring memory range 0x0 - 0x200000
+[    0.000000] earlycon: uart0 at MMIO32 0x000000ffe7014000 (options '115200n8')
+[    0.000000] printk: bootconsole [uart0] enabled
+[    0.000000] efi: UEFI not found.
+[    0.000000] Reserved memory: created CMA memory pool at 0x00000003e4000000, size 320 MiB
+[    0.000000] OF: reserved mem: initialized node linux,cma, compatible id shared-dma-pool 
+[    0.000000] Zone ranges:                       
+[    0.000000]   DMA32    [mem 0x0000000000200000-0x00000000ffffffff]
+[    0.000000]   Normal   [mem 0x0000000100000000-0x00000003ffffffff]
+[    0.000000] Movable zone start for each node   
+[    0.000000] Early memory node ranges
+[    0.000000]   node   0: [mem 0x0000000000200000-0x000000000fffffff]
+[    0.000000]   node   0: [mem 0x0000000010000000-0x00000000166fffff]
+[    0.000000]   node   0: [mem 0x0000000016700000-0x0000000016ffffff]
+[    0.000000]   node   0: [mem 0x0000000017000000-0x0000000018ffffff]
+[    0.000000]   node   0: [mem 0x0000000019000000-0x000000001bffffff]
+[    0.000000]   node   0: [mem 0x000000001c000000-0x000000001dffffff]
+[    0.000000]   node   0: [mem 0x000000001e000000-0x000000001fffffff]
+[    0.000000]   node   0: [mem 0x0000000020000000-0x00000000207fffff]
+[    0.000000]   node   0: [mem 0x0000000020800000-0x00000003ffffffff]
+[    0.000000] Initmem setup node 0 [mem 0x0000000000200000-0x00000003ffffffff]
+[    0.000000] software IO TLB: mapped [mem 0x00000000fbfff000-0x00000000fffff000] (64MB)
+[    0.000000] SBI specification v0.3 detected
+[    0.000000] SBI implementation ID=0x1 Version=0x9
+[    0.000000] SBI v0.2 TIME extension detected
+[    0.000000] SBI v0.2 IPI extension detected
+[    0.000000] SBI v0.2 RFENCE extension detected
+[    0.000000] SBI v0.2 HSM extension detected
+[    0.000000] riscv: ISA extensions acdfimsuv
+[    0.000000] riscv: ELF capabilities acdfimv
+[    0.000000] percpu: Embedded 27 pages/cpu s73496 r8192 d28904 u110592
+[    0.000000] Built 1 zonelists, mobility grouping on.  Total pages: 4128264
+[    0.000000] Kernel command line: console=ttyS0,115200 root=PARTUUID=80a5a8e9-c744-491a-d
+[    0.000000] Dentry cache hash table entries: 2097152 (order: 12, 16777216 bytes, linear)
+[    0.000000] Inode-cache hash table entries: 1048576 (order: 11, 8388608 bytes, linear) 
+[    0.000000] Sorting __ex_table...
+[    0.000000] mem auto-init: stack:off, heap alloc:off, heap free:off
+[    0.000000] Memory: 15887448K/16775168K available (12390K kernel code, 5982K rwdata, 61)
+[    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=4, Nodes=1
+[    0.000000] rcu: Preemptible hierarchical RCU implementation.
+[    0.000000] rcu:     RCU restricting CPUs from NR_CPUS=8 to nr_cpu_ids=4.
+[    0.000000]  Trampoline variant of Tasks RCU enabled.
+[    0.000000]  Tracing variant of Tasks RCU enabled.
+[    0.000000] rcu: RCU calculated value of scheduler-enlistment delay is 25 jiffies.
+[    0.000000] rcu: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=4
+[    0.000000] NR_IRQS: 64, nr_irqs: 64, preallocated irqs: 0
+[    0.000000] riscv-intc: 64 local interrupts mapped
+[    0.000000] plic: interrupt-controller@ffd8000000: mapped 64 interrupts with 4 handlers.
+[    0.000000] random: get_random_bytes called from start_kernel+0x372/0x4d4 with crng_ini0
+[    0.000000] riscv_timer_init_dt: Registering clocksource cpuid [0] hartid [0]
+[    0.000000] clocksource: riscv_clocksource: mask: 0xffffffffffffffff max_cycles: 0x1623s
+[    0.000008] sched_clock: 64 bits at 3000kHz, resolution 333ns, wraps every 439804651109s
+[    0.008693] Console: colour dummy device 80x25
+</code></pre>
+<p>After starting the kernel, you can replace the device tree DTB file, OpenSBI firmware, kernel image file Image and other files, which are located in the <code>/boot/</code> directory:</p>
+
+<pre class="language-shell"><code class="language-shell">sipeed@lpi4a:~$ ls /boot/
+Image                                    light-lpi4a.dtb
+System.map-5.10.113-g387b6863253c-dirty  light_aon_fpga.bin
+config-5.10.113-g387b6863253c-dirty      light_c906_audio.bin
+fw_dynamic.bin                           vmlinuz-5.10.113-g387b6863253c-dirty
+kernel-commitid
+</code></pre>
+<h2 id="Batch-programming-/-flashing">Batch programming / flashing</h2>
+<p>If you have commercial needs and need to burn firmware in batches, you can use the ARM/RV version of fastboot provided by sipeed to make an offline batch burner.<br />
+If you need to burn a large number, you can also contact support@sipeed.com directly , we provide pre-burning image service.</p>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                        <a href="/hardware/en/lichee/th1520/lpi4a/3_images.html">
+                            <span class="icon"></span>
+                            <span class="label">Image summary</span>
+                        </a>
+                        
+                    </div>
+                    <div id="next">
+                        
+                        <a href="/hardware/en/lichee/th1520/lpi4a/5_desktop.html">
+                            <span class="label">Desktop usage</span>
+                            <span class="icon"></span>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>links</a><ul><li><a target="_blank" href="https://www.sipeed.com">Sipeed</a></li>
+<li><a target="_blank" href="https://maixhub.com/">MaixHub</a></li>
+<li><a target="_blank" href="https://sipeed.aliexpress.com/store/911876460">Sipeed AliExpress</a></li>
+<li><a target="_blank" href="https://github.com/neutree/teedoc">Build by teedoc </a></li>
+</ul>
+</li>
+<li><a>Source Code</a><ul><li><a target="_blank" href="https://github.com/sipeed/sipeed_wiki">Wiki source</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">Open Source Projects</a></li>
+</ul>
+</li>
+<li><a>Follow us</a><ul><li><a target="_blank" href="https://twitter.com/SipeedIO">twitter</a></li>
+<li><a target="_blank" href="https://sipeed.aliexpress.com/store/911876460">AliExpress</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">github</a></li>
+<li><a><a>Wechat</a><img src='/static/image/wechat.png'></a>
+</li>
+</ul>
+</li>
+<li><a>Contact us</a><ul><li><a>Tel: +86 0755-27808509</a>
+</li>
+<li><a>Business support: support@sipeed.com</a>
+</li>
+<li><a>Address: 深圳市宝安区新湖路4008号蘅芳科技办公大厦A座-2101C</a>
+</li>
+<li><a  href="/join_us.html">Join us</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://www.sipeed.com">©2018-2023 深圳矽速科技有限公司</a></li>
+<li><a target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index">粤ICP备19015433号</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/js/prism.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <link rel="stylesheet" href="/static/js/add_hint/style.css" type="text/css"/>
+    
+        <script src="/static/js/add_hint/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+        <script src="/static/js/thumbs_up/main.js"></script>
+    
+</body>
+
+</html>

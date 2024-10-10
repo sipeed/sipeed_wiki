@@ -1,0 +1,1878 @@
+<!DOCTYPE html>
+
+<html lang="en"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="Linux, Lichee, TH1520, SBC, RISCV, Peripheral">
+    
+    
+    <meta name="description" content="">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+        
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/prism.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?9cb07365544a53067c56c346c838181a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119047820-5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-119047820-5');
+    </script>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/js/thumbs_up/style.css" type="text/css"/>
+        
+    
+    
+    <title>Peripheral Use - Sipeed Wiki</title>
+    
+    <script type="text/javascript">js_vars = {"teedoc-plugin-ad-hint": {"type": "hint", "label": "NEW", "content": "New Maix series products <a href='https://wiki.sipeed.com/maixcam'>MaixCAM</a> online now, and new <a href='https://wiki.sipeed.com/maixpy/'>MaixPy</a>,feature richer functionalities, enhanced performance, and user-friendly software, with comprehensive documentation", "show_times": 2, "show_after_s": 432000, "date": "2022-06-01 14:00", "color": "#a0421d", "link_color": "#e53935", "link_bg_color": "#e6ae5c", "bg_color": "#ffcf89", "color_hover": "white", "bg_color_hover": "#f57c00", "close_color": "#eab971"}, "teedoc-plugin-thumbs-up": {"label_up": "Helpful", "label_down": "Not Helpful", "icon": "/static/images/thumbs_up/up.svg", "icon_clicked": "/static/images/thumbs_up/upped.svg", "url": "https://thumbs-up.sipeed.com", "show_up_count": true, "show_down_count": false, "msg_already_voted": "You have already voted", "msg_thanks": "Thanks for your vote", "msg_down_prompt": "Thanks to tell us where we can improve?(At least 10 characters)", "msg_down_prompt_error": "Message should be at least 10 characters and less than 256 characters", "msg_error": "Request server failed!"}}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": "2023-09-12", "update": [{"date": "2023-09-12", "version": "v1.3", "author": "ztd", "content": ["Update NPU user guide"]}, {"date": "2023-08-18", "version": "v1.2", "author": "ztd", "content": ["Update JTAG user guide"]}, {"date": "2023-07-21", "version": "v1.1", "author": "ztd", "content": ["Update English docs"]}, {"date": "2023-05-08", "version": "v1.0", "author": "wonder", "content": ["Release docs"]}], "ts": 1694476800, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/en/">
+                
+                    <img class="site_logo" src="/static/image/logo.svg" alt="sipeed wiki logo">
+                
+                
+                    <h2>wiki</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class=""><a  href="/en/">Products</a></li>
+<li class="sub_items "><a >Software Docs</a><ul><li class=""><a  href="/maixpy/en/">MaixPy</a></li>
+<li class=""><a  href="/soft/maixpy/zh/index.html">MaixPy_v1</a></li>
+<li class=""><a  href="/soft/Lichee/zh/index.html">Lichee</a></li>
+<li class=""><a  href="/ai/en/index.html">AI Guide</a></li>
+</ul>
+</li>
+<li class=""><a target="_blank" href="https://maixhub.com">MaixHub</a></li>
+<li class=""><a  href="/news/">News</a></li>
+<li class=""><a  href="/en/faq.html">FAQ</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class=""><a  href="/en/store.html"><img src='/static/image/shop.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+<li class=""><a target="_blank" href="https://github.com/sipeed"><img src='/static/image/github.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+<li class="sub_items "><a  ><img src='/static/image/language.svg' style='height: 1.5em;vertical-align: middle;'>&nbsp;English</a><ul><li class="active"><a  href="/hardware/en/lichee/th1520/lpi4a/6_peripheral.html">English</a></li>
+<li class=""><a  href="/hardware/zh/lichee/th1520/lpi4a/6_peripheral.html">中文</a></li>
+</ul></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">Search</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">Input keyword. Using Space to separate multiple keywords</span>
+                                <span id="search_loading_hint">Loading, please wait</span>
+                                <span id="search_download_err_hint">Fail download, Please retry or check network</span>
+                                <span id="search_other_docs_result_hint">Results form other doc</span>
+                                <span id="search_curr_doc_result_hint">Result form current doc</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="not_active no_link"><a><span class="label">Maix Zero</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Maix M0</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/./maixzero/sense/maix_zero_sense.html"><span class="label">M0sense Board</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/./maixzero/sense/start.html"><span class="label">M0sense Guide</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Maix M0P</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">M0P</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">M0P Dock</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/./maixzero/m0s/m0s.html"><span class="label">Maix M0s</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Maix-I & Zero</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Maix M1</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">M1 Module</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/en/maix/core_module.html"><span class="label">M1/M1w</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maix/M1n.html"><span class="label">M1n</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">M1 Board</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maix/maixpy_develop_kit_board/Maix_dock.html"><span class="label">Maix Dock(M1/M1W)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maix/maixpy_develop_kit_board/maix_bit.html"><span class="label">Maix Bit</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maix/maixpy_develop_kit_board/maix_duino.html"><span class="label">Maix Duino</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maix/maixpy_develop_kit_board/maix_nano.html"><span class="label">Maix Nano</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maix/maixpy_develop_kit_board/maix_cube.html"><span class="label">Maix Cube</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maix/maixpy_develop_kit_board/maix_Amigo.html"><span class="label">Maix Amigo</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/no_translate.html?ref=/hardware/zh/maix/maixpy_develop_kit_board/maix_hat.html&from=/hardware/en/maix/maixpy_develop_kit_board/maix_hat.html"><span class="label">Maix HAT</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maix/maixpy_develop_kit_board/maix_go.html"><span class="label">Maix Go (Sold out)</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Maix M1s</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maix/m1s/m1s_module.html"><span class="label">M1s Module</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">M1s Dock</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maix/m1s/m1s_dock.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maix/m1s/other/start.html"><span class="label">Basic Usage</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maix/m1s/other/others.html"><span class="label">Others (Camera and Shell)</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Maix M1a</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/maixII/index.html"><span class="label">Maix-II</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maixII/M2/resources.html"><span class="label">MaixII-Dock</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maixII/M2/flash.html"><span class="label">Burn image</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixII/M2/usage.html"><span class="label">Basic usage</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixII/M2/other.html"><span class="label">Other notice</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/../../soft/maixpy3/zh/tools/0.MaixII-Dock.html"><span class="label">Using MaixPy3</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixII/M2/faq.html"><span class="label">FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/maixII/M2S/V833.html"><span class="label">M2S</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maixII/M2S/reources.html"><span class="label">Board introduction</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/maixII/M2A/maixsense.html"><span class="label">MaixSense</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maixII/M2A/flash_system.html"><span class="label">Burn image</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixII/M2A/config_system.html"><span class="label">Config system</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/no_translate.html?ref=/hardware/zh/maixII/M2A/first.html&from=/hardware/en/maixII/M2A/first.html"><span class="label">Test board</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/no_translate.html?ref=/hardware/zh/maixII/M2A/user.html&from=/hardware/en/maixII/M2A/user.html"><span class="label">Start to use</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/../../soft/maixpy3/zh/tools/maixsense.html"><span class="label">Using MaixPy3</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Maix-III</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maixIII/ax-pi/axpi.html"><span class="label">Maix-III AXera-Pi</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maixIII/ax-pi/flash_system.html"><span class="label">AXera-Pi manual</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixIII/ax-pi/python_api.html"><span class="label">Python programming</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixIII/ax-pi/dev_prepare.html"><span class="label">C/C++ programming</span><span class=""></span></a></li>
+<li class="not_active  with_link"><a href="/ai/en/deploy/ax-pi.html" ><span class="label">AI development guide</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixIII/ax-pi/faq_axpi.html"><span class="label">Questions (FAQ)</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">MaixCAM</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maixcam/index.html"><span class="label">MaixCAM Brief and Data</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixcam/assemble.html"><span class="label">MaixCAM Assembly</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixcam/os.html"><span class="label">System Upgrade</span><span class=""></span></a></li>
+<li class="not_active  with_link"><a href="https://wiki.sipeed.com/maixpy/" ><span class="label">Develop with MaixPy</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixcam/maixcdk.html"><span class="label">Develop with MaixCDK</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixcam/faq.html"><span class="label">FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="active_parent no_link"><a><span class="label">LicheePI</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="active_parent no_link"><a><span class="label">LicheePI 4A</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lm4a.html"><span class="label">Lichee Module 4A</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lc4a/lc4a.html"><span class="label">Lichee Cluster 4A</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lbook4a/lbook4a.html"><span class="label">Lichee Console 4A</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lcon4a/setup_guide.html"><span class="label">setup_guide</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lcon4a/3_images.html"><span class="label">images</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lcon4a/4_burn_image.html"><span class="label">burn_image</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lbook4a/lbook4a.html"><span class="label">Lichee Book 4A</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lbook4a/4_burn_image.html"><span class="label">burn_image</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="active_parent no_link"><a><span class="label">Lichee PI 4A</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/1_intro.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/2_unbox.html"><span class="label">Unbox guide</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/3_images.html"><span class="label">Image summary</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/4_burn_image.html"><span class="label">Burn image</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/5_desktop.html"><span class="label">Desktop usage</span><span class=""></span></a></li>
+<li class="active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/6_peripheral.html"><span class="label">Peripheral</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">System building</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/7_develop_revyos.html"><span class="label">revyos</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/7_develop_mainline.html"><span class="label">Linux Mainline (Work in Progress)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/7_develop_android.html"><span class="label">Android</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/7_develop_thead.html"><span class="label">THead Yocto</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">OpenHarmony (Work in Progress)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/7_develop_openwrt.html"><span class="label">OpenWRT</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/8_application.html"><span class="label">Application</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/9_benchmark.html"><span class="label">Benchmark</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/10_test_report.html"><span class="label">Hardware report</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/12_faq.html"><span class="label">FAQ</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/11_credits.html"><span class="label">Credits</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">LicheePI 3A</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/lichee/K1/lm3a.html"><span class="label">Lichee Module 3A</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/K1/lc3a/lc3a.html"><span class="label">Lichee Cluster 3A</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Lichee PI 3A</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/en/lichee/K1/lpi3a/1_intro.html"><span class="label">SBC Intro</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/K1/lpi3a/2_unbox.html"><span class="label">Unbox experience</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/K1/lpi3a/3_burn_image.html"><span class="label">Burn Images</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/K1/lpi3a/4_peripheral.html"><span class="label">Peripheral Usage</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/K1/lpi3a/5_develop.html"><span class="label">System develop</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/K1/lpi3a/6_application.html"><span class="label">Applications</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/K1/lpi3a/7_faq.html"><span class="label">FAQs</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/K1/lpi3a/8_credits.html"><span class="label">Credits</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Lichee RV</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active no_link"><a><span class="label">Board Introduction</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV/RV.html"><span class="label">Lichee RV</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV/86_panel.html"><span class="label">Lichee RV 86 Panel</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV/Dock.html"><span class="label">Lichee RV Dock</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV/flash.html"><span class="label">Burn System</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV/user.html"><span class="label">Basic usage</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV/problems.html"><span class="label">Questions&Answers</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV/ubuntu.html"><span class="label">Ubuntu Image</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">LicheeRV Nano</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV_Nano/1_intro.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV_Nano/2_unbox.html"><span class="label">Unboxing Experience</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV_Nano/3_images.html"><span class="label">Image Collection</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV_Nano/4_burn_image.html"><span class="label">Flashing the Image</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV_Nano/5_peripheral.html"><span class="label">peripheral</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV_Nano/6_develop_mainline.html"><span class="label">System Development</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV_Nano/7_test_report.html"><span class="label">test</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV_Nano/8_mmf_development_guide.html"><span class="label">MMF Development Guide</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/Zero/Zero.html"><span class="label">Lichee Zero</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/Nano/Nano.html"><span class="label">Lichee Nano</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/ZeroPlus/ZeroPlus.html"><span class="label">Lichee ZeroPlus</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang FPGA</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Tang Nano</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano/Nano.html"><span class="label">Tang Nano</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-1K/Nano-1k.html"><span class="label">Tang Nano 1K</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-4K/Nano-4K.html"><span class="label">Tang Nano 4k</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-9K/Nano-9K.html"><span class="label">Tang Nano 9K</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Tang Nano 20K</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/tang/tang-nano-20k/nano-20k.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/tang-nano-20k/example/unbox.html"><span class="label">Unbox</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/install-the-ide.html"><span class="label">Install IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/examples.html"><span class="label">Tang Nano examples</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/questions.html"><span class="label">Questions&Answers</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Primer</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Tang Primer 20K</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/tang/tang-primer-20k/primer-20k.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/tang-primer-20k/start.html"><span class="label">Notice</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/install-the-ide.html"><span class="label">Install IDE</span><span class=""></span></a></li>
+<li class="not_active  with_link"><a href="https://github.com/sipeed/TangPrimer-20K-example" ><span class="label">Examples(Github)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/questions.html"><span class="label">Questions&Answers</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Primer 25K</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/tang/tang-primer-25k/primer-25k.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/install-the-ide.html"><span class="label">Install IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/questions.html"><span class="label">Questions&Answers</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Primer 15K</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/tang/tang-primer-15k/primer-15k.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/install-the-ide.html"><span class="label">Install IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/questions.html"><span class="label">Questions&Answers</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-primer/Tang-primer.html"><span class="label">Tang Primer (Sold out)</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Install TD</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-primer/get_started/install_TD_win.html"><span class="label">In Windows</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-primer/get_started/install_linux.html"><span class="label">In Linux</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-primer/fpga/led.html"><span class="label">Blink by FPGA</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-primer/get_started/E203.html"><span class="label"> Prepare E203 environment</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-primer/get_started/fpga_download.html"><span class="label">Burn FPGA</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Mega</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Tang Mega 138K Pro</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/tang/tang-mega-138k/mega-138k-pro.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/install-the-ide.html"><span class="label">Install IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/questions.html"><span class="label">Questions&Answers</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Mega 138K</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/tang/tang-mega-138k/mega-138k.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/install-the-ide.html"><span class="label">Install IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/questions.html"><span class="label">Questions&Answers</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Mega 60K</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/tang/tang-mega-60k/mega-60k.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/install-the-ide.html"><span class="label">Install IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/questions.html"><span class="label">Questions&Answers</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/tang/tang-PMOD/FPGA_PMOD.html"><span class="label">Tang PMOD</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/maixsense/index.html"><span class="label">MaixSense</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maixsense/maixsense-a010/maixsense-a010.html"><span class="label">MaixSense-a010</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixsense/maixsense-a075v/maixsense-a075v.html"><span class="label">MaixSense-a075v</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">SLogic</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">SLogic Combo 8</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/logic_analyzer/combo8/index.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/logic_analyzer/combo8/basic_operation.html"><span class="label">Basic Operation</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/logic_analyzer/combo8/use_logic_function.html"><span class="label">Using as Logic Analyzer</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/logic_analyzer/combo8/use_cklink_function.html"><span class="label">Using as CKLink</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/logic_analyzer/combo8/use_daplink_function.html"><span class="label">Using as DAPLink</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/logic_analyzer/combo8/use_fouruart_function.html"><span class="label">Using as Serial Module</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/logic_analyzer/combo8/update_firmware.html"><span class="label">Update Firmware</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/logic_analyzer/combo8/faq.html"><span class="label">FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">KVM</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">NanoKVM Cube</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/introduction.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/quick_start.html"><span class="label">Quick start</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/user_guide.html"><span class="label">User Guide</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Network</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/network/tailscale.html"><span class="label">Tailscale</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/network/frp.html"><span class="label">frp</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/network/static_ip.html"><span class="label">Static IP</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">System</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/system/introduction.html"><span class="label">System Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/system/flashing.html"><span class="label">Flashing</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/system/updating.html"><span class="label">Updating</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/system/configuration.html"><span class="label">Configuration</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/faq.html"><span class="label">FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Longon</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">LonganPI 3H</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/longan/h618/lpi3h/1_intro.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/longan/h618/lpi3h/3_images.html"><span class="label">Images</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/longan/h618/lpi3h/4_burn_image.html"><span class="label">Burn images</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/longan/h618/lpi3h/5_desktop.html"><span class="label">Desktop Usage</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/longan/h618/lpi3h/6_peripheral.html"><span class="label">Peripheral</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/longan/h618/lpi3h/7_develop_mainline.html"><span class="label">Development</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/longan/h618/lpi3h/8_test_report.html"><span class="label">Test report</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/longan/Nano/Longan_nano.html"><span class="label">Longon Nano</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/longan/Nano/pio.html"><span class="label">Setup environment</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/longan/Nano/blink.html"><span class="label">Blink test</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">MaixFace</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maixface/mf_ml_module/mf0_ml_module.html"><span class="label">MF0&&MF0 Dock</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixface/mf_ml_module/mf1_ml_module.html"><span class="label">MF1 && MF2</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixface/mf_ml_module/mf5_product.html"><span class="label">MF4 && MF5</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixface/mf_ml_module/mf_precautions.html"><span class="label">Maixface PCB Design</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixface/mf_ml_module/mf_update_firmwave.html"><span class="label">Maixface Update firmware</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Peripheral modules</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">SP-MOD Peripheral modules</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Adapter board</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_extender.html"><span class="label">SP-Extender</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_grove.html"><span class="label">SP-Grove</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_fpc.html"><span class="label">SP-FPC</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_micarray.html"><span class="label">SP-MicArray</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_joystick.html"><span class="label">SP-JotStick</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_servo.html"><span class="label">SP-Servo</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/.html"><span class="label">SP-TypeC</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Sensor</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_weather.html"><span class="label">SP-Weather</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_tof.html"><span class="label">SP-TOF-1P</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Communication</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_bt.html"><span class="label">SP-BT</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_lora.html"><span class="label">SP-LoRa</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_psram.html"><span class="label">SP-PSRAM</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_rfid.html"><span class="label">SP-RFID</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_ethernet.html"><span class="label">SP-Ethernet</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Display</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_lcd1.14.html"><span class="label">SP-LCD 1.14</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_eink.html"><span class="label">SP-Eink</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Module && Debugger</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Debugger</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Sipeed RV Debugger</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Dual uart USB module</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">module</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">camera</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">GC0328</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Dual cam module(GC0328)</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">OV7740</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">OV2640</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">OV2640-M12</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Dual cam module(OV2640)</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Mic module</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/modules/micarray.html"><span class="label">Mic array</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/modules/Gamepad.html"><span class="label">Sipeed Gamepad</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>Peripheral Use</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                                <span class="article_date" title="Last modify date: 2023-09-12">
+                                    2023-09-12
+                                </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/sipeed/sipeed_wiki/blob/main/docs/hardware/en/lichee/th1520/lpi4a/6_peripheral.md" target="_blank">
+                                    <span id='editPage'>Edit this page</span>
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                        
+                        <details open>
+                        
+                            <summary>Update history</summary>
+                            <div>
+                                <table>
+                                        <thead>
+                                            <tr>
+                                                <th>Date</th>
+                                                <th>Version</th>
+                                                <th>Author</th>
+                                                <th>Update content</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            
+                                                <tr>
+                                                    <td>2023-09-12</td>
+                                                    <td>v1.3</td>
+                                                    <td>ztd</td>
+                                                    <td>
+                                                    
+                                                        <ul>
+                                                        
+                                                            <li>Update NPU user guide</li>
+                                                        
+                                                        </ul>
+                                                    
+                                                    </td>
+                                                </tr>
+                                            
+                                                <tr>
+                                                    <td>2023-08-18</td>
+                                                    <td>v1.2</td>
+                                                    <td>ztd</td>
+                                                    <td>
+                                                    
+                                                        <ul>
+                                                        
+                                                            <li>Update JTAG user guide</li>
+                                                        
+                                                        </ul>
+                                                    
+                                                    </td>
+                                                </tr>
+                                            
+                                                <tr>
+                                                    <td>2023-07-21</td>
+                                                    <td>v1.1</td>
+                                                    <td>ztd</td>
+                                                    <td>
+                                                    
+                                                        <ul>
+                                                        
+                                                            <li>Update English docs</li>
+                                                        
+                                                        </ul>
+                                                    
+                                                    </td>
+                                                </tr>
+                                            
+                                                <tr>
+                                                    <td>2023-05-08</td>
+                                                    <td>v1.0</td>
+                                                    <td>wonder</td>
+                                                    <td>
+                                                    
+                                                        <ul>
+                                                        
+                                                            <li>Release docs</li>
+                                                        
+                                                        </ul>
+                                                    
+                                                    </td>
+                                                </tr>
+                                            
+                                        </tbody>
+                                </table>
+                            </div>
+                        </details>
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <h2 id="SoC-related">SoC-related</h2>
+<h3 id="CPU-frequency">CPU frequency</h3>
+<p><code>sudo cat /sys/devices/system/cpu/cpu*/cpufreq/cpuinfo_cur_freq</code><br />
+The unit is KHz.<br />
+Note that the system comes with a temperature control policy that will downclock the system when it is too idle or too hot. Please maintain good heat dissipation to keep the CPU below 60 degrees for optimal performance.</p>
+<h3 id="Chip-temperature">Chip temperature</h3>
+<p><code>cat /sys/class/thermal/thermal_zone0/temp</code></p>
+<p>Unit is 0.001 degrees Celsius.</p>
+<h3 id="CPU-overclocking">CPU overclocking</h3>
+<p>The TH1520 runs at 1.85GHz by default, but preliminary tests show that about 80% of the chips can run at 2GHz, and about 50% of the chips can pass the stress test at 2GHz.<br />
+Here is a simple overclocking procedure for reference only, no guarantee for stability and safety.</p>
+<p>Check the files under <code>/boot</code>:</p>
+
+<pre class="language-bash"><code class="language-bash">fw_dynamic.bin #opensbi
+Image #kernel image
+kernel-release #commit id of kernel
+light_aon_fpga.bin #fw for E902 aon
+light_c906_audio.bin #fw for C906 audio
+light-lpi4a.dtb #1.85GHz dtb
+light-lpi4a_2Ghz.dtb #2GHz overclock dtb
+light-lpi4a-ddr2G.dtb #history dtb
+</code></pre>
+<p>Copy <code>light-lpi4a_2Ghz.dtb</code> and overwrite it with <code>light-lpi4a.dtb</code>, reboot, and then you can change the maximum frequency after booting.<br />
+Note that there is a chance that it will not boot after this modification, and then you need to re-burn the firmware to recover.</p>
+<p>If it boots successfully, then you can check the following values to confirm that it has been successfully overclocked:<br />
+<code>sudo cat /sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_max_freq</code></p>
+<h2 id="PWM">PWM</h2>
+<p>Take PWM1 which is connected to the cooling fan as an example, you can enable the fan with the following code:</p>
+
+<pre class="language-bash"><code class="language-bash">echo 1 &gt; /sys/class/pwm/pwmchip0/export
+echo 1000000 &gt; /sys/class/pwm/pwmchip0/pwm1/period
+echo 1000000 &gt; /sys/class/pwm/pwmchip0/pwm1/duty_cycle
+echo 1 &gt; /sys/class/pwm/pwmchip0/pwm1/enable
+</code></pre>
+<h2 id="GPIO">GPIO</h2>
+<p>The LicheePi 4A has 2x10pin pins on board with 16 native IOs, including 6 normal IOs, 3 pairs of serial ports, and one SPI.</p>
+<blockquote>
+<p>Note: All native IOs of the SOC are at 1.8V level, please pay attention to the level shift.<br />
+The serial input side on the pins has been processed with 1/2 voltage divider and can be connected to a 3.3V serial port.</p>
+</blockquote>
+<p>The TH1520 SOC has 4 GPIO banks, each with a maximum of 32 IOs:</p>
+<table>
+<thead>
+<tr>
+  <th>Bank</th>
+  <th>Address</th>
+  <th>kernel io num</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>GPIO0</td>
+  <td>0xffec005000</td>
+  <td>456-487</td>
+</tr>
+<tr>
+  <td>GPIO1</td>
+  <td>0xffec006000</td>
+  <td>424-455</td>
+</tr>
+<tr>
+  <td>GPIO2</td>
+  <td>0xffe7f34000</td>
+  <td>392-423</td>
+</tr>
+<tr>
+  <td>GPIO3</td>
+  <td>0xffe7f38000</td>
+  <td>360-391</td>
+</tr>
+<tr>
+  <td>AO_GPIO</td>
+  <td>0xfffff41000</td>
+  <td>328-359</td>
+</tr>
+<tr>
+  <td>AO_GPIO4</td>
+  <td>0xfffff52000</td>
+  <td>296-327</td>
+</tr>
+<tr>
+  <td>AUDIO_GPIO</td>
+  <td>0xffcb013000</td>
+  <td>-</td>
+</tr>
+</tbody>
+</table>
+<p>Where the 4Byte (32bit) at offset 0x0 is the GPIO data register and the 4Byte (32bit) at offset 0x4 is the GPIO direction register.</p>
+<p>The GPIO correspondences of the pins on the LicheePi 4A are(from the perspective of overlooking the front of the BOTTOM plate, TOP is the left side, BOTTOM is the right side):<br />
+<img src="./../../../../zh/lichee/th1520/lpi4a/assets/peripheral/io_map.png" alt="io_map" /></p>
+<blockquote>
+<p>Subject to the labeling of the document, the silkscreen labeling of the internal test version may be incorrect</p>
+</blockquote>
+<p>GPIO operation:</p>
+<blockquote>
+<p>Note that pinmux may need to be set in advance.</p>
+</blockquote>
+
+<pre class="language-bash"><code class="language-bash">num=xxx
+echo ${num} &gt; /sys/class/gpio/export  
+echo out &gt; /sys/class/gpio/gpio${num}/direction 
+echo 1 &gt; /sys/class/gpio/gpio${num}/value  
+echo 0 &gt; /sys/class/gpio/gpio${num}/value
+</code></pre>
+<p>The mapping of GPIO is shown in the following figure：</p>
+<p><img src="./../../../../zh/lichee/th1520/lpi4a/assets/peripheral/gpio_num.png" alt="gpio_num" /></p>
+<p>For example, if you want to operate the 4 GPIOs on the pin, the correspondence is as follows, change the num in the above code to the number corresponding to the GPIO pin you want to operate.</p>
+<table>
+<thead>
+<tr>
+  <th>num</th>
+  <th>IO Number</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>427</td>
+  <td>IO 1_3</td>
+</tr>
+<tr>
+  <td>428</td>
+  <td>IO 1_4</td>
+</tr>
+<tr>
+  <td>429</td>
+  <td>IO 1_5</td>
+</tr>
+<tr>
+  <td>430</td>
+  <td>IO 1_6</td>
+</tr>
+</tbody>
+</table>
+<p>It is also possible to manipulate registers directly:</p>
+<blockquote>
+<p>devmem can be downloaded and compiled from here: <a href="https://github.com/VCTLabs/devmem2/blob/master/devmem2.c"  target="_blank">https://github.com/VCTLabs/devmem2/blob/master/devmem2.c</a></p>
+</blockquote>
+
+<pre class="language-bash"><code class="language-bash">./devmem 0xffe7f38000 w
+</code></pre>
+<p>In-system GPIO information view:</p>
+
+<pre class="language-bash"><code class="language-bash">sipeed@lpi4a:~$ sudo cat /sys/kernel/debug/gpio
+</code></pre>
+<p>Here are the sample results:</p>
+<p><img src="./../../../../zh/lichee/th1520/lpi4a/assets/peripheral/peripheral_gpio_information.png" alt="peripheral_gpio_information" /></p>
+<p>Next, taking GPIO1_3 on the baseplate pin as an example, we use libgpiod to operate gpio in user space. First install libgpiod:</p>
+
+<pre class="language-shell"><code class="language-shell">sudo apt update
+sudo apt install libgpiod-dev
+</code></pre>
+<p>Then run the <code>vi gpio.c</code> command, and write the following code to the file:</p>
+
+<pre class="language-c"><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;gpiod.h&gt;
+
+int main()
+{
+    int i;
+    int ret;
+
+    struct gpiod_chip * chip;
+    struct gpiod_line * line;
+
+    chip = gpiod_chip_open(&quot;/dev/gpiochip1&quot;);
+    if(chip == NULL)
+    {
+        printf(&quot;gpiod_chip_open error\n&quot;);
+        return -1;
+    }
+
+    line = gpiod_chip_get_line(chip, 3);
+    if(line == NULL)
+    {
+        printf(&quot;gpiod_chip_get_line error\n&quot;);
+        gpiod_line_release(line);
+    }
+
+    ret = gpiod_line_request_output(line,&quot;gpio&quot;,0);
+    if(ret &lt; 0)
+    {
+        printf(&quot;gpiod_line_request_output error\n&quot;);
+        gpiod_chip_close(chip);
+    }
+
+    for(i = 0; i &lt; 10; i++)
+    {
+        gpiod_line_set_value(line,1);
+        sleep(1);
+        gpiod_line_set_value(line,0);
+        sleep(1);
+    }
+
+    gpiod_line_release(line);
+    gpiod_chip_close(chip);
+
+    return 0;
+}
+</code></pre>
+<p>Compile with the following command:</p>
+
+<pre class="language-shell"><code class="language-shell">gcc gpio.c -I /usr/include/ -L /usr/lib/riscv64-linux-gnu/ -lgpiod -o gpio
+</code></pre>
+<p>Then execute with root privileges:</p>
+
+<pre class="language-shell"><code class="language-shell">sudo ./gpio
+</code></pre>
+<p>At this time, use a multimeter to measure the IO1_3 pin on the baseplate. You can find that the voltage of the pin changes every second.</p>
+<!--
+```bash
+sipeed@lpi4a:~$ sudo cat /sys/kernel/debug/gpio
+gpiochip8: GPIOs 296-327, parent: platform/fffff52000.gpio, fffff52000.gpio:    AO_GPIO4
+
+gpiochip7: GPIOs 328-359, parent: platform/fffff41000.gpio, fffff41000.gpio:    AO_GPIO
+ gpio-332 (                    |hubswitch           ) out hi 
+
+gpiochip6: GPIOs 360-391, parent: platform/ffe7f38000.gpio, ffe7f38000.gpio:    GPIO3
+
+gpiochip5: GPIOs 392-423, parent: platform/ffe7f34000.gpio, ffe7f34000.gpio:    GPIO2
+ gpio-395 (                    |cs                  ) out hi ACTIVE LOW
+ gpio-406 (                    |aon:soc_vdd5v_se_en ) out lo 
+ gpio-407 (                    |spi0 CS0            ) out hi ACTIVE LOW
+ gpio-417 (                    |Volume Up Key       ) in  lo IRQ ACTIVE LOW
+ gpio-421 (                    |aon:soc_wcn33_en    ) out lo 
+
+gpiochip4: GPIOs 424-455, parent: platform/ffec006000.gpio, ffec006000.gpio:    GPIO1
+ gpio-443 (                    |Volume Down Key     ) in  hi IRQ ACTIVE LOW
+ gpio-446 (                    |aon:soc_vbus_en     ) out hi 
+
+gpiochip3: GPIOs 456-487, parent: platform/ffec005000.gpio, ffec005000.gpio:    GPIO0
+ gpio-457 (                    |spi2 CS0            ) out hi ACTIVE LOW
+ gpio-486 (                    |aon:soc_vdd_3v3_en  ) out hi 
+
+gpiochip2: GPIOs 488-495, parent: i2c/3-0018, 3-0018, can sleep:    IO expend 3
+ gpio-490 (                    |regulator-hub-vdd12-) out hi 
+ gpio-491 (                    |regulator-hub-vcc5v-) out hi 
+ gpio-492 (                    |regulator-pwr-en    ) out hi 
+ gpio-493 (                    |aon:soc_lcd0_vdd33_e) out hi 
+ gpio-494 (                    |aon:soc_lcd0_vdd18_e) out hi 
+ gpio-495 (                    |reset               ) out hi ACTIVE LOW
+
+gpiochip1: GPIOs 496-503, parent: i2c/1-0018, 1-0018, can sleep:    IO expend 2
+ gpio-496 (                    |aon:soc_cam2_dvdd12_) out lo 
+ gpio-501 (                    |wlan_default_wlan_po) out hi 
+ gpio-502 (                    |bt_default_poweron  ) out lo 
+
+gpiochip0: GPIOs 504-511, parent: i2c/0-0018, 0-0018, can sleep:    IO expend 1
+ gpio-504 (                    |aon:soc_dvdd12_rgb  ) out lo 
+ gpio-505 (                    |aon:soc_avdd28_rgb  ) out lo 
+ gpio-506 (                    |aon:soc_dovdd18_rgb ) out lo 
+ gpio-507 (                    |aon:soc_dovdd18_ir  ) out lo 
+ gpio-508 (                    |aon:soc_dvdd12_ir   ) out lo 
+ gpio-509 (                    |aon:soc_avdd25_ir   ) out lo 
+ gpio-510 (                    |aon:soc_cam2_dovdd18) out lo 
+ gpio-511 (                    |aon:soc_cam2_avdd25_) out lo
+```  
+
+### Use of gpiod library
+
+The GPiod library is a library that can call GPIO in the same user space, making it convenient for users to operate GPIO in applications.
+Firstly, install and deploy the GPIO library:
+
+```shell
+sudo apt install wget
+wget https://git.kernel.org/pub/scm/libs/libgpiod/libgpiod.git/snapshot/libgpiod-2.0.tar.gz
+
+tar zxvf libgpiod-2.0.tar.gz
+
+cd libgpiod-2.0
+sudo apt-get install build-essential pkg-config m4 automake autoconf libtool autoconf-archive
+sudo apt install gcc g++
+
+export CC=gcc
+export CXX=g++
+
+#Deploy the relevant files of the library to the project folder: -- The path after prefix should be changed to the path where the project is located for future operations
+./autogen.sh --enable-tools=yes --prefix=/home/sipeed/mylib_local
+make
+sudo make install
+```
+
+如果执行：./autogen.sh --enable-tools=yes --prefix=/home/sipeed/mylib_local 出现以下错误：
+
+```shell
+aclocal: warning: couldn't open directory 'm4': No such file or directory
+#You can execute the following commands
+mkdir m4
+./autogen.sh --enable-tools=yes --prefix=/home/sipeed/mylib_local
+make 
+make install
+```
+
+Start operating GPIO:
+
+```shell
+sudo vim gpio.c
+
+#The content of gpio. c is as follows:
+
+#include<stdio.h>
+#include<unistd.h>
+#include<gpiod.h>
+
+#define PIN_IO1_3   3
+#define PIN_IO1_4   4
+#define PIN_IO1_5   5
+
+int main() {
+  struct gpiod_chip *gchip;
+  struct gpiod_line_info *glinein, *glineout;
+  struct gpiod_line_settings *gline_settings_in, *gline_settings_out;
+  struct gpiod_line_config   *gline_config_in, *gline_config_out;
+  struct gpiod_request_config *gline_request_config_in, *gline_request_config_out;
+  struct gpiod_line_request   *gline_request_in, *gline_request_out;
+  int offset_in[1] = {PIN_IO1_5};
+  int offset_out[2] = {PIN_IO1_3, PIN_IO1_4};
+  int value;
+
+  if ((gchip=gpiod_chip_open("/dev/gpiochip4")) == NULL) {
+    perror("gpiod_chip_open");
+    return 1;
+  }
+
+
+  gline_settings_in = gpiod_line_settings_new();
+  if ((value=gpiod_line_settings_set_direction(gline_settings_in, GPIOD_LINE_DIRECTION_INPUT)) != 0)  {
+    perror("gpiod_line_settings_set_direction");
+  }
+
+  gline_config_in = gpiod_line_config_new();
+  value=gpiod_line_config_add_line_settings(gline_config_in, offset_in, 1, gline_settings_in);
+  gline_request_config_in = gpiod_request_config_new();
+  gline_request_in = gpiod_chip_request_lines(gchip, gline_request_config_in, gline_config_in);
+
+
+
+
+  value=gpiod_line_request_get_value(gline_request_in, PIN_IO1_5);
+  printf("IO1-5 = %d\n", value);
+
+
+
+
+  gline_settings_out = gpiod_line_settings_new();
+  if (gpiod_line_settings_set_direction(gline_settings_out, GPIOD_LINE_DIRECTION_OUTPUT) != 0) {
+    perror("gpiod_line_settings_set_direction");
+  }
+  gline_config_out = gpiod_line_config_new();
+
+  gpiod_line_config_add_line_settings(gline_config_out, offset_out, 2, gline_settings_out);
+  gline_request_config_out = gpiod_request_config_new();
+  gline_request_out = gpiod_chip_request_lines(gchip, gline_request_config_out, gline_config_out);
+
+
+
+  value=gpiod_line_request_set_value(gline_request_out, PIN_IO1_3, 1);
+
+  value=gpiod_line_request_set_value(gline_request_out, PIN_IO1_4, 0);
+
+  printf("IO1-3 = 1, IO1-4 = 0\n");
+  sleep(1);
+
+
+  for (int i = 0; i < 10; i++) {
+
+
+      value=gpiod_line_request_get_value(gline_request_in, PIN_IO1_5);
+      printf("IO1-5 = %d\n", value);
+
+
+      value=gpiod_line_request_set_value(gline_request_out, PIN_IO1_3, 0);
+      value=gpiod_line_request_set_value(gline_request_out, PIN_IO1_4, 1);
+
+      printf("IO1-3 = 0, IO1-4 = 1\n");
+      sleep(1);
+
+
+
+      value=gpiod_line_request_get_value(gline_request_in, PIN_IO1_5);
+      printf("IO1-5 = %d\n", value);
+
+
+      value=gpiod_line_request_set_value(gline_request_out, PIN_IO1_3, 1);
+      value=gpiod_line_request_set_value(gline_request_out, PIN_IO1_4, 0);
+
+      printf("IO1-3 = 1, IO1-4 = 0\n");
+      sleep(1);
+
+  }
+
+  gpiod_chip_close(gchip);
+  return 0;
+}
+
+```
+
+Save and compile
+
+```shell
+gcc  -I/home/sipeed/mylib_local/include -L/home/sipeed/mylib_local/lib -o gpio gpio.c -lgpiod
+
+```
+Some device permissions need to be granted before execution
+
+```shell
+export LD_LIBRARY_PATH=/home/sipeed/mylib_local/lib:$LD_LIBRARY_PATH
+export PATH=/home/sipeed/mylib_local/bin:$PATH
+sudo chmod o+rw /dev/gpiochip4
+sudo chmod o+rw /dev/spidev2.0
+
+#It can be directly executed in an. sh file
+
+```
+
+Run program:
+
+```shell
+
+./gpio
+
+```
+
+
+The console output is as follows:
+
+```shell
+
+sipeed@lpi4a:~/gpio$ ./gpio 
+IO1-5 = 1
+IO1-3 = 1, IO1-4 = 0
+IO1-5 = 1
+IO1-3 = 0, IO1-4 = 1
+IO1-5 = 1
+IO1-3 = 1, IO1-4 = 0
+IO1-5 = 1
+IO1-3 = 0, IO1-4 = 1
+IO1-5 = 1
+IO1-3 = 1, IO1-4 = 0
+IO1-5 = 1
+IO1-3 = 0, IO1-4 = 1
+IO1-5 = 1
+IO1-3 = 1, IO1-4 = 0
+IO1-5 = 1
+IO1-3 = 0, IO1-4 = 1
+IO1-5 = 1
+IO1-3 = 1, IO1-4 = 0
+IO1-5 = 1
+IO1-3 = 0, IO1-4 = 1
+
+``` -->
+<h2 id="UART">UART</h2>
+<h3 id="System-Serial-Port">System Serial Port</h3>
+<p>The system serial port of the LicheePi 4A is UART0, which is shown on the side pins.<br />
+You can use a USB to serial module to connect to this serial port, i.e. <code>U0-RX</code> and <code>U0-TX</code>, taking care of the cross-connections and the GND connection.</p>
+<p><img src="./../../../../zh/lichee/th1520/lpi4a/assets/peripheral/ttl_link.png" alt="ttl_link" /></p>
+<p>After the connection is completed, you can use serial tools to communicate, we recommend <code>XShell</code> and <code>mobaterm</code> for Windows and <code>minicom</code> for Linux.<br />
+Set the serial port baud rate to <code>115200</code>, then you can log in the serial terminal and do the command operation:</p>
+<blockquote>
+<p>Note: Just after connecting, you can hit several carriage returns to see if there is any response, if there is no response, then check the wiring or serial port configuration.</p>
+</blockquote>
+<p><img src="./../../../../zh/lichee/th1520/lpi4a/assets/peripheral/ttl_login.png" alt="ttl_login" /></p>
+<h3 id="General-serial-port">General serial port</h3>
+<p>The LicheePi 4A also has UART1/2/3 on the side pins, which can also be operated.<br />
+Only UART1 is enabled in the default image, other ports may need to reconfigure the device tree for operation.</p>
+<blockquote>
+<p>Note: The SOC serial port level is 1.8V, which is just around the high level threshold of 3.3V, some serial modules may not be able to input/output correctly, we suggest to use our matching serial modules, or fine-tune the 3.3V voltage of other serial modules to 2.8V.</p>
+</blockquote>
+<h4 id="View-Serial-Devices">View Serial Devices</h4>
+
+<pre class="language-bash"><code class="language-bash">ls /dev/ttyS*
+</code></pre>
+<h4 id="View-serial-port-baud-rate-and-other-information">View serial port baud rate and other information</h4>
+
+<pre class="language-bash"><code class="language-bash">stty -F /dev/ttyS1 -a 
+</code></pre>
+<h4 id="Set-serial-port-baud-rate%2C-data-mode">Set serial port baud rate, data mode</h4>
+
+<pre class="language-bash"><code class="language-bash">stty -F /dev/ttyS1 ispeed 115200 ospeed 115200 cs8
+</code></pre>
+<h4 id="Viewing-serial-port-data">Viewing serial port data</h4>
+
+<pre class="language-bash"><code class="language-bash">cat /dev/ttyS1
+</code></pre>
+<h4 id="Send-serial-port-data">Send serial port data</h4>
+
+<pre class="language-bash"><code class="language-bash">echo &quot;12345&quot; &gt; /dev/ttyS1
+</code></pre>
+<h4 id="Other-methods">Other methods</h4>
+<p>You can also use <code>minicom</code>, or pyserial library for serial port operation, please find the relevant information for users to use.</p>
+<h2 id="I2C">I2C</h2>
+<p>There are several I2C devices (I2C0/1/2/3) on the LicheePi 4A, where 0/1/3 is used to connect to the I2C IO expansion chip, and I2C2 is reserved on the external pin.</p>
+<p>Here we use i2c-tools for i2c authentication, which are pre-installed in the image.</p>
+
+<pre class="language-bash"><code class="language-bash">sipeed@lpi4a:/usr$ ls /sbin/i2c*
+/sbin/i2c-stub-from-dump /sbin/i2cdetect /sbin/i2cdump /sbin/i2cget /sbin/i2cset /sbin/i2ctransfer
+</code></pre>
+<p>List all I2C buses:</p>
+
+<pre class="language-bash"><code class="language-bash">sipeed@lpi4a:~$ /sbin/i2cdetect -l
+i2c-0   unknown         Synopsys DesignWare I2C adapter         N/A
+i2c-1   unknown         Synopsys DesignWare I2C adapter         N/A
+i2c-2   unknown         Synopsys DesignWare I2C adapter         N/A
+i2c-3   unknown         Synopsys DesignWare I2C adapter         N/A
+i2c-4   unknown         Synopsys DesignWare I2C adapter         N/A
+i2c-5   unknown         Synopsys DesignWare I2C adapter         N/A
+i2c-6   unknown         Synopsys DesignWare I2C adapter         N/A
+i2c-7   unknown         DesignWare HDMI                         N/A
+</code></pre>
+<p>Detecting the device on the I2C bus, we can see that the I2C address of PCA9557PW is 0x18, which is consistent with the schematic:</p>
+
+<pre class="language-bash"><code class="language-bash">sipeed@lpi4a:~$ sudo /sbin/i2cdetect -r -y 0
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:                         -- -- -- -- -- -- -- -- 
+10: -- -- -- -- -- -- -- -- UU -- -- -- -- -- -- -- 
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+70: -- -- -- -- -- -- -- --  
+</code></pre>
+<p><img src="./../../../../zh/lichee/th1520/lpi4a/assets/peripheral/i2c_io.png" alt="i2c_io" /></p>
+<p>It is also possible to use <code>i2cdump</code> to dump all registers at the specified i2c address, <code>i2cget</code> to read the specified register value at the specified i2c address, and <code>i2cset</code> to write the specified register value at the specified i2c address.<br />
+However, since the IO extension chip is already used by the kernel, it is not possible to verify these commands directly. Users can verify it by connecting peripheral devices to I2C2 by themselves.</p>
+<h2 id="SPI">SPI</h2>
+<p>There are two SPIs reserved on the LicheePi4A, one on the SPI Flash pads that are blanked out on the back, and one on the pins.</p>
+
+<pre class="language-bash"><code class="language-bash">sipeed@lpi4a:~$ ls /dev/spidev2.0 
+/dev/spidev2.0
+</code></pre>
+<!-- ### Start
+
+Pay attention to the IO drive capability. Licheepi4A requires an external level conversion chip and uses TXS10108E for its own use
+
+All programs of this routine are compiled on the board. If cross coding is necessary, the tool chain can be replaced during compilation.
+
+The GPIO operation of the following routine is based on the GPIOD library above.
+
+#### 1.Download the source code
+
+```shell
+git clone https://github.com/fffdee/ST7735_for_Licheepi4A.git
+```
+#### 2.Building the GPIOD library
+
+Dependencies required for installation:
+
+```shell
+sudo apt-get install build-essential pkg-config m4 automake autoconf libtool autoconf-archive
+sudo apt install gcc g++ gpiod cmake
+```
+
+Install the GPIOD library (the source file is already installed, and the library path needs to be changed. Please refer to the following steps):
+
+```shell
+tar zxvf libgpiod-2.0.tar.gz
+cd libgpiod-2.0
+
+export CC=gcc
+export CXX=g++
+
+
+#Deploy the relevant files of the library to the project folder: -- The path after prefix should be changed to the path where the project is located for future operations
+./autogen.sh --enable-tools=yes --prefix=/home/sipeed/TFT_demo/
+make
+sudo make install
+#Installation completed
+```
+
+#### 3.Compile and Run
+
+```shell
+
+cd TFT_demo
+cmake .
+make -j4
+
+#授予设备权限，每次开机执行一次即可
+. exec.sh
+./tft_demo
+``` 
+#### Renderings
+
+![效果图1](./../../../../zh/lichee/th1520/lpi4a/assets/peripheral/tft_demo.png)
+
+-->
+<p>Common ioctl commands for SPI:</p>
+<ul>
+<li>SPI_IOC_MESSAGE: sends and receives SPI messages. It can be used to read and write data and control devices</li>
+<li>SPI_IOC_WR_MODE: Set the working mode of the SPI device, such as CPOL and CPHA</li>
+<li>SPI_IOC_RD_MODE: Reads the working mode of the SPI device</li>
+<li>SPI_IOC_WR_LSB_FIRST: Sets the byte order of the SPI device, that is, whether the highest bit is transmitted first or the lowest bit is transmitted first</li>
+<li>SPI_IOC_RD_LSB_FIRST: reads the byte order of the SPI device</li>
+<li>SPI_IOC_WR_BITS_PER_WORD: sets the data bit width of the SPI device</li>
+<li>SPI_IOC_RD_BITS_PER_WORD: Used to read the bit width of the SPI device</li>
+<li>SPI_IOC_WR_MAX_SPEED_HZ: specifies the maximum clock frequency of an SPI device</li>
+<li>SPI_IOC_RD_MAX_SPEED_HZ: Reads the maximum clock frequency of an SPI device</li>
+<li>SPI_IOC_WR_MODE32: Sets the 32-bit mode of the SPI device, such as CPOL and CPHA</li>
+<li>SPI_IOC_RD_MODE32: indicates the 32-bit mode used to read the SPI device</li>
+</ul>
+<p>The above are some common SPI device ioctl commands, which can be used to configure and control various parameters of the SPI device.</p>
+<p>Turn on/off SPI device:</p>
+
+<pre class="language-c"><code class="language-c">int open(const char *pathname, int flags);
+int close(int fd);
+</code></pre>
+<p>Header files needed:</p>
+
+<pre class="language-c"><code class="language-c">#include&lt;fcntl.h&gt;
+#include&lt;unistd.h&gt;
+</code></pre>
+<p>Example code:</p>
+
+<pre class="language-c"><code class="language-c">#include &lt;stdint.h&gt;
+#include &lt;unistd.h&gt; // C 语言标准头文件，定义了 POSIX API 的一部分，如文件操作、进程管理等
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+#include &lt;getopt.h&gt;
+#include &lt;fcntl.h&gt;  // C 语言头文件，定义了文件控制相关的宏和函数
+#include &lt;sys/ioctl.h&gt;  // C 语言头文件，定义了 ioctl 函数和相关宏
+#include &lt;linux/types.h&gt;  // Linux 内核头文件，定义了内核中使用的一些基本数据类型
+#include &lt;linux/spi/spidev.h&gt; // Linux SPI 子系统头文件，定义了 SPI 设备驱动程序使用的数据结构和 ioctl 命令
+
+#define DATA_NUM 2  // 自定义数据长度
+#define CHECK(ret, str) if (ret &lt; 0) {printf(&quot;%s\r\n&quot;, str); return ret;}
+static uint8_t bits = 8;
+static uint32_t speed = 1000000; // 1M Hz
+static int mode = 0;
+
+int main(int argc, char *argv[]) {
+    int ret, fd;
+    fd = open(&quot;/dev/spidev2.0&quot;, O_RDWR);
+    CHECK(fd, &quot;can't open device&quot;); // 打开具体 spi 设备
+    mode = SPI_MODE_0 | SPI_CS_HIGH;
+    ret = ioctl(fd, SPI_IOC_WR_MODE32, &amp;mode); //设置 SPI 模式
+    CHECK(ret, &quot;can't set spi mode&quot;);
+    ret = ioctl(fd, SPI_IOC_RD_MODE32, &amp;mode); //获取 SPI 模式设置
+    CHECK(ret, &quot;can't get spi mode&quot;);
+
+    ret = ioctl(fd, SPI_IOC_WR_BITS_PER_WORD, &amp;bits); //设置 SPI 的 bit/word
+    CHECK(ret, &quot;can't set bits per word&quot;);
+    ret = ioctl(fd, SPI_IOC_RD_BITS_PER_WORD, &amp;bits); //获取 SPI 的 bit/word 设置
+    CHECK(ret, &quot;can't get bits per word&quot;);
+
+    ret = ioctl(fd, SPI_IOC_WR_MAX_SPEED_HZ, &amp;speed); //设置 SPI 的最大传输速度
+    CHECK(ret, &quot;can't set max speed hz&quot;);
+
+    ret = ioctl(fd, SPI_IOC_RD_MAX_SPEED_HZ, &amp;speed); //获取 SPI 的最大传输速度设置
+    CHECK(ret, &quot;can't get max speed hz&quot;);
+
+    printf(&quot;spi mode: %d\n&quot;, mode);
+    printf(&quot;bits per word: %d\n&quot;, bits);
+    printf(&quot;max speed: %d Hz (%d KHz)\n&quot;, speed, speed/1000);
+    //数据传输
+    uint8_t tx[] = {0x11, 0x22};
+    uint8_t rx[DATA_NUM] = {0};
+
+    struct spi_ioc_transfer tr = {
+        .tx_buf = (unsigned long)tx,  //定义发送缓冲区指针
+        .rx_buf = (unsigned long)rx,  //定义接收缓冲区指针
+        .len = DATA_NUM,
+        .delay_usecs = 0,
+        .speed_hz = speed,
+        .bits_per_word = bits
+    };
+
+    ret = ioctl(fd, SPI_IOC_MESSAGE(1), &amp;tr); //执行 spidev.c 中 ioctl 的 default 进行数据传输
+    CHECK(ret, &quot;can't send spi message&quot;);
+
+    printf(&quot;tx: %.2X %.2X\r\n&quot;, tx[0], tx[1]);
+    printf(&quot;rx: %.2X %.2X\r\n&quot;, rx[0], rx[1]);
+
+    close(fd);
+
+    return ret;
+}
+</code></pre>
+<h2 id="USB">USB</h2>
+<p>Connect the USB SSD:</p>
+<p><img src="./../../../../zh/lichee/th1520/lpi4a/assets/peripheral/usb_ssd_connect.jpg" alt="usb_ssd_connect" /></p>
+<p>The corresponding device can be seen in the system:</p>
+<p><img src="./../../../../zh/lichee/th1520/lpi4a/assets/peripheral/usb_ssd_use.png" alt="usb_ssd_use" /></p>
+<h3 id="USB-network-card">USB network card</h3>
+<p>Connect the USB network card:<br />
+<img src="./../../../../zh/lichee/th1520/lpi4a/assets/peripheral/usb_lan_connect.jpg" alt="usb_lan_connect" /><br />
+右上角的网络图标会变为已连接有线网的状态：<br />
+<img src="./../../../../zh/lichee/th1520/lpi4a/assets/peripheral/usb_lan_use.png" alt="usb_lan_use" /><br />
+终端中使用<code>sudo ifconfig</code>命令，也可以看到相应设备的信息：<br />
+<img src="./../../../../zh/lichee/th1520/lpi4a/assets/peripheral/check_usb_lan_ip.png" alt="check_usb_lan_ip" /></p>
+<h3 id="USB-Camera">USB Camera</h3>
+<p>Connect the USB camera:</p>
+<p><img src="./../../../../zh/lichee/th1520/lpi4a/assets/peripheral/usb_cam_connect.jpg" alt="usb_cam_connect" /></p>
+<p>After installing guvcview, use the appropriate commands to see the image stream from the USB camera:</p>
+
+<pre class="language-shell"><code class="language-shell">sudo apt-get install guvcview
+guvcview
+</code></pre>
+<p><img src="./../../../../zh/lichee/th1520/lpi4a/assets/peripheral/usb_cam_use.png" alt="usb_cam_use" /></p>
+<p>You can end the image stream by pressing Ctrl+C or by clicking the quit button on the guvcview window.</p>
+<p>You can also use fswebcam to dump the USB camera image directly from the command line.</p>
+
+<pre class="language-shell"><code class="language-shell">sudo apt-get install fswebcam
+fswebcam /dev/video0 image.jpg
+</code></pre>
+<p>To allow the USB camera to automatically save images, a reference script is given below. The script uses the uvccapture tool, which makes it easy to adjust capture parameters as needed.</p>
+<p>Install this tool first</p>
+
+<pre class="language-shell"><code class="language-shell">sudo apt install uvccapture
+</code></pre>
+<p>This tool supports various parameters, use <code>-x -y</code> to adjust the shooting resolution, <code>-B</code> to adjust the brightness, <code>-C</code> to adjust the contrast, <code>-S</code> to adjust the saturation, and <code>-o</code> to specify the shooting image storage Path, for specific use, refer to the following script code:</p>
+
+<pre class="language-shell"><code class="language-shell">#!/bin/bash
+
+# Check if the interval time parameter is passed in
+if [ -z &quot;$1&quot; ]; then
+   echo -e &quot;The interval time parameter is not specified, and the default interval is 1 second&quot;
+   interval=1
+else
+   interval=$1
+the fi
+
+# Check if the output file path parameter is passed in
+if [ -z &quot;$2&quot; ]; then
+   echo -e &quot;The output file path parameter is not specified, the default output is to the current directory&quot;
+   output_file=&quot;$PWD&quot;
+else
+   output_file=$2
+the fi
+
+# Check whether the number of shots parameter is passed in
+if [ -z &quot;$3&quot; ]; then
+   echo -e &quot;The number of shots is not specified, the default is 10 shots&quot;
+   num_executions=10
+else
+   num_executions=$3
+the fi
+
+echo -e &quot;script started, press q to stop&quot;
+
+for ((i = 1; i &lt;= num_executions; i++)); do
+     echo -e &quot;capture img $i&quot;
+     uvccapture -x640 -y480 -m -o$output_file/$image$i.jpg
+# Take pictures at specified time intervals
+sleep $interval
+# Press the q key to exit
+read -t 1 -n 1 key
+if [[ $key = &quot;q&quot; ]]; then
+break
+the fi
+done
+
+echo -e &quot;Script execution ended&quot;
+</code></pre>
+<p>The above script can also be operated with fswebcam, just make corresponding changes.</p>
+<h3 id="USB-Sound-Card">USB Sound Card</h3>
+<p>TODO</p>
+<h2 id="ETH">ETH</h2>
+<p>The LicheePi4A has dual Gigabit Ethernet ports, of which Eth0 is also PoE capable.</p>
+<p>TODO</p>
+<h3 id="PoE">PoE</h3>
+<p>The Ethernet 0 interface of LicheePi 4A has PoE function and can be powered by PoE.</p>
+<p>The PoE power supply module needs to be purchased on its own, and can be found by searching for the keyword &quot;5V PoE pin&quot; in the 5V voltage, 35.6mm length specification.</p>
+<p>When the visual direction is facing the &quot;POE POWER&quot; logo, the four pins on the left side of the pin are defined from left to right as: VA1, VA2, VB1, VB2, and on the right side as: GND, 5VIN.</p>
+<h2 id="Audio">Audio</h2>
+<p>There are two analog silicon mics on the LicheePi 4A, using the ES7210 CODEC, as well as having on-board speakers all the way, and stereo headphones, using the ES8156 CODEC.</p>
+<blockquote>
+<p>Note: The on-board speakers and stereo headphones use a mutually exclusive design; when headphones are plugged in, the audio output automatically switches to the headphones and the on-board speakers are deactivated.</p>
+</blockquote>
+<p>Simple recording and playback tests can be performed using aplay and arecord, note that the onboard speakers are right channel.</p>
+
+<pre class="language-bash"><code class="language-bash">#!/bin/bash
+
+echo &quot;Play Test Audio&quot; 
+aplay /usr/share/sounds/alsa/Side_Right.wav
+
+# Record Audio
+echo &quot;Start record auido, auto replay after 3 seconds&quot;
+arecord -Dhw:0,1 -d 3 -r 48000 -f S16_LE -t wav test.wav &amp; &gt; /dev/null &amp;
+sleep 4
+
+# Play Audio
+aplay test.wav
+echo &quot;Start Play&quot;
+</code></pre>
+<p>You can also use alsa-related tools, such as <code>alsamixer</code>, to do things like volume adjustments.</p>
+<h2 id="HDMI-Audio">HDMI Audio</h2>
+<blockquote>
+<p>Note: HDMI audio does not work for earlier mirrors, please upgrade to a newer version to enable HDMI audio function.</p>
+</blockquote>
+<p>Tap the speaker icon at the top right corner of the screen to enter Audio mixer, you can see the interface below:</p>
+<p><img src="./../../../../zh/lichee/th1520/lpi4a/assets/peripheral/audiomixer.png" alt="audiomixer" /></p>
+<p>The name of the device is <strong>Built-in Audio</strong>, i.e. HDMI audio, and you can switch between audio devices by clicking on its corresponding green checkmark icon in this interface, or you can switch between devices by clicking on the small speaker icon directly.<br />
+If you confirm that the connection is correct and the HDMI monitor you are using supports HDMI audio, but you do not see the corresponding device in the device list, you can try to run the following command:</p>
+
+<pre class="language-shell"><code class="language-shell">systemctl --user restart pulseaudio.service
+</code></pre>
+<h2 id="MIPI-CSI">MIPI CSI</h2>
+<p>LicheePi 4A has three camera interfaces, CAM0/CAM1/CAM2, CAM0 is up to 4 lanes, CAM1/2 is 2 lanes, and the default is to use the CSI0 interface to connect to the OV5693 camera.</p>
+<p>Connections are made as shown below, using the CSI0 connector with the camera's gold finger facing down:<br />
+<img src="./../../../../zh/lichee/th1520/lpi4a/assets/peripheral/mipi_csi_connect.jpg" alt="mipi_csi_connect.jpg" /></p>
+<p>Currently, we need to burn a dedicated mirror for testing for the time being, download /image/latest_20230714/LPI4A_YOCTO_CAM.zip from <a href="https://pan.baidu.com/e/1xH56ZlewB6UOMlke5BrKWQ"  target="_blank">Baidu.com</a> in the Documentation Mirror Collection page. image file.<br />
+After burning, go to the /usr/share/csi_hal/ directory and run the following command:</p>
+
+<pre class="language-shell"><code class="language-shell">./cam_demo_simple 2 0 1 0 640 480 1 30
+</code></pre>
+<p>After the completion of the run, you can see in the current directory dump down to the shooting photos, typically named demo_save_img_OV5693_ch0_0_*, resolution of 640*480 (currently only supports 640 * 480 resolution), the format is YUV420SP (NV12), the format of the UV component of the interleaving of the storage, bit depth The format is YUV420SP(NV12), under this format, the UV components are interleaved, and the bit depth is 8bit.<br />
+Under Linux, you can use YUView to set the relevant parameters to view the image; in addition, you can also use python to process the relevant parameters to view the image, the reference code is as follows:</p>
+
+<pre class="language-python"><code class="language-python">import numpy as np
+import cv2
+
+class nv12_to_jpg:
+def __init__(self):
+return
+
+def to_jpg(self, yuv_path, resolution):
+width, height = resolution
+with open(yuv_path, 'rb') as f:
+yuvdata = np.fromfile(f, dtype=np.uint8)
+self.input_file=yuv_path
+cv_format = cv2.COLOR_YUV2RGB_NV21
+bgr_img = cv2.cvtColor(yuvdata.reshape((height*3//2, width)), cv_format)
+return bgr_img
+
+def save(self, img_data, output_path):
+cv2.imwrite(output_path, img_data)
+
+if __name__ == &quot;__main__&quot;:
+# Example: Convert an image in 10bit raw format to jpg format
+file_name = input(&quot;Please enter the filename of the raw image:&quot;)
+input_str = input(&quot;width and hight, separated by spaces:&quot;)
+width, height = map(int, input_str.split())
+
+img = nv12_to_jpg()
+jpg_data = img.to_jpg(file_name, (width, height))
+img.save(jpg_data, file_name+'nv12tojpg.jpg')
+</code></pre>
+<h2 id="MIPI-DSI">MIPI DSI</h2>
+<p>LicheePi 4A has MIPI DSI0 interface, supports 4K video output, and can be equipped with 10.1 inch 1280x800 or 1920x1200 screen.</p>
+<p>Connection method is shown below, both fpc cables are downward connected (the side of the metal contact at the end of the cable is facing downward), in which the adapter plate of the touch screen needs to pay attention to the direction when connecting, make sure that the end of ToLPi4A is connected to the touch soft cable of LPi4A, and the end of ToLcdTP is connected to the screen:</p>
+<p>FPC Schematic:<br />
+<img src="./../../../../zh/lichee/th1520/lpi4a/assets/peripheral/fpc.jpg" alt="fpc" /></p>
+<p>Note that before connecting, first dial up the black flap on the interface used to fix the wires, and then dial down after confirming the connection.<br />
+Touch panel FPC connection:<br />
+<img src="./../../../../zh/lichee/th1520/lpi4a/assets/peripheral/tpconnector_on_touchscreen.jpeg" alt="tpconnector_on_touchscreen" /></p>
+<p><img src="./../../../../zh/lichee/th1520/lpi4a/assets/peripheral/touchconnector_on_board.jpeg" alt="touchconnector_on_board" /></p>
+<p>MIPI screen FPC connection:<br />
+<img src="./../../../../zh/lichee/th1520/lpi4a/assets/peripheral/mipi_dsi_connect.jpeg" alt="mipi_dsi_connect" /></p>
+<p>After confirming the connection is correct, use the firmware that supports MIPI screen, and power on the device to see the MIPI screen display.</p>
+<p>If you only use the MIPI screen, you can turn off the HDMI display and set the MIPI screen as the main screen in the system settings, or you can use the following command:</p>
+
+<pre class="language-shell"><code class="language-shell">xrandr --output HDMI-1 --off
+xrandr --output DSI-1 --rotate normal --primary
+</code></pre>
+<p>In the above command, the <code>rotate</code> parameter is the rotation direction of the screen, <code>normal</code> means no rotation, i.e. vertical display, if you want to continue to display horizontal screen, you can change it to <code>left</code> or <code>right</code>.</p>
+<p>If you use both MIPI screen and HDMI screen, you can also set the relationship between the main screen and the two screens according to the above commands. For example, the following command sets the HDMI screen as the main screen, and sets the MIPI screen as the extended screen below the main screen, and displays the screen in landscape:</p>
+
+<pre class="language-shell"><code class="language-shell">xrandr --output HDMI-1 --auto --primary
+xrandr --output DSI-1 --rotate left ---below HDMI-1
+</code></pre>
+<p>The above screen identifiers and available resolutions can be viewed directly by entering the <code>xrandr</code> command.</p>
+<p>If you find that the coordinates of the touch screen are not correct after modifying the settings, you can follow the steps below to correct them:</p>
+<p>Check the corresponding ID of the touch screen device</p>
+
+<pre class="language-shell"><code class="language-shell">xinput
+</code></pre>
+<p><img src="./../../../../zh/lichee/th1520/lpi4a/assets/peripheral/list_touchsreen.png" alt="list_touchsreen" /><br />
+Here you can see that it is a touch screen device Goodix 7, then enter the following command to map the touch device to the correct screen:</p>
+
+<pre class="language-shell"><code class="language-shell">xinput map-to-output 7 DSI-1
+</code></pre>
+<p>Similarly, depending on the ID, the following command can be used to turn off the appropriate touch device:</p>
+
+<pre class="language-shell"><code class="language-shell">xinput disable 7
+</code></pre>
+<p>If you are using only the HDMI screen, first power down and unplug both the MIPI screen and the touchpad's flexible cable before powering up. Then run the following commands (you need to switch to root user to execute, direct sudo may encounter the problem of insufficient privileges):</p>
+
+<pre class="language-shell"><code class="language-shell">echo off &gt; /sys/class/drm/card0-DSI-1/status
+</code></pre>
+<h2 id="JTAG">JTAG</h2>
+<p>The JTAG interface is reserved on the core board, but you need to lead out the GND, TDI, TDO, TMS, TCK flying wires yourself. The schematic diagram of the wires that need to be led out is as follows:</p>
+<p><img src="./../../../../zh/lichee/th1520/lpi4a/assets/peripheral/jtag_connect_out.jpg" alt="jtag_connect_out" /></p>
+<p>Before connecting the debugger, make sure the debugger is in CKLink mode. Next, take <a href="https://en.wiki.sipeed.com/hardware/zh/logic_analyzer/combo8/index.html"  target="_blank">SLogic Combo 8</a> and RV-Debugger Plus as examples.<br />
+For SLogic Combo 8, please refer to the <a href="https://en.wiki.sipeed.com/hardware/en/logic_analyzer/combo8/use_cklink_function.html"  target="_blank">corresponding document</a> to switch to CKLink mode.<br />
+For RV-Debugger Plus, please refer to <a href="https://github.com/bouffalolab/bouffalo_sdk/tree/master/tools/cklink_firmware"  target="_blank">this repository</a> to flash the CKLink dedicated firmware.<strong>Note: it is better to connect a level conversion chip, direct connection has the risk of burning.</strong></p>
+<p>After completing the above steps, connect to the debugger using dupont wires through the pin headers.</p>
+<p><img src="./../../../../zh/lichee/th1520/lpi4a/assets/peripheral/jtag_connect_pin.jpg" alt="jtag_connect_pin" /></p>
+<p>After connecting to the JTAG debugger, use the memtool in the serial port to set up pinmux(This step runs on the LPI4A board, the memtool is also installed on the LPI4A board):</p>
+
+<pre class="language-shell"><code class="language-shell">sudo apt install memtool
+sudo memtool mw 0xfffff4a404 0
+</code></pre>
+<p>This pinmux setting will not work after shutdown. Because the JTAG pin is used as the USB route selection function, it is enough to set pinmux every time you debug.</p>
+<p>Next, download and install the debug server from <a href="https://xuantie.t-head.cn/community/download?id=4209675990638596096"  target="_blank">Pingtouge official website</a>.<br />
+After the download is complete, refer to <a href="https://occ-oss-prod.oss-cn-hangzhou.aliyuncs.com/resource//1682234034575/T-Head+Debugger+Server+User+Guide+%28ZH-CN%29.pdf"  target="_blank">Pingtouge Official Document</a> installation.</p>
+<p>After confirming that the device is connected and pinmux is set correctly, take Linux as an example, use the command <code>DebugServerConsole</code> to open DebugServerConsole:</p>
+<p><img src="./../../../../zh/lichee/th1520/lpi4a/assets/peripheral/open_debugserver.png" alt="open_debugserver" /></p>
+<p>You can see a successful connection:</p>
+<p><img src="./../../../../zh/lichee/th1520/lpi4a/assets/peripheral/check_debugserver.png" alt="check_debugserver" /></p>
+<h2 id="GPU">GPU</h2>
+<p>Use the following command to view the status of the GPU in real time:</p>
+
+<pre class="language-shell"><code class="language-shell">sudo watch cat /sys/kernel/debug/pvr/status
+</code></pre>
+<p>Under the xfce desktop, the status of the GPU is as follows:</p>
+<p><img src="./../../../../zh/lichee/th1520/lpi4a/assets/peripheral/gpu_status_desktop.png" alt="gpu_status_desktop" /></p>
+<p>When playing video with Chromium browser, the state of GPU is as follows:</p>
+<p><img src="./../../../../zh/lichee/th1520/lpi4a/assets/peripheral/gpu_status_play_video.png" alt="gpu_status_play_video" /></p>
+<h2 id="NPU">NPU</h2>
+<blockquote>
+<p><strong>Note</strong>: To use the NPU driver, you need to upgrade to the <a href="https://mega.nz/folder/phoQlBTZ#cZeQ3qZ__pDvP94PT3_bGA"  target="_blank">20230920</a> or newer version image, this image will automatically load NPU related drivers on boot.</p>
+</blockquote>
+<p>LicheePi4A contains a 1GHz NPU supporting 4TOPS@INT8 general purpose NNA computing power. The Wiki contains examples of NPU support as follows:</p>
+<table>
+<thead>
+<tr>
+  <th>Example Name</th>
+  <th>Example Functionality</th>
+  <th>Usage Model</th>
+  <th>Interface</th>
+  <th>HHB Version</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Mobilenetv2 do image classification</td>
+  <td>image classification</td>
+  <td>mobilenetv2</td>
+  <td>c/c++</td>
+  <td>2.4 and above</td>
+</tr>
+<tr>
+  <td>YOLOv5 do object detection</td>
+  <td>object detection</td>
+  <td>YOLOv5</td>
+  <td>python</td>
+  <td>2.4 and above</td>
+</tr>
+<tr>
+  <td>RTMPose do pose estimation</td>
+  <td>pose estimation</td>
+  <td>RTMPose</td>
+  <td>python</td>
+  <td>2.6 and above</td>
+</tr>
+</tbody>
+</table>
+<p>In order to cross-compile the models in the above examples into executables on LicheePi4A, we first need to set up the HHB development environment on our own computer.</p>
+<blockquote>
+<p>Recommended environment: Ubuntu 20.04 system, Docker version 20.10.21.It is recommended to use the Docker image to set up the environment.</p>
+</blockquote>
+<h3 id="Installation">Installation</h3>
+<p><strong>LPi4A setup</strong></p>
+<h4 id="SHL-Library-Installation">SHL Library Installation</h4>
+<p>To install the SHL library, you can use pip:</p>
+
+<pre class="language-shell"><code class="language-shell">pip3 install shl-python
+</code></pre>
+<p>After the installation, you can use the <code>--whereis</code> option to check the installation location. For example:</p>
+
+<pre class="language-shell"><code class="language-shell">python3 -m shl --whereis th1520
+# Replace with 
+# python3 -m shl --whereis c920
+# if using CPU inference only
+</code></pre>
+<p>Based on the printed location, copy the dynamic library files from that directory to the <code>/usr/lib</code> directory. For example, if the printed location is:</p>
+
+<pre class="language-shell"><code class="language-shell">/home/sipeed/ort/lib/python3.11/site-packages/shl/install_nn2/th1520
+</code></pre>
+<p>You can use the following copy command:</p>
+
+<pre class="language-shell"><code class="language-shell">sudo cp /home/sipeed/ort/lib/python3.11/site-packages/shl/install_nn2/th1520/lib/* /usr/lib/
+</code></pre>
+<h4 id="Python-Virtual-Environment">Python Virtual Environment</h4>
+<p>Before installing the Python package, you need to set up a Python virtual environment. Use the following commands to install the <code>venv</code> package for creating a Python virtual environment (here, creating a Python virtual environment in the root directory):</p>
+
+<pre class="language-shell"><code class="language-shell">sudo -i
+apt install python3.11-venv
+cd /root
+python3 -m venv ort
+source /root/ort/bin/activate
+</code></pre>
+<h4 id="HHB-onnxruntime-Installation">HHB-onnxruntime Installation</h4>
+<p>HHB-onnxruntime is a ported backend (execution providers) for SHL, enabling onnxruntime to reuse the high-performance optimization code for XuanTie CPUs.</p>
+<p>For CPU version:</p>
+
+<pre class="language-shell"><code class="language-shell">wget https://github.com/zhangwm-pt/onnxruntime/releases/download/riscv_whl_v2.6.0/hhb_onnxruntime_c920-2.6.0-cp311-cp311-linux_riscv64.whl
+pip install hhb_onnxruntime_c920-2.6.0-cp311-cp311-linux_riscv64.whl
+</code></pre>
+<p>For NPU version:</p>
+
+<pre class="language-shell"><code class="language-shell">wget https://github.com/zhangwm-pt/onnxruntime/releases/download/riscv_whl_v2.6.0/hhb_onnxruntime_th1520-2.6.0-cp311-cp311-linux_riscv64.whl
+pip install hhb_onnxruntime_th1520-2.6.0-cp311-cp311-linux_riscv64.whl
+</code></pre>
+<p><strong>x86 Hosts setup</strong></p>
+<p>First, we need to install Docker on our own computer. Uninstall any existing Docker version:</p>
+
+<pre class="language-shell"><code class="language-shell">sudo apt-get remove docker docker-engine docker.io containerd runc
+</code></pre>
+<p>Install the basic software Docker depends on:</p>
+
+<pre class="language-shell"><code class="language-shell">sudo apt-get update
+sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+Add the official source: ```shell
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository &quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable&quot;
+</code></pre>
+<p>Install Docker:</p>
+
+<pre class="language-shell"><code class="language-shell">sudo apt-get update
+sudo apt-get install docker-ce docker-ce-cli containerd.io
+</code></pre>
+<p>After installation, get the Docker image of the HHB environment:</p>
+
+<pre class="language-shell"><code class="language-shell">docker pull hhb4tools/hhb:2.4.5
+</code></pre>
+<p>Once the image is pulled, enter the Docker image using the following command:</p>
+
+<pre class="language-shell"><code class="language-shell">docker run -itd --name=your.hhb2.4 -p 22 &quot;hhb4tools/hhb:2.4.5&quot;
+docker exec -it your.hhb2.4 /bin/bash
+</code></pre>
+<p>Once you are inside the Docker image, you can use the following command to verify the HHB version:</p>
+
+<pre class="language-shell"><code class="language-shell">hhb --version
+</code></pre>
+<p>Once you are in the Docker image, you need to configure the cross-compile environment. Note that you must use the toolchain here, otherwise the compiled binaries will not run on LicheePi4A.</p>
+
+<pre class="language-shell"><code class="language-shell">export PATH=/tools/Xuantie-900-gcc-linux-5.10.4-glibc-x86_64-V2.6.1-light.1/bin/:$PATH
+</code></pre>
+<p>clone NPU example code：</p>
+
+<pre class="language-shell"><code class="language-shell">git clone https://github.com/zhangwm-pt/lpi4a-example.git
+</code></pre>
+<p>At this point, the HHB environment is preliminarily built. You can try the following NPU examples:<br />
+<a href="https://wiki.sipeed.com/hardware/eh/lichee/th1520/lpi4a/8_application.html#MobilenertV2"  target="_blank">Mobilenetv2 for image classification</a><br />
+<a href="https://wiki.sipeed.com/hardware/eh/lichee/th1520/lpi4a/8_application.html#Yolov5n"  target="_blank">YOLOv5 for object detection</a></p>
+<p>For further infomation please check <a href="https://www.yuque.com/za4k4z"  target="_blank">hhb-tools doc</a>.</p>
+<h2 id="Other">Other</h2>
+<p>Contributions are welcome~ You can get ￥5~150 ($1~20) coupon if your contribution is accepted!</p>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                        <a href="/hardware/en/lichee/th1520/lpi4a/5_desktop.html">
+                            <span class="icon"></span>
+                            <span class="label">Desktop usage</span>
+                        </a>
+                        
+                    </div>
+                    <div id="next">
+                        
+                        <a href="/hardware/en/lichee/th1520/lpi4a/7_develop_revyos.html">
+                            <span class="label">revyos</span>
+                            <span class="icon"></span>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>links</a><ul><li><a target="_blank" href="https://www.sipeed.com">Sipeed</a></li>
+<li><a target="_blank" href="https://maixhub.com/">MaixHub</a></li>
+<li><a target="_blank" href="https://sipeed.aliexpress.com/store/911876460">Sipeed AliExpress</a></li>
+<li><a target="_blank" href="https://github.com/neutree/teedoc">Build by teedoc </a></li>
+</ul>
+</li>
+<li><a>Source Code</a><ul><li><a target="_blank" href="https://github.com/sipeed/sipeed_wiki">Wiki source</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">Open Source Projects</a></li>
+</ul>
+</li>
+<li><a>Follow us</a><ul><li><a target="_blank" href="https://twitter.com/SipeedIO">twitter</a></li>
+<li><a target="_blank" href="https://sipeed.aliexpress.com/store/911876460">AliExpress</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">github</a></li>
+<li><a><a>Wechat</a><img src='/static/image/wechat.png'></a>
+</li>
+</ul>
+</li>
+<li><a>Contact us</a><ul><li><a>Tel: +86 0755-27808509</a>
+</li>
+<li><a>Business support: support@sipeed.com</a>
+</li>
+<li><a>Address: 深圳市宝安区新湖路4008号蘅芳科技办公大厦A座-2101C</a>
+</li>
+<li><a  href="/join_us.html">Join us</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://www.sipeed.com">©2018-2023 深圳矽速科技有限公司</a></li>
+<li><a target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index">粤ICP备19015433号</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/js/prism.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <link rel="stylesheet" href="/static/js/add_hint/style.css" type="text/css"/>
+    
+        <script src="/static/js/add_hint/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+        <script src="/static/js/thumbs_up/main.js"></script>
+    
+</body>
+
+</html>

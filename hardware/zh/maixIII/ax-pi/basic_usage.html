@@ -1,0 +1,2442 @@
+<!DOCTYPE html>
+
+<html lang="zh"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="">
+    
+    
+    <meta name="description" content="">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+        
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/prism.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?9cb07365544a53067c56c346c838181a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119047820-5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-119047820-5');
+    </script>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/js/thumbs_up/style.css" type="text/css"/>
+        
+    
+    
+    <title>Maix-III AXera-Pi 系统基础使用 - Sipeed Wiki</title>
+    
+    <script type="text/javascript">js_vars = {"teedoc-plugin-ad-hint": {"type": "hint", "label": "NEW", "content": "全新 Maix 系列产品 <a href='https://wiki.sipeed.com/maixcam'>MaixCAM</a> 已上线, 全新 <a href='https://wiki.sipeed.com/maixpy/'>MaixPy</a> 功能更丰富，性能更强大，软件更易用，文档更全面！", "show_times": 2, "show_after_s": 432000, "date": "2022-06-01 14:00", "color": "#a0421d", "link_color": "#e53935", "link_bg_color": "#e6ae5c", "bg_color": "#ffcf89", "color_hover": "white", "bg_color_hover": "#f57c00", "close_color": "#eab971"}, "teedoc-plugin-thumbs-up": {"label_up": "有帮助", "label_down": "待改进", "icon": "/static/images/thumbs_up/up.svg", "icon_clicked": "/static/images/thumbs_up/upped.svg", "url": "https://thumbs-up.sipeed.com", "show_up_count": true, "show_down_count": false, "msg_already_voted": "您已经投过票了", "msg_thanks": "感谢您的反馈", "msg_down_prompt": "感谢反馈，请告诉我们可以改进什么地方?（最少 10 个字）", "msg_down_prompt_error": "消息最少需要 10 个字， 最多 256 个字", "msg_error": "请求服务器出现错误!"}}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": false, "update": [], "ts": 0, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/">
+                
+                    <img class="site_logo" src="/static/image/logo.svg" alt="sipeed wiki logo">
+                
+                
+                    <h2>wiki</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class=""><a  href="/">产品</a></li>
+<li class="sub_items "><a >开源软件</a><ul><li class=""><a  href="/maixpy/">MaixPy</a></li>
+<li class=""><a  href="/soft/maixpy/zh/index.html">MaixPy_v1</a></li>
+<li class=""><a  href="/soft/Lichee/zh/index.html">Lichee</a></li>
+<li class=""><a  href="/ai/zh/index.html">AI 指南</a></li>
+</ul>
+</li>
+<li class=""><a target="_blank" href="https://maixhub.com">MaixHub</a></li>
+<li class=""><a  href="/news/">动态</a></li>
+<li class=""><a  href="/faq.html">FAQ 汇总</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class=""><a  href="/store.html"><img src='/static/image/shop.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+<li class=""><a target="_blank" href="https://github.com/sipeed"><img src='/static/image/github.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+<li class="sub_items "><a  ><img src='/static/image/language.svg' style='height: 1.5em;vertical-align: middle;'>&nbsp;中文</a><ul><li class=""><a  href="/hardware/en/maixIII/ax-pi/basic_usage.html">English</a></li>
+<li class="active"><a  href="/hardware/zh/maixIII/ax-pi/basic_usage.html">中文</a></li>
+</ul></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">输入关键词，多关键词空格隔开</span>
+                                <span id="search_loading_hint">正在加载，请稍候。。。</span>
+                                <span id="search_download_err_hint">下载文件失败，请刷新重试或检查网络</span>
+                                <span id="search_other_docs_result_hint">来自其它文档的结果</span>
+                                <span id="search_curr_doc_result_hint">当前文档搜索结果</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="not_active no_link"><a><span class="label">Maix Zero</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Maix M0</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/./maixzero/sense/maix_zero_sense.html"><span class="label">M0sense 开发板</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/./maixzero/sense/start.html"><span class="label">M0sense 基础使用</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Maix M0P</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/./maixzero/m0p/m0p.html"><span class="label">M0P</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/./maixzero/m0p/m0p_dock.html"><span class="label">M0P Dock</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/./maixzero/m0s/m0s.html"><span class="label">Maix M0S</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Maix-I</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Maix M1</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">M1 模块</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maix/core_module.html"><span class="label">M1/M1w</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maix/M1n.html"><span class="label">M1n</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">M1 开发板</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maix/maixpy_develop_kit_board/maix_bit.html"><span class="label">Maix Bit</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maix/maixpy_develop_kit_board/Maix_dock.html"><span class="label">Maix Dock(M1/M1W)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maix/maixpy_develop_kit_board/maix_duino.html"><span class="label">Maix Duino</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maix/maixpy_develop_kit_board/maix_nano.html"><span class="label">Maix Nano</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maix/maixpy_develop_kit_board/maix_cube.html"><span class="label">Maix Cube</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maix/maixpy_develop_kit_board/maix_Amigo.html"><span class="label">Maix Amigo</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maix/maixpy_develop_kit_board/maix_hat.html"><span class="label">Maix HAT</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maix/maixpy_develop_kit_board/maix_go.html"><span class="label">Maix Go（售罄）</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Maix M1s</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maix/m1s/m1s_module.html"><span class="label">M1s 模块</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">M1s 开发板</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maix/m1s/m1s_dock.html"><span class="label">简介</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maix/m1s/other/start.html"><span class="label">上手使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maix/m1s/other/others.html"><span class="label">其他事项（摄像头和外壳）</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Maix-II</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maixII/M2/resources.html"><span class="label">MaixII-Dock</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maixII/M2/flash.html"><span class="label">烧录系统</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixII/M2/maixhub_train.html"><span class="label">训练自己的 AI 模型</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixII/M2/usage.html"><span class="label">基础使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixII/M2/other.html"><span class="label">其他事项</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/../../soft/maixpy3/zh/tools/0.MaixII-Dock.html"><span class="label">使用 MaixPy3 开发</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixII/M2/opencv.html"><span class="label">使用 OpenCV</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixII/M2/faq.html"><span class="label">FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/maixII/M2S/V833.html"><span class="label">MaixII-S</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maixII/M2S/reources.html"><span class="label">板级资源介绍</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/maixII/M2A/maixsense.html"><span class="label">MaixII-Sense</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maixII/M2A/flash_system.html"><span class="label">烧录系统</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixII/M2A/config_system.html"><span class="label">配置系统</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixII/M2A/Usages.html"><span class="label">基本使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/../../soft/maixpy3/zh/tools/maixsense.html"><span class="label">连接MaixPy3</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="active_parent no_link"><a><span class="label">Maix-III</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="active_parent with_link"><a href="/hardware/zh/maixIII/ax-pi/axpi.html"><span class="label">Maix-III AXera-Pi</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/zh/maixIII/ax-pi/flash_system.html"><span class="label">产品上手指南</span><span class=""></span></a></li>
+<li class="active with_link"><a href="/hardware/zh/maixIII/ax-pi/basic_usage.html"><span class="label">系统使用手册</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixIII/ax-pi/python_api.html"><span class="label">试试 Python 编程</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixIII/ax-pi/dev_prepare.html"><span class="label">开始 C/C++ 编程</span><span class=""></span></a></li>
+<li class="not_active  with_link"><a href="/ai/zh/deploy/ax-pi.html" ><span class="label">AI 开发指南</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixIII/ax-pi/faq_axpi.html"><span class="label">常见问题（FAQ）</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Maix-IV</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maixIV/m4ndock/m4ndock.html"><span class="label">Maix M4N-DOCK</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maixIV/m4ndock/quick-start.html"><span class="label">产品上手指南</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixIV/m4ndock/system-update.html"><span class="label">系统烧录指南</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixIV/m4ndock/axmodel-deploy.html"><span class="label">AI 模型部署</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixIV/m4ndock/FAQ.html"><span class="label">FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">MaixCAM</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maixcam/index.html"><span class="label">MaixCAM 介绍和资料</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixcam/assemble.html"><span class="label">MaixCAM 外壳</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixcam/os.html"><span class="label">系统镜像烧录</span><span class=""></span></a></li>
+<li class="not_active  with_link"><a href="https://wiki.sipeed.com/maixpy/" ><span class="label">使用 MaixPy 开发</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixcam/maixcdk.html"><span class="label">使用 MaixCDK 开发</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixcam/faq.html"><span class="label">常见问题 FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">LicheePi</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">LicheePI 4A</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lm4a.html"><span class="label">Lichee Module 4A</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lc4a/lc4a.html"><span class="label">Lichee Cluster 4A</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lcon4a/lcon4a.html"><span class="label">Lichee Console 4A</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lcon4a/setup_guide.html"><span class="label">组装指南</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lcon4a/3_images.html"><span class="label">镜像集合</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lcon4a/4_burn_image.html"><span class="label">烧录镜像</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lbook4a/lbook4a.html"><span class="label">Lichee Book 4A</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lbook4a/4_burn_image.html"><span class="label">烧录镜像</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Lichee PI 4A</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/1_intro.html"><span class="label">板卡介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/2_unbox.html"><span class="label">开箱体验</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/3_images.html"><span class="label">镜像集合</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/4_burn_image.html"><span class="label">烧录镜像</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/5_desktop.html"><span class="label">桌面系统基础使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/6_peripheral.html"><span class="label">外设使用</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">系统开发</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/7_develop_revyos.html"><span class="label">revyos</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/7_develop_mainline.html"><span class="label">Linux 主线</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/7_develop_android.html"><span class="label">Android</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/7_develop_thead.html"><span class="label">THead Yocto</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">OpenHarmony (编写中)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/7_develop_openwrt.html"><span class="label">OpenWRT</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/8_application.html"><span class="label">典型应用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/13_XTAI.html"><span class="label">玄铁多媒体AI平台</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/9_benchmark.html"><span class="label">CPU 跑分测试</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/10_test_report.html"><span class="label">硬件测试报告</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/12_faq.html"><span class="label">常见问题</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/11_credits.html"><span class="label">致谢</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">LicheePI 3A</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/lichee/K1/lm3a.html"><span class="label">Lichee Module 3A</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/K1/lc3a/lc3a.html"><span class="label">Lichee Cluster 3A</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Lichee PI 3A</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/zh/lichee/K1/lpi3a/1_intro.html"><span class="label">板卡介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/K1/lpi3a/2_unbox.html"><span class="label">开箱体验</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/K1/lpi3a/3_burn_image.html"><span class="label">镜像烧录</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/K1/lpi3a/4_peripheral.html"><span class="label">外设使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/K1/lpi3a/5_develop.html"><span class="label">系统开发</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/K1/lpi3a/6_application.html"><span class="label">典型应用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/K1/lpi3a/7_faq.html"><span class="label">常见问题</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/K1/lpi3a/8_credits.html"><span class="label">致谢</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">LicheePI RV</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">板卡介绍</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV/RV.html"><span class="label">LicheePI RV</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV/86_panel.html"><span class="label">LicheePI RV 86 Panel</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV/Dock.html"><span class="label">LicheePI RV Dock</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV/flash.html"><span class="label">烧录系统</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV/user.html"><span class="label">基础上手</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV/problems.html"><span class="label">常见问题</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV/ubuntu.html"><span class="label">使用 Ubuntu 镜像</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">LicheeRV Nano</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV_Nano/1_intro.html"><span class="label">板卡介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV_Nano/2_unbox.html"><span class="label">开箱体验</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV_Nano/3_images.html"><span class="label">镜像集合</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV_Nano/4_burn_image.html"><span class="label">烧录镜像</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV_Nano/5_peripheral.html"><span class="label">外设使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV_Nano/6_develop_mainline.html"><span class="label">系统开发</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV_Nano/7_test_report.html"><span class="label">板卡测试</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV_Nano/8_mmf_development_guide.html"><span class="label">MMF开发指南</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/Zero/Zero.html"><span class="label">LicheePI Zero</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/Nano/Nano.html"><span class="label">LicheePI Nano</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/ZeroPlus/ZeroPlus.html"><span class="label">LicheePI ZeroPlus</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang FPGA</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Tang Nano</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-Nano-1K/Nano-1k.html"><span class="label">Tang Nano 1K</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-Nano-4K/Nano-4K.html"><span class="label">Tang Nano 4k</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-Nano-9K/Nano-9K.html"><span class="label">Tang Nano 9K</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Tang Nano 20K</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/tang/tang-nano-20k/nano-20k.html"><span class="label">介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/tang-nano-20k/example/unbox.html"><span class="label">开箱</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-Nano/Nano.html"><span class="label">Tang Nano (售罄)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-Nano-Doc/get_started/install-the-ide.html"><span class="label">安装 IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-Nano-Doc/examples.html"><span class="label">例程汇总</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-Nano-Doc/questions.html"><span class="label">常见问题</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Primer</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Tang Primer 20K</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/tang/tang-primer-20k/primer-20k.html"><span class="label">板卡介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/tang-primer-20k/start.html"><span class="label">开箱使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-Nano-Doc/get_started/install-the-ide.html"><span class="label">安装 IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/tang-primer-20k/example.html"><span class="label">例程汇总</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-Nano-Doc/questions.html"><span class="label">常见问题</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Primer 25K</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/tang/tang-primer-25k/primer-25k.html"><span class="label">板卡介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-Nano-Doc/get_started/install-the-ide.html"><span class="label">安装 IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-Nano-Doc/questions.html"><span class="label">常见问题</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Primer 15K</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/tang/tang-primer-15k/primer-15k.html"><span class="label">板卡介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-Nano-Doc/get_started/install-the-ide.html"><span class="label">安装 IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-Nano-Doc/questions.html"><span class="label">常见问题</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-primer/Tang-primer.html"><span class="label">Tang Primer (售罄)</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-primer/index.html"><span class="label">板卡介绍</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">安装 TD</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-primer/get_started/install_TD_win.html"><span class="label">Windows安装TD</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-primer/get_started/install_Linux.html"><span class="label">Linux安装TD</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-primer/fpga/led.html"><span class="label">使用FPGA点灯</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-primer/get_started/E203.html"><span class="label">搭建蜂鸟开发环境</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-primer/get_started/fpga_download.html"><span class="label">FPGA码流烧录</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Mega</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Tang Mega 138K Pro</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/tang/tang-mega-138k/mega-138k-pro.html"><span class="label">板卡介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-Nano-Doc/get_started/install-the-ide.html"><span class="label">安装 IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-Nano-Doc/questions.html"><span class="label">常见问题</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Mega 138K</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/tang/tang-mega-138k/mega-138k.html"><span class="label">板卡介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-Nano-Doc/get_started/install-the-ide.html"><span class="label">安装 IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-Nano-Doc/questions.html"><span class="label">常见问题</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Mega 60K</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/tang/tang-mega-60k/mega-60k.html"><span class="label">板卡介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-Nano-Doc/get_started/install-the-ide.html"><span class="label">安装 IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-Nano-Doc/questions.html"><span class="label">常见问题</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/tang-PMOD/FPGA_PMOD.html"><span class="label">Tang PMOD</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/maixsense/index.html"><span class="label">MaixSense</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maixsense/maixsense-a010/maixsense-a010.html"><span class="label">MaixSense-a010</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixsense/maixsense-a075v/maixsense-a075v.html"><span class="label">MaixSense-a075v</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">SLogic</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">SLogic Combo 8</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/logic_analyzer/combo8/index.html"><span class="label">简介</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/logic_analyzer/combo8/basic_operation.html"><span class="label">基础操作</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/logic_analyzer/combo8/use_logic_function.html"><span class="label">作为逻辑分析仪使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/logic_analyzer/combo8/use_cklink_function.html"><span class="label">作为CKLink使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/logic_analyzer/combo8/use_daplink_function.html"><span class="label">作为DAPLink使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/logic_analyzer/combo8/use_fouruart_function.html"><span class="label">作为串口模块使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/logic_analyzer/combo8/update_firmware.html"><span class="label">更新固件</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/logic_analyzer/combo8/faq.html"><span class="label">常见问题(FAQ)</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">KVM</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">NanoKVM Cube</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/introduction.html"><span class="label">简介</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/quick_start.html"><span class="label">快速上手</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/user_guide.html"><span class="label">用户指南</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/development.html"><span class="label">二次开发</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">网络</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/network/tailscale.html"><span class="label">Tailscale</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/network/frp.html"><span class="label">frp</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/network/static_ip.html"><span class="label">静态 IP</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">系统</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/system/introduction.html"><span class="label">系统介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/system/flashing.html"><span class="label">烧录镜像</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/system/updating.html"><span class="label">更新应用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/system/configuration.html"><span class="label">配置文件</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/faq.html"><span class="label">FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Longan</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">LonganPI 3H</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/longan/h618/lpi3h/1_intro.html"><span class="label">板卡介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/longan/h618/lpi3h/3_images.html"><span class="label">镜像集合</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/longan/h618/lpi3h/4_burn_image.html"><span class="label">烧录镜像</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/longan/h618/lpi3h/5_desktop.html"><span class="label">桌面系统基础使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/longan/h618/lpi3h/6_peripheral.html"><span class="label">外设使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/longan/h618/lpi3h/7_develop_mainline.html"><span class="label">系统开发</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/longan/h618/lpi3h/8_test_report.html"><span class="label">板卡测试</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/longan/Nano/Longan_nano.html"><span class="label">Longan Nano</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/zh/longan/Nano/get_started/pio.html"><span class="label">PIO配置</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/longan/Nano/get_started/blink.html"><span class="label">点灯测试</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/longan/Nano/get_started/debug.html"><span class="label">DEBUG 调试</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/longan/Nano/get_started/sipeed-debugger.html"><span class="label">使用 Sipeed 调试器</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/longan/Nano/get_started/rv-link.html"><span class="label">使用 RV-LINK</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">示例</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/longan/Nano/examples/printf.html"><span class="label">串口输出</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/longan/Nano/examples/badapple.html"><span class="label">播放 Badapple</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">MaixFace</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maixface/mfst40/mfst40.html"><span class="label">MF-ST40 人脸识别模块</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">MF 资料</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maixface/mf_ml_module/mf_precautions.html"><span class="label">MF 人脸识别模块 PCB 设计注意事项</span><span class=""></span></a></li>
+<li class="not_active  with_link"><a href="https://github.com/sipeed/MF1-User-Manual" ><span class="label">点我前往 github 查看全部资料</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">外设模组</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">SP-MOD外设模组</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">转接板类</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_extender.html"><span class="label">SP-Extender</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_grove.html"><span class="label">SP-Grove</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_fpc.html"><span class="label">SP-FPC</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_micarray.html"><span class="label">SP-MicArray</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_joystick.html"><span class="label">SP-JotStick</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_servo.html"><span class="label">SP-Servo</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/.html"><span class="label">SP-TypeC</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">传感器类</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_weather.html"><span class="label">SP-Weather</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_tof.html"><span class="label">SP-TOF-1P</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">通信类</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_bt.html"><span class="label">SP-BT</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_lora.html"><span class="label">SP-LoRa</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_psram.html"><span class="label">SP-PSRAM</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_rfid.html"><span class="label">SP-RFID</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_ethernet.html"><span class="label">SP-Ethernet</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">显示类</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_lcd1.14.html"><span class="label">SP-LCD 1.14</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_eink.html"><span class="label">SP-Eink</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">模块 & 调试器</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/modules/debugger_and_uart.html"><span class="label">调试器 & 串口模块</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">模块</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/zh/modules/camera_summary.html"><span class="label">摄像头</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">麦克风模块</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/modules/micarray.html"><span class="label">麦克风阵列</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/modules/Gamepad.html"><span class="label">Sipeed Gamepad</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>Maix-III AXera-Pi 系统基础使用</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/sipeed/sipeed_wiki/blob/main/docs/hardware/zh/maixIII/ax-pi/basic_usage.md" target="_blank">
+                                    <span id='editPage'>编辑本页</span>
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <p>基于上文的上手指引后，本文介绍使用 Maix-III AXera-Pi 开发板的 Linux debian11 系统基础使用方法。</p>
+<h2 id="%E7%B3%BB%E7%BB%9F%E7%99%BB%E5%BD%95">系统登录</h2>
+<h3 id="%E7%99%BB%E5%BD%95%E5%B7%A5%E5%85%B7">登录工具</h3>
+<p>这里介绍相关使用的终端登录工具，分别是：<code>MobaXterm</code>、<code>electerm</code>、<code>vscode remote</code>。</p>
+<ul>
+<li><strong>MobaXterm 介绍</strong></li>
+</ul>
+<p>MobaXterm 是在 Windows 下使用的全能终端管理软件，而 Linux 系统可以使用 ssh 远程被操作，使用 MobaXterm 进行 ssh 登陆板子直接编辑板内的代码或执行命令，也能方便的拖拽文件上传或下载到电脑里，类似的工具还有 vscode remote 远程登录 linux 服务器。</p>
+<p><img src="./../assets/ssh.jpg" alt="mobaxterm_ssh" /></p>
+<p>下载链接：<a href="https://mobaxterm.mobatek.net/download.html"  target="_blank">点击跳转</a> 分别付费与免费双版本，下载免费版本即可。<br />
+使用教程：<a href="https://wiki.sipeed.com/hardware/zh/maixII/M2/tools/mobaxterm.html?highlight=ssh"  target="_blank">如何使用 MobaXterm</a></p>
+<ul>
+<li><strong>electerm 介绍（推荐）</strong></li>
+</ul>
+<p>electerm 是一个基于 <code>electron/ssh2/node-pty/xterm/antd/useProxy</code> 等开源组件开发，支持跨平台的 <code>Terminal/SSH/SFTP</code> 客户端工具，同时支持 <code>Linux、MacOS、Windows</code> 等多种操作系统，它既可以作为终端工具来使用，还能传输文件并自带中文界面，更加满足用户日常对终端的需求。</p>
+<p><img src="./../assets/electerm.jpg" alt="electerm" /></p>
+<p>下载链接：<a href="https://electerm.html5beta.com/"  target="_blank">点击跳转</a> 根据操作系统来下载相对应的版本即可。</p>
+<ul>
+<li><strong>vscode remote 介绍</strong></li>
+</ul>
+<p>vscode remote 是 vscode 的一个插件，可以直接连接到远程的 linux 服务器，然后在本地编辑代码，同步到远程服务器上编译运行，这里以一台 Windows 10 的桌面计算机系统为例，只要能安装 vscode 编辑器软件计算机都行。</p>
+<p><img src="./../assets/vscode.jpg" alt="vscode" /></p>
+<p>下载连接：<a href="https://code.visualstudio.com/"  target="_blank">点击跳转</a><br />
+连接教程：<a href="https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/dev_prepare.html?highlight=ssh#vscode-remote"  target="_blank">如何使用 vscode remote 连接板子</a></p>
+<h3 id="%E7%99%BB%E5%BD%95%E6%96%B9%E5%BC%8F">登录方式</h3>
+<p>Maix-III AXera-Pi 开发板的 Linux debian11 系统默认使用 root 用户登录。<br />
+用户名为 <code>root</code>，密码为 <code>root</code>，目前板子接入电脑端上电启动后支持以下登录 Linux 系统方式。</p>
+<h4 id="%E6%9C%89%E7%BA%BF-%E4%B8%B2%E5%8F%A3-serial-%E7%99%BB%E9%99%86">有线 串口 serial 登陆</h4>
+<blockquote>
+<p>使用串口 serial 登陆前需安装 tty 转 USB 串口驱动</p>
+</blockquote>
+<p><strong>Linux</strong>：系统本身自带无需再装驱动，使用 <code>ls /dev/ttyUSB*</code> 即可看到设备号。</p>
+<p><strong>Windows</strong>：直接<a href="https://api.dl.sipeed.com/fileList/MAIX/tools/ch340_ch341_driver/CH341SER.EXE"  target="_blank">点击下载 CH340 驱动</a>安装，安装后可在<code>设备管理器</code>查看串口设备。</p>
+<details>
+<summary>点此展开查看 CH340 驱动安装</summary>
+<div class="details-content"><p>先打开设备管理器查看是否有 <strong>CH340</strong> 驱动，如无驱动的话请点击上方链接进行下载。<br />
+ <img src="./../assets/usb-serial.jpg" alt="usb-serial" /><br />
+ 下载完成后，右键点击文件，选择<strong>以管理员身份运行(A)</strong>即会自动安装。<br />
+ <img src="../assets/install-serial.jpg" alt="install-serial" /><br />
+ 安装完成，可在设备管理器端口处查看设备。</p>
+</div>
+</details>
+<blockquote>
+<p><a href="https://blog.csdn.net/qq_27865227/article/details/125538516"  target="_blank">有些同学会遇到 Ubuntu22.04 CH340系列串口驱动（没有ttyUSB）问题，点此查看解决方案。</a></p>
+</blockquote>
+<details>
+<summary>点此展开查看 USB UART 接口示意图</summary>
+<div class="details-content"><p><img src="./../assets/uart.jpg" alt="uart" /></p>
+</div>
+</details>
+<p>使用 usb 3.0 线连接板子上的 USB UART 接入电脑端，使用前请安装上文的驱动，再使用 MobaXterm 即可连接，默认串口配置为 115200、8N1（波特率115200，8位数据，无奇偶校验，1位停止位）。</p>
+<p><strong>serial 登陆教程</strong>：<a href="https://wiki.sipeed.com/hardware/zh/maixII/M2/tools/mobaxterm.html?highlight=ssh#%E8%BF%9E%E6%8E%A5-%E4%B8%B2%E5%8F%A3%28Serial%29"  target="_blank">点击查看</a><br />
+成功连接后会打印大量调试信息，会弹出登陆账号信息，输入用户名及密码即可登陆。</p>
+<p><img src="./../assets/serial.jpg" alt="serial" /></p>
+<blockquote>
+<p>串口通常只提供给专业的驱动开发工程师调试用，会打印大量的调试信息，如感到不适请使用 <strong>ssh</strong> 登陆。</p>
+</blockquote>
+<h4 id="%E5%9F%BA%E4%BA%8E-ip-%2B-ssh-%E7%99%BB%E5%BD%95">基于 ip + ssh 登录</h4>
+<blockquote>
+<p>登录前需安装 <strong>rndis usb</strong> 网卡驱动</p>
+</blockquote>
+<p>一般情况下 rndis usb 网卡驱动在 Linux 下可不用安装，在 Windows 下需要按下图手动安装系统自带驱动，而 macos 需要编译安装驱动（horndis），Windows 还需要配置一下网络优先级，勾选微软 rndis 驱动后设置网络跃点数调整优先级。</p>
+<p><strong>Windows 配置网络优先级</strong>：<a href="https://jingyan.baidu.com/article/358570f6bc5cfdce4724fca2.html"  target="_blank">设置网络跃点数调整优先级</a></p>
+<p>这里举例如何在 Win10 安装系统自带的 rndis 驱动，在 Linux 上免驱动自动识别 rndis 驱动，MacOS 安装可以参考这篇 <a href="https://zhuanlan.zhihu.com/p/593627641"  target="_blank">【AXPI】如何在 M1/M2 Mac上使用 Rndis</a> 。</p>
+<details>
+<summary>点此展开查看 Win10 驱动安装过程</summary>
+<div class="details-content"><p>打开设备管理器找到其他设备，选中 rndis 选择更新驱动程序，在如何搜索设备软件窗口中，选择<strong>浏览计算机查找驱动程序软件（R）</strong>。</p>
+<p><img src="./../assets/rndis_1.jpg" alt="rndis_1" /><br />
+ 再选择<strong>从计算机的设备驱动程序列表中选择（L）</strong>在硬件设备列表中往下拉，找到<strong>网络适配器</strong>，选中<strong>下一步</strong>。</p>
+<p><img src="./../assets/rndis_2.jpg" alt="rndis_2" /><br />
+ 在厂商列表中选择 <strong>Microsoft</strong>，右侧列表中选择 <strong>USB RNDIS Adapter</strong>。</p>
+<p><img src="./../assets/rndis_3.jpg" alt="rndis_3" /></p>
+<p>点击下一步等待安装即可。</p>
+</div>
+</details>
+<details>
+<summary>点此展开查看 USB OTG 接口示意图</summary>
+<div class="details-content"><p><img src="./../assets/otg.jpg" alt="otg" /></p>
+</div>
+</details>
+<p>系统默认开启了 usb rndis 虚拟以太网，用户可通过板载 USB OTG 口连接 usb0 网卡的 IP <code>192.168.233.1</code> 进行 ssh 登录操作。使用 ssh 登录前需要先登陆板子通过 <code>ifconfig -a</code> 命令得到板子 IP 后再使用 IP 进行 ssh 登录上 Linux 系统，下图的 IP 地址（除 <code>127.0.0.1</code> 外）都能登陆板子。</p>
+<p><img src="./../assets/ifconfig.jpg" alt="ifconfig" /></p>
+<p><strong>ssh 连接教程</strong>：<a href="https://wiki.sipeed.com/hardware/zh/maixII/M2/tools/mobaxterm.html?highlight=ssh#%E8%BF%9E%E6%8E%A5-SSH"  target="_blank">点击跳转</a><br />
+按教程示例新建 ssh 会话，双击会话后会有提醒输入账号及密码，输入后按回车即可连接。</p>
+<p><img src="./../assets/ssh.jpg" alt="ssh" /></p>
+<h3 id="%E7%99%BB%E5%BD%95%E5%90%8E">登录后</h3>
+<p>登录后，可以使用 <code>ls</code> 命令查看当前目录下的文件，使用 <code>cd</code> 命令切换目录，使用 <code>pwd</code> 命令查看当前目录。</p>
+<h2 id="%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE">网络配置</h2>
+<h3 id="%E7%BD%91%E7%BB%9C%E6%93%8D%E4%BD%9C%E5%9F%BA%E7%A1%80">网络操作基础</h3>
+<ul>
+<li><strong>使用 ping baidu.com 测试网络</strong></li>
+</ul>
+<p><img src="./../assets/baidu.jpg" alt="baidu" /></p>
+<ul>
+<li><strong>使用 ifconfig -a 查看所有网卡情况</strong></li>
+</ul>
+<p>Maix-III AXera-Pi 开发板的 Linux 系统默认使用 DHCP 协议获取 IP 地址，可以使用命令行 <code>ifconfig -a</code> 查看当前网络配置，板子根据下述会配置四种网卡类型。</p>
+
+<pre class="language-bash"><code class="language-bash">root@AXERA:~# cat /etc/network/interfaces
+# interfaces(5) file used by ifup(8) and ifdown(8)
+# Include files from /etc/network/interfaces.d:
+source /etc/network/interfaces.d/*
+
+auto lo
+iface lo inet loopback
+
+# auto eth0
+allow-hotplug eth0
+iface eth0 inet dhcp
+
+# auto usb0
+allow-hotplug usb0
+iface usb0 inet static
+address 192.168.233.1
+netmask 255.255.255.0
+
+# allow-hotplug wlan0
+# wpa-ssid &quot;dalaoshu&quot;
+# wpa-psk &quot;junhuanchen&quot;
+auto wlan0
+iface wlan0 inet manual
+wpa-conf /boot/wpa_supplicant.conf
+iface wlan0 inet dhcp
+</code></pre>
+<p>可以使用命令行 <code>ifconfig -a</code> 查看所有网卡信息。</p>
+
+<pre class="language-bash"><code class="language-bash">root@AXERA:~# ifconfig -a
+eth0: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu 1500
+        inet 192.168.0.77  netmask 255.255.255.0  broadcast 192.168.0.255
+        ether 1e:09:dc:e9:1c:29  txqueuelen 1000  (Ethernet)
+        RX packets 301  bytes 41433 (40.4 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 31  bytes 2970 (2.9 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+        device interrupt 56
+
+lo: flags=73&lt;UP,LOOPBACK,RUNNING&gt;  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 16  bytes 1064 (1.0 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 16  bytes 1064 (1.0 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+usb0: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu 1500
+        inet 192.168.233.1  netmask 255.255.255.0  broadcast 192.168.233.255
+        ether 02:da:9b:e4:a8:7f  txqueuelen 1000  (Ethernet)
+        RX packets 121  bytes 15220 (14.8 KiB)
+        RX errors 0  dropped 15  overruns 0  frame 0
+        TX packets 35  bytes 7258 (7.0 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+wlan0: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu 1500
+        inet 192.168.0.112  netmask 255.255.255.0  broadcast 192.168.0.255
+        ether 0c:cf:89:32:c5:c0  txqueuelen 1000  (Ethernet)
+        RX packets 950  bytes 154305 (150.6 KiB)
+        RX errors 0  dropped 950  overruns 0  frame 0
+        TX packets 5  bytes 1398 (1.3 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+</code></pre>
+<ul>
+<li><strong>使用 dhclient 触发 DHCP 获取 ip</strong></li>
+</ul>
+<blockquote>
+<p>这里以有线网卡（eth0）为例，decliient 还支持无线 WIFI（wlan0）.</p>
+</blockquote>
+<p>使用上方 <code>ifconfig -a</code> 命令后，如果 eth0 的地址获取失败可使用 <code>dhclient eth0</code> 触发 DHCP 获取 IP。</p>
+
+<pre class="language-bash"><code class="language-bash">root@AXERA:~# dhclient eth0 &amp;
+[1]+  Done                    dhclient eth0
+root@AXERA:~# ifconfig eth0
+wlan0: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu 1500
+        inet 192.168.0.136  netmask 255.255.255.0  broadcast 192.168.0.255
+        ether 0c:cf:89:32:c5:dc  txqueuelen 1000  (Ethernet)
+        RX packets 1284  bytes 157505 (153.8 KiB)
+        RX errors 0  dropped 1274  overruns 0  frame 0
+        TX packets 205  bytes 20798 (20.3 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+</code></pre>
+<h3 id="USB-RNDIS%EF%BC%88usb0%EF%BC%89%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95">USB RNDIS（usb0）配置方法</h3>
+<p>可使用静态 IP 地址 <code>192.168.233.1</code> 这里已配置好 dhcp 服务了，从而避免用户需手动设置 IP 地址的操作。</p>
+<blockquote>
+<p>使用 usb0 前需要安装 rndis 驱动，可点击<a href="https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html#%E5%9F%BA%E4%BA%8E-ip-%2B-ssh-%E7%99%BB%E5%BD%95"  target="_blank">驱动安装过程</a>前往安装。</p>
+</blockquote>
+<p>在 Windows 系统下如果遇到多个网卡时，发现 USB 网卡优于局域网导致内网网站访问很慢甚至失败，此时就需要通过 Win10 设置跃点数来调整网络优先级的连接顺序，去修改优先级改善访问慢的状态，数值越大优先级越低（比如设置 1000），从而把 USB 网卡优先级调至最低，可点击前往<a href="https://jingyan.baidu.com/article/358570f6bc5cfdce4724fca2.html"  target="_blank">配置网络优先级</a>.</p>
+<ul>
+<li><strong>查看 usb0 网卡是否存在</strong></li>
+</ul>
+<p>可通过 <code>ifconfig usb0</code> 命令查看 usb0 网卡或尝试 <code>ping 192.168.233.1</code> 是否能通。</p>
+
+<pre class="language-bash"><code class="language-bash">root@AXERA:~# ifconfig usb0
+usb0: flags=4099&lt;UP,BROADCAST,MULTICAST&gt;  mtu 1500
+        inet 192.168.233.1  netmask 255.255.255.0  broadcast 192.168.233.255
+        ether 16:37:cd:c6:f2:ae  txqueuelen 1000  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+</code></pre>
+<ul>
+<li><strong>在 ping 通后 192.168.233.1 即可通过 usb 线登陆到板子</strong></li>
+</ul>
+<p>USB 网卡会自动 DHCP 配置，直接连接 192.168.233.1 即可，连接方式可参考示意图。</p>
+<p><img src="./../assets/ssh-usb.jpg" alt="ssh-usb" /></p>
+<h3 id="%E6%9C%89%E7%BA%BF%E4%BB%A5%E5%A4%AA%E7%BD%91%EF%BC%88eth0%EF%BC%89%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95">有线以太网（eth0）配置方法</h3>
+<ul>
+<li><strong>查看 eth0 网卡是否存在</strong></li>
+</ul>
+<p>可使用 <code>dhclient eth0 &amp;</code> 手动启动 DHCP 客户端获取 IP 地址，得到 ip 后使用 <code>ifconfig eth0</code> 命令查看当前网络配置。默认支持千兆网络，只需要开机前将网线插上去，在启动过程中就会自动配置并联网，可以通过 <code>apt update</code> 测试软件源更新。</p>
+
+<pre class="language-bash"><code class="language-bash">root@AXERA:~# ifconfig
+eth0: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu 1500
+        inet 192.168.0.77  netmask 255.255.255.0  broadcast 192.168.0.255
+        ether 1e:09:dc:e9:1c:29  txqueuelen 1000  (Ethernet)
+        RX packets 301  bytes 41433 (40.4 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 31  bytes 2970 (2.9 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+        device interrupt 56
+</code></pre>
+<ul>
+<li><strong>关于 eth0 地址相同的问题</strong></li>
+</ul>
+<p>执行下述代码就会从 <code>/proc/ax_proc/uid</code> 读取 chip_id 写到 <code>/etc/network/interfaces</code> 的 eth0 配置里，该命令多次执行不受影响。</p>
+
+<pre class="language-none"><code class="language-none">python3 -c &quot;import os, binascii; os.system('sed -i \'/iface eth0 inet dhcp/ahwaddress ether {}\' /etc/network/interfaces'.format(binascii.hexlify(bytes.fromhex(open('/proc/ax_proc/uid').read().split('0x')[1][:-5]),':').decode('iso8859-1'))) if os.system('grep \'hwaddress ether\' /etc/network/interfaces -q') != 0 else exit();&quot;
+</code></pre>
+<ul>
+<li><strong>一些问题排除方法，如没有 ip 如何配置</strong></li>
+</ul>
+<p>登录后无法获取以太网地址的话，可用上文命令启动 DHCP 客户端获取 IP 地址。<br />
+或者是使用 <code>ifdown eth0</code> 关闭网卡后再使用 <code>ifup eth0 --force</code> 启动手动配置 IP。</p>
+<details>
+<summary>点此展开查看配置示例</summary>
+<div class="details-content"><p><img src="./../assets/eth0-config.jpg" alt="eth0-config" /></p>
+</div>
+</details>
+<h3 id="%E6%97%A0%E7%BA%BF-WIFI-%EF%BC%88wlan0%EF%BC%89%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95">无线 WIFI （wlan0）配置方法</h3>
+<blockquote>
+<p><strong>20230103</strong> 后镜像更新以及不同硬件（rtl8189fs）WiFi 模组，相关的 <code>WiFi</code> 配置全部采用 <code>nmtui</code> 图形化或命令行进行联网。相关的硬件版本区分或出现 <code>wlan0</code> 不显示的情况都请移步<a href="https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html"  target="_blank"> Maix-III 系列 AXera-Pi 常见问题（FAQ）</a>查看。</p>
+</blockquote>
+<ul>
+<li><strong>查看 WIFI 网卡是否存在</strong></li>
+</ul>
+<p><strong>wlan0</strong>：无线网卡，使用 DHCP 协议获取 IP 地址，可使用命令 <code>ifconfig wlan0</code> 查看当前网络配置。</p>
+<h4 id="%E4%BD%BF%E7%94%A8%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%81%94%E7%BD%91">使用命令行联网</h4>
+<blockquote>
+<p>注意：新镜像（<strong>20230103</strong>）已提前配置好 <code>nmtui-connect</code> 直接可以根据下文进行联网。<br />
+旧镜像使用前需先配置 <code>nmtui-connect</code> 才可使用，可点击前往<a href="https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html#%E9%85%8D%E7%BD%AE-nmtui-connect-%E4%BD%BF%E7%94%A8%E5%9B%BE%E5%BD%A2%E5%8C%96%E8%81%94%E7%BD%91"  target="_blank"> 启动 nmtui-connect 图形化联网 </a>查看。</p>
+</blockquote>
+<p>以下联网命令行已提前放置在开机脚本 <code>/boot/rc.local</code> 里，用户可参考示例修改命令行的 <code>账户 &amp; 密码</code> 并在终端运行联网即可，系统会自动保存连接过的 WiFi 账户以及密码。</p>
+
+<pre class="language-bash"><code class="language-bash">nmcli device wifi connect Sipeed_Guest password qwert123
+# 示例
+nmcli device wifi connect AXera-Pi password 11111111
+# 改动 WiFi 账户以及 pssword 密码
+</code></pre>
+<details>
+<summary>点击查看修改示例图</summary>
+<div class="details-content"><p><img src="./../assets/nmtui_adb.png" alt="nmtui_adb" /></p>
+</div>
+</details>
+<h4 id="%E4%BD%BF%E7%94%A8-nmtui-connect-%E5%9B%BE%E5%BD%A2%E5%8C%96%E8%81%94%E7%BD%91">使用 nmtui-connect 图形化联网</h4>
+<p>终端输入 <code>nmtui-connect</code> 打开可视化联网页面。页面会显示扫描到的 WiFi 信息，使用键盘的 <strong>上下左右</strong> 键选择要连接的 WiFi 按下 <strong>回车</strong> 键，页面提示输入 WiFi 密码，输完后选择 <code>OK</code> 并按 <strong>回车</strong> 键则会弹出页面，选择 <code>Quit</code> 按 <strong>回车</strong> 键退出，页面会显示 * 标变动代表联网完成。</p>
+<html>
+  <img src="./../assets/nmtui_one.png" width=45%>
+  <img src="./../assets/nmtui_two.png" width=45%>
+</html>
+<h4 id="nmtui-connect-%E5%9B%BE%E5%BD%A2%E5%8C%96%E8%81%94%E7%BD%91%E8%AF%A6%E8%A7%A3">nmtui-connect 图形化联网详解</h4>
+<p>系统已预置 NetworkManager 在 <code>nano /etc/NetworkManager/NetworkManager.conf</code> 里的 <code>managed=false</code> 修改成 <code>managed=true</code> 和注释掉 <code>/etc/network/interfaces</code> 里的有关于 <code>wlan0</code> 的配置（可以打开 <code>allow-hotplug wlan0</code> ）后「拔线断电重启」即可使用 <code>nmtui-connect</code> 进行联网，但原来的 <code>wpa_supplicant.conf</code> 里的配置会失效。</p>
+
+<pre class="language-none"><code class="language-none">root@AXERA:~# cat /etc/network/interfaces
+# interfaces(5) file used by ifup(8) and ifdown(8)
+# Include files from /etc/network/interfaces.d:
+source /etc/network/interfaces.d/*
+
+auto lo
+iface lo inet loopback
+
+# auto eth0
+allow-hotplug eth0
+iface eth0 inet dhcp
+
+# auto usb0
+allow-hotplug usb0
+iface usb0 inet static
+address 192.168.233.1
+netmask 255.255.255.0
+
+allow-hotplug wlan0
+# wpa-ssid &quot;2.4G&quot;
+# wpa-psk &quot;1qaz2wsx&quot;
+
+# auto wlan0
+# iface wlan0 inet manual
+# wpa-conf /boot/wpa_supplicant.conf
+# iface wlan0 inet dhcp
+</code></pre>
+<blockquote>
+<p><a href="https://support.huaweicloud.com/bestpractice-ims/ims_bp_0026.html#section1"  target="_blank">配置 NetworkManager 参考</a> &amp; <a href="https://www.cnblogs.com/liujiaxin2018/p/13910144.html"  target="_blank">linux系统中使用nmtui命令配置网络参数（图形用户界面）</a></p>
+</blockquote>
+<p>这样你就可以使用 <code>nmcli --pretty device wifi list</code> 进行 Wi-Fi 的扫描了。</p>
+
+<pre class="language-none"><code class="language-none">root@AXERA:~# nmcli --pretty device wifi list
+===========================
+  Wi-Fi scan list (wlan0)
+===========================
+IN-USE  BSSID              SSID                 MODE   CHAN  RATE        SIGNAL&gt;
+-------------------------------------------------------------------------------&gt;
+        CC:81:DA:5B:10:98  2.4G                 Infra  7     270 Mbit/s  92    &gt;
+        22:59:57:DD:90:63  田震天啊天震田       Infra  1     270 Mbit/s  65    &gt;
+        C4:70:AB:3B:5A:EF  201                  Infra  1     130 Mbit/s  65    &gt;
+        6A:70:AB:3B:5A:EC  --                   Infra  1     130 Mbit/s  65    &gt;
+        48:A0:F8:22:BB:2D  ChinaNet-KQXN        Infra  3     130 Mbit/s  65    &gt;
+        10:C1:72:2F:AD:FC  ChinaNet-kWCT        Infra  11    130 Mbit/s  64    &gt;
+        B0:DF:C1:76:C5:21  --                   Infra  2     195 Mbit/s  62    &gt;
+        66:9A:08:0C:57:D4  aWiFi-204            Infra  3     270 Mbit/s  62    &gt;
+        1C:60:DE:96:19:16  26JK                 Infra  6     270 Mbit/s  60    &gt;
+        1C:60:DE:78:D8:D2  EDwinLam.            Infra  1     270 Mbit/s  59    &gt;
+        64:64:4A:28:14:3F  Xiaomi_143E          Infra  2     130 Mbit/s  59    &gt;
+        08:40:F3:27:63:70  大王                 Infra  5     270 Mbit/s  59    &gt;
+        14:A3:2F:62:80:F4  HUAWEI-211           Infra  6     270 Mbit/s  59    &gt;
+        E4:0E:EE:DA:96:A4  w168                 Infra  6     270 Mbit/s  59    &gt;
+        66:9A:08:0C:2D:34  aWiFi-305            Infra  6     270 Mbit/s  59    &gt;
+        00:E0:4C:2B:2F:F3  UU加速盒-2FF2        Infra  11    270 Mbit/s  59    &gt;
+        74:50:4E:8D:51:69  --                   Infra  5     270 Mbit/s  57    &gt;
+        76:50:4E:1D:51:69  207                  Infra  5     130 Mbit/s  57    &gt;
+lines 1-23
+</code></pre>
+<h4 id="%E5%A6%82%E4%BD%95%E6%89%93%E5%BC%80-WIFI-AP-%E7%83%AD%E7%82%B9%E6%A8%A1%E5%BC%8F%EF%BC%88%E9%9C%80%E6%9B%BF%E6%8D%A2-rtl8189fs-wifi-%E6%A8%A1%E7%BB%84%EF%BC%89">如何打开 WIFI AP 热点模式（需替换 rtl8189fs wifi 模组）</h4>
+<p>基于 nmtui 联网成功后改用 nmcli 命令。</p>
+<ul>
+<li><code>nmcli device wifi hotspot ifname wlan0 con-name MyHostspot ssid MyHostspotSSID password 12345678</code> 即可创建 MyHostspotSSID 的 ap 热点。</li>
+</ul>
+<p><img src="./../assets/nmcli_ssid.png" alt="nmcli_ssid" /></p>
+<blockquote>
+<p>目前 rtl8723bs WIFI 能打开，但连上会重启板子，网卡驱动问题暂时不修，更换成 rtl8189fs 即可正常使用。</p>
+</blockquote>
+<h4 id="%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9%E8%BF%9E%E6%8E%A5%E7%9A%84-WIFI-%E8%B4%A6%E5%8F%B7%E5%AF%86%E7%A0%81%EF%BC%88%E5%B7%B2%E8%BF%87%E6%97%B6%EF%BC%89">如何修改连接的 WIFI 账号密码（已过时）</h4>
+<p>默认 WIFI 账号密码配置存放在 <code>/boot/wpa_supplicant.conf</code> 里，测试过并支持 Android 手机开放的 WPA-PSK2 热点，配置修改后会在重启后生效（<strong>建议用 nmtui-connect 进行配置连接</strong>)。</p>
+
+<pre class="language-bash"><code class="language-bash">root@AXERA:~# cat /boot/wpa_supplicant.conf
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+
+network={
+    ssid=&quot;Sipeed_Guest&quot;
+    key_mgmt=WPA-PSK
+    psk=&quot;qwert123&quot;
+}
+</code></pre>
+<h4 id="%E5%A6%82%E4%BD%95%E6%89%AB%E6%8F%8F-WIFI-%E7%83%AD%E7%82%B9%EF%BC%88%E5%B7%B2%E8%BF%87%E6%97%B6%EF%BC%89">如何扫描 WIFI 热点（已过时）</h4>
+<p>这需要了解 iwconfig 和 iwlist 命令去管理 WIFI 网卡，例如 WIFI 扫描方法 <code>iwlist wlan0 scanning</code>，由于 iwconfig 只支持无密码和 WEP 认证的热点，所以现已不使用这个命令，仅供简单的查询热点或测试 WIFI 的好与坏。</p>
+
+<pre class="language-none"><code class="language-none">root@AXERA:~# iwlist wlan0 scanning
+wlan0     Scan completed :
+          Cell 01 - Address: 58:41:20:05:07:96
+                    ESSID:&quot;Sipeed_Guest&quot;
+                    Protocol:IEEE 802.11bgn
+                    Mode:Master
+                    Frequency:2.412 GHz (Channel 1)
+                    Encryption key:on
+                    Bit Rates:300 Mb/s
+                    Extra:wpa_ie =dd160050f20101000050f20401000050f20401000050f202
+                    IE: WPA Version 1
+                        Group Cipher : CCMP
+                        Pairwise Ciphers (1) : CCMP
+                        Authentication Suites (1) : PSK
+                    Extra:rsn_ie =30140100000fac040100000fac040100000fac020000
+                    IE: IEEE 802.11i/WPA2 Version 1
+                        Group Cipher : CCMP
+                        Pairwise Ciphers (1) : CCMP
+                        Authentication Suites (1) : PSK
+                    Quality=100/100  Signal level=100/100
+                    Extra:fm =0003
+          Cell 02 - Address: 0C:3A:FA:0E:81:7F
+                    ESSID:&quot;&quot;
+                    Protocol:IEEE 802.11bgn
+                    Mode:Master
+                    Frequency:2.412 GHz (Channel 1)
+                    Encryption key:off
+                    Bit Rates:144 Mb/s
+                    Quality=100/100  Signal level=88/100
+                    Extra:fm =0001
+          Cell 03 - Address: 64:64:4A:88:7F:06
+                    ESSID:&quot;Reachintelligent&quot;
+                    Protocol:IEEE 802.11bgn
+                    Mode:Master
+                    Frequency:2.412 GHz (Channel 1)
+                    Encryption key:on
+                    Bit Rates:144 Mb/s
+                    Extra:rsn_ie =30140100000fac040100000fac040100000fac020c00
+                    IE: IEEE 802.11i/WPA2 Version 1
+                        Group Cipher : CCMP
+                        Pairwise Ciphers (1) : CCMP
+                        Authentication Suites (1) : PSK
+                    IE: Unknown: DD7B0050F204104A0001101044000102103B00010310470010876543219ABCDEF0123464644A887F04102100067869616F6D69102300045241373210240004303030321042000531323334351054000800060050F20400011011000C5869616F4D69526F75746572100800020000103C0001031049000600372A000120
+                    Quality=100/100  Signal level=100/100
+                    Extra:fm =0003
+
+</code></pre>
+<blockquote>
+<p>目前所有的网络配置都会在重启后自动生效，如果想要自己手工控制网卡的开关，请了解一下 ifup 或 ifdown 命令的用法，类似 ifup eth0 启动 eth0 网卡，ifdown eth0 --force 强制关闭 eth0 网卡等。</p>
+</blockquote>
+<h2 id="%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE">系统配置</h2>
+<h3 id="%E7%B3%BB%E7%BB%9F%E6%97%B6%E9%97%B4">系统时间</h3>
+<p>Maix-III AXera-Pi 开发板的 Linux 系统默认使用 NTP 协议获取系统时间，可以使用 <code>date</code> 命令查看当前系统时间。</p>
+<blockquote>
+<p>如果联网了会自动使用 <code>ntp-debian</code> 同步时间，没有同步则说明没有网络，没有同步 <code>apt update</code> 更新软件也会失败。</p>
+</blockquote>
+<h3 id="%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6">安装软件</h3>
+<p>Maix-III AXera-Pi 开发板的 Linux 系统可以通过 <code>apt</code> 更新软件。<br />
+比如安装 gcc gdb ffmpeg 等常用 Linux 软件，只需要使用下述命令即可，其他软件安装也同理。</p>
+
+<pre class="language-bash"><code class="language-bash">sudo apt update
+sudo apt install gcc gdb ffmpeg
+</code></pre>
+<details>
+<summary>点此展开查看示例图</summary>
+<div class="details-content"><p><img src="./../assets/apt.jpg" alt="apt" /></p>
+</div>
+</details>
+<blockquote>
+<p>由于 Linux 系统直接断电可能会导致文件系统损坏，如果可以的话建议按下述命令去进行开关机，可以避免一些由于直接断电系统损坏导致的奇怪问题出现。</p>
+</blockquote>
+<h3 id="%E9%87%8D%E5%90%AF%E7%B3%BB%E7%BB%9F">重启系统</h3>
+<p>Maix-III AXera-Pi 开发板的 Linux 系统可以通过 <code>reboot</code> 命令重启，重启命令如下：</p>
+
+<pre class="language-bash"><code class="language-bash">reboot
+</code></pre>
+<h3 id="%E5%85%B3%E9%97%AD%E7%B3%BB%E7%BB%9F">关闭系统</h3>
+<p>Maix-III AXera-Pi 开发板的 Linux 系统可以通过 <code>poweroff</code> 命令关闭，关闭命令如下：</p>
+
+<pre class="language-bash"><code class="language-bash">poweroff
+</code></pre>
+<h3 id="%E7%A3%81%E7%9B%98%E6%89%A9%E5%AE%B9">磁盘扩容</h3>
+<p>基于一些用户可能有扩容分区的需求，因此在这里添加在 AXera-Pi 上给板子扩容或者是建立新分区的内容。</p>
+<ul>
+<li>操作方法</li>
+</ul>
+<p>首先需要烧录完上方的 debian11 的镜像系统后，再使用 AXera-Pi 登陆上 Linux 系统来进行磁盘扩容分区。</p>
+<blockquote>
+<p><a href="https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html#%E7%B3%BB%E7%BB%9F%E7%99%BB%E5%BD%95"  target="_blank">点击查看 AXera-Pi 登陆方式</a></p>
+</blockquote>
+<p>成功登陆到 AXera-Pi 上后，用户可以先使用 <code>lsblk</code> 命令来查看设备当前的存储情况。接着使用 <code>cfdisk /dev/mmcblk2</code> 来进行磁盘分区扩容的操作。（<code>mmcblk2</code> 是我们进行操作的区域名称也称设备名）</p>
+<details>
+<summary>点击查看配置示意图</summary>
+<div class="details-content"><p><img src="./../assets/cfdisk-mmcblk2.jpg" alt="cfdisk" /></p>
+</div>
+</details>
+<p>运行命令后终端会弹出下图操作界面，由 <code>Free space</code> 可见存储空间还余 <code>4.3G</code>，用户可使用键盘上的方向键移动选择我们要扩容的分区 <code>/dev/mmcblk2p2</code> 。</p>
+<details>
+<summary>点击查看配置示意图</summary>
+<div class="details-content"><p><img src="./../assets/rizese-mmcblk2.png" alt="rizese-mmcblk2" /></p>
+</div>
+</details>
+<p>选择上图的 <code>Resize</code> 按下<strong>回车键</strong>对当前分区进行缩容或扩容，界面会跳出提示用户修改新的分区大小。</p>
+<details>
+<summary>点击查看配置示意图</summary>
+<div class="details-content"><p><img src="./../assets/new-resize.png" alt="new-resize" /></p>
+</div>
+</details>
+<p>修改后敲<strong>回车键</strong>确定，终端界面会回到原页面。这时我们已经完成对分区扩容的修改了，还需要把改动的部分写入磁盘。在页面选择 <code>Write</code> 并敲<strong>回车键</strong>后输入 <code>yes</code> 确定将改动分区表写入磁盘中，再敲<strong>回车键</strong>即可。</p>
+<details>
+<summary>点击查看配置示意图</summary>
+<div class="details-content"><p><img src="./../assets/write-disk.png" alt="write-disk" /></p>
+</div>
+</details>
+<p>操作后会返回原界面，选择 <code>Quit</code> 退出即可。</p>
+<details>
+<summary>点击查看配置示意图</summary>
+<div class="details-content"><p><img src="./../assets/quit.jpg" alt="quit" /></p>
+</div>
+</details>
+<p>接下来使用命令行 <code>df -h</code> 查询磁盘使用空间的情况，终端会显示用户没改动之前的使用情况，需要我们使用命令 <code>resize2fs /dev/mmcblk2p2</code> 来调整文件系统的大小实现对 <code>mmcblk2</code> 分区的扩容，再使用 <code>df -h</code> 查询就可以看到磁盘改动后的情况。</p>
+<details>
+<summary>点击查看配置示意图</summary>
+<div class="details-content"><p><img src="./../assets/df-mmcblk2.jpg" alt="df-mmcblk2" /></p>
+</div>
+</details>
+<blockquote>
+<p><strong>注意</strong>：如果调整完文件系统的大小后使用 <code>df -h</code> 查询磁盘信息依旧是改动前的信息，可使用 <code>reboot</code> 重启设备后在查询。</p>
+</blockquote>
+<h3 id="%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC">开机启动脚本</h3>
+<p>系统已经内置好 <code>/boot/rc.local</code> 的开机启动脚本，用户可参照以下示例进行修改。</p>
+<p>开机启动脚本是在 / 根目录下运行的，举例来说，如果想要开机启动 <code>/home/run.sh</code> 脚本。</p>
+<ol>
+<li>用绝对路径挂后台运行程序 <code>/home/run.sh &amp;</code> 才可以确保开机后进入 shell 命令终端。</li>
+<li>【推荐】用相对路径挂后台运行程序 <code>cd /home &amp;&amp; ./run.sh &amp;</code> 注意此时 pwd 和绝对路径是不一样。</li>
+</ol>
+<p>请先验证好可以在 / 根目录下启动后再放入以下的开机脚本中，不会就抄以下脚本的例子。</p>
+
+<pre class="language-bash"><code class="language-bash">root@AXERA:~# cat /boot/rc.local
+#!/bin/sh
+
+# this file is called by /etc/rc.local at boot.
+
+# systemctl stop usb-gadget@g0
+# mkdir -p /mnt/udisk &amp;&amp; mount /dev/sda1 /mnt/udisk
+# python3 /mnt/udisk/alltest.py
+
+# this control lcd backlight(50 ~ 1000)
+echo 0 &gt; /sys/class/pwm/pwmchip0/export
+echo 1000 &gt; /sys/class/pwm/pwmchip0/pwm0/period
+echo 500 &gt; /sys/class/pwm/pwmchip0/pwm0/duty_cycle
+echo 1 &gt; /sys/class/pwm/pwmchip0/pwm0/enable
+
+# wifi connect ssid Sipeed_Guest pasw qwert123
+nmcli device wifi connect Sipeed_Guest password qwert123
+
+if [ -f &quot;/root/boot&quot; ]; then
+  cd /root/ &amp;&amp; chmod 777 * &amp;&amp; ./boot &amp;
+elif [ -d &quot;/root/app&quot; ]; then
+  cd /root/app &amp;&amp; chmod 777 *
+  if [ -f &quot;./main&quot; ]; then
+    ./main &amp;
+  elif [ -f &quot;./main.bin&quot; ]; then
+    ./main.bin &amp;
+  elif [ -f &quot;./main.py&quot; ]; then
+    python3 ./main.py &amp;
+  fi
+else
+  aplay /home/res/boot.wav &gt;/dev/null 2&gt;&amp;1 &amp;
+  /opt/bin/sample_vo_fb -v dsi0@480x854@60 -m 0 &gt;/dev/null 2&gt;&amp;1 &amp;
+  sleep 0.8 &amp;&amp; /home/fbv-1.0b/fbv /home/res/2_480x854.jpeg &amp;&amp; killall sample_vo_fb &amp;
+  python3 -c &quot;import os, binascii; os.system('sed -i \'/iface eth0 inet dhcp/ahwaddress ether {}\' /etc/network/interfaces'.format(binascii.hexlify(bytes.fromhex(open('/proc/ax_proc/uid').read().split('0x')[1][:-5]),':').decode('iso8859-1'))) if os.system('grep \'hwaddress ether\' /etc/network/interfaces -q') != 0 else exit();&quot; &amp;
+fi
+
+exit 0
+
+</code></pre>
+<details>
+<summary>点此展开查看示例图</summary>
+<div class="details-content"><p><img src="./../assets/start.jpg" alt="start" /></p>
+</div>
+</details>
+<p>下面是启动日志（截取）：</p>
+<p><img src="./../../../en/maixiii/ax-pi/assets/flash_system/m3axpi_debian_boot_log_screenshot.png" alt="m3axpi_debian_boot_log_screenshot" /></p>
+<ol>
+<li>虽然上面显示 <code>DRAM: 1 GiB</code>，但是在系统中弄可以查到实际的存储是 <code>2 GiB</code>.</li>
+<li>因物料更换屏幕现有不同的版本，需区别版本以及使用屏幕时出现锯齿等画面请移步到<a href="https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html#Q%EF%BC%9A%E7%A1%AC%E4%BB%B6%E7%89%A9%E6%96%99%E6%9B%B4%E6%94%B9%E8%AF%B4%E6%98%8E%E3%80%81%E6%B2%A1%E6%9C%89-wlan0-%E3%80%81%E5%B1%8F%E5%B9%95%E7%83%A7%E5%B1%8F%E3%80%81%E6%91%84%E5%83%8F%E5%A4%B4%E5%80%92%E8%BF%87%E6%9D%A5%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3%EF%BC%9F"  target="_blank"> Maix-III 系列 AXera-Pi 常见问题(FAQ) </a>查询。</li>
+</ol>
+<h3 id="%E6%9B%B4%E6%96%B0%E5%86%85%E6%A0%B8%E4%B8%8E%E9%A9%B1%E5%8A%A8">更新内核与驱动</h3>
+<p>在 SD 卡的第一分区会挂载到系统根目录下的 /boot 系统启动相关的文件，替换它后重启（reboot）即可完成更新。</p>
+<ul>
+<li><p>boot.bin 芯片 spl 初始化程序</p>
+</li>
+<li><p>uboot.bin uboot 启动引导程序</p>
+</li>
+<li><p>kernel.img linux 内核</p>
+</li>
+<li><p>dtb.img linux 设备树</p>
+</li>
+</ul>
+<p>例如：</p>
+<ul>
+<li>更新设备树可以用 <code>cp /boot/dtb.img.lcd20221025 /boot/dtb.img</code></li>
+<li>更新内核驱动可以用 <code>cp /boot/kernel.img.rtl8723bs /boot/kernel.img</code></li>
+</ul>
+<p>最后 reboot 即可生效。</p>
+<h2 id="%E5%A6%82%E4%BD%95%E4%BC%A0%E8%BE%93%E6%96%87%E4%BB%B6">如何传输文件</h2>
+<blockquote>
+<p>如果在使用 AXera-Pi 途中出现从设备到电脑端文件互传的需求，可根据以下的方式进行传输：</p>
+</blockquote>
+<h3 id="%E4%BD%BF%E7%94%A8%E8%AF%BB%E5%8D%A1%E5%99%A8%E7%89%A9%E7%90%86%E6%8B%B7%E8%B4%9D%E6%96%87%E4%BB%B6">使用读卡器物理拷贝文件</h3>
+<p><strong>物理传输</strong>：由于 Linux 系统采用 <code>ext4</code> 分区在 Windows / Mac 默认系统下无法进行查看，用户需额外安装增强工具才能读取到具体的分区。而 Linux 系统可直接看到卡里的分区和内容，也可以选择把读卡器接到安卓设备通过 <strong>OTG</strong> 转接头实现文件拷贝。</p>
+<ul>
+<li><p><a href="https://zhuanlan.zhihu.com/p/448535639"  target="_blank">如何在 Windows 下访问 ext4 格式的硬盘？</a></p>
+</li>
+<li><p><a href="https://blog.twofei.com/773/"  target="_blank">[macOS] 在 macOS 上挂载 Linux 的 ext/ext3/ext4 文件系统</a></p>
+</li>
+</ul>
+<h3 id="%E6%9D%BF%E5%AD%90%E4%B8%8E%E7%94%B5%E8%84%91%E7%9A%84%E6%96%87%E4%BB%B6%E4%BA%92%E4%BC%A0">板子与电脑的文件互传</h3>
+<blockquote>
+<p>基于让用户的使用更加快速便捷，还可以选择直接在板子上与电脑端通过工具实现文件互传。</p>
+</blockquote>
+<p><strong>使用 SSH 远程管理工具进行文件传输：</strong></p>
+<p>使用前需要使用 <code>ifconfig</code> 查询板子的 IP 地址做登录备用，可点击前往<a href="https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html#%E5%9F%BA%E4%BA%8E-ip-%2B-ssh-%E7%99%BB%E5%BD%95"  target="_blank">系统登录</a>查看。在 Windows 上有众多远程管理 Linux 服务器的工具都提供了文件传输的功能，这里推荐免费绿色的 <strong>Mobaxterm</strong> 工具。</p>
+<ul>
+<li><p><a href="https://wiki.sipeed.com/hardware/zh/maixII/M2/tools/mobaxterm.html"  target="_blank">如何使用 MobaXterm</a></p>
+</li>
+<li><p><a href="https://jingyan.baidu.com/article/9f63fb91e2bc6688400f0e93.html"  target="_blank">利用 MobaXterm 实现 Linux 和 Windows 之间传输文件</a></p>
+</li>
+<li><p><a href="https://blog.csdn.net/unforgettable2010/article/details/123930796"  target="_blank">用 MobaXterm 在 Linux 和 Windows 之间上传/下载文件</a></p>
+</li>
+</ul>
+<blockquote>
+<p>如果想了解更多的工具可点击<a href="https://zhuanlan.zhihu.com/p/301653835"  target="_blank">【推荐7款超级好用的终端工具 —— SSH+FTP】</a>查看，而其他系统都提供了好用的命令行终端，支持 SSH 、scp 等命令直接执行。</p>
+</blockquote>
+<p><strong>使用 scp 命令复制文件：</strong></p>
+<p>和 cp 复制文件等命令一样，它就是 <code>ssh + cp = scp</code> 这个意思。</p>
+<ul>
+<li><a href="https://cloud.tencent.com/developer/article/1876623"  target="_blank">Linux 操作系统 scp 命令使用方法</a></li>
+</ul>
+<p><strong>使用有线串口互传文件：</strong></p>
+<p>使用前根据串口 serial 登录接线配置参数连上板子，安装 <code>apt-get install lrzsz</code> 工具后可参考以下文章。</p>
+<ul>
+<li><p><a href="https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html#%E6%9C%89%E7%BA%BF-%E4%B8%B2%E5%8F%A3-serial-%E7%99%BB%E9%99%86"  target="_blank">有线串口 serial 登录</a></p>
+</li>
+<li><p>使用命令行工具 <code>minicom -D /dev/ttyUSB0 -b 115200</code> 可以查看<a href="https://blog.csdn.net/wanyeye/article/details/42002377"  target="_blank"> Ubuntu 中使用 minicom 玩转文件的上传与下载</a>。</p>
+</li>
+<li><p>使用 MobaXterm 可以点击 <a href="https://blog.csdn.net/qq_28837389/article/details/120073720"  target="_blank">MobaXterm 使用 rz/sz 传送文件</a>查看。</p>
+</li>
+</ul>
+<h2 id="%E9%AA%8C%E8%AF%81%E7%B3%BB%E7%BB%9F%E5%A4%96%E8%AE%BE">验证系统外设</h2>
+<h3 id="%E7%B3%BB%E7%BB%9F%E9%A2%84%E7%BD%AE%E7%9A%84%E8%B5%84%E6%BA%90">系统预置的资源</h3>
+<p>Maix-III AXera-Pi 开发板的 Linux 系统预置了一些资源，可以通过 <code>ls /opt</code> 命令来查看。</p>
+
+<pre class="language-bash"><code class="language-bash">root@AXERA:~# ls /opt
+bin  include  lib  scripts  share
+</code></pre>
+<p>还有一些在 <code>home</code> 目录下：</p>
+
+<pre class="language-bash"><code class="language-bash">root@AXERA:~# tree -L 1 /home
+├── ax-samples          # npu ai sdk
+├── examples            # 一些开箱示例
+├── fbv-1.0b            # fbv 图片查看器
+├── images              # 一些测试图片
+├── libmaix             # simple pipeline sdk
+├── models              # 内置的 AI 模型
+├── res                 # 一些图像字体资源
+├── systemd-usb-gadget  # 配置 usb 服务
+├── usb-uvc-gadget      # 配置 uvc 服务
+└── ustreamer           # mjpeg 图传
+</code></pre>
+<p>板子已经预置了 <code>gcc g++ gdb libopencv ffmpeg</code> 等工具，可直接在板上编译运行程序。</p>
+<p>可参考下方使用方法：</p>
+
+<pre class="language-bash"><code class="language-bash">cd /home/libmaix/examples/axpi/
+python3 project.py build
+fbon
+./dist/start_app.sh
+</code></pre>
+<details>
+<summary>点击查看示例效果</summary>
+<div class="details-content"><p>使用命令行后会打印大量数据信息并启动摄像头及屏幕。</p>
+<p><img src="./../assets/libmaix.jpg" alt="libmaix" /></p>
+</div>
+</details>
+<p>而 axsample 已经预编译好了，相关 joint 模型已内置在 <code>/home/models/</code> 下便于用户查询。</p>
+
+<pre class="language-bash"><code class="language-bash">/home/ax-samples/build/install/bin/ax_yolov5s -m /home/models/yolov5s.joint -i /home/images/cat.jpg -r 10
+fbon
+fbv yolov5s_out.jpg
+</code></pre>
+<details>
+<summary>点击查看效果</summary>
+<div class="details-content"><p>输入上方命令后屏幕会显示 yolovs_out.jpg 图像</p>
+<p><img src="./../assets/cat.jpg" alt="cat" /></p>
+</div>
+</details>
+<p>可以在联网后直接 <code>git pull</code> 更新仓库的提交记录，如果不能访问 github 的话就设置一下 <code>git remote</code> 从 gitee 拉取代码吧。</p>
+<blockquote>
+<p><strong>注意</strong>：使用 xxxx menuconfig 报错请移步<a href="https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html"  target="_blank">Maix-III 系列 AXera-Pi 常见问题（FAQ）</a></p>
+</blockquote>
+<h3 id="%E6%8E%92%E9%92%88%E5%BC%95%E8%84%9A%E5%9B%BE">排针引脚图</h3>
+<p><img src="./../assets/layout_axpi_1.png" alt="layout_axpi" /></p>
+<h3 id="RTC">RTC</h3>
+<p>使用 <code>ls /sys/class/rtc</code> 查询会出现 /dev/rtc0 和 /dev/rtc1，分别是外部电池以及芯片内部的 rtc 时钟。</p>
+<ul>
+<li><strong>查看时间</strong></li>
+</ul>
+
+<pre class="language-bash"><code class="language-bash">cat /sys/class/rtc/rtc0/time &amp;&amp; cat /sys/class/rtc/rtc0/date
+
+cat /sys/class/rtc/rtc1/time &amp;&amp; cat /sys/class/rtc/rtc1/date
+</code></pre>
+
+<pre class="language-bash"><code class="language-bash">root@AXERA:~# cat /sys/class/rtc/rtc0/time &amp;&amp; cat /sys/class/rtc/rtc0/date
+08:13:30
+2022-08-19
+</code></pre>
+<ul>
+<li><strong>设置时间</strong></li>
+</ul>
+<p>使用 <code>hwclock -w -f /dev/rtc0</code> 或 <code>hwclock -w -f /dev/rtc1</code> 写入。<br />
+只有这个方法可以写进去，确认 RTC 是否写入成功，只需要断电后重启的时间不为 1970 就行。</p>
+<h3 id="CPU-%26amp%3B-RAM">CPU &amp; RAM</h3>
+<p>默认 800MHz 可以调到 1ghz.</p>
+
+<pre class="language-bash"><code class="language-bash">root@AXERA:~# ax_lookat 0x01900000 -s 33
+0x1900000:00000033
+root@AXERA:~# ax_clk
+AX620A:
+DDR:                 3733 MHz
+CPU:                 800 MHz
+BUS of VPU:         624 MHz
+BUS of NPU:         624 MHz
+BUS of ISP:         624 MHz
+BUS of CPU:         624 MHz
+NPU OTHER:         800 MHz
+NPU GLB:         24 MHz
+NPU FAB:         800 MHz
+NPU CORE1:         800 MHz
+NPU CORE0:         800 MHz
+ISP:                 533 MHz
+MM:                 594 MHz
+VPU:                 624 MHz
+root@AXERA:~# ax_lookat 0x01900000 -s 35
+0x1900000:00000035
+root@AXERA:~# ax_clk
+AX620A:
+DDR:                 3733 MHz
+CPU:                 1000 MHz
+BUS of VPU:         624 MHz
+BUS of NPU:         624 MHz
+BUS of ISP:         624 MHz
+BUS of CPU:         624 MHz
+NPU OTHER:         800 MHz
+NPU GLB:         24 MHz
+NPU FAB:         800 MHz
+NPU CORE1:         800 MHz
+NPU CORE0:         800 MHz
+ISP:                 533 MHz
+MM:                 594 MHz
+VPU:                 624 MHz
+root@AXERA:~#
+</code></pre>
+<p>目前硬件内存虽然是 2g 但在系统上只能看到 745M ，不用担心，这是目前的分配内存过于保守导致的，后续更新内核调整一下 NPU 和 CMM 的内存分配的。<strong>(注：内核已更新，用户空间恢复 1.22G)</strong></p>
+<h3 id="VIDEO">VIDEO</h3>
+<p>（这是出厂测试硬件用的测试程序，请不要使用它！！因为它画面显示是不正常的！！！）</p>
+<blockquote>
+<p><strong>注意</strong>：VIDEO 的以下命令只用于测试摄像头硬件是否有成像能用的作用，正常效果角度请点击应用传送门查看！！<br />
+内置开箱应用传送门：<a href="https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html#%E5%86%85%E7%BD%AE%E5%BC%80%E7%AE%B1%E5%BA%94%E7%94%A8"  target="_blank">点击前往</a></p>
+</blockquote>
+<p>目前系统的摄像头驱动不经过 v4l2 驱动框架，所以必须通过代码配置的方式进行启用，相关摄像头驱动都是在应用层上完成的，</p>
+<ul>
+<li>gc4653 （基础版）（使用 -c 2)</li>
+<li>os04a10（夜视版）（使用 -c 0)</li>
+</ul>
+
+<pre class="language-bash"><code class="language-bash">sample_vin_vo -c 2 -e 1 -s 0 -v dsi0@480x854@60
+</code></pre>
+<details>
+<summary>运行上方命令后可看到画面（示例效果）</summary>
+<div class="details-content"><p><img src="./../assets/video.jpg" alt="video" /></p>
+</div>
+</details>
+<blockquote>
+<p>默认使用的是 gc4653 ，使用 os04a10 请移步<a href="https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html"  target="_blank">Maix-III 系列 AXera-Pi 常见问题(FAQ)</a>查询。</p>
+</blockquote>
+<h3 id="DISPLAY">DISPLAY</h3>
+<blockquote>
+<p>因物料更换屏幕现有不同的版本，需区别版本以及使用屏幕时出现锯齿等画面请移步到<a href="https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html#Q%EF%BC%9A%E7%A1%AC%E4%BB%B6%E7%89%A9%E6%96%99%E6%9B%B4%E6%94%B9%E8%AF%B4%E6%98%8E%E3%80%81%E6%B2%A1%E6%9C%89-wlan0-%E3%80%81%E5%B1%8F%E5%B9%95%E7%83%A7%E5%B1%8F%E3%80%81%E6%91%84%E5%83%8F%E5%A4%B4%E5%80%92%E8%BF%87%E6%9D%A5%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3%EF%BC%9F"  target="_blank"> Maix-III 系列 AXera-Pi 常见问题(FAQ) </a>查询。</p>
+</blockquote>
+<p>目前想要使用 libdrm 需要搭配代码使用，请参考 sdk 的源码实现，因为目前系统还未移植好 gpu 驱动所以无法使用 modetest 进行测试，但可以参考下面进行测试。</p>
+<p>测试屏幕是否能用, 可以直接运行命令 <code>sample_vo -v dsi0@480x854@60 -m 0</code> 命令屏幕会显示出彩色条纹。但使用前务必调用 <code>fboff</code> 关闭 fb 设备。</p>
+<p>目前系统默认使用的是最简单的 framebuffer 显示驱动（/dev/fb0），在系统里内置了 <code>fbon / fboff / fbv xxx.jpg</code> 三个命令负责管理 fb 设备的启用和显示。</p>
+<h4 id="%E6%98%BE%E7%A4%BA%E4%B8%80%E5%BC%A0%E5%9B%BE%E7%89%87">显示一张图片</h4>
+
+<pre class="language-bash"><code class="language-bash">fbon
+fbv /home/res/logo.png
+fboff
+</code></pre>
+<p><img src="./../assets/fbv_logo.jpg" alt="fbv_logo" /></p>
+<h4 id="%E6%92%AD%E6%94%BE%E8%A7%86%E9%A2%91">播放视频</h4>
+<p>播放视频可以使用 ffmpeg 的命令，但请注意 ffmpeg 播放视频前需要将视频顺时针旋转 90°，将 RGB 视频变成 BGR 格式以及分辨率 resize 改成 480<em>854。如果出现视频播放速度太快的现象就需要使用 `ffmpeg -i /home/kun_1_output.mp4 -vf &quot;setpts=2</em>PTS&quot; test3.mp4` 重新生成一个慢速的视频文件，再次播放即可。</p>
+
+<pre class="language-bash"><code class="language-bash">fbon
+ffmpeg -i /home/test3.mp4 -pix_fmt rgba -f fbdev /dev/fb0
+fboff
+</code></pre>
+<p>在 python 中可以使用 <code>os.system()</code> 将上面的命令包裹起来，直接在代码里面运行。</p>
+
+<pre class="language-python"><code class="language-python">import os
+os.system(&quot;fbon&quot;)
+os.system(&quot;fbv /home/res/logo.png&quot;)
+os.system(&quot;fboff&quot;)
+os.system(&quot;fbon&quot;)
+os.system(&quot;ffmpeg -i /home/test3.mp4 -pix_fmt rgba -f fbdev /dev/fb0&quot;)
+os.system(&quot;fboff&quot;)
+</code></pre>
+<h3 id="NPU">NPU</h3>
+<p>测试 NPU 的示例程序在 <code>/home/ax-samples/build/install</code> 目录下，已经预编译好了，直接就可以调用并显示运行结果。</p>
+
+<pre class="language-bash"><code class="language-bash">fbon
+/home/ax-samples/build/install/bin/ax_yolov5s -m /home/models/yolov5s.joint -i /home/images/cat.jpg -r 10
+fbv yolov5s_out.jpg
+</code></pre>
+<details>
+<summary>点击查看效果</summary>
+<div class="details-content"><p><img src="./../assets/cat.jpg" alt="cat" /></p>
+</div>
+</details>
+<h3 id="AUDIO">AUDIO</h3>
+<p>和桌面系统保持一致，直接可用 alsa-utils 进行测试。</p>
+<ul>
+<li><strong>测试脚本</strong>：<code>speaker-test -t sine -f 440 -c1</code></li>
+<li><strong>录制音频</strong>：<code>arecord test.wav -c 2 -f cd -d 2</code></li>
+<li><strong>播放音频</strong>：<code>aplay test.wav</code></li>
+</ul>
+<p>录音回放的 <code>python3</code> 代码如下：</p>
+
+<pre class="language-python"><code class="language-python">import pyaudio
+try:
+    chunk = 1024      # Each chunk will consist of 1024 samples
+    sample_format = pyaudio.paInt16      # 16 bits per sample
+    channels = 2      # Number of audio channels
+    fs = 44100        # Record at 44100 samples per second
+    time_in_seconds = 30
+    p = pyaudio.PyAudio()
+    stream = p.open(format=sample_format,
+                    channels = channels,
+                    rate = fs,
+                    frames_per_buffer = chunk,
+                    input = True, output = True)
+    # Store data in chunks for 3 seconds
+    for i in range(0, int(fs / chunk * time_in_seconds)):
+        data = stream.read(chunk)
+        stream.write(data)
+finally:
+    # Stop and close the Stream and PyAudio
+    stream.stop_stream()
+    stream.close()
+    p.terminate()
+</code></pre>
+<p>可以在 alsamixer 配置你的设备，如果不了解的话建议不要修改。</p>
+<p><img src="./../assets/alsamixer.jpg" alt="alsamixer" /></p>
+<h3 id="USB">USB</h3>
+<blockquote>
+<p><strong>注意</strong>：由于芯片只有一个完整功能的 usb2.0，同一时刻下只有一个使用方向如 OTG 从机或 HOST 主机。</p>
+</blockquote>
+<h4 id="%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AE-USB-OTG-%E8%99%9A%E6%8B%9F%E7%BD%91%E5%8D%A1-RNDIS-usb0-%E6%9C%89%E7%BA%BF-ssh-%E7%99%BB%E5%BD%95">如何配置 USB OTG 虚拟网卡 RNDIS usb0 有线 ssh 登录</h4>
+<p>默认就会启动配置 <code>systemctl enable usb-gadget@g0</code>，启动用 <code>systemctl start usb-gadget@g0</code>，停止开机启动用 <code>systemctl disable usb-gadget@g0</code>，停止服务用<code>systemctl stop usb-gadget@g0</code>。</p>
+<p>此时使用命令 <code>sshpass -p root ssh root@192.168.233.1</code> 即可连接，账号及密码都是 root 。</p>
+<p><img src="./../assets/ssh-usb.jpg" alt="ssh-usb" /></p>
+<h4 id="%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AE-USB-OTG-%E8%99%9A%E6%8B%9F%E4%B8%B2%E5%8F%A3-/dev/ttyGS0-%E5%B9%B6%E8%BD%AC%E5%8F%91%E7%99%BB%E5%BD%95%E6%8E%A5%E5%8F%A3">如何配置 USB OTG 虚拟串口 /dev/ttyGS0 并转发登录接口</h4>
+<p>停止 usb-gadget@g0 后使用 <code>systemctl start usb-gadget@g1</code> 即可看到，然后使用 <code>systemctl start getty@ttyGS0</code> 即可转发串口终端到 usb 的虚拟串口上。</p>
+<p><img src="./../assets/usb_tty.jpg" alt="usb_tty" /></p>
+<h4 id="%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-USB-HOST-%E8%AF%BB%E5%8F%96%E4%B8%80%E4%B8%AA-256M-%E7%9A%84-SD-%E5%8D%A1">如何使用 USB HOST 读取一个 256M 的 SD 卡</h4>
+<p>先关了 otg 的 rndis 后再 lsusb 就可以看到了。</p>
+<blockquote>
+<p>我们在 debian 系统上配置了 usb-gadget@g1 和 usb-gadget@g0 两个服务。</p>
+</blockquote>
+
+<pre class="language-bash"><code class="language-bash">root@AXERA:~# systemctl stop usb-gadget@g0
+root@AXERA:~# lsusb
+Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
+Bus 001 Device 002: ID 067b:2731 Prolific Technology, Inc. USB SD Card Reader
+Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+root@AXERA:~# fdisk -l
+Disk /dev/mmcblk2: 58.94 GiB, 63281561600 bytes, 123596800 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: dos
+Disk identifier: 0x32eb5429
+
+Device         Boot  Start       End   Sectors  Size Id Type
+/dev/mmcblk2p1 *      2048    264191    262144  128M  c W95 FAT32 (LBA)
+/dev/mmcblk2p2      264192 123596799 123332608 58.8G 83 Linux
+
+
+Disk /dev/sda: 240 MiB, 251658240 bytes, 491520 sectors
+Disk model: SD Card Reader
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: dos
+Disk identifier: 0x0607cfd2
+
+Device     Boot Start    End Sectors   Size Id Type
+/dev/sda1  *      240 490239  490000 239.3M  e W95 FAT16 (LBA)
+root@AXERA:~# mkdir /mnt/sdcard &amp;&amp; mount /dev/sda1 /mnt/sdcard
+</code></pre>
+<p>一步到位挂载 U 盘第一分区的命令 <code>systemctl stop usb-gadget@g0 &amp;&amp; lsusb &amp;&amp; mkdir -p /mnt/udisk &amp;&amp; mount /dev/sda1 /mnt/udisk</code></p>
+<h4 id="%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AE-USB-OTG-%E8%99%9A%E6%8B%9F%E4%B8%80%E4%B8%AA-USB-%E6%91%84%E5%83%8F%E5%A4%B4">如何配置 USB OTG 虚拟一个 USB 摄像头</h4>
+<p><strong>usb-uvc-gadget</strong>：<a href="https://github.com/junhuanchen/usb-uvc-gadget"  target="_blank">usb-uvc-gadget</a></p>
+<p><strong>更多详情请移步内置应用查看</strong>：<a href="https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html#UVC-%E8%99%9A%E6%8B%9F-USB-%E6%91%84%E5%83%8F%E5%A4%B4"  target="_blank">应用传送门</a></p>
+<h4 id="%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AE-USB-HOST-%E8%AF%BB%E5%8F%96%E4%B8%80%E4%B8%AA-USB-%E6%91%84%E5%83%8F%E5%A4%B4">如何配置 USB HOST 读取一个 USB 摄像头</h4>
+<blockquote>
+<p>适配 usb 摄像头前我们需要给板子接上以太网 <code>eth0</code>，使用 <code>ifconfig</code> 查询以太网的 <code>IP</code> 方便我们使用。<br />
+如果获取不到以太网的 <code>IP</code> 地址，请移步右侧进行重新启动/配置<a href="https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html#%E6%9C%89%E7%BA%BF%E4%BB%A5%E5%A4%AA%E7%BD%91%EF%BC%88eth0%EF%BC%89%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95"  target="_blank">点击前往相关</a>。</p>
+</blockquote>
+<p><strong>Ustreamer</strong>：<a href="https://github.com/pikvm/ustreamer"  target="_blank">点击查看相关仓库</a><br />
+运行下方的命令行，终端会弹出调试信息无明显报错后，打开任意浏览器输入我们刚获取的以太网 <code>IP</code> 地址，进入 <code>ustreamer</code> 使用体验拍照及录像功能。</p>
+
+<pre class="language-bash"><code class="language-bash">/home/ustreamer/ustreamer --device=/dev/video0 --host=0.0.0.0 --port=80
+</code></pre>
+<p><img src="./../assets/ustreamer_adb.png" alt="ustreamer_adb" /></p>
+<p><code>snapshot</code> 为拍照功能，<code>stream</code> 为视频功能。</p>
+<p><img src="./../assets/ustreamer.png" alt="ustreamer" /></p>
+<details>
+<summary>点击查看效果图</summary>
+<div class="details-content"><p><img src="./../assets/ustreamer_snapshot.jpg" alt="ustreamer_snapshot" /></p>
+</div>
+</details>
+<ul>
+<li><strong>使用 Opencv 读取 USB 摄像头</strong></li>
+</ul>
+<p>可在终端进入 <code>python3</code> 模式运行以下代码即可使用 USB 摄像头进行拍照。</p>
+
+<pre class="language-python"><code class="language-python">import os
+import cv2
+video = cv2.VideoCapture(0)
+for i in range(30):
+    ret, frame = video.read()
+    if ret:
+        cv2.imwrite(&quot;/tmp/capture.jpg&quot;, frame)
+        os.system(&quot;fbon &amp;&amp; fbv /tmp/capture.jpg&quot;)
+</code></pre>
+<details>
+<summary>点击查看终端运行图以及效果图</summary>
+<div class="details-content"><p><img src="./../assets/opencv.jpg" alt="opencv" /><br />
+ <img src="./../assets/opencv_cream.jpg" alt="opencv_cream" /></p>
+</div>
+</details>
+<blockquote>
+<p>运行出现报错请移步<a href="https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html"  target="_blank">Maix-III 系列 AXera-Pi 常见问题(FAQ)</a>进行查询。</p>
+</blockquote>
+<h3 id="GPIO">GPIO</h3>
+<h4 id="%E8%BF%9B%E5%85%A5%E4%BC%91%E7%9C%A0%E6%A8%A1%E5%BC%8F%EF%BC%9A%E9%80%9A%E8%BF%87%E6%8C%89-awake-%E9%94%AE%E5%94%A4%E9%86%92">进入休眠模式：通过按 awake 键唤醒</h4>
+<p>使用下文命令可进入休眠模式，但需注意（部分因 WiFi 模块旧 <code>RTL8723bs</code> 版本）的问题会导致命令报错（可进行多次尝试）进入休眠后终端会掉线，通过 <code>awake</code> 键可重新唤醒。</p>
+
+<pre class="language-none"><code class="language-none">echo mem &gt; /sys/power/state 
+</code></pre>
+<h4 id="%E8%AF%BB%E5%8F%96-KEY-%E6%8C%89%E9%94%AE%E8%BE%93%E5%85%A5%EF%BC%9AGPIO2-21">读取 KEY 按键输入：GPIO2 21</h4>
+
+<pre class="language-bash"><code class="language-bash">echo 85  &gt; /sys/class/gpio/export
+echo in &gt; /sys/class/gpio/gpio85/direction
+cat /sys/class/gpio/gpio85/value
+</code></pre>
+<h4 id="%E7%82%B9%E4%BA%AE-LED-%E7%81%AF-GPIO2-A4-A5-68-69">点亮 LED 灯 GPIO2 A4-A5 68-69</h4>
+
+<pre class="language-bash"><code class="language-bash">echo 68  &gt; /sys/class/gpio/export
+echo out &gt; /sys/class/gpio/gpio68/direction
+echo 1 &gt; /sys/class/gpio/gpio68/value
+sleep 1
+echo 0 &gt; /sys/class/gpio/gpio68/value
+sleep 1
+echo 1 &gt; /sys/class/gpio/gpio68/value
+</code></pre>
+<blockquote>
+<p>计算规则 GPIO2 A4 == 32 *  2 + 4 = 68</p>
+</blockquote>
+<p>对于爱芯的芯片，GPIO0 和 GPIO2 对应 A 和 C ，此处 A4 并不代表 GPIO2 只是序号。<br />
+也就是 GPIO2 A4 在标准设备中的定义为 GPIO C(2) 4(A4) 同理 GPIOA0 对应 GPIO0A4。</p>
+<p>以后主流会统一到 PA0 或 PC4 这类定义，方便不同芯片共同定义。</p>
+<p>使用 Python 控制排针上的 GPIO 方法举例，可见排针上的 BOT_GPIO_0 - 7 对应 GPIO2_A16_m - GPIO2_A23_m 喔。</p>
+<p><img src="./../assets/io_pin_map.png" alt="io_pin_map" /></p>
+<p>可见排针的 PA0-3 与上图的关系。</p>
+<p><img src="./../assets/gpio_axpi.png" alt="gpio_axpi" /></p>
+<p>先在 python3 中加载简易封装 gpio 类，使用的是 linux 的 libgpiod 的 python 版本。</p>
+
+<pre class="language-python"><code class="language-python">
+try:
+    from gpiod import chip, line, line_request
+    config = None # rpi is default value A 0
+    def gpio(gpio_line=0, gpio_bank=&quot;a&quot;, gpio_chip=0, line_mode = line_request.DIRECTION_OUTPUT):
+        global config
+        if config != None and gpio_line in config:
+            gpio_bank, gpio_chip = config[gpio_line]
+        l, c = [32 * (ord(gpio_bank.lower()[0]) - ord('a')) + gpio_line, chip(&quot;gpiochip%d&quot; % gpio_chip)]
+        tmp = c.get_line(l)
+        cfg = line_request() # led.active_state == line.ACTIVE_LOW
+        cfg.request_type = line_mode # line.DIRECTION_INPUT
+        tmp.request(cfg)
+        tmp.source = &quot;GPIO chip %s bank %s line %d&quot; % (gpio_chip, gpio_bank, gpio_line)
+        return tmp
+    def load(cfg=None):
+        global config
+        config = cfg
+except ModuleNotFoundError as e:
+    pass
+
+</code></pre>
+<p>GPIO 输入测试：</p>
+
+<pre class="language-python"><code class="language-python">
+led0 = gpio(16, gpio_chip=2, line_mode = line_request.DIRECTION_INPUT)
+led1 = gpio(17, gpio_chip=2, line_mode = line_request.DIRECTION_INPUT)
+led2 = gpio(18, gpio_chip=2, line_mode = line_request.DIRECTION_INPUT)
+led3 = gpio(19, gpio_chip=2, line_mode = line_request.DIRECTION_INPUT)
+
+def test():
+    import time
+    print(led0.get_value())
+    print(led1.get_value())
+    print(led2.get_value())
+    print(led3.get_value())
+    time.sleep(1)
+    print(time.asctime())
+
+while True:
+    test()
+
+</code></pre>
+<p>GPIO 输出测试：</p>
+
+<pre class="language-python"><code class="language-python">
+led0 = gpio(16, gpio_chip=2, line_mode = line_request.DIRECTION_OUTPUT)
+led1 = gpio(17, gpio_chip=2, line_mode = line_request.DIRECTION_OUTPUT)
+led2 = gpio(18, gpio_chip=2, line_mode = line_request.DIRECTION_OUTPUT)
+led3 = gpio(19, gpio_chip=2, line_mode = line_request.DIRECTION_OUTPUT)
+
+def test():
+    import time
+    time.sleep(1)
+    led0.set_value(1)
+    led1.set_value(1)
+    led2.set_value(1)
+    led3.set_value(1)
+    time.sleep(1)
+    led0.set_value(0)
+    led1.set_value(0)
+    led2.set_value(0)
+    led3.set_value(0)
+    print(time.asctime())
+
+while True:
+    test()
+
+</code></pre>
+<p><a href="https://www.cnblogs.com/juwan/p/16917802.html#linux-spiv"  target="_blank">可参考的 gpio.h/gpio.c 代码</a></p>
+<h3 id="UART">UART</h3>
+<blockquote>
+<p>关闭 ttyS0 交互在开机后用 <code>systemctl stop serial-getty@ttyS0.service</code> 串口就不会再出现交互了，但彻底禁用遇到点问题，重启后会恢复，待研究。</p>
+</blockquote>
+<p>系统输出默认是 <strong>ttyS0</strong> ，排针上的是 <strong>ttyS1</strong> ，而虚拟串口是 <strong>ttyGS0</strong>。</p>
+<p><img src="./../assets/uart_tty.jpg" alt="uart_tty" /></p>
+<p>可用 <code>python3 pyserial</code> 库来测试功能的好与坏，但是需要注意排针丝印可能不准确。<br />
+如果出现串口的 tx 和 rx 没有数据的话可以反接一下，以及确保是共地的。</p>
+
+<pre class="language-python"><code class="language-python">import serial
+ser = serial.Serial('/dev/ttyS1', 115200, timeout=1)
+ser.write(b'hello world\n')
+ser.close()
+</code></pre>
+<p><a href="https://www.cnblogs.com/juwan/p/16917802.html#linux-uart-ttysx"  target="_blank">可参考的 uart.h/uart.c 代码</a></p>
+<h3 id="PWM">PWM</h3>
+<p>以配置一个 pwm0 修改屏幕背光为例，需更新到 <strong>20221201</strong> 后的镜像。<br />
+<strong>例</strong>：<code>echo 204 &gt; /sys/class/pwm/pwmchip0/pwm0/duty_cycle</code> 运行后屏幕亮度只有十分之一.</p>
+
+<pre class="language-bash"><code class="language-bash">echo 0 &gt; /sys/class/pwm/pwmchip0/export
+echo 4167 &gt; /sys/class/pwm/pwmchip0/pwm0/period
+echo 204 &gt; /sys/class/pwm/pwmchip0/pwm0/duty_cycle
+echo 2084 &gt; /sys/class/pwm/pwmchip0/pwm0/duty_cycle
+echo 1 &gt; /sys/class/pwm/pwmchip0/pwm0/enable
+</code></pre>
+<p>PWM 使用参考：<a href="https://wiki.sipeed.com/soft/maixpy3/zh/usage/hardware/PWM.html#%E5%BC%80%E5%A7%8B"  target="_blank">点击查看</a></p>
+<h3 id="I2C">I2C</h3>
+<blockquote>
+<p>m3axpi 的排针上的 I2C 是 /dev/i2c-7 对应 <code>i2cdetect -y -r 7</code> 喔， 0 1 2 是摄像头的， 8 是系统的 usb rtc 的， 9 做预留。</p>
+</blockquote>
+<p>使用 i2c-tools 工具包，可使用 i2cdetect -y 0 来查看 i2c 总线上的设备。<br />
+如果出现 i2c 设备扫不到的情况需要接一下上拉电阻。</p>
+
+<pre class="language-bash"><code class="language-bash">root@AXERA:~# i2cdetect -y -r 0
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:                         -- -- -- -- -- -- -- --
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+20: -- 21 -- -- -- -- -- -- -- -- -- -- -- -- -- --
+30: -- -- -- -- -- -- 36 -- -- -- -- -- -- -- -- --
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+70: -- -- -- -- -- -- -- --
+root@AXERA:~#
+</code></pre>
+<p>这里 <strong>0x21</strong> 和 <strong>0x36</strong> 就代表的板子在 cam0 这个排线上的 /dev/i2c-0 设备存在某个摄像头的 i2c 设备，而读写可用 i2cget 和 i2cset 命令，与其他芯片皆为同理。</p>
+<h3 id="SPI">SPI</h3>
+<p>可参考右边同理事例：<a href="https://www.cnblogs.com/juwan/p/14341406.html"  target="_blank">为 AW V831 配置 spidev 模块，使用 py-spidev 进行用户层的 SPI 通信。</a></p>
+
+<pre class="language-none"><code class="language-none">root@AXERA:~# ./spidev_test -D /dev/spidev1.0 -v
+spi mode: 0x0
+bits per word: 8
+max speed: 500000 Hz (500 KHz)
+TX | FF FF FF FF FF FF 40 00 00 00 00 95 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF F0 0D  | ......@....�..................�.
+RX | FF FF FF FF FF FF 40 00 00 00 00 95 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF F0 0D  | ......@....�..................�.
+root@AXERA:~# ./spidev_test -D /dev/spidev1.0 -v
+spi mode: 0x0
+bits per word: 8
+max speed: 500000 Hz (500 KHz)
+TX | FF FF FF FF FF FF 40 00 00 00 00 95 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF F0 0D  | ......@....�..................�.
+RX | FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF  | ................................
+root@AXERA:~# ./spidev_test -D /dev/spidev1.0 -v
+spi mode: 0x0
+bits per word: 8
+max speed: 500000 Hz (500 KHz)
+TX | FF FF FF FF FF FF 40 00 00 00 00 95 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF F0 0D  | ......@....�..................�.
+RX | FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF  | ................................
+</code></pre>
+<h3 id="CHIP-ID">CHIP ID</h3>
+<p>获取芯片唯一的 id 码。</p>
+
+<pre class="language-none"><code class="language-none">cat /proc/ax_proc/uid
+</code></pre>
+<h3 id="ADC%EF%BC%88%E6%9A%82%E6%9C%AA%E6%94%AF%E6%8C%81%EF%BC%89">ADC（暂未支持）</h3>
+<details>
+<summary>点击查看</summary>
+<div class="details-content"><p>硬件上支持，但软件上目前还没写调试工具配合。<br />
+ 可参考外围开发手册，这需要专用的代码控制，目前还没有全部补充完。</p>
+<ol>
+<li>设置 THM 寄存器</li>
+<li>中间需要 delay 一段时间，否则读取出来的值，可能不对.</li>
+<li>0x2000028 寄存器读取出来的值 DATA</li>
+<li>DAT 和 voltage 的对应关系，voltage = DATA / 1024 * VREF(1.8V)</li>
+<li>如果读取 chan1/2/3/4，需要读取 0x200002c，0x2000030，0x2000034，0x2000038</li>
+</ol>
+<p>使能 ADC 通道<br />
+ devmem 0x2000020 32 0x1000 //chan0<br />
+ devmem 0x2000020 32 0x800 //chan1<br />
+ devmem 0x2000020 32 0x400 //chan2<br />
+ devmem 0x2000020 32 0x200 //chan3<br />
+ devmem 0x2000020 32 0x100 //chan4</p>
+<p>devmem 0x200002c<br />
+ devmem 0x2000030<br />
+ devmem 0x2000034<br />
+ devmem 0x2000038</p>
+</div>
+</details>
+<h3 id="%E5%87%BA%E5%8E%82%E6%B5%8B%E8%AF%95%E8%84%9A%E6%9C%AC">出厂测试脚本</h3>
+<details>
+<summary>点击可查看产品出厂测试时用的 Python 测试脚本</summary>
+<div class="details-content">
+<pre class="language-python"><code class="language-python">test_flag = False
+
+try:
+    from gpiod import chip, line, line_request
+    config = None # rpi is default value A 0
+    def gpio(gpio_line=0, gpio_bank=&quot;a&quot;, gpio_chip=0, line_mode = line_request.DIRECTION_OUTPUT):
+        global config
+        if config != None and gpio_line in config:
+            gpio_bank, gpio_chip = config[gpio_line]
+        l, c = [32 * (ord(gpio_bank.lower()[0]) - ord('a')) + gpio_line, chip(&quot;gpiochip%d&quot; % gpio_chip)]
+        tmp = c.get_line(l)
+        cfg = line_request() # led.active_state == line.ACTIVE_LOW
+        cfg.request_type = line_mode # line.DIRECTION_INPUT
+        tmp.request(cfg)
+        tmp.source = &quot;GPIO chip %s bank %s line %d&quot; % (gpio_chip, gpio_bank, gpio_line)
+        return tmp
+    def load(cfg=None):
+        global config
+        config = cfg
+except ModuleNotFoundError as e:
+    pass
+
+key = gpio(21, gpio_chip=2, line_mode = line_request.DIRECTION_INPUT)
+led0 = gpio(4, gpio_chip=2, line_mode = line_request.DIRECTION_OUTPUT)
+led1 = gpio(5, gpio_chip=2, line_mode = line_request.DIRECTION_OUTPUT)
+
+import time
+import ifcfg
+import os
+
+def check_ifconfig():
+    result = []
+    for name, interface in ifcfg.interfaces().items():
+        if name in ['eth0', 'wlan0'] and interface['inet']:
+            result.append(name)
+    return result
+
+try:
+    if (0 == key.get_value()):
+        os.system(&quot;export LD_LIBRARY_PATH=/opt/lib:LD_LIBRARY_PATH &amp;&amp; /opt/bin/sample_vin_vo -c 2 -e 1 -s 0 -v dsi0@480x854@60 &amp;&quot;)
+        led1.set_value(1)
+        while True:
+            led0.set_value(1)
+            time.sleep(0.2)
+            led0.set_value(0)
+            time.sleep(0.2)
+            tmp = check_ifconfig()
+            if len(tmp) &gt; 1:
+                led0.set_value(0)
+                led1.set_value(0)
+                test_flag = True
+                break
+        while (0 == key.get_value()):
+            time.sleep(0.2)
+        os.system(&quot;aplay /home/res/boot.wav&quot;)
+        led0.set_value(1)
+        led1.set_value(1)
+        import pyaudio
+        chunk = 1024      # Each chunk will consist of 1024 samples
+        sample_format = pyaudio.paInt16      # 16 bits per sample
+        channels = 2      # Number of audio channels
+        fs = 44100        # Record at 44100 samples per second
+        p = pyaudio.PyAudio()
+        stream = p.open(format=sample_format,
+                        channels = channels,
+                        rate = fs,
+                        frames_per_buffer = chunk,
+                        input = True, output = True)
+        while (1 == key.get_value()):
+            data = stream.read(chunk, exception_on_overflow = False)
+            stream.write(data)
+        while (0 == key.get_value()):
+            time.sleep(0.2)
+        os.system('killall sample_vin_vo')
+        os.system('killall sample_vin_vo')
+        # Stop and close the Stream and PyAudio
+        stream.stop_stream()
+        stream.close()
+        p.terminate()
+except Exception as e:
+    print(e)
+finally:
+    if test_flag:
+        led0.set_value(0)
+        led1.set_value(0)
+
+'''
+
+import pyaudio
+try:
+    chunk = 1024      # Each chunk will consist of 1024 samples
+    sample_format = pyaudio.paInt16      # 16 bits per sample
+    channels = 2      # Number of audio channels
+    fs = 44100        # Record at 44100 samples per second
+    time_in_seconds = 300
+    p = pyaudio.PyAudio()
+    stream = p.open(format=sample_format,
+                    channels = channels,
+                    rate = fs,
+                    frames_per_buffer = chunk,
+                    input = True, output = True)
+    for i in range(0, int(fs / chunk * time_in_seconds)):
+        data = stream.read(chunk)
+        stream.write(data)
+finally:
+    # Stop and close the Stream and PyAudio
+    stream.stop_stream()
+    stream.close()
+    p.terminate()
+
+'''
+</code></pre>
+</div>
+</details>
+<h2 id="%E5%86%85%E7%BD%AE%E5%BC%80%E7%AE%B1%E5%BA%94%E7%94%A8">内置开箱应用</h2>
+<h3 id="IPCDemo">IPCDemo</h3>
+<p>这是一个典型的 IPC 演示程序，对应的功能模块有：</p>
+<ul>
+<li>ISP：负责从 Sensor 获取图像 RAW 数据并转为 YUV，最终分 3 路通道输出以上信息。</li>
+<li>IVPS：图像视频处理模块。实现对视频图形进行一分多、Resize、Crop、旋转等功能。</li>
+<li>VENC / JENC：视频/JPEG 编码输出。</li>
+<li>Detect：支持人脸或结构化检测。</li>
+<li>Web 显示：实现 H264 流的 Web 传输和提供 Web 方式查看实时视频。</li>
+<li>RTSP 推流：实现 H264 流的 RTSP 封装以及传输。</li>
+<li>录像 TF 卡存储：封装 H264 流为 MP4 格式文件并保存至 TF 卡或者 FLASH 空间。</li>
+</ul>
+<p align="center">
+    <iframe src="//player.bilibili.com/player.html?aid=260625114&bvid=BV1me411T7g8&cid=837160730&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="max-width:640px; max-height:480px;"> </iframe>
+</p>
+<p align="center">
+    <iframe src="//player.bilibili.com/player.html?aid=688159412&bvid=BV1p24y1d7Te&cid=837167669&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="max-width:640px; max-height:480px;"> </iframe>
+</p>
+<h4 id="%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95">使用方法</h4>
+<blockquote>
+<p><strong>注意</strong>：启动命令默认的镜头型号为 <strong>gc4653</strong> ，因不同的摄像头配置文件不一致，使用别的型号时需点击右侧<a href="https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html#Q%EF%BC%9A%E5%A6%82%E4%BD%95%E6%9B%B4%E6%8D%A2-os04a10-%E6%91%84%E5%83%8F%E5%A4%B4%EF%BC%9F"  target="_blank">更换摄像头</a>进行修改。</p>
+</blockquote>
+<p>在终端运行下面的命令即可启动网页，服务默认绑定到 0.0.0.0 地址，直接在浏览器输入 usb0 的 IP 即可访问，使用板子上其他 IP 也可以访问页面（例如：<code>192.168.233.1:8080</code>）.</p>
+
+<pre class="language-bash"><code class="language-bash">/opt/bin/IPCDemo/run.sh /opt/bin/IPCDemo/config/gc4653_config.json
+</code></pre>
+<details>
+<summary>点击查看</summary>
+<div class="details-content"><p>输入启动命令后，终端会打印大量调试信息。<br />
+ <img src="./../assets/ipc.jpg" alt="ipc" /></p>
+</div>
+</details>
+<p>访问页面后会弹出登录页面，点击登录后页面会弹出下图画面。</p>
+<p><img src="./../assets/ipc-admin.jpg" alt="ipc-admin" /></p>
+<h4 id="%E5%A6%82%E4%BD%95%E6%8A%93%E6%8B%8D%EF%BC%9F%E5%A6%82%E4%BD%95%E5%BD%95%E5%88%B6%EF%BC%9F">如何抓拍？如何录制？</h4>
+<p>浏览器抓拍录制（web）</p>
+<ul>
+<li><strong>抓拍图像</strong></li>
+</ul>
+<p>网页经过上文的启动后显示画面，右下角有抓拍和录制的功能图标。<br />
+用户可点击摄像头图标进行抓拍喜欢的场景，抓拍的照片会在页面自动弹出进行下载方便用户查看存储。</p>
+<p><img src="./../assets/ipc-web.jpg" alt="ipc-web" /></p>
+<ul>
+<li><strong>录制视频</strong></li>
+</ul>
+<p>点击右下角的录制图标，即可进入本地录制视频（mp4）模式，再次点击图标即录制完成结束。</p>
+<p><img src="./../assets/ipc-mp4.jpg" alt="ipc-mp4" /></p>
+<p>用户可在配置页面的<code>录像回放</code>选项预览视频进行下载到本地或删除的操作。</p>
+<p><img src="./../assets/ipc-config.jpg" alt="ipc-config" /></p>
+<blockquote>
+<p><strong>注意</strong>：<br />
+版本为 <strong>20221017</strong> 的镜像后默认打开了录制保存到<code>/opt/mp4</code>的目录下。<br />
+视频录制要储存到文件系统后才能打开，某种意义上用户也可以挂载网络路径来当监控录像使用。</p>
+</blockquote>
+<h4 id="%E4%BA%BA%E8%84%B8%E6%A3%80%E6%B5%8B">人脸检测</h4>
+<blockquote>
+<p>IPCDemo 除了上文的基础功能还有进阶的 AI 功能应用，例如<strong>：人脸检测、车牌识别</strong>。</p>
+</blockquote>
+<p>使用前先进行相机结构化配置再进行人脸检测，具体配置参考以下示例。</p>
+<details>
+<summary>点击查看配置流程</summary>
+<div class="details-content"><p>接入页面后选择<strong>配置</strong>在<strong>智能配置</strong>里再进行<strong>结构化配置</strong>，用户可根据自己的需要进行勾选即可。</p>
+<p><img src="./../assets/ipc-video.jpg" alt="ipc-video" /></p>
+</div>
+</details>
+<p>配置完成后回到预览页面即可进行人脸及人形识别，IPC 会自动框出识别人脸并且截取人脸的图片，可在预览页面下方点击截取图样放大查看附带信息。</p>
+<ul>
+<li>左侧：人脸检测 右侧：人形检测</li>
+</ul>
+<html>
+  <img src="./../assets/ipc-model.jpg" width=45%>
+  <img src="./../assets/ipc-person.jpg" width=45%>
+</html>
+<h4 id="%E8%BD%A6%E7%89%8C%E8%AF%86%E5%88%AB">车牌识别</h4>
+<p>使用前先进行<strong>结构化配置</strong>勾选车牌所需的检测画框即可。</p>
+<details>
+<summary>点击查看 IPC 配置流程</summary>
+<div class="details-content"><p>接入页面后选择<strong>配置</strong>在<strong>智能配置</strong>里再进行<strong>结构化配置</strong>，用户可根据自己的需要进行勾选即可。</p>
+<p><img src="./../assets/ipc-video.jpg" alt="ipc-video" /></p>
+</div>
+</details>
+<p>设置完成即可回到预览页面进行车牌识别，IPC 会自动框出识别到得车牌及读取车牌数字信息，用户在页面下方点击图片可查看截取到的车牌图片及信息。</p>
+<p><img src="./../assets/ipc-car.jpg" alt="ipc-car" /></p>
+<!-- <p align="center">
+    <iframe src="//player.bilibili.com/player.html?aid=773227207&bvid=BV1B14y1Y7A4&cid=837154353&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="max-width:640px; max-height:480px;"> </iframe>
+</p> -->
+<h3 id="RTSP-%E6%8E%A8%E6%B5%81">RTSP 推流</h3>
+<blockquote>
+<p><strong>RTSP</strong>：也称实时流传输协议，该协议定义了一对多应用程序如何有效地通过 IP 网络传送多媒体数据。</p>
+</blockquote>
+<p>使用 RTSP 传送数据前，我们需要先认识工具 <code>VLC Media Player</code>。</p>
+<p><strong>VLC Media Player</strong>：<a href="https://www.videolan.org/vlc/"  target="_blank">点击下载</a></p>
+<details>
+<summary>点此展开查看 VLC Media Player 介绍</summary>
+<div class="details-content"><p>VLC Media Player（VLC 多媒体播放器），是一款可播放大多数格式，而无需安装编解码器包的媒体播放器，以及支持多平台使用、支持 DVD 影音光盘，VCD 影音光盘及各类流式协议。</p>
+<p><img src="./../assets/vlc-yolov5s.jpg" alt="vl-yolov5s" /></p>
+</div>
+</details>
+<p>运行下文命令后终端会弹出调试信息，打开 <code>VLC Media Player</code> 进行配置网络串流后即可看到画面效果。</p>
+
+<pre class="language-bash"><code class="language-bash">/home/examples/vin_ivps_joint_venc_rtsp_vo_onvif_mp4v2/run.sh
+</code></pre>
+<details>
+<summary>点击查看终端运行图</summary>
+<div class="details-content"><p><img src="./../assets/vlc-run.jpg" alt="vlr-run" /></p>
+</div>
+</details>
+<details>
+<summary>点此展开查看 VLC Media Player 配置步骤</summary>
+<div class="details-content"><p>打开后在上方选择<strong>媒体</strong>后选择<strong>打开网络串流</strong>进到配置画面。<br />
+ <img src="./../assets/vlc.jpg" alt="vlc" /><br />
+ 在网络页面输入<strong>网络 URL ：<code>rtsp://192.168.233.1:8554/axstream0</code></strong>，<br />
+ 勾选下方更多选项进行调整缓存后点击下方播放即可。<br />
+ <img src="./../assets/vlc-urt.jpg" alt="vlc-urt" /></p>
+</div>
+</details>
+<ul>
+<li>双屏效果如下：</li>
+</ul>
+<html>
+  <img src="./../assets/rtsp-display.jpg" width=48%>
+  <img src="./../assets/rtsp-axpi.jpg" width=48%>
+</html>
+<p align="center">
+    <iframe src="//player.bilibili.com/player.html?aid=731837313&bvid=BV1XD4y1r7eP&cid=866903759&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+</p>
+<blockquote>
+<p><strong>注意</strong>：默认摄像头为 gc4653 型号不同请移步<a href="https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html"  target="_blank">Maix-III 系列 AXera-Pi 常见问题(FAQ)</a>更换参数。</p>
+</blockquote>
+<h4 id="ffplay">ffplay</h4>
+<p>RTSP 拉流工具除了 <code>VCL</code> 还可以直接使用 <code>ffplay</code>。</p>
+<p><strong>ffplay</strong> :<a href="https://dl.sipeed.com/shareURL/MaixIII/AXera/09_Software_tool"  target="_blank">点击下载</a></p>
+
+<pre class="language-bash"><code class="language-bash">sudo apt install ffmpeg
+ffplay rtsp://192.168.233.1:8554/axstream0 -fflags nobuffer
+</code></pre>
+<h3 id="ONVIF-ODM-%E6%8B%89%E6%B5%81">ONVIF ODM 拉流</h3>
+<blockquote>
+<p>版本为 <strong>20221111</strong> 后的镜像系统内置了按键录像 mp4 和支持更换 yolov5s 人脸/物体检测模型以及对软件 ODM（ONVIF）进行支持。</p>
+</blockquote>
+<p>在进行体验之前，我们先来认识即将使用的软件：<code>ONVIF Device Manager</code></p>
+<p><strong>ONVIF Device Manager</strong>：<a href="https://sourceforge.net/projects/onvifdm/"  target="_blank">点击下载</a></p>
+<details>
+<summary>点击查看 ONVIF ODM 软件介绍</summary>
+<div class="details-content"><p>ONVIF 协议作为全球性的网络视频监控开放接口标准，推进了网络视频在安防市场的应用，特别是促进了高清网络摄像头的普及和运用。 越来越多的前端 IPC 厂家和后端 NVR 及存储提供商加入进来。而 ONVIF Device Manager 是 ONVIF 官方基于协议提供的免费第三方的 ONVIF 协议测试工具，与上文的 VLC 相比性能不同，但 ODM 的内容形式更加多样丰富。</p>
+<p><img src="./../assets/odm.jpg" alt="odm" /></p>
+</div>
+</details>
+<p>运行下文命令，设备屏幕会跳出 yolov5s 模型运行画面，接着我们来配置 <code>ODM</code> 实现 PC 端显示。</p>
+
+<pre class="language-bash"><code class="language-bash">/home/examples/vin_ivps_joint_venc_rtsp_vo_onvif_mp4v2/run.sh
+</code></pre>
+<details>
+<summary>点击设备运行效果图</summary>
+<div class="details-content"><p><img src="./../assets/odm-mipi.jpg" alt="odm-mipi" /></p>
+</div>
+</details>
+<p>打开下载好的 <code>ODM</code> 软件点击左侧白框的 <code>Refresh</code> 按键扫描设备，扫描成功会显示 <code>IP-Camera</code> 方框点击后选择下方的 <code>Live video</code> 即可在 PC 端看到画面。</p>
+<p><img src="./../assets/odm-config.jpg" alt="odm-config" /></p>
+<p>还可通过下方命令去查看文件配置：</p>
+
+<pre class="language-bash"><code class="language-bash">cd /home/examples/vin_ivps_joint_venc_rtsp_vo_onvif_mp4v2/
+ls -l
+</code></pre>
+<blockquote>
+<p><strong>注意</strong>：ODM 受网络影响较大，如果有卡顿现象把网络更换成以太网即可。<br />
+默认摄像头为 gc4653 如型号不同请移步<a href="https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html"  target="_blank">Maix-III 系列 AXera-Pi 常见问题(FAQ)</a>更换参数。</p>
+</blockquote>
+<ul>
+<li><strong>更换模型</strong></li>
+</ul>
+<blockquote>
+<p><strong>20221116</strong> 后更新的镜像已在 <code>run.sh</code> 内置了不同摄像头参数的源码。<br />
+<strong>20221111</strong> 镜像内置 yolov5s 的人脸/物体检测模型，可使用以下命令更改运行脚本内容更换模型。</p>
+</blockquote>
+
+<pre class="language-bash"><code class="language-bash">nano /home/examples/vin_ivps_joint_venc_rtsp_vo_onvif_mp4v2/run.sh
+</code></pre>
+<details>
+<summary>点击查看修改操作示例</summary>
+<div class="details-content"><p>运行后会显示 <code>run.sh</code> 的编辑页面，对当前启动的模型进行注释或调用其他模型即可，<br />
+ 按 <strong>ctrl+X</strong> 键后会提示是否保存修改内容。</p>
+<p><img src="./../assets/model-save.jpg" alt="model-save" /></p>
+<p>根据提示按下 <strong>Y</strong> 键保存，界面会显示修改内容写入的文件名按<strong>回车</strong>键确定，<br />
+ 再次运行 <code>run.sh</code> 脚本即可看到模型更换成功。</p>
+<p><img src="./../assets/model-file.jpg" alt="model-file" /></p>
+<p>除了直接在板端修改 <code>run.sh</code> 脚本，还可以通过 <code>MdbaXterm</code> 软件使用 ssh 登录查看 <code>/home/examples/vin_ivps_joint_venc_rtsp_vo_onvif_mp4v2/</code> 目录下的<code>run.sh</code> 直接进行修改保存。</p>
+</div>
+</details>
+<ul>
+<li><strong>按键录制 MP4</strong></li>
+</ul>
+<p>运行 <code>run.sh</code> 期间可按下板载的按键 <code>user</code> 进行录制视频，按下后 <strong>LED0</strong> 会亮起代表开始录制 MP4，</p>
+<details>
+<summary>点击查看按键示意图</summary>
+<div class="details-content"><p><img src="./../assets/odm-mp4.jpg" alt="odm-mp4" /></p>
+</div>
+</details>
+<p>终端界面会显示下图 <code>delete file</code>，再次按下按键板卡会停止录制而 LED0 会灭掉，</p>
+<p><img src="./../assets/odm-adb.png" alt="odm-adb" /></p>
+<p>录制完成的 MP4 文件可在 <strong><code>home/examples/</code></strong> 目录下查看。</p>
+<p><img src="./../assets/mp4-file.png" alt="mp4-file" /></p>
+<h3 id="PP-Humanseg-%E4%BA%BA%E4%BD%93%E5%88%86%E5%89%B2">PP-Humanseg 人体分割</h3>
+<blockquote>
+<p>版本为 <strong>20221116</strong> 后的系统镜像内置了 <code>pp_human</code> 人体分割应用，并且内置了不同摄像头的参数命令在目录下的启动脚本 <code>run.sh</code> 里，用户使用只需要修改注释相应命令行即可使用。</p>
+</blockquote>
+<p>运行下方的命令后终端会输出调试信息，设备屏幕会显示运行画面。</p>
+
+<pre class="language-bash"><code class="language-bash">/home/examples/vin_ivps_joint_vo_pp_human_seg/run.sh
+</code></pre>
+<!-- ![pp_human](./../assets/pp_human.jpg) -->
+<p align="center">
+    <iframe src="//player.bilibili.com/player.html?aid=902571856&bvid=BV1iP4y1y75t&cid=889419118&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+</p>
+<p>使用下方命令进入图形化页面，对 <code>run.sh</code> 里不同摄像头参数的源码进行调用或注释。</p>
+
+<pre class="language-bash"><code class="language-bash">nano /home/examples/vin_ivps_joint_vo_pp_human_seg/run.sh
+</code></pre>
+<details>
+<summary>点击查看图形化页面</summary>
+<div class="details-content"><p>修改后按 <strong>ctrl+x</strong> 退出键会提示是否保存页面，后续按终端提示操作即可。</p>
+<p><img src="./../assets/pp_humana_adb.png" alt="pp_human_adb" /></p>
+</div>
+</details>
+<h3 id="UVC-%E8%99%9A%E6%8B%9F-USB-%E6%91%84%E5%83%8F%E5%A4%B4">UVC 虚拟 USB 摄像头</h3>
+<p><strong>usb-uvc-gadget</strong>：<a href="https://github.com/junhuanchen/usb-uvc-gadget"  target="_blank">点击查看相关仓库</a></p>
+<blockquote>
+<p>版本为 <strong>20221123</strong> 的镜像系统内置了 uvc vo 应用，并且还可以在手机端软件使用。<br />
+目前应用还处于不稳定的状态，第一次启动程序会改变 usb otg rndis 转成 usb otg uvc 模式导致设备重启，重启再运行即可，画面绿屏是启动脚本里摄像头配置不对。</p>
+</blockquote>
+<p>使用前准备两条 USB type_c  的数据线以及一条双 type_c 口的数据线。<br />
+把设备的 <strong>UART</strong> 及 <strong>OTG</strong> 口用 <code>USB type-c</code> 线全部接入 <code>PC</code> 端，再运行下方命令终端会弹出无报错调试信息。</p>
+
+<pre class="language-bash"><code class="language-bash">/home/examples/vin_ivps_joint_venc_uvc_vo/run.sh
+</code></pre>
+<details>
+<summary>点击查看终端示例图</summary>
+<div class="details-content"><p><img src="./../assets/uvc_adb.png" alt="uvc_adb" /></p>
+</div>
+</details>
+<p>打开 <code>PC</code> 端自带相机应用即可在设备屏幕以及 <code>PC</code> 端观察到模型检测画面。</p>
+<p><img src="./../assets/uvc_vo.jpg" alt="uvc_vo" /></p>
+<p>可以使用以下的命令行更换尾缀 <code>start</code> 开启、<code>stop</code> 停止、<code>restore</code> 重启来对 <code>uvc</code> 程序进行操作。</p>
+
+<pre class="language-bash"><code class="language-bash">/home/usb-uvc-gadget/uvc-gadget.sh #start/stop/restore
+</code></pre>
+<ul>
+<li><strong>手机端虚拟摄像头</strong></li>
+</ul>
+<p>UVC 也能在安卓手机端的 <code>app</code> 上当虚拟摄像头使用，使用前在软件商店下载好 <strong>USB 摄像头专业版</strong> 软件。</p>
+<details>
+<summary>USB 摄像头专业版软件介绍</summary>
+<div class="details-content"><p>USB 摄像头是一款支持 USB 摄像头、适配采集卡等设备通过 OTG 连接手机并驱动设备展示画面。</p>
+<p><img src="./../assets/uvc_usb.jpg" alt="uvc_usb" /></p>
+</div>
+</details>
+<p>把双头 <code>type-c</code> 线的分别接上手机端以及设备的 OTG 口，运行上方命令后会自动连接。</p>
+<p><img src="./../assets/uvc_phone.jpg" alt="uvc_phone" /></p>
+<blockquote>
+<p><strong>注意</strong>：如果需要完全脱离电脑端用手机端供电的话，需要把 uvc 程序写入开机脚本即可。</p>
+</blockquote>
+<h3 id="Python-API-%E7%BC%96%E7%A8%8B">Python API 编程</h3>
+<p>除了在板端上使用命令行去直接运行程序，还可以使用 Python 来编程直接运行调用 AI 模型和各种库。</p>
+<p><strong>传送门</strong>：<a href="https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/python_api.html"  target="_blank">试试 Python 编程</a></p>
+<p align="center">
+<iframe src="//player.bilibili.com/player.html?aid=518756219&bvid=BV1Ug411n7DC&cid=923425798&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+</p>
+<h3 id="%E5%A7%BF%E6%80%81%E5%85%B3%E9%94%AE%E7%82%B9%E6%A3%80%E6%B5%8B%EF%BC%88%E4%BA%BA%E4%BD%93/%E6%89%8B%E5%8A%BF/%E5%8A%A8%E7%89%A9%EF%BC%89">姿态关键点检测（人体/手势/动物）</h3>
+<blockquote>
+<p>镜像已内置了 <code>人体\手势\动物</code> 等模型及调用命令行在 <code>/home/run.sh</code> 目录下，用户可直接修改进行调用。</p>
+</blockquote>
+<h4 id="AX-POSE-PPL-%E4%BA%BA%E4%BD%93%E5%A7%BF%E6%80%81%E5%85%B3%E9%94%AE%E7%82%B9">AX-POSE-PPL 人体姿态关键点</h4>
+<ul>
+<li><strong>终端使用命令行调用模型</strong></li>
+</ul>
+<p>用户先修改内置在 <code>/home/run.sh</code> 的启动脚本，再运行 <code>run.sh</code> 脚本命令调用模型。</p>
+<p><strong>如何修改 <code>run.sh</code> 脚本，以人体关键点 <code>ax_poes</code> 为例。</strong></p>
+<p><img src="./../assets/ax_poes_sh.jpg" alt="ax_poes_sh" /></p>
+<p>使用下文命令进入后找到自己需要调用的模型及命令，使用方向键移动取消注释更换 <code>-c 2</code> 不同摄像头参数，然后按 <code>ctrl+x</code> 键退出会提示保存，按提示操作即修改完成。</p>
+
+<pre class="language-bash"><code class="language-bash">nano /home/run.sh
+</code></pre>
+<p><strong>修改后在终端输入 <code>/home/run.sh</code> 命令运行程序，即可体验人体关键点。</strong></p>
+<p align="center">
+<iframe src="//player.bilibili.com/player.html?aid=647932316&bvid=BV1Pe4y1W7n6&cid=901750338&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+</p>
+<ul>
+<li><p><strong>前往<a href="https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/python_api.html#%E4%BD%BF%E7%94%A8-Python-%E8%B0%83%E7%94%A8-ax-poes-ppl-%E6%A8%A1%E5%9E%8B"  target="_blank">试试 Python 编程</a>查看如何使用 <code>Python</code> 调用模型示例。</strong></p>
+</li>
+<li><p><strong>如何调用运行 <code>run.sh</code> 里的更多预置模型。</strong></p>
+</li>
+</ul>
+<p>我们在 <code>run.sh</code> 里预置了调用多种模型的命令行以及相应的摄像头参数。</p>
+<p>具体使用可参考上文 <code>nano /home/run.sh</code> 进入可视化编辑页面修改，运行启动脚本即可使用。</p>
+
+<pre class="language-bash"><code class="language-bash">sample_vin_ivps_joint_vo
+sample_vin_ivps_joint_venc_rtsp_vo
+</code></pre>
+
+<pre class="language-bash"><code class="language-bash">yolov5_seg.json         yolov7.json           yolox.json
+yolov5s_face.json       pp_human_seg.json     ax_pose.json
+hrnet_animal_pose.json  hand_pose.json
+</code></pre>
+<h4 id="HandPose-%E6%89%8B%E5%8A%BF%E5%A7%BF%E6%80%81%E5%85%B3%E9%94%AE%E7%82%B9">HandPose 手势姿态关键点</h4>
+<p>如上文的 <code>人体姿态关键点</code> 修改为示例，直接在 <code>run.sh</code> 脚本进行修改（图标注为需取消注释的命令）并运行 <code>run.sh</code> 即可体验模型，运行效果可看最下文的视频。</p>
+<p><img src="./../assets/hand_run.jpg" alt="hand_run" /></p>
+<h4 id="HRNet_animal-%E5%8A%A8%E7%89%A9%E5%A7%BF%E6%80%81%E5%85%B3%E9%94%AE%E7%82%B9">HRNet_animal 动物姿态关键点</h4>
+<p>如上文的 <code>人体姿态关键点</code> 修改为示例，直接在 <code>run.sh</code> 脚本进行修改（图标注为需取消注释的命令）并运行 <code>run.sh</code> 即可体验模型，运行效果可看最下文的视频。</p>
+<p><img src="./../assets/animal.jpg" alt="animal" /></p>
+<p align="center">
+<iframe src="//player.bilibili.com/player.html?aid=903331499&bvid=BV1DP4y197hF&cid=909711786&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+</p>
+<h3 id="LVGL7-UI">LVGL7 UI</h3>
+<blockquote>
+<p>在 <strong>20221125</strong> 后更新的镜像系统里，我们内置了 lvgl7 UI 应用。</p>
+</blockquote>
+<p><strong>运行应用前请先准备材料：</strong>USB type-c 线/USB type-c 转换头/无线鼠标。</p>
+<p>使用 USB type-c 数据线两端分别接入设备的 <strong>UART</strong> 口与电脑端 <strong>USB</strong> 口，再使用转换头的 <strong>USB</strong> 端接入鼠标的 USB 接收器，另一端接入设备 <strong>OTG</strong> 口。</p>
+<p>运行下方命令后终端会弹出无报错的启动信息后，屏幕会显示画面用户即可体验 lvgl 应用了。</p>
+
+<pre class="language-none"><code class="language-none">cd /home
+./bin/sample_vin_ivps_joint_vo_lvgl -c 0
+</code></pre>
+<details>
+<summary>点击查看终端示例图</summary>
+<div class="details-content"><p><img src="./../assets/lvgl_adb.png" alt="lvgi_adb" /></p>
+</div>
+</details>
+<p align="center">
+    <iframe src="//player.bilibili.com/player.html?aid=690497396&bvid=BV1n24y1C7DN&cid=901748014&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+</p>
+<ul>
+<li><strong>如何调用运行 <code>/home/bin</code> 目录下更多内置应用</strong></li>
+</ul>
+<p>以下应用是内置在 <code>home/bin</code> 目录下的，用户可使用 <code>ls /home/bin</code> 查询并参考示例调用其余应用。</p>
+
+<pre class="language-bash"><code class="language-bash">root@AXERA:~# ls /home/bin
+sample_h264_ivps_joint_vo       sample_v4l2_user_ivps_joint_vo      sample_vin_ivps_joint_vo       sample_vin_joint
+sample_rtsp_ivps_joint          sample_vin_ivps_joint_venc_rtsp     sample_vin_ivps_joint_vo_h265
+sample_rtsp_ivps_joint_rtsp_vo  sample_vin_ivps_joint_venc_rtsp_vo  sample_vin_ivps_joint_vo_lvgl
+</code></pre>
+<p>例：调用 <code>sample_vin_ivps_joint_vo_h265</code> 运行命令如下方示例，<code>-c 2</code> 为摄像头参数。</p>
+
+<pre class="language-bash"><code class="language-bash">/home/bin/sample_vin_ivps_joint_vo_h265 -c 2
+</code></pre>
+<details>
+<summary>点击查看终端示例图</summary>
+<div class="details-content"><p><img src="./../assets/sample.jpg" alt="sample" /></p>
+</div>
+</details>
+<h3 id="%E8%BD%A6%E7%89%8C%E8%AF%86%E5%88%AB%EF%BC%88%E5%8F%AF%E8%BE%93%E5%87%BA%E6%95%88%E6%9E%9C%EF%BC%89">车牌识别（可输出效果）</h3>
+<p>系统镜像是没有内置任何关于车牌识别的调用命令的，所以我们需要在 <code>/home/run.sh</code> 内写入或改动模型名称，再运行车牌识别的应用。</p>
+<ul>
+<li><strong>在 <code>/home/run.sh</code> 内写入相关调用命令</strong></li>
+</ul>
+<p>用户先使用 <code>nano /home/run.sh</code> 进入编辑页面，再复制下文命令在 <code>run.sh</code> 内粘贴并退出保存，然后编辑页面关闭后运行 <code>/home/run.sh</code> 体验车牌识别应用。</p>
+
+<pre class="language-none"><code class="language-none">./bin/sample_vin_ivps_joint_vo -p ./config/license_plate_recognition.json -c 2 
+</code></pre>
+<p><img src="./../assets/car.jpg" alt="car" /></p>
+<ul>
+<li><strong>在 <code>/home/run.sh</code> 内修改其他命令的模型名称</strong></li>
+</ul>
+<p>依旧是先用 <code>nano /home/run.sh</code> 进入编辑页面，然后就是将原有的调用的模型名称换成车牌识别的名称（修改完退出并保存）最后运行 <code>/home/run.sh</code> 体验车牌识别应用。</p>
+
+<pre class="language-none"><code class="language-none">license_plate_recognition.json
+</code></pre>
+<iframe src="//player.bilibili.com/player.html?aid=401504443&bvid=BV1wd4y1f7g1&cid=1141368672&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+<h3 id="sherpa-ncnn-%E4%B8%AD%E8%8B%B1%E6%96%87%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%AB">sherpa-ncnn 中英文语音识别</h3>
+<blockquote>
+<p>版本为 <code>20230214</code> 后的镜像内置了 sherpa-ncnn 中英文语音识别应用，<code>20230223</code> 模型进行了升级效果更加灵敏，用户可手动升级即可。如出现运行后无反应请先测试 <a href="https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html#AUDIO"  target="_blank"><code>AUDIO</code></a> 基本的录音回放是否可用。</p>
+</blockquote>
+<p>先运行命令先进入到 <code>/home/sherpa-ncnn-m3axpi</code> 的目录下，再运行中英文的启动命令体验语音识别应用。</p>
+
+<pre class="language-bash"><code class="language-bash">cd /home/sherpa-ncnn-m3axpi
+</code></pre>
+<ul>
+<li>中文语音识别</li>
+</ul>
+
+<pre class="language-bash"><code class="language-bash">./sherpa-ncnn-alsa \
+./sherpa-ncnn-streaming-zipformer-zh-14M-2023-02-23/tokens.txt \
+./sherpa-ncnn-streaming-zipformer-zh-14M-2023-02-23/encoder_jit_trace-pnnx.ncnn.param \
+./sherpa-ncnn-streaming-zipformer-zh-14M-2023-02-23/encoder_jit_trace-pnnx.ncnn.bin \
+./sherpa-ncnn-streaming-zipformer-zh-14M-2023-02-23/decoder_jit_trace-pnnx.ncnn.param \
+./sherpa-ncnn-streaming-zipformer-zh-14M-2023-02-23/decoder_jit_trace-pnnx.ncnn.bin \
+./sherpa-ncnn-streaming-zipformer-zh-14M-2023-02-23/joiner_jit_trace-pnnx.ncnn.param \
+./sherpa-ncnn-streaming-zipformer-zh-14M-2023-02-23/joiner_jit_trace-pnnx.ncnn.bin  \
+&quot;hw:0,0&quot; \
+4 \
+greedy_search
+</code></pre>
+<ul>
+<li>英文语音识别</li>
+</ul>
+
+<pre class="language-bash"><code class="language-bash">./sherpa-ncnn-alsa \
+./sherpa-ncnn-conv-emformer-transducer-small-2023-01-09/tokens.txt \
+./sherpa-ncnn-conv-emformer-transducer-small-2023-01-09/encoder_jit_trace-pnnx.ncnn.int8.param \
+./sherpa-ncnn-conv-emformer-transducer-small-2023-01-09/encoder_jit_trace-pnnx.ncnn.int8.bin \
+./sherpa-ncnn-conv-emformer-transducer-small-2023-01-09/decoder_jit_trace-pnnx.ncnn.param \
+./sherpa-ncnn-conv-emformer-transducer-small-2023-01-09/decoder_jit_trace-pnnx.ncnn.bin \
+./sherpa-ncnn-conv-emformer-transducer-small-2023-01-09/joiner_jit_trace-pnnx.ncnn.int8.param \
+./sherpa-ncnn-conv-emformer-transducer-small-2023-01-09/joiner_jit_trace-pnnx.ncnn.int8.bin \
+&quot;hw:0,0&quot; \
+2 \
+greedy_search
+</code></pre>
+<p>运行命令后可对着 AXera-Pi 板卡<strong>（麦克风靠近卡槽区域）</strong>说话或播放声音，板卡会自动识别并把结果打印到终端，如下图使用中文运行效果示例。</p>
+<p><img src="./../assets/sherpa.png" alt="sherpa" /></p>
+<ul>
+<li><strong>如何升级语音识别模型</strong></li>
+</ul>
+<blockquote>
+<p>镜像版本日期为 <code>20230313</code> 的已内置好升级版的中文语音识别模型，用户不需要自行下载模型包更新。</p>
+</blockquote>
+<p>使用 <code>git bash</code> 用下文命令行把更新的模型包下载到本地备用。</p>
+
+<pre class="language-bash"><code class="language-bash">git lfs install
+git clone https://huggingface.co/marcoyang/sherpa-ncnn-streaming-zipformer-zh-14M-2023-02-23
+</code></pre>
+<p><img src="./../assets/bash_sherpa.png" alt="bash_sherpa" /></p>
+<p>更新包拷贝完成后需放置到 AXera-Pi 板卡上的 <code>/home/sherpa-ncnn-m3axpi</code> 相对应目录下，具体的文件传输方法可参考<a href="https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/basic_usage.html#%E5%A6%82%E4%BD%95%E4%BC%A0%E8%BE%93%E6%96%87%E4%BB%B6"  target="_blank">【文件传输】</a>进行板卡与电脑互传。</p>
+<h2 id="%E5%95%86%E4%B8%9A%E5%BA%94%E7%94%A8%E6%96%B9%E6%A1%88">商业应用方案</h2>
+<h3 id="SENSOR-%E6%94%AF%E6%8C%81%E5%8F%8C%E6%91%84%E6%96%B9%E6%A1%88">SENSOR 支持双摄方案</h3>
+<blockquote>
+<p>（20230529 GC4653 软件上还不行，图中测试可用的是 os04a10）<br />
+（20230412 暂时废弃，目前 GC4653 双摄在软件上调不出来，折衷方案可以用 USB 摄像头过度，只验证过 OS04A10 双摄）</p>
+</blockquote>
+<p>目前 AXera-Pi 板卡物理上理论支持 GC4653 及 OS04A10 实现双摄方案，而 GC4653 软件上还不行，图中测试可用的是 OS04A10.</p>
+<p>OS04A10 在硬件上不支持使用双摄 2 * 4lane，软件上支持但硬件不支持，属于设计意外。</p>
+<p><img src="./../assets/os04a10.jpg" alt="os04a10" /></p>
+<p>使用双摄方案需替换相关的设备树文件，此处设备树只是配置 I2C 设备与摄像头型号无关。<br />
+详情资料可参考：<a href="https://dl.sipeed.com/shareURL/MaixIII/AXera/11_patch/dual_gc4653_patch"  target="_blank">资料包。</a></p>
+
+<pre class="language-bash"><code class="language-bash">juwan@juwan-n85-dls:~/Downloads/m3axpi_dual_gc4653_notes$ tree .
+.
+├── 0001-support-dual-gc4653-camera.patch // 给软件 sample_vin 的示例补丁，用于说明如何在应用层添加双摄支持。
+├── dtb.img.lcd20221025.dual.gc4653       // 需要更新设备树，主要原因是第二个摄像头的 i2c 设备结点不对需要启用和修改，注 emmc 方案没有这个问题
+├── res.jpg                               // 用于给硬件接线排查 接线是否正常，正常的情况是怎样的，配合 sample_vin_-c_3 测试确认。
+├── run.png                               // 接线图   同上
+└── sample_vin_-c_3                       // 测试程序 同上
+
+0 directories, 5 files
+</code></pre>
+<p>基于此，就可以实现双摄支持了！</p>
+<h3 id="EMMC-%E9%87%8F%E4%BA%A7%E7%9B%B8%E5%85%B3%E6%96%B9%E6%A1%88">EMMC 量产相关方案</h3>
+<p>目前已经支持 M3AXPI EMMC 量产的相关方案实现。</p>
+<p><strong>相关资料例程</strong>：<a href="https://www.cnblogs.com/juwan/p/17266132.html"  target="_blank">[m3axpi]关于爱芯 ax620a 方案如何采用 EMMC 商业化量产成品这件事</a></p>
+<p><img src="./../assets/emmc.jpg" alt="emmc" /></p>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                        <a href="/hardware/zh/maixIII/ax-pi/flash_system.html">
+                            <span class="icon"></span>
+                            <span class="label">产品上手指南</span>
+                        </a>
+                        
+                    </div>
+                    <div id="next">
+                        
+                        <a href="/hardware/zh/maixIII/ax-pi/python_api.html">
+                            <span class="label">试试 Python 编程</span>
+                            <span class="icon"></span>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>相关链接</a><ul><li><a target="_blank" href="https://www.sipeed.com">Sipeed 官网</a></li>
+<li><a target="_blank" href="https://maixhub.com/">MaixHub</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">Sipeed 淘宝</a></li>
+<li><a  href="/sitemap.xml">网站地图</a></li>
+<li><a target="_blank" href="https://github.com/teedoc/teedoc">网站使用 teedoc 生成</a></li>
+</ul>
+</li>
+<li><a>源码</a><ul><li><a target="_blank" href="https://github.com/sipeed/sipeed_wiki">Wiki 源码</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">开源项目</a></li>
+</ul>
+</li>
+<li><a>关注我们</a><ul><li><a target="_blank" href="https://twitter.com/SipeedIO">twitter</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">淘宝</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">github</a></li>
+<li><a><a>微信公众号</a><img src='/static/image/wechat.png'></a>
+</li>
+</ul>
+</li>
+<li><a>联系我们</a><ul><li><a>电话: +86 0755-27808509</a>
+</li>
+<li><a>商业支持: support@sipeed.com</a>
+</li>
+<li><a>地址: 深圳市宝安区新湖路4008号蘅芳科技办公大厦A座-2101C</a>
+</li>
+<li><a  href="/join_us.html">加入我们</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://www.sipeed.com">©2018-2023 深圳矽速科技有限公司</a></li>
+<li><a target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index">粤ICP备19015433号</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/js/prism.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <link rel="stylesheet" href="/static/js/add_hint/style.css" type="text/css"/>
+    
+        <script src="/static/js/add_hint/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+        <script src="/static/js/thumbs_up/main.js"></script>
+    
+</body>
+
+</html>

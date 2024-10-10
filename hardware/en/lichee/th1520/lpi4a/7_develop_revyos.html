@@ -1,0 +1,1270 @@
+<!DOCTYPE html>
+
+<html lang="en"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="Linux, Lichee, TH1520, SBC, RISCV">
+    
+    
+    <meta name="description" content="">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+        
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/prism.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?9cb07365544a53067c56c346c838181a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119047820-5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-119047820-5');
+    </script>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/js/thumbs_up/style.css" type="text/css"/>
+        
+    
+    
+    <title>revyos SDK - Sipeed Wiki</title>
+    
+    <script type="text/javascript">js_vars = {"teedoc-plugin-ad-hint": {"type": "hint", "label": "NEW", "content": "New Maix series products <a href='https://wiki.sipeed.com/maixcam'>MaixCAM</a> online now, and new <a href='https://wiki.sipeed.com/maixpy/'>MaixPy</a>,feature richer functionalities, enhanced performance, and user-friendly software, with comprehensive documentation", "show_times": 2, "show_after_s": 432000, "date": "2022-06-01 14:00", "color": "#a0421d", "link_color": "#e53935", "link_bg_color": "#e6ae5c", "bg_color": "#ffcf89", "color_hover": "white", "bg_color_hover": "#f57c00", "close_color": "#eab971"}, "teedoc-plugin-thumbs-up": {"label_up": "Helpful", "label_down": "Not Helpful", "icon": "/static/images/thumbs_up/up.svg", "icon_clicked": "/static/images/thumbs_up/upped.svg", "url": "https://thumbs-up.sipeed.com", "show_up_count": true, "show_down_count": false, "msg_already_voted": "You have already voted", "msg_thanks": "Thanks for your vote", "msg_down_prompt": "Thanks to tell us where we can improve?(At least 10 characters)", "msg_down_prompt_error": "Message should be at least 10 characters and less than 256 characters", "msg_error": "Request server failed!"}}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": "2023-07-21", "update": [{"date": "2023-07-21", "version": "v1.2", "author": "ztd", "content": ["Update English docs"]}, {"date": "2023-07-03", "version": "v1.1", "author": "ztd"}], "ts": 1689897600, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/en/">
+                
+                    <img class="site_logo" src="/static/image/logo.svg" alt="sipeed wiki logo">
+                
+                
+                    <h2>wiki</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class=""><a  href="/en/">Products</a></li>
+<li class="sub_items "><a >Software Docs</a><ul><li class=""><a  href="/maixpy/en/">MaixPy</a></li>
+<li class=""><a  href="/soft/maixpy/zh/index.html">MaixPy_v1</a></li>
+<li class=""><a  href="/soft/Lichee/zh/index.html">Lichee</a></li>
+<li class=""><a  href="/ai/en/index.html">AI Guide</a></li>
+</ul>
+</li>
+<li class=""><a target="_blank" href="https://maixhub.com">MaixHub</a></li>
+<li class=""><a  href="/news/">News</a></li>
+<li class=""><a  href="/en/faq.html">FAQ</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class=""><a  href="/en/store.html"><img src='/static/image/shop.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+<li class=""><a target="_blank" href="https://github.com/sipeed"><img src='/static/image/github.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+<li class="sub_items "><a  ><img src='/static/image/language.svg' style='height: 1.5em;vertical-align: middle;'>&nbsp;English</a><ul><li class="active"><a  href="/hardware/en/lichee/th1520/lpi4a/7_develop_revyos.html">English</a></li>
+<li class=""><a  href="/hardware/zh/lichee/th1520/lpi4a/7_develop_revyos.html">中文</a></li>
+</ul></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">Search</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">Input keyword. Using Space to separate multiple keywords</span>
+                                <span id="search_loading_hint">Loading, please wait</span>
+                                <span id="search_download_err_hint">Fail download, Please retry or check network</span>
+                                <span id="search_other_docs_result_hint">Results form other doc</span>
+                                <span id="search_curr_doc_result_hint">Result form current doc</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="not_active no_link"><a><span class="label">Maix Zero</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Maix M0</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/./maixzero/sense/maix_zero_sense.html"><span class="label">M0sense Board</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/./maixzero/sense/start.html"><span class="label">M0sense Guide</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Maix M0P</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">M0P</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">M0P Dock</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/./maixzero/m0s/m0s.html"><span class="label">Maix M0s</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Maix-I & Zero</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Maix M1</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">M1 Module</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/en/maix/core_module.html"><span class="label">M1/M1w</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maix/M1n.html"><span class="label">M1n</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">M1 Board</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maix/maixpy_develop_kit_board/Maix_dock.html"><span class="label">Maix Dock(M1/M1W)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maix/maixpy_develop_kit_board/maix_bit.html"><span class="label">Maix Bit</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maix/maixpy_develop_kit_board/maix_duino.html"><span class="label">Maix Duino</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maix/maixpy_develop_kit_board/maix_nano.html"><span class="label">Maix Nano</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maix/maixpy_develop_kit_board/maix_cube.html"><span class="label">Maix Cube</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maix/maixpy_develop_kit_board/maix_Amigo.html"><span class="label">Maix Amigo</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/no_translate.html?ref=/hardware/zh/maix/maixpy_develop_kit_board/maix_hat.html&from=/hardware/en/maix/maixpy_develop_kit_board/maix_hat.html"><span class="label">Maix HAT</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maix/maixpy_develop_kit_board/maix_go.html"><span class="label">Maix Go (Sold out)</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Maix M1s</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maix/m1s/m1s_module.html"><span class="label">M1s Module</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">M1s Dock</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maix/m1s/m1s_dock.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maix/m1s/other/start.html"><span class="label">Basic Usage</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maix/m1s/other/others.html"><span class="label">Others (Camera and Shell)</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Maix M1a</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/maixII/index.html"><span class="label">Maix-II</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maixII/M2/resources.html"><span class="label">MaixII-Dock</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maixII/M2/flash.html"><span class="label">Burn image</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixII/M2/usage.html"><span class="label">Basic usage</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixII/M2/other.html"><span class="label">Other notice</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/../../soft/maixpy3/zh/tools/0.MaixII-Dock.html"><span class="label">Using MaixPy3</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixII/M2/faq.html"><span class="label">FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/maixII/M2S/V833.html"><span class="label">M2S</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maixII/M2S/reources.html"><span class="label">Board introduction</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/maixII/M2A/maixsense.html"><span class="label">MaixSense</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maixII/M2A/flash_system.html"><span class="label">Burn image</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixII/M2A/config_system.html"><span class="label">Config system</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/no_translate.html?ref=/hardware/zh/maixII/M2A/first.html&from=/hardware/en/maixII/M2A/first.html"><span class="label">Test board</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/no_translate.html?ref=/hardware/zh/maixII/M2A/user.html&from=/hardware/en/maixII/M2A/user.html"><span class="label">Start to use</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/../../soft/maixpy3/zh/tools/maixsense.html"><span class="label">Using MaixPy3</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Maix-III</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maixIII/ax-pi/axpi.html"><span class="label">Maix-III AXera-Pi</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maixIII/ax-pi/flash_system.html"><span class="label">AXera-Pi manual</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixIII/ax-pi/python_api.html"><span class="label">Python programming</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixIII/ax-pi/dev_prepare.html"><span class="label">C/C++ programming</span><span class=""></span></a></li>
+<li class="not_active  with_link"><a href="/ai/en/deploy/ax-pi.html" ><span class="label">AI development guide</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixIII/ax-pi/faq_axpi.html"><span class="label">Questions (FAQ)</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">MaixCAM</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maixcam/index.html"><span class="label">MaixCAM Brief and Data</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixcam/assemble.html"><span class="label">MaixCAM Assembly</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixcam/os.html"><span class="label">System Upgrade</span><span class=""></span></a></li>
+<li class="not_active  with_link"><a href="https://wiki.sipeed.com/maixpy/" ><span class="label">Develop with MaixPy</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixcam/maixcdk.html"><span class="label">Develop with MaixCDK</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixcam/faq.html"><span class="label">FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="active_parent no_link"><a><span class="label">LicheePI</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="active_parent no_link"><a><span class="label">LicheePI 4A</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lm4a.html"><span class="label">Lichee Module 4A</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lc4a/lc4a.html"><span class="label">Lichee Cluster 4A</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lbook4a/lbook4a.html"><span class="label">Lichee Console 4A</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lcon4a/setup_guide.html"><span class="label">setup_guide</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lcon4a/3_images.html"><span class="label">images</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lcon4a/4_burn_image.html"><span class="label">burn_image</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lbook4a/lbook4a.html"><span class="label">Lichee Book 4A</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lbook4a/4_burn_image.html"><span class="label">burn_image</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="active_parent no_link"><a><span class="label">Lichee PI 4A</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/1_intro.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/2_unbox.html"><span class="label">Unbox guide</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/3_images.html"><span class="label">Image summary</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/4_burn_image.html"><span class="label">Burn image</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/5_desktop.html"><span class="label">Desktop usage</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/6_peripheral.html"><span class="label">Peripheral</span><span class=""></span></a></li>
+<li class="active_parent no_link"><a><span class="label">System building</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/7_develop_revyos.html"><span class="label">revyos</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/7_develop_mainline.html"><span class="label">Linux Mainline (Work in Progress)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/7_develop_android.html"><span class="label">Android</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/7_develop_thead.html"><span class="label">THead Yocto</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">OpenHarmony (Work in Progress)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/7_develop_openwrt.html"><span class="label">OpenWRT</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/8_application.html"><span class="label">Application</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/9_benchmark.html"><span class="label">Benchmark</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/10_test_report.html"><span class="label">Hardware report</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/12_faq.html"><span class="label">FAQ</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/11_credits.html"><span class="label">Credits</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">LicheePI 3A</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/lichee/K1/lm3a.html"><span class="label">Lichee Module 3A</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/K1/lc3a/lc3a.html"><span class="label">Lichee Cluster 3A</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Lichee PI 3A</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/en/lichee/K1/lpi3a/1_intro.html"><span class="label">SBC Intro</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/K1/lpi3a/2_unbox.html"><span class="label">Unbox experience</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/K1/lpi3a/3_burn_image.html"><span class="label">Burn Images</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/K1/lpi3a/4_peripheral.html"><span class="label">Peripheral Usage</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/K1/lpi3a/5_develop.html"><span class="label">System develop</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/K1/lpi3a/6_application.html"><span class="label">Applications</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/K1/lpi3a/7_faq.html"><span class="label">FAQs</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/K1/lpi3a/8_credits.html"><span class="label">Credits</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Lichee RV</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active no_link"><a><span class="label">Board Introduction</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV/RV.html"><span class="label">Lichee RV</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV/86_panel.html"><span class="label">Lichee RV 86 Panel</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV/Dock.html"><span class="label">Lichee RV Dock</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV/flash.html"><span class="label">Burn System</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV/user.html"><span class="label">Basic usage</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV/problems.html"><span class="label">Questions&Answers</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV/ubuntu.html"><span class="label">Ubuntu Image</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">LicheeRV Nano</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV_Nano/1_intro.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV_Nano/2_unbox.html"><span class="label">Unboxing Experience</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV_Nano/3_images.html"><span class="label">Image Collection</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV_Nano/4_burn_image.html"><span class="label">Flashing the Image</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV_Nano/5_peripheral.html"><span class="label">peripheral</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV_Nano/6_develop_mainline.html"><span class="label">System Development</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV_Nano/7_test_report.html"><span class="label">test</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV_Nano/8_mmf_development_guide.html"><span class="label">MMF Development Guide</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/Zero/Zero.html"><span class="label">Lichee Zero</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/Nano/Nano.html"><span class="label">Lichee Nano</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/ZeroPlus/ZeroPlus.html"><span class="label">Lichee ZeroPlus</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang FPGA</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Tang Nano</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano/Nano.html"><span class="label">Tang Nano</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-1K/Nano-1k.html"><span class="label">Tang Nano 1K</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-4K/Nano-4K.html"><span class="label">Tang Nano 4k</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-9K/Nano-9K.html"><span class="label">Tang Nano 9K</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Tang Nano 20K</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/tang/tang-nano-20k/nano-20k.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/tang-nano-20k/example/unbox.html"><span class="label">Unbox</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/install-the-ide.html"><span class="label">Install IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/examples.html"><span class="label">Tang Nano examples</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/questions.html"><span class="label">Questions&Answers</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Primer</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Tang Primer 20K</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/tang/tang-primer-20k/primer-20k.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/tang-primer-20k/start.html"><span class="label">Notice</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/install-the-ide.html"><span class="label">Install IDE</span><span class=""></span></a></li>
+<li class="not_active  with_link"><a href="https://github.com/sipeed/TangPrimer-20K-example" ><span class="label">Examples(Github)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/questions.html"><span class="label">Questions&Answers</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Primer 25K</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/tang/tang-primer-25k/primer-25k.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/install-the-ide.html"><span class="label">Install IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/questions.html"><span class="label">Questions&Answers</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Primer 15K</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/tang/tang-primer-15k/primer-15k.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/install-the-ide.html"><span class="label">Install IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/questions.html"><span class="label">Questions&Answers</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-primer/Tang-primer.html"><span class="label">Tang Primer (Sold out)</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Install TD</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-primer/get_started/install_TD_win.html"><span class="label">In Windows</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-primer/get_started/install_linux.html"><span class="label">In Linux</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-primer/fpga/led.html"><span class="label">Blink by FPGA</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-primer/get_started/E203.html"><span class="label"> Prepare E203 environment</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-primer/get_started/fpga_download.html"><span class="label">Burn FPGA</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Mega</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Tang Mega 138K Pro</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/tang/tang-mega-138k/mega-138k-pro.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/install-the-ide.html"><span class="label">Install IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/questions.html"><span class="label">Questions&Answers</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Mega 138K</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/tang/tang-mega-138k/mega-138k.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/install-the-ide.html"><span class="label">Install IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/questions.html"><span class="label">Questions&Answers</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Mega 60K</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/tang/tang-mega-60k/mega-60k.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/install-the-ide.html"><span class="label">Install IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/questions.html"><span class="label">Questions&Answers</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/tang/tang-PMOD/FPGA_PMOD.html"><span class="label">Tang PMOD</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/maixsense/index.html"><span class="label">MaixSense</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maixsense/maixsense-a010/maixsense-a010.html"><span class="label">MaixSense-a010</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixsense/maixsense-a075v/maixsense-a075v.html"><span class="label">MaixSense-a075v</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">SLogic</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">SLogic Combo 8</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/logic_analyzer/combo8/index.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/logic_analyzer/combo8/basic_operation.html"><span class="label">Basic Operation</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/logic_analyzer/combo8/use_logic_function.html"><span class="label">Using as Logic Analyzer</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/logic_analyzer/combo8/use_cklink_function.html"><span class="label">Using as CKLink</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/logic_analyzer/combo8/use_daplink_function.html"><span class="label">Using as DAPLink</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/logic_analyzer/combo8/use_fouruart_function.html"><span class="label">Using as Serial Module</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/logic_analyzer/combo8/update_firmware.html"><span class="label">Update Firmware</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/logic_analyzer/combo8/faq.html"><span class="label">FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">KVM</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">NanoKVM Cube</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/introduction.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/quick_start.html"><span class="label">Quick start</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/user_guide.html"><span class="label">User Guide</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Network</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/network/tailscale.html"><span class="label">Tailscale</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/network/frp.html"><span class="label">frp</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/network/static_ip.html"><span class="label">Static IP</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">System</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/system/introduction.html"><span class="label">System Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/system/flashing.html"><span class="label">Flashing</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/system/updating.html"><span class="label">Updating</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/system/configuration.html"><span class="label">Configuration</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/faq.html"><span class="label">FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Longon</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">LonganPI 3H</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/longan/h618/lpi3h/1_intro.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/longan/h618/lpi3h/3_images.html"><span class="label">Images</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/longan/h618/lpi3h/4_burn_image.html"><span class="label">Burn images</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/longan/h618/lpi3h/5_desktop.html"><span class="label">Desktop Usage</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/longan/h618/lpi3h/6_peripheral.html"><span class="label">Peripheral</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/longan/h618/lpi3h/7_develop_mainline.html"><span class="label">Development</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/longan/h618/lpi3h/8_test_report.html"><span class="label">Test report</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/longan/Nano/Longan_nano.html"><span class="label">Longon Nano</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/longan/Nano/pio.html"><span class="label">Setup environment</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/longan/Nano/blink.html"><span class="label">Blink test</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">MaixFace</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maixface/mf_ml_module/mf0_ml_module.html"><span class="label">MF0&&MF0 Dock</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixface/mf_ml_module/mf1_ml_module.html"><span class="label">MF1 && MF2</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixface/mf_ml_module/mf5_product.html"><span class="label">MF4 && MF5</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixface/mf_ml_module/mf_precautions.html"><span class="label">Maixface PCB Design</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixface/mf_ml_module/mf_update_firmwave.html"><span class="label">Maixface Update firmware</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Peripheral modules</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">SP-MOD Peripheral modules</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Adapter board</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_extender.html"><span class="label">SP-Extender</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_grove.html"><span class="label">SP-Grove</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_fpc.html"><span class="label">SP-FPC</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_micarray.html"><span class="label">SP-MicArray</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_joystick.html"><span class="label">SP-JotStick</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_servo.html"><span class="label">SP-Servo</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/.html"><span class="label">SP-TypeC</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Sensor</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_weather.html"><span class="label">SP-Weather</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_tof.html"><span class="label">SP-TOF-1P</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Communication</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_bt.html"><span class="label">SP-BT</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_lora.html"><span class="label">SP-LoRa</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_psram.html"><span class="label">SP-PSRAM</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_rfid.html"><span class="label">SP-RFID</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_ethernet.html"><span class="label">SP-Ethernet</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Display</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_lcd1.14.html"><span class="label">SP-LCD 1.14</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_eink.html"><span class="label">SP-Eink</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Module && Debugger</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Debugger</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Sipeed RV Debugger</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Dual uart USB module</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">module</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">camera</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">GC0328</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Dual cam module(GC0328)</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">OV7740</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">OV2640</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">OV2640-M12</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Dual cam module(OV2640)</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Mic module</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/modules/micarray.html"><span class="label">Mic array</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/modules/Gamepad.html"><span class="label">Sipeed Gamepad</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>revyos SDK</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                                <span class="article_date" title="Last modify date: 2023-07-21">
+                                    2023-07-21
+                                </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/sipeed/sipeed_wiki/blob/main/docs/hardware/en/lichee/th1520/lpi4a/7_develop_revyos.md" target="_blank">
+                                    <span id='editPage'>Edit this page</span>
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                        
+                        <details open>
+                        
+                            <summary>Update history</summary>
+                            <div>
+                                <table>
+                                        <thead>
+                                            <tr>
+                                                <th>Date</th>
+                                                <th>Version</th>
+                                                <th>Author</th>
+                                                <th>Update content</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            
+                                                <tr>
+                                                    <td>2023-07-21</td>
+                                                    <td>v1.2</td>
+                                                    <td>ztd</td>
+                                                    <td>
+                                                    
+                                                        <ul>
+                                                        
+                                                            <li>Update English docs</li>
+                                                        
+                                                        </ul>
+                                                    
+                                                    </td>
+                                                </tr>
+                                            
+                                                <tr>
+                                                    <td>2023-07-03</td>
+                                                    <td>v1.1</td>
+                                                    <td>ztd</td>
+                                                    <td>
+                                                    
+                                                        <ul>
+                                                        
+                                                        </ul>
+                                                    
+                                                    </td>
+                                                </tr>
+                                            
+                                        </tbody>
+                                </table>
+                            </div>
+                        </details>
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <p>The SDK used by Sipeed is the one in this document.<br />
+The SDK is built locally using <code>make</code> to configure the build environment. The following build process runs on ubuntu-22.04, so please reserve about 20 gigabytes of space.</p>
+<h2 id="Build-environment-configuration">Build environment configuration</h2>
+<p>First, install the required packages and set the environment variables.</p>
+
+<pre class="language-bash"><code class="language-bash">export xuetie_toolchain=https://occ-oss-prod.oss-cn-hangzhou.aliyuncs.com/resource//1663142514282
+export toolchain_file_name=Xuantie-900-gcc-linux-5.10.4-glibc-x86_64-V2.6.1-20220906.tar.gz
+export toolchain_tripe=riscv64-unknown-linux-gnu-
+export ARCH=riscv
+export nproc=12 #Please set according to their own CPU configuration, the document uses cpu i5-11400
+mkdir th1520_build &amp;&amp; cd th1520_build
+export GITHUB_WORKSPACE=&quot;~/th1520_build&quot; #The assumptions in this article are downloaded to the user's directory and can be changed according to your needs.
+sudo apt update &amp;&amp; \
+              sudo apt install -y gdisk dosfstools g++-12-riscv64-linux-gnu build-essential \
+                                  libncurses-dev gawk flex bison openssl libssl-dev tree \
+                                  dkms libelf-dev libudev-dev libpci-dev libiberty-dev autoconf device-tree-compiler
+              sudo update-alternatives --install \
+                  /usr/bin/riscv64-linux-gnu-gcc riscv64-gcc /usr/bin/riscv64-linux-gnu-gcc-12 10
+              sudo update-alternatives --install \
+                  /usr/bin/riscv64-linux-gnu-g++ riscv64-g++ /usr/bin/riscv64-linux-gnu-g++-12 10
+</code></pre>
+<p><strong>Note: When clone the following repo, please check whether it is the corresponding branch:</strong><br />
+<strong>kernel branch is lpi4a</strong><br />
+<strong>uboot branch is lpi4a</strong>.<br />
+<strong>opensbi branch is lpi4a</strong></p>
+<h2 id="Build-kernel">Build kernel</h2>
+<p>First, please clone the used repo and create the corresponding folder (the following paths assume that the root directory is under the user directory).</p>
+
+<pre class="language-shell"><code class="language-shell">git clone https://github.com/revyos/thead-kernel.git kernel
+</code></pre>
+<p>Configuring the compilation toolchain</p>
+
+<pre class="language-shell"><code class="language-shell">wget ${xuetie_toolchain}/${toolchain_file_name}
+tar -xvf ${toolchain_file_name} -C /opt
+export PATH=&quot;/opt/Xuantie-900-gcc-linux-5.10.4-glibc-x86_64-V2.6.1/bin:$PATH&quot;
+</code></pre>
+<p>Create the installation target directory</p>
+
+<pre class="language-shell"><code class="language-shell">mkdir rootfs &amp;&amp; mkdir rootfs/boot
+</code></pre>
+<p>Build the kernel</p>
+
+<pre class="language-shell"><code class="language-shell">pushd kernel
+make CROSS_COMPILE=${toolchain_tripe} ARCH=${ARCH} revyos_defconfig
+make CROSS_COMPILE=${toolchain_tripe} ARCH=${ARCH} -j$(nproc)
+make CROSS_COMPILE=${toolchain_tripe} ARCH=${ARCH} -j$(nproc) dtbs
+if [ x&quot;$(cat .config | grep CONFIG_MODULES=y)&quot; = x&quot;CONFIG_MODULES=y&quot; ]; then
+    sudo make CROSS_COMPILE=${toolchain_tripe}  ARCH=${ARCH} INSTALL_MOD_PATH=${GITHUB_WORKSPACE}/rootfs/ modules_install -j$(nproc)
+fi
+#sudo make CROSS_COMPILE=${toolchain_tripe}  ARCH=${ARCH} INSTALL_PATH=${GITHUB_WORKSPACE}/rootfs/boot zinstall -j$(nproc)
+</code></pre>
+<p>Build perf (build as needed)</p>
+
+<pre class="language-shell"><code class="language-shell">make CROSS_COMPILE=riscv64-unknown-linux-gnu- ARCH=riscv LDFLAGS=-static NO_LIBELF=1 NO_JVMTI=1 VF=1 -C tools/perf/
+sudo cp -v tools/perf/perf ${GITHUB_WORKSPACE}/rootfs/sbin/perf-thead
+</code></pre>
+<p>Record commit-id</p>
+
+<pre class="language-shell"><code class="language-shell">git rev-parse HEAD &gt; kernel-commitid
+sudo cp -v kernel-commitid ${GITHUB_WORKSPACE}/rootfs/boot/
+</code></pre>
+<p>Install kernel, device tree to target directory</p>
+
+<pre class="language-shell"><code class="language-shell">sudo cp -v arch/riscv/boot/Image ${GITHUB_WORKSPACE}/rootfs/boot
+sudo cp -v arch/riscv/boot/dts/thead/{light-lpi4a.dtb,light-lpi4a-16gb.dtb} ${GITHUB_WORKSPACE}/rootfs/boot/
+popd
+</code></pre>
+<p>After that, you only need to copy or overwrite the contents of the rootfs to the corresponding directory. Note that the kernel image and kernel module directories must correspond to each other, or else the peripheral functions will be disabled due to the missing kernel module.</p>
+<p>Starting from commit <code>c56347a43e850de287a2249d3d9118910718527b</code>, the kernel defaults to include a 16GB memory device tree, so 8G/16G share one kernel, with only uboot being different.</p>
+<h2 id="Building-uboot">Building uboot</h2>
+<p>Note that at this point, you are still in the th1520_build directory and have already configured the environment variables and toolchain, refer to building the kernel for the steps.</p>
+
+<pre class="language-shell"><code class="language-shell">git clone https://github.com/revyos/thead-u-boot.git uboot
+</code></pre>
+<p>Note that at this point, you are still in the th1520_build directory and have already configured the environment variables and toolchain, refer to building the kernel for the steps.</p>
+
+<pre class="language-shell"><code class="language-shell">pushd uboot
+# Build uboot for 16G memory version
+make light_lpi4a_16g_defconfig
+make CROSS_COMPILE=${toolchain_tripe} ARCH=${ARCH} -j$(nproc)
+find . -name &quot;u-boot-with-spl.bin&quot; | xargs -I{} cp -av {} ${GITHUB_WORKSPACE}/rootfs/u-boot-with-spl-lpi4a-16g.bin
+make clean
+# Build uboot for 8G memory version
+make light_lpi4a_defconfig
+make CROSS_COMPILE=${toolchain_tripe} ARCH=${ARCH} -j$(nproc)
+find . -name &quot;u-boot-with-spl.bin&quot; | xargs -I{} cp -av {} ${GITHUB_WORKSPACE}/rootfs/u-boot-with-spl-lpi4a.bin
+make clean
+popd
+</code></pre>
+<p>When flashing, pay attention to flash the uboot corresponding to the development board you are using. When flashing, please pay attention to the command you use. If the image version you are using is <code>0912</code> or above, you only need to run the following command to upgrade uboot:</p>
+
+<pre class="language-shell"><code class="language-shell">sudo ./fastboot flash uboot u-boot-with-spl-lpi4a-16g.bin
+</code></pre>
+<p>Check the output files</p>
+
+<pre class="language-shell"><code class="language-shell">tree ${GITHUB_WORKSPACE}/rootfs
+</code></pre>
+<h2 id="Build-opensbi">Build opensbi</h2>
+<p>Note that at this point, you are still in the th1520_build directory and have already configured the environment variables and toolchain, refer to building the kernel for the steps.</p>
+
+<pre class="language-shell"><code class="language-shell">git clone https://github.com/revyos/thead-opensbi.git opensbi
+</code></pre>
+<p>Then start executing the compile command</p>
+
+<pre class="language-shell"><code class="language-shell">pushd opensbi
+make PLATFORM=generic ARCH=${ARCH} CROSS_COMPILE=${toolchain_tripe} 
+sudo install -D -p -m 644 build/platform/generic/firmware/fw_dynamic.bin \
+&quot;${GITHUB_WORKSPACE}/rootfs/boot/&quot;
+popd
+</code></pre>
+<p>Checking the output files</p>
+
+<pre class="language-shell"><code class="language-shell">tree ${GITHUB_WORKSPACE}/rootfs
+</code></pre>
+<p>Pack the kernel, uboot, opensbi related files from the current build into a zip archive.</p>
+
+<pre class="language-shell"><code class="language-shell">tar -zcvf kernel.tar.gz rootfs
+</code></pre>
+<p>To use the build files, just replace the files in the zip package to the appropriate locations.<br />
+Delete the files to be replaced in boot.ext4, then the files under rootfs/boot/ are put into boot.ext4;<br />
+Replace rootfs/lib/modules/ with the /lib/modules/ directory in rootfs.ext4;<br />
+If you have built perf, replace the files under rootfs/sbin with the files under /sbin in rootfs.ext4;<br />
+Just burn uboot directly.</p>
+<h2 id="GStreamer-Player-Adaptation-Documentation-with-PTG-omxil-Library-Support">GStreamer Player Adaptation Documentation with PTG omxil Library Support</h2>
+<h3 id="Overview">Overview</h3>
+<p>PTG's OpenMAX IL library (hereinafter referred to as vpu-omxil) enables the LicheePi 4A to smoothly hard-decode 4k 60fps video, so how to use this library? This article will mainly introduce the integration and use of the Parole player on the LicheePi 4A development board, users can follow this article to understand the process of adapting to the LicheePi 4A Take the hard decoding of h264 as an example, the workflow of the hard decoding of the video is shown in the following figure</p>
+
+<pre class="language-text"><code class="language-text">                +-------------------------------------------+ +-------------------------------------------+ +-------------------------------------------+
+                | +------------+ +------------+ | +--------+
+video stream----+---&gt;| omxh264dec +------&gt;| video-sink +----+---&gt;| player |
+                | +------+-----+ +------------+ | +--------+
+                | | GStreamer |
+                +-----------+-------------------------------+
+                            GStreamer | +++ ++ | ++
+                      +-----v-----+ |
+                      | vpu-omxil |
+                      +-----+-----+
+                            | vpu-omxil | +++
+                            vpu-omxil | +++ | vpu-omxil
+                    +-------v-------+
+                    | kernel module |
+                    | (driver) |
+                    +-------+-------+
+                            kernel module || (driver) | +++
+                            v
+                        hardware
+</code></pre>
+<ol>
+<li>the video stream is read in by the GStreamer and then goes through a series of pre-processing before being sent to the GStreamer's decoder <code>omxh264dec</code>.</li>
+<li>omxh264dec calls a dynamic library, the vpu-omxil library provided by PTG, which accesses the hardware (kernel module) through the driver to perform hard decoding.</li>
+<li>the decoded stream is transferred to the video-sink of GStreamer and rendered by the player</li>
+</ol>
+<h3 id="GStreamer-omxh264dec-decoding-test">GStreamer omxh264dec decoding test</h3>
+<p>The omxh264 decoding section is separated out and has the following general structure</p>
+
+<pre class="language-text"><code class="language-text">  +---+------------+----+ |+------------+----+
+  | +------------+ |
+  | | omxh264dec | |
+  | +------------+ |
+  | GStreamer |
+  +----------+----------+
+             || omxh264dec
+  | +----+-----v-----+----+ |
+  | +-----------+ |
+  | | vpu-omxil | | | | vpu-omxil
+  | +-----------+ |
+  | libomxil-bellagio |
+  +----------+----------+
+             || libomxil-bellagio
++------------v------------+
+| - memalloc - vc8000 |
+| - hantrodec - vidmem |
+| kernel modules |
++------------+------------+
+             | - kernel modules | +++
+             v
+          kernel modules | +++ | v
+</code></pre>
+<p>We build the chain shown in bottom-up order. The main purpose of this section is to get the omxh264dec decoder up and running, and does not deal with outputting screens, etc. The main purpose of this section is to get the omxh264dec decoder running.</p>
+<h4 id="1.-Driver-Compilation%2C-Installation%2C-and-Hardware-Access-Setup">1. Driver Compilation, Installation, and Hardware Access Setup</h4>
+<p>Hard decoding requires access to the hardware, and access to the hardware requires a driver, so you need to compile and install the driver.</p>
+<h5 id="1.1-Compile-driver">1.1 Compile driver</h5>
+<p>PTG provides the driver source:</p>
+<p><a href="https://gitee.com/thead-yocto/vpu-vc8000e-kernel"  target="_blank">https://gitee.com/thead-yocto/vpu-vc8000e-kernel</a></p>
+<p><a href="https://gitee.com/thead-yocto/vpu-vc8000d-kernel"  target="_blank">https://gitee.com/thead-yocto/vpu-vc8000d-kernel</a></p>
+<p><a href="https://gitee.com/thead-yocto/video_memory"  target="_blank">https://gitee.com/thead-yocto/video_memory</a></p>
+<h5 id="1.2-Install-the-driver">1.2 Install the driver</h5>
+
+<pre class="language-shell"><code class="language-shell"># depmod analyzes the dependencies of loadable modules and adds a modules.dep file to /lib/modules/&lt;kernel-version&gt; for subsequent modprobe use
+sudo depmod -a
+sudo modprobe vidmem vc8000 hantrodec memalloc
+
+## If you are having trouble installing modprobe, try using insmod to install it.
+#cd /usr/lib/modules/$(uname -r)
+#sudo insmod $(find . -name *vidmem.ko*)
+#sudo insmod $(find . -name *vc8000.ko*)
+#sudo insmod $(find . -name *hantrodec.ko*)
+#sudo insmod $(find . -name *memalloc.ko*)
+
+# Optional: set bootloader module
+echo -e &quot;\nvidmem\nhantrodec\nmemalloc\nvc8000\n&quot; | sudo tee -a /etc/modules &gt; /dev/null
+</code></pre>
+<h5 id="1.3-Setting-Hardware-Access-Privileges">1.3 Setting Hardware Access Privileges</h5>
+<p>After installing the kernel module, three device files, hantrodec vidmem vc8000, appear in the /dev directory. By default, users do not have access rights to these files. If you do not change the permissions, non-root users will get an error when opening the omxil library.</p>
+
+<pre class="language-shell"><code class="language-shell"># Execute the shell once.
+cd /dev
+sudo chmod 666 hantrodec vidmem vc8000
+
+# Long term
+cat &lt;&lt; EOF | sudo tee /lib/udev/rules.d/70-hantro.rules &gt; /dev/null
+KERNEL==&quot;vidmem&quot;, MODE=&quot;0666&quot;
+KERNEL==&quot;hantrodec&quot;, MODE=&quot;0666&quot;
+KERNEL==&quot;vc8000&quot;, MODE=&quot;0666&quot;
+EOF
+</code></pre>
+<h5 id="RevyOS-Adaptation-Records">RevyOS Adaptation Records</h5>
+<p>To get the kernel module for a specific version of RevyOS, go to [revyos/thead-kernel](<a href="https://github.com/revyos/revyos/wiki/%E6%94%AF%E6%8C%81-PTG-omxil-%E5%BA%93%E7%9A%"  target="_blank">https://github.com/revyos/revyos/wiki/%E6%94%AF%E6%8C%81-PTG-omxil-%E5%BA%93%E7%9A%</a> 84-GStreamer-%E6%92%AD%E6%94%BE%E5%99%A8%E9%80%82%E9%85%8D%E6%96%87%E6%A1%A3), and download the artifacts from the GitHub CI</p>
+<h4 id="2.-Install-vpu-omxil-and-adjust-the-configuration">2. Install vpu-omxil and adjust the configuration</h4>
+<p>First, download and extract vpu-omxil into /usr/lib/omxil/: [vpu-omxil_1.2.1.tar.gz](<a href="https://drive.google.com/file/d/1pYgCVI7WltfpskltJ-RqzVUCEC21FS56/"  target="_blank">https://drive.google.com/file/d/1pYgCVI7WltfpskltJ-RqzVUCEC21FS56/</a> edit?pli=1). As shown below, it is required:</p>
+<ol>
+<li>register the OpenMax component from vpu-omxil to libomxil-bellagio</li>
+<li>gst-omx (this package provides the omxh264dec decoder) You also need to know the name of the component you are calling when you call libomxil-bellagio.</li>
+</ol>
+
+<pre class="language-text"><code class="language-text">+---------+ +-------------------+ +-----------+
+| gst-omx +--&gt;| libomxil-bellagio +--&gt;| vpu-omxil |
++---------+ +-------------------+ +-----------+
+</code></pre>
+<h5 id="2.1-Registering-components-from-vpu-omxil-to-libomxil-bellagio">2.1 Registering components from vpu-omxil to libomxil-bellagio</h5>
+
+<pre class="language-shell"><code class="language-shell">sudo apt install libomxil-bellagio-bin libomxil-bellagio0
+# Register the component
+omxregister-bellagio -v /usr/lib/omxil/
+</code></pre>
+<h5 id="2.2-Adjusting-gstomx.conf-settings">2.2 Adjusting gstomx.conf settings</h5>
+<p>Adjust the settings of gstomx.conf so that the decoder omxh264dec calls the correct components, see the patch for gst-omx:</p>
+<p>[gst-omx-01-add-libomxil-config.patch](<a href="https://gist.github.com/Sakura286/26777ea8204c1819885e093806a4f7ca#file-gst-omx-01-add-"  target="_blank">https://gist.github.com/Sakura286/26777ea8204c1819885e093806a4f7ca#file-gst-omx-01-add-</a> libomxil-config-patch)</p>
+<h4 id="3.-Add-dmabuf-patch">3. Add dmabuf patch</h4>
+<p>Please check the dmabuf patch for gst-omx provided by PTG:</p>
+<p>[gst-omx-02-set-dec-out-port-dmabuf.patch](<a href="https://gist.github.com/Sakura286/26777ea8204c1819885e093806a4f7ca#file-gst-omx-02-set-"  target="_blank">https://gist.github.com/Sakura286/26777ea8204c1819885e093806a4f7ca#file-gst-omx-02-set-</a> dec-out-port-dmabuf-patch)</p>
+<h4 id="4.-GStreamer-decoding-preliminary-test">4. GStreamer decoding preliminary test</h4>
+
+<pre class="language-shell"><code class="language-shell">sudo apt install gstreamer1.0-omx-generic gstreamer1.0-omx-bellagio-config gstreamer1.0-plugins-bad gstreamer1.0-plugins-base gstreamer1.0-gl gstreamer1.0-plugins-good gstreamer1.0-tools
+
+# 1 Basic decoding
+gst-launch-1.0 filesrc location=&lt;test.mp4&gt; ! qtdemux !  h264parse ! omxh264dec ! videoconvert ! fakesink sync=false
+# 2 Display fps in terminal
+# Reference: https://stackoverflow.com/questions/73948308
+gst-launch-1.0 filesrc location=&lt;test.mp4&gt; ! qtdemux !  h264parse ! omxh264dec ! videoconvert ! fpsdisplaysink video-sink=fakesink text-overlay=false sync=false -v 2&gt;&amp;1
+</code></pre>
+<p><code>fakesink</code> swallows the previous video stream in its entirety and doesn't output the picture (thus not losing performance in the video-sink part), but in combination with fpsdisplaysink you can read the decoding speed. The normal log is as follows:</p>
+
+<pre class="language-shell"><code class="language-shell">Setting pipeline to PAUSED ... [DBGT]
+vc8kdec compiled without trace support (ENABLE_DBGT_TRACE switch not enabled)
+Pipeline is PREROLLING ...
+Redistribute latency...
+OMX ! decoder_get_parameter OMX_ErrorNoMore (2)
+Pipeline is PREROLLED ...
+Setting pipeline to PLAYING ...
+New clock: GstSystemClockRedistribute latency...
+0:01:39.5 / 0:01:49.4 (90.9 %)
+</code></pre>
+<p><strong>[TIP]</strong><br />
+If there is [omxh264dec-omxh264dec0: Could not initialize supporting library.](<a href="https://gist.github.com/Sakura286/"  target="_blank">https://gist.github.com/Sakura286/</a> 015fae6792e160268db7ad8a697dd2df), you can install <code>gst-omx</code>, <code>libomxil-bellagio</code> and <code>debug-symbol</code> package related to <code>libc6</code>, and start the above commands with <code>gdb</code> for debugging. When debugging, break <code>DWLInit</code> and then break <code>open</code>, depending on which part of <code>open</code> is wrong.</p>
+<h5 id="RevyOS-adaptation-log">RevyOS adaptation log</h5>
+<p>During the adaptation of RevyOS, the following three reasons were found for the failure of initializing dynamic libraries:</p>
+<ol>
+<li>the toolchain used to compile vpu-omxil is not compatible with the current system</li>
+<li>vpu-omxil was not registered with <code>omxregister-bellagio</code>.</li>
+<li>not adjusting permissions on devices like <code>hantrodec</code>, <code>vc8000</code>, <code>vidmem</code> in <code>/dev</code> directory.</li>
+</ol>
+<h3 id="B.-Selecting-a-suitable-GStreamer-video-sink">B. Selecting a suitable GStreamer video-sink</h3>
+<p>The <code>video-sink</code> is the last step of the video stream in the whole <a href="https://gstreamer.freedesktop.org/documentation/tutorials/basic/concepts.html"  target="_blank">GStreamer pipeline</a>, and its role is generally to output the video stream to the screen.<br />
+The <code>fakesink</code> in the previous section is just a special <code>video-sink</code> to test that the decoder is working correctly, <a href="https://gstreamer.freedesktop.org/documentation/tutorials/basic/platform"  target="_blank">optional video-sink</a> -specific-elements.html?gi-language=c) are very numerous, common ones are <code>autovideosink</code>, <code>ximagesink</code>, <code>xvimagesink</code>, <code>fbdevsink</code>, <code>waylandsink</code>, <code>glimagesink</code>, <code>gtkglsink</code> and so on. gtkglsink`, etc. They are each in different plugin packages and need to be installed as appropriate:</p>
+<table>
+<thead>
+<tr>
+  <th><strong>video-sink</strong></th>
+  <th><strong>Package name</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>waylandsink</td>
+  <td>gtkglsink</td>
+  <td>waylandsink</td>
+  <td>gtkglsink</td>
+</tr>
+<tr>
+  <td>waylandsink</td>
+  <td>gstreamer1.0-plugins-bad</td>
+</tr>
+<tr>
+  <td>fbdevsink</td>
+  <td>gstreamer1.0-plugins-bad</td>
+</tr>
+<tr>
+  <td>autovideosink</td>
+  <td>gstreamer1.0-plugins-good</td>
+  <td>gtkglsink</td>
+  <td>fbdevsink</td>
+  <td>gstreamer1.0-plugins-bad</td>
+</tr>
+<tr>
+  <td>gtkglsink</td>
+  <td>gstreamer1.0-plugins-good</td>
+  <td>gstreamer1.0-plugins-good</td>
+  <td>gstreamer1.0-plugins-good</td>
+</tr>
+<tr>
+  <td>ximagesink | xvimagesink</td>
+  <td>gstreamer1.0-plugins-base</td>
+</tr>
+<tr>
+  <td>glimagesink</td>
+  <td>gstreamer1.0-plugins-base | gstreamer1.0-gl</td>
+</tr>
+</tbody>
+</table>
+<p><strong>[TIP]</strong> Use <code>gst-inspect-1.0 &lt;video-sink-name&gt;</code> to see what options are available for the corresponding video-sink.<br />
+<strong>[TIP]</strong> Add <code>--gst-debug-level=&lt;lv&gt;</code> to get more [output logs] (<a href="https://gstreamer.freedesktop.org/documentation/tutorials/basic/debugging-tools"  target="_blank">https://gstreamer.freedesktop.org/documentation/tutorials/basic/debugging-tools</a>. html#the-debug-log), where <code>&lt;lv&gt;</code> stands for 1 to 6, and the verbosity level is from low to high, it is recommended to be at level 4 and below, otherwise the log will be very long.<br />
+Please try different video-sinks, and try different plugin parameters, and different environment variables, until you find one that can smoothly harden H264.</p>
+<h4 id="RevyOS-adaptation-log">RevyOS adaptation log</h4>
+<ul>
+<li><code>**waylandsink**</code>: Since RevyOS now (20230720) uses the Xfce desktop, it is not possible to support Wayland, so <code>waylandsink</code> does not work in principle.</li>
+<li><code>**fbdevsink**</code> and <code>**ximagesink**</code>: not working</li>
+<li><code>**xvimagesink**</code>: via <a href="https://gstreamer.freedesktop.org/documentation/tutorials/basic/debugging-tools.html#getting-pipeline-graphs"  target="_blank">pipeline graphs</a> and logs, we can determine that playbin or autovideosink will automatically call xvimagesink, and after analyzing with perf, we can find that using xvimagesink will inevitably perform a large number of memcpy operations, which will seriously degrade the decoding performance; this problem still exists after obtaining PTG's dmabuf patch. This problem still exists after obtaining PTG's dmabuf patch, so it is not possible to use</li>
+<li><code>**gtkglsink**</code>: <a href="https://gitlab.gnome.org/GNOME/gtk/-/issues/738"  target="_blank">GTK3 does not support EGL on X11</a>, and RevyOS is currently based on x11 and only supports EGL, so it cannot be used.</li>
+</ul>
+<p>The only thing left is <code>glimagesink</code>, according to <a href="https://gstreamer.freedesktop.org/documentation/gstreamer/running"  target="_blank">Running and debugging GStreamer Applications</a>, and looking at other examples that use glimagesink, we can guess that we need to explicitly specify the environment variables <code>GST_GL_API</code> and <code>GST_GL_PLATFORM</code>.<br />
+Since RevyOS uses a combination of gles2+egl, it was successfully hardened using the following command.</p>
+
+<pre class="language-shell"><code class="language-shell">GST_GL_API=gles2 GST_GL_PLATFORM=egl gst-launch-1.0 filesrc location=&lt;test.mp4&gt; ! qtdemux !  h264parse ! omxh264dec ! videoconvert ! fpsdisplaysink video-sink=glimagesink sync=false
+</code></pre>
+<p>However, GStreamer cannot be passed parameters via environment variables when called by the player, so additional meson compilation parameters should be passed when building gst-plugins-base:</p>
+
+<pre class="language-shell"><code class="language-shell">-Dgl_api=[\'gles2\'] -Dgl_platform=[\'egl\']
+</code></pre>
+<h3 id="C.-Player-support">C. Player support</h3>
+<p>After the pipeline of GStreamer is OK, we need to make the player support. Different players use different video-sinks, and also have different levels of dependency on gstreamer.<br />
+When adapting a player, the most important thing to do is to either (i) adapt the player to a validated video-sink, or (ii) make the gstreamer pipeline support the video-sink specified by the player, which is what we have done in this RevyOS adaptation.</p>
+
+<pre class="language-plain"><code class="language-plain">                +-------------------------------------------+ | +-------------------------------------------+ +-------------------------------------------+
+                | +------------+ +------------+ | +--------+
+video stream----+---&gt;| omxh264dec +------&gt;| video-sink +----+---&gt;| player |
+                | +------------+ +------------+ | +--------+
+                | GStreamer |
+                +-------------------------------------------+
+</code></pre>
+<h4 id="RevyOS-adaptation-log">RevyOS adaptation log</h4>
+<p>Simple troubleshooting based on <a href="https://gstreamer.freedesktop.org/apps/"  target="_blank">https://gstreamer.freedesktop.org/apps/</a></p>
+<table>
+<thead>
+<tr>
+  <th>Available</th>
+  <th>Updated</th>
+  <th>App Name</th>
+  <th>Remarks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>❌</td>
+  <td>Gnash</td>
+  <td>Flash Player</td>
+  <td></td>
+</tr>
+<tr>
+  <td>❌</td>
+  <td></td>
+  <td>GEntrans</td>
+  <td>Debian Uncovered</td>
+</tr>
+<tr>
+  <td>❓</td>
+  <td>20230226</td>
+  <td>Kaffeine</td>
+  <td>❌ Requires a lot of KDE-related components</td>
+</tr>
+<tr>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td>✔️ exists in <a href="https://buildd.debian.org/status/package.php?p=kaffeine&amp;suite=sid"  target="_blank">riscv64 repository</a></td>
+</tr>
+<tr>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td>❌ On Debian amd64 Gnome, the playback window is separate from the control window, and VLC is called by default for playback</td>
+</tr>
+<tr>
+  <td>❌</td>
+  <td></td>
+  <td>Lcdgrilo</td>
+  <td>Debian not included</td>
+</tr>
+<tr>
+  <td>✔️</td>
+  <td>20230218</td>
+  <td>Parole</td>
+  <td>✔️ For XFCE</td>
+</tr>
+<tr>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td>❓ No Wayland support, only x11 support</td>
+</tr>
+<tr>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td>✔️ Debian amd64 Gnome Verified by</td>
+</tr>
+<tr>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td>✔️ exists in <a href="https://buildd.debian.org/status/package.php?p=parole&amp;suite=sid"  target="_blank">riscv64 repository</a></td>
+</tr>
+<tr>
+  <td>❌</td>
+  <td></td>
+  <td>Songbird</td>
+  <td>Debian not included</td>
+</tr>
+<tr>
+  <td>❌</td>
+  <td></td>
+  <td>Snappy</td>
+  <td>Debian not included</td>
+</tr>
+<tr>
+  <td>❌</td>
+  <td></td>
+  <td>Totem</td>
+  <td>requires GTK3, which does not support EGL on X11</td>
+</tr>
+</tbody>
+</table>
+<p>The first player of choice was Totem, but it turns out that Totem can't specify video-sinks other than gtkglsink, and RevyOS doesn't support it.<br />
+I then chose Parole, which is written by GObject, and looked for the method parole_gst_constructed when constructing the parole_gst object, and set the video-sink to the glimagesink as verified in the previous section, and the rough adaptation was completed.</p>
+<h3 id="Summary%3A-Adapting-to-RevyOS">Summary: Adapting to RevyOS</h3>
+<ol>
+<li>Compile the driver module into the kernel, set bootloading, and set device permissions.</li>
+<li>Package the omxil binary library provided by PTG into th1520-vpu.<ol>
+<li>modified the dependencies of th1520-vpu to depend on packages like gst-omx, libomxil-bellagio, etc. 2. set some postinstalls.</li>
+<li>set up some postinstall operations, such as registering components with omxregister-bellagio, etc.</li>
+</ol>
+</li>
+<li>Modify gst-omx<ol>
+<li>added support for vpu-omxil component in config</li>
+<li>apply dmabuf patch</li>
+<li>add support for h265 vp9. 4.</li>
+</ol>
+</li>
+<li>modify gst-base compile-time gl support to gles2+egl. 5. modify parole to support gl.</li>
+<li>modify parole to support glimagesink</li>
+</ol>
+<h3 id="Resources-used-in-this-article">Resources used in this article</h3>
+<p>Patch collection:</p>
+<p><a href="https://gist.github.com/Sakura286/26777ea8204c1819885e093806a4f7ca"  target="_blank">https://gist.github.com/Sakura286/26777ea8204c1819885e093806a4f7ca</a></p>
+<p>PTG omxil library:</p>
+<p><a href="https://drive.google.com/file/d/1pYgCVI7WltfpskltJ-RqzVUCEC21FS56"  target="_blank">https://drive.google.com/file/d/1pYgCVI7WltfpskltJ-RqzVUCEC21FS56</a></p>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                        <a href="/hardware/en/lichee/th1520/lpi4a/6_peripheral.html">
+                            <span class="icon"></span>
+                            <span class="label">Peripheral</span>
+                        </a>
+                        
+                    </div>
+                    <div id="next">
+                        
+                        <a href="/hardware/en/lichee/th1520/lpi4a/7_develop_mainline.html">
+                            <span class="label">Linux Mainline (Work in Progress)</span>
+                            <span class="icon"></span>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>links</a><ul><li><a target="_blank" href="https://www.sipeed.com">Sipeed</a></li>
+<li><a target="_blank" href="https://maixhub.com/">MaixHub</a></li>
+<li><a target="_blank" href="https://sipeed.aliexpress.com/store/911876460">Sipeed AliExpress</a></li>
+<li><a target="_blank" href="https://github.com/neutree/teedoc">Build by teedoc </a></li>
+</ul>
+</li>
+<li><a>Source Code</a><ul><li><a target="_blank" href="https://github.com/sipeed/sipeed_wiki">Wiki source</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">Open Source Projects</a></li>
+</ul>
+</li>
+<li><a>Follow us</a><ul><li><a target="_blank" href="https://twitter.com/SipeedIO">twitter</a></li>
+<li><a target="_blank" href="https://sipeed.aliexpress.com/store/911876460">AliExpress</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">github</a></li>
+<li><a><a>Wechat</a><img src='/static/image/wechat.png'></a>
+</li>
+</ul>
+</li>
+<li><a>Contact us</a><ul><li><a>Tel: +86 0755-27808509</a>
+</li>
+<li><a>Business support: support@sipeed.com</a>
+</li>
+<li><a>Address: 深圳市宝安区新湖路4008号蘅芳科技办公大厦A座-2101C</a>
+</li>
+<li><a  href="/join_us.html">Join us</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://www.sipeed.com">©2018-2023 深圳矽速科技有限公司</a></li>
+<li><a target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index">粤ICP备19015433号</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/js/prism.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <link rel="stylesheet" href="/static/js/add_hint/style.css" type="text/css"/>
+    
+        <script src="/static/js/add_hint/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+        <script src="/static/js/thumbs_up/main.js"></script>
+    
+</body>
+
+</html>

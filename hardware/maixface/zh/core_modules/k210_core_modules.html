@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+
+<html lang="zh"  class=" md_page ">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="">
+    
+    
+    <meta name="description" content="">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+        
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/prism.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?9cb07365544a53067c56c346c838181a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119047820-5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-119047820-5');
+    </script>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/js/thumbs_up/style.css" type="text/css"/>
+        
+    
+    
+    <title>K210 核心模块 - Sipeed Wiki</title>
+    
+    <script type="text/javascript">js_vars = {"teedoc-plugin-ad-hint": {"type": "hint", "label": "NEW", "content": "全新 Maix 系列产品 <a href='https://wiki.sipeed.com/maixcam'>MaixCAM</a> 已上线, 全新 <a href='https://wiki.sipeed.com/maixpy/'>MaixPy</a> 功能更丰富，性能更强大，软件更易用，文档更全面！", "show_times": 2, "show_after_s": 432000, "date": "2022-06-01 14:00", "color": "#a0421d", "link_color": "#e53935", "link_bg_color": "#e6ae5c", "bg_color": "#ffcf89", "color_hover": "white", "bg_color_hover": "#f57c00", "close_color": "#eab971"}, "teedoc-plugin-thumbs-up": {"label_up": "有帮助", "label_down": "待改进", "icon": "/static/images/thumbs_up/up.svg", "icon_clicked": "/static/images/thumbs_up/upped.svg", "url": "https://thumbs-up.sipeed.com", "show_up_count": true, "show_down_count": false, "msg_already_voted": "您已经投过票了", "msg_thanks": "感谢您的反馈", "msg_down_prompt": "感谢反馈，请告诉我们可以改进什么地方?（最少 10 个字）", "msg_down_prompt_error": "消息最少需要 10 个字， 最多 256 个字", "msg_error": "请求服务器出现错误!"}}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": null, "update": [], "ts": 0, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/">
+                
+                    <img class="site_logo" src="/static/image/logo.svg" alt="sipeed wiki logo">
+                
+                
+                    <h2>wiki</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class=""><a  href="/">产品</a></li>
+<li class="sub_items "><a >开源软件</a><ul><li class=""><a  href="/maixpy/">MaixPy</a></li>
+<li class=""><a  href="/soft/maixpy/zh/index.html">MaixPy_v1</a></li>
+<li class=""><a  href="/soft/Lichee/zh/index.html">Lichee</a></li>
+<li class=""><a  href="/ai/zh/index.html">AI 指南</a></li>
+</ul>
+</li>
+<li class=""><a target="_blank" href="https://maixhub.com">MaixHub</a></li>
+<li class=""><a  href="/news/">动态</a></li>
+<li class=""><a  href="/faq.html">FAQ 汇总</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class=""><a  href="/store.html"><img src='/static/image/shop.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+<li class=""><a target="_blank" href="https://github.com/sipeed"><img src='/static/image/github.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+<li class="sub_items "><a  ><img src='/static/image/language.svg' style='height: 1.5em;vertical-align: middle;'>&nbsp;中文</a><ul><li class=""><a  href="/hardware/maixface/en/core_modules/k210_core_modules.html">English</a></li>
+<li class="active"><a  href="/hardware/maixface/zh/core_modules/k210_core_modules.html">中文</a></li>
+</ul></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">输入关键词，多关键词空格隔开</span>
+                                <span id="search_loading_hint">正在加载，请稍候。。。</span>
+                                <span id="search_download_err_hint">下载文件失败，请刷新重试或检查网络</span>
+                                <span id="search_other_docs_result_hint">来自其它文档的结果</span>
+                                <span id="search_curr_doc_result_hint">当前文档搜索结果</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="">
+<li class="not_active no_link"><a><span class="label">MF 人脸识别模块</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/maixface/zh/mf_ml_module/mf0_ml_module.html"><span class="label">MF0&&MF0 Dock</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/maixface/zh/mf_ml_module/mf1_ml_module.html"><span class="label">MF1 && MF2</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/maixface/zh/mf_ml_module/mf5_product.html"><span class="label">MF4 && MF5</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/maixface/zh/mf_ml_module/mf_precautions.html"><span class="label">MF 人脸识别模块 PCB 设计注意事项</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/maixface/zh/mf_ml_module/mf_update_firmwave.html"><span class="label">MF 更新固件说明</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>K210 核心模块</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                                <span class="article_date" title="最后修改日期： 2022-07-06">
+                                    2022-07-06
+                                </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/sipeed/sipeed_wiki/blob/main/docs/hardware/maixface/zh/core_modules/k210_core_modules.md" target="_blank">
+                                    <span id='editPage'>编辑本页</span>
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <p>现有四款基于 K210 开发的 AIOT 模块：M1, M1w, M1n, MF0</p>
+<ul>
+<li>特性说明：</li>
+</ul>
+<p>这四款模块都是基于嘉楠堪智科技的边缘智能计算芯片K210（RISC-V架构）设计的。主控芯片内置64位双核高性能低功耗处理器，每个核都有浮点运算单元（FPU），具备卷积人工神经网络智能硬件加速器（KPU）和快速傅里叶变换加速器（FFT）、搭载现场可编程IO阵列（FPIOA），支持多种主流AI编程框架。</p>
+<h3 id="Maix-AIOT-%E6%A8%A1%E5%9D%97%E5%B7%AE%E5%BC%82%E5%AF%B9%E6%AF%94">Maix AIOT 模块差异对比</h3>
+<table>
+<thead>
+<tr>
+  <th></th>
+  <th>M1</th>
+  <th>M1w</th>
+  <th>M1n</th>
+  <th>MF0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>外观</td>
+  <td><img src="../../assets/mf_module/m1_m1w/sipeed_m1_module.png" alt="M1 模组" /></td>
+  <td><img src="../../assets/mf_module/m1_m1w/sipeed_m1w_module.png" alt="M1W 模组" /></td>
+  <td><img src="../../assets/mf_module/m1n/sipeed_m1n_module.png" alt="M1n 模组" /></td>
+  <td><img src="../../assets/mf_module/mf0_mf0dock/sipeed_mf0_module.png" alt="MF0 模组" /></td>
+</tr>
+<tr>
+  <td>尺寸</td>
+  <td>25.4x25.4x3.3（mm）</td>
+  <td>25.4x25.4x3.3（mm）</td>
+  <td>25.0x22.0x2.7（mm）</td>
+  <td>20.0x20.0x4.5（mm）</td>
+</tr>
+<tr>
+  <td>电压输出（提供给底板使用）</td>
+  <td>1.8V和3.3V</td>
+  <td>1.8V和3.3V</td>
+  <td>1.8V和3.3V</td>
+  <td>3.3V</td>
+</tr>
+<tr>
+  <td>最大功耗（非瞬态）</td>
+  <td>1.5W</td>
+  <td>3W</td>
+  <td>1.5W</td>
+  <td>1.5W</td>
+</tr>
+<tr>
+  <td>WIFI功能</td>
+  <td>无</td>
+  <td>有（K210与ESP8285通过SPI接口和串口连接）</td>
+  <td>无</td>
+  <td>无</td>
+</tr>
+<tr>
+  <td>板载摄像头连接器</td>
+  <td>无</td>
+  <td>无</td>
+  <td>有（仅兼容单摄像头）</td>
+  <td>有（仅兼容单摄像头）</td>
+</tr>
+<tr>
+  <td>引脚形式</td>
+  <td>邮票孔</td>
+  <td>邮票孔</td>
+  <td>NGFF金手指 B-KEY</td>
+  <td>2.54mm间距直插焊盘+SMD焊盘</td>
+</tr>
+<tr>
+  <td>是否引出摄像头信号</td>
+  <td>全引出</td>
+  <td>全引出</td>
+  <td>全引出</td>
+  <td>无</td>
+</tr>
+<tr>
+  <td>是否引出屏幕信号</td>
+  <td>全引出</td>
+  <td>全引出</td>
+  <td>全引出</td>
+  <td>无</td>
+</tr>
+<tr>
+  <td>引出普通IO口数量</td>
+  <td>48个（全引出）</td>
+  <td>48个（全引出）</td>
+  <td>44个（IO0-3没引出）</td>
+  <td>9个</td>
+</tr>
+</tbody>
+</table>
+<h2 id="%E6%A8%A1%E5%9D%97%E5%BC%95%E8%84%9A%E5%AE%9A%E4%B9%89">模块引脚定义</h2>
+<p>具体可下载规格书</p>
+<p>M1/M1w: <a href="https://dl.sipeed.com/MAIX/HDK/Sipeed-M1&amp;M1W/Specifications"  target="_blank">https://dl.sipeed.com/MAIX/HDK/Sipeed-M1&amp;M1W/Specifications</a></p>
+<p>M1n: <a href="https://dl.sipeed.com/MAIX/HDK/Sipeed-M1n"  target="_blank">https://dl.sipeed.com/MAIX/HDK/Sipeed-M1n</a></p>
+<p>MF0: <a href="https://dl.sipeed.com/MAIX/HDK/Sipeed-MF0/MF0-2802"  target="_blank">https://dl.sipeed.com/MAIX/HDK/Sipeed-MF0/MF0-2802</a></p>
+<h2 id="M1/M1W%28k210%29-ISP-%E6%A8%A1%E5%BC%8F%28%E7%83%A7%E5%BD%95%E6%A8%A1%E5%BC%8F%29">M1/M1W(k210) ISP 模式(烧录模式)</h2>
+<p>更新 K210 时，需要让 K210 进入 ISP 模式，相关信息如下：</p>
+<ul>
+<li><p>ISP 引脚</p>
+<p>| ISP 引脚 | 描述       | 备注     |<br />
+| ------------- | ---------- | -------- |<br />
+| BOOT (IO_16)         | 启动模式选择 | 低电平进入，ISP 模式 |<br />
+| ISP_RX (IO_4)         | ISP 串口数据接收 |  |<br />
+| ISP_TX (IO_5)         | ISP 串口数据发送 |  |</p>
+</li>
+<li><p>Boot 选择</p>
+</li>
+</ul>
+<p><strong>IO_16</strong> 用于 <strong>boot</strong> 模式选择，上电时，拉高进入 <strong>Flash</strong> 启动，拉低进入 <strong>ISP</strong> 模式</p>
+<table>
+<thead>
+<tr>
+  <th>Boot 选择引脚</th>
+  <th>拉高</th>
+  <th>拉低</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>IO_16</td>
+  <td>Flash 启动</td>
+  <td>ISP 模式</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>K210 ISP 模式下，串口波特率建议配置为: 115200，1 停止位，8 数据位，不校验。</p>
+</blockquote>
+<ul>
+<li>参考自动进入下载模式电路：</li>
+</ul>
+<p><img src="../../assets/mf_module/m1_m1w/K210_boot_reference.png" alt="" /></p>
+<p>参考来源：</p>
+<blockquote>
+<p>《K210技术规格书 v0.1.5》</p>
+<ul>
+<li>2.5 特殊引脚:</li>
+</ul>
+</blockquote>
+
+<pre class="language-none"><code class="language-none">IO_16 用于 boot 模式选择，上电复位时，拉高进入 FLASH 启动，拉低进入 ISP 模式。复位后，IO_0、
+IO_1、IO_2、IO_3 为 JTAG 引脚。IO_4、IO_5 为 ISP 引脚。
+
+</code></pre>
+<h2 id="MF-PCB-%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9">MF PCB 注意事项</h2>
+<p>使用 K210(M1/M1W) 自行设计人脸识别产品，请参考 <a href="../mf_ml_module/mf_precautions.html"  >《MF 人脸识别模块 PCB 设计注意事项》</a></p>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                    </div>
+                    <div id="next">
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>相关链接</a><ul><li><a target="_blank" href="https://www.sipeed.com">Sipeed 官网</a></li>
+<li><a target="_blank" href="https://maixhub.com/">MaixHub</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">Sipeed 淘宝</a></li>
+<li><a  href="/sitemap.xml">网站地图</a></li>
+<li><a target="_blank" href="https://github.com/teedoc/teedoc">网站使用 teedoc 生成</a></li>
+</ul>
+</li>
+<li><a>源码</a><ul><li><a target="_blank" href="https://github.com/sipeed/sipeed_wiki">Wiki 源码</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">开源项目</a></li>
+</ul>
+</li>
+<li><a>关注我们</a><ul><li><a target="_blank" href="https://twitter.com/SipeedIO">twitter</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">淘宝</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">github</a></li>
+<li><a><a>微信公众号</a><img src='/static/image/wechat.png'></a>
+</li>
+</ul>
+</li>
+<li><a>联系我们</a><ul><li><a>电话: +86 0755-27808509</a>
+</li>
+<li><a>商业支持: support@sipeed.com</a>
+</li>
+<li><a>地址: 深圳市宝安区新湖路4008号蘅芳科技办公大厦A座-2101C</a>
+</li>
+<li><a  href="/join_us.html">加入我们</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://www.sipeed.com">©2018-2023 深圳矽速科技有限公司</a></li>
+<li><a target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index">粤ICP备19015433号</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/js/prism.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <link rel="stylesheet" href="/static/js/add_hint/style.css" type="text/css"/>
+    
+        <script src="/static/js/add_hint/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+        <script src="/static/js/thumbs_up/main.js"></script>
+    
+</body>
+
+</html>

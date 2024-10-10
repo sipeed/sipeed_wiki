@@ -1,0 +1,2383 @@
+<!DOCTYPE html>
+
+<html lang="zh"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="Linux, Lichee, TH1520, SBC, RISCV, application">
+    
+    
+    <meta name="description" content="">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+        
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/prism.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?9cb07365544a53067c56c346c838181a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119047820-5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-119047820-5');
+    </script>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/js/thumbs_up/style.css" type="text/css"/>
+        
+    
+    
+    <title>典型应用 - Sipeed Wiki</title>
+    
+    <script type="text/javascript">js_vars = {"teedoc-plugin-ad-hint": {"type": "hint", "label": "NEW", "content": "全新 Maix 系列产品 <a href='https://wiki.sipeed.com/maixcam'>MaixCAM</a> 已上线, 全新 <a href='https://wiki.sipeed.com/maixpy/'>MaixPy</a> 功能更丰富，性能更强大，软件更易用，文档更全面！", "show_times": 2, "show_after_s": 432000, "date": "2022-06-01 14:00", "color": "#a0421d", "link_color": "#e53935", "link_bg_color": "#e6ae5c", "bg_color": "#ffcf89", "color_hover": "white", "bg_color_hover": "#f57c00", "close_color": "#eab971"}, "teedoc-plugin-thumbs-up": {"label_up": "有帮助", "label_down": "待改进", "icon": "/static/images/thumbs_up/up.svg", "icon_clicked": "/static/images/thumbs_up/upped.svg", "url": "https://thumbs-up.sipeed.com", "show_up_count": true, "show_down_count": false, "msg_already_voted": "您已经投过票了", "msg_thanks": "感谢您的反馈", "msg_down_prompt": "感谢反馈，请告诉我们可以改进什么地方?（最少 10 个字）", "msg_down_prompt_error": "消息最少需要 10 个字， 最多 256 个字", "msg_error": "请求服务器出现错误!"}}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": "2023-09-12", "update": [{"date": "2023-09-12", "version": "v1.2", "author": "ztd", "content": ["Add some NPU applications"]}, {"date": "2023-07-20", "version": "v1.1", "author": "ztd", "content": ["Update docs"]}, {"date": "2023-05-08", "version": "v1.0", "author": "wonder", "content": ["Release docs"]}], "ts": 1694476800, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/">
+                
+                    <img class="site_logo" src="/static/image/logo.svg" alt="sipeed wiki logo">
+                
+                
+                    <h2>wiki</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class=""><a  href="/">产品</a></li>
+<li class="sub_items "><a >开源软件</a><ul><li class=""><a  href="/maixpy/">MaixPy</a></li>
+<li class=""><a  href="/soft/maixpy/zh/index.html">MaixPy_v1</a></li>
+<li class=""><a  href="/soft/Lichee/zh/index.html">Lichee</a></li>
+<li class=""><a  href="/ai/zh/index.html">AI 指南</a></li>
+</ul>
+</li>
+<li class=""><a target="_blank" href="https://maixhub.com">MaixHub</a></li>
+<li class=""><a  href="/news/">动态</a></li>
+<li class=""><a  href="/faq.html">FAQ 汇总</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class=""><a  href="/store.html"><img src='/static/image/shop.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+<li class=""><a target="_blank" href="https://github.com/sipeed"><img src='/static/image/github.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+<li class="sub_items "><a  ><img src='/static/image/language.svg' style='height: 1.5em;vertical-align: middle;'>&nbsp;中文</a><ul><li class=""><a  href="/hardware/en/lichee/th1520/lpi4a/8_application.html">English</a></li>
+<li class="active"><a  href="/hardware/zh/lichee/th1520/lpi4a/8_application.html">中文</a></li>
+</ul></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">输入关键词，多关键词空格隔开</span>
+                                <span id="search_loading_hint">正在加载，请稍候。。。</span>
+                                <span id="search_download_err_hint">下载文件失败，请刷新重试或检查网络</span>
+                                <span id="search_other_docs_result_hint">来自其它文档的结果</span>
+                                <span id="search_curr_doc_result_hint">当前文档搜索结果</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="not_active no_link"><a><span class="label">Maix Zero</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Maix M0</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/./maixzero/sense/maix_zero_sense.html"><span class="label">M0sense 开发板</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/./maixzero/sense/start.html"><span class="label">M0sense 基础使用</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Maix M0P</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/./maixzero/m0p/m0p.html"><span class="label">M0P</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/./maixzero/m0p/m0p_dock.html"><span class="label">M0P Dock</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/./maixzero/m0s/m0s.html"><span class="label">Maix M0S</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Maix-I</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Maix M1</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">M1 模块</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maix/core_module.html"><span class="label">M1/M1w</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maix/M1n.html"><span class="label">M1n</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">M1 开发板</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maix/maixpy_develop_kit_board/maix_bit.html"><span class="label">Maix Bit</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maix/maixpy_develop_kit_board/Maix_dock.html"><span class="label">Maix Dock(M1/M1W)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maix/maixpy_develop_kit_board/maix_duino.html"><span class="label">Maix Duino</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maix/maixpy_develop_kit_board/maix_nano.html"><span class="label">Maix Nano</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maix/maixpy_develop_kit_board/maix_cube.html"><span class="label">Maix Cube</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maix/maixpy_develop_kit_board/maix_Amigo.html"><span class="label">Maix Amigo</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maix/maixpy_develop_kit_board/maix_hat.html"><span class="label">Maix HAT</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maix/maixpy_develop_kit_board/maix_go.html"><span class="label">Maix Go（售罄）</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Maix M1s</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maix/m1s/m1s_module.html"><span class="label">M1s 模块</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">M1s 开发板</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maix/m1s/m1s_dock.html"><span class="label">简介</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maix/m1s/other/start.html"><span class="label">上手使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maix/m1s/other/others.html"><span class="label">其他事项（摄像头和外壳）</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Maix-II</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maixII/M2/resources.html"><span class="label">MaixII-Dock</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maixII/M2/flash.html"><span class="label">烧录系统</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixII/M2/maixhub_train.html"><span class="label">训练自己的 AI 模型</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixII/M2/usage.html"><span class="label">基础使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixII/M2/other.html"><span class="label">其他事项</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/../../soft/maixpy3/zh/tools/0.MaixII-Dock.html"><span class="label">使用 MaixPy3 开发</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixII/M2/opencv.html"><span class="label">使用 OpenCV</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixII/M2/faq.html"><span class="label">FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/maixII/M2S/V833.html"><span class="label">MaixII-S</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maixII/M2S/reources.html"><span class="label">板级资源介绍</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/maixII/M2A/maixsense.html"><span class="label">MaixII-Sense</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maixII/M2A/flash_system.html"><span class="label">烧录系统</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixII/M2A/config_system.html"><span class="label">配置系统</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixII/M2A/Usages.html"><span class="label">基本使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/../../soft/maixpy3/zh/tools/maixsense.html"><span class="label">连接MaixPy3</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Maix-III</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maixIII/ax-pi/axpi.html"><span class="label">Maix-III AXera-Pi</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maixIII/ax-pi/flash_system.html"><span class="label">产品上手指南</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixIII/ax-pi/basic_usage.html"><span class="label">系统使用手册</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixIII/ax-pi/python_api.html"><span class="label">试试 Python 编程</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixIII/ax-pi/dev_prepare.html"><span class="label">开始 C/C++ 编程</span><span class=""></span></a></li>
+<li class="not_active  with_link"><a href="/ai/zh/deploy/ax-pi.html" ><span class="label">AI 开发指南</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixIII/ax-pi/faq_axpi.html"><span class="label">常见问题（FAQ）</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Maix-IV</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maixIV/m4ndock/m4ndock.html"><span class="label">Maix M4N-DOCK</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maixIV/m4ndock/quick-start.html"><span class="label">产品上手指南</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixIV/m4ndock/system-update.html"><span class="label">系统烧录指南</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixIV/m4ndock/axmodel-deploy.html"><span class="label">AI 模型部署</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixIV/m4ndock/FAQ.html"><span class="label">FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">MaixCAM</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maixcam/index.html"><span class="label">MaixCAM 介绍和资料</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixcam/assemble.html"><span class="label">MaixCAM 外壳</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixcam/os.html"><span class="label">系统镜像烧录</span><span class=""></span></a></li>
+<li class="not_active  with_link"><a href="https://wiki.sipeed.com/maixpy/" ><span class="label">使用 MaixPy 开发</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixcam/maixcdk.html"><span class="label">使用 MaixCDK 开发</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixcam/faq.html"><span class="label">常见问题 FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="active_parent no_link"><a><span class="label">LicheePi</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="active_parent no_link"><a><span class="label">LicheePI 4A</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lm4a.html"><span class="label">Lichee Module 4A</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lc4a/lc4a.html"><span class="label">Lichee Cluster 4A</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lcon4a/lcon4a.html"><span class="label">Lichee Console 4A</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lcon4a/setup_guide.html"><span class="label">组装指南</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lcon4a/3_images.html"><span class="label">镜像集合</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lcon4a/4_burn_image.html"><span class="label">烧录镜像</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lbook4a/lbook4a.html"><span class="label">Lichee Book 4A</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lbook4a/4_burn_image.html"><span class="label">烧录镜像</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="active_parent no_link"><a><span class="label">Lichee PI 4A</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/1_intro.html"><span class="label">板卡介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/2_unbox.html"><span class="label">开箱体验</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/3_images.html"><span class="label">镜像集合</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/4_burn_image.html"><span class="label">烧录镜像</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/5_desktop.html"><span class="label">桌面系统基础使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/6_peripheral.html"><span class="label">外设使用</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">系统开发</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/7_develop_revyos.html"><span class="label">revyos</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/7_develop_mainline.html"><span class="label">Linux 主线</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/7_develop_android.html"><span class="label">Android</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/7_develop_thead.html"><span class="label">THead Yocto</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">OpenHarmony (编写中)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/7_develop_openwrt.html"><span class="label">OpenWRT</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/8_application.html"><span class="label">典型应用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/13_XTAI.html"><span class="label">玄铁多媒体AI平台</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/9_benchmark.html"><span class="label">CPU 跑分测试</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/10_test_report.html"><span class="label">硬件测试报告</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/12_faq.html"><span class="label">常见问题</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/11_credits.html"><span class="label">致谢</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">LicheePI 3A</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/lichee/K1/lm3a.html"><span class="label">Lichee Module 3A</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/K1/lc3a/lc3a.html"><span class="label">Lichee Cluster 3A</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Lichee PI 3A</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/zh/lichee/K1/lpi3a/1_intro.html"><span class="label">板卡介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/K1/lpi3a/2_unbox.html"><span class="label">开箱体验</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/K1/lpi3a/3_burn_image.html"><span class="label">镜像烧录</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/K1/lpi3a/4_peripheral.html"><span class="label">外设使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/K1/lpi3a/5_develop.html"><span class="label">系统开发</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/K1/lpi3a/6_application.html"><span class="label">典型应用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/K1/lpi3a/7_faq.html"><span class="label">常见问题</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/K1/lpi3a/8_credits.html"><span class="label">致谢</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">LicheePI RV</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">板卡介绍</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV/RV.html"><span class="label">LicheePI RV</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV/86_panel.html"><span class="label">LicheePI RV 86 Panel</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV/Dock.html"><span class="label">LicheePI RV Dock</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV/flash.html"><span class="label">烧录系统</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV/user.html"><span class="label">基础上手</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV/problems.html"><span class="label">常见问题</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV/ubuntu.html"><span class="label">使用 Ubuntu 镜像</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">LicheeRV Nano</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV_Nano/1_intro.html"><span class="label">板卡介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV_Nano/2_unbox.html"><span class="label">开箱体验</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV_Nano/3_images.html"><span class="label">镜像集合</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV_Nano/4_burn_image.html"><span class="label">烧录镜像</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV_Nano/5_peripheral.html"><span class="label">外设使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV_Nano/6_develop_mainline.html"><span class="label">系统开发</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV_Nano/7_test_report.html"><span class="label">板卡测试</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV_Nano/8_mmf_development_guide.html"><span class="label">MMF开发指南</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/Zero/Zero.html"><span class="label">LicheePI Zero</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/Nano/Nano.html"><span class="label">LicheePI Nano</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/ZeroPlus/ZeroPlus.html"><span class="label">LicheePI ZeroPlus</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang FPGA</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Tang Nano</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-Nano-1K/Nano-1k.html"><span class="label">Tang Nano 1K</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-Nano-4K/Nano-4K.html"><span class="label">Tang Nano 4k</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-Nano-9K/Nano-9K.html"><span class="label">Tang Nano 9K</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Tang Nano 20K</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/tang/tang-nano-20k/nano-20k.html"><span class="label">介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/tang-nano-20k/example/unbox.html"><span class="label">开箱</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-Nano/Nano.html"><span class="label">Tang Nano (售罄)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-Nano-Doc/get_started/install-the-ide.html"><span class="label">安装 IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-Nano-Doc/examples.html"><span class="label">例程汇总</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-Nano-Doc/questions.html"><span class="label">常见问题</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Primer</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Tang Primer 20K</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/tang/tang-primer-20k/primer-20k.html"><span class="label">板卡介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/tang-primer-20k/start.html"><span class="label">开箱使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-Nano-Doc/get_started/install-the-ide.html"><span class="label">安装 IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/tang-primer-20k/example.html"><span class="label">例程汇总</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-Nano-Doc/questions.html"><span class="label">常见问题</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Primer 25K</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/tang/tang-primer-25k/primer-25k.html"><span class="label">板卡介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-Nano-Doc/get_started/install-the-ide.html"><span class="label">安装 IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-Nano-Doc/questions.html"><span class="label">常见问题</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Primer 15K</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/tang/tang-primer-15k/primer-15k.html"><span class="label">板卡介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-Nano-Doc/get_started/install-the-ide.html"><span class="label">安装 IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-Nano-Doc/questions.html"><span class="label">常见问题</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-primer/Tang-primer.html"><span class="label">Tang Primer (售罄)</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-primer/index.html"><span class="label">板卡介绍</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">安装 TD</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-primer/get_started/install_TD_win.html"><span class="label">Windows安装TD</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-primer/get_started/install_Linux.html"><span class="label">Linux安装TD</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-primer/fpga/led.html"><span class="label">使用FPGA点灯</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-primer/get_started/E203.html"><span class="label">搭建蜂鸟开发环境</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-primer/get_started/fpga_download.html"><span class="label">FPGA码流烧录</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Mega</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Tang Mega 138K Pro</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/tang/tang-mega-138k/mega-138k-pro.html"><span class="label">板卡介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-Nano-Doc/get_started/install-the-ide.html"><span class="label">安装 IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-Nano-Doc/questions.html"><span class="label">常见问题</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Mega 138K</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/tang/tang-mega-138k/mega-138k.html"><span class="label">板卡介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-Nano-Doc/get_started/install-the-ide.html"><span class="label">安装 IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-Nano-Doc/questions.html"><span class="label">常见问题</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Mega 60K</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/tang/tang-mega-60k/mega-60k.html"><span class="label">板卡介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-Nano-Doc/get_started/install-the-ide.html"><span class="label">安装 IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-Nano-Doc/questions.html"><span class="label">常见问题</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/tang-PMOD/FPGA_PMOD.html"><span class="label">Tang PMOD</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/maixsense/index.html"><span class="label">MaixSense</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maixsense/maixsense-a010/maixsense-a010.html"><span class="label">MaixSense-a010</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixsense/maixsense-a075v/maixsense-a075v.html"><span class="label">MaixSense-a075v</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">SLogic</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">SLogic Combo 8</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/logic_analyzer/combo8/index.html"><span class="label">简介</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/logic_analyzer/combo8/basic_operation.html"><span class="label">基础操作</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/logic_analyzer/combo8/use_logic_function.html"><span class="label">作为逻辑分析仪使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/logic_analyzer/combo8/use_cklink_function.html"><span class="label">作为CKLink使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/logic_analyzer/combo8/use_daplink_function.html"><span class="label">作为DAPLink使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/logic_analyzer/combo8/use_fouruart_function.html"><span class="label">作为串口模块使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/logic_analyzer/combo8/update_firmware.html"><span class="label">更新固件</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/logic_analyzer/combo8/faq.html"><span class="label">常见问题(FAQ)</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">KVM</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">NanoKVM Cube</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/introduction.html"><span class="label">简介</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/quick_start.html"><span class="label">快速上手</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/user_guide.html"><span class="label">用户指南</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/development.html"><span class="label">二次开发</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">网络</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/network/tailscale.html"><span class="label">Tailscale</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/network/frp.html"><span class="label">frp</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/network/static_ip.html"><span class="label">静态 IP</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">系统</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/system/introduction.html"><span class="label">系统介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/system/flashing.html"><span class="label">烧录镜像</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/system/updating.html"><span class="label">更新应用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/system/configuration.html"><span class="label">配置文件</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/faq.html"><span class="label">FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Longan</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">LonganPI 3H</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/longan/h618/lpi3h/1_intro.html"><span class="label">板卡介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/longan/h618/lpi3h/3_images.html"><span class="label">镜像集合</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/longan/h618/lpi3h/4_burn_image.html"><span class="label">烧录镜像</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/longan/h618/lpi3h/5_desktop.html"><span class="label">桌面系统基础使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/longan/h618/lpi3h/6_peripheral.html"><span class="label">外设使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/longan/h618/lpi3h/7_develop_mainline.html"><span class="label">系统开发</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/longan/h618/lpi3h/8_test_report.html"><span class="label">板卡测试</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/longan/Nano/Longan_nano.html"><span class="label">Longan Nano</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/zh/longan/Nano/get_started/pio.html"><span class="label">PIO配置</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/longan/Nano/get_started/blink.html"><span class="label">点灯测试</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/longan/Nano/get_started/debug.html"><span class="label">DEBUG 调试</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/longan/Nano/get_started/sipeed-debugger.html"><span class="label">使用 Sipeed 调试器</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/longan/Nano/get_started/rv-link.html"><span class="label">使用 RV-LINK</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">示例</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/longan/Nano/examples/printf.html"><span class="label">串口输出</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/longan/Nano/examples/badapple.html"><span class="label">播放 Badapple</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">MaixFace</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maixface/mfst40/mfst40.html"><span class="label">MF-ST40 人脸识别模块</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">MF 资料</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maixface/mf_ml_module/mf_precautions.html"><span class="label">MF 人脸识别模块 PCB 设计注意事项</span><span class=""></span></a></li>
+<li class="not_active  with_link"><a href="https://github.com/sipeed/MF1-User-Manual" ><span class="label">点我前往 github 查看全部资料</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">外设模组</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">SP-MOD外设模组</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">转接板类</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_extender.html"><span class="label">SP-Extender</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_grove.html"><span class="label">SP-Grove</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_fpc.html"><span class="label">SP-FPC</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_micarray.html"><span class="label">SP-MicArray</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_joystick.html"><span class="label">SP-JotStick</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_servo.html"><span class="label">SP-Servo</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/.html"><span class="label">SP-TypeC</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">传感器类</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_weather.html"><span class="label">SP-Weather</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_tof.html"><span class="label">SP-TOF-1P</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">通信类</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_bt.html"><span class="label">SP-BT</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_lora.html"><span class="label">SP-LoRa</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_psram.html"><span class="label">SP-PSRAM</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_rfid.html"><span class="label">SP-RFID</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_ethernet.html"><span class="label">SP-Ethernet</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">显示类</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_lcd1.14.html"><span class="label">SP-LCD 1.14</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_eink.html"><span class="label">SP-Eink</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">模块 & 调试器</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/modules/debugger_and_uart.html"><span class="label">调试器 & 串口模块</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">模块</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/zh/modules/camera_summary.html"><span class="label">摄像头</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">麦克风模块</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/modules/micarray.html"><span class="label">麦克风阵列</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/modules/Gamepad.html"><span class="label">Sipeed Gamepad</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>典型应用</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                                <span class="article_date" title="最后修改日期： 2023-09-12">
+                                    2023-09-12
+                                </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/sipeed/sipeed_wiki/blob/main/docs/hardware/zh/lichee/th1520/lpi4a/8_application.md" target="_blank">
+                                    <span id='editPage'>编辑本页</span>
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                        
+                        <details open>
+                        
+                            <summary>更新历史</summary>
+                            <div>
+                                <table>
+                                        <thead>
+                                            <tr>
+                                                <th>日期</th>
+                                                <th>版本</th>
+                                                <th>作者</th>
+                                                <th>更新内容</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            
+                                                <tr>
+                                                    <td>2023-09-12</td>
+                                                    <td>v1.2</td>
+                                                    <td>ztd</td>
+                                                    <td>
+                                                    
+                                                        <ul>
+                                                        
+                                                            <li>Add some NPU applications</li>
+                                                        
+                                                        </ul>
+                                                    
+                                                    </td>
+                                                </tr>
+                                            
+                                                <tr>
+                                                    <td>2023-07-20</td>
+                                                    <td>v1.1</td>
+                                                    <td>ztd</td>
+                                                    <td>
+                                                    
+                                                        <ul>
+                                                        
+                                                            <li>Update docs</li>
+                                                        
+                                                        </ul>
+                                                    
+                                                    </td>
+                                                </tr>
+                                            
+                                                <tr>
+                                                    <td>2023-05-08</td>
+                                                    <td>v1.0</td>
+                                                    <td>wonder</td>
+                                                    <td>
+                                                    
+                                                        <ul>
+                                                        
+                                                            <li>Release docs</li>
+                                                        
+                                                        </ul>
+                                                    
+                                                    </td>
+                                                </tr>
+                                            
+                                        </tbody>
+                                </table>
+                            </div>
+                        </details>
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <h2 id="llama.cpp">llama.cpp</h2>
+<p>llama 是 META 开源的大语言模型，<a href="https://github.com/ggerganov/llama.cpp"  target="_blank">llama.cpp</a> 是 ggerganov 开源的纯 cpp 运行的 llama 推理项目。<br />
+感谢 llama.cpp 这个优秀的项目，我们可以在 LicheePi 4A 上运行 LLM。</p>
+<p>笔者在早些时候稍微修改了 llama.cpp <a href="https://github.com/Zepan/llama.cpp"  target="_blank">https://github.com/Zepan/llama.cpp</a>，使其可以在更小内存（低至 700MB 左右）运行 7B 模型。</p>
+<p>可以看到 TH1520 花费约 6s 计算一个 token（未使用 V 扩展加速，V 扩展加速预计可加速 4～8 倍，如果你加入了 V 扩展支持，欢迎投稿！）<br />
+<img src="./assets/application/llama_th1520.png" alt="llama_th1520" /></p>
+<p>同时还简单测试了下在入门级 C906 内核上运行7B模型的可行性，由于 D1 的内存过小，使用了 mmap 方式只读扩展，所以引入了大量低速 IO 操作，使得运行速度大为降低，最后仅 18s/token</p>
+<p><img src="./assets/application/llama_d1.png" alt="llama_d1" /></p>
+<h2 id="YOLOX-%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B">YOLOX 目标检测</h2>
+<p>本教程是一个如何在 LPi4A（LicheePi 4A） 开发板平台上部署 <a href="https://github.com/Megvii-BaseDetection/YOLOX"  target="_blank">YOLOX</a> 模型完成目标检测的示例（CPU推理）。<br />
+教程中包括了：</p>
+<ul>
+<li>在 LPi4A 开发版上安装 Python 环境</li>
+<li>使用 YOLOX 项目中的源码执行模型</li>
+</ul>
+<p>教程遵循通常的模型部署流程：</p>
+<ol>
+<li>LPi4A 上的基础 Python 环境配置</li>
+<li>获取 yolox 源码和模型</li>
+<li>安装 yolox 所依赖的 python 包</li>
+<li>LPi4A 上的使用 HHB-onnxruntime 执行示例</li>
+</ol>
+<p><strong>基础 Python 环境配置</strong><br />
+<strong>基本软硬件配置</strong></p>
+<p>参考 LPi4A 的 《<a href="https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/2_unbox.html"  target="_blank">开箱体验</a>》中的描述，正确安装好开发板，上电启动后以 root 权限进入。</p>
+<p>确保已联网的状态下，更新 apt 源</p>
+
+<pre class="language-bash"><code class="language-bash">sudo apt update
+</code></pre>
+<p>安装一些软件，用于示例中后续使用</p>
+
+<pre class="language-bash"><code class="language-bash">sudo apt install wget git vim
+</code></pre>
+<p>安装 SHL 库</p>
+
+<pre class="language-bash"><code class="language-bash">wget https://github.com/T-head-Semi/csi-nn2/releases/download/v2.4-beta.1/c920.tar.gz
+tar xf c920.tar.gz
+cp c920/lib/* /usr/lib/riscv64-linux-gnu/ -rf
+</code></pre>
+<p><strong>Python 环境配置</strong><br />
+LPi4A 烧录的系统中已默认安装 python 3.11 版本。可以使用如下命令确认</p>
+
+<pre class="language-bash"><code class="language-bash">python --version
+</code></pre>
+<p>后续均以 python3.11 版本为例，其他版本在安装依赖时需要修改到对应版本的命令。<br />
+各种 python 程序软件依赖的软件包大多可通过 pip 安装，可以使用如下命令安装 pip</p>
+
+<pre class="language-bash"><code class="language-bash">apt install python3-pip
+</code></pre>
+<p>安装其他python包之前，先安装 venv 包，用于创建python虚拟环境</p>
+
+<pre class="language-bash"><code class="language-bash">apt install python3.11-venv
+</code></pre>
+<p>创建 python虚拟环境，并激活</p>
+
+<pre class="language-bash"><code class="language-bash">cd /root
+python3 -m venv ort
+source /root/ort/bin/activate
+</code></pre>
+<p>至此，基本 python 环境已经创建完成，与其他体系结构类似，可以直接通过 pip install 安装纯 python 包。</p>
+<p>opencv 安装是会依赖其他 python 包，如果 pip 不能自动下载，则可以先手动安装依赖项的安装包。如何获取安装包可以参考 <a href="https://www.yuque.com/za4k4z/uzn618/zsp0krgg9dlp0fhx"  target="_blank">下载 riscv whl</a>。</p>
+<p><strong>获取 YOLOX 模型</strong></p>
+<p><a href="https://github.com/Megvii-BaseDetection/YOLOX"  target="_blank">YOLOX</a> 是一个类 YOLO 的目标检测模型，有相当优异的性能表现。<br />
+可以直接下载 github 上的源码和模型</p>
+
+<pre class="language-bash"><code class="language-bash">git clone https://github.com/Megvii-BaseDetection/YOLOX.git
+cd YOLOX/demo/ONNXRuntime
+wget https://github.com/Megvii-BaseDetection/YOLOX/releases/download/0.1.1rc0/yolox_s.onnx
+</code></pre>
+<p><strong>修改源码</strong></p>
+<p>本教程将使用 HHB-onnxruntime 执行模型，因此切换到。在源码中的 onnxruntime 示例目录，修改文件 demo/ONNXRuntime/onnx_inference.py 的开头新增两行代码</p>
+
+<pre class="language-bash"><code class="language-bash">#!/usr/bin/env python3
+# Copyright (c) Megvii, Inc. and its affiliates.
+
++import sys
++sys.path.insert(0, &quot;../../&quot;)
++
+import argparse
+import os
+</code></pre>
+<p>代码中使用 sys.path.insert 指定搜索路径，以此免去从源码中安装 YOLOX 的安装包的操作。</p>
+<p><strong>安装依赖包</strong></p>
+<p>RISC-V 体系结构的 python 生态还有欠缺，未来完善之后，YOLOX 中依赖的包可以通过 <a href="https://github.com/Megvii-BaseDetection/YOLOX/blob/main/requirements.txt"  target="_blank">requirements.txt</a> 文件直接安装。<br />
+本教程中的 YOLOX 示例依赖了较多的 python 包，下载预编译好的 python 包</p>
+
+<pre class="language-bash"><code class="language-bash">git clone -b python3.11 https://github.com/zhangwm-pt/prebuilt_whl.git
+cd prebuilt_whl
+</code></pre>
+<p>可以按照以下顺序，手工处理。</p>
+
+<pre class="language-bash"><code class="language-bash">pip install numpy-1.25.0-cp311-cp311-linux_riscv64.whl
+pip install opencv_python-4.5.4+4cd224d-cp311-cp311-linux_riscv64.whl
+pip install kiwisolver-1.4.4-cp311-cp311-linux_riscv64.whl
+pip install Pillow-9.5.0-cp311-cp311-linux_riscv64.whl
+pip install matplotlib-3.7.2.dev0+gb3bd929cf0.d20230630-cp311-cp311-linux_riscv64.whl
+pip install pycocotools-2.0.6-cp311-cp311-linux_riscv64.whl
+pip3 install loguru-0.7.0-py3-none-any.whl
+pip3 install torch-2.0.0a0+gitc263bd4-cp311-cp311-linux_riscv64.whl
+pip3 install MarkupSafe-2.1.3-cp311-cp311-linux_riscv64.whl
+pip3 install torchvision-0.15.1a0-cp311-cp311-linux_riscv64.whl
+pip3 install psutil-5.9.5-cp311-abi3-linux_riscv64.whl
+pip3 install tqdm-4.65.0-py3-none-any.whl
+pip3 install tabulate-0.9.0-py3-none-any.whl
+</code></pre>
+<p>安装过程中会涉及到其他纯 python 依赖包，pip 会自动从官方源下载。</p>
+<p><strong>安装 HHB-onnxruntime</strong></p>
+<p>HHB-onnxuruntime 是移植了 SHL 后端（execution providers），让 onnxruntime 能复用到 SHL 中针对玄铁 CPU 的高性能优化代码。</p>
+
+<pre class="language-bash"><code class="language-bash">wget https://github.com/zhangwm-pt/onnxruntime/releases/download/riscv_whl/onnxruntime-1.14.1-cp311-cp311-linux_riscv64.whl
+pip install onnxruntime-1.14.1-cp311-cp311-linux_riscv64.whl
+</code></pre>
+<p><strong>执行</strong></p>
+<p>在示例目录中执行 onnx_inference.py 示例</p>
+
+<pre class="language-bash"><code class="language-bash">python3 onnx_inference.py -m yolox_s.onnx -i soccer.jpg -o outdir -s 0.3 --input_shape 640,640
+</code></pre>
+<p><code>python3 onnx_inference.py -m yolox_s.onnx -i soccer.jpg -o outdir -s 0.3 --input_shape640,640</code></p>
+<p>参数说明：</p>
+<ul>
+<li>-m：指定模型</li>
+<li>-i：指定图片</li>
+<li>-o：指定输出目录</li>
+<li>-s：指定检测的阈值</li>
+<li>--input_shape：指定检测时使用的图片尺寸</li>
+</ul>
+<p><strong>参考结果</strong></p>
+<p>本教程中输入如下图，是运动员踢足球的图片，预期的检测结果是检测到两个人和一个足球。</p>
+<blockquote>
+<p>图片来源于网络</p>
+</blockquote>
+<p><img src="./assets/application/yolox_detection_soccer_input.jpg" alt="yolox_detection_soccer_input.jpg" /></p>
+<p>示例正常执行后，会在 outdir 目录下生成结果图片 soccer.jpg。图片中会用框画出检测到的目标，并标注概率，效果如下图：</p>
+<p><img src="./assets/application/yolox_detection_soccer_output.jpg" alt="yolox_detection_soccer_output.jpg" /></p>
+<h2 id="MobilenertV2">MobilenertV2</h2>
+<p>本教程是一个如何在 LicheePi4A 平台上部署 mobilenetv2 模型完成图像分类的示例。</p>
+<p>教程中包括了：</p>
+<ul>
+<li>使用 HHB 编译 onnx 模型为 LicheePi4A 上可用的二进制</li>
+<li>在 LicheePi4A 上使用 opencv c++ 版本做 mobilenetv2 模型的预处理</li>
+<li>在 LicheePi4A 上使用 CPU 和 NPU 的差异</li>
+</ul>
+<h3 id="NPU">NPU</h3>
+<h4 id="%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE">环境配置</h4>
+<p>参考<a href="https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/6_peripheral.html#NPU"  target="_blank">外设使用</a>文档搭建好 NPU 使用相关环境后，进入到 HHB 环境的 Docker 镜像中。</p>
+<p>首先获取本节教程的模型，下载到示例目录 <code>/home/example/th1520_npu/onnx_mobilenetv2_c++</code> 下：<br />
+<a href="https://github.com/onnx/models/raw/main/validated/vision/classification/mobilenet/model/mobilenetv2-12.onnx"  target="_blank">mobilenetv2-12.onnx</a></p>
+<p>并获取本次教程所使用的优化版本 opencv 所需的库文件，前往 <a href="https://xuantie.t-head.cn/community/download?id=4112956065753141248"  target="_blank">github仓库下载</a>下载到上一级目录 <code>/home/example/th1520_npu/</code> 下。</p>
+
+<pre class="language-shell"><code class="language-shell">cd /home/example/th1520_npu/
+git clone https://github.com/zhangwm-pt/prebuilt_opencv.git
+</code></pre>
+<h4 id="%E7%BC%96%E8%AF%91">编译</h4>
+<p><strong>HHB 编译模型：</strong><br />
+将 ONNX 模型交叉编译成 NPU 上可执行的程序，需要使用 hhb 命令。注意，NPU 上仅支持8位或者16位定点运算，本示例中指定为 int8 非对称量化。编译时需要先进入到示例所在目录 <code>/home/example/th1520_npu/onnx_mobilenetv2_c++</code>：</p>
+
+<pre class="language-shell"><code class="language-shell">cd /home/example/th1520_npu/onnx_mobilenetv2_c++
+hhb -D --model-file mobilenetv2-12.onnx --data-scale 0.017 --data-mean &quot;124 117 104&quot;  --board th1520  --postprocess save_and_top5 --input-name &quot;input&quot; --output-name &quot;output&quot; --input-shape &quot;1 3 224 224&quot; --calibrate-dataset persian_cat.jpg  --quantization-scheme &quot;int8_asym&quot;
+</code></pre>
+<p>选项说明：</p>
+<ul>
+<li>-D ：指定 HHB 流程执行到生成可执行文件的阶段为止</li>
+<li>--model-file ：指定当前目录中已经下载好的 mobilenet 模型</li>
+<li>--data-mean ：指定均值</li>
+<li>--data-scale ：指定缩放值</li>
+<li>--board ：指定目标平台为 th1520</li>
+<li>--input-name： 模型的输入名</li>
+<li>--output-name：模型的输出名</li>
+<li>--input-shape：模型的输入大小</li>
+<li>--postprocess：保存输出结果，并且打印 top5 结果</li>
+<li>--calibrate-dataset：指定量化时所需的校准图片</li>
+<li>--quantization-scheme：指定量化方式为 int8 非对称</li>
+</ul>
+<p>命令执行完成后，会在当前目录生成 hhb_out 子目录，里面的包括了 hhb_runtime，model.c 等多个文件：</p>
+<ul>
+<li>hhb.bm：HHB 的模型文件，包括了量化后的权重数据等信息</li>
+<li>hhb_runtime：th1520 平台上的可执行文件，由目录中的c文件编译而成</li>
+<li>main.c：临时文件，示例程序的参考入口</li>
+<li>model.c：临时文件，模型结构文件，与模型结构相关</li>
+<li>model.params：临时文件，权重数值</li>
+<li>io.c：临时文件，读写文件的辅助函数</li>
+<li>io.h：临时文件，读写文件的辅助函数声明</li>
+<li>process.c：临时文件，图像预处理函数</li>
+<li>process.h：临时文件，图像预处理函数声明</li>
+</ul>
+<p>更详细的 HHB 选项说明可以参考 <a href="https://www.yuque.com/za4k4z/oxlbxl/keyg70qggt5n3fpa"  target="_blank">HHB用户手册</a>中的命令行选项说明。</p>
+<p><strong>g++编译示例：</strong></p>
+
+<pre class="language-shell"><code class="language-shell">riscv64-unknown-linux-gnu-g++ main.cpp -I../prebuilt_opencv/include/opencv4 -L../prebuilt_opencv/lib   -lopencv_imgproc   -lopencv_imgcodecs -L../prebuilt_opencv/lib/opencv4/3rdparty/ -llibjpeg-turbo -llibwebp -llibpng -llibtiff -llibopenjp2    -lopencv_core -ldl  -lpthread -lrt -lzlib -lcsi_cv -latomic -static -o mobilenetv2_example
+</code></pre>
+<p>编译命令正确执行完成后会在示例目录生成 mobilenetv2_example 文件。</p>
+<h4 id="%E6%89%A7%E8%A1%8C">执行</h4>
+<p>交叉编译完成后，即可将程序执行所需的文件复制到开发板的目录中。可以使用 scp 命令：</p>
+
+<pre class="language-shell"><code class="language-shell">scp -r ../onnx_mobilenetv2_c++ sipeed@你的开发板ip:~
+</code></pre>
+<p>先确认开发板中驱动是否加载：</p>
+
+<pre class="language-shell"><code class="language-shell">lsmod
+</code></pre>
+<p>若在输出中有 <code>img_mem</code>，<code>vha</code> 和 <code>vha_info</code> 这三个模块，NPU驱动即加载成功。</p>
+<p>参考 <a href="https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/8_application.html#YOLOX-%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B"  target="_blank">YOLOX章节</a> 安装并配置好 python 虚拟环境：</p>
+
+<pre class="language-shell"><code class="language-shell">sudo apt update
+sudo apt install wget git vim
+
+wget https://github.com/T-head-Semi/csi-nn2/releases/download/v2.4-beta.1/c920.tar.gz
+tar xf c920.tar.gz
+cp c920/lib/* /usr/lib/riscv64-linux-gnu/ -rf
+
+sudo apt install python3-pip
+sudo apt install python3.11-venv
+
+cd /root
+python3 -m venv ort
+source /root/ort/bin/activate
+
+git clone -b python3.11 https://github.com/zhangwm-pt/prebuilt_whl.git
+cd prebuilt_whl
+
+pip install numpy-1.25.0-cp311-cp311-linux_riscv64.whl
+pip install opencv_python-4.5.4+4cd224d-cp311-cp311-linux_riscv64.whl
+pip install kiwisolver-1.4.4-cp311-cp311-linux_riscv64.whl
+pip install Pillow-9.5.0-cp311-cp311-linux_riscv64.whl
+pip install matplotlib-3.7.2.dev0+gb3bd929cf0.d20230630-cp311-cp311-linux_riscv64.whl
+pip install pycocotools-2.0.6-cp311-cp311-linux_riscv64.whl
+pip3 install loguru-0.7.0-py3-none-any.whl
+pip3 install torch-2.0.0a0+gitc263bd4-cp311-cp311-linux_riscv64.whl
+pip3 install MarkupSafe-2.1.3-cp311-cp311-linux_riscv64.whl
+pip3 install torchvision-0.15.1a0-cp311-cp311-linux_riscv64.whl
+pip3 install psutil-5.9.5-cp311-abi3-linux_riscv64.whl
+pip3 install tqdm-4.65.0-py3-none-any.whl
+pip3 install tabulate-0.9.0-py3-none-any.whl
+</code></pre>
+<p>在开发板相应目录下运行刚刚编译好的示例：</p>
+
+<pre class="language-shell"><code class="language-shell">./mobilenetv2_example
+</code></pre>
+<p>执行完成后，会在终端上提示执行到的各个阶段：</p>
+<ol>
+<li>预处理</li>
+<li>模型执行</li>
+<li>后处理</li>
+</ol>
+<p>mobilenetv2_example 执行会使用到的文件：</p>
+<ul>
+<li>persian_cat.jpg：输入图片</li>
+<li>input_img.bin：预处理阶段，根据输入图片生成的中间结果</li>
+<li>hhb_out/hhb_runtime：模型执行阶段使用的文件，由x86主机上 HHB 生成</li>
+<li>hhb_out/hhb.bm：模型执行阶段使用的文件，由x86主机上 HHB 生成</li>
+<li>input_img.bin_output0_1_1000.txt：模型执行阶段的输出文件，包括了模型执行输出的 1000 个结果数值</li>
+</ul>
+<h4 id="%E5%8F%82%E8%80%83%E7%BB%93%E6%9E%9C">参考结果</h4>
+
+<pre class="language-shell"><code class="language-shell">(ort) root@lpi4a:/home/sipeed/onnx_mobilenetv2_c++# ./mobilenetv2_example
+ ********** preprocess image **********
+ ********** run mobilenetv2 **********
+INFO: NNA clock:792000 [kHz]
+INFO: Heap :ocm (0x18)
+INFO: Heap :anonymous (0x2)
+INFO: Heap :dmabuf (0x2)
+INFO: Heap :unified (0x5)
+Run graph execution time: 7.87149ms, FPS=127.04
+
+=== tensor info ===
+shape: 1 3 224 224 
+data pointer: 0x857ca0
+
+=== tensor info ===
+shape: 1 1000 
+data pointer: 0x3fc9abe000
+The max_value of output: 16.053827
+The min_value of output: -8.026914
+The mean_value of output: -0.001889
+The std_value of output: 9.203342
+ ============ top5: ===========
+283: 16.053827
+281: 14.165141
+287: 11.709850
+285: 11.615416
+282: 11.332113
+ ********** postprocess result **********
+ ********** probability top5: ********** 
+n02123394 Persian cat
+n02123045 tabby, tabby cat
+n02127052 lynx, catamount
+n02124075 Egyptian cat
+n02123159 tiger cat
+</code></pre>
+<h3 id="CPU">CPU</h3>
+<p>将上述 NPU 步骤中的 HHB 编译命令替换为：</p>
+
+<pre class="language-shell"><code class="language-shell">hhb -D --model-file mobilenetv2-12.onnx --data-scale 0.017 --data-mean &quot;124 117 104&quot;  --board c920  --postprocess save_and_top5 --input-name &quot;input&quot; --output-name &quot;output&quot; --input-shape &quot;1 3 224 224&quot;
+</code></pre>
+<p>g++ 编译后处理命令替换为：</p>
+
+<pre class="language-shell"><code class="language-shell">riscv64-unknown-linux-gnu-g++ main.cpp -I../prebuilt_opencv/include/opencv4 -L../prebuilt_opencv/lib   -lopencv_imgproc   -lopencv_imgcodecs -L../prebuilt_opencv/lib/opencv4/3rdparty/ -llibjpeg-turbo -llibwebp -llibpng -llibtiff -llibopenjp2    -lopencv_core -ldl  -lpthread -lrt -lzlib -lcsi_cv -latomic -static -o mobilenetv2_example
+</code></pre>
+<p>再将编译的到的二进制文件发送到开发板上运行即可。参考结果如下：</p>
+
+<pre class="language-shell"><code class="language-shell">(ort) root@lpi4a:/home/sipeed/onnx_mobilenetv2_c++# ./mobilenetv2_example 
+ ********** preprocess image **********
+ ********** run mobilenetv2 **********
+Run graph execution time: 79.77252ms, FPS=12.54
+
+=== tensor info ===
+shape: 1 3 224 224 
+data pointer: 0x259240
+
+=== tensor info ===
+shape: 1 1000 
+data pointer: 0x1c5200
+The max_value of output: 16.843750
+The min_value of output: -7.414062
+The mean_value of output: 0.001131
+The std_value of output: 9.056762
+ ============ top5: ===========
+283: 16.843750
+281: 13.789062
+287: 12.257812
+282: 10.898438
+285: 10.765625
+ ********** postprocess result **********
+ ********** probability top5: ********** 
+n02123394 Persian cat
+n02123045 tabby, tabby cat
+n02127052 lynx, catamount
+n02123159 tiger cat
+n02124075 Egyptian cat
+</code></pre>
+<h2 id="Yolov5n">Yolov5n</h2>
+<h3 id="NPU">NPU</h3>
+<h4 id="%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE">环境配置</h4>
+<p>参考<a href="https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/6_peripheral.html#NPU"  target="_blank">外设使用</a>文档搭建好 NPU 使用相关环境后，进入到 HHB 环境的 Docker 镜像中。</p>
+<p>首先获取本节教程的模型，下载到示例目录 <code>/home/example/th1520_npu/yolov5n</code> 下：</p>
+
+<pre class="language-shell"><code class="language-shell">git clone https://github.com/ultralytics/yolov5.git
+cd yolov5
+pip3 install ultralytics
+python3 export.py --weights yolov5n.pt --include onnx
+</code></pre>
+<h4 id="%E7%BC%96%E8%AF%91">编译</h4>
+<p><strong>HHB 编译模型：</strong><br />
+将 ONNX 模型交叉编译成 NPU 上可执行的程序，需要使用 hhb 命令。注意，NPU 上仅支持8位或者16位定点运算，本示例中指定为 int8 非对称量化。编译时需要先进入到示例所在目录 <code>/home/example/th1520_npu/yolov5n</code>：</p>
+
+<pre class="language-shell"><code class="language-shell">cd /home/example/th1520_npu/yolov5n
+hhb -D --model-file yolov5n.onnx --data-scale-div 255 --board th1520 --input-name &quot;images&quot; --output-name &quot;/model.24/m.0/Conv_output_0;/model.24/m.1/Conv_output_0;/model.24/m.2/Conv_output_0&quot; --input-shape &quot;1 3 384 640&quot; --calibrate-dataset kite.jpg  --quantization-scheme &quot;int8_asym&quot;
+</code></pre>
+<p>选项说明：</p>
+<ul>
+<li>-D ：指定 HHB 流程执行到生成可执行文件的阶段为止</li>
+<li>--model-file ：指定当前目录中已经下载好的 yolov5 模型</li>
+<li>--data-mean ：指定均值</li>
+<li>--data-scale ：指定缩放值</li>
+<li>--board ：指定目标平台为 th1520</li>
+<li>--input-name： 模型的输入名</li>
+<li>--output-name：模型的输出名</li>
+<li>--input-shape：模型的输入大小</li>
+<li>--postprocess：保存输出结果，并且打印 top5 结果</li>
+<li>--calibrate-dataset：指定量化时所需的校准图片</li>
+<li>--quantization-scheme：指定量化方式为 int8 非对称</li>
+</ul>
+<p>命令执行完成后，会在当前目录生成 hhb_out 子目录，里面的包括了 hhb_runtime，model.c 等多个文件：</p>
+<ul>
+<li>hhb.bm：HHB 的模型文件，包括了量化后的权重数据等信息</li>
+<li>hhb_runtime：th1520 平台上的可执行文件，由目录中的c文件编译而成</li>
+<li>main.c：临时文件，示例程序的参考入口</li>
+<li>model.c：临时文件，模型结构文件，与模型结构相关</li>
+<li>model.params：临时文件，权重数值</li>
+<li>io.c：临时文件，读写文件的辅助函数</li>
+<li>io.h：临时文件，读写文件的辅助函数声明</li>
+<li>process.c：临时文件，图像预处理函数</li>
+<li>process.h：临时文件，图像预处理函数声明</li>
+</ul>
+<p>更详细的 HHB 选项说明可以参考 <a href="https://www.yuque.com/za4k4z/oxlbxl/keyg70qggt5n3fpa"  target="_blank">HHB用户手册</a>中的命令行选项说明。</p>
+<p><strong>g++编译示例：</strong></p>
+
+<pre class="language-shell"><code class="language-shell">riscv64-unknown-linux-gnu-gcc yolov5n.c -o yolov5n_example hhb_out/io.c hhb_out/model.c -Wl,--gc-sections -O2 -g -mabi=lp64d -I hhb_out/ -L /usr/local/lib/python3.8/dist-packages/hhb/install_nn2/th1520/lib/ -lshl -L /usr/local/lib/python3.8/dist-packages/hhb/prebuilt/decode/install/lib/rv -L /usr/local/lib/python3.8/dist-packages/hhb/prebuilt/runtime/riscv_linux -lprebuilt_runtime -ljpeg -lpng -lz -lstdc++ -lm -I /usr/local/lib/python3.8/dist-packages/hhb/install_nn2/th1520/include/ -mabi=lp64d -march=rv64gcv0p7_zfh_xtheadc -Wl,-unresolved-symbols=ignore-in-shared-libs
+</code></pre>
+<p>编译命令正确执行完成后会在示例目录生成 yolov5n_example 文件。</p>
+<h4 id="%E6%89%A7%E8%A1%8C">执行</h4>
+<p>交叉编译完成后，即可将程序执行所需的文件复制到开发板的目录中。可以使用 scp 命令：</p>
+
+<pre class="language-shell"><code class="language-shell">scp -r ../yolov5n sipeed@你的开发板ip:~
+</code></pre>
+<p>先确认开发板中驱动是否加载：</p>
+
+<pre class="language-shell"><code class="language-shell">lsmod
+</code></pre>
+<p>若在输出中有 <code>img_mem</code>，<code>vha</code> 和 <code>vha_info</code> 这三个模块，NPU驱动即加载成功。</p>
+<p>参考 <a href="https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/8_application.html#YOLOX-%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B"  target="_blank">YOLOX章节</a> 安装并配置好 python 虚拟环境：</p>
+
+<pre class="language-shell"><code class="language-shell">sudo apt update
+sudo apt install wget git vim
+
+wget https://github.com/T-head-Semi/csi-nn2/releases/download/v2.4-beta.1/c920.tar.gz
+tar xf c920.tar.gz
+cp c920/lib/* /usr/lib/riscv64-linux-gnu/ -rf
+
+sudo apt install python3-pip
+sudo apt install python3.11-venv
+
+cd /root
+python3 -m venv ort
+source /root/ort/bin/activate
+
+git clone -b python3.11 https://github.com/zhangwm-pt/prebuilt_whl.git
+cd prebuilt_whl
+
+pip install numpy-1.25.0-cp311-cp311-linux_riscv64.whl
+pip install opencv_python-4.5.4+4cd224d-cp311-cp311-linux_riscv64.whl
+pip install kiwisolver-1.4.4-cp311-cp311-linux_riscv64.whl
+pip install Pillow-9.5.0-cp311-cp311-linux_riscv64.whl
+pip install matplotlib-3.7.2.dev0+gb3bd929cf0.d20230630-cp311-cp311-linux_riscv64.whl
+pip install pycocotools-2.0.6-cp311-cp311-linux_riscv64.whl
+pip3 install loguru-0.7.0-py3-none-any.whl
+pip3 install torch-2.0.0a0+gitc263bd4-cp311-cp311-linux_riscv64.whl
+pip3 install MarkupSafe-2.1.3-cp311-cp311-linux_riscv64.whl
+pip3 install torchvision-0.15.1a0-cp311-cp311-linux_riscv64.whl
+pip3 install psutil-5.9.5-cp311-abi3-linux_riscv64.whl
+pip3 install tqdm-4.65.0-py3-none-any.whl
+pip3 install tabulate-0.9.0-py3-none-any.whl
+</code></pre>
+<p>在开发板相应目录下运行刚刚编译好的示例：</p>
+
+<pre class="language-shell"><code class="language-shell">python3 inference.py 
+</code></pre>
+<p>执行完成后，会在终端上提示执行到的各个阶段：</p>
+<ol>
+<li>预处理：将原图填充缩放到 384 * 640 的大小</li>
+<li>模型执行和后处理：执行模型推理，并做 nms 等后处理</li>
+<li>画框：将检测结果画在 384 *640 尺寸的图上，并输出新图片</li>
+</ol>
+<p>inference.py 执行会使用到的文件：</p>
+<ul>
+<li>kite.jpg：输入图片</li>
+<li>image_preprocessed.bin：预处理阶段，根据输入图片生成的中间结果</li>
+<li>yolov5n_example：模型执行阶段使用的文件，由x86主机上 gcc 编译生成</li>
+<li>hhb_out/hhb.bm：模型执行阶段使用的文件，由x86主机上 HHB 生成</li>
+<li>detect.txt：后处理阶段的输出文件，包括了图片中检测出来的 4 个目标</li>
+<li>kite_result.jpg：输出图片，将检测框加入到输入图上的结果</li>
+</ul>
+<h4 id="%E5%8F%82%E8%80%83%E7%BB%93%E6%9E%9C">参考结果</h4>
+
+<pre class="language-shell"><code class="language-shell">(ort) root@lpi4a:/home/sipeed/yolov5n_npu# python3 inference.py 
+ ********** preprocess image **********
+ ******* run yolov5 and postprocess *******
+INFO: NNA clock:792000 [kHz]
+INFO: Heap :ocm (0x18)
+INFO: Heap :anonymous (0x2)
+INFO: Heap :dmabuf (0x2)
+INFO: Heap :unified (0x5)
+Run graph execution time: 5.36258ms, FPS=186.48
+detect num: 4
+id:     label   score           x1              y1              x2              y2
+[0]:    0       0.895277        273.492188      161.245056      359.559814      330.644257
+[1]:    0       0.887368        79.860062       179.181244      190.755692      354.304474
+[2]:    0       0.815214        222.054550      224.477600      279.828979      333.717285
+[3]:    33      0.563324        67.625580       173.948883      201.687988      219.065765
+ ********** draw bbox **********
+[273.492188, 161.245056, 359.559814, 330.644257, 0.895277, 0]
+[79.860062, 179.181244, 190.755692, 354.304474, 0.887368, 0]
+[222.05455, 224.4776, 279.828979, 333.717285, 0.815214, 0]
+[67.62558, 173.948883, 201.687988, 219.065765, 0.563324, 33]
+</code></pre>
+<blockquote>
+<p>示例图片来源于网络。</p>
+</blockquote>
+<p><img src="./assets/application/yolov5n_detection_soccer_output.jpg" alt="yolov5n_detection_soccer_output" /></p>
+<h3 id="CPU">CPU</h3>
+<p>将上述 NPU 步骤中的 HHB 编译命令替换为：</p>
+
+<pre class="language-shell"><code class="language-shell">hhb -D --model-file yolov5n.onnx --data-scale-div 255 --board c920 --input-name &quot;images&quot; --output-name &quot;/model.24/m.0/Conv_output_0;/model.24/m.1/Conv_output_0;/model.24/m.2/Conv_output_0&quot; --input-shape &quot;1 3 384 640&quot;
+</code></pre>
+<p>gcc 编译后处理命令替换为：</p>
+
+<pre class="language-shell"><code class="language-shell">riscv64-unknown-linux-gnu-gcc yolov5n.c -static -o yolov5n_example hhb_out/io.c hhb_out/model.c -Wl,--gc-sections -O2 -g -mabi=lp64d -I hhb_out/ -L /usr/local/lib/python3.8/dist-packages/hhb/install_nn2/c920/lib/ -lshl -static -L /usr/local/lib/python3.8/dist-packages/hhb/prebuilt/decode/install/lib/rv -L /usr/local/lib/python3.8/dist-packages/hhb/prebuilt/runtime/riscv_linux -lprebuilt_runtime -ljpeg -lpng -lz -lstdc++ -lm -I /usr/local/lib/python3.8/dist-packages/hhb/install_nn2/c920/include/ -mabi=lp64d -march=rv64gcv0p7_zfh_xtheadc
+</code></pre>
+<p>再将编译的到的二进制文件发送到开发板上运行即可。参考结果如下：</p>
+
+<pre class="language-shell"><code class="language-shell">(ort) root@lpi4a:/home/sipeed/yolov5n_cpu# python3 inference.py 
+ ********** preprocess image **********
+ ******* run yolov5 and postprocess *******
+Run graph execution time: 387.34067ms, FPS=2.58
+detect num: 4
+id:     label   score           x1              y1              x2              y2
+[0]:    0       0.901887        274.524475      158.559036      359.169312      332.431702
+[1]:    0       0.879545        80.073883       184.767792      190.130157      349.906281
+[2]:    0       0.845192        219.378418      221.662415      283.860413      333.798584
+[3]:    33      0.666908        67.099136       174.128189      202.971451      220.213608
+ ********** draw bbox **********
+[274.524475, 158.559036, 359.169312, 332.431702, 0.901887, 0]
+[80.073883, 184.767792, 190.130157, 349.906281, 0.879545, 0]
+[219.378418, 221.662415, 283.860413, 333.798584, 0.845192, 0]
+[67.099136, 174.128189, 202.971451, 220.213608, 0.666908, 33]
+</code></pre>
+<h2 id="Yolov5s">Yolov5s</h2>
+<p>参考 yolov5n 的编译步骤，只需将 yolov5n.onnx 文件替换为 yolov5s.onnx，并将 HHB 和 GCC 编译命令中的参数 <code>yolov5n.onnx</code> 更改为 <code>yolov5s.onnx</code> 即可。</p>
+<h3 id="%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE">环境配置</h3>
+<p>在 x86 主机中，参考<a href="https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/6_peripheral.html#NPU"  target="_blank">外设使用</a>文档搭建好 NPU 使用相关环境后，进入到 HHB 环境的 Docker 镜像中。<br />
+在 1520 上，参考 <a href="https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/8_application.html#YOLOX-%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B"  target="_blank">YOLOX章节</a> 安装并配置好 python 虚拟环境。</p>
+<h3 id="CPU">CPU</h3>
+<h4 id="%E7%BC%96%E8%AF%91%E8%BF%87%E7%A8%8B">编译过程</h4>
+<p><strong>HBB 编译</strong></p>
+
+<pre class="language-shell"><code class="language-shell">hhb -D --model-file yolov5s.onnx --data-scale-div 255 --board c920 --input-name &quot;images&quot; --output-name &quot;/model.24/m.0/Conv_output_0;/model.24/m.1/Conv_output_0;/model.24/m.2/Conv_output_0&quot; --input-shape &quot;1 3 384 640&quot;
+</code></pre>
+<p>HHB 命令中截取到最后的卷积层为止，卷积层之后的后处理，由 yolov5s.c 文件处理。<code>yolov5s.c</code> 可以参考 yolov5n 示例下的 <code>yolov5n.c</code> 文件。<br />
+<strong>GCC 编译</strong></p>
+
+<pre class="language-shell"><code class="language-shell">riscv64-unknown-linux-gnu-gcc yolov5s.c -static -o yolov5s_example hhb_out/io.c hhb_out/model.c -Wl,--gc-sections -O2 -g -mabi=lp64d -I hhb_out/ -L /usr/local/lib/python3.8/dist-packages/hhb/install_nn2/c920/lib/ -lshl -static -L /usr/local/lib/python3.8/dist-packages/hhb/prebuilt/decode/install/lib/rv -L /usr/local/lib/python3.8/dist-packages/hhb/prebuilt/runtime/riscv_linux -lprebuilt_runtime -ljpeg -lpng -lz -lstdc++ -lm -I /usr/local/lib/python3.8/dist-packages/hhb/install_nn2/c920/include/ -mabi=lp64d -march=rv64gcv0p7_zfh_xtheadc
+</code></pre>
+<h4 id="%E5%8F%82%E8%80%83%E7%BB%93%E6%9E%9C">参考结果</h4>
+
+<pre class="language-shell"><code class="language-shell">(ort) root@lpi4a:/home/sipeed/yolov5s# python3 inference.py 
+ ********** preprocess image **********
+ ******* run yolov5 and postprocess *******
+Run graph execution time: 821.20135ms, FPS=1.22
+detect num: 4
+id:     label   score           x1              y1              x2              y2
+[0]:    0       0.932165        275.538910      159.163147      359.211151      329.072205
+[1]:    0       0.888989        219.883255      222.074265      285.310486      334.005676
+[2]:    0       0.840487        85.319901       184.137268      186.844284      346.103210
+[3]:    33      0.783095        70.033737       176.102921      202.740250      218.405075
+ ********** draw bbox **********
+[275.53891, 159.163147, 359.211151, 329.072205, 0.932165, 0]
+[219.883255, 222.074265, 285.310486, 334.005676, 0.888989, 0]
+[85.319901, 184.137268, 186.844284, 346.10321, 0.840487, 0]
+[70.033737, 176.102921, 202.74025, 218.405075, 0.783095, 33]
+</code></pre>
+<h3 id="NPU">NPU</h3>
+<h4 id="%E7%BC%96%E8%AF%91%E8%BF%87%E7%A8%8B">编译过程</h4>
+<p>参考 yolov5n 即可。</p>
+<p><strong>HHB 编译</strong></p>
+
+<pre class="language-shell"><code class="language-shell">hhb -D --model-file yolov5s.onnx --data-scale-div 255 --board th1520 --input-name &quot;images&quot; --output-name &quot;/model.24/m.0/Conv_output_0;/model.24/m.1/Conv_output_0;/model.24/m.2/Conv_output_0&quot; --input-shape &quot;1 3 384 640&quot; --calibrate-dataset kite.jpg  --quantization-scheme &quot;int8_asym&quot;
+</code></pre>
+<p><strong>GCC 编译</strong><br />
+HHB 命令中截取到最后的卷积层为止，卷积层之后的后处理，由 yolov5s.c 文件处理。<code>yolov5s.c</code> 可以参考 yolov5n 示例下的 <code>yolov5n.c</code> 文件。</p>
+
+<pre class="language-shell"><code class="language-shell">riscv64-unknown-linux-gnu-gcc yolov5s.c -o yolov5s_example hhb_out/io.c hhb_out/model.c -Wl,--gc-sections -O2 -g -mabi=lp64d -I hhb_out/ -L /usr/local/lib/python3.8/dist-packages/hhb/install_nn2/th1520/lib/ -lshl -L /usr/local/lib/python3.8/dist-packages/hhb/prebuilt/decode/install/lib/rv -L /usr/local/lib/python3.8/dist-packages/hhb/prebuilt/runtime/riscv_linux -lprebuilt_runtime -ljpeg -lpng -lz -lstdc++ -lm -I /usr/local/lib/python3.8/dist-packages/hhb/install_nn2/th1520/include/ -mabi=lp64d -march=rv64gcv0p7_zfh_xtheadc -Wl,-unresolved-symbols=ignore-in-shared-libs
+</code></pre>
+<h4 id="%E5%8F%82%E8%80%83%E7%BB%93%E6%9E%9C">参考结果</h4>
+
+<pre class="language-shell"><code class="language-shell">(ort) root@lpi4a:/home/sipeed/yolov5s_npu# python3 inference.py 
+ ********** preprocess image **********
+ ******* run yolov5 and postprocess *******
+INFO: NNA clock:792000 [kHz]
+INFO: Heap :ocm (0x18)
+INFO: Heap :anonymous (0x2)
+INFO: Heap :dmabuf (0x2)
+INFO: Heap :unified (0x5)
+Run graph execution time: 9.85487ms, FPS=101.47
+detect num: 4
+id:     label   score           x1              y1              x2              y2
+[0]:    0       0.933075        276.321838      157.925751      358.274475      329.757538
+[1]:    0       0.893568        219.203781      221.895264      286.790039      334.801636
+[2]:    0       0.848185        83.283234       182.688538      187.325684      346.702515
+[3]:    33      0.800765        68.743454       175.539230      204.108292      218.260056
+ ********** draw bbox **********
+[276.321838, 157.925751, 358.274475, 329.757538, 0.933075, 0]
+[219.203781, 221.895264, 286.790039, 334.801636, 0.893568, 0]
+[83.283234, 182.688538, 187.325684, 346.702515, 0.848185, 0]
+[68.743454, 175.53923, 204.108292, 218.260056, 0.800765, 33]
+</code></pre>
+<h2 id="BERT">BERT</h2>
+<h3 id="CPU">CPU</h3>
+<h4 id="%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE">环境配置</h4>
+<p>参考<a href="https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/6_peripheral.html#NPU"  target="_blank">外设使用</a>文档搭建好 NPU 使用相关环境后，进入到 HHB 环境的 Docker 镜像中。</p>
+<p>首先获取模型，本教程中使用的模型来自 google bert 仓库，已转换成 onnx 版本的 BERT 模型，可以用如下命令下载到 <code>/home/example/c920/bert_small</code> 目录下:</p>
+
+<pre class="language-shell"><code class="language-shell">cd home/example/c920/bert_small
+wget https://github.com/zhangwm-pt/bert/releases/download/onnx/bert_small_int32_input.onnx
+</code></pre>
+<h4 id="%E7%BC%96%E8%AF%91">编译</h4>
+<p><strong>HHB 编译模型：</strong><br />
+将 ONNX 模型交叉编译成 NPU 上可执行的程序，需要使用 hhb 命令。注意，NPU 上仅支持8位或者16位定点运算，本示例中指定为 int8 非对称量化。编译时需要先进入到示例所在目录 <code>/home/example/c920/bert_small</code>：</p>
+
+<pre class="language-shell"><code class="language-shell">cd /home/example/c920/bert_small
+hhb --model-file bert_small_int32_input.onnx --input-name &quot;input_ids;input_mask;segment_ids&quot; --input-shape '1 384;1 384;1 384' --output-name &quot;output_start_logits;output_end_logits&quot; --board c920 --quantization-scheme &quot;float16&quot; --postprocess save_and_top5 -D --without-preprocess
+</code></pre>
+<p>选项说明：</p>
+<ul>
+<li>-D ：指定 HHB 流程执行到生成可执行文件的阶段为止</li>
+<li>--model-file ：指定当前目录中已经下载好的 bert 模型</li>
+<li>--data-mean ：指定均值</li>
+<li>--data-scale ：指定缩放值</li>
+<li>--board ：指定目标平台为 th1520</li>
+<li>--input-name： 模型的输入名</li>
+<li>--output-name：模型的输出名</li>
+<li>--input-shape：模型的输入大小</li>
+<li>--postprocess：保存输出结果，并且打印 top5 结果</li>
+<li>--calibrate-dataset：指定量化时所需的校准图片</li>
+<li>--quantization-scheme：指定量化方式为 int8 非对称</li>
+</ul>
+<p>命令执行完成后，会在当前目录生成 hhb_out 子目录，里面的包括了 hhb_runtime，model.c 等多个文件：</p>
+<ul>
+<li>hhb.bm：HHB 的模型文件，包括了量化后的权重数据等信息</li>
+<li>hhb_runtime：th1520 平台上的可执行文件，由目录中的c文件编译而成</li>
+<li>main.c：临时文件，示例程序的参考入口</li>
+<li>model.c：临时文件，模型结构文件，与模型结构相关</li>
+<li>model.params：临时文件，权重数值</li>
+<li>io.c：临时文件，读写文件的辅助函数</li>
+<li>io.h：临时文件，读写文件的辅助函数声明</li>
+<li>process.c：临时文件，图像预处理函数</li>
+<li>process.h：临时文件，图像预处理函数声明</li>
+</ul>
+<p>更详细的 HHB 选项说明可以参考 <a href="https://www.yuque.com/za4k4z/oxlbxl/keyg70qggt5n3fpa"  target="_blank">HHB用户手册</a> 中的命令行选项说明。</p>
+<p>编译命令正确执行完成后会在示例目录生成可执行文件，将该示例目录拷贝至开发板中即可运行。</p>
+
+<pre class="language-shell"><code class="language-shell">scp -r ../bert_small sipeed@你的ip:~
+</code></pre>
+<h4 id="%E6%89%A7%E8%A1%8C">执行</h4>
+<p>执行示例程序的前置步骤同 YOLOv5n，此处不在赘述。<br />
+前置步骤准确无误后，即可在示例目录执行命令</p>
+
+<pre class="language-shell"><code class="language-shell">python3 inference.py
+</code></pre>
+<h4 id="%E5%8F%82%E8%80%83%E7%BB%93%E6%9E%9C">参考结果</h4>
+<p>本示例中的参考输入来自 SQuAD 数据集，SQuAD 是一个阅读理解数据集，由一组维基百科文章提出的问题组成，其中每个问题的答案都是来自相应阅读文章或问题的一段文本。<br />
+本示例的输入如下，文章内容描述了一次橄榄球比赛的赛况，提出的问题是谁参加了比赛。</p>
+
+<pre class="language-none"><code class="language-none">[Context]:  Super Bowl 50 was an American football game to determine the champion of the National Football League (NFL) for the 2015 season. The American Football Conference (AFC) champion Denver Broncos defeated the National Football Conference (NFC) champion Carolina Panthers 24–10 to earn their third Super Bowl title. The game was played on February 7, 2016, at Levi's Stadium in the San Francisco Bay Area at Santa Clara, California. As this was the 50th Super Bowl, the league emphasized the &quot;golden anniversary&quot; with various gold-themed initiatives, as well as temporarily suspending the tradition of naming each Super Bowl game with Roman numerals (under which the game would have been known as &quot;Super Bowl L&quot;), so that the logo could prominently feature the Arabic numerals 50.
+
+[Question]:  Which NFL team represented the AFC at Super Bowl 50?
+</code></pre>
+<p>根据阅读理解的结果，预期输出将是 Denver Broncos</p>
+
+<pre class="language-shell"><code class="language-shell">(ort) root@lpi4a:/home/sipeed/bert_small_cpu# python3 inference.py
+ ********** preprocess test **********
+[Context]:  Super Bowl 50 was an American football game to determine the champion of the National Football League (N
+FL) for the 2015 season. The American Football Conference (AFC) champion Denver Broncos defeated the National Footba
+ll Conference (NFC) champion Carolina Panthers 24–10 to earn their third Super Bowl title. The game was played on Fe
+bruary 7, 2016, at Levi's Stadium in the San Francisco Bay Area at Santa Clara, California. As this was the 50th Sup
+er Bowl, the league emphasized the &quot;golden anniversary&quot; with various gold-themed initiatives, as well as temporarily
+ suspending the tradition of naming each Super Bowl game with Roman numerals (under which the game would have been k
+nown as &quot;Super Bowl L&quot;), so that the logo could prominently feature the Arabic numerals 50.
+[Question]:  Which NFL team represented the AFC at Super Bowl 50?
+ ******* run bert *******
+Run graph execution time: 1713.15491ms, FPS=0.58
+
+=== tensor info ===
+shape: 1 384 
+data pointer: 0x183d60
+
+=== tensor info ===
+shape: 1 384 
+data pointer: 0x185380
+
+=== tensor info ===
+shape: 1 384 
+data pointer: 0x1869a0
+
+=== tensor info ===
+shape: 1 384 
+data pointer: 0x2a8610
+The max_value of output: 3.826172
+The min_value of output: -9.968750
+The mean_value of output: -8.412353
+The std_value of output: 5.128320
+ ============ top5: ===========
+ 46: 3.826172
+ 57: 3.142578
+ 39: 1.303711
+ 38: 1.179688
+ 27: 0.624512
+
+=== tensor info ===
+shape: 1 384 
+data pointer: 0x2a8300
+The max_value of output: 3.617188
+The min_value of output: -9.625000
+The mean_value of output: -7.798176
+The std_value of output: 4.820137
+ ============ top5: ===========
+ 47: 3.617188
+ 58: 3.482422
+ 32: 2.523438
+ 29: 1.541992
+ 41: 1.473633
+ ********** postprocess **********
+[Answer]:  Denver Broncos
+</code></pre>
+<h2 id="Docker">Docker</h2>
+<p>首先安装所需要的软件包</p>
+
+<pre class="language-shell"><code class="language-shell">sudo apt-get update
+sudo apt-get install docker docker-compose
+</code></pre>
+<p>安装完成后，使用 <code>sudo docker info</code> 命令验证安装是否成功：</p>
+
+<pre class="language-shell"><code class="language-shell">sipeed@lpi4a:~$ sudo docker info
+Client: 
+ Context: default
+ Debug Mode: false  
+Server:
+ Containers: 0
+  Running: 0 
+  Paused: 0  
+  Stopped: 0 
+ Images: 0
+ Server Version: 20.10.24+dfsg1 
+ Storage Driver: overlay2 
+  Backing Filesystem: extfs  
+  Supports d_type: true
+  Native Overlay Diff: true  
+  userxattr: false  
+ Logging Driver: json-file
+ Cgroup Driver: systemd
+ Cgroup Version: 2
+ Plugins:
+  Volume: local  
+  Network: bridge host ipvlan macvlan null overlay
+  Log: awslogs fluentd gcplogs gelf journald json-file local logentries splunk syslog 
+ Swarm: inactive 
+ Runtimes: io.containerd.runc.v2 io.containerd.runtime.v1.linux runc 
+ Default Runtime: runc 
+ Init Binary: docker-init 
+ containerd version: 1.6.20~ds1-1+b1
+ runc version: 1.1.5+ds1-1+b1
+ init version:
+ Security Options:
+  seccomp 
+Profile: default 
+  cgroupns
+ Kernel Version: 5.10.113-gfac22a756532
+ Operating System: Debian GNU/Linux 12 (bookworm)  
+ OSType: linux
+ Architecture: riscv64 
+ CPUs: 4  
+ Total Memory: 15.47GiB
+ Name: lpi4a 
+ ID: MCKE:SEGQ:EBUX:ZMLC:P2WK:GIJ7:XAEQ:F56H:73HK:C3L5:IA5A:7GJI  
+ Docker Root Dir: /var/lib/docker
+ Debug Mode: false  
+ Registry: https://index.docker.io/v1/ 
+ Labels:  
+ Experimental: false
+ Insecure Registries:  
+  127.0.0.0/8
+ Live Restore Enabled: false
+</code></pre>
+<p>若想让普通用户也有 Docker 的执行权限，可以执行以下命令来实现：</p>
+
+<pre class="language-shell"><code class="language-shell">sudo groupadd docker
+sudo usermod -aG docker $USER
+newgrp docker
+</code></pre>
+<p>这些命令添加普通用户权限的用户名到 <code>docker</code> 用户组，并激活组权限。若不添加，则每次执行 Docker 相关命令时，需要以 sudo 权限来执行。</p>
+<p>接下来，我们拉取 hello-world 镜像体验 Docker 的使用：</p>
+
+<pre class="language-shell"><code class="language-shell">sipeed@lpi4a:~$ docker pull hello-world
+Using default tag: latest
+latest: Pulling from library/hello-world   
+b102dd09f2b3: Pull complete 
+Digest: sha256:926fac19d22aa2d60f1a276b66a20eb765fbeea2db5dbdaafeb456ad8ce81598      
+Status: Downloaded newer image for hello-world:latest    
+docker.io/library/hello-world:latest 
+</code></pre>
+<p>接下来，启动刚刚拉取下来的容器：</p>
+
+<pre class="language-shell"><code class="language-shell">sipeed@lpi4a:~$ docker run hello-world
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the &quot;hello-world&quot; image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
+</code></pre>
+<p>查看 hello-world 镜像的相关信息：</p>
+
+<pre class="language-shell"><code class="language-shell">sipeed@lpi4a:~$ docker images hello-world
+REPOSITORY    TAG       IMAGE ID       CREATED        SIZE
+hello-world   latest    eb6f80695a28   2 months ago   4.98kB
+</code></pre>
+<p>若要体验更完整的镜像，去<a href="https://hub.docker.com/"  target="_blank">这里</a>搜索想要使用的发行版名称，拉取即可。</p>
+<h2 id="K3s-RISCV">K3s-RISCV</h2>
+<p>该章节将展示如何在 LPi4A 上运行轻量级的 Kubernetes 发行版本 K3s。</p>
+<p>先下载预编译的 K3s包：<br />
+<a href="https://github.com/CARV-ICS-FORTH/k3s/releases"  target="_blank">https://github.com/CARV-ICS-FORTH/k3s/releases</a></p>
+<p>然后将下载下来的包合并为一个 <code>.gz</code> 文件并解压，完成后给 k3s 添加执行权限：</p>
+
+<pre class="language-shell"><code class="language-shell">wget https://github.com/CARV-ICS-FORTH/k3s/releases/download/20230721/k3s-riscv64.gz.aa
+wget https://github.com/CARV-ICS-FORTH/k3s/releases/download/20230721/k3s-riscv64.gz.ab
+wget https://github.com/CARV-ICS-FORTH/k3s/releases/download/20230721/k3s-riscv64.gz.ac
+# 下面的命令需要root用户来执行
+sudo -i
+cat k3s-riscv64.gz.* | gunzip &gt; /usr/local/bin/k3s
+chmod +x /usr/local/bin/k3s
+exit
+</code></pre>
+<p>验证是否能成功运行，成功运行的典型输出如下：</p>
+
+<pre class="language-shell"><code class="language-shell">sipeed@lpi4a:~$ k3s                                                
+NAME:                                                                           
+   k3s-riscv64 - Kubernetes, but small and simple                               
+
+USAGE:                                                                          
+   k3s-riscv64 [global options] command [command options] [arguments...]        
+
+VERSION:                                                                        
+   v1.27.3+k3s-9d376dfb-dirty (9d376dfb)                                        
+
+COMMANDS:                                                                       
+   server           Run management server                                       
+   agent            Run node agent                                              
+   kubectl          Run kubectl                                                 
+   crictl           Run crictl                                                  
+   ctr              Run ctr                                                     
+   check-config     Run config check                                            
+   token            Manage bootstrap tokens                                     
+   etcd-snapshot                                                                
+   secrets-encrypt  Control secrets encryption and keys rotation                
+   certificate      Manage K3s certificates                                     
+   completion       Install shell completion script                             
+   help, h          Shows a list of commands or help for one command            
+
+GLOBAL OPTIONS:                                                                 
+   --debug                     (logging) Turn on debug logs [$K3S_DEBUG]        
+   --data-dir value, -d value  (data) Folder to hold state (default: /var/lib/r)
+   --help, -h                  show help                                        
+   --version, -v               print the version
+</code></pre>
+<p>现在，下载并运行 k3s 的安装脚本：</p>
+
+<pre class="language-shell"><code class="language-shell">curl -sfL https://get.k3s.io &gt; k3s-install.sh
+chmod +x k3s-install.sh
+INSTALL_K3S_EXEC=&quot;server --disable metrics-server&quot; INSTALL_K3S_SKIP_DOWNLOAD=&quot;true&quot; bash -x ./k3s-install.sh
+</code></pre>
+<p>运行完成后，使用如下命令检查 k3s 是否正常运行。典型输出如下：</p>
+
+<pre class="language-shell"><code class="language-shell">sipeed@lpi4a:~$ systemctl status k3s
+● k3s.service - Lightweight Kubernetes                                          
+     Loaded: loaded (8;;file://lpi4a/etc/systemd/system/k3s.service/etc/systemd)
+     Active: active (running) since Mon 2023-07-31 06:48:34 UTC; 6s ago         
+       Docs: 8;;https://k3s.iohttps://k3s.io8;;                                 
+    Process: 3240 ExecStartPre=/bin/sh -xc ! /usr/bin/systemctl is-enabled --qu&gt;
+    Process: 3242 ExecStartPre=/sbin/modprobe br_netfilter (code=exited, status&gt;
+    Process: 3243 ExecStartPre=/sbin/modprobe overlay (code=exited, status=0/SU&gt;
+   Main PID: 3244 (k3s-server)                                                  
+      Tasks: 37                                                                 
+     Memory: 529.5M                                                             
+        CPU: 54.841s                                                            
+     CGroup: /system.slice/k3s.service                                          
+             ├─3244 &quot;/usr/local/bin/k3s server&quot;                                 
+             └─3361 &quot;containerd
+</code></pre>
+<p>接下来我们新建一个配置文件，运行 k3s 容器：</p>
+
+<pre class="language-shell"><code class="language-shell">vi hello-lpi4a.yaml
+</code></pre>
+<p>文件内容如下（参考<a href="https://raw.githubusercontent.com/CARV-ICS-FORTH/kubernetes-riscv64/main/examples/hello-kubernetes.yaml%EF%BC%89%EF%BC%9A"  target="_blank">https://raw.githubusercontent.com/CARV-ICS-FORTH/kubernetes-riscv64/main/examples/hello-kubernetes.yaml%EF%BC%89%EF%BC%9A</a></p>
+
+<pre class="language-yaml"><code class="language-yaml">apiVersion: v1
+kind: Service
+metadata:
+  name: hello
+spec:
+  type: ClusterIP
+  ports:
+  - port: 8080
+  selector:
+    app: hello
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello
+  template:
+    metadata:
+      labels:
+        app: hello
+    spec:
+      containers:
+      - name: hello-kubernetes
+        image: carvicsforth/hello-kubernetes:1.10.1
+        env:
+        - name: MESSAGE
+          value: &quot;Hello Lichee Pi 4A!&quot;
+</code></pre>
+<p>然后使用这个配置文件启动一个容器。典型输入如下：</p>
+
+<pre class="language-shell"><code class="language-shell">sipeed@lpi4a:~$ sudo kubectl apply -f hello-lpi4a.yaml 
+service/hello created
+deployment.apps/hello created
+</code></pre>
+<p>然后查看 pods 情况（若输出中没显示 IP 地址，可以多等待一会儿再查看）：</p>
+
+<pre class="language-shell"><code class="language-shell">sipeed@lpi4a:~$ 
+NAME                     READY   STATUS    RESTARTS   AGE   IP          NODE    NOMINATED NODE   READINESS GATES
+hello-5b576d45d7-fdjgh   1/1     Running   0          16m   10.42.0.6   lpi4a   &lt;none&gt;           &lt;none&gt;
+</code></pre>
+<p>接下来使用 curl 测试 k3s 容器是否运行成功，典型输出如下：</p>
+
+<pre class="language-shell"><code class="language-shell">sipeed@lpi4a:~$ curl 10.42.0.6:8080
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Hello Kubernetes!&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/main.css&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://fonts.googleapis.com/css?family=Ubuntu:300&quot; &gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;div class=&quot;main&quot;&gt;
+    &lt;img src=&quot;/images/kubernetes.png&quot;/&gt;
+    &lt;div class=&quot;content&quot;&gt;
+      &lt;div id=&quot;message&quot;&gt;
+  Hello Lichee Pi 4A!
+&lt;/div&gt;
+&lt;div id=&quot;info&quot;&gt;
+  &lt;table&gt;
+    &lt;tr&gt;
+      &lt;th&gt;namespace:&lt;/th&gt;
+      &lt;td&gt;-&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;pod:&lt;/th&gt;
+      &lt;td&gt;hello-5b576d45d7-fdjgh&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;node:&lt;/th&gt;
+      &lt;td&gt;- (Linux 5.10.113-gfac22a756532)&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+&lt;div id=&quot;footer&quot;&gt;
+  paulbouwer/hello-kubernetes:1.10.1 (linux/riscv64)
+&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>至此，k3s容器已经运行成功。</p>
+<p>页面效果如下：</p>
+<p><img src="./assets/application/k3s_hello_world.png" alt="k3s_hello_world" /></p>
+<!--
+最后，修改配置文件使得容器能够被外部设备访问：
+```shell
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello
+spec:
+  type: NodePort
+  ports:
+  - port: 8080
+    targetPort: 8080
+    nodePort: 30080
+    protocol: TCP
+  selector:
+    app: hello
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello
+  template:
+    metadata:
+      labels:
+        app: hello
+    spec:
+      containers:
+      - name: hello-kubernetes
+        image: carvicsforth/hello-kubernetes:1.10.1
+        env:
+        - name: MESSAGE
+          value: "Hello Lichee Pi 4A!"
+```
+其中的 `nodePort` 为 30000-32767 中的任意一个数字。
+
+更改后，应用新的配置文件：
+```shell
+sipeed@lpi4a:~$ sudo kubectl apply -f hello-lpi4a.yaml 
+service/hello configured
+deployment.apps/hello unchanged
+```
+-->
+<h2 id="Minecraft-Server">Minecraft Server</h2>
+<p>这里以<code>1.20.1</code>版本为例，LPi4A 作为 Server，电脑端（Ubuntu 22.04）作为 Client。</p>
+<p>首先在<a href="https://github.com/fizzed/nitro/releases/tag/builds"  target="_blank">这里</a>下载由 Fizzed 优化的 nitro JDK 19，下载完成后解压，重命名文件夹并移动到 <code>/opt/</code> 目录下：</p>
+
+<pre class="language-shell"><code class="language-shell">tar xvf fizzed19.36-jdk19.0.1-linux_riscv64.tar.gz
+sudo mv fizzed19.36-jdk19.0.1-linux_riscv64 /opt/jdk_19
+</code></pre>
+<p>测试该 JDK 是否可用：</p>
+
+<pre class="language-shell"><code class="language-shell">sipeed@lpi4a:~$ /opt/jdk_19/bin/java -version
+openjdk version &quot;19.0.1&quot; 2022-09-20
+OpenJDK Runtime Environment Fizzed19.36 (build 19.0.1+10)
+OpenJDK 64-Bit Server VM Fizzed19.36 (build 19.0.1+10, mixed mode)
+</code></pre>
+<p>若出现版本号则可用。若已经预装了别的版本的 JDK，那么可以更改下软连接，先查看原先的软链接信息，记录下方便后面改回来：</p>
+
+<pre class="language-shell"><code class="language-shell">sipeed@lpi4a:~$ ls /usr/bin/java -l
+lrwxrwxrwx 1 root root 22 Apr 26 10:40 /usr/bin/java -&gt; /etc/alternatives/java
+</code></pre>
+<p>然后更改软链接指向刚刚安装的 JDK：</p>
+
+<pre class="language-shell"><code class="language-shell">sudo rm /usr/bin/java
+sudo ln -s /opt/jdk_19/bin/java /usr/bin/java
+</code></pre>
+<p>使用命令验证软链接是否配置成功：</p>
+
+<pre class="language-shell"><code class="language-shell">java -version
+</code></pre>
+<p>出现版本，则配置成功。</p>
+<p>接下来，在<a href="https://www.minecraft.net/zh-hans/download"  target="_blank">这里</a>下载原版服务端 jar 文件到 LPi4A，注意版本为<code>1.20.1</code>，然后在 LPi4A 上先执行：</p>
+
+<pre class="language-shell"><code class="language-shell">java -jar server.jar nogui
+</code></pre>
+<p>若出现提示</p>
+
+<pre class="language-shell"><code class="language-shell">[ServerMain/WARN]: Failed to load eula.txt
+[ServerMain/INF0]:You need to agree to the EULA in order to run the server. Go to e ula.txt for more info.
+</code></pre>
+<p>则将当前目录下的 <code>eula.txt</code>文件中对应行改为的 false 改为 true：</p>
+
+<pre class="language-shell"><code class="language-shell">eula=true
+</code></pre>
+<p>保存后退出，重新启动服务器，第一次启动会比较慢，耐心等待，启动完成后会显示启动用时（下列用时并非第一次启动用时）：</p>
+
+<pre class="language-shell"><code class="language-shell">[03:51:02] [Server thread/INFO]: Time elapsed: 36394 ms
+[03:51:02] [Server thread/INFO]: Done (52.927s)! For help, type &quot;help&quot;
+</code></pre>
+<p>接下来，在 PC 端启动客户端后即可连接，建议使用第三方客户端启动器 HMCL（下载链接<a href="https://hmcl.huangyuhui.net/download/%EF%BC%89%E3%80%82"  target="_blank">https://hmcl.huangyuhui.net/download/%EF%BC%89%E3%80%82</a><br />
+下载完成后，启动 HMCL：</p>
+
+<pre class="language-shell"><code class="language-shell">java -jar HMCL-3.5.5.jar
+</code></pre>
+<p>可以直接在启动器中下载<code>1.20.1</code>版本，并且配置好游戏账户，然后即可进入游戏，进入游戏后，输入 服务器 IP（LPi4A 的 IP）添加服务器后即可连接（确保电脑和 LPi4A 处于同一网络下），效果如下：</p>
+<p><img src="./assets/application/mc_server_menu.png" alt="mc_server_menu" /></p>
+<p><img src="./assets/application/mc_server_use.png" alt="mc_server_use" /></p>
+<blockquote>
+<p>注意，若想改回原来版本的 JDK，则执行：</p>
+
+<pre class="language-shell"><code class="language-shell">sudo rm /usr/bin/java
+sudo ln -s /opt/jdk_19/bin/java /etc/alternatives/java
+</code></pre>
+</blockquote>
+<h2 id="Wine-CE">Wine-CE</h2>
+<p>首先在<a href="https://gitee.com/wine-ce/wine-ce/releases/tag/v8.9"  target="_blank">这里</a>下载 <code>wine-ce_dlls_8.9.0.all.tar.xz</code>，<code>wine-ce_core_8.9.0.riscv64.tar.xz</code>这两个文件，这里假设下载到用户主目录（撰写该文档时最新版本为8.9）。</p>
+<p>然后根据文档中的步骤进行安装：</p>
+
+<pre class="language-shell"><code class="language-shell">sudo apt install fonts-liberation fonts-wine glib-networking libpulse0 gstreamer1.0-plugins-good gstreamer1.0-x libaa1 libaom3 libasound2-plugins  libcaca0 libcairo-gobject2 libcodec2-1.0 libdav1d6 libdv4 libgdk-pixbuf-2.0-0 libgomp1 libgpm2 libiec61883-0 libjack-jackd2-0 libmp3lame0 libncurses6 libncursesw6 libnuma1 libodbc2 libproxy1v5 libraw1394-11 librsvg2-2 librsvg2-common libsamplerate0 libshine3 libshout3 libslang2 libsnappy1v5 libsoup2.4-1 libsoxr0 libspeex1 libspeexdsp1 libtag1v5 libtag1v5-vanilla libtwolame0 libva-drm2 libva-x11-2 libva2 libvdpau1 libvkd3d-shader1 libvkd3d1 libvpx7 libwavpack1 libwebpmux3 libx265-199 libxdamage1 libxvidcore4 libzvbi-common libzvbi0 mesa-va-drivers mesa-vdpau-drivers va-driver-all vdpau-driver-all vkd3d-compiler
+
+sudo tar -Jxvf wine-ce_core_8.9.0.riscv64.tar.xz -C /opt/
+sudo tar -Jxvf wine-ce_dlls_8.9.0.all.tar.xz -C /opt/
+sudo ln -sf /opt/wine-ce/bin/wine /usr/bin/wine
+sudo ln -sf /opt/wine-ce/bin/winecfg /usr/bin/winecfg
+rm -rf ~/.wine
+</code></pre>
+<p>接下来进行一些初始化设置：</p>
+
+<pre class="language-shell"><code class="language-shell">winecfg
+</code></pre>
+<p>这里使用的设置如下：</p>
+<p><img src="./assets/application/wine_ce_settings.png" alt="wine_ce_settings" /></p>
+<p>设置完成后，即可运行 Windows 下的程序，比如这里的命令运行 Windows 下的记事本</p>
+
+<pre class="language-shell"><code class="language-shell">wine notepad.exe
+</code></pre>
+<p><img src="./assets/application/wine_ce_use.png" alt="wine_ce_use" /></p>
+<h2 id="%E4%BD%BF%E7%94%A8%E4%BC%98%E5%8C%96-GCC-%E5%B7%A5%E5%85%B7%E9%93%BE">使用优化 GCC 工具链</h2>
+<p>实验性 feature 如果发现问题可以进行 <a href="https://github.com/revyos/revyos/issues"  target="_blank">issue</a> 申报。</p>
+<p>安装步骤</p>
+
+<pre class="language-shell"><code class="language-shell"># 增加优化源
+sudo sed -i '1ideb https://mirror.iscas.ac.cn/revyos/revyos-c910v/ revyos-c910v main' /etc/apt/sources.list
+# 更新软件
+sudo apt update
+# 安装 gcc-10/gcc-13
+sudo apt install -y build-essential # gcc-10
+sudo apt install -y gcc-13 g++-13 # gcc-13
+# 重启避免其他问题
+sudo reboot
+</code></pre>
+<p>测试 gcc-10 (gcc10.4 启用 xtheadc+v0p7)</p>
+
+<pre class="language-shell"><code class="language-shell">gcc -v
+Using built-in specs.
+COLLECT_GCC=gcc
+COLLECT_LTO_WRAPPER=/usr/lib/gcc/riscv64-linux-gnu/10/lto-wrapper
+Target: riscv64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Debian 10.4.0-8revyos2.3' --with-bugurl=file:///usr/share/doc/gcc-10/README.Bugs --enable-languages=c,ada,c++,go,d,fortran,objc,obj-c++,m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-10 --program-prefix=riscv64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-libitm --disable-libsanitizer --disable-libquadmath --disable-libquadmath-support --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --disable-multilib --with-arch=rv64gcv0p7_zfh_xtheadc --with-abi=lp64d --enable-checking=release --build=riscv64-linux-gnu --host=riscv64-linux-gnu --target=riscv64-linux-gnu
+Thread model: posix
+Supported LTO compression algorithms: zlib zstd
+gcc version 10.4.0 (Debian 10.4.0-8revyos2.3)
+</code></pre>
+<p>测试 gcc-13 (gcc13.2 启用 xthead extension)</p>
+
+<pre class="language-shell"><code class="language-shell">gcc-13 -v
+Using built-in specs.
+COLLECT_GCC=gcc-13
+COLLECT_LTO_WRAPPER=/usr/libexec/gcc/riscv64-linux-gnu/13/lto-wrapper
+Target: riscv64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Debian 13.2.0-1revyos1' --with-bugurl=file:///usr/share/doc/gcc-13/README.Bugs --enable-languages=c,ada,c++,go,d,fortran,objc,obj-c++,m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-13 --program-prefix=riscv64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/libexec --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-libitm --disable-libquadmath --disable-libquadmath-support --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --disable-multilib --with-arch=rv64gc_zfh_xtheadba_xtheadbb_xtheadbs_xtheadcmo_xtheadcondmov_xtheadfmemidx_xtheadfmv_xtheadint_xtheadmac_xtheadmemidx_xtheadmempair_xtheadsync --with-abi=lp64d --enable-checking=release --build=riscv64-linux-gnu --host=riscv64-linux-gnu --target=riscv64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-serialization=16
+Thread model: posix
+Supported LTO compression algorithms: zlib zstd
+gcc version 13.2.0 (Debian 13.2.0-1revyos1)
+</code></pre>
+<p>gcc-10/gcc-13 区别：<br />
+除了v0p7，其他优化都可以用 gcc-13 代替 gcc-10。<br />
+后者的优化可以主线报问题，是已经主线化的功能。</p>
+<h2 id="SuperTuxKart">SuperTuxKart</h2>
+<p>SuperTuxKart 是一款 3D 开源街机赛车游戏，有各种角色、赛道和模式可供选择。在 LPi4A 上也可以通过源码编译来体验：</p>
+<p>首先安装依赖：</p>
+
+<pre class="language-shell"><code class="language-shell">sudo apt-get install build-essential cmake libbluetooth-dev libsdl2-dev \
+libcurl4-openssl-dev libenet-dev libfreetype6-dev libharfbuzz-dev \
+libjpeg-dev libogg-dev libopenal-dev libpng-dev \
+libssl-dev libvorbis-dev libmbedtls-dev pkg-config zlib1g-dev
+</code></pre>
+<p>接下来参考<a href="https://github.com/supertuxkart/stk-code/blob/master/INSTALL.md#building-supertuxkart-on-linux"  target="_blank">文档</a>步骤编译：</p>
+
+<pre class="language-shell"><code class="language-shell"># clone and configure src
+git clone https://github.com/supertuxkart/stk-code stk-code
+svn co https://svn.code.sf.net/p/supertuxkart/code/stk-assets stk-assets
+
+# go into the stk-code directory
+cd stk-code
+
+# create and enter the cmake_build directory
+mkdir cmake_build
+cd cmake_build
+
+# run cmake to generate the makefile
+cmake .. -DBUILD_RECORDER=off -DNO_SHADERC=on
+
+# compile
+make -j$(nproc)
+</code></pre>
+<p>编译完成后，在当前目录下的 <code>bin/</code> 文件夹中即可找到 <code>supertuxkart</code> 程序。运行即可：</p>
+
+<pre class="language-shell"><code class="language-shell">./bin/supertuxkart
+</code></pre>
+<p>效果如下：</p>
+<p><img src="./assets/application/supertuxkart_play.png" alt="supertuxkart_play" /></p>
+<h2 id="llama2.c">llama2.c</h2>
+<p><a href="https://github.com/karpathy/llama2.c"  target="_blank">项目链接</a><br />
+我们可以根据项目链接文档中的步骤来运行一个 Llama 2 的小模型。</p>
+<p>首先 clone 该项目，并切换到改项目目录下：</p>
+
+<pre class="language-shell"><code class="language-shell">git clone https://github.com/karpathy/llama2.c.git
+</code></pre>
+<p>然后下载 model.bin 文件，并放到指定目录下：</p>
+
+<pre class="language-shell"><code class="language-shell">wget https://karpathy.ai/llama2c/model.bin -P out
+</code></pre>
+<p>然后编译并运行：</p>
+
+<pre class="language-shell"><code class="language-shell">gcc -O3 -o run run.c -lm
+./run out/model.bin
+</code></pre>
+<p>可以得到如下输出：</p>
+
+<pre class="language-text"><code class="language-text">&lt;s&gt;
+ Once upon a time, there was a little girl named Lily. She loved to play with her dolls and teddy bea
+rs. One day, she saw her friend Lucy playing with her favorite doll. 
+Lily: &quot;Lucy, can I play with you?&quot;
+Lucy: &quot;Sure, but can you be careful with my doll?&quot;
+Lily: &quot;Sure, I promise I won't break her.&quot;
+Lucy: &quot;That's very original. I really love it.&quot;
+Lily smiled and showed her doll to her mom. Her mom said, &quot;That's nice, Lily. Let's put your doll on 
+the shelf and play with her some more.&quot;
+From that day on, Lily and her doll played together every day. They were the best of friends and didn
+'t break anyone's possession.
+&lt;s&gt;
+ Once upon a time, there was a little boy named Timmy. Timmy loved to eat sandwiches. One day, Timmy'
+s mom made him a sandwich for lunch. It was so yummy and tasty! But then, something unexpected happen
+ed. Timmy's little sister spilled some juice on his sandwich. Tim
+achieved tok/s: 30.955260
+</code></pre>
+<p>也可以修改一些编译参数来加速：</p>
+
+<pre class="language-text"><code class="language-text">sipeed@lpi4a:~/llama2.c$ gcc -Ofast -fopenmp run.c  -lm  -o run
+sipeed@lpi4a:~/llama2.c$ OMP_NUM_THEADS=4 ./run out/model.bin 
+&lt;s&gt;
+ Once upon a time, there was a boy named Tom. He liked to run fast. One day, he saw a big tree. Under
+ the tree, he found a hole. Tom was curious. He looked inside and saw something shiny.
+Tom looked closer, and it was not a shiny thing. It was a key! He was very surprised. He took the key
+ and ran home. He showed his mom the key.
+Tom's mom said the key was for a sneeze. The sneeze was a sneeze. Tom's mom put the key next to her p
+ocket. Tom said, &quot;Now you can have a sneeze too!&quot;
+Tom put his nose under his ears. He went home and took a nap. When he woke up, he had a small sneeze 
+from the key. It was not food or water. Tom was happy and laughed.
+&lt;s&gt;
+ Once upon a time, there was a bunny. The bunny was very restless and wanted to explore, so he hopped
+ off his little house. 
+The bunny hopped and hopped until he saw a shiny silver carrot. He was so excited to eat it, he
+achieved tok/s: 52.043098
+</code></pre>
+<h3 id="Stable-Diffusion">Stable Diffusion</h3>
+<p><a href="https://github.com/vitoplantamura/OnnxStream"  target="_blank">项目地址</a></p>
+<p>本示例通过这个项目在 LPi4A 上运行 Stable Diffusion。</p>
+<p>首先，我们需要构建 XNNPACK：</p>
+
+<pre class="language-shell"><code class="language-shell">git clone https://github.com/google/XNNPACK.git
+cd XNNPACK
+git checkout 3f56c91b492c93676a9b5ca4dd51f528b704c309
+mkdir build
+cd build
+cmake -DXNNPACK_BUILD_TESTS=OFF -DXNNPACK_BUILD_BENCHMARKS=OFF ..
+cmake --build . --config Release
+</code></pre>
+<p>接下来，构建 Stable Diffusion example：</p>
+
+<pre class="language-shell"><code class="language-shell">git clone https://github.com/vitoplantamura/OnnxStream.git
+cd OnnxStream
+cd src
+mkdir build
+cd build
+cmake -DXNNPACK_DIR=&lt;此处替换为clone的XNNPACK存放路径&gt; ..
+cmake --build . --config Release
+</code></pre>
+<p>现在我们得到了可运行的 Stable Diffusion example 文件 <code>sd</code> ，使用如下参数运行：</p>
+
+<pre class="language-shell"><code class="language-shell">./sd --models-path . --rpi
+</code></pre>
+<p>其中，<code>--models-path</code> 是从该项目 Release 页面中下载的模型文件，可以放到 <code>sd</code> 文件的所在目录下。</p>
+<p>运行时的配置如下：</p>
+
+<pre class="language-shell"><code class="language-shell">----------------[start]------------------
+positive_prompt: a photo of an astronaut riding a horse on mars
+negative_prompt: ugly, blurry
+output_png_path: ./result.png
+steps: 10 
+</code></pre>
+<p>得到的结果为<code>result.png</code>文件，上述 prompt 得到的图片如下：</p>
+<p><img src="./assets/application/onnxstream_result.png" alt="onnxstream_result" /></p>
+<h2 id="PSP%E6%A8%A1%E6%8B%9F%E5%99%A8">PSP模拟器</h2>
+<p><a href="https://github.com/hrydgard/ppsspp"  target="_blank">项目地址</a></p>
+<p>本示例通过这个项目在 LPi4A 上运行 PSP模拟器。</p>
+<p>首先，我们需要构建 PPSSPP：</p>
+
+<pre class="language-shell"><code class="language-shell">#先安装所需要的包
+sudo apt install build-essential cmake libgl1-mesa-dev libsdl2-dev libvulkan-dev mesa-common-dev  libglu1-mesa-dev  libsdl2-dev libcurl4-openssl-dev
+git clone --recurse-submodules https://github.com/hrydgard/ppsspp.git
+cd ppsspp
+git submodule update --init --recursive
+git pull --rebase https://github.com/hrydgard/ppsspp.git
+cmake .
+make -j4
+
+</code></pre>
+<p>编译可能需要一段时间，出现以下输出时，编译成功：</p>
+
+<pre class="language-shell"><code class="language-shell">sipeed@lpi4a:~/ppsspp$ make -j4
+[  0%] Built target unix_based_hardware_detection
+[  0%] Built target utils
+[  0%] Built target gason
+[  1%] Built target snappy
+[  1%] Built target cityhash
+[  1%] Built target vma
+[  2%] Built target png17
+[  3%] Built target udis86
+[  3%] Built target basis_universal
+[ 16%] Built target libzip
+[ 16%] Built target glew
+[ 16%] Built target sfmt19937
+[ 17%] Built target kirk
+[ 18%] Built target xbrz
+[ 18%] Built target xxhash
+[ 19%] Generating something_that_never_exists
+[ 21%] Built target miniupnpc
+[ 25%] Built target libzstd_static
+-- Could NOT find Git (missing: GIT_EXECUTABLE) 
+CMake Warning at git-version.cmake:16 (message):
+  git not found, unable to include version.
+
+
+[ 25%] Built target GitVersion
+[ 25%] Built target GenericCodeGen
+[ 25%] Built target OGLCompiler
+[ 25%] Built target OSDependent
+[ 31%] Built target armips
+[ 31%] Built target spirv-cross-core
+[ 34%] Built target rcheevos
+[ 35%] Built target cpu_features
+[ 35%] Built target discord-rpc
+[ 36%] Built target spirv-cross-glsl
+[ 41%] Built target MachineIndependent
+[ 41%] Built target spirv-cross-cpp
+[ 41%] Built target spirv-cross-msl
+[ 41%] Built target spirv-cross-hlsl
+[ 41%] Built target glslang
+[ 42%] Built target SPIRV
+[ 58%] Built target Common
+[ 59%] Built target native
+[ 95%] Built target Core
+[100%] Built target PPSSPPSDL
+
+</code></pre>
+<p>安装完之后可以试运行一下（root模式下）：</p>
+
+<pre class="language-shell"><code class="language-shell">./PPSSPPSDL
+</code></pre>
+<p>如图：<br />
+<img src="./assets/application/psp1.png" alt="game_result" /></p>
+<p>游戏下载：<br />
+<a href="https://playdreamcreate.com/"  target="_blank">psp游戏下载</a></p>
+<p>下载完成：<br />
+我们只需要用到压缩包里的EBOOT.PBP文件<br />
+1.如果是使用图形界面则直接解压<br />
+2.如果使用命令行的话，需要将压缩包改成zip后缀再进行解压</p>
+
+<pre class="language-shell"><code class="language-shell">mv [压缩包名] [压缩包名].zip
+unzip [压缩包名].zip
+</code></pre>
+<p>开始游戏：在PPSSPPSDL命令下打开EBOOT.PBP即可</p>
+
+<pre class="language-shell"><code class="language-shell">./PPSSPPSDL  ./game/01/EBOOT.PBP
+</code></pre>
+<p>运行效果如图：<br />
+<img src="./assets/application/psp_2.png" alt="game_result" /><br />
+<img src="./assets/application/psp_3.png" alt="game_result" /></p>
+<h2 id="opencv-%E7%9A%84%E4%BD%BF%E7%94%A8">opencv 的使用</h2>
+<p>首先安装依赖，以及python3环境</p>
+
+<pre class="language-shell"><code class="language-shell">sudo apt install python3 python3-pip
+sudo apt install python3-opencv 
+sudo apt install libqt5gui5-gles
+</code></pre>
+<p>opencv读取图片demo：</p>
+
+<pre class="language-shell"><code class="language-shell">#!/bin/bash
+import cv2
+
+img2 = cv2.imread('aContour.jpg', cv2.IMREAD_UNCHANGED)
+cv2.namedWindow('show_img', 0)          # 定义窗口名称，三个函数（namedWindow、 resizeWindow、 imshow）中窗口名称要一致
+cv2.resizeWindow('show_img', 736, 416)
+cv2.imshow(&quot;show_img&quot;,img2)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+cv2.destroyWindow(&quot;show_img&quot;)
+
+</code></pre>
+<p>运行程序：</p>
+
+<pre class="language-shell"><code class="language-shell">python3 show_pic.py
+</code></pre>
+<p>运行结果：</p>
+<p><img src="./assets/application/opencv_o.png" alt="opencv_result" /></p>
+<p>PIL-numpy-opencv 综合测试demo：</p>
+
+<pre class="language-shell"><code class="language-shell">#!/bin/bash
+from typing import List, Any, Tuple
+import matplotlib.pyplot as plt
+import cv2
+
+import numpy as np
+from PIL import Image
+from PIL import ImageFilter
+
+im = Image.open('a.jpg')
+om = im.filter(ImageFilter.CONTOUR)
+om.save('aContour.jpg')
+
+b = np.random.randint(0, 255, (200, 300), dtype=np.uint8)
+g = np.random.randint(0, 255, (200, 300), dtype=np.uint8)
+r = np.random.randint(0, 255, (200, 300), dtype=np.uint8)
+print(b)
+
+img=np.empty([20,30,3],dtype=np.uint8)
+bgr=()
+rowlist=[]
+collist: List[List[Tuple[Any, Any, Any]]]=[]
+for row in range(200):
+    rowlist=[]
+    for col in range(300):
+        bgr=(r[row][col],g[row][col],b[row][col])
+        rowlist.append(bgr)
+    collist.append(rowlist)
+
+img=np.asarray(collist)
+
+img2 = cv2.imread('aContour.jpg', cv2.IMREAD_UNCHANGED)
+cv2.namedWindow('show_img', 0)        
+cv2.resizeWindow('show_img', 736, 416)
+cv2.imshow(&quot;show_img&quot;,img2)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+cv2.destroyWindow(&quot;show_img&quot;)
+
+</code></pre>
+<p>使用 USB 摄像头 demo</p>
+
+<pre class="language-python"><code class="language-python">
+import cv2
+
+# 打开摄像头
+cap = cv2.VideoCapture(0)
+
+# 检查是否成功打开摄像头
+if not cap.isOpened():
+    print(&quot;无法打开摄像头&quot;)
+    exit()
+
+# 循环读取摄像头的每一帧图像
+while True:
+    # 从摄像头中获取一帧图像
+    ret, frame = cap.read()
+
+    # 检查是否读取成功
+    if not ret:
+        print(&quot;无法获取图像&quot;)
+        break
+
+    # 显示图像
+    cv2.imshow(&quot;USB Camera&quot;, frame)
+
+    # 等待按下 ESC 键退出
+    if cv2.waitKey(1) == 27:
+        break
+
+# 释放摄像头并关闭所有窗口
+cap.release()
+cv2.destroyAllWindows()
+</code></pre>
+<h2 id="ncnn-%E7%9A%84%E4%BD%BF%E7%94%A8">ncnn 的使用</h2>
+<p>首先，git源码和安装相关的依赖库</p>
+
+<pre class="language-shell"><code class="language-shell">git clone https://github.com/Tencent/ncnn.git
+cd ncnn
+git submodule update --init
+
+sudo apt install build-essential git cmake libprotobuf-dev protobuf-compiler libvulkan-dev libopencv-dev libqt5gui5-gles
+
+</code></pre>
+<p>编译源码</p>
+
+<pre class="language-shell"><code class="language-shell">cd ncnn
+mkdir -p build
+cd build
+cmake -DCMAKE_BUILD_TYPE=Release -DNCNN_VULKAN=OFF -DNCNN_BUILD_EXAMPLES=ON ..
+make -j$(nproc)
+</code></pre>
+<p>下载相关的模型文件以及参数，将它们放在与可执行文件同个文件夹下<br />
+<a href="https://github.com/nihui/ncnn-assets"  target="_blank">下载链接</a></p>
+
+<pre class="language-shell"><code class="language-shell">~/ncnn/build/example
+</code></pre>
+<p><img src="./assets/application/ncnn2_o.png" alt="ncnn2" /></p>
+<p>执行</p>
+
+<pre class="language-shell"><code class="language-shell">./nanodet a.jpg
+</code></pre>
+<p>运行结果<br />
+<img src="./assets/application/ncnn_result_o.png" alt="ncnn_result" /><br />
+<img src="./assets/application/ncnn_pic_o.png" alt="ncnn_result" /></p>
+<h2 id="Kdenlive-%E7%9A%84%E4%BD%BF%E7%94%A8">Kdenlive 的使用</h2>
+<p>安装步骤：</p>
+
+<pre class="language-shell"><code class="language-shell">sudo apt update
+sudo apt install libqt5gui5-gles
+sudo apt install kdenlive
+</code></pre>
+<p>若通过上面的命令安装的 Kdenlive 无法正常运行，可以尝试运行下面的命令：</p>
+
+<pre class="language-shell"><code class="language-shell">sudo apt update
+sudo apt reinstall libqt5gui5-gles
+sudo apt reinstall kdenlive
+</code></pre>
+<p>安装完成后即可使用命令打开 kdenlive：</p>
+
+<pre class="language-shell"><code class="language-shell">kdenlive
+</code></pre>
+<p>视频编辑效果如下：<br />
+<img src="./assets/application/kdenlive_use.png" alt="kdenlive_use" /></p>
+<h2 id="GStreamer">GStreamer</h2>
+<p>GStreamer 是一个基于管道的多媒体框架，基于 GObject，以 C 语言写成。凭借 GStreamer，可以很容易地创建各种多媒体功能组件，包括简单的音频回放、音频和视频播放、录音、流媒体和音频编辑。基于流水线设计，可以创建诸如视频编辑器、流媒体广播和媒体播放器等等的很多多媒体应用。</p>
+<p>接下来，展示如何在 LPi4A 上运行 GStreamer 的 demo。<br />
+首先，需要安装相关的依赖：</p>
+
+<pre class="language-shell"><code class="language-shell">sudo apt install git build-essential libgstreamer* gstreamer1.0-tools
+</code></pre>
+<p>然后拉取相关源码仓库</p>
+
+<pre class="language-shell"><code class="language-shell">git clone https://gitlab.freedesktop.org/gstreamer/gst-docs
+</code></pre>
+<p>进入到 <code>gst-docs/examples/tutorials</code> 目录下，编译出 <code>basic-tutorial-1</code> 可执行程序</p>
+
+<pre class="language-shell"><code class="language-shell">cd gst-docs/examples/tutorials
+gcc basic-tutorial-1.c -o basic-tutorial-1 `pkg-config --cflags --libs gstreamer-1.0`
+</code></pre>
+<p>编译成功后会在当前目录下生成可执行程序，使用下面的命令运行即可看到效果：</p>
+
+<pre class="language-shell"><code class="language-shell">./basic-tutorial-1
+</code></pre>
+<p><img src="./assets/application/gstreamer_demo.png" alt="gstreamer_demo" /></p>
+<h2 id="Kicad">Kicad</h2>
+<p><strong>注意，仅20231023及以上版本支持 kicad !</strong></p>
+<p>首先安装 Kicad ：</p>
+
+<pre class="language-shell"><code class="language-shell">sudo apt update
+sudo apt install kicad
+</code></pre>
+<p>安装完毕后，需要先运行以下命令才能运行 kicad：</p>
+
+<pre class="language-shell"><code class="language-shell">sudo switch-gl gl4es
+rm ~/.cache
+</code></pre>
+<p>打开 kicad：</p>
+
+<pre class="language-shell"><code class="language-shell">kicad
+</code></pre>
+<p><img src="./assets/application/kicad_startpage.png" alt="kicad_startpage" /></p>
+<p><img src="./assets/application/kicad_pcbview.png" alt="kicad_pcbview" /></p>
+<p>在使用完 kicad 后，需要运行下面的命令以避免兼容性问题：</p>
+
+<pre class="language-shell"><code class="language-shell">sudo switch-gl mesa
+rm ~/.cache
+</code></pre>
+<h2 id="KODI">KODI</h2>
+<p>直接安装运行即可：</p>
+
+<pre class="language-shell"><code class="language-shell">sudo apt install kodi
+kodi
+</code></pre>
+<p><img src="./assets/application/kodi_homepage.png" alt="kodi_homepage" /></p>
+<p><img src="./assets/application/kodi_iconmenu.png" alt="kodi_iconmenu" /></p>
+<p><img src="./assets/application/kodi_settings.png" alt="kodi_settings" /></p>
+<h2 id="%E5%85%B6%E5%AE%83">其它</h2>
+<p>欢迎投稿～ 投稿接受后可得￥5～150（$1~20）优惠券！</p>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                        <a href="/hardware/zh/lichee/th1520/lpi4a/7_develop_openwrt.html">
+                            <span class="icon"></span>
+                            <span class="label">OpenWRT</span>
+                        </a>
+                        
+                    </div>
+                    <div id="next">
+                        
+                        <a href="/hardware/zh/lichee/th1520/lpi4a/13_XTAI.html">
+                            <span class="label">玄铁多媒体AI平台</span>
+                            <span class="icon"></span>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>相关链接</a><ul><li><a target="_blank" href="https://www.sipeed.com">Sipeed 官网</a></li>
+<li><a target="_blank" href="https://maixhub.com/">MaixHub</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">Sipeed 淘宝</a></li>
+<li><a  href="/sitemap.xml">网站地图</a></li>
+<li><a target="_blank" href="https://github.com/teedoc/teedoc">网站使用 teedoc 生成</a></li>
+</ul>
+</li>
+<li><a>源码</a><ul><li><a target="_blank" href="https://github.com/sipeed/sipeed_wiki">Wiki 源码</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">开源项目</a></li>
+</ul>
+</li>
+<li><a>关注我们</a><ul><li><a target="_blank" href="https://twitter.com/SipeedIO">twitter</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">淘宝</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">github</a></li>
+<li><a><a>微信公众号</a><img src='/static/image/wechat.png'></a>
+</li>
+</ul>
+</li>
+<li><a>联系我们</a><ul><li><a>电话: +86 0755-27808509</a>
+</li>
+<li><a>商业支持: support@sipeed.com</a>
+</li>
+<li><a>地址: 深圳市宝安区新湖路4008号蘅芳科技办公大厦A座-2101C</a>
+</li>
+<li><a  href="/join_us.html">加入我们</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://www.sipeed.com">©2018-2023 深圳矽速科技有限公司</a></li>
+<li><a target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index">粤ICP备19015433号</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/js/prism.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <link rel="stylesheet" href="/static/js/add_hint/style.css" type="text/css"/>
+    
+        <script src="/static/js/add_hint/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+        <script src="/static/js/thumbs_up/main.js"></script>
+    
+</body>
+
+</html>

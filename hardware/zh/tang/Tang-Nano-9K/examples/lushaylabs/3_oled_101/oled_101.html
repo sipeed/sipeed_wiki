@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+
+<html lang="zh"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="FPGA, Tang, Nano, 9K">
+    
+    
+    <meta name="description" content="">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+        
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/prism.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?9cb07365544a53067c56c346c838181a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119047820-5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-119047820-5');
+    </script>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/js/thumbs_up/style.css" type="text/css"/>
+        
+    
+    
+    <title>Tang Nano 9K SSD1306 OLED 屏幕 - Sipeed Wiki</title>
+    
+    <script type="text/javascript">js_vars = {"teedoc-plugin-ad-hint": {"type": "hint", "label": "NEW", "content": "全新 Maix 系列产品 <a href='https://wiki.sipeed.com/maixcam'>MaixCAM</a> 已上线, 全新 <a href='https://wiki.sipeed.com/maixpy/'>MaixPy</a> 功能更丰富，性能更强大，软件更易用，文档更全面！", "show_times": 2, "show_after_s": 432000, "date": "2022-06-01 14:00", "color": "#a0421d", "link_color": "#e53935", "link_bg_color": "#e6ae5c", "bg_color": "#ffcf89", "color_hover": "white", "bg_color_hover": "#f57c00", "close_color": "#eab971"}, "teedoc-plugin-thumbs-up": {"label_up": "有帮助", "label_down": "待改进", "icon": "/static/images/thumbs_up/up.svg", "icon_clicked": "/static/images/thumbs_up/upped.svg", "url": "https://thumbs-up.sipeed.com", "show_up_count": true, "show_down_count": false, "msg_already_voted": "您已经投过票了", "msg_thanks": "感谢您的反馈", "msg_down_prompt": "感谢反馈，请告诉我们可以改进什么地方?（最少 10 个字）", "msg_down_prompt_error": "消息最少需要 10 个字， 最多 256 个字", "msg_error": "请求服务器出现错误!"}}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": "2023-03-14", "update": [{"date": "2023-03-14", "version": "v0.1", "author": "wonder", "content": ["新建文档"]}], "ts": 1678752000, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/">
+                
+                    <img class="site_logo" src="/static/image/logo.svg" alt="sipeed wiki logo">
+                
+                
+                    <h2>wiki</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class=""><a  href="/">产品</a></li>
+<li class="sub_items "><a >开源软件</a><ul><li class=""><a  href="/maixpy/">MaixPy</a></li>
+<li class=""><a  href="/soft/maixpy/zh/index.html">MaixPy_v1</a></li>
+<li class=""><a  href="/soft/Lichee/zh/index.html">Lichee</a></li>
+<li class=""><a  href="/ai/zh/index.html">AI 指南</a></li>
+</ul>
+</li>
+<li class=""><a target="_blank" href="https://maixhub.com">MaixHub</a></li>
+<li class=""><a  href="/news/">动态</a></li>
+<li class=""><a  href="/faq.html">FAQ 汇总</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class=""><a  href="/store.html"><img src='/static/image/shop.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+<li class=""><a target="_blank" href="https://github.com/sipeed"><img src='/static/image/github.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+<li class="sub_items "><a  ><img src='/static/image/language.svg' style='height: 1.5em;vertical-align: middle;'>&nbsp;中文</a><ul><li class=""><a  href="/hardware/en/tang/Tang-Nano-9K/examples/lushaylabs/3_oled_101/oled_101.html">English</a></li>
+<li class="active"><a  href="/hardware/zh/tang/Tang-Nano-9K/examples/lushaylabs/3_oled_101/oled_101.html">中文</a></li>
+</ul></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">输入关键词，多关键词空格隔开</span>
+                                <span id="search_loading_hint">正在加载，请稍候。。。</span>
+                                <span id="search_download_err_hint">下载文件失败，请刷新重试或检查网络</span>
+                                <span id="search_other_docs_result_hint">来自其它文档的结果</span>
+                                <span id="search_curr_doc_result_hint">当前文档搜索结果</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="">
+<li class="not_active no_link"><a><span class="label">Maix Zero</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Maix M0</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/./maixzero/sense/maix_zero_sense.html"><span class="label">M0sense 开发板</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/./maixzero/sense/start.html"><span class="label">M0sense 基础使用</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Maix M0P</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/./maixzero/m0p/m0p.html"><span class="label">M0P</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/./maixzero/m0p/m0p_dock.html"><span class="label">M0P Dock</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/./maixzero/m0s/m0s.html"><span class="label">Maix M0S</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Maix-I</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Maix M1</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">M1 模块</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maix/core_module.html"><span class="label">M1/M1w</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maix/M1n.html"><span class="label">M1n</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">M1 开发板</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maix/maixpy_develop_kit_board/maix_bit.html"><span class="label">Maix Bit</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maix/maixpy_develop_kit_board/Maix_dock.html"><span class="label">Maix Dock(M1/M1W)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maix/maixpy_develop_kit_board/maix_duino.html"><span class="label">Maix Duino</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maix/maixpy_develop_kit_board/maix_nano.html"><span class="label">Maix Nano</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maix/maixpy_develop_kit_board/maix_cube.html"><span class="label">Maix Cube</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maix/maixpy_develop_kit_board/maix_Amigo.html"><span class="label">Maix Amigo</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maix/maixpy_develop_kit_board/maix_hat.html"><span class="label">Maix HAT</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maix/maixpy_develop_kit_board/maix_go.html"><span class="label">Maix Go（售罄）</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Maix M1s</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maix/m1s/m1s_module.html"><span class="label">M1s 模块</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">M1s 开发板</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maix/m1s/m1s_dock.html"><span class="label">简介</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maix/m1s/other/start.html"><span class="label">上手使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maix/m1s/other/others.html"><span class="label">其他事项（摄像头和外壳）</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Maix-II</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maixII/M2/resources.html"><span class="label">MaixII-Dock</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maixII/M2/flash.html"><span class="label">烧录系统</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixII/M2/maixhub_train.html"><span class="label">训练自己的 AI 模型</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixII/M2/usage.html"><span class="label">基础使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixII/M2/other.html"><span class="label">其他事项</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/../../soft/maixpy3/zh/tools/0.MaixII-Dock.html"><span class="label">使用 MaixPy3 开发</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixII/M2/opencv.html"><span class="label">使用 OpenCV</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixII/M2/faq.html"><span class="label">FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/maixII/M2S/V833.html"><span class="label">MaixII-S</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maixII/M2S/reources.html"><span class="label">板级资源介绍</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/maixII/M2A/maixsense.html"><span class="label">MaixII-Sense</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maixII/M2A/flash_system.html"><span class="label">烧录系统</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixII/M2A/config_system.html"><span class="label">配置系统</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixII/M2A/Usages.html"><span class="label">基本使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/../../soft/maixpy3/zh/tools/maixsense.html"><span class="label">连接MaixPy3</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Maix-III</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maixIII/ax-pi/axpi.html"><span class="label">Maix-III AXera-Pi</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maixIII/ax-pi/flash_system.html"><span class="label">产品上手指南</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixIII/ax-pi/basic_usage.html"><span class="label">系统使用手册</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixIII/ax-pi/python_api.html"><span class="label">试试 Python 编程</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixIII/ax-pi/dev_prepare.html"><span class="label">开始 C/C++ 编程</span><span class=""></span></a></li>
+<li class="not_active  with_link"><a href="/ai/zh/deploy/ax-pi.html" ><span class="label">AI 开发指南</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixIII/ax-pi/faq_axpi.html"><span class="label">常见问题（FAQ）</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Maix-IV</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maixIV/m4ndock/m4ndock.html"><span class="label">Maix M4N-DOCK</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maixIV/m4ndock/quick-start.html"><span class="label">产品上手指南</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixIV/m4ndock/system-update.html"><span class="label">系统烧录指南</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixIV/m4ndock/axmodel-deploy.html"><span class="label">AI 模型部署</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixIV/m4ndock/FAQ.html"><span class="label">FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">MaixCAM</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maixcam/index.html"><span class="label">MaixCAM 介绍和资料</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixcam/assemble.html"><span class="label">MaixCAM 外壳</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixcam/os.html"><span class="label">系统镜像烧录</span><span class=""></span></a></li>
+<li class="not_active  with_link"><a href="https://wiki.sipeed.com/maixpy/" ><span class="label">使用 MaixPy 开发</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixcam/maixcdk.html"><span class="label">使用 MaixCDK 开发</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixcam/faq.html"><span class="label">常见问题 FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">LicheePi</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">LicheePI 4A</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lm4a.html"><span class="label">Lichee Module 4A</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lc4a/lc4a.html"><span class="label">Lichee Cluster 4A</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lcon4a/lcon4a.html"><span class="label">Lichee Console 4A</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lcon4a/setup_guide.html"><span class="label">组装指南</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lcon4a/3_images.html"><span class="label">镜像集合</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lcon4a/4_burn_image.html"><span class="label">烧录镜像</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lbook4a/lbook4a.html"><span class="label">Lichee Book 4A</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lbook4a/4_burn_image.html"><span class="label">烧录镜像</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Lichee PI 4A</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/1_intro.html"><span class="label">板卡介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/2_unbox.html"><span class="label">开箱体验</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/3_images.html"><span class="label">镜像集合</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/4_burn_image.html"><span class="label">烧录镜像</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/5_desktop.html"><span class="label">桌面系统基础使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/6_peripheral.html"><span class="label">外设使用</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">系统开发</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/7_develop_revyos.html"><span class="label">revyos</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/7_develop_mainline.html"><span class="label">Linux 主线</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/7_develop_android.html"><span class="label">Android</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/7_develop_thead.html"><span class="label">THead Yocto</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">OpenHarmony (编写中)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/7_develop_openwrt.html"><span class="label">OpenWRT</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/8_application.html"><span class="label">典型应用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/13_XTAI.html"><span class="label">玄铁多媒体AI平台</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/9_benchmark.html"><span class="label">CPU 跑分测试</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/10_test_report.html"><span class="label">硬件测试报告</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/12_faq.html"><span class="label">常见问题</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/11_credits.html"><span class="label">致谢</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">LicheePI 3A</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/lichee/K1/lm3a.html"><span class="label">Lichee Module 3A</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/K1/lc3a/lc3a.html"><span class="label">Lichee Cluster 3A</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Lichee PI 3A</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/zh/lichee/K1/lpi3a/1_intro.html"><span class="label">板卡介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/K1/lpi3a/2_unbox.html"><span class="label">开箱体验</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/K1/lpi3a/3_burn_image.html"><span class="label">镜像烧录</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/K1/lpi3a/4_peripheral.html"><span class="label">外设使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/K1/lpi3a/5_develop.html"><span class="label">系统开发</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/K1/lpi3a/6_application.html"><span class="label">典型应用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/K1/lpi3a/7_faq.html"><span class="label">常见问题</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/K1/lpi3a/8_credits.html"><span class="label">致谢</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">LicheePI RV</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">板卡介绍</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV/RV.html"><span class="label">LicheePI RV</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV/86_panel.html"><span class="label">LicheePI RV 86 Panel</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV/Dock.html"><span class="label">LicheePI RV Dock</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV/flash.html"><span class="label">烧录系统</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV/user.html"><span class="label">基础上手</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV/problems.html"><span class="label">常见问题</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV/ubuntu.html"><span class="label">使用 Ubuntu 镜像</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">LicheeRV Nano</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV_Nano/1_intro.html"><span class="label">板卡介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV_Nano/2_unbox.html"><span class="label">开箱体验</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV_Nano/3_images.html"><span class="label">镜像集合</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV_Nano/4_burn_image.html"><span class="label">烧录镜像</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV_Nano/5_peripheral.html"><span class="label">外设使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV_Nano/6_develop_mainline.html"><span class="label">系统开发</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV_Nano/7_test_report.html"><span class="label">板卡测试</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV_Nano/8_mmf_development_guide.html"><span class="label">MMF开发指南</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/Zero/Zero.html"><span class="label">LicheePI Zero</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/Nano/Nano.html"><span class="label">LicheePI Nano</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/ZeroPlus/ZeroPlus.html"><span class="label">LicheePI ZeroPlus</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang FPGA</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Tang Nano</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-Nano-1K/Nano-1k.html"><span class="label">Tang Nano 1K</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-Nano-4K/Nano-4K.html"><span class="label">Tang Nano 4k</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-Nano-9K/Nano-9K.html"><span class="label">Tang Nano 9K</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Tang Nano 20K</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/tang/tang-nano-20k/nano-20k.html"><span class="label">介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/tang-nano-20k/example/unbox.html"><span class="label">开箱</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-Nano/Nano.html"><span class="label">Tang Nano (售罄)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-Nano-Doc/get_started/install-the-ide.html"><span class="label">安装 IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-Nano-Doc/examples.html"><span class="label">例程汇总</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-Nano-Doc/questions.html"><span class="label">常见问题</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Primer</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Tang Primer 20K</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/tang/tang-primer-20k/primer-20k.html"><span class="label">板卡介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/tang-primer-20k/start.html"><span class="label">开箱使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-Nano-Doc/get_started/install-the-ide.html"><span class="label">安装 IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/tang-primer-20k/example.html"><span class="label">例程汇总</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-Nano-Doc/questions.html"><span class="label">常见问题</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Primer 25K</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/tang/tang-primer-25k/primer-25k.html"><span class="label">板卡介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-Nano-Doc/get_started/install-the-ide.html"><span class="label">安装 IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-Nano-Doc/questions.html"><span class="label">常见问题</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Primer 15K</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/tang/tang-primer-15k/primer-15k.html"><span class="label">板卡介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-Nano-Doc/get_started/install-the-ide.html"><span class="label">安装 IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-Nano-Doc/questions.html"><span class="label">常见问题</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-primer/Tang-primer.html"><span class="label">Tang Primer (售罄)</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-primer/index.html"><span class="label">板卡介绍</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">安装 TD</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-primer/get_started/install_TD_win.html"><span class="label">Windows安装TD</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-primer/get_started/install_Linux.html"><span class="label">Linux安装TD</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-primer/fpga/led.html"><span class="label">使用FPGA点灯</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-primer/get_started/E203.html"><span class="label">搭建蜂鸟开发环境</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-primer/get_started/fpga_download.html"><span class="label">FPGA码流烧录</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Mega</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Tang Mega 138K Pro</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/tang/tang-mega-138k/mega-138k-pro.html"><span class="label">板卡介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-Nano-Doc/get_started/install-the-ide.html"><span class="label">安装 IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-Nano-Doc/questions.html"><span class="label">常见问题</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Mega 138K</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/tang/tang-mega-138k/mega-138k.html"><span class="label">板卡介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-Nano-Doc/get_started/install-the-ide.html"><span class="label">安装 IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-Nano-Doc/questions.html"><span class="label">常见问题</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Mega 60K</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/tang/tang-mega-60k/mega-60k.html"><span class="label">板卡介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-Nano-Doc/get_started/install-the-ide.html"><span class="label">安装 IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-Nano-Doc/questions.html"><span class="label">常见问题</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/tang-PMOD/FPGA_PMOD.html"><span class="label">Tang PMOD</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/maixsense/index.html"><span class="label">MaixSense</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maixsense/maixsense-a010/maixsense-a010.html"><span class="label">MaixSense-a010</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixsense/maixsense-a075v/maixsense-a075v.html"><span class="label">MaixSense-a075v</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">SLogic</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">SLogic Combo 8</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/logic_analyzer/combo8/index.html"><span class="label">简介</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/logic_analyzer/combo8/basic_operation.html"><span class="label">基础操作</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/logic_analyzer/combo8/use_logic_function.html"><span class="label">作为逻辑分析仪使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/logic_analyzer/combo8/use_cklink_function.html"><span class="label">作为CKLink使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/logic_analyzer/combo8/use_daplink_function.html"><span class="label">作为DAPLink使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/logic_analyzer/combo8/use_fouruart_function.html"><span class="label">作为串口模块使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/logic_analyzer/combo8/update_firmware.html"><span class="label">更新固件</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/logic_analyzer/combo8/faq.html"><span class="label">常见问题(FAQ)</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">KVM</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">NanoKVM Cube</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/introduction.html"><span class="label">简介</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/quick_start.html"><span class="label">快速上手</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/user_guide.html"><span class="label">用户指南</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/development.html"><span class="label">二次开发</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">网络</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/network/tailscale.html"><span class="label">Tailscale</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/network/frp.html"><span class="label">frp</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/network/static_ip.html"><span class="label">静态 IP</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">系统</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/system/introduction.html"><span class="label">系统介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/system/flashing.html"><span class="label">烧录镜像</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/system/updating.html"><span class="label">更新应用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/system/configuration.html"><span class="label">配置文件</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/faq.html"><span class="label">FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Longan</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">LonganPI 3H</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/longan/h618/lpi3h/1_intro.html"><span class="label">板卡介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/longan/h618/lpi3h/3_images.html"><span class="label">镜像集合</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/longan/h618/lpi3h/4_burn_image.html"><span class="label">烧录镜像</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/longan/h618/lpi3h/5_desktop.html"><span class="label">桌面系统基础使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/longan/h618/lpi3h/6_peripheral.html"><span class="label">外设使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/longan/h618/lpi3h/7_develop_mainline.html"><span class="label">系统开发</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/longan/h618/lpi3h/8_test_report.html"><span class="label">板卡测试</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/longan/Nano/Longan_nano.html"><span class="label">Longan Nano</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/zh/longan/Nano/get_started/pio.html"><span class="label">PIO配置</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/longan/Nano/get_started/blink.html"><span class="label">点灯测试</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/longan/Nano/get_started/debug.html"><span class="label">DEBUG 调试</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/longan/Nano/get_started/sipeed-debugger.html"><span class="label">使用 Sipeed 调试器</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/longan/Nano/get_started/rv-link.html"><span class="label">使用 RV-LINK</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">示例</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/longan/Nano/examples/printf.html"><span class="label">串口输出</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/longan/Nano/examples/badapple.html"><span class="label">播放 Badapple</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">MaixFace</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maixface/mfst40/mfst40.html"><span class="label">MF-ST40 人脸识别模块</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">MF 资料</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maixface/mf_ml_module/mf_precautions.html"><span class="label">MF 人脸识别模块 PCB 设计注意事项</span><span class=""></span></a></li>
+<li class="not_active  with_link"><a href="https://github.com/sipeed/MF1-User-Manual" ><span class="label">点我前往 github 查看全部资料</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">外设模组</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">SP-MOD外设模组</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">转接板类</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_extender.html"><span class="label">SP-Extender</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_grove.html"><span class="label">SP-Grove</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_fpc.html"><span class="label">SP-FPC</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_micarray.html"><span class="label">SP-MicArray</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_joystick.html"><span class="label">SP-JotStick</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_servo.html"><span class="label">SP-Servo</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/.html"><span class="label">SP-TypeC</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">传感器类</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_weather.html"><span class="label">SP-Weather</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_tof.html"><span class="label">SP-TOF-1P</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">通信类</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_bt.html"><span class="label">SP-BT</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_lora.html"><span class="label">SP-LoRa</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_psram.html"><span class="label">SP-PSRAM</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_rfid.html"><span class="label">SP-RFID</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_ethernet.html"><span class="label">SP-Ethernet</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">显示类</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_lcd1.14.html"><span class="label">SP-LCD 1.14</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_eink.html"><span class="label">SP-Eink</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">模块 & 调试器</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/modules/debugger_and_uart.html"><span class="label">调试器 & 串口模块</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">模块</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/zh/modules/camera_summary.html"><span class="label">摄像头</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">麦克风模块</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/modules/micarray.html"><span class="label">麦克风阵列</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/modules/Gamepad.html"><span class="label">Sipeed Gamepad</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>Tang Nano 9K SSD1306 OLED 屏幕</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                                <span class="article_date" title="最后修改日期： 2023-03-14">
+                                    2023-03-14
+                                </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/sipeed/sipeed_wiki/blob/main/docs/hardware/zh/tang/Tang-Nano-9K/examples/lushaylabs/3_oled_101/oled_101.md" target="_blank">
+                                    <span id='editPage'>编辑本页</span>
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                        
+                        <details open>
+                        
+                            <summary>更新历史</summary>
+                            <div>
+                                <table>
+                                        <thead>
+                                            <tr>
+                                                <th>日期</th>
+                                                <th>版本</th>
+                                                <th>作者</th>
+                                                <th>更新内容</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            
+                                                <tr>
+                                                    <td>2023-03-14</td>
+                                                    <td>v0.1</td>
+                                                    <td>wonder</td>
+                                                    <td>
+                                                    
+                                                        <ul>
+                                                        
+                                                            <li>新建文档</li>
+                                                        
+                                                        </ul>
+                                                    
+                                                    </td>
+                                                </tr>
+                                            
+                                        </tbody>
+                                </table>
+                            </div>
+                        </details>
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <p>This is part 3 in our Tang Nano 9K series. In this article we will be starting a mini-project creating an OLED text engine core.</p>
+<p>This series will go through the entire process from concept to implementation to demonstrate not just the code but also the design process and considerations taken when creating a multi-component system.</p>
+<ul>
+<li>Part 1 (this part) - will be an intro on the HW and creating the base driver so that we can display something to the screen.</li>
+<li>Part 2 - will go over displaying text on our base OLED core including how to map ascii character codes to the screen data and using custom fonts.Part 3 - will wrap up the project taking everything we did in the previous parts in-order to build a reusable dynamic text engine that can be used by other cores to display their own data onto the screen.</li>
+</ul>
+<p>To follow along you will need a Tang Nano 9K and a 128x64 pixel screen with an SSD1306 driver using its 4-wire SPI configuration (the screen itself should have 7 pins). We will be using a 0.96&quot; OLED screen matching these requirements, you can get these along with a breadboard jumpers and the tang nano from our store <a href="https://store.lushaylabs.com/collections/all-products?ref=lushay-labs">here</a>.</p>
+<h2 id="The-Plan">The Plan</h2>
+<p>In this part we are not going to think about the overall architecture or how the screen will communicate with the rest of the system. We will only be worried about being able to drive the screen using the FPGA - building the physical driver for the OLED screen.</p>
+<p>To do this we first need to better understand how the screen works and how it expects to be communicated with. The screen we are using has an SSD1306 IC driver so we can go over its datasheet to get the information we need.</p>
+<p><a href="https://dl.sipeed.com/fileList/others/ssd1306/SSD1306.pdf"  target="_blank">SSD1306 Datasheet</a></p>
+<h2 id="The-SSD1306-Driver">The SSD1306 Driver</h2>
+<p>This driver IC is the interface between you and the actual OLED's underlying display. An OLED consists of many LEDs which need to be controlled individually to produce the desired picture. The driver is what connects to these LEDs and provides an interface where you can send it commands or data in-order to update the display. Looking at the block diagram in the datasheet we can see how it works internally:</p>
+<p><img src="./assets/block_diagram.jpg" alt="block_diagram" /></p>
+<p>Looking at the left side, we have a microcontroller which is what we will be communicating with. The pins we care about are the the first three and D0 and D1, the first three are reset, chip select and data/command flag and D0 is our SPI clock and D1 is our SPI data.</p>
+<p>All the other pins are used for alternate communication methods, like if interfacing with the screen over parallel connection. But since we are using the driver in it's 4-wire SPI mode we only need the 5 pins listed above.</p>
+<p>The MCU receives data from us, and then will decide whether the data is a command meant to control the display, or whether it was pixel data meant to update the contents of the display.</p>
+<p>Pixel data gets stored in the Graphics RAM which stores the contents for the entire display, the RAM propagates through the display driver to the actual pins controlling the individual OLEDs. The benefits of using a screen buffer in ram like this is that the screen can be updated independently of the device controlling it, and also you can just send an update to change a part of the image and the screen will remember the rest of the image.</p>
+<p>If the DC (data/command) flag was set to be a command, then the data will go to the command decoder to process and perform the command that you sent.</p>
+<p>Each &quot;transmission&quot; to the screen is a single byte, and if the data/command pin is set low that byte will be interpreted as a command and if set high the byte will be sent to the graphics ram to the current screen position stored in the ssd1306's memory.</p>
+<h3 id="How-Data-is-Stored">How Data is Stored</h3>
+<p>The screen itself we are using has 128 x 64 pixels or 8192 individual pixels. The SSD1306 lets us configure how the ram is mapped to the display, but in general each byte controls a vertical line of 8 pixels. This means to control each of the 64 pixels in each column we need to set 8 bytes (again each byte controls 8 vertical pixels). The first byte will control the top left column, then we will increment by one and update the 8 pixels to the right and so on until we wrap around to the second row of 8 pixel columns:</p>
+<p><img src="./assets/byte_structure.jpg" alt="byte_structure" /></p>
+<blockquote>
+<p>128 bytes per row 8 rows, each byte controlling 8 vertical pixels</p>
+</blockquote>
+<p>In the example above we sent 136 bytes with 0xFF (binary 11111111) this will result in the top row of 8 pixels being lit up across the whole screen, and in the first 8 columns we will have the top 16 pixels lit up. The least significant bit is the top pixel and the most significant bit is the bottom in each column, so a byte like 01010111 would create a column of pixels like the following:</p>
+<p><img src="./assets/pixel_1.jpg" alt="pixel_1" /></p>
+<h3 id="Command-Bytes">Command Bytes</h3>
+<p>Like mentioned above the device has a set of commands that we can send it to do certain things. Inside the datasheet linked above we can see multiple tables including commands like the following:</p>
+<p><img src="./assets/command_table.jpg" alt="command_table" /></p>
+<p>Each row contains a command and shows the byte or bytes (for multi byte commands) that need to be sent. A 1 or 0 means that bit needs to be a one or zero and when there is a parameter it will be marked with numbered letters and referenced on the right.</p>
+<p>For example to invert the screen (3rd command in the picture) we can see that we need to send 1010011x where the last bit can be either a one or zero. If we set it to a zero the command will set the display to normal mode, where a pixel set to zero will be off and a pixel set to 1 in the ram will be on. If we instead send a 1 as the last bit of the command, the screen will be inverted and a zero in RAM will cause a pixel to be lit up.</p>
+<p>We won't go through all the commands individually but by following the same approach you can decipher the rest of the command tables.</p>
+<p>In order to use the OLED display we first need to perform an initialization sequence where we send it all the commands required to setup all the configuration of the OLED. Once initialized we can start sending it pixel data and see the screen update.</p>
+<p>The last thing we need to go over before getting into the code is to go over the communication protocol itself, which in our case is SPI.</p>
+<h2 id="SPI">SPI</h2>
+<p>We will be communicating with the OLED screen over SPI. SPI is a serial protocol where 2 devices communicate with a data line for each direction and a common clock line. There are multiple modes in SPI, depending on whether you read on the rising / falling edge and whether the idle state of the clock is high or low.</p>
+<p>Multiple SPI devices can be connected together over the same wires and then each of the devices will have a separate chip select pin (CS) with which you can choose which device you are currently communicating with.</p>
+<p>With the SSD1306 driver we are using an extra wire to tell the device if the current byte being sent is data or a command. This is not part of the SPI protocol but is part of our communication interface we are building.</p>
+<p>From the datasheet we can see an example of how to communicate with the driver in this 4-wire SPI mode:</p>
+<p><img src="./assets/spi_send.jpg" alt="spi_send" /></p>
+<p>The first line in the image is the chip select pin. Like mentioned above this pin signifies that we are currently communicating with this device, kind of like an enable pin. We pull it low at the start of our communication and put it back high when done.</p>
+<p>The next line is the Data/Command Flag, this can be either high or low, a high value means it is pixel data and a low value signifying a command.</p>
+<p>The third line just shows a combination of the data / clock pins just to show that multiple bytes can be sent without needing to change the chip select each time.</p>
+<p>Next we have a zoom-in of how a single byte looks when being sent. The first of these lines is the clock pin the second is the data pin. We see here the clock pin can either be high or low while idle, but more importantly we see that the data should be updated on the falling edge and it will be read on the rising edge. We also see that the most significant bit of the byte we are sending should be sent first.</p>
+<p>With all that information we have everything we need to start building a driver core to interface with the OLED display.</p>
+<h2 id="Creating-the-Driver-core">Creating the Driver core</h2>
+<p>Like always to get started we can create a new project / folder in VSCode containing a constraints file with the tangnano9K pins we will be using, a verilog file for our driver core module and a Makefile to make building easier.</p>
+<h3 id="Boilerplate">Boilerplate</h3>
+<p><strong>Constraints File</strong></p>
+<p>For the constraints file we can create a <code>tangnano9k.cst</code> file with the following:</p>
+<p><img src="./assets/screen_contraints.jpg" alt="screen_contraints" /></p>
+<p>If creating manually it would look like this</p>
+
+<pre class="language-txt"><code class="language-txt">IO_LOC &quot;clk&quot; 52;
+IO_PORT &quot;clk&quot; PULL_MODE=UP;
+
+IO_LOC &quot;io_cs&quot; 36;
+IO_PORT &quot;io_cs&quot; IO_TYPE=LVCMOS33 PULL_MODE=DOWN DRIVE=8;
+IO_LOC &quot;io_dc&quot; 39;
+IO_PORT &quot;io_dc&quot; IO_TYPE=LVCMOS33 PULL_MODE=DOWN DRIVE=8;
+IO_LOC &quot;io_reset&quot; 25;
+IO_PORT &quot;io_reset&quot; IO_TYPE=LVCMOS33 PULL_MODE=DOWN DRIVE=8;
+IO_LOC &quot;io_sdin&quot; 26;
+IO_PORT &quot;io_sdin&quot; IO_TYPE=LVCMOS33 PULL_MODE=DOWN DRIVE=8;
+IO_LOC &quot;io_sclk&quot; 27;
+IO_PORT &quot;io_sclk&quot; IO_TYPE=LVCMOS33 PULL_MODE=DOWN DRIVE=8;
+</code></pre>
+<p>We define the clock pin and we define the 5 pins we will need for interfacing with the OLED driver:</p>
+<ol>
+<li>Chip Select <code>io_cs</code></li>
+<li>Data / Command <code>io_dc</code></li>
+<li>Reset Pin <code>io_reset</code></li>
+<li>SPI Data In to OLED <code>io_sdin</code></li>
+<li>SPI clock <code>io_sclk</code></li>
+</ol>
+<p>I chose these pins just because they are consecutive there is no special function and any other 3.3v pins could have been chosen.</p>
+<p><img src="./assets/tang_nano_oled_pins.jpg" alt="tang_nano_oled_pins" /></p>
+<p><strong>Makefile</strong></p>
+<p>This is only if you are not using the Lushay Code extension and instead run the toolchain manually. For the Makefile just create a file called <code>Makefile</code> with our standard project boilerplate:</p>
+
+<pre class="language-makefile"><code class="language-makefile">BOARD=tangnano9k
+FAMILY=GW1N-9C
+DEVICE=GW1NR-LV9QN88PC6/I5
+
+all: screen.fs
+
+# Synthesis
+screen.json: screen.v
+    yosys -p &quot;read_verilog screen.v; synth_gowin -top screen -json screen.json&quot;
+
+# Place and Route
+screen_pnr.json: screen.json
+    nextpnr-gowin --json screen.json --freq 27 --write screen_pnr.json --device ${DEVICE} --family ${FAMILY} --cst ${BOARD}.cst
+
+# Generate Bitstream
+screen.fs: screen_pnr.json
+    gowin_pack -d ${FAMILY} -o screen.fs screen_pnr.json
+
+# Program Board
+load: screen.fs
+    openFPGALoader -b ${BOARD} screen.fs -f
+
+
+# Generate Simulation
+screen_test.o: screen.v screen_tb.v
+    iverilog -o screen_test.o -s test screen.v screen_tb.v
+
+# Run Simulation
+test: screen_test.o
+    vvp screen_test.o
+
+# Cleanup build artifacts
+clean:
+    rm screen.vcd screen.fs screen_test.o
+
+.PHONY: load clean test
+.INTERMEDIATE: screen_pnr.json screen.json screen_test.o
+</code></pre>
+<p>For a better explanation on this makefile format you can take a look at our installation guide <a href="./../1_installation_getting_started/installation_getting_started.html"  >here</a> where we go more in depth into this template.</p>
+<h2 id="Implementing-the-Driver-Core">Implementing the Driver Core</h2>
+<p>With the setup out of the way we can start implementing our driver with a verilog module.</p>
+<p>To use the screen like we saw above, we need to first initialize it, it is also recommended to reset the screen after its power stabilizes, this is to make sure it is in its proper reset state. So we will first wait a bit of time, then reset the screen, once reset we will send it all the initialization commands required to set it up and then the screen should be ready to start receiving and displaying pixel data.</p>
+<p>So our state machine will have the following steps:</p>
+<ol>
+<li>Power Initialization Wait / Reset</li>
+<li>Load Init Command Byte</li>
+<li>Send Byte over SPI</li>
+<li>Check Where to go from Sending</li>
+<li>Load Pixel Data Byte</li>
+</ol>
+<p>The first stage will cover the power reset mentioned above, next we will have a state where we load the next command byte in the init sequence.</p>
+<p>Technically the next state would be to send the command byte over SPI, but there is no real difference between sending a command byte or sending a pixel byte so state 3 can be used for both. The only difference is which state to go to after sending the byte. In the case where there are more commands to send we would like to go to the state to load the next command otherwise we want to go to the state to load the next pixel byte. So step 4 will just check if there are more commands and if so go back to step 2 otherwise go to step 5. And step 5 just loads a pixel byte and links back to send it with step 3.</p>
+<p><img src="./assets/states.jpg" alt="states" /></p>
+<p>We can create a file called <code>screen.v</code> with the following module outline:</p>
+
+<pre class="language-v"><code class="language-v">module screen
+#(
+  parameter STARTUP_WAIT = 32'd10000000
+)
+(
+    input clk,
+    output io_sclk,
+    output io_sdin,
+    output io_cs,
+    output io_dc,
+    output io_reset
+);
+  localparam STATE_INIT_POWER = 8'd0;
+  localparam STATE_LOAD_INIT_CMD = 8'd1;
+  localparam STATE_SEND = 8'd2;
+  localparam STATE_CHECK_FINISHED_INIT = 8'd3;
+  localparam STATE_LOAD_DATA = 8'd4;
+
+
+endmodule
+</code></pre>
+<p>This is an empty module receiving the inputs we defined in the constraints file and defining the 5 states listed above. <code>STARTUP_WAIT</code> is an external parameter which is the number of clock cycles to wait before resetting the screen. It is an external parameter instead of a local parameter so that in simulation testing we don't have to wait as long.</p>
+<p>Next we can add some registers:</p>
+
+<pre class="language-v"><code class="language-v">  reg [32:0] counter = 0;
+  reg [2:0] state = 0;
+
+  reg dc = 1;
+  reg sclk = 1;
+  reg sdin = 0;
+  reg reset = 1;
+  reg cs = 0;
+
+  reg [7:0] dataToSend = 0;
+  reg [3:0] bitNumber = 0;  
+  reg [9:0] pixelCounter = 0;
+</code></pre>
+<p>We need a counter to count clock cycles and a register for the current state. Next we have a register for each of the inputs to drive them. Both the clock and reset pins are high on idle and <code>dc</code> we could have chosen either.</p>
+<p>Finally we have a register for the current byte we will be sending, a register to remember which bit of the current byte we are on and a register to keep track of which pixel of the screen we are on.</p>
+<p>Next let's create a register for holding all the init command bytes. We have a total of 15 init commands which take up a total of 23 bytes (some of the commands are 2 bytes).</p>
+
+<pre class="language-v"><code class="language-v">localparam SETUP_INSTRUCTIONS = 23;
+  reg [(SETUP_INSTRUCTIONS*8)-1:0] startupCommands = {
+    8'hAE,  // display off
+
+    8'h81,  // contast value to 0x7F according to datasheet
+    8'h7F,  
+
+    8'hA6,  // normal screen mode (not inverted)
+
+    8'h20,  // horizontal addressing mode
+    8'h00,  
+
+    8'hC8,  // normal scan direction
+
+    8'h40,  // first line to start scanning from
+
+    8'hA1,  // address 0 is segment 0
+
+    8'hA8,  // mux ratio
+    8'h3f,  // 63 (64 -1)
+
+    8'hD3,  // display offset
+    8'h00,  // no offset
+
+    8'hD5,  // clock divide ratio
+    8'h80,  // set to default ratio/osc frequency
+
+    8'hD9,  // set precharge
+    8'h22,  // switch precharge to 0x22 default
+
+    8'hDB,  // vcom deselect level
+    8'h20,  // 0x20 
+
+    8'h8D,  // charge pump config
+    8'h14,  // enable charge pump
+
+    8'hA4,  // resume RAM content
+
+    8'hAF   // display on
+  };
+  reg [7:0] commandIndex = SETUP_INSTRUCTIONS * 8;
+</code></pre>
+<p>Besides for the init commands we also have a register which will remember which command we are currently on. Because the concat operator <code>{</code> and <code>}</code> place the most significant byte first, the first byte we write is actually placed at the end. We could have reversed the order we wrote the init commands and then started <code>commandIndex</code> at zero, but I think it is clearer to write the commands in order and then just start the current bit index at the last bit number.</p>
+<p>Next let's connect all the input wires to the registers we created for them. We could have also added the keyword <code>reg</code> to the input parameters themselves in which case it would have automatically created a register for us, but to make it more pronounced I separated it into two steps.</p>
+
+<pre class="language-v"><code class="language-v">  assign io_sclk = sclk;
+  assign io_sdin = sdin;
+  assign io_dc = dc;
+  assign io_reset = reset;
+  assign io_cs = cs;
+</code></pre>
+<h3 id="The-State-Machine">The State Machine</h3>
+<p>For the state machine, let's work only on the rising edge of our clock to make things simpler.</p>
+
+<pre class="language-v"><code class="language-v">  always @(posedge clk) begin
+    case (state)
+    	// states here
+    endcase
+  end
+</code></pre>
+<p>Next let's go through each of the states of our state machine one by one:</p>
+<p><strong>Load Init Command</strong></p>
+
+<pre class="language-v"><code class="language-v">STATE_INIT_POWER: begin
+    counter &lt;= counter + 1;
+    if (counter &lt; STARTUP_WAIT)
+        reset &lt;= 1;
+    else if (counter &lt; STARTUP_WAIT * 2)
+        reset &lt;= 0;
+    else if (counter &lt; STARTUP_WAIT * 3)
+        reset &lt;= 1;
+    else begin
+        state &lt;= STATE_LOAD_INIT_CMD;
+        counter &lt;= 32'b0;
+    end
+end
+</code></pre>
+<p>Here we start with the reset set to 1 which is it's idle state and we wait a bit of time for the power to become stable. Then we wait the same period again this time reseting the screen by pulling the reset pin low. Finally we return the pin to high wait again a small amount to make sure the screen is ready to start receiving commands and move onto the next state resetting the counter to zero.</p>
+<p>The default <code>STARTUP_WAIT</code> is set to 10,000,000 so with a 27Mhz crystal we are looking at about a third of a second per step so for all three steps about a second.</p>
+<p><strong>Load Init Command</strong></p>
+
+<pre class="language-v"><code class="language-v">STATE_LOAD_INIT_CMD: begin
+    dc &lt;= 0;
+    dataToSend &lt;= startupCommands[(commandIndex-1)-:8'd8];
+    state &lt;= STATE_SEND;
+    bitNumber &lt;= 3'd7;
+    cs &lt;= 0;
+    commandIndex &lt;= commandIndex - 8'd8;
+end
+</code></pre>
+<p>Here we set the data / command bit to zero to signify that we are sending a command. We load the next command from the register we created with all the init command bytes. The syntax used here with the minus sign after the MSB tells it that we will not be placing the least significant bit but instead the length.</p>
+<p>Usually we use the syntax <code>[MSB:LSB]</code> to access memory here we are using <code>[MSB-:LEN]</code> there is also the option with the a plus instead of a minus for <code>[LSB+:LEN]</code></p>
+<p>Next we set the state to the send state as that is where we want to go next after loading a command byte. We set the bit number to the last bit as we saw from the datasheet we are sending most significant bit first in the SPI communication.</p>
+<p>Chip select is also set low to tell the screen we want to communicate with it now which essentially enables the screen to receive data over the SPI connection. The last line decrement the <code>commandIndex</code> by 8 as we have handled those 8 bits by loading them into <code>dataToSend</code>.</p>
+<p><strong>Sending a byte</strong></p>
+
+<pre class="language-v"><code class="language-v">STATE_SEND: begin
+    if (counter == 32'd0) begin
+        sclk &lt;= 0;
+        sdin &lt;= dataToSend[bitNumber];
+        counter &lt;= 32'd1;
+    end
+    else begin
+        counter &lt;= 32'd0;
+        sclk &lt;= 1;
+        if (bitNumber == 0)
+            state &lt;= STATE_CHECK_FINISHED_INIT;
+        else
+            bitNumber &lt;= bitNumber - 1;
+    end
+end
+</code></pre>
+<p>In order to simplify the implementation we will only be using the rising edge of our own clock, but the clock signal in SPI requires us to do things on both the rising and falling edge of the clock. So to get around this we will just use two of our clock cycles for each bit, one where the SPI clock will be pulled low and one where the SPI clock will be pulled high.</p>
+<p>In the first block we are setting the SPI clock low, and from the datasheet we saw we are supposed to change the data on the SPI data pin on the falling edge so we do that as-well.</p>
+<p>On the second clock cycle of this state we will then reset the counter and pull the clock high, pulling it high will tell the screen to read the bit that we put on the data pin in the previous clock cycle. Lastly we check if we are already on the last bit, if so we go on to the next state, otherwise we decrement the <code>bitNumber</code> register to move to the next bit and continue sending in the current state.</p>
+<p><strong>Check Finished Init</strong></p>
+
+<pre class="language-v"><code class="language-v">STATE_CHECK_FINISHED_INIT: begin
+    cs &lt;= 1;
+    if (commandIndex == 0)
+        state &lt;= STATE_LOAD_DATA; 
+    else
+        state &lt;= STATE_LOAD_INIT_CMD; 
+end
+</code></pre>
+<p>In this stage we are pulling the chip select high to tell the screen we are finished (not mandatory as we could have sent multiple bytes on the same chip select pulse). Next we check if <code>commandIndex</code> is 0 which would mean we sent all the commands and can move from here to loading the next pixel byte, otherwise go back and load the next command byte.</p>
+<p><strong>Load Pixel Data</strong></p>
+
+<pre class="language-v"><code class="language-v">STATE_LOAD_DATA: begin
+    pixelCounter &lt;= pixelCounter + 1;
+    cs &lt;= 0;
+    dc &lt;= 1;
+    bitNumber &lt;= 3'd7;
+    state &lt;= STATE_SEND;
+    if (pixelCounter &lt; 136)
+        dataToSend &lt;= 8'b01010111;
+    else
+        dataToSend &lt;= 0;
+end
+</code></pre>
+<p>The last state loads the pixel bytes one at a time. We start by incrementing the <code>pixelCounter</code> to track which screen pixels we are. Next we set chip select to zero to re-enable the screen communication. Data / Command flag is set to 1 to signify we will be sending data now not commands.</p>
+<p>Next we reset the bit number back to the last bit and the state we set back to the &quot;send byte&quot; state to send the next pixel byte.</p>
+<p>We don't currently have any image to display, so as an example to make sure everything is working we can simply use the byte example from above as a test where we send the screen 136 bytes of 01010111.</p>
+<p>We never need to reset pixelCounter since there are exactly 1024 bytes which exactly fits into 10 bits, so the <code>pixelCounter</code> register will automatically roll-over back to zero on its own.</p>
+<p>That should be everything required to get the screen working, programming the Tang Nano 9K by clicking on the &quot;FPGA Toolchain&quot; button from the bottom bar and then selecting &quot;Build and Program&quot; from the menu. (Or <code>make load</code> if running manually). With our tangnano programmed you should get something like the following:</p>
+<p><img src="./assets/img_5705.jpg" alt="img_5705" /></p>
+<h2 id="Loading-An-Image">Loading An Image</h2>
+<p>In terms of Verilog, loading an image instead of our two static rows of lines is pretty easy. We first need a memory where we can store all our bytes:</p>
+
+<pre class="language-v"><code class="language-v">reg [7:0] screenBuffer [1023:0];
+initial $readmemh(&quot;image.hex&quot;, screenBuffer);
+</code></pre>
+<p>Our memory has 1024 slots each of which hold a single byte. The second lines tells the toolchain to load a file called <code>image.hex</code> into this memory.</p>
+<p>And then we can change the last if / else of our load pixel state to the following:</p>
+
+<pre class="language-v"><code class="language-v">dataToSend &lt;= screenBuffer[pixelCounter];
+</code></pre>
+<p>So our entire state should look like this:</p>
+
+<pre class="language-v"><code class="language-v">STATE_LOAD_DATA: begin
+    pixelCounter &lt;= pixelCounter + 1;
+    cs &lt;= 0;
+    dc &lt;= 1;
+    bitNumber &lt;= 3'd7;
+    state &lt;= STATE_SEND;
+    dataToSend &lt;= screenBuffer[pixelCounter];
+end
+</code></pre>
+<p>Some would say the code is even simpler now. The trouble comes more in how to create the file <code>image.hex</code>. We know each byte needs to represent 8 vertical pixels and we need to scan across the image from the top left in rows of 8 pixels. So the task of loading an image is more a task of converting an image into the format we need in-order to display it. Luckily we can create a simple node.js script to do the conversion for us.</p>
+<h3 id="Preparing-the-Image-Data">Preparing the Image Data</h3>
+<p>To begin with we first need a png image with the same size as the screen - 128 x 64 pixels in size. Since the screen only has a single color we will only be using the transparency value of a PNG image to determine whether or not to turn on a pixel.</p>
+<p>To convert our image we will be using a node.js library to parse the image called <code>pngjs</code>. To install the library you can run the following command from the project directory:</p>
+
+<pre class="language-javascript"><code class="language-javascript">npm i pngjs
+</code></pre>
+<p>Next let's create a script called <code>generate_image.js</code> with the following:</p>
+
+<pre class="language-javascript"><code class="language-javascript">const fs = require(&quot;fs&quot;);
+const PNG = require(&quot;pngjs&quot;).PNG;
+
+fs.createReadStream(&quot;image.png&quot;)
+  .pipe(new PNG())
+  .on(&quot;parsed&quot;, function () {
+    const bytes = [];
+
+    for (var y = 0; y &lt; this.height; y+=8) {
+      for (var x = 0; x &lt; this.width; x+=1) {
+        let byte = 0;
+
+        for (var j = 7; j &gt;= 0; j -= 1) {
+            let idx = (this.width * (y+j) + x) * 4;
+            if (this.data[idx+3] &gt; 128) {
+                byte = (byte &lt;&lt; 1) + 1;
+            } else {
+                byte = (byte &lt;&lt; 1) + 0;
+            }
+        }
+
+        bytes.push(byte);
+      }
+    }
+    const hexData = bytes.map((b) =&gt; b.toString('16').padStart(2, '0'));
+    fs.writeFileSync('image.hex', hexData.join(' '));
+});
+</code></pre>
+<p>We start by including the library along with the filesystem package to load the file.</p>
+<p>The next line creates a read stream to load the image (named <code>image.png</code>) and then pipes it to a PNG instance from the <code>pngjs</code> library and the next block will be called once the entire image is ready and loaded in memory.</p>
+<p>Inside this <code>parsed</code> block we have three nested <code>for</code> loops, the outer one is to go over the vertical lines, as you can see from the end of the line, we skip each time by 8 lines as each 8 lines are stored in a single byte.</p>
+<p>The next <code>for</code> loop is for going through all the columns nothing special here. The final <code>for</code> loop is for incrementing through each of the 8 pixels in a vertical column. Each time we complete the inner-loop it means we have gone through 8 vertical pixels and we can store a new byte moving onto the next vertical column in our row.</p>
+<p>We start the internal loop at the last bit so that we can shift each of the bits into <code>byte</code> from the right.</p>
+<p>Going through the internal loop we are simply getting the index for the current pixel. <code>this.data</code> is a long array of bytes where for each pixel we have 4 bytes, one for red, one for green, one for blue and one for the alpha channel. So the first line calculates this offset by figuring out which byte we are, this is the number of complete rows (or y offset) multiplied by 128 (the screen width) plus the current x offset. We then multiply by 4 since each pixel is 4 bytes (RGBA).</p>
+<p>Once we have the offset we check if the transparency (or 4th byte in our 4 byte pixel) is greater then 128 (out of 256) so if it is 50% or more transparent we will put a zero and the pixel will be turned off, otherwise we will put a 1 and the pixel will be highlighted.</p>
+<p>Other then that we have these two lines:</p>
+
+<pre class="language-javascript"><code class="language-javascript">const hexData = bytes.map((b) =&gt; b.toString('16').padStart(2, '0'));
+fs.writeFileSync('image.hex', hexData.join(' '));
+</code></pre>
+<p>Where we take each of our bytes and convert them to hex (base 16) and we pad them from the left with zeros so that each byte will be exactly 2 hex characters.</p>
+<p>The final line outputs the hex data into a file called <code>image.hex</code> separating each hex byte with a space.</p>
+<p>With our hex file created and our code updated we should be able to reprogram our FPGA and get something like the following:</p>
+<p><img src="./assets/screen_with_image.jpg" alt="screen_with_image" /></p>
+<h2 id="Conclusion">Conclusion</h2>
+<p>In this part we have created the physical driver core to interface with the 0.96&quot; OLED display and we have covered loading a simple image to it. In the next part we will take it a step further and &quot;generate&quot; the screen buffer on chip by converting ascii text into pixels implementing text and fonts into our core.</p>
+<p>Thank you for reading, if you have any questions or comments feel free to leave them below or message us on twitter <a href="https://twitter.com/LushayLabs?ref=lushay-labs">here</a>.</p>
+<p>To get any of the items used in this tutorial like the screen / tang nano or breadboard you can go to lushaylabs store <a href="https://store.lushaylabs.com/collections/all-products?ref=lushay-labs">here</a> .</p>
+<p>As always all the examples can be found on github by following this <a href="https://github.com/lushaylabs/tangnano9k-series-examples?ref=lushay-labs">link</a></p>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                    </div>
+                    <div id="next">
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>相关链接</a><ul><li><a target="_blank" href="https://www.sipeed.com">Sipeed 官网</a></li>
+<li><a target="_blank" href="https://maixhub.com/">MaixHub</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">Sipeed 淘宝</a></li>
+<li><a  href="/sitemap.xml">网站地图</a></li>
+<li><a target="_blank" href="https://github.com/teedoc/teedoc">网站使用 teedoc 生成</a></li>
+</ul>
+</li>
+<li><a>源码</a><ul><li><a target="_blank" href="https://github.com/sipeed/sipeed_wiki">Wiki 源码</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">开源项目</a></li>
+</ul>
+</li>
+<li><a>关注我们</a><ul><li><a target="_blank" href="https://twitter.com/SipeedIO">twitter</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">淘宝</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">github</a></li>
+<li><a><a>微信公众号</a><img src='/static/image/wechat.png'></a>
+</li>
+</ul>
+</li>
+<li><a>联系我们</a><ul><li><a>电话: +86 0755-27808509</a>
+</li>
+<li><a>商业支持: support@sipeed.com</a>
+</li>
+<li><a>地址: 深圳市宝安区新湖路4008号蘅芳科技办公大厦A座-2101C</a>
+</li>
+<li><a  href="/join_us.html">加入我们</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://www.sipeed.com">©2018-2023 深圳矽速科技有限公司</a></li>
+<li><a target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index">粤ICP备19015433号</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/js/prism.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <link rel="stylesheet" href="/static/js/add_hint/style.css" type="text/css"/>
+    
+        <script src="/static/js/add_hint/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+        <script src="/static/js/thumbs_up/main.js"></script>
+    
+</body>
+
+</html>

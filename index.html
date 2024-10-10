@@ -1,0 +1,1982 @@
+<!-- 翻译:
+          1. teedoc serve 预览
+          2. 使用 翻译内容 标记需要翻译的文字
+          3. 由于 teedoc 对翻译文件还没有做实时监测更改,需要:
+            保存一下此页面，teedoc 会自动搜索需要翻译的文字
+          4. 在 layout/locales 目录下手动翻译 po 文件
+          5. 最后保存一下本页面预览会自动刷新
+ -->
+<!DOCTYPE html>
+
+<html lang="zh"  id="home"  class=" md_page ">
+
+<head>
+     
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="keywords" content="sipeed, sipeed官方, wiki, 文档, 开源软件, 开源硬件, Lichee, 荔枝派, AI, AIOT, 边缘计算, 人脸识别, 嵌入式AI, maixpy, maixpy3, Longan, Tang">
+        <meta name="description" content="Sipeed的官方文档（Wiki），包含了开源软件和开源硬件资料，AIOT资料等等">
+        <meta name="generator" content="teedoc">
+        <meta name="theme" content="teedoc-plugin-theme-default">
+    
+     
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser"><script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script><script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser"><meta name="blog-generator" content="teedoc-plugin-blog"><script src="/static/js/theme_default/pre_main.js"></script><link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/><link rel="stylesheet" href="/static/css/prism.css" type="text/css"/><link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/><link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/><script src="/static/js/theme_default/jquery.min.js"></script><script src="/static/js/theme_default/split.js"></script><link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/><script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?9cb07365544a53067c56c346c838181a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119047820-5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-119047820-5');
+    </script><link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/><link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/><link rel="stylesheet" href="/static/css/custom.css" type="text/css"/><link rel="stylesheet" href="/static/js/thumbs_up/style.css" type="text/css"/>
+    
+    
+        <title>Sipeed 资料站 - Sipeed Wiki</title>
+    
+    
+    
+    <script type="text/javascript">js_vars = {"teedoc-plugin-ad-hint": {"type": "hint", "label": "NEW", "content": "全新 Maix 系列产品 <a href='https://wiki.sipeed.com/maixcam'>MaixCAM</a> 已上线, 全新 <a href='https://wiki.sipeed.com/maixpy/'>MaixPy</a> 功能更丰富，性能更强大，软件更易用，文档更全面！", "show_times": 2, "show_after_s": 432000, "date": "2022-06-01 14:00", "color": "#a0421d", "link_color": "#e53935", "link_bg_color": "#e6ae5c", "bg_color": "#ffcf89", "color_hover": "white", "bg_color_hover": "#f57c00", "close_color": "#eab971"}, "teedoc-plugin-thumbs-up": {"label_up": "有帮助", "label_down": "待改进", "icon": "/static/images/thumbs_up/up.svg", "icon_clicked": "/static/images/thumbs_up/upped.svg", "url": "https://thumbs-up.sipeed.com", "show_up_count": true, "show_down_count": false, "msg_already_voted": "您已经投过票了", "msg_thanks": "感谢您的反馈", "msg_down_prompt": "感谢反馈，请告诉我们可以改进什么地方?（最少 10 个字）", "msg_down_prompt_error": "消息最少需要 10 个字， 最多 256 个字", "msg_error": "请求服务器出现错误!"}}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": false, "update": [], "ts": 0, "author": "", "brief": "", "cover": "", "id": "home", "layout": "home"}</script>
+</head>
+<body class="type_page">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/">
+                
+                    <img class="site_logo" src="/static/image/logo.svg" alt="sipeed wiki logo">
+                
+                
+                    <h2>wiki</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class="active"><a  href="/">产品</a></li>
+<li class="sub_items "><a >开源软件</a><ul><li class=""><a  href="/maixpy/">MaixPy</a></li>
+<li class=""><a  href="/soft/maixpy/zh/index.html">MaixPy_v1</a></li>
+<li class=""><a  href="/soft/Lichee/zh/index.html">Lichee</a></li>
+<li class=""><a  href="/ai/zh/index.html">AI 指南</a></li>
+</ul>
+</li>
+<li class=""><a target="_blank" href="https://maixhub.com">MaixHub</a></li>
+<li class=""><a  href="/news/">动态</a></li>
+<li class=""><a  href="/faq.html">FAQ 汇总</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class=""><a  href="/store.html"><img src='/static/image/shop.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+<li class=""><a target="_blank" href="https://github.com/sipeed"><img src='/static/image/github.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+<li class="sub_items "><a  ><img src='/static/image/language.svg' style='height: 1.5em;vertical-align: middle;'>&nbsp;中文</a><ul><li class=""><a  href="/en/index.html">English</a></li>
+<li class="active"><a  href="/index.html">中文</a></li>
+</ul></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">输入关键词，多关键词空格隔开</span>
+                                <span id="search_loading_hint">正在加载，请稍候。。。</span>
+                                <span id="search_download_err_hint">下载文件失败，请刷新重试或检查网络</span>
+                                <span id="search_other_docs_result_hint">来自其它文档的结果</span>
+                                <span id="search_curr_doc_result_hint">当前文档搜索结果</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="page_wrapper">
+        <div id="page_content">
+            <div>
+                
+
+<script src="/static/css/tailwind.css"></script>
+<!-- 修改后保存一下 include 这个文件的 html 模板就会渲染 -->
+
+<!-- home style -->
+<style scoped>
+  .block_simple {
+    box-shadow: 0 0 1em rgba(0, 0, 0, 0.1);
+    background: white;
+    border: 1px solid #d3e2ff;
+    border-radius: 1em;
+    overflow: hidden;
+    padding: 1em;
+  }
+  .dark .block_simple {
+    background: #2d2d2d;
+    border: 1px solid #3f3f3f;
+  }
+  #page_content {
+    display: flex;
+    flex-direction: column;
+  }
+  #page_content > div {
+    display: flex;
+    flex-direction: column;
+  }
+  #root {
+    flex-grow: 1;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 304 304' width='304' height='304'%3E%3Cpath fill='%23000000' fill-opacity='0.04' d='M44.1 224a5 5 0 1 1 0 2H0v-2h44.1zm160 48a5 5 0 1 1 0 2H82v-2h122.1zm57.8-46a5 5 0 1 1 0-2H304v2h-42.1zm0 16a5 5 0 1 1 0-2H304v2h-42.1zm6.2-114a5 5 0 1 1 0 2h-86.2a5 5 0 1 1 0-2h86.2zm-256-48a5 5 0 1 1 0 2H0v-2h12.1zm185.8 34a5 5 0 1 1 0-2h86.2a5 5 0 1 1 0 2h-86.2zM258 12.1a5 5 0 1 1-2 0V0h2v12.1zm-64 208a5 5 0 1 1-2 0v-54.2a5 5 0 1 1 2 0v54.2zm48-198.2V80h62v2h-64V21.9a5 5 0 1 1 2 0zm16 16V64h46v2h-48V37.9a5 5 0 1 1 2 0zm-128 96V208h16v12.1a5 5 0 1 1-2 0V210h-16v-76.1a5 5 0 1 1 2 0zm-5.9-21.9a5 5 0 1 1 0 2H114v48H85.9a5 5 0 1 1 0-2H112v-48h12.1zm-6.2 130a5 5 0 1 1 0-2H176v-74.1a5 5 0 1 1 2 0V242h-60.1zm-16-64a5 5 0 1 1 0-2H114v48h10.1a5 5 0 1 1 0 2H112v-48h-10.1zM66 284.1a5 5 0 1 1-2 0V274H50v30h-2v-32h18v12.1zM236.1 176a5 5 0 1 1 0 2H226v94h48v32h-2v-30h-48v-98h12.1zm25.8-30a5 5 0 1 1 0-2H274v44.1a5 5 0 1 1-2 0V146h-10.1zm-64 96a5 5 0 1 1 0-2H208v-80h16v-14h-42.1a5 5 0 1 1 0-2H226v18h-16v80h-12.1zm86.2-210a5 5 0 1 1 0 2H272V0h2v32h10.1zM98 101.9V146H53.9a5 5 0 1 1 0-2H96v-42.1a5 5 0 1 1 2 0zM53.9 34a5 5 0 1 1 0-2H80V0h2v34H53.9zm60.1 3.9V66H82v64H69.9a5 5 0 1 1 0-2H80V64h32V37.9a5 5 0 1 1 2 0zM101.9 82a5 5 0 1 1 0-2H128V37.9a5 5 0 1 1 2 0V82h-28.1zm16-64a5 5 0 1 1 0-2H146v44.1a5 5 0 1 1-2 0V18h-26.1zm102.2 270a5 5 0 1 1 0 2H98v14h-2v-16h124.1zM242 149.9V160h16v34h-16v62h48v48h-2v-46h-48v-66h16v-30h-16v-12.1a5 5 0 1 1 2 0zM53.9 18a5 5 0 1 1 0-2H64V2H48V0h18v18H53.9zm112 32a5 5 0 1 1 0-2H192V0h50v2h-48v48h-28.1zm-48-48a5 5 0 0 1-9.8-2h2.07a3 3 0 1 0 5.66 0H178v34h-18V21.9a5 5 0 1 1 2 0V32h14V2h-58.1zm0 96a5 5 0 1 1 0-2H137l32-32h39V21.9a5 5 0 1 1 2 0V66h-40.17l-32 32H117.9zm28.1 90.1a5 5 0 1 1-2 0v-76.51L175.59 80H224V21.9a5 5 0 1 1 2 0V82h-49.59L146 112.41v75.69zm16 32a5 5 0 1 1-2 0v-99.51L184.59 96H300.1a5 5 0 0 1 3.9-3.9v2.07a3 3 0 0 0 0 5.66v2.07a5 5 0 0 1-3.9-3.9H185.41L162 121.41v98.69zm-144-64a5 5 0 1 1-2 0v-3.51l48-48V48h32V0h2v50H66v55.41l-48 48v2.69zM50 53.9v43.51l-48 48V208h26.1a5 5 0 1 1 0 2H0v-65.41l48-48V53.9a5 5 0 1 1 2 0zm-16 16V89.41l-34 34v-2.82l32-32V69.9a5 5 0 1 1 2 0zM12.1 32a5 5 0 1 1 0 2H9.41L0 43.41V40.6L8.59 32h3.51zm265.8 18a5 5 0 1 1 0-2h18.69l7.41-7.41v2.82L297.41 50H277.9zm-16 160a5 5 0 1 1 0-2H288v-71.41l16-16v2.82l-14 14V210h-28.1zm-208 32a5 5 0 1 1 0-2H64v-22.59L40.59 194H21.9a5 5 0 1 1 0-2H41.41L66 216.59V242H53.9zm150.2 14a5 5 0 1 1 0 2H96v-56.6L56.6 162H37.9a5 5 0 1 1 0-2h19.5L98 200.6V256h106.1zm-150.2 2a5 5 0 1 1 0-2H80v-46.59L48.59 178H21.9a5 5 0 1 1 0-2H49.41L82 208.59V258H53.9zM34 39.8v1.61L9.41 66H0v-2h8.59L32 40.59V0h2v39.8zM2 300.1a5 5 0 0 1 3.9 3.9H3.83A3 3 0 0 0 0 302.17V256h18v48h-2v-46H2v42.1zM34 241v63h-2v-62H0v-2h34v1zM17 18H0v-2h16V0h2v18h-1zm273-2h14v2h-16V0h2v16zm-32 273v15h-2v-14h-14v14h-2v-16h18v1zM0 92.1A5.02 5.02 0 0 1 6 97a5 5 0 0 1-6 4.9v-2.07a3 3 0 1 0 0-5.66V92.1zM80 272h2v32h-2v-32zm37.9 32h-2.07a3 3 0 0 0-5.66 0h-2.07a5 5 0 0 1 9.8 0zM5.9 0A5.02 5.02 0 0 1 0 5.9V3.83A3 3 0 0 0 3.83 0H5.9zm294.2 0h2.07A3 3 0 0 0 304 3.83V5.9a5 5 0 0 1-3.9-5.9zm3.9 300.1v2.07a3 3 0 0 0-1.83 1.83h-2.07a5 5 0 0 1 3.9-3.9zM97 100a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0-16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-48 32a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm32 48a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-16 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm32-16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0-32a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16 32a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm32 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0-16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-16-64a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16 96a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16-144a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 32a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16-32a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16-16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-96 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16-32a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm96 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-16-64a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16-16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-32 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0-16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-16 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-16 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-16 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM49 36a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-32 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm32 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM33 68a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16-48a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 240a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16 32a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-16-64a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-16-32a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm80-176a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-16-16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm32 48a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16-16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0-32a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm112 176a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-16 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM17 180a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0-32a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM17 84a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm32 64a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16-16a3 3 0 1 0 0-6 3 3 0 0 0 0 6z'%3E%3C/path%3E%3C/svg%3E");
+  }
+  .carousel {
+    width: 98%;
+    max-width: 1920px;
+    margin: auto;
+    padding: 3em;
+  }
+  .carousel_item {
+    box-shadow: 0 0 4em rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    border-radius: 2em;
+  }
+  .n-carousel.n-carousel--card .n-carousel__slide {
+    width: 100%;
+  }
+  .n-carousel.n-carousel--top .n-carousel__dots {
+    top: 5em;
+  }
+  .n-carousel .n-carousel__slides .n-carousel__slide.n-carousel__slide--next {
+    transform: translateX(10%) translateZ(0);
+  }
+  .n-carousel .n-carousel__slides .n-carousel__slide.n-carousel__slide--prev {
+    transform: translateX(-10%) translateZ(0);
+  }
+  .n-carousel.n-carousel--bottom .n-carousel__arrow-group,
+  .n-carousel.n-carousel--show-arrow.n-carousel--bottom .n-carousel__dots {
+    bottom: 10em;
+    margin: 0 5em;
+  }
+  .n-carousel .n-carousel__arrow {
+    box-shadow: 0 0 0.2em rgba(0, 0, 0, 0.1);
+  }
+  .carousel-img {
+    margin: 0 auto;
+    width: 100%;
+    object-fit: cover;
+    flex-grow: 1;
+  }
+  .carousel_item_bottom {
+    width: 100%;
+    height: 6em;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+    padding: 1em 1em;
+  }
+  #page_content a.btn_home_head {
+    color: #e34548;
+  }
+  #page_content a.btn_home_head_last {
+    color: white;
+  }
+  .btn_home_head {
+    border-radius: 0.2em 0 0 0.2em;
+    color: #e34548;
+    background-color: transparent;
+    font-size: 1.2em;
+    padding: 0.5em 1.5em;
+    border: 1px solid #e34548;
+  }
+  .btn_home_head_last {
+    border-radius: 0 1em 1em 0;
+    color: white;
+    background-color: #e34548;
+  }
+  .btn_home_head_last:hover {
+    background-color: #e34548;
+  }
+  .btn_dark {
+    border-radius: 0.5em;
+    font-size: 1em;
+    padding: 0.5em 1em;
+    border: 1px solid #757575;
+    color: #b0bec5;
+  }
+  #page_content a.btn_dark {
+    color: #b0bec5;
+}
+  #navbar {
+    font-size: 1.2em;
+    padding: 1em;
+  }
+  #products_menu {
+    border-radius: 0.6em;
+    text-wrap: nowrap;
+    width: fit-content;
+    margin-top: 12em;
+    padding: 0;
+  }
+  #content {
+    width: 1680px;
+  }
+  #content .table_wrapper {
+    margin: auto;
+    width: max-content;
+  }
+  #content table {
+    word-wrap: normal;
+    width: max-content;
+  }
+  #menuItems {
+    position: sticky;
+    top: 5em;
+    box-shadow: 0 0 1em rgba(0, 0, 0, 0.1);
+    background: white;
+    border: 1px solid #d3e2ff;
+    border-radius: 1em;
+    overflow: hidden;
+    justify-content: center;
+  }
+  .dark #menuItems {
+    background: #2d2d2d;
+    border: 1px solid #3f3f3f;
+  }
+  #navbar h2 {
+    font-size: 1.8em;
+  }
+  .menuItem {
+    cursor: pointer;
+    padding: 1em 2em;
+    color: #606975;
+    font-size: 1.2em;
+    word-wrap: nowrap;
+  }
+  .dark .menuItem {
+    color: #bdbdbd;
+  }
+  .menuItem:hover,
+  .menuItem1:hover,
+  .menuItem1.active {
+    background-color: #f5f5f5;
+    color: #162127;
+    font-weight: 600;
+  }
+  .dark .menuItem:hover,
+  .dark .menuItem1:hover,
+  .dark .menuItem1.active {
+    background-color: #202020;
+    color: #fafafa;
+  }
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
+  .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin: 1em;
+    box-shadow: 0 0 2em rgba(0, 0, 0, 0.2);
+    width: 20em;
+    border-radius: 0.8em;
+    background: #273238;
+    color: #e0e0e0;
+    transition: all 0.4s ease-in-out;
+  }
+  .card:hover {
+    box-shadow: 0 0 4em rgba(0, 0, 0, 0.3);
+    scale: 1.05;
+  }
+  .card_title {
+    font-size: 1.3em;
+    padding: 0.6em 0.5em;
+    font-weight: 600;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .img_wrapper {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.8em 0.8em 0 0;
+  }
+  .card_img {
+    width: 100%;
+    max-height: 15em;
+    object-fit: cover;
+    border-radius: 0.8em 0.8em 0 0;
+  }
+  .card_brief {
+    font-size: 1em;
+    padding: 1em;
+    background-color: #162127;
+    width: 100%;
+    flex-grow: 1;
+    text-align: center;
+  }
+  .card_btns {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+    padding: 1em;
+    background-color: #162127;
+    border-radius: 0 0 0.8em 0.8em;
+    width: 100%;
+  }
+  th {
+    background-color: #162127;
+    border: 2px solid #495b65;
+  }
+  td {
+    background-color: #f8f8f8;
+    border: 2px solid #ececec;
+  }
+  #page_content .card_btns > a {
+    padding: 0.5em 1em;
+    border-radius: 0.5em;
+    font-size: 1em;
+    border: 1px solid #757575;
+    color: #b0bec5;
+    display: flex;
+  }
+  #page_content .card_btns > a:hover {
+    background-color: #e0e0e0;
+    color: #162127;
+    box-shadow: 0 0 2em rgba(255, 255, 255, 0.5);
+  }
+  @media screen and (max-width: 1920px) {
+    #content {
+      width: 75%
+    }
+  }
+  @media screen and (max-width: 1310px) {
+    #content {
+      width: 85%
+    }
+  }
+  @media screen and (max-width: 1024px) {
+    #content {
+      width: 100%
+    }
+    .carousel {
+      width: 100%;
+      padding: 0 0 5em 0;
+    }
+    .carousel_item {
+      border-radius: 0;
+      box-shadow: 0 0 4em rgba(0, 0, 0, 0.05);
+    }
+    .n-carousel.n-carousel--card .n-carousel__slide {
+      width: 100%;
+    }
+    .n-carousel.n-carousel--top .n-carousel__dots {
+      top: 1em;
+    }
+    .n-carousel.n-carousel--bottom .n-carousel__arrow-group,
+    .n-carousel.n-carousel--show-arrow.n-carousel--bottom .n-carousel__dots {
+      bottom: 9.5em;
+    }
+    .btn_home_head {
+      font-size: 0.9em;
+      padding: 0.5em 1.5em;
+    }
+    .carousel-img {
+      height: calc(100% - 4em);
+    }
+    .carousel_item_bottom {
+      height: 4em;
+    }
+    #products_menu {
+      border-radius: 0;
+      width: 100%;
+      margin-left: 0;
+      margin-top: 0;
+      padding: 0;
+      position: sticky;
+      top: 0;
+      z-index: 99;
+      margin-bottom: 2em;
+    }
+    #menuItems {
+      top: 0em;
+      border-radius: 0;
+      overflow: hidden;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+    .menuItem {
+      padding: 1em 1em;
+      font-size: 1em;
+    }
+  }
+</style>
+
+<!-- 各个字页面的 style 可以单独写一个 style 标签 -->
+<style></style>
+
+<script src="/static/js/vue.global.prod.js"></script>
+<script src="/static/js/naive-ui.prod.js"></script>
+
+<div id="root">
+  <div id="products" class="flex flex-col lg:flex-row justify-center">
+    <div id="products_menu">
+      <ul id="menuItems">
+        <li
+          v-for="(item, key) in data.products"
+          class="menuItem menuItem1"
+          @click="setContent(item)"
+          :id="'menu_'+item.content"
+        >
+          <span>{[ item.label ]}</span>
+        </li>
+      </ul>
+    </div>
+    <div
+      id="content"
+      style="overflow-wrap: anywhere"
+    >
+      <!-- 修改完以下字页面到本文档来保存一下即可刷新页面 -->
+      <div id="page_maix" class="hidden h-full w-full">
+        <!-- 修改后保存一下 include 这个文件的 html 模板就会渲染 -->
+
+<div class="w-full flex flex-col justify-center items-center">
+  <h2 class="text-2xl font-bold my-8 block_simple">
+    全新 Maix 生态
+  </h2>
+
+  <div class="cards">
+    <!-- cards -->
+    <div class="card" v-for="item in data_maixcam.cards">
+      <img class="card_img" :src="item.img" />
+      <h3 class="card_title" class="text-lg">{[item.title]}</h3>
+      <div class="card_brief">{[item.brief]}</div>
+      <div class="card_btns">
+        <a
+          v-for="btn in item.btns"
+          :href="btn.link"
+          :target="btn.new_tab ? '_blank' : '_self'"
+          >{[btn.label]}</a
+        >
+      </div>
+    </div>
+    <!-- cards end -->
+  </div>
+
+  <h2 class="text-2xl font-bold my-8 block_simple">
+    经典 Maix 视觉系列
+  </h2>
+  <div class="cards">
+    <!-- cards -->
+    <div class="card" v-for="item in data_maix.cards">
+      <img class="card_img" :src="item.img" />
+      <h3 class="card_title" class="text-lg">{[item.title]}</h3>
+      <div class="card_brief">{[item.brief]}</div>
+      <div class="card_btns">
+        <a
+          v-for="btn in item.btns"
+          :href="btn.link"
+          :target="btn.new_tab ? '_blank' : '_self'"
+          >{[btn.label]}</a
+        >
+      </div>
+    </div>
+    <!-- cards end -->
+  </div>
+  <h3 class="text-2xl font-bold my-8">Maix 系列产品参数对比</h3>
+  <div class="w-full my-8 overflow-auto px-2">
+    <!-- a table to compare upper products' parameters -->
+    <div class="table_wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>参数</th>
+          <th>MaixCAM</th>
+          <th>Maix-I</th>
+          <th>Maix-II</th>
+          <th>Maix-III</th>
+          <th>Maix-IV</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>处理器</td>
+          <td>SG2002: RISC-V@1GHz/ARM A53<br> + RISC-V@700MHz<br> + 8051@25~300MHz</td>
+          <td>K210: 双核 64 位 RISC-V@400MHz</td>
+          <td>V831: Cortex-A7@800MHz</td>
+          <td>AX620A: Cortex-A7x4@1.0GHz</td>
+          <td>AX650N: Cortex-A55x8@1.7GHz</td>
+        </tr>
+        <tr>
+          <td>内存</td>
+          <td>256MB DDR3</td>
+          <td>SIP 8MB SRAM</td>
+          <td>SIP 64MB DDR2</td>
+          <td>2GB LPDDR4X 3733MHz</td>
+          <td>8GB</td>
+        </tr>
+        <tr>
+          <td>NPU</td>
+          <td>1Tops@INT8，支持常用 CNN 模型, 支持 BF16</td>
+          <td>0.25Tops@INT8，支持有限 CNN 算子</td>
+          <td>0.2Tops@INT8，支持有限 CNN 算子</td>
+          <td>3.6Tops@INT8，支持常用 CNN 模型</td>
+          <td>
+            10Tops@INT8，支持常用 CNN 和 transformer
+            模型
+          </td>
+        </tr>
+        <tr>
+          <td>储存</td>
+          <td>SDNAND 或者 TF 卡</td>
+          <td>板载 16MB Flash，支持 SPI TF 卡</td>
+          <td>板载 Flash 或者 TF 卡</td>
+          <td>EMMC 或者 TF 卡</td>
+          <td>EMMC 或者 TF 卡</td>
+        </tr>
+        <tr>
+          <td>软件支持</td>
+          <td>MaixCDK, MaixPy</td>
+          <td>CSDK, MaixPy</td>
+          <td>CSDK, MaixPy3</td>
+          <td>CSDK</td>
+          <td>CSDK</td>
+        </tr>
+        <tr>
+          <td>操作系统</td>
+          <td>Linux + RTOS</td>
+          <td>RTOS</td>
+          <td>Tina Linux</td>
+          <td>Linux</td>
+          <td>Linux</td>
+        </tr>
+        <tr>
+          <td>典型外设</td>
+          <td>UART/I2C/SPI/PWM/GPIO/WDT/ADC</td>
+          <td>UART/I2C/SPI/PWM/FPIOA/GPIO/FFT/I2S</td>
+          <td>USB/UART/I2C/SPI/<br />PWM/GPIO/ADC</td>
+          <td>USB/UART/I2C/SPI/<br />PWM/GPIO/ADC</td>
+          <td>USB/UART/I2C/SPI/<br />PWM/GPIO/ADC</td>
+        </tr>
+        <tr>
+          <td>
+            <a href="https://maixhub.com" target="_blank">MaixHub</a>
+          </td>
+          <td>支持度：优</td>
+          <td>支持度：中</td>
+          <td>支持度：良</td>
+          <td>支持度：中</td>
+          <td>支持度：无</td>
+        </tr>
+        <tr>
+          <td>IDE</td>
+          <td>MaixVision</td>
+          <td>MaixPy IDE</td>
+          <td>MaixPy3 Jupyter IDE</td>
+          <td>无</td>
+          <td>无</td>
+        </tr>
+        <tr>
+          <td>文档和易用性</td>
+          <td>⭐️⭐️⭐️⭐️⭐️</td>
+          <td>⭐️⭐️⭐️⭐️</td>
+          <td>⭐️⭐️⭐️</td>
+          <td>⭐️⭐️</td>
+          <td>⭐️⭐️</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</div>
+
+<script lang="ts">
+  const data_maixcam = {
+    cards: [
+      {
+        img: "/static/home/maixcam.jpg",
+        title: "MaixCAM",
+        brief:
+          "RISC-V 1GHz + 1Tops NPU, 4M高清摄像头，2.3寸552x368高清电容触摸屏，完美支持全新 Maix 生态所有软件",
+        btns: [
+          {
+            label: "文档",
+            link: "/hardware/zh/maixcam/index.html",
+          },
+          {
+            label: "购买",
+            link: "https://sipeed.taobao.com",
+            new_tab: true,
+          },
+        ],
+      },
+      {
+        img: "/static/home/maixpy.jpg",
+        title: "MaixPy",
+        brief:
+          "Python 语法，简易 API，快速落地 AI 视觉、听觉应用",
+        btns: [
+          {
+            label: "文档",
+            link: "https://wiki.sipeed.com/maixpy/",
+          },
+          {
+            label: "源码",
+            link: "https://github.com/sipeed/MaixPy",
+            new_tab: true,
+          },
+        ],
+      },
+      {
+        img: "/static/home/maixcdk.jpg",
+        title: "MaixCDK",
+        brief:
+          "C++ SDK, MaixPy 同款 API，稳定高效易上手",
+        btns: [
+          {
+            label: "文档",
+            link: "https://github.com/sipeed/MaixCDK",
+            new_tab: true,
+          },
+          {
+            label: "源码",
+            link: "https://github.com/sipeed/MaixCDK",
+            new_tab: true,
+          },
+        ],
+      },
+      {
+        img: "/static/home/maixvision.jpg",
+        title: "IDE 和云平台",
+        brief:
+          "代码编辑运行、图像实时预览，在线一键 AI 模型训练",
+        btns: [
+          {
+            label: "MaixVision",
+            link: "/maixvision",
+          },
+          {
+            label: "MaixHub",
+            link: "https://maixhub.com",
+            new_tab: true,
+          }
+        ],
+      },
+    ],
+  };
+
+  const data_maix = {
+    cards: [
+      {
+        img: "/static/home/maixbit.png",
+        title: "Maix-I (K210)",
+        brief:
+          "带硬件 AI 加速的 MCU，配合易用的软件快速落地低成本 AI 应用",
+        btns: [
+          {
+            label: "文档",
+            link: "/hardware/zh/maix/maixpy_develop_kit_board/maix_bit.html",
+          },
+          {
+            label: "购买",
+            link: "https://item.taobao.com/item.htm?id=586580351110",
+            new_tab: true,
+          },
+        ],
+      },
+      {
+        img: "/static/home/m2dock.png",
+        title: "Maix-II (V831)",
+        brief:
+          "硬件 AI 加速 + Linux + 易用的软件，教育、工业视觉、智能家居场景绝配",
+        btns: [
+          {
+            label: "文档",
+            link: "/m2dock",
+          },
+          {
+            label: "MaixPy3",
+            link: "/maixpy3",
+          },
+          {
+            label: "购买",
+            link: "https://item.taobao.com/item.htm?spm=a230r.1.14.13.681570a1SllT5M&id=635874427363&ns=1&abbucket=16#detail",
+            new_tab: true,
+          },
+        ],
+      },
+      {
+        img: "/static/home/m3axpi.png",
+        title: "Maix-III (AXeraPi)",
+        brief:
+          "3.6Tops AI ISP，微光夜视，大量常见 AI 模型支持，安防智能 IPC",
+        btns: [
+          {
+            label: "文档",
+            link: "/m3axpi",
+          },
+          {
+            label: "购买",
+            link: "https://item.taobao.com/item.htm?id=682169792430",
+            new_tab: true,
+          },
+        ],
+      },
+      {
+        img: "/static/home/m4ndock.png",
+        title: "Maix-IV (AXeraPi-Pro)",
+        brief:
+          "10Tops AI 算力，32 路 1080p 高清 AI 视频监控，AI 大模型支持",
+        btns: [
+          {
+            label: "文档",
+            link: "/m4ndock",
+          },
+          {
+            label: "购买",
+            link: "https://item.taobao.com/item.htm?id=744014549573",
+            new_tab: true,
+          },
+        ],
+      },
+    ],
+  };
+</script>
+      </div>
+      <div id="page_tang" class="hidden h-full w-full">
+        <!-- 修改后保存一下 include 这个文件的 html 模板（比如home.html）就会渲染 -->
+
+<div class="w-full flex flex-col justify-center items-center">
+  <h2 class="text-2xl font-bold my-8 block_simple">Tang FPGA 系列</h2>
+  <div class="cards">
+    <!-- cards -->
+    <div class="card" v-for="item in data_tang.cards">
+      <div class="img_wrapper">
+        <img class="card_img" :src="item.img" />
+      </div>
+      <h3 class="card_title" class="text-lg">{[item.title]}</h3>
+      <div class="card_brief">{[item.brief]}</div>
+      <div class="card_btns">
+        <a
+          v-for="btn in item.btns"
+          :href="btn.link"
+          :target="btn.new_tab ? '_blank' : '_self'"
+          >{[btn.label]}</a
+        >
+      </div>
+    </div>
+    <!-- cards end -->
+  </div>
+  <h3 class="text-2xl font-bold my-8">Tang 系列板卡参数对比</h3>
+  <div class="w-full my-8 overflow-auto px-2">
+    <div class="table_wrapper">
+    <!-- a table to compare upper products' parameters -->
+    <table>
+      <thead>
+        <tr>
+          <th>参数</th>
+          <th>Mega 138K Pro</th>
+          <th>Mega 138K</th>
+          <th>Mega 60K</th>
+          <th>Primer 25K</th>
+          <th>Primer 20K</th>
+          <th>Primer 15K</th>
+          <th>Nano 20K</th>
+          <th>Nano 9K</th>
+          <th>Nano 4K</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>芯片</td>
+          <td>GW5AST-138</td>
+          <td>GW5AST-138</td>
+          <td>GW5AT-60</td>
+          <td>GW5A-25</td>
+          <td>GW2A-18</td>
+          <td>GW5ART-15</td>
+          <td>GW2AR-18</td>
+          <td>GW1NR-9</td>
+          <td>GW1NSR-4C</td>
+        </tr>
+        <tr>
+          <td>查找表(LUT)</td>
+          <td>138240</td>
+          <td>138240</td>
+          <td>59904</td>
+          <td>23040</td>
+          <td>20736</td>
+          <td>15120</td>
+          <td>20736</td>
+          <td>8640</td>
+          <td>4608</td>
+        </tr>
+        <tr>
+          <td>寄存器(FF)</td>
+          <td>138240</td>
+          <td>138240</td>
+          <td>59904</td>
+          <td>23040</td>
+          <td>15552</td>
+          <td>15120</td>
+          <td>15552</td>
+          <td>6480</td>
+          <td>4608</td>
+        </tr>
+        <tr>
+          <td>SSRAM(Kbits)</td>
+          <td>1080</td>
+          <td>1080</td>
+          <td>468</td>
+          <td>180</td>
+          <td>41</td>
+          <td>118</td>
+          <td>41</td>
+          <td>17</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>BSRAM(Kbits)</td>
+          <td>6120</td>
+          <td>6120</td>
+          <td>2124</td>
+          <td>1008</td>
+          <td>828</td>
+          <td>630</td>
+          <td>828</td>
+          <td>468</td>
+          <td>180</td>
+        </tr>
+        <tr>
+          <td nowrap="nowrap"> RAM </td>
+          <td nowrap="nowrap">板载_fpga 4Gb DDR3 SDRAM * 2</td>
+          <td nowrap="nowrap">板载_fpga 4Gb DDR3 SDRAM * 2</td>
+          <td nowrap="nowrap">板载_fpga 4Gb DDR3 SDRAM * 1</td>
+          <td nowrap="nowrap">-</td>
+          <td nowrap="nowrap">板载_fpga 1Gb DDR3 SDRAM</td>
+          <td nowrap="nowrap">内含 64Mb PSRAM</td>
+          <td nowrap="nowrap">内含 64Mb SDR SDRAM</td>
+          <td nowrap="nowrap">内含 64Mb PSRAM</td>
+          <td nowrap="nowrap">内含 64Mb HyperRAM</td>
+        </tr>
+        <tr>
+          <td nowrap="nowrap">内嵌处理器</td>
+          <td nowrap="nowrap">RiscV AE350_SOC</td>
+          <td nowrap="nowrap">RiscV AE350_SOC</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>Cortex-M3</td>
+        </tr>
+        <tr>
+          <td nowrap="nowrap">储存</td>
+          <td nowrap="nowrap">板载_fpga 128Mb Flash * 2</td>
+          <td nowrap="nowrap">板载_fpga 128Mb Flash</td>
+          <td nowrap="nowrap">板载_fpga 128Mb Flash</td>
+          <td nowrap="nowrap">板载_fpga 64Mb Flash</td>
+          <td nowrap="nowrap">板载_fpga 64Mb Flash</td>
+          <td nowrap="nowrap">板载_fpga 64Mb Flash</td>
+          <td nowrap="nowrap">板载_fpga 64Mb Flash</td>
+          <td nowrap="nowrap">内含 608Kb Flash<br>板载_fpga 32Mb Flash</td>
+          <td nowrap="nowrap">内含 256Kb Flash<br>板载_fpga 32Mb Flash</td>
+        </tr>
+        <tr>
+          <td>其他特点</td>
+          <td nowrap="nowrap">内含 12.5G Transceivers<br>支持 PCIe 3.0 通信<br>支持 SFP+ 数据传输</td>
+          <td nowrap="nowrap">内含 8.0G Transceivers<br>支持 PCIe 3.0 通信<br>支持 USB3 数据传输</td>
+          <td nowrap="nowrap">内含 6.6G Transceivers<br>内含 2.5G MIPI C/DPHY RX/TX<br>支持 PCIe 2.0 通信<br>支持 USB3 数据传输</td>
+          <td nowrap="nowrap">内含 2.5G MIPI DPHY RX/TX<br>支持 PMOD, 64MByte SDRAM模块<br>支持 USB手柄</td>
+          <td nowrap="nowrap">丰富外设，HDMI/以太网/USB</td>
+          <td nowrap="nowrap">内含 6.6G Transceivers<br>内含 2.5G MIPI C/DPHY RX/TX<br>支持 PCIe 2.0 通信<br>M.2 外形兼容</td>
+          <td nowrap="nowrap">for RetroGame ~</td>
+          <td nowrap="nowrap">for RISCV softcore</td>
+          <td nowrap="nowrap">GOAI~</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</div>
+
+<script lang="ts">
+  const data_tang = {
+    cards: [
+    {
+        img: "/static/home/Tang_Mega_60K.png",
+        title: "Tang Mega 60K",
+        brief: "小体积的中等量 FPGA 开发板",
+        btns: [
+          {
+            label: "文档",
+            link: "/hardware/zh/tang/tang-mega-60k/mega-60k.html",
+          },
+          {
+            label: "购买",
+            link: "https://item.taobao.com/item.htm?id=808924746746",
+            new_tab: true,
+          }
+        ],
+      },
+      {
+        img: "/static/home/Tang_Mega_138K.png",
+        title: "Tang Mega 138K",
+        brief: "小体积的大容量 FPGA 开发板",
+        btns: [
+          {
+            label: "文档",
+            link: "/hardware/zh/tang/tang-mega-138k/mega-138k.html",
+          },
+          {
+            label: "购买",
+            link: "https://item.taobao.com/item.htm?id=808924746746",
+            new_tab: true,
+          }
+        ],
+      },
+      {
+        img: "/static/home/Tang_Mega_138K_Pro.png",
+        title: "Tang Mega 138K Pro",
+        brief: "可以高速通信的大容量 FPGA 开发板",
+        btns: [
+          {
+            label: "文档",
+            link: "/hardware/zh/tang/tang-mega-138k/mega-138k-pro.html",
+          },
+          {
+            label: "购买",
+            link: "https://item.taobao.com/item.htm?id=740536508140",
+            new_tab: true,
+          }
+        ],
+      },
+      {
+        img: "/static/home/Tang_Primer_25K.png",
+        title: "Tang Primer 25K",
+        brief: "自由拓展的 FPGA 开发板",
+        btns: [
+          {
+            label: "文档",
+            link: "/hardware/zh/tang/tang-primer-25k/primer-25k.html",
+          },
+          {
+            label: "购买",
+            link: "https://item.taobao.com/item.htm?id=746293292946",
+            new_tab: true,
+          }
+        ],
+      },
+      {
+        img: "/static/home/Tang_Primer_20K.png",
+        title: "Tang Primer 20K",
+        brief: "自带多种外设接口的 FPGA 开发板",
+        btns: [
+          {
+            label: "文档",
+            link: "/hardware/zh/tang/tang-primer-20k/primer-20k.html",
+          },
+          {
+            label: "购买",
+            link: "https://item.taobao.com/item.htm?id=680099020807",
+            new_tab: true,
+          },
+        ],
+      },
+      {
+        img: "/static/home/Tang_Nano_20K.png",
+        title: "Tang Nano 20K",
+        brief: "适用于模拟复古游戏机的 FPGA 开发板",
+        btns: [
+          {
+            label: "文档",
+            link: "/hardware/zh/tang/tang-nano-20k/nano-20k.html",
+          },
+          {
+            label: "购买",
+            link: "https://item.taobao.com/item.htm?id=717932028073",
+            new_tab: true,
+          },
+        ],
+      },
+      {
+        img: "/static/home/Tang_Nano_9K.png",
+        title: "Tang Nano 9K",
+        brief: "适合 RiscV 软核验证的 FPGA 开发板",
+        btns: [
+          {
+            label: "文档",
+            link: "/hardware/zh/tang/Tang-Nano-9K/Nano-9K.html",
+          },
+          {
+            label: "购买",
+            link: "https://item.taobao.com/item.htm?id=666055424174",
+            new_tab: true,
+          },
+        ],
+      },
+      {
+        img: "/static/home/Tang_Nano_4K.png",
+        title: "Tang Nano 4K",
+        brief: "芯片内部含有 MCU 的 FPGA 开发板",
+        btns: [
+          {
+            label: "文档",
+            link: "/hardware/zh/tang/Tang-Nano-4K/Nano-4K.html",
+          },
+          {
+            label: "购买",
+            link: "https://item.taobao.com/item.htm?id=661994055100",
+            new_tab: true,
+          },
+        ],
+      },
+      {
+        img: "/static/home/Tang_Primer_15K.png",
+        title: "Tang Primer 15K",
+        brief: "开发中，敬请期待。。。",
+        btns: [
+          {
+            label: "文档",
+            link: "/hardware/zh/tang/tang-primer-15k/primer-15k.html",
+          },
+          {
+            label: "购买",
+            link: "https://sipeed.taobao.com",
+            new_tab: true,
+          }
+        ],
+      },
+    ],
+  };
+</script>
+      </div>
+      <div id="page_licheepi" class="hidden h-full w-full">
+        <!-- 修改后保存一下 include 这个文件的 html 模板就会渲染 -->
+
+<div class="w-full flex flex-col justify-center items-center">
+  <h2 class="text-2xl font-bold my-8 block_simple">Linux RISC-V SBC 系列</h2>
+  <div class="cards">
+    <!-- cards risc-v-->
+    <div class="card" v-for="item in data_lichee.cards">
+      <img class="card_img" :src="item.img" />
+      <h3 class="card_title" class="text-lg">{[item.title]}</h3>
+      <div class="card_brief">{[item.brief]}</div>
+      <div class="card_btns">
+        <a
+          v-for="btn in item.btns"
+          :href="btn.link"
+          :target="btn.new_tab ? '_blank' : '_self'"
+          >{[btn.label]}</a
+        >
+      </div>
+    </div>
+  </div>
+  <!-- cards end -->
+  <!-- cards arm-->
+  <h2 class="text-2xl font-bold my-8 block_simple">Linux ARM SBC 系列</h2>
+  <div class="cards">
+    <!-- cards -->
+    <div class="card" v-for="item in data_arm.cards">
+      <img class="card_img" :src="item.img" />
+      <h3 class="card_title" class="text-lg">{[item.title]}</h3>
+      <div class="card_brief">{[item.brief]}</div>
+      <div class="card_btns">
+        <a
+          v-for="btn in item.btns"
+          :href="btn.link"
+          :target="btn.new_tab ? '_blank' : '_self'"
+          >{[btn.label]}</a
+        >
+      </div>
+    </div>
+  </div>
+  <!-- cards end -->
+  <h3 class="text-2xl font-bold my-8">RISC-V SBC 系列产品参数对比</h3>
+  <div class="w-full my-8 overflow-auto px-2">
+    <!-- a table to compare upper products' parameters -->
+    <!-- RISC-V -->
+    <div class="table_wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>参数</th>
+          <th>LicheePi 4A</th>
+          <th>LicheeRV-Nano</th>
+          <th>LicheeRV</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>处理器</td>
+          <td>TH1520: 4xC910@1.85GHz RV64GCV</td>
+          <td>SG2002: C906@1.0GHz/ARM A53 + C906@700MHz + 8051@25~300MHz</td>
+          <td>D1: C906@1.0GHz</td>
+        </tr>
+        <tr>
+          <td>内存</td>
+          <td>8GB/16GB 64bits LPDDR4X</td>
+          <td>256MB DDR3 SIP</td>
+          <td>512MB/1GB DDR3, 792MHz</td>
+        </tr>
+        <tr>
+          <td>储存</td>
+          <td>预留 EMMC/TF 卡</td>
+          <td>预留 SD-NAND/TF 卡</td>
+          <td>预留 SD-NAND/TF 卡</td>
+        </tr>
+        <tr>
+          <td>GPU和显示</td>
+          <td>
+            IMG BXM-4-64,<br />OpenCL 1.1/1.2/2.0<br />OpenGL ES
+            3.0/3.1/3.2<br />Vulkan 1.1/1.2,<br />HDMI2.0/4-lane MIPI DSI ·
+            Android NN HAL
+          </td>
+          <td>无 GPU, MIPI 2-lane MIPI DSI 31pin, 6pin touchscreen</td>
+          <td>无 GPU, MIPI 4-lane MIPI DSI/ RGB888/MCUI80/SPI</td>
+        </tr>
+        <tr>
+          <td>编解码器</td>
+          <td>
+            H.265 4K@40FPS/H.264 4K@40FPS/VP9/8/7/6/AVS/AVS+/AVS2.0/VC1/MPEG4
+            解码<br />H.264 4K@40FPS/H.265 4K@40FPS 编码
+          </td>
+          <td>
+            H.264 H.265 2k@30FPS 解码<br />H.264 H.265 2k@30FPS 编码
+          </td>
+          <td>
+            H.264 1080p@30FPS/MJPEG 1080@30FPS 解码<br />1080p@40FPS/1080p@30FPS+VGA@30FPS
+            H.264 编码
+          </td>
+        </tr>
+        <tr>
+          <td>操作系统</td>
+          <td>主线 Linux/Android/Deepin/Ubuntu/OpenWrt etc.</td>
+          <td>主线 Linux/BuildRoot/Debian etc.</td>
+          <td>Tina Linux/Debian/Ubuntu/RTOS</td>
+        </tr>
+        <tr>
+          <td>NPU</td>
+          <td>4Tops@INT8 1GHz</td>
+          <td>1Tops@INT8, BF16 support</td>
+          <td>无</td>
+        </tr>
+        <tr>
+          <td>典型外设</td>
+          <td>
+            USB3.0x4/UART/I2C/SPI/PWM/GPIO/ADC<br />2x2-lane MIPI CSI/1x4-lane
+            MIPI CSI/1000M Ethx2
+          </td>
+          <td>
+            USB2.0/UART/I2C/SPI/PWM/GPIO/ADC<br />2lane MIPI DSI/4lane MIPI CSI/100M Eth/WiFi6+BLE5
+          </td>
+          <td>OTG USB/UART/I2C/SPI/PWM/GPIO/TWI/ADC</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+  <!-- ARM -->
+  <h3 class="text-2xl font-bold my-8">ARM SBC 系列产品参数对比</h3>
+  <div class="w-full my-8 overflow-auto px-2">
+    <div class="table_wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>参数</th>
+          <th>LonganPi 3H</th>
+          <th>LicheePi Zero</th>
+          <th>LicheePi Nano</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>处理器</td>
+          <td>H618: Cortex-A53x4@1.5GHz</td>
+          <td>V3S: Cortex-A7@1.2GHz</td>
+          <td>F1C100s: ARM9@408MHz</td>
+        </tr>
+        <tr>
+          <td>内存</td>
+          <td>1/2/4GB 64bits LPDDR4</td>
+          <td>64MB DDR2</td>
+          <td>32MB DDR</td>
+        </tr>
+        <tr>
+          <td>储存</td>
+          <td>预留 eMMC/TF 卡</td>
+          <td>预留 SOP8 SPI Flash/TF 卡</td>
+          <td>板载 16MB NOR Flash, TF 卡</td>
+        </tr>
+        <tr>
+          <td>GPU和显示</td>
+          <td>Arm Mali-G31 OpenCL2.0 OpenGL ES 1.0/2.0/3.2 Vulkan 1.1</td>
+          <td>无 GPU, 40P RGB LCD</td>
+          <td>无 GPU, 40P RGB LCD</td>
+        </tr>
+        <tr>
+          <td>编解码器</td>
+          <td>
+            H.264 BP/MP/HP 4k@60FPS 解码<br>H.264 BP/MP/HP 4k@25FPS 编码
+          </td>
+          <td>
+            H.264 1280x720@30FPS/MPEG1/2/4 1280x720@30FPS 解码<br />MJPEG
+            1280x720@30FPS/JPEG 8192x8192 编码
+          </td>
+          <td>
+            H.264 1280x720@30FPS 解码<br />MPEG1/2/4 1280x720@30FPS 解码<br />MJPEG
+            1280x720@30 FPS 解码<br />JPEG 8192x8192 编码
+          </td>
+        </tr>
+        <tr>
+          <td>操作系统</td>
+          <td>Linux 主线/Debian</td>
+          <td>Linux</td>
+          <td>4.19 主线 Linux/3.10 BSP Linux/Xboot/RT-Thread</td>
+        </tr>
+        <tr>
+          <td>NPU</td>
+          <td>无</td>
+          <td>无</td>
+          <td>无</td>
+        </tr>
+        <tr>
+          <td>典型外设</td>
+          <td>
+            USB2.0x2/OTG USB2.0x1/UART/SPI/1000M ETH
+          </td>
+          <td>
+            OTG USBx1/UARTx3/SPIx1/PWMx2/<br />GPIO/LRADCx1/SDIOx2/TWI/I2Cx2/100M
+            Eth+EPHY/MIPI CSIx1
+          </td>
+          <td>
+            OTG USBx1/UARTx3/SPIx2/PWMx2/<br />GPIO/LRADCx1/SDIO/TWIx3/TV out
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</div>
+
+<script lang="ts">
+  const data_lichee = {
+    cards: [
+      {
+        img: "/static/image/LicheePi_4A.png",
+        title: "LicheePi 4A",
+        brief: "高性能 RISC-V@1.85GHz x4 开发板/平板/笔记本电脑",
+        btns: [
+          {
+            label: "文档",
+            link: "/hardware/zh/lichee/th1520/lpi4a/1_intro.html",
+          },
+          {
+            label: "购买",
+            link: "https://item.taobao.com/item.htm?id=715508771884",
+            new_tab: true,
+          },
+          {
+            label: "更多",
+            link: "https://sipeed.com/licheepi4a",
+            new_tab: true,
+          }
+        ],
+      },
+      {
+        img: "/static/image/licheerv_nano.png",
+        title: "LicheeRV-Nano",
+        brief: "高性价比迷你 RISC-V IPC/屏显开发板",
+        btns: [
+          {
+            label: "文档",
+            link: "/licheerv-nano",
+          },
+          {
+            label: "购买",
+            link: "https://item.taobao.com/item.htm?id=764939520376",
+            new_tab: true,
+          },
+        ],
+      },
+      {
+        img: "/static/image/licheeRV_dock.png",
+        title: "LicheeRV",
+        brief: "高集成度入门级 RISC-V Linux 开发板",
+        btns: [
+          {
+            label: "文档",
+            link: "/hardware/zh/lichee/RV/Dock.html",
+          },
+          {
+            label: "购买",
+            link: "https://item.taobao.com/item.htm?spm=a1z10.1-c-s.w21412213-24984936557.39.5a6752b1QHS1PQ&id=666274331852",
+            new_tab: true,
+          },
+        ],
+      }
+    ],
+  };
+
+  const data_arm = {
+    cards: [
+      {
+        img: "/static/image/longan_3h.png",
+        title: "LonganPi 3H",
+        brief: "H618 4核A53@1.5GHz 小电脑",
+        btns: [
+          {
+            label: "文档",
+            link: "/lpi3h.html",
+          },
+          {
+            label: "购买",
+            link: "https://item.taobao.com/item.htm?ft=t&id=758221950525",
+            new_tab: true,
+          },
+        ],
+      },
+      {
+        img: "/static/home/lichee_zero.png",
+        title: "LicheePi Zero",
+        brief: "Cortex-A7 迷你 Linux 开发板",
+        btns: [
+          {
+            label: "文档",
+            link: "/hardware/zh/lichee/Zero/Zero.html",
+          },
+          {
+            label: "购买",
+            link: "https://item.taobao.com/item.htm?spm=a1z10.5-c-s.w4002-24984936573.16.49e92935JOImvv&id=585033586770",
+            new_tab: true,
+          },
+        ],
+      },
+      {
+        img: "/static/home/lichee_nano.png",
+        title: "LicheePi Nano",
+        brief: "ARM9 迷你 Linux 开发板",
+        btns: [
+          {
+            label: "文档",
+            link: "/hardware/zh/lichee/Nano/Nano.html",
+          },
+          {
+            label: "购买",
+            link: "https://item.taobao.com/item.htm?spm=a1z10.5-c-s.w4002-24984936573.14.49e92935JOImvv&id=584657396198",
+            new_tab: true,
+          },
+        ],
+      },
+    ],
+  };
+</script>
+      </div>
+      <div id="page_maixsense" class="hidden h-full w-full">
+        <!-- 修改后保存一下 include 这个文件的 html 模板（比如home.html）就会渲染 -->
+
+<div class="w-full flex flex-col justify-center items-center">
+  <h2 class="text-2xl font-bold my-8 block_simple">MaixSense 传感器模组系列</h2>
+  <div class="w-full flex flex-col justify-center">
+    <div class="cards">
+      <!-- cards -->
+      <div class="card" v-for="item in data_maixsense.cards">
+        <div class="img_wrapper">
+          <img class="card_img" :src="item.img" />
+        </div>
+        <h3 class="card_title" class="text-lg">{[item.title]}</h3>
+        <div class="card_brief">{[item.brief]}</div>
+        <div class="card_btns">
+          <a
+            v-for="btn in item.btns"
+            :href="btn.link"
+            :target="btn.new_tab ? '_blank' : '_self'"
+            >{[btn.label]}</a
+          >
+        </div>
+      </div>
+      <!-- cards end -->
+    </div>
+    <div class="w-full flex flex-col justify-center items-center mt-10 mb-5">
+      <!-- a table to compare upper products' parameters -->
+    </div>
+  </div>
+</div>
+
+<script lang="ts">
+  const data_maixsense = {
+    cards: [
+      {
+        img: "/hardware/zh/maixsense/assets/me_small.jpg",
+        title: "MaixSense A010",
+        brief: "100x100 3D TOF 深度传感器模组",
+        btns: [
+          {
+            label: "文档",
+            link: "/hardware/zh/maixsense/index.html",
+          },
+          {
+            label: "购买",
+            link: "https://item.taobao.com/item.htm?id=684566484141",
+            new_tab: true,
+          },
+        ],
+      },
+      {
+        img: "/hardware/zh/maixsense/assets/me_big.jpg",
+        title: "MaixSense A075v",
+        brief: "RGB 3D TOF 深度摄像头模组",
+        btns: [
+          {
+            label: "文档",
+            link: "/hardware/zh/maixsense/index.html",
+          },
+          {
+            label: "购买",
+            link: "https://item.taobao.com/item.htm?id=684566484141",
+            new_tab: true,
+          },
+        ],
+      },
+    ],
+  };
+</script>
+      </div>
+      <div id="page_others" class="hidden h-full w-full">
+        <!-- 修改后保存一下 include 这个文件的 html 模板就会渲染 -->
+
+<div class="w-full h-full flex flex-col justify-center items-center">
+  <div class="w-full flex flex-col justify-center">
+    <div class="cards">
+      <!-- cards -->
+      <div class="card" v-for="item in data_others.cards">
+        <img class="card_img" :src="item.img" />
+        <h3 class="card_title" class="text-lg">{[item.title]}</h3>
+        <div class="card_brief">{[item.brief]}</div>
+        <div class="card_btns">
+          <a
+            v-for="btn in item.btns"
+            :href="btn.link"
+            :target="btn.new_tab ? '_blank' : '_self'"
+            >{[btn.label]}</a
+          >
+        </div>
+      </div>
+      <!-- cards end -->
+    </div>
+  </div>
+  <div class="text-xl block_simple">
+    其它未列出的产品请进入<a href="/hardware/zh/">产品文档</a>在左侧目录查找。
+  </div>
+</div>
+
+<script lang="ts">
+  const data_others = {
+    cards: [
+      {
+        img: "/static/home/slogic.png",
+        title: "SLogic",
+        brief:
+          "逻辑分析仪+CKLink+DAPLink+USB转串口 多合一指尖工具",
+        btns: [
+          {
+            label: "文档",
+            link: "/slogic",
+          },
+          {
+            label: "购买",
+            link: "https://item.taobao.com/item.htm?id=737788586308",
+            new_tab: true,
+          },
+        ],
+      }
+    ],
+  };
+</script>
+      </div>
+
+      <div id="page_news" class="hidden h-full w-full">
+        <n-carousel
+          show-arrow
+          dot-type="line"
+          dot-placement="bottom"
+          class="carousel"
+          :show-dots="true"
+          :draggable="true"
+          :autoplay="true"
+          :interval="6000"
+        >
+          <!-- for item, key is index -->
+          <n-carousel-item
+            class="carousel_item"
+            v-for="(item, key) in data.head"
+          >
+            <img class="carousel-img" :src="item.img" />
+            <div class="carousel_item_bottom">
+              <div class="btn_contrainer">
+                <a
+                  v-for="(btn, key2) in item.btns"
+                  :href="btn.link"
+                  target="_blank"
+                  :class="key2 === item.btns.length - 1? 'btn_home_head btn_home_head_last' : 'btn_home_head'"
+                >
+                  {[ btn.lable ]}
+                </a>
+              </div>
+            </div>
+          </n-carousel-item>
+        </n-carousel>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script lang="ts">
+  const data = {
+    head: [
+      // 图片分辨率为： 1800x600， 左右两边各留 200px 不包含实际内容只有背景，中间 1400px 是内容
+      {
+        img: "/static/home/banner_maixcam.jpg",
+        btns: [
+          {
+            lable: "硬件文档",
+            link: "/maixcam",
+          },
+          {
+            lable: "软件 MaixPy",
+            link: "/maixpy",
+          },
+          {
+            lable: "购买",
+            link: "https://item.taobao.com/item.htm?id=784724795837",
+          },
+        ],
+      },
+      {
+        img: "/static/home/banner_nanokvm_zh.jpg",
+        btns: [
+          {
+            lable: "文档",
+            link: "/nanokvm",
+          },
+          {
+            lable: "购买",
+            link: "https://item.taobao.com/item.htm?id=811206560480",
+          }
+        ],
+      },
+      {
+        img: "/static/home/LicheeRV-Nano.jpg",
+        btns: [
+          {
+            lable: "文档",
+            link: "/licheerv-nano",
+          },
+          {
+            lable: "购买",
+            link: "https://item.taobao.com/item.htm?id=764939520376",
+          },
+        ],
+      },
+      {
+        img: "/static/home/LonganPi3H.jpg",
+        btns: [
+          {
+            lable: "文档",
+            link: "/lpi3h.html",
+          },
+          {
+            lable: "购买",
+            link: "https://item.taobao.com/item.htm?ft=t&id=758221950525",
+          },
+        ],
+      },
+      {
+        img: "/static/home/console-4A.jpg",
+        btns: [
+          {
+            lable: "文档",
+            link: "/licheeconsole4a",
+          },
+          {
+            lable: "购买",
+            link: "/store",
+          },
+        ],
+      },
+      {
+        img: "/static/home/25K.jpg",
+        btns: [
+          {
+            lable: "文档",
+            link: "/tang25k",
+          },
+          {
+            lable: "购买",
+            link: "/store",
+          },
+        ],
+      },
+      {
+        img: "/static/home/138K.jpg",
+        btns: [
+        {
+          lable: "文档",
+          link: "/tang138k",
+        },
+        {
+          lable: "购买",
+          link: "/store",
+        },
+        ],
+      },
+      {
+        img: "/static/home/banner_slogic.jpg",
+        btns: [
+        {
+          lable: "文档",
+          link: "/slogic",
+        },
+        {
+          lable: "购买",
+          link: "https://item.taobao.com/item.htm?id=737788586308",
+        },
+        ],
+      },
+      {
+        img: "/static/home/LicheePi-4A.jpg",
+        btns: [
+        {
+          lable: "文档",
+          link: "/licheepi4a",
+        },
+        {
+          lable: "购买",
+          link: "https://item.taobao.com/item.htm?id=737788586308",
+        },
+        ],
+      },
+    ],
+    products: [
+      // 只写公司重点运营的，不是重点推的产品不要写在这里，文档里面可以有，但是这里不写
+      // 改了需要同步改前面的 include 部分
+      {
+        label: "产品动态",
+        content: "news",
+      },
+      {
+        label: "Maix AI 视觉",
+        content: "maix", // maix.html
+      },
+      {
+        label: "Lichee / Longan",
+        content: "licheepi",
+      },
+      {
+        label: "Tang FPGA",
+        content: "tang",
+      },
+      {
+        label: "MaixSense 传感器",
+        content: "maixsense",
+      },
+      {
+        label: "其它",
+        content: "others",
+      },
+    ],
+  };
+
+  function isLimitedNetwork() {
+    var connection = navigator.connection ||
+      navigator.mozConnection ||
+      navigator.webkitConnection || { type: "unknown" };
+    const notLimitTypes = ["ethernet", "wifi", "wimax"];
+    const limitTypes = ["bluetooth", "cellular"];
+    var system = {
+      win: false,
+      mac: false,
+      x11: false,
+      ipad: false,
+    };
+    var p = navigator.platform;
+    system.win = p.indexOf("Win") == 0;
+    system.mac = p.indexOf("Mac") == 0;
+    system.x11 = p == "X11" || p.indexOf("Linux") == 0;
+    system.ipad = navigator.userAgent.match(/iPad/i) != null ? true : false;
+    if (notLimitTypes.indexOf(connection.type) >= 0) {
+      return false;
+    }
+    if (
+      (system.win || system.mac || system.x11 || system.ipad) &&
+      limitTypes.indexOf(connection.type) < 0
+    ) {
+      return false;
+    }
+    return true;
+  }
+
+  const allHandling = {
+    compilerOptions: {
+      delimiters: ["{[", "]}"],
+    },
+    data() {
+      return {
+        data: data,
+        deviceWidth: window.innerWidth,
+        data_maix: data_maix,
+        data_maixcam: data_maixcam,
+        data_lichee: data_lichee,
+        data_arm: data_arm,
+        data_tang: data_tang,
+        data_maixsense: data_maixsense,
+        data_others: data_others,
+      };
+    },
+    mounted() {
+      var isWechat = window.WeixinJSBridge;
+      if (!isWechat) {
+        document.addEventListener(
+          "WeixinJSBridgeReady",
+          function () {
+            var players_mask = document.getElementsByClassName("play_mask");
+            for (var i = 0; i < players_mask.length; ++i) {
+              players_mask[i].style.display = "block";
+            }
+          },
+          false
+        );
+      }
+      if (isLimitedNetwork() || isWechat) {
+        var players_mask = document.getElementsByClassName("play_mask");
+        for (var i = 0; i < players_mask.length; ++i) {
+          players_mask[i].style.display = "block";
+        }
+      } else {
+        var players = document.getElementsByClassName("video_player");
+        for (var i = 0; i < players.length; ++i) {
+          players[i].play();
+        }
+      }
+      // set content default page
+      this.setContent(this.data.products[0]);
+    },
+    methods: {
+      playVideo(event) {
+        // remove play button and paly video
+        el = event.target;
+        el.style.display = "none";
+        player = el.parentElement.getElementsByTagName("video")[0];
+        player.play();
+      },
+      setContent(item) {
+        // set page_{item.content} in content visible, others hidden
+        let contentEl = document.getElementById("content");
+        // data.products
+        for (var i = 0; i < this.data.products.length; ++i) {
+          let el = document.getElementById(
+            "page_" + this.data.products[i].content
+          );
+          if (this.data.products[i].content == item.content) {
+            el.style.display = "block";
+          } else {
+            el.style.display = "none";
+          }
+        }
+        // set menu active
+        var ul = document.getElementById("menuItems");
+        var items = ul.getElementsByTagName("li");
+        for (var i = 0; i < items.length; ++i) {
+          items[i].classList.remove("active");
+          if (items[i].id == "menu_" + item.content) {
+            items[i].classList.add("active");
+          }
+        }
+      },
+    },
+  };
+  var app = Vue.createApp(allHandling);
+  app.use(naive);
+  var vm = app.mount("#root");
+</script>
+
+ 
+            </div>
+        </div>
+        <a id="to_top" href="#"></a>
+        <div id="page_footer">
+            <div id="footer">
+                
+                <div id="footer_top">
+                    <ul>
+<li><a>相关链接</a><ul><li><a target="_blank" href="https://www.sipeed.com">Sipeed 官网</a></li>
+<li><a target="_blank" href="https://maixhub.com/">MaixHub</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">Sipeed 淘宝</a></li>
+<li><a  href="/sitemap.xml">网站地图</a></li>
+<li><a target="_blank" href="https://github.com/teedoc/teedoc">网站使用 teedoc 生成</a></li>
+</ul>
+</li>
+<li><a>源码</a><ul><li><a target="_blank" href="https://github.com/sipeed/sipeed_wiki">Wiki 源码</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">开源项目</a></li>
+</ul>
+</li>
+<li><a>关注我们</a><ul><li><a target="_blank" href="https://twitter.com/SipeedIO">twitter</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">淘宝</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">github</a></li>
+<li><a><a>微信公众号</a><img src='/static/image/wechat.png'></a>
+</li>
+</ul>
+</li>
+<li><a>联系我们</a><ul><li><a>电话: +86 0755-27808509</a>
+</li>
+<li><a>商业支持: support@sipeed.com</a>
+</li>
+<li><a>地址: 深圳市宝安区新湖路4008号蘅芳科技办公大厦A座-2101C</a>
+</li>
+<li><a  href="/join_us.html">加入我们</a></li>
+</ul>
+</li>
+</ul>
+
+                </div>
+                <div id="footer_bottom">
+                    <ul>
+<li><a target="_blank" href="https://www.sipeed.com">©2018-2023 深圳矽速科技有限公司</a></li>
+<li><a target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index">粤ICP备19015433号</a></li>
+</ul>
+
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/js/prism.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <link rel="stylesheet" href="/static/js/add_hint/style.css" type="text/css"/>
+    
+        <script src="/static/js/add_hint/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+        <script src="/static/js/thumbs_up/main.js"></script>
+    
+    
+</body>
+</html>

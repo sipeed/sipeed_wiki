@@ -1,0 +1,521 @@
+items:
+-   label: Maix Zero
+    items:
+    -   label: Maix M0
+        items:
+        -   label: M0sense Board
+            file: ./maixzero/sense/maix_zero_sense.md
+        -   label: M0sense Guide
+            file: ./maixzero/sense/start.md
+    -   label: Maix M0P
+        items:
+        -   label: M0P
+        -   label: M0P Dock
+    -   label: Maix M0s
+        file: ./maixzero/m0s/m0s.md
+-   label: Maix-I & Zero
+    items:
+    -   label: Maix M1
+        items:
+        -   label: M1 Module
+            collapsed: false
+            items:
+            -   label: M1/M1w
+                file: maix/core_module.md
+            -   label: M1n
+                file: maix/M1n.md
+        -   label: M1 Board
+            items:
+            -   label: Maix Dock(M1/M1W)
+                file: maix/maixpy_develop_kit_board/Maix_dock.md
+            -   label: Maix Bit
+                file: maix/maixpy_develop_kit_board/maix_bit.md
+            -   label: Maix Duino
+                file: maix/maixpy_develop_kit_board/maix_duino.md
+            -   label: Maix Nano
+                file: maix/maixpy_develop_kit_board/maix_nano.md
+            -   label: Maix Cube
+                file: maix/maixpy_develop_kit_board/maix_cube.md
+            -   label: Maix Amigo
+                file: maix/maixpy_develop_kit_board/maix_Amigo.md
+            -   label: Maix HAT
+                file: maix/maixpy_develop_kit_board/maix_hat.md
+            -   label: Maix Go (Sold out)
+                file: maix/maixpy_develop_kit_board/maix_go.md
+    -   label: Maix M1s
+        items:
+        -   label: M1s Module
+            file: maix/m1s/m1s_module.md
+        -   label: M1s Dock
+            items:
+            -   label: Introduction
+                file: maix/m1s/m1s_dock.md
+            -   label: Basic Usage
+                file: maix/m1s/other/start.md
+            -   label: Others (Camera and Shell)
+                file: maix/m1s/other/others.md
+    -   label: Maix M1a
+        items: []
+-   label: Maix-II
+    file: maixII/README.md
+    items:
+    -   label: MaixII-Dock
+        file: maixII/M2/resources.md
+        items:
+        -   label: Burn image
+            file: maixII/M2/flash.md
+        -   label: Basic usage
+            file: maixII/M2/usage.md
+        -   label: Other notice
+            file: maixII/M2/other.md
+        -   label: Using MaixPy3
+            file: ../../soft/maixpy3/zh/tools/0.MaixII-Dock.ipynb
+            target: _blank
+        -   label: FAQ
+            file: maixII/M2/faq.md
+    -   label: M2S
+        file: maixII/M2S/V833.md
+        items:
+        -   label: Board introduction
+            file: maixII/M2S/reources.md
+    -   label: MaixSense
+        file: maixII/M2A/maixsense.md
+        items:
+        -   label: Burn image
+            file: maixII/M2A/flash_system.md
+        -   label: Config system
+            file: maixII/M2A/config_system.md
+        -   label: Test board
+            file: maixII/M2A/first.md
+        -   label: Start to use
+            file: maixII/M2A/user.md
+        -   label: Using MaixPy3
+            file: ../../soft/maixpy3/zh/tools/maixsense.md
+            target: _blank
+-   label: Maix-III
+    items:
+    -   label: Maix-III AXera-Pi
+        file: maixIII/ax-pi/axpi.md
+        items:
+        -   label: AXera-Pi manual
+            file: maixIII/ax-pi/flash_system.md
+        -   label: Python programming
+            file: maixIII/ax-pi/python_api.ipynb
+        -   label: C/C++ programming
+            file: maixIII/ax-pi/dev_prepare.md
+        -   label: AI development guide
+            url: /ai/en/deploy/ax-pi.html
+        -   label: Questions (FAQ)
+            file: maixIII/ax-pi/faq_axpi.md
+-   label: MaixCAM
+    items:
+    -   label: MaixCAM Brief and Data
+        file: maixcam/README.md
+    -   label: MaixCAM Assembly
+        file: maixcam/assemble.md
+    -   label: System Upgrade
+        file: maixcam/os.md
+    -   label: Develop with MaixPy
+        url: https://wiki.sipeed.com/maixpy/
+    -   label: Develop with MaixCDK
+        file: maixcam/maixcdk.md
+    -   label: FAQ
+        file: maixcam/faq.md
+-   label: LicheePI
+    items:
+    -   label: LicheePI 4A
+        items:
+        -   label: Lichee Module 4A
+            file: lichee/th1520/lm4a.md
+        -   label: Lichee Cluster 4A
+            file: lichee/th1520/lc4a/lc4a.md
+        -   label: Lichee Console 4A
+            items:
+            -   label: setup_guide
+                file: lichee/th1520/lcon4a/setup_guide.md
+            -   label: images
+                file: lichee/th1520/lcon4a/3_images.md
+            -   label: burn_image
+                file: lichee/th1520/lcon4a/4_burn_image.md
+            
+            file: lichee/th1520/lbook4a/lbook4a.md
+        -   label: Lichee Book 4A
+            items:
+            -   label: burn_image
+                file: lichee/th1520/lbook4a/4_burn_image.md
+            
+            file: lichee/th1520/lbook4a/lbook4a.md
+        -   label: Lichee PI 4A
+            items:
+            -   label: Introduction
+                file: lichee/th1520/lpi4a/1_intro.md
+            -   label: Unbox guide
+                file: lichee/th1520/lpi4a/2_unbox.md
+            -   label: Image summary
+                file: lichee/th1520/lpi4a/3_images.md
+            -   label: Burn image
+                file: lichee/th1520/lpi4a/4_burn_image.md
+            -   label: Desktop usage
+                file: lichee/th1520/lpi4a/5_desktop.md
+            -   label: Peripheral
+                file: lichee/th1520/lpi4a/6_peripheral.md
+            -   label: System building
+                items:
+                -   label: revyos
+                    file: lichee/th1520/lpi4a/7_develop_revyos.md
+                -   label: Linux Mainline (Work in Progress)
+                    file: lichee/th1520/lpi4a/7_develop_mainline.md
+                -   label: Android
+                    file: lichee/th1520/lpi4a/7_develop_android.md
+                -   label: THead Yocto
+                    file: lichee/th1520/lpi4a/7_develop_thead.md
+                -   label: OpenHarmony (Work in Progress)
+                -   label: OpenWRT
+                    file: lichee/th1520/lpi4a/7_develop_openwrt.md
+            -   label: Application
+                file: lichee/th1520/lpi4a/8_application.md
+            -   label: Benchmark
+                file: lichee/th1520/lpi4a/9_benchmark.md
+            -   label: Hardware report
+                file: lichee/th1520/lpi4a/10_test_report.md
+            -   label: FAQ
+                file: lichee/th1520/lpi4a/12_faq.md
+            -   label: Credits
+                file: lichee/th1520/lpi4a/11_credits.md
+    -   label: LicheePI 3A
+        items:
+        -   label: Lichee Module 3A
+            file: lichee/K1/lm3a.md
+        -   label: Lichee Cluster 3A
+            file: lichee/K1/lc3a/lc3a.md
+        -   label: Lichee PI 3A
+            collapsed: false
+            items:
+            -   label: SBC Intro
+                file: lichee/K1/lpi3a/1_intro.md
+            -   label: Unbox experience
+                file: lichee/K1/lpi3a/2_unbox.md
+            -   label: Burn Images
+                file: lichee/K1/lpi3a/3_burn_image.md
+            -   label: Peripheral Usage
+                file: lichee/K1/lpi3a/4_peripheral.md
+            -   label: System develop
+                file: lichee/K1/lpi3a/5_develop.md
+            -   label: Applications
+                file: lichee/K1/lpi3a/6_application.md
+            -   label: FAQs
+                file: lichee/K1/lpi3a/7_faq.md
+            -   label: Credits
+                file: lichee/K1/lpi3a/8_credits.md
+    -   label: Lichee RV
+        collapsed: false
+        items:
+        -   label: Board Introduction
+            items:
+            -   label: Lichee RV
+                file: lichee/RV/RV.md
+            -   label: Lichee RV 86 Panel
+                file: lichee/RV/86_panel.md
+            -   label: Lichee RV Dock
+                file: lichee/RV/Dock.md
+        -   label: Burn System
+            file: lichee/RV/flash.md
+        -   label: Basic usage
+            file: lichee/RV/user.md
+        -   label: Questions&Answers
+            file: lichee/RV/problems.md
+        -   label: Ubuntu Image
+            file: lichee/RV/ubuntu.md
+    -   label: LicheeRV Nano
+        items:
+        -   label:  Introduction
+            file: lichee/RV_Nano/1_intro.md
+        -   label: Unboxing Experience
+            file: lichee/RV_Nano/2_unbox.md
+        -   label: Image Collection
+            file: lichee/RV_Nano/3_images.md
+        -   label: Flashing the Image
+            file: lichee/RV_Nano/4_burn_image.md
+        -   label: peripheral
+            file: lichee/RV_Nano/5_peripheral.md
+        -   label: System Development
+            file: lichee/RV_Nano/6_develop_mainline.md
+        -   label: test
+            file: lichee/RV_Nano/7_test_report.md
+        -   label: MMF Development Guide
+            file: lichee/RV_Nano/8_mmf_development_guide.md
+    -   label: Lichee Zero
+        file: lichee/Zero/Zero.md
+    -   label: Lichee Nano
+        file: lichee/Nano/Nano.md
+    -   label: Lichee ZeroPlus
+        file: lichee/ZeroPlus/ZeroPlus.md
+-   label: Tang FPGA
+    items:
+    -   label: Tang Nano
+        items:
+        -   label: Tang Nano
+            file: tang/Tang-Nano/Nano.md
+        -   label: Tang Nano 1K
+            file: tang/Tang-Nano-1K/Nano-1k.md
+        -   label: Tang Nano 4k
+            file: tang/Tang-Nano-4K/Nano-4K.md
+        -   label: Tang Nano 9K
+            file: tang/Tang-Nano-9K/Nano-9K.md
+        -   label: Tang Nano 20K
+            items:
+            -   label: Introduction
+                file: tang/tang-nano-20k/nano-20k.md
+            -   label: Unbox
+                file: tang/tang-nano-20k/example/unbox.md
+                target: _blank
+        -   label: Install IDE
+            file: tang/Tang-Nano-Doc/install-the-ide.md
+        -   label: Tang Nano examples
+            file: tang/Tang-Nano-Doc/examples.md
+            target: _blank
+        -   label: Questions&Answers
+            file: tang/Tang-Nano-Doc/questions.md
+            target: _blank
+    -   label: Tang Primer
+        items:
+        -   label: Tang Primer 20K
+            items:
+            -   label: Introduction
+                file: tang/tang-primer-20k/primer-20k.md
+            -   label: Notice
+                file: tang/tang-primer-20k/start.md
+            -   label: Install IDE
+                file: tang/Tang-Nano-Doc/install-the-ide.md
+            -   label: Examples(Github)
+                url: https://github.com/sipeed/TangPrimer-20K-example
+            -   label: Questions&Answers
+                file: tang/Tang-Nano-Doc/questions.md
+                target: _blank
+        -   label: Tang Primer 25K
+            items:
+            -   label: Introduction
+                file: tang/tang-primer-25k/primer-25k.md
+            -   label: Install IDE
+                file: tang/Tang-Nano-Doc/install-the-ide.md
+            -   label: Questions&Answers
+                file: tang/Tang-Nano-Doc/questions.md
+                target: _blank
+        -   label: Tang Primer 15K
+            items:
+            -   label: Introduction
+                file: tang/tang-primer-15k/primer-15k.md
+            -   label: Install IDE
+                file: tang/Tang-Nano-Doc/install-the-ide.md
+            -   label: Questions&Answers
+                file: tang/Tang-Nano-Doc/questions.md
+                target: _blank
+        -   label: Tang Primer (Sold out)
+            file: tang/Tang-primer/Tang-primer.md
+            items:
+            -   label: Install TD
+                items:
+                -   label: In Windows
+                    file: tang/Tang-primer/get_started/install_TD_win.md
+                -   label: In Linux
+                    file: tang/Tang-primer/get_started/install_linux.md
+            -   label: Blink by FPGA
+                file: tang/Tang-primer/fpga/led.md
+            -   label: ' Prepare E203 environment'
+                file: tang/Tang-primer/get_started/E203.md
+            -   label: Burn FPGA
+                file: tang/Tang-primer/get_started/fpga_download.md
+    -   label: Tang Mega
+        items:
+        -   label: Tang Mega 138K Pro
+            items:
+            -   label: Introduction
+                file: tang/tang-mega-138k/mega-138k-pro.md
+            -   label: Install IDE
+                file: tang/Tang-Nano-Doc/install-the-ide.md
+            -   label: Questions&Answers
+                file: tang/Tang-Nano-Doc/questions.md
+                target: _blank
+        -   label: Tang Mega 138K
+            items:
+            -   label: Introduction
+                file: tang/tang-mega-138k/mega-138k.md
+            -   label: Install IDE
+                file: tang/Tang-Nano-Doc/install-the-ide.md
+            -   label: Questions&Answers
+                file: tang/Tang-Nano-Doc/questions.md
+                target: _blank
+        -   label: Tang Mega 60K
+            items:
+            -   label: Introduction
+                file: tang/tang-mega-60k/mega-60k.md
+            -   label: Install IDE
+                file: tang/Tang-Nano-Doc/install-the-ide.md
+            -   label: Questions&Answers
+                file: tang/Tang-Nano-Doc/questions.md
+                target: _blank
+    -   label: Tang PMOD
+        file: tang/tang-PMOD/FPGA_PMOD.md         
+-   label: MaixSense
+    file: maixsense/readme.md
+    items:
+    -   label: MaixSense-a010
+        file: maixsense/maixsense-a010/maixsense-a010.md
+    -   label: MaixSense-a075v
+        file: maixsense/maixsense-a075v/maixsense-a075v.md
+-   label: SLogic
+    items:
+    -   label: SLogic Combo 8
+        items:
+        -   label: Introduction
+            file: logic_analyzer/combo8/readme.md
+        -   label: Basic Operation
+            file: logic_analyzer/combo8/basic_operation.md
+        -   label: Using as Logic Analyzer
+            file: logic_analyzer/combo8/use_logic_function.md
+        -   label: Using as CKLink
+            file: logic_analyzer/combo8/use_cklink_function.md
+        -   label: Using as DAPLink
+            file: logic_analyzer/combo8/use_daplink_function.md
+        -   label: Using as Serial Module
+            file: logic_analyzer/combo8/use_fouruart_function.md
+        -   label: Update Firmware
+            file: logic_analyzer/combo8/update_firmware.md
+        -   label: FAQ
+            file: logic_analyzer/combo8/faq.md
+-   label: KVM
+    items:
+    -   label: NanoKVM Cube
+        items:
+        -   label: Introduction
+            file: kvm/NanoKVM/introduction.md
+        -   label: Quick start
+            file: kvm/NanoKVM/quick_start.md
+        -   label: User Guide
+            file: kvm/NanoKVM/user_guide.md
+        -   label: Network
+            items:
+            -   label: Tailscale
+                file: kvm/NanoKVM/network/tailscale.md
+            -   label: frp
+                file: kvm/NanoKVM/network/frp.md
+            -   label: Static IP
+                file: kvm/NanoKVM/network/static_ip.md
+        -   label: System
+            items:
+            -   label: System Introduction
+                file: kvm/NanoKVM/system/introduction.md
+            -   label: Flashing
+                file: kvm/NanoKVM/system/flashing.md
+            -   label: Updating
+                file: kvm/NanoKVM/system/updating.md
+            -   label: Configuration
+                file: kvm/NanoKVM/system/configuration.md
+        -   label: FAQ
+            file: kvm/NanoKVM/faq.md
+# -   label: Maix Audio
+#     items:
+#     -   label: MA USB 16
+-   label: Longon
+    items:
+    -   label: LonganPI 3H
+        items:
+        -   label: Introduction
+            file: longan/h618/lpi3h/1_intro.md
+        -   label: Images
+            file: longan/h618/lpi3h/3_images.md
+        -   label: Burn images
+            file: longan/h618/lpi3h/4_burn_image.md
+        -   label: Desktop Usage
+            file: longan/h618/lpi3h/5_desktop.md
+        -   label: Peripheral
+            file: longan/h618/lpi3h/6_peripheral.md
+        -   label: Development
+            file: longan/h618/lpi3h/7_develop_mainline.md
+        -   label: Test report
+            file: longan/h618/lpi3h/8_test_report.md
+    -   label: Longon Nano
+        file: longan/Nano/Longan_nano.md
+        items:
+        -   label: Setup environment
+            file: longan/Nano/pio.md
+        -   label: Blink test
+            file: longan/Nano/blink.md
+-   label: MaixFace
+    items:
+    -   label: MF0&&MF0 Dock
+        file: maixface/mf_ml_module/mf0_ml_module.md
+    -   label: MF1 && MF2
+        file: maixface/mf_ml_module/mf1_ml_module.md
+    -   label: MF4 && MF5
+        file: maixface/mf_ml_module/mf5_product.md
+    -   label: Maixface PCB Design
+        file: maixface/mf_ml_module/mf_precautions.md
+    -   label: Maixface Update firmware
+        file: maixface/mf_ml_module/mf_update_firmwave.md
+-   label: Peripheral modules
+    items:
+    -   label: SP-MOD Peripheral modules
+        items:
+        -   label: Adapter board
+            items:
+            -   label: SP-Extender
+                file: modules_spmod/spmod_extender.md
+            -   label: SP-Grove
+                file: modules_spmod/spmod_grove.md
+            -   label: SP-FPC
+                file: modules_spmod/spmod_fpc.md
+            -   label: SP-MicArray
+                file: modules_spmod/spmod_micarray.md
+            -   label: SP-JotStick
+                file: modules_spmod/spmod_joystick.md
+            -   label: SP-Servo
+                file: modules_spmod/spmod_servo.md
+            -   label: SP-TypeC
+                file: ''
+        -   label: Sensor
+            items:
+            -   label: SP-Weather
+                file: modules_spmod/spmod_weather.md
+            -   label: SP-TOF-1P
+                file: modules_spmod/spmod_tof.md
+        -   label: Communication
+            items:
+            -   label: SP-BT
+                file: modules_spmod/spmod_bt.md
+            -   label: SP-LoRa
+                file: modules_spmod/spmod_lora.md
+            -   label: SP-PSRAM
+                file: modules_spmod/spmod_psram.md
+            -   label: SP-RFID
+                file: modules_spmod/spmod_rfid.md
+            -   label: SP-Ethernet
+                file: modules_spmod/spmod_ethernet.md
+        -   label: Display
+            items:
+            -   label: SP-LCD 1.14
+                file: modules_spmod/spmod_lcd1.14.md
+            -   label: SP-Eink
+                file: modules_spmod/spmod_eink.md
+    -   label: Module && Debugger
+        items:
+        -   label: Debugger
+            items:
+            -   label: Sipeed RV Debugger
+            -   label: Dual uart USB module
+        -   label: module
+            items:
+            -   label: camera
+                items:
+                -   label: GC0328
+                -   label: Dual cam module(GC0328)
+                -   label: OV7740
+                -   label: OV2640
+                -   label: OV2640-M12
+                -   label: Dual cam module(OV2640)
+            -   label: Mic module
+                items:
+                -   label: Mic array
+                    file: modules/micarray.md
+            -   label: Sipeed Gamepad
+                file: modules/Gamepad.md

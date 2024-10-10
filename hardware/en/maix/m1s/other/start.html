@@ -1,0 +1,1549 @@
+<!DOCTYPE html>
+
+<html lang="en"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="M1s DOCK, BL808, M1s">
+    
+    
+    <meta name="description" content="">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+        
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/prism.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?9cb07365544a53067c56c346c838181a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119047820-5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-119047820-5');
+    </script>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/js/thumbs_up/style.css" type="text/css"/>
+        
+    
+    
+    <title>M1s DOCK guides - Sipeed Wiki</title>
+    
+    <script type="text/javascript">js_vars = {"teedoc-plugin-ad-hint": {"type": "hint", "label": "NEW", "content": "New Maix series products <a href='https://wiki.sipeed.com/maixcam'>MaixCAM</a> online now, and new <a href='https://wiki.sipeed.com/maixpy/'>MaixPy</a>,feature richer functionalities, enhanced performance, and user-friendly software, with comprehensive documentation", "show_times": 2, "show_after_s": 432000, "date": "2022-06-01 14:00", "color": "#a0421d", "link_color": "#e53935", "link_bg_color": "#e6ae5c", "bg_color": "#ffcf89", "color_hover": "white", "bg_color_hover": "#f57c00", "close_color": "#eab971"}, "teedoc-plugin-thumbs-up": {"label_up": "Helpful", "label_down": "Not Helpful", "icon": "/static/images/thumbs_up/up.svg", "icon_clicked": "/static/images/thumbs_up/upped.svg", "url": "https://thumbs-up.sipeed.com", "show_up_count": true, "show_down_count": false, "msg_already_voted": "You have already voted", "msg_thanks": "Thanks for your vote", "msg_down_prompt": "Thanks to tell us where we can improve?(At least 10 characters)", "msg_down_prompt_error": "Message should be at least 10 characters and less than 256 characters", "msg_error": "Request server failed!"}}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": "2023-05-09", "update": [{"date": "2023-05-09", "version": "v0.5", "author": "wonder", "content": ["Change default firmware", "Edit start guide", "Latest firmware is not provided"]}, {"date": "2023-03-06", "version": "v0.4", "author": "wonder", "content": ["Add wifi stream demo usage"]}, {"date": "2022-12-20", "version": "v0.3", "author": "wonder", "content": ["Add contents about blai"]}], "ts": 1683590400, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/en/">
+                
+                    <img class="site_logo" src="/static/image/logo.svg" alt="sipeed wiki logo">
+                
+                
+                    <h2>wiki</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class=""><a  href="/en/">Products</a></li>
+<li class="sub_items "><a >Software Docs</a><ul><li class=""><a  href="/maixpy/en/">MaixPy</a></li>
+<li class=""><a  href="/soft/maixpy/zh/index.html">MaixPy_v1</a></li>
+<li class=""><a  href="/soft/Lichee/zh/index.html">Lichee</a></li>
+<li class=""><a  href="/ai/en/index.html">AI Guide</a></li>
+</ul>
+</li>
+<li class=""><a target="_blank" href="https://maixhub.com">MaixHub</a></li>
+<li class=""><a  href="/news/">News</a></li>
+<li class=""><a  href="/en/faq.html">FAQ</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class=""><a  href="/en/store.html"><img src='/static/image/shop.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+<li class=""><a target="_blank" href="https://github.com/sipeed"><img src='/static/image/github.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+<li class="sub_items "><a  ><img src='/static/image/language.svg' style='height: 1.5em;vertical-align: middle;'>&nbsp;English</a><ul><li class="active"><a  href="/hardware/en/maix/m1s/other/start.html">English</a></li>
+<li class=""><a  href="/hardware/zh/maix/m1s/other/start.html">中文</a></li>
+</ul></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">Search</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">Input keyword. Using Space to separate multiple keywords</span>
+                                <span id="search_loading_hint">Loading, please wait</span>
+                                <span id="search_download_err_hint">Fail download, Please retry or check network</span>
+                                <span id="search_other_docs_result_hint">Results form other doc</span>
+                                <span id="search_curr_doc_result_hint">Result form current doc</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="not_active no_link"><a><span class="label">Maix Zero</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Maix M0</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/./maixzero/sense/maix_zero_sense.html"><span class="label">M0sense Board</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/./maixzero/sense/start.html"><span class="label">M0sense Guide</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Maix M0P</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">M0P</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">M0P Dock</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/./maixzero/m0s/m0s.html"><span class="label">Maix M0s</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="active_parent no_link"><a><span class="label">Maix-I & Zero</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active no_link"><a><span class="label">Maix M1</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">M1 Module</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/en/maix/core_module.html"><span class="label">M1/M1w</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maix/M1n.html"><span class="label">M1n</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">M1 Board</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maix/maixpy_develop_kit_board/Maix_dock.html"><span class="label">Maix Dock(M1/M1W)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maix/maixpy_develop_kit_board/maix_bit.html"><span class="label">Maix Bit</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maix/maixpy_develop_kit_board/maix_duino.html"><span class="label">Maix Duino</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maix/maixpy_develop_kit_board/maix_nano.html"><span class="label">Maix Nano</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maix/maixpy_develop_kit_board/maix_cube.html"><span class="label">Maix Cube</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maix/maixpy_develop_kit_board/maix_Amigo.html"><span class="label">Maix Amigo</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/no_translate.html?ref=/hardware/zh/maix/maixpy_develop_kit_board/maix_hat.html&from=/hardware/en/maix/maixpy_develop_kit_board/maix_hat.html"><span class="label">Maix HAT</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maix/maixpy_develop_kit_board/maix_go.html"><span class="label">Maix Go (Sold out)</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="active_parent no_link"><a><span class="label">Maix M1s</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/en/maix/m1s/m1s_module.html"><span class="label">M1s Module</span><span class=""></span></a></li>
+<li class="active_parent no_link"><a><span class="label">M1s Dock</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/en/maix/m1s/m1s_dock.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="active with_link"><a href="/hardware/en/maix/m1s/other/start.html"><span class="label">Basic Usage</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maix/m1s/other/others.html"><span class="label">Others (Camera and Shell)</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Maix M1a</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/maixII/index.html"><span class="label">Maix-II</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maixII/M2/resources.html"><span class="label">MaixII-Dock</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maixII/M2/flash.html"><span class="label">Burn image</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixII/M2/usage.html"><span class="label">Basic usage</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixII/M2/other.html"><span class="label">Other notice</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/../../soft/maixpy3/zh/tools/0.MaixII-Dock.html"><span class="label">Using MaixPy3</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixII/M2/faq.html"><span class="label">FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/maixII/M2S/V833.html"><span class="label">M2S</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maixII/M2S/reources.html"><span class="label">Board introduction</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/maixII/M2A/maixsense.html"><span class="label">MaixSense</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maixII/M2A/flash_system.html"><span class="label">Burn image</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixII/M2A/config_system.html"><span class="label">Config system</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/no_translate.html?ref=/hardware/zh/maixII/M2A/first.html&from=/hardware/en/maixII/M2A/first.html"><span class="label">Test board</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/no_translate.html?ref=/hardware/zh/maixII/M2A/user.html&from=/hardware/en/maixII/M2A/user.html"><span class="label">Start to use</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/../../soft/maixpy3/zh/tools/maixsense.html"><span class="label">Using MaixPy3</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Maix-III</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maixIII/ax-pi/axpi.html"><span class="label">Maix-III AXera-Pi</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maixIII/ax-pi/flash_system.html"><span class="label">AXera-Pi manual</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixIII/ax-pi/python_api.html"><span class="label">Python programming</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixIII/ax-pi/dev_prepare.html"><span class="label">C/C++ programming</span><span class=""></span></a></li>
+<li class="not_active  with_link"><a href="/ai/en/deploy/ax-pi.html" ><span class="label">AI development guide</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixIII/ax-pi/faq_axpi.html"><span class="label">Questions (FAQ)</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">MaixCAM</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maixcam/index.html"><span class="label">MaixCAM Brief and Data</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixcam/assemble.html"><span class="label">MaixCAM Assembly</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixcam/os.html"><span class="label">System Upgrade</span><span class=""></span></a></li>
+<li class="not_active  with_link"><a href="https://wiki.sipeed.com/maixpy/" ><span class="label">Develop with MaixPy</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixcam/maixcdk.html"><span class="label">Develop with MaixCDK</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixcam/faq.html"><span class="label">FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">LicheePI</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">LicheePI 4A</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lm4a.html"><span class="label">Lichee Module 4A</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lc4a/lc4a.html"><span class="label">Lichee Cluster 4A</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lbook4a/lbook4a.html"><span class="label">Lichee Console 4A</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lcon4a/setup_guide.html"><span class="label">setup_guide</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lcon4a/3_images.html"><span class="label">images</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lcon4a/4_burn_image.html"><span class="label">burn_image</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lbook4a/lbook4a.html"><span class="label">Lichee Book 4A</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lbook4a/4_burn_image.html"><span class="label">burn_image</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Lichee PI 4A</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/1_intro.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/2_unbox.html"><span class="label">Unbox guide</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/3_images.html"><span class="label">Image summary</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/4_burn_image.html"><span class="label">Burn image</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/5_desktop.html"><span class="label">Desktop usage</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/6_peripheral.html"><span class="label">Peripheral</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">System building</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/7_develop_revyos.html"><span class="label">revyos</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/7_develop_mainline.html"><span class="label">Linux Mainline (Work in Progress)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/7_develop_android.html"><span class="label">Android</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/7_develop_thead.html"><span class="label">THead Yocto</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">OpenHarmony (Work in Progress)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/7_develop_openwrt.html"><span class="label">OpenWRT</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/8_application.html"><span class="label">Application</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/9_benchmark.html"><span class="label">Benchmark</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/10_test_report.html"><span class="label">Hardware report</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/12_faq.html"><span class="label">FAQ</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/11_credits.html"><span class="label">Credits</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">LicheePI 3A</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/lichee/K1/lm3a.html"><span class="label">Lichee Module 3A</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/K1/lc3a/lc3a.html"><span class="label">Lichee Cluster 3A</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Lichee PI 3A</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/en/lichee/K1/lpi3a/1_intro.html"><span class="label">SBC Intro</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/K1/lpi3a/2_unbox.html"><span class="label">Unbox experience</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/K1/lpi3a/3_burn_image.html"><span class="label">Burn Images</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/K1/lpi3a/4_peripheral.html"><span class="label">Peripheral Usage</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/K1/lpi3a/5_develop.html"><span class="label">System develop</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/K1/lpi3a/6_application.html"><span class="label">Applications</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/K1/lpi3a/7_faq.html"><span class="label">FAQs</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/K1/lpi3a/8_credits.html"><span class="label">Credits</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Lichee RV</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active no_link"><a><span class="label">Board Introduction</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV/RV.html"><span class="label">Lichee RV</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV/86_panel.html"><span class="label">Lichee RV 86 Panel</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV/Dock.html"><span class="label">Lichee RV Dock</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV/flash.html"><span class="label">Burn System</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV/user.html"><span class="label">Basic usage</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV/problems.html"><span class="label">Questions&Answers</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV/ubuntu.html"><span class="label">Ubuntu Image</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">LicheeRV Nano</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV_Nano/1_intro.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV_Nano/2_unbox.html"><span class="label">Unboxing Experience</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV_Nano/3_images.html"><span class="label">Image Collection</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV_Nano/4_burn_image.html"><span class="label">Flashing the Image</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV_Nano/5_peripheral.html"><span class="label">peripheral</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV_Nano/6_develop_mainline.html"><span class="label">System Development</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV_Nano/7_test_report.html"><span class="label">test</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV_Nano/8_mmf_development_guide.html"><span class="label">MMF Development Guide</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/Zero/Zero.html"><span class="label">Lichee Zero</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/Nano/Nano.html"><span class="label">Lichee Nano</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/ZeroPlus/ZeroPlus.html"><span class="label">Lichee ZeroPlus</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang FPGA</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Tang Nano</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano/Nano.html"><span class="label">Tang Nano</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-1K/Nano-1k.html"><span class="label">Tang Nano 1K</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-4K/Nano-4K.html"><span class="label">Tang Nano 4k</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-9K/Nano-9K.html"><span class="label">Tang Nano 9K</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Tang Nano 20K</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/tang/tang-nano-20k/nano-20k.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/tang-nano-20k/example/unbox.html"><span class="label">Unbox</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/install-the-ide.html"><span class="label">Install IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/examples.html"><span class="label">Tang Nano examples</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/questions.html"><span class="label">Questions&Answers</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Primer</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Tang Primer 20K</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/tang/tang-primer-20k/primer-20k.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/tang-primer-20k/start.html"><span class="label">Notice</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/install-the-ide.html"><span class="label">Install IDE</span><span class=""></span></a></li>
+<li class="not_active  with_link"><a href="https://github.com/sipeed/TangPrimer-20K-example" ><span class="label">Examples(Github)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/questions.html"><span class="label">Questions&Answers</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Primer 25K</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/tang/tang-primer-25k/primer-25k.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/install-the-ide.html"><span class="label">Install IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/questions.html"><span class="label">Questions&Answers</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Primer 15K</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/tang/tang-primer-15k/primer-15k.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/install-the-ide.html"><span class="label">Install IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/questions.html"><span class="label">Questions&Answers</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-primer/Tang-primer.html"><span class="label">Tang Primer (Sold out)</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Install TD</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-primer/get_started/install_TD_win.html"><span class="label">In Windows</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-primer/get_started/install_linux.html"><span class="label">In Linux</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-primer/fpga/led.html"><span class="label">Blink by FPGA</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-primer/get_started/E203.html"><span class="label"> Prepare E203 environment</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-primer/get_started/fpga_download.html"><span class="label">Burn FPGA</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Mega</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Tang Mega 138K Pro</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/tang/tang-mega-138k/mega-138k-pro.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/install-the-ide.html"><span class="label">Install IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/questions.html"><span class="label">Questions&Answers</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Mega 138K</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/tang/tang-mega-138k/mega-138k.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/install-the-ide.html"><span class="label">Install IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/questions.html"><span class="label">Questions&Answers</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Mega 60K</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/tang/tang-mega-60k/mega-60k.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/install-the-ide.html"><span class="label">Install IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/questions.html"><span class="label">Questions&Answers</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/tang/tang-PMOD/FPGA_PMOD.html"><span class="label">Tang PMOD</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/maixsense/index.html"><span class="label">MaixSense</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maixsense/maixsense-a010/maixsense-a010.html"><span class="label">MaixSense-a010</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixsense/maixsense-a075v/maixsense-a075v.html"><span class="label">MaixSense-a075v</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">SLogic</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">SLogic Combo 8</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/logic_analyzer/combo8/index.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/logic_analyzer/combo8/basic_operation.html"><span class="label">Basic Operation</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/logic_analyzer/combo8/use_logic_function.html"><span class="label">Using as Logic Analyzer</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/logic_analyzer/combo8/use_cklink_function.html"><span class="label">Using as CKLink</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/logic_analyzer/combo8/use_daplink_function.html"><span class="label">Using as DAPLink</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/logic_analyzer/combo8/use_fouruart_function.html"><span class="label">Using as Serial Module</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/logic_analyzer/combo8/update_firmware.html"><span class="label">Update Firmware</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/logic_analyzer/combo8/faq.html"><span class="label">FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">KVM</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">NanoKVM Cube</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/introduction.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/quick_start.html"><span class="label">Quick start</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/user_guide.html"><span class="label">User Guide</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Network</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/network/tailscale.html"><span class="label">Tailscale</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/network/frp.html"><span class="label">frp</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/network/static_ip.html"><span class="label">Static IP</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">System</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/system/introduction.html"><span class="label">System Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/system/flashing.html"><span class="label">Flashing</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/system/updating.html"><span class="label">Updating</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/system/configuration.html"><span class="label">Configuration</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/faq.html"><span class="label">FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Longon</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">LonganPI 3H</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/longan/h618/lpi3h/1_intro.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/longan/h618/lpi3h/3_images.html"><span class="label">Images</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/longan/h618/lpi3h/4_burn_image.html"><span class="label">Burn images</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/longan/h618/lpi3h/5_desktop.html"><span class="label">Desktop Usage</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/longan/h618/lpi3h/6_peripheral.html"><span class="label">Peripheral</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/longan/h618/lpi3h/7_develop_mainline.html"><span class="label">Development</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/longan/h618/lpi3h/8_test_report.html"><span class="label">Test report</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/longan/Nano/Longan_nano.html"><span class="label">Longon Nano</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/longan/Nano/pio.html"><span class="label">Setup environment</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/longan/Nano/blink.html"><span class="label">Blink test</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">MaixFace</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maixface/mf_ml_module/mf0_ml_module.html"><span class="label">MF0&&MF0 Dock</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixface/mf_ml_module/mf1_ml_module.html"><span class="label">MF1 && MF2</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixface/mf_ml_module/mf5_product.html"><span class="label">MF4 && MF5</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixface/mf_ml_module/mf_precautions.html"><span class="label">Maixface PCB Design</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixface/mf_ml_module/mf_update_firmwave.html"><span class="label">Maixface Update firmware</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Peripheral modules</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">SP-MOD Peripheral modules</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Adapter board</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_extender.html"><span class="label">SP-Extender</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_grove.html"><span class="label">SP-Grove</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_fpc.html"><span class="label">SP-FPC</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_micarray.html"><span class="label">SP-MicArray</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_joystick.html"><span class="label">SP-JotStick</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_servo.html"><span class="label">SP-Servo</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/.html"><span class="label">SP-TypeC</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Sensor</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_weather.html"><span class="label">SP-Weather</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_tof.html"><span class="label">SP-TOF-1P</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Communication</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_bt.html"><span class="label">SP-BT</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_lora.html"><span class="label">SP-LoRa</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_psram.html"><span class="label">SP-PSRAM</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_rfid.html"><span class="label">SP-RFID</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_ethernet.html"><span class="label">SP-Ethernet</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Display</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_lcd1.14.html"><span class="label">SP-LCD 1.14</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_eink.html"><span class="label">SP-Eink</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Module && Debugger</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Debugger</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Sipeed RV Debugger</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Dual uart USB module</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">module</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">camera</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">GC0328</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Dual cam module(GC0328)</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">OV7740</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">OV2640</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">OV2640-M12</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Dual cam module(OV2640)</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Mic module</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/modules/micarray.html"><span class="label">Mic array</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/modules/Gamepad.html"><span class="label">Sipeed Gamepad</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>M1s DOCK guides</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                                <span class="article_date" title="Last modify date: 2023-05-09">
+                                    2023-05-09
+                                </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/sipeed/sipeed_wiki/blob/main/docs/hardware/en/maix/m1s/other/start.md" target="_blank">
+                                    <span id='editPage'>Edit this page</span>
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                        
+                        <details open>
+                        
+                            <summary>Update history</summary>
+                            <div>
+                                <table>
+                                        <thead>
+                                            <tr>
+                                                <th>Date</th>
+                                                <th>Version</th>
+                                                <th>Author</th>
+                                                <th>Update content</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            
+                                                <tr>
+                                                    <td>2023-05-09</td>
+                                                    <td>v0.5</td>
+                                                    <td>wonder</td>
+                                                    <td>
+                                                    
+                                                        <ul>
+                                                        
+                                                            <li>Change default firmware</li>
+                                                        
+                                                            <li>Edit start guide</li>
+                                                        
+                                                            <li>Latest firmware is not provided</li>
+                                                        
+                                                        </ul>
+                                                    
+                                                    </td>
+                                                </tr>
+                                            
+                                                <tr>
+                                                    <td>2023-03-06</td>
+                                                    <td>v0.4</td>
+                                                    <td>wonder</td>
+                                                    <td>
+                                                    
+                                                        <ul>
+                                                        
+                                                            <li>Add wifi stream demo usage</li>
+                                                        
+                                                        </ul>
+                                                    
+                                                    </td>
+                                                </tr>
+                                            
+                                                <tr>
+                                                    <td>2022-12-20</td>
+                                                    <td>v0.3</td>
+                                                    <td>wonder</td>
+                                                    <td>
+                                                    
+                                                        <ul>
+                                                        
+                                                            <li>Add contents about blai</li>
+                                                        
+                                                        </ul>
+                                                    
+                                                    </td>
+                                                </tr>
+                                            
+                                        </tbody>
+                                </table>
+                            </div>
+                        </details>
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <!-- 
+  - date: 2022-12-13
+    version: v0.1
+    author: wonder
+    content:
+      - Add content
+  - date: 2022-12-03
+    version: v0.1
+    author: wonder
+    content:
+      - Create file
+
+The M1s Dock can be used for a variety of interesting things by its delicate design. Here we tell the usages of this device. Note that the default baudrate is 2000000.
+
+There are two Converter devices in `Windows` device manager if you connect the computer with the UART port of M1s Dock.
+
+![start_bl808_uart_converter](./../../../../zh/maix/m1s/other/assets/start/start_bl808_uart_converter.png) -->
+<h2 id="Open-the-box">Open the box</h2>
+<p>Here we open the box which contains M1S Dock with camera and screen.</p>
+<p>Open the box, these things are shown:</p>
+<ul>
+<li>One USB cable</li>
+<li>One M1S Dock</li>
+<li>Two pin-headers</li>
+</ul>
+<img src="./../../../../zh/maix/m1s/other/assets/start/unbox_m1s_dock.jpg" alt="unbox_m1s_dock" width="50%">
+<h2 id="Hardware-preparation">Hardware preparation</h2>
+<ul>
+<li>Two TypeC Cables</li>
+<li>One M1s Dock</li>
+<li>One Computer</li>
+</ul>
+<p>There are two TypeC Ports on M1s Dock. The UART TypeC Port is for serial communication between M1s Dock and computer. The OTG Port is designed for burning firmware of the C906 Core in BL808 chip, and you can change its function by programming it as if you want to learn USB protocol.</p>
+<img alt="m1s_doc_pin_map" src="./../../../../zh/maix/m1s/assets/m1s_dock/m1s_doc_pin_map.png">
+<ol>
+<li>We can see there are <code>S1_Button</code> and <code>S2_button</code>, and there are also <code>BOOT</code> key and <code>RST</code> key.</li>
+<li>There is a <code>UART</code> on the left bottom, it's used for communication with two cores of BL808.</li>
+<li>A <code>OTG</code> port is on the tighe bottom, we use burn the C906 Core firmware of BL808 bia this port.</li>
+</ol>
+<h2 id="Power-guide">Power guide</h2>
+<p><img src="./start/m1s_dock_power_supply.png" alt="m1s_dock_power_supply" /></p>
+<h2 id="First-time-boot">First time boot</h2>
+<h3 id="Board-state">Board state</h3>
+<p>Power the M1s Dock，Click the RST (reset) key。</p>
+<p><img src="./../../../../zh/maix/m1s/other/assets/start/m1s_dock_rst_key_position.png" alt="m1s_dock_rst_key_position" /></p>
+<p>And it will be as follows：</p>
+<p><img src="./../../../../zh/maix/m1s/other/assets/start/default_firmware_20230509.png" alt="default_firmware" /></p>
+<ul>
+<li>Click the ① key, the btn marked ④ turns green, and the number marked ⑥ increases, maximum number is 100.</li>
+<li>② is the camera, and screen shows what the camera captures</li>
+<li>Click the ③ key, another btn on the screen turns green, and the number marked ⑥ decreases, minimum number is 100.</li>
+<li>⑤ is the wifi test and its intensity.The user will not see this result as there is no this corresponding wifi test.</li>
+<li>⑦ is the test of the onboard microphone, which is in the symmetrical position with the led on the back</li>
+</ul>
+<p>The LED on the back blinks.</p>
+<p><img src="./../../../../zh/maix/m1s/other/assets/start/led_brghtness.jpg" alt="led_brghtness" /></p>
+<h3 id="OTG-PORT">OTG PORT</h3>
+<blockquote>
+<p>A virtual removable disk with 3MB storage capacity is on your computer if you connect this board with your computer via TypeC OTG port on this board.</p>
+</blockquote>
+<p>Because the driver is not compatible well with some computers, we can flash the firmware via <a href="https://wiki.sipeed.com/hardware/en/maix/m1s/other/start.html#Burn-with-UART"  target="_blank">UART</a> to solve this problem.</p>
+<p><img src="./../../../../zh/maix/m1s/other/assets/start/default_udisk.jpg" alt="default_udisk" /></p>
+<p>And there is USB Mass Storge Device in <code>Windows</code> device manager, in <code>Linux</code> there is also a removable device.</p>
+<p><img src="./../../../../zh/maix/m1s/other/assets/start/udisk_device_manager.jpg" alt="udisk_device_manager" /></p>
+<p>If there is no USB Mass Storge Device in Windows device manager, try to use other USB TypeC cable or connect with other USB port of computer, if this problem remains, read <a href="https://wiki.sipeed.com/hardware/en/maix/m1s/other/start.html#Burn-with-UART"  target="_blank">Burn-with-UART</a> to flash M1s Dock to solve this problem. Make sure you have choose <code>partition table</code>, <code>boot2</code>, <code>firmware</code> these three files, after finishing burning, reconnect the board with computer.</p>
+<h3 id="UART-PORT">UART PORT</h3>
+<p>Two serial devices will be shown in your computer if you connect this board with your computer by TypeC UART port on this board.</p>
+<p><img src="./../../../../zh/maix/m1s/other/assets/start/dual_uart.jpg" alt="dual_uart" /></p>
+<p>There are two Converter devices in Windows device manager.</p>
+<p><img src="./../../../../zh/maix/m1s/other/assets/start/start_bl808_uart_converter.png" alt="start_bl808_uart_converter" /></p>
+<p>If there is no serial device，try to use other USB TypeC cable or use other USB port of computer.</p>
+<p>If this problem remains, visit <a href="https://wiki.sipeed.com/hardware/en/maix/m1s/other/start.html#Burn-onboard-bl702"  target="_blank">Burn onboard bl702</a> to reburn the download debugger firmware. we set a BL702 on M1s Dock, and use it as USB to two uart convertor.</p>
+<p>If there is only one serial device, visit <a href="https://wiki.sipeed.com/hardware/en/maix/m1s/other/start.html#Burn-onboard-bl702"  target="_blank">Burn onboard bl702</a> to reflash the download debugger firmware</p>
+<p>Set baudrate to 2000000，open the two serial ports, you will see different information.</p>
+<p>Open the small serial port and you can see that the messages are being printed:</p>
+<p><img src="./../../../../zh/maix/m1s/other/assets/start/start_smaller_uart.jpg" alt="start_smaller_uart" /></p>
+<p>Open the big serial port for command-line interaction:</p>
+<p><img src="./../../../../zh/maix/m1s/other/assets/start/start_bigger_uart.jpg" alt="start_bigger_uart" /></p>
+<h2 id="Burn-firmware">Burn firmware</h2>
+<p>To run our program on M1s Dock, we should know how to burn the firmware into M1s Dock first.</p>
+<h3 id="Burn-via-u-disk">Burn via u-disk</h3>
+<p>To make it easier to burn firmware, we design u-disk burning method to burn the program for C906 core of BL808 in the chip.</p>
+<p>Connect this board by its TypeC OTG port with computer, hold the 2 sides keys (which have been marked on the following figure) of M1s Dock, then press RST button to make this board into u-disk burn mode.</p>
+<table>
+    <tr>
+        <td><img src="./../../../../zh/maix/m1s/other/assets/start/udisk_burn.png" alt="udisk_burn" style="transform:rotate(0deg);"></td>    
+        <td>Hold 2 side keys and press RST，make M1s Dock into u-disk burn mode</td>
+    </tr>
+</table>
+<p>Besides, when 2 side keys are being pressed, power on this board can make this board into u-disk burn mode too.</p>
+<img src="./../../../../zh/maix/m1s/other/assets/start/udisk_in_computer.png" alt="udisk_in_computer" style="transform:rotate(0deg);">
+<p>A removable disk with tiny storage capacity will be shown on your computer if this board is in u-disk burn mode. Just drag the firmware <a href="https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmware/demo_bin"> Here are some demo bins </a> into the removable disk to burn the firmware.</p>
+<img src="./../../../../zh/maix/m1s/other/assets/start/udisk_burn.gif" alt="udisk_burn" style="transform:rotate(0deg);">
+<p>After succeed dragging the firmware bin into removable disk, the board will reboot and the u-disk is removed.</p>
+<p>Because of the different bl702 firmwares, clicking the RST key to boot M1S Dock maybe necessary. <a href="https://wiki.sipeed.com/hardware/en/maix/m1s/other/start.html#bl702-firmware-difference"  target="_blank">Click me</a> to see the differences between BL702 firmwares.</p>
+<h3 id="Burn-via-UART">Burn via UART</h3>
+<p>The u-disk burning method above is used to burn firmware for C906 core of BL808. If we want to burn other firmware for other cores or when we need to upgrade the whole firmware of BL808, we need to burn M1s Dock via UART.</p>
+<p>Connect this board by its TypeC UART port with computer, 2 serial ports will be shown on your computer (If your mouse doesn't work after connecting board with computer, please disconnect board with computer and visit <a href="https://wiki.sipeed.com/hardware/en/maix/m1s/other/start.html#Burn-onboard-bl702"  target="_blank">Burn onboard bl702</a> to solve this problem).</p>
+<h4 id="Get-the-burn-software">Get the burn software</h4>
+<p>To burn for M1s, we need bouffalolab official burning application, visit <a href="https://dev.bouffalolab.com/download"  target="_blank">https://dev.bouffalolab.com/download</a> and download the file named <code>Bouffalo Lab Dev Cube</code>. Decompress the downloaded file then we get the application to burn the board.</p>
+<p><img src="./../../../../zh/maix/m1s/other/assets/start/bouffalo_cube.png" alt="bouffalo_cube" /></p>
+<p>Backup download: <a href="https://dl.sipeed.com/shareURL/others/BouffaloLabDevCube"  target="_blank">Sipeed Download Station</a></p>
+<p>We mainly use <code>BLDevCube</code>, <code>BLDevCube-macos</code> and <code>BLDevCube-ubuntu</code> these three files, by which to burn our board with graphical interface on different OS.</p>
+<p><img src="./../../../../zh/maix/m1s/other/assets/start/application.png" alt="application" /></p>
+<p>And there are <code>bflb_iot_tool</code>、<code>bflb_iot_tool-macos</code>、<code>bflb_iot_tool-ubuntu</code> three applications, with which we can burn this board via command line.</p>
+<h4 id="Burn-via-graphical-interface">Burn via graphical interface</h4>
+<p>Run the software based on your operating system, choose bl808, then we put this <a href="https://dl.sipeed.com/fileList/MAIX/M1s/M1s_Dock/7_Firmware/partition/partition_cfg_16M_m1sdock.toml"  target="_blank">partition file</a> in partition table (marked with ②) in IOT page.</p>
+<table>
+    <tr>
+        <td><img src="./../../../../zh/maix/m1s/other/assets/start/chip_selection.png" alt="chip_selection" style="transform:rotate(0deg);"></td>    
+        <td><img src="./../../../../zh/maix/m1s/other/assets/start/choose_partition.png" alt="choose_partition" style="transform:rotate(0deg);" width="70%"></td>
+    </tr>
+</table>
+<p>After selecting the partition file, we have more choice in this page. We just need <code>boot2</code>, <code>firmware</code> and  <code>d0fw</code> these options.</p>
+<img src="./../../../../zh/maix/m1s/other/assets/start/firmware_choose.png" alt="firmware_choose" style="transform:rotate(0deg);">
+<p>In the picture above, <code>boot2</code> stays the same, and it's in this directory: <code>BLDevCube\chips\bl808\builtin_imgs\boot2_isp_bl808_xxxx_xxx</code>, under where the path if this burning application is, and make sure your choosing file named with <code>debug</code>. <code>firmware</code> is the firmware file for E907 core, and <code>d0fw</code> is C906 core file, the previous <a href="https://wiki.sipeed.com/hardware/en/maix/m1s/other/start.html#Burn-via-u-disk"  target="_blank">Burn via u-disk</a> operation can also burn firmware for this core.</p>
+<p>The firmware file for E907 or C906 can be gotten by compiling <a href="https://gitee.com/sipeed/M1s_BL808_example"  target="_blank">M1s_dock example</a>.</p>
+<p>First time burning, both <code>firmware</code> and <code>boot2</code> are needed, after this you just need tick what you want to burn not all.</p>
+<p>The default old firmware can be downloaded <a href="https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmware/factory"  target="_blank">here</a>, and the newest firmware is not provided any more. <a href="https://wiki.sipeed.com/hardware/en/maix/m1s/other/start.html#Old-firmware-test"  target="_blank">Click me</a> to see the old factory firmware details.</p>
+<p>After choose the firmware, click the <code>Refresh</code> in the righr to refresh the serial port, then we can see 2 serial ports. If there are not 2 serial ports, visit <a href="https://wiki.sipeed.com/hardware/en/maix/m1s/other/start.html#Burn-onboard-bl702"  target="_blank">Burn onboard bl702</a> to solve this. We choose the bigger number serial port, and set uart rate 2000000 .</p>
+<p><img src="./../../../../zh/maix/m1s/other/assets/start/burn_steps.png" alt="burn_steps" /></p>
+<p>Press BOOT key and RST key on the board, then release RST key first, then release BOOT key in order to make M1s Dock into UART burning mode.</p>
+<img src="./../../../../zh/maix/m1s/other/assets/start/boot_rst.jpg" alt="boot_rst" style="transform:rotate(0deg);" width="40%">
+<p>Click <code>Create &amp; Download</code>, then we can see the following message where the arrow points at, before this we should make M1s Dock into UART burning mode.</p>
+<p><img src="./../../../../zh/maix/m1s/other/assets/start/burn_press_boot.jpg" alt="burn_press_boot" /></p>
+<p>It will burn M1s Dock if it shows <code>shake hand success</code></p>
+<img src="./../../../../zh/maix/m1s/other/assets/start/burn_press_boot_success.jpg" alt="burn_press_boot_success" style="transform:rotate(0deg);" width="70%">
+<img src="./../../../../zh/maix/m1s/other/assets/start/finish_burning.png" alt="finish_burning" style="transform:rotate(0deg);" width="70%">
+<p>Reburn this if it <code>SHAKEHAND FAIL</code>. Try to release the keys in order (Release RST key first then release BOOT key, I mean when release RST key, the BOOT key is being pressed) to make the board into UART burning mode, otherwise the burning software will show error because of timeout burning.</p>
+<img src="./../../../../zh/maix/m1s/other/assets/start/burn_press_boot_failed.jpg" alt="burn_press_boot_failed" style="transform:rotate(0deg);" width="70%">
+<h4 id="Burn-via-command-line">Burn via command-line</h4>
+<p>We can burn M1s Dock by command-line through serial port on this board.</p>
+<p>In <code>BLDevCube</code> folder, there is <code>bflb_iot_tool</code> application, <code>bflb_iot_tool</code>、 <code>bflb_iot_tool-macos</code> and <code>bflb_iot_tool-ubuntu</code> are used for different OS to burn the bouffalolab chip.</p>
+<p>Here I take Windows command line as example to burn M1s Dock, and for other OS you need to change the commands by yourself.</p>
+
+<pre class="language-bash"><code class="language-bash">.\bflb_iot_tool.exe --chipname=bl808 --port=COM38 --baudrate=2000000 --firmware=&quot;firmware_20221212.bin&quot; --pt=&quot;M1s_BL808_example\partition\partition_cfg_16M_m1sdock.toml&quot; --boot2=&quot;BLDevCube\chips\bl808\builtin_imgs\boot2_isp_bl808\boot2_isp_debug.bin&quot;
+</code></pre>
+<p>In this command, <code>firmware</code> is the bin file for E907 Core, the default old bin file can be downloaded from <a href="https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmware/factory"  target="_blank">here</a>. <code>pt</code> is the partition file, it's in the <code>M1s_BL808_example\partition</code> folder, you can also <a href="https://dl.sipeed.com/fileList/MAIX/M1s/M1s_Dock/7_Firmware/partition/partition_cfg_16M_m1sdock.toml"  target="_blank">Click me</a> to get it.<code>boot2</code> is in <code>BLDevCube\chips\bl808\builtin_imgs\boot2_isp_bl808</code> folder, and is named with <code>debug</code>. Set baudrate 2000000 to burn this board fast. <code>port</code> is the bigger port number.</p>
+<p>Of course, make sure you have made this board into UART burning mode: Press BOOT key and RST key, then release RST key first then release BOOT key.</p>
+<p><img src="./../../../../zh/maix/m1s/other/assets/start/command_burn_flash.jpg" alt="command_burn_flash" /></p>
+<p>After burning these, you can burn the bin file for C906 core according to <a href="https://wiki.sipeed.com/hardware/en/maix/m1s/other/start.html#Burn-via-u-disk"  target="_blank">Burn via u-disk</a>. You can also burn this board based on the address, from <code>partition_cfg_16M_m1sdock.toml</code> file you can know the burn address and modify it.</p>
+<h3 id="Troubles-when-burning">Troubles when burning</h3>
+<h4 id="BFLB-IMG-LOAD-SHAKEHAND-FAIL">BFLB IMG LOAD SHAKEHAND FAIL</h4>
+<p>This means M1s Dock is not at the burning state. Make sure you have held the RST key and BOOT key together when M1s Dock is powered on, then release RST key first, and then release BOOT key. When release RST key, the BOOT key is being pressed to make the board into UART burning mode.</p>
+<p><img src="./../../../../zh/maix/m1s/other/assets/start/uart_burn_bl808_shakehand_fail.jpg" alt="uart_burn_bl808_shakehand_fail" /></p>
+<p>Make sure you choose the bigger COM port to burn M1s Dock, not the smaller COM port.</p>
+<p><img src="./../../../../zh/maix/m1s/other/assets/start/uart_burn_bl808_shakehand_fail_com_port.jpg" alt="uart_burn_bl808_shakehand_fail_com_port" /></p>
+<h4 id="Only-one-COM-port">Only one COM port</h4>
+<p>This means you are in the bl702 burning mode. Make sure power on this board before pressing BOOT key.</p>
+<p><img src="./../../../../zh/maix/m1s/other/assets/start/uart_burn_bl808_only_one_port.jpg" alt="uart_burn_bl808_only_one_port" /></p>
+<h4 id="No-COM-port">No COM port</h4>
+<p>Make sure you connected the computer and M1s Dock UART port, not that OTG port.</p>
+<h4 id="Burn-single-firmware">Burn single firmware</h4>
+<p>In the burning software, we need to tick and choose <code>partition table</code>, <code>boot2</code>, <code>firmware</code>, <code>d0fw</code> for the first time burning. If we want to burn only one firmware not all firmware, tick your target firmware and burn it.</p>
+<p><code>firmware</code> can be compiled out via e907_demo.<br />
+<code>d0fw</code> can be compiled out via c906_demo.</p>
+<p><code>partition table</code> and <code>boot2</code> are needed to burn every time.</p>
+<table>
+<tr>
+  <td>Burn c906_demo firmware</td>
+  <td>Burn e907_demo firmware</td>
+</tr>
+<tr>
+  <td><img src="./../../../../zh/maix/m1s/other/assets/start/uart_burn_c906.jpg" alt="uart_burn_c906"></td>
+  <td><img src="./../../../../zh/maix/m1s/other/assets/start/uart_burn_e907.jpg" alt="uart_burn_e907"></td>
+</tr>
+</table>
+<h2 id="Burn-examples">Burn examples</h2>
+<p>There are some demos compiled from M1s_BL808_example, with which you can have a test on M1s Dock.</p>
+<h3 id="lvgl_demo">lvgl_demo</h3>
+<p><a href="https://lvgl.io/"  target="_blank">LVGL</a> (Light and Versatile Graphics Library) is a free open source graphics library suitable for mcu graphical interfaces.</p>
+<p>Demo File: <a href="https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmware/demo_bin/lvgl_demo"  target="_blank">Click me</a></p>
+<p>After burning into M1s Dock, the screen displays the lvgl test. And then sets the baudrate to 2000000, the serial port with the smaller serial port number prints the last touch screen position.</p>
+<img src="./../../../../zh/maix/m1s/other/assets/start/example_lvgl.gif" alt="example_lvgl" width="45%"> 
+<img src="./../../../../zh/maix/m1s/other/assets/start/example_lvgl.jpg" alt="example_lvgl" width="45%">
+<h3 id="image_processing_demo">image_processing_demo</h3>
+<p>A simple image processing example.</p>
+<p>Demo File: <a href="https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmware/demo_bin/image_processing_demo"  target="_blank">Click me</a></p>
+<p>Burning into M1s Dock, screen displays what the camera captured, press the side key to change image operator. Set the baudrate to 2000000, to see the image operator state by the small serial port.</p>
+<p>Click the RST key to reset the bl808, and we can see the information about the camera from the small serial port when the board boots, to know if there is some error with the camera.</p>
+<img src="./../../../../zh/maix/m1s/other/assets/start/example_image_processing_demo.jpg" alt="example_image_processing_demo" width="45%"> 
+<img src="./../../../../zh/maix/m1s/other/assets/start/example_image_processing_demo_uart.jpg" alt="example_image_processing_demo_uart" width="45%">
+<h3 id="tinymaix_mnist_demo">tinymaix_mnist_demo</h3>
+<p><a href="https://github.com/sipeed/TinyMaix"  target="_blank">TinyMaix</a> is a tiny inference Neural Network library specifically for microcontrollers (TinyML), can run lightweight deep learning model on any Single Chip Microcomputer.</p>
+<p>Demo File: <a href="https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmware/demo_bin/tinymaix_mnist_demo"  target="_blank">Click me</a></p>
+<p>Burning into M1s Dock, recognizing number through the red box in the center of screen. Set the baudrate to 2000000, to see the process and result by the small serial port.</p>
+<img src="./../../../../zh/maix/m1s/other/assets/start/example_tinymaix_mnist_demo.jpg" alt="example_tinymaix_mnist_demo" width="45%"> 
+<img src="./../../../../zh/maix/m1s/other/assets/start/example_tinymaix_mnist_demo_uart.jpg" alt="example_tinymaix_mnist_demo_uart" width="45%">
+<h3 id="pikascript_demo">pikascript_demo</h3>
+<p><a href="http://pikascript.com/"  target="_blank">PikaScript</a> is a cross-platform, ultra-lightweight embedded Python engine.</p>
+<p>Demo File: <a href="https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmware/demo_bin/pikascript_demo"  target="_blank">Click me</a></p>
+<p>Burning into M1s Dock, the screen is white. Set the baudrate to 2000000, open the small serial port for command-line interaction:</p>
+<p>Use these commands:</p>
+
+<pre class="language-bash"><code class="language-bash">arc = lv.arc(lv.scr_act())
+arc.set_end_angle(200)
+arc.set_size(150, 150)
+arc.center()
+</code></pre>
+<p><img src="./../../../../zh/maix/m1s/other/assets/start/example_pikascript_demo_uart.jpg" alt="example_pikascript_demo_uart" /></p>
+<p>Then the screen displays as shown(Ignore the bad shoot):</p>
+<p><img src="./../../../../zh/maix/m1s/other/assets/start/example_pikascript_demo_screen.jpg" alt="example_pikascript_demo_screen" /></p>
+<h2 id="SDK-Compile">SDK Compile</h2>
+<p>M1s can be compiled in Linux.</p>
+<h3 id="Preparation">Preparation</h3>
+<p>We need <code>git</code> to get the SDK compile environment, and use <code>make</code> to compile SDK, <code>tree</code> is also need to be installed to check the directory structure.</p>
+<p>The following command can be used in debian Linux distribution like Ubuntu to install the three softwares mentioned above.</p>
+
+<pre class="language-bash"><code class="language-bash">sudo apt-get install git make tree build-essential
+</code></pre>
+<p>For the command of other Linux distribution to install the three softwares mentioned above can be searched on the Internet by yourself.</p>
+<h3 id="Get-example">Get example</h3>
+
+<pre class="language-bash"><code class="language-bash">git clone https://github.com/Sipeed/M1s_BL808_example.git
+</code></pre>
+<p>Then the file tree should be like this:</p>
+
+<pre class="language-bash"><code class="language-bash">sipeed@DESKTOP:~$ tree -L 1 M1s_BL808_example/
+M1s_BL808_example/
+├── LICENSE           # License file
+├── assets            # folder for assets for readme.md
+├── c906_app          # folder for C906 core example
+├── e907_app          # folder for E907 core example
+├── partition         # folder for partition file
+└── readme.md         # guide
+</code></pre>
+<h3 id="Get-SDK">Get SDK</h3>
+<p>It's about 120MB memory storage.</p>
+
+<pre class="language-bash"><code class="language-bash">git clone https://github.com/sipeed/M1s_BL808_SDK.git
+</code></pre>
+<p>Then the file tree should be like this:</p>
+
+<pre class="language-bash"><code class="language-bash">sipeed@DESKTOP:~$ tree -L 1 
+.
+├── M1s_BL808_example   # Folder of example
+└── M1s_BL808_SDK       # Folder of SDK
+</code></pre>
+<h3 id="Get-toolchain">Get toolchain</h3>
+<p>According to the <code>readme.md</code> in example folder, we need to put the toolchain in M1s_BL808_SDK/toolchain</p>
+
+<pre class="language-bash"><code class="language-bash">mkdir -p M1s_BL808_SDK/toolchain
+cd M1s_BL808_SDK/toolchain
+git clone https://github.com/wonderfullook/m1s_toolchain.git
+</code></pre>
+<p>Rename the toolchain folder name to <code>Linux_x86_64</code>, and return to the previous two levels of directories.</p>
+
+<pre class="language-bash"><code class="language-bash">mv m1s_toolchain Linux_x86_64
+cd ../../
+</code></pre>
+<p>Then the file tree should be like this(The main folder and files):</p>
+
+<pre class="language-bash"><code class="language-bash">sipeed@DESKTOP:~$ tree -L 2
+.
+├── M1s_BL808_example     # Folder of example
+│   ├── LICENSE           # License file
+│   ├── assets            # folder for assets for readme.md
+│   ├── c906_app          # folder for C906 core example
+│   ├── e907_app          # folder for E907 core example
+│   ├── partition         # folder for partition file
+│   └── readme.md         # guide
+└── M1s_BL808_SDK         # Folder of SDK
+    ├── toolchain         # Folder of toolchain
+    ...
+</code></pre>
+<h3 id="Set-toolchain-path">Set toolchain path</h3>
+<p>Every time compiling for M1s, we need to set toolchain path once.</p>
+<p>First we need to know the path of <code>M1s_BL808_SDK</code>:</p>
+
+<pre class="language-bash"><code class="language-bash">sipeed@DESKTOP:~$ cd M1s_BL808_SDK
+sipeed@DESKTOP:~/M1s_BL808_SDK$ pwd
+/home/lee/bl808/M1s_BL808_SDK
+</code></pre>
+<p>We copy the result (the result of everyone is different) of <code>pwd</code> command, then run following command to set toolchain path.</p>
+
+<pre class="language-bash"><code class="language-bash">export BL_SDK_PATH=/home/lee/bl808/M1s_BL808_SDK
+</code></pre>
+<p>Note that this is <code>M1s_BL808_SDK</code> ，not <code>M1s_BL808_SDK/</code>，normally this error is made by automatic string completion.</p>
+<h3 id="Compile-demo">Compile demo</h3>
+<p>Run <code>build.sh</code> which is in the folder of M1s_BL808_example/c906_app, add the <code>demo</code> in the end you want to try to compile.</p>
+<p>Demos（Edited in 2022-12-13）：</p>
+
+<pre class="language-bash"><code class="language-bash">c906_app
+├── audio_recording
+├── blai_mnist_demo
+├── camera_bypass_lcd
+├── camera_dump
+├── camera_streaming_through_wifi
+├── cli_demo
+├── flash_demo
+├── gpio_demo
+├── hello_world
+├── i2c_touch
+├── image_processing_demo
+├── lfs_demo
+├── lvgl_demo
+├── pikascript_demo
+├── proj_config.mk
+├── pwm_demo
+├── spi_lcd
+├── tinymaix_mnist_demo
+└── uvc_demo
+</code></pre>
+
+<pre class="language-bash"><code class="language-bash">cd M1s_BL808_example/c906_app
+./build.sh lvgl_demo
+</code></pre>
+<p>Then the compiled bin file is in M1s_BL808_example/c906_app/build_out folder, and its name is <code>d0fw.bin</code>, we can burn it by <a href="https://wiki.sipeed.com/hardware/en/maix/m1s/other/start.html#Burn-via-u-disk"  target="_blank">u-disk</a>.</p>
+<h3 id="Compile-firmware">Compile firmware</h3>
+<p>Run <code>build.sh</code> which is in the folder of M1s_BL808_example/e907_app, add <code>firmware</code> in the end to compile.</p>
+
+<pre class="language-bash"><code class="language-bash">cd M1s_BL808_example/e907_app
+./build.sh firmware
+</code></pre>
+<p>Then the compiled bin file is in M1s_BL808_example/e907_app/build_out folder, and its name is <code>firmware.bin</code>, we can burn it with the burning application provided by Bouffalo.</p>
+<h3 id="Compile-Questions">Compile Questions</h3>
+<ol>
+<li><p>Run command <code>build.sh</code> and get error <code>Makefile:14: *** BL_SDK_PATH not found, please enter: export BL_SDK_PATH={sdk_path}. Stop.</code>, Visit <a href="https://wiki.sipeed.com/hardware/en/maix/m1s/other/start.html#Set-toolchain-path"  target="_blank">Set toolchain path</a> to set <code>BL_SDK_PATH</code> correctly.</p>
+</li>
+<li><p>Failed compiling</p>
+</li>
+</ol>
+<p>When compiling your firmware, make sure your command is <code>./build.sh demo_name</code>, like  <code>./build.sh hello_world</code>, not <code>./build.sh hello_world/</code> (pay attention to the end symbol <code>/</code>)</p>
+<h2 id="WIFI-stream-DEMO">WIFI stream DEMO</h2>
+<p>An easy camera streaming demo.</p>
+<h3 id="Preparation">Preparation</h3>
+<p>Network: PC and M1s Dock are in a same network, M1s Dock supports 2.4G wireless network.</p>
+<p>PC Software：<code>python3</code>， <code>OpenCV</code></p>
+<p>M1s Dock firmware: Use this <a href="https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmware/factory"  target="_blank">Firmware</a> named with <code>firmware_20230227.bin</code>, burn it via <a href="https://wiki.sipeed.com/hardware/en/maix/m1s/other/start.html#Burn-via-UART"  target="_blank">UART</a>.</p>
+<p><img src="./../../../../zh/maix/m1s/other/assets/start/camera_stream_e907.png" alt="camera_stream_e907" /></p>
+<h3 id="Edit-Code">Edit Code</h3>
+<p>Open the <code>main.c</code> which is in the <code>M1s_BL808_example/c906_app/camera_streaming_through_wifi</code> directory.</p>
+<p><img src="./../../../../zh/maix/m1s/other/assets/start/camera_stream_original_source_code.png" alt="camera_stream_original_source_code" /></p>
+<p>Pay attention to <code>m1s_xram_wifi_connect()</code> 和 <code>m1s_xram_wifi_upload_stream()</code>.</p>
+<ul>
+<li>Edit <code>liuxo_desktop</code> into your wireless network, and change <code>12345678</code> into the wireless network password.</li>
+<li>Change <code>10.42.0.1</code> to your PC ip address.</li>
+</ul>
+<p>Here is an example, this computer connects to the network named <code>Test</code> and its ip address in this network is <code>192.168.43.183</code>, the password of the <code>Test</code> wireless work is <code>testtest</code>.</p>
+<p><img src="./../../../../zh/maix/m1s/other/assets/start/camera_stream_source_code.png" alt="camera_stream_source_code" /></p>
+<p>Save <code>main.c</code> after editing it.</p>
+<h3 id="Compile-and-burn">Compile and burn</h3>
+<p>Finishing editing the code, follow the <a href="http://wiki.sipeed.com/hardware/en/maix/m1s/other/start.html#SDK-Compile"  target="_blank">sdk compile</a> steps to compile this <code>camera_streaming_through_wifi</code> demo.</p>
+<p>Burn the compiled out <code>d0fw.bin</code> firmware via u-disk burn into M1s Dock, open the bigger COM port on your computer, press the RST ket on the M1s Dock.</p>
+<p>If M1s Dock succeeds in connecting the wireless work, its IP address is printed out via UART, and message <code>Socket connect</code> means it's waiting the computer to receive the data.</p>
+<p><img src="./../../../../zh/maix/m1s/other/assets/start/camera_stream_socket_wait.png" alt="camera_stream_socket_wait" /></p>
+<h3 id="PC-show-screen">PC show screen</h3>
+<p>Run <code>python3 main.py</code> in the <code>M1s_BL808_example/c906_app/camera_streaming_through_wifi</code> directory to receive the data with opencv from M1s dock.</p>
+<p><img src="./../../../../zh/maix/m1s/other/assets/start/camera_stream_success.png" alt="camera_stream_success" /></p>
+<h3 id="Note">Note</h3>
+<ol>
+<li>Make sure you use M1s Dock firmware named with <a href="https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmware/factory"  target="_blank">firmware_20230227.bin</a></li>
+<li>The IP address of M1s Dock is printed via bigger COM port if it succeeds in connecting the wireless work</li>
+<li>Make sure computer and M1s Dock are in a same network, and the PC IP address has been edited in <code>main.c</code>.</li>
+</ol>
+<h2 id="Linux-Demo">Linux Demo</h2>
+<p>This is a basic Linux Demo to run on M1s Dock.</p>
+<p><a href="https://dl.sipeed.com/fileList/MAIX/M1s/M1s_Dock/7_Firmware/m1sdock_linux_20221116.zip"  target="_blank">Click me</a> to download Linux demo, and following the <code>steps.md</code> in the compressed file to finish burning Linux image.</p>
+<p><img src="./../../../../zh/maix/m1s/other/assets/start/linux_opensbi.jpg" alt="linux_opensbi" /></p>
+<p>Login in with <code>root</code><br />
+<img src="./../../../../zh/maix/m1s/other/assets/start/linux_login.jpg" alt="linux_login" /></p>
+<p>Visit CPU information<br />
+<img src="./../../../../zh/maix/m1s/other/assets/start/linux_cpuinfo.jpg" alt="linux_cpuinfo" /></p>
+<h2 id="Use-Jtag">Use Jtag</h2>
+<p>The jtag debugger is sold in <a href="https://sipeed.aliexpress.com/store/1101739727"  target="_blank">Sipeed aliexpress store</a>, you can buy one if you need.</p>
+<p><img src="./../../../../zh/maix/m1s/other/assets/start/cklink_appearence.jpg" alt="cklink_appearence" /></p>
+<h3 id="Connect-to-device">Connect to device</h3>
+<p>Insert the jtag convertor board into the TF card slot on M1s Dock, then the convertor board is connected and fixed on the board.</p>
+<p>And it's look like as follows:</p>
+<p><img src="./../../../../zh/maix/m1s/other/assets/start/cklink_connect_side.jpg" alt="cklink_connect_side" /><br />
+<img src="./../../../../zh/maix/m1s/other/assets/start/cklink_connect_top.jpg" alt="cklink_connect_top" /></p>
+<p>Both jtag and M1s Dock are need to be connected with computer, and we need to make sure the UART port on M1s Dock is connected with computer, by which we can enable the core jtag and ensure that the jtag will not be very hot because of heavy power supply to M1s Dock.</p>
+<h3 id="Install-driver">Install driver</h3>
+<p>Visit <a href="https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/9_Driver/cklink"  target="_blank">Download station</a> to download the driver for your OS.</p>
+<h4 id="Windows">Windows</h4>
+<p>Unzip <code>T-Head-DebugServer-windows</code>, run <code>Setup</code> to install driver.</p>
+<p><img src="./../../../../zh/maix/m1s/other/assets/start/cklink_windows_install_driver.jpg" alt="cklink_windows_install_driver" /></p>
+<p>It's suggested not to change the default installation path, to avoid it remove all child directory when uninstalling it.</p>
+<p><img src="./../../../../zh/maix/m1s/other/assets/start/cklink_windows_driver_path.jpg" alt="cklink_windows_driver_path" /></p>
+<p>Install all compoents, which we may need in the future.</p>
+<p><img src="./../../../../zh/maix/m1s/other/assets/start/cklink_windows_driver_components.jpg" alt="cklink_windows_driver_components" /></p>
+<p>Finish installing this, and we can see there is <code>CKlink-Lite</code> in Windows device manager if we have connected the debugger.</p>
+<p><img src="./../../../../zh/maix/m1s/other/assets/start/cklink_windows_driver_device_manager.jpg" alt="cklink_windows_driver_device_manager" /></p>
+<p>There is an icon of the debug software.</p>
+<p><img src="./../../../../zh/maix/m1s/other/assets/start/cklink_windows_driver_desktop_icon.jpg" alt="cklink_windows_driver_desktop_icon" /></p>
+<h4 id="Linux">Linux</h4>
+<p>Download driver：<a href="https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/9_Driver/cklink"  target="_blank">Click me</a></p>
+<p><img src="./../../../../zh/maix/m1s/other/assets/start/cklink_linux_list_file.jpg" alt="cklink_linux_list_file" /></p>
+<p>Unzip the downloaded file.</p>
+
+<pre class="language-bash"><code class="language-bash">tar xvf T-Head-DebugServer*
+</code></pre>
+<p>Then there is a new script file.</p>
+<p><img src="./../../../../zh/maix/m1s/other/assets/start/cklink_linux_list_shell_file.jpg" alt="cklink_linux_list_shell_file" /></p>
+<p>Run this script, then its usages are shown, by which we can know that add with command <code>-i</code> to install driver or with <code>-u</code> to remove it in the end of command.</p>
+
+<pre class="language-none"><code class="language-none">./T-Head-DebugServer-linux-x86_64-V5.16.5-20221021.sh
+</code></pre>
+<p><img src="./../../../../zh/maix/m1s/other/assets/start/cklink_linux_script_help.jpg" alt="cklink_linux_script_help" /></p>
+<p>Install driver：</p>
+
+<pre class="language-none"><code class="language-none">sudo ./T-Head-DebugServer-linux-x86_64-V5.16.5-20221021.sh -i
+</code></pre>
+<p><img src="./../../../../zh/maix/m1s/other/assets/start/cklink_linux_installation.jpg" alt="cklink_linux_installation" /></p>
+<p>We need enter <code>yes</code> two times when installing it, and for as for <code>Set full installing path</code> we can just press Enter on the keyboard to use the default installation path or set your own installation path by yourself.</p>
+<p>Finishing installing the driver, use command <code>lsusb</code> to see there is <code>CKlink-Lite</code> if we have connected the debugger.</p>
+<p><img src="./../../../../zh/maix/m1s/other/assets/start/cklink_linux_lsusb.jpg" alt="cklink_linux_lsusb" /></p>
+<h3 id="Debug-device">Debug device</h3>
+<p>Before debugging, we need to enable core debug. Connect computer with UART port on M1s Dock, and open the bigger serial port.</p>
+<p><img src="./../../../../zh/maix/m1s/other/assets/start/cklink_jtag_serial_choice.jpg" alt="cklink_jtag_serial_choice" /><br />
+<img src="./../../../../zh/maix/m1s/other/assets/start/cklink_jtag_choice.jpg" alt="cklink_jtag_choice" /></p>
+<p>We can know there are two jtag choices, run command <code>jtag_cpu0</code> to debug C906 Core or run command <code>jtag_m0</code> to debug E907 Core.</p>
+<p><img src="./../../../../zh/maix/m1s/other/assets/start/cklink_jtag_c906.jpg" alt="cklink_jtag_c906" /><br />
+<img src="./../../../../zh/maix/m1s/other/assets/start/cklink_jtag_e907.jpg" alt="cklink_jtag_e907" /></p>
+<h4 id="Windows">Windows</h4>
+<p>Run T-HeadDebugServer software on the desktop, if it shows following message, try following steps:</p>
+<ul>
+<li>Make sure you have enabled core debug in serial connection</li>
+<li>There is <code>CKlink-Lite</code> in Windows device manager, if there is no <code>CKlink-Lite</code>, check the connection of debugger or reinstall the driver</li>
+<li>Debugger is occupied by other T-HeadDebugServer application</li>
+</ul>
+<p><img src="./../../../../zh/maix/m1s/other/assets/start/cklink_jtag_windows_no_target.jpg" alt="cklink_jtag_windows_no_target" /></p>
+<p>Click the triangle icon to connect device.</p>
+<p><img src="./../../../../zh/maix/m1s/other/assets/start/cklink_jtag_windows_run_debugger.jpg" alt="cklink_jtag_windows_run_debugger" /></p>
+<p>If there shows Failed about port, set another port and then rerun connecting device.</p>
+<p><img src="./../../../../zh/maix/m1s/other/assets/start/cklink_jtag_windows_no_port.jpg" alt="cklink_jtag_windows_no_port" /></p>
+<p>Click Socket Setting, set a port.</p>
+<p><img src="./../../../../zh/maix/m1s/other/assets/start/cklink_jtag_windows_set_socket.jpg" alt="cklink_jtag_windows_set_socket" /><br />
+<img src="./../../../../zh/maix/m1s/other/assets/start/cklink_jtag_windows_set_socket_1.jpg" alt="cklink_jtag_windows_set_socket_1" /></p>
+<p>If succeed connecting, the triangle icon will change into circle icon.</p>
+<p><img src="./../../../../zh/maix/m1s/other/assets/start/cklink_jtag_windows_success_connection.jpg" alt="cklink_jtag_windows_success_connection" /></p>
+<p>Up to now we have connected device, and the picture above is we usr command <code>jtag_m0</code> to debug E907 Core, you can also run <code>jtag_cpu0</code> to debug C906 Core.</p>
+<p>And we can use software like gdb to debug the chip.</p>
+<p><img src="./../../../../zh/maix/m1s/other/assets/start/cklink_jtag_windows_gdb_debug.jpg" alt="cklink_jtag_windows_gdb_debug" /></p>
+<p>Besides, in the directory where we install this software, we can run <code>DebugServerConsole</code> to connect debugger by command-line.</p>
+<p><img src="./../../../../zh/maix/m1s/other/assets/start/cklink_jtag_windows_debugserverconsole.jpg" alt="cklink_jtag_windows_debugserverconsole" /></p>
+<p>Run it by command-line to see its usages.</p>
+
+<pre class="language-bash"><code class="language-bash">.\DebugServerConsole.exe -h
+</code></pre>
+<p><img src="./../../../../zh/maix/m1s/other/assets/start/cklink_jtag_windows_debugserverconsole_help.jpg" alt="cklink_jtag_windows_debugserverconsole_help" /></p>
+
+<pre class="language-bash"><code class="language-bash">.\DebugServerConsole.exe -port 65535
+</code></pre>
+<p><img src="./../../../../zh/maix/m1s/other/assets/start/cklink_jtag_windows_debugserverconsole_port.jpg" alt="cklink_jtag_windows_debugserverconsole_port" /></p>
+<p>Then we can debug it with port number 65535.</p>
+<h4 id="Linux">Linux</h4>
+<p>Run command<code>DebugServerConsole -h</code> to see help.</p>
+<p><img src="./../../../../zh/maix/m1s/other/assets/start/cklink_jtag_linux_debugserverconsole_help.jpg" alt="cklink_jtag_linux_debugserverconsole_help" /></p>
+<p>Run following command to debug M1s Dock with port number 12345.</p>
+
+<pre class="language-bash"><code class="language-bash">DebugServerConsole -port 12345
+</code></pre>
+<p><img src="./../../../../zh/maix/m1s/other/assets/start/cklink_jtag_linux_debugserverconsole.jpg" alt="cklink_jtag_linux_debugserverconsole" /></p>
+<h2 id="blai-npu">blai npu</h2>
+<h3 id="Supported-operators">Supported operators</h3>
+<table>
+<thead>
+<tr>
+  <th>Type</th>
+  <th>Operators</th>
+  <th>Applicable Subset Spec.</th>
+  <th>Processor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td rowspan="10">Convolution</td>
+  <td rowspan="4">Conv </td>
+  <td>Kernel: 1x1,3x3,5x5,7x7</td>
+  <td rowspan="4">:strong:<code>NPU</code></td>
+</tr>
+<tr>
+  <td>Stride: 1x1, 2x2</td>
+</tr>
+<tr>
+  <td>Dilation: 1x1, 2x2</td>
+</tr>
+<tr>
+  <td>Pad: same</td>
+</tr>
+<tr>
+  <td rowspan="4">Depthwise Conv</td>
+  <td>Kernel: 1x1,3x3 (5x5, 7x7 TBD)</td>
+  <td rowspan="4">:strong:<code>NPU</code></td>
+</tr>
+<tr>
+  <td>Stride: 1x1, 2x2</td>
+</tr>
+<tr>
+  <td>Dilation: 1x1 (2x2 TBD)</td>
+</tr>
+<tr>
+  <td>Pad: same</td>
+</tr>
+<tr>
+  <td rowspan="2">Transpose Conv</td>
+  <td>Kernel: 3x3</td>
+  <td rowspan="2">strong:<code>NPU</code></td>
+</tr>
+<tr>
+  <td>Stride: 2x2</td>
+</tr>
+<tr>
+  <td rowspan="4">Pooling</td>
+  <td rowspan="2">MaxPool (NPU TBD)</td>
+  <td>Kerenl: 2x2</td>
+  <td rowspan="2">DSP</td>
+</tr>
+<tr>
+  <td>Stride: 2x2</td>
+</tr>
+<tr>
+  <td rowspan="2">MaxPool</td>
+  <td>Kerenl: 3x3</td>
+  <td rowspan="2">:strong:<code>NPU</code></td>
+</tr>
+<tr>
+  <td>Stride: 1x1, 2x2</td>
+</tr>
+<tr>
+  <td rowspan="2">Activation</td>
+  <td>Relu</td>
+  <td></td>
+  <td>:strong:<code>NPU</code></td>
+</tr>
+<tr>
+  <td>Relu 6</td>
+  <td></td>
+  <td>:strong:<code>NPU</code></td>
+</tr>
+<tr>
+  <td rowspan="5">Other processing</td>
+  <td>BatchNormalization</td>
+  <td>fused with conv</td>
+  <td>:strong:<code>NPU</code></td>
+</tr>
+<tr>
+  <td>Add (shortcut)</td>
+  <td></td>
+  <td>:strong:<code>NPU</code></td>
+</tr>
+<tr>
+  <td>Concat (route)</td>
+  <td>Channel wise (AXIS 3 in BHWC)</td>
+  <td>:strong:<code>NPU</code></td>
+</tr>
+<tr>
+  <td>Fully Connected</td>
+  <td></td>
+  <td>:strong:<code>NPU</code></td>
+</tr>
+<tr>
+  <td>Upsample</td>
+  <td>Nearest</td>
+  <td>:strong:<code>NPU</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="blai_mnist_demo">blai_mnist_demo</h3>
+<p>Burning the compiled <a href="https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmware/demo_bin/blai_mnist_demo"  target="_blank">blai_mnist_demo</a> firmware into M1s Dock, we have told that the each compiled demo bin is named <code>d0fw.bin</code>, and it's in <code>M1s_BL808_example/c906_app/built_out</code> folder.</p>
+
+<pre class="language-none"><code class="language-none">#c906_app
+./build.sh blai_mnist_demo
+</code></pre>
+<p><img src="./../../../../zh/maix/m1s/other/assets/start/udisk_burn.gif" alt="udisk_burn" /></p>
+<p>After burning this firmware (when the u-disk is automatically removed it means we have finished burning this firmware), press RST key to reset M1s Dock and reload firmware, then open the smaller serial port (with baudrate 2000000) we can see it shows failed loading model.</p>
+<p><img src="./../../../../zh/maix/m1s/other/assets/start/blai_mnist_demo_no_model.jpg" alt="blai_mnist_demo_no_model" /></p>
+<p>So we need upload model into M1s Dock, from source code we can know we need to save model in flash.</p>
+<p><img src="./../../../../zh/maix/m1s/other/assets/start/blai_mnist_demo_fopen.jpg" alt="blai_mnist_demo_fopen" /></p>
+<p>Connect computer with OTG port of M1s Dock we can see there is a u-disk with nearly 7M storage memory.</p>
+<p><img src="./../../../../zh/maix/m1s/other/assets/start/blai_mnist_demo_flash_disk.jpg" alt="blai_mnist_demo_flash_disk" /></p>
+<p>Follow the source code, in the u-disk (which is the flash of M1s Dock indeed), we create a folder named <code>models</code>, and save <a href="https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmware/demo_bin/blai_mnist_demo"  target="_blank">mnist.blai</a> into the newly created folder.</p>
+
+<pre class="language-bash"><code class="language-bash">models
+└── mnist.blai
+</code></pre>
+<p><img src="./../../../../zh/maix/m1s/other/assets/start/blai_mnist_demo_model_path.jpg" alt="blai_mnist_demo_model_path" /></p>
+<p>Press onboard RST key to restart the M1s Dock to load the model</p>
+<p>Open the smaller serial port we can see we succeed loading model, and the recognition results are printed.</p>
+<p>Screen displays camera contents, and show recognition result.</p>
+<p><img src="./../../../../zh/maix/m1s/other/assets/start/blai_mnist_demo_uart.jpg" alt="blai_mnist_demo_uart" /></p>
+<p><img src="./../../../../zh/maix/m1s/other/assets/start/blai_mnist_demo_recognition.jpg" alt="blai_mnist_demo_recognition" /></p>
+<h3 id="tom_and_jerry_classification_demo">tom_and_jerry_classification_demo</h3>
+<p>This ai model file can be downloaded from <a href="https://maixhub.com/model/zoo/127"  target="_blank">MaixHub</a>. We can upload dataset, label and train out model file in this website. Here we tell how to deploy the detection model downloaded from <a href="https://maixhub.com/"  target="_blank">Maixhub</a> on M1s Dock.</p>
+<p>To start this, refer to the <a href="https://wiki.sipeed.com/hardware/en/maix/m1s/other/start.html#SDK-Compile"  target="_blank">SDK compile</a> chapter and compile out the <a href="https://dl.sipeed.com/fileList/MAIX/M1s/M1s_Dock/7_Firmware/demo_bin/tom_and_jerry_classification_demo.bin"  target="_blank">tom_and_jerry_classification_demo</a> firmware first.</p>
+
+<pre class="language-bash"><code class="language-bash">#c906_app
+./build.sh tom_and_jerry_classification_demo
+</code></pre>
+<p>Burn the compiled firmware into M1s Dock.</p>
+<p><img src="./../../../../zh/maix/m1s/other/assets/start/udisk_burn.gif" alt="udisk_burn" /></p>
+<p>Form the source code of <code>main.c</code> in tom_and_jerry_classification_demo we can see that the ai model file is the the models folder in the Flash, and the ai model file name is <code>tj.blai</code>.</p>
+<p><img src="./../../../../zh/maix/m1s/other/assets/start/tom_jerry_source_code.jpg" alt="tom_jerry_source_code" /></p>
+<p>We download the example ai model from <a href="https://maixhub.com/model/zoo/127"  target="_blank">MaixHub</a>, and rename the file whose extended name is <code>.blai</code> into <code>tj.blai</code>.</p>
+<p><img src="./../../../../zh/maix/m1s/other/assets/start/tom_jerry_model_rename.gif" alt="tom_jerry_model_rename" /></p>
+<p>Connect computer with OTG port of M1s Dock we can see there is a u-disk with nearly 7M storage memory.</p>
+<p><img src="./../../../../zh/maix/m1s/other/assets/start/blai_mnist_demo_flash_disk.jpg" alt="blai_mnist_demo_flash_disk" /></p>
+<p>According to the source code, we copy the renamed <code>tj.blai</code> ai model file to the models folder in the u-disk: Create a folder named models in the u-disk, and copy the renamed <code>tj.blai</code> ai model file into the created models folder.</p>
+<p><img src="./../../../../zh/maix/m1s/other/assets/start/tom_jerry_model_path.jpg" alt="tom_jerry_model_path" /></p>
+<p>Finish there, we can use M1s Dock to distinguish Tom and Jerry.</p>
+<img src="./../../../../zh/maix/m1s/other/assets/start/tom_jerry_model_jerry.jpg" alt="tom_jerry_model_jerry" width=42%>
+<img src="./../../../../zh/maix/m1s/other/assets/start/tom_jerry_model_tom.jpg" alt="tom_jerry_model_tom" width=42%>
+<p>Because this ai model is a big one, it's heavy for M1s Dock.</p>
+<h2 id="Questions">Questions</h2>
+<h3 id="Why-there-is-a-BL702-chip-on-M1s-Dock%3F">Why there is a BL702 chip on M1s Dock?</h3>
+<p>We use this chip as a USB to 2 UART convertor.</p>
+<p>If there is some problem with your serial COM port, you can burn its firmware to solve this problem.</p>
+<h3 id="Why-there-are-2-serial-COM-ports-on-M1s-Dock">Why there are 2 serial COM ports on M1s Dock</h3>
+<p>We can know there are 3 cores in BL808, and 2 serial COM ports are connecting with 2 different cores of BL808, with which you can see their own logs if you need.</p>
+<h3 id="Why-choose-u-disk-burn">Why choose u-disk burn</h3>
+<p>This u-disk is built on a firmware, via which user can burn demos and experience M1s Dock.</p>
+<p>If you full-erase the flash, there is no u-disk anymore.</p>
+<p>If you want to use this u-disk again, reburn the default firmware into bl808 via serial burn.</p>
+<h3 id="Why-use-serial-burn">Why use serial burn</h3>
+<p>U-disk burn is based on firmware, we need a way to burn this firmware into M1s Dock when it's produced.</p>
+<p>So we use serial burn to flash the defaule firmware into M1s Dock.</p>
+<h3 id="How-to-erase-bl808-flash">How to erase bl808 flash</h3>
+<p>To erase the flash. we need <a href="https://dev.bouffalolab.com/download"  target="_blank">Bouffalo Lab Dev Cube</a>, download and run it, choose Chip BL808.</p>
+<p><img src="./../../../../zh/maix/m1s/other/assets/start/chip_selection.png" alt="chip_selection" /></p>
+<p><code>Show advnaced Page</code> first.</p>
+<p><img src="./../../../../zh/maix/m1s/other/assets/start/erase_advanede_mode.jpg" alt="erase_advanede_mode" /></p>
+<p>Do following steps:</p>
+<ul>
+<li>Choose Flash interface</li>
+<li>Make sure you have made M1s Dock in burning status(Hold BOOT ket and RST key, then relase RST key first, then release BOOT key.)</li>
+<li>Selest the bigger COM port</li>
+<li>Tick Whole Chip</li>
+<li>Click Erase Flash</li>
+</ul>
+<p><img src="./../../../../zh/maix/m1s/other/assets/start/erase_configurations.jpg" alt="erase_configurations" /></p>
+<p>Then your M1s Dock is being erased, there is no progress bar, but <code>Success</code> shows when finishing erasing.</p>
+<p><img src="./../../../../zh/maix/m1s/other/assets/start/erase_success.jpg" alt="erase_success" /></p>
+<h3 id="BFLB-IMG-LOAD-SHAKEHAND-FAIL">BFLB IMG LOAD SHAKEHAND FAIL</h3>
+<p>This means M1s Dock is not in burning mode. Hold BOOT ket and RST key, then relase RST key first, then release BOOT key to make it into burning mode.</p>
+<p><img src="./../../../../zh/maix/m1s/other/assets/start/uart_burn_bl808_shakehand_fail.jpg" alt="uart_burn_bl808_shakehand_fail" /></p>
+<p>And Make sure you choose the bigger COM port.</p>
+<p><img src="./../../../../zh/maix/m1s/other/assets/start/uart_burn_bl808_shakehand_fail_com_port.jpg" alt="uart_burn_bl808_shakehand_fail_com_port" /></p>
+<h3 id="Only-one-COM-port">Only one COM port</h3>
+<p>This means you are in the bl702 burning mode. Make sure power on this board before pressing BOOT key.</p>
+<p><img src="./../../../../zh/maix/m1s/other/assets/start/uart_burn_bl808_only_one_port.jpg" alt="uart_burn_bl808_only_one_port" /></p>
+<h3 id="Burn-single-firmware">Burn single firmware</h3>
+<p>In the burning software, we need to tick and choose <code>partition table</code>, <code>boot2</code>, <code>firmware</code>, <code>d0fw</code> for the first time burning. If we want to burn only one firmware not all firmware, tick your target firmware and burn it.</p>
+<p><code>firmware</code> can be compiled out via e907_demo.<br />
+<code>d0fw</code> can be compiled out via c906_demo.</p>
+<p><code>partition table</code> and <code>boot2</code> are needed to burn every time.</p>
+<table>
+<tr>
+  <td>Burn c906_demo firmware</td>
+  <td>Burn e907_demo firmware</td>
+</tr>
+<tr>
+  <td><img src="./../../../../zh/maix/m1s/other/assets/start/uart_burn_c906.jpg" alt="uart_burn_c906"></td>
+  <td><img src="./../../../../zh/maix/m1s/other/assets/start/uart_burn_e907.jpg" alt="uart_burn_e907"></td>
+</tr>
+</table>
+<h3 id="Trouble-about-compiling-SDK">Trouble about compiling SDK</h3>
+<ol>
+<li><p>Run command <code>build.sh</code> and get error <code>Makefile:14: *** BL_SDK_PATH not found, please enter: export BL_SDK_PATH={sdk_path}. Stop.</code>, Visit <a href="https://wiki.sipeed.com/hardware/en/maix/m1s/other/start.html#Set-toolchain-path"  target="_blank">Set toolchain path</a> to set <code>BL_SDK_PATH</code> correctly.</p>
+</li>
+<li><p>Failed compiling</p>
+</li>
+</ol>
+<p>When compiling your firmware, make sure your command is <code>./build.sh demo_name</code>, like  <code>./build.sh hello_world</code>, not <code>./build.sh hello_world/</code> (pay atention to the end symbol <code>/</code>)</p>
+<h3 id="Old-firmware-test">Old firmware test</h3>
+<p>Power the M1s Dock, screen displays what the camera captures.</p>
+<p>Press <code>S1_Button</code> or <code>S2_button</code> the number on the right top of the screen changes, which is the brightness percentage of the LED.</p>
+<p><img src="./../../../../zh/maix/m1s/other/assets/start/default_firmware.jpg" alt="default_firmware" /></p>
+<p>This is the state of 50% LED brightness.</p>
+<p><img src="./../../../../zh/maix/m1s/other/assets/start/led_brghtness.jpg" alt="led_brghtness" /></p>
+<h3 id="Burn-onboard-bl702">Burn onboard bl702</h3>
+<p>We do this only when there is some trouble with our board. Hold BOOT key and cold boot the board, the bl702 is into download mode, then we burn its firmware.</p>
+<p>Hold BOOT key before power this device, then connect this board ti==with computer by the UART TypeC USB port, after this the onboard is in download mode. Run <code>BLDevCube</code>, choose <code>BL702</code>, then in MCU page, choose the firmware. Here we have provided the <a href="https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmware"  target="_blank">firmware</a>, download the file whose name starts with <code>usb2dualuart_bl702</code>.</p>
+<p>Click <a href="https://wiki.sipeed.com/hardware/en/maix/m1s/other/start.html#bl702-firmware-difference"  target="_blank">bl702 firmware difference</a> to find more information.</p>
+<table>
+    <tr>
+        <td><img src="./../../../../zh/maix/m1s/other/assets/start/select_bl702.png" alt="select_bl702" style="transform:rotate(0deg);"></td>    
+        <td><img src="./../../../../zh/maix/m1s/other/assets/start/mcu_mode.png" alt="mcu_mode" style="transform:rotate(0deg);" width="70%"></td>
+    </tr>
+</table>
+<p>Click <code>Refresh</code>，choose the serial port (there is only one port, if you can't see this port, make sure you have hold BOOT key before powering this device), set UartRate 2000000, click <code>Create &amp; Diwnload</code>.</p>
+<p><img src="./../../../../zh/maix/m1s/other/assets/start/burn_bl702.png" alt="burn_bl702" /></p>
+<p>After finishing burning, repower this board to use the new firmware.</p>
+<p><img src="./../../../../zh/maix/m1s/other/assets/start/finish_burn_702.png" alt="finish_burn_702" /></p>
+<h3 id="No-serial-port-when-burn-bl702">No serial port when burn bl702</h3>
+<p>Make sure you hold BOOT key, then power up this board via UART port on M1s Dock.</p>
+<p>Windows user needs check whether there is a <code>Bouffalo CDC</code> device.</p>
+<p>If there is an error on this CDC device, search <code>Windows7 CDC</code> on the internet and find the answer.</p>
+<p><img src="./../../../../zh/maix/m1s/other/assets/start/burn_bl702_cdc_error.png" alt="burn_bl702_cdc_error" /></p>
+<h3 id="Failed-booting-device">Failed booting device</h3>
+<p>Different bl702 firmware causes this error. Here are two ways to solve this.</p>
+<ul>
+<li>Power this board, then click the RST key to boot M1S Dock</li>
+<li>Reflash the USB to dual serial port firmware for bl702 <a href="https://wiki.sipeed.com/hardware/en/maix/m1s/other/start.html#Burn-onboard-bl702"  target="_blank">Burn onboard bl702</a></li>
+</ul>
+<h3 id="bl702-firmware-difference">bl702 firmware difference</h3>
+<p>In <a href="https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmware"  target="_blank">download site</a>，there are two bl702 firmwares, and their differences are in the following:</p>
+<table>
+<thead>
+<tr>
+  <th>Firmware name</th>
+  <th>usb2dualuart_bl702_221118</th>
+  <th>usb2dualuart_bl702_20230221</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Author</td>
+  <td>SIPEED</td>
+  <td>Bouffalolab</td>
+</tr>
+<tr>
+  <td>Detail</td>
+  <td>Containing software reset, <br> boot M1S Dock without clicking RST key</td>
+  <td>No software reset，<br>clicking RST key to boot BL808</td>
+</tr>
+<tr>
+  <td>Driver</td>
+  <td>Some Windows computers require <a href="https://dl.sipeed.com/shareURL/MAIX/tools/driver"  target="_blank">Drivers</a></td>
+  <td>Don't require Driver</td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://wiki.sipeed.com/hardware/en/maix/m1s/other/start.html#Burn-onboard-bl702"  target="_blank">Click me</a> to see how to flash the firmware for BL702</p>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                        <a href="/hardware/en/maix/m1s/m1s_dock.html">
+                            <span class="icon"></span>
+                            <span class="label">Introduction</span>
+                        </a>
+                        
+                    </div>
+                    <div id="next">
+                        
+                        <a href="/hardware/en/maix/m1s/other/others.html">
+                            <span class="label">Others (Camera and Shell)</span>
+                            <span class="icon"></span>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>links</a><ul><li><a target="_blank" href="https://www.sipeed.com">Sipeed</a></li>
+<li><a target="_blank" href="https://maixhub.com/">MaixHub</a></li>
+<li><a target="_blank" href="https://sipeed.aliexpress.com/store/911876460">Sipeed AliExpress</a></li>
+<li><a target="_blank" href="https://github.com/neutree/teedoc">Build by teedoc </a></li>
+</ul>
+</li>
+<li><a>Source Code</a><ul><li><a target="_blank" href="https://github.com/sipeed/sipeed_wiki">Wiki source</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">Open Source Projects</a></li>
+</ul>
+</li>
+<li><a>Follow us</a><ul><li><a target="_blank" href="https://twitter.com/SipeedIO">twitter</a></li>
+<li><a target="_blank" href="https://sipeed.aliexpress.com/store/911876460">AliExpress</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">github</a></li>
+<li><a><a>Wechat</a><img src='/static/image/wechat.png'></a>
+</li>
+</ul>
+</li>
+<li><a>Contact us</a><ul><li><a>Tel: +86 0755-27808509</a>
+</li>
+<li><a>Business support: support@sipeed.com</a>
+</li>
+<li><a>Address: 深圳市宝安区新湖路4008号蘅芳科技办公大厦A座-2101C</a>
+</li>
+<li><a  href="/join_us.html">Join us</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://www.sipeed.com">©2018-2023 深圳矽速科技有限公司</a></li>
+<li><a target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index">粤ICP备19015433号</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/js/prism.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <link rel="stylesheet" href="/static/js/add_hint/style.css" type="text/css"/>
+    
+        <script src="/static/js/add_hint/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+        <script src="/static/js/thumbs_up/main.js"></script>
+    
+</body>
+
+</html>

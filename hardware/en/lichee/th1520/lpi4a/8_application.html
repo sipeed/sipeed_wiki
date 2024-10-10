@@ -1,0 +1,2331 @@
+<!DOCTYPE html>
+
+<html lang="en"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="Linux, Lichee, TH1520, SBC, RISCV, application">
+    
+    
+    <meta name="description" content="">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+        
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/prism.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?9cb07365544a53067c56c346c838181a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119047820-5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-119047820-5');
+    </script>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/js/thumbs_up/style.css" type="text/css"/>
+        
+    
+    
+    <title>Typical Application - Sipeed Wiki</title>
+    
+    <script type="text/javascript">js_vars = {"teedoc-plugin-ad-hint": {"type": "hint", "label": "NEW", "content": "New Maix series products <a href='https://wiki.sipeed.com/maixcam'>MaixCAM</a> online now, and new <a href='https://wiki.sipeed.com/maixpy/'>MaixPy</a>,feature richer functionalities, enhanced performance, and user-friendly software, with comprehensive documentation", "show_times": 2, "show_after_s": 432000, "date": "2022-06-01 14:00", "color": "#a0421d", "link_color": "#e53935", "link_bg_color": "#e6ae5c", "bg_color": "#ffcf89", "color_hover": "white", "bg_color_hover": "#f57c00", "close_color": "#eab971"}, "teedoc-plugin-thumbs-up": {"label_up": "Helpful", "label_down": "Not Helpful", "icon": "/static/images/thumbs_up/up.svg", "icon_clicked": "/static/images/thumbs_up/upped.svg", "url": "https://thumbs-up.sipeed.com", "show_up_count": true, "show_down_count": false, "msg_already_voted": "You have already voted", "msg_thanks": "Thanks for your vote", "msg_down_prompt": "Thanks to tell us where we can improve?(At least 10 characters)", "msg_down_prompt_error": "Message should be at least 10 characters and less than 256 characters", "msg_error": "Request server failed!"}}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": "2023-09-12", "update": [{"date": "2023-09-12", "version": "v1.2", "author": "ztd", "content": ["Add some NPU applications"]}, {"date": "2023-07-21", "version": "v1.1", "author": "ztd", "content": ["Update English docs"]}, {"date": "2023-05-08", "version": "v1.0", "author": "wonder", "content": ["Release docs"]}], "ts": 1694476800, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/en/">
+                
+                    <img class="site_logo" src="/static/image/logo.svg" alt="sipeed wiki logo">
+                
+                
+                    <h2>wiki</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class=""><a  href="/en/">Products</a></li>
+<li class="sub_items "><a >Software Docs</a><ul><li class=""><a  href="/maixpy/en/">MaixPy</a></li>
+<li class=""><a  href="/soft/maixpy/zh/index.html">MaixPy_v1</a></li>
+<li class=""><a  href="/soft/Lichee/zh/index.html">Lichee</a></li>
+<li class=""><a  href="/ai/en/index.html">AI Guide</a></li>
+</ul>
+</li>
+<li class=""><a target="_blank" href="https://maixhub.com">MaixHub</a></li>
+<li class=""><a  href="/news/">News</a></li>
+<li class=""><a  href="/en/faq.html">FAQ</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class=""><a  href="/en/store.html"><img src='/static/image/shop.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+<li class=""><a target="_blank" href="https://github.com/sipeed"><img src='/static/image/github.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+<li class="sub_items "><a  ><img src='/static/image/language.svg' style='height: 1.5em;vertical-align: middle;'>&nbsp;English</a><ul><li class="active"><a  href="/hardware/en/lichee/th1520/lpi4a/8_application.html">English</a></li>
+<li class=""><a  href="/hardware/zh/lichee/th1520/lpi4a/8_application.html">中文</a></li>
+</ul></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">Search</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">Input keyword. Using Space to separate multiple keywords</span>
+                                <span id="search_loading_hint">Loading, please wait</span>
+                                <span id="search_download_err_hint">Fail download, Please retry or check network</span>
+                                <span id="search_other_docs_result_hint">Results form other doc</span>
+                                <span id="search_curr_doc_result_hint">Result form current doc</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="not_active no_link"><a><span class="label">Maix Zero</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Maix M0</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/./maixzero/sense/maix_zero_sense.html"><span class="label">M0sense Board</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/./maixzero/sense/start.html"><span class="label">M0sense Guide</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Maix M0P</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">M0P</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">M0P Dock</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/./maixzero/m0s/m0s.html"><span class="label">Maix M0s</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Maix-I & Zero</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Maix M1</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">M1 Module</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/en/maix/core_module.html"><span class="label">M1/M1w</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maix/M1n.html"><span class="label">M1n</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">M1 Board</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maix/maixpy_develop_kit_board/Maix_dock.html"><span class="label">Maix Dock(M1/M1W)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maix/maixpy_develop_kit_board/maix_bit.html"><span class="label">Maix Bit</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maix/maixpy_develop_kit_board/maix_duino.html"><span class="label">Maix Duino</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maix/maixpy_develop_kit_board/maix_nano.html"><span class="label">Maix Nano</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maix/maixpy_develop_kit_board/maix_cube.html"><span class="label">Maix Cube</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maix/maixpy_develop_kit_board/maix_Amigo.html"><span class="label">Maix Amigo</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/no_translate.html?ref=/hardware/zh/maix/maixpy_develop_kit_board/maix_hat.html&from=/hardware/en/maix/maixpy_develop_kit_board/maix_hat.html"><span class="label">Maix HAT</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maix/maixpy_develop_kit_board/maix_go.html"><span class="label">Maix Go (Sold out)</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Maix M1s</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maix/m1s/m1s_module.html"><span class="label">M1s Module</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">M1s Dock</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maix/m1s/m1s_dock.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maix/m1s/other/start.html"><span class="label">Basic Usage</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maix/m1s/other/others.html"><span class="label">Others (Camera and Shell)</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Maix M1a</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/maixII/index.html"><span class="label">Maix-II</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maixII/M2/resources.html"><span class="label">MaixII-Dock</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maixII/M2/flash.html"><span class="label">Burn image</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixII/M2/usage.html"><span class="label">Basic usage</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixII/M2/other.html"><span class="label">Other notice</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/../../soft/maixpy3/zh/tools/0.MaixII-Dock.html"><span class="label">Using MaixPy3</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixII/M2/faq.html"><span class="label">FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/maixII/M2S/V833.html"><span class="label">M2S</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maixII/M2S/reources.html"><span class="label">Board introduction</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/maixII/M2A/maixsense.html"><span class="label">MaixSense</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maixII/M2A/flash_system.html"><span class="label">Burn image</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixII/M2A/config_system.html"><span class="label">Config system</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/no_translate.html?ref=/hardware/zh/maixII/M2A/first.html&from=/hardware/en/maixII/M2A/first.html"><span class="label">Test board</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/no_translate.html?ref=/hardware/zh/maixII/M2A/user.html&from=/hardware/en/maixII/M2A/user.html"><span class="label">Start to use</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/../../soft/maixpy3/zh/tools/maixsense.html"><span class="label">Using MaixPy3</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Maix-III</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maixIII/ax-pi/axpi.html"><span class="label">Maix-III AXera-Pi</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maixIII/ax-pi/flash_system.html"><span class="label">AXera-Pi manual</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixIII/ax-pi/python_api.html"><span class="label">Python programming</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixIII/ax-pi/dev_prepare.html"><span class="label">C/C++ programming</span><span class=""></span></a></li>
+<li class="not_active  with_link"><a href="/ai/en/deploy/ax-pi.html" ><span class="label">AI development guide</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixIII/ax-pi/faq_axpi.html"><span class="label">Questions (FAQ)</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">MaixCAM</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maixcam/index.html"><span class="label">MaixCAM Brief and Data</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixcam/assemble.html"><span class="label">MaixCAM Assembly</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixcam/os.html"><span class="label">System Upgrade</span><span class=""></span></a></li>
+<li class="not_active  with_link"><a href="https://wiki.sipeed.com/maixpy/" ><span class="label">Develop with MaixPy</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixcam/maixcdk.html"><span class="label">Develop with MaixCDK</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixcam/faq.html"><span class="label">FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="active_parent no_link"><a><span class="label">LicheePI</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="active_parent no_link"><a><span class="label">LicheePI 4A</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lm4a.html"><span class="label">Lichee Module 4A</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lc4a/lc4a.html"><span class="label">Lichee Cluster 4A</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lbook4a/lbook4a.html"><span class="label">Lichee Console 4A</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lcon4a/setup_guide.html"><span class="label">setup_guide</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lcon4a/3_images.html"><span class="label">images</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lcon4a/4_burn_image.html"><span class="label">burn_image</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lbook4a/lbook4a.html"><span class="label">Lichee Book 4A</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lbook4a/4_burn_image.html"><span class="label">burn_image</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="active_parent no_link"><a><span class="label">Lichee PI 4A</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/1_intro.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/2_unbox.html"><span class="label">Unbox guide</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/3_images.html"><span class="label">Image summary</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/4_burn_image.html"><span class="label">Burn image</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/5_desktop.html"><span class="label">Desktop usage</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/6_peripheral.html"><span class="label">Peripheral</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">System building</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/7_develop_revyos.html"><span class="label">revyos</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/7_develop_mainline.html"><span class="label">Linux Mainline (Work in Progress)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/7_develop_android.html"><span class="label">Android</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/7_develop_thead.html"><span class="label">THead Yocto</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">OpenHarmony (Work in Progress)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/7_develop_openwrt.html"><span class="label">OpenWRT</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/8_application.html"><span class="label">Application</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/9_benchmark.html"><span class="label">Benchmark</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/10_test_report.html"><span class="label">Hardware report</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/12_faq.html"><span class="label">FAQ</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/11_credits.html"><span class="label">Credits</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">LicheePI 3A</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/lichee/K1/lm3a.html"><span class="label">Lichee Module 3A</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/K1/lc3a/lc3a.html"><span class="label">Lichee Cluster 3A</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Lichee PI 3A</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/en/lichee/K1/lpi3a/1_intro.html"><span class="label">SBC Intro</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/K1/lpi3a/2_unbox.html"><span class="label">Unbox experience</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/K1/lpi3a/3_burn_image.html"><span class="label">Burn Images</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/K1/lpi3a/4_peripheral.html"><span class="label">Peripheral Usage</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/K1/lpi3a/5_develop.html"><span class="label">System develop</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/K1/lpi3a/6_application.html"><span class="label">Applications</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/K1/lpi3a/7_faq.html"><span class="label">FAQs</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/K1/lpi3a/8_credits.html"><span class="label">Credits</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Lichee RV</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active no_link"><a><span class="label">Board Introduction</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV/RV.html"><span class="label">Lichee RV</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV/86_panel.html"><span class="label">Lichee RV 86 Panel</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV/Dock.html"><span class="label">Lichee RV Dock</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV/flash.html"><span class="label">Burn System</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV/user.html"><span class="label">Basic usage</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV/problems.html"><span class="label">Questions&Answers</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV/ubuntu.html"><span class="label">Ubuntu Image</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">LicheeRV Nano</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV_Nano/1_intro.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV_Nano/2_unbox.html"><span class="label">Unboxing Experience</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV_Nano/3_images.html"><span class="label">Image Collection</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV_Nano/4_burn_image.html"><span class="label">Flashing the Image</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV_Nano/5_peripheral.html"><span class="label">peripheral</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV_Nano/6_develop_mainline.html"><span class="label">System Development</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV_Nano/7_test_report.html"><span class="label">test</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV_Nano/8_mmf_development_guide.html"><span class="label">MMF Development Guide</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/Zero/Zero.html"><span class="label">Lichee Zero</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/Nano/Nano.html"><span class="label">Lichee Nano</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/ZeroPlus/ZeroPlus.html"><span class="label">Lichee ZeroPlus</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang FPGA</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Tang Nano</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano/Nano.html"><span class="label">Tang Nano</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-1K/Nano-1k.html"><span class="label">Tang Nano 1K</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-4K/Nano-4K.html"><span class="label">Tang Nano 4k</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-9K/Nano-9K.html"><span class="label">Tang Nano 9K</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Tang Nano 20K</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/tang/tang-nano-20k/nano-20k.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/tang-nano-20k/example/unbox.html"><span class="label">Unbox</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/install-the-ide.html"><span class="label">Install IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/examples.html"><span class="label">Tang Nano examples</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/questions.html"><span class="label">Questions&Answers</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Primer</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Tang Primer 20K</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/tang/tang-primer-20k/primer-20k.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/tang-primer-20k/start.html"><span class="label">Notice</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/install-the-ide.html"><span class="label">Install IDE</span><span class=""></span></a></li>
+<li class="not_active  with_link"><a href="https://github.com/sipeed/TangPrimer-20K-example" ><span class="label">Examples(Github)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/questions.html"><span class="label">Questions&Answers</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Primer 25K</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/tang/tang-primer-25k/primer-25k.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/install-the-ide.html"><span class="label">Install IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/questions.html"><span class="label">Questions&Answers</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Primer 15K</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/tang/tang-primer-15k/primer-15k.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/install-the-ide.html"><span class="label">Install IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/questions.html"><span class="label">Questions&Answers</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-primer/Tang-primer.html"><span class="label">Tang Primer (Sold out)</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Install TD</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-primer/get_started/install_TD_win.html"><span class="label">In Windows</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-primer/get_started/install_linux.html"><span class="label">In Linux</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-primer/fpga/led.html"><span class="label">Blink by FPGA</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-primer/get_started/E203.html"><span class="label"> Prepare E203 environment</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-primer/get_started/fpga_download.html"><span class="label">Burn FPGA</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Mega</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Tang Mega 138K Pro</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/tang/tang-mega-138k/mega-138k-pro.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/install-the-ide.html"><span class="label">Install IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/questions.html"><span class="label">Questions&Answers</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Mega 138K</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/tang/tang-mega-138k/mega-138k.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/install-the-ide.html"><span class="label">Install IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/questions.html"><span class="label">Questions&Answers</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Mega 60K</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/tang/tang-mega-60k/mega-60k.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/install-the-ide.html"><span class="label">Install IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/questions.html"><span class="label">Questions&Answers</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/tang/tang-PMOD/FPGA_PMOD.html"><span class="label">Tang PMOD</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/maixsense/index.html"><span class="label">MaixSense</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maixsense/maixsense-a010/maixsense-a010.html"><span class="label">MaixSense-a010</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixsense/maixsense-a075v/maixsense-a075v.html"><span class="label">MaixSense-a075v</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">SLogic</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">SLogic Combo 8</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/logic_analyzer/combo8/index.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/logic_analyzer/combo8/basic_operation.html"><span class="label">Basic Operation</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/logic_analyzer/combo8/use_logic_function.html"><span class="label">Using as Logic Analyzer</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/logic_analyzer/combo8/use_cklink_function.html"><span class="label">Using as CKLink</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/logic_analyzer/combo8/use_daplink_function.html"><span class="label">Using as DAPLink</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/logic_analyzer/combo8/use_fouruart_function.html"><span class="label">Using as Serial Module</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/logic_analyzer/combo8/update_firmware.html"><span class="label">Update Firmware</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/logic_analyzer/combo8/faq.html"><span class="label">FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">KVM</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">NanoKVM Cube</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/introduction.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/quick_start.html"><span class="label">Quick start</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/user_guide.html"><span class="label">User Guide</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Network</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/network/tailscale.html"><span class="label">Tailscale</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/network/frp.html"><span class="label">frp</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/network/static_ip.html"><span class="label">Static IP</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">System</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/system/introduction.html"><span class="label">System Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/system/flashing.html"><span class="label">Flashing</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/system/updating.html"><span class="label">Updating</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/system/configuration.html"><span class="label">Configuration</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/faq.html"><span class="label">FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Longon</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">LonganPI 3H</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/longan/h618/lpi3h/1_intro.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/longan/h618/lpi3h/3_images.html"><span class="label">Images</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/longan/h618/lpi3h/4_burn_image.html"><span class="label">Burn images</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/longan/h618/lpi3h/5_desktop.html"><span class="label">Desktop Usage</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/longan/h618/lpi3h/6_peripheral.html"><span class="label">Peripheral</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/longan/h618/lpi3h/7_develop_mainline.html"><span class="label">Development</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/longan/h618/lpi3h/8_test_report.html"><span class="label">Test report</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/longan/Nano/Longan_nano.html"><span class="label">Longon Nano</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/longan/Nano/pio.html"><span class="label">Setup environment</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/longan/Nano/blink.html"><span class="label">Blink test</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">MaixFace</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maixface/mf_ml_module/mf0_ml_module.html"><span class="label">MF0&&MF0 Dock</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixface/mf_ml_module/mf1_ml_module.html"><span class="label">MF1 && MF2</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixface/mf_ml_module/mf5_product.html"><span class="label">MF4 && MF5</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixface/mf_ml_module/mf_precautions.html"><span class="label">Maixface PCB Design</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixface/mf_ml_module/mf_update_firmwave.html"><span class="label">Maixface Update firmware</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Peripheral modules</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">SP-MOD Peripheral modules</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Adapter board</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_extender.html"><span class="label">SP-Extender</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_grove.html"><span class="label">SP-Grove</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_fpc.html"><span class="label">SP-FPC</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_micarray.html"><span class="label">SP-MicArray</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_joystick.html"><span class="label">SP-JotStick</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_servo.html"><span class="label">SP-Servo</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/.html"><span class="label">SP-TypeC</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Sensor</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_weather.html"><span class="label">SP-Weather</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_tof.html"><span class="label">SP-TOF-1P</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Communication</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_bt.html"><span class="label">SP-BT</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_lora.html"><span class="label">SP-LoRa</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_psram.html"><span class="label">SP-PSRAM</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_rfid.html"><span class="label">SP-RFID</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_ethernet.html"><span class="label">SP-Ethernet</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Display</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_lcd1.14.html"><span class="label">SP-LCD 1.14</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_eink.html"><span class="label">SP-Eink</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Module && Debugger</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Debugger</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Sipeed RV Debugger</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Dual uart USB module</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">module</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">camera</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">GC0328</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Dual cam module(GC0328)</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">OV7740</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">OV2640</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">OV2640-M12</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Dual cam module(OV2640)</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Mic module</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/modules/micarray.html"><span class="label">Mic array</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/modules/Gamepad.html"><span class="label">Sipeed Gamepad</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>Typical Application</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                                <span class="article_date" title="Last modify date: 2023-09-12">
+                                    2023-09-12
+                                </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/sipeed/sipeed_wiki/blob/main/docs/hardware/en/lichee/th1520/lpi4a/8_application.md" target="_blank">
+                                    <span id='editPage'>Edit this page</span>
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                        
+                        <details open>
+                        
+                            <summary>Update history</summary>
+                            <div>
+                                <table>
+                                        <thead>
+                                            <tr>
+                                                <th>Date</th>
+                                                <th>Version</th>
+                                                <th>Author</th>
+                                                <th>Update content</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            
+                                                <tr>
+                                                    <td>2023-09-12</td>
+                                                    <td>v1.2</td>
+                                                    <td>ztd</td>
+                                                    <td>
+                                                    
+                                                        <ul>
+                                                        
+                                                            <li>Add some NPU applications</li>
+                                                        
+                                                        </ul>
+                                                    
+                                                    </td>
+                                                </tr>
+                                            
+                                                <tr>
+                                                    <td>2023-07-21</td>
+                                                    <td>v1.1</td>
+                                                    <td>ztd</td>
+                                                    <td>
+                                                    
+                                                        <ul>
+                                                        
+                                                            <li>Update English docs</li>
+                                                        
+                                                        </ul>
+                                                    
+                                                    </td>
+                                                </tr>
+                                            
+                                                <tr>
+                                                    <td>2023-05-08</td>
+                                                    <td>v1.0</td>
+                                                    <td>wonder</td>
+                                                    <td>
+                                                    
+                                                        <ul>
+                                                        
+                                                            <li>Release docs</li>
+                                                        
+                                                        </ul>
+                                                    
+                                                    </td>
+                                                </tr>
+                                            
+                                        </tbody>
+                                </table>
+                            </div>
+                        </details>
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <h2 id="llama.cpp">llama.cpp</h2>
+<p>llama is the META Open Source Large Language Model, and <a href="https://github.com/ggerganov/llama.cpp"  target="_blank">llama.cpp</a> is the ggerganov Open Source pure cpp runtime llama inference project.<br />
+Thanks to llama.cpp, an excellent project, we can run LLM on LicheePi 4A.</p>
+<p>Zepan slightly modified llama.cpp <a href="https://github.com/Zepan/llama.cpp"  target="_blank">https://github.com/Zepan/llama.cpp</a> earlier to allow it to run the 7B model with less memory (down to about 700MB).</p>
+<p>You can see that TH1520 takes about 6s to compute a token (without V-extension acceleration, which is expected to accelerate it by a factor of 4-8, so feel free to pitch in if you've added V-extension support!)<br />
+![llama_th1520](. /... /... /... /... /zh/lichee/th1520/lpi4a/assets/application/llama_th1520.png)</p>
+<p>The feasibility of running the 7B model on an entry-level C906 core was also briefly tested, and due to the small amount of memory in the D1 and the use of mmap read-only extensions, a large number of low-speed IO operations were introduced, which slowed down the speed of the run, ending up at only 18s/token.</p>
+<p><img src="./../../../../zh/lichee/th1520/lpi4a/assets/application/llama_d1.png" alt="llama_d1" /></p>
+<h2 id="YOLOX-Target-Detection">YOLOX Target Detection</h2>
+<p>This tutorial is an example of how to deploy the <a href="https://github.com/Megvii-BaseDetection/YOLOX"  target="_blank">YOLOX</a> model to accomplish target detection on the LPi4A (LicheePi 4A) development board platform(CPU inference).<br />
+Included in the tutorial:</p>
+<ul>
+<li>Installing the Python environment on the LPi4A development board</li>
+<li>Executing the model using the source code from the YOLOX project.</li>
+</ul>
+<p>The tutorial follows the usual model deployment process:</p>
+<ol>
+<li>Basic Python environment configuration on LPi4A. 2.</li>
+<li>Obtaining the yolox source code and models</li>
+<li>Installing python packages that yolox depends on</li>
+<li>Example execution using HHB-onnxruntime on LPi4A</li>
+</ol>
+<p><strong>Basic Python Environment Configuration</strong><br />
+<strong>Basic Hardware and Software Configuration</strong></p>
+<p>Refer to the description in LPi4A's &quot;<a href="https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/2_unbox.html"  target="_blank">Out-of-the-box experience</a>&quot;, install the development board correctly, and enter with root privileges after powering on and booting up.</p>
+<p>Ensure that you are connected to the Internet, and update the apt source.</p>
+
+<pre class="language-bash"><code class="language-bash">sudo apt update
+</code></pre>
+<p>Install some software for subsequent use in the example</p>
+
+<pre class="language-bash"><code class="language-bash">sudo apt install wget git vim
+</code></pre>
+<p>Installing the SHL Library</p>
+
+<pre class="language-bash"><code class="language-bash">wget https://github.com/T-head-Semi/csi-nn2/releases/download/v2.4-beta.1/c920.tar.gz
+tar xf c920.tar.gz
+cp c920/lib/* /usr/lib/riscv64-linux-gnu/ -rf
+</code></pre>
+<p><strong>Python Environment Configuration</strong><br />
+Python version 3.11 is installed by default on the system where LPi4A is burned. You can confirm this with the following command</p>
+
+<pre class="language-bash"><code class="language-bash">python --version
+</code></pre>
+<p>We will use python 3.11 as an example, but for other versions, you will need to change to the corresponding version of the command when installing dependencies.<br />
+Most of the packages that the various python programs depend on can be installed via pip, which can be installed with the following command</p>
+
+<pre class="language-bash"><code class="language-bash">apt install python3-pip
+</code></pre>
+<p>Before installing other python packages, install the venv package, which is used to create a python virtual environment</p>
+
+<pre class="language-bash"><code class="language-bash">apt install python3.11-venv
+</code></pre>
+<p>Create a python virtual environment and activate it</p>
+
+<pre class="language-bash"><code class="language-bash">cd /root
+python3 -m venv ort
+source /root/ort/bin/activate
+</code></pre>
+<p>At this point, the basic python environment has been created. Similar to other architectures, you can install pure python packages directly via pip install.</p>
+<p>The opencv installation will depend on other python packages, so if pip does not download them automatically, you can install the dependencies manually first. See <a href="https://www.yuque.com/za4k4z/uzn618/zsp0krgg9dlp0fhx"  target="_blank">download riscv whl</a> for more information on how to get the packages.</p>
+<p><strong>Get YOLOX</strong></p>
+<p><a href="https://github.com/Megvii-BaseDetection/YOLOX"  target="_blank">YOLOX</a> is a YOLO-like target detection model with quite excellent performance.<br />
+The source code and model can be downloaded directly from github</p>
+
+<pre class="language-bash"><code class="language-bash">git clone https://github.com/Megvii-BaseDetection/YOLOX.git
+cd YOLOX/demo/ONNXRuntime
+wget https://github.com/Megvii-BaseDetection/YOLOX/releases/download/0.1.1rc0/yolox_s.onnx
+</code></pre>
+<p><strong>Modify the source code</strong></p>
+<p>This tutorial will use the HHB-onnxruntime execution model, so switch to. In the onnxruntime example directory in the source code, modify the beginning of the file demo/ONNXRuntime/onnx_inference.py to add two new lines of code</p>
+
+<pre class="language-bash"><code class="language-bash">#!/usr/bin/env python3
+# Copyright (c) Megvii, Inc. and its affiliates.
+
++import sys
++sys.path.insert(0, &quot;../../&quot;)
++
+import argparse
+import os
+</code></pre>
+<p>The code uses sys.path.insert to specify the search path, thus eliminating the need to install the YOLOX installer from the source code.</p>
+<p>**Installing dependencies</p>
+<p>The python ecosystem for the RISC-V architecture is still lacking, but in the future, packages dependent on YOLOX can be installed directly from the <a href="https://github.com/Megvii-BaseDetection/YOLOX/blob/main/"  target="_blank">requirements.txt</a> file. requirements.txt) file.<br />
+The YOLOX example in this tutorial relies on a large number of python packages, download the pre-compiled python packages</p>
+
+<pre class="language-bash"><code class="language-bash">git clone -b python3.11 https://github.com/zhangwm-pt/prebuilt_whl.git
+cd prebuilt_whl
+</code></pre>
+<p>It can be handled manually in the following order.</p>
+
+<pre class="language-bash"><code class="language-bash">pip install numpy-1.25.0-cp311-cp311-linux_riscv64.whl
+pip install opencv_python-4.5.4+4cd224d-cp311-cp311-linux_riscv64.whl
+pip install kiwisolver-1.4.4-cp311-cp311-linux_riscv64.whl
+pip install Pillow-9.5.0-cp311-cp311-linux_riscv64.whl
+pip install matplotlib-3.7.2.dev0+gb3bd929cf0.d20230630-cp311-cp311-linux_riscv64.whl
+pip install pycocotools-2.0.6-cp311-cp311-linux_riscv64.whl
+pip3 install loguru-0.7.0-py3-none-any.whl
+pip3 install torch-2.0.0a0+gitc263bd4-cp311-cp311-linux_riscv64.whl
+pip3 install MarkupSafe-2.1.3-cp311-cp311-linux_riscv64.whl
+pip3 install torchvision-0.15.1a0-cp311-cp311-linux_riscv64.whl
+pip3 install psutil-5.9.5-cp311-abi3-linux_riscv64.whl
+pip3 install tqdm-4.65.0-py3-none-any.whl
+pip3 install tabulate-0.9.0-py3-none-any.whl
+</code></pre>
+<p>The installation process will involve other pure python dependencies, which pip will automatically download from the official sources.</p>
+<p><strong>Installation of HHB-onnxruntime</strong></p>
+<p>HHB-onnxuruntime is a port of the SHL backend (execution providers) that allows onnxruntime to reuse the high-performance optimized code in SHL for the Gentei CPU.</p>
+
+<pre class="language-bash"><code class="language-bash">wget https://github.com/zhangwm-pt/onnxruntime/releases/download/riscv_whl/onnxruntime-1.14.1-cp311-cp311-linux_riscv64.whl
+pip install onnxruntime-1.14.1-cp311-cp311-linux_riscv64.whl
+</code></pre>
+<p><strong>Execute</strong></p>
+<p>Execute the onnx_inference.py example in the example directory</p>
+
+<pre class="language-bash"><code class="language-bash">python3 onnx_inference.py -m yolox_s.onnx -i soccer.jpg -o outdir -s 0.3 --input_shape 640,640
+</code></pre>
+<p><code>python3 onnx_inference.py -m yolox_s.onnx -i soccer.jpg -o outdir -s 0.3 --input_shape640,640</code></p>
+<p>Parameter Description:<br />
+-m: specify model<br />
+-i: specify image<br />
+-o: specify output directory<br />
+--s: specify the detection threshold<br />
+--input_shape: specify the size of the image to be used for detection</p>
+<p><strong>Reference results</strong></p>
+<p>The input for this tutorial is the following image, which is an image of an athlete playing soccer, and the expected detection result is to detect two people and a soccer ball.</p>
+<blockquote>
+<p>Image from the web</p>
+</blockquote>
+<p><img src="./../../../../zh/lichee/th1520/lpi4a/assets/application/yolox_detection_soccer_input.jpg" alt="yolox_detection_soccer_input.jpg" /></p>
+<p>After the example executes normally, the result image soccer.jpg will be generated in the outdir directory. the image will draw the detected target with a box and labeled with the probability, and the effect is as shown in the following figure:</p>
+<p><img src="./../../../../zh/lichee/th1520/lpi4a/assets/application/yolox_detection_soccer_output.jpg" alt="yolox_detection_soccer_output.jpg" /></p>
+<h2 id="MobilenertV2">MobilenertV2</h2>
+<p>This tutorial is an example of how to deploy the mobilenetv2 model for image classification on the LicheePi4A platform.<br />
+ The tutorial includes:</p>
+<ul>
+<li>Compiling the onnx model into a binary available on LicheePi4A using HHB</li>
+<li>Preprocessing the mobilenetv2 model using opencv c++ version on LicheePi4A</li>
+<li>Differences between using CPU and NPU on LicheePi4A</li>
+</ul>
+<h3 id="NPU">NPU</h3>
+<h4 id="Setup">Setup</h4>
+<p>After setting up the NPU environment according to the <a href="https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/6_peripheral.html#NPU"  target="_blank">peripheral</a> documentation, we can go to the Docker image of HHB environment.</p>
+<p>First, we need to get the model of this tutorial, which is downloaded to the example directory <code>/home/example/th1520_npu/onnx_mobilenetv2_c++</code>: <a href="https://github.com/onnx/models/blob/main/vision/classification/mobilenet/model/mobilenetv2-12.onnx"  target="_blank">mobilenetv2-12.onnx</a></p>
+<p>To get the libraries for the optimized version of opencv used in this tutorial, go to <a href="https://xuantie.t-head.cn/community/download?id=4112956065753141248"  target="_blank">github</a> and download them to the directory <code>/home/example/th1520_npu/</code>.</p>
+
+<pre class="language-shell"><code class="language-shell">cd /home/example/th1520_npu/
+git clone https://github.com/zhangwm-pt/prebuilt_opencv.git
+</code></pre>
+<h4 id="Compile">Compile</h4>
+<p><strong>HHB Compiling Model:</strong><br />
+To cross-compile the ONNX model into an executable program on the NPU, you need to use the hhb command. Note that the NPU only supports 8-bit or 16-bit fixed point operations, which in this case are int8 asymmetric quantization. To compile, you need to go to the directory <code>/home/example/th1520_npu/onnx_mobilenetv2_c++</code>:</p>
+
+<pre class="language-shell"><code class="language-shell">cd /home/example/th1520_npu/onnx_mobilenetv2_c++
+hhb -D --model-file mobilenetv2-12.onnx --data-scale 0.017 --data-mean &quot;124 117 104&quot;  --board th1520  --postprocess save_and_top5 --input-name &quot;input&quot; --output-name &quot;output&quot; --input-shape &quot;1 3 224 224&quot; --calibrate-dataset persian_cat.jpg  --quantization-scheme &quot;int8_asym&quot;
+</code></pre>
+<p>The options are:</p>
+<ul>
+<li>-D: Specifies that the HHB process will run until the executable is generated</li>
+<li>--model-file: Specifies the mobilenet model that has been downloaded in the current directory</li>
+<li>--data-mean: Specifies the mean value</li>
+<li>--data-scale: Specifies the scale value</li>
+<li>--board: Specifies that the target platform is th1520</li>
+<li>--input-name: The input name of the model</li>
+<li>--output-name: The output name of the model</li>
+<li>--input-shape: The input size of the model</li>
+<li>--postprocess: Saves the output results and prints the top5 results</li>
+<li>--calibrate-dataset: Specifies the calibration images required for quantization</li>
+<li>--quantization-scheme: Specifies the quantization scheme as int8 asymmetric</li>
+</ul>
+<p>After the command is executed, the hhb_out subdirectory will be generated in the current directory, which includes hhb_runtime, model.c and other files:</p>
+<ul>
+<li>hhb. bm: The HHB model file, including the quantized weight data and other information</li>
+<li>hhb_runtime: The executable on the th1520 platform, compiled from the c file in the directory</li>
+<li>main. c: A temporary file, the reference entry of the sample program</li>
+<li>model. c: A temporary file, the model structure file, related to the model structure</li>
+<li>model.params: A temporary file, the weight values</li>
+<li>io. c: A temporary file, the auxiliary functions for reading and writing files</li>
+<li>io. h: A temporary file, the auxiliary functions for reading and writing files declaration</li>
+<li>process. c: A temporary file, the image preprocessing function</li>
+<li>process. h: A temporary file, the image preprocessing function declaration</li>
+</ul>
+<p>For more detailed HHB options, refer to the command line options in the <a href="https://www.yuque.com/za4k4z/kvkcoh/shl1nybhel6iviwt"  target="_blank">HHBUserManual</a>.</p>
+<p><strong>g++ Compiling</strong></p>
+
+<pre class="language-shell"><code class="language-shell">riscv64-unknown-linux-gnu-g++ main.cpp -I../prebuilt_opencv/include/opencv4 -L../prebuilt_opencv/lib   -lopencv_imgproc   -lopencv_imgcodecs -L../prebuilt_opencv/lib/opencv4/3rdparty/ -llibjpeg-turbo -llibwebp -llibpng -llibtiff -llibopenjp2    -lopencv_core -ldl  -lpthread -lrt -lzlib -lcsi_cv -latomic -static -o mobilenetv2_example
+</code></pre>
+<p>The mobilenetv2_example file is generated in the example directory after the compilation command is executed correctly.</p>
+<h4 id="Execute">Execute</h4>
+<p>After the cross-compilation is complete, you can copy the files needed for program execution to the directory of the development board. The scp command can be used:</p>
+
+<pre class="language-shell"><code class="language-shell">scp -r ../onnx_mobilenetv2_c++ sipeed@your_ip:~
+</code></pre>
+<p>First confirm whether the driver in the development board is loaded:</p>
+
+<pre class="language-shell"><code class="language-shell">lsmod
+</code></pre>
+<p>If there are 'img_mem', 'vha' and 'vha_info' in the output of the three modules, the NPU driver is loaded successfully.</p>
+<p>Refer to <a href="https://wiki.sipeed.com/hardware/en/lichee/th1520/lpi4a/8_application.html#YOLOX-Target-Detection"  target="_blank">YOLOX</a> Install and configure the python virtual environment:</p>
+
+<pre class="language-shell"><code class="language-shell">sudo apt update
+sudo apt install wget git vim
+
+wget https://github.com/T-head-Semi/csi-nn2/releases/download/v2.4-beta.1/c920.tar.gz
+tar xf c920.tar.gz
+cp c920/lib/* /usr/lib/riscv64-linux-gnu/ -rf
+
+sudo apt install python3-pip
+sudo apt install python3.11-venv
+
+cd /root
+python3 -m venv ort
+source /root/ort/bin/activate
+
+git clone -b python3.11 https://github.com/zhangwm-pt/prebuilt_whl.git
+cd prebuilt_whl
+
+pip install numpy-1.25.0-cp311-cp311-linux_riscv64.whl
+pip install opencv_python-4.5.4+4cd224d-cp311-cp311-linux_riscv64.whl
+pip install kiwisolver-1.4.4-cp311-cp311-linux_riscv64.whl
+pip install Pillow-9.5.0-cp311-cp311-linux_riscv64.whl
+pip install matplotlib-3.7.2.dev0+gb3bd929cf0.d20230630-cp311-cp311-linux_riscv64.whl
+pip install pycocotools-2.0.6-cp311-cp311-linux_riscv64.whl
+pip3 install loguru-0.7.0-py3-none-any.whl
+pip3 install torch-2.0.0a0+gitc263bd4-cp311-cp311-linux_riscv64.whl
+pip3 install MarkupSafe-2.1.3-cp311-cp311-linux_riscv64.whl
+pip3 install torchvision-0.15.1a0-cp311-cp311-linux_riscv64.whl
+pip3 install psutil-5.9.5-cp311-abi3-linux_riscv64.whl
+pip3 install tqdm-4.65.0-py3-none-any.whl
+pip3 install tabulate-0.9.0-py3-none-any.whl
+</code></pre>
+<p>Run the just-compiled example in the appropriate directory on the development board:</p>
+
+<pre class="language-shell"><code class="language-shell">./mobilenetv2_example
+</code></pre>
+<p>After the execution, the terminal will prompt the stages of the execution:</p>
+<ol>
+<li>Preprocessing</li>
+<li>Model execution</li>
+<li>Post-processing</li>
+</ol>
+<p>The files used in the execution of mobilenetv2_example are:</p>
+<ul>
+<li>persian_cat.jpg: the input image</li>
+<li>input_img.bin: the intermediate results generated by the input image during the preprocessing stage</li>
+<li>hhb_out/hhb_runtime: the file used in the model execution stage, generated by HHB on the x86 host</li>
+<li>hhb_out/hhb. bm: the file used in the model execution stage, generated by HHB on the x86 host</li>
+<li>input_img.bin_output0_1_1000.txt: the output file of the model execution stage, including 1000 results of the model execution output</li>
+</ul>
+<h4 id="Results">Results</h4>
+
+<pre class="language-shell"><code class="language-shell">(ort) root@lpi4a:/home/sipeed/onnx_mobilenetv2_c++# ./mobilenetv2_example
+ ********** preprocess image **********
+ ********** run mobilenetv2 **********
+INFO: NNA clock:792000 [kHz]
+INFO: Heap :ocm (0x18)
+INFO: Heap :anonymous (0x2)
+INFO: Heap :dmabuf (0x2)
+INFO: Heap :unified (0x5)
+Run graph execution time: 7.87149ms, FPS=127.04
+
+=== tensor info ===
+shape: 1 3 224 224 
+data pointer: 0x857ca0
+
+=== tensor info ===
+shape: 1 1000 
+data pointer: 0x3fc9abe000
+The max_value of output: 16.053827
+The min_value of output: -8.026914
+The mean_value of output: -0.001889
+The std_value of output: 9.203342
+ ============ top5: ===========
+283: 16.053827
+281: 14.165141
+287: 11.709850
+285: 11.615416
+282: 11.332113
+ ********** postprocess result **********
+ ********** probability top5: ********** 
+n02123394 Persian cat
+n02123045 tabby, tabby cat
+n02127052 lynx, catamount
+n02124075 Egyptian cat
+n02123159 tiger cat
+</code></pre>
+<h3 id="CPU">CPU</h3>
+<p>Replace the HHB compile command in the NPU step above with:</p>
+
+<pre class="language-shell"><code class="language-shell">hhb -D --model-file mobilenetv2-12.onnx --data-scale 0.017 --data-mean &quot;124 117 104&quot;  --board c920  --postprocess save_and_top5 --input-name &quot;input&quot; --output-name &quot;output&quot; --input-shape &quot;1 3 224 224&quot;
+</code></pre>
+<p>g++ compilation command replaced with:</p>
+
+<pre class="language-shell"><code class="language-shell">riscv64-unknown-linux-gnu-g++ main.cpp -I../prebuilt_opencv/include/opencv4 -L../prebuilt_opencv/lib   -lopencv_imgproc   -lopencv_imgcodecs -L../prebuilt_opencv/lib/opencv4/3rdparty/ -llibjpeg-turbo -llibwebp -llibpng -llibtiff -llibopenjp2    -lopencv_core -ldl  -lpthread -lrt -lzlib -lcsi_cv -latomic -static -o mobilenetv2_example
+</code></pre>
+<p>Then send the compiled binary file to the development board to run. The reference results are as follows:</p>
+
+<pre class="language-shell"><code class="language-shell">(ort) root@lpi4a:/home/sipeed/onnx_mobilenetv2_c++# ./mobilenetv2_example 
+ ********** preprocess image **********
+ ********** run mobilenetv2 **********
+Run graph execution time: 79.77252ms, FPS=12.54
+
+=== tensor info ===
+shape: 1 3 224 224 
+data pointer: 0x259240
+
+=== tensor info ===
+shape: 1 1000 
+data pointer: 0x1c5200
+The max_value of output: 16.843750
+The min_value of output: -7.414062
+The mean_value of output: 0.001131
+The std_value of output: 9.056762
+ ============ top5: ===========
+283: 16.843750
+281: 13.789062
+287: 12.257812
+282: 10.898438
+285: 10.765625
+ ********** postprocess result **********
+ ********** probability top5: ********** 
+n02123394 Persian cat
+n02123045 tabby, tabby cat
+n02127052 lynx, catamount
+n02123159 tiger cat
+n02124075 Egyptian cat
+</code></pre>
+<h2 id="Yolov5n">Yolov5n</h2>
+<h3 id="NPU">NPU</h3>
+<h4 id="Setup">Setup</h4>
+<p>Refer to <a href="https://wiki.sipeed.com/hardware/en/lichee/th1520/lpi4a/6_peripheral.html#NPU"  target="_blank">Peripheral</a>After the NPU usage environment is set up, the document enters the Docker image of the HHB environment.</p>
+<p>First get the model for this tutorial and download it to the sample directory <code>/home/example/th1520_npu/yolov5n</code> :</p>
+
+<pre class="language-shell"><code class="language-shell">git clone https://github.com/ultralytics/yolov5.git
+cd yolov5
+pip3 install ultralytics
+python3 export.py --weights yolov5n.pt --include onnx
+</code></pre>
+<h4 id="Compile">Compile</h4>
+<p><strong>HHB Compile</strong><br />
+To cross-compile the ONNX model into an executable program on the NPU, you need to use the hhb command. Note that only 8-bit or 16-bit fixed-point operations are supported on the NPU, which is defined as int8 asymmetric quantization in this example. When compiling, you need to go to the directory where the sample is stored <code>/home/example/th1520_npu/yolov5n</code>:</p>
+
+<pre class="language-shell"><code class="language-shell">cd /home/example/th1520_npu/yolov5n
+hhb -D --model-file yolov5n.onnx --data-scale-div 255 --board th1520 --input-name &quot;images&quot; --output-name &quot;/model.24/m.0/Conv_output_0;/model.24/m.1/Conv_output_0;/model.24/m.2/Conv_output_0&quot; --input-shape &quot;1 3 384 640&quot; --calibrate-dataset kite.jpg  --quantization-scheme &quot;int8_asym&quot;
+</code></pre>
+<p>Option description:</p>
+<ul>
+<li>-D: specify the HHB process to generate the executable file until the end</li>
+<li>--model-file: specify the yolov5 model that has been downloaded in the current directory</li>
+<li>--data-mean: specify the mean value</li>
+<li>--data-scale: specify the scale value</li>
+<li>--board: specify the target platform as th1520</li>
+<li>--input-name: the input name of the model</li>
+<li>--output-name: the output name of the model</li>
+<li>--input-shape: the input size of the model</li>
+<li>--postprocess: save the output results and print the top5 results</li>
+<li>--calibrate-dataset: specify the calibration images required for quantization</li>
+<li>--quantization-scheme: specify the quantization scheme as int8 asymmetric</li>
+</ul>
+<p>After the command is executed, the hhb_out subdirectory will be generated in the current directory, which includes hhb_runtime, model. c and other files:</p>
+<ul>
+<li>hhb. bm: HHB model file, including the weight data after quantization</li>
+<li>hhb_runtime: the executable file on the th1520 platform, compiled from the c file in the directory</li>
+<li>main. c: temporary file, the reference entry of the sample program</li>
+<li>model. c: temporary file, model structure file, related to the model structure</li>
+<li>model. params: temporary file, weight value</li>
+<li>io. c: temporary file, auxiliary functions for reading and writing files</li>
+<li>io. h: temporary file, auxiliary function declaration for reading and writing files</li>
+<li>process. c: temporary file, image preprocessing function</li>
+<li>process. h: temporary file, image preprocessing function declaration</li>
+</ul>
+<p>For more detailed HHB options, refer to the command line options in the <a href="https://www.yuque.com/za4k4z/kvkcoh/shl1nybhel6iviwt"  target="_blank">HHBUserManual</a>.</p>
+<p><strong>g++ compile</strong></p>
+
+<pre class="language-shell"><code class="language-shell">riscv64-unknown-linux-gnu-gcc yolov5n.c -o yolov5n_example hhb_out/io.c hhb_out/model.c -Wl,--gc-sections -O2 -g -mabi=lp64d -I hhb_out/ -L /usr/local/lib/python3.8/dist-packages/hhb/install_nn2/th1520/lib/ -lshl -L /usr/local/lib/python3.8/dist-packages/hhb/prebuilt/decode/install/lib/rv -L /usr/local/lib/python3.8/dist-packages/hhb/prebuilt/runtime/riscv_linux -lprebuilt_runtime -ljpeg -lpng -lz -lstdc++ -lm -I /usr/local/lib/python3.8/dist-packages/hhb/install_nn2/th1520/include/ -mabi=lp64d -march=rv64gcv0p7_zfh_xtheadc -Wl,-unresolved-symbols=ignore-in-shared-libs
+</code></pre>
+<p>The yolov5n_example file is generated in the example directory after the compilation command is executed correctly.</p>
+<h4 id="Excute">Excute</h4>
+<p>After the cross-compilation is complete, you can copy the files needed for program execution to the directory of the development board. The scp command can be used:</p>
+
+<pre class="language-shell"><code class="language-shell">scp -r ../yolov5n sipeed@your_ip:~
+</code></pre>
+<p>First confirm whether the driver in the development board is loaded:</p>
+
+<pre class="language-shell"><code class="language-shell">lsmod
+</code></pre>
+<p>If there are 'img_mem', 'vha' and 'vha_info' in the output of the three modules, the NPU driver is loaded successfully.</p>
+
+<pre class="language-none"><code class="language-none">
+Refer to [YOLOX](https://wiki.sipeed.com/hardware/en/lichee/th1520/lpi4a/8_application.html#YOLOX-Target-Detection) Install and configure the python virtual environment:
+```shell
+sudo apt update
+sudo apt install wget git vim
+
+wget https://github.com/T-head-Semi/csi-nn2/releases/download/v2.4-beta.1/c920.tar.gz
+tar xf c920.tar.gz
+cp c920/lib/* /usr/lib/riscv64-linux-gnu/ -rf
+
+sudo apt install python3-pip
+sudo apt install python3.11-venv
+
+cd /root
+python3 -m venv ort
+source /root/ort/bin/activate
+
+git clone -b python3.11 https://github.com/zhangwm-pt/prebuilt_whl.git
+cd prebuilt_whl
+
+pip install numpy-1.25.0-cp311-cp311-linux_riscv64.whl
+pip install opencv_python-4.5.4+4cd224d-cp311-cp311-linux_riscv64.whl
+pip install kiwisolver-1.4.4-cp311-cp311-linux_riscv64.whl
+pip install Pillow-9.5.0-cp311-cp311-linux_riscv64.whl
+pip install matplotlib-3.7.2.dev0+gb3bd929cf0.d20230630-cp311-cp311-linux_riscv64.whl
+pip install pycocotools-2.0.6-cp311-cp311-linux_riscv64.whl
+pip3 install loguru-0.7.0-py3-none-any.whl
+pip3 install torch-2.0.0a0+gitc263bd4-cp311-cp311-linux_riscv64.whl
+pip3 install MarkupSafe-2.1.3-cp311-cp311-linux_riscv64.whl
+pip3 install torchvision-0.15.1a0-cp311-cp311-linux_riscv64.whl
+pip3 install psutil-5.9.5-cp311-abi3-linux_riscv64.whl
+pip3 install tqdm-4.65.0-py3-none-any.whl
+pip3 install tabulate-0.9.0-py3-none-any.whl
+</code></pre>
+<p>Run the just-compiled example in the appropriate directory on the development board:</p>
+
+<pre class="language-shell"><code class="language-shell">python3 inference.py 
+</code></pre>
+<p>After the execution, the terminal will prompt the stages of the execution:</p>
+<ol>
+<li>Preprocessing: fill and scale the original image to 384 * 640</li>
+<li>Model execution and post-processing: perform model inference and do post-processing such as nms</li>
+<li>Frame: draw the detection results on the 384 * 640 size graph and output the new image</li>
+</ol>
+<p>Files used in the execution of inference.py:</p>
+<ul>
+<li>kite.jpg: the input image</li>
+<li>image_preprocessed.bin: the intermediate results generated from the input image in the preprocessing stage</li>
+<li>yolov5n_example: the file used in the model execution stage, compiled by gcc on an x86 host</li>
+<li>hhb_out/hhb.bm: the file used in the model execution stage, generated by HHB on an x86 host</li>
+<li>detect.txt: the output file of the post-processing stage, including the four targets detected in the image</li>
+<li>kite_result.jpg: the output image, which adds the detection frame to the results of the input graph</li>
+</ul>
+<h4 id="Results">Results</h4>
+
+<pre class="language-shell"><code class="language-shell">(ort) root@lpi4a:/home/sipeed/yolov5n_npu# python3 inference.py 
+ ********** preprocess image **********
+ ******* run yolov5 and postprocess *******
+INFO: NNA clock:792000 [kHz]
+INFO: Heap :ocm (0x18)
+INFO: Heap :anonymous (0x2)
+INFO: Heap :dmabuf (0x2)
+INFO: Heap :unified (0x5)
+Run graph execution time: 5.36258ms, FPS=186.48
+detect num: 4
+id:     label   score           x1              y1              x2              y2
+[0]:    0       0.895277        273.492188      161.245056      359.559814      330.644257
+[1]:    0       0.887368        79.860062       179.181244      190.755692      354.304474
+[2]:    0       0.815214        222.054550      224.477600      279.828979      333.717285
+[3]:    33      0.563324        67.625580       173.948883      201.687988      219.065765
+ ********** draw bbox **********
+[273.492188, 161.245056, 359.559814, 330.644257, 0.895277, 0]
+[79.860062, 179.181244, 190.755692, 354.304474, 0.887368, 0]
+[222.05455, 224.4776, 279.828979, 333.717285, 0.815214, 0]
+[67.62558, 173.948883, 201.687988, 219.065765, 0.563324, 33]
+</code></pre>
+<blockquote>
+<p>The sample image is from the web.</p>
+</blockquote>
+<p><img src="./../../../../zh/lichee/th1520/lpi4a/assets/application/yolov5n_detection_soccer_output.jpg" alt="yolov5n_detection_soccer_output" /></p>
+<h3 id="CPU">CPU</h3>
+<p>Replace the HHB compile command in the NPU step above with:</p>
+
+<pre class="language-shell"><code class="language-shell">hhb -D --model-file yolov5n.onnx --data-scale-div 255 --board c920 --input-name &quot;images&quot; --output-name &quot;/model.24/m.0/Conv_output_0;/model.24/m.1/Conv_output_0;/model.24/m.2/Conv_output_0&quot; --input-shape &quot;1 3 384 640&quot;
+</code></pre>
+<p>gcc compile command replaced with:</p>
+
+<pre class="language-shell"><code class="language-shell">riscv64-unknown-linux-gnu-gcc yolov5n.c -static -o yolov5n_example hhb_out/io.c hhb_out/model.c -Wl,--gc-sections -O2 -g -mabi=lp64d -I hhb_out/ -L /usr/local/lib/python3.8/dist-packages/hhb/install_nn2/c920/lib/ -lshl -static -L /usr/local/lib/python3.8/dist-packages/hhb/prebuilt/decode/install/lib/rv -L /usr/local/lib/python3.8/dist-packages/hhb/prebuilt/runtime/riscv_linux -lprebuilt_runtime -ljpeg -lpng -lz -lstdc++ -lm -I /usr/local/lib/python3.8/dist-packages/hhb/install_nn2/c920/include/ -mabi=lp64d -march=rv64gcv0p7_zfh_xtheadc
+</code></pre>
+<p>Then send the compiled binary file to the development board to run. The reference results are as follows:</p>
+
+<pre class="language-shell"><code class="language-shell">(ort) root@lpi4a:/home/sipeed/yolov5n_cpu# python3 inference.py 
+ ********** preprocess image **********
+ ******* run yolov5 and postprocess *******
+Run graph execution time: 387.34067ms, FPS=2.58
+detect num: 4
+id:     label   score           x1              y1              x2              y2
+[0]:    0       0.901887        274.524475      158.559036      359.169312      332.431702
+[1]:    0       0.879545        80.073883       184.767792      190.130157      349.906281
+[2]:    0       0.845192        219.378418      221.662415      283.860413      333.798584
+[3]:    33      0.666908        67.099136       174.128189      202.971451      220.213608
+ ********** draw bbox **********
+[274.524475, 158.559036, 359.169312, 332.431702, 0.901887, 0]
+[80.073883, 184.767792, 190.130157, 349.906281, 0.879545, 0]
+[219.378418, 221.662415, 283.860413, 333.798584, 0.845192, 0]
+[67.099136, 174.128189, 202.971451, 220.213608, 0.666908, 33]
+</code></pre>
+<h2 id="Yolov5s">Yolov5s</h2>
+<p>Referring to the compilation steps for yolov5n, simply replace the yolov5n. onnx file with yolov5s. onnx and change the arguments <code>yolov5n. onnx</code> to <code>yolov5s. onnx</code> in the HHB and GCC compilation commands.</p>
+<h3 id="Setup">Setup</h3>
+<p>On an x86 host, after setting up the NPU usage environment according to the <a href="https://wiki.sipeed.com/hardware/en/lichee/th1520/lpi4a/6_peripheral.html#NPU"  target="_blank">peripheral</a> documentation, go into the Docker image of the HHB environment.<br />
+On the 1520, configure the python virtual environment refer to <a href="https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/8_application.html#YOLOX-%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B"  target="_blank">YOLOX</a>.</p>
+<h3 id="CPU">CPU</h3>
+<h4 id="Compile">Compile</h4>
+<p><strong>HBB Compile</strong></p>
+
+<pre class="language-shell"><code class="language-shell">hhb -D --model-file yolov5s.onnx --data-scale-div 255 --board c920 --input-name &quot;images&quot; --output-name &quot;/model.24/m.0/Conv_output_0;/model.24/m.1/Conv_output_0;/model.24/m.2/Conv_output_0&quot; --input-shape &quot;1 3 384 640&quot;
+</code></pre>
+<p>In the HHB command, extract up to the last convolution layer. The post-processing after the convolution layers is handled by the yolov5s.c file. The <code>yolov5s.c</code> file can refer to the <code>yolov5n.c</code> file under the yolov5n example.<br />
+<strong>GCC Compile</strong></p>
+
+<pre class="language-shell"><code class="language-shell">riscv64-unknown-linux-gnu-gcc yolov5s.c -static -o yolov5s_example hhb_out/io.c hhb_out/model.c -Wl,--gc-sections -O2 -g -mabi=lp64d -I hhb_out/ -L /usr/local/lib/python3.8/dist-packages/hhb/install_nn2/c920/lib/ -lshl -static -L /usr/local/lib/python3.8/dist-packages/hhb/prebuilt/decode/install/lib/rv -L /usr/local/lib/python3.8/dist-packages/hhb/prebuilt/runtime/riscv_linux -lprebuilt_runtime -ljpeg -lpng -lz -lstdc++ -lm -I /usr/local/lib/python3.8/dist-packages/hhb/install_nn2/c920/include/ -mabi=lp64d -march=rv64gcv0p7_zfh_xtheadc
+</code></pre>
+<h4 id="Results">Results</h4>
+
+<pre class="language-shell"><code class="language-shell">(ort) root@lpi4a:/home/sipeed/yolov5s# python3 inference.py 
+ ********** preprocess image **********
+ ******* run yolov5 and postprocess *******
+Run graph execution time: 821.20135ms, FPS=1.22
+detect num: 4
+id:     label   score           x1              y1              x2              y2
+[0]:    0       0.932165        275.538910      159.163147      359.211151      329.072205
+[1]:    0       0.888989        219.883255      222.074265      285.310486      334.005676
+[2]:    0       0.840487        85.319901       184.137268      186.844284      346.103210
+[3]:    33      0.783095        70.033737       176.102921      202.740250      218.405075
+ ********** draw bbox **********
+[275.53891, 159.163147, 359.211151, 329.072205, 0.932165, 0]
+[219.883255, 222.074265, 285.310486, 334.005676, 0.888989, 0]
+[85.319901, 184.137268, 186.844284, 346.10321, 0.840487, 0]
+[70.033737, 176.102921, 202.74025, 218.405075, 0.783095, 33]
+</code></pre>
+<h3 id="NPU">NPU</h3>
+<h4 id="Compile">Compile</h4>
+<p>Refer to yolov5n.</p>
+<p><strong>HHB Compile</strong></p>
+
+<pre class="language-shell"><code class="language-shell">hhb -D --model-file yolov5s.onnx --data-scale-div 255 --board th1520 --input-name &quot;images&quot; --output-name &quot;/model.24/m.0/Conv_output_0;/model.24/m.1/Conv_output_0;/model.24/m.2/Conv_output_0&quot; --input-shape &quot;1 3 384 640&quot; --calibrate-dataset kite.jpg  --quantization-scheme &quot;int8_asym&quot;
+</code></pre>
+<p><strong>GCC Compile</strong><br />
+In the HHB command, extract up to the last convolution layer. The post-processing after the convolution layers is handled by the yolov5s.c file. The <code>yolov5s.c</code> file can refer to the <code>yolov5n.c</code> file under the yolov5n example.</p>
+
+<pre class="language-shell"><code class="language-shell">riscv64-unknown-linux-gnu-gcc yolov5s.c -o yolov5s_example hhb_out/io.c hhb_out/model.c -Wl,--gc-sections -O2 -g -mabi=lp64d -I hhb_out/ -L /usr/local/lib/python3.8/dist-packages/hhb/install_nn2/th1520/lib/ -lshl -L /usr/local/lib/python3.8/dist-packages/hhb/prebuilt/decode/install/lib/rv -L /usr/local/lib/python3.8/dist-packages/hhb/prebuilt/runtime/riscv_linux -lprebuilt_runtime -ljpeg -lpng -lz -lstdc++ -lm -I /usr/local/lib/python3.8/dist-packages/hhb/install_nn2/th1520/include/ -mabi=lp64d -march=rv64gcv0p7_zfh_xtheadc -Wl,-unresolved-symbols=ignore-in-shared-libs
+</code></pre>
+<h4 id="Results">Results</h4>
+
+<pre class="language-shell"><code class="language-shell">(ort) root@lpi4a:/home/sipeed/yolov5s_npu# python3 inference.py 
+ ********** preprocess image **********
+ ******* run yolov5 and postprocess *******
+INFO: NNA clock:792000 [kHz]
+INFO: Heap :ocm (0x18)
+INFO: Heap :anonymous (0x2)
+INFO: Heap :dmabuf (0x2)
+INFO: Heap :unified (0x5)
+Run graph execution time: 9.85487ms, FPS=101.47
+detect num: 4
+id:     label   score           x1              y1              x2              y2
+[0]:    0       0.933075        276.321838      157.925751      358.274475      329.757538
+[1]:    0       0.893568        219.203781      221.895264      286.790039      334.801636
+[2]:    0       0.848185        83.283234       182.688538      187.325684      346.702515
+[3]:    33      0.800765        68.743454       175.539230      204.108292      218.260056
+ ********** draw bbox **********
+[276.321838, 157.925751, 358.274475, 329.757538, 0.933075, 0]
+[219.203781, 221.895264, 286.790039, 334.801636, 0.893568, 0]
+[83.283234, 182.688538, 187.325684, 346.702515, 0.848185, 0]
+[68.743454, 175.53923, 204.108292, 218.260056, 0.800765, 33]
+</code></pre>
+<h2 id="BERT">BERT</h2>
+<h3 id="CPU">CPU</h3>
+<h4 id="Setup">Setup</h4>
+<p>Refer to <a href="https://wiki.sipeed.com/hardware/en/lichee/th1520/lpi4a/6_peripheral.html#NPU"  target="_blank">Peripheral</a>After the NPU usage environment is set up, the document enters the Docker image of the HHB environment.</p>
+<p>The model used in this tutorial is from the google bert repository and has been converted to the onnx version of the BERT model, which can be downloaded to the <code>/home/example/c920/bert_small</code> directory with the following command:</p>
+
+<pre class="language-shell"><code class="language-shell">cd home/example/c920/bert_small
+wget https://github.com/zhangwm-pt/bert/releases/download/onnx/bert_small_int32_input.onnx
+</code></pre>
+<h4 id="Compile">Compile</h4>
+<p><strong>HHB Compile</strong><br />
+To cross-compile the ONNX model into an executable program on the NPU, you need to use the hhb command. Note that only 8-bit or 16-bit fixed-point operations are supported on the NPU, which is defined as int8 asymmetric quantization in this example. To compile, you need to first go to the directory where the sample is located <code>/home/example/c920/bert_small</code> :</p>
+
+<pre class="language-shell"><code class="language-shell">cd /home/example/c920/bert_small
+hhb --model-file bert_small_int32_input.onnx --input-name &quot;input_ids;input_mask;segment_ids&quot; --input-shape '1 384;1 384;1 384' --output-name &quot;output_start_logits;output_end_logits&quot; --board c920 --quantization-scheme &quot;float16&quot; --postprocess save_and_top5 -D --without-preprocess
+</code></pre>
+<p>The options are:</p>
+<ul>
+<li>-D: Specifies that the HHB process will run until the executable is generated</li>
+<li>--model-file: Specifies that the bert model has been downloaded in the current directory</li>
+<li>--data-mean: Specifies the mean value</li>
+<li>--data-scale: Specifies the scale value</li>
+<li>--board: Specifies that the target platform is th1520</li>
+<li>--input-name: The input name of the model</li>
+<li>--output-name: The output name of the model</li>
+<li>--input-shape: The input size of the model</li>
+<li>--postprocess: Saves the output results and prints the top 5 results</li>
+<li>--calibrate-dataset: Specifies the calibration images required for quantization</li>
+<li>--quantization-scheme: Specifies that the quantization scheme is int8 asymmetric</li>
+</ul>
+<p>After the command is executed, the hhb_out subdirectory will be generated in the current directory, which includes hhb_runtime, model.c and other files:</p>
+<ul>
+<li>hhb. bm: The HHB model file, including the quantized weight data and other information</li>
+<li>hhb_runtime: The executable on the th1520 platform, compiled from the c file in the directory</li>
+<li>main. c: A temporary file, the reference entry of the sample program</li>
+<li>model. c: A temporary file, the model structure file, related to the model structure</li>
+<li>model.params: A temporary file, the weight values</li>
+<li>io. c: A temporary file, the auxiliary functions for reading and writing files</li>
+<li>io. h: A temporary file, the auxiliary functions for reading and writing files declaration</li>
+<li>process. c: A temporary file, the image preprocessing function</li>
+<li>process. h: A temporary file, the image preprocessing function declaration</li>
+</ul>
+<p>For more detailed HHB options, refer to the command line options in the <a href="https://www.yuque.com/za4k4z/kvkcoh/shl1nybhel6iviwt"  target="_blank">HHBUserManual</a>.</p>
+<p>After the compilation command is executed correctly, an executable file is generated in the example directory. You can copy the example directory to the development board and run it.</p>
+
+<pre class="language-shell"><code class="language-shell">scp -r ../bert_small sipeed@your_ip:~
+</code></pre>
+<h4 id="Excute">Excute</h4>
+<p>The preceding steps to execute the example program are the same as YOLOv5n, which will not be described here.<br />
+After the preceding steps are correct, you can run commands in the example directory</p>
+
+<pre class="language-shell"><code class="language-shell">python3 inference.py
+</code></pre>
+<h4 id="Results">Results</h4>
+<p>The reference input in this example comes from the SQuAD dataset, a reading comprehension dataset consisting of questions posed by a set of Wikipedia articles, where the answer to each question is a piece of text from the corresponding reading article or question.<br />
+The input for this example is as follows. The article describes the game of a rugby game and asks the question of who participated in the game.</p>
+
+<pre class="language-none"><code class="language-none">[Context]:  Super Bowl 50 was an American football game to determine the champion of the National Football League (NFL) for the 2015 season. The American Football Conference (AFC) champion Denver Broncos defeated the National Football Conference (NFC) champion Carolina Panthers 24–10 to earn their third Super Bowl title. The game was played on February 7, 2016, at Levi's Stadium in the San Francisco Bay Area at Santa Clara, California. As this was the 50th Super Bowl, the league emphasized the &quot;golden anniversary&quot; with various gold-themed initiatives, as well as temporarily suspending the tradition of naming each Super Bowl game with Roman numerals (under which the game would have been known as &quot;Super Bowl L&quot;), so that the logo could prominently feature the Arabic numerals 50.
+
+[Question]:  Which NFL team represented the AFC at Super Bowl 50?
+</code></pre>
+<p>Based on the reading comprehension results, the expected output would be the Denver Broncos</p>
+
+<pre class="language-shell"><code class="language-shell">(ort) root@lpi4a:/home/sipeed/bert_small_cpu# python3 inference.py
+ ********** preprocess test **********
+[Context]:  Super Bowl 50 was an American football game to determine the champion of the National Football League (N
+FL) for the 2015 season. The American Football Conference (AFC) champion Denver Broncos defeated the National Footba
+ll Conference (NFC) champion Carolina Panthers 24–10 to earn their third Super Bowl title. The game was played on Fe
+bruary 7, 2016, at Levi's Stadium in the San Francisco Bay Area at Santa Clara, California. As this was the 50th Sup
+er Bowl, the league emphasized the &quot;golden anniversary&quot; with various gold-themed initiatives, as well as temporarily
+ suspending the tradition of naming each Super Bowl game with Roman numerals (under which the game would have been k
+nown as &quot;Super Bowl L&quot;), so that the logo could prominently feature the Arabic numerals 50.
+[Question]:  Which NFL team represented the AFC at Super Bowl 50?
+ ******* run bert *******
+Run graph execution time: 1713.15491ms, FPS=0.58
+
+=== tensor info ===
+shape: 1 384 
+data pointer: 0x183d60
+
+=== tensor info ===
+shape: 1 384 
+data pointer: 0x185380
+
+=== tensor info ===
+shape: 1 384 
+data pointer: 0x1869a0
+
+=== tensor info ===
+shape: 1 384 
+data pointer: 0x2a8610
+The max_value of output: 3.826172
+The min_value of output: -9.968750
+The mean_value of output: -8.412353
+The std_value of output: 5.128320
+ ============ top5: ===========
+ 46: 3.826172
+ 57: 3.142578
+ 39: 1.303711
+ 38: 1.179688
+ 27: 0.624512
+
+=== tensor info ===
+shape: 1 384 
+data pointer: 0x2a8300
+The max_value of output: 3.617188
+The min_value of output: -9.625000
+The mean_value of output: -7.798176
+The std_value of output: 4.820137
+ ============ top5: ===========
+ 47: 3.617188
+ 58: 3.482422
+ 32: 2.523438
+ 29: 1.541992
+ 41: 1.473633
+ ********** postprocess **********
+[Answer]:  Denver Broncos
+</code></pre>
+<h2 id="Docker">Docker</h2>
+<p>First install the required packages</p>
+
+<pre class="language-shell"><code class="language-shell">sudo apt-get update
+sudo apt-get install docker docker-compose
+</code></pre>
+<p>Once the installation is complete, use the <code>sudo docker info</code> command to verify that the installation was successful:</p>
+
+<pre class="language-shell"><code class="language-shell">sipeed@lpi4a:~$ sudo docker info
+Client: 
+ Context: default
+ Debug Mode: false  
+Server:
+ Containers: 0
+  Running: 0 
+  Paused: 0  
+  Stopped: 0 
+ Images: 0
+ Server Version: 20.10.24+dfsg1 
+ Storage Driver: overlay2 
+  Backing Filesystem: extfs  
+  Supports d_type: true
+  Native Overlay Diff: true  
+  userxattr: false  
+ Logging Driver: json-file
+ Cgroup Driver: systemd
+ Cgroup Version: 2
+ Plugins:
+  Volume: local  
+  Network: bridge host ipvlan macvlan null overlay
+  Log: awslogs fluentd gcplogs gelf journald json-file local logentries splunk syslog 
+ Swarm: inactive 
+ Runtimes: io.containerd.runc.v2 io.containerd.runtime.v1.linux runc 
+ Default Runtime: runc 
+ Init Binary: docker-init 
+ containerd version: 1.6.20~ds1-1+b1
+ runc version: 1.1.5+ds1-1+b1
+ init version:
+ Security Options:
+  seccomp 
+Profile: default 
+  cgroupns
+ Kernel Version: 5.10.113-gfac22a756532
+ Operating System: Debian GNU/Linux 12 (bookworm)  
+ OSType: linux
+ Architecture: riscv64 
+ CPUs: 4  
+ Total Memory: 15.47GiB
+ Name: lpi4a 
+ ID: MCKE:SEGQ:EBUX:ZMLC:P2WK:GIJ7:XAEQ:F56H:73HK:C3L5:IA5A:7GJI  
+ Docker Root Dir: /var/lib/docker
+ Debug Mode: false  
+ Registry: https://index.docker.io/v1/ 
+ Labels:  
+ Experimental: false
+ Insecure Registries:  
+  127.0.0.0/8
+ Live Restore Enabled: false
+</code></pre>
+<p>If you want a normal user to have Docker execution privileges as well, you can execute the following command to do so:</p>
+
+<pre class="language-shell"><code class="language-shell">sudo groupadd docker
+sudo usermod -aG docker $USER
+newgrp docker
+</code></pre>
+<p>These commands add a username with normal user privileges to the <code>docker</code> user group and activate group privileges. If you don't add them, you'll need to execute Docker-related commands with sudo privileges every time you execute them.</p>
+<p>Next, let's pull up the hello-world image to get a taste of Docker:</p>
+
+<pre class="language-shell"><code class="language-shell">sipeed@lpi4a:~$ docker pull hello-world
+Using default tag: latest
+latest: Pulling from library/hello-world   
+b102dd09f2b3: Pull complete 
+Digest: sha256:926fac19d22aa2d60f1a276b66a20eb765fbeea2db5dbdaafeb456ad8ce81598      
+Status: Downloaded newer image for hello-world:latest    
+docker.io/library/hello-world:latest 
+</code></pre>
+<p>Next, start the container you just pulled off:</p>
+
+<pre class="language-shell"><code class="language-shell">sipeed@lpi4a:~$ docker run hello-world
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the &quot;hello-world&quot; image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
+</code></pre>
+<p>View information about the hello-world mirror:</p>
+
+<pre class="language-shell"><code class="language-shell">sipeed@lpi4a:~$ docker images hello-world
+REPOSITORY TAG IMAGE ID CREATED SIZE
+hello-world latest eb6f80695a28 2 months ago 4.98kB
+</code></pre>
+<p>To experience a more complete image, go <a href="https://hub.docker.com/"  target="_blank">here</a> and search for the name of the distribution you want to use and pull it.</p>
+<h2 id="K3s-RISCV">K3s-RISCV</h2>
+<p>This chapter will show how to run the lightweight Kubernetes distribution K3s on LPi4A.</p>
+<p>First download the precompiled K3s package:<br />
+<a href="https://github.com/CARV-ICS-FORTH/k3s/releases"  target="_blank">https://github.com/CARV-ICS-FORTH/k3s/releases</a></p>
+<p>Then merge the downloaded packages into a <code>.gz</code> file and decompress it. After completion, add execution permission to k3s:</p>
+
+<pre class="language-shell"><code class="language-shell">wget https://github.com/CARV-ICS-FORTH/k3s/releases/download/20230721/k3s-riscv64.gz.aa
+wget https://github.com/CARV-ICS-FORTH/k3s/releases/download/20230721/k3s-riscv64.gz.ab
+wget https://github.com/CARV-ICS-FORTH/k3s/releases/download/20230721/k3s-riscv64.gz.ac
+# The following commands need root user to execute
+sudo -i
+cat k3s-riscv64.gz.* | gunzip &gt; /usr/local/bin/k3s
+chmod +x /usr/local/bin/k3s
+exit
+</code></pre>
+<p>Verify whether it can run successfully. The typical output of a successful run is as follows:</p>
+
+<pre class="language-shell"><code class="language-shell">sipeed@lpi4a:~$ k3s
+NAME:
+    k3s-riscv64 - Kubernetes, but small and simple
+
+USAGE:
+    k3s-riscv64 [global options] command [command options] [arguments...]
+
+VERSION:
+    v1.27.3+k3s-9d376dfb-dirty (9d376dfb)
+
+COMMANDS:
+    server Run management server
+    agent Run node agent
+    kubectl Run kubectl
+    crictl Run crictl
+    ctr Run ctr
+    check-config Run config check
+    token Manage bootstrap tokens
+    etcd-snapshot
+    secrets-encrypt Control secrets encryption and keys rotation
+    certificate Manage K3s certificates
+    completion Install shell completion script
+    help, h Shows a list of commands or help for one command
+
+GLOBAL OPTIONS:
+    --debug (logging) Turn on debug logs [$K3S_DEBUG]
+    --data-dir value, -d value (data) Folder to hold state (default: /var/lib/r)
+    --help, -h show help
+    --version, -v print the version
+</code></pre>
+<p>Now, download and run the k3s install script:</p>
+
+<pre class="language-shell"><code class="language-shell">curl -sfL https://get.k3s.io &gt; k3s-install.sh
+chmod +x k3s-install.sh
+INSTALL_K3S_EXEC=&quot;server --disable metrics-server&quot; INSTALL_K3S_SKIP_DOWNLOAD=&quot;true&quot; bash -x ./k3s-install.sh
+</code></pre>
+<p>After running, use the following command to check whether k3s is running normally. Typical output is as follows:</p>
+
+<pre class="language-shell"><code class="language-shell">sipeed@lpi4a:~$ systemctl status k3s
+● k3s.service - Lightweight Kubernetes
+      Loaded: loaded (8;;file://lpi4a/etc/systemd/system/k3s.service/etc/systemd)
+      Active: active (running) since Mon 2023-07-31 06:48:34 UTC; 6s ago
+        Docs: 8;;https://k3s.iohttps://k3s.io8;;
+     Process: 3240 ExecStartPre=/bin/sh -xc ! /usr/bin/systemctl is-enabled --qu&gt;
+     Process: 3242 ExecStartPre=/sbin/modprobe br_netfilter (code=exited, status&gt;
+     Process: 3243 ExecStartPre=/sbin/modprobe overlay (code=exited, status=0/SU&gt;
+    Main PID: 3244 (k3s-server)
+       Tasks: 37
+      Memory: 529.5M
+         CPU: 54.841s
+      CGroup: /system.slice/k3s.service
+              ├─3244 &quot;/usr/local/bin/k3s server&quot;
+              └─3361 &quot;containerd
+</code></pre>
+<p>Next, we create a new configuration file to run the k3s container:</p>
+
+<pre class="language-shell"><code class="language-shell">vi hello-lpi4a.yaml
+</code></pre>
+<p>The content of the file is as follows (refer to <a href="https://raw.githubusercontent.com/CARV-ICS-FORTH/kubernetes-riscv64/main/examples/hello-kubernetes.yaml"  target="_blank">https://raw.githubusercontent.com/CARV-ICS-FORTH/kubernetes-riscv64/main/examples/hello-kubernetes.yaml</a>):</p>
+
+<pre class="language-yaml"><code class="language-yaml">apiVersion: v1
+kind: Service
+metadata:
+   name: hello
+spec:
+   type: ClusterIP
+   ports:
+   - port: 8080
+   selector:
+     app: hello
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+   name: hello
+spec:
+   replicas: 1
+   selector:
+     matchLabels:
+       app: hello
+   template:
+     metadata:
+       labels:
+         app: hello
+     spec:
+       containers:
+       - name: hello-kubernetes
+         image: carvicsforth/hello-kubernetes:1.10.1
+         env:
+         - name: MESSAGE
+           value: &quot;Hello Lichee Pi 4A!&quot;
+</code></pre>
+<p>Then start a container with this configuration file. A typical input is as follows:</p>
+
+<pre class="language-shell"><code class="language-shell">sipeed@lpi4a:~$ sudo kubectl apply -f hello-lpi4a.yaml
+service/hello created
+deployment.apps/hello created
+</code></pre>
+<p>Then check the status of pods (if the IP address is not displayed in the output, you can wait a little longer and check again):</p>
+
+<pre class="language-shell"><code class="language-shell">sipeed@lpi4a:~$
+NAME READY STATUS RESTARTS AGE IP NODE NOMINATED NODE READINESS GATES
+hello-5b576d45d7-fdjgh 1/1 Running 0 16m 10.42.0.6 lpi4a &lt;none&gt; &lt;none&gt;
+</code></pre>
+<p>Next, use curl to test whether the k3s container runs successfully. The typical output is as follows:</p>
+
+<pre class="language-shell"><code class="language-shell">sipeed@lpi4a:~$ curl 10.42.0.6:8080
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+     &lt;title&gt;Hello Kubernetes!&lt;/title&gt;
+     &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/main.css&quot;&gt;
+     &lt;link rel=&quot;stylesheet&quot; href=&quot;https://fonts.googleapis.com/css?family=Ubuntu:300&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+   &lt;div class=&quot;main&quot;&gt;
+     &lt;img src=&quot;/images/kubernetes.png&quot;/&gt;
+     &lt;div class=&quot;content&quot;&gt;
+       &lt;div id=&quot;message&quot;&gt;
+   Hello Lichee Pi 4A!
+&lt;/div&gt;
+&lt;div id=&quot;info&quot;&gt;
+   &lt;table&gt;
+     &lt;tr&gt;
+       &lt;th&gt;namespace:&lt;/th&gt;
+       &lt;td&gt;-&lt;/td&gt;
+     &lt;/tr&gt;
+     &lt;tr&gt;
+       &lt;th&gt;pod:&lt;/th&gt;
+       &lt;td&gt;hello-5b576d45d7-fdjgh&lt;/td&gt;
+     &lt;/tr&gt;
+     &lt;tr&gt;
+       &lt;th&gt;node:&lt;/th&gt;
+       &lt;td&gt;- (Linux 5.10.113-gfac22a756532)&lt;/td&gt;
+     &lt;/tr&gt;
+   &lt;/table&gt;
+&lt;/div&gt;
+&lt;div id=&quot;footer&quot;&gt;
+   paulbouwer/hello-kubernetes:1.10.1 (linux/riscv64)
+&lt;/div&gt;
+     &lt;/div&gt;
+   &lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>So far, the k3s container has run successfully.</p>
+<p>The page shows as follows:</p>
+<p><img src="./../../../../zh/lichee/th1520/lpi4a/assets/application/k3s_hello_world.png" alt="k3s_hello_world" /></p>
+<h2 id="Minecraft-Server">Minecraft Server</h2>
+<p>Here we take <code>1.20.1</code> version as an example, LPi4A as Server and PC (Ubuntu 22.04) as Client.</p>
+<p>First download the Fizzed optimized nitro JDK 19 from <a href="https://github.com/fizzed/nitro/releases/tag/builds"  target="_blank">here</a>, extract it, rename the folder and move it to the <code>/opt/</code> directory:</p>
+
+<pre class="language-shell"><code class="language-shell">tar xvf fizzed19.36-jdk19.0.1-linux_riscv64.tar.gz
+sudo mv fizzed19.36-jdk19.0.1-linux_riscv64 /opt/jdk_19
+</code></pre>
+<p>Test if this JDK is available:</p>
+
+<pre class="language-shell"><code class="language-shell">sipeed@lpi4a:~$ /opt/jdk_19/bin/java -version
+openjdk version &quot;19.0.1&quot; 2022-09-20
+OpenJDK Runtime Environment Fizzed19.36 (build 19.0.1+10)
+OpenJDK 64-Bit Server VM Fizzed19.36 (build 19.0.1+10, mixed mode)
+</code></pre>
+<p>If the version number appears, it is available. If you have already pre-installed a different version of the JDK, you can change the softlinks by checking the original softlinks and making a note of them so that you can change them back later:</p>
+
+<pre class="language-shell"><code class="language-shell">sipeed@lpi4a:~$ ls /usr/bin/java -l
+lrwxrwxrwx 1 root root 22 Apr 26 10:40 /usr/bin/java -&gt; /etc/alternatives/java
+</code></pre>
+<p>Then change the softlink to point to the JDK you just installed:</p>
+
+<pre class="language-shell"><code class="language-shell">sudo rm /usr/bin/java
+sudo ln -s /opt/jdk_19/bin/java /usr/bin/java
+</code></pre>
+<p>Verify that the soft link was configured successfully with the command</p>
+
+<pre class="language-shell"><code class="language-shell">java -version
+</code></pre>
+<p>If the version appears, the configuration was successful.</p>
+<p>Next, download the original server-side jar file to LPi4A at <a href="https://www.minecraft.net/zh-hans/download"  target="_blank">here</a>, noting that the version is <code>1.20.1</code>, and then execute it on LPi4A first:</p>
+
+<pre class="language-shell"><code class="language-shell">java -jar server.jar nogui
+</code></pre>
+<p>If prompted</p>
+
+<pre class="language-shell"><code class="language-shell">[ServerMain/WARN]: Failed to load eula.txt
+[ServerMain/INF0]:You need to agree to the EULA in order to run the server. Go to e ula.txt for more info.
+Go to eula.txt for more info.
+
+Changes false to true on the corresponding line in the `eula.txt` file in the current directory:
+```shell
+eula=true
+</code></pre>
+<p>Save and exit, restart the server, the first startup will be slower, be patient, the startup time will be displayed after the startup is complete (the following time is not the first startup time):</p>
+
+<pre class="language-shell"><code class="language-shell">[03:51:02] [Server thread/INFO]: Time elapsed: 36394 ms
+[03:51:02] [Server thread/INFO]: Done (52.927s)! For help, type &quot;help&quot;
+</code></pre>
+<p>Next, you can connect after launching the client on the PC, we recommend using the third-party client launcher HMCL (download link <a href="https://hmcl.huangyuhui.net/download/"  target="_blank">https://hmcl.huangyuhui.net/download/</a>).<br />
+Once the download is complete, launch HMCL:</p>
+
+<pre class="language-shell"><code class="language-shell">java -jar HMCL-3.5.5.jar
+</code></pre>
+<p>You can download <code>1.20.1</code> version directly in the launcher and configure the game account, then you can enter the game, after entering the game, enter the server IP (LPi4A's IP) to add the server to connect (make sure that the computer and LPi4A are under the same network), the effect is as follows:</p>
+<p><img src="./../../../../zh/lichee/th1520/lpi4a/assets/application/mc_server_menu.png" alt="mc_server_menu" /></p>
+<p><img src="./../../../../zh/lichee/th1520/lpi4a/assets/application/mc_server_use.png" alt="mc_server_use" /></p>
+<blockquote>
+<p>Note that if you want to change back to the original version of the JDK, run:</p>
+
+<pre class="language-shell."><code class="language-shell.">sudo rm /usr/bin/java
+sudo ln -s /opt/jdk_19/bin/java /etc/alternatives/java
+</code></pre>
+</blockquote>
+<h2 id="Wine-CE">Wine-CE</h2>
+<p>First download <a href="https://gitee.com/wine-ce/wine-ce/releases/tag/v8.9"  target="_blank">here</a> the <code>wine-ce_dlls_8.9.0.all.tar.xz</code>, <code>wine-ce_core_8.9.0.riscv64.tar.xz</code> files. Both files are assumed to be downloaded to the user's home directory (the latest version is 8.9 at the time of writing this document).</p>
+<p>Then follow the steps in the documentation to install them:</p>
+
+<pre class="language-shell"><code class="language-shell">sudo apt install fonts-liberation fonts-wine glib-networking libpulse0 gstreamer1.0-plugins-good gstreamer1.0-x libaa1 libaom3 libasound2-plugins  libcaca0 libcairo-gobject2 libcodec2-1.0 libdav1d6 libdv4 libgdk-pixbuf-2.0-0 libgomp1 libgpm2 libiec61883-0 libjack-jackd2-0 libmp3lame0 libncurses6 libncursesw6 libnuma1 libodbc2 libproxy1v5 libraw1394-11 librsvg2-2 librsvg2-common libsamplerate0 libshine3 libshout3 libslang2 libsnappy1v5 libsoup2.4-1 libsoxr0 libspeex1 libspeexdsp1 libtag1v5 libtag1v5-vanilla libtwolame0 libva-drm2 libva-x11-2 libva2 libvdpau1 libvkd3d-shader1 libvkd3d1 libvpx7 libwavpack1 libwebpmux3 libx265-199 libxdamage1 libxvidcore4 libzvbi-common libzvbi0 mesa-va-drivers mesa-vdpau-drivers va-driver-all vdpau-driver-all vkd3d-compiler
+
+sudo tar -Jxvf wine-ce_core_8.9.0.riscv64.tar.xz -C /opt/
+sudo tar -Jxvf wine-ce_dlls_8.9.0.all.tar.xz -C /opt/
+sudo ln -sf /opt/wine-ce/bin/wine /usr/bin/wine
+sudo ln -sf /opt/wine-ce/bin/winecfg /usr/bin/winecfg
+rm -rf ~/.wine
+</code></pre>
+<p>Next some initialization settings:</p>
+
+<pre class="language-shell"><code class="language-shell">winecfg
+</code></pre>
+<p>The settings used here are as follows:</p>
+<p><img src="./../../../../zh/lichee/th1520/lpi4a/assets/application/wine_ce_settings.png" alt="wine_ce_settings" /></p>
+<p>Once the settings are complete, you can run programs under Windows, such as the command here to run Notepad under Windows:</p>
+
+<pre class="language-shell"><code class="language-shell">wine notepad.exe
+</code></pre>
+<p><img src="./../../../../zh/lichee/th1520/lpi4a/assets/application/wine_ce_use.png" alt="wine_ce_use" /></p>
+<h2 id="Use-optimized-GCC-toolchain">Use optimized GCC toolchain</h2>
+<p>If you find problems with experimental features, you can report <a href="https://github.com/revyos/revyos/issues"  target="_blank">issue</a>.</p>
+<p>Installation steps</p>
+
+<pre class="language-shell"><code class="language-shell"># Add optimization source
+sudo sed -i '1ideb https://mirror.iscas.ac.cn/revyos/revyos-c910v/ revyos-c910v main' /etc/apt/sources.list
+# update software
+sudo apt update
+# install gcc-10 or gcc-13
+sudo apt install -y build-essential # gcc-10
+sudo apt install -y gcc-13 g++-13 # gcc-13
+# Restart to avoid other problems
+sudo reboot
+</code></pre>
+<p>Test gcc-10 (gcc10.4 enables xtheadc+v0p7)</p>
+
+<pre class="language-shell"><code class="language-shell">gcc -v
+Using built-in specs.
+COLLECT_GCC=gcc
+COLLECT_LTO_WRAPPER=/usr/lib/gcc/riscv64-linux-gnu/10/lto-wrapper
+Target: riscv64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Debian 10.4.0-8revyos2.3' --with-bugurl=file:///usr/share/doc/gcc-10/README.Bugs --enable-languages=c,ada,c++,go,d,fortran,objc,obj-c++,m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-10 --program-prefix=riscv64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-libitm --disable-libsanitizer --disable-libquadmath --disable-libquadmath-support --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --disable-multilib --with-arch=rv64gcv0p7_zfh_xtheadc --with-abi=lp64d --enable-checking=release --build=riscv64-linux-gnu --host=riscv64-linux-gnu --target=riscv64-linux-gnu
+Thread model: posix
+Supported LTO compression algorithms: zlib zstd
+gcc version 10.4.0 (Debian 10.4.0-8revyos2.3)
+</code></pre>
+<p>Test gcc-13 (gcc13.2 enables xthead extension)</p>
+
+<pre class="language-shell"><code class="language-shell">gcc-13 -v
+Using built-in specs.
+COLLECT_GCC=gcc-13
+COLLECT_LTO_WRAPPER=/usr/libexec/gcc/riscv64-linux-gnu/13/lto-wrapper
+Target: riscv64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Debian 13.2.0-1revyos1' --with-bugurl=file:///usr/share/doc/gcc-13/README.Bugs --enable-languages=c,ada,c++,go,d,fortran,objc,obj-c++,m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-13 --program-prefix=riscv64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/libexec --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-libitm --disable-libquadmath --disable-libquadmath-support --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --disable-multilib --with-arch=rv64gc_zfh_xtheadba_xtheadbb_xtheadbs_xtheadcmo_xtheadcondmov_xtheadfmemidx_xtheadfmv_xtheadint_xtheadmac_xtheadmemidx_xtheadmempair_xtheadsync --with-abi=lp64d --enable-checking=release --build=riscv64-linux-gnu --host=riscv64-linux-gnu --target=riscv64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-serialization=16
+Thread model: posix
+Supported LTO compression algorithms: zlib zstd
+gcc version 13.2.0 (Debian 13.2.0-1revyos1)
+</code></pre>
+<p>gcc-10/gcc-13 differences:<br />
+Except for v0p7, other optimizations can use gcc-13 instead of gcc-10.<br />
+The latter optimization can report problems on the mainline, which is a function that has been mainlined.</p>
+<h2 id="SuperTuxKart">SuperTuxKart</h2>
+<p>SuperTuxKart is a 3D open-source arcade racer with a variety characters, tracks, and modes to play. It can also be experienced on LPi4A by compiling the source code:</p>
+<p>First install dependencies:</p>
+
+<pre class="language-shell"><code class="language-shell">sudo apt-get install build-essential cmake libbluetooth-dev libsdl2-dev \
+libcurl4-openssl-dev libenet-dev libfreetype6-dev libharfbuzz-dev \
+libjpeg-dev libogg-dev libopenal-dev libpng-dev \
+libssl-dev libvorbis-dev libmbedtls-dev pkg-config zlib1g-dev
+</code></pre>
+<p>Next, refer to <a href="https://github.com/supertuxkart/stk-code/blob/master/INSTALL.md#building-supertuxkart-on-linux"  target="_blank">documentation</a> step to compile:</p>
+
+<pre class="language-shell"><code class="language-shell"># clone and configure src
+git clone https://github.com/supertuxkart/stk-code stk-code
+svn co https://svn.code.sf.net/p/supertuxkart/code/stk-assets stk-assets
+
+# go into the stk-code directory
+cd stk-code
+
+# create and enter the cmake_build directory
+mkdir cmake_build
+cd cmake_build
+
+# run cmake to generate the makefile
+cmake .. -DBUILD_RECORDER=off -DNO_SHADERC=on
+
+#compile
+make -j$(nproc)
+</code></pre>
+<p>After compiling, you can find the <code>supertuxkart</code> program in the <code>bin/</code> folder in the current directory. Just run:</p>
+
+<pre class="language-shell"><code class="language-shell">./bin/supertuxkart
+</code></pre>
+<p>The effect is as follows:</p>
+<p><img src="./../../../../zh/lichee/th1520/lpi4a/assets/application/supertuxkart_play.png" alt="supertuxkart_play" /></p>
+<h2 id="llama2.c">llama2.c</h2>
+<p><a href="https://github.com/karpathy/llama2.c"  target="_blank">project_link</a><br />
+We can run a small model of Llama 2 by following the steps in the project link documentation.</p>
+<p>First, clone the project and switch to the changed project directory:</p>
+
+<pre class="language-shell"><code class="language-shell">git clone https://github.com/karpathy/llama2.c.git
+</code></pre>
+<p>Then download the model.bin file and place it in the specified directory:</p>
+
+<pre class="language-shell"><code class="language-shell">wget https://karpathy.ai/llama2c/model.bin -P out
+</code></pre>
+<p>Then compile and run:</p>
+
+<pre class="language-shell"><code class="language-shell">gcc -O3 -o run run.c -lm
+./run out/model.bin
+</code></pre>
+<p>You can get the following output:</p>
+
+<pre class="language-text"><code class="language-text">&lt;s&gt;
+ Once upon a time, there was a little girl named Lily. She loved to play with her dolls and teddy bea
+rs. One day, she saw her friend Lucy playing with her favorite doll. 
+Lily: &quot;Lucy, can I play with you?&quot;
+Lucy: &quot;Sure, but can you be careful with my doll?&quot;
+Lily: &quot;Sure, I promise I won't break her.&quot;
+Lucy: &quot;That's very original. I really love it.&quot;
+Lily smiled and showed her doll to her mom. Her mom said, &quot;That's nice, Lily. Let's put your doll on 
+the shelf and play with her some more.&quot;
+From that day on, Lily and her doll played together every day. They were the best of friends and didn
+'t break anyone's possession.
+&lt;s&gt;
+ Once upon a time, there was a little boy named Timmy. Timmy loved to eat sandwiches. One day, Timmy'
+s mom made him a sandwich for lunch. It was so yummy and tasty! But then, something unexpected happen
+ed. Timmy's little sister spilled some juice on his sandwich. Tim
+achieved tok/s: 30.955260
+</code></pre>
+<p>You can also modify some compilation parameters to speed things up:</p>
+
+<pre class="language-text"><code class="language-text">sipeed@lpi4a:~/llama2.c$ gcc -Ofast -fopenmp run.c  -lm  -o run
+sipeed@lpi4a:~/llama2.c$ OMP_NUM_THEADS=4 ./run out/model.bin 
+&lt;s&gt;
+ Once upon a time, there was a boy named Tom. He liked to run fast. One day, he saw a big tree. Under
+ the tree, he found a hole. Tom was curious. He looked inside and saw something shiny.
+Tom looked closer, and it was not a shiny thing. It was a key! He was very surprised. He took the key
+ and ran home. He showed his mom the key.
+Tom's mom said the key was for a sneeze. The sneeze was a sneeze. Tom's mom put the key next to her p
+ocket. Tom said, &quot;Now you can have a sneeze too!&quot;
+Tom put his nose under his ears. He went home and took a nap. When he woke up, he had a small sneeze 
+from the key. It was not food or water. Tom was happy and laughed.
+&lt;s&gt;
+ Once upon a time, there was a bunny. The bunny was very restless and wanted to explore, so he hopped
+ off his little house. 
+The bunny hopped and hopped until he saw a shiny silver carrot. He was so excited to eat it, he
+achieved tok/s: 52.043098
+</code></pre>
+<h3 id="Stable-Diffusion">Stable Diffusion</h3>
+<p><a href="https://github.com/vitoplantamura/OnnxStream"  target="_blank">OnnxStream</a></p>
+<p>This example runs Stable Diffusion on LPi4A with this project.</p>
+<p>First, we need to build the XNNPACK:</p>
+
+<pre class="language-shell"><code class="language-shell">git clone https://github.com/google/XNNPACK.git
+cd XNNPACK
+git checkout 3f56c91b492c93676a9b5ca4dd51f528b704c309
+mkdir build
+cd build
+cmake -DXNNPACK_BUILD_TESTS=OFF -DXNNPACK_BUILD_BENCHMARKS=OFF ..
+cmake --build . --config Release
+</code></pre>
+<p>Next, build the Stable Diffusion example:</p>
+
+<pre class="language-shell"><code class="language-shell">git clone https://github.com/vitoplantamura/OnnxStream.git
+cd OnnxStream
+cd src
+mkdir build
+cd build
+cmake -DXNNPACK_DIR=&lt;此处替换为clone的XNNPACK存放路径&gt; ..
+cmake --build . --config Release
+</code></pre>
+<p>Now we have the runnable Stable Diffusion example file <code>sd</code>, run with the following parameters:</p>
+
+<pre class="language-shell"><code class="language-shell">. /sd --models-path . --rpi
+</code></pre>
+<p>Where <code>--models-path</code> is the model file downloaded from the project's Release page, which can be placed in the directory where the <code>sd</code> file is located.</p>
+<p>The runtime configuration is as follows:</p>
+
+<pre class="language-shell"><code class="language-shell">----------------[start]------------------
+positive_prompt: a photo of an astronaut riding a horse on mars
+negative_prompt: ugly, blurry
+output_png_path: . /result.png
+steps: 10 
+</code></pre>
+<p>The result is the <code>result.png</code> file, and the image from the above prompt is as follows:</p>
+<p><img src="./../../../../zh/lichee/th1520/lpi4a/assets/application/onnxstream_result.png" alt="onnxstream_result" /></p>
+<h2 id="PSP-Simulator">PSP Simulator</h2>
+<p><a href="https://github.com/hrydgard/ppsspp"  target="_blank">Project address</a></p>
+<p>This example runs the PSP simulator on LPi4A through this project.</p>
+<p>Firstly, we need to build PPSSPP:</p>
+
+<pre class="language-shell"><code class="language-shell">#Install the required packages first
+sudo apt install build-essential cmake libgl1-mesa-dev libsdl2-dev libvulkan-dev mesa-common-dev  libglu1-mesa-dev  libsdl2-dev libcurl4-openssl-dev
+git clone --recurse-submodules https://github.com/hrydgard/ppsspp.git
+cd ppsspp
+git submodule update --init --recursive
+git pull --rebase https://github.com/hrydgard/ppsspp.git
+cmake .
+make -j4
+
+</code></pre>
+<p>Compilation may take some time, and successful compilation occurs when the following output occurs:</p>
+
+<pre class="language-shell"><code class="language-shell">sipeed@lpi4a:~/ppsspp$ make -j4
+[  0%] Built target unix_based_hardware_detection
+[  0%] Built target utils
+[  0%] Built target gason
+[  1%] Built target snappy
+[  1%] Built target cityhash
+[  1%] Built target vma
+[  2%] Built target png17
+[  3%] Built target udis86
+[  3%] Built target basis_universal
+[ 16%] Built target libzip
+[ 16%] Built target glew
+[ 16%] Built target sfmt19937
+[ 17%] Built target kirk
+[ 18%] Built target xbrz
+[ 18%] Built target xxhash
+[ 19%] Generating something_that_never_exists
+[ 21%] Built target miniupnpc
+[ 25%] Built target libzstd_static
+-- Could NOT find Git (missing: GIT_EXECUTABLE) 
+CMake Warning at git-version.cmake:16 (message):
+  git not found, unable to include version.
+
+
+[ 25%] Built target GitVersion
+[ 25%] Built target GenericCodeGen
+[ 25%] Built target OGLCompiler
+[ 25%] Built target OSDependent
+[ 31%] Built target armips
+[ 31%] Built target spirv-cross-core
+[ 34%] Built target rcheevos
+[ 35%] Built target cpu_features
+[ 35%] Built target discord-rpc
+[ 36%] Built target spirv-cross-glsl
+[ 41%] Built target MachineIndependent
+[ 41%] Built target spirv-cross-cpp
+[ 41%] Built target spirv-cross-msl
+[ 41%] Built target spirv-cross-hlsl
+[ 41%] Built target glslang
+[ 42%] Built target SPIRV
+[ 58%] Built target Common
+[ 59%] Built target native
+[ 95%] Built target Core
+[100%] Built target PPSSPPSDL
+
+</code></pre>
+<p>After installation, you can try running it (in root mode)：</p>
+
+<pre class="language-shell"><code class="language-shell">./PPSSPPSDL
+</code></pre>
+<p>As shown in the figure:</p>
+<p><img src="./../../../../zh/lichee/th1520/lpi4a/assets/application/psp1.png" alt="game_result" /></p>
+<p>Game download:</p>
+<p><a href="https://playdreamcreate.com/"  target="_blank">PSP game Download</a></p>
+<p>Download completed:</p>
+<p>We only need to use the EBOOT.PBP file in the compressed package</p>
+<ol>
+<li><p>If using a graphical interface, extract directly</p>
+</li>
+<li><p>If using the command line, you need to change the compressed package to a zip suffix before decompressing it</p>
+</li>
+</ol>
+
+<pre class="language-shell"><code class="language-shell">
+Mv [compressed package name] [compressed package name]. zip
+
+Unzip [compressed package name]. zip
+
+</code></pre>
+<p>Start the game: Open EBOOT.PBP under the PPSSPPSDL command</p>
+
+<pre class="language-shell"><code class="language-shell">./PPSSPPSDL  ./game/01/EBOOT.PBP
+</code></pre>
+<p>The operation effect is shown in the figure:</p>
+<p><img src="./../../../../zh/lichee/th1520/lpi4a/assets/application/psp_2.png" alt="game_result" /><br />
+<img src="./../../../../zh/lichee/th1520/lpi4a/assets/application/psp_3.png" alt="game_result" /></p>
+<h2 id="Use-of-OpenCV">Use of OpenCV</h2>
+<p>First, install the dependencies and the Python 3 environment</p>
+
+<pre class="language-shell"><code class="language-shell">sudo apt install python3 python3-pip
+sudo apt install python3-opencv 
+sudo apt install libqt5gui5-gles
+</code></pre>
+<p>OpenCV reads image demo:</p>
+
+<pre class="language-shell"><code class="language-shell">#!/bin/bash
+import cv2
+
+img2 = cv2.imread('aContour.jpg', cv2.IMREAD_UNCHANGED)
+cv2.namedWindow('show_img', 0)          # 定义窗口名称，三个函数（namedWindow、 resizeWindow、 imshow）中窗口名称要一致
+cv2.resizeWindow('show_img', 736, 416)
+cv2.imshow(&quot;show_img&quot;,img2)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+cv2.destroyWindow(&quot;show_img&quot;)
+
+</code></pre>
+<p>Run program:</p>
+
+<pre class="language-shell"><code class="language-shell">python3 show_pic.py
+</code></pre>
+<p>Running results:</p>
+<p><img src="./../../../../zh/lichee/th1520/lpi4a/assets/application/opencv_o.png" alt="opencv_result" /></p>
+<p>PIL numpy opencv comprehensive test demo:</p>
+
+<pre class="language-shell"><code class="language-shell">#!/bin/bash
+from typing import List, Any, Tuple
+import matplotlib.pyplot as plt
+import cv2
+
+import numpy as np
+from PIL import Image
+from PIL import ImageFilter
+
+im = Image.open('a.jpg')
+om = im.filter(ImageFilter.CONTOUR)
+om.save('aContour.jpg')
+
+b = np.random.randint(0, 255, (200, 300), dtype=np.uint8)
+g = np.random.randint(0, 255, (200, 300), dtype=np.uint8)
+r = np.random.randint(0, 255, (200, 300), dtype=np.uint8)
+print(b)
+
+img=np.empty([20,30,3],dtype=np.uint8)
+bgr=()
+rowlist=[]
+collist: List[List[Tuple[Any, Any, Any]]]=[]
+for row in range(200):
+    rowlist=[]
+    for col in range(300):
+        bgr=(r[row][col],g[row][col],b[row][col])
+        rowlist.append(bgr)
+    collist.append(rowlist)
+
+img=np.asarray(collist)
+
+img2 = cv2.imread('aContour.jpg', cv2.IMREAD_UNCHANGED)
+cv2.namedWindow('show_img', 0)        
+cv2.resizeWindow('show_img', 736, 416)
+cv2.imshow(&quot;show_img&quot;,img2)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+cv2.destroyWindow(&quot;show_img&quot;)
+
+</code></pre>
+<p>USB camera demo</p>
+
+<pre class="language-python"><code class="language-python">
+import cv2
+
+# Open the camera
+cap = cv2.VideoCapture(0)
+
+# Check if camera opened successfully
+if not cap.isOpened():
+    print(&quot;Unable to open camera&quot;)
+    exit()
+
+# Loop to capture continuous frames
+while True:
+    # Capture frame-by-frame
+    ret, frame = cap.read()
+
+    # Check if frame is read correctly
+    if not ret:
+        print(&quot;Can't receive frame&quot;)
+        break
+
+    # Display the resulting frame
+    cv2.imshow(&quot;USB Camera&quot;, frame)
+
+    # Exit on ESC key
+    if cv2.waitKey(1) == 27:
+        break
+
+# Release camera and close windows
+cap.release()
+cv2.destroyAllWindows()
+</code></pre>
+<h2 id="Use-of-NCNN">Use of NCNN</h2>
+<p>Firstly, the Git source code and installation related dependency libraries</p>
+
+<pre class="language-shell"><code class="language-shell">git clone https://github.com/Tencent/ncnn.git
+cd ncnn
+git submodule update --init
+
+sudo apt install build-essential git cmake libprotobuf-dev protobuf-compiler libvulkan-dev libopencv-dev
+
+</code></pre>
+<p>Compile source code</p>
+
+<pre class="language-shell"><code class="language-shell">cd ncnn
+mkdir -p build
+cd build
+cmake -DCMAKE_BUILD_TYPE=Release -DNCNN_VULKAN=OFF -DNCNN_BUILD_EXAMPLES=ON ..
+make -j$(nproc)
+</code></pre>
+<p>Download the relevant model files and parameters, and place them in the same folder as the executable file：</p>
+<p><a href="https://github.com/nihui/ncnn-assets"  target="_blank">Download</a></p>
+
+<pre class="language-shell"><code class="language-shell">~/ncnn/build/example
+</code></pre>
+<p><img src="./../../../../zh/lichee/th1520/lpi4a/assets/application/ncnn2_o.png" alt="ncnn2" /></p>
+<p>execute</p>
+
+<pre class="language-shell"><code class="language-shell">./nanodet a.jpg
+</code></pre>
+<p>Running results</p>
+<p><img src="./../../../../zh/lichee/th1520/lpi4a/assets/application/ncnn_result_o.png" alt="ncnn_result" /><br />
+<img src="./../../../../zh/lichee/th1520/lpi4a/assets/application/ncnn_pic_o.png" alt="ncnn_result" /></p>
+<h2 id="Use-of-Kdenlive">Use of Kdenlive</h2>
+<p>Installation steps:</p>
+
+<pre class="language-shell"><code class="language-shell">sudo apt update
+sudo apt install libqt5gui5-gles
+sudo apt install kdenlive
+</code></pre>
+<p>If kdenlive installed through the commands above can't operate properly, run the following command instead:</p>
+
+<pre class="language-shell"><code class="language-shell">sudo apt update
+sudo apt reinstall libqt5gui5-gles
+sudo apt reinstall kdenlive
+</code></pre>
+<p>After the installation is complete, you can use the command to open kdenlive:</p>
+
+<pre class="language-shell"><code class="language-shell">kdenlive
+</code></pre>
+<p>The video editing view is as follows:<br />
+<img src="./../../../../zh/lichee/th1520/lpi4a/assets/application/kdenlive_use.png" alt="kdenlive_use" /></p>
+<h2 id="GStreamer">GStreamer</h2>
+<p>GStreamer is a pipeline-based multimedia framework based on GObject and written in C. It is designed to be used with a wide variety of applications and applications. With GStreamer, it is easy to create a wide range of multimedia-capable components, including simple audio playback, audio and video playback, recording, streaming and audio editing. Based on the pipelined design , you can create many multimedia applications such as video editors , streaming media broadcasting and media players and so on .</p>
+<p>Next, a demo showing how to run GStreamer on LPi4A.<br />
+First, you need to install the relevant dependencies:</p>
+
+<pre class="language-shell"><code class="language-shell">sudo apt install git build-essential libgstreamer* gstreamer1.0-tools
+</code></pre>
+<p>Then pull the relevant source code repository</p>
+
+<pre class="language-shell"><code class="language-shell">git clone https://gitlab.freedesktop.org/gstreamer/gst-docs
+</code></pre>
+<p>Go to the <code>gst-docs/examples/tutorials</code> directory and compile, we'll get the <code>basic-tutorial-1</code> executable</p>
+
+<pre class="language-shell"><code class="language-shell">cd gst-docs/examples/tutorials
+gcc basic-tutorial-1.c -o basic-tutorial-1 `pkg-config --cflags --libs gstreamer-1.0`
+</code></pre>
+<p>After successful compilation, an executable program will be generated in the current directory, use the following command to run</p>
+
+<pre class="language-shell"><code class="language-shell">./basic-tutorial-1
+</code></pre>
+<p><img src="./../../../../zh/lichee/th1520/lpi4a/assets/application/gstreamer_demo.png" alt="gstreamer_demo" /></p>
+<h2 id="Kicad">Kicad</h2>
+<p><strong>Note, only versions 20231023 and above support Kicad!</strong></p>
+<p>First install Kicad:</p>
+
+<pre class="language-shell"><code class="language-shell">sudo apt update
+sudo apt install kicad 
+</code></pre>
+<p>After installation, run the following commands before launching Kicad:</p>
+
+<pre class="language-shell"><code class="language-shell">sudo switch-gl gl4es
+rm ~/.cache
+</code></pre>
+<p>Launch Kicad:</p>
+
+<pre class="language-shell"><code class="language-shell">kicad
+</code></pre>
+<p><img src="./../../../../zh/lichee/th1520/lpi4a/assets/application/kicad_startpage.png" alt="kicad_startpage" /></p>
+<p><img src="./../../../../zh/lichee/th1520/lpi4a/assets/application/kicad_pcbview.png" alt="kicad_pcbview" /></p>
+<p>After using Kicad, run these commands to avoid compatibility issues:</p>
+
+<pre class="language-shell"><code class="language-shell">sudo switch-gl mesa 
+rm ~/.cache
+</code></pre>
+<h2 id="KODI">KODI</h2>
+<p>Install and launch directly:</p>
+
+<pre class="language-shell"><code class="language-shell">sudo apt install kodi
+kodi
+</code></pre>
+<p><img src="./../../../../zh/lichee/th1520/lpi4a/assets/application/kodi_homepage.png" alt="kodi_homepage" /></p>
+<p><img src="./../../../../zh/lichee/th1520/lpi4a/assets/application/kodi_iconmenu.png" alt="kodi_iconmenu" /></p>
+<p><img src="./../../../../zh/lichee/th1520/lpi4a/assets/application/kodi_settings.png" alt="kodi_settings" /></p>
+<h2 id="Other">Other</h2>
+<p>Contributions are welcome~ You can get ￥5~150 ($1~20) coupon if your contribution is accepted!</p>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                        <a href="/hardware/en/lichee/th1520/lpi4a/7_develop_openwrt.html">
+                            <span class="icon"></span>
+                            <span class="label">OpenWRT</span>
+                        </a>
+                        
+                    </div>
+                    <div id="next">
+                        
+                        <a href="/hardware/en/lichee/th1520/lpi4a/9_benchmark.html">
+                            <span class="label">Benchmark</span>
+                            <span class="icon"></span>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>links</a><ul><li><a target="_blank" href="https://www.sipeed.com">Sipeed</a></li>
+<li><a target="_blank" href="https://maixhub.com/">MaixHub</a></li>
+<li><a target="_blank" href="https://sipeed.aliexpress.com/store/911876460">Sipeed AliExpress</a></li>
+<li><a target="_blank" href="https://github.com/neutree/teedoc">Build by teedoc </a></li>
+</ul>
+</li>
+<li><a>Source Code</a><ul><li><a target="_blank" href="https://github.com/sipeed/sipeed_wiki">Wiki source</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">Open Source Projects</a></li>
+</ul>
+</li>
+<li><a>Follow us</a><ul><li><a target="_blank" href="https://twitter.com/SipeedIO">twitter</a></li>
+<li><a target="_blank" href="https://sipeed.aliexpress.com/store/911876460">AliExpress</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">github</a></li>
+<li><a><a>Wechat</a><img src='/static/image/wechat.png'></a>
+</li>
+</ul>
+</li>
+<li><a>Contact us</a><ul><li><a>Tel: +86 0755-27808509</a>
+</li>
+<li><a>Business support: support@sipeed.com</a>
+</li>
+<li><a>Address: 深圳市宝安区新湖路4008号蘅芳科技办公大厦A座-2101C</a>
+</li>
+<li><a  href="/join_us.html">Join us</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://www.sipeed.com">©2018-2023 深圳矽速科技有限公司</a></li>
+<li><a target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index">粤ICP备19015433号</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/js/prism.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <link rel="stylesheet" href="/static/js/add_hint/style.css" type="text/css"/>
+    
+        <script src="/static/js/add_hint/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+        <script src="/static/js/thumbs_up/main.js"></script>
+    
+</body>
+
+</html>

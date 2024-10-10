@@ -1,0 +1,2029 @@
+<!DOCTYPE html>
+
+<html lang="en"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="AXera-Pi，Burn, image">
+    
+    
+    <meta name="description" content="AXera-Pi Burn image">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+        
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/prism.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?9cb07365544a53067c56c346c838181a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119047820-5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-119047820-5');
+    </script>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/js/thumbs_up/style.css" type="text/css"/>
+        
+    
+    
+    <title>AXera-Pi Guide - Sipeed Wiki</title>
+    
+    <script type="text/javascript">js_vars = {"teedoc-plugin-ad-hint": {"type": "hint", "label": "NEW", "content": "New Maix series products <a href='https://wiki.sipeed.com/maixcam'>MaixCAM</a> online now, and new <a href='https://wiki.sipeed.com/maixpy/'>MaixPy</a>,feature richer functionalities, enhanced performance, and user-friendly software, with comprehensive documentation", "show_times": 2, "show_after_s": 432000, "date": "2022-06-01 14:00", "color": "#a0421d", "link_color": "#e53935", "link_bg_color": "#e6ae5c", "bg_color": "#ffcf89", "color_hover": "white", "bg_color_hover": "#f57c00", "close_color": "#eab971"}, "teedoc-plugin-thumbs-up": {"label_up": "Helpful", "label_down": "Not Helpful", "icon": "/static/images/thumbs_up/up.svg", "icon_clicked": "/static/images/thumbs_up/upped.svg", "url": "https://thumbs-up.sipeed.com", "show_up_count": true, "show_down_count": false, "msg_already_voted": "You have already voted", "msg_thanks": "Thanks for your vote", "msg_down_prompt": "Thanks to tell us where we can improve?(At least 10 characters)", "msg_down_prompt_error": "Message should be at least 10 characters and less than 256 characters", "msg_error": "Request server failed!"}}</script>
+    <script type="text/javascript">metadata = {"tags": ["AXera-Pi", "Burn image"], "date": "2023-06-15", "update": [{"date": "2023-06-15", "version": "v0.3", "author": "wonder", "content": ["Updated"]}], "ts": 1686787200, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/en/">
+                
+                    <img class="site_logo" src="/static/image/logo.svg" alt="sipeed wiki logo">
+                
+                
+                    <h2>wiki</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class=""><a  href="/en/">Products</a></li>
+<li class="sub_items "><a >Software Docs</a><ul><li class=""><a  href="/maixpy/en/">MaixPy</a></li>
+<li class=""><a  href="/soft/maixpy/zh/index.html">MaixPy_v1</a></li>
+<li class=""><a  href="/soft/Lichee/zh/index.html">Lichee</a></li>
+<li class=""><a  href="/ai/en/index.html">AI Guide</a></li>
+</ul>
+</li>
+<li class=""><a target="_blank" href="https://maixhub.com">MaixHub</a></li>
+<li class=""><a  href="/news/">News</a></li>
+<li class=""><a  href="/en/faq.html">FAQ</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class=""><a  href="/en/store.html"><img src='/static/image/shop.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+<li class=""><a target="_blank" href="https://github.com/sipeed"><img src='/static/image/github.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+<li class="sub_items "><a  ><img src='/static/image/language.svg' style='height: 1.5em;vertical-align: middle;'>&nbsp;English</a><ul><li class="active"><a  href="/hardware/en/maixIII/ax-pi/flash_system.html">English</a></li>
+<li class=""><a  href="/hardware/zh/maixIII/ax-pi/flash_system.html">中文</a></li>
+</ul></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">Search</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">Input keyword. Using Space to separate multiple keywords</span>
+                                <span id="search_loading_hint">Loading, please wait</span>
+                                <span id="search_download_err_hint">Fail download, Please retry or check network</span>
+                                <span id="search_other_docs_result_hint">Results form other doc</span>
+                                <span id="search_curr_doc_result_hint">Result form current doc</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="not_active no_link"><a><span class="label">Maix Zero</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Maix M0</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/./maixzero/sense/maix_zero_sense.html"><span class="label">M0sense Board</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/./maixzero/sense/start.html"><span class="label">M0sense Guide</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Maix M0P</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">M0P</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">M0P Dock</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/./maixzero/m0s/m0s.html"><span class="label">Maix M0s</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Maix-I & Zero</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Maix M1</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">M1 Module</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/en/maix/core_module.html"><span class="label">M1/M1w</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maix/M1n.html"><span class="label">M1n</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">M1 Board</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maix/maixpy_develop_kit_board/Maix_dock.html"><span class="label">Maix Dock(M1/M1W)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maix/maixpy_develop_kit_board/maix_bit.html"><span class="label">Maix Bit</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maix/maixpy_develop_kit_board/maix_duino.html"><span class="label">Maix Duino</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maix/maixpy_develop_kit_board/maix_nano.html"><span class="label">Maix Nano</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maix/maixpy_develop_kit_board/maix_cube.html"><span class="label">Maix Cube</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maix/maixpy_develop_kit_board/maix_Amigo.html"><span class="label">Maix Amigo</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/no_translate.html?ref=/hardware/zh/maix/maixpy_develop_kit_board/maix_hat.html&from=/hardware/en/maix/maixpy_develop_kit_board/maix_hat.html"><span class="label">Maix HAT</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maix/maixpy_develop_kit_board/maix_go.html"><span class="label">Maix Go (Sold out)</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Maix M1s</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maix/m1s/m1s_module.html"><span class="label">M1s Module</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">M1s Dock</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maix/m1s/m1s_dock.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maix/m1s/other/start.html"><span class="label">Basic Usage</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maix/m1s/other/others.html"><span class="label">Others (Camera and Shell)</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Maix M1a</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/maixII/index.html"><span class="label">Maix-II</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maixII/M2/resources.html"><span class="label">MaixII-Dock</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maixII/M2/flash.html"><span class="label">Burn image</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixII/M2/usage.html"><span class="label">Basic usage</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixII/M2/other.html"><span class="label">Other notice</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/../../soft/maixpy3/zh/tools/0.MaixII-Dock.html"><span class="label">Using MaixPy3</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixII/M2/faq.html"><span class="label">FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/maixII/M2S/V833.html"><span class="label">M2S</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maixII/M2S/reources.html"><span class="label">Board introduction</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/maixII/M2A/maixsense.html"><span class="label">MaixSense</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maixII/M2A/flash_system.html"><span class="label">Burn image</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixII/M2A/config_system.html"><span class="label">Config system</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/no_translate.html?ref=/hardware/zh/maixII/M2A/first.html&from=/hardware/en/maixII/M2A/first.html"><span class="label">Test board</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/no_translate.html?ref=/hardware/zh/maixII/M2A/user.html&from=/hardware/en/maixII/M2A/user.html"><span class="label">Start to use</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/../../soft/maixpy3/zh/tools/maixsense.html"><span class="label">Using MaixPy3</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="active_parent no_link"><a><span class="label">Maix-III</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="active_parent with_link"><a href="/hardware/en/maixIII/ax-pi/axpi.html"><span class="label">Maix-III AXera-Pi</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="active with_link"><a href="/hardware/en/maixIII/ax-pi/flash_system.html"><span class="label">AXera-Pi manual</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixIII/ax-pi/python_api.html"><span class="label">Python programming</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixIII/ax-pi/dev_prepare.html"><span class="label">C/C++ programming</span><span class=""></span></a></li>
+<li class="not_active  with_link"><a href="/ai/en/deploy/ax-pi.html" ><span class="label">AI development guide</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixIII/ax-pi/faq_axpi.html"><span class="label">Questions (FAQ)</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">MaixCAM</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maixcam/index.html"><span class="label">MaixCAM Brief and Data</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixcam/assemble.html"><span class="label">MaixCAM Assembly</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixcam/os.html"><span class="label">System Upgrade</span><span class=""></span></a></li>
+<li class="not_active  with_link"><a href="https://wiki.sipeed.com/maixpy/" ><span class="label">Develop with MaixPy</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixcam/maixcdk.html"><span class="label">Develop with MaixCDK</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixcam/faq.html"><span class="label">FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">LicheePI</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">LicheePI 4A</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lm4a.html"><span class="label">Lichee Module 4A</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lc4a/lc4a.html"><span class="label">Lichee Cluster 4A</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lbook4a/lbook4a.html"><span class="label">Lichee Console 4A</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lcon4a/setup_guide.html"><span class="label">setup_guide</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lcon4a/3_images.html"><span class="label">images</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lcon4a/4_burn_image.html"><span class="label">burn_image</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lbook4a/lbook4a.html"><span class="label">Lichee Book 4A</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lbook4a/4_burn_image.html"><span class="label">burn_image</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Lichee PI 4A</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/1_intro.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/2_unbox.html"><span class="label">Unbox guide</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/3_images.html"><span class="label">Image summary</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/4_burn_image.html"><span class="label">Burn image</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/5_desktop.html"><span class="label">Desktop usage</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/6_peripheral.html"><span class="label">Peripheral</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">System building</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/7_develop_revyos.html"><span class="label">revyos</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/7_develop_mainline.html"><span class="label">Linux Mainline (Work in Progress)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/7_develop_android.html"><span class="label">Android</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/7_develop_thead.html"><span class="label">THead Yocto</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">OpenHarmony (Work in Progress)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/7_develop_openwrt.html"><span class="label">OpenWRT</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/8_application.html"><span class="label">Application</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/9_benchmark.html"><span class="label">Benchmark</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/10_test_report.html"><span class="label">Hardware report</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/12_faq.html"><span class="label">FAQ</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/11_credits.html"><span class="label">Credits</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">LicheePI 3A</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/lichee/K1/lm3a.html"><span class="label">Lichee Module 3A</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/K1/lc3a/lc3a.html"><span class="label">Lichee Cluster 3A</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Lichee PI 3A</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/en/lichee/K1/lpi3a/1_intro.html"><span class="label">SBC Intro</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/K1/lpi3a/2_unbox.html"><span class="label">Unbox experience</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/K1/lpi3a/3_burn_image.html"><span class="label">Burn Images</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/K1/lpi3a/4_peripheral.html"><span class="label">Peripheral Usage</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/K1/lpi3a/5_develop.html"><span class="label">System develop</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/K1/lpi3a/6_application.html"><span class="label">Applications</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/K1/lpi3a/7_faq.html"><span class="label">FAQs</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/K1/lpi3a/8_credits.html"><span class="label">Credits</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Lichee RV</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active no_link"><a><span class="label">Board Introduction</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV/RV.html"><span class="label">Lichee RV</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV/86_panel.html"><span class="label">Lichee RV 86 Panel</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV/Dock.html"><span class="label">Lichee RV Dock</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV/flash.html"><span class="label">Burn System</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV/user.html"><span class="label">Basic usage</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV/problems.html"><span class="label">Questions&Answers</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV/ubuntu.html"><span class="label">Ubuntu Image</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">LicheeRV Nano</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV_Nano/1_intro.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV_Nano/2_unbox.html"><span class="label">Unboxing Experience</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV_Nano/3_images.html"><span class="label">Image Collection</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV_Nano/4_burn_image.html"><span class="label">Flashing the Image</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV_Nano/5_peripheral.html"><span class="label">peripheral</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV_Nano/6_develop_mainline.html"><span class="label">System Development</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV_Nano/7_test_report.html"><span class="label">test</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV_Nano/8_mmf_development_guide.html"><span class="label">MMF Development Guide</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/Zero/Zero.html"><span class="label">Lichee Zero</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/Nano/Nano.html"><span class="label">Lichee Nano</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/ZeroPlus/ZeroPlus.html"><span class="label">Lichee ZeroPlus</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang FPGA</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Tang Nano</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano/Nano.html"><span class="label">Tang Nano</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-1K/Nano-1k.html"><span class="label">Tang Nano 1K</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-4K/Nano-4K.html"><span class="label">Tang Nano 4k</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-9K/Nano-9K.html"><span class="label">Tang Nano 9K</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Tang Nano 20K</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/tang/tang-nano-20k/nano-20k.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/tang-nano-20k/example/unbox.html"><span class="label">Unbox</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/install-the-ide.html"><span class="label">Install IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/examples.html"><span class="label">Tang Nano examples</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/questions.html"><span class="label">Questions&Answers</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Primer</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Tang Primer 20K</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/tang/tang-primer-20k/primer-20k.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/tang-primer-20k/start.html"><span class="label">Notice</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/install-the-ide.html"><span class="label">Install IDE</span><span class=""></span></a></li>
+<li class="not_active  with_link"><a href="https://github.com/sipeed/TangPrimer-20K-example" ><span class="label">Examples(Github)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/questions.html"><span class="label">Questions&Answers</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Primer 25K</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/tang/tang-primer-25k/primer-25k.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/install-the-ide.html"><span class="label">Install IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/questions.html"><span class="label">Questions&Answers</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Primer 15K</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/tang/tang-primer-15k/primer-15k.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/install-the-ide.html"><span class="label">Install IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/questions.html"><span class="label">Questions&Answers</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-primer/Tang-primer.html"><span class="label">Tang Primer (Sold out)</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Install TD</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-primer/get_started/install_TD_win.html"><span class="label">In Windows</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-primer/get_started/install_linux.html"><span class="label">In Linux</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-primer/fpga/led.html"><span class="label">Blink by FPGA</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-primer/get_started/E203.html"><span class="label"> Prepare E203 environment</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-primer/get_started/fpga_download.html"><span class="label">Burn FPGA</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Mega</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Tang Mega 138K Pro</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/tang/tang-mega-138k/mega-138k-pro.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/install-the-ide.html"><span class="label">Install IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/questions.html"><span class="label">Questions&Answers</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Mega 138K</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/tang/tang-mega-138k/mega-138k.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/install-the-ide.html"><span class="label">Install IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/questions.html"><span class="label">Questions&Answers</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Mega 60K</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/tang/tang-mega-60k/mega-60k.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/install-the-ide.html"><span class="label">Install IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-Doc/questions.html"><span class="label">Questions&Answers</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/tang/tang-PMOD/FPGA_PMOD.html"><span class="label">Tang PMOD</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/maixsense/index.html"><span class="label">MaixSense</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maixsense/maixsense-a010/maixsense-a010.html"><span class="label">MaixSense-a010</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixsense/maixsense-a075v/maixsense-a075v.html"><span class="label">MaixSense-a075v</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">SLogic</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">SLogic Combo 8</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/logic_analyzer/combo8/index.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/logic_analyzer/combo8/basic_operation.html"><span class="label">Basic Operation</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/logic_analyzer/combo8/use_logic_function.html"><span class="label">Using as Logic Analyzer</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/logic_analyzer/combo8/use_cklink_function.html"><span class="label">Using as CKLink</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/logic_analyzer/combo8/use_daplink_function.html"><span class="label">Using as DAPLink</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/logic_analyzer/combo8/use_fouruart_function.html"><span class="label">Using as Serial Module</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/logic_analyzer/combo8/update_firmware.html"><span class="label">Update Firmware</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/logic_analyzer/combo8/faq.html"><span class="label">FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">KVM</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">NanoKVM Cube</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/introduction.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/quick_start.html"><span class="label">Quick start</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/user_guide.html"><span class="label">User Guide</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Network</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/network/tailscale.html"><span class="label">Tailscale</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/network/frp.html"><span class="label">frp</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/network/static_ip.html"><span class="label">Static IP</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">System</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/system/introduction.html"><span class="label">System Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/system/flashing.html"><span class="label">Flashing</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/system/updating.html"><span class="label">Updating</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/system/configuration.html"><span class="label">Configuration</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/faq.html"><span class="label">FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Longon</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">LonganPI 3H</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/longan/h618/lpi3h/1_intro.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/longan/h618/lpi3h/3_images.html"><span class="label">Images</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/longan/h618/lpi3h/4_burn_image.html"><span class="label">Burn images</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/longan/h618/lpi3h/5_desktop.html"><span class="label">Desktop Usage</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/longan/h618/lpi3h/6_peripheral.html"><span class="label">Peripheral</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/longan/h618/lpi3h/7_develop_mainline.html"><span class="label">Development</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/longan/h618/lpi3h/8_test_report.html"><span class="label">Test report</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/longan/Nano/Longan_nano.html"><span class="label">Longon Nano</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/longan/Nano/pio.html"><span class="label">Setup environment</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/longan/Nano/blink.html"><span class="label">Blink test</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">MaixFace</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maixface/mf_ml_module/mf0_ml_module.html"><span class="label">MF0&&MF0 Dock</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixface/mf_ml_module/mf1_ml_module.html"><span class="label">MF1 && MF2</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixface/mf_ml_module/mf5_product.html"><span class="label">MF4 && MF5</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixface/mf_ml_module/mf_precautions.html"><span class="label">Maixface PCB Design</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixface/mf_ml_module/mf_update_firmwave.html"><span class="label">Maixface Update firmware</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Peripheral modules</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">SP-MOD Peripheral modules</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Adapter board</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_extender.html"><span class="label">SP-Extender</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_grove.html"><span class="label">SP-Grove</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_fpc.html"><span class="label">SP-FPC</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_micarray.html"><span class="label">SP-MicArray</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_joystick.html"><span class="label">SP-JotStick</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_servo.html"><span class="label">SP-Servo</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/.html"><span class="label">SP-TypeC</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Sensor</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_weather.html"><span class="label">SP-Weather</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_tof.html"><span class="label">SP-TOF-1P</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Communication</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_bt.html"><span class="label">SP-BT</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_lora.html"><span class="label">SP-LoRa</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_psram.html"><span class="label">SP-PSRAM</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_rfid.html"><span class="label">SP-RFID</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_ethernet.html"><span class="label">SP-Ethernet</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Display</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_lcd1.14.html"><span class="label">SP-LCD 1.14</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_eink.html"><span class="label">SP-Eink</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Module && Debugger</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Debugger</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Sipeed RV Debugger</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Dual uart USB module</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">module</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">camera</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">GC0328</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Dual cam module(GC0328)</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">OV7740</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">OV2640</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">OV2640-M12</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Dual cam module(OV2640)</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Mic module</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/modules/micarray.html"><span class="label">Mic array</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/modules/Gamepad.html"><span class="label">Sipeed Gamepad</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>AXera-Pi Guide</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                                <li>AXera-Pi</li>
+                            
+                                <li>Burn image</li>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                                <span class="article_date" title="Last modify date: 2023-06-15">
+                                    2023-06-15
+                                </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/sipeed/sipeed_wiki/blob/main/docs/hardware/en/maixIII/ax-pi/flash_system.md" target="_blank">
+                                    <span id='editPage'>Edit this page</span>
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                        
+                        <details open>
+                        
+                            <summary>Update history</summary>
+                            <div>
+                                <table>
+                                        <thead>
+                                            <tr>
+                                                <th>Date</th>
+                                                <th>Version</th>
+                                                <th>Author</th>
+                                                <th>Update content</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            
+                                                <tr>
+                                                    <td>2023-06-15</td>
+                                                    <td>v0.3</td>
+                                                    <td>wonder</td>
+                                                    <td>
+                                                    
+                                                        <ul>
+                                                        
+                                                            <li>Updated</li>
+                                                        
+                                                        </ul>
+                                                    
+                                                    </td>
+                                                </tr>
+                                            
+                                        </tbody>
+                                </table>
+                            </div>
+                        </details>
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <hr />
+<h2 id="Board-Usage">Board Usage</h2>
+<p>To make it easier to use this board, we make this guide.</p>
+<h2 id="OS-introduction">OS introduction</h2>
+<p><strong>The default AXera-Pi kit has no onboard memory storage, so it's necessary to prepare a TF card to boot this device.</strong></p>
+<p>For Axera-Pi, we provide Debian11 Bullseye image file.</p>
+<blockquote>
+<p><img src="./../../../zh/maixIII/assets/debian_logo.jpg" alt="debian_logo" /><br />
+<a href="https://www.debian.org/intro/why_debian.en.html"  target="_blank">Reasons to use Debian</a>.</p>
+</blockquote>
+<p>TF card which has been flashed system image can be bought from <a href="https://sipeed.aliexpress.com/store/1101739727"  target="_blank">Sipeed aliexpress</a>, otherwise you need to prepare your own system image TF card by following steps.</p>
+<h2 id="Choose-TF-card">Choose TF card</h2>
+<p>People who have bought the TF card which has been burned system image can skip this chapter and read <a href="#boot-axera-pi"  >start Linux</a> to use this board</p>
+<p>We have tested the read and write speed of some TF cards on Axera-pi, for users to make the choice of TF card.</p>
+<p><img src="./../../../zh/maixIII/assets/flash_system/sd.jpg" alt="sd" /></p>
+<blockquote>
+<p>Some TF cards are added to test after this photo, so they are not in this photo but they can be recognized by their number.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+  <th>Number</th>
+  <th>Model</th>
+  <th><p style="white-space:nowrap">Write speed（Write 160MB）</p></th>
+  <th><p style="white-space:nowrap">Read speed（Read 160MB） </p></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>1.</td>
+  <td>Netac A2  P500-HS-64GB</td>
+  <td>2.04697 s, 80.0 MB/s</td>
+  <td>1.8759 s, 87.3 MB/s</td>
+</tr>
+<tr>
+  <td>2.</td>
+  <td>Samsung microSDXC UHS-I 128G (Blue card)</td>
+  <td>2.53387 s, 64.7 MB/s</td>
+  <td>1.99882 s, 82.0 MB/s</td>
+</tr>
+<tr>
+  <td>3.</td>
+  <td>EAGET T1 series 64G</td>
+  <td>6.56955 s, 24.9 MB/s</td>
+  <td>7.13792 s, 23.0 MB/s</td>
+</tr>
+<tr>
+  <td>4.</td>
+  <td>Keychron microSDXC UHS-I 128G</td>
+  <td>2.28133 s, 71.8 MB/s</td>
+  <td>1.92001 s, 85.3 MB/s</td>
+</tr>
+<tr>
+  <td>5.</td>
+  <td>KIOXIA microSDXC UHS-I 32G</td>
+  <td>6.71284 s, 24.4 MB/s</td>
+  <td>2.36794 s, 69.2 MB/s</td>
+</tr>
+<tr>
+  <td>6.</td>
+  <td>Netac  A1 32GB</td>
+  <td>4.31411 s, 38.0 MB/s</td>
+  <td>2.00759 s, 81.6 MB/s</td>
+</tr>
+<tr>
+  <td>7.</td>
+  <td>BanQ JOY card platinum 64G</td>
+  <td>9.08105 s, 18.0 MB/s</td>
+  <td>9.02843 s, 18.1 MB/s</td>
+</tr>
+<tr>
+  <td>8.</td>
+  <td>Hiksemi HS -TF- P2 64G</td>
+  <td>2.28079 s, 71.8 MB/s</td>
+  <td>1.87698 s, 87.3 MB/s</td>
+</tr>
+</tbody>
+</table>
+<p>The following TF cards are not in this photo but we also tested them.</p>
+<table>
+<thead>
+<tr>
+  <th>Number</th>
+  <th>Model</th>
+  <th><p style="white-space:nowrap">Write Speed (Write 160MB) </p></th>
+  <th><p style="white-space:nowrap">Read Speed (Read 160MB) </p></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>1.</td>
+  <td>Lexar 64GB TF（MicroSD）C10 U3 V30 A2</td>
+  <td>2.59644 s, 63.1 MB/s</td>
+  <td>1.9106 s, 85.8 MB/s</td>
+</tr>
+<tr>
+  <td>2.</td>
+  <td>Lexar 128GB TF（MicroSD）C10 U3 V30</td>
+  <td>6.73793 s, 24.3 MB/s</td>
+  <td>6.94079 s, 23.6 MB/s</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Burn-system-image">Burn system image</h2>
+<p><img src="./../../../zh/maixIII/assets/axpi-flash.png" alt="flash" /></p>
+<p>We only reserved EMMC pad on board, so we need a TF card which has been burned system image to boot linux on this board.</p>
+<h3 id="Get-image">Get image</h3>
+<p>Because the system image is about 2G memory storage, we only provide mega link to download.</p>
+<p>Visit mega <a href="https://mega.nz/folder/9EhyBbJZ#lcNhhm9aWXOyo2T0DDaSqA"  target="_blank">Click me</a> to download the image file.</p>
+<p><img src="./assets/flash_system/debian.jpg" alt="debian" /></p>
+<p>The file name ends with <code>img.xz</code> is the compressed system image file, and the other file name ends with <code>img.xz.md5sum</code> is the check file, which we use to check the compressed system image file.</p>
+<p>The name rule of compressed system image file is <code>Image provider</code> _ <code>Target chip</code> _ <code>Linux distribution</code> _ <code>Created time</code> + <code>img.xz</code></p>
+<p>The check file should be used in Linux, and users using windows10 or windows 11 can use the wsl to prepare a Linux environment</p>
+<p>Run command <code>md5sum -c *.md5sum*</code> in the path where compressed system image file and check file are to check the compressed system image file.</p>
+<table>
+<thead>
+<tr>
+  <th>Check succeeded</th>
+  <th>Check failed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><img src="./../../../zh/maixIII/assets/flash_system/md5sum_success.jpg" alt="md5sum_success" /></td>
+  <td><img src="./../../../zh/maixIII/assets/flash_system/md5sum_failed.jpg" alt="md5sum_failed" /></td>
+</tr>
+</tbody>
+</table>
+<p>If there is some thing with the compressed system image file, it will show FAILED. Normally we don't need to check the compressed system image file, this is only for those who need it.</p>
+<h3 id="Burn-image">Burn image</h3>
+<p><strong>Before burning the image, we need to do the following preparation:</strong></p>
+<ul>
+<li>A TF card with a storage capacity card over 8GB. It is recommended to buy an official image card, otherwise it may lead to a bad experience due to the bad performance of the TF card</li>
+<li>A card reader: It is recommended to use the card reader that supports USB3.0, this will save time on burning the system image card.</li>
+<li><a href="https://www.balena.io/etcher/"  target="_blank">Etcher</a> application: Download the edition of this application suitable for your computer system.</li>
+</ul>
+<p><strong>Burning system image steps</strong></p>
+<p>Run <a href="https://www.balena.io/etcher/" title="Etcher" target="_blank">Etcher</a> application, click <code>Flash from file</code>, choose the compressed system image <code>img.xz</code> file， then click <code>Select target</code> to choose the TF card，click <code>FLASH</code> to burn your TF card.</p>
+<p><strong>Burn the TF card</strong></p>
+<p><img src="./../../../assets/maixIII/ax-pi/burn_image_by_etcher.gif" alt="burn_image_by_etcher" /></p>
+<table>
+<thead>
+<tr>
+  <th>Burning</th>
+  <th>Finish burning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><img src="./../../../assets/maixIII/ax-pi/axera_burning_image.png" alt="axera_burning_image" /></td>
+  <td><img src="./../../../zh/maixII/M2A/assets/finish_flash.png" alt="finish_flash" /></td>
+</tr>
+</tbody>
+</table>
+<p>Note that after finishing burning the application shows <code>Flash Complete!</code> and <code>Successful</code>.</p>
+<p>Finishing the above steps, the computer will ask us to format the udisk, we just ignore this information and remove the TF card (Because we have made <code>Successful</code> in Etcher), prepare for the following operations.</p>
+<h3 id="Burning-Questions">Burning Questions</h3>
+<h4 id="1.-After-selecting-system-image%2C-Etcher-shows-error.">1. After selecting system image, Etcher shows error.</h4>
+<p>Rerun Etcher application to solve this error due to software cache or other issues</p>
+<h4 id="2.-After-finishing-burning-software-the-application-shows-FAILED-not-Successful">2. After finishing burning software the application shows FAILED not Successful</h4>
+<p>Reburn the TF card.</p>
+<h4 id="3.-The-storage-capacity-of-tf-card-is-too-small">3. The storage capacity of tf card is too small</h4>
+<p>In this case, those who use Windows and MaxOS can use <a href="https://www.sdcard.org/downloads/formatter/eula_windows/SDCardFormatterv5_WinEN.zip"  target="_blank">SD Card Formatter</a> to format tf card, and those who use Linux can format the tf card by <a href="https://gparted.org/"  target="_blank">Gparted</a>.</p>
+<h2 id="Boot-System">Boot System</h2>
+<p>Finishing burning system image into tf card, we can assemble this board and boot this device.</p>
+<p><img src="./../../../zh/maixIII/assets/axpi-connect.png" alt="axpi-connect" /></p>
+<h3 id="Assemble-this-board">Assemble this board</h3>
+<blockquote>
+<p>Those who have bought the <code>Full board package</code> can skip these steps and visit [boot Axera-pi] to start.</p>
+</blockquote>
+<p><strong>Preparation</strong></p>
+<ul>
+<li>An AXera-Pi development board</li>
+<li>At least one USB3.0 connector to connect device(This board may fail to boot because  of insufficient power supply from USB2.0)</li>
+<li>A tf card which has been burned system image</li>
+<li>GC4653 camera or OS04a10 camera</li>
+<li>The 5 inch MIPI screen suitable for Axera-pi</li>
+</ul>
+<p><img src="./../../../zh/maixIII/assets/axpi-config.jpg" alt="axpi-config" /></p>
+<p><strong>Follow these steps to make sure you assemble them correctly</strong></p>
+<ol>
+<li>Set the screen and the board as shown in the image below, and connect them.</li>
+<li>Insert tf card which has been burned system image into the card slot on Axera-pi.</li>
+<li>Connect the camera with Axera-pi as shown in the image below, make sure you have removed the cover on the camera after finishing connecting.</li>
+</ol>
+<html>
+  <img src="./../../../zh/maixIII/assets/mipi.jpg" width=48%>
+  <img src="./../../../zh/maixIII/assets/sensor.jpg" width=48%>
+</html>
+<p><strong>Camera connection</strong></p>
+<p>There are 2 versions of camera, make sure the <code>1</code> on the camera matches the <code>1</code> on the board. Wrong connection will burn and destroy the camera.</p>
+<img src="./../../../zh/maixIII/assets/senror_v3751.jpg" width=48%>
+<img src="./../../../zh/maixIII/assets/sensor_v3753.jpg" width=48%>
+<p>Different onboard camera FPC connector needs different configuration, we use <code>CAM0</code> as the default one.</p>
+<h3 id="Boot-AXera-Pi">Boot AXera-Pi</h3>
+<p>Connect both <code>USB-UART</code> and <code>USB-OTG</code> port with computer by USB type-c cable to boot AXera-Pi, make sure you have inserted the tf card which has been burned system image.</p>
+<p><img src="./../../../zh/maixIII/assets/start.jpg" alt="start" /></p>
+<p>Because of the change of screen version, visit <a href="https://wiki.sipeed.com/hardware/en/maixIII/ax-pi/faq_axpi.html#Q%EF%BC%9AThe-screen-is-blurred-after-booting"  target="_blank">bad display</a> if your screen does not display the picture well.</p>
+<blockquote>
+<p>In <strong>20221013</strong> we update the power-on phenomenon:</p>
+</blockquote>
+<ul>
+<li>The 3.5mm stereo connector plays the music if connected with device.</li>
+<li>5 inches screen displays picture.</li>
+<li>The logs are printed to USB-UART port, run serial port application to see it if you need.</li>
+</ul>
+<p>Here are the drivers for CH340 which is the USB-UART chip on Axera-Pi, install it if you can't see the serial device on your computer.</p>
+<p><a href="https://dl.sipeed.com/shareURL/MAIX/tools/ch340_ch341_driver"  target="_blank">CH34x Windows driver</a><br />
+<a href="http://www.wch-ic.com/downloads/CH341SER_LINUX_ZIP.html"  target="_blank">CH34x Linux driver</a></p>
+<p>If logs are not printed on serial terminal, press <code>RST</code> key on AXera-Pi to restart device.</p>
+<p>And those who use Ubuntu22.04 may not be able to open serial port (ttyUSB), read <a href="https://www.chippiko.com/ch340-dev-ttyusb-not-showing"  target="_blank">this</a> to see the solution.</p>
+<p><img src="./assets/flash_system/m3axpi_debian_boot_log_screenshot.png" alt="m3axpi_debian_boot_log_screenshot" /></p>
+<ul>
+<li><code>DRAM 1 GiB</code> in the log is not accuracy, in system we can check there is <code>2 GiB</code> memory.</li>
+</ul>
+<h2 id="Login-AXera-Pi">Login AXera-Pi</h2>
+<p><img src="./../../../zh/maixIII/assets/start.jpg" alt="start" /></p>
+<blockquote>
+<p>When the logo above is displayed on the screen of AXera-Pi, the system has finished booting, and we can login to AXera-Pi.</p>
+</blockquote>
+<p><img src="./../../../zh/maixIII/assets/axpi-login.png" alt="axpi-login" /></p>
+<p>The first time to login to device, we need to use serial port application to open the serial port to communicate with the device to login, and using SSH login is also OK if you know the ip address of your board.</p>
+<p><a href="https://mobaxterm.mobatek.net/"  target="_blank">MobaXterm</a> is a ultimate toolbox for remote computing, we use this software to run our command on the board for example.</p>
+<p><img src="https://wiki.sipeed.com/hardware/zh/maixIII/assets/ssh.jpg" alt="ssh" /></p>
+<h3 id="Login-via-serial-port">Login via serial port</h3>
+<p>We take MobaXterm as an example serial port software, you can use your favorite one.</p>
+<p>In MobaXterm, we create a serial session. Set baudrate 115200, then click OK to create it.</p>
+<p><img src="./../../../../soft/maixpy3/zh/tools/assets/mobaxterm-serial-4.png" alt="mobaxterm-serial-4" /></p>
+<p>Then click the created serial session to open the serial port to build communication.</p>
+<p><img src="./../../../../soft/maixpy3/zh/tools/assets/mobaxterm-serial-5.png" alt="mobaxterm-serial-5" /></p>
+<p>Run the serial port application, use username <code>root</code> and password <code>root</code> to login.</p>
+<p>The password is not displayed when you enter it, so just retry if you fail to login.</p>
+<p><img src="./assets/flash_system/axera_pi_serial_root_login.jpg" alt="axera_pi_serial_root_login" /></p>
+<h3 id="Login-by-SSH">Login by SSH</h3>
+<p>To login by SSH, we need to know the ip address of Axera-Pi.</p>
+<h4 id="Traditional-ip-address">Traditional ip address</h4>
+<p>We make Axera-Pi and the computer in a same network environment, then run command <code>ifconfig</code> on Axera-Pi to get the ip address of Axera-Pi in this network environment.</p>
+<p>But you need to make sure you have connected Axera-Pi to network, visit <a href="#connect-to-network"  >Connect to network</a> to know how to connect to network.</p>
+<h4 id="RNDIS">RNDIS</h4>
+<p>Connect the computer with USB-OTG port on Axera-Pi.</p>
+<p><img src="https://wiki.sipeed.com/hardware/zh/maixIII/assets/otg.jpg" alt="otg" /></p>
+<p>Normally RNDIS is driver free in Linux, and in Windows we need to update the driver <a href="./rndis.html"  >Click me</a>, for macos it needs to build and install <code>horndis</code> to use RNDIS.</p>
+<p>Deflaut RNDIS driver error in Windows:</p>
+<p><img src="./assets/flash_system/rndis_error_device.jpg" alt="rndis_error_device" /></p>
+<p>Run command <code>ifconfig</code>, we can see there is a usb device with IP <code>192.168.1.233</code>, we'll use this ip address many times in the following content.</p>
+<p><img src="./assets/flash_system/ifconfig_usb_ip_address.jpg" alt="ifconfig_usb_ip_address" /></p>
+<h4 id="Login-to-board">Login to board</h4>
+<p>Up to now you have get one of your ip address, run command <code>ssh {username}@{ip address}</code> to connect to your board.</p>
+<p>Here we take the RNDIS ip address for example to connect Axera-Pi by SSH, and the username is root, you can use other ip address or username you like if you have created the new user.</p>
+
+<pre class="language-bash"><code class="language-bash">ssh root@192.168.233.1
+</code></pre>
+<p><img src="./assets/flash_system/ssh_rndis_connect.jpg" alt="ssh_rndis_connect" /></p>
+<h2 id="Connect-to-network">Connect to network</h2>
+<p>Axera-Pi connects to network via network cable or wireless module.</p>
+<h3 id="Connect-by-Ethernet">Connect by Ethernet</h3>
+<p>Connect the board ethernet port with a network gateway by network cable.</p>
+<p>Run command <code>ifconfig eth0</code> to see whether there is the ip address.</p>
+<p><img src="./assets/flash_system/nmtui_eth0_ifconfig.jpg" alt="nmtui_eth0_ifconfig" /></p>
+<p>If there is no ip address of eth0 after connecting with network gateway, run command <code>dhclient eth0 &amp;</code> to get the ip address manually.<br />
+<img src="./assets/flash_system/nmtui_eth0_dhclient.jpg" alt="nmtui_eth0_dhclient" /></p>
+<p>And we can also use command <code>ifdown eth0</code> to disable Ethernet, and then use <code>ifup eth0 --force</code> to restart Ethernet to get the ip address.</p>
+<h3 id="Wireless-network">Wireless network</h3>
+<ol>
+<li><p>Run command <code>ifconfig wlan0</code> to see whether there is the wireless device first, if there is no wireless device, visit <a href="https://wiki.sipeed.com/hardware/en/maixIII/ax-pi/faq_axpi.html#Q%EF%BC%9ANo-wlan0-shown-in-result-after-running-command-%3Ccode%3Eifconfig%3C/code%3E"  target="_blank">AXera-Pi Q&amp;A</a> to solve this problem. And only 2.4GHz wireless network is feasible.</p>
+</li>
+<li><p>Run command <code>nmtui-connect</code> to open a wireless internet graphical interface.</p>
+</li>
+</ol>
+<p><img src="./../../../../hardware/zh/maixIII/assets/nmtui.jpg" alt="nmtui" /></p>
+<ol start="3">
+<li>Run command <code>ifconfig wlan0</code> to see whether there is the ip address.</li>
+</ol>
+<p><img src="./assets/flash_system/nmtui_wlan0_ifconfig.png" alt="nmtui_wlan0_ifconfig" /></p>
+<p>Besides, Run command <code>nmcli device wifi connect Sipeed_Guest password qwert123</code> can also connect to wireless network, change the <code>Sipeed_Guest</code> into your wireless network name and change <code>qwert123</code> into your wireless network password. It will autoconnect to the wireless network when board boots.</p>
+<h2 id="Config-System">Config System</h2>
+<h3 id="System-time">System time</h3>
+<p>Maix-III AXera-Pi uses the NTP protocol to update the system time. You can run the <code>date</code> command to get the current system time.</p>
+<blockquote>
+<p>After connecting to Internet, system will automatically run <code>ntpdate-debian</code> to update system time.</p>
+</blockquote>
+<h4 id="Change-timezone">Change timezone</h4>
+<p>Maix-III AXera-Pi default timezone is GMT+8, you can change it with command <code>dpkg-reconfigure tzdata</code> if necessary.</p>
+<p><img src="./assets/flash_system/system_time_timezone.jpg" alt="system_time_timezone" /></p>
+<h4 id="Update-time">Update time</h4>
+<p>Run <code>ntpdate-debian</code> command after connecting Maix-III AXera-Pi to network to update time.</p>
+<h3 id="Install-application">Install application</h3>
+<p>Based on debian, we can use <code>apt</code> to install the software on Maix-III AXera-Pi. Change the software resource if you think it's slow to download the software.</p>
+<p>Here we install <code>gcc</code>, <code>gparted</code>.</p>
+
+<pre class="language-bash"><code class="language-bash">sudo apt update
+sudo apt install gcc gparted
+</code></pre>
+<p><img src="./assets/flash_system/install_software_gcc_gparted.jpg" alt="install_software_gcc_gparted" /></p>
+<h3 id="Reboot/Shutdown-device">Reboot/Shutdown device</h3>
+<p>For Linux we suggest rebooting or shutting down the device by command line instead of disconnecting the USB cable or clicking the reset key, which may destory the file system.</p>
+<p>Run command <code>reboot</code> to restart device.</p>
+
+<pre class="language-bash"><code class="language-bash">reboot
+</code></pre>
+<p>Run command <code>shutdown</code> to power off device.</p>
+
+<pre class="language-bash"><code class="language-bash">poweroff
+</code></pre>
+<h3 id="Resize-system-storage">Resize system storage</h3>
+<p>Run command <code>lsblk</code> to see the partition information, then resize the memory partition by command <code>cfdisk /dev/mmcblk2</code>.</p>
+<p><img src="./assets/flash_system/enlarge_memory_lsblk.jpg" alt="enlarge_memory_lsblk" /></p>
+<p>Then the following similar interface shown, and we choose <code>/dev/mmcblk2p2</code> by arrow keyboard <code>↑</code> <code>↓</code>, select the <code>Resize</code> below by arrow keyboard <code>←</code> <code>→</code>.</p>
+<p><img src="./../../../zh/maixIII/assets/rizese-mmcblk2.png" alt="rizese-mmcblk2" /></p>
+<p>The whole free space is resized by default, and you can enter your desired memory storage.</p>
+<p><img src="./../../../zh/maixIII/assets/new-resize.png" alt="new-resize" /></p>
+<p>Enter your desired memory storage, and press Enter keyboard to save your temp change. Use arrow keyboard <code>←</code> <code>→</code> and choose <code>Write</code> to apply your change, and enter <code>yes</code> to confirm the change.</p>
+<p><img src="./../../../zh/maixIII/assets/write-disk.png" alt="write-disk" /></p>
+<p>Use arrow keyboard <code>←</code> <code>→</code> and select <code>Quit</code> to quit the storage partition.</p>
+<p><img src="./../../../zh/maixIII/assets/quit.jpg" alt="quit" /></p>
+<p>Finishing these, we run command <code>df -h</code> to see the disk space usage, and we can see that the resized memory storage is not applied, we use command <code>resize2fs /dev/mmcblk2p2</code> to change the size of <code>mmcblk2</code>, and run command <code>df -h</code> again to see the applied change.</p>
+<p><img src="./../../../zh/maixIII/assets/df-mmcblk2.jpg" alt="df-mmcblk2" /></p>
+<blockquote>
+<p>Run <code>reboot</code> if there is some trouble resizing the storage memory.</p>
+</blockquote>
+<h3 id="Boot-script">Boot script</h3>
+<p>The boot script is in <code>/boot</code> and named <code>rc.local</code>, you can edit it if you need.</p>
+<p>The boot script uses the root directory <code>/</code> by default, for example, if you want to run <code>/home/run.sh</code> at startup:</p>
+<ol>
+<li>Use the absolute path to run the script background <code>/home/run.sh &amp;</code>, if it's not running background we may not be able to control the board by command line anymore.</li>
+<li>Use the relative path to run the script background <code>cd /home &amp;&amp; ./run.sh &amp;</code>, note that the path is different from the absolute path.</li>
+</ol>
+<p>Here is the default boot script.</p>
+
+<pre class="language-bash"><code class="language-bash">root@AXERA:~# cat /boot/rc.local
+</code></pre>
+
+<pre class="language-txt"><code class="language-txt">#!/bin/sh
+
+# this file is called by /etc/rc.local at boot.
+
+# systemctl stop usb-gadget@g0
+# mkdir -p /mnt/udisk &amp;&amp; mount /dev/sda1 /mnt/udisk
+# python3 /mnt/udisk/alltest.py
+
+# this control lcd backlight(50 ~ 1000)
+echo 0 &gt; /sys/class/pwm/pwmchip0/export
+echo 1000 &gt; /sys/class/pwm/pwmchip0/pwm0/period
+echo 500 &gt; /sys/class/pwm/pwmchip0/pwm0/duty_cycle
+echo 1 &gt; /sys/class/pwm/pwmchip0/pwm0/enable
+
+# wifi connect ssid Sipeed_Guest pasw qwert123
+nmcli device wifi connect Sipeed_Guest password qwert123
+
+if [ -f &quot;/root/boot&quot; ]; then
+  cd /root/ &amp;&amp; chmod 777 * &amp;&amp; ./boot &amp;
+elif [ -d &quot;/root/app&quot; ]; then
+  cd /root/app &amp;&amp; chmod 777 *
+  if [ -f &quot;./main&quot; ]; then
+    ./main &amp;
+  elif [ -f &quot;./main.bin&quot; ]; then
+    ./main.bin &amp;
+  elif [ -f &quot;./main.py&quot; ]; then
+    python3 ./main.py &amp;
+  fi
+else
+  aplay /home/res/boot.wav &gt;/dev/null 2&gt;&amp;1 &amp;
+  /opt/bin/sample_vo_fb -v dsi0@480x854@60 -m 0 &gt;/dev/null 2&gt;&amp;1 &amp;
+  sleep 0.8 &amp;&amp; /home/fbv-1.0b/fbv /home/res/2_480x854.jpeg &amp;&amp; killall sample_vo_fb &amp;
+  python3 -c &quot;import os, binascii; os.system('sed -i \'/iface eth0 inet dhcp/ahwaddress ether {}\' /etc/network/interfaces'.format(binascii.hexlify(bytes.fromhex(open('/proc/ax_proc/uid').read().split('0x')[1][:-5]),':').decode('iso8859-1'))) if os.system('grep \'hwaddress ether\' /etc/network/interfaces -q') != 0 else exit();&quot; &amp;
+fi
+
+exit 0
+</code></pre>
+<p><img src="./../../../zh/maixIII/assets/start.jpg" alt="start" /></p>
+<p>From the boot script <code>rc.local</code>, we can see that <code>/home/res/2_480x854.jpeg</code> is what is displayed on the screen, and you can change it if you need.</p>
+<h3 id="Update-kernel-and-driver">Update kernel and driver</h3>
+<p>The first partition of system image card is mounted at <code>/boot</code> after booting, and replace with the file we can update the firmware to fit our hardware after rebooting the device.</p>
+<ul>
+<li><p><code>boot.bin</code> spl initialize file</p>
+</li>
+<li><p><code>uboot.bin</code> uboot boot file</p>
+</li>
+<li><p><code>kernel.img</code> linux kernel</p>
+</li>
+<li><p><code>dtb.img</code> linux device tree</p>
+</li>
+</ul>
+<p>For example:</p>
+<ul>
+<li><p>Update device tree: <code>cp /boot/dtb.img.lcd20221025 /boot/dtb.img</code></p>
+</li>
+<li><p>Update kernel <code>cp /boot/kernel.img.rtl8723bs /boot/kernel.img</code></p>
+</li>
+</ul>
+<p>Then reboot device to apply the new configuration.</p>
+<h2 id="Transfer-file">Transfer file</h2>
+<blockquote>
+<p>If you need to transfer file to AXera-Pi, here are some ways to do this.</p>
+</blockquote>
+<h3 id="SD-card-reader">SD card reader</h3>
+<p>Because of the <code>ext4</code> format file system, those who use Windows/Mac can't open the file without other application, so it's only suggested to open the tf image card in Linux. And it's also a good idea to transfer by u-disk connected to the USB-OTG port on AXera-Pi.</p>
+<h3 id="Connect-to-computer">Connect to computer</h3>
+<h4 id="Network-SSH">Network SSH</h4>
+<p>We have told the way to login AXera-Pi by <a href="#login-by-ssh"  >SSH</a>, and with <a href="https://mobaxterm.mobatek.net/"  target="_blank">mobaxterm</a> it's really convenient to transfer files on Windows. Besides, login by ssh on <a href="https://code.visualstudio.com/"  target="_blank">vscode</a>, we can transfer file by the Vscode Explorer.</p>
+<p><img src="./assets/flash_system/transfer_file_vscode.jpg" alt="transfer_file_vscode" /></p>
+<p>Besides, we can not only use mobaxterm for file transfer, but also run X11 on this software if you login by ssh. This is an example of running gparted on Axera-Pi with X11 on mobaxterm.</p>
+<p><img src="./assets/flash_system/transfer_file_mobaxterm.jpg" alt="transfer_file_mobaxterm" /></p>
+<h4 id="Serial-communication">Serial communication</h4>
+<p>If you connect the board with computer by <a href="#serial-communication"  >serial port</a>, after installing the <code>lrzsz</code> application by command <code>apt-get install lrzsz</code> after AXera-Pi is connected to network, we can transfer it by <code>minicom</code> on Linux or <a href="https://mobaxterm.mobatek.net/"  target="_blank">mobaxterm</a> on Windows.</p>
+<h2 id="Check-the-peripheral">Check the peripheral</h2>
+<h3 id="Built-in-application">Built in application</h3>
+<p>Maix-III AXera-Pi includes some Built-in Linux applications, and they are in <code>ls /opt</code> directory.</p>
+
+<pre class="language-bash"><code class="language-bash">root@AXERA:~# ls /opt
+</code></pre>
+
+<pre class="language-bash"><code class="language-bash">bin  include  lib  scripts  share
+</code></pre>
+<p>And some resources are in the <code>/home</code> directory</p>
+
+<pre class="language-bash"><code class="language-bash">root@AXERA:~# tree -L 1 /home
+</code></pre>
+
+<pre class="language-bash"><code class="language-bash">├── ax-samples          # npu ai sdk
+|-- bin                 # Ax example applications
+├── examples            # Ax example applications
+├── fbv-1.0b            # fbv picture viewer
+├── images              # Test pictures
+├── libmaix             # simple pipeline sdk
+├── models              # Built in AI models
+├── res                 # Pictures and fonts
+├── systemd-usb-gadget  # Config usb service
+├── usb-uvc-gadget      # Config uvc service
+└── ustreamer           # mjpeg application
+</code></pre>
+<p>We have put <code>gcc g++ gdb libopencv ffmpeg</code> into the Linux system image, with which we can compile the application on AXera-Pi.</p>
+<p>Here is an example using libmaix：</p>
+
+<pre class="language-bash"><code class="language-bash">cd /home/libmaix/examples/axpi/
+python3 project.py build
+fbon
+./dist/start_app.sh
+</code></pre>
+<p>Screen displays the content of camera, if you failed running this application, visit <a href="./faq_axpi.html"  >AXear-Pi Q&amp;A</a> to see how to switch camera.</p>
+<p><img src="./../../../zh/maixIII/assets/libmaix.jpg" alt="libmaix" /></p>
+<p>The axsample has been compiled, and its joint models are in <code>/home/models/</code> directory for people to use.</p>
+
+<pre class="language-bash"><code class="language-bash">/home/ax-samples/build/install/bin/ax_yolov5s -m /home/models/yolov5s.joint -i /home/images/cat.jpg -r 10
+fbon
+fbv yolov5s_out.jpg
+</code></pre>
+<p>Screen shows the yolovs_out.jpg picture file, <code>reboot</code> system if there is something occupying the system resources</p>
+<p><img src="./../../../zh/maixIII/assets/cat.jpg" alt="cat" /></p>
+<p>Run <code>git pull</code> to get the latest libmaix code.</p>
+<h3 id="Pin-maps">Pin maps</h3>
+<p><img src="./../../../zh/maixIII/assets/layout_axpi_1.png" alt="layout_axpi" /></p>
+<h3 id="RTC">RTC</h3>
+<p>There is a RTC(Real Time Clock) on the ext-board under the Core module, which provides the read time for Maix-III AXera-Pi when not accessed wireless. Use command <code>hwclock -w -f /dev/rtc0</code> to write current system time into RTC to adjust its time date.</p>
+<p>Run command <code>ls /sys/class/rtc</code>, we can see two rtc devices: <code>rtc0</code> and <code>rtc1</code>, <code>rtc0</code> is the Real Time Clock on the ext-board and <code>rtc1</code> is the AXera-Pi internal Real Time Clock.</p>
+<p><img src="./assets/flash_system/rtc0_data_time.jpg" alt="rtc0_data_time" /></p>
+<h3 id="CPU-%26amp%3B-RAM">CPU &amp; RAM</h3>
+<p>Default runs at 800MHz, and can be changed into 1GHZ.</p>
+<p>By command <code>ax_lookat</code>, we can get the values of memory.</p>
+<p><img src="./assets/flash_system/ax_look_at.jpg" alt="ax_look_at" /></p>
+<p>Set cpu at 800MHz:</p>
+
+<pre class="language-bash"><code class="language-bash">root@AXERA:~# ax_lookat 0x01900000 -s 33
+</code></pre>
+<p>View cpu frequency:</p>
+
+<pre class="language-none"><code class="language-none">root@AXERA:~# ax_clk
+AX620A:
+DDR:            3733 MHz
+CPU:            800 MHz
+BUS of VPU:     624 MHz
+BUS of NPU:     624 MHz
+BUS of ISP:     624 MHz
+BUS of CPU:     624 MHz
+NPU OTHER:      800 MHz
+NPU GLB:        24 MHz
+NPU FAB:        800 MHz
+NPU CORE1:      800 MHz
+NPU CORE0:      800 MHz
+ISP:            533 MHz
+MM:             594 MHz
+VPU:            624 MHz
+</code></pre>
+<p>Set cpu at 1GHz:</p>
+
+<pre class="language-none"><code class="language-none">root@AXERA:~# ax_lookat 0x01900000 -s 35
+</code></pre>
+<p>View cpu frequency:</p>
+
+<pre class="language-none"><code class="language-none">root@AXERA:~# ax_clk
+AX620A:
+DDR:            3733 MHz
+CPU:            1000 MHz
+BUS of VPU:     624 MHz
+BUS of NPU:     624 MHz
+BUS of ISP:     624 MHz
+BUS of CPU:     624 MHz
+NPU OTHER:      800 MHz
+NPU GLB:        24 MHz
+NPU FAB:        800 MHz
+NPU CORE1:      800 MHz
+NPU CORE0:      800 MHz
+ISP:            533 MHz
+MM:             594 MHz
+VPU:            624 MHz
+</code></pre>
+<h3 id="VIDEO">VIDEO</h3>
+<p>This is a demo for testing camera, visit <a href="#built-in-applications"  >built in application</a> for more usages.</p>
+<ul>
+<li>gc4653 （Defaule camera）</li>
+<li>os04a10（Night enhanced camera）</li>
+</ul>
+
+<pre class="language-bash"><code class="language-bash">sample_vin_vo -c 2 -e 1 -s 0 -v dsi0@480x854@60 # For gc4653 camera
+# sample_vin_vo -c 0 -e 1 -s 0 -v dsi0@480x854@60 # For os04a10 camera
+</code></pre>
+<p><img src="./../../../zh/maixIII/assets/video.jpg" alt="video" /></p>
+<blockquote>
+<p>Those using os04a10 visit <a href="https://wiki.sipeed.com/hardware/en/maixIII/ax-pi/faq_axpi.html#Q%EF%BC%9AHow-to-switch-to-os04a10-camera%EF%BC%9F"  target="_blank">AXera Pi</a> to see how to switch camera.</p>
+</blockquote>
+<h3 id="DISPLAY">DISPLAY</h3>
+<p>Because of the change of screen version, visit <a href="https://wiki.sipeed.com/hardware/en/maixIII/ax-pi/faq_axpi.html#Q%EF%BC%9AThe-screen-is-blurred-after-booting."  target="_blank">bad display</a> if your screen does not display well.</p>
+<p>Run command <code>sample_vo -v dsi0@480x854@60 -m 0</code> we can see there is colorbar on the screen to test the screen display, make sure you have disabled the framebuffer with command <code>fboff</code>, otherwise this <code>sample_vo -v dsi0@480x854@60 -m 0</code> will not work, and use command hotkey <code>Ctrl</code> + <code>c</code> to cancel the command is you want to stop running the application.</p>
+<h4 id="Show-a-picture">Show a picture</h4>
+<p>Now we use framebuffer (/dev/fb0) to control the camera content, run command <code>fbon</code> to enable the framebuffer, and <code>fboff</code> to disable the framebuffer. When <code>/dev/fb0</code> is enabled, we can display picture on the screen by command <code>fbv xxx.jpg</code>, and some pictures have been stored in <code>/home/res/</code> directory, display them by yourself.</p>
+<p><img src="./assets/flash_system/_home_res.jpg" alt="_home_res" /></p>
+
+<pre class="language-none"><code class="language-none">fbon                        # enable framebuffer
+fbv /home/res/logo.png      # display picture
+fboff                       # disable framebuffer
+</code></pre>
+<p><img src="./../../../zh/maixIII/assets/fbv_logo.jpg" alt="fbv_logo" /></p>
+<h4 id="Play-video">Play video</h4>
+<p>We can play video via <code>ffmpeg</code>. The video should be <code>BGR format</code>, with <code>90° clockwise rotation</code> and <code>480*854 resolution</code>.</p>
+<p>If you think the video plays too fast, run <code>ffmpeg -i /home/kun_1_output.mp4 -vf &quot;setpts=2*PTS&quot; test3.mp4</code> to rebuild a slow video.</p>
+
+<pre class="language-bash"><code class="language-bash">fbon
+ffmpeg -i /home/test3.mp4 -pix_fmt rgba -f fbdev /dev/fb0
+fboff
+</code></pre>
+<p>In python we can run all commands above by <code>os.system()</code>.</p>
+
+<pre class="language-python"><code class="language-python">import os
+os.system(&quot;fbon&quot;)
+os.system(&quot;fbv /home/res/logo.png&quot;)
+os.system(&quot;fboff&quot;)
+os.system(&quot;fbon&quot;)
+os.system(&quot;ffmpeg -i /home/test3.mp4 -pix_fmt rgba -f fbdev /dev/fb0&quot;)
+os.system(&quot;fboff&quot;)
+</code></pre>
+<h3 id="NPU">NPU</h3>
+<p>The NPU examples are in the <code>/home/ax-samples/build/install</code> directory, just run them to see their results.</p>
+
+<pre class="language-bash"><code class="language-bash">fbon
+/home/ax-samples/build/install/bin/ax_yolov5s -m /home/models/yolov5s.joint -i /home/images/cat.jpg -r 10
+fbv yolov5s_out.jpg
+</code></pre>
+<h3 id="AUDIO">AUDIO</h3>
+<p>There is a 3.5mm audio connector on AXera-Pi, we can use is to play or record audio, here are examples to test this peripheral, it's a bit loud, change the volume by <code>alsamixer</code>.</p>
+<p><img src="./../../../zh/maixIII/assets/alsamixer.jpg" alt="alsamixer" /></p>
+<p>And these are examples:</p>
+<ul>
+<li><strong>Test command</strong>：<code>speaker-test -t sine -f 440 -c1</code></li>
+<li><strong>Record audio</strong>: <code>arecord test.wav -c 2 -f cd -d 2</code></li>
+<li><strong>Play audio</strong>：<code>aplay test.wav</code></li>
+</ul>
+<p>And this is a python example to record and play the audio.</p>
+
+<pre class="language-python"><code class="language-python">import pyaudio
+try:
+    chunk = 1024      # Each chunk will consist of 1024 samples
+    sample_format = pyaudio.paInt16      # 16 bits per sample
+    channels = 2      # Number of audio channels
+    fs = 44100        # Record at 44100 samples per second
+    time_in_seconds = 30
+    p = pyaudio.PyAudio()
+    stream = p.open(format=sample_format,
+                    channels = channels,
+                    rate = fs,
+                    frames_per_buffer = chunk,
+                    input = True, output = True)
+    # Store data in chunks for 3 seconds
+    for i in range(0, int(fs / chunk * time_in_seconds)):
+        data = stream.read(chunk)
+        stream.write(data)
+finally:
+    # Stop and close the Stream and PyAudio
+    stream.stop_stream()
+    stream.close()
+    p.terminate()
+</code></pre>
+<h3 id="USB">USB</h3>
+<p>There is a USB-OTG port on AXera-Pi, we can change its function to be a OTG device or HOST device.</p>
+<h4 id="USB-OTG-RNDIS">USB OTG RNDIS</h4>
+<p>We set this function as the default function of USB-OTG port, with this we can see there is a usb RNDIS device in the device manager and we can login to AXera-Pi by SSH with ip <code>192.168.233.1</code> if connecting the computer with AXera-Pi via its USB-OTG port. <a href="#rndis"  >Click me</a> to know how to login with RNDIS by ssh.</p>
+<p><img src="./../../../zh/maixIII/assets/ssh-usb.jpg" alt="ssh-usb" /></p>
+<p>The system enables amd starts this service by command <code>systemctl enable usb-gadget@g0</code> and <code>systemctl start usb-gadget@g0</code>, run command <code>systemctl disable usb-gadget@g0</code> to disable this service or command <code>systemctl stop usb-gadget@g0</code> to stop this service, by stopping this we can use this USB-OTG port for other functions, we'll describe these in the following content.</p>
+<h4 id="USB-HOST-Device">USB HOST Device</h4>
+<p>Stop the RNDIS service with command <code>systemctl stop usb-gadget@g0</code>, then run command <code>systemctl start usb-gadget@g1</code> to set the USB-OTG port as the HOST function, connect a USB device with the USB-OTG port, run command <code>lsusb</code> to check the usb device.</p>
+<p>Here are the example logs(To read a usb storage device and mount it on AXera-Pi).</p>
+
+<pre class="language-bash"><code class="language-bash">root@AXERA:~# systemctl stop usb-gadget@g0
+root@AXERA:~# lsusb
+Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
+Bus 001 Device 002: ID 067b:2731 Prolific Technology, Inc. USB SD Card Reader
+Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+root@AXERA:~# fdisk -l
+Disk /dev/mmcblk2: 58.94 GiB, 63281561600 bytes, 123596800 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: dos
+Disk identifier: 0x32eb5429
+
+Device         Boot  Start       End   Sectors  Size Id Type
+/dev/mmcblk2p1 *      2048    264191    262144  128M  c W95 FAT32 (LBA)
+/dev/mmcblk2p2      264192 123596799 123332608 58.8G 83 Linux
+
+
+Disk /dev/sda: 240 MiB, 251658240 bytes, 491520 sectors
+Disk model: SD Card Reader
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: dos
+Disk identifier: 0x0607cfd2
+
+Device     Boot Start    End Sectors   Size Id Type
+/dev/sda1  *      240 490239  490000 239.3M  e W95 FAT16 (LBA)
+root@AXERA:~# mkdir /mnt/sdcard &amp;&amp; mount /dev/sda1 /mnt/sdcard
+</code></pre>
+<h4 id="USB-OTG-CAM">USB OTG CAM</h4>
+<p><strong>usb-uvc-gadget</strong>：<a href="https://github.com/junhuanchen/usb-uvc-gadget"  target="_blank">usb-uvc-gadget</a></p>
+<p>Visit <a href="#uvc_vo"  >uvc_vo</a> to find out more.</p>
+<h4 id="USB-HOST-CAM">USB HOST CAM</h4>
+<p>With this example we can connect a USB camera to AXera-Pi USB-OTG port, and display the usb camera content in the browser, so we need to make sure AXera-Pi has connected to the network first, and we need to get the ip address of AXera-Pi, with which we can view the usb camera content in the browser.</p>
+<p><strong>Ustreamer</strong>：<a href="https://github.com/pikvm/ustreamer"  target="_blank">Github</a></p>
+<p>Run the following code, and open the ip address of AXera-Pi in a web browser.</p>
+
+<pre class="language-bash"><code class="language-bash">/home/ustreamer/ustreamer --device=/dev/video0 --host=0.0.0.0 --port=80
+</code></pre>
+<p><img src="./../../../zh/maixIII/assets/ustreamer_adb.png" alt="ustreamer_adb" /></p>
+<p>We have these choices:</p>
+<p><img src="./../../../zh/maixIII/assets/ustreamer.png" alt="ustreamer" /></p>
+<p>Streamer example:</p>
+<p><img src="./../../../zh/maixIII/assets/ustreamer_snapshot.jpg" alt="ustreamer_snapshot" /></p>
+<ul>
+<li><strong>Read USB Camera by OPENCV</strong></li>
+</ul>
+<p>Run following python code to display the USB camera content on the screen of AXera-Pi by OPENCV</p>
+
+<pre class="language-python"><code class="language-python">import os
+import cv2
+video = cv2.VideoCapture(0)
+for i in range(30):
+    ret, frame = video.read()
+    if ret:
+        cv2.imwrite(&quot;/tmp/capture.jpg&quot;, frame)
+        os.system(&quot;fbon &amp;&amp; fbv /tmp/capture.jpg&quot;)
+</code></pre>
+<p><img src="./../../../zh/maixIII/assets/opencv.jpg" alt="opencv" /><br />
+<img src="./../../../zh/maixIII/assets/opencv_cream.jpg" alt="opencv_cream" /></p>
+<blockquote>
+<p>Visit <a href="./faq_axpi.html"  >AXera-Pi FAQ</a> if you have some trouble.</p>
+</blockquote>
+<h3 id="GPIO">GPIO</h3>
+<h4 id="Read-KEY-input%EF%BC%9AGPIO2-21">Read KEY input：GPIO2 21</h4>
+<p>This is the USER key on AXera-Pi.</p>
+<p>Config the USER key first.</p>
+
+<pre class="language-bash"><code class="language-bash">echo 85 &gt; /sys/class/gpio/export            # export the USER key
+echo in &gt; /sys/class/gpio/gpio85/direction  # set the exported USER key direction
+</code></pre>
+<p>Get the USER key value</p>
+
+<pre class="language-bash"><code class="language-bash">cat /sys/class/gpio/gpio85/value            # Get the value of USER key, 1 is unpressed and 0 is pressed
+</code></pre>
+<h4 id="Blink-a-LED-GPIO2-A4-68-A5-69">Blink a LED GPIO2 A4-68 A5-69</h4>
+<p>Export the LED IO and set its direction.</p>
+
+<pre class="language-bash"><code class="language-bash">echo 68  &gt; /sys/class/gpio/export
+echo out &gt; /sys/class/gpio/gpio68/direction
+</code></pre>
+<p>Set led IO voltage value to control the LED.</p>
+
+<pre class="language-bash"><code class="language-bash">echo 1 &gt; /sys/class/gpio/gpio68/value
+sleep 1
+echo 0 &gt; /sys/class/gpio/gpio68/value
+sleep 1
+echo 1 &gt; /sys/class/gpio/gpio68/value
+</code></pre>
+<blockquote>
+<p>Calculating Rule: GPIO2 A4 == 32 *  2 + 4 = 68</p>
+</blockquote>
+<p>For Axera chip, GPIO0 means A IO port and GPIO2 means C IO port, and example like A4 is just a signal.</p>
+<p>GPIO2 A4 in AXera-Pi is GPIO C(2) 4(A4) in standard definition , and standard definition GPIOA0 means IO GPIO0A4 in AXera-Pi.</p>
+<p>In the future, we'll apply definition like PA0 and PC4, which is easier to understand.</p>
+<p>Here we use Python to control the GPIO, from the following figure, we can see that the BOT_GPIO_0-7 of the pin headers are GPIO2_A16_m - GPIO2_A23_m in the system.</p>
+<p><img src="./../../../zh/maixIII/assets/io_pin_map.png" alt="io_pin_map" /></p>
+<p>The relationship between PA0-3 and the figure above is as follows:</p>
+<p><img src="./../../../../hardware/zh/maixIII/assets/gpio_axpi.png" alt="" /></p>
+<p>We use Python3 libgpiod to encapsulate gpio class.</p>
+
+<pre class="language-python"><code class="language-python">
+try:
+    from gpiod import chip, line, line_request
+    config = None # rpi is default value A 0
+    def gpio(gpio_line=0, gpio_bank=&quot;a&quot;, gpio_chip=0, line_mode = line_request.DIRECTION_OUTPUT):
+        global config
+        if config != None and gpio_line in config:
+            gpio_bank, gpio_chip = config[gpio_line]
+        l, c = [32 * (ord(gpio_bank.lower()[0]) - ord('a')) + gpio_line, chip(&quot;gpiochip%d&quot; % gpio_chip)]
+        tmp = c.get_line(l)
+        cfg = line_request() # led.active_state == line.ACTIVE_LOW
+        cfg.request_type = line_mode # line.DIRECTION_INPUT
+        tmp.request(cfg)
+        tmp.source = &quot;GPIO chip %s bank %s line %d&quot; % (gpio_chip, gpio_bank, gpio_line)
+        return tmp
+    def load(cfg=None):
+        global config
+        config = cfg
+except ModuleNotFoundError as e:
+    pass
+
+</code></pre>
+<p>GPIO input test:</p>
+
+<pre class="language-python"><code class="language-python">
+led0 = gpio(16, gpio_chip=2, line_mode = line_request.DIRECTION_INPUT)
+led1 = gpio(17, gpio_chip=2, line_mode = line_request.DIRECTION_INPUT)
+led2 = gpio(18, gpio_chip=2, line_mode = line_request.DIRECTION_INPUT)
+led3 = gpio(19, gpio_chip=2, line_mode = line_request.DIRECTION_INPUT)
+
+def test():
+    import time
+    print(led0.get_value())
+    print(led1.get_value())
+    print(led2.get_value())
+    print(led3.get_value())
+    time.sleep(1)
+    print(time.asctime())
+
+while True:
+    test()
+
+</code></pre>
+<p>GPIO output test：</p>
+
+<pre class="language-python"><code class="language-python">
+led0 = gpio(16, gpio_chip=2, line_mode = line_request.DIRECTION_OUTPUT)
+led1 = gpio(17, gpio_chip=2, line_mode = line_request.DIRECTION_OUTPUT)
+led2 = gpio(18, gpio_chip=2, line_mode = line_request.DIRECTION_OUTPUT)
+led3 = gpio(19, gpio_chip=2, line_mode = line_request.DIRECTION_OUTPUT)
+
+def test():
+    import time
+    time.sleep(1)
+    led0.set_value(1)
+    led1.set_value(1)
+    led2.set_value(1)
+    led3.set_value(1)
+    time.sleep(1)
+    led0.set_value(0)
+    led1.set_value(0)
+    led2.set_value(0)
+    led3.set_value(0)
+    print(time.asctime())
+
+while True:
+    test()
+
+</code></pre>
+<p>C example to control gpio: <a href="https://www.cnblogs.com/juwan/p/16917802.html#gpio--pwm"  target="_blank">gpio.h/gpio.c</a></p>
+<h3 id="UART">UART</h3>
+<p>The default uart port of USB-UART is <strong>ttyS0</strong>, and the UART on the pin header is <strong>ttyS1</strong>, the virtual USRT is <strong>ttyGS0</strong>.</p>
+<p><img src="./../../../zh/maixIII/assets/uart_tty.jpg" alt="uart_tty" /></p>
+<p>Here is a <code>python3 pyserial</code> example code to test the UART on the pin header, make sure you have connected the GND on your UART-TTL with the GND on the AXera-Pi.</p>
+
+<pre class="language-python"><code class="language-python">import serial
+ser = serial.Serial('/dev/ttyS1', 115200, timeout=1)
+ser.write(b'hello world\n')
+ser.close()
+</code></pre>
+<p>Example <a href="https://www.cnblogs.com/juwan/p/16917802.html#linux-uart-ttysx"  target="_blank"> uart.h/uart.c </a></p>
+<h3 id="PWM">PWM</h3>
+<p>Here we change the brightness of the screen of AXera-Pi to test the pwm example<br />
+<strong>Example</strong>：Run command <code>echo 204 &gt; /sys/class/pwm/pwmchip0/pwm0/duty_cycle</code> and the screen is only one-tenth of the original brightness.</p>
+
+<pre class="language-bash"><code class="language-bash">echo 0 &gt; /sys/class/pwm/pwmchip0/export
+echo 4167 &gt; /sys/class/pwm/pwmchip0/pwm0/period
+echo 204 &gt; /sys/class/pwm/pwmchip0/pwm0/duty_cycle
+echo 2084 &gt; /sys/class/pwm/pwmchip0/pwm0/duty_cycle
+echo 1 &gt; /sys/class/pwm/pwmchip0/pwm0/enable
+</code></pre>
+<p>PWM Example：<a href="https://wiki.sipeed.com/soft/maixpy3/zh/usage/hardware/PWM.html#%E5%BC%80%E5%A7%8B"  target="_blank">Click me</a>.</p>
+<h3 id="I2C">I2C</h3>
+<blockquote>
+<p>The I2C on the pin header is <code>/dev/i2c-7</code> in AXera-Pi, we use command <code>i2cdetect</code> to check the i2c device.</p>
+</blockquote>
+<p><img src="./assets/flash_system/i2c_detect.jpg" alt="i2c_detect" /></p>
+<p>The <code>i2c-0</code>, <code>i2c-1</code>, <code>i2c-2</code> are the camera interface, and <code>i2c-7</code> is the connector on pin header, <code>i2c-8</code> is the RTC clock, and <code>i2c-9</code> is reserved.</p>
+<p><img src="./assets/flash_system/i2c_dev.jpg" alt="i2c_dev" /></p>
+<p>For example we use command <code>i2cdetect -y 0</code> to see the device on the i2c bus.</p>
+<p>If you can't detect your i2c device, make sure you have pulled up the data line.</p>
+
+<pre class="language-bash"><code class="language-bash">root@AXERA:~# i2cdetect -y -r 0
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:                         -- -- -- -- -- -- -- --
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+20: -- 21 -- -- -- -- -- -- -- -- -- -- -- -- -- --
+30: -- -- -- -- -- -- 36 -- -- -- -- -- -- -- -- --
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+70: -- -- -- -- -- -- -- --
+</code></pre>
+<p>The <strong>0x21</strong> 和 <strong>0x36</strong> in the log means there is a i2c device connecting to the <code>/dev/i2c-0</code> connector, and we can use command <code>i2cget</code> to read the data of the i2c device or command <code>i2cset</code> to write the i2c device.</p>
+<h3 id="SPI">SPI</h3>
+<h3 id="CHIP-ID">CHIP ID</h3>
+<p>Get the unique chip id of the main chip.</p>
+
+<pre class="language-bash"><code class="language-bash">cat /proc/ax_proc/uid
+</code></pre>
+<h3 id="ADC">ADC</h3>
+<h3 id="Factory-test-script">Factory test script</h3>
+<details>
+<summary>This is the factory test python script</summary>
+<div class="details-content">
+<pre class="language-python"><code class="language-python">test_flag = False
+
+try:
+    from gpiod import chip, line, line_request
+    config = None # rpi is default value A 0
+    def gpio(gpio_line=0, gpio_bank=&quot;a&quot;, gpio_chip=0, line_mode = line_request.DIRECTION_OUTPUT):
+        global config
+        if config != None and gpio_line in config:
+            gpio_bank, gpio_chip = config[gpio_line]
+        l, c = [32 * (ord(gpio_bank.lower()[0]) - ord('a')) + gpio_line, chip(&quot;gpiochip%d&quot; % gpio_chip)]
+        tmp = c.get_line(l)
+        cfg = line_request() # led.active_state == line.ACTIVE_LOW
+        cfg.request_type = line_mode # line.DIRECTION_INPUT
+        tmp.request(cfg)
+        tmp.source = &quot;GPIO chip %s bank %s line %d&quot; % (gpio_chip, gpio_bank, gpio_line)
+        return tmp
+    def load(cfg=None):
+        global config
+        config = cfg
+except ModuleNotFoundError as e:
+    pass
+
+key = gpio(21, gpio_chip=2, line_mode = line_request.DIRECTION_INPUT)
+led0 = gpio(4, gpio_chip=2, line_mode = line_request.DIRECTION_OUTPUT)
+led1 = gpio(5, gpio_chip=2, line_mode = line_request.DIRECTION_OUTPUT)
+
+import time
+import ifcfg
+import os
+
+def check_ifconfig():
+    result = []
+    for name, interface in ifcfg.interfaces().items():
+        if name in ['eth0', 'wlan0'] and interface['inet']:
+            result.append(name)
+    return result
+
+try:
+    if (0 == key.get_value()):
+        os.system(&quot;export LD_LIBRARY_PATH=/opt/lib:LD_LIBRARY_PATH &amp;&amp; /opt/bin/sample_vin_vo -c 2 -e 1 -s 0 -v dsi0@480x854@60 &amp;&quot;)
+        led1.set_value(1)
+        while True:
+            led0.set_value(1)
+            time.sleep(0.2)
+            led0.set_value(0)
+            time.sleep(0.2)
+            tmp = check_ifconfig()
+            if len(tmp) &gt; 1:
+                led0.set_value(0)
+                led1.set_value(0)
+                test_flag = True
+                break
+        while (0 == key.get_value()):
+            time.sleep(0.2)
+        os.system(&quot;aplay /home/res/boot.wav&quot;)
+        led0.set_value(1)
+        led1.set_value(1)
+        import pyaudio
+        chunk = 1024      # Each chunk will consist of 1024 samples
+        sample_format = pyaudio.paInt16      # 16 bits per sample
+        channels = 2      # Number of audio channels
+        fs = 44100        # Record at 44100 samples per second
+        p = pyaudio.PyAudio()
+        stream = p.open(format=sample_format,
+                        channels = channels,
+                        rate = fs,
+                        frames_per_buffer = chunk,
+                        input = True, output = True)
+        while (1 == key.get_value()):
+            data = stream.read(chunk, exception_on_overflow = False)
+            stream.write(data)
+        while (0 == key.get_value()):
+            time.sleep(0.2)
+        os.system('killall sample_vin_vo')
+        os.system('killall sample_vin_vo')
+        # Stop and close the Stream and PyAudio
+        stream.stop_stream()
+        stream.close()
+        p.terminate()
+except Exception as e:
+    print(e)
+finally:
+    if test_flag:
+        led0.set_value(0)
+        led1.set_value(0)
+
+'''
+
+import pyaudio
+try:
+    chunk = 1024      # Each chunk will consist of 1024 samples
+    sample_format = pyaudio.paInt16      # 16 bits per sample
+    channels = 2      # Number of audio channels
+    fs = 44100        # Record at 44100 samples per second
+    time_in_seconds = 300
+    p = pyaudio.PyAudio()
+    stream = p.open(format=sample_format,
+                    channels = channels,
+                    rate = fs,
+                    frames_per_buffer = chunk,
+                    input = True, output = True)
+    for i in range(0, int(fs / chunk * time_in_seconds)):
+        data = stream.read(chunk)
+        stream.write(data)
+finally:
+    # Stop and close the Stream and PyAudio
+    stream.stop_stream()
+    stream.close()
+    p.terminate()
+
+'''
+</code></pre>
+</div>
+</details>
+<h2 id="Built-in-applications">Built in applications</h2>
+<h3 id="IPCDemo">IPCDemo</h3>
+<p>This is an IPC (IP camera) demo program, and its functions are as follows:</p>
+<ul>
+<li>ISP: Transfers the RAW data stream from Sensor into YUV data stream, and output it in 3 channels</li>
+<li>IVPS: Image Video Processing submodule, Resize, Crop, Rotate the video image, or change the video image into multiple ones.</li>
+<li>VENC / JENC：Video / JPEG encoded output.</li>
+<li>Detect: Face detection or structure detection.</li>
+<li>Web display: H264 Web stream and provides to view real-time Web video.</li>
+<li>RTSP Stream: H264 stream RTSP package and transmission.</li>
+<li>TF card Video storage: Package H264 stream into MP4 format and save it to TF card or FLASH.</li>
+</ul>
+<p align="center">
+    <iframe src="//player.bilibili.com/player.html?aid=260625114&bvid=BV1me411T7g8&cid=837160730&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="max-width:640px; max-height:480px;"> </iframe>
+</p>
+<p align="center">
+    <iframe src="//player.bilibili.com/player.html?aid=688159412&bvid=BV1p24y1d7Te&cid=837167669&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="max-width:640px; max-height:480px;"> </iframe>
+</p>
+<h4 id="Usages">Usages</h4>
+<p>Run the following command to start this application, and we can visit the ip address (<a href="#rndis"  >USB-OTG RNDIS</a> or network ip address) of AXera-Pi and add port <code>8080</code> in web browser to see the streaming video.</p>
+
+<pre class="language-bash"><code class="language-bash">/opt/bin/IPCDemo/run.sh /opt/bin/IPCDemo/config/gc4653_config.json
+</code></pre>
+<p>We use the default camera gc4653 as the example, change the config_json file of your real camera in the end of example command with following choice.</p>
+<p><img src="./assets/flash_system/ipc_demo_json.jpg" alt="ipc_demo_json" /></p>
+<p>Running this application, lots of logs are shown.</p>
+<p><img src="./../../../zh/maixIII/assets/ipc.jpg" alt="ipc" /></p>
+<p>Open the ip address of AXera-Pi with port <code>8080</code> in the web browser, here I take <code>192.168.233.1:8080</code> as an example (this ip address is the RNDIS ip address of AXera-Pi and can be visited after connecting the computer with the USB-OTG port of AXera-Pi), click the blue frame to login. Sadly this application is only Chinese language support, you can use web translation tool to translate the web content into your language.</p>
+<p><img src="./../../../zh/maixIII/assets/ipc-admin.jpg" alt="ipc-admin" /></p>
+<p><img src="./assets/flash_system/ipc_demo_translation.jpg" alt="ipc_demo_translation" /></p>
+<h4 id="Snapshot-and-Record">Snapshot and Record</h4>
+<p><strong>Snapshot</strong></p>
+<p>Login to the web stream service (Visit the ip address of AXera-Pi port <code>8080</code> after running IPCDemo), there is a camera icon and record icon in the bottom right stream video corner.<br />
+Click the camera icon to snapshot the video, and the snapshot picture will be automatically downloaded for viewing.</p>
+<p><img src="./../../../zh/maixIII/assets/ipc-web.jpg" alt="ipc-web" /></p>
+<p><strong>Record</strong></p>
+<p>Click the record icon in the bottom right stream video corner to record the video (mp4 format), and click the record icon to stop recording.</p>
+<p><img src="./../../../zh/maixIII/assets/ipc-mp4.jpg" alt="ipc-mp4" /></p>
+<table>
+<thead>
+<tr>
+  <th>Recording</th>
+  <th>Unrecording</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><img src="./assets/flash_system/ipc_recording.jpg" alt="ipc_recording" /></td>
+  <td><img src="./assets/flash_system/ipc_unrecording.jpg" alt="ipc_unrecording" /></td>
+</tr>
+</tbody>
+</table>
+<p>And we can play or download the recorded video in following step marked with ① and ② in the following picture</p>
+<p><img src="./../../../zh/maixIII/assets/ipc-config.jpg" alt="ipc-config" /></p>
+<p><strong>20221017 demo updating</strong> we set the video automatically saved to <code>/opt/mp4</code> directory, with which you can use this board as a surveillance network camera after mounting a hard disk.</p>
+<p><img src="./assets/flash_system/ipc_recording_video.jpg" alt="ipc_recording_video" /></p>
+<h4 id="Face-detection">Face detection</h4>
+<p>In the IPCDemo, we also set other functions, like <code>Face detection</code> or <code>LPRnet</code></p>
+<p>Login to the IPC website (Visit the ip address of AXera-Pi after running IPCDemo) first, then click what's the following picture marked for your need, use web translation tool to translate these settings.</p>
+<p><img src="./assets/flash_system/lprnet_detection.jpg" alt="lprnet_detection" /></p>
+<p>Tick your needed configurations, we can do face detection in the preview page. IPCDemo application will automatically detect the face and take snapshot, and we can see the detected face picture in the following preview blank area.</p>
+<ul>
+<li>Left: Face detection. Right: Body detection</li>
+</ul>
+<html>
+  <img src="./../../../zh/maixIII/assets/ipc-model.jpg" width=45%>
+  <img src="./../../../zh/maixIII/assets/ipc-person.jpg" width=45%>
+</html>
+<h4 id="LPRnet">LPRnet</h4>
+<p>Login to the IPC website (Visit the ip address of AXera-Pi after running IPCDemo) first, then click what's the following picture marked for your need, use web translation tool to translate these settings.</p>
+<p><img src="./assets/flash_system/lprnet_detection.jpg" alt="lprnet_detection" /></p>
+<p>Tick your needed configurations, we can do LPRnet detection in the preview page. IPCDemo application will automatically detect the LPRnet and take snapshot, and we can see the detected LPRnet result in the following preview blank area.</p>
+<p><img src="./../../../zh/maixIII/assets/ipc-car.jpg" alt="ipc-car" /></p>
+<h3 id="rtsp">rtsp</h3>
+<blockquote>
+<p><strong>rtsp</strong>：Real Time Streaming Protocol is an application-level network protocol designed for multiplexing and packetizing multimedia transport streams (such as interactive media, video and audio) over a suitable transport protocol.</p>
+</blockquote>
+<p>Here we use <a href="https://www.videolan.org/vlc/"  target="_blank">VLC Media Player</a> to play the rtsp stream video.</p>
+<p><img src="./../../../zh/maixIII/assets/vlc-yolov5s.jpg" alt="vl-yolov5s" /></p>
+<p>Run the following command on AXera-Pi, open <code>VLC Media Player</code> and use hotkey <code>Ctrl + N</code> to open a network stream video, enter the ip address of AXera-Pi like <code>rtsp://192.168.233.1:8554/axstream0</code> to play the stream video.</p>
+<p>Run this command on AXera-Pi:</p>
+
+<pre class="language-bash"><code class="language-bash">/home/examples/vin_ivps_joint_venc_rtsp_vo_onvif_mp4v2/run.sh
+</code></pre>
+<p>The log of AXera-Pi running rtsp stream video<br />
+<img src="./../../../zh/maixIII/assets/vlc-run.jpg" alt="vlr-run" /></p>
+<p>Enter the ip address of AXera-Pi for playing the stream video, use hotkey <code>Ctrl + P</code> to play after entering the ip address of AXera-Pi.<br />
+<img src="./../../../zh/maixIII/assets/vlc-urt.jpg" alt="vlc-urt" /></p>
+<p>The rtsp example is as follows:</p>
+<html>
+  <img src="./../../../zh/maixIII/assets/rtsp-display.jpg" width=48%>
+  <img src="./../../../zh/maixIII/assets/rtsp-axpi.jpg" width=48%>
+</html>
+<p>Edit <code>/home/examples/vin_ivps_joint_venc_rtsp_vo_onvif_mp4v2/run.sh</code> if your camera is not gc4653.</p>
+<p><img src="./assets/flash_system/rtsp_stream_shell.jpg" alt="rtsp_stream_shell" /></p>
+<h4 id="ffplay">ffplay</h4>
+<p>Except <code>VCL</code>, we can use <code>ffplay</code> to play the stream video.<br />
+<strong>ffplay</strong> :<a href="https://dl.sipeed.com/shareURL/MaixIII/AXera/09_Software_tool"  target="_blank">Click me to download windows edition ffplat</a>, for linux user run command <code>sudo apt install ffmpeg</code> to install ffplay.</p>
+<p>After getting ffplay ready, run following command in command line to play the rtsp stream video of AXera-Pi, change the ip address if necessary.</p>
+
+<pre class="language-bash"><code class="language-bash">ffplay rtsp://192.168.233.1:8554/axstream0 -fflags nobuffer
+</code></pre>
+<h3 id="ONVIF-ODM">ONVIF ODM</h3>
+<p><strong>ONVIF Device Manager</strong>：<a href="https://sourceforge.net/projects/onvifdm/"  target="_blank">Click to download</a></p>
+<p>Different from VLC player, ODM has many different usages.</p>
+<p><img src="./../../../zh/maixIII/assets/odm.jpg" alt="odm" /></p>
+<p>Run following command on AXera-Pi, the screen on AXera-Pi displays the yolov5s model, then we use <code>ODM</code> to display the content on computer.</p>
+
+<pre class="language-bash"><code class="language-bash">/home/examples/vin_ivps_joint_venc_rtsp_vo_onvif_mp4v2/run.sh
+</code></pre>
+<p>Edit <code>/home/examples/vin_ivps_joint_venc_rtsp_vo_onvif_mp4v2/run.sh</code> file to switch camera if your screen failed display the camera content.</p>
+<p><img src="./assets/flash_system/onvif_changing_camera.jpg" alt="onvif_changing_camera" /></p>
+<p>Screen displays the camera content:<br />
+<img src="./../../../zh/maixIII/assets/odm-mipi.jpg" alt="odm-mipi" /></p>
+<p>Run the <code>ONVIF Device Manager</code>, click <code>Refresh</code> to scan device, make sure you have connected computer with USB-OTG port of AXera-Pi and there is RNDIS device in your computer manager (Here we take RNDIS as network example and we play the video through <code>192.168.233.1</code>). After clicking <code>Refresh</code> there is a IP-Camera with IP <code>192.168.233.1</code>, choose it and click <code>Live</code> video to stream the video.</p>
+<p><img src="./assets/flash_system/onvif_rndis_device.jpg" alt="onvif_rndis_device" /></p>
+<p><img src="./assets/flash_system/onvif_example.jpg" alt="onvif_example" /></p>
+<p>And we just take RNDIS as example, other IP address like wireless or ethernet are also fine. Make sure your network is good, and bad network can not use <code>ONVIF Device Manager</code> with good experience.</p>
+<ul>
+<li>Switch model</li>
+</ul>
+<blockquote>
+<p><code>20221116</code> we set the different camera parameters in <code>run.sh</code><br />
+<code>20221111</code> we set yolov5s face/object detection model in the system image, read the following content to see how to edit the script and switch model.</p>
+</blockquote>
+
+<pre class="language-bash"><code class="language-bash">nano /home/examples/vin_ivps_joint_venc_rtsp_vo_onvif_mp4v2/run.sh
+</code></pre>
+<p>Run this command on AXera-Pi, we can edit <code>run.sh</code> shell annotation <code>#</code> to switch model or load other model.<br />
+Use hotkey <code>Ctrl + x</code> to save your changes.<br />
+<img src="./../../../zh/maixIII/assets/model-save.jpg" alt="model-save" /><br />
+Follow the instruction press <code>Y</code> to save modified buffer.<br />
+And use the default file name. Run <code>run.sh</code> we can see different detection effects on the screen of Axera-Pi.<br />
+<img src="./../../../zh/maixIII/assets/model-file.jpg" alt="model-file" /></p>
+<ul>
+<li><strong>Press key and Record MP4</strong></li>
+</ul>
+<p>While running <code>run.sh</code>, click <code>USER</code> key to record video, and <strong>LED0</strong> is on when AXera-Pi is recording.</p>
+<p><img src="./../../../zh/maixIII/assets/odm-mp4.jpg" alt="odm-mp4" /></p>
+<p>Click <code>USER</code> key again to stop recording and <strong>LED0</strong> is off</p>
+<p><img src="./../../../zh/maixIII/assets/odm-adb.png" alt="odm-adb" /></p>
+<p>The recorded mp4 files are in <strong><code>home/examples/</code></strong> directory.</p>
+<p><img src="./../../../zh/maixIII/assets/mp4-file.png" alt="mp4-file" /></p>
+<h3 id="PP_human">PP_human</h3>
+<p>Run following command on AXera-Pi, screen displays the background picture, and when capturing a human, it will be shown on the screen.</p>
+
+<pre class="language-bash"><code class="language-bash">/home/examples/vin_ivps_joint_vo_pp_human_seg/run.sh
+</code></pre>
+<p><img src="./../../../zh/maixIII/assets/pp_human.jpg" alt="pp_human" /></p>
+<p>Use the following command to edit the script file, change the annotation <code>#</code> to switch camera.</p>
+
+<pre class="language-bash"><code class="language-bash">nano /home/examples/vin_ivps_joint_vo_pp_human_seg/run.sh
+</code></pre>
+<p>Use hotkey  <code>Ctrl + X</code> and follow instructions we save the change of editing.<br />
+<img src="./../../../zh/maixIII/assets/pp_humana_adb.png" alt="pp_human_adb" /></p>
+<h3 id="uvc_vo">uvc_vo</h3>
+<p><strong>usb-uvc-gadget</strong>：<a href="https://github.com/junhuanchen/usb-uvc-gadget"  target="_blank">Github repository</a></p>
+<p>This demo is not very stable. For the first time running this demo application, the usb otg rndis will change into usb otg uvc and lead to the device reboot. After that run this demo application again then everything is right.</p>
+<p>If your screen displays green interface, this means the wrong camera configuration, edit the script to switch camera.</p>
+<p>Before running this demo, connecting both USB-UART and USB-OTG port, we use USB-UART port to control AXera-Pi and use USB-OTG to transfer uvc stream to the computer.</p>
+<p>Run the following command to start this demo application.</p>
+
+<pre class="language-bash"><code class="language-bash">/home/examples/vin_ivps_joint_venc_uvc_vo/run.sh
+</code></pre>
+<p><img src="./../../../zh/maixIII/assets/uvc_adb.png" alt="uvc_adb" /></p>
+<p>Run your computer camera application to display the camera detection of AXera-Pi.</p>
+<p><img src="./../../../zh/maixIII/assets/uvc_vo.jpg" alt="uvc_vo" /></p>
+<p>The following command can be used to <code>start</code>, <code>stop</code> or <code>restore</code> `uvc demo.</p>
+
+<pre class="language-bash"><code class="language-bash">/home/usb-uvc-gadget/uvc-gadget.sh #start/stop/restore
+</code></pre>
+<ul>
+<li><strong>Android phone uvc</strong></li>
+</ul>
+<p>This uvc demo application can also display on Android phone which support OTG mode. Download and install a USB camera application on the phone first.</p>
+<p>Connect USB-OTG port with Android phone, and run <code>/home/examples/vin_ivps_joint_venc_uvc_vo/run.sh</code> on AXera-Pi by USB-UART or SSH to start uvc demo, and start the USB camera application on the Android phone, then the camera content displays both on AXera-Pi screen and Android phone.</p>
+<p><img src="./../../../zh/maixIII/assets/uvc_phone.jpg" alt="uvc_phone" /></p>
+<p>This demo can run at system finishing boot if it's written into <a href="#boot-script"  >rc.local</a></p>
+<h3 id="lvgl7-UI">lvgl7 UI</h3>
+<p>Run following command we can run this lvgl demo.</p>
+
+<pre class="language-bash"><code class="language-bash">/home/bin/sample_vin_ivps_joint_vo_lvgl -c 0
+</code></pre>
+<p><img src="./../../../zh/maixIII/assets/lvgl_adb.png" alt="lvgi_adb" /></p>
+<p align="center">
+    <iframe src="//player.bilibili.com/player.html?aid=690497396&bvid=BV1n24y1C7DN&cid=901748014&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+</p>
+<h3 id="Python-API">Python API</h3>
+<p>It's also good to program your application via python, read <a href="https://wiki.sipeed.com/hardware/en/maixIII/ax-pi/python_api.html"  target="_blank">Python on Maix-III AXera-Pi</a> for more.</p>
+<h3 id="Human-Parts-detection">Human Parts detection</h3>
+<p>This demo has been built in system, run following command to experience it.</p>
+
+<pre class="language-bash"><code class="language-bash">./home/run.sh
+</code></pre>
+<p>And there are many other models in this system, edit <code>run.sh</code> to load and test other models.</p>
+
+<pre class="language-bash"><code class="language-bash">sample_vin_ivps_joint_vo
+sample_vin_ivps_joint_venc_rtsp_vo
+</code></pre>
+
+<pre class="language-bash"><code class="language-bash">yolov5_seg.json         yolov7.json           yolox.json
+yolov5s_face.json       pp_human_seg.json     ax_pose.json
+hrnet_animal_pose.json  hand_pose.json
+</code></pre>
+<p>Use command <code>nano /home/run.sh</code> to enable the model you want to try. And change the camera by edit <code>-c 2</code> to switch to another camera.</p>
+<p><img src="./../../../zh/maixIII/assets/ax_poes_sh.jpg" alt="ax_poes_sh" /></p>
+<p align="center">
+<iframe src="//player.bilibili.com/player.html?aid=647932316&bvid=BV1Pe4y1W7n6&cid=901750338&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+</p>
+<ul>
+<li>More built-in examples</li>
+</ul>
+<p>There are more examples in <code>/home/bin</code>, run then if you want.</p>
+
+<pre class="language-bash"><code class="language-bash">root@AXERA:~# ls /home/bin
+sample_h264_ivps_joint_vo       sample_v4l2_user_ivps_joint_vo      sample_vin_ivps_joint_vo       sample_vin_joint
+sample_rtsp_ivps_joint          sample_vin_ivps_joint_venc_rtsp     sample_vin_ivps_joint_vo_h265
+sample_rtsp_ivps_joint_rtsp_vo  sample_vin_ivps_joint_venc_rtsp_vo  sample_vin_ivps_joint_vo_lvgl
+</code></pre>
+<p>Here is an example runnning <code>sample_vin_ivps_joint_vo_h265</code>, and <code>-c 2</code> means the camera choice.</p>
+
+<pre class="language-bash"><code class="language-bash">/home/bin/sample_vin_ivps_joint_vo_h265 -c 2
+</code></pre>
+<p>These are the command logs.</p>
+<p><img src="./../../../zh/maixIII/assets/sample.jpg" alt="sample" /></p>
+<h3 id="sherpa-ncnn-%28Chinese-and-English-speech-recognition%29">sherpa-ncnn (Chinese and English speech recognition)</h3>
+<h4 id="Basic-usage">Basic usage</h4>
+<p>Open directory <code>/home/sherpa-ncnn-m3axpi</code>, here are the demos.</p>
+
+<pre class="language-bash"><code class="language-bash">cd /home/sherpa-ncnn-m3axpi
+</code></pre>
+<ul>
+<li>Chinese speech recognition</li>
+</ul>
+
+<pre class="language-bash"><code class="language-bash">./sherpa-ncnn-alsa \
+./sherpa-ncnn-streaming-zipformer-small-bilingual-zh-en-2023-02-16/tokens.txt \
+./sherpa-ncnn-streaming-zipformer-small-bilingual-zh-en-2023-02-16/encoder_jit_trace-pnnx.ncnn.param \
+./sherpa-ncnn-streaming-zipformer-small-bilingual-zh-en-2023-02-16/encoder_jit_trace-pnnx.ncnn.bin \
+./sherpa-ncnn-streaming-zipformer-small-bilingual-zh-en-2023-02-16/decoder_jit_trace-pnnx.ncnn.param \
+./sherpa-ncnn-streaming-zipformer-small-bilingual-zh-en-2023-02-16/decoder_jit_trace-pnnx.ncnn.bin \
+./sherpa-ncnn-streaming-zipformer-small-bilingual-zh-en-2023-02-16/joiner_jit_trace-pnnx.ncnn.param \
+./sherpa-ncnn-streaming-zipformer-small-bilingual-zh-en-2023-02-16/joiner_jit_trace-pnnx.ncnn.bin \
+&quot;hw:0,0&quot; \
+4 \
+greedy_search
+</code></pre>
+<ul>
+<li>English speech recognition</li>
+</ul>
+
+<pre class="language-bash"><code class="language-bash">./sherpa-ncnn-alsa \
+./sherpa-ncnn-conv-emformer-transducer-small-2023-01-09/tokens.txt \
+./sherpa-ncnn-conv-emformer-transducer-small-2023-01-09/encoder_jit_trace-pnnx.ncnn.int8.param \
+./sherpa-ncnn-conv-emformer-transducer-small-2023-01-09/encoder_jit_trace-pnnx.ncnn.int8.bin \
+./sherpa-ncnn-conv-emformer-transducer-small-2023-01-09/decoder_jit_trace-pnnx.ncnn.param \
+./sherpa-ncnn-conv-emformer-transducer-small-2023-01-09/decoder_jit_trace-pnnx.ncnn.bin \
+./sherpa-ncnn-conv-emformer-transducer-small-2023-01-09/joiner_jit_trace-pnnx.ncnn.int8.param \
+./sherpa-ncnn-conv-emformer-transducer-small-2023-01-09/joiner_jit_trace-pnnx.ncnn.int8.bin \
+&quot;hw:0,0&quot; \
+2 \
+greedy_search
+</code></pre>
+<p>Running the command above, speak to the MIC on AXera-Pi or play audio, detection results are printed to terminal.</p>
+<p><img src="./assets/flash_system/axpi_english_audio_detection.png" alt="sherpa" /></p>
+<h4 id="Update-sherpa-ncnn">Update sherpa-ncnn</h4>
+<p>You can update the speech model to get better experience.</p>
+<p>Open the directory <code>/home/sherpa-ncnn-m3axpi</code> first.</p>
+
+<pre class="language-bash"><code class="language-bash">cd /home/sherpa-ncnn-m3axpi
+</code></pre>
+<p>We need to enable the large files first, install <code>git-lfs</code> in your Axpi, and enable it.</p>
+
+<pre class="language-bash"><code class="language-bash">sudo apt install git-lfs
+git lfs install
+</code></pre>
+<p>Then clone the latest sherpa-ncnn speech model, make sure you are in <code>/home/sherpa-ncnn-m3axpi</code> directory.</p>
+
+<pre class="language-bash"><code class="language-bash">git clone https://huggingface.co/marcoyang/sherpa-ncnn-streaming-zipformer-zh-14M-2023-02-23
+</code></pre>
+<p><img src="./assets/flash_system/sherpa_ncnn_update_model.png" alt="sherpa_ncnn_update_model" /></p>
+<p>Then you can run following code to test the model(Make sure you are in <code>/home/sherpa-ncnn-m3axpi</code> directory):</p>
+
+<pre class="language-bash"><code class="language-bash">./sherpa-ncnn-alsa ./sherpa-ncnn-streaming-zipformer-zh-14M-2023-02-23/tokens.txt  \
+./sherpa-ncnn-streaming-zipformer-zh-14M-2023-02-23/encoder_jit_trace-pnnx.ncnn.param \
+./sherpa-ncnn-streaming-zipformer-zh-14M-2023-02-23/encoder_jit_trace-pnnx.ncnn.bin \
+./sherpa-ncnn-streaming-zipformer-zh-14M-2023-02-23/decoder_jit_trace-pnnx.ncnn.param \
+./sherpa-ncnn-streaming-zipformer-zh-14M-2023-02-23/decoder_jit_trace-pnnx.ncnn.bin \
+./sherpa-ncnn-streaming-zipformer-zh-14M-2023-02-23/joiner_jit_trace-pnnx.ncnn.param \
+./sherpa-ncnn-streaming-zipformer-zh-14M-2023-02-23/joiner_jit_trace-pnnx.ncnn.bin \
+&quot;hw:0,0&quot; 2 greedy_search
+</code></pre>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                        <a href="/hardware/en/maixIII/ax-pi/axpi.html">
+                            <span class="icon"></span>
+                            <span class="label">Maix-III AXera-Pi</span>
+                        </a>
+                        
+                    </div>
+                    <div id="next">
+                        
+                        <a href="/hardware/en/maixIII/ax-pi/python_api.html">
+                            <span class="label">Python programming</span>
+                            <span class="icon"></span>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>links</a><ul><li><a target="_blank" href="https://www.sipeed.com">Sipeed</a></li>
+<li><a target="_blank" href="https://maixhub.com/">MaixHub</a></li>
+<li><a target="_blank" href="https://sipeed.aliexpress.com/store/911876460">Sipeed AliExpress</a></li>
+<li><a target="_blank" href="https://github.com/neutree/teedoc">Build by teedoc </a></li>
+</ul>
+</li>
+<li><a>Source Code</a><ul><li><a target="_blank" href="https://github.com/sipeed/sipeed_wiki">Wiki source</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">Open Source Projects</a></li>
+</ul>
+</li>
+<li><a>Follow us</a><ul><li><a target="_blank" href="https://twitter.com/SipeedIO">twitter</a></li>
+<li><a target="_blank" href="https://sipeed.aliexpress.com/store/911876460">AliExpress</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">github</a></li>
+<li><a><a>Wechat</a><img src='/static/image/wechat.png'></a>
+</li>
+</ul>
+</li>
+<li><a>Contact us</a><ul><li><a>Tel: +86 0755-27808509</a>
+</li>
+<li><a>Business support: support@sipeed.com</a>
+</li>
+<li><a>Address: 深圳市宝安区新湖路4008号蘅芳科技办公大厦A座-2101C</a>
+</li>
+<li><a  href="/join_us.html">Join us</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://www.sipeed.com">©2018-2023 深圳矽速科技有限公司</a></li>
+<li><a target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index">粤ICP备19015433号</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/js/prism.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <link rel="stylesheet" href="/static/js/add_hint/style.css" type="text/css"/>
+    
+        <script src="/static/js/add_hint/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+        <script src="/static/js/thumbs_up/main.js"></script>
+    
+</body>
+
+</html>
