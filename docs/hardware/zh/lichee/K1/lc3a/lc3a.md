@@ -2,7 +2,7 @@
 title: LicheePi Cluster 3A
 keywords: LicheePi, Sodimm, K1, RISCV, SBC, Cluster
 update:
-  - date: 2023-07-30
+  - date: 2024-07-30
     version: v0.1
     author: zepan
     content:
