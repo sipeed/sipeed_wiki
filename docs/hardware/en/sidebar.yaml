@@ -109,8 +109,10 @@ items:
             file: maixIII/ax-pi/faq_axpi.md
 -   label: MaixCAM
     items:
-    -   label: MaixCAM Brief and Data
+    -   label: MaixCAM
         file: maixcam/README.md
+    -   label: MaixCAM-Pro
+        file: maixcam/maixcam_pro.md
     -   label: MaixCAM Assembly
         file: maixcam/assemble.md
     -   label: System Upgrade

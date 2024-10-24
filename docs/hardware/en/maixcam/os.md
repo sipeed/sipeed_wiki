@@ -4,66 +4,74 @@ title: MaixCAM System Flashing
 
 ## Download the System
 
-Find the latest system image file on the [MaixPy Release Page](https://github.com/sipeed/MaixPy/releases), such as `maixcam_os_20240401_maixpy_v4.1.0.xz`.
+Find the **latest** system image file on the [MaixPy Releases page](https://github.com/sipeed/MaixPy/releases), for example, `maixcam-2024-10-22-maixpy-v4.7.6.img.xz`.
+Make sure to download the correct version based on your device model:
+* For `MaixCAM`, download `maixcam-xxxx.xz`.
+* For `MaixCAM-Pro`, download `maixcam-pro-xxxxx.xz`.
 
-Alternative download link:
-* [Sourceforge](https://sourceforge.net/projects/maixpy/files/)
+Backup download link: [Sourceforge](https://sourceforge.net/projects/maixpy/files/)
 
-## Prepare the Flashing Tool
+## Prepare Flashing Tools
 
-Download [Etcher](https://etcher.balena.io/)(highly recommended), install and open it.
+Download [Etcher](https://etcher.balena.io/) (highly recommended), install and open it.
 
-Windows users can also use [Win32DiskImager](https://sourceforge.net/projects/win32diskimager/) or [Rufus](https://rufus.ie/).
+For Windows, you can also use [Win32DiskImager](https://sourceforge.net/projects/win32diskimager/) or [Rufus](https://rufus.ie/) if Etcher doesn't work.
 
+## Launch the Flashing Tool
 
-## Launching the Burning Tool
+Normally, double-click the application icon to launch it. If you encounter the error `Something went wrong. If the source image was previously compressed, please check if it's corrupted. Error spawning the child process`, it might be due to insufficient permissions. Right-click the application icon and run it as an administrator.
 
-Normally, you can start the application by double-clicking the application icon. If you encounter an error message saying `Something went wrong. If the source image was compressed, please check if it is corrupted. Error spawning the child process`, it may be due to insufficient permissions. Right-click the application icon and select "Run as administrator" to open it.
-
-
-## Flashing the TF Card
+## Flash the TF Card
 
 There are two ways to flash the TF card:
-* If you bought the official TF card package, it already contains a system, but the version might be outdated. It is recommended to use the USB update method so you don't have to disassemble the casing, which makes it difficult to reassemble.
-* If you are using your own card and have never flashed a system onto it before, you must first flash it using a card reader and then install the TF card by disassembling the device. After that, you can flash the image directly via USB without disassembling.
+* If the TF card already has a system installed (for example, if you purchased the official TF card package or previously flashed the card yourself), using the USB update method is quicker (and for MaixCAM, it avoids opening the case).
+* If you're using your own card and it has never had a system flashed, you must first use a card reader to flash it at least once. After that, you can use the USB to update the system.
 
-### Method One: Flashing the TF Card Using a Card Reader
+### Method 1: Flash TF Card with a Card Reader
 
-* Remove the TF card and insert it into a card reader, then plug it into the computer.
-* Open Etcher, select the image file, choose the TF card, and click `Flash`.
-* Wait for the burning process to complete. If your computer prompts `You need to format the disk in drive G: before you can use it`, **do not** click on format disk! Otherwise, the newly burned system will be formatted again! Close the window, right-click the disk, and select eject TF card.
-* Insert it into the MaixCAM, power it up, and wait for the system to boot. The first boot may be slow, just wait for a while.
+1. Remove the TF card, insert it into the card reader, and connect it to your computer.
+2. Open Etcher, select the image file, choose the TF card, and click `Flash`.
+3. After flashing, if the computer prompts with `You need to format the disk in drive G: before you can use it`, **do not** format the disk! This would erase the newly flashed system. Close the window, right-click the disk, and select "Eject" to safely remove the TF card.
+4. Insert the TF card into MaixCAM, power it on, and wait for the system to boot. The first boot may take a little longer, so be patient.
 
-### Method Two: Update the TF Card Image via USB
+### Method 2: USB Update for TF Card Image
 
-**Note: USB can only be used for updates, not for the first-time flashing.**
-Ensure that the system has already been flashed using a card reader and is **running properly** before using this method.
+**Note: USB can only update the system, not be used for the initial flash.** Ensure the TF card has already been flashed using a card reader and the **system is running properly** before using this method.
 
-* Power off the MaixCAM, keeping the TF card inserted.
-* Hold down the `user` button, plug in the USB cable to the computer, (or plug in the USB cable first, then hold down the `user` button, press the `reset` button briefly and release it), wait for the disk drive to appear on the computer, and then release the `user` button.
-* Open `Etcher`, select the image file, choose the disk drive, and click `Flash`.
-* Wait for the burning process to complete. If your computer prompts `You need to format the disk in drive G: before you can use it`, **do not** click on format disk! Otherwise, the newly burned system will be formatted again! Close the window, right-click the disk, and select eject TF card.
-* Then press the `reset` button or power it back on, wait for the system to boot. The first boot might be slow, wait until the screen displays content (to be safe, wait about 1 minute), and do not power off during boot-up to prevent file corruption during system initialization (if this happens, reflash the image).
+* For **MaixCAM-Pro**:
+  1. Power off MaixCAM-Pro (for battery versions, long press the power button to shut down), keep the TF card inserted.
+  2. Press and hold the `user` button without releasing, then power on (connect the USB cable to the computer or press the power button on battery versions). Wait for the USB device to appear on the computer, then release the `user` button.
+  3. Open `Etcher`, select the image file, select the USB device, and click `Flash`.
+  4. After flashing, if the computer prompts with `You need to format the disk in drive G: before you can use it`, **do not** format the disk! Close the window, right-click the disk, and select "Eject" to safely remove the TF card.
+  5. Restart the device and wait for the system to boot. The first boot may take a bit longer, so wait about 1 minute. During booting, do not disconnect the power to avoid corrupting any files (if this happens, you can reflash the image).
 
-> If you cannot enter USB upgrade mode, the system files may be corrupted, and you should reflash the TF card using a card reader.
+* For **MaixCAM**:
+  1. Power off MaixCAM and keep the TF card inserted.
+  2. Press and hold the `user` button, connect the USB cable to the computer (or first connect the USB cable, then press and hold the `user` button, quickly press the `reset` button and immediately release `reset`). Wait for the USB device to appear on the computer, then release the `user` button.
+  3. Open `Etcher`, select the image file, select the USB device, and click `Flash`.
+  4. After flashing, if the computer prompts with `You need to format the disk in drive G: before you can use it`, **do not** format the disk! Close the window, right-click the disk, and select "Eject" to safely remove the TF card.
+  5. Press the `reset` button or power the device back on and wait for the system to boot. The first boot may take a bit longer, so wait about 1 minute. During booting, do not disconnect the power to avoid corrupting any files (if this happens, reflash the image).
 
-## Points to Note When Using the System
+> If you're unable to enter USB upgrade mode, the system files might be corrupted. Use a card reader to reflash the TF card.
 
-### Forced Shutdown
+## Important System Usage Notes
 
-Other than the above situations where using the `reset` button, it is **not recommended to press the `reset` button** during normal use. This button forcefully cuts off power. If your system is writing content to the TF card, it could cause system and data damage.
-Similarly, forcibly unplugging the power supply while the system is still running poses the same risk. Try to **shut down the software before unplugging the power supply**.
+### Force Shutdown
 
-For normal use, please **shut down or reboot via software**. Methods:
-* Method One: From the interface, select `Settings` -> `Power` to perform a software shutdown or reboot.
-* Method Two: In the terminal, use the `poweroff` or `reboot` commands to shut down or restart via software.
-* Method Three: Other software calls, such as using `Python` to invoke `import os;os.system("poweroff")` for shutdown or reboot.
+Other than using the `reset` button in special cases mentioned above, **do not press the `reset` button** during normal use, as this button forces a power cut. If the system is writing to the TF card at the time, it may cause system and data corruption. Similarly, forcefully unplugging the power or pressing `reset` is equally harmful. Always try to **shut down the system via software** before disconnecting the power.
 
-### Issues with File Writing and Data Loss
+For normal use, you can perform a **software shutdown or restart** using the following methods:
+* Method 1: From the interface, go to `Settings` -> `Power` for software shutdown or restart.
+* Method 2: Use the terminal command `poweroff` or `reboot` for software shutdown or restart.
+* Method 3: Other software methods, such as using `Python` with the command `import os;os.system("poweroff")` for shutdown or restart.
+* Method 4: For MaixCAM-Pro, long-pressing the power button for 4 seconds will trigger a software shutdown via the `maix` module. Continuing to hold for 8 seconds will trigger a forced power-off shutdown (firmware version >= 4.8.0 supports this).
 
-The system uses a caching mechanism. When your code writes a file, it might only write to memory initially, and the system automatically writes to the disk after some time. If the power is cut during this period, the content will not be written to the disk (TF card), and the next time the system boots, the previously written content will be missing.
+### File Writing and Data Loss
+
+The system uses a caching mechanism, so when your code writes to a file, it might be writing to memory first. The system will automatically write the data to disk after some time. If the power is cut during this time, the data may not be saved to the disk (TF card), and the next time you boot, the data may be missing.
 
 Solutions:
-* Try not to directly cut off power or press the `reset` button; use the software shutdown methods mentioned above.
-* To save critical content, you can manually call an API to force the content to be written to disk. For example, in `Python`, you can use `os.sync()` to tell the system to immediately write all cached files to the disk. For other methods such as writing to a specific file, and other languages, please search for terms
+* Avoid forcefully cutting power or pressing the `reset` button. Use software shutdown as explained above.
+* For important data, manually force the system to write the cached data to the disk. In `Python`, you can use `os.sync()` to tell the system to immediately write all cached files to disk. For other methods or languages, search for keywords like "Linux flush data to disk".
+
 

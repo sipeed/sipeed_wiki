@@ -1,48 +1,57 @@
 ---
-title: MaixCAM Case
+title: MaixCAM / MaixCAM-Pro Case
 ---
 
-## Introduction
+## Overview
 
-There are a few accessories to note when you receive your device:
-* **Lens Cap**: Protects the lens during transport. Please remove it before use, otherwise, the image will appear black.
-* **Screen Protector**: To prevent scratches during transport, there is a thin plastic film on the screen. Please remove it upon arrival, as it can severely affect the viewing quality.
-* **Manual Focus Lens**: The lens supports manual focusing. Simply rotate the lens gently to adjust the focus. If the image is blurry, it may be due to incorrect focusing.
-* **Case**: A 3D-printed case that facilitates handling and installation while enhancing aesthetics.
+When you receive your MaixCAM, there are several accessories to **pay attention to**:
+* **Lens Cap**: Protects the lens during transportation. Please remove it before use; otherwise, the screen will be black.
+* **Screen Protector**: There is a plastic film on the screen to prevent scratches during transport. Please peel it off upon receipt, as it will significantly affect the viewing experience if left on.
+* **Manual Lens Focus**: The lens supports manual focus. Gently rotate the lens to adjust the focus. If the image is blurry, it may be due to incorrect focus.
+* **Case**: A 3D-printed case designed for easy handling and installation, while also adding aesthetic value.
 
-## Disassembly
+## Open Source Model Files
 
-It is strongly recommended to choose the package that includes a TF card, as it comes pre-assembled from the factory and you can skip this step and use it directly.
+* [MaixCAM Case Model](https://makerworld.com/zh/models/440321) (Recommended to use resin with a temperature resistance of 70°C for UV curing printing)
+* [MaixCAM Stand Model](https://makerworld.com/zh/models/463622#profileId-372189)
+* [MaixCAM-Pro Case Model](https://makerworld.com/zh/models/722034)
+* For more, visit [makerworld.com](https://makerworld.com/) (recommended) or [makerworld.com.cn](https://makerworld.com.cn) and search for `MaixCAM`
 
-The device is pre-assembled from the factory, but if you need to replace the TF card or solder pin headers, you can attempt to disassemble it.
+## MaixCAM
 
-Here are some points to note:
-* Ensure the device is powered off before disassembling.
-* There is a thermal pad between the CPU and the case; be careful not to dislodge it during disassembly.
-* Be careful not to damage the camera, touch, and screen ribbon cables (they can easily become loose), and do not break the cables.
-* Pay attention to the orientation of the ribbon cables to avoid inserting them incorrectly.
+### MaixCAM Disassembly
 
-## Replacing the TF Card
+It is strongly recommended to choose the version with the TF card pre-installed, as it is assembled at the factory and can be used directly without further disassembly.
 
-1. **Open the Case:** Gently pry open the clasps on both sides of the device to separate the front and back covers.
+The factory version comes pre-assembled. However, if you need to replace the TF card or solder pin headers, you can attempt to disassemble it.
 
-   ![](../../assets/maixcam/assemble-1.jpg)
+Some points to note:
+* Ensure the device is powered off before disassembly.
+* There is a thermal pad between the CPU and the case. Be careful not to damage it during disassembly.
+* Be cautious not to damage the camera, touch, or display ribbon cables (which can be loose). Do not bend the cables.
+* Pay attention to the direction of the cables; do not insert them incorrectly.
 
-2. **Access the TF Card:** Once the case that holds the screen is lifted, you will see the TF card.
+### Replacing the TF Card in MaixCAM
 
-   ![](../../assets/maixcam/assemble-2.jpg)
+1. Pry open the clips on both sides of the device to separate the front and back covers.
 
-3. **Reassemble the Screen:** Before reattaching the screen, ensure that the screen's ribbon cable is properly connected. If it is misaligned, reconnect the ribbon cable correctly
+![](../../assets/maixcam/assemble-1.jpg)
 
-   ![](../../assets/maixcam/assemble-3.jpg)
+2. Lift the shell holding the display to access the TF card.
 
-## Open Source Case Files
+![](../../assets/maixcam/assemble-2.jpg)
 
-**File Uploaded on MakerWorld:** [Click here to view](https://makerworld.com/zh/models/440321)
+3. Before reinstalling the display, ensure the display ribbon cable is properly connected. If it is misaligned, reconnect it correctly.
 
-**Recommended Material:** It is recommended to use a resin with a heat resistance of 70 degrees Celsius for photopolymerization printing.
+![](../../assets/maixcam/assemble-3.jpg)
 
+## MaixCAM-Pro
 
-## Stand Open Source Files
+For MaixCAM-Pro, disassembly is not recommended unless necessary.
+* First, you will need a hex screwdriver.
+* Unscrew the screws at the back to remove the rear panel.
+* To remove the PCB, carefully lift the display by prying the gaps (be aware of the ribbon cables behind the display to avoid damaging them).
+* You will see screws that hold the PCB in place. Once unscrewed, you can remove the PCB. If it is the battery version, the battery is located behind the display.
 
-For more open source 3D files, please visit [makerworld.com](https://makerworld.com/) and search for `MaixCAM`.
+**Note**: Removing the display will cause the adhesive between the display and the case to lose its stickiness. You will need to reapply adhesive to secure it properly.
+

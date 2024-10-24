@@ -41,11 +41,10 @@ msgstr "/static/home/banner_nanokvm_en.jpg"
 #: home.html:113 home.html:126 home.html:139 home.html:152 home.html:165
 #: home.html:178 home.html:191 home.html:204 licheepi.html:217
 #: licheepi.html:238 licheepi.html:254 licheepi.html:275 licheepi.html:291
-#: licheepi.html:307 maix.html:163 maix.html:180 maix.html:197 maix.html:237
-#: maix.html:254 maix.html:275 maix.html:292 maixsense.html:40
-#: maixsense.html:56 others.html:38 tang.html:167 tang.html:183 tang.html:199
-#: tang.html:215 tang.html:231 tang.html:247 tang.html:263 tang.html:279
-#: tang.html:295
+#: licheepi.html:307 maix.html:180 maix.html:197 maix.html:237 maix.html:254
+#: maix.html:275 maix.html:292 maixsense.html:40 maixsense.html:56
+#: others.html:38 tang.html:167 tang.html:183 tang.html:199 tang.html:215
+#: tang.html:231 tang.html:247 tang.html:263 tang.html:279 tang.html:295
 msgid "文档"
 msgstr "Docs"
 
@@ -290,9 +289,9 @@ msgid "文档和易用性"
 msgstr "Documentation and Usability"
 
 #: maix.html:160
-msgid "RISC-V 1GHz + 1Tops NPU, 4M高清摄像头，2.3寸552x368高清电容触摸屏，完美支持全新 Maix 生态所有软件"
+msgid "RISC-V 1GHz + 1Tops NPU, 4M高清摄像头，多种尺寸高清电容触摸屏，完美支持全新 Maix 生态所有软件"
 msgstr ""
-"RISC-V 1GHz + 1Tops NPU, 4M HD camera, 2.3-inch 552x368 HD capacitive "
+"RISC-V 1GHz + 1Tops NPU, 4M HD camera, various sizes of HD capacitive "
 "touch screen, perfect support for all new Maix ecosystem software"
 
 #: maix.html:168 tang.html:300
