@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+
+<html lang="zh"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="在线训练, 模型平台, 单片机运行模型, 云端训练, 模型库, model zoo">
+    
+    
+    <meta name="description" content="">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+        
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/prism.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?9cb07365544a53067c56c346c838181a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119047820-5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-119047820-5');
+    </script>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/js/thumbs_up/style.css" type="text/css"/>
+        
+    
+    
+    <title>新版 MaixHub 正式上线啦！ - Sipeed Wiki</title>
+    
+    <script type="text/javascript">js_vars = {"teedoc-plugin-ad-hint": {"type": "hint", "label": "NEW", "content": "全新 Maix 系列产品 <a href='https://wiki.sipeed.com/maixcam'>MaixCAM</a> 已上线, 全新 <a href='https://wiki.sipeed.com/maixpy/'>MaixPy</a> 功能更丰富，性能更强大，软件更易用，文档更全面！", "show_times": 2, "show_after_s": 432000, "date": "2022-06-01 14:00", "color": "#a0421d", "link_color": "#e53935", "link_bg_color": "#e6ae5c", "bg_color": "#ffcf89", "color_hover": "white", "bg_color_hover": "#f57c00", "close_color": "#eab971"}, "teedoc-plugin-thumbs-up": {"label_up": "有帮助", "label_down": "待改进", "icon": "/static/images/thumbs_up/up.svg", "icon_clicked": "/static/images/thumbs_up/upped.svg", "url": "https://thumbs-up.sipeed.com", "show_up_count": true, "show_down_count": false, "msg_already_voted": "您已经投过票了", "msg_thanks": "感谢您的反馈", "msg_down_prompt": "感谢反馈，请告诉我们可以改进什么地方?（最少 10 个字）", "msg_down_prompt_error": "消息最少需要 10 个字， 最多 256 个字", "msg_error": "请求服务器出现错误!"}}</script>
+    <script type="text/javascript">metadata = {"tags": ["MaixHub", "模型训练"], "date": "2022-09-04", "update": [], "ts": 1662249600, "author": "", "brief": "", "cover": "/news/maixhub/images/deploy.gif"}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/">
+                
+                    <img class="site_logo" src="/static/image/logo.svg" alt="sipeed wiki logo">
+                
+                
+                    <h2>wiki</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class=""><a  href="/">产品</a></li>
+<li class="sub_items "><a >开源软件</a><ul><li class=""><a  href="/maixpy/">MaixPy</a></li>
+<li class=""><a  href="/soft/maixpy/zh/index.html">MaixPy_v1</a></li>
+<li class=""><a  href="/soft/Lichee/zh/index.html">Lichee</a></li>
+<li class=""><a  href="/ai/zh/index.html">AI 指南</a></li>
+</ul>
+</li>
+<li class=""><a target="_blank" href="https://maixhub.com">MaixHub</a></li>
+<li class="active"><a  href="/news/">动态</a></li>
+<li class=""><a  href="/faq.html">FAQ 汇总</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class=""><a  href="/store.html"><img src='/static/image/shop.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+<li class=""><a target="_blank" href="https://github.com/sipeed"><img src='/static/image/github.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">输入关键词，多关键词空格隔开</span>
+                                <span id="search_loading_hint">正在加载，请稍候。。。</span>
+                                <span id="search_download_err_hint">下载文件失败，请刷新重试或检查网络</span>
+                                <span id="search_other_docs_result_hint">来自其它文档的结果</span>
+                                <span id="search_curr_doc_result_hint">当前文档搜索结果</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="">
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>新版 MaixHub 正式上线啦！</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                                <li>MaixHub</li>
+                            
+                                <li>模型训练</li>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                                <span class="article_date" title="最后修改日期： 2022-09-04">
+                                    2022-09-04
+                                </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/sipeed/sipeed_wiki/blob/main/news/maixhub/new_maixhub.md" target="_blank">
+                                    <span id='editPage'>编辑本页</span>
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <span id="blog_start"></span><div class="blog_cover"><img src="/news/maixhub/images/deploy.gif" alt="新版 MaixHub 正式上线啦！ cover"></div><p>先看看效果， 一个检测小鸭子（可同时检测多个相同或者不同目标），另外一个是表情分类模型：</p>
+<p><img src="./images/deploy.gif" alt="deploy" /></p>
+<p><img src="./images/face_emotion.gif" alt="face_emotion" /></p>
+<!-- more -->
+<blockquote>
+<p>原文： <a href="https://neucrack.com/p/444"  target="_blank">https://neucrack.com/p/444</a> , 持续更新<br />
+视频： <a href="https://www.bilibili.com/video/BV1Xe4y1D7ne?spm_id_from=333.337.search-card.all.click&amp;vd_source=6c974e13f53439d17d6a092a499df304"  target="_blank">基于K210的情绪识别与可视化</a></p>
+</blockquote>
+<h2 id="%E6%96%B0%E7%89%88-%3Ca-href%3D%22https%3A//maixhub.com%22--target%3D%22_blank%22%3EMaixHub%3C/a%3E-%E7%AE%80%E4%BB%8B">新版 <a href="https://maixhub.com"  target="_blank">MaixHub</a> 简介</h2>
+<p><a href="https://maixhub.com"  target="_blank">MaixHub</a> 推出了新版！支持了更多设备，包括 K210, V831, NCNN, TFjs, TinyMaix(所有单片机上运行)！更新了一大堆功能：</p>
+<ul>
+<li>多种上传数据集方式：</li>
+</ul>
+<p><img src="./images/1.jpg" alt="上传数据集" /></p>
+<ul>
+<li>本地文件上传</li>
+<li>设备直接拍照后一键上传</li>
+</ul>
+<p><img src="./images/%E9%87%87%E9%9B%86.jpg" alt="采集" /></p>
+<ul>
+<li>导入本地标注</li>
+<li>支持在线标注，简单快速好用，以及支持视频自动标注哦<br />
+<img src="./images/%E5%9C%A8%E7%BA%BF%E6%A0%87%E6%B3%A8.jpg" alt="在线标注" /></li>
+<li>多种训练参数自定义支持</li>
+</ul>
+<p><img src="./images/%E5%8F%82%E6%95%B0.jpg" alt="参数" /></p>
+<ul>
+<li>多种平台（硬件平台）<ul>
+<li>手机、电脑</li>
+</ul>
+<img src="./images/%E6%B5%8F%E8%A7%88%E5%99%A8.jpg" alt="浏览器" /><ul>
+<li>带硬件NPU加速的高性价比板子，比如<a href="https://wiki.sipeed.com/hardware/zh/maixII/M2/resources.html"  target="_blank">Maix-II-Dock</a></li>
+</ul>
+<img src="./images/m1m2.jpg" alt="m1m2" /><ul>
+<li>通用单片机，更是推出了超轻量的单片上运行的模型推理库<a href="https://github.com/sipeed/TinyMaix"  target="_blank">TinyMaix</a>，可以移植到任意单片机，甚至能在 2KiB RAM的arduino上跑</li>
+</ul>
+<img src="./images/mcu.jpg" alt="mcu" /></li>
+<li>训练过程、日志、图标展示，以及验证结果展示，方便分析和优化模型</li>
+</ul>
+<p><img src="./images/maixhub.jpg" alt="MaixHub" /></p>
+<ul>
+<li>一键部署到设备</li>
+</ul>
+<p><img src="./images/%E9%83%A8%E7%BD%B2.jpg" alt="部署" /></p>
+<ul>
+<li>一键分享到模型库（模型平台/model zoo），同时模型库也支持手动上传分享更厉害好玩的模型哦</li>
+</ul>
+<p><img src="./images/%E6%A8%A1%E5%9E%8B%E5%BA%93.jpg" alt="模型库" /></p>
+<h2 id="%E8%AE%AD%E7%BB%83%E4%B8%80%E4%B8%AA%E6%A8%A1%E5%9E%8B%E8%AF%95%E8%AF%95">训练一个模型试试</h2>
+<p>注意 MaixHub 在不停更新，可能有些地方在未来会有些许变化，原理变化不大，举一反三即可</p>
+<ul>
+<li>创建训练项目，选择检测任务，检测任务能框出物体的位置，后面需要我们标注数据，分类任务则不需要标注框，用来区分多种物体</li>
+</ul>
+<p><img src="./images/%E5%88%9B%E5%BB%BA%E8%AE%AD%E7%BB%83%E9%A1%B9%E7%9B%AE.jpg" alt="创建训练项目" /><br />
+<img src="./images/%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE.jpg" alt="创建项目" /></p>
+<ul>
+<li>创建数据集</li>
+</ul>
+<p><img src="./images/%E6%95%B0%E6%8D%AE%E9%9B%86.jpg" alt="数据集" /></p>
+<ul>
+<li>采集数据，可以从本地上传，也可以用手机在线拍照采集，也可以用设备拍照采集（比如 Maix-II-DocK）</li>
+</ul>
+<p><img src="./images/%E9%87%87%E9%9B%86%E6%95%B0%E6%8D%AE.jpg" alt="采集数据" /><br />
+<img src="./images/%E9%87%87%E9%9B%86.jpg" alt="采集" /></p>
+<ul>
+<li>标注数据，就是将要检测的物体框起来，并且给一个标签，比如这里只有一个duck；一张图里面可以有多个框，也可以只有一个框，最后训练出来的模型都能识别同一个画面的多个物体，数据量尽量多一点，覆盖的场景全面一点，这样实际到板子上跑起来准确率更高，最好使用什么板子跑就用什么板子采集数据，准确率会高些</li>
+</ul>
+<p><img src="./images/collect.gif" alt="collect" /><br />
+这里有训练集，验证集，测试集的概念，训练集就是拿来参与训练的数据，验证集不参与训练，但是每隔一段训练时间后会将模型在验证集上面跑一次，得到 <code>val_acc</code>也就是验证集精确度，即这个模型在这个从来没参与过训练的数据上正确率如何，一般用这个指标来评判模型的好坏；测试集则是完全没在训练过程中参与的数据，比如部署到板子上后实际识别的物体就算是测试集。所以为了让实际在板子上跑的时候准确度高，尽量将验证集的数据和实际应用的场景（测试集）相近，这样训练时在验证集上的准确率（val_acc）才能更精确地反应在测试集上的效果。</p>
+<blockquote>
+<p>比如你实际识别的是哈士奇狗狗，训练集中放了各种狗狗图，验证集却放了中华田园犬，就算 val_acc 为 1，即全部识别正确，实际拿去识别哈士奇狗狗的时候可能完全无法识别</p>
+</blockquote>
+<ul>
+<li>创建训练任务，一个项目里面可以多次创建任务，调整不同的参数。</li>
+</ul>
+<p>注意要根据自己的设备选择对应的平台，比如 K210 选择 nncase， 普通没有 NPU 加速的单片机选择 TinyMaix，手机或者浏览器跑则选择 tfjs。分辨率使用默认的 224x224 效果最好，因为迁移训练就是基于一个已经训练过的模型微调训练模型，这个模型默认都是 224x224 下训练的，所以理论上效果最好。<br />
+<img src="./images/%E5%8F%82%E6%95%B0.jpg" alt="参数" /><br />
+另外，选择模型主干网络，网络越大效果越好（精确度越高），但是占用的内存就越大，以及运行消耗的时间就越久，也就是对算力的要求越大，根据你的数据集复杂度以及设备性能选择合适的主干网络（backbone）。<br />
+还有更多参数，可以看页面对应的文档说明即可，也可以到首页的交流群交流。</p>
+<ul>
+<li>启动训练，训练任务多的时候可能需要排队，耐心等待就好了，如果加急可以联系官方或者管理员钞能力解决哈哈哈。</li>
+</ul>
+<p>训练过程可以看到 <code>val_acc</code>， 即损失和精确度曲线，会慢慢上升，代表在验证集训练完成后可以看到<br />
+<img src="./images/%E8%AE%AD%E7%BB%83%E7%BB%93%E6%9E%9C.jpg" alt="训练结果" /><br />
+如前面所说，这里最重要的是 <code>val_acc</code>，即在验证集上的准确度，越接近 <code>1</code>越好（实际上这里 val_acc 是 MAP，MAP相关含义可自行搜索）。以及展示了部分识别正确的和识别错误（或者未识别到）的样例。</p>
+<ul>
+<li>一键部署</li>
+</ul>
+<p>根据不同设备支持的方式可能不同，可能是直接下载文件（具体使用方法看对应说明），也有（比如 Maix-II-Dock）支持一键部署，在设备上选择模型部署，扫描部署页面的二维码即可自动部署，然后就可以进行识别了。<br />
+需要注意的是一键部署需要设备已经联接互联网，设备选择联网功能，到 <a href="https://maixhub.com/wifi"  target="_blank">maixhub.com/wifi</a> 生成填写 WiFi 信息然后设备扫码连接 WiFi， 注意不是局域网，需要能访问互联网。<br />
+<img src="./images/deploy.gif" alt="deploy" /></p>
+<ul>
+<li>分享模型到模型库</li>
+</ul>
+<p>训练的模型可以一键分享到模型库，如果你训练的模型实际在板子上运行的识别效果不错，欢迎点击左边导航栏分享模型分享到模型库，可以多写点图文介绍，推荐在 B 站上传一个视频后嵌入到模型描述里面~</p>
+<p>更多功能持续在更新~ 持续关注哦~ 也欢迎来上传分享你自己的模型！</p>
+<h2 id="%E8%AE%AD%E7%BB%83%E4%BC%98%E5%8C%96%E5%BB%BA%E8%AE%AE">训练优化建议</h2>
+<ul>
+<li>尽量多采集实际使用场景的图片，覆盖更多使用场景有利于提高最终识别率。</li>
+<li>图片数量尽量不要太小，虽然平台限制最小数量为 20 张图才可以训练， 但要打到比较好的效果，显然一个分类 200 张都不算多，不要一直在 30 张训练图片上纠结为什么训练效果不好。。。</li>
+<li>默认分辨率但是 224x224， 是因为预训练模型是在 224x224 下训练的，当然也有其它分辨率的，比如 128x128，具体发现不支持的分辨率预训练模型，在训练日志中会打印警告信息。</li>
+<li>为了让验证集的精确度的可信度更高（也就是在实际开发板上跑的精确度更接近训练时在验证集上的精确度），验证集的数据和实际应用的场景数据一致。比如训练集是在网上找了很多图片，那这些图片可能和实际开发板的摄像头拍出来的图有差距，可以往验证集上传一些实际设备拍的图来验证训练的模型效果。</li>
+</ul>
+<p>这样我们就能在训练的时候根据验证集精确度（val_acc）来判断模型训练效果如何了，如果发现验证集精确度很低，那么就可以考虑增加训练集复杂度和数量，或者训练集用设备拍摄来训练。</p>
+<ul>
+<li>对于检测训练项目，如果检测训练的物体很准，但是容易误识别到其它物体，可以在数据里面拍点其它的物体当背景；或者拍摄一些没有目标的图片，不添加任何标注也可以，然后在训练的时候勾选“允许负样本”来使能没有标注的图片。</li>
+<li>检测任务可以同时检测到多个目标，如果你觉得识别类别不准，也有另外一种方式，先只检测模型检测到物体（一个类别），然后裁切出图片中的目标物体上传到分类任务，用分类任务来分辨类别。不过这样就要跑两个模型，需要写代码裁切图片（在板子跑就好了），以及需要考虑内存是否足够</li>
+</ul>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                    </div>
+                    <div id="next">
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>相关链接</a><ul><li><a target="_blank" href="https://www.sipeed.com">Sipeed 官网</a></li>
+<li><a target="_blank" href="https://maixhub.com/">MaixHub</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">Sipeed 淘宝</a></li>
+<li><a  href="/sitemap.xml">网站地图</a></li>
+<li><a target="_blank" href="https://github.com/teedoc/teedoc">网站使用 teedoc 生成</a></li>
+</ul>
+</li>
+<li><a>源码</a><ul><li><a target="_blank" href="https://github.com/sipeed/sipeed_wiki">Wiki 源码</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">开源项目</a></li>
+</ul>
+</li>
+<li><a>关注我们</a><ul><li><a target="_blank" href="https://twitter.com/SipeedIO">twitter</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">淘宝</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">github</a></li>
+<li><a><a>微信公众号</a><img src='/static/image/wechat.png'></a>
+</li>
+</ul>
+</li>
+<li><a>联系我们</a><ul><li><a>电话: +86 0755-27808509</a>
+</li>
+<li><a>商业支持: support@sipeed.com</a>
+</li>
+<li><a>地址: 深圳市宝安区新湖路4008号蘅芳科技办公大厦A座-2101C</a>
+</li>
+<li><a  href="/join_us.html">加入我们</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://www.sipeed.com">©2018-2023 深圳矽速科技有限公司</a></li>
+<li><a target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index">粤ICP备19015433号</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/js/prism.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <link rel="stylesheet" href="/static/js/add_hint/style.css" type="text/css"/>
+    
+        <script src="/static/js/add_hint/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+        <script src="/static/js/thumbs_up/main.js"></script>
+    
+</body>
+
+</html>
