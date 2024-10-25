@@ -80,7 +80,7 @@ MaixCAM 是为更好地落地 AI 视觉、听觉和 AIOT 应用而设计的一�
 
 ### MaixCAM 专属资料（Sipeed 提供）
 
-* [MaixCAM-Pro 官方文档](https://wiki.sipeed.com/maixcam)（本文档）
+* [MaixCAM-Pro 官方文档](https://wiki.sipeed.com/maixcam-pro)（本文档）
 * [MaixPy 官方文档](https://wiki.sipeed.com/maixpy/)（Python SDK）（[MaixPy 源码](https://github.com/sipeed/MaixPy)）
 * [MaixCDK](https://github.com/sipeed/MaixCDK)（C/C++ SDK）（[MaixCDK 源码](https://github.com/sipeed/MaixCDK)）
 * [系统源码](https://github.com/sipeed/LicheeRV-Nano-Build)

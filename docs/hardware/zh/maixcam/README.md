@@ -36,6 +36,9 @@ MaixCAM 是为更好地落地 AI 视觉、听觉和 AIOT 应用而设计的一�
 
 ## MaixCAM 硬件简介
 
+以下为 MaixCAM 主要硬件参数，更详细的参数请看后文芯片数据手册。
+此外还有另外一款 [MaixCAM-Pro](./maixcam_pro.md)
+
 | 组件 | 描述 |
 | --- | --- |
 | CPU 大核 | 1GHz RISC-V C906 处理器（另外还有一个 1GHz ARM A53 核心可二选一使用），跑 Linux |
@@ -75,7 +78,7 @@ MaixCAM 是为更好地落地 AI 视觉、听觉和 AIOT 应用而设计的一�
 
 ### MaixCAM 专属资料（Sipeed 提供）
 
-* [MaixCAM-Pro 官方文档](https://wiki.sipeed.com/maixcam)（本文档）
+* [MaixCAM 官方文档](https://wiki.sipeed.com/maixcam)（本文档）
 * [MaixPy 官方文档](https://wiki.sipeed.com/maixpy/)（Python SDK）（[MaixPy 源码](https://github.com/sipeed/MaixPy)）
 * [MaixCDK](https://github.com/sipeed/MaixCDK)（C/C++ SDK）（[MaixCDK 源码](https://github.com/sipeed/MaixCDK)）
 * [系统源码](https://github.com/sipeed/LicheeRV-Nano-Build)

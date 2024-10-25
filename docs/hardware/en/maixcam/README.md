@@ -31,6 +31,9 @@ MaixCAM is a hardware product designed for the rapid deployment of AI vision, au
 
 ## MaixCAM Hardware Overview
 
+MaixCAM hardware info, more info please refer to CPU's datasheet.
+And there is another model called [MaixCAM-Pro](./maixcam_pro.md).
+
 | Component          | Description |
 |--------------------|-------------|
 | CPU Big Core       | 1GHz RISC-V C906 (plus an optional 1GHz ARM A53 for Linux) |
@@ -68,7 +71,7 @@ MaixCAM offers more than just hardware. It comes with a complete software ecosys
 ## MaixCAM Documentation
 
 ### Official Resources (by Sipeed)
-* [MaixCAM-Pro Documentation](https://wiki.sipeed.com/maixcam)
+* [MaixCAM Documentation](https://wiki.sipeed.com/maixcam)(This documentation)
 * [MaixPy Documentation](https://wiki.sipeed.com/maixpy/) (Python SDK) ([Source Code](https://github.com/sipeed/MaixPy))
 * [MaixCDK Documentation](https://github.com/sipeed/MaixCDK) (C/C++ SDK) ([Source Code](https://github.com/sipeed/MaixCDK))
 * [System Source Code](https://github.com/sipeed/LicheeRV-Nano-Build)

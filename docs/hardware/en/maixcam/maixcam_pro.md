@@ -79,7 +79,7 @@ We don't just provide hardware; MaixCAM comes with a complete software ecosystem
 
 ### MaixCAM Exclusive Resources (Provided by Sipeed)
 
-* [MaixCAM-Pro Official Documentation](https://wiki.sipeed.com/maixcam) (This documentation)
+* [MaixCAM-Pro Official Documentation](https://wiki.sipeed.com/maixcam-pro) (This documentation)
 * [MaixPy Official Documentation](https://wiki.sipeed.com/maixpy/) (Python SDK) ([MaixPy Source Code](https://github.com/sipeed/MaixPy))
 * [MaixCDK](https://github.com/sipeed/MaixCDK) (C/C++ SDK) ([MaixCDK Source Code](https://github.com/sipeed/MaixCDK))
 * [System Source Code](https://github.com/sipeed/LicheeRV-Nano-Build)
