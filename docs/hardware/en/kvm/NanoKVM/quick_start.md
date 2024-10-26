@@ -88,7 +88,7 @@ For detailed instructions, please refer to [Flashing Image](https://wiki.sipeed.
 
 ### Update Application
 
-New applications often bring more features or fix important bugs. It is recommended to update NanoKVM applications to the latest version. For detailed instructions, please refer to [Updating Application](https://wiki.sipeed.com/hardware/zh/kvm/NanoKVM/system/updating.html).
+New applications often bring more features or fix important bugs. It is recommended to update NanoKVM applications to the latest version. For detailed instructions, please refer to [Updating Application](https://wiki.sipeed.com/hardware/en/kvm/NanoKVM/system/updating.html).
 
 ## Basic Operations
 
@@ -98,11 +98,11 @@ The Full version of NanoKVM has an OLED display that shows the IP address on the
 
 ![](./../../../assets/NanoKVM/unbox/oled.jpg)
 
-Lite version users, please refer to [Obtaining IP](https://wiki.sipeed.com/hardware/zh/kvm/NanoKVM/system/updating.html#%E8%8E%B7%E5%8F%96-IP).
+Lite version users, please refer to [Obtaining IP](https://wiki.sipeed.com/hardware/en/kvm/NanoKVM/system/updating.html#%E8%8E%B7%E5%8F%96-IP).
 
 ### Viewing Remote Desktop
 
-Open a browser and enter the obtained IP address to access the login page. The default username and password are admin/admin. After logging in, it is recommended to **check for updates** (Settings -> Check for Updates). Detailed steps can be found in [Updating Application](https://wiki.sipeed.com/hardware/zh/kvm/NanoKVM/system/updating.html).
+Open a browser and enter the obtained IP address to access the login page. The default username and password are admin/admin. After logging in, it is recommended to **check for updates** (Settings -> Check for Updates). Detailed steps can be found in [Updating Application](https://wiki.sipeed.com/hardware/en/kvm/NanoKVM/system/updating.html).
 
 For Lite version users, or Full version users who re-flashed the card and see no remote screen on the login page, please upgrade the application and refresh the webpage to start using.
 
@@ -122,4 +122,4 @@ The Full version package includes NanoKVM-A/B boards for controlling and viewing
 + The PWR LED (green) indicates the power status of the host.
 + The POWER button functions as the host's power button, controlling the power on/off.
 + The RESET button acts as the host's reset button, forcing a restart when pressed while powered on.
-+ Power status can also be viewed and controlled via the web interface. Refer to the [User Guide](https://wiki.sipeed.com/hardware/zh/kvm/NanoKVM/user_guide.html) for details.
++ Power status can also be viewed and controlled via the web interface. Refer to the [User Guide](https://wiki.sipeed.com/hardware/en/kvm/NanoKVM/user_guide.html) for details.
