@@ -106,6 +106,8 @@ Open a browser and enter the obtained IP address to access the login page. The d
 
 For Lite version users, or Full version users who re-flashed the card and see no remote screen on the login page, please upgrade the application and refresh the webpage to start using.
 
+Note: It is recommended to use Chrome browser, as other browsers may experience compatibility issues such as inability to display images or operate keyboard and mouse.
+
 ![](./../../../assets/NanoKVM/unbox/frist_update.png)
 
 ### Changing Account Password

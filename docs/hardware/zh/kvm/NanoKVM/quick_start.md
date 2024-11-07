@@ -105,6 +105,8 @@ Lite版用户请参考[获取IP](https://wiki.sipeed.com/hardware/zh/kvm/NanoKVM
 
 Lite版用户，或Full用户重新烧卡登录后页面上无远程画面，请先升级应用后刷新网页，即可开始使用
 
+注: 建议使用Chrome浏览器，其他浏览器可能出现无法显示画面或无法操作键鼠等兼容性问题
+
 ![](./../../../assets/NanoKVM/unbox/frist_update.png)
 
 ### 修改账号密码
