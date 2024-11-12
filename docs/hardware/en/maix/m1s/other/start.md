@@ -947,7 +947,7 @@ If you want to use this u-disk again, reburn the default firmware into bl808 via
 
 U-disk burn is based on firmware, we need a way to burn this firmware into M1s Dock when it's produced.
 
-So we use serial burn to flash the defaule firmware into M1s Dock.
+So we use serial burn to flash the default firmware into M1s Dock.
 
 ### How to erase bl808 flash
 
@@ -955,14 +955,14 @@ To erase the flash. we need [Bouffalo Lab Dev Cube](https://dev.bouffalolab.com/
 
 ![chip_selection](./../../../../zh/maix/m1s/other/assets/start/chip_selection.png)
 
-`Show advnaced Page` first.
+`Show advanced Page` first.
 
 ![erase_advanede_mode](./../../../../zh/maix/m1s/other/assets/start/erase_advanede_mode.jpg)
 
 Do following steps:
 - Choose Flash interface
-- Make sure you have made M1s Dock in burning status(Hold BOOT ket and RST key, then relase RST key first, then release BOOT key.)
-- Selest the bigger COM port
+- Make sure you have made M1s Dock in burning status(Hold BOOT key and RST key, then release RST key first, then release BOOT key.)
+- Select the bigger COM port
 - Tick Whole Chip
 - Click Erase Flash
 
@@ -974,7 +974,7 @@ Then your M1s Dock is being erased, there is no progress bar, but `Success` show
 
 ### BFLB IMG LOAD SHAKEHAND FAIL
 
-This means M1s Dock is not in burning mode. Hold BOOT ket and RST key, then relase RST key first, then release BOOT key to make it into burning mode.
+This means M1s Dock is not in burning mode. Hold BOOT key and RST key, then release RST key first, then release BOOT key to make it into burning mode.
 
 ![uart_burn_bl808_shakehand_fail](./../../../../zh/maix/m1s/other/assets/start/uart_burn_bl808_shakehand_fail.jpg)
 
@@ -1014,7 +1014,7 @@ In the burning software, we need to tick and choose `partition table`, `boot2`, 
 
 2. Failed compiling
 
-When compiling your firmware, make sure your command is `./build.sh demo_name`, like  `./build.sh hello_world`, not `./build.sh hello_world/` (pay atention to the end symbol `/`)
+When compiling your firmware, make sure your command is `./build.sh demo_name`, like  `./build.sh hello_world`, not `./build.sh hello_world/` (pay attention to the end symbol `/`)
 
 ### Old firmware test
 
@@ -1055,7 +1055,7 @@ After finishing burning, repower this board to use the new firmware.
 
 Make sure you hold BOOT key, then power up this board via UART port on M1s Dock.
 
-Windows user needs check whether there is a `Bouffalo CDC` device.
+Windows user needs to check whether there is a `Bouffalo CDC` device.
 
 If there is an error on this CDC device, search `Windows7 CDC` on the internet and find the answer.
 
