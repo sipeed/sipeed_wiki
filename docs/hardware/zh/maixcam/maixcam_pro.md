@@ -73,7 +73,7 @@ MaixCAM 是为更好地落地 AI 视觉、听觉和 AIOT 应用而设计的一�
 | [MaixHub](https://maixhub.com) | 在线 AI 模型训练平台，无需 AI 知识和昂贵的训练设备，一键训练模型，一键部署到 MaixCAM | ![MaixVision](../../assets/maixcam/maixhub.jpg) |
 | [MaixCDK](https://github.com/sipeed/MaixCDK) | MaixPy 的 C++版本，熟悉 C/C++ 的开发者立刻上手 | 请看[MaixCDK 主页](https://github.com/sipeed/MaixCDK) |
 | [应用商城](https://maixhub.com/app) | 提供各种应用和工具，无需开发直接下载使用，开发者也可以上传分享应用 | 请看 [MaixHub 应用商城](https://maixhub.com/app) |
-| [分享广场](https://maixhub.com/share) | 开发者分享经验和项目 | 请看 [MaixHub 分像广场](https://maixhub.com/share) |
+| [分享广场](https://maixhub.com/share) | 开发者分享经验和项目 | 请看 [MaixHub 分享广场](https://maixhub.com/share) |
 
 
 ## 资料汇总
