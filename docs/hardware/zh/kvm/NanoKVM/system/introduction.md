@@ -36,6 +36,6 @@ Full 版 NanoKVM 上包含 KVM-A/B 板，早期内测版和正式版存在硬件
 
 NanoKVM 镜像基于 [LicheeRV Nano SDK](https://github.com/sipeed/LicheeRV-Nano-Build) ，使用 Buildroot 构建
 
-镜像修改 Todo
+## 镜像修改 
 
-## PiKVM 即将支持，敬请期待
+Todo
