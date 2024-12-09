@@ -22,6 +22,10 @@ keywords: NanoKVM, Remote desktop, Lichee, PiKVM, RISCV, tool
   2. 输入指令`rm /etc/kvm/server.yaml`
   3. 执行 `reboot` 重启系统
 
+### HID键鼠不工作
+  1. 使用网页中 "重置HID" 功能
+  2. 检查USB接口是否稳定连接, 可查看 OLED 上 HID 图标是否亮起, 或在网页终端使用 `cat /sys/class/udc/4340000.usb/state`, 如果显示未连接, 则认为 USB 线缆接触不良, 请更换 USB 线缆后再试
+
 ### BIOS 不识别HID键鼠
   + 部分主板BIOS要求HID键鼠设备带有BIOS标识,NanoKVM可在/boot下创建BIOS来启用该功能,
   1. 执行`touch /boot/BIOS && restart`
@@ -51,7 +55,7 @@ keywords: NanoKVM, Remote desktop, Lichee, PiKVM, RISCV, tool
         2. 执行: `python update-nanokvm.py`
         3. 等待更新完成
 
-### 若上述方法不能解决异常，请在论坛,GitHub或QQ群提出您的问题，我们会耐心解答
+### 若上述方法不能解决异常，请在论坛,GitHub或QQ群说明您购买的型号和遇到的问题，我们会耐心解答
 
 ## 反馈方式
 

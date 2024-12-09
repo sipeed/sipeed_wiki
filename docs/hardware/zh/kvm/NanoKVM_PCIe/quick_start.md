@@ -28,42 +28,71 @@ NanoKVM-PCIe 包装内包含主机, 半高 PCIe 挡板, 两条 USBA-C线缆, 一
 
 ![](./../../../assets/NanoKVM/unbox/PCIe-Interface2.png)
 
-机箱内部接口:
-
-![](./../../../assets/NanoKVM/unbox/PCIe-Pin.jpg)
-
 
 ## 供电
 
-+ NanoKVM-PCIe 有多种供电选择: USB HID直接供电, USB PWR IN辅助供电, PCIe 插槽取电, PoE 供电(选配) 请任选一种即可, 同时存在多路供电不会干扰 NanoKVM-PCIe 的运行
++ NanoKVM-PCIe 有多种供电选择: USB HID直接供电, USB PWR IN辅助供电, PCIe 插槽取电, PoE 供电(选配) 请任选一种即可, 同时存在多路供电不会干扰 NanoKVM-PCIe 的运行,请至少使用一路供电
 
-+ 如果需要USB HID直接供电,则需要在BIOS中设置主板关机 USB 常供电，否则会影响远程开机功能
+注: 如果需要USB HID直接供电,则需要在BIOS中设置主板关机 USB 常供电，否则会影响远程开机功能
 
-+ NanoKVM-PCIe USB-PWR-IN CC 接口下拉5.1K电阻，可使用正规 PD 充电头供电。部分劣质PD电源存在烧坏 NanoKVM-PCIe 的风险。
+注:  NanoKVM-PCIe USB-PWR-IN CC 接口下拉5.1K电阻，可使用正规 PD 充电头供电。部分劣质PD电源存在烧坏 NanoKVM-PCIe 的风险。
 
 ## 接线
 
-+ NanoKVM-PCIe 在接线上与 Cube 类似, 请在主机关机且断电的情况下安装 NanoKVM-PCIe
+1. NanoKVM-PCIe 在接线上与 Cube 类似, 请在主机关机且断电的情况下安装 NanoKVM-PCIe, 测试功能全部正常后再装入机箱
 
-+ 使用一条 USB C to A 数据线连接远程主机和 NanoKVM 的 PC USB 接口（位于 HDMI 接口下方）
+2. 使用一条 USB C to A 数据线连接远程主机和 NanoKVM 的 USB-HID 接口（位于 HDMI 接口下方）
 
-+ 使用附赠的 HDMI 线缆连接远程主机和 NanoKVM 的 HDMI 接口
+也可以参照下图方式, 直接连接机箱内部的九针USB2.0
 
-  ![](./../../../assets/NanoKVM/unbox/hdmi.png)
+![](./../../../assets/NanoKVM/unbox/PCIe-USB.jpg)
 
-+ 使用网线连接 路由器/交换机 与 NanoKVM
+连接时务必参照上方示意图和下面的 NanoKVM-PCIe 内部接口示意图, 上电前请反复检查, 接错可能会有烧坏 NanoKVM 的风险!
+
+![](./../../../assets/NanoKVM/unbox/PCIe-Pin.jpg)
+
+3. 使用附赠的 HDMI 线缆连接远程主机和 NanoKVM 的 HDMI 接口
+
+4. 使用网线连接 路由器/交换机 与 NanoKVM, 如果您在24/12/07后下单的 WiFi 版 NanoKVM-PCIe, 此步骤可以省略, 参照WiFi配网环节使用 WiFi 连入.
+
+5. ATX电源控制: 主机电源远程控制的原理是模拟开关按下操作,并读取LED状态同步到网页, 为此, 需要将主板上原本连接机箱开机按键的9针接口断开,接入 NanoKVM-PCIe 对应接口, 同时为了机箱按钮仍可操控电源, 需要将机箱上的电源排线也连接到 NanoKCM-PCIe上
+
+![](./../../../assets/NanoKVM/unbox/PCIe-ATX.jpg)
+
+接线时,请务必参照上方示意图和 NanoKVM-PCIe 内部接口示意图
+
+![](./../../../assets/NanoKVM/unbox/PCIe-Pin.jpg)
+
+## WiFi 配网
+
++ 此步骤仅适用于购买了带 WiFi 版本的 NanoKVM-PCIe, 其他版本会在 WiFi 图标位置显示 "--"
+
++ 若您不便连接网线,NanoKVM-PCIe 提供了 AP 配网功能, 用手机连接 NanoKVM 创建的 AP -> 进入网页配置
+  具体操作流程如下:
+  1. 上电开机,等待出现主界面UI,当前 WiFi 状态没有亮起, 无 WiFi IP
+    ![](./../../../assets/NanoKVM/unbox/wifi0.jpg)
+  2. 用包装内附赠的小螺丝刀长按 PCIe 面板上的 BOOT 小孔按键 2s以上
+    ![](./../../../assets/NanoKVM/unbox/wifi1.jpg)
+  3. 等待出现 WiFi AP 二维码时, 扫码连接 AP
+    ![](./../../../assets/NanoKVM/unbox/wifi2.jpg)
+    ![](./../../../assets/NanoKVM/unbox/wifi3.jpg)
+  4. 检测到手机连接成功后, OLED上将出现 Web 二维码, 扫码自动跳转到配置页面
+    ![](./../../../assets/NanoKVM/unbox/wifi5.jpg)
+    ![](./../../../assets/NanoKVM/unbox/wifi6.jpg)
+  5. 输入 NanoKVM-PCIe 要连接的WiFi 帐号(SSID) 密码(Password), 点击OK, 即可完成配网
+    ![](./../../../assets/NanoKVM/unbox/wifi8.jpg)
+    ![](./../../../assets/NanoKVM/unbox/wifi9.jpg)
+  注: 
+  + 若无法通过二维码连接AP, 可短按 BOOT 按键, OLED上将出现 AP SSID 和 PASS, 可使用手机系统设置连接
+    ![](./../../../assets/NanoKVM/unbox/wifi4.jpg)
+  + 若无法通过二维码打开网页, 可短按 BOOT 案件, OLED上将出现 WiFI 配置地址, 手机浏览器输入地址后配置
+    ![](./../../../assets/NanoKVM/unbox/wifi7.jpg)
+  + 若无法打开配置网页,请关闭移动数据后再试
+  + 如果 WiFi 帐号或密码设置错误, OLED上会回到步骤3, 请重新连接AP陪网
+  + 长按 BOOT 会退出 WiFi 配置界面
+  + 为保证安全,每次配置 WiFi 时, 都会生成一个随机AP密码, 建议按照上述流程完成配置
 
 ## 更新
-
-### 更新镜像
-
-> **Lite 版本需要准备 TF 卡并且烧录镜像后才能开始使用！**
-
-Full 版本出厂时已经烧录了镜像，可以跳过此步骤。
-
-镜像会不定期更新。建议更新到最新版本镜像，以获取更好的使用体验。
-
-具体操作方式请参考 [烧录镜像](https://wiki.sipeed.com/hardware/zh/kvm/NanoKVM/system/flashing.html)。
 
 ### 更新应用
 
@@ -73,35 +102,22 @@ Full 版本出厂时已经烧录了镜像，可以跳过此步骤。
 
 ### 如何获取IP地址
 
-Full版NanoKVM自带OLED显示屏，联网之后会在显示屏第一行显示IP地址；
+Full版NanoKVM自带OLED显示屏，联网之后会在显示屏显示IP地址；
 
-![](./../../../assets/NanoKVM/unbox/oled.jpg)
+WiFi 版本 NanoKVM-PCIe ETH 和 WiFi 获取的 IP 将会交替出现, 如图: IP前有'E'的是ETH IP; 有'W'的是 WiFi 获取的IP
 
-Lite版用户请参考[获取IP](https://wiki.sipeed.com/hardware/zh/kvm/NanoKVM/system/updating.html#%E8%8E%B7%E5%8F%96-IP)
+![](./../../../assets/NanoKVM/unbox/wifi9.jpg)
 
 ### 查看远程桌面
 
-浏览器直接输入获取的IP，进入登录页面，默认账号密码为admin、admin，登录后建议**先检查更新**（设置 -> 检查更新），详细步骤可参考 [更新应用](https://wiki.sipeed.com/hardware/zh/kvm/NanoKVM/system/updating.html)。
-
-Lite版用户，或Full用户重新烧卡登录后页面上无远程画面，请先升级应用后刷新网页，即可开始使用
+浏览器直接输入获取的IP，进入登录页面，默认账号密码为admin、admin，登录后建议修改密码, 并更新最新的应用
+![](./../../../assets/NanoKVM/unbox/unbox_9.png)
 
 注: 建议使用Chrome浏览器，其他浏览器可能出现无法显示画面或无法操作键鼠等兼容性问题
 
-![](./../../../assets/NanoKVM/unbox/frist_update.png)
-
-### 修改账号密码
-
-**为保障您的信息安全，请在测试功能正常后修改账号密码**
-
-![](./../../../assets/NanoKVM/unbox/unbox_9.png)
-
 ### ATX电源控制
 
-Full 版套餐内包含了 NanoKVM-A/B 板，用于控制和查看主机开关机状态。
+如果连接了电源控制接口,可以在网页远程控制电脑启动
 
-+ 顶板上的 5V LED（蓝色）指示 NanoKVM 的供电情况；
-+ PWR LED（绿色）为主机的电源指示；
-+ POWER按键作用同主机的电源按键，可以控制主机的开关机；
-+ RESET按键用主机的重启按键，开机状态下按下RESET将强制重启主机
-+ 网页端也可以查看并控制，参考[用户指南](https://wiki.sipeed.com/hardware/zh/kvm/NanoKVM/user_guide.html)
++ 网页端提供电源灯状态指示, 电源和重启按钮功能, 不能监控到HDD硬盘灯状态
 

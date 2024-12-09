@@ -441,11 +441,11 @@ items:
     -   label: NanoKVM PCIe
         items:
         -   label: 简介
-            file: kvm/NanoKVM/introduction.md
+            file: kvm/NanoKVM_PCIe/introduction.md
         -   label: 快速上手
-            file: kvm/NanoKVM/quick_start.md
+            file: kvm/NanoKVM_PCIe/quick_start.md
         -   label: 用户指南
-            file: kvm/NanoKVM/user_guide.md
+            file: kvm/NanoKVM_PCIe/user_guide.md
         -   label: 二次开发
             file: kvm/NanoKVM/development.md
         -   label: 网络
