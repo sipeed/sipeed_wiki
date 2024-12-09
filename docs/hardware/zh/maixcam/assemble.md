@@ -16,8 +16,19 @@ title: MaixCAM / MaixCAM-Pro 外壳
 * [MaixCAM 支架模型](https://makerworld.com/zh/models/463622#profileId-372189)
 * [MaixCAM-Pro 外壳模型](https://makerworld.com/zh/models/722034)
 * 更多到 [makerworld.com](https://makerworld.com/)(推荐) 或 [makerworld.com.cn](https://makerworld.com.cn) 搜索 `MaixCAM`
+  
+## 文档
+
+作为一个合格的开发者，应该学会自己看文档，很多问题文档里都有
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=112842648849057&bvid=BV12EeDeaEGp&cid=500001626320975&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
 
 ## MaixCAM
+
+### 拆机与组装视频教程
+
+不要再在群里问排线掉了怎么装，视频里很清楚
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=1053969814&bvid=BV1WH4y1V7kL&cid=1527447268&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+
 ### MaixCAM 拆机
 
 强烈建议选择带 TF 卡的套餐，出厂默认已经组装好了，可以跳过这一步直接使用。
