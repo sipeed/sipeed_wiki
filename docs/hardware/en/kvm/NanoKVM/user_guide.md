@@ -105,7 +105,7 @@ If you do not use the RNDIS feature, it can be disabled by clicking `Settings` -
 
 + On the right side of the floating toolbar, there are power and hard disk icons. Normally, they are gray. After powering on, the power icon turns green.
 + Click the power icon to see the reset button and power button (long/short press).
-+ The Full version ATX control board is limited by the number of extension lines, only the power, reset buttons, and power light are exposed. Lite users can extend functionality according to the schematic.
++ The Full version ATX control board is limited by the number of extension lines, only the power, reset buttons, and power light are exposed, so it is normal for the HDD LED to not light up. Lite users can extend functionality according to the schematic.
 
 Note:
 + The official version of NanoKVM-A hardware reserves pins for the WiFi module and modifies the OLED and some ATX pins. The firmware will automatically detect the hardware version and adapt.

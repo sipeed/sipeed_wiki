@@ -438,6 +438,36 @@ items:
                 file: kvm/NanoKVM/system/configuration.md
         -   label: FAQ
             file: kvm/NanoKVM/faq.md
+    -   label: NanoKVM PCIe
+        items:
+        -   label: 简介
+            file: kvm/NanoKVM_PCIe/introduction.md
+        -   label: 快速上手
+            file: kvm/NanoKVM_PCIe/quick_start.md
+        -   label: 用户指南
+            file: kvm/NanoKVM_PCIe/user_guide.md
+        -   label: 二次开发
+            file: kvm/NanoKVM/development.md
+        -   label: 网络
+            items:
+            -   label: Tailscale
+                file: kvm/NanoKVM/network/tailscale.md
+            -   label: frp
+                file: kvm/NanoKVM/network/frp.md
+            -   label: 静态 IP
+                file: kvm/NanoKVM/network/static_ip.md
+        -   label: 系统
+            items:
+            -   label: 系统介绍
+                file: kvm/NanoKVM/system/introduction.md
+            -   label: 烧录镜像
+                file: kvm/NanoKVM/system/flashing.md
+            -   label: 更新应用
+                file: kvm/NanoKVM/system/updating.md
+            -   label: 配置文件
+                file: kvm/NanoKVM/system/configuration.md
+        -   label: FAQ
+            file: kvm/NanoKVM/faq.md
 # -   label: Maix Audio
 #     items:
 #     -   label: MA USB 16
