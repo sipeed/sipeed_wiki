@@ -27,8 +27,8 @@ NanoKVM 系列产品包含一个 HDMI 输入接口，可以被电脑识别为显
 
 + 服务器管理：用于实时监控服务器，获取服务器运行状态，并对其加以控制；
 + 远程桌面、开关机：NanoKVM 摆脱主机必须联网和系统软件的限制，作为主机外置硬件，直接提供远程控制的功能；
-+ 远程装机：NanoKVM模拟U盘设备，可挂载装机镜像安装系统，也可进入BIOS对电脑设置；
-+ 远程串口（Full内测版未引出至接口）：NanoKVM引出两组串口，可配合IPMI使用，或连接其他开发板使用网页串口终端交互，此外用户可自行拓展更多配件
++ 远程装机：NanoKVM 模拟 U盘设备，可挂载装机镜像安装系统，也可进入BIOS对电脑设置；
++ 远程串口：NanoKVM 引出两组串口，可配合IPMI使用，或连接其他开发板使用网页串口终端交互，此外用户可自行拓展更多配件
 + 双电脑协同操作
 
 ## 参数
@@ -62,7 +62,7 @@ NanoKVM 系列产品包含一个 HDMI 输入接口，可以被电脑识别为显
 
 ## NanoKVM-PCIe 资料
 
-NanoKVM 与 Sipeed [LicheeRV Nano](https://wiki.sipeed.com/hardware/zh/lichee/RV_Nano/1_intro.html) 使用相同SOC，希望二次开发的小伙伴可在[这里](http://cn.dl.sipeed.com/shareURL/LICHEE/LicheeRV_Nano)查看更多资料
+NanoKVM 与 Sipeed [LicheeRV Nano](https://wiki.sipeed.com/hardware/zh/lichee/RV_Nano/1_intro.html) 使用相同SOC，希望二次开发的小伙伴可在[这里](https://wiki.sipeed.com/hardware/zh/kvm/NanoKVM/development.html)查看更多资料
 
 > NanoKVM 镜像在LicheeRV Nano SDK 和 MaixCDK 基础上构建，可以兼容使用 LicheeRV Nano 的资料，反之LicheeRV Nano 或其他 SG2002 产品无法使用KVM软件。如果您想在 NanoKVM 上构建 HDMI 输入相关应用，请与我们联系，以获得技术支持。
 
