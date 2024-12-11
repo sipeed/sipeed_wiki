@@ -2,16 +2,21 @@
 title: User Guide
 keywords: NanoKVM, Remote desktop, Lichee, PiKVM, RISCV, tool
 update:
-  - date: 2024-7-4
+  - date: 2024/7/4
     version: v0.1
     author: BuGu
     content:
       - Release docs
-  - date: 2024-8-14
-    version: v0.1
+  - date: 2024/8/14
+    version: v1.1
     author: BuGu
     content:
       - Update docs
+  - date: 2024/12/11
+    version: v1.2
+    author: BuGu
+    content:
+      - Modify error description
 ---
 
 ## OLED Interface
@@ -141,10 +146,7 @@ The official version hardware reserves pins for the WiFi module and modifies the
 
 ![](./../../../assets/NanoKVM/guide/PinDefine.png)
 
-To ensure compatibility, the software is designed to automatically detect the hardware version and adapt accordingly. Beta version hardware is incompatible with the official firmware. The OLED wiring is as follows:
-
-Beta version: `VCC <=> 3.3V` and `GND <=> GND`
-Official version: `VCC <=> 5V` and `GND <=> GND`
+To ensure compatibility with both hardware versions, the software has been designed with adaptive features. Beta users and official version users can update with confidence.
 
 ATX Wiring:
 

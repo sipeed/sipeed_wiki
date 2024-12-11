@@ -415,6 +415,34 @@ items:
                 file: kvm/NanoKVM/system/configuration.md
         -   label: FAQ
             file: kvm/NanoKVM/faq.md
+    -   label: NanoKVM PCIe
+        items:
+        -   label: Introduction
+            file: kvm/NanoKVM_PCIe/introduction.md
+        -   label: Quick start
+            file: kvm/NanoKVM_PCIe/quick_start.md
+        -   label: User Guide
+            file: kvm/NanoKVM_PCIe/user_guide.md
+        -   label: Network
+            items:
+            -   label: Tailscale
+                file: kvm/NanoKVM/network/tailscale.md
+            -   label: frp
+                file: kvm/NanoKVM/network/frp.md
+            -   label: Static IP
+                file: kvm/NanoKVM/network/static_ip.md
+        -   label: System
+            items:
+            -   label: System Introduction
+                file: kvm/NanoKVM/system/introduction.md
+            -   label: Flashing
+                file: kvm/NanoKVM/system/flashing.md
+            -   label: Updating
+                file: kvm/NanoKVM/system/updating.md
+            -   label: Configuration
+                file: kvm/NanoKVM/system/configuration.md
+        -   label: FAQ
+            file: kvm/NanoKVM/faq.md
 # -   label: Maix Audio
 #     items:
 #     -   label: MA USB 16
