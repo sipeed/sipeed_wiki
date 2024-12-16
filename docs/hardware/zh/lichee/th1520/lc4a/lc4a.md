@@ -240,3 +240,11 @@ ssh -p 2301 root@bmcip # access first slot's serial port
 ```
 cat /var/log/obmc-cons*.log
 ```
+
+对 LM4A 的电源管理：
+
+启动/复位：（1-7 分别对应 slot 1 到 7）
+```
+/usr/libexec/phosphor-state-manager/muxctl.sh 1 boot
+/usr/libexec/phosphor-state-manager/muxctl.sh 2 reset
+```
