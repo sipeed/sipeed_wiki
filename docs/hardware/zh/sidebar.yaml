@@ -468,6 +468,12 @@ items:
                 file: kvm/NanoKVM/system/configuration.md
         -   label: FAQ
             file: kvm/NanoKVM/faq.md
+    -   label: NanoKVM USB
+        items:
+        -   label: 简介
+            file: kvm/NanoKVM_USB/introduction.md
+        -   label: 快速上手
+            file: kvm/NanoKVM_USB/quick_start.md
 # -   label: Maix Audio
 #     items:
 #     -   label: MA USB 16
