@@ -70,6 +70,74 @@ Another way is to add the following content to /boot/uEnv.txt to switch the cons
 consoledev=/dev/ttyX
 ```
 
+### UART1 UART2 UART3
+
+By default, the pins of UART1 and 2 are used to connect to the UART Bluetooth chip:
+
+```
+mmio_write_32(0x03001070, 0x1); // GPIOA 28 UART1 TX
+mmio_write_32(0x03001074, 0x1); // GPIOA 29 UART1 RX
+mmio_write_32(0x03001068, 0x4); // GPIOA 18 UART1 CTS
+mmio_write_32(0x03001064, 0x4); // GPIOA 19 UART1 RTS
+```
+
+If you only want to use UART1, you don't need to change PINMUX, just connect GPIOA28 GPIOA29.
+
+If you want to use the functions of UART1 and UART2 at the same time, you need to write to the register to set the PINMUX of the pin:
+
+In Linux user space, you can use the `devmem` tool to write registers.
+
+shell:
+
+```
+devmem 0x03001070 32 0x2 # GPIOA 28 UART2 TX
+devmem 0x03001074 32 0x2 # GPIOA 29 UART2 RX
+devmem 0x03001068 32 0x6 # GPIOA 18 UART1 RX
+devmem 0x03001064 32 0x6 # GPIOA 19 UART1 TX
+```
+
+The UART3 pins are multiplexed as SDIO by default:
+
+```
+mmio_write_32(0x030010D0, 0x0); // D3
+mmio_write_32(0x030010D4, 0x0); // D2
+mmio_write_32(0x030010D8, 0x0); // D1
+mmio_write_32(0x030010DC, 0x0); // D0
+mmio_write_32(0x030010E0, 0x0); // CMD
+mmio_write_32(0x030010E4, 0x0); // CLK
+```
+
+If you want to use the UART3 function, you need to write to the register to set the PINMUX of the pin:
+
+In Linux user space, you can use the `devmem` tool to write registers.
+
+shell:
+
+```
+devmem 0x030010D0 32 0x5 # GPIOP 18 UART3 CTS
+devmem 0x030010D4 32 0x5 # GPIOP 19 UART3 TX
+devmem 0x030010D8 32 0x5 # GPIOP 20 UART3 RX
+devmem 0x030010DC 32 0x5 # GPIOP 21 UART3 RTS
+```
+
+Serial port usage in Linux system:
+
+C:
+
+```
+/* TODO */
+```
+
+
+shell:
+
+```
+stty -F /dev/ttyS1 115200 # Set the UART1 baud rate to 115200
+stty -F /dev/ttyS1 raw    # Set tty to RAW mode
+echo -n UUU > /dev/ttyS1 # Send UUU(0x55 0x55 0x55)
+hexdump -C /dev/ttyS1     # Display the received data in HEX format
+```
+
 
 ### USB CDC ACM Serial Port
 
