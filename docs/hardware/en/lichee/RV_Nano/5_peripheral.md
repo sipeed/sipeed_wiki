@@ -13,11 +13,63 @@ keywords: riscv, licheerv,nano
 
 ### UART0
 
-Connect the UART port to the board at:
-
-A17 A16 GND
+Connect the UART serial port to the GND, `A16 (TX)`, and `A17 (RX)` of the board
 
 Then use terminal software to connect to the serial port, with a baud rate of 115200.
+
+UART0 is also brought out on SBU1/2 on the USB interface. You can use the USB TypeC adapter to bring out RX0 and TX0.
+
+#### Disable UART0 output log
+
+First, transfer the output of the user space to another tty device:
+
+```
+#include <stdlib.h>
+#include <unistd.h>
+#include <sys/ioctl.h>
+#include <fcntl.h>
+
+int main(int argc, char *argv[]) {
+        int fd;
+        if (argc < 2) {
+                fprintf(stderr, "usage: %s /dev/ttyX\n", argv[0]);
+                exit(EXIT_FAILURE);
+        }
+        fd = open(argv[1], O_RDWR);
+        if (fd < 0) {
+                perror("open");
+                exit(EXIT_FAILURE);
+        }
+        ioctl(fd, TIOCCONS);
+        close(fd);
+        exit(EXIT_SUCCESS);
+}
+```
+
+```
+riscv64-unknown-linux-gcc tioccons.c -o tioccons
+./tioccons /dev/tty2 # Transfer /dev/console to tty2
+```
+
+Then set the kernel log level:
+
+```
+echo 0 > /proc/sys/kernel/printk
+```
+
+Test method:
+
+```
+echo userspace > /dev/console
+echo kernel > /dev/kmsg
+```
+
+Another way is to add the following content to /boot/uEnv.txt to switch the console to another tty:
+
+```
+consoledev=/dev/ttyX
+```
+
 
 ### USB CDC ACM Serial Port
 
