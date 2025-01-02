@@ -1,5 +1,5 @@
 ---
-title: Introduction 
+title: Introduction
 keywords: NanoKVM, Remote desktop, tool, USB 
 update:
   - date: 2024-12-25
@@ -9,44 +9,50 @@ update:
       - Release docs
 ---
 
-## 简介
+## Introduction
 
 ![](./../../../assets/NanoKVM/usb/NanoKVM-USB.png)
 
-NanoKVM-USB是一款便捷的运维/多设备协同工具，它可以无需键鼠设备和显示器，仅使用手边的一台电脑无需下载软件，通过Chrome浏览器即可图形化开始运维工作。
+The NanoKVM-USB is a convenient tool for operations and multi-device collaboration. It allows you to perform maintenance tasks without the need for a keyboard, mouse, or monitor. Using just a single computer and no additional software downloads, you can start graphical operations directly through the Chrome browser.
 
-NanoKVM-USB 捕捉HDMI图像信号，通过USB3.0传输给HOST主机，与普通USB采集卡不同的是，NanoKVM-USB同时捕捉HOST端的键鼠操作，同步给目标主机，无需传统连接屏幕键鼠的方式，就可以完成所有操作。同时支持一路HDMI环出，最高支持4K@30HZ，方便外连大屏。
-值得一提的是，NanoKVM-USB自带一个USB-A端口，支持HOST/TARGET两侧切换，当外接U盘时候可以方便的在两台电脑之间转移数据，此外更多功能请自由探索。
+NanoKVM-USB captures HDMI video signals and transmits them to the host via USB 3.0. Unlike typical USB capture cards, NanoKVM-USB also captures keyboard and mouse input from the host and sends it to the target machine in real-time, eliminating the need for traditional screen and peripheral connections. It also supports HDMI loop-out, with a maximum resolution of 4K@30Hz, making it easy to connect to a large display.
+
+Notably, NanoKVM-USB comes with a USB-A port that supports switching between HOST and TARGET sides. When a USB drive is connected, data can be easily transferred between two computers. Additional features can be explored freely.
 
 ![](./../../../assets/NanoKVM/usb/wiring.png)
 
-## 接口
+## Interface
 
 ![](./../../../assets/NanoKVM/usb/interface.jpg)
 
-## 参数
+## Parameters
 
-| 产品 | NanoKVM USB | NanoKVM Cube | USB 采集卡 |
-| --- | --- | --- | --- |
-| HDMI 画面 | 4K@30fps | 1080P@60fps | 4K@30fps |
-| USB 采集 | 1080P@60fps | - | 1080P@60fps |
-| 环出 | 4K@30fps | - | 需环出采集卡 |
-| 支持键鼠 | 是 | 是 | 否 |
-| 无需软件 | 是 | 是 | 否 |
-| 延迟 | 50-100ms| 90-230ms | 50-100ms |
-| USB 切换器 | 有 | 无 | 无 |
-| 功耗 | 5V/0.24A@1.2W | 5V/0.2A@1W | 5V/0.2A@1W |
+| | NanoKVM-USB | Mini-KVM | KIWI-KVM |
+| --- | :---: | :---: | :---: |
+| HDMI Input | 4K@30fps | 1080P@60fps | 4K@30fps |
+| HDMI Loopback | 4K@30fps | None | None |
+| USB Capture | 1080P@60fps | 1080P@60fps | 1080P@60fps |
+| USB Interface | USB3.0 | USB2.0 | USB3.0 |
+| USB Switch | Y | Y | N |
+| Keyboard&Mouse | Y | Y | Y |
+| Clipboard | Y | Y | Y |
+| Software | No setup needed, works in chrome | Host App install required | Host App install required |
+| Latency | 50-100ms | 50-100ms | 50-100ms |
+| Volume | 57x25x23mm | 61x13.5x53mm | 80x80x10mm |
+| Shell Material | Aluminum Alloy | Aluminum Alloy | Plastics |
+| Color | Black / Blue / Red | Black | Black |
+| Price | `$39.9 / $49.9` | `$89 / $109` | `$69 / $99` |
 
-## 购买入口
+## Purchase Links
 
-[淘宝官方购买地址]() (待上架)
-[速卖通购买地址]()(待上架)
-[预售页面](https://sipeed.com/nanokvm/usb)
+- [Official Taobao Store]() (To be released)
+- [AliExpress Store]()(To be released)
+- [Pre-sale Page](https://sipeed.com/nanokvm/usb)
 
-## 产品反馈
+## Feedback
 
-如果您在使用过程中有任何问题或建议，请通过以下渠道和我们反馈：
+If you encounter any issues or have suggestions, please contact us through the following channels:
 
-+ [Github issues](https://github.com/sipeed/NanoKVM)
-+ [MaixHub 论坛](https://maixhub.com/discussion/nanokvm)
-+ QQ 交流群: 703230713
+- [Github issues](https://github.com/sipeed/NanoKVM)
+- [MaixHub Forum](https://maixhub.com/discussion/nanokvm)
+- QQ Group: 703230713

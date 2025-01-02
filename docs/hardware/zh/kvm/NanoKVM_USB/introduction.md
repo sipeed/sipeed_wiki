@@ -24,29 +24,34 @@ NanoKVM-USB 捕捉HDMI图像信号，通过USB3.0传输给HOST主机，与普通
 
 ![](./../../../assets/NanoKVM/usb/interface.jpg)
 
-## 参数
+## 参数对比
 
-| 产品 | NanoKVM USB | NanoKVM Cube | USB 采集卡 |
+|  | NanoKVM-USB | Mini-KVM | KIWI-KVM |
 | --- | --- | --- | --- |
-| HDMI 画面 | 4K@30fps | 1080P@60fps | 4K@30fps |
-| USB 采集 | 1080P@60fps | - | 1080P@60fps |
-| 环出 | 4K@30fps | - | 需环出采集卡 |
-| 支持键鼠 | 是 | 是 | 否 |
-| 无需软件 | 是 | 是 | 否 |
-| 延迟 | 50-100ms| 90-230ms | 50-100ms |
-| USB 切换器 | 有 | 无 | 无 |
-| 功耗 | 5V/0.24A@1.2W | 5V/0.2A@1W | 5V/0.2A@1W |
+| HDMI 输入 | 4K@30fps | 1080P@60fps | 4K@30fps |
+| HDMI 环出 | 4K@30fps | None | None |
+| USB 采集 | 1080P@60fps | 1080P@60fps | 1080P@60fps |
+| USB 接口 | USB3.0 | USB2.0 | USB3.0 |
+| USB 切换器 | 有 | 有 | 无 |
+| 模拟键鼠 | 支持 | 支持 | 支持 |
+| 剪贴板 | 支持 | 支持 | 支持 |
+| 软件 | 无需安装，在 Chrome 中运行 | 需要安装 | 需要安装 |
+| 延迟 | 50-100ms | 50-100ms | 50-100ms |
+| 体积 | 57x25x23mm | 61x13.5x53mm | 80x80x10mm |
+| 外壳 | 铝合金 | 铝合金 | 塑料 |
+| 颜色 | 黑/蓝/红 | 黑 | 黑 |
+| 价格| `$39.9 / $49.9` | `$89 / $109` | `$69 / $99` |
 
 ## 购买入口
 
-[淘宝官方购买地址]() (待上架)
-[速卖通购买地址]()(待上架)
-[预售页面](https://sipeed.com/nanokvm/usb)
+- [淘宝官方购买地址]() (待上架)
+- [速卖通购买地址]()(待上架)
+- [预售页面](https://sipeed.com/nanokvm/usb)
 
 ## 产品反馈
 
 如果您在使用过程中有任何问题或建议，请通过以下渠道和我们反馈：
 
-+ [Github issues](https://github.com/sipeed/NanoKVM)
-+ [MaixHub 论坛](https://maixhub.com/discussion/nanokvm)
-+ QQ 交流群: 703230713
+- [Github issues](https://github.com/sipeed/NanoKVM)
+- [MaixHub 论坛](https://maixhub.com/discussion/nanokvm)
+- QQ 交流群: 703230713

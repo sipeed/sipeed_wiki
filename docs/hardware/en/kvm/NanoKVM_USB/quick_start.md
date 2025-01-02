@@ -1,5 +1,5 @@
 ---
-title: 快速上手
+title: Quick Start
 keywords: NanoKVM, Remote desktop, tool, USB
 update:
   - date: 2024-12-25
@@ -9,60 +9,100 @@ update:
       - Release docs
 ---
 
-## 接口介绍
+## Interface
 
 ![](./../../../assets/NanoKVM/usb/interface.jpg)
 
-## 接线
+## Wiring
 
-使用 USB3.0 或 TypeC 线连接 NanoKVM-USB 与 Host 主机。
+Use a USB3.0 or Type-C cable to connect NanoKVM-USB and the Host device.
 
 ![](./../../../assets/NanoKVM/usb/quick_start/wiring1.png)
 
-使用 HDMI 线连接 NanoKVM-USB 与 Target 主机。
+Use an HDMI cable to connect NanoKVM-USB and Target device.
 
 ![](./../../../assets/NanoKVM/usb/quick_start/wiring2.png)
 
-使用 USB3.0 线连接 NanoKVM-USB 与 Target 主机。
+Use a USB3.0 cable to connect NanoKVM-USB and Target device.
 
 ![](./../../../assets/NanoKVM/usb/quick_start/wiring3.png)
 
-## 网页
+## Use in Web
 
-### 打开网页
+### Open the webpage
 
-使用 Chrome 浏览器访问 `https://usbkvm.sipeed.com`。
+Use Chrome browser to visit `https://usbkvm.sipeed.com`.
 
-> 请使用桌面端 Chrome 浏览器，且版本号大于 89。
+> Please use the desktop Chrome browser, and the version number must be greater than 89.
 >
-> 由于使用了 [Web Serial API](https://developer.mozilla.org/en-US/docs/Web/API/Serial)，移动端 Chrome 和其它不支持该特性的浏览器均无法使用键鼠。
+> Mobile Chrome or other browsers that do not support [Web Serial API](https://developer.mozilla.org/en-US/docs/Web/API/Serial) cannot use keyboard and mouse.
 
-### 授权
+### Authorization
 
-NanoKVM-USB 会模拟成 USB 摄像头，用于传输视频和音频。因此网页首先需要获取摄像头使用权限。
+NanoKVM-USB will simulate a USB camera to transmit video and audio data. Therefore, the web page must obtain permission to use the camera.
 
 ![](./../../../assets/NanoKVM/usb/quick_start/auth_camera.png)
 
-> 如果您拒绝了授权，或者想关闭该授权，可以重置权限。下次访问时会重新进入该步骤。
+> If you rejected the authorization or want to turn off the authorization, you can choose to reset all permissions.
+>
 > ![](./../../../assets/NanoKVM/usb/quick_start/reset.png)
 
-### 选择 USB 设备
+### Select USB devices
 
-在获取授权后，网页会显示一个选择 USB 设备的弹窗。我们需要在这里选择两个设备：
+After obtaining authorization, We need to select two USB devices:
 
-1. USB 摄像头：用于视频和音频的输入；
-2. 串口设备：用于发送键盘和鼠标数据。
+1. USB camera: for video and audio input;
+2. Serial device: for sending keyboard and mouse data.
 
-首先点击下拉框，选择以 USB Video 格式命名的摄像头设备。选择设备后网页就会开始显示视频画面。
+#### USB Camera
 
-如果不确定选择哪一个设备，可以依次选择以找出正确的设备。
+Click the drop-down button and select the camera device named in the format of `USB Video`.
+
+Once the device is selected, the web page will start to display the video image.
 
 ![](./../../../assets/NanoKVM/usb/quick_start/usb_video.png)
 
-然后点击选择串口按钮，会弹出所有可用的串口设备列表，从中选择以 USB Serial 格式命名的设备。
+#### Serial Port Device
 
-> 如果当前浏览器不支持串口，则不会显现该按钮。此时网页仅有视频传输功能，无法使用键盘和鼠标。
+Click button and a list of available serial port devices will pop up. Select the device named in the format of `USB Serial`.
+
+> If the browser does not support Web Serial API, the button will not be displayed and the keyboard and mouse is not available.
 
 ![](./../../../assets/NanoKVM/usb/quick_start/usb_serial.png)
 
-设置完成！到这里就可以开始正常使用了。
+Setup complete!
+
+Enjoy it!
+
+### Audio
+
+If the webpage does not play sound automatically, some manual setups are required.
+
+Here is an example of Mac controlling Windows:
+
+#### Target side
+
+On the Target side(Windows), select NanoKVM as the **audio output** device.
+
+The name of the audio device depends on whether a loopback device is connected:
+
+- If the loopback device is not connected, the audio device name is `HDMI TO USB`;
+- If the loopback device is connected, the name of the audio device is the same as the loopback device.
+
+![](./../../../assets/NanoKVM/usb/quick_start/audio_output.jpg)
+
+#### Host side
+
+On the Host side(Mac), select NanoKVM as the **audio input** device.
+
+The name format of the audio device is generally `USB Digital Audio`.
+
+![](./../../../assets/NanoKVM/usb/quick_start/audio_input.png)
+
+### Mouse
+
+The mouse uses the `absolute mode` by default.
+
+In the BIOS or some systems, this mode may not work properly. Please switch to the `relative mode` if the mouse is not available.
+
+![](./../../../assets/NanoKVM/usb/quick_start/mouse_mode.png)
