@@ -196,6 +196,11 @@ Note that 138K Pro is currently not supported by the education version, and you 
 Lic can be applied on the Gowin official website, or you can use the online Lic service provided by Sipeed. In the IDE, select Float Lic and fill in the following information:
 
 ~~~
+---Server 01---
+ip: 45.33.107.56
+port: 10559
+
+---Server 02---
 ip: 106.55.34.119
 port: 10559
 ~~~
