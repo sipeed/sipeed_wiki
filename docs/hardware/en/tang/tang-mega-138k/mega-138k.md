@@ -183,12 +183,12 @@ TBD
 
 ## Hardware Resources
 
-- [Specification](https://dl.sipeed.com/shareURL/TANG/Mega_138K/01_Specification)
-- [Schematics](https://dl.sipeed.com/shareURL/TANG/Mega_138K/02_Schematic)
-- [PCB BOM](https://dl.sipeed.com/shareURL/TANG/Mega_138K/03_Designator_drawing)
-- [Dimension Diagram](https://dl.sipeed.com/shareURL/TANG/Mega_138K/04_Mechanical_drawing)
-- [3D Model](https://dl.sipeed.com/shareURL/TANG/Mega_138K/05_3D_file)
-- [Some Chip Manuals](https://dl.sipeed.com/shareURL/TANG/Mega_138K/07_Datasheet)
+- [Specification](https://dl.sipeed.com/shareURL/TANG/Mega_138K_60K/01_Specification)
+- [Schematics](https://dl.sipeed.com/shareURL/TANG/Mega_138K_60K/02_Schematic)
+- [PCB BOM](https://dl.sipeed.com/shareURL/TANG/Mega_138K_60K/03_Designator_drawing)
+- [Dimension Diagram](https://dl.sipeed.com/shareURL/TANG/Mega_138K_60K/04_Mechanical_drawing)
+- [3D Model](https://dl.sipeed.com/shareURL/TANG/Mega_138K_60K/05_3D_file)
+- [Some Chip Manuals](https://dl.sipeed.com/shareURL/TANG/Mega_138K_60K/07_Datasheet)
 - [All PIN Constraints](https://dl.sipeed.com/shareURL/TANG/Mega_138K_60K/08_Misc)
 
 ## Getting Started
@@ -198,6 +198,11 @@ There are serious problems with the Programmer version V1.9.10.02, and this prod
 Lic can be applied on the Gowin official website, or you can use the online Lic service provided by Sipeed. In the IDE, select Float Lic and fill in the following information:
 
 ~~~
+---Server 01---
+ip: 45.33.107.56
+port: 10559
+
+---Server 02---
 ip: 106.55.34.119
 port: 10559
 ~~~
