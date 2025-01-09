@@ -84,7 +84,7 @@ The Full version comes with a pre-flashed image and can skip this step.
 
 Images are updated periodically. It is recommended to update to the latest version for the best experience.
 
-For detailed instructions, please refer to [Flashing Image](https://wiki.sipeed.com/hardware/zh/kvm/NanoKVM/system/flashing.html).
+For detailed instructions, please refer to [Flashing Image](https://wiki.sipeed.com/hardware/en/kvm/NanoKVM/system/flashing.html).
 
 ### Update Application
 
