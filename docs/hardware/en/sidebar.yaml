@@ -113,6 +113,12 @@ items:
         file: maixcam/README.md
     -   label: MaixCAM-Pro
         file: maixcam/maixcam_pro.md
+    -   label: Sensor Introduction
+        file: maixcam/cameras.md
+    -   label: ToF/Thermal PMOD
+        file: maixcam/tof_thermal.md
+    -   label: MicroScope Kit
+        file: maixcam/microscope.md
     -   label: MaixCAM Assembly
         file: maixcam/assemble.md
     -   label: System Upgrade

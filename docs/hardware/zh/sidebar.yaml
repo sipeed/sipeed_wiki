@@ -130,6 +130,12 @@ items:
         file: maixcam/README.md
     -   label: MaixCAM-Pro 介绍和资料
         file: maixcam/maixcam_pro.md
+    -   label: 摄像头介绍及拍摄效果
+        file: maixcam/cameras.md
+    -   label: ToF/热成像模块介绍
+        file: maixcam/tof_thermal.md
+    -   label: 数码显微镜套餐
+        file: maixcam/microscope.md
     -   label: 外壳使用注意点
         file: maixcam/assemble.md
     -   label: 系统镜像烧录
