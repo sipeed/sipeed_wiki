@@ -480,6 +480,8 @@ items:
             file: kvm/NanoKVM_USB/introduction.md
         -   label: 快速上手
             file: kvm/NanoKVM_USB/quick_start.md
+        -   label: 本地部署
+            file: kvm/NanoKVM_USB/deployment.md
 # -   label: Maix Audio
 #     items:
 #     -   label: MA USB 16

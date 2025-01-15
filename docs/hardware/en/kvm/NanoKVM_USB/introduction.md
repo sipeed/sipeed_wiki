@@ -21,6 +21,10 @@ Notably, NanoKVM-USB comes with a USB-A port that supports switching between HOS
 
 ![](./../../../assets/NanoKVM/usb/wiring.png)
 
+## Use Cases
+
+![](./../../../assets/NanoKVM/usb/use-cases.jpg)
+
 ## Interface
 
 ![](./../../../assets/NanoKVM/usb/interface.jpg)
@@ -42,6 +46,12 @@ Notably, NanoKVM-USB comes with a USB-A port that supports switching between HOS
 | Shell Material | Aluminum Alloy | Aluminum Alloy | Plastics |
 | Color | Black / Blue / Red | Black | Black |
 | Price | `$39.9 / $49.9` | `$89 / $109` | `$69 / $99` |
+
+<div style="display: flex; padding: 30px 0 20px 0">
+  <img src="./../../../assets/NanoKVM/usb/black.png" width="200" height="150" alt="black" style="margin-right: 10px;">
+  <img src="./../../../assets/NanoKVM/usb/blue.png" width="200" height="150" alt="blue" style="margin-right: 10px;">
+  <img src="./../../../assets/NanoKVM/usb/red.png" width="200" height="150" alt="red" style="margin-right: 10px;">
+</div>
 
 ## Purchase Links
 

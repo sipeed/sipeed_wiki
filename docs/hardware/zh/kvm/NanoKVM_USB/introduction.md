@@ -20,6 +20,10 @@ NanoKVM-USB 捕捉HDMI图像信号，通过USB3.0传输给HOST主机，与普通
 
 ![](./../../../assets/NanoKVM/usb/wiring.png)
 
+## 使用场景
+
+![](./../../../assets/NanoKVM/usb/use-cases.jpg)
+
 ## 接口
 
 ![](./../../../assets/NanoKVM/usb/interface.jpg)
@@ -30,7 +34,7 @@ NanoKVM-USB 捕捉HDMI图像信号，通过USB3.0传输给HOST主机，与普通
 | --- | --- | --- | --- |
 | HDMI 输入 | 4K@30fps | 1080P@60fps | 4K@30fps |
 | HDMI 环出 | 4K@30fps | None | None |
-| USB 采集 | 1080P@60fps | 1080P@60fps | 1080P@60fps |
+| USB 采集 | 2K@30fps | 1080P@60fps | 1080P@60fps |
 | USB 接口 | USB3.0 | USB2.0 | USB3.0 |
 | USB 切换器 | 有 | 有 | 无 |
 | 模拟键鼠 | 支持 | 支持 | 支持 |
@@ -41,6 +45,12 @@ NanoKVM-USB 捕捉HDMI图像信号，通过USB3.0传输给HOST主机，与普通
 | 外壳 | 铝合金 | 铝合金 | 塑料 |
 | 颜色 | 黑/蓝/红 | 黑 | 黑 |
 | 价格| `$39.9 / $49.9` | `$89 / $109` | `$69 / $99` |
+
+<div style="display: flex; padding: 30px 0 20px 0">
+  <img src="./../../../assets/NanoKVM/usb/black.png" width="200" height="150" alt="Image 1" style="margin-right: 10px;">
+  <img src="./../../../assets/NanoKVM/usb/blue.png" width="200" height="150" alt="Image 1" style="margin-right: 10px;">
+  <img src="./../../../assets/NanoKVM/usb/red.png" width="200" height="150" alt="Image 1" style="margin-right: 10px;">
+</div>
 
 ## 购买入口
 
