@@ -17,10 +17,11 @@ update:
 ![](./../../../assets/NanoKVM/unbox/wifi9.jpg)
 
 + 显示网线、USB、HDMI 连接状态，连接后图标将反色显示;
-+ IP: 连接网线后 NanoKVM 默认自动获取IP，并显示在 OLED 上，WiFi版本 IP 将自动切换;
++ IP: 连接网线后 NanoKVM 默认自动获取IP，并显示在 OLED 上，WiFi版本 IP 将来回切换;
 + 分辨率: 将显示HDMI物理分辨率,如1920*1080
 + FPS: 显示实时传输帧率
 + 主界面提供 OLED 休眠功能, 以防止 OLED 烧屏, 短按 BOOT 即可关闭或打开 OLED
++ `2.1.4`版应用后添加OLED自动休眠功能：在设置中设置休眠时间后，OLED会在设定时间后自动休眠，按下BOOT可以临时唤醒OLED
 
 WiFi配置界面(没有选配WiFi的版本无WiFi配置界面)
 ![](./../../../assets/NanoKVM/unbox/wifi2.jpg)
@@ -57,7 +58,7 @@ WiFi配置界面(没有选配WiFi的版本无WiFi配置界面)
 + 对于不方便使用键盘的用户，我们提供了屏幕键盘，点击悬浮栏的键盘图标即可唤出屏幕键盘。
 + 少数情况下HID键鼠无法控制主机, 请点击重置HID后再试
 + 部分 BIOS 要求鼠标必须使用相对位移模式, 请在网页->鼠标模式中修改
-+ 部分 BIOS 要求键鼠必须使用带有BIOS标记的模式,请在网页终端中执行 `/touch /boot/BIOS && reboot`
++ 部分 BIOS 要求键鼠必须使用带有BIOS标记的模式,请在网页终端中执行 `touch /boot/BIOS && reboot`
 
 ### ISO镜像挂载以及远程装机
 

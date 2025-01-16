@@ -64,7 +64,9 @@ Once the device is selected, the web page will start to display the video image.
 
 #### Serial Port Device
 
-Click button and a list of available serial port devices will pop up. Select the device named in the format of `USB Serial`.
+Click the "Select Serial Port" button to display a list of all available serial devices, from which you can choose the corresponding serial device.
+
+> On Windows, the format is `COMx`; on macOS, it is `USB Serial`; on Linux, it is generally `/dev/ttyUSBx`.
 
 > If the browser does not support Web Serial API, the button will not be displayed and the keyboard and mouse is not available.
 

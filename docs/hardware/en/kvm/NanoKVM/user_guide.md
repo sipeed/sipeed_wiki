@@ -29,6 +29,8 @@ update:
 + TYPE: Displays the transmission type, currently only supports MJPG, H264 is under development.
 + STREAM: Shows the real-time transmission frame rate. Frame difference detection is enabled by default (transmission stops when the screen is static). When the screen is static, FPS shows 0.
 + QUALITY: Shows compression quality, ranging from 50-100%, default is 80%.
++ The main interface provides an OLED sleep function to prevent screen burn-in; a short press of the BOOT button can turn the OLED off or on.
++ After applying version `2.1.4`, the OLED automatic sleep feature has been added: After setting the sleep time in the settings, the OLED will automatically enter sleep mode after the specified time. Pressing the BOOT button can temporarily wake up the OLED.
 
 ## Management Page Features
 

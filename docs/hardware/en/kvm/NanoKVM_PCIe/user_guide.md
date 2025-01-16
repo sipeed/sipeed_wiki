@@ -21,6 +21,7 @@ On the NanoKVM-PCIe, the OLED has two interfaces: the main interface and the WiF
 + Resolution: Displays the physical resolution of the HDMI, such as 1920x1080.
 + FPS: Shows the real-time transmission frame rate.
 + The main interface provides an OLED sleep function to prevent screen burn-in. You can short-press the BOOT button to turn the OLED off or on.
++ After applying version `2.1.4`, the OLED automatic sleep feature has been added: After setting the sleep time in the settings, the OLED will automatically enter sleep mode after the set time. Pressing the BOOT button can temporarily wake up the OLED.
 
 **WiFi Configuration Interface** (not available for versions without WiFi):
 ![](./../../../assets/NanoKVM/unbox/wifi2.jpg)

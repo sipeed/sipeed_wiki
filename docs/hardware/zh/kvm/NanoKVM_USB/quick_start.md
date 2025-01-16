@@ -64,7 +64,9 @@ NanoKVM-USB 会模拟成 USB 摄像头，用于传输视频和音频。因此网
 >
 > 如果当前浏览器不支持串口，则不会显现该按钮。此时网页仅有视频传输功能，无法使用键盘和鼠标。
 
-点击选择串口按钮，会弹出所有可用的串口设备列表，从中选择以 `USB Serial` 格式命名的设备。
+点击选择串口按钮，会弹出所有可用的串口设备列表，从中选择对应的串口设备。
+
+> Windows 为`COMx`格式，macOS为`USB Serial`格式，linux一般为`/dev/ttyUSBx`格式
 
 ![](./../../../assets/NanoKVM/usb/quick_start/usb_serial.png)
 
