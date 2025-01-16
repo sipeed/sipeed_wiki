@@ -20,11 +20,11 @@ NanoKVM-PCIe 包装内包含主机, 半高 PCIe 挡板, 两条 USBA-C线缆, 一
 
 ## 接口介绍
 
-俯视图:
+![](./../../../assets/NanoKVM/unbox/PCIe_new_interface.jpg)
+
+老版本的内测硬件两个USB-C口左右相反，参照一下图示，具体以到手后挡板标识为准
 
 ![](./../../../assets/NanoKVM/unbox/PCIe-Interface1.png)
-
-侧视图:
 
 ![](./../../../assets/NanoKVM/unbox/PCIe-Interface2.png)
 

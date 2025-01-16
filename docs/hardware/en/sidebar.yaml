@@ -457,6 +457,8 @@ items:
             file: kvm/NanoKVM_USB/quick_start.md
         -   label: Development
             file: kvm/NanoKVM_USB/development.md
+        -   label: FAQ
+            file: kvm/NanoKVM_USB/faq.md
 # -   label: Maix Audio
 #     items:
 #     -   label: MA USB 16
