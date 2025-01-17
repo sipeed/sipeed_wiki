@@ -23,6 +23,9 @@ MaixCAM 是为更好地落地 AI 视觉、听觉和 AIOT 应用而设计的一�
     <a target="_blank" style="margin: 1em;color: white; font-size: 0.9em; border-radius: 0.3em; padding: 0.5em 2em; background-color: #a80202" href="https://wiki.sipeed.com/maixpy/">更多功能介绍请看 MaixPy 主页</a>
 </div>
 
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=113485669204279&bvid=BV1ncmRYmEDv&cid=26768769718&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+
+
 **应用场景和人群**：
 * **AI算法落地**： AI 算法工程师可以快速将自己的 AI 模型部署到实体硬件（MaixCAM)上，提供易用的模型转换工具和 SDK。
 * **STEM 教育**： 提供易用的 MaixPy SDK 和配套开发工具，以及在线模型训练平台，老师无需软硬件开发，专注教学，学生可以快速上手。
