@@ -45,7 +45,7 @@ You can also connect directly to the nine-pin USB 2.0 inside the case, as shown 
 
 ![](./../../../assets/NanoKVM/unbox/PCIe-USB.jpg)
 
-When connecting, be sure to refer to the diagram above and the internal interface diagram of the NanoKVM-PCIe below. Please check repeatedly before powering on; incorrect connections may risk damaging the NanoKVM!
+When connecting, be sure to refer to the diagram above and the internal interface diagram of the NanoKVM-PCIe below. Please check repeatedly before powering on; incorrect connections may risk damaging the NanoKVM! The silkscreen for "HDD LED" on the connection lines of some batches is incorrect. Please adjust according to the actual situation.
 
 ![](./../../../assets/NanoKVM/unbox/PCIe-Pin.jpg)
 

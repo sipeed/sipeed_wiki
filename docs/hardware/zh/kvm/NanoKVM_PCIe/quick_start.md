@@ -47,7 +47,7 @@ NanoKVM-PCIe 包装内包含主机, 半高 PCIe 挡板, 两条 USBA-C线缆, 一
 
 ![](./../../../assets/NanoKVM/unbox/PCIe-USB.jpg)
 
-连接时务必参照上方示意图和下面的 NanoKVM-PCIe 内部接口示意图, 上电前请反复检查, 接错可能会有烧坏 NanoKVM 的风险!
+连接时务必参照上方示意图和下面的 NanoKVM-PCIe 内部接口示意图, 上电前请反复检查, 接错可能会有烧坏 NanoKVM 的风险！部分批次的连接线上的 “HDD LED” 丝印有误，请按照实际情况调整。
 
 ![](./../../../assets/NanoKVM/unbox/PCIe-Pin.jpg)
 
