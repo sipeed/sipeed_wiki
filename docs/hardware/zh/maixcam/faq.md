@@ -30,7 +30,7 @@ MaixCAM 可以使用 LicheeRV-Nano 和 SG2002 的资料， 反之 **LicheeRV-Nan
 MCU 的 TX/RX 引脚如果是高电平，就会将电流灌入 MaixCAM 导致 MaixCAM 无法启动，
 另外，如果 MCU 的 TX 引脚输出了低电平，也就是 MaixCAM 的 RX 引脚为低电平，也会导致 MaixCAM 无法启动。
 解决办法：
-  * 最简单的解决办法就是 MaixCAM 先上电，然后 MCU 再上点或者同时上电。
+  * 最简单的解决办法就是 MaixCAM 先上电，然后 MCU 再上电或者同时上电。
   * 如果 MCU 先上电，可以在 MCU 的 TX/RX 引脚接一个二极管防止电流流进 MaixCAM，以及保证 MCU 的 TX 引脚设置为浮空输入。
 
 ## 上电卡在启动界面，无法进入系统
