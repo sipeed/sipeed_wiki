@@ -37,7 +37,7 @@ NanoKVM-PCIe 包装内包含主机, 半高 PCIe 挡板, 两条 USBA-C线缆, 一
 
 注: NanoKVM-PCIe USB-PWR-IN CC 接口下拉5.1K电阻，可使用正规 PD 充电头供电。部分劣质PD电源存在烧坏 NanoKVM-PCIe 的风险。
 
-## 接线
+## 安装
 
 1. NanoKVM-PCIe 在接线上与 Cube 类似, 请在主机关机且断电的情况下安装 NanoKVM-PCIe, 测试功能全部正常后再装入机箱
 
@@ -64,6 +64,8 @@ NanoKVM-PCIe 包装内包含主机, 半高 PCIe 挡板, 两条 USBA-C线缆, 一
 ![](./../../../assets/NanoKVM/unbox/PCIe-Pin.jpg)
 
 注：NanoKVM-PCIe 不会监控HDD状态
+
+注：早期部分用户购买的NanoKVM-PCIe配套全高PCIe挡板在安装上可能存在过长的问题，请购买`外径7mm、内径4.2mm、高度3mm`规格的[垫圈](https://item.taobao.com/item.htm?id=678368486424)。若安装仍然存在困难，请联系客服`support@sipeed.com`获取支持
 
 ## WiFi 配网
 
