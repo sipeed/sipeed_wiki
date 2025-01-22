@@ -35,7 +35,7 @@ Notably, NanoKVM-USB comes with a USB-A port that supports switching between HOS
 | --- | :---: | :---: | :---: |
 | HDMI Input | 4K@30fps | 1080P@60fps | 4K@30fps |
 | HDMI Loopback | 4K@30fps | None | None |
-| USB Capture | 1080P@60fps | 1080P@60fps | 1080P@60fps |
+| USB Capture | 2K@30fps | 1080P@60fps | 1080P@60fps |
 | USB Interface | USB3.0 | USB2.0 | USB3.0 |
 | USB Switch | Y | Y | N |
 | Keyboard&Mouse | Y | Y | Y |
