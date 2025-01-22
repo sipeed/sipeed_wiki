@@ -12,6 +12,12 @@ keywords: NanoKVM, Remote desktop, Lichee, PiKVM, RISCV, tool
    > Users outside of China may experience download failures due to DNS issues. Please add `nameserver 119.29.29.29` or `nameserver 223.5.5.5` to `/etc/resolv.conf` and try again.
    > Earlier versions of the application may not have this script file. Please download [here](https://github.com/user-attachments/files/16939944/update-nanokvm.py.zip), extract it, and grant execute permissions before trying again.
 
+### About Password
+
+   1. After updating to version 2.1.5, if you haven't set a web password before, you will be prompted to change the password upon logging in. When you change the password, the backend `root` password will also be synchronized to the web password. If you have already changed the web password before, the backend `root` password will not be changed automatically. You can modify it using `passwd` in the terminal or click "Reset Password" in the web settings.
+   2. If the application version is greater than 2.1.5 and you forget the password, you can press the `BOOT` button on the device for more than 10 seconds (the BOOT button for the NanoKVM-Cube is located next to the USB-HID interface, while the PCIe version can be found on the panel. Older versions of the NanoKVM Full may not have a hole in the corresponding location and require disassembly).
+   3. If holding down the button does not reset the password, it may be because the application version is less than 2.1.5. Please refer to [here](https://wiki.sipeed.com/hardware/en/kvm/NanoKVM/system/flashing.html) to reflash the image. Note that reflashing the image will erase all configuration information.
+
 ### STA LED Not Flashing Normally
 
 The STA LED indicates the operating status of the NanoKVM. When functioning properly, the STA LED should flash irregularly. If the STA LED is continuously on or off, or exhibits regular intermittent extinguishing, the NanoKVM may be malfunctioning.

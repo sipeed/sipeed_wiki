@@ -35,7 +35,7 @@ Note: If you need USB HID direct power, you must enable the "Always Power USB" s
 
 Note: The USB-PWR-IN CC interface of the NanoKVM-PCIe has a 5.1K pull-down resistor, allowing it to be powered by a standard PD charger. Some low-quality PD chargers may pose a risk of damaging the NanoKVM-PCIe.
 
-## Wiring
+## Assembly
 
 1. The wiring for NanoKVM-PCIe is similar to that of the Cube. Please install the NanoKVM-PCIe while the main unit is powered off and disconnected from power. Only after testing all functions as normal should you install it into the case.
 
@@ -60,6 +60,10 @@ When connecting, be sure to refer to the diagram above and the internal interfac
 When wiring, please be sure to refer to the diagram above and the internal interface diagram of the NanoKVM-PCIe.
 
 ![](./../../../assets/NanoKVM/unbox/PCIe-Pin.jpg)
+
+Note: NanoKVM-PCIe does not monitor HDD status.
+
+Note: Some early users of the NanoKVM-PCIe with a full-height PCIe bracket may encounter issues related to the installation being too long. Please use longer screws to secure it (be careful not to overtighten) or purchase washers with specifications of outer diameter 7mm, inner diameter 4.2mm, height 3mm. If you still encounter difficulties with the installation, please contact Taobao/AliExpress customer service or email kvm@sipeed.com for support.
 
 ## WiFi Configuration
 

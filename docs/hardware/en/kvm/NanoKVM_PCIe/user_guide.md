@@ -111,6 +111,8 @@ The USB of NanoKVM will default to virtualizing an RNDIS USB network card (as a 
 
 If you do not wish to use the RNDIS function, you can click `Settings` -> `RNDIS` to disable it.
 
+Note: The NCM connection method was added after version 2.1.5, but the default remains RNDIS. To enable it, use: touch /boot/usb.ncm or create an empty file named usb.ncm in the /boot partition.
+
 ### ATX Power Control
 
 + On the right side of the floating toolbar, there are power and hard drive icons. Under normal circumstances, they are gray; after powering on, the power icon turns green.
@@ -122,6 +124,13 @@ If you do not wish to use the RNDIS function, you can click `Settings` -> `RNDIS
 + Switch between Chinese and English.
 + About NanoKVM: Click to open the Wiki.
 + Check for updates: When updates are available, users can click to update. After about 15 seconds, the webpage will automatically refresh and re-login to complete the update.
+
+### About SSH
+
++ After updating to version 2.1.5, SSH support can be permanently disabled or temporarily enabled as follows:
+
+1. **Permanently Disable**: Execute `touch /etc/kvm/ssh_stop` to disable SSH login on the next boot of the NanoKVM. To remove this restriction, delete the file with `rm /etc/kvm/ssh_stop`.
+2. **Temporarily Enable**: Execute `touch /boot/start_ssh_once` or create an empty file named start_ssh_once in the /boot partition to enable SSH on the next boot of the NanoKVM. This file will be automatically deleted afterward.
 
 ## Hardware and Structure
 

@@ -103,6 +103,8 @@ NanoKVM 的 USB 会默认虚拟出 RNDIS USB网卡（从设备），当 NanoKVM 
 
 若不使用 RNDIS 功能，可点击`设置`->`RNDIS`关闭。
 
+注: 2.1.5 版本后添加 ncm 方式接，但默认还是 RNDIS ，启用方式：`touch /boot/usb.ncm` 或在 /boot 分区下创建 usb.ncm 空文件
+
 ### ATX电源控制
 
 + 在悬浮栏右侧，有电源和硬盘图标，正常情况下是灰色状态，开机后电源图标变绿。
@@ -119,6 +121,13 @@ NanoKVM 的 USB 会默认虚拟出 RNDIS USB网卡（从设备），当 NanoKVM 
 + 切换中英文
 + 关于NanoKVM：点击打开Wiki
 + 检查更新：当有可用更新时，用户可点击更新，约15s左右，网页自动刷新重新登录即可更新完成。
+
+### 关于SSH
+
++ 2.1.5 版本应用后，SSH支持永久关闭和临时开启，方法如下：
+
+1. 永久关闭：执行`touch /etc/kvm/ssh_stop`即可在NanoKVM下一次开机时开始禁用ssh登录，删除该文件`rm /etc/kvm/ssh_stop`即可解除
+2. 临时开启：执行`touch /boot/start_ssh_once`或在 /boot 分区下创建 start_ssh_once 空文件，即可在NanoKVM下一次开机时打开ssh，该文件会自动删除
 
 ### 更多功能敬请期待
 

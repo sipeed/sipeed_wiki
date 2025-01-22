@@ -74,6 +74,8 @@ The wiring diagram for the NanoKVM-Full version is as follows. The Lite version 
   ![](./../../../assets/NanoKVM/unbox/old-ATX-B.png)
   ![](./../../../assets/NanoKVM/unbox/old-ATX-B-w.png)
 
+Note: NanoKVM-Cube does not monitor HDD status.
+
 ## Updates
 
 ### Update Image

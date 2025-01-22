@@ -30,6 +30,12 @@ keywords: NanoKVM-USB, Lichee, PiKVM, RISCV, tool
 
 ### 若上述方法不能解决异常，请在论坛,GitHub或QQ群说明您购买的型号和遇到的问题，我们会耐心解答
 
+## 已知问题
+
+### 延迟：
+
++ ARM 版的 macOS 通过 NanoKVM-USB 连接树莓派时延迟会增大，其他组合则不受影响
+
 ## 反馈方式
 
 - [Github issues](https://github.com/sipeed/NanoKVM)
