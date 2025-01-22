@@ -30,6 +30,12 @@ keywords: NanoKVM-USB, Lichee, PiKVM, RISCV, tool
 
 ### If the above methods do not resolve the issue, please describe your purchased model and the encountered problem on the forum, GitHub, or QQ group, and we will respond patiently.
 
+## Known Issues
+
+### Latency:
+
++ The ARM version of macOS experiences increased latency when connected to a Raspberry Pi via NanoKVM-USB; other combinations are not affected.
+
 ## Feedback Methods
 
 - [GitHub Issues](https://github.com/sipeed/NanoKVM)
