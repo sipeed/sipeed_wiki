@@ -61,6 +61,8 @@ When wiring, please be sure to refer to the diagram above and the internal inter
 
 ![](./../../../assets/NanoKVM/unbox/PCIe-Pin.jpg)
 
+Note: NanoKVM-PCIe does not monitor HDD status.
+
 ## WiFi Configuration
 
 + This step is only applicable to the NanoKVM-PCIe version with WiFi; other versions will display "--" in the WiFi icon position.

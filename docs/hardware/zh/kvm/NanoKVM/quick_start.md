@@ -73,6 +73,8 @@ NanoKVM-Full版接口示意图如下，Lite版仅包含 USB-C、HDMI和网口，
   ![](./../../../assets/NanoKVM/unbox/old-ATX-B.png)
   ![](./../../../assets/NanoKVM/unbox/old-ATX-B-w.png)  
 
+  注：NanoKVM-Cube 不会监控HDD状态
+
 ## 更新
 
 ### 更新镜像

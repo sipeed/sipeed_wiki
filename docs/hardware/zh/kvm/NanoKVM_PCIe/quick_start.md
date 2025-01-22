@@ -63,6 +63,8 @@ NanoKVM-PCIe 包装内包含主机, 半高 PCIe 挡板, 两条 USBA-C线缆, 一
 
 ![](./../../../assets/NanoKVM/unbox/PCIe-Pin.jpg)
 
+注：NanoKVM-PCIe 不会监控HDD状态
+
 ## WiFi 配网
 
 + 此步骤仅适用于购买了带 WiFi 版本的 NanoKVM-PCIe, 其他版本会在 WiFi 图标位置显示 "--"
