@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+
+<html lang="zh"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="">
+    
+    
+    <meta name="description" content="">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+        
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/prism.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?9cb07365544a53067c56c346c838181a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119047820-5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-119047820-5');
+    </script>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/js/thumbs_up/style.css" type="text/css"/>
+        
+    
+    
+    <title>Sipeed Wiki</title>
+    
+    <script type="text/javascript">js_vars = {"teedoc-plugin-ad-hint": {"type": "hint", "label": "NEW", "content": "全新 Maix 系列产品 <a href='https://wiki.sipeed.com/maixcam'>MaixCAM</a> 已上线, 全新 <a href='https://wiki.sipeed.com/maixpy/'>MaixPy</a> 功能更丰富，性能更强大，软件更易用，文档更全面！", "show_times": 2, "show_after_s": 432000, "date": "2022-06-01 14:00", "color": "#a0421d", "link_color": "#e53935", "link_bg_color": "#e6ae5c", "bg_color": "#ffcf89", "color_hover": "white", "bg_color_hover": "#f57c00", "close_color": "#eab971"}, "teedoc-plugin-thumbs-up": {"label_up": "有帮助", "label_down": "待改进", "icon": "/static/images/thumbs_up/up.svg", "icon_clicked": "/static/images/thumbs_up/upped.svg", "url": "https://thumbs-up.sipeed.com", "show_up_count": true, "show_down_count": false, "msg_already_voted": "您已经投过票了", "msg_thanks": "感谢您的反馈", "msg_down_prompt": "感谢反馈，请告诉我们可以改进什么地方?（最少 10 个字）", "msg_down_prompt_error": "消息最少需要 10 个字， 最多 256 个字", "msg_error": "请求服务器出现错误!"}}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": null, "update": [], "ts": 0, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/">
+                
+                    <img class="site_logo" src="/static/image/logo.svg" alt="sipeed wiki logo">
+                
+                
+                    <h2>wiki</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class=""><a  href="/">产品</a></li>
+<li class="sub_items "><a >开源软件</a><ul><li class=""><a  href="/maixpy/">MaixPy</a></li>
+<li class=""><a  href="/soft/maixpy/zh/index.html">MaixPy_v1</a></li>
+<li class=""><a  href="/soft/Lichee/zh/index.html">Lichee</a></li>
+<li class=""><a  href="/ai/zh/index.html">AI 指南</a></li>
+</ul>
+</li>
+<li class=""><a target="_blank" href="https://maixhub.com">MaixHub</a></li>
+<li class=""><a  href="/news/">动态</a></li>
+<li class=""><a  href="/faq.html">FAQ 汇总</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class=""><a  href="/store.html"><img src='/static/image/shop.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+<li class=""><a target="_blank" href="https://github.com/sipeed"><img src='/static/image/github.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+<li class="sub_items "><a  ><img src='/static/image/language.svg' style='height: 1.5em;vertical-align: middle;'>&nbsp;中文</a><ul><li class=""><a  href="/soft/Tang/en/Tang-Nano-Doc/examples/2_lcd.html">English</a></li>
+<li class="active"><a  href="/soft/Tang/zh/Tang-Nano-Doc/examples/2_lcd.html">中文</a></li>
+</ul></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">输入关键词，多关键词空格隔开</span>
+                                <span id="search_loading_hint">正在加载，请稍候。。。</span>
+                                <span id="search_download_err_hint">下载文件失败，请刷新重试或检查网络</span>
+                                <span id="search_other_docs_result_hint">来自其它文档的结果</span>
+                                <span id="search_curr_doc_result_hint">当前文档搜索结果</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="active_parent no_link"><a><span class="label">Tang Nano</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/soft/Tang/zh/Tang-Nano-Doc/index.html"><span class="label">简介</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/Tang/zh/Tang-Nano-Doc/get_started/install-the-ide.html"><span class="label">安装 IDE</span><span class=""></span></a></li>
+<li class="active_parent no_link"><a><span class="label">示例</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/soft/Tang/zh/Tang-Nano-Doc/examples/1_led.html"><span class="label">点灯教程</span><span class=""></span></a></li>
+<li class="active with_link"><a href="/soft/Tang/zh/Tang-Nano-Doc/examples/2_lcd.html"><span class="label">点LCD教程</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Permier</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/soft/Tang/zh/index_bak.html"><span class="label">简介</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">准备</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/Tang/zh/get_started/install_TD_win.html"><span class="label">安装TD驱动</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/Tang/zh/get_started/driver_linux_en.html"><span class="label">安装TD驱动——Linux</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/Tang/zh/get_started/E203.html"><span class="label">搭建蜂鸟开发环境</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/Tang/zh/get_started/fpga_download.html"><span class="label">FPGA码流烧录</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">FPGA例程</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/Tang/zh/fpga/led.html"><span class="label">LED</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1></h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                                <span class="article_date" title="最后修改日期： 2023-04-12">
+                                    2023-04-12
+                                </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/sipeed/sipeed_wiki/blob/main/docs/soft/Tang/zh/Tang-Nano-Doc/examples/2_lcd.md" target="_blank">
+                                    <span id='editPage'>编辑本页</span>
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <p>RGB LCD 示例</p>
+<h1 id="%E5%85%88%E4%BB%8B%E7%BB%8D%E6%97%B6%E5%BA%8F">先介绍时序</h1>
+<p>RGB LCD 显示图像的原理和 VGA 类似，都是在计算机内部以数字的方式生成需要显示的图像信息，再通过模数转换的方式，将这些数字的图像信息转变为 RGB 三原色模拟信号，以及行、场同步信号。</p>
+<p>下面就介绍 VGA 的时序</p>
+<p><img src="./../../../assets/examples/lcd_pjt_1.png" alt="" /></p>
+<p>上图分别是 VGA 在数据传输中的行同步、场同步时序</p>
+<p>从时序图中可以看出，不论是显示一行数据还是一列数据，都需要一个同步(sync)信号，数据的传输需要在两个同步信号的脉冲之间完成</p>
+<p>每一行的数据包括显示前沿(back porch)、有效数据(active viedo)、显示后沿(front porch)</p>
+<p>其中的有效数据就是我们常说的分辨率，而显示前后沿的参数需要参考具体的分辨率与帧数进行设置，相关参数可以参考典型参数，链接在此： <a href="http://www.tinyvga.com/vga-timing"  target="_blank">http://www.tinyvga.com/vga-timing</a></p>
+<p>这块屏幕的控制时序略有不同，相关参数的设置可以查看<a href="./../../../assets/files/AT050TN43.pdf"  >规格书</a></p>
+<p>下面提供了 LCD 相关时序的截图</p>
+<p><img src="./../../../assets/examples/lcd_pjt_2.png" alt="" /></p>
+<p><img src="./../../../assets/examples/lcd_pjt_3.png" alt="" /></p>
+<p>上面一张图是时序中的参数表，下面的图是时序图</p>
+<p>从时序图中看出，这块屏幕可以不用设置前后沿，可以只设置消影(blanking)时间，通过实际的程序证明，两种方式都是可以的</p>
+<h1 id="Verilog%E5%AE%9E%E7%8E%B0">Verilog实现</h1>
+<h2 id="pll">pll</h2>
+<p>板载的晶振时钟为 24MHz ，但是我们的屏幕要求 33.3MHZ 的时钟，所以我们需要使用 pll 产生我们需要的时钟</p>
+<p>这里需要使用到 <code>IP Core Generate</code> ，位置在 Tools -&gt; IP Core Generate</p>
+<p><img src="./../../../assets/examples/lcd_pjt_4.png" alt="" /></p>
+<p>双击 <code>PLL</code> ，在弹出窗口 language 选择 Verilog ，CLKIN 为 24MHz ，CLKOUT 为 200MHz，CLKOUTD 要选择 Enable，然后生成时钟为 33.33MHz，Tolerance 选择 0.2%</p>
+<p><img src="./../../../assets/examples/lcd_pjt_5.png" alt="" /></p>
+<h2 id="osc">osc</h2>
+<p>系统的时钟可以使用外部时钟提供，也可以使用 OSC 生成的时钟</p>
+<p>同样也是使用 <code>IP Core Generate</code></p>
+<p>找到 <code>OSC</code> 并双击打开进行分频的设置</p>
+<p>在帮助页面可以知道，GW1N-1 系列的 fpga 的 OSC 是从 240MHz 进行分频的，所以要产生 24MHz 的时钟，只需要进行 10 的分频</p>
+<h2 id="lcd%E6%97%B6%E5%BA%8F%E4%BA%A7%E7%94%9F">lcd时序产生</h2>
+
+<pre class="language-none"><code class="language-none">localparam      V_BackPorch = 16'd6; //0 or 45
+localparam      V_Pluse 	= 16'd5; 
+localparam      HightPixel  = 16'd480;
+localparam      V_FrontPorch= 16'd62; //45 or 0
+
+localparam      H_BackPorch = 16'd182; 	//NOTE: 高像素时钟时，增加这里的延迟，方便K210加入中断
+localparam      H_Pluse 	= 16'd1; 
+localparam      WidthPixel  = 16'd800;
+localparam      H_FrontPorch= 16'd210;
+
+localparam      PixelForHS  =   WidthPixel + H_BackPorch + H_FrontPorch;  	
+localparam      LineForVS   =   HightPixel + V_BackPorch + V_FrontPorch;
+</code></pre>
+<p>首先是设置时序相关的参数：前沿、后沿、有效像素</p>
+<p>关于显示前沿、后沿，前面也说了，可以合并为一个消影时间，就是可以把其中一个设置为0，另一个设置为消影时间。反正前后沿的时间加起来符合表中的时间要求就可以</p>
+
+<pre class="language-none"><code class="language-none">always @(  posedge PixelClk or negedge nRST  )begin
+    if( !nRST ) begin
+        LineCount       &lt;=  16'b0;    
+        PixelCount      &lt;=  16'b0;
+        end
+    else if(  PixelCount  ==  PixelForHS ) begin
+        PixelCount      &lt;=  16'b0;
+        LineCount       &lt;=  LineCount + 1'b1;
+        end
+    else if(  LineCount  == LineForVS  ) begin
+        LineCount       &lt;=  16'b0;
+        PixelCount      &lt;=  16'b0;
+        end
+end
+
+//注意这里HSYNC和VSYNC负极性
+assign  LCD_HSYNC = (( PixelCount &gt;= H_Pluse)&amp;&amp;( PixelCount &lt;= (PixelForHS-H_FrontPorch))) ? 1'b0 : 1'b1;
+assign  LCD_VSYNC = ((( LineCount  &gt;= V_Pluse )&amp;&amp;( LineCount  &lt;= (LineForVS-0) )) ) ? 1'b0 : 1'b1;
+</code></pre>
+<p>这段代码产生同步信号，需要注意的是，这块屏幕的同步信号是负极性使能</p>
+
+<pre class="language-none"><code class="language-none">assign  LCD_DE = (  ( PixelCount &gt;= H_BackPorch )&amp;&amp;
+                    ( PixelCount &lt;= PixelForHS-H_FrontPorch ) &amp;&amp;
+                    ( LineCount &gt;= V_BackPorch ) &amp;&amp;
+                    ( LineCount &lt;= LineForVS-V_FrontPorch-1 ))  ? 1'b1 : 1'b0;
+                    //这里不减一，会抖动
+</code></pre>
+<p>这段代码设置 LCD 使能图像显示，这块屏幕需要控制一个管脚用作显示开关，实际这个信号就是传输图像有效的那 800*480 的数据时置 1</p>
+
+<pre class="language-verilog"><code class="language-verilog">    localparam          Colorbar_width   =   WidthPixel / 16;
+
+    assign  LCD_R     = ( PixelCount &lt; ( H_BackPorch +  Colorbar_width * 0  )) ? 5'b00000 :
+                        ( PixelCount &lt; ( H_BackPorch +  Colorbar_width * 1  )) ? 5'b00001 : 
+                        ( PixelCount &lt; ( H_BackPorch +  Colorbar_width * 2  )) ? 5'b00010 :    
+                        ( PixelCount &lt; ( H_BackPorch +  Colorbar_width * 3  )) ? 5'b00100 :    
+                        ( PixelCount &lt; ( H_BackPorch +  Colorbar_width * 4  )) ? 5'b01000 :    
+                        ( PixelCount &lt; ( H_BackPorch +  Colorbar_width * 5  )) ? 5'b10000 :  5'b00000;
+
+    assign  LCD_G    =  ( PixelCount &lt; ( H_BackPorch +  Colorbar_width * 6  )) ? 6'b000001: 
+                        ( PixelCount &lt; ( H_BackPorch +  Colorbar_width * 7  )) ? 6'b000010:    
+                        ( PixelCount &lt; ( H_BackPorch +  Colorbar_width * 8  )) ? 6'b000100:    
+                        ( PixelCount &lt; ( H_BackPorch +  Colorbar_width * 9  )) ? 6'b001000:    
+                        ( PixelCount &lt; ( H_BackPorch +  Colorbar_width * 10 )) ? 6'b010000:    
+                        ( PixelCount &lt; ( H_BackPorch +  Colorbar_width * 11 )) ? 6'b100000:  6'b000000;
+
+    assign  LCD_B    =  ( PixelCount &lt; ( H_BackPorch +  Colorbar_width * 12 )) ? 5'b00001 : 
+                        ( PixelCount &lt; ( H_BackPorch +  Colorbar_width * 13 )) ? 5'b00010 :    
+                        ( PixelCount &lt; ( H_BackPorch +  Colorbar_width * 14 )) ? 5'b00100 :    
+                        ( PixelCount &lt; ( H_BackPorch +  Colorbar_width * 15 )) ? 5'b01000 :    
+                        ( PixelCount &lt; ( H_BackPorch +  Colorbar_width * 16 )) ? 5'b10000 :  5'b00000;
+</code></pre>
+<p>这段代码用来产生 LCD 的测试数据，产生彩条显示</p>
+
+<pre class="language-none"><code class="language-none">VGAMod	D1
+(
+    .CLK		(	CLK_SYS     ),
+    .nRST		(	nRST		),
+
+    .PixelClk	(	CLK_PIX		),
+    .LCD_DE		(	LCD_DEN	 	),
+    .LCD_HSYNC	(	LCD_HYNC 	),
+    .LCD_VSYNC	(	LCD_SYNC 	),
+
+    .LCD_B		(	LCD_B		),
+    .LCD_G		(	LCD_G		),
+    .LCD_R		(	LCD_R		)
+);
+</code></pre>
+<p>最后就是在 TOP 中进行实例化</p>
+<p>整个工程可以在 <a href="https://github.com/sipeed/Tang-Nano-examples/tree/master/example_lcd"  target="_blank">这里</a> 下载</p>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                        <a href="/soft/Tang/zh/Tang-Nano-Doc/examples/1_led.html">
+                            <span class="icon"></span>
+                            <span class="label">点灯教程</span>
+                        </a>
+                        
+                    </div>
+                    <div id="next">
+                        
+                        <a href="/soft/Tang/zh/index_bak.html">
+                            <span class="label">简介</span>
+                            <span class="icon"></span>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>相关链接</a><ul><li><a target="_blank" href="https://www.sipeed.com">Sipeed 官网</a></li>
+<li><a target="_blank" href="https://maixhub.com/">MaixHub</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">Sipeed 淘宝</a></li>
+<li><a  href="/sitemap.xml">网站地图</a></li>
+<li><a target="_blank" href="https://github.com/teedoc/teedoc">网站使用 teedoc 生成</a></li>
+</ul>
+</li>
+<li><a>源码</a><ul><li><a target="_blank" href="https://github.com/sipeed/sipeed_wiki">Wiki 源码</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">开源项目</a></li>
+</ul>
+</li>
+<li><a>关注我们</a><ul><li><a target="_blank" href="https://twitter.com/SipeedIO">twitter</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">淘宝</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">github</a></li>
+<li><a><a>微信公众号</a><img src='/static/image/wechat.png'></a>
+</li>
+</ul>
+</li>
+<li><a>联系我们</a><ul><li><a>电话: +86 0755-27808509</a>
+</li>
+<li><a>商业支持: support@sipeed.com</a>
+</li>
+<li><a>地址: 深圳市宝安区新湖路4008号蘅芳科技办公大厦A座-2101C</a>
+</li>
+<li><a  href="/join_us.html">加入我们</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://www.sipeed.com">©2018-2023 深圳矽速科技有限公司</a></li>
+<li><a target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index">粤ICP备19015433号</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/js/prism.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <link rel="stylesheet" href="/static/js/add_hint/style.css" type="text/css"/>
+    
+        <script src="/static/js/add_hint/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+        <script src="/static/js/thumbs_up/main.js"></script>
+    
+</body>
+
+</html>

@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+
+<html lang="zh"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="">
+    
+    
+    <meta name="description" content="">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+        
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/prism.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?9cb07365544a53067c56c346c838181a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119047820-5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-119047820-5');
+    </script>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/js/thumbs_up/style.css" type="text/css"/>
+        
+    
+    
+    <title>部署模型到 Maix-III(M3) 系列 AXera-Pi 开发板 - Sipeed Wiki</title>
+    
+    <script type="text/javascript">js_vars = {"teedoc-plugin-ad-hint": {"type": "hint", "label": "NEW", "content": "全新 Maix 系列产品 <a href='https://wiki.sipeed.com/maixcam'>MaixCAM</a> 已上线, 全新 <a href='https://wiki.sipeed.com/maixpy/'>MaixPy</a> 功能更丰富，性能更强大，软件更易用，文档更全面！", "show_times": 2, "show_after_s": 432000, "date": "2022-06-01 14:00", "color": "#a0421d", "link_color": "#e53935", "link_bg_color": "#e6ae5c", "bg_color": "#ffcf89", "color_hover": "white", "bg_color_hover": "#f57c00", "close_color": "#eab971"}, "teedoc-plugin-thumbs-up": {"label_up": "有帮助", "label_down": "待改进", "icon": "/static/images/thumbs_up/up.svg", "icon_clicked": "/static/images/thumbs_up/upped.svg", "url": "https://thumbs-up.sipeed.com", "show_up_count": true, "show_down_count": false, "msg_already_voted": "您已经投过票了", "msg_thanks": "感谢您的反馈", "msg_down_prompt": "感谢反馈，请告诉我们可以改进什么地方?（最少 10 个字）", "msg_down_prompt_error": "消息最少需要 10 个字， 最多 256 个字", "msg_error": "请求服务器出现错误!"}}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": "2022-09-21", "update": [], "ts": 1663718400, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/">
+                
+                    <img class="site_logo" src="/static/image/logo.svg" alt="sipeed wiki logo">
+                
+                
+                    <h2>wiki</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class=""><a  href="/">产品</a></li>
+<li class="sub_items active_parent"><a >开源软件</a><ul><li class=""><a  href="/maixpy/">MaixPy</a></li>
+<li class=""><a  href="/soft/maixpy/zh/index.html">MaixPy_v1</a></li>
+<li class=""><a  href="/soft/Lichee/zh/index.html">Lichee</a></li>
+<li class="active"><a  href="/ai/zh/index.html">AI 指南</a></li>
+</ul>
+</li>
+<li class=""><a target="_blank" href="https://maixhub.com">MaixHub</a></li>
+<li class=""><a  href="/news/">动态</a></li>
+<li class=""><a  href="/faq.html">FAQ 汇总</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class=""><a  href="/store.html"><img src='/static/image/shop.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+<li class=""><a target="_blank" href="https://github.com/sipeed"><img src='/static/image/github.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+<li class="sub_items "><a  ><img src='/static/image/language.svg' style='height: 1.5em;vertical-align: middle;'>&nbsp;中文</a><ul><li class=""><a  href="/ai/en/deploy/ax-pi.html">English</a></li>
+<li class="active"><a  href="/ai/zh/deploy/ax-pi.html">中文</a></li>
+</ul></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">输入关键词，多关键词空格隔开</span>
+                                <span id="search_loading_hint">正在加载，请稍候。。。</span>
+                                <span id="search_download_err_hint">下载文件失败，请刷新重试或检查网络</span>
+                                <span id="search_other_docs_result_hint">来自其它文档的结果</span>
+                                <span id="search_curr_doc_result_hint">当前文档搜索结果</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="not_active with_link"><a href="/ai/zh/index.html"><span class="label">文档简介</span><span class=""></span></a></li>
+<li class="not_active no_link sidebar_category"><span class="label">AI 基础</span></li>
+<li class="not_active with_link"><a href="/ai/zh/basic/what_is_ai.html"><span class="label">什么是 AI ?</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/ai/zh/basic/dnn_basic.html"><span class="label">深度神经网络通俗理解</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/ai/zh/basic/code_frameworks.html"><span class="label">常见代码框架和工具</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/ai/zh/basic/courses.html"><span class="label">教程汇总</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">常见神经网络模型</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/ai/zh/nn_models/mobilenet.html"><span class="label">Mobilenet 分类模型</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/ai/zh/nn_models/yolov2.html"><span class="label">YOLO v2 检测模型</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/ai/zh/nn_models/fomo.html"><span class="label">FOMO 轻量检测模型</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link sidebar_category"><span class="label">部署到边缘设备</span></li>
+<li class="not_active with_link"><a href="/ai/zh/deploy/index.html"><span class="label">部署方法汇总</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/ai/zh/deploy/k210.html"><span class="label">Maix-I 之 K210 模型部署</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/ai/zh/deploy/v831.html"><span class="label">Maix-II 之 V831 模型部署</span><span class=""></span></a></li>
+<li class="active with_link"><a href="/ai/zh/deploy/ax-pi.html"><span class="label">Maix-III 之 AX-Pi 模型部署</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/ai/zh/deploy/tinymaix.html"><span class="label">TinyMaix 模型部署</span><span class=""></span></a></li>
+<li class="not_active no_link sidebar_category"><span class="label">MaixHub</span></li>
+<li class="not_active with_link"><a href="/ai/zh/maixhub/index.html"><span class="label">MaixHub 简介</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/ai/zh/maixhub/train_best.html"><span class="label">MaixHub 在线训练调优</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/ai/zh/maixhub/faq.html"><span class="label">MaixHub FAQ 汇总</span><span class=""></span></a></li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>部署模型到 Maix-III(M3) 系列 AXera-Pi 开发板</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                                <span class="article_date" title="最后修改日期： 2022-09-21">
+                                    2022-09-21
+                                </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/sipeed/sipeed_wiki/blob/main/docs/soft/ai/zh/deploy/ax-pi.md" target="_blank">
+                                    <span id='editPage'>编辑本页</span>
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <div id="title_card">
+    <div class="card" style="background-color: #fafbfe">
+        <img src="../../assets/maix-iii-small.png" alt="AXera-Pi 模型转换和部署">
+        <div class="card_info card_purple">
+            <div class="title">Maix-III 系列之 AXera-Pi（爱芯派）</div>
+            <div class="brief">
+                <div>高算力、独特 AI-ISP 影像系统</div>
+                <div>最高 3.6Tops@INT8，丰富算子支持</div>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+#title_card {
+    width:100%;
+    text-align:center;
+    background-color: #fafbfe;
+    margin-bottom: 1em;
+}
+#title_card img {
+  max-height: 20em;
+}
+.card_purple {
+    background-color: #d1c4e9;
+    color: #673ab7;
+}
+.dark .card_purple {
+    background-color: #370040;
+    color: #ffffffba;
+}
+.title {
+    font-size: 1.5em;
+    font-weight: 800;
+    padding: 0.8em;
+}
+</style>
+<blockquote>
+<p>有任何想法或者修改建议，欢迎留言或者直接点击右上角<code>编辑本页</code>进行修改后提交 PR</p>
+</blockquote>
+<blockquote>
+<p><a href="https://maixhub.com/model/zoo"  target="_blank">MaixHub</a> 模型库有 AXera-Pi 能直接运行的模型，可以直接下载使用，也欢迎上传分享你的模型~</p>
+</blockquote>
+<p><a href="/hardware/zh/maixIII/index.html"  >点击可以查看 Maix-III(M3) 系列 AXera-Pi 开发板详情和基础使用文档</a></p>
+<p>要部署模型到<code>AXera-Pi</code>，需要将模型量化到 INT8，减小模型大小的同时提高运行速度，一般采用 <code>PTQ</code>(训练后量化)的方式量化模型，步骤：<br />
+<strong>1.</strong> 准备好浮点模型。<br />
+<strong>2.</strong> 用模型量化和格式转换工具转换成 AXera-Pi 支持的格式，这里工具使用爱芯官方提供的 <a href="https://pulsar-docs.readthedocs.io"  target="_blank">pulsar</a> 。</p>
+<blockquote>
+<p>本文提供了快速入门和流程向导，强烈建议先通看一遍，再查看 pulsar 文档获得更多具体内容。</p>
+</blockquote>
+<p><strong>3.</strong> 在 AXera-Pi 上运行模型。</p>
+<h2 id="%E5%87%86%E5%A4%87%E6%B5%AE%E7%82%B9%E6%A8%A1%E5%9E%8B">准备浮点模型</h2>
+<p>使用 <code>Pytorch</code> 或者 <code>TensorFlow</code> 训练好模型， 将模型保存为 <code>onnx</code> 格式备用。</p>
+<p>需要注意只能使用 <code>AXera-Pi</code> 所支持的算子，见<a href="https://pulsar-docs.readthedocs.io/zh_CN/latest/appendix/op_support_list.html"  target="_blank">算子支持列表</a>。</p>
+<p>对于某些网络，可能需要将后处理剥离出来，使用<code>CPU</code>处理。</p>
+<h3 id="%E4%B8%BE%E4%BE%8B">举例</h3>
+<p>比如我们用一个 PyTorch Hub 上面的 <a href="https://pytorch.org/hub/pytorch_vision_mobilenet_v2/"  target="_blank">mobilenetv2</a>:</p>
+
+<pre class="language-python"><code class="language-python">import torch
+model = torch.hub.load('pytorch/vision:v0.10.0', 'mobilenet_v2', pretrained=True)
+model.eval()
+</code></pre>
+<p>导出为 <code>onnx</code> 格式:</p>
+
+<pre class="language-python"><code class="language-python">x = torch.randn(1, 3, 224, 224)
+torch.onnx.export(model, x, &quot;mobilenetv2.onnx&quot;, export_params = True, verbose=True, opset_version=11)
+</code></pre>
+<p>有些模型可以使用 <code>onnxsim</code> 精简下网络结构（这个模型实际上不需要）：</p>
+
+<pre class="language-none"><code class="language-none">pip install onnx-simplifier
+python -m onnxsim mobilenetv2.onnx mobilenetv2-sim.onnx
+</code></pre>
+<h2 id="%E6%A8%A1%E5%9E%8B%E9%87%8F%E5%8C%96%E5%92%8C%E6%A0%BC%E5%BC%8F%E8%BD%AC%E6%8D%A2">模型量化和格式转换</h2>
+<h3 id="%E5%AE%89%E8%A3%85%3Ccode%3Edocker%3C/code%3E">安装<code>docker</code></h3>
+<p><a href="https://docs.docker.com/engine/install/"  target="_blank">安装教程</a></p>
+<p>安装好后查看</p>
+
+<pre class="language-none"><code class="language-none">docker --version
+</code></pre>
+<p><code>Linux</code>下添加当前用户到 <code>docker</code>组，这样就不需要使用 <code>sudo</code> 运行<code>docker</code>命令了。可以用以下命令来添加：</p>
+
+<pre class="language-shell"><code class="language-shell">sudo gpasswd -a $USER docker
+newgrp docker
+</code></pre>
+<h3 id="%E4%B8%8B%E8%BD%BD%E8%BD%AC%E6%8D%A2%E5%B7%A5%E5%85%B7">下载转换工具</h3>
+<p>转换工具是以 docker 镜像的方式提供的，下载后用 docker 加载镜像即可。</p>
+<table>
+<thead>
+<tr>
+  <th style="text-align:left">下载站点</th>
+  <th style="text-align:left">简介</th>
+  <th style="text-align:left">使用方法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td style="text-align:left"><a href="https://hub.docker.com/r/sipeed/pulsar/tags"  target="_blank">dockerhub</a></td>
+  <td style="text-align:left">执行命令即可在线下载</td>
+  <td style="text-align:left"><code>docker pull sipeed/pulsar</code></td>
+</tr>
+<tr>
+  <td style="text-align:left">dockerhub 国内镜像</td>
+  <td style="text-align:left">中国国内下载加速</td>
+  <td style="text-align:left">1. 编辑<code>/etc/docker/daemon.json</code>添加<code>&quot;registry-mirrors&quot;: [&quot;https://docker.mirrors.ustc.edu.cn&quot;],</code>(也可以用其它镜像比如<a href="https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors"  target="_blank">阿里云</a>)<br>2. 然后 <code>docker pull sipeed/pulsar</code> 拉取镜像</td>
+</tr>
+</tbody>
+</table>
+<p>拉取完成后使用<code>docker images</code>命令可以看到<code>sipeed/pulsar:latest</code>镜像</p>
+<blockquote>
+<p>注意这里镜像名叫 <code>sipeed/pulsar</code>， 在文档里面有些地方可能是 <code>axera/neuwizard</code>，是等效的，只是名字不同</p>
+</blockquote>
+<p>然后创建容器：</p>
+
+<pre class="language-shell"><code class="language-shell">docker run -it --net host --rm --shm-size 32g -v $PWD:/data sipeed/pulsar
+</code></pre>
+<blockquote>
+<ul>
+<li>这里<code>--shm-size</code>共享内run大小根据你的电脑内存大小设置。</li>
+<li>不用<code>--rm</code>会保留容器，建议加个<code>-name xxx</code>来命名容器，下次通过<code>docker start xxx &amp;&amp; docker attach xxx</code>进入容器</li>
+<li><code>-v 宿主机路径:/data</code>是把宿主机的目录挂载到容器的<code>/data</code>目录，这样就可以在容器里面直接操作宿主机的文件了。</li>
+</ul>
+</blockquote>
+<p>创建容器后会自动进入容器，使用 <code>pulsar -h</code> 命令可以看到相关命令。</p>
+<h3 id="%E8%BF%9B%E8%A1%8C%E6%A8%A1%E5%9E%8B%E9%87%8F%E5%8C%96%E5%92%8C%E8%BD%AC%E6%8D%A2">进行模型量化和转换</h3>
+<p>然后看 <a href="https://pulsar-docs.readthedocs.io"  target="_blank">pulsar</a> 文档中的转换命令以及配置文件方法进行模型量化和格式转换。</p>
+<blockquote>
+<p>注意 <code>AXera-Pi</code> 使用了虚拟 NPU 的概念来划分算力，以将实现全部算力给 NPU 或者 NPU 和 AI-ISP 各分一半。</p>
+</blockquote>
+<h4 id="%E4%B8%BE%E4%BE%8B">举例</h4>
+<p>仍然以 <code>mobilenetv2</code> 为例：</p>
+<ul>
+<li>根据<code>pulsar</code>文档，准备好配置文件<code>config_mobilenetv2.prototxt</code>, (具体格式说明见<a href="https://pulsar-docs.readthedocs.io/zh_CN/latest/test_configs/config.html"  target="_blank">配置文件详细说明</a>),内容如下：</li>
+</ul>
+<details>
+<summary>config_mobilenetv2.prototxt</summary>
+<div class="details-content">
+<pre class="language-protobuf"><code class="language-protobuf"># 基本配置参数：输入输出
+input_type: INPUT_TYPE_ONNX
+output_type: OUTPUT_TYPE_JOINT
+
+# 硬件平台选择
+target_hardware: TARGET_HARDWARE_AX620
+
+# CPU 后端选择，默认采用 AXE
+cpu_backend_settings {
+    onnx_setting {
+        mode: DISABLED
+    }
+    axe_setting {
+        mode: ENABLED
+        axe_param {
+            optimize_slim_model: true
+        }
+    }
+}
+
+# onnx 模型输入数据类型描述
+src_input_tensors {
+    color_space: TENSOR_COLOR_SPACE_RGB
+}
+
+# joint 模型输入数据类型设置
+dst_input_tensors {
+    color_space: TENSOR_COLOR_SPACE_RGB
+}
+
+# neuwizard 工具的配置参数
+neuwizard_conf {
+    operator_conf {
+        input_conf_items {
+            attributes {
+                input_modifications {
+                    # y = x * (slope / slope_divisor) + (bias / bias_divisor)
+                    # 这里就是先把数据归一到[0, 1]
+                    affine_preprocess {
+                        slope: 1
+                        slope_divisor: 255
+                        bias: 0
+                    }
+                }
+                input_modifications {
+                    # y = (x - mean) / std
+                    # 按照训练的时候的参数标准化
+                    input_normalization {
+                        mean: [0.485,0.456,0.406]  ## 均值， 注意这里的顺序根据 src_input_tensors.color_space 而定， 比如这里是 [R G B]
+                        std: [0.229,0.224,0.255]   ## 方差
+                    }
+                }
+            }
+        }
+    }
+    dataset_conf_calibration {
+        path: &quot;imagenet-1k-images-rgb.tar&quot; # 设置 PTQ 校准数据集路径
+        type: DATASET_TYPE_TAR         # 数据集类型：tar 包
+        size: 256                      # 量化校准过程中实际使用的图片张数
+        batch_size: 1
+}
+}
+
+# pulsar compiler 的 batch size 配置参数
+pulsar_conf {
+    ax620_virtual_npu: AX620_VIRTUAL_NPU_MODE_111 # 使用虚拟 NPU， NPU 和 AI-ISP 各分一半， 111 代表 NPU
+                    #  AX620_VIRTUAL_NPU_MODE_0   # 不使用虚拟 NPU， 全部算力给 NPU
+                    #  AX620_VIRTUAL_NPU_MODE_112 # 使用虚拟 NPU， NPU 和 AI-ISP 各分一半， 112 代表 AI-ISP 特用，千万别乱设置
+    batch_size: 1
+}
+</code></pre>
+<blockquote>
+<p>注意这里的预处理要和训练模型时相同，即 <a href="https://pytorch.org/hub/pytorch_vision_mobilenet_v2/"  target="_blank">mobilenetV2</a> 的预处理说明，这里是先归一再减<code>mean</code>除以<code>std</code>。<br />
+以及<code>imagenet-1k-images-rgb.tar</code>是从训练集中抠出来的一部分图片，用于量化校准，在这里训练集是<code>imagenet</code>，测试用可以在<a href="https://pan.baidu.com/s/1TiZSIm0fpqbLn-2qLBX58g?pwd=1rpb"  target="_blank">百度云</a>或者<a href="https://github.com/sipeed/sipeed_wiki/releases/download/v0.0.0/imagenet-1k-images-rgb.tar"  target="_blank">github</a>下载，也可以你自己从<a href="https://www.image-net.org/"  target="_blank">imagenet</a>里面抠图出来。TODO: 需不需要手动先缩放到输入尺寸？<br />
+这里 <code>ax620_virtual_npu</code> 设置为了 <code>AX620_VIRTUAL_NPU_MODE_111</code>，这很重要，如果要用摄像头的话，必须要设置为这个， 否则可能会初始化失败，因为默认使用摄像头开启了 <code>AI-ISP</code> 会启用虚拟 NPU 并使用另一半算力，为保证我们第一次能使用，先这样设置，后面会详细介绍。</p>
+</blockquote>
+</div>
+</details>
+<p>然后在 <code>docker</code>容器里面执行（注意文件通过前面<code>docker run</code>的<code>-v</code>参数指定了挂载宿主机的目录到<code>docker</code>容器里面，直接拷贝到宿主机的目录就好了）：</p>
+
+<pre class="language-none"><code class="language-none">pulsar build --input mobilenetv2.onnx --output mobilenetv2.joint --config config_mobilenetv2.prototxt --output_config out_config_mobilenet_v2.prototxt
+</code></pre>
+<p>耐心等待，可能需要一小会儿时间，就会得到转换的模型结果<code>mobilenetv2.joint</code>了</p>
+<h3 id="%E5%9C%A8-docker-%E4%B8%AD%E4%BD%BF%E7%94%A8-GPU-%E8%BF%9B%E8%A1%8C%E6%A8%A1%E5%9E%8B%E9%87%8F%E5%8C%96%E5%92%8C%E6%A0%BC%E5%BC%8F%E8%BD%AC%E6%8D%A2">在 docker 中使用 GPU 进行模型量化和格式转换</h3>
+<p>默认 docker 不能使用显卡驱动，但是有要用的话方法也不难：</p>
+<ul>
+<li>宿主机正常安装显卡驱动，比如 <code>ubuntu</code> 直接可以在包管理器中安装</li>
+<li>按照 <a href="https://github.com/NVIDIA/nvidia-docker"  target="_blank">nvidia-docker</a> 的说明安装， 然后测试是否可用：</li>
+</ul>
+
+<pre class="language-none"><code class="language-none">docker run --rm --gpus all nvidia/cuda:11.0.3-base-ubuntu20.04 nvidia-smi
+</code></pre>
+<p>这会执行 <code>nvidia-smi</code> 命令，就可以看到映射到 docker 里面的显卡信息了。</p>
+<ul>
+<li>在需要使用显卡的容器创建时加上 <code>--gpus all</code> 参数来将所有显卡驱动映射到容器内，也可以指定特定显卡编号 <code>--gpus '&quot;device=2,3&quot;'</code>, 比如：</li>
+</ul>
+
+<pre class="language-none"><code class="language-none">docker run -it --net host --rm --gpus all --shm-size 32g -v $PWD:/data sipeed/pulsar
+</code></pre>
+<p>注意当前版本（0.6.1.20）的 <code>pulsar build</code> 仅支持 sm_37 sm_50 sm_60 sm_70 sm_75 架构 GPU，30/40 系列 GPU 暂不支持。</p>
+<h2 id="%E5%9C%A8-AXera-Pi-%E4%B8%8A%E6%B5%8B%E8%AF%95%E8%BF%90%E8%A1%8C%E6%A8%A1%E5%9E%8B">在 AXera-Pi 上测试运行模型</h2>
+<p>按照文档转换模型后，将模型通过 <code>scp</code> 或者 <code>adb</code> 传到 <code>AXera-Pi</code> 上，使用文档中的模型测试运行命令运行模型即可。</p>
+<h3 id="%E4%B8%BE%E4%BE%8B">举例</h3>
+<p>仍然以<code>mobilenetv2</code>为例：<br />
+测试图片保存到<code>cat.jpg</code>：</p>
+<img src="../../assets/cat.jpg" style="max-height: 20em;">
+<ul>
+<li>先在电脑上跑一下和<code>onnx</code>的结果对比:</li>
+</ul>
+
+<pre class="language-none"><code class="language-none">pulsar run mobilenetv2.onnx mobilenetv2.joint --input cat.jpg --config out_config_mobilenet_v2.prototxt --output_gt gt
+</code></pre>
+<p>得到余弦距离，这里为 <code>0.9862</code> ，说明 <code>joint</code> 模型和 <code>onnx</code> 模型的输出结果相似度 <code>98.62%</code>，在可以接受的范围内，如果值太小，则表示量化过程中出现了误差，需要考虑是不是设置有误或者量化输入数据有误或者模型设计有问题。</p>
+
+<pre class="language-log"><code class="language-log">Layer: 536  2-norm RE: 17.03%  cosine-sim: 0.9862
+</code></pre>
+<ul>
+<li>拷贝模型到 <code>AXera-Pi</code> 上直接跑一下(通过 <code>scp</code> 命令拷贝 <code>joint</code> 格式模型文件到开发板）：</li>
+</ul>
+<p>在板子上运行模型：</p>
+
+<pre class="language-none"><code class="language-none">time run_joint mobilenetv2.joint --repeat 100 --warmup 10
+</code></pre>
+<p>可以看到模型运行时间 <code>2.1ms</code>，这里我们没有启用虚拟 NPU，如果启用了虚拟 NPU，则时间加倍为 <code>4ms</code>。以及 <code>overhead 250.42 ms</code> 即其它耗时（比如 模型加载 内存分配 等）。</p>
+
+<pre class="language-none"><code class="language-none">Run task took 2143 us (99 rounds for average)
+        Run NEU took an average of 2108 us (overhead 9 us)
+
+</code></pre>
+<p>如果要测试输入，需要先将图片转换为二进制内容，<code>HWC + RGB</code> 排列，用 <code>--data</code> 指定二进制文件。</p>
+<details>
+<summary>转换为二进制文件脚本</summary>
+<div class="details-content">
+<pre class="language-python"><code class="language-python">from PIL import Image
+import sys
+out_path = sys.argv[2]
+img = Image.open(sys.argv[1])
+img = img.convert('RGB')
+img = img.resize((224, 224))
+rgb888 = img.tobytes()
+with open(out_path, &quot;wb&quot;) as f:
+    f.write(rgb888)
+</code></pre>
+<p>执行<code>python convert.py cat.jpg cat.bin</code>，得到<code>cat.bin</code>文件。</p>
+</div>
+</details>
+
+<pre class="language-none"><code class="language-none">run_joint mobilenetv2.joint --data cat.bin --bin-out-dir ./
+</code></pre>
+<p>然后目录下会生成一个<code>bin</code>文件，大小是<code>4000</code>个字节，即<code>1000</code>个<code>float32</code>，可以用<code>python</code>加载找出最大值</p>
+
+<pre class="language-python"><code class="language-python">out = np.fromfile(&quot;536.bin&quot;, dtype=np.float32)
+print(out.argmax(), out.max())
+</code></pre>
+<p>得到结果<code>282 8.638927</code>，在<a href="https://raw.githubusercontent.com/pytorch/hub/master/imagenet_classes.txt"  target="_blank">labels</a>中找到下标第<code>282</code>即<code>283</code>行，是<code>tiger cat</code>，结果和直接电脑运行浮点模型结果<code>282 9.110947</code>也一致，虽然值有略微差异，但是在可以接受的范围内。</p>
+<blockquote>
+<p>注意这里没有进行<code>softmax</code>计算，<code>out.max()</code>值不是概率值。</p>
+</blockquote>
+<h2 id="%E7%BC%96%E5%86%99%E4%BB%A3%E7%A0%81%E8%BF%90%E8%A1%8C%E6%A8%A1%E5%9E%8B">编写代码运行模型</h2>
+<p>要正式地将模型跑起来，你可能需要需要修改代码，更改输入预处理或者增加后处理，目前提供 <code>C/C++</code> SDK，代码参考 <a href="https://github.com/AXERA-TECH/ax-samples"  target="_blank">ax-samples</a>，可以交叉编译，也可以直接在 <code>AXera-Pi</code> 上编译。</p>
+<p>运行分类模型的代码在<a href="https://github.com/AXERA-TECH/ax-samples/blob/main/examples/ax_classification_steps.cc"  target="_blank">ax_classification_steps.cc</a>，按照仓库的编译说明编译后得到<code>build/bin/install/ax_classification</code>可执行文件，拷贝到开发板执行</p>
+
+<pre class="language-none"><code class="language-none">./ax_classification -m mobilenetv2.joint -i cat.jpg
+</code></pre>
+<blockquote>
+<p>在代码中使用了 <code>opencv</code> 读取了图片，格式为 <code>BGR</code>，在运行模型时会根据转换模型时的配置自动判断是否转成 <code>RGB</code>，所以直接用了 <code>mw::prepare_io</code> 拷贝 <code>BGR</code> 的图到输入缓冲区了，后面就交给底层库处理了。</p>
+</blockquote>
+<p>如果你的模型不是简单的分类模型，那你可能需要在模型推理结束后添加后处理的代码以达到解析结果的目的。</p>
+<h2 id="%E4%BD%BF%E7%94%A8%E6%91%84%E5%83%8F%E5%A4%B4%E5%92%8C%E5%B1%8F%E5%B9%95">使用摄像头和屏幕</h2>
+<p>到此，模型单独运行已经走通了，如果要基于此做应用，因为是 <code>Linux</code>，有很多通用的开发方法和库，如果你希望将摄像头和屏幕联合起来使用，可以使用<a href="https://github.com/sipeed/libmaix"  target="_blank">libmaix</a>，或者你也可以直接使用<a href="https://github.com/sipeed/axpi_bsp_sdk"  target="_blank">axpi_bsp_sdk</a>进行开发（难度会比较大一点）。</p>
+<ul>
+<li>看<a href="/hardware/zh/maixIII/ax-pi/sdk.html"  >SDK 开发说明</a> 编译并执行<a href="https://github.com/sipeed/libmaix/tree/release/examples/axpi"  target="_blank">摄像头屏幕显示例程</a>，因为仓库都在<code>github</code>，所以最好是有个好的代理服务器。</li>
+<li>将模型运行代码合并到例程中，有个问题要十分注意，如果要使用摄像头，默认<code>AI-ISP</code>会打开（暂未提供关闭的方式，后面更新TODO:），<strong>所以模型转换的时候要指定模型为虚拟NPU运行，即配置文件中设置<code>ax620_virtual_npu: AX620_VIRTUAL_NPU_MODE_111</code>，否则初始化会失败</strong>。</li>
+</ul>
+<blockquote>
+<p>可以直接使用<a href="https://github.com/sipeed/libmaix/tree/release/examples/axpi_classification_cam"  target="_blank">1000分类例程</a>.<br />
+在板子编译通过后执行<code>./dist/axpi_classification_cam -m mobilenetv2.joint</code> 即可开始识别。模型也可以到<a href="https://maixhub.com/model/zoo/89"  target="_blank">MaixHub 模型库下载</a></p>
+</blockquote>
+<h2 id="QAT-%E9%87%8F%E5%8C%96-%E5%92%8C%E5%85%B6%E5%AE%83%E4%BC%98%E5%8C%96%E6%96%B9%E6%B3%95">QAT 量化 和其它优化方法</h2>
+<p><code>QAT</code>(Quantization aware training)即量化感知训练，和 <code>PTQ</code> 在对训练好的模型进行浏览量化的做法不同，<code>QAT</code> 是在训练时就模拟量化推理，以减少量化误差， 和训练后量化 <code>PTQ</code> 相比，有更高的精度，但是过程会更复杂，不建议一开始就使用。</p>
+<p>更多详情看<a href="https://pulsar-docs.readthedocs.io"  target="_blank">superpulsar</a>， 文档会持续更新，如果你擅长这方面，也欢迎点击右上角<code>编辑本页</code>在这里添加说明。</p>
+<h2 id="%E5%85%B6%E5%AE%83%E5%8F%82%E8%80%83%E5%92%8C%E5%88%86%E4%BA%AB%E6%B1%87%E6%80%BB">其它参考和分享汇总</h2>
+<blockquote>
+<p>欢迎贴上你的分享，点击右上角<code>编辑本页</code>添加。</p>
+</blockquote>
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/569083585"  target="_blank">爱芯元智AX620A部署yolov5 6.0模型实录</a></li>
+<li><a href="http://t.csdn.cn/oNeYG"  target="_blank">AX620A运行yolov5s自训练模型全过程记录（windows）</a></li>
+<li><a href="https://www.yuque.com/prophetmu/chenmumu/ax_tracker"  target="_blank">MOT：如何在爱芯派上实现多目标跟踪的神奇效果！</a></li>
+<li><a href="https://www.yuque.com/prophetmu/chenmumu/m3axpi_keypoint"  target="_blank">MMPose：在爱芯派上玩转你的关键点检测！</a></li>
+<li><a href="https://www.yuque.com/prophetmu/chenmumu/m3axpi"  target="_blank">2023年最新 使用 YOLOv8 训练自己的数据集，并在 爱芯派硬件 上实现 目标检测 和 钢筋检测 ！！</a></li>
+</ul>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                        <a href="/ai/zh/deploy/v831.html">
+                            <span class="icon"></span>
+                            <span class="label">Maix-II 之 V831 模型部署</span>
+                        </a>
+                        
+                    </div>
+                    <div id="next">
+                        
+                        <a href="/ai/zh/deploy/tinymaix.html">
+                            <span class="label">TinyMaix 模型部署</span>
+                            <span class="icon"></span>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>相关链接</a><ul><li><a target="_blank" href="https://www.sipeed.com">Sipeed 官网</a></li>
+<li><a target="_blank" href="https://maixhub.com/">MaixHub</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">Sipeed 淘宝</a></li>
+<li><a  href="/sitemap.xml">网站地图</a></li>
+<li><a target="_blank" href="https://github.com/teedoc/teedoc">网站使用 teedoc 生成</a></li>
+</ul>
+</li>
+<li><a>源码</a><ul><li><a target="_blank" href="https://github.com/sipeed/sipeed_wiki">Wiki 源码</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">开源项目</a></li>
+</ul>
+</li>
+<li><a>关注我们</a><ul><li><a target="_blank" href="https://twitter.com/SipeedIO">twitter</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">淘宝</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">github</a></li>
+<li><a><a>微信公众号</a><img src='/static/image/wechat.png'></a>
+</li>
+</ul>
+</li>
+<li><a>联系我们</a><ul><li><a>电话: +86 0755-27808509</a>
+</li>
+<li><a>商业支持: support@sipeed.com</a>
+</li>
+<li><a>地址: 深圳市宝安区新湖路4008号蘅芳科技办公大厦A座-2101C</a>
+</li>
+<li><a  href="/join_us.html">加入我们</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://www.sipeed.com">©2018-2023 深圳矽速科技有限公司</a></li>
+<li><a target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index">粤ICP备19015433号</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/js/prism.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <link rel="stylesheet" href="/static/js/add_hint/style.css" type="text/css"/>
+    
+        <script src="/static/js/add_hint/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+        <script src="/static/js/thumbs_up/main.js"></script>
+    
+</body>
+
+</html>
