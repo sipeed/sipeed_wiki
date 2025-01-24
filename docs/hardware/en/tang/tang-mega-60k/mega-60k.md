@@ -12,7 +12,13 @@ update:
     author: Serika
     content:
       - Corrected description of PCIe bus widths
-      - Update content TBD before  
+      - Update content TBD before 
+  - date: 2025-01-24
+    version: v0.3
+    author: Serika
+    content:
+      - Add Secondary lic server ip addr.
+      - Corrected description of PCIe link width.
 ---
 
 ## Overview
@@ -21,7 +27,6 @@ update:
 
   The 60K Dock and 138K Dock share a set of dockboards(TANG MEGA NEO), so the peripherals of the two are exactly the same. Compared with the 138K Dock, the 60K Dock has fewer logic resources and a lower price, and includes a MIPI C/D PHY transceiver. This not only further reduces the cost of high-speed communication, but also brings better compatibility for image processing system integration.
 
-  - Date to Release: October 10th, 2024
 
   - aliexpress purchase link: [Click me](https://www.aliexpress.com/item/3256807078990410.html)
 
@@ -29,13 +34,18 @@ update:
 
   - Medium capacity LUT4
   - 512MiB DDR3 memory
-  - PCIe 2.0 x 4
+  - PCIe 2.0 x 1*
   - USB3.0 x 1(5Gbps)
   - MIPI C-PHY & D-PHY RX/TX
   - HDMI TX/RX x 1
   - Gigabit Ethernet x 1
   - Onboard 3.7V Li-on battery(1-Series) charge/discharge management
+    
+    **\*Note**: Since the pinouts of the **SERDES** parts of **`GW5AT-LV60`** and **`GW5AST-LV138`** are not exactly the same, the Dock board was originally designed for **`GW5AST-LV138`**. Therefore, for **`GW5AT-LV60`**, although the PCIe AIC gold finger has fanout all **SERDES** lanes, because lanes 1 and 3 are swapped on the **`GW5AT-LV60`**, PCIe can only work in x1 mode at present.
+    
+    *This problem may be fixed in the future with GOWIN software updates.*
 
+    ***
 ## Product Appearance
 
 <img src="./assets/mega_60k_top.png" width="45%">
@@ -168,13 +178,12 @@ TBD
 | LEDs                 | 4+8      | 4x Battery-Indicator+ 8x PMOD_LED                 |
 | WS2812               | 1        | The WS2812 & aRGB strip CONN. share the same pin  |
 | Buttons              | 3+1      | 3x User-KEY + 1x Reconfig-KEY                     |
-| PCIe                 | 1        | 4-lane @ 5Gbps，CH569 16bit HSPI                  |
-| USB3                 | 2        | SuperSpeed @ 5Gbps                                |
-| GbE                  | 1        | 1000Mbps Ethernet                                 |
-| DVI                  | 1        | DVI supports both RX and TX                       |
+| PCIe                 | 1        | 4-lane @ 5Gbps, but only 1-lane mode right now    |
+| USB3                 | 1        | CH569 16bit HSPI, SuperSpeed @ 5Gbps              |
+| Ethernet             | 1        | 1000Mbps Ethernet                                 |
+| DVI(HDMI)            | 1        | DVI supports both RX and TX                       |
 | PMOD                 | 2        | Multiplexed with the the DVP CONN. & 2x20P header at the top of the Dock board |
 | ADC                  | 2        | 2x differential input channels                    |
-| WS2812               | 1        | The aRGB strip CONN. & WS2812 share the same pin  |
 | DVP Interface        | 1        | Multiplexed with the the PMOD & 2x20P header at the top of the Dock board |
 | RGB Interface        | 1        | Supports RGB888 screen                           |
 | MIC ARRAY Interface  | 1        | Supports Sipeed 6+1 microphone array             |
@@ -192,7 +201,7 @@ TBD
 
 ## Hardware Resources
 
-- [Specification](https://dl.sipeed.com/shareURL/TANG/Mega_138K_60K/01_Specification)
+- ~~ [Specification](https://dl.sipeed.com/shareURL/TANG/Mega_138K_60K/01_Specification)~~
 - [Schematics](https://dl.sipeed.com/shareURL/TANG/Mega_138K_60K/02_Schematic)
 - [PCB BOM](https://dl.sipeed.com/shareURL/TANG/Mega_138K_60K/03_Designator_drawing)
 - [Dimension Diagram](https://dl.sipeed.com/shareURL/TANG/Mega_138K_60K/04_Mechanical_drawing)
@@ -249,7 +258,7 @@ Example code [github](https://github.com/sipeed/TangMega-60K-example)
     </tr>
     <tr>
         <td>Chip Model</td>
-        <td>The specific model of the FPGA chip used by Tang Mega 60K is <b>GW5AT-LV60PG484A</b> <br> <br>Please select the package model <b>PBG484A</b> in the IDE.</td>
+        <td>The specific model of the FPGA chip used by Tang Mega 60K is <b>GW5AT-LV60PG484A</b> <br>Please select the package model <b>PBG484A</b> in the IDE.</td>
     </tr>
     <tr>
         <td>Static Electricity</td>
@@ -284,6 +293,10 @@ Tang Mega 60K can meet different needs of customers in various scenarios. For te
 
 
 ## Frequently Asked Questions (FAQs)
+
+### How to update the firmware for the onboard debugger
+
+- See [Update the debugger](./../common/update_debugger.md) for details.
 
 ### After powering on the board, only four indicator lights on the dockboard are on, the SOM indicator light is not on
 

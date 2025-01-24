@@ -12,6 +12,11 @@ update:
     author: Serika
     content:
       - Corrected description of PCIe bus widths
+  - date: 2025-01-24
+    version: v0.3
+    author: Serika
+    content:
+      - Add Secondary lic server ip addr.
 ---
 
 ## Overview
@@ -160,13 +165,12 @@ TBD
 | LEDs                 | 4+8      | 4x Battery-Indicator+ 8x PMOD_LED                 |
 | WS2812               | 1        | The WS2812 & aRGB strip CONN. share the same pin  |
 | Buttons              | 3+1      | 3x User-KEY + 1x Reconfig-KEY                     |
-| PCIe                 | 1        | 4-lane @ 5Gbps，CH569 16bit HSPI                  |
-| USB3                 | 2        | SuperSpeed @ 5Gbps                                |
-| GbE                  | 1        | 1000Mbps Ethernet                                 |
-| DVI                  | 1        | DVI supports both RX and TX                       |
+| PCIe                 | 1        | 1-lane @ 5Gbps                                    |
+| USB3                 | 1        | CH569 16bit HSPI, SuperSpeed @ 5Gbps              |
+| Ethernet             | 1        | 1000Mbps Ethernet                                 |
+| DVI(HDMI)            | 1        | DVI supports both RX and TX                       |
 | PMOD                 | 2        | Multiplexed with the the DVP CONN. & 2x20P header at the top of the Dock board |
 | ADC                  | 2        | 2x differential input channels                    |
-| WS2812               | 1        | The aRGB strip CONN. & WS2812 share the same pin  |
 | DVP Interface        | 1        | Multiplexed with the the PMOD & 2x20P header at the top of the Dock board |
 | RGB Interface        | 1        | Supports RGB888 screen                           |
 | MIC ARRAY Interface  | 1        | Supports Sipeed 6+1 microphone array             |
@@ -183,7 +187,7 @@ TBD
 
 ## Hardware Resources
 
-- [Specification](https://dl.sipeed.com/shareURL/TANG/Mega_138K_60K/01_Specification)
+- ~~[Specification](https://dl.sipeed.com/shareURL/TANG/Mega_138K_60K/01_Specification)~~
 - [Schematics](https://dl.sipeed.com/shareURL/TANG/Mega_138K_60K/02_Schematic)
 - [PCB BOM](https://dl.sipeed.com/shareURL/TANG/Mega_138K_60K/03_Designator_drawing)
 - [Dimension Diagram](https://dl.sipeed.com/shareURL/TANG/Mega_138K_60K/04_Mechanical_drawing)
@@ -273,6 +277,10 @@ Example code [github](https://github.com/sipeed/TangMega-138K-example)
 Tang Mega 138K can meet different needs of customers in various scenarios. For technical support and business cooperation, please contact [support@sipeed.com](support@sipeed.com)
 
 ## Frequently Asked Questions (FAQs)
+
+### How to update the firmware for the onboard debugger
+
+- See [Update the debugger](./../common/update_debugger.md) for details.
 
 ### After powering on the board, only four indicator lights on the dockboard are on, the SOM indicator light is not on
 
