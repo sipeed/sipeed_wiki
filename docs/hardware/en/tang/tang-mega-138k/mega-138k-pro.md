@@ -12,6 +12,11 @@ update:
     author: Serika
     content:
       - Update FAQs
+  - date: 2025-01-24
+    version: v0.3
+    author: Serika
+    content:
+      - Add Secondary lic server ip addr.
 ---
 
 - Product Overview
@@ -183,7 +188,7 @@ update:
 
 ## Hardware Resources
 
-[Board Specification](https://dl.sipeed.com/shareURL/TANG/Mega_138K_Pro/01_Specification)
+~~[Board Specification](https://dl.sipeed.com/shareURL/TANG/Mega_138K_Pro/01_Specification)~~
 [Board Schematic](https://dl.sipeed.com/shareURL/TANG/Mega_138K_Pro/02_Schematic)
 [PCB BOM](https://dl.sipeed.com/shareURL/TANG/Mega_138K_Pro/03_Designator_drawing)
 [Board Dimension Diagram](https://dl.sipeed.com/shareURL/TANG/Mega_138K_Pro/04_Mechanical_drawing)
@@ -275,6 +280,10 @@ Example code [github](https://github.com/sipeed/TangMega-138KPro-example)
 Tang Mega 138K can meet different needs of customers in various scenarios. For technical support and business cooperation, please contact [support@sipeed.com](support@sipeed.com)
 
 ## Frequently Asked Questions (FAQs)
+
+### How to update the firmware for the onboard debugger
+
+- See [Update the debugger](./../common/update_debugger.md) for details.
 
 ### The power light is not on after the board is powered on
 
