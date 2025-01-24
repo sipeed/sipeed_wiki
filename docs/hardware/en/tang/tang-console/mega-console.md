@@ -17,7 +17,7 @@ update:
 
   - Date to Release: Late February , 2025
 
-  - Pre-sale link: [Click me](sipeed.com/tangconsole)
+  - Pre-sale link: [Click me](https://sipeed.com/tangconsole)
 
 ## Board Features
 
