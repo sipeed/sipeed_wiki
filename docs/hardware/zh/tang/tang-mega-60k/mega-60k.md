@@ -203,6 +203,11 @@ V1.9.10.02版本的Programmer存在严重问题，无法正常下载本产品。
 如需将码流下载到flash中固化，推荐使用 **exFlash Erase,Program thru GAO-Bridge 5A** 模式（需要≥V1.9.10.03）。
 Lic 可以在高云官网申请，或者使用Sipeed提供的在线Lic服务，在IDE中选择Float Lic，填写以下信息即可：
 ~~~
+---Server 01---
+ip: 45.33.107.56
+port: 10559
+
+---Server 02---
 ip: 106.55.34.119
 port: 10559
 ~~~
