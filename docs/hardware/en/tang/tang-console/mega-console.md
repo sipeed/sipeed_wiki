@@ -1,5 +1,5 @@
 ---
-title: Tang Mega Console Neo
+title: Tang Mega Console
 keywords: FPGA, Tang, Console, 60K, 138K
 update:
   - date: 2025-01-23
@@ -11,13 +11,13 @@ update:
 
 ## Overview
 
-  **Tang Console Neo** is an another dock board for **[Tang Mega 138k](./../tang-mega-138k/mega-138k.md) SOM** and **[Tang Mega 60k](./../tang-mega-60k/mega-60k.md) SOM**. It is designed to be small and compact, and is mechanically compatible with the **Raspberry Pi 5b** **`PCIe HAT`**. In addition, it also contains two 5Gbps USB3 device interfaces and two **2x20-pin header connectors**, two **PMOD connectors**. It can meet the needs of IO expansion and high-speed communication at the same time.
+  **Tang Console** is an another dock board for **[Tang Mega 138k](./../tang-mega-138k/mega-138k.md) SOM** and **[Tang Mega 60k](./../tang-mega-60k/mega-60k.md) SOM**. It is designed to be small and compact, and is mechanically compatible with the **Raspberry Pi 5b** **`PCIe HAT`**. In addition, it also contains two 5Gbps USB3 device interfaces and two **2x20-pin header connectors**, two **PMOD connectors**. It can meet the needs of IO expansion and high-speed communication at the same time.
   
   At the same time, it is also specially designed for retro games. Maybe you can turn it into a retro game console, or even a handheld, whatever you like.
 
   - Date to Release: Late February , 2025
 
-  - aliexpress purchase link: [Pre-sale link](sipeed.com/tangconsole)
+  - Pre-sale link: [Click me](sipeed.com/tangconsole)
 
 ## Board Features
 
