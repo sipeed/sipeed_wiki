@@ -362,6 +362,15 @@ items:
             -   label: Questions&Answers
                 file: tang/Tang-Nano-Doc/questions.md
                 target: _blank
+        -   label: Tang Mega Console
+            items:
+            -   label: Introduction
+                file: tang/tang-console/mega-console.md
+            -   label: Install IDE
+                file: tang/Tang-Nano-Doc/install-the-ide.md
+            -   label: Questions&Answers
+                file: tang/Tang-Nano-Doc/questions.md
+                target: _blank
     -   label: Tang PMOD
         file: tang/tang-PMOD/FPGA_PMOD.md         
 -   label: MaixSense

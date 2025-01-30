@@ -2,7 +2,7 @@
 title: Tang FPGA Board
 ---
 
-Tang FPGA Board contains Tang Nano and Tang Primer.
+Tang FPGA Board contains Tang Nano and Tang Primer, and Tang Mega
 
 | Tang Nano                                                             | Tang Primer                                                               |
 | --------------------------------------------------------------------- | ------------------------------------------------------------------------- |
@@ -37,7 +37,7 @@ So many different Tang Nano FPGA Boards are listed, there must be one fits you.
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center"><a href="/nano20k"><img src="/hardware/assets/Tang/nano_20k/tang_nano_20k_3920_top.png" alt="Tang Nano 20K"></a></td>
+<td style="text-align:center"><a href="/nano20k"><img src="./../../assets/Tang/Nano_20K/Nano_20K.png" alt="Tang Nano 20K"></a></td>
 <td style="text-align:center"><a href="./Tang-Nano-9K/Nano-9K.html"><img src="./../../assets/Tang/Nano-9K/9K.png" alt="Tang Nano 9K"></a></td>
 </tr>
 </tbody>
