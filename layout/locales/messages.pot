@@ -23,12 +23,10 @@ msgstr ""
 #: licheepi.html:242 licheepi.html:258 licheepi.html:279 licheepi.html:295
 #: licheepi.html:311 maix.html:167 maix.html:241 maix.html:262 maix.html:279
 #: maix.html:296 maixsense.html:44 maixsense.html:60 others.html:42
-#: tang.html:171 tang.html:187 tang.html:203 tang.html:219 tang.html:235
-<<<<<<< HEAD
-#: tang.html:251 tang.html:267 tang.html:283 tang.html:299 tang.html:315
-=======
-#: tang.html:251 tang.html:267 tang.html:283 tang.html:299
->>>>>>> parent of e227cb51 (merge upstream/main)
+#: tang.html:172 tang.html:188 tang.html:204 tang.html:220 tang.html:236
+#: tang.html:252 tang.html:268 tang.html:284 tang.html:300 tang.html:316
+#: tang.html:496 tang.html:512 tang.html:528 tang.html:544 tang.html:560
+#: tang.html:576 tang.html:592 tang.html:608 tang.html:624
 msgid "购买"
 msgstr ""
 
@@ -45,12 +43,10 @@ msgstr ""
 #: licheepi.html:238 licheepi.html:254 licheepi.html:275 licheepi.html:291
 #: licheepi.html:307 maix.html:180 maix.html:197 maix.html:237 maix.html:254
 #: maix.html:275 maix.html:292 maixsense.html:40 maixsense.html:56
-#: others.html:38 tang.html:167 tang.html:183 tang.html:199 tang.html:215
-#: tang.html:231 tang.html:247 tang.html:263 tang.html:279 tang.html:295
-<<<<<<< HEAD
-#: tang.html:311
-=======
->>>>>>> parent of e227cb51 (merge upstream/main)
+#: others.html:38 tang.html:168 tang.html:184 tang.html:200 tang.html:216
+#: tang.html:232 tang.html:248 tang.html:264 tang.html:280 tang.html:296
+#: tang.html:312 tang.html:492 tang.html:508 tang.html:524 tang.html:540
+#: tang.html:556 tang.html:572 tang.html:588 tang.html:604 tang.html:620
 msgid "文档"
 msgstr ""
 
@@ -114,7 +110,7 @@ msgstr ""
 msgid "RISC-V SBC 系列产品参数对比"
 msgstr ""
 
-#: licheepi.html:49 licheepi.html:132 maix.html:53 tang.html:31
+#: licheepi.html:49 licheepi.html:132 maix.html:53 tang.html:32 tang.html:356
 msgid "参数"
 msgstr ""
 
@@ -126,7 +122,7 @@ msgstr ""
 msgid "内存"
 msgstr ""
 
-#: licheepi.html:69 licheepi.html:152 maix.html:90 tang.html:129
+#: licheepi.html:69 licheepi.html:152 maix.html:90 tang.html:130 tang.html:454
 msgid "储存"
 msgstr ""
 
@@ -297,11 +293,7 @@ msgstr ""
 msgid "RISC-V 1GHz + 1Tops NPU, 4M高清摄像头，多种尺寸高清电容触摸屏，完美支持全新 Maix 生态所有软件"
 msgstr ""
 
-<<<<<<< HEAD
-#: maix.html:168 tang.html:316
-=======
-#: maix.html:168 tang.html:300
->>>>>>> parent of e227cb51 (merge upstream/main)
+#: maix.html:168 tang.html:317 tang.html:625
 msgid "https://sipeed.taobao.com"
 msgstr ""
 
@@ -377,317 +369,222 @@ msgstr ""
 msgid "逻辑分析仪+CKLink+DAPLink+USB转串口 多合一指尖工具"
 msgstr ""
 
-#: tang.html:4
+#: tang.html:5 tang.html:329
 msgid "Tang FPGA 系列"
 msgstr ""
 
-#: tang.html:24
+#: tang.html:25 tang.html:349
 msgid "Tang 系列板卡参数对比"
 msgstr ""
 
-#: tang.html:45
+#: tang.html:46 tang.html:370
 msgid "芯片"
 msgstr ""
 
-#: tang.html:57
+#: tang.html:58 tang.html:382
 msgid "查找表(LUT)"
 msgstr ""
 
-#: tang.html:69
+#: tang.html:70 tang.html:394
 msgid "寄存器(FF)"
 msgstr ""
 
-#: tang.html:106 tang.html:107 tang.html:108 tang.html:110 tang.html:130
-#: tang.html:131 tang.html:132 tang.html:133 tang.html:134 tang.html:135
-#: tang.html:136 tang.html:137 tang.html:138
+#: tang.html:107 tang.html:108 tang.html:109 tang.html:111 tang.html:131
+#: tang.html:132 tang.html:133 tang.html:134 tang.html:135 tang.html:136
+#: tang.html:137 tang.html:138 tang.html:139 tang.html:431 tang.html:432
+#: tang.html:433 tang.html:435 tang.html:455 tang.html:456 tang.html:457
+#: tang.html:458 tang.html:459 tang.html:460 tang.html:461 tang.html:462
+#: tang.html:463
 msgid "板载_fpga"
 msgstr ""
 
-#: tang.html:111 tang.html:112 tang.html:113 tang.html:114 tang.html:137
-#: tang.html:138
+#: tang.html:112 tang.html:113 tang.html:114 tang.html:115 tang.html:138
+#: tang.html:139 tang.html:436 tang.html:437 tang.html:438 tang.html:439
+#: tang.html:462 tang.html:463
 msgid "内含"
 msgstr ""
 
-#: tang.html:117
+#: tang.html:118 tang.html:442
 msgid "内嵌处理器"
 msgstr ""
 
-#: tang.html:141
+#: tang.html:142 tang.html:466
 msgid "其他特点"
 msgstr ""
 
-#: tang.html:142
+#: tang.html:143 tang.html:467
 msgid "内含 12.5G Transceivers"
 msgstr ""
 
-#: tang.html:142 tang.html:143
+#: tang.html:143 tang.html:144 tang.html:467 tang.html:468
 msgid "支持 PCIe 3.0 通信"
 msgstr ""
 
-#: tang.html:142
+#: tang.html:143 tang.html:467
 msgid "支持 SFP+ 数据传输"
 msgstr ""
 
-#: tang.html:143
+#: tang.html:144 tang.html:468
 msgid "内含 8.0G Transceivers"
 msgstr ""
 
-#: tang.html:143 tang.html:144
+#: tang.html:144 tang.html:145 tang.html:468 tang.html:469
 msgid "支持 USB3 数据传输"
 msgstr ""
 
-#: tang.html:144 tang.html:147
+#: tang.html:145 tang.html:148 tang.html:469 tang.html:472
 msgid "内含 6.6G Transceivers"
 msgstr ""
 
-#: tang.html:144 tang.html:147
+#: tang.html:145 tang.html:148 tang.html:469 tang.html:472
 msgid "内含 2.5G MIPI C/DPHY RX/TX"
 msgstr ""
 
-#: tang.html:144 tang.html:147
+#: tang.html:145 tang.html:148 tang.html:469 tang.html:472
 msgid "支持 PCIe 2.0 通信"
 msgstr ""
 
-#: tang.html:145
+#: tang.html:146 tang.html:470
 msgid "内含 2.5G MIPI DPHY RX/TX"
 msgstr ""
 
-#: tang.html:145
+#: tang.html:146 tang.html:470
 msgid "支持 PMOD, 64MByte SDRAM模块"
 msgstr ""
 
-#: tang.html:145
+#: tang.html:146 tang.html:470
 msgid "支持 USB手柄"
 msgstr ""
 
-#: tang.html:146
+#: tang.html:147 tang.html:471
 msgid "丰富外设，HDMI/以太网/USB"
 msgstr ""
 
-#: tang.html:147
+#: tang.html:148 tang.html:472
 msgid "M.2 外形兼容"
 msgstr ""
 
-#: tang.html:148
+#: tang.html:149 tang.html:473
 msgid "for RetroGame ~"
 msgstr ""
 
-#: tang.html:149
+#: tang.html:150 tang.html:474
 msgid "for RISCV softcore"
 msgstr ""
 
-#: tang.html:150
+#: tang.html:151 tang.html:475
 msgid "GOAI~"
 msgstr ""
 
-#: tang.html:164
-<<<<<<< HEAD
+#: tang.html:165
 msgid "预售中，敬请期待。。。"
 msgstr ""
 
-#: tang.html:168
+#: tang.html:169
 msgid "/hardware/zh/tang/tang-console/mega-console.html"
 msgstr ""
 
-#: tang.html:172
+#: tang.html:173
 msgid "https://sipeed.com/tangconsole"
 msgstr ""
 
-#: tang.html:180
+#: tang.html:181 tang.html:489
 msgid "小体积的中等量 FPGA 开发板"
 msgstr ""
 
-#: tang.html:184
+#: tang.html:185 tang.html:493
 msgid "/hardware/zh/tang/tang-mega-60k/mega-60k.html"
 msgstr ""
 
-#: tang.html:188 tang.html:204
+#: tang.html:189 tang.html:205 tang.html:497 tang.html:513
 msgid "https://item.taobao.com/item.htm?id=808924746746"
 msgstr ""
 
-#: tang.html:196
+#: tang.html:197 tang.html:505
 msgid "小体积的大容量 FPGA 开发板"
 msgstr ""
 
-#: tang.html:200
+#: tang.html:201 tang.html:509
 msgid "/hardware/zh/tang/tang-mega-138k/mega-138k.html"
 msgstr ""
 
-#: tang.html:212
+#: tang.html:213 tang.html:521
 msgid "可以高速通信的大容量 FPGA 开发板"
 msgstr ""
 
-#: tang.html:216
+#: tang.html:217 tang.html:525
 msgid "/hardware/zh/tang/tang-mega-138k/mega-138k-pro.html"
 msgstr ""
 
-#: tang.html:220
+#: tang.html:221 tang.html:529
 msgid "https://item.taobao.com/item.htm?id=740536508140"
 msgstr ""
 
-#: tang.html:228
+#: tang.html:229 tang.html:537
 msgid "自由拓展的 FPGA 开发板"
 msgstr ""
 
-#: tang.html:232
+#: tang.html:233 tang.html:541
 msgid "/hardware/zh/tang/tang-primer-25k/primer-25k.html"
 msgstr ""
 
-#: tang.html:236
+#: tang.html:237 tang.html:545
 msgid "https://item.taobao.com/item.htm?id=746293292946"
 msgstr ""
 
-#: tang.html:244
+#: tang.html:245 tang.html:553
 msgid "自带多种外设接口的 FPGA 开发板"
 msgstr ""
 
-#: tang.html:248
+#: tang.html:249 tang.html:557
 msgid "/hardware/zh/tang/tang-primer-20k/primer-20k.html"
 msgstr ""
 
-#: tang.html:252
+#: tang.html:253 tang.html:561
 msgid "https://item.taobao.com/item.htm?id=680099020807"
 msgstr ""
 
-#: tang.html:260
+#: tang.html:261 tang.html:569
 msgid "适用于模拟复古游戏机的 FPGA 开发板"
 msgstr ""
 
-#: tang.html:264
+#: tang.html:265 tang.html:573
 msgid "/hardware/zh/tang/tang-nano-20k/nano-20k.html"
 msgstr ""
 
-#: tang.html:268
+#: tang.html:269 tang.html:577
 msgid "https://item.taobao.com/item.htm?id=717932028073"
 msgstr ""
 
-#: tang.html:276
+#: tang.html:277 tang.html:585
 msgid "适合 RiscV 软核验证的 FPGA 开发板"
 msgstr ""
 
-#: tang.html:280
+#: tang.html:281 tang.html:589
 msgid "/hardware/zh/tang/Tang-Nano-9K/Nano-9K.html"
 msgstr ""
 
-#: tang.html:284
+#: tang.html:285 tang.html:593
 msgid "https://item.taobao.com/item.htm?id=666055424174"
 msgstr ""
 
-#: tang.html:292
+#: tang.html:293 tang.html:601
 msgid "芯片内部含有 MCU 的 FPGA 开发板"
 msgstr ""
 
-#: tang.html:296
+#: tang.html:297 tang.html:605
 msgid "/hardware/zh/tang/Tang-Nano-4K/Nano-4K.html"
 msgstr ""
 
-#: tang.html:300
+#: tang.html:301 tang.html:609
 msgid "https://item.taobao.com/item.htm?id=661994055100"
 msgstr ""
 
-#: tang.html:308
+#: tang.html:309 tang.html:617
 msgid "开发中，敬请期待。。。"
 msgstr ""
 
-#: tang.html:312
-=======
-msgid "小体积的中等量 FPGA 开发板"
-msgstr ""
-
-#: tang.html:168
-msgid "/hardware/zh/tang/tang-mega-60k/mega-60k.html"
-msgstr ""
-
-#: tang.html:172 tang.html:188
-msgid "https://item.taobao.com/item.htm?id=808924746746"
-msgstr ""
-
-#: tang.html:180
-msgid "小体积的大容量 FPGA 开发板"
-msgstr ""
-
-#: tang.html:184
-msgid "/hardware/zh/tang/tang-mega-138k/mega-138k.html"
-msgstr ""
-
-#: tang.html:196
-msgid "可以高速通信的大容量 FPGA 开发板"
-msgstr ""
-
-#: tang.html:200
-msgid "/hardware/zh/tang/tang-mega-138k/mega-138k-pro.html"
-msgstr ""
-
-#: tang.html:204
-msgid "https://item.taobao.com/item.htm?id=740536508140"
-msgstr ""
-
-#: tang.html:212
-msgid "自由拓展的 FPGA 开发板"
-msgstr ""
-
-#: tang.html:216
-msgid "/hardware/zh/tang/tang-primer-25k/primer-25k.html"
-msgstr ""
-
-#: tang.html:220
-msgid "https://item.taobao.com/item.htm?id=746293292946"
-msgstr ""
-
-#: tang.html:228
-msgid "自带多种外设接口的 FPGA 开发板"
-msgstr ""
-
-#: tang.html:232
-msgid "/hardware/zh/tang/tang-primer-20k/primer-20k.html"
-msgstr ""
-
-#: tang.html:236
-msgid "https://item.taobao.com/item.htm?id=680099020807"
-msgstr ""
-
-#: tang.html:244
-msgid "适用于模拟复古游戏机的 FPGA 开发板"
-msgstr ""
-
-#: tang.html:248
-msgid "/hardware/zh/tang/tang-nano-20k/nano-20k.html"
-msgstr ""
-
-#: tang.html:252
-msgid "https://item.taobao.com/item.htm?id=717932028073"
-msgstr ""
-
-#: tang.html:260
-msgid "适合 RiscV 软核验证的 FPGA 开发板"
-msgstr ""
-
-#: tang.html:264
-msgid "/hardware/zh/tang/Tang-Nano-9K/Nano-9K.html"
-msgstr ""
-
-#: tang.html:268
-msgid "https://item.taobao.com/item.htm?id=666055424174"
-msgstr ""
-
-#: tang.html:276
-msgid "芯片内部含有 MCU 的 FPGA 开发板"
-msgstr ""
-
-#: tang.html:280
-msgid "/hardware/zh/tang/Tang-Nano-4K/Nano-4K.html"
-msgstr ""
-
-#: tang.html:284
-msgid "https://item.taobao.com/item.htm?id=661994055100"
-msgstr ""
-
-#: tang.html:292
-msgid "开发中，敬请期待。。。"
-msgstr ""
-
-#: tang.html:296
->>>>>>> parent of e227cb51 (merge upstream/main)
+#: tang.html:313 tang.html:621
 msgid "/hardware/zh/tang/tang-primer-15k/primer-15k.html"
 msgstr ""
 
