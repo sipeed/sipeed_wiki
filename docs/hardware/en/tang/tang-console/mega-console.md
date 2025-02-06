@@ -15,7 +15,7 @@ update:
   
   At the same time, it is also specially designed for retro games. Maybe you can turn it into a retro game console, or even a handheld, whatever you like.
 
-  - Date to Release: Late February , 2025
+  - Date to Release: Late March , 2025
 
   - Pre-sale link: [Click me](https://sipeed.com/tangconsole)
 
