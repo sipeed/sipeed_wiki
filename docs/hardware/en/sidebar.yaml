@@ -362,7 +362,7 @@ items:
             -   label: Questions&Answers
                 file: tang/Tang-Nano-Doc/questions.md
                 target: _blank
-        -   label: Tang Mega Console
+        -   label: Tang Console
             items:
             -   label: Introduction
                 file: tang/tang-console/mega-console.md
