@@ -47,6 +47,9 @@ Refer to the lens installation method above.
 The assembled stand and MaixCAM setup appear as follows. For larger targets like PCBs, the spacer ring is typically unnecessary:  
 ![Stand Installation](../../assets/maixcam/stand_install.jpg)
 
+The package comes with a mounting bracket to help secure the MaixCAM Pro, which can be installed as follows
+![Bracket package](../../assets/maixcam/install_bracket.png)
+
 A mini heating table can be added for soldering tasks:  
 ![Soldering with Stand](../../assets/maixcam/stand_solder.jpg)
 
