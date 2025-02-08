@@ -50,6 +50,9 @@ MaixCAM 显微套餐 适用于 细小元件放大焊接，生物标本观察，�
 支架组装及安放MaixCAM效果如下，在观察电路板等较大目标时一般不需要安装增距环：
 ![支架套餐](../../assets/maixcam/stand_install.jpg)
 
+套餐内配有固定支架可以帮助固定MaixCAM Pro，安装方法如下
+![支架套餐](../../assets/maixcam/install_bracket.png)
+
 用户还可以选配迷你加热台进行焊接操作：
 ![支架焊接](../../assets/maixcam/stand_solder.jpg)
 
