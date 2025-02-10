@@ -66,7 +66,7 @@ We need to use the [**BouffaloLabDevCube**](https://dev.bouffalolab.com/download
 
     The white **`Update Button`** is on the lower right side of the TOP side of the Dock board between USB-C debug port and HDMI port, marked as **`702-BOOT`**
   
-  ![Primer20k_update](./assets/Primer20k_update.png)
+  ![Primer20k_update](./assets/hardware/Primer20k_update.png)
   
   - ~~Tang Primer 15k Dock~~ (**Not yet released**)
   
@@ -76,21 +76,21 @@ We need to use the [**BouffaloLabDevCube**](https://dev.bouffalolab.com/download
   
   - Tang Mega Neo Dock(inclede Tang Mega 138K Dock)
 
-    The **`Update Button`** is blow the USB-C connector marked as **USB-DEBUG** on the **TOP** side.
+    The **`Update Button`** is blow the USB-C connector marked as **DEBUG-USB2** on the **TOP** side.
 
-  ![Mega-neo_update](./assets/Mega-neo_update.png)
+  ![Mega-neo_update](./assets/hardware/Mega-neo_update.png)
 
   - Tang Mega 138K Pro Dock
 
     The **`Update Button`** is on the left of the USB-C connector marked as **JATG|UART** on the **TOP** side.
 
-  ![Mega-138kpro_update](./assets/Mega-138kpro_update.png)
+  ![Mega-138kpro_update](./assets/hardware/Mega-138kpro_update.png)
   
   - Tang Console
   
-    The **`Update Button`** is on the other side the USB-C connector on the **TOP** side, the shorter of the two buttons.
+    The **`Update Button`** is on the other side the USB-C connector on the **TOP** side, the shorter of the 2 buttons marked ad **`BOOT`**.
 
-  ![Mega-console_update](./assets/Mega-console_update.png)
+  ![Mega-console_update](./assets/hardware/Mega-console_update.png)
 
   ***
 
