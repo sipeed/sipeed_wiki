@@ -91,6 +91,26 @@ Specifications, schematics, dimension drawings, etc. can be found here: [Click h
 
 ## Related Questions
 
+### The system does not recognize the onboard debugger
+
+- Try connecting directly to the computer instead of through a USB HUB.
+- Try using a better quality USB cable.
+- Try another computer to rule out the computer being the problem. 
+- Try [update to the latest firmware](#how-to-update-the-firmware-for-the-onboard-debugger) and try again.
+
+### The UART of the onboard debugger cannot be used
+
+- Try reinstall FTDI drivers.
+- IF the actual baudrate is always four times the set baudrate or the UART continuously outputs garbled characters. try [update to the latest firmware](#how-to-update-the-firmware-for-the-onboard-debugger) and try again.
+
+### OpenFPGAloader not work
+
+- Try [update to the latest firmware](#how-to-update-the-firmware-for-the-onboard-debugger) and try again.
+
+### How to update the firmware for the onboard debugger
+
+- See [Update the debugger](./../common/update_debugger.md) for details.
+
 ### How to Download to External FLASH {#burn_flash}
 
 Set the following options:
