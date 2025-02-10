@@ -1,5 +1,5 @@
 ---
-title: Tang Mega Console
+title: Tang Console
 keywords: FPGA, Tang, Console, 60K, 138K
 update:
   - date: 2025-01-23
