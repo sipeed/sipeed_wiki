@@ -42,5 +42,5 @@ Email to support@sipeed.com for technical support and Business cooperation.
 
 - [Schematic](https://dl.sipeed.com/shareURL/TANG/Nano/HDK)
 - [Download center](https://dl.sipeed.com/shareURL/TANG/Nano)
-- [Examples](./../Tang-Nano-Doc/examples.md)
+- [Examples](./../common-doc/examples.md)
 

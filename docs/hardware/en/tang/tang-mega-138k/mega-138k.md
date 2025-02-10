@@ -213,7 +213,7 @@ port: 10559
 
 if the ip not work, try use "gowinlic.sipeed.com" domain's IP.
 
-Install IDE [Click me](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/get_started/install-the-ide.html)
+Install IDE [Click me](https://wiki.sipeed.com/hardware/zh/tang/common-doc/get_started/install-the-ide.html)
 
 
 Example code [github](https://github.com/sipeed/TangMega-138K-example)
@@ -341,4 +341,4 @@ Tang Mega 138K can meet different needs of customers in various scenarios. For t
 
 2. Then, check your code and the corresponding simulation waveforms to meet the requirements. The GAO tools in GOWIN IDE maybe helpful. For more information, please refer to the GOWIN document [SUG100](https://www.gowinsemi.com/upload/database_doc/1885/document/660bb2366d0b3.pdf)(require login).
 
-### For more questions and solutions, go to [Related Questions](./../Tang-Nano-Doc/questions.md) to view
+### For more questions and solutions, go to [Related Questions](./../common-doc/questions.md) to view

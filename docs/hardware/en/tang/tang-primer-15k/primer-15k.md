@@ -216,7 +216,7 @@ if the ip not work, try use "gowinlic.sipeed.com" domain's IP.
 
 if you don't want to apply for a license, you can  choose the education version IDE. The education version IDE can be used without a license, but it usually only contains a limited number of IPs.
 
-Install IDE [Click me](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/get_started/install-the-ide.html)
+Install IDE [Click me](https://wiki.sipeed.com/hardware/zh/tang/common-doc/get_started/install-the-ide.html)
 
 
 Example code [github](https://github.com/sipeed/TangPrimer-15K-example)

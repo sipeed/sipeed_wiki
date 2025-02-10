@@ -45,7 +45,7 @@ Specifications, schematics, dimension drawings, etc. can be found here: [Click h
    
 	`Prepare Development Environment` -> `Learn Relevant Syntax` -> `View Unboxing Guide` -> `Basic Code Writing` -> `View Official Documentation`
 	
-	1. Install IDE: [Click here](./../Tang-Nano-Doc/get_started/install-the-ide.md)
+	1. Install IDE: [Click here](./../common-doc/get_started/install-the-ide.md)
 	
    2. Check out the [Getting Started Guide](https://wiki.sipeed.com/hardware/zh/tang/tang-primer-20k/start.html) to avoid some problems, and you can start coding from there.
    
@@ -125,4 +125,4 @@ First, make sure the correct model is selected, each parameter in the figure bel
 
 Then check whether your code and the corresponding simulation waveform meet the requirements
 
-### For more questions and solutions, go to [Related Questions](./../Tang-Nano-Doc/questions.md) to view
+### For more questions and solutions, go to [Related Questions](./../common-doc/questions.md) to view

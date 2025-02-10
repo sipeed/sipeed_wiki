@@ -139,4 +139,4 @@ GitHub link: https://github.com/sipeed/TangPrimer-25K-example
 
 ## Related Issues
 
-For more questions and their solutions, visit [Related Issues](https://github.com/sipeed/TangPrimer-25K-example/tree/main/Tang-Nano-Doc/questions.md).
+For more questions and their solutions, visit [Related Issues](https://github.com/sipeed/TangPrimer-25K-example/tree/main/common-doc/questions.md).

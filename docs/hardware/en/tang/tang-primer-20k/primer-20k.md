@@ -262,7 +262,7 @@ The corresponding pin numbering between R8 and P9 is P8. See the mark on the top
 
 `Install IDE` -> `Learn coding programmer` -> `Read Tutorial` -> `Program by yourself` -> `Read more official documents`
 
-1. Install IDE: [Click me](./../Tang-Nano-Doc/install-the-ide.md).
+1. Install IDE: [Click me](./../common-doc/install-the-ide.md).
 
 2. Visit [Start to use](https://wiki.sipeed.com/hardware/en/tang/tang-primer-20k/start.html) to avoid some problems, and we can start coding for FPGA there.
 
@@ -359,4 +359,4 @@ Firstlt, enable the core board, put the 1 switch on the dip switch down, then do
 	</tr>
 </table>
 
-### Visit [Questions](./../Tang-Nano-Doc/questions.md) for more
+### Visit [Questions](./../common-doc/questions.md) for more

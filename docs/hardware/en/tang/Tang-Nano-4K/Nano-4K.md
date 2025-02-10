@@ -34,7 +34,7 @@ Tang Nano 4K is a development board designed based on [Gowin](https://www.gowins
 
 ## Development software
 
-Visit [install ide](https://wiki.sipeed.com/hardware/en/tang/Tang-Nano-Doc/install-the-ide.html) to setup your programming environment.
+Visit [install ide](https://wiki.sipeed.com/hardware/en/tang/common-doc/install-the-ide.html) to setup your programming environment.
 
 ## Burn firmware
 
@@ -51,12 +51,12 @@ Run the Programmer in Gowin IDE to download firmware into FPGA.
 - [3D File](https://dl.sipeed.com/shareURL/TANG/Nano%204K/HDK/05_3D%20file)
 - [hip Manual](https://dl.sipeed.com/shareURL/TANG/Nano%204K/HDK/06_Chip%20Manual)
 
-- [Examples](https://wiki.sipeed.com/hardware/en/tang/Tang-Nano-Doc/examples.html)
+- [Examples](https://wiki.sipeed.com/hardware/en/tang/common-doc/examples.html)
 
 ## Addition
 
 1. If you have trouble with this board, you can join our telegram (t.me/sipeed) or contact us on twitter (https://twitter.com/SipeedIO). Leaving message below is also OK.
-2. Visit [Tang questions](https://wiki.sipeed.com/hardware/en/tang/Tang-Nano-Doc/questions.html) first if you have any trouble.
+2. Visit [Tang questions](https://wiki.sipeed.com/hardware/en/tang/common-doc/questions.html) first if you have any trouble.
 3. Debugging Cortex-M3, we suggest to use serial-port debug way. If you are excellent enough you can try other ways to debug it.
 4. THe HDMI ports are multiplexed as IO and routed to the pin headers. The actual results of the IO which are multiplexed with HDMI pins on the pin headers may not be consistent with what you want because of the external pull up.
     ![nano_4k_hdmi_io](./../../../zh/tang/Tang-Nano-4K/assets/nano_4k_hdmi_io.png)

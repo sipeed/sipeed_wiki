@@ -67,11 +67,11 @@ Simply download the software and install it.
 Making sure to install all components.
 
 <div>
-    <img src="./../../../zh/tang/Tang-Nano-Doc/get_started/assets/IDE-2.png" width=45% alt="install-ide">
-    <img src="./../../../zh/tang/Tang-Nano-Doc/get_started/assets/IDE-4.png" width=45% alt="install-programmer">
+    <img src="./../../../zh/tang/common-doc/get_started/assets/IDE-2.png" width=45% alt="install-ide">
+    <img src="./../../../zh/tang/common-doc/get_started/assets/IDE-4.png" width=45% alt="install-programmer">
 </div>
 
-In the second picture, Gowin is the IDE which we will use to generate the bitstream file, and the Gowin programmer is what we use to burn it to the fpga. But the programmer installed with IDE does not match the USB-Jtag we provide. So we suggest you visit [Tang questions](./../Tang-Nano-Doc/questions.md) to see how to replace programmer software with one will work better.
+In the second picture, Gowin is the IDE which we will use to generate the bitstream file, and the Gowin programmer is what we use to burn it to the fpga. But the programmer installed with IDE does not match the USB-Jtag we provide. So we suggest you visit [Tang questions](./../common-doc/questions.md) to see how to replace programmer software with one will work better.
 
 <!-- so we recommand you use this [programmer](https://dl.sipeed.com/shareURL/TANG/programmer) to avoid situations such as failing downloading bitstream file. -->
 
@@ -120,15 +120,15 @@ It may take some time to receive a license. During this time we suggest you read
 
 There are three things in the IDE installation path: IDE folder, Programmer folder, uninst.exe
 
-![ide_folder](./../../../zh/tang/Tang-Nano-Doc/get_started/assets/ide_folder.png)
+![ide_folder](./../../../zh/tang/common-doc/get_started/assets/ide_folder.png)
 
 **IDE** folder：Here I suggest you look in the **doc** folder, where many GOWIN Semiconductor Corp official documents are, as shown below.
 
-![IDE](./../../../zh/tang/Tang-Nano-Doc/get_started/assets/doc-folder.png)
+![IDE](./../../../zh/tang/common-doc/get_started/assets/doc-folder.png)
 
 **Programmer folder**: There are also many documents here.
 
-![programmer](./../../../zh/tang/Tang-Nano-Doc/get_started/assets/programmer-folder.png)
+![programmer](./../../../zh/tang/common-doc/get_started/assets/programmer-folder.png)
 
 We suggest you delete the Programmer folder installed with the IDE and use this version [Click me](https://dl.sipeed.com/shareURL/TANG/programmer)，which can solve some issues.
 

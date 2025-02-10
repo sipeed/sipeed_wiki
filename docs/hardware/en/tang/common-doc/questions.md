@@ -29,7 +29,7 @@ Here are some normal questions.
 
 Make sure there are 2 `converter` and `COM` device, this means the debugger works well.
 
-![tang_bl702_device_convertor](./../../../zh/tang/Tang-Nano-Doc/assets/qusetions/tang_bl702_device_convertor.png)
+![tang_bl702_device_convertor](./../../../zh/tang/common-doc/assets/qusetions/tang_bl702_device_convertor.png)
 
 The debugger can be used for Jtag and UART, when using its uart function, Jtag is disabled. To solve this, replug the TypeC cable of your board to disconnect the uart connection.
 
@@ -37,13 +37,13 @@ The debugger can be used for Jtag and UART, when using its uart function, Jtag i
 
 If there is no `COM` device but 2 `converter` devices, right click `converter B` -> `Properties` -> `Advanced` -> `Load VCP` , then Click `OK` and reconnect your USB device.
 
-![tang_bl702_device_convertor_load_vcp](./../../../zh/tang/Tang-Nano-Doc/assets/qusetions/tang_bl702_device_convertor_load_vcp.png)
+![tang_bl702_device_convertor_load_vcp](./../../../zh/tang/common-doc/assets/qusetions/tang_bl702_device_convertor_load_vcp.png)
 
 ### No `convertor` device
 
 It takes 10 seconds for debugger loading the driver. And you can install the driver manually. [Click me to download driver](https://dl.sipeed.com/shareURL/TANG/programmer)
 
-![no_convertor_install_driver](./../../../zh/tang/Tang-Nano-Doc/assets/qusetions/no_convertor_install_driver.png)
+![no_convertor_install_driver](./../../../zh/tang/common-doc/assets/qusetions/no_convertor_install_driver.png)
 
 ### Download frequency
 
@@ -71,7 +71,7 @@ Reflash bitstream to solve this. This occurs when flashing bitstream, board and 
 
 ### Cable open failed
 
-![cable_open_failed](./../../../zh/tang/Tang-Nano-Doc/assets/qusetions/cable_open_failed.png)
+![cable_open_failed](./../../../zh/tang/common-doc/assets/qusetions/cable_open_failed.png)
 
 This means the programmer application does not detect the debugger, try this programmer application mentioned in [Error found](#error-found).
 
@@ -93,7 +93,7 @@ Click Edit->Cable Setting->Cable->Query in the top menu bar,then save.
 
 ### No Gowin devices found
 
-![no_gowin_device_found](./../../../zh/tang/Tang-Nano-Doc/assets/qusetions/no_gowin_device_found.png)
+![no_gowin_device_found](./../../../zh/tang/common-doc/assets/qusetions/no_gowin_device_found.png)
 
 This means the debugger does not detect the FPGA chip, you can use the latest [GOWIN Programmer](http://www.gowinsemi.com.cn/faq.aspx) to solve this problem.
 
@@ -148,7 +148,7 @@ The JTAG pin orders can be found in the back of 20K core board.
 
 ### ID code mismatch
 
-![id_code_mismatch](./../../../zh/tang/Tang-Nano-Doc/assets/qusetions/id_code_mismatch.png)
+![id_code_mismatch](./../../../zh/tang/common-doc/assets/qusetions/id_code_mismatch.png)
 
 This means the selected device in the project mismatch your burning chip. All that refers chip model(The project device, pin constrain, IP modules and programmer device choose) need to be reset.
 
@@ -246,7 +246,7 @@ In the IP Core generate interface of IDE, click the folder icon next to device s
 
 For project that contains multiple-projects, if you succeed generating your module, right-click the module you want to set as the top module IDE -> Hierarchy interface.
 
-![set_top_module](./../../../zh/tang/Tang-Nano-Doc/assets/set_top_module.png)
+![set_top_module](./../../../zh/tang/common-doc/assets/set_top_module.png)
 
 If your Hierarchy interface is the same as what is in the left picture, this means there are logic errors in the code, such as syntax errors or generate errors. Click 'RTL Analysis Error' in the upper right corner then you can see the error type code and location of the error in the dialog box that pops up, as shown in the right picture in the following table.
 
@@ -256,8 +256,8 @@ If your Hierarchy interface is the same as what is in the left picture, this mea
 <td align="center">Error type and details</td>
 </tr>
 <tr>
-<td><img src="./../../../zh/tang/Tang-Nano-Doc/assets/top_error.png" alt="top_module_error" ></td>
-<td><img src="./../../../zh/tang/Tang-Nano-Doc/assets/error_detail.png" alt="error_detail"  ></td>
+<td><img src="./../../../zh/tang/common-doc/assets/top_error.png" alt="top_module_error" ></td>
+<td><img src="./../../../zh/tang/common-doc/assets/error_detail.png" alt="error_detail"  ></td>
 </tr>
 </table>
 
