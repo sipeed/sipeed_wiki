@@ -148,18 +148,30 @@ We need to use the [**BouffaloLabDevCube**](https://dev.bouffalolab.com/download
   The latest firmware serial numbers of all Tang series onboard debuggers are recorded here:
 
 
-  | Board         | MCU model  | Firmware SHA256 Checksum                                                                                                                        |Serial num.| Download     |
-  | ------------- | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ------------ |
-  | nano 1K       | BL702      | N/A                                                                                                                                             | N/A       | N/A          |
-  | nano 4K       | BL702      | N/A                                                                                                                                             | N/A       | N/A          |
-  | Nano 9K       | BL702      | N/A                                                                                                                                             | N/A       | N/A          |
-  | Primer 20K    | BL702      | N/A                                                                                                                                             | N/A       | N/A          |
-  |               |            |                                                                                                                                                 |           |              |
-  | nano 20K      | BL616      | [bl616_fpga_partner_20kNano.sha256](https://api.dl.sipeed.com/TANG/Debugger/onboard/BL616/202501231x/bl616_fpga_partner_20kNano.sha256)         |2025012315 |  [Click](https://api.dl.sipeed.com/TANG/Debugger/onboard/BL616/202501231x/bl616_fpga_partner_20kNano.bin)    |
-  | Primer 25K    | BL616      | [bl616_fpga_partner_25kDock.sha256](https://api.dl.sipeed.com/TANG/Debugger/onboard/BL616/202501231x/bl616_fpga_partner_25kDock.sha256)         |2025012315 |  [Click](https://api.dl.sipeed.com/TANG/Debugger/onboard/BL616/202501231x/bl616_fpga_partner_25kDock.bin)    |
-  | Mega NEO      | BL616      | [bl616_fpga_partner_NeoDock.sha256](https://api.dl.sipeed.com/TANG/Debugger/onboard/BL616/202501231x/bl616_fpga_partner_NeoDock.sha256)         |2025012315 |  [Click](https://api.dl.sipeed.com/TANG/Debugger/onboard/BL616/202501231x/bl616_fpga_partner_NeoDock.bin)    |
-  | Mega 138K Pro | BL616      | [bl616_fpga_partner_138kproDock.sha256](https://api.dl.sipeed.com/TANG/Debugger/onboard/BL616/202501231x/bl616_fpga_partner_138kproDock.sha256) |2025012315 |  [Click](https://api.dl.sipeed.com/TANG/Debugger/onboard/BL616/202501231x/bl616_fpga_partner_138kproDock.bin)|
-  | Console       | BL616      | [bl616_fpga_partner_Console.sha256](https://api.dl.sipeed.com/TANG/Debugger/onboard/BL616/202501231x/bl616_fpga_partner_Console.sha256)         |2025012319 |  [Click](https://api.dl.sipeed.com/TANG/Debugger/onboard/BL616/202501231x/bl616_fpga_partner_Console.bin)    |
+  | Board         | MCU model  | Download                                                                                                     |Serial num.|  Firmware SHA256 Checksum                                                                                                                     |
+  | ------------- | ---------- | -------------------------------------------------------------------------------------------------------------| --------- |-----------------------------------------------------------------------------------------------------------------------------------------------|
+  | nano 1K       | BL702      | N/A                                                                                                          | N/A       |N/A                                                                                                                                            |
+  | nano 4K       | BL702      | N/A                                                                                                          | N/A       |N/A                                                                                                                                            |
+  | Nano 9K       | BL702      | N/A                                                                                                          | N/A       |N/A                                                                                                                                            |
+  | Primer 20K    | BL702      | N/A                                                                                                          | N/A       |N/A                                                                                                                                            |
+  |               |            |                                                                                                              |           |                                                                                                                                               |
+  | nano 20K      | BL616      | [Click](https://api.dl.sipeed.com/TANG/Debugger/onboard/BL616/202501231x/bl616_fpga_partner_20kNano.bin)     |2025012315 |[bl616_fpga_partner_20kNano.sha256](https://api.dl.sipeed.com/TANG/Debugger/onboard/BL616/202501231x/bl616_fpga_partner_20kNano.sha256)        |
+  | Primer 25K    | BL616      | [Click](https://api.dl.sipeed.com/TANG/Debugger/onboard/BL616/202501231x/bl616_fpga_partner_25kDock.bin)     |2025012315 |[bl616_fpga_partner_25kDock.sha256](https://api.dl.sipeed.com/TANG/Debugger/onboard/BL616/202501231x/bl616_fpga_partner_25kDock.sha256)        |
+  | Mega NEO      | BL616      | [Click](https://api.dl.sipeed.com/TANG/Debugger/onboard/BL616/202501231x/bl616_fpga_partner_NeoDock.bin)     |2025012315 |[bl616_fpga_partner_NeoDock.sha256](https://api.dl.sipeed.com/TANG/Debugger/onboard/BL616/202501231x/bl616_fpga_partner_NeoDock.sha256)        |
+  | Mega 138K Pro | BL616      | [Click](https://api.dl.sipeed.com/TANG/Debugger/onboard/BL616/202501231x/bl616_fpga_partner_138kproDock.bin) |2025012315 |[bl616_fpga_partner_138kproDock.sha256](https://api.dl.sipeed.com/TANG/Debugger/onboard/BL616/202501231x/bl616_fpga_partner_138kproDock.sha256)|
+  | Console       | BL616      | [Click](https://api.dl.sipeed.com/TANG/Debugger/onboard/BL616/202501231x/bl616_fpga_partner_Console.bin)     |2025012319 |[bl616_fpga_partner_Console.sha256](https://api.dl.sipeed.com/TANG/Debugger/onboard/BL616/202501231x/bl616_fpga_partner_Console.sha256)        |
+
+  
+
+
+
+
+
+
+
+
+
+
 
   ## Troubleshooting
   If you encounter any problems during use, or have any comments or suggestions on the document, please feel free to give us your feedback. Contact details are below.

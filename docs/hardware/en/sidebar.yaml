@@ -285,6 +285,9 @@ items:
         -   label: Questions&Answers
             file: tang/common-doc/questions.md
             target: _blank
+        -   label: Update debugger
+            file: tang/common-doc/update_debugger.md
+            target: _blank
     -   label: Tang Primer
         items:
         -   label: Tang Primer 20K
@@ -300,6 +303,9 @@ items:
             -   label: Questions&Answers
                 file: tang/common-doc/questions.md
                 target: _blank
+            -   label: Update debugger
+                file: tang/common-doc/update_debugger.md
+                target: _blank
         -   label: Tang Primer 25K
             items:
             -   label: Introduction
@@ -309,6 +315,9 @@ items:
             -   label: Questions&Answers
                 file: tang/common-doc/questions.md
                 target: _blank
+            -   label: Update debugger
+                file: tang/common-doc/update_debugger.md
+                target: _blank
         -   label: Tang Primer 15K
             items:
             -   label: Introduction
@@ -317,6 +326,9 @@ items:
                 file: tang/common-doc/install-the-ide.md
             -   label: Questions&Answers
                 file: tang/common-doc/questions.md
+                target: _blank
+            -   label: Update debugger
+                file: tang/common-doc/update_debugger.md
                 target: _blank
         -   label: Tang Primer (Sold out)
             file: tang/Tang-primer/Tang-primer.md
@@ -344,6 +356,9 @@ items:
             -   label: Questions&Answers
                 file: tang/common-doc/questions.md
                 target: _blank
+            -   label: Update debugger
+                file: tang/common-doc/update_debugger.md
+                target: _blank
         -   label: Tang Mega 138K
             items:
             -   label: Introduction
@@ -352,6 +367,9 @@ items:
                 file: tang/common-doc/install-the-ide.md
             -   label: Questions&Answers
                 file: tang/common-doc/questions.md
+                target: _blank
+            -   label: Update debugger
+                file: tang/common-doc/update_debugger.md
                 target: _blank
         -   label: Tang Mega 60K
             items:
@@ -362,6 +380,9 @@ items:
             -   label: Questions&Answers
                 file: tang/common-doc/questions.md
                 target: _blank
+            -   label: Update debugger
+                file: tang/common-doc/update_debugger.md
+                target: _blank
         -   label: Tang Console
             items:
             -   label: Introduction
@@ -370,6 +391,9 @@ items:
                 file: tang/common-doc/install-the-ide.md
             -   label: Questions&Answers
                 file: tang/common-doc/questions.md
+                target: _blank
+            -   label: Update debugger
+                file: tang/common-doc/update_debugger.md
                 target: _blank
     -   label: Tang PMOD
         file: tang/tang-PMOD/FPGA_PMOD.md         
