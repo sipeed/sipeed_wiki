@@ -8,7 +8,7 @@ update:
     content:
       - First release
 ---
-# Overview
+## Overview
 
 All Sipeed Tang series have onboard debugger (except standalone SOM). The debuggers are separate MCUs with their own firmware. Users could update the firmware for these debuggers to get feature updates and bug fixes.
 
@@ -21,14 +21,14 @@ We need to use the [**BouffaloLabDevCube**](https://dev.bouffalolab.com/download
 
 ***
 
-# Tutorial
-  ## Preparation for Hardware
+## Tutorial
+  ### Preparation for Hardware
 
   To put the onboard debugger into **DFU mode**, press the ***Update Button*** or short the corresponding ***Test Points*** before power on the board or connecting the board's debug USB port with a cable. 
   
   Please refer to the below for the corresponding ***Update Button*** and ***Test Points***.
 
-  ### Tang nano series
+  #### Tang nano series
   
   - Tang nano 1k
 
@@ -54,7 +54,7 @@ We need to use the [**BouffaloLabDevCube**](https://dev.bouffalolab.com/download
   
   ![nano20k_update](./assets/hardware/nano20k_update.png)
 
-  ### Tang Primer series
+  #### Tang Primer series
   
   - Tang Primer 25k Dock
 
@@ -72,7 +72,7 @@ We need to use the [**BouffaloLabDevCube**](https://dev.bouffalolab.com/download
   
     TBD
 
-  ### Tang Mega series(include Tang Console)
+  #### Tang Mega series(include Tang Console)
   
   - Tang Mega Neo Dock(inclede Tang Mega 138K Dock)
 
@@ -94,7 +94,7 @@ We need to use the [**BouffaloLabDevCube**](https://dev.bouffalolab.com/download
 
   ***
 
-  ## Preparation for Software
+  ### Preparation for Software
 
   - First, download **BouffaloLabDevCube** from [**BouffaloLab Official Website**](https://dev.bouffalolab.com/download/), The latest version is **`1.9.0`** (February 10, 2025).
  
@@ -127,7 +127,7 @@ We need to use the [**BouffaloLabDevCube**](https://dev.bouffalolab.com/download
 
   ***
 
-  ## Confirm the results
+  ### Confirm the results
 
   After completing the above steps, we need to confirm that the firmware of the onboard debugger is successfully burned. Usually replug the USB cable or re-poweron the board will confirm it.
 
@@ -143,7 +143,7 @@ We need to use the [**BouffaloLabDevCube**](https://dev.bouffalolab.com/download
 
   ![serialnum_usbconverter](./assets/serialnum_usbconverter.png)
 
-  ## Latest firmware
+  ### Latest firmware
 
   The latest firmware serial numbers of all Tang series onboard debuggers are recorded here:
 
@@ -173,15 +173,15 @@ We need to use the [**BouffaloLabDevCube**](https://dev.bouffalolab.com/download
 
 
 
-  ## Troubleshooting
+  ### Troubleshooting
   If you encounter any problems during use, or have any comments or suggestions on the document, please feel free to give us your feedback. Contact details are below.
   
   In most cases, BouffaloLab's official documentation is sufficient for troubleshooting. Click [here](https://dev.bouffalolab.com/document/) to get them.
 
-  ### FAQ
+  #### FAQ
   - TBD, waiting for feedback to be collected before adding.
 
-  ### Communication Methods
+  #### Communication Methods
   - **Reddit** : [reddit.com/r/GowinFPGA/](reddit.com/r/GowinFPGA/)
   - **Telegram** : [t.me/sipeed](t.me/sipeed)
   - Discussion forum: [maixhub.com/discussion](https://maixhub.com/discussion)
