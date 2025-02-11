@@ -64,7 +64,7 @@ Indepth specifications of the tang nano 9k.
 
 1. **[Download User Guide](https://dl.sipeed.com/shareURL/TANG/Nano%209K/6_Chip_Manual/EN/General%20Guide)**: Access all necessary PDF documents by downloading our comprehensive user guide package.
 
-2. **[Install IDE & License Configuration](./../Tang-Nano-Doc/install-the-ide.md)**: Set up your Integrated Development Environment (IDE) and configure your license by following this guide.
+2. **[Install IDE & License Configuration](./../common-doc/install-the-ide.md)**: Set up your Integrated Development Environment (IDE) and configure your license by following this guide.
 
 3. **[Software User Guide](https://dl.sipeed.com/fileList/TANG/Nano%209K/6_Chip_Manual/EN/General%20Guide/SUG100-2.6E_Gowin%20Software%20User%20Guide.pdf)**: Refer to the "SUG100-2.6E_Gowin Software User Guide.pdf" in the downloaded package for detailed software instructions.
 
@@ -89,7 +89,7 @@ Indepth specifications of the tang nano 9k.
 
 ## Reference and Examples
 
-You can access several example projects on our [Examples Page](./../Tang-Nano-Doc/examples.md).
+You can access several example projects on our [Examples Page](./../common-doc/examples.md).
 
 ## Hardware Resources
 
@@ -105,7 +105,7 @@ You can access several example projects on our [Examples Page](./../Tang-Nano-Do
 
 1. **Support and Community**: For assistance, join our Telegram group (t.me/sipeed) or contact us on Twitter ([@SipeedIO](https://twitter.com/SipeedIO)). You can also leave a message below.
 
-2. **Troubleshooting**: If you encounter any issues, consult our [Tang Questions](https://wiki.sipeed.com/hardware/en/tang/Tang-Nano-Doc/questions.html) page first.
+2. **Troubleshooting**: If you encounter any issues, consult our [Tang Questions](https://wiki.sipeed.com/hardware/en/tang/common-doc/questions.html) page first.
 
 3. **Avoid using JTAG, MODE0/1, and DONE pins unless necessary**. For details, refer to [SUG100-2.6E_Gowin Software User Guide.pdf](https://dl.sipeed.com/fileList/TANG/Nano%209K/6_Chip_Manual/EN/General%20Guide/SUG100-2.6E_Gowin%20Software%20User%20Guide.pdf).
 

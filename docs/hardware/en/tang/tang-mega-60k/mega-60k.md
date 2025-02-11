@@ -227,7 +227,7 @@ port: 10559
 
 if the ip not work, try use "gowinlic.sipeed.com" domain's IP.
 
-Install IDE [Click me](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/get_started/install-the-ide.html)
+Install IDE [Click me](https://wiki.sipeed.com/hardware/zh/tang/common-doc/get_started/install-the-ide.html)
 
 
 Example code [github](https://github.com/sipeed/TangMega-60K-example)
@@ -294,6 +294,22 @@ Tang Mega 60K can meet different needs of customers in various scenarios. For te
 
 ## Frequently Asked Questions (FAQs)
 
+### The system does not recognize the debugger
+
+- Try connecting directly to the computer instead of through a USB HUB.
+- Try using a better quality USB cable.
+- Try another computer to rule out the computer being the problem. 
+- Try [update to the latest firmware](#how-to-update-the-firmware-for-the-onboard-debugger) and try again.
+
+### The UART of the onboard debugger cannot be used
+
+- Try reinstall FTDI drivers.
+- IF the actual baudrate is always four times the set baudrate or the UART continuously outputs garbled characters. try [update to the latest firmware](#how-to-update-the-firmware-for-the-onboard-debugger) and try again.
+
+### OpenFPGAloader not work
+
+- Try [update to the latest firmware](#how-to-update-the-firmware-for-the-onboard-debugger) and try again.
+
 ### How to update the firmware for the onboard debugger
 
 - See [Update the debugger](./../common/update_debugger.md) for details.
@@ -340,4 +356,4 @@ Tang Mega 60K can meet different needs of customers in various scenarios. For te
 
 2. Then, check your code and the corresponding simulation waveforms to meet the requirements. The GAO tools in GOWIN IDE maybe helpful. For more information, please refer to the GOWIN document [SUG100](https://www.gowinsemi.com/upload/database_doc/1885/document/660bb2366d0b3.pdf)(require login).
 
-### For more questions and solutions, go to [Related Questions](./../Tang-Nano-Doc/questions.md) to view
+### For more questions and solutions, go to [Related Questions](./../common-doc/questions.md) to view

@@ -64,7 +64,7 @@ Github: https://github.com/sipeed/TangNano-9K-example
 - Litex on Tang Nano 9K : https://github.com/litex-hub/litex-boards
 
 Partner tutorials:
-<a href="https://learn.lushaylabs.com/tang-nano-series/"><img src="./../../../zh/tang/Tang-Nano-Doc/assets/lushaylab_logo.png" alt="lushaylab_logo" width="35%"></a>
+<a href="https://learn.lushaylabs.com/tang-nano-series/"><img src="./../../../zh/tang/common-doc/assets/lushaylab_logo.png" alt="lushaylab_logo" width="35%"></a>
 
 [Lushay Labs](https://lushaylabs.com/) are willing to make series around ethernet, graphics and GPU basics, and in the future there is 2 processor project.
 
@@ -102,4 +102,4 @@ Telegram: https://t.me/sipeed
 
 ## Troubles
 
-Here are the most common troubles or questions we gathered: [Tang Solutions](https://wiki.sipeed.com/hardware/en/tang/Tang-Nano-Doc/questions.html)
+Here are the most common troubles or questions we gathered: [Tang Solutions](https://wiki.sipeed.com/hardware/en/tang/common-doc/questions.html)

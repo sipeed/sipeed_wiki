@@ -45,7 +45,7 @@ Specifications, schematics, dimension drawings, etc. can be found here: [Click h
    
 	`Prepare Development Environment` -> `Learn Relevant Syntax` -> `View Unboxing Guide` -> `Basic Code Writing` -> `View Official Documentation`
 	
-	1. Install IDE: [Click here](./../Tang-Nano-Doc/get_started/install-the-ide.md)
+	1. Install IDE: [Click here](./../common-doc/get_started/install-the-ide.md)
 	
    2. Check out the [Getting Started Guide](https://wiki.sipeed.com/hardware/zh/tang/tang-primer-20k/start.html) to avoid some problems, and you can start coding from there.
    
@@ -91,6 +91,26 @@ Specifications, schematics, dimension drawings, etc. can be found here: [Click h
 
 ## Related Questions
 
+### The system does not recognize the onboard debugger
+
+- Try connecting directly to the computer instead of through a USB HUB.
+- Try using a better quality USB cable.
+- Try another computer to rule out the computer being the problem. 
+- Try [update to the latest firmware](#how-to-update-the-firmware-for-the-onboard-debugger) and try again.
+
+### The UART of the onboard debugger cannot be used
+
+- Try reinstall FTDI drivers.
+- IF the actual baudrate is always four times the set baudrate or the UART continuously outputs garbled characters. try [update to the latest firmware](#how-to-update-the-firmware-for-the-onboard-debugger) and try again.
+
+### OpenFPGAloader not work
+
+- Try [update to the latest firmware](#how-to-update-the-firmware-for-the-onboard-debugger) and try again.
+
+### How to update the firmware for the onboard debugger
+
+- See [Update the debugger](./../common/update_debugger.md) for details.
+
 ### How to Download to External FLASH {#burn_flash}
 
 Set the following options:
@@ -105,4 +125,4 @@ First, make sure the correct model is selected, each parameter in the figure bel
 
 Then check whether your code and the corresponding simulation waveform meet the requirements
 
-### For more questions and solutions, go to [Related Questions](./../Tang-Nano-Doc/questions.md) to view
+### For more questions and solutions, go to [Related Questions](./../common-doc/questions.md) to view

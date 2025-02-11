@@ -35,7 +35,7 @@ Tang Nano 1K is a core board designed based on [Gowin](https://www.gowinsemi.com
 - [3D File](https://dl.sipeed.com/shareURL/TANG/Nano%201K/5_3D_file)
 - [Chip Manual](https://dl.sipeed.com/shareURL/TANG/Nano%201K/6_Chip_Manual)
 
-- [Examples](https://wiki.sipeed.com/hardware/en/tang/Tang-Nano-Doc/examples.html)
+- [Examples](https://wiki.sipeed.com/hardware/en/tang/common-doc/examples.html)
 
 ## Addition
 
@@ -43,4 +43,4 @@ Tang Nano 1K is a core board designed based on [Gowin](https://www.gowinsemi.com
 
 2. For Fpga burning we require using [this](https://dl.sipeed.com/shareURL/TANG/programmer) Programmer application. Because other version Programmer application may fail burning this board.
 
-3. If you meet problems, please visit [problems](./../Tang-Nano-Doc/questions.md) first, normally most problems will be solved after using this programmer [Click me](https://dl.sipeed.com/shareURL/TANG/programmer).
+3. If you meet problems, please visit [problems](./../common-doc/questions.md) first, normally most problems will be solved after using this programmer [Click me](https://dl.sipeed.com/shareURL/TANG/programmer).

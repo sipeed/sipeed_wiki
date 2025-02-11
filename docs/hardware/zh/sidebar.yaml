@@ -297,12 +297,12 @@ items:
         -   label: Tang Nano (售罄)
             file: tang/Tang-Nano/Nano.md
         -   label: 安装 IDE
-            file: tang/Tang-Nano-Doc/get_started/install-the-ide.md
+            file: tang/common-doc/get_started/install-the-ide.md
         -   label: 例程汇总
-            file: tang/Tang-Nano-Doc/examples.md
+            file: tang/common-doc/examples.md
             target: _blank
         -   label: 常见问题
-            file: tang/Tang-Nano-Doc/questions.md
+            file: tang/common-doc/questions.md
             target: _blank
     -   label: Tang Primer
         items:
@@ -313,29 +313,29 @@ items:
             -   label: 开箱使用
                 file: tang/tang-primer-20k/start.md
             -   label: 安装 IDE
-                file: tang/Tang-Nano-Doc/get_started/install-the-ide.md
+                file: tang/common-doc/get_started/install-the-ide.md
             -   label: 例程汇总
                 file: tang/tang-primer-20k/example.md
             -   label: 常见问题
-                file: tang/Tang-Nano-Doc/questions.md
+                file: tang/common-doc/questions.md
                 target: _blank
         -   label: Tang Primer 25K
             items:
             -   label: 板卡介绍
                 file: tang/tang-primer-25k/primer-25k.md
             -   label: 安装 IDE
-                file: tang/Tang-Nano-Doc/get_started/install-the-ide.md
+                file: tang/common-doc/get_started/install-the-ide.md
             -   label: 常见问题
-                file: tang/Tang-Nano-Doc/questions.md
+                file: tang/common-doc/questions.md
                 target: _blank
         -   label: Tang Primer 15K
             items:
             -   label: 板卡介绍
                 file: tang/tang-primer-15k/primer-15k.md
             -   label: 安装 IDE
-                file: tang/Tang-Nano-Doc/get_started/install-the-ide.md
+                file: tang/common-doc/get_started/install-the-ide.md
             -   label: 常见问题
-                file: tang/Tang-Nano-Doc/questions.md
+                file: tang/common-doc/questions.md
                 target: _blank
         -   label: Tang Primer (售罄)
             file: tang/Tang-primer/Tang-primer.md
@@ -361,36 +361,36 @@ items:
             -   label: 板卡介绍
                 file: tang/tang-mega-138k/mega-138k-pro.md
             -   label: 安装 IDE
-                file: tang/Tang-Nano-Doc/get_started/install-the-ide.md
+                file: tang/common-doc/get_started/install-the-ide.md
             -   label: 常见问题
-                file: tang/Tang-Nano-Doc/questions.md
+                file: tang/common-doc/questions.md
                 target: _blank
         -   label: Tang Mega 138K
             items:
             -   label: 板卡介绍
                 file: tang/tang-mega-138k/mega-138k.md
             -   label: 安装 IDE
-                file: tang/Tang-Nano-Doc/get_started/install-the-ide.md
+                file: tang/common-doc/get_started/install-the-ide.md
             -   label: 常见问题
-                file: tang/Tang-Nano-Doc/questions.md
+                file: tang/common-doc/questions.md
                 target: _blank
         -   label: Tang Mega 60K
             items:
             -   label: 板卡介绍
                 file: tang/tang-mega-60k/mega-60k.md
             -   label: 安装 IDE
-                file: tang/Tang-Nano-Doc/get_started/install-the-ide.md
+                file: tang/common-doc/get_started/install-the-ide.md
             -   label: 常见问题
-                file: tang/Tang-Nano-Doc/questions.md
+                file: tang/common-doc/questions.md
                 target: _blank
         -   label: Tang Console
             items:
             -   label: 板卡介绍
                 file: tang/tang-console/mega-console.md
             -   label: 安装 IDE
-                file: tang/Tang-Nano-Doc/get_started/install-the-ide.md
+                file: tang/common-doc/get_started/install-the-ide.md
             -   label: 常见问题
-                file: tang/Tang-Nano-Doc/questions.md
+                file: tang/common-doc/questions.md
                 target: _blank
     -   label: Tang PMOD
         file: tang/tang-PMOD/FPGA_PMOD.md

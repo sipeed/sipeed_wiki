@@ -10,7 +10,7 @@ In this tutorial we just describe how to run the example simply .
 ## Environment
 
 - Python
-- [Gowin IDE](./../../Tang-Nano-Doc/install-the-ide.md)
+- [Gowin IDE](./../../common-doc/install-the-ide.md)
 
 ## Steps
 

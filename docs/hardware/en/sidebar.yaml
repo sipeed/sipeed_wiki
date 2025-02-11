@@ -278,12 +278,15 @@ items:
                 file: tang/tang-nano-20k/example/unbox.md
                 target: _blank
         -   label: Install IDE
-            file: tang/Tang-Nano-Doc/install-the-ide.md
+            file: tang/common-doc/install-the-ide.md
         -   label: Tang Nano examples
-            file: tang/Tang-Nano-Doc/examples.md
+            file: tang/common-doc/examples.md
             target: _blank
         -   label: Questions&Answers
-            file: tang/Tang-Nano-Doc/questions.md
+            file: tang/common-doc/questions.md
+            target: _blank
+        -   label: Update debugger
+            file: tang/common-doc/update_debugger.md
             target: _blank
     -   label: Tang Primer
         items:
@@ -294,29 +297,38 @@ items:
             -   label: Notice
                 file: tang/tang-primer-20k/start.md
             -   label: Install IDE
-                file: tang/Tang-Nano-Doc/install-the-ide.md
+                file: tang/common-doc/install-the-ide.md
             -   label: Examples(Github)
                 url: https://github.com/sipeed/TangPrimer-20K-example
             -   label: Questions&Answers
-                file: tang/Tang-Nano-Doc/questions.md
+                file: tang/common-doc/questions.md
+                target: _blank
+            -   label: Update debugger
+                file: tang/common-doc/update_debugger.md
                 target: _blank
         -   label: Tang Primer 25K
             items:
             -   label: Introduction
                 file: tang/tang-primer-25k/primer-25k.md
             -   label: Install IDE
-                file: tang/Tang-Nano-Doc/install-the-ide.md
+                file: tang/common-doc/install-the-ide.md
             -   label: Questions&Answers
-                file: tang/Tang-Nano-Doc/questions.md
+                file: tang/common-doc/questions.md
+                target: _blank
+            -   label: Update debugger
+                file: tang/common-doc/update_debugger.md
                 target: _blank
         -   label: Tang Primer 15K
             items:
             -   label: Introduction
                 file: tang/tang-primer-15k/primer-15k.md
             -   label: Install IDE
-                file: tang/Tang-Nano-Doc/install-the-ide.md
+                file: tang/common-doc/install-the-ide.md
             -   label: Questions&Answers
-                file: tang/Tang-Nano-Doc/questions.md
+                file: tang/common-doc/questions.md
+                target: _blank
+            -   label: Update debugger
+                file: tang/common-doc/update_debugger.md
                 target: _blank
         -   label: Tang Primer (Sold out)
             file: tang/Tang-primer/Tang-primer.md
@@ -340,36 +352,48 @@ items:
             -   label: Introduction
                 file: tang/tang-mega-138k/mega-138k-pro.md
             -   label: Install IDE
-                file: tang/Tang-Nano-Doc/install-the-ide.md
+                file: tang/common-doc/install-the-ide.md
             -   label: Questions&Answers
-                file: tang/Tang-Nano-Doc/questions.md
+                file: tang/common-doc/questions.md
+                target: _blank
+            -   label: Update debugger
+                file: tang/common-doc/update_debugger.md
                 target: _blank
         -   label: Tang Mega 138K
             items:
             -   label: Introduction
                 file: tang/tang-mega-138k/mega-138k.md
             -   label: Install IDE
-                file: tang/Tang-Nano-Doc/install-the-ide.md
+                file: tang/common-doc/install-the-ide.md
             -   label: Questions&Answers
-                file: tang/Tang-Nano-Doc/questions.md
+                file: tang/common-doc/questions.md
+                target: _blank
+            -   label: Update debugger
+                file: tang/common-doc/update_debugger.md
                 target: _blank
         -   label: Tang Mega 60K
             items:
             -   label: Introduction
                 file: tang/tang-mega-60k/mega-60k.md
             -   label: Install IDE
-                file: tang/Tang-Nano-Doc/install-the-ide.md
+                file: tang/common-doc/install-the-ide.md
             -   label: Questions&Answers
-                file: tang/Tang-Nano-Doc/questions.md
+                file: tang/common-doc/questions.md
+                target: _blank
+            -   label: Update debugger
+                file: tang/common-doc/update_debugger.md
                 target: _blank
         -   label: Tang Console
             items:
             -   label: Introduction
                 file: tang/tang-console/mega-console.md
             -   label: Install IDE
-                file: tang/Tang-Nano-Doc/install-the-ide.md
+                file: tang/common-doc/install-the-ide.md
             -   label: Questions&Answers
-                file: tang/Tang-Nano-Doc/questions.md
+                file: tang/common-doc/questions.md
+                target: _blank
+            -   label: Update debugger
+                file: tang/common-doc/update_debugger.md
                 target: _blank
     -   label: Tang PMOD
         file: tang/tang-PMOD/FPGA_PMOD.md         

@@ -164,7 +164,7 @@ Note: There is onboard Jtag for download FPGA firmware, so this Jtag test point 
 
 Install IDE -> Prepare your code -> Burn into board
 
-- Install IDE [Click me](https://wiki.sipeed.com/hardware/en/tang/Tang-Nano-Doc/install-the-ide.html)
+- Install IDE [Click me](https://wiki.sipeed.com/hardware/en/tang/common-doc/install-the-ide.html)
 - [Unbox](https://wiki.sipeed.com/hardware/en/tang/tang-nano-20k/example/unbox.html)
 - Blink the leds [Click me](https://wiki.sipeed.com/hardware/en/tang/tang-nano-20k/example/led.html)
 
@@ -186,8 +186,28 @@ More example codes [Github](https://github.com/sipeed/TangNano-20K-example)
 
 ## Questions
 
+### The system does not recognize the onboard debugger
+
+- Try connecting directly to the computer instead of through a USB HUB.
+- Try using a better quality USB cable.
+- Try another computer to rule out the computer being the problem. 
+- Try [update to the latest firmware](#how-to-update-the-firmware-for-the-onboard-debugger) and try again.
+
+### The UART of the onboard debugger cannot be used
+
+- Try reinstall FTDI drivers.
+- IF the actual baudrate is always four times the set baudrate or the UART continuously outputs garbled characters. try [update to the latest firmware](#how-to-update-the-firmware-for-the-onboard-debugger) and try again.
+
+### OpenFPGAloader not work
+
+- Try [update to the latest firmware](#how-to-update-the-firmware-for-the-onboard-debugger) and try again.
+
+### How to update the firmware for the onboard debugger
+
+- See [Update the debugger](./../common/update_debugger.md) for details.
+
 ### How to store bitstream
 
 Tang Nano 20K uses the external Flash to save the firmware, we need to download the bitstream to store the firmware.
 
-### Visit [Tang Questions](/hardware/en/tang/Tang-Nano-Doc/questions.html) to find more solutions
+### Visit [Tang Questions](/hardware/en/tang/common-doc/questions.html) to find more solutions

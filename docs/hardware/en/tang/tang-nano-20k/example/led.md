@@ -15,9 +15,9 @@ To know a programming language, we start with `hello world`. But in hardware dev
 
 ## Install IDE
 
-Visit [install IDE](https://wiki.sipeed.com/hardware/en/tang/Tang-Nano-Doc/install-the-ide.html) to prepare the development environment.
+Visit [install IDE](https://wiki.sipeed.com/hardware/en/tang/common-doc/install-the-ide.html) to prepare the development environment.
 
-For linux user we suggest using [openfpgaLoader](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/get_started/flash_in_linux.html) to burn the firmware into fpga.
+For linux user we suggest using [openfpgaLoader](https://wiki.sipeed.com/hardware/zh/tang/common-doc/get_started/flash_in_linux.html) to burn the firmware into fpga.
 
 ## New Project
 
@@ -248,7 +248,7 @@ Then there is no error, everything works well, we can burn our fpga.
 
 There is a BL616 Chip on Tang Nano 20K for Jtag, we can flash FPGA bitstream with this jtag chip.
 
-There is onboard programmer for downloading bitstream, and drivers have been installed when [install IDE](https://wiki.sipeed.com/hardware/en/tang/Tang-Nano-Doc/install-the-ide.html), we connect dock ext-board with computer.
+There is onboard programmer for downloading bitstream, and drivers have been installed when [install IDE](https://wiki.sipeed.com/hardware/en/tang/common-doc/install-the-ide.html), we connect dock ext-board with computer.
 
 ![nano_20k_led_connect_debug](./../../../../zh/tang/tang-nano-20k/assets/led/nano_20k_led_connect_debug.png)
 
@@ -278,7 +278,7 @@ Click where the red box is to burn firmware.
 
 ![nano_20k_sram_download](./../../../../zh/tang/tang-nano-20k/assets/led/nano_20k_sram_download.png)
 
-Go to [Questions](https://wiki.sipeed.com/hardware/en/tang/Tang-Nano-Doc/questions.html) if you have any trouble。
+Go to [Questions](https://wiki.sipeed.com/hardware/en/tang/common-doc/questions.html) if you have any trouble。
 
 Here we finished downloading into SRAM。
 
@@ -344,4 +344,4 @@ And we get two results:
 
 ## 常见问题
 
-Visit [Gowin errors to solve this problem](https://wiki.sipeed.com/hardware/en/tang/Tang-Nano-Doc/questions.html)
+Visit [Gowin errors to solve this problem](https://wiki.sipeed.com/hardware/en/tang/common-doc/questions.html)

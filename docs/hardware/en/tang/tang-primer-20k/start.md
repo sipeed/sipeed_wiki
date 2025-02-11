@@ -78,7 +78,7 @@ For Dock ext-board, the following things can be done with default firmware.
 
 ### Questions
 
-Visit [Questions](./../Tang-Nano-Doc/questions.md) for more solvements
+Visit [Questions](./../common-doc/questions.md) for more solvements
 
 ## Lite ext-board
 
@@ -107,4 +107,4 @@ The mask between R8 and P9 is P8. Refer to the left top of the right picture.
 
 ### Questions
 
-Visit [Questions](./../Tang-Nano-Doc/questions.md) for more solvements
+Visit [Questions](./../common-doc/questions.md) for more solvements
