@@ -49,7 +49,7 @@ MaixCAM is a hardware product designed for the rapid implementation of AI vision
 | Audio Input | Built-in analog silicon microphone for direct voice recording |
 | Network | Onboard WiFi6 + BLE5.4 module, customizable Ethernet version |
 | USB                | Type-C USB2.0, support device and host mode, support USB camera |
-| IO Interface | **2.54mm PMOD interface, 12 IO + Vsys/3.3v/GND interface + 1.25mm 5-pin extension interface** |
+| IO Interface | **2.54mm PMOD interface, 12 IO + Vsys/3.3v/GND interface + 1.25mm 6-pin extension interface** |
 | Buttons | 1 x RST button + 1 x USER (function) button + **1 x power button** |
 | LED | Power indicator + User LED + **illumination LED** |
 | Codec | H.264 / H.265 / MJPEG hardware decoding, supports 2k@30fps encoding and decoding |

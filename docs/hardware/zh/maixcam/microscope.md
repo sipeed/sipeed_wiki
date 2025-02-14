@@ -3,6 +3,19 @@ title: 数码显微镜套餐
 ---
 
 
+<div style="width:100%; display:flex;justify-content: center;">
+
+![maixcam-pro microscope](../../assets/maixcam/maixcam_microscope.png)
+
+</div>
+
+
+<div style="padding: 1em 0 0 0; display: flex; justify-content: center">
+    <a target="_blank" style="margin: 1em;color: white; font-size: 0.9em; border-radius: 0.3em; padding: 0.5em 2em; background-color: #a80202" href="https://item.taobao.com/item.htm?id=878126152834">淘宝</a>
+    <a target="_blank" style="margin: 1em;color: white; font-size: 0.9em; border-radius: 0.3em; padding: 0.5em 2em; background-color: #a80202" href="https://wiki.sipeed.com/store">速卖通</a>
+</div>
+
+
 ## 数码显微镜套餐
 MaixCAM 显微套件可将你的MaixCAM / MaixCAM Pro 转化为便携式数码显微镜， 在各方面性能上都超越同价位数码显微镜，并具备开源特性，你可以打造属于你自己独有功能的数码显微镜！  
 MaixCAM 显微套餐 适用于 细小元件放大焊接，生物标本观察，显微堆叠摄影 等场景，更多应用方式等你来挖掘！
@@ -97,4 +110,10 @@ MaixCAM 显微套餐 适用于 细小元件放大焊接，生物标本观察，�
 ![c5](../../assets/maixcam/c5.jpg)
 ![c6](../../assets/maixcam/c6.jpg)
 
+
+
+<div style="padding: 1em 0 0 0; display: flex; justify-content: center">
+    <a target="_blank" style="margin: 1em;color: white; font-size: 0.9em; border-radius: 0.3em; padding: 0.5em 2em; background-color: #a80202" href="https://item.taobao.com/item.htm?id=878126152834">淘宝</a>
+    <a target="_blank" style="margin: 1em;color: white; font-size: 0.9em; border-radius: 0.3em; padding: 0.5em 2em; background-color: #a80202" href="https://wiki.sipeed.com/store">速卖通</a>
+</div>
 

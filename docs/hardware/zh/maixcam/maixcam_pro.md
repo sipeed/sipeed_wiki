@@ -53,7 +53,7 @@ MaixCAM 是为更好地落地 AI 视觉、听觉和 AIOT 应用而设计的一�
 | 音频输入 | 板载模拟硅麦，可直接收音 |
 | 网络 | 板载 WiFi6 + BLE5.4 模组，可定制 以太网版本 |
 | USB | Type-C USB2.0，支持Device和Host模式，支持 USB 摄像头 |
-| IO 接口 | **2.54mm PMOD 接口， 引出 12 个 IO + Vsys/3.3v/GND 接口 + 1.25mm 5pin扩展接口**|
+| IO 接口 | **2.54mm PMOD 接口， 引出 12 个 IO + Vsys/3.3v/GND 接口 + 1.25mm 6pin扩展接口**|
 | 按键 | 1 x RST 按键 + 1 x USER（功能） 按键 + **1 x 电源按钮**|
 | LED | 电源指示灯 + 用户 LED + **照明 LED** |
 | 编解码 | H.264 / H.265 / MJPEG 硬解码， 支持 2k@30fps 编解码 |

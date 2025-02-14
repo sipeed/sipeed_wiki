@@ -2,6 +2,18 @@
 title: Microscope Kit
 ---
 
+<div style="width:100%; display:flex;justify-content: center;">
+
+![maixcam-pro microscope](../../assets/maixcam/maixcam_microscope.png)
+
+</div>
+
+
+<div style="padding: 1em 0 0 0; display: flex; justify-content: center">
+    <a target="_blank" style="margin: 1em;color: white; font-size: 0.9em; border-radius: 0.3em; padding: 0.5em 2em; background-color: #a80202" href="https://item.taobao.com/item.htm?id=878126152834">Taobao</a>
+    <a target="_blank" style="margin: 1em;color: white; font-size: 0.9em; border-radius: 0.3em; padding: 0.5em 2em; background-color: #a80202" href="https://wiki.sipeed.com/store">Aliexpress</a>
+</div>
+
 ## Microscope Kit
 
 The MaixCAM Microscope Kit transforms your MaixCAM / MaixCAM Pro into a portable digital microscope. It surpasses similarly priced digital microscopes in performance while offering open-source capabilities, allowing you to customize unique functions for your digital microscope.  
@@ -95,3 +107,11 @@ Each image below shows the maximum magnification for both microscopes:
 ![c4](../../assets/maixcam/c4.jpg)  
 ![c5](../../assets/maixcam/c5.jpg)  
 ![c6](../../assets/maixcam/c6.jpg)  
+
+
+
+<div style="padding: 1em 0 0 0; display: flex; justify-content: center">
+    <a target="_blank" style="margin: 1em;color: white; font-size: 0.9em; border-radius: 0.3em; padding: 0.5em 2em; background-color: #a80202" href="https://item.taobao.com/item.htm?id=878126152834">Taobao</a>
+    <a target="_blank" style="margin: 1em;color: white; font-size: 0.9em; border-radius: 0.3em; padding: 0.5em 2em; background-color: #a80202" href="https://wiki.sipeed.com/store">Aliexpress</a>
+</div>
+
