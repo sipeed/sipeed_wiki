@@ -169,6 +169,7 @@ Tang Console can meet different needs of customers in various scenarios. For tec
 
 ### The system does not recognize the onboard debugger
 
+- Make sure the USB cable is connected to the port marked with ***MCU***.
 - Try connecting directly to the computer instead of through a USB HUB.
 - Try using a better quality USB cable.
 - Try another computer to rule out the computer being the problem. 
@@ -190,7 +191,9 @@ Tang Console can meet different needs of customers in various scenarios. For tec
 ### IDE cannot find the model 
 
 1. The educational version does not support 60K and 138K, please switch to the commercial version. The following image shows the educational version (which does not support 60K);
+
 <img src="../assets/questions/no_model_in_IDE.png" width="35%">
+
 
 2. IDE version is too low to use, update the IDE version ≥ **1.9.9**.
 
