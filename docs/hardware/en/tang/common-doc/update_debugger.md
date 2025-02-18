@@ -7,6 +7,11 @@ update:
     author: Serika
     content:
       - First release
+    - date: 2025-02-18
+    version: v0.81
+    author: Serika
+    content:
+      - Enhance doc content.
 ---
 ## Overview
 
