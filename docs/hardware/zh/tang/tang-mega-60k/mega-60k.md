@@ -188,7 +188,7 @@ update:
 
 ## 硬件资料
 
-[板卡规格书](https://dl.sipeed.com/shareURL/TANG/Mega_138K_60K/01_Specification)
+~~[板卡规格书](https://dl.sipeed.com/shareURL/TANG/Mega_138K_60K/01_Specification)~~
 [板卡原理图](https://dl.sipeed.com/shareURL/TANG/Mega_138K_60K/02_Schematic)
 [PCB BOM](https://dl.sipeed.com/shareURL/TANG/Mega_138K_60K/03_Designator_drawing)
 [板卡尺寸图](https://dl.sipeed.com/shareURL/TANG/Mega_138K_60K/04_Mechanical_drawing)
