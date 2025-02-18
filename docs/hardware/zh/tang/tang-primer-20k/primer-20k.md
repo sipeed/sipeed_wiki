@@ -271,7 +271,7 @@ Tang Primer 20K 是基于 [GW2A-LV18PG256C8/I7](http://www.gowinsemi.com.cn/prod
 
 `准备开发环境` -> `学习相关语法` -> `查看开箱指南` -> `基础代码编写` -> `查看官方文档`
    
-1. 安装 IDE ：[点击这里](./../Tang-Nano-Doc/get_started/install-the-ide.md)
+1. 安装 IDE ：[点击这里](./../common-doc/get_started/install-the-ide.md)
 
 2. 查看 [上手指南](https://wiki.sipeed.com/hardware/zh/tang/tang-primer-20k/start.html) 来避免一些问题，并且从那里面可以开始进行代码实战。
 
@@ -301,7 +301,7 @@ github 链接： https://github.com/sipeed/TangPrimer-20K-example
 ### 部分教程
 
 - Lite 底板点灯 ：<a href="https://wiki.sipeed.com/news/others/20k_lite_start/20k_lite_start.html" target="blank">点我跳转</a>
-- Dock 底板例程指南: [点我跳转](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/questions.html)
+- Dock 底板例程指南: [点我跳转](https://wiki.sipeed.com/hardware/zh/tang/common-doc/questions.html)
 
 ## 交流方式
 
@@ -380,4 +380,4 @@ github 链接： https://github.com/sipeed/TangPrimer-20K-example
 	</tr>
 </table>
 
-### 更多问题及其解决办法前往[相关问题](./../Tang-Nano-Doc/questions.md)查看
+### 更多问题及其解决办法前往[相关问题](./../common-doc/questions.md)查看

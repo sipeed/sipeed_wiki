@@ -86,7 +86,7 @@ port: 10559
 ~~~
 如果上面的IP不能工作, 尝试使用 "gowinlic.sipeed.com" 域名对应的IP.
 
-安装 IDE [点我](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/get_started/install-the-ide.html)
+安装 IDE [点我](https://wiki.sipeed.com/hardware/zh/tang/common-doc/get_started/install-the-ide.html)
 
 
 例程代码（Github）： 
@@ -160,15 +160,15 @@ Tang Mega 60K 可以在多种场景实现客户不同方面的需要，技术支
 
 ### 板子电源指示灯亮了，Programmer提示No USB Cable Connection
 
-1. 请检查USB线是否正确接入标记为**MCU**的USB-C连接器。
-2. 尽量避免使用机箱前面板的USB连接器和没有独立供电的USB HUB。
-3. 检查自己是否正确安装FT2232的驱动：出现USB Serial Converter A/B。
+1. 请检查USB线是否正确接入标记为 **MCU** 的USB-C连接器
+2. 尽量避免使用机箱前面板的USB连接器和没有独立供电的USB HUB
+3. 检查自己是否正确安装FT2232的驱动：出现USB Serial Converter A/B
 
 <img src="./../assets/FTDI_DEVICE.jpg" alt="flash_mode" width=35%>
 
-4. 通常情况下Windows会在联网后自动安装相应驱动。如果想要手动处理，请前往[相关问题](./../Tang-Nano-Doc/questions.md)查看相关内容。
+4. 通常情况下Windows会在联网后自动安装相应驱动。如果想要手动处理，请前往[相关问题](./../common-doc/questions.md)查看相关内容
 
-
+5. 尝试更新板载下载器的固件，请参考这里 **[【点我跳转】](./../common-doc/update_debugger.md)**
 
 ### IDE找不到型号GW5AT-LV60PG484A 或 GW5AST-LV138PG484A
 
@@ -197,4 +197,4 @@ Tang Mega 60K 可以在多种场景实现客户不同方面的需要，技术支
 
 2. 然后检查自己的代码和对应的仿真波形是否满足要求，使用云源软件（GOWIN IDE）的GAO工具可以进行片上仿真。更多详情请参考GOWIN文档[SUG100](https://cdn.gowinsemi.com.cn/SUG100-4.0_Gowin%E4%BA%91%E6%BA%90%E8%BD%AF%E4%BB%B6%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97.pdf)中关于GAO工具的描述。
 
-### 更多问题及其解决办法前往[相关问题](./../Tang-Nano-Doc/questions.md)查看
+### 更多问题及其解决办法前往[相关问题](./../common-doc/questions.md)查看

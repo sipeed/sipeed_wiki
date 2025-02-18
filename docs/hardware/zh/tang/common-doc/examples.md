@@ -125,4 +125,4 @@ Tang Nano 9K 合作代理教程(英文)：
 有问题可以在相关页面下面留言，或者加入 QQ 群讨论，常见问题已被收录。
 
 QQ 群：834585530
-常见问题: [点我](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/questions.html)
+常见问题: [点我](https://wiki.sipeed.com/hardware/zh/tang/common-doc/questions.html)

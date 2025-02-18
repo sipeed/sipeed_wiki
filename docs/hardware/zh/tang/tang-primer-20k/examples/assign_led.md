@@ -13,11 +13,11 @@ update:
 
 ## 安装 IDE
 
-参考 [安装IDE](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/get_started/install-the-ide.html) 来完成我们需要准备的软件环境。
+参考 [安装IDE](https://wiki.sipeed.com/hardware/zh/tang/common-doc/get_started/install-the-ide.html) 来完成我们需要准备的软件环境。
 
 Windows 用户建议额外下载一次高云教育版的编程器软件，这样可以避免烧录时因为 Programmer 软件版本不兼容 BL702 下载器而导致的奇怪问题。
 
-对于 Linux 用户的话建议使用 [openfpgaLoader](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/get_started/flash_in_linux.html) 这软件来烧录这款板子。
+对于 Linux 用户的话建议使用 [openfpgaLoader](https://wiki.sipeed.com/hardware/zh/tang/common-doc/get_started/flash_in_linux.html) 这软件来烧录这款板子。
 
 ## 新建工程
 
@@ -153,7 +153,7 @@ endmodule
 
 ## 烧录固件
 
-Dock 板载了下载器，在 [安装IDE](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/get_started/install-the-ide.html) 的时候我们已经安装了驱动。因此我们将板子与电脑连接起来就行。
+Dock 板载了下载器，在 [安装IDE](https://wiki.sipeed.com/hardware/zh/tang/common-doc/get_started/install-the-ide.html) 的时候我们已经安装了驱动。因此我们将板子与电脑连接起来就行。
 
 ![connected](./assets/led_assets/connected.png)
 
@@ -179,7 +179,7 @@ Dock 板载了下载器，在 [安装IDE](https://wiki.sipeed.com/hardware/zh/ta
 
 烧录相关的文档可以参考 [SUG502-1.3_Gowin_Programmer用户指南.pdf](http://cdn.gowinsemi.com.cn/SUG502-1.3_Gowin_Programmer%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97.pdf)
 
-有问题的话可以前往 [常见问题](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/questions.html) 自行排查。
+有问题的话可以前往 [常见问题](https://wiki.sipeed.com/hardware/zh/tang/common-doc/questions.html) 自行排查。
 
 ### 下载到 SRAM
 
@@ -195,7 +195,7 @@ Dock 板载了下载器，在 [安装IDE](https://wiki.sipeed.com/hardware/zh/ta
 
 ![sram_download](./assets/led_assets/sram_download.png)
 
-有问题的话可以前往 [常见问题](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/questions.html) 自行排查。
+有问题的话可以前往 [常见问题](https://wiki.sipeed.com/hardware/zh/tang/common-doc/questions.html) 自行排查。
 
 到这里就下载完成了。
 
@@ -214,7 +214,7 @@ Dock 板载了下载器，在 [安装IDE](https://wiki.sipeed.com/hardware/zh/ta
 
 然后我们的程序重新上电也能照样运行了。
 
-有问题的话可以前往 [常见问题](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/questions.html) 自行排查。
+有问题的话可以前往 [常见问题](https://wiki.sipeed.com/hardware/zh/tang/common-doc/questions.html) 自行排查。
 
 ## 代码结果
 
@@ -245,4 +245,4 @@ Dock 板载了下载器，在 [安装IDE](https://wiki.sipeed.com/hardware/zh/ta
 
 ![flash_cs](./../assets/flash_cs.png)
 
-### 更多问题及其解决办法前往[相关问题](./../Tang-Nano-Doc/questions.md)查看
+### 更多问题及其解决办法前往[相关问题](./../common-doc/questions.md)查看

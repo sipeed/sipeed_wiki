@@ -25,9 +25,9 @@ Because of the DDR test function, Core Board will be very hot. you can erase the
 
 ## Install IDE
 
-Visit [Install IDE](./../../../Tang-Nano-Doc/install-the-ide.md) to prepare the environment for this FPGA.
+Visit [Install IDE](./../../../common-doc/install-the-ide.md) to prepare the environment for this FPGA.
 
-For Linux users, if it's difficult to run Programmer application to burn firmware into fpga, please visit [OpenFpgaloader](https://wiki.sipeed.com/hardware/en/tang/Tang-Nano-Doc/flash-in-linux.html) to see how to use it.
+For Linux users, if it's difficult to run Programmer application to burn firmware into fpga, please visit [OpenFpgaloader](https://wiki.sipeed.com/hardware/en/tang/common-doc/flash-in-linux.html) to see how to use it.
 
 ## New Project
 
@@ -309,7 +309,7 @@ Click where the red box is to burn firmware.
 
 ![sram_download](./../../../../../../../news/others/20k_lite_start/assets/sram_download.png)
 
-Go to [Questions](https://wiki.sipeed.com/hardware/en/tang/Tang-Nano-Doc/questions.html) if you have any trouble。
+Go to [Questions](https://wiki.sipeed.com/hardware/en/tang/common-doc/questions.html) if you have any trouble。
 
 Here we finished downloading into SRAM。
 
@@ -338,4 +338,4 @@ After using PMOD designed by Sipeed，one led flashes like below.
 
 ## Question
 
-Go to [Questions](https://wiki.sipeed.com/hardware/en/tang/Tang-Nano-Doc/questions.html) if you have any trouble。
+Go to [Questions](https://wiki.sipeed.com/hardware/en/tang/common-doc/questions.html) if you have any trouble。

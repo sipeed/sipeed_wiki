@@ -20,9 +20,9 @@ update:
 
 ## 安装 IDE
 
-参考 [安装IDE](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/get_started/install-the-ide.html) 来完成我们需要准备的软件环境。
+参考 [安装IDE](https://wiki.sipeed.com/hardware/zh/tang/common-doc/get_started/install-the-ide.html) 来完成我们需要准备的软件环境。
 
-对于 Linux 用户的话建议使用 [openfpgaLoader](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/get_started/flash_in_linux.html) 这软件来烧录这款设备。
+对于 Linux 用户的话建议使用 [openfpgaLoader](https://wiki.sipeed.com/hardware/zh/tang/common-doc/get_started/flash_in_linux.html) 这软件来烧录这款设备。
 
 ## 新建工程
 
@@ -259,7 +259,7 @@ endmodule
 
 ## 烧录固件
 
-Dock 板载了下载器，在 [安装IDE](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/get_started/install-the-ide.html) 的时候我们已经安装了驱动。因此我们将板子与电脑连接起来就行。
+Dock 板载了下载器，在 [安装IDE](https://wiki.sipeed.com/hardware/zh/tang/common-doc/get_started/install-the-ide.html) 的时候我们已经安装了驱动。因此我们将板子与电脑连接起来就行。
 
 ![connected](./assets/led_assets/connected.png)
 
@@ -299,7 +299,7 @@ Dock 板载了下载器，在 [安装IDE](https://wiki.sipeed.com/hardware/zh/ta
 
 ![sram_download](./assets/led_assets/sram_download.png)
 
-有问题的话可以前往 [常见问题](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/questions.html) 自行排查。
+有问题的话可以前往 [常见问题](https://wiki.sipeed.com/hardware/zh/tang/common-doc/questions.html) 自行排查。
 
 到这里就下载完成了。
 
@@ -378,4 +378,4 @@ endmodule
 
 ### 其他问题
 
-前往 [Gowin 板卡常见问题查看](./../../Tang-Nano-Doc/questions.md)
+前往 [Gowin 板卡常见问题查看](./../../common-doc/questions.md)
