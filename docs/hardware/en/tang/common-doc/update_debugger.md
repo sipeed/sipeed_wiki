@@ -14,6 +14,7 @@ All Sipeed Tang series have onboard debugger (except standalone SOM). The debugg
 
 We need to use the [**BouffaloLabDevCube**](https://dev.bouffalolab.com/download/) to program these onboard debugger chips,  and documentation about the ***chips & tools*** can be found [here](https://dev.bouffalolab.com/document/).
 
+Here is a brief step-by-step guide:
 - Download and install the corresponding edition of the ***tools*** according to your OS.
 - Get the updated debugger firmware for your board from [**Sipeed Download Station**](https://dl.sipeed.com/shareURL/TANG/Debugger/onboard).
 - Refer to the official documentation of [**BouffaloLabDevCube**](https://dev.bouffalolab.com/download/) to update the firmware of the onboard debugger.
@@ -113,7 +114,7 @@ We need to use the [**BouffaloLabDevCube**](https://dev.bouffalolab.com/download
     
   ![mainwindow_BLDevCube](./assets/mainw_bldc.jpg)
 
-  - Let the onboard debugger into **DFU mode**, it should be a CDC-ACM device for both BL702 or BL616. On Windows, this registers a new COM port, in this example is **`COM12`**. For Linux users, CDC-ACM usual register as `/dev/ttyACMx`. For macOS users, it may register as `/dev/tty.usbmodemxxxx` or `/dev/cu.usbmodemxxxx`. (Each `x` represents a digit)
+  - Let the onboard debugger into [**DFU mode**](#preparation-for-hardware), it should be a CDC-ACM device for both BL702 or BL616. On Windows, this registers a new COM port, in this example is **`COM12`**. For Linux users, CDC-ACM usual register as `/dev/ttyACMx`. For macOS users, it may register as `/dev/tty.usbmodemxxxx` or `/dev/cu.usbmodemxxxx`. (Each `x` represents a digit)
   
   ![new_com-port](./assets/new_com-port.jpg)
 
