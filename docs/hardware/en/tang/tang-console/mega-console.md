@@ -57,16 +57,16 @@ Please refer to the link below:
 | USB3                 | 2        | SERDES lane, SuperSpeed @ 5Gbps (Device mode)     |
 | USB2                 | 1        | IO Soft-PHY, HighSpeed @ 480Mbps (Device mode)    |
 | DVI(HDMI)            | 1        | Compatible with HDMI, supports TX, can also be modified to RX |
-| PMOD                 | 2        | Multiplexed with the the DVP CONN. & 2x20P header at the top of the Dock board |
+| PMOD                 | 2        | Standard spacing (800mil), Compatible with dual PMOD modules  |
 | ADC                  | 2        | 2x differential input channels (One is used to measure the battery voltage)   |
-| RGB Interface        | 1        | Supports RGB888 screen                            |
-| SD Slot              | 1        | 4-bit SDIO/MMC or SPI mode                        |
+| RGB Interface        | 1        | Supports RGB888 screen & RGB to VGA Converter     |
+| microSD Slot         | 1        | 4-bit SDIO/MMC or SPI mode                        |
 | BATT CONN.           | 1        | Supports 3.7V li-on battery, with built-in charge management |
-| FAN CONN.            | 1        | Supports a 5V fan                                 |
+| FAN CONN.            | 1        | Supports a 5V fan, maximum power: 1W              |
 | Speaker CONN.        | 1        | Support mono output, 1x 2W Speaker                |
-| MS5351               | 1        | Provides RefClk for Serdes; control output via onboard UART |
+| MS5351               | 1        | Provides RefClk for Serdes: control output via onboard UART |
 | USB JTAG & UART      | 1        | Supports FPGA programming and provides UART function  |
-| 2x20P headers        | 2        | 2x20P header at the top of the Dock board multiplexed with the the PMOD & DVP CONN. |
+| 2x20P headers        | 2        | Independent 2x20P pin header, providing up to 2x38 IOs, can be modified to be compatible with DE10-Nano Kit |
 
 
 ## Hardware Resources
@@ -99,7 +99,15 @@ if the ip not work, try use "gowinlic.sipeed.com" domain's IP.
 Install IDE [Click me](https://wiki.sipeed.com/hardware/zh/tang/common-doc/get_started/install-the-ide.html)
 
 
-Example code [github](https://github.com/sipeed/TangMega-60K-example)
+Example code (Github):
+  - [60K](https://github.com/sipeed/TangMega-60K-example)
+  - [138K](https://github.com/sipeed/TangMega-138K-example)
+  - [TangCores](https://github.com/nand2mario/tangcores)
+
+    Special Thanks: **[nand2mario](https://github.com/nand2mario)**  
+
+  ***
+
 
 - Other Learning Resources
 
@@ -192,15 +200,19 @@ Tang Console can meet different needs of customers in various scenarios. For tec
 
 <img src="./../assets/flash_mode_GAO.png" alt="flash_mode" width=35%>
 
-2. Check the position of the DIP switch; the correct position is shown in the figure below:
-
-<img src="./assets/dip-key_defualt.png" alt="dip-key_defualt" width=35%>
 
 ### No Response or Undesirable Pin Phenomenon After Burning
 
-1. First, ensure that the IDE has selected the correct model **GW5AT-LV60PG484AC1/10**; every parameter in the figure below **MUST** be consistent.
+1. First, ensure that the IDE has selected the correct model 
 
-<img src="./assets/partno_60K.png" alt="device_choose" width=35%>
+- For MEGA 60K, **GW5AT-LV60PG484AC1/10**; every parameter in the figure below **MUST** be consistent.
+
+<img src="../tang-mega-60k/assets/partno_60K.png" alt="device_choose" width=35%>
+
+- For MEGA 138K, **GW5AST-LV138PG484AC1/10**; every parameter in the figure below **MUST** be consistent.
+
+<img src="../tang-mega-138k/assets/partno_138K.png" alt="device_choose" width=35%>
+
 
 2. Then, check your code and the corresponding simulation waveforms to meet the requirements. The GAO tools in GOWIN IDE maybe helpful. For more information, please refer to the GOWIN document [SUG100](https://www.gowinsemi.com/upload/database_doc/1885/document/660bb2366d0b3.pdf)(require login).
 
