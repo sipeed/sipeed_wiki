@@ -62,7 +62,7 @@ Tang Nano 9K 是 Sipeed 所推出的第五款 FPGA 开发板，与在售前代�
 
 ## 上手指引
 
-1. 安装IDE和填写正确的License：[点击这里](https://wiki.sipeed.com/soft/Tang/zh/Tang-Nano-Doc/get_started/install-the-ide.html)
+1. 安装IDE和填写正确的License：[点击这里](https://wiki.sipeed.com/soft/Tang/zh/common-doc/get_started/install-the-ide.html)
 
 2. 阅读：[SUG100-2.6_Gowin云源软件用户指南.pdf](http://cdn.gowinsemi.com.cn/SUG100-2.5_Gowin%E4%BA%91%E6%BA%90%E8%BD%AF%E4%BB%B6%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97.pdf)
 
@@ -104,7 +104,7 @@ Tang Nano 9K 是 Sipeed 所推出的第五款 FPGA 开发板，与在售前代�
 
 ## 例程汇总
 
-访问 [相关例程](./../Tang-Nano-Doc/examples.md) 查看所有说明
+访问 [相关例程](./../common-doc/examples.md) 查看所有说明
 
 ## 硬件资料
 
@@ -121,7 +121,7 @@ Tang Nano 9K 是 Sipeed 所推出的第五款 FPGA 开发板，与在售前代�
 
 1. 如果有什么疑问，欢迎加群 `834585530`, 或者直接在本页下方留言讨论。
    
-2. 有问题的话先去 [常见问题](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/questions.html) 自查。
+2. 有问题的话先去 [常见问题](https://wiki.sipeed.com/hardware/zh/tang/common-doc/questions.html) 自查。
 
 3. 避免使用JTAG、MODE、DONE等引脚。如果一定要使用这些引脚，请查看 [UG292-1.0原理图指导手册](http://cdn.gowinsemi.com.cn/UG293-1.0_GW1NZ%E7%B3%BB%E5%88%97FPGA%E4%BA%A7%E5%93%81%E5%8E%9F%E7%90%86%E5%9B%BE%E6%8C%87%E5%AF%BC%E6%89%8B%E5%86%8C.pdf)
 

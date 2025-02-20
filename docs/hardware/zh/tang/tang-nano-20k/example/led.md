@@ -15,9 +15,9 @@ update:
 
 ## 安装 IDE
 
-参考 [安装IDE](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/get_started/install-the-ide.html) 来完成我们需要准备的软件环境。
+参考 [安装IDE](https://wiki.sipeed.com/hardware/zh/tang/common-doc/get_started/install-the-ide.html) 来完成我们需要准备的软件环境。
 
-对于 Linux 用户的话建议使用 [openfpgaLoader](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/get_started/flash_in_linux.html) 这软件来烧录这款设备。
+对于 Linux 用户的话建议使用 [openfpgaLoader](https://wiki.sipeed.com/hardware/zh/tang/common-doc/get_started/flash_in_linux.html) 这软件来烧录这款设备。
 
 ## 新建工程
 
@@ -257,7 +257,7 @@ endmodule
 
 Tang Nano 20K 板卡上搭载了 BL616 芯片，用来烧录 FPGA 固件到板卡中。
 
-在 [安装IDE](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/get_started/install-the-ide.html) 的时候已经安装了驱动。因此我们将板子与电脑连接起来就行。
+在 [安装IDE](https://wiki.sipeed.com/hardware/zh/tang/common-doc/get_started/install-the-ide.html) 的时候已经安装了驱动。因此我们将板子与电脑连接起来就行。
 
 ![nano_20k_led_connect_debug](./../assets/led/nano_20k_led_connect_debug.png)
 
@@ -289,7 +289,7 @@ Tang Nano 20K 板卡上搭载了 BL616 芯片，用来烧录 FPGA 固件到板�
 
 ![nano_20k_sram_download](./../assets/led/nano_20k_sram_download.png)
 
-有问题的话可以前往 [常见问题](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/questions.html) 自行排查。
+有问题的话可以前往 [常见问题](https://wiki.sipeed.com/hardware/zh/tang/common-doc/questions.html) 自行排查。
 
 到这里就下载完成了。
 
@@ -354,4 +354,4 @@ endmodule
 
 ## 常见问题
 
-前往 [Gowin 板卡常见问题查看](./../../Tang-Nano-Doc/questions.md)
+前往 [Gowin 板卡常见问题查看](./../../common-doc/questions.md)

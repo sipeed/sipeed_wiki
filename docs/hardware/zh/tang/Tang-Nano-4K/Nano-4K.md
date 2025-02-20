@@ -35,7 +35,7 @@ Tang Nano 4K开发板板载的GW1NSR-LV4C，是一款系统级封装芯片，内
 
 ## 开发环境
 
-- 安装 IDE [点我](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/get_started/install-the-ide.html)
+- 安装 IDE [点我](https://wiki.sipeed.com/hardware/zh/tang/common-doc/get_started/install-the-ide.html)
 
 ## 下载方式
 
@@ -50,12 +50,12 @@ Tang Nano 4K 开发板板载 BL702 芯片，为 GW1NSR-4C 提供 JTAG 调试功�
 - [3D 文件](https://dl.sipeed.com/shareURL/TANG/Nano%204K/HDK/05_3D%20file)
 - [芯片手册](https://dl.sipeed.com/shareURL/TANG/Nano%204K/HDK/06_Chip%20Manual)
 
-- [相关例程](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/examples.html)
+- [相关例程](https://wiki.sipeed.com/hardware/zh/tang/common-doc/examples.html)
 
 ## 补充
 
 1. 如果有什么疑问，欢迎加群 `834585530`, 或者直接在本页下方留言讨论。
-2. 有问题的话先去 [常见问题](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/questions.html) 自查。
+2. 有问题的话先去 [常见问题](https://wiki.sipeed.com/hardware/zh/tang/common-doc/questions.html) 自查。
 3. 对于 Cortex-M3 硬核建议使用串口来打印调试信息来纠错，或者有能力的可以选择其他方式。
 4. 对于板子上面的 IO 引脚使用，需要注意与 HDMI 引脚复用的 IO，可能因为外部上拉而导致排针上与 HDMI 复用的 IO 所表现的实际结果与自己想要的不符合。
     ![nano_4k_hdmi_io](./assets/nano_4k_hdmi_io.png)

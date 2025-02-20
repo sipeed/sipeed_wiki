@@ -81,7 +81,7 @@ LED2 与 LED3 的丝印错误，应当为：
 
 ### 相关问题
 
-使用中碰到问题可以先前往 [常见问题](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/questions.html) 来查看解决方法。
+使用中碰到问题可以先前往 [常见问题](https://wiki.sipeed.com/hardware/zh/tang/common-doc/questions.html) 来查看解决方法。
 
 ## Lite 开箱说明
 
@@ -110,4 +110,4 @@ LED2 与 LED3 的丝印错误，应当为：
 
 ### 相关问题
 
-使用中碰到问题可以先前往 [常见问题](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/questions.html) 来查看解决方法。
+使用中碰到问题可以先前往 [常见问题](https://wiki.sipeed.com/hardware/zh/tang/common-doc/questions.html) 来查看解决方法。

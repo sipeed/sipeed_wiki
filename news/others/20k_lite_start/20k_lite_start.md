@@ -40,9 +40,9 @@ update:
 
 ## 安装 IDE
 
-参考 [安装IDE](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/get_started/install-the-ide.html) 来完成我们需要准备的软件环境。
+参考 [安装IDE](https://wiki.sipeed.com/hardware/zh/tang/common-doc/get_started/install-the-ide.html) 来完成我们需要准备的软件环境。
 
-对于 Linux 用户，如果打开 Programmer 烧录软件困难的话，可以使用 [openfpgaLoader](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/get_started/flash_in_linux.html) 这软件来烧录 GW2A-18，相关用法在 [OpenFpgaloader](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/get_started/flash_in_linux.html) 一文中有说明。
+对于 Linux 用户，如果打开 Programmer 烧录软件困难的话，可以使用 [openfpgaLoader](https://wiki.sipeed.com/hardware/zh/tang/common-doc/get_started/flash_in_linux.html) 这软件来烧录 GW2A-18，相关用法在 [OpenFpgaloader](https://wiki.sipeed.com/hardware/zh/tang/common-doc/get_started/flash_in_linux.html) 一文中有说明。
 
 ## 新建工程
 
@@ -342,7 +342,7 @@ endmodule
 
 ![sram_download](./assets/sram_download.png)
 
-有问题的话可以前往 [常见问题](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/questions.html) 自行排查。
+有问题的话可以前往 [常见问题](https://wiki.sipeed.com/hardware/zh/tang/common-doc/questions.html) 自行排查。
 
 到这里就下载完成了。
 
@@ -361,7 +361,7 @@ endmodule
 
 然后我们的程序重新上电也能照样运行了。
 
-有问题的话可以前往 [常见问题](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/questions.html) 自行排查。
+有问题的话可以前往 [常见问题](https://wiki.sipeed.com/hardware/zh/tang/common-doc/questions.html) 自行排查。
 
 ### 代码效果
 
@@ -371,4 +371,4 @@ endmodule
 
 ## 常见问题
 
-前往 [常见问题](./../../../docs/hardware/zh/tang/Tang-Nano-Doc/questions.md) 查看一般的解决方法
+前往 [常见问题](./../../../docs/hardware/zh/tang/common-doc/questions.md) 查看一般的解决方法

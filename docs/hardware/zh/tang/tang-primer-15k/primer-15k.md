@@ -202,7 +202,7 @@ TBD
 
 `准备开发环境` -> `学习相关语法` -> `查看开箱指南` -> `基础代码编写` -> `查看官方文档`
 
-1. 安装 IDE ：[点击这里](./../Tang-Nano-Doc/get_started/install-the-ide.md)
+1. 安装 IDE ：[点击这里](./../common-doc/get_started/install-the-ide.md)
 
 2. 查看 [上手指南](https://wiki.sipeed.com/hardware/zh/tang/tang-primer-20k/start.html) 来避免一些问题，并且从那里面可以开始进行代码实战。
 

@@ -6,22 +6,22 @@
             "items": [
                 {
                     "label": "简介",
-                    "file": "Tang-Nano-Doc/README.md"
+                    "file": "common-doc/README.md"
                 },
                 {
                     "label": "安装 IDE",
-                    "file": "Tang-Nano-Doc/get_started/install-the-ide.md"
+                    "file": "common-doc/get_started/install-the-ide.md"
                 },
                 {
                     "label": "示例",
                     "items": [
                         {
                             "label": "点灯教程",
-                            "file": "Tang-Nano-Doc/examples/1_led.md"
+                            "file": "common-doc/examples/1_led.md"
                         },
                         {
                             "label": "点LCD教程",
-                            "file": "Tang-Nano-Doc/examples/2_lcd.md"
+                            "file": "common-doc/examples/2_lcd.md"
                         }
                     ]
                 }

@@ -139,7 +139,7 @@ Nano 9K 的 led 部分的原理图如下所示
 有固化需求的话设置下载到 flash 即可
 ![固化](./../nano_9k/access_mode.png)
 
-有问题可以前往[相关问题](./../../Tang-Nano-Doc/questions.md)
+有问题可以前往[相关问题](./../../common-doc/questions.md)
 
 当然也欢迎在下面留言
 

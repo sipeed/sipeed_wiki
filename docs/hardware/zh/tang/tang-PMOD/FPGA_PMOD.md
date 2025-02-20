@@ -144,4 +144,4 @@ github 链接： https://github.com/sipeed/TangPrimer-25K-example
 
 
 
-### 更多问题及其解决办法前往[相关问题](./../Tang-Nano-Doc/questions.md)查看
+### 更多问题及其解决办法前往[相关问题](./../common-doc/questions.md)查看

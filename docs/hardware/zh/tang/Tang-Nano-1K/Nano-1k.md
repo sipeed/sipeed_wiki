@@ -37,10 +37,10 @@ Tang Nano 1K 开发板板载的 GW1NZ-LV1 FPGA芯片功能非常强大，具有�
 - [3D 文件](https://dl.sipeed.com/shareURL/TANG/Nano%201K/5_3D_file)
 - [芯片手册](https://dl.sipeed.com/shareURL/TANG/Nano%201K/6_Chip_Manual)
 
-- [相关例程](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/examples.html)
+- [相关例程](https://wiki.sipeed.com/hardware/zh/tang/common-doc/examples.html)
 
 ## 补充
 
 1. 如果有什么疑问，欢迎加群 `834585530`, 或者去[论坛](bbs.sipeed.com)发帖。
 2. 下载 FPGA 是要求使用 [这里](https://dl.sipeed.com/shareURL/TANG/programmer) 的 Programmer 软件。不然有极大概率不能下载固件到板子。
-3. 有问题的话先去 [常见问题](./../Tang-Nano-Doc/questions.md) 自查，通常来说使用 [这里](https://dl.sipeed.com/shareURL/TANG/programmer) 的 Programmer 软件能解决 99% 问题。
+3. 有问题的话先去 [常见问题](./../common-doc/questions.md) 自查，通常来说使用 [这里](https://dl.sipeed.com/shareURL/TANG/programmer) 的 Programmer 软件能解决 99% 问题。
