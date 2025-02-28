@@ -1,0 +1,16 @@
+<script>
+    var hash = window.location.hash
+    if (hash.indexOf("start")!= -1){
+        location.href = window.location.origin + "/hardware/zh/tang/tang-primer-15k/mega-60k.html"
+    }
+    else
+    {   if( navigator.language.indexOf("en") == 0 )
+        {
+            location.href = window.location.origin + "/hardware/zh/tang/tang-primer-15k/mega-60k.html"
+        }
+        else
+        {
+            location.href = window.location.origin + "/hardware/en/tang/tang-primer-15k/mega-60k.html"
+        }
+    }
+</script>
