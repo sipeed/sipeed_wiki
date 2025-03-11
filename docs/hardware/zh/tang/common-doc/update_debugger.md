@@ -7,6 +7,11 @@ update:
     author: Serika
     content:
       - First release
+  - date: 2025-03-11
+    version: v0.9
+    author: Serika
+    content:
+      - 9K pic fixed
 ---
 ## 概述
 
@@ -101,7 +106,7 @@ update:
   <body>
     <details class="indent">
       <summary><font color="#4F84FF">点击此处查看nano 9K的下载器测试点的位置</font></summary>
-      <img src="./assets/hardware/nano20k_update.jpg">
+      <img src="./assets/hardware/nano9k_update.jpg">
     </details>
   </body>
   <br>
