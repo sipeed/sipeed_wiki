@@ -297,7 +297,7 @@ Tang Mega 138K can meet different needs of customers in various scenarios. For t
 
 ### How to update the firmware for the onboard debugger
 
-- See [Update the debugger](./../common/update_debugger.md) for details.
+- See [Update the debugger](./../common-doc/update_debugger.md) for details.
 
 ### After powering on the board, only four indicator lights on the dockboard are on, the SOM indicator light is not on
 
