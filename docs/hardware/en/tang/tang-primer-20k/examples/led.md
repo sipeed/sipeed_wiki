@@ -15,9 +15,9 @@ To know a programming language, we start with `hello world`. But in hardware dev
 
 ## Install IDE
 
-Visit [install IDE](https://wiki.sipeed.com/hardware/en/tang/Tang-Nano-Doc/install-the-ide.html) to prepare the development environment.
+Visit [install IDE](https://wiki.sipeed.com/hardware/en/tang/common-doc/install-the-ide.html) to prepare the development environment.
 
-For linux user we suggest using [openfpgaLoader](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/get_started/flash_in_linux.html) to burn the firmware into fpga.
+For linux user we suggest using [openfpgaLoader](https://wiki.sipeed.com/hardware/zh/tang/common-doc/get_started/flash_in_linux.html) to burn the firmware into fpga.
 
 ## New Project
 
@@ -246,7 +246,7 @@ Then there is no error, everything works well, we can burn our fpga.
 
 ## Burn bitstream
 
-There is onboard programmer for downloading bitstream, and drivers have been installed when [install IDE](https://wiki.sipeed.com/hardware/en/tang/Tang-Nano-Doc/install-the-ide.html), we connect dock ext-board with computer.
+There is onboard programmer for downloading bitstream, and drivers have been installed when [install IDE](https://wiki.sipeed.com/hardware/en/tang/common-doc/install-the-ide.html), we connect dock ext-board with computer.
 
 ![connected](./../../../../zh/tang/tang-primer-20k/examples/assets/led_assets/connected.png)
 
@@ -280,7 +280,7 @@ Click where the red box is to burn firmware.
 
 ![sram_download](./../../../../zh/tang/tang-primer-20k/examples/assets/led_assets/sram_download.png)
 
-Go to [Questions](https://wiki.sipeed.com/hardware/en/tang/Tang-Nano-Doc/questions.html) if you have any trouble。
+Go to [Questions](https://wiki.sipeed.com/hardware/en/tang/common-doc/questions.html) if you have any trouble。
 
 Here we finished downloading into SRAM。
 
@@ -349,7 +349,7 @@ And we get two results:
 
 Check if there are two converters in device manager, reinstall programmer driver if there are no two converters in device manager.
 
-![converter](./../../Tang-Nano-Doc/assets/questions/usb_converter.png)
+![converter](./../../common-doc/assets/questions/usb_converter.png)
 
 ### No gowin device found
 
@@ -357,4 +357,4 @@ Make sure you have enabled the core board.
 
 ### Other questions
 
-Visit [Gowin errors to solve this problem](https://wiki.sipeed.com/hardware/en/tang/Tang-Nano-Doc/questions.html)
+Visit [Gowin errors to solve this problem](https://wiki.sipeed.com/hardware/en/tang/common-doc/questions.html)

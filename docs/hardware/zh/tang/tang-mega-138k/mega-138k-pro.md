@@ -207,7 +207,7 @@ port: 10559
 ~~~
 如果上面的IP不能工作, 尝试使用 "gowinlic.sipeed.com" 域名对应的IP.
 
-安装 IDE [点我](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/get_started/install-the-ide.html)
+安装 IDE [点我](https://wiki.sipeed.com/hardware/zh/tang/common-doc/get_started/install-the-ide.html)
 
 
 例程代码 [github](https://github.com/sipeed/TangMega-138KPro-example)
@@ -281,13 +281,19 @@ Tang Mega 138K 可以在多种场景实现客户不同方面的需要，技术�
 
 ### 板子电源指示灯亮了，Programmer提示No USB Cable Connection
 
-1. 请检查USB线是否正确接入标记为**JTAG|UART**的USB-C连接器。
-2. 尽量避免使用机箱前面板的USB连接器和没有独立供电的USB HUB。
-3. 检查自己是否正确安装FT2232的驱动：出现USB Serial Converter A/B。
+1. 请检查USB线是否正确接入标记为**JTAG|UART**的USB-C连接器
+2. 尽量避免使用机箱前面板的USB连接器和没有独立供电的USB HUB
+3. 检查自己是否正确安装FT2232的驱动：出现USB Serial Converter A/B
 
-<img src="./../assets/FTDI_DEVICE.png" alt="flash_mode" width=35%>
+<img src="./../assets/FTDI_DEVICE.jpg" alt="flash_mode" width=35%>
 
-4. 通常情况下Windows会在联网后自动安装相应驱动。如果想要手动处理，请前往[相关问题](./../Tang-Nano-Doc/questions.md)查看相关内容。
+4. 通常情况下Windows会在联网后自动安装相应驱动。如果想要手动处理，请前往[相关问题](./../common-doc/questions.md)查看相关内容
+
+5. 尝试更新板载下载器的固件，请参考这里 **[【点我跳转】](./../common-doc/update_debugger.md)**
+
+<img src="./../assets/FTDI_DEVICE.jpg" alt="flash_mode" width=35%>
+
+4. 通常情况下Windows会在联网后自动安装相应驱动。如果想要手动处理，请前往[相关问题](./../common-doc/questions.md)查看相关内容。
 
 ### 如何下载到外部 FLASH {#burn_flash}
 
@@ -304,4 +310,4 @@ Tang Mega 138K 可以在多种场景实现客户不同方面的需要，技术�
 2. 然后检查自己的代码和对应的仿真波形是否满足要求
 
 
-### 更多问题及其解决办法前往[相关问题](./../Tang-Nano-Doc/questions.md)查看
+### 更多问题及其解决办法前往[相关问题](./../common-doc/questions.md)查看

@@ -48,7 +48,7 @@ In addition to holding the BOOT button as mentioned above, pay attention to chec
 
 After confirming that it is correct, it can be burned, and the next burning steps are the same as the internal test version.
 
-### Windows Driver installation
+### Windows Driver installation(Disable Driver Signature Checks)
 
 The driver needs to be installed manually the first time you use the device.
 
@@ -92,13 +92,41 @@ Refer to [Disable Driver signature verification](https://answers.microsoft.com/e
 ![before_install_driver](./../../../../zh/lichee/th1520/lpi4a/assets/burn_image/before_install_driver.png)
 ![install_driver](./../../../../zh/lichee/th1520/lpi4a/assets/burn_image/install_driver.png)
 
+### Windows Driver installation(Manually install signed drivers)
+
+This part of tutorial comes from [RevyOS Documentation](https://docs.revyos.dev). Feel free to read it's flash manual when you get into trouble.
+
+While holding down the BOOT button on the board, connect the Type-C port near the BOOT button to the computer. The board will enter flashing mode.
+
+Right-click on the Windows logo, open Device Manager. If you see "USB download gadget" under "Other devices", it means the device has been correctly recognized. However, the driver is not installed.
+
+To install the fastboot driver, you need to download the [Google USB Driver (proxy required)](https://dl.google.com/android/repository/usb_driver_r13-windows.zip), download and extract it to a location.
+
+1. Right-click on "USB download gadget" in Device Manager, click "Update driver"
+2. Choose "Browse my computer for drivers"
+![Driver Update Step 2](./assets/burn_image/driver-update-step-2-en.png)
+3. Select "Let me pick from a list of available drivers on my computer"
+4. Select "Show All Devices" and click "Next"
+![Driver Update Step 4](./assets/burn_image/driver-update-step-4-en.png)
+5. Click "Have Disk"
+6. Click "Browse", select the inf file under the Google USB Driver, click OK
+![Driver Update Step 6](./assets/burn_image/driver-update-step-6-en.png)
+7. Select "Android Bootloader Interface", click "Next", click "Yes" in the pop-up dialog, click "Install" in the Windows Security Center dialog that pops up
+![Driver Update Step 7](./assets/burn_image/driver-update-step-7-en.png)
+8. Successfully installed the fastboot driver
+![Driver Update Step 8](./assets/burn_image/driver-update-step-8-en.png)
+
+If there are problems with the above steps, please go back to Device Manager, find the device, click "Uninstall driver", then unplug and replug the development board and try again.
+
 ## Burn the image
 
 ### Windows
 
 Edit the `burn_lpi4a.bat` decompressed from burn_tool.zip, replace the example image path into your real image path. Then run this `burn_lpi4a.bat` to burn image into LPi4A.
 
-And `fastboot.exe` path also needs verifying, otherwise it reports file not found.
+Notes:
+1. `fastboot.exe` path also needs verifying, otherwise it reports file not found.
+2. If you install fastboot driver by manually installing signed drivers shown above, the flash script `burn_lpi4a.bat` may stuck at `< waiting for any device >`. In this case you will see a "USB download gadget" under "Other Devices", just repeat the driver installation manual and it should be fixed.
 
 ![target_burn_image_path](./../../../../zh/lichee/th1520/lpi4a/assets/burn_image/target_burn_image_path.png)
 

@@ -11,6 +11,25 @@ update:
       - 加入了YOLOv8和YOLOv5部署
 ---
 
+## 爱芯元智 AX650N 部署大语言、多模态模型
+
+从下列网站获取模型和运行时。
+
+部署方法可见每个仓库的 README.md。
+
+爱芯官方：https://huggingface.co/AXERA-TECH
+
+国内镜像站：https://hf-mirror.com/AXERA-TECH
+
+| 模型 | 链接 | 链接（国内镜像站） |
+|  --  |  --  |  --  |
+| DeepSeek-R1:1.5b | [DeepSeek-R1-Distill-Qwen-1.5B](https://huggingface.co/AXERA-TECH/DeepSeek-R1-Distill-Qwen-1.5B)  | [DeepSeek-R1-Distill-Qwen-1.5B](https://hf-mirror.com/AXERA-TECH/DeepSeek-R1-Distill-Qwen-1.5B) |
+| Qwen2.5:1.5b | [Qwen2.5-1.5B-Instruct-GPTQ-Int8](https://huggingface.co/AXERA-TECH/Qwen2.5-1.5B-Instruct-GPTQ-Int8)  | [Qwen2.5-1.5B-Instruct-GPTQ-Int8](https://hf-mirror.com/AXERA-TECH/Qwen2.5-1.5B-Instruct-GPTQ-Int8) |
+| SD1.5 | [lcm-lora-sdv1-5](https://huggingface.co/AXERA-TECH/lcm-lora-sdv1-5)  | [lcm-lora-sdv1-5](https://hf-mirror.com/AXERA-TECH/lcm-lora-sdv1-5) |
+| InternVL2.5:1b | [InternVL2_5-1B-Int8](https://huggingface.co/AXERA-TECH/InternVL2_5-1B)  | [InternVL2_5-1B-Int8](https://hf-mirror.com/AXERA-TECH/InternVL2_5-1B) |
+
+**请注意：以上模型都需要基于 `SDK 1.45.0` 版本编译打包出来的镜像才可运行大模型。请及时更新系统，我们提供的 TFCard&eMMC 镜像是符合条件的，且预留了 6GB 内存供模型加载运行使用，可以运行 7b 参数的 int4 大模型。**
+
 ## 爱芯元智AX650N部署yolov5s 自定义模型
 
 > 本博客将向你展示零基础一步步的部署好自己的yolov5s模型（博主展示的是安全帽模型），利用yolov5 官方的代码工具导出onnx模型，并通过onnxsim自带的工具精简网络结构，导出子图，为了Pulsar2 工具进行处理模型做准备。

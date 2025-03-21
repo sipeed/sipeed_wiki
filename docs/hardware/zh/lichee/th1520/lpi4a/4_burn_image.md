@@ -40,7 +40,7 @@ update:
 
 确认无误后即可烧录，接下来的烧录步骤同内测版。
 
-### Windows 下驱动安装
+### Windows 下驱动安装(禁用驱动签名)
 
 Windows 下烧录时，需要先进入高级启动模式，禁用数字签名。才能正常安装下面的驱动。
 
@@ -80,6 +80,32 @@ b. 打开设备管理器出现“USB download gadget”设备。
 ![before_install_driver](./assets/burn_image/before_install_driver.png)
 ![install_driver](./assets/burn_image/install_driver.png)
 
+### Windows 下驱动安装(手动注入驱动)
+
+烧录流程参考[RevyOS文档](https://docs.revyos.dev/)中所介绍的。这种方法不需要禁用驱动签名，比较方便。
+
+按住板卡上的BOOT键后，将靠近BOOT键的Type-C口接入电脑，板卡会进入刷写模式。
+
+在Windows徽标右键，打开设备管理器，如果在“其他设备”处看到“USB download gadget”，即表明设备已被正确识别。但是未安装驱动程序。
+
+为了打入fastboot驱动，需要下载[Google USB驱动（需要代理）](https://dl.google.com/android/repository/usb_driver_r13-windows.zip)，下载并解压到某一位置。
+
+1. 右键设备管理器中的“USB download gadget”，点击“更新驱动程序”
+2. 选择“浏览我的电脑以查找驱动程序”
+![更新驱动程序步骤2](./assets/burn_image/driver-update-step-2.png)
+3. 选择“让我从计算机上的可用驱动程序列表中选取”
+4. 选中“显示所有设备”，并点击“下一步”
+![更新驱动程序步骤4](./assets/burn_image/driver-update-step-4.png)
+5. 点击“从磁盘安装”
+6. 点击“浏览”，选中Google USB驱动下的inf文件，点击确定
+![更新驱动程序步骤6](./assets/burn_image/driver-update-step-6.png)
+7. 选中“Android Bootloader Interface”，点击“下一步”，在弹出对话框中点击“是”，在弹出的Windows安全中心对话框中点击“安装”
+![更新驱动程序步骤7](./assets/burn_image/driver-update-step-7.png)
+8. 成功安装fastboot驱动
+![更新驱动程序步骤8](./assets/burn_image/driver-update-step-8.png)
+
+完成上述操作后，即可继续下面的步骤。
+
 ## 烧录镜像
 
 进入烧录模式后，可使用 burn_tool.zip 内的 fastboot 进行烧录操作，注意可能需要先赋予 fastboot 可执行权限。
@@ -88,7 +114,10 @@ b. 打开设备管理器出现“USB download gadget”设备。
 
 编辑 burn_tool.zip 文件夹里面的 `burn_lpi4a.bat` 文件，将对应的镜像路径更改成自己实际使用的镜像及名称。然后双击运行 `burn_lpi4a.bat` 就能够正常进行烧录了。
 
-需要注意的是 `fastboot.exe` 的路径也需要匹配上，不然会被提示找不到文件。
+注意：
+
+1. `fastboot.exe` 的路径也需要匹配上，不然会被提示找不到文件。
+2. 如果你采用的是上面第二种方法手动打入的fastboot驱动，如果 `burn_lpi4a.bat` 卡在 `< waiting for any device >`，请检查设备管理器中是否出现了名为 `USB download gadget` 的未知设备。若是，按上面的步骤重新打入驱动即可。
 
 ![target_burn_image_path](./assets/burn_image/target_burn_image_path.png)
 

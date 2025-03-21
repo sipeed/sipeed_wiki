@@ -166,7 +166,7 @@ Tang Nano 20K 是采用高云半导体 [GW2AR-18 QN88](http://www.gowinsemi.com.
 
 安装 IDE -> 编写代码 -> 烧录进板子
 
-- 安装 IDE [点我](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/get_started/install-the-ide.html)
+- 安装 IDE [点我](https://wiki.sipeed.com/hardware/zh/tang/common-doc/get_started/install-the-ide.html)
 - 开箱说明 [点我](https://wiki.sipeed.com/hardware/zh/tang/tang-nano-20k/example/unbox.html)
 - 点灯上手指南 [点我](https://wiki.sipeed.com/hardware/zh/tang/tang-nano-20k/example/led.html)
 
@@ -194,4 +194,4 @@ Tang Nano 20K 使用外部 Flash 来存放固件，所以想要让固件存在�
 
 ![nano_20k_flash_mode](./assets/led/nano_20k_flash_mode.png)
 
-### 更多问题前往 [Tang 常见问题](https://wiki.sipeed.com/hardware/zh/tang/Tang-Nano-Doc/questions.html) 查看
+### 更多问题前往 [Tang 常见问题](https://wiki.sipeed.com/hardware/zh/tang/common-doc/questions.html) 查看

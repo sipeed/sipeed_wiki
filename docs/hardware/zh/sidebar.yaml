@@ -303,6 +303,8 @@ items:
             target: _blank
         -   label: 常见问题
             file: tang/common-doc/questions.md
+        -   label: 更新板载调试器
+            file: tang/common-doc/update_debugger.md
             target: _blank
     -   label: Tang Primer
         items:
@@ -318,6 +320,8 @@ items:
                 file: tang/tang-primer-20k/example.md
             -   label: 常见问题
                 file: tang/common-doc/questions.md
+            -   label: 更新板载调试器
+                file: tang/common-doc/update_debugger.md
                 target: _blank
         -   label: Tang Primer 25K
             items:
@@ -336,6 +340,8 @@ items:
                 file: tang/common-doc/get_started/install-the-ide.md
             -   label: 常见问题
                 file: tang/common-doc/questions.md
+            -   label: 更新板载调试器
+                file: tang/common-doc/update_debugger.md
                 target: _blank
         -   label: Tang Primer (售罄)
             file: tang/Tang-primer/Tang-primer.md
@@ -364,6 +370,8 @@ items:
                 file: tang/common-doc/get_started/install-the-ide.md
             -   label: 常见问题
                 file: tang/common-doc/questions.md
+            -   label: 更新板载调试器
+                file: tang/common-doc/update_debugger.md
                 target: _blank
         -   label: Tang Mega 138K
             items:
@@ -373,6 +381,8 @@ items:
                 file: tang/common-doc/get_started/install-the-ide.md
             -   label: 常见问题
                 file: tang/common-doc/questions.md
+            -   label: 更新板载调试器
+                file: tang/common-doc/update_debugger.md
                 target: _blank
         -   label: Tang Mega 60K
             items:
@@ -382,6 +392,8 @@ items:
                 file: tang/common-doc/get_started/install-the-ide.md
             -   label: 常见问题
                 file: tang/common-doc/questions.md
+            -   label: 更新板载调试器
+                file: tang/common-doc/update_debugger.md
                 target: _blank
         -   label: Tang Console
             items:
@@ -391,6 +403,8 @@ items:
                 file: tang/common-doc/get_started/install-the-ide.md
             -   label: 常见问题
                 file: tang/common-doc/questions.md
+            -   label: 更新板载调试器
+                file: tang/common-doc/update_debugger.md
                 target: _blank
     -   label: Tang PMOD
         file: tang/tang-PMOD/FPGA_PMOD.md

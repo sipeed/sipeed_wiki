@@ -62,6 +62,7 @@ Github: https://github.com/sipeed/TangNano-9K-example
 - [FPGA drives 1.14-inch SPI screen](./../Tang-Nano-9K/examples/spi_lcd.md)
 - HDMI display : [Examples of PicoRV](./../Tang-Nano-9K/examples/picorv.md)
 - Litex on Tang Nano 9K : https://github.com/litex-hub/litex-boards
+- Powerful NeoRV32 riscv core on 9K: [NEORV32](./../Tang-Nano-9K/examples/neorv32.md)
 
 Partner tutorials:
 <a href="https://learn.lushaylabs.com/tang-nano-series/"><img src="./../../../zh/tang/common-doc/assets/lushaylab_logo.png" alt="lushaylab_logo" width="35%"></a>
