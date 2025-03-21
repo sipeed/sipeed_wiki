@@ -13,7 +13,7 @@ update:
 ## 产品概述
 
 - 发售日期：2025年3月中旬
-- 预购链接：[点我](sipeed.com/tangconsole)
+- 预购链接：[点我](https://sipeed.com/tangconsole)
 
 ## 板卡特点
 
