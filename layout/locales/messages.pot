@@ -3,7 +3,7 @@ msgid "翻译内容"
 msgstr ""
 
 #: home.html:93
-msgid "/static/home/banner_maixcam.jpg"
+msgid "/static/home/banner_maixcam_pro.jpg"
 msgstr ""
 
 #: home.html:96
@@ -11,35 +11,42 @@ msgid "硬件文档"
 msgstr ""
 
 #: home.html:97
-msgid "/maixcam"
+msgid "/maixcam-pro"
 msgstr ""
 
 #: home.html:101
-msgid "/maixpy"
+msgid "/maixpy/"
 msgstr ""
 
-#: home.html:104 home.html:117 home.html:130 home.html:143 home.html:156
-#: home.html:169 home.html:182 home.html:195 home.html:208 licheepi.html:221
-#: licheepi.html:242 licheepi.html:258 licheepi.html:279 licheepi.html:295
-#: licheepi.html:311 maix.html:167 maix.html:241 maix.html:262 maix.html:279
-#: maix.html:296 maixsense.html:44 maixsense.html:60 others.html:42
-#: tang.html:172 tang.html:188 tang.html:204 tang.html:220 tang.html:236
-#: tang.html:252 tang.html:268 tang.html:284 tang.html:300 tang.html:316
-#: tang.html:496 tang.html:512 tang.html:528 tang.html:544 tang.html:560
-#: tang.html:576 tang.html:592 tang.html:608 tang.html:624
+#: home.html:104 home.html:126 home.html:157 home.html:170 home.html:183
+#: licheepi.html:221 licheepi.html:242 licheepi.html:258 licheepi.html:279
+#: licheepi.html:295 licheepi.html:311 maix.html:167 maix.html:241
+#: maix.html:262 maix.html:279 maix.html:296 maixsense.html:44
+#: maixsense.html:60 others.html:42 tang.html:172 tang.html:188 tang.html:204
+#: tang.html:220 tang.html:236 tang.html:252 tang.html:268 tang.html:284
+#: tang.html:300 tang.html:316 tang.html:496 tang.html:512 tang.html:528
+#: tang.html:544 tang.html:560 tang.html:576 tang.html:592 tang.html:608
+#: tang.html:624
 msgid "购买"
 msgstr ""
 
 #: home.html:105
-msgid "https://item.taobao.com/item.htm?id=784724795837"
+msgid "https://item.taobao.com/item.htm?id=846226367137"
 msgstr ""
 
 #: home.html:110
+msgid "/static/home/banner_tang_console.jpg"
+msgstr ""
+
+#: home.html:113 home.html:135 home.html:144
+msgid "文档和购买"
+msgstr ""
+
+#: home.html:119
 msgid "/static/home/banner_nanokvm_zh.jpg"
 msgstr ""
 
-#: home.html:113 home.html:126 home.html:139 home.html:152 home.html:165
-#: home.html:178 home.html:191 home.html:204 licheepi.html:217
+#: home.html:122 home.html:153 home.html:166 home.html:179 licheepi.html:217
 #: licheepi.html:238 licheepi.html:254 licheepi.html:275 licheepi.html:291
 #: licheepi.html:307 maix.html:180 maix.html:197 maix.html:237 maix.html:254
 #: maix.html:275 maix.html:292 maixsense.html:40 maixsense.html:56
@@ -50,51 +57,39 @@ msgstr ""
 msgid "文档"
 msgstr ""
 
-#: home.html:114
+#: home.html:123
 msgid "/nanokvm"
 msgstr ""
 
-#: home.html:118
+#: home.html:127
 msgid "https://item.taobao.com/item.htm?id=811206560480"
 msgstr ""
 
-#: home.html:123
-msgid "/static/home/LicheeRV-Nano.jpg"
+#: home.html:132
+msgid "/static/home/banner_nanokvm_pcie.jpg"
 msgstr ""
 
-#: home.html:131 licheepi.html:243
-msgid "https://item.taobao.com/item.htm?id=764939520376"
+#: home.html:141
+msgid "/static/home/banner_nanokvm_usb.jpg"
 msgstr ""
 
-#: home.html:136
-msgid "/static/home/LonganPi3H.jpg"
-msgstr ""
-
-#: home.html:144 licheepi.html:280
-msgid "https://item.taobao.com/item.htm?ft=t&id=758221950525"
-msgstr ""
-
-#: home.html:149
-msgid "/static/home/console-4A.jpg"
-msgstr ""
-
-#: home.html:196 home.html:209 others.html:43
+#: home.html:184 others.html:43
 msgid "https://item.taobao.com/item.htm?id=737788586308"
 msgstr ""
 
-#: home.html:218
+#: home.html:193
 msgid "产品动态"
 msgstr ""
 
-#: home.html:222
+#: home.html:197
 msgid "Maix AI 视觉"
 msgstr ""
 
-#: home.html:234
+#: home.html:209
 msgid "MaixSense 传感器"
 msgstr ""
 
-#: home.html:238
+#: home.html:213
 msgid "其它"
 msgstr ""
 
@@ -197,6 +192,10 @@ msgstr ""
 msgid "高性价比迷你 RISC-V IPC/屏显开发板"
 msgstr ""
 
+#: licheepi.html:243
+msgid "https://item.taobao.com/item.htm?id=764939520376"
+msgstr ""
+
 #: licheepi.html:251
 msgid "高集成度入门级 RISC-V Linux 开发板"
 msgstr ""
@@ -207,6 +206,10 @@ msgstr ""
 
 #: licheepi.html:276
 msgid "/lpi3h.html"
+msgstr ""
+
+#: licheepi.html:280
+msgid "https://item.taobao.com/item.htm?ft=t&id=758221950525"
 msgstr ""
 
 #: licheepi.html:288 licheepi.html:304
