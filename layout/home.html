@@ -90,20 +90,29 @@
     head: [
       // 图片分辨率为： 1800x600， 左右两边各留 200px 不包含实际内容只有背景，中间 1400px 是内容
       {
-        img: "{{_('/static/home/banner_maixcam.jpg')}}",
+        img: "{{_('/static/home/banner_maixcam_pro.jpg')}}",
         btns: [
           {
             lable: "{{_('硬件文档')}}",
-            link: "{{_('/maixcam')}}",
+            link: "{{_('/maixcam-pro')}}",
           },
           {
             lable: "软件 MaixPy",
-            link: "{{_('/maixpy')}}",
+            link: "{{_('/maixpy/')}}",
           },
           {
             lable: "{{_('购买')}}",
-            link: "{{_('https://item.taobao.com/item.htm?id=784724795837')}}",
+            link: "{{_('https://item.taobao.com/item.htm?id=846226367137')}}",
           },
+        ],
+      },
+      {
+        img: "{{_('/static/home/banner_tang_console.jpg')}}",
+        btns: [
+          {
+            lable: "{{_('文档和购买')}}",
+            link: "/tangconsole",
+          }
         ],
       },
       {
@@ -120,42 +129,21 @@
         ],
       },
       {
-        img: "{{_('/static/home/LicheeRV-Nano.jpg')}}",
+        img: "{{_('/static/home/banner_nanokvm_pcie.jpg')}}",
         btns: [
           {
-            lable: "{{_('文档')}}",
-            link: "/licheerv-nano",
-          },
-          {
-            lable: "{{_('购买')}}",
-            link: "{{_('https://item.taobao.com/item.htm?id=764939520376')}}",
-          },
+            lable: "{{_('文档和购买')}}",
+            link: "/nanokvmpcie",
+          }
         ],
       },
       {
-        img: "{{_('/static/home/LonganPi3H.jpg')}}",
+        img: "{{_('/static/home/banner_nanokvm_usb.jpg')}}",
         btns: [
           {
-            lable: "{{_('文档')}}",
-            link: "/lpi3h.html",
-          },
-          {
-            lable: "{{_('购买')}}",
-            link: "{{_('https://item.taobao.com/item.htm?ft=t&id=758221950525')}}",
-          },
-        ],
-      },
-      {
-        img: "{{_('/static/home/console-4A.jpg')}}",
-        btns: [
-          {
-            lable: "{{_('文档')}}",
-            link: "/licheeconsole4a",
-          },
-          {
-            lable: "{{_('购买')}}",
-            link: "/store",
-          },
+            lable: "{{_('文档和购买')}}",
+            link: "/nanokvmusb",
+          }
         ],
       },
       {
@@ -196,20 +184,7 @@
           link: "{{_('https://item.taobao.com/item.htm?id=737788586308')}}",
         },
         ],
-      },
-      {
-        img: "/static/home/LicheePi-4A.jpg",
-        btns: [
-        {
-          lable: "{{_('文档')}}",
-          link: "/licheepi4a",
-        },
-        {
-          lable: "{{_('购买')}}",
-          link: "{{_('https://item.taobao.com/item.htm?id=737788586308')}}",
-        },
-        ],
-      },
+      }
     ],
     products: [
       // 只写公司重点运营的，不是重点推的产品不要写在这里，文档里面可以有，但是这里不写
