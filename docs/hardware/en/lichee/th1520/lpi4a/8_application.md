@@ -189,7 +189,7 @@ After the example executes normally, the result image soccer.jpg will be generat
 
 ![yolox_detection_soccer_output.jpg](./../../../../zh/lichee/th1520/lpi4a/assets/application/yolox_detection_soccer_output.jpg)
 
-## MobilenertV2 
+## MobilenetV2 
 
 This tutorial is an example of how to deploy the mobilenetv2 model for image classification on the LicheePi4A platform.
  The tutorial includes:
