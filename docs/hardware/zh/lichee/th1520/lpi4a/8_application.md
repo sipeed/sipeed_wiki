@@ -189,7 +189,7 @@ python3 onnx_inference.py -m yolox_s.onnx -i soccer.jpg -o outdir -s 0.3 --input
 
 ![yolox_detection_soccer_output.jpg](./assets/application/yolox_detection_soccer_output.jpg)
 
-## MobilenertV2 
+## MobilenetV2 
 
 本教程是一个如何在 LicheePi4A 平台上部署 mobilenetv2 模型完成图像分类的示例。
 
