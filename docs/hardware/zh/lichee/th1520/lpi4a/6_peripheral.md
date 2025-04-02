@@ -81,7 +81,7 @@ echo 0 > /sys/class/hwmon/hwmon0/pwm1
 使用以下命令可以恢复自动调速：
 
 ```bash
-echo 0 > /sys/class/hwmon/hwmon0/pwm1_enable
+echo 1 > /sys/class/hwmon/hwmon0/pwm1_enable
 ```
 
 ## GPIO
