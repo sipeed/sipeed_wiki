@@ -10,7 +10,7 @@ update:
 ---
 
 
-首先，点击下载[网页文件](https://cdn.sipeed.com/nanokvm/NanoKVM-USB.zip)，解压后会得到`NanoKVM-USB`文件夹。
+首先，在 [Releases](https://cdn.sipeed.com/nanokvm/NanoKVM-USB.zip) 页面下载 `browser` 版本文件，解压后会得到`NanoKVM-USB`文件夹。
 
 ## 本机部署
 
