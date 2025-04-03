@@ -9,7 +9,7 @@ update:
       - Release docs
 ---
 
-Click to download the [Web Files](https://cdn.sipeed.com/nanokvm/NanoKVM-USB.zip) and unzip it. You'll get a folder named `NanoKVM-USB`.
+Visit the [Releases page](https://github.com/sipeed/NanoKVM-USB/releases) to download the `browser` version file. Then unzip it and you'll get a folder named `NanoKVM-USB`.
 
 ## Local deployment
 
