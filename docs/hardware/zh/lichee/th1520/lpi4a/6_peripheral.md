@@ -65,13 +65,23 @@ light-lpi4a-ddr2G.dtb #history dtb
 
 ## PWM
 
-以散热风扇所接的 PWM1 为例，可以通过如下代码进行风扇使能操作：
+以散热风扇所接的 PWM1 为例，可以通过如下代码获取风扇转速：
 
 ```bash
-echo 1 > /sys/class/pwm/pwmchip0/export
-echo 1000000 > /sys/class/pwm/pwmchip0/pwm1/period
-echo 1000000 > /sys/class/pwm/pwmchip0/pwm1/duty_cycle
-echo 1 > /sys/class/pwm/pwmchip0/pwm1/enable
+cat /sys/class/hwmon/hwmon0/pwm1
+```
+
+风扇的PWM转速值范围在0到255之间，值越大风扇转速越大。你可以向PWM使能写入```0```来关闭自动调速，并手动设置转速（如255）：
+
+```
+echo 0 > /sys/class/hwmon/hwmon0/pwm1_enable
+echo 0 > /sys/class/hwmon/hwmon0/pwm1
+```
+
+使用以下命令可以恢复自动调速：
+
+```bash
+echo 1 > /sys/class/hwmon/hwmon0/pwm1_enable
 ```
 
 ## GPIO
