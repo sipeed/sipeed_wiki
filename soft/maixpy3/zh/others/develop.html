@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+
+<html lang="zh"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="MaixPy, MaixPy3, Python, Python3, MicroPython">
+    
+    
+    <meta name="description" content="maixpy  如何参与项目（开发文档）">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+        
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/prism.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?9cb07365544a53067c56c346c838181a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119047820-5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-119047820-5');
+    </script>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/js/thumbs_up/style.css" type="text/css"/>
+        
+    
+    
+    <title>MaixPy3 开发文档 - Sipeed Wiki</title>
+    
+    <script type="text/javascript">js_vars = {"teedoc-plugin-ad-hint": {"type": "hint", "label": "NEW", "content": "全新 Maix 系列产品 <a href='https://wiki.sipeed.com/maixcam'>MaixCAM</a> 已上线, 全新 <a href='https://wiki.sipeed.com/maixpy/'>MaixPy</a> 功能更丰富，性能更强大，软件更易用，文档更全面！", "show_times": 2, "show_after_s": 432000, "date": "2022-06-01 14:00", "color": "#a0421d", "link_color": "#e53935", "link_bg_color": "#e6ae5c", "bg_color": "#ffcf89", "color_hover": "white", "bg_color_hover": "#f57c00", "close_color": "#eab971"}, "teedoc-plugin-thumbs-up": {"label_up": "有帮助", "label_down": "待改进", "icon": "/static/images/thumbs_up/up.svg", "icon_clicked": "/static/images/thumbs_up/upped.svg", "url": "https://thumbs-up.sipeed.com", "show_up_count": true, "show_down_count": false, "msg_already_voted": "您已经投过票了", "msg_thanks": "感谢您的反馈", "msg_down_prompt": "感谢反馈，请告诉我们可以改进什么地方?（最少 10 个字）", "msg_down_prompt_error": "消息最少需要 10 个字， 最多 256 个字", "msg_error": "请求服务器出现错误!"}}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": false, "update": [], "ts": 0, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/">
+                
+                    <img class="site_logo" src="/static/image/logo.svg" alt="sipeed wiki logo">
+                
+                
+                    <h2>wiki</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class=""><a  href="/">产品</a></li>
+<li class="sub_items "><a >开源软件</a><ul><li class=""><a  href="/maixpy/">MaixPy</a></li>
+<li class=""><a  href="/soft/maixpy/zh/index.html">MaixPy_v1</a></li>
+<li class=""><a  href="/soft/Lichee/zh/index.html">Lichee</a></li>
+<li class=""><a  href="/ai/zh/index.html">AI 指南</a></li>
+</ul>
+</li>
+<li class=""><a target="_blank" href="https://maixhub.com">MaixHub</a></li>
+<li class=""><a  href="/news/">动态</a></li>
+<li class=""><a  href="/faq.html">FAQ 汇总</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class=""><a  href="/store.html"><img src='/static/image/shop.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+<li class=""><a target="_blank" href="https://github.com/sipeed"><img src='/static/image/github.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">输入关键词，多关键词空格隔开</span>
+                                <span id="search_loading_hint">正在加载，请稍候。。。</span>
+                                <span id="search_download_err_hint">下载文件失败，请刷新重试或检查网络</span>
+                                <span id="search_other_docs_result_hint">来自其它文档的结果</span>
+                                <span id="search_curr_doc_result_hint">当前文档搜索结果</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="active_parent with_link"><a href="/soft/maixpy3/zh/index.html"><span class="label">MaixPy3 是什么？能做什么？</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/install/install.html"><span class="label">如何获取、安装、使用？</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/tools/MaixPy3_IDE.html"><span class="label">安装或配置 IDE 开发工具</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/tools/0.MaixII-Dock.html"><span class="label">基于 USB 开发 MaixII-Dock</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/tools/maixsense.html"><span class="label">基于 WIFI 开发 MaixSense</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active  with_link"><a href="/news/MaixPy3/v831_usage/v831_usage.html" ><span class="label">M2DOCK (V831)上手视觉指南</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">遇到问题怎么办？</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/origin/helper.html"><span class="label">如何正确反馈问题！</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/question/maixpy3_faq.html"><span class="label">常见问题与解决方法</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">相关的基础知识</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active  with_link"><a href="/news/MaixPy3/difference.html" ><span class="label">MaixPy 和 MaixPy3 的区别</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/origin/video.html"><span class="label">收录一些国内 Python 基础教程</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/origin/hello_world.html"><span class="label">大佬鼠の嵌入式 Python 入门教程 [1]</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/origin/loop_python.html"><span class="label">大佬鼠の嵌入式 Python 入门教程 [2]</span><span class=""></span></a></li>
+<li class="not_active  with_link"><a href="https://bing.com/search?q=v831+m2dock" ><span class="label">使用必应搜索 V831 M2DOCK 的内容</span><span class=""></span></a></li>
+<li class="not_active  with_link"><a href="https://bbs.sipeed.com/user/909" ><span class="label">咸鱼菌の MaixII-Dock 上手系列教程</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/origin/xiaoxu.html"><span class="label">喏呐の【攻城狮成长记】</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="active_parent with_link"><a href="/soft/maixpy3/zh/develop/index.html"><span class="label">开发者更新日志</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/others/framework.html"><span class="label">【项目开发基础】项目架构介绍</span><span class=""></span></a></li>
+<li class="active with_link"><a href="/soft/maixpy3/zh/others/develop.html"><span class="label">【底层开发基础】编译安装测试</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/others/platform.html"><span class="label">【移植适配实例】开发新的平台</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/develop/opmv_cv.html"><span class="label">【图像处理开发】传统视觉算法</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">基础功能模块</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active no_link"><a><span class="label">图像处理</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/vision/back-information.html"><span class="label">背景知识</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/vision/maixpy3-example.html"><span class="label">基础用法</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/vision/image_example.html"><span class="label">传统视觉</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">硬件外设</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/hardware/GPIO.html"><span class="label">GPIO  (点灯)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/hardware/I2C.html"><span class="label">I2C  (pylibi2c)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/hardware/PWM.html"><span class="label">PWM  (脉冲宽度调制)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/hardware/UART.html"><span class="label">UART  (pyserial)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/hardware/SPI.html"><span class="label">SPI  (spidev)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/hardware/event.html"><span class="label">EVENT  (evdev)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/hardware/ADC.html"><span class="label">ADC*  (模/数转换器)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/hardware/watchdog.html"><span class="label">WATCHDOG*  (看门狗定时器)</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/net.html"><span class="label">网络功能</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">媒体功能</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/Audio/play_mp4.html"><span class="label">视频播放 (pyav)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/Audio/audio.html"><span class="label">录音与播放 (pyaudio)</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">获取 AI 算法</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/AI_net/Edge_detection.html"><span class="label">边缘检测 (sobel)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/AI_net/resnet.html"><span class="label">物品分类 (resnet)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/AI_net/yolo.html"><span class="label">物体检测 (yolov2)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/AI_net/number_recognize.html"><span class="label">数字识别</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/AI_net/face_recognize.html"><span class="label">人脸识别</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/AI_net/self_learn.html"><span class="label">自学习分类</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/AI_net/car_registration_plate_recognition.html"><span class="label">车牌识别</span><span class=""></span></a></li>
+<li class="not_active  with_link"><a href="https://maixhub.com" ><span class="label">在线训练 AI 模型</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">本地训练 AI 模型</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/train_AI/information.html"><span class="label">深度神经网络基础知识 (必看)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/train_AI/ready.html"><span class="label">本地训练环境搭建</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/train_AI/v831_sobel.html"><span class="label">边缘检测模型搭建过程</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/train_AI/data.html"><span class="label">如何制作数据集</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/train_AI/train_resnet.html"><span class="label">训练物体分类模型</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/train_AI/train_yolov2.html"><span class="label">训练物体检测模型</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">核心 API 手册</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/api/maix/image.html"><span class="label">image</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/api/maix/display.html"><span class="label">display</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/api/maix/camera.html"><span class="label">camera</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/api/maix/nn.html"><span class="label">nn</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>MaixPy3 开发文档</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/sipeed/sipeed_wiki/blob/main/docs/soft/maixpy3/zh/others/develop.md" target="_blank">
+                                    <span id='editPage'>编辑本页</span>
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <p>MaixPy3 并不是为了某一款芯片平台制作的，它的初衷就是为了通过 Python 编程简化用户在嵌入式 Linux 上开发程序的过程，所以是建立在所有 Linux 设备都能使用的基础上去设计的，但由于 Sipeed 官方的能力有限，难以同时照顾所有开源硬件的同步开发，所以提供一些官方的基本芯片移植参考，方便第三方的开源爱好者提交其他芯片平台、镜像、工具推送到 MaixPy3 的环境中。</p>
+<h2 id="%E4%B8%80%E8%88%AC%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B">一般开发流程</h2>
+<p>从 MaixPy3 仓库的 <a href="https://github.com/sipeed/MaixPy3/blob/main/setup.py"  target="_blank">setup.py</a> 进行项目的编译。</p>
+<p>对于一台 Linux X86 的个人计算机而言，我们使用如下命令进行构建。</p>
+<ul>
+<li>编译 <code>python3 setup.py build</code></li>
+<li>清理 <code>python3 setup.py clean</code></li>
+<li>安装 <code>pip3 install .</code></li>
+</ul>
+
+<pre class="language-bash"><code class="language-bash">juwan@juwan-N85-N870HL:~/Desktop/v831_toolchain_linux_x86/MaixPy3$ python3 setup.py build
+running build
+running build_py
+running egg_info
+writing MaixPy3.egg-info/PKG-INFO
+writing dependency_links to MaixPy3.egg-info/dependency_links.txt
+writing entry points to MaixPy3.egg-info/entry_points.txt
+writing requirements to MaixPy3.egg-info/requires.txt
+writing top-level names to MaixPy3.egg-info/top_level.txt
+writing manifest file 'MaixPy3.egg-info/SOURCES.txt'
+running build_ext
+juwan@juwan-N85-N870HL:~/Desktop/v831_toolchain_linux_x86/MaixPy3$ python3 setup.py clean
+running clean
+juwan@juwan-N85-N870HL:~/Desktop/v831_toolchain_linux_x86/MaixPy3$ pip3 install .Looking in indexes: https://pypi.tuna.tsinghua.edu.cn/simple
+Processing /home/juwan/Desktop/v831_toolchain_linux_x86/MaixPy3
+Requirement already satisfied: Pillow in /usr/lib/python3/dist-packages (from MaixPy3==0.2.9) (7.0.0)
+Requirement already satisfied: evdev in /home/juwan/.local/lib/python3.8/site-packages (from MaixPy3==0.2.9) (1.4.0)
+Requirement already satisfied: gpiod in /home/juwan/.local/lib/python3.8/site-packages (from MaixPy3==0.2.9) (1.4.0)
+Requirement already satisfied: numpy in /home/juwan/.local/lib/python3.8/site-packages (from MaixPy3==0.2.9) (1.19.4)
+Requirement already satisfied: opencv-python in /home/juwan/.local/lib/python3.8/site-packages (from MaixPy3==0.2.9) (4.5.1.48)
+Requirement already satisfied: pyserial in /usr/local/lib/python3.8/dist-packages (from MaixPy3==0.2.9) (3.4)
+Requirement already satisfied: rpyc in /home/juwan/.local/lib/python3.8/site-packages (from MaixPy3==0.2.9) (5.0.1)
+Requirement already satisfied: spidev in /home/juwan/.local/lib/python3.8/site-packages (from MaixPy3==0.2.9) (3.5)
+Requirement already satisfied: plumbum in /home/juwan/.local/lib/python3.8/site-packages (from rpyc-&gt;MaixPy3==0.2.9) (1.6.9)
+Building wheels for collected packages: MaixPy3
+  Building wheel for MaixPy3 (setup.py) ... done
+  Created wheel for MaixPy3: filename=MaixPy3-0.2.9-cp38-cp38-linux_x86_64.whl size=115611 sha256=54f70f181ccc629f1eaf470bf30eccd20389c6333814d7145e16a31db7f6cdcd
+  Stored in directory: /tmp/pip-ephem-wheel-cache-9bf1q3wt/wheels/53/7d/47/6cd374fab930089f96a0a3185f5677e52a9b71dbbee769935d
+Successfully built MaixPy3
+Installing collected packages: MaixPy3
+  Attempting uninstall: MaixPy3
+    Found existing installation: MaixPy3 0.2.8
+    Uninstalling MaixPy3-0.2.8:
+      Successfully uninstalled MaixPy3-0.2.8
+Successfully installed MaixPy3-0.2.9
+juwan@juwan-N85-N870HL:~/Desktop/v831_toolchain_linux_x86/MaixPy3$
+</code></pre>
+<p>而对于不能在目标平台上编译安装的环境，就需要使用预编译的 whl 包来辅助安装，以 Maix V831 为例。</p>
+<ul>
+<li><p>编译 <code>python3.8 setup.py maix_v831 bdist_wheel</code></p>
+</li>
+<li><p>安装 <code>export TMPDIR=/root &amp;&amp; pip install ./dist/*.whl</code></p>
+</li>
+</ul>
+
+<pre class="language-bash"><code class="language-bash">root@sipeed:/# export TMPDIR=/root &amp;&amp; pip install maixpy3 --upgrade
+Collecting maixpy3
+  Downloading MaixPy3-0.1.9-cp38-cp38-linux_armv7l.whl (1.0 MB)
+     |████████████████████████████████| 1.0 MB 43 kB/s
+Collecting pexpect
+  Downloading pexpect-4.8.0-py2.py3-none-any.whl (59 kB)
+     |████████████████████████████████| 59 kB 71 kB/s
+Collecting rpyc
+  Downloading rpyc-5.0.1-py3-none-any.whl (68 kB)
+     |████████████████████████████████| 68 kB 42 kB/s
+Requirement already satisfied, skipping upgrade: Pillow in /usr/lib/python3.8/site-packages (from maixpy3) (7.2.0)
+Collecting ptyprocess&gt;=0.5
+  Downloading ptyprocess-0.7.0-py2.py3-none-any.whl (13 kB)
+Collecting plumbum
+  Downloading plumbum-1.6.9-py2.py3-none-any.whl (115 kB)
+     |████████████████████████████████| 115 kB 84 kB/s
+Installing collected packages: ptyprocess, pexpect, plumbum, rpyc, maixpy3
+Successfully installed maixpy3-0.1.9 pexpect-4.8.0 plumbum-1.6.9 ptyprocess-0.7.0 rpyc-5.0.1
+WARNING: You are using pip version 20.1.1; however, version 21.0 is available.
+You should consider upgrading via the '/usr/bin/python3 -m pip install --upgrade pip' command.
+
+root@sipeed:/#
+</code></pre>
+<p>对于一些安装失败，缺少了依赖库的场合，需要从外部去引入该包的安装，例如这个问题 <a href="https://github.com/sipeed/MaixPy3/issues/4"  target="_blank">error happened when install maixpy3</a> ，这通常需要升级镜像来解决，或手动安装相关的依赖包。</p>
+<p>至此以后，在发布软件包的时候可以通过 <code>export TMPDIR=/root &amp;&amp; pip install maixpy3</code> 让目标机器直接安装 maixpy3 的包即可使用。</p>
+<h2 id="%E4%B8%80%E8%88%AC%E6%B5%8B%E8%AF%95%E6%B5%81%E7%A8%8B">一般测试流程</h2>
+<p>项目引入 tox 进行软件接口交互的自动化测试，通常用它进行虚拟 Python 环境测试，确保软件代码的依赖关系和接口逻辑测试，如测试 <code>from xxx import *</code> 是否可行。</p>
+
+<pre class="language-bash"><code class="language-bash">juwan@juwan-N85-N870HL:~/Desktop/v831_toolchain_linux_x86/MaixPy3$ tox
+GLOB sdist-make: /home/juwan/Desktop/v831_toolchain_linux_x86/MaixPy3/setup.py
+py38 inst-nodeps: /home/juwan/Desktop/v831_toolchain_linux_x86/MaixPy3/.tox/.tmp/package/1/MaixPy3-0.1.2.zip
+py38 installed: attrs==20.3.0,iniconfig==1.1.1,packaging==20.8,Pillow==8.1.0,pluggy==0.13.1,py==1.10.0,pyparsing==2.4.7,pytest==6.2.1,MaixPy3 @ file:///home/juwan/Desktop/v831_toolchain_linux_x86/MaixPy3/.tox/.tmp/package/1/MaixPy3-0.1.2.zip,scripttest==1.3,toml==0.10.2
+py38 run-test-pre: PYTHONHASHSEED='820562099'
+py38 run-test: commands[0] | py.test
+======================================= test session starts ========================================
+platform linux -- Python 3.8.5, pytest-6.2.1, py-1.10.0, pluggy-0.13.1
+cachedir: .tox/py38/.pytest_cache
+rootdir: /home/juwan/Desktop/v831_toolchain_linux_x86/MaixPy3
+collected 5 items
+
+ext_modules/_maix/example/test__maix.py .                                                    [ 20%]
+tests/test_maix.py ....                                                                      [100%]
+
+======================================== 5 passed in 0.05s =========================================
+_____________________________________________ summary ______________________________________________
+  py38: commands succeeded
+  congratulations :)
+</code></pre>
+<p>对于硬件模块，通常不好自动化测试，所以会做成 example 提供。</p>
+<p>关于代码覆盖性测试，暂时不做。</p>
+<h2 id="%E4%B8%80%E8%88%AC%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B">一般发布流程</h2>
+<p>2021年02月21日 关于自动化构建，还在考虑到导入多个平台的编译链编译的问题，暂时还没有准备好。</p>
+<p>2022年7月24日 已经<a href="https://github.com/sipeed/MaixPy3/actions"  target="_blank">配置了 github CI 自动构建后发布到 pypi.org </a>。</p>
+<h2 id="Python-%E6%A8%A1%E5%9D%97%E7%BC%96%E8%AF%91%E8%AF%B4%E6%98%8E">Python 模块编译说明</h2>
+<p>MaixPy3 使用面向模块接口开发，链接跨平台的 Python 或 C 包，统一加载到 Python3 环境当中。</p>
+<p>目前支持的 Python3 环境如下：</p>
+<ul>
+<li><p><a href="https://www.python.org/downloads/release/python-380/"  target="_blank">PC x86_64 的 Pyhon3 环境</a></p>
+</li>
+<li><p><a href="https://github.com/sipeed/MaixPy3/releases/tag/20210613"  target="_blank">Sipeed v831 的 Python3 交叉编译环境</a> (需要使用 source toolchain_v83x_linux_x86/envsetup.sh 获得链接 V831 编译链的 python3.8 环境，注意这不是本机的 Python3 环境！！！)</p>
+</li>
+</ul>
+<p>通常拿到一个 Python 模块，对它的 <code>setup.py</code> 执行 <code>python setup.py build</code> 即可进行构建，它的内容通常有如下示例（只是举例）。</p>
+
+<pre class="language-python"><code class="language-python">
+from setuptools import setup, Extension, find_packages
+
+_maix_module = Extension('_maix', include_dirs=['ext_modules/_maix/include'], sources=get_srcs('ext_modules/_maix'), libraries=['jpeg'])
+
+libi2c_module = Extension('pylibi2c',  include_dirs=['ext_modules/libi2c/src'], sources=get_srcs('ext_modules/libi2c/src'))
+
+setup(
+    name='MaixPy3',
+    version='0.1.2',
+    license='MIT',
+    author='Sipeed',
+    author_email=&quot;support@sipeed.com&quot;,
+    url='https://github.com/sipeed/MaixPy3',
+    description=&quot;MaixPy Python3 library&quot;,
+    long_description=open('README.md').read(),
+    install_requires=[&quot;Pillow&quot;],
+    ext_modules=[
+        _maix_module,
+        libi2c_module,
+    ],
+    packages = find_packages(), # find __init__.py packages
+    classifiers=[
+        'Programming Language :: Python :: 3',
+    ],
+)
+
+</code></pre>
+<p>只需要关心 setup 函数的参数中 packages 、 ext_modules 定义下的模块。</p>
+<ul>
+<li>find_packages() 会自动寻找根目录下所有带有 <code>__init__.py</code> 的包导入到 Python3 的 site-packages 中，import 的时候就会找到它。</li>
+<li>ext_modules 是需要经过编译的 C 模块。</li>
+</ul>
+<h2 id="%E9%80%9A%E7%94%A8-Python-%E6%A8%A1%E5%9D%97%E5%BC%80%E5%8F%91">通用 Python 模块开发</h2>
+<p>以 maix 模块为例，完全用 Python 实现的模块需要按以下结构进行构建。</p>
+<ul>
+<li>maix/<code>__init__.py</code></li>
+<li>maix/video.py</li>
+<li>maix/xxxxx.py</li>
+</ul>
+<p>首先 setuptools 打包系统会找到该模块的 maix 文件夹并将其安装到 <code>site-packages/maix</code> 下，这样用户就可以在 Python3 中 <code>import maix</code> 了，注意它与 setup.py 的相对目录（<code>/maix</code>）与安装目录（<code>site-packages/maix</code>）位置保持一致。</p>
+<p>如何控制 from maix import * 的内容可以看 <code>__init__.py</code> 了解。</p>
+
+<pre class="language-python"><code class="language-python">from .video import camera
+from .import display
+
+__all__ = ['display', 'video', 'camera']
+</code></pre>
+<p>其中 <code>__all__</code> 可以控制 import 加载的模块、对象或变量，这样一个最基本的 Python 模块就制作完成了。</p>
+<p>关于编写后的测试看 <a href="https://github.com/sipeed/MaixPy3/tree/main/tests/test_maix.py"  target="_blank">test_maix.py</a> 代码可知，关于 tox 测试框架会在最后简单说明。</p>
+<h2 id="%E5%85%B3%E4%BA%8E-C%2B%2B-%E6%8B%93%E5%B1%95%E6%A8%A1%E5%9D%97%E5%BC%80%E5%8F%91">关于 C++ 拓展模块开发</h2>
+<blockquote>
+<p>2022年07月22日 已经将 camera、display、image 等模块移植采用该方式开发。</p>
+</blockquote>
+<p><a href="https://zhuanlan.zhihu.com/p/52619334"  target="_blank">使用pybind11 将C++代码编译为python模块</a></p>
+<h2 id="%E5%85%B3%E4%BA%8E-C-%E6%8B%93%E5%B1%95%E6%A8%A1%E5%9D%97%E5%BC%80%E5%8F%91">关于 C 拓展模块开发</h2>
+<blockquote>
+<p>如今已经不再推荐使用，但适合学习和了解以往的最初的开发方法。</p>
+</blockquote>
+<p>以 <a href="https://github.com/amaork/libi2c"  target="_blank">libi2c</a> 举例说明原生 C 开发的模块。</p>
+<p>如果是用 C 开发就需要配合 Makefile 的规则来操作，可以直接在 MaixPy3/ext_modules/libi2c 目录下直接运行 <code>make all</code> 进行构建，此时就会得到 <code>libi2c.so \ libi2c.a \ pylibi2c.so</code> 等模块。</p>
+<p>这样目标系统就可以通过 C 代码链接(-l)该 libi2c 模块执行，而 <code>pylibi2c.so</code> 模块是可以直接在 Python 里面直接 import 就可以使用的。</p>
+
+<pre class="language-shell"><code class="language-shell">juwan@juwan-N85-N870HL:~/Desktop/v831_toolchain_linux_x86/MaixPy3/ext_modules/libi2c$ python3
+Python 3.8.5 (default, Jul 28 2020, 12:59:40)
+[GCC 9.3.0] on linux
+Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
+&gt;&gt;&gt; import pylibi2c
+&gt;&gt;&gt; pylibi2c
+&lt;module 'pylibi2c' from '/home/juwan/Desktop/v831_toolchain_linux_x86/MaixPy3/ext_modules/libi2c/pylibi2c.cpython-38-x86_64-linux-gnu.so'&gt;
+&gt;&gt;&gt;
+</code></pre>
+<p>注意 <code>pylibi2c.so</code> 是经过 <code>python3 setup.py build_ext --inplace</code> 命令编译 <a href="https://github.com/sipeed/MaixPy3/tree/main/ext_modules/libi2c/src/pyi2c.c"  target="_blank">ext_modules/libi2c/src/pyi2c.c</a> 得到的模块。</p>
+<p>其中 <code>#include &lt;Python.h&gt;</code> 的是来自于系统的 <code>usr/include</code> 目录，这取决于你的编译环境。</p>
+<blockquote>
+<p>注意，编译通过不代表可以运行，如果发现运行时丢失函数（undefined symbol），可以通过 ldd 查询 .so 依赖函数, 通过 nm -D 查询 .a 函数，通过 readelf -e 查询程序编译版本，有些平台可能没有 ldd 的话，就用 <code>readelf -d /bin/ls | grep &quot;Shared library&quot;</code> 来查看了，缺啥就往环境里补就对了。</p>
+</blockquote>
+<h3 id="%E5%AF%BC%E5%85%A5-pyXXX.c-%E7%9A%84-C-%E6%8B%93%E5%B1%95%E6%A8%A1%E5%9D%97">导入 pyXXX.c 的 C 拓展模块</h3>
+<p>对于 make / gcc 的模块包以 ext_modules/xxxx 方式加入 MaixPy3 的编译环境（setup.py）， 请确保该包可以跨平台编译通过后，同步修改 <a href="https://github.com/sipeed/MaixPy3/blob/main/envs/general.py"  target="_blank">MaixPy3/envs/general.py</a> 的 ext_modules 模块。</p>
+
+<pre class="language-python"><code class="language-python">
+from setuptools import Extension
+from .utils import get_srcs
+
+libi2c_module = Extension('pylibi2c',  include_dirs=[
+                          'ext_modules/libi2c/src'], sources=get_srcs('ext_modules/libi2c/src'))
+
+_maix_module = Extension('_maix', include_dirs=['ext_modules/_maix/include'],
+                         sources=get_srcs('ext_modules/_maix'),
+                         libraries=[
+    &quot;jpeg&quot;
+],
+)
+
+_maix_camera_module = Extension('_maix_camera', include_dirs=['ext_modules/_maix_camera/include'],
+                                sources=get_srcs('ext_modules/_maix_camera'),
+                                )
+
+_maix_display_module = Extension('_maix_display', include_dirs=['ext_modules/_maix_display/include'],
+                                 sources=get_srcs('ext_modules/_maix_display'),
+                                 )
+
+_maix_modules = [
+    libi2c_module,
+    _maix_module,
+    _maix_camera_module,
+    _maix_display_module
+]
+
+_maix_data_files = [
+
+]
+
+_maix_py_modules = [
+    &quot;numpy&quot;,
+    &quot;opencv-python3&quot;,
+    &quot;opencv-python&quot;,
+    &quot;Pillow&quot;,
+    &quot;rpyc&quot;,
+    &quot;gpiod&quot;,
+    &quot;evdev&quot;,
+    &quot;spidev&quot;,
+    &quot;pyserial&quot;
+]
+</code></pre>
+<p>以 _maix_module 为例，在加入编译之前，该包结构如下（目录结构可能会过时）。</p>
+<ul>
+<li>ext_modules/_maix</li>
+<li>ext_modules/_maix/include/_maix.h</li>
+<li>ext_modules/_maix/_maix.c</li>
+<li>ext_modules/_maix/setup.py</li>
+<li>/example/test__maix.py</li>
+</ul>
+<p>此时我们可以在 MaixPy3 根目录下使用 <code>python3 setup.py build</code> 调用 <a href="https://github.com/sipeed/MaixPy3/blob/main/setup.py"  target="_blank">setup.py</a> 進行构建，默认构建 linux_x86_64 的包。</p>
+
+<pre class="language-python"><code class="language-python">#!/usr/bin/env python
+
+&quot;&quot;&quot;
+setup.py file for MaixPy3
+&quot;&quot;&quot;
+
+import sys
+from setuptools import setup, Extension, find_packages
+
+ext_modules = []
+data_files = []
+py_modules = []
+
+if 'maix_v831' in sys.argv:
+  sys.argv.remove('maix_v831')
+  from envs.maix_v831 import _maix_modules, _maix_data_files, _maix_py_modules
+else:
+  from envs.general import _maix_modules, _maix_data_files, _maix_py_modules
+
+ext_modules.extend(_maix_modules)
+data_files.extend(_maix_data_files)
+py_modules.extend(_maix_py_modules)
+
+</code></pre>
+<p>如果在本机 Python 编译时出现如下错误：</p>
+
+<pre class="language-shell"><code class="language-shell">ext_modules/_maix/pyCamera.c:4:10: fatal error: jpeglib.h: 没有那个文件或目录
+    4 | #include &quot;jpeglib.h&quot;
+      |          ^~~~~~~~~~~
+compilation terminated.
+</code></pre>
+<p>运行 <code>sudo apt-get install libjpeg-dev</code> 后会在本机 usr/include 和 usr/bin 中加入 libjpeg 的模块，其他编译链同理。</p>
+<p>注意 Extension 的代码的链接时的相对地址（include_dirs &amp; sources），以及本地打包时链接时缺少的（.h）文件，注意 <a href="https://github.com/sipeed/MaixPy3/tree/main/MANIFEST.in"  target="_blank">MANIFEST.in</a> 会链接本地的文件加入 Python 模块的打包。</p>
+<blockquote>
+<p>默认配置下打包中不会带入模块的（.h）文件，这会导致运行 tox 自动化打包构建模块时出错。</p>
+</blockquote>
+
+<pre class="language-in"><code class="language-in">include ext_modules/libi2c/src/*.h
+include ext_modules/_maix/include/*.h
+</code></pre>
+<blockquote>
+<p>关于 setup.py 的用法可以参考 <a href="https://frostming.com/2020/12-25/python-packaging"  target="_blank">2021年，你应该知道的Python打包指南</a></p>
+</blockquote>
+<h3 id="%E7%BC%96%E5%86%99-C-%E6%8B%93%E5%B1%95%E6%A8%A1%E5%9D%97%E7%9A%84%E5%8F%82%E8%80%83">编写 C 拓展模块的参考</h3>
+<p>接下来说明 CPython 的代码编写规范说明：</p>
+<ul>
+<li>如何编写一个 CPython 模块（PyModule）。</li>
+<li>如何 CPython 模块添加类对象（全局对象）、全局函数、全局变量。</li>
+<li>一个 PyObject 类对象的结构代码。</li>
+<li>标准 CPython 模块的命令规则。</li>
+</ul>
+<p>以 MaixPy3/ext_modules/_maix 模块为例，首先提供一个 C 实现的 Python 模块入口 <a href="https://github.com/sipeed/MaixPy3/tree/main/ext_modules/_maix/_maix.c"  target="_blank">_maix.c</a> 。</p>
+
+<pre class="language-c"><code class="language-c">
+#include &quot;_maix.h&quot;
+
+#define _VERSION_ &quot;0.1&quot;
+#define _NAME_ &quot;_maix&quot;
+
+PyDoc_STRVAR(_maix_doc, &quot;MaixPy Python3 library.\n&quot;);
+
+static PyObject *_maix_help() {
+    return PyUnicode_FromString(_maix_doc);
+}
+
+static PyMethodDef _maix_methods[] = {
+    {&quot;help&quot;, (PyCFunction)_maix_help, METH_NOARGS, _maix_doc},
+    {NULL}
+};
+
+void define_constants(PyObject *module) {
+    PyModule_AddObject(module, &quot;_VERSION_&quot;, Py_BuildValue(&quot;H&quot;, _VERSION_));
+}
+
+static struct PyModuleDef _maixmodule = {
+    PyModuleDef_HEAD_INIT,
+    _NAME_,         /* Module name */
+    _maix_doc,	/* Module _maixMethods */
+    -1,			    /* size of per-interpreter state of the module, size of per-interpreter state of the module,*/
+    _maix_methods,
+};
+
+PyMODINIT_FUNC PyInit__maix(void)
+{
+
+    PyObject *module;
+
+    if (PyType_Ready(&amp;CameraObjectType) &lt; 0) {
+        return NULL;
+    }
+
+    module = PyModule_Create(&amp;_maixmodule);
+    PyObject *version = PyUnicode_FromString(_VERSION_);
+
+    /* Constants */
+    define_constants(module);
+
+    /* Set module version */
+    PyObject *dict = PyModule_GetDict(module);
+    PyDict_SetItemString(dict, &quot;__version__&quot;, version);
+    Py_DECREF(version);
+
+    /* Register CameraObjectType */
+    Py_INCREF(&amp;CameraObjectType);
+    PyModule_AddObject(module, Camera_name, (PyObject *)&amp;CameraObjectType);
+
+    return module;
+}
+
+
+</code></pre>
+<p>此时 Python 在 import 该模块的时候就会调用 PyInit_xxxx 函数进行初始化，在 Python 里 import 该模块只会执行一次，想要再次执行需要 reload 函数（<code>from imp import reload</code>）。</p>
+<p>通过 <code>PyModule_AddObject</code> 注册 PyObject 对象到该模块中，而该对象被公开到一个头文件当中进行交换，从而给 PyModule 提供多个 PyObject 的实现，添加模块的全局变量与此同理。</p>
+
+<pre class="language-c"><code class="language-c">static PyMethodDef _maix_methods[] = {
+    {&quot;help&quot;, ()_maix_help, METH_NOARGS, _maix_doc},
+    {NULL}
+};
+</code></pre>
+<p>通过 <code>_maix_methods</code> 结构体为模块添加全局函数，如果你认为某个函数是公共函数，则将其放置模块顶层，表示全局公共函数。</p>
+<h3 id="PyObject-%E7%9A%84%E7%BB%93%E6%9E%84%E5%8F%82%E8%80%83">PyObject 的结构参考</h3>
+<p>一个基础的格式参考如下：</p>
+<p>定义一个对象必要的对外引用，将模块和对象实现分离，模块再通过（.h）文件链接对象实现，可见 <a href="https://github.com/sipeed/MaixPy3/blob/main/ext_modules/_maix_camera/include/_maix_camera.h"  target="_blank">MaixPy3/ext_modules/_maix_camera/include/_maix_camera.h</a> 。</p>
+
+<pre class="language-c"><code class="language-c">
+#ifndef _MAIX_CAMERA_H
+#define _MAIX_CAMERA_H
+
+#ifdef  __cplusplus
+extern &quot;C&quot; {
+#endif
+
+#include &lt;Python.h&gt;
+
+/* Macros needed for Python 3 */
+#ifndef PyInt_Check
+#define PyInt_Check PyLong_Check
+#define PyInt_FromLong PyLong_FromLong
+#define PyInt_AsLong PyLong_AsLong
+#define PyInt_Type PyLong_Type
+#endif
+
+PyDoc_STRVAR(VirtualCamera_name, &quot;VirtualCamera&quot;);
+extern PyTypeObject VirtualCameraObjectType;
+
+// #define V831Camera
+#ifdef V831Camera
+PyDoc_STRVAR(V831Camera_name, &quot;V831Camera&quot;);
+extern PyTypeObject V831CameraObjectType;
+#endif
+
+#ifdef  __cplusplus
+}
+#endif
+
+#endif
+
+</code></pre>
+<p>此时（PyInit__maix）就可以加载该对象（CameraObjectType）到 _maix 模块当中。</p>
+
+<pre class="language-c"><code class="language-c">if (PyType_Ready(&amp;VirtualCameraObjectType) &lt; 0) {
+    return NULL;
+}
+
+/* Register VirtualCameraObjectType */
+Py_INCREF(&amp;VirtualCameraObjectType);
+PyModule_AddObject(module, VirtualCamera_name, (PyObject *)&amp;VirtualCameraObjectType);
+
+</code></pre>
+<p>现在看到 PyObject 的实现参考，以 <a href="https://github.com/sipeed/MaixPy3/blob/main/ext_modules/_maix_camera/_camera_virtual.c"  target="_blank">MaixPy3/ext_modules/_maix_camera/_camera_virtual.c</a> 为范本。</p>
+
+<pre class="language-c"><code class="language-c">
+PyDoc_STRVAR(VirtualCameraObject_type_doc, &quot;VirtualCamera(width, height) -&gt; VirtualCamera object.\n&quot;);
+typedef struct
+{
+  PyObject_HEAD;
+  unsigned int width, height;
+} VirtualCameraObject;
+
+static PyGetSetDef VirtualCamera_getseters[] = {
+    {&quot;width&quot;, (getter)VirtualCamera_get_width, (setter)VirtualCamera_set_width, VirtualCamera_width_doc},
+    {&quot;height&quot;, (getter)VirtualCamera_get_height, (setter)VirtualCamera_set_height, VirtualCamera_height_doc},
+    {NULL},
+};
+
+PyTypeObject VirtualCameraObjectType = {
+    PyVarObject_HEAD_INIT(NULL, 0)
+    VirtualCamera_name,                           /* tp_name */
+    sizeof(VirtualCameraObject),                      /* tp_basicsize */
+    0,                                        /* tp_itemsize */
+    (destructor)VirtualCamera_free,                   /* tp_dealloc */
+    0,                                        /* tp_print */
+    0,                                        /* tp_getattr */
+    0,                                        /* tp_setattr */
+    0,                                        /* tp_compare */
+    0,                                        /* tp_repr */
+    0,                                        /* tp_as_number */
+    0,                                        /* tp_as_sequence */
+    0,                                        /* tp_as_mapping */
+    0,                                        /* tp_hash */
+    0,                                        /* tp_call */
+    VirtualCamera_str,                                /* tp_str */
+    0,                                        /* tp_getattro */
+    0,                                        /* tp_setattro */
+    0,                                        /* tp_as_buffer */
+    Py_TPFLAGS_DEFAULT | Py_TPFLAGS_BASETYPE, /* tp_flags */
+    VirtualCameraObject_type_doc,                     /* tp_doc */
+    0,                                        /* tp_traverse */
+    0,                                        /* tp_clear */
+    0,                                        /* tp_richcompare */
+    0,                                        /* tp_weaklistoffset */
+    0,                                        /* tp_iter */
+    0,                                        /* tp_iternext */
+    VirtualCamera_methods,                            /* tp_methods */
+    0,                                        /* tp_members */
+    VirtualCamera_getseters,                          /* tp_getset */
+    0,                                        /* tp_base */
+    0,                                        /* tp_dict */
+    0,                                        /* tp_descr_get */
+    0,                                        /* tp_descr_set */
+    0,                                        /* tp_dictoffset */
+    (initproc)VirtualCamera_init,                     /* tp_init */
+    0,                                        /* tp_alloc */
+    VirtualCamera_new,                                /* tp_new */
+};
+</code></pre>
+<p>实现任何模块时需重点关注如下基本函数接口实现，忽略（Camera）前缀，且下文函数只做举例。</p>
+<ul>
+<li>xxxxx_new （对象构造函数）</li>
+<li>xxxxx_free （对象析构函数）</li>
+<li>xxxxx_init （对象初始化函数）</li>
+<li>xxxxx_getseters （对象属性定义结构）</li>
+<li>xxxxx_methods （对象方法定义结构）</li>
+</ul>
+<p>开发上遵循基本结构即可，展示 PyArg_ParseTupleAndKeywords 传递参数用法，以 Camera_init 为例，如果不想写 keyword （kwlist） 就用 PyArg_ParseTuple 函数。</p>
+
+<pre class="language-c"><code class="language-c">static int Camera_init(CameraObject *self, PyObject *args, PyObject *kwds)
+{
+  // default init value
+  self-&gt;width = 640, self-&gt;height = 480;
+
+  static char *kwlist[] = {&quot;width&quot;, &quot;height&quot;, NULL};
+
+  if (!PyArg_ParseTupleAndKeywords(args, kwds, &quot;|ii:__init__&quot;, kwlist,
+                                   &amp;self-&gt;width, &amp;self-&gt;height))
+  {
+    return -1;
+  }
+
+  return 0;
+}
+</code></pre>
+<p>为 PyObject 对象链接函数符号的时候可以看 xxxxx_getseters 和 xxxxx_methods 的结构定义。</p>
+
+<pre class="language-c"><code class="language-c">static PyMethodDef Camera_methods[] = {
+
+    {&quot;close&quot;, (PyCFunction)Camera_close, METH_NOARGS, Camera_close_doc},
+    {&quot;__enter__&quot;, (PyCFunction)Camera_enter, METH_NOARGS, NULL},
+    {&quot;__exit__&quot;, (PyCFunction)Camera_exit, METH_NOARGS, NULL},
+    {NULL},
+};
+
+static PyGetSetDef Camera_getseters[] = {
+    {&quot;width&quot;, (getter)Camera_get_width, (setter)Camera_set_width, Camera_width_doc},
+    {&quot;height&quot;, (getter)Camera_get_height, (setter)Camera_set_height, Camera_height_doc},
+    {NULL},
+};
+</code></pre>
+<p>以 Python3 的 _maix.Camera 为例：</p>
+
+<pre class="language-python"><code class="language-python">
+import _maix
+
+tmp = _maix.Camera()
+
+print(&quot;this is method&quot;, Camera.close)
+
+print(&quot;this is var&quot;, Camera.width)
+
+</code></pre>
+<p>一个简单的 PyCFunction 函数实现方法如下：</p>
+
+<pre class="language-c"><code class="language-c">/* str */
+static PyObject *Camera_str(PyObject *object)
+{
+  PyObject *dev_desc = PyUnicode_FromString(&quot;Camera_str&quot;);
+
+  return dev_desc;
+}
+</code></pre>
+<p>如果是定义模块的全局函数则可以配置 METH_NOARGS 并移除函数参数，参考如下代码。</p>
+
+<pre class="language-c"><code class="language-c">
+static PyObject *_maix_help() {
+    return PyUnicode_FromString(_maix_doc);
+}
+
+static PyMethodDef _maix_methods[] = {
+    {&quot;help&quot;, (PyCFunction)_maix_help, METH_NOARGS, _maix_doc},
+    {NULL}
+};
+
+</code></pre>
+<p>关于编写 CPython 模块的参考资料很多，这里只说明 MaixPy3 模块常用的程序设计，具体到函数的如何实现的细节就不在此赘述。</p>
+<h3 id="CPython-%E7%9A%84%E5%86%85%E5%AD%98%E6%A0%87%E8%AE%B0%E7%94%A8%E6%B3%95">CPython 的内存标记用法</h3>
+<p>可知 Python 拥有自动回收内存的 gc 机制，但在使用 Python C/C++ API 扩展 Python 模块时，对象指针标记不当可能会导致扩展的模块存在内存泄漏，可以使用 Py_INCREF（增加） &amp; Py_DECREF（减少） 指针引用计数。</p>
+
+<pre class="language-c"><code class="language-c">Py_INCREF(ref);
+......
+Py_DECREF(ref); // Py_XDECREF(ref);
+</code></pre>
+<p>对应 Python 代码就是：</p>
+
+<pre class="language-python"><code class="language-python">ref = 1
+....
+del ref
+</code></pre>
+<p>可以理解为想要 gc 主动释放一个对象，就需要将其引用标志减少到无（0）。</p>
+<p>关于标记指针的说明上有用的文章。</p>
+<ul>
+<li>在开发时的注意事项请查阅 <a href="https://neucrack.com/p/340"  target="_blank">使用 C 写 Python 模块时内存回收管理，Py_INCREF() 和 Py_DECREF() 的使用方式和注意点</a></li>
+<li>关于原理性的源码解析 <a href="https://www.cnblogs.com/traditional/p/13698244.html"  target="_blank">解密Python中的垃圾回收机制</a></li>
+</ul>
+<p>如果你不能确定当前指针是否已经被回收，则你可以在使用前对 PyObject 结构指针进行引用计数的判断，也可以对该结构的类型做判断，从而确保可以操作该对象。</p>
+
+<pre class="language-c"><code class="language-c">
+assert(self-&gt;ob_refcnt &gt; 0);
+
+PyAPI_DATA(PyTypeObject) PyBool_Type;
+#define PyBool_Check(x) Py_IS_TYPE(x, &amp;PyBool_Type)
+
+</code></pre>
+<p>这样你就可以放心的操作内部创建的对象实例了。</p>
+<h3 id="CPython-%E6%A8%A1%E5%9D%97%E7%9A%84%E7%BC%96%E5%86%99%E7%BA%A6%E6%9D%9F">CPython 模块的编写约束</h3>
+<p>因为强调面向接口编程，所以 Python 模块下的 libXXXX 模块都是在各自的仓库编译通过后，再通过 setup.py 模块定义接口之间进行链接的，有些子仓库就是这么来的。</p>
+<p>也就是说不对编写代码风格做约束，但会对模块的接口做约束。</p>
+<p>要求每个模块的层次关系分离，以模块（PyModule）、对象（PyObject）、方法（PyCFunction）为接口参考，有如下结构。</p>
+
+<pre class="language-shell"><code class="language-shell">+----------+         +-------------+
+|          +---------+ PyCFunction | 全局函數
+| PyModule |         +-------------+
+|          +&lt;---+
++----------+    |
+                |模块对象
+             +--+-------+
+             | PyObject +&lt;---+
+             +----------+    |
+                             |
+                     +-------+-----+
+                     | PyCFunction | 成员函數
+                     +-------------+
+</code></pre>
+<p>因此请遵循该接口设计进行 Python 模块的开发。</p>
+<h2 id="%E4%B8%80%E4%BA%9B%E9%A2%9D%E5%A4%96%E7%9A%84%E5%86%85%E5%AE%B9">一些额外的内容</h2>
+<h3 id="%E4%BD%BF%E7%94%A8-bdist_wheel-%E6%89%93%E5%8C%85%E5%AF%B9%E5%BA%94%E5%B9%B3%E5%8F%B0-wheel-%E5%8C%85">使用 bdist_wheel 打包对应平台 wheel 包</h3>
+<p>打包成对应平台的 wheel 的 bdist_wheel 的命令需要 setuptools 中支持。</p>
+<blockquote>
+<p>而 distutils 只可以构建 bdist 包。</p>
+</blockquote>
+<p>bdist_wheel 是将当前代码构建的最终文件都打包好，然后在安装的时候只需要释放到具体的安装目录下就结束了，这对于一些不能进行编译工作的硬件来说是极好的。</p>
+<p>确认 wheel 包是否可以被安装，只需要看名称就知道了，例如 <code>python3_maix-0.1.2-cp38-cp38-linux_x86_64.whl</code> 包，我们可以看到 <code>cp38-cp38-linux_x86_64</code> 标识。</p>
+<p>pip 在安装的时候就会通过 <code>from pip._internal.utils.compatibility_tags import get_supported</code> 函数判断当前系统是否可以支持这个包，如果你改名了，它也是可以安装进去的,但能不能运行就取决于系统环境了，注意 armv7.whl 和 armv7l.whl 并不相同。</p>
+<blockquote>
+<p>细节阅读 <a href="https://www.cnblogs.com/juwan/p/14250104.html"  target="_blank">2021 年 当安装 wheel 出现 whl is not a supported wheel on this platform. 的时候</a></p>
+</blockquote>
+<h3 id="%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6-tox-%E7%9A%84%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E">自动化测试框架 tox 的使用说明</h3>
+<p>在本机上使用 <code>pip3 install tox</code> 完成安装，接着在 MaixPy3 根目录下运行 tox 即可。</p>
+<p>它会自动构建指定的 Python 虚拟测试环境，进行打包构建，安装解包的测试，最后会收集整个目录下的 <code>test_*.py</code> 的代码加入到自动测试当中，如果你不想让个别代码参与测试，你可以改名成 <code>no_test_*.py</code> 方便排除和保留文件。</p>
+<p>更多请自行查阅 <a href="https://www.cnblogs.com/daniumiqi/p/12179453.html"  target="_blank">Python 任务自动化工具 tox 教程</a> 和官方文档 <a href="tox.readthedocs.io"  >tox.readthedocs.io</a> 。</p>
+<h3 id="%2A%E5%85%B3%E4%BA%8E-V831-%E6%88%96%E5%85%B6%E4%BB%96%E5%B9%B3%E5%8F%B0%E8%8A%AF%E7%89%87%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8">*关于 V831 或其他平台芯片如何使用</h3>
+<p>以上文档为通用说明，使用方法差异的地方在于调用 Python 指令有所不同。</p>
+<p>例如加载 V831 等其他平台的 SDK 环境后，要将上述命令中的 python3 改成对应 SDK 环境的 python3.8 用以调用交叉编译的 Python 解释器，从而完成目标 arm 平台的交叉编译，这是由 SDK 提供时决定的，其他平台统一按这个结构载入即可。</p>
+<h3 id="%E8%B0%83%E7%94%A8-get-pip.py-%E6%89%8B%E5%8A%A8%E4%B8%BA-Python-pip-%E5%AE%89%E8%A3%85%E6%8C%87%E5%AE%9A%E5%8C%85%E3%80%82">调用 get-pip.py 手动为 Python pip 安装指定包。</h3>
+<p>有时候一些交叉编译里面的 Python 环境可能会缺少 pip ，如果想要安装包，就可以用这样的方式从外部装进去。</p>
+<ul>
+<li><code>./python3.7 get-pip.py Cython --target=../usr/lib/python3.7/site-packages/</code></li>
+</ul>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                        <a href="/soft/maixpy3/zh/others/framework.html">
+                            <span class="icon"></span>
+                            <span class="label">【项目开发基础】项目架构介绍</span>
+                        </a>
+                        
+                    </div>
+                    <div id="next">
+                        
+                        <a href="/soft/maixpy3/zh/others/platform.html">
+                            <span class="label">【移植适配实例】开发新的平台</span>
+                            <span class="icon"></span>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>相关链接</a><ul><li><a target="_blank" href="https://www.sipeed.com">Sipeed 官网</a></li>
+<li><a target="_blank" href="https://maixhub.com/">MaixHub</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">Sipeed 淘宝</a></li>
+<li><a  href="/sitemap.xml">网站地图</a></li>
+<li><a target="_blank" href="https://github.com/teedoc/teedoc">网站使用 teedoc 生成</a></li>
+</ul>
+</li>
+<li><a>源码</a><ul><li><a target="_blank" href="https://github.com/sipeed/sipeed_wiki">Wiki 源码</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">开源项目</a></li>
+</ul>
+</li>
+<li><a>关注我们</a><ul><li><a target="_blank" href="https://twitter.com/SipeedIO">twitter</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">淘宝</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">github</a></li>
+<li><a><a>微信公众号</a><img src='/static/image/wechat.png'></a>
+</li>
+</ul>
+</li>
+<li><a>联系我们</a><ul><li><a>电话: +86 0755-27808509</a>
+</li>
+<li><a>商业支持: support@sipeed.com</a>
+</li>
+<li><a>地址: 深圳市宝安区新湖路4008号蘅芳科技办公大厦A座-2101C</a>
+</li>
+<li><a  href="/join_us.html">加入我们</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://www.sipeed.com">©2018-2023 深圳矽速科技有限公司</a></li>
+<li><a target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index">粤ICP备19015433号</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/js/prism.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <link rel="stylesheet" href="/static/js/add_hint/style.css" type="text/css"/>
+    
+        <script src="/static/js/add_hint/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+        <script src="/static/js/thumbs_up/main.js"></script>
+    
+</body>
+
+</html>
