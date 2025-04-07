@@ -12,11 +12,12 @@ title: MaixCAM / MaixCAM-Pro 外壳
 
 ## 开源模型文件
 
-* [MaixCAM 外壳模型](https://makerworld.com/zh/models/440321)（推荐使用耐温70度的树脂进行光固化打印）
-* [MaixCAM 支架模型](https://makerworld.com/zh/models/463622#profileId-372189)
-* [MaixCAM-Pro 外壳模型](https://makerworld.com/zh/models/722034)
-* 更多到 [makerworld.com](https://makerworld.com/)(推荐) 或 [makerworld.com.cn](https://makerworld.com.cn) 搜索 `MaixCAM`
-  
+* [MaixCAM 外壳模型](https://makerworld.com.cn/zh/models/467141)（推荐使用耐温70度的树脂进行光固化打印）
+* [MaixCAM 支架模型](https://makerworld.com.cn/zh/models/467152)
+* [MaixCAM-Pro 外壳模型](https://makerworld.com.cn/zh/models/575886)
+* M2*5 自攻螺丝 6 颗
+* H1.5 内六角螺丝刀
+
 ## 文档
 
 作为一个合格的开发者，应该学会自己看文档，很多问题文档里都有

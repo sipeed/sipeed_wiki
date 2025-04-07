@@ -78,8 +78,8 @@ MaixCAM offers more than just hardware. It comes with a complete software ecosys
 * [Schematic](https://dl.sipeed.com/shareURL/LICHEE/LicheeRV_Nano/02_Schematic)
 * [Camera and Lens Documentation](https://dl.sipeed.com/shareURL/MaixCAM/MaixCAM/Camera)
 * [Core Board Hardware Documentation](https://dl.sipeed.com/shareURL/LICHEE/LicheeRV_Nano)
-* [MaixCAM Case Models](https://makerworld.com/zh/models/440321)
-* [MaixCAM Stand Models](https://makerworld.com/zh/models/463622#profileId-372189)
+* [MaixCAM Case Model](https://makerworld.com.cn/zh/models/467141)
+* [MaixCAM Stand Model](https://makerworld.com.cn/zh/models/467152)
 
 ### Chip Documentation
 
