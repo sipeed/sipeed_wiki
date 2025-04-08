@@ -29,7 +29,7 @@ update:
 
 ## 产品外观
 
-<img src="./.assert/console_60k.jpg" width="45%">
+<img src="./assert/console_60k.jpg" width="45%">
 
 ## 硬件参数
 
