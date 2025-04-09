@@ -88,8 +88,8 @@ MaixCAM 是为更好地落地 AI 视觉、听觉和 AIOT 应用而设计的一�
 * [原理图](https://dl.sipeed.com/shareURL/LICHEE/LicheeRV_Nano/02_Schematic)
 * [摄像头和镜头](https://dl.sipeed.com/shareURL/MaixCAM/MaixCAM/Camera)
 * [核心板(LicheeRV-Nano)硬件资料](https://dl.sipeed.com/shareURL/LICHEE/LicheeRV_Nano)
-* [MaixCAM 外壳模型](https://makerworld.com/zh/models/440321)
-* [MaixCAM 支架模型](https://makerworld.com/zh/models/463622#profileId-372189)
+* [MaixCAM 外壳模型](https://makerworld.com.cn/zh/models/467141)
+* [MaixCAM 支架模型](https://makerworld.com.cn/zh/models/467152)
 
 * 核心板引脚图：
 ![](http://wiki.sipeed.com/hardware/zh/lichee/assets/RV_Nano/intro/RV_Nano_3.jpg)
