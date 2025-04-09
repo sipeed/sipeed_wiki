@@ -91,6 +91,8 @@ Full 版本出厂时已经烧录了镜像，可以跳过此步骤。
 
 新的应用往往带来更多功能或修复某些重要漏洞，建议您将 NanoKVM 应用更新到最新版本，具体操作方式请参考 [更新应用](https://wiki.sipeed.com/hardware/zh/kvm/NanoKVM/system/updating.html)。
 
+2.1.1 及后续版本更新记录：[应用更新记录](https://github.com/sipeed/NanoKVM/blob/main/CHANGELOG.md)
+
 ## 基础操作
 
 ### 如何获取IP地址
@@ -101,11 +103,15 @@ Full版NanoKVM自带OLED显示屏，联网之后会在显示屏第一行显示IP
 
 Lite版用户请参考[获取IP](https://wiki.sipeed.com/hardware/zh/kvm/NanoKVM/system/updating.html#%E8%8E%B7%E5%8F%96-IP)
 
+注意：1.4.0 版本镜像默认关闭SSH，Lite用户请直接使用 RNDIS IP （10.xxx.xxx.1）登录网页，在设置中即可查看IP
+
 ### 查看远程桌面
 
-浏览器直接输入获取的IP，进入登录页面，默认账号密码为admin、admin，登录后建议**先检查更新**（设置 -> 检查更新），详细步骤可参考 [更新应用](https://wiki.sipeed.com/hardware/zh/kvm/NanoKVM/system/updating.html)。
+浏览器直接输入获取的IP，进入登录页面，默认账号密码为admin、admin，登录后强烈建议**先检查更新**（设置 -> 检查更新），详细步骤可参考 [更新应用](https://wiki.sipeed.com/hardware/zh/kvm/NanoKVM/system/updating.html)。
 
 Lite版用户，或Full用户重新烧卡登录后页面上无远程画面，请先升级应用后刷新网页，即可开始使用
+
+注：少数版本可能存在无法访问网页/登录后崩溃的情况，请拔出HDMI接口后重新上电，更新为最新的应用后再插入HDMI
 
 注: 建议使用Chrome浏览器，其他浏览器可能出现无法显示画面或无法操作键鼠等兼容性问题
 
@@ -116,6 +122,8 @@ Lite版用户，或Full用户重新烧卡登录后页面上无远程画面，请
 **为保障您的信息安全，请在测试功能正常后修改账号密码**
 
 ![](./../../../assets/NanoKVM/unbox/unbox_9.png)
+
+注：网页中修改密码后，SSH登录密码将会同步修改（如：网页密码修改为123456, 使用 `ssh root@192.168.xxx.xxx` `123456` 登录）
 
 ### ATX电源控制
 

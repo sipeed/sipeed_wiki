@@ -18,7 +18,7 @@ update:
 
 ![](./../../../assets/NanoKVM/introduce/NanoKVM_3.png)
 
-Lichee NanoKVM 是基于 LicheeRV Nano 的 IP-KVM 产品，继承了 LicheeRV Nano 的极致体积 和 强大功能。
+NanoKVM 是基于 LicheeRV Nano 的 IP-KVM 产品，继承了 LicheeRV Nano 的极致体积 和 强大功能。
 
 NanoKVM 包含一个 HDMI 输入接口，可以被电脑识别为显示器，捕捉电脑画面；一个 USB2.0 接口连接电脑主机，可被识别为键盘鼠标触摸板等HID设备，同时使用TF卡多余存储空间，挂载为一个U盘设备；全系标配一个百兆网口，用于视频和控制信号等的网络传输。另外Full版还带有ATX电源控制接口（USB-C形态）方便远程控制和查看主机开关机状态；Full 版外壳下还带一个 OLED 显示屏，用于显示本机 IP 和 KVM 相关状态。
 
@@ -72,7 +72,9 @@ NanoKVM 基于 Sipeed [LicheeRV Nano](https://wiki.sipeed.com/hardware/zh/lichee
 
 NanoKVM Lite 由 LicheeRV Nano E 和 HDMItoCSI 小板构成，NanoKVM FULL 在 NanoKVM Lite 基础上增加 NanoKVM-A/B 板和外壳。HDMItoCSI板用于转换HDMI信号；NanoKVM-A 包含 OLED、ATX控制输出（TypeC接口形式）、辅助供电（TypeC接口）以及ATX开关机、复位按键；NanoKVM-B 一端连接A板，一端连接电脑ATX针脚，用于电脑的远程开关机。
 
-> NanoKVM 镜像在LicheeRV Nano SDK 和 MaixCDK 基础上构建，可以兼容使用 LicheeRV Nano 的资料，反之LicheeRV Nano 或其他 SG2002 产品无法使用KVM软件。如果您想在 NanoKVM 上构建 HDMI 输入相关应用，请与我们联系，以获得技术支持。
+NanoKVM Cube/PCIe 软件现已完全开源：[KVM应用开源位置](https://github.com/sipeed/NanoKVM)、 [镜像开源位置](https://github.com/sipeed/LicheeRV-Nano-Build/tree/NanoKVM)
+
+> NanoKVM 镜像在LicheeRV Nano SDK 和 MaixCDK 基础上构建，可以兼容使用 LicheeRV Nano 的资料，反之 LicheeRV Nano 或其他 SG2002 产品无法使用KVM软件。如果您想在 NanoKVM 上构建 HDMI 输入相关应用，请与我们联系，以获得技术支持。
 
 + [原理图](https://cn.dl.sipeed.com/shareURL/KVM/nanoKVM/HDK/02_Schematic)
 + [3D结构](https://cn.dl.sipeed.com/shareURL/KVM/nanoKVM/HDK/04_3D_file)
