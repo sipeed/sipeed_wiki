@@ -102,6 +102,8 @@ NanoKVM-PCIe 包装内包含主机, 半高 PCIe 挡板, 两条 USBA-C线缆, 一
 
 新的应用往往带来更多功能或修复某些重要漏洞，建议您将 NanoKVM 应用更新到最新版本，具体操作方式请参考 [更新应用](https://wiki.sipeed.com/hardware/zh/kvm/NanoKVM/system/updating.html)。
 
+2.1.1 及后续版本更新记录：[应用更新记录](https://github.com/sipeed/NanoKVM/blob/main/CHANGELOG.md)
+
 ## 基础操作
 
 ### 如何获取IP地址
@@ -118,6 +120,8 @@ WiFi 版本 NanoKVM-PCIe ETH 和 WiFi 获取的 IP 将会交替出现, 如图: I
 ![](./../../../assets/NanoKVM/unbox/unbox_9.png)
 
 注: 建议使用Chrome浏览器，其他浏览器可能出现无法显示画面或无法操作键鼠等兼容性问题
+
+注：少数版本可能存在无法访问网页/登录后崩溃的情况，请拔出HDMI接口后重新上电，更新为最新的应用后再插入HDMI
 
 ### ATX电源控制
 

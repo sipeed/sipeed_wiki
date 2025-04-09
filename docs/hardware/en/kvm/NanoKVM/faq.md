@@ -18,6 +18,20 @@ keywords: NanoKVM, Remote desktop, Lichee, PiKVM, RISCV, tool
    2. If the application version is greater than 2.1.5 and you forget the password, you can press the `BOOT` button on the device for more than 10 seconds (the BOOT button for the NanoKVM-Cube is located next to the USB-HID interface, while the PCIe version can be found on the panel. Older versions of the NanoKVM Full may not have a hole in the corresponding location and require disassembly).
    3. If holding down the button does not reset the password, it may be because the application version is less than 2.1.5. Please refer to [here](https://wiki.sipeed.com/hardware/en/kvm/NanoKVM/system/flashing.html) to reflash the image. Note that reflashing the image will erase all configuration information.
 
+### HID Keyboard and Mouse Not Working
+1. Use the "Reset HID" feature in the web interface.
+2. Some host systems have high requirements for USB keyboards and mice, needing to use "HID Only" mode. In this mode, USB only simulates keyboard and mouse devices. Please switch to this mode using the mouse icon in the web interface.
+3. Some motherboard systems require HID keyboard and mouse devices to have a BIOS identifier. NanoKVM can create a BIOS in `/boot` to enable this feature. Execute `touch /boot/BIOS && restart`.
+4. Check if the USB connection is stable. You can see if the HID icon on the OLED is lit, or use `cat /sys/class/udc/4340000.usb/state` in the web terminal. If it shows "not connected," then the USB cable may be faulty. Please replace the USB cable and try again.
+
+### BIOS Does Not Recognize HID Keyboard and Mouse
+1. Some host systems have high requirements for USB keyboards and mice, needing to use "HID Only" mode. In this mode, USB only simulates keyboard and mouse devices that support BIOS. Please switch to this mode using the mouse icon in the web interface.
+2. Use the "Reset HID" feature in the web interface.
+
+### Incorrect Key Mapping for Non-English Keyboards
++ The keyboard layout needs to be modified in the controlled host system settings. For example, to modify a French keyboard in Ubuntu:
+  Settings -> Keyboard -> Input Sources -> ‘+’ -> Add -> Search "French," then add.
+
 ### STA LED Not Flashing Normally
 
 The STA LED indicates the operating status of the NanoKVM. When functioning properly, the STA LED should flash irregularly. If the STA LED is continuously on or off, or exhibits regular intermittent extinguishing, the NanoKVM may be malfunctioning.
@@ -40,19 +54,19 @@ The STA LED indicates the operating status of the NanoKVM. When functioning prop
    > If the IP exists only when powered by the power bank, but disappears after connecting HDMI/computer USB, this indicates the issue. Please contact customer service to purchase an isolator to resolve it.
 
 ### No Display After Logging into the Browser Interface
-
-1. The controlled host may be in sleep mode; try pressing any key on the keyboard to wake it up.
-2. For PCIe versions, try clicking the reset HDMI option under the `Video` icon.
-3. For Cube versions, after opening the webpage, try unplugging and replugging the HDMI cable.
-4. Check the resolution on the OLED or enter `echo "$(cat /kvmapp/kvm/width) * $(cat /kvmapp/kvm/height)"` in the web terminal to compare it with the resolution of the controlled host. If they differ, you can manually set the resolution using `echo xxx > /kvmapp/kvm/width && echo xxx > /kvmapp/kvm/height`.
-   > If the host system is Windows, the resolution in the display settings may not match the actual resolution. Check under Advanced -> Active Signal Resolution.
-5. The early beta version of Full NanoKVM uses a standard ribbon cable to connect the HDMI capture board, which may not detect the HDMI signal due to poor contact. Please reconnect the ribbon cable as shown in the image below, or contact customer service to purchase a dedicated ribbon cable.
-  ![](./../../../assets/NanoKVM/guide/Old_fix.png)
-6. Try restarting to resolve the issue: execute `reboot` in the web terminal.
-7. If the above methods do not identify the issue, execute `cat /proc/cvitek/vi_dbg` in the web terminal.   
-> If `VIDevFPS` is 0, it indicates that the NanoKVM cannot obtain HDMI input. Check the following issues: whether the host is outputting video signals, whether the HDMI cable is damaged, and whether the Cube is an early version with poor contact.   
-> If `VIDevFPS` is non-zero and `VIFPS` is 0, it indicates that the NanoKVM is not correctly configured for HDMI parameters. The Cube can reconnect HDMI to automatically obtain settings, while PCIe can click `Reset HDMI` under the `Video` option to automatically retrieve settings.   
-> Check if `VIInImgWidth` and `VIInImgHeight` match the actual HDMI resolution. If they differ, it indicates that the NanoKVM did not automatically obtain the correct HDMI parameters; please manually configure the resolution parameters as mentioned in point 4.
+1. The controlled host may be in sleep mode. Try pressing any key on the keyboard to wake it up.
+2. Non-Chrome browsers may experience issues with H264 not displaying, while MJPEG mode works normally. Please try again using Chrome.
+3. For the PCIe version, try clicking the reset HDMI option under the "Video" icon.
+4. For the Cube version, you can try unplugging and replugging the HDMI cable after opening the webpage.
+5. Check the resolution on the OLED or enter `echo "$(cat /kvmapp/kvm/width) * $(cat /kvmapp/kvm/height)"` in the web terminal, and compare it with the resolution of the controlled host. If they differ, you can manually set the resolution using `echo xxx > /kvmapp/kvm/width && echo xxx > /kvmapp/kvm/height`.
+   > If the host system is Windows, the resolution shown in display settings may not match the actual resolution. Check in Advanced -> Active Signal Resolution.
+6. The early test version of Full NanoKVM uses standard cables to connect to the HDMI capture board, which may not detect the HDMI signal due to poor connections. You can reconnect the cable as shown in the image below or contact customer service to purchase dedicated cables.
+   [](./../../../assets/NanoKVM/guide/Old_fix.png)
+7. Try restarting to resolve the issue: execute `reboot` in the web terminal.
+8. If the above methods do not identify the problem, execute `cat /proc/cvitek/vi_dbg` in the web terminal.
+   > If `VIDevFPS` is 0, it means NanoKVM cannot get HDMI input. Check the following issues: Is the host outputting a video signal? Is the HDMI cable damaged? Is the Cube an early version with possible connection issues?
+   > If `VIDevFPS` is not 0 and `VIFPS` is 0, it indicates that NanoKVM is not correctly configured for HDMI parameters. The Cube can replug the HDMI to auto-detect, while PCIe can click `Reset HDMI` under `Video` to auto-detect.
+   > Check if `VIInImgWidth` and `VIInImgHeight` match the actual HDMI resolution. If they are different, it means NanoKVM did not auto-detect the correct HDMI parameters. Manually configure the resolution parameters as described in point 4.
 
 ### OLED Displaying Information Normally, But Unable to Open Webpage
 
@@ -65,16 +79,6 @@ The NanoKVM Full and PCIe versions come with an OLED to display information such
 1. Version `2.1.4` added an OLED sleep function; pressing the BOOT button can temporarily turn on the OLED.
 2. If the STA LED is flashing abnormally, first check whether the system is booting normally, and follow the steps outlined in “STA LED Not Flashing Normally” to troubleshoot.
 3. Try a forced update or reflash the system.
-
-### HID Keyboard and Mouse Not Working
-
-1. Use the "Reset HID" function in the web interface.
-2. Check if the USB port is securely connected; you can check if the HID icon on the OLED is lit, or use `cat /sys/class/udc/4340000.usb/state` in the web terminal. If it shows not connected, it indicates a poor connection of the USB cable. Please replace the USB cable and try again.
-
-### BIOS Not Recognizing HID Keyboard and Mouse
-
-1. Some motherboard BIOS require HID keyboard and mouse devices to have a BIOS identifier. The NanoKVM can create a BIOS under /boot to enable this feature by executing `touch /boot/BIOS && restart`.
-2. Use the "Reset HID" function in the web interface.
 
 ### About Memory
 
@@ -100,7 +104,26 @@ The NanoKVM Full and PCIe versions come with an OLED to display information such
 3. Manually force the update using the method outlined above.  
 4. Reflash the system.
 
-### If the above methods do not resolve the issue, please explain the model you purchased and the encountered problems on the forum, GitHub, or QQ group, and we will patiently assist you.
+### If the Above Methods Do Not Resolve the Issue, Please Describe Your Model and Problems Encountered in the Forum, GitHub, or QQ Group. We Will Respond Patiently.
++ When providing feedback, please specify the version of your NanoKVM, the environment in which you are using it (motherboard model, system name, etc.), and the system configuration (e.g., image version 1.4.0; application version 2.2.5; H264; 1080P; high quality; frame rate 30). This information will help us reproduce and resolve the issue.
++ If there is a problem with no image display, please execute the following commands during the anomaly and paste the output logs into the issue:
+  ```shell
+  cat /etc/kvm/hw
+  cat /etc/kvm/hdmi_version
+  cat /etc/kvm/hdmi_mode
+  ```
++ Some issues require collecting runtime application logs. Please follow these steps:
+  ```shell
+  # Enable SSH functionality in the web interface (Settings -> Devices -> SSH)
+  # Log in to SSH using the password set in the web interface. If no password is set, the default password is root.
+  ssh root@xxx.xxx.xxx.xxx
+  # Change the log level: /etc/kvm/server.yaml -> logger -> level: info to debug
+  vi /etc/kvm/server.yaml
+  # Use ‘i’ to edit; use ‘Esc’ + :wq to exit
+  # Restart the KVM service
+  /etc/init.d/S95nanokvm restart
+  # Copy the log
+  ```
 
 ## Feedback Methods
 

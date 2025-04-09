@@ -128,10 +128,24 @@ NanoKVM 的 USB 会默认虚拟出 RNDIS USB网卡（从设备），当 NanoKVM 
 
 ### 关于SSH
 
-+ 2.1.5 版本应用后，SSH支持永久关闭和临时开启，方法如下：
++ 2.1.6 版本应用后，SSH支持网页开启和永久关闭，请在 设置 -> 设备 -> SSH 打开或关闭
+
++ 1.4.0 镜像后，SSH默认关闭
 
 1. 永久关闭：执行`touch /etc/kvm/ssh_stop`即可在NanoKVM下一次开机时开始禁用ssh登录，删除该文件`rm /etc/kvm/ssh_stop`即可解除
 2. 临时开启：执行`touch /boot/start_ssh_once`或在 /boot 分区下创建 start_ssh_once 空文件，即可在NanoKVM下一次开机时打开ssh，该文件会自动删除
+
+### 关于mDNS
+
++ mDNS（Multicast DNS）是一种用于在局域网内进行名称解析的协议，使设备能够通过主机名而非 IP 地址相互发现和通信。它允许无需中央 DNS 服务器的情况下，自动发现网络中的服务和设备。
+
++ NanoKVM 使用设备码生成 mDNS主机名，可以尽量保证多设备时主机名不冲突
+
++ mDNS 服务在网络环境复杂时会有较高的CPU占用，影响图像的流畅性，建议不使用时将其关闭：设置 -> 设备 -> mDNS
+
+### 关于看门狗
+
++ 2.2.2 应用版本后新增看门狗系统，将持续监控server服务的运行，服务异常时将重启系统，默认未开启，可以通过在网页终端执行 `touch /etc/kvm/watchdog` 开启，通过`rm /etc/kvm/watchdog` 关闭
 
 ### 更多功能敬请期待
 

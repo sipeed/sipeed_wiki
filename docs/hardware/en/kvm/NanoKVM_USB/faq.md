@@ -28,7 +28,14 @@ keywords: NanoKVM-USB, Lichee, PiKVM, RISCV, tool
 
 + The beta version hardware only supports USB power from the HOST side. Please ensure proper power supply from the HOST side during use.
 
-### If the above methods do not resolve the issue, please describe your purchased model and the encountered problem on the forum, GitHub, or QQ group, and we will respond patiently.
+### Loop Out Display
+
++ The NanoKVM-USB uses its own EDID (Extended Display Identification Data) before connecting to the loop-out display. After connecting to the loop-out display, it switches to the EDID of the loop-out display.
++ Since the EDID contains information about the display manufacturer and color settings, the resolution list in the Target system settings may appear different before and after connecting the loop-out display. Additionally, the color of the video captured via USB may vary before and after the connection.
+
+### Other
+
++ If the above methods do not resolve the issue, please describe your purchased model and the encountered problem on the forum, GitHub, or QQ group, and we will respond patiently.
 
 ## Known Issues
 
