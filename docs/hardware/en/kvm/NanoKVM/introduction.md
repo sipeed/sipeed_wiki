@@ -18,7 +18,7 @@ update:
 
 ![](./../../../assets/NanoKVM/introduce/NanoKVM_3.png)
 
-The Lichee NanoKVM is an IP-KVM product based on the LicheeRV Nano, inheriting its compact size and powerful features.
+The NanoKVM is an IP-KVM product based on the LicheeRV Nano, inheriting its compact size and powerful features.
 
 NanoKVM includes an HDMI input interface that can be recognized as a monitor by a computer, capturing the computer's screen. It has a USB 2.0 interface to connect to the computer host, recognized as HID devices like keyboard, mouse, and touchpad, and uses extra storage space on the Micro SD card, mounted as a USB flash drive. It comes with a 100 Mbps Ethernet port for video and control signal transmission. Additionally, the Full version features an ATX power control interface (USB-C form) for remote control and monitoring of the host's power status. Under the Full version's shell, there is an OLED display for showing the device's IP and KVM-related status.
 
@@ -70,7 +70,9 @@ NanoKVM is built on the Sipeed [LicheeRV Nano](https://wiki.sipeed.com/hardware/
 
 NanoKVM Lite consists of the LicheeRV Nano E and HDMItoCSI board, while NanoKVM Full adds the NanoKVM-A/B board and shell to the Lite version. The HDMItoCSI board converts HDMI signals; NanoKVM-A includes OLED, ATX control output (TypeC interface), auxiliary power (TypeC interface), and ATX power/reset buttons; NanoKVM-B connects the A board to the computer's ATX pins for remote power control.
 
-> The NanoKVM image is built on the LicheeRV Nano SDK and MaixCDK, compatible with LicheeRV Nano resources. Other SG2002 products cannot use KVM software. Contact us for technical support if you want to develop HDMI input applications on NanoKVM.
+The NanoKVM Cube/PCIe software is now fully open source: [KVM application open source location](https://github.com/sipeed/NanoKVM), [image open source location](https://github.com/sipeed/LicheeRV-Nano-Build/tree/NanoKVM).
+
+> The NanoKVM image is built on the LicheeRV Nano SDK and MaixCDK, and it is compatible with materials that use the LicheeRV Nano. Conversely, the KVM software cannot be used with the LicheeRV Nano or other SG2002 products. If you would like to build HDMI input-related applications on the NanoKVM, please contact us for technical support.
 
 + [Schematics](https://cn.dl.sipeed.com/shareURL/KVM/nanoKVM/HDK/02_Schematic)
 + [3D Structure](https://cn.dl.sipeed.com/shareURL/KVM/nanoKVM/HDK/04_3D_file)

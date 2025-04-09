@@ -92,6 +92,8 @@ For detailed instructions, please refer to [Flashing Image](https://wiki.sipeed.
 
 New applications often bring more features or fix important bugs. It is recommended to update NanoKVM applications to the latest version. For detailed instructions, please refer to [Updating Application](https://wiki.sipeed.com/hardware/zh/kvm/NanoKVM/system/updating.html).
 
+The update records for version 2.1.1 and subsequent versions can be found here: [Application Update Log](https://github.com/sipeed/NanoKVM/blob/main/CHANGELOG.md).
+
 ## Basic Operations
 
 ### How to Obtain an IP Address
@@ -102,13 +104,17 @@ The Full version of NanoKVM has an OLED display that shows the IP address on the
 
 Lite version users, please refer to [Obtaining IP](https://wiki.sipeed.com/hardware/zh/kvm/NanoKVM/system/updating.html#%E8%8E%B7%E5%8F%96-IP).
 
+**Note:** In version 1.4.0, SSH is disabled by default. Lite users should log in to the web interface using the RNDIS IP (10.xxx.xxx.1), where you can view the IP in the settings.
+
 ### Viewing Remote Desktop
 
 Open a browser and enter the obtained IP address to access the login page. The default username and password are admin/admin. After logging in, it is recommended to **check for updates** (Settings -> Check for Updates). Detailed steps can be found in [Updating Application](https://wiki.sipeed.com/hardware/zh/kvm/NanoKVM/system/updating.html).
 
 For Lite version users, or Full version users who re-flashed the card and see no remote screen on the login page, please upgrade the application and refresh the webpage to start using.
 
-Note: It is recommended to use Chrome browser, as other browsers may experience compatibility issues such as inability to display images or operate keyboard and mouse.
+**Note:** In some versions, there may be issues accessing the web interface or crashes after login. Please disconnect the HDMI interface, power cycle the device, update to the latest application, and then reconnect the HDMI.
+
+**Note:** It is recommended to use Chrome browser, as other browsers may experience compatibility issues such as inability to display images or operate keyboard and mouse.
 
 ![](./../../../assets/NanoKVM/unbox/frist_update.png)
 
@@ -117,6 +123,8 @@ Note: It is recommended to use Chrome browser, as other browsers may experience 
 **For security, please change the account password after confirming the functions are working properly.**
 
 ![](./../../../assets/NanoKVM/unbox/unbox_9.png)
+
+**Note:** After changing the password in the web interface, the SSH login password will be synchronized. For example, if you change the web password to `123456`, you can log in using `ssh root@192.168.xxx.xxx` with `123456` as the password.
 
 ### ATX Power Control
 

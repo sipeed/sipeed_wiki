@@ -100,6 +100,8 @@ Note: Some early users of the NanoKVM-PCIe with a full-height PCIe bracket may e
 
 New applications often bring more features or fix important bugs. It is recommended to update NanoKVM applications to the latest version. For detailed instructions, please refer to [Updating Application](https://wiki.sipeed.com/hardware/zh/kvm/NanoKVM/system/updating.html).
 
+The update records for version 2.1.1 and subsequent versions can be found here: [Application Update Log](https://github.com/sipeed/NanoKVM/blob/main/CHANGELOG.md).
+
 ## Basic Operations
 
 ### How to Obtain an IP Address
@@ -117,6 +119,8 @@ Enter the obtained IP directly in your browser to access the login page. The def
 ![](./../../../assets/NanoKVM/unbox/frist_update.png)
 
 **Note:** It is recommended to use the Chrome browser, as other browsers may experience compatibility issues such as inability to display the screen or operate the keyboard and mouse.
+
+**Note:** In some versions, there may be issues accessing the web interface or crashes after login. Please disconnect the HDMI interface, power cycle the device, update to the latest application, and then reconnect the HDMI.
 
 ### ATX Power Control
 

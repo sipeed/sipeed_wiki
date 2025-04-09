@@ -128,12 +128,26 @@ Note:
 
 ### About SSH
 
-+ After updating to version 2.1.5, SSH support can be permanently disabled or temporarily enabled as follows:
++ In version 2.1.6 and later, SSH can be enabled or permanently disabled from the web interface under Settings -> Devices -> SSH.
 
-1. **Permanently Disable**: Execute `touch /etc/kvm/ssh_stop` to disable SSH login on the next boot of the NanoKVM. To remove this restriction, delete the file with `rm /etc/kvm/ssh_stop`.
-2. **Temporarily Enable**: Execute `touch /boot/start_ssh_once` or create an empty file named start_ssh_once in the /boot partition to enable SSH on the next boot of the NanoKVM. This file will be automatically deleted afterward.
++ In version 1.4.0, SSH is disabled by default.
 
-### More Features Coming Soon
+1. **Permanently Disable:** Execute `touch /etc/kvm/ssh_stop` to disable SSH login on the next boot. To enable it again, remove the file using `rm /etc/kvm/ssh_stop`.
+2. **Temporarily Enable:** Execute `touch /boot/start_ssh_once` or create an empty file named `start_ssh_once` in the /boot partition. This will enable SSH on the next boot, and the file will be automatically deleted.
+
+### About mDNS
+
++ mDNS (Multicast DNS) is a protocol used for name resolution within a local network, allowing devices to discover and communicate with each other using hostnames instead of IP addresses. It enables automatic discovery of services and devices on the network without a central DNS server.
+
++ NanoKVM generates mDNS hostnames based on the device code to minimize conflicts when multiple devices are present.
+
++ mDNS services can lead to higher CPU usage in complex network environments, affecting image smoothness. It is recommended to disable it when not in use: Settings -> Devices -> mDNS.
+
+### About the Watchdog
+
++ The watchdog system was added in version 2.2.2 to continuously monitor the server service. If the service encounters an exception, the system will restart. By default, it is disabled. You can enable it by executing `touch /etc/kvm/watchdog` in the web terminal and disable it with `rm /etc/kvm/watchdog`.
+
+### More Features Coming Soon!
 
 ## Network Latency Estimation
 
