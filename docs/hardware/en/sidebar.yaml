@@ -454,6 +454,8 @@ items:
                 file: kvm/NanoKVM/system/configuration.md
         -   label: FAQ
             file: kvm/NanoKVM/faq.md
+        -   label: Development
+            file: kvm/NanoKVM/development.md
     -   label: NanoKVM PCIe
         items:
         -   label: Introduction
@@ -482,6 +484,8 @@ items:
                 file: kvm/NanoKVM/system/configuration.md
         -   label: FAQ
             file: kvm/NanoKVM/faq.md
+        -   label: Development
+            file: kvm/NanoKVM/development.md
     -   label: NanoKVM USB
         items:
         -   label: Introduction
