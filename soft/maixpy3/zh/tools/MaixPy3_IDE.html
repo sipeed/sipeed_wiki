@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+
+<html lang="zh"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="MaixPy3 IDE">
+    
+    
+    <meta name="description" content="maixpy  如何连接并使用 MaixPy3 的 IDE">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+        
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/prism.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?9cb07365544a53067c56c346c838181a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119047820-5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-119047820-5');
+    </script>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/js/thumbs_up/style.css" type="text/css"/>
+        
+    
+    
+    <title>安装 IDE - Sipeed Wiki</title>
+    
+    <script type="text/javascript">js_vars = {"teedoc-plugin-ad-hint": {"type": "hint", "label": "NEW", "content": "全新 Maix 系列产品 <a href='https://wiki.sipeed.com/maixcam'>MaixCAM</a> 已上线, 全新 <a href='https://wiki.sipeed.com/maixpy/'>MaixPy</a> 功能更丰富，性能更强大，软件更易用，文档更全面！", "show_times": 2, "show_after_s": 432000, "date": "2022-06-01 14:00", "color": "#a0421d", "link_color": "#e53935", "link_bg_color": "#e6ae5c", "bg_color": "#ffcf89", "color_hover": "white", "bg_color_hover": "#f57c00", "close_color": "#eab971"}, "teedoc-plugin-thumbs-up": {"label_up": "有帮助", "label_down": "待改进", "icon": "/static/images/thumbs_up/up.svg", "icon_clicked": "/static/images/thumbs_up/upped.svg", "url": "https://thumbs-up.sipeed.com", "show_up_count": true, "show_down_count": false, "msg_already_voted": "您已经投过票了", "msg_thanks": "感谢您的反馈", "msg_down_prompt": "感谢反馈，请告诉我们可以改进什么地方?（最少 10 个字）", "msg_down_prompt_error": "消息最少需要 10 个字， 最多 256 个字", "msg_error": "请求服务器出现错误!"}}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": false, "update": [], "ts": 0, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/">
+                
+                    <img class="site_logo" src="/static/image/logo.svg" alt="sipeed wiki logo">
+                
+                
+                    <h2>wiki</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class=""><a  href="/">产品</a></li>
+<li class="sub_items "><a >开源软件</a><ul><li class=""><a  href="/maixpy/">MaixPy</a></li>
+<li class=""><a  href="/soft/maixpy/zh/index.html">MaixPy_v1</a></li>
+<li class=""><a  href="/soft/Lichee/zh/index.html">Lichee</a></li>
+<li class=""><a  href="/ai/zh/index.html">AI 指南</a></li>
+</ul>
+</li>
+<li class=""><a target="_blank" href="https://maixhub.com">MaixHub</a></li>
+<li class=""><a  href="/news/">动态</a></li>
+<li class=""><a  href="/faq.html">FAQ 汇总</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class=""><a  href="/store.html"><img src='/static/image/shop.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+<li class=""><a target="_blank" href="https://github.com/sipeed"><img src='/static/image/github.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">输入关键词，多关键词空格隔开</span>
+                                <span id="search_loading_hint">正在加载，请稍候。。。</span>
+                                <span id="search_download_err_hint">下载文件失败，请刷新重试或检查网络</span>
+                                <span id="search_other_docs_result_hint">来自其它文档的结果</span>
+                                <span id="search_curr_doc_result_hint">当前文档搜索结果</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="active_parent with_link"><a href="/soft/maixpy3/zh/index.html"><span class="label">MaixPy3 是什么？能做什么？</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/install/install.html"><span class="label">如何获取、安装、使用？</span><span class=""></span></a></li>
+<li class="active with_link"><a href="/soft/maixpy3/zh/tools/MaixPy3_IDE.html"><span class="label">安装或配置 IDE 开发工具</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/tools/0.MaixII-Dock.html"><span class="label">基于 USB 开发 MaixII-Dock</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/tools/maixsense.html"><span class="label">基于 WIFI 开发 MaixSense</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active  with_link"><a href="/news/MaixPy3/v831_usage/v831_usage.html" ><span class="label">M2DOCK (V831)上手视觉指南</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">遇到问题怎么办？</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/origin/helper.html"><span class="label">如何正确反馈问题！</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/question/maixpy3_faq.html"><span class="label">常见问题与解决方法</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">相关的基础知识</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active  with_link"><a href="/news/MaixPy3/difference.html" ><span class="label">MaixPy 和 MaixPy3 的区别</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/origin/video.html"><span class="label">收录一些国内 Python 基础教程</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/origin/hello_world.html"><span class="label">大佬鼠の嵌入式 Python 入门教程 [1]</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/origin/loop_python.html"><span class="label">大佬鼠の嵌入式 Python 入门教程 [2]</span><span class=""></span></a></li>
+<li class="not_active  with_link"><a href="https://bing.com/search?q=v831+m2dock" ><span class="label">使用必应搜索 V831 M2DOCK 的内容</span><span class=""></span></a></li>
+<li class="not_active  with_link"><a href="https://bbs.sipeed.com/user/909" ><span class="label">咸鱼菌の MaixII-Dock 上手系列教程</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/origin/xiaoxu.html"><span class="label">喏呐の【攻城狮成长记】</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/develop/index.html"><span class="label">开发者更新日志</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/others/framework.html"><span class="label">【项目开发基础】项目架构介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/others/develop.html"><span class="label">【底层开发基础】编译安装测试</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/others/platform.html"><span class="label">【移植适配实例】开发新的平台</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/develop/opmv_cv.html"><span class="label">【图像处理开发】传统视觉算法</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">基础功能模块</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active no_link"><a><span class="label">图像处理</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/vision/back-information.html"><span class="label">背景知识</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/vision/maixpy3-example.html"><span class="label">基础用法</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/vision/image_example.html"><span class="label">传统视觉</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">硬件外设</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/hardware/GPIO.html"><span class="label">GPIO  (点灯)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/hardware/I2C.html"><span class="label">I2C  (pylibi2c)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/hardware/PWM.html"><span class="label">PWM  (脉冲宽度调制)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/hardware/UART.html"><span class="label">UART  (pyserial)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/hardware/SPI.html"><span class="label">SPI  (spidev)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/hardware/event.html"><span class="label">EVENT  (evdev)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/hardware/ADC.html"><span class="label">ADC*  (模/数转换器)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/hardware/watchdog.html"><span class="label">WATCHDOG*  (看门狗定时器)</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/net.html"><span class="label">网络功能</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">媒体功能</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/Audio/play_mp4.html"><span class="label">视频播放 (pyav)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/Audio/audio.html"><span class="label">录音与播放 (pyaudio)</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">获取 AI 算法</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/AI_net/Edge_detection.html"><span class="label">边缘检测 (sobel)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/AI_net/resnet.html"><span class="label">物品分类 (resnet)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/AI_net/yolo.html"><span class="label">物体检测 (yolov2)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/AI_net/number_recognize.html"><span class="label">数字识别</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/AI_net/face_recognize.html"><span class="label">人脸识别</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/AI_net/self_learn.html"><span class="label">自学习分类</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/AI_net/car_registration_plate_recognition.html"><span class="label">车牌识别</span><span class=""></span></a></li>
+<li class="not_active  with_link"><a href="https://maixhub.com" ><span class="label">在线训练 AI 模型</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">本地训练 AI 模型</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/train_AI/information.html"><span class="label">深度神经网络基础知识 (必看)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/train_AI/ready.html"><span class="label">本地训练环境搭建</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/train_AI/v831_sobel.html"><span class="label">边缘检测模型搭建过程</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/train_AI/data.html"><span class="label">如何制作数据集</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/train_AI/train_resnet.html"><span class="label">训练物体分类模型</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/train_AI/train_yolov2.html"><span class="label">训练物体检测模型</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">核心 API 手册</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/api/maix/image.html"><span class="label">image</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/api/maix/display.html"><span class="label">display</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/api/maix/camera.html"><span class="label">camera</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/api/maix/nn.html"><span class="label">nn</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>安装 IDE</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/sipeed/sipeed_wiki/blob/main/docs/soft/maixpy3/zh/tools/MaixPy3_IDE.md" target="_blank">
+                                    <span id='editPage'>编辑本页</span>
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <blockquote>
+<p>下载站链接：<a href="https://dl.sipeed.com/shareURL/MaixII/MaixPy3-IDE"  target="_blank">下载 MaixPy3 IDE </a><br />
+百度网盘下载链接：链接：<a href="https://pan.baidu.com/s/1d5zbIDSOBUvIta_rRhLx_A"  target="_blank">点我</a></p>
+</blockquote>
+<h2 id="%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E4%BD%BF%E7%94%A8-IDE-%EF%BC%9F">为什么要使用 IDE ？</h2>
+<p>在没有 IDE 的时候，我们是这样编程的；这是每一只远古程序猿都必备的开发技能。</p>
+<img style="width:100%;height:auto;min-width:600px;min-height:400px;" src="./assets/4in1.jpg" >
+<p>上述命令行的编程方式是上世纪 80 年代流行的开发方式，建议在有一定的 linux 基础后再来使用会比较好。<br />
+但 2022 现代 IDE 工具的重点应该是传达出 Python 代码所运行的结果或效果。</p>
+<img style="width:100%;height:auto;min-width:600px;min-height:400px;" src="./assets/python_cmd.gif">
+<p>如果你是一名开发者，你要如何教会初学者使用你的代码？像你一样使用命令行敲出来看实际的效果吗？</p>
+<ul>
+<li><strong>对初学者来说，这一定是一场灾难，所以我们需要 IDE 来结束这一场悲剧。</strong></li>
+</ul>
+<h2 id="%E9%82%A3%E4%B9%88-MaixPy3-IDE-%E6%98%AF%E4%BB%80%E4%B9%88%3F">那么 MaixPy3 IDE 是什么?</h2>
+<p>它是一套基于 <a href="https://jupyter.org/"  target="_blank">jupyter</a> 实现的 Python3 集成开发环境，意在帮助用户通过电脑编写 Python 代码或阅读运行他人提供的 jupyter notebook 文档后，接上硬件后点击【▶ 运行】可以实时呈现如下效果图。</p>
+<p><img src="./assets/index.png" alt="example" /></p>
+<p>为了方便新入门的同学进行学习，在 Jupyter 文档中你可以单步执行代码，保留输出的结果，还能将屏幕显示的内容展示出来。</p>
+<p>软件具备的特点如下：</p>
+<ul>
+<li>通过 TCP/IP 连接开发板，支持在本机运行 Python 代码，实时反馈开发板的运行结果或图片</li>
+<li>通过 jupyter notebook 文档可以保存每一次的运行结果，方便知识的传播</li>
+<li>继承 ipython 实现 Python 语法的高亮和补全功能（可以按 tab 进行补全或提示）</li>
+</ul>
+<h2 id="%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85-MaixPy3-IDE-%EF%BC%9F">如何安装 MaixPy3 IDE ？</h2>
+<blockquote>
+<p><strong>软件安装方法和注意事项要严格看本文说明</strong></p>
+</blockquote>
+<p>MaixPy3 IDE 的构成主要如下：</p>
+<ul>
+<li>一个在后台运行的托盘程序。</li>
+<li>一个 jupyter 服务程序。</li>
+</ul>
+<p>用户使用与排查流程主要如下：</p>
+<ul>
+<li>确认所用的系统平台，确定安装方法</li>
+<li>确认所用的开发硬件，查看对应的系统配置方法</li>
+<li>确认系统防火墙没有阻止 TCP 的 18811 和 18812 端口，不清楚就关闭网络防火墙或安全软件</li>
+<li>确认硬件的 MaixPy3 的 Python 包和电脑上的 IDE 版本为 0.4.0 以上</li>
+<li>确认 所用硬件的 连接和配置方法，确认没有被杀毒程序给阻止且已经授予程序权限</li>
+<li><strong>若是仍然出现问题，将上述流程打包起来反馈给<a href="https://bbs.sipeed.com/"  target="_blank">社区</a>并@管理员解决</strong></li>
+</ul>
+<h3 id="%E5%85%B3%E4%BA%8E-Windows-%E5%B9%B3%E5%8F%B0%E7%9A%84%E5%AE%89%E8%A3%85%E6%96%B9%E6%B3%95">关于 Windows 平台的安装方法</h3>
+<p>在文章开头处下载即可。</p>
+<p>注意事项:</p>
+<ul>
+<li>只支持 Windows7 或 Windows10 32 位以上的系统</li>
+<li>需要内核为Chromium的浏览器,比如 <a href="https://www.microsoft.com/zh-cn/edge"  target="_blank">Microsoft Edge</a> 或 Chrome。</li>
+<li>Windows11 测试样本极少，需要慎重选用</li>
+</ul>
+<p>可以看下面的视频来看具体操作：</p>
+<p align="center">
+    <iframe src="//player.bilibili.com/player.html?bvid=BV1SS4y1q7QX&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="max-width:640px; max-height:480px;"> </iframe>
+</p>
+<p>补充说明：</p>
+<ul>
+<li>安装完 IDE 后务必安装弹出窗口的驱动</li>
+<li>记得像视频中一样卸载掉对应的 ADB 驱动</li>
+</ul>
+<blockquote>
+<p>若下载站下载很慢，可以在文章开头处获取百度云链接</p>
+</blockquote>
+<p>2022年1月15日 收到用户的反馈点</p>
+<p>曾经有自己手动配置过环境的同学，需要在删除你系统的 <code>C:\Users\（改成你电脑的用户名）\AppData\Roaming\jupyter\kernels\rpyc</code> 防止调用核心时调用了过去的旧核心导致错误发生。</p>
+<h3 id="%E5%85%B3%E4%BA%8E-Mac-%E5%92%8C-linux-%E5%85%B6%E4%BB%96%E5%B9%B3%E5%8F%B0%E7%9A%84%E5%AE%89%E8%A3%85%E6%96%B9%E6%B3%95">关于 Mac 和 linux 其他平台的安装方法</h3>
+<p>如果你不喜欢提供的 pyinstaller 打包的版本，可以自行配置 python 、jupyter 、ikernel 等基础环境，自行 pip 手动安装和配置环境。<br />
+但是需要你具备一定的 python 基础，请阅读 <a href="https://github.com/sipeed/rpyc_ikernel"  target="_blank">rpyc_ikernel</a> 完成安装即可，手动安装脚本的方法如下：</p>
+
+<pre class="language-bash"><code class="language-bash">pip install rpyc_ikernel
+python -m rpyc_ikernel.install
+</code></pre>
+<p>此时执行 <code>jupyter notebook</code> 或 lab 即可。</p>
+<h2 id="MaixPy3-IDE-%E7%95%8C%E9%9D%A2%E4%BB%8B%E7%BB%8D">MaixPy3 IDE 界面介绍</h2>
+<p>下面介绍一下软件的工作区域和环境。</p>
+<h3 id="%E7%A8%8B%E5%BA%8F%E4%B8%BB%E7%95%8C%E9%9D%A2%E4%BB%8B%E7%BB%8D">程序主界面介绍</h3>
+<p><img src="./assets/IDE_2.png" alt="IDE_2" /></p>
+<ol>
+<li>为文件选择区，点击即可进入 Jupyter 文档中</li>
+<li>为文件上传，是将文件上传到 MaixPy3 IDE 的工作区当中，并不是将文件上传到开发板中</li>
+<li>为新建文件或者是文件夹</li>
+<li>退出 MaixPy3 IDE。直接关闭浏览器的话 MaixPy3 IDE 是还会在后台中运行的</li>
+</ol>
+<hr />
+<h4 id="%E6%96%B0%E5%BB%BA%E6%96%87%E4%BB%B6">新建文件</h4>
+<p>MaixPy3 IDE （jupyter） 新建文件(上图中的2)的时候，可以选择多个 Python 执行核心。</p>
+<p><img src="./assets/core.png" alt="IDE_2" /></p>
+<ol>
+<li>选择 Python3 的话此时里面的相关代码是运行在本机上的。</li>
+<li>选择 RPyc-python，此时相关代码运行在板子上</li>
+</ol>
+<h3 id="jupyter-notebook-%E6%96%87%E6%A1%A3%E7%95%8C%E9%9D%A2">jupyter notebook 文档界面</h3>
+<p><img src="./assets/IDE_3.png" alt="" /></p>
+<ol>
+<li>单元格工具栏，可以对单元格进行复制、粘贴、运行、停止等操作</li>
+<li>当前单元格的属性，可以切换单元格属性为 代码 或者 markdown</li>
+<li>显示当前文档运行代码属性单元格时所使用的内核</li>
+<li>蓝色边框表示单元格处于命令模式。绿色边框表示单元格为编辑模式</li>
+</ol>
+<details><summary><font color="#4F84FF">Jupyter 用法简介</font></summary>
+与 vim 类似，jupyer 有命令模式和编辑模式
+<li>
+通用：<br>
+&emsp;&emsp;Shift+ Enter ：运行单元格，且以命令模式切换到下一个单元格<br>
+&emsp;&emsp;Ctrl + Enter ：运行单元格，且进入命令模式
+</li>
+<li>
+编辑模式中：<br>
+&emsp;&emsp;Esc ：进入命令模式
+</li>
+<li>
+命令模式中：<br>
+&emsp;&emsp;h :打开帮助<br>
+&emsp;&emsp;Enter :进入编辑模式<br>
+&emsp;&emsp;x :剪切单元格<br>
+&emsp;&emsp;c :复制单元格<br>
+&emsp;&emsp;v :粘贴单元格<br>
+&emsp;&emsp;dd :删除整个单元格<br>
+&emsp;&emsp;ii :终止运行
+</li>
+</details>
+<p>借助于 notebook 文档，你可以看到编辑者的文本描述、代码和相关运行结果，非常适合新人边看边学</p>
+<p>编辑者文本描述<br />
+<img src="./assets/IDE_4.png" alt="文本描述" /></p>
+<p>相关代码实例，直接点击运行就可以看到<br />
+<img src="./assets/IDE_5.png" alt="实例代码" /></p>
+<p>图片展示结果，直接点击运行可以复现<br />
+<img src="./assets/IDE_6.png" alt="运行结果" /></p>
+<p>这也是 jupyter 的魅力之一吧，有兴趣的话也可以直接分享 ipynb 文件 来向他人展示你的代码</p>
+<hr />
+<p><strong>注意 MaixPy3 IDE 的 jupyter notebook 的服务是运行在主机上的，因此所有相关文件和工作区都是在本机上的</strong></p>
+<h2 id="%5B%E9%99%84%E5%BD%95%5D%E9%81%87%E5%88%B0%E9%97%AE%E9%A2%98%E5%BA%94%E8%AF%A5%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%EF%BC%9F">[附录]遇到问题应该如何解决？</h2>
+<p>为了降低初学者的搭建和上手时间，我们做了大量的努力，但仍然无法完全解决每个人因环境差异而可能导致的不同问题，这里对 IDE 的工作原理做一些解释，它实际上就是打包的 (python + jupyter notebook + rpycikernel ).exe 帮你省了安装配置的时间。</p>
+<hr />
+<h3 id="IDE-%E8%BF%9E%E6%8E%A5%E5%8E%9F%E7%90%86">IDE 连接原理</h3>
+<p>这里我们以典型硬件 V83X 和 R329 的为例。</p>
+<p>因为 V83X 因为支持 usb adb forward 功能，可以通过转发 TCP/IP 地址进行 IP 映射的端口绑定；而 R329 只能通过 TCP/IP 地址进行连接。但从设计上来说 IDE 只支持 TCP/IP 地址的连接方法，所以要确保 TCP 的远程调用端口 18811 和 18812 图传端口没有被防火墙阻止，那么如何确认呢？</p>
+<p>最起码的就是互相 ping 对方的 IP 确保该 IP 下的通路可行。如果 IP 确定是可以连通的，则我们需要确定远程调用的服务是否存在。</p>
+<p>通常里面需要一个 rpyc + mjpg 的服务去维持远程调用，如果是 V83X 则会自动经过 adb shell 完成调用 <a href="https://github.com/sipeed/rpyc_ikernel/blob/master/rpyc_ikernel/adb.py#L509-L539"  target="_blank">实现在 github 这里</a>；如果是 R329 则需要手动启动该服务，或配置成开机自动启动，从而避免下次手动启动。</p>
+<p>如果遇到 IDE 链接失败，就先使用板子所运行的 linux 系统中的 <code>ps</code> 命令检查维持 IDE 链接的 Python 程序（<code>python3 -c from maix import mjpg;mjpg.start();</code>）是否存在（如 S 表示正在运行）。可以参考下图中的命令</p>
+<p><img src="./assets/ps.png" alt="" /></p>
+<p>若是通道+服务均正常，那 IDE 就一定可以连上，还需要注意的就是 IDE 默认连接的 IP 地址是 <a href="https://baike.baidu.com/item/localhost/2608730"  target="_blank">localhost</a>；如果你本机的网卡环境比较混乱，可能你需要在 IDE 里手动指定一下 IP 才能确保正确连接上，如：<code>$connect(&quot;192.168.0.23&quot;)</code>。</p>
+<p>下图为 IDE 通过无线网在 Maixsense 上运行代码的结果，同样也适用于在 V831 上。只是说明一下可以指定 IP 然后通过无线运行（需要确定板子上已经有<code>python3 -c from maix import mjpg;mjpg.start();</code>在运行，没有的话可以手动执行一下 <code>python3 -c &quot;from maix import mjpg;mjpg.start();&quot;</code>）</p>
+<img src="./assets/r329-start/6.jpg">
+<h2 id="%E7%BB%93%E8%AF%AD">结语</h2>
+<p>MaixPy3 IDE 依赖于 <a href="https://github.com/jupyter/jupyter"  target="_blank">jupyter</a>、<a href="https://github.com/sipeed/rpyc_ikernel"  target="_blank">rpyc_ikernel</a>、<a href="https://github.com/sipeed/MaixPy3"  target="_blank">MaixPy3</a> 开源仓库实现，目的是为了让新用户更直观地运行代码，感兴趣的可以自行了解。</p>
+<p>其实所谓的 IDE 就是 jupyter 的打包版本，知道了工作机制后，还不赶紧用起来？</p>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                        <a href="/soft/maixpy3/zh/install/install.html">
+                            <span class="icon"></span>
+                            <span class="label">如何获取、安装、使用？</span>
+                        </a>
+                        
+                    </div>
+                    <div id="next">
+                        
+                        <a href="/soft/maixpy3/zh/tools/0.MaixII-Dock.html">
+                            <span class="label">基于 USB 开发 MaixII-Dock</span>
+                            <span class="icon"></span>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>相关链接</a><ul><li><a target="_blank" href="https://www.sipeed.com">Sipeed 官网</a></li>
+<li><a target="_blank" href="https://maixhub.com/">MaixHub</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">Sipeed 淘宝</a></li>
+<li><a  href="/sitemap.xml">网站地图</a></li>
+<li><a target="_blank" href="https://github.com/teedoc/teedoc">网站使用 teedoc 生成</a></li>
+</ul>
+</li>
+<li><a>源码</a><ul><li><a target="_blank" href="https://github.com/sipeed/sipeed_wiki">Wiki 源码</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">开源项目</a></li>
+</ul>
+</li>
+<li><a>关注我们</a><ul><li><a target="_blank" href="https://twitter.com/SipeedIO">twitter</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">淘宝</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">github</a></li>
+<li><a><a>微信公众号</a><img src='/static/image/wechat.png'></a>
+</li>
+</ul>
+</li>
+<li><a>联系我们</a><ul><li><a>电话: +86 0755-27808509</a>
+</li>
+<li><a>商业支持: support@sipeed.com</a>
+</li>
+<li><a>地址: 深圳市宝安区新湖路4008号蘅芳科技办公大厦A座-2101C</a>
+</li>
+<li><a  href="/join_us.html">加入我们</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://www.sipeed.com">©2018-2023 深圳矽速科技有限公司</a></li>
+<li><a target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index">粤ICP备19015433号</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/js/prism.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <link rel="stylesheet" href="/static/js/add_hint/style.css" type="text/css"/>
+    
+        <script src="/static/js/add_hint/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+        <script src="/static/js/thumbs_up/main.js"></script>
+    
+</body>
+
+</html>

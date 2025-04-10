@@ -1,0 +1,1600 @@
+<!DOCTYPE html>
+
+<html lang="zh"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="V831, 视觉指南，避坑, 上手">
+    
+    
+    <meta name="description" content="">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+        
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/prism.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?9cb07365544a53067c56c346c838181a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119047820-5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-119047820-5');
+    </script>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/js/thumbs_up/style.css" type="text/css"/>
+        
+    
+    
+    <title>M2DOCK 上手视觉指南 - Sipeed Wiki</title>
+    
+    <script type="text/javascript">js_vars = {"teedoc-plugin-ad-hint": {"type": "hint", "label": "NEW", "content": "全新 Maix 系列产品 <a href='https://wiki.sipeed.com/maixcam'>MaixCAM</a> 已上线, 全新 <a href='https://wiki.sipeed.com/maixpy/'>MaixPy</a> 功能更丰富，性能更强大，软件更易用，文档更全面！", "show_times": 2, "show_after_s": 432000, "date": "2022-06-01 14:00", "color": "#a0421d", "link_color": "#e53935", "link_bg_color": "#e6ae5c", "bg_color": "#ffcf89", "color_hover": "white", "bg_color_hover": "#f57c00", "close_color": "#eab971"}, "teedoc-plugin-thumbs-up": {"label_up": "有帮助", "label_down": "待改进", "icon": "/static/images/thumbs_up/up.svg", "icon_clicked": "/static/images/thumbs_up/upped.svg", "url": "https://thumbs-up.sipeed.com", "show_up_count": true, "show_down_count": false, "msg_already_voted": "您已经投过票了", "msg_thanks": "感谢您的反馈", "msg_down_prompt": "感谢反馈，请告诉我们可以改进什么地方?（最少 10 个字）", "msg_down_prompt_error": "消息最少需要 10 个字， 最多 256 个字", "msg_error": "请求服务器出现错误!"}}</script>
+    <script type="text/javascript">metadata = {"tags": ["M2DOCK", "V831", "避坑指南", "上手指南"], "date": "2023-06-08", "update": [{"date": "2023-06-08", "version": "v0.3", "author": "lyx", "content": ["补充内容细节"]}, {"date": "2023-06-01", "version": "v0.2", "author": "lyx", "content": ["填充大纲"]}, {"date": "2023-05-15", "version": "v0.1", "author": "lyx", "content": ["编写文档"]}], "ts": 1686182400, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/">
+                
+                    <img class="site_logo" src="/static/image/logo.svg" alt="sipeed wiki logo">
+                
+                
+                    <h2>wiki</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class=""><a  href="/">产品</a></li>
+<li class="sub_items "><a >开源软件</a><ul><li class=""><a  href="/maixpy/">MaixPy</a></li>
+<li class=""><a  href="/soft/maixpy/zh/index.html">MaixPy_v1</a></li>
+<li class=""><a  href="/soft/Lichee/zh/index.html">Lichee</a></li>
+<li class=""><a  href="/ai/zh/index.html">AI 指南</a></li>
+</ul>
+</li>
+<li class=""><a target="_blank" href="https://maixhub.com">MaixHub</a></li>
+<li class="active"><a  href="/news/">动态</a></li>
+<li class=""><a  href="/faq.html">FAQ 汇总</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class=""><a  href="/store.html"><img src='/static/image/shop.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+<li class=""><a target="_blank" href="https://github.com/sipeed"><img src='/static/image/github.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">输入关键词，多关键词空格隔开</span>
+                                <span id="search_loading_hint">正在加载，请稍候。。。</span>
+                                <span id="search_download_err_hint">下载文件失败，请刷新重试或检查网络</span>
+                                <span id="search_other_docs_result_hint">来自其它文档的结果</span>
+                                <span id="search_curr_doc_result_hint">当前文档搜索结果</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="">
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>M2DOCK 上手视觉指南</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                                <li>M2DOCK</li>
+                            
+                                <li>V831</li>
+                            
+                                <li>避坑指南</li>
+                            
+                                <li>上手指南</li>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                                <span class="article_date" title="最后修改日期： 2023-06-08">
+                                    2023-06-08
+                                </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/sipeed/sipeed_wiki/blob/main/news/MaixPy3/v831_usage/v831_usage.md" target="_blank">
+                                    <span id='editPage'>编辑本页</span>
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                        
+                        <details open>
+                        
+                            <summary>更新历史</summary>
+                            <div>
+                                <table>
+                                        <thead>
+                                            <tr>
+                                                <th>日期</th>
+                                                <th>版本</th>
+                                                <th>作者</th>
+                                                <th>更新内容</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            
+                                                <tr>
+                                                    <td>2023-06-08</td>
+                                                    <td>v0.3</td>
+                                                    <td>lyx</td>
+                                                    <td>
+                                                    
+                                                        <ul>
+                                                        
+                                                            <li>补充内容细节</li>
+                                                        
+                                                        </ul>
+                                                    
+                                                    </td>
+                                                </tr>
+                                            
+                                                <tr>
+                                                    <td>2023-06-01</td>
+                                                    <td>v0.2</td>
+                                                    <td>lyx</td>
+                                                    <td>
+                                                    
+                                                        <ul>
+                                                        
+                                                            <li>填充大纲</li>
+                                                        
+                                                        </ul>
+                                                    
+                                                    </td>
+                                                </tr>
+                                            
+                                                <tr>
+                                                    <td>2023-05-15</td>
+                                                    <td>v0.1</td>
+                                                    <td>lyx</td>
+                                                    <td>
+                                                    
+                                                        <ul>
+                                                        
+                                                            <li>编写文档</li>
+                                                        
+                                                        </ul>
+                                                    
+                                                    </td>
+                                                </tr>
+                                            
+                                        </tbody>
+                                </table>
+                            </div>
+                        </details>
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <span id="blog_start"></span><h2 id="%E4%BA%A7%E5%93%81%E4%BB%8B%E7%BB%8D">产品介绍</h2>
+<blockquote>
+<p>铛 ~ 新的 2023 年当然要有新的上手指南辣（虽然已经过去5个月）总有事情要被鸽但能填上就是好坑。<br />
+新的上手指南还是旧的目的，希望大家可以借助这篇文章在使用 M2DOCK 时更加顺利一点吧！</p>
+</blockquote>
+<p><img src="https://wiki.sipeed.com/hardware/assets/maixII/m2dock.jpg" alt="m2dock" /></p>
+<p>本篇文章以 <code>视觉</code> 为主题阐述如何在 M2DOCK（V831）从基础的开箱上手再到视觉的衍生（深度开发）的使用全过程，因篇幅的有限这里不再对产品进行详细介绍，想要了解相关产品介绍可点击资料进行查看。</p>
+<ul>
+<li><strong>相关资料及硬件参数：<a href="https://wiki.sipeed.com/hardware/zh/maixII/M2/resources.html"  target="_blank">点击查看</a> 购买链接：<a href="https://item.taobao.com/item.htm?id=635874427363"  target="_blank">点击前往</a></strong></li>
+</ul>
+<iframe src="//player.bilibili.com/player.html?aid=298543445&bvid=BV1sF411u7xb&cid=586467021&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+<h2 id="%E5%89%8D%E6%83%85%E6%8F%90%E8%A6%81">前情提要</h2>
+<p><strong>【有基础可跳过】</strong>促使我们做上手指南的原因永远都是以降低用户使用难度为目的，但一些基础知识（Python 语法）我们还是需掌握熟悉的，而大部分的小伙伴是从 <code>K210（MaixPy)</code> 换代升级到 <code>M2DOCK（MaixPy3)</code> 的，但我们区分这两者之间的不同吗？显然刚接触的小伙伴们是不清楚的。</p>
+<blockquote>
+<p><strong>我们可以这么来理解</strong>：本质上它们都是专门为 AloT 提供的 Python 开发环境，提供了各类各样的模块。MaixPy 基于 MicroPython 的环境制作和 MCU 无系统的，而后者 MaixPy3 则是基于 Linux Python3 的环境以及 Linux 系统，可点击：<a href="https://wiki.sipeed.com/news/MaixPy3/difference.html"  target="_blank">[关于 MaixPy 与 MaixPy3 的区别]</a> 查看更多。</p>
+</blockquote>
+<p>根据下文的链接自行学习相关的 Python 基础语法及知识：</p>
+<ul>
+<li><a href="https://wiki.sipeed.com/soft/maixpy3/zh/origin/python.html?highlight=python"  target="_blank">什么是 Python ?</a></li>
+<li><a href="https://wiki.sipeed.com/soft/maixpy3/zh/origin/video.html"  target="_blank">国内 Python 基础教程</a></li>
+<li><a href="https://wiki.sipeed.com/soft/maixpy3/zh/origin/hello_world.html"  target="_blank">【适合有一定基础】大佬鼠の嵌入式 Python 入门教程[1]</a></li>
+<li><a href="https://wiki.sipeed.com/soft/maixpy3/zh/origin/loop_python.html"  target="_blank">【适合有一定基础】大佬鼠の嵌入式 Python 入门教程[2]</a></li>
+</ul>
+<h2 id="%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C%EF%BC%88%E5%BF%85%E7%9C%8B%EF%BC%89">准备工作（必看）</h2>
+<p>充足的准备能让后续的上手旅程更事半功倍（为了不掉坑里~）文档以 <code>M2DOCK</code> 的全功能套餐来演示，我们收到后会有一套 M2DOCK 板卡、Type-C 线 以及 SD 镜像卡，但还需准备一个 USB 3.0 读卡器以作备用。</p>
+<p><img src="./assest/maixii.jpg" alt="maixii" /></p>
+<h3 id="%E4%B8%8A%E6%89%8B%E6%B5%81%E7%A8%8B%E5%9B%BE">上手流程图</h3>
+<p>上手指南搭配流程图一起食用更佳~</p>
+<p><img src="./assest/steps.png" alt="steps" /></p>
+<h3 id="%E7%83%A7%E5%BD%95%E9%95%9C%E5%83%8F%E7%B3%BB%E7%BB%9F">烧录镜像系统</h3>
+<p>准备完相关的硬件工具后就是开启软件类的的相关准备操作，我们先进行烧录 M2DOCK 相关的适配系统。</p>
+<blockquote>
+<p>文档示例环境：<strong>Windows10</strong><br />
+镜像版本：<strong>v831-m2dock-maixpy3-0.5.4-20230505</strong></p>
+<ol>
+<li>在官方淘宝店购买过（预烧录好）镜像 SD 卡的小伙伴可跳过进入下一步。</li>
+<li>如果没有购入官方相关镜像卡，建议用户购买正规正版（防止出现烧录失败现象）的镜像卡。</li>
+<li>非必要的情况下不建议多次且随意进行镜像烧录。</li>
+</ol>
+</blockquote>
+<ul>
+<li><strong>镜像文件命名说明</strong></li>
+</ul>
+<p>对于 V831 的镜像文件名字是有对应的规则，以后大家可以根据自己的需求来进行下载。<br />
+就以 <code>v831-m2dock-maixhub-0.5.1-20220701.zip</code>和 <code>v831-m2dock-maixpy3-0.5.1-20220701.zip</code> 来对比说明</p>
+<table>
+<thead>
+<tr>
+  <th>名称</th>
+  <th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>maixpy3-0.5.1</td>
+  <td>此镜像是给 <a href="https://wiki.sipeed.com/maixpy3"  target="_blank">MaixPy3</a> 专用，并内置了<code>0.5.1</code>的版本，但其中 <strong>无</strong> 内置 maixhub app</td>
+</tr>
+<tr>
+  <td>maixhub-0.5.1</td>
+  <td>此镜像是给 <a href="https://wiki.sipeed.com/maixpy3"  target="_blank">MaixPy3</a> 专用，并内置了<code>0.5.1</code>的版本，但其中 内置 maixhub app</td>
+</tr>
+<tr>
+  <td>m2dock</td>
+  <td>可使用 MaixII-Dock 开发板平台</td>
+</tr>
+<tr>
+  <td>20220701</td>
+  <td>镜像更新日期</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>上述镜像均为开源版，只适用于 TF 卡烧录启动</p>
+</blockquote>
+<ul>
+<li><strong>获取相关的镜像包及工具</strong></li>
+</ul>
+<ol>
+<li>V831 系统镜像下载站 <a href="https://dl.sipeed.com/shareURL/MaixII/MaixII-Dock/SDK/release"  target="_blank">SDK_MaixII/release</a></li>
+<li>V831 系统镜像百度云 <a href="https://pan.baidu.com/e/1vCExI3_48Q90JrxO70JdiQ"  target="_blank">点我</a></li>
+<li>烧录工具 <a href="https://dl.sipeed.com/shareURL/MaixII/MaixII-Dock/SDK/tools"  target="_blank">PhoenixCard</a></li>
+<li>内存卡格式化工具 <a href="https://www.sdcard.org/downloads/formatter/eula_windows/SDCardFormatterv5_WinEN.zip"  target="_blank">SD Card Formatter</a></li>
+</ol>
+<ul>
+<li><strong>开始进行烧录工作</strong></li>
+</ul>
+<p><strong>第一步</strong>：先使用读卡器将镜像卡接入 USB 端，使用格式化工具 <code>SD Card Formatter</code> 进行格式化操作。<br />
+<strong>第二步</strong>：格式化完成后，再使用 <code>PhoenixCard</code> 烧录工具进行烧录。<br />
+<strong>烧录流程示例</strong>：可前往 <a href="https://wiki.sipeed.com/hardware/zh/maixII/M2/flash.html"  target="_blank">Windows/Linux M2dock 系统烧录</a> 查看相关示例，下图显示绿色代表烧录成功。</p>
+<p><img src="./assest/img.png" alt="img" /></p>
+<p>系统相当于燃机的原料，我们把系统烧录完成好后接着下一步安装需使用到的软件。</p>
+<h3 id="%E5%AE%89%E8%A3%85-MaixPy3-IDE">安装 MaixPy3 IDE</h3>
+<p><code>MaixPy3 IDE</code> 是基于 <code>Jupyter</code> 实现的 <code>Python3</code> 集成开发环境，运行界面可视化的操作降低使用难度，支持电脑端（支持跨平台）编辑或运行 Python 代码并实时显示效果，故而对无相关基础的用户们较友好。</p>
+<p><img src="./assest/hello.jpg" alt="hello" /></p>
+<blockquote>
+<p><code>注意事项（超重要！）</code>：<strong>下载时确保我们安装的软件包版本（大于 0.5.0）且在安装过程中会弹出安装驱动程序的提示，请根据提示安装驱动并确保安装完成才能进行下一步操作。</strong></p>
+</blockquote>
+<p><img src="/news/MaixPy3/v831_usage/assest/usb.jpg" alt="usb" /></p>
+<p>接下来根据 <code>注意事项</code> 来自行下载安装包并安装好驱动及软件，根据示例文档熟悉界面的基础用法。</p>
+<ul>
+<li><strong>软件包下载链接：</strong></li>
+</ul>
+<p>MaixPy3 IDE 下载站：<a href="https://dl.sipeed.com/shareURL/MaixII/MaixPy3-IDE"  target="_blank">点击</a><br />
+MaixPy3 IDE 百度云：<a href="https://pan.baidu.com/s/1d5zbIDSOBUvIta_rRhLx_A"  target="_blank">点击</a></p>
+<ul>
+<li><strong>示例文档：</strong></li>
+</ul>
+<p>多平台安装 MaixPy3 IDE 方法：<a href="https://wiki.sipeed.com/soft/maixpy3/zh/tools/MaixPy3_IDE.html"  target="_blank">Windows/Macos/Linux MaixPy3 IDE</a><br />
+软件使用文档：<a href="https://wiki.sipeed.com/soft/maixpy3/zh/tools/MaixPy3_IDE.html#MaixPy3-IDE-%E7%95%8C%E9%9D%A2%E4%BB%8B%E7%BB%8D"  target="_blank">MaixPy3 IDE 界面介绍</a></p>
+<blockquote>
+<p>一起搭配我们的【M2DOCK 开箱大放送】视频食用更佳噢~</p>
+</blockquote>
+<iframe src="//player.bilibili.com/player.html?aid=384617683&bvid=BV14Z4y147Lg&cid=734640023&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+<h3 id="%E4%B8%8A%E7%94%B5%E6%8E%A5%E7%BA%BF%E6%96%B9%E5%BC%8F">上电接线方式</h3>
+<p>准备好相关的软件以及基础工作我们开始学习如何正确接线并上电。</p>
+<p><strong>第一步</strong>：USB Type-C 数据线【需自行准备的话】请准备质量可靠或者是手机附赠的数据线，质量差的数据线会因电压问题造成开发板处于非正常工作状态导致后续影响使用，有些 Type-C 线只能供电。</p>
+<p><img src="./k210_usage/../../../MaixPy/mixly_application/accets/k210_usage/type_c.jpg" alt="type-c" /></p>
+<p><strong>第二步</strong>：把我们准备的镜像卡插入 M2DOCK 的卡槽内，并确定烧录的版本（大于 0.5.1）即可。</p>
+<p><img src="./assest/sd.jpg" alt="sd" /></p>
+<p><strong>第三步</strong>：将 <code>M2DOCK</code> 与电脑通过 OTG 标识的 USB 口连接，确认设备通电亮起（power）电源<strong>红灯</strong>，请看下图红圈别接错 USB 口的位置，OTG 标识的丝印在板子背面。</p>
+<p><img src="./assest/otg.jpg" alt="otg" /></p>
+<p><strong>第四步</strong>：确认屏幕出现 logo 或二维码（wiki）表示系统启动开始工作，同时电脑会弹出 U 盘标识（意味着板卡系统已准备就绪）即可进行下一环开始使用！</p>
+<p><img src="./assest/u_logo.jpg" alt="u_logo" /></p>
+<blockquote>
+<p><strong>如果出现异常情况</strong>：通电后无法弹出 U 盘标识（常见于 Windows 平台）根据第五步卸载相关驱动即可。</p>
+</blockquote>
+<p><strong>衍生第五步</strong>：打开设备管理器后，根据示例图找到相关的 <code>Android ADB Interface</code> 手机驱动（常见于 XX 手机助手）右键进行卸载设备。</p>
+<p><img src="./assest/adb.jpg" alt="adb" /></p>
+<p>然后勾选卸载驱动（重要！！一定要勾选）进行卸载即可，U 盘自动弹出也代表底层硬件正常可用。</p>
+<p><img src="./assest/delete.jpg" alt="delete" /></p>
+<blockquote>
+<p>如果 U 盘还是没有如上述步骤出现，可以重烧系统或重启设备或考虑换台电脑操作，有可能是个别系统驱动不兼容导致的，实在是解决不了请找官方的淘宝客服。</p>
+</blockquote>
+<h2 id="%E4%B8%8A%E6%89%8B%E8%BF%90%E8%A1%8C%E7%A8%8B%E5%BA%8F">上手运行程序</h2>
+<blockquote>
+<p>这里后不再重复任何基础操作知识，默认大家会操作 <a href="https://wiki.sipeed.com/soft/maixpy3/zh/tools/0.MaixII-Dock.html#%E9%80%89%E6%8B%A9-RPyc-Python-%E6%A0%B8%E5%BF%83%E8%A1%A8%E7%A4%BA%E5%9C%A8%E6%9D%BF%E5%AD%90%E4%B8%8A%E8%BF%90%E8%A1%8C-Python-%E7%A8%8B%E5%BA%8F"  target="_blank">Jupyter</a> 相关运行界面及方法。</p>
+</blockquote>
+<p>开始体验运行代码前，我们先了解 M2DOCK 支持多种编程方式，分别是 Linux shell（adb）命令行、Jupyter notebook（Python）开发、U 盘编辑运行（Python）等。Linux shell 更多的是专业开发者或是熟悉 Linux 终端的同学进行使用，而如果是无基础的萌新更推荐其余两种方式。</p>
+<blockquote>
+<p>下文全以适配软件 MaixPy3 IDE 的使用来示例。</p>
+</blockquote>
+<ul>
+<li><strong>先熟悉相关的运行环境</strong></li>
+</ul>
+<p>IDE 软件启动时会附带一个 <code>keep_adb.exe</code> 命令行终端的程序提供给熟悉 linux 终端操作开发板的同学，软件版本 0.4.2 后 keep_adb 服务会自动调用 adb 配置映射（forward）端口（22，18811，18812）与板子连接的 ide 服务是否工作。</p>
+<p><strong>如何进行判断</strong>：可以在交互终端输入 <code>ps | grep mjpg</code> 查看是否存在下图红框所指示的服务。</p>
+<p><img src="./assest/keep_adb.jpg" alt="keep_adb" /></p>
+<blockquote>
+<p>如果发现不存在 ide 服务（<code>python -c 'from maix import mjpg;mjpg.start();</code>）我们可以手动运行相关服务，并把现象汇报到社群，目前发现该现象主要出现在 Windows 11 系统之间的差异上。</p>
+</blockquote>
+<p>最后确认系统防火墙是否阻止了软件底层所需要 <code>TCP 18811 18812</code> 的端口号（主用于运行程序和图像传输）</p>
+<p><strong>了解更多</strong>：可以点此查看关于 <a href="https://wiki.sipeed.com/soft/maixpy3/zh/tools/MaixPy3_IDE.html"  target="_blank">MaixPy3</a> IDE 的更加详细的介绍，此处不再赘述。</p>
+<blockquote>
+<p><strong>启动 MaixPy3 IDE 时会弹出 Jupyter 的编辑网页，我们先来测试板卡的连接以及外设是否正常可用。</strong></p>
+</blockquote>
+<h3 id="%E6%B5%8B%E8%AF%95%E6%9D%BF%E5%8D%A1%E8%BF%9E%E6%8E%A5">测试板卡连接</h3>
+<p>复制下列代码块，再点击上方菜单栏中的运行，测试板子连接是否正常。</p>
+
+<pre class="language-python3"><code class="language-python3">import platform
+print(platform.platform())
+
+import time
+print(time.asctime())
+</code></pre>
+<p><img src="./assest/test.jpg" alt="test" /></p>
+<p><strong>由运行后打印出的结果我们可知以下信息：</strong></p>
+<ol>
+<li>运行这段代码的时间是 [ rpyc-kernel ]( running at Wed Jul 13 15:20:20 2022 )</li>
+<li>运行这段代码的平台是 Linux-4.9.118-armv7l-with-libc</li>
+<li>运行这段代码时：板子系统时间是 Thu Jan 1 04:04:55 1970。</li>
+</ol>
+<p>当代码运行的时间为当前时间，并打印出以上代码，说明开发板已经连接上并可以正常的使用。</p>
+<blockquote>
+<p>关于更详细或报错的话请查看 <a href="https://wiki.sipeed.com/soft/maixpy3/zh/tools/0.MaixII-Dock.html#%E5%A6%82%E4%BD%95%E8%BF%90%E8%A1%8C%E4%BB%A3%E7%A0%81"  target="_blank">如何运行代码</a> 进行排查或了解。</p>
+</blockquote>
+<h3 id="%E6%B5%8B%E8%AF%95%E5%B1%8F%E5%B9%95%E5%8F%8A%E6%91%84%E5%83%8F%E5%A4%B4">测试屏幕及摄像头</h3>
+<blockquote>
+<p>当确定板卡的连接状态正常后，我们来测试屏幕以及摄像头的功能是否正常。</p>
+</blockquote>
+<p>运行以下程序后可在代码下方看见摄像头实时获取的图像。</p>
+
+<pre class="language-python3"><code class="language-python3">from maix import camera, display, image #引入python模块包
+
+while True:
+    img = camera.capture()    #从摄像头中获取一张图像
+    display.show(img)         #将图像显示出来
+</code></pre>
+<p><img src="./assest/sensor.png" alt="sensor" /></p>
+<p>图中我们看见运行程序后可实时看到摄像头捕捉的画面，正面我们的屏幕以及摄像头都是正常可用的。</p>
+<blockquote>
+<p>更多的图像处理基础用法：<a href="https://wiki.sipeed.com/soft/maixpy3/zh/usage/vision/maixpy3-example.html#%E4%BB%8E%E6%91%84%E5%83%8F%E5%A4%B4%E8%8E%B7%E5%8F%96%E5%9B%BE%E5%83%8F%E5%B9%B6%E6%98%BE%E7%A4%BA"  target="_blank">查看</a></p>
+</blockquote>
+<h3 id="%E6%B5%8B%E8%AF%95%E6%8B%8D%E7%85%A7%E5%8A%9F%E8%83%BD">测试拍照功能</h3>
+
+<pre class="language-python"><code class="language-python">from maix import camera, display, image 
+display.show(camera.capture())
+</code></pre>
+<p><img src="https://wiki.sipeed.com/hardware/zh/maixII/M2/asserts/hello_world.jpg" alt="hello_world" /></p>
+<blockquote>
+<p><strong>如果屏幕没有显示内容</strong>：那么首先确认一下镜像镜像版本，并且确认一下外设和驱动对的上。</p>
+</blockquote>
+<h2 id="%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8">基础使用</h2>
+<p>上文我们使用了 Maixpy3 IDE 搭载的 <strong>Jupyter（Python）</strong>运行代码并测试了屏幕及摄像头的功能，接下来我们来体验 Linux shell 命令行的使用并给 M2DOCK 进行联网。</p>
+<blockquote>
+<p>命令行也就是所谓的 Linux Shell 还是用户使用 Linux 的桥梁，Shell 是指一种应用程序，这个应用程序提供了操作界面，用户通过这个界面访问操作系统内核的服务，使用 shell 需要使用者具备一定的 Linux 基础知识 <a href="https://www.runoob.com/linux/linux-shell.html"  target="_blank">Shell 教程</a>/<a href="https://wiki.sipeed.com/hardware/zh/maixII/M2/usage.html#%E9%83%A8%E5%88%86%E5%B8%B8%E7%94%A8-Linux-%E5%91%BD%E4%BB%A4"  target="_blank">部分常用 Linux 命令</a>可根据需求进行学习。</p>
+</blockquote>
+<h3 id="%E8%81%94%E7%BD%91">联网</h3>
+<p>M2Dock 带有 2.4G 无线模组，可以用来连接 2.4G 频段的无线网络，因镜像的更新（WiFi）链接方式有两种可供大家选择，但是文档示例以最新镜像方法为示例标准，更多可查询下文给出的参考链接。</p>
+<ul>
+<li><strong>使用以下命令行进行联网 确保镜像系统：0.5.4（20230207）</strong></li>
+</ul>
+<p>使用下面的命令来连接名称：<code>Sipeed_Guest</code> 密码：<code>qwert123</code> 的无线网络。</p>
+
+<pre class="language-none"><code class="language-none">wifi_connect_ap_test Sipeed_Guest qwert123
+</code></pre>
+<p><img src="./assest/wlan.jpg" alt="wlan" /></p>
+<p>连接成功后可使用 <code>ifconfig</code> 命令查询 <code>wlan0</code> 的 IP 地址，更多命令行联网的详情请看<a href="https://wiki.sipeed.com/hardware/zh/maixII/M2/usage.html#V0.5.4"  target="_blank"> V0.5.4 联网.</a></p>
+<ul>
+<li><strong>修改 wpa_supplicant.conf 进行联网：（V0.5.4）前镜像</strong></li>
+</ul>
+<p>这个办法适用于 V0.5.4 前的镜像系统，通过修改 U 盘里的 <code>wpa_supplicant.conf</code> 文件修改名称及密码来联网，更加具体的操作请看<a href="https://wiki.sipeed.com/hardware/zh/maixII/M2/usage.html#V0.5.4-%E4%B9%8B%E5%89%8D%E7%9A%84%E9%95%9C%E5%83%8F"  target="_blank"> V0.5.4 前镜像联网</a> 相关资料。</p>
+<h3 id="%E9%85%8D%E7%BD%AE%E5%BC%80%E6%9C%BA%E8%84%9A%E6%9C%AC">配置开机脚本</h3>
+<blockquote>
+<p>上文我们尝试了怎么使用 Linux shell 来进行联网操作，这里我们来尝试使用 U 盘配置开机脚本。</p>
+</blockquote>
+<p><strong>对于 M2DOCK 如何使用 U 盘设置开机脚本呢？其实很简单只需要一下几个步骤：</strong></p>
+<p><strong>第一步</strong>：把（待存）脚本存成名为 <code>main.py</code> 的文件，然后根据第二步判断存放位置。<br />
+<strong>第二步</strong>：判断 U 盘目录下是否有 app 的文件夹，如果有就把 <code>main.py</code> 存进 <code>app</code> 文件夹后进行下一步，如果没有直接把 <code>main.py</code> 存放在 U 盘即可进行下一步。<br />
+<strong>第三步</strong>：存放好后使用电脑操作系统自带的移除 U 盘方式来保证文件在没有损坏的情况下保存进板卡，否则会因为不当操作而导致 <code>main.py</code> 没有正常保存到 U 盘（板卡系统）里面。</p>
+<blockquote>
+<p><strong>注意事项：MaixPy3 IDE 运行时会停止 M2Dock 的开机脚本程序，所以我们应该在电脑托盘找到并退出 MaixPy3 IDE 或者选择仅使用板子上的 TypeC 串口来进行供电以查看开机运行脚本效果。</strong></p>
+</blockquote>
+<p>以下为 root 目录下 main.py 文件里的出厂默认开机脚本：</p>
+
+<pre class="language-python"><code class="language-python">#!/usr/bin/env python
+from maix import camera, display, image, nn
+image.load_freetype(&quot;/home/res/sans.ttf&quot;)
+qrcode = image.open('/home/res/qrcode.png')
+canvas = image.new((display.width(), display.height()), (0xFF, 0xFF, 0xFF), &quot;RGB&quot;)
+canvas.draw_image(qrcode, (canvas.width - qrcode.width) // 2, (canvas.height - qrcode.height) // 2)
+info = &quot;wiki.sipeed.com/maixpy3&quot;
+w, h = image.get_string_size(info, 1.2)
+canvas.draw_string((canvas.width - w) // 2 + 5, canvas.height - h - 5, info, 1.2, color=(0x00, 0x00, 0x00))
+for i in range(120):
+    img = camera.capture().draw_image(canvas, alpha=0.7)
+    display.show(img)
+</code></pre>
+<p><img src="./assest/logo.jpg" alt="logo" /></p>
+<blockquote>
+<p>上手里不再关于开机脚本有关于更多的 <a href="https://wiki.sipeed.com/soft/maixpy3/zh/tools/0.MaixII-Dock.html#%E9%85%8D%E7%BD%AE%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC"  target="_blank">配置开机脚本</a> 的详情资料可前往查看。<br />
+如何退出 MaixPy3 IDE：<a href="https://wiki.sipeed.com/soft/maixpy3/zh/tools/0.MaixII-Dock.html#%E5%A6%82%E4%BD%95%E9%80%80%E5%87%BA-MaixPy3-IDE"  target="_blank">操作流程</a> 可前往查看。</p>
+</blockquote>
+<h3 id="%E4%BC%A0%E8%BE%93%E6%96%87%E4%BB%B6">传输文件</h3>
+<p>在使用 U 盘进行传输文件之前我们需要先了解电脑端 U 盘的目录与 M2DOCK 文件系统目录的对应规则。</p>
+<blockquote>
+<p>规则：电脑上的 U 盘对应着 M2DOCK 文件系统的 /root 目录。</p>
+</blockquote>
+<p>传输文件操作如下：（前提 M2DOCK 通过 OTG 口连接电脑端）</p>
+<p><strong>第一步</strong>：将文件拖拽进 U 盘后相当于完成存储到 M2DOCK 系统上的操作。<br />
+<strong>第二步</strong>：存储后务必使用电脑系统自带的 U 盘移除相关的功能来断开电脑与 U 盘的通信。<br />
+<strong>第三步</strong>：最后进行重启（按下 RST 键或者重新插拔 USB）来使 m2dock 再次重新加载文件系统，否则会因为板卡与电脑非正常断开通信而导致文件系统损坏，保存失败。</p>
+<h3 id="%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86">图像处理</h3>
+<p>通过上文我们清楚了如何使用 Python 运行程序、如何使用 Linux shell 进行联网以及使用 U 盘设置开机脚本，熟悉的朋友们都知道 MAIX 系列主打的就是视觉 + AI 芯片，那图像处理是我们必不可少的体验过程。</p>
+<blockquote>
+<p>图像处理还分传统以及 AI 视觉，而在 M2dock 上我们主要学习传统的背景知识以及用法。</p>
+</blockquote>
+<p><strong>传统视觉背景知识</strong>：<a href="https://wiki.sipeed.com/soft/maixpy3/zh/usage/vision/back-information.html"  target="_blank">点击前往</a><br />
+我们需要了解图像传感器-摄像头、以及颜色空间和坐标系统的相关知识，方便后续在体验用法时更好理解。</p>
+<p><strong>MaixPy 基础使用示例</strong>：<a href="https://wiki.sipeed.com/soft/maixpy3/zh/usage/vision/maixpy3-example.html"  target="_blank">点击前往</a><br />
+这里涵盖了一些基础使用（画线圈框）还有传统视觉应用（寻迹寻色寻线阈值处理）的示例。</p>
+<p><strong>传统图像处理模块</strong>：<a href="https://wiki.sipeed.com/soft/maixpy3/zh/usage/vision/image_example.html"  target="_blank">点击前往</a><br />
+这里涵盖了传统视觉、颜色统计追踪、标记追踪、图像滤波、特征检测等模块使用的示例。</p>
+<h3 id="%E7%A1%AC%E4%BB%B6%E5%A4%96%E8%AE%BE">硬件外设</h3>
+<p>这个章节更多的讲述的是认识一些经典外设并学会使用调用它的示例。</p>
+<ol>
+<li><a href="https://wiki.sipeed.com/soft/maixpy3/zh/usage/hardware/GPIO.html"  target="_blank">【GPIO】</a>在？点个灯用个按键。</li>
+<li><a href="https://wiki.sipeed.com/soft/maixpy3/zh/usage/hardware/I2C.html"  target="_blank">【I2C】</a>如何连接以及使用 I2C。</li>
+<li><a href="https://wiki.sipeed.com/soft/maixpy3/zh/usage/hardware/PWM.html"  target="_blank">【PWM 脉冲宽度调制】</a>关于 PWM 的基础使用以及深入了解示例。</li>
+<li><a href="https://wiki.sipeed.com/soft/maixpy3/zh/usage/hardware/UART.html"  target="_blank">【UART】</a>认识定义并学会使用 UART 进行传递字符串。</li>
+<li><a href="https://wiki.sipeed.com/soft/maixpy3/zh/usage/hardware/SPI.html"  target="_blank">【SPI】</a>熟悉 SPI 的基础使用以及如何驱动 WS2812B 灯珠。</li>
+<li><a href="https://wiki.sipeed.com/soft/maixpy3/zh/usage/hardware/event.html"  target="_blank">【EVENT】</a>如何通过输入事件设备来检测外接设备的变化。</li>
+<li><a href="https://wiki.sipeed.com/soft/maixpy3/zh/usage/hardware/ADC.html"  target="_blank">【ADC】</a>了解相关的 ADC 通讯协议并实现旋钮控制、触控测试等。</li>
+<li><a href="https://wiki.sipeed.com/soft/maixpy3/zh/usage/hardware/watchdog.html"  target="_blank">【WATCHDOG 看门狗】</a>了解看门狗的相关原理并实现它。</li>
+</ol>
+<h3 id="%E7%BD%91%E7%BB%9C%E5%BA%94%E7%94%A8">网络应用</h3>
+<p><strong>Python3 网络应用</strong>：<a href="https://wiki.sipeed.com/soft/maixpy3/zh/usage/net.html"  target="_blank">点击前往</a></p>
+<p>这一章是相关的 Python 网络应用的一些示例以及库的使用方法，讲述了上云需了解的 HTTP/MQTT 相关的定义基础知识（网络应用不代表联网，联网请看同级目录第一个）以及如何进行 MJPG 图传。</p>
+<h3 id="%E5%AA%92%E4%BD%93%E5%8A%9F%E8%83%BD">媒体功能</h3>
+<p>这一章节讲述的是在 M2DOCK 上如何实现播放视频以及录音播放的使用示例。</p>
+<p><strong>播放视频</strong>：<a href="https://wiki.sipeed.com/soft/maixpy3/zh/usage/Audio/play_mp4.html"  target="_blank">点击前往</a><br />
+<strong>录音与播放</strong>：<a href="https://wiki.sipeed.com/soft/maixpy3/zh/usage/Audio/audio.html"  target="_blank">点击前往</a></p>
+<h2 id="%E8%BF%9B%E9%98%B6%E4%BD%BF%E7%94%A8">进阶使用</h2>
+<blockquote>
+<p>到达进阶使用这里后，这里则需要小伙伴们具备一些 Linux 基础了才能继续往下走学习。</p>
+</blockquote>
+<h3 id="%E8%AE%A4%E8%AF%86-openwrt-%E7%B3%BB%E7%BB%9F">认识 openwrt 系统</h3>
+<p>全志 V831 使用 Tina Linux 系统移植自 OpenWrt。</p>
+<p>OpenWrt 可以被描述为一个嵌入式的 Linux 发行版，详情可看 <a href="https://openwrt.org"  target="_blank">官方网址</a> 和 <a href="https://github.com/openwrt/openwrt"  target="_blank">官方开源仓库</a>。</p>
+<p><strong>更多相关的详情点击</strong>：<a href="https://wiki.sipeed.com/hardware/zh/maixII/M2/usage.html#%E8%AE%A4%E8%AF%86-openwrt-%E7%B3%BB%E7%BB%9F"  target="_blank">详情资料</a></p>
+<h3 id="Opkg-%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8">Opkg 包管理器</h3>
+<p>Opkg 是一个轻量快速的套件管理系统，目前已成为 Opensource 界嵌入式系统标准。常用于 路由、交换机等 嵌入式设备中，用来管理软件包的安装升级与下载。</p>
+<p><strong>相关的常用命令</strong>：<a href="https://wiki.sipeed.com/hardware/zh/maixII/M2/usage.html#Opkg-%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8"  target="_blank">点击查看</a></p>
+<p><a href="https://pypi.org/project/pip/"  target="_blank">pip</a> 是 Python 包管理工具，该工具提供了对 Python 包的查找、下载、安装、卸载的功能。</p>
+<p><strong>如何使用示例</strong>：<a href="https://wiki.sipeed.com/hardware/zh/maixII/M2/usage.html#pip-%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8"  target="_blank">点击查看</a></p>
+<h3 id="%E6%9B%B4%E6%96%B0-MaixPy3-%E5%8C%85">更新 MaixPy3 包</h3>
+<p>有时镜像包更新但我们确不想再次进行烧录板子以作更新，这时可以手工更新 MaixPy3 达到更新目的。</p>
+<p><strong>MaixPy3 最新安装包</strong>：<a href="https://pypi.org/project/maixpy3/#history"  target="_blank">点击前往下载</a><br />
+<strong>Maixpy3 更新操作</strong>：<a href="https://wiki.sipeed.com/soft/maixpy3/zh/tools/0.MaixII-Dock.html#%E6%9B%B4%E6%96%B0-MaixPy3-%E5%8C%85"  target="_blank">操作示例</a></p>
+<p><img src="./assest/maixpy3_cp38.jpg" alt="maixpy3_cp38" /></p>
+<h3 id="%E4%BD%BF%E7%94%A8-USB-%E6%91%84%E5%83%8F%E5%A4%B4%EF%BC%88%E4%B8%BB%E6%9C%BA%E6%A8%A1%E5%BC%8F%EF%BC%89">使用 USB 摄像头（主机模式）</h3>
+<blockquote>
+<p>M2DOCK 是双 Type-c 接口的（分别是 UART/OTG）而 OTG 接口是默认作为 USB 从机来使用的。</p>
+</blockquote>
+<p>如果想使用 USB 摄像头则需手动更改端口为主机模式，从板子上的串口 USB（UART）来操作板子，并执行以下命令修改 OTG 口为主机模式使用。</p>
+
+<pre class="language-shell"><code class="language-shell">echo &quot;usb_host&quot; &gt; /sys/devices/platform/soc/usbc0/otg_role
+</code></pre>
+<h3 id="%E5%B0%86-USB-OTG-%E5%8F%A3%E4%BD%9C%E4%B8%BA%E4%BB%8E%E6%9C%BA">将 USB OTG 口作为从机</h3>
+<p>M2Dock 默认的 OTG 口就是 USB 从机设备，如有其他原因需重新设置成从机设备的话，只需在 M2DOCK 上执行以下命令即可。</p>
+
+<pre class="language-shell"><code class="language-shell">echo &quot;usb_device&quot; &gt; /sys/devices/platform/soc/usbc0/otg_role
+</code></pre>
+<h3 id="%E6%9B%B4%E6%8D%A2%E5%B1%8F%E5%B9%95">更换屏幕</h3>
+<p>目前开发板支持的屏幕有 1.3寸、2.4寸、2.8寸 的 IPS 屏，且只是支持在我们淘宝上售卖的显示屏；对于别的屏幕有需求的，可以走商务通道进行定制。</p>
+<p><strong>如何进行屏幕的切换及更新设备树</strong>：<a href="https://wiki.sipeed.com/hardware/zh/maixII/M2/other.html#%E5%88%87%E6%8D%A2%E5%B1%8F%E5%B9%95"  target="_blank">点击查看</a></p>
+<h3 id="%E6%9B%B4%E6%8D%A2%E6%91%84%E5%83%8F%E5%A4%B4">更换摄像头</h3>
+<p>目前 MaixII-Dock 开发板目前支持的摄像头有 sp2305、vs3205、ov2685（只支持在官方店上再售卖的摄像头，有别的摄像头需求可以进行商务定制），摄像头之间的切换同样时需要更换设备树文件，更换方式上面的更换屏幕一样的。</p>
+<p><strong>如何进行摄像头以及设备树的切换</strong>：<a href="https://wiki.sipeed.com/hardware/zh/maixII/M2/other.html#%E6%9B%B4%E6%8D%A2%E6%91%84%E5%83%8F%E5%A4%B4"  target="_blank">点击查看</a></p>
+<h3 id="%E7%BC%96%E8%AF%91%E9%93%BE">编译链</h3>
+<p>有需求的可以自行尝试，但是对于 V831 还是推荐使用 MaixPy3 和 MaixHub。</p>
+<p><strong>Linux 系统下 V831 使用编译链</strong>：<a href="https://dl.sipeed.com/shareURL/MaixII/MaixII-Dock/SDK/Toolchain"  target="_blank">toolchain-sunxi-musl-pack-2021-01-09.tar.xz</a></p>
+<h2 id="%E4%BD%BF%E7%94%A8%E6%96%87%E6%A1%A3%EF%BC%88%E8%B5%84%E6%BA%90%EF%BC%89">使用文档（资源）</h2>
+<p>无论是在 K210 还是 M2DOCK（V831）上一定要学会使用我们公开的文档资料，去借助资料的力量帮助自己在学习的道路上往前走，学会借助资源完善自身的不足，可以让你少走很多的坑以及弯路。</p>
+<ol>
+<li>学会搜索并利用官方的 <code>文档社区</code> 以及 <code>github issue</code> 资源，会让新手小白少走很多弯路雷坑。</li>
+<li>文档资源在 <code>常见问题 FAQ</code> 中基本涵盖了所有的坑，使用途中报错可以先查看排错。</li>
+<li>想要实现更多的功能示例或需要更多的脚本源码，可前往 MaixPy3 的源码例程仓库查找。</li>
+</ol>
+<p><strong>文档搜索例程</strong>：<a href="https://wiki.sipeed.com/soft/maixpy/zh/how_to_read.html"  target="_blank">点击查看</a><br />
+<strong>BBS 社区教程贴</strong>：<a href="https://bbs.sipeed.com/thread/492"  target="_blank">点击前往</a><br />
+<strong>MaixPy3 源码仓库</strong>：<a href="https://github.com/sipeed/maixpy3"  target="_blank">点击前往</a><br />
+<strong>MaixPy3 issue</strong>：<a href="https://github.com/sipeed/MaixPy3/issues"  target="_blank">点击前往</a><br />
+<strong>MaixPy3 常见问题指南</strong>：<a href="https://wiki.sipeed.com/soft/maixpy3/zh/tools/0.MaixII-Dock.html#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E6%8C%87%E5%8D%97"  target="_blank">点击前往</a><br />
+<strong>V831 源码</strong>：<a href="https://github.com/Tina-Linux/tina-V83x"  target="_blank">点击前往</a><br />
+<strong>V83 工具链</strong>：<a href="https://dl.sipeed.com/shareURL/MaixII/MaixII-Dock/SDK/Toolchain"  target="_blank">点击前往</a><br />
+<strong>V831 常见问题与解决方法</strong>：<a href="https://wiki.sipeed.com/soft/maixpy3/zh/question/maixpy3_faq.html"  target="_blank">点击前往</a><br />
+<strong>BBS 社区常见问题汇总贴</strong>：<a href="https://bbs.sipeed.com/thread/489"  target="_blank">点击查看</a><br />
+<strong>相关社群汇总贴</strong>：<a href="https://wiki.sipeed.com/community.html"  target="_blank">点击查看</a></p>
+<h3 id="%E6%9B%B4%E5%A4%9A%E8%B5%84%E6%BA%90%EF%BC%88%E6%95%99%E7%A8%8B%E6%96%87%E7%AB%A0%EF%BC%89">更多资源（教程文章）</h3>
+<p>这里的文章大多数是来自社区以及博文精选，可供参考。</p>
+<ol>
+<li><strong>MaixPy3 Image.lens_corr 畸变矫正的用法</strong>：<a href="https://wiki.sipeed.com/news/MaixPy3/camera_lens_corr/v831_lens_corr.html"  target="_blank">点击前往</a></li>
+<li><strong>给 M2Dock 安装 Opencv</strong>：<a href="https://wiki.sipeed.com/news/others/v831_opencv/v831_opencv.html"  target="_blank">点击前往</a></li>
+<li><strong>使用 SSH 来连接 M2Dock</strong>：<a href="https://wiki.sipeed.com/news/others/831_ssh/831_ssh.html"  target="_blank">点击前往</a></li>
+<li><strong>在线图传调试 LAB 阈值</strong>：<a href="https://wiki.sipeed.com/news/others/threshold/threshold.html"  target="_blank">点击前往</a></li>
+<li><strong>MaixPy3 Image.resize 的效果</strong>：<a href="https://wiki.sipeed.com/news/MaixPy3/camera_resize/camera_resize.html"  target="_blank">点击前往</a></li>
+<li><strong>MaixII 通过 USB OTG 口连接U盘</strong>：<a href="https://wiki.sipeed.com/news/others/maixII_connect_udisk.html"  target="_blank">点击前往</a></li>
+<li><strong>在V831上（awnn）跑 pytorch resnet18 模型</strong>：<a href="https://wiki.sipeed.com/news/others/v831_resnet18/v831_resnet18.html"  target="_blank">点击前往</a></li>
+<li><strong>V831 如何使用 libmaix SDK C++ 开发</strong>：<a href="https://wiki.sipeed.com/news/MaixPy3/run_lvgl/run_lvgl.html"  target="_blank">点击前往</a></li>
+<li><strong>V831完美的单目测距</strong>：<a href="https://wiki.sipeed.com/news/MaixPy3/v831_Distance/v831_Distance.html"  target="_blank">点击前往</a></li>
+<li><strong>V831的人脸识别</strong>：<a href="https://wiki.sipeed.com/news/MaixPy3/key_face_recognize.html"  target="_blank">点击前往</a></li>
+</ol>
+<h2 id="%E4%BD%93%E9%AA%8C-AI-%E5%BA%94%E7%94%A8">体验 AI 应用</h2>
+<p>上文我们说过了 MAIX 系列主打的就是 视觉 + AI 的特性，所以 AI 算法应用也是上手体验里不可少的一环。</p>
+<ul>
+<li><a href="https://wiki.sipeed.com/soft/maixpy3/zh/usage/AI_net/Edge_detection.html"  target="_blank">边缘检测</a></li>
+<li><a href="https://wiki.sipeed.com/soft/maixpy3/zh/usage/AI_net/resnet.html"  target="_blank">物品分类</a></li>
+<li><a href="https://wiki.sipeed.com/soft/maixpy3/zh/usage/AI_net/yolo.html"  target="_blank">物体检测</a></li>
+<li><a href="https://wiki.sipeed.com/soft/maixpy3/zh/usage/AI_net/number_recognize.html"  target="_blank">数字识别</a></li>
+<li><a href="https://wiki.sipeed.com/soft/maixpy3/zh/usage/AI_net/face_recognize.html"  target="_blank">人脸识别</a></li>
+<li><a href="https://wiki.sipeed.com/soft/maixpy3/zh/usage/AI_net/self_learn.html"  target="_blank">自学习分类</a></li>
+<li><a href="https://wiki.sipeed.com/soft/maixpy3/zh/usage/AI_net/car_registration_plate_recognition.html"  target="_blank">车牌识别</a></li>
+</ul>
+<h2 id="%E8%AE%AD%E7%BB%83-AI-%E6%A8%A1%E5%9E%8B">训练 AI 模型</h2>
+<blockquote>
+<p>训练自己的 AI 模型有两种方法：分别是在线训练以及本地训练。</p>
+</blockquote>
+<p><strong>在线训练</strong>：则是指适配了 MaixPy3 的 MaixHub 在线训练平台，还有支持的相关设备端镜像，更多详细资料请前往 <a href="https://maixhub.com/app/1"  target="_blank">相关使用</a>查看。</p>
+<p><strong>本地训练</strong>：则是不依靠任何在线训练平台，自行了解相关知识并进行环境搭建、制作数据集、训练相关模型。</p>
+<p>相关资料教程文档：</p>
+<ol>
+<li><a href="https://wiki.sipeed.com/soft/maixpy3/zh/usage/train_AI/information.html"  target="_blank">深度神经网络（DNN）基础知识</a></li>
+<li><a href="https://wiki.sipeed.com/soft/maixpy3/zh/usage/train_AI/ready.html"  target="_blank">本地训练环境搭建</a></li>
+<li><a href="https://wiki.sipeed.com/soft/maixpy3/zh/usage/train_AI/v831_sobel.html"  target="_blank">v831 部署 Sobel 卷积边缘检测</a></li>
+<li><a href="https://wiki.sipeed.com/soft/maixpy3/zh/usage/train_AI/data.html"  target="_blank">如何制作数据集</a></li>
+<li><a href="https://wiki.sipeed.com/soft/maixpy3/zh/usage/train_AI/train_resnet.html"  target="_blank">图像分类模型训练过程</a></li>
+<li><a href="https://wiki.sipeed.com/soft/maixpy3/zh/usage/train_AI/train_yolov2.html"  target="_blank">目标检测本地训练教程</a></li>
+</ol>
+<h2 id="%E6%A0%B8%E5%BF%83-API-%E6%89%8B%E5%86%8C">核心 API 手册</h2>
+<p>这个章节可以搭配下文的编译与开发一起食用更佳噢~</p>
+<ul>
+<li><a href="https://wiki.sipeed.com/soft/maixpy3/zh/api/maix/image.html"  target="_blank">MaixPy3 image 模块</a></li>
+<li><a href="https://wiki.sipeed.com/soft/maixpy3/zh/api/maix/display.html"  target="_blank">MaixPy3 display 模块</a></li>
+<li><a href="https://wiki.sipeed.com/soft/maixpy3/zh/api/maix/camera.html"  target="_blank">MaixPy3 camera 模块</a></li>
+<li><a href="https://wiki.sipeed.com/soft/maixpy3/zh/api/maix/nn.html"  target="_blank">MaixPy3 nn模块（maix.nn）</a></li>
+</ul>
+<h2 id="%E7%BC%96%E8%AF%91%E4%B8%8E%E5%BC%80%E5%8F%91">编译与开发</h2>
+<blockquote>
+<p>当你走到这时已经代表你熟悉（V831）的基础操作准备深层了解，以下的文档是为了开发者写的参考文，希望可以基于此让更多的伙伴进入 Linux 嵌入式开发的领域。</p>
+</blockquote>
+<p><strong>相关资料系列合集：</strong></p>
+<ol>
+<li><a href="https://wiki.sipeed.com/soft/maixpy3/zh/others/framework.html"  target="_blank">MaixPy3 架构介绍</a></li>
+<li><a href="https://wiki.sipeed.com/soft/maixpy3/zh/others/develop.html"  target="_blank">MaixPy3 开发文档</a></li>
+<li><a href="https://wiki.sipeed.com/soft/maixpy3/zh/others/platform.html"  target="_blank">如何适配你的平台</a></li>
+<li><a href="https://wiki.sipeed.com/soft/maixpy3/zh/develop/opmv_cv.html"  target="_blank">MaixPy3 视觉模块开发</a></li>
+</ol>
+<h3 id="%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA">系统环境搭建</h3>
+<ul>
+<li>Ubuntu 镜像下载: <a href="https://mirrors.ustc.edu.cn/ubuntu-releases/"  target="_blank">中科大源</a></li>
+<li>安装 vscode 和换源：这里借助一下 <a href="https://fishros.org.cn/forum/topic/20/%E5%B0%8F%E9%B1%BC%E7%9A%84%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85%E7%B3%BB%E5%88%97"  target="_blank">小鱼脚本</a></li>
+<li>工具链: <a href="https://dl.sipeed.com/shareURL/MaixII/MaixII-Dock/SDK/Toolchain"  target="_blank">toolchain-sunxi-musl-pack-2021-01-09.tar.xz</a></li>
+</ul>
+<h3 id="MaixPy3-%E6%9E%B6%E6%9E%84%E4%BB%8B%E7%BB%8D">MaixPy3 架构介绍</h3>
+<p>因篇幅过多这里不详细介绍，小伙伴们可根据指路前往：<a href="https://wiki.sipeed.com/soft/maixpy3/zh/others/framework.html"  target="_blank">MaixPy3 架构介绍</a></p>
+<h3 id="%E4%B8%BA%E4%BB%80%E4%B9%88%E9%87%87%E7%94%A8-libmaix-%E5%BC%80%E5%8F%91">为什么采用 libmaix 开发</h3>
+
+<pre class="language-C++"><code class="language-C++">+----------------------------------------+
+|                                        |
+|    User develop sipeed all product.    |
+|                                        |
++----------------------------------------+
+
++-----------------+     +----------------+
+|                 |     |                |
+| Run Python Code |     | Run C/C++ Code |
+|                 |     |                |
++--------^--------+     +-------^--------+
+         |                      |
+   +-----+-----+                |
+   |           |                |
+   |  maixpy3  |                |
+   |           |                |
+   +-----^-----+                |
+         |                      |
+    +----+----+                 |
+    |         |                 |
+    | libmaix +-----------------+
+    |         |
+    +----^----+
+         |
++----------------------------------------+
+|  +-------------+                       |
+|  |             |   openwrt   debian    |
+|  |    Linux    |                       |
+|  |             |   armbian   ubuntu    |
+|  +-------------+                       |
++-------------------------+------------+-+
+      ^        ^          ^            ^
+      |        |          |            |
++-----++ +-----++ +-------++ +---------+-+
+|      | |      | | x86/64 | |  AX620A   |
+| V83X | | R329 | | debian | |   V85X    |
+|      | |      | | ubuntu | |  more...  |
++------+ +------+ +--------+ +-----------+
+
+</code></pre>
+<p>上文中我们可以清楚的看到平时用的 <code>Python</code> 的接口底层实现也是通过了 <code>libmaix</code> 的开发成果，平时需要 <code>Python</code> 语言调参验证原型功能，是为了快速验证我们的开发板可用于不同的场景和功能，方便我们快速验证功能外设是否正常，同时我们也需要 <code>C / C++</code> 优化性能和减少内存占用用于开发商业项目，那么，直接使用 libmaix 进行开发就显得尤为重要了。<br />
+一开始采用的 <code>Python</code> 需要一定时间过渡到 <code>C++</code> ，特别是成熟的项目更需要脱离 <code>Python</code>，为了更成熟精简的项目结构和更好的性能就得看看 <code>libmaix</code> 的表现了。</p>
+<h4 id="%E9%A6%96%E5%85%88%E8%A6%81%E9%85%8D%E7%BD%AE%E5%A5%BD%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83">首先要配置好开发环境</h4>
+<blockquote>
+<p>参考下文给出的资料文章链接配置相关开发环境。</p>
+</blockquote>
+<ol>
+<li>V831 如何使用 libmaix SDK C++ 开发: <a href="https://wiki.sipeed.com/news/MaixPy3/run_lvgl/run_lvgl.html"  target="_blank">点我跳转</a></li>
+<li>Linux 连接不上 adb 设备: <a href="https://wiki.sipeed.com/news/others/linux_adb/linux_adb.html"  target="_blank">点我跳转</a></li>
+</ol>
+<p>完成上面的环境配置后，这里提供了可运行的 <code>Demo</code> 内容就是如何使用 V831 LINUX C++ 进行图像视觉处理和开发，在此我们提供了 <code>串口 + mv cv ai</code> 的示例项目，供开发者评估使用，此处不涉及到 ISP 调试，需要进一步 ISP 图像调试则需要联系 SIPEED。</p>
+<blockquote>
+<p>相关资料：<a href="https://github.com/sipeed/libmaix/blob/6ad1102a0527bd3d394c0b1de82cbf64d6eac40d/components/maix_dls831/src/dls831_uvai.cpp#L435-L663"  target="_blank">libmaix</a></p>
+</blockquote>
+<p><strong>操作步骤</strong>：连接上板子的 OTG 接口后，在 <code>/libmaix/libmaix/examples/app_dls831</code> 目录下使用 <code>make</code> 下进行编译（编写好的脚本会自动把编译好的文件上传并运行）。</p>
+<p><img src="./assest/libmaix.jpg" alt="libmaix" /></p>
+<p>我们可以看到程序是保持稳定三十帧的运行速率。</p>
+<html>
+  <img src="./assest/h26x_831.jpg" width=45%>
+  <img src="./assest/fps.jpg" width=45%>
+</html>
+<blockquote>
+<p>接下来我们来认识一下现有的库：分别是 AI、Opencv、Openmv、LVGL。</p>
+</blockquote>
+<h3 id="AI">AI</h3>
+<p>它的实现方式与 <code>Python</code> 的流程类似，并在 <code>C++</code> 中也需配置相关模型的参数。</p>
+<ul>
+<li><strong>以 YOLOv2 为例</strong></li>
+</ul>
+<blockquote>
+<p>YOLOv2 是一种基于深度学习的目标检测算法，它是 YOLO（you only look once）的改进版本。</p>
+</blockquote>
+<p><strong>YOLOv2 相比于 YOLO 主要有以下几个不同的改进点：</strong></p>
+<ol>
+<li>使用 <code>batch normalization</code> 来提高模型的稳定性和泛化能力，同时去掉了 <code>dropout</code> 层。</li>
+<li>使用了高分辨率的图像（448×448）来微调分类网络，然后再用于检测网络并提高了检测的精度。</li>
+<li>引入 <code>anchor boxes</code> 的概念，根据数据集的边界框分布进行 <code>k-means</code> 聚类，得到最合适的 <code>anchor boxes</code> 的尺寸和比例提高了召回率。</li>
+<li>使用了直接位置预测的方法，将边界框的中心坐标相对于网格单元的偏移量用 <code>logistic</code> 回归函数进行归一化，使得模型更容易学习。</li>
+<li>使用了多尺度训练的策略动态地改变输入图像的尺寸，使得模型能够适应不同大小的目标。</li>
+</ol>
+<p><strong>YOLOv2 的优点主要有以下几个方面：</strong></p>
+<ol>
+<li>速度快：YOLOv2 相比于基于区域提议的方法，只需对图像进行一次前向传播大大减少计算量和时间。</li>
+<li>精度高：YOLOv2 相比于 YOLO 来说在 <code>mAP</code>（平均精度）上提升了约 10 个百分点，在小目标上也有明显的改善。</li>
+<li>通用性强：YOLOv2 可以同时在 <code>COCO</code> 和 <code>ImageNet</code> 数据集上进行训练，得到一个能够检测 9000 多种物体的模型。</li>
+</ol>
+<p><img src="./assest/YOLOv2.jpg" alt="YOLOv2" /></p>
+<p><strong>接下来我们来尝试采用人脸模型为测试：</strong></p>
+<p>在出厂镜像中我们已内置了相关的人脸检测的模型，无需用户再次下载。</p>
+
+<pre class="language-cpp"><code class="language-cpp">static struct _nn_yolo_face_
+  { 
+    //模型地址，需要提前通过adb传到板子里，下列模型出厂固件已经自带
+    const char *model_path_param = &quot;/home/model/face/yolo2_face_awnn.param&quot;;
+    const char *model_path_bin = &quot;/home/model/face/yolo2_face_awnn.bin&quot;;
+    const char *inputs_names[1] = {&quot;input0&quot;};
+    const char *outputs_names[1] = {&quot;output0&quot;};
+    const float opt_param_mean = 127.5;
+    const float opt_param_norm = 0.0078125;
+    //网络的输入参数
+    libmaix_nn_layer_t input = {
+        .w = 224,
+        .h = 224,
+        .c = 3,
+        .dtype = LIBMAIX_NN_DTYPE_UINT8,
+    };
+    libmaix_nn_layer_t out_fmap = {
+        .w = 7,
+        .h = 7,
+        .c = 30,//根据上图的网络结构计算公式(sizeof(labels)+5) * 5
+        .dtype = LIBMAIX_NN_DTYPE_FLOAT,
+    };
+    libmaix_nn_t *nn;
+    libmaix_nn_model_path_t model_path;
+    libmaix_nn_opt_param_t opt_param;
+    // -------------- yolo2 decode -----------------------
+    const char *labels[1] = {&quot;face&quot;};//你有多少个类别，就填多少
+    const float anchors[10] = {1.19, 1.98, 2.79, 4.59, 4.53, 8.92, 8.06, 5.29, 10.32, 10.65};
+    libmaix_nn_decoder_t *yolo2_decoder;
+    libmaix_nn_decoder_yolo2_result_t yolo2_result;
+    libmaix_nn_decoder_yolo2_config_t yolo2_config = {
+        .classes_num = sizeof(labels) / sizeof(anchors[0]),
+        .threshold = 0.5,
+        .nms_value = 0.3,
+        .anchors_num = (sizeof(anchors) / sizeof(anchors[0])) / 2,
+        .anchors = (float *)anchors,
+        .net_in_width = 224,
+        .net_in_height = 224,
+        .net_out_width = 7,
+        .net_out_height = 7,
+        .input_width = 224,
+        .input_height = 224
+    };
+  } nn_yolo_face_app;
+
+auto self = (_nn_yolo_face_ *)app-&gt;userdata;
+self-&gt;opt_param.awnn.input_names = (char **)self-&gt;inputs_names;
+self-&gt;opt_param.awnn.output_names = (char **)self-&gt;outputs_names;
+self-&gt;opt_param.awnn.input_num = sizeof(self-&gt;inputs_names) / sizeof(self-&gt;inputs_names[0]);
+self-&gt;opt_param.awnn.output_num = sizeof(self-&gt;outputs_names) / sizeof(self-&gt;outputs_names[0]);
+
+self-&gt;opt_param.awnn.mean[0] = self-&gt;opt_param_mean;
+self-&gt;opt_param.awnn.mean[1] = self-&gt;opt_param.awnn.mean[0];
+self-&gt;opt_param.awnn.mean[2] = self-&gt;opt_param.awnn.mean[0];
+
+self-&gt;opt_param.awnn.norm[0] = self-&gt;opt_param_norm;
+self-&gt;opt_param.awnn.norm[1] = self-&gt;opt_param.awnn.norm[0];
+self-&gt;opt_param.awnn.norm[2] = self-&gt;opt_param.awnn.norm[0];
+
+self-&gt;model_path.awnn.param_path = (char *)self-&gt;model_path_param;
+self-&gt;model_path.awnn.bin_path = (char *)self-&gt;model_path_bin;
+
+self-&gt;input.need_quantization = true;
+
+self-&gt;out_fmap.data = (float *)malloc(self-&gt;out_fmap.w * self-&gt;out_fmap.h * self-&gt;out_fmap.c * sizeof(float));
+if (!self-&gt;out_fmap.data)
+{
+  LIBMAIX_INFO_PRINTF(&quot;no memory!!!\n&quot;);
+  return -1;
+}
+
+self-&gt;input.buff_quantization = (uint8_t *)malloc(self-&gt;input.w * self-&gt;input.h * self-&gt;input.c);
+if (!self-&gt;input.buff_quantization)
+{
+  LIBMAIX_INFO_PRINTF(&quot;no memory!!!\n&quot;);
+  return -1;
+}
+
+LIBMAIX_INFO_PRINTF(&quot;-- nn create\n&quot;);
+self-&gt;nn = libmaix_nn_create();
+if (!self-&gt;nn)
+{
+  LIBMAIX_INFO_PRINTF(&quot;libmaix_nn object create fail\n&quot;);
+  return -1;
+}
+LIBMAIX_INFO_PRINTF(&quot;-- nn object init\n&quot;);
+err = self-&gt;nn-&gt;init(self-&gt;nn);
+if (err != LIBMAIX_ERR_NONE)
+{
+  LIBMAIX_INFO_PRINTF(&quot;libmaix_nn init fail: %s\n&quot;, libmaix_get_err_msg(err));
+  return -1;
+}
+LIBMAIX_INFO_PRINTF(&quot;-- nn object load model\n&quot;);
+err = self-&gt;nn-&gt;load(self-&gt;nn, &amp;self-&gt;model_path, &amp;self-&gt;opt_param);
+if (err != LIBMAIX_ERR_NONE)
+{
+  LIBMAIX_INFO_PRINTF(&quot;libmaix_nn load fail: %s\n&quot;, libmaix_get_err_msg(err));
+  return -1;
+}
+
+LIBMAIX_INFO_PRINTF(&quot;-- yolo2 decoder create\n&quot;);
+self-&gt;yolo2_decoder = libmaix_nn_decoder_yolo2_create(libmaix_nn_decoder_yolo2_init,
+                                                      libmaix_nn_decoder_yolo2_deinit,
+                                                      libmaix_nn_decoder_yolo2_decode);
+if (!self-&gt;yolo2_decoder)
+{
+  LIBMAIX_INFO_PRINTF(&quot;no mem\n&quot;);
+  return -1;
+}
+LIBMAIX_INFO_PRINTF(&quot;-- yolo2 decoder init\n&quot;);
+err = self-&gt;yolo2_decoder-&gt;init(self-&gt;yolo2_decoder, (void *)&amp;self-&gt;yolo2_config);
+if (err != LIBMAIX_ERR_NONE)
+{
+  LIBMAIX_INFO_PRINTF(&quot;decoder init error:%d\n&quot;, err);
+  return -1;
+}
+
+err = self-&gt;nn-&gt;forward(self-&gt;nn, &amp;self-&gt;input, &amp;self-&gt;out_fmap);
+if (err != LIBMAIX_ERR_NONE)
+{
+printf(&quot;libmaix_nn forward fail: %s\n&quot;, libmaix_get_err_msg(err));
+}
+
+err = self-&gt;yolo2_decoder-&gt;decode(self-&gt;yolo2_decoder, &amp;self-&gt;out_fmap, (void *)&amp;self-&gt;yolo2_result);
+if (err != LIBMAIX_ERR_NONE)
+{
+printf(&quot;yolo2 decode fail: %s\n&quot;, libmaix_get_err_msg(err));
+}
+if (self-&gt;yolo2_result.boxes_num &gt; 0)
+{
+LIBMAIX_INFO_PRINTF(&quot;yolo2_result.boxes_num %d&quot;, self-&gt;yolo2_result.boxes_num);
+}
+</code></pre>
+<h3 id="OpenCV">OpenCV</h3>
+<blockquote>
+<p>相关的函数可以去官方文档查看：<a href="https://docs.opencv.org/4.x/d9/df8/tutorial_root.html"  target="_blank">OpenCV Tutorials</a></p>
+</blockquote>
+<p>为了照顾 C 程序在 <code>/libmaix/components/maix_cv_image/src/libmaix_cv_image.cpp</code> 下对 Opencv 的函数又做了一层封装，当时还没有全面用 C++ 但现在已经全部迁移到 C++ 了。</p>
+<p>可以在提供的 <code>libmaix/components/maix_dls831/src/dls831_uvai.cpp</code> 的例子中，看到是如何采用了 Opencv 实现滤波和二值化等操作。</p>
+
+<pre class="language-C++"><code class="language-C++">    void AdaptiveThreshold(cv::Mat &amp;src, cv::Mat &amp;dst, double Maxval, int Subsize, double c, adaptiveMethod method = meanFilter)
+    {
+
+        if (src.channels() &gt; 1)
+            cv::cvtColor(src, src, cv::COLOR_RGB2GRAY);
+
+        cv::Mat smooth;
+        switch (method)
+        {
+        case meanFilter:
+            cv::blur(src, smooth, cv::Size(Subsize, Subsize)); // 均值滤波
+            break;
+        case gaaussianFilter:
+            cv::GaussianBlur(src, smooth, cv::Size(Subsize, Subsize), 0, 0); // 高斯滤波
+            break;
+        case medianFilter:
+            cv::medianBlur(src, smooth, Subsize); // 中值滤波
+            break;
+        default:
+            break;
+        }
+        smooth = smooth - c;
+        src.copyTo(dst);
+        for (int r = 0; r &lt; src.rows; ++r)
+        {
+            const uchar *srcptr = src.ptr&lt;uchar&gt;(r);
+            const uchar *smoothptr = smooth.ptr&lt;uchar&gt;(r);
+            uchar *dstptr = dst.ptr&lt;uchar&gt;(r);
+            for (int c = 0; c &lt; src.cols; ++c)
+            {
+                if (srcptr[c] &gt; smoothptr[c])
+                {
+                    dstptr[c] = Maxval;
+                }
+                else
+                    dstptr[c] = 0;
+            }
+        }
+    }
+// 自适应阈值 提取边缘
+AdaptiveThreshold(gray, gray, 255, 21, 10, meanFilter);`
+</code></pre>
+<p>** 前文的例子中不仅有 Opencv 的常用算法，也提供了 Opencv 的画图方法。 **</p>
+
+<pre class="language-cpp"><code class="language-cpp">// 绘制十字线
+for (size_t i = 0; i &lt; reticle_results.size(); i++)
+{
+    reticle_result reticle_result = reticle_results[i];
+    cv::line(bgra, Point(reticle_result.lines[0][0], reticle_result.lines[0][1]), Point(reticle_result.lines[0][2], reticle_result.lines[0][3]), Scalar(255, 0, 0, 255), 2, LINE_AA);
+    cv::line(bgra, Point(reticle_result.lines[1][0], reticle_result.lines[1][1]), Point(reticle_result.lines[1][2], reticle_result.lines[1][3]), Scalar(255, 0, 0, 255), 2, LINE_AA);
+    cv::circle(bgra, reticle_result.crossPoint, 5, Scalar(0, 0, 255, 255), -1, LINE_AA);
+}
+</code></pre>
+<h3 id="Openmv">Openmv</h3>
+<p>当然为了更好的兼容 Openmv 玩家，我们也提供了 Openmv 的函数在 <code>components/third_party/imlib</code> 下，函数全部增加了一个 <code>imlib</code> 的前缀，其他的功能与Openmv 是一致的。</p>
+<p>举个例子：比如 Openmv 的寻找色块函数 <a href="https://book.openmv.cc/image/blob.html"  target="_blank">寻找色块 · OpenMV中文入门教程</a></p>
+
+<pre class="language-C++"><code class="language-C++">image.find_blobs(thresholds, roi=Auto, x_stride=2, y_stride=1, invert=False, 
+    area_threshold=10, pixels_threshold=10, merge=False, margin=0, 
+    threshold_cb=None, merge_cb=None)
+</code></pre>
+<p>根据上面的链接描述，我们再看看 <code>imlib</code> 中的使用几乎一模一样。</p>
+
+<pre class="language-C++"><code class="language-C++">void imlib_find_blobs(list_t *out, image_t *ptr, rectangle_t *roi, unsigned int x_stride, unsigned int y_stride,
+                      list_t *thresholds, bool invert, unsigned int area_threshold, unsigned int pixels_threshold,
+                      bool merge, int margin,
+                      bool (*threshold_cb)(void*,find_blobs_list_lnk_data_t*), void *threshold_cb_arg,
+                      bool (*merge_cb)(void*,find_blobs_list_lnk_data_t*,find_blobs_list_lnk_data_t*), void *merge_cb_arg,
+                      unsigned int x_hist_bins_max, unsigned int y_hist_bins_max)
+
+imlib_find_blobs(&amp;out, img, &amp;roi, x_stride, y_stride, &amp;thresholds, invert, area_threshold,
+                           pixels_threshold, merge, margin, NULL, NULL, NULL, NULL, x_hist_bins_max, y_hist_bins_max);
+</code></pre>
+<p>再看看最经典的巡线功能中最重要的识别直线函数：<a href="https://book.openmv.cc/example/09-Feature-Detection/find-lines.html"  target="_blank">find_lines 识别直线 · OpenMV中文入门教程</a></p>
+
+<pre class="language-C++"><code class="language-C++">imlib_find_lines(&amp;out, img, &amp;roi, x_stride, y_stride, threshold, theta_margin, rho_margin);
+</code></pre>
+<p>在上面提供的例子中就采用了寻找直线的功能。</p>
+<h3 id="LVGL">LVGL</h3>
+<p>LVGL（<strong>注意提供的版本为LVGL7</strong>）的相关函数资料：<a href="http://lvgl.100ask.net/7.11/"  target="_blank">百问网 LVGL 中文教程手册文档</a></p>
+<blockquote>
+<p>接下来我们来认识一下外设以及相关的使用方法，例如串口、SPI、PWM、IIC 等。</p>
+</blockquote>
+<h3 id="%E4%B8%B2%E5%8F%A3">串口</h3>
+<p>串口的使用非常的简单，我们先设置好波特率，数据位，停止位等参数，打开串口后挂载到 <code>select</code> 中，当串口收到数据后会打印一个字节出来。</p>
+
+<pre class="language-C++"><code class="language-C++">int ret = 0;
+uart_t uart_dev_parm = {
+.baud = 115200,
+.data_bits = 8,
+.stop_bits = 1,
+.parity = 'n'};
+dls831-&gt;dev_ttyS1 = linux_uart_init((char *)&quot;/dev/ttyS1&quot;, &amp;uart_dev_parm);
+if (dls831-&gt;dev_ttyS1 &lt; 0)
+{
+    perror(&quot; uart /dev/ttyS1 open err!&quot;);
+    abort();
+}
+FD_ZERO(&amp;dls831-&gt;readfd);
+write(dls831-&gt;dev_ttyS1, &quot;dls831!\r\n&quot;, sizeof(&quot;dls831!\r\n&quot;));I2C
+</code></pre>
+
+<pre class="language-C++"><code class="language-C++">// serial
+FD_SET(dls831-&gt;dev_ttyS1, &amp;dls831-&gt;readfd);
+ret = select(dls831-&gt;dev_ttyS1 + 1, &amp;dls831-&gt;readfd, NULL, NULL, &amp;dls831-&gt;timeout);
+if (ret != -1 &amp;&amp; FD_ISSET(dls831-&gt;dev_ttyS1, &amp;dls831-&gt;readfd))
+{
+  char tmp[2] = {0};
+  int readByte = read(dls831-&gt;dev_ttyS1, &amp;tmp, 1);
+  if (readByte != -1)
+  {
+    printf(&quot;readByte %d %X\n&quot;, readByte, tmp);
+  }
+}
+</code></pre>
+<h3 id="SPI">SPI</h3>
+<p>以 WS2812 为例，首先搞清楚设备的 SPI 的四种时序模式：<a href="https://zhuanlan.zhihu.com/p/386787861"  target="_blank">一文搞懂 spi 协议 4 种模式时序</a></p>
+
+<pre class="language-C++"><code class="language-C++">#define WS2812_SPI_DEVICE &quot;/dev/spidev1.0&quot;
+unsigned char spi_init()
+{
+    //初始化
+    int i;
+    _ws2812_fd = open (WS2812_SPI_DEVICE, O_RDWR);
+    printf(&quot;\r\n*****ws2812 open success******\r\n&quot;);                                    /* open spi device */
+    if ((_ws2812_fd) &lt; 0)                                                   /* check result */
+    {
+        printf(&quot;spi: open failed.\n&quot;);                               /* open failed */
+        return 1;                                                    /* return error */
+    }
+    else
+    {
+        i = SPI_MODE_3;                                                    /* set mode */
+        if (ioctl(_ws2812_fd, SPI_IOC_WR_MODE, &amp;i) &lt; 0)                     /* config write mode */
+        {
+            printf(&quot;spi: write mode set failed.\n&quot;);                 /* write mode set failed */
+            return 1;                                                /* return error */
+        }
+        if (ioctl(_ws2812_fd, SPI_IOC_RD_MODE, &amp;i) &lt; 0)                     /* config read mode */
+        {
+            printf(&quot;spi: read mode set failed.\n&quot;);                  /* read mode set failed */
+            return 1;                                                /* return error */
+        }
+        i = 20000000;                                                    /* set spi frequence */
+        if (ioctl(_ws2812_fd, SPI_IOC_WR_MAX_SPEED_HZ, &amp;i) &lt; 0)             /* set write max frequence */
+        {
+            printf(&quot;spi: set spi write speed failed.\n&quot;);            /* set spi write speed failed */
+            return 1;                                                /* return error */
+        }
+        if (ioctl(_ws2812_fd, SPI_IOC_RD_MAX_SPEED_HZ, &amp;i) &lt; 0)             /* set read max frequence */
+        {
+            printf(&quot;spi: set spi read speed failed.\n&quot;);             /* set spi read speed failed */
+            return 1;                                                /* return error */
+        }
+        i = 0;
+        if (ioctl(_ws2812_fd, SPI_IOC_WR_LSB_FIRST, &amp;i) &lt; 0)                /* set write MSB first */
+        {
+            printf(&quot;spi: set spi write msb first failed.\n&quot;);        /* set spi write msb first failed */
+            return 1;                                                /* return error */
+        }
+        if (ioctl(_ws2812_fd, SPI_IOC_RD_LSB_FIRST, &amp;i) &lt; 0)                /* set read MSB first */
+        {
+            printf(&quot;spi: set spi read msb first failed.\n&quot;);         /* set spi read msb first failed */
+            return 1;                                                /* return error */
+        }
+        i = 8;                                                       /* set 8 bits */
+        if (ioctl(_ws2812_fd, SPI_IOC_WR_BITS_PER_WORD, &amp;i) &lt; 0)            /* set write bits */
+        {
+            printf(&quot;spi: set spi wirte 8 bit failed.\n&quot;);            /* set spi wirte 8 bit failed */
+            return 1;                                                /* return error */
+        }
+        if (ioctl(_ws2812_fd, SPI_IOC_RD_BITS_PER_WORD, &amp;i) &lt; 0)            /* set read bits */
+        {
+            printf(&quot;spi: set spi read 8 bit failed.\n&quot;);             /* set spi read 8 bit failed */
+            return 1;                                                /* return error */
+        }
+        return 0;                                                    /* success return 0 */
+    }
+}
+</code></pre>
+
+<pre class="language-C++"><code class="language-C++">unsigned char spi_write_data(unsigned char *buf, uint16_t len)
+{
+    struct spi_ioc_transfer k;
+    int l;
+    // ws2812b_interface_debug_print(&quot;\r\n***const char *const fmt***\r\n&quot;);
+    memset(&amp;k, 0, sizeof(k));                         /* clear ioc transfer */
+    k.tx_buf = (unsigned long) buf;                   /* set tx buffer */
+    k.len = len;                                      /* set tx length */
+    k.cs_change = 0;                                  /* set cs change */
+    l = ioctl(_ws2812_fd, SPI_IOC_MESSAGE(1), &amp;k);            /* send data */
+    if (l != len)                                     /* check length */
+    {
+        printf(&quot;spi: length check error.\n&quot;);         /* length check error */
+
+        return 1;                                     /* return error */
+    }
+
+    return 0;
+}
+
+// spi.xfer(tx, int(4/1.05e-6))
+unsigned char spi_xfer_data(unsigned char *buf, uint16_t len, int clk)
+{
+    struct spi_ioc_transfer k;
+    int l;
+    // ws2812b_interface_debug_print(&quot;\r\n***const char *const fmt***\r\n&quot;);
+    memset(&amp;k, 0, sizeof(k));                         /* clear ioc transfer */
+    k.tx_buf = (unsigned long) buf;                   /* set tx buffer */
+    k.len = len;                                      /* set tx length */
+    k.cs_change = 0;                                  /* set cs change */
+    k.speed_hz = clk;                                 /* set spi clk */
+    k.bits_per_word = 8;
+    l = ioctl(_ws2812_fd, SPI_IOC_MESSAGE(1), &amp;k);            /* send data */
+    if (l != len)                                     /* check length */
+    {
+        printf(&quot;spi: length check error.\n&quot;);         /* length check error */
+
+        return 1;                                     /* return error */
+    }
+
+    return 0;
+}
+</code></pre>
+<p>读写数据的函数编写好后，就可以愉快的封装 WS2812 的亮灯程序啦！</p>
+
+<pre class="language-C++"><code class="language-C++">uint8_t _set_rgbs_color(uint8_t *color_buf)
+{
+    uint8_t ret = 0;
+    uint8_t i = 0;
+    uint8_t j = 0;
+    uint8_t k = 0;
+    uint8_t tx[25] = {0};
+    uint8_t rgb[3] = {0};
+    uint8_t byte = 0;
+    uint8_t ibit = 0;
+    uint8_t *p = color_buf;
+    for (i = 0; i &lt; 2; i++)
+    {
+        rgb[0] = p[0];
+        rgb[1] = p[1];
+        rgb[2] = p[2];
+        for (j = 0; j &lt; 3; j++)
+        {
+
+            uint8_t colorBit[4] = {0};
+            byte = rgb[j];
+            for (ibit = 0; ibit &lt; 4; ibit++)
+            {
+                colorBit[ibit] = (((byte &gt;&gt; (2 * ibit + 1)) &amp; 1) * 0x60 + ((byte &gt;&gt; (2 * ibit + 0)) &amp; 1) * 0x06 + 0x88);
+            }
+
+            tx[k++] = colorBit[3];
+            tx[k++] = colorBit[2];
+            tx[k++] = colorBit[1];
+            tx[k++] = colorBit[0];
+        }
+        p += 3;
+    }
+    tx[0] &amp;=0x0f;
+    // spi need clear head high level
+    tx[0] |=0x40;
+    tx[24] = 0b1000000; // spi need clear end high level
+
+    ret = spi_xfer_data(tx, 25, (int)(4/1.05e-6));
+    return ret;
+}
+</code></pre>
+<h3 id="PWM">PWM</h3>
+<p>通过写寄存器的方式直接对三个 PWM 进行初始化操作。</p>
+
+<pre class="language-C++"><code class="language-C++">  /*pwm*/
+  void pwm_init()//刚开始初始化50HZ 2.5%占空比
+  {
+
+    _pwm_init(&quot;PH6&quot;, 100, 2.5/100);//为了初始化引脚
+    _pwm_init(&quot;PH7&quot;, 100, 2.5/100);//为了初始化引脚
+    _pwm_init(&quot;PH8&quot;, 100, 2.5/100);//为了初始化引脚
+
+    usleep(100);
+    chdir(&quot;/sys/class/sunxi_dump&quot;);
+    system(&quot;echo 0x0300A080 0x00 &gt; write&quot;);  //PWM DISABLE
+    system(&quot;echo 0x0300A040 0x00  &gt; write&quot;);//PWM CLOCK DISABLE
+
+    system(&quot;echo 0x0300A028 0x00 &gt; write&quot;);//PWM45
+    system(&quot;echo 0x0300A02C 0x00 &gt; write&quot;);//PWM67 CLOCK CONFIG PCCR67 24M 不分频
+    system(&quot;echo 0x0300A030 0x00 &gt; write&quot;);//PWM89 CLOCK CONFIG PCCR89 24M 不分频
+    system(&quot;echo 0x0300A040 0x1D0 &gt; write&quot;);//PWM Clock Gating 打开PWM4 6,7,8时钟
+
+
+    system(&quot;echo 0x0300A180 0x107 &gt; write&quot;);//PWM4
+    system(&quot;echo 0x0300A184 0xea6005dc &gt; write&quot;);//PWM
+    system(&quot;echo 0x0300A188 0x00 &gt; write&quot;);//PWM
+
+    system(&quot;echo 0x0300A1C0 0x107 &gt; write&quot;);//PWM6配置8分频，循环模式
+    system(&quot;echo 0x0300A1C4 0xea6005dc &gt; write&quot;);//PWM6初始波形定义
+    system(&quot;echo 0x0300A1C8 0x00 &gt; write&quot;);//PWM6初始计数值为0
+
+    system(&quot;echo 0x0300A1E0 0x107 &gt; write&quot;);//PWM7配置8分频，循环模式
+    system(&quot;echo 0x0300A1E4 0xea6005dc &gt; write&quot;);//PWM7初始波形定义
+    system(&quot;echo 0x0300A1E8 0x00 &gt; write&quot;);//PWM7初始计数值为0
+
+    system(&quot;echo 0x0300A200 0x107 &gt; write&quot;);//PWM8配置8分频，循环模式
+    system(&quot;echo 0x0300A204 0xea6005dc &gt; write&quot;);//PWM8初始波形定义
+    system(&quot;echo 0x0300A208 0x00 &gt; write&quot;);//PWM8初始计数值为0
+
+    system(&quot;echo 0x0300A080 0x1D0 &gt; write&quot;);//ENABLE PWM4 6,7,8
+  }
+
+  void pwm_deinit()
+  {
+    chdir(&quot;/sys/class/sunxi_dump&quot;);
+    system(&quot;echo 0x0300A080 0x00 &gt; write&quot;);
+    system(&quot;echo 0x0300A040 0x00  &gt; write&quot;);
+    _pwm_deinit(&quot;PH6&quot;);
+    _pwm_deinit(&quot;PH7&quot;);
+    _pwm_deinit(&quot;PH8&quot;);
+  }
+
+  //设置PWM输出的频率，占空比，最大30KHZ
+  //0--pwm6
+  //1--pwm7
+  //2--pwm8
+  void pwm_set(uint8_t pwm_id,uint32_t freq,float duty)
+  {
+    char data_buf[128];
+    unsigned int reg_freq_count = 0;
+    unsigned int reg_duty_count = 0;
+    unsigned int reg_data = 0;
+    memset(data_buf,0,sizeof(data_buf));
+
+    reg_freq_count = (int)(3000000/freq);
+    reg_duty_count = (int)(reg_freq_count*duty/100);
+    reg_data = (reg_freq_count&lt;&lt;16)+reg_duty_count;
+    switch (pwm_id)
+    {
+    case 0:
+      sprintf(data_buf,&quot;echo 0x0300A1C4 0x%x &gt; write&quot;,reg_data);
+      break;
+    case 1:
+      sprintf(data_buf,&quot;echo 0x0300A1E4 0x%x &gt; write&quot;,reg_data);
+      break;
+    case 2:
+      sprintf(data_buf,&quot;echo 0x0300A204 0x%x &gt; write&quot;,reg_data);
+      break;
+    default:
+      break;
+    }
+</code></pre>
+<p>通过封装好的 <code>pwm_set</code> 就可以简单的控制三个 <code>pwm</code> 的输出频率了。</p>
+<h3 id="IIC">IIC</h3>
+<p>以 MPU6050 为例，首先查询你所用芯片的寄存器手册，配置相关寄存器设置。</p>
+
+<pre class="language-C++"><code class="language-C++">#define WHO_AM_I_REG    0x75
+#define POWR_MGNT_REG   0x6B
+#define ACCL_CONF_REG   0x1C
+#define GYRO_CONF_REG   0x1B
+#define SMPL_DVDR_REG   0x19
+#define CONFIG_REG      0x1A
+#define ACCL_XH_REG     0x3B
+#define ACCL_XL_REG     0x3C
+#define ACCL_YH_REG     0x3D
+#define ACCL_YL_REG     0x3E
+#define ACCL_ZH_REG     0x3F
+#define ACCL_ZL_REG     0x40
+#define GYRO_XH_REG     0x43
+#define GYRO_XL_REG     0x44
+#define GYRO_YH_REG     0x45
+#define GYRO_YL_REG     0x46
+#define GYRO_ZH_REG     0x47
+#define GYRO_ZL_REG     0x48
+#define TEMP_HI_REG     0x41
+#define TEMP_LO_REG     0x42
+#define FIFO EN_REG     0x23
+#define FIFO_CH_REG     0x72
+#define FIFO_CL_REG     0x73
+#define FIFO_REG        0x74
+
+char i2c_write(int file, uint8_t address, uint8_t command, uint8_t value)
+{
+    uint8_t buf[2] = {command, value};
+    struct i2c_msg msgs[1] = {
+        {
+            .addr = address,
+            .flags = 0,
+            .len = 2,
+            .buf = buf,
+        },
+    };
+    struct i2c_rdwr_ioctl_data data = {
+        .msgs = msgs,
+        .nmsgs = 1,
+    };
+    if (ioctl(file, I2C_RDWR, &amp;data) &lt; 0) {
+        return -1;
+    }
+    return 0;
+}
+
+char i2c_read(int file, uint8_t address, uint8_t command)
+{
+    uint8_t buf[1];
+    struct i2c_msg msgs[2] = {
+        {
+            .addr = address,
+            .flags = 0,
+            .len = 1,
+            .buf = &amp;command,
+        },
+        {
+            .addr = address,
+            .flags = I2C_M_RD,
+            .len = 1,
+            .buf = buf,
+        },
+    };
+    struct i2c_rdwr_ioctl_data data = {
+        .msgs = msgs,
+        .nmsgs = 2,
+    };
+    if (ioctl(file, I2C_RDWR, &amp;data) &lt; 0) {
+        return -1;
+    }
+    return buf[0];
+}
+
+void mpu6050_init(uint8_t i2c_number, uint8_t slave_addr)
+{
+    file = open(&quot;/dev/i2c-2&quot;, O_RDWR);
+    if (file &lt; 0) {
+        printf(&quot;I2C %hhu Not Found\n&quot;, i2c_number);
+    	exit(1);
+    }
+    i2c_address = slave_addr;
+    if (ioctl(file, I2C_SLAVE, i2c_address) &lt; 0) {
+        close(file);
+        printf(&quot;I2C Slave Not Found&quot;);
+    	exit(1);
+    }
+    i2c_write(file,slave_addr,POWR_MGNT_REG, 0x00);
+    i2c_write(file,slave_addr,ACCL_CONF_REG, 0x01);
+    i2c_write(file,slave_addr,GYRO_CONF_REG, 0x18);
+    i2c_write(file,slave_addr,SMPL_DVDR_REG, 0x07);
+    i2c_write(file,slave_addr,CONFIG_REG, 0x06);
+}
+</code></pre>
+<p>在初始化 mpu6050 时需先查阅原理图，根据 <code>M2DCOK</code> 的原理图可得知 <code>IIC</code> 的 <code>PH11</code> 和 <code>PH12</code> 分别是 <code>SCL</code> 和 <code>SDA</code> 两根信号线，且对应的设备是 <code>/dev/i2c-2</code>，这样看来 <code>i2c_number</code> 就应该为 <code>/dev/i2c-2</code>。</p>
+<p><strong>第一步</strong>：我们可以通过命令去查找 <code>mpu6050</code> 在 <code>IIC</code> 上的地址</p>
+
+<pre class="language-shell"><code class="language-shell">i2cdetetc -y 2
+</code></pre>
+<p><img src="./assest/i2c.jpg" alt="i2c" /></p>
+<blockquote>
+<p>我们可从上图得知有两个地址：62 以及 68，62 是板卡上自带的三轴传感器，而 68 则是我们的 mpu6050 挂载在 IIC 上的地址。</p>
+</blockquote>
+<p><strong>第二步</strong>：拿到地址后也可以通过命令直接去查看 mpu6050 中寄存器的值</p>
+
+<pre class="language-shell"><code class="language-shell">i2cdump -y 2 0x68
+</code></pre>
+<p><img src="./assest/6050.jpg" alt="6050" /></p>
+<p><strong>第三步</strong>：分别取出高八位和低八位的值后，拼接起来后再通过一层换算才能得到真实的数据，以加速度、角速度和温度为例，打印出换算后的个值。</p>
+
+<pre class="language-C++"><code class="language-C++">int16_t twos_complement(uint8_t higher_byte, uint8_t lower_byte)
+{
+    uint16_t word = (uint16_t)((higher_byte &lt;&lt; 8) | lower_byte);
+    int16_t signed_word;
+    if((word &amp; 0x8000) != 0)
+    {
+    	word = ~word + 0x0001;
+    	signed_word = (int16_t)(word * -1);
+    	return signed_word;
+    }
+    else 
+    {
+    	signed_word = (int16_t)word;
+    	return signed_word;
+    }
+}
+mpu6050_init(2, 0x68);
+axh = i2c_read(file,i2c_address,ACCL_XH_REG);
+axl = i2c_read(file,i2c_address,ACCL_XL_REG);
+ayh = i2c_read(file,i2c_address,ACCL_YH_REG);
+ayl = i2c_read(file,i2c_address,ACCL_YL_REG);
+azh = i2c_read(file,i2c_address,ACCL_ZH_REG);
+azl = i2c_read(file,i2c_address,ACCL_ZL_REG);
+gxh = i2c_read(file,i2c_address,GYRO_XH_REG);
+gxl = i2c_read(file,i2c_address,GYRO_XL_REG);
+gyh = i2c_read(file,i2c_address,GYRO_YH_REG);
+gyl = i2c_read(file,i2c_address,GYRO_YL_REG);
+gzh = i2c_read(file,i2c_address,GYRO_ZH_REG);
+gzl = i2c_read(file,i2c_address,GYRO_ZL_REG);
+th = i2c_read(file,i2c_address,TEMP_HI_REG);
+tl = i2c_read(file,i2c_address,TEMP_LO_REG);
+
+axw = twos_complement(axh, axl);
+ayw = twos_complement(ayh, ayl);
+azw = twos_complement(azh, azl);
+gxw = twos_complement(gxh, gxl);
+gyw = twos_complement(gyh, gyl);
+gzw = twos_complement(gzh, gzl);
+tw = twos_complement(th, tl);
+</code></pre>
+<p>最后打印结果如下图：</p>
+<p><img src="./assest/print.jpg" alt="print" /></p>
+<h2 id="%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98-A%26amp%3BQ">常见问题 A&amp;Q</h2>
+<p>很多的问题的出现都是误操导致的，如果 AQ 里没有你遇见的问题，那就自己尝试解决问题，一步一步往回溯源根据报错信息遗漏哪一步哪一环。</p>
+<ul>
+<li><a href="https://wiki.sipeed.com/soft/maixpy3/zh/question/maixpy3_faq.html"  target="_blank">MaixPy3 常见问题与解决方法</a></li>
+<li><a href="https://wiki.sipeed.com/soft/maixpy3/zh/tools/0.MaixII-Dock.html#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E6%8C%87%E5%8D%97"  target="_blank">M2DOCK 常见问题指南</a></li>
+<li><a href="https://github.com/sipeed/MaixPy3/issues"  target="_blank">Github issues</a></li>
+<li><a href="https://bbs.sipeed.com/thread/489"  target="_blank">BBS 社区常见问题汇总贴</a></li>
+<li><a href="https://wiki.sipeed.com/community.html"  target="_blank">相关讨论社群</a></li>
+</ul>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                    </div>
+                    <div id="next">
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>相关链接</a><ul><li><a target="_blank" href="https://www.sipeed.com">Sipeed 官网</a></li>
+<li><a target="_blank" href="https://maixhub.com/">MaixHub</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">Sipeed 淘宝</a></li>
+<li><a  href="/sitemap.xml">网站地图</a></li>
+<li><a target="_blank" href="https://github.com/teedoc/teedoc">网站使用 teedoc 生成</a></li>
+</ul>
+</li>
+<li><a>源码</a><ul><li><a target="_blank" href="https://github.com/sipeed/sipeed_wiki">Wiki 源码</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">开源项目</a></li>
+</ul>
+</li>
+<li><a>关注我们</a><ul><li><a target="_blank" href="https://twitter.com/SipeedIO">twitter</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">淘宝</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">github</a></li>
+<li><a><a>微信公众号</a><img src='/static/image/wechat.png'></a>
+</li>
+</ul>
+</li>
+<li><a>联系我们</a><ul><li><a>电话: +86 0755-27808509</a>
+</li>
+<li><a>商业支持: support@sipeed.com</a>
+</li>
+<li><a>地址: 深圳市宝安区新湖路4008号蘅芳科技办公大厦A座-2101C</a>
+</li>
+<li><a  href="/join_us.html">加入我们</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://www.sipeed.com">©2018-2023 深圳矽速科技有限公司</a></li>
+<li><a target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index">粤ICP备19015433号</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/js/prism.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <link rel="stylesheet" href="/static/js/add_hint/style.css" type="text/css"/>
+    
+        <script src="/static/js/add_hint/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+        <script src="/static/js/thumbs_up/main.js"></script>
+    
+</body>
+
+</html>
