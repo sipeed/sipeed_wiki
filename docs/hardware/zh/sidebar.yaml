@@ -507,6 +507,20 @@ items:
             file: kvm/NanoKVM_USB/deployment.md
         -   label: FAQ
             file: kvm/NanoKVM_USB/faq.md
+-   label: Cluster
+    items:
+    -   label: NanoCluster
+        items:
+        -   label: 简介
+            file: cluster/NanoCluster/index.md
+        -   label: 快速上手
+            file: cluster/NanoCluster/use.md
+        -   label: 应用开发
+            items:
+            -   label: k3s 部署
+                file: cluster/NanoCluster/k3s.md
+            -   label: distcc 部署
+                file: cluster/NanoCluster/distcc.md
 # -   label: Maix Audio
 #     items:
 #     -   label: MA USB 16
