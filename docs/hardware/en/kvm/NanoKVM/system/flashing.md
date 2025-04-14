@@ -18,7 +18,7 @@ update:
     - The Full version comes with a 32G SD card. You will need to remove it by opening the case.
     - The Lite version requires you to prepare an SD card of at least 8G.
 
-1. Go to [Github](https://github.com/sipeed/NanoKVM/releases) to download the latest version image.
+1. Go to [Github](https://github.com/sipeed/NanoKVM/releases/latest) to download the latest version image.
 
 1. Install the flashing software. We recommend using [Etcher](https://etcher.balena.io).
 

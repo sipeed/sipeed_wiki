@@ -64,6 +64,8 @@ NanoKVM 系列产品包含一个 HDMI 输入接口，可以被电脑识别为显
 
 NanoKVM 与 Sipeed [LicheeRV Nano](https://wiki.sipeed.com/hardware/zh/lichee/RV_Nano/1_intro.html) 使用相同SOC，希望二次开发的小伙伴可在[这里](https://wiki.sipeed.com/hardware/zh/kvm/NanoKVM/development.html)查看更多资料
 
+NanoKVM Cube/PCIe 软件现已完全开源：[KVM应用开源位置](https://github.com/sipeed/NanoKVM)、 [镜像开源位置](https://github.com/sipeed/LicheeRV-Nano-Build/tree/NanoKVM)
+
 > NanoKVM 镜像在LicheeRV Nano SDK 和 MaixCDK 基础上构建，可以兼容使用 LicheeRV Nano 的资料，反之LicheeRV Nano 或其他 SG2002 产品无法使用KVM软件。如果您想在 NanoKVM 上构建 HDMI 输入相关应用，请与我们联系，以获得技术支持。
 
 NanoKVM-Cube 和 NanoKVM-PCIe 共用同一套镜像和应用, 自动适配不同的硬件版本

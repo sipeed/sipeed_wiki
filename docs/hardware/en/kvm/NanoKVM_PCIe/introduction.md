@@ -64,6 +64,8 @@ To meet diverse user needs, the NanoKVM-PCIe offers two optional modules for WiF
 
 NanoKVM uses the same SOC as Sipeed [LicheeRV Nano](https://wiki.sipeed.com/hardware/zh/lichee/RV_Nano/1_intro.html). For those interested in secondary development, you can find more information [here](https://wiki.sipeed.com/hardware/zh/kvm/NanoKVM/development.html).
 
+The NanoKVM Cube/PCIe software is now fully open source: [KVM Application Open Source Location](https://github.com/sipeed/NanoKVM), [Image Open Source Location](https://github.com/sipeed/LicheeRV-Nano-Build/tree/NanoKVM).
+
 > The NanoKVM image is built on the LicheeRV Nano SDK and MaixCDK, allowing compatibility with LicheeRV Nano resources. Conversely, the LicheeRV Nano or other SG2002 products cannot utilize KVM software. If you wish to develop HDMI input-related applications on NanoKVM, please contact us for technical support.
 
 NanoKVM-Cube and NanoKVM-PCIe share the same image and applications, automatically adapting to different hardware versions.

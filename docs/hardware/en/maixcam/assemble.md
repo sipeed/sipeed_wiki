@@ -12,10 +12,11 @@ When you receive your MaixCAM, there are several accessories to **pay attention 
 
 ## Open Source Model Files
 
-* [MaixCAM Case Model](https://makerworld.com/zh/models/440321) (Recommended to use resin with a temperature resistance of 70°C for UV curing printing)
-* [MaixCAM Stand Model](https://makerworld.com/zh/models/463622#profileId-372189)
-* [MaixCAM-Pro Case Model](https://makerworld.com/zh/models/722034)
-* For more, visit [makerworld.com](https://makerworld.com/) (recommended) or [makerworld.com.cn](https://makerworld.com.cn) and search for `MaixCAM`
+* [MaixCAM Case Model](https://makerworld.com.cn/zh/models/467141) (Recommended to use resin with a temperature resistance of 70°C for UV curing printing)
+* [MaixCAM Stand Model](https://makerworld.com.cn/zh/models/467152)
+* [MaixCAM-Pro Case Model](https://makerworld.com.cn/zh/models/575886)
+* 6 x M2*5 self-tapping screws
+* 1 x H1.5 Allen wrench
 
 ## MaixCAM
 
