@@ -71,17 +71,23 @@ Take PWM1 which is connected to the cooling fan as an example, you can get the f
 cat /sys/class/hwmon/hwmon0/pwm1
 ```
 
-The PWM speed value ranges from 0 to 255, where a higher value represents a higher fan speed. You can write ```0``` to the PWM enable control to disable automatic speed regulation, and manually set the fan speed (e.g., 255):
+The PWM speed value ranges from 0 to 255, where a higher value represents a higher fan speed. You can write ```1``` to the PWM enable control for manual speed regulation, and set the fan speed (e.g., 255):
 
 ```
 echo 0 > /sys/class/hwmon/hwmon0/pwm1_enable
-echo 0 > /sys/class/hwmon/hwmon0/pwm1
+echo 255 > /sys/class/hwmon/hwmon0/pwm1
 ```
 
-Or you can enable automatic speed regulation with the following code:
+You can enable automatic speed regulation with the following code:
 
 ```bash
-echo 1 > /sys/class/hwmon/hwmon0/pwm1_enable
+echo 2 > /sys/class/hwmon/hwmon0/pwm1_enable
+```
+
+Or stop the fan completely:
+
+```bash
+echo 0 > /sys/class/hwmon/hwmon0/pwm1_enable
 ```
 
 ## GPIO
