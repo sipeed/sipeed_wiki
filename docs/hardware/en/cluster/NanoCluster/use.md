@@ -287,12 +287,12 @@ NanoCluster is equipped with the JL6108 Gigabit switch chip, which is based on t
 3. **Access the Management Interface**  
    Open a browser and enter `http://10.10.11.10`, then press Enter to reach the login page.  
 
-   ![Login Page](../../../zh/cluster/NanoCluster/assets/login.jpeg)
+   ![Login Page](../../../zh/cluster/NanoCluster/assets/login_en.jpeg)
 
 4. **Login to the Management System**  
    Enter the **admin username and password** (both default to `admin`), then click **Login** to access the main interface.  
 
-   ![Management Homepage](../../../zh/cluster/NanoCluster/assets/homepage.jpeg)
+   ![Management Homepage](../../../zh/cluster/NanoCluster/assets/homepage_en.jpeg)
 
 ### Basic Configuration
 
@@ -302,7 +302,7 @@ The JL6108 switch provides port status management, supporting **port enable/disa
 - **Modify Port Speed**: Supports 10Mbps / 100Mbps / 1000Mbps modes.  
 - **Flow Control**: Can be enabled to prevent packet loss.  
 
-![Port Management](../../../zh/cluster/NanoCluster/assets/portsetting.jpeg)
+![Port Management](../../../zh/cluster/NanoCluster/assets/portsetting_en.jpeg)
 
 #### VLAN Configuration
 VLAN (Virtual Local Area Network) is used to segment different network areas, prevent broadcast storms, and enhance security.
@@ -323,7 +323,7 @@ VLAN (Virtual Local Area Network) is used to segment different network areas, pr
 4. **View the Port Member Table**  
    After configuration, **Ports 2-4 will be automatically removed from VLAN 1** and assigned to VLAN 2.   
 
-   ![Port VLAN Configuration](../../../zh/cluster/NanoCluster/assets/vlan.jpeg)
+   ![Port VLAN Configuration](../../../zh/cluster/NanoCluster/assets/vlan_en.jpeg)
 
 #### QoS Configuration (Traffic Prioritization)
 QoS ensures stable performance for high-priority traffic such as video conferencing and VoIP:
@@ -332,7 +332,7 @@ QoS ensures stable performance for high-priority traffic such as video conferenc
 3. Set **High / Medium / Low Priority Queues**  
 4. **Save the settings** to apply the QoS rules    
 
-![QoS Configuration](../../../zh/cluster/NanoCluster/assets/qos.jpeg)
+![QoS Configuration](../../../zh/cluster/NanoCluster/assets/qos_en.jpeg)
 
 ### Additional Configuration
 
@@ -349,7 +349,7 @@ We provide the **JL6108 SDK** based on the **RISC-V** architecture. Users can do
 ### Device Won't Power On / Can't Boot into System
 Ensure you are using a power adapter that supports at least PD 20V output. Avoid using USB power from a host device, as this may prevent the device from starting properly. Check if the green indicator light near the power input interface is lit. If there is no response, the issue may lie with the power adapter or power cable. Observe the blue power indicator lights corresponding to each slot to determine if the system has started normally.
 
-If **LM3H** fails to boot into the system, press and hold the BOOT button while powering on or resetting the device to check if it enters UMS mode. Confirm whether the device is recognized as a USB drive in disk management. If the system is damaged or cannot boot, you can reflash the [firmware image](https://wiki.sipeed.com/hardware/en/NanoCluster/use.html#Flashing-the-Image). If UMS mode cannot be entered, try the [emergency flashing](https://wiki.sipeed.com/hardware/en/cluster/NanoCluster/use.html#Emergency-Flashing-(LM3H)) method.
+If **LM3H** fails to boot into the system, press and hold the BOOT button while powering on or resetting the device to check if it enters UMS mode. Confirm whether the device is recognized as a USB drive in disk management. If the system is damaged or cannot boot, you can reflash the [firmware image](https://wiki.sipeed.com/hardware/en/NanoCluster/use.html#Flashing-the-Image). If UMS mode cannot be entered, try the [emergency flashing](https://wiki.sipeed.com/hardware/en/cluster/NanoCluster/use.html#Emergency-Flashing-%28LM3H%29) method.
 
 If **CM4/CM5** fails to start normally, you can re-flash the system image following the instructions in the [firmware image](https://wiki.sipeed.com/hardware/en/cluster/NanoCluster/use.html#Flashing-the-Image) section and test again.
 
