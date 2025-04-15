@@ -272,6 +272,21 @@ NanoCluster is equipped with the JL6108 Gigabit switch chip, which is based on t
 - **QoS Configuration**: Manages traffic priority based on port, PCP, and DSCP
 - **Bandwidth and Storm Control**: Supports port-based bandwidth limitation and broadcast storm suppression
 
+### Port Allocation
+
+The cluster backplane connects to each core board (SOM) via the JL6108 switch. The port allocation is as follows:
+
+| Switch Port | Connected Device                    |
+|------------|--------------------------------------|
+| Port 1     | Slot 7                               |
+| Port 2     | Slot 6                               |
+| Port 3     | Slot 5                               |
+| Port 4     | Slot 4                               |
+| Port 5     | Slot 3                               |
+| Port 6     | Slot 2                               |
+| Port 7     | Slot 1                               |
+| Port 8     | Cluster backplane RJ45 port (for external network connection)   |
+
 ### User Guide
 
 #### Logging into the Web Management Interface
