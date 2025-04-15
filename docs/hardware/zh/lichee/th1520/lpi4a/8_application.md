@@ -415,7 +415,7 @@ n02124075 Egyptian cat
 git clone https://github.com/ultralytics/yolov5.git
 cd yolov5
 pip3 install ultralytics
-python3 export.py --weights yolov5n.pt --include onnx
+python3 export.py --weights yolov5n.pt --include onnx --imgsz 384 640
 ```
 
 #### 编译
