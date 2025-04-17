@@ -71,17 +71,23 @@ light-lpi4a-ddr2G.dtb #history dtb
 cat /sys/class/hwmon/hwmon0/pwm1
 ```
 
-风扇的PWM转速值范围在0到255之间，值越大风扇转速越大。你可以向PWM使能写入```0```来关闭自动调速，并手动设置转速（如255）：
+风扇的PWM转速值范围在0到255之间，值越大风扇转速越大。你可以向PWM使能写入```1```来启用手动调速，并设置转速（如255）：
 
 ```
 echo 0 > /sys/class/hwmon/hwmon0/pwm1_enable
-echo 0 > /sys/class/hwmon/hwmon0/pwm1
+echo 255 > /sys/class/hwmon/hwmon0/pwm1
 ```
 
 使用以下命令可以恢复自动调速：
 
 ```bash
-echo 1 > /sys/class/hwmon/hwmon0/pwm1_enable
+echo 2 > /sys/class/hwmon/hwmon0/pwm1_enable
+```
+
+或是完全禁用风扇：
+
+```bash
+echo 0 > /sys/class/hwmon/hwmon0/pwm1_enable
 ```
 
 ## GPIO
