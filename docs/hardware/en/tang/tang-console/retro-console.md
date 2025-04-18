@@ -2,29 +2,16 @@
 title: Tang Console
 keywords: FPGA, Tang, Console, 60K, 138K
 update:
-  - date: 2025-01-23
+  - date: 2025-04-17
     version: v0.1
     author: Serika
     content:
       - Create document
-  - date: 2025-04-17
-    version: v0.2
-    author: Serika
-    content:
-      - Add Retro Console
 ---
 
 ## Overview
 
-  **Tang Console** is an another dock board for **[Tang Mega 138k](./../tang-mega-138k/mega-138k.md) SOM** and **[Tang Mega 60k](./../tang-mega-60k/mega-60k.md) SOM**. It is designed to be small and compact, and is mechanically compatible with the **Raspberry Pi 5b** **`PCIe HAT`**. In addition, it also contains two 5Gbps USB3 device interfaces and two **2x20-pin header connectors**, two **PMOD connectors**. It can meet the needs of IO expansion and high-speed communication at the same time.
-  
-  At the same time, it is also specially designed for retro games. Maybe you can turn it into a retro game console, or even a handheld, whatever you like.
 
-  - Date to Release: Late April , 2025
-
-~~  - Pre-sale link: [Click me](https://sipeed.com/tangconsole)~~ (Pre-order has ended, please look forward to the retail version)
-
-  - **For Retro Console :** [**Click Here**](./retro-console.md)
 
 ## Board Features
 
@@ -36,7 +23,6 @@ update:
   - HDMI TX x 1
   - Soft-PHY USB2 x1(480Mbps)
   - Onboard 3.7V Li-on battery(1-Series) charge/discharge management
-  - **PMOD x 2** Standard spacing 800mil, supported dual PMOD modules
 
 ## Product Appearance
 

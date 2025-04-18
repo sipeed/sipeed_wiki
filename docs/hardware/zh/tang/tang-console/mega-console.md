@@ -7,24 +7,34 @@ update:
     author: Serika
     content:
       - 新建文档
+  - date: 2025-04-17
+    version: v0.2
+    author: Serika
+    content:
+      - 加入Retro Console相关内容
 
 ---
 
 ## 产品概述
 
-- 发售日期：2025年3月中旬
-- 预购链接：[点我](https://sipeed.com/tangconsole)
+- 发售日期：2025年4月中旬
+- ~~预购链接：[点我](https://sipeed.com/tangconsole)~~（预购已结束，敬请期待零售版本）
+- **游戏机相关内容：**[**点我**](./retro-console.md)
 
 ## 板卡特点
 
-  - 兼容多种SOM (**[Mega 138k](./../tang-mega-138k/mega-138k.md)** & **[Mega 60k](./../tang-mega-60k/mega-60k.md)**)
+注意，本页面主要以开发板视角介绍板卡，如需了解作为复古游戏机的**Retro Conssole**，请[**【移步这里】**](./retro-console.md)
+
+  - 兼容多种SOM (**[Mega 138k](./../tang-mega-138k/mega-138k.md)** & **[Mega 60k](./../*tang-mega-60k/mega-60k.md)**)
   - 更小更紧凑更经济
-  - 兼容 Pi 5b PCIe HAT
-  - PCIe 2.0 x 1
-  - USB3 x 2(5Gbps)
-  - HDMI TX x 1
-  - Soft-PHY USB2 x1(480Mbps)
+  - 兼容 **RPi 5 PCIe FPC**
+  - **PCIe Gen2/3 x 1** FPC连接器
+  - **USB3 x 2** (Type-A, Device, 5Gbps or 10Gbps)
+  - **USB2 x 2** (Type-A, Host, 1.5Mbps or 12Mbps)
+  - **HDMI TX x 1** (1080P 30Hz/720P 60Hz)
+  - **Soft-PHY USB2 x1** (Typc-C, Device, 480Mbps)
   - 板载3.7V锂离子电池（1S）充放电管理电路
+  - **PMOD x 2** 标准间距，可使用双PMOD模组
 
 
 ## 产品外观
