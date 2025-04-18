@@ -157,6 +157,56 @@ NanoKVM除实现KVM功能外还开放了一些数据,用于用户的二次开发
                 ```shell
                 echo -ne \\x00\\x00\\x00\\x00\\x00\\x01 > /dev/hidg2
                 ```
+
+## IO
+
+ATX电源控制功能借助IO和外置的KVM-B实现，IO和功能对应关系如下
+Alpha 版定义（包含早期NanoKVM-Cube）
+
+| 功能 | Linux GPIO编号 |
+|----------|----------|
+| PWR LED 输入 | 504 |
+| PWR KEY 输出 | 503 |
+| RST KEY 输出 | 507 |
+
+Beta 版定义（包含后期NanoKVM-Cube和全部的NanoKVM-PCIe）
+
+| 功能 | Linux GPIO编号 |
+|----------|----------|
+| PWR LED 输入 | 504 |
+| PWR KEY 输出 | 503 |
+| RST KEY 输出 | 505 |
+
+    + 读取LED状态 (以Beta为例)
+        ```shell
+        cat /sys/class/gpio/gpio504/value
+        # 0 -> LED亮
+        # 1 -> LED咩
+        ```
+    + 操作电源按钮 (以Beta为例)
+        ```shell
+        # 按下
+        echo 1 > /sys/class/gpio/gpio503/value
+
+        # 等待1s
+        sleep 1
+
+        # 抬起
+        echo 0 > /sys/class/gpio/gpio503/value
+        ```
+    + 操作重启按钮 (以Beta为例)
+        ```shell
+        # 按下
+        echo 1 > /sys/class/gpio/gpio505/value
+
+        # 等待1s
+        sleep 1
+
+        # 抬起
+        echo 0 > /sys/class/gpio/gpio505/value
+        ```
++ 其他IO：请参考 [LicheeRV Nano GPIO](https://wiki.sipeed.com/hardware/zh/lichee/RV_Nano/5_peripheral.html#LicheeRV-Nano%E5%BC%95%E8%84%9A%E5%9B%BE%26amp%3BLinux-GPIO%E7%BC%96%E5%8F%B7%EF%BC%9A) 开发
+
 ## 注意事项
 
 + 用户自己构建的程序请不要放在/kvmapp下,每次更新将会重置文件夹内所有内容
