@@ -245,6 +245,55 @@ Example: Move down by 1 unit
 echo -ne \\x00\\x00\\x00\\x00\\x00\\x01 > /dev/hidg2
 ```
 
+## IO
+
+The ATX power control function is implemented through IO and the external KVM-B. The corresponding relationship between IO and functions is as follows:
+Alpha version definition (including early NanoKVM-Cube)
+
+| Function      | Linux GPIO Number |
+|---------------|-------------------|
+| PWR LED Input | 504               |
+| PWR KEY Output| 503               |
+| RST KEY Output| 507               |
+    
+Beta version definition (including later NanoKVM-Cube and all NanoKVM-PCIe)
+
+| Function      | Linux GPIO Number |
+|---------------|-------------------|
+| PWR LED Input | 504               |
+| PWR KEY Output| 503               |
+| RST KEY Output| 505               |
+
++ Read LED status (using Beta as an example)
+    ```shell
+    cat /sys/class/gpio/gpio504/value
+    # 0 -> LED on
+    # 1 -> LED off
+    ```
++ Operate power button (using Beta as an example)
+    ```shell
+    # Press down
+    echo 1 > /sys/class/gpio/gpio503/value
+
+    # Wait for 1 second
+    sleep 1
+
+    # Release
+    echo 0 > /sys/class/gpio/gpio503/value
+    ```
++ Operate reset button (using Beta as an example)
+    ```shell
+    # Press down
+    echo 1 > /sys/class/gpio/gpio505/value
+
+    # Wait for 1 second
+    sleep 1
+
+    # Release
+    echo 0 > /sys/class/gpio/gpio505/value
+    ```
++ For other IO: Please refer to [LicheeRV Nano GPIO](https://wiki.sipeed.com/hardware/zh/lichee/RV_Nano/5_peripheral.html#LicheeRV-Nano%E5%BC%95%E8%84%9A%E5%9B%BE%26amp%3BLinux-GPIO%E7%BC%96%E5%8F%B7%EF%BC%9A) for development.
+
 ## Precautions
 
 - Users should not place their own built programs in the `/kvmapp` directory, as any updates will reset all contents within the folder.

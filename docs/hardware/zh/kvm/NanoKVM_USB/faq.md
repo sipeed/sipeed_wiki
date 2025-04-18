@@ -3,7 +3,7 @@ title: F&Q
 keywords: NanoKVM-USB, Lichee, PiKVM, RISCV, tool
 ---
 
-## 异常修复
+## 串口/键鼠问题
 
 ### Linux打开网页后无 ttyUSBx 串口设备
 
@@ -24,6 +24,8 @@ keywords: NanoKVM-USB, Lichee, PiKVM, RISCV, tool
 + Chrome浏览器可能没有检测到该串口，请刷新网页或重启 Chrome
 + Chrome权限可能不足，请打开相应权限
 
+## 视频问题
+
 ### DP-HDMI转接器
 
 + 部分无源DP转HDMI转换器内部电路仅做电平转换，对NanoKVM-USB兼容性较差，表现为视频信号从无到有（比如从睡眠唤醒时）NanoKVM-USB仍显示然黑屏，需要手动拔插HDMI。
@@ -37,9 +39,11 @@ keywords: NanoKVM-USB, Lichee, PiKVM, RISCV, tool
 + NanoKVM-USB在未连接环出显示屏前使用自身的EDID（显示器识别数据），连接环出显示器后切换为环出显示器的EDID。
 + 由于EDID中包含显示器厂家以及颜色信息，插入环出显示器前后Target系统设置中可能显示为不同的分辨率列表，USB采集的画面颜色可能在插入前后有所差异
 
-### 其他
+## 音频问题
 
-+ 若上述方法不能解决异常，请在论坛,GitHub或QQ群说明您购买的型号和遇到的问题，我们会耐心解答
+### 音频不连续
+
++ NanoKVM-USB 在USB2.0模式下可能会因带宽不够的原因出现音频传输不连续的问题，请尽量使用USB3.0连接NanoKVM-USB和Host
 
 ## 已知问题
 
@@ -48,6 +52,8 @@ keywords: NanoKVM-USB, Lichee, PiKVM, RISCV, tool
 + ARM 版的 macOS 通过 NanoKVM-USB 连接树莓派时延迟会增大，其他组合则不受影响
 
 ## 反馈方式
+
++ 若上述方法不能解决异常，请在论坛,GitHub或QQ群说明您购买的型号和遇到的问题，我们会耐心解答
 
 - [Github issues](https://github.com/sipeed/NanoKVM)
 - [MaixHub 论坛](https://maixhub.com/discussion/nanokvm)
