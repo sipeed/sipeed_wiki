@@ -124,6 +124,8 @@ Note: The NCM connection method was added after version 2.1.5, but the default r
 + Switch between Chinese and English.
 + About NanoKVM: Click to open the Wiki.
 + Check for updates: When updates are available, users can click to update. After about 15 seconds, the webpage will automatically refresh and re-login to complete the update.
+  + Version 2.2.5 introduces a preview update feature. Enable this option to pull the latest preview version.
+  Note: Preview applications generally include feature updates, bug fixes, and performance improvements, but there is still a chance of introducing new bugs. Please update with caution.
 
 ### About SSH
 
@@ -139,6 +141,8 @@ Note: The NCM connection method was added after version 2.1.5, but the default r
 + mDNS (Multicast DNS) is a protocol used for name resolution within a local network, allowing devices to discover and communicate with each other using hostnames instead of IP addresses, without needing a central DNS server.
 
 + NanoKVM generates mDNS hostnames based on the device code to minimize conflicts when multiple devices are present.
+
++ The device name for NanoKVM can be modified in the settings and will take effect after a restart.
 
 + mDNS services can lead to higher CPU usage in complex network environments, affecting image smoothness. It is recommended to disable it when not in use: **Settings -> Devices -> mDNS**.
 

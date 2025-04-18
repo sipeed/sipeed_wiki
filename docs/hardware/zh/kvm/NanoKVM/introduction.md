@@ -74,7 +74,8 @@ NanoKVM Lite 由 LicheeRV Nano E 和 HDMItoCSI 小板构成，NanoKVM FULL 在 N
 
 NanoKVM Cube/PCIe 软件现已完全开源：[KVM应用开源位置](https://github.com/sipeed/NanoKVM)、 [镜像开源位置](https://github.com/sipeed/LicheeRV-Nano-Build/tree/NanoKVM)
 
-> NanoKVM 镜像在LicheeRV Nano SDK 和 MaixCDK 基础上构建，可以兼容使用 LicheeRV Nano 的资料，反之 LicheeRV Nano 或其他 SG2002 产品无法使用KVM软件。如果您想在 NanoKVM 上构建 HDMI 输入相关应用，请与我们联系，以获得技术支持。
+> NanoKVM 镜像在 LicheeRV Nano SDK 和 MaixCDK 基础上构建，可以兼容使用 LicheeRV Nano 的资料，反之 LicheeRV Nano 或其他 SG2002 产品无法使用KVM软件。如果您想在 NanoKVM 上构建 HDMI 输入相关应用，请与我们联系，以获得技术支持。
+> NanoKVM-Cube 硬件基于 LicheeRV Nano 搭建，为协调生产，贴片项目和 LicheeRV Nano 保持一致，在硬件上保留了显示屏、触摸、MIC和功放电路；为解决潜在的隐私问题，2.2.6应用/1.4.1镜像及以上版本将删除相关驱动。我们也将在未来的生产中剔除这些元件。
 
 + [原理图](https://cn.dl.sipeed.com/shareURL/KVM/nanoKVM/HDK/02_Schematic)
 + [3D结构](https://cn.dl.sipeed.com/shareURL/KVM/nanoKVM/HDK/04_3D_file)

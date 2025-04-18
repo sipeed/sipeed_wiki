@@ -66,13 +66,14 @@ To meet different user needs, NanoKVM is available in two versions:
 
 ## NanoKVM Hardware and Software Resources
 
-NanoKVM is built on the Sipeed [LicheeRV Nano](https://wiki.sipeed.com/hardware/zh/lichee/RV_Nano/1_intro.html) core board. You can find the hardware specifications, schematics, and dimensions here: [Click here](http://cn.dl.sipeed.com/shareURL/LICHEE/LicheeRV_Nano)
+NanoKVM is built on the Sipeed [LicheeRV Nano](https://wiki.sipeed.com/hardware/en/lichee/RV_Nano/1_intro.html) core board. You can find the hardware specifications, schematics, and dimensions here: [Click here](http://cn.dl.sipeed.com/shareURL/LICHEE/LicheeRV_Nano)
 
 NanoKVM Lite consists of the LicheeRV Nano E and HDMItoCSI board, while NanoKVM Full adds the NanoKVM-A/B board and shell to the Lite version. The HDMItoCSI board converts HDMI signals; NanoKVM-A includes OLED, ATX control output (TypeC interface), auxiliary power (TypeC interface), and ATX power/reset buttons; NanoKVM-B connects the A board to the computer's ATX pins for remote power control.
 
 The NanoKVM Cube/PCIe software is now fully open source: [KVM application open source location](https://github.com/sipeed/NanoKVM), [image open source location](https://github.com/sipeed/LicheeRV-Nano-Build/tree/NanoKVM).
 
 > The NanoKVM image is built on the LicheeRV Nano SDK and MaixCDK, and it is compatible with materials that use the LicheeRV Nano. Conversely, the KVM software cannot be used with the LicheeRV Nano or other SG2002 products. If you would like to build HDMI input-related applications on the NanoKVM, please contact us for technical support.
+> NanoKVM-Cube hardware is built on the LicheeRV Nano platform. To coordinate production and maintain consistency with the LicheeRV Nano for the SMT project, the hardware retains the display, touch, MIC, and amplifier circuits. To address potential privacy concerns, versions 2.2.6 of the application and 1.4.1 of the firmware and above will remove the relevant drivers. We will also eliminate these components in future productions.
 
 + [Schematics](https://cn.dl.sipeed.com/shareURL/KVM/nanoKVM/HDK/02_Schematic)
 + [3D Structure](https://cn.dl.sipeed.com/shareURL/KVM/nanoKVM/HDK/04_3D_file)

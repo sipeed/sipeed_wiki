@@ -24,6 +24,10 @@ keywords: NanoKVM-USB, Lichee, PiKVM, RISCV, tool
 + Chrome浏览器可能没有检测到该串口，请刷新网页或重启 Chrome
 + Chrome权限可能不足，请打开相应权限
 
+### DP-HDMI转接器
+
++ 部分无源DP转HDMI转换器内部电路仅做电平转换，对NanoKVM-USB兼容性较差，表现为视频信号从无到有（比如从睡眠唤醒时）NanoKVM-USB仍显示然黑屏，需要手动拔插HDMI。
+
 ### 无HDMI环出
 
 + 内测版硬件仅支持HOST侧USB供电，请在使用时保持HOST测供电正常
