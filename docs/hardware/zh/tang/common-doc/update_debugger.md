@@ -415,6 +415,26 @@ update:
 <!-- 
 ![serialnum_usbconverter](./assets/serialnum_usbconverter.jpg) -->
 
+***
+
+### **Tang Core** 的额外说明
+
+<details>
+  <summary><font color="#4F84FF">点击查看详情</font></summary>
+  <br>
+
+  对于支持[**Tang Core**](https://nand2mario.github.io/tangcore/)的开发板而言（如[Tang Console](../tang-console/mega-console.md)），其能正常执行[**Tang Core**](https://nand2mario.github.io/tangcore/)功能需要同时依赖[**调试器固件**](#最新固件)和二级启动的[**TangCore firmware for BL616**](https://github.com/nand2mario/firmware-bl616/) 共计两个固件。
+  
+  [**调试器固件**](#最新固件)可以在本页面下方找到，而二级启动的[**TangCore firmware for BL616**](https://github.com/nand2mario/firmware-bl616/)目前由 **[nand2mario](https://github.com/nand2mario)** 负责维护，其最新版本可以在[**TangCore Release Package**](https://github.com/nand2mario/tangcore/releases)中找到。
+
+   [**调试器固件**](#最新固件)写入 **flash** 的起始地址为 `0x0`，而[**TangCore firmware for BL616**](https://github.com/nand2mario/firmware-bl616/)写入 **flash** 的地址为 `0x40000`。
+
+   原始的安装文档可以在 [**这里**](https://nand2mario.github.io/tangcore/user-guide/installation/#firmware-installation) 找到。
+
+   请注意：对于 **BL616** 而言，只有版本 **`2025030317`** 及之后的[**调试器固件**](#最新固件)支持二级启动功能。
+
+</details>
+
 ### 最新固件
 
 所有Tang系列板载调试器的最新固件序列号记录在这里：
@@ -428,9 +448,9 @@ update:
   |               |            |                                                                                                              |           |                                                                                                                                               |
   | nano 20K      | BL616      | [点我](https://api.dl.sipeed.com/TANG/Debugger/onboard/BL616/2025030317/bl616_fpga_partner_20kNano.bin)     |2025030317 |[bl616_fpga_partner_20kNano.sha256](https://api.dl.sipeed.com/TANG/Debugger/onboard/BL616/2025030317/bl616_fpga_partner_20kNano.sha256)        |
   | Primer 25K    | BL616      | [点我](https://api.dl.sipeed.com/TANG/Debugger/onboard/BL616/2025030317/bl616_fpga_partner_25kDock.bin)     |2025030317 |[bl616_fpga_partner_25kDock.sha256](https://api.dl.sipeed.com/TANG/Debugger/onboard/BL616/2025030317/bl616_fpga_partner_25kDock.sha256)        |
-  | Mega NEO      | BL616      | [点我](https://api.dl.sipeed.com/TANG/Debugger/onboard/BL616/2025030317/bl616_fpga_partner_NeoDock.bin)     |2025012315 |[bl616_fpga_partner_NeoDock.sha256](https://api.dl.sipeed.com/TANG/Debugger/onboard/BL616/2025030317/bl616_fpga_partner_NeoDock.sha256)        |
-  | Mega 138K Pro | BL616      | [点我](https://api.dl.sipeed.com/TANG/Debugger/onboard/BL616/202501231x/bl616_fpga_partner_138kproDock.bin) |2025012315 |[bl616_fpga_partner_138kproDock.sha256](https://api.dl.sipeed.com/TANG/Debugger/onboard/BL616/202501231x/bl616_fpga_partner_138kproDock.sha256)|
-  | Console       | BL616      | [点我](https://api.dl.sipeed.com/TANG/Debugger/onboard/BL616/2025030317/bl616_fpga_partner_Console.bin)     |2025030317 |[bl616_fpga_partner_Console.sha256](https://api.dl.sipeed.com/TANG/Debugger/onboard/BL616/2025030317/bl616_fpga_partner_Console.sha256)        |
+  | Mega NEO      | BL616      | [点我](https://api.dl.sipeed.com/TANG/Debugger/onboard/BL616/2025030317/bl616_fpga_partner_NeoDock.bin)     |2025030317 |[bl616_fpga_partner_NeoDock.sha256](https://api.dl.sipeed.com/TANG/Debugger/onboard/BL616/2025030317/bl616_fpga_partner_NeoDock.sha256)        |
+  | Mega 138K Pro | BL616      | [点我](https://api.dl.sipeed.com/TANG/Debugger/onboard/BL616/2025030317/bl616_fpga_partner_138kproDock.bin) |2025030317 |[bl616_fpga_partner_138kproDock.sha256](https://api.dl.sipeed.com/TANG/Debugger/onboard/BL616/2025030317/bl616_fpga_partner_138kproDock.sha256)|
+  | Console       | BL616      | [点我](https://api.dl.sipeed.com/TANG/Debugger/onboard/BL616/2025030317/bl616_fpga_partner_Console.bin)     |2025041420 |[bl616_fpga_partner_Console.sha256](https://api.dl.sipeed.com/TANG/Debugger/onboard/BL616/2025030317/bl616_fpga_partner_Console.sha256)        |
 
 ### 故障排除
 如果您在使用过程中遇到任何问题，或者对文档有任何意见或建议，请随时向我们反馈。联系方式如下。
@@ -444,6 +464,11 @@ update:
 
 >在大多数情况下，对于MCU相关的问题 ***博流智能*** 的官方文档足以进行故障排除。[【点击这里】](https://dev.bouffalolab.com/document/)以访问相关文档。
 
-#### 常见问题
-- TBD，等待收集反馈后再添加。
+### 常见问题
+
+#### 更新固件后，未出现 **`USB Converter A`** 和 **`USB Converter B`**，依旧显示一个 **`COM`** 端口
+    
+  可能
+    
+  1. 
 
