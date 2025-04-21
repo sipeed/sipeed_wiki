@@ -24,6 +24,10 @@ keywords: NanoKVM-USB, Lichee, PiKVM, RISCV, tool
 + The Chrome browser may not have detected the serial port. Please refresh the webpage or restart Chrome.
 + Chrome may lack sufficient permissions. Please grant the necessary permissions.
 
+### DP-HDMI Adapter
+
++ Some passive DP to HDMI converters only perform level conversion in their internal circuitry, resulting in poor compatibility with NanoKVM-USB. This manifests as the video signal not appearing when waking from sleep; the NanoKVM-USB still shows a black screen, requiring manual unplugging and replugging of the HDMI cable.
+
 ### No HDMI Loop Out
 
 + The beta version hardware only supports USB power from the HOST side. Please ensure proper power supply from the HOST side during use.
