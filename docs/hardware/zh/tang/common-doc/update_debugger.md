@@ -12,6 +12,11 @@ update:
     author: Serika
     content:
       - 9K pic fixed
+  - date: 2025-04-21
+    version: v0.91
+    author: Serika
+    content:
+      - Added FaQ
 ---
 ## 概述
 
@@ -450,7 +455,7 @@ update:
   | Primer 25K    | BL616      | [点我](https://api.dl.sipeed.com/TANG/Debugger/onboard/BL616/2025030317/bl616_fpga_partner_25kDock.bin)     |2025030317 |[bl616_fpga_partner_25kDock.sha256](https://api.dl.sipeed.com/TANG/Debugger/onboard/BL616/2025030317/bl616_fpga_partner_25kDock.sha256)        |
   | Mega NEO      | BL616      | [点我](https://api.dl.sipeed.com/TANG/Debugger/onboard/BL616/2025030317/bl616_fpga_partner_NeoDock.bin)     |2025030317 |[bl616_fpga_partner_NeoDock.sha256](https://api.dl.sipeed.com/TANG/Debugger/onboard/BL616/2025030317/bl616_fpga_partner_NeoDock.sha256)        |
   | Mega 138K Pro | BL616      | [点我](https://api.dl.sipeed.com/TANG/Debugger/onboard/BL616/2025030317/bl616_fpga_partner_138kproDock.bin) |2025030317 |[bl616_fpga_partner_138kproDock.sha256](https://api.dl.sipeed.com/TANG/Debugger/onboard/BL616/2025030317/bl616_fpga_partner_138kproDock.sha256)|
-  | Console       | BL616      | [点我](https://api.dl.sipeed.com/TANG/Debugger/onboard/BL616/2025030317/bl616_fpga_partner_Console.bin)     |2025041420 |[bl616_fpga_partner_Console.sha256](https://api.dl.sipeed.com/TANG/Debugger/onboard/BL616/2025030317/bl616_fpga_partner_Console.sha256)        |
+  | Console       | BL616      | [点我](https://api.dl.sipeed.com/TANG/Debugger/onboard/BL616/2025041420/bl616_fpga_partner_Console.bin)     |2025041420 |[bl616_fpga_partner_Console.sha256](https://api.dl.sipeed.com/TANG/Debugger/onboard/BL616/2025041420/bl616_fpga_partner_Console.sha256)        |
 
 ### 故障排除
 如果您在使用过程中遇到任何问题，或者对文档有任何意见或建议，请随时向我们反馈。联系方式如下。
@@ -467,8 +472,6 @@ update:
 ### 常见问题
 
 #### 更新固件后，未出现 **`USB Converter A`** 和 **`USB Converter B`**，依旧显示一个 **`COM`** 端口
-    
-  可能
-    
-  1. 
+
+1. 可能是BL616 efuse内容异常，请联络售后以获取换货相关的支持。
 
