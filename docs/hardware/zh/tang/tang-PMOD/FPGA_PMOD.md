@@ -2,7 +2,7 @@
 
 ## 概述
 
-TANG PMOD 模組是相容于 **Digilent Pmod™** 接口标准的FGPA拓展模块，可用于包含此接口的FPGA 开发板的功能扩展，如[Tang Mega 138K Pro Dock]() 和 [Tang Primer 25K Dock]() 等。 
+TANG PMOD 模組是相容于 **Digilent Pmod™** 接口标准的FGPA拓展模块，可用于包含此接口的FPGA 开发板的功能扩展，如[Tang Mega 138K Pro Dock](../tang-mega-138k/mega-138k-pro.md) 和 [Tang Primer 25K Dock](../tang-primer-25k/primer-25k.md) 等。 
 
 不同的模组提供不同的拓展功能，模组间可以任意组合搭配以实现各种需要的功能。
 
@@ -142,6 +142,6 @@ github 链接： https://github.com/sipeed/TangPrimer-25K-example
 
 ## 相关问题
 
-
+TBD
 
 ### 更多问题及其解决办法前往[相关问题](./../common-doc/questions.md)查看
