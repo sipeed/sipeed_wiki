@@ -236,7 +236,7 @@ port: 10559
     </tr>
     <tr>
         <td>芯片型号</td>
-        <td>Tang Mega 138K Pro 使用的 FPGA 芯片具体型号是 <b>GW5AST-LV138FPG676A</b> <br>在 IDE 中选择封装型号 <b>FCPBG676A</b></br></td>
+        <td>Tang Mega 138K Pro 使用的 FPGA 芯片具体型号是 <b>GW5AST-LV138FPG676A</b> <br>在 IDE 中选择封装型号 <span><b>FCPBG676A</b></span> & <span><b>Device Version: B</b></span></br></td>
     </tr>
     <tr>
         <td>静电</td>
@@ -248,7 +248,8 @@ port: 10559
     </tr>
     <tr>
         <td>FPC 座子</td>
-        <td>在连接 FPC 软排线的时候，请确保排线无偏侈地完整地插入到排线中</td>
+        <td>在连接 FPC 软排线的时候，请确保排线无偏侈地完整地插入到排线中
+        <br>在通电之前请仔细核对两端FPC 连接器的 <b>1号PIN</b> 的方向是否正确</td>
     </tr>
     <tr>
         <td>PCIe 金手指</td>

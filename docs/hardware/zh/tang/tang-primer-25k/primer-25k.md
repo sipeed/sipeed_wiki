@@ -40,7 +40,7 @@ Tang Primer 25K 是基于 [GW5A-LV25MG121](http://www.gowinsemi.com.cn/prod_view
 	<tbody>
 		<tr>
 			<td style="text-align:left">FPGA 芯片</td>
-			<td style="text-align:left"><a href="http://www.gowinsemi.com.cn/prod_view.aspx?TypeId=74&FId=t3:10:3&Id=188">GW5A-LV25MG121</a>
+			<td style="text-align:left"><a href="http://www.gowinsemi.com.cn/prod_view.aspx?TypeId=74&FId=t3:10:3&Id=188">GW5A-LV25MG121C1/l0</a>
 			</td>
 			<td style="text-align:left">
 				<table>
@@ -75,6 +75,10 @@ Tang Primer 25K 是基于 [GW5A-LV25MG121](http://www.gowinsemi.com.cn/prod_view
 					<tr>
 						<td>I/O Bank 总数</td>
 						<td>8</td>
+					</tr>
+					<tr>
+						<td><b>Device Version</b></td>
+						<td><b>A</b></td>
 					</tr>
 				</table>
 			</td>
