@@ -137,7 +137,7 @@ Place the game ROMs you wish to play into their corresponding directories.
 
    > Left: USB-OTG card reader + USB-C power supply | Bottom: USB controller **P1** | Top: HDMI output  
 
-   - **Pros**: Simple setup.  
+   - **Pros**: Simple to setup.  
    - **Cons**: USB controller connection may be unstable in this configuration.  
 
    - If the USB controller is not recognized (especially after switching emulator cores), users may need to repeatedly reconnect the USB controller several times.  
@@ -180,7 +180,7 @@ Place the game ROMs you wish to play into their corresponding directories.
    </details>  
    <br>
 
-### Powering On
+### Powering On & playing
 
 1. Assemble the hardware as described in the previous step, then connect the power supply.  
 
@@ -198,7 +198,7 @@ Place the game ROMs you wish to play into their corresponding directories.
    - Use left and right for page navigation.  
    - Press `B` or `3` to confirm.  
    - Press `A` or `2` to go back.  
-   - On `..`, press `B` to return to the previous menu.  
+   - Navigate cursor to on `..`, press `B` to return to the previous menu.  
 
    <details>  
    <summary><font color="#4F84FF">Click to View Details</font></summary>  
@@ -257,7 +257,7 @@ Place the game ROMs you wish to play into their corresponding directories.
   - Discord Server: [TBD]()
   - QQ discussion group: [834585530](https://jq.qq.com/?_wv=1027&k=wBb8XUan)
   - Leave a message directly below this page
-  - Goto**[GitHub project page](https://github.com/sipeed/TangMega-60K-example)**and submit issues
+  - Goto **[GitHub project page](https://github.com/sipeed/TangMega-60K-example)** and submit issues
   - Business email : [support@sipeed.com](support@sipeed.com)
 
 ---
