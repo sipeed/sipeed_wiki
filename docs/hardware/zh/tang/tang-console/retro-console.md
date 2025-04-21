@@ -131,6 +131,8 @@ update:
 
    ### 硬件组装
 
+   ❗注意：请先组装好所有配件再接通电源！
+
    1. **推荐的方式**（这种方式的全部配件都包含于 **Tang Console Retro Premium** 中）
 
         <img src="./assert/retro-console_assembly-1.jpg" width="45%">

@@ -9,208 +9,339 @@ update:
       - Create document
 ---
 
-## Overview
+## Product Overview
 
+- Release Date: Late-April 2025  
+- ~~Pre-order Link: [**Click Here**](https://sipeed.com/tangconsole)~~ (Pre-order has ended, retail version coming soon)  
+- **Development Board Documentation:** [**Click Here**](./mega-console.md)  
+- **Tang Core** Developer Documentation: [**Click Here**](https://nand2mario.github.io/tangcore/)  
 
+## Board Features  
+<details>  
+  <summary><font color="#4F84FF">Click for Details</font></summary>  
+  <br>
 
-## Board Features
+- Compatible with multiple SOMs (**[Mega 138k](./../tang-mega-138k/mega-138k.md)** & **[Mega 60k](./../tang-mega-60k/mega-60k.md)**)  
 
-  - Compatible with various SOMs (**[Mega 138k](./../tang-mega-138k/mega-138k.md)** & **[Mega 60k](./../tang-mega-60k/mega-60k.md)**)
-  - More compact size, more budget choice
-  - Compatible with Raspberry Pi 5b PCIe HAT
-  - PCIe 2.0 x 1
-  - USB3 x 2(5Gbps)
-  - HDMI TX x 1
-  - Soft-PHY USB2 x1(480Mbps)
-  - Onboard 3.7V Li-on battery(1-Series) charge/discharge management
+- Supports multiple [**Tang Core**](https://github.com/nand2mario/tangcore) emulator cores:  
+    - **NESTang** - Nintendo Entertainment System  
+    - **SNESTang** - Super Nintendo Entertainment System  
+    - **GBATang** - Game Boy Advance  
+    - **MDTang** - Sega Genesis/Mega Drive  
+    - **SMSTang** - Sega Master System  
+    - **More cores are under development and will be released soon**  
 
-## Product Appearance
+- Onboard BL616 MCU  
+    - Runs [**TangCore firmware for BL616**](https://github.com/nand2mario/firmware-bl616/)  
+    - Supports quick emulator core switching  
+    - ~~uSD card storage support~~ (currently under debugging)  
+    - **Supports USB OTG** (currently requires OTG adapters or hubs with power pass-through)  
+        - **USB OTG Storage** (for storing game ROMs, emulator cores, and emulator BIOS)  
+        - **USB HID Controller Support**  
+    - Can be used as an FPGA debugger  
+- Two onboard USB-A ports for direct connection with compatible USB controllers  
 
-<img src="/assert/console_60k.jpg" width="45%">
+- Supports DS2 controllers (requires [**PMOD_DS2x2**](../tang-PMOD/FPGA_PMOD.md#pmod_ds2x2))  
 
-## Block Diagram
+</details>  
 
-TBD
+## Product Appearance  
 
-## Hardware Parameters
+<details>  
+  <summary><font color="#4F84FF">Click for Details</font></summary>  
+  <br>  
 
-### SOM Board Parameters
+  - **Tang Retro Console Premium** (60k version)  
+    <img src="./assert/retro-console-p_60k.jpg" width="45%">  
 
-Please refer to the link below:
-  - **[Tang Mega 138k](./../tang-mega-138k/mega-138k.md#hardware-parameters) SOM** 
-  -  **[Tang Mega 60k](./../tang-mega-60k/mega-60k.md#hardware-parameters) SOM**
+  - **Tang Retro Console** (60k version)  
+    <img src="./assert/retro-console_60k.jpg" width="45%">  
+</details>  
 
+## Block Diagram  
 
-### Dock board Parameters
+<details>  
+  <summary><font color="#4F84FF">Click for Details</font></summary>  
+  <br>  
 
-| Item                 | Quantity | Remarks                                           |
-| :------------------  | ----     | ------------------------------------------------- |
-| LEDs                 | 2(3+3)   | 3x Battery-Indicator + 3x User LED (2x RGB LED)   |
-| Buttons              | 2+1      | 2x User-KEY + 1x Reconfig-KEY                     |
-| PCIe                 | 1        | 1-lane @ 8/5Gbps (Depends on SOM)                 |
-| USB3                 | 2        | SERDES lane, SuperSpeed @ 5Gbps (Device mode)     |
-| USB2                 | 1        | IO Soft-PHY, HighSpeed @ 480Mbps (Device mode)    |
-| DVI(HDMI)            | 1        | Compatible with HDMI, supports TX, can also be modified to RX |
-| PMOD                 | 2        | Standard spacing (800mil), Compatible with dual PMOD modules  |
-| ADC                  | 2        | 2x differential input channels (One is used to measure the battery voltage)   |
-| RGB Interface        | 1        | Supports RGB888 screen & RGB to VGA Converter     |
-| microSD Slot         | 1        | 4-bit SDIO/MMC or SPI mode                        |
-| BATT CONN.           | 1        | Supports 3.7V li-on battery, with built-in charge management |
-| FAN CONN.            | 1        | Supports a 5V fan, maximum power: 1W              |
-| Speaker CONN.        | 1        | Support mono output, 1x 2W Speaker                |
-| MS5351               | 1        | Provides RefClk for Serdes: control output via onboard UART |
-| USB JTAG & UART      | 1        | Supports FPGA programming and provides UART function  |
-| 2x20P headers        | 2        | Independent 2x20P pin header, providing up to 2x38 IOs, can be modified to be compatible with DE10-Nano Kit |
+  <img src="./assert/tangcores.drawio.svg" width="45%">  
 
+</details>  
 
-## Hardware Resources
+## Hardware Specifications  
 
-- ~~[Specification](https://dl.sipeed.com/shareURL/TANG/Console/01_Specification)~~
-- [Schematics](https://dl.sipeed.com/shareURL/TANG/Console/02_Schematic)
-- [PCB BOM](https://dl.sipeed.com/shareURL/TANG/Console/03_Designator_drawing)
-- [Dimension Diagram](https://dl.sipeed.com/shareURL/TANG/Console/04_Mechanical_drawing)
-- [3D Model](https://dl.sipeed.com/shareURL/TANG/Console/05_3D_file)
-- [Some Chip Manuals](https://dl.sipeed.com/shareURL/TANG/Console/07_Datasheet)
-- [All PIN Constraints](https://dl.sipeed.com/shareURL/TANG/Console/08_Misc)
+<details>  
+  <summary><font color="#4F84FF">Click for Details</font></summary>  
 
-## Getting Started
+  ### SOM Specifications  
 
-Note that **`Tang Mega 60k`** & **`Tang Mega 138k`** is currently not supported by the education version, and you need to download V1.9.11 or a newer version of the commercial IDE for use.  
-Lic can be applied on the Gowin official website, or you can use the online Lic service provided by Sipeed. In the IDE, select Float Lic and fill in the following information:
+  Please refer to the following links based on the installed SOM:  
+  - **[Tang Mega 138k](./../tang-mega-138k/mega-138k.md#SOM-Specifications)**  
+  - **[Tang Mega 60k](./../tang-mega-60k/mega-60k.md#SOM-Specifications)**  
 
-~~~
----Server 01---
-ip: 45.33.107.56
-port: 10559
+  ### Baseboard Specifications  
 
----Server 02---
-ip: 106.55.34.119
-port: 10559
-~~~
+  - Please refer to the **Development Board Documentation:** [**Click Here**](./mega-console.md#Baseboard-Specifications)  
 
-if the ip not work, try use "gowinlic.sipeed.com" domain's IP.
+</details>  
 
-Install IDE [Click me](https://wiki.sipeed.com/hardware/zh/tang/common-doc/get_started/install-the-ide.html)
+***  
 
+## Getting Started  
 
-Example code (Github):
-  - [60K](https://github.com/sipeed/TangMega-60K-example)
-  - [138K](https://github.com/sipeed/TangMega-138K-example)
-  - [TangCores](https://github.com/nand2mario/tangcores)
+Using the **Tang Retro Console** as an example, here’s how to play games with the Tang Console:  
 
-    Special Thanks: **[nand2mario](https://github.com/nand2mario)**  
+### Preparation  
 
-  ***
+  Items needed:  
 
+  * [] Tang Console, either 138k or 60k version  
+  * [] USB 2.0 drive, or SD card + card reader (Recommended format: FAT32/exFAT, ≤32GB)  
+  * [] USB-C OTG adapter with power pass-through (Recommended: USB-C card reader included in the bundle)  
+  * [] Available GBA BIOS (gba_bios.bin)  
+  * [] Latest [**TangCore Release Package**](https://github.com/nand2mario/tangcore/releases)  
+  * [] Game ROMs you want to play (Demo games are preloaded on the uSD card included in the Tang Retro Console Premium bundle)  
 
-- Other Learning Resources
+### Installing MCU Firmware  
 
-  - Free online tutorial: [Verilog Tutorial](https://www.runoob.com/w3cnote/verilog-tutorial.html) (Learn Verilog)
-  - Free online FPGA tutorial: [Verilog](https://www.asic-world.com/verilog/index.html) (English website)
-  - Verilog practice website: [HDLBits](https://hdlbits.01xz.net/wiki/Main_Page) (English website)
-  - Online Gowin Semiconductor reference video tutorials: [Click here](http://www.gowinsemi.com.cn/video_complex.aspx?FId=n15:15:26)
+   - For users who purchased any Tang Console bundles, this step is not necessary, as it has been pre-installed at the factory.  
 
-  ## Communication Methods
+   - If firmware updates are needed in the future, please refer to the guide here: [**Click Here**](../common-doc/update_debugger.md#additional-notes-for-tang-core)  
+
+```
+  📁 /                
+  ├── 📁 cores/        # `cores` directory from release
+  │    ├── 📁 console60k/
+  │    └── 📁 console138k/
+  ├── 📁 nes/          # .nes rom files
+  ├── 📁 snes/         # .smc/.sfc files
+  ├── 📁 gba/
+  │    └── 🗎 gba_bios.bin  # GBA BIOS
+  ├── 📁 genesis/      # .bin/.md files
+  └── 📁 sms/          # .sms files
+  
+```
+### Storage Media Content
+
+The contents of the storage media are not differentiated between the **138k console** and the **60k console**. However, the **`gba_bios.bin`** must be downloaded by the user and added manually.  
+
+Place the game ROMs you wish to play into their corresponding directories.
+
+### Hardware Assembly
+
+❗Note: Please assemble all accessories before connecting the power!
+
+1. **Recommended Method** (All accessories for this method are included in the **Tang Console Retro Premium** package):  
+
+   <img src="./assert/retro-console_assembly-1.jpg" width="45%">  
+
+   > Left: USB-OTG card reader + USB-C power supply | Bottom: USB controller **P1** | Top: HDMI output  
+
+   - **Pros**: Simple setup.  
+   - **Cons**: USB controller connection may be unstable in this configuration.  
+
+   - If the USB controller is not recognized (especially after switching emulator cores), users may need to repeatedly reconnect the USB controller several times.  
+
+   <br>
+
+2. **The nand2mario Method**  
+
+   <details>  
+   <summary><font color="#4F84FF">Click to View Details</font></summary>  
+   <br>  
+   <img src="./assert/retro-console_assembly-2.jpg" width="45%">  
+
+   > Left: OTG USB drive + USB-C power supply | Right: DS2 PMOD + DS2 controller | Top: HDMI output  
+
+   - **Pros**: Stable configuration.  
+   - **Cons**: Bulky setup.  
+
+   - For a more compact connection, try using a wireless DS2 controller and replacing the USB drive with a smaller one.  
+
+   </br>  
+   </details>  
+   <br>
+
+3. **USB OTG HUB Method** {#USB_OTG_HUB}  
+
+   <details>  
+   <summary><font color="#4F84FF">Click to View Details</font></summary>  
+   <br>  
+   <img src="./assert/retro-console_assembly-3.jpg" width="45%">  
+
+   > Left: USB-C OTG HUB + USB drive + USB-C power supply + USB controller **P1** | Top: HDMI output  
+
+   - **Pros**: Stable connection.  
+   - **Cons**: Bulky setup & potential USB HUB compatibility issues.  
+
+   - Tested USB HUB compatibility list: [Click Here](https://github.com/nand2mario/tangcore/wiki/Compatible-USB-Hubs)  
+
+   </br>  
+   </details>  
+   <br>
+
+### Powering On
+
+1. Assemble the hardware as described in the previous step, then connect the power supply.  
+
+2. Wait a moment for the main menu to appear.  
+
+   <details>  
+   <summary><font color="#4F84FF">Click to View Details</font></summary>  
+      <br>  
+      <img src="./assert/retro-console_menu.jpg" width="45%">  
+   </details>  
+   <br>
+
+3. Use the game controller to navigate the menu:  
+   - Move the cursor up and down.  
+   - Use left and right for page navigation.  
+   - Press `B` or `3` to confirm.  
+   - Press `A` or `2` to go back.  
+   - On `..`, press `B` to return to the previous menu.  
+
+   <details>  
+   <summary><font color="#4F84FF">Click to View Details</font></summary>  
+      <br>  
+      <img src="./assert/retro-console_menu1.jpg" width="45%">  
+   </details>  
+   <br>
+
+4. Select an emulator title, such as **SNES**, press `B` to access the submenu, select the game ROM you wish to play, and press `B` again to launch the game.  
+
+   <details>  
+   <summary><font color="#4F84FF">Click to View Details</font></summary>  
+      <br>  
+      <img src="./assert/retro-console_menu2.jpg" width="45%">  
+   </details>  
+   <br>
+
+5. The HDMI output will briefly disappear. After a short moment, the ROM loading screen will appear, and the title at the bottom of the screen will switch to the corresponding emulator's name (e.g., **SnesTang** in this example).  
+
+   <details>  
+   <summary><font color="#4F84FF">Click to View Details</font></summary>  
+      <br>  
+      <img src="./assert/retro-console_menu3.jpg" width="45%">  
+   </details>  
+   <br>
+
+6. Wait for the ROM to finish loading, then press the `start` button to begin the game.  
+
+   <details>  
+   <summary><font color="#4F84FF">Click to View Details</font></summary>  
+      <br>  
+      <img src="./assert/retro-console_game.jpg" width="45%">  
+   </details>  
+   <br>
+
+7. During gameplay, press `→` + `select` to return to the main menu.  
+
+8. Some game ROMs may not be fully compatible with the emulator. If issues arise, power cycle the console to reset it.  
+
+---
+
+### Additional Resources  
+
+- Original Installation Documentation: [**Click Here**](https://nand2mario.github.io/tangcore/user-guide/installation/)  
+- Special Thanks: **[nand2mario](https://github.com/nand2mario)**  
+
+---
+
+### Contact & Support  
+
+  For technical support and business inquiries, please contact us via email: [support@sipeed.com](mailto:support@sipeed.com)  
 
   - **Reddit** : [reddit.com/r/GowinFPGA/](reddit.com/r/GowinFPGA/)
   - **Telegram** : [t.me/sipeed](t.me/sipeed)
   - Discussion forum: [maixhub.com/discussion](https://maixhub.com/discussion)
+  - Discord Server: [TBD]()
   - QQ discussion group: [834585530](https://jq.qq.com/?_wv=1027&k=wBb8XUan)
   - Leave a message directly below this page
   - Goto**[GitHub project page](https://github.com/sipeed/TangMega-60K-example)**and submit issues
   - Business email : [support@sipeed.com](support@sipeed.com)
 
-## Precautions
+---
 
-<table>
-    <tr>
-        <th>Item</th>
-        <th>Precautions</th>
-    </tr>
-    <tr>
-        <td>Chip Model</td>
-        <td>The specific model of the FPGA chip used by Tang Mega 60K is <b>GW5AT-LV60PG484A, and Tang Mega 138K is <b>GW5AST-LV138FPG676A</b>.</b> <br>Please select the package model <span><b>PBG484A</b></span> & <span><b>Device Version: B</b></span> in the IDE.</td>
-    </tr>
-    <tr>
-        <td>Static Electricity</td>
-        <td>Please avoid static electricity hitting the PCBA; release the static electricity from your hands before touching the PCBA.</td>
-    </tr>
-    <tr>
-        <td>Tolerance Voltage</td>
-        <td>When using GPIO pin headers for external communication, ensure that the IO voltage is <b>3.3V</b>. Excessive voltage will permanently damage the PCBA.</td>
-    </tr>
-    <tr>
-        <td>FPC Socket</td>
-        <td>When connecting the FPC soft cable, please ensure that the cable is completely and correctly inserted into the socket without any deviation.</td>
-    </tr>
-    <tr>
-        <td>Plug and Unplug</td>
-        <td>Please completely power off before plugging and unplugging.</td>
-    </tr>
-    <tr>
-        <td>Avoid Short Circuit</td>
-        <td>Please avoid any liquid or metal touching the solder pads of the components on the PCBA during the power-on process, otherwise it may cause a short circuit and burn the PCBA.</td>
-    </tr>
-</table>
+### Important Notes  
+
+| Item             | Details                                                                                                      |
+|------------------|-------------------------------------------------------------------------------------------------------------|
+| **Power Supply** | Use a power adapter with at least **5V/2A**. Avoid exceeding **+5.5V** or dropping below **+3.4V**.          |
+| **Static**       | Avoid static discharge on the PCBA. Ground yourself before touching.                                         |
+| **Voltage**      | Ensure GPIO pins are at **3.3V** levels; higher voltages can damage the PCBA.                                |
+| **FPC Connector**| Insert FPC cables carefully. Ensure the 1st PIN direction is correct.                                        |
+| **Connecting**   | Only handle connections with the device fully powered off, except USB-A controller and drives.               |
+| **USB Controller** | If the controller is unresponsive, reconnect several times.                                               |
+| **Short Circuits**| Avoid liquid or metal contact with the PCBA during power-on to prevent damage.                              |
+
+---
 
 
-## Contact
+## FAQ  
 
-Tang Console can meet different needs of customers in various scenarios. For technical support and business cooperation, please contact [support@sipeed.com](support@sipeed.com)
+### USB Controller Not Responding  
 
+<details>  
+<summary><font color="#4F84FF">Click to View Details</font></summary>  
+<br>  
 
-## Frequently Asked Questions (FAQs)
+1. Please unplug and replug the USB controller, then try again.  
+2. The stability issue with USB-A controllers connected to the front of the Console will be resolved in future firmware updates.  
+3. The most stable connection method currently is the PMOD DS2 controller.  
 
-### The system does not recognize the onboard debugger
+</details>  
 
-- Make sure the USB cable is connected to the port marked with ***MCU***.
-- Try connecting directly to the computer instead of through a USB HUB.
-- Try using a better quality USB cable.
-- Try another computer to rule out the computer being the problem. 
-- Try [update to the latest firmware](#how-to-update-the-firmware-for-the-onboard-debugger) and try again.
+---
 
-### The UART of the onboard debugger cannot be used
+### UI Disappears After Pressing the MODE Key  
 
-- Try reinstall FTDI drivers.
-- IF the actual baudrate is always four times the set baudrate or the UART continuously outputs garbled characters. try [update to the latest firmware](#how-to-update-the-firmware-for-the-onboard-debugger) and try again.
+<details>  
+<summary><font color="#4F84FF">Click to View Details</font></summary>  
+<br>  
 
-### OpenFPGAloader not work
+1. This is a known issue and will be resolved in future firmware updates.  
+2. If the cursor `>` is still visible, try using the controller to navigate pages or return to the previous menu to force a UI refresh.  
 
-- Try [update to the latest firmware](#how-to-update-the-firmware-for-the-onboard-debugger) and try again.
+</details>  
 
-### How to update the firmware for the onboard debugger
+---
 
-- See [Update the debugger](./../common/update_debugger.md) for details.
+### "Waiting for USB drive..." Message After Powering On  
 
-### IDE cannot find the model 
+<details>  
+<summary><font color="#4F84FF">Click to View Details</font></summary>  
+<br>  
 
-1. The educational version does not support 60K and 138K, please switch to the commercial version. The following image shows the educational version (which does not support 60K);
+1. If using a USB HUB, this might indicate HUB incompatibility.  
+2. Ensure the USB drive/card reader is properly connected.  
+3. Make sure the USB drive/card reader is **≤32GB** and formatted as **FAT32/exFAT**.  
 
-<img src="../assets/questions/no_model_in_IDE.png" width="35%">
+   <img src="./assert/retro-console_menu4.jpg" width="45%">  
 
+</details>  
 
-2. IDE version is too low to use, update the IDE version ≥ **1.9.9**.
+---
 
-### How to burn the bitstream to FLASH {#burn_flash}
+### GBATang Error: `Cannot find /gba_bios.bin...`  
 
-1. Setting the **Programmer** as shown in the figure below:
+<details>  
+<summary><font color="#4F84FF">Click to View Details</font></summary>  
+<br>  
 
-<img src="./../assets/flash_mode_GAO.png" alt="flash_mode" width=35%>
+1. This indicates that the **`/GBA` directory** on the USB drive or storage card is missing the original GBA BIOS, which may cause compatibility issues with certain ROMs.  
+2. Due to copyright restrictions, we cannot provide this file. You need to obtain the `gba_bios.bin` yourself and place it in the correct location.  
 
+   <img src="./assert/retro-console_menu5.jpg" width="45%">  
 
-### No Response or Undesirable Pin Phenomenon After Burning
+</details>  
 
-1. First, ensure that the IDE has selected the correct model 
+---
 
-- For MEGA 60K, **GW5AT-LV60PG484AC1/10**; every parameter in the figure below **MUST** be consistent.
+### For More Questions  
 
-<img src="../tang-mega-60k/assets/partno_60K.png" alt="device_choose" width=35%>
+Refer to the [Troubleshooting](https://nand2mario.github.io/tangcore/user-guide/troubleshooting/) page in the Tang Core documentation for additional solutions.  
 
-- For MEGA 138K, **GW5AST-LV138PG484AC1/10**; every parameter in the figure below **MUST** be consistent.
+If you encounter a new issue, please feel free to provide feedback.  
 
-<img src="../tang-mega-138k/assets/partno_138K.png" alt="device_choose" width=35%>
+Feedback methods can be found [**here**](#contact--support). 
 
-
-2. Then, check your code and the corresponding simulation waveforms to meet the requirements. The GAO tools in GOWIN IDE maybe helpful. For more information, please refer to the GOWIN document [SUG100](https://www.gowinsemi.com/upload/database_doc/1885/document/660bb2366d0b3.pdf)(require login).
-
-### For more questions and solutions, go to [Related Questions](./../common-doc/questions.md) to view

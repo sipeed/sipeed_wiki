@@ -385,6 +385,9 @@ items:
                 target: _blank
         -   label: Tang Console
             items:
+            -   label: Retro Console
+                file: tang/tang-console/retro-console.md
+            -   label: Install IDE
             -   label: Introduction
                 file: tang/tang-console/mega-console.md
             -   label: Install IDE
