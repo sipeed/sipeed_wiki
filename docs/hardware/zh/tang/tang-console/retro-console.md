@@ -96,12 +96,12 @@ update:
 
   需要准备的东西如下：
 
-  * [] Tang Console，138k或60k均可
-  * [] USB 2.0驱动器，或者SD卡+读卡器（推荐格式FAT32/exFAT，≤32GB）
-  * [] USB-C OTG 转换器，带有电源传输（推荐使用套餐中的USB-C读卡器）
-  * [] 可用的GBA原机BIOS（gba_bios.bin）
-  * [] 最新的[**TangCore Release Package**](https://github.com/nand2mario/tangcore/releases)
-  * [] 想要游玩的游戏ROM（Tang Retro Console Premium套餐包含的uSD卡中已有演示游戏）
+  - [x] Tang Console，138k或60k均可
+  - [x] USB 2.0驱动器，或者SD卡+读卡器（推荐格式FAT32/exFAT，≤32GB）
+  - [x] USB-C OTG 转换器，带有电源传输（推荐使用套餐中的USB-C读卡器）
+  - [x] 可用的GBA原机BIOS（gba_bios.bin）
+  - [x] 最新的[**TangCore Release Package**](https://github.com/nand2mario/tangcore/releases)
+  - [x] 想要游玩的游戏ROM（Tang Retro Console Premium套餐包含的uSD卡中已有演示游戏）
 
   ### 安装MCU固件
 
@@ -125,6 +125,8 @@ update:
      ├── 📁 genesis/          # .bin/.md 目录
      └── 📁 sms/              # .sms 目录
    ```
+   > ⚠ Console会过滤游戏ROM的后缀名，请务必将游戏ROM改成对应的后缀名 ⚠
+
    存储介质的内容不区分 **138k console** 和  **60k console**。其中 **`gba_bios.bin`** 需要用户自行下载后放入。
 
    将想要游玩的游戏ROM放入对应的目录中即可。
@@ -133,7 +135,7 @@ update:
 
    ❗注意：请先组装好所有配件再接通电源！
 
-   1. **推荐的方式**（这种方式的全部配件都包含于 **Tang Console Retro Premium** 中）
+   1. **早鸟版本推荐的方式**（这种方式的全部配件都包含于 **Tang Console Retro Premium** 中）
 
         <img src="./assert/retro-console_assembly-1.jpg" width="45%">
         
@@ -142,10 +144,28 @@ update:
         - 这种方式的好处是简洁，缺点是USB手柄这样接不太稳定
         
         - 如遇到USB手柄不识别（尤其是在切换完毕模拟器core的时候），需要用户手动多拔插USB手柄几次
+        
+        - ***零售版 Console** 可以不使用 OTG 读卡器，将uSD卡装入机身自带的卡槽即可。因为 **零售版 Console** 机身自带的卡槽通过MUX连接到了 **BL616***
 
         <br>
 
-   2. **nand2mario**的方式
+   2. **零售版本推荐的方式**
+
+        <img src="./assert/retro-console_assembly-0.jpg" width="45%">
+        
+        > 左下：USB-OTG | 左上：USB-C电源 | 下方：USB手柄 **P1** | 上方： HDMI输出
+
+        - 这种方式的好处是最简洁，缺点是USB手柄这样接不太稳定
+        
+        - 如遇到USB手柄不识别（尤其是在切换完毕模拟器core的时候），需要用户手动多拔插USB手柄几次
+        
+        - 手柄既可以连接到Console本身的USB连接器，也可以通过USB-OTG连接到BL616
+
+        - USB-OTG转换器不是必须的，取决于你的用途
+
+        <br>
+
+   3. **nand2mario**的方式
         <details>
         <summary><font color="#4F84FF">点击查看详情</font></summary>
         <br>
@@ -161,7 +181,7 @@ update:
         </details>
         <br>
 
-   3. USB OTG HUB的方式 {#USB_OTG_HUB}
+   4. USB OTG HUB的方式 {#USB_OTG_HUB}
         <details>
         <summary><font color="#4F84FF">点击查看详情</font></summary>
         <br>
@@ -238,10 +258,11 @@ update:
 
 ## 交流方式
 
-- **交流论坛: [maixhub.com/discussion](https://maixhub.com/discussion)**
+- **交流论坛:[maixhub.com/discussion](https://maixhub.com/discussion)**
 - **QQ 交流群：[834585530](https://jq.qq.com/?_wv=1027&k=wBb8XUan)**
+- 电报群组：[t.me/sipeed](t.me/sipeed)
+- Discord：[https://discord.gg/V4sAZ9XWpN](https://discord.gg/V4sAZ9XWpN)
 - 直接本页下方留言
-- 商业邮箱 : [support@sipeed.com](support@sipeed.com)
 
 ## 注意事项
 
@@ -302,6 +323,7 @@ update:
  1. 请重新拔插USB手柄后再尝试操作；
  2. Console正面的USB-A手柄的稳定性会在之后的固件更新中解决；
  3. 目前最稳定连接方式为PMOD DS2手柄；
+ 4. 请注意USB接口的丝印标记，位于右侧的标记为P2的手柄，有些游戏只能使用P1的手柄进行操作（使用DS2手柄时同理）；
  </details>
 
 ### 按下MODE键后UI消失

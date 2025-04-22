@@ -1,5 +1,5 @@
 ---
-title: Tang Console
+title: Tang Retro Console
 keywords: FPGA, Tang, Console, 60K, 138K
 update:
   - date: 2025-04-17
@@ -95,12 +95,12 @@ Using the **Tang Retro Console** as an example, here’s how to play games with 
 
   Items needed:  
 
-  * [] Tang Console, either 138k or 60k version  
-  * [] USB 2.0 drive, or SD card + card reader (Recommended format: FAT32/exFAT, ≤32GB)  
-  * [] USB-C OTG adapter with power pass-through (Recommended: USB-C card reader included in the bundle)  
-  * [] Available GBA BIOS (gba_bios.bin)  
-  * [] Latest [**TangCore Release Package**](https://github.com/nand2mario/tangcore/releases)  
-  * [] Game ROMs you want to play (Demo games are preloaded on the uSD card included in the Tang Retro Console Premium bundle)  
+  - [x] Tang Console, either 138k or 60k version  
+  - [x] USB 2.0 drive, or SD card + card reader (Recommended format: FAT32/exFAT, ≤32GB)  
+  - [x] USB-C OTG adapter with power pass-through (Recommended: USB-C card reader included in the bundle)  
+  - [x] Available GBA BIOS (gba_bios.bin)  
+  - [x] Latest [**TangCore Release Package**](https://github.com/nand2mario/tangcore/releases)  
+  - [x] Game ROMs you want to play (Demo games are preloaded on the uSD card included in the Tang Retro Console Premium bundle)  
 
 ### Installing MCU Firmware  
 
@@ -121,6 +121,8 @@ Using the **Tang Retro Console** as an example, here’s how to play games with 
   └── 📁 sms/          # .sms files
   
 ```
+  > ⚠ Console will filter the suffix of the game ROM, please be sure to change the game ROM to the corresponding suffix ⚠
+
 ### Storage Media Content
 
 The contents of the storage media are not differentiated between the **138k console** and the **60k console**. However, the **`gba_bios.bin`** must be downloaded by the user and added manually.  
@@ -131,7 +133,7 @@ Place the game ROMs you wish to play into their corresponding directories.
 
 ❗Note: Please assemble all accessories before connecting the power!
 
-1. **Recommended Method** (All accessories for this method are included in the **Tang Console Retro Premium** package):  
+1. **Early Bird Ver. Recommended Method** (All accessories for this method are included in the **Tang Console Retro Premium** package):  
 
    <img src="./assert/retro-console_assembly-1.jpg" width="45%">  
 
@@ -142,9 +144,28 @@ Place the game ROMs you wish to play into their corresponding directories.
 
    - If the USB controller is not recognized (especially after switching emulator cores), users may need to repeatedly reconnect the USB controller several times.  
 
+   - ***Retail Ver.**  of Tang Console does not need to use OTG card reader, just insert the uSD card into the built-in card slot. Because the built-in card slot of **Retail Ver.** is connected to **BL616** through a MUX.*
+
    <br>
 
-2. **The nand2mario Method**  
+2. **Recommended Method for Retail Version**
+
+   <img src="./assert/retro-console_assembly-0.jpg" width="45%">  
+
+   > Bottom Left: USB-OTG | Top Left: USB-C Power Supply | Bottom: USB Controller **P1** | Top Right: HDMI Output  
+
+   - **Pros**: MOST Simple setup.  
+   - **Cons**: USB controller connection may be unstable in this configuration.  
+
+   - If the USB controller is not recognized (especially after switching emulator cores), users may need to repeatedly reconnect the USB controller several times.  
+
+   - The controller can be connected directly to the Console's USB port or via USB-OTG to the BL616. 
+   
+   - USB OTG is not necessary to assemble, depends on your use.
+
+   <br>  
+
+3. **The nand2mario Method**  
 
    <details>  
    <summary><font color="#4F84FF">Click to View Details</font></summary>  
@@ -162,7 +183,7 @@ Place the game ROMs you wish to play into their corresponding directories.
    </details>  
    <br>
 
-3. **USB OTG HUB Method** {#USB_OTG_HUB}  
+4. **USB OTG HUB Method** {#USB_OTG_HUB}  
 
    <details>  
    <summary><font color="#4F84FF">Click to View Details</font></summary>  
@@ -254,7 +275,7 @@ Place the game ROMs you wish to play into their corresponding directories.
   - **Reddit** : [reddit.com/r/GowinFPGA/](reddit.com/r/GowinFPGA/)
   - **Telegram** : [t.me/sipeed](t.me/sipeed)
   - Discussion forum: [maixhub.com/discussion](https://maixhub.com/discussion)
-  - Discord Server: [TBD]()
+  - Discord: [https://discord.gg/V4sAZ9XWpN](https://discord.gg/V4sAZ9XWpN)
   - QQ discussion group: [834585530](https://jq.qq.com/?_wv=1027&k=wBb8XUan)
   - Leave a message directly below this page
   - Goto **[GitHub project page](https://github.com/sipeed/TangMega-60K-example)** and submit issues
@@ -287,7 +308,8 @@ Place the game ROMs you wish to play into their corresponding directories.
 
 1. Please unplug and replug the USB controller, then try again.  
 2. The stability issue with USB-A controllers connected to the front of the Console will be resolved in future firmware updates.  
-3. The most stable connection method currently is the PMOD DS2 controller.  
+3. The most stable connection method currently is the PMOD DS2 controller.
+4. Please pay attention to the silkscreen mark on the USB port. The USB port on the right is marked as P2. Some games can only be operated with the P1 controller(The same applies when using a DS2 controller).
 
 </details>  
 

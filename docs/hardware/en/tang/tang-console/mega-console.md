@@ -56,7 +56,8 @@ update:
   <summary><font color="#4F84FF">Click for details</font></summary>
   <br>
 
-TBD
+  <img src="./assert/console_bdt.jpg" width="45%">
+  <img src="./assert/console_bdb.jpg" width="45%">
 
 </details>
 
@@ -280,5 +281,18 @@ Tang Console can meet different needs of customers in various scenarios. For tec
 2. Then, check your code and the corresponding simulation waveforms to meet the requirements. The GAO tools in GOWIN IDE maybe helpful. For more information, please refer to the GOWIN document [SUG100](https://www.gowinsemi.com/upload/database_doc/1885/document/660bb2366d0b3.pdf)(require login).
 
 </details>
+
+### PCB Errata 
+
+<details>
+  <summary><font color="#4F84FF">Click for details</font></summary>
+  <br>
+
+  Record **Tang Console** Known PCB issues in each version
+
+  If you find a design error, please leave a message on the **errata page** [**Click here**](./errata-console.md)
+
+</details>
+</br>
 
 ### For more questions and solutions, go to [Related Questions](./../common-doc/questions.md) to view

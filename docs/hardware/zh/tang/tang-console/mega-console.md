@@ -239,4 +239,17 @@ Tang Console 可以在多种场景实现客户不同方面的需要，技术支�
 
 </details>
 
+### PCB勘误
+
+<details>
+  <summary><font color="#4F84FF">点击查看详情</font></summary>
+  <br>
+
+  记录 **Tang Console** 各版本中已知的PCB问题
+
+  如果您发现了设计的错误，请在**勘误页面**留言  [**点我前往**](./errata-console.md)
+
+</details>
+</br>
+
 ### 更多问题及其解决办法前往[相关问题](./../common-doc/questions.md)查看
