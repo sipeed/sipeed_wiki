@@ -157,6 +157,9 @@ update:
 
    2. **零售版本推荐的方式**
 
+        <details>
+        <summary><font color="#4F84FF">点击查看详情</font></summary>
+        <br>
         <img src="./assert/retro-console_assembly-0.jpg" width="45%">
         
         > 左下：USB-OTG | 左上：USB-C电源 | 下方：USB手柄 **P1** | 上方： HDMI输出
@@ -169,6 +172,7 @@ update:
 
         - USB-OTG转换器不是必须的，取决于你的用途
 
+        </details>
         <br>
 
    3. **nand2mario**的方式

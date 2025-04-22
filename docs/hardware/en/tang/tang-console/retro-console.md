@@ -156,6 +156,10 @@ Place the game ROMs you wish to play into their corresponding directories.
 
 2. **Recommended Method for Retail Version**
 
+   <details>  
+   <summary><font color="#4F84FF">Click to View Details</font></summary>  
+   <br>  
+
    <img src="./assert/retro-console_assembly-0.jpg" width="45%">  
 
    > Bottom Left: USB-OTG | Top Left: USB-C Power Supply | Bottom: USB Controller **P1** | Top Right: HDMI Output  
@@ -169,6 +173,7 @@ Place the game ROMs you wish to play into their corresponding directories.
    
    - USB OTG is not necessary to assemble, depends on your use.
 
+   </details>
    <br>  
 
 3. **The nand2mario Method**  
