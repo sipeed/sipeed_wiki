@@ -65,7 +65,13 @@ update:
   <summary><font color="#4F84FF">点击查看详情</font></summary>
   <br>
   
+  此处以60k SOM举例，138k同理
+
   <img src="./assert/tangcores.drawio.svg" width="45%">
+
+  <img src="./assert/console_bdt.jpg" width="45%">
+  
+  <img src="./assert/console_bdb.jpg" width="45%">
 
 </details>
 

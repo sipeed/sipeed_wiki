@@ -64,7 +64,13 @@ update:
   <summary><font color="#4F84FF">Click for Details</font></summary>  
   <br>  
 
-  <img src="./assert/tangcores.drawio.svg" width="45%">  
+  Here we take 60k SOM as an example, and the same is true for 138k
+  
+  <img src="./assert/tangcores.drawio.svg" width="45%">
+
+  <img src="./assert/console_bdt.jpg" width="45%">
+    
+  <img src="./assert/console_bdb.jpg" width="45%">  
 
 </details>  
 
