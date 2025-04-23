@@ -52,7 +52,7 @@ update:
   <br>  
 
   - **Tang Retro Console Premium** (60k version)  
-    <img src="./assert/retro-console-p_60k.jpg" width="45%">  
+    <img src="./assert/retro-console-p_138k.jpg" width="45%">  
 
   - **Tang Retro Console** (60k version)  
     <img src="./assert/retro-console_60k.jpg" width="45%">  

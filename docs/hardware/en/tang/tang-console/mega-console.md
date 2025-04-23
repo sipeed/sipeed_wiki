@@ -48,6 +48,8 @@ update:
 
 <img src="./assert/console_60k.jpg" width="45%">
 
+<img src="./assert/console_138k.jpg" width="45%">
+
 ## Hardware Parameters
 
 ### Block Diagram

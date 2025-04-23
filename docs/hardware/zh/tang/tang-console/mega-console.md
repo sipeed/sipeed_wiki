@@ -41,6 +41,8 @@ update:
 
 <img src="./assert/console_60k.jpg" width="45%">
 
+<img src="./assert/console_138k.jpg" width="45%">
+
 ## 硬件参数
 
 ### 硬件框图
