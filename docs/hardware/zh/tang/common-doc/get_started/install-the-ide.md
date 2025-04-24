@@ -2,6 +2,12 @@
 title: 安装 IDE 
 keywords: Sipeed, Gowin, Tang, Nano, fpga, 矽速
 update:
+  - date: 2025-04-24
+    version: v1.2
+    author: Serika
+    content:
+      - 完善板卡/器件型号
+      - 添加在线Lic Server
   - date: 2023-05-25
     version: v1.1
     author: wonder
@@ -14,6 +20,7 @@ update:
     content:
       - 根据高云半导体下载链接新页面重新截图
       - 去掉了替换 Programmer 相关操作说明
+
 ---
 
 使用高云半导体的 FPGA 需要用到 GOWIN 这个软件，对应的软件文档链接：
@@ -46,13 +53,18 @@ IDE 分为商业版和教育版：
 
 高云半导体的IDE在不断的更新中，上图为 2023 年 05 月 25 日截图。
 
-| 芯片名称               | 芯片系列  | 芯片型号   | 适用板卡     |
-| --------------------- | --------- | --------  | ----------- |
-| GW1NZ-LV1QN48C6/I5    | GW1NZ     |GW1NZ      | Nano 1K     |
-| GW1NSR-LV4CQN48PC6/I5 | GW1NSR    |GW1NSR-4C  | Nano 4K     |
-| GW1NR-LV9QN88PC6/I5   | GW1NR     |GW1NR-9C   | Nano 9K     |
-| GW2AR-LV18QN88C8/I7   | GW2AR     |GW2AR-LV18 | Nano 20K    |
-| GW2A-LV18PG256C8/I7   | GW2A      |GW2A-18C   | Primer 20K  |
+| 芯片名称                  | 芯片系列  | 芯片型号   | 适用板卡           |
+| ------------------------ | --------- | --------  | ----------------- |
+| GW1NZ-LV1QN48C6/l5       | GW1NZ     |GW1NZ      | Nano 1K           |
+| GW1NSR-LV4CQN48PC6/l5    | GW1NSR    |GW1NSR-4C  | Nano 4K           |
+| GW1NR-LV9QN88PC6/l5      | GW1NR     |GW1NR-9C   | Nano 9K           |
+| GW2AR-LV18QN88C8/l7      | GW2AR     |GW2AR-18C  | Nano 20K          |
+| GW2A-LV18PG256C8/l7      | GW2A      |GW2A-18C   | Primer 20K        |
+| GW5AT-LV15MG132C1/l0     | GW5AT     |GW2A-15A   | Primer 15K        |
+| GW5A-LV25MG121NC1/l0     | GW5A      |GW5A-25A   | Primer 25K        |
+| GW5AT-LV60PG484AC1/l0    | GW5AT     |GW5AT-60B  | Mega/Console 60K  |
+| GW5AST-LV138PG484AC1/l0  | GW5AST    |GW5AT-138B | Mega/Console 138K |
+| GW5AST-LV138FPG676AC1/l0 | GW5AST    |GW5AT-138B | Mega 138K Pro     |
 
 上表中的板卡均可在教育版的 IDE 中使用。
 
@@ -143,6 +155,18 @@ Linux 版本 IDE 下载解压后，打开 `IDE/bin` 文件夹，然后可执行�
 对于 Linux 用户可以用 Openfpgaloader, 查看本页最底部的相关说明即可。
 
 ## 拓展
+
+License 可以在高云官网申请，或者使用Sipeed提供的在线Lic服务，在IDE中选择Float Lic，填写以下信息即可：
+~~~
+---Server 01---
+ip: 45.33.107.56
+port: 10559
+
+---Server 02---
+ip: 106.55.34.119
+port: 10559
+~~~
+如果上面的IP不能工作, 尝试使用 "gowinlic.sipeed.com" 域名对应的IP.
 
 获取 license 可能需要等待一段时间。在此期间可以看看高云半导体的官方文档。下面简单说明一下：
 
