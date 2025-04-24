@@ -6,7 +6,7 @@ update:
     version: v
     author: wonder
     content:
-      - 新建文档
+      - Creat document
   - date: 2024-09-26
     version: v0.2
     author: Serika
@@ -242,7 +242,7 @@ Example code [github](https://github.com/sipeed/TangMega-138KPro-example)
     </tr>
     <tr>
         <td>Chip Model</td>
-        <td>The specific model of the FPGA chip used by Tang Mega 138K Pro is GW5AST-LV138FPG676A. Please select the package model FCPBG676A in the IDE.</td>
+        <td>The specific model of the FPGA chip used by Tang Mega 138K Pro is GW5AST-LV138FPG676A. Please select the package model <span><b>FCPBG676A</b></span> & <span><b>Device Version: B</b></span> in the IDE.</td>
     </tr>
     <tr>
         <td>Static Electricity</td>

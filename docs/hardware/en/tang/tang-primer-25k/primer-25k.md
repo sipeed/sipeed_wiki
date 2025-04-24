@@ -18,7 +18,85 @@ Purchase link: [ALIEXPRESS](https://www.aliexpress.us/item/3256806038278266.html
 
 ## Basic Parameters
 
-<table> <thead> <tr> <th style="text-align:center">Item</th> <th style="text-align:center">Parameter</th> <th style="text-align:center">Supplement</th> </tr> </thead> <tbody> <tr> <td style="text-align:left">FPGA Chip</td> <td style="text-align:left"><a href="http://www.gowinsemi.com.cn/prod_view.aspx?TypeId=74&FId=t3:10:3&Id=188">GW5A-LV25MG121</a> </td> <td style="text-align:left"> <table> <tr> <td>Logic Unit (LUT4)</td> <td>23040</td> </tr> <tr> <td>Register (FF)</td> <td>23040</td> </tr> <tr> <td>Distributed Static Random Access Memory S-SRAM (bits)</td> <td>180K</td> </tr> <tr> <td>Block Static Random Access Memory B-SRAM (bits)</td> <td>1008K</td> </tr> <tr> <td>Number of Block Static Random Access Memory B-SRAM</td> <td>56</td> </tr> <tr> <td>Multiplier (18x18 Multiplier)</td> <td>28</td> </tr> <tr> <td>Phase-Locked Loop (PLLs)</td> <td>6</td> </tr> <tr> <td>Total I/O Bank</td> <td>8</td> </tr> </table> </td> </tr> <tr> <td style="text-align:left">Flash</td> <td style="text-align:left">64Mbits NOR Flash</td> <td style="text-align:left">See <a href="#burn_flash">Burning to Flash</a></td> </tr> <tr> <td style="text-align:left">Overall Packaging</td> <td style="text-align:left">2x60P BTB Core Board</td> <td style="text-align:left"></td> </tr> <tr> <td style="text-align:left">General IO</td> <td style="text-align:left"> 75</td> <td style="text-align:left"></td> </tr> <tr> <td style="text-align:left"> MIPI IO </td> <td style="text-align:left"> 4lane Data</td> <td style="text-align:left"></td> </tr> </tbody> </table>
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:center">Item</th>
+      <th style="text-align:center">Parameter</th>
+      <th style="text-align:center">Supplement</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left">FPGA Chip</td>
+      <td style="text-align:left">
+        <a href="http://www.gowinsemi.com.cn/prod_view.aspx?TypeId=74&FId=t3:10:3&Id=188">GW5A-LV25MG121C1/l0</a>
+      </td>
+      <td style="text-align:left">
+        <table>
+          <tr>
+            <td>Logic Unit (LUT4)</td>
+            <td>23040</td>
+          </tr>
+          <tr>
+            <td>Register (FF)</td>
+            <td>23040</td>
+          </tr>
+          <tr>
+            <td>Distributed Static Random Access Memory S-SRAM (bits)</td>
+            <td>180K</td>
+          </tr>
+          <tr>
+            <td>Block Static Random Access Memory B-SRAM (bits)</td>
+            <td>1008K</td>
+          </tr>
+          <tr>
+            <td>Number of Block Static Random Access Memory B-SRAM</td>
+            <td>56</td>
+          </tr>
+          <tr>
+            <td>Multiplier (18x18 Multiplier)</td>
+            <td>28</td>
+          </tr>
+          <tr>
+            <td>Phase-Locked Loop (PLLs)</td>
+            <td>6</td>
+          </tr>
+          <tr>
+            <td>Total I/O Bank</td>
+            <td>8</td>
+          </tr>
+          <tr>
+						<td><b>Device Version</b></td>
+						<td><b>A</b></td>
+					</tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left">Flash</td>
+      <td style="text-align:left">64Mbits NOR Flash</td>
+      <td style="text-align:left">
+        See <a href="#burn_flash">Burning to Flash</a>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left">Overall Packaging</td>
+      <td style="text-align:left">2x60P BTB Core Board</td>
+      <td style="text-align:left"></td>
+    </tr>
+    <tr>
+      <td style="text-align:left">General IO</td>
+      <td style="text-align:left">75</td>
+      <td style="text-align:left"></td>
+    </tr>
+    <tr>
+      <td style="text-align:left">MIPI IO</td>
+      <td style="text-align:left">4lane Data</td>
+      <td style="text-align:left"></td>
+    </tr>
+  </tbody>
+</table>
 
 ## Dock Base Board Product Image
 

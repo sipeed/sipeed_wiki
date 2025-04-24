@@ -243,7 +243,7 @@ Example code [github](https://github.com/sipeed/TangMega-138K-example)
     </tr>
     <tr>
         <td>Chip Model</td>
-        <td>The specific model of the FPGA chip used by Tang Mega 138K is <b>GW5AST-LV138FPG676A</b>. <br>Please select the package model <b>PBG484A</b> in the IDE.</td>
+        <td>The specific model of the FPGA chip used by Tang Mega 138K is <b>GW5AST-LV138FPG676A</b>. <br>Please select the package model <span><b>PBG484A</b></span> & <span><b>Device Version: B</b></span> in the IDE.</td>
     </tr>
     <tr>
         <td>Static Electricity</td>

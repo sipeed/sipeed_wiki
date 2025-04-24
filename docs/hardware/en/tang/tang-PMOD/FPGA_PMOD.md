@@ -2,7 +2,7 @@
 
 ## Overview
 
-The TANG PMOD module is a FPGA expansion module compatible with the **Digilent Pmod™** interface standard. It can be used to extend the capabilities of FPGA development boards that include this interface, such as the [Tang Mega 138K Pro Dock](https://chatkit.app/?chat=RM8cVJL7YDE2HbRYtsBQU) and [Tang Primer 25K Dock](https://chatkit.app/?chat=RM8cVJL7YDE2HbRYtsBQU).
+The TANG PMOD module is a FPGA expansion module compatible with the **Digilent Pmod™** interface standard. It can be used to extend the capabilities of FPGA development boards that include this interface, such as the [Tang Mega 138K Pro Dock](../tang-mega-138k/mega-138k-pro.md) and [Tang Primer 25K Dock](../tang-primer-25k/primer-25k.md).
 
 Different modules provide various expansion functions, and they can be combined freely to achieve the required functionalities.
 
