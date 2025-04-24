@@ -123,7 +123,7 @@ Specifications, schematics, dimension drawings, etc. can be found here: [Click h
    
 	`Prepare Development Environment` -> `Learn Relevant Syntax` -> `View Unboxing Guide` -> `Basic Code Writing` -> `View Official Documentation`
 	
-	1. Install IDE: [Click here](./../common-doc/get_started/install-the-ide.md)
+	1. Install IDE: [Click here](../common-doc/get_started/install-the-ide.md)
 	
    2. Check out the [Getting Started Guide](https://wiki.sipeed.com/hardware/zh/tang/tang-primer-20k/start.html) to avoid some problems, and you can start coding from there.
    
