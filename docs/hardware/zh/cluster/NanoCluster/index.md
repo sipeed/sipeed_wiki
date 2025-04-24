@@ -153,7 +153,57 @@ NanoCluster 采用开放的 SOM 接口标准，不仅支持官方核心板，也
 
 ## 接口图示
 
+### 底板接口
+
 ![接口图示](./assets/board_io.jpeg)
+
+### SOM
+
+LM3H 核心板通过 7 × 双 M.2 M-Key 立式插槽直接连接到底板。
+
+M4N 核心板则先通过 BTB（板对板）连接器与转接板对接，再连接到底板。
+
+<table>
+    <tr>
+        <th>SOM</th>
+        <th>LM3H</th>
+        <th>M4N</th>
+    </tr>
+    <tr>
+        <td>正面</td>
+        <td><img src="./assets/lm3h_front.jpeg" width="250"/></td>
+        <td><img src="./assets/m4n_front.jpeg" width="250"/></td>
+    </tr>
+    <tr>
+        <td>反面</td>
+        <td><img src="./assets/lm3h_back.jpeg" width="250"/></td>
+        <td><img src="./assets/m4n_back.jpeg" width="250"/></td>
+    </tr>
+</table>
+
+### 转接板
+
+CM4 / CM5 转接板正面配有 BTB 连接器，支持连接 CM4 和 CM5 核心板，同时集成了 Boot 按键和用于烧录的 Type-C 接口。背面包括一个 SD 卡槽、一个 M.2 NVMe 固态硬盘接口（兼容 2242 或 2230 尺寸），以及一个预留的 USB 焊盘，可选支持 CM5 的 USB 3.0。
+
+M4N 转接板正面配有 BTB 连接器，用于连接 Sipeed M4N 核心板，同时配备 Boot 按键和用于烧录的 Type-C 接口。背面包括一个 M.2 NVMe 固态硬盘接口（2242 或 2230），以及一个预留的 USB 焊盘，可选支持 USB 3.0。
+
+<table>
+    <tr>
+        <th>转接板</th>
+        <th>CM4 / CM5</th>
+        <th>M4N</th>
+    </tr>
+    <tr>
+        <td>正面</td>
+        <td><img src="./assets/cm4_adapter_front.jpeg" width="250"/></td>
+        <td><img src="./assets/m4n_adapter_front.jpeg" width="250"/></td>
+    </tr>
+    <tr>
+        <td>反面</td>
+        <td><img src="./assets/cm4_adapter_back.jpeg" width="250"/></td>
+        <td><img src="./assets/m4n_adapter_back.jpeg" width="250"/></td>
+    </tr>
+</table>
 
 ## 软硬件资料
 

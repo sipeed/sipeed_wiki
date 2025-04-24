@@ -153,7 +153,59 @@ The NanoCluster adopts an open SOM interface standard, supporting both official 
 
 ## Interface Diagram
 
+### Baseboard Interfaces
+
 ![接口图示](../../../zh/cluster/NanoCluster/assets/board_io.jpeg)
+
+### SOM
+
+The LM3H SOM connects directly to the baseboard via 7 × dual M.2 M-Key vertical slots.
+
+The M4N SOM connects to a dedicated adapter board through a BTB connector, which then interfaces with the baseboard.
+
+<table>
+    <tr>
+        <th>SOM</th>
+        <th>LM3H</th>
+        <th>M4N</th>
+    </tr>
+    <tr>
+        <td>Front Side</td>
+        <td><img src="../../../zh/cluster/NanoCluster/assets/lm3h_front.jpeg" width="250"/></td>
+        <td><img src="../../../zh/cluster/NanoCluster/assets/m4n_front.jpeg" width="250"/></td>
+    </tr>
+    <tr>
+        <td>Back Side</td>
+        <td><img src="../../../zh/cluster/NanoCluster/assets/lm3h_back.jpeg" width="250"/></td>
+        <td><img src="../../../zh/cluster/NanoCluster/assets/m4n_back.jpeg" width="250"/></td>
+    </tr>
+</table>
+
+### Adapter Boards
+
+The CM4 / CM5 adapter board features a BTB connector on the front side, supporting CM4 and CM5 SOMs. It also includes a Boot button and a Type-C port for flashing.  
+The back side includes an SD card slot, an M.2 NVMe SSD connector (compatible with 2242 or 2230 size), and a reserved USB pad for optional CM5 USB 3.0 support.
+
+The M4N adapter board features a BTB connector for Sipeed M4N SOMs, a Boot button, and a Type-C flashing port on the front side.  
+The back side includes an M.2 NVMe SSD connector (2242 or 2230), and a reserved USB pad for optional USB 3.0 support.
+
+<table>
+    <tr>
+        <th>Adapter Board</th>
+        <th>CM4 / CM5</th>
+        <th>M4N</th>
+    </tr>
+    <tr>
+        <td>Front Side</td>
+        <td><img src="../../../zh/cluster/NanoCluster/assets/cm4_adapter_front.jpeg" width="250"/></td>
+        <td><img src="../../../zh/cluster/NanoCluster/assets/m4n_adapter_front.jpeg" width="250"/></td>
+    </tr>
+    <tr>
+        <td>Back Side</td>
+        <td><img src="../../../zh/cluster/NanoCluster/assets/cm4_adapter_back.jpeg" width="250"/></td>
+        <td><img src="../../../zh/cluster/NanoCluster/assets/m4n_adapter_back.jpeg" width="250"/></td>
+    </tr>
+</table>
 
 ## Hardware & Software Resources
 
