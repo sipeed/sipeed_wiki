@@ -45,7 +45,7 @@ class: faq
 | AIOT - Mcu 交流QQ群<br>(BL808) | 592731168 |
 | TinyML - Mcu 交流QQ群<br>(BL616, BL618, BL702, GD32) | 816177882 |
 | Maixsense TOF 交流QQ群 | 566105455 |
-| 电赛 QQ 群 | 862461090 |
+| 电赛 QQ 群 | 750799296 |
 
 
 | Sipeed 国外社区 | 地址 |
