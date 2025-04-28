@@ -264,7 +264,10 @@ update:
 ### 其他资源
 
 - 安装文档原文： [**点我**](https://nand2mario.github.io/tangcore/user-guide/installation/)
-- 特别鸣谢：**[nand2mario](https://github.com/nand2mario)** 
+- 特别鸣谢：**[fjpolo](https://github.com/fjpolo/GBTang)** | **[harbaum](https://github.com/harbaum/MiSTeryNano)** | **[nand2mario](https://github.com/nand2mario)** | **[pgate1](https://github.com/pgate1/SNES_on_FPGA)** 
+  
+  
+  > 以上排名不分先后
 
 ## 交流方式
 
@@ -371,6 +374,17 @@ update:
  2. 因为版权问题，我们无法向您提供这份档案，您需要自行寻找`gba_bios.bin`并放入相应的位置；
 
     <img src="./assert/retro-console_menu5.jpg" width="45%">
+
+ </details>
+
+  ### 主菜单画面中的 ***`Options`*** 选项无法进入
+
+<details>
+<summary><font color="#4F84FF">点击查看详情</font></summary>
+<br>
+
+ 1. 这是因为 **[nand2mario](https://github.com/nand2mario)** 尚未实现这一部分的功能；
+ 2. 此功能会造之后的更新中逐步实现；
 
  </details>
 

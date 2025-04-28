@@ -275,7 +275,9 @@ Place the game ROMs you wish to play into their corresponding directories.
 ### Additional Resources  
 
 - Original Installation Documentation: [**Click Here**](https://nand2mario.github.io/tangcore/user-guide/installation/)  
-- Special Thanks: **[nand2mario](https://github.com/nand2mario)**  
+- Special Thanks: **[fjpolo](https://github.com/fjpolo/GBTang)** | **[harbaum](https://github.com/harbaum/MiSTeryNano)** | **[nand2mario](https://github.com/nand2mario)** | **[pgate1](https://github.com/pgate1/SNES_on_FPGA)** 
+
+  > *Ranking in no particular order*
 
 ---
 
@@ -367,6 +369,17 @@ Place the game ROMs you wish to play into their corresponding directories.
    <img src="./assert/retro-console_menu5.jpg" width="45%">  
 
 </details>  
+
+### The ***`Options`*** option in the main menu screen is inaccessible
+
+<details>
+<summary><font color="#4F84FF">Click to view details</font></summary>
+<br>
+
+1. This is because **[nand2mario](https://github.com/nand2mario)** has not yet implemented this functionality.
+2. This feature will be gradually implemented in future updates.
+
+</details>
 
 ---
 
