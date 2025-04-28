@@ -333,7 +333,7 @@ update:
 <summary><font color="#4F84FF">点击查看详情</font></summary>
 <br>
  
- 1. 请重新拔插USB手柄后再尝试操作；
+ 1. 目前在 *tang core* version `0.8` 中是已知问题，请重新拔插USB手柄后再尝试操作；
  2. Console正面的USB-A手柄的稳定性会在之后的固件更新中解决；
  3. 目前最稳定连接方式为PMOD DS2手柄；
  4. 请注意USB接口的丝印标记，位于右侧的标记为P2的手柄，有些游戏只能使用P1的手柄进行操作（使用DS2手柄时同理）；
@@ -345,7 +345,7 @@ update:
 <summary><font color="#4F84FF">点击查看详情</font></summary>
 <br>
 
- 1. 目前是已知问题，会在未来的固件更新中解决；
+ 1. 目前在 *tang core* version `0.8` 中是已知问题，会在未来的固件更新中解决；
  2. 如果画面中游标 `>` 还在，可以尝试用手柄操作翻页或返回上级等操作强迫UI刷新；
 
  </details>
@@ -383,7 +383,7 @@ update:
 <summary><font color="#4F84FF">点击查看详情</font></summary>
 <br>
 
- 1. 这是因为 **[nand2mario](https://github.com/nand2mario)** 尚未实现这一部分的功能；
+ 1. 这是因为 **[nand2mario](https://github.com/nand2mario)** 在 *tang core* version `0.8` 中尚未实现这一部分的功能；
  2. 此功能会造之后的更新中逐步实现；
 
  </details>
