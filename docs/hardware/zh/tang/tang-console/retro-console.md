@@ -264,7 +264,10 @@ update:
 ### 其他资源
 
 - 安装文档原文： [**点我**](https://nand2mario.github.io/tangcore/user-guide/installation/)
-- 特别鸣谢：**[nand2mario](https://github.com/nand2mario)** 
+- 特别鸣谢：**[fjpolo](https://github.com/fjpolo/GBTang)** | **[harbaum](https://github.com/harbaum/MiSTeryNano)** | **[nand2mario](https://github.com/nand2mario)** | **[pgate1](https://github.com/pgate1/SNES_on_FPGA)** 
+  
+  
+  > 以上排名不分先后
 
 ## 交流方式
 
@@ -330,7 +333,7 @@ update:
 <summary><font color="#4F84FF">点击查看详情</font></summary>
 <br>
  
- 1. 请重新拔插USB手柄后再尝试操作；
+ 1. 目前在 *tang core* version `0.8` 中是已知问题，请重新拔插USB手柄后再尝试操作；
  2. Console正面的USB-A手柄的稳定性会在之后的固件更新中解决；
  3. 目前最稳定连接方式为PMOD DS2手柄；
  4. 请注意USB接口的丝印标记，位于右侧的标记为P2的手柄，有些游戏只能使用P1的手柄进行操作（使用DS2手柄时同理）；
@@ -342,7 +345,7 @@ update:
 <summary><font color="#4F84FF">点击查看详情</font></summary>
 <br>
 
- 1. 目前是已知问题，会在未来的固件更新中解决；
+ 1. 目前在 *tang core* version `0.8` 中是已知问题，会在未来的固件更新中解决；
  2. 如果画面中游标 `>` 还在，可以尝试用手柄操作翻页或返回上级等操作强迫UI刷新；
 
  </details>
@@ -371,6 +374,17 @@ update:
  2. 因为版权问题，我们无法向您提供这份档案，您需要自行寻找`gba_bios.bin`并放入相应的位置；
 
     <img src="./assert/retro-console_menu5.jpg" width="45%">
+
+ </details>
+
+  ### 主菜单画面中的 ***`Options`*** 选项无法进入
+
+<details>
+<summary><font color="#4F84FF">点击查看详情</font></summary>
+<br>
+
+ 1. 这是因为 **[nand2mario](https://github.com/nand2mario)** 在 *tang core* version `0.8` 中尚未实现这一部分的功能；
+ 2. 此功能会造之后的更新中逐步实现；
 
  </details>
 

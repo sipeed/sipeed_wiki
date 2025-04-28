@@ -275,7 +275,9 @@ Place the game ROMs you wish to play into their corresponding directories.
 ### Additional Resources  
 
 - Original Installation Documentation: [**Click Here**](https://nand2mario.github.io/tangcore/user-guide/installation/)  
-- Special Thanks: **[nand2mario](https://github.com/nand2mario)**  
+- Special Thanks: **[fjpolo](https://github.com/fjpolo/GBTang)** | **[harbaum](https://github.com/harbaum/MiSTeryNano)** | **[nand2mario](https://github.com/nand2mario)** | **[pgate1](https://github.com/pgate1/SNES_on_FPGA)** 
+
+  > *Ranking in no particular order*
 
 ---
 
@@ -317,7 +319,7 @@ Place the game ROMs you wish to play into their corresponding directories.
 <summary><font color="#4F84FF">Click to View Details</font></summary>  
 <br>  
 
-1. Please unplug and replug the USB controller, then try again.  
+1. This is a known issue in *tangcore* *version* `0.8`, please unplug and replug the USB controller, then try again.  
 2. The stability issue with USB-A controllers connected to the front of the Console will be resolved in future firmware updates.  
 3. The most stable connection method currently is the PMOD DS2 controller.
 4. Please pay attention to the silkscreen mark on the USB port. The USB port on the right is marked as P2. Some games can only be operated with the P1 controller(The same applies when using a DS2 controller).
@@ -332,7 +334,7 @@ Place the game ROMs you wish to play into their corresponding directories.
 <summary><font color="#4F84FF">Click to View Details</font></summary>  
 <br>  
 
-1. This is a known issue and will be resolved in future firmware updates.  
+1. This is a known issue in *tangcore* *version* `0.8`, and will be resolved in future firmware updates.  
 2. If the cursor `>` is still visible, try using the controller to navigate pages or return to the previous menu to force a UI refresh.  
 
 </details>  
@@ -367,6 +369,17 @@ Place the game ROMs you wish to play into their corresponding directories.
    <img src="./assert/retro-console_menu5.jpg" width="45%">  
 
 </details>  
+
+### The ***`Options`*** option in the main menu screen is inaccessible
+
+<details>
+<summary><font color="#4F84FF">Click to view details</font></summary>
+<br>
+
+1. This is because **[nand2mario](https://github.com/nand2mario)** has not yet implemented this functionality in *tangcore* *version* `0.8`.
+2. This feature will be gradually implemented in future updates.
+
+</details>
 
 ---
 
