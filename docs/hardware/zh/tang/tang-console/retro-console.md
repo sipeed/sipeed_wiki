@@ -383,7 +383,7 @@ update:
 <summary><font color="#4F84FF">点击查看详情</font></summary>
 <br>
 
- 1. 这是因为 **[nand2mario](https://github.com/nand2mario)** 在 *tang core* version `0.8` 中尚未实现这一部分的功能；
+ 1. 这是因为 **[nand2mario](https://github.com/nand2mario)** 在 *tang core* version `0.8` & `0.9` 中尚未实现这一部分的功能；
  2. 此功能会造之后的更新中逐步实现；
 
  </details>

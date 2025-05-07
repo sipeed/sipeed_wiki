@@ -376,7 +376,7 @@ Place the game ROMs you wish to play into their corresponding directories.
 <summary><font color="#4F84FF">Click to view details</font></summary>
 <br>
 
-1. This is because **[nand2mario](https://github.com/nand2mario)** has not yet implemented this functionality in *tangcore* *version* `0.8`.
+1. This is because **[nand2mario](https://github.com/nand2mario)** has not yet implemented this functionality in *tangcore* *version* `0.8` & `0.9`.
 2. This feature will be gradually implemented in future updates.
 
 </details>
