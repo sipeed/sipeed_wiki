@@ -2,7 +2,11 @@
 title: Tang Nano 9k examples
 ---
 
-Before reading, we suggest using this [Programmer](https://dl.sipeed.com/shareURL/TANG/programmer) not that installed with IDE
+~~Before reading, we suggest using this [Programmer](https://dl.sipeed.com/shareURL/TANG/programmer/archived) not that installed with IDE~~
+
+> The above requirements are not necessary, version 1.9.9 can also work fine.
+> If you want, you can also try the latest version of the IDE.
+
 
 - [Blink](./examples/led.md)
 - [LCD screen](./examples/rgb_screen.md)
