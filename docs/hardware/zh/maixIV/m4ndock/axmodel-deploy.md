@@ -23,12 +23,27 @@ update:
 
 | 模型 | 链接 | 链接（国内镜像站） |
 |  --  |  --  |  --  |
+| Qwen3:0.6b | [Qwen3-0.6B-Int8](https://huggingface.co/AXERA-TECH/Qwen3-0.6B)  | [Qwen3-0.6B-Int8](https://hf-mirror.com/AXERA-TECH/Qwen3-0.6B) |
 | DeepSeek-R1:1.5b | [DeepSeek-R1-Distill-Qwen-1.5B](https://huggingface.co/AXERA-TECH/DeepSeek-R1-Distill-Qwen-1.5B)  | [DeepSeek-R1-Distill-Qwen-1.5B](https://hf-mirror.com/AXERA-TECH/DeepSeek-R1-Distill-Qwen-1.5B) |
 | Qwen2.5:1.5b | [Qwen2.5-1.5B-Instruct-GPTQ-Int8](https://huggingface.co/AXERA-TECH/Qwen2.5-1.5B-Instruct-GPTQ-Int8)  | [Qwen2.5-1.5B-Instruct-GPTQ-Int8](https://hf-mirror.com/AXERA-TECH/Qwen2.5-1.5B-Instruct-GPTQ-Int8) |
 | SD1.5 | [lcm-lora-sdv1-5](https://huggingface.co/AXERA-TECH/lcm-lora-sdv1-5)  | [lcm-lora-sdv1-5](https://hf-mirror.com/AXERA-TECH/lcm-lora-sdv1-5) |
 | InternVL2.5:1b | [InternVL2_5-1B-Int8](https://huggingface.co/AXERA-TECH/InternVL2_5-1B)  | [InternVL2_5-1B-Int8](https://hf-mirror.com/AXERA-TECH/InternVL2_5-1B) |
 
 **请注意：以上模型都需要基于 `SDK 1.45.0` 版本编译打包出来的镜像才可运行大模型。请及时更新系统，我们提供的 TFCard&eMMC 镜像是符合条件的，且预留了 6GB 内存供模型加载运行使用，可以运行 7b 参数的 int4 大模型。**
+
+*快速体验 qwen3-0.6b：*
+```bash
+git clone https://hf-mirror.com/AXERA-TECH/Qwen3-0.6B
+
+pip install transformers jinja2 -i https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple
+
+cd Qwen3-0.6B
+chmod +x main_ax650
+
+python3 qwen3_tokenizer_uid.py
+
+sh run_qwen3_0.6b_int8_ctx_ax650.sh
+```
 
 ## 爱芯元智AX650N部署yolov5s 自定义模型
 
