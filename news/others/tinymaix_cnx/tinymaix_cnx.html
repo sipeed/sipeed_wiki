@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+
+<html lang="zh"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="TinyMaix, Sipeed, 框架, 机器学习">
+    
+    
+    <meta name="description" content="">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+        
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/prism.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?9cb07365544a53067c56c346c838181a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119047820-5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-119047820-5');
+    </script>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/js/thumbs_up/style.css" type="text/css"/>
+        
+    
+    
+    <title>TinyMaix ：超轻量级推理框架 - Sipeed Wiki</title>
+    
+    <script type="text/javascript">js_vars = {"teedoc-plugin-ad-hint": {"type": "hint", "label": "NEW", "content": "全新 Maix 系列产品 <a href='https://wiki.sipeed.com/maixcam'>MaixCAM</a> 已上线, 全新 <a href='https://wiki.sipeed.com/maixpy/'>MaixPy</a> 功能更丰富，性能更强大，软件更易用，文档更全面！", "show_times": 2, "show_after_s": 432000, "date": "2022-06-01 14:00", "color": "#a0421d", "link_color": "#e53935", "link_bg_color": "#e6ae5c", "bg_color": "#ffcf89", "color_hover": "white", "bg_color_hover": "#f57c00", "close_color": "#eab971"}, "teedoc-plugin-thumbs-up": {"label_up": "有帮助", "label_down": "待改进", "icon": "/static/images/thumbs_up/up.svg", "icon_clicked": "/static/images/thumbs_up/upped.svg", "url": "https://thumbs-up.sipeed.com", "show_up_count": true, "show_down_count": false, "msg_already_voted": "您已经投过票了", "msg_thanks": "感谢您的反馈", "msg_down_prompt": "感谢反馈，请告诉我们可以改进什么地方?（最少 10 个字）", "msg_down_prompt_error": "消息最少需要 10 个字， 最多 256 个字", "msg_error": "请求服务器出现错误!"}}</script>
+    <script type="text/javascript">metadata = {"tags": ["TinyMaix", "推理框架"], "date": "2022-08-24", "update": [], "ts": 1661299200, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/">
+                
+                    <img class="site_logo" src="/static/image/logo.svg" alt="sipeed wiki logo">
+                
+                
+                    <h2>wiki</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class=""><a  href="/">产品</a></li>
+<li class="sub_items "><a >开源软件</a><ul><li class=""><a  href="/maixpy/">MaixPy</a></li>
+<li class=""><a  href="/soft/maixpy/zh/index.html">MaixPy_v1</a></li>
+<li class=""><a  href="/soft/Lichee/zh/index.html">Lichee</a></li>
+<li class=""><a  href="/ai/zh/index.html">AI 指南</a></li>
+</ul>
+</li>
+<li class=""><a target="_blank" href="https://maixhub.com">MaixHub</a></li>
+<li class="active"><a  href="/news/">动态</a></li>
+<li class=""><a  href="/faq.html">FAQ 汇总</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class=""><a  href="/store.html"><img src='/static/image/shop.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+<li class=""><a target="_blank" href="https://github.com/sipeed"><img src='/static/image/github.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">输入关键词，多关键词空格隔开</span>
+                                <span id="search_loading_hint">正在加载，请稍候。。。</span>
+                                <span id="search_download_err_hint">下载文件失败，请刷新重试或检查网络</span>
+                                <span id="search_other_docs_result_hint">来自其它文档的结果</span>
+                                <span id="search_curr_doc_result_hint">当前文档搜索结果</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="">
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>TinyMaix ：超轻量级推理框架</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                                <li>TinyMaix</li>
+                            
+                                <li>推理框架</li>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                                <span class="article_date" title="最后修改日期： 2022-08-24">
+                                    2022-08-24
+                                </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/sipeed/sipeed_wiki/blob/main/news/others/tinymaix_cnx/tinymaix_cnx.md" target="_blank">
+                                    <span id='editPage'>编辑本页</span>
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <span id="blog_start"></span><!-- more -->
+<h2 id="%E4%BB%8B%E7%BB%8D">介绍</h2>
+<p>TinyMaix 是面向单片机的超轻量级的神经网络推理库，即 TinyML 推理库，可以让你在任意单片机上运行轻量级深度学习模型。</p>
+<p><strong>关键特性</strong></p>
+<ul>
+<li>核心代码少于 <strong>400行</strong>(<code>tm_layers.c</code>+<code>tm_model.c</code>+<code>arch_cpu.h</code>), 代码段(.text)少于<strong>3KB</strong></li>
+<li>低内存消耗，甚至 <strong>Arduino ATmega328</strong> (32KB Flash, 2KB Ram) 都能基于 TinyMaix 跑 mnist(手写数字识别)</li>
+<li>支持 <strong>INT8/FP32/FP16</strong> 模型，实验性地支持 <strong>FP8</strong> 模型，支持 keras h5 或 tflite 模型转换</li>
+<li>支持多种芯片架构的专用指令优化: <strong>ARM SIMD/NEON/MVEI，RV32P, RV64V</strong></li>
+<li>友好的用户接口，只需要 load/run 模型~</li>
+<li>支持全静态的内存配置(无需 malloc )</li>
+<li>即将支持 <a href="https://maixhub.com"  target="_blank">MaixHub</a> <strong>在线模型训练</strong></li>
+</ul>
+<p><strong>在Arduino ATmega328上运行 mnist demo 实例</strong></p>
+
+<pre class="language-none"><code class="language-none">mnist demo
+0000000000000000000000000000
+0000000000000000000000000000
+0000000000000000000000000000
+000000000077AFF9500000000000
+000000000AFFFFFFD10000000000
+00000000AFFFD8BFF70000000000
+00000003FFD2000CF80000000000
+00000004FD10007FF40000000000
+00000000110000DFF40000000000
+00000000000007FFC00000000000
+0000000000004FFE300000000000
+0000000000008FF9000000000000
+00000000000BFF90000000000000
+00000000001EFE20000000000000
+0000000000CFF800000000000000
+0000000004FFB000000000000000
+000000001CFF8000000000000000
+000000008FFA0000000000000000
+00000000FFF10000000000000000
+00000000FFF21111000112999900
+00000000FFFFFFFFA8AFFFFFFF70
+00000000AFFFFFFFFFFFFFFA7730
+0000000007777AFFF97720000000
+0000000000000000000000000000
+0000000000000000000000000000
+0000000000000000000000000000
+0000000000000000000000000000
+0000000000000000000000000000
+===use 49912us
+0: 0
+1: 0
+2: 89
+3: 0
+4: 1
+5: 6
+6: 1
+7: 0
+8: 0
+9: 0
+### Predict output is: Number 2, prob=89
+</code></pre>
+<h2 id="TODO">TODO</h2>
+<ol>
+<li>将 <code>tm_layers.c</code> 优化到 <code>tm_layers_O1.c</code>, 目标提升速度到 <code>1.4~2.0X</code></li>
+<li>针对 64/128/256/512KB 内存限制，找到合适的骨干网络</li>
+<li>增加例程：Detector,KWS,HAR,Gesture,OCR,...</li>
+<li>...</li>
+</ol>
+<p>如果想参与进 TinyMaix 的开发，或者想与 TinyML 爱好者交流，<br />
+请加入 telegram 交流群：<a href="https://t.me/tinymaix"  target="_blank">https://t.me/tinymaix</a></p>
+<h2 id="TinyMaix-%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF">TinyMaix 设计思路</h2>
+<p>TinyMaix 是专为低资源的单片机所设计的 AI 神经网络推理框架，通常被称为 <strong>TinyML</strong></p>
+<p>现在已经有很多 TinyML 推理库，比如 TFLite micro, microTVM, NNoM, 那为什么又捏了 TinyMaix 这个轮子呢?</p>
+<p>TinyMaix 是两个周末业余时间完成的项目，所以它足够简单，可以再30分钟内走读完代码，可以帮助TinyML新手理解它是怎么运行的。</p>
+<p>TinyMaix 希望成为一个足够简单的 TinyML 推理库，所以它放弃了很多特性，并且没有使用很多现成的 NN 加速库，比如 CMSIS-NN</p>
+<p>在这个设计思路下，TinyMaix 只需要5个文件即可编译~</p>
+<p>我们希望 TinyMaix 可以帮助任何单片机运行 AI 神经网络模型, 并且每个人都能移植 TinyMaix 到自己的硬件平台上~</p>
+<blockquote>
+<p>注意：虽然 TinyMaix 支持多架构加速，但是它仍然需要更多工作来平衡速度和尺寸</p>
+</blockquote>
+<h3 id="%E8%AE%BE%E8%AE%A1%E7%89%B9%E6%80%A7">设计特性</h3>
+<ul>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled checked/>最高支持到 mobilenet v1, RepVGG 的骨干网络<ul>
+<li>因为它们对单片机来说是最常用的，最高效的结构</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled checked/>基础的 Conv2d, dwConv2d, FC, Relu/Relu6/Softmax, GAP, Reshape</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled/>MaxPool, AvgPool (现在使用 stride 代替)</li>
+</ul>
+</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled checked/>FP32 浮点模型, INT8 量化模型, <strong>FP16</strong>半精度模型</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled checked/>转换 keras h5 或 tflite 到 tmdl<ul>
+<li>简单模型使用keras/tf训练已经足够</li>
+<li>复用了tflite现成的量化功能</li>
+</ul>
+</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled checked/>模型统计功能<ul>
+<li>可选以减少代码尺寸</li>
+</ul>
+</li>
+</ul>
+<h3 id="%E5%8F%AF%E8%80%83%E8%99%91%E6%B7%BB%E5%8A%A0%E7%9A%84%E7%89%B9%E6%80%A7">可考虑添加的特性</h3>
+<ul>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled/>INT16 量化模型<ul>
+<li>优点:<ul>
+<li>更精确</li>
+<li>对于 SIMD/RV32P 指令加速更友好</li>
+</ul>
+</li>
+<li>缺点:<ul>
+<li>占用了 2 倍的 FLASH/RAM</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled/>Concat 算子<ul>
+<li>优点:<ul>
+<li>支持 mobilenet v2, 模型精度更高</li>
+</ul>
+</li>
+<li>缺点:<ul>
+<li>占用了 2 倍的 RAM</li>
+<li>concat 张量占用了更多时间，使得模型运算变慢</li>
+<li>需要更多转换脚本工作转换分支模型到扁平结构</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled/>Winograd 卷积优化<ul>
+<li>优点:<ul>
+<li>可能加速卷积计算</li>
+</ul>
+</li>
+<li>缺点:<ul>
+<li>增加了 RAM 空间和带宽消耗</li>
+<li>增大了代码段(.text)尺寸</li>
+<li>需要很多变换，弱单片机可能会消耗更多时间</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="%E4%B8%8D%E8%80%83%E8%99%91%E6%B7%BB%E5%8A%A0%E7%9A%84%E7%89%B9%E6%80%A7">不考虑添加的特性</h3>
+<ul>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled/>BF16 模型<ul>
+<li>多数单片机不支持 BF16 计算</li>
+<li>精度不会比 INT16 高太多</li>
+<li>占用了 2 倍的 FLASH/RAM</li>
+</ul>
+</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled/>AVX/vulkan 加速<ul>
+<li>TinyMaix 是为单片机设计的，所以不考虑电脑/手机的支持</li>
+</ul>
+</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled/>其他多样化的算子<ul>
+<li>TinyMaix 仅为单片机提供基础模型算子支持，如果你需要更特殊的算子，可以选择 TFlite-micro/TVM/NCNN...</li>
+</ul>
+</li>
+</ul>
+<h2 id="%E4%BE%8B%E7%A8%8B%E4%BD%93%E9%AA%8C">例程体验</h2>
+<h3 id="mnist">mnist</h3>
+<p>MNIST 是手写数字识别任务，简单到以至于可以在 ATmega328 这样的 8 位单片机上运行。<br />
+在电脑上测试：</p>
+
+<pre class="language-none"><code class="language-none">cd examples/mnist
+mkdir build
+cd build 
+cmake ..
+make
+./mnist
+</code></pre>
+<h3 id="mbnet">mbnet</h3>
+<p>mbnet (mobilenet v1) 是适用于移动手机设备的简单图像分类模型，不过对单片机来说也稍微困难了些。<br />
+例程里的模型是 mobilenet v1 0.25，输入 128x128x3 的RGB图像，输出 1000 分类的预测<br />
+它需要至少 128KB SRAM 和 512KB Flash, STM32F411 是典型可以运行该模型的最低配置。</p>
+<p>在 PC 上测试运行 mobilenet 1000分类图片例程</p>
+
+<pre class="language-none"><code class="language-none">cd examples/mbnet
+mkdir build
+cd build 
+cmake ..
+make
+./mbnet
+</code></pre>
+<h2 id="%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-%28API%29">如何使用 (API)</h2>
+<h3 id="%E5%8A%A0%E8%BD%BD%E6%A8%A1%E5%9E%8B">加载模型</h3>
+
+<pre class="language-none"><code class="language-none">tm_err_t tm_load  (tm_mdl_t* mdl, const uint8_t* bin, uint8_t*buf, tm_cb_t cb, tm_mat_t* in);   
+</code></pre>
+<p>mdl: 模型句柄;<br />
+bin: 模型bin内容;<br />
+buf: 中间结果的主缓存；如果NULL，则内部自动malloc申请；否则使用提供的缓存地址<br />
+cb: 网络层回调函数;<br />
+in: 返回输入张量，包含输入缓存地址 //可以忽略之，如果你使用自己的静态输入缓存</p>
+<h3 id="%E7%A7%BB%E9%99%A4%E6%A8%A1%E5%9E%8B">移除模型</h3>
+
+<pre class="language-none"><code class="language-none">void     tm_unload(tm_mdl_t* mdl);                         
+</code></pre>
+<h3 id="%E8%BE%93%E5%85%A5%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86">输入数据预处理</h3>
+
+<pre class="language-none"><code class="language-none">tm_err_t tm_preprocess(tm_mdl_t* mdl, tm_pp_t pp_type, tm_mat_t* in, tm_mat_t* out);              
+</code></pre>
+<p>TMPP_FP2INT    //用户自己的浮点缓存转换到int8缓存<br />
+TMPP_UINT2INT  //典型uint8原地转换到int8数据；int16则需要额外缓存<br />
+TMPP_UINT2FP01 //uint8转换到0~1的浮点数 u8/255.0<br />
+TMPP_UINT2FPN11//uint8转换到-1~1的浮点数</p>
+<h3 id="%E8%BF%90%E8%A1%8C%E6%A8%A1%E5%9E%8B">运行模型</h3>
+
+<pre class="language-none"><code class="language-none">tm_err_t tm_run   (tm_mdl_t* mdl, tm_mat_t* in, tm_mat_t* out);
+</code></pre>
+<h2 id="%E5%A6%82%E4%BD%95%E7%A7%BB%E6%A4%8D">如何移植</h2>
+<p>TinyMaix的核心文件只有这5个：<code>tm_model.c</code>, <code>tm_layers.c</code>, <code>tinymaix.h</code>, <code>tm_port.h</code>, <code>arch_xxx.h</code></p>
+<p>如果你使用没有任何指令加速的普通单片机，选择 <code>arch_cpu.h</code>, 否则选择对应架构的头文件</p>
+<p>然后你需要编辑 <code>tm_port.h</code>，填写你需要的配置，所有配置宏后面都有注释说明</p>
+<p>注意 <code>TM_MAX_CSIZE</code>,<code>TM_MAX_KSIZE</code>,<code>TM_MAX_KCSIZE</code> 会占用静态缓存。</p>
+<p>最后你只需要把他们放进你的工程里编译~</p>
+<h2 id="%E6%80%8E%E6%A0%B7%E8%AE%AD%E7%BB%83/%E8%BD%AC%E6%8D%A2%E6%A8%A1%E5%9E%8B">怎样训练/转换模型</h2>
+<p>在 examples/mnist 下有训练脚本可以学习如何训练基础的mnist模型</p>
+<blockquote>
+<p>注意：你需要先安装TensorFlow (&gt;=2.7) 环境.</p>
+</blockquote>
+<p>完成训练并保存h5模型后，你可以使用以下脚本转换原始模型到 tmdl 或者 c 头文件。</p>
+<ol>
+<li>h5_to_tflite.py</li>
+</ol>
+<p>转换 h5 模型到浮点或者 int8 量化的 tflite 模型<br />
+  python3 h5_to_tflite.py h5/mnist.h5 tflite/mnist_f.tflite 0<br />
+  python3 h5_to_tflite.py h5/mnist.h5 tflite/mnist_q.tflite 1 quant_img_mnist/ 0to1<br />
+2. tflite2tmdl.py<br />
+  转换 tflite 文件到 tmdl 或者 c 头文件<br />
+  python3 tflite2tmdl.py tflite/mnist_q.tflite tmdl/mnist_q.tmdl int8 1 28,28,1 10</p>
+
+<pre class="language-none"><code class="language-none">================ pack model head ================
+mdl_type   =0
+out_deq    =1
+input_cnt  =1
+output_cnt =1
+layer_cnt  =6
+buf_size   =1464
+sub_size   =0
+in_dims    = [3, 28, 28, 1]
+out_dims   = [1, 1, 1, 10]
+================   pack layers   ================
+CONV_2D
+    [3, 28, 28, 1] [3, 13, 13, 4]
+    in_oft:0, size:784;  out_oft:784, size:680
+    padding valid
+    layer_size=152
+CONV_2D
+    [3, 13, 13, 4] [3, 6, 6, 8]
+    in_oft:784, size:680;  out_oft:0, size:288
+    padding valid
+    layer_size=432
+CONV_2D
+    [3, 6, 6, 8] [3, 2, 2, 16]
+    in_oft:0, size:288;  out_oft:1400, size:64
+    padding valid
+    layer_size=1360
+MEAN
+    [3, 2, 2, 16] [1, 1, 1, 16]
+    in_oft:1400, size:64;  out_oft:0, size:16
+    layer_size=48
+FULLY_CONNECTED
+    [1, 1, 1, 16] [1, 1, 1, 10]
+    in_oft:0, size:16;  out_oft:1448, size:16
+    layer_size=304
+SOFTMAX
+    [1, 1, 1, 10] [1, 1, 1, 10]
+    OUTPUT!
+    in_oft:1448, size:16;  out_oft:0, size:56
+    layer_size=48
+================    pack done!   ================
+    model  size 2.4KB (2408 B) FLASH
+    buffer size 1.4KB (1464 B) RAM
+    single layer mode subbuff size 1.4KB (64+1360=1424 B) RAM
+Saved to tmdl/mnist_q.tmdl, tmdl/mnist_q.h
+</code></pre>
+<p>现在你有了 tmdl 或者 C 头文件，把它放到你的工程里编译吧~</p>
+<h2 id="%E4%BD%BF%E7%94%A8-Maixhub-%E5%9C%A8%E7%BA%BF%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B">使用 Maixhub 在线训练模型</h2>
+<p>TODO</p>
+<h2 id="%E6%80%8E%E6%A0%B7%E6%B7%BB%E5%8A%A0%E6%96%B0%E5%B9%B3%E5%8F%B0%E7%9A%84%E5%8A%A0%E9%80%9F%E4%BB%A3%E7%A0%81">怎样添加新平台的加速代码</h2>
+<p>TinyMaix 使用基础的点积函数加速卷积运算<br />
+你需要在 src 里添加 arch_xxx_yyy.h, 并添上你自己平台的点积加速函数：</p>
+
+<pre class="language-none"><code class="language-none">TM_INLINE void tm_dot_prod(mtype_t* sptr, mtype_t* kptr,uint32_t size, sumtype_t* result);
+</code></pre>
+<h2 id="%E8%B4%A1%E7%8C%AE/%E8%81%94%E7%B3%BB">贡献/联系</h2>
+<p>如果你需要向TinyMaix贡献代码，请先阅读“TinyMaix设计思路”一节，我们只需要“设计内的特性”和“可考虑添加的特性”。</p>
+<p>如果你想要提交你的移植测试结果，请提交到 benchmark.md.</p>
+<p>我们非常欢迎你移植 TinyMaix 到自己的芯片/板子上，这会证明使用 TinyMaix 运行深度学习模型是非常容易的事情~</p>
+<p>如果你对 TinyMaix 的使用和移植有问题，可以在此仓库提交 Issues。</p>
+<p>如果你有商业或私有项目咨询，你可以发邮件到 support@sipeed.com 或 zepan@sipeed.com (泽畔).</p>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                    </div>
+                    <div id="next">
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>相关链接</a><ul><li><a target="_blank" href="https://www.sipeed.com">Sipeed 官网</a></li>
+<li><a target="_blank" href="https://maixhub.com/">MaixHub</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">Sipeed 淘宝</a></li>
+<li><a  href="/sitemap.xml">网站地图</a></li>
+<li><a target="_blank" href="https://github.com/teedoc/teedoc">网站使用 teedoc 生成</a></li>
+</ul>
+</li>
+<li><a>源码</a><ul><li><a target="_blank" href="https://github.com/sipeed/sipeed_wiki">Wiki 源码</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">开源项目</a></li>
+</ul>
+</li>
+<li><a>关注我们</a><ul><li><a target="_blank" href="https://twitter.com/SipeedIO">twitter</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">淘宝</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">github</a></li>
+<li><a><a>微信公众号</a><img src='/static/image/wechat.png'></a>
+</li>
+</ul>
+</li>
+<li><a>联系我们</a><ul><li><a>电话: +86 0755-27808509</a>
+</li>
+<li><a>商业支持: support@sipeed.com</a>
+</li>
+<li><a>地址: 深圳市宝安区新湖路4008号蘅芳科技办公大厦A座-2101C</a>
+</li>
+<li><a  href="/join_us.html">加入我们</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://www.sipeed.com">©2018-2023 深圳矽速科技有限公司</a></li>
+<li><a target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index">粤ICP备19015433号</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/js/prism.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <link rel="stylesheet" href="/static/js/add_hint/style.css" type="text/css"/>
+    
+        <script src="/static/js/add_hint/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+        <script src="/static/js/thumbs_up/main.js"></script>
+    
+</body>
+
+</html>

@@ -1,0 +1,2234 @@
+<!DOCTYPE html>
+
+<html lang="zh"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="maixpy, k210, AIOT, 边缘计算">
+    
+    
+    <meta name="description" content="maixpy  image（机器视觉）">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+        
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/prism.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?9cb07365544a53067c56c346c838181a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119047820-5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-119047820-5');
+    </script>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/js/thumbs_up/style.css" type="text/css"/>
+        
+    
+    
+    <title>image（机器视觉） - Sipeed Wiki</title>
+    
+    <script type="text/javascript">js_vars = {"teedoc-plugin-ad-hint": {"type": "hint", "label": "NEW", "content": "全新 Maix 系列产品 <a href='https://wiki.sipeed.com/maixcam'>MaixCAM</a> 已上线, 全新 <a href='https://wiki.sipeed.com/maixpy/'>MaixPy</a> 功能更丰富，性能更强大，软件更易用，文档更全面！", "show_times": 2, "show_after_s": 432000, "date": "2022-06-01 14:00", "color": "#a0421d", "link_color": "#e53935", "link_bg_color": "#e6ae5c", "bg_color": "#ffcf89", "color_hover": "white", "bg_color_hover": "#f57c00", "close_color": "#eab971"}, "teedoc-plugin-thumbs-up": {"label_up": "有帮助", "label_down": "待改进", "icon": "/static/images/thumbs_up/up.svg", "icon_clicked": "/static/images/thumbs_up/upped.svg", "url": "https://thumbs-up.sipeed.com", "show_up_count": true, "show_down_count": false, "msg_already_voted": "您已经投过票了", "msg_thanks": "感谢您的反馈", "msg_down_prompt": "感谢反馈，请告诉我们可以改进什么地方?（最少 10 个字）", "msg_down_prompt_error": "消息最少需要 10 个字， 最多 256 个字", "msg_error": "请求服务器出现错误!"}}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": false, "update": [], "ts": 0, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/">
+                
+                    <img class="site_logo" src="/static/image/logo.svg" alt="sipeed wiki logo">
+                
+                
+                    <h2>wiki</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class=""><a  href="/">产品</a></li>
+<li class="sub_items active_parent"><a >开源软件</a><ul><li class=""><a  href="/maixpy/">MaixPy</a></li>
+<li class="active"><a  href="/soft/maixpy/zh/index.html">MaixPy_v1</a></li>
+<li class=""><a  href="/soft/Lichee/zh/index.html">Lichee</a></li>
+<li class=""><a  href="/ai/zh/index.html">AI 指南</a></li>
+</ul>
+</li>
+<li class=""><a target="_blank" href="https://maixhub.com">MaixHub</a></li>
+<li class=""><a  href="/news/">动态</a></li>
+<li class=""><a  href="/faq.html">FAQ 汇总</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class=""><a  href="/store.html"><img src='/static/image/shop.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+<li class=""><a target="_blank" href="https://github.com/sipeed"><img src='/static/image/github.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+<li class="sub_items "><a  ><img src='/static/image/language.svg' style='height: 1.5em;vertical-align: middle;'>&nbsp;中文</a><ul><li class=""><a  href="/soft/maixpy/en/api_reference/machine_vision/image/image.html">English</a></li>
+<li class="active"><a  href="/soft/maixpy/zh/api_reference/machine_vision/image/image.html">中文</a></li>
+</ul></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">输入关键词，多关键词空格隔开</span>
+                                <span id="search_loading_hint">正在加载，请稍候。。。</span>
+                                <span id="search_download_err_hint">下载文件失败，请刷新重试或检查网络</span>
+                                <span id="search_other_docs_result_hint">来自其它文档的结果</span>
+                                <span id="search_curr_doc_result_hint">当前文档搜索结果</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="not_active with_link"><a href="/soft/maixpy/zh/index.html"><span class="label">MaixPy-v1 是什么？</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/what_maix_do.html"><span class="label">MaixPy-v1 能做哪些事？</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/maixpy_history.html"><span class="label">MaixPy 发展历程</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">入门必看指南</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/zh/how_to_read.html"><span class="label">如何阅读本文档（重要）</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/how_to_ask.html"><span class="label">如何正确的提问（重要）</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/develop_kit_board/get_hardware.html"><span class="label">开发板选购指南(对比)</span><span class=""></span></a></li>
+<li class="not_active ext_link with_link"><a href="https://wiki.sipeed.com/news/MaixPy/K210_usage.html" target="_blank"><span class="label">K210 上手避坑指南（必看）</span><span class="ext_link_icon"></span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">准备你的开发环境</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/zh/get_started/env_install_driver.html"><span class="label">在电脑上安装开发板驱动</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/zh/get_started/install_driver/dock.html"><span class="label">Maix Dock</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/get_started/install_driver/bit.html"><span class="label">Maix Bit</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/get_started/install_driver/amigo.html"><span class="label">Maix Amigo</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/get_started/install_driver/cube.html"><span class="label">Maix Cube</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/get_started/install_driver/go.html"><span class="label">Maix Go</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/get_started/install_driver/nano.html"><span class="label">Maix Nano</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/get_started/install_driver/ai_hat.html"><span class="label">Grove AI HAT</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/get_started/install_driver/duino.html"><span class="label">Maix Duino</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/get_started/upgrade_maixpy_firmware.html"><span class="label">如何更新 MaixPy 固件</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/get_started/env_maixpyide.html"><span class="label">MaixPy IDE 安装使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/get_started/uart.html"><span class="label">如何连接串口?</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/zh/get_started/env_serial_tools.html"><span class="label">串口连接工具介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/get_started/mpfshell-lite/mpfshell-lite.html"><span class="label">mpfshell-lite工具介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/get_started/mpfshell-lite/mpfshell-lite-help.html"><span class="label">Mpfshell-lite 使用手册</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">更新 WIFI 模块固件</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/zh/get_started/upgrade_esp32_firmware.html"><span class="label">更新板载 ESP32 固件</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/get_started/upgrade_esp8285_firmware.html"><span class="label">更新板载 ESP8285 固件</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">准备上手运行程序</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/zh/get_started/get_started_power_on.html"><span class="label">给板子通上电开机</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/get_started/get_started_cam_lcd.html"><span class="label">第一个程序: 使用屏幕和摄像头</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/get_started/get_started_led_blink.html"><span class="label">第二个程序: 点亮 LED 灯</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">编程基础知识</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/zh/get_started/knowledge_micropython.html"><span class="label">MaixPy 语法基础知识</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/get_started/knowledge_git_github.html"><span class="label">什么是 git 和 github</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/get_started/knowledge_image.html"><span class="label">MaixPy 图像基础知识</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/get_started/knowledge_audio.html"><span class="label">MaixPy 音频基础知识</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/get_started/get_started_fs.html"><span class="label">存储系统介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/get_started/get_started_edit_file.html"><span class="label">编辑代码并运行</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/get_started/get_started_upload_script.html"><span class="label">上传代码到开发板</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/get_started/get_started_boot.html"><span class="label">开机自动运行代码</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/get_started/board_info.html"><span class="label">开发板配置文件</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/get_started/maixpy_get_started_video.html"><span class="label">上手视频教程</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">定制你的专属固件</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/zh/firmware/why_customize_firware.html"><span class="label">为什么需要定制固件</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/firmware/online_compile.html"><span class="label">在线编译</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/firmware/compile.html"><span class="label">源码编译</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/course/index.html"><span class="label">更多功能应用</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">系统基础功能</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">CPU & RAM</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/zh/course/others/system.html"><span class="label">主频、复位等</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/course/others/mem.html"><span class="label">内存配置与查看</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">GUI 支持</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/zh/course/image/image_draw_font/image_draw_font.html"><span class="label">中文等多国语言支持</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/course/others/maixui.html"><span class="label">Maix UI</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/course/others/lvgl.html"><span class="label">Lvgl UI</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/course/others/pye.html"><span class="label">pye 编辑器 </span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">网络支持</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/zh/course/network/network_config.html"><span class="label">配置 network 网卡</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/course/network/socket_usage.html"><span class="label">使用 socket 通信</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">媒体功能</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/zh/course/media/audio.html"><span class="label">录音与播放（audio）</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/course/media/video.html"><span class="label">播放视频（video）</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">游戏模拟</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/media/nes.html"><span class="label">NES 游戏机</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">外设模块拓展</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">片上外设</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/zh/modules/on_chip/gpio.html"><span class="label">GPIO</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/modules/on_chip/i2c.html"><span class="label">I2C</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/modules/on_chip/pwm.html"><span class="label">PWM</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/modules/on_chip/spi.html"><span class="label">SPI</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/modules/on_chip/timer.html"><span class="label">Timer</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/modules/on_chip/uart.html"><span class="label">UART</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/modules/on_chip/i2s.html"><span class="label">I2S</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/modules/on_chip/wdt.html"><span class="label">WDT</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">SP-MOD</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/zh/modules/sp_mod/sp_bt.html"><span class="label">BT 蓝牙透传</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/modules/sp_mod/sp_lora.html"><span class="label">LoRa 无线通信</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/modules/sp_mod/sp_rfid.html"><span class="label">RFID 射频识别</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/modules/sp_mod/sp_tof.html"><span class="label">TOF 测距</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/modules/sp_mod/sp_eink.html"><span class="label">Eink 电子墨水屏</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/modules/sp_mod/sp_lcd1.14.html"><span class="label">Lcd1.14 IPS屏</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/modules/sp_mod/sp_weather.html"><span class="label">Weather 气象模块</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/modules/sp_mod/sp_ethernet.html"><span class="label">Ethernet 有线网口</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Grove</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/zh/modules/grove/grove_ultrasonic_ranger.html"><span class="label">Ultrasonic Ranger 测距</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/modules/grove/grove_chainable_rgb_led.html"><span class="label">Chainable RGB LED 灯</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/modules/grove/grove_rgb_led_ring.html"><span class="label">RGB LED Ring 灯条</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">其他外设</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/zh/develop_kit_board/module_microphone.html"><span class="label">Sipeed 麦克风阵列</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/modules/others/binocular_camera.html"><span class="label">双摄模块</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/modules/others/mlx90640.html"><span class="label">MLX90640 串口红外镜头</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/modules/others/servo.html"><span class="label">PWM 舵机</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/modules/others/esp32_read_adc.html"><span class="label">ESP32 ADC</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/modules/others/onewire.html"><span class="label">onewire 单总线</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">图像处理基础（Image）</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/zh/course/image/basic/get_images.html"><span class="label">获取一张图像</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/course/image/basic/display_images.html"><span class="label">显示一张图像</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/course/image/basic/vary.html"><span class="label">图像处理基础</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/course/image/basic/draw.html"><span class="label">如何在图像上写字</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/course/image/basic/acc_image_deal.html"><span class="label">硬件加速图像模块</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">传统算法应用</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">图像处理</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/zh/course/image/find_color_blob.html"><span class="label">寻找色块</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/course/image/find_qrcodes.html"><span class="label">二维码识别</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">音频处理</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/zh/course/speech/fft_waterfall.html"><span class="label">FFT 瀑布图</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/course/speech/recognizer_mfcc.html"><span class="label">关键词识别</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">神经网络应用（AI）</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/zh/course/ai/basic/dnn_basic.html"><span class="label">深度神经网络基础</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/course/ai/basic/maixpy_hardware_ai_basic.html"><span class="label">KPU 硬件加速介绍</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">AI 图像处理</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/zh/course/ai/image/face_detect.html"><span class="label">人脸检测</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/course/ai/image/1000_type_classifier.html"><span class="label">1000 种物体分类</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/course/ai/image/face_recognization.html"><span class="label">人脸识别</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/course/ai/image/self_learn_classifier.html"><span class="label">自学习分类</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">AI 音频处理</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/zh/course/speech/recognizer_cnn.html"><span class="label">语音识别</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">如何训练模型</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">训练自己的分类和检测模型</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/zh/course/ai/train/maixhub.html"><span class="label">MaixHub 云端训练</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/course/ai/train/local.html"><span class="label">本地训练——Linux</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/course/ai/train/local_windows_1.html"><span class="label">本地训练Windows环境配置</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/course/ai/train/local_windows_2.html"><span class="label">本地训练Windows使用教程</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="active_parent no_link"><a><span class="label">库函数 API 手册</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/standard/index.html"><span class="label">标准库</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/standard/cmath.html"><span class="label">cmath</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/standard/gc.html"><span class="label">gc</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/standard/math.html"><span class="label">math</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/standard/sys.html"><span class="label">sys</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/standard/ubinascii.html"><span class="label">ubinascii</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/standard/ucollections.html"><span class="label">ucollections</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/standard/uctypes.html"><span class="label">uctypes</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/standard/uerrno.html"><span class="label">uerrno</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/standard/uhashlib.html"><span class="label">uhashlib</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/standard/uheapq.html"><span class="label">uheapq</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/standard/ujson.html"><span class="label">ujson</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/standard/uos.html"><span class="label">uos</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/standard/ure.html"><span class="label">ure</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/standard/usocket.html"><span class="label">usocket</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/standard/ustruct.html"><span class="label">ustruct</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/standard/utime.html"><span class="label">utime</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/standard/uzlib.html"><span class="label">uzlib</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/machine/index.html"><span class="label">machine</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/machine/i2c.html"><span class="label">I2C</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/machine/pwm.html"><span class="label">PWM</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/machine/spi.html"><span class="label">SPI</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/machine/timer.html"><span class="label">Timer</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/machine/uart.html"><span class="label">UART</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/machine/network.html"><span class="label">network</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/machine/wdt.html"><span class="label">WDT</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Maix</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/Maix/fpioa.html"><span class="label">FPIOA</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/Maix/gpio.html"><span class="label">GPIO</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/Maix/kpu.html"><span class="label">KPU</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/Maix/fft.html"><span class="label">FFT</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/Maix/i2s.html"><span class="label">I2S</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/Maix/freq.html"><span class="label">freq</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/Maix/utils.html"><span class="label">utils</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/builtin_py/index.html"><span class="label">helper</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/builtin_py/fm.html"><span class="label">fpioa_manager</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/builtin_py/board_info.html"><span class="label">board_info</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/builtin_py/pye.html"><span class="label">Micropython Editor</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="active_parent with_link"><a href="/soft/maixpy/zh/api_reference/machine_vision/index.html"><span class="label">media</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/machine_vision/lcd.html"><span class="label">lcd</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/machine_vision/sensor.html"><span class="label">sensor</span><span class=""></span></a></li>
+<li class="active with_link"><a href="/soft/maixpy/zh/api_reference/machine_vision/image/image.html"><span class="label">image</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/media/video.html"><span class="label">video</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/media/audio.html"><span class="label">audio</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/media/nes.html"><span class="label">nes</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/machine_vision/isolated_word.html"><span class="label">isolated_word</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/machine_vision/maix_asr.html"><span class="label">maix_asr</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/extend/index.html"><span class="label">extend</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/extend/touchscreen.html"><span class="label">touchscreen</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/extend/ultrasonic.html"><span class="label">modules.ultrasonic</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/extend/ws2812.html"><span class="label">modules.ws2812</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/extend/htpa.html"><span class="label">modules.htpa</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/extend/onewire.html"><span class="label">modules.onewire</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/others/maixpy_faq.html"><span class="label">常见问题 FAQ</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">开发与贡献</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">如何编译开发</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/zh/course/advance/project_framework.html"><span class="label">源码目录结构</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/course/advance/compile.html"><span class="label">如何编译 MaixPy 工程</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/course/advance/add_c_module.html"><span class="label">如何用 C 添加一个 MaixPy 模块</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/course/advance/pack_fs.html"><span class="label">打包文件系统</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">如何贡献代码</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/zh/contribute/doc_convention.html"><span class="label">参与文档编写（规范）</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/contribute/code_convention.html"><span class="label">代码编写规范</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">来自社区和用户分享</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/zh/share/recommend_articles.html"><span class="label">精选文章</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/share/open_projects.html"><span class="label">开源项目</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">大家的经验分享</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/zh/share/my_share/index.html"><span class="label">参与经验分享/分享模板</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/thanks.html"><span class="label">开源项目致谢</span><span class=""></span></a></li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>image（机器视觉）</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/sipeed/sipeed_wiki/blob/main/docs/soft/maixpy/zh/api_reference/machine_vision/image/image.md" target="_blank">
+                                    <span id='editPage'>编辑本页</span>
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <p>移植于 <code>openmv</code>， 与 <code>openmv</code> 功能相同</p>
+<h2 id="%E4%BE%8B%E7%A8%8B">例程</h2>
+<h3 id="%E4%BE%8B%E7%A8%8B-1%EF%BC%9A-%E6%89%BE%E7%BB%BF%E8%89%B2">例程 1： 找绿色</h3>
+
+<pre class="language-python"><code class="language-python">import sensor
+import image
+import lcd
+import time
+lcd.init()
+sensor.reset()
+sensor.set_pixformat(sensor.RGB565)
+sensor.set_framesize(sensor.QVGA)
+sensor.run(1)
+green_threshold   = (0,   80,  -70,   -10,   -0,   30)
+while True:
+    img=sensor.snapshot()
+    blobs = img.find_blobs([green_threshold])
+    if blobs:
+    	for b in blobs:
+    		tmp=img.draw_rectangle(b[0:4])
+    		tmp=img.draw_cross(b[5], b[6])
+    		c=img.get_pixel(b[5], b[6])
+    lcd.display(img)
+</code></pre>
+<h3 id="%E4%BE%8B%E7%A8%8B-2%EF%BC%9A-%E6%98%BE%E7%A4%BA-fps">例程 2： 显示 fps</h3>
+
+<pre class="language-python"><code class="language-python">import sensor
+import image
+import lcd
+import time
+
+clock = time.clock()
+lcd.init()
+sensor.reset()
+sensor.set_pixformat(sensor.RGB565)
+sensor.set_framesize(sensor.QVGA)
+sensor.run(1)
+sensor.skip_frames(30)
+while True:
+    clock.tick()
+    img = sensor.snapshot()
+    fps =clock.fps()
+    img.draw_string(2,2, (&quot;%2.1ffps&quot; %(fps)), color=(0,128,0), scale=2)
+    lcd.display(img)
+</code></pre>
+<h3 id="%E4%BE%8B%E7%A8%8B-3%EF%BC%9A-%E6%89%AB%E6%8F%8F%E4%BA%8C%E7%BB%B4%E7%A0%81">例程 3： 扫描二维码</h3>
+
+<pre class="language-python"><code class="language-python">import sensor
+import image
+import lcd
+import time
+
+clock = time.clock()
+lcd.init()
+sensor.reset()
+sensor.set_pixformat(sensor.RGB565)
+sensor.set_framesize(sensor.QVGA)
+sensor.set_vflip(1)
+sensor.run(1)
+sensor.skip_frames(30)
+while True:
+    clock.tick()
+    img = sensor.snapshot()
+    res = img.find_qrcodes()
+    fps =clock.fps()
+    if len(res) &gt; 0:
+        img.draw_string(2,2, res[0].payload(), color=(0,128,0), scale=2)
+        print(res[0].payload())
+    lcd.display(img)
+
+</code></pre>
+<blockquote>
+<p>如果使用了镜头，画面会有扭曲，需要矫正画面<br />
+使用 <code>lens_corr</code> 函数来矫正， 比如 <code>2.8</code>mm， <code>img.lens_corr(1.8)</code><br />
+无法识别二维码的时候需要用sensor.set_hmirror(1)来调整摄像头的镜像画面</p>
+</blockquote>
+<h3 id="%E4%BE%8B%E7%A8%8B4-%E5%AF%BB%E6%89%BE%E7%9F%A9%E9%98%B5">例程4 寻找矩阵</h3>
+
+<pre class="language-python"><code class="language-python"># Find Rects Example
+#
+# 这个例子展示了如何使用april标签代码中的四元检测代码在图像中找到矩形。 四元检测算法以非常稳健的方式检测矩形，并且比基于Hough变换的方法好得多。 例如，即使镜头失真导致这些矩形看起来弯曲，它仍然可以检测到矩形。 圆角矩形是没有问题的！
+# (但是，这个代码也会检测小半径的圆)...
+
+import sensor, image, time
+
+sensor.reset()
+sensor.set_pixformat(sensor.RGB565) 
+sensor.set_framesize(sensor.QQVGA)
+sensor.skip_frames(time = 2000)
+sensor.set_vflip(1)
+
+clock = time.clock()
+
+while(True):
+    clock.tick()
+    img = sensor.snapshot()
+
+    # 下面的`threshold`应设置为足够高的值，以滤除在图像中检测到的具有
+    # 低边缘幅度的噪声矩形。最适用与背景形成鲜明对比的矩形。
+
+    for r in img.find_rects(threshold = 10000):
+        img.draw_rectangle(r.rect(), color = (255, 0, 0))
+        for p in r.corners(): img.draw_circle(p[0], p[1], 5, color = (0, 255, 0))
+        print(r)
+
+    print(&quot;FPS %f&quot; % clock.fps())
+
+</code></pre>
+<h3 id="%E4%BE%8B%E7%A8%8B5-%E5%AF%BB%E6%89%BEApriltag">例程5 寻找Apriltag</h3>
+
+<pre class="language-python"><code class="language-python"># AprilTags 示例
+#
+# 此示例显示了OpenMV Cam在OpenMV Cam M7上检测April标签的强大功能。
+# OpenMV2 M4版本无法检测April标签。
+
+import sensor, image, time, math
+
+sensor.reset()
+sensor.set_pixformat(sensor.RGB565)
+sensor.set_framesize(sensor.QQVGA) # 如果分辨率更大，我们的内存会耗尽...
+sensor.skip_frames(time = 2000)
+sensor.set_auto_gain(False)  # 必须关闭此功能，以防止图像冲洗…
+sensor.set_auto_whitebal(False)  # 必须关闭此功能，以防止图像冲洗…
+clock = time.clock()
+
+# 注意！与find_qrcodes不同，find_apriltags方法不需要对图像进行镜头校正
+
+# apriltag代码最多支持可以同时处理6种tag家族。
+# 返回的tag标记对象，将有其tag标记家族及其在tag标记家族内的id。
+
+tag_families = 0
+tag_families |= image.TAG16H5 # 注释掉，禁用这个家族
+tag_families |= image.TAG25H7 # 注释掉，禁用这个家族
+tag_families |= image.TAG25H9 # 注释掉，禁用这个家族
+tag_families |= image.TAG36H10 # 注释掉，禁用这个家族
+tag_families |= image.TAG36H11 # 注释掉以禁用这个家族(默认家族)
+tag_families |= image.ARTOOLKIT # 注释掉，禁用这个家族
+
+#标签系列有什么区别？ 那么，例如，TAG16H5家族实际上是一个4x4的方形标签。 
+#所以，这意味着可以看到比6x6的TAG36H11标签更长的距离。 
+#然而，较低的H值（H5对H11），意味着4x4标签的假阳性率远高于6x6标签。 
+#所以，除非你有理由使用其他标签系列，否则使用默认族TAG36H11。
+
+
+
+def family_name(tag):
+    if(tag.family() == image.TAG16H5):
+        return &quot;TAG16H5&quot;
+    if(tag.family() == image.TAG25H7):
+        return &quot;TAG25H7&quot;
+    if(tag.family() == image.TAG25H9):
+        return &quot;TAG25H9&quot;
+    if(tag.family() == image.TAG36H10):
+        return &quot;TAG36H10&quot;
+    if(tag.family() == image.TAG36H11):
+        return &quot;TAG36H11&quot;
+    if(tag.family() == image.ARTOOLKIT):
+        return &quot;ARTOOLKIT&quot;
+
+while(True):
+    clock.tick()
+    img = sensor.snapshot()
+    for tag in img.find_apriltags(families=tag_families): # 如果没有给出家族，默认TAG36H11。
+        img.draw_rectangle(tag.rect(), color = (255, 0, 0))
+        img.draw_cross(tag.cx(), tag.cy(), color = (0, 255, 0))
+        print_args = (family_name(tag), tag.id(), (180 * tag.rotation()) / math.pi)
+        print(&quot;Tag Family %s, Tag ID %d, rotation %f (degrees)&quot; % print_args)
+    print(clock.fps())
+
+</code></pre>
+<h2 id="%E5%87%BD%E6%95%B0">函数</h2>
+<p>函数还可以在本页按 <code>Ctrl+F</code> 使用浏览器的搜索功能搜 <code>image.</code> 来标记函数</p>
+<h3 id="image.rgb_to_lab%28rgb_tuple%29">image.rgb_to_lab(rgb_tuple)</h3>
+<p>返回RGB888格式的元组 rgb_tuple (r, g, b)对应的LAB格式的元组(l, a, b)。</p>
+<blockquote>
+<p>RGB888是指红、绿、蓝各8位（0-255）。在LAB中，L的取值范围为0-100，a/b 的取值范围为-128到127。</p>
+</blockquote>
+<h3 id="image.lab_to_rgb%28lab_tuple%29">image.lab_to_rgb(lab_tuple)</h3>
+<p>返回LAB格式的元组 lab_tuple (l, a, b)对应的RGB888格式的元组(r, g, b)。</p>
+<blockquote>
+<p>RGB888是指红、绿、蓝各8位（0-255）。在LAB中，L的取值范围为0-100，a/b 的取值范围为-128到127。</p>
+</blockquote>
+<h3 id="image.rgb_to_grayscale%28rgb_tuple%29">image.rgb_to_grayscale(rgb_tuple)</h3>
+<p>返回RGB888格式的元组 rgb_tuple (r, g, b)对应的灰度值。</p>
+<blockquote>
+<p>RGB888是指红、绿、蓝各8位（0-255）。灰度值取值于0-255。</p>
+</blockquote>
+<h3 id="image.grayscale_to_rgb%28g_value%29">image.grayscale_to_rgb(g_value)</h3>
+<p>返回灰度值 g_value 对应的RGB888格式的元组(r, g, b)。</p>
+<blockquote>
+<p>RGB888是指红、绿、蓝各8位（0-255）。灰度值取值于0-255。</p>
+</blockquote>
+<h3 id="image.load_decriptor%28path%29">image.load_decriptor(path)</h3>
+<p>从磁盘上加载一个描述符对象(descriptor object).</p>
+<p>path 是描述符文件保存的路径。</p>
+<h3 id="image.save_descriptor%28path%2C-descriptor%29">image.save_descriptor(path, descriptor)</h3>
+<p>保存描述符对象 descriptor 到磁盘。</p>
+<p>path 是描述符文件保存的路径。</p>
+<h3 id="image.match_descriptor%28descritor0%2C-descriptor1%5B%2C-threshold%3D70%5B%2C-filter_outliers%3DFalse%5D%5D%29">image.match_descriptor(descritor0, descriptor1[, threshold=70[, filter_outliers=False]])</h3>
+<p>对于LBP描述符来说，这个函数返回的是一个体现两个描述符之间区别的整数。这一距离测度尤为必要。这个距离是对相似度的一个度量。这个测度值越接近0，LBPF特征点匹配得就越好。</p>
+<p>对于ORB描述符来说，这个函数返回的是kptmatch对象。见上。</p>
+<p>threshold 是用来为ORB键点过滤不明确匹配服务的。<br />
+一个较低的 threshold 值将紧扣关键点匹配算法。 threshold 值位于0-100 (int)。默认值为70。</p>
+<p>filter_outliers 是用来为ORB键点过滤异常值服务的。 特征点允许用户提高 threshold 值。默认设置为False。</p>
+<h2 id="HaarCascade-%E7%B1%BB-%E2%80%93-%E7%89%B9%E5%BE%81%E6%8F%8F%E8%BF%B0%E7%AC%A6">HaarCascade 类 – 特征描述符</h2>
+<p>Haar Cascade特征描述符用于 <code>image.find_features()</code> 方法。它没有供用户调用的方法。</p>
+<h3 id="%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0">构造函数</h3>
+<p>class image.HaarCascade(path[, stages=Auto])</p>
+<p>从一个Haar Cascade二进制文件（适合OpenMV Cam的格式）加载一个Haar Cascade。 如果您传递“frontalface”字符串 而非一条路径，这个构造函数将会把一个内置的正脸Haar Cascade载入内存。 此外，您也可以通过“eye”来把Haar Cascade载入内存。 最后，这个方法会返回载入的Haar Cascade对象，用来使用 image.find_features() 。</p>
+<p>stages 默认值为Haar Cascade中的阶段数。然而，您可以指定一个较低的数值来加速运行特征检测器，当然这会带来较高的误报率。</p>
+<blockquote>
+<p>您可以制作自己的Haar Cascades 来配合您的OpenMV Cam 使用。 首先，使用谷歌搜索“<thing> Haar Cascade”，检测是否有人已经为您想要检测的对象制作了OpenCV Haar Cascade。 如果没有，那您需要自己动手制作（工作量巨大）。 关于如何制作自己的Haar Cascade，见此 关于如何把OpenCV Haar Cascades转化成您的OpenMV Cam可以读取的模式， 见此script</p>
+</blockquote>
+<p>问：Haar Cascade 是什么？</p>
+<p>答：Haar Cascade是一系列用来确定一个对象是否存在于图像中的对比检查。 这一系列的对比检查分成了多个阶段，后一阶段的运行以先前阶段的完成为前提。 对比检查并不复杂，不过是像检查图像的中心垂直是否比边缘更轻微之类的过程。 大范围的检查在前期阶段首先进行，在后期进行更多更小的区域检查。</p>
+<p>问：Haar Cascades 是如何制作而成的？</p>
+<p>答：Haar Cascades通过标有正负的图像对发生器算法进行训练。 比如，用数百张含有猫（已被标记为内含猫）的图片和数百张不含有猫形物的图片（已作出不同标记）来训练这个生成算法。 这个生成算法最后会产生一个用来检测猫的Haar Cascades。</p>
+<h2 id="Similarity-%E7%B1%BB-%E2%80%93-%E7%9B%B8%E4%BC%BC%E5%BA%A6%E5%AF%B9%E8%B1%A1">Similarity 类 – 相似度对象</h2>
+<p>相似度对象由 <code>image.get_similarity</code> 返回.</p>
+<h3 id="%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0">构造函数</h3>
+<p>class image.similarity</p>
+<p>请调用 image.get_similarity() 函数来创建此对象。</p>
+<h4 id="%E6%96%B9%E6%B3%95">方法</h4>
+<h5 id="similarity.mean%28%29">similarity.mean()</h5>
+<p>返回8x8像素块结构相似性差异的均值。范围[-1/+1]，其中 -1完全不同，+1完全相同。</p>
+<p>您也可以通过索引 [0] 取得这个值。</p>
+<h5 id="similarity.stdev%28%29">similarity.stdev()</h5>
+<p>返回8x8像素块结构相似性差异的标准偏差。</p>
+<p>您也可以通过索引 [1] 取得这个值。</p>
+<h5 id="similarity.min%28%29">similarity.min()</h5>
+<p>返回8x8像素块结构相似性差异的最小值。其中 -1完全不同，+1完全相同。</p>
+<p>您也可以通过索引 [2] 取得这个值。</p>
+<blockquote>
+<p>通过查看此值，您可以快速确定两个图像之间的任何8x8像素块是否差别很大，即远远低于+1。</p>
+</blockquote>
+<h5 id="similarity.max%28%29">similarity.max()</h5>
+<p>返回8x8像素块结构相似性差异的最小值。其中 -1完全不同，+1完全相同。</p>
+<p>您也可以通过索引 [3] 取得这个值。</p>
+<blockquote>
+<p>通过查看此值，您可以快速确定两个图像之间的任何8x8像素块是否都相同。即比-1大很多。</p>
+</blockquote>
+<h2 id="Histogram-%E7%B1%BB-%E2%80%93-%E7%9B%B4%E6%96%B9%E5%9B%BE%E5%AF%B9%E8%B1%A1">Histogram 类 – 直方图对象</h2>
+<p>直方图对象是由 <code>image.get_histogram</code> 返回。 灰度直方图有一个包含多个二进制的通道。 所有二进制都进行标准化，使其总和为1。 RGB565有三个包含多个二进制的通道。所有二进制都进行标准化，使其总和为1。</p>
+<h3 id="%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0">构造函数</h3>
+<p>class image.histogram</p>
+<p>请调用 <code>image.get_histogram()</code> 函数来创建此对象。</p>
+<h3 id="%E6%96%B9%E6%B3%95">方法</h3>
+<h4 id="histogram.bins%28%29">histogram.bins()</h4>
+<p>返回灰度直方图的浮点数列表。 您也可以通过索引 [0] 取得这个值。</p>
+<h4 id="histogram.l_bins%28%29">histogram.l_bins()</h4>
+<p>返回RGB565直方图LAB的L通道的浮点数列表。 您也可以通过索引 [0] 取得这个值。</p>
+<h4 id="histogram.a_bins%28%29">histogram.a_bins()</h4>
+<p>返回RGB565直方图LAB的A通道的浮点数列表。 您也可以通过索引 [1] 取得这个值。</p>
+<h4 id="histogram.b_bins%28%29">histogram.b_bins()</h4>
+<p>返回RGB565直方图LAB的B通道的浮点数列表。 您也可以通过索引 [2] 取得这个值。</p>
+<h4 id="histogram.get_percentile%28percentile%29">histogram.get_percentile(percentile)</h4>
+<p>计算直方图频道的CDF，返回一个传递 percentile (0.0 - 1.0) (浮点数)中的直方图的值。</p>
+<p>因此，若您传入0.1，该方法会告知您，当累加入累加器时，哪一个二进制会使累加器跨过0.1。</p>
+<p>在没有异常效用破坏您的自适应色跟踪结果时，这对于确定颜色分布的最小值(0.1)和max(0.9)甚是有效。</p>
+<h4 id="histogram.get_threhsold%28%29">histogram.get_threhsold()</h4>
+<p>使用Otsu’s 方法计算最佳阈值，将直方图分的每个通道为两半。 该方法返回一个 image.threshold 对象。 这个方法对确定最佳的 image.binary() 阈值特别有用。</p>
+<h4 id="histogram.get_statistics%28%29">histogram.get_statistics()</h4>
+<p>计算直方图中每个颜色通道的平均值、中值、众值、标准差、最小值、最大值、下四分值和上四分值， 并返回一个statistics对象。 您也可以使用 histogram.statistics() 和 histogram.get_stats() 作为这个方法的别名。</p>
+<h2 id="Percentile-%E7%B1%BB-%E2%80%93-%E7%99%BE%E5%88%86%E6%AF%94%08%E5%80%BC%E5%AF%B9%E8%B1%A1">Percentile 类 – 百分比值对象</h2>
+<p>百分比值对象由 <code>histogram.get_percentile</code> 返回。 灰度百分比值有一个通道。不使用 l_* 、 a_* 或 b_* 方法。 RGB565百分比值有三个通道。使用 l_* 、 a_* 和 b_* 方法。</p>
+<h3 id="%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0">构造函数</h3>
+<p>class image.percentile</p>
+<p>请调用 histogram.get_percentile() 函数来创建此对象。</p>
+<h3 id="%E6%96%B9%E6%B3%95">方法</h3>
+<h4 id="percentile.value%28%29">percentile.value()</h4>
+<p>返回灰度百分比值（取值区间为0-255）。</p>
+<p>您也可以通过索引 [0] 取得这个值。</p>
+<h4 id="percentile.l_value%28%29">percentile.l_value()</h4>
+<p>返回RGB565 LAB 的L通道的百分比值（取值区间为0-100）。</p>
+<p>您也可以通过索引 [0] 取得这个值。</p>
+<h4 id="percentile.a_value%28%29">percentile.a_value()</h4>
+<p>返回RGB565 LAB 的A通道的百分比值（取值区间为-128-127）。</p>
+<p>您也可以通过索引 [1] 取得这个值。</p>
+<h4 id="percentile.b_value%28%29">percentile.b_value()</h4>
+<p>返回RGB565 LAB 的B通道的百分比值（取值区间为-128-127）。</p>
+<p>您也可以通过索引 [2] 取得这个值。</p>
+<h2 id="Threhsold-%E7%B1%BB-%E2%80%93-%E9%98%88%E5%80%BC%E5%AF%B9%E8%B1%A1">Threhsold 类 – 阈值对象</h2>
+<p>阈值对象由 histogram.get_threshold 返回。</p>
+<p>灰度图像有一个通道。没有 l_<em>, a_</em>, 和 b_* 方法.</p>
+<p>RGB565 阈值有三个通道。使用 l_<em>, a_</em>, 和 b_* 方法。</p>
+<h3 id="%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0">构造函数</h3>
+<p>class image.threshold</p>
+<p>请调用 histogram.get_threshold() 函数来创建此对象。</p>
+<h4 id="%E6%96%B9%E6%B3%95">方法</h4>
+<h4 id="threhsold.value%28%29">threhsold.value()</h4>
+<p>返回灰度图的阈值 (between 0 and 255)。</p>
+<p>您也可以通过索引 [0] 取得这个值。</p>
+<h4 id="threhsold.l_value%28%29">threhsold.l_value()</h4>
+<p>返回RGB565图LAB中的L阈值 (between 0 and 100).</p>
+<p>您也可以通过索引 [0] 取得这个值。</p>
+<h4 id="threhsold.a_value%28%29">threhsold.a_value()</h4>
+<p>返回RGB565图LAB中的A阈值 (between -128 and 127).</p>
+<p>您也可以通过索引 [1] 取得这个值。</p>
+<h4 id="threhsold.b_value%28%29">threhsold.b_value()</h4>
+<p>返回RGB565图LAB中的B阈值 (between -128 and 127).</p>
+<p>您也可以通过索引 [2] 取得这个值。</p>
+<h2 id="class-Statistics-%E2%80%93-%E7%BB%9F%E8%AE%A1%E6%95%B0%E6%8D%AE%E5%AF%B9%E8%B1%A1">class Statistics – 统计数据对象</h2>
+<p>统计数据对象是由 histogram.get_statistics 或 image.get_statistics 返回的。</p>
+<p>灰度统计数据有一个通道，使用非 l_* 、 a_* 或 b_* 方法。</p>
+<p>RGB565百分比值有三个通道。使用 l_* 、 a_* 和 b_* 方法。</p>
+<h3 id="%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0">构造函数</h3>
+<p>class image.statistics<br />
+请调用 histogram.get_statistics() 或 image.get_statistics() 函数来创建此对象。</p>
+<h3 id="%E6%96%B9%E6%B3%95">方法</h3>
+<h4 id="statistics.mean%28%29">statistics.mean()</h4>
+<p>返回灰度均值(0-255) (int)。</p>
+<p>您也可以通过索引 [0] 取得这个值。</p>
+<h4 id="statistics.median%28%29">statistics.median()</h4>
+<p>返回灰度中值(0-255) (int)。</p>
+<p>您也可以通过索引 [1] 取得这个值。</p>
+<h4 id="statistics.mode%28%29">statistics.mode()</h4>
+<p>返回灰度众值(0-255) (int)。</p>
+<p>您也可以通过索引 [2] 取得这个值。</p>
+<h4 id="statistics.stdev%28%29">statistics.stdev()</h4>
+<p>返回灰度标准差(0-255) (int)。</p>
+<p>您也可以通过索引 [3] 取得这个值。</p>
+<h4 id="statistics.min%28%29">statistics.min()</h4>
+<p>返回灰度最小值(0-255) (int)。</p>
+<p>您也可以通过索引 [4] 取得这个值。</p>
+<h4 id="statistics.max%28%29">statistics.max()</h4>
+<p>返回灰度最大值(0-255) (int)。</p>
+<p>您也可以通过索引 [5] 取得这个值。</p>
+<h4 id="statistics.lq%28%29">statistics.lq()</h4>
+<p>返回灰度下四分值(0-255) (int)。</p>
+<p>您也可以通过索引 [6] 取得这个值。</p>
+<h4 id="statistics.uq%28%29">statistics.uq()</h4>
+<p>返回灰度上四分值(0-255) (int)。</p>
+<p>您也可以通过索引 [7] 取得这个值。</p>
+<h4 id="statistics.l_mean%28%29">statistics.l_mean()</h4>
+<p>返回RGB5656 LAB 中L的均值(0-255) (int)。</p>
+<p>您也可以通过索引 [0] 取得这个值。</p>
+<h4 id="statistics.l_median%28%29">statistics.l_median()</h4>
+<p>返回RGB5656 LAB 中L的中值(0-255) (int)。</p>
+<p>您也可以通过索引 [1] 取得这个值。</p>
+<h4 id="statistics.l_mode%28%29">statistics.l_mode()</h4>
+<p>返回RGB5656 LAB 中L的众值(0-255) (int)。</p>
+<p>您也可以通过索引 [2] 取得这个值。</p>
+<h4 id="statistics.l_stdev%28%29">statistics.l_stdev()</h4>
+<p>返回RGB5656 LAB 中L的标准偏差值(0-255) (int)。</p>
+<p>您也可以通过索引 [3] 取得这个值。</p>
+<h4 id="statistics.l_min%28%29">statistics.l_min()</h4>
+<p>返回RGB5656 LAB 中L的最小值(0-255) (int)。</p>
+<p>您也可以通过索引 [4] 取得这个值。</p>
+<h4 id="statistics.l_max%28%29">statistics.l_max()</h4>
+<p>返回RGB5656 LAB 中L的最大值(0-255) (int)。</p>
+<p>您也可以通过索引 [5] 取得这个值。</p>
+<h4 id="statistics.l_lq%28%29">statistics.l_lq()</h4>
+<p>返回RGB5656 LAB 中L的下四分值(0-255) (int)。</p>
+<p>您也可以通过索引 [6] 取得这个值。</p>
+<h4 id="statistics.l_uq%28%29">statistics.l_uq()</h4>
+<p>返回RGB5656 LAB 中L的上四分值(0-255) (int)。</p>
+<p>您也可以通过索引 [7] 取得这个值。</p>
+<h4 id="statistics.a_mean%28%29">statistics.a_mean()</h4>
+<p>返回RGB5656 LAB 中A的均值(0-255) (int)。</p>
+<p>您也可以通过索引 [8] 取得这个值。</p>
+<h4 id="statistics.a_median%28%29">statistics.a_median()</h4>
+<p>返回RGB5656 LAB 中A的中值(0-255) (int)。</p>
+<p>您也可以通过索引 [9] 取得这个值。</p>
+<h4 id="statistics.a_mode%28%29">statistics.a_mode()</h4>
+<p>返回RGB5656 LAB 中A的众值(0-255) (int)。</p>
+<p>您也可以通过索引 [10] 取得这个值。</p>
+<h4 id="statistics.a_stdev%28%29">statistics.a_stdev()</h4>
+<p>返回RGB5656 LAB 中A的标准偏差值(0-255) (int)。</p>
+<p>您也可以通过索引 [11] 取得这个值。</p>
+<h4 id="statistics.a_min%28%29">statistics.a_min()</h4>
+<p>返回RGB5656 LAB 中A的最小值(0-255) (int)。</p>
+<p>您也可以通过索引 [12] 取得这个值。</p>
+<h4 id="statistics.a_max%28%29">statistics.a_max()</h4>
+<p>返回RGB5656 LAB 中A的最大值(0-255) (int)。</p>
+<p>您也可以通过索引 [13] 取得这个值。</p>
+<h4 id="statistics.a_lq%28%29">statistics.a_lq()</h4>
+<p>返回RGB5656 LAB 中A的下四分值(0-255) (int)。</p>
+<p>您也可以通过索引 [14] 取得这个值。</p>
+<h4 id="statistics.a_uq%28%29">statistics.a_uq()</h4>
+<p>返回RGB5656 LAB 中A的上四分值(0-255) (int)。</p>
+<p>您也可以通过索引 [15] 取得这个值。</p>
+<h4 id="statistics.b_mean%28%29">statistics.b_mean()</h4>
+<p>返回RGB5656 LAB 中B的均值(0-255) (int)。</p>
+<p>您也可以通过索引 [16] 取得这个值。</p>
+<h4 id="statistics.b_median%28%29">statistics.b_median()</h4>
+<p>返回RGB5656 LAB 中B的中值(0-255) (int)。</p>
+<p>您也可以通过索引 [17] 取得这个值。</p>
+<h4 id="statistics.b_mode%28%29">statistics.b_mode()</h4>
+<p>返回RGB5656 LAB 中B的众值(0-255) (int)。</p>
+<p>您也可以通过索引 [18] 取得这个值。</p>
+<h4 id="statistics.b_stdev%28%29">statistics.b_stdev()</h4>
+<p>返回RGB5656 LAB 中B的标准差值(0-255) (int)。</p>
+<p>您也可以通过索引 [19] 取得这个值。</p>
+<h4 id="statistics.b_min%28%29">statistics.b_min()</h4>
+<p>返回RGB5656 LAB 中B的最小值(0-255) (int)。</p>
+<p>您也可以通过索引 [20] 取得这个值。</p>
+<h4 id="statistics.b_max%28%29">statistics.b_max()</h4>
+<p>返回RGB5656 LAB 中B的最大值(0-255) (int)。</p>
+<p>您也可以通过索引 [21] 取得这个值。</p>
+<h4 id="statistics.b_lq%28%29">statistics.b_lq()</h4>
+<p>返回RGB5656 LAB 中B的下四分值(0-255) (int)。</p>
+<p>您也可以通过索引 [22] 取得这个值。</p>
+<h4 id="statistics.b_uq%28%29">statistics.b_uq()</h4>
+<p>返回RGB5656 LAB 中B的上四分值(0-255) (int)。</p>
+<p>您也可以通过索引 [23] 取得这个值。</p>
+<h2 id="Blob-%E7%B1%BB-%E2%80%93-%E8%89%B2%E5%9D%97%E5%AF%B9%E8%B1%A1">Blob 类 – 色块对象</h2>
+<p>色块对象是由 <code>image.find_blobs</code> 返回的。</p>
+<h3 id="%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0">构造函数</h3>
+<p>class image.blob</p>
+<p>请调用 image.find_blobs() 函数来创建此对象。</p>
+<h3 id="%E6%96%B9%E6%B3%95">方法</h3>
+<h4 id="blob.rect%28%29">blob.rect()</h4>
+<p>返回一个矩形元组(x, y, w, h) ，用于如色块边界框的 image.draw_rectangle 等 其他的 image 方法。</p>
+<h4 id="blob.x%28%29">blob.x()</h4>
+<p>返回色块的边界框的x坐标(int)。</p>
+<p>您也可以通过索引 [0] 取得这个值。</p>
+<h4 id="blob.y%28%29">blob.y()</h4>
+<p>返回色块的边界框的y坐标(int)。</p>
+<p>您也可以通过索引 [1] 取得这个值。</p>
+<h4 id="blob.w%28%29">blob.w()</h4>
+<p>返回色块的边界框的w坐标(int)。</p>
+<p>您也可以通过索引 [2] 取得这个值。</p>
+<h4 id="blob.h%28%29">blob.h()</h4>
+<p>返回色块的边界框的h坐标(int)。</p>
+<p>您也可以通过索引 [3] 取得这个值。</p>
+<h4 id="blob.pixels%28%29">blob.pixels()</h4>
+<p>返回从属于色块(int)一部分的像素数量。</p>
+<p>您也可以通过索引 [4] 取得这个值。</p>
+<h4 id="blob.cx%28%29">blob.cx()</h4>
+<p>返回色块(int)的中心x位置。</p>
+<p>您也可以通过索引 [5] 取得这个值。</p>
+<h4 id="blob.cy%28%29">blob.cy()</h4>
+<p>返回色块(int)的中心x位置。</p>
+<p>您也可以通过索引 [6] 取得这个值。</p>
+<h4 id="blob.rotation%28%29">blob.rotation()</h4>
+<p>返回色块的旋转（单位：弧度）。如果色块类似铅笔或钢笔，那么这个值就是介于0-180之间的唯一值。 如果这个色块圆的，那么这个值就没有效用。如果这个色块完全不具有对称性，您只能由此得到0-360度的旋转。</p>
+<p>您也可以通过索引 [7] 取得这个值。</p>
+<h4 id="blob.code%28%29">blob.code()</h4>
+<p>返回一个16位的二进制数字，其中为每个颜色阈值设置一个位，这是色块的一部分。 例如，如果您通过 image.find_blobs 来寻找三个颜色阈值，这个色块可以设置为0/1/2位。 注意：除非以 merge=True 调用 image.find_blobs ，否则每个色块只能设置一位。 那么颜色阈值不同的多个色块就可以合并在一起了。 您也可以用这个方法以及多个阈值来实现颜色代码跟踪。</p>
+<p>您也可以通过索引 [8] 取得这个值。</p>
+<h4 id="blob.count%28%29">blob.count()</h4>
+<p>返回合并为这一色块的多个色块的数量。只有您以 merge=True 调用 image.find_blobs 时，这个数字才不是1。</p>
+<p>您也可以通过索引 [9] 取得这个值。</p>
+<h4 id="blob.area%28%29">blob.area()</h4>
+<p>返回色块周围的边框面积(w * h)</p>
+<h4 id="blob.density%28%29">blob.density()</h4>
+<p>返回这个色块的密度比。这是在色块边界框区域内的像素点的数量。 总的来说，较低的密度比意味着这个对象的锁定得不是很好。</p>
+<h2 id="Line%E7%B1%BB-%E2%80%93-%E7%9B%B4%E7%BA%BF%E5%AF%B9%E8%B1%A1">Line类 – 直线对象</h2>
+<p>直线对象是由 <code>image.find_lines</code> , <code>image.find_line_segments</code>  或  <code>image.get_regression</code> 返回的。</p>
+<h3 id="%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0">构造函数</h3>
+<p>class image.line</p>
+<p>请调用 image.find_lines(), image.find_line_segments(), 或 image.get_regression() 函数来创建此对象。</p>
+<h3 id="%E6%96%B9%E6%B3%95">方法</h3>
+<h4 id="line.line%28%29">line.line()</h4>
+<p>返回一个直线元组(x1, y1, x2, y2) ，用于如 image.draw_line 等其他的 image 方法。</p>
+<h4 id="line.x1%28%29">line.x1()</h4>
+<p>返回直线的p1顶点 x坐标分量。</p>
+<p>您也可以通过索引 [0] 取得这个值。</p>
+<h4 id="line.y1%28%29">line.y1()</h4>
+<p>返回直线的p1 y分量。</p>
+<p>您也可以通过索引 [1] 取得这个值。</p>
+<h4 id="line.x2%28%29">line.x2()</h4>
+<p>返回直线的p2 x分量。</p>
+<p>您也可以通过索引 [2] 取得这个值。</p>
+<h4 id="line.y2%28%29">line.y2()</h4>
+<p>返回直线的p2 y分量。</p>
+<p>您也可以通过索引 [3] 取得这个值。</p>
+<h4 id="line.length%28%29">line.length()</h4>
+<p>返回直线长度即 sqrt(((x2-x1)^2) + ((y2-y1)^2).</p>
+<p>您也可以通过索引 [4] 取得这个值。</p>
+<h4 id="line.magnitude%28%29">line.magnitude()</h4>
+<p>返回霍夫变换后的直线的长度。</p>
+<p>您也可以通过索引 [5] 取得这个值。</p>
+<h4 id="line.theta%28%29">line.theta()</h4>
+<p>返回霍夫变换后的直线的角度（0-179度）。</p>
+<p>您也可以通过索引 [7] 取得这个值。</p>
+<h4 id="line.rho%28%29">line.rho()</h4>
+<p>返回霍夫变换后的直线p值。</p>
+<p>您也可以通过索引 [8] 取得这个值。</p>
+<h2 id="Circle%E7%B1%BB-%E2%80%93%E5%9C%86%E5%BD%A2%E5%AF%B9%E8%B1%A1">Circle类 –圆形对象</h2>
+<p>圆形对象是由 <code>image.find_circles</code> 返回的。</p>
+<h3 id="%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0">构造函数</h3>
+<p>class image.circle</p>
+<p>请调用 image.find_circles() 函数来创建此对象。</p>
+<h3 id="%E6%96%B9%E6%B3%95">方法</h3>
+<h4 id="circle.x%28%29">circle.x()</h4>
+<p>返回圆的x位置。</p>
+<p>您也可以通过索引 [0] 取得这个值。</p>
+<h4 id="circle.y%28%29">circle.y()</h4>
+<p>返回圆的y位置。</p>
+<p>您也可以通过索引 [1] 取得这个值。</p>
+<h4 id="circle.r%28%29">circle.r()</h4>
+<p>返回圆的半径。</p>
+<p>您也可以通过索引 [2] 取得这个值。</p>
+<h4 id="circle.magnitude%28%29">circle.magnitude()</h4>
+<p>返回圆的大小。</p>
+<p>您也可以通过索引 [3] 取得这个值。</p>
+<h2 id="Rect%E7%B1%BB-%E2%80%93-%E7%9F%A9%E5%BD%A2%E5%AF%B9%E8%B1%A1">Rect类 – 矩形对象</h2>
+<p>矩形对象是由 <code>image.find_rects</code> 返回的。</p>
+<h3 id="%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0">构造函数</h3>
+<p>class image.rect</p>
+<p>请调用 image.find_rects() 函数来创建此对象。</p>
+<h3 id="%E6%96%B9%E6%B3%95">方法</h3>
+<h4 id="rect.corners%28%29">rect.corners()</h4>
+<p>返回一个由矩形对象的四个角组成的四个元组(x,y)的列表。四个角通常是按照从左上角开始沿顺时针顺序返回的。</p>
+<h4 id="rect.rect%28%29">rect.rect()</h4>
+<p>返回一个矩形元组(x, y, w, h)，用于如 矩形的边界框的 image.draw_rectangle 等其他的 image 方法。</p>
+<h4 id="rect.x%28%29">rect.x()</h4>
+<p>返回矩形的左上角的x位置。</p>
+<p>您也可以通过索引 [0] 取得这个值。</p>
+<h4 id="rect.y%28%29">rect.y()</h4>
+<p>返回矩形的左上角的y位置。</p>
+<p>您也可以通过索引 [1] 取得这个值。</p>
+<h4 id="rect.w%28%29">rect.w()</h4>
+<p>返回矩形的宽度。</p>
+<p>您也可以通过索引 [2] 取得这个值。</p>
+<h4 id="rect.h%28%29">rect.h()</h4>
+<p>返回矩形的高度。</p>
+<p>您也可以通过索引 [3] 取得这个值。</p>
+<h4 id="rect.magnitude%28%29">rect.magnitude()</h4>
+<p>返回矩形的大小。</p>
+<p>您也可以通过索引 [4] 取得这个值。</p>
+<h2 id="QRCode%E7%B1%BB-%E2%80%93-%E4%BA%8C%E7%BB%B4%E7%A0%81%E5%AF%B9%E8%B1%A1">QRCode类 – 二维码对象</h2>
+<p>二维码对象是由 <code>image.find_qrcodes</code> 返回的。</p>
+<h3 id="%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0">构造函数</h3>
+<p>class image.qrcode</p>
+<p>请调用 image.find_qrcodes() 函数来创建此对象。</p>
+<h3 id="%E6%96%B9%E6%B3%95">方法</h3>
+<h4 id="qrcode.corners%28%29">qrcode.corners()</h4>
+<p>返回一个由该对象的四个角组成的四个元组(x,y)的列表。四个角通常是按照从左上角开始沿顺时针顺序返回的。</p>
+<h4 id="qrcode.rect%28%29">qrcode.rect()</h4>
+<p>返回一个矩形元组(x, y, w, h)，用于如二维码的边界框的 image.draw_rectangle 等其他的 image 方法。</p>
+<h4 id="qrcode.x%28%29">qrcode.x()</h4>
+<p>返回二维码的边界框的x坐标(int)。</p>
+<p>您也可以通过索引 [0] 取得这个值。</p>
+<h4 id="qrcode.y%28%29">qrcode.y()</h4>
+<p>返回二维码的边界框的y坐标(int)。</p>
+<p>您也可以通过索引 [1] 取得这个值。</p>
+<h4 id="qrcode.w%28%29">qrcode.w()</h4>
+<p>返回二维码的边界框的w坐标(int)。</p>
+<p>您也可以通过索引 [2] 取得这个值。</p>
+<h4 id="qrcode.h%28%29">qrcode.h()</h4>
+<p>返回二维码的边界框的h坐标(int)。</p>
+<p>您也可以通过索引 [3] 取得这个值。</p>
+<h4 id="qrcode.payload%28%29">qrcode.payload()</h4>
+<p>返回二维码有效载荷的字符串，例如URL 。</p>
+<p>您也可以通过索引 [4] 取得这个值。</p>
+<h4 id="qrcode.version%28%29">qrcode.version()</h4>
+<p>返回二维码的版本号(int)。</p>
+<p>您也可以通过索引 [5] 取得这个值。</p>
+<h4 id="qrcode.ecc_level%28%29">qrcode.ecc_level()</h4>
+<p>返回二维码的ECC水平(int)。</p>
+<p>您也可以通过索引 [6] 取得这个值。</p>
+<h4 id="qrcode.mask%28%29">qrcode.mask()</h4>
+<p>返回二维码的掩码(int)。</p>
+<p>您也可以通过索引 [7] 取得这个值。</p>
+<h4 id="qrcode.data_type%28%29">qrcode.data_type()</h4>
+<p>返回二维码的数据类型。</p>
+<p>您也可以通过索引 [8] 取得这个值。</p>
+<h4 id="qrcode.eci%28%29">qrcode.eci()</h4>
+<p>返回二维码的ECI。ECI储存了QR码中存储数据字节的编码。若您想要处理包含超过标准ASCII文本的二维码，您需要查看这一数值。</p>
+<p>您也可以通过索引 [9] 取得这个值。</p>
+<h4 id="qrcode.is_numeric%28%29">qrcode.is_numeric()</h4>
+<p>若二维码的数据类型为数字式，则返回True。</p>
+<h4 id="qrcode.is_alphanumeric%28%29">qrcode.is_alphanumeric()</h4>
+<p>若二维码的数据类型为文字数字式，则返回True。</p>
+<h4 id="qrcode.is_binary%28%29">qrcode.is_binary()</h4>
+<p>若二维码的数据类型为二进制式，则返回True。如果您认真处理所有类型的文本，则需要检查eci是否为True，以确定数据的文本编码。通常它只是标准的ASCII，但是它也可能是有两个字节字符的UTF8。</p>
+<h4 id="qrcode.is_kanji%28%29">qrcode.is_kanji()</h4>
+<p>若二维码的数据类型为日本汉字，则返回True。设置为True后，您就需要自行解码字符串，因为日本汉字符号每个字符是10位，而MicroPython不支持解析这类文本。</p>
+<h2 id="AprilTag%E7%B1%BB-%E2%80%93-AprilTag%E5%AF%B9%E8%B1%A1">AprilTag类 – AprilTag对象</h2>
+<p>AprilTag对象是由 <code>image.find_apriltags</code> 返回的。</p>
+<h3 id="%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0">构造函数</h3>
+<p>class image.apriltag</p>
+<p>请调用 image.find_apriltags() 函数来创建此对象。</p>
+<h3 id="%E6%96%B9%E6%B3%95">方法</h3>
+<h4 id="apriltag.corners%28%29">apriltag.corners()</h4>
+<p>返回一个由该对象的四个角组成的四个元组(x,y)的列表。四个角通常是按照从左上角开始沿顺时针顺序返回的。</p>
+<h4 id="apriltag.rect%28%29">apriltag.rect()</h4>
+<p>返回一个矩形元组(x, y, w, h)，用于如AprilTag边界框的 image.draw_rectangle 等其他的 image 方法。</p>
+<h4 id="apriltag.x%28%29">apriltag.x()</h4>
+<p>返回AprilTag边界框的x坐标(int)。</p>
+<p>您也可以通过索引 [0] 取得这个值。</p>
+<h4 id="apriltag.y%28%29">apriltag.y()</h4>
+<p>返回AprilTag边界框的y坐标(int)。</p>
+<p>您也可以通过索引 [1] 取得这个值。</p>
+<h4 id="apriltag.w%28%29">apriltag.w()</h4>
+<p>返回AprilTag边界框的w坐标(int)。</p>
+<p>您也可以通过索引 [2] 取得这个值。</p>
+<h4 id="apriltag.h%28%29">apriltag.h()</h4>
+<p>返回AprilTag边界框的h坐标(int)。</p>
+<p>您也可以通过索引 [3] 取得这个值。</p>
+<h4 id="apriltag.id%28%29">apriltag.id()</h4>
+<p>返回AprilTag的数字ID。</p>
+<p>TAG16H5 -&gt; 0 to 29<br />
+TAG25H7 -&gt; 0 to 241<br />
+TAG25H9 -&gt; 0 to 34<br />
+TAG36H10 -&gt; 0 to 2319<br />
+TAG36H11 -&gt; 0 to 586<br />
+ARTOOLKIT -&gt; 0 to 511<br />
+您也可以通过索引 [4] 取得这个值。</p>
+<h4 id="apriltag.family%28%29">apriltag.family()</h4>
+<p>返回AprilTag的数字家庭。</p>
+<p>image.TAG16H5<br />
+image.TAG25H7<br />
+image.TAG25H9<br />
+image.TAG36H10<br />
+image.TAG36H11<br />
+image.ARTOOLKIT<br />
+您也可以通过索引 [5] 取得这个值。</p>
+<h4 id="apriltag.cx%28%29">apriltag.cx()</h4>
+<p>返回AprilTag的中心x位置(int)。</p>
+<p>您也可以通过索引 [6] 取得这个值。</p>
+<h4 id="apriltag.cy%28%29">apriltag.cy()</h4>
+<p>返回AprilTag的中心y位置(int)。</p>
+<p>您也可以通过索引 [7] 取得这个值。</p>
+<h4 id="apriltag.rotation%28%29">apriltag.rotation()</h4>
+<p>返回以弧度计的AprilTag的旋度(int)。</p>
+<p>您也可以通过索引 [8] 取得这个值。</p>
+<h4 id="apriltag.decision_margin%28%29">apriltag.decision_margin()</h4>
+<p>返回AprilTag匹配的色饱和度（取值0.0 - 1.0），其中1.0为最佳。</p>
+<p>您也可以通过索引 [9] 取得这个值。</p>
+<h4 id="apriltag.hamming%28%29">apriltag.hamming()</h4>
+<p>返回AprilTag的可接受的数位误差数值。</p>
+<p>TAG16H5 -&gt; 最多可接受0位错误<br />
+TAG25H7 -&gt; 最多可接受1位错误<br />
+TAG25H9 -&gt; 最多可接受3位错误<br />
+TAG36H10 -&gt; 最多可接受3位错误<br />
+TAG36H11 -&gt; 最多可接受4位错误<br />
+ARTOOLKIT -&gt; 最多可接受0位错误<br />
+您也可以通过索引 [10] 取得这个值。</p>
+<h4 id="apriltag.goodness%28%29">apriltag.goodness()</h4>
+<p>返回AprilTag图像的色饱和度（取值0.0 - 1.0），其中1.0为最佳。</p>
+<blockquote>
+<p>目前这一数值通常是0.0。未来我们可以启用一个称为“标签细化”的功能，以实现对更小的AprilTag的检测。然而，现在这个功能将帧速率降低到1 FPS以下。</p>
+</blockquote>
+<p>您也可以通过索引 [11] 取得这个值。</p>
+<h4 id="apriltag.x_translation%28%29">apriltag.x_translation()</h4>
+<p>返回距离摄像机x方向的变换，距离的单位未知。</p>
+<p>这个方法对于确定远离摄像机的AprilTag的位置很有用。但是，AprilTag的大小以及您使用的镜头等因素都会影响X单元归属的确定。为使用方便，我们推荐您使用查找表将该方法的输出转换为对您的应用程序有用的信息。</p>
+<p>注意：此处的方向为从左至右。</p>
+<p>您也可以通过索引 [12] 取得这个值。</p>
+<h4 id="apriltag.y_translation%28%29">apriltag.y_translation()</h4>
+<p>返回距离摄像机y方向的变换，距离的单位未知。</p>
+<p>这个方法对于确定远离摄像机的AprilTag的位置很有用。但是，AprilTag的大小以及您使用的镜头等因素都会影响Y单元归属的确定。为使用方便，我们推荐您使用查找表将该方法的输出转换为对您的应用程序有用的信息。</p>
+<p>注意：此处的方向为从上至下。</p>
+<p>您也可以通过索引 [13] 取得这个值。</p>
+<h4 id="apriltag.z_translation%28%29">apriltag.z_translation()</h4>
+<p>返回距离摄像机z方向的变换，距离的单位未知。</p>
+<p>T这个方法对于确定远离摄像机的AprilTag的位置很有用。但是，AprilTag的大小以及您使用的镜头等因素都会影响Z单元归属的确定。为使用方便，我们推荐您使用查找表将该方法的输出转换为对您的应用程序有用的信息。</p>
+<p>注意：此处的方向为从前至后。</p>
+<p>您也可以通过索引 [14] 取得这个值。</p>
+<h4 id="apriltag.x_rotation%28%29">apriltag.x_rotation()</h4>
+<p>返回以弧度计的AprilTag在X平面上的旋度。例：目视AprilTag，从左至右移动摄像头。</p>
+<p>您也可以通过索引 [15] 取得这个值。</p>
+<h4 id="apriltag.y_rotation%28%29">apriltag.y_rotation()</h4>
+<p>返回以弧度计的AprilTag在Y平面上的旋度。例：目视AprilTag，从上至下移动摄像头。</p>
+<p>您也可以通过索引 [16] 取得这个值。</p>
+<h4 id="apriltag.z_rotation%28%29">apriltag.z_rotation()</h4>
+<p>返回以弧度计的AprilTag在Z平面上的旋度。例：目视AprilTag，旋转摄像头。</p>
+<p>注意：这只是 apriltag.rotation() 的重命名版本。</p>
+<p>您也可以通过索引 [17] 取得这个值。</p>
+<h2 id="DataMatrix%E7%B1%BB-%E2%80%93-%E6%95%B0%E6%8D%AE%E7%9F%A9%E9%98%B5%E5%AF%B9%E8%B1%A1">DataMatrix类 – 数据矩阵对象</h2>
+<p>数据矩阵对象是由 <code>image.find_datamatrices</code> 返回的。</p>
+<h2 id="%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0">构造函数</h2>
+<p>class image.datamatrix</p>
+<p>请调用 image.find_datamatrices() 函数来创建此对象。</p>
+<h3 id="%E6%96%B9%E6%B3%95">方法</h3>
+<h4 id="datamatrix.corners%28%29">datamatrix.corners()</h4>
+<p>返回一个由该对象的四个角组成的四个元组(x,y)的列表。四个角通常是按照从左上角开始沿顺时针顺序返回的。</p>
+<h4 id="datamatrix.rect%28%29">datamatrix.rect()</h4>
+<p>返回一个矩形元组(x, y, w, h)，用于如数据矩阵的边界框的 image.draw_rectangle 等其他的 image 方法。</p>
+<h4 id="datamatrix.x%28%29">datamatrix.x()</h4>
+<p>返回数据矩阵的边界框的x坐标(int)。</p>
+<p>您也可以通过索引 [0] 取得这个值。</p>
+<h4 id="datamatrix.y%28%29">datamatrix.y()</h4>
+<p>返回数据矩阵的边界框的y坐标(int)。</p>
+<p>您也可以通过索引 [1] 取得这个值。</p>
+<h4 id="datamatrix.w%28%29">datamatrix.w()</h4>
+<p>返回数据矩阵的边界框的w宽度。</p>
+<p>您也可以通过索引 [2] 取得这个值。</p>
+<h4 id="datamatrix.h%28%29">datamatrix.h()</h4>
+<p>返回数据矩阵的边界框的h高度。</p>
+<p>您也可以通过索引 [3] 取得这个值。</p>
+<h4 id="datamatrix.payload%28%29">datamatrix.payload()</h4>
+<p>返回数据矩阵的有效载荷的字符串。例：字符串。</p>
+<p>您也可以通过索引 [4] 取得这个值。</p>
+<h4 id="datamatrix.rotation%28%29">datamatrix.rotation()</h4>
+<p>返回以弧度计的数据矩阵的旋度(浮点数)。</p>
+<p>您也可以通过索引 [5] 取得这个值。</p>
+<h4 id="datamatrix.rows%28%29">datamatrix.rows()</h4>
+<p>返回数据矩阵的行数(int)。</p>
+<p>您也可以通过索引 [6] 取得这个值。</p>
+<h4 id="datamatrix.columns%28%29">datamatrix.columns()</h4>
+<p>返回数据矩阵的列数(int)。</p>
+<p>您也可以通过索引 [7] 取得这个值。</p>
+<h4 id="datamatrix.capacity%28%29">datamatrix.capacity()</h4>
+<p>返回这一数据矩阵所能容纳的字符的数量。</p>
+<p>您也可以通过索引 [8] 取得这个值。</p>
+<h4 id="datamatrix.padding%28%29">datamatrix.padding()</h4>
+<p>返回这一数据矩阵中未使用的字符的数量。</p>
+<p>您也可以通过索引 [9] 取得这个值。</p>
+<h2 id="BarCode%E7%B1%BB-%E2%80%93-%E6%9D%A1%E5%BD%A2%E7%A0%81%E5%AF%B9%E8%B1%A1">BarCode类 – 条形码对象</h2>
+<p>条形码对象是由 image.find_barcodes 返回的。</p>
+<h2 id="%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0">构造函数</h2>
+<p>class image.barcode</p>
+<p>请调用 image.find_barcodes() 函数来创建此对象。</p>
+<h3 id="%E6%96%B9%E6%B3%95">方法</h3>
+<h4 id="barcode.corners%28%29">barcode.corners()</h4>
+<p>返回一个由该对象的四个角组成的四个元组(x,y)的列表。四个角通常是按照从左上角开始沿顺时针顺序返回的。</p>
+<h4 id="barcode.rect%28%29">barcode.rect()</h4>
+<p>返回一个矩形元组(x, y, w, h)，用于如数据矩阵的边界框的 image.draw_rectangle 等其他的 image 方法。</p>
+<h4 id="barcode.x%28%29">barcode.x()</h4>
+<p>返回条形码的边界框的x坐标(int)。</p>
+<p>您也可以通过索引 [0] 取得这个值。</p>
+<h4 id="barcode.y%28%29">barcode.y()</h4>
+<p>返回条形码的边界框的y坐标(int)。</p>
+<p>您也可以通过索引 [1] 取得这个值。</p>
+<h4 id="barcode.w%28%29">barcode.w()</h4>
+<p>返回条形码的边界框的w宽度(int)。</p>
+<p>您也可以通过索引 [2] 取得这个值。</p>
+<h4 id="barcode.h%28%29">barcode.h()</h4>
+<p>返回条形码的边界框的h高度(int)。</p>
+<p>您也可以通过索引 [3] 取得这个值。</p>
+<h4 id="barcode.payload%28%29">barcode.payload()</h4>
+<p>返回条形码的有效载荷的字符串。例：数量。</p>
+<p>您也可以通过索引 [4] 取得这个值。</p>
+<h4 id="barcode.type%28%29">barcode.type()</h4>
+<p>返回条形码的列举类型 (int)。</p>
+<p>您也可以通过索引 [5] 取得这个值。</p>
+<p>image.EAN2<br />
+image.EAN5<br />
+image.EAN8<br />
+image.UPCE<br />
+image.ISBN10<br />
+image.UPCA<br />
+image.EAN13<br />
+image.ISBN13<br />
+image.I25<br />
+image.DATABAR<br />
+image.DATABAR_EXP<br />
+image.CODABAR<br />
+image.CODE39<br />
+image.PDF417 - 未来启用 (e.g. 现在还不能正常使用).<br />
+image.CODE93<br />
+image.CODE128</p>
+<h4 id="barcode.rotation%28%29">barcode.rotation()</h4>
+<p>返回以弧度计的条形码的旋度(浮点数)。</p>
+<p>您也可以通过索引 [6] 取得这个值。</p>
+<h4 id="barcode.quality%28%29">barcode.quality()</h4>
+<p>返回条形码在图像中被检测到的次数(int)。</p>
+<p>扫描条形码时，每一条新的扫描线都能解码相同的条形码。每次进行这一过程，条形码的值都会随之增加。</p>
+<p>您也可以通过索引 [7] 取得这个值。</p>
+<h2 id="Displacement%E7%B1%BB-%E2%80%93-%E4%BD%8D%E7%A7%BB%E5%AF%B9%E8%B1%A1">Displacement类 – 位移对象</h2>
+<p>位移对象由 image.find_displacement 返回。</p>
+<h3 id="%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0">构造函数</h3>
+<p>class image.displacement</p>
+<p>请调用 image.find_displacement() 函数来创建此对象。</p>
+<h3 id="%E6%96%B9%E6%B3%95">方法</h3>
+<h4 id="displacement.x_translation%28%29">displacement.x_translation()</h4>
+<p>返回两个图像之间的x平移像素。 这是精确的子像素，所以它是一个浮点数。</p>
+<p>您也可以通过索引 [0] 取得这个值。</p>
+<h4 id="displacement.y_translation%28%29">displacement.y_translation()</h4>
+<p>返回两个图像之间的y平移像素。 这是精确的子像素，所以它是一个浮点数。</p>
+<p>您也可以通过索引 [1] 取得这个值。</p>
+<h4 id="displacement.rotation%28%29">displacement.rotation()</h4>
+<p>返回两个图像之间的z平移像素。 这是精确的子像素，所以它是一个浮点数。</p>
+<p>您也可以通过索引 [2] 取得这个值。</p>
+<h4 id="displacement.scale%28%29">displacement.scale()</h4>
+<p>返回两个图像之间旋转的弧度。</p>
+<p>您也可以通过索引 [3] 取得这个值。</p>
+<h4 id="displacement.response%28%29">displacement.response()</h4>
+<p>返回两幅图像之间位移匹配结果的质量。 范围 0-1。响应小于0.1的 displacement 对象可能是噪声。</p>
+<p>您也可以通过索引 [4] 取得这个值。</p>
+<h2 id="Kptmatch%E7%B1%BB-%E2%80%93-%E7%89%B9%E5%BE%81%E7%82%B9%E5%AF%B9%E8%B1%A1">Kptmatch类 – 特征点对象</h2>
+<p>特征点对象是由 <code>image.match_descriptor</code> 返回的。</p>
+<h3 id="%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0">构造函数</h3>
+<p>class image.kptmatch</p>
+<p>请调用 image.match_descriptor() 函数来创建此对象。</p>
+<h3 id="%E6%96%B9%E6%B3%95">方法</h3>
+<h4 id="kptmatch.rect%28%29">kptmatch.rect()</h4>
+<p>返回一个矩形元组(x, y, w, h)，用于如特征点的边界框的 image.draw_rectangle 等其他的 image 方法。</p>
+<h4 id="kptmatch.cx%28%29">kptmatch.cx()</h4>
+<p>返回特征点的中心x位置(int)。</p>
+<p>您也可以通过索引 [0] 取得这个值。</p>
+<h4 id="kptmatch.cy%28%29">kptmatch.cy()</h4>
+<p>返回特征点的中心y位置(int)。</p>
+<p>您也可以通过索引 [1] 取得这个值。</p>
+<h4 id="kptmatch.x%28%29">kptmatch.x()</h4>
+<p>返回特征点边界框的x坐标(int)。</p>
+<p>您也可以通过索引 [2] 取得这个值。</p>
+<h4 id="kptmatch.y%28%29">kptmatch.y()</h4>
+<p>返回特征点边界框的y坐标(int)。</p>
+<p>您也可以通过索引 [3] 取得这个值。</p>
+<h4 id="kptmatch.w%28%29">kptmatch.w()</h4>
+<p>返回特征点边界框的w宽度(int)。</p>
+<p>您也可以通过索引 [4] 取得这个值。</p>
+<h4 id="kptmatch.h%28%29">kptmatch.h()</h4>
+<p>返回特征点边界框的h高度(int)。</p>
+<p>您也可以通过索引 [5] 取得这个值。</p>
+<h4 id="kptmatch.count%28%29">kptmatch.count()</h4>
+<p>返回匹配的特征点的数量(int)。</p>
+<p>您也可以通过索引 [6] 取得这个值。</p>
+<h4 id="kptmatch.theta%28%29">kptmatch.theta()</h4>
+<p>返回估计的特征点的旋度(int)。</p>
+<p>您也可以通过索引 [7] 取得这个值。</p>
+<h4 id="kptmatch.match%28%29">kptmatch.match()</h4>
+<p>返回匹配关键点的(x，y)元组列表。</p>
+<p>您也可以通过索引 [8] 取得这个值。</p>
+<h2 id="ImageWriter%E7%B1%BB-%E2%80%93-ImageWriter%E5%AF%B9%E8%B1%A1">ImageWriter类 – ImageWriter对象</h2>
+<p>ImageWriter 对象使得您可以快速地将未压缩的图像写入磁盘。</p>
+<h2 id="%EF%BC%83%E3%80%80%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0">＃　构造函数</h2>
+<p>class image.ImageWriter(path)</p>
+<p>创建一个ImageWriter对象，您就可以以用于OpenMV Cams的简单文件格式将未压缩的图像写到磁盘上。然后未压缩的图像可以使用ImageReader重新读取。</p>
+<h3 id="%E6%96%B9%E6%B3%95">方法</h3>
+<h4 id="imagewriter.size%28%29">imagewriter.size()</h4>
+<p>返回正在写入的文件的大小。</p>
+<h4 id="imagewriter.add_frame%28img%29">imagewriter.add_frame(img)</h4>
+<p>将一张图像写入磁盘。由于图像未被压缩，因此执行迅速，但会占用大量磁盘空间。</p>
+<h4 id="imagewriter.close%28%29">imagewriter.close()</h4>
+<p>关闭图像流文件。您必须关闭文件，否则文件会损坏。</p>
+<h2 id="ImageReader-%E7%B1%BB%E2%80%93-ImageReader%E5%AF%B9%E8%B1%A1">ImageReader 类– ImageReader对象</h2>
+<p>ImageReader对象使得您可以快速地从磁盘中读取未压缩的图像。</p>
+<h3 id="%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0">构造函数</h3>
+<p>class image.ImageReader(path)</p>
+<p>创建一个ImageReader对象，用来回放由ImageWriter对象编写的图像数据。ImageWriter对象回放的帧会在与写入磁盘时相同的FPS下回放。</p>
+<h3 id="%E6%96%B9%E6%B3%95">方法</h3>
+<h4 id="imagereader.size%28%29">imagereader.size()</h4>
+<p>返回正在读取的文件的大小。</p>
+<p>imagereader.next_frame([copy_to_fb=True, loop=True])<br />
+从ImageWriter写就的文件中返回图像对象。若 copy_to_fb 为True，图像对象将被直接加载到帧缓冲区中。否则图像对象将被放入堆中。注意：除非图像很小，否则堆可能没有足够的空间来存储图像对象。 若 loop 为True，流的最后一个图像读取之后，回放将重新开始。否则所有帧被读取后，这个方法将返回None。</p>
+<p>注意： imagereader.next_frame 尝试在读取帧后通过暂停播放来限制回放速度，以与帧记录的速度相匹配。 否则，这个方法会以200+FPS的速度图像快读播放所有图像。</p>
+<h4 id="imagereader.close%28%29">imagereader.close()</h4>
+<p>关闭正在读取的文件。您需要进行这一操作，以防imagereader 对象受损。但由于是只读文件，文件不会在未关闭时受损。</p>
+<h2 id="Image%E7%B1%BB-%E2%80%93-%E5%9B%BE%E5%83%8F%E5%AF%B9%E8%B1%A1">Image类 – 图像对象</h2>
+<p>图像对象是机器视觉操作的基本对象。</p>
+<h3 id="%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0">构造函数</h3>
+<p>class image.Image(path[, copy_to_fb=False])</p>
+<p>从 path 中的文件中创建一个新的图像对象。</p>
+<p>支持bmp/pgm/ppm/jpg/jpeg格式的图像文件。</p>
+<p>若 copy_to_fb 为True，图像会直接载入帧缓冲区，您就可以加载大幅图片了。若为False，图像会载入MicroPython的堆中，堆远比帧缓冲区小。</p>
+<p>在OpenMV Cam M4中，若 copy_to_fb 为False，您应该尽量把图像大小控制在8KB以下。若为True，则图像最大可为160KB。<br />
+在OpenMV Cam M7中，若 copy_to_fb 为False，您应该尽量把图像大小控制在16KB以下。若为True，则图像最大可为320KB。<br />
+图像支持“[]”记法。 令 image[index] = 8/16-bit value ，以便分配图像像素或 image[index] ，并得到一个图像像素，若是用于RGB图像的16位RGB565值的灰度图像， 这一像素则为8位。</p>
+<p>对于JPEG图像而言，“[]”使得您可以访问压缩的节数组形式的JPEG图像色块。由于JPEG图像是压缩的字节流形式，因而对数据组的读取和写入是不透明的。</p>
+<p>图像还支持读缓冲区操作。您可以把图像当作节数组对象，将图像输入所有类型的MicroPython函数。若您想传送一个图像，可以将它传递给UART /SPI/ I2C写入函数，可实现自动传送。</p>
+<h3 id="%E6%96%B9%E6%B3%95">方法</h3>
+<h4 id="image.width%28%29">image.width()</h4>
+<p>返回以像素计的图像的宽度。</p>
+<h4 id="image.height%28%29">image.height()</h4>
+<p>返回以像素计的图像的高度。</p>
+<h4 id="image.format%28%29">image.format()</h4>
+<p>返回用于灰度图的 sensor.GRAYSCALE 、用于RGB图像的 sensor.RGB565 和用于JPEG图像的 sensor.JPEG 。</p>
+<h4 id="image.size%28%29">image.size()</h4>
+<p>返回以字节计的图像大小。</p>
+<h4 id="image.get_pixel%28x%2C-y%5B%2C-rgbtuple%5D%29">image.get_pixel(x, y[, rgbtuple])</h4>
+<p>灰度图：返回(x, y)位置的灰度像素值。</p>
+<p>RGB565l：返回(x, y)位置的RGB888像素元组(r, g, b)。</p>
+<p>Bayer图像: 返回(x, y)位置的像素值。</p>
+<p>不支持压缩图像。</p>
+<blockquote>
+<p>image.get_pixel() 和 <code>image.set_pixel()</code>是允许你操作Bayer模式图像的唯一方法。 Bayer模式图像是文字图像。对于偶数行，其中图像中的像素是R/G/R/G/等。 对于奇数行，其中图像中的像素是G/B/G/B/等。 每个像素是8位。</p>
+</blockquote>
+<h4 id="image.set_pixel%28x%2C-y%2C-pixel%29">image.set_pixel(x, y, pixel)</h4>
+<p>灰度图：将(x, y) 位置的像素设置为灰度值 pixel 。</p>
+<p>RGB图像：将(x, y) 位置的像素设置为RGB888元组(r, g, b) pixel 。</p>
+<p>不支持压缩图像。</p>
+<blockquote>
+<p>image.get_pixel() 和 <code>image.set_pixel()</code>是允许你操作Bayer模式图像的唯一方法。 Bayer模式图像是文字图像。对于偶数行，其中图像中的像素是R/G/R/G/等。 对于奇数行，其中图像中的像素是G/B/G/B/等。 每个像素是8位。</p>
+</blockquote>
+<h4 id="image.mean_pool%28x_div%2C-y_div%29">image.mean_pool(x_div, y_div)</h4>
+<p>在图像中找到 x_div * y_div 正方形的平均值，并返回由每个正方形的平均值组成的修改图像。</p>
+<p>此方法允许您在原来图像上快速缩小图像。</p>
+<p>不支持压缩图像和bayer图像。</p>
+<h4 id="image.mean_pooled%28x_div%2C-y_div%29">image.mean_pooled(x_div, y_div)</h4>
+<p>在图像中找到 x_div * y_div 正方形的平均值，并返回由每个正方形的平均值组成的新图像。</p>
+<p>此方法允许您创建缩小的图像副本。</p>
+<p>不支持压缩图像和bayer图像。</p>
+<h4 id="image.midpoint_pool%28x_div%2C-y_div%5B%2C-bias%3D0.5%5D%29">image.midpoint_pool(x_div, y_div[, bias=0.5])</h4>
+<p>在图像中找到 x_div * y_div 正方形的中点值，并返回由每个正方形的中点值组成的修改图像。</p>
+<p>bias 为0.0返回每个区域的最小值，而<code>bias</code> 为1.0返回每个区域的最大值。</p>
+<p>此方法允许您在原来图像上快速缩小图像。</p>
+<p>不支持压缩图像和bayer图像。</p>
+<h4 id="image.midpoint_pooled%28x_div%2C-y_div%5B%2C-bias%3D0.5%5D%29">image.midpoint_pooled(x_div, y_div[, bias=0.5])</h4>
+<p>在图像中找到 x_div * y_div 正方形的中点值，并返回由每个正方形的中点值组成的新图像。</p>
+<p>bias 为0.0返回每个区域的最小值，而<code>bias</code> 为1.0返回每个区域的最大值。</p>
+<p>此方法允许您创建缩小的图像副本。</p>
+<p>不支持压缩图像和bayer图像。</p>
+<h4 id="image.to_grayscale%28%5Bcopy%3DFalse%5D%29">image.to_grayscale([copy=False])</h4>
+<p>将图像转换为灰度图像。 此方法也会修改基础图像像素，以字节为单位更改图像大小，因此只能在灰度图像或RGB565图像上进行。 否则 copy 必须为True才能在堆上创建新的修改图像。</p>
+<p>返回图像对象，以便您可以使用 . 表示法调用另一个方法。</p>
+<p>不支持压缩图像和bayer图像。</p>
+<h4 id="image.to_rgb565%28%5Bcopy%3DFalse%5D%29">image.to_rgb565([copy=False])</h4>
+<p>将图像转换为彩色图像。 此方法也会修改基础图像像素，以字节为单位更改图像大小，因此只能在RGB565图像上进行。 否则 copy 必须为True才能在堆上创建新的修改图像。</p>
+<p>返回图像对象，以便您可以使用 . 表示法调用另一个方法。</p>
+<p>不支持压缩图像和bayer图像。</p>
+<h4 id="image.to_rainbow%28%5Bcopy%3DFalse%5D%29">image.to_rainbow([copy=False])</h4>
+<p>将图像转换为彩虹图像。 此方法也会修改基础图像像素，以字节为单位更改图像大小，因此只能在RGB565图像上进行。 否则 copy 必须为True才能在堆上创建新的修改图像。</p>
+<p>彩虹图像是彩色图像，对于图像中的每个8位掩模灰度照明值具有唯一的颜色值。 例如，它为热图像提供热图颜色。</p>
+<p>返回图像对象，以便您可以使用 . 表示法调用另一个方法。</p>
+<p>不支持压缩图像和bayer图像。</p>
+<h4 id="image.compress%28%5Bquality%3D50%5D%29">image.compress([quality=50])</h4>
+<p>JPEG对图像进行适当压缩。使用这种方法与 compressed 保存堆空间相比，使用更高quality的压缩率是以破坏原始图像为代价的。</p>
+<p>quality 是压缩质量（0-100）（int）。</p>
+<h4 id="image.compress_for_ide%28%5Bquality%3D50%5D%29">image.compress_for_ide([quality=50])</h4>
+<p>JPEG对图像进行适当压缩。使用这种方法与 compressed 保存堆空间相比，使用更高quality的压缩率是以破坏原始图像为代价的。</p>
+<p>这个方法压缩图像，然后通过将每6比特编码为128 - 191之间的字节将JPEG数据格式化，转换为OpenMV IDE，以便显示。进行这一步是为防止JPEG数据被误认为是字节流中的其他文本数据。</p>
+<p>您需要使用这一方法来格式化图像数据，以便在OpenMV IDE中通过“开放终端”创建的终端窗口中显示。</p>
+<p>quality 是压缩质量（0-100）（int）。</p>
+<h4 id="image.compressed%28%5Bquality%3D50%5D%29">image.compressed([quality=50])</h4>
+<p>返回一个JPEG压缩图像—原始图像未经处理。但是，这个方法需要堆空间的大分配，所以图像压缩质量和图像分辨率必须很低。</p>
+<p>quality 是压缩质量（0-100）（int）。</p>
+<h4 id="image.compressed_for_ide%28%5Bquality%3D50%5D%29">image.compressed_for_ide([quality=50])</h4>
+<p>返回一个JPEG压缩图像—原始图像未经处理。但是，这个方法需要堆空间的大分配，所以图像压缩质量和图像分辨率必须很低。</p>
+<p>这个方法压缩图像，然后通过将每6比特编码为128 - 191之间的字节将JPEG数据格式化，转换为OpenMV IDE，以便显示。进行这一步是为防止JPEG数据被误认为是字节流中的其他文本数据。</p>
+<p>您需要使用这一方法来格式化图像数据，以便在OpenMV IDE中通过“开放终端”创建的终端窗口中显示。</p>
+<p>quality 是压缩质量（0-100）（int）。</p>
+<h4 id="image.copy%28%5Broi%5B%2C-copy_to_fb%3DFalse%5D%5D%29">image.copy([roi[, copy_to_fb=False]])</h4>
+<p>创建一个图像对象的副本。</p>
+<p>Roi 是一个用以复制的矩形的感兴趣区域(x, y, w, h)。如果未指定，ROI即复制整个图像的图像矩形。但这不适用于JPEG图像。</p>
+<p>请记住图像副本储存在MicroPython 堆中而不是帧缓冲区。同样，您需要将图像副本大小控制在8KB以下（OpenMV）或16KB以下（OpenMV Cam M7） 如果您想使用一个复制操作来使用所有的堆空间，这个函数会出现异常。过大的图像极易触发异常。</p>
+<p>如果 copy_to_fb 为True，则该方法将帧缓冲替换为图像。 帧缓冲区具有比堆大得多的空间，并且可以容纳大图像。</p>
+<h4 id="image.save%28path%5B%2C-roi%5B%2C-quality%3D50%5D%5D%29">image.save(path[, roi[, quality=50]])</h4>
+<p>将图像的副本保存到 path 中的文件系统。</p>
+<p>支持bmp/pgm/ppm/jpg/jpeg格式的图像文件。注意：您无法将jpeg格式的压缩图像保存成未压缩的格式。</p>
+<p>roi 是一个用以复制的矩形的感兴趣区域(x, y, w, h)。如果未指定，ROI即复制整个图像的图像矩形。但这不适用于JPEG图像。</p>
+<p>quality 指在图像尚未被压缩时将图像保存为JPEG格式的JPEG压缩质量。</p>
+<h4 id="image.clear%28%29">image.clear()</h4>
+<p>将图像中的所有像素设置为零（非常快）。</p>
+<p>返回图像对象，以便您可以使用 . 表示法调用另一个方法。</p>
+<p>不支持压缩图像。</p>
+<h4 id="image.draw_line%28x0%2C-y0%2C-x1%2C-y1%5B%2C-color%5B%2C-thickness%3D1%5D%5D%29">image.draw_line(x0, y0, x1, y1[, color[, thickness=1]])</h4>
+<p>在图像上绘制一条从(x0，y0)到(x1，y1)的线。 您可以单独传递x0，y0，x1，y1，也可以传递给元组(x0，y0，x1，y1)。</p>
+<p>color 是用于灰度或RGB565图像的RGB888元组。默认为白色。但是，您也可以传递灰度图像的基础像素值(0-255)或RGB565图像的字节反转RGB565值。</p>
+<p>thickness 控制线的粗细像素。</p>
+<p>返回图像对象，以便您可以使用 . 表示法调用另一个方法。</p>
+<p>不支持压缩图像和bayer图像。</p>
+<h4 id="image.draw_rectangle%28x%2C-y%2C-w%2C-h%5B%2C-color%5B%2C-thickness%3D1%5B%2C-fill%3DFalse%5D%5D%5D%29">image.draw_rectangle(x, y, w, h[, color[, thickness=1[, fill=False]]])</h4>
+<p>在图像上绘制一个矩形。 您可以单独传递x，y，w，h或作为元组(x，y，w，h)传递。</p>
+<p>color 是用于灰度或RGB565图像的RGB888元组。默认为白色。但是，您也可以传递灰度图像的基础像素值(0-255)或RGB565图像的字节反转RGB565值。</p>
+<p>thickness 控制线的粗细像素。</p>
+<p>将 fill 设置为True以填充矩形。</p>
+<p>返回图像对象，以便您可以使用 . 表示法调用另一个方法。</p>
+<p>不支持压缩图像和bayer图像。</p>
+<h4 id="image.draw_ellipse%28cx%2C-cy%2C-rx%2C-ry%2C-rotation%5B%2C-color%5B%2C-thickness%3D1%5B%2C-fill%3DFalse%5D%5D%5D%29">image.draw_ellipse(cx, cy, rx, ry, rotation[, color[, thickness=1[, fill=False]]])</h4>
+<p>在图像上绘制椭圆。您可以单独传递cx、cy、rx、ry和rotation(以度为单位)，也可以作为元组传递(cx、yc、rx、ry、rotation)。</p>
+<p>color 是用于灰度或RGB565图像的RGB888元组。默认为白色。 但是，您也可以为灰度图像传递基础像素值(0-255)，或者为RGB565图像传递字节反转的RGB565值。</p>
+<p>thickness 控制边缘的厚度，以像素为单位。</p>
+<p>传递 fill 设置为True来填充椭圆。</p>
+<p>返回图像对象，以便您可以使用 . 表示法调用另一个方法。</p>
+<p>不支持压缩图像或bayer图像。</p>
+<h4 id="image.draw_circle%28x%2C-y%2C-radius%5B%2C-color%5B%2C-thickness%3D1%5B%2C-fill%3DFalse%5D%5D%5D%29">image.draw_circle(x, y, radius[, color[, thickness=1[, fill=False]]])</h4>
+<p>在图像上绘制一个圆形。 您可以单独传递x，y，半径 或 作为元组(x，y，radius)传递。</p>
+<p>color 是用于灰度或RGB565图像的RGB888元组。默认为白色。但是，您也可以传递灰度图像的基础像素值(0-255)或RGB565图像的字节反转RGB565值。</p>
+<p>thickness 控制线的粗细像素。</p>
+<p>将 fill 设置为True以填充圆形。</p>
+<p>返回图像对象，以便您可以使用 . 表示法调用另一个方法。</p>
+<p>不支持压缩图像和bayer图像。</p>
+<h4 id="image.draw_string%28x%2C-y%2C-text%5B%2C-color%5B%2C-scale%3D1%5B%2C-x_spacing%3D0%5B%2C-y_spacing%3D0%5B%2C-mono_space%3DTrue%5D%5D%5D%5D%5D%29">image.draw_string(x, y, text[, color[, scale=1[, x_spacing=0[, y_spacing=0[, mono_space=True]]]]])</h4>
+<p>从图像中的(x, y)位置开始绘制8x10文本。您可以单独传递x，y，也可以作为元组(x，y)传递。</p>
+<p>text 是写入图像的字符串。 \n, \r, 和 \r\n 结束符将光标移至下一行。</p>
+<p>color 是用于灰度或RGB565图像的RGB888元组。默认为白色。但是，您也可以传递灰度图像的基础像素值(0-255)或RGB565图像的字节反转RGB565值。</p>
+<p>可以增加 scale 以增加图像上文本的大小。</p>
+<p>仅整数值（例如，1/2/3 /等）。</p>
+<p>x_spacing 允许你在字符之间添加（如果是正数）或减去（如果是负数）x像素，设置字符间距。</p>
+<p>y_spacing 允许你在字符之间添加（如果是正数）或减去（如果是负数）y像素，设置行间距。</p>
+<p>mono_space 默认为True，强制文本间距固定。对于大文本，这看起来很糟糕。设置False以获得非固定宽度的字符间距，看起来好多了。</p>
+<p>返回图像对象，以便您可以使用 . 表示法调用另一个方法。</p>
+<p>不支持压缩图像和bayer图像。</p>
+<h4 id="image.draw_cross%28x%2C-y%5B%2C-color%5B%2C-size%3D5%5B%2C-thickness%3D1%5D%5D%5D%29">image.draw_cross(x, y[, color[, size=5[, thickness=1]]])</h4>
+<p>在图像上绘制一个十字。 您可以单独传递x，y或作为元组(x，y)传递。</p>
+<p>color 是用于灰度或RGB565图像的RGB888元组。默认为白色。但是，您也可以传递灰度图像的基础像素值(0-255)或RGB565图像的字节反转RGB565值。</p>
+<p>size 控制十字线的延伸长度。</p>
+<p>thickness 控制边缘的像素厚度。</p>
+<p>返回图像对象，以便您可以使用 . 表示法调用另一个方法。</p>
+<p>不支持压缩图像和bayer图像。</p>
+<h4 id="image.draw_arrow%28x0%2C-y0%2C-x1%2C-y1%5B%2C-color%5B%2C-thickness%3D1%5D%5D%29">image.draw_arrow(x0, y0, x1, y1[, color[, thickness=1]])</h4>
+<p>在图像上绘制一条从(x0，y0)到(x1，y1)的箭头。 您可以单独传递x0，y0，x1，y1，也可以传递给元组(x0，y0，x1，y1)。</p>
+<p>color 是用于灰度或RGB565图像的RGB888元组。默认为白色。但是，您也可以传递灰度图像的基础像素值(0-255)或RGB565图像的字节反转RGB565值。</p>
+<p>thickness 控制线的粗细像素。</p>
+<p>返回图像对象，以便您可以使用 . 表示法调用另一个方法。</p>
+<p>不支持压缩图像和bayer图像。</p>
+<h4 id="image.draw_image%28image%2C-x%2C-y%5B%2C-x_scale%3D1.0%5B%2C-y_scale%3D1.0%5B%2C-mask%3DNone%5B%2C-alpha%3D256%5D%5D%5D%5D%29">image.draw_image(image, x, y[, x_scale=1.0[, y_scale=1.0[, mask=None[, alpha=256]]]])</h4>
+<p>绘制一个 image ，其左上角从位置x，y开始。 您可以单独传递x，y，也可以传递给元组(x，y)。</p>
+<p>x_scale 控制图像在x方向(浮点数)缩放的程度。</p>
+<p>y_scale 控制图像在y方向(浮点数)缩放的程度。</p>
+<p>mask 是另一个用作绘图操作的像素级掩码的图像。掩码应该是一个只有黑色或白色像素的图像，并且应该与你正在绘制的 image 大小相同。 您可以使用mask掩码进行绘制操作。</p>
+<p>alpha 控制源图像绘制到目标图像中的透明度。256 为绘制不透明的源图像，而小于 256 的值产生源图像和目标图像之间的混合。0 表示不修改目标图像。</p>
+<p>不支持压缩图像和bayer图像。</p>
+<h4 id="image.draw_keypoints%28keypoints%5B%2C-color%5B%2C-size%3D10%5B%2C-thickness%3D1%5B%2C-fill%3DFalse%5D%5D%5D%5D%29">image.draw_keypoints(keypoints[, color[, size=10[, thickness=1[, fill=False]]]])</h4>
+<p>在图像上画出一个特征点对象的各个点。</p>
+<p>color 是用于灰度或RGB565图像的RGB888元组。默认为白色。但是，您也可以传递灰度图像的基础像素值(0-255)或RGB565图像的字节反转RGB565值。</p>
+<p>size 控制特征点的大小。</p>
+<p>thickness 控制线的粗细像素。</p>
+<p>将 fill 设置为True以填充特征点。</p>
+<p>返回图像对象，以便您可以使用 . 表示法调用另一个方法。</p>
+<p>不支持压缩图像和bayer图像。</p>
+<h4 id="image.flood_fill%28x%2C-y%5B%2C-seed_threshold%3D0.05%5B%2C-floating_threshold%3D0.05%5B%2C-color%5B%2C-invert%3DFalse%5B%2C-clear_background%3DFalse%5B%2C-mask%3DNone%5D%5D%5D%5D%5D%5D%29">image.flood_fill(x, y[, seed_threshold=0.05[, floating_threshold=0.05[, color[, invert=False[, clear_background=False[, mask=None]]]]]])</h4>
+<p>从位置x，y开始填充图像的区域。 您可以单独传递x，y，也可以传递给元组(x，y)。</p>
+<p>seed_threshold 控制填充区域中的像素与原始起始像素的差异。</p>
+<p>floating_threshold 控制填充区域中的像素与任何相邻像素的差异。</p>
+<p>color 是用于灰度或RGB565图像的RGB888元组。默认为白色。但是，您也可以传递灰度图像的基础像素值(0-255)或RGB565图像的字节反转RGB565值。</p>
+<p>将 invert 传递为True，以重新填充flood_fill连接区域外的所有内容。</p>
+<p>将 clear_background 传递为True，将其余的flood_fill没有重新着色的像素归零。</p>
+<p>mask 是另一个用作绘图操作的像素级掩码的图像。掩码应该是一个只有黑色或白色像素的图像，并且应该与你正在绘制的 image 大小相同。 仅掩膜中设置的像素会在flood_fill时被评估。</p>
+<p>返回图像对象，以便您可以使用 . 表示法调用另一个方法。</p>
+<p>不支持压缩图像和bayer图像。</p>
+<p>此方法在OpenMV Cam M4 上不可用。</p>
+<h4 id="image.binary%28thresholds%5B%2C-invert%3DFalse%5B%2C-zero%3DFalse%5B%2C-mask%3DNone%5D%5D%5D%29">image.binary(thresholds[, invert=False[, zero=False[, mask=None]]])</h4>
+<p>根据像素是否在阈值列表 thresholds 中的阈值内，将图像中的所有像素设置为黑色或白色。</p>
+<p>thresholds 必须是元组列表。 [(lo, hi), (lo, hi), ..., (lo, hi)] 定义你想追踪的颜色范围。 对于灰度图像，每个元组需要包含两个值 - 最小灰度值和最大灰度值。 仅考虑落在这些阈值之间的像素区域。 对于RGB565图像，每个元组需要有六个值(l_lo，l_hi，a_lo，a_hi，b_lo，b_hi) - 分别是LAB L，A和B通道的最小值和最大值。 为方便使用，此功能将自动修复交换的最小值和最大值。 此外，如果元组大于六个值，则忽略其余值。相反，如果元组太短，则假定其余阈值处于最大范围。</p>
+<p>注解</p>
+<p>获取所跟踪对象的阈值，只需在 IDE 帧缓冲区中选择（单击并拖动）跟踪对象。 直方图会相应地更新到所在区域。然后只需写下颜色分布在每个直方图通道中起始与下降位置。 这些将是 thresholds 的低值和高值。 由于上下四分位数据相差微小，故手动确定阈值为佳。</p>
+<p>您还可以通过进入OpenMV IDE中的 工具 -&gt;机器视觉 -&gt;阈值编辑器 并从GUI窗口中拖动滑块来确定颜色阈值。</p>
+<p>invert 反转阈值操作，像素在已知颜色范围之外进行匹配，而非在已知颜色范围内。</p>
+<p>设置 zero 为True来使阈值像素为零，并使不在阈值列表中的像素保持不变。</p>
+<p>mask 是另一个用作绘图操作的像素级掩码的图像。掩码应该是一个只有黑色或白色像素的图像，并且应该与你正在绘制的 image 大小相同。 仅掩码中设置的像素被修改。</p>
+<p>返回图像对象，以便您可以使用 . 表示法调用另一个方法。</p>
+<p>不支持压缩图像和bayer图像。</p>
+<h4 id="image.invert%28%29">image.invert()</h4>
+<p>将二进制图像0（黑色）变为1（白色），1（白色）变为0（黑色），非常快速地翻转二进制图像中的所有像素值。</p>
+<p>返回图像对象，以便您可以使用 . 表示法调用另一个方法。</p>
+<p>不支持压缩图像和Bayer图像。</p>
+<h4 id="image.b_and%28image%5B%2C-mask%3DNone%5D%29">image.b_and(image[, mask=None])</h4>
+<p>用另一图像与这一图像进行逻辑与运算。</p>
+<p>image 可以是图像对象，未压缩图像文件的路径(bmp/pgm/ppm)，也可以是标量值。 如果标量值，该值可以是RGB888元组或基础像素值(例如，灰度图像的8位灰度级或RGB图像的字节反转RGB565值)。</p>
+<p>mask 是另一个用作绘图操作的像素级掩码的图像。掩码应该是一个只有黑色或白色像素的图像，并且应该与你正在绘制的 image 大小相同。 仅掩码中设置的像素被修改。</p>
+<p>返回图像对象，以便您可以使用 . 表示法调用另一个方法。</p>
+<p>不支持压缩图像和bayer图像。</p>
+<h4 id="image.b_nand%28image%5B%2C-mask%3DNone%5D%29">image.b_nand(image[, mask=None])</h4>
+<p>用另一图像与这一图像进行逻辑与非运算。</p>
+<p>image 可以是图像对象，未压缩图像文件的路径(bmp/pgm/ppm)，也可以是标量值。 如果标量值，该值可以是RGB888元组或基础像素值(例如，灰度图像的8位灰度级或RGB图像的字节反转RGB565值)。</p>
+<p>mask 是另一个用作绘图操作的像素级掩码的图像。掩码应该是一个只有黑色或白色像素的图像，并且应该与你正在绘制的 image 大小相同。 仅掩码中设置的像素被修改。</p>
+<p>返回图像对象，以便您可以使用 . 表示法调用另一个方法。</p>
+<p>不支持压缩图像和bayer图像。</p>
+<h4 id="image.b_or%28image%5B%2C-mask%3DNone%5D%29">image.b_or(image[, mask=None])</h4>
+<p>用另一图像与这一图像进行逻辑或运算。</p>
+<p>image 可以是图像对象，未压缩图像文件的路径(bmp/pgm/ppm)，也可以是标量值。 如果标量值，该值可以是RGB888元组或基础像素值(例如，灰度图像的8位灰度级或RGB图像的字节反转RGB565值)。</p>
+<p>mask 是另一个用作绘图操作的像素级掩码的图像。掩码应该是一个只有黑色或白色像素的图像，并且应该与你正在绘制的 image 大小相同。 仅掩码中设置的像素被修改。</p>
+<p>返回图像对象，以便您可以使用 . 表示法调用另一个方法。</p>
+<p>不支持压缩图像和bayer图像。</p>
+<h4 id="image.b_nor%28image%5B%2C-mask%3DNone%5D%29">image.b_nor(image[, mask=None])</h4>
+<p>用另一图像与这一图像进行逻辑或非运算。</p>
+<p>image 可以是图像对象，未压缩图像文件的路径(bmp/pgm/ppm)，也可以是标量值。 如果标量值，该值可以是RGB888元组或基础像素值(例如，灰度图像的8位灰度级或RGB图像的字节反转RGB565值)。</p>
+<p>mask 是另一个用作绘图操作的像素级掩码的图像。掩码应该是一个只有黑色或白色像素的图像，并且应该与你正在绘制的 image 大小相同。 仅掩码中设置的像素被修改。</p>
+<p>返回图像对象，以便您可以使用 . 表示法调用另一个方法。</p>
+<p>不支持压缩图像和bayer图像。</p>
+<h4 id="image.b_xor%28image%5B%2C-mask%3DNone%5D%29">image.b_xor(image[, mask=None])</h4>
+<p>用另一图像与这一图像进行逻辑异或运算。</p>
+<p>image 可以是图像对象，未压缩图像文件的路径(bmp/pgm/ppm)，也可以是标量值。 如果标量值，该值可以是RGB888元组或基础像素值(例如，灰度图像的8位灰度级或RGB图像的字节反转RGB565值)。</p>
+<p>mask 是另一个用作绘图操作的像素级掩码的图像。掩码应该是一个只有黑色或白色像素的图像，并且应该与你正在绘制的 image 大小相同。 仅掩码中设置的像素被修改。</p>
+<p>返回图像对象，以便您可以使用 . 表示法调用另一个方法。</p>
+<p>不支持压缩图像和bayer图像。</p>
+<h4 id="image.b_xnor%28image%5B%2C-mask%3DNone%5D%29">image.b_xnor(image[, mask=None])</h4>
+<p>用另一图像与这一图像进行逻辑同或运算。</p>
+<p>image 可以是图像对象，未压缩图像文件的路径(bmp/pgm/ppm)，也可以是标量值。 如果标量值，该值可以是RGB888元组或基础像素值(例如，灰度图像的8位灰度级或RGB图像的字节反转RGB565值)。</p>
+<p>mask 是另一个用作绘图操作的像素级掩码的图像。掩码应该是一个只有黑色或白色像素的图像，并且应该与你正在绘制的 image 大小相同。 仅掩码中设置的像素被修改。</p>
+<p>返回图像对象，以便您可以使用 . 表示法调用另一个方法。</p>
+<p>不支持压缩图像和bayer图像。</p>
+<h4 id="image.erode%28size%5B%2C-threshold%5B%2C-mask%3DNone%5D%5D%29">image.erode(size[, threshold[, mask=None]])</h4>
+<p>从分割区域的边缘删除像素。</p>
+<p>这一方法通过卷积图像上((size<em>2)+1)x((size</em>2)+1)像素的核来实现，如果相邻像素集的总和小于 threshold ，则对内核的中心像素进行归零。</p>
+<p>若 threshold 未设定，这个方法的功能如标准腐蚀方法一样。若threshold设定，您就可以指定腐蚀的特定像素，例如：设置低于2个的像素周围阈值为2。</p>
+<p>mask 是另一个用作绘图操作的像素级掩码的图像。掩码应该是一个只有黑色或白色像素的图像，并且应该与你正在绘制的 image 大小相同。 仅掩码中设置的像素被修改。</p>
+<p>返回图像对象，以便您可以使用 . 表示法调用另一个方法。</p>
+<p>不支持压缩图像和bayer图像。</p>
+<h4 id="image.dilate%28size%5B%2C-threshold%5B%2C-mask%3DNone%5D%5D%29">image.dilate(size[, threshold[, mask=None]])</h4>
+<p>将像素添加到分割区域的边缘中。</p>
+<p>这一方法通过卷积图像上((size<em>2)+1)x((size</em>2)+1)像素的核来实现，如果相邻像素集的总和大于 threshold ，则将内核的中心像素进行设置。</p>
+<p>若 threshold 未设定，这个方法的功能如标准腐蚀方法一样。若threshold设定，您就可以指定腐蚀的特定像素，例如：设置低于2个的像素周围阈值为2。</p>
+<p>mask 是另一个用作绘图操作的像素级掩码的图像。掩码应该是一个只有黑色或白色像素的图像，并且应该与你正在绘制的 image 大小相同。 仅掩码中设置的像素被修改。</p>
+<p>返回图像对象，以便您可以使用 . 表示法调用另一个方法。</p>
+<p>不支持压缩图像和bayer图像。</p>
+<h4 id="image.open%28size%5B%2C-threshold%5B%2C-mask%3DNone%5D%5D%29">image.open(size[, threshold[, mask=None]])</h4>
+<p>按顺序对图像执行腐蚀和膨胀。有关更多信息，请参阅 image.erode() 和 image.dilate() 。</p>
+<p>mask 是另一个用作绘图操作的像素级掩码的图像。掩码应该是一个只有黑色或白色像素的图像，并且应该与你正在绘制的 image 大小相同。 仅掩码中设置的像素被修改。</p>
+<p>返回图像对象，以便您可以使用 . 表示法调用另一个方法。</p>
+<p>不支持压缩图像和bayer图像。</p>
+<h4 id="image.close%28size%5B%2C-threshold%5B%2C-mask%3DNone%5D%5D%29">image.close(size[, threshold[, mask=None]])</h4>
+<p>按顺序对图像执行膨胀和腐蚀。有关更多信息，请参阅 image.erode() 和 image.dilate() 。</p>
+<p>mask 是另一个用作绘图操作的像素级掩码的图像。掩码应该是一个只有黑色或白色像素的图像，并且应该与你正在绘制的 image 大小相同。 仅掩码中设置的像素被修改。</p>
+<p>返回图像对象，以便您可以使用 . 表示法调用另一个方法。</p>
+<p>不支持压缩图像和bayer图像。</p>
+<h4 id="image.top_hat%28size%5B%2C-threshold%5B%2C-mask%3DNone%5D%5D%29">image.top_hat(size[, threshold[, mask=None]])</h4>
+<p>返回原图像和执行 image.open() 函数后图像的差异。</p>
+<p>mask 是另一个用作绘图操作的像素级掩码的图像。掩码应该是一个只有黑色或白色像素的图像，并且应该与你正在绘制的 image 大小相同。 仅掩码中设置的像素被修改。</p>
+<p>不支持压缩图像和bayer图像。</p>
+<h4 id="image.black_hat%28size%5B%2C-threshold%5B%2C-mask%3DNone%5D%5D%29">image.black_hat(size[, threshold[, mask=None]])</h4>
+<p>返回原图像和执行 image.close() 函数后图像的差异。</p>
+<p>mask 是另一个用作绘图操作的像素级掩码的图像。掩码应该是一个只有黑色或白色像素的图像，并且应该与你正在绘制的 image 大小相同。 仅掩码中设置的像素被修改。</p>
+<p>不支持压缩图像和bayer图像。</p>
+<h4 id="image.negate%28%29">image.negate()</h4>
+<p>非常快速地翻转（数字反转）图像中的所有像素值。对每个颜色通道的像素值进行数值转换。例： (255 - pixel).</p>
+<p>返回图像对象，以便您可以使用 . 表示法调用另一个方法。</p>
+<p>不支持压缩图像和bayer图像。</p>
+<h4 id="image.replace%28image%5B%2C-hmirror%3DFalse%5B%2C-vflip%3DFalse%5B%2C-mask%3DNone%5D%5D%5D%29">image.replace(image[, hmirror=False[, vflip=False[, mask=None]]])</h4>
+<p>image 可以是图像对象，未压缩图像文件的路径(bmp/pgm/ppm)，也可以是标量值。 如果标量值，该值可以是RGB888元组或基础像素值(例如，灰度图像的8位灰度级或RGB图像的字节反转RGB565值)。</p>
+<p>将 hmirror 设置为True以水平镜像替换图像。</p>
+<p>将 vflip 设置为True以垂直翻转替换图像。</p>
+<p>mask 是另一个用作绘图操作的像素级掩码的图像。掩码应该是一个只有黑色或白色像素的图像，并且应该与你正在绘制的 image 大小相同。 仅掩码中设置的像素被修改。</p>
+<p>返回图像对象，以便您可以使用 . 表示法调用另一个方法。</p>
+<p>不支持压缩图像和bayer图像。</p>
+<h4 id="image.add%28image%5B%2C-mask%3DNone%5D%29">image.add(image[, mask=None])</h4>
+<p>将两个图像彼此按像素相加。</p>
+<p>image 可以是图像对象，未压缩图像文件的路径(bmp/pgm/ppm)，也可以是标量值。 如果标量值，该值可以是RGB888元组或基础像素值(例如，灰度图像的8位灰度级或RGB图像的字节反转RGB565值)。</p>
+<p>mask 是另一个用作绘图操作的像素级掩码的图像。掩码应该是一个只有黑色或白色像素的图像，并且应该与你正在绘制的 image 大小相同。 仅掩码中设置的像素被修改。</p>
+<p>返回图像对象，以便您可以使用 . 表示法调用另一个方法。</p>
+<p>不支持压缩图像和bayer图像。</p>
+<h4 id="image.sub%28image%5B%2C-reverse%3DFalse%5B%2C-mask%3DNone%5D%5D%29">image.sub(image[, reverse=False[, mask=None]])</h4>
+<p>将两个图像彼此按像素相减。</p>
+<p>image 可以是图像对象，未压缩图像文件的路径(bmp/pgm/ppm)，也可以是标量值。 如果标量值，该值可以是RGB888元组或基础像素值(例如，灰度图像的8位灰度级或RGB图像的字节反转RGB565值)。</p>
+<p>将 reverse 设置为True可以将减法操作从 this_image-image 反转为 image-this_image 。</p>
+<p>mask 是另一个用作绘图操作的像素级掩码的图像。掩码应该是一个只有黑色或白色像素的图像，并且应该与你正在绘制的 image 大小相同。 仅掩码中设置的像素被修改。</p>
+<p>返回图像对象，以便您可以使用 . 表示法调用另一个方法。</p>
+<p>不支持压缩图像和bayer图像。</p>
+<h4 id="image.mul%28image%5B%2C-invert%3DFalse%5B%2C-mask%3DNone%5D%5D%29">image.mul(image[, invert=False[, mask=None]])</h4>
+<p>将两个图像彼此按像素相乘。</p>
+<p>image 可以是图像对象，未压缩图像文件的路径(bmp/pgm/ppm)，也可以是标量值。 如果标量值，该值可以是RGB888元组或基础像素值(例如，灰度图像的8位灰度级或RGB图像的字节反转RGB565值)。</p>
+<p>将 invert 设置为True可将乘法运算从 a<em>b 改为 1/((1/a)</em>(1/b))。 特别是，这使图像变亮而不是使图像变暗(例如，乘法与刻录操作)。</p>
+<p>mask 是另一个用作绘图操作的像素级掩码的图像。掩码应该是一个只有黑色或白色像素的图像，并且应该与你正在绘制的 image 大小相同。 仅掩码中设置的像素被修改。</p>
+<p>返回图像对象，以便您可以使用 . 表示法调用另一个方法。</p>
+<p>不支持压缩图像和bayer图像。</p>
+<h4 id="image.div%28image%5B%2C-invert%3DFalse%5B%2C-mask%3DNone%5D%5D%29">image.div(image[, invert=False[, mask=None]])</h4>
+<p>将此图像除以另一个图像。</p>
+<p>image 可以是图像对象，未压缩图像文件的路径(bmp/pgm/ppm)，也可以是标量值。 如果标量值，该值可以是RGB888元组或基础像素值(例如，灰度图像的8位灰度级或RGB图像的字节反转RGB565值)。</p>
+<p>将 invert 设置为True可将除法方向从 a/b 改为 b/a。</p>
+<p>mask 是另一个用作绘图操作的像素级掩码的图像。掩码应该是一个只有黑色或白色像素的图像，并且应该与你正在绘制的 image 大小相同。 仅掩码中设置的像素被修改。</p>
+<p>返回图像对象，以便您可以使用 . 表示法调用另一个方法。</p>
+<p>不支持压缩图像和bayer图像。</p>
+<h4 id="image.min%28image%5B%2C-mask%3DNone%5D%29">image.min(image[, mask=None])</h4>
+<p>在像素级 用此图像和另一个图像之间的最小像素值替换此图像中的像素。</p>
+<p>image 可以是图像对象，未压缩图像文件的路径(bmp/pgm/ppm)，也可以是标量值。 如果标量值，该值可以是RGB888元组或基础像素值(例如，灰度图像的8位灰度级或RGB图像的字节反转RGB565值)。</p>
+<p>mask 是另一个用作绘图操作的像素级掩码的图像。掩码应该是一个只有黑色或白色像素的图像，并且应该与你正在绘制的 image 大小相同。 仅掩码中设置的像素被修改。</p>
+<p>返回图像对象，以便您可以使用 . 表示法调用另一个方法。</p>
+<p>不支持压缩图像和bayer图像。</p>
+<p>这个方法在OpenMV4上不可用.</p>
+<h4 id="image.max%28image%5B%2C-mask%3DNone%5D%29">image.max(image[, mask=None])</h4>
+<p>在像素级 用此图像和另一个图像之间的最大像素值替换此图像中的像素。</p>
+<p>image 可以是图像对象，未压缩图像文件的路径(bmp/pgm/ppm)，也可以是标量值。 如果标量值，该值可以是RGB888元组或基础像素值(例如，灰度图像的8位灰度级或RGB图像的字节反转RGB565值)。</p>
+<p>mask 是另一个用作绘图操作的像素级掩码的图像。掩码应该是一个只有黑色或白色像素的图像，并且应该与你正在绘制的 image 大小相同。 仅掩码中设置的像素被修改。</p>
+<p>返回图像对象，以便您可以使用 . 表示法调用另一个方法。</p>
+<p>不支持压缩图像和bayer图像。</p>
+<h4 id="image.difference%28image%5B%2C-mask%3DNone%5D%29">image.difference(image[, mask=None])</h4>
+<p>将两个图像彼此按像素取绝对值。例：对于每个颜色通道而言，将每个像素��换为ABS(this.pixel-image.pixel)。</p>
+<p>image 可以是图像对象，未压缩图像文件的路径(bmp/pgm/ppm)，也可以是标量值。 如果标量值，该值可以是RGB888元组或基础像素值(例如，灰度图像的8位灰度级或RGB图像的字节反转RGB565值)。</p>
+<p>mask 是另一个用作绘图操作的像素级掩码的图像。掩码应该是一个只有黑色或白色像素的图像，并且应该与你正在绘制的 image 大小相同。 仅掩码中设置的像素被修改。</p>
+<p>返回图像对象，以便您可以使用 . 表示法调用另一个方法。</p>
+<p>不支持压缩图像和bayer图像。</p>
+<h4 id="image.blend%28image%5B%2C-alpha%3D128%5B%2C-mask%3DNone%5D%5D%29">image.blend(image[, alpha=128[, mask=None]])</h4>
+<p>将另外一张图像 image 与这一图像融合。</p>
+<p>image 可以是图像对象，未压缩图像文件的路径(bmp/pgm/ppm)，也可以是标量值。 如果标量值，该值可以是RGB888元组或基础像素值(例如，灰度图像的8位灰度级或RGB图像的字节反转RGB565值)。</p>
+<p>alpha 控制要混合到这个图像中的其他图像的多少. alpha 应该是0到256之间的整数值。接近零的值会将更多其他图像混合到此图像中，接近256则相反。</p>
+<p>mask 是另一个用作绘图操作的像素级掩码的图像。掩码应该是一个只有黑色或白色像素的图像，并且应该与你正在绘制的 image 大小相同。 仅掩码中设置的像素被修改。</p>
+<p>返回图像对象，以便您可以使用 . 表示法调用另一个方法。</p>
+<p>不支持压缩图像和bayer图像。</p>
+<h4 id="image.histeq%28%5Badaptive%3DFalse%5B%2C-clip_limit%3D-1%5B%2C-mask%3DNone%5D%5D%5D%29">image.histeq([adaptive=False[, clip_limit=-1[, mask=None]]])</h4>
+<p>在图像上运行直方图均衡算法。 直方图均衡化使图像中的对比度和亮度标准化。</p>
+<p>如果 adaptive 传递为True，那么将在图像上运行自适应直方图均衡方法，这通常比非自适应直方图限定更好，但运行时间更长。</p>
+<p>clip_limit 提供了一种限制自适应直方图均衡的对比度的方法。 使用较小的值(例如10)可以生成良好的直方图均衡对比度受限图像。</p>
+<p>mask 是另一个用作绘图操作的像素级掩码的图像。掩码应该是一个只有黑色或白色像素的图像，并且应该与你正在绘制的 image 大小相同。 仅掩码中设置的像素被修改。</p>
+<p>返回图像对象，以便您可以使用 . 表示法调用另一个方法。</p>
+<p>不支持压缩图像和bayer图像。</p>
+<h4 id="image.mean%28size%2C-%5Bthreshold%3DFalse%2C-%5Boffset%3D0%2C-%5Binvert%3DFalse%2C-%5Bmask%3DNone%5D%5D%5D%5D%5D%29">image.mean(size, [threshold=False, [offset=0, [invert=False, [mask=None]]]]])</h4>
+<p>使用盒式滤波器的标准均值模糊滤波。</p>
+<p>Size 是内核的大小。取1 (3x3 内核)、2 (5x5 内核)或更高值。</p>
+<p>如果你想在滤波器的输出上自适应地设置阈值，你可以传递 threshold=True 参数来启动图像的自适应阈值处理， 他根据环境像素的亮度（核函数周围的像素的亮度有关），将像素设置为1或者0。 负数 offset 值将更多像素设置为1，而正值仅将最强对比度设置为1。 设置 invert 以反转二进制图像的结果输出。</p>
+<p>mask 是另一个用作绘图操作的像素级掩码的图像。掩码应该是一个只有黑色或白色像素的图像，并且应该与你正在绘制的 image 大小相同。 仅掩码中设置的像素被修改。</p>
+<p>返回图像对象，以便您可以使用 . 表示法调用另一个方法。</p>
+<p>不支持压缩图像和bayer图像。</p>
+<p>median(size, percentile=0.5, threshold=False, offset=0, invert=False, mask])<br />
+在图像上运行中值滤波。在保留边缘的条件下，中值滤波是用来平滑表面的最佳滤波，但是运行速度极慢。</p>
+<p>Size 是内核的大小。取1 (3x3 内核)、2 (5x5 内核)或更高值。</p>
+<p>percentile 控制内核中所使用值的百分位数。默认情况下，每个像素都使用相邻的第五十个百分位数（中心）替换。使用最小滤波时，您可将此值设置为0，使用下四分位数滤波时设置为0.25，使用上四分位数滤波时设置为0.75，使用最大滤波时设置为1。</p>
+<p>如果你想在滤波器的输出上自适应地设置阈值，你可以传递 threshold=True 参数来启动图像的自适应阈值处理， 他根据环境像素的亮度（核函数周围的像素的亮度有关），将像素设置为1或者0。 负数 offset 值将更多像素设置为1，而正值仅将最强对比度设置为1。 设置 invert 以反转二进制图像的结果输出。</p>
+<p>mask 是另一个用作绘图操作的像素级掩码的图像。掩码应该是一个只有黑色或白色像素的图像，并且应该与你正在绘制的 image 大小相同。 仅掩码中设置的像素被修改。</p>
+<p>返回图像对象，以便您可以使用 . 表示法调用另一个方法。</p>
+<p>不支持压缩图像和bayer图像。</p>
+<p>此方法在OpenMV Cam M4 上不可用。</p>
+<h4 id="image.mode%28size%5B%2C-threshold%3DFalse%2C-offset%3D0%2C-invert%3DFalse%2C-mask%5D%29">image.mode(size[, threshold=False, offset=0, invert=False, mask])</h4>
+<p>在图像上运行众数滤波，用相邻像素的模式替换每个像素。这一方法在灰度图上运行效果良好。但由于这一操作的非线性特性，会在RGB图像边缘上产生许多伪像。</p>
+<p>Size 是内核的大小。取1 (3x3 内核)、2 (5x5 内核)。</p>
+<p>如果你想在滤波器的输出上自适应地设置阈值，你可以传递 threshold=True 参数来启动图像的自适应阈值处理， 他根据环境像素的亮度（核函数周围的像素的亮度有关），将像素设置为1或者0。 负数 offset 值将更多像素设置为1，而正值仅将最强对比度设置为1。 设置 invert 以反转二进制图像的结果输出。</p>
+<p>mask 是另一个用作绘图操作的像素级掩码的图像。掩码应该是一个只有黑色或白色像素的图像，并且应该与你正在绘制的 image 大小相同。 仅掩码中设置的像素被修改。</p>
+<p>返回图像对象，以便您可以使用 . 表示法调用另一个方法。</p>
+<p>不支持压缩图像和bayer图像。</p>
+<p>此方法在OpenMV Cam M4 上不可用。</p>
+<h4 id="image.midpoint%28size%5B%2C-bias%3D0.5%2C-threshold%3DFalse%2C-offset%3D0%2C-invert%3DFalse%2C-mask%5D%29">image.midpoint(size[, bias=0.5, threshold=False, offset=0, invert=False, mask])</h4>
+<p>在图像上运行中点滤波。此滤波器找到图像中每个像素邻域的中点((max-min)/2)。</p>
+<p>size 是内核的大小。取1 (3x3 内核)、2 (5x5 内核)或更高值。</p>
+<p>bias 控制图像混合的最小/最大程度。0只适用于最小滤波，1仅用于最大滤波。您可以通过 bias 对图像进行最小/最大化过滤。</p>
+<p>如果你想在滤波器的输出上自适应地设置阈值，你可以传递 threshold=True 参数来启动图像的自适应阈值处理， 他根据环境像素的亮度（核函数周围的像素的亮度有关），将像素设置为1或者0。 负数 offset 值将更多像素设置为1，而正值仅将最强对比度设置为1。 设置 invert 以反转二进制图像的结果输出。</p>
+<p>mask 是另一个用作绘图操作的像素级掩码的图像。掩码应该是一个只有黑色或白色像素的图像，并且应该与你正在绘制的 image 大小相同。 仅掩码中设置的像素被修改。</p>
+<p>返回图像对象，以便您可以使用 . 表示法调用另一个方法。</p>
+<p>不支持压缩图像和bayer图像。</p>
+<p>此方法在OpenMV Cam M4 上不可用。</p>
+<h4 id="image.morph%28size%2C-kernel%2C-mul%3DAuto%2C-add%3D0%29">image.morph(size, kernel, mul=Auto, add=0)</h4>
+<p>通过过滤器内核对图像进行卷积。这允许您对图像执行通用卷积。</p>
+<p>size 将内核的大小控制为((size<em>2)+1)x((size</em>2)+1)像素。</p>
+<p>kernel 用来卷积图像的内核，可为一个元组或一个取值[-128:127]的列表。</p>
+<p>mul 是用以与卷积像素结果相乘的数字。若不设置，则默认一个值，该值将防止卷积输出中的缩放。</p>
+<p>add 是用来与每个像素卷积结果相加的数值。</p>
+<p>mul 可进行全局对比度调整，add可进行全局亮度调整。</p>
+<p>如果你想在滤波器的输出上自适应地设置阈值，你可以传递 threshold=True 参数来启动图像的自适应阈值处理， 他根据环境像素的亮度（核函数周围的像素的亮度有关），将像素设置为1或者0。 负数 offset 值将更多像素设置为1，而正值仅将最强对比度设置为1。 设置 invert 以反转二进制图像的结果输出。</p>
+<p>mask 是另一个用作绘图操作的像素级掩码的图像。掩码应该是一个只有黑色或白色像素的图像，并且应该与你正在绘制的 image 大小相同。 仅掩码中设置的像素被修改。</p>
+<p>返回图像对象，以便您可以使用 . 表示法调用另一个方法。</p>
+<p>不支持压缩图像和bayer图像。</p>
+<h4 id="image.gaussian%28size%5B%2C-unsharp%3DFalse%5B%2C-mul%5B%2C-add%3D0%5B%2C-threshold%3DFalse%5B%2C-offset%3D0%5B%2C-invert%3DFalse%5B%2C-mask%3DNone%5D%5D%5D%5D%5D%5D%5D%29">image.gaussian(size[, unsharp=False[, mul[, add=0[, threshold=False[, offset=0[, invert=False[, mask=None]]]]]]])</h4>
+<p>通过平滑高斯核对图像进行卷积。</p>
+<p>size 是内核的大小。取1 (3x3 内核)、2 (5x5 内核)或更高值。</p>
+<p>如果 unsharp 设置为True，那么这种方法不会仅进行高斯滤波操作，而是执行非锐化掩模操作，从而提高边缘的图像清晰度。</p>
+<p>mul 是用以与卷积像素结果相乘的数字。若不设置，则默认一个值，该值将防止卷积输出中的缩放。</p>
+<p>add 是用来与每个像素卷积结果相加的数值。</p>
+<p>mul 可进行全局对比度调整，add可进行全局亮度调整。</p>
+<p>如果你想在滤波器的输出上自适应地设置阈值，你可以传递 threshold=True 参数来启动图像的自适应阈值处理， 他根据环境像素的亮度（核函数周围的像素的亮度有关），将像素设置为1或者0。 负数 offset 值将更多像素设置为1，而正值仅将最强对比度设置为1。 设置 invert 以反转二进制图像的结果输出。</p>
+<p>mask 是另一个用作绘图操作的像素级掩码的图像。掩码应该是一个只有黑色或白色像素的图像，并且应该与你正在绘制的 image 大小相同。 仅掩码中设置的像素被修改。</p>
+<p>返回图像对象，以便您可以使用 . 表示法调用另一个方法。</p>
+<p>不支持压缩图像和bayer图像。</p>
+<p>此方法在OpenMV Cam M4 上不可用。</p>
+<h4 id="image.laplacian%28size%5B%2C-sharpen%3DFalse%5B%2C-mul%5B%2C-add%3D0%5B%2C-threshold%3DFalse%5B%2C-offset%3D0%5B%2C-invert%3DFalse%5B%2C-mask%3DNone%5D%5D%5D%5D%5D%5D%5D%29">image.laplacian(size[, sharpen=False[, mul[, add=0[, threshold=False[, offset=0[, invert=False[, mask=None]]]]]]])</h4>
+<p>通过边缘检测拉普拉斯核来对图像进行卷积。</p>
+<p>size 是内核的大小。取1 (3x3 内核)、2 (5x5 内核)或更高值。</p>
+<p>如果 sharpen 被设置为True，那么这种方法将改为锐化图像，而不是仅输出未经过阈值处理的边缘检测图像。 增加内核大小然后增加图像清晰度。</p>
+<p>mul 是用以与卷积像素结果相乘的数字。若不设置，则默认一个值，该值将防止卷积输出中的缩放。</p>
+<p>add 是用来与每个像素卷积结果相加的数值。</p>
+<p>mul 可进行全局对比度调整，add可进行全局亮度调整。</p>
+<p>如果你想在滤波器的输出上自适应地设置阈值，你可以传递 threshold=True 参数来启动图像的自适应阈值处理， 他根据环境像素的亮度（核函数周围的像素的亮度有关），将像素设置为1或者0。 负数 offset 值将更多像素设置为1，而正值仅将最强对比度设置为1。 设置 invert 以反转二进制图像的结果输出。</p>
+<p>mask 是另一个用作绘图操作的像素级掩码的图像。掩码应该是一个只有黑色或白色像素的图像，并且应该与你正在绘制的 image 大小相同。 仅掩码中设置的像素被修改。</p>
+<p>返回图像对象，以便您可以使用 . 表示法调用另一个方法。</p>
+<p>不支持压缩图像和bayer图像。</p>
+<p>此方法在OpenMV Cam M4 上不可用。</p>
+<h4 id="image.bilateral%28size%5B%2C-color_sigma%3D0.1%5B%2C-space_sigma%3D1%5B%2C-threshold%3DFalse%5B%2C-offset%3D0%5B%2C-invert%3DFalse%5B%2C-mask%3DNone%5D%5D%5D%5D%5D%5D%29">image.bilateral(size[, color_sigma=0.1[, space_sigma=1[, threshold=False[, offset=0[, invert=False[, mask=None]]]]]])</h4>
+<p>通过双边滤波器对图像进行卷积。 双边滤波器使图像平滑，同时保持图像中的边缘。</p>
+<p>size 是内核的大小。取1 (3x3 内核)、2 (5x5 内核)或更高值。</p>
+<p>color_sigma 控制使用双边滤波器匹配颜色的接近程度。增加此值可增加颜色模糊。</p>
+<p>space_sigma 控制像素在空间方面相互模糊的程度。增加此值可增加像素模糊。</p>
+<p>如果你想在滤波器的输出上自适应地设置阈值，你可以传递 threshold=True 参数来启动图像的自适应阈值处理， 他根据环境像素的亮度（核函数周围的像素的亮度有关），将像素设置为1或者0。 负数 offset 值将更多像素设置为1，而正值仅将最强对比度设置为1。 设置 invert 以反转二进制图像的结果输出。</p>
+<p>mask 是另一个用作绘图操作的像素级掩码的图像。掩码应该是一个只有黑色或白色像素的图像，并且应该与你正在绘制的 image 大小相同。 仅掩码中设置的像素被修改。</p>
+<p>返回图像对象，以便您可以使用 . 表示法调用另一个方法。</p>
+<p>不支持压缩图像和bayer图像。</p>
+<p>此方法在OpenMV Cam M4 上不可用。</p>
+<h4 id="image.cartoon%28size%5B%2C-seed_threshold%3D0.05%5B%2C-floating_threshold%3D0.05%5B%2C-mask%3DNone%5D%5D%5D%29">image.cartoon(size[, seed_threshold=0.05[, floating_threshold=0.05[, mask=None]]])</h4>
+<p>漫游图像并使用flood-fills算法填充图像中的所有像素区域。 这通过使图像的所有区域中的颜色变平来有效地从图像中去除纹理。 为了获得最佳效果，图像应具有大量对比度，以使区域不会太容易相互渗透。</p>
+<p>seed_threshold 控制填充区域中的像素与原始起始像素的差异。</p>
+<p>floating_threshold 控制填充区域中的像素与任何相邻像素的差异。</p>
+<p>mask 是另一个用作绘图操作的像素级掩码的图像。掩码应该是一个只有黑色或白色像素的图像，并且应该与你正在绘制的 image 大小相同。 仅掩码中设置的像素被修改。</p>
+<p>返回图像对象，以便您可以使用 . 表示法调用另一个方法。</p>
+<p>不支持压缩图像和bayer图像。</p>
+<p>此方法在OpenMV Cam M4 上不可用。</p>
+<h4 id="image.remove_shadows%28%5Bimage%5D%29">image.remove_shadows([image])</h4>
+<p>从该图像中移除阴影。</p>
+<p>如果当前图像没有“无阴影”版本出现，则此方法将尝试从图像中去除阴影，但没有真实无阴影的图像依据。 这种算法适用于去除平坦均匀背景中的阴影。 请注意，此方法需要多秒才能运行，并且仅适用于实时移除阴影，动态生成无阴影版本的图像。 该算法的未来版本将适用于更多的环境，但同样缓慢。</p>
+<p>如果当前图像有“无阴影”版本出现，则此方法将使用“真实源”背景无阴影图像去除图像中的所有阴影以滤除阴影。 非阴影像素不会被过滤掉，因此您可以向场景中添加以前不存在的新对象，并且这些对象中的任何非阴影像素都将显示出来。</p>
+<p>返回图像对象，以便您可以使用 . 表示法调用另一个方法。</p>
+<p>只支持RGB565图像。</p>
+<p>此方法在OpenMV Cam M4 上不可用。</p>
+<h4 id="image.chrominvar%28%29">image.chrominvar()</h4>
+<p>从图像中删除照明效果，仅留下颜色渐变。比 image.illuminvar() 更快但受阴影影响。</p>
+<p>返回图像对象，以便您可以使用 . 表示法调用另一个方法。</p>
+<p>仅支持RGB565图像。</p>
+<p>此方法在OpenMV Cam M4 上不可用。</p>
+<h4 id="image.illuminvar%28%29">image.illuminvar()</h4>
+<p>从图像中删除照明效果，仅留下颜色渐变。比 image.chrominvar() 慢但不受阴影影响。</p>
+<p>返回图像对象，以便您可以使用 . 表示法调用另一个方法。</p>
+<p>仅支持RGB565图像。</p>
+<p>此方法在OpenMV Cam M4 上不可用。</p>
+<h4 id="image.linpolar%28%5Breverse%3DFalse%5D%29">image.linpolar([reverse=False])</h4>
+<p>图像从笛卡尔坐标到线性极坐标重新投影。</p>
+<p>设置 reverse = True 可以在相反的方向重新投影。</p>
+<p>线性极坐标重新投影将图像旋转转换为x平移。</p>
+<p>不支持压缩图像。</p>
+<p>此方法在OpenMV Cam M4 上不可用。</p>
+<h4 id="image.logpolar%28%5Breverse%3DFalse%5D%29">image.logpolar([reverse=False])</h4>
+<p>图像从笛卡尔坐标到对数极坐标重新投影。</p>
+<p>设置 reverse = True 可以在相反的方向重新投影。</p>
+<p>对数极坐标重新投影将图像的旋转转换为x平移和缩放到y平移。</p>
+<p>不支持压缩图像。</p>
+<p>此方法在OpenMV Cam M4 上不可用。</p>
+<h4 id="image.lens_corr%28%5Bstrength%3D1.8%5B%2C-zoom%3D1.0%5D%5D%29">image.lens_corr([strength=1.8[, zoom=1.0]])</h4>
+<p>进行镜头畸变校正，以去除镜头造成的图像鱼眼效果。</p>
+<p>strength 是一个浮点数，该值确定了对图像进行去鱼眼效果的程度。在默认情况下，首先试用取值1.8，然后调整这一数值使图像显示最佳效果。</p>
+<p>zoom 是在对图像进行缩放的数值。默认值为 1.0 。</p>
+<p>返回图像对象，以便您可以使用 . 表示法调用另一个方法。</p>
+<p>不支持压缩图像和bayer图像。</p>
+<h4 id="img.rotation_corr%28%5Bx_rotation%3D0.0%5B%2C-y_rotation%3D0.0%5B%2C-z_rotation%3D0.0%5B%2C-x_translation%3D0.0%5B%2C-y_translation%3D0.0%5B%2C-zoom%3D1.0%5B%2C-fov%3D60.0%5B%2C-corners%5D%5D%5D%5D%5D%5D%5D%5D%29">img.rotation_corr([x_rotation=0.0[, y_rotation=0.0[, z_rotation=0.0[, x_translation=0.0[, y_translation=0.0[, zoom=1.0[, fov=60.0[, corners]]]]]]]])</h4>
+<p>通过对帧缓冲区进行3D旋转来纠正图像中的透视问题。</p>
+<p><code>x_rotation</code> 是图像在帧缓冲区中绕x轴旋转的角度数(也就是图像上下旋转)。</p>
+<p><code>y_rotation</code> 是指图像在帧缓冲区中绕y轴旋转的角度数(即左右旋转图像)。</p>
+<p><code>z_rotation</code> 是图像在帧缓冲区中绕z轴旋转的角度数(即图像旋转到适当位置)。</p>
+<p><code>x_translation</code> 是图像旋转后向左或向右移动的单位数。因为这种转换应用于3D空间，所以单位不是像素……</p>
+<p><code>y_translation</code> 是图像在旋转后向上或向下移动的单位数。因为这种转换应用于3D空间，所以单位不是像素……</p>
+<p><code>zoom</code> 是将图像缩放的倍数，默认情况下为1.0。</p>
+<p><code>fov</code> 是在进行2D-&gt;3D投影时在3D空间旋转图像之前内部使用的视场。当这个值接近0时，图像被放置在距离视口无限远的地方。当这个值接近180时，图像被放置在视口中。通常，你不应该改变这个值，但你可以修改它来改变2D-&gt;3D映射效果。</p>
+<p><code>corners</code> 是一个拥有四个(x, y) tuples 的 list，代表四个 <code>corner</code> 用来创建四点对应单应性,将第一个 <code>corner</code> 映射到(0,0),第二个 <code>corner</code> (image_width-1, 0),第三个 <code>corner</code> (image_width-1 image_height-1)和第四个 <code>corner</code> (0,image_height-1)。然后在图像被重新映射后应用3D旋转。这个参数允许你使用 rotation_corr 来做一些事情，比如鸟瞰图转换。例如:</p>
+
+<pre class="language-python"><code class="language-python">top_tilt = 10 # if the difference between top/bottom_tilt become to large this method will stop working
+bottom_tilt = 0
+
+points = [(tilt, 0), (img.width()-tilt, 0), (img.width()-1-bottom_tilt, img.height()-1), (bottom_tilt, img.height()-1)]
+
+img.rotation_corr(corners=points)
+</code></pre>
+<p>返回图像对象，以便您可以使用 <code>.</code> 调用另一个方法。</p>
+<p>不支持压缩图像或拜耳图像。</p>
+<h4 id="image.get_similarity%28image%29">image.get_similarity(image)</h4>
+<p>返回一个“相似度”对象，描述两幅图像使用SSIM算法来比较两幅图像之间的8x8像素色块的相似度。</p>
+<p>image 可以是图像对象，未压缩图像文件的路径(bmp/pgm/ppm)，也可以是标量值。 如果标量值，该值可以是RGB888元组或基础像素值(例如，灰度图像的8位灰度级或RGB图像的字节反转RGB565值)。</p>
+<p>不支持压缩图像和bayer图像。</p>
+<p>此方法在OpenMV Cam M4 上不可用。</p>
+<h4 id="image.get_histogram%28%5Bthresholds%5B%2C-invert%3DFalse%5B%2C-roi%5B%2C-bins%5B%2C-l_bins%5B%2C-a_bins%5B%2C-b_bins%5D%5D%5D%5D%5D%5D%5D%29">image.get_histogram([thresholds[, invert=False[, roi[, bins[, l_bins[, a_bins[, b_bins]]]]]]])</h4>
+<p>在 roi 的所有颜色通道上进行标准化直方图运算，并返回 histogram 对象。 请参考 histogram 对象以获取更多信息。您也可以使用 image.get_hist 或 image.histogram 来调用这一方法。如果传递 thresholds 列表，则直方图信息将仅从阈值列表中的像素计算得出。</p>
+<p>thresholds 必须是元组列表。 [(lo, hi), (lo, hi), ..., (lo, hi)] 定义你想追踪的颜色范围。 对于灰度图像，每个元组需要包含两个值 - 最小灰度值和最大灰度值。 仅考虑落在这些阈值之间的像素区域。 对于RGB565图像，每个元组需要有六个值(l_lo，l_hi，a_lo，a_hi，b_lo，b_hi) - 分别是LAB L，A和B通道的最小值和最大值。 为方便使用，此功能将自动修复交换的最小值和最大值。 此外，如果元组大于六个值，则忽略其余值。相反，如果元组太短，则假定其余阈值处于最大范围。</p>
+<p>注解</p>
+<p>获取所跟踪对象的阈值，只需在IDE帧缓冲区中选择（单击并拖动）跟踪对象。 直方图会相应地更新到所在区域。然后只需写下颜色分布在每个直方图通道中起始与下降位置。 这些将是 thresholds 的低值和高值。 由于上下四分位数据相差微小，故手动确定阈值为佳。</p>
+<p>您还可以通过进入OpenMV IDE中的 工具 -&gt;机器视觉 -&gt;阈值编辑器 并从GUI窗口中拖动滑块来确定颜色阈值。</p>
+<p>invert 反转阈值操作，像素在已知颜色范围之外进行匹配，而非在已知颜色范围内。</p>
+<p>除非您需要使用颜色统计信息进行高级操作，否则只需使用<code>image.get_statistics()</code> 方法代替此方法查看图像中的像素区域。</p>
+<p>roi 是感兴趣区域的矩形元组(x，y，w，h)。如果未指定，ROI即整个图像的图像矩形。 操作范围仅限于 roi 区域内的像素。</p>
+<p>bins 和其他bin是用于直方图通道的箱数。对于灰度图像，使用 bins ， 对于RGB565图像，使用其他每个通道。每个通道的bin计数必须大于2。 另外，将bin计数设置为大于每个通道的唯一像素值的数量是没有意义的。 默认情况下，直方图将具有每个通道的最大bin数。</p>
+<p>不支持压缩图像和bayer图像。</p>
+<h4 id="image.get_statistics%28%5Bthresholds%5B%2C-invert%3DFalse%5B%2C-roi%5B%2C-bins%5B%2C-l_bins%5B%2C-a_bins%5B%2C-b_bins%5D%5D%5D%5D%5D%5D%5D%29">image.get_statistics([thresholds[, invert=False[, roi[, bins[, l_bins[, a_bins[, b_bins]]]]]]])</h4>
+<p>计算 roi 中每个颜色通道的平均值、中值、众值、标准偏差、最小值、最大值、下四分值和上四分值，并返回一个数据对象。 请参见 statistics 对象以获取更多信息。您也可以使用 image.get_stats 或 image.statistics 来调用这一方法。 如果传递 thresholds 列表，则直方图信息将仅从阈值列表中的像素计算得出。</p>
+<p>thresholds 必须是元组列表。 [(lo, hi), (lo, hi), ..., (lo, hi)] 定义你想追踪的颜色范围。 对于灰度图像，每个元组需要包含两个值 - 最小灰度值和最大灰度值。 仅考虑落在这些阈值之间的像素区域。 对于RGB565图像，每个元组需要有六个值(l_lo，l_hi，a_lo，a_hi，b_lo，b_hi) - 分别是LAB L，A和B通道的最小值和最大值。 为方便使用，此功能将自动修复交换的最小值和最大值。 此外，如果元组大于六个值，则忽略其余值。相反，如果元组太短，则假定其余阈值处于最大范围。</p>
+<p>注解</p>
+<p>获取所跟踪对象的阈值，只需在IDE帧缓冲区中选择（单击并拖动）跟踪对象。 直方图会相应地更新到所在区域。然后只需写下颜色分布在每个直方图通道中起始与下降位置。 这些将是 thresholds 的低值和高值。 由于上下四分位数据相差微小，故手动确定阈值为佳。</p>
+<p>您还可以通过进入OpenMV IDE中的 工具 -&gt;机器视觉 -&gt;阈值编辑器 并从GUI窗口中拖动滑块来确定颜色阈值。</p>
+<p>invert 反转阈值操作，像素在已知颜色范围之外进行匹配，而非在已知颜色范围内。</p>
+<p>您可以在需要获取图像中一个像素区域信息时使用这一方法。例如：若您想用帧差法来检测运动时， 您需要使用这一方法来确定图像颜色通道的变化，从而触发运动检测阈值。</p>
+<p>roi 是感兴趣区域的矩形元组(x，y，w，h)。如果未指定，ROI即整个图像的图像矩形。 操作范围仅限于 roi 区域内的像素。</p>
+<p>bins 和其他bin是用于直方图通道的箱数。对于灰度图像，使用 bins ， 对于RGB565图像，使用其他每个通道。每个通道的bin计数必须大于2。 另外，将bin计数设置为大于每个通道的唯一像素值的数量是没有意义的。 默认情况下，直方图将具有每个通道的最大bin数。</p>
+<p>不支持压缩图像和bayer图像。</p>
+<h4 id="image.get_regression%28thresholds%5B%2C-invert%3DFalse%5B%2C-roi%5B%2C-x_stride%3D2%5B%2C-y_stride%3D1%5B%2C-area_threshold%3D10%5B%2C-pixels_threshold%3D10%5B%2C-robust%3DFalse%5D%5D%5D%5D%5D%5D%5D%29">image.get_regression(thresholds[, invert=False[, roi[, x_stride=2[, y_stride=1[, area_threshold=10[, pixels_threshold=10[, robust=False]]]]]]])</h4>
+<p>对图像所有阈值像素进行线性回归计算。这一计算通过最小二乘法进行，通常速度较快，但不能处理任何异常值。 若 robust 为True，则将使用泰尔指数。泰尔指数计算图像中所有阈值像素间的所有斜率的中值。 若在阈值转换后设定太多像素，即使在80x60的图像上，这一N^2操作也可能将您的FPS降到5以下。 但是，只要阈值转换后的进行设置的像素数量较少，即使在超过30%的阈值像素为异常值的情况下，线性回归也依然有效。</p>
+<p>这一方法返回的是一个 image.line 对象。如何轻松运用直线对象， 详见下博文： <a href="https://openmv.io/blogs/news/linear-regression-line-following"  target="_blank">https://openmv.io/blogs/news/linear-regression-line-following</a></p>
+<p>thresholds 必须是元组列表。 [(lo, hi), (lo, hi), ..., (lo, hi)] 定义你想追踪的颜色范围。 对于灰度图像，每个元组需要包含两个值 - 最小灰度值和最大灰度值。 仅考虑落在这些阈值之间的像素区域。 对于RGB565图像，每个元组需要有六个值(l_lo，l_hi，a_lo，a_hi，b_lo，b_hi) - 分别是LAB L，A和B通道的最小值和最大值。 为方便使用，此功能将自动修复交换的最小值和最大值。 此外，如果元组大于六个值，则忽略其余值。相反，如果元组太短，则假定其余阈值处于最大范围。</p>
+<blockquote>
+<p>获取所跟踪对象的阈值，只需在IDE帧缓冲区中选择（单击并拖动）跟踪对象。 直方图会相应地更新到所在区域。然后只需写下颜色分布在每个直方图通道中起始与下降位置。 这些将是 thresholds 的低值和高值。 由于上下四分位数据相差微小，故手动确定阈值为佳。</p>
+</blockquote>
+<p>您还可以通过进入OpenMV IDE中的 工具 -&gt;机器视觉 -&gt;阈值编辑器 并从GUI窗口中拖动滑块来确定颜色阈值。</p>
+<p>invert 反转阈值操作，像素在已知颜色范围之外进行匹配，而非在已知颜色范围内。</p>
+<p>roi 是感兴趣区域的矩形元组(x，y，w，h)。如果未指定，ROI即整个图像的图像矩形。 操作范围仅限于 roi 区域内的像素。</p>
+<p>x_stride 是调用函数时要跳过的x像素数。</p>
+<p>y_stride 是调用函数时要跳过的y像素数。</p>
+<p>如果回归后的边界框区域小于 area_threshold ，则返回None。</p>
+<p>如果回归后的像素数小于 pixel_threshold ，则返回None。</p>
+<p>不支持压缩图像和bayer图像。</p>
+<h4 id="image.find_blobs%28thresholds%5B%2C-invert%3DFalse%5B%2C-roi%5B%2C-x_stride%3D2%5B%2C-y_stride%3D1%5B%2C-area_threshold%3D10%5B%2C-pixels_threshold%3D10%5B%2C-merge%3DFalse%5B%2C-margin%3D0%5B%2C-threshold_cb%3DNone%5B%2C-merge_cb%3DNone%5D%5D%5D%5D%5D%5D%5D%5D%5D%5D%29">image.find_blobs(thresholds[, invert=False[, roi[, x_stride=2[, y_stride=1[, area_threshold=10[, pixels_threshold=10[, merge=False[, margin=0[, threshold_cb=None[, merge_cb=None]]]]]]]]]])</h4>
+<p>查找图像中所有色块，并返回一个包括每个色块的色块对象的列表。请观察 image.blob 对象以获取更多信息。</p>
+<p>thresholds 必须是元组列表。 [(lo, hi), (lo, hi), ..., (lo, hi)] 定义你想追踪的颜色范围。 对于灰度图像，每个元组需要包含两个值 - 最小灰度值和最大灰度值。 仅考虑落在这些阈值之间的像素区域。 对于RGB565图像，每个元组需要有六个值(l_lo，l_hi，a_lo，a_hi，b_lo，b_hi) - 分别是LAB L，A和B通道的最小值和最大值。 为方便使用，此功能将自动修复交换的最小值和最大值。 此外，如果元组大于六个值，则忽略其余值。相反，如果元组太短，则假定其余阈值处于最大范围。</p>
+<p>注解</p>
+<p>获取所跟踪对象的阈值，只需在IDE帧缓冲区中选择（单击并拖动）跟踪对象。 直方图会相应地更新到所在区域。然后只需写下颜色分布在每个直方图通道中起始与下降位置。 这些将是 thresholds 的低值和高值。 由于上下四分位数据相差微小，故手动确定阈值为佳。</p>
+<p>您还可以通过进入OpenMV IDE中的 工具 -&gt;机器视觉 -&gt;阈值编辑器 并从GUI窗口中拖动滑块来确定颜色阈值。</p>
+<p>invert 反转阈值操作，像素在已知颜色范围之外进行匹配，而非在已知颜色范围内。</p>
+<p>roi 是感兴趣区域的矩形元组(x，y，w，h)。如果未指定，ROI即整个图像的图像矩形。 操作范围仅限于 roi 区域内的像素。</p>
+<p>x_stride 是查找某色块时需要跳过的x像素的数量。找到色块后，直线填充算法将精确像素。 若已知色块较大，可增加 x_stride 来提高查找色块的速度。</p>
+<p>y_stride 是查找某色块时需要跳过的y像素的数量。找到色块后，直线填充算法将精确像素。 若已知色块较大，可增加 y_stride 来提高查找色块的速度。</p>
+<p>若一个色块的边界框区域小于 area_threshold ，则会被过滤掉。</p>
+<p>若一个色块的像素数小于 pixel_threshold ，则会被过滤掉。</p>
+<p>merge 若为True，则合并所有没有被过滤掉的色块，这些色块的边界矩形互相交错重叠。 margin 可在相交测试中用来增大或减小色块边界矩形的大小。例如：边缘为1、相互间边界矩形为1的色块将被合并。</p>
+<p>合并色块使颜色代码追踪得以实现。每个色块对象有一个代码值 code ，该值为一个位向量。 例如：若您在 image.find_blobs 中输入两个颜色阈值，则第一个阈值代码为1，第二个代码为2（第三个代码为4，第四个代码为8，以此类推）。 合并色块对所有的code使用逻辑或运算，以便您知道产生它们的颜色。这使得您可以追踪两个颜色，若您用两种颜色得到一个色块对象，则可能是一种颜色代码。</p>
+<p>若您使用严格的颜色范围，无法完全追踪目标对象的所有像素，您可能需要合并色块。</p>
+<p>最后，若您想要合并色块，但不想两种不同阈值颜色的色块被合并，只需分别两次调用 image.find_blobs ，不同阈值色块就不会被合并。</p>
+<p>threshold_cb 可设置为用以调用阈值筛选后的每个色块的函数，以便将其从将要合并的色块列表中过滤出来。 回调函数将收到一个参数：要被筛选的色块对象。然后回调函数需返回True以保留色块或返回False以过滤色块。</p>
+<p>merge_cb 可设置为用以调用两个即将合并的色块的函数，以禁止或准许合并。回调函数将收到两个参数—两个将被合并的色块对象。 回调函数须返回True以合并色块，或返回False以防止色块合并。</p>
+<p>不支持压缩图像和bayer图像。</p>
+<h4 id="image.find_lines%28%5Broi%5B%2C-x_stride%3D2%5B%2C-y_stride%3D1%5B%2C-threshold%3D1000%5B%2C-theta_margin%3D25%5B%2C-rho_margin%3D25%5D%5D%5D%5D%5D%5D%29">image.find_lines([roi[, x_stride=2[, y_stride=1[, threshold=1000[, theta_margin=25[, rho_margin=25]]]]]])</h4>
+<p>使用霍夫变换查找图像中的所有直线。返回一个 image.line 对象的列表。</p>
+<p>roi 是感兴趣区域的矩形元组(x，y，w，h)。如果未指定，ROI即整个图像的图像矩形。操作范围仅限于 roi 区域内的像素。</p>
+<p>x_stride 是霍夫变换时需要跳过的x像素的数量。若已知直线较大，可增加 x_stride 。</p>
+<p>y_stride 是霍夫变换时需要跳过的y像素的数量。若已知直线较大，可增加 y_stride 。</p>
+<p>threshold 控制从霍夫变换中监测到的直线。只返回大于或等于 threshold 的直线。 应用程序的正确的 threshold 值取决于图像。注意：一条直线的大小(magnitude)是组成直线所有索贝尔滤波像素大小的总和。</p>
+<p>theta_margin 控制所监测的直线的合并。 直线角度为 theta_margin 的部分和直线p值为 rho_margin 的部分合并。</p>
+<p>rho_margin 控制所监测的直线的合并。 直线角度为 theta_margin 的部分和直线p值为 rho_margin 的部分合并。</p>
+<p>该方法通过在图像上运行索贝尔滤波器，并利用该滤波器的幅值和梯度响应来进行霍夫变换。 无需对图像进行任何预处理。但是，清理图像过滤器可得到更为稳定的结果。</p>
+<p>不支持压缩图像和bayer图像。</p>
+<p>此方法在OpenMV Cam M4 上不可用。</p>
+<h4 id="image.find_line_segments%28%5Broi%5B%2C-merge_distance%3D0%5B%2C-max_theta_difference%3D15%5D%5D%5D%29">image.find_line_segments([roi[, merge_distance=0[, max_theta_difference=15]]])</h4>
+<p>使用霍夫转换来查找图像中的线段。返回一个 image.line 对象的列表。</p>
+<p>roi 是一个用以复制的矩形的感兴趣区域(x, y, w, h)。如果未指定， ROI 即图像矩形。操作范围仅限于roi区域内的像素。</p>
+<p>merge_distance 指定两条线段之间的可以相互分开而不被合并的最大像素数。</p>
+<p>max_theta_difference 是上面 merge_distancede 要合并的的两个线段的最大角度差值。</p>
+<p>此方法使用LSD库（也被OpenCV使用）来查找图像中的线段。这有点慢，但是非常准确，线段不会跳跃。</p>
+<p>不支持压缩图像和bayer图像。</p>
+<p>此方法在OpenMV Cam M4 上不可用。</p>
+<h4 id="image.find_circles%28%5Broi%5B%2C-x_stride%3D2%5B%2C-y_stride%3D1%5B%2C-threshold%3D2000%5B%2C-x_margin%3D10%5B%2C-y_margin%3D10%5B%2C-r_margin%3D10%5D%5D%5D%5D%5D%5D%5D%29">image.find_circles([roi[, x_stride=2[, y_stride=1[, threshold=2000[, x_margin=10[, y_margin=10[, r_margin=10]]]]]]])</h4>
+<p>使用霍夫变换在图像中查找圆。返回一个 image.circle 对象列表（见上）。</p>
+<p>roi 是一个用以复制的矩形的感兴趣区域(x, y, w, h)。如果未指定， ROI 即图像矩形。操作范围仅限于roi区域内的像素。</p>
+<p>x_stride 是霍夫变换时需要跳过的x像素的数量。若已知圆较大，可增加 x_stride 。</p>
+<p>y_stride 是霍夫变换时需要跳过的y像素的数量。若已知圆较大，可增加 y_stride 。</p>
+<p>threshold 控制从霍夫变换中监测到的圆。只返回大于或等于 threshold 的圆。 应用程序的正确的 threshold 值取决于图像。注意：一个圆的大小(magnitude)是组成圆所有索贝尔滤波像素大小的总和。</p>
+<p>x_margin 控制所检测的圆的合并。 圆像素为 x_margin 、 y_margin 和 r_margin 的部分合并。</p>
+<p>y_margin 控制所检测的圆的合并。 圆像素为 x_margin 、 y_margin 和 r_margin 的部分合并。</p>
+<p>r_margin 控制所检测的圆的合并。 圆像素为 x_margin 、 y_margin 和 r_margin 的部分合并。</p>
+<p>不支持压缩图像和bayer图像。</p>
+<p>此方法在OpenMV Cam M4 上不可用。</p>
+<h4 id="image.find_rects%28%5Broi%3DAuto%2C-threshold%3D10000%5D%29">image.find_rects([roi=Auto, threshold=10000])</h4>
+<p>使用用于查找AprilTAg的相同的quad detection算法来查找图像中的矩形。 最适用与背景形成鲜明对比的矩形。AprilTag的quad detection可以处理任意缩放/旋转/剪切的矩形。 返回一个 image.rect 对象的列表。</p>
+<p>roi 是一个用以复制的矩形的感兴趣区域(x, y, w, h)。如果未指定， ROI即图像矩形。操作范围仅限于 roi 区域内的像素。</p>
+<p>边界大小（通过在矩形边缘上的所有像素上滑动索贝尔算子并相加该值）小于 threshold 的矩形会从返回列表中过滤出来。 threshold 的正确值取决于您的应用程序/场景。</p>
+<p>不支持压缩图像和bayer图像。</p>
+<p>此方法在OpenMV Cam M4 上不可用。</p>
+<h4 id="image.find_qrcodes%28%5Broi%5D%29">image.find_qrcodes([roi])</h4>
+<p>查找 roi 内的所有二维码并返回一个 image.qrcode 对象的列表。 请参考 image.qrcode 对象以获取更多信息。</p>
+<p>为使这一方法成功运行，图像上二维码需比较平展。通过使用 sensor.set_windowing 函数在镜头中心放大、 image.lens_corr 函数来消解镜头的桶形畸变或通过更换视野较为狭小的镜头， 您可得到一个不受镜头畸变影响的更为平展的二维码。有些机器视觉镜头不会造成桶形失真，但是其造价远比OpenMV提供的标准镜片高，这种镜头为无畸变镜头。</p>
+<p>roi 是一个用以复制的矩形的感兴趣区域(x, y, w, h)。如果未指定，ROI即整幅图像的图像矩形。 操作范围仅限于 roi 区域内的像素。</p>
+<p>不支持压缩图像和bayer图像。</p>
+<p>此方法在OpenMV Cam M4 上不可用。</p>
+<p>image.find_apriltags([roi[, families=image.TAG36H11[, fx[, fy[, cx[, cy]]]]]])<br />
+查找 roi 内的所有AprilTag, 并返回一个 image.apriltag 对象的列表。请参考 image.apriltag 对象以获取更多信息。</p>
+<p>与二维码相比，AprilTags可在更远距离、较差光线和更扭曲的图像环境下被检测到。 AprilTags可应对所有种类的图像失真问题，而二维码并不能。也就是说，AprilTags只能将数字ID编码作为其有效载荷。</p>
+<p>AprilTags也可用于本地化。每个 image.apriltag 对象都从摄像机返回其三维位置信息和旋转角度。 位置信息由 fx 、 fy 、 cx 和 cy 决定，分别为X和Y方向上图像的焦距和中心点。</p>
+<blockquote>
+<p>使用OpenMV IDE内置的标签生成器工具来创建AprilTags。标签生成器可创建可打印的8.5“x11”AprilTags。</p>
+</blockquote>
+<p>roi 是一个用以复制的矩形的感兴趣区域(x, y, w, h)。如果未指定，ROI即整幅图像的图像矩形。 操作范围仅限于 roi 区域内的像素。</p>
+<p>families 是要解码的标签家族的位掩码。是一个逻辑或：</p>
+<p>image.TAG16H5<br />
+image.TAG25H7<br />
+image.TAG25H9<br />
+image.TAG36H10<br />
+image.TAG36H11<br />
+image.ARTOOLKIT<br />
+默认设置为最好用的 image.TAG36H11 标签家族。注意：每启用一个标签家族， find_apriltags 的速度都会略有放慢。</p>
+<p>fx 是以像素为单位的相机x方向的焦距。标准OpenMV Cam的值为(2.8 / 3.984) * 656， 该值通过毫米计的焦距值除以X方向上感光元件的长度，再乘以X方向上感光元件的像素数量得来（对OV7725感光元件而言）。</p>
+<p>fy 是以像素为单位的相机y方向的焦距。标准OpenMV Cam的值为(2.8 / 2.952) * 488， 该值通过毫米计的焦距值除以Y方向上感光元件的长度，再乘以Y方向上感光元件的像素数量得来（对OV7725感光元件而言）。</p>
+<p>cx 是图像的中心，即 image.width()/2 ，而非 roi.w()/2 。</p>
+<p>cy 是图像的中心，即 image.height()/2，而非 roi.h()/2 。</p>
+<p>不支持压缩图像和bayer图像。</p>
+<p>此方法在OpenMV Cam M4 上不可用。</p>
+<p>image.find_datamatrices([roi[, effort=200]])<br />
+查找 roi 内的所有数据矩阵并返回一个 image.datamatrix 对象的列表。 请参考 image.datamatrix 对象以获取更多信息。</p>
+<p>为使这一方法成功运行，图像上矩形码需比较平展。通过使用 sensor.set_windowing 函数在镜头中心放大、 image.lens_corr 函数来消解镜头的桶形畸变或通过更换视野较为狭小的镜头，您可得到一个不受镜头畸变影响的更为平展的矩形码。 有些机器视觉镜头不会造成桶形失真，但是其造价远比OpenMV提供的标准镜片高，这种镜头是无畸变镜头。</p>
+<p>roi 是一个用以复制的矩形的感兴趣区域(x, y, w, h)。如果未指定，ROI即整幅图像的图像矩形。操作范围仅限于 roi 区域内的像素。</p>
+<p>effort 控制用于查找矩形码匹配的时间。默认值为200应该适用于所有用例。 但是您也可能以帧速率为代价增加检测，或以检测为代价增加帧速率。 注意：若 effort 设置在约160以下，您就无法进行任何检测；相反，您可将其设置为您需要的任何高值，但是若设置值高于240，检测率将不会继续随之提高。</p>
+<p>不支持压缩图像和bayer图像。</p>
+<p>此方法在OpenMV Cam M4 上不可用。</p>
+<h4 id="image.find_barcodes%28%5Broi%5D%29">image.find_barcodes([roi])</h4>
+<p>查找 roi 内所有一维条形码并返回一个 image.barcode 对象列表。 请参考 image.barcode 对象以获取更多信息。</p>
+<p>为了获得最佳效果，请使用长640、宽40/80／160窗口。垂直程度越低，运行速度越快。由于条形码是线性一维图像，所以只需在一个方向上有较高分辨率， 而在另一方向上只需较低分辨率。注意：该函数进行水平和垂直扫描，所以您可使用宽40/80／160、长480的窗口。 最后，请一定调整镜头，这样条形码会定位在焦距产生最清晰图像的地方。模糊条码无法被解码。</p>
+<p>该函数支持所有一维条形码：</p>
+<p>image.EAN2<br />
+image.EAN5<br />
+image.EAN8<br />
+image.UPCE<br />
+image.ISBN10<br />
+image.UPCA<br />
+image.EAN13<br />
+image.ISBN13<br />
+image.I25<br />
+image.DATABAR (RSS-14)<br />
+image.DATABAR_EXP (RSS-Expanded)<br />
+image.CODABAR<br />
+image.CODE39<br />
+image.PDF417<br />
+image.CODE93<br />
+image.CODE128<br />
+roi 是一个用以复制的矩形的感兴趣区域(x, y, w, h)。如果未指定，ROI即整幅图像的图像矩形。操作范围仅限于 roi 区域内的像素。</p>
+<p>不支持压缩图像和bayer图像。</p>
+<p>此方法在OpenMV Cam M4 上不可用。</p>
+<p>image.find_displacement(template[, roi[, template_roi[, logpolar=False]]])<br />
+从模板中查找此图像的变换偏移量。 这种方法可以用来做光流。 此方法返回一个 image.displacement 对象，其中包含使用相位相关的位移计算结果。</p>
+<p>roi 是需要处理的矩形区域（x，y，w，h）。如果未指定，则等于图像矩形。</p>
+<p>template_roi 是需要处理的矩形区域（x，y，w，h）。如果未指定，则等于图像矩形。</p>
+<p>roi 和 template roi必须具有相同的w/h，但x/y可以为图像任意位置。您可以在较大图像上滑动较小的rois以获得光流渐变图像.</p>
+<p>image.find_displacement 通常计算两个图像之间的x/y平移。但是，如果您设置 logpolar = True ， 它将会在两个图像之间找到旋转和缩放比例的变化。相同的 image.displacement 对象结果两种可能的反馈。</p>
+<p>不支持压缩图像和bayer图像。</p>
+<p>注解</p>
+<p>请在长宽一致的图像（例如<code>sensor.B64X64</code>）上使用此方法。</p>
+<p>此方法在OpenMV Cam M4 上不可用。</p>
+<h4 id="image.find_number%28roi%29">image.find_number(roi)</h4>
+<p>运行在MINST数据集上训练的LENET-6 CNN（卷积神经网络），以检测位于图像上任何位置的28x28 ROI中的数字。 返回一个包含整数和浮点数的元组，表示检测到的数字（0-9）和检测的置信度（0-1）。</p>
+<p>roi 是感兴趣区域的矩形元组(x，y，w，h)。如果未指定，ROI即整个图像的图像矩形。 操作范围仅限于 roi 区域内的像素。</p>
+<p>仅支持灰度图像。</p>
+<p>注解</p>
+<p>这种方法是实验性的。如果未来运行使用Caffe在PC上训练的任何CNN，这种方法可能会删除。 最新3.0.0版本固件已删除此函数。</p>
+<p>此方法在OpenMV Cam M4 上不可用。</p>
+<h4 id="image.classify_object%28roi%29">image.classify_object(roi)</h4>
+<p>在图像的ROI上运行CIFAR-10 CNN，以检测飞机，汽车，鸟类，猫，鹿，狗，青蛙，马，船和卡车。 此方法在内部自动将图像缩放到32x32以馈送到CNN。</p>
+<p>roi 是感兴趣区域的矩形元组(x，y，w，h)。如果未指定，ROI即整个图像的图像矩形。 操作范围仅限于 roi 区域内的像素。</p>
+<p>仅支持RGB565图像。</p>
+<p>注解</p>
+<p>这种方法是实验性的。如果未来运行使用Caffe在PC上训练的任何CNN，这种方法可能会删除。</p>
+<p>此方法在OpenMV Cam M4 上不可用。</p>
+<p>image.find_template(template, threshold[, roi[, step=2[, search=image.SEARCH_EX]]])<br />
+尝试使用归一化互相关(NCC)算法在图像中找到第一个模板匹配的位置。返回匹配位置的边界框元组(x, y, w, h)，否则返回None。</p>
+<p>template 是一个与这个图像对象相匹配的小图像对象。注意：两图像须都为灰度图。</p>
+<p>threshold 是浮点数（0.0-1.0），其中较小的值在提高检测速率同时增加误报率。相反，较高的值会降低检测速率，同时降低误报率。</p>
+<p>roi 是感兴趣区域的矩形元组(x，y，w，h)。如果未指定，ROI即整个图像的图像矩形。 操作范围仅限于 roi 区域内的像素。</p>
+<p>step 是查找模板时需要跳过的像素数量。跳过像素可大大提高算法运行的速度。该方法只适用于SERACH_EX模式下的算法。</p>
+<p>search 可为 image.SEARCH_DS or image.SEARCH_EX. image.SEARCH_DS 搜索模板所用算法较 image.SEARCH_EX 更快，但若模板位于图像边缘周围，可能无法成功搜索。 image.SEARCH_EX 可对图像进行较为详尽的搜索，但其运行速度远低于 image.SEARCH_DS 。</p>
+<p>仅支持灰度图像。</p>
+<h4 id="image.find_features%28cascade%5B%2C-threshold%3D0.5%5B%2C-scale%3D1.5%5B%2C-roi%5D%5D%5D%29">image.find_features(cascade[, threshold=0.5[, scale=1.5[, roi]]])</h4>
+<p>这个方法搜索与Haar Cascade匹配的所有区域的图像，并返回一个关于这些特征的边界框矩形元组(x，y，w，h)的列表。若未发现任何特征，则返回一个空白列表。</p>
+<p>cascade 是一个Haar Cascade对象。详细信息请查看 image.HaarCascade() 。</p>
+<p>threshold 是浮点数（0.0-1.0），其中较小的值在提高检测速率同时增加误报率。相反，较高的值会降低检测速率，同时降低误报率。</p>
+<p>scale 是一个必须大于1.0的浮点数。较高的比例因子运行更快，但其图像匹配相应较差。理想值介于1.35-1.5之间。</p>
+<p>roi 是感兴趣区域的矩形元组(x，y，w，h)。如果未指定，ROI即整个图像的图像矩形。 操作范围仅限于 roi 区域内的像素。</p>
+<p>仅支持灰度图像。</p>
+<h4 id="image.find_eye%28roi%29">image.find_eye(roi)</h4>
+<p>在眼睛周围的感兴趣区域(x, y, w, h)查找瞳孔。返回一个包含图像中瞳孔(x，y)位置的元组。若未发现瞳孔，则返回(0,0)。</p>
+<p>使用这一函数之前，需首先使用 image.find_features() 和Haar算子 frontalface 来搜索某人面部。 然后使用 image.find_features 和Haar算子 find_eye 在面部搜索眼睛。 最后，在调用 image.find_features 函数后返回的每个眼睛ROI上调用这一方法，以得到瞳孔的坐标。</p>
+<p>roi 是感兴趣区域的矩形元组(x，y，w，h)。如果未指定，ROI即整个图像的图像矩形。 操作范围仅限于 roi 区域内的像素。</p>
+<p>仅支持灰度图像。</p>
+<h4 id="image.find_lbp%28roi%29">image.find_lbp(roi)</h4>
+<p>从ROI元组(x, y, w, h)中提取LBP（局部二值模式）键点。您可以使用 image.match_descriptor 函数来比较两组关键点，以获取匹配距离。</p>
+<p>roi 是感兴趣区域的矩形元组(x，y，w，h)。如果未指定，ROI即整个图像的图像矩形。 操作范围仅限于 roi 区域内的像素。</p>
+<p>仅支持灰度图像。</p>
+<h4 id="image.find_keypoints%28%5Broi%5B%2C-threshold%3D20%5B%2C-normalized%3DFalse%5B%2C-scale_factor%3D1.5%5B%2C-max_keypoints%3D100%5B%2C-corner_detector%3Dimage.CORNER_AGAST%5D%5D%5D%5D%5D%5D%29">image.find_keypoints([roi[, threshold=20[, normalized=False[, scale_factor=1.5[, max_keypoints=100[, corner_detector=image.CORNER_AGAST]]]]]])</h4>
+<p>从ROI元组(x, y, w, h)中提取ORB键点。您可以使用 image.match_descriptor 函数来比较两组关键点，以获取匹配区域。若未发现关键点，则返回None。</p>
+<p>roi 是感兴趣区域的矩形元组(x，y，w，h)。如果未指定，ROI即整个图像的图像矩形。 操作范围仅限于 roi 区域内的像素。</p>
+<p>threshold 是控制提取的数量的数字（取值0-255）。对于默认的AGAST角点检测器，该值应在20左右。 对于FAST角点检测器，该值约为60-80。阈值越低，您提取的角点越多。</p>
+<p>normalized 是布尔值。若为True，在多分辨率下关闭提取键点。 若您不关心处理扩展问题，且希望算法运行更快，就将之设置为True。</p>
+<p>scale_factor 是一个必须大于1.0的浮点数。较高的比例因子运行更快，但其图像匹配相应较差。理想值介于1.35-1.5之间。</p>
+<p>max_keypoints 是一个键点对象所能容纳的键点最大数量。若键点对象过大导致内存问题，请降低该值。</p>
+<p>corner_detector 是从图像中提取键点所使用的角点检测器算法。 可为 image.CORNER_FAST 或 image.CORNER_AGAST 。FAST角点检测器运行速度更快，但其准确度较低。</p>
+<p>仅支持灰度图像。</p>
+<h4 id="image.find_edges%28edge_type%5B%2C-threshold%5D%29">image.find_edges(edge_type[, threshold])</h4>
+<p>将图像变为黑白，仅将边缘保留为白色像素。</p>
+<p>image.EDGE_SIMPLE - 简单的阈值高通滤波算法<br />
+image.EDGE_CANNY - Canny边缘检测算法<br />
+threshold 是一个包含一个低阈值和一个高阈值的二值元组。您可以通过调整该值来控制边缘质量。</p>
+<p>默认为 (100, 200)。</p>
+<p>仅支持灰度图像。</p>
+<p>find_hog([roi[, size=8]])<br />
+用HOG（定向梯度直方图）线替换ROI中的像素。</p>
+<p>roi 是感兴趣区域的矩形元组(x，y，w，h)。如果未指定，ROI即整个图像的图像矩形。 操作范围仅限于 roi 区域内的像素。</p>
+<p>仅支持灰度图像。</p>
+<p>此方法在OpenMV Cam M4 上不可用。</p>
+<h2 id="%E5%B8%B8%E9%87%8F">常量</h2>
+<h3 id="image.SEARCH_EX">image.SEARCH_EX</h3>
+<p>详尽的模板匹配搜索。</p>
+<h3 id="image.SEARCH_DS">image.SEARCH_DS</h3>
+<p>更快的模板匹配搜索。</p>
+<h3 id="image.EDGE_CANNY">image.EDGE_CANNY</h3>
+<p>使用Canny边缘检测算法对图像进行边缘检测。</p>
+<h3 id="image.EDGE_SIMPLE">image.EDGE_SIMPLE</h3>
+<p>使用阈值高通滤波算法对图像进行边缘检测。</p>
+<h3 id="image.CORNER_FAST">image.CORNER_FAST</h3>
+<p>用于ORB键点的高速低准确率角点检测算法</p>
+<h3 id="image.CORNER_AGAST">image.CORNER_AGAST</h3>
+<p>用于ORB键点的低速高准确率算法。</p>
+<h3 id="image.TAG16H5">image.TAG16H5</h3>
+<p>TAG1H5标签群的位掩码枚举。用于AprilTags。</p>
+<h3 id="image.TAG25H7">image.TAG25H7</h3>
+<p>TAG25H7标签群的位掩码枚举。用于AprilTags。</p>
+<h3 id="image.TAG25H9">image.TAG25H9</h3>
+<p>TAG25H9标签群的位掩码枚举。用于AprilTags。</p>
+<h3 id="image.TAG36H10">image.TAG36H10</h3>
+<p>TAG36H10标签群的位掩码枚举。用于AprilTags。</p>
+<h3 id="image.TAG36H11">image.TAG36H11</h3>
+<p>TAG36H11标签群的位掩码枚举。用于AprilTags。</p>
+<h3 id="image.ARTOOLKIT">image.ARTOOLKIT</h3>
+<p>ARTOOLKIT标签群的位掩码枚举。用于AprilTags。</p>
+<h3 id="image.EAN2">image.EAN2</h3>
+<p>EAN2条形码类型枚举。</p>
+<h3 id="image.EAN5">image.EAN5</h3>
+<p>EAN5条形码类型枚举。</p>
+<h3 id="image.EAN8">image.EAN8</h3>
+<p>EAN8条形码类型枚举。</p>
+<h3 id="image.UPCE">image.UPCE</h3>
+<p>UPCE条形码类型枚举。</p>
+<h3 id="image.ISBN10">image.ISBN10</h3>
+<p>ISBN10条形码类型枚举。</p>
+<h3 id="image.UPCA">image.UPCA</h3>
+<p>UPCA条形码类型枚举。</p>
+<h3 id="image.EAN13">image.EAN13</h3>
+<p>EAN13条形码类型枚举。</p>
+<h3 id="image.ISBN13">image.ISBN13</h3>
+<p>ISBN13条形码类型枚举。</p>
+<h3 id="image.I25">image.I25</h3>
+<p>I25条形码类型枚举。</p>
+<h3 id="image.DATABAR">image.DATABAR</h3>
+<p>DATABAR条形码类型枚举。</p>
+<h3 id="image.DATABAR_EXP">image.DATABAR_EXP</h3>
+<p>DATABAR_EXP条形码类型枚举。</p>
+<h3 id="image.CODABAR">image.CODABAR</h3>
+<p>CODABAR条形码类型枚举。</p>
+<h3 id="image.CODE39">image.CODE39</h3>
+<p>CODE39条形码类型枚举。</p>
+<h3 id="image.PDF417">image.PDF417</h3>
+<p>PDF417条形码类型枚举（目前尚不能运行）。</p>
+<h3 id="image.CODE93">image.CODE93</h3>
+<p>CODE93条形码类型枚举。</p>
+<h3 id="image.CODE128">image.CODE128</h3>
+<p>CODE128条形码类型枚举。</p>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                        <a href="/soft/maixpy/zh/api_reference/machine_vision/sensor.html">
+                            <span class="icon"></span>
+                            <span class="label">sensor</span>
+                        </a>
+                        
+                    </div>
+                    <div id="next">
+                        
+                        <a href="/soft/maixpy/zh/api_reference/media/video.html">
+                            <span class="label">video</span>
+                            <span class="icon"></span>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>相关链接</a><ul><li><a target="_blank" href="https://www.sipeed.com">Sipeed 官网</a></li>
+<li><a target="_blank" href="https://maixhub.com/">MaixHub</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">Sipeed 淘宝</a></li>
+<li><a  href="/sitemap.xml">网站地图</a></li>
+<li><a target="_blank" href="https://github.com/teedoc/teedoc">网站使用 teedoc 生成</a></li>
+</ul>
+</li>
+<li><a>源码</a><ul><li><a target="_blank" href="https://github.com/sipeed/sipeed_wiki">Wiki 源码</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">开源项目</a></li>
+</ul>
+</li>
+<li><a>关注我们</a><ul><li><a target="_blank" href="https://twitter.com/SipeedIO">twitter</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">淘宝</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">github</a></li>
+<li><a><a>微信公众号</a><img src='/static/image/wechat.png'></a>
+</li>
+</ul>
+</li>
+<li><a>联系我们</a><ul><li><a>电话: +86 0755-27808509</a>
+</li>
+<li><a>商业支持: support@sipeed.com</a>
+</li>
+<li><a>地址: 深圳市宝安区新湖路4008号蘅芳科技办公大厦A座-2101C</a>
+</li>
+<li><a  href="/join_us.html">加入我们</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://www.sipeed.com">©2018-2023 深圳矽速科技有限公司</a></li>
+<li><a target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index">粤ICP备19015433号</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/js/prism.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <link rel="stylesheet" href="/static/js/add_hint/style.css" type="text/css"/>
+    
+        <script src="/static/js/add_hint/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+        <script src="/static/js/thumbs_up/main.js"></script>
+    
+</body>
+
+</html>
