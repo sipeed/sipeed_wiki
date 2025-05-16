@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+
+<html lang="zh"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="">
+    
+    
+    <meta name="description" content="">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <script src="/maixcdk/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/maixcdk/static/css/theme_default/prism.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/maixcdk/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/maixcdk/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/maixcdk/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/maixcdk/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/maixcdk/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/maixcdk/static/css/search/style.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/maixcdk/static/css/custom.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?9cb07365544a53067c56c346c838181a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+        <link rel="stylesheet" href="/maixcdk/static/js/thumbs_up/style.css" type="text/css"/>
+        
+    
+    
+    <title>MaixCDK 应用框架指南 - MaixCDK</title>
+    
+    <script type="text/javascript">js_vars = {"teedoc-plugin-thumbs-up": {"label_up": "有帮助", "label_down": "待改进", "icon": "/static/images/thumbs_up/up.svg", "icon_clicked": "/static/images/thumbs_up/upped.svg", "url": "https://thumbs-up.sipeed.com", "show_up_count": true, "show_down_count": false, "msg_already_voted": "您已经投过票了", "msg_thanks": "感谢您的反馈", "msg_down_prompt": "感谢反馈，请告诉我们可以改进什么地方?（最少 10 个字）", "msg_down_prompt_error": "消息最少需要 10 个字， 最多 256 个字", "msg_error": "请求点赞服务器出现错误!"}}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": null, "update": [], "ts": 0, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/maixcdk/">
+                
+                
+                    <h2>MaixCDK</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class="active"><a  href="/maixcdk/doc/zh/">文档</a></li>
+<li class=""><a  href="/maixcdk/api/">API</a></li>
+<li class=""><a  href="/maixcdk/doc/zh/faq.html">FAQ</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class=""><a target="_blank" href="https://github.com/sipeed/MaixCDK"><img src='/maixcdk/static/image/github-fill.svg' style='height: 1.5em;vertical-align: middle;'>&nbsp;</a></li>
+<li class="sub_items "><a  ><img src='/maixcdk/static/image/language.svg' style='height: 1.5em;vertical-align: middle;'>&nbsp;中文</a><ul><li class="active"><a  href="/maixcdk/doc/zh/convention/app.html">中文</a></li>
+<li class=""><a  href="/maixcdk/doc/convention/app.html">English</a></li>
+</ul></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">输入关键词，多关键词空格隔开</span>
+                                <span id="search_loading_hint">正在加载，请稍候。。。</span>
+                                <span id="search_download_err_hint">下载文件失败，请刷新重试或检查网络</span>
+                                <span id="search_other_docs_result_hint">来自其它文档的结果</span>
+                                <span id="search_curr_doc_result_hint">当前文档搜索结果</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="not_active with_link"><a href="/maixcdk/doc/zh/index.html"><span class="label">快速开始</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/maixcdk/doc/zh/faq.html"><span class="label">FAQ 常见问题</span><span class=""></span></a></li>
+<li class="active_parent no_link"><a><span class="label">规范</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/maixcdk/doc/zh/convention/index.html"><span class="label">编码规范</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/maixcdk/doc/zh/convention/add_api.html"><span class="label">添加新 API</span><span class=""></span></a></li>
+<li class="active with_link"><a href="/maixcdk/doc/zh/convention/app.html"><span class="label">APP 框架</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/maixcdk/doc/zh/convention/i18n.html"><span class="label">I18N(国际化/多语言)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/maixcdk/doc/zh/convention/protocol.html"><span class="label">Maix 通信协议</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/maixcdk/doc/zh/convention/nn.html"><span class="label">NN AI 模型</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/maixcdk/doc/zh/convention/memcheck.html"><span class="label">内存泄漏检测</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/maixcdk/doc/zh/dev/docker/index.html"><span class="label">Docker 环境</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/maixcdk/doc/zh/more.html"><span class="label">更多文档</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">应用笔记</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/maixcdk/doc/zh/application/index.html"><span class="label">关于本笔记</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/maixcdk/doc/zh/application/ai/yolo11.html"><span class="label">YOLO11 开发笔记</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/maixcdk/doc/zh/application/ui/lvgl.html"><span class="label">LVGL</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>MaixCDK 应用框架指南</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                                <span class="article_date" title="最后修改日期： 2025-03-20">
+                                    2025-03-20
+                                </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/sipeed/MaixCDK/blob/main/docs/doc_zh/convention/app.md" target="_blank">
+                                    <span id='editPage'>编辑本页</span>
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <h2 id="%E7%AE%80%E4%BB%8B">简介</h2>
+<p>用户使用步骤：</p>
+<ul>
+<li>设备启动时会自动启动 <code>launcher</code>。</li>
+<li>用户选择一个 APP 启动。</li>
+<li>运行选中的 APP。</li>
+<li>用户与 APP 交互。</li>
+<li>用户退出 APP。</li>
+<li><code>launcher</code> 会再次启动并等待用户选择 APP。</li>
+</ul>
+<p>用户安装新的 APP：</p>
+<ul>
+<li>确保设备已连接到互联网（可以在 <code>app_settings</code> APP 中连接 WiFi）。</li>
+<li>打开 <a href="https://maixhub.com/app"  target="_blank">maixhub.com/app</a> 查找 APP，点击“下载”按钮，会显示一个二维码和安装码。</li>
+<li>在设备上打开 <code>app_store</code> APP，使用摄像头扫描二维码，或输入安装码来安装 APP。</li>
+<li>返回 <code>launcher</code>，新安装的 APP 会显示在列表中。</li>
+</ul>
+<h2 id="%E6%89%93%E5%8C%85-APP">打包 APP</h2>
+<p>如果使用 <code>MaixCDK</code>：</p>
+<ul>
+<li>在项目文件夹中创建一个 <code>app.yaml</code>，格式见下文。</li>
+<li>执行 <code>maixcdk release -P maixcam</code> 来为 <code>maixcam</code> 平台打包 APP。</li>
+<li>在 <code>dist</code> 文件夹中会找到一个 <code>app_store_v1.0.0.zip</code>，这是打包好的 APP 文件。</li>
+<li>你可以将这个包上传到 <a href="https://maixhub.com/app"  target="_blank">maixhub.com/app</a> 与他人分享。</li>
+<li>或者执行 <code>maixcdk deploy -P maixcam</code> 来启动本地服务器，并显示一个二维码。</li>
+<li>你也可以将这个文件上传到设备，并执行 <code>app_store install app_path.zip</code> 来通过命令安装。</li>
+</ul>
+<p>如果使用 <code>MaixPy</code>，你可以使用 <code>MaixVision Workstation</code> 打包 APP，或手动使用 <code>maixtool</code>：</p>
+<ul>
+<li>在项目文件夹中创建一个 <code>app.yaml</code> 文件，格式见下文。</li>
+<li>创建一个 <code>main.py</code> 文件，这是 APP 的入口。</li>
+<li>在此文件夹中执行 <code>maixtool release</code>，将生成 <code>dist/app_id_vx.x.x.zip</code>。</li>
+<li>你可以将这个包上传到 <a href="https://maixhub.com/app"  target="_blank">maixhub.com/app</a> 与他人分享。</li>
+<li>或者执行 <code>maixtool deploy</code> 来启动本地服务器，并显示一个二维码。</li>
+</ul>
+<p><code>app.yaml</code> 格式：</p>
+
+<pre class="language-yaml"><code class="language-yaml">id: my_app                         # 唯一 ID，使用小写字母并用下划线分隔单词
+name: My APP
+name[zh]: 我的应用                  # 中文名称
+version: 1.0.0                     # 版本号，格式为 major.minor.patch
+icon: assets/my_app.png            # 图标文件，可以是 png 或 lottie json 文件，或为空
+author: Sipeed Ltd
+desc: My APP description
+desc[zh]: 我的应用描述
+
+#### 包含文件方法 1：
+# 默认情况下，会包含项目目录中的所有文件，除了排除文件
+exclude:       # 不支持正则表达式，.git 和 __pycache__ 总是会被排除
+  - .vscode
+  - compile
+  - build
+  - dist
+# extra_include:
+#   src: dst
+#   build/filename123: filename123
+
+#### 包含文件方法 2：
+# 白名单模式，只包含 files 字典中的文件。
+# 如果没有此键或值为空，将使用方法 1。
+# files:
+#   - assets
+#   - hello.py
+#   - main.py
+
+#### 包含文件方法 2.1：
+# 白名单模式，只包含 files 字典中的文件。
+# 如果没有此键或值为空，将使用方法 1。
+# files:
+#   assets: assets
+
+</code></pre>
+<p><code>exclude</code> 为黑名单模式，<code>files</code> 为白名单模式，你可以选择其中一种方式。</p>
+<h2 id="%E6%96%87%E4%BB%B6%E7%BA%A6%E5%AE%9A">文件约定</h2>
+<ul>
+<li>所有应用数据存储在 <code>/maixapp</code>。</li>
+<li>应用存储在 <code>/maixapp/apps</code>。</li>
+<li><code>/maixapp/apps/app.info</code> 为描述已安装应用的 INI 文件。安装和卸载应用会更新此文件。</li>
+</ul>
+<blockquote>
+<p>开发者或用户也可以手动复制应用目录到此，并执行 <code>python gen_app_info.py</code> 生成 <code>app.info</code> 文件。</p>
+</blockquote>
+<ul>
+<li>应用存放在 <code>/maixapp/apps/app_id</code> 文件夹中，每个应用必须包含 <code>app_id</code> 可执行文件，或 <code>main.sh</code> 脚本，或 <code>main.py</code> 脚本。</li>
+<li>启动应用时，launcher 会在 <code>app_id</code> 文件夹中寻找：<code>main.sh</code> -&gt; <code>main.py</code> -&gt; <code>app_id</code> 文件。<code>main.sh</code> 使用 <code>sh</code> 执行，<code>main.py</code> 使用 <code>python3</code> 执行，<code>app_id</code> 直接执行。</li>
+<li>共享数据存储在 <code>/maixapp/share</code>。</li>
+<li>图片文件存储在 <code>/maixapp/share/picture</code>。</li>
+<li>视频文件存储在 <code>/maixapp/share/video</code>。</li>
+<li>临时数据可以存储在 <code>/maixapp/tmp</code>，注意，和 Linux 本身的<code>/tmp</code> 目录不同的是这个目录是在文件系统（SD卡）上的，系统<code>/tmp</code>是在内存上虚拟的文件系统，<code>/tmp</code>读写速度更快但是内存大小受限，大文件以及需要长期记录的日志文件（随着时间推移可能变得比较大）建议放在<code>/maixapp/tmp</code>目录下。</li>
+<li>字体文件存储在 <code>/maixapp/share/font</code>。</li>
+<li>图标文件存储在 <code>/maixapp/share/icon</code>。</li>
+<li>应用运行时创建的数据文件可以存储在 <code>/maixapp/apps/app_id/data</code>。</li>
+<li><strong>所有路径都可以通过 API <code>maix.app.get_xxx_path</code> 获取，更多详情请参考 API 文档或 <a href="https://github.com/sipeed/MaixCDK/blob/main/components/basic/include/maix_app.hpp"  target="_blank">maix_app.hpp</a> 文件。</strong></li>
+</ul>
+<h2 id="%E5%88%87%E6%8D%A2%E5%BA%94%E7%94%A8">切换应用</h2>
+<p>使用 <code>void maix::app::switch_app(const string &amp;app_id, int idx = -1, const std::string &amp;start_param = &quot;&quot;)</code> 函数来切换应用。</p>
+<p>这将退出当前应用并启动另一个应用，并将 <code>start_param</code> 字符串传递给目标应用，目标应用可以通过 <code>maix::app::get_start_param()</code> 获取此参数。</p>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                        <a href="/maixcdk/doc/zh/convention/add_api.html">
+                            <span class="icon"></span>
+                            <span class="label">添加新 API</span>
+                        </a>
+                        
+                    </div>
+                    <div id="next">
+                        
+                        <a href="/maixcdk/doc/zh/convention/i18n.html">
+                            <span class="label">I18N(国际化/多语言)</span>
+                            <span class="icon"></span>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>相关链接</a><ul><li><a target="_blank" href="https://wiki.sipeed.com">Sipeed Wiki</a></li>
+<li><a target="_blank" href="https://www.sipeed.com">Sipeed 官网</a></li>
+<li><a target="_blank" href="https://maixhub.com/">MaixHub</a></li>
+<li><a  href="/maixcdk/sitemap.xml">网站地图</a></li>
+<li><a target="_blank" href="https://github.com/neutree/teedoc">网站使用 teedoc 生成</a></li>
+</ul>
+</li>
+<li><a>源码</a><ul><li><a target="_blank" href="https://github.com/sipeed/maixpy">MaixPy 源码</a></li>
+<li><a target="_blank" href="https://github.com/sipeed/MaixCDK">MaixCDK 源码</a></li>
+<li><a target="_blank" href="https://github.com/sipeed/sipeed_wiki">Wiki 源码</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">开源项目</a></li>
+</ul>
+</li>
+<li><a>关注我们</a><ul><li><a target="_blank" href="https://twitter.com/SipeedIO">twitter</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">淘宝</a></li>
+<li><a target="_blank" href="https://www.aliexpress.com/store/911876460">AliExpress</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">github</a></li>
+<li><a><a>微信公众号</a><img src='/maixpy/static/image/wechat.png'></a>
+</li>
+</ul>
+</li>
+<li><a>联系我们</a><ul><li><a>电话: +86 0755-27808509</a>
+</li>
+<li><a>商业支持: support@sipeed.com</a>
+</li>
+<li><a>地址: 深圳市宝安区新湖路4008号蘅芳科技办公大厦A座-2101C</a>
+</li>
+<li><a  href="https://wiki.sipeed.com/join_us.html">加入我们</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://www.sipeed.com">©2018-2023 深圳矽速科技有限公司</a></li>
+<li><a target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index">粤ICP备19015433号</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/maixcdk/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script src="/maixcdk/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/maixcdk/static/js/theme_default/main.js"></script>
+    
+        <script src="/maixcdk/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/maixcdk/static/css/theme_default/prism.min.js"></script>
+    
+        <script src="/maixcdk/static/js/search/search_main.js"></script>
+    
+        <script src="/maixcdk/static/js/custom.js"></script>
+    
+        <script src="/maixcdk/static/js/thumbs_up/main.js"></script>
+    
+</body>
+
+</html>

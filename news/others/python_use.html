@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+
+<html lang="zh"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="Python, 作用域, ">
+    
+    
+    <meta name="description" content="Python作用域说明">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+        
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/prism.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?9cb07365544a53067c56c346c838181a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119047820-5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-119047820-5');
+    </script>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/js/thumbs_up/style.css" type="text/css"/>
+        
+    
+    
+    <title>Python 变量作用域 - Sipeed Wiki</title>
+    
+    <script type="text/javascript">js_vars = {"teedoc-plugin-ad-hint": {"type": "hint", "label": "NEW", "content": "全新 Maix 系列产品 <a href='https://wiki.sipeed.com/maixcam'>MaixCAM</a> 已上线, 全新 <a href='https://wiki.sipeed.com/maixpy/'>MaixPy</a> 功能更丰富，性能更强大，软件更易用，文档更全面！", "show_times": 2, "show_after_s": 432000, "date": "2022-06-01 14:00", "color": "#a0421d", "link_color": "#e53935", "link_bg_color": "#e6ae5c", "bg_color": "#ffcf89", "color_hover": "white", "bg_color_hover": "#f57c00", "close_color": "#eab971"}, "teedoc-plugin-thumbs-up": {"label_up": "有帮助", "label_down": "待改进", "icon": "/static/images/thumbs_up/up.svg", "icon_clicked": "/static/images/thumbs_up/upped.svg", "url": "https://thumbs-up.sipeed.com", "show_up_count": true, "show_down_count": false, "msg_already_voted": "您已经投过票了", "msg_thanks": "感谢您的反馈", "msg_down_prompt": "感谢反馈，请告诉我们可以改进什么地方?（最少 10 个字）", "msg_down_prompt_error": "消息最少需要 10 个字， 最多 256 个字", "msg_error": "请求服务器出现错误!"}}</script>
+    <script type="text/javascript">metadata = {"tags": ["Python"], "date": "2022-07-13", "update": [], "ts": 1657670400, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/">
+                
+                    <img class="site_logo" src="/static/image/logo.svg" alt="sipeed wiki logo">
+                
+                
+                    <h2>wiki</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class=""><a  href="/">产品</a></li>
+<li class="sub_items "><a >开源软件</a><ul><li class=""><a  href="/maixpy/">MaixPy</a></li>
+<li class=""><a  href="/soft/maixpy/zh/index.html">MaixPy_v1</a></li>
+<li class=""><a  href="/soft/Lichee/zh/index.html">Lichee</a></li>
+<li class=""><a  href="/ai/zh/index.html">AI 指南</a></li>
+</ul>
+</li>
+<li class=""><a target="_blank" href="https://maixhub.com">MaixHub</a></li>
+<li class="active"><a  href="/news/">动态</a></li>
+<li class=""><a  href="/faq.html">FAQ 汇总</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class=""><a  href="/store.html"><img src='/static/image/shop.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+<li class=""><a target="_blank" href="https://github.com/sipeed"><img src='/static/image/github.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">输入关键词，多关键词空格隔开</span>
+                                <span id="search_loading_hint">正在加载，请稍候。。。</span>
+                                <span id="search_download_err_hint">下载文件失败，请刷新重试或检查网络</span>
+                                <span id="search_other_docs_result_hint">来自其它文档的结果</span>
+                                <span id="search_curr_doc_result_hint">当前文档搜索结果</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="">
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>Python 变量作用域</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                                <li>Python</li>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                                <span class="article_date" title="最后修改日期： 2022-07-13">
+                                    2022-07-13
+                                </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/sipeed/sipeed_wiki/blob/main/news/others/python_use.md" target="_blank">
+                                    <span id='editPage'>编辑本页</span>
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <span id="blog_start"></span><p>这里说明一下 Python 变量作用域，帮助大家更好地使用 Python； <a href="https://www.cnblogs.com/Jolly-hu/p/12228320.html"  target="_blank">原文链接</a></p>
+<!-- more -->
+<h2 id="%E4%BD%9C%E7%94%A8%E5%9F%9F%E7%AE%80%E4%BB%8B">作用域简介</h2>
+<p><strong>作用域指的是变量的有效范围</strong>。变量并不是在任何位置都可以访问的，访问权限取决于这个变量是在哪里赋值的，也就是在哪个作用域内的。</p>
+<p>通常而言，在编程语言中，变量的作用域从代码结构形式来看，有块级、函数、类、模块、包等由小到大的级别。但是在 Python 中，没有块级作用域，也就是类似 if语句块、for语句块、with上下文管理器 等等是不存在作用域概念的，他们等同于普通的语句</p>
+
+<pre class="language-python"><code class="language-python">if True:            # if语句块没有作用域
+    x = 1
+print(x)
+# 1
+def func():         # 函数有作用域
+    a = 8
+print(a)
+# Traceback (most recent call last):
+#   File &quot;&lt;pyshell#3&gt;&quot;, line 1, in &lt;module&gt;
+#     a
+# NameError: name 'a' is not defined
+</code></pre>
+<p>上面的代码可以试着运行一下，然后发现在 if 语句内定义的变量 x，可以被外部访问，而在函数 func() 中定义的变量 a，则无法在外部访问。</p>
+<p>通常，函数内部的变量无法被函数外部访问，但内部可以访问；类内部的变量无法被外部访问，但类的内部可以。通俗来讲，就是内部代码可以访问外部变量，而外部代码通常无法访问内部变量。</p>
+<p>变量的作用域决定了程序的哪一部分可以访问哪个特定的变量名称。<br />
+Python 的作用域一共有4层，分别是：</p>
+<ul>
+<li>L （Local） 局部作用域</li>
+<li>E （Enclosing） 闭包函数外的函数中</li>
+<li>G （Global） 全局作用域</li>
+<li>B （Built-in） 内建作用域</li>
+</ul>
+
+<pre class="language-python"><code class="language-python">global_var = 0  # 全局作用域
+def outer():
+    out_var = 1  # 闭包函数外的函数中
+    def inner():
+        inner_var = 2  # 局部作用域
+</code></pre>
+<p>前面说的都是变量可以找得到的情况，那如果出现本身作用域没有定义的变量，那该如何寻找呢？</p>
+<p>Python 以 L –&gt; E –&gt; G –&gt;B 的规则查找变量，即：在局部找不到，便会去局部外的局部找（例如闭包），再找不到就会去全局找，最后去内建中找。</p>
+<p>如果这样还找不到，那就提示变量不存在的错误。例如下面的代码，函数 func 内部并没有定义变量 a，可是 print 函数需要打印 a，那怎么办？</p>
+<p>向外部寻找！按照 L –&gt; E –&gt; G –&gt;B 的规则，层层查询，这个例子很快就从外层查找到了 a，并且知道它被赋值为 1，于是就打印了 1。</p>
+
+<pre class="language-python"><code class="language-python">a = 1
+
+def func():
+    print(a)
+</code></pre>
+<h2 id="%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F%E5%92%8C%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F">全局变量和局部变量</h2>
+<p>定义在函数内部的变量拥有一个局部作用域，被叫做局部变量，定义在函数外的拥有全局作用域的变量，被称为全局变量。（类、模块等同理）</p>
+<p>所谓的局部变量是相对的。局部变量也有可能是更小范围内的变量的外部变量。</p>
+<p>局部变量只能在其被声明的函数内部访问，而全局变量可以在整个程序范围内访问。调用函数时，所有在函数内声明的变量名称都将被加入到作用域中。</p>
+
+<pre class="language-python"><code class="language-python">a = 1               # 全局变量
+
+def func():
+    b = 2           # 局部变量
+    print(a)        # 可访问全局变量a,无法访问它内部的c
+
+    def inner():
+        c = 3       # 更局部的变量
+        print(a)    # 可以访问全局变量a
+        print(b)    # b对于inner函数来说，就是外部变量
+        print(c)
+</code></pre>
+<h2 id="global-%E5%92%8C-nonlocal-%E5%85%B3%E9%94%AE%E5%AD%97">global 和 nonlocal 关键字</h2>
+<p>我们先看下面的例子：</p>
+
+<pre class="language-python"><code class="language-python">total = 0                        # total是一个全局变量
+
+def plus( arg1, arg2 ):
+    total = arg1 + arg2          # total在这里是局部变量.
+    print(&quot;函数内局部变量total=  &quot;, total)
+    print(&quot;函数内的total的内存地址是: &quot;, id(total))
+    return total
+
+plus(10, 20)
+print(&quot;函数外部全局变量total= &quot;, total)
+print(&quot;函数外的total的内存地址是: &quot;, id(total))
+</code></pre>
+<p>很明显，函数 plus 内部通过 total = arg1 + arg2 语句，新建了一个局部变量 total，它和外面的全局变量 total 是两码事。而如果我们想要在函数内部修改外面的全局变量 total 呢？使用  global 关键字！</p>
+<blockquote>
+<p>global：指定当前变量使用外部的全局变量</p>
+</blockquote>
+
+<pre class="language-python"><code class="language-python">global：指定当前变量使用外部的全局变量
+
+total = 0                        # total是一个全局变量
+
+def plus( arg1, arg2 ):
+    global total    # 使用global关键字申明此处的total引用外部的total
+    total = arg1 + arg2
+    print(&quot;函数内局部变量total=  &quot;, total)
+    print(&quot;函数内的total的内存地址是: &quot;, id(total))
+    return total
+
+plus(10, 20)
+print(&quot;函数外部全局变量total= &quot;, total)
+print(&quot;函数外的total的内存地址是:
+</code></pre>
+<p>所运行结果：</p>
+
+<pre class="language-python"><code class="language-python">函数内局部变量total=   30
+函数内的total的内存地址是:  503494624
+函数外部全局变量total=  30
+函数外的total的内存地址是:  503494624
+</code></pre>
+<p>我们再来看下面的例子：</p>
+
+<pre class="language-python"><code class="language-python">a = 1
+print(&quot;函数outer调用之前全局变量a的内存地址： &quot;, id(a))
+
+def outer():
+    a = 2
+    print(&quot;函数outer调用之时闭包外部的变量a的内存地址： &quot;, id(a))
+    def inner():
+        a = 3
+        print(&quot;函数inner调用之后闭包内部变量a的内存地址： &quot;, id(a))
+    inner()
+    print(&quot;函数inner调用之后，闭包外部的变量a的内存地址： &quot;, id(a))
+outer()
+print(&quot;函数outer执行完毕，全局变量a的内存地址： &quot;, id(a))
+</code></pre>
+<p>如果你将前面的知识点都理解通透了，那么这里应该没什么问题，三个 a 各是各的 a，各自有不同的内存地址，是三个不同的变量。</p>
+<p>打印结果也很好的证明了这点：</p>
+
+<pre class="language-python"><code class="language-python">函数outer调用之前全局变量a的内存地址：  493204544
+函数outer调用之时闭包外部的变量a的内存地址：  493204576
+函数inner调用之后闭包内部变量a的内存地址：  493204608
+函数inner调用之后，闭包外部的变量a的内存地址：  493204576
+函数outer执行完毕，全局变量a的内存地址：  493204544
+</code></pre>
+<p>那么，如果，inner 内部想使用 outer 里面的那个 a，而不是全局变量的那个 a，怎么办？用 global 关键字？先试试看吧：</p>
+
+<pre class="language-python"><code class="language-python">a = 1
+print(&quot;函数outer调用之前全局变量a的内存地址： &quot;, id(a))
+def outer():
+    a = 2
+    print(&quot;函数outer调用之时闭包外部的变量a的内存地址： &quot;, id(a))
+    def inner():
+        global a   # 注意这行
+        a = 3
+        print(&quot;函数inner调用之后闭包内部变量a的内存地址： &quot;, id(a))
+    inner()
+    print(&quot;函数inner调用之后，闭包外部的变量a的内存地址： &quot;, id(a))
+outer()
+print(&quot;函数outer执行完毕，全局变量a的内存地址： &quot;, id(a))
+</code></pre>
+<p>运行结果如下，很明显，global使用的是全局变量a。</p>
+
+<pre class="language-python"><code class="language-python">函数outer调用之前全局变量a的内存地址：  494384192
+函数outer调用之时闭包外部的变量a的内存地址：  494384224
+函数inner调用之后闭包内部变量a的内存地址：  494384256
+函数inner调用之后，闭包外部的变量a的内存地址：  494384224
+函数outer执行完毕，全局变量a的内存地址：  494384256
+</code></pre>
+<p>那怎么办呢？使用 nonlocal 关键字！它可以修改嵌套作用域（enclosing 作用域，外层非全局作用域）中的变量。将 global a 改成 nonlocal a 后运行，代码这里我就不重复贴了，</p>
+<p>运行后查看结果，可以看到我们真的引用了 outer 函数的 a 变量。</p>
+
+<pre class="language-python"><code class="language-python">函数outer调用之前全局变量a的内存地址：  497726528
+函数outer调用之时闭包外部的变量a的内存地址：  497726560
+函数inner调用之后闭包内部变量a的内存地址：  497726592
+函数inner调用之后，闭包外部的变量a的内存地址：  497726592
+函数outer执行完毕，全局变量a的内存地址：  497726528
+</code></pre>
+<h2 id="%E9%9D%A2%E8%AF%95%E7%9C%9F%E9%A2%98">面试真题</h2>
+<p>不要上机测试，请说出下面代码的运行结果：</p>
+
+<pre class="language-python"><code class="language-python">a = 10
+def test():
+    a += 1
+    print(a)
+test()
+</code></pre>
+<p>很多同学会说，这太简单了！函数内部没有定义 a，那么就去外部找，找到 a=10，于是加 1，打印 11！</p>
+<p>我会告诉你，这段代码有语法错误吗？a += 1 相当于 a = a + 1，按照赋值运算符的规则是先计算右边的 a+1。但是，Python 的规则是，如果在函数内部要修改一个变量，那么这个变量需要是内部变量，除非你用 global 声明了它是外部变量。很明显，我们没有在函数内部定义变量 a，所以会弹出局部变量在未定义之前就引用的错误。</p>
+<h2 id="%E6%9B%B4%E5%A4%9A%E7%9A%84%E4%BE%8B%E5%AD%90">更多的例子</h2>
+<p>再来看一些例子（要注意其中的闭包，也就是函数内部封装了函数）：</p>
+
+<pre class="language-python"><code class="language-python">name = 'jack'
+
+def outer():
+    name='tom'
+
+    def inner():
+        name ='mary'
+        print(name)
+
+    inner()
+
+outer()
+</code></pre>
+<p>上面的题目很简单，因为inner函数本身有name变量，所以打印结果是mary。那么下面这个呢？</p>
+
+<pre class="language-python"><code class="language-python">name ='jack'
+
+def f1():
+    print(name)
+
+def f2():
+    name = 'eric'
+    f1()
+
+f2()
+</code></pre>
+<p>这题有点迷惑性，想了半天，应该是‘eric’吧，因为 f2 函数调用的时候，在内部又调用了 f1 函数，f1 自己没有 name 变量，那么就往外找，发现 f2 定义了个 name，于是就打印这个 name。错了！！！结果是‘jack’！</p>
+<p><strong>Python函数的作用域取决于其函数代码块在整体代码中的位置，而不是调用时机的位置</strong>。调用 f1 的时候，会去 f1 函数的定义体查找，对于 f1 函数，它的外部是 name ='jack'，而不是 name = 'eric'。</p>
+<p>再看下面的例子，f2 函数返回了 f1 函数：</p>
+
+<pre class="language-python"><code class="language-python">name = 'jack'
+
+def f2():
+    name = 'eric'
+    return f1
+
+def f1():
+    print(name)
+
+ret = f2()
+ret()
+</code></pre>
+<p>仔细回想前面的例子，其实这里有异曲同工之妙，所以结果还是‘jack’。</p>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                    </div>
+                    <div id="next">
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>相关链接</a><ul><li><a target="_blank" href="https://www.sipeed.com">Sipeed 官网</a></li>
+<li><a target="_blank" href="https://maixhub.com/">MaixHub</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">Sipeed 淘宝</a></li>
+<li><a  href="/sitemap.xml">网站地图</a></li>
+<li><a target="_blank" href="https://github.com/teedoc/teedoc">网站使用 teedoc 生成</a></li>
+</ul>
+</li>
+<li><a>源码</a><ul><li><a target="_blank" href="https://github.com/sipeed/sipeed_wiki">Wiki 源码</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">开源项目</a></li>
+</ul>
+</li>
+<li><a>关注我们</a><ul><li><a target="_blank" href="https://twitter.com/SipeedIO">twitter</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">淘宝</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">github</a></li>
+<li><a><a>微信公众号</a><img src='/static/image/wechat.png'></a>
+</li>
+</ul>
+</li>
+<li><a>联系我们</a><ul><li><a>电话: +86 0755-27808509</a>
+</li>
+<li><a>商业支持: support@sipeed.com</a>
+</li>
+<li><a>地址: 深圳市宝安区新湖路4008号蘅芳科技办公大厦A座-2101C</a>
+</li>
+<li><a  href="/join_us.html">加入我们</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://www.sipeed.com">©2018-2023 深圳矽速科技有限公司</a></li>
+<li><a target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index">粤ICP备19015433号</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/js/prism.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <link rel="stylesheet" href="/static/js/add_hint/style.css" type="text/css"/>
+    
+        <script src="/static/js/add_hint/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+        <script src="/static/js/thumbs_up/main.js"></script>
+    
+</body>
+
+</html>
