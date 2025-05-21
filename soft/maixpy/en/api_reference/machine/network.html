@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+
+<html lang="en"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="maixpy, k210, AIOT, edge computing">
+    
+    
+    <meta name="description" content="maixpy  network">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+        
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/prism.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?9cb07365544a53067c56c346c838181a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119047820-5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-119047820-5');
+    </script>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/js/thumbs_up/style.css" type="text/css"/>
+        
+    
+    
+    <title>network - Sipeed Wiki</title>
+    
+    <script type="text/javascript">js_vars = {"teedoc-plugin-ad-hint": {"type": "hint", "label": "NEW", "content": "New Maix series products <a href='https://wiki.sipeed.com/maixcam'>MaixCAM</a> online now, and new <a href='https://wiki.sipeed.com/maixpy/'>MaixPy</a>,feature richer functionalities, enhanced performance, and user-friendly software, with comprehensive documentation", "show_times": 2, "show_after_s": 432000, "date": "2022-06-01 14:00", "color": "#a0421d", "link_color": "#e53935", "link_bg_color": "#e6ae5c", "bg_color": "#ffcf89", "color_hover": "white", "bg_color_hover": "#f57c00", "close_color": "#eab971"}, "teedoc-plugin-thumbs-up": {"label_up": "Helpful", "label_down": "Not Helpful", "icon": "/static/images/thumbs_up/up.svg", "icon_clicked": "/static/images/thumbs_up/upped.svg", "url": "https://thumbs-up.sipeed.com", "show_up_count": true, "show_down_count": false, "msg_already_voted": "You have already voted", "msg_thanks": "Thanks for your vote", "msg_down_prompt": "Thanks to tell us where we can improve?(At least 10 characters)", "msg_down_prompt_error": "Message should be at least 10 characters and less than 256 characters", "msg_error": "Request server failed!"}}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": false, "update": [], "ts": 0, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/en/">
+                
+                    <img class="site_logo" src="/static/image/logo.svg" alt="sipeed wiki logo">
+                
+                
+                    <h2>wiki</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class=""><a  href="/en/">Products</a></li>
+<li class="sub_items "><a >Software Docs</a><ul><li class=""><a  href="/maixpy/en/">MaixPy</a></li>
+<li class=""><a  href="/soft/maixpy/zh/index.html">MaixPy_v1</a></li>
+<li class=""><a  href="/soft/Lichee/zh/index.html">Lichee</a></li>
+<li class=""><a  href="/ai/en/index.html">AI Guide</a></li>
+</ul>
+</li>
+<li class=""><a target="_blank" href="https://maixhub.com">MaixHub</a></li>
+<li class=""><a  href="/news/">News</a></li>
+<li class=""><a  href="/en/faq.html">FAQ</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class=""><a  href="/en/store.html"><img src='/static/image/shop.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+<li class=""><a target="_blank" href="https://github.com/sipeed"><img src='/static/image/github.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+<li class="sub_items "><a  ><img src='/static/image/language.svg' style='height: 1.5em;vertical-align: middle;'>&nbsp;English</a><ul><li class="active"><a  href="/soft/maixpy/en/api_reference/machine/network.html">English</a></li>
+<li class=""><a  href="/soft/maixpy/zh/api_reference/machine/network.html">中文</a></li>
+</ul></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">Search</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">Input keyword. Using Space to separate multiple keywords</span>
+                                <span id="search_loading_hint">Loading, please wait</span>
+                                <span id="search_download_err_hint">Fail download, Please retry or check network</span>
+                                <span id="search_other_docs_result_hint">Results form other doc</span>
+                                <span id="search_curr_doc_result_hint">Result form current doc</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="not_active with_link"><a href="/soft/maixpy/en/index.html"><span class="label">What is MaixPy-v1?</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/what_maix_do.html"><span class="label">What can MaixPy-v1 do?</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/maixpy_history.html"><span class="label">MaixPy Development History</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Getting started(Important)</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/how_to_read.html"><span class="label">How to read documents (Important!!!)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/how_to_ask.html"><span class="label">How to ask correctly (Important!!!)</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Development Boards</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/develop_kit_board/get_hardware.html"><span class="label">Boards Comparison</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Boards introduction</span><span class=""></span></a></li>
+<ul class="show">
+<li class="not_active with_link"><a href="/soft/maixpy/en/develop_kit_board/maix_dock.html"><span class="label">Maix Dock</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/develop_kit_board/maix_bit.html"><span class="label">Maix Bit</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/develop_kit_board/maix_amigo.html"><span class="label">Maix Amigo</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/develop_kit_board/maix_duino.html"><span class="label">Maix Duino</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/develop_kit_board/maix_cube.html"><span class="label">Maix Cube</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/develop_kit_board/maix_go.html"><span class="label">Maix Go</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/develop_kit_board/maix_nano.html"><span class="label">Maix Nano</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/develop_kit_board/grove_ai_hat.html"><span class="label">Grove AI HAT</span><span class=""></span></a></li>
+</ul>
+<li class="not_active no_link"><a><span class="label">Related peripheral Modules (Accessories)</span><span class=""></span></a></li>
+<ul class="show">
+<li class="not_active with_link"><a href="/soft/maixpy/en/modules/sp_mod/index.html"><span class="label">SP-MOD</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/modules/grove/index.html"><span class="label">Grove</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/modules/others/index.html"><span class="label">Other</span><span class=""></span></a></li>
+</ul>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Setup Environment</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/get_started/env_install_driver.html"><span class="label">Install driver for development board</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/get_started/install_driver/dock.html"><span class="label">Maix Dock</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/get_started/install_driver/bit.html"><span class="label">Maix Bit</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/no_translate.html?ref=/soft/maixpy/zh/get_started/install_driver/amigo.html&from=/soft/maixpy/en/get_started/install_driver/amigo.html"><span class="label">Maix Amigo</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/no_translate.html?ref=/soft/maixpy/zh/get_started/install_driver/cube.html&from=/soft/maixpy/en/get_started/install_driver/cube.html"><span class="label">Maix Cube</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/get_started/install_driver/go.html"><span class="label">Maix Go</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/get_started/install_driver/nano.html"><span class="label">Maix Nano</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/no_translate.html?ref=/soft/maixpy/zh/get_started/install_driver/ai_hat.html&from=/soft/maixpy/en/get_started/install_driver/ai_hat.html"><span class="label">Grove AI HAT</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/get_started/install_driver/duino.html"><span class="label">Maix Duino</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/get_started/upgrade_maixpy_firmware.html"><span class="label">How to update MaixPy firmware</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/get_started/env_maixpyide.html"><span class="label">Install and use MaixPy IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/get_started/env_serial_tools.html"><span class="label">How to use serial terminal tool</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/no_translate.html?ref=/soft/maixpy/zh/get_started/mpfshell-lite/mpfshell-lite.html&from=/soft/maixpy/en/get_started/mpfshell-lite/mpfshell-lite.html"><span class="label">mpfshell-lite工具介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/no_translate.html?ref=/soft/maixpy/zh/get_started/mpfshell-lite/mpfshell-lite-help.html&from=/soft/maixpy/en/get_started/mpfshell-lite/mpfshell-lite-help.html"><span class="label">Mpfshell-lite 使用手册</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/get_started/env_maixpyide.html"><span class="label">MaixPy IDE Instructions</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Update WIFI module firmware</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/get_started/upgrade_esp32_firmware.html"><span class="label">Update onboard ESP32 firmware</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/get_started/upgrade_esp8285_firmware.html"><span class="label">Update onboard ESP8285 firmware</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Start to run program</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/get_started/get_started_power_on.html"><span class="label">Power up your board</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/get_started/get_started_cam_lcd.html"><span class="label">First program: screen and camera</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/get_started/get_started_led_blink.html"><span class="label">Second program: LED</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Basic programming knowledge</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/get_started/knowledge_micropython.html"><span class="label">MaixPy Programming</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/get_started/knowledge_git_github.html"><span class="label">What is git and github?</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/get_started/knowledge_image.html"><span class="label">MaixPy Image Basics</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/get_started/knowledge_audio.html"><span class="label">MaixPy audio basics</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/get_started/get_started_fs.html"><span class="label">Introduction of Storage System</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/get_started/get_started_edit_file.html"><span class="label">Edit and run scripts code</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/get_started/get_started_upload_script.html"><span class="label">Upload scripts code to board</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/get_started/get_started_boot.html"><span class="label">Run scripts code when booting</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/get_started/board_info.html"><span class="label">Board configuration file</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/get_started/maixpy_get_started_video.html"><span class="label">Video tutorial</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Custome your own firmware</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/firmware/why_customize_firware.html"><span class="label">Why customizing firmware</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/firmware/online_compile.html"><span class="label">Online Compile</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/firmware/compile.html"><span class="label">Compile from source code</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/index.html"><span class="label">More usages</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Basic Usage</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">CPU & RAM</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/others/system.html"><span class="label">Frequency and reset</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/others/mem.html"><span class="label">Memory configuration</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">GUI support</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/image/image_draw_font/image_draw_font.html"><span class="label">Chinese and other multi-language support</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/others/maixui.html"><span class="label">Maix UI</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/others/lvgl.html"><span class="label">Lvgl UI</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/others/pye.html"><span class="label">pye Editor </span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Network</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/network/network_config.html"><span class="label">Configure network</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/network/socket_usage.html"><span class="label">Socket communication</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Multimedia</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/media/audio.html"><span class="label">audio</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/media/video.html"><span class="label">video</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Game simulator</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/media/nes.html"><span class="label">NES game console</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Peripheral module expansion</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">On-chip peripherals</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/modules/on_chip/gpio.html"><span class="label">GPIO</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/modules/on_chip/i2c.html"><span class="label">I2C</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/modules/on_chip/pwm.html"><span class="label">PWM</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/modules/on_chip/spi.html"><span class="label">SPI</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/modules/on_chip/timer.html"><span class="label">Timer</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/modules/on_chip/uart.html"><span class="label">UART</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/modules/on_chip/i2s.html"><span class="label">I2S</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/modules/on_chip/wdt.html"><span class="label">WDT</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">SP-MOD</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/modules/sp_mod/sp_bt.html"><span class="label">BT Bluetooth transparent transmission</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/modules/sp_mod/sp_lora.html"><span class="label">LoRa Wireless Communication</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/modules/sp_mod/sp_rfid.html"><span class="label">RFID Radio Frequency Identification</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/modules/sp_mod/sp_tof.html"><span class="label">TOF Ranging</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/modules/sp_mod/sp_eink.html"><span class="label">Eink Electronic Ink Screen</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/modules/sp_mod/sp_lcd1.14.html"><span class="label">Lcd1.14 IPS screen</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/modules/sp_mod/sp_weather.html"><span class="label">Weather Module</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/modules/sp_mod/sp_ethernet.html"><span class="label">Ethernet wired network port</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Grove</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/modules/grove/grove_ultrasonic_ranger.html"><span class="label">Ultrasonic Ranger ranging</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/modules/grove/grove_chainable_rgb_led.html"><span class="label">Chainable RGB LED light</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/modules/grove/grove_rgb_led_ring.html"><span class="label">RGB LED Ring Strip</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Other peripherals</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/develop_kit_board/module_microphone.html"><span class="label">Sipeed Microphone Array</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/modules/others/binocular_camera.html"><span class="label">Dual camera module</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/modules/others/mlx90640.html"><span class="label">MLX90640 serial infrared lens</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/modules/others/servo.html"><span class="label">Pwm servo</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/modules/others/esp32_read_adc.html"><span class="label">ESP32 ADC</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/modules/others/onewire.html"><span class="label">onewire single bus</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Basic Image Processing</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/image/basic/get_images.html"><span class="label">Get image</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/image/basic/display_images.html"><span class="label">Display image</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/image/basic/vary.html"><span class="label">MaixPy common images operations</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/image/basic/draw.html"><span class="label">Basic drawing and writing</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/image/basic/acc_image_deal.html"><span class="label">Hardware accelerated image processing</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Traditional Algorithm</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Image Processing</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/image/find_color_blob.html"><span class="label">Look for color blocks</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/image/find_qrcodes.html"><span class="label">QR code recognition</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Audio Processing</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/speech/fft_waterfall.html"><span class="label">FFT waterfall chart</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/speech/recognizer_mfcc.html"><span class="label">Keyword Identification</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Neural Network Applications</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/ai/basic/dnn_basic.html"><span class="label">Basic knowledge of deep neural networks</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/ai/basic/maixpy_hardware_ai_basic.html"><span class="label">MaixPy AI hardware acceleration basic knowledge</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Image Processing</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/ai/image/face_detect.html"><span class="label">Face Detection</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/ai/image/1000_type_classifier.html"><span class="label">1000 object classification</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/ai/image/face_recognization.html"><span class="label">Face Recognition</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/ai/image/self_learn_classifier.html"><span class="label">Self-learning classification</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Audio Processing</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/speech/recognizer_cnn.html"><span class="label">Voice Recognition</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">How to tarin models</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Train your own classification and detection model</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/ai/train/maixhub.html"><span class="label">MaixHub Cloud Training</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/ai/train/local.html"><span class="label">Local Training</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/no_translate.html?ref=/soft/maixpy/zh/course/ai/train/local_windows_1.html&from=/soft/maixpy/en/course/ai/train/local_windows_1.html"><span class="label">Setup Windows local training envrioument</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/no_translate.html?ref=/soft/maixpy/zh/course/ai/train/local_windows_2.html&from=/soft/maixpy/en/course/ai/train/local_windows_2.html"><span class="label">Tutorial of Windows local training</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="active_parent no_link"><a><span class="label">API reference</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/standard/index.html"><span class="label">Standard Library</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/standard/cmath.html"><span class="label">cmath</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/standard/gc.html"><span class="label">gc</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/standard/math.html"><span class="label">math</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/standard/sys.html"><span class="label">sys</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/standard/ubinascii.html"><span class="label">ubinascii</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/standard/ucollections.html"><span class="label">ucollections</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/standard/uctypes.html"><span class="label">uctypes</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/standard/uerrno.html"><span class="label">uerrno</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/standard/uhashlib.html"><span class="label">uhashlib</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/standard/uheapq.html"><span class="label">uheapq</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/standard/ujson.html"><span class="label">ujson</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/standard/uos.html"><span class="label">uos</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/standard/ure.html"><span class="label">ure</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/standard/usocket.html"><span class="label">usocket</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/standard/ustruct.html"><span class="label">ustruct</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/standard/utime.html"><span class="label">utime</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/standard/uzlib.html"><span class="label">uzlib</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="active_parent with_link"><a href="/soft/maixpy/en/api_reference/machine/index.html"><span class="label">machinie</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/machine/i2c.html"><span class="label">I2C</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/machine/pwm.html"><span class="label">PWM</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/machine/spi.html"><span class="label">SPI</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/machine/timer.html"><span class="label">Timer</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/machine/uart.html"><span class="label">UART</span><span class=""></span></a></li>
+<li class="active with_link"><a href="/soft/maixpy/en/api_reference/machine/network.html"><span class="label">network</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/machine/wdt.html"><span class="label">WDT</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Maix</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/Maix/fpioa.html"><span class="label">FPIOA</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/Maix/gpio.html"><span class="label">GPIO</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/Maix/kpu.html"><span class="label">KPU</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/Maix/fft.html"><span class="label">FFT</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/Maix/i2s.html"><span class="label">I2S</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/Maix/freq.html"><span class="label">freq</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/Maix/utils.html"><span class="label">utils</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/builtin_py/index.html"><span class="label">helper</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/builtin_py/fm.html"><span class="label">fpioa_manager</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/builtin_py/board_info.html"><span class="label">board_info</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/builtin_py/pye.html"><span class="label">Micropython Editor</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/machine_vision/index.html"><span class="label">media</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/machine_vision/lcd.html"><span class="label">lcd</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/machine_vision/sensor.html"><span class="label">sensor</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/machine_vision/image/image.html"><span class="label">image</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/media/video.html"><span class="label">video</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/media/audio.html"><span class="label">audio</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/media/nes.html"><span class="label">nes</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/machine_vision/isolated_word.html"><span class="label">isolated_word</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/machine_vision/maix_asr.html"><span class="label">maix_asr</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/extend/index.html"><span class="label">extend</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/extend/touchscreen.html"><span class="label">touchscreen</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/extend/ultrasonic.html"><span class="label">modules.ultrasonic</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/extend/ws2812.html"><span class="label">modules.ws2812</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/extend/htpa.html"><span class="label">modules.htpa</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/extend/onewire.html"><span class="label">modules.onewire</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/others/maixpy_faq.html"><span class="label">FAQ</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Advanced</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Advanced Development</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/advance/project_framework.html"><span class="label">Source code Structure</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/advance/compile.html"><span class="label">How to compile MaixPy project</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/advance/add_c_module.html"><span class="label">How to add a MaixPy module in C</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/advance/pack_fs.html"><span class="label">Package File System</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Participate in Contribution</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/contribute/doc_convention.html"><span class="label">Participate in document writing (standard)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/contribute/code_convention.html"><span class="label">Code Writing Specification</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Sharing from Community & Users</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/share/recommend_articles.html"><span class="label">Featured Articles</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/share/open_projects.html"><span class="label">Open Source Project</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Everyone's experience sharing</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/share/my_share/index.html"><span class="label">Participate in experience sharing/sharing template</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/thanks.html"><span class="label">Open source thanks</span><span class=""></span></a></li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>network</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/sipeed/sipeed_wiki/blob/main/docs/soft/maixpy/en/api_reference/machine/network.md" target="_blank">
+                                    <span id='editPage'>Edit this page</span>
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <p>This module is used to initialize various network card drivers. The network card has the functions of connecting routing, disconnecting routing, viewing the connection information of the network card, and checking whether it is connected.</p>
+<p>To use <code>WiFi</code> please make sure that the antenna is connected</p>
+<h3 id="%3Ca-href%3D%22%23%23network.ESP8285%28uart%29%22--%3Eesp8285%3C/a%3E"><a href="##network.ESP8285(uart)"  >esp8285</a></h3>
+<p>On some development boards, a network card module that uses <code>AT</code> to interact, such as <code>esp8285</code>, is connected to <code>k210</code> through a serial port</p>
+<p>Pin <code>8</code> is the enable pin. You can create a <code>GPIO</code> object to control its high and low levels to achieve enable and disable, or you can use it to reset (low first and then high), and you need to wait for a while after reset Time to operate,<br />
+You can view the routine <a href="https://github.com/sipeed/MaixPy-v1_scripts/blob/79a5485ec983e67bb8861305a52418b29e0dc205/network/network_espat.py"  target="_blank">network_espat.py</a></p>
+<h3 id="%3Ca-href%3D%22%23%23network.ESP32_SPI%28cs%2Crst%2Crdy%2Cmosi%2Cmiso%2Csclk%29%22--%3Eesp32%3C/a%3E"><a href="##network.ESP32_SPI(cs,rst,rdy,mosi,miso,sclk)"  >esp32</a></h3>
+<p>Currently there is an <code>esp32</code> module in the <code>MaixDuino</code> development board which is connected to <code>k210</code> through <code>spi</code><br />
+There is also a separate <code>TF</code> plug-in module</p>
+<h2 id="network.ESP8285%28uart%29">network.ESP8285(uart)</h2>
+<p>Construct an <code>ESP8285</code> network card object. To use this method, you need to pass in a <code>uart</code> object. On the <code>dock</code> and <code>GO</code> currently supported by <code>MaixPy</code>, the AT command module is used as the <code>WiFi</code>. So the <code>uart</code> object is the object that communicates with the <code>AT</code> module, you can check the <code>uart</code> module routine</p>
+<p>Calling this method will initialize <code>ESP8285</code> and throw an exception if it fails</p>
+<h3 id="Parameters">Parameters</h3>
+<ul>
+<li><code>uart</code>: UART object communicating with AT module</li>
+</ul>
+<h3 id="return-value">return value</h3>
+<ul>
+<li><code>ESP8285</code>: NIC object</li>
+</ul>
+<h2 id="ESP8285">ESP8285</h2>
+<h3 id="connect%28ssid%2C-key%29">connect(ssid, key)</h3>
+<p>Connect hotspot (AP/router)</p>
+<h4 id="Parameters">Parameters</h4>
+<ul>
+<li><code>ssid</code>: the <code>SSID</code> of the hotspot</li>
+<li><code>key</code>: hotspot password</li>
+</ul>
+<h4 id="return-value">return value</h4>
+<p>None, if an error occurs, an exception will be thrown</p>
+<h3 id="2.2.-ifconfig">2.2. ifconfig</h3>
+<p>View wifi connection information, currently network does not support setting network card configuration</p>
+
+<pre class="language-none"><code class="language-none">nic.ifconfig()
+</code></pre>
+<h4 id="Parameters">Parameters</h4>
+<p>no</p>
+<h4 id="return-value">return value</h4>
+<p><code>tuple</code> type, elements are all strings: <code>(ip, netmask, gateway, dns_server, dhcp_server, mac, ssid)</code>, if not found or invalid, the value is <code>&quot;0&quot;</code></p>
+<h3 id="isconnected">isconnected</h3>
+<p>Check if wifi is connected</p>
+
+<pre class="language-none"><code class="language-none">nic.isconnected()
+</code></pre>
+<h4 id="Parameters">Parameters</h4>
+<p>no</p>
+<h4 id="return-value">return value</h4>
+<p><code>True</code>: connected<br />
+<code>False</code>: disconnect</p>
+<h3 id="disconnect">disconnect</h3>
+<p>Disconnect wifi connection</p>
+<h4 id="Parameters">Parameters</h4>
+<p>no</p>
+<h4 id="return-value">return value</h4>
+<p>no</p>
+<h3 id="scan">scan</h3>
+<p>Scan the surrounding hotspot information</p>
+<h4 id="Parameters">Parameters</h4>
+<p>no</p>
+<h4 id="return-value">return value</h4>
+<p>A <code>list</code> object, each element contains a string, the string comes from the response of the <code>AT</code> module, and the content is the same as described in the <code>AT command document</code> of <code>esp8285</code>, as follows:<br />
+<code>ecn, ssid, rssi,mac, channel, freq offset, freq cali, pairwise_cipher, group_cipher, bgn, wps</code></p>
+<ul>
+<li><code>ecn</code>: Encryption method<ul>
+<li>0: OPEN</li>
+<li>1: WEP</li>
+<li>2: WPA_PSK</li>
+<li>3: WPA2_PSK</li>
+<li>4: WPA_WPA2_PSK</li>
+</ul>
+*5: WPA2_Enterprise (Previously, AT does not support connecting to this encrypted AP)</li>
+<li><code>ssid</code>: string parameter, AP's SSID</li>
+<li><code>rssi</code>: signal strength</li>
+<li><code>mac</code>: string parameter, AP's MAC address</li>
+<li><code>channel</code>: channel number</li>
+<li><code>freq offset</code>: AP frequency offset, unit: kHz. Divide this value by 2.4 to get the ppm value</li>
+<li><code>freq cali</code>: frequency offset calibration value</li>
+<li><code>pairwise_cipher</code>:<ul>
+<li>0: CIPHER_NONE</li>
+<li>1: CIPHER_WEP40</li>
+<li>2: CIPHER_WEP104</li>
+<li>3: CIPHER_TKIP</li>
+<li>4: CIPHER_CCMP</li>
+<li>5: CIPHER_TKIP_CCMP</li>
+<li>6: CIPHER_UNKNOWN</li>
+</ul>
+</li>
+<li><code>group_cipher</code>: The definition is the same as <code>pairwise_cipher</code></li>
+<li><code>bgn</code>: bit0 stands for b mode; bit1 stands for g mode; bit2 stands for n mode<br />
+       If the corresponding bit is 1, it means the mode is enabled; if the corresponding bit is 0, the mode is not enabled.</li>
+<li><code>wps</code>: 0, WPS is not enabled; 1, WPS is enabled</li>
+</ul>
+<p>For example:</p>
+
+<pre class="language-none"><code class="language-none">info_strs = ['4,&quot;ChinaNet-lot0&quot;,-79,&quot;c8:50:e9:e8:21:3e&quot;,1,-42,0,4,3,7,1', '4,&quot;TOPSTEP2G4 &quot;,-7
+0,&quot;f8:e7:1e:0d:0d:f8&quot;,1,-57,0,4,4,7,0']
+</code></pre>
+<p>This may seem strange, because the information of each AP is a string of characters, and there are integers and strings in the information. The strings are enclosed in double quotes, so after you get this string, you need to process it again. Use again, such as:</p>
+
+<pre class="language-python"><code class="language-python">def wifi_deal_ap_info(info):
+    res = []
+    for ap_str in info:
+        ap_str = ap_str.split(&quot;,&quot;)
+        info_one = []
+        for node in ap_str:
+            if node.startswith('&quot;'):
+                info_one.append(node[1:-1])
+            else:
+                info_one.append(int(node))
+        res.append(info_one)
+    return res
+
+info_strs = ['4,&quot;ChinaNet-lot0&quot;,-79,&quot;c8:50:e9:e8:21:3e&quot;,1,-42,0,4,3,7,1', '4,&quot;TOPSTEP2G4 &quot;,-70,&quot;f8:e7:1e:0d:0d:f8&quot;,1,-57,0,4,4,7,0']
+
+info = wifi_deal_ap_info(info_strs)
+print(info)
+</code></pre>
+<p>The output is:</p>
+
+<pre class="language-none"><code class="language-none">[[4,'ChinaNet-lot0', -79,'c8:50:e9:e8:21:3e', 1, -42, 0, 4, 3, 7, 1], [4,'TOPSTEP2G4', -70,'f8:e7:1e:0d:0d:f8', 1, -57, 0, 4, 4, 7, 0]]
+</code></pre>
+<p>Then for example, we need to get all the <code>SSID</code> of <code>AP</code> only need to use</p>
+
+<pre class="language-none"><code class="language-none">for ap_info in info:
+    print(ap_info[1])
+</code></pre>
+<h3 id="enable_ap%28ssid%2C-key%2C-chl%3D5%2C-ecn%3D3%29">enable_ap(ssid, key, chl=5, ecn=3)</h3>
+<ul>
+<li><strong>Warning: As of November 26, 2020, MaixPy sockets have not yet implemented functions such as listen / bind / accpet. </strong></li>
+</ul>
+<p>Open hotspot</p>
+<h4 id="Parameters">Parameters</h4>
+<ul>
+<li><code>ssid</code>: SSID</li>
+<li><code>key</code>: password</li>
+<li><code>chl</code>: Channel number of WiFi signal</li>
+<li><code>ecn</code>: Encryption method, including <code>OPEN``WPA2_PSK</code>, etc., refer to the constant part of <code>ESP8285</code> on this page, the default value is <code>3</code>, which is <code>ESP8285.WPA2_PSK</code>, for example</li>
+</ul>
+
+<pre class="language-python"><code class="language-python">nic = network.ESP8285(uart)
+nic.enable_ap(&quot;maixpy&quot;, &quot;12345678&quot;, 5, nic.OPEN)
+</code></pre>
+<p>or</p>
+
+<pre class="language-none"><code class="language-none">nic.enable_ap(&quot;maixpy&quot;, &quot;12345678&quot;, 5, network.ESP8285.OPEN)
+</code></pre>
+<h3 id="disable_ap%28%29">disable_ap()</h3>
+<p>Turn off hotspot</p>
+<h3 id="Constant">Constant</h3>
+<h4 id="OPEN">OPEN</h4>
+<p>The hotspot encryption method does not require a password</p>
+<h4 id="WPA_PSK">WPA_PSK</h4>
+<p>The hotspot encryption method is <code>WPA_PSK</code></p>
+<h4 id="WPA2_PSK">WPA2_PSK</h4>
+<p>The hotspot encryption method is <code>WPA2_PSK</code></p>
+<h4 id="WPA_WPA2_PSK">WPA_WPA2_PSK</h4>
+<p>The encryption method of the hotspot is <code>WPA_WPA2_PSK</code></p>
+<h2 id="Routine">Routine</h2>
+<p>Refer to <a href="https://github.com/sipeed/MaixPy-v1_scripts/tree/master/network"  target="_blank">routines in the network directory</a></p>
+<h2 id="network.ESP32_SPI%28cs%2Crst%2Crdy%2Cmosi%2Cmiso%2Csclk%29">network.ESP32_SPI(cs,rst,rdy,mosi,miso,sclk)</h2>
+<p>To construct an <code>ESP32_SPI</code> network card object, you need to pass in the corresponding <code>GPIOHS FUNC</code></p>
+<p>If the number of incoming parameters is incorrect, an error will be returned</p>
+<p><strong>Note</strong> If SPI and SD do not conflict on maixduino, you need to set ESP32_SPI as the hardware SPI configuration.</p>
+<h3 id="Parameters">Parameters</h3>
+<ul>
+<li><code>fpioa_func</code> corresponding to pin function</li>
+</ul>
+<h3 id="return-value">return value</h3>
+<ul>
+<li><code>ESP32_SPI</code> network card object</li>
+</ul>
+<h2 id="ESP32_SPI">ESP32_SPI</h2>
+<h3 id="adc">adc</h3>
+<p>Read the <code>adc</code> value of the <code>esp32</code> module</p>
+<h4 id="Parameters">Parameters</h4>
+<p>no</p>
+<h4 id="return-value">return value</h4>
+<p><code>tunple</code>, the value of <code>adc</code> for 5 channels<br>The order is <code>&quot;PIN36&quot;, &quot;PIN39&quot;, &quot;PIN34&quot;, &quot;PIN35&quot;, &quot;PIN32&quot;</code></p>
+<h4 id="Routine">Routine</h4>
+<p><a href="https://github.com/sipeed/MaixPy-v1_scripts/blob/master/network/demo_esp32_read_adc.py"  target="_blank">demo_esp32_read_adc.py</a></p>
+<h2 id="network.WIZNET5K%28spi%2C-cs%29">network.WIZNET5K(spi, cs)</h2>
+<p>Construct a <code>WIZNET5K</code> network card object. To use this method, you need to pass in a <code>spi</code> object and a <code>cs</code> pin.</p>
+<p>Calling this method will initialize <code>WIZNET5K</code> and throw an exception if it fails</p>
+<h3 id="Parameters">Parameters</h3>
+<ul>
+<li><code>spi</code>: Responsible for communication with WIZNET5K module</li>
+<li><code>cs</code>: spi communication chip selection footer</li>
+</ul>
+<h3 id="return-value">return value</h3>
+<ul>
+<li><code>WIZNET5K</code>: NIC object</li>
+</ul>
+<h2 id="WIZNET5K">WIZNET5K</h2>
+<h3 id="dhclient">dhclient</h3>
+<p>DHCP dynamically obtain IP</p>
+
+<pre class="language-none"><code class="language-none">nic.dhclient()
+</code></pre>
+<h4 id="Parameters">Parameters</h4>
+<p>no</p>
+<h4 id="return-value">return value</h4>
+<ul>
+<li><code>True</code>: Get success</li>
+<li><code>False</code>: Get failed</li>
+</ul>
+<h3 id="ifconfig">ifconfig</h3>
+
+<pre class="language-none"><code class="language-none">nic.ifconfig()
+</code></pre>
+<h4 id="Parameters">Parameters</h4>
+<ul>
+<li>No reference: query network card information</li>
+<li>Incoming <code>(ip, netmask, gateway, dns_server)</code> string tuple: configure network card, <code>ip</code> ip address, <code>netmask</code> subnet mask, <code>gateway</code> gateway IP address, <code>dns_server</code> DNS service IP address .</li>
+</ul>
+<h4 id="return-value">return value</h4>
+<ul>
+<li>No parameters: return <code>tuple</code>, the elements are all strings, <code>(ip, netmask, gateway, dns_server)</code>, if not found or invalid, the value is <code>&quot;0&quot;</code></li>
+<li>Pass parameter: return <code>None</code></li>
+</ul>
+<h3 id="isconnected">isconnected</h3>
+<p>Check if the network is connected</p>
+
+<pre class="language-none"><code class="language-none">nic.isconnected()
+</code></pre>
+<h4 id="Parameters">Parameters</h4>
+<p>no</p>
+<h4 id="return-value">return value</h4>
+<ul>
+<li><code>True</code>: already connected</li>
+<li><code>False</code>: disconnect</li>
+</ul>
+<h4 id="Routine">Routine</h4>
+<p><a href="https://github.com/sipeed/MaixPy-v1_scripts/blob/master/network/network_wiznet5k.py"  target="_blank">network_wiznet5k.py</a></p>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                        <a href="/soft/maixpy/en/api_reference/machine/uart.html">
+                            <span class="icon"></span>
+                            <span class="label">UART</span>
+                        </a>
+                        
+                    </div>
+                    <div id="next">
+                        
+                        <a href="/soft/maixpy/en/api_reference/machine/wdt.html">
+                            <span class="label">WDT</span>
+                            <span class="icon"></span>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>links</a><ul><li><a target="_blank" href="https://www.sipeed.com">Sipeed</a></li>
+<li><a target="_blank" href="https://maixhub.com/">MaixHub</a></li>
+<li><a target="_blank" href="https://sipeed.aliexpress.com/store/911876460">Sipeed AliExpress</a></li>
+<li><a target="_blank" href="https://github.com/neutree/teedoc">Build by teedoc </a></li>
+</ul>
+</li>
+<li><a>Source Code</a><ul><li><a target="_blank" href="https://github.com/sipeed/sipeed_wiki">Wiki source</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">Open Source Projects</a></li>
+</ul>
+</li>
+<li><a>Follow us</a><ul><li><a target="_blank" href="https://twitter.com/SipeedIO">twitter</a></li>
+<li><a target="_blank" href="https://sipeed.aliexpress.com/store/911876460">AliExpress</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">github</a></li>
+<li><a><a>Wechat</a><img src='/static/image/wechat.png'></a>
+</li>
+</ul>
+</li>
+<li><a>Contact us</a><ul><li><a>Tel: +86 0755-27808509</a>
+</li>
+<li><a>Business support: support@sipeed.com</a>
+</li>
+<li><a>Address: 深圳市宝安区新湖路4008号蘅芳科技办公大厦A座-2101C</a>
+</li>
+<li><a  href="/join_us.html">Join us</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://www.sipeed.com">©2018-2023 深圳矽速科技有限公司</a></li>
+<li><a target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index">粤ICP备19015433号</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/js/prism.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <link rel="stylesheet" href="/static/js/add_hint/style.css" type="text/css"/>
+    
+        <script src="/static/js/add_hint/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+        <script src="/static/js/thumbs_up/main.js"></script>
+    
+</body>
+
+</html>

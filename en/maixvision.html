@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+
+<html lang="en"  class=" md_page ">
+
+<head>
+     
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="keywords" content="">
+        <meta name="description" content="">
+        <meta name="generator" content="teedoc">
+        <meta name="theme" content="teedoc-plugin-theme-default">
+    
+     
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser"><script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script><script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser"><meta name="blog-generator" content="teedoc-plugin-blog"><script src="/static/js/theme_default/pre_main.js"></script><link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/><link rel="stylesheet" href="/static/css/prism.css" type="text/css"/><link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/><link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/><script src="/static/js/theme_default/jquery.min.js"></script><script src="/static/js/theme_default/split.js"></script><link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/><script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?9cb07365544a53067c56c346c838181a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119047820-5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-119047820-5');
+    </script><link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/><link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/><link rel="stylesheet" href="/static/css/custom.css" type="text/css"/><link rel="stylesheet" href="/static/js/thumbs_up/style.css" type="text/css"/>
+    
+    
+        <title>MaixVision Workstation Official Website - Sipeed Wiki</title>
+    
+    
+    
+    <script type="text/javascript">js_vars = {"teedoc-plugin-ad-hint": {"type": "hint", "label": "NEW", "content": "New Maix series products <a href='https://wiki.sipeed.com/maixcam'>MaixCAM</a> online now, and new <a href='https://wiki.sipeed.com/maixpy/'>MaixPy</a>,feature richer functionalities, enhanced performance, and user-friendly software, with comprehensive documentation", "show_times": 2, "show_after_s": 432000, "date": "2022-06-01 14:00", "color": "#a0421d", "link_color": "#e53935", "link_bg_color": "#e6ae5c", "bg_color": "#ffcf89", "color_hover": "white", "bg_color_hover": "#f57c00", "close_color": "#eab971"}, "teedoc-plugin-thumbs-up": {"label_up": "Helpful", "label_down": "Not Helpful", "icon": "/static/images/thumbs_up/up.svg", "icon_clicked": "/static/images/thumbs_up/upped.svg", "url": "https://thumbs-up.sipeed.com", "show_up_count": true, "show_down_count": false, "msg_already_voted": "You have already voted", "msg_thanks": "Thanks for your vote", "msg_down_prompt": "Thanks to tell us where we can improve?(At least 10 characters)", "msg_down_prompt_error": "Message should be at least 10 characters and less than 256 characters", "msg_error": "Request server failed!"}}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": false, "update": [], "ts": 0, "author": "", "brief": "", "cover": ""}</script>
+</head>
+<body class="type_page">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/en/">
+                
+                    <img class="site_logo" src="/static/image/logo.svg" alt="sipeed wiki logo">
+                
+                
+                    <h2>wiki</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class="active"><a  href="/en/">Products</a></li>
+<li class="sub_items "><a >Software Docs</a><ul><li class=""><a  href="/maixpy/en/">MaixPy</a></li>
+<li class=""><a  href="/soft/maixpy/zh/index.html">MaixPy_v1</a></li>
+<li class=""><a  href="/soft/Lichee/zh/index.html">Lichee</a></li>
+<li class=""><a  href="/ai/en/index.html">AI Guide</a></li>
+</ul>
+</li>
+<li class=""><a target="_blank" href="https://maixhub.com">MaixHub</a></li>
+<li class=""><a  href="/news/">News</a></li>
+<li class=""><a  href="/en/faq.html">FAQ</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class=""><a  href="/en/store.html"><img src='/static/image/shop.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+<li class=""><a target="_blank" href="https://github.com/sipeed"><img src='/static/image/github.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+<li class="sub_items "><a  ><img src='/static/image/language.svg' style='height: 1.5em;vertical-align: middle;'>&nbsp;English</a><ul><li class="active"><a  href="/en/maixvision.html">English</a></li>
+<li class=""><a  href="/maixvision.html">中文</a></li>
+</ul></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">Search</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">Input keyword. Using Space to separate multiple keywords</span>
+                                <span id="search_loading_hint">Loading, please wait</span>
+                                <span id="search_download_err_hint">Fail download, Please retry or check network</span>
+                                <span id="search_other_docs_result_hint">Results form other doc</span>
+                                <span id="search_curr_doc_result_hint">Result form current doc</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="page_wrapper">
+        <div id="page_content">
+            <div>
+                
+                <div>
+<script src="/static/css/tailwind.css"></script>
+</div>
+<style>
+#page_wrapper {
+    background-color: #1f2022;
+}
+.md_page #page_content > div {
+    width: 100%;
+    max-width: 100%;
+}
+#file_list_wrapper {
+    display: none;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000000cc;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+}
+#file_list {
+    background-color: #FAFAFA;
+    border-radius: 3px;
+    max-width: 80%;
+    min-width: 400px;
+    max-height: 80%;
+    min-height: 200px;
+    overflow-y: auto;
+}
+#maixvision_video {
+    height: 35rem;
+}
+@media (max-width: 1670px) {
+    #maixvision_video {
+        height: 30rem;
+    }
+}
+@media (max-width: 1280px) {
+    #maixvision_video {
+        height: 20rem;
+    }
+}
+@media (max-width: 1024px) {
+    #maixvision_video {
+        width: 100%;
+        height: auto;
+    }
+}
+.btn, #page_content .btn, #content_body .btn {
+    background: #005af2;
+    box-shadow: 0px 0px 2px 0px #005af2;
+}
+.btn, #page_content .btn:hover, #content_body .btn:hover {
+    background: #005af2;
+    box-shadow: 0px 0px 10px 0px #005af2;
+}
+</style>
+<div id="file_list_wrapper" class="flex justify-center items-center">
+    <div id="file_list" class="flex flex-col justify-center items-center space-y-5 px-5 py-10">
+    </div>
+</div>
+<div class="w-full flex flex-wrap-reverse justify-center items-center" style="min-height:80vh; background-color:#1f2022">
+    <div class="flex flex-col justify-center items-center p-10">
+        <h1 class="text-4xl font-bold text-white hidden">MaixVision</h1>
+        <img src="/static/image/maixvision_hor.svg" class="pointer-events-none" />
+        <p class="text-xm text-white">Empower edge AI projects</p>
+        <div class="flex flex-row space-x-4 pt-10">
+            <div id="win_download" class="btn flex w-32 space-x-1 justify-center items-center">
+                <img src="/static/image/download.svg" class="pointer-events-none h-6 w-6" />
+                <span class="text-lg">Windows</span>
+            </div>
+            <div id="linux_download" class="btn flex w-32 space-x-1 justify-center items-center">
+                <img src="/static/image/download.svg" class="pointer-events-none h-6 w-6" />
+                <span class="text-lg">Linux</span>
+            </div>
+            <div id="macos_download" class="btn flex w-32 space-x-1 justify-center items-center">
+                <img src="/static/image/download.svg" class="pointer-events-none h-6 w-6" />
+                <span class="text-lg">MacOS</span>
+            </div>
+        </div>
+        <div class="mt-10">
+            <p><span class="mr-2">More visit</span><a href="https://wiki.sipeed.com/maixpy/">MaixPy</a></p>
+        </div>
+    </div>
+    <video id="maixvision_video" class="p-5" controls="false" autoplay loop muted preload src="https://wiki.sipeed.com/maixpy/static/video/maixvision.mp4" type="video/mp4">
+    MaixVision
+    </video>
+</div>
+<script>
+async function getLatestVersion(filename) {
+    const timestamp = new Date().getTime();
+    const url = `https://cdn.sipeed.com/maixvision/${filename}.json?t=${timestamp}`;
+
+    const response = await fetch(url);
+    const data = await response.json();
+    if(data.error) {
+        showMsgInfo("load data failed: " + data.error);
+        return;
+    }
+    return data;
+}
+
+
+var win_download = document.getElementById('win_download');
+var linux_download = document.getElementById('linux_download');
+var macos_download = document.getElementById('macos_download');
+var file_list_wrapper = document.getElementById('file_list_wrapper');
+var file_list = document.getElementById('file_list');
+
+var win_info = undefined;
+var linux_info = undefined;
+var macos_info = undefined;
+
+function showMsgInfo(msg) {
+    file_list_wrapper.style.display = 'flex';
+    let file_list = document.getElementById('file_list');
+    file_list.innerHTML = '';
+    var p = document.createElement('p');
+    p.innerText = msg;
+    file_list.appendChild(p);
+}
+
+function showList(files) {
+    file_list_wrapper.style.display = 'flex';
+    file_list.innerHTML = '';
+    for (let i = files.length - 1; i >= 0; i--) {
+        var a = document.createElement('a');
+
+        a.href = 'https://cdn.sipeed.com/maixvision/' + win_info.version + '/' + files[i].url;
+        a.innerText = files[i].url;
+        a.className = 'p-4 bg-blue-700 text-lg rounded-md shadow hover:bg-blue-800 hover:shadow-xl';
+        a.style = 'color: #FFFFFF';
+        a.addEventListener('click', function () {
+            file_list_wrapper.style.display = 'none';
+        })
+
+        file_list.appendChild(a);
+    };
+
+}
+
+file_list_wrapper.addEventListener('click', function () {
+    file_list_wrapper.style.display = 'none';
+});
+
+// listen to the click event
+win_download.addEventListener('click', async function () {
+    if (win_info === undefined) {
+        showMsgInfo('Loading, please wait for a moment');
+        return;
+    }
+    // if (win_info.files.length === 1) {
+    //     window.location.href = 'https://cdn.sipeed.com/maixvision/' + win_info.version + '/' + win_info.files[0].url;
+    // } else {
+    //     showList(win_info.files);
+    // }
+    showList(win_info.files);
+});
+
+linux_download.addEventListener('click', async function () {
+    if (linux_info === undefined) {
+        showMsgInfo('Loading, please wait for a moment');
+        return;
+    }
+    // if (linux_info.files.length === 1) {
+    //     window.location.href = 'https://cdn.sipeed.com/maixvision/' + linux_info.version + '/' + linux_info.files[0].url;
+    // } else {
+    //     showList(linux_info.files);
+    // }
+    showList(linux_info.files);
+});
+
+macos_download.addEventListener('click', async function () {
+    if (macos_info === undefined) {
+        showMsgInfo('Loading, please wait for a moment');
+        return;
+    }
+    // if (macos_info.files.length === 1) {
+    //     window.location.href = 'https://cdn.sipeed.com/maixvision/' + macos_info.version + '/' + macos_info.files[0].url;
+    // } else {
+    //     showList(macos_info.files);
+    // }
+    showList(macos_info.files);
+});
+
+getLatestVersion("latest").then(function (data) {
+    win_info = data;
+});
+getLatestVersion("latest-linux").then(function (data) {
+    linux_info = data;
+});
+getLatestVersion("latest-macos").then(function (data) {
+    macos_info = data;
+});
+
+</script>
+
+                
+            </div>
+        </div>
+        <a id="to_top" href="#"></a>
+        <div id="page_footer">
+            <div id="footer">
+                
+                <div id="footer_top">
+                    <ul>
+<li><a>links</a><ul><li><a target="_blank" href="https://www.sipeed.com">Sipeed</a></li>
+<li><a target="_blank" href="https://maixhub.com/">MaixHub</a></li>
+<li><a target="_blank" href="https://sipeed.aliexpress.com/store/911876460">Sipeed AliExpress</a></li>
+<li><a target="_blank" href="https://github.com/neutree/teedoc">Build by teedoc </a></li>
+</ul>
+</li>
+<li><a>Source Code</a><ul><li><a target="_blank" href="https://github.com/sipeed/sipeed_wiki">Wiki source</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">Open Source Projects</a></li>
+</ul>
+</li>
+<li><a>Follow us</a><ul><li><a target="_blank" href="https://twitter.com/SipeedIO">twitter</a></li>
+<li><a target="_blank" href="https://sipeed.aliexpress.com/store/911876460">AliExpress</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">github</a></li>
+<li><a><a>Wechat</a><img src='/static/image/wechat.png'></a>
+</li>
+</ul>
+</li>
+<li><a>Contact us</a><ul><li><a>Tel: +86 0755-27808509</a>
+</li>
+<li><a>Business support: support@sipeed.com</a>
+</li>
+<li><a>Address: 深圳市宝安区新湖路4008号蘅芳科技办公大厦A座-2101C</a>
+</li>
+<li><a  href="/join_us.html">Join us</a></li>
+</ul>
+</li>
+</ul>
+
+                </div>
+                <div id="footer_bottom">
+                    <ul>
+<li><a target="_blank" href="https://www.sipeed.com">©2018-2023 深圳矽速科技有限公司</a></li>
+<li><a target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index">粤ICP备19015433号</a></li>
+</ul>
+
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/js/prism.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <link rel="stylesheet" href="/static/js/add_hint/style.css" type="text/css"/>
+    
+        <script src="/static/js/add_hint/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+        <script src="/static/js/thumbs_up/main.js"></script>
+    
+    
+</body>
+</html>
