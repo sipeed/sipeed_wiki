@@ -57,7 +57,7 @@ NanoKVM-PCIe 包装内包含主机, 半高 PCIe 挡板, 两条 USBA-C线缆, 一
 
 5. ATX电源控制: 主机电源远程控制的原理是模拟开关按下操作,并读取LED状态同步到网页, 为此, 需要将主板上原本连接机箱开机按键的9针接口断开,接入 NanoKVM-PCIe 对应接口, 同时为了机箱按钮仍可操控电源, 需要将机箱上的电源排线也连接到 NanoKCM-PCIe上
 
-![](./../../../assets/NanoKVM/unbox/PCIe-ATX.jpg)
+![](./../../../assets/NanoKVM/unbox/PCIE-ATX.jpg)
 
 接线时,请务必参照上方示意图和 NanoKVM-PCIe 内部接口示意图
 

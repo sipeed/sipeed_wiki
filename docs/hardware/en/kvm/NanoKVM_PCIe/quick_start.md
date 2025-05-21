@@ -55,7 +55,7 @@ When connecting, be sure to refer to the diagram above and the internal interfac
 
 5. ATX Power Control: The principle of remote control of the main power supply is to simulate the action of pressing the power button and read the LED status to synchronize with the webpage. For this, you need to disconnect the nine-pin connector on the motherboard that was originally connected to the case power button and connect it to the corresponding interface on the NanoKVM-PCIe. Additionally, to allow the case button to still control the power, you need to connect the power wiring from the case to the NanoKVM-PCIe. 
 
-![](./../../../assets/NanoKVM/unbox/PCIe-ATX.jpg)
+![](./../../../assets/NanoKVM/unbox/PCIE-ATX.jpg)
 
 When wiring, please be sure to refer to the diagram above and the internal interface diagram of the NanoKVM-PCIe.
 
