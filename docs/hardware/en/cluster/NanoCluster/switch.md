@@ -17,6 +17,8 @@ NanoCluster is equipped with the JL6108 Gigabit switch chip, which is based on t
 - **QoS Configuration**: Manages traffic priority based on port, PCP, and DSCP
 - **Bandwidth and Storm Control**: Supports port-based bandwidth limitation and broadcast storm suppression
 
+>! The switch management interface currently has response issues on Linux. For better compatibility, it is recommended to log in to the switch management interface using Windows.
+
 ## Port Allocation
 
 The cluster backplane connects to each core board (SOM) via the JL6108 switch. The port allocation is as follows:
