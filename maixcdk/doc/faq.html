@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+
+<html lang="en"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="">
+    
+    
+    <meta name="description" content="">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <script src="/maixcdk/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/maixcdk/static/css/theme_default/prism.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/maixcdk/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/maixcdk/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/maixcdk/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/maixcdk/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/maixcdk/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/maixcdk/static/css/search/style.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/maixcdk/static/css/custom.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?9cb07365544a53067c56c346c838181a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+        <link rel="stylesheet" href="/maixcdk/static/js/thumbs_up/style.css" type="text/css"/>
+        
+    
+    
+    <title>MaixCDK FAQ - MaixCDK</title>
+    
+    <script type="text/javascript">js_vars = {"teedoc-plugin-thumbs-up": {"label_up": "Helpful", "label_down": "Not Helpful", "icon": "/static/images/thumbs_up/up.svg", "icon_clicked": "/static/images/thumbs_up/upped.svg", "url": "https://thumbs-up.sipeed.com", "show_up_count": true, "show_down_count": false, "msg_already_voted": "You have already voted", "msg_thanks": "Thanks for your vote", "msg_down_prompt": "Thanks to tell us where we can improve?(At least 10 characters)", "msg_down_prompt_error": "Message should be at least 10 characters and less than 256 characters", "msg_error": "Request server failed!"}}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": null, "update": [], "ts": 0, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/maixcdk/">
+                
+                
+                    <h2>MaixCDK</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class="active"><a  href="/maixcdk/doc/">Documentation</a></li>
+<li class=""><a  href="/maixcdk/api/">API</a></li>
+<li class="active"><a  href="/maixcdk/doc/faq.html">FAQ</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class=""><a target="_blank" href="https://github.com/sipeed/MaixCDK"><img src='/maixcdk/static/image/github-fill.svg' style='height: 1.5em;vertical-align: middle;'>&nbsp;</a></li>
+<li class="sub_items "><a  ><img src='/maixcdk/static/image/language.svg' style='height: 1.5em;vertical-align: middle;'>&nbsp;English</a><ul><li class=""><a  href="/maixcdk/doc/zh/faq.html">中文</a></li>
+<li class="active"><a  href="/maixcdk/doc/faq.html">English</a></li>
+</ul></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">Search</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">Keywords separated by space</span>
+                                <span id="search_loading_hint">Loading, wait please ...</span>
+                                <span id="search_download_err_hint">Download error, please check network and refresh again</span>
+                                <span id="search_other_docs_result_hint">Result from other docs</span>
+                                <span id="search_curr_doc_result_hint">Result from current doc</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="not_active with_link"><a href="/maixcdk/doc/index.html"><span class="label">Quick start</span><span class=""></span></a></li>
+<li class="active with_link"><a href="/maixcdk/doc/faq.html"><span class="label">FAQ</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Convention</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/maixcdk/doc/convention/index.html"><span class="label">Code Convention</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/maixcdk/doc/convention/add_api.html"><span class="label">Add New API</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/maixcdk/doc/convention/app.html"><span class="label">APP framework</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/maixcdk/doc/convention/i18n.html"><span class="label">I18N(translation)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/maixcdk/doc/convention/protocol.html"><span class="label">Communicate protocol</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/maixcdk/doc/convention/nn.html"><span class="label">NN AI model</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/maixcdk/doc/convention/memcheck.html"><span class="label">Memory leak check</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/maixcdk/doc/dev/docker/index.html"><span class="label">Docker Evironment</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/maixcdk/doc/more.html"><span class="label">More documentaion</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Application Notes</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/maixcdk/doc/application/index.html"><span class="label">About These Notes</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/maixcdk/doc/application/ai/yolo11.html"><span class="label">YOLO11 dev note</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/maixcdk/doc/application/ui/lvgl.html"><span class="label">LVGL</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>MaixCDK FAQ</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                                <span class="article_date" title="Last modify date: 2025-03-20">
+                                    2025-03-20
+                                </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/sipeed/MaixCDK/blob/main/docs/doc/faq.md" target="_blank">
+                                    Edit this page
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <p>You can also find FAQ from:</p>
+<ul>
+<li><a href="https://wiki.sipeed.com/maixpy/doc/en/faq.html"  target="_blank">MaixPy FAQ</a></li>
+<li><a href="https://wiki.sipeed.com/hardware/zh/maixcam/faq.html"  target="_blank">MaixCAM FAQ</a></li>
+<li><a href="https://wiki.sipeed.com/maixpy/doc/zh/source_code/faq.html"  target="_blank">MaixPy souce code FAQ</a></li>
+</ul>
+<h2 id="Common-Compilation-Errors-and-General-Solutions">Common Compilation Errors and General Solutions</h2>
+<ul>
+<li><p><strong>Errors such as extraction failures</strong>: Try deleting the corresponding files in the <code>dl/pkgs</code> and <code>dl/extracted</code> directories, then recompile and download again.</p>
+</li>
+<li><p><strong>Compilation errors</strong>:</p>
+<ul>
+<li>Run <code>maixcdk build --verbose</code> to see where the error occurs. <strong>Carefully check the error log</strong> and investigate the issue step by step.</li>
+<li>Run <code>maixcdk distclean</code> to clean temporary files, then try recompiling.</li>
+<li>Visit the <a href="https://github.com/sipeed/MaixCDK/commits/main/"  target="_blank">GitHub commit history</a> to check whether the automated tests for each commit passed (a green checkmark ✅ means it passed, a red cross ❌ means it failed). You can switch your local code to a commit that passed the tests ✅ and recompile. Use the command <code>git checkout &lt;commit-hash&gt;</code>, for example: <code>git checkout 3aba2fe3fa9de9f638bb9cb34eca0c2e0f5f3813</code>. If switching fails, you may need to search for Git usage instructions or start over, but make sure to back up any changes you made to your code.</li>
+</ul>
+</li>
+</ul>
+<h2 id="Downloading-ippicv_2021.8_lnx_intel64_20230330_general.tgz-takes-a-long-time-or-fail">Downloading ippicv_2021.8_lnx_intel64_20230330_general.tgz takes a long time or fail</h2>
+<p>Manually download according to the log's url, and put it into:<br />
+<code>MaixCDK -&gt; components -&gt; opencv -&gt; opencv4 -&gt; .cache -&gt; ippicv</code><br />
+The file name is <code>43219bdc7e3805adcbe3a1e2f1f3ef3b-ippicv_2021.8_lnx_intel64_20230330_general.tgz</code>,<br />
+File name and url can also be found in <code>MaixCDK/components/3rd_party/opencv/opencv4/3rdparty/ippicv/ippicv.cmake</code></p>
+<p>So the same as <code>ade</code> cache file <code>.cache/ade/4f93a0844dfc463c617d83b09011819a-v0.1.2b.zip</code></p>
+<h2 id="Exception%3A-parse_api_from_header-%2A%2A.hpp-error%3A-%27members%27">Exception: parse_api_from_header **.hpp error: 'members'</h2>
+<p>API comment not complete.<br />
+e.g.</p>
+
+<pre class="language-cpp"><code class="language-cpp">/**
+ * Class for communication protocol
+ */
+class CommProtocol
+{
+    /**
+     * Read data to buffer, and try to decode it as maix.protocol.MSG object
+     * @return decoded data, if nullptr, means no valid frame found.
+     *         Attentioin, delete it after use in C++.
+     * @maixpy maix.comm.CommProtocol.get_msg
+     */
+    protocol::MSG *get_msg();
+}
+</code></pre>
+<p>Here <code>class CommProtocol</code> not add <code>@maixpy maix.comm.CommProtocol</code> but its method <code>get_msg</code> add it.<br />
+So we add <code>@maixpy maix.comm.CommProtocol</code> to <code>class CommProtocol</code> comment will fix this error.</p>
+<h2 id="Build-OpenSSL-Error-when-using-WSL%28-Windows-Subsystem-Layer%29">Build OpenSSL Error when using WSL( Windows Subsystem Layer)</h2>
+<p>When I add openssl to my project<br />
+<img src="https://github.com/user-attachments/assets/77b0c057-fb0b-4980-8ff4-413fd14dec28" alt="a0cee88e7a7a747c2d34eadb31a925bd" /><br />
+build fail occured:</p>
+<p><img src="https://github.com/user-attachments/assets/d23da336-8096-43ec-aec8-23691caaacf2" alt="3b42197634ee4cd6a7b0462636e8dd34" /></p>
+<p>Use &quot;maixcdk build --verbose&quot; to check . I found that windows path polluted wsl path . and there are &quot;(&quot; and space in path ,which make configure of openssl fail .</p>
+<p>Fix : fix the path :</p>
+<p>edit <code>wsl.conf</code> in wsl</p>
+
+<pre class="language-sh"><code class="language-sh">sudo nano /etc/wsl.conf
+</code></pre>
+<p>create the file if no exist. add the content below :</p>
+
+<pre class="language-none"><code class="language-none">
+[interop]
+appendWindowsPath = false
+</code></pre>
+<p>restart wsl</p>
+
+<pre class="language-none"><code class="language-none">wsl --shutdown Ubuntu
+</code></pre>
+<p><img src="https://github.com/user-attachments/assets/79571b2c-3449-4ae8-afdd-69917d4986ce" alt="9a86a628630209725d362f07b51ecb9a" /></p>
+<p>path is fixed ,openssl configure succ</p>
+<p><img src="https://github.com/user-attachments/assets/f69be859-dc9c-4a7d-82f3-06df0ea03ed5" alt="d6e43b3bf8e5c68d9966636464b08a43" /></p>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                        <a href="/maixcdk/doc/index.html">
+                            <span class="icon"></span>
+                            <span class="label">Quick start</span>
+                        </a>
+                        
+                    </div>
+                    <div id="next">
+                        
+                        <a href="/maixcdk/doc/convention/index.html">
+                            <span class="label">Code Convention</span>
+                            <span class="icon"></span>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>Links</a><ul><li><a target="_blank" href="https://wiki.sipeed.com">Sipeed Wiki</a></li>
+<li><a target="_blank" href="https://www.sipeed.com">Sipeed Official</a></li>
+<li><a target="_blank" href="https://maixhub.com/">MaixHub</a></li>
+<li><a  href="/maixcdk/sitemap.xml">Site map</a></li>
+<li><a target="_blank" href="https://github.com/neutree/teedoc">Generated by teedoc</a></li>
+</ul>
+</li>
+<li><a>Source code</a><ul><li><a target="_blank" href="https://github.com/sipeed/maixpy">MaixPy source code</a></li>
+<li><a target="_blank" href="https://github.com/sipeed/MaixCDK">MaixCDK source code</a></li>
+<li><a target="_blank" href="https://github.com/sipeed/sipeed_wiki">Wiki source code</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">Open source projects</a></li>
+</ul>
+</li>
+<li><a>Follow us</a><ul><li><a target="_blank" href="https://twitter.com/SipeedIO">twitter</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">Taobao</a></li>
+<li><a target="_blank" href="https://www.aliexpress.com/store/911876460">AliExpress</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">github</a></li>
+<li><a><a>Wechat </a><img src='https://wiki.sipeed.com/static/image/wechat.png'></a>
+</li>
+</ul>
+</li>
+<li><a>Contact us</a><ul><li><a>Tel: +86 0755-27808509</a>
+</li>
+<li><a>Bussiness: support@sipeed.com</a>
+</li>
+<li><a>Addr: 深圳市宝安区新湖路4008号蘅芳科技办公大厦A座-2101C</a>
+</li>
+<li><a  href="https://wiki.sipeed.com/join_us.html">Join us</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://www.sipeed.com">©2018-2023 深圳矽速科技有限公司</a></li>
+<li><a target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index">粤ICP备19015433号</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/maixcdk/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script src="/maixcdk/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/maixcdk/static/js/theme_default/main.js"></script>
+    
+        <script src="/maixcdk/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/maixcdk/static/css/theme_default/prism.min.js"></script>
+    
+        <script src="/maixcdk/static/js/search/search_main.js"></script>
+    
+        <script src="/maixcdk/static/js/custom.js"></script>
+    
+        <script src="/maixcdk/static/js/thumbs_up/main.js"></script>
+    
+</body>
+
+</html>

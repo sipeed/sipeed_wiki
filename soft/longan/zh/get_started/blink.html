@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+
+<html lang="zh"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="">
+    
+    
+    <meta name="description" content="">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+        
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/prism.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?9cb07365544a53067c56c346c838181a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119047820-5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-119047820-5');
+    </script>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/js/thumbs_up/style.css" type="text/css"/>
+        
+    
+    
+    <title>Blink 闪灯程序 - Sipeed Wiki</title>
+    
+    <script type="text/javascript">js_vars = {"teedoc-plugin-ad-hint": {"type": "hint", "label": "NEW", "content": "全新 Maix 系列产品 <a href='https://wiki.sipeed.com/maixcam'>MaixCAM</a> 已上线, 全新 <a href='https://wiki.sipeed.com/maixpy/'>MaixPy</a> 功能更丰富，性能更强大，软件更易用，文档更全面！", "show_times": 2, "show_after_s": 432000, "date": "2022-06-01 14:00", "color": "#a0421d", "link_color": "#e53935", "link_bg_color": "#e6ae5c", "bg_color": "#ffcf89", "color_hover": "white", "bg_color_hover": "#f57c00", "close_color": "#eab971"}, "teedoc-plugin-thumbs-up": {"label_up": "有帮助", "label_down": "待改进", "icon": "/static/images/thumbs_up/up.svg", "icon_clicked": "/static/images/thumbs_up/upped.svg", "url": "https://thumbs-up.sipeed.com", "show_up_count": true, "show_down_count": false, "msg_already_voted": "您已经投过票了", "msg_thanks": "感谢您的反馈", "msg_down_prompt": "感谢反馈，请告诉我们可以改进什么地方?（最少 10 个字）", "msg_down_prompt_error": "消息最少需要 10 个字， 最多 256 个字", "msg_error": "请求服务器出现错误!"}}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": null, "update": [], "ts": 0, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/">
+                
+                    <img class="site_logo" src="/static/image/logo.svg" alt="sipeed wiki logo">
+                
+                
+                    <h2>wiki</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class=""><a  href="/">产品</a></li>
+<li class="sub_items "><a >开源软件</a><ul><li class=""><a  href="/maixpy/">MaixPy</a></li>
+<li class=""><a  href="/soft/maixpy/zh/index.html">MaixPy_v1</a></li>
+<li class=""><a  href="/soft/Lichee/zh/index.html">Lichee</a></li>
+<li class=""><a  href="/ai/zh/index.html">AI 指南</a></li>
+</ul>
+</li>
+<li class=""><a target="_blank" href="https://maixhub.com">MaixHub</a></li>
+<li class=""><a  href="/news/">动态</a></li>
+<li class=""><a  href="/faq.html">FAQ 汇总</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class=""><a  href="/store.html"><img src='/static/image/shop.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+<li class=""><a target="_blank" href="https://github.com/sipeed"><img src='/static/image/github.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+<li class="sub_items "><a  ><img src='/static/image/language.svg' style='height: 1.5em;vertical-align: middle;'>&nbsp;中文</a><ul><li class=""><a  href="/soft/longan/en/get_started/blink.html">English</a></li>
+<li class="active"><a  href="/soft/longan/zh/get_started/blink.html">中文</a></li>
+</ul></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">输入关键词，多关键词空格隔开</span>
+                                <span id="search_loading_hint">正在加载，请稍候。。。</span>
+                                <span id="search_download_err_hint">下载文件失败，请刷新重试或检查网络</span>
+                                <span id="search_other_docs_result_hint">来自其它文档的结果</span>
+                                <span id="search_curr_doc_result_hint">当前文档搜索结果</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="not_active with_link"><a href="/soft/longan/zh/index.html"><span class="label">Sipeed Longan</span><span class=""></span></a></li>
+<li class="active_parent no_link"><a><span class="label">Longan Nano</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/soft/longan/zh/index.html"><span class="label">简介</span><span class=""></span></a></li>
+<li class="active_parent no_link"><a><span class="label">准备</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/soft/longan/zh/get_started/pio.html"><span class="label">PIO 配置</span><span class=""></span></a></li>
+<li class="active with_link"><a href="/soft/longan/zh/get_started/blink.html"><span class="label">Blink闪灯</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/longan/zh/get_started/debug.html"><span class="label">DEBUG 调试</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/soft/longan/zh/get_started/sipeed-debugger.html"><span class="label">使用 Sipeed 调试器</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/longan/zh/get_started/rv-link.html"><span class="label">使用 RV-LINK</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">示例</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/soft/longan/zh/examples/printf.html"><span class="label">串口输出</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/longan/zh/examples/badapple.html"><span class="label">播放 Badapple</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>Blink 闪灯程序</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                                <span class="article_date" title="最后修改日期： 2022-07-06">
+                                    2022-07-06
+                                </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/sipeed/sipeed_wiki/blob/main/docs/soft/longan/zh/get_started/blink.md" target="_blank">
+                                    <span id='editPage'>编辑本页</span>
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <h2 id="%E5%88%9B%E5%BB%BA-Blink-%E5%B7%A5%E7%A8%8B">创建 Blink 工程</h2>
+<ul>
+<li>打开 PIO 主页 选择 <code>Project Examples</code></li>
+</ul>
+<p><img src="http://blog.sipeed.com/wp-content/uploads/2019/04/d977e844490e6ccc4625f701883a29f5.png" alt="" /></p>
+<ul>
+<li>选择 <code>arduino blink</code> 点击 <code>Import</code> 导入示例程序 （初次导入需要下载架构文件及工具，需要等待较长时间）</li>
+</ul>
+<p><img src="http://blog.sipeed.com/wp-content/uploads/2019/04/82943a6b74077e6210e2d9421cb5438f.png" alt="" /></p>
+<ul>
+<li>导入成功后即可见到示例工程</li>
+</ul>
+<p><img src="http://blog.sipeed.com/wp-content/uploads/2019/04/1262373ca7b0b483e30dac1124adaabf.png" alt="" /></p>
+<h2 id="%E5%B7%A5%E7%A8%8B%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6">工程配置文件</h2>
+<ul>
+<li>我们首先需要编辑工程配置文件 <code>platformio.ini</code> 根据自己的开发板型号，删掉其他开发板环境。</li>
+</ul>
+<p><img src="./../../assets/pio_ini_cfg.png" alt="" /></p>
+<p>配置示例</p>
+
+<pre class="language-ini"><code class="language-ini">[env:sipeed-longan-nano]
+platform = gd32v          ;平台，选择gd32v
+framework = arduino       ;可选 gd32vf103-sdk 或 arduino
+board = sipeed-longan-nano ; 开发板
+monitor_speed = 115200     ; 串口监视器波特率
+upload_protocol = serial   ; 下载工具 默认串口， 可选 dfu、jlink、gd-link 等
+debug_tool = jlink         ; 调试工具 默认jlink ，可选 sipeed-rv-debugger 等
+</code></pre>
+<p>PIO 可以在配置文件中实现设置宏定义， 控制编译流程等自定义功能，高级用法请参阅 <a href="https://docs.platformio.org/en/latest/projectconf.html"  target="_blank">PIO 官方文档</a>.</p>
+<h2 id="%E4%B8%80%E9%94%AE%E7%BC%96%E8%AF%91">一键编译</h2>
+<p>点击左下角的 <code>Build</code> 即可构建项目<br />
+<img src="../../assets/pio_complie.png" alt="" /></p>
+<h2 id="%E8%BF%9E%E6%8E%A5%E5%BC%80%E5%8F%91%E6%9D%BF">连接开发板</h2>
+<h3 id="%E4%B8%B2%E5%8F%A3-ISP-%E4%B8%8B%E8%BD%BD">串口 ISP 下载</h3>
+<ul>
+<li>准备 USB 转 串口下载器</li>
+<li>连接开发板与下载器</li>
+<li>修改 <code>platformio.ini</code> 文件， 添加下面一行内容：</li>
+</ul>
+
+<pre class="language-ini"><code class="language-ini">upload_protocol = serial
+</code></pre>
+<ul>
+<li>开发板按住 <code>BOOT</code> 键，再按 <code>RESET</code> 键重启开发板后再松开 <code>BOOT</code> 键，进入下载模式。</li>
+</ul>
+<h3 id="JTAG-%E4%B8%8B%E8%BD%BD">JTAG 下载</h3>
+<ul>
+<li>准备J-link 或 Sipeed RV 调试器</li>
+<li>连接开发板</li>
+<li>修改 <code>platformio.ini</code> 文件， 添加下面一行内容：</li>
+</ul>
+
+<pre class="language-ini"><code class="language-ini">upload_protocol = jlink
+</code></pre>
+<p>或者</p>
+
+<pre class="language-ini"><code class="language-ini">upload_protocol = sipeed-rv-debugger
+</code></pre>
+<h3 id="USB-DFU-%E4%B8%8B%E8%BD%BD">USB DFU 下载</h3>
+<ul>
+<li><strong>首次</strong> 使用需要安装 libusb 驱动程序， 请参考此步骤 <a href="#%E4%BD%BF%E7%94%A8zadig%E5%AE%89%E8%A3%85%E9%A9%B1%E5%8A%A8"  >使用 Zaidig 安装驱动</a>.</li>
+<li>准备 USB Type-c 数据线</li>
+<li>使用数据线连接电脑与开发板</li>
+<li>修改 <code>platformio.ini</code> 文件， 添加下面一行内容：</li>
+</ul>
+
+<pre class="language-ini"><code class="language-ini">upload_protocol = dfu
+</code></pre>
+<ul>
+<li>开发板按住 <code>BOOT</code> 键，再按 <code>RESET</code> 键重启开发板后再松开 <code>BOOT</code> 键，进入 DFU 模式。</li>
+</ul>
+<h2 id="%E4%B8%80%E9%94%AE%E4%B8%8B%E8%BD%BD">一键下载</h2>
+<p>按照上面步骤选择好下载方式后，即可使用 PIO 内置工具一键下载。</p>
+<p>点击左下角的 <code>Upload</code> 即可向开发板上传程序。</p>
+<p><img src="../../assets/pio_upload.png" alt="" /></p>
+<h2 id="DFU-%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2%E4%B8%8B%E8%BD%BD">DFU 图形界面下载</h2>
+<p>下载DFU工具：<a href="http://dl.sipeed.com/LONGAN/Nano/Tools/GD32_MCU_Dfu_Tool_V3.8.1.5784_1.rar"  target="_blank">http://dl.sipeed.com/LONGAN/Nano/Tools/GD32_MCU_Dfu_Tool_V3.8.1.5784_1.rar</a></p>
+<p>解压出两个文件夹：</p>
+<p>GD32 MCU Dfu Drivers_v1.0.1.2316  和 GD32 MCU Dfu Tool_v3.8.1.5784</p>
+<p>先进入driver文件夹，安装对应的驱动文件，注意使用管理员权限运行</p>
+<p><img src="../../assets/examples/how_to_install_dfu.png" alt="" /></p>
+<p>运行 GD32 MCU Dfu Tool.exe<br />
+将 Longan Nano 插到电脑，按住 Boot0 键，短按 Reset 键，再松开 Boot0 键，<br />
+可以看到 DFU 工具中识别到了 GD32VF 芯片</p>
+<p>选择对应的固件文件，并勾选烧录后校验，点击OK，即可进行烧录</p>
+<p>烧录完成之后不会自动复位，需要自己手工按下复位按键，查看运行效果</p>
+<p><img src="../../assets/examples/how_to_use_dfu.png" alt="" /></p>
+<h2 id="%E4%BD%BF%E7%94%A8Zadig%E5%AE%89%E8%A3%85%E9%A9%B1%E5%8A%A8">使用Zadig安装驱动</h2>
+<p>PIO 内置 dfu-util 下载工具，使用此工具需要为开发板安装 libusb 驱动。（注意： 与 GD 官方驱动不同）</p>
+<p>建议通过 Zadig 安装 winusb 驱动。<a href="https://github.com/pbatard/libwdi/releases/download/b721/zadig-2.4.exe"  target="_blank">下载地址</a></p>
+<p>下载成功后打开 Zadig</p>
+<p>在下拉栏中选择 GD32V， 替换驱动选择 WinUSB, 点击替换按钮，即可替换成功。<br />
+<img src="../../assets/dfu_zadig.png" alt="" /></p>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                        <a href="/soft/longan/zh/get_started/pio.html">
+                            <span class="icon"></span>
+                            <span class="label">PIO 配置</span>
+                        </a>
+                        
+                    </div>
+                    <div id="next">
+                        
+                        <a href="/soft/longan/zh/get_started/debug.html">
+                            <span class="label">DEBUG 调试</span>
+                            <span class="icon"></span>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>相关链接</a><ul><li><a target="_blank" href="https://www.sipeed.com">Sipeed 官网</a></li>
+<li><a target="_blank" href="https://maixhub.com/">MaixHub</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">Sipeed 淘宝</a></li>
+<li><a  href="/sitemap.xml">网站地图</a></li>
+<li><a target="_blank" href="https://github.com/teedoc/teedoc">网站使用 teedoc 生成</a></li>
+</ul>
+</li>
+<li><a>源码</a><ul><li><a target="_blank" href="https://github.com/sipeed/sipeed_wiki">Wiki 源码</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">开源项目</a></li>
+</ul>
+</li>
+<li><a>关注我们</a><ul><li><a target="_blank" href="https://twitter.com/SipeedIO">twitter</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">淘宝</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">github</a></li>
+<li><a><a>微信公众号</a><img src='/static/image/wechat.png'></a>
+</li>
+</ul>
+</li>
+<li><a>联系我们</a><ul><li><a>电话: +86 0755-27808509</a>
+</li>
+<li><a>商业支持: support@sipeed.com</a>
+</li>
+<li><a>地址: 深圳市宝安区新湖路4008号蘅芳科技办公大厦A座-2101C</a>
+</li>
+<li><a  href="/join_us.html">加入我们</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://www.sipeed.com">©2018-2023 深圳矽速科技有限公司</a></li>
+<li><a target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index">粤ICP备19015433号</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/js/prism.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <link rel="stylesheet" href="/static/js/add_hint/style.css" type="text/css"/>
+    
+        <script src="/static/js/add_hint/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+        <script src="/static/js/thumbs_up/main.js"></script>
+    
+</body>
+
+</html>

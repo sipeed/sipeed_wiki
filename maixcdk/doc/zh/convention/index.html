@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+
+<html lang="zh"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="">
+    
+    
+    <meta name="description" content="">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <script src="/maixcdk/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/maixcdk/static/css/theme_default/prism.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/maixcdk/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/maixcdk/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/maixcdk/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/maixcdk/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/maixcdk/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/maixcdk/static/css/search/style.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/maixcdk/static/css/custom.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?9cb07365544a53067c56c346c838181a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+        <link rel="stylesheet" href="/maixcdk/static/js/thumbs_up/style.css" type="text/css"/>
+        
+    
+    
+    <title>MaixCDK 开发准则和指导 - MaixCDK</title>
+    
+    <script type="text/javascript">js_vars = {"teedoc-plugin-thumbs-up": {"label_up": "有帮助", "label_down": "待改进", "icon": "/static/images/thumbs_up/up.svg", "icon_clicked": "/static/images/thumbs_up/upped.svg", "url": "https://thumbs-up.sipeed.com", "show_up_count": true, "show_down_count": false, "msg_already_voted": "您已经投过票了", "msg_thanks": "感谢您的反馈", "msg_down_prompt": "感谢反馈，请告诉我们可以改进什么地方?（最少 10 个字）", "msg_down_prompt_error": "消息最少需要 10 个字， 最多 256 个字", "msg_error": "请求点赞服务器出现错误!"}}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": null, "update": [], "ts": 0, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/maixcdk/">
+                
+                
+                    <h2>MaixCDK</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class="active"><a  href="/maixcdk/doc/zh/">文档</a></li>
+<li class=""><a  href="/maixcdk/api/">API</a></li>
+<li class=""><a  href="/maixcdk/doc/zh/faq.html">FAQ</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class=""><a target="_blank" href="https://github.com/sipeed/MaixCDK"><img src='/maixcdk/static/image/github-fill.svg' style='height: 1.5em;vertical-align: middle;'>&nbsp;</a></li>
+<li class="sub_items "><a  ><img src='/maixcdk/static/image/language.svg' style='height: 1.5em;vertical-align: middle;'>&nbsp;中文</a><ul><li class="active"><a  href="/maixcdk/doc/zh/convention/index.html">中文</a></li>
+<li class=""><a  href="/maixcdk/doc/convention/index.html">English</a></li>
+</ul></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">输入关键词，多关键词空格隔开</span>
+                                <span id="search_loading_hint">正在加载，请稍候。。。</span>
+                                <span id="search_download_err_hint">下载文件失败，请刷新重试或检查网络</span>
+                                <span id="search_other_docs_result_hint">来自其它文档的结果</span>
+                                <span id="search_curr_doc_result_hint">当前文档搜索结果</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="not_active with_link"><a href="/maixcdk/doc/zh/index.html"><span class="label">快速开始</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/maixcdk/doc/zh/faq.html"><span class="label">FAQ 常见问题</span><span class=""></span></a></li>
+<li class="active_parent no_link"><a><span class="label">规范</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="active with_link"><a href="/maixcdk/doc/zh/convention/index.html"><span class="label">编码规范</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/maixcdk/doc/zh/convention/add_api.html"><span class="label">添加新 API</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/maixcdk/doc/zh/convention/app.html"><span class="label">APP 框架</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/maixcdk/doc/zh/convention/i18n.html"><span class="label">I18N(国际化/多语言)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/maixcdk/doc/zh/convention/protocol.html"><span class="label">Maix 通信协议</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/maixcdk/doc/zh/convention/nn.html"><span class="label">NN AI 模型</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/maixcdk/doc/zh/convention/memcheck.html"><span class="label">内存泄漏检测</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/maixcdk/doc/zh/dev/docker/index.html"><span class="label">Docker 环境</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/maixcdk/doc/zh/more.html"><span class="label">更多文档</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">应用笔记</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/maixcdk/doc/zh/application/index.html"><span class="label">关于本笔记</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/maixcdk/doc/zh/application/ai/yolo11.html"><span class="label">YOLO11 开发笔记</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/maixcdk/doc/zh/application/ui/lvgl.html"><span class="label">LVGL</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>MaixCDK 开发准则和指导</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                                <span class="article_date" title="最后修改日期： 2025-03-20">
+                                    2025-03-20
+                                </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/sipeed/MaixCDK/blob/main/docs/doc_zh/convention/README.md" target="_blank">
+                                    <span id='editPage'>编辑本页</span>
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <h2 id="%E6%80%BB%E4%BD%93%E5%87%86%E5%88%99">总体准则</h2>
+<ul>
+<li>简单简洁易用。 不假设用户已经有特定的开发经验，尽量少操作，API 尽量简单，有详细指导文档。</li>
+</ul>
+<blockquote>
+<p>比如 相比 让用户自己选择并下载工具链，根据用户选择的平台自动选择并下载工具链更好，入门门槛更低。</p>
+</blockquote>
+<ul>
+<li>通用性。API 在设计时应该保证能在不同平台通用和统一抽象，如果做不到，那么这个功能可能得再三斟酌是否应该增加。</li>
+<li>统一性。API 风格统一，代码风格统一。</li>
+<li>扩展性。 保证核心功能的同时，尽量提供扩展接口，方便用户扩展。</li>
+<li>深度性。API 足够简单，文档写明原理，源码尽量开源，方便用户深入研究。</li>
+</ul>
+<h2 id="%E6%BA%90%E7%A0%81%E5%92%8C%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6">源码和二进制文件</h2>
+<ul>
+<li><strong>不用 git 子模块</strong>：方便中国用户下载，因为如果子模块在 github，就算对仓库做了镜像，子模块始终还是要去 github 拉取，中国用户会非常缓慢。</li>
+<li><strong>不要往源码仓库放大文件和二进制文件</strong>：这会大大增加仓库 git 的大小， git 只擅长管理文本文件，二进制文件采用下一条的方式管理。</li>
+<li><strong>对于第三方库和二进制文件，在编译前自动下载到本地</strong>：使用<a href="https://github.com/sipeed/MaixCDK/blob/main/components/3rd_party/asio/component.py"  target="_blank">component.py</a>定义在编译开始前需要自动下载到<code>dl/pkgs</code>并自动解压到<code>dl/extracted</code>目录下的文件，这样就能直接在<code>CMakeLists.txt</code>中引用源码了，比如<code>list(APPEND ADD_INCLUDE &quot;${DL_EXTRACTED_PATH}/sunxi_mpp/sunxi-mpp-1.0.0/include&quot;)</code>。</li>
+</ul>
+<blockquote>
+<p>每次编译时会将所有需要下载的文件列表写入到<code>dl/pkgs_info.json</code>，用户有网速问题的可以到官方 QQ 群或者第三方提供的网盘手动下载放到<code>dl/pkgs</code>目录即可，这样可以解决网络环境导致的下载速度慢问题。</p>
+</blockquote>
+<ul>
+<li><strong>不修改第三方库源码</strong>：不修改第三方源码，方便升级第三方库。（如果以后发现有这样的需求可以考虑在解压后增加自动打 patch 的功能）</li>
+</ul>
+<h2 id="MaixCDK-%E6%9E%B6%E6%9E%84%E7%AE%80%E4%BB%8B">MaixCDK 架构简介</h2>
+<p>对于普通应用开发者， 必要知识：</p>
+<ul>
+<li>主要由<code>MaixCDK</code> 和 <code>project</code>两大部分组成，前者是<code>库</code>存放的地方，后者是应用代码存放的地方。</li>
+</ul>
+<p>官方的例程和<code>APP</code>都直接放在<code>MaixCDK/examples</code> 和 <code>MaixCDK/projects</code>目录下，你也可以直接在<code>MaixCDK/projects</code>创建你的应用项目。</p>
+<p>另外也可以两者分开放，在系统环境变量中加一个变量<code>MAIXCDK_PATH</code>，值为<code>MaixCDK</code>目录比如<code>/home/xxx/MaixCDK</code>，比如编辑<code>~/.bashrc</code>添加<code>export MAIXCDK_PATH=/home/xxx/MaixCDK</code>。<br />
+这样项目就可以放其它位置了比如<code>/home/xxx/projects</code></p>
+<ul>
+<li><p>组件：每个功能模块可以封装成一个组件，方便不同应用选择性地使用。</p>
+<ul>
+<li>可以看到<a href="./examples/hello_world"  >examples/hello_world</a>中有个<code>main</code>组件，<a href="./components"  >components</a>中有很多组件，还可以自己添加组件，比如<code>hello_world/component1</code>或者<code>hello_world/compoents/component2</code>。</li>
+<li>也可以设置环境变量<code>MAIXCDK_EXTRA_COMPONENTS_PATH</code>来指定其它额外的组件库。</li>
+<li>每个组件包含一个<code>CMakeLists.txt</code>来描述组件内容，比如<code>list(APPEND ADD_INCLUDE &quot;include&quot;)</code>来指定包含的头文件路径，<code>list(APPEND ADD_SRCS &quot;src/hello.c&quot;)</code>来包含源文件，<code>list(APPEND ADD_REQUIREMENTS basic)</code>来依赖其它组件等。</li>
+<li>另外，默认也会到 python <code>site-packages</code> 目录寻找，也就是说，如果你了解 python 库打包，你的组件包可以直接发布到 <a href="https://pypi.org"  target="_blank">pypi.org</a>, 这样用户通过<code>pip install maixcdk-xxx</code> 就可以快速安装你的组件包了！ 可以参考<a href="https://github.com/sipeed/MaixCDK/blob/main//examples/maixcdk-example"  target="_blank">examples/maixcdk-example</a>组件。</li>
+</ul>
+</li>
+<li><p>Kconfig: 带终端界面的可配置项。每个组件下面都可以有一个<code>Kconfig</code>文件，里面可以设置一些配置项，在执行<code>maixcdk menuconfig</code>时就可以看到选项了，保存后会在<code>build/config</code>目录下生成<code>global_config.cmake</code>,<code>global_config.h</code>文件，可以直接在组件的<code>CMakeLists.txt</code>和<code>c/cpp</code>文件中使用。<code>Kconfig</code>的语法可以参考其它组件，活话则自行搜索、参考<a href="https://github.com/ulfalizer/Kconfiglib/tree/master/tests"  target="_blank">这里</a>等。</p>
+</li>
+<li><p>依赖的第三方库： 两种方式，开发者可以自行选择，推荐集成到<code>MaixCDK</code>中的使用方式一，个人开发者发布的组件可以使用方式二。</p>
+<ul>
+<li>方式一：依赖的第三方库在编译时会自动被下载到<code>dl</code>文件夹，都在组件<code>CMakeLists.txt</code>中指定需要下载的文件，编译时会将所有需要下载的文件列表写入到<code>dl/pkgs_info.json</code>，这样的好处是遇到网络问题可以手动下载放到对应位置。</li>
+<li>方式二：使用 python package 的方式将源码和资源文件都打包发布到 <a href="https://pypi.org"  target="_blank">pypi.org</a>，取名为<code>maixcdk-xxx</code>方便大家搜索到，这样用户通过<code>pip install maixcdk-xxx</code> 就可以快速安装你的组件包了，而且用户也可以在安装时通过<code>-i</code>参数来设置镜像源。可以参考<a href="https://github.com/sipeed/MaixCDK/blob/main/examples/maixcdk-example"  target="_blank">examples/maixcdk-example</a>组件。</li>
+</ul>
+</li>
+<li><p>文档：在<a href="./docs/"  >docs</a>目录下包含了应用文档和 API 文档， API 文档是从代码自动生成的，不要手动修改，应用文档是具体功能的入门指导文档。</p>
+</li>
+</ul>
+<h2 id="%E4%BB%A3%E7%A0%81%E9%A3%8E%E6%A0%BC">代码风格</h2>
+<p>为了保持 MaixCDK 和 MaixPy API 的统一性，以及方便用户和开发者阅读，简单规范了以下代码风格：</p>
+<ul>
+<li><strong>函数名</strong>：全小写，单词之间用下划线隔开，比如<code>get_name</code>。</li>
+<li><strong>变量名</strong>：全小写，单词之间用下划线隔开，比如<code>file_path</code>。</li>
+<li><strong>类名</strong>：大驼峰，某些简单的缩写词可以全大写，比如 <code>Person</code>, <code>YOLOv2</code>, <code>UART</code>, <code>PWM</code>。</li>
+<li><strong>宏</strong>：全大写，单词之间用下划线隔开，比如<code>MAIXPY_VERSION</code>。</li>
+<li><strong>类成员变量</strong>：不用加<code>m_</code>前缀，全小写+下划线，比如<code>name</code>，这样方便<code>Python</code>里的<code>API</code>足够简洁。</li>
+<li><strong>类私有成员变量</strong>：前面加<code>_</code>，比如<code>_name</code>。</li>
+<li><strong>使用类成员变量</strong>：因为成员变量没有类似<code>m_</code>开头的明显标识，所以显示地使用<code>this-&gt;</code>，比如<code>this-&gt;name</code>，而不是<code>name</code>来提高可阅读性。</li>
+<li><strong>namespace</strong>：所有<code>MaixCDK</code>官方的<code>API</code>都在<code>maix</code>命名空间下，<code>maix</code>下再有一个<code>namespace</code>用来区分不同的功能，可以是一个头文件一个<code>namespace</code>，也可以是一个目录一个<code>namespace</code>，比如比如<code>maix::thread</code>、<code>maix::peripheral</code>、<code>maix::nn</code>、<code>maix::peripheral::uart</code>等。</li>
+</ul>
+<p>在生成<code>MaixPy</code> <code>API</code> 时，也会自动生成相应的模块，比如<code>maix.thread</code>、<code>maix.peripheral</code>、<code>maix.nn</code>、<code>maix.peripheral.uart</code>等。</p>
+<ul>
+<li><strong>源文件命名</strong>：全小写，单词之间用下划线隔开，比如<code>maix_peripheral_uart.cpp</code>， <code>C++</code> 头文件使用<code>.hpp</code>后缀。</li>
+<li><strong>注释</strong>：<code>API</code>的注释使用<code>doxygen</code>风格，参考<a href="../../../components/basic/include/maix_api_example.hpp"  >components/basic/include/maix_api_example.hpp</a>中的使用方法。</li>
+<li><strong>API 注释文档</strong>：一般需要写以下关键字<ul>
+<li><strong>brief</strong>: 一句话描述功能</li>
+<li><strong>param</strong>: 参数说明，一定要详细说明参数的取值要求（比如取值范围），注意点，不能是简单的参数名称复读，那文档就没什么意义了，还不如不写。也可以加数据方向，比如<code>param[in] a</code>表示<code>a</code>是输入参数，<code>param[out] b</code>表示<code>b</code>是输出参数，<code>param[in,out] c</code>表示<code>c</code>是输入输出参数。</li>
+<li><strong>return</strong>：返回值说明，一定要详细说明返回值的取值情况（比如取值范围），注意点，同样不能是简单的返回值名称复读。</li>
+<li><strong>retval</strong>：出了使用<code>return</code>统一说明返回值，也可以用过过个这个关键字来阐述不同返回值的意义，比如<code>@retval 0 success</code>。</li>
+<li><strong>attention</strong>： API 使用的注意点。</li>
+<li><strong>maixpy</strong>：标识这是一个 <code>MaixPy</code> <code>API</code>，内容为在<code>MaixPy</code>中的包名+变量名，比如<code>maix.example</code>、<code>maix.example.hello</code>、<code>maix.example.Example.name</code>等。注意加了这个关键词不仅会生成<code>MaixPy</code> <code>API</code>和文档，如果没有同时指定<code>maixcdk</code>关键字，还会用这个名称生成<code>MaixCDK</code>的<code>API</code>文档</li>
+<li><strong>maixcdk</strong>： 标识这是一个 <code>MaixCDK</code> <code>API</code>，如果同时存在<code>maixpy</code>关键字则优先使用这个作为<code>MaixCDK</code>的<code>API</code>名称。比如<code>* @maixcdk maix.example.hello_maixcdk</code>。</li>
+</ul>
+</li>
+</ul>
+<p>另外，对于本 SDK 中特殊的地方，比如为了能正确准确地生成 <code>MaixPy API</code>和文档，需要遵循：</p>
+<ul>
+<li><strong>API 中的类型和默认值需要完整的定义，不省略</strong>，<code>maix</code>明明空间可以省略，具体地：<ul>
+<li><strong>命名空间写全</strong>， 比如<code>image::Image</code>，而不是<code>Image</code>。</li>
+<li><strong>枚举类型写全</strong>，比如<code>image::Format::FMT_RGB888</code>，而不是<code>Format::FMT_RGB888</code>或者<code>image::FMT_RGB888</code>或者<code>FMT_RGB888</code>。</li>
+</ul>
+</li>
+</ul>
+<h2 id="API-%E8%A7%84%E8%8C%83%E5%8C%96%E5%BB%BA%E8%AE%AE">API 规范化建议</h2>
+<ul>
+<li>如果 MaixCDK 有的 API， 尽量使用，而不是直接使用第三方 API，方便不同平台移植，比如文件操作用<code>maix_fs.hpp</code>中的 API，而不是直接使用 C++ 的<code>fstream</code>。</li>
+<li>打印日志使用<code>maix_log.hpp</code>中的<code>log::info</code> <code>log::debug</code>等 API， 这样在<code>release</code>版本中<code>debug</code>日志会被自动去掉，而且可以通过<code>maixcdk menuconfig</code>来设置日志级别。也方便不同平台移植。</li>
+<li>错误代码使用<code>maix_err.hpp</code>中的<code>err::Err</code>，统一管理所有错误代码，方便用户查找错误原因。</li>
+<li>抛出异常使用<code>maix_err.hpp</code>中的<code>err::Exception</code>，统一管理所有异常，方便用户查找错误原因， 并且<strong>需要在 API 注释中说明可能抛出的异常和类型</strong>。</li>
+<li>对于多个模块有共性的 API，尽量有一个共同特性的基类，其它类继承并实现，比如<code>maix_peripheral_uart.hpp</code>中的<code>UART</code>继承<code>maix_comm.hpp</code>中的通信基类<code>CommBase</code>，这样方便 C++ 开发，也方便编写<code>MaixPy</code>的 API。</li>
+</ul>
+<blockquote>
+<p>比如 <code>Display</code> 类，可以直接暴露给 MaixPy 作为 API，由于不同平台实现可能不同，定义一个<code>DisplayBase</code>基类，不同平台实现自己的<code>Display</code>类比如<code>SDL_Display</code>，然后在<code>Display</code>类里面统一调用<code>DisplayBase</code>的 API，这样就可以保证<code>MaixPy</code>的 API 通用性，用户只需要知道<code>Display</code>类，不需要知道下面用了什么具体的实现方法，提高移植性的同时用户使用也更加简单。</p>
+</blockquote>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                        <a href="/maixcdk/doc/zh/faq.html">
+                            <span class="icon"></span>
+                            <span class="label">FAQ 常见问题</span>
+                        </a>
+                        
+                    </div>
+                    <div id="next">
+                        
+                        <a href="/maixcdk/doc/zh/convention/add_api.html">
+                            <span class="label">添加新 API</span>
+                            <span class="icon"></span>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>相关链接</a><ul><li><a target="_blank" href="https://wiki.sipeed.com">Sipeed Wiki</a></li>
+<li><a target="_blank" href="https://www.sipeed.com">Sipeed 官网</a></li>
+<li><a target="_blank" href="https://maixhub.com/">MaixHub</a></li>
+<li><a  href="/maixcdk/sitemap.xml">网站地图</a></li>
+<li><a target="_blank" href="https://github.com/neutree/teedoc">网站使用 teedoc 生成</a></li>
+</ul>
+</li>
+<li><a>源码</a><ul><li><a target="_blank" href="https://github.com/sipeed/maixpy">MaixPy 源码</a></li>
+<li><a target="_blank" href="https://github.com/sipeed/MaixCDK">MaixCDK 源码</a></li>
+<li><a target="_blank" href="https://github.com/sipeed/sipeed_wiki">Wiki 源码</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">开源项目</a></li>
+</ul>
+</li>
+<li><a>关注我们</a><ul><li><a target="_blank" href="https://twitter.com/SipeedIO">twitter</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">淘宝</a></li>
+<li><a target="_blank" href="https://www.aliexpress.com/store/911876460">AliExpress</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">github</a></li>
+<li><a><a>微信公众号</a><img src='/maixpy/static/image/wechat.png'></a>
+</li>
+</ul>
+</li>
+<li><a>联系我们</a><ul><li><a>电话: +86 0755-27808509</a>
+</li>
+<li><a>商业支持: support@sipeed.com</a>
+</li>
+<li><a>地址: 深圳市宝安区新湖路4008号蘅芳科技办公大厦A座-2101C</a>
+</li>
+<li><a  href="https://wiki.sipeed.com/join_us.html">加入我们</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://www.sipeed.com">©2018-2023 深圳矽速科技有限公司</a></li>
+<li><a target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index">粤ICP备19015433号</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/maixcdk/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script src="/maixcdk/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/maixcdk/static/js/theme_default/main.js"></script>
+    
+        <script src="/maixcdk/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/maixcdk/static/css/theme_default/prism.min.js"></script>
+    
+        <script src="/maixcdk/static/js/search/search_main.js"></script>
+    
+        <script src="/maixcdk/static/js/custom.js"></script>
+    
+        <script src="/maixcdk/static/js/thumbs_up/main.js"></script>
+    
+</body>
+
+</html>
