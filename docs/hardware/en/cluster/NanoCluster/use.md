@@ -157,6 +157,8 @@ If you need to debug or control multiple slots simultaneously, we recommend usin
 
 ![uart_board](../../../zh/cluster/NanoCluster/assets/uart.jpeg)
 
+> ⚠️ Due to the serial port expansion module partially obstructing the airflow and the module itself supporting only 4 serial ports, it is recommended to insert only 4 to 5 SOMs when using this module to ensure system cooling and debugging stability.
+
 ## Power Control  
 
 The reset pins for slots 1~7 are controlled by slot 1 through **I2C extended IO**, enabling remote power on/off functionality.  
@@ -187,7 +189,21 @@ sudo gpioset gpiochip2 2=0 && sudo gpioset gpiochip2 2=1
 
 **CM4/CM5 Control Method Example:**
 
-todo。
+To enable I2C and load the PCA9557 driver on CM4 or CM5, you can control it in the same way:
+
+Edit `/boot/firmware/config.txt` and add the following content:
+
+``` txt
+dtparam=i2c_arm=on
+dtoverlay=pca953x,addr=0x18,pca9557
+```
+
+After saving and rebooting, you can control the slot reset using the `gpioset` method.
+
+> - **CM4** corresponds to GPIO controller index: `gpiochip2`  
+> - **CM5** corresponds to GPIO controller index: `gpiochip14`  
+
+The control method is the same as for LM3H, but you only need to replace `gpiochip` with the actual index corresponding to the platform.
 
 ## Fan Speed Adjustment
 
@@ -213,7 +229,7 @@ echo enabled | sudo tee /sys/class/thermal/thermal_zone2/mode
 
 ### CM4 Fan Control
 
-Add the following line to /boot/config.txt:
+Add the following line to /boot/firmware/config.txt:
 
 ```bash
 dtoverlay=pwm-2chan,pin=12,func=4,pin2=13,func2=4
@@ -255,109 +271,15 @@ pwm.start(0)            # Off
 pwm.start(100)          # Full speed
 ```
 
-## Switch Management
+## Thermal Management
 
-### Introduction
+1. It is recommended to place the device in a well-ventilated environment with a temperature below **30°C** to reduce the overall thermal load.
 
-NanoCluster is equipped with the JL6108 Gigabit switch chip, which is based on the **RISC-V** architecture. It can be used as a plug-and-play switch or as a locally managed Layer 2 switch, supporting configuration via a web interface. Its main features include:
+2. For optimal performance, maintain the system's continuous operating power below **50W**, with peak power not exceeding **60W**, to match the power supply capacity and thermal performance.
 
-- **System Management**: Displays system information, supports reboot, factory reset, and firmware upgrades
-- **Network Configuration**: Supports static IP and DHCP dynamic IP configuration
-- **Port Management**: Enables/disables ports, configures link speed, and manages flow control
-- **Port Aggregation**: Supports port binding to increase bandwidth utilization
-- **Security and Isolation**: Port isolation to prevent data leakage
-- **Traffic Monitoring**: Port MIB statistics and traffic analysis
-- **Loop Protection**: Prevents network loops to enhance stability
-- **VLAN Configuration**: Supports MTU VLAN, port-based VLAN, 802.1Q VLAN, and PVID settings
-- **QoS Configuration**: Manages traffic priority based on port, PCP, and DSCP
-- **Bandwidth and Storm Control**: Supports port-based bandwidth limitation and broadcast storm suppression
+3. If no SSD is installed, the system's space and cooling capacity can support **up to 7 SOMs running simultaneously**. If SSDs are installed, to ensure proper airflow, it is recommended to **install SOMs with spacing, supporting up to 4 SOMs**.
 
-### Port Allocation
-
-The cluster backplane connects to each core board (SOM) via the JL6108 switch. The port allocation is as follows:
-
-| Switch Port | Connected Device                    |
-|------------|--------------------------------------|
-| Port 1     | Slot 7                               |
-| Port 2     | Slot 6                               |
-| Port 3     | Slot 5                               |
-| Port 4     | Slot 4                               |
-| Port 5     | Slot 3                               |
-| Port 6     | Slot 2                               |
-| Port 7     | Slot 1                               |
-| Port 8     | Cluster backplane RJ45 port (for external network connection)   |
-
-### User Guide
-
-#### Logging into the Web Management Interface
-
-1. **Ensure Device Connection**  
-   Make sure the NanoCluster is powered on and connected to the management host via an Ethernet cable.
-
-2. **Configure IP Address**  
-   The switch's default IP address is **10.10.11.10/24**. Ensure the management host has an IP in the same subnet, e.g., **10.10.11.x** (where x is between 1-254 but not 10), with a subnet mask of **255.255.255.0**.  
-
-   ![IP Configuration](../../../zh/cluster/NanoCluster/assets/ip.jpeg)
-
-3. **Access the Management Interface**  
-   Open a browser and enter `http://10.10.11.10`, then press Enter to reach the login page.  
-
-   ![Login Page](../../../zh/cluster/NanoCluster/assets/login_en.jpeg)
-
-4. **Login to the Management System**  
-   Enter the **admin username and password** (both default to `admin`), then click **Login** to access the main interface.  
-
-   ![Management Homepage](../../../zh/cluster/NanoCluster/assets/homepage_en.jpeg)
-
-### Basic Configuration
-
-#### Port Management
-The JL6108 switch provides port status management, supporting **port enable/disable**, **speed configuration**, and **flow control**.
-- **Enable/Disable Ports**: Navigate to the **Port Management** page, select the desired port, and enable or disable it.  
-- **Modify Port Speed**: Supports 10Mbps / 100Mbps / 1000Mbps modes.  
-- **Flow Control**: Can be enabled to prevent packet loss.  
-
-![Port Management](../../../zh/cluster/NanoCluster/assets/portsetting_en.jpeg)
-
-#### VLAN Configuration
-VLAN (Virtual Local Area Network) is used to segment different network areas, prevent broadcast storms, and enhance security.
-
-##### Configuring Port VLAN
-
-1. **Access the Port VLAN Page**  
-   Navigate to `VLAN` >> `Port VLAN` in the Web interface.
-
-2. **Enable Port VLAN**  
-   Check the **"Enable Port VLAN"** option and click **`Apply`**.
-
-3. **Create VLAN 2 and Assign Ports**  
-   - Enter **`2`** in the **VLAN ID** field  
-   - Select **Ports 2 to 4**  
-   - Click **`Apply`** to save the configuration  
-
-4. **View the Port Member Table**  
-   After configuration, **Ports 2-4 will be automatically removed from VLAN 1** and assigned to VLAN 2.   
-
-   ![Port VLAN Configuration](../../../zh/cluster/NanoCluster/assets/vlan_en.jpeg)
-
-#### QoS Configuration (Traffic Prioritization)
-QoS ensures stable performance for high-priority traffic such as video conferencing and VoIP:
-1. **Navigate to "QoS Settings"**  
-2. Select **Port-Based / 802.1P / DSCP** QoS strategy  
-3. Set **High / Medium / Low Priority Queues**  
-4. **Save the settings** to apply the QoS rules    
-
-![QoS Configuration](../../../zh/cluster/NanoCluster/assets/qos_en.jpeg)
-
-### Additional Configuration
-
-The JL6108 switch also supports more advanced features. For detailed configuration instructions, please refer to the official manual.
-
-[Click here to view the full manual](https://dl.sipeed.com/shareURL/Cluster/NanoCluster/06_Switch_JL6108)
-
-We provide the **JL6108 SDK** based on the **RISC-V** architecture. Users can download the SDK and develop independently from the following link:
-
-[JL6108 SDK](https://dl.sipeed.com/shareURL/Cluster/NanoCluster/06_Switch_JL6108)
+4. Slot 7 is located at the edge of the chassis, where fan airflow is lower but there is sufficient space to install a heatsink. It is recommended to install a larger heatsink in this position to enhance cooling efficiency.
 
 ## FAQ (Troubleshooting)
 
