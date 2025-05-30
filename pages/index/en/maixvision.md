@@ -88,7 +88,7 @@ title: MaixVision Workstation Official Website
             </div>
         </div>
         <div class="mt-10">
-            <p><span class="mr-2">More visit</span><a href="https://wiki.sipeed.com/maixpy/">MaixPy</a></p>
+            <p><span class="mr-2">More visit</span><a href="https://wiki.sipeed.com/maixpy/">MaixPy</a> and <a href="https://wiki.sipeed.com/maixpy/doc/zh/basic/maixvision.html">Documentation</a></p>
         </div>
     </div>
     <video id="maixvision_video" class="p-5" controls="false" autoplay loop muted preload src="https://wiki.sipeed.com/maixpy/static/video/maixvision.mp4" type="video/mp4">
