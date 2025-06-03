@@ -17,7 +17,7 @@ Ubuntu 提供了可以在 LicheeRV 上面运行的镜像，它的烧录方法与
 
 Ubuntu 是基于另一个 Linux 发行版 Debian 发展而来，网上大多数 linux 相关的教程也是基于 ubuntu 的，这点对于新手很友好，遇到问题的时候可以比较快地找到解决办法。
 
-因为 D1 的性能有限，所以只提供命名行版本，需要的话自行安装、适配桌面也是能有 GUI 的。
+因为 D1 的性能有限，所以只提供命令行版本，需要的话自行安装、适配桌面也是能有 GUI 的。
 
 <img src="./../assets/RV/ubuntu/d1_ubuntu_desktop.jpg" alt="d1_ubuntu_desktop" width="45%">
 <img src="./../assets/RV/ubuntu/d1_ubuntu_desktop_picture.jpg" alt="d1_ubuntu_desktop_picture" width="45%">
