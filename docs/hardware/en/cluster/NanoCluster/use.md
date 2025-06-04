@@ -163,7 +163,7 @@ If you need to debug or control multiple slots simultaneously, we recommend usin
 
 The reset pins for slots 1~7 are controlled by slot 1 through **I2C extended IO**, enabling remote power on/off functionality.  
 
-**LM3H Control Method Example:**
+**Example: Reset Control Using LM3H:**
 
 ```bash
 # Reset the switch chip (GPIO 0)
@@ -176,9 +176,23 @@ sudo gpioset gpiochip2 2=0 && sleep 8 && sudo gpioset gpiochip2 2=1
 # Quick trigger to power on
 sudo gpioset gpiochip2 2=0 && sleep 1 && sudo gpioset gpiochip2 2=1
 
-# Reset slot2 (CM4/CM5)
-sudo gpioset gpiochip2 2=0 && sudo gpioset gpiochip2 2=1
+# Reset slot2 (CM4)
+sudo gpioset gpiochip2 2=0 && sleep 1 && sudo gpioset gpiochip2 2=1
+
+# Reset slot2 (CM5)
+# Simulate power button press for CM5 using GPIO level changes to power on/off:
+# - If the system is Raspberry Pi OS Lite (headless): one short press will shut down.
+# - If the system is Raspberry Pi Desktop (with GUI): two short presses are required to shut down.
+
+# Simulate two short presses (shutdown for Desktop systems)
+sudo gpioset gpiochip2 2=0 && sleep 1 && sudo gpioset gpiochip2 2=1
+sudo gpioset gpiochip2 2=0 && sleep 1 && sudo gpioset gpiochip2 2=1
+
+# Simulate a single short press (power on)
+sudo gpioset gpiochip2 2=0 && sleep 1 && sudo gpioset gpiochip2 2=1
 ```
+
+>! **Known issue:** If you force a hard shutdown of the CM5 by long-pressing the button, the system cannot be started again with a short press. You must power cycle the device to restore normal operation.
 
 > `gpiochip2` refers to the GPIO controller index. `x=0` sets the IO with index `x` to low level, while `x=1` sets it to high level.
 
@@ -187,7 +201,7 @@ sudo gpioset gpiochip2 2=0 && sudo gpioset gpiochip2 2=1
 | 0          | Switch chip reset |
 | 1~7        | slot1~slot7 reset |
 
-**CM4/CM5 Control Method Example:**
+**Example: Reset Control Using CM4/CM5:**
 
 To enable I2C and load the PCA9557 driver on CM4 or CM5, you can control it in the same way:
 
