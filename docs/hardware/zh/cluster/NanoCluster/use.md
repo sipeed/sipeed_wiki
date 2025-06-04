@@ -161,7 +161,7 @@ ssh sipeed@lpi3h-xxxx.local
 
 slot1~7 的复位脚由 slot1 通过 **I2C 扩展的 IO** 进行控制，可实现远程开关机。  
 
-**LM3H 控制方法示例：**
+**使用 LM3H 控制复位方法示例：**
 
 ```bash
 # 复位交换机芯片（GPIO 0）
@@ -174,9 +174,23 @@ sudo gpioset gpiochip2 2=0 && sleep 8 && sudo gpioset gpiochip2 2=1
 # 快速触发实现开机
 sudo gpioset gpiochip2 2=0 && sleep 1 && sudo gpioset gpiochip2 2=1
 
-# 复位 slot2（CM4/CM5）
-sudo gpioset gpiochip2 2=0 && sudo gpioset gpiochip2 2=1
+# 复位 slot2（CM4）
+sudo gpioset gpiochip2 2=0 && sleep 1 && sudo gpioset gpiochip2 2=1
+
+# 复位 slot2（CM5）
+# 使用 GPIO 电平变化模拟按下 CM5 的电源按键，可实现开关机：
+# - 若系统为 Raspberry Pi OS Lite（无桌面）：短按一次即可关机。
+# - 若系统为 Raspberry Pi Desktop（有桌面）：需短按两次以触发关机。
+
+# 模拟短按两次（Desktop 系统关机）
+sudo gpioset gpiochip2 2=0 && sleep 1 && sudo gpioset gpiochip2 2=1
+sudo gpioset gpiochip2 2=0 && sleep 1 && sudo gpioset gpiochip2 2=1
+
+# 模拟短按一次（开机）
+sudo gpioset gpiochip2 2=0 && sleep 1 && sudo gpioset gpiochip2 2=1
 ```
+
+>! 已知问题：若通过长按按键实现强制硬关机 CM5，系统将无法通过短按方式启动，需重新上电才能恢复。
 
 > `gpiochip2` 表示 GPIO 控制器编号，后面的 `x=0` 表示将编号为 x 的 IO 设置为低电平，`x=1` 设置为高电平。
 
@@ -185,7 +199,7 @@ sudo gpioset gpiochip2 2=0 && sudo gpioset gpiochip2 2=1
 | 0         | 交换机芯片复位   |
 | 1~7       | slot1~slot7 复位 |
 
-**CM4/CM5 控制方法示例：**
+**使用 CM4/CM5 控制复位方法示例：**
 
 在 CM4 或 CM5 上启用 I2C 并加载 PCA9557 驱动，即可使用相同方式控制：
 
