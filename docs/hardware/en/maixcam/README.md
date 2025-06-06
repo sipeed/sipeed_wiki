@@ -100,6 +100,7 @@ MaixCAM is based on Sipeed's LiecheeRV-Nano core board, which uses the SG2002 ch
 * [MaixHub Share Plaza](https://maixhub.com/share)
 * [makerworld.com](https://makerworld.com/) (recommended) or [makerworld.com.cn](https://makerworld.com.cn) — search for `MaixCAM`
 * [Bilibili](https://bilibili.com) — search for `MaixCAM` or `MaixPy`
+* [GitHub](https://github.com) Open Source Projects: github.com Search: [MaixCAM](https://github.com/search?q=maixcam&type=repositoriese) / [MaixCAM2](https://github.com/search?q=maixcam2&type=repositoriese) / [MaixPy](https://github.com/search?q=maixpy&type=repositoriese)
 
 ## Purchase
 

@@ -115,6 +115,7 @@ MaixCAM 基于 Sipeed 的 LiecheeRV-Nano 核心板， 其基于算能的SG2002 �
 * [MaixHub 分享广场](https://maixhub.com/share)
 * [makerworld.com](https://makerworld.com/)(推荐) 或者 [makerworld.com.cn](https://makerworld.com.cn) 搜索 `MaixCAM`
 * [Bilibili](https://bilibili.com) 搜索 `MaixCAM` 或者 `MaixPy`
+* [GitHub](https://github.com) 开源项目: github.com 搜：[MaixCAM](https://github.com/search?q=maixcam&type=repositoriese) / [MaixCAM2](https://github.com/search?q=maixcam2&type=repositoriese) / [MaixPy](https://github.com/search?q=maixpy&type=repositoriese)
 
 
 ## 购买
