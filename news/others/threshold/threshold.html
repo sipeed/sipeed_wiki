@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+
+<html lang="zh"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="LAB, 阈值, threshold, ">
+    
+    
+    <meta name="description" content="Threshold 简介">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+        
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/prism.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?9cb07365544a53067c56c346c838181a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119047820-5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-119047820-5');
+    </script>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/js/thumbs_up/style.css" type="text/css"/>
+        
+    
+    
+    <title>在线图传调试 LAB 阈值 - Sipeed Wiki</title>
+    
+    <script type="text/javascript">js_vars = {"teedoc-plugin-ad-hint": {"type": "hint", "label": "NEW", "content": "全新 Maix 系列产品 <a href='https://wiki.sipeed.com/maixcam'>MaixCAM</a> 已上线, 全新 <a href='https://wiki.sipeed.com/maixpy/'>MaixPy</a> 功能更丰富，性能更强大，软件更易用，文档更全面！", "show_times": 2, "show_after_s": 432000, "date": "2022-06-01 14:00", "color": "#a0421d", "link_color": "#e53935", "link_bg_color": "#e6ae5c", "bg_color": "#ffcf89", "color_hover": "white", "bg_color_hover": "#f57c00", "close_color": "#eab971"}, "teedoc-plugin-thumbs-up": {"label_up": "有帮助", "label_down": "待改进", "icon": "/static/images/thumbs_up/up.svg", "icon_clicked": "/static/images/thumbs_up/upped.svg", "url": "https://thumbs-up.sipeed.com", "show_up_count": true, "show_down_count": false, "msg_already_voted": "您已经投过票了", "msg_thanks": "感谢您的反馈", "msg_down_prompt": "感谢反馈，请告诉我们可以改进什么地方?（最少 10 个字）", "msg_down_prompt_error": "消息最少需要 10 个字， 最多 256 个字", "msg_error": "请求服务器出现错误!"}}</script>
+    <script type="text/javascript">metadata = {"tags": ["图传", "在线调试", "阈值"], "date": "2022-07-12", "update": [], "ts": 1657584000, "author": "", "brief": "", "cover": "/news/others/threshold/assets/threshold.png"}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/">
+                
+                    <img class="site_logo" src="/static/image/logo.svg" alt="sipeed wiki logo">
+                
+                
+                    <h2>wiki</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class=""><a  href="/">产品</a></li>
+<li class="sub_items "><a >开源软件</a><ul><li class=""><a  href="/maixpy/">MaixPy</a></li>
+<li class=""><a  href="/soft/maixpy/zh/index.html">MaixPy_v1</a></li>
+<li class=""><a  href="/soft/Lichee/zh/index.html">Lichee</a></li>
+<li class=""><a  href="/ai/zh/index.html">AI 指南</a></li>
+</ul>
+</li>
+<li class=""><a target="_blank" href="https://maixhub.com">MaixHub</a></li>
+<li class="active"><a  href="/news/">动态</a></li>
+<li class=""><a  href="/faq.html">FAQ 汇总</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class=""><a  href="/store.html"><img src='/static/image/shop.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+<li class=""><a target="_blank" href="https://github.com/sipeed"><img src='/static/image/github.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">输入关键词，多关键词空格隔开</span>
+                                <span id="search_loading_hint">正在加载，请稍候。。。</span>
+                                <span id="search_download_err_hint">下载文件失败，请刷新重试或检查网络</span>
+                                <span id="search_other_docs_result_hint">来自其它文档的结果</span>
+                                <span id="search_curr_doc_result_hint">当前文档搜索结果</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="">
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>在线图传调试 LAB 阈值</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                                <li>图传</li>
+                            
+                                <li>在线调试</li>
+                            
+                                <li>阈值</li>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                                <span class="article_date" title="最后修改日期： 2022-07-12">
+                                    2022-07-12
+                                </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/sipeed/sipeed_wiki/blob/main/news/others/threshold/threshold.md" target="_blank">
+                                    <span id='editPage'>编辑本页</span>
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <span id="blog_start"></span><div class="blog_cover"><img src="/news/others/threshold/assets/threshold.png" alt="在线图传调试 LAB 阈值 cover"></div><p>网上发现一篇不错的文章。这里转载一下，有较大改动 <a href="https://bbs.elecfans.com/jishu_2290503_1_1.html"  target="_blank">原文链接</a></p>
+<!-- more -->
+<h2 id="%E5%89%8D%E8%A8%80">前言</h2>
+<p>根据 官方MaixPy3 和 M2 Dock 的相关说明和官方文档与样例，在大家的帮助下，学习了基础的魔方色块的寻找功能。再此分享给大家。</p>
+<h2 id="%E5%9F%BA%E7%A1%80%E7%A7%91%E6%99%AE">基础科普</h2>
+<h3 id="%E5%9B%BE%E4%BC%A0">图传</h3>
+<p>图传的概念，在无人机中非常常见。</p>
+<p>简单来讲，就是把摄像头拍摄的实时视频，又快又好的传递到终端设备上呈现——既要速度，不能卡，卡了没意思；也要质量，清晰度不能低，低了没得玩。而传输速度快，质量高，会占用较多的设备资源，以及需要较大的带宽。所以设计一个上好的图传方案和系统，是很多该行业厂家的重大追求目标之一。</p>
+<h3 id="LAB">LAB</h3>
+<p>Lab是一种用数字化的方法来描述人的视觉感应的颜色系统。它是一种设备无关的、基于生理特征的颜色系统。在机器视觉中，Lab的概念会经常提及。<br />
+可以用一张图，来详细描述Lab颜色空间：</p>
+<p><img src="./assets/lab.png" alt="lab" /></p>
+<p>上示图片，是从人的视觉感应角度来看的。</p>
+<ul>
+<li>首先是L：表示亮度，从纯黑到纯白，取值为 [0 -&gt; 100]</li>
+<li>然后是a：表示从蓝色到红色的范围，取值为 [-128 -&gt; 127]</li>
+<li>最后是b：表示从蓝色到黄色的范围，取值为 [-128 -&gt; 127]</li>
+</ul>
+<p>通常，Lab会以范围的形式来表示，也就是Lab阈值，因为因为现场环境的不同，我们看到的颜色，不可能是完完全全的理论纯色，所以给出一定的容错范围；<br />
+例如：[(0, 100, 21, 127, -128, -9)]，分别表示：L-min、L-max、a-min、a-max、b-min、b-max，机器视觉就根据这个范围，来进行颜色判断。</p>
+<h2 id="M2Dock-%E5%90%AF%E7%94%A8%E5%9B%BE%E4%BC%A0">M2Dock 启用图传</h2>
+<h3 id="%E7%9B%B8%E5%85%B3%E4%BB%A3%E7%A0%81">相关代码</h3>
+<p>了解相关概念后，可以开始使用 M2 Dock 图传功能了。</p>
+<p>下面就是相关启用图传代码了。其实在<a href="https://wiki.sipeed.com/soft/maixpy3/zh/usage/net.html#MJPG-%E5%9B%BE%E4%BC%A0-%E6%80%8E%E4%B9%88%E7%94%A8%EF%BC%9F"  target="_blank">官方文档</a>都写过</p>
+
+<pre class="language-python"><code class="language-python">from maix import camera, mjpg, utils, display
+
+queue = mjpg.Queue(maxsize=8)
+mjpg.MjpgServerThread(&quot;0.0.0.0&quot;, 18811, mjpg.BytesImageHandlerFactory(q=queue)).start()
+
+while True:
+    img = camera.capture()
+    jpg = utils.rgb2jpg(img.convert(&quot;RGB&quot;).tobytes(), img.width, img.height)
+    queue.put(mjpg.BytesImage(jpg))
+    display.show(img)
+</code></pre>
+<p>上面的代码有三种运行方式：</p>
+<ol>
+<li>在 jupyter 的网页编辑界面，运行上述代码</li>
+<li>可以用 adb shell 或者 ssh 连接到 M2 Dock 后，运行 python ，再输入代码运行</li>
+<li>用 adb shell 或者 ssh 连接到 M2 Dock 后，用vim编辑 tuchuan.py 并保存后，再执行 python ./tuchuan.py 来运行代码</li>
+</ol>
+<p>当然对于小白来说，方式1最方便，方式2最麻烦。但是方式3运行效率最好</p>
+<p>正确运行上述代码后，接可以开启图传功能了。</p>
+<h3 id="%E5%AE%9E%E9%99%85%E4%BD%BF%E7%94%A8">实际使用</h3>
+<p>要访问M2 Dock提供的图传功能，可以有几种方式，根据不同情况可以选择不同方式：</p>
+<h4 id="%E4%BD%BF%E7%94%A8-OTG-%E8%BF%9E%E6%8E%A5%E8%BF%90%E8%A1%8C%E4%BB%A3%E7%A0%81">使用 OTG 连接运行代码</h4>
+<p>使用 jyputer 或 adb shell 都可以算作是使用 otg 连接板子</p>
+<p>这种情况在成功弹出U盘（即正常连接）后可以在浏览器访问 <a href="http://127.0.0.1:188811"  target="_blank">http://127.0.0.1:18811</a> 来打开图传页面。</p>
+<p><img src="./assets/local.png" alt="local" /></p>
+<p>原理可查看<a href="https://wiki.sipeed.com/soft/maixpy3/zh/tools/MaixPy3_IDE.html#IDE-%E8%BF%9E%E6%8E%A5%E5%8E%9F%E7%90%86"  target="_blank">这里</a></p>
+<h4 id="%E9%9D%9E-OTG-%E8%BF%90%E8%A1%8C%E4%BB%A3%E7%A0%81">非 OTG 运行代码</h4>
+<p>使用串口或者ssh或者设置成开机运行的代码的话，均可认为是非 OTG 运行代码，这个时候我们要通过IP来访问板子图传网址了，即访问 <a href="http://%E8%AE%BE%E5%A4%87ip%E5%9C%B0%E5%9D%80:18811"  target="_blank">http://%E8%AE%BE%E5%A4%87ip%E5%9C%B0%E5%9D%80:18811</a> 来查看图传实例</p>
+<p><img src="./assets/threshold.png" alt="wireless" /></p>
+<h2 id="Lab-%E9%98%88%E5%80%BC%E5%AE%9E%E4%BE%8B">Lab 阈值实例</h2>
+<p>前面说过，机器视觉中会利用到 Lab，同样的，MaixPy3 也提供了很简单的方法来应用 Lab 阈值。</p>
+<p>这里有一个能直接使用的在线工具: <a href="https://wiki.sipeed.com/threshold"  target="_blank">https://wiki.sipeed.com/threshold</a>（加载有点慢）</p>
+<p>提供了一个简单的示例，可以自己通过调整下面滑块位置或者输入阈值数值来查看不同的效果</p>
+<p><img src="./assets/threshold.png" alt="threshold" /></p>
+<p>也可以自己手动上传图片然后查看不同阈值所产生的效果，当然这里主要介绍无线调整阈值功能。</p>
+<blockquote>
+<p>因为浏览器安全方面的权限，我们需要把 <a href="https://wiki.sipeed.com/threshold"  target="_blank">https://wiki.sipeed.com/threshold</a> 先保存到本地才能进行局域网图传。</p>
+</blockquote>
+<p>使用键盘上面的 <code>Ctrl + S</code> 两个按键来将该网页保存到本地，然后在浏览器打开保存到本地的网页就等于在本地运行 <a href="https://wiki.sipeed.com/threshold"  target="_blank">https://wiki.sipeed.com/threshold</a> 了，接着就可以开始后续的操作来实现局域网图传了。</p>
+<p>成功运行上面<a href="#m2dock-%E5%90%AF%E7%94%A8%E5%9B%BE%E4%BC%A0"  >图传代码</a>且能够在浏览器地址栏中输入板子相应的 IP 地址和图传端口号来访问图传画面后，就可以在本地阈值网页中输入正确的图传 IP 后来直接调整阈值了。下图中右上角有一个图传地址的输入栏，在那里输入正确查看 m2dock 图传的 IP 后就能够实时查看摄像头录制画面且能够实时调整阈值了。</p>
+<p><img src="./assets/wireless_1.png" alt="threshold_1" /></p>
+<p>熟练的话可以知道能够调整a值来获取橙色色块阈值，做到下面的效果：</p>
+<p><img src="./assets/wireless_2.png" alt="threshold_2" /></p>
+<p>上图中可以看到除了红色和橙色之外的颜色都被过滤掉了，其他颜色都成了黑色区域。</p>
+<p>可以再调整一下L，来使得比较黑的红色也被排除掉</p>
+<p><img src="./assets/wireless_3.png" alt="threshold_3" /></p>
+<p>换到其他魔方面调整阈值来说橙色模块更准确点：</p>
+<p><img src="./assets/wireless_4.png" alt="threshold_4" /></p>
+<p>尽量在多个颜色里面来选出自己需要的颜色，因此像下面这种同一面颜色的不好选出差别</p>
+<p><img src="./assets/wireless_5.png" alt="threshold_5" /></p>
+<p>所以把魔方打乱后识别效果合适很多。</p>
+<p>通过上述说明，可以逐步得到模仿六种颜色的阈值了。</p>
+<h2 id="%E5%AE%9E%E6%88%98%E6%BC%94%E7%A4%BA">实战演示</h2>
+<p>这里使用一个金字塔魔方来进行展示：</p>
+<p><img src="./assets/cube_1.png" width=50% alt=cube_1><img src="./assets/cube_2.png" width=50% alt=cube_2></p>
+<p>使用支架来将 m2dock 摄像头对准魔方</p>
+<p><img src="./assets/snap.png" alt="snap" /></p>
+<p>在电脑上进行阈值的调整</p>
+<p><img src="./assets/change.png" alt="change" /></p>
+<p>最终得到下面的四组值：</p>
+
+<pre class="language-python"><code class="language-python">[(0, 100, -128, -23, -128, 127)], #绿色
+[(10, 100, 30, 127, -37, 127)],   #红色
+[(40, 100, -25, 42, 7, 127)],     #黄色
+[(0, 100, -128, 127, -128, -46)], #蓝色
+</code></pre>
+<p>根据官方例程修改后得到下面代码：</p>
+
+<pre class="language-python"><code class="language-python">from maix import image, display, camera
+color = [
+        [(0, 100, -128, -23, -128, 127)], #绿色
+        [(10, 100, 30, 127, -37, 127)], #红色
+        [(40, 100, -25, 42, 7, 127)], #黄色
+        [(0, 100, -128, 127, -128, -46)], #蓝色
+        ]  # 0.5.0 以后蓝色的 lab 阈值，0.4.9 之前为 [(13, 11, -91, 54, 48, -28)]
+font_color = [ # 边框和文字颜色，暂时都用白色
+    (255,255,255), # 绿色
+    (255,255,255), # 红色
+    (255,255,255), # 黄色
+    (255,255,255)  # 白色
+]
+name_color = ('green', 'red', 'yellow', 'blue')
+while True:
+    img = camera.capture()
+    for n in range(0,4):
+        blobs = img.find_blobs(color[n])    #在图片中查找lab阈值内的颜色色块
+        if blobs:
+            for i in blobs:
+                if i[&quot;w&quot;]&gt;15 and i[&quot;h&quot;]&gt;15:
+                    img.draw_rectangle(i[&quot;x&quot;], i[&quot;y&quot;], i[&quot;x&quot;] + i[&quot;w&quot;], i[&quot;y&quot;] + i[&quot;h&quot;], 
+                                       color=font_color[n], thickness=1) #将找到的颜色区域画出来
+                    img.draw_string(i[&quot;x&quot;], i[&quot;y&quot;], name_color[n], scale = 0.8, 
+                              color = font_color[0], thickness = 1) #在红色背景图上写下hello worl
+    display.show(img)
+</code></pre>
+<p>运行上述代码后，识别的效果如下：</p>
+<p><img src="./assets/result_1.png" width=50% alt=result_1><img src="./assets/result_2.png" width=50% alt=result_2></p>
+<p>可以看到已经成功识别出魔方颜色块，且效果还不错。</p>
+<p>具体效果视频可以前往 <a href="https://bbs.elecfans.com/jishu_2290503_1_1.html"  target="_blank">原链接</a> 查看</p>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                    </div>
+                    <div id="next">
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>相关链接</a><ul><li><a target="_blank" href="https://www.sipeed.com">Sipeed 官网</a></li>
+<li><a target="_blank" href="https://maixhub.com/">MaixHub</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">Sipeed 淘宝</a></li>
+<li><a  href="/sitemap.xml">网站地图</a></li>
+<li><a target="_blank" href="https://github.com/teedoc/teedoc">网站使用 teedoc 生成</a></li>
+</ul>
+</li>
+<li><a>源码</a><ul><li><a target="_blank" href="https://github.com/sipeed/sipeed_wiki">Wiki 源码</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">开源项目</a></li>
+</ul>
+</li>
+<li><a>关注我们</a><ul><li><a target="_blank" href="https://twitter.com/SipeedIO">twitter</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">淘宝</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">github</a></li>
+<li><a><a>微信公众号</a><img src='/static/image/wechat.png'></a>
+</li>
+</ul>
+</li>
+<li><a>联系我们</a><ul><li><a>电话: +86 0755-27808509</a>
+</li>
+<li><a>商业支持: support@sipeed.com</a>
+</li>
+<li><a>地址: 深圳市宝安区新湖路4008号蘅芳科技办公大厦A座-2101C</a>
+</li>
+<li><a  href="/join_us.html">加入我们</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://www.sipeed.com">©2018-2023 深圳矽速科技有限公司</a></li>
+<li><a target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index">粤ICP备19015433号</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/js/prism.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <link rel="stylesheet" href="/static/js/add_hint/style.css" type="text/css"/>
+    
+        <script src="/static/js/add_hint/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+        <script src="/static/js/thumbs_up/main.js"></script>
+    
+</body>
+
+</html>

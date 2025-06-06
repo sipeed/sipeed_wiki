@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+
+<html lang="zh"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="Color, 色彩空间, RGB, HSV, YUV, LAB, CMYK">
+    
+    
+    <meta name="description" content="色彩空间科普">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+        
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/prism.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?9cb07365544a53067c56c346c838181a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119047820-5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-119047820-5');
+    </script>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/js/thumbs_up/style.css" type="text/css"/>
+        
+    
+    
+    <title>常见的图像颜色空间解释 - Sipeed Wiki</title>
+    
+    <script type="text/javascript">js_vars = {"teedoc-plugin-ad-hint": {"type": "hint", "label": "NEW", "content": "全新 Maix 系列产品 <a href='https://wiki.sipeed.com/maixcam'>MaixCAM</a> 已上线, 全新 <a href='https://wiki.sipeed.com/maixpy/'>MaixPy</a> 功能更丰富，性能更强大，软件更易用，文档更全面！", "show_times": 2, "show_after_s": 432000, "date": "2022-06-01 14:00", "color": "#a0421d", "link_color": "#e53935", "link_bg_color": "#e6ae5c", "bg_color": "#ffcf89", "color_hover": "white", "bg_color_hover": "#f57c00", "close_color": "#eab971"}, "teedoc-plugin-thumbs-up": {"label_up": "有帮助", "label_down": "待改进", "icon": "/static/images/thumbs_up/up.svg", "icon_clicked": "/static/images/thumbs_up/upped.svg", "url": "https://thumbs-up.sipeed.com", "show_up_count": true, "show_down_count": false, "msg_already_voted": "您已经投过票了", "msg_thanks": "感谢您的反馈", "msg_down_prompt": "感谢反馈，请告诉我们可以改进什么地方?（最少 10 个字）", "msg_down_prompt_error": "消息最少需要 10 个字， 最多 256 个字", "msg_error": "请求服务器出现错误!"}}</script>
+    <script type="text/javascript">metadata = {"tags": ["Color", "色彩空间"], "date": "2022-06-11", "update": [], "ts": 1654905600, "author": "", "brief": "", "cover": "/news/others/color_introduction/assets/cover.png"}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/">
+                
+                    <img class="site_logo" src="/static/image/logo.svg" alt="sipeed wiki logo">
+                
+                
+                    <h2>wiki</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class=""><a  href="/">产品</a></li>
+<li class="sub_items "><a >开源软件</a><ul><li class=""><a  href="/maixpy/">MaixPy</a></li>
+<li class=""><a  href="/soft/maixpy/zh/index.html">MaixPy_v1</a></li>
+<li class=""><a  href="/soft/Lichee/zh/index.html">Lichee</a></li>
+<li class=""><a  href="/ai/zh/index.html">AI 指南</a></li>
+</ul>
+</li>
+<li class=""><a target="_blank" href="https://maixhub.com">MaixHub</a></li>
+<li class="active"><a  href="/news/">动态</a></li>
+<li class=""><a  href="/faq.html">FAQ 汇总</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class=""><a  href="/store.html"><img src='/static/image/shop.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+<li class=""><a target="_blank" href="https://github.com/sipeed"><img src='/static/image/github.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">输入关键词，多关键词空格隔开</span>
+                                <span id="search_loading_hint">正在加载，请稍候。。。</span>
+                                <span id="search_download_err_hint">下载文件失败，请刷新重试或检查网络</span>
+                                <span id="search_other_docs_result_hint">来自其它文档的结果</span>
+                                <span id="search_curr_doc_result_hint">当前文档搜索结果</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="">
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>常见的图像颜色空间解释</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                                <li>Color</li>
+                            
+                                <li>色彩空间</li>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                                <span class="article_date" title="最后修改日期： 2022-06-11">
+                                    2022-06-11
+                                </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/sipeed/sipeed_wiki/blob/main/news/others/color_introduction/color_introduction.md" target="_blank">
+                                    <span id='editPage'>编辑本页</span>
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <span id="blog_start"></span><div class="blog_cover"><img src="/news/others/color_introduction/assets/cover.png" alt="常见的图像颜色空间解释 cover"></div><p>常用颜色表示方法： RGB HSV YUV LAB CMYK</p>
+<!-- more -->
+<p>版权声明：本文为 neucrack 的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。<br />
+原文链接：<a href="https://neucrack.com/p/294"  target="_blank">https://neucrack.com/p/294</a></p>
+<h2 id="RGB">RGB</h2>
+<p>红绿蓝 三色，也是大家熟悉光学三原色</p>
+<p>RGB 使用加色模式，也就是默认是黑色，三原色相加获得白色， 比如下图<code>蓝色+绿色=青色(cyan)</code>，得到<code>蓝色=青色-绿色</code>也就是<code>蓝色=青色+绿色</code>的互补色， 绿色的互补色就是图中的<code>M(品红色）magenta</code>（同理蓝色的互补色是Y黄色）（互补色就是两者相加为白色），所以<code>蓝色=青色+品红色</code></p>
+<p><img src="./assets/color_add.png" alt="" /></p>
+<p><img src="./assets/coordinate_box.png" alt="" /></p>
+<p>上图可以看到灰度图在正方体对角线上，即三个通道（轴）的值相等时，值越大越白</p>
+<p><img src="./assets/color.png" alt="" /></p>
+<p>一般两种表示方法：</p>
+<h3 id="RGB888%2824bit%29">RGB888(24bit)</h3>
+<p>RGB三个通道，每个通道分别用8bit长度表示，比如(255, 255, 255), 每个通道取值范围为[0, 255]，或者0xFFFFFF三个字节表示</p>
+<h3 id="RGB565%2816bit%29">RGB565(16bit)</h3>
+<p>RGB三个通道分别用5bit 6bit 5bit表示，比如(31, 63, 31)，但一般不这样表示，使用两个字节表示，比如0xFFFF, 一般在编写程序时在内存中多使用以下两种布局方式：</p>
+<ul>
+<li>第一种：</li>
+</ul>
+<p><img src="./assets/bgr_color.png" alt="" /></p>
+<ul>
+<li>第二种：</li>
+</ul>
+<p><img src="./assets/grgb_color.png" alt="" /></p>
+<p>这两种方式的不同主要是因为 RGB565 共占用 2 个字节， 两个字节的顺序不同造成的，把第二张图从中间分隔成两份，右边移到左边，就变成了第一种的排列方式了</p>
+<p>C语言结构体如下：</p>
+
+<pre class="language-c"><code class="language-c">#define COLOR_16_SWAP 1
+typedef union
+{
+    struct
+    {
+#if COLOR_16_SWAP == 0
+        uint16_t blue : 5;
+        uint16_t green : 6;
+        uint16_t red : 5;
+#else
+        uint16_t green_h : 3;
+        uint16_t red : 5;
+        uint16_t blue : 5;
+        uint16_t green_l : 3;
+#endif
+    } ch;
+    uint16_t full;
+} color16_t;
+</code></pre>
+<p>比如<code>(1,2,3)</code> <code>(R, G, B)</code>：</p>
+<p>使用第一种方式二进制值为 <code>B00001 000010 00011</code> 即 <code>B0000 1000 0100 0011</code>, 十六进制表示为 <code>0x0843</code>（注意这里表示方法从左到右是从高位到低位，上面的图从左到右是低位到高位）；</p>
+<p>使用第二种方式二进制值为 <code>B010 00011 00001 000</code>即 <code>B0100 0011 0000 1000</code>, 十六进制表示为 <code>0x4308</code>；</p>
+<h2 id="HSV">HSV</h2>
+<p>相关解释：</p>
+<ul>
+<li>Hue（色调、色相）</li>
+<li>Saturation（饱和度、色彩纯净度）</li>
+<li>Value（明度）</li>
+</ul>
+<p><img src="./assets/hsv.png" alt="" /></p>
+<h2 id="HLS">HLS</h2>
+<p>HLS 中的 L 分量为亮度，亮度为100，表示白色，亮度为0，表示黑色；HSV 中的 V 分量为明度，明度为100，表示光谱色，明度为0，表示黑色。</p>
+<p>提取白色物体时，使用 HLS 更方便，因为 HSV 中的Hue里没有白色，白色需要由S和V共同决定（S=0, V=100）。而在 HLS 中，白色仅由亮度L一个分量决定。所以检测白色时使用 HSL 颜色空间更准确。</p>
+<p><img src="./assets/hls.png" alt="" /></p>
+<h2 id="YUV">YUV</h2>
+<p>Y'UV、YUV、YCbCr、YPbPr 几个概念其实是一回事儿。Y’UV、YUV 主要是用在彩色电视中，用于模拟信号表示。YCbCr 是用在数字视频、图像的压缩和传输，如 MPEG、JPEG。今天大家所讲的 YUV 其实就是指 YCbCr。Y 表示亮度（luma），CbCr 表示色度（chroma）。</p>
+<p>另外Y’UV在取值上可以使正或者负数，但是Y’CbCr一般是 <code>16–235</code> 或者 <code>0–255</code></p>
+<p>Y’UV 设计的初衷是为了使彩色电视能够兼容黑白电视。对于黑白电视信号，只需要 Y 通道， 在彩色电视则显示 YUV 信息</p>
+<p><img src="./assets/yuv.png" alt="" /></p>
+<p><img src="./assets/y%27uv.png" alt="" /></p>
+<h3 id="%E6%89%93%E5%8C%85%E6%A0%BC%E5%BC%8F%E5%92%8C%E9%87%87%E6%A0%B7">打包格式和采样</h3>
+<p>YUV 格式通常有两大类:打包(packed)格式和平面(planar)格式， 前者是每个像素为基本单位，一个一个像素的数据连续排列在内存中， 后者则是YUV 分成3个数组（内存块）存放， 另外还有Y和UV分开存放的（比如 YUV420SP（ Semi-Planar， U和V交叉放，即YYYYYYYY…UVUV…） 和 YUV420P（先放U再放V，即YYYYYYYY…UUVV））</p>
+<p>人眼的视觉特点是对亮度更铭感，对位置、色彩相对来说不铭感。在视频编码系统中为了降低带宽，可以保存更多的亮度信息(luma)，保存较少的色差信息(chroma)。这叫做 chrominance subsamping, 色度二次采样。原则：在数字图像中，(1) 每一个图形像素都要包含 luma（亮度）值；（2）几个图形像素共用一个 Cb + Cr 值，一般是 2、4、8 个像素。 一般分为以下几种</p>
+<ul>
+<li>YUV444：就是每个 Y 值对应一个 U 和 一个 V 值</li>
+<li>YUV422: 就是图像的横轴（width方向） 4 个 Y 值公用 2 个 U 和V，纵轴（height方向）4 个 Y 对应了 4 个 U 和 4 个 V</li>
+<li>YUV420: 就是在 YUV422 的基础上， 纵轴的 U 和 V 数量也减半，每 2 个提供给 4 个 Y 配对使用</li>
+<li>YUV411: 同理，就是 4 个 Y， 对应横轴和纵轴的 1 个 U 和 V</li>
+</ul>
+<p><img src="./assets/yuv_pack.png" alt="" /></p>
+<p><code>SP</code>(Semi-Planar) 和 <code>P</code> 的说法， 区别就是在内存中的存放顺序不同, 比如</p>
+<p>YUV420SP:</p>
+<p><img src="assets/yuv420sp.jpg" alt="" /></p>
+<p>YUV420P:</p>
+<p><img src="assets/yuv420p.jpg" alt="" /></p>
+<p>另外，还有 NV12 和 NV21 的区别， 就是在 UV 的存放上顺序不同</p>
+<ul>
+<li>NV12: IOS只有这一种模式。存储顺序是先存Y，再UV交替存储。YYYYUVUVUV</li>
+<li>NV21: 安卓的模式。存储顺序是先存Y，再存U，再VU交替存储。YYYYVUVUVU</li>
+</ul>
+<p>YUV与RGB之间的转换</p>
+<p>略</p>
+<p>参考代码： <a href="https://github.com/latelee/yuv2rgb"  target="_blank">https://github.com/latelee/yuv2rgb</a></p>
+<h2 id="LAB">LAB</h2>
+<p>Lab颜色空间中的L分量用于表示像素的亮度，取值范围是[0,100],表示从纯黑到纯白；a表示从红色到绿色的范围，取值范围是[127,-128]；b表示从黄色到蓝色的范围，取值范围是[127,-128]</p>
+<p><img src="./assets/LAB.png" alt="" /></p>
+<h2 id="CMY-%26amp%3B-CMYK">CMY &amp; CMYK</h2>
+<p><img src="./assets/cmyk_1.jpg" alt="" /></p>
+<p>一般用在印刷， 因为人眼看到的物体的颜色是反射光，而不是自发光，一束白光照到物体上，默认反射所有，即白色，人眼实际看到的颜色是用光的颜色减去材料吸收后的颜色,这时涂上黑色的颜料，即吸收了所有白光，所以人眼看到的是黑色。<br />
+利用色料的三原色混色原理，加上黑色油墨，共计四种颜色混合叠加，形成所谓“全彩印刷”。四种标准颜色是：<code>C：Cyan = 青色</code>，又称为‘天蓝色’或是‘湛蓝’<code>M：Magenta = 品红色</code>，又称为‘洋红色’；<code>Y：Yellow = 黄色</code>；<code>K：blacK=黑色</code>，虽然有文献解释说这里的K应该是Key Color（定位套版色），但其实是和制版时所用的定位套版观念混淆而有此一说。此处缩写使用最后一个字母K而非开头的B，是为了避免与Blue混淆。CMYK模式是减色模式，相对应的RGB模式是加色模式。</p>
+<p>印刷三原色如何得到黑色， 理论配色如下：</p>
+<blockquote>
+<p>C(100)  +M（100） +Y（100） = 黑色（100，100，100）</p>
+</blockquote>
+<p>可见黑色就是青色、品与黄色之和，但是这三种颜色混成的黑色不够纯，所以印刷学就引进了K(Black)黑色，因为B已经被Blue占用，所以黑色就只好用引文字母黑色的最后一个字母K, 哪么真正印刷的黑色配色如下:</p>
+<blockquote>
+<p>C(100)  +M（100） +Y（100） + K(100) = 黑色 （100，100，100，100）</p>
+</blockquote>
+<p>或者</p>
+<blockquote>
+<p>C(0)  +M(0) + Y(0) + K(100) = 黑色(0，0，0，100）</p>
+</blockquote>
+<p>减色模式：前面说的由于物体是吸收了部分光，才呈现出特有的颜色，比如品红的物体，是吸收了它的互补色绿色（看前面的RGB对互补色的描述），也就是白色光减去了绿色才得到的颜色，所以称之为减色模式</p>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                    </div>
+                    <div id="next">
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>相关链接</a><ul><li><a target="_blank" href="https://www.sipeed.com">Sipeed 官网</a></li>
+<li><a target="_blank" href="https://maixhub.com/">MaixHub</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">Sipeed 淘宝</a></li>
+<li><a  href="/sitemap.xml">网站地图</a></li>
+<li><a target="_blank" href="https://github.com/teedoc/teedoc">网站使用 teedoc 生成</a></li>
+</ul>
+</li>
+<li><a>源码</a><ul><li><a target="_blank" href="https://github.com/sipeed/sipeed_wiki">Wiki 源码</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">开源项目</a></li>
+</ul>
+</li>
+<li><a>关注我们</a><ul><li><a target="_blank" href="https://twitter.com/SipeedIO">twitter</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">淘宝</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">github</a></li>
+<li><a><a>微信公众号</a><img src='/static/image/wechat.png'></a>
+</li>
+</ul>
+</li>
+<li><a>联系我们</a><ul><li><a>电话: +86 0755-27808509</a>
+</li>
+<li><a>商业支持: support@sipeed.com</a>
+</li>
+<li><a>地址: 深圳市宝安区新湖路4008号蘅芳科技办公大厦A座-2101C</a>
+</li>
+<li><a  href="/join_us.html">加入我们</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://www.sipeed.com">©2018-2023 深圳矽速科技有限公司</a></li>
+<li><a target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index">粤ICP备19015433号</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/js/prism.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <link rel="stylesheet" href="/static/js/add_hint/style.css" type="text/css"/>
+    
+        <script src="/static/js/add_hint/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+        <script src="/static/js/thumbs_up/main.js"></script>
+    
+</body>
+
+</html>

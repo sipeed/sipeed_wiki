@@ -1,0 +1,16 @@
+{
+    "items": [
+        {
+            "label": "Readme",
+            "file" : "./readme.md"
+        },
+        {
+            "label": "Edit content",
+            "file" : "./change_doc.md"
+        },
+        {
+            "label": "Add document",
+            "file" : "./add_doc.md"
+        }
+    ]
+}
