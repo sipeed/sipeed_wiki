@@ -66,6 +66,11 @@ keywords: NanoKVM, Remote desktop, Lichee, PiKVM, RISCV, tool
   > 若 `VIDevFPS` 非0 、`VIFPS` 为0 ，则认为NanoKVM没有正确配置HDMI参数，Cube可以重新插拔HDMI重新自动获取，PCIe可点击`视频`下`重置HDMI`自动获取
   > 查看 `VIInImgWidth` 和 `VIInImgHeight`与实际HDMI分辨率是否一致，若不同，则认为NanoKVM没有自动获取到正确的HDMI参数，按照第4点手动配置分辨率参数
 
+### 内网环境下画面延迟异常严重
+
+  1. 尝试更换交换机或电源
+  2. 若无效,请联系售后
+
 ### OLED上正常显示信息，但无法打开网页
   1. 请强制更新应用
 

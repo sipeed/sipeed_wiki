@@ -68,6 +68,11 @@ The STA LED indicates the operating status of the NanoKVM. When functioning prop
    > If `VIDevFPS` is not 0 and `VIFPS` is 0, it indicates that NanoKVM is not correctly configured for HDMI parameters. The Cube can replug the HDMI to auto-detect, while PCIe can click `Reset HDMI` under `Video` to auto-detect.
    > Check if `VIInImgWidth` and `VIInImgHeight` match the actual HDMI resolution. If they are different, it means NanoKVM did not auto-detect the correct HDMI parameters. Manually configure the resolution parameters as described in point 4.
 
+### Serious screen delay in internal network environment
+
+1. Try replacing the switch or power supply
+2. If it is invalid, please contact after-sales service
+
 ### OLED Displaying Information Normally, But Unable to Open Webpage
 
 1. Please force update the application.
