@@ -378,3 +378,7 @@ xfel exec 0x4a000000
 ```
 
 After completing the process, the device should enter UMS mode successfully, allowing you to flash the system image.
+
+### CM4 Lite Fails to Boot After Reset
+
+In the first batch of CM4 adapter boards, using a CM4 Lite (without eMMC) and following the [Power Control](https://wiki.sipeed.com/hardware/en/cluster/NanoCluster/use.html#Power-Control) instructions may result in the module failing to boot after a reset. This issue will be fixed in the next hardware revision. If you encounter this problem, it is recommended to use the `reboot` command to restart the device instead of performing a hardware reset.
