@@ -315,6 +315,31 @@ pwm.start(100)          # 满速
 
 ![fel](./assets/fel.jpeg)
 
+#### 安装 awusb 驱动
+
+需要先安装全志的 [sunxi-awusb](https://github.com/916BGAI/sunxi-awusb) 驱动，用于识别 H618 芯片。
+
+``` bash
+sudo apt update
+sudo apt install dkms
+cd sunxi-awusb
+sudo cp -r ./ /usr/src/sunxi-awusb-0.5
+sudo dkms add -m sunxi-awusb -v 0.5
+sudo dkms build -m sunxi-awusb -v 0.5
+sudo dkms install -m sunxi-awusb -v 0.5
+sudo modprobe awusb
+sudo cp udev/50-awusb.rules /etc/udev/rules.d/
+sudo udevadm control --reload-rules
+```
+
+``` bash
+Bus 002 Device 005: ID 1f3a:efe8 Allwinner Technology sunxi SoC OTG connector in FEL/flashing mode
+```
+
+#### 获取 uboot 文件
+
+下载已经编译好的 U-Boot 文件：[点击下载](./assets/uboot.tar.gz)
+
 #### 使用 sunxi-fel
 
 编译安装

@@ -317,6 +317,31 @@ Short the specified pin on slot1 to GND, then power on the device to enter FEL m
 
 ![fel](../../../zh/cluster/NanoCluster/assets/fel.jpeg)
 
+#### Installing the awusb Driver
+
+You need to install the [sunxi-awusb](https://github.com/916BGAI/sunxi-awusb) driver to recognize the H618 chip.
+
+``` bash
+sudo apt update
+sudo apt install dkms
+cd sunxi-awusb
+sudo cp -r ./ /usr/src/sunxi-awusb-0.5
+sudo dkms add -m sunxi-awusb -v 0.5
+sudo dkms build -m sunxi-awusb -v 0.5
+sudo dkms install -m sunxi-awusb -v 0.5
+sudo modprobe awusb
+sudo cp udev/50-awusb.rules /etc/udev/rules.d/
+sudo udevadm control --reload-rules
+```
+
+```bash
+Bus 002 Device 005: ID 1f3a:efe8 Allwinner Technology sunxi SoC OTG connector in FEL/flashing mode
+```
+
+#### Obtaining the U-Boot File
+
+Download the pre-compiled U-Boot file: [Click to Download](../../../zh/cluster/NanoCluster/assets/uboot.tar.gz)
+
 #### Using sunxi-fel
 
 Install and compile:
