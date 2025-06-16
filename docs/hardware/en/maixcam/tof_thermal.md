@@ -24,7 +24,7 @@ Thermal Imaging + Visible Light Fusion Display
 ![Thermal + Visible Light Fusion](../../assets/maixcam/th32_2.jpg)
 
 Reference Code:  
-[GitHub Repository](https://github.com/sipeed/MaixPy/tree/main/examples/ext_dev/sensors/thermography_mlx90640)
+[GitHub Repository](https://github.com/sipeed/MaixPy/blob/main/examples/ext_dev/sensors/thermography_mlx90640/mlx90640_example.py)
 
 ---
 
@@ -51,4 +51,4 @@ Depth + Visible Light Fusion Display
 ![Depth + Visible Light Fusion](../../assets/maixcam/tof100_2.jpg)
 
 Reference Code:  
-[GitHub Repository](https://github.com/sipeed/MaixPy/tree/main/examples/ext_dev/sensors/tof_opns303x)
+[GitHub Repository](https://github.com/sipeed/MaixPy/blob/main/examples/ext_dev/sensors/tof100/tof100_example.py)

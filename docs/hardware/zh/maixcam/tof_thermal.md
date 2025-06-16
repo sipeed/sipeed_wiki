@@ -25,7 +25,7 @@ PMOD_Thermal32安装方式
 ![热成像+可见光融合显示 ](../../assets/maixcam/th32_2.jpg)
 
 参考使用代码：  
-https://github.com/sipeed/MaixPy/tree/main/examples/ext_dev/sensors/thermography_mlx90640
+https://github.com/sipeed/MaixPy/blob/main/examples/ext_dev/sensors/thermography_mlx90640/mlx90640_example.py
 
 
 
@@ -52,6 +52,6 @@ PMOD_TOF100安装方式
 ![深度+可见光融合显示 ](../../assets/maixcam/tof100_2.jpg)
 
 参考使用代码：  
-https://github.com/sipeed/MaixPy/tree/main/examples/ext_dev/sensors/tof_opns303x
+https://github.com/sipeed/MaixPy/blob/main/examples/ext_dev/sensors/tof100/tof100_example.py
 
 
