@@ -19,6 +19,8 @@ Based on the NanoKVM-Cube, the NanoKVM-PCIe adds optional WiFi and PoE functiona
 
 The NanoKVM series products include an HDMI input interface, which can be recognized by computers as a display to capture computer graphics. It features a USB 2.0 interface that connects to the computer host and can be recognized as HID devices such as keyboards, mice, and touchpads. It also utilizes extra storage space on the TF card, which is mounted as a USB drive. All models are equipped with a 100 Mbps Ethernet port for network transmission of video and control signals. The PCIe version of NanoKVM comes standard with a 0.49-inch OLED display to show various status information in real-time, including WiFi network configuration and other information.
 
+> Note: The PCIe version of NanoKVM draws power only from the PCIe interface and cannot directly obtain images from the PCIe as a graphics/display device.
+
 To meet diverse user needs, the NanoKVM-PCIe offers two optional modules for WiFi and PoE, allowing for flexible combinations during purchase.
 
 ## Use Cases
