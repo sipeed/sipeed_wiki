@@ -317,6 +317,31 @@ Short the specified pin on slot1 to GND, then power on the device to enter FEL m
 
 ![fel](../../../zh/cluster/NanoCluster/assets/fel.jpeg)
 
+#### Installing the awusb Driver
+
+You need to install the [sunxi-awusb](https://github.com/916BGAI/sunxi-awusb) driver to recognize the H618 chip.
+
+``` bash
+sudo apt update
+sudo apt install dkms
+cd sunxi-awusb
+sudo cp -r ./ /usr/src/sunxi-awusb-0.5
+sudo dkms add -m sunxi-awusb -v 0.5
+sudo dkms build -m sunxi-awusb -v 0.5
+sudo dkms install -m sunxi-awusb -v 0.5
+sudo modprobe awusb
+sudo cp udev/50-awusb.rules /etc/udev/rules.d/
+sudo udevadm control --reload-rules
+```
+
+```bash
+Bus 002 Device 005: ID 1f3a:efe8 Allwinner Technology sunxi SoC OTG connector in FEL/flashing mode
+```
+
+#### Obtaining the U-Boot File
+
+Download the pre-compiled U-Boot file: [Click to Download](../../../zh/cluster/NanoCluster/assets/uboot.tar.gz)
+
 #### Using sunxi-fel
 
 Install and compile:
@@ -353,3 +378,7 @@ xfel exec 0x4a000000
 ```
 
 After completing the process, the device should enter UMS mode successfully, allowing you to flash the system image.
+
+### CM4 Lite Fails to Boot After Reset
+
+In the first batch of CM4 adapter boards, using a CM4 Lite (without eMMC) and following the [Power Control](https://wiki.sipeed.com/hardware/en/cluster/NanoCluster/use.html#Power-Control) instructions may result in the module failing to boot after a reset. This issue will be fixed in the next hardware revision. If you encounter this problem, it is recommended to use the `reboot` command to restart the device instead of performing a hardware reset.

@@ -523,6 +523,8 @@ items:
                 file: cluster/NanoCluster/k3s.md
             -   label: distcc 部署
                 file: cluster/NanoCluster/distcc.md
+            -   label: Nomad 自动化部署
+                file: cluster/NanoCluster/nomad_playbook.md
         -   label: 交换机管理
             file: cluster/NanoCluster/switch.md
 # -   label: Maix Audio

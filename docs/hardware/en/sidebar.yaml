@@ -512,6 +512,8 @@ items:
                 file: cluster/NanoCluster/k3s.md
             -   label: distcc Deployment
                 file: cluster/NanoCluster/distcc.md
+            -   label: Nomad Playbook
+                file: cluster/NanoCluster/nomad_playbook.md
         -   label: Switch Management
             file: cluster/NanoCluster/switch.md
 # -   label: Maix Audio

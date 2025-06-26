@@ -17,6 +17,8 @@ NanoCluster is equipped with the JL6108 Gigabit switch chip, which is based on t
 - **QoS Configuration**: Manages traffic priority based on port, PCP, and DSCP
 - **Bandwidth and Storm Control**: Supports port-based bandwidth limitation and broadcast storm suppression
 
+> The default firmware management interface is in English. You can switch to a bilingual (Chinese/English) interface by updating via OTA.
+
 >! The switch management interface currently has response issues on Linux. For better compatibility, it is recommended to log in to the switch management interface using Windows.
 
 ## Port Allocation
@@ -95,6 +97,20 @@ QoS ensures stable performance for high-priority traffic such as video conferenc
 4. **Save the settings** to apply the QoS rules    
 
 ![QoS Configuration](../../../zh/cluster/NanoCluster/assets/qos_en.jpeg)
+
+### OTA Update
+
+Firmware download link: [Click to download OTA firmware](../../../zh/cluster/NanoCluster/assets/firmware.zip)
+
+1. Open the Web management interface and navigate to: `System Information Configuration` → `System Upgrade`
+2. Click **Select File** and select the appropriate firmware file for the upgrade:
+    - **English interface firmware**: `lms_ota_en.fw`
+    - **Chinese interface firmware**: `lms_ota_zh.fw`
+3. Click **Upgrade**. The system will display the upgrade progress and automatically verify the firmware.
+4. After the upgrade is complete, the device will automatically reboot to apply the new firmware.
+5. If the upgrade fails, power cycle the device, re-enter the management address to access the upgrade page, and repeat the upgrade process.
+
+![OTA](../../../zh/cluster/NanoCluster/assets/upgrade_en.jpeg)
 
 ## Additional Configuration
 
