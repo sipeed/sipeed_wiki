@@ -111,15 +111,16 @@ items:
             file: maixIII/ax-pi/faq_axpi.md
 -   label: Maix-IV
     items:
-    # -   label: Maix M4N
+    -   label: Maix M4N
     #     file: maixIV/m4n/m4n.md
+        items:
+        -   label: 系统烧录指南
+            file: maixIV/m4n/system-update.md
     -   label: Maix M4N-DOCK
         file: maixIV/m4ndock/m4ndock.md
         items:
         -   label: 产品上手指南
             file: maixIV/m4ndock/quick-start.md
-        -   label: 系统烧录指南
-            file: maixIV/m4ndock/system-update.md
         -   label: AI 模型部署
             file: maixIV/m4ndock/axmodel-deploy.md
         -   label: FAQ

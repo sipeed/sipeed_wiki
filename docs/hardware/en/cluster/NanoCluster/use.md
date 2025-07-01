@@ -125,7 +125,7 @@ Once the firmware image is ready, open balenaEtcher, select the image file to be
 
 ### M4N Flashing
 
-You can refer to the [System Flashing Guide](https://wiki.sipeed.com/hardware/zh/maixIV/m4ndock/system-update.html) for the flashing process.
+You can refer to the [System Flashing Guide](https://wiki.sipeed.com/hardware/zh/maixIV/m4n/system-update.html) for the flashing process.
 
 ## Remote Management
 
