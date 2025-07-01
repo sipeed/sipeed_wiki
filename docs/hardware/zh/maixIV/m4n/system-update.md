@@ -46,11 +46,11 @@
 
 | 底板       | 设备树                | TF 卡槽位置                     |  `BOOT` 按键位置            |
 |------------|---------------------|--------------------------------|---------------------------|
-| Dock       | dtbs/m4nbox.dtb     | 尾部左上方，Type-C 座子的对角线位置 |  Type-C 座子旁边 BOOT 丝印处 |
-| Hat        | dtbs/m4nhat.dtb     | USB3 母座和缺口之间，位于背面      |  HDMI 座子旁边 BOOT0 丝印处  |
-| Cluster    | dtbs/m4ncluster.dtb | M.2 座子下方                    |  Type-C 座子旁边 BOOT 丝印处 |
+| Dock       | `dtbs/m4nbox.dtb`     | 尾部左上方，Type-C 座子的对角线位置 |  Type-C 座子旁边 BOOT 丝印处 |
+| Hat        | `dtbs/m4nhat.dtb`     | USB3 母座和缺口之间，位于背面      |  HDMI 座子旁边 BOOT0 丝印处  |
+| Cluster    | `dtbs/m4ncluster.dtb` | M.2 座子下方                    |  Type-C 座子旁边 BOOT 丝印处 |
 
-1. 挂载 TFCard 并修改 FAT32 分区 config.txt 文件中 dtb_img_name=dtbs/m4nbox.dtb 为对应底板的值。
+1. 挂载 TFCard 并修改 FAT32 分区 config.txt 文件中 `dtb_img_name=dtbs/m4nbox.dtb` 为对应底板的值。
 
 2. 将 TFCard 插入 TF 卡槽内。
 
