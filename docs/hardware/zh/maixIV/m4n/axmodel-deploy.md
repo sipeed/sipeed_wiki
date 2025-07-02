@@ -1,4 +1,4 @@
-# M4N-DOCK有关模型的部署
+# M4N 部署 AI 模型
 
 ---
 title: 外设使用
@@ -11,7 +11,7 @@ update:
       - 加入了YOLOv8和YOLOv5部署
 ---
 
-## 爱芯元智 AX650N 部署大语言、多模态模型
+## 部署大语言、多模态模型
 
 从下列网站获取模型和运行时。
 
@@ -29,23 +29,24 @@ update:
 | SD1.5 | [lcm-lora-sdv1-5](https://huggingface.co/AXERA-TECH/lcm-lora-sdv1-5)  | [lcm-lora-sdv1-5](https://hf-mirror.com/AXERA-TECH/lcm-lora-sdv1-5) |
 | InternVL2.5:1b | [InternVL2_5-1B-Int8](https://huggingface.co/AXERA-TECH/InternVL2_5-1B)  | [InternVL2_5-1B-Int8](https://hf-mirror.com/AXERA-TECH/InternVL2_5-1B) |
 
-**请注意：以上模型都需要基于 `SDK 1.45.0` 版本编译打包出来的镜像才可运行大模型。请及时更新系统，我们提供的 TFCard&eMMC 镜像是符合条件的，且预留了 6GB 内存供模型加载运行使用，可以运行 7b 参数的 int4 大模型。**
+**请注意：以上模型都需要基于 `SDK 1.45.0` （含）以后版本编译打包出来的镜像才可运行大模型。请及时更新系统，我们提供的 TFCard&eMMC 镜像是符合条件的，且预留了 6GB 内存供模型加载运行使用，可以运行 7b 参数的 int4 大模型。**
 
 *快速体验 qwen3-0.6b：*
 ```bash
+# 可切换成其它大模型仓库的链接
 git clone https://hf-mirror.com/AXERA-TECH/Qwen3-0.6B
 
-pip install transformers jinja2 -i https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple
-
 cd Qwen3-0.6B
-chmod +x main_ax650
 
+# 若执行报错 ModuleNotFoundError，查阅 FAQ 相关细节
 python3 qwen3_tokenizer_uid.py
 
+# 切换成对应的执行脚本，和恢复必要程序的执行权限
+chmod +x main_ax650
 sh run_qwen3_0.6b_int8_ctx_ax650.sh
 ```
 
-## 爱芯元智AX650N部署yolov5s 自定义模型
+## 部署yolov5s 自定义模型
 
 > 本博客将向你展示零基础一步步的部署好自己的yolov5s模型（博主展示的是安全帽模型），利用yolov5 官方的代码工具导出onnx模型，并通过onnxsim自带的工具精简网络结构，导出子图，为了Pulsar2 工具进行处理模型做准备。
 
@@ -720,7 +721,7 @@ detection num: 7
 
 
 
-## 爱芯元智AX650N部署yolov8s 自定义模型
+## 部署yolov8s 自定义模型
 
 
 

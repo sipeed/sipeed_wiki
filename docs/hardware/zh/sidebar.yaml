@@ -116,6 +116,8 @@ items:
         items:
         -   label: 系统烧录指南
             file: maixIV/m4n/system-update.md
+        -   label: AI 模型部署
+            file: maixIV/m4n/axmodel-deploy.md
         -   label: FAQ
             file: maixIV/m4n/FAQ.md
     -   label: Maix M4N-DOCK
@@ -123,8 +125,6 @@ items:
         items:
         -   label: 产品上手指南
             file: maixIV/m4ndock/quick-start.md
-        -   label: AI 模型部署
-            file: maixIV/m4ndock/axmodel-deploy.md
         -   label: FAQ
             file: maixIV/m4ndock/FAQ.md
 -   label: MaixCAM
