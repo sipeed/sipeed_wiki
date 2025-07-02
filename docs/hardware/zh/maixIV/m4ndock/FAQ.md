@@ -32,10 +32,10 @@ root@ax650:~# grep -oP 'root=\K\S+' /proc/cmdline
 /dev/mmcblk1p2 # TFCard 启动
 # /dev/mmcblk0p2 # 或 eMMC 启动
 ```
-可得知当前文件系统位于 `/dev/mmcblk0` 或 `/dev/mmcblk0`，用于替换下面的 `/dev/mmcblkX` 后执行命令：
+可得知当前文件系统位于 `/dev/mmcblk0` 或 `/dev/mmcblk1`，用于替换下面的 `/dev/mmcblkX` 后执行命令：
 ```bash
 parted /dev/mmcblkX resizepart 2 100%
-resize2fs /dev/mmcblkX
+resize2fs /dev/mmcblkXp2
 sync
 ```
 

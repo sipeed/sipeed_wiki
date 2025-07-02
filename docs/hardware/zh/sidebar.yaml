@@ -116,6 +116,8 @@ items:
         items:
         -   label: 系统烧录指南
             file: maixIV/m4n/system-update.md
+        -   label: FAQ
+            file: maixIV/m4n/FAQ.md
     -   label: Maix M4N-DOCK
         file: maixIV/m4ndock/m4ndock.md
         items:
