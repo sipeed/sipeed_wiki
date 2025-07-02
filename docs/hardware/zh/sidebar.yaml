@@ -120,13 +120,15 @@ items:
             file: maixIV/m4n/axmodel-deploy.md
         -   label: FAQ
             file: maixIV/m4n/FAQ.md
-    -   label: Maix M4N-DOCK
-        file: maixIV/m4ndock/m4ndock.md
+    -   label: Maix M4N-Dock
+        file: maixIV/m4ndock/main.md
         items:
         -   label: 产品上手指南
             file: maixIV/m4ndock/quick-start.md
         -   label: FAQ
             file: maixIV/m4ndock/FAQ.md
+    -   label: Maix M4N-Hat
+        file: maixIV/m4nhat/main.md
 -   label: MaixCAM
     items:
     -   label: MaixCAM 介绍和资料
