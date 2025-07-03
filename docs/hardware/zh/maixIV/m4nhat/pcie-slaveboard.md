@@ -1,5 +1,7 @@
 # 接入树莓派 5 加速运行大模型
 
+树莓派 5 运行 QWen3-0.6B。
+<video controls autoplay src="../assets/m4nhat/axcl-run-llm-on-raspi5-2025-07-03-4xspeedup.mp4" type="video/mp4"> Your browser does not support video playback. </video>
 
 > 1.参考 [System Flashing Guide](https://wiki.sipeed.com/hardware/zh/maixIV/m4n/system-update.html) 使用 AXDL 烧录 [AX650_card_V3.6.2_20250603154858_20250626183000.axp](https://dl.sipeed.com/MaixIV/M4N-Dock/09_Image/)。
 
