@@ -45,3 +45,21 @@ pip install transformers jinja2 -i https://mirrors.tuna.tsinghua.edu.cn/pypi/web
 # 激活该虚拟环境
 source venv-llm/bin/activate
 ```
+
+## Q: 类似 GPIO2_A27 已在设备树被配置成了 I2C3_SCL，那在不使用 I2C3 的时候如何控制 GPIO2_A27 呢？（pinctrl）
+```bash
+cd /sys/kernel/debug/pinctrl/4250200.pinctrl
+grep "GPIO2_A27" pinmux-functions
+# output # function 447: GPIO2_A27, groups = [ I2C3_SCL ]
+grep "I2C3_SCL" pinmux-pins
+# output # pin 87 (I2C3_SCL): device 2024000.i2c function i2c3_scl group I2C3_SCL
+echo 2024000.i2c > /sys/bus/platform/drivers/i2c_designware/unbind
+grep "I2C3_SCL" pinmux-pins
+# output # pin 87 (I2C3_SCL): UNCLAIMED
+
+# echo "<group-name function-name>" > pinmux-select
+echo "I2C3_SCL GPIO2_A27" > pinmux-select
+
+gpioset gpiochip2 27=0
+gpioset gpiochip2 27=1
+```
