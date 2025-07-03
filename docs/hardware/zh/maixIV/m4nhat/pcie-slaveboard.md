@@ -76,6 +76,7 @@ sipeed@raspberrypi:~$ axcl_run_model -m yolov5s.axmodel
   min =   7.837 ms   max =   7.837 ms   avg =   7.837 ms
   ------------------------------------------------------
 ```
+**其余详细信息可查看[axcl官方文档](https://axcl-docs.readthedocs.io/zh-cn/latest/doc_guide_axcl_smi.html#)。**
 
 > 5.再之后可以参考介绍过的 [大模型仓库](https://wiki.sipeed.com/hardware/zh/maixIV/m4n/axmodel-deploy.html) 在树莓派上部署运行各种已上传的大模型。
 
