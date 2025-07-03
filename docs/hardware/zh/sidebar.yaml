@@ -129,6 +129,9 @@ items:
             file: maixIV/m4ndock/FAQ.md
     -   label: Maix M4N-Hat
         file: maixIV/m4nhat/main.md
+        items:
+        -   label: PCIE 加速卡安装方法
+            file: maixIV/m4nhat/pcie-slaveboard.md
 -   label: MaixCAM
     items:
     -   label: MaixCAM 介绍和资料
