@@ -4,6 +4,22 @@ title: 快速上手
 
 ## 硬件安装
 
+### ⚠️注意
+
+目前有两种外壳样式在发货，如果您收到了红白配色的外壳，则几乎不需要执行下面的步骤，因为配件都已经预先安装好了。
+
+![case1](./assets/case1.png)![case2](./assets/case2.png)
+
+如果您想自己打印新款外壳，可以在makerworld下载模型文件自己打印，链接是
+
+https://makerworld.com.cn/zh/models/1311487
+
+如果你想将三台Cluster安装在一个10英寸机柜上可以使用下面这个模型。
+
+https://makerworld.com.cn/zh/models/1349837
+
+![case3](./assets/case3.png)
+
 ### LM3H 安装
 
 先将散热片粘贴到主控芯片上，以提升散热效果。安装核心板时，请确保方向正确，以免损坏设备。

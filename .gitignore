@@ -7,3 +7,4 @@ temp
 *.temp
 *.mo
 .venv
+.DS_Store
