@@ -123,6 +123,8 @@ items:
     -   label: Maix M4N-Dock
         file: maixIV/m4ndock/main.md
         items:
+        -   label: 系统烧录指南
+            file: maixIV/m4n/system-update.md
         -   label: 产品上手指南
             file: maixIV/m4ndock/quick-start.md
         -   label: FAQ
@@ -130,7 +132,9 @@ items:
     -   label: Maix M4N-Hat
         file: maixIV/m4nhat/main.md
         items:
-        -   label: PCIE 加速卡安装方法
+        -   label: 系统烧录指南
+            file: maixIV/m4n/system-update.md
+        -   label: 树莓派5 PCIe 加速指南
             file: maixIV/m4nhat/pcie-slaveboard.md
 -   label: MaixCAM
     items:
