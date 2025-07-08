@@ -8,9 +8,16 @@
 2. 准备 python-venv 环境，安装所需 python 库
 3. 运行 QWen3 并完成两次问答
 
+## 安装
+<div style="display: flex; justify-content: space-between;">
+  <img src="../assets/m4nhat/DSC07559.JPG" style="width: 48%;">
+  <img src="../assets/m4nhat/DSC07561.JPG" style="width: 48%;">
+</div>
+
+![](../assets/m4nhat/DSC07569.JPG)
 
 ## M4N 烧录从机系统
-1.参考 [System Flashing Guide](https://wiki.sipeed.com/hardware/zh/maixIV/m4n/system-update.html) 使用 AXDL 烧录 [AX650_card_V3.6.2_20250603154858_20250626183000.axp](https://dl.sipeed.com/MaixIV/M4N-Dock/09_Image/)。
+1.参考 [System Flashing Guide](../m4n/system-update.html) 使用 AXDL 烧录 [AX650_card_V3.6.2_20250603154858_20250626183000.axp](https://dl.sipeed.com/MaixIV/M4N-Dock/09_Image/)。
 
 2.然后 fpc 排线连接 M4N-Hat 和 树莓派 5 的 pcie 座子，并确认固定完毕。
 
@@ -116,9 +123,11 @@ sipeed@raspberrypi:~$ axcl_run_model -m yolov5s.axmodel
 
 
 ## AXCL 更详细使用说明
-**其余详细信息可查看 [axcl官方文档](https://axcl-docs.readthedocs.io/zh-cn/latest/doc_guide_axcl_smi.html#)。**
+**其余详细信息可查看 [axcl官方文档](https://axcl-docs.readthedocs.io)。**
 
-可于 [文中](https://wiki.sipeed.com/hardware/zh/maixIV/m4n/axmodel-deploy.html) 介绍到的大模型仓库下载各种已被支持的大模型，并在树莓派上部署运行。
+**另有 [树莓派5 AXCL专项页面](https://axcl-pi5-examples-cn.readthedocs.io)。**
+
+可于 [文中](../m4n/axmodel-deploy.html) 介绍到的大模型仓库下载各种已被支持的大模型，并在树莓派上部署运行。
 
 ## 已知问题
 
