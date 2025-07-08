@@ -4,6 +4,15 @@ M4N-Hat 是 Sipeed 公司推出的高集成度 AI 计算模组，采用爱芯元
 
 本模组支持主流树莓派系列开发板即插即用，可运行 YOLOv5s 等模型（640x640@130fps），并支持 Transformer 架构加速。通过板载 0.8mm 4Pin USB 和 Type-A USB SS 5Gbps 接口，可快速扩展摄像头、存储等外设，是智能摄像头、工业质检等轻量级AI应用的理想选择。PCIE2.0 扩展接口完美适配树莓派5，支持构建多模态边缘计算节点，支持 QWen 2.5、QWen 3、DeepSeek、InternVL2.5 等大模型的量化部署。
 
+## 产品展示
+
+<div style="display: flex; flex-wrap: wrap; gap: 10px; width: 100%;">
+  <img src="../assets/m4nhat/DSC07555.JPG" style="width: calc(50% - 5px);">
+  <img src="../assets/m4nhat/DSC07569.JPG" style="width: calc(50% - 5px);">
+  <img src="../assets/m4nhat/DSC07556.JPG" style="width: calc(50% - 5px);">
+  <img src="../assets/m4nhat/neofetch.jpg" style="width: calc(50% - 5px);">
+</div>
+
 ## 功能参数
 
 | 设备     | 详细描述                                             |
@@ -31,6 +40,11 @@ AX650N 芯片规格书：https://dl.sipeed.com/shareURL/MaixIV/M4N-Dock
 软件开发SDK：https://github.com/AXERA-TECH/ax650n_bsp_sdk
 
 ### AI 开发资料汇总
+大模型和AXCL：https://axcl-docs.readthedocs.io
+树莓派5 AXCL专项：https://axcl-pi5-examples-cn.readthedocs.io
+
+模型仓库：https://huggingface.co/AXERA-TECH
+
 AI工具链（模型转换、仿真、部署，ONNX）
 Pulsar2 由爱芯元智自主研发的 ALL-IN-ONE 新一代神经网络编译器
 使用文档：https://pulsar2-docs.readthedocs.io/zh_CN/latest/pulsar2/introduction.html
