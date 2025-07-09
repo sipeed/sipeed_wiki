@@ -136,6 +136,8 @@ items:
             file: maixIV/m4nhat/intro.md
         -   label: 系统烧录指南
             file: maixIV/m4n/system-update.md
+        -   label: 产品上手指南
+            file: maixIV/m4nhat/quick-start.md
         -   label: 树莓派5 PCIe 加速指南
             file: maixIV/m4nhat/pcie-slaveboard.md
 -   label: MaixCAM
