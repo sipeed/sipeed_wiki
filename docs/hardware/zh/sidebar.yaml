@@ -121,8 +121,9 @@ items:
         -   label: FAQ
             file: maixIV/m4n/FAQ.md
     -   label: Maix M4N-Dock
-        file: maixIV/m4ndock/main.md
         items:
+        -   label: 产品介绍
+            file: maixIV/m4ndock/intro.md
         -   label: 系统烧录指南
             file: maixIV/m4n/system-update.md
         -   label: 产品上手指南
@@ -130,8 +131,9 @@ items:
         -   label: FAQ
             file: maixIV/m4ndock/FAQ.md
     -   label: Maix M4N-Hat
-        file: maixIV/m4nhat/main.md
         items:
+        -   label: 产品介绍
+            file: maixIV/m4nhat/intro.md
         -   label: 系统烧录指南
             file: maixIV/m4n/system-update.md
         -   label: 树莓派5 PCIe 加速指南
