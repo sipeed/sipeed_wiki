@@ -4,6 +4,22 @@ title: Quick Start
 
 ## Hardware Installation
 
+### ⚠️Notice
+
+There are currently two shell styles being shipped. If you receive a red and white colored shell, you almost don't need to follow the steps below, as the accessories are already pre-installed.
+
+![case1](../../../zh/cluster/NanoCluster/assets/case1.png)![case2](../../../zh/cluster/NanoCluster/assets/case2.png)
+
+If you want to print a new shell yourself, you can download the model files from makerworld and print it yourself. The link is
+
+https://makerworld.com.cn/zh/models/1311487
+
+If you want to install three Cluster in a 10-inch rack, you can use the following model.
+
+https://makerworld.com.cn/zh/models/1349837
+
+![case3](../../../zh/cluster/NanoCluster/assets/case3.png)
+
 ### LM3H Installation
 
 First, attach the heatsink to the main control chip to improve heat dissipation. When installing the core board, ensure the correct orientation to avoid damaging the device.
