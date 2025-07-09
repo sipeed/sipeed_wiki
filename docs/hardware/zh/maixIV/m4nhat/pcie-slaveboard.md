@@ -1,7 +1,7 @@
 # 树莓派 5 安装 M4N-Hat
 
 ## 最终结果演示
-树莓派 5 安装后，演示运行大模型 QWen3，性能达 13.2 tokens/s。见以下视频：
+树莓派 5 安装后，演示运行大模型 QWen3，性能达 13.2 tokens/s（较小参数量模型性能受限于 PCIe链接，对比单板直接运行结果 19 tokens/s 差距会稍大）。见以下视频：
 <video controls autoplay src="../assets/m4nhat/axcl-run-llm-on-raspi5-2025-07-03-4xspeedup.mp4" type="video/mp4"> Your browser does not support video playback. </video>
 视频中完整演示了：
 1. 下载已支持的大语言模型 QWen3-0.6B
@@ -76,7 +76,7 @@ sipeed@raspberrypi:~$
 
 
 ## 测试 AXCL 模型推理能力
-测试一下 `axcl_run_model` （与原生系统内 ax_run_model 同样使用方法），推理 yolov5s 的性能与 M4N 原生系统上的数据极度接近。
+测试一下 `axcl_run_model` （与原生系统内 ax_run_model 同样使用方法），推理 yolov5s 的性能与 M4N 原生系统上的数据极度接近。（使用的板卡文件系统自带 yolov5s 模型为单核模型,"type: 1 Core", 实际满核性能为 x3）
 
 
 ```bash
