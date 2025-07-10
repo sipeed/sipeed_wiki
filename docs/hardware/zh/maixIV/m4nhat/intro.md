@@ -86,9 +86,10 @@ Pulsar2 由爱芯元智自主研发的 ALL-IN-ONE 新一代神经网络编译器
 使用文档：https://pulsar2-docs.readthedocs.io/zh_CN/latest/pulsar2/introduction.html
 下载地址：https://pan.baidu.com/s/1FazlPdW79wQWVY-Qn--qVQ?pwd=sbru
 
-模型算子支持列表：https://pulsar2-docs.readthedocs.io/zh_CN/latest/appendix/op_support_list.html
+模型算子支持列表：https://pulsar2-docs.readthedocs.io/zh_CN/latest/appendix/op_support_list_ax650.html
 
-爱芯 Samples 例程：https://github.com/AXERA-TECH/ax-samples
+Samples 源码：https://github.com/AXERA-TECH/ax-samples
+LLM 源码：https://github.com/AXERA-TECH/ax-llm
 
 
 ## 技术支持
