@@ -29,7 +29,41 @@ M4N-Hat 是 Sipeed 公司推出的高集成度 AI 计算模组，采用爱芯元
 | USB扩展  | 1x Type-A USB SS 5Gbps + 1x Type-C USB HS 480Mbps  |
 | 外部连接  | 1x 1.25mm 2p 外接扬声器 + 1x 1.25mm 2p 外接风扇 + 1x 10p fpc 外接 SPI 屏幕 + 1x 6p fpc 外接 I2C 触摸 |
 
-![](../assets/m4n/compare-hailo.png)
+![](../assets/m4n/benchmark.png)
+![](../assets/m4n/normalized_benchmark.png)
+
+| Models      | RK3588@6T| Maix4@18T  | Hailo8 26T | Hailo8 13T |
+|-------------|----------|------------|------------|------------|
+| Inceptionv1 | 43       | 2494       | 928        | 519        |
+| MobileNetv2 | 960      | 5073       | 2433       | 1738       |
+| SqueezeNet11| 694      | 5961       | -          | -          |
+| ResNet18    | 543      | 2254       | -          | -          |
+| ResNet50    | 294      | 1045       | 1368       | 503        |
+| SwinT       | 21       | 401        | -          | -          |
+| ViT-B/16    | 18       | 207        | 107        | 40         |
+| YOLOv5s     | 48       | 384        | 364        | 168        |
+| YOLOv5n     | 78       | 743        | -          | -          |
+| YOLOv6s     | 80       | 321        | -          | -          |
+| YOLOv6n     | 212      | 743        | -          | -          |
+| YOLOv8s     | 39       | 279        | -          | -          |
+| YOLOv8n     | 73       | 710        | -          | -          |
+| YOLOxs      | 34       | 304        | -          | -          |
+| YOLO11s     | 30       | 313        | -          | -          |
+
+
+| Models                       | Item                         | Maix4@18T    | RK3588@6T    |
+|------------------------------|------------------------------|--------------|--------------|
+| SmolVLM-256M                 | Image Encoder 512*512        | 105ms        | 842ms        |
+|                              | TTFT                         | 57ms         | 87ms         |
+|                              | Decode                       | 80 tokens/s  | 77 tokens/s  |
+| StableDiffusion 1.5(512*512) | U-Net                        | 0.43 s/it    | 5.65 s/it    |
+|                              | VAE Decoder                  | 0.91 s       | 11.13 s      |
+| Qwen2.5-VL-3B                | Image Encoder 448*448        | 780 ms       |              |
+|                              | TTFT 320 tokens              | 2857 ms      |              |
+|                              | Decode                       | 6.2 tokens/s |              |
+|                              | Image Encoder 392*392        |              | 2930 ms      |
+|                              | TTFT 196 tokens              |              | 1262 ms      |
+|                              | Decode                       |              | 8.6 tokens/s |
 
 ## 资源汇总
 
