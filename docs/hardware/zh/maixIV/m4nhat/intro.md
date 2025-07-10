@@ -13,6 +13,10 @@ M4N-Hat 是 Sipeed 公司推出的高集成度 AI 计算模组，采用爱芯元
   <img src="../assets/m4nhat/neofetch.jpg" style="width: calc(50% - 5px);">
 </div>
 
+## 接口标注
+
+![接口标注](../assets/m4nhat/IAD.png)
+
 ## 功能参数
 
 | 设备     | 详细描述                                             |

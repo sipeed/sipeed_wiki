@@ -13,6 +13,10 @@ This module supports plug-and-play compatibility with mainstream Raspberry Pi de
   <img src="../../../zh/maixIV/assets/m4nhat/neofetch.jpg" style="width: calc(50% - 5px);">
 </div>
 
+## Interface Annotation Diagram
+
+![Interface Annotation Diagram](../assets/m4nhat/IAD.png)
+
 ## Key Specifications
 
 | Component | Description                                       |
