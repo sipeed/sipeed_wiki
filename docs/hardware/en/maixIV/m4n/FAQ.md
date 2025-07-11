@@ -63,3 +63,14 @@ echo "I2C3_SCL GPIO2_A27" > pinmux-select
 gpioset gpiochip2 27=0
 gpioset gpiochip2 27=1
 ```
+
+## Q: The MAC physical address is randomly generated upon each reboot, causing unstable IP addresses. How can this be resolved?
+
+A: Starting from sdcard-20250627.img.xz, the `config.txt` file in the root directory of the first partition (FAT32) contains the U-Boot environment variable configuration. To permanently modify the MAC addresses of the corresponding network interfaces, add the environment variables `ethaddr` and `eth1addr` like this below:
+
+```
+ethaddr=d0:00:00:00:00:03
+eth1addr=d0:00:00:00:00:04
+```
+
+![](../../../zh/maixIV/assets/m4n/set-macaddress.png)

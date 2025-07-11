@@ -63,3 +63,14 @@ echo "I2C3_SCL GPIO2_A27" > pinmux-select
 gpioset gpiochip2 27=0
 gpioset gpiochip2 27=1
 ```
+
+## Q：MAC 物理地址每次重启随机生成，导致 ip 地址不稳定，请问如何解决？
+
+A：sdcard-20250627.img.xz 开始，第一分区（FAT32）根目录下会有 `config.txt` 文件，内为 uboot 的环境变量配置。添加环境变量 `ethaddr` 和 `eth1addr` 即可持久化修改对应网卡的mac地址：
+
+```
+ethaddr=d0:00:00:00:00:01
+eth1addr=d0:00:00:00:00:02
+```
+
+![](../assets/m4n/set-macaddress.png)
