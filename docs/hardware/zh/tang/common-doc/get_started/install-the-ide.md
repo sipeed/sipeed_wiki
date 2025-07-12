@@ -2,6 +2,11 @@
 title: 安装 IDE 
 keywords: Sipeed, Gowin, Tang, Nano, fpga, 矽速
 update:
+  - date: 2025-07-12
+    version: v1.3
+    author: MDLZCOOL
+    content:
+      - 修复器件型号错误
   - date: 2025-04-24
     version: v1.2
     author: Serika
@@ -55,16 +60,16 @@ IDE 分为商业版和教育版：
 
 | 芯片名称                  | 芯片系列  | 芯片型号   | 适用板卡           |
 | ------------------------ | --------- | --------  | ----------------- |
-| GW1NZ-LV1QN48C6/l5       | GW1NZ     |GW1NZ      | Nano 1K           |
-| GW1NSR-LV4CQN48PC6/l5    | GW1NSR    |GW1NSR-4C  | Nano 4K           |
-| GW1NR-LV9QN88PC6/l5      | GW1NR     |GW1NR-9C   | Nano 9K           |
-| GW2AR-LV18QN88C8/l7      | GW2AR     |GW2AR-18C  | Nano 20K          |
-| GW2A-LV18PG256C8/l7      | GW2A      |GW2A-18C   | Primer 20K        |
-| GW5AT-LV15MG132C1/l0     | GW5AT     |GW2A-15A   | Primer 15K        |
-| GW5A-LV25MG121NC1/l0     | GW5A      |GW5A-25A   | Primer 25K        |
-| GW5AT-LV60PG484AC1/l0    | GW5AT     |GW5AT-60B  | Mega/Console 60K  |
-| GW5AST-LV138PG484AC1/l0  | GW5AST    |GW5AT-138B | Mega/Console 138K |
-| GW5AST-LV138FPG676AC1/l0 | GW5AST    |GW5AT-138B | Mega 138K Pro     |
+| GW1NZ-LV1QN48C6/I5       | GW1NZ     |GW1NZ      | Nano 1K           |
+| GW1NSR-LV4CQN48PC6/I5    | GW1NSR    |GW1NSR-4C  | Nano 4K           |
+| GW1NR-LV9QN88PC6/I5      | GW1NR     |GW1NR-9C   | Nano 9K           |
+| GW2AR-LV18QN88C8/I7      | GW2AR     |GW2AR-18C  | Nano 20K          |
+| GW2A-LV18PG256C8/I7      | GW2A      |GW2A-18C   | Primer 20K        |
+| GW5AT-LV15MG132C1/I0     | GW5AT     |GW2A-15A   | Primer 15K        |
+| GW5A-LV25MG121NC1/I0     | GW5A      |GW5A-25A   | Primer 25K        |
+| GW5AT-LV60PG484AC1/I0    | GW5AT     |GW5AT-60B  | Mega/Console 60K  |
+| GW5AST-LV138PG484AC1/I0  | GW5AST    |GW5AT-138B | Mega/Console 138K |
+| GW5AST-LV138FPG676AC1/I0 | GW5AST    |GW5AT-138B | Mega 138K Pro     |
 
 上表中的板卡均可在教育版的 IDE 中使用。
 
