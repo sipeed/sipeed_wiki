@@ -88,7 +88,7 @@ AX650N 芯片规格书：https://dl.sipeed.com/shareURL/MaixIV/M4N-Dock
 AI工具链（模型转换、仿真、部署，ONNX）
 Pulsar2 由爱芯元智自主研发的 ALL-IN-ONE 新一代神经网络编译器
 使用文档：https://pulsar2-docs.readthedocs.io/zh_CN/latest/pulsar2/introduction.html
-下载地址：https://pan.baidu.com/s/1FazlPdW79wQWVY-Qn--qVQ?pwd=sbru
+下载地址：https://huggingface.co/AXERA-TECH/Pulsar2/tree/main
 
 模型算子支持列表：https://pulsar2-docs.readthedocs.io/zh_CN/latest/appendix/op_support_list_ax650.html
 

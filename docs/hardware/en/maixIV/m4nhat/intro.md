@@ -89,7 +89,7 @@ Model Hub: https://huggingface.co/AXERA-TECH
 AI Toolchain (ONNX Conversion/Deployment)
 - Pulsar2 (AXERA's ALL-IN-ONE Neural Network Compiler):
 Docs: https://pulsar2-docs.readthedocs.io/en/latest/pulsar2/introduction.html
-Download: https://pan.baidu.com/s/1FazlPdW79wQWVY-Qn--qVQ?pwd=sbru
+Download: https://huggingface.co/AXERA-TECH/Pulsar2/tree/main
 
 op_support_list: https://pulsar2-docs.readthedocs.io/en/latest/appendix/op_support_list_ax650.html
 
