@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+
+<html lang="en"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="">
+    
+    
+    <meta name="description" content="">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <script src="/maixcdk/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/maixcdk/static/css/theme_default/prism.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/maixcdk/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/maixcdk/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/maixcdk/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/maixcdk/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/maixcdk/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/maixcdk/static/css/search/style.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/maixcdk/static/css/custom.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?9cb07365544a53067c56c346c838181a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+        <link rel="stylesheet" href="/maixcdk/static/js/thumbs_up/style.css" type="text/css"/>
+        
+    
+    
+    <title>Maix Communicate Protocol - MaixCDK</title>
+    
+    <script type="text/javascript">js_vars = {"teedoc-plugin-thumbs-up": {"label_up": "Helpful", "label_down": "Not Helpful", "icon": "/static/images/thumbs_up/up.svg", "icon_clicked": "/static/images/thumbs_up/upped.svg", "url": "https://thumbs-up.sipeed.com", "show_up_count": true, "show_down_count": false, "msg_already_voted": "You have already voted", "msg_thanks": "Thanks for your vote", "msg_down_prompt": "Thanks to tell us where we can improve?(At least 10 characters)", "msg_down_prompt_error": "Message should be at least 10 characters and less than 256 characters", "msg_error": "Request server failed!"}}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": "2023-11-28", "update": [{"date": "2023-11-28", "author": "neucrack", "version": "1.0.0", "content": "Designed and implemented the protocol documentation and code API"}], "ts": 1701129600, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/maixcdk/">
+                
+                
+                    <h2>MaixCDK</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class="active"><a  href="/maixcdk/doc/">Documentation</a></li>
+<li class=""><a  href="/maixcdk/api/">API</a></li>
+<li class=""><a  href="/maixcdk/doc/faq.html">FAQ</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class=""><a target="_blank" href="https://github.com/sipeed/MaixCDK"><img src='/maixcdk/static/image/github-fill.svg' style='height: 1.5em;vertical-align: middle;'>&nbsp;</a></li>
+<li class="sub_items "><a  ><img src='/maixcdk/static/image/language.svg' style='height: 1.5em;vertical-align: middle;'>&nbsp;English</a><ul><li class=""><a  href="/maixcdk/doc/zh/convention/protocol.html">中文</a></li>
+<li class="active"><a  href="/maixcdk/doc/convention/protocol.html">English</a></li>
+</ul></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">Search</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">Keywords separated by space</span>
+                                <span id="search_loading_hint">Loading, wait please ...</span>
+                                <span id="search_download_err_hint">Download error, please check network and refresh again</span>
+                                <span id="search_other_docs_result_hint">Result from other docs</span>
+                                <span id="search_curr_doc_result_hint">Result from current doc</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="not_active with_link"><a href="/maixcdk/doc/index.html"><span class="label">Quick start</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/maixcdk/doc/faq.html"><span class="label">FAQ</span><span class=""></span></a></li>
+<li class="active_parent no_link"><a><span class="label">Convention</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/maixcdk/doc/convention/index.html"><span class="label">Code Convention</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/maixcdk/doc/convention/add_api.html"><span class="label">Add New API</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/maixcdk/doc/convention/app.html"><span class="label">APP framework</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/maixcdk/doc/convention/i18n.html"><span class="label">I18N(translation)</span><span class=""></span></a></li>
+<li class="active with_link"><a href="/maixcdk/doc/convention/protocol.html"><span class="label">Communicate protocol</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/maixcdk/doc/convention/nn.html"><span class="label">NN AI model</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/maixcdk/doc/convention/memcheck.html"><span class="label">Memory leak check</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/maixcdk/doc/dev/docker/index.html"><span class="label">Docker Evironment</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/maixcdk/doc/more.html"><span class="label">More documentaion</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Application Notes</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/maixcdk/doc/application/index.html"><span class="label">About These Notes</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/maixcdk/doc/application/ai/yolo11.html"><span class="label">YOLO11 dev note</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/maixcdk/doc/application/ui/lvgl.html"><span class="label">LVGL</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>Maix Communicate Protocol</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                                <span class="article_date" title="Last modify date: 2023-11-28">
+                                    2023-11-28
+                                </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/sipeed/MaixCDK/blob/main/docs/doc/convention/protocol.md" target="_blank">
+                                    Edit this page
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                        
+                        <details open>
+                        
+                            <summary>Update history</summary>
+                            <div>
+                                <table>
+                                        <thead>
+                                            <tr>
+                                                <th>Date</th>
+                                                <th>Version</th>
+                                                <th>Author</th>
+                                                <th>Update content</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            
+                                                <tr>
+                                                    <td>2023-11-28</td>
+                                                    <td>1.0.0</td>
+                                                    <td>neucrack</td>
+                                                    <td>
+                                                    
+                                                        Designed and implemented the protocol documentation and code API
+                                                    
+                                                    </td>
+                                                </tr>
+                                            
+                                        </tbody>
+                                </table>
+                            </div>
+                        </details>
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <blockquote>
+<p>This article is translated from Chinese by ChatGPT, may have error, Pull Request is welcome!</p>
+</blockquote>
+<h2 id="Introduction-to-Maix-Serial-Protocol">Introduction to Maix Serial Protocol</h2>
+<p>Devices running MaixCDK or MaixPy can be controlled not only directly via the device's touch screen and buttons but also as modules using <code>UART</code> (serial port) or <code>I2C</code>.</p>
+<blockquote>
+<p>Since I2C operates in a master-slave mode, the protocol adopts a request-response format: <code>Request</code> + <code>Response</code>.<br />
+For UART protocol, some functions support active reporting. Please refer to the specific protocol details.</p>
+</blockquote>
+<p>The communication protocol is explained in detail below.</p>
+<h2 id="How-to-Use-Maix-Device">How to Use Maix Device</h2>
+<p>Upon startup, go to the <code>Settings</code> application, and select the communication interface under <code>Communication</code> settings:</p>
+<ul>
+<li><strong>Serial Port</strong>: Uses the serial port for communication. The specific serial port depends on the board, with a default baud rate of <code>115200</code>.</li>
+<li><strong>TCP</strong>: Starts a TCP service on the Maix device, allowing the master device to connect via TCP. The default port is <code>5555</code>.</li>
+</ul>
+<p>Once the master device is connected to the Maix device, it can communicate following the protocol, where the master device acts as the primary device, and the Maix device as the slave.</p>
+<p><strong>Development on Maix Device Side</strong>:</p>
+<p>You can easily implement command responses using the provided <code>maix.comm.CommProtocol</code> class. Refer to the examples <a href="../../../examples/protocol_demo"  >comm_protocol</a> (C++) or <a href="https://github.com/sipeed/MaixPy/blob/main/examples/protocol"  target="_blank">comm_protocol.py</a> (MaixPy) for details.</p>
+<p><strong>Development on Master Device Side</strong>:</p>
+<p>The master device can implement the protocol based on the chip and programming language. Template code is provided in the appendix.</p>
+<hr />
+<h2 id="Data-Frame">Data Frame</h2>
+<table>
+<thead>
+<tr>
+  <th></th>
+  <th>header (4B LE)</th>
+  <th>data len (4B LE)(flags+cmd+body+crc)</th>
+  <th>flags (1B)</th>
+  <th>cmd (1B)</th>
+  <th>body (nB)</th>
+  <th>CRC16_IBM (2B LE) (all previous)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Decimal Example</td>
+  <td>3148663466</td>
+  <td>9</td>
+  <td>0</td>
+  <td>1</td>
+  <td>hello</td>
+  <td>17451</td>
+</tr>
+<tr>
+  <td>Hex Example</td>
+  <td>0xBBACCAAA</td>
+  <td>0x00000009</td>
+  <td>0x00</td>
+  <td>0x01</td>
+  <td>hello</td>
+  <td>0x442B</td>
+</tr>
+<tr>
+  <td>Byte Stream (Hex)</td>
+  <td>AA CA AC BB</td>
+  <td>09 00 00 00</td>
+  <td>00</td>
+  <td>01</td>
+  <td>68 65 6C 6C 6F</td>
+  <td>2B 44</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Note</strong>: Multi-byte data uses little-endian (LE) encoding. For example, <code>data_len</code> is <code>0x00000006</code>, with <code>06</code> in the lowest byte, so it is sent first as <code>0x06</code>, followed by <code>0x00 0x00 0x00</code>.<br />
+Strings are sent in order, e.g., <code>hello</code> is sent as <code>h</code>, then <code>e</code>, <code>l</code>, <code>l</code>, <code>o</code>.<br />
+In this example, the final data sent is: <code>AA CA AC BB 09 00 00 00 00 01 68 65 6C 6C 6F 2B 44</code>.</p>
+</blockquote>
+<ul>
+<li><code>header</code>: 4-byte header marking the start of a frame, fixed as <code>0xAA 0xCA 0xAC 0xBB</code>, sent starting with <code>0xAA</code>.</li>
+<li><code>data len</code>: 4-byte data length, including the length of <code>flags</code>, <code>cmd</code>, <code>body</code>, and <code>CRC</code>.</li>
+<li><code>flags</code>: 1-byte flag where each bit indicates:<ul>
+<li>MSB <code>is_resp</code>: Indicates if it is a response. <code>0</code> for request, <code>1</code> for response or active report (requires the third highest bit set to <code>1</code>).</li>
+<li>Second highest bit <code>resp_ok</code>:<ul>
+<li>For requests: Reserved.</li>
+<li>For responses: <code>1</code> for success, <code>0</code> for failure.</li>
+</ul>
+</li>
+<li>Third highest bit <code>is_report</code>:<ul>
+<li>For requests: Reserved.</li>
+<li>For responses: <code>1</code> for active report, <code>0</code> for response message.</li>
+</ul>
+</li>
+<li>Bits 4-6: Reserved for future use.</li>
+<li>Lowest 2 bits <code>version</code>: Protocol version, updated only for incompatible changes. Compatible changes do not require a version update. The current version is <code>0</code>.</li>
+</ul>
+</li>
+<li><code>cmd</code>: 1-byte command type, with several predefined commands listed in <a href="#command-definitions"  >Command Definitions</a>. Custom commands range from <code>0</code> to <code>maix.protocol.CMD.CMD_APP_MAX</code>.</li>
+<li><code>body</code>: Variable length, <code>&lt; (2^32 - 1)</code>. Different commands have different <code>body</code> content, detailed below for each command.</li>
+<li><code>crc16</code>: 2-byte CRC check value using the <code>CRC IBM</code> method, verifying data integrity during transmission. See <a href="#C-CRC16"  >C Code Implementation</a> or <a href="#Python-CRC16"  >Python CRC16</a>.</li>
+</ul>
+<p>For encoding and decoding, see <a href="#Appendix-Code"  >Appendix: Code</a>.</p>
+<hr />
+<h3 id="Request-and-Response">Request and Response</h3>
+<h4 id="Sending-Request">Sending Request</h4>
+<p>Data direction: MCU or other master device -&gt; Maix device</p>
+<p>Set the highest bit of <code>flags</code> (<code>is_resp</code>) to <code>0</code>. The <code>body</code> content is determined by <code>cmd</code>.</p>
+<h4 id="Receiving-Response">Receiving Response</h4>
+<p>Data direction: Maix device -&gt; MCU or other master device</p>
+<p>Set the highest bit of <code>flags</code> (<code>is_resp</code>) to <code>1</code>.</p>
+<ul>
+<li>For a successful response: Set <code>resp_ok</code> to <code>1</code>, and the <code>body</code> content is determined by <code>cmd</code>. An empty <code>body</code> is the simplest successful response.</li>
+<li>For a failed response:<ul>
+<li>Set <code>resp_ok</code> to <code>0</code>.</li>
+<li>The first byte of <code>body</code> is the error code. Refer to <a href="../../../components/basic/include/maix_err.hpp"  >MaixCDK maix.err.Err</a> for error codes.</li>
+<li>The following bytes in <code>body</code> contain the error message in <code>UTF-8</code> encoding, preferably in plain English for better compatibility.</li>
+</ul>
+</li>
+</ul>
+<p>Each request should have a corresponding response, either successful (<code>RESP_OK</code>) or failed (<code>RESP_ERR</code>). If <code>RESP_OK</code> has no specified <code>body</code>, it is empty.</p>
+<h3 id="Active-Data-Reporting">Active Data Reporting</h3>
+<p>Data direction: Maix device -&gt; MCU or other master device</p>
+<p>The master device must first enable active reporting using the <code>CMD_SET_REPORT</code> command (only supported for specific commands).</p>
+<blockquote>
+<p>For example, if the APP supports the <code>CMD_GET_TEMP</code> command to get temperature data, the master can use the <code>CMD_SET_REPORT</code> command to enable periodic temperature reporting. If the APP does not support active reporting for <code>CMD_GET_TEMP</code>, it will respond with <code>CMD_ERROR</code>.</p>
+</blockquote>
+<p>Set the highest bit of <code>flags</code> (<code>is_resp</code>) to <code>1</code> and the third bit <code>is_report</code> to <code>1</code>. The <code>body</code> content depends on the <code>cmd</code>.</p>
+<hr />
+<h2 id="Examples">Examples</h2>
+<p>Example:</p>
+<p>The MCU connects to the Maix device via the serial port using the default baud rate of <code>115200</code>.</p>
+<p>The MCU requests the list of applications from the Maix device. The steps are as follows:</p>
+<ol>
+<li><p>According to the protocol specification, the MCU sends a request with <code>cmd</code> set to <code>0xF9</code> (<code>CMD_APP_LIST</code>), and an empty <code>body</code>. Actual byte stream:<br />
+<code>AA CA AC BB 04 00 00 00 01 F9 C9 77</code>.</p>
+</li>
+<li><p>The Maix device responds with <code>cmd</code> set to <code>0xF9</code> and <code>flags</code> set to <code>0xC1</code> (with <code>|0x80</code> for response and <code>|0x40</code> for success). The <code>body</code> contains the application list. If there are two applications, the actual byte stream is:<br />
+<code>AA CA AC BB 0A 00 00 00 C1 F9 02 66 61 63 65 00 66 61 63 65 00 F6 06</code>.</p>
+</li>
+</ol>
+<hr />
+<h2 id="Command-Definitions">Command Definitions</h2>
+<p>The <code>cmd</code> values in the protocol frame are defined as follows:</p>
+<table>
+<thead>
+<tr>
+  <th>Command Name</th>
+  <th>Value</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>CMD_APP_MAX</td>
+  <td>0xC8</td>
+  <td>Maximum value for custom commands (exclusive)</td>
+</tr>
+<tr>
+  <td>CMD_SET_REPORT</td>
+  <td>0xF8</td>
+  <td>Set active reporting</td>
+</tr>
+<tr>
+  <td>CMD_APP_LIST</td>
+  <td>0xF9</td>
+  <td>Query application list</td>
+</tr>
+<tr>
+  <td>CMD_START_APP</td>
+  <td>0xFA</td>
+  <td>Start an application</td>
+</tr>
+<tr>
+  <td>CMD_EXIT_APP</td>
+  <td>0xFB</td>
+  <td>Exit the current application</td>
+</tr>
+<tr>
+  <td>CMD_CUR_APP_INFO</td>
+  <td>0xFC</td>
+  <td>Query current application info</td>
+</tr>
+<tr>
+  <td>CMD_APP_INFO</td>
+  <td>0xFD</td>
+  <td>Query specific application info</td>
+</tr>
+<tr>
+  <td>CMD_KEY</td>
+  <td>0xFE</td>
+  <td>Simulate key press message</td>
+</tr>
+<tr>
+  <td>CMD_TOUCH</td>
+  <td>0xFF</td>
+  <td>Simulate touch message</td>
+</tr>
+</tbody>
+</table>
+<p>Note that <code>CMD_APP_MAX</code> defines the range for custom commands, from <code>0</code> up to (but not including) <code>CMD_APP_MAX</code>.</p>
+<p>Each <code>cmd</code> has specific request and response data and a unique <code>body</code>. Detailed explanations for each command are provided below:</p>
+<hr />
+<h3 id="CMD_SET_REPORT">CMD_SET_REPORT</h3>
+<p>Enables or disables active reporting for specific commands.</p>
+<p>Active reporting includes:</p>
+<ol>
+<li>Event-based reporting, such as reporting detected faces.</li>
+<li>Periodic reporting, such as reporting temperature every 5 seconds.</li>
+</ol>
+<p>If both periodic and event-based reporting are enabled, the timer restarts after an event report.</p>
+<h4 id="Request">Request</h4>
+<p><code>body</code>:</p>
+<table>
+<thead>
+<tr>
+  <th></th>
+  <th>cmd (1B)</th>
+  <th>on_off (1B)</th>
+  <th>event (1B)</th>
+  <th>timer (4B)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Description</td>
+  <td>Command for active reporting</td>
+  <td>Enable (1) or disable (0)</td>
+  <td>Event reporting (1 for enable, 0 for disable)</td>
+  <td>Timer for periodic reporting in ms (set to 0 if not needed)</td>
+</tr>
+<tr>
+  <td>Example</td>
+  <td>0x02</td>
+  <td>0x01</td>
+  <td>1</td>
+  <td>5000</td>
+</tr>
+</tbody>
+</table>
+<h4 id="Response">Response</h4>
+<p>If the command supports active reporting, respond with <code>RESP_OK</code>; otherwise, respond with <code>RESP_ERR</code>.</p>
+<p><code>body</code>: None</p>
+<hr />
+<h3 id="CMD_APP_LIST">CMD_APP_LIST</h3>
+<p>Queries the list of available applications.</p>
+<h4 id="Request">Request</h4>
+<p><code>body</code>: None</p>
+<h4 id="Response">Response</h4>
+<p><code>body</code>:</p>
+<table>
+<thead>
+<tr>
+  <th></th>
+  <th>number (1B)</th>
+  <th>app1</th>
+  <th>...</th>
+  <th>app n info</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Description</td>
+  <td>Number of applications</td>
+  <td>id1 (null-terminated string)</td>
+  <td>...</td>
+  <td>idn</td>
+</tr>
+<tr>
+  <td>Example</td>
+  <td>0x02</td>
+  <td>'face\0'</td>
+  <td>...</td>
+  <td>'appn\0'</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="CMD_CUR_APP_INFO">CMD_CUR_APP_INFO</h3>
+<p>Gets the current application information.</p>
+<h4 id="Request">Request</h4>
+<p><code>body</code>: None</p>
+<h4 id="Response">Response</h4>
+<p><code>body</code>:</p>
+<table>
+<thead>
+<tr>
+  <th></th>
+  <th>idx (1B)</th>
+  <th>app info (id + name + brief)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Description</td>
+  <td>Application index</td>
+  <td>Application info (id, name in UTF-8, brief description in UTF-8)</td>
+</tr>
+<tr>
+  <td>Example</td>
+  <td>0x00</td>
+  <td>'face\0face\0face detect\0'</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="CMD_APP_INFO">CMD_APP_INFO</h3>
+<p>Queries specific application information.</p>
+<h4 id="Request">Request</h4>
+<p><code>body</code>:</p>
+<table>
+<thead>
+<tr>
+  <th></th>
+  <th>idx (1B)</th>
+  <th>app_id (nB)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Description</td>
+  <td>Application index</td>
+  <td>Application ID</td>
+</tr>
+<tr>
+  <td>Example</td>
+  <td>0x02</td>
+  <td>'face'</td>
+</tr>
+</tbody>
+</table>
+<p>Either <code>idx</code> or <code>app_id</code> can be specified:</p>
+<ul>
+<li><code>idx</code>: Application index (starts from 0). Setting to <code>0xFF</code> means it is not specified.</li>
+<li><code>app_id</code>: Application ID. If <code>idx</code> is specified, <code>app_id</code> can be omitted.</li>
+</ul>
+<h4 id="Response">Response</h4>
+<p><code>body</code>:</p>
+<table>
+<thead>
+<tr>
+  <th></th>
+  <th>idx (1B)</th>
+  <th>app info (id + name + brief)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Example</td>
+  <td>0x00</td>
+  <td>'face\0face\0face detect\0'</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="CMD_START_APP">CMD_START_APP</h3>
+<p>Requests to start a specified application. This command will exit the current application and start the specified one.</p>
+<ul>
+<li>If the APP receives this command, it must call the API <code>maix.app.switch_app</code> to switch the application.</li>
+</ul>
+<blockquote>
+<p>There is a risk if the APP does not correctly implement the response to this command, prompting the developer to implement it.</p>
+</blockquote>
+<ul>
+<li>If the Launcher receives this command, it will start the specified application.</li>
+</ul>
+<h4 id="Request">Request</h4>
+<p><code>body</code>:</p>
+<table>
+<thead>
+<tr>
+  <th></th>
+  <th>idx (1B)</th>
+  <th>app_id (nB)</th>
+  <th>app_func (nB)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Description</td>
+  <td>Application index (starts from 0, set to <code>0xFF</code> if unspecified)</td>
+  <td>Application ID (optional if <code>idx</code> is specified)</td>
+  <td>Function to execute if the application has multiple functions</td>
+</tr>
+<tr>
+  <td>Example</td>
+  <td>0x02</td>
+  <td>'scan'</td>
+  <td>'qrcode'</td>
+</tr>
+</tbody>
+</table>
+<h4 id="Response">Response</h4>
+<p><code>body</code>: None</p>
+<hr />
+<h3 id="CMD_EXIT_APP">CMD_EXIT_APP</h3>
+<p>Requests to exit the current application.</p>
+<h4 id="Request">Request</h4>
+<p><code>body</code>: None</p>
+<h4 id="Response">Response</h4>
+<p><code>body</code>: None</p>
+<hr />
+<h3 id="CMD_KEY">CMD_KEY</h3>
+<p>Sends a simulated key press request.</p>
+<h4 id="Request">Request</h4>
+<p><code>body</code>:</p>
+<table>
+<thead>
+<tr>
+  <th>key (4B)</th>
+  <th>value (1B)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Key value (little-endian)</td>
+  <td>0x01 (pressed), 0x00 (released), 0x02 (long press)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="Response">Response</h4>
+<p><code>body</code>: None</p>
+<hr />
+<h3 id="CMD_TOUCH">CMD_TOUCH</h3>
+<p>Sends a simulated touch request.</p>
+<h4 id="Request">Request</h4>
+<p><code>body</code>:</p>
+<table>
+<thead>
+<tr>
+  <th>x</th>
+  <th>y</th>
+  <th>event (1B)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>x-coordinate</td>
+  <td>y-coordinate</td>
+  <td>Event type</td>
+</tr>
+</tbody>
+</table>
+<p>Event types:</p>
+<ul>
+<li>0x00: Press</li>
+<li>0x01: Release</li>
+<li>0x02: Move</li>
+</ul>
+<h4 id="Response">Response</h4>
+<p><code>body</code>: None</p>
+<h2 id="Application-%28APPS%29-Protocol-Specification">Application (APPS) Protocol Specification</h2>
+<h3 id="Camera">Camera</h3>
+<p>Commands:</p>
+<table>
+<thead>
+<tr>
+  <th>Command</th>
+  <th>Value</th>
+  <th>Description</th>
+  <th>Response</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>CMD_SNAP</td>
+  <td>0x01</td>
+  <td>Take a photo</td>
+  <td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="Classifier">Classifier</h3>
+<p>TODO:</p>
+<p><code>body</code> Description:<br />
+The request consists of a single byte representing the command, as shown in the table below:</p>
+<table>
+<thead>
+<tr>
+  <th>Command</th>
+  <th>Value</th>
+  <th>Description</th>
+  <th>Response</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>CMD_RECOGNIZE</td>
+  <td>0x01</td>
+  <td>Recognize object</td>
+  <td>CMD_APP_CMD</td>
+</tr>
+</tbody>
+</table>
+<p>Response:</p>
+<ul>
+<li>Response for command <code>CMD_RECOGNIZE</code>: The response <code>cmd</code> is <code>CMD_APP_CMD</code>, and the <code>body</code> is structured as follows:</li>
+</ul>
+<table>
+<thead>
+<tr>
+  <th>CMD_RECOGNIZE</th>
+  <th>id (2B uint16 LE)</th>
+  <th>prob (4B float LE)</th>
+  <th>name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>CMD_RECOGNIZE value</td>
+  <td>Recognized id (index), little-endian</td>
+  <td>Probability, float, little-endian</td>
+  <td>Name, UTF-8 encoded</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Face-Detection">Face Detection</h3>
+<p>TODO:</p>
+<p><code>body</code> Description:<br />
+The request consists of a single byte representing the command, as shown in the table below:</p>
+<table>
+<thead>
+<tr>
+  <th>Command</th>
+  <th>Value</th>
+  <th>Description</th>
+  <th>Response</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>CMD_POS</td>
+  <td>0x01</td>
+  <td>Detect face</td>
+  <td>CMD_APP_CMD</td>
+</tr>
+</tbody>
+</table>
+<p>Response:</p>
+<ul>
+<li>Response for command <code>CMD_POS</code>: The response <code>cmd</code> is <code>CMD_APP_CMD</code>, and the <code>body</code> is structured as follows:</li>
+</ul>
+<table>
+<thead>
+<tr>
+  <th>CMD_POS</th>
+  <th>face num (2B LE)</th>
+  <th>prob (4B float LE)</th>
+  <th>x (2B LE)</th>
+  <th>y (2B LE)</th>
+  <th>w (2B LE)</th>
+  <th>h (2B LE)</th>
+  <th>...</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>CMD_POS value</td>
+  <td>Number of detected faces</td>
+  <td>Probability, float, little-endian</td>
+  <td>Top-left x-coordinate of the face box</td>
+  <td>Top-left y-coordinate of the face box</td>
+  <td>Width of the face box</td>
+  <td>Height of the face box</td>
+  <td>Remaining faces...</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Face-Recognition">Face Recognition</h3>
+<p>TODO:</p>
+<p><code>body</code> Description:<br />
+The request consists of a single byte representing the command, as shown in the table below:</p>
+<table>
+<thead>
+<tr>
+  <th>Command</th>
+  <th>Value</th>
+  <th>Description</th>
+  <th>Response</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>CMD_FACES</td>
+  <td>0x01</td>
+  <td>Recognize faces</td>
+  <td>CMD_APP_CMD</td>
+</tr>
+<tr>
+  <td>CMD_USERS</td>
+  <td>0x02</td>
+  <td>Query all users</td>
+  <td>CMD_APP_CMD</td>
+</tr>
+<tr>
+  <td>CMD_RECORD</td>
+  <td>0x03</td>
+  <td>Record a face</td>
+  <td>CMD_APP_CMD</td>
+</tr>
+<tr>
+  <td>CMD_REMOVE</td>
+  <td>0x04</td>
+  <td>Remove a face</td>
+  <td>CMD_APP_CMD</td>
+</tr>
+</tbody>
+</table>
+<p>Request:</p>
+<p><code>CMD_APP_CMD</code> plus an additional byte for <code>app_cmd</code>. Some commands have extra parameters, as follows:</p>
+<ul>
+<li>Request for command <code>CMD_RECORD</code>:</li>
+</ul>
+<table>
+<thead>
+<tr>
+  <th>CMD_RECORD</th>
+  <th>user name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>CMD_RECORD value</td>
+  <td>Name of the user being recorded</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Request for command <code>CMD_REMOVE</code>:</li>
+</ul>
+<table>
+<thead>
+<tr>
+  <th>CMD_REMOVE</th>
+  <th>user idx (2B int16)</th>
+  <th>user name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>CMD_REMOVE value</td>
+  <td>User index, 2 bytes, little-endian</td>
+  <td>Name of the user to be removed</td>
+</tr>
+</tbody>
+</table>
+<p>Either index or username can be provided.</p>
+<p>Response:</p>
+<ul>
+<li>Response for command <code>CMD_FACES</code>: The response <code>cmd</code> is <code>CMD_APP_CMD</code>, and the <code>body</code> is structured as follows:</li>
+</ul>
+<table>
+<thead>
+<tr>
+  <th>CMD_FACES</th>
+  <th>face num (2B LE)</th>
+  <th>id (2B)</th>
+  <th>name_len (1B)</th>
+  <th>name</th>
+  <th>prob (4B float LE)</th>
+  <th>x (2B LE)</th>
+  <th>y (2B LE)</th>
+  <th>w (2B LE)</th>
+  <th>h (2B LE)</th>
+  <th>...</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>CMD_FACES value</td>
+  <td>Number of detected faces</td>
+  <td>Face ID (index)</td>
+  <td>Length of the name</td>
+  <td>Name, UTF-8 encoded</td>
+  <td>Probability, float, little-endian</td>
+  <td>Top-left x-coordinate of the face box</td>
+  <td>Top-left y-coordinate of the face box</td>
+  <td>Width of the face box</td>
+  <td>Height of the face box</td>
+  <td>Remaining faces...</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Response for command <code>CMD_USERS</code>: The response <code>cmd</code> is <code>CMD_APP_CMD</code>, and the <code>body</code> is structured as follows:</li>
+</ul>
+<table>
+<thead>
+<tr>
+  <th>CMD_USERS</th>
+  <th>user num (2B LE)</th>
+  <th>name_len (1B)</th>
+  <th>name</th>
+  <th>...</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>CMD_USERS value</td>
+  <td>Number of users</td>
+  <td>Length of the username</td>
+  <td>Name, UTF-8 encoded</td>
+  <td>Remaining usernames...</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p>Response for command <code>CMD_RECORD</code>: <code>CMD_OK</code> or <code>CMD_ERROR</code></p>
+</li>
+<li><p>Response for command <code>CMD_REMOVE</code>: <code>CMD_OK</code> or <code>CMD_ERROR</code></p>
+</li>
+</ul>
+<h2 id="Appendix%3A-Code">Appendix: Code</h2>
+<h3 id="C-CRC16-IBM">C CRC16 IBM</h3>
+
+<pre class="language-c"><code class="language-c">unsigned short crc16_IBM(unsigned char *ptr, int len)
+{
+    unsigned int i;
+    unsigned short crc = 0x0000;
+
+    while(len--)
+    {
+        crc ^= *ptr++;
+        for (i = 0; i &lt; 8; ++i)
+        {
+            if (crc &amp; 1)
+                crc = (crc &gt;&gt; 1) ^ 0xA001;
+            else
+                crc = (crc &gt;&gt; 1);
+        }
+    }
+
+    return crc;
+}
+</code></pre>
+<p>Alternatively, using a lookup table:</p>
+
+<pre class="language-c"><code class="language-c">const unsigned int crc16_table[256] = {
+    0x0000, 0xc0c1, 0xc181, 0x0140, 0xc301, 0x03c0, 0x0280, 0xc241,
+    0xc601, 0x06c0, 0x0780, 0xc741, 0x0500, 0xc5c1, 0xc481, 0x0440,
+    0xcc01, 0x0cc0, 0x0d80, 0xcd41, 0x0f00, 0xcfc1, 0xce81, 0x0e40,
+    0x0a00, 0xcac1, 0xcb81, 0x0b40, 0xc901, 0x09c0, 0x0880, 0xc841,
+    0xd801, 0x18c0, 0x1980, 0xd941, 0x1b00, 0xdbc1, 0xda81, 0x1a40,
+    0x1e00, 0xdec1, 0xdf81, 0x1f40, 0xdd01, 0x1dc0, 0x1c80, 0xdc41,
+    0x1400, 0xd4c1, 0xd581, 0x1540, 0xd701, 0x17c0, 0x1680, 0xd641,
+    0xd201, 0x12c0, 0x1380, 0xd341, 0x1100, 0xd1c1, 0xd081, 0x1040,
+    0xf001, 0x30c0, 0x3180, 0xf141, 0x3300, 0xf3c1, 0xf281, 0x3240,
+    0x3600, 0xf6c1, 0xf781, 0x3740, 0xf501, 0x35c0, 0x3480, 0xf441,
+    0x3c00, 0xfcc1, 0xfd81, 0x3d40, 0xff01, 0x3fc0, 0x3e80, 0xfe41,
+    0xfa01, 0x3ac0, 0x3b80, 0xfb41, 0x3900, 0xf9c1, 0xf881, 0x3840,
+    0x2800, 0xe8c1, 0xe981, 0x2940, 0xeb01, 0x2bc0, 0x2a80, 0xea41,
+    0xee01, 0x2ec0, 0x2f80, 0xef41, 0x2d00, 0xedc1, 0xec81, 0x2c40,
+    0xe401, 0x24c0, 0x2580, 0xe541, 0x2700, 0xe7c1, 0xe681, 0x2640,
+    0x2200, 0xe2c1, 0xe381, 0x2340, 0xe101, 0x21c0, 0x2080, 0xe041,
+    0xa001, 0x60c0, 0x6180, 0xa141, 0x6300, 0xa3c1, 0xa281, 0x6240,
+    0x6600, 0xa6c1, 0xa781, 0x6740, 0xa501, 0x65c0, 0x6480, 0xa441,
+    0x6c00, 0xacc1, 0xad81, 0x6d40, 0xaf01, 0x6fc0, 0x6e80, 0xae41,
+    0xaa01, 0x6ac0, 0x6b80, 0xab41, 0x6900, 0xa9c1, 0xa881, 0x6840,
+    0x7800, 0xb8c1, 0xb981, 0x7940, 0xbb01, 0x7bc0, 0x7a80, 0xba41,
+    0xbe01, 0x7ec0, 0x7f80, 0xbf41, 0x7d00, 0xbdc1, 0xbc81, 0x7c40,
+    0xb401, 0x74c0, 0x7580, 0xb541, 0x7700, 0xb7c1, 0xb681, 0x7640,
+    0x7200, 0xb2c1, 0xb381, 0x7340, 0xb101, 0x71c0, 0x7080, 0xb041,
+    0x5000, 0x90c1, 0x9181, 0x5140, 0x9301, 0x53c0, 0x5280, 0x9241,
+    0x9601, 0x56c0, 0x5780, 0x9741, 0x5500, 0x95c1, 0x9481, 0x5440,
+    0x9c01, 0x5cc0, 0x5d80, 0x9d41, 0x5f00, 0x9fc1, 0x9e81, 0x5e40,
+    0x5a00, 0x9ac1, 0x9b81, 0x5b40, 0x9901, 0x59c0, 0x5880, 0x9841,
+    0x8801, 0x48c0, 0x4980, 0x8941, 0x4b00, 0x8bc1, 0x8a81, 0x4a40,
+    0x4e00, 0x8ec1, 0x8f81, 0x4f40, 0x8d01, 0x4dc0, 0x4c80, 0x8c41,
+    0x4400, 0x84c1, 0x8581, 0x4540, 0x8701, 0x47c0, 0x4680, 0x8641,
+    0x8201, 0x42c0, 0x4380, 0x8341, 0x4100, 0x81c1, 0x8081, 0x4040,
+};
+
+
+unsigned short crc16_IBM(const unsigned char *ptr,int len)
+{
+    unsigned short crc = 0x0000;
+
+    while(len--)
+    {
+        crc = (crc &gt;&gt; 8) ^ crc16_table[(crc ^ *ptr++) &amp; 0xff];
+    }
+
+    return (crc);
+}
+
+</code></pre>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                        <a href="/maixcdk/doc/convention/i18n.html">
+                            <span class="icon"></span>
+                            <span class="label">I18N(translation)</span>
+                        </a>
+                        
+                    </div>
+                    <div id="next">
+                        
+                        <a href="/maixcdk/doc/convention/nn.html">
+                            <span class="label">NN AI model</span>
+                            <span class="icon"></span>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>Links</a><ul><li><a target="_blank" href="https://wiki.sipeed.com">Sipeed Wiki</a></li>
+<li><a target="_blank" href="https://www.sipeed.com">Sipeed Official</a></li>
+<li><a target="_blank" href="https://maixhub.com/">MaixHub</a></li>
+<li><a  href="/maixcdk/sitemap.xml">Site map</a></li>
+<li><a target="_blank" href="https://github.com/neutree/teedoc">Generated by teedoc</a></li>
+</ul>
+</li>
+<li><a>Source code</a><ul><li><a target="_blank" href="https://github.com/sipeed/maixpy">MaixPy source code</a></li>
+<li><a target="_blank" href="https://github.com/sipeed/MaixCDK">MaixCDK source code</a></li>
+<li><a target="_blank" href="https://github.com/sipeed/sipeed_wiki">Wiki source code</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">Open source projects</a></li>
+</ul>
+</li>
+<li><a>Follow us</a><ul><li><a target="_blank" href="https://twitter.com/SipeedIO">twitter</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">Taobao</a></li>
+<li><a target="_blank" href="https://www.aliexpress.com/store/911876460">AliExpress</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">github</a></li>
+<li><a><a>Wechat </a><img src='https://wiki.sipeed.com/static/image/wechat.png'></a>
+</li>
+</ul>
+</li>
+<li><a>Contact us</a><ul><li><a>Tel: +86 0755-27808509</a>
+</li>
+<li><a>Bussiness: support@sipeed.com</a>
+</li>
+<li><a>Addr: 深圳市宝安区新湖路4008号蘅芳科技办公大厦A座-2101C</a>
+</li>
+<li><a  href="https://wiki.sipeed.com/join_us.html">Join us</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://www.sipeed.com">©2018-2023 深圳矽速科技有限公司</a></li>
+<li><a target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index">粤ICP备19015433号</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/maixcdk/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script src="/maixcdk/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/maixcdk/static/js/theme_default/main.js"></script>
+    
+        <script src="/maixcdk/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/maixcdk/static/css/theme_default/prism.min.js"></script>
+    
+        <script src="/maixcdk/static/js/search/search_main.js"></script>
+    
+        <script src="/maixcdk/static/js/custom.js"></script>
+    
+        <script src="/maixcdk/static/js/thumbs_up/main.js"></script>
+    
+</body>
+
+</html>
