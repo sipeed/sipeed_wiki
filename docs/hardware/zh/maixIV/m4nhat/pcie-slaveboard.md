@@ -17,7 +17,7 @@
 ![](../assets/m4nhat/DSC07569.JPG)
 
 ## M4N 烧录从机系统
-1.参考 [System Flashing Guide](../m4n/system-update.html) 使用 AXDL 烧录 [AX650_card_V3.6.2_20250603154858_20250626183000.axp](https://dl.sipeed.com/MaixIV/M4N-Dock/09_Image/)。
+1.参考 [System Flashing Guide](../m4n/system-update.html) 使用 AXDL 烧录 [AX650_card_V3.6.2_20250603154858_xxx.axp](https://dl.sipeed.com/MaixIV/M4N-Dock/09_Image/)。
 
 2.然后 fpc 排线连接 M4N-Hat 和 树莓派 5 的 pcie 座子，并确认固定完毕。
 

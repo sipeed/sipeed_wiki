@@ -25,7 +25,7 @@ The video demonstrates:
 
 ## Flashing the M4N Slave System
 
-1. Refer to the [System Flashing Guide](../m4n/system-update.html) and use AXDL to flash [AX650_card_V3.6.2_20250603154858_20250626183000.axp](https://dl.sipeed.com/MaixIV/M4N-Dock/09_Image/)。
+1. Refer to the [System Flashing Guide](../m4n/system-update.html) and use AXDL to flash [AX650_card_V3.6.2_20250603154858_xxx.axp](https://dl.sipeed.com/MaixIV/M4N-Dock/09_Image/)。
 
 2. Connect the M4N-Hat to the Raspberry Pi 5's PCIe slot using an FPC cable and secure it.
 
