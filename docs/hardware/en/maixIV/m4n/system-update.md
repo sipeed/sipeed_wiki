@@ -1,4 +1,4 @@
-This guide provides detailed instructions for two system flashing methods for the M4N-Dock development board:
+This guide provides detailed instructions for two system flashing methods for the M4N development board series:
 
 1. booting and flashing eMMC via TFCard
 2. flashing using the AXDL tool
@@ -8,7 +8,7 @@ Please choose the appropriate method based on your needs.
 
 ## Image File
 
-*Due to the large size of the image packages used in the flashing methods described on this page and limited bandwidth on the download site, they are stored exclusively on Baidu Enterprise Drive in the same directory. The entry link can be found in the [top side of the download site](https://dl.sipeed.com/)。*
+*Due to the large size of the image packages used in the flashing methods described on this page and limited bandwidth on the download site, they are stored exclusively on Mega Drive in the same directory. The entry link can be found in the [top side of the download site](https://dl.sipeed.com/)。*
 
 
 | Image Type        | How to Boot                               | Filename     | How to Obtain     |
