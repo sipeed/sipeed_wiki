@@ -57,7 +57,8 @@ The wiring diagram for the NanoKVM-Full version is as follows. The Lite version 
 
   ![](./../../../assets/NanoKVM/unbox/hdmi.png)
 
-+ Connect NanoKVM to a router/switch using an Ethernet cable.
++ Connect NanoKVM to a router/switch using an Ethernet cable. 
+> Note: In some cases NanoKVM Ethernet port might not work вгу ещ electromagnetic interference. In such cases shielded Ethernet cable is recommended.
 
 + Use another USB C to A data cable to connect the KVM-B board to the ATX interface of NanoKVM (located above the Ethernet port).
 
