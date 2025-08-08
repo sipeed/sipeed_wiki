@@ -107,6 +107,37 @@ items:
             url: /ai/en/deploy/ax-pi.html
         -   label: Questions (FAQ)
             file: maixIII/ax-pi/faq_axpi.md
+-   label: Maix-IV
+    items:
+    -   label: Maix M4N
+    #     file: maixIV/m4n/m4n.md
+        items:
+        -   label: Flashing OS Image
+            file: maixIV/m4n/system-update.md
+        -   label: AI Models Deployment
+            file: maixIV/m4n/axmodel-deploy.md
+        -   label: FAQ
+            file: maixIV/m4n/FAQ.md
+    -   label: Maix M4N-Dock
+        items:
+        -   label: Intro
+            file: maixIV/m4ndock/intro.md
+        -   label: Flashing OS Image
+            file: maixIV/m4n/system-update.md
+        -   label: Quick Start
+            file: maixIV/m4ndock/quick-start.md
+        -   label: FAQ
+            file: maixIV/m4ndock/FAQ.md
+    -   label: Maix M4N-Hat
+        items:
+        -   label: Intro
+            file: maixIV/m4nhat/intro.md
+        -   label: Flashing OS Image
+            file: maixIV/m4n/system-update.md
+        -   label: Quick Start
+            file: maixIV/m4nhat/quick-start.md
+        -   label: RPI5 PCIe Card
+            file: maixIV/m4nhat/pcie-slaveboard.md
 -   label: MaixCAM
     items:
     -   label: MaixCAM
