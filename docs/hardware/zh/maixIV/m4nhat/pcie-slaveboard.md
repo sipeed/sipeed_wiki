@@ -1,15 +1,18 @@
 # 树莓派 5 安装 M4N-Hat
 
-## 最终结果演示
-树莓派 5 安装后，演示运行大模型 QWen3-Q8，性能达 13.2 tokens/s（较小参数量模型性能受限于 PCIe链接，对比单板直接运行结果 19 tokens/s 差距会稍大）。见以下视频：
+## 结果演示
+树莓派 5 以下前置准备工作完成后，演示运行[大模型 QWen3](https://huggingface.co/AXERA-TECH/QWen3-0.6B) (Int8 参数量化)，性能达 13.2 tokens/s（较小参数量模型性能受限于 PCIe 链接，对比单板直接运行结果 19 tokens/s 差距会稍大）。见以下视频：
 <video controls autoplay src="../assets/m4nhat/axcl-run-llm-on-raspi5-2025-07-03-4xspeedup.mp4" type="video/mp4"> Your browser does not support video playback. </video>
 视频中完整演示了：
-1. 下载已支持的大语言模型 QWen3-0.6B Q8
+1. 下载已支持的大语言模型 QWen3-0.6B-Int8
 2. 准备 python-venv 环境，安装所需 python 库
 3. 运行 QWen3 并完成两次问答
 
 
-## 准备工作
+## 前置准备
+
+- M4N-Hat
+- sdcard-20250818.img.zst or newer
 
 ### 安装
 <div style="display: flex; justify-content: space-between;">
@@ -20,48 +23,56 @@
 ![](../assets/m4nhat/DSC07569.JPG)
 
 ### M4N 烧录从机系统
-1.参考 [System Flashing Guide](../m4n/system-update.html) 使用 AXDL 烧录 [AX650_card_V3.6.2_20250603154858_xxx.axp](https://dl.sipeed.com/MaixIV/M4N-Dock/09_Image/)。
+1.使用 fpc 排线连接 M4N-Hat 和 树莓派 5 的 pcie 座子，并确认固定完毕。
 
-2.然后 fpc 排线连接 M4N-Hat 和 树莓派 5 的 pcie 座子，并确认固定完毕。
+2.上电树莓派给 M4N-Hat 供电。
 
-3.上电进入树莓派的系统。使用 lspci 命令检查加速卡是否正确被识别：
-```bash
-# 应能看到以下输出
-sipeed@raspberrypi:~$ lspci
-0001:00:00.0 PCI bridge: Broadcom Inc. and subsidiaries BCM2712 PCIe Bridge (rev 21)
-0001:01:00.0 Multimedia video controller: Axera Semiconductor Co., Ltd Device 0650 (rev01)
-0002:00:00.0 PCI bridge: Broadcom Inc. and subsidiaries BCM2712 PCIe Bridge (rev 21)
-0002:01:00.0 Ethernet controller: Raspberry Pi Ltd RP1 PCIe 2.0 South Bridge
-```
+3.参考 [System Flashing Guide](../m4n_c-SoM/system-update.html#启动-Live-系统（需手动按键操作）) 进入 TFCard Live 系统。
 
-其中前两行信息则表示树莓派的 pcie 初始化成功，并识别挂载了 `Multimedia video controller: Axera Semiconductor Co., Ltd Device 0650 (rev01)`。
+4.执行 `dd if=/boot/spl_AX650_card_signed.bin of=/dev/mmcblk0 conv=fsync` 烧录从机系统以支持通过 PCIe 启动:
+  ```bash
+  root@m4nhat-08080a:~# dd if=/boot/spl_AX650_card_signed.bin of=/dev/mmcblk0 conv=fsync
+  512+0 records in
+  512+0 records out
+  262144 bytes (262 kB, 256 KiB) copied, 0.0165514 s, 15.8 MB/s
+  ```
 
-3.1. 若不显示如上前两行信息，很有可能是树莓派的该 pciex1 端口并未启用（默认行为），因此需要额外以下操作：
+5.启用树莓派的 PCIex1 端口:
+  执行 `sudo raspi-config` 并进入 `6 Advanced Options -> A8 PCIe Speed`，选择 `Yes` 以使能 PCIex1 gen3。
+5.1.或检查 `/boot/firmware/config.txt` 中的内容（文件末尾）是否包含以下字段：
+  ```bash
+  [all]
+  dtparam=pciex1_gen=3
+  ```
+  实际上这个 `config.txt` 文件所在 SD 卡的 boot 分区为 FAT32 格式，因此可被广大操作系统识别和读写。可在树莓派关机后取出，并通过读卡器插在 PC 上直接修改。
+  > 注意：刚烧录树莓派镜像的新卡不存在这个 /boot/firmware 目录，此时需要插入树莓派完整启动一次才会生成上文所描述的结构。
 
-执行 `sudo raspi-config` 并进入 `6 Advanced Options -> A8 PCIe Speed`，选择 `Yes` 以使能 pciex1 gen3。
-或检查 `/boot/firmware/config.txt` 中的内容（文件末尾）是否包含以下字段：
-```bash
-[all]
-dtparam=pciex1_gen=3
-```
-实际上这个 `config.txt` 文件所在 SD 卡的 boot 分区为 FAT32 格式，因此可被广大操作系统识别和读写。可在树莓派关机后取出，并通过读卡器插在 PC 上直接修改。
-> 注意：刚烧录树莓派镜像的新卡不存在这个 /boot/firmware 目录，此时需要插入树莓派完整启动一次才会生成上文所描述的结构。
+6.重启树莓派，使用 lspci 命令检查加速卡是否正确被识别：
+  ```bash
+  # 应能看到以下输出
+  sipeed@rpi-sipeed:~ $ lspci
+  0001:00:00.0 PCI bridge: Broadcom Inc. and subsidiaries BCM2712 PCIe Bridge (rev 21)
+  0001:01:00.0 Multimedia video controller: Axera Semiconductor Co., Ltd Device 0650 (rev01)
+  0002:00:00.0 PCI bridge: Broadcom Inc. and subsidiaries BCM2712 PCIe Bridge (rev 21)
+  0002:01:00.0 Ethernet controller: Raspberry Pi Ltd RP1 PCIe 2.0 South Bridge
+  ```
 
+  其中前两行信息则表示树莓派的 PCIe 初始化成功，并识别挂载了 `Multimedia video controller: Axera Semiconductor Co., Ltd Device 0650 (rev01)`。
 
 ### Raspi 5 安装 AXCL 软件包
-pcie 可以正常识别到 M4N-Hat 后，还需要继续安装 AXCL 软件包以提供支持，才能通过 M4N-Hat 加速运行模型。
-该软件包 `axcl_host_aarch64_V3.6.2_20250603154858_NO4873.deb` 与先前的 M4N 系统镜像 xx.axp 位于下载站同一目录。
-下载到树莓派开发板上，然后运行安装命令：
+PCIe 可以正常识别到 M4N-Hat 后，还需要继续安装 AXCL 软件包以提供支持，才能通过 M4N-Hat 加速运行模型。
+该软件包 `axcl_host_aarch64_V3.6.2_20250603154858_NO4873.deb` 可于下载站单独下载到树莓派开发板上，或直接使用下面的AIDemos.tar.zst。
+然后运行安装命令：
 ```bash
 sudo apt install axcl_host_aarch64_V3.6.2_20250603154858_NO4873.deb
-# If meet some problems:
+# 如果遇到问题:例如可以识别 PCIe，但 axcl-smi 不能显示任何设备，请执行以下命令重新安装
 sudo apt install --reinstall axcl_host_aarch64_V3.6.2_20250603154858_NO4873.deb
 ```
 
 安装成功后，断电重启树莓派。
 此时运行 `axcl-smi` 显示内容如下，即代表安装成功：
 ```bash
-sipeed@raspberrypi:~$ axcl-smi
+sipeed@rpi-sipeed:~$ axcl-smi
 +------------------------------------------------------------------------------------------------+
 | AXCL-SMI  V3.6.2_20250603154858                                  Driver  V3.6.2_20250603154858 |
 +-----------------------------------------+--------------+---------------------------------------+
@@ -76,13 +87,15 @@ sipeed@raspberrypi:~$ axcl-smi
 | Processes:                                                                                     |
 | Card      PID  Process Name                                                   NPU Memory Usage |
 |================================================================================================|
-sipeed@raspberrypi:~$
 ```
 
 
 ## 模型演示
 
-Preparation:
+于网盘下载 AIDemos.tar.zst 并解压缩即可复现体验下列已部署模型。
+
+### 准备:
+准备 Python 环境并安装 axengine 包。
 ```bash
 cd /path/to/AIDemos/extra
 python -m venv venv-llm
@@ -92,14 +105,24 @@ pip install axengine-0.1.3-py3-none-any.whl
 ```
 
 
+结果:
+```bash
+sipeed@rpi-sipeed:~/Downloads/AIDemos/extra $ ls -lh
+total 44M
+-rw-r--r-- 1 sipeed sipeed  44M Aug 14 09:04 axcl_host_aarch64_V3.6.2_20250603154858_NO4873.deb
+-rw-r--r-- 1 sipeed sipeed  19K Aug 14 09:46 axengine-0.1.3-py3-none-any.whl
+-rw-r--r-- 1 sipeed sipeed 1.3K Aug 18 08:50 requirements.txt
+drwxr-xr-x 6 sipeed sipeed 4.0K Aug 18 03:24 venv-llm
+```
+
 ### YOLO11
 
-Preparation:
+准备:
 ```bash
 source ../extra/venv-llm/bin/activate
 ```
 
-Example:
+示例:
 ```bash
 (venv-llm) sipeed@rpi-sipeed:~/Downloads/AIDemos/YOLO11 $ ls
 axcl_yolo11  ax_yolo11	football.jpg  ssd_horse.jpg  yolo11s.axmodel  yolo11x.axmodel
@@ -154,12 +177,12 @@ detection num: 9
 ### DeepSeek-R1-Distill-Qwen-1.5B-GPTQ-Int4
 参考: https://huggingface.co/AXERA-TECH/DeepSeek-R1-Distill-Qwen-1.5B-GPTQ-Int4
 
-Usage:
+用法:
 ```bash
 ./run_from_pi.sh
 ```
 
-Example:
+示例:
 ```bash
 sipeed@rpi-sipeed:~/Downloads/AIDemos/DeepSeek-R1-Distill-Qwen-1.5B-GPTQ-Int4 $ ./run_from_pi.sh
 Main script running (PID: 9852), subprocess PID: 9856
@@ -200,12 +223,12 @@ I'm DeepSeek-R1, an AI assistant created exclusively by DeepSeek. My purpose is 
 ### InternVL2_5-1B
 参考: https://huggingface.co/AXERA-TECH/InternVL2_5-1B
 
-Usage:
+用法:
 ```bash
 ./run_from_pi.sh
 ```
 
-Example:
+示例:
 ```bash
 sipeed@rpi-sipeed:~/Downloads/AIDemos/InternVL2_5-1B $ ./run_from_pi.sh
 Main script running (PID: 10379), subprocess PID: 10383
@@ -262,12 +285,12 @@ prompt >>
 ### lcm-lora-sdv1-5
 参考: https://huggingface.co/AXERA-TECH/lcm-lora-sdv1-5
 
-Preparation:
+准备:
 ```bash
 source ../extra/venv-llm/bin/activate
 ```
 
-Usage:
+用法:
 ```bash
 python run_txt2img_axe_infer_once.py --prompt 'two beautiful girl'
 # or
@@ -280,12 +303,12 @@ python run_img2img_axe_infer.py --prompt "8k, cute" --init_image txt2img_output_
 ### Depth-Anything-V2
 参考: https://huggingface.co/AXERA-TECH/Depth-Anything-V2
 
-Preparation:
+准备:
 ```bash
 source ../extra/venv-llm/bin/activate
 ```
 
-Usage:
+用法:
 ```bash
 python infer.py --model depth_anything_v2_vits.axmodel --img examples/demo01.jpg
 # or
@@ -298,12 +321,12 @@ python infer_onnx.py --model depth_anything_v2_vits.onnx --img examples/demo02.j
 - https://huggingface.co/AXERA-TECH/clip
 - https://github.com/AXERA-TECH/clip.axera
 
-Preparation:
+准备:
 ```bash
 source ../extra/venv-llm/bin/activate
 ```
 
-Example:
+示例:
 ```bash
 (venv-llm) sipeed@rpi-sipeed:~/Downloads/AIDemos/clip $ ls
 clip_vit_l14_336px_image_encoder_all_u16_fc_u8.axmodel	clip_vit_l14_336px_text_encoder_u16.axmodel  images  infer.py  Tokenizer.py  vocab.txt
@@ -359,12 +382,12 @@ pineapple       0.00       0.00        0.00        0.00      0.00     0.00     0
 ### Whisper
 参考: https://huggingface.co/AXERA-TECH/Whisper
 
-Preparation:
+准备:
 ```bash
 source ../extra/venv-llm/bin/activate
 ```
 
-Usage:
+用法:
 ```bash
 python whisper_onnx.py --model_path ./models-onnx/base/ -t base --wav ./demo.wav
 
@@ -373,7 +396,7 @@ python whisper.py --model_path ./models/small/ -t small --wav ./demo.wav
 ./whisper_axcl_aarch64 -e ./models/small/small-encoder.axmodel -m ./models/small/small-decoder-main.axmodel -l ./models/small/small-decoder-loop.axmodel -p ./models/small/small-positional_embedding.bin -t ./models/small/small-tokens.txt -w ./demo.wav
 ```
 
-Example:
+示例:
 ```bash
 (venv-llm) sipeed@rpi-sipeed:~/Downloads/AIDemos/Whisper $ ./whisper_axcl_aarch64 -e ./models/small/small-encoder.axmodel -m ./models/small/small-decoder-main.axmodel -l ./models/small/small-decoder-loop.axmodel -p ./models/small/small-positional_embedding.bin -t ./models/small/small-tokens.txt -w ./RP1intro.wav --language en
 encoder: ./models/small/small-encoder.axmodel
@@ -420,13 +443,13 @@ Result:  Raspberry Pi 5 is built using the RQ1 IO control, a package containing 
 ### MeloTTS
 参考: https://huggingface.co/AXERA-TECH/MeloTTS
 
-Preparation:
+准备:
 ```bash
 source ../extra/venv-llm/bin/activate
 cp -R nltk_data ~/
 ```
 
-Usage:
+用法:
 ```bash
 (venv-llm) sipeed@rpi-sipeed:~/Downloads/AIDemos/MeloTTS/python $ cd python
 (venv-llm) sipeed@rpi-sipeed:~/Downloads/AIDemos/MeloTTS/python $ python melotts.py -h
@@ -448,7 +471,7 @@ options:
   --language {ZH,ZH_MIX_EN,JP,EN,KR,ES,SP,FR}, -l {ZH,ZH_MIX_EN,JP,EN,KR,ES,SP,FR}
 ```
 
-Example:
+示例:
 ```bash
 (venv-llm) sipeed@rpi-sipeed:~/Downloads/AIDemos/MeloTTS/python $ python melotts.py -s "Dig the well before you are thirsty." -l EN
 [INFO] Available providers:  ['AXCLRTExecutionProvider']
@@ -483,7 +506,7 @@ Save to output.wav
 
 
 ```bash
-sipeed@raspberrypi:~$ axcl_run_model -m yolov5s.axmodel
+sipeed@rpi-sipeed:~/Downloads/AIDemos/models $ axcl_run_model -m yolov5s.axmodel
    Run AxModel:
          model: yolov5s.axmodel
           type: 1 Core
@@ -552,11 +575,11 @@ NOTICE:  BL31: v2.6(release):v2.6-240-gfc45bc492
 NOTICE:  BL31: Built : 12:55:13, Dec  4 2024
 [    0.695249] brcm-pcie 1000110000.pcie: link down
 
-Debian GNU/Linux 12 raspberrypi ttyAMA10
+Debian GNU/Linux 12 rpi-sipeed ttyAMA10
 
 My IP address is 192.168.10.176 fdae:b0ae:ebf1:0:b270:135e:b646:70c3
 
-raspberrypi login:
+rpi-sipeed login:
 ```
 
 > 当然现有一更简便方法。我们把树莓派的一个 GPIO 连到了 M4N-Hat 的复位引脚上，因此若需要保持不断电也能重启树莓派并能成功挂载。需要在每次重启前先执行命令 `gpioset gpiochip0 28=0` 让 M4N-Hat 进入复位状态，再正常执行树莓派重启命令即可再次正常挂载。
@@ -569,4 +592,4 @@ raspberrypi login:
 
 **另有 [树莓派5 AXCL专项页面](https://axcl-pi5-examples-cn.readthedocs.io)。**
 
-可于 [文中](../m4n/axmodel-deploy.html) 介绍到的大模型仓库下载各种已被支持的大模型，并在树莓派上部署运行。
+可于 [文中](../m4n_c-SoM/axmodel-deploy.html) 介绍到的大模型仓库下载各种已被支持的大模型，并在树莓派上部署运行。
