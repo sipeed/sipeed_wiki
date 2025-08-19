@@ -8,7 +8,7 @@
 
 ## 前置准备
 
-- M4N-Hat
+- Maix4-Hat
 - sdcard-20250818.img.zst or newer
 
 ### 安装
@@ -19,16 +19,16 @@
 
 ![](../assets/m4nhat/DSC07569.JPG)
 
-### M4N 烧录从机系统
-1.使用 fpc 排线连接 M4N-Hat 和 树莓派 5 的 PCIe 座子，并确认固定完毕。
+### Maix4-HAT 烧录从机系统
+1.使用 fpc 排线连接 Maix4-HAT 和 树莓派 5 的 PCIe 座子，并确认固定完毕。
 
-2.上电树莓派给 M4N-Hat 供电。
+2.上电树莓派给 Maix4-HAT 供电。
 
 3.参考 [System Flashing Guide](../m4n_c-SoM/system-update.html#启动-Live-系统（需手动按键操作）) 进入 TFCard Live 系统。
 
 4.执行 `dd if=/boot/spl_AX650_card_signed.bin of=/dev/mmcblk0 conv=fsync` 烧录从机系统以支持通过 PCIe 启动:
   ```bash
-  root@m4nhat-08080a:~# dd if=/boot/spl_AX650_card_signed.bin of=/dev/mmcblk0 conv=fsync
+  root@m4chat-08080a:~# dd if=/boot/spl_AX650_card_signed.bin of=/dev/mmcblk0 conv=fsync
   512+0 records in
   512+0 records out
   262144 bytes (262 kB, 256 KiB) copied, 0.0165514 s, 15.8 MB/s
@@ -57,7 +57,7 @@
   其中前两行信息则表示树莓派的 PCIe 初始化成功，并识别挂载了 `Multimedia video controller: Axera Semiconductor Co., Ltd Device 0650 (rev01)`。
 
 ### Raspi 5 安装 AXCL 软件包
-PCIe 可以正常识别到 M4N-Hat 后，还需要继续安装 AXCL 软件包以提供支持，才能通过 M4N-Hat 加速运行模型。
+PCIe 可以正常识别到 Maix4-HAT 后，还需要继续安装 AXCL 软件包以提供支持，才能通过 Maix4-HAT 加速运行模型。
 该软件包 `axcl_host_aarch64_V3.6.2_20250603154858_NO4873.deb` 可于下载站单独下载到树莓派开发板上，或直接使用下面的AIDemos.tar.zst。
 然后运行安装命令：
 ```bash
@@ -89,7 +89,8 @@ sipeed@rpi-sipeed:~$ axcl-smi
 
 ## 模型演示
 
-于网盘下载 AIDemos.tar.zst 并解压缩即可复现体验下列已部署模型。
+于网盘下载 [AIDemos.tar.zst](https://mega.nz/folder/NxxEzRAB#e-sA_IK0K5JqQM6FnCH6_Q) 并解压缩即可复现体验下列已部署模型。
+国内用户可于下载站百度网盘加速下载。
 
 ### 准备:
 准备 Python 环境并安装 axengine 包。
@@ -180,27 +181,27 @@ detection num: 7
     var YOLOv11BarChart = new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: ['YOLOv11x', 'YOLOv11s'],  // Now the models are the labels
+            labels: ['YOLOv11s', 'YOLOv11x'],  // Now the models are the labels
             datasets: [
                 {
-                    label: 'Maix4 Hat',
-                    data: [24.70, 3.35],
+                    label: 'Maix4 HAT 24T(PCIe mode)',
+                    data: [298, 40.48],
                     backgroundColor: 'rgba(255, 99, 132, 0.2)',
                     borderColor: 'rgba(255, 99, 132, 1)',
                     borderWidth: 1
                 },
                 {
-                    label: 'Jetson Orin Nano Super',
-                    data: [19.90, 5.08],
+                    label: 'Jetson Orin Nano Super 67T',
+                    data: [196.85, 50.25],
                     backgroundColor: 'rgba(54, 162, 235, 0.2)',
                     borderColor: 'rgba(54, 162, 235, 1)',
                     borderWidth: 1
                 },
                 {
-                    label: 'RK3588',
-                    data: [0, 42.02],
-                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                    borderColor: 'rgba(54, 162, 235, 1)',
+                    label: 'Hailo8 26T',
+                    data: [147, 0],
+                    backgroundColor: 'rgba(255, 206, 86, 0.2)',  // Gold
+                    borderColor: 'rgba(255, 206, 86, 1)',
                     borderWidth: 1
                 }
             ]
@@ -210,7 +211,7 @@ detection num: 7
             plugins: {
                 title: {
                     display: true,
-                    text: 'YOLOv11 Performance Benchmark(lower is better)',  // Chart title added here
+                    text: 'YOLOv11 Performance Benchmark(fps)',  // Chart title added here
                     font: {
                         size: 20
                     }
@@ -221,7 +222,7 @@ detection num: 7
                 tooltip: {
                     callbacks: {
                         label: function(tooltipItem) {
-                            return tooltipItem.dataset.label + ': ' + tooltipItem.raw + ' ms';
+                            return tooltipItem.dataset.label + ': ' + tooltipItem.raw + ' fps';
                         }
                     }
                 }
@@ -236,7 +237,7 @@ detection num: 7
 </script>
 </div>
 
-相关数据来源: [ultralytics](https://docs.ultralytics.com/zh/guides/nvidia-jetson/#nvidia-jetson-orin-nano-super-developer-kit_1), [RK3588](https://github.com/yuunnn-w/rknn-cpp-yolo?tab=readme-ov-file#report-inference-results-and-speed)
+相关数据来源: [Ultralytics](https://docs.ultralytics.com/zh/guides/nvidia-jetson/#nvidia-jetson-orin-nano-super-developer-kit_1), [RK3588](https://github.com/yuunnn-w/rknn-cpp-yolo?tab=readme-ov-file#report-inference-results-and-speed)
 
 ### DeepSeek-R1-Distill-Qwen-1.5B-GPTQ-Int4
 参考: https://huggingface.co/AXERA-TECH/DeepSeek-R1-Distill-Qwen-1.5B-GPTQ-Int4
@@ -293,7 +294,7 @@ I'm DeepSeek-R1, an AI assistant created exclusively by DeepSeek. My purpose is 
             labels: ['DSR1:1.5B', 'DSR1:7B'],  // Models as labels
             datasets: [
                 {
-                    label: 'Maix4 Hat',
+                    label: 'Maix4 HAT 24T(PCIe mode)',
                     data: [13.69, 4.64],
                     backgroundColor: 'rgba(255, 99, 132, 0.2)',
                     borderColor: 'rgba(255, 99, 132, 1)',
@@ -503,7 +504,7 @@ save image take 445.9ms
             labels: ['U-Net (s/it)', 'VAE Decoder (s)'],  // Models as labels
             datasets: [
                 {
-                    label: 'Maix4 Hat',
+                    label: 'Maix4 HAT 24T(PCIe mode)',
                     data: [0.43, 0.91],
                     backgroundColor: 'rgba(255, 99, 132, 0.2)',
                     borderColor: 'rgba(255, 99, 132, 1)',
@@ -549,6 +550,8 @@ save image take 445.9ms
 </script>
 </div>
 
+相关数据来源: [RK3588](https://huggingface.co/happyme531/Stable-Diffusion-1.5-LCM-ONNX-RKNN2)
+
 
 ### Depth-Anything-V2
 参考: https://huggingface.co/AXERA-TECH/Depth-Anything-V2
@@ -566,6 +569,64 @@ python infer_onnx.py --model depth_anything_v2_vits.onnx --img examples/demo02.j
 ```
 ![depth_ouput_ax1](../assets/m4nhat/PCIe/depth_ouput_ax1.png)
 ![depth_ouput_ax2](../assets/m4nhat/PCIe/depth_ouput_ax2.png)
+
+<div style="width: 80%; margin: 0 auto;">
+    <canvas id="Depth_Anything_V2BarChart"></canvas>
+<script>
+    var ctx = document.getElementById('Depth_Anything_V2BarChart').getContext('2d');
+    var Depth_Anything_V2BarChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Depth-Anything-V2 (fps)'],  // Models as labels
+            datasets: [
+                {
+                    label: 'Maix4 HAT 24T(PCIe mode)',
+                    data: [24.39],
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 1
+                },
+                {
+                    label: 'Jetson Orin',
+                    data: [10.2],
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Depth-Anything-V2 (518x518) Performance Benchmark (fps)',  // Chart title added here
+                    font: {
+                        size: 20
+                    }
+                },
+                legend: {
+                    position: 'top',
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(tooltipItem) {
+                            return tooltipItem.dataset.label + ': ' + tooltipItem.raw + ' fps';
+                        }
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>
+</div>
+
+相关数据来源: [Jetson Orin](https://github.com/IRCVLab/Depth-Anything-for-Jetson-Orin)
 
 
 ### clip
@@ -754,7 +815,7 @@ Save to output.wav
 
 
 ## AXCL 推理性能
-测试一下 `axcl_run_model` （与原生系统内 ax_run_model 同样使用方法），推理 yolov5s 的性能与 M4N 原生系统上的数据极度接近。（使用的板卡文件系统自带 yolov5s 模型为单核模型,"type: 1 Core", 实际满核性能为 x3）
+测试一下 `axcl_run_model` （与原生系统内 ax_run_model 同样使用方法），推理 yolov5s 的性能与 Maix4 原生系统上的数据极度接近。（使用的板卡文件系统自带 yolov5s 模型为单核模型,"type: 1 Core", 实际满核性能为 x3）
 
 
 ```bash
@@ -802,11 +863,11 @@ sipeed@rpi-sipeed:~/Downloads/AIDemos/models $ axcl_run_model -m yolov5s.axmodel
 
 ## 已知问题
 
-### 不断电重启树莓派会导致 M4N-Hat 无法再次挂载
+### 不断电重启树莓派会导致 Maix4-HAT 无法再次挂载
 > 注意：
-> 目前有一已知问题，因为当前板卡不能满足树莓派的启动过程中关于 pciex1 的复位时序，所以只有断电后再冷启动才能成功挂载 M4N-Hat。而在挂载成功后若是保持不断电来重启树莓派，会导致下一次树莓派无法挂载 M4N-Hat。因此每次都需要断电后再冷启动树莓派。
+> 目前有一已知问题，因为当前板卡不能满足树莓派的启动过程中关于 pciex1 的复位时序，所以只有断电后再冷启动才能成功挂载 Maix4-HAT。而在挂载成功后若是保持不断电来重启树莓派，会导致下一次树莓派无法挂载 Maix4-HAT。因此每次都需要断电后再冷启动树莓派。
 
-若是直接重启了树莓派，树莓派串口应会打印如下启动日志。其中第 18 行显示 `1000110000.pcie: link down`，表示 pcie 建立链接失败，显然此时未能成功挂载 M4N-Hat。
+若是直接重启了树莓派，树莓派串口应会打印如下启动日志。其中第 18 行显示 `1000110000.pcie: link down`，表示 pcie 建立链接失败，显然此时未能成功挂载 Maix4-HAT。
 ```bash
   7.11 fs_open: 'armstub8-2712.bin'
   7.15 Loading 'kernel_2712.img' to 0x00000000 offset 0x200000
@@ -834,7 +895,7 @@ My IP address is 192.168.10.176 fdae:b0ae:ebf1:0:b270:135e:b646:70c3
 rpi-sipeed login:
 ```
 
-> 当然现有一更简便方法。我们把树莓派的一个 GPIO 连到了 M4N-Hat 的复位引脚上，因此若需要保持不断电也能重启树莓派并能成功挂载。需要在每次重启前先执行命令 `gpioset gpiochip0 28=0` 让 M4N-Hat 进入复位状态，再正常执行树莓派重启命令即可再次正常挂载。
+> 当然现有一更简便方法。我们把树莓派的一个 GPIO 连到了 Maix4-HAT 的复位引脚上，因此若需要保持不断电也能重启树莓派并能成功挂载。需要在每次重启前先执行命令 `gpioset gpiochip0 28=0` Maix4-HAT 进入复位状态，再正常执行树莓派重启命令即可再次正常挂载。
 
 
 
