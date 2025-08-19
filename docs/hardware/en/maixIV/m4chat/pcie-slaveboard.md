@@ -504,18 +504,18 @@ save image take 445.9ms
     var SDV1_5BarChart = new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: ['U-Net (s/it)', 'VAE Decoder (s)'],  // Models as labels
+            labels: ['U-Net (it/min)', 'VAE Decoder (frame/min)'],  // Models as labels
             datasets: [
                 {
                     label: 'Maix4 HAT 24T(PCIe mode)',
-                    data: [0.43, 0.91],
+                    data: [139.53, 65.93],
                     backgroundColor: 'rgba(255, 99, 132, 0.2)',
                     borderColor: 'rgba(255, 99, 132, 1)',
                     borderWidth: 1
                 },
                 {
                     label: 'RK3588',
-                    data: [5.65, 11.13],
+                    data: [10.62, 5.39],
                     backgroundColor: 'rgba(54, 162, 235, 0.2)',
                     borderColor: 'rgba(54, 162, 235, 1)',
                     borderWidth: 1
@@ -538,7 +538,7 @@ save image take 445.9ms
                 tooltip: {
                     callbacks: {
                         label: function(tooltipItem) {
-                            return tooltipItem.dataset.label + ': ' + tooltipItem.raw + ' s';
+                            return tooltipItem.dataset.label + ': ' + tooltipItem.raw;
                         }
                     }
                 }
