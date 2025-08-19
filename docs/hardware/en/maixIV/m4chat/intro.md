@@ -1,21 +1,21 @@
 ## Introduction
 
-The M4N-Hat is a highly integrated AI computing module developed by Sipeed, featuring a compact design powered by AXERA's AX650N/C chip. As an embedded expansion module, it delivers 72 TOPS@INT4 (18 TOPS@INT8) computing power while retaining 8K video encoding/decoding capabilities, making it ideal for space-constrained edge computing applications.
+The M4C-Hat is a highly integrated AI computing module developed by Sipeed, featuring a compact design powered by AXERA's AX650N/C chip. As an embedded expansion module, it delivers 72 TOPS@INT4 (18 TOPS@INT8) computing power while retaining 8K video encoding/decoding capabilities, making it ideal for space-constrained edge computing applications.
 
 This module supports plug-and-play compatibility with mainstream Raspberry Pi development boards and accelerates Transformer-based architectures. With its onboard 0.8mm 4-pin USB and Type-A USB SS 5Gbps interfaces, it enables quick expansion for peripherals like cameras and storage, making it perfect for smart cameras, industrial inspection, and other lightweight AI applications. The PCIE 2.0 expansion interface is fully compatible with Raspberry Pi 5, supporting multi-modal edge computing nodes and the deployment of quantized large models such as QWen 2.5, QWen 3, DeepSeek, and InternVL2.5.
 
 ## Showcase
 
 <div style="display: flex; flex-wrap: wrap; gap: 10px; width: 100%;">
-  <img src="../../../zh/maixIV/assets/m4nhat/DSC07555.JPG" style="width: calc(50% - 5px);">
-  <img src="../../../zh/maixIV/assets/m4nhat/DSC07569.JPG" style="width: calc(50% - 5px);">
-  <img src="../../../zh/maixIV/assets/m4nhat/DSC07556.JPG" style="width: calc(50% - 5px);">
-  <img src="../../../zh/maixIV/assets/m4nhat/neofetch.jpg" style="width: calc(50% - 5px);">
+  <img src="../../../zh/maixIV/assets/m4chat/DSC07555.JPG" style="width: calc(50% - 5px);">
+  <img src="../../../zh/maixIV/assets/m4chat/DSC07569.JPG" style="width: calc(50% - 5px);">
+  <img src="../../../zh/maixIV/assets/m4chat/DSC07556.JPG" style="width: calc(50% - 5px);">
+  <img src="../../../zh/maixIV/assets/m4chat/neofetch.jpg" style="width: calc(50% - 5px);">
 </div>
 
 ## Interface Annotation Diagram
 
-![Interface Annotation Diagram](../assets/m4nhat/IAD.png)
+![Interface Annotation Diagram](../assets/m4chat/IAD.png)
 
 ## Key Specifications
 
@@ -35,8 +35,8 @@ This module supports plug-and-play compatibility with mainstream Raspberry Pi de
 
 ## Performance Benchmarks
 
-![](../../../zh/maixIV/assets/m4n/benchmark.png)
-![](../../../zh/maixIV/assets/m4n/normalized_benchmark.png)
+![](../../../zh/maixIV/assets/m4c/benchmark.png)
+![](../../../zh/maixIV/assets/m4c/normalized_benchmark.png)
 
 | Models      | RK3588@6T| Maix4@18T  | Hailo8 26T | Hailo8 13T |
 |-------------|----------|------------|------------|------------|

@@ -73,4 +73,4 @@ ethaddr=d0:00:00:00:00:03
 eth1addr=d0:00:00:00:00:04
 ```
 
-![](../../../zh/maixIV/assets/m4n/set-macaddress.png)
+![](../../../zh/maixIV/assets/m4c/set-macaddress.png)

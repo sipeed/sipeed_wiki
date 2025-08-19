@@ -1,21 +1,21 @@
 ## 简介
 
-M4N-Hat 是 Sipeed 公司推出的高集成度 AI 计算模组，采用爱芯元智 AX650N/C 芯片的紧凑型解决方案。作为嵌入式设备扩展模块，在提供 72TOPS@INT4(18TOPS@INT8) 算力的同时，保留与 M4N-Dock 同源的 8K 编解码能力，专为空间受限的边缘计算场景设计。
+M4C-Hat 是 Sipeed 公司推出的高集成度 AI 计算模组，采用爱芯元智 AX650N/C 芯片的紧凑型解决方案。作为嵌入式设备扩展模块，在提供 72TOPS@INT4(18TOPS@INT8) 算力的同时，保留与 M4C-Dock 同源的 8K 编解码能力，专为空间受限的边缘计算场景设计。
 
 本模组支持主流树莓派系列开发板即插即用，并支持 Transformer 架构加速。通过板载 0.8mm 4Pin USB 和 Type-A USB SS 5Gbps 接口，可快速扩展摄像头、存储等外设，是智能摄像头、工业质检等轻量级AI应用的理想选择。PCIE2.0 扩展接口完美适配树莓派5，支持构建多模态边缘计算节点，支持 QWen 2.5、QWen 3、DeepSeek、InternVL2.5 等大模型的量化部署。
 
 ## 图片展示
 
 <div style="display: flex; flex-wrap: wrap; gap: 10px; width: 100%;">
-  <img src="../assets/m4nhat/DSC07555.JPG" style="width: calc(50% - 5px);">
-  <img src="../assets/m4nhat/DSC07569.JPG" style="width: calc(50% - 5px);">
-  <img src="../assets/m4nhat/DSC07556.JPG" style="width: calc(50% - 5px);">
-  <img src="../assets/m4nhat/neofetch.jpg" style="width: calc(50% - 5px);">
+  <img src="../assets/m4chat/DSC07555.JPG" style="width: calc(50% - 5px);">
+  <img src="../assets/m4chat/DSC07569.JPG" style="width: calc(50% - 5px);">
+  <img src="../assets/m4chat/DSC07556.JPG" style="width: calc(50% - 5px);">
+  <img src="../assets/m4chat/neofetch.jpg" style="width: calc(50% - 5px);">
 </div>
 
 ## 接口标注
 
-![接口标注](../assets/m4nhat/IAD.png)
+![接口标注](../assets/m4chat/IAD.png)
 
 ## 功能参数
 
@@ -33,8 +33,8 @@ M4N-Hat 是 Sipeed 公司推出的高集成度 AI 计算模组，采用爱芯元
 | USB扩展  | 1x Type-A USB SS 5Gbps + 1x Type-C USB HS 480Mbps  |
 | 外部连接  | 1x 1.25mm 2p 外接扬声器 + 1x 1.25mm 2p 外接风扇 + 1x 10p fpc 外接 SPI 屏幕 + 1x 6p fpc 外接 I2C 触摸 |
 
-![](../assets/m4n/benchmark.png)
-![](../assets/m4n/normalized_benchmark.png)
+![](../assets/m4c/benchmark.png)
+![](../assets/m4c/normalized_benchmark.png)
 
 | Models      | RK3588@6T| Maix4@18T  | Hailo8 26T | Hailo8 13T |
 |-------------|----------|------------|------------|------------|

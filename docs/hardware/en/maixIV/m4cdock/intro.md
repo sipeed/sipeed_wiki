@@ -2,7 +2,7 @@
 
 **Taobao link: [Click to Buy](https://item.taobao.com/item.htm?spm=1619a.1.0.0.3f0865abb4Wq5c&id=744014549573&ns=1&abbucket=18#detail)**
 
-The M4N-Dock is an edge computing box featuring hybrid-precision computing capabilities, developed by Sipeed and powered by AXERA's third-generation high-efficiency AI vision chip, the AX650N. It delivers an impressive 72 TOPS@INT4 or 18 TOPS@INT8 of built-in AI computing power, capable of running popular large-scale AI models.
+The M4C-Dock is an edge computing box featuring hybrid-precision computing capabilities, developed by Sipeed and powered by AXERA's third-generation high-efficiency AI vision chip, the AX650N. It delivers an impressive 72 TOPS@INT4 or 18 TOPS@INT8 of built-in AI computing power, capable of running popular large-scale AI models.
 
 Equipped with an advanced ISP supporting 8K@30fps video processing and AXERA's proprietary AI-ISP technology for superior low-light night vision performance, it also integrates H.264/H.265 codecs capable of stable 8K@60fps decoding and 8K@30fps encoding. Real-world testing demonstrates reliable 32-channel 1080P@30fps decoding and 16-channel 1080P@30fps encoding.
 

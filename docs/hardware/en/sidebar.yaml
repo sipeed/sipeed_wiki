@@ -109,35 +109,34 @@ items:
             file: maixIII/ax-pi/faq_axpi.md
 -   label: Maix-IV
     items:
-    -   label: Maix M4N
-    #     file: maixIV/m4n/m4n.md
+    -   label: M4C SoM
         items:
         -   label: Flashing OS Image
-            file: maixIV/m4n/system-update.md
+            file: maixIV/m4c/system-update.md
         -   label: AI Models Deployment
-            file: maixIV/m4n/axmodel-deploy.md
+            file: maixIV/m4c/axmodel-deploy.md
         -   label: FAQ
-            file: maixIV/m4n/FAQ.md
-    -   label: Maix M4N-Dock
+            file: maixIV/m4c/FAQ.md
+    -   label: M4 Dock Carrier Board
         items:
         -   label: Intro
-            file: maixIV/m4ndock/intro.md
+            file: maixIV/m4cdock/intro.md
         -   label: Flashing OS Image
-            file: maixIV/m4n/system-update.md
+            file: maixIV/m4c/system-update.md
         -   label: Quick Start
-            file: maixIV/m4ndock/quick-start.md
+            file: maixIV/m4cdock/quick-start.md
         -   label: FAQ
-            file: maixIV/m4ndock/FAQ.md
-    -   label: Maix M4N-Hat
+            file: maixIV/m4cdock/FAQ.md
+    -   label: M4 Hat Carrier Board
         items:
         -   label: Intro
-            file: maixIV/m4nhat/intro.md
+            file: maixIV/m4chat/intro.md
         -   label: Flashing OS Image
-            file: maixIV/m4n/system-update.md
+            file: maixIV/m4c/system-update.md
         -   label: Quick Start
-            file: maixIV/m4nhat/quick-start.md
+            file: maixIV/m4chat/quick-start.md
         -   label: RPI5 PCIe Card
-            file: maixIV/m4nhat/pcie-slaveboard.md
+            file: maixIV/m4chat/pcie-slaveboard.md
 -   label: MaixCAM
     items:
     -   label: MaixCAM

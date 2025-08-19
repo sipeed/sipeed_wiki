@@ -38,7 +38,7 @@ Use a serial tool to view kernel logs or log in directly via terminal.
 
 For SSH access, expand network connectivity via USB Ethernet/WiFi dongles.
 
-Note: The system only has the root superuser, and SSH password login is disabled by default for security. For temporary access, refer to [here](../m4n/FAQ.md)。
+Note: The system only has the root superuser, and SSH password login is disabled by default for security. For temporary access, refer to [here](../m4c/FAQ.md)。
 
 
 ## Interactive Image Segmentation & Inpainting

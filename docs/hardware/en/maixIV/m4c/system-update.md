@@ -62,7 +62,7 @@ Example for Linux:
     - Option 1: Power cycle (unplug and replug power).
     - Option 2: Press and release the `RST` button while powered on.
 
-    Note for M4N-Dock: If the front panel is obstructed, remove it by unscrewing the 3 screws and rotating it open.
+    Note for M4C-Dock: If the front panel is obstructed, remove it by unscrewing the 3 screws and rotating it open.
 
 After completing these steps, the Live system should boot. You can observe the boot logs via UART0.
 
@@ -115,7 +115,7 @@ For detailed steps, refer to the `AXDL 工具使用指南.pdf` in the official S
 
 The AXDL software (Windows only) is located in the `PC_Software` directory on the download site.
 
-**Important Notes for M4N-Dock:**
+**Important Notes for M4C-Dock:**
 
 - **The USB flashing port is the bottom `USB-A port` near the `HDMI` connector (Ethernet side). Use an `A-to-A` cable or `A-to-C` cable if your PC has a `Type-C port`.**
 

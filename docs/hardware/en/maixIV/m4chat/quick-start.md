@@ -1,5 +1,5 @@
 ## System Update
-For details, refer to the [Flashing OS Image](../m4n/system-update.html)，The TFCard&eMMC image (Debian 12) is recommended.
+For details, refer to the [Flashing OS Image](../m4c/system-update.html)，The TFCard&eMMC image (Debian 12) is recommended.
 
 The following instructions are based on this image. If using a custom-built image, pay attention to operational details.
 
@@ -16,15 +16,15 @@ The following instructions are based on this image. If using a custom-built imag
 ### Normal Boot
 
 <div style="display: flex; flex-wrap: wrap; gap: 10px; width: 100%;">
-  <img src="../../../zh/maixIV/assets/m4nhat/DSC07545.JPG" style="width: calc(50% - 5px);">
-  <img src="../../../zh/maixIV/assets/m4nhat/DSC07546.JPG" style="width: calc(50% - 5px);">
+  <img src="../../../zh/maixIV/assets/m4chat/DSC07545.JPG" style="width: calc(50% - 5px);">
+  <img src="../../../zh/maixIV/assets/m4chat/DSC07546.JPG" style="width: calc(50% - 5px);">
 </div>
 
 1. Login Interface
 
     - Connect a display via mini HDMI and power on. The core board’s blue LED and Hat baseboard’s white LED should light up, indicating normal power supply.
 
-    - If the eMMC contains the default Raspberry Pi slave image, flash a new standalone image to the TF card and insert it into the M4N-Hat.
+    - If the eMMC contains the default Raspberry Pi slave image, flash a new standalone image to the TF card and insert it into the M4C-Hat.
 
     - Press and hold the `BOOT0` button, then press `RST`. After ~20 seconds, the LightDM login screen will appear, indicating a successful boot.
 
@@ -42,7 +42,7 @@ Use a serial tool to view kernel logs or log in directly via terminal.
 
 For SSH access, expand network connectivity via USB Ethernet/WiFi dongles.
 
-Note: The system only has the root superuser, and SSH password login is disabled by default for security. For temporary access, refer to [here](../m4n/FAQ.md)。
+Note: The system only has the root superuser, and SSH password login is disabled by default for security. For temporary access, refer to [here](../m4c/FAQ.md)。
 
 
 ## LLM
@@ -52,19 +52,19 @@ Note: The system only has the root superuser, and SSH password login is disabled
 Left: [DeepSeek-R1 1.5B](https://huggingface.co/AXERA-TECH/DeepSeek-R1-Distill-Qwen-1.5B)
 Right: [QWen3 0.6B](https://huggingface.co/AXERA-TECH/Qwen3-0.6B)
 
-Deployment guide: [here](../m4n/axmodel-deploy.html#部署大语言、多模态模型)
+Deployment guide: [here](../m4c/axmodel-deploy.html#部署大语言、多模态模型)
 
-![DSr1-1.5B-and-QWen-0.6B](../../../zh/maixIV/assets/m4nhat/DSr1-1.5B-and-QWen-0.6B.jpg)
+![DSr1-1.5B-and-QWen-0.6B](../../../zh/maixIV/assets/m4chat/DSr1-1.5B-and-QWen-0.6B.jpg)
 
 ## VLM
 
 ### internVL3
 
-![internVL3-demo](../../../zh/maixIV/assets/m4nhat/internVL3-demo.jpg)
+![internVL3-demo](../../../zh/maixIV/assets/m4chat/internVL3-demo.jpg)
 
 Demo video:
 
-<video controls autoplay src="../../../zh/maixIV/assets/m4nhat/m4nhat-run-llm-internVL-2025-07-07.mp4" type="video/mp4"> Your browser does not support video playback. </video>
+<video controls autoplay src="../../../zh/maixIV/assets/m4chat/m4chat-run-llm-internVL-2025-07-07.mp4" type="video/mp4"> Your browser does not support video playback. </video>
 
 ## DepthAnything v2
 
@@ -78,9 +78,9 @@ Demo video:
     source ../venv-llm/bin/activate
     python python/infer.py --img examples/demo02.jpg --model depth_anything_v2_vits_ax650.axmodel
     ```
-![DepthAnything-v2-before](../../../zh/maixIV/assets/m4nhat/DSC07539.JPG)
-![DepthAnything-v2-after](../../../zh/maixIV/assets/m4nhat/DSC07540.JPG)
-![depthanything-output](../../../zh/maixIV/assets/m4nhat/depthanything-output.png)
+![DepthAnything-v2-before](../../../zh/maixIV/assets/m4chat/DSC07539.JPG)
+![DepthAnything-v2-after](../../../zh/maixIV/assets/m4chat/DSC07540.JPG)
+![depthanything-output](../../../zh/maixIV/assets/m4chat/depthanything-output.png)
 
 
 ## Interactive Image Segmentation & Inpainting

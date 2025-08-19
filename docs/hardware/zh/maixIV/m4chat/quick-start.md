@@ -1,5 +1,5 @@
 ## 系统烧录
-详情见 [系统烧录指南](../m4n/system-update.html)，请优先考虑 TFCard&eMMC 镜像（Debian 12 系统）。
+详情见 [系统烧录指南](../m4c/system-update.html)，请优先考虑 TFCard&eMMC 镜像（Debian 12 系统）。
 
 以下基于该镜像展开介绍，若使用自行编译的镜像，请多加注意细节对比。
 
@@ -13,14 +13,14 @@
 ### 正常开机
 
 1. 登录界面
-通过 mini HDMI 连接显示器并接入供电，此时核心板应亮起蓝灯，Hat 底板亮起白灯，表明供电正常。如果 eMMC 为默认供树莓派启动的从机镜像，请注意烧录独立新镜像到 TF 卡并插入 M4N-Hat。再保持 `BOOT0` 键按下时点按 `RST`，等待片刻约 20 多秒后显示器屏幕将会如下显示 LightDM 登录界面，表示系统启动成功。
+通过 mini HDMI 连接显示器并接入供电，此时核心板应亮起蓝灯，Hat 底板亮起白灯，表明供电正常。如果 eMMC 为默认供树莓派启动的从机镜像，请注意烧录独立新镜像到 TF 卡并插入 M4C-Hat。再保持 `BOOT0` 键按下时点按 `RST`，等待片刻约 20 多秒后显示器屏幕将会如下显示 LightDM 登录界面，表示系统启动成功。
 
 2. 系统桌面
 板载 USB-A 口连接鼠标、键盘，方便后续系统操作和输入。登录界面等待输入用户名和密码，默认都为 root，确认登录即可进入 XFCE4 桌面系统。
 
 <div style="display: flex; flex-wrap: wrap; gap: 10px; width: 100%;">
-  <img src="../assets/m4nhat/DSC07545.JPG" style="width: calc(50% - 5px);">
-  <img src="../assets/m4nhat/DSC07546.JPG" style="width: calc(50% - 5px);">
+  <img src="../assets/m4chat/DSC07545.JPG" style="width: calc(50% - 5px);">
+  <img src="../assets/m4chat/DSC07546.JPG" style="width: calc(50% - 5px);">
 </div>
 
 ### 串口和SSH登录（进阶）
@@ -32,7 +32,7 @@
 
 注意：本系统仅内置 root 超级用户，且考虑到安全性并未开启超级用户 SSH 密码登录。
 
-若临时有该需求请参阅[这里](../m4n/FAQ.md)。
+若临时有该需求请参阅[这里](../m4c/FAQ.md)。
 
 
 ## LLM
@@ -42,18 +42,18 @@
 左侧：[DeepSeek-R1 1.5B](https://huggingface.co/AXERA-TECH/DeepSeek-R1-Distill-Qwen-1.5B)
 右侧：[QWen3 0.6B](https://huggingface.co/AXERA-TECH/Qwen3-0.6B)
 
-部署参考[此处](../m4n/axmodel-deploy.html#部署大语言、多模态模型)
+部署参考[此处](../m4c/axmodel-deploy.html#部署大语言、多模态模型)
 
-![DSr1-1.5B-and-QWen-0.6B](../assets/m4nhat/DSr1-1.5B-and-QWen-0.6B.jpg)
+![DSr1-1.5B-and-QWen-0.6B](../assets/m4chat/DSr1-1.5B-and-QWen-0.6B.jpg)
 
 ## VLM
 
 ### internVL3
 
-![internVL3-demo](../assets/m4nhat/internVL3-demo.jpg)
+![internVL3-demo](../assets/m4chat/internVL3-demo.jpg)
 
 操作过程如下视频：
-<video controls autoplay src="../assets/m4nhat/m4nhat-run-llm-internVL-2025-07-07.mp4" type="video/mp4"> Your browser does not support video playback. </video>
+<video controls autoplay src="../assets/m4chat/m4nhat-run-llm-internVL-2025-07-07.mp4" type="video/mp4"> Your browser does not support video playback. </video>
 
 ## DepthAnything v2
 下载[axcl npu python 库](https://github.com/AXERA-TECH/pyaxengine/releases)后，`pip install axengine-x.y.z-py3-none-any.whl` 进行安装。
@@ -62,9 +62,9 @@
 source ../venv-llm/bin/activate
 python python/infer.py --img examples/demo02.jpg --model depth_anything_v2_vits_ax650.axmodel
 ```
-![DepthAnything-v2-before](../assets/m4nhat/DSC07539.JPG)
-![DepthAnything-v2-after](../assets/m4nhat/DSC07540.JPG)
-![depthanything-output](../assets/m4nhat/depthanything-output.png)
+![DepthAnything-v2-before](../assets/m4chat/DSC07539.JPG)
+![DepthAnything-v2-after](../assets/m4chat/DSC07540.JPG)
+![depthanything-output](../assets/m4chat/depthanything-output.png)
 
 
 ## 交互式图像分割和修复（Segment and Inpaint Anything）

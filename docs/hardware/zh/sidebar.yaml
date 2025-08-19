@@ -111,34 +111,34 @@ items:
             file: maixIII/ax-pi/faq_axpi.md
 -   label: Maix-IV
     items:
-    -   label: M4N & M4C SoM
+    -   label: M4C SoM
         items:
         -   label: 系统烧录指南
-            file: maixIV/m4n_c-SoM/system-update.md
+            file: maixIV/m4c-SoM/system-update.md
         -   label: AI 模型部署
-            file: maixIV/m4n_c-SoM/axmodel-deploy.md
+            file: maixIV/m4c-SoM/axmodel-deploy.md
         -   label: FAQ
-            file: maixIV/m4n_c-SoM/FAQ.md
+            file: maixIV/m4c-SoM/FAQ.md
     -   label: M4 Dock Carrier Board
         items:
         -   label: 产品介绍
-            file: maixIV/m4ndock/intro.md
+            file: maixIV/m4cdock/intro.md
         -   label: 系统烧录指南
-            file: maixIV/m4n_c-SoM/system-update.md
+            file: maixIV/m4c-SoM/system-update.md
         -   label: 产品上手指南
-            file: maixIV/m4ndock/quick-start.md
+            file: maixIV/m4cdock/quick-start.md
         -   label: FAQ
-            file: maixIV/m4ndock/FAQ.md
+            file: maixIV/m4cdock/FAQ.md
     -   label: M4 Hat Carrier Board
         items:
         -   label: 产品介绍
-            file: maixIV/m4nhat/intro.md
+            file: maixIV/m4chat/intro.md
         -   label: 系统烧录指南
-            file: maixIV/m4n_c-SoM/system-update.md
+            file: maixIV/m4c-SoM/system-update.md
         -   label: 产品上手指南
-            file: maixIV/m4nhat/quick-start.md
+            file: maixIV/m4chat/quick-start.md
         -   label: 树莓派5 PCIe 加速指南
-            file: maixIV/m4nhat/pcie-slaveboard.md
+            file: maixIV/m4chat/pcie-slaveboard.md
 -   label: MaixCAM
     items:
     -   label: MaixCAM 介绍和资料

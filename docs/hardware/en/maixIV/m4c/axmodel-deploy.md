@@ -1,4 +1,4 @@
-# Deploying AI Models on M4N
+# Deploying AI Models on M4C
 
 ## Deploying Large Language and Multimodal Models
 

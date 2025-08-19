@@ -1,32 +1,35 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-# 树莓派5 PCIe 加速指南
+# Raspberry Pi 5 PCIe Acceleration Guide
 
-## 结果演示
-树莓派 5 以下前置准备工作完成后，演示运行[大模型 DeepSeek-R1:1.5B](https://huggingface.co/AXERA-TECH/DeepSeek-R1-Distill-Qwen-1.5B-GPTQ-Int4) (Int4 参数量化)，性能达 13.69 tokens/s（较小参数量模型性能受限于 PCIe 链接，对比单板直接运行结果 19 tokens/s 差距会稍大），对比树莓派 5 仅 6.12 tokens/s。见以下视频：
-<video controls autoplay src="../assets/m4nhat/PCIe/axcl-run-llm-on-raspi5-2025-08-19-3xspeedup.mp4" type="video/mp4"> Your browser does not support video playback. </video>
+## Final Demo
 
-## 前置准备
+After completing the following prerequisites for Raspberry Pi 5, running [the large language model DeepSeek-R1:1.5B](https://huggingface.co/AXERA-TECH/DeepSeek-R1-Distill-Qwen-1.5B-GPTQ-Int4)(Int4 Quantization for Model Parameters) achieves 13.69 tokens/s (performance for smaller models is limited by PCIe link bandwidth, showing a gap compared to the standalone board's 19 tokens/s),but RPI5 can only achieve 6.12 tokens/s. Watch the demo video:
 
-- Maix4-Hat
+<video controls autoplay src="../../../zh/maixIV/assets/m4chat/PCIe/axcl-run-llm-on-raspi5-2025-08-19-3xspeedup.mp4" type="video/mp4"> Your browser does not support video playback. </video>
+
+## Preparation
+
+- Maix4-HAT
 - sdcard-20250818.img.zst or newer
 
-### 安装
+### Installation
 <div style="display: flex; justify-content: space-between;">
-  <img src="../assets/m4nhat/DSC07559.JPG" style="width: 48%;">
-  <img src="../assets/m4nhat/DSC07561.JPG" style="width: 48%;">
+  <img src="../../../zh/maixIV/assets/m4chat/DSC07559.JPG" style="width: 48%;">
+  <img src="../../../zh/maixIV/assets/m4chat/DSC07561.JPG" style="width: 48%;">
 </div>
 
-![](../assets/m4nhat/DSC07569.JPG)
+![](../../../zh/maixIV/assets/m4chat/DSC07569.JPG)
 
-### Maix4-HAT 烧录从机系统
-1.使用 fpc 排线连接 Maix4-HAT 和 树莓派 5 的 PCIe 座子，并确认固定完毕。
+### Flashing the Maix4-HAT Slave System
 
-2.上电树莓派给 Maix4-HAT 供电。
+1.Connect the Maix4-HAT to the Raspberry Pi 5's PCIe slot using an FPC cable and secure it.
 
-3.参考 [System Flashing Guide](../m4n_c-SoM/system-update.html#启动-Live-系统（需手动按键操作）) 进入 TFCard Live 系统。
+2.Powering the Raspberry Pi 5 and Maix4-HAT.
 
-4.执行 `dd if=/boot/spl_AX650_card_signed.bin of=/dev/mmcblk0 conv=fsync` 烧录从机系统以支持通过 PCIe 启动:
+3.Refer to the [System Flashing Guide](../m4c/system-update.html#Booting-into-the-Live-System-(Manual-Intervention-Required)) and boot into the TFCard Live System。
+
+4.Execute `dd if=/boot/spl_AX650_card_signed.bin of=/dev/mmcblk0 conv=fsync` to flash the slave system for supporting PCIe boot:
   ```bash
   root@m4chat-08080a:~# dd if=/boot/spl_AX650_card_signed.bin of=/dev/mmcblk0 conv=fsync
   512+0 records in
@@ -34,40 +37,43 @@
   262144 bytes (262 kB, 256 KiB) copied, 0.0165514 s, 15.8 MB/s
   ```
 
-5.启用树莓派的 PCIex1 端口:
-  执行 `sudo raspi-config` 并进入 `6 Advanced Options -> A8 PCIe Speed`，选择 `Yes` 以使能 PCIex1 gen3。
-5.1.或检查 `/boot/firmware/config.txt` 中的内容（文件末尾）是否包含以下字段：
+5.Enable Raspberry Pi 5's PCIe x1 Interface.
+  Run `sudo raspi-config → 6 Advanced Options → A8 PCIe Speed → Select Yes` for PCIe x1 Gen3.
+5.1.or Manually add contents below to `/boot/firmware/config.txt`:
   ```bash
   [all]
   dtparam=pciex1_gen=3
   ```
-  实际上这个 `config.txt` 文件所在 SD 卡的 boot 分区为 FAT32 格式，因此可被广大操作系统识别和读写。可在树莓派关机后取出，并通过读卡器插在 PC 上直接修改。
-  > 注意：刚烧录树莓派镜像的新卡不存在这个 /boot/firmware 目录，此时需要插入树莓派完整启动一次才会生成上文所描述的结构。
 
-6.重启树莓派，使用 lspci 命令检查加速卡是否正确被识别：
+  Actually the `config.txt` file is located in the FAT32 type partition, so you can modify it after mount it on your PC directly.
+
+  > Note: Newly flashed Raspberry Pi SD cards lack the /boot/firmware directory. Boot once to generate it.
+
+6. Reboot Raspberry Pi. Verify the accelerator card is detected with `lspci`:
   ```bash
-  # 应能看到以下输出
-  sipeed@rpi-sipeed:~ $ lspci
+  sipeed@rpi-sipeed:~$ lspci
   0001:00:00.0 PCI bridge: Broadcom Inc. and subsidiaries BCM2712 PCIe Bridge (rev 21)
   0001:01:00.0 Multimedia video controller: Axera Semiconductor Co., Ltd Device 0650 (rev01)
   0002:00:00.0 PCI bridge: Broadcom Inc. and subsidiaries BCM2712 PCIe Bridge (rev 21)
   0002:01:00.0 Ethernet controller: Raspberry Pi Ltd RP1 PCIe 2.0 South Bridge
   ```
 
-  其中前两行信息则表示树莓派的 PCIe 初始化成功，并识别挂载了 `Multimedia video controller: Axera Semiconductor Co., Ltd Device 0650 (rev01)`。
+The first two lines confirm PCIe initialization and detection of the Axera AX650 controller. ANd the `Multimedia video controller: Axera Semiconductor Co., Ltd Device 0650 (rev01)` has been mounted correctly.
 
-### Raspi 5 安装 AXCL 软件包
-PCIe 可以正常识别到 Maix4-HAT 后，还需要继续安装 AXCL 软件包以提供支持，才能通过 Maix4-HAT 加速运行模型。
-该软件包 `axcl_host_aarch64_V3.6.2_20250603154858_NO4873.deb` 可于下载站单独下载到树莓派开发板上，或直接使用下面的AIDemos.tar.zst。
-然后运行安装命令：
+### Installing AXCL Software on Raspberry Pi 5
+
+You can download it separately to the Raspberry Pi development board from the download site, or directly use the provided AIDemos.tar.zst below.
+
+After PCIe detection, install the AXCL package for model acceleration:
+
 ```bash
-sudo apt install axcl_host_aarch64_V3.6.2_20250603154858_NO4873.deb
-# 如果遇到问题:例如可以识别 PCIe，但 axcl-smi 不能显示任何设备，请执行以下命令重新安装
+$ sudo apt install axcl_host_aarch64_V3.6.2_20250603154858_NO4873.deb
+# If your PCIe device is detected (visible in lspci), but axcl-smi fails to display it, follow these steps to reinstall the driver:
 sudo apt install --reinstall axcl_host_aarch64_V3.6.2_20250603154858_NO4873.deb
 ```
 
-安装成功后，断电重启树莓派。
-此时运行 `axcl-smi` 显示内容如下，即代表安装成功：
+Reboot the Pi. Verify installation with `axcl-smi`:
+
 ```bash
 sipeed@rpi-sipeed:~$ axcl-smi
 +------------------------------------------------------------------------------------------------+
@@ -86,14 +92,12 @@ sipeed@rpi-sipeed:~$ axcl-smi
 |================================================================================================|
 ```
 
+## Model Demonstration Guide
 
-## 模型演示
+Download [AIDemos.tar.zst](https://mega.nz/folder/NxxEzRAB#e-sA_IK0K5JqQM6FnCH6_Q) from the cloud storage and extract it to reproduce and experience the following deployed models.
 
-于网盘下载 [AIDemos.tar.zst](https://mega.nz/folder/NxxEzRAB#e-sA_IK0K5JqQM6FnCH6_Q) 并解压缩即可复现体验下列已部署模型。
-国内用户可于下载站百度网盘加速下载。
-
-### 准备:
-准备 Python 环境并安装 axengine 包。
+### Preparation:
+Prepare the Python environment and install the `axengine` package.
 ```bash
 cd /path/to/AIDemos/extra
 python -m venv venv-llm
@@ -102,8 +106,7 @@ pip install -r requirements.txt
 pip install axengine-0.1.3-py3-none-any.whl
 ```
 
-
-结果:
+Result:
 ```bash
 sipeed@rpi-sipeed:~/Downloads/AIDemos/extra $ ls -lh
 total 44M
@@ -114,14 +117,14 @@ drwxr-xr-x 6 sipeed sipeed 4.0K Aug 18 03:24 venv-llm
 ```
 
 ### YOLO11
-参考: https://huggingface.co/AXERA-TECH/YOLO11
+Link: https://huggingface.co/AXERA-TECH/YOLO11
 
-准备:
+Preparation:
 ```bash
 source ../extra/venv-llm/bin/activate
 ```
 
-示例:
+Example:
 ```bash
 sipeed@rpi-sipeed:~/Downloads/AIDemos/YOLO11 $ ls
 axcl_yolo11  ax_yolo11	football.jpg  ssd_horse.jpg  yolo11s.axmodel  yolo11x.axmodel
@@ -170,8 +173,8 @@ detection num: 7
 --------------------------------------
 ```
 <div style="display: flex; justify-content: space-between;">
-  <img src="../assets/m4nhat/PCIe/football.jpg" style="width: 48%;">
-  <img src="../assets/m4nhat/PCIe/yolo11_out.jpg" style="width: 48%;">
+  <img src="../../../zh/maixIV/assets/m4chat/PCIe/football.jpg" style="width: 48%;">
+  <img src="../../../zh/maixIV/assets/m4chat/PCIe/yolo11_out.jpg" style="width: 48%;">
 </div>
 
 <div style="width: 80%; margin: 0 auto;">
@@ -237,17 +240,17 @@ detection num: 7
 </script>
 </div>
 
-相关数据来源: [Ultralytics](https://docs.ultralytics.com/zh/guides/nvidia-jetson/#nvidia-jetson-orin-nano-super-developer-kit_1), [RK3588](https://github.com/yuunnn-w/rknn-cpp-yolo?tab=readme-ov-file#report-inference-results-and-speed)
+Data Source Attribution: [Ultralytics](https://docs.ultralytics.com/zh/guides/nvidia-jetson/#nvidia-jetson-orin-nano-super-developer-kit_1), [RK3588](https://github.com/yuunnn-w/rknn-cpp-yolo?tab=readme-ov-file#report-inference-results-and-speed)
 
 ### DeepSeek-R1-Distill-Qwen-1.5B-GPTQ-Int4
-参考: https://huggingface.co/AXERA-TECH/DeepSeek-R1-Distill-Qwen-1.5B-GPTQ-Int4
+Link: https://huggingface.co/AXERA-TECH/DeepSeek-R1-Distill-Qwen-1.5B-GPTQ-Int4
 
-用法:
+Usage:
 ```bash
 ./run_from_pi.sh
 ```
 
-示例:
+Example:
 ```bash
 sipeed@rpi-sipeed:~/Downloads/AIDemos/DeepSeek-R1-Distill-Qwen-1.5B-GPTQ-Int4 $ ./run_from_pi.sh
 Main script running (PID: 9852), subprocess PID: 9856
@@ -340,18 +343,18 @@ I'm DeepSeek-R1, an AI assistant created exclusively by DeepSeek. My purpose is 
 </script>
 </div>
 
-相关数据来源: [deepseek-r1-on-RPI5](https://dev.to/jeremycmorgan/running-deepseek-r1-locally-on-a-raspberry-pi-1gh8)
+Data Source Attribution: [deepseek-r1-on-RPI5](https://dev.to/jeremycmorgan/running-deepseek-r1-locally-on-a-raspberry-pi-1gh8)
 
 
 ### InternVL2_5-1B
-参考: https://huggingface.co/AXERA-TECH/InternVL2_5-1B
+Link: https://huggingface.co/AXERA-TECH/InternVL2_5-1B
 
-用法:
+Usage:
 ```bash
 ./run_from_pi.sh
 ```
 
-示例:
+Example:
 ```bash
 sipeed@rpi-sipeed:~/Downloads/AIDemos/InternVL2_5-1B $ ./run_from_pi.sh
 Main script running (PID: 10379), subprocess PID: 10383
@@ -402,18 +405,18 @@ The setting appears to be a bustling urban area, with a mix of historical and mo
 
 prompt >>
 ```
-![ssd_car.jpg](../assets/m4nhat/PCIe/ssd_car.jpg)
+![ssd_car.jpg](../../../zh/maixIV/assets/m4chat/PCIe/ssd_car.jpg)
 
 
 ### lcm-lora-sdv1-5
-参考: https://huggingface.co/AXERA-TECH/lcm-lora-sdv1-5
+Link: https://huggingface.co/AXERA-TECH/lcm-lora-sdv1-5
 
-准备:
+Preparation:
 ```bash
 source ../extra/venv-llm/bin/activate
 ```
 
-用法:
+Usage:
 ```bash
 python run_txt2img_axe_infer_once.py --prompt 'two beautiful girl'
 # or
@@ -422,7 +425,7 @@ python run_txt2img_axe_infer_loop.py # wait it be ready and then type prompt and
 python run_img2img_axe_infer.py --prompt "8k, cute" --init_image txt2img_output_axe.png
 ```
 
-示例:
+Example:
 ```bash
 (venv-llm) sipeed@rpi-sipeed:~/Downloads/AIDemos/lcm-lora-sdv1-5 $ python run_txt2img_axe_infer_once.py --prompt 'two beautiful girl'
 [INFO] Available providers:  ['AXCLRTExecutionProvider']
@@ -492,7 +495,7 @@ vae decoder inference take 913.7ms
 grid image saved in ./lcm_lora_sdv1-5_imgGrid_output.png
 save image take 445.9ms
 ```
-![img2img_output_axe](../assets/m4nhat/PCIe/img2img_output_axe.png)
+![img2img_output_axe](../../../zh/maixIV/assets/m4chat/PCIe/img2img_output_axe.png)
 
 <div style="width: 80%; margin: 0 auto;">
     <canvas id="SDV1_5BarChart"></canvas>
@@ -550,25 +553,25 @@ save image take 445.9ms
 </script>
 </div>
 
-相关数据来源: [RK3588](https://huggingface.co/happyme531/Stable-Diffusion-1.5-LCM-ONNX-RKNN2)
+Data Source Attribution: [RK3588](https://huggingface.co/happyme531/Stable-Diffusion-1.5-LCM-ONNX-RKNN2)
 
 
 ### Depth-Anything-V2
-参考: https://huggingface.co/AXERA-TECH/Depth-Anything-V2
+Link: https://huggingface.co/AXERA-TECH/Depth-Anything-V2
 
-准备:
+Preparation:
 ```bash
 source ../extra/venv-llm/bin/activate
 ```
 
-用法:
+Usage:
 ```bash
 python infer.py --model depth_anything_v2_vits.axmodel --img examples/demo01.jpg
 # or
 python infer_onnx.py --model depth_anything_v2_vits.onnx --img examples/demo02.jpg
 ```
-![depth_ouput_ax1](../assets/m4nhat/PCIe/depth_ouput_ax1.png)
-![depth_ouput_ax2](../assets/m4nhat/PCIe/depth_ouput_ax2.png)
+![depth_ouput_ax1](../../../zh/maixIV/assets/m4chat/PCIe/depth_ouput_ax1.png)
+![depth_ouput_ax2](../../../zh/maixIV/assets/m4chat/PCIe/depth_ouput_ax2.png)
 
 <div style="width: 80%; margin: 0 auto;">
     <canvas id="Depth_Anything_V2BarChart"></canvas>
@@ -626,20 +629,20 @@ python infer_onnx.py --model depth_anything_v2_vits.onnx --img examples/demo02.j
 </script>
 </div>
 
-相关数据来源: [Jetson Orin](https://github.com/IRCVLab/Depth-Anything-for-Jetson-Orin)
+Data Source Attribution: [Jetson Orin](https://github.com/IRCVLab/Depth-Anything-for-Jetson-Orin)
 
 
 ### clip
-参考:
+Link:
 - https://huggingface.co/AXERA-TECH/clip
 - https://github.com/AXERA-TECH/clip.axera
 
-准备:
+Preparation:
 ```bash
 source ../extra/venv-llm/bin/activate
 ```
 
-示例:
+Example:
 ```bash
 (venv-llm) sipeed@rpi-sipeed:~/Downloads/AIDemos/clip $ ls
 clip_vit_l14_336px_image_encoder_all_u16_fc_u8.axmodel	clip_vit_l14_336px_text_encoder_u16.axmodel  images  infer.py  Tokenizer.py  vocab.txt
@@ -693,14 +696,14 @@ pineapple       0.00       0.00        0.00        0.00      0.00     0.00     0
 
 
 ### Whisper
-参考: https://huggingface.co/AXERA-TECH/Whisper
+Link: https://huggingface.co/AXERA-TECH/Whisper
 
-准备:
+Preparation:
 ```bash
 source ../extra/venv-llm/bin/activate
 ```
 
-用法:
+Usage:
 ```bash
 python whisper_onnx.py --model_path ./models-onnx/base/ -t base --wav ./demo.wav
 
@@ -709,7 +712,7 @@ python whisper.py --model_path ./models/small/ -t small --wav ./demo.wav
 ./whisper_axcl_aarch64 -e ./models/small/small-encoder.axmodel -m ./models/small/small-decoder-main.axmodel -l ./models/small/small-decoder-loop.axmodel -p ./models/small/small-positional_embedding.bin -t ./models/small/small-tokens.txt -w ./demo.wav
 ```
 
-示例:
+Example:
 ```bash
 (venv-llm) sipeed@rpi-sipeed:~/Downloads/AIDemos/Whisper $ ./whisper_axcl_aarch64 -e ./models/small/small-encoder.axmodel -m ./models/small/small-decoder-main.axmodel -l ./models/small/small-decoder-loop.axmodel -p ./models/small/small-positional_embedding.bin -t ./models/small/small-tokens.txt -w ./RP1intro.wav --language en
 encoder: ./models/small/small-encoder.axmodel
@@ -754,15 +757,15 @@ Result:  Raspberry Pi 5 is built using the RQ1 IO control, a package containing 
 
 
 ### MeloTTS
-参考: https://huggingface.co/AXERA-TECH/MeloTTS
+Link: https://huggingface.co/AXERA-TECH/MeloTTS
 
-准备:
+Preaparation:
 ```bash
 source ../extra/venv-llm/bin/activate
 cp -R nltk_data ~/
 ```
 
-用法:
+Usage:
 ```bash
 (venv-llm) sipeed@rpi-sipeed:~/Downloads/AIDemos/MeloTTS/python $ cd python
 (venv-llm) sipeed@rpi-sipeed:~/Downloads/AIDemos/MeloTTS/python $ python melotts.py -h
@@ -784,7 +787,7 @@ options:
   --language {ZH,ZH_MIX_EN,JP,EN,KR,ES,SP,FR}, -l {ZH,ZH_MIX_EN,JP,EN,KR,ES,SP,FR}
 ```
 
-示例:
+Example:
 ```bash
 (venv-llm) sipeed@rpi-sipeed:~/Downloads/AIDemos/MeloTTS/python $ python melotts.py -s "Dig the well before you are thirsty." -l EN
 [INFO] Available providers:  ['AXCLRTExecutionProvider']
@@ -813,9 +816,9 @@ Save to output.wav
 ```
 
 
+## AXCL Inference Performance 
 
-## AXCL 推理性能
-测试一下 `axcl_run_model` （与原生系统内 ax_run_model 同样使用方法），推理 yolov5s 的性能与 Maix4 原生系统上的数据极度接近。（使用的板卡文件系统自带 yolov5s 模型为单核模型,"type: 1 Core", 实际满核性能为 x3）
+Run `axcl_run_model` (usage mirrors native ax_run_model). Example with YOLOv5s (single-core model; full-core performance scales ~3x):
 
 
 ```bash
@@ -836,7 +839,7 @@ sipeed@rpi-sipeed:~/Downloads/AIDemos/models $ axcl_run_model -m yolov5s.axmodel
   ------------------------------------------------------
 ```
 
-其余常用模型的性能实测数据如下表：
+Performance Benchmarks Table：
 
 | Model         | Input Size | Batch 1 (IPS) | Batch 8 (IPS) |
 |---------------|------------|---------------|---------------|
@@ -861,13 +864,12 @@ sipeed@rpi-sipeed:~/Downloads/AIDemos/models $ axcl_run_model -m yolov5s.axmodel
 | YOLOv11x      | 640        | 41            | -             |
 
 
-## 已知问题
+## Known Issues
 
-### 不断电重启树莓派会导致 Maix4-HAT 无法再次挂载
-> 注意：
-> 目前有一已知问题，因为当前板卡不能满足树莓派的启动过程中关于 pciex1 的复位时序，所以只有断电后再冷启动才能成功挂载 Maix4-HAT。而在挂载成功后若是保持不断电来重启树莓派，会导致下一次树莓派无法挂载 Maix4-HAT。因此每次都需要断电后再冷启动树莓派。
+### Maix4-HAT Fails to Mount After Soft Reboot RPI5
 
-若是直接重启了树莓派，树莓派串口应会打印如下启动日志。其中第 18 行显示 `1000110000.pcie: link down`，表示 pcie 建立链接失败，显然此时未能成功挂载 Maix4-HAT。
+Due to PCIe reset timing limitations, cold boot (power cycle) is required for successful mounting. A soft reboot leaves PCIe link down (line 18):
+
 ```bash
   7.11 fs_open: 'armstub8-2712.bin'
   7.15 Loading 'kernel_2712.img' to 0x00000000 offset 0x200000
@@ -894,15 +896,19 @@ My IP address is 192.168.10.176 fdae:b0ae:ebf1:0:b270:135e:b646:70c3
 
 rpi-sipeed login:
 ```
+**Workaround:**
 
-> 当然现有一更简便方法。我们把树莓派的一个 GPIO 连到了 Maix4-HAT 的复位引脚上，因此若需要保持不断电也能重启树莓派并能成功挂载。需要在每次重启前先执行命令 `gpioset gpiochip0 28=0` Maix4-HAT 进入复位状态，再正常执行树莓派重启命令即可再次正常挂载。
+Before rebooting, reset the Maix4-HAT via GPIO:
 
+```bash
+gpioset gpiochip0 28=0  # Force Maix4-HAT reset  
+reboot
+```
 
+## Additional Resources for AXCL
 
-## AXCL 更多资料
+- [AXCL Documentation](https://axcl-docs.readthedocs.io)
 
-**其余详细信息可查看 [axcl官方文档](https://axcl-docs.readthedocs.io)。**
+- [RPi 5 AXCL Guide](https://axcl-pi5-examples-cn.readthedocs.io)
 
-**另有 [树莓派5 AXCL专项页面](https://axcl-pi5-examples-cn.readthedocs.io)。**
-
-可于 [文中](../m4n_c-SoM/axmodel-deploy.html) 介绍到的大模型仓库下载各种已被支持的大模型，并在树莓派上部署运行。
+- Refer to [here](../m4c/axmodel-deploy.html) for detailed model development.
