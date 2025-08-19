@@ -172,6 +172,10 @@ detection num: 9
  0:  46%, [1837,  696, 1877,  814], person
 --------------------------------------
 ```
+<div style="display: flex; justify-content: space-between;">
+  <img src="../assets/m4nhat/PCIe/football.jpg" style="width: 48%;">
+  <img src="../assets/m4nhat/PCIe/yolo11_out.jpg" style="width: 48%;">
+</div>
 
 
 ### DeepSeek-R1-Distill-Qwen-1.5B-GPTQ-Int4
@@ -279,7 +283,7 @@ The setting appears to be a bustling urban area, with a mix of historical and mo
 
 prompt >>
 ```
-![ssd_car.jpg](../assets/m4nhat/ssd_car.jpg)
+![ssd_car.jpg](../assets/m4nhat/PCIe/ssd_car.jpg)
 
 
 ### lcm-lora-sdv1-5
@@ -298,6 +302,7 @@ python run_txt2img_axe_infer_loop.py # wait it be ready and then type prompt and
 # or
 python run_img2img_axe_infer.py --prompt "8k, cute" --init_image txt2img_output_axe.png
 ```
+![img2img_output_axe](../assets/m4nhat/PCIe/img2img_output_axe.png)
 
 
 ### Depth-Anything-V2
@@ -314,6 +319,8 @@ python infer.py --model depth_anything_v2_vits.axmodel --img examples/demo01.jpg
 # or
 python infer_onnx.py --model depth_anything_v2_vits.onnx --img examples/demo02.jpg
 ```
+![depth_ouput_ax1](../assets/m4nhat/PCIe/depth_ouput_ax1.png)
+![depth_ouput_ax2](../assets/m4nhat/PCIe/depth_ouput_ax2.png)
 
 
 ### clip
