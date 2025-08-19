@@ -1,4 +1,4 @@
-# 树莓派 5 安装 M4N-Hat
+# 树莓派5 PCIe 加速指南
 
 ## 结果演示
 树莓派 5 以下前置准备工作完成后，演示运行[大模型 QWen3](https://huggingface.co/AXERA-TECH/QWen3-0.6B) (Int8 参数量化)，性能达 13.2 tokens/s（较小参数量模型性能受限于 PCIe 链接，对比单板直接运行结果 19 tokens/s 差距会稍大）。见以下视频：
@@ -23,7 +23,7 @@
 ![](../assets/m4nhat/DSC07569.JPG)
 
 ### M4N 烧录从机系统
-1.使用 fpc 排线连接 M4N-Hat 和 树莓派 5 的 pcie 座子，并确认固定完毕。
+1.使用 fpc 排线连接 M4N-Hat 和 树莓派 5 的 PCIe 座子，并确认固定完毕。
 
 2.上电树莓派给 M4N-Hat 供电。
 
