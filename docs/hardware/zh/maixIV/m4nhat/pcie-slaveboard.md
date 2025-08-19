@@ -1,13 +1,10 @@
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 # 树莓派5 PCIe 加速指南
 
 ## 结果演示
-树莓派 5 以下前置准备工作完成后，演示运行[大模型 QWen3](https://huggingface.co/AXERA-TECH/QWen3-0.6B) (Int8 参数量化)，性能达 13.2 tokens/s（较小参数量模型性能受限于 PCIe 链接，对比单板直接运行结果 19 tokens/s 差距会稍大）。见以下视频：
-<video controls autoplay src="../assets/m4nhat/axcl-run-llm-on-raspi5-2025-07-03-4xspeedup.mp4" type="video/mp4"> Your browser does not support video playback. </video>
-视频中完整演示了：
-1. 下载已支持的大语言模型 QWen3-0.6B-Int8
-2. 准备 python-venv 环境，安装所需 python 库
-3. 运行 QWen3 并完成两次问答
-
+树莓派 5 以下前置准备工作完成后，演示运行[大模型 DeepSeek-R1:1.5B](https://huggingface.co/AXERA-TECH/DeepSeek-R1-Distill-Qwen-1.5B-GPTQ-Int4) (Int4 参数量化)，性能达 13.69 tokens/s（较小参数量模型性能受限于 PCIe 链接，对比单板直接运行结果 19 tokens/s 差距会稍大），对比树莓派 5 仅 6.12 tokens/s。见以下视频：
+<video controls autoplay src="../assets/m4nhat/PCIe/axcl-run-llm-on-raspi5-2025-08-19-3xspeedup.mp4" type="video/mp4"> Your browser does not support video playback. </video>
 
 ## 前置准备
 
@@ -116,6 +113,7 @@ drwxr-xr-x 6 sipeed sipeed 4.0K Aug 18 03:24 venv-llm
 ```
 
 ### YOLO11
+参考: https://huggingface.co/AXERA-TECH/YOLO11
 
 准备:
 ```bash
@@ -124,11 +122,11 @@ source ../extra/venv-llm/bin/activate
 
 示例:
 ```bash
-(venv-llm) sipeed@rpi-sipeed:~/Downloads/AIDemos/YOLO11 $ ls
+sipeed@rpi-sipeed:~/Downloads/AIDemos/YOLO11 $ ls
 axcl_yolo11  ax_yolo11	football.jpg  ssd_horse.jpg  yolo11s.axmodel  yolo11x.axmodel
-(venv-llm) sipeed@rpi-sipeed:~/Downloads/AIDemos/YOLO11 $ ./axcl_yolo11 -m yolo11x.axmodel -i football.jpg
+sipeed@rpi-sipeed:~/Downloads/AIDemos/YOLO11 $ ./axcl_yolo11 -m yolo11s.axmodel -i football.jpg
 --------------------------------------
-model file : yolo11x.axmodel
+model file : yolo11s.axmodel
 image file : football.jpg
 img_h, img_w : 640 640
 --------------------------------------
@@ -156,20 +154,18 @@ output size: 3
 
 Engine push input is done.
 --------------------------------------
-post process cost time:0.96 ms
+post process cost time:0.90 ms
 --------------------------------------
-Repeat 1 times, avg time 24.74 ms, max_time 24.74 ms, min_time 24.74 ms
+Repeat 1 times, avg time 3.34 ms, max_time 3.34 ms, min_time 3.34 ms
 --------------------------------------
-detection num: 9
- 0:  94%, [ 757,  220, 1127, 1154], person
- 0:  94%, [   0,  357,  314, 1112], person
- 0:  93%, [1353,  339, 1629, 1037], person
- 0:  91%, [ 494,  476,  659, 1001], person
-32:  86%, [1231,  877, 1281,  922], sports ball
-32:  73%, [ 774,  887,  828,  938], sports ball
-32:  66%, [1012,  882, 1051,  927], sports ball
- 0:  54%, [   0,  543,   83, 1000], person
- 0:  46%, [1837,  696, 1877,  814], person
+detection num: 7
+ 0:  95%, [ 759,  213, 1126, 1152], person
+ 0:  94%, [   0,  359,  315, 1107], person
+ 0:  94%, [1350,  344, 1629, 1036], person
+ 0:  89%, [ 490,  480,  658,  996], person
+32:  73%, [ 771,  888,  830,  939], sports ball
+32:  67%, [1231,  876, 1280,  924], sports ball
+ 0:  62%, [   0,  565,   86,  995], person
 --------------------------------------
 ```
 <div style="display: flex; justify-content: space-between;">
@@ -177,6 +173,70 @@ detection num: 9
   <img src="../assets/m4nhat/PCIe/yolo11_out.jpg" style="width: 48%;">
 </div>
 
+<div style="width: 80%; margin: 0 auto;">
+    <canvas id="YOLOv11BarChart"></canvas>
+<script>
+    var ctx = document.getElementById('YOLOv11BarChart').getContext('2d');
+    var YOLOv11BarChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['YOLOv11x', 'YOLOv11s'],  // Now the models are the labels
+            datasets: [
+                {
+                    label: 'Maix4 Hat',
+                    data: [24.70, 3.35],
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 1
+                },
+                {
+                    label: 'Jetson Orin Nano Super',
+                    data: [19.90, 5.08],
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                },
+                {
+                    label: 'RK3588',
+                    data: [0, 42.02],
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'YOLOv11 Performance Benchmark(lower is better)',  // Chart title added here
+                    font: {
+                        size: 20
+                    }
+                },
+                legend: {
+                    position: 'top',
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(tooltipItem) {
+                            return tooltipItem.dataset.label + ': ' + tooltipItem.raw + ' ms';
+                        }
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>
+</div>
+
+相关数据来源: [ultralytics](https://docs.ultralytics.com/zh/guides/nvidia-jetson/#nvidia-jetson-orin-nano-super-developer-kit_1), [RK3588](https://github.com/yuunnn-w/rknn-cpp-yolo?tab=readme-ov-file#report-inference-results-and-speed)
 
 ### DeepSeek-R1-Distill-Qwen-1.5B-GPTQ-Int4
 参考: https://huggingface.co/AXERA-TECH/DeepSeek-R1-Distill-Qwen-1.5B-GPTQ-Int4
@@ -222,6 +282,64 @@ I'm DeepSeek-R1, an AI assistant created exclusively by DeepSeek. My purpose is 
 
 >>
 ```
+
+<div style="width: 80%; margin: 0 auto;">
+    <canvas id="DeepSeekR1BarChart"></canvas>
+<script>
+    var ctx = document.getElementById('DeepSeekR1BarChart').getContext('2d');
+    var DeepSeekR1BarChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['DSR1:1.5B', 'DSR1:7B'],  // Models as labels
+            datasets: [
+                {
+                    label: 'Maix4 Hat',
+                    data: [13.69, 4.64],
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 1
+                },
+                {
+                    label: 'RPI5',
+                    data: [6.12, 1.43],
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'DeepSeek-R1 Performance Benchmark(higher is better)',  // Chart title added here
+                    font: {
+                        size: 20
+                    }
+                },
+                legend: {
+                    position: 'top',
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(tooltipItem) {
+                            return tooltipItem.dataset.label + ': ' + tooltipItem.raw + ' token/s';
+                        }
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>
+</div>
+
+相关数据来源: [deepseek-r1-on-RPI5](https://dev.to/jeremycmorgan/running-deepseek-r1-locally-on-a-raspberry-pi-1gh8)
 
 
 ### InternVL2_5-1B
@@ -302,7 +420,134 @@ python run_txt2img_axe_infer_loop.py # wait it be ready and then type prompt and
 # or
 python run_img2img_axe_infer.py --prompt "8k, cute" --init_image txt2img_output_axe.png
 ```
+
+示例:
+```bash
+(venv-llm) sipeed@rpi-sipeed:~/Downloads/AIDemos/lcm-lora-sdv1-5 $ python run_txt2img_axe_infer_once.py --prompt 'two beautiful girl'
+[INFO] Available providers:  ['AXCLRTExecutionProvider']
+prompt: two beautiful girl
+text_tokenizer: ./models/tokenizer
+text_encoder: ./models/text_encoder
+unet_model: ./models/unet.axmodel
+vae_decoder_model: ./models/vae_decoder.axmodel
+time_input: ./models/time_input_txt2img.npy
+save_dir: ./txt2img_output_axe.png
+[INFO] Using provider: AXCLRTExecutionProvider
+[INFO] SOC Name: AX650N
+[INFO] VNPU type: VNPUType.DISABLED
+[INFO] Compiler version: 3.4 9215b7e5
+text encoder take 4936.9ms
+[INFO] Using provider: AXCLRTExecutionProvider
+[INFO] SOC Name: AX650N
+[INFO] VNPU type: VNPUType.DISABLED
+[INFO] Compiler version: 3.3 972f38ca
+[INFO] Using provider: AXCLRTExecutionProvider
+[INFO] SOC Name: AX650N
+[INFO] VNPU type: VNPUType.DISABLED
+[INFO] Compiler version: 3.3 972f38ca
+load models take 25627.9ms
+unet once take 433.6ms
+unet once take 433.4ms
+unet once take 433.5ms
+unet once take 433.5ms
+unet loop take 1736.7ms
+vae inference take 914.8ms
+save image take 206.9ms
+
+(venv-llm) sipeed@rpi-sipeed:~/Downloads/AIDemos/lcm-lora-sdv1-5 $ python run_img2img_axe_infer.py --prompt "8k, cute" --init_image txt2img_output_axe.png
+[INFO] Available providers:  ['AXCLRTExecutionProvider']
+prompt: 8k, cute
+text_tokenizer: ./models/tokenizer
+text_encoder: ./models/text_encoder
+unet_model: ./models/unet.axmodel
+vae_encoder_model: ./models/vae_encoder.axmodel
+vae_decoder_model: ./models/vae_decoder.axmodel
+init image: txt2img_output_axe.png
+time_input: ./models/time_input_img2img.npy
+save_dir: ./img2img_output_axe.png
+[INFO] Using provider: AXCLRTExecutionProvider
+[INFO] SOC Name: AX650N
+[INFO] VNPU type: VNPUType.DISABLED
+[INFO] Compiler version: 3.4 9215b7e5
+text encoder take 2954.0ms
+[INFO] Using provider: AXCLRTExecutionProvider
+[INFO] SOC Name: AX650N
+[INFO] VNPU type: VNPUType.DISABLED
+[INFO] Compiler version: 3.3-dirty 2ecead35-dirty
+[INFO] Using provider: AXCLRTExecutionProvider
+[INFO] SOC Name: AX650N
+[INFO] VNPU type: VNPUType.DISABLED
+[INFO] Compiler version: 3.3 972f38ca
+[INFO] Using provider: AXCLRTExecutionProvider
+[INFO] SOC Name: AX650N
+[INFO] VNPU type: VNPUType.DISABLED
+[INFO] Compiler version: 3.3 972f38ca
+load models take 15804.3ms
+vae encoder inference take 459.1ms
+unet once take 433.6ms
+unet once take 433.3ms
+unet loop take 868.3ms
+vae decoder inference take 913.7ms
+grid image saved in ./lcm_lora_sdv1-5_imgGrid_output.png
+save image take 445.9ms
+```
 ![img2img_output_axe](../assets/m4nhat/PCIe/img2img_output_axe.png)
+
+<div style="width: 80%; margin: 0 auto;">
+    <canvas id="SDV1_5BarChart"></canvas>
+<script>
+    var ctx = document.getElementById('SDV1_5BarChart').getContext('2d');
+    var SDV1_5BarChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['U-Net (s/it)', 'VAE Decoder (s)'],  // Models as labels
+            datasets: [
+                {
+                    label: 'Maix4 Hat',
+                    data: [0.43, 0.91],
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 1
+                },
+                {
+                    label: 'RK3588',
+                    data: [5.65, 11.13],
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Stable-Diffusion-1.5 (512x512) Performance Benchmark (lower is better)',  // Chart title added here
+                    font: {
+                        size: 20
+                    }
+                },
+                legend: {
+                    position: 'top',
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(tooltipItem) {
+                            return tooltipItem.dataset.label + ': ' + tooltipItem.raw + ' s';
+                        }
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>
+</div>
 
 
 ### Depth-Anything-V2
