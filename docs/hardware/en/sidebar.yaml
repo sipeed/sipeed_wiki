@@ -630,25 +630,19 @@ items:
                 file: modules_spmod/spmod_lcd1.14.md
             -   label: SP-Eink
                 file: modules_spmod/spmod_eink.md
-    -   label: Module && Debugger
+    -   label: Module
         items:
-        -   label: Debugger
+        -   label: camera
             items:
-            -   label: Sipeed RV Debugger
-            -   label: Dual uart USB module
-        -   label: module
-            items:
-            -   label: camera
-                items:
-                -   label: GC0328
-                -   label: Dual cam module(GC0328)
-                -   label: OV7740
-                -   label: OV2640
-                -   label: OV2640-M12
-                -   label: Dual cam module(OV2640)
-            -   label: Mic module
-                items:
-                -   label: Mic array
-                    file: modules/micarray.md
-            -   label: Sipeed Gamepad
-                file: modules/Gamepad.md
+            -   label: GC0328
+            -   label: Dual cam module(GC0328)
+            -   label: OV7740
+            -   label: OV2640
+            -   label: OV2640-M12
+            -   label: Dual cam module(OV2640)
+        -   label: Mic array
+            file: modules/micarray.md
+        -   label: MicArray UAC Drive Board (MA-USB8)
+            file: modules/micarray_usbboard_bl616.md
+        -   label: Sipeed Gamepad
+            file: modules/Gamepad.md

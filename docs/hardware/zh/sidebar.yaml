@@ -642,18 +642,13 @@ items:
                 file: modules_spmod/spmod_lcd1.14.md
             -   label: SP-Eink
                 file: modules_spmod/spmod_eink.md
-    -   label: 模块 & 调试器
+    -   label: 模块
         items:
-        -   label: 调试器 & 串口模块
-            file: modules/debugger_and_uart.md
-        -   label: 模块
-            collapsed: false
-            items:
-            -   label: 摄像头
-                file: modules/camera_summary.md
-            -   label: 麦克风模块
-                items:
-                -   label: 麦克风阵列
-                    file: modules/micarray.md
-            -   label: Sipeed Gamepad
-                file: modules/Gamepad.md
+        -   label: 摄像头
+            file: modules/camera_summary.md
+        -   label: 麦克风阵列
+            file: modules/micarray.md
+        -   label: 麦克风阵列UAC驱动板 MA-USB8
+            file: modules/micarray_usbboard_bl616.md
+        -   label: Sipeed Gamepad
+            file: modules/Gamepad.md
