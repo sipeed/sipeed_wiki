@@ -38,6 +38,24 @@
 ### USB UAC2.0 (Audacity)
 ![](../../assets/modules/micarray_usbboard_bl616/audacity-linux-sine1k.png)
 
+**Windows WASAPI**
+<div style="display: flex; justify-content: space-between;">
+  <img src="../../assets/modules/micarray_usbboard_bl616/audacity-windows-wasapi-step-1.png" style="width: 48%;">
+  <img src="../../assets/modules/micarray_usbboard_bl616/audacity-windows-wasapi-step-2.png" style="width: 48%;">
+</div>
+
+### USB UAC2.0 Beamforming (Audacity)
+
+驱动板支持12方向的波束成型，即抑制用户设置的监听方向之外的音频，达到给目标监听方向增益降噪的效果。以下以正弦波音频实例测试讲解:
+
+Mic0(CH0) 接近 500HZ 正弦波，Mic3(CH3) 接近 1000HZ 正弦波。
+
+串口输入 `0`，这样 CH6 就是 CH0 处波束成形的输出。
+
+显然在 CH6 上，增益了靠近 CH0 处的 500hz 正弦波信号并消除了其他角度的 1000hz 正弦波信号带来的影响。
+
+![](../../assets/modules/micarray_usbboard_bl616/sine500hz@ch0_and_sine1000hz@ch3_with_beamforming@ch0.png)
+
 ### USB CDC ACM RAW (Minicom) and USB2TTL UART HEX-CMAP (Picocom)
 
 ![](../../assets/modules/micarray_usbboard_bl616/minicom_acm&picocom_uart-combine.png)

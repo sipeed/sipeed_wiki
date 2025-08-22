@@ -40,6 +40,24 @@ Choose one of the following connection methods:
 ### USB UAC2.0 (Audacity)
 ![](../../assets/modules/micarray_usbboard_bl616/audacity-linux-sine1k.png)
 
+**Windows WASAPI**
+<div style="display: flex; justify-content: space-between;">
+  <img src="../../assets/modules/micarray_usbboard_bl616/audacity-windows-wasapi-step-1.png" style="width: 48%;">
+  <img src="../../assets/modules/micarray_usbboard_bl616/audacity-windows-wasapi-step-2.png" style="width: 48%;">
+</div>
+
+### USB UAC2.0 Beamforming (Audacity)
+
+This board supports 12-direction beamforming, which suppresses audio from other directions than the user-set monitoring direction, thereby achieving noise reduction and gain for the target monitoring direction. The following example uses a sine wave audio test for demonstration:
+
+Mic0(CH0) is near the 500HZ SINE wave and Mic3(CH3) is near the 1000HZ SINE wave.
+
+Type `0` in serial so that CH6 is the output of beamforming at CH0.
+
+Obviously on CH6, the gain of the 500 Hz sine wave signal near CH0 has been increased, while the impact of the 1000 Hz sine wave signal from other directions has been eliminated.
+
+![](../../assets/modules/micarray_usbboard_bl616/sine500hz@ch0_and_sine1000hz@ch3_with_beamforming@ch0.png)
+
 ### USB CDC ACM RAW (Minicom) and USB2TTL UART HEX-CMAP (Picocom)
 
 ![](../../assets/modules/micarray_usbboard_bl616/minicom_acm&picocom_uart-combine.png)
