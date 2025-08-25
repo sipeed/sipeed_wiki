@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+
+<html lang="en"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="">
+    
+    
+    <meta name="description" content="">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+        
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/prism.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?9cb07365544a53067c56c346c838181a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119047820-5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-119047820-5');
+    </script>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/js/thumbs_up/style.css" type="text/css"/>
+        
+    
+    
+    <title>Deploy models to AX-Pi (Maix-III(M3) series) board - Sipeed Wiki</title>
+    
+    <script type="text/javascript">js_vars = {"teedoc-plugin-ad-hint": {"type": "hint", "label": "NEW", "content": "New Maix series products <a href='https://wiki.sipeed.com/maixcam'>MaixCAM</a> online now, and new <a href='https://wiki.sipeed.com/maixpy/'>MaixPy</a>,feature richer functionalities, enhanced performance, and user-friendly software, with comprehensive documentation", "show_times": 2, "show_after_s": 432000, "date": "2022-06-01 14:00", "color": "#a0421d", "link_color": "#e53935", "link_bg_color": "#e6ae5c", "bg_color": "#ffcf89", "color_hover": "white", "bg_color_hover": "#f57c00", "close_color": "#eab971"}, "teedoc-plugin-thumbs-up": {"label_up": "Helpful", "label_down": "Not Helpful", "icon": "/static/images/thumbs_up/up.svg", "icon_clicked": "/static/images/thumbs_up/upped.svg", "url": "https://thumbs-up.sipeed.com", "show_up_count": true, "show_down_count": false, "msg_already_voted": "You have already voted", "msg_thanks": "Thanks for your vote", "msg_down_prompt": "Thanks to tell us where we can improve?(At least 10 characters)", "msg_down_prompt_error": "Message should be at least 10 characters and less than 256 characters", "msg_error": "Request server failed!"}}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": "2025-04-17", "update": [{"date": "2025-04-17", "author": "Aristore", "content": ["Translated the documentation"]}], "ts": 1744848000, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/en/">
+                
+                    <img class="site_logo" src="/static/image/logo.svg" alt="sipeed wiki logo">
+                
+                
+                    <h2>wiki</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class=""><a  href="/en/">Products</a></li>
+<li class="sub_items active_parent"><a >Software Docs</a><ul><li class=""><a  href="/maixpy/en/">MaixPy</a></li>
+<li class=""><a  href="/soft/maixpy/zh/index.html">MaixPy_v1</a></li>
+<li class=""><a  href="/soft/Lichee/zh/index.html">Lichee</a></li>
+<li class="active"><a  href="/ai/en/index.html">AI Guide</a></li>
+</ul>
+</li>
+<li class=""><a target="_blank" href="https://maixhub.com">MaixHub</a></li>
+<li class=""><a  href="/news/">News</a></li>
+<li class=""><a  href="/en/faq.html">FAQ</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class=""><a  href="/en/store.html"><img src='/static/image/shop.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+<li class=""><a target="_blank" href="https://github.com/sipeed"><img src='/static/image/github.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+<li class="sub_items "><a  ><img src='/static/image/language.svg' style='height: 1.5em;vertical-align: middle;'>&nbsp;English</a><ul><li class="active"><a  href="/ai/en/deploy/ax-pi.html">English</a></li>
+<li class=""><a  href="/ai/zh/deploy/ax-pi.html">中文</a></li>
+</ul></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">Search</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">Input keyword. Using Space to separate multiple keywords</span>
+                                <span id="search_loading_hint">Loading, please wait</span>
+                                <span id="search_download_err_hint">Fail download, Please retry or check network</span>
+                                <span id="search_other_docs_result_hint">Results form other doc</span>
+                                <span id="search_curr_doc_result_hint">Result form current doc</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="not_active with_link"><a href="/ai/en/index.html"><span class="label">Doc brief</span><span class=""></span></a></li>
+<li class="not_active no_link sidebar_category"><span class="label">AI basic</span></li>
+<li class="not_active with_link"><a href="/ai/en/basic/what_is_ai.html"><span class="label">What is AI ?</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/ai/en/basic/dnn_basic.html"><span class="label">Simple Understanding DNN</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/ai/en/basic/code_frameworks.html"><span class="label">Code Frameworks and Tools</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/ai/en/basic/courses.html"><span class="label">Tutorial summary</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Common NN Models</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/ai/en/nn_models/mobilenet.html"><span class="label">Mobilenet Classification</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/ai/en/nn_models/yolov2.html"><span class="label">YOLO v2 Detection</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/ai/en/nn_models/fomo.html"><span class="label">FOMO Lightweight Detection</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link sidebar_category"><span class="label">Deploy to edge devices</span></li>
+<li class="not_active with_link"><a href="/ai/en/deploy/index.html"><span class="label">Deployment methods</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/ai/en/deploy/k210.html"><span class="label">Deploy to Maix-I K210</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/ai/en/deploy/v831.html"><span class="label">Deploy to Maix-II V831</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/ai/en/deploy/tinymaix.html"><span class="label">TinyMaix deployment</span><span class=""></span></a></li>
+<li class="active with_link"><a href="/ai/en/deploy/ax-pi.html"><span class="label">AX-Pi deployment</span><span class=""></span></a></li>
+<li class="not_active no_link sidebar_category"><span class="label">MaixHub</span></li>
+<li class="not_active with_link"><a href="/ai/en/maixhub/index.html"><span class="label">MaixHub brief</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/ai/en/maixhub/train_best.html"><span class="label">MaixHub online train optimization</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/ai/en/maixhub/faq.html"><span class="label">MaixHub FAQ</span><span class=""></span></a></li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>Deploy models to AX-Pi (Maix-III(M3) series) board</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                                <span class="article_date" title="Last modify date: 2025-04-17">
+                                    2025-04-17
+                                </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/sipeed/sipeed_wiki/blob/main/docs/soft/ai/en/deploy/ax-pi.md" target="_blank">
+                                    <span id='editPage'>Edit this page</span>
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                        
+                        <details open>
+                        
+                            <summary>Update history</summary>
+                            <div>
+                                <table>
+                                        <thead>
+                                            <tr>
+                                                <th>Date</th>
+                                                <th>Version</th>
+                                                <th>Author</th>
+                                                <th>Update content</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            
+                                                <tr>
+                                                    <td>2025-04-17</td>
+                                                    <td></td>
+                                                    <td>Aristore</td>
+                                                    <td>
+                                                    
+                                                        <ul>
+                                                        
+                                                            <li>Translated the documentation</li>
+                                                        
+                                                        </ul>
+                                                    
+                                                    </td>
+                                                </tr>
+                                            
+                                        </tbody>
+                                </table>
+                            </div>
+                        </details>
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <blockquote>
+<p>This article is translated from Chinese, so may have some misexpressions, Pull request is welcome!</p>
+</blockquote>
+<div id="title_card">
+    <div class="card" style="background-color: #fafbfe">
+        <img src="../../assets/maix-iii-small.png" alt="AXera-Pi Model Conversion and Deployment">
+        <div class="card_info card_purple">
+            <div class="title">Maix-III Series AXera-Pi</div>
+            <div class="brief">
+                <div>High computing power, unique AI-ISP imaging system</div>
+                <div>Up to 3.6Tops@INT8, rich operator support</div>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+#title_card {
+    width:100%;
+    text-align:center;
+    background-color: #fafbfe;
+    margin-bottom: 1em;
+}
+#title_card img {
+  max-height: 20em;
+}
+.card_purple {
+    background-color: #d1c4e9;
+    color: #673ab7;
+}
+.dark .card_purple {
+    background-color: #370040;
+    color: #ffffffba;
+}
+.title {
+    font-size: 1.5em;
+    font-weight: 800;
+    padding: 0.8em;
+}
+</style>
+<blockquote>
+<p>Any thoughts or modification suggestions? Feel free to leave comments or directly click the &quot;Edit this page&quot; button in the top-right corner to submit a PR.</p>
+</blockquote>
+<blockquote>
+<p><a href="https://maixhub.com/model/zoo"  target="_blank">MaixHub</a> model zoo has models that can run directly on AXera-Pi. You can download and use them, and also share your models~</p>
+</blockquote>
+<p><a href="/hardware/en/maixIII/index.html"  >Click to view Maix-III(M3) series AXera-Pi development board details and basic usage documentation</a></p>
+<p>To deploy models to <code>AXera-Pi</code>, you need to quantize the model to INT8 to reduce model size and improve runtime speed. Generally, <code>PTQ</code> (Post-Training Quantization) is used. Steps:<br />
+<strong>1.</strong> Prepare the floating-point model.<br />
+<strong>2.</strong> Use the model quantization and format conversion tool to convert it into a format supported by AXera-Pi. The tool here is <a href="https://pulsar-docs.readthedocs.io"  target="_blank">pulsar</a> provided by AXERA.</p>
+<blockquote>
+<p>This document provides a quick start guide and process overview. It is strongly recommended to read through this document first, then check the pulsar documentation for more details.</p>
+</blockquote>
+<p><strong>3.</strong> Run the model on AXera-Pi.</p>
+<h2 id="Prepare-Floating-Point-Model">Prepare Floating-Point Model</h2>
+<p>Train the model using <code>Pytorch</code> or <code>TensorFlow</code>, then save it in <code>onnx</code> format.</p>
+<p>Note that only operators supported by <code>AXera-Pi</code> can be used. See <a href="https://pulsar-docs.readthedocs.io/zh_CN/latest/appendix/op_support_list.html"  target="_blank">Operator Support List</a>.</p>
+<p>For some networks, post-processing may need to be separated and handled by the <code>CPU</code>.</p>
+<h3 id="Example">Example</h3>
+<p>Using <a href="https://pytorch.org/hub/pytorch_vision_mobilenet_v2/"  target="_blank">mobilenetv2</a> from PyTorch Hub:</p>
+
+<pre class="language-python"><code class="language-python">import torch
+model = torch.hub.load('pytorch/vision:v0.10.0', 'mobilenet_v2', pretrained=True)
+model.eval()
+</code></pre>
+<p>Export to <code>onnx</code> format:</p>
+
+<pre class="language-python"><code class="language-python">x = torch.randn(1, 3, 224, 224)
+torch.onnx.export(model, x, &quot;mobilenetv2.onnx&quot;, export_params=True, verbose=True, opset_version=11)
+</code></pre>
+<p>Some models can be simplified with <code>onnxsim</code> (not needed for this model):</p>
+
+<pre class="language-none"><code class="language-none">pip install onnx-simplifier
+python -m onnxsim mobilenetv2.onnx mobilenetv2-sim.onnx
+</code></pre>
+<h2 id="Model-Quantization-and-Format-Conversion">Model Quantization and Format Conversion</h2>
+<h3 id="Install-%3Ccode%3Edocker%3C/code%3E">Install <code>docker</code></h3>
+<p><a href="https://docs.docker.com/engine/install/"  target="_blank">Installation Guide</a></p>
+<p>Verify installation with:</p>
+
+<pre class="language-none"><code class="language-none">docker --version
+</code></pre>
+<p>On Linux, add the current user to the <code>docker</code> group to avoid needing <code>sudo</code>:</p>
+
+<pre class="language-shell"><code class="language-shell">sudo gpasswd -a $USER docker
+newgrp docker
+</code></pre>
+<h3 id="Download-Conversion-Tool">Download Conversion Tool</h3>
+<p>The conversion tool is provided as a Docker image. Pull the image using:</p>
+<table>
+<thead>
+<tr>
+  <th style="text-align:left">Source</th>
+  <th style="text-align:left">Description</th>
+  <th style="text-align:left">Command</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td style="text-align:left"><a href="https://hub.docker.com/r/sipeed/pulsar/tags"  target="_blank">dockerhub</a></td>
+  <td style="text-align:left">Pull directly</td>
+  <td style="text-align:left"><code>docker pull sipeed/pulsar</code></td>
+</tr>
+<tr>
+  <td style="text-align:left">Domestic Mirror (China)</td>
+  <td style="text-align:left">China domestic mirror for accelerated downloads</td>
+  <td style="text-align:left">1. Edit <code>/etc/docker/daemon.json</code> to add <code>&quot;registry-mirrors&quot;: [&quot;https://docker.mirrors.ustc.edu.cn&quot;]</code><br>2. <code>docker pull sipeed/pulsar</code></td>
+</tr>
+</tbody>
+</table>
+<p>After pulling, verify with <code>docker images</code> to see <code>sipeed/pulsar:latest</code>.</p>
+<blockquote>
+<p>Note: The image name <code>sipeed/pulsar</code> is equivalent to <code>axera/neuwizard</code> mentioned in some documents.</p>
+</blockquote>
+<p>Create a container:</p>
+
+<pre class="language-shell"><code class="language-shell">docker run -it --net host --rm --shm-size 32g -v $PWD:/data sipeed/pulsar
+</code></pre>
+<blockquote>
+<ul>
+<li>Adjust <code>--shm-size</code> based on your system's memory.</li>
+<li>Omit <code>--rm</code> to keep the container, and use <code>-name xxx</code> to name it for later reuse.</li>
+<li><code>-v host_path:/data</code> mounts the host directory to <code>/data</code> in the container.</li>
+</ul>
+</blockquote>
+<p>Inside the container, use <code>pulsar -h</code> to view commands.</p>
+<h3 id="Perform-Model-Quantization-and-Conversion">Perform Model Quantization and Conversion</h3>
+<p>Refer to <a href="https://pulsar-docs.readthedocs.io"  target="_blank">pulsar</a> documentation for conversion commands and configuration file setup.</p>
+<blockquote>
+<p>Note: AXera-Pi uses virtual NPU concepts to allocate computing resources between NPU and AI-ISP.</p>
+</blockquote>
+<h4 id="Example">Example</h4>
+<p>Using <code>mobilenetv2</code>:</p>
+<ul>
+<li><p>Prepare configuration file <code>config_mobilenetv2.prototxt</code> (details in <a href="https://pulsar-docs.readthedocs.io/zh_CN/latest/test_configs/config.html"  target="_blank">Configuration Documentation</a>):<br />
+.. details:: config_mobilenetv2.prototxt</p>
+
+<pre class="language-protobuf"><code class="language-protobuf"># Basic configuration parameters: input/output
+input_type: INPUT_TYPE_ONNX
+output_type: OUTPUT_TYPE_JOINT
+
+# Hardware platform selection
+target_hardware: TARGET_HARDWARE_AX620
+
+# CPU backend selection, default using AXE
+cpu_backend_settings {
+    onnx_setting {
+        mode: DISABLED
+    }
+    axe_setting {
+        mode: ENABLED
+        axe_param {
+            optimize_slim_model: true
+        }
+    }
+}
+
+# ONNX model input data type description
+src_input_tensors {
+    color_space: TENSOR_COLOR_SPACE_RGB
+}
+
+# Joint model input data type configuration
+dst_input_tensors {
+    color_space: TENSOR_COLOR_SPACE_RGB
+}
+
+# NeuWizard tool configuration parameters
+neuwizard_conf {
+    operator_conf {
+        input_conf_items {
+            attributes {
+                input_modifications {
+                    # y = x * (slope / slope_divisor) + (bias / bias_divisor)
+                    # Normalize data to [0, 1] range first
+                    affine_preprocess {
+                        slope: 1
+                        slope_divisor: 255
+                        bias: 0
+                    }
+                }
+                input_modifications {
+                    # y = (x - mean) / std
+                    # Standardize using training parameters
+                    input_normalization {
+                        mean: [0.485,0.456,0.406]  ## Mean values (order depends on src_input_tensors.color_space, here [R G B])
+                        std: [0.229,0.224,0.255]   ## Standard deviation values
+                    }
+                }
+            }
+        }
+    }
+    dataset_conf_calibration {
+        path: &quot;imagenet-1k-images-rgb.tar&quot; # PTQ calibration dataset path
+        type: DATASET_TYPE_TAR         # Dataset type: TAR package
+        size: 256                      # Number of images used for calibration
+        batch_size: 1
+}
+}
+
+# Pulsar compiler batch size configuration
+pulsar_conf {
+    ax620_virtual_npu: AX620_VIRTUAL_NPU_MODE_111 # Use virtual NPU, split resources between NPU and AI-ISP (111 represents NPU)
+                    #  AX620_VIRTUAL_NPU_MODE_0   # Disable virtual NPU, full resources to NPU
+                    #  AX620_VIRTUAL_NPU_MODE_112 # Use virtual NPU, split resources (112 represents AI-ISP exclusive use, do not modify casually)
+    batch_size: 1
+}
+</code></pre>
+<blockquote>
+<p>Preprocessing must match the training pipeline (normalize to [0,1] then apply mean/std).<br />
+The <code>imagenet-1k-images-rgb.tar</code> dataset can be downloaded from <a href="https://pan.baidu.com/s/1TiZSIm0fpqbLn-2qLBX58g?pwd=1rpb"  target="_blank">Baidu Cloud</a> or <a href="https://github.com/sipeed/sipeed_wiki/releases/download/v0.0.0/imagenet-1k-images-rgb.tar"  target="_blank">GitHub</a>.<br />
+The <code>ax620_virtual_npu</code> setting is critical for AI-ISP compatibility.</p>
+</blockquote>
+</li>
+</ul>
+<p>Then execute the following inside the <code>docker</code> container (note that the files are mounted from the host machine to the <code>docker</code> container using the <code>-v</code> parameter of the previous <code>docker run</code> command, so just copy them directly into the host's directory):</p>
+
+<pre class="language-none"><code class="language-none">pulsar build --input mobilenetv2.onnx --output mobilenetv2.joint --config config_mobilenetv2.prototxt --output_config out_config_mobilenet_v2.prototxt
+</code></pre>
+<p>Be patient, as it may take a little while, and you will eventually get the converted model result <code>mobilenetv2.joint</code>.</p>
+<h3 id="Using-GPU-for-Model-Quantization-and-Format-Conversion-in-Docker">Using GPU for Model Quantization and Format Conversion in Docker</h3>
+<p>By default, docker cannot use the graphics card driver, but if needed, it’s not difficult:</p>
+<ul>
+<li>Install the graphics card driver on the host machine as usual. For example, on <code>ubuntu</code>, it can be installed directly via the package manager.</li>
+<li>Follow the instructions at <a href="https://github.com/NVIDIA/nvidia-docker"  target="_blank">nvidia-docker</a> to install, then test whether it is usable:</li>
+</ul>
+
+<pre class="language-none"><code class="language-none">docker run --rm --gpus all nvidia/cuda:11.0.3-base-ubuntu20.04 nvidia-smi
+</code></pre>
+<p>This will execute the <code>nvidia-smi</code> command, allowing you to see the GPU information mapped into docker.</p>
+<ul>
+<li>When creating containers that require the use of the GPU, add the <code>--gpus all</code> parameter to map all GPU drivers into the container, or specify particular GPU numbers with <code>--gpus '&quot;device=2,3&quot;'</code>, for example:</li>
+</ul>
+
+<pre class="language-none"><code class="language-none">docker run -it --net host --rm --gpus all --shm-size 32g -v $PWD:/data sipeed/pulsar
+</code></pre>
+<p>Note that the current version (0.6.1.20) of <code>pulsar build</code> only supports sm_37 sm_50 sm_60 sm_70 sm_75 architecture GPUs; 30/40 series GPUs are not yet supported.</p>
+<h2 id="Testing-Model-Execution-on-AXera-Pi">Testing Model Execution on AXera-Pi</h2>
+<p>After converting the model according to the documentation, transfer the model to <code>AXera-Pi</code> via <code>scp</code> or <code>adb</code> and run the model using the model testing commands provided in the documentation.</p>
+<h3 id="Example">Example</h3>
+<p>Still using <code>mobilenetv2</code> as an example:<br />
+Save the test image as <code>cat.jpg</code>:</p>
+<img src="../../assets/cat.jpg" style="max-height: 20em;">
+<ul>
+<li>First, compare the results with the <code>onnx</code> model on your computer:</li>
+</ul>
+
+<pre class="language-none"><code class="language-none">pulsar run mobilenetv2.onnx mobilenetv2.joint --input cat.jpg --config out_config_mobilenet_v2.prototxt --output_gt gt
+</code></pre>
+<p>You’ll obtain the cosine distance, which here is <code>0.9862</code>, indicating that the output similarity between the <code>joint</code> model and the <code>onnx</code> model is <code>98.62%</code>, within an acceptable range. If the value is too small, it indicates errors during quantization, suggesting potential issues with settings, input data, or model design.</p>
+
+<pre class="language-log"><code class="language-log">Layer: 536  2-norm RE: 17.03%  cosine-sim: 0.9862
+</code></pre>
+<ul>
+<li>Copy the model to <code>AXera-Pi</code> and run it directly (use the <code>scp</code> command to copy the <code>joint</code> format model file to the development board):</li>
+</ul>
+<p>Run the model on the board:</p>
+
+<pre class="language-none"><code class="language-none">time run_joint mobilenetv2.joint --repeat 100 --warmup 10
+</code></pre>
+<p>You’ll see the model execution time is <code>2.1ms</code>. Here we haven’t enabled the virtual NPU; if enabled, the time doubles to <code>4ms</code>. Additionally, <code>overhead 250.42 ms</code> represents other timing costs (e.g., model loading, memory allocation).</p>
+
+<pre class="language-none"><code class="language-none">Run task took 2143 us (99 rounds for average)
+        Run NEU took an average of 2108 us (overhead 9 us)
+
+</code></pre>
+<p>If you want to test inputs, first convert the image to binary content arranged in <code>HWC + RGB</code> order, and specify the binary file with <code>--data</code>.</p>
+<details>
+<summary>Script to convert to binary file</summary>
+<div class="details-content">
+<pre class="language-python"><code class="language-python">from PIL import Image
+import sys
+out_path = sys.argv[2]
+img = Image.open(sys.argv[1])
+img = img.convert('RGB')
+img = img.resize((224, 224))
+rgb888 = img.tobytes()
+with open(out_path, &quot;wb&quot;) as f:
+    f.write(rgb888)
+</code></pre>
+<p>Execute <code>python convert.py cat.jpg cat.bin</code> to obtain the <code>cat.bin</code> file.</p>
+</div>
+</details>
+
+<pre class="language-none"><code class="language-none">run_joint mobilenetv2.joint --data cat.bin --bin-out-dir ./
+</code></pre>
+<p>A <code>bin</code> file sized <code>4000</code> bytes, i.e., <code>1000</code> <code>float32</code> values, will be generated in the directory. You can load it with <code>python</code> to find the maximum value.</p>
+
+<pre class="language-python"><code class="language-python">out = np.fromfile(&quot;536.bin&quot;, dtype=np.float32)
+print(out.argmax(), out.max())
+</code></pre>
+<p>The result is <code>282 8.638927</code>. In the <a href="https://raw.githubusercontent.com/pytorch/hub/master/imagenet_classes.txt"  target="_blank">labels</a>, index <code>282</code>, or line <code>283</code>, corresponds to <code>tiger cat</code>. This matches the result of running the floating-point model directly on the computer (<code>282 9.110947</code>), although there are slight differences, they are within an acceptable range.</p>
+<blockquote>
+<p>Note that no <code>softmax</code> calculation was performed here, so <code>out.max()</code> is not a probability.</p>
+</blockquote>
+<h2 id="Writing-Code-to-Run-the-Model">Writing Code to Run the Model</h2>
+<p>To formally run the model, you might need to modify the code, change input preprocessing, or add post-processing. Currently, a <code>C/C++</code> SDK is provided, and reference code is available at <a href="https://github.com/AXERA-TECH/ax-samples"  target="_blank">ax-samples</a>. Cross-compilation is possible, or you can compile directly on <code>AXera-Pi</code>.</p>
+<p>Code for running classification models is located in <a href="https://github.com/AXERA-TECH/ax-samples/blob/main/examples/ax_classification_steps.cc"  target="_blank">ax_classification_steps.cc</a>. After compiling according to the repository’s instructions, you'll get the executable <code>build/bin/install/ax_classification</code>, which you can copy to the development board to execute:</p>
+
+<pre class="language-none"><code class="language-none">./ax_classification -m mobilenetv2.joint -i cat.jpg
+</code></pre>
+<blockquote>
+<p>The code uses <code>opencv</code> to read images in <code>BGR</code> format. When running the model, it automatically determines based on the conversion model configuration whether to convert to <code>RGB</code>. So, <code>mw::prepare_io</code> is used to copy the <code>BGR</code> image to the input buffer, and further processing is handed off to the underlying library.</p>
+</blockquote>
+<p>If your model isn't a simple classification model, you may need to add post-processing code after model inference to parse the results.</p>
+<h2 id="Using-Cameras-and-Screens">Using Cameras and Screens</h2>
+<p>At this point, the model runs independently. To build an application, since it’s <code>Linux</code>, many general development methods and libraries are available. If you wish to use cameras and screens together, you can use <a href="https://github.com/sipeed/libmaix"  target="_blank">libmaix</a> or develop directly using <a href="https://github.com/sipeed/axpi_bsp_sdk"  target="_blank">axpi_bsp_sdk</a> (which is somewhat more challenging).</p>
+<ul>
+<li>Refer to the <a href="/hardware/en/maixIII/ax-pi/sdk.html"  >SDK Development Instructions</a> to compile and execute the <a href="https://github.com/sipeed/libmaix/tree/release/examples/axpi"  target="_blank">camera screen display routine</a>. Since the repositories are on <code>github</code>, having a good proxy server is recommended.</li>
+<li>When merging the model execution code into the routine, one important issue to note: if you plan to use the camera, the default <code>AI-ISP</code> will be activated (no way to turn it off for now, TODO for future updates). <strong>Therefore, when converting the model, specify it to run on the virtual NPU by setting <code>ax620_virtual_npu: AX620_VIRTUAL_NPU_MODE_111</code> in the configuration file, otherwise initialization will fail</strong>.</li>
+</ul>
+<blockquote>
+<p>You can directly use the <a href="https://github.com/sipeed/libmaix/tree/release/examples/axpi_classification_cam"  target="_blank">1000-classification routine</a>.<br />
+After compilation on the board, execute <code>./dist/axpi_classification_cam -m mobilenetv2.joint</code> to start recognition. Models can also be downloaded from the <a href="https://maixhub.com/model/zoo/89"  target="_blank">MaixHub Model Zoo</a>.</p>
+</blockquote>
+<h2 id="QAT-Quantization-and-Other-Optimization-Methods">QAT Quantization and Other Optimization Methods</h2>
+<p><code>QAT</code> (Quantization Aware Training) involves simulating quantized inference during training to reduce quantization errors. Unlike <code>PTQ</code> (Post-training Quantization), which quantizes already trained models, <code>QAT</code> offers higher accuracy but is more complex. It is not recommended to start with <code>QAT</code>.</p>
+<p>For more details, see <a href="https://pulsar-docs.readthedocs.io"  target="_blank">superpulsar</a>. The documentation will continue to be updated, and if you're proficient in this area, feel free to click <code>Edit this page</code> in the upper right corner to contribute.</p>
+<h2 id="Other-References-and-Shared-Summaries">Other References and Shared Summaries</h2>
+<blockquote>
+<p>Feel free to share your work! Click <code>Edit this page</code> in the upper right corner to add your contributions.</p>
+</blockquote>
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/569083585"  target="_blank">爱芯元智AX620A部署yolov5 6.0模型实录</a></li>
+<li><a href="http://t.csdn.cn/oNeYG"  target="_blank">AX620A运行yolov5s自训练模型全过程记录（windows）</a></li>
+<li><a href="https://www.yuque.com/prophetmu/chenmumu/ax_tracker"  target="_blank">MOT：如何在爱芯派上实现多目标跟踪的神奇效果！</a></li>
+<li><a href="https://www.yuque.com/prophetmu/chenmumu/m3axpi_keypoint"  target="_blank">MMPose：在爱芯派上玩转你的关键点检测！</a></li>
+<li><a href="https://www.yuque.com/prophetmu/chenmumu/m3axpi"  target="_blank">2023年最新 使用 YOLOv8 训练自己的数据集，并在 爱芯派硬件 上实现 目标检测 和 钢筋检测 ！！</a></li>
+</ul>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                        <a href="/ai/en/deploy/tinymaix.html">
+                            <span class="icon"></span>
+                            <span class="label">TinyMaix deployment</span>
+                        </a>
+                        
+                    </div>
+                    <div id="next">
+                        
+                        <a href="/ai/en/maixhub/index.html">
+                            <span class="label">MaixHub brief</span>
+                            <span class="icon"></span>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>links</a><ul><li><a target="_blank" href="https://www.sipeed.com">Sipeed</a></li>
+<li><a target="_blank" href="https://maixhub.com/">MaixHub</a></li>
+<li><a target="_blank" href="https://sipeed.aliexpress.com/store/911876460">Sipeed AliExpress</a></li>
+<li><a target="_blank" href="https://github.com/neutree/teedoc">Build by teedoc </a></li>
+</ul>
+</li>
+<li><a>Source Code</a><ul><li><a target="_blank" href="https://github.com/sipeed/sipeed_wiki">Wiki source</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">Open Source Projects</a></li>
+</ul>
+</li>
+<li><a>Follow us</a><ul><li><a target="_blank" href="https://twitter.com/SipeedIO">twitter</a></li>
+<li><a target="_blank" href="https://sipeed.aliexpress.com/store/911876460">AliExpress</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">github</a></li>
+<li><a><a>Wechat</a><img src='/static/image/wechat.png'></a>
+</li>
+</ul>
+</li>
+<li><a>Contact us</a><ul><li><a>Tel: +86 0755-27808509</a>
+</li>
+<li><a>Business support: support@sipeed.com</a>
+</li>
+<li><a>Address: 深圳市宝安区新湖路4008号蘅芳科技办公大厦A座-2101C</a>
+</li>
+<li><a  href="/join_us.html">Join us</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://www.sipeed.com">©2018-2023 深圳矽速科技有限公司</a></li>
+<li><a target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index">粤ICP备19015433号</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/js/prism.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <link rel="stylesheet" href="/static/js/add_hint/style.css" type="text/css"/>
+    
+        <script src="/static/js/add_hint/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+        <script src="/static/js/thumbs_up/main.js"></script>
+    
+</body>
+
+</html>
