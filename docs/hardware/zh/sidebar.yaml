@@ -114,17 +114,17 @@ items:
     -   label: M4C SoM
         items:
         -   label: 系统烧录指南
-            file: maixIV/m4c-SoM/system-update.md
+            file: maixIV/m4c/system-update.md
         -   label: AI 模型部署
-            file: maixIV/m4c-SoM/axmodel-deploy.md
+            file: maixIV/m4c/axmodel-deploy.md
         -   label: FAQ
-            file: maixIV/m4c-SoM/FAQ.md
+            file: maixIV/m4c/FAQ.md
     -   label: M4 Dock Carrier Board
         items:
         -   label: 产品介绍
             file: maixIV/m4cdock/intro.md
         -   label: 系统烧录指南
-            file: maixIV/m4c-SoM/system-update.md
+            file: maixIV/m4c/system-update.md
         -   label: 产品上手指南
             file: maixIV/m4cdock/quick-start.md
         -   label: FAQ
@@ -134,7 +134,7 @@ items:
         -   label: 产品介绍
             file: maixIV/m4chat/intro.md
         -   label: 系统烧录指南
-            file: maixIV/m4c-SoM/system-update.md
+            file: maixIV/m4c/system-update.md
         -   label: 产品上手指南
             file: maixIV/m4chat/quick-start.md
         -   label: 树莓派5 PCIe 加速指南

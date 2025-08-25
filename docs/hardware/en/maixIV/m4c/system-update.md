@@ -86,6 +86,8 @@ There are two methods are provided below for flashing the image to eMMC:
     sync # 确保分区表生效
     dd if=/dev/mmcblk1p1 of=/dev/mmcblk0p1 bs=64M conv=fsync
     dd if=/dev/mmcblk1p2 of=/dev/mmcblk0p2 bs=1G conv=sparse,fsync status=progress
+    fsck -y /dev/mmcblk0p2
+    sync
     ```
 
 3. After completion, remove the TFCard. Just press the `RST` button and the system will now directly boot from eMMC.

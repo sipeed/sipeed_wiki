@@ -24,7 +24,7 @@
 
 2.上电树莓派给 Maix4-HAT 供电。
 
-3.参考 [System Flashing Guide](../m4c-SoM/system-update.html#启动-Live-系统（需手动按键操作）) 进入 TFCard Live 系统。
+3.参考 [System Flashing Guide](../m4c/system-update.html#启动-Live-系统（需手动按键操作）) 进入 TFCard Live 系统。
 
 4.执行 `dd if=/boot/spl_AX650_card_signed.bin of=/dev/mmcblk0 conv=fsync` 烧录从机系统以支持通过 PCIe 启动:
   ```bash
@@ -905,4 +905,4 @@ rpi-sipeed login:
 
 **另有 [树莓派5 AXCL专项页面](https://axcl-pi5-examples-cn.readthedocs.io)。**
 
-可于 [文中](../m4c-SoM/axmodel-deploy.html) 介绍到的大模型仓库下载各种已被支持的大模型，并在树莓派上部署运行。
+可于 [文中](../m4c/axmodel-deploy.html) 介绍到的大模型仓库下载各种已被支持的大模型，并在树莓派上部署运行。

@@ -80,6 +80,8 @@
     sync # 确保分区表生效
     dd if=/dev/mmcblk1p1 of=/dev/mmcblk0p1 bs=64M conv=fsync
     dd if=/dev/mmcblk1p2 of=/dev/mmcblk0p2 bs=1G conv=sparse,fsync status=progress
+    fsck -y /dev/mmcblk0p2
+    sync
     ```
 
 3. 等待上述指令执行完后，即可取出 TFCard。后续可直接上电或点按 `RST`，之后应能正常启动进入 eMMC 系统。
