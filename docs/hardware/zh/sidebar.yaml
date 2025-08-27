@@ -524,6 +524,18 @@ items:
             file: kvm/NanoKVM_USB/deployment.md
         -   label: FAQ
             file: kvm/NanoKVM_USB/faq.md
+    -   label: NanoKVM Pro
+        items:
+        -   label: 简介
+            file: kvm/NanoKVM_Pro/introduction.md
+        -   label: NanoKVM-ATX 上手指南
+            file: kvm/NanoKVM_Pro/atx_start.md
+        -   label: NanoKVM-Desk 上手指南
+            file: kvm/NanoKVM_Pro/desk_start.md
+        -   label: 高级应用
+            file: kvm/NanoKVM_Pro/extended.md
+        -   label: FAQ
+            file: kvm/NanoKVM_Pro/faq.md
 -   label: Cluster
     items:
     -   label: NanoCluster
