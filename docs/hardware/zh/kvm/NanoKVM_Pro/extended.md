@@ -1,5 +1,5 @@
 ---
-title: 扩展应用
+title: 高级应用
 keywords: NanoKVM, Remote desktop, Lichee, PiKVM, RISCV, tool, PCIe
 update:
   - date: 2025-8-26
