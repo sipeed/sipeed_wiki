@@ -133,6 +133,10 @@ NanoKVM 的 USB 会默认虚拟出 RNDIS USB网卡（从设备），当 NanoKVM 
 1. 永久关闭：执行`touch /etc/kvm/ssh_stop`即可在NanoKVM下一次开机时开始禁用ssh登录，删除该文件`rm /etc/kvm/ssh_stop`即可解除
 2. 临时开启：执行`touch /boot/start_ssh_once`或在 /boot 分区下创建 start_ssh_once 空文件，即可在NanoKVM下一次开机时打开ssh，该文件会自动删除
 
+### 设置DNS
+
++ 如果需要设置DNS列表，请在创建/boot/resolv.conf，这将在启动后强制使用你自己的DNS配置
+
 ### 关于mDNS
 
 + mDNS（Multicast DNS）是一种用于在局域网内进行名称解析的协议，使设备能够通过主机名而非 IP 地址相互发现和通信。它允许无需中央 DNS 服务器的情况下，自动发现网络中的服务和设备。
