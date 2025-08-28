@@ -18,7 +18,7 @@ update:
     - Full 版本自带一张 32G 的 SD 卡，需要拆开外壳将其取出；
     - Lite 版本需要自己准备一张 8G 以上的 SD 卡。
 
-1. 前往 [Github](https://github.com/sipeed/NanoKVM/releases) 下载最新版本镜像。
+1. 前往 [Github](https://github.com/sipeed/NanoKVM/releases/latest) 下载最新版本镜像。
 
 1. 安装烧录软件，推荐使用 [Etcher](https://etcher.balena.io)。
 
