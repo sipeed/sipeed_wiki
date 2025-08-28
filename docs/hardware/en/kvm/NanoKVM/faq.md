@@ -68,6 +68,12 @@ The STA LED indicates the operating status of the NanoKVM. When functioning prop
    > If `VIDevFPS` is not 0 and `VIFPS` is 0, it indicates that NanoKVM is not correctly configured for HDMI parameters. The Cube can replug the HDMI to auto-detect, while PCIe can click `Reset HDMI` under `Video` to auto-detect.
    > Check if `VIInImgWidth` and `VIInImgHeight` match the actual HDMI resolution. If they are different, it means NanoKVM did not auto-detect the correct HDMI parameters. Manually configure the resolution parameters as described in point 4.
 
+### No Display After Host Wakes from Sleep
+
+1. Check if you are using a cheap DP to HDMI (passive adapter). These types of adapters lack a proper wake mechanism and cannot notify the NanoKVM that the display has been restored.
+2. For PCIe versions, you can click the "Reset HDMI" button to forcefully retrieve the display.
+3. The Cube/Lite versions lack a reset function; please switch to an active DP adapter.
+
 ### Serious screen delay in internal network environment
 
 1. Try replacing the switch or power supply

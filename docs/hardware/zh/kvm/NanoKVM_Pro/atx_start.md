@@ -28,7 +28,7 @@ NanoKVM-ATX包含：
 
 ## 接口定义
 
-![](./../../../assets/NanoKVM/pro/start/Desk-Interface.png)
+![](./../../../assets/NanoKVM/pro/start/ATX-Interface.jpg)
 
 ## 接线
 

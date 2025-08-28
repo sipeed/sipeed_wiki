@@ -534,6 +534,8 @@ items:
             file: kvm/NanoKVM_Pro/desk_start.md
         -   label: 高级应用
             file: kvm/NanoKVM_Pro/extended.md
+        -   label: 屏幕色彩扩展灯带
+            file: kvm/NanoKVM_Pro/ws2812.md
         -   label: FAQ
             file: kvm/NanoKVM_Pro/faq.md
 -   label: Cluster
