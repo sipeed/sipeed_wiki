@@ -88,3 +88,23 @@ stty -F /dev/ttyS1 115200
 # 发送十六进制数据 0x11, 0x22, 0x33
 echo -n -e '\x11\x22\x33' > /dev/ttyS1
 ```
+
+## 如何修改EDID
+
+EDID（扩展显示识别数据）是显示设备向主机提供的一组数据，包括设备信息、分辨率帧率列表、颜色特性、音频能力等。主机接受到 EDID 后按需调整显示器的设置
+
+NanoKVM Pro 支持修改虚拟显示屏暴露的EDID，您可以克隆显示器的EDID或编写自己的EDID，来达到特殊的屏幕比例、刷新率或颜色特征
+
+> 修改EDID后可能存在无法正常显示的风险，请谨慎修改。如果出现异常，请恢复默认EDID
+
+写入方式：
+
+```shell
+# 1. 准备edid文件，一般大小是256Byte，scp 到系统中
+ls -l /root/customize.bin
+# -rw-r--r-- 1 1000 1000 256 Aug 19 14:44 /root/customize.bin
+# 2. 写入EDID
+cat /root/customize.bin > /proc/lt6911_info/edid
+# 3. 恢复默认EDID：
+cat /kvmcomm/edid/e18.bin > /proc/lt6911_info/edid
+```

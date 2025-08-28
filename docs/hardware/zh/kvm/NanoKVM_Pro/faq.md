@@ -23,7 +23,7 @@ NanoKVM Pro 支持通过 USB 烧录镜像的方式来恢复或更新系统。
 #### 烧录步骤
 
 1. **下载镜像与烧录工具**
-- 访问 [NanoKVM Pro 发布页面](https://github.com/sipeed/NanoKVM-Pro/releases) 下载最新镜像文件
+- 访问 [NanoKVM Pro 发布页面](https://github.com/sipeed/NanoKVM-Pro/releases/latest) 下载最新镜像文件
 - 下载并安装烧录工具 [balenaEtcher](https://etcher.balena.io/)
 
 2. **进入烧录模式**

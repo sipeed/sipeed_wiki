@@ -65,7 +65,7 @@ IP-KVM系列产品是远程桌面的硬件外挂，通过HDMI捕捉画面，通�
 
 ## NanoKVM-PCIe 资料
 
-+ [NanoKVM Pro 镜像下载 (待更新)]()
++ [NanoKVM Pro 镜像下载 (待更新)](https://github.com/sipeed/NanoKVM-Pro/releases/latest)
 + [ATX上手指南](https://wiki.sipeed.com/hardware/zh/kvm/NanoKVM_Pro/atx_start.html)
 + [高级应用](https://wiki.sipeed.com/hardware/zh/kvm/NanoKVM_Pro/extended.html)
 + [常见问题](https://wiki.sipeed.com/hardware/zh/kvm/NanoKVM_Pro/faq.html)
@@ -80,6 +80,7 @@ IP-KVM系列产品是远程桌面的硬件外挂，通过HDMI捕捉画面，通�
 
 如果您在使用过程中有任何问题或建议，请通过以下渠道和我们反馈：
 
++ [Github issues](https://github.com/sipeed/NanoKVM-Pro/issues)
 + [MaixHub 论坛](https://maixhub.com/discussion/nanokvm)
 + QQ 交流群: 703230713
 
