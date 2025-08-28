@@ -36,7 +36,7 @@ PiKVM框架下默认帐号密码也是`admin`，`admin`，但两个平台下使�
 
 ![](./../../../assets/NanoKVM/pro/extended/SwitchtoNanoKVM.png)
 
-点击后系统将自动重启，并启动为PiKVM框架。此过程约30s，如果长时间不自动切换，请手动刷新网页
+点击后系统将自动重启，并启动为NanoKVM框架。此过程约30s，如果长时间不自动切换，请手动刷新网页
 
 ## SSH
 

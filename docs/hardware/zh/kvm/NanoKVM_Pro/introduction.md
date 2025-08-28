@@ -34,8 +34,8 @@ IP-KVM系列产品是远程桌面的硬件外挂，通过HDMI捕捉画面，通�
 
 | 产品        | NomoKVM-Pro    | NomoKVM      | GxoKVM      | JxxKVM      |
 |-------------|----------------|--------------|-------------|-------------|
-| 主控        | AX630C         | SG2002       | RVII26      | RVII06      |
-| 核心        | 2xA53@1.5G     | 1xC906@1.0G  | 4xA7@1.5G   | 1x7@1.2G    |
+| 主控        | AX630C         | SG2002       | RV1126      | RV1106      |
+| 核心        | 2xA53@1.2G     | 1xC906@1.0G  | 4xA7@1.5G   | 1xA7@1.2G    |
 | 内存        | 1G LPDDR4X     | 256M DDR3    | 1G DDR3     | 256M DDR3   |
 | 硬盘        | 32G eMMC       | 32G microSD  | 8G eMMC     | 16G eMMC    |
 | 系统        | NomoKVM+PIKVM  | NomoKVM      | GxoKVM      | JxxKVM      |
@@ -66,9 +66,9 @@ IP-KVM系列产品是远程桌面的硬件外挂，通过HDMI捕捉画面，通�
 ## NanoKVM-PCIe 资料
 
 + [NanoKVM Pro 镜像下载 (待更新)]()
-+ [上手指南]()
-+ [扩展应用]()
-+ [常见问题]()
++ [ATX上手指南](https://wiki.sipeed.com/hardware/zh/kvm/NanoKVM_Pro/atx_start.html)
++ [高级应用](https://wiki.sipeed.com/hardware/zh/kvm/NanoKVM_Pro/extended.html)
++ [常见问题](https://wiki.sipeed.com/hardware/zh/kvm/NanoKVM_Pro/faq.html)
 
 ## 购买入口
 
