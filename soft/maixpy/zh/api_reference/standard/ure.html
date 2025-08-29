@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+
+<html lang="zh"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="maixpy, k210, AIOT, 边缘计算">
+    
+    
+    <meta name="description" content="maixpy  ure – 简单的正则表达式">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+        
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/prism.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?9cb07365544a53067c56c346c838181a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119047820-5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-119047820-5');
+    </script>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/js/thumbs_up/style.css" type="text/css"/>
+        
+    
+    
+    <title>ure – 简单的正则表达式 - Sipeed Wiki</title>
+    
+    <script type="text/javascript">js_vars = {"teedoc-plugin-ad-hint": {"type": "hint", "label": "NEW", "content": "全新 Maix 系列产品 <a href='https://wiki.sipeed.com/maixcam'>MaixCAM</a> 已上线, 全新 <a href='https://wiki.sipeed.com/maixpy/'>MaixPy</a> 功能更丰富，性能更强大，软件更易用，文档更全面！", "show_times": 2, "show_after_s": 432000, "date": "2022-06-01 14:00", "color": "#a0421d", "link_color": "#e53935", "link_bg_color": "#e6ae5c", "bg_color": "#ffcf89", "color_hover": "white", "bg_color_hover": "#f57c00", "close_color": "#eab971"}, "teedoc-plugin-thumbs-up": {"label_up": "有帮助", "label_down": "待改进", "icon": "/static/images/thumbs_up/up.svg", "icon_clicked": "/static/images/thumbs_up/upped.svg", "url": "https://thumbs-up.sipeed.com", "show_up_count": true, "show_down_count": false, "msg_already_voted": "您已经投过票了", "msg_thanks": "感谢您的反馈", "msg_down_prompt": "感谢反馈，请告诉我们可以改进什么地方?（最少 10 个字）", "msg_down_prompt_error": "消息最少需要 10 个字， 最多 256 个字", "msg_error": "请求服务器出现错误!"}}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": false, "update": [], "ts": 0, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/">
+                
+                    <img class="site_logo" src="/static/image/logo.svg" alt="sipeed wiki logo">
+                
+                
+                    <h2>wiki</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class=""><a  href="/">产品</a></li>
+<li class="sub_items active_parent"><a >开源软件</a><ul><li class=""><a  href="/maixpy/">MaixPy</a></li>
+<li class="active"><a  href="/soft/maixpy/zh/index.html">MaixPy_v1</a></li>
+<li class=""><a  href="/soft/Lichee/zh/index.html">Lichee</a></li>
+<li class=""><a  href="/ai/zh/index.html">AI 指南</a></li>
+</ul>
+</li>
+<li class=""><a target="_blank" href="https://maixhub.com">MaixHub</a></li>
+<li class=""><a  href="/news/">动态</a></li>
+<li class=""><a  href="/faq.html">FAQ 汇总</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class=""><a  href="/store.html"><img src='/static/image/shop.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+<li class=""><a target="_blank" href="https://github.com/sipeed"><img src='/static/image/github.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+<li class="sub_items "><a  ><img src='/static/image/language.svg' style='height: 1.5em;vertical-align: middle;'>&nbsp;中文</a><ul><li class=""><a  href="/soft/maixpy/en/api_reference/standard/ure.html">English</a></li>
+<li class="active"><a  href="/soft/maixpy/zh/api_reference/standard/ure.html">中文</a></li>
+</ul></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">输入关键词，多关键词空格隔开</span>
+                                <span id="search_loading_hint">正在加载，请稍候。。。</span>
+                                <span id="search_download_err_hint">下载文件失败，请刷新重试或检查网络</span>
+                                <span id="search_other_docs_result_hint">来自其它文档的结果</span>
+                                <span id="search_curr_doc_result_hint">当前文档搜索结果</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="not_active with_link"><a href="/soft/maixpy/zh/index.html"><span class="label">MaixPy-v1 是什么？</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/what_maix_do.html"><span class="label">MaixPy-v1 能做哪些事？</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/maixpy_history.html"><span class="label">MaixPy 发展历程</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">入门必看指南</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/zh/how_to_read.html"><span class="label">如何阅读本文档（重要）</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/how_to_ask.html"><span class="label">如何正确的提问（重要）</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/develop_kit_board/get_hardware.html"><span class="label">开发板选购指南(对比)</span><span class=""></span></a></li>
+<li class="not_active ext_link with_link"><a href="https://wiki.sipeed.com/news/MaixPy/K210_usage.html" target="_blank"><span class="label">K210 上手避坑指南（必看）</span><span class="ext_link_icon"></span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">准备你的开发环境</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/zh/get_started/env_install_driver.html"><span class="label">在电脑上安装开发板驱动</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/zh/get_started/install_driver/dock.html"><span class="label">Maix Dock</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/get_started/install_driver/bit.html"><span class="label">Maix Bit</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/get_started/install_driver/amigo.html"><span class="label">Maix Amigo</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/get_started/install_driver/cube.html"><span class="label">Maix Cube</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/get_started/install_driver/go.html"><span class="label">Maix Go</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/get_started/install_driver/nano.html"><span class="label">Maix Nano</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/get_started/install_driver/ai_hat.html"><span class="label">Grove AI HAT</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/get_started/install_driver/duino.html"><span class="label">Maix Duino</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/get_started/upgrade_maixpy_firmware.html"><span class="label">如何更新 MaixPy 固件</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/get_started/env_maixpyide.html"><span class="label">MaixPy IDE 安装使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/get_started/uart.html"><span class="label">如何连接串口?</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/zh/get_started/env_serial_tools.html"><span class="label">串口连接工具介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/get_started/mpfshell-lite/mpfshell-lite.html"><span class="label">mpfshell-lite工具介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/get_started/mpfshell-lite/mpfshell-lite-help.html"><span class="label">Mpfshell-lite 使用手册</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">更新 WIFI 模块固件</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/zh/get_started/upgrade_esp32_firmware.html"><span class="label">更新板载 ESP32 固件</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/get_started/upgrade_esp8285_firmware.html"><span class="label">更新板载 ESP8285 固件</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">准备上手运行程序</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/zh/get_started/get_started_power_on.html"><span class="label">给板子通上电开机</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/get_started/get_started_cam_lcd.html"><span class="label">第一个程序: 使用屏幕和摄像头</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/get_started/get_started_led_blink.html"><span class="label">第二个程序: 点亮 LED 灯</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">编程基础知识</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/zh/get_started/knowledge_micropython.html"><span class="label">MaixPy 语法基础知识</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/get_started/knowledge_git_github.html"><span class="label">什么是 git 和 github</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/get_started/knowledge_image.html"><span class="label">MaixPy 图像基础知识</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/get_started/knowledge_audio.html"><span class="label">MaixPy 音频基础知识</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/get_started/get_started_fs.html"><span class="label">存储系统介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/get_started/get_started_edit_file.html"><span class="label">编辑代码并运行</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/get_started/get_started_upload_script.html"><span class="label">上传代码到开发板</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/get_started/get_started_boot.html"><span class="label">开机自动运行代码</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/get_started/board_info.html"><span class="label">开发板配置文件</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/get_started/maixpy_get_started_video.html"><span class="label">上手视频教程</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">定制你的专属固件</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/zh/firmware/why_customize_firware.html"><span class="label">为什么需要定制固件</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/firmware/online_compile.html"><span class="label">在线编译</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/firmware/compile.html"><span class="label">源码编译</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/course/index.html"><span class="label">更多功能应用</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">系统基础功能</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">CPU & RAM</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/zh/course/others/system.html"><span class="label">主频、复位等</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/course/others/mem.html"><span class="label">内存配置与查看</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">GUI 支持</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/zh/course/image/image_draw_font/image_draw_font.html"><span class="label">中文等多国语言支持</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/course/others/maixui.html"><span class="label">Maix UI</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/course/others/lvgl.html"><span class="label">Lvgl UI</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/course/others/pye.html"><span class="label">pye 编辑器 </span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">网络支持</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/zh/course/network/network_config.html"><span class="label">配置 network 网卡</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/course/network/socket_usage.html"><span class="label">使用 socket 通信</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">媒体功能</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/zh/course/media/audio.html"><span class="label">录音与播放（audio）</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/course/media/video.html"><span class="label">播放视频（video）</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">游戏模拟</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/media/nes.html"><span class="label">NES 游戏机</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">外设模块拓展</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">片上外设</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/zh/modules/on_chip/gpio.html"><span class="label">GPIO</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/modules/on_chip/i2c.html"><span class="label">I2C</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/modules/on_chip/pwm.html"><span class="label">PWM</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/modules/on_chip/spi.html"><span class="label">SPI</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/modules/on_chip/timer.html"><span class="label">Timer</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/modules/on_chip/uart.html"><span class="label">UART</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/modules/on_chip/i2s.html"><span class="label">I2S</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/modules/on_chip/wdt.html"><span class="label">WDT</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">SP-MOD</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/zh/modules/sp_mod/sp_bt.html"><span class="label">BT 蓝牙透传</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/modules/sp_mod/sp_lora.html"><span class="label">LoRa 无线通信</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/modules/sp_mod/sp_rfid.html"><span class="label">RFID 射频识别</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/modules/sp_mod/sp_tof.html"><span class="label">TOF 测距</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/modules/sp_mod/sp_eink.html"><span class="label">Eink 电子墨水屏</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/modules/sp_mod/sp_lcd1.14.html"><span class="label">Lcd1.14 IPS屏</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/modules/sp_mod/sp_weather.html"><span class="label">Weather 气象模块</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/modules/sp_mod/sp_ethernet.html"><span class="label">Ethernet 有线网口</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Grove</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/zh/modules/grove/grove_ultrasonic_ranger.html"><span class="label">Ultrasonic Ranger 测距</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/modules/grove/grove_chainable_rgb_led.html"><span class="label">Chainable RGB LED 灯</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/modules/grove/grove_rgb_led_ring.html"><span class="label">RGB LED Ring 灯条</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">其他外设</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/zh/develop_kit_board/module_microphone.html"><span class="label">Sipeed 麦克风阵列</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/modules/others/binocular_camera.html"><span class="label">双摄模块</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/modules/others/mlx90640.html"><span class="label">MLX90640 串口红外镜头</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/modules/others/servo.html"><span class="label">PWM 舵机</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/modules/others/esp32_read_adc.html"><span class="label">ESP32 ADC</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/modules/others/onewire.html"><span class="label">onewire 单总线</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">图像处理基础（Image）</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/zh/course/image/basic/get_images.html"><span class="label">获取一张图像</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/course/image/basic/display_images.html"><span class="label">显示一张图像</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/course/image/basic/vary.html"><span class="label">图像处理基础</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/course/image/basic/draw.html"><span class="label">如何在图像上写字</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/course/image/basic/acc_image_deal.html"><span class="label">硬件加速图像模块</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">传统算法应用</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">图像处理</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/zh/course/image/find_color_blob.html"><span class="label">寻找色块</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/course/image/find_qrcodes.html"><span class="label">二维码识别</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">音频处理</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/zh/course/speech/fft_waterfall.html"><span class="label">FFT 瀑布图</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/course/speech/recognizer_mfcc.html"><span class="label">关键词识别</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">神经网络应用（AI）</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/zh/course/ai/basic/dnn_basic.html"><span class="label">深度神经网络基础</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/course/ai/basic/maixpy_hardware_ai_basic.html"><span class="label">KPU 硬件加速介绍</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">AI 图像处理</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/zh/course/ai/image/face_detect.html"><span class="label">人脸检测</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/course/ai/image/1000_type_classifier.html"><span class="label">1000 种物体分类</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/course/ai/image/face_recognization.html"><span class="label">人脸识别</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/course/ai/image/self_learn_classifier.html"><span class="label">自学习分类</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">AI 音频处理</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/zh/course/speech/recognizer_cnn.html"><span class="label">语音识别</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">如何训练模型</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">训练自己的分类和检测模型</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/zh/course/ai/train/maixhub.html"><span class="label">MaixHub 云端训练</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/course/ai/train/local.html"><span class="label">本地训练——Linux</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/course/ai/train/local_windows_1.html"><span class="label">本地训练Windows环境配置</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/course/ai/train/local_windows_2.html"><span class="label">本地训练Windows使用教程</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="active_parent no_link"><a><span class="label">库函数 API 手册</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="active_parent with_link"><a href="/soft/maixpy/zh/api_reference/standard/index.html"><span class="label">标准库</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/standard/cmath.html"><span class="label">cmath</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/standard/gc.html"><span class="label">gc</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/standard/math.html"><span class="label">math</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/standard/sys.html"><span class="label">sys</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/standard/ubinascii.html"><span class="label">ubinascii</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/standard/ucollections.html"><span class="label">ucollections</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/standard/uctypes.html"><span class="label">uctypes</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/standard/uerrno.html"><span class="label">uerrno</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/standard/uhashlib.html"><span class="label">uhashlib</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/standard/uheapq.html"><span class="label">uheapq</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/standard/ujson.html"><span class="label">ujson</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/standard/uos.html"><span class="label">uos</span><span class=""></span></a></li>
+<li class="active with_link"><a href="/soft/maixpy/zh/api_reference/standard/ure.html"><span class="label">ure</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/standard/usocket.html"><span class="label">usocket</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/standard/ustruct.html"><span class="label">ustruct</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/standard/utime.html"><span class="label">utime</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/standard/uzlib.html"><span class="label">uzlib</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/machine/index.html"><span class="label">machine</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/machine/i2c.html"><span class="label">I2C</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/machine/pwm.html"><span class="label">PWM</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/machine/spi.html"><span class="label">SPI</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/machine/timer.html"><span class="label">Timer</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/machine/uart.html"><span class="label">UART</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/machine/network.html"><span class="label">network</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/machine/wdt.html"><span class="label">WDT</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Maix</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/Maix/fpioa.html"><span class="label">FPIOA</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/Maix/gpio.html"><span class="label">GPIO</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/Maix/kpu.html"><span class="label">KPU</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/Maix/fft.html"><span class="label">FFT</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/Maix/i2s.html"><span class="label">I2S</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/Maix/freq.html"><span class="label">freq</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/Maix/utils.html"><span class="label">utils</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/builtin_py/index.html"><span class="label">helper</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/builtin_py/fm.html"><span class="label">fpioa_manager</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/builtin_py/board_info.html"><span class="label">board_info</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/builtin_py/pye.html"><span class="label">Micropython Editor</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/machine_vision/index.html"><span class="label">media</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/machine_vision/lcd.html"><span class="label">lcd</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/machine_vision/sensor.html"><span class="label">sensor</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/machine_vision/image/image.html"><span class="label">image</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/media/video.html"><span class="label">video</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/media/audio.html"><span class="label">audio</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/media/nes.html"><span class="label">nes</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/machine_vision/isolated_word.html"><span class="label">isolated_word</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/machine_vision/maix_asr.html"><span class="label">maix_asr</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/extend/index.html"><span class="label">extend</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/extend/touchscreen.html"><span class="label">touchscreen</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/extend/ultrasonic.html"><span class="label">modules.ultrasonic</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/extend/ws2812.html"><span class="label">modules.ws2812</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/extend/htpa.html"><span class="label">modules.htpa</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/api_reference/extend/onewire.html"><span class="label">modules.onewire</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/others/maixpy_faq.html"><span class="label">常见问题 FAQ</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">开发与贡献</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">如何编译开发</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/zh/course/advance/project_framework.html"><span class="label">源码目录结构</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/course/advance/compile.html"><span class="label">如何编译 MaixPy 工程</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/course/advance/add_c_module.html"><span class="label">如何用 C 添加一个 MaixPy 模块</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/course/advance/pack_fs.html"><span class="label">打包文件系统</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">如何贡献代码</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/zh/contribute/doc_convention.html"><span class="label">参与文档编写（规范）</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/contribute/code_convention.html"><span class="label">代码编写规范</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">来自社区和用户分享</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/zh/share/recommend_articles.html"><span class="label">精选文章</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/share/open_projects.html"><span class="label">开源项目</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">大家的经验分享</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/zh/share/my_share/index.html"><span class="label">参与经验分享/分享模板</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/soft/maixpy/zh/thanks.html"><span class="label">开源项目致谢</span><span class=""></span></a></li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>ure – 简单的正则表达式</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/sipeed/sipeed_wiki/blob/main/docs/soft/maixpy/zh/api_reference/standard/ure.md" target="_blank">
+                                    <span id='editPage'>编辑本页</span>
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <p>该模块实现了相应CPython模块的子集，如下所述。 有关更多信息，请参阅原始CPython文档：<a href="https://docs.python.org/3.5/library/re.html#module-re"  target="_blank">re</a>.</p>
+<p>该模块实现了正则表达式操作。 支持的正则表达式语法是CPython<code>re</code>模块的子集（实际上是POSIX扩展正则表达式的子集）。</p>
+<h2 id="%E6%94%AF%E6%8C%81%E7%9A%84%E8%BF%90%E7%AE%97%E7%AC%A6%E5%92%8C%E7%89%B9%E6%AE%8A%E5%BA%8F%E5%88%97">支持的运算符和特殊序列</h2>
+<ul>
+<li><p><code>.</code> : 匹配任何字符。</p>
+</li>
+<li><p><code>[...]</code> : 匹配字符集。 支持单个字符和范围，包括否定集（例如<code>[^ a-c]</code>）。</p>
+</li>
+<li><p><code>^</code> : 匹配字符串的开头。</p>
+</li>
+<li><p><code>$</code> : 匹配字符串的结尾。</p>
+</li>
+<li><p><code>?</code> : 匹配零个或前一个子模式之一。</p>
+</li>
+<li><p><code>*</code> : 匹配前一个子模式的零个或多个。</p>
+</li>
+<li><p><code>+</code> : 匹配前一个子模式中的一个或多个。</p>
+</li>
+<li><p><code>??</code> : 非贪婪版的<code>？</code>，匹配零或一，偏好为零。</p>
+</li>
+<li><p><code>*?</code> : <code>*</code>的非贪婪版本，匹配零或更多，优先选择最短匹配。</p>
+</li>
+<li><p><code>+?</code> : 非贪婪的“+”版本，匹配一个或多个，优先匹配最短。</p>
+</li>
+<li><p><code>|</code> : 匹配此运算符的左侧或右侧子模式。</p>
+</li>
+<li><p><code>(...)</code> : 分组。 每个组都在捕获（它捕获的子字符串可以使用`match.group（）方法访问）。</p>
+</li>
+<li><p><code>\d</code> : 匹配数字。 相当于<code>[0-9]</code>。</p>
+</li>
+<li><p><code>\D</code> : 匹配非数字。 相当于<code>[^ 0-9]</code>。</p>
+</li>
+<li><p><code>\s</code> :</p>
+</li>
+<li><p><code>\S</code> : 匹配空白。 相当于 <code>[^ \t-\r]</code>.</p>
+</li>
+<li><p><code>\w</code> : 匹配“单词字符”（仅限ASCII）。 相当于 <code>[A-Za-z0-9_]</code>.</p>
+</li>
+<li><p><code>\W</code> : 匹配非“单词字符”（仅限ASCII）。 相当于 <code>[^A-Za-z0-9_]</code>.</p>
+</li>
+<li><p><code>\</code> : 转义字符。 除了上面列出的那些之外，反斜杠后面的任何其他字符都是字面意思。 例如，<code>\*</code>等同于文字<code>*</code>（不被视为<code>*</code>运算符）。 请注意，<code>\r</code>，<code>\n，</code>等不是专门处理的，并且相当于文字字母<code>r</code>，<code>n</code>等。因此，不建议使用原始Python字符串（<code>r“”</code>）用于正则表达式。 例如，<code>r“\r \n”</code>用作正则表达式时相当于<code>“rn”</code>。 要匹配CR后跟LF的字符，请使用<code>&quot;\r\n&quot;</code>。</p>
+</li>
+</ul>
+<h2 id="%E4%B8%8D%E6%94%AF%E6%8C%81%E7%9A%84%E8%A1%A8%E8%BE%BE%E5%BC%8F">不支持的表达式</h2>
+<ul>
+<li>重复计算 (<code>{m,n}</code>)</li>
+<li>命名组 (<code>(?P&lt;name&gt;...)</code>)</li>
+<li>非捕获组 (<code>(?:...)</code>)</li>
+<li>更高级的断言 (<code>\b, \B</code>)</li>
+<li>像<code>\r</code>，<code>\n</code>这样的特殊字符转义 - 使用Python自己的转义</li>
+<li>其它</li>
+</ul>
+<p>例子：</p>
+
+<pre class="language-python"><code class="language-python">import ure
+
+# As ure doesn't support escapes itself, use of r&quot;&quot; strings is not
+# recommended.
+regex = ure.compile(&quot;[\r\n]&quot;)
+
+regex.split(&quot;line1\rline2\nline3\r\n&quot;)
+
+# Result:
+# ['line1', 'line2', 'line3', '', '']
+</code></pre>
+<h2 id="%E6%96%B9%E6%B3%95">方法</h2>
+<h3 id="ure.compile%28regex_str%5B%2C-flags%5D%29">ure.compile(regex_str[, flags])</h3>
+<p>编译正则表达式， 返回<a href="http://docs.micropython.org/en/latest/library/ure.html?highlight=ure#regex"  target="_blank">regex</a> 对象。</p>
+<h3 id="ure.match%28regex_str%2C-string%29">ure.match(regex_str, string)</h3>
+<p>编译regex_str并匹配字符串。 匹配始终从字符串中的起始位置开始。</p>
+<h3 id="ure.search%28regex_str%2C-string%29">ure.search(regex_str, string)</h3>
+<p>编译regex_str并在字符串中搜索它。 与<code>match</code>不同，这将搜索字符串以匹配正则表达式的第一个位置（如果正则表达式被锚定，它仍然可以是0）。</p>
+<h3 id="ure.sub%28regex_str%2C-replace%2C-string%2C-count%3D0%2C-flags%3D0%29">ure.sub(regex_str, replace, string, count=0, flags=0)</h3>
+<p>编译regex_str并在字符串中搜索它，用replace替换所有匹配项，并返回新字符串。</p>
+<p>replace可以是字符串或函数。 如果它是一个字符串，那么<code>\&lt;number&gt;</code>和<code>\g&lt;number&gt;</code>形式的转义序列可用于扩展到相应的组（或不匹配组的空字符串）。 如果replace是一个函数，那么它必须采用一个参数（匹配）并且应该返回一个替换字符串。</p>
+<p>如果指定了count并且非零，那么在进行许多替换之后，替换将停止。 flags参数被忽略。</p>
+<p>注意：此函数的可用性取决于<code>MicroPython port</code>。</p>
+<h3 id="ure.DEBUG">ure.DEBUG</h3>
+<p>标记值，显示有关已编译表达式的调试信息。 （可用性取决于<code>MicroPython 移植实现</code>。）</p>
+<h2 id="Regex-%E5%AF%B9%E8%B1%A1">Regex 对象</h2>
+<p>编译了的正则表达式。 使用<code>ure.compile()</code>创建此类的实例。</p>
+<h3 id="regex.match%28string%29-regex.search%28string%29-regex.sub%28replace%2C-string%2C-count%3D0%2C-flags%3D0%29">regex.match(string) regex.search(string) regex.sub(replace, string, count=0, flags=0)</h3>
+<p>类似于模块级函数<code>match（）</code>，<code>search（）</code>和<code>sub（）</code>。 如果将相同的正则表达式应用于多个字符串，则使用方法会更高效。</p>
+<h3 id="regex.split%28string%2C-max_split%3D-1%29">regex.split(string, max_split=-1)</h3>
+<p>使用正则表达式拆分字符串。 如果给出 max_split，则指定要执行的最大拆分数。 返回字符串列表（如果指定了，则最多可以有 max_split + 1 个元素）。</p>
+<h2 id="Match-%E5%AF%B9%E8%B1%A1">Match 对象</h2>
+<p>匹配<code>match（）</code>和<code>search（）</code>方法返回的对象，并传递给sub（）中的替换函数。</p>
+<h3 id="match.group%28index%29">match.group(index)</h3>
+<p>返回匹配（子）字符串。 整个匹配的索引为0，每个捕获组的索引为1和更高。 仅支持数字组。</p>
+<h3 id="match.groups%28%29">match.groups()</h3>
+<p>返回包含匹配组的所有子串的元组。</p>
+<p>注意：此方法的可用性取决于<code>MicroPython 移植实现</code>。</p>
+<h3 id="match.start%28%5Bindex%5D%29-match.end%28%5Bindex%5D%29">match.start([index]) match.end([index])</h3>
+<p>返回匹配的子字符串组的开头或结尾的原始字符串中的索引。 index默认为整个组，否则将选择一个组。</p>
+<p>注意：这些方法的可用性取决于<code>MicroPython 移植实现</code>。</p>
+<h3 id="match.span%28%5Bindex%5D%29">match.span([index])</h3>
+<p>返回2元组<code>（match.start（index），match.end（index））</code>。</p>
+<p>注意：此方法的可用性取决于<code>MicroPython 移植</code> 是否实现。</p>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                        <a href="/soft/maixpy/zh/api_reference/standard/uos.html">
+                            <span class="icon"></span>
+                            <span class="label">uos</span>
+                        </a>
+                        
+                    </div>
+                    <div id="next">
+                        
+                        <a href="/soft/maixpy/zh/api_reference/standard/usocket.html">
+                            <span class="label">usocket</span>
+                            <span class="icon"></span>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>相关链接</a><ul><li><a target="_blank" href="https://www.sipeed.com">Sipeed 官网</a></li>
+<li><a target="_blank" href="https://maixhub.com/">MaixHub</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">Sipeed 淘宝</a></li>
+<li><a  href="/sitemap.xml">网站地图</a></li>
+<li><a target="_blank" href="https://github.com/teedoc/teedoc">网站使用 teedoc 生成</a></li>
+</ul>
+</li>
+<li><a>源码</a><ul><li><a target="_blank" href="https://github.com/sipeed/sipeed_wiki">Wiki 源码</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">开源项目</a></li>
+</ul>
+</li>
+<li><a>关注我们</a><ul><li><a target="_blank" href="https://twitter.com/SipeedIO">twitter</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">淘宝</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">github</a></li>
+<li><a><a>微信公众号</a><img src='/static/image/wechat.png'></a>
+</li>
+</ul>
+</li>
+<li><a>联系我们</a><ul><li><a>电话: +86 0755-27808509</a>
+</li>
+<li><a>商业支持: support@sipeed.com</a>
+</li>
+<li><a>地址: 深圳市宝安区新湖路4008号蘅芳科技办公大厦A座-2101C</a>
+</li>
+<li><a  href="/join_us.html">加入我们</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://www.sipeed.com">©2018-2023 深圳矽速科技有限公司</a></li>
+<li><a target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index">粤ICP备19015433号</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/js/prism.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <link rel="stylesheet" href="/static/js/add_hint/style.css" type="text/css"/>
+    
+        <script src="/static/js/add_hint/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+        <script src="/static/js/thumbs_up/main.js"></script>
+    
+</body>
+
+</html>

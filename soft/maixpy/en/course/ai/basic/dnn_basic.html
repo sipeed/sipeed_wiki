@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+
+<html lang="en"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="maixpy, k210, AIOT, edge computing">
+    
+    
+    <meta name="description" content="maixpy  basic knowledge of deep neural network (DNN)">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+        
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/prism.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?9cb07365544a53067c56c346c838181a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119047820-5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-119047820-5');
+    </script>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/js/thumbs_up/style.css" type="text/css"/>
+        
+    
+    
+    <title>Basic knowledge of deep neural network (DNN) - Sipeed Wiki</title>
+    
+    <script type="text/javascript">js_vars = {"teedoc-plugin-ad-hint": {"type": "hint", "label": "NEW", "content": "New Maix series products <a href='https://wiki.sipeed.com/maixcam'>MaixCAM</a> online now, and new <a href='https://wiki.sipeed.com/maixpy/'>MaixPy</a>,feature richer functionalities, enhanced performance, and user-friendly software, with comprehensive documentation", "show_times": 2, "show_after_s": 432000, "date": "2022-06-01 14:00", "color": "#a0421d", "link_color": "#e53935", "link_bg_color": "#e6ae5c", "bg_color": "#ffcf89", "color_hover": "white", "bg_color_hover": "#f57c00", "close_color": "#eab971"}, "teedoc-plugin-thumbs-up": {"label_up": "Helpful", "label_down": "Not Helpful", "icon": "/static/images/thumbs_up/up.svg", "icon_clicked": "/static/images/thumbs_up/upped.svg", "url": "https://thumbs-up.sipeed.com", "show_up_count": true, "show_down_count": false, "msg_already_voted": "You have already voted", "msg_thanks": "Thanks for your vote", "msg_down_prompt": "Thanks to tell us where we can improve?(At least 10 characters)", "msg_down_prompt_error": "Message should be at least 10 characters and less than 256 characters", "msg_error": "Request server failed!"}}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": false, "update": [], "ts": 0, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/en/">
+                
+                    <img class="site_logo" src="/static/image/logo.svg" alt="sipeed wiki logo">
+                
+                
+                    <h2>wiki</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class=""><a  href="/en/">Products</a></li>
+<li class="sub_items "><a >Software Docs</a><ul><li class=""><a  href="/maixpy/en/">MaixPy</a></li>
+<li class=""><a  href="/soft/maixpy/zh/index.html">MaixPy_v1</a></li>
+<li class=""><a  href="/soft/Lichee/zh/index.html">Lichee</a></li>
+<li class=""><a  href="/ai/en/index.html">AI Guide</a></li>
+</ul>
+</li>
+<li class=""><a target="_blank" href="https://maixhub.com">MaixHub</a></li>
+<li class=""><a  href="/news/">News</a></li>
+<li class=""><a  href="/en/faq.html">FAQ</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class=""><a  href="/en/store.html"><img src='/static/image/shop.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+<li class=""><a target="_blank" href="https://github.com/sipeed"><img src='/static/image/github.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+<li class="sub_items "><a  ><img src='/static/image/language.svg' style='height: 1.5em;vertical-align: middle;'>&nbsp;English</a><ul><li class="active"><a  href="/soft/maixpy/en/course/ai/basic/dnn_basic.html">English</a></li>
+<li class=""><a  href="/soft/maixpy/zh/course/ai/basic/dnn_basic.html">中文</a></li>
+</ul></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">Search</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">Input keyword. Using Space to separate multiple keywords</span>
+                                <span id="search_loading_hint">Loading, please wait</span>
+                                <span id="search_download_err_hint">Fail download, Please retry or check network</span>
+                                <span id="search_other_docs_result_hint">Results form other doc</span>
+                                <span id="search_curr_doc_result_hint">Result form current doc</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="not_active with_link"><a href="/soft/maixpy/en/index.html"><span class="label">What is MaixPy-v1?</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/what_maix_do.html"><span class="label">What can MaixPy-v1 do?</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/maixpy_history.html"><span class="label">MaixPy Development History</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Getting started(Important)</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/how_to_read.html"><span class="label">How to read documents (Important!!!)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/how_to_ask.html"><span class="label">How to ask correctly (Important!!!)</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Development Boards</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/develop_kit_board/get_hardware.html"><span class="label">Boards Comparison</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Boards introduction</span><span class=""></span></a></li>
+<ul class="show">
+<li class="not_active with_link"><a href="/soft/maixpy/en/develop_kit_board/maix_dock.html"><span class="label">Maix Dock</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/develop_kit_board/maix_bit.html"><span class="label">Maix Bit</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/develop_kit_board/maix_amigo.html"><span class="label">Maix Amigo</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/develop_kit_board/maix_duino.html"><span class="label">Maix Duino</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/develop_kit_board/maix_cube.html"><span class="label">Maix Cube</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/develop_kit_board/maix_go.html"><span class="label">Maix Go</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/develop_kit_board/maix_nano.html"><span class="label">Maix Nano</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/develop_kit_board/grove_ai_hat.html"><span class="label">Grove AI HAT</span><span class=""></span></a></li>
+</ul>
+<li class="not_active no_link"><a><span class="label">Related peripheral Modules (Accessories)</span><span class=""></span></a></li>
+<ul class="show">
+<li class="not_active with_link"><a href="/soft/maixpy/en/modules/sp_mod/index.html"><span class="label">SP-MOD</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/modules/grove/index.html"><span class="label">Grove</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/modules/others/index.html"><span class="label">Other</span><span class=""></span></a></li>
+</ul>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Setup Environment</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/get_started/env_install_driver.html"><span class="label">Install driver for development board</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/get_started/install_driver/dock.html"><span class="label">Maix Dock</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/get_started/install_driver/bit.html"><span class="label">Maix Bit</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/no_translate.html?ref=/soft/maixpy/zh/get_started/install_driver/amigo.html&from=/soft/maixpy/en/get_started/install_driver/amigo.html"><span class="label">Maix Amigo</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/no_translate.html?ref=/soft/maixpy/zh/get_started/install_driver/cube.html&from=/soft/maixpy/en/get_started/install_driver/cube.html"><span class="label">Maix Cube</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/get_started/install_driver/go.html"><span class="label">Maix Go</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/get_started/install_driver/nano.html"><span class="label">Maix Nano</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/no_translate.html?ref=/soft/maixpy/zh/get_started/install_driver/ai_hat.html&from=/soft/maixpy/en/get_started/install_driver/ai_hat.html"><span class="label">Grove AI HAT</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/get_started/install_driver/duino.html"><span class="label">Maix Duino</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/get_started/upgrade_maixpy_firmware.html"><span class="label">How to update MaixPy firmware</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/get_started/env_maixpyide.html"><span class="label">Install and use MaixPy IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/get_started/env_serial_tools.html"><span class="label">How to use serial terminal tool</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/no_translate.html?ref=/soft/maixpy/zh/get_started/mpfshell-lite/mpfshell-lite.html&from=/soft/maixpy/en/get_started/mpfshell-lite/mpfshell-lite.html"><span class="label">mpfshell-lite工具介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/no_translate.html?ref=/soft/maixpy/zh/get_started/mpfshell-lite/mpfshell-lite-help.html&from=/soft/maixpy/en/get_started/mpfshell-lite/mpfshell-lite-help.html"><span class="label">Mpfshell-lite 使用手册</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/get_started/env_maixpyide.html"><span class="label">MaixPy IDE Instructions</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Update WIFI module firmware</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/get_started/upgrade_esp32_firmware.html"><span class="label">Update onboard ESP32 firmware</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/get_started/upgrade_esp8285_firmware.html"><span class="label">Update onboard ESP8285 firmware</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Start to run program</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/get_started/get_started_power_on.html"><span class="label">Power up your board</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/get_started/get_started_cam_lcd.html"><span class="label">First program: screen and camera</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/get_started/get_started_led_blink.html"><span class="label">Second program: LED</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Basic programming knowledge</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/get_started/knowledge_micropython.html"><span class="label">MaixPy Programming</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/get_started/knowledge_git_github.html"><span class="label">What is git and github?</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/get_started/knowledge_image.html"><span class="label">MaixPy Image Basics</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/get_started/knowledge_audio.html"><span class="label">MaixPy audio basics</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/get_started/get_started_fs.html"><span class="label">Introduction of Storage System</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/get_started/get_started_edit_file.html"><span class="label">Edit and run scripts code</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/get_started/get_started_upload_script.html"><span class="label">Upload scripts code to board</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/get_started/get_started_boot.html"><span class="label">Run scripts code when booting</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/get_started/board_info.html"><span class="label">Board configuration file</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/get_started/maixpy_get_started_video.html"><span class="label">Video tutorial</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Custome your own firmware</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/firmware/why_customize_firware.html"><span class="label">Why customizing firmware</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/firmware/online_compile.html"><span class="label">Online Compile</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/firmware/compile.html"><span class="label">Compile from source code</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="active_parent with_link"><a href="/soft/maixpy/en/course/index.html"><span class="label">More usages</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active no_link"><a><span class="label">Basic Usage</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">CPU & RAM</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/others/system.html"><span class="label">Frequency and reset</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/others/mem.html"><span class="label">Memory configuration</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">GUI support</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/image/image_draw_font/image_draw_font.html"><span class="label">Chinese and other multi-language support</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/others/maixui.html"><span class="label">Maix UI</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/others/lvgl.html"><span class="label">Lvgl UI</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/others/pye.html"><span class="label">pye Editor </span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Network</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/network/network_config.html"><span class="label">Configure network</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/network/socket_usage.html"><span class="label">Socket communication</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Multimedia</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/media/audio.html"><span class="label">audio</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/media/video.html"><span class="label">video</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Game simulator</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/media/nes.html"><span class="label">NES game console</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Peripheral module expansion</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">On-chip peripherals</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/modules/on_chip/gpio.html"><span class="label">GPIO</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/modules/on_chip/i2c.html"><span class="label">I2C</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/modules/on_chip/pwm.html"><span class="label">PWM</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/modules/on_chip/spi.html"><span class="label">SPI</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/modules/on_chip/timer.html"><span class="label">Timer</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/modules/on_chip/uart.html"><span class="label">UART</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/modules/on_chip/i2s.html"><span class="label">I2S</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/modules/on_chip/wdt.html"><span class="label">WDT</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">SP-MOD</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/modules/sp_mod/sp_bt.html"><span class="label">BT Bluetooth transparent transmission</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/modules/sp_mod/sp_lora.html"><span class="label">LoRa Wireless Communication</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/modules/sp_mod/sp_rfid.html"><span class="label">RFID Radio Frequency Identification</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/modules/sp_mod/sp_tof.html"><span class="label">TOF Ranging</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/modules/sp_mod/sp_eink.html"><span class="label">Eink Electronic Ink Screen</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/modules/sp_mod/sp_lcd1.14.html"><span class="label">Lcd1.14 IPS screen</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/modules/sp_mod/sp_weather.html"><span class="label">Weather Module</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/modules/sp_mod/sp_ethernet.html"><span class="label">Ethernet wired network port</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Grove</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/modules/grove/grove_ultrasonic_ranger.html"><span class="label">Ultrasonic Ranger ranging</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/modules/grove/grove_chainable_rgb_led.html"><span class="label">Chainable RGB LED light</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/modules/grove/grove_rgb_led_ring.html"><span class="label">RGB LED Ring Strip</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Other peripherals</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/develop_kit_board/module_microphone.html"><span class="label">Sipeed Microphone Array</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/modules/others/binocular_camera.html"><span class="label">Dual camera module</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/modules/others/mlx90640.html"><span class="label">MLX90640 serial infrared lens</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/modules/others/servo.html"><span class="label">Pwm servo</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/modules/others/esp32_read_adc.html"><span class="label">ESP32 ADC</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/modules/others/onewire.html"><span class="label">onewire single bus</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Basic Image Processing</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/image/basic/get_images.html"><span class="label">Get image</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/image/basic/display_images.html"><span class="label">Display image</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/image/basic/vary.html"><span class="label">MaixPy common images operations</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/image/basic/draw.html"><span class="label">Basic drawing and writing</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/image/basic/acc_image_deal.html"><span class="label">Hardware accelerated image processing</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Traditional Algorithm</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Image Processing</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/image/find_color_blob.html"><span class="label">Look for color blocks</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/image/find_qrcodes.html"><span class="label">QR code recognition</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Audio Processing</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/speech/fft_waterfall.html"><span class="label">FFT waterfall chart</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/speech/recognizer_mfcc.html"><span class="label">Keyword Identification</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="active_parent no_link"><a><span class="label">Neural Network Applications</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="active with_link"><a href="/soft/maixpy/en/course/ai/basic/dnn_basic.html"><span class="label">Basic knowledge of deep neural networks</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/ai/basic/maixpy_hardware_ai_basic.html"><span class="label">MaixPy AI hardware acceleration basic knowledge</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Image Processing</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/ai/image/face_detect.html"><span class="label">Face Detection</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/ai/image/1000_type_classifier.html"><span class="label">1000 object classification</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/ai/image/face_recognization.html"><span class="label">Face Recognition</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/ai/image/self_learn_classifier.html"><span class="label">Self-learning classification</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Audio Processing</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/speech/recognizer_cnn.html"><span class="label">Voice Recognition</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">How to tarin models</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Train your own classification and detection model</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/ai/train/maixhub.html"><span class="label">MaixHub Cloud Training</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/ai/train/local.html"><span class="label">Local Training</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/no_translate.html?ref=/soft/maixpy/zh/course/ai/train/local_windows_1.html&from=/soft/maixpy/en/course/ai/train/local_windows_1.html"><span class="label">Setup Windows local training envrioument</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/no_translate.html?ref=/soft/maixpy/zh/course/ai/train/local_windows_2.html&from=/soft/maixpy/en/course/ai/train/local_windows_2.html"><span class="label">Tutorial of Windows local training</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">API reference</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/standard/index.html"><span class="label">Standard Library</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/standard/cmath.html"><span class="label">cmath</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/standard/gc.html"><span class="label">gc</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/standard/math.html"><span class="label">math</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/standard/sys.html"><span class="label">sys</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/standard/ubinascii.html"><span class="label">ubinascii</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/standard/ucollections.html"><span class="label">ucollections</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/standard/uctypes.html"><span class="label">uctypes</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/standard/uerrno.html"><span class="label">uerrno</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/standard/uhashlib.html"><span class="label">uhashlib</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/standard/uheapq.html"><span class="label">uheapq</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/standard/ujson.html"><span class="label">ujson</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/standard/uos.html"><span class="label">uos</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/standard/ure.html"><span class="label">ure</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/standard/usocket.html"><span class="label">usocket</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/standard/ustruct.html"><span class="label">ustruct</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/standard/utime.html"><span class="label">utime</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/standard/uzlib.html"><span class="label">uzlib</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/machine/index.html"><span class="label">machinie</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/machine/i2c.html"><span class="label">I2C</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/machine/pwm.html"><span class="label">PWM</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/machine/spi.html"><span class="label">SPI</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/machine/timer.html"><span class="label">Timer</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/machine/uart.html"><span class="label">UART</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/machine/network.html"><span class="label">network</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/machine/wdt.html"><span class="label">WDT</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Maix</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/Maix/fpioa.html"><span class="label">FPIOA</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/Maix/gpio.html"><span class="label">GPIO</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/Maix/kpu.html"><span class="label">KPU</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/Maix/fft.html"><span class="label">FFT</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/Maix/i2s.html"><span class="label">I2S</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/Maix/freq.html"><span class="label">freq</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/Maix/utils.html"><span class="label">utils</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/builtin_py/index.html"><span class="label">helper</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/builtin_py/fm.html"><span class="label">fpioa_manager</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/builtin_py/board_info.html"><span class="label">board_info</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/builtin_py/pye.html"><span class="label">Micropython Editor</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/machine_vision/index.html"><span class="label">media</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/machine_vision/lcd.html"><span class="label">lcd</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/machine_vision/sensor.html"><span class="label">sensor</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/machine_vision/image/image.html"><span class="label">image</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/media/video.html"><span class="label">video</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/media/audio.html"><span class="label">audio</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/media/nes.html"><span class="label">nes</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/machine_vision/isolated_word.html"><span class="label">isolated_word</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/machine_vision/maix_asr.html"><span class="label">maix_asr</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/extend/index.html"><span class="label">extend</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/extend/touchscreen.html"><span class="label">touchscreen</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/extend/ultrasonic.html"><span class="label">modules.ultrasonic</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/extend/ws2812.html"><span class="label">modules.ws2812</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/extend/htpa.html"><span class="label">modules.htpa</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/extend/onewire.html"><span class="label">modules.onewire</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/others/maixpy_faq.html"><span class="label">FAQ</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Advanced</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Advanced Development</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/advance/project_framework.html"><span class="label">Source code Structure</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/advance/compile.html"><span class="label">How to compile MaixPy project</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/advance/add_c_module.html"><span class="label">How to add a MaixPy module in C</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/advance/pack_fs.html"><span class="label">Package File System</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Participate in Contribution</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/contribute/doc_convention.html"><span class="label">Participate in document writing (standard)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/contribute/code_convention.html"><span class="label">Code Writing Specification</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Sharing from Community & Users</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/share/recommend_articles.html"><span class="label">Featured Articles</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/share/open_projects.html"><span class="label">Open Source Project</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Everyone's experience sharing</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/share/my_share/index.html"><span class="label">Participate in experience sharing/sharing template</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/thanks.html"><span class="label">Open source thanks</span><span class=""></span></a></li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>Basic knowledge of deep neural network (DNN)</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/sipeed/sipeed_wiki/blob/main/docs/soft/maixpy/en/course/ai/basic/dnn_basic.md" target="_blank">
+                                    <span id='editPage'>Edit this page</span>
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <p>Here is the knowledge you need to know to use MaixPy AI related functions, so that you can understand the following content, so I won't introduce it in depth in this article.</p>
+<h2 id="How-to-solve-a-problem-lead-the-machine-to-solve-the-problem">How to solve a problem-lead the machine to solve the problem</h2>
+<p>A question is usually divided into <strong>input</strong> and <strong>output (result)</strong></p>
+<p>For example:<br />
+A straight line in the coordinate system is as follows, the value of the above data point is known:<br />
+<img src="../../../../assets/dnn/ykxb.jpg" alt="y=kx+b" /></p>
+<p>Now ask the question, if the data point law does not change, enter an x ​​coordinate of 20, what is the value of y?<br />
+According to everyone’s knowledge, we all know that this is a one-variable linear equation (<code>y = kx + b</code> can be solved). Bring in the values ​​of two points and calculate the equation as <code>y = 3x + 10</code>, then when <code>x=20 The value of</code>, <code>y</code> is <code>70</code>, so the input is <code>20</code> and the output is <code>70</code>.</p>
+<p>Here is input (<code>20</code>) + algorithm (one-variable linear equation) = output (<code>70</code>). This is the basic method we use to solve a problem, so the key is to find the one that conforms to the law of data points on this line segment algorithm.</p>
+<p>Humans are very powerful, they will summarize and learn from these data, and finally get this algorithm (equation), and then other people can directly use this algorithm to quickly solve similar problems, then, is there a way to let the machine automatically To find this algorithm?</p>
+<h2 id="How-to-let-the-machine-summarize-the-algorithm">How to let the machine summarize the algorithm</h2>
+<p>To let the machine automatically summarize the algorithm, that is, machine learning (ML, Machine Learning), let's take a look at how humans get this algorithm (equation).</p>
+<ul>
+<li>Step 1: First, there are a large number of data points, and then based on these data points, humans found that the straight line conforms to the algorithm <code>y = kx + b</code>, which adapts to all straight lines, but found that there are two unknowns <code>k</code> and <code>b</code>, this is the parameter that adapts to any straight line</li>
+<li>Step 2: Then what kind of straight line is the specific, because the equation has two unknowns, namely the parameters, put the actual two data points into this equation, and get <code>k = 3</code> and <code>b = 10</code></li>
+<li>Step 3: Then we use the online data points that are not used in step 2 to try whether the algorithm (equation) is correct, and finally we find that they are all verified correctly</li>
+<li>Step 4: Then you need to know the value of <code>y</code> of other points through the value of <code>x</code>, just substitute <code>y = 3x + 10</code></li>
+</ul>
+<p>So, can machine learning also use this step?</p>
+<ul>
+<li><p>We thoughtfully designed an algorithm structure, adding that we happened to design it directly as <code>y = kx + b</code>, we left two parameters for the specific straight line, let’s call this structure <strong>model structure</strong> for now, because There are unknown parameters, which we call the untrained model structure. Where <code>x</code> is called <strong>input</strong>, and <code>y</code> is called <strong>output</strong></p>
+</li>
+<li><p>Now, we substitute a few points of our straight line into this equation, we call this process <strong>training</strong>, to get the algorithm <code>y = 3x + 10</code>, there are no unknown parameters, we now call it It is a <strong>model</strong> or a trained model, where <code>kb</code> is the parameter in the model, and <code>y = kx + b</code> is the structure of the model. The data points brought into training are called <strong>training data</strong>, and their collective name is <strong>training data set</strong></p>
+</li>
+<li><p>Then, we use several data points on the line segment that are not used in the training process as input, substitute this model for calculation, and get the result, such as <code>x = 10</code>, get <code>y = 40</code>, and then compare the output Whether the value is consistent with expectations, here we find that <code>x = 10, y = 40</code> is indeed on the straight line in the figure, and this point is not used during training, indicating that the model we got passed this verification. The process is called <strong>verification</strong>, <code>x = 10, y = 40</code> This data is called verification data. If we use multiple sets of data to verify this model, the collective term for these data is called <strong>validation data set</strong></p>
+</li>
+<li><p>Now, we have obtained a <strong>model</strong>, and verified this model with <strong>validation data set</strong>, which seems to be very accurate, then we can assume that this model basically satisfies our future. x<code>, requires the value of</code>y<code>at any point on the line in the figure, you can enter</code>x<code>to give the</code>y` coordinate of the corresponding point on the line. This process is actually <strong>using the model</strong>, this process is called <strong>reasoning</strong></p>
+</li>
+</ul>
+<p>In fact, this is regarded as machine learning. What we humans need is to design the structure of <code>y = kx + b</code>, and give <strong>training data set</strong> and <strong>validation data set</strong>, after <strong>training</strong> And <strong>verify</strong> to get a model we think is available, and then use <code>input + model</code> to get the correct <code>output (result)</code>.</p>
+<h2 id="What-is-a-deep-neural-network%3F">What is a deep neural network?</h2>
+<p>Deep neural network (DNN) is a technology in the field of machine learning (ML).</p>
+<p>I mentioned a relatively simple example. According to a straight line data to predict any point on the straight line, the structure of <code>y = kx + b</code> is artificially designed and very simple. When used for complex data, it is not found Applied, such as &quot;Is this picture a ball or a toy&quot;</p>
+<p><img src="../../../../assets/dnn/ball.jpg" alt="小球" /> <img src="../../../../assets/dnn/toy.jpg" alt="toy" /></p>
+<p>In order to store the information of the next straight line in the model, the structure <code>y = kx + b</code> is used, and the features of the straight line are all stored in the model.<br />
+The features used to store a picture now, the linear structure of <code>y = kx + b</code>, and the two parameters of <code>k and b</code> obviously cannot be satisfied. A better structure needs to be designed. The network ** appeared, a kind of mesh structure, which can better remember the characteristic information of the picture, and this mesh structure is multi-layered, that is, it has depth, so it is called a deep neural network (DNN). , Deep neural network), so DNN is a network structure and a means to realize machine learning. Each layer is composed of multiple nodes, as shown in the figure below, a DNN contains <strong>input layer</strong>, <strong>hidden layer</strong>, <strong>output layer</strong>, where the hidden layer consists of three layers (<code>A[1] , A[2], A[3]</code>layer), but collectively referred to as hidden layers:</p>
+<p><img src="../../../../assets/dnn/dnn.jpg" alt="Deep Neural Network" /></p>
+<p><strong>Input layer</strong>:<br />
+The figure is a deep neural network structure, <code>x</code> is the input, for example, <code>x</code> here can be a picture, the input has multiple nodes, each node can be a pixel value, here the input layer draws 7 nodes, add We have a picture with a resolution of <code>10 x 10</code>, so the input layer requires a total of <code>100</code> nodes.<br />
+Here the input layer is a one-dimensional structure, and the actual situation may have a multi-dimensional structure. For example, if the input is a grayscale image with a resolution of <code>3x3</code>, this is actually a two-dimensional structure, that is, a matrix with two rows and two columns (about the matrix Please study the concept by yourself, or understand it as a two-dimensional array for the time being), such as:</p>
+
+<pre class="language-none"><code class="language-none">[[109 138 110]
+ [220 37 166]
+ [32 243 67]
+]
+</code></pre>
+<p>The value range of each pixel is ∈[0, 255], and then we flatten it into a one-dimensional array of 9 data for the input layer</p>
+
+<pre class="language-none"><code class="language-none">[109 138 110 220 37 166 32 243 67]
+</code></pre>
+<blockquote>
+<p>In addition, the value of the input layer will generally be normalized to the range <code>[0, 1]</code></p>
+</blockquote>
+<p>If it is a color picture, it is three-dimensional, that is <code>height, width, color channel</code>, color channels such as <code>RGB</code> three color channels, that is, the input has a shape (including the dimensions and the number of data in each dimension), For example, the one-dimensional input shape above is <code>(9)</code>, and other images usually use <code>(height, width, number of channels)</code> to represent the shape, such as <code>(10, 10, 3)</code> for resolution of <code>10 x 10</code> , And there are three color channels, such as <code>RGB</code>.</p>
+<p>Here for the sake of getting started, the principle only introduces one-dimensional situation</p>
+<p><strong>Output layer</strong>:<br />
+<code>y</code> is the output. The output here has two values. You can understand that the achievement is the <code>list</code> of MaixPy's two floating-point values. <code>[Y1, Y2]</code>, <code>Y1</code> is the probability of being a small ball<code>, value ∈[0, 1],</code>Y2<code>is</code>probability of being a toy<code>. So in the end, we use this model, which is to give it a picture. The machine calculates according to the structure and algorithm specified by this model to get a</code>list`, and we know what is in the picture based on the output value.</p>
+<p><strong>Hidden layer</strong>:<br />
+The hidden layer connecting the input layer and the output layer, as well as the connection in between, are responsible for calculating the input data into a reasonable output value.</p>
+<h2 id="Rest-in-between%2C-summary">Rest in between, summary</h2>
+<p>So far, you know what a <strong>model</strong> is: it is a set of data structures that save the shape of a network and the parameters inside. Usually, the data of this model can be saved as a file, such as <code>.h5. Files such as tflite.kmodel</code> are used to explain the shape structure and parameters of this model, but they are used by different software.<br />
+People only need to design the model structure and parameters to solve a class of problems, such as common object classification, such as the distinction between a ball or a toy in a picture as mentioned above.<br />
+There are many parameters in this model. Specifically, when an object needs to be identified, a data set of known classification is used to allow the machine to automatically train a set of appropriate model parameters.<br />
+Then we can enter the data and let the model infer the type of the input data.</p>
+<p>Therefore, if we don’t need to train the model and directly use the model trained by others, we only need:</p>
+<ul>
+<li>Confirm the requirements and find a ready-made model, because the model has been trained, and the meaning of the input and output shapes has been determined</li>
+<li>Confirm the input shape of the model, such as the model input resolution <code>10x10</code> color image, you need to pass the required image to an input layer when using it</li>
+<li>Confirm the meaning of the output layer, such as the aforementioned recognition of balls and toys, and the final output is a list representing the probability of the object, such as <code>[0.9, 0.1]</code>, the first value represents the probability of a ball, Then we know that there is a 90% probability of a small ball in this picture, and only a 10% probability of a toy</li>
+<li>Put the model into the inference program to run. Don’t worry about the specific procedure, it will be introduced in the next chapter</li>
+</ul>
+<p>At this point, you should roughly understand the following things:</p>
+<ul>
+<li>What is machine learning</li>
+<li>What is a deep neural network (simple concept)</li>
+<li>What is the model</li>
+<li>What is the input layer, the output layer, what are the meanings of the classification applications in the example above, and what is the shape of the layer?</li>
+<li>So far, I may not know what model training is</li>
+<li>If I need a model, I know how to confirm the demand</li>
+</ul>
+<p>So, <strong>if you only want to be able to use the model and don’t need training, you can do it here</strong>, and you don’t need to know anything about the model, just use it as a <strong>black box toolbox</strong>. can. If you want a deeper understanding, please continue to read the following content.</p>
+<h2 id="Continue%3A-Deep-Neural-Networks-%28Continued">Continue: Deep Neural Networks (Continued</h2>
+<p>Now that we have designed a multi-layer design, let's go deeper:</p>
+<p><strong>Data flow</strong>, <strong>weight</strong>, <strong>bias</strong>:<br />
+When the model is inferring, the data flows from the input layer to the output layer, which is the direction of these mesh arrows (section 3 mesh diagram). The calculation from the previous layer to the next layer of each arrow can use a familiar formula: <code>y = wx + b</code>, call <code>w</code> as <strong>weight</strong> (weight), <code>b</code> as <strong>bias</strong> (bias), note that each arrow has a separate <code>w, b</code>, that is to say, the value of the node of the next layer is equal to the value of the node of the previous layer after the calculation of this formula, the node of the next layer has multiple nodes of the previous layer, it is equal to the value of all the nodes of the previous layer after this The sum of the calculated values ​​of the formula.<br />
+After so many calculations, the result finally appeared in the form of a value in the output layer, and the whole reasoning was completed.</p>
+<p><strong>Activation function</strong>:</p>
+<p>Although the above model can get results through input, it will be found that all layer calculations are linear functions, so no matter how many layers there are, the whole is actually a linear function, that is, <code>y0 = w1x + b1</code> + <code>y = w2y0 + b2</code>==&gt; <code>y = w2(w1x + b1) + b2</code> ==&gt; <code>y = w2w1x + w2b1 + b2</code>, in fact it is still a linear function, then the meaning of multiple layers is gone, so we need to add in the middle Non-linear functions make the network a little more complicated, so I will do tricks on each node. Before each node outputs data, use a non-linear function to calculate it, such as <code>sigmod</code> or <code>relu</code> function. It’s actually very simple to hear the name. Looking at the picture below, in short, x and y are not linear:<br />
+<img src="../../../../assets/dnn/sigmod.jpg" alt="sigmod" /> <img src="../../../../assets/dnn/relu.jpg" alt="relu" /></p>
+<p>That is, until now, except for the input layer, the output value of all nodes needs to go through <code>Sigmod(∑(Wn * x + Bn))</code>, and output a floating point value<br />
+<strong>softmax</strong>:</p>
+<p>When the output layer is finally output, because of the previous calculations, the value range is not very uniform. Although we can compare the size, the largest value is considered the answer, but for the sake of uniformity and intuitively know the possibility of each category (In addition, for the accuracy of training, I won’t talk about it here.) As mentioned earlier, the probability of a category we finally output has a value range ∈[0, 1], and the sum of all output values ​​is <code>1</code>, so All values ​​of the output layer are processed after the output layer, the formula is<br />
+<img src="../../../../assets/dnn/softmax.jpg" alt="softmax" /></p>
+<p>At this point, the inference process from input to output is over</p>
+<h2 id="Deep-neural-network-training">Deep neural network training</h2>
+<p>Earlier we briefly introduced the structure and composition of deep neural networks and the forward process from the input layer to the output layer. When we use the model, this is the forward process.<br />
+Then, the model is set, and the parameters (such as <code>w, b</code>) in it are all random values. How to make it automatically train to get the values ​​of the parameters in the model? As we mentioned earlier, we use some data input with known results to get the parameters. Similarly, here we also input data with known results to get the first output result</p>
+<p><strong>Judging the output accuracy (accuracy) (or error/loss)</strong> and <strong>loss function</strong>:</p>
+<p>The results are obtained in the output layer. For example, <code>[0.6, 0.4]</code> represents the probability of a small ball <code>0.9</code>, and the probability of a toy is <code>0.1</code>, but because it is data with known answers, the actual correct answer is <code>[ 1.0, 0.0]</code>, which obviously does not meet the requirements.<br />
+Therefore, the error between the correct answer and the calculated answer is: <code>[0.4, -0.4]</code>, but one problem is that the range of the error value is not very attractive. If the value range of the error is ∈<code>[0, ∞]</code>Just fine. In high school mathematics, there is a function <code>y = log10(x)</code>, the coordinate diagram is as follows:<br />
+<img src="../../../../assets/dnn/log10x.jpg" alt="log10" /><br />
+It is found that when <code>x</code> takes the value ∈<code>[0, 1]</code>, the value of <code>-y</code> is exactly ∈<code>[0, ∞]</code>, and our output result is also exactly ∈<code>[0, 1]</code>! Therefore, we directly calculate the error like this: <code>error = -log10(output)</code>, that is, the closer the output is to <code>1</code>, the closer the error is to <code>0</code>. This method is called <code>CEE, Cross Entropy Error)</code>, in addition to this method, there are other methods such as Mean Squared Error (MSE, Mean Squared Error), etc.</p>
+<p>At this point, we know the error between the current result and the actual result</p>
+<p><strong>Back propagation of error</strong> and <strong>Parameter optimization (weight update)</strong>:<br />
+Because the parameters of the model do not meet our expectations, we need to modify the parameters. We use backpropagation.<br />
+Earlier we got the error, because the parameters are not correct enough, we use this error to modify the parameters in the model to achieve the effect of fine-tuning the parameters in the model. It is as if you are turning on a faucet. If the water hits (that is, the error is large), tighten the switch a little bit, loosen it a little bit if it is smaller, and adjust it.<br />
+Just like our forward calculation, this time we changed it to reverse. From back to front, we can get the error value at each node, and then update the parameters in the model according to a certain learning rate. I won't elaborate on it for the time being.</p>
+<p>In short, after a round of reverse adjustment of parameters, a new model is obtained</p>
+<p><strong>Measure the quality of the model: training set error and validation set error</strong>:</p>
+<p>We use the data in the training data set to repeatedly perform forward inference to obtain the error, and then adjust the process in the reverse direction. After using the training data set, we may get a relatively small error, but this only shows that the model is The data is more accurate, and some new data may not be accurate, so we need to use some data that is not in the training set to <strong>verify</strong> the effect of the model:<br />
+We use <strong>validation data set</strong> to forward inference and get the error, because the validation data set is not involved in training, which means that the parameters of the model and the validation data set have nothing to do with each other. We use the error obtained to constant the model The better or worse, the smaller the error, the better the effect</p>
+<p><strong>Multiple iterations</strong>:</p>
+<p>If you have trained all the data sets and find that the error is still large, you can continue training with multiple training methods, that is, <strong>multiple iterations</strong>. After each iteration, use the verification data set to verify the effect. If the error of the training set and the error of the validation set are small enough, we can temporarily assume that the model has good results.</p>
+<p><strong>Test Set</strong>:<br />
+At this time, we can use another batch of new data to test the effect of our model, because this is brand-new data, did not participate in the training and did not participate in the verification (that is, determine when to stop training), theoretically more Credibility. If the test error is small, then the training is considered successful</p>
+<p><strong>Optimize training</strong>:<br />
+If the final effect is not very good, there are many places to adjust, such as</p>
+<ul>
+<li>The number of training iterations is not the more the better. Too much training on a batch of data sets may cause the model to be effective only for this batch of data, and the generalization ability is not enough, that is, <strong>overfitting</strong></li>
+<li>The learning rate of each training can also be adjusted</li>
+<li>Check the data set, whether there are some data that affect the classification</li>
+<li>Optimize the network structure, whether it is input or output or internal structure and parameters, according to different data and tasks can have a better design, also called <strong>feature engineering</strong></li>
+</ul>
+<h2 id="Said-at-the-end">Said at the end</h2>
+<p>At this point, you should roughly understand the following things:</p>
+<ul>
+<li>What is machine learning</li>
+<li>What is a deep neural network</li>
+<li>What is the model</li>
+<li>What is the input layer, the output layer, what are the meanings of the classification applications in the example above, and what is the shape of the layer?</li>
+<li>What is training and what is its function</li>
+<li>What are the data training set, validation set, and test set, where are they used, and what needs to be paid attention to</li>
+<li>What is the standard to measure the quality of the model</li>
+</ul>
+<p>If you still don’t understand, you can understand it again carefully, or refer to related materials. If you find a better way to explain it, please follow the document contribution method in the left directory to participate in the contribution.</p>
+<h2 id="Modify-record">Modify record</h2>
+<table>
+<thead>
+<tr>
+  <th>Date</th>
+  <th>Author</th>
+  <th>Remarks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>2020.11.17</td>
+  <td><a href="https://neucrack.com"  target="_blank">neucrack</a></td>
+  <td>Initial version, introducing the basic concepts of deep neural networks according to MaixPy needs, first draft</td>
+</tr>
+</tbody>
+</table>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                        <a href="/soft/maixpy/en/course/speech/recognizer_mfcc.html">
+                            <span class="icon"></span>
+                            <span class="label">Keyword Identification</span>
+                        </a>
+                        
+                    </div>
+                    <div id="next">
+                        
+                        <a href="/soft/maixpy/en/course/ai/basic/maixpy_hardware_ai_basic.html">
+                            <span class="label">MaixPy AI hardware acceleration basic knowledge</span>
+                            <span class="icon"></span>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>links</a><ul><li><a target="_blank" href="https://www.sipeed.com">Sipeed</a></li>
+<li><a target="_blank" href="https://maixhub.com/">MaixHub</a></li>
+<li><a target="_blank" href="https://sipeed.aliexpress.com/store/911876460">Sipeed AliExpress</a></li>
+<li><a target="_blank" href="https://github.com/neutree/teedoc">Build by teedoc </a></li>
+</ul>
+</li>
+<li><a>Source Code</a><ul><li><a target="_blank" href="https://github.com/sipeed/sipeed_wiki">Wiki source</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">Open Source Projects</a></li>
+</ul>
+</li>
+<li><a>Follow us</a><ul><li><a target="_blank" href="https://twitter.com/SipeedIO">twitter</a></li>
+<li><a target="_blank" href="https://sipeed.aliexpress.com/store/911876460">AliExpress</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">github</a></li>
+<li><a><a>Wechat</a><img src='/static/image/wechat.png'></a>
+</li>
+</ul>
+</li>
+<li><a>Contact us</a><ul><li><a>Tel: +86 0755-27808509</a>
+</li>
+<li><a>Business support: support@sipeed.com</a>
+</li>
+<li><a>Address: 深圳市宝安区新湖路4008号蘅芳科技办公大厦A座-2101C</a>
+</li>
+<li><a  href="/join_us.html">Join us</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://www.sipeed.com">©2018-2023 深圳矽速科技有限公司</a></li>
+<li><a target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index">粤ICP备19015433号</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/js/prism.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <link rel="stylesheet" href="/static/js/add_hint/style.css" type="text/css"/>
+    
+        <script src="/static/js/add_hint/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+        <script src="/static/js/thumbs_up/main.js"></script>
+    
+</body>
+
+</html>
