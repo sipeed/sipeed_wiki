@@ -32,15 +32,15 @@ IP-KVM系列产品是远程桌面的硬件外挂，通过HDMI捕捉画面，通�
 
 ## 参数
 
-| 产品        | NomoKVM-Pro    | NomoKVM      | GxoKVM      | JxxKVM      |
+| 产品        | NanoKVM-Pro    | NanoKVM      | GxxKVM      | JxxKVM      |
 |-------------|----------------|--------------|-------------|-------------|
 | 主控        | AX630C         | SG2002       | RV1126      | RV1106      |
 | 核心        | 2xA53@1.2G     | 1xC906@1.0G  | 4xA7@1.5G   | 1xA7@1.2G    |
 | 内存        | 1G LPDDR4X     | 256M DDR3    | 1G DDR3     | 256M DDR3   |
 | 硬盘        | 32G eMMC       | 32G microSD  | 8G eMMC     | 16G eMMC    |
-| 系统        | NomoKVM+PIKVM  | NomoKVM      | GxoKVM      | JxxKVM      |
+| 系统        | NanoKVM+PIKVM  | NanoKVM      | GxxKVM      | JxxKVM      |
 | 分辨率      | 4K@45fps, 2K@95fps[4] | 1080P@60fps | 4K@30fps, 2K@60fps | 1080P@60fps |
-| HDMI环出    | 4k环出         | ×            | ×           | ×           |
+| HDMI环出    | 4K环出         | ×            | ×           | ×           |
 | 视频编码    | MJPG/H264/H265[5] | MJPG/H264    | MJPG/H264   | MJPG/H264   |
 | 音频传输    | √              | ×            | √           | ×           |
 | UEFI/BIOS支持 | √             | √            | √           | √           |
