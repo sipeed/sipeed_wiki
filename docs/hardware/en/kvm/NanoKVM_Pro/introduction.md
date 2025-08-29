@@ -64,9 +64,9 @@ To meet different user needs, NanoKVM Pro offers optional features such as WiFi,
 ## NanoKVM-PCIe Information
 
 + [NanoKVM Pro Image Download (To be updated)](https://github.com/sipeed/NanoKVM-Pro/releases/latest)
-+ [ATX Getting Started Guide](https://wiki.sipeed.com/hardware/zh/kvm/NanoKVM_Pro/atx_start.html)
-+ [Advanced Applications](https://wiki.sipeed.com/hardware/zh/kvm/NanoKVM_Pro/extended.html)
-+ [FAQ](https://wiki.sipeed.com/hardware/zh/kvm/NanoKVM_Pro/faq.html)
++ [ATX Getting Started Guide](https://wiki.sipeed.com/hardware/en/kvm/NanoKVM_Pro/atx_start.html)
++ [Advanced Applications](https://wiki.sipeed.com/hardware/en/kvm/NanoKVM_Pro/extended.html)
++ [FAQ](https://wiki.sipeed.com/hardware/en/kvm/NanoKVM_Pro/faq.html)
 
 ## Purchase Links
 
