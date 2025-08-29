@@ -528,6 +528,20 @@ items:
             file: kvm/NanoKVM_USB/development.md
         -   label: FAQ
             file: kvm/NanoKVM_USB/faq.md
+    -   label: NanoKVM Pro
+        items:
+        -   label: Introduction
+            file: kvm/NanoKVM_Pro/introduction.md
+        -   label: NanoKVM-ATX Quick Start
+            file: kvm/NanoKVM_Pro/atx_start.md
+        -   label: NanoKVM-Desk Quick Start
+            file: kvm/NanoKVM_Pro/desk_start.md
+        -   label: Advanced Applications
+            file: kvm/NanoKVM_Pro/extended.md
+        -   label: Screen Color Extension LED Strip
+            file: kvm/NanoKVM_Pro/ws2812.md
+        -   label: FAQ
+            file: kvm/NanoKVM_Pro/faq.md
 -   label: Cluster
     items:
     -   label: NanoCluster

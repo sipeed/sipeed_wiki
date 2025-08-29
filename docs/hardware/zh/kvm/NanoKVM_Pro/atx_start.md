@@ -1,6 +1,6 @@
 ---
 title: ATX 上手指南
-keywords: NanoKVM, Remote desktop, Lichee, PiKVM, RISCV, tool, PCIe
+keywords: NanoKVM, Remote desktop, Lichee, PiKVM, ARM, tool, PCIe
 update:
   - date: 2025-8-26
     version: v0.1
