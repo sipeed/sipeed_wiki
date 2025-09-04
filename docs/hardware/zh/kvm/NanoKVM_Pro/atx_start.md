@@ -41,11 +41,9 @@ NanoKVM-ATX包含：
 
 ![](./../../../assets/NanoKVM/pro/start/02_USB.png)
 
-> 首批ATX版本用户若选择机箱内接线的方式，为防止主板9PinUSB供电不足导致的NanoKVM异常，建议剪断红色线头（仅由外部供电）再使用！
+> ❗❗❗首批用户（线缆和下图b有区别）若选择机箱内接线的方式，请查收邮件，并按照邮件的修改方式连接线缆；如果未收到邮件，请咨询support@sipeed.com或客服
 
-![](./../../../assets/NanoKVM/pro/start/03_USB.png)
-
-![](./../../../assets/NanoKVM/pro/start/04_USB.png)
+![](./../../../assets/NanoKVM/pro/start/cable.png)
 
 3. 使用网线连接路由器/交换机和NanoKVM-Pro，如果没有有线网络，可以跳过此步，开机后配置Wi-Fi使用（需要购买带有WiFi的版本）
 
