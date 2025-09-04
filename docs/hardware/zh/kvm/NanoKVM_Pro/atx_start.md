@@ -41,7 +41,7 @@ NanoKVM-ATX包含：
 
 ![](./../../../assets/NanoKVM/pro/start/02_USB.png)
 
-> ❗❗❗首批用户（线缆和下图b有区别）若选择机箱内接线的方式，请查收邮件，并按照邮件的修改方式连接线缆；如果未收到邮件，请咨询support@sipeed.com或客服
+> ❗❗❗首批用户（线缆和下图b有区别）若选择机箱内接线的方式，请查收邮件，并按照邮件的修改方式连接线缆，或者参考[此处](https://wiki.sipeed.com/nanokvmpro-usb)修改线缆
 
 ![](./../../../assets/NanoKVM/pro/start/cable.png)
 

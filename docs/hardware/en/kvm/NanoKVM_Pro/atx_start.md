@@ -41,11 +41,9 @@ The NanoKVM-ATX includes:
 
 ![](./../../../assets/NanoKVM/pro/start/02_USB.png)
 
-> For the first batch of ATX version users who choose the internal wiring option, it is recommended to cut the red wire (only powered externally) to prevent NanoKVM malfunctions caused by insufficient power from the motherboard's 9Pin USB.
+> ❗❗❗For the first batch of users (the cable is different from Figure B below), if you choose the internal chassis wiring method, please check your email and follow the modification instructions provided in the email to connect the cables. Alternatively, refer to [here](https://wiki.sipeed.com/nanokvmpro-usb) to modify the cable.
 
-![](./../../../assets/NanoKVM/pro/start/03_USB.png)
-
-![](./../../../assets/NanoKVM/pro/start/04_USB.png)
+![](./../../../assets/NanoKVM/pro/start/cable.png)
 
 3. Use an Ethernet cable to connect the router/switch to the NanoKVM-Pro. If there is no wired network, this step can be skipped; Wi-Fi can be configured after powering on (requires purchasing the WiFi version).
 
