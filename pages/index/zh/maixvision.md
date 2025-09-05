@@ -4,7 +4,7 @@ title: MaixVision 工作站官网
 
 
 <div>
-<script src="/static/css/tailwind.css"></script>
+<script src="/static/js/tailwind.js"></script>
 </div>
 
 <style>

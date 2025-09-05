@@ -4,7 +4,7 @@ title: MaixVision Workstation Official Website
 
 
 <div>
-<script src="/static/css/tailwind.css"></script>
+<script src="/static/js/tailwind.js"></script>
 </div>
 
 <style>
