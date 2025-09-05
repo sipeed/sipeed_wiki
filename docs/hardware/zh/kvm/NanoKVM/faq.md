@@ -66,6 +66,12 @@ keywords: NanoKVM, Remote desktop, Lichee, PiKVM, RISCV, tool
   > 若 `VIDevFPS` 非0 、`VIFPS` 为0 ，则认为NanoKVM没有正确配置HDMI参数，Cube可以重新插拔HDMI重新自动获取，PCIe可点击`视频`下`重置HDMI`自动获取
   > 查看 `VIInImgWidth` 和 `VIInImgHeight`与实际HDMI分辨率是否一致，若不同，则认为NanoKVM没有自动获取到正确的HDMI参数，按照第4点手动配置分辨率参数
 
+### 主机休眠唤醒后无画面
+
+  1. 检查是否使用廉价的DP转HDMI（无源转换头）；这类转换接口没有完善的唤醒机制，无法通知 NanoKVM 画面已经恢复
+  2. PCIe 版本可以点击重置HDMI按钮来强制重新获取画面
+  3. Cube/Lite版本缺少重置功能，请更换有源DP转换接头
+
 ### 内网环境下画面延迟异常严重
 
   1. 尝试更换交换机或电源

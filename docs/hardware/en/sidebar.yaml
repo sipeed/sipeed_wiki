@@ -109,35 +109,34 @@ items:
             file: maixIII/ax-pi/faq_axpi.md
 -   label: Maix-IV
     items:
-    -   label: Maix M4N
-    #     file: maixIV/m4n/m4n.md
+    -   label: M4C SoM
         items:
         -   label: Flashing OS Image
-            file: maixIV/m4n/system-update.md
+            file: maixIV/m4c/system-update.md
         -   label: AI Models Deployment
-            file: maixIV/m4n/axmodel-deploy.md
+            file: maixIV/m4c/axmodel-deploy.md
         -   label: FAQ
-            file: maixIV/m4n/FAQ.md
-    -   label: Maix M4N-Dock
+            file: maixIV/m4c/FAQ.md
+    -   label: M4 Dock Carrier Board
         items:
         -   label: Intro
-            file: maixIV/m4ndock/intro.md
+            file: maixIV/m4cdock/intro.md
         -   label: Flashing OS Image
-            file: maixIV/m4n/system-update.md
+            file: maixIV/m4c/system-update.md
         -   label: Quick Start
-            file: maixIV/m4ndock/quick-start.md
+            file: maixIV/m4cdock/quick-start.md
         -   label: FAQ
-            file: maixIV/m4ndock/FAQ.md
-    -   label: Maix M4N-Hat
+            file: maixIV/m4cdock/FAQ.md
+    -   label: M4 Hat Carrier Board
         items:
         -   label: Intro
-            file: maixIV/m4nhat/intro.md
+            file: maixIV/m4chat/intro.md
         -   label: Flashing OS Image
-            file: maixIV/m4n/system-update.md
+            file: maixIV/m4c/system-update.md
         -   label: Quick Start
-            file: maixIV/m4nhat/quick-start.md
+            file: maixIV/m4chat/quick-start.md
         -   label: RPI5 PCIe Card
-            file: maixIV/m4nhat/pcie-slaveboard.md
+            file: maixIV/m4chat/pcie-slaveboard.md
 -   label: MaixCAM
     items:
     -   label: MaixCAM AI Series
@@ -552,6 +551,20 @@ items:
             file: kvm/NanoKVM_USB/development.md
         -   label: FAQ
             file: kvm/NanoKVM_USB/faq.md
+    -   label: NanoKVM Pro
+        items:
+        -   label: Introduction
+            file: kvm/NanoKVM_Pro/introduction.md
+        -   label: NanoKVM-ATX Quick Start
+            file: kvm/NanoKVM_Pro/atx_start.md
+        -   label: NanoKVM-Desk Quick Start
+            file: kvm/NanoKVM_Pro/desk_start.md
+        -   label: Advanced Applications
+            file: kvm/NanoKVM_Pro/extended.md
+        -   label: Screen Color Extension LED Strip
+            file: kvm/NanoKVM_Pro/ws2812.md
+        -   label: FAQ
+            file: kvm/NanoKVM_Pro/faq.md
 -   label: Cluster
     items:
     -   label: NanoCluster
@@ -654,25 +667,19 @@ items:
                 file: modules_spmod/spmod_lcd1.14.md
             -   label: SP-Eink
                 file: modules_spmod/spmod_eink.md
-    -   label: Module && Debugger
+    -   label: Module
         items:
-        -   label: Debugger
+        -   label: camera
             items:
-            -   label: Sipeed RV Debugger
-            -   label: Dual uart USB module
-        -   label: module
-            items:
-            -   label: camera
-                items:
-                -   label: GC0328
-                -   label: Dual cam module(GC0328)
-                -   label: OV7740
-                -   label: OV2640
-                -   label: OV2640-M12
-                -   label: Dual cam module(OV2640)
-            -   label: Mic module
-                items:
-                -   label: Mic array
-                    file: modules/micarray.md
-            -   label: Sipeed Gamepad
-                file: modules/Gamepad.md
+            -   label: GC0328
+            -   label: Dual cam module(GC0328)
+            -   label: OV7740
+            -   label: OV2640
+            -   label: OV2640-M12
+            -   label: Dual cam module(OV2640)
+        -   label: Mic array
+            file: modules/micarray.md
+        -   label: MicArray UAC Drive Board (MA-USB8)
+            file: modules/micarray_usbboard_bl616.md
+        -   label: Sipeed Gamepad
+            file: modules/Gamepad.md
