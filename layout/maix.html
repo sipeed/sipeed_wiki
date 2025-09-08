@@ -23,6 +23,24 @@
     <!-- cards end -->
   </div>
 
+  <div class="cards">
+    <!-- cards -->
+    <div class="card" v-for="item in data_maixcam.cards2">
+      <img class="card_img" :src="item.img" />
+      <h3 class="card_title" class="text-lg">{[item.title]}</h3>
+      <div class="card_brief">{[item.brief]}</div>
+      <div class="card_btns">
+        <a
+          v-for="btn in item.btns"
+          :href="btn.link"
+          :target="btn.new_tab ? '_blank' : '_self'"
+          >{[btn.label]}</a
+        >
+      </div>
+    </div>
+    <!-- cards end -->
+  </div>
+
   <h2 class="text-2xl font-bold my-8 block_simple">
     {{_('经典 Maix 视觉系列')}}
   </h2>
@@ -51,6 +69,7 @@
       <thead>
         <tr>
           <th>{{_('参数')}}</th>
+          <th>MaixCAM2</th>
           <th>MaixCAM</th>
           <th>Maix-I</th>
           <th>Maix-II</th>
@@ -61,6 +80,7 @@
       <tbody>
         <tr>
           <td>{{_('处理器')}}</td>
+          <td>AX630C: ARM A53 1.2GHz x2<br>	RISC-V 32bit E907</td>
           <td>SG2002: RISC-V@1GHz/ARM A53<br> + RISC-V@700MHz<br> + 8051@25~300MHz</td>
           <td>K210: {{_('双核')}} 64 {{_('位')}} RISC-V@400MHz</td>
           <td>V831: Cortex-A7@800MHz</td>
@@ -69,6 +89,7 @@
         </tr>
         <tr>
           <td>{{_('内存')}}</td>
+          <td>1GB / 4GB LPDDR4</td>
           <td>256MB DDR3</td>
           <td>SIP 8MB SRAM</td>
           <td>SIP 64MB DDR2</td>
@@ -77,7 +98,8 @@
         </tr>
         <tr>
           <td>NPU</td>
-          <td>1Tops@INT8，{{_('支持常用')}} CNN {{_('模型')}}, {{_('支持')}} BF16</td>
+          <td>3.2Tops@INT8，{{_('支持常用')}} CNN / Transformer {{_('模型')}},<br>{{_('支持')}} INT4/INT8/INT16/BF16/FP16/FP32<br>YOLO11n 640x640 113FPS</td>
+          <td>1Tops@INT8，{{_('支持常用')}} CNN {{_('模型')}}, {{_('支持')}} INT8/BF16<br>YOLO11n 640x640 23FPS, YOLO11n 320x320 95FPS</td>
           <td>0.25Tops@INT8，{{_('支持有限')}} CNN {{_('算子')}}</td>
           <td>0.2Tops@INT8，{{_('支持有限')}} CNN {{_('算子')}}</td>
           <td>3.6Tops@INT8，{{_('支持常用')}} CNN {{_('模型')}}</td>
@@ -88,6 +110,7 @@
         </tr>
         <tr>
           <td>{{_('储存')}}</td>
+          <td>板载 EMMC {{_('或者')}} TF {{_('卡')}}</td>
           <td>SDNAND {{_('或者')}} TF {{_('卡')}}</td>
           <td>{{_('板载')}} 16MB Flash，{{_('支持')}} SPI TF {{_('卡')}}</td>
           <td>{{_('板载')}} Flash {{_('或者')}} TF {{_('卡')}}</td>
@@ -97,6 +120,7 @@
         <tr>
           <td>{{_('软件支持')}}</td>
           <td>MaixCDK, MaixPy</td>
+          <td>MaixCDK, MaixPy</td>
           <td>CSDK, MaixPy</td>
           <td>CSDK, MaixPy3</td>
           <td>CSDK</td>
@@ -104,7 +128,8 @@
         </tr>
         <tr>
           <td>{{_('操作系统')}}</td>
-          <td>Linux + RTOS</td>
+          <td>Linux(Utunbut) + RTOS</td>
+          <td>Linux(Buildroot) + RTOS</td>
           <td>RTOS</td>
           <td>Tina Linux</td>
           <td>Linux</td>
@@ -112,7 +137,8 @@
         </tr>
         <tr>
           <td>{{_('典型外设')}}</td>
-          <td>UART/I2C/SPI/PWM/GPIO/WDT/ADC</td>
+          <td>UART/I2C/SPI/PWM/GPIO/WDT/USB</td>
+          <td>UART/I2C/SPI/PWM/GPIO/WDT/USB/ADC</td>
           <td>UART/I2C/SPI/PWM/FPIOA/GPIO/FFT/I2S</td>
           <td>USB/UART/I2C/SPI/<br />PWM/GPIO/ADC</td>
           <td>USB/UART/I2C/SPI/<br />PWM/GPIO/ADC</td>
@@ -123,6 +149,7 @@
             <a href="https://maixhub.com" target="_blank">MaixHub</a>
           </td>
           <td>{{_('支持度')}}：{{_('优')}}</td>
+          <td>{{_('支持度')}}：{{_('优')}}</td>
           <td>{{_('支持度')}}：{{_('中')}}</td>
           <td>{{_('支持度')}}：{{_('良')}}</td>
           <td>{{_('支持度')}}：{{_('中')}}</td>
@@ -131,6 +158,7 @@
         <tr>
           <td>IDE</td>
           <td>MaixVision</td>
+          <td>MaixVision</td>
           <td>MaixPy IDE</td>
           <td>MaixPy3 Jupyter IDE</td>
           <td>{{_('无')}}</td>
@@ -138,6 +166,7 @@
         </tr>
         <tr>
           <td>{{_('文档和易用性')}}</td>
+          <td>⭐️⭐️⭐️⭐️⭐️</td>
           <td>⭐️⭐️⭐️⭐️⭐️</td>
           <td>⭐️⭐️⭐️⭐️</td>
           <td>⭐️⭐️⭐️</td>
@@ -154,10 +183,27 @@
   const data_maixcam = {
     cards: [
       {
-        img: "/static/home/maixcam.jpg",
-        title: "MaixCAM",
+        img: "/static/home/maixcam2.jpg",
+        title: "MaixCAM2",
         brief:
-          "{{_('RISC-V 1GHz + 1Tops NPU, 4M高清摄像头，多种尺寸高清电容触摸屏，完美支持全新 Maix 生态所有软件')}}",
+          "{{_('A53 1.2GHz x2 + 3.2Tops NPU, YOLO11n_640 高达 113FPS, 8M高清摄像头 + AI-ISP 微光夜视，AI 大模型 LLM / VLM。相机和核心板形态可选。')}}",
+        btns: [
+          {
+            label: "MaixCAM2",
+            link: "/hardware/zh/maixcam/maixcam2.html",
+          },
+          {
+            label: "{{_('购买')}}",
+            link: "{{_('https://sipeed.taobao.com')}}",
+            new_tab: true,
+          },
+        ],
+      },
+      {
+        img: "/static/home/maixcam_pro.jpg",
+        title: "MaixCAM-Pro",
+        brief:
+          "{{_('RISC-V 1GHz + 1Tops NPU, 4M高清摄像头，多种尺寸高清电容触摸屏，上手即用，完美支持全新 Maix 生态所有软件')}}",
         btns: [
           {
             label: "MaixCAM-Pro",
@@ -170,6 +216,25 @@
           },
         ],
       },
+      {
+        img: "/static/home/maixcam.jpg",
+        title: "MaixCAM",
+        brief:
+          "{{_('RISC-V 1GHz + 1Tops NPU, 4M高清摄像头，多种尺寸高清电容触摸屏，体积小巧，完美支持全新 Maix 生态所有软件')}}",
+        btns: [
+          {
+            label: "MaixCAM",
+            link: "/hardware/zh/maixcam/maixcam.html",
+          },
+          {
+            label: "{{_('购买')}}",
+            link: "{{_('https://sipeed.taobao.com')}}",
+            new_tab: true,
+          },
+        ]
+      }
+    ],
+    "cards2": [
       {
         img: "/static/home/maixpy.jpg",
         title: "MaixPy",
@@ -222,8 +287,9 @@
           }
         ],
       },
-    ],
+    ]
   };
+
 
   const data_maix = {
     cards: [

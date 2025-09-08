@@ -29,7 +29,7 @@ More sensor datasheets can be found on the [download site](https://dl.sipeed.com
 Each official camera module comes with a standard M12 lens.
 Note: Lens parameters vary by sensor. If you want to purchase different lenses, use the sensor specs above and the reference lens table below.
 
-Datasheets for more lenses and mounts are available at the [download site](https://dl.sipeed.com/shareURL/MaixCAM/MaixCAM2/Hardware/len).
+Datasheets for more lenses and mounts are available at the [download site](https://dl.sipeed.com/shareURL/MaixCAM/MaixCAM2/Hardware/sensors).
 ⚠️ Actual lenses may differ slightly from the datasheet (e.g. OS04D10 and SC850SL default lenses don’t use `650 IR-Cut` even though listed). Always go by actual parts.
 
 ### Lenses

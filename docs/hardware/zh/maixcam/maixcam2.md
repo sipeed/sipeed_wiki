@@ -4,7 +4,7 @@ title: MaixCAM2 -- 快速落地 AI 视觉、听觉应用
 
 <div style="width:100%; display:flex;justify-content: center;">
 
-![maixcam-pro](/static/image/maixcam2_front_back.png)
+![maixcam2](/static/image/maixcam2_front_back.png)
 
 </div>
 
@@ -89,12 +89,13 @@ title: MaixCAM2 -- 快速落地 AI 视觉、听觉应用
 
 ### MaixCAM 专属资料（Sipeed 提供）
 
-* [MaixCAM-Pro 官方文档](https://wiki.sipeed.com/maixcam2)（本文档）
+* [MaixCAM2 官方文档](https://wiki.sipeed.com/maixcam2)（本文档）
 * [MaixPy 官方文档](https://wiki.sipeed.com/maixpy/)（Python SDK）（[MaixPy 源码](https://github.com/sipeed/MaixPy)）
 * [MaixCDK](https://github.com/sipeed/MaixCDK)（C/C++ SDK）（[MaixCDK 源码](https://github.com/sipeed/MaixCDK)）
 * [系统烧录](./maixcam2_os.md)
 * [摄像头和镜头](./maixcam2_camera_lens.md)
 * [硬件相关资料下载](https://dl.sipeed.com/shareURL/MaixCAM/MaixCAM2)
+* [核心板资料](https://dl.sipeed.com/shareURL/MaixCAM/MaixCAM2)
 * 外壳和支架：开源了 外壳、支架等 3D 模型文件，请到[makerworld.com](https://makerworld.com/)（推荐） 或[makerworld.com.cn](https://makerworld.com.cn) 搜索 `MaixCAM`/`MaixCAM2`。
 * 引脚映射图：
 ![maixcam2_pins](../../assets/maixcam/maixcam2_pins.jpg)
