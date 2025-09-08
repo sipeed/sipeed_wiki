@@ -2,16 +2,142 @@
 title: MaixCAM2 -- 快速落地 AI 视觉、听觉应用
 ---
 
+
+<style>
+    #content_body .h1 {
+        font-size: 2.2em;
+        font-weight: 800;
+    }
+    .flex_center {
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .flex {
+        display: flex;
+    }
+    .flex-row {
+        flex-direction: row;
+    }
+    .items-center {
+        align-items: center;
+    }
+    .justify-center {
+        justify-content: center;
+    }
+    .justify-around {
+        justify-content: space-around;
+    }
+    .w-full {
+        width: 100%;
+    }
+    #content_body .card_item {
+        color: #f0f5f9;
+        background: linear-gradient(90deg, #26d0ce, #1a2980);
+        border-radius: 1em;
+        padding: 1em;
+        margin: 1em 0.1em;
+    }
+    #content_body .card_item img {
+        transition: transform 0.4s ease;
+    }
+    #content_body .card_item:visited {
+        color: #f0f5f9;
+    }
+    #content_body .card_item:hover {
+        border-radius: 1em;
+        /* background: linear-gradient(70deg, #26d0ce, #1a2980); */
+        padding: 1em;
+        margin: 1em 0.1em;
+    }
+    #content_body .card_item:hover > img {
+        transform: rotate(1deg) scale(1.05) ;
+    }
+    .mask_wrapper {
+        position: relative;
+    }
+    .mask {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    .item_name {
+        font-size: larger;
+        font-weight: 800;
+    }
+    #content_body .btn_blue {
+        margin: 1em;
+        color: white;
+        font-size: 0.9em;
+        border-radius: 0.3em;
+        padding: 0.5em 2em;
+        background-color: #0b4294;
+    }
+    #content_body .btn_blue:visited {
+        color: white;
+    }
+    #content_body .btn_blue:hover {
+        margin: 1em;
+        color: white;
+        font-size: 0.9em;
+        border-radius: 0.3em;
+        padding: 0.5em 2em;
+        background-color: #082a5e;
+    }
+    #content_body .btn_red {
+        margin: 1em;
+        color: white;
+        font-size: 0.9em;
+        border-radius: 0.3em;
+        padding: 0.5em 2em;
+        background-color: #ad3838
+    }
+    #content_body .btn_red:visited {
+        color: white;
+    }
+    #content_body .btn_red:hover {
+        margin: 1em;
+        color: white;
+        font-size: 0.9em;
+        border-radius: 0.3em;
+        padding: 0.5em 2em;
+        background-color: #630606;
+    }
+
+    .dark #content_body .card_item {
+        color: #f0f5f9;
+    }
+    .dark #content_body a.card_item:visited {
+        color: #f0f5f9;
+    }
+    .dark .card_item {
+        background: #292929;
+    }
+</style>
+
 <div style="width:100%; display:flex;justify-content: center;">
 
-![maixcam2](/static/image/maixcam2_front_back.png)
+<!-- ![maixcam2](/static/image/maixcam2_front_back.png) -->
 
+</div>
+
+<div class="flex_center w-full">
+    <div class="flex flex-row w-full">
+        <div class="flex flex-row items-center justify-around w-full card_item mask_wrapper item1">
+            <img src="/static/image/maixcam2_front_back.png" style="width: 80%">
+        </div>
+    </div>
 </div>
 
 <div style="padding: 1em 0 0 0; display: flex; justify-content: center">
-    <a target="_blank" style="margin: 1em;color: white; font-size: 0.9em; border-radius: 0.3em; padding: 0.5em 2em; background-color: #a80202" href="https://sipeed.taobao.com">淘宝</a>
-    <a target="_blank" style="margin: 1em;color: white; font-size: 0.9em; border-radius: 0.3em; padding: 0.5em 2em; background-color: #a80202" href="https://www.aliexpress.com/store/911876460">速卖通</a>
+    <a target="_blank" class="btn_red" href="https://sipeed.taobao.com">淘宝</a>
+    <a target="_blank" class="btn_red" href="https://www.aliexpress.com/store/911876460">速卖通</a>
 </div>
+
+<div class="mb-10"></div>
 
 
 ## MaixCAM2 简介
@@ -21,6 +147,8 @@ title: MaixCAM2 -- 快速落地 AI 视觉、听觉应用
 ### **特点**：
 
 1. **硬件性能突出**：双核`A53` + `12.8Tops@INT4 / 3.2Tops@INT8` + `4GB LPDDR4` + 多种硬件编解码器, `640x640` 分辨率下， `YOLO11n` 高达 `113FPS`, `YOLO11s` 高达 `62fps`。
+    以下为常见芯片跑 `YOLO11n` 的横评：
+    ![](../../assets/maixcam/maixcam2_benchmark.jpg)
 2. **配套一体化硬件**：最高配套 `4K 1/1.8"` 摄像头、`640x480`高清触摸屏、双麦克风、`WiFi6`+`BLE5.4` 等，无需复杂硬件适配工作，上手即用。
 3. **多种硬件形态**：提供带外壳的版本，不同配件配置，也提供`核心板`。
 4. **离线 AI 大模型支持**： 除了支持`卷积模型`，也支持 `Transformer 模型`，上手即用的 `LLM / VLM / ASR / TTS`。
@@ -38,8 +166,7 @@ title: MaixCAM2 -- 快速落地 AI 视觉、听觉应用
 
 ### 功能展示
 
-**详细功能介绍请看 [MaixPy 主页](https://wiki.sipeed.com/maixpy/)。**
-
+**详细功能介绍请看：** <a target="_blank" class="btn_red" href="https://wiki.sipeed.com/maixpy/">MaixPy 主页</a>
 
 ## MaixCAM2 硬件参数
 

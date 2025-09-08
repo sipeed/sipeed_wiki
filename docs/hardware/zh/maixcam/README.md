@@ -137,14 +137,14 @@ title: MaixCAM -- 快速落地 AI 视觉、听觉项目
         <div class="flex_center flex-row w-1/2 justify-start">
             <a href="./maixcam.html" class="flex_center card_item mask_wrapper item2">
                 <img src="/static/image/maixcam_small.png">
-                <div class="item_name pt-1">MaixCAM</div>
+                <div class="item_name pt-8">MaixCAM</div>
                 <div class="mask"></div>
             </a>
         </div>
         <div class="flex_center flex-row w-1/2 justify-end">
             <a href="./maixcam_pro.html" class="flex_center card_item mask_wrapper item3">
                 <img src="/static/image/maixcam_pro_small.png">
-                <div class="item_name pt-1">MaixCAM-Pro</div>
+                <div class="item_name pt-8">MaixCAM-Pro</div>
                 <div class="mask"></div>
             </a>
         </div>

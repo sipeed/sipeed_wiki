@@ -2,16 +2,142 @@
 title: MaixCAM2 -- Rapid Deployment of AI Vision and Audio Applications
 ---
 
+
+<style>
+    #content_body .h1 {
+        font-size: 2.2em;
+        font-weight: 800;
+    }
+    .flex_center {
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .flex {
+        display: flex;
+    }
+    .flex-row {
+        flex-direction: row;
+    }
+    .items-center {
+        align-items: center;
+    }
+    .justify-center {
+        justify-content: center;
+    }
+    .justify-around {
+        justify-content: space-around;
+    }
+    .w-full {
+        width: 100%;
+    }
+    #content_body .card_item {
+        color: #f0f5f9;
+        background: linear-gradient(90deg, #26d0ce, #1a2980);
+        border-radius: 1em;
+        padding: 1em;
+        margin: 1em 0.1em;
+    }
+    #content_body .card_item img {
+        transition: transform 0.4s ease;
+    }
+    #content_body .card_item:visited {
+        color: #f0f5f9;
+    }
+    #content_body .card_item:hover {
+        border-radius: 1em;
+        /* background: linear-gradient(70deg, #26d0ce, #1a2980); */
+        padding: 1em;
+        margin: 1em 0.1em;
+    }
+    #content_body .card_item:hover > img {
+        transform: rotate(1deg) scale(1.05) ;
+    }
+    .mask_wrapper {
+        position: relative;
+    }
+    .mask {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    .item_name {
+        font-size: larger;
+        font-weight: 800;
+    }
+    #content_body .btn_blue {
+        margin: 1em;
+        color: white;
+        font-size: 0.9em;
+        border-radius: 0.3em;
+        padding: 0.5em 2em;
+        background-color: #0b4294;
+    }
+    #content_body .btn_blue:visited {
+        color: white;
+    }
+    #content_body .btn_blue:hover {
+        margin: 1em;
+        color: white;
+        font-size: 0.9em;
+        border-radius: 0.3em;
+        padding: 0.5em 2em;
+        background-color: #082a5e;
+    }
+    #content_body .btn_red {
+        margin: 1em;
+        color: white;
+        font-size: 0.9em;
+        border-radius: 0.3em;
+        padding: 0.5em 2em;
+        background-color: #ad3838
+    }
+    #content_body .btn_red:visited {
+        color: white;
+    }
+    #content_body .btn_red:hover {
+        margin: 1em;
+        color: white;
+        font-size: 0.9em;
+        border-radius: 0.3em;
+        padding: 0.5em 2em;
+        background-color: #630606;
+    }
+
+    .dark #content_body .card_item {
+        color: #f0f5f9;
+    }
+    .dark #content_body a.card_item:visited {
+        color: #f0f5f9;
+    }
+    .dark .card_item {
+        background: #292929;
+    }
+</style>
+
 <div style="width:100%; display:flex;justify-content: center;">
 
-![maixcam-pro](/static/image/maixcam2_front_back.png)
+<!-- ![maixcam2](/static/image/maixcam2_front_back.png) -->
 
+</div>
+
+<div class="flex_center w-full">
+    <div class="flex flex-row w-full">
+        <div class="flex flex-row items-center justify-around w-full card_item mask_wrapper item1">
+            <img src="/static/image/maixcam2_front_back.png" style="width: 80%">
+        </div>
+    </div>
 </div>
 
 <div style="padding: 1em 0 0 0; display: flex; justify-content: center">
-    <a target="_blank" style="margin: 1em;color: white; font-size: 0.9em; border-radius: 0.3em; padding: 0.5em 2em; background-color: #a80202" href="https://sipeed.taobao.com">Taobao</a>
-    <a target="_blank" style="margin: 1em;color: white; font-size: 0.9em; border-radius: 0.3em; padding: 0.5em 2em; background-color: #a80202" href="https://www.aliexpress.com/store/911876460">AliExpress</a>
+    <a target="_blank" class="btn_red" href="https://www.aliexpress.com/store/911876460">AliExpress</a>
+    <a target="_blank" class="btn_red" href="https://sipeed.taobao.com">Taobao</a>
 </div>
+
+<div class="mb-10"></div>
 
 ## Introduction to MaixCAM2
 
@@ -20,6 +146,8 @@ title: MaixCAM2 -- Rapid Deployment of AI Vision and Audio Applications
 ### **Key Features**:
 
 1. **Outstanding hardware performance**: Dual-core `A53` + `12.8Tops@INT4 / 3.2Tops@INT8` + `4GB LPDDR4` + multiple hardware codecs. At `640x640` resolution, `YOLO11n` reaches up to `113FPS`, and `YOLO11s` up to `62FPS`.
+    Here are some SOC run YOLO11n's benchmark:
+    ![](../../assets/maixcam/maixcam2_benchmark.jpg)
 2. **Integrated hardware package**: Supports up to `4K 1/1.8"` camera, `640x480` high-definition touchscreen, dual microphones, `WiFi6` + `BLE5.4`, and more. No complex hardware adaptation required, ready to use out of the box.
 3. **Various hardware form factors**: Versions available with enclosures and different accessory configurations, as well as a `core board`.
 4. **Offline AI large model support**: In addition to `convolutional models`, supports `Transformer models`, with plug-and-play `LLM / VLM / ASR / TTS`.
@@ -36,7 +164,8 @@ title: MaixCAM2 -- Rapid Deployment of AI Vision and Audio Applications
 
 ### Feature Showcase
 
-For more feature introductions, please see the [MaixPy homepage](https://wiki.sipeed.com/maixpy/).
+**For more feature introductions, please refer to:** <a target="_blank" class="btn_red" href="https://wiki.sipeed.com/maixpy/">MaixPy 主页</a>
+
 
 ## MaixCAM2 Hardware Specifications
 
