@@ -26,9 +26,13 @@ title: MaixCAM — Fast Deployment for AI Vision and Audio Projects
         transition: transform 0.4s ease;
     }
     #content_body .item2 {
+        width: 90%;
+        align-self: start;
         background: linear-gradient(-45deg, #c471ed,  #f64f59);
     }
     #content_body .item3 {
+        width: 90%;
+        align-self: end;
         background: linear-gradient(-45deg, #12c2e9, #c471ed);
     }
     #content_body .card_item:visited {
@@ -114,6 +118,21 @@ title: MaixCAM — Fast Deployment for AI Vision and Audio Projects
     .dark .card_item {
         background: #292929;
     }
+    @media screen and (max-width: 768px) {
+        #content_body .item1 {
+            flex-direction: column-reverse;
+        }
+        #content_body .item1 img {
+            padding-bottom: 1em;
+        }
+        #content_body .item2 {
+            width: 98%;
+        }
+        #content_body .item3 {
+            width: 98%;
+        }
+    }
+</style>
 </style>
 
 <div style="width:100%;" class="flex_center">
