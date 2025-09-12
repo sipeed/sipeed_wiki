@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+
+<html lang="zh"  class=" md_page ">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="">
+    
+    
+    <meta name="description" content="">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+        
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/prism.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?9cb07365544a53067c56c346c838181a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119047820-5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-119047820-5');
+    </script>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/js/thumbs_up/style.css" type="text/css"/>
+        
+    
+    
+    <title>MF 固件相关升级说明 - Sipeed Wiki</title>
+    
+    <script type="text/javascript">js_vars = {"teedoc-plugin-ad-hint": {"type": "hint", "label": "NEW", "content": "全新 Maix 系列产品 <a href='https://wiki.sipeed.com/maixcam'>MaixCAM</a> 已上线, 全新 <a href='https://wiki.sipeed.com/maixpy/'>MaixPy</a> 功能更丰富，性能更强大，软件更易用，文档更全面！", "show_times": 2, "show_after_s": 432000, "date": "2022-06-01 14:00", "color": "#a0421d", "link_color": "#e53935", "link_bg_color": "#e6ae5c", "bg_color": "#ffcf89", "color_hover": "white", "bg_color_hover": "#f57c00", "close_color": "#eab971"}, "teedoc-plugin-thumbs-up": {"label_up": "有帮助", "label_down": "待改进", "icon": "/static/images/thumbs_up/up.svg", "icon_clicked": "/static/images/thumbs_up/upped.svg", "url": "https://thumbs-up.sipeed.com", "show_up_count": true, "show_down_count": false, "msg_already_voted": "您已经投过票了", "msg_thanks": "感谢您的反馈", "msg_down_prompt": "感谢反馈，请告诉我们可以改进什么地方?（最少 10 个字）", "msg_down_prompt_error": "消息最少需要 10 个字， 最多 256 个字", "msg_error": "请求服务器出现错误!"}}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": null, "update": [], "ts": 0, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/">
+                
+                    <img class="site_logo" src="/static/image/logo.svg" alt="sipeed wiki logo">
+                
+                
+                    <h2>wiki</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class=""><a  href="/">产品</a></li>
+<li class="sub_items "><a >开源软件</a><ul><li class=""><a  href="/maixpy/">MaixPy</a></li>
+<li class=""><a  href="/soft/maixpy/zh/index.html">MaixPy_v1</a></li>
+<li class=""><a  href="/soft/Lichee/zh/index.html">Lichee</a></li>
+<li class=""><a  href="/ai/zh/index.html">AI 指南</a></li>
+</ul>
+</li>
+<li class=""><a target="_blank" href="https://maixhub.com">MaixHub</a></li>
+<li class=""><a  href="/news/">动态</a></li>
+<li class=""><a  href="/faq.html">FAQ 汇总</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class=""><a  href="/store.html"><img src='/static/image/shop.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+<li class=""><a target="_blank" href="https://github.com/sipeed"><img src='/static/image/github.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+<li class="sub_items "><a  ><img src='/static/image/language.svg' style='height: 1.5em;vertical-align: middle;'>&nbsp;中文</a><ul><li class=""><a  href="/hardware/maixface/en/mf_ml_module/mf_update_firmwave.html">English</a></li>
+<li class="active"><a  href="/hardware/maixface/zh/mf_ml_module/mf_update_firmwave.html">中文</a></li>
+</ul></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">输入关键词，多关键词空格隔开</span>
+                                <span id="search_loading_hint">正在加载，请稍候。。。</span>
+                                <span id="search_download_err_hint">下载文件失败，请刷新重试或检查网络</span>
+                                <span id="search_other_docs_result_hint">来自其它文档的结果</span>
+                                <span id="search_curr_doc_result_hint">当前文档搜索结果</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="active_parent no_link"><a><span class="label">MF 人脸识别模块</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/maixface/zh/mf_ml_module/mf0_ml_module.html"><span class="label">MF0&&MF0 Dock</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/maixface/zh/mf_ml_module/mf1_ml_module.html"><span class="label">MF1 && MF2</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/maixface/zh/mf_ml_module/mf5_product.html"><span class="label">MF4 && MF5</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/maixface/zh/mf_ml_module/mf_precautions.html"><span class="label">MF 人脸识别模块 PCB 设计注意事项</span><span class=""></span></a></li>
+<li class="active with_link"><a href="/hardware/maixface/zh/mf_ml_module/mf_update_firmwave.html"><span class="label">MF 更新固件说明</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>MF 固件相关升级说明</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                                <span class="article_date" title="最后修改日期： 2022-07-06">
+                                    2022-07-06
+                                </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/sipeed/sipeed_wiki/blob/main/docs/hardware/maixface/zh/mf_ml_module/mf_update_firmwave.md" target="_blank">
+                                    <span id='editPage'>编辑本页</span>
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <p>在使用 <strong>MF 人脸识别模块</strong>过程中，如果存在固件存在 bug、有新功能固件 release、误擦除固件、字体资源、图片资源，那么就需要通过烧录还原固件。</p>
+<h2 id="MF-%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB%E6%A8%A1%E5%9D%97%E5%9B%BA%E4%BB%B6%E3%80%81%E8%B5%84%E6%BA%90%E8%AF%B4%E6%98%8E">MF 人脸识别模块固件、资源说明</h2>
+<p><strong>MF 人脸识别模块</strong> 固件、字体资源、图片资源、说明如下：</p>
+<table>
+<thead>
+<tr>
+  <th>类型</th>
+  <th>烧录地址</th>
+  <th>长度</th>
+  <th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>固件</td>
+  <td>0x000000</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>人脸模型</td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>字体资源</td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>图片资源</td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>板级配置</td>
+  <td>0x7FF000</td>
+  <td>4 KB</td>
+  <td></td>
+</tr>
+<tr>
+  <td>人脸信息</td>
+  <td>0x800000</td>
+  <td>64 KB</td>
+  <td></td>
+</tr>
+<tr>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>一般开发者在拿到 MF 模块之后，不需要关心该资源分布</p>
+</blockquote>
+<ul>
+<li>MF 固件说明</li>
+</ul>
+<table>
+<thead>
+<tr>
+  <th>固件分类</th>
+  <th>方向</th>
+  <th>协议</th>
+  <th>识别方式</th>
+  <th>wechat</th>
+  <th>固件类型数量</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>MF0 体验版模块</td>
+  <td>横版, 竖版</td>
+  <td>bin</td>
+  <td>vis</td>
+  <td></td>
+  <td>2</td>
+</tr>
+<tr>
+  <td>MF1 离线版模块</td>
+  <td>横版，竖版</td>
+  <td>bin/json</td>
+  <td>vis+ir</td>
+  <td></td>
+  <td>8</td>
+</tr>
+<tr>
+  <td>MF1_to_MF2</td>
+  <td>横版，竖版</td>
+  <td>bin/json</td>
+  <td>vis+ir</td>
+  <td></td>
+  <td>8</td>
+</tr>
+<tr>
+  <td>MF2 微信半成品</td>
+  <td>横版，竖版</td>
+  <td>bin</td>
+  <td>vis</td>
+  <td>支持</td>
+  <td>2</td>
+</tr>
+<tr>
+  <td>MF4 微信 (成品)</td>
+  <td>竖版</td>
+  <td>bin</td>
+  <td>vis</td>
+  <td>支持</td>
+  <td>1</td>
+</tr>
+<tr>
+  <td>MF5 微信 (成品)</td>
+  <td>竖版</td>
+  <td>bin/json</td>
+  <td>vis</td>
+  <td>支持</td>
+  <td>2</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>字体资源</li>
+<li>图片资源</li>
+<li>清除配信息</li>
+</ul>
+<h2 id="MF1-%E5%9B%BA%E4%BB%B6%E7%83%A7%E5%BD%95%28%E5%8D%87%E7%BA%A7%EF%BC%8C%E8%BF%98%E5%8E%9F%E5%87%BA%E5%8E%82%E9%85%8D%E7%BD%AE%29%E6%AD%A5%E9%AA%A4">MF1 固件烧录(升级，还原出厂配置)步骤</h2>
+<p>在使用 <strong>MF 人脸识别模块</strong>过程中，如果存在固件存在 bug、有新功能固件 release、误擦除固件、字体资源、图片资源，那么就需要通过烧录还原固件。</p>
+<p>烧录步骤：</p>
+<ol>
+<li><p>烧录 key_gen.bin 获取 key</p>
+</li>
+<li><p>通过 support@sipeed.com 获取模型文件</p>
+</li>
+<li><p>烧录模型文件</p>
+</li>
+<li><p>烧录图片，字体资源，</p>
+</li>
+</ol>
+<h3 id="%E5%87%86%E5%A4%87%EF%BC%9A">准备：</h3>
+<p>在升级，还原出厂配置<strong>MF 人脸识别模块</strong> 之前我们需要准备软硬件。</p>
+<p><strong>硬件准备：</strong></p>
+<ul>
+<li><p><strong>MF 人脸识别模块</strong></p>
+</li>
+<li><p>USB Type-C 数据线</p>
+</li>
+</ul>
+<p><strong>软件准备：</strong></p>
+<ul>
+<li><p>烧录软件： kflash_gui(这里使用 kflash_gui v1.6.5 版本)</p>
+<p>下载链接:</p>
+<ul>
+<li>Github: <a href="https://github.com/Sipeed/kflash_gui"  target="_blank">kflash_gui</a></li>
+<li>Sipeed: <a href="https://dl.sipeed.com/MAIX/tools/kflash_gui/kflash_gui_v1.6.5"  target="_blank">Sipeed 官方下载站 - kflash_gui</a></li>
+</ul>
+</li>
+<li><p>烧录资源文件(根据情况烧录)：<strong>MF 人脸识别模块固件</strong>、算法模型文件、字体资源文件、图片资源文件</p>
+<p>资源文件获取统一发送邮件到: Email: Support@sipeed.com</p>
+<p>推荐发送邮件格式如下:</p>
+<blockquote>
+<p>问题类型: [MF 固件资源获取/（简短描述你的问题）]</p>
+<p>使用硬件/固件版本: [MF0/MF1/MF2/MF4/MF5(这里标注使用的究竟是哪个模块、产品)]</p>
+<p>内容: [最新固件获取/固件丢失/模型丢失(描述相关情况)]</p>
+<p>机器码: [xxxxxxxxxxxxxxxxxxxxx(只有模型丢失时需要)]</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="%E7%83%A7%E5%BD%95%E5%9B%BA%E4%BB%B6%2C%E8%B5%84%E6%BA%90%E6%96%87%E4%BB%B6">烧录固件,资源文件</h3>
+<p>使用USB Type-C 数据线 将<strong>MF 人脸识别模块</strong> 连接 电脑</p>
+<p><img src="../../assets/mf_module/mf1/mf1_view.png" alt="MF1 connect USB" /></p>
+<p>打开 Kflash_gui 选择需要烧录的文件，选择版型(默认选择<code>自动选择</code>， 如果烧录失败则选择 <code>MaixDuino</code>)，选择串口号(CH522 有两个串口，失败则尝试另外一个)，配置波特率(默认选择 <code>150000</code>, 如果烧录失败则适当减低波特率,如 <code>115200</code>)</p>
+<p><img src="../../../zh/maix/assets/kflash_gui/image-20200806103433410.png" alt="image-20200806103433410" /></p>
+<p><img src="../../../zh/maix/assets/kflash_gui/image-20200806105056527.png" alt="image-20200806105056527" /></p>
+<h2 id="%E6%80%8E%E4%B9%88%E8%8E%B7%E5%8F%96-Key%28%E6%9C%BA%E5%99%A8%E7%A0%81%29">怎么获取 Key(机器码)</h2>
+<p>在使用过程中,如果模块的模型丢失或需要更换,需要发送 <code>Key</code> 到 <a href="mailto:Support@sipeed.com"  >Support@sipeed.com</a></p>
+<p>推荐发送邮件格式如下:</p>
+<p>首先下载 <a href="https://fdvad021asfd8q.oss-cn-hangzhou.aliyuncs.com/Sipeed_M1/firmware/key_gen_v1.2.bin"  target="_blank">key_gen.bin</a></p>
+<p>使用 <code>kflash_gui</code> 将固件 <code>key_gen.bin</code> 烧录到模块中之后,打开串口,波特率为<code>115200,8,N,1</code></p>
+<blockquote>
+<p><strong><a href="https://github.com/Sipeed/kflash_gui/releases"  target="_blank">kflash_gui</a></strong> 为 K210 固件烧录工具, 源码: <a href="https://github.com/Sipeed/kflash_gui"  target="_blank"><strong>Sipeed/kflash_gui</strong></a></p>
+</blockquote>
+<p>建议使用 <a href="tools/XCOM_V2.6.exe"  ><code>XCOM</code></a> 来看串口信息</p>
+<p>轻点 <code>DTR</code> ,再松开,即可使模块复位,看到启动信息</p>
+<center class="half">
+<img src="../../../zh/maix/assets/other/how_to_get_key.png" height = 50% width = 80% />
+</center>
+<h2 id="MF-%E5%9B%BA%E4%BB%B6%E6%A8%AA%E7%AB%96%E7%89%88%E8%AF%B4%E6%98%8E">MF 固件横竖版说明</h2>
+<p>由于采用的摄像头成像方向不同，相差 90度，摄像头寄存器无法配置旋转（软件旋转降低效率），故有横竖版两种固件；</p>
+<p>如何确认摄像头对应的固件：（通过摄像头丝印区分）</p>
+<table>
+<thead>
+<tr>
+  <th>横板</th>
+  <th>竖版</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><img src="../../assets/mf_module/mf1/mf_dual_camera_1.jpg" alt="" /></td>
+  <td><img src="../../assets/mf_module/mf1/mf_dual_camera_2.png" alt="" /></td>
+</tr>
+</tbody>
+</table>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                        <a href="/hardware/maixface/zh/mf_ml_module/mf_precautions.html">
+                            <span class="icon"></span>
+                            <span class="label">MF 人脸识别模块 PCB 设计注意事项</span>
+                        </a>
+                        
+                    </div>
+                    <div id="next">
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>相关链接</a><ul><li><a target="_blank" href="https://www.sipeed.com">Sipeed 官网</a></li>
+<li><a target="_blank" href="https://maixhub.com/">MaixHub</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">Sipeed 淘宝</a></li>
+<li><a  href="/sitemap.xml">网站地图</a></li>
+<li><a target="_blank" href="https://github.com/teedoc/teedoc">网站使用 teedoc 生成</a></li>
+</ul>
+</li>
+<li><a>源码</a><ul><li><a target="_blank" href="https://github.com/sipeed/sipeed_wiki">Wiki 源码</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">开源项目</a></li>
+</ul>
+</li>
+<li><a>关注我们</a><ul><li><a target="_blank" href="https://twitter.com/SipeedIO">twitter</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">淘宝</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">github</a></li>
+<li><a><a>微信公众号</a><img src='/static/image/wechat.png'></a>
+</li>
+</ul>
+</li>
+<li><a>联系我们</a><ul><li><a>电话: +86 0755-27808509</a>
+</li>
+<li><a>商业支持: support@sipeed.com</a>
+</li>
+<li><a>地址: 深圳市宝安区新湖路4008号蘅芳科技办公大厦A座-2101C</a>
+</li>
+<li><a  href="/join_us.html">加入我们</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://www.sipeed.com">©2018-2023 深圳矽速科技有限公司</a></li>
+<li><a target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index">粤ICP备19015433号</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/js/prism.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <link rel="stylesheet" href="/static/js/add_hint/style.css" type="text/css"/>
+    
+        <script src="/static/js/add_hint/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+        <script src="/static/js/thumbs_up/main.js"></script>
+    
+</body>
+
+</html>
