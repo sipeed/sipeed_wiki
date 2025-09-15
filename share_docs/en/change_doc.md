@@ -16,4 +16,4 @@ The content may show as below, just correct what you think need to be changed.
 5. Pull request after your finishing editing and add the reason why change it.   
 ![](./../assets/5.png)
 
-We will merge request if ok.
+We will merge request if ok. sipeed
