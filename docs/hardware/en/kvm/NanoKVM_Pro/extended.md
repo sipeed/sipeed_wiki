@@ -218,3 +218,35 @@ cat /root/customize.bin > /proc/lt6911_info/edid
 # 3. Restore the default EDID:
 cat /kvmcomm/edid/e18.bin > /proc/lt6911_info/edid
 ```
+
+Version 1.0.15 includes two EDID files: `e18.bin` and `e48.bin`.  
+- `e18.bin` uses conservative parameters compatible with most systems.  
+- `e48.bin` adds currently tested stable resolutions, but compatibility is not guaranteed for all devices.  
+
+Supported resolutions and refresh rates are listed below:
+
+| Resolution    | Refresh Rate | Aspect Ratio | e18.bin | e48.bin |
+|---------------|--------------|--------------|---------|---------|
+| 3840×2160     | 39 FPS       | 16:9         | ×       | ✓       |
+| 3840×2160     | 30 FPS       | 16:9         | ✓       | ✓       |
+| 3840×2160     | 25 FPS       | 16:9         | ✓       | ×       |
+| 2560×1440     | 83 FPS       | 16:9         | ✓       | ✓       |
+| 2560×1440     | 60 FPS       | 16:9         | ×       | ✓       |
+| 2560×1440     | 30 FPS       | 16:9         | ✓       | ×       |
+| 1920×1200     | 60 FPS       | 16:10        | ✓       | ✓       |
+| 1920×1080     | 125 FPS      | 16:9         | ×       | ✓       |
+| 1920×1080     | 120 FPS      | 16:9         | ✓       | ✓       |
+| 1920×1080     | 100 FPS      | 16:9         | ✓       | ✓       |
+| 1920×1080     | 60 FPS       | 16:9         | ✓       | ✓       |
+| 1920×1080     | 30 FPS       | 16:9         | ✓       | ✓       |
+| 1680×1050     | 60 FPS       | 16:10        | ✓       | ✓       |
+| 1440×900      | 60 FPS       | 16:10        | ✓       | ✓       |
+| 1280×1024     | 60 FPS       | 5:4          | ✓       | ✓       |
+| 1280×960      | 60 FPS       | 4:3          | ✓       | ✓       |
+| 1280×800      | 60 FPS       | 16:10        | ✓       | ✓       |
+| 1280×720      | 60 FPS       | 16:9         | ✓       | ✓       |
+| 1152×864      | 60 FPS       | 4:3          | ✓       | ✓       |
+| 1024×768      | 60 FPS       | 4:3          | ✓       | ✓       |
+| 800×600       | 60 FPS       | 4:3          | ✓       | ✓       |
+
+> Resolutions not listed above may exhibit display errors or fail to show.

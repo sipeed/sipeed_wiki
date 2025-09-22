@@ -4,9 +4,28 @@
 
 NanoKVM Pro will periodically update applications, and some issues may have been resolved in newer versions. Therefore, please try updating the application first.
 
-## Green LED Flashing
+## System Boot
 
-The green LED is the power indicator for NanoKVM Pro. If a power supply with insufficient capacity is connected, the green LED may fail to start due to unstable voltage. Please disconnect all power sources and replace the power supply.
+### Green LED Blinking
+
+The green LED serves as the power indicator for NanoKVM Pro. If a power source with insufficient capacity is connected, the green LED may blink due to voltage instability and fail to start up. Please disconnect all power connections and replace the power adapter.
+
+## Video-Related Issues
+
+### HDMI Icon Lit on NanoKVM Screen but No Video Displayed in Web Interface
+
+NanoKVM-Pro supports video capture and loop-out functions. When only capturing video, it reports a maximum resolution of 4K30FPS to the host by default. When a loop-out display is connected, it reports a common resolution list.  
+For the default resolution and frame rate list, please refer to [here](https://wiki.sipeed.com/hardware/en/kvm/NanoKVM_Pro/extended.html#How-to-Modify-EDID).
+
+When connected through video adapters or docking stations, the reported capabilities may change (e.g., reporting 4K60FPS capture support, which may cause capture failure). In such cases, adjust the display settings in the host system:
+
+- On Windows: Go to `Settings` → `Display` → `Advanced Display Settings` → Select `NanoKVM-Pro` display → `Display Adapter Properties` → `List All Modes` → Choose the desired mode → Click Apply or OK.
+
+![](./../../../assets/NanoKVM/pro/faq/res.png)
+
+### Blurry Image, Not Matching the Captured Resolution
+
+- In the image above, box ③: If the desktop resolution is lower than the active signal resolution, the captured image may appear blurrier than expected. Follow the steps above to output a clear image.
 
 ## Image Burning Methods
 
