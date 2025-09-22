@@ -479,6 +479,11 @@ items:
             file: logic_analyzer/combo8/update_firmware.md
         -   label: FAQ
             file: logic_analyzer/combo8/faq.md
+
+    -   label: SLogic16U3
+        items:
+        -   label: User Guide
+            file: logic_analyzer/slogic16u3/User_Guide.md
 -   label: KVM
     items:
     -   label: NanoKVM Cube
