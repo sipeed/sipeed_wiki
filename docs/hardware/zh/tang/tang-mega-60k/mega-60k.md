@@ -13,17 +13,17 @@ update:
     content:
       - 修正PCIe部分总线宽度的描述
       - 更新之前TBD的内容  
- - date: 2025-09-25
-   version: v0.3
-   author: Serika
-   content:
-     - 移除了无法使用的lic server IP地址
-     - 移除了错误的关于AE350的描述  
-     - 移除了错误的关于MIPI C-PHY的描述
-     - 修正了GT收发器速率的描述
-     - 修正了DDR3速率的描述
-     - 修正了Flash容量的描述
-     - 修正了PCIe通道的宽度描述
+  - date: 2025-09-25
+    version: v0.3
+    author: Serika
+    content:
+      - 移除了无法使用的lic server IP地址
+      - 移除了错误的关于AE350的描述  
+      - 移除了错误的关于MIPI C-PHY的描述
+      - 修正了GT收发器速率的描述
+      - 修正了DDR3速率的描述
+      - 修正了Flash容量的描述
+      - 修正了PCIe通道的宽度描述
 ---
 
 ## 产品概述

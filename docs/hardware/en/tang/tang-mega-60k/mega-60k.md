@@ -20,15 +20,15 @@ update:
       - Add Secondary lic server ip addr.
       - Corrected description of PCIe link width.
   - date: 2025-09-25
-  version: v0.31
-  author: Serika
-  content:
-    - Removed the unusable LIC server IP address
-    - Removed the incorrect description about the AE350
-    - Removed the incorrect description about MIPI C-PHY
-    - Corrected the description about the GT transceiver speed
-    - Corrected the description about the DDR3 speed
-    - Corrected the description about the Flash capacity
+    version: v0.31
+    author: Serika
+    content:
+      - Removed the unusable LIC server IP address
+      - Removed the incorrect description about the AE350
+      - Removed the incorrect description about MIPI C-PHY
+      - Corrected the description about the GT transceiver speed
+      - Corrected the description about the DDR3 speed
+      - Corrected the description about the Flash capacity
 ---
 
 ## Overview
