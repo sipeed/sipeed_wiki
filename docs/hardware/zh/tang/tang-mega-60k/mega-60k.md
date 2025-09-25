@@ -28,7 +28,7 @@ update:
 
 ## 产品概述
 
-**Tang Mega 60K** 使用 22nm 制程 **GW5AT-LV60P484A** FPGA 芯片，具有 59904 个查找表单元和 118 个 DSP 单元。含有四个速度范围在 270Mbps ~ 8.8Gbps 高速收发器，适合用于 PCIe 等高速口传递数据。此外，芯片含有硬核 PCIe 和 MIPI C/D PHY控制器，在使用 PCIe 的时候消耗更好的资源，并且得到更佳的性能。适用于高速通信、协议转换、高性能计算等场合。
+**Tang Mega 60K** 使用 22nm 制程 **GW5AT-LV60P484A** FPGA 芯片，具有 59904 个查找表单元和 118 个 DSP 单元。含有四个速度范围在 270Mbps ~ 8.8Gbps 高速收发器，适合用于 PCIe 等高速口传递数据。此外，芯片含有硬核 PCIe 和 MIPI D-PHY控制器，在使用 PCIe 的时候消耗更好的资源，并且得到更佳的性能。适用于高速通信、协议转换、高性能计算等场合。
 
 60K Dock 和 138K Dock共用一套底板（TANG MEGA NEO），因此两者的外设完全相同。相比138K Dock，60K Dock具有较少的逻辑资源和更低的价格，并且包含MIPI D-PHY 收发器（138K仅有MIPI D-PHY RX）。这不仅能进一步降低高速通讯的成本，还带来了更好的影像处理系统集成的兼容性。
 
@@ -230,7 +230,7 @@ ip: 106.55.34.119
 port: 10559
 
 ~~~
-如果上面的IP不能工作, 尝试使用 "gowinlic.sipeed.com" 域名对应的IP.
+如果上面的IP不能工作, 尝试使用 "gowinlic.sipeed.com" 域名对应的IP。
 
 安装 IDE [点我](https://wiki.sipeed.com/hardware/zh/tang/common-doc/get_started/install-the-ide.html)
 
