@@ -19,13 +19,23 @@ update:
     content:
       - Add Secondary lic server ip addr.
       - Corrected description of PCIe link width.
+  - date: 2025-09-25
+  version: v0.31
+  author: Serika
+  content:
+    - Removed the unusable LIC server IP address
+    - Removed the incorrect description about the AE350
+    - Removed the incorrect description about MIPI C-PHY
+    - Corrected the description about the GT transceiver speed
+    - Corrected the description about the DDR3 speed
+    - Corrected the description about the Flash capacity
 ---
 
 ## Overview
 
-  **Tang Mega 60K** uses the 22nm process **GW5AT-LV60P484A** FPGA chip with 59904 lookup table units and 118 DSP units. It contains four high-speed transceivers with speeds ranging from 270Mbps to 6.6Gbps, which is suitable for transmitting data on high-speed ports such as PCIe. In addition, the chip contains hard-core PCIe and MIPI C/D PHY controllers, which consume better resources and get better performance when using PCIe. It is suitable for high-speed communication, protocol conversion, high-performance computing and other occasions.
+  **Tang Mega 60K** uses the 22nm process **GW5AT-LV60P484A** FPGA chip with 59904 lookup table units and 118 DSP units. It contains four high-speed transceivers with speeds ranging from 270Mbps to 8.8Gbps, which is suitable for transmitting data on high-speed ports such as PCIe. In addition, the chip contains hard-core PCIe and MIPI D-PHY controllers, which consume better resources and get better performance when using PCIe. It is suitable for high-speed communication, protocol conversion, high-performance computing and other occasions.
 
-  The 60K Dock and 138K Dock share a set of dockboards(TANG MEGA NEO), so the peripherals of the two are exactly the same. Compared with the 138K Dock, the 60K Dock has fewer logic resources and a lower price, and includes a MIPI C/D PHY transceiver. This not only further reduces the cost of high-speed communication, but also brings better compatibility for image processing system integration.
+  The 60K Dock and 138K Dock share a set of dockboards(TANG MEGA NEO), so the peripherals of the two are exactly the same. Compared with the 138K Dock, the 60K Dock has fewer logic resources and a lower price, and includes a MIPI D-PHY transceiver. This not only further reduces the cost of high-speed communication, but also brings better compatibility for image processing system integration.
 
 
   - aliexpress purchase link: [Click me](https://www.aliexpress.com/item/3256807078990410.html)
@@ -41,6 +51,7 @@ update:
   - Gigabit Ethernet x 1
   - Onboard 3.7V Li-on battery(1-Series) charge/discharge management
     
+    <a id="target-line"></a>
     **\*Note**: Since the pinouts of the **SERDES** parts of **`GW5AT-LV60`** and **`GW5AST-LV138`** are not exactly the same, the Dock board was originally designed for **`GW5AST-LV138`**. Therefore, for **`GW5AT-LV60`**, although the PCIe AIC gold finger has fanout all **SERDES** lanes, because lanes 1 and 3 are swapped on the **`GW5AT-LV60`**, PCIe can only work in x1 mode at present.
     
     *This problem may be fixed in the future with GOWIN software updates.*
@@ -115,11 +126,11 @@ TBD
                     </tr>
                     <tr>
                         <td>Transceivers Rate</td>
-                        <td>270Mbps-12.5Gbps</td>
+                        <td>270Mbps-8.8Gbps</td>
                     </tr>
                     <tr>
                         <td>PCIe HardCore</td>
-                        <td>x1<br>Speed optional x1, x2, x4 PCIe 2.0</td>
+                        <td>x1<br>Speed optional x1, <s>x2, x4</s> PCIe 2.0 <a href="#target-line">(reason)</a></td>
                     </tr>
                     <tr>
                         <td>LVDS (Gbps)</td>
@@ -127,15 +138,15 @@ TBD
                     </tr>
                     <tr>
                         <td>DDR3 (Mbps)</td>
-                        <td>1333</td>
+                        <td>1100</td>
                     </tr>
                     <tr>
                         <td>MIPI D-PHY HardCore</td>
                         <td>2.5Gbps（RX/TX），<br>4x data lane，<br>1x clock lane</td>
                     </tr>
                     <tr>
-                        <td>MIPI C-PHY HardCore</td>
-                        <td>2.5Gbps（RX/TX），<br>=5.75Gbps,RX/TX<br>3x 3bit data lane</td>
+                        <td>Hardcore SoC</td>
+                        <td>None</td>
                     </tr>
                     <tr>
                         <td>ADC</td>
@@ -155,7 +166,7 @@ TBD
 		</tr>
 		<tr>
 			<td style="text-align:left">Flash</td>
-			<td style="text-align:left">128Mbits Flash x 1</td>
+			<td style="text-align:left">64Mbits Flash x 1</td>
 			<td style="text-align:left">See <a href="#burn_flash">How to Burn to Flash</a></td>
 		</tr>
 		<tr>
@@ -211,18 +222,17 @@ TBD
 
 ## Getting Started
 
-Note that 60K is currently not supported by the education version, and you need to download V1.9.10.01 or a newer version of the commercial IDE for use.  
-There are serious problems with the Programmer version V1.9.10.02, and this product cannot be programmed.
-Lic can be applied on the Gowin official website, or you can use the online Lic service provided by Sipeed. In the IDE, select Float Lic and fill in the following information:
+Note that 60K is currently supported by the educational version. You need to download the educational IDE version V1.9.11.03 or later. The commercial IDE requires V1.9.10.03 or later.
+To download the bitstream to flash memory, we recommend using **exFlash Erase, Program through GAO-Bridge 5A** mode (V1.9.10.03 or later) or **exFlash Erase, Program through GAO-Bridge Arora V** (V1.9.12 or later).
+We recommend using the standalone **1.9.12 SP1** Programmer (also known as Yunyuan Programmer), which can be found on the **Yunyuan Software Commercial Version** page. This standalone programmer offers better compatibility.
+If you need to use the commercial IDE, you can apply for a license on the Gaoyun official website or use the online license service provided by Sipeed. Select Floating License in the IDE and fill in the following information:
 
 ~~~
----Server 01---
-ip: 45.33.107.56
-port: 10559
 
----Server 02---
+---Server 01---
 ip: 106.55.34.119
 port: 10559
+
 ~~~
 
 if the ip not work, try use "gowinlic.sipeed.com" domain's IP.
@@ -333,10 +343,7 @@ Tang Mega 60K can meet different needs of customers in various scenarios. For te
 
 ### IDE cannot find the model GW5AT-LV60PG484A
 
-1. The educational version does not support 60K, please switch to the commercial version. The following image shows the educational version (which does not support 60K);
-<img src="../assets/questions/no_model_in_IDE.png" width="35%">
-
-2. IDE version is too low to use, update the IDE version ≥ **1.9.9**.
+1. The GOWIN IDE version is too old. You must update to the commercial version IDE ≥ 1.9.10.03, or the educational version IDE ≥ 1.9.11.03.
 
 ### How to burn the bitstream to FLASH {#burn_flash}
 
