@@ -131,7 +131,7 @@ SLogic DFU Mode 为固件更新模式，需要使用支持USB2的线缆和主机
       </head>
       <body>
         <details class="indent">
-          <summary><font color="#4F84FF"><b>不锈钢卡针</b> x1
+          <summary><font color="#4F84FF"><b>不锈钢SIM卡针</b> x1
       </font></summary>
           <img src="./assets/DCIM/small_pin.jpg">
         </details>
@@ -209,7 +209,7 @@ SLogic DFU Mode 为固件更新模式，需要使用支持USB2的线缆和主机
 
 #### 逻辑分析仪正面
 
-**MODE** 小孔中有一个隐藏式按键，可以用取卡针捅入后按下。
+**MODE** 小孔中有一个隐藏式按键，可以用SIM卡针捅入后按下。
 
 **ACT** 是 **状态指示灯**，具体状态见下方[相应章节](#指示灯颜色与功能)描述。
 
@@ -244,23 +244,25 @@ SLogic DFU Mode 为固件更新模式，需要使用支持USB2的线缆和主机
 
 ---
 
-下表是不同颜色对应的正常运行时候的装置状
-  | 状态         | 颜色                                                                           | 备注                                                                      |
-  | ----------- | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------- | 
-  | **正常连接** | <span style="color:cyan">青色</span>                                           | <span style="color:blue">蓝</span> + <span style="color:green">绿</span> |
-  | **数据传输** | <span style="color:cyan">青色</span> + <span style="color:red">红色快闪</span> | <span style="color:blue">蓝</span> + <span style="color:green">绿</span> + <span style="color:red">红快闪</span> |
-  | **DFU模式**  | <span style="color:cyan">青色</span> + <span style="color:red">红色慢闪</span> | <span style="color:blue">蓝</span> + <span style="color:green">绿</span> + <span style="color:red">红慢闪</span> |
+下表是不同颜色对应的正常运行时候的装置状态
+
+| **状态**     | **颜色**                                                                       | <b>备注</b>                                                                                                    |
+| ----------- | ------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------- | 
+| **正常连接** | <span style="color:cyan">青色</span>                                           | <span style="color:blue">蓝</span> + <span style="color:green">绿</span>                                        |
+| **数据传输** | <span style="color:cyan">青色</span> + <span style="color:red">红色快闪</span> | <span style="color:blue">蓝</span> + <span style="color:green">绿</span> + <span style="color:red">红快闪</span> |
+| **DFU模式**  | <span style="color:cyan">青色</span> + <span style="color:red">红色慢闪</span> | <span style="color:blue">蓝</span> + <span style="color:green">绿</span> + <span style="color:red">红慢闪</span> |
 
 ---
 
-下表的指示灯颜色对应的装置的异常状态。除下表中已列举的状态外，其余状态（如只亮绿灯/三灯常亮）皆属于未定义的状态。
+下表的指示灯颜色对应的装置的异常状态
 
-如果出现未定义的状态，请尝试重新拔插USB。若无法解决则应高度怀疑硬件损坏。
-
-  | 状态            | 颜色                               | 备注                                        |
+  | **状态**        | **颜色**                           | **备注**                                    |
   | -------------- | ---------------------------------- | ------------------------------------------- | 
   | **USB连接失败** | <span style="color:blue">蓝</span> | <span style="color:blue">只亮蓝灯</span>    |
-  | **Flash加载异常** | <span style="color:red">红</span>| <span style="color:red">只亮红灯</span>    |
+  | **Flash加载异常** | <span style="color:red">红</span>| <span style="color:red">只亮红灯</span>     |
+
+  - 除表中已列举的状态外，其余状态（如只亮绿灯/三灯常亮）皆属于未定义的状态
+  - 如果出现未定义的状态，请尝试重新拔插USB。若无法解决则应高度怀疑硬件损坏。
 
 > ⚠注意：任何时候<span style="color:green">绿灯</span>如果熄灭都意味着USB连接出现问题，请尝试重新连接以解决问题。此时<span style="color:red">红灯</span>的状态没有意义。
 
@@ -285,8 +287,6 @@ SLogic DFU Mode 为固件更新模式，需要使用支持USB2的线缆和主机
 
 ## MODE按键功能
 
-> Windows环境打开设备管理器或使用 *USB treeview*，Linux/macOS环境使用 *lsusb* 命令，可以找到 "*SLogic16 U3/SLogic DFU*" 设备
-
 装置上电后默认功能是 **逻辑分析仪**，正常情况下[ACT指示灯](#指示灯颜色与功能)显示青色。
 同时出现一个新的 **USB3** 装置：**SLogic16 U3**（逻辑分析仪）
 
@@ -299,6 +299,7 @@ SLogic DFU Mode 为固件更新模式，需要使用支持USB2的线缆和主机
 
 再次按下 **MODE** 则切换回 **SLogic16 U3**，重复按下 **MODE** 再进入**SLogic DFU**，如此往复循环在两个模式中来回切换。
 
+> Windows环境打开设备管理器或使用 *USB treeview*，Linux/macOS环境使用 *lsusb* 命令，可以找到 "*SLogic16 U3/SLogic DFU*" 设备
 
 ## 更新固件
 
