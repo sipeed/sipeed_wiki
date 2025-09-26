@@ -1,6 +1,6 @@
 ---
-title:  基础操作
-keywords: LogicAnalyzer, SLogic, Basic Usage
+title:  硬件操作
+keywords: LogicAnalyzer, SLogic, basic usage, hardware
 update:
   - date: 2025-09-25
     version: v0.1
@@ -9,12 +9,7 @@ update:
       - Release docs
 ---
 
-SLogic16 U3共有2个功能：SLogic U3 Mode/DFU Mode。
-这篇文档用来指导如何上手使用。
-
-其中SLogic U3 Mode为逻辑分析仪模式，需要使用支持USB3的线缆和主机。
-
-SLogic DFU Mode 为固件更新模式，需要使用支持USB2的线缆和主机。
+此章节介绍 **SLogic16 U3** 硬件相关的使用与操作。
 
 ## 硬件概览
 
@@ -22,6 +17,7 @@ SLogic DFU Mode 为固件更新模式，需要使用支持USB2的线缆和主机
 
 ![unboxing_0](./assets/DCIM/unboxing_0.png)
 
+一套完整的硬件包括 **SLoigc16 U3 主机** 和 **包装内附件**，如下所示：
 - <!DOCTYPE html>
   <html lang="zh-CN">
   <head>
@@ -192,47 +188,70 @@ SLogic DFU Mode 为固件更新模式，需要使用支持USB2的线缆和主机
 </head>
 <body>
   <details class="indent">
-    <summary><font color="#4F84FF">点击此处查看SLoigc16 U3的硬件示意图览
+    <summary><font color="#4F84FF">点击此处查看SLoigc16 U3的硬件连接示意图
 </font></summary>
-    <img src="./assets/MISC/Hardware_OverView.png">
+    <img src="./assets/MISC/la_topview.jpg">
   </details>
+  <br>
 </body>
 </html>
 
+**同轴线子板**/**杜邦线组** 都具有方向性，其插入方向见上图，线上的三角标记 **▴** 对准外壳上的三角标记 **▾** 为正。
+
+**同轴线** 的远端有 **2** 个接线端子。其中白色的端子和信号源连接，黑色的端子和GND连接。
+
+**杜邦线** 每组只有 **2** 个单独的GND，在其连接线上的三角标记  **▴** 和外壳对准插入时，黑色的线束就是GND，红色为VCC。
+
 #### 逻辑分析仪背面
 
-**同轴线子板**/**杜邦线组** 的插入方向见上图，连接线上的三角标记 **▴** 对准外壳上的三角标记 **▾** 即可。
+![slogic16_u3_rear](./assets/MISC/la_rearview.jpg)
 
-同轴线的远端有两个接线端子。其中白色的端子和信号源连接，黑色的端子和GND连接。
+逻辑分析仪的背面是 **2x12P** 排母，其间距是2.54mm。排母的引脚定义见上图（逻辑分析仪后视图）。
 
-杜邦线每组只有两个单独的GND，在其连接线上的三角标记和外壳对准插入时，黑色的线就是GND，红色为VCC。
+其中数字编号 **0-15** 为采样通道的编号，对应上位机中的通道编号，共计16通道。
+
+**G** 代表 **GND**，使用时请连接被采样装置和逻辑分析仪的GND，共计4通道。
+
+**VCC** 代表电源输出，其输出能力为 **3.3V @500mA**，共计2通道（2通道共享电流输出能力）。
+
+**CK** 代表预留的采样时钟输入/触发输出通道，其功能暂未实现，共计2通道。
 
 #### 逻辑分析仪正面
 
-**MODE** 小孔中有一个隐藏式按键，可以用SIM卡针捅入后按下。
+![slogic16_u3_rear](./assets/MISC/la_frontview.jpg)
 
-**ACT** 是 **状态指示灯**，具体状态见下方[相应章节](#指示灯颜色与功能)描述。
+上图为逻辑分析仪正视图，从左至右依次为：
 
-**USB-C** 接口标准是3.2 Gen1 (5Gbps)，使用逻辑分析仪功能需要使用有对应能力的线缆。
+**USB-C** 接口标准是3.2 Gen1 (5Gbps)，使用逻辑分析仪功能需要使用有对应能力（USB3.0）的线缆。
 
-### 快速开始
+**MODE** 小孔中有一个隐藏式按键，可以用SIM卡针捅入后按下，其功能详见[MODE按键](#mode按键)章节描述。
 
-首先，连接 **PC USB** → **USB-A/C to USB-C** →  **SLogic** → **杜邦线**/**同轴线子板**
+**ACT** 是 **状态指示灯**，具体状态见下方[ACT指示灯](#act指示灯)章节描述。
 
-> 目前SLogic16仅有 **USB3** 模式支持，而DFU模式使用 **USB2** 模式。
-> 使用附赠的 **USB-A/C to USB-C** 线缆即可兼容上述两种模式。
 
-将目标设备的待测信号点通过**杜邦线**/**同轴线**连接至 **SLogic** 任意空闲CH端口，并确保待测设备的GND与SLogic的GND相连接。
+### 开始使用
+
+首先，连接 **PC USB3** → **USB-A/C to USB-C** →  **SLogic** → **杜邦线**/**同轴线子板**
+
+> 目前SLogic16仅有 **USB3** 模式支持，使用附赠的 **USB-A/C to USB-C** 线缆即可兼容。
+
+将目标设备的待测信号点通过**杜邦线**/**同轴线**连接至 **SLogic** 任意空闲CH数字端口，并确保待测设备的GND与SLogic的GND相连接。
 
 > 注意，在信号源奈奎斯特频率大于或等于 50 MHz 的情况下，推荐使用同轴线进行采样，以获得更佳的稳定性。
 
 可以根据实际情况决定是否使用 **逻辑分析仪测试夹** 连接至待测信号点。
 
-> 为了提升采样稳定性，SLogic 的 GND 线应尽量靠近待测点，即便仅缩短 1 cm 也可能带来改善。在使用同轴线采样时，建议您在连接每个采样信号 CH 的同时，也连接对应的 GND。
+> 为了提升采样稳定性，SLogic 的 GND 线应尽量靠近待测点，即便仅缩短 **1 mm** 也可能带来改善。在使用同轴线采样时，建议您在连接每个采样信号 **CH** 的同时，也连接对应的 **GND**。
 
-最后启动 [**plusview**]() 开始采集操作。
+最后启动 [**plusview**](./User_Guide.md#软件使用) 开始采集操作。
+
+关于软件的安装和相关操作，可以参考[这里](./User_Guide.md#软件)。
 
 ## ACT指示灯
+
+**ACT指示灯** 位于逻辑分析仪正面，靠近机身外侧。
+
+![slogic16_u3_rear](./assets/MISC/la_frontview_act.jpg)
 
 ### 颜色&功能
 
@@ -285,9 +304,13 @@ SLogic DFU Mode 为固件更新模式，需要使用支持USB2的线缆和主机
 
 
 
-## MODE按键功能
+## MODE按键
 
-装置上电后默认功能是 **逻辑分析仪**，正常情况下[ACT指示灯](#指示灯颜色与功能)显示青色。
+**MODE按键** 位于逻辑分析仪正面，在 **USB-C 连接器** 和 **ACT指示灯** 之间。这是一个隐藏式按键，需要使用SIM卡针品插入外壳才能按动。
+
+![slogic16_u3_rear](./assets/MISC/la_frontview_mode.jpg)
+
+装置上电后默认功能是 **逻辑分析仪**，正常情况下[ACT指示灯](#act指示灯)显示青色。
 同时出现一个新的 **USB3** 装置：**SLogic16 U3**（逻辑分析仪）
 
 <!-- ![slogic16_u3](./assets/slogic_u3.png) -->
@@ -295,25 +318,26 @@ SLogic DFU Mode 为固件更新模式，需要使用支持USB2的线缆和主机
 **按下MODE按键**切换功能，切换成功后可以看到**指示灯变化：** 红灯慢闪。
 同时出现一个新的 **USB2** 装置：**SLogic DFU** （升级模式）
 
+> **SLogic** 模式使用 **USB3** 模式，而 **DFU** 模式使用 **USB2** 模式。
+
 <!-- ![slogic16_u2](./assets/slogic_u2.png) -->
 
 再次按下 **MODE** 则切换回 **SLogic16 U3**，重复按下 **MODE** 再进入**SLogic DFU**，如此往复循环在两个模式中来回切换。
 
-> Windows环境打开设备管理器或使用 *USB treeview*，Linux/macOS环境使用 *lsusb* 命令，可以找到 "*SLogic16 U3/SLogic DFU*" 设备
+> Windows环境打开设备管理器或使用 *USB treeview*，Linux/macOS环境使用 *lsusb* 命令，可以找到 "*SLogic16 U3/SLogic DFU*" 装置
 
 ## 更新固件
 
 
-首先，[进入DFU MODE](#mode按键功能)：上电后按下 **MODE按键**，等待<span style="color:red">红灯慢闪</span> 。
+首先，[进入DFU MODE](#mode按键)：上电后按下 **MODE按键**，等待<span style="color:red">红灯慢闪</span> 。
 
-确认"*SLogic DFU*" 设备出现后，使用 [**DFU工具**]() 进行更新。
+确认"*SLogic DFU*" 设备出现后，使用 [**DFU工具**](./) 进行更新。
 
-> Windows环境打开设备管理器或使用 *USB treeview*，Linux环境使用 *lsusb* 命令，可以找到 "*SLogic DFU*" 设备
+> Windows环境打开设备管理器或使用 *USB treeview*，Linux/macOS环境使用 *lsusb* 命令，可以找到 "*SLogic DFU*" 装置
 
-DFU工具的说明详见[更新固件]()章节。
+DFU工具的说明详见[DFU工具的使用]()章节。
 
-> 理论上，OTA操作只会更新SLogic固件，无法影响DFU功能。因此即使OTA失败导致SLogic也不要紧，装置会锁定在DFU模式直到更
-新成功。
+> 理论上，OTA操作只会更新SLogic固件，无法影响 **DFU** 功能。因此即使OTA失败也不要紧，装置会锁定在 **DFU** 模式，直到SLogic固件更新成功。
 
 
 ## 安全 & 注意事項
@@ -329,3 +353,8 @@ DFU工具的说明详见[更新固件]()章节。
 **A：** 这通常意味着SLogic固件损坏，可能是由于OTA失败导致。
   
   解决方法：重新OTA正确的固件。
+
+### Q：无法切换至DFU模式，提示"unknown usb device"
+**A：** 这意味着USB枚举失败，可能是由于USB线缆过长/质量不好导致。
+  
+  解决方法：尝试使用更短/质量好的USB线缆重试。
