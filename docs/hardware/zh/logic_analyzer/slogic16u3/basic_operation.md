@@ -9,8 +9,12 @@ update:
       - Release docs
 ---
 
-SLogic16 U3共有2个功能（SLogic U3 Mode/DFU Mode）。
+SLogic16 U3共有2个功能：SLogic U3 Mode/DFU Mode。
 这篇文档用来指导如何上手使用。
+
+其中SLogic U3 Mode为逻辑分析仪模式，需要使用支持USB3的线缆和主机。
+
+SLogic DFU Mode 为固件更新模式，需要使用支持USB2的线缆和主机。
 
 ## 硬件概览
 
@@ -228,6 +232,57 @@ SLogic16 U3共有2个功能（SLogic U3 Mode/DFU Mode）。
 
 最后启动 [**plusview**]() 开始采集操作。
 
+## ACT指示灯
+
+### 颜色&功能
+
+指示灯是一颗3色RGB，每一种颜色代表一种状态，不同状态组合指示当前设备状态
+
+| **颜色**   | <span style="color:blue">蓝灯</span>    | <span style="color:green">绿灯</span> | <span style="color:red">红灯</span> |
+| ---------- | -------------------------------------- | ------------------------------------- | ----------------------------------  | 
+| **功能**   | 电源                                    | USB LINK 指示                         | 运行状态指示                         | 
+
+---
+
+下表是不同颜色对应的正常运行时候的装置状
+  | 状态         | 颜色                                                                           | 备注                                                                      |
+  | ----------- | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------- | 
+  | **正常连接** | <span style="color:cyan">青色</span>                                           | <span style="color:blue">蓝</span> + <span style="color:green">绿</span> |
+  | **数据传输** | <span style="color:cyan">青色</span> + <span style="color:red">红色快闪</span> | <span style="color:blue">蓝</span> + <span style="color:green">绿</span> + <span style="color:red">红快闪</span> |
+  | **DFU模式**  | <span style="color:cyan">青色</span> + <span style="color:red">红色慢闪</span> | <span style="color:blue">蓝</span> + <span style="color:green">绿</span> + <span style="color:red">红慢闪</span> |
+
+---
+
+下表的指示灯颜色对应的装置的异常状态。除下表中已列举的状态外，其余状态（如只亮绿灯/三灯常亮）皆属于未定义的状态。
+
+如果出现未定义的状态，请尝试重新拔插USB。若无法解决则应高度怀疑硬件损坏。
+
+  | 状态            | 颜色                               | 备注                                        |
+  | -------------- | ---------------------------------- | ------------------------------------------- | 
+  | **USB连接失败** | <span style="color:blue">蓝</span> | <span style="color:blue">只亮蓝灯</span>    |
+  | **Flash加载异常** | <span style="color:red">红</span>| <span style="color:red">只亮红灯</span>    |
+
+> ⚠注意：任何时候<span style="color:green">绿灯</span>如果熄灭都意味着USB连接出现问题，请尝试重新连接以解决问题。此时<span style="color:red">红灯</span>的状态没有意义。
+
+---
+
+### 异常状态
+- **检查清单**：<span style="color:blue"><b>只亮蓝灯</b></span>  
+    - 使用的USB线缆不支持**USB3**（常见于手机充电线）
+    - PC的USB接口不支持**USB3**
+    - 连接到了Desktop PC 机箱的前面板的USB
+    - 连接到了不兼容的**USB hub**（请尽量保证SLogic直连PC USB）
+    - 连接到了供电能力不足的**USB端口**
+    - 连接线太长（请尽量使用1m以内的连接线）
+- **检查清单**：<span style="color:red"><b>只亮红灯</b></span>  
+    - 使用的USB线缆质量太差，线上压降过大
+    - PC的USB接口故障：可能由于保险丝老化导致供电能力不足
+    - SLogic硬件损坏，请保持装置断电并联络售后
+
+
+
+
+
 ## MODE按键功能
 
 > Windows环境打开设备管理器或使用 *USB treeview*，Linux/macOS环境使用 *lsusb* 命令，可以找到 "*SLogic16 U3/SLogic DFU*" 设备
@@ -242,49 +297,23 @@ SLogic16 U3共有2个功能（SLogic U3 Mode/DFU Mode）。
 
 <!-- ![slogic16_u2](./assets/slogic_u2.png) -->
 
-再次按下 **MODE** 则切换回 **SLogic16 U3**，重复按下 **MODE** 再进入**SLogic DFU**，如此往复循环。
-
-## 指示灯颜色与功能
-
-指示灯是一颗3色RGB，每一种颜色代表一种状态，不同状态组合指示当前设备状态
-
-| **颜色**   | <span style="color:blue">蓝灯</span>    | <span style="color:green">绿灯</span> | <span style="color:red">红灯</span> |
-| ---------- | -------------------------------------- | ------------------------------------- | ----------------------------------  | 
-| **功能**   | 电源                                    | USB LINK 指示                         | 运行状态指示                         | 
-
-- 下边表是不同颜色对应的正常运行时候的装置状态
-
-  | 状态         | 颜色                                 | 备注                                                                      |
-  | ----------- | ------------------------------------ | ------------------------------------------------------------------------- | 
-  | **正常连接** | <span style="color:cyan">青色</span> | <span style="color:blue">蓝</span> + <span style="color:green">绿</span> |
-  | **数据传输** | <span style="color:cyan">青色</span> + <span style="color:red">红色快闪</span> | <span style="color:blue">蓝</span> + <span style="color:green">绿</span> + <span style="color:red">红快闪</span> |
-  | **DFU模式**  | <span style="color:cyan">青色</span> + <span style="color:red">红色慢闪</span> | <span style="color:blue">蓝</span> + <span style="color:green">绿</span> + <span style="color:red">红慢闪</span> |
-
-- ⚠下边的指示灯颜色对应的装置的异常状态
-  | 状态            | 颜色                               | 备注                                        |
-  | -------------- | ---------------------------------- | ------------------------------------------- | 
-  | **USB连接失败** | <span style="color:blue">蓝</span> | <span style="color:blue">只亮蓝灯</span>     |
-
-> ⚠注意：任何时候<span style="color:green">绿灯</span>如果熄灭都意味着USB连接出现问题，请尝试重新连接以解决问题。此时<span style="color:red">红灯</span>的状态没有意义。
-
-- 装置的异常状态的检查清单
-    - 使用的USB线缆不支持**USB3**（常见于手机充电线）
-    - PC的USB接口不支持**USB3**
-    - 连接到了Desktop PC 机箱的前面板的USB
-    - 连接到了不兼容的**USB hub**（请尽量保证SLogic直连PC USB）
-    - 连接到了供电能力不足的**USB端口**
-    - 连接线太长（请尽量使用1m以内的连接线）
+再次按下 **MODE** 则切换回 **SLogic16 U3**，重复按下 **MODE** 再进入**SLogic DFU**，如此往复循环在两个模式中来回切换。
 
 
 ## 更新固件
 
-> Windows环境打开设备管理器或使用 *USB treeview*，Linux环境使用 *lsusb* 命令，可以找到 "*SLogic DFU*" 设备
 
-首先[进入DFU MODE](#mode按键功能)：上电后按下 **MODE按键**，等待<span style="color:red">红灯慢闪</span> 。
+首先，[进入DFU MODE](#mode按键功能)：上电后按下 **MODE按键**，等待<span style="color:red">红灯慢闪</span> 。
 
 确认"*SLogic DFU*" 设备出现后，使用 [**DFU工具**]() 进行更新。
 
+> Windows环境打开设备管理器或使用 *USB treeview*，Linux环境使用 *lsusb* 命令，可以找到 "*SLogic DFU*" 设备
+
 DFU工具的说明详见[更新固件]()章节。
+
+> 理论上，OTA操作只会更新SLogic固件，无法影响DFU功能。因此即使OTA失败导致SLogic也不要紧，装置会锁定在DFU模式直到更
+新成功。
+
 
 ## 安全 & 注意事項
 
@@ -295,4 +324,7 @@ DFU工具的说明详见[更新固件]()章节。
 
 ## FAQ
 
-TBD
+### Q：装置锁定在DFU模式，无法切换至SLogic模式
+**A：** 这通常意味着SLogic固件损坏，可能是由于OTA失败导致。
+  
+  解决方法：重新OTA正确的固件。
