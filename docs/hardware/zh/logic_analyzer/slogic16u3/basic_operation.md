@@ -16,9 +16,27 @@ SLogic16 U3共有2个功能（SLogic U3 Mode/DFU Mode）。
 
 ### 配件一览
 
-![unboxing_0](./assets/unboxing_0.png)
+![unboxing_0](./assets/DCIM/unboxing_0.png)
 
-- **SLoigc16 U3** **主机** x1
+- <!DOCTYPE html>
+  <html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8">
+    <title>CSS Indentation</title>
+    <style>
+      .indent {
+        margin-left: 0ch; /* wideof 0 characters */
+      }
+    </style>
+  </head>
+  <body>
+    <details class="indent">
+      <summary><font color="#4F84FF"><b>SLoigc16 U3 主机</b> x1
+  </font></summary>
+      <img src="./assets/DCIM/15k_la_photo.png">
+    </details>
+  </body>
+  </html>
 - **包装内附件:** （注：杜邦线和同轴线为二选一） 
     - <!DOCTYPE html>
       <html lang="zh-CN">
@@ -35,7 +53,7 @@ SLogic16 U3共有2个功能（SLogic U3 Mode/DFU Mode）。
         <details class="indent">
           <summary><font color="#4F84FF"><b>2x6P 公对母杜邦线</b> x2
       </font></summary>
-          <img src="./assets/Hardware_OverView.png">
+          <img src="./assets/DCIM/normal_cable.jpg">
         </details>
       </body>
       </html>
@@ -54,7 +72,7 @@ SLogic16 U3共有2个功能（SLogic U3 Mode/DFU Mode）。
         <details class="indent">
           <summary><font color="#4F84FF"><b>2x4P 同轴线模组</b> x2
       </font></summary>
-          <img src="./assets/Hardware_OverView.png">
+          <img src="./assets/DCIM/coaxial_cable.jpg">
         </details>
       </body>
       </html>
@@ -73,7 +91,7 @@ SLogic16 U3共有2个功能（SLogic U3 Mode/DFU Mode）。
         <details class="indent">
           <summary><font color="#4F84FF"><b>逻辑分析仪测试夹</b> x16
       </font></summary>
-          <img src="./assets/Hardware_OverView.png">
+          <img src="./assets/DCIM/testing_hook.jpg">
         </details>
       </body>
       </html>
@@ -92,7 +110,7 @@ SLogic16 U3共有2个功能（SLogic U3 Mode/DFU Mode）。
         <details class="indent">
           <summary><font color="#4F84FF"><b>0.5m A+C to C USB3 数据线</b> x1
       </font></summary>
-          <img src="./assets/Hardware_OverView.png">
+          <img src="./assets/DCIM/usb3_cable.jpg">
         </details>
       </body>
       </html>
@@ -109,9 +127,9 @@ SLogic16 U3共有2个功能（SLogic U3 Mode/DFU Mode）。
       </head>
       <body>
         <details class="indent">
-          <summary><font color="#4F84FF"><b>不锈钢取卡针</b> x1
+          <summary><font color="#4F84FF"><b>不锈钢卡针</b> x1
       </font></summary>
-          <img src="./assets/Hardware_OverView.png">
+          <img src="./assets/DCIM/small_pin.jpg">
         </details>
       </body>
       </html>
@@ -130,7 +148,7 @@ SLogic16 U3共有2个功能（SLogic U3 Mode/DFU Mode）。
         <details class="indent">
           <summary><font color="#4F84FF"><b>说明卡片</b> x1
       </font></summary>
-          <img src="./assets/Hardware_OverView.png">
+          <img src="./assets/DCIM/readme_card.jpg">
         </details>
       </body>
       </html>
@@ -149,7 +167,7 @@ SLogic16 U3共有2个功能（SLogic U3 Mode/DFU Mode）。
         <details class="indent">
           <summary><font color="#4F84FF"><b>拉链收纳包</b> x1
       </font></summary>
-          <img src="./assets/Hardware_OverView.png">
+          <img src="./assets/DCIM/storage_bag.jpg">
         </details>
       </body>
       </html>
@@ -172,13 +190,12 @@ SLogic16 U3共有2个功能（SLogic U3 Mode/DFU Mode）。
   <details class="indent">
     <summary><font color="#4F84FF">点击此处查看SLoigc16 U3的硬件示意图览
 </font></summary>
-    <img src="./assets/Hardware_OverView.png">
+    <img src="./assets/MISC/Hardware_OverView.png">
   </details>
 </body>
-<br>
 </html>
 
-#### 主机后端
+#### 逻辑分析仪背面
 
 **同轴线子板**/**杜邦线组** 的插入方向见上图，连接线上的三角标记 **▴** 对准外壳上的三角标记 **▾** 即可。
 
@@ -186,7 +203,7 @@ SLogic16 U3共有2个功能（SLogic U3 Mode/DFU Mode）。
 
 杜邦线每组只有两个单独的GND，在其连接线上的三角标记和外壳对准插入时，黑色的线就是GND，红色为VCC。
 
-#### 主机前端
+#### 逻辑分析仪正面
 
 **MODE** 小孔中有一个隐藏式按键，可以用取卡针捅入后按下。
 
