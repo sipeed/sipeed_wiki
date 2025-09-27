@@ -3,7 +3,7 @@
 ---
 
 ## Introduction
-SLogic16U3 is the next-generation USB3 logic analyzer. In a compact 40×40×10 mm enclosure it achieves high sampling: 800M@4CH, 400M@8CH, 200M@16CH over a 5Gbps USB3 interface. It supports software (soft) trigger and configurable voltage threshold for all channel. Starting at $69.
+The SLogic16U3 is a next‑generation USB3 logic analyzer. In a compact 40×40×10 mm housing it delivers high sample rates over a 5 Gbps USB3 interface: 800M@4CH, 400M@8CH, 200M@16CH. It supports 0–10V signal input, configurable voltage trigger thresholds from 0–6V, and software triggering — starting at only $69.
 
 ![SLogic16U3 product](../../../en/logic_analyzer/slogic16u3/assets/DCIM/SLogic16U3.png)
 

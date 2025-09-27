@@ -3,7 +3,8 @@
 ---
 
 ## 简介
-SLogic16U3 是新一代 USB3 逻辑分析仪。它在紧凑的 40×40×10 mm 超小尺寸外壳中通过 5Gbps USB3 接口实现高采样率：4 通道 800M、8 通道 400M、16 通道 200M。它支持软件（软）触发和可配置的电压阈值。且仅需399￥起！
+SLogic16U3 是新一代 USB3 逻辑分析仪。它在紧凑的 40×40×10 mm 超小尺寸外壳中通过 5Gbps USB3 接口实现高采样率： 800M@4CH, 400M@8CH, 200M@16CH.
+支持0 ~ 10V信号输入，可配置0~6V的电压触发阈值 和 软件触发，且仅需￥369起！
 
 ![SLogic16U3 产品](../../../en/logic_analyzer/slogic16u3/assets/DCIM/SLogic16U3.png)
 
@@ -23,7 +24,7 @@ SLogic16U3 是新一代 USB3 逻辑分析仪。它在紧凑的 40×40×10 mm 超
 | 外壳材质 | 塑料 | 铝合金 | 铝合金 |
 | 额外特性 | DAP-Link, CK-Link, 4-UART |  | Extend ADC -> Oscilloscope |
 | 尺寸 | 20x40x10mm | 40x40x10mm | 50x50x10mm |
-| 价格 | ￥69 | ￥399 | ￥999 |
+| 价格 | ￥69 | ￥369 | ~￥999 |
 
 ---
 
@@ -100,7 +101,7 @@ chmod +x Pulseview.appimage
 4. 点击 **OTA** 开始更新。
 5. 等待完成并按界面指引操作。
 
-> **注意：** 将很快发布该更新工具的二进制版本。
+> **注意：** 将很快发布该更新工具的绿色便携版本。
 
 ![](../../../en/logic_analyzer/slogic16u3/assets/Screenshots/Screenshot_2025-09-25_15-34-06.png)
 
