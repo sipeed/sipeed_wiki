@@ -175,6 +175,7 @@ A complete hardware set includes the **SLoigc16 U3 main unit** and **accessories
 > The appearance of accessories may vary slightly between batches. Please refer to the actual product.
 
 ### Connection Method
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -233,6 +234,27 @@ The above is the front view of the logic analyzer, from left to right:
 ### Getting Started
 
 First, connect **PC USB3** → **USB-A/C to USB-C** → **SLogic** → **Ribbon cable**/**Coaxial Cable Module**
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS Indentation</title>
+  <style>
+    .indent {
+      margin-left: 0ch; /* wideof 0 characters */
+    }
+  </style>
+</head>
+<body>
+  <details class="indent">
+    <summary><font color="#4F84FF">Click here to view the hardware connection of SLoigc16 U3
+</font></summary>
+    <img src="./assets/DCIM/SLogic16U3.jpg">
+  </details>
+  <br>
+</body>
+</html>
 
 > Currently, SLogic16 only supports **USB3** mode. The included **USB-A/C to USB-C** cable is compatible.
 

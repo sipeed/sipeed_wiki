@@ -233,6 +233,28 @@ update:
 
 首先，连接 **PC USB3** → **USB-A/C to USB-C** →  **SLogic** → **杜邦线**/**同轴线子板**
 
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS Indentation</title>
+  <style>
+    .indent {
+      margin-left: 0ch; /* wideof 0 characters */
+    }
+  </style>
+</head>
+<body>
+  <details class="indent">
+    <summary><font color="#4F84FF">点击此处查看SLoigc16 U3的硬件连接图
+</font></summary>
+    <img src="./assets/DCIM/SLogic16U3.jpg">
+  </details>
+  <br>
+</body>
+</html>
+
 > 目前SLogic16仅有 **USB3** 模式支持，使用附赠的 **USB-A/C to USB-C** 线缆即可兼容。
 
 将目标设备的待测信号点通过**杜邦线**/**同轴线**连接至 **SLogic** 任意空闲CH数字端口，并确保待测设备的GND与SLogic的GND相连接。
