@@ -480,6 +480,15 @@ items:
 
     -   label: SLogic16U3
         items:
+        -   label: 简介
+            file: logic_analyzer/slogic16u3/Introduction.md
+        -   label: 硬件
+            file: logic_analyzer/slogic16u3/Hardware_Specification.md
+        -   label: 软件使用指南
+            file: logic_analyzer/slogic16u3/Software_User_Guide.md
+        -   label: FAQ
+            file: logic_analyzer/slogic16u3/FAQ.md
+
         -   label: 使用指南
             file: logic_analyzer/slogic16u3/User_Guide.md
 -   label: KVM
