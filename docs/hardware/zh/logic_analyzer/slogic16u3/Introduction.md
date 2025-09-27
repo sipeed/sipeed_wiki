@@ -87,6 +87,25 @@ chmod +x Pulseview.appimage
 
 ---
 
+## 固件更新
+
+固件更新通过 Python / PyQt GUI 工具提供。
+
+- [固件更新工具仓库](https://github.com/sipeed/slogic16u3-tools)
+
+**更新步骤：**
+1. 运行 GUI 工具。
+2. 按下设备上的 **mode** 按钮。GUI 应显示 "SLogic16U3 OTA"。
+3. 在 GUI 中选择固件文件。
+4. 点击 **OTA** 开始更新。
+5. 等待完成并按界面指引操作。
+
+> **注意：** 将很快发布该更新工具的二进制版本。
+
+![](../../../en/logic_analyzer/slogic16u3/assets/Screenshots/Screenshot_2025-09-25_15-34-06.png)
+
+--- 
+
 ## 相关链接
 - 购买（淘宝）：http://addme
 - 购买（AliExpress）：http://addme

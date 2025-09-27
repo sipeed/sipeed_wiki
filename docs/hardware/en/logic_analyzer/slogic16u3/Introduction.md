@@ -84,6 +84,24 @@ chmod +x Pulseview.appimage
 
 ![](../../../en/logic_analyzer/slogic16u3/assets/Screenshots/Screenshot_2025-09-18_11-11-57.png)
 
+---
+
+## Firmware Update
+
+Firmware updates are provided via a Python/PyQt GUI tool.
+
+- [Firmware update tool repository](https://github.com/sipeed/slogic16u3-tools)
+
+**Update steps:**
+1. Run the GUI tool:
+2. Press the **mode** button on the device. The GUI should display "SLogic16U3 OTA".
+3. Select the firmware file in the GUI.
+4. Click **OTA** to start the update.
+5. Wait for completion and follow on-screen instructions.
+
+> **Note:** A binary version of the update tool will be released soon.
+
+![](../../../en/logic_analyzer/slogic16u3/assets/Screenshots/Screenshot_2025-09-25_15-34-06.png)
 
 ---
 
