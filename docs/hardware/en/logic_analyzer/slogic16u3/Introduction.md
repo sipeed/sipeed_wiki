@@ -13,7 +13,6 @@ SLogic16U3 is the next-generation USB3 logic analyzer. In a compact 40×40×10 m
 | Attribute | SLogic Combo8 | SLogic16U3 | SLogic32U3 |
 | - | - | - | - |
 | Model | SLogic Combo8 | SLogic16U3 | SLogic32U3 |
-| Price | $15 | $69 | $149 |
 | USB Type | USB2.0 | USB3.0 | USB3.2 Gen2 |
 | Max Sample Rate | 80M | 800M | 1500M |
 | Max Channels | 8 | 16 | 32 |
@@ -24,6 +23,7 @@ SLogic16U3 is the next-generation USB3 logic analyzer. In a compact 40×40×10 m
 | Case | Plastic | Aluminum | Aluminum |
 | Extra Feature | DAP-Link, CK-Link, 4-UART |  | Extend ADC -> Oscilloscope |
 | Size | 20x40x10mm | 40x40x10mm | 50x50x10mm |
+| Price | $15 | $69 | $149 |
 
 ---
 
@@ -35,6 +35,8 @@ SLogic16U3 is the next-generation USB3 logic analyzer. In a compact 40×40×10 m
   <img src="../../../en/logic_analyzer/slogic16u3/assets/DCIM/DSC07963.png" style="width: 100%;">
   <img src="../../../en/logic_analyzer/slogic16u3/assets/DCIM/DSC07962.png" style="width: calc(50% - 5px);">
   <img src="../../../en/logic_analyzer/slogic16u3/assets/DCIM/DSC07961.png" style="width: calc(50% - 5px);">
+  <img src="../../../zh/logic_analyzer/slogic16u3/assets/MISC/la_frontview.jpg" style="width: calc(50% - 5px);">
+  <img src="../../../zh/logic_analyzer/slogic16u3/assets/MISC/la_rearview.jpg" style="width: calc(50% - 5px);">
 </div>
 
 ---
@@ -43,12 +45,17 @@ SLogic16U3 is the next-generation USB3 logic analyzer. In a compact 40×40×10 m
 
 ### Supported OS
 ![](../../../en/logic_analyzer/slogic16u3/assets/Screenshots/supported-platforms.png)
-- Windows 11 (x86_64)
+- Windows 10/11 (x86_64)
+  - Due to the conservative Windows driver, it cannot reach full speed; the native .exe version must run throttled (maximum supported 200M@8CH).
+  - Additionally, it can run at full speed in a Linux virtual machine.
+  - ![](../../../en/logic_analyzer/slogic16u3/assets/Screenshots/Screenshot_2025-09-27_11-05-12.png)
 - Linux (x86_64, aarch64)
 - macOS (Apple Silicon M4)
+- Raspberry Pi 5
+  - ![](../../../en/logic_analyzer/slogic16u3/assets/Screenshots/Screenshot_2025-09-27_11-55-18.png)
 
 ### Downloads
-- Binary (prebuilt) downloads: https://dl.sipeed.com/shareURL/SLogic
+- Binary downloads: https://dl.sipeed.com/shareURL/SLogic
 - Source code (slogic-dev branch): https://github.com/sipeed/libsigrok/tree/slogic-dev
 
 #### Windows

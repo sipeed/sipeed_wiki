@@ -3,7 +3,7 @@
 ---
 
 ## 简介
-SLogic16U3 是下一代 USB3 逻辑分析仪。它在紧凑的 40×40×10 mm 外壳中通过 5Gbps USB3 接口实现高采样率：4 通道 800M、8 通道 400M、16 通道 200M。它支持软件（软）触发和可配置的电压阈值。起价 ￥399。
+SLogic16U3 是新一代 USB3 逻辑分析仪。它在紧凑的 40×40×10 mm 超小尺寸外壳中通过 5Gbps USB3 接口实现高采样率：4 通道 800M、8 通道 400M、16 通道 200M。它支持软件（软）触发和可配置的电压阈值。且仅需399￥起！
 
 ![SLogic16U3 产品](../../../en/logic_analyzer/slogic16u3/assets/DCIM/SLogic16U3.png)
 
@@ -13,7 +13,6 @@ SLogic16U3 是下一代 USB3 逻辑分析仪。它在紧凑的 40×40×10 mm 外
 | 属性 | SLogic Combo8 | SLogic16U3 | SLogic32U3 |
 | - | - | - | - |
 | 型号 | SLogic Combo8 | SLogic16U3 | SLogic32U3 |
-| 价格 | ￥69 | ￥399 | ￥999 |
 | USB 类型 | USB2.0 | USB3.0 | USB3.2 Gen2 |
 | 最大采样率 | 80M | 800M | 1500M |
 | 最大通道数 | 8 | 16 | 32 |
@@ -24,6 +23,7 @@ SLogic16U3 是下一代 USB3 逻辑分析仪。它在紧凑的 40×40×10 mm 外
 | 外壳材质 | 塑料 | 铝合金 | 铝合金 |
 | 额外特性 | DAP-Link, CK-Link, 4-UART |  | Extend ADC -> Oscilloscope |
 | 尺寸 | 20x40x10mm | 40x40x10mm | 50x50x10mm |
+| 价格 | ￥69 | ￥399 | ￥999 |
 
 ---
 
@@ -31,11 +31,13 @@ SLogic16U3 是下一代 USB3 逻辑分析仪。它在紧凑的 40×40×10 mm 外
 
 - 尺寸：40x40x10mm
 - 视图：顶/前/后
-//TODO
+
 <div style="display: flex; flex-wrap: wrap; gap: 10px; width: 100%;">
   <img src="../../../en/logic_analyzer/slogic16u3/assets/DCIM/DSC07963.png" style="width: 100%;">
   <img src="../../../en/logic_analyzer/slogic16u3/assets/DCIM/DSC07962.png" style="width: calc(50% - 5px);">
   <img src="../../../en/logic_analyzer/slogic16u3/assets/DCIM/DSC07961.png" style="width: calc(50% - 5px);">
+  <img src="../../../zh/logic_analyzer/slogic16u3/assets/MISC/la_frontview.jpg" style="width: calc(50% - 5px);">
+  <img src="../../../zh/logic_analyzer/slogic16u3/assets/MISC/la_rearview.jpg" style="width: calc(50% - 5px);">
 </div>
 
 ---
@@ -44,13 +46,17 @@ SLogic16U3 是下一代 USB3 逻辑分析仪。它在紧凑的 40×40×10 mm 外
 
 ### 支持的操作系统
 ![](../../../en/logic_analyzer/slogic16u3/assets/Screenshots/supported-platforms.png)
-- Windows 11 (x86_64)
+- Windows 10/11 (x86_64)
+  - 受限于 Windows 驱动不够激进，无法满速，原生 exe 版本只能降速运行（最大支持 200M@8CH）
+  - 另 Linux 虚拟机可满速运行
+  - ![](../../../en/logic_analyzer/slogic16u3/assets/Screenshots/Screenshot_2025-09-27_11-05-12.png)
 - Linux (x86_64, aarch64)
 - macOS (Apple Silicon M4)
-//TODO
+- Raspberry Pi 5
+  - ![](../../../en/logic_analyzer/slogic16u3/assets/Screenshots/Screenshot_2025-09-27_11-55-18.png)
 
 ### 下载
-- 二进制（预构建）下载: https://dl.sipeed.com/shareURL/SLogic
+- 软件下载: https://dl.sipeed.com/shareURL/SLogic
 - 源代码（slogic-dev 分支）: https://github.com/sipeed/libsigrok/tree/slogic-dev
 
 #### Windows

@@ -23,7 +23,7 @@ Choose one of the two methods below:
 ```bash
 sudo ./Pulseview.appimage
 ```
-- Set up a udev rule so normal users can access the device (recommended). See [How do I set up udev rules for Linux?](#How-do-I-set-up-udev-rules-for-Linux) below for the udev rule and installation steps.
+- Set up a udev rule so normal users can access the device (recommended). See [How do I set up udev rules for Linux?](#How-do-I-set-up-udev-rules-for-Linux%3F) below for the udev rule and installation steps.
 
 ## How do I set up udev rules for Linux?
 

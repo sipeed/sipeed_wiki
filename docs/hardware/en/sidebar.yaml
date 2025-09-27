@@ -490,9 +490,6 @@ items:
             file: logic_analyzer/slogic16u3/Software_User_Guide.md
         -   label: FAQ
             file: logic_analyzer/slogic16u3/FAQ.md
-
-        -   label: User Guide
-            file: logic_analyzer/slogic16u3/User_Guide.md
 -   label: KVM
     items:
     -   label: NanoKVM Cube
