@@ -333,13 +333,13 @@ Pressing **MODE** again switches back to **SLogic16 U3**. Repeatedly pressing **
 
 First, [enter DFU MODE](#MODE-Button): after powering on, press the **MODE button** and wait until the <span style="color:red">red light blinks slowly</span>.
 
-Confirm that the "*SLogic DFU*" device appears, then use the [**DFU Tool**](./) to perform the update.
+Confirm that the "*SLogic DFU*" device appears, then use the [**DFU Tool**](./Introduction.md#Firmware-Update) to perform the update.
 
 > In Windows, open Device Manager or use *USB treeview*.  
 > In Linux/macOS, use *lsusb*.  
 > You should see "*SLogic DFU*" listed.
 
-Detailed instructions for the DFU tool are provided in the [DFU Tool Usage](./) section.
+Detailed instructions for the DFU tool are provided in the **[DFU Tool**](./Introduction.md#Firmware-Update) section.
 
 > In principle, OTA operations only update the SLogic firmware and do not affect the **DFU** function.  
 > Even if OTA fails, the device will remain locked in **DFU** mode until the SLogic firmware is successfully updated.

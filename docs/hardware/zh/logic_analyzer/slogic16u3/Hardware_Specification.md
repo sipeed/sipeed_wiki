@@ -331,11 +331,11 @@ update:
 
 首先，[进入DFU MODE](#mode按键)：上电后按下 **MODE按键**，等待<span style="color:red">红灯慢闪</span> 。
 
-确认"*SLogic DFU*" 设备出现后，使用 [**DFU工具**](./) 进行更新。
+确认"*SLogic DFU*" 设备出现后，使用 [**DFU工具**](./Introduction.md#固件更新) 进行更新。
 
 > Windows环境打开设备管理器或使用 *USB treeview*，Linux/macOS环境使用 *lsusb* 命令，可以找到 "*SLogic DFU*" 装置
 
-DFU工具的说明详见[DFU工具的使用]()章节。
+DFU工具的说明详见[固件更新](./Introduction.md#固件更新)章节。
 
 > 理论上，OTA操作只会更新SLogic固件，无法影响 **DFU** 功能。因此即使OTA失败也不要紧，装置会锁定在 **DFU** 模式，直到SLogic固件更新成功。
 
