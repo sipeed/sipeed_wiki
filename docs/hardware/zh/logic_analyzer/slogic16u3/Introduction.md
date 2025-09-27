@@ -48,12 +48,12 @@ SLogic16U3 是新一代 USB3 逻辑分析仪。它在紧凑的 40×40×10 mm 超
 ![](../../../en/logic_analyzer/slogic16u3/assets/Screenshots/supported-platforms.png)
 - Windows 10/11 (x86_64)
   - 受限于 Windows 驱动不够激进，无法满速，原生 exe 版本只能降速运行（最大支持 200M@8CH）
-  - 另 Linux 虚拟机可满速运行
-  - ![](../../../en/logic_analyzer/slogic16u3/assets/Screenshots/Screenshot_2025-09-27_11-05-12.png)
-- Linux (x86_64, aarch64)
+  <details class="indent">
+    <summary><b>另 Linux 虚拟机可满速运行</b></summary>
+    <img src="../../../en/logic_analyzer/slogic16u3/assets/Screenshots/Screenshot_2025-09-27_11-05-12.png">
+  </details>
+- Linux (x86_64)
 - macOS (Apple Silicon M4)
-- Raspberry Pi 5
-  - ![](../../../en/logic_analyzer/slogic16u3/assets/Screenshots/Screenshot_2025-09-27_11-55-18.png)
 
 ### 下载
 - 软件下载: https://dl.sipeed.com/shareURL/SLogic
