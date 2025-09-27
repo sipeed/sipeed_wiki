@@ -431,8 +431,8 @@ msgstr ""
 msgid "支持 SFP+ 数据传输"
 msgstr ""
 
-#: tang.html:143
-msgid "内含 8.0G Transceivers"
+#: tang.html:143 tang.html:144 tang.html:147
+msgid "内含 8.8G Transceivers"
 msgstr ""
 
 #: tang.html:143 tang.html:144
@@ -440,11 +440,7 @@ msgid "支持 USB3 数据传输"
 msgstr ""
 
 #: tang.html:144 tang.html:147
-msgid "内含 6.6G Transceivers"
-msgstr ""
-
-#: tang.html:144 tang.html:147
-msgid "内含 2.5G MIPI C/DPHY RX/TX"
+msgid "内含 2.5G MIPI D-PHY RX/TX"
 msgstr ""
 
 #: tang.html:144 tang.html:147
@@ -484,7 +480,7 @@ msgid "GOAI~"
 msgstr ""
 
 #: tang.html:164
-msgid "预售中，敬请期待。。。"
+msgid "热卖中，点击查看详情"
 msgstr ""
 
 #: tang.html:168
@@ -888,5 +884,11 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "RISC-V 1GHz + 1Tops NPU, 4M高清摄像头，多种尺寸高清电容触摸屏，内置常见 CNN 模型，上手即用"
+#~ msgstr ""
+
+#~ msgid "内含 8.0G Transceivers"
+#~ msgstr ""
+
+#~ msgid "预售中，敬请期待。。。"
 #~ msgstr ""
 

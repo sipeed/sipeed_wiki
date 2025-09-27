@@ -482,8 +482,14 @@ items:
 
     -   label: SLogic16U3
         items:
-        -   label: User Guide
-            file: logic_analyzer/slogic16u3/User_Guide.md
+        -   label: Indroduction
+            file: logic_analyzer/slogic16u3/Introduction.md
+        -   label: Hardware Specification
+            file: logic_analyzer/slogic16u3/Hardware_Specification.md
+        -   label: Software User Guide
+            file: logic_analyzer/slogic16u3/Software_User_Guide.md
+        -   label: FAQ
+            file: logic_analyzer/slogic16u3/FAQ.md
 -   label: KVM
     items:
     -   label: NanoKVM Cube
