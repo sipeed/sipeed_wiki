@@ -435,9 +435,8 @@ msgid "内含"
 msgstr "Inchip"
 
 #: tang.html:117
-#, fuzzy
 msgid "内嵌处理器"
-msgstr "CPU"
+msgstr "SoC"
 
 #: tang.html:141
 msgid "其他特点"
@@ -455,21 +454,17 @@ msgstr "Support PCIe 3.0 Interface"
 msgid "支持 SFP+ 数据传输"
 msgstr "Support SFP+ (10G) Transmission"
 
-#: tang.html:143
-msgid "内含 8.0G Transceivers"
-msgstr "Inchip 6.6G Transceivers"
+#: tang.html:143 tang.html:144 tang.html:147
+msgid "内含 8.8G Transceivers"
+msgstr "Inchip 8.8G Transceivers"
 
 #: tang.html:143 tang.html:144
 msgid "支持 USB3 数据传输"
 msgstr "Support USB3 SS Transmission"
 
 #: tang.html:144 tang.html:147
-msgid "内含 6.6G Transceivers"
-msgstr "Inchip 6.6G Transceivers"
-
-#: tang.html:144 tang.html:147
-msgid "内含 2.5G MIPI C/DPHY RX/TX"
-msgstr "2.5G MIPI C/DPHY RX/TX inside"
+msgid "内含 2.5G MIPI D-PHY RX/TX"
+msgstr "2.5G MIPI D-PHY RX/TX inside"
 
 #: tang.html:144 tang.html:147
 msgid "支持 PCIe 2.0 通信"
@@ -477,7 +472,7 @@ msgstr "Support PCIe 2.0 Interface"
 
 #: tang.html:145
 msgid "内含 2.5G MIPI DPHY RX/TX"
-msgstr "2.5G MIPI DPHY RX/TX inside"
+msgstr "2.5G MIPI D-PHY RX/TX inside"
 
 #: tang.html:145
 msgid "支持 PMOD, 64MByte SDRAM模块"
@@ -508,8 +503,8 @@ msgid "GOAI~"
 msgstr ""
 
 #: tang.html:164
-msgid "预售中，敬请期待。。。"
-msgstr "Pre-saling..."
+msgid "热卖中，点击查看详情"
+msgstr "Hot sale, click to see details"
 
 #: tang.html:168
 msgid "/hardware/zh/tang/tang-console/mega-console.html"
@@ -614,7 +609,6 @@ msgid "https://item.taobao.com/item.htm?id=661994055100"
 msgstr "https://www.aliexpress.com/item/1005003152104886.html"
 
 #: tang.html:308
-#, fuzzy
 msgid "开发中，敬请期待。。。"
 msgstr "Pre-saling..."
 
@@ -893,4 +887,7 @@ msgstr "/hardware/en/tang/tang-primer-15k/primer-15k.html"
 
 #~ msgid "RISC-V 1GHz + 1Tops NPU, 4M高清摄像头，多种尺寸高清电容触摸屏，内置常见 CNN 模型，上手即用"
 #~ msgstr ""
+
+#~ msgid "预售中，敬请期待。。。"
+#~ msgstr "Pre-saling..."
 

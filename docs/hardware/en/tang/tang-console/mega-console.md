@@ -12,6 +12,12 @@ update:
     author: Serika
     content:
       - Add Retro Console
+  - date: 2025-09-25
+    version: v0.3
+    author: Serika
+    content:
+      - Remove unused lic ip address
+      - Add describe of educational GOWIN IDE 
 ---
 
 ## Overview
@@ -104,17 +110,21 @@ Please refer to the link below:
 
 ## Getting Started
 
-Note that **`Tang Mega 60k`** & **`Tang Mega 138k`** is currently not supported by the education version, and you need to download V1.9.11 or a newer version of the commercial IDE for use.  
-Lic can be applied on the Gowin official website, or you can use the online Lic service provided by Sipeed. In the IDE, select Float Lic and fill in the following information:
+Note that 60K is currently supported by the educational version. You need to download the educational IDE version V1.9.11.03 or later. The commercial 
+IDE requires V1.9.10.03 or later.
+To download the bitstream to flash memory, we recommend using **exFlash Erase, Program through GAO-Bridge 5A** mode (V1.9.10.03 or later) or **exFlash 
+Erase, Program through GAO-Bridge Arora V** (V1.9.12 or later).
+We recommend using the standalone **1.9.12 SP1** Programmer (also known as Yunyuan Programmer), which can be found on the **Yunyuan Software Commercial 
+Version** page. This standalone programmer offers better compatibility.
+If you need to use the commercial IDE, you can apply for a license on the Gaoyun official website or use the online license service provided by Sipeed. 
+Select Floating License in the IDE and fill in the following information:
 
 ~~~
----Server 01---
-ip: 45.33.107.56
-port: 10559
 
----Server 02---
+---Server 01---
 ip: 106.55.34.119
 port: 10559
+
 ~~~
 
 if the ip not work, try use "gowinlic.sipeed.com" domain's IP.
@@ -243,11 +253,7 @@ Tang Console can meet different needs of customers in various scenarios. For tec
   <summary><font color="#4F84FF">Click for details</font></summary>
   <br>
 
-1. The educational version does not support 60K and 138K, please switch to the commercial version. The following image shows the educational version (which does not support 60K);
-
-  <img src="../assets/questions/no_model_in_IDE.png" width="35%">
-
-2. IDE version is too low to use, update the IDE version ≥ **1.9.9**.
+1. The GOWIN IDE version is too old. You must update to the commercial version IDE ≥ 1.9.10.03, or the educational version IDE ≥ 1.9.11.03.
 
 </details>
 

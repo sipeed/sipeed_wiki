@@ -67,11 +67,14 @@ CRC check: Success
 
 其中-b表示目标板型，可以使用以下取值：
 
-| Board name    | FPGA            | Memory | Flash          |
-| ------------- | --------------- | ------ | -------------- |
-| tangnano      | GW1N-1 QN48     | OK     | Internal Flash |
-| tangnano1k    | GW1NZ-1 QN48    | OK     | Internal Flash |
-| tangnano4k    | GW1NSR-4C QN48  | OK     | Internal Flash |
-| tangnano9k    | GW1NR-9C QN88P  | OK     | Internal Flash |
-| tangnano20k   | GW2AR-18C QN88  | OK     | External Flash |
-| tangprimer20k | GW2A-18C BGA256 | OK     | External Flash |
+| Board name    | FPGA                | Memory | Flash          |
+| ------------- | ------------------- | ------ | -------------- |
+| tangnano      | GW1N-1 QN48         | OK     | Internal Flash |
+| tangnano1k    | GW1NZ-1 QN48        | OK     | Internal Flash |
+| tangnano4k    | GW1NSR-4C QN48      | OK     | Internal Flash |
+| tangnano9k    | GW1NR-9C QN88P      | OK     | Internal Flash |
+| tangnano20k   | GW2AR-18C QN88      | OK     | External Flash |
+| tangprimer20k | GW2A-18C BGA256     | OK     | External Flash |
+| tangprimer25k | GW5A-25A BGA121     | OK     | External Flash |
+| tangmega60k   | GW5AT-60B BGA484    | OK     | External Flash |
+| tangmega138k  | GW5AT-138B/C BGA484 | OK     | External Flash |
