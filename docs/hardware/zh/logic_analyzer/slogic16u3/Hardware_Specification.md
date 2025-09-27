@@ -224,9 +224,9 @@ update:
 
 **USB-C** 接口标准是3.2 Gen1 (5Gbps)，使用逻辑分析仪功能需要使用有对应能力（USB3.0）的线缆。
 
-**MODE** 小孔中有一个隐藏式按键，可以用SIM卡针捅入后按下，其功能详见[MODE按键](#mode按键)章节描述。
+**MODE** 小孔中有一个隐藏式按键，可以用SIM卡针捅入后按下，其功能详见[MODE按键](#MODE按键)章节描述。
 
-**ACT** 是 **状态指示灯**，具体状态见下方[ACT指示灯](#act指示灯)章节描述。
+**ACT** 是 **状态指示灯**，具体状态见下方[ACT指示灯](#ACT指示灯)章节描述。
 
 
 ### 开始使用
@@ -265,9 +265,9 @@ update:
 
 > 为了提升采样稳定性，SLogic 的 GND 线应尽量靠近待测点，即便仅缩短 **1 mm** 也可能带来改善。在使用同轴线采样时，建议您在连接每个采样信号 **CH** 的同时，也连接对应的 **GND**。
 
-最后启动 [**plusview**](./User_Guide.md#软件使用) 开始采集操作。
+最后启动 [**plusview**](./Software_User_Guide) 开始采集操作。
 
-关于软件的安装和相关操作，可以参考[这里](./User_Guide.md#软件)。
+关于软件的安装和相关操作，可以参考[这里](./Introduction#软件安装)。
 
 ## ACT指示灯
 
@@ -332,7 +332,7 @@ update:
 
 ![slogic16_u3_rear](./assets/MISC/la_frontview_mode.jpg)
 
-装置上电后默认功能是 **逻辑分析仪**，正常情况下[ACT指示灯](#act指示灯)显示青色。
+装置上电后默认功能是 **逻辑分析仪**，正常情况下[ACT指示灯](#ACT指示灯)显示青色。
 同时出现一个新的 **USB3** 装置：**SLogic16 U3**（逻辑分析仪）
 
 <!-- ![slogic16_u3](./assets/slogic_u3.png) -->
@@ -351,15 +351,29 @@ update:
 ## 更新固件
 
 
-首先，[进入DFU MODE](#mode按键)：上电后按下 **MODE按键**，等待<span style="color:red">红灯慢闪</span> 。
+首先，[进入DFU MODE](#MODE按键)：上电后按下 **MODE按键**，等待<span style="color:red">红灯慢闪</span> 。
 
-确认"*SLogic DFU*" 设备出现后，使用 [**DFU工具**](./Introduction.md#固件更新) 进行更新。
+确认"*SLogic DFU*" 设备出现后，使用 **DFU工具** 进行更新。
 
 > Windows环境打开设备管理器或使用 *USB treeview*，Linux/macOS环境使用 *lsusb* 命令，可以找到 "*SLogic DFU*" 装置
 
-DFU工具的说明详见[固件更新](./Introduction.md#固件更新)章节。
 
 > 理论上，OTA操作只会更新SLogic固件，无法影响 **DFU** 功能。因此即使OTA失败也不要紧，装置会锁定在 **DFU** 模式，直到SLogic固件更新成功。
+
+固件更新通过 Python / PyQt GUI 工具提供。
+
+- [固件更新工具仓库](https://github.com/sipeed/slogic16u3-tools)
+
+### **更新步骤：**
+1. 运行 GUI 工具。
+2. 按下设备上的 **mode** 按钮。GUI 应显示 "SLogic16U3 OTA"。
+3. 在 GUI 中选择固件文件。
+4. 点击 **OTA** 开始更新。
+5. 等待完成并按界面指引操作。
+
+> **注意：** 将很快发布该更新工具的绿色便携版本。
+
+![](../../../en/logic_analyzer/slogic16u3/assets/Screenshots/Screenshot_2025-09-25_15-34-06.png)
 
 
 ## 安全 & 注意事項

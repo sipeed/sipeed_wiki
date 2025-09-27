@@ -54,3 +54,13 @@ You can now run Pulseview as a normal user.
 The maximum sample rate depends on the number of active channels and USB bandwidth.  
 Slogic16U3's USB 3.0 provides up to ~400MB/s.  
 To use higher rates (400M/800M), disable unused channels.
+
+
+## The device is locked in DFU mode and cannot switch back to SLogic mode.  
+This usually means the SLogic firmware is corrupted, often due to a failed OTA update.  
+**Solution:** Re-flash the correct firmware via OTA.
+
+
+## Cannot switch to DFU mode, error shows "unknown USB device".  
+This indicates USB enumeration failure, often caused by poor-quality or overly long USB cables.  
+**Solution:** Try again with a shorter, higher-quality USB cable.

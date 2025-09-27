@@ -266,9 +266,9 @@ You may optionally use **logic analyzer test clips** to connect to the signal po
 
 > To improve sampling stability, the GND wire of SLogic should be as close as possible to the test point. Even shortening by **1 mm** may help. When using coaxial cables, it is recommended to connect the corresponding **GND** along with each sampled signal **CH**.
 
-Finally, launch [**plusview**](./User_Guide.md#software-usage) to start acquisition.
+Finally, launch [**plusview**](./Software_User_Guide) to start acquisition.
 
-For software installation and related operations, refer to [here](./User_Guide.md#software).
+For software installation and related operations, refer to [here](./Introduction#Software-installation).
 
 ---
 
@@ -355,16 +355,32 @@ Pressing **MODE** again switches back to **SLogic16 U3**. Repeatedly pressing **
 
 First, [enter DFU MODE](#MODE-Button): after powering on, press the **MODE button** and wait until the <span style="color:red">red light blinks slowly</span>.
 
-Confirm that the "*SLogic DFU*" device appears, then use the [**DFU Tool**](./Introduction.md#Firmware-Update) to perform the update.
+Confirm that the "*SLogic DFU*" device appears, then use the **DFU Tool** to perform the update.
 
 > In Windows, open Device Manager or use *USB treeview*.  
 > In Linux/macOS, use *lsusb*.  
 > You should see "*SLogic DFU*" listed.
 
-Detailed instructions for the DFU tool are provided in the **[DFU Tool**](./Introduction.md#Firmware-Update) section.
+Detailed instructions for the DFU tool are provided below.
 
 > In principle, OTA operations only update the SLogic firmware and do not affect the **DFU** function.  
 > Even if OTA fails, the device will remain locked in **DFU** mode until the SLogic firmware is successfully updated.
+
+Firmware updates are provided via a Python/PyQt GUI tool.
+
+- [Firmware update tool repository](https://github.com/sipeed/slogic16u3-tools)
+
+### **Update steps:**
+1. Run the GUI tool:
+2. Press the **mode** button on the device. The GUI should display "SLogic16U3 OTA".
+3. Select the firmware file in the GUI.
+4. Click **OTA** to start the update.
+5. Wait for completion and follow on-screen instructions.
+
+> **Note:** A binary version of the update tool will be released soon.
+
+![](../../../en/logic_analyzer/slogic16u3/assets/Screenshots/Screenshot_2025-09-25_15-34-06.png)
+
 
 ---
 
@@ -377,19 +393,3 @@ Detailed instructions for the DFU tool are provided in the **[DFU Tool**](./Intr
 - When **SLogic** is used with a computer powered by mains electricity, its ground is connected to the computer’s ground.  
   To protect both the device and the host, connect probe grounds only to equipotential ground points.  
   **Never** connect to hot ground or mismatched potential points.
-
----
-
-## FAQ
-
-### Q: The device is locked in DFU mode and cannot switch back to SLogic mode.  
-**A:** This usually means the SLogic firmware is corrupted, often due to a failed OTA update.  
-**Solution:** Re-flash the correct firmware via OTA.
-
----
-
-### Q: Cannot switch to DFU mode, error shows "unknown USB device".  
-**A:** This indicates USB enumeration failure, often caused by poor-quality or overly long USB cables.  
-**Solution:** Try again with a shorter, higher-quality USB cable.
-
----
