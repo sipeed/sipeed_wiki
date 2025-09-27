@@ -30,13 +30,14 @@ The SLogic16U3 is a next‑generation USB3 logic analyzer. In a compact 40×40×
 ## Product Images
 
 - size: 40x40x10mm
-- view: top/front/back
+- view: top/front/rear
 <div style="display: flex; flex-wrap: wrap; gap: 10px; width: 100%;">
-  <img src="../../../en/logic_analyzer/slogic16u3/assets/DCIM/DSC07963.png" style="width: 100%;">
-  <img src="../../../en/logic_analyzer/slogic16u3/assets/DCIM/DSC07962.png" style="width: calc(50% - 5px);">
-  <img src="../../../en/logic_analyzer/slogic16u3/assets/DCIM/DSC07961.png" style="width: calc(50% - 5px);">
-  <img src="../../../zh/logic_analyzer/slogic16u3/assets/MISC/la_frontview.jpg" style="width: calc(50% - 5px);">
-  <img src="../../../zh/logic_analyzer/slogic16u3/assets/MISC/la_rearview.jpg" style="width: calc(50% - 5px);">
+  <img src="../../../en/logic_analyzer/slogic16u3/assets/DCIM/DSC07962.png" style="width: 32%;">
+  <img src="../../../en/logic_analyzer/slogic16u3/assets/DCIM/DSC07963.png" style="width: 32%;">
+  <img src="../../../en/logic_analyzer/slogic16u3/assets/DCIM/DSC07961.png" style="width: 32%;">
+  <img src="../../../en/logic_analyzer/slogic16u3/assets/DCIM/20250927-155815.png" style="width: 32%;">
+  <img src="../../../en/logic_analyzer/slogic16u3/assets/DCIM/20250927-155818.png" style="width: 32%;">
+  <img src="../../../en/logic_analyzer/slogic16u3/assets/DCIM/20250927-155808.png" style="width: 32%;">
 </div>
 
 ---
