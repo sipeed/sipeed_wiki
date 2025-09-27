@@ -48,7 +48,8 @@ SLogic16U3 是新一代 USB3 逻辑分析仪。它在紧凑的 40×40×10 mm 超
 ### 支持的操作系统
 ![](../../../en/logic_analyzer/slogic16u3/assets/Screenshots/supported-platforms.png)
 - Windows 10/11 (x86_64)
-  - 受限于 Windows 驱动不够激进，无法满速，原生 exe 版本只能降速运行（最大支持 200M@8CH）
+  - 原生exe程序受限于windows USB驱动问题，目前仅能达到390+MB/s, 无法跑满400MB/s的目标带宽，只能降速到400M@4CH,200M@8CH,100M@16CH的指标
+  - 如果你使用windows电脑，且想跑满400MB/s的带宽，可安装linux虚拟机实现满速采集
   <details class="indent">
     <summary><b>另 Linux 虚拟机可满速运行</b></summary>
     <img src="../../../en/logic_analyzer/slogic16u3/assets/Screenshots/Screenshot_2025-09-27_11-05-12.png">

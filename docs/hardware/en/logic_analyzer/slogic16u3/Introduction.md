@@ -46,9 +46,12 @@ The SLogic16U3 is a next‑generation USB3 logic analyzer. In a compact 40×40×
 ### Supported OS
 ![](../../../en/logic_analyzer/slogic16u3/assets/Screenshots/supported-platforms.png)
 - Windows 10/11 (x86_64)
-  - Due to the conservative Windows driver, it cannot reach full speed; the native .exe version must run throttled (maximum supported 200M@8CH).
-  - Additionally, it can run at full speed in a Linux virtual machine.
-  - ![](../../../en/logic_analyzer/slogic16u3/assets/Screenshots/Screenshot_2025-09-27_11-05-12.png)
+  - The native .exe program is limited by Windows USB driver issues and currently only reaches just over 390 MB/s, so it cannot achieve the target 400 MB/s bandwidth and must be throttled to 400M@4CH, 200M@8CH, 100M@16CH.
+  - If you’re using a Windows PC and want to achieve the full 400 MB/s bandwidth, you can install a Linux virtual machine to perform full‑speed captures.
+  <details class="indent">
+    <summary><b>另 Linux 虚拟机可满速运行</b></summary>
+    <img src="../../../en/logic_analyzer/slogic16u3/assets/Screenshots/Screenshot_2025-09-27_11-05-12.png">
+  </details>
 - Linux (x86_64)
 - macOS (Apple Silicon M4)
 
