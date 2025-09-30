@@ -4,7 +4,7 @@ title: MaixVision 工作站官网
 
 
 <div>
-<script src="/static/css/tailwind.css"></script>
+<script src="/static/js/tailwind.js"></script>
 </div>
 
 <style>
@@ -88,7 +88,7 @@ title: MaixVision 工作站官网
             </div>
         </div>
         <div class="mt-10">
-            <p><span class="mr-2">更多请访问</span><a href="https://wiki.sipeed.com/maixpy/">MaixPy</a></p>
+            <p><span class="mr-2">更多请访问</span><a href="https://wiki.sipeed.com/maixpy/">MaixPy</a> 和 <a href="https://wiki.sipeed.com/maixpy/doc/zh/basic/maixvision.html">使用文档</a></p>
         </div>
     </div>
     <video id="maixvision_video" class="p-5" controls="false" autoplay loop muted preload src="https://wiki.sipeed.com/maixpy/static/video/maixvision.mp4" type="video/mp4">

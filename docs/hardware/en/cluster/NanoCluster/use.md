@@ -4,6 +4,22 @@ title: Quick Start
 
 ## Hardware Installation
 
+### ⚠️Notice
+
+There are currently two shell styles being shipped. If you receive a red and white colored shell, you almost don't need to follow the steps below, as the accessories are already pre-installed.
+
+![case1](../../../zh/cluster/NanoCluster/assets/case1.png)![case2](../../../zh/cluster/NanoCluster/assets/case2.png)
+
+If you want to print a new shell yourself, you can download the model files from makerworld and print it yourself. The link is
+
+https://makerworld.com.cn/zh/models/1311487
+
+If you want to install three Cluster in a 10-inch rack, you can use the following model.
+
+https://makerworld.com.cn/zh/models/1349837
+
+![case3](../../../zh/cluster/NanoCluster/assets/case3.png)
+
 ### LM3H Installation
 
 First, attach the heatsink to the main control chip to improve heat dissipation. When installing the core board, ensure the correct orientation to avoid damaging the device.
@@ -125,7 +141,7 @@ Once the firmware image is ready, open balenaEtcher, select the image file to be
 
 ### M4N Flashing
 
-You can refer to the [System Flashing Guide](https://wiki.sipeed.com/hardware/zh/maixIV/m4ndock/system-update.html) for the flashing process.
+You can refer to the [System Flashing Guide](https://wiki.sipeed.com/hardware/zh/maixIV/m4n/system-update.html) for the flashing process.
 
 ## Remote Management
 
@@ -163,7 +179,7 @@ If you need to debug or control multiple slots simultaneously, we recommend usin
 
 The reset pins for slots 1~7 are controlled by slot 1 through **I2C extended IO**, enabling remote power on/off functionality.  
 
-**LM3H Control Method Example:**
+**Example: Reset Control Using LM3H:**
 
 ```bash
 # Reset the switch chip (GPIO 0)
@@ -176,9 +192,23 @@ sudo gpioset gpiochip2 2=0 && sleep 8 && sudo gpioset gpiochip2 2=1
 # Quick trigger to power on
 sudo gpioset gpiochip2 2=0 && sleep 1 && sudo gpioset gpiochip2 2=1
 
-# Reset slot2 (CM4/CM5)
-sudo gpioset gpiochip2 2=0 && sudo gpioset gpiochip2 2=1
+# Reset slot2 (CM4)
+sudo gpioset gpiochip2 2=0 && sleep 1 && sudo gpioset gpiochip2 2=1
+
+# Reset slot2 (CM5)
+# Simulate power button press for CM5 using GPIO level changes to power on/off:
+# - If the system is Raspberry Pi OS Lite (headless): one short press will shut down.
+# - If the system is Raspberry Pi Desktop (with GUI): two short presses are required to shut down.
+
+# Simulate two short presses (shutdown for Desktop systems)
+sudo gpioset gpiochip2 2=0 && sleep 1 && sudo gpioset gpiochip2 2=1
+sudo gpioset gpiochip2 2=0 && sleep 1 && sudo gpioset gpiochip2 2=1
+
+# Simulate a single short press (power on)
+sudo gpioset gpiochip2 2=0 && sleep 1 && sudo gpioset gpiochip2 2=1
 ```
+
+>! **Known issue:** If you force a hard shutdown of the CM5 by long-pressing the button, the system cannot be started again with a short press. You must power cycle the device to restore normal operation.
 
 > `gpiochip2` refers to the GPIO controller index. `x=0` sets the IO with index `x` to low level, while `x=1` sets it to high level.
 
@@ -187,7 +217,7 @@ sudo gpioset gpiochip2 2=0 && sudo gpioset gpiochip2 2=1
 | 0          | Switch chip reset |
 | 1~7        | slot1~slot7 reset |
 
-**CM4/CM5 Control Method Example:**
+**Example: Reset Control Using CM4/CM5:**
 
 To enable I2C and load the PCA9557 driver on CM4 or CM5, you can control it in the same way:
 
@@ -303,6 +333,31 @@ Short the specified pin on slot1 to GND, then power on the device to enter FEL m
 
 ![fel](../../../zh/cluster/NanoCluster/assets/fel.jpeg)
 
+#### Installing the awusb Driver
+
+You need to install the [sunxi-awusb](https://github.com/916BGAI/sunxi-awusb) driver to recognize the H618 chip.
+
+``` bash
+sudo apt update
+sudo apt install dkms
+cd sunxi-awusb
+sudo cp -r ./ /usr/src/sunxi-awusb-0.5
+sudo dkms add -m sunxi-awusb -v 0.5
+sudo dkms build -m sunxi-awusb -v 0.5
+sudo dkms install -m sunxi-awusb -v 0.5
+sudo modprobe awusb
+sudo cp udev/50-awusb.rules /etc/udev/rules.d/
+sudo udevadm control --reload-rules
+```
+
+```bash
+Bus 002 Device 005: ID 1f3a:efe8 Allwinner Technology sunxi SoC OTG connector in FEL/flashing mode
+```
+
+#### Obtaining the U-Boot File
+
+Download the pre-compiled U-Boot file: [Click to Download](../../../zh/cluster/NanoCluster/assets/uboot.tar.gz)
+
 #### Using sunxi-fel
 
 Install and compile:
@@ -339,3 +394,7 @@ xfel exec 0x4a000000
 ```
 
 After completing the process, the device should enter UMS mode successfully, allowing you to flash the system image.
+
+### CM4 Lite Fails to Boot After Reset
+
+In the first batch of CM4 adapter boards, using a CM4 Lite (without eMMC) and following the [Power Control](https://wiki.sipeed.com/hardware/en/cluster/NanoCluster/use.html#Power-Control) instructions may result in the module failing to boot after a reset. This issue will be fixed in the next hardware revision. If you encounter this problem, it is recommended to use the `reboot` command to restart the device instead of performing a hardware reset.

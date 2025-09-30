@@ -111,41 +111,81 @@ items:
             file: maixIII/ax-pi/faq_axpi.md
 -   label: Maix-IV
     items:
-    # -   label: Maix M4N
-    #     file: maixIV/m4n/m4n.md
-    -   label: Maix M4N-DOCK
-        file: maixIV/m4ndock/m4ndock.md
+    -   label: M4C SoM
         items:
-        -   label: 产品上手指南
-            file: maixIV/m4ndock/quick-start.md
         -   label: 系统烧录指南
-            file: maixIV/m4ndock/system-update.md
+            file: maixIV/m4c/system-update.md
         -   label: AI 模型部署
-            file: maixIV/m4ndock/axmodel-deploy.md
+            file: maixIV/m4c/axmodel-deploy.md
         -   label: FAQ
-            file: maixIV/m4ndock/FAQ.md
+            file: maixIV/m4c/FAQ.md
+    -   label: M4 Dock Carrier Board
+        items:
+        -   label: 产品介绍
+            file: maixIV/m4cdock/intro.md
+        -   label: 系统烧录指南
+            file: maixIV/m4c/system-update.md
+        -   label: 产品上手指南
+            file: maixIV/m4cdock/quick-start.md
+        -   label: FAQ
+            file: maixIV/m4cdock/FAQ.md
+    -   label: M4 Hat Carrier Board
+        items:
+        -   label: 产品介绍
+            file: maixIV/m4chat/intro.md
+        -   label: 系统烧录指南
+            file: maixIV/m4c/system-update.md
+        -   label: 产品上手指南
+            file: maixIV/m4chat/quick-start.md
+        -   label: 树莓派5 PCIe 加速指南
+            file: maixIV/m4chat/pcie-slaveboard.md
 -   label: MaixCAM
     items:
-    -   label: MaixCAM 介绍和资料
+    -   label: MaixCAM AI 系列
         file: maixcam/README.md
-    -   label: MaixCAM-Pro 介绍和资料
-        file: maixcam/maixcam_pro.md
-    -   label: 摄像头介绍及拍摄效果
-        file: maixcam/cameras.md
-    -   label: ToF/热成像模块介绍
-        file: maixcam/tof_thermal.md
-    -   label: 数码显微镜套餐
-        file: maixcam/microscope.md
-    -   label: 外壳使用注意点
-        file: maixcam/assemble.md
-    -   label: 系统镜像烧录
-        file: maixcam/os.md
-    -   label: 使用 MaixPy 开发
-        url: https://wiki.sipeed.com/maixpy/
-    -   label: 使用 MaixCDK 开发
-        file: maixcam/maixcdk.md
-    -   label: 常见问题 FAQ
-        file: maixcam/faq.md
+    -   label: MaixCAM / MaixCAM-Pro
+        items:
+        -   label: MaixCAM 介绍和资料
+            file: maixcam/maixcam.md
+        -   label: MaixCAM-Pro 介绍和资料
+            file: maixcam/maixcam_pro.md
+        -   label: 摄像头介绍及拍摄效果
+            file: maixcam/cameras.md
+        -   label: 外壳使用说明
+            file: maixcam/assemble.md
+        -   label: 系统镜像烧录
+            file: maixcam/os.md
+        -   label: 使用 MaixPy 开发
+            url: https://wiki.sipeed.com/maixpy/
+        -   label: 使用 MaixCDK 开发
+            file: maixcam/maixcdk.md
+        -   label: ToF/热成像模块介绍
+            file: maixcam/tof_thermal.md
+        -   label: 数码显微镜套餐
+            file: maixcam/microscope.md
+        -   label: 常见问题 FAQ
+            file: maixcam/faq.md
+    -   label: MaixCAM2
+        items:
+        -   label: MaixCAM2 介绍和资料
+            file: maixcam/maixcam2.md
+        -   label: 系统镜像烧录
+            file: maixcam/maixcam2_os.md
+        -   label: 摄像头和镜头选择
+            file: maixcam/maixcam2_camera_lens.md
+        -   label: 使用 MaixPy 开发
+            url: https://wiki.sipeed.com/maixpy/
+        -   label: 使用 MaixCDK 开发
+            file: maixcam/maixcdk.md
+        -   label: 摄像头 ISP 调校
+            file: maixcam/maixcam2_isp.md
+        -   label: ToF/热成像模块介绍
+            file: maixcam/tof_thermal.md
+        -   label: 数码显微镜套餐
+            file: maixcam/microscope.md
+        -   label: 常见问题 FAQ
+            file: maixcam/maixcam2_faq.md
+
 -   label: LicheePi
     items:
     -   label: LicheePI 4A
@@ -437,6 +477,17 @@ items:
             file: logic_analyzer/combo8/update_firmware.md
         -   label: 常见问题(FAQ)
             file: logic_analyzer/combo8/faq.md
+
+    -   label: SLogic16U3
+        items:
+        -   label: 简介
+            file: logic_analyzer/slogic16u3/Introduction.md
+        -   label: 硬件使用指南
+            file: logic_analyzer/slogic16u3/Hardware_Specification.md
+        -   label: 软件使用指南
+            file: logic_analyzer/slogic16u3/Software_User_Guide.md
+        -   label: FAQ
+            file: logic_analyzer/slogic16u3/FAQ.md
 -   label: KVM
     items:
     -   label: NanoKVM Cube
@@ -509,6 +560,20 @@ items:
             file: kvm/NanoKVM_USB/deployment.md
         -   label: FAQ
             file: kvm/NanoKVM_USB/faq.md
+    -   label: NanoKVM Pro
+        items:
+        -   label: 简介
+            file: kvm/NanoKVM_Pro/introduction.md
+        -   label: NanoKVM-ATX 上手指南
+            file: kvm/NanoKVM_Pro/atx_start.md
+        -   label: NanoKVM-Desk 上手指南
+            file: kvm/NanoKVM_Pro/desk_start.md
+        -   label: 高级应用
+            file: kvm/NanoKVM_Pro/extended.md
+        -   label: 屏幕色彩扩展灯带
+            file: kvm/NanoKVM_Pro/ws2812.md
+        -   label: FAQ
+            file: kvm/NanoKVM_Pro/faq.md
 -   label: Cluster
     items:
     -   label: NanoCluster
@@ -523,6 +588,8 @@ items:
                 file: cluster/NanoCluster/k3s.md
             -   label: distcc 部署
                 file: cluster/NanoCluster/distcc.md
+            -   label: Nomad 自动化部署
+                file: cluster/NanoCluster/nomad_playbook.md
         -   label: 交换机管理
             file: cluster/NanoCluster/switch.md
 # -   label: Maix Audio
@@ -625,18 +692,13 @@ items:
                 file: modules_spmod/spmod_lcd1.14.md
             -   label: SP-Eink
                 file: modules_spmod/spmod_eink.md
-    -   label: 模块 & 调试器
+    -   label: 模块
         items:
-        -   label: 调试器 & 串口模块
-            file: modules/debugger_and_uart.md
-        -   label: 模块
-            collapsed: false
-            items:
-            -   label: 摄像头
-                file: modules/camera_summary.md
-            -   label: 麦克风模块
-                items:
-                -   label: 麦克风阵列
-                    file: modules/micarray.md
-            -   label: Sipeed Gamepad
-                file: modules/Gamepad.md
+        -   label: 摄像头
+            file: modules/camera_summary.md
+        -   label: 麦克风阵列
+            file: modules/micarray.md
+        -   label: 麦克风阵列UAC驱动板 MA-USB8
+            file: modules/micarray_usbboard_bl616.md
+        -   label: Sipeed Gamepad
+            file: modules/Gamepad.md

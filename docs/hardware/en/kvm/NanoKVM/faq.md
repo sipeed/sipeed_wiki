@@ -10,7 +10,7 @@ keywords: NanoKVM, Remote desktop, Lichee, PiKVM, RISCV, tool
 1. Refer to [this link](https://wiki.sipeed.com/hardware/zh/kvm/NanoKVM/system/updating.html#%E8%8E%B7%E5%8F%96-IP) to connect the development board.
 2. Execute: `python /etc/kvm/update-nanokvm.py`
    > Users outside of China may experience download failures due to DNS issues. Please add `nameserver 119.29.29.29` or `nameserver 223.5.5.5` to `/etc/resolv.conf` and try again.
-   > Earlier versions of the application may not have this script file. Please download [here](https://github.com/user-attachments/files/16939944/update-nanokvm.py.zip), extract it, and grant execute permissions before trying again.
+   > Earlier versions of the application may not have this script file. Please download [here](https://github.com/sipeed/NanoKVM/blob/main/kvmapp/system/update-nanokvm.py), extract it, and grant execute permissions before trying again.
 
 ### About Password
 
@@ -67,6 +67,17 @@ The STA LED indicates the operating status of the NanoKVM. When functioning prop
    > If `VIDevFPS` is 0, it means NanoKVM cannot get HDMI input. Check the following issues: Is the host outputting a video signal? Is the HDMI cable damaged? Is the Cube an early version with possible connection issues?
    > If `VIDevFPS` is not 0 and `VIFPS` is 0, it indicates that NanoKVM is not correctly configured for HDMI parameters. The Cube can replug the HDMI to auto-detect, while PCIe can click `Reset HDMI` under `Video` to auto-detect.
    > Check if `VIInImgWidth` and `VIInImgHeight` match the actual HDMI resolution. If they are different, it means NanoKVM did not auto-detect the correct HDMI parameters. Manually configure the resolution parameters as described in point 4.
+
+### No Display After Host Wakes from Sleep
+
+1. Check if you are using a cheap DP to HDMI (passive adapter). These types of adapters lack a proper wake mechanism and cannot notify the NanoKVM that the display has been restored.
+2. For PCIe versions, you can click the "Reset HDMI" button to forcefully retrieve the display.
+3. The Cube/Lite versions lack a reset function; please switch to an active DP adapter.
+
+### Serious screen delay in internal network environment
+
+1. Try replacing the switch or power supply
+2. If it is invalid, please contact after-sales service
 
 ### OLED Displaying Information Normally, But Unable to Open Webpage
 

@@ -5,13 +5,7 @@ title: MaixCAM 系统烧录
 
 ## 下载系统
 
-在 [MaixPy 发布页面](https://github.com/sipeed/MaixPy/releases) 找到**最新**的系统镜像文件，比如`maixcam-2024-10-22-maixpy-v4.7.6.img.xz`。
-注意根据版型下载，比如：
-* `MaixCAM` 下载 `maixcam-xxxx.xz`。
-* `MaixCAM-Pro` 下载 `maixcam-pro-xxxxx.xz`。
-
-备用地址：[Sourceforge](https://sourceforge.net/projects/maixpy/files/)
-
+按照[MaixPy 系统烧录文档](https://wiki.sipeed.com/maixpy/doc/zh/basic/upgrade.html) 中的说明，下载对应型号的系统镜像文件 和 注意备份数据。
 
 ## 准备烧录工具
 

@@ -4,6 +4,22 @@ title: 快速上手
 
 ## 硬件安装
 
+### ⚠️注意
+
+目前有两种外壳样式在发货，如果您收到了红白配色的外壳，则几乎不需要执行下面的步骤，因为配件都已经预先安装好了。
+
+![case1](./assets/case1.png)![case2](./assets/case2.png)
+
+如果您想自己打印新款外壳，可以在makerworld下载模型文件自己打印，链接是
+
+https://makerworld.com.cn/zh/models/1311487
+
+如果你想将三台Cluster安装在一个10英寸机柜上可以使用下面这个模型。
+
+https://makerworld.com.cn/zh/models/1349837
+
+![case3](./assets/case3.png)
+
 ### LM3H 安装
 
 先将散热片粘贴到主控芯片上，以提升散热效果。安装核心板时，请确保方向正确，以免损坏设备。
@@ -161,7 +177,7 @@ ssh sipeed@lpi3h-xxxx.local
 
 slot1~7 的复位脚由 slot1 通过 **I2C 扩展的 IO** 进行控制，可实现远程开关机。  
 
-**LM3H 控制方法示例：**
+**使用 LM3H 控制复位方法示例：**
 
 ```bash
 # 复位交换机芯片（GPIO 0）
@@ -174,9 +190,23 @@ sudo gpioset gpiochip2 2=0 && sleep 8 && sudo gpioset gpiochip2 2=1
 # 快速触发实现开机
 sudo gpioset gpiochip2 2=0 && sleep 1 && sudo gpioset gpiochip2 2=1
 
-# 复位 slot2（CM4/CM5）
-sudo gpioset gpiochip2 2=0 && sudo gpioset gpiochip2 2=1
+# 复位 slot2（CM4）
+sudo gpioset gpiochip2 2=0 && sleep 1 && sudo gpioset gpiochip2 2=1
+
+# 复位 slot2（CM5）
+# 使用 GPIO 电平变化模拟按下 CM5 的电源按键，可实现开关机：
+# - 若系统为 Raspberry Pi OS Lite（无桌面）：短按一次即可关机。
+# - 若系统为 Raspberry Pi Desktop（有桌面）：需短按两次以触发关机。
+
+# 模拟短按两次（Desktop 系统关机）
+sudo gpioset gpiochip2 2=0 && sleep 1 && sudo gpioset gpiochip2 2=1
+sudo gpioset gpiochip2 2=0 && sleep 1 && sudo gpioset gpiochip2 2=1
+
+# 模拟短按一次（开机）
+sudo gpioset gpiochip2 2=0 && sleep 1 && sudo gpioset gpiochip2 2=1
 ```
+
+>! 已知问题：若通过长按按键实现强制硬关机 CM5，系统将无法通过短按方式启动，需重新上电才能恢复。
 
 > `gpiochip2` 表示 GPIO 控制器编号，后面的 `x=0` 表示将编号为 x 的 IO 设置为低电平，`x=1` 设置为高电平。
 
@@ -185,7 +215,7 @@ sudo gpioset gpiochip2 2=0 && sudo gpioset gpiochip2 2=1
 | 0         | 交换机芯片复位   |
 | 1~7       | slot1~slot7 复位 |
 
-**CM4/CM5 控制方法示例：**
+**使用 CM4/CM5 控制复位方法示例：**
 
 在 CM4 或 CM5 上启用 I2C 并加载 PCA9557 驱动，即可使用相同方式控制：
 
@@ -301,6 +331,31 @@ pwm.start(100)          # 满速
 
 ![fel](./assets/fel.jpeg)
 
+#### 安装 awusb 驱动
+
+需要先安装全志的 [sunxi-awusb](https://github.com/916BGAI/sunxi-awusb) 驱动，用于识别 H618 芯片。
+
+``` bash
+sudo apt update
+sudo apt install dkms
+cd sunxi-awusb
+sudo cp -r ./ /usr/src/sunxi-awusb-0.5
+sudo dkms add -m sunxi-awusb -v 0.5
+sudo dkms build -m sunxi-awusb -v 0.5
+sudo dkms install -m sunxi-awusb -v 0.5
+sudo modprobe awusb
+sudo cp udev/50-awusb.rules /etc/udev/rules.d/
+sudo udevadm control --reload-rules
+```
+
+``` bash
+Bus 002 Device 005: ID 1f3a:efe8 Allwinner Technology sunxi SoC OTG connector in FEL/flashing mode
+```
+
+#### 获取 uboot 文件
+
+下载已经编译好的 U-Boot 文件：[点击下载](./assets/uboot.tar.gz)
+
 #### 使用 sunxi-fel
 
 编译安装
@@ -337,3 +392,7 @@ xfel exec 0x4a000000
 ```
 
 执行完成后，设备应能正常进入 UMS 模式，然后进行系统镜像烧录。
+
+### CM4 Lite 复位后无法启动
+
+首批版本的 CM4 转接板在使用 CM4 Lite（无 eMMC）时，按照[电源控制](https://wiki.sipeed.com/hardware/zh/cluster/NanoCluster/use.html#电源控制)指引操作，可能导致复位后无法正常启动。此问题将在下一版硬件中修复。如遇该情况，建议使用 reboot 命令进行重启，替代复位操作。

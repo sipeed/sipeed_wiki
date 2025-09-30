@@ -17,6 +17,12 @@ keywords: NanoKVM-USB, Lichee, PiKVM, RISCV, tool
 
 + Some Linux distributions come with `brltty`, a Braille display tool that occupies the `/dev/ttyUSB0` serial port, causing the webpage to be unable to detect it. If you are not using `brltty`, it is recommended to uninstall it with `sudo apt remove brltty`.
 
+### Poor Video Quality
+
++ First, check if you're using a USB 2.0 cable/HOST interface. When the resolution is high, USB 2.0 may not provide sufficient bandwidth, which can lower the video quality. It is recommended to use a USB 3.0 cable.
++ At 2K resolution, the video quality may decrease due to the chip's encoding capability. Please switch to 1080P.
++ If the target device is connected to a Windows host, go to System Settings > Display Settings > Advanced Display Settings, and change to 1080P60 in the "List all modes" section. Also, check if the "Desktop Resolution" and "Active Signal Resolution" are consistent.
+
 ### Unable to Open NanoKVM-USB Corresponding Serial Device After Opening Web Page
 
 + This may be due to other programs occupying the serial port. Please ensure it is not in use before trying again.

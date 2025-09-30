@@ -136,6 +136,10 @@ Note: The NCM connection method was added after version 2.1.5, but the default r
 1. **Permanently Disable:** Execute `touch /etc/kvm/ssh_stop` to disable SSH login on the next boot of NanoKVM. To enable it again, delete the file using `rm /etc/kvm/ssh_stop`.
 2. **Temporarily Enable:** Execute `touch /boot/start_ssh_once` or create an empty file named `start_ssh_once` in the /boot partition. This will enable SSH on the next boot of NanoKVM, and the file will be automatically deleted.
 
+### Setting DNS
+
++ If you need to set a DNS list, create `/boot/resolv.conf`. This will enforce your own DNS configuration after booting.
+
 ### About mDNS
 
 + mDNS (Multicast DNS) is a protocol used for name resolution within a local network, allowing devices to discover and communicate with each other using hostnames instead of IP addresses, without needing a central DNS server.

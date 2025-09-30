@@ -12,7 +12,11 @@ update:
     author: Serika
     content:
       - 加入Retro Console相关内容
-
+  - date: 2025-09-25
+    version: v0.3
+    author: Serika
+    content:
+      - 移除了无法使用的lic server IP地址
 ---
 
 ## 产品概述
@@ -95,10 +99,11 @@ update:
 [全引脚约束](https://dl.sipeed.com/shareURL/TANG/Console/08_Misc)
 
 ## 上手使用
-注意60K目前未被教育版支持，需要下载 V1.9.10.01 或更新版本的商业版IDE使用。 
-V1.9.10.02版本的Programmer存在严重问题，无法正常下载本产品。 
-如需将码流下载到flash中固化，推荐使用 **exFlash Erase,Program thru GAO-Bridge 5A** 模式（需要≥V1.9.10.03）。
-Lic 可以在高云官网申请，或者使用Sipeed提供的在线Lic服务，在IDE中选择Float Lic，填写以下信息即可：
+注意60K目前已经被教育版支持，需要下载 V1.9.11.03 或更新版本的教育版IDE使用。 商业版IDE需要 ≥V1.9.10.03。
+如需将码流下载到flash中固化，推荐使用 **exFlash Erase,Program thru GAO-Bridge 5A** 模式（需要≥V1.9.10.03），或者 **exFlash Erase,Program thru GAO-Bridge 
+Arora V** （需要≥V1.9.12）。
+推荐使用单独的 **1.9.12 SP1** Programmer（aka. 云源编程器），在 **云源软件商业版** 的页面可以找到。这个单独的Programmer兼容性更好。
+如果需要使用商用版IDE，Lic 可以在高云官网申请，或者使用Sipeed提供的在线Lic服务，在IDE中选择Float Lic，填写以下信息即可：
 ~~~
 
 ---Server 01---
@@ -108,8 +113,6 @@ port: 10559
 ~~~
 
 如果上面的IP不能工作, 尝试使用 "gowinlic.sipeed.com" 域名对应的IP.
-
-安装 IDE [点我](https://wiki.sipeed.com/hardware/zh/tang/common-doc/get_started/install-the-ide.html)
 
 
 例程代码（Github）： 
@@ -201,11 +204,7 @@ Tang Console 可以在多种场景实现客户不同方面的需要，技术支�
   <summary><font color="#4F84FF">点击查看详情</font></summary>
   <br>
 
-1. 教育版不支持60K和138K，请更换商业版。如下图所示即为教育版（不支持60K）；
-
-    <img src="../assets/questions/no_model_in_IDE.png" width="35%">
-
-2. IDE版本过老，必须更新IDE ≥ 1.9.10.01。
+1. IDE版本过老，必须更新商业版IDE ≥ 1.9.10.03，或教育版IDE ≥ 1.9.11.03。
 
 </details>
 

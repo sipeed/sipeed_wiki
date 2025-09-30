@@ -2,122 +2,186 @@
 title: MaixCAM -- 快速落地 AI 视觉、听觉项目
 ---
 
-<div style="width:100%; display:flex;justify-content: center;">
+<script src="/static/js/tailwind.js"></script>
 
-![MaixCAM](https://wiki.sipeed.com/maixpy/static/image/maixcam.png)
+<style>
+    #content_body .h1 {
+        font-size: 2.2em;
+        font-weight: 800;
+    }
+    .flex_center {
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    #content_body .card_item {
+        color: #f0f5f9;
+        background: linear-gradient(90deg, #26d0ce, #1a2980);
+        border-radius: 1em;
+        padding: 1em;
+        margin: 1em 0.1em;
+    }
+    #content_body .card_item img {
+        transition: transform 0.4s ease;
+    }
+    #content_body .item2 {
+        width: 90%;
+        align-self: start;
+        background: linear-gradient(-45deg, #c471ed,  #f64f59);
+    }
+    #content_body .item3 {
+        width: 90%;
+        align-self: end;
+        background: linear-gradient(-45deg, #12c2e9, #c471ed);
+    }
+    #content_body .card_item:visited {
+        color: #f0f5f9;
+    }
+    #content_body .card_item:hover {
+        border-radius: 1em;
+        background: linear-gradient(70deg, #26d0ce, #1a2980);
+        padding: 1em;
+        margin: 1em 0.1em;
+    }
+    #content_body .item2:hover {
+        background: linear-gradient(-20deg, #c471ed,  #f64f59);
+    }
+    #content_body .item3:hover {
+        background: linear-gradient(-20deg, #12c2e9, #c471ed);
+    }
+    #content_body .card_item:hover > img {
+        transform: rotate(10deg) scale(1.3) ;
+    }
+    .cams_wrapper {
 
+    }
+    .mask_wrapper {
+        position: relative;
+    }
+    .mask {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    .item_name {
+        font-size: larger;
+        font-weight: 800;
+    }
+    #content_body .btn_blue {
+        margin: 1em;
+        color: white;
+        font-size: 0.9em;
+        border-radius: 0.3em;
+        padding: 0.5em 2em;
+        background-color: #0b4294;
+    }
+    #content_body .btn_blue:visited {
+        color: white;
+    }
+    #content_body .btn_blue:hover {
+        margin: 1em;
+        color: white;
+        font-size: 0.9em;
+        border-radius: 0.3em;
+        padding: 0.5em 2em;
+        background-color: #082a5e;
+    }
+    #content_body .btn_red {
+        margin: 1em;
+        color: white;
+        font-size: 0.9em;
+        border-radius: 0.3em;
+        padding: 0.5em 2em;
+        background-color: #ad3838
+    }
+    #content_body .btn_red:visited {
+        color: white;
+    }
+    #content_body .btn_red:hover {
+        margin: 1em;
+        color: white;
+        font-size: 0.9em;
+        border-radius: 0.3em;
+        padding: 0.5em 2em;
+        background-color: #630606;
+    }
+
+    .dark #content_body .card_item {
+        color: #f0f5f9;
+    }
+    .dark #content_body a.card_item:visited {
+        color: #f0f5f9;
+    }
+    .dark .card_item {
+        background: #292929;
+    }
+    @media screen and (max-width: 768px) {
+        #content_body .item1 {
+            flex-direction: column-reverse;
+        }
+        #content_body .item1 img {
+            padding-bottom: 1em;
+        }
+        #content_body .item2 {
+            width: 98%;
+        }
+        #content_body .item3 {
+            width: 98%;
+        }
+    }
+</style>
+
+<div style="width:100%;" class="flex_center">
+
+<!-- ![MaixCAM](../../assets/maixcam/maixcam.jpeg) -->
+
+
+</div>
+
+<div style="margin-bottom: 4em"></div>
+
+<div class="flex_center w-full cams_wrapper">
+    <div class="flex flex-row w-full">
+        <a href="./maixcam2.html" class="flex flex-row items-center justify-around w-full card_item mask_wrapper item1">
+            <div class="item_name">MaixCAM2</div>
+            <img src="/static/image/maixcam2_small.png">
+            <div class="mask"></div>
+        </a>
+    </div>
+    <div class="flex flex-row w-full justify-between">
+        <div class="flex_center flex-row w-1/2 justify-start">
+            <a href="./maixcam.html" class="flex_center card_item mask_wrapper item2">
+                <img src="/static/image/maixcam_small.png">
+                <div class="item_name pt-8">MaixCAM</div>
+                <div class="mask"></div>
+            </a>
+        </div>
+        <div class="flex_center flex-row w-1/2 justify-end">
+            <a href="./maixcam_pro.html" class="flex_center card_item mask_wrapper item3">
+                <img src="/static/image/maixcam_pro_small.png">
+                <div class="item_name pt-8">MaixCAM-Pro</div>
+                <div class="mask"></div>
+            </a>
+        </div>
+    </div>
+</div>
+
+
+<div class="center mb-20"></div>
+
+
+<div style="padding: 1em 0 0 0; display: flex; justify-content: center">
+    <a target="_blank" class="btn_blue" href="https://wiki.sipeed.com/maixpy/">MaixPy </a>
+    <a target="_blank" class="btn_blue" href="https://wiki.sipeed.com/maixcdk/">MaixCDK</a>
+        <a target="_blank" class="btn_blue" href="https://maixhub.com">MaixHub 在线模型训练</a>
+        <a target="_blank" class="btn_blue" href="https://maixhub.com/app">MaixHub 应用商店</a>
 </div>
 
 <div style="padding: 1em 0 0 0; display: flex; justify-content: center">
-    <a target="_blank" style="margin: 1em;color: white; font-size: 0.9em; border-radius: 0.3em; padding: 0.5em 2em; background-color: #a80202" href="https://item.taobao.com/item.htm?id=784724795837">淘宝</a>
-    <a target="_blank" style="margin: 1em;color: white; font-size: 0.9em; border-radius: 0.3em; padding: 0.5em 2em; background-color: #a80202" href="https://www.aliexpress.com/store/911876460">速卖通</a>
+    <a target="_blank" class="btn_red" href="https://item.taobao.com/item.htm?id=784724795837">淘宝</a>
+    <a target="_blank" class="btn_red" href="https://www.aliexpress.com/store/911876460">速卖通</a>
 </div>
-
-## MaixCAM 简介
-
-MaixCAM 是为更好地落地 AI 视觉、听觉和 AIOT 应用而设计的一款硬件产品，一个能快速验证产品原型且能快速量产的平台。
-提供了强大且高性价比的处理器，配套的摄像头、屏幕、WiFi 等，以及完善和非常易用的软件生态。
-
-<div style="padding: 1em 0 0 0; display: flex; justify-content: left">
-    <a target="_blank" style="margin: 1em;color: white; font-size: 0.9em; border-radius: 0.3em; padding: 0.5em 2em; background-color: #a80202" href="https://wiki.sipeed.com/maixpy/">更多功能介绍请看 MaixPy 主页</a>
-</div>
-
-<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=113485669204279&bvid=BV1ncmRYmEDv&cid=26768769718&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
-
-> 视频中的为升级版本 [MaixCAM-Pro](./maixcam_pro.md)，功能基本一致，外观和 PCB 有细微差别，具体请看 MaixCAM-Pro 文档。
-
-**应用场景和人群**：
-* **AI算法落地**： AI 算法工程师可以快速将自己的 AI 模型部署到实体硬件（MaixCAM)上，提供易用的模型转换工具和 SDK。
-* **STEM 教育**： 提供易用的 MaixPy SDK 和配套开发工具，以及在线模型训练平台，老师无需软硬件开发，专注教学，学生可以快速上手。
-* **高校科研和教育**： 提供丰富的文档和教程，高校学生各个阶段的学生都有合适的学习路线，RISC-V 和 AI 前沿技术也是科研的好帮手。
-* **创客和工程师的原型开发利器**：精心设计的硬件，丰富的外设，超易用的软件，让你的有趣想法和产品快速落地，不用身陷基础软硬件开发的泥潭。
-* **企业产品升级、落地**：无需昂贵的研发成本快速落地产品，或者用于辅助产品比如产线 QA，旧设备使用 AI 视觉实现智能化等。
-* **竞赛好帮手**：MaixCAM + MaixPy + MaixCDK 可以快速实现很多创新和功能，适合作为比赛指定软硬件平台，选手也可以依靠生态的开发效率赢得比赛， Maix 系列产品和 MaixPy 已经被用在各种比赛中获得奖项。
-
-
-
-
-## MaixCAM 硬件简介
-
-以下为 MaixCAM 主要硬件参数，更详细的参数请看后文芯片数据手册。
-此外还有另外一款 [MaixCAM-Pro](./maixcam_pro.md)
-
-| 组件 | 描述 |
-| --- | --- |
-| CPU 大核 | 1GHz RISC-V C906 处理器（另外还有一个 1GHz ARM A53 核心可二选一使用），跑 Linux |
-| CPU 小核 | 700MHz RISC-V C906， 跑 RTOS |
-| CPU 低功耗核 | 25~300MHz 8051 处理器，用于低功耗应用 |
-| NPU | 1TOPS@INT8， 支持 BF16 模型，算子支持丰富，支持常见模型比如 Mobilenetv2, YOLOv5, YOLOv8等 |
-| 内存 | 256MB DDR3 |
-| 存储 | TF 卡启动 / SD NAND 启动 |
-| 摄像头 | 最高支持 5M 摄像头，官方支持 4M GC4653 和 OS04A10 摄像头（4 lane MIPI CSI 输入，22Pin 接口，支持拆分双路 CSI） |
-| 屏幕 | 2.3 寸高清 IPS 电容触摸屏， 分辨率 552x368（2 lane MIPI DSI 输出，标准 31pin 接口，6pin 电容触摸屏） |
-| 音频输出 | 板载PA功放，可在排针上直接连接1W以内的喇叭 |
-| 音频输入 | 板载模拟硅麦，可直接收音 |
-| 网络 | 板载 WiFi6 + BLE5.4 模组，可定制 以太网版本 |
-| USB | Type-C USB2.0，支持Device和Host模式，支持 USB 摄像头 |
-| IO 接口 | 2 x 14pin 2.54 插针接口，间距 800mil，可直插面包板 |
-| 按键 | 1 x RST 按键 + 1 x USER（功能） 按键 |
-| LED | 电源指示灯 + 用户 LED |
-| 编解码 | H.264 / H.265 / MJPEG 硬解码， 支持 2k@30fps 编解码 |
-| 外设 | I2C/SPI/UART/ADC/PWM/WDT 等常见外设 |
-| 外壳 | 3D 打印外壳， 两个螺母固定孔，可固定在支架上 |
-
-## MaixCAM 软件生态
-
-我们不只是做了硬件，更为 MaixCAM 提供了一套完整的软件生态，包括：
-
-| 名称 | 描述 | 图片/视频 |
-| --- | --- | --- |
-| [MaixPy](https://wiki.sipeed.com/maixpy/) | Python 开发包， 提供丰富且使用简单的 API，针对 MaixCAM 进行优化，支持硬件加速，提供丰富文档教程 | 请看[MaixPy 主页](https://wiki.sipeed.com/maixpy/) |
-| [MaixVision](https://wiki.sipeed.com/maixvision) | AI 视觉 IDE，编程、代码运行、图像实时预览，甚至图形化编程等等，大大降低开发环境搭建难度和使用门槛 | ![MaixVision](../../assets/maixcam/maixvision.jpg)  <video playsinline controls muted preload style="width:100%" src="https://wiki.sipeed.com/maixpy/static/video/maixvision.mp4"></video> |
-| [MaixHub](https://maixhub.com) | 在线 AI 模型训练平台，无需 AI 知识和昂贵的训练设备，一键训练模型，一键部署到 MaixCAM | ![MaixVision](../../assets/maixcam/maixhub.jpg) |
-| [MaixCDK](https://github.com/sipeed/MaixCDK) | MaixPy 的 C++版本，熟悉 C/C++ 的开发者立刻上手 | 请看[MaixCDK 主页](https://github.com/sipeed/MaixCDK) |
-| [应用商城](https://maixhub.com/app) | 提供各种应用和工具，无需开发直接下载使用，开发者也可以上传分享应用 | 请看 [MaixHub 应用商城](https://maixhub.com/app) |
-| [分享广场](https://maixhub.com/share) | 开发者分享经验和项目 | 请看 [MaixHub 分像广场](https://maixhub.com/share) |
-
-
-## 资料汇总
-
-### MaixCAM 专属资料（Sipeed 提供）
-
-* [MaixCAM 官方文档](https://wiki.sipeed.com/maixcam)（本文档）
-* [MaixPy 官方文档](https://wiki.sipeed.com/maixpy/)（Python SDK）（[MaixPy 源码](https://github.com/sipeed/MaixPy)）
-* [MaixCDK](https://github.com/sipeed/MaixCDK)（C/C++ SDK）（[MaixCDK 源码](https://github.com/sipeed/MaixCDK)）
-* [系统源码](https://github.com/sipeed/LicheeRV-Nano-Build)
-* [原理图](https://dl.sipeed.com/shareURL/LICHEE/LicheeRV_Nano/02_Schematic)
-* [摄像头和镜头](https://dl.sipeed.com/shareURL/MaixCAM/MaixCAM/Camera)
-* [核心板(LicheeRV-Nano)硬件资料](https://dl.sipeed.com/shareURL/LICHEE/LicheeRV_Nano)
-* [MaixCAM 外壳模型](https://makerworld.com.cn/zh/models/467141)
-* [MaixCAM 支架模型](https://makerworld.com.cn/zh/models/467152)
-
-* 核心板引脚图：
-![](http://wiki.sipeed.com/hardware/zh/lichee/assets/RV_Nano/intro/RV_Nano_3.jpg)
-* 外壳和支架：可以在[外壳文档](./assemble.md) 看到介绍，另外还开源了 外壳、支架等 3D 模型文件，请到[makerworld.com](https://makerworld.com/)（推荐） 或[makerworld.com.cn](https://makerworld.com.cn) 搜索 `MaixCAM`。
-
-### 芯片资料
-
-MaixCAM 基于 Sipeed 的 LiecheeRV-Nano 核心板， 其基于算能的SG2002 芯片，所以也可以参考它们的资料。
->! 注意：MaixCAM 可以使用 LicheeRV-Nano 和 SG2002 的资料， 反之 **LicheeRV-Nano 和其它 SG2002 芯片产品没法使用 MaixPy MaixCDK MaixVision 等软件**，请不要购买错误浪费时间和金钱。
-> 如果你希望快速上手开发应用，请选择 MaixCAM, 如果你是资深 Linux 开发者，只想基于 SG2002 原厂资料开发，可以选择 LicheeRV-Nano。
-
-* [Datasheet](https://github.com/sophgo/sophgo-doc/releases) （寄存器级别的资料）
-* [LicheeRV-Nano 开发板资料](https://wiki.sipeed.com/hardware/zh/lichee/RV_Nano/1_intro.html)
-* [工具链下载](https://sophon-file.sophon.cn/sophon-prod-s3/drive/23/03/07/16/host-tools.tar.gz)
-* [算能 SDK 开发文档汇总](https://developer.sophgo.com/thread/471.html)
-* [算能 HDK 开发文档汇总](https://developer.sophgo.com/thread/472.html)
-* [算能 TPU 开发文档汇总](https://developer.sophgo.com/thread/473.html)
-* [算能 TDL 开发文档汇总](https://developer.sophgo.com/thread/556.html)（基于 TPU 的高层API 封装）
-
-### 社区资料
-
-* [MaixHub 应用商城](https://maixhub.com/app)
-* [MaixHub 分享广场](https://maixhub.com/share)
-* [makerworld.com](https://makerworld.com/)(推荐) 或者 [makerworld.com.cn](https://makerworld.com.cn) 搜索 `MaixCAM`
-* [Bilibili](https://bilibili.com) 搜索 `MaixCAM` 或者 `MaixPy`
-
-
-## 购买
-
-MaixCAM 目前有两个版本，详情请咨询 [Sipeed 淘宝](https://sipeed.taobao.com/) 或者 [AliExpress](https://www.aliexpress.com/store/911876460) 店家。
 

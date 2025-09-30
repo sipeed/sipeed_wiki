@@ -13,7 +13,19 @@ By default, NanoKVM obtains its IP address via DHCP, which means the IP address 
 
 If you want to always access NanoKVM using the same IP address, you can set a static IP.
 
-## Setting a Static IP
+Here are two methods to set a static IP:
+
+## Setting Static IP via Router
+
+Most routers have a feature for setting static IPs for devices. If you can easily access the router's management page, it's recommended to use this method.
+
+In the router management interface, you can find the device with the name `kvm` and set the IP directly.
+
+## Setting Static IP in NanoKVM
+
+If accessing the router's backend is not convenient, you can also set the static IP directly in NanoKVM. Here’s how:
+
+### Setting Static IP
 
 Create a file `/boot/eth.nodhcp` in NanoKVM and edit it as follows:
 
@@ -32,6 +44,6 @@ After editing and saving the file, run the command `/etc/init.d/S30eth restart` 
 
 This ensures that NanoKVM always has a usable IP address, allowing network access to operate NanoKVM. If NanoKVM does not receive a valid IP address, you will need to manually modify the file on the TF card or reflash the image to use it normally.
 
-## Canceling the Static IP
+### Canceling the Static IP
 
 Delete the `/boot/eth.nodhcp` file to cancel the static IP setting. NanoKVM will then obtain its IP address via DHCP again.

@@ -19,6 +19,8 @@ NanoKVM-PCIe 在 NanoKVM-Cube的基础上添加可选的 WiFi, PoE功能(选配)
 
 NanoKVM 系列产品包含一个 HDMI 输入接口，可以被电脑识别为显示器，捕捉电脑画面；一个 USB2.0 接口连接电脑主机，可被识别为键盘鼠标触摸板等HID设备，同时使用TF卡多余存储空间，挂载为一个U盘设备；全系标配一个百兆网口，用于视频和控制信号等的网络传输。PCIe版 NanoKVM 标配一个0.49英寸OLED, 实时显示各种状态信息, WiFi配网等各种信息。
 
+> 注：NanoKVM PCIe版仅从PCIe接口取电，无法作为显卡/显示设备直接从PCIe获取图像
+
 为满足用户不同需求，NanoKVM-PCIe 提供 WiFi 和 PoE 两个可选配模块, 购买时可自由搭配
 
 ## 使用场景

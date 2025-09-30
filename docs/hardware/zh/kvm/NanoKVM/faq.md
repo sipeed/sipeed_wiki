@@ -9,7 +9,7 @@ keywords: NanoKVM, Remote desktop, Lichee, PiKVM, RISCV, tool
   1. 参考[这里](https://wiki.sipeed.com/hardware/zh/kvm/NanoKVM/system/updating.html#%E8%8E%B7%E5%8F%96-IP)连接开发板
   2. 执行：`python /etc/kvm/update-nanokvm.py`
   > 国外用户可能因为DNS原因下载失败，请在 `/etc/resolv.conf` 添加`nameserver 119.29.29.29`或`nameserver 223.5.5.5`后再试
-  > 早期版本应用可能不存在该脚本文件，请下载 https://github.com/user-attachments/files/16939944/update-nanokvm.py.zip 解压赋予执行权限后再试
+  > 早期版本应用可能不存在该脚本文件，请下载 https://github.com/sipeed/NanoKVM/blob/main/kvmapp/system/update-nanokvm.py 解压赋予执行权限后再试
 
 ### 关于密码
 
@@ -65,6 +65,17 @@ keywords: NanoKVM, Remote desktop, Lichee, PiKVM, RISCV, tool
   > 若 `VIDevFPS` 为0，则认为NanoKVM无法获取到HDMI输入，排查以下问题：主机是否输出视频信号、HDMI线缆损坏、Cube是否为早期版本，存在接触不良的情况
   > 若 `VIDevFPS` 非0 、`VIFPS` 为0 ，则认为NanoKVM没有正确配置HDMI参数，Cube可以重新插拔HDMI重新自动获取，PCIe可点击`视频`下`重置HDMI`自动获取
   > 查看 `VIInImgWidth` 和 `VIInImgHeight`与实际HDMI分辨率是否一致，若不同，则认为NanoKVM没有自动获取到正确的HDMI参数，按照第4点手动配置分辨率参数
+
+### 主机休眠唤醒后无画面
+
+  1. 检查是否使用廉价的DP转HDMI（无源转换头）；这类转换接口没有完善的唤醒机制，无法通知 NanoKVM 画面已经恢复
+  2. PCIe 版本可以点击重置HDMI按钮来强制重新获取画面
+  3. Cube/Lite版本缺少重置功能，请更换有源DP转换接头
+
+### 内网环境下画面延迟异常严重
+
+  1. 尝试更换交换机或电源
+  2. 若无效,请联系售后
 
 ### OLED上正常显示信息，但无法打开网页
   1. 请强制更新应用
