@@ -164,7 +164,7 @@ TBD
 	</tbody>
 </table>
 
-> \**Note: **128Mbits** Flash version available with the Anniversary Update (Oct. 2025) and for all later releases.*
+> *Note: **128Mbits** Flash version available with the Anniversary Update (Oct. 2025) and for all later releases.*
 
 ### Dock board Parameters
 
