@@ -134,7 +134,7 @@ update:
 		</tr>
 		<tr>
 			<td style="text-align:left">Flash</td>
-			<td style="text-align:left">128Mbits Flash x 1</td>
+			<td style="text-align:left">128/64Mbits Flash x 1</td>
 			<td style="text-align:left">查看 <a href="#burn_flash">烧录到Flash</a></td>
 		</tr>
 		<tr>
@@ -149,6 +149,8 @@ update:
 		</tr>
 	</tbody>
 </table>
+
+> *注意：**128Mbits** Flash 版本将于周年更新（2025 年 10 月）及所有后续版本中提供。*
 
 ### 底板参数
 
@@ -181,34 +183,41 @@ update:
 
 ## 硬件资料
 
-[板卡规格书](https://dl.sipeed.com/shareURL/TANG/Mega_138K_60K/01_Specification)
-[板卡原理图](https://dl.sipeed.com/shareURL/TANG/Mega_138K_60K/02_Schematic)
-[PCB BOM](https://dl.sipeed.com/shareURL/TANG/Mega_138K_60K/03_Designator_drawing)
-[板卡尺寸图](https://dl.sipeed.com/shareURL/TANG/Mega_138K_60K/04_Mechanical_drawing)
-[板卡 3D 模型](https://dl.sipeed.com/shareURL/TANG/Mega_138K_60K/05_3D_file)
-[部分芯片手册](https://dl.sipeed.com/shareURL/TANG/Mega_138K_60K/07_Datasheet)
-[全引脚约束](https://dl.sipeed.com/shareURL/TANG/Mega_138K_60K/08_Misc)
+- ~~[板卡规格书](https://dl.sipeed.com/shareURL/TANG/Mega_138K_60K/01_Specification)~~
+- [板卡原理图](https://dl.sipeed.com/shareURL/TANG/Mega_138K_60K/02_Schematic)
+- [PCB BOM](https://dl.sipeed.com/shareURL/TANG/Mega_138K_60K/03_Designator_drawing)
+- [板卡尺寸图](https://dl.sipeed.com/shareURL/TANG/Mega_138K_60K/04_Mechanical_drawing)
+- [板卡 3D 模型](https://dl.sipeed.com/shareURL/TANG/Mega_138K_60K/05_3D_file)
+- [部分芯片手册](https://dl.sipeed.com/shareURL/TANG/Mega_138K_60K/07_Datasheet)
+- [全引脚约束](https://dl.sipeed.com/shareURL/TANG/Mega_138K_60K/08_Misc)
 
 ## 上手使用
-注意138K目前未被教育版支持，需要下载 V1.9.9 或更新版本的商业版IDE使用。  
-V1.9.10.02版本的Programmer存在严重问题，无法正常下载本产品。 
-如需将码流下载到flash中固化，推荐使用 **exFlash Erase,Program thru GAO-Bridge 5A** 模式。
-Lic 可以在高云官网申请，或者使用Sipeed提供的在线Lic服务，在IDE中选择Float Lic，填写以下信息即可：
-~~~
----Server 01---
-ip: 45.33.107.56
-port: 10559
+注意138K目前**已经**被教育版支持，需要下载 V1.9.11.03 或更新版本的教育版IDE使用。 商业版IDE需要 ≥V1.9.9。
 
----Server 02---
+如需将码流下载到flash中固化，推荐使用 **exFlash Erase,Program thru GAO-Bridge 5A** 模式（需要≥V1.9.11.03），
+或者 **exFlash Erase,Program thru GAO-Bridge Arora V** （需要≥V1.9.12）。
+
+推荐使用单独的 **1.9.12 SP1** Programmer（aka. 云源编程器），在 **云源软件商业版** 的页面可以找到。这个单独的
+Programmer兼容性更好。
+
+如果需要使用商用版IDE，Lic 可以在高云官网申请，或者使用Sipeed提供的在线Lic服务，在IDE中选择Float Lic，填写以下信
+息即可：
+~~~
+
+---Server 01---
 ip: 106.55.34.119
 port: 10559
+
 ~~~
-如果上面的IP不能工作, 尝试使用 "gowinlic.sipeed.com" 域名对应的IP.
 
-安装 IDE [点我](https://wiki.sipeed.com/hardware/zh/tang/common-doc/get_started/install-the-ide.html)
+如果上面的IP不能工作, 尝试使用 "gowinlic.sipeed.com" 域名对应的IP。
+
+### 其他教程
+
+- 安装 IDE [点我](https://wiki.sipeed.com/hardware/zh/tang/common-doc/get_started/install-the-ide.html)
 
 
-例程代码 [github](https://github.com/sipeed/TangMega-138K-example)
+- 例程代码 [github](https://github.com/sipeed/TangMega-138K-example)
 
 ### 其他学习资源
 
@@ -234,7 +243,9 @@ port: 10559
     </tr>
     <tr>
         <td>芯片型号</td>
-        <td>Tang Mega 138K 使用的 FPGA 芯片具体型号是 <b>GW5AST-LV138PG484A</b>  <br>在 IDE 中选择封装型号 <span><b>PBG484A</b></span> & <span><b>Device Version: B</b></span></br></td>
+        <td>Tang Mega 138K 使用的 FPGA 芯片具体型号是 <b>GW5AST-LV138PG484A</b>  <br>在 IDE 中选择封装型号 <span><b>PBG484A</b></span> & <span><b>Device Version: B/C</b></span>
+        <a href="../common-doc/questions#如何分辨器件辨版本">点我查看如何分辨器件版本</a></br></td>
+>
     </tr>
     <tr>
         <td>静电</td>
@@ -294,20 +305,17 @@ Tang Mega 138K 可以在多种场景实现客户不同方面的需要，技术�
 
 <img src="./../assets/FTDI_DEVICE.jpg" alt="flash_mode" width=35%>
 
-4. 通常情况下Windows会在联网后自动安装相应驱动。如果想要手动处理，请前往[相关问题](./../common-doc/questions.md)查看相关内容
+4. 通常情况下Windows会在联网后自动安装相应驱动。如果想要手动处理，请前往[相关问题](./../common-doc/questions)查看相关内容
 
-5. 尝试更新板载下载器的固件，请参考这里 **[【点我跳转】](./../common-doc/update_debugger.md)**
+5. 尝试更新板载下载器的固件，请参考这里 **[【点我跳转】](./../common-doc/update_debugger)**
 
 <img src="./../assets/FTDI_DEVICE.jpg" alt="flash_mode" width=35%>
 
-4. 通常情况下Windows会在联网后自动安装相应驱动。如果想要手动处理，请前往[相关问题](./../common-doc/questions.md)查看相关内容。
+4. 通常情况下Windows会在联网后自动安装相应驱动。如果想要手动处理，请前往[相关问题](./../common-doc/questions)查看相关内容。
 
-### IDE找不到型号GW5AST-LV138PG484A
+### IDE找不到型号GW5AT-LV60PG484A
 
-1. 教育版不支持138K，请更换商业版。如下图所示即为教育版（不支持138K）；
-<img src="../assets/questions/no_model_in_IDE.png" width="35%">
-
-2. IDE版本过老，必须更新IDE ≥ 1.9.9。
+1. IDE版本过老，必须更新商业版IDE ≥ 1.9.9，或教育版IDE ≥ 1.9.11.03。
 
 ### 如何下载到外部 FLASH（固化） {#burn_flash}
 
@@ -321,10 +329,10 @@ Tang Mega 138K 可以在多种场景实现客户不同方面的需要，技术�
 
 ### 烧录后没反应或者引脚现象不对
 
-1. 首先确定IDE选择了正确的型号 **GW5AST-LV138PG484AC1/10**，下图中的每一个参数都要求一致；
+1. 首先确定IDE选择了正确的型号 **GW5AST-LV138PG484AC1/10**，下图中的每一个参数都要求一致（[器件版本](../common-doc/questions#如何分辨器件辨版本)请按照实际选择）；
 
 <img src="./assets/partno_138K.png" alt="device_choose" width=35%>
 
 2. 然后检查自己的代码和对应的仿真波形是否满足要求，使用云源软件（GOWIN IDE）的GAO工具可以进行片上仿真。更多详情请参考GOWIN文档[SUG100](https://cdn.gowinsemi.com.cn/SUG100-4.0_Gowin%E4%BA%91%E6%BA%90%E8%BD%AF%E4%BB%B6%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97.pdf)中关于GAO工具的描述。
 
-### 更多问题及其解决办法前往[相关问题](./../common-doc/questions.md)查看
+### 更多问题及其解决办法前往[相关问题](./../common-doc/questions)查看

@@ -2,6 +2,11 @@
 title: 安装 IDE 
 keywords: Sipeed, Gowin, Tang, Nano, fpga, 矽速
 update:
+  - date: 2025-07-12
+    version: v1.3
+    author: MDLZCOOL
+    content:
+      - 修复器件型号错误
   - date: 2025-04-24
     version: v1.2
     author: Serika
@@ -20,7 +25,12 @@ update:
     content:
       - 根据高云半导体下载链接新页面重新截图
       - 去掉了替换 Programmer 相关操作说明
-
+  - date: 2025-09-25
+    version: v1.1
+    author: Serika
+    content:
+      - 修正了教育版相关的说明和支持的器件型号
+      - 增加了辨识器件版本的方法
 ---
 
 使用高云半导体的 FPGA 需要用到 GOWIN 这个软件，对应的软件文档链接：
@@ -35,7 +45,7 @@ update:
 
 前往 http://www.gowinsemi.com.cn/faq.aspx 下载 IDE。
 
-由于高云半导体的IDE在不断的更新中，下图为 2023 年 05 月 25 日截图
+由于高云半导体的IDE在不断的更新中，下图为 2023 年 09 月 25 日截图
 
 ![IDE](./assets/IDE-1.png)
 
@@ -53,24 +63,111 @@ IDE 分为商业版和教育版：
 
 高云半导体的IDE在不断的更新中，上图为 2023 年 05 月 25 日截图。
 
-| 芯片名称                  | 芯片系列  | 芯片型号   | 适用板卡           |
-| ------------------------ | --------- | --------  | ----------------- |
-| GW1NZ-LV1QN48C6/l5       | GW1NZ     |GW1NZ      | Nano 1K           |
-| GW1NSR-LV4CQN48PC6/l5    | GW1NSR    |GW1NSR-4C  | Nano 4K           |
-| GW1NR-LV9QN88PC6/l5      | GW1NR     |GW1NR-9C   | Nano 9K           |
-| GW2AR-LV18QN88C8/l7      | GW2AR     |GW2AR-18C  | Nano 20K          |
-| GW2A-LV18PG256C8/l7      | GW2A      |GW2A-18C   | Primer 20K        |
-| GW5AT-LV15MG132C1/l0     | GW5AT     |GW2A-15A   | Primer 15K        |
-| GW5A-LV25MG121NC1/l0     | GW5A      |GW5A-25A   | Primer 25K        |
-| GW5AT-LV60PG484AC1/l0    | GW5AT     |GW5AT-60B  | Mega/Console 60K  |
-| GW5AST-LV138PG484AC1/l0  | GW5AST    |GW5AT-138B | Mega/Console 138K |
-| GW5AST-LV138FPG676AC1/l0 | GW5AST    |GW5AT-138B | Mega 138K Pro     |
+目前在售的Tang系列板卡的FPGA型号如下：
 
-上表中的板卡均可在教育版的 IDE 中使用。
+| 芯片名称                  | 芯片系列  | 芯片型号      | 适用板卡           |
+| ------------------------ | --------- | -----------  | ----------------- |
+| GW1NZ-LV1QN48C6/I5       | GW1NZ     |GW1NZ         | Nano 1K           |
+| GW1NSR-LV4CQN48PC6/I5    | GW1NSR    |GW1NSR-4C     | Nano 4K           |
+| GW1NR-LV9QN88PC6/I5      | GW1NR     |GW1NR-9C      | Nano 9K           |
+| GW2AR-LV18QN88C8/I7      | GW2AR     |GW2AR-18C     | Nano 20K          |
+| GW2A-LV18PG256C8/I7      | GW2A      |GW2A-18C      | Primer 20K        |
+| GW5AT-LV15MG132C1/I0     | GW5AT     |GW2A-15A      | Primer 15K        |
+| GW5A-LV25MG121NC1/I0     | GW5A      |GW5A-25A      | Primer 25K        |
+| GW5AT-LV60PG484AC1/I0    | GW5AT     |GW5AT-60B     | NEO/Console 60K   |
+| GW5AST-LV138PG484AC1/I0  | GW5AST    |GW5AST-138B/C | NEO/Console 138K  |
+| GW5AST-LV138FPG676AC1/I0 | GW5AST    |GW5AST-138B/C | Mega 138K Pro     |
 
-对于购买了 Tang Nano （板载 jtag 芯片为 CH552），目前需要使用商业版的 IDE 且需要自行向高云半导体官方申请 license。
+上表中的板卡，除了 **Mega 138K Pro** 以外，均可在教育版的 IDE 中使用。
+
+~~对于购买了 Tang Nano （板载 jtag 芯片为 CH552），目前需要使用商业版的 IDE 且需要自行向高云半导体官方申请 license。~~
+
+**Tang Mega 138K Pro** 目前需要使用商业版的 IDE 且需要自行向高云半导体官方申请 license。
+
+- **注意事项**
+    - 目前138K 的两种封装（PG484A 和 FPG676A）在2025年7月后芯片型号均由GW5AST-138B变更为GW5AST-138C，老的B步进的FPGA原厂已停产。
+    - C步进的138K在IDE中需要选择 **Device Version: C**，不然无法使用SSRAM & 可能会有奇怪的兼容性问题。
+
+- **如何分辨器件辨步进**
+    - FPGA镭雕印记的第三行第五位，如果是字母 **C** 就是**Device Version: C**，如果是字母 **B** 就是**Device Version: B**。
+    - 这个方法适用于所有的 **GOWIN FPGA**。
+
+    <!DOCTYPE html>
+    <html lang="zh-CN">
+    <head>
+      <meta charset="UTF-8">
+      <title>CSS Indentation</title>
+      <style>
+        .indent {
+          margin-left: 0ch; /* wideof 0 characters */
+        }
+      </style>
+    </head>
+    <body>
+      <details class="indent">
+        <summary><font color="#4F84FF">点击此处查看138K-C PG484A器件版本印记</font></summary>
+        <img src="./assets/138K-Ver.C.png">
+      </details>
+    </body>
+    <br>
+    </html>
+
+    <!DOCTYPE html>
+    <html lang="zh-CN">
+    <head>
+      <meta charset="UTF-8">
+      <title>CSS Indentation</title>
+      <style>
+        .indent {
+          margin-left: 0ch; /* wideof 0 characters */
+        }
+      </style>
+    </head>
+    <body>
+      <details class="indent">
+        <summary><font color="#4F84FF">点击此处查看138K-B PG484A器件版本印记</font></summary>
+        <img src="./assets/138K-Ver.B.png">
+      </details>
+    </body>
+    <br>
+    </html>
+
+    <!DOCTYPE html>
+    <html lang="zh-CN">
+    <head>
+      <meta charset="UTF-8">
+      <title>CSS Indentation</title>
+      <style>
+        .indent {
+          margin-left: 0ch; /* wideof 0 characters */
+        }
+      </style>
+    </head>
+    <body>
+      <details class="indent">
+        <summary><font color="#4F84FF">点击此处查看138K-B FPG676A器件版本印记</font></summary>
+        <img src="./assets/138K-Pro-Ver.B.png">
+      </details>
+    </body>
+    <br>
+    </html>
+
 
 ### 开始安装
+
+#### macOS
+
+对于 macOS，只需下载 macOS 版 IDE 的 DMG 镜像，双击 DMG 文件进行挂载，然后将 `GOWIN_IDE.app` 拖放到您的 `Application` 文件夹中。
+
+由于 GOWIN IDE DMG 镜像未签名，它可能会被 macOS Gatekeeper 拦截。要继续，您需要手动允许其运行。出现警告对话框时，请打开“系统设置”→“隐私和安全”，然后点击
+“仍然打开”。
+
+或者，您也可以通过终端使用以下命令移除 DMG 的隔离属性：
+
+```zsh
+xattr -c <path-to-dmg>
+```
+之后，双击 DMG 进行挂载并运行。
 
 #### Linux 系统
 
@@ -133,7 +230,9 @@ Linux 版本 IDE 下载解压后，打开 `IDE/bin` 文件夹，然后可执行�
 
 ### license 相关
 
-教育版本的 IDE 直接运行即可；商业版的 IDE 需要自行前往 [点我](http://www.gowinsemi.com.cn/faq_view.aspx) 申请 license 后才能使用，其中申请license 时 MAC 最好填写本机的以太网网卡地址，避免以后可能因部分设置而导致 MAC 地址改变 license 验证失败。
+教育版本的 IDE 直接运行即可；
+
+商业版的 IDE 需要自行前往 [点我](http://www.gowinsemi.com.cn/faq_view.aspx) 申请 license 后才能使用，其中申请license 时 MAC 最好填写本机的以太网网卡地址，避免以后可能因部分设置而导致 MAC 地址改变 license 验证失败。
 
 ### 验证 license
 
@@ -144,13 +243,24 @@ Linux 版本 IDE 下载解压后，打开 `IDE/bin` 文件夹，然后可执行�
 
 然后就可以开始使用高云半导体 IDE 了。
 
+Lic 可以在高云官网申请，或者使用Sipeed提供的在线Lic服务，在IDE中选择Float Lic，填写以下信息即可：
+~~~
+
+---Server 01---
+ip: 106.55.34.119
+port: 10559
+
+~~~
+
+如果上面的IP不能工作, 尝试使用 "gowinlic.sipeed.com" 域名对应的IP.
+
 ### Programmer
 
 <!-- 在烧录 FPGA 的时候可能因为安装 IDE 时所安装的 Programmer 软件不兼容我们所提供的下载器，因此对于 Windows 用户要求使用我们所提供的特定版本的 Programmer 软件，[点我](https://dl.sipeed.com/shareURL/TANG/programmer)跳转下载即可； -->
 
-如果下载固件失败的话，可以手动下载一下 Programmer 软件来试试 [跳转地址](https://dl.sipeed.com/shareURL/TANG/programmer)
+如果下载固件失败的话，可以手动下载一下 Programmer 软件（云源编程器）来试试 [跳转地址](https://www.gowinsemi.com.cn/software/1)
 
-![programmer_download](./assets/programmer_download.png)
+![programmer_download](./assets/Gowin_Official_programmer_dl.png)
 
 对于 Linux 用户可以用 Openfpgaloader, 查看本页最底部的相关说明即可。
 
@@ -158,13 +268,11 @@ Linux 版本 IDE 下载解压后，打开 `IDE/bin` 文件夹，然后可执行�
 
 License 可以在高云官网申请，或者使用Sipeed提供的在线Lic服务，在IDE中选择Float Lic，填写以下信息即可：
 ~~~
----Server 01---
-ip: 45.33.107.56
-port: 10559
 
----Server 02---
+---Server 01---
 ip: 106.55.34.119
 port: 10559
+
 ~~~
 如果上面的IP不能工作, 尝试使用 "gowinlic.sipeed.com" 域名对应的IP.
 
@@ -192,4 +300,4 @@ port: 10559
 
 ## Burn in linux
 
-[Linux系统下烧录方法](./flash_in_linux.md)
+[Linux系统下烧录方法](./flash_in_linux)

@@ -242,7 +242,9 @@ Example code [github](https://github.com/sipeed/TangMega-138KPro-example)
     </tr>
     <tr>
         <td>Chip Model</td>
-        <td>The specific model of the FPGA chip used by Tang Mega 138K Pro is GW5AST-LV138FPG676A. Please select the package model <span><b>FCPBG676A</b></span> & <span><b>Device Version: B</b></span> in the IDE.</td>
+        <td>The specific model of the FPGA chip used by Tang Mega 138K Pro is GW5AST-LV138FPG676A. Please select the package model <span><b>FCPBG676A</b></span> & <span><b>Device Version: B</b></span> in the IDE.
+        <a href="../common-doc/questions#How-to-Identify-Device-Version">How to identify the device version</a></td>
+    </tr>
     </tr>
     <tr>
         <td>Static Electricity</td>
@@ -286,21 +288,21 @@ Tang Mega 138K can meet different needs of customers in various scenarios. For t
 - Try connecting directly to the computer instead of through a USB HUB.
 - Try using a better quality USB cable.
 - Try another computer to rule out the computer being the problem. 
-- Try [update to the latest firmware](#how-to-update-the-firmware-for-the-onboard-debugger) and try again.
+- Try [update to the latest firmware](#How-to-update-the-firmware-for-the-onboard-debugger) and try again.
 
 ### The UART of the onboard debugger cannot be used
 
 - Try reinstall FTDI drivers.
-- IF the actual baudrate is always four times the set baudrate or the UART continuously outputs garbled characters. try [update to the latest firmware](#how-to-update-the-firmware-for-the-onboard-debugger) and try again.
+- IF the actual baudrate is always four times the set baudrate or the UART continuously outputs garbled characters. try [update to the latest firmware](#How-to-update-the-firmware-for-the-onboard-debugger) and try again.
 
 ### OpenFPGAloader not work
 
-- Try [update to the latest firmware](#how-to-update-the-firmware-for-the-onboard-debugger) and try again.
+- Try [update to the latest firmware](#How-to-update-the-firmware-for-the-onboard-debugger) and try again.
 
 
 ### How to update the firmware for the onboard debugger
 
-- See [Update the debugger](./../common/update_debugger.md) for details.
+- See [Update the debugger](./../common/update_debugger) for details.
 
 ### The power light is not on after the board is powered on
 
@@ -322,4 +324,4 @@ Tang Mega 138K can meet different needs of customers in various scenarios. For t
 2. Then, check your code and the corresponding simulation waveforms to meet the requirements. The GAO tools in GOWIN IDE maybe helpful. For more information, please refer to the GOWIN document [SUG100](https://www.gowinsemi.com/upload/database_doc/1885/document/660bb2366d0b3.pdf)(require login).
 
 
-### For more questions and solutions, go to [Related Questions](./../common-doc/questions.md) to view
+### For more questions and solutions, go to [Related Questions](./../common-doc/questions) to view

@@ -43,28 +43,50 @@ The Standard Edition IDE requires license, which you can get from GOWIN Semicond
 
 The Education Edition IDE is free to use, but supports fewer devices and includes fewer IP cores.
 
-The following figure (updated 2023/05/29) shows the part numbers (PN) supported in the latest Education Edition IDE
+The following figure (updated 2025/09/29) shows the part numbers (PN) supported in the latest Education Edition IDE
 
 ![educational_device](../assets/educational_device.png)
 
 The chips and boards in the following table can be synthesized and programmed via Educational IDE.
 
-| Chip full name           |Chip Series|Chip model | Board             |
-| ------------------------ | --------- | --------  | ----------------- |
-| GW1NZ-LV1QN48C6/l5       | GW1NZ     |GW1NZ      | Nano 1K           |
-| GW1NSR-LV4CQN48PC6/l5    | GW1NSR    |GW1NSR-4C  | Nano 4K           |
-| GW1NR-LV9QN88PC6/l5      | GW1NR     |GW1NR-9C   | Nano 9K           |
-| GW2AR-LV18QN88C8/l7      | GW2AR     |GW2AR-18C  | Nano 20K          |
-| GW2A-LV18PG256C8/l7      | GW2A      |GW2A-18C   | Primer 20K        |
-| GW5AT-LV15MG132C1/l0     | GW5AT     |GW2A-15A   | Primer 15K        |
-| GW5A-LV25MG121NC1/l0     | GW5A      |GW5A-25A   | Primer 25K        |
-| GW5AT-LV60PG484AC1/l0    | GW5AT     |GW5AT-60B  | Mega/Console 60K  |
-| GW5AST-LV138PG484AC1/l0  | GW5AST    |GW5AT-138B | Mega/Console 138K |
-| GW5AST-LV138FPG676AC1/l0 | GW5AST    |GW5AT-138B | Mega 138K Pro     |
+The FPGA models of the Tang series boards currently on sale are as follows:
 
-For those who want to use Tang Nano (Onboard jtag is CH552), you'll need to use the Standard Edition IDE and apply for a license from GOWIN Semiconductor Corp.
+| Chip full name           |Chip Series|Chip model   | Board             |
+| ------------------------ | --------- | ----------- | ----------------- |
+| GW1NZ-LV1QN48C6/l5       | GW1NZ     |GW1NZ        | Nano 1K           |
+| GW1NSR-LV4CQN48PC6/l5    | GW1NSR    |GW1NSR-4C    | Nano 4K           |
+| GW1NR-LV9QN88PC6/l5      | GW1NR     |GW1NR-9C     | Nano 9K           |
+| GW2AR-LV18QN88C8/l7      | GW2AR     |GW2AR-18C    | Nano 20K          |
+| GW2A-LV18PG256C8/l7      | GW2A      |GW2A-18C     | Primer 20K        |
+| GW5AT-LV15MG132C1/l0     | GW5AT     |GW2A-15A     | Primer 15K        |
+| GW5A-LV25MG121NC1/l0     | GW5A      |GW5A-25A     | Primer 25K        |
+| GW5AT-LV60PG484AC1/l0    | GW5AT     |GW5AT-60B    | Mega/Console 60K  |
+| GW5AST-LV138PG484AC1/l0  | GW5AST    |GW5AT-138B/C | Mega/Console 138K |
+| GW5AST-LV138FPG676AC1/l0 | GW5AST    |GW5AT-138B/C | Mega 138K Pro     |
+
+All boards listed above, except the **Mega 138K Pro**, can be used with the Education Edition IDE.
+
+~~For those who want to use Tang Nano (Onboard jtag is CH552), you'll need to use the Standard Edition IDE and apply for a license from GOWIN Semiconductor Corp.~~
+
+>- **Notes**  
+>  - Starting from July 2025, the chip model for both 138K packages (PG484A and FPG676A) will change from **GW5AST-138B** to **GW5AST-138C**. The older B-version FPGA has been discontinued by the manufacturer.  
+>  - For the C-Version 138K, you must select **Device Version: C** in the IDE; otherwise, SSRAM cannot be used and unexpected compatibiliHow to Identify Device Version.
+> - [**Click Here**](../questions#How-to-Identify-Device-Version) to see how to identify the **device version**.
 
 ### Install
+
+#### macOS
+
+For macOS, just download the DMG image of macOS edition IDE, double click the DMG file to mount it, then drag the `GOWIN_IDE.app` to your `Application` Folder.
+
+Because the GOWIN IDE DMG image is not signed, it may be blocked by macOS Gatekeeper. To proceed, you will need to manually allow it to run. When the warning dialog appears, open System Settings → Privacy & Security, then click “Open Anyway.”
+
+Alternatively, you can remove the quarantine attribute from the DMG via Terminal with:
+
+```zsh
+xattr -c <path-to-dmg>
+```
+After that, double‑click the DMG to mount and run it.
 
 #### Linux OS
 
@@ -81,7 +103,7 @@ Making sure to install all components.
     <img src="../../../../zh/tang/common-doc/get_started/assets/IDE-4.png" width=45% alt="install-programmer">
 </div>
 
-In the second picture, Gowin is the IDE which we will use to generate the bitstream file, and the Gowin programmer is what we use to burn it to the fpga. But the programmer installed with IDE does not match the USB-Jtag we provide. So we suggest you visit [Tang questions](./../common-doc/questions.md) to see how to replace programmer software with one will work better.
+In the second picture, Gowin is the IDE which we will use to generate the bitstream file, and the Gowin programmer is what we use to burn it to the fpga. But the programmer installed with IDE does not match the USB-Jtag we provide. So we suggest you visit [Tang questions](./../common-doc/questions) to see how to replace programmer software with one will work better.
 
 <!-- so we recommand you use this [programmer](https://dl.sipeed.com/shareURL/TANG/programmer) to avoid situations such as failing downloading bitstream file. -->
 
@@ -100,13 +122,11 @@ After installing everything there will be an IDE icon, like the one below, on yo
 License can be applied on the Gowin official website, or you can use the online Lic service provided by Sipeed. In the IDE, select Float Lic and fill in the following information:
 
 ~~~
----Server 01---
-ip: 45.33.107.56
-port: 10559
 
----Server 02---
+---Server 01---
 ip: 106.55.34.119
 port: 10559
+
 ~~~
 
 if the ip not work, try use "gowinlic.sipeed.com" domain's IP.
@@ -152,4 +172,4 @@ We suggest you delete the Programmer folder installed with the IDE and use this 
 
 ## Burn in linux
 
-[Click here](../flash-in-linux.md) is how to burn the development board in linux.
+[Click here](../flash-in-linux) is how to burn the development board in linux.

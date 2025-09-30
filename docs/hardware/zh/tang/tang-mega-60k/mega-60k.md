@@ -13,13 +13,24 @@ update:
     content:
       - 修正PCIe部分总线宽度的描述
       - 更新之前TBD的内容  
+  - date: 2025-09-25
+    version: v0.3
+    author: Serika
+    content:
+      - 移除了无法使用的lic server IP地址
+      - 移除了错误的关于AE350的描述  
+      - 移除了错误的关于MIPI C-PHY的描述
+      - 修正了GT收发器速率的描述
+      - 修正了DDR3速率的描述
+      - 修正了Flash容量的描述
+      - 修正了PCIe通道的宽度描述
 ---
 
 ## 产品概述
 
-**Tang Mega 60K** 使用 22nm 制程 **GW5AT-LV60P484A** FPGA 芯片，具有 59904 个查找表单元和 118 个 DSP 单元。含有四个速度范围在 270Mbps ~ 6.6Gbps 高速收发器，适合用于 PCIe 等高速口传递数据。此外，芯片含有硬核 PCIe 和 MIPI C/D PHY控制器，在使用 PCIe 的时候消耗更好的资源，并且得到更佳的性能。适用于高速通信、协议转换、高性能计算等场合。
+**Tang Mega 60K** 使用 22nm 制程 **GW5AT-LV60P484A** FPGA 芯片，具有 59904 个查找表单元和 118 个 DSP 单元。含有四个速度范围在 270Mbps ~ 8.8Gbps 高速收发器，适合用于 PCIe 等高速口传递数据。此外，芯片含有硬核 PCIe 和 MIPI D-PHY控制器，在使用 PCIe 的时候消耗更好的资源，并且得到更佳的性能。适用于高速通信、协议转换、高性能计算等场合。
 
-60K Dock 和 138K Dock共用一套底板（TANG MEGA NEO），因此两者的外设完全相同。相比138K Dock，60K Dock具有较少的逻辑资源和更低的价格，并且包含MIPI C/D PHY 收发器。这不仅能进一步降低高速通讯的成本，还带来了更好的影像处理系统集成的兼容性。
+60K Dock 和 138K Dock共用一套底板（TANG MEGA NEO），因此两者的外设完全相同。相比138K Dock，60K Dock具有较少的逻辑资源和更低的价格，并且包含MIPI D-PHY 收发器（138K仅有MIPI D-PHY RX）。这不仅能进一步降低高速通讯的成本，还带来了更好的影像处理系统集成的兼容性。
 
 淘宝购买链接：[点我](https://item.taobao.com/item.htm?id=740536508140)
 
@@ -28,18 +39,30 @@ update:
 
 - 中等容量 LUT4
 - 512MiB DDR3 内存
-- PCIe2.0 x 4
+- PCIe2.0 x 1*
 - USB3.0 x 1(5Gbps)
-- MIPI C/D PHY收发器
+- MIPI D-PHY收发器
 - HDMI TX/RX x 1
 - 千兆以太网 x 1
 - 板载3.7V锂离子电池（1S）充放电管理电路
+
+<a id="target-line"></a>
+> **注意**：由于 GW5AT-LV60 和 GW5AST-LV138 的 SERDES 部分引脚排列不完全相同，因此本底板（NEO DOCK）
+最初是为 GW5AST-LV138 设计​​的。因此，对于 GW5AT-LV60，虽然 PCIe AIC 金手指已扇出所有 SERDES 通道，
+但由于 GW5AT-LV60 上的 1 号通道和 3 号通道互换，PCIe 目前只能工作在 x1 模式下。
+
+> *此问题可能在未来通过 **高云** 软件更新得到修复。*
+
+淘宝购买链接：[点我](https://item.taobao.com/item.htm?id=740536508140)
 
 ## 产品外观
 
 <img src="./assets/mega_60k_top.png" width="45%">
 
 ## 硬件参数
+
+### 硬件框图
+TBD
 
 ### 核心板参数
 
@@ -100,11 +123,11 @@ update:
                     </tr>
                     <tr>
                         <td>Transceivers 速率</td>
-                        <td>270Mbps-12.5Gbps</td>
+                        <td>270Mbps-8.8Gbps</td>
                     </tr>
                     <tr>
                         <td>PCIE 硬核</td>
-                        <td>1个<br>速度可选 x1, x2, x4 PCIe 2.0</td>
+                        <td>1个<br>速度可选 x1, <s>x2, x4</s> PCIe 2.0 <a href="#target-line">（原因）</a></td>
                     </tr>
                     <tr>
                         <td>LVDS (Gbps)</td>
@@ -112,7 +135,7 @@ update:
                     </tr>
                     <tr>
                         <td>DDR3 (Mbps)</td>
-                        <td>1333</td>
+                        <td>1100</td>
                     </tr>
                     <tr>
                         <td>MIPI D-PHY硬核</td>
@@ -120,7 +143,7 @@ update:
                     </tr>
                     <tr>
                         <td>硬核处理器</td>
-                        <td>RiscV AE350_SOC</td>
+                        <td>None</td>
                     </tr>
                     <tr>
                         <td>ADC</td>
@@ -140,7 +163,7 @@ update:
 		</tr>
 		<tr>
 			<td style="text-align:left">Flash</td>
-			<td style="text-align:left">128Mbits Flash x 1</td>
+			<td style="text-align:left">64Mbits Flash x 1</td>
 			<td style="text-align:left">查看 <a href="#burn_flash">烧录到Flash</a></td>
 		</tr>
 		<tr>
@@ -198,20 +221,18 @@ update:
 
 
 ## 上手使用
-注意60K目前未被教育版支持，需要下载 V1.9.10.01 或更新版本的商业版IDE使用。 
-V1.9.10.02版本的Programmer存在严重问题，无法正常下载本产品。 
-如需将码流下载到flash中固化，推荐使用 **exFlash Erase,Program thru GAO-Bridge 5A** 模式（需要≥V1.9.10.03）。
-Lic 可以在高云官网申请，或者使用Sipeed提供的在线Lic服务，在IDE中选择Float Lic，填写以下信息即可：
+注意60K目前已经被教育版支持，需要下载 V1.9.11.03 或更新版本的教育版IDE使用。 商业版IDE需要 ≥V1.9.10.03。
+如需将码流下载到flash中固化，推荐使用 **exFlash Erase,Program thru GAO-Bridge 5A** 模式（需要≥V1.9.10.03），或者 **exFlash Erase,Program thru GAO-Bridge Arora V** （需要≥V1.9.12）。
+推荐使用单独的 **1.9.12 SP1** Programmer（aka. 云源编程器），在 **云源软件商业版** 的页面可以找到。这个单独的Programmer兼容性更好。
+如果需要使用商用版IDE，Lic 可以在高云官网申请，或者使用Sipeed提供的在线Lic服务，在IDE中选择Float Lic，填写以下信息即可：
 ~~~
----Server 01---
-ip: 45.33.107.56
-port: 10559
 
----Server 02---
+---Server 01---
 ip: 106.55.34.119
 port: 10559
+
 ~~~
-如果上面的IP不能工作, 尝试使用 "gowinlic.sipeed.com" 域名对应的IP.
+如果上面的IP不能工作, 尝试使用 "gowinlic.sipeed.com" 域名对应的IP。
 
 安装 IDE [点我](https://wiki.sipeed.com/hardware/zh/tang/common-doc/get_started/install-the-ide.html)
 
@@ -301,22 +322,19 @@ Tang Mega 60K 可以在多种场景实现客户不同方面的需要，技术支
 
 <img src="./../assets/FTDI_DEVICE.jpg" alt="flash_mode" width=35%>
 
-4. 通常情况下Windows会在联网后自动安装相应驱动。如果想要手动处理，请前往[相关问题](./../common-doc/questions.md)查看相关内容
+4. 通常情况下Windows会在联网后自动安装相应驱动。如果想要手动处理，请前往[相关问题](./../common-doc/questions)查看相关内容
 
-5. 尝试更新板载下载器的固件，请参考这里 **[【点我跳转】](./../common-doc/update_debugger.md)**
+5. 尝试更新板载下载器的固件，请参考这里 **[【点我跳转】](./../common-doc/update_debugger)**
 
 <img src="./../assets/FTDI_DEVICE.jpg" alt="flash_mode" width=35%>
 
-4. 通常情况下Windows会在联网后自动安装相应驱动。如果想要手动处理，请前往[相关问题](./../common-doc/questions.md)查看相关内容。
+4. 通常情况下Windows会在联网后自动安装相应驱动。如果想要手动处理，请前往[相关问题](./../common-doc/questions)查看相关内容。
 
 5. 
 
 ### IDE找不到型号GW5AT-LV60PG484A
 
-1. 教育版不支持60K，请更换商业版。如下图所示即为教育版（不支持60K）；
-<img src="../assets/questions/no_model_in_IDE.png" width="35%">
-
-2. IDE版本过老，必须更新IDE ≥ 1.9.10.01。
+1. IDE版本过老，必须更新商业版IDE ≥ 1.9.10.03，或教育版IDE ≥ 1.9.11.03。
 
 ### 如何下载到外部 FLASH（固化） {#burn_flash}
 
@@ -336,4 +354,4 @@ Tang Mega 60K 可以在多种场景实现客户不同方面的需要，技术支
 
 2. 然后检查自己的代码和对应的仿真波形是否满足要求，使用云源软件（GOWIN IDE）的GAO工具可以进行片上仿真。更多详情请参考GOWIN文档[SUG100](https://cdn.gowinsemi.com.cn/SUG100-4.0_Gowin%E4%BA%91%E6%BA%90%E8%BD%AF%E4%BB%B6%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97.pdf)中关于GAO工具的描述。
 
-### 更多问题及其解决办法前往[相关问题](./../common-doc/questions.md)查看
+### 更多问题及其解决办法前往[相关问题](./../common-doc/questions)查看

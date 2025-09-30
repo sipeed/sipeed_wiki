@@ -13,7 +13,7 @@ update:
 
 - Release Date: Late-April 2025  
 - ~~Pre-order Link: [**Click Here**](https://sipeed.com/tangconsole)~~ (Pre-order has ended, retail version coming soon)  
-- **Development Board Documentation:** [**Click Here**](./mega-console.md)  
+- **Development Board Documentation:** [**Click Here**](./mega-console)  
 - **Tang Core** Developer Documentation: [**Click Here**](https://nand2mario.github.io/tangcore/)  
 
 ## Board Features  
@@ -21,7 +21,7 @@ update:
   <summary><font color="#4F84FF">Click for Details</font></summary>  
   <br>
 
-- Compatible with multiple SOMs (**[Mega 138k](./../tang-mega-138k/mega-138k.md)** & **[Mega 60k](./../tang-mega-60k/mega-60k.md)**)  
+- Compatible with multiple SOMs (**[Mega 138k](./../tang-mega-138k/mega-138k)** & **[Mega 60k](./../tang-mega-60k/mega-60k)**)  
 
 - Supports multiple [**Tang Core**](https://github.com/nand2mario/tangcore) emulator cores:  
     - **NESTang** - Nintendo Entertainment System  
@@ -41,7 +41,7 @@ update:
     - Can be used as an FPGA debugger  
 - Two onboard USB-A ports for direct connection with compatible USB controllers  
 
-- Supports DS2 controllers (requires [**PMOD_DS2x2**](../tang-PMOD/FPGA_PMOD.md#pmod_ds2x2))  
+- Supports DS2 controllers (requires [**PMOD_DS2x2**](../tang-PMOD/FPGA_PMOD#pmod_ds2x2))  
 
 </details>  
 
@@ -82,12 +82,12 @@ update:
   ### SOM Specifications  
 
   Please refer to the following links based on the installed SOM:  
-  - **[Tang Mega 138k](./../tang-mega-138k/mega-138k.md#SOM-Specifications)**  
-  - **[Tang Mega 60k](./../tang-mega-60k/mega-60k.md#SOM-Specifications)**  
+  - **[Tang Mega 138k](./../tang-mega-138k/mega-138k#SOM-Specifications)**  
+  - **[Tang Mega 60k](./../tang-mega-60k/mega-60k#SOM-Specifications)**  
 
   ### Baseboard Specifications  
 
-  - Please refer to the **Development Board Documentation:** [**Click Here**](./mega-console.md#Baseboard-Specifications)  
+  - Please refer to the **Development Board Documentation:** [**Click Here**](./mega-console#Baseboard-Specifications)  
 
 </details>  
 
@@ -112,7 +112,7 @@ Using the **Tang Retro Console** as an example, here’s how to play games with 
 
    - For users who purchased any Tang Console bundles, this step is not necessary, as it has been pre-installed at the factory.  
 
-   - If firmware updates are needed in the future, please refer to the guide here: [**Click Here**](../common-doc/update_debugger.md#additional-notes-for-tang-core)  
+   - If firmware updates are needed in the future, please refer to the guide here: [**Click Here**](../common-doc/update_debugger#additional-notes-for-tang-core)  
 
 ```
   📁 /                
@@ -123,7 +123,7 @@ Using the **Tang Retro Console** as an example, here’s how to play games with 
   ├── 📁 snes/         # .smc/.sfc files
   ├── 📁 gba/
   │    └── 🗎 gba_bios.bin  # GBA BIOS
-  ├── 📁 genesis/      # .bin/.md files
+  ├── 📁 genesis/      # .bin/ files
   └── 📁 sms/          # .sms files
   
 ```

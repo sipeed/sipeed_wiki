@@ -251,7 +251,7 @@ Here is a brief step-by-step guide:
     <summary><font color="#4F84FF">Click for details</font></summary>
     <br>
   
-  For development boards that support [**Tang Core**](https://nand2mario.github.io/tangcore/) (such as the [Tang Console](../tang-console/mega-console.md)), the proper execution of [**Tang Core**](https://nand2mario.github.io/tangcore/) functionality requires both the [**Debugger Firmware**](#latest-firmware) and the secondary boot [**TangCore firmware for BL616**](https://github.com/nand2mario/firmware-bl616/).
+  For development boards that support [**Tang Core**](https://nand2mario.github.io/tangcore/) (such as the [Tang Console](../tang-console/mega-console)), the proper execution of [**Tang Core**](https://nand2mario.github.io/tangcore/) functionality requires both the [**Debugger Firmware**](#latest-firmware) and the secondary boot [**TangCore firmware for BL616**](https://github.com/nand2mario/firmware-bl616/).
 
   The [**Debugger Firmware**](#latest-firmware) can be found at the bottom of this page, while the secondary boot [**TangCore firmware for BL616**](https://github.com/nand2mario/firmware-bl616/) is currently maintained by **[nand2mario](https://github.com/nand2mario)**. The latest version is available in the [**TangCore Release Package**](https://github.com/nand2mario/tangcore/releases).
 

@@ -16,23 +16,21 @@ update:
 
 ## Overview
 
-  **Tang Console** is an another dock board for **[Tang Mega 138k](./../tang-mega-138k/mega-138k.md) SOM** and **[Tang Mega 60k](./../tang-mega-60k/mega-60k.md) SOM**. It is designed to be small and compact, and is mechanically compatible with the **Raspberry Pi 5** **`PCIe HAT`**. In addition, it also contains two 5Gbps USB3 device interfaces and two **2x20-pin header connectors**, two **PMOD connectors**. It can meet the needs of IO expansion and high-speed communication at the same time.
+  **Tang Console** is an another dock board for **[Tang Mega 138k](./../tang-mega-138k/mega-138k) SOM** and **[Tang Mega 60k](./../tang-mega-60k/mega-60k) SOM**. It is designed to be small and compact, and is mechanically compatible with the **Raspberry Pi 5** **`PCIe HAT`**. In addition, it also contains two 5Gbps USB3 device interfaces and two **2x20-pin header connectors**, two **PMOD connectors**. It can meet the needs of IO expansion and high-speed communication at the same time.
   
   At the same time, it is also specially designed for retro games. Maybe you can turn it into a retro game console, or even a handheld, whatever you like.
 
   - Date to Release: Late April , 2025
 
-~~  - Pre-sale link: [Click me](https://sipeed.com/tangconsole)~~ (Pre-order has ended, please look forward to the retail version)
-
-  - **For Retro Console :** [**Click Here**](./retro-console.md)
+  - **For Retro Console :** [**Click Here**](./retro-console)
 
 ## Board Features
 
   Note: This page mainly introduces the board from the perspective of the **development board**. 
   
-  For the **Retro Console**, please [**Click here**](./retro-console.md).
+  For the **Retro Console**, please [**Click here**](./retro-console).
 
-  - Compatible with various SOMs (**[Mega 138k](./../tang-mega-138k/mega-138k.md)** & **[Mega 60k](./../tang-mega-60k/mega-60k.md)**)
+  - Compatible with various SOMs (**[Mega 138k](./../tang-mega-138k/mega-138k)** & **[Mega 60k](./../tang-mega-60k/mega-60k)**)
   - More compact size, more budget choice
   - ~~Compatible with Raspberry Pi 5 PCIe HAT~~ 
     
@@ -66,8 +64,8 @@ update:
 ### SOM Board Parameters
 
 Please refer to the link below:
-  - **[Tang Mega 138k](./../tang-mega-138k/mega-138k.md#hardware-parameters) SOM** 
-  -  **[Tang Mega 60k](./../tang-mega-60k/mega-60k.md#hardware-parameters) SOM**
+  - **[Tang Mega 138k](./../tang-mega-138k/mega-138k#hardware-parameters) SOM** 
+  -  **[Tang Mega 60k](./../tang-mega-60k/mega-60k#hardware-parameters) SOM**
 
 
 ### Dock board Parameters
@@ -233,7 +231,7 @@ Tang Console can meet different needs of customers in various scenarios. For tec
   <summary><font color="#4F84FF">Click for details</font></summary>
   <br>
 
-  - See [Update the debugger](./../common/update_debugger.md) for details.
+  - See [Update the debugger](./../common/update_debugger) for details.
 
 </details>
 
@@ -292,9 +290,9 @@ Tang Console can meet different needs of customers in various scenarios. For tec
 
   Record **Tang Console** Known PCB issues in each version
 
-  If you find a design error, please leave a message on the **errata page** [**Click here**](./errata-console.md)
+  If you find a design error, please leave a message on the **errata page** [**Click here**](./errata-console)
 
 </details>
 </br>
 
-### For more questions and solutions, go to [Related Questions](./../common-doc/questions.md) to view
+### For more questions and solutions, go to [Related Questions](./../common-doc/questions) to view

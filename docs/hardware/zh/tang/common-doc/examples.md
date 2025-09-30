@@ -19,21 +19,21 @@ update:
 
 Github: https://github.com/sipeed/Tang-Nano-examples
 
-- [点灯例程](./../Tang-Nano/examples/1_led.md)
-- [驱屏教程](./../Tang-Nano/examples/2_lcd.md)
+- [点灯例程](./../Tang-Nano/examples/1_led)
+- [驱屏教程](./../Tang-Nano/examples/2_lcd)
 
 ## Tang Nano 1K
 
 Github: https://github.com/sipeed/TangNano-1K-examples
 
-- [点灯例程](./../Tang-Nano-1K/examples/LED.md)
-- [驱屏教程](./../Tang-Nano-1K/examples/LCD.md)
+- [点灯例程](./../Tang-Nano-1K/examples/LED)
+- [驱屏教程](./../Tang-Nano-1K/examples/LCD)
 
 ## Tang Nano 4K
 
 Github: https://github.com/sipeed/TangNano-4K-example
 
-- [点灯例程](./../Tang-Nano-4K/examples/LED.md) （快速上手）
+- [点灯例程](./../Tang-Nano-4K/examples/LED) （快速上手）
 - [按键标志点灯](https://github.com/sipeed/TangNano-4K-example/tree/main/key_blink)(github)
 - [HDMI显示工程](https://github.com/sipeed/TangNano-4K-example/tree/main/hdmi_720p)(github)
 - [HDMI 显示摄像头内容](https://github.com/sipeed/TangNano-4K-example/tree/main/camera_hdmi)(github)
@@ -48,11 +48,11 @@ Github: https://github.com/sipeed/TangNano-4K-example
 
 Github: https://github.com/sipeed/TangNano-9K-example
 
-- [点灯例程](./../Tang-Nano-9K/examples/LED.md)
-- [驱RGB屏教程](./../Tang-Nano-9K/examples/LCD.md)
-- [PicoRV 在9K上运行的示例](./../Tang-Nano-9K/examples/picorv.md)
-- [FPGA驱动1.14 SPI屏幕工程](./../Tang-Nano-9K/examples/spi_lcd.md)
-- HDMI 示例：参考 [PicoRV 在9K上运行的示例](./../Tang-Nano-9K/examples/picorv.md)
+- [点灯例程](./../Tang-Nano-9K/examples/LED)
+- [驱RGB屏教程](./../Tang-Nano-9K/examples/LCD)
+- [PicoRV 在9K上运行的示例](./../Tang-Nano-9K/examples/picorv)
+- [FPGA驱动1.14 SPI屏幕工程](./../Tang-Nano-9K/examples/spi_lcd)
+- HDMI 示例：参考 [PicoRV 在9K上运行的示例](./../Tang-Nano-9K/examples/picorv)
 - litex 在 9K 支持：https://github.com/litex-hub/litex-boards
 
 [Lushay Labs](https://lushaylabs.com/) 有意做以太网、图形卡或者双核处理器的 FPGA 开发教程计划，有意者可以阅读本文末尾处他们提供的 [部分教程](#lushay-labs) 来了解他们。有兴趣参与项目的话可以发邮件到 `contact@lushaylabs.com` 
