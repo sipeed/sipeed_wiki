@@ -15,7 +15,10 @@ update:
 LicheePi3A has been supported by the official bianbu image of Spacemit
 You can go to the official mirror site of Spacemit https://archive.spacemit.com/image/k1/version/bianbu/ ）Download, please note to download images v1.0.11 or higher
 
-
+### Debian 13 (trixie)
+![debian](./../../../../zh/lichee/th1520/lpi4a/assets/images/debian.png)
+LicheePi3A image from Spacemit
+Spacemit image: https://archive.spacemit.com/image/k1/version/debian/
 
 ### Fedora 
 ![fedora](./assets/images/fedora.png)
