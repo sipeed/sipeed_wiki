@@ -25,8 +25,8 @@ Tang Nano series development boards are designed based on [Gowin](https://www.go
 
 ## Preparation
 
-- [Install IDE](./install-the-ide.md)
+- [Install IDE](./install-the-ide)
 
 ## Questions
 
-- [Questions&Answers](./programmer.md)
+- [Questions&Answers](./programmer)

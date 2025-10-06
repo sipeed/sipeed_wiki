@@ -22,14 +22,14 @@ update:
 ## 产品概述
 
 - 发售日期：2025年4月中旬
-- ~~预购链接：[点我](https://sipeed.com/tangconsole)~~（预购已结束，敬请期待零售版本）
-- **游戏机相关内容：**[**点我**](./retro-console.md)
+- **游戏机相关内容：**[**点我**](./retro-console)
+- 淘宝购买链接：[点我](https://item.taobao.com/item.htm?id=740536508140)
 
 ## 板卡特点
 
-注意，本页面主要以开发板视角介绍板卡，如需了解作为复古游戏机的**Retro Conssole**，请[**【移步这里】**](./retro-console.md)
+注意，本页面主要以开发板视角介绍板卡，如需了解作为复古游戏机的**Retro Conssole**，请[**【移步这里】**](./retro-console)
 
-  - 兼容多种SOM (**[Mega 138k](./../tang-mega-138k/mega-138k.md)** & **[Mega 60k](./../*tang-mega-60k/mega-60k.md)**)
+  - 兼容多种SOM (**[Mega 138k](./../tang-mega-138k/mega-138k)** & **[Mega 60k](./../*tang-mega-60k/mega-60k)**)
   - 更小更紧凑更经济
   - 兼容 **RPi 5 PCIe FPC**（然而由於PCIe硬核和arm的PCIe控制器存在兼容性问题，需要在未来的软体更新中解决。）
   - **PCIe Gen2/3 x 1** FPC连接器
@@ -64,8 +64,8 @@ update:
 ### 核心板（SOM）参数
 
 请根据实际安装的SOM，参考如下连接：
-- **[Tang Mega 138k](./../tang-mega-138k/mega-138k.md#核心板参数) 核心板**
-- **[Tang Mega 60k](./../tang-mega-60k/mega-60k.md#核心板参数) 核心板**
+- **[Tang Mega 138k](./../tang-mega-138k/mega-138k#核心板参数) 核心板**
+- **[Tang Mega 60k](./../tang-mega-60k/mega-60k#核心板参数) 核心板**
 
 ### 底板参数
 
@@ -111,6 +111,7 @@ ip: 106.55.34.119
 port: 10559
 
 ~~~
+
 如果上面的IP不能工作, 尝试使用 "gowinlic.sipeed.com" 域名对应的IP.
 
 
@@ -191,9 +192,9 @@ Tang Console 可以在多种场景实现客户不同方面的需要，技术支�
 
     <img src="./../assets/FTDI_DEVICE.jpg" alt="flash_mode" width=35%>
 
-4. 通常情况下Windows会在联网后自动安装相应驱动。如果想要手动处理，请前往[相关问题](./../common-doc/questions.md)查看相关内容
+4. 通常情况下Windows会在联网后自动安装相应驱动。如果想要手动处理，请前往[相关问题](./../common-doc/questions)查看相关内容
 
-5. 尝试更新板载下载器的固件，请参考这里 **[【点我跳转】](./../common-doc/update_debugger.md)**
+5. 尝试更新板载下载器的固件，请参考这里 **[【点我跳转】](./../common-doc/update_debugger)**
 
 </details>
 
@@ -246,9 +247,9 @@ Tang Console 可以在多种场景实现客户不同方面的需要，技术支�
 
   记录 **Tang Console** 各版本中已知的PCB问题
 
-  如果您发现了设计的错误，请在**勘误页面**留言  [**点我前往**](./errata-console.md)
+  如果您发现了设计的错误，请在**勘误页面**留言  [**点我前往**](./errata-console)
 
 </details>
 </br>
 
-### 更多问题及其解决办法前往[相关问题](./../common-doc/questions.md)查看
+### 更多问题及其解决办法前往[相关问题](./../common-doc/questions)查看

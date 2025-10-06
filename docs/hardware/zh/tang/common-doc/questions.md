@@ -4,14 +4,7 @@ tags: Tang
 keywords: Programmer
 desc: 
 update:
-  - date: 2023-05-18
-    version: v0.5
-    author: wonder
-    content:
-      - 补充 programmer 相关的说明
----
-
-  <!-- - date: 2022-06-29
+  - date: 2022-06-29
     version: v0.1
     author: wonder
     content:
@@ -31,16 +24,54 @@ update:
     author: wonder
     content:
       - 补充 programmer 相关的说明
-    - date: 2025-02-18
+  - date: 2025-02-18
     version: v0.5
     author: Serika
     content:
       - Primer系列和MEGA系列 相关的说明
       - 增加更新板载调试器的内容跳转
--->
+  - date: 2023-05-18
+    version: v0.5
+    author: wonder
+    content:
+      - 补充 programmer 相关的说明
+  - date: 2023-09-30
+    version: v0.6
+    author: serika
+    content:
+      - 补充 Device Version 相关的说明
+---
 
 
 这里汇总一些常见问题。
+
+## 器件相关
+
+### 如何分辨器件辨版本
+
+  - FPGA镭雕印记的第三行第五位，如果是字母 **A** 就是**Device Version: A**，如果是字母 **B** 就是**Device 
+Version: B** ，如果是字母 **C** 就是**Device Version: C**，以此类推。
+  - 这个方法适用于所有的 **GOWIN FPGA**，下图以138K Pro的 **GW5AST** 为例说明器件步进的标记位置。
+
+    <!DOCTYPE html>
+    <html lang="zh-CN">
+    <head>
+      <meta charset="UTF-8">
+      <title>CSS Indentation</title>
+      <style>
+        .indent {
+          margin-left: 0ch; /* wideof 0 characters */
+        }
+      </style>
+    </head>
+    <body>
+      <details class="indent">
+        <summary><font color="#4F84FF">点击此处查看138K-B FPG676A器件版本印记</font></summary>
+        <img src="./get_started/assets/138K-Pro-Ver.B.png">
+      </details>
+    </body>
+    <br>
+    </html>
 
 ## Programmer 相关
 
@@ -96,7 +127,7 @@ update:
 
 0. 感叹号可能是单一的 `USB Serial Conveter A` 或 `B`，也可能二者都有；
 1. 请尝试上方所有的建议，卸载并重新安装FTDI驱动；
-2. 如果上述方法都没有用，请尝试更新板载调试器的固件，参考[这篇指南](./update_debugger.md)。
+2. 如果上述方法都没有用，请尝试更新板载调试器的固件，参考[这篇指南](./update_debugger)。
 
 ### 下载频率
 
@@ -456,7 +487,7 @@ GAO 是高云半导体在线逻辑分析仪（Gowin Analyzer Oscilloscope）。�
 
 ### 无法通过OpenFPGA Loader下载码流
 
--  若通过GOWIN Programmer能正常下载，请尝试更新板载调试器的固件，参考[这篇指南](./update_debugger.md)；
+-  若通过GOWIN Programmer能正常下载，请尝试更新板载调试器的固件，参考[这篇指南](./update_debugger)；
 -  若通过GOWIN Programmer也无法正常下载，请参考Programmer的[相关问题](#programmer-相关)进行排查。
 
 ### OpenFPGA Loader

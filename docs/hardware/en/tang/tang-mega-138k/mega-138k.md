@@ -17,6 +17,12 @@ update:
     author: Serika
     content:
       - Add Secondary lic server ip addr.
+  - date: 2025-09-30
+    version: v0.4
+    author: Serika
+    content:
+      - Add configuration file maximum size
+      - Instructions for correcting flash capacity
 ---
 
 ## Overview
@@ -142,13 +148,13 @@ TBD
 		</tr>
 		<tr>
 			<td style="text-align:left">Flash</td>
-			<td style="text-align:left">128Mbits Flash x 1</td>
+			<td style="text-align:left">128/64Mbits Flash x 1</td>
 			<td style="text-align:left">See <a href="#burn_flash">How to Burn to Flash</a></td>
 		</tr>
 		<tr>
-			<td style="text-align:left">>Debug Interface</td>
-			<td style="text-align:left">Jtag + Uart</td>
-			<td style="text-align:left">JST SH1.0 8Pins CONN.</td>
+			<td style="text-align:left">Debug Interface</td>
+			<td style="text-align:left">JTAG + UART</td>
+			<td style="text-align:left">JST SH1.0 8-Pins CONN.</td>
 		</tr>
 		<tr>
 			<td style="text-align:left">Overall Package</td>
@@ -157,6 +163,8 @@ TBD
 		</tr>
 	</tbody>
 </table>
+
+> *Note: 128Mbits Flash version available with the Anniversary Update (Oct. 2025) and for all later releases.*
 
 ### Dock board Parameters
 
@@ -197,21 +205,22 @@ TBD
 
 ## Getting Started
 
-Note that 138K is currently not supported by the education version, and you need to download V1.9.9 or a newer version of the commercial IDE for use.  
-There are serious problems with the Programmer version V1.9.10.02, and this product cannot be programmed.
-Lic can be applied on the Gowin official website, or you can use the online Lic service provided by Sipeed. In the IDE, select Float Lic and fill in the following information:
+Note that 138K is currently supported by the educational version. You need to download the educational IDE version V1.9.9 or later. The commercial IDE requires V1.9.11.03 or later.
+
+To download the bitstream to flash memory, we recommend using **exFlash Erase, Program through GAO-Bridge 5A** mode (V1.9.11.03 or later) or **exFlash Erase, Program through GAO-Bridge Arora V** (V1.
+9.12 or later).
+
+We recommend using the standalone **1.9.12 SP1** Programmer (also known as Gowin Programmer), which can be found on the **Yunyuan Software Commercial Version** page. This standalone programmer offers better compatibility.
+
+If you need to use the commercial IDE, you can apply for a license on the Gaoyun official website or use the online license service provided by Sipeed. Select Floating License in the IDE and fill in the following information:
 
 ~~~
----Server 01---
-ip: 45.33.107.56
-port: 10559
 
----Server 02---
+---Server 01---
 ip: 106.55.34.119
 port: 10559
-~~~
 
-if the ip not work, try use "gowinlic.sipeed.com" domain's IP.
+~~~
 
 Install IDE [Click me](https://wiki.sipeed.com/hardware/zh/tang/common-doc/get_started/install-the-ide.html)
 
@@ -243,7 +252,8 @@ Example code [github](https://github.com/sipeed/TangMega-138K-example)
     </tr>
     <tr>
         <td>Chip Model</td>
-        <td>The specific model of the FPGA chip used by Tang Mega 138K is <b>GW5AST-LV138FPG676A</b>. <br>Please select the package model <span><b>PBG484A</b></span> & <span><b>Device Version: B</b></span> in the IDE.</td>
+        <td>The specific model of the FPGA chip used by Tang Mega 138K is <b>GW5AST-LV138FPG676A</b>. <br>Please select the package model <span><b>PBG484A</b></span> & <span><b>Device Version: B/C</b></span> in the IDE. 
+        <a href="../common-doc/questions#How-to-Identify-Device-Version">How to identify the device version</a></td>
     </tr>
     <tr>
         <td>Static Electricity</td>
@@ -283,21 +293,21 @@ Tang Mega 138K can meet different needs of customers in various scenarios. For t
 - Try connecting directly to the computer instead of through a USB HUB.
 - Try using a better quality USB cable.
 - Try another computer to rule out the computer being the problem. 
-- Try [update to the latest firmware](#how-to-update-the-firmware-for-the-onboard-debugger) and try again.
+- Try [update to the latest firmware](#How-to-update-the-firmware-for-the-onboard-debugger) and try again.
 
 ### The UART of the onboard debugger cannot be used
 
 - Try reinstall FTDI drivers.
-- IF the actual baudrate is always four times the set baudrate or the UART continuously outputs garbled characters. try [update to the latest firmware](#how-to-update-the-firmware-for-the-onboard-debugger) and try again.
+- IF the actual baudrate is always four times the set baudrate or the UART continuously outputs garbled characters. try [update to the latest firmware](#How-to-update-the-firmware-for-the-onboard-debugger) and try again.
 
 ### OpenFPGAloader not work
 
-- Try [update to the latest firmware](#how-to-update-the-firmware-for-the-onboard-debugger) and try again.
+- Try [update to the latest firmware](#How-to-update-the-firmware-for-the-onboard-debugger) and try again.
 
 
 ### How to update the firmware for the onboard debugger
 
-- See [Update the debugger](./../common-doc/update_debugger.md) for details.
+- See [Update the debugger](./../common-doc/update_debugger) for details.
 
 ### After powering on the board, only four indicator lights on the dockboard are on, the SOM indicator light is not on
 
@@ -318,10 +328,8 @@ Tang Mega 138K can meet different needs of customers in various scenarios. For t
 
 ### IDE cannot find the model GW5AST-LV138PG484A
 
-1. The educational version does not support 138K, please switch to the commercial version. The following image shows the educational version (which does not support 138K);
-<img src="../assets/questions/no_model_in_IDE.png" width="35%">
-
-2. IDE version is too low to use, update the IDE version ≥ **1.9.9**.
+1. The GOWIN IDE version is too old. You must update to the commercial version IDE ≥ 1.9.9, or the 
+educational version IDE ≥ 1.9.11.03.
 
 ### How to burn the bitstream to FLASH {#burn_flash}
 
@@ -335,10 +343,10 @@ Tang Mega 138K can meet different needs of customers in various scenarios. For t
 
 ### No Response or Undesirable Pin Phenomenon After Burning
 
-1. First, ensure that the IDE has selected the correct model **GW5AST-LV138PG484AC1/10**; every parameter in the figure below **MUST** be consistent.
+1. First, ensure that the IDE has selected the correct model **GW5AST-LV138PG484AC1/10**; every parameter in the figure below **MUST** be consistent (for the [Device Version](../common-doc/questions#How-to-Identify-Device-Version),please select according to the actual situation).
 
 <img src="./assets/partno_138K.png" alt="device_choose" width=35%>
 
 2. Then, check your code and the corresponding simulation waveforms to meet the requirements. The GAO tools in GOWIN IDE maybe helpful. For more information, please refer to the GOWIN document [SUG100](https://www.gowinsemi.com/upload/database_doc/1885/document/660bb2366d0b3.pdf)(require login).
 
-### For more questions and solutions, go to [Related Questions](./../common-doc/questions.md) to view
+### For more questions and solutions, go to [Related Questions](./../common-doc/questions) to view

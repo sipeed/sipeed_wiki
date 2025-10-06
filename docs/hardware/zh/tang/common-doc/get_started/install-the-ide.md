@@ -45,7 +45,7 @@ update:
 
 前往 http://www.gowinsemi.com.cn/faq.aspx 下载 IDE。
 
-由于高云半导体的IDE在不断的更新中，下图为 2023 年 05 月 25 日截图
+由于高云半导体的IDE在不断的更新中，下图为 2023 年 09 月 25 日截图
 
 ![IDE](./assets/IDE-1.png)
 
@@ -63,6 +63,8 @@ IDE 分为商业版和教育版：
 
 高云半导体的IDE在不断的更新中，上图为 2023 年 05 月 25 日截图。
 
+目前在售的Tang系列板卡的FPGA型号如下：
+
 | 芯片名称                  | 芯片系列  | 芯片型号      | 适用板卡           |
 | ------------------------ | --------- | -----------  | ----------------- |
 | GW1NZ-LV1QN48C6/I5       | GW1NZ     |GW1NZ         | Nano 1K           |
@@ -79,6 +81,7 @@ IDE 分为商业版和教育版：
 上表中的板卡，除了 **Mega 138K Pro** 以外，均可在教育版的 IDE 中使用。
 
 ~~对于购买了 Tang Nano （板载 jtag 芯片为 CH552），目前需要使用商业版的 IDE 且需要自行向高云半导体官方申请 license。~~
+
 **Tang Mega 138K Pro** 目前需要使用商业版的 IDE 且需要自行向高云半导体官方申请 license。
 
 - **注意事项**
@@ -152,6 +155,20 @@ IDE 分为商业版和教育版：
 
 ### 开始安装
 
+#### macOS
+
+对于 macOS，只需下载 macOS 版 IDE 的 DMG 镜像，双击 DMG 文件进行挂载，然后将 `GOWIN_IDE.app` 拖放到您的 `Application` 文件夹中。
+
+由于 GOWIN IDE DMG 镜像未签名，它可能会被 macOS Gatekeeper 拦截。要继续，您需要手动允许其运行。出现警告对话框时，请打开“系统设置”→“隐私和安全”，然后点击
+“仍然打开”。
+
+或者，您也可以通过终端使用以下命令移除 DMG 的隔离属性：
+
+```zsh
+xattr -c <path-to-dmg>
+```
+之后，双击 DMG 进行挂载并运行。
+
 #### Linux 系统
 
 Linux 版本 IDE 下载解压后，打开 `IDE/bin` 文件夹，然后可执行文件 `gw_ide` 就在所解压路径的 `/IDE/bin/` 文件夹中，用命令行来运行即可；运行软件失败的话记得改软件的可执行权限 `chmod + x`。
@@ -213,7 +230,9 @@ Linux 版本 IDE 下载解压后，打开 `IDE/bin` 文件夹，然后可执行�
 
 ### license 相关
 
-教育版本的 IDE 直接运行即可；商业版的 IDE 需要自行前往 [点我](http://www.gowinsemi.com.cn/faq_view.aspx) 申请 license 后才能使用，其中申请license 时 MAC 最好填写本机的以太网网卡地址，避免以后可能因部分设置而导致 MAC 地址改变 license 验证失败。
+教育版本的 IDE 直接运行即可；
+
+商业版的 IDE 需要自行前往 [点我](http://www.gowinsemi.com.cn/faq_view.aspx) 申请 license 后才能使用，其中申请license 时 MAC 最好填写本机的以太网网卡地址，避免以后可能因部分设置而导致 MAC 地址改变 license 验证失败。
 
 ### 验证 license
 
@@ -223,6 +242,17 @@ Linux 版本 IDE 下载解压后，打开 `IDE/bin` 文件夹，然后可执行�
 <img src="./assets/check.png"  alt="Check lic"   width=45%>
 
 然后就可以开始使用高云半导体 IDE 了。
+
+Lic 可以在高云官网申请，或者使用Sipeed提供的在线Lic服务，在IDE中选择Float Lic，填写以下信息即可：
+~~~
+
+---Server 01---
+ip: 106.55.34.119
+port: 10559
+
+~~~
+
+如果上面的IP不能工作, 尝试使用 "gowinlic.sipeed.com" 域名对应的IP.
 
 ### Programmer
 
@@ -270,4 +300,4 @@ port: 10559
 
 ## Burn in linux
 
-[Linux系统下烧录方法](./flash_in_linux.md)
+[Linux系统下烧录方法](./flash_in_linux)

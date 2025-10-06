@@ -428,7 +428,7 @@ update:
   <summary><font color="#4F84FF">点击查看详情</font></summary>
   <br>
 
-  对于支持[**Tang Core**](https://nand2mario.github.io/tangcore/)的开发板而言（如[Tang Console](../tang-console/mega-console.md)），其能正常执行[**Tang Core**](https://nand2mario.github.io/tangcore/)功能需要同时依赖[**调试器固件**](#最新固件)和二级启动的[**TangCore firmware for BL616**](https://github.com/nand2mario/firmware-bl616/) 共计两个固件。
+  对于支持[**Tang Core**](https://nand2mario.github.io/tangcore/)的开发板而言（如[Tang Console](../tang-console/mega-console)），其能正常执行[**Tang Core**](https://nand2mario.github.io/tangcore/)功能需要同时依赖[**调试器固件**](#最新固件)和二级启动的[**TangCore firmware for BL616**](https://github.com/nand2mario/firmware-bl616/) 共计两个固件。
   
   [**调试器固件**](#最新固件)可以在本页面下方找到，而二级启动的[**TangCore firmware for BL616**](https://github.com/nand2mario/firmware-bl616/)目前由 **[nand2mario](https://github.com/nand2mario)** 负责维护，其最新版本可以在[**TangCore Release Package**](https://github.com/nand2mario/tangcore/releases)中找到。
 

@@ -52,9 +52,9 @@ update:
   - Onboard 3.7V Li-on battery(1-Series) charge/discharge management
     
     <a id="target-line"></a>
-    **\*Note**: Since the pinouts of the **SERDES** parts of **`GW5AT-LV60`** and **`GW5AST-LV138`** are not exactly the same, the Dock board was originally designed for **`GW5AST-LV138`**. Therefore, for **`GW5AT-LV60`**, although the PCIe AIC gold finger has fanout all **SERDES** lanes, because lanes 1 and 3 are swapped on the **`GW5AT-LV60`**, PCIe can only work in x1 mode at present.
+    > **Note**: Since the pinouts of the **SERDES** parts of **`GW5AT-LV60`** and **`GW5AST-LV138`** are not exactly the same, the Dock board was originally designed for **`GW5AST-LV138`**. Therefore, for **`GW5AT-LV60`**, although the PCIe AIC gold finger has fanout all **SERDES** lanes, because lanes 1 and 3 are swapped on the **`GW5AT-LV60`**, PCIe can only work in x1 mode at present.
     
-    *This problem may be fixed in the future with GOWIN software updates.*
+    > *This problem may be fixed in the future with GOWIN software updates.*
 
     ***
 ## Product Appearance
@@ -171,8 +171,8 @@ TBD
 		</tr>
 		<tr>
 			<td style="text-align:left">Debug Interface</td>
-			<td style="text-align:left">Jtag + Uart</td>
-			<td style="text-align:left">JST SH1.0 8Pins CONN.</td>
+			<td style="text-align:left">JTAG + UART</td>
+			<td style="text-align:left">JST SH1.0 8-Pins CONN.</td>
 		</tr>
 		<tr>
 			<td style="text-align:left">Overall Package</td>
@@ -223,8 +223,11 @@ TBD
 ## Getting Started
 
 Note that 60K is currently supported by the educational version. You need to download the educational IDE version V1.9.11.03 or later. The commercial IDE requires V1.9.10.03 or later.
+
 To download the bitstream to flash memory, we recommend using **exFlash Erase, Program through GAO-Bridge 5A** mode (V1.9.10.03 or later) or **exFlash Erase, Program through GAO-Bridge Arora V** (V1.9.12 or later).
+
 We recommend using the standalone **1.9.12 SP1** Programmer (also known as Yunyuan Programmer), which can be found on the **Yunyuan Software Commercial Version** page. This standalone programmer offers better compatibility.
+
 If you need to use the commercial IDE, you can apply for a license on the Gaoyun official website or use the online license service provided by Sipeed. Select Floating License in the IDE and fill in the following information:
 
 ~~~
@@ -309,20 +312,20 @@ Tang Mega 60K can meet different needs of customers in various scenarios. For te
 - Try connecting directly to the computer instead of through a USB HUB.
 - Try using a better quality USB cable.
 - Try another computer to rule out the computer being the problem. 
-- Try [update to the latest firmware](#how-to-update-the-firmware-for-the-onboard-debugger) and try again.
+- Try [update to the latest firmware](#How-to-update-the-firmware-for-the-onboard-debugger) and try again.
 
 ### The UART of the onboard debugger cannot be used
 
 - Try reinstall FTDI drivers.
-- IF the actual baudrate is always four times the set baudrate or the UART continuously outputs garbled characters. try [update to the latest firmware](#how-to-update-the-firmware-for-the-onboard-debugger) and try again.
+- IF the actual baudrate is always four times the set baudrate or the UART continuously outputs garbled characters. try [update to the latest firmware](#How-to-update-the-firmware-for-the-onboard-debugger) and try again.
 
 ### OpenFPGAloader not work
 
-- Try [update to the latest firmware](#how-to-update-the-firmware-for-the-onboard-debugger) and try again.
+- Try [update to the latest firmware](#How-to-update-the-firmware-for-the-onboard-debugger) and try again.
 
 ### How to update the firmware for the onboard debugger
 
-- See [Update the debugger](./../common/update_debugger.md) for details.
+- See [Update the debugger](./../common/update_debugger) for details.
 
 ### After powering on the board, only four indicator lights on the dockboard are on, the SOM indicator light is not on
 
@@ -363,4 +366,4 @@ Tang Mega 60K can meet different needs of customers in various scenarios. For te
 
 2. Then, check your code and the corresponding simulation waveforms to meet the requirements. The GAO tools in GOWIN IDE maybe helpful. For more information, please refer to the GOWIN document [SUG100](https://www.gowinsemi.com/upload/database_doc/1885/document/660bb2366d0b3.pdf)(require login).
 
-### For more questions and solutions, go to [Related Questions](./../common-doc/questions.md) to view
+### For more questions and solutions, go to [Related Questions](./../common-doc/questions) to view

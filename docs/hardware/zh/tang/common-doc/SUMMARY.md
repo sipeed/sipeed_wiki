@@ -24,5 +24,5 @@ Tang nano系列开发板是基于[高云半导体](http://www.gowinsemi.com.cn/)
 
 ## 准备
 
-- [IDE安装](./get_started/install-the-ide.md)
+- [IDE安装](./get_started/install-the-ide)
 

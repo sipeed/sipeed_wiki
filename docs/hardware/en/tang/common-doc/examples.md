@@ -23,8 +23,8 @@ Basic guide to use Tang FPGA.
 
 Github: https://github.com/sipeed/Tang-Nano-examples
 
-- [Blink](./../Tang-Nano/examples/led/led.md)
-- [LCD screen](./../Tang-Nano/examples/lcd.md)
+- [Blink](./../Tang-Nano/examples/led/led)
+- [LCD screen](./../Tang-Nano/examples/lcd)
 
 ---
 
@@ -32,15 +32,15 @@ Github: https://github.com/sipeed/Tang-Nano-examples
 
 Github: https://github.com/sipeed/TangNano-1K-examples
 
-- [Blink](./../Tang-Nano-1K/examples/led/led.md)
-- [LCD screen](./../Tang-Nano-1K/examples/lcd.md)
+- [Blink](./../Tang-Nano-1K/examples/led/led)
+- [LCD screen](./../Tang-Nano-1K/examples/lcd)
 
 ---
 ## Tang Nano 4K
 
 Github: https://github.com/sipeed/TangNano-4K-example
 
-- [Blink](./../Tang-Nano-4K/examples/led.md) (Basic tutorial)
+- [Blink](./../Tang-Nano-4K/examples/led) (Basic tutorial)
 - [Keyflag Blink](https://github.com/sipeed/TangNano-4K-example/tree/main/key_blink)(github)
 - [HDMI display project](https://github.com/sipeed/TangNano-4K-example/tree/main/hdmi_720p)(github)
 - [Display camera content on HDMI](https://github.com/sipeed/TangNano-4K-example/tree/main/camera_hdmi)(github)
@@ -56,13 +56,13 @@ Other example
 
 Github: https://github.com/sipeed/TangNano-9K-example
 
-- [Blink](./../Tang-Nano-9K/examples/led.md)
-- [LCD screen](./../Tang-Nano-9K/examples/rgb_screen.md)
-- [Examples of PicoRV](./../Tang-Nano-9K/examples/picorv.md)
-- [FPGA drives 1.14-inch SPI screen](./../Tang-Nano-9K/examples/spi_lcd.md)
-- HDMI display : [Examples of PicoRV](./../Tang-Nano-9K/examples/picorv.md)
+- [Blink](./../Tang-Nano-9K/examples/led)
+- [LCD screen](./../Tang-Nano-9K/examples/rgb_screen)
+- [Examples of PicoRV](./../Tang-Nano-9K/examples/picorv)
+- [FPGA drives 1.14-inch SPI screen](./../Tang-Nano-9K/examples/spi_lcd)
+- HDMI display : [Examples of PicoRV](./../Tang-Nano-9K/examples/picorv)
 - Litex on Tang Nano 9K : https://github.com/litex-hub/litex-boards
-- Powerful NeoRV32 riscv core on 9K: [NEORV32](./../Tang-Nano-9K/examples/neorv32.md)
+- Powerful NeoRV32 riscv core on 9K: [NEORV32](./../Tang-Nano-9K/examples/neorv32)
 
 Partner tutorials:
 <a href="https://learn.lushaylabs.com/tang-nano-series/"><img src="./../../../zh/tang/common-doc/assets/lushaylab_logo.png" alt="lushaylab_logo" width="35%"></a>

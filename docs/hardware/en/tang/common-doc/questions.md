@@ -25,6 +25,38 @@ update:
 
 Here are some normal questions.
 
+## Device Information
+
+### How to Identify Device Version
+
+- On the FPGA laser marking, the **third line, fifth character** indicates the device version.  
+  - If the character is **A**, then it is **Device Version: A**.  
+  - If the character is **B**, then it is **Device Version: B**.  
+  - If the character is **C**, then it is **Device Version: C**. 
+  - ...and so on.  
+
+- This method applies to all **GOWIN FPGAs**. The following example shows the marking position for the **GW5AST** of the 138K Pro series.
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <title>CSS Indentation</title>
+      <style>
+        .indent {
+          margin-left: 0ch; /* width of 0 characters */
+        }
+      </style>
+    </head>
+    <body>
+      <details class="indent">
+        <summary><font color="#4F84FF">Click here to view the 138K-B FPG676A device version marking</font></summary>
+        <img src="./assets/questions/138K-Pro-Ver.B.png">
+      </details>
+    </body>
+    <br>
+    </html>
+
 ## Programmer 
 
 Make sure there are 2 `converter` and `COM` device, this means the debugger works well.

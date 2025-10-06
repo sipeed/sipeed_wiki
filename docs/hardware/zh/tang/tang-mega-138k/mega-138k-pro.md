@@ -195,16 +195,16 @@ update:
 ## 上手使用
 注意138K Pro目前未被教育版支持，需要下载 V1.9.9 或更新版本的商业版IDE使用。 
 V1.9.10.02版本的Programmer存在严重问题，无法正常下载本产品。  
+
 Lic 可以在高云官网申请，或者使用Sipeed提供的在线Lic服务，在IDE中选择Float Lic，填写以下信息即可：
 ~~~
----Server 01---
-ip: 45.33.107.56
-port: 10559
 
----Server 02---
+---Server 01---
 ip: 106.55.34.119
 port: 10559
+
 ~~~
+
 如果上面的IP不能工作, 尝试使用 "gowinlic.sipeed.com" 域名对应的IP.
 
 安装 IDE [点我](https://wiki.sipeed.com/hardware/zh/tang/common-doc/get_started/install-the-ide.html)
@@ -236,7 +236,8 @@ port: 10559
     </tr>
     <tr>
         <td>芯片型号</td>
-        <td>Tang Mega 138K Pro 使用的 FPGA 芯片具体型号是 <b>GW5AST-LV138FPG676A</b> <br>在 IDE 中选择封装型号 <span><b>FCPBG676A</b></span> & <span><b>Device Version: B</b></span></br></td>
+        <td>Tang Mega 138K Pro 使用的 FPGA 芯片具体型号是 <b>GW5AST-LV138FPG676A</b> <br>在 IDE 中选择封装型号 <span><b>FCPBG676A</b></span> & <span><b>Device Version: B/C</b></span>
+        <a href="../common-doc/questions#如何分辨器件辨版本">点我查看如何分辨器件版本</a></br></td>
     </tr>
     <tr>
         <td>静电</td>
@@ -288,13 +289,13 @@ Tang Mega 138K 可以在多种场景实现客户不同方面的需要，技术�
 
 <img src="./../assets/FTDI_DEVICE.jpg" alt="flash_mode" width=35%>
 
-4. 通常情况下Windows会在联网后自动安装相应驱动。如果想要手动处理，请前往[相关问题](./../common-doc/questions.md)查看相关内容
+4. 通常情况下Windows会在联网后自动安装相应驱动。如果想要手动处理，请前往[相关问题](./../common-doc/questions)查看相关内容
 
-5. 尝试更新板载下载器的固件，请参考这里 **[【点我跳转】](./../common-doc/update_debugger.md)**
+5. 尝试更新板载下载器的固件，请参考这里 **[【点我跳转】](./../common-doc/update_debugger)**
 
 <img src="./../assets/FTDI_DEVICE.jpg" alt="flash_mode" width=35%>
 
-4. 通常情况下Windows会在联网后自动安装相应驱动。如果想要手动处理，请前往[相关问题](./../common-doc/questions.md)查看相关内容。
+4. 通常情况下Windows会在联网后自动安装相应驱动。如果想要手动处理，请前往[相关问题](./../common-doc/questions)查看相关内容。
 
 ### 如何下载到外部 FLASH {#burn_flash}
 
@@ -311,4 +312,4 @@ Tang Mega 138K 可以在多种场景实现客户不同方面的需要，技术�
 2. 然后检查自己的代码和对应的仿真波形是否满足要求
 
 
-### 更多问题及其解决办法前往[相关问题](./../common-doc/questions.md)查看
+### 更多问题及其解决办法前往[相关问题](./../common-doc/questions)查看
