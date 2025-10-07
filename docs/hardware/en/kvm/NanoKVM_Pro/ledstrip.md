@@ -20,6 +20,7 @@ The Screen-Sync LED Strip is a signature expansion accessory for NanoKVM-Pro.
 
 When using NanoKVM-Pro with a desktop computer, it can capture the screen content and control an LED strip to display colors matching the edges of your screen—creating a dreamy, immersive lighting effect!
 
+![ledstrip_pic](../../../assets/NanoKVM/pro/ledstrip/ledstrip_pic.jpg)
 <video playsinline controls muted preload src="../../../assets/NanoKVM/pro/ledstrip/sync_led.mp4"></video>
 
 ⚠️ Note: To use this feature, ensure your power supply meets the specification: 5V ≥ 3A. 
