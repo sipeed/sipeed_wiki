@@ -106,6 +106,23 @@ The LCD screen supports the following functions (all configured from the screen)
 
 For details, see the [FAQ](https://wiki.sipeed.com/hardware/en/kvm/NanoKVM_Pro/faq.html#Image-Burning-Methods) section on `Image Burning Methods`.
 
+
+## HDMI Secondary Display
+
+Since NanoKVM-Pro can emulate a display, capture screen content, and features a small built-in screen, it can function as an HDMI secondary display.
+
+In the UI, simply select **HDMI** as the video output source to display the captured video feed on the small screen.
+
+When used as a desktop accessory, this feature can serve as a:
+- Mini secondary monitor  
+- System performance monitor  
+- Video thumbnail player  
+and more.
+
+![](./../../../assets/NanoKVM/pro/extended/hdmi.jpg)
+ <video playsinline controls muted preload src="../../../assets/NanoKVM/pro/extended/cat.mp4"></video>
+ <video playsinline controls muted preload src="../../../assets/NanoKVM/pro/extended/video.mp4"></video>
+
 ## USB Expansion Features
 
 ### USB NCM

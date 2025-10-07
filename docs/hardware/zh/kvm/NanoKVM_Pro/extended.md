@@ -104,6 +104,16 @@ Desk 从屏幕点击 `Settings` → `HDMI` 进入 HDMI 配置页面，有两个�
 
 详见 [FAQ](https://wiki.sipeed.com/hardware/zh/kvm/NanoKVM_Pro/faq.html#%E9%95%9C%E5%83%8F%E7%83%A7%E5%BD%95%E6%96%B9%E6%B3%95) 中 `镜像烧录方法` 章节。
 
+
+## HDMI 副屏
+由于NanoKVM-Pro可以虚拟为显示器并采集图像，且有一个小屏，所以可以实现HDMI副屏功能。
+在UI中选择输出视频源为HDMI即可在小屏上输出采集的视频图像。
+作为桌面摆件时，此功能可以作为桌面迷你副屏，性能监控，视频缩略图播放器等功能使用。
+![](./../../../assets/NanoKVM/pro/extended/hdmi.jpg)
+ <video playsinline controls muted preload src="../../../assets/NanoKVM/pro/extended/cat.mp4"></video>
+ <video playsinline controls muted preload src="../../../assets/NanoKVM/pro/extended/video.mp4"></video>
+
+
 ## USB 扩展功能
 
 ### USB NCM

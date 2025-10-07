@@ -1,13 +1,24 @@
 ---
-title: 屏扩灯带
+title: 屏同步氛围灯带
 keywords: NanoKVM, LED Strip
 update:
-  - date: 2025-9-05
+  - date: 2025-10-07
+    version: v0.2
+    author: zepan
+    content:
+      - improve docs
+  - date: 2025-09-05
     version: v0.1
     author: iawak9lkm
     content:
       - Release docs
 ---
+## 简介
+屏同步氛围灯带是NanoKVM-Pro的特色扩展配件。
+当你将NanoKVM-Pro用于桌面电脑时，NanoKVM-Pro可以通过捕获的屏幕画面，控制LED灯带按屏幕边缘的色彩显示，实现梦幻的灯光渲染效果！
+ <video playsinline controls muted preload src="../../../assets/NanoKVM/pro/ledstrip/sync_led.mp4"></video>
+
+> ⚠️ 注意：使用该功能，需要确保输入电源规格 **5V ≥ 3A**
 
 ## 套餐配件概览
 
@@ -90,13 +101,10 @@ update:
 
 * 通过 Web 开启
   1. 通过浏览器登录 NanoKVM
-  2. 依次进入 **设置 → 设备 → LED 灯带设置**
+  2. 依次进入 **设置 → 设备 → LED 灯带设置**, 开启功能，填写对应的LED数量
 
-    ![ledstrip_web1_en](../../../assets/NanoKVM/pro/ledstrip/led_strip_web1_en.jpg)
+    ![ledstrip_setting](../../../assets/NanoKVM/pro/ledstrip/ledstrip_setting.jpg)
 
-  3. 填写灯带数量并开启
-
-    ![ledstrip_web2_en](../../../assets/NanoKVM/pro/ledstrip/led_strip_web2_en.jpg)
 
 * 通过 Desk UI 开启
   1. 进入 `Settings` 页面

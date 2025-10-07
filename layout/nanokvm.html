@@ -1,0 +1,100 @@
+<!-- 修改后保存一下 include 这个文件的 html 模板就会渲染 -->
+
+<div class="w-full h-full flex flex-col justify-center items-center">
+  <h2 class="text-2xl font-bold my-8 block_simple">{{_('NanoKVM')}}</h2>
+  <div class="w-full flex flex-col justify-center">
+    <div class="cards">
+      <!-- cards -->
+      <div class="card" v-for="item in data_nanokvm.cards">
+        <img class="card_img" :src="item.img" />
+        <h3 class="card_title" class="text-lg">{[item.title]}</h3>
+        <div class="card_brief">{[item.brief]}</div>
+        <div class="card_btns">
+          <a
+            v-for="btn in item.btns"
+            :href="btn.link"
+            :target="btn.new_tab ? '_blank' : '_self'"
+            >{[btn.label]}</a
+          >
+        </div>
+      </div>
+      <!-- cards end -->
+    </div>
+  </div>
+
+</div>
+
+<script lang="ts">
+  const data_nanokvm = {
+    cards: [
+      {
+        img: "/static/home/nanokvm_cube.jpg",
+        title: "NanoKVM Cube",
+        brief:
+          "{{_('迷你IP-KVM运维工具')}}",
+        btns: [
+          {
+            label: "{{_('文档')}}",
+            link: "/nanokvm",
+          },
+          {
+            label: "{{_('购买')}}",
+            link: "{{_('https://item.taobao.com/item.htm?id=811206560480')}}",
+            new_tab: true,
+          },
+        ],
+      },
+      {
+        img: "/static/home/nanokvm_pcie.jpg",
+        title: "NanoKVM PCIe",
+        brief:
+          "{{_('可安装到ATX机箱的IP-KVM')}}",
+        btns: [
+          {
+            label: "{{_('文档')}}",
+            link: "/nanokvmpcie",
+          },
+          {
+            label: "{{_('购买')}}",
+            link: "{{_('https://item.taobao.com/item.htm?id=811206560480')}}",
+            new_tab: true,
+          },
+        ],
+      },
+      {
+        img: "/static/home/nanokvm_usb.jpg",
+        title: "NanoKVM USB",
+        brief:
+          "{{_('指尖上的USB KVM')}}",
+        btns: [
+          {
+            label: "{{_('文档')}}",
+            link: "/nanokvmusb",
+          },
+          {
+            label: "{{_('购买')}}",
+            link: "{{_('https://item.taobao.com/item.htm?id=811206560480')}}",
+            new_tab: true,
+          },
+        ],
+      },
+      {
+        img: "/static/home/nanokvm_pro.jpg",
+        title: "NanoKVM Pro",
+        brief:
+          "{{_('高性能创新性4K IP-KVM')}}",
+        btns: [
+          {
+            label: "{{_('文档')}}",
+            link: "/nanokvmpro",
+          },
+          {
+            label: "{{_('购买')}}",
+            link: "{{_('https://item.taobao.com/item.htm?id=811206560480')}}",
+            new_tab: true,
+          },
+        ],
+      }
+    ],
+  };
+</script>

@@ -572,8 +572,10 @@ items:
             file: kvm/NanoKVM_Pro/desk_start.md
         -   label: Advanced Applications
             file: kvm/NanoKVM_Pro/extended.md
-        -   label: Screen Color Extension LED Strip
-            file: kvm/NanoKVM_Pro/ws2812.md
+        -   label: Screen Ambient Lighting
+            file: kvm/NanoKVM_Pro/ledstrip.md
+        -   label: Experimental AI Agent 
+            file: kvm/NanoKVM_Pro/cua.md
         -   label: FAQ
             file: kvm/NanoKVM_Pro/faq.md
 -   label: Cluster

@@ -571,7 +571,9 @@ items:
         -   label: 高级应用
             file: kvm/NanoKVM_Pro/extended.md
         -   label: 屏幕色彩扩展灯带
-            file: kvm/NanoKVM_Pro/ws2812.md
+            file: kvm/NanoKVM_Pro/ledstrip.md
+        -   label: 实验性AI Agent
+            file: kvm/NanoKVM_Pro/cua.md
         -   label: FAQ
             file: kvm/NanoKVM_Pro/faq.md
 -   label: Cluster

@@ -1,13 +1,29 @@
 ---
-title: Screen Expansion LED Strip
+title: Screen Sync Ambient Lighting
 keywords: NanoKVM, LED Strip
 update:
-  - date: 2025-9-05
+  - date: 2025-10-07
+    version: v0.2
+    author: zepan
+    content:
+      - improve docs
+  - date: 2025-09-05
     version: v0.1
     author: iawak9lkm
     content:
       - Release docs
 ---
+
+
+## Introduction
+The Screen-Sync LED Strip is a signature expansion accessory for NanoKVM-Pro.
+
+When using NanoKVM-Pro with a desktop computer, it can capture the screen content and control an LED strip to display colors matching the edges of your screen—creating a dreamy, immersive lighting effect!
+
+<video playsinline controls muted preload src="../../../assets/NanoKVM/pro/ledstrip/sync_led.mp4"></video>
+
+⚠️ Note: To use this feature, ensure your power supply meets the specification: 5V ≥ 3A. 
+
 
 ## Package Accessories Overview
 
@@ -91,13 +107,9 @@ The connection layout is as follows:
 * Enable via Web
 
   1. Log in to NanoKVM via a browser
-  2. Navigate to **Settings → Device → LED Strip Settings**
+  2. Navigate to **Settings → Device → LED Strip Settings**, enable it and set the correct parameter.
 
-  ![ledstrip_web1_en](../../../assets/NanoKVM/pro/ledstrip/led_strip_web1_en.jpg)
-
-  3. Enter the number of LEDs and enable the feature
-
-  ![ledstrip_web2_en](../../../assets/NanoKVM/pro/ledstrip/led_strip_web2_en.jpg)
+  ![ledstrip_setting](../../../assets/NanoKVM/pro/ledstrip/ledstrip_setting.jpg)
 
 * Enable via Desk UI
 

@@ -43,13 +43,16 @@
         {% include "licheepi.html" %}
       </div>
       <div id="page_maixsense" class="hidden h-full w-full">
-        {% include "maixsense.html" %}
-      </div>
-      <div id="page_others" class="hidden h-full w-full">
-        {% include "others.html" %}
-      </div>
+        {% include "maixsense.html" %}        
+      </div> 
+      <div id="page_nanokvm" class="hidden h-full w-full">
+        {% include "nanokvm.html" %}   
+      </div> 
+      <div id="page_slogic" class="hidden h-full w-full">
+        {% include "slogic.html" %}   
+      </div>     
 
-      <div id="page_news" class="hidden h-full w-full">
+      <div id="page_news" class="hidden h-full w-full"> 
         <n-carousel
           show-arrow
           dot-type="line"
@@ -209,9 +212,13 @@
         label: "{{_('MaixSense 传感器')}}",
         content: "maixsense",
       },
+      { 
+        label: "{{_('NanoKVM')}}",
+        content: "nanokvm",
+      },
       {
-        label: "{{_('其它')}}",
-        content: "others",
+        label: "{{_('SLogic')}}",
+        content: "slogic", 
       },
     ],
   };
@@ -255,11 +262,12 @@
         deviceWidth: window.innerWidth,
         data_maix: data_maix,
         data_maixcam: data_maixcam,
-        data_lichee: data_lichee,
+        data_lichee: data_lichee,   
         data_arm: data_arm,
         data_tang: data_tang,
-        data_maixsense: data_maixsense,
-        data_others: data_others,
+        data_maixsense: data_maixsense, 
+        data_nanokvm: data_nanokvm, 
+        data_slogic: data_slogic,
       };
     },
     mounted() {
@@ -305,7 +313,7 @@
         for (var i = 0; i < this.data.products.length; ++i) {
           let el = document.getElementById(
             "page_" + this.data.products[i].content
-          );
+          ); 
           if (this.data.products[i].content == item.content) {
             el.style.display = "block";
           } else {
