@@ -38,6 +38,7 @@ update:
 #### 下载和运行上位机
 
 [点击这里下载上位机](https://dl.sipeed.com/shareURL/SLogic/SLogic_combo_8/4_application/PulseView)
+[点击这里下载新的上位机(同时支持SLogic Combo8 & SLogic16U3, Win/Mac/Linux)](https://dl.sipeed.com/shareURL/SLogic)
 
 上位机软件用于观察和分析数字信号。Windows用户请下载exe后缀的文件，Linux用户请下载AppImage后缀的文件，建议下载日期最新的版本。
 
