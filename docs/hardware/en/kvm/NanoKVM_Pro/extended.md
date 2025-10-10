@@ -267,3 +267,27 @@ Supported resolutions and refresh rates are listed below:
 | 800×600       | 60 FPS       | 4:3          | ✓       | ✓       |
 
 > Resolutions not listed above may exhibit display errors or fail to show.
+
+## About Latency
+NanoKVM-Pro has made significant improvements in latency, with end-to-end latency controlled at around 100ms at any resolution.
+
+> The latency mentioned by other competitors is not end-to-end latency, but one-way latency. The actual end-to-end latency is much higher than what they claim.
+> Actual tests show that choosing different frame rates has little impact on end-to-end latency, meaning the latency for 1080P120 and 1080P30 is almost the same.
+
+| Video Mode    | End-to-End Latency |
+|---------------|-------------------|
+| Direct H264   | 100ms             |
+| WebRTC H264   | 100ms             |
+| MJPEG         | 100~150ms         |
+
+Note: We use "end-to-end" latency to reflect the actual latency perceived by users:
+The delay from when a user moves the mouse in the local browser window to when the remote desktop mouse starts moving in the browser.
+
+You can use [this Python script](../../../assets/NanoKVM/pro/extended/lat_mouse.py) to actually measure the "end-to-end" latency. Maximize the browser window or place it on the left side, ensuring the current remote desktop background color has maximum contrast with the mouse pointer color (for example, use a white background for a black pointer, or a black background for a white pointer).
+
+```
+python lat_mouse.py TEST_CNT RECORD_NAME
+```
+
+4K30 webrtc end-to-end latency record:
+![](./../../../assets/NanoKVM/pro/extended/4K30_latency.png)

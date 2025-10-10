@@ -65,7 +65,7 @@ Windows Environment:
 > Note: In the Linux environment, the maximum supported sampling rate is 80M for 4 channels and 40M for 8 channels. Due to limitations in USB transmission stability on Windows, the maximum supported sampling rate is 80M for 2 channels and 20M for 8 channels.
 
 MacOS Environment:
-
+PulseView-SLogic-250910-aarch64.dmg
 
 #### Scan SLogic and Connect
 

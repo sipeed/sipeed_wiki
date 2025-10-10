@@ -572,6 +572,8 @@ items:
             file: kvm/NanoKVM_Pro/desk_start.md
         -   label: Advanced Applications
             file: kvm/NanoKVM_Pro/extended.md
+        -   label: Customize Auxiliary Screen
+            file: kvm/NanoKVM_Pro/lcd.md
         -   label: Screen Ambient Lighting
             file: kvm/NanoKVM_Pro/ledstrip.md
         -   label: Experimental AI Agent 

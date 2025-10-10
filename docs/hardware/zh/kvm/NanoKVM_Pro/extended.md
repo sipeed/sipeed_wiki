@@ -105,15 +105,6 @@ Desk 从屏幕点击 `Settings` → `HDMI` 进入 HDMI 配置页面，有两个�
 详见 [FAQ](https://wiki.sipeed.com/hardware/zh/kvm/NanoKVM_Pro/faq.html#%E9%95%9C%E5%83%8F%E7%83%A7%E5%BD%95%E6%96%B9%E6%B3%95) 中 `镜像烧录方法` 章节。
 
 
-## HDMI 副屏
-由于NanoKVM-Pro可以虚拟为显示器并采集图像，且有一个小屏，所以可以实现HDMI副屏功能。
-在UI中选择输出视频源为HDMI即可在小屏上输出采集的视频图像。
-作为桌面摆件时，此功能可以作为桌面迷你副屏，性能监控，视频缩略图播放器等功能使用。
-![](./../../../assets/NanoKVM/pro/extended/hdmi.jpg)
- <video playsinline controls muted preload src="../../../assets/NanoKVM/pro/extended/cat.mp4"></video>
- <video playsinline controls muted preload src="../../../assets/NanoKVM/pro/extended/video.mp4"></video>
-
-
 ## USB 扩展功能
 
 ### USB NCM
@@ -122,37 +113,6 @@ NCM 功能可通过 USB 模拟网卡，方便用户直接通过 USB 登录 NanoK
 
 - **ATX/Desk**：从网页端进入 `设置` → `设备` → 开启 `虚拟网卡`
 - **Desk**：从屏幕中点击 `Settings` → `USB` 进入 USB 配置页面，开启 `NCM`
-
-### USB 副屏
-
-> **仅支持 NanoKVM-Desk**
-> 目前 USB 副屏功能仅支持 Windows 系统。
-
-1. 下载并解压 USB 副屏驱动程序。
-
-2. 在 Desk 上：从屏幕中点击 `Settings` → `USB` 进入 USB 配置页面，开启 `Panel`。
-
-3. 在被控机上：
-
-   - 打开 `设备管理器` → `其他设备`
-   - 找到 `NanoKVMPro` → 右键 `属性` → `驱动程序` → `更新驱动程序`
-   - 选择 `浏览我的电脑以查找驱动程序` → `让我从计算机上的可用驱动程序列表中选取`
-   - 双击 `显示所有设备`
-   - 在 `Standard USB Host Controller` / `标准 USB 主机控制器` / `Standard system devices` / `标准系统设备` 中找到 `USB 复合设备 (USB Composite Device)` → 双击安装
-
-   > **注意**：不同版本 Windows 驱动位置可能有所差异，请耐心查找。
-
-4. 完成后，`设备管理器` 的 `其他设备` 下会出现一个新的 `loop input to output` 设备。
-
-5. 右键该设备 → `更新驱动程序` → `浏览我的电脑以查找驱动程序` → `浏览` → 选择 USB 副屏驱动文件夹 → `下一步` → 按提示完成安装。
-
-6. 驱动安装完成后，`显示适配器` 部分会出现一个新的 NanoKVM 显卡设备。
-
-7. 在 Desk 上从屏幕中进入副屏页面，选择 USB，即可将 Desk 用作 USB 副屏。
-
-8. 若需关闭，参考步骤 2 关闭 `Panel`。
-
-9. 再次开启时，部分系统可能需要重新安装 USB 驱动。
 
 ## 更新
 
@@ -250,3 +210,29 @@ cat /kvmcomm/edid/e18.bin > /proc/lt6911_info/edid
 | 800*600      | 60FPS   | 4:3    | √      | √      |
 
 > 不在此列表的分辨率可能会出现显示错误或无法显示的问题
+
+
+## 关于延迟
+NanoKVM-Pro针对延迟进行了较大改进，任意分辨率下端到端延迟控制在100ms左右。
+> 其它竞品表述的延迟非端到端延迟，而是单程延迟，实际端到端延迟远大于他们宣称的延迟。
+> 实测表明选择不同帧率，对端到端的延迟影响不大，也就是说，1080P120和1080P30的延迟几乎一致。
+| 视频模式      | 端到端延迟 |
+|--------------|---------|
+| Direct H264  | 100ms   | 
+| WebRTC H264  | 100ms   | 
+| MJPEG        | 100~150ms| 
+
+注意，我们使用"端到端"延迟来体现用户实际感知的延迟：
+从用户在本地浏览器窗口移动鼠标，到 浏览器中远程桌面鼠标开始移动的延迟。
+
+
+你可以使用[这个py脚本](../../../assets/NanoKVM/pro/extended/lat_mouse.py)实测"端到端"延迟，将浏览器窗口全屏或者放到左边，保持当前远程桌面的背景颜色与鼠标指针颜色反差最大（比如黑色指针，则使用白色背景；白色指针则使用黑色背景）
+
+```
+python lat_mouse.py TEST_CNT RECORD_NAME
+```
+
+4K30 webrtc的延迟测试记录：
+![](./../../../assets/NanoKVM/pro/extended/4K30_latency.png)
+
+

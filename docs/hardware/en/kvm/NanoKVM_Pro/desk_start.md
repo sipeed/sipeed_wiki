@@ -123,3 +123,39 @@ Touch screen supports the following actions:
 1. **Tailscale**: NanoKVM-Pro comes with Tailscale preinstalled. You can log in to your Tailscale account via the web settings. All devices logged into Tailscale will automatically join the same virtual LAN and be assigned an IP starting with `100.xxx.xxx.xxx`. You can use this IP to remotely access and control your host.
 2. **Other Remote Networking Tools**: NanoKVM-Pro runs on Ubuntu and supports installing third-party applications (e.g., ZeroTier) via `apt`. Please follow the official documentation of the respective tool for installation and configuration.
 
+## Rack Mounting
+The NanoKVM-Pro Desk is designed with the possibility of rack mounting, though this requires some hands-on modification by the user.
+
+There are four screws located under the rubber feet on the bottom of the Desk unit. The two rear screws can be used for structural mounting. (Note: The two front screws are shorter and are located close to internal PCBA components, so they are not recommended for mounting.)
+
+We provide the 3D model of the Desk unit and a reference design for the rack adapter plate (single-unit and triple-unit)
+You may download and 3D print these, or design your own.
+[3d_zh](https://makerworld.com.cn/zh/models/1659366-nanokvm-pro-desk-mo-xing#profileId-1821374)
+[3d_en](https://makerworld.com/zh/models/1873387-nanokvm-pro-desk-model#profileId-2005371)
+
+Installation Steps
+1. Peel off the rear rubber feet and remove the original M2x6 mm screws. (new batch after Oct 2025 is M2x7mm already)
+2. Replace them with M2x7 mm screws and fasten the unit to the adapter plate.
+3. Secure the adapter plate to the screw holes on the rack rail edge.
+
+Diagrams of the installed unit:
+![rack1](../../../assets/NanoKVM/pro/start/rack1.jpg)
+![rack3](../../../assets/NanoKVM/pro/start/rack3.jpg)
+
+
+## Heat Dissipation and Working Temperature
+For long-term operational longevity, the NanoKVM-Pro Desk utilizes passive cooling.
+
+The KVM's main body uses an aluminum alloy casing. The primary heat dissipation path is from the bottom of the PCBA, transferring heat through thermal paste to the bottom of the enclosure, and then dissipating heat through the bottom surface or radiating from the top surface.
+
+Therefore, placing the KVM on a highly conductive metal surface (such as a metal case or a rack) or in a well-ventilated environment will significantly aid in cooling.
+
+Temperature Specifications
+The KVM's typical working power consumption is 3–4W. The operating temperature rise of the chassis surface is about 15–20°C, and the CPU's temperature rise is around 50°C.
+
+For touch scenarios (e.g., desktop use): We recommend an ambient working temperature of under 25°C. This keeps the chassis surface temperature below 45°C. (Note: Since the enclosure is metal, it will feel hotter to the touch than plastic at the same temperature.)
+
+For non-touch scenarios (e.g., rack mounting): We recommend an ambient working temperature of under 40°C.
+
+The figure below shows the surface temperature at an ambient temperature of 26°C
+![temp](../../../assets/NanoKVM/pro/start/temperature.jpg)

@@ -117,3 +117,35 @@ Desk 版本正面配有两个可供交互的部件
 
    1. **Tailscale**：NanoKVM-Pro 默认预装了 Tailscale 应用。您可在网页设置中登陆 Tailscale 帐号。所有已登陆 Tailscale 的设备将自动加入同一虚拟内网，并获得 `100.xxx.xxx.xxx` 的 IP。通过该 IP，您可以远程访问并控制您的主机。
    2. **其他异地组网工具**：NanoKVM-Pro 基于 Ubuntu 系统，支持使用 `apt` 安装第三方应用（如 ZeroTier）。请按照相关工具的官方文档完成安装与配置。
+
+
+## 安装到机柜
+NanoKVM-Pro Desk 预留了安装到机柜的可能性，但需要用户进行一些动手操作。
+Desk底部脚垫下有四颗螺丝，其中靠后两颗可以作为结构固定螺丝。（注意前面两颗螺丝较短，且靠近PCBA内部元件，不建议用来固定）
+我们提供Desk的3D模型，和参考的机柜转接板设计（单体和三联）在这里，你可以下载打印使用，或者自行设计。
+[3d_zh](https://makerworld.com.cn/zh/models/1659366-nanokvm-pro-desk-mo-xing#profileId-1821374)
+[3d_en](https://makerworld.com/zh/models/1873387-nanokvm-pro-desk-model#profileId-2005371)
+
+安装步骤
+1. 撕开靠后的脚垫，卸下原M2x6 mm的螺丝 （新批次的已经都使用了7mm螺丝）
+2. 换上M2x7 mm的螺丝, 固定到转接板上 
+3. 将转接板固定到机柜边缘的螺丝孔上
+
+安装好后的示意图：
+![rack1](../../../assets/NanoKVM/pro/start/rack1.jpg)
+![rack3](../../../assets/NanoKVM/pro/start/rack3.jpg)
+
+## 散热和工作温度
+
+为了工作寿命考虑，NanoKVM-Pro Desk 使用被动散热方式。
+KVM主体使用铝合金外壳，散热路径主要是从PCBA底部通过导热硅脂传递到外壳底部，然后通过外壳底部传热到 底部平面，或者传热到顶部表面散热。
+所以KVM放到散热较好的金属上(如金属机箱，机柜)，或者放在通风的环境中，有助于散热。
+
+KVM典型工作功耗为3-4W，外壳的工作温升在15-20℃，CPU工作温升在50℃左右。
+所以放在桌面等手经常需要触摸的场景，建议工作温度在25℃内，这样外壳温度在45℃以内（由于外壳是金属，手摸的感觉比同温度的塑料热）
+如果放在机柜等不需要手触摸的场景，建议工作温度在40℃内。
+
+下图为室温26℃时的表面温度
+![temp](../../../assets/NanoKVM/pro/start/temperature.jpg)
+
+

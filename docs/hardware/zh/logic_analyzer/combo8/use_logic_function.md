@@ -60,6 +60,9 @@ sudo ./PulseView-x86_64-032323-1101.AppImage
 
 > 注：在Linux环境最大可支持80M@4通道、40M@8通道采样；由于Windows环境下USB传输不稳定的限制，在Windows上最大只能支持到80M@2通道、40M@4通道采样。
 
+**MacOS环境**
+PulseView-SLogic-250910-aarch64.dmg
+
 #### 扫描SLogic并连接
 
 首次启动时会自动连接，也可以选择手动连接SLogic

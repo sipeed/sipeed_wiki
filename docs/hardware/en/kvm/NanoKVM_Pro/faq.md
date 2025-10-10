@@ -132,3 +132,7 @@ AXDL is an official burning tool provided by Aixin, designed for burning AXP for
    - Press and hold the User button on the NanoKVM, then power it on (or press the Reset button while powered on).
    - The burning process will start automatically, wait for the progress bar to complete.
    - Wait until the prompt indicates that burning was successful; the entire process is complete.
+
+## LCD not light up
+It may cause by LCD FPC cable loose during transportation.
+You can try follow this article to fix it: wiki.sipeed.com/nanokvmpro-lcd

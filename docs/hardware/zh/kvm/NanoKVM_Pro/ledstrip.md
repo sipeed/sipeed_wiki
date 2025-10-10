@@ -17,7 +17,7 @@ update:
 屏同步氛围灯带是NanoKVM-Pro的特色扩展配件。
 当你将NanoKVM-Pro用于桌面电脑时，NanoKVM-Pro可以通过捕获的屏幕画面，控制LED灯带按屏幕边缘的色彩显示，实现梦幻的灯光渲染效果！
 ![ledstrip_pic](../../../assets/NanoKVM/pro/ledstrip/ledstrip_pic.jpg)
- <video playsinline controls muted preload src="../../../assets/NanoKVM/pro/ledstrip/sync_led.mp4"></video>
+ <video playsinline controls muted preload src="../../../assets/NanoKVM/pro/ledstrip/sync_led2.mp4"></video>
 
 > ⚠️ 注意：使用该功能，需要确保输入电源规格 **5V ≥ 3A**
 
@@ -83,6 +83,7 @@ update:
 ### 粘贴灯带
 
 撕开灯带背部的双面胶保护膜，将其牢固粘贴在屏幕背面。
+![ledstrip_install](../../../assets/NanoKVM/pro/ledstrip/ledstrip_install.jpg)
 
 ### 连接到 NanoKVM-Pro
 
@@ -116,4 +117,4 @@ update:
 
 ## 效果展示
 
-![ledstrip_show](../../../assets/NanoKVM/pro/ledstrip/ledstrip_show.png)
+ <video playsinline controls muted preload src="../../../assets/NanoKVM/pro/ledstrip/sync_led2.mp4"></video>
