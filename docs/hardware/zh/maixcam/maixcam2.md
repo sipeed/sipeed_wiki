@@ -174,7 +174,7 @@ title: MaixCAM2 -- 快速落地 AI 视觉、听觉应用
 
 | 组件 | 描述 |
 | --- | --- |
-| CPU 大核 | **1.2GHz A53 x2, 运行 Linxu(Ubuntu)** |
+| CPU 大核 | **1.2GHz A53 x2, 运行 Linux(Ubuntu)** |
 | CPU 小核 | RISC-V 32bit E907， 跑 RTT |
 | NPU | **12.8Tops@INT4 / 3.2TOPS@INT8**， 支持卷积和**Transformer模型**，如 YOLO/**LLM/VLM** 等,  **YOLO11n 640x640 帧率高达 113FPS** |
 | 内存 | **1GB / 4GB LPDDR4** 可选 |
