@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+
+<html lang="zh"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="MaixPy, MaixPy3, Python, Python3, MicroPython">
+    
+    
+    <meta name="description" content="maixpy  如何适配你的平台">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+        
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/prism.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?9cb07365544a53067c56c346c838181a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119047820-5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-119047820-5');
+    </script>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/js/thumbs_up/style.css" type="text/css"/>
+        
+    
+    
+    <title>如何适配你的平台 - Sipeed Wiki</title>
+    
+    <script type="text/javascript">js_vars = {"teedoc-plugin-ad-hint": {"type": "hint", "label": "NEW", "content": "全新 Maix 系列产品 <a href='https://wiki.sipeed.com/maixcam'>MaixCAM</a> 已上线, 全新 <a href='https://wiki.sipeed.com/maixpy/'>MaixPy</a> 功能更丰富，性能更强大，软件更易用，文档更全面！", "show_times": 2, "show_after_s": 432000, "date": "2022-06-01 14:00", "color": "#a0421d", "link_color": "#e53935", "link_bg_color": "#e6ae5c", "bg_color": "#ffcf89", "color_hover": "white", "bg_color_hover": "#f57c00", "close_color": "#eab971"}, "teedoc-plugin-thumbs-up": {"label_up": "有帮助", "label_down": "待改进", "icon": "/static/images/thumbs_up/up.svg", "icon_clicked": "/static/images/thumbs_up/upped.svg", "url": "https://thumbs-up.sipeed.com", "show_up_count": true, "show_down_count": false, "msg_already_voted": "您已经投过票了", "msg_thanks": "感谢您的反馈", "msg_down_prompt": "感谢反馈，请告诉我们可以改进什么地方?（最少 10 个字）", "msg_down_prompt_error": "消息最少需要 10 个字， 最多 256 个字", "msg_error": "请求服务器出现错误!"}}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": false, "update": [], "ts": 0, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/">
+                
+                    <img class="site_logo" src="/static/image/logo.svg" alt="sipeed wiki logo">
+                
+                
+                    <h2>wiki</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class=""><a  href="/">产品</a></li>
+<li class="sub_items "><a >开源软件</a><ul><li class=""><a  href="/maixpy/">MaixPy</a></li>
+<li class=""><a  href="/soft/maixpy/zh/index.html">MaixPy_v1</a></li>
+<li class=""><a  href="/soft/Lichee/zh/index.html">Lichee</a></li>
+<li class=""><a  href="/ai/zh/index.html">AI 指南</a></li>
+</ul>
+</li>
+<li class=""><a target="_blank" href="https://maixhub.com">MaixHub</a></li>
+<li class=""><a  href="/news/">动态</a></li>
+<li class=""><a  href="/faq.html">FAQ 汇总</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class=""><a  href="/store.html"><img src='/static/image/shop.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+<li class=""><a target="_blank" href="https://github.com/sipeed"><img src='/static/image/github.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">输入关键词，多关键词空格隔开</span>
+                                <span id="search_loading_hint">正在加载，请稍候。。。</span>
+                                <span id="search_download_err_hint">下载文件失败，请刷新重试或检查网络</span>
+                                <span id="search_other_docs_result_hint">来自其它文档的结果</span>
+                                <span id="search_curr_doc_result_hint">当前文档搜索结果</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="active_parent with_link"><a href="/soft/maixpy3/zh/index.html"><span class="label">MaixPy3 是什么？能做什么？</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/install/install.html"><span class="label">如何获取、安装、使用？</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/tools/MaixPy3_IDE.html"><span class="label">安装或配置 IDE 开发工具</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/tools/0.MaixII-Dock.html"><span class="label">基于 USB 开发 MaixII-Dock</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/tools/maixsense.html"><span class="label">基于 WIFI 开发 MaixSense</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active  with_link"><a href="/news/MaixPy3/v831_usage/v831_usage.html" ><span class="label">M2DOCK (V831)上手视觉指南</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">遇到问题怎么办？</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/origin/helper.html"><span class="label">如何正确反馈问题！</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/question/maixpy3_faq.html"><span class="label">常见问题与解决方法</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">相关的基础知识</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active  with_link"><a href="/news/MaixPy3/difference.html" ><span class="label">MaixPy 和 MaixPy3 的区别</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/origin/video.html"><span class="label">收录一些国内 Python 基础教程</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/origin/hello_world.html"><span class="label">大佬鼠の嵌入式 Python 入门教程 [1]</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/origin/loop_python.html"><span class="label">大佬鼠の嵌入式 Python 入门教程 [2]</span><span class=""></span></a></li>
+<li class="not_active  with_link"><a href="https://bing.com/search?q=v831+m2dock" ><span class="label">使用必应搜索 V831 M2DOCK 的内容</span><span class=""></span></a></li>
+<li class="not_active  with_link"><a href="https://bbs.sipeed.com/user/909" ><span class="label">咸鱼菌の MaixII-Dock 上手系列教程</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/origin/xiaoxu.html"><span class="label">喏呐の【攻城狮成长记】</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="active_parent with_link"><a href="/soft/maixpy3/zh/develop/index.html"><span class="label">开发者更新日志</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/others/framework.html"><span class="label">【项目开发基础】项目架构介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/others/develop.html"><span class="label">【底层开发基础】编译安装测试</span><span class=""></span></a></li>
+<li class="active with_link"><a href="/soft/maixpy3/zh/others/platform.html"><span class="label">【移植适配实例】开发新的平台</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/develop/opmv_cv.html"><span class="label">【图像处理开发】传统视觉算法</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">基础功能模块</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active no_link"><a><span class="label">图像处理</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/vision/back-information.html"><span class="label">背景知识</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/vision/maixpy3-example.html"><span class="label">基础用法</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/vision/image_example.html"><span class="label">传统视觉</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">硬件外设</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/hardware/GPIO.html"><span class="label">GPIO  (点灯)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/hardware/I2C.html"><span class="label">I2C  (pylibi2c)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/hardware/PWM.html"><span class="label">PWM  (脉冲宽度调制)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/hardware/UART.html"><span class="label">UART  (pyserial)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/hardware/SPI.html"><span class="label">SPI  (spidev)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/hardware/event.html"><span class="label">EVENT  (evdev)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/hardware/ADC.html"><span class="label">ADC*  (模/数转换器)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/hardware/watchdog.html"><span class="label">WATCHDOG*  (看门狗定时器)</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/net.html"><span class="label">网络功能</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">媒体功能</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/Audio/play_mp4.html"><span class="label">视频播放 (pyav)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/Audio/audio.html"><span class="label">录音与播放 (pyaudio)</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">获取 AI 算法</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/AI_net/Edge_detection.html"><span class="label">边缘检测 (sobel)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/AI_net/resnet.html"><span class="label">物品分类 (resnet)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/AI_net/yolo.html"><span class="label">物体检测 (yolov2)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/AI_net/number_recognize.html"><span class="label">数字识别</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/AI_net/face_recognize.html"><span class="label">人脸识别</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/AI_net/self_learn.html"><span class="label">自学习分类</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/AI_net/car_registration_plate_recognition.html"><span class="label">车牌识别</span><span class=""></span></a></li>
+<li class="not_active  with_link"><a href="https://maixhub.com" ><span class="label">在线训练 AI 模型</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">本地训练 AI 模型</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/train_AI/information.html"><span class="label">深度神经网络基础知识 (必看)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/train_AI/ready.html"><span class="label">本地训练环境搭建</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/train_AI/v831_sobel.html"><span class="label">边缘检测模型搭建过程</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/train_AI/data.html"><span class="label">如何制作数据集</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/train_AI/train_resnet.html"><span class="label">训练物体分类模型</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/train_AI/train_yolov2.html"><span class="label">训练物体检测模型</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">核心 API 手册</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/api/maix/image.html"><span class="label">image</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/api/maix/display.html"><span class="label">display</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/api/maix/camera.html"><span class="label">camera</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/api/maix/nn.html"><span class="label">nn</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>如何适配你的平台</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/sipeed/sipeed_wiki/blob/main/docs/soft/maixpy3/zh/others/platform.md" target="_blank">
+                                    <span id='editPage'>编辑本页</span>
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <blockquote>
+<p>通过【MaixPy3开发文档】可知基础的 Python3 编译、安装、测试等开发方法。</p>
+</blockquote>
+<p>本文详细地介绍了 MaixPy3 项目结构，帮助你更好的适配 MaixPy3 环境。</p>
+<h2 id="2021-%E5%B9%B4%E7%9A%84-Python-%E5%8F%AF%E4%BB%A5%E5%BD%BB%E5%BA%95%E8%B7%A8%E5%B9%B3%E5%8F%B0%E4%BA%86%E5%90%97%EF%BC%9F">2021 年的 Python 可以彻底跨平台了吗？</h2>
+<p>答案是还不足够的，仍然有很多依赖底层库差异导致了 Python 模块难以跨平台兼容。</p>
+<p>虽然绝大部分软件模块（如：pil、numpy、urllib3）都支持跨平台了，但在嵌入式 linux 设备的 Python 调用硬件资源（如：video \ audio \ nn）的问题上，仍然不能达到理想的跨平台接口。</p>
+<p>因此 MaixPy3 是围绕一系列支持边缘 AI 的 Linux 设备来做的，短期内不会考虑所有平台（如 Android &amp; Windows ）。</p>
+<h2 id="%E9%80%82%E9%85%8D-MaixPy3-%E6%B5%81%E7%A8%8B%E6%98%AF%E6%80%8E%E6%A0%B7%E7%9A%84%EF%BC%9F">适配 MaixPy3 流程是怎样的？</h2>
+<p>除去必要 Python3 调取硬件资源的方法，在 MaixPy3 上的开发更像是自上而下的模块接口统一的工作。</p>
+<p>可以从上层软件往下要求硬件提供相关功能模块的适配。</p>
+<p>从用户角度描述常用的功能如下：</p>
+<ul>
+<li>支持显示器（display）</li>
+<li>支持摄像头（camera）</li>
+<li>支持音频录音播放（audio）</li>
+<li>支持神经网络算法（nn）</li>
+<li>支持按键、触摸、鼠标、键盘等事件（evdev）</li>
+<li>支持点灯（gpio）</li>
+<li>支持上网（network）</li>
+<li>支持访问 I2C / SPI / UART / USB 等协议外设或传感器</li>
+</ul>
+<p>于是适配功能的流程描述如下：</p>
+<ol>
+<li>首先在 Linux 系统上提供上述功能模块，可以动（静）态依赖库提供，也可以系统调用提供，<del>还可以直接寄存器操作</del>。</li>
+<li>接着通过更多的 Python3 拓展模块实现相应的功能，此时拥有该模块基础使用的 Python 代码。</li>
+<li>最后在 MaixPy3 中统一存在差异的 Python 代码，屏蔽不同设备不同硬件的差异。</li>
+</ol>
+<h2 id="%E4%BB%A5%E9%80%82%E9%85%8D%E3%80%90%E6%98%BE%E7%A4%BA%E5%99%A8%E3%80%91%E4%B8%BA%E4%BE%8B">以适配【显示器】为例</h2>
+<blockquote>
+<p>由于各个产品的硬件适配程度不同，有些过程可能已经提前完成，你可以选择跳过。</p>
+</blockquote>
+<p>想要使用 Python 在屏幕上显示内容，可以先从上层 Python 代码开始描述功能，为了能够解决基本的图像处理，选择一个 Python 中经典流行通用的 PIL 图像库 <a href="https://github.com/python-pillow/Pillow"  target="_blank">pillow</a>。</p>
+<p>现在可以使用代码打开图片并显示到屏幕上了：</p>
+
+<pre class="language-python"><code class="language-python">from PIL import Image
+im = Image.new(&quot;RGB&quot;, (640, 480), &quot;#FF0000&quot;)
+im.show()
+</code></pre>
+<p>这时候若是从【显示器】的角度设计一个 display 模块，可以写成如下代码：</p>
+
+<pre class="language-python"><code class="language-python">from PIL import Image
+from maix import display
+display.show(Image.new(&quot;RGB&quot;, (640, 480), &quot;#FF0000&quot;))
+</code></pre>
+<p>而 <code>from maix import display</code> 的实现可以简化成如下代码：</p>
+
+<pre class="language-python"><code class="language-python">from PIL import Image
+display = Image.new(&quot;RGB&quot;, (640, 480), &quot;#FF0000&quot;)
+
+def show(img):
+  global display
+  if isinstance(img, Image.Image):
+    display.paste(img, box)
+  display.show()
+</code></pre>
+<p>这时候 <code>display</code> 模块的角度就是作为显示器模块，实现了同一份代码在不同类型的 Linux 设备之间产生同样的效果。</p>
+<p><img src="./asserts/pil_view.jpg" alt="" /></p>
+<p>在达到这样的效果验证后，就可以开始做具体的移植适配。</p>
+<h3 id="%E5%87%86%E5%A4%87-Linux-/-Python3-/-pillow-%E7%AD%89%E5%9F%BA%E7%A1%80%E5%8A%9F%E8%83%BD%E6%A8%A1%E5%9D%97">准备 Linux / Python3 / pillow 等基础功能模块</h3>
+<p>准备一个目标 Linux 平台上的 Python3 解释器，与之配套的还有 目标平台的 GCC 编译链与系统目录（/usr/include &amp; /lib）相关文件。</p>
+<blockquote>
+<p>期间经历一系列的目标 Linux 平台的系统移植和编译操作后</p>
+</blockquote>
+<p>在确保 Linux 系统可以运行 Python 解释器后，通过 pip 下载安装 pillow 模块，验证上述 Python 实现的功能后，在 MaixPy3 的 setup.py 中给 <code>setup()</code> 函数的 <code>install_requires</code> 参数加入 <code>pillow</code> 模块。</p>
+<p>这时候用户在安装 <code>pip install MaixPy3</code> 的时候，由于 MaixPy3 依赖于 pillow 这个模块，如果安装过程中发现系统里没有，就会尝试下载编译安装 pillow 模块，但对于一些不能编译安装模块的 Linux 设备就需要系统里直接内置 pillow 模块，以减少用户的困扰。</p>
+<h3 id="%E4%BD%86%E8%BF%90%E8%A1%8C%E4%BB%A3%E7%A0%81%E5%90%8E%E5%B9%B6%E6%B2%A1%E6%9C%89%E6%95%88%E6%9E%9C">但运行代码后并没有效果</h3>
+<p>为什么？</p>
+<p>这是因为不同平台的屏幕的显示方式（命令）有所不同，不妨从 pillow 来看看的 show 是如何工作的。</p>
+
+<pre class="language-python"><code class="language-python">from PIL import Image
+im = Image.new(&quot;RGB&quot;, (640, 480), &quot;#FF0000&quot;)
+im.show()
+</code></pre>
+<p>在这段代码中的 <code>im.show()</code> 最终会依赖于 <a href="https://github.com/python-pillow/Pillow/blob/master/src/PIL/ImageShow.py"  target="_blank">ImageShow.py</a> 来完成图像对象的展示。</p>
+<p>在 Linux 上是如何工作的呢？</p>
+
+<pre class="language-python"><code class="language-python">
+class UnixViewer(Viewer):
+    format = &quot;PNG&quot;
+    options = {&quot;compress_level&quot;: 1}
+
+    def get_command(self, file, **options):
+        command = self.get_command_ex(file, **options)[0]
+        return f&quot;({command} {quote(file)}; rm -f {quote(file)})&amp;&quot;
+
+    def show_file(self, file, **options):
+        &quot;&quot;&quot;Display given file&quot;&quot;&quot;
+        fd, path = tempfile.mkstemp()
+        with os.fdopen(fd, &quot;w&quot;) as f:
+            f.write(file)
+        with open(path) as f:
+            command = self.get_command_ex(file, **options)[0]
+            subprocess.Popen(
+                [&quot;im=$(cat);&quot; + command + &quot; $im; rm -f $im&quot;], shell=True, stdin=f
+            )
+        os.remove(path)
+        return 1
+
+
+class DisplayViewer(UnixViewer):
+    &quot;&quot;&quot;The ImageMagick ``display`` command.&quot;&quot;&quot;
+
+    def get_command_ex(self, file, **options):
+        command = executable = &quot;display&quot;
+        return command, executable
+
+</code></pre>
+<p>可以看到 DisplayViewer 继承 UnixViewer 对象，在 show_file 的时候将图像文件缓存到临时文件（<code>tempfile.mkstemp()</code>），再通过 get_command_ex 调用 display 系统命令（程序）完成图像的显示。</p>
+<blockquote>
+<p>简单来说就是【在显示器上显示一张图片】的意思。</p>
+</blockquote>
+<p><img src="./asserts/display_cmd.jpg" alt="" /></p>
+<p>那在嵌入式 arm Linux 硬件又会是怎样的呢？</p>
+<p>在 v831 的 linux 系统中可以使用和 display 类似的 fbviewer 程序来显示一张图像。</p>
+
+<pre class="language-none"><code class="language-none">root@sipeed:/# fbviewer /home/res/logo.png
+fbv - The Framebuffer Viewer
+/home/res/logo.png
+140 x 140
+</code></pre>
+<p>如何注入 fbviewer 的显示接口进 pillow 模块呢？（在 <code>maix/__init__.py</code> 中有如下一段代码）</p>
+
+<pre class="language-python"><code class="language-python">try:
+  import shutil
+  from PIL import ImageShow
+  # use fbviewer on linux
+  # os.system('ln -s /usr/sbin/fbviewer /usr/sbin/display')
+  if shutil.which(&quot;fbviewer&quot;):
+    class fbViewer(ImageShow.UnixViewer):
+      def get_command_ex(self, file, **options):
+        command = executable = &quot;fbviewer&quot;
+        return command, executable
+    ImageShow.register(fbViewer, 0)
+except ModuleNotFoundError as e:
+  pass
+
+</code></pre>
+<p>可以看到当发现系统里有 fbviewer 时就会将该类注入到 PIL 的 ImageShow 的显示接口中，又或是在系统里直接将 fbviewer 链接到 display 命令上。</p>
+<p>现在已经成功适配到具体的屏幕操作了，但这样就足够了吗？</p>
+<h3 id="%E8%BF%99%E6%A0%B7%E8%BF%98%E4%B8%8D%E5%A4%9F%EF%BC%8C%E8%BF%99%E6%A0%B7%E5%AE%9E%E7%8E%B0%E4%BB%85%E6%98%AF%E5%AE%8C%E6%88%90%E4%BA%86%E5%8A%9F%E8%83%BD%E3%80%82">这样还不够，这样实现仅是完成了功能。</h3>
+<p>简单分析一下，上述实现性能损耗主要发生在当图像对象进入 pillow show_file 的时候需要对其编码保存到某个临时文件（/tmp）中，然后再交给 fbviewer 去打开文件，fbviewer 对其解码后再写到 framebuffer 的设备（/dev/fb0）上。</p>
+<p>问：为什么不把图像的 rgb 数组直接写到 fb 上呢？</p>
+<p>答：没错，内部的 _maix_display 拓展模块实现是这样做的。</p>
+
+<pre class="language-c++"><code class="language-c++">PyDoc_STRVAR(Display_draw_doc, &quot;draw()\nDraw image(rgb888) bytes data to lcd.\n&quot;);
+static PyObject *Display_draw(V831DisplayObject *self, PyObject *args)
+{
+    PyObject *img_bytes = NULL;
+    int img_width = 0, img_height = 0;
+    if (!PyArg_ParseTuple(args, &quot;Oii&quot;, &amp;img_bytes, &amp;img_width, &amp;img_height))
+    {
+        return NULL;
+    }
+    if (NULL != self-&gt;disp) {
+      if (self-&gt;disp-&gt;width &gt;= img_width &amp;&amp; self-&gt;disp-&gt;height &gt;= img_height) {
+          uint8_t *rgb_data = (uint8_t *)PyBytes_AS_STRING(img_bytes);
+          if (rgb_data != NULL) {
+            self-&gt;disp-&gt;draw(self-&gt;disp, rgb_data, (self-&gt;disp-&gt;width - img_width) / 2,(self-&gt;disp-&gt;height - img_height) / 2, img_width, img_height, 1);
+          }
+      }
+    }
+    Py_RETURN_NONE;
+}
+</code></pre>
+
+<pre class="language-python"><code class="language-python">from _maix_display import V831Display
+__fastview__ = V831Display(__width__, __height__)
+__fastview__.draw(img.tobytes(), __fastview__.width, __fastview__.height)
+</code></pre>
+<p>这就是【屏幕清屏（变黑） <code>dd if=/dev/zero of=/dev/fb0</code> 】与【显示黑色图片 <code>display black.bmp</code> 】之间存在的性能差距。</p>
+<p>至此【显示器】基本适配完成了，其他模块亦如此，但不一定每个模块都要使用这样方式进行移植，只是出于性能的考虑可以这样做。</p>
+<blockquote>
+<p>可以自行查阅 Linux framebuffer 相关资料了解更多。</p>
+</blockquote>
+<h3 id="%E4%BB%A5-Maix-%E5%8C%85%E4%BD%9C%E4%B8%BA%E9%80%9A%E7%94%A8%E7%9A%84-Python-API">以 Maix 包作为通用的 Python API</h3>
+<p>做完上述功能后，就要回到这里思考一个用户体验的问题（开发者也可以是用户）。</p>
+<p>如何让同一份代码在不同平台表现一致，减少用户的再次学习成本和认知成本，所以制作了一个 maix 入口模块，以减少重复实现的功能代码。</p>
+<blockquote>
+<p>若是不使用某个模块（maix）去约束入口代码，就会产生代码碎片化，就如同你所看到的 Linux 上各种 Python 功能模块，做同一件事，不同平台上的接口与用法都不尽相同，但你需要花费不少时间去寻找并使用，为什么不能统一常用的功能接口呢，答案肯定是可以的，但这可能需要一些时间。</p>
+</blockquote>
+<p>从摄像头获取一张图片并显示出来这样的功能，使用如下代码就可以实现这个功能，并且它在大多数平台上都是可以做到的。</p>
+
+<pre class="language-python"><code class="language-python">from maix import display, camera
+display.show(camera.capture())
+</code></pre>
+<p>为了实现上述统一接口，就需要在 <a href="https://github.com/sipeed/MaixPy3/blob/main/maix/video.py"  target="_blank">maix/video.py</a> 中多次 import 直到能够匹配的平台接口，这就会产生很多肮脏的接口代码，就如下所示。</p>
+
+<pre class="language-python"><code class="language-python">
+camera = MaixVideo()
+
+try:
+    # use libmaix on v831
+    from _maix_camera import V831Camera
+
+    class V831MaixVideo(MaixVideo):
+
+        def __init__(self, source=&quot;/v831&quot;):
+            self.source = source
+            self.cam = None
+
+        def config(self, size=(480, 360)):
+            if self.cam == None:
+                super(V831MaixVideo, self).__init__(size)
+                self.cam = V831Camera(self.width(), self.height())
+                import time
+                time.sleep(0.2) # wait init
+                print('[camera] config input size(%d, %d)' %
+                      (self.width(), self.height()))
+
+        def read(self):
+            if self.cam == None:
+                print('[camera] run config(size=(w, h)) before capture.')
+                self.config()
+            if self.cam:
+                ret, frame = self.cam.read()
+                if ret:
+                    return frame  # bytes
+            return None
+
+        def __del__(self):
+            if self.cam:
+                self.cam.close()
+                self.cam = None
+
+    camera = V831MaixVideo()
+except Exception as e:
+    pass
+
+try:
+    from cv2 import VideoCapture
+
+    class CvMaixVideo(MaixVideo):
+
+        def __init__(self, source=0):
+            super(CvMaixVideo, self).__init__((640, 480))
+            self.source = source
+            self.cam = VideoCapture(0)
+
+        def read(self):
+            ret, frame = self.cam.read()
+            if ret:
+                bgr = frame[..., ::-1]  # bgr2rgb
+                return bgr.tobytes()  # bytes
+            return None
+
+        def __del__(self):
+            self.cam.release()
+
+    camera = CvMaixVideo()
+except Exception as e:
+    pass
+
+</code></pre>
+<blockquote>
+<p>这样的代码并不会多次运行，只会 import 的时候载入一次。</p>
+</blockquote>
+<p>像 MaixPy3 在设计 display 和 camera 模块的时候都尽可能围绕则 pillow 和 python-opencv 模块的接口设计衍生而来的，可以看到 camera 的 MaixVideo 定义如下，是参考 opencv 结构实现的。</p>
+
+<pre class="language-python"><code class="language-python">
+class MaixVideo():
+
+    def __init__(self, size=(640, 480)):
+        self._width, self._height = size
+
+    def width(self):
+        return self._width
+
+    def height(self):
+        return self._height
+
+    def write(self):
+        pass  # for file
+
+    def read(self):
+        return b'\xFF\x00\x00' * (self._width * self._height)
+
+    def config(self, size):
+        pass
+
+    def capture(self):
+        from PIL import Image
+        tmp = self.read()
+        if tmp:
+            return Image.frombytes(&quot;RGB&quot;, (self._width, self._height), tmp)
+        return None
+
+    def close(self):
+        pass  # for file
+
+</code></pre>
+<p>后来加入的 i2c \ spi \ pwm \ gpio 也尽量以通用接口实现。</p>
+<p>但也有一些例外，如 <a href="http://people.csail.mit.edu/hubert/pyaudio/"  target="_blank">PyAudio</a> 在对接具体音频驱动设备存在 alsa 和 tinyalsa 两类接口，就需要从底层上去完成 Python 拓展 C 模块的编写，从而实现上层接口的一致，而截止 2021 年的神经网络 NN 模块实现更是千奇百怪，还难以统一。</p>
+<p>所以通过 maix 模块作为用户调用的 API 入口，重新围绕功能来抽象设计对用户友好且统一的通用接口。</p>
+<p>这样在不同平台上只需要链接不同的 Python 依赖模块即可，如 v831 链接的是 _maix_camera 模块，而 pc 上直接使用 opencv-python 模块，当然也可以是任意调用其他模块，不一定是 MaixPy3 所提供的参考模块，这取决于你的想法。</p>
+<h2 id="%E9%99%84%E5%BD%95%EF%BC%9A%E5%A6%82%E4%BD%95%E4%BC%98%E5%8C%96-Python-%E6%A8%A1%E5%9D%97%EF%BC%9F%EF%BC%88%E4%BB%A5-GPIO-%E4%B8%BA%E4%BE%8B%EF%BC%89">附录：如何优化 Python 模块？（以 GPIO 为例）</h2>
+<p>Python 上通用软件的接口大多都是通过 shell 接口调用系统程序完成的功能，所以在执行性能上有很大的损失。</p>
+<p>所谓经过优化实际上是通过内置代码模块的方式进行操作的，这样就减少了不必要的数据交换了。</p>
+<p>那么执行性能究竟差在哪里？除了上述说的【显示器】适配时的优化，下面再以 GPIO 的实现为例说明这个问题。</p>
+<p>如果站在使用 Python 进行的 Linux 应用编程角度，可以这样实现 GPIO 的控制。</p>
+<h3 id="%E4%BD%BF%E7%94%A8-sysfs-%E7%9A%84%E6%8E%A5%E5%8F%A3">使用 sysfs 的接口</h3>
+<p>可以在 shell 接口配置 gpio 完成输入输出、拉高拉低。</p>
+
+<pre class="language-bash"><code class="language-bash">sudo su
+cd /sys/class/gpio
+echo 12 &gt; export
+echo out &gt; gpio12/direction       # io used for output
+echo 1 &gt; gpio12/value             # output logic 1 level
+echo 0 &gt; gpio12/value             # output logic 0 level
+echo 12 &gt; unexport
+</code></pre>
+<p>而在 Python 里可以使用 os.system() 来输入 shell 命令完成。</p>
+<h3 id="%E4%BD%BF%E7%94%A8-gpiod-%E7%9A%84%E6%8E%A5%E5%8F%A3">使用 gpiod 的接口</h3>
+<p>可以参考 <a href="https://github.com/hhk7734/python3-gpiod"  target="_blank">python3-gpiod</a> 的实现，主要它是对 /dev/gpiodchipX 设备进行操作的。</p>
+
+<pre class="language-python"><code class="language-python">
+def gpiod_chip_open(path: str) -&gt; Optional[gpiod_chip]:
+    &quot;&quot;&quot;
+    @brief Open a gpiochip by path.
+    @param path: Path to the gpiochip device file.
+    @return GPIO chip handle or None if an error occurred.
+    &quot;&quot;&quot;
+    info = gpiochip_info()
+
+    try:
+        fd = os_open(path, O_RDWR | O_CLOEXEC)
+    except FileNotFoundError:
+        return None
+
+    # We were able to open the file but is it really a gpiochip character
+    # device?
+    if not _is_gpiochip_cdev(path):
+        os_close(fd)
+        return None
+
+    status = ioctl(fd, GPIO_GET_CHIPINFO_IOCTL, info)
+    if status &lt; 0:
+        os_close(fd)
+        return None
+
+    if info.label[0] == &quot;\0&quot;:
+        label = &quot;unknown&quot;
+    else:
+        label = info.label.decode()
+
+    return gpiod_chip(
+        num_lines=info.lines, fd=fd, name=info.name.decode(), label=label
+    )
+
+</code></pre>
+<p>可以通过 shell 接口操作 /sys/class/gpio 对象，也可以通过 <code>from fcntl import ioctl</code> 操作字符设备文件进行控制，与第一种差别不大。</p>
+<h3 id="%E4%BD%BF%E7%94%A8-mmap-%E7%9A%84%E6%8E%A5%E5%8F%A3">使用 mmap 的接口</h3>
+<p>在 Linux 下直接读写物理地址，打开设备文件 /dev/mem 后使用 mmap 进行物理地址的映射，最后查阅数据手册获取寄存器地址读写相应的寄存器。</p>
+<blockquote>
+<p>节选部分代码说明意图，注意不同平台的定义和实现都不尽相同。</p>
+</blockquote>
+
+<pre class="language-c++"><code class="language-c++">
+unsigned int SUNXI_PIO_BASE = 0;
+static volatile long int *gpio_map = NULL;
+
+int sunxi_gpio_init(void) {
+    int fd;
+    unsigned int addr_start, addr_offset;
+    unsigned int PageSize, PageMask;
+
+
+    fd = open(&quot;/dev/mem&quot;, O_RDWR);
+    if(fd &lt; 0) {
+        return SETUP_DEVMEM_FAIL;
+    }
+
+    PageSize = sysconf(_SC_PAGESIZE);
+    PageMask = (~(PageSize-1));
+
+    addr_start = SW_PORTC_IO_BASE &amp; PageMask;
+    addr_offset = SW_PORTC_IO_BASE &amp; ~PageMask;
+
+    gpio_map = (void *)mmap(0, PageSize*2, PROT_READ|PROT_WRITE, MAP_SHARED, fd, addr_start);
+    if(gpio_map == MAP_FAILED) {
+        return SETUP_MMAP_FAIL;
+    }
+
+    SUNXI_PIO_BASE = (unsigned int)gpio_map;
+    SUNXI_PIO_BASE += addr_offset;
+
+    close(fd);
+    return SETUP_OK;
+}
+
+</code></pre>
+<p>然后编写相应的 Python 拓展 C 模块调用上述接口。</p>
+
+<pre class="language-c++"><code class="language-c++">
+#define PD0    SUNXI_GPD(0)
+#define PD1    SUNXI_GPD(1)
+#define PD2    SUNXI_GPD(2)
+#define PD3    SUNXI_GPD(3)
+#define PD4    SUNXI_GPD(4)
+#define PD5    SUNXI_GPD(5)
+#define PD6    SUNXI_GPD(6)
+#define PD7    SUNXI_GPD(7)
+#define PD8    SUNXI_GPD(8)
+#define PD9    SUNXI_GPD(9)
+#define PD10    SUNXI_GPD(10)
+#define PD11    SUNXI_GPD(11)
+#define PD12    SUNXI_GPD(12)
+#define PD13    SUNXI_GPD(13)
+#define PD14    SUNXI_GPD(14)
+#define PD15    SUNXI_GPD(15)
+#define PD16    SUNXI_GPD(16)
+#define PD17    SUNXI_GPD(17)
+#define PD18    SUNXI_GPD(18)
+#define PD19    SUNXI_GPD(19)
+#define PD20    SUNXI_GPD(20)
+#define PD21    SUNXI_GPD(21)
+#define PD22    SUNXI_GPD(22)
+#define PD23    SUNXI_GPD(23)
+#define PD24    SUNXI_GPD(24)
+#define PD25    SUNXI_GPD(25)
+#define PD26    SUNXI_GPD(26)
+#define PD27    SUNXI_GPD(27)
+
+#define MISO    SUNXI_GPE(3)
+#define MOSI    SUNXI_GPE(2)
+#define SCK     SUNXI_GPE(1)
+#define CS      SUNXI_GPE(0)
+
+static int module_setup(void) {
+    int result;
+
+    result = sunxi_gpio_init();
+    if(result == SETUP_DEVMEM_FAIL) {
+        PyErr_SetString(SetupException, &quot;No access to /dev/mem. Try running as root!&quot;);
+        return SETUP_DEVMEM_FAIL;
+    }
+    else if(result == SETUP_MALLOC_FAIL) {
+        PyErr_NoMemory();
+        return SETUP_MALLOC_FAIL;
+    }
+    else if(result == SETUP_MMAP_FAIL) {
+        PyErr_SetString(SetupException, &quot;Mmap failed on module import&quot;);
+        return SETUP_MMAP_FAIL;
+    }
+    else {
+        return SETUP_OK;
+    }
+
+    return SETUP_OK;
+}
+
+static PyObject* py_init(PyObject* self, PyObject* args) {
+
+    module_setup();
+
+    Py_RETURN_NONE;
+}
+
+PyMethodDef module_methods[] = {
+    {&quot;init&quot;, py_init, METH_NOARGS, &quot;Initialize module&quot;},
+    {&quot;cleanup&quot;, py_cleanup, METH_NOARGS, &quot;munmap /dev/map.&quot;},
+    {&quot;setcfg&quot;, py_setcfg, METH_VARARGS, &quot;Set direction.&quot;},
+    {&quot;getcfg&quot;, py_getcfg, METH_VARARGS, &quot;Get direction.&quot;},
+    {&quot;output&quot;, py_output, METH_VARARGS, &quot;Set output state&quot;},
+    {&quot;input&quot;, py_input, METH_VARARGS, &quot;Get input state&quot;},
+    {NULL, NULL, 0, NULL}
+};
+
+</code></pre>
+<p>这样与上述实现 display 模块到优化处理的思路是相通的，目的都是减少不必要的接口之间的数据交换达到最终优化的目的。</p>
+<h3 id="%E6%80%BB%E7%BB%93">总结</h3>
+<p>无论是哪种方法本意想通过抽象封装的通用接口来解决不同硬件上的差异，但有时会因为性能和内存的问题，只能放弃抽象直接访问底层寄存器硬件以提高性能。</p>
+<blockquote>
+<p>上述接口的操作都是处于 linux 用户空间进行的，使用 Python 和 C 访问 /sys/class/gpio 设备在程序逻辑上并无区别，但从执行代码段和传递变量消耗的角度来看，越靠近底层的实现执行效率自然越高，通过 Python 拓展模块实现的 mmap 映射操作相对于直接使用 C 代码实现而言，两者性能差异几乎可以忽略不计，所以 Python 程序也不一定会性能低下，主要还是取决于具体的实现方式。</p>
+</blockquote>
+<p>如果还想继续提高性能，就需要把寄存器操作下到内核空间了，可能这对于一些用户来说并不是必要的，例如用户点灯相对于系统而言是低频操作，而模拟 SPI 通信需要控制 GPIO 翻转则是高频操作，而从用户的角度来说，实现这个点灯功能（低频操作）对性能的要求不敏感，可以不做优化。</p>
+<p>因此要根据硬件的实际情况，在性能与功能之间选择一个折衷的实现。</p>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                        <a href="/soft/maixpy3/zh/others/develop.html">
+                            <span class="icon"></span>
+                            <span class="label">【底层开发基础】编译安装测试</span>
+                        </a>
+                        
+                    </div>
+                    <div id="next">
+                        
+                        <a href="/soft/maixpy3/zh/develop/opmv_cv.html">
+                            <span class="label">【图像处理开发】传统视觉算法</span>
+                            <span class="icon"></span>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>相关链接</a><ul><li><a target="_blank" href="https://www.sipeed.com">Sipeed 官网</a></li>
+<li><a target="_blank" href="https://maixhub.com/">MaixHub</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">Sipeed 淘宝</a></li>
+<li><a  href="/sitemap.xml">网站地图</a></li>
+<li><a target="_blank" href="https://github.com/teedoc/teedoc">网站使用 teedoc 生成</a></li>
+</ul>
+</li>
+<li><a>源码</a><ul><li><a target="_blank" href="https://github.com/sipeed/sipeed_wiki">Wiki 源码</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">开源项目</a></li>
+</ul>
+</li>
+<li><a>关注我们</a><ul><li><a target="_blank" href="https://twitter.com/SipeedIO">twitter</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">淘宝</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">github</a></li>
+<li><a><a>微信公众号</a><img src='/static/image/wechat.png'></a>
+</li>
+</ul>
+</li>
+<li><a>联系我们</a><ul><li><a>电话: +86 0755-27808509</a>
+</li>
+<li><a>商业支持: support@sipeed.com</a>
+</li>
+<li><a>地址: 深圳市宝安区新湖路4008号蘅芳科技办公大厦A座-2101C</a>
+</li>
+<li><a  href="/join_us.html">加入我们</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://www.sipeed.com">©2018-2023 深圳矽速科技有限公司</a></li>
+<li><a target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index">粤ICP备19015433号</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/js/prism.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <link rel="stylesheet" href="/static/js/add_hint/style.css" type="text/css"/>
+    
+        <script src="/static/js/add_hint/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+        <script src="/static/js/thumbs_up/main.js"></script>
+    
+</body>
+
+</html>
