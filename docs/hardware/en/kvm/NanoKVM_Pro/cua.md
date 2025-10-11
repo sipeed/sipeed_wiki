@@ -179,6 +179,7 @@ As of October 2025, the open-source **Qwen3-VL** models have significantly impro
 - `qwen3-vl-235b-a22b-instruct` surpasses last year’s `qwen-vl-max`
 - `qwen3-vl-30b-a3b-instruct` outperforms `qwen2.5-vl-72b-instruct`  
 Both now meet the threshold for basic computer control tasks.
+> It is expected that Qwen3-VL-4B will be released in mid-October. It may also feature CUA capabilities, which would make self-deployment on regular consumer-grade computers possible!
 
 However:
 - The **235B** model requires at least **4×H100 GPUs** (320GB total)—impractical for most users.

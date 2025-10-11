@@ -140,6 +140,7 @@ CUA网页是电脑，手机浏览器兼容的布局，电脑上的页面布局�
 ### 硬件配置
 得益于Qwen3-VL系列的发布，用户自部署VLM服务，实现CUA功能也成为了现实。
 在2025年10月最新发布的Qwen3-VL系列开源模型的能力大幅提高，qwen3-vl-235b-a22b-instruct能力超越了去年的qwen-vl-max, qwen3-vl-30b-a3b-instruct超越了qwen2.5-vl-72b-instruct, 都达到了完成基础电脑操作的能力门槛。
+> 预计在10月中将会发布Qwen3-VL-4B, 也许可能也具备CUA能力，如果可以的话，将可以在普通消费级电脑上自部署！
 
 qwen3-vl-235b-a22b-instruct是较大模型，至少需要4xH100 (4x80=320GB) 来运行FP8模型，对于普通用户来说比较困难。
 我们主要介绍 qwen3-vl-30b-a3b-instruct 的自部署演示。
