@@ -196,23 +196,45 @@ Possible deployment setups:
 Thus, **4×RTX3090** or **2×RTX4090/5090** are the most practical options for individual users.  
 We’ve successfully tested deployments using **vLLM** (SGLang is also supported)—both provide OpenAI-compatible APIs.
 
+**2025.10.15 Updated**  
+The Qwen3-VL-8B and 4B models were released today!
+After testing, the Qwen3-VL-8B-Instruct model is also capable of achieving basic CUA functionality!
+This means the barrier for individual users to self-deploy and experience CUA has been lowered to a single RTX 3090 graphics card, or a CPU with 32GB of RAM or more. 
+
+This is a configuration accessible to most digital enthusiasts. Come and try it out!
+
+
 ### Deploying VLM with vLLM
 
 1. Install vLLM: https://docs.vllm.ai/en/stable/getting_started/installation/gpu.html  
 2. Download model weights (FP16 or FP8):  
    - https://modelscope.cn/models/Qwen/Qwen3-VL-30B-A3B-Instruct  
    - https://modelscope.cn/models/Qwen/Qwen3-VL-30B-A3B-Instruct-FP8  
+   - - https://modelscope.cn/models/Qwen/Qwen3-VL-8B-Instruct  
 3. Launch the server:
-
+4xGPU run Qwen3-VL-30B-A3B-Instruct：
 ```shell
 vllm serve \
-    /your_models_path/Qwen/Qwen3-VL-30B-A3B-Instruct \
+    /your_models_path//Qwen/Qwen3-VL-30B-A3B-Instruct \
     --host 0.0.0.0 \
     --port 8000 \
     --tensor-parallel-size 4 \
     --gpu-memory-utilization 0.90 \
     --max-model-len 65536 \
     --served-model-name qwen3-vl-30b-a3b-instruct \
+    --api-key skxxxxxx
+```
+
+1xGPU Run Qwen3-VL-8B-Instruct:
+```shell
+vllm serve \
+    /your_models_path//Qwen/Qwen3-VL-8B-Instruct \
+    --host 0.0.0.0 \
+    --port 8000 \
+    --tensor-parallel-size 1 \
+    --gpu-memory-utilization 0.90 \
+    --max-model-len 32768 \
+    --served-model-name qwen3-vl-8b-instruct \
     --api-key skxxxxxx
 ```
 
