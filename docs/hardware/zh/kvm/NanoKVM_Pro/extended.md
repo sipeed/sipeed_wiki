@@ -144,14 +144,16 @@ sudo apt install ./*1.0.10*
 
 NanoKVM Pro 提供两组可用串口 UART1/UART2（ATX版本受限挡板规范尺寸没有引出，仅保留内部焊盘）
 
-- 外接其他串口终端设备
+Desk 版本接口定义示意图如下：
+![](./../../../assets/NanoKVM/pro/extended/UART.png)
 
-```shell
-# 网页终端使用 UART1 以 115200 波特率打开串口，使用Ctrl+A+Q退出
-picocom -b 115200 /dev/ttyS1
-# 网页终端使用 UART2 以 115200 波特率打开串口，使用Ctrl+A+Q退出
-# picocom -b 115200 /dev/ttyS2
-```
+- 网页端使用串口终端
+
+**需要更新至 1.1.5 版本以上**
+
+网页菜单栏->终端->串口中断 可以设置串口号以及波特率等选项
+
+![](./../../../assets/NanoKVM/pro/extended/UART-2.png)
 
 - 仅发送串口指令
 

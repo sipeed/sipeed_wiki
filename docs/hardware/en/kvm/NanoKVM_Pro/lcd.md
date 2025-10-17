@@ -7,6 +7,11 @@ update:
     author: zepan
     content:
       - initial docs
+  - date: 2025-10-18
+    version: v0.2
+    author: bugu
+    content:
+      - improve docs
 ---
 
 ## Introduction
@@ -57,7 +62,10 @@ Currently, the USB secondary screen feature only supports Windows systems.
 9. When re-enabling, some systems may require reinstalling the USB driver.
 
 ## Custom Display
-The NanoKVM-Pro's small screen uses standard framebuffer drivers. Users can utilize `/dev/fb0` to implement custom screen display operations.
+
+> Note: This feature requires the NanoKVM-Desk application to be updated to version `1.1.5` or higher.
+
+NanoKVM Desk introduces a user-defined APP function in version `1.1.5`. By long-pressing the screen/knob and switching to the fourth page, you can view all APPs. Three demo apps are pre-installed by default: `coin`, `conway`, and `hello`.
 
 [hello.py](../../../assets/NanoKVM/pro/lcd/hello.py)
 [conway.py](../../../assets/NanoKVM/pro/lcd/conway.py)
@@ -72,3 +80,13 @@ The NanoKVM-Pro's small screen uses standard framebuffer drivers. Users can util
   <video playsinline controls muted preload src="../../../assets/NanoKVM/pro/lcd/pao.mp4"></video>
   <video playsinline controls muted preload src="../../../assets/NanoKVM/pro/lcd/coin.mp4"></video>
 </div>
+
+### How to Build Your Own Application
+
+NanoKVM Desk will search for all folders in the system's `/userapp` directory and use the folder names as APP names. It is recommended to keep folder names under 8 characters.
+
+In the `User APP` interface, when you click on a user-defined application, the system will attempt to launch a Python application named `main.py` inside the corresponding folder.
+
+At this point, the small screen uses the standard FB driver, allowing users to utilize `/dev/fb0` to implement custom screen display operations.
+
+Clicking the screen or pressing the knob will exit the application.
