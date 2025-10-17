@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+
+<html lang="zh"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="MaixPy3, maix.nn, MaixPy3运行模型, maix.nn API">
+    
+    
+    <meta name="description" content="MaixPy3 nn模块 API文档, 以及使用说明">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+        
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/prism.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?9cb07365544a53067c56c346c838181a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119047820-5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-119047820-5');
+    </script>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/js/thumbs_up/style.css" type="text/css"/>
+        
+    
+    
+    <title>MaixPy3 nn模块(maix.nn) - Sipeed Wiki</title>
+    
+    <script type="text/javascript">js_vars = {"teedoc-plugin-ad-hint": {"type": "hint", "label": "NEW", "content": "全新 Maix 系列产品 <a href='https://wiki.sipeed.com/maixcam'>MaixCAM</a> 已上线, 全新 <a href='https://wiki.sipeed.com/maixpy/'>MaixPy</a> 功能更丰富，性能更强大，软件更易用，文档更全面！", "show_times": 2, "show_after_s": 432000, "date": "2022-06-01 14:00", "color": "#a0421d", "link_color": "#e53935", "link_bg_color": "#e6ae5c", "bg_color": "#ffcf89", "color_hover": "white", "bg_color_hover": "#f57c00", "close_color": "#eab971"}, "teedoc-plugin-thumbs-up": {"label_up": "有帮助", "label_down": "待改进", "icon": "/static/images/thumbs_up/up.svg", "icon_clicked": "/static/images/thumbs_up/upped.svg", "url": "https://thumbs-up.sipeed.com", "show_up_count": true, "show_down_count": false, "msg_already_voted": "您已经投过票了", "msg_thanks": "感谢您的反馈", "msg_down_prompt": "感谢反馈，请告诉我们可以改进什么地方?（最少 10 个字）", "msg_down_prompt_error": "消息最少需要 10 个字， 最多 256 个字", "msg_error": "请求服务器出现错误!"}}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": false, "update": [], "ts": 0, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/">
+                
+                    <img class="site_logo" src="/static/image/logo.svg" alt="sipeed wiki logo">
+                
+                
+                    <h2>wiki</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class=""><a  href="/">产品</a></li>
+<li class="sub_items "><a >开源软件</a><ul><li class=""><a  href="/maixpy/">MaixPy</a></li>
+<li class=""><a  href="/soft/maixpy/zh/index.html">MaixPy_v1</a></li>
+<li class=""><a  href="/soft/Lichee/zh/index.html">Lichee</a></li>
+<li class=""><a  href="/ai/zh/index.html">AI 指南</a></li>
+</ul>
+</li>
+<li class=""><a target="_blank" href="https://maixhub.com">MaixHub</a></li>
+<li class=""><a  href="/news/">动态</a></li>
+<li class=""><a  href="/faq.html">FAQ 汇总</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class=""><a  href="/store.html"><img src='/static/image/shop.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+<li class=""><a target="_blank" href="https://github.com/sipeed"><img src='/static/image/github.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">输入关键词，多关键词空格隔开</span>
+                                <span id="search_loading_hint">正在加载，请稍候。。。</span>
+                                <span id="search_download_err_hint">下载文件失败，请刷新重试或检查网络</span>
+                                <span id="search_other_docs_result_hint">来自其它文档的结果</span>
+                                <span id="search_curr_doc_result_hint">当前文档搜索结果</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/index.html"><span class="label">MaixPy3 是什么？能做什么？</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/install/install.html"><span class="label">如何获取、安装、使用？</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/tools/MaixPy3_IDE.html"><span class="label">安装或配置 IDE 开发工具</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/tools/0.MaixII-Dock.html"><span class="label">基于 USB 开发 MaixII-Dock</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/tools/maixsense.html"><span class="label">基于 WIFI 开发 MaixSense</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active  with_link"><a href="/news/MaixPy3/v831_usage/v831_usage.html" ><span class="label">M2DOCK (V831)上手视觉指南</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">遇到问题怎么办？</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/origin/helper.html"><span class="label">如何正确反馈问题！</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/question/maixpy3_faq.html"><span class="label">常见问题与解决方法</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">相关的基础知识</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active  with_link"><a href="/news/MaixPy3/difference.html" ><span class="label">MaixPy 和 MaixPy3 的区别</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/origin/video.html"><span class="label">收录一些国内 Python 基础教程</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/origin/hello_world.html"><span class="label">大佬鼠の嵌入式 Python 入门教程 [1]</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/origin/loop_python.html"><span class="label">大佬鼠の嵌入式 Python 入门教程 [2]</span><span class=""></span></a></li>
+<li class="not_active  with_link"><a href="https://bing.com/search?q=v831+m2dock" ><span class="label">使用必应搜索 V831 M2DOCK 的内容</span><span class=""></span></a></li>
+<li class="not_active  with_link"><a href="https://bbs.sipeed.com/user/909" ><span class="label">咸鱼菌の MaixII-Dock 上手系列教程</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/origin/xiaoxu.html"><span class="label">喏呐の【攻城狮成长记】</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/develop/index.html"><span class="label">开发者更新日志</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/others/framework.html"><span class="label">【项目开发基础】项目架构介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/others/develop.html"><span class="label">【底层开发基础】编译安装测试</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/others/platform.html"><span class="label">【移植适配实例】开发新的平台</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/develop/opmv_cv.html"><span class="label">【图像处理开发】传统视觉算法</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">基础功能模块</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active no_link"><a><span class="label">图像处理</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/vision/back-information.html"><span class="label">背景知识</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/vision/maixpy3-example.html"><span class="label">基础用法</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/vision/image_example.html"><span class="label">传统视觉</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">硬件外设</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/hardware/GPIO.html"><span class="label">GPIO  (点灯)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/hardware/I2C.html"><span class="label">I2C  (pylibi2c)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/hardware/PWM.html"><span class="label">PWM  (脉冲宽度调制)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/hardware/UART.html"><span class="label">UART  (pyserial)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/hardware/SPI.html"><span class="label">SPI  (spidev)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/hardware/event.html"><span class="label">EVENT  (evdev)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/hardware/ADC.html"><span class="label">ADC*  (模/数转换器)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/hardware/watchdog.html"><span class="label">WATCHDOG*  (看门狗定时器)</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/net.html"><span class="label">网络功能</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">媒体功能</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/Audio/play_mp4.html"><span class="label">视频播放 (pyav)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/Audio/audio.html"><span class="label">录音与播放 (pyaudio)</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">获取 AI 算法</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/AI_net/Edge_detection.html"><span class="label">边缘检测 (sobel)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/AI_net/resnet.html"><span class="label">物品分类 (resnet)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/AI_net/yolo.html"><span class="label">物体检测 (yolov2)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/AI_net/number_recognize.html"><span class="label">数字识别</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/AI_net/face_recognize.html"><span class="label">人脸识别</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/AI_net/self_learn.html"><span class="label">自学习分类</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/AI_net/car_registration_plate_recognition.html"><span class="label">车牌识别</span><span class=""></span></a></li>
+<li class="not_active  with_link"><a href="https://maixhub.com" ><span class="label">在线训练 AI 模型</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">本地训练 AI 模型</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/train_AI/information.html"><span class="label">深度神经网络基础知识 (必看)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/train_AI/ready.html"><span class="label">本地训练环境搭建</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/train_AI/v831_sobel.html"><span class="label">边缘检测模型搭建过程</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/train_AI/data.html"><span class="label">如何制作数据集</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/train_AI/train_resnet.html"><span class="label">训练物体分类模型</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/train_AI/train_yolov2.html"><span class="label">训练物体检测模型</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="active_parent no_link"><a><span class="label">核心 API 手册</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/api/maix/image.html"><span class="label">image</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/api/maix/display.html"><span class="label">display</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/api/maix/camera.html"><span class="label">camera</span><span class=""></span></a></li>
+<li class="active with_link"><a href="/soft/maixpy3/zh/api/maix/nn.html"><span class="label">nn</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>MaixPy3 nn模块(maix.nn)</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/sipeed/sipeed_wiki/blob/main/docs/soft/maixpy3/zh/api/maix/nn.md" target="_blank">
+                                    <span id='editPage'>编辑本页</span>
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <blockquote class="spoiler warning">
+<p> API 仍处于非完全稳定状态, 可能在未来会有小幅改动, 如果你遇到了语法错误， 记得回来看更新哦~</p>
+</blockquote>
+<h2 id="maix.nn-%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E4%BB%8B%E7%BB%8D">maix.nn 基本使用介绍</h2>
+<ul>
+<li>准备模型</li>
+</ul>
+<p>比如从 MaixHub 下载, 这里以边缘检测模型为例, 先<a href="https://maixhub.com/model/zoo/67"  target="_blank">下载模型</a>(需要先注册登录)</p>
+<ul>
+<li><p>准备一张 <code>224 x 224</code> 分辨率的图像, 比如这里放到了开发板文件系统的<code>/root/test.png</code>位置</p>
+</li>
+<li><p>运行代码, 将下面的代码保存到开发板的<code>test_model.py</code>中, 然后运行<code>python test_model.py</code></p>
+</li>
+</ul>
+<p>其中最重要的就是<code>m = nn.load</code>和<code>m.forward()</code>两个函数, 即加载模型, 和进行模型前向推理</p>
+
+<pre class="language-python"><code class="language-python">from maix import nn, display
+from PIL import Image
+import numpy as np
+
+test_jpg = &quot;/root/test.png&quot;
+
+model = {
+    &quot;param&quot;: &quot;/root/models/sobel_int8.param&quot;,
+    &quot;bin&quot;: &quot;/root/models/sobel_int8.bin&quot;
+}
+
+input_size = (224, 224, 3)
+output_size = (222, 222, 3)
+
+options = {
+    &quot;model_type&quot;:  &quot;awnn&quot;,
+    &quot;inputs&quot;: {
+        &quot;input0&quot;: input_size
+    },
+    &quot;outputs&quot;: {
+        &quot;output0&quot;: output_size
+    },
+    &quot;mean&quot;: [127.5, 127.5, 127.5],
+    &quot;norm&quot;: [0.0078125, 0.0078125, 0.0078125],
+}
+print(&quot;-- load model:&quot;, model)
+m = nn.load(model, opt=options)
+print(&quot;-- load ok&quot;)
+
+print(&quot;-- read image&quot;)
+img = Image.open(test_jpg).resize(input_size[:2])
+print(&quot;-- read image ok&quot;)
+print(&quot;-- forward model with image as input&quot;)
+out = m.forward(img, quantize=True)
+print(&quot;-- forward ok&quot;)
+out = out.astype(np.float32).reshape(output_size)
+out = (np.abs(out) * 255 / out.max()).astype(np.uint8)
+img2 = Image.fromarray(out, mode=&quot;RGB&quot;)
+
+display.show(img2)
+</code></pre>
+<h2 id="%E6%96%B9%E6%B3%95-maix.nn.load%28%29">方法 maix.nn.load()</h2>
+<p>加载模型, 返回 <code>maix.nn.Model</code> 对象</p>
+<h3 id="%E5%8F%82%E6%95%B0">参数</h3>
+<ul>
+<li><code>model_path</code>: 模型路径, 包含了字符串和字典两种形式</li>
+</ul>
+<p>字典形式：</p>
+
+<pre class="language-python"><code class="language-python">{
+    &quot;param&quot;: &quot;/root/models/sobel_int8.param&quot;,
+    &quot;bin&quot;: &quot;/root/models/sobel_int8.bin&quot;
+}
+</code></pre>
+<p>字符串形式:</p>
+
+<pre class="language-python"><code class="language-python">model_path = &quot;/root/mud/sobel_int8.mud&quot;
+</code></pre>
+<blockquote class="spoiler warning">
+<p> 特别说明，MUD文件是模型统一描述文件，后文有<a href="https://wiki.sipeed.com/soft/maixpy3/zh/api/maix/nn.html#MUD%E6%96%87%E4%BB%B6"  target="_blank">详细描述</a></p>
+</blockquote>
+<ul>
+<li><code>opt</code>: 设置项, 字典形式, 包括了:<ul>
+<li><code>model_type</code>: 模型类别, 目前仅支持 <code>awnn</code></li>
+<li><code>inputs</code>: 输入层, 字典形式, 关键字是层名称, 为字符串, 如果是加密模型, 需要使用整型; 值是层形状, 为一个<code>tuple</code>类型:<code>(h, w, c)</code>. 目前只支持单层输入层(未来会支持多层输入, 欢迎提交 <code>PR</code>)</li>
+</ul>
+比如:</li>
+</ul>
+
+<pre class="language-python"><code class="language-python">    # 未加密模型
+    &quot;inputs&quot;: {
+        &quot;input0&quot;: (224, 224, 3)
+    }
+    # 加密模型
+    &quot;inputs&quot;: {
+        0: (224, 224, 3)
+    }
+</code></pre>
+<ul>
+<li><code>outputs</code>: 输出层, 同理输入层. 支持多层输出</li>
+<li><code>mean</code>: 如果在<code>forward</code>使参数<code>standardize=True</code>（默认为True）, 则会使用这个参数对输入数据进行归一化, 计算方法为<code>(x - mean) * norm</code>; 格式为<code>list</code> 或者 <code>float</code>(未支持, 欢迎提交 PR)</li>
+<li><code>norm</code>: 定义参见上述<code>mean</code>描述</li>
+</ul>
+<blockquote class="spoiler warning">
+<p> 当<code>model_path</code>选择字符串格式时， 此项<code>opt</code>不用进行赋值，默认为None</p>
+</blockquote>
+<h3 id="%E8%BF%94%E5%9B%9E%E5%80%BC">返回值</h3>
+<p>返回 <code>maix.nn.Model</code> 对象</p>
+<h2 id="%E7%B1%BB-maix.nn.Model">类 maix.nn.Model</h2>
+<p>包含了一系列神经网络操作,  <code>maix.nn.load()</code> 会返回其对象</p>
+<h3 id="maix.nn.Model.forward%28%29">maix.nn.Model.forward()</h3>
+<p>只能由具体的对象调用, 不能类直接调用</p>
+<h4 id="%E5%8F%82%E6%95%B0">参数</h4>
+<ul>
+<li><code>inputs</code>: 输入, 可以是<code>_maix_image</code>的<code>Image</code>对象, 也可以是<code>HWC</code>排列的<code>bytes</code>对象, 也可以是<code>HWC</code>排列的<code>numpy.ndarray</code>对象(还未支持), 多层输入使用<code>list</code>(还未支持)</li>
+</ul>
+<blockquote class="spoiler warning">
+<p> 这个参数未来可能会进行优化</p>
+</blockquote>
+<ul>
+<li><p><code>standardize</code>: <code>int</code> 类型,默认为<code>1</code>, 当<code>load()</code>加载字典类型时， <code>opt</code> 的<code>mean,norm</code>参数对数据进行标准化；当<code>load()</code>加载字符串类型时，会根据mud文件自动进行标准化；置为<code>0</code>时不会对输入数据进行处理，则输入前需要将数据进行手动处理，处理方式跟模型训练时的数据处理一致</p>
+</li>
+<li><p><code>layout</code>: <code>&quot;hwc&quot;</code> 或者 <code>&quot;chw&quot;</code>， 默认设置为 <code>&quot;hwc&quot;</code></p>
+</li>
+<li><p><code>debug</code>: <code>int</code> 类型，默认为<code>0</code>,该值不为<code>0</code>时会打印<code>debug</code>信息和<code>forward</code>的推理耗时</p>
+</li>
+</ul>
+<h4 id="%E8%BF%94%E5%9B%9E%E5%80%BC">返回值</h4>
+<p>特征图, 如果是单层输出, 是一个浮点类型的 <code>numpy.ndarray</code> 对象, 如果是多层输出, 会是一个<code>list</code>对象, 包含了多个<code>numpy.ndarray</code>对象.</p>
+<h3 id="maix.nn.Model.%3Cstrong%3Edel%3C/strong%3E%28%29">maix.nn.Model.<strong>del</strong>()</h3>
+<p>删除对象, 内存回收时会自动调用这个函数, 会释放模型占用的资源</p>
+
+<pre class="language-python"><code class="language-python">del m
+</code></pre>
+<h2 id="%E6%A8%A1%E5%9D%97-maix.nn.decoder">模块 maix.nn.decoder</h2>
+<p><code>nn</code> 后处理模块, 集成了常见的模型的后处理, 使用 <code>forward</code> 进行模型推理后得到特征图输出, 使用这个模块下的方法对输出的特征图进行后处理</p>
+<h3 id="%E7%B1%BB-maix.nn.decoder.Yolo2">类 maix.nn.decoder.Yolo2</h3>
+<p><code>YOLO V2</code> 的后处理模块, 使用时需要创建一个对象,调用<code>run</code>方法对模型推理输出进行解码得到物体的坐标和类别.</p>
+<p>等价于如下<code>python</code>伪代码:</p>
+
+<pre class="language-python"><code class="language-python">class Yolo2:
+    def __init__(self, class_num, anchors, net_in_size=(224, 244), net_out_size=(7, 7)):
+        pass
+
+    def run(self, fmap, nms = 0.3, threshold = 0.5, img_size = None):
+        boxes = []
+        probs = []
+        for x, y, w, h, _probs in valid_results:
+            if img:
+                x *= img_size[0]
+                y *= img_size[1]
+                w *= img_size[0]
+                h *= img_size[1]
+                x, y, w, h = int(x), int(y), int(w), int(h)
+            boxes.append([x, y, w, h])  # item type is float if img_size == 0, else int type
+            probs.append([max_probs_index, _probs]) # probs is list type, item type is float
+        return [boxes, probs]
+
+</code></pre>
+<p>使用时:</p>
+
+<pre class="language-python"><code class="language-python">from maix.nn import decoder
+
+labels = [&quot;A&quot;, &quot;B&quot;, &quot;C&quot;]
+anchors = [1.19, 1.98, 2.79, 4.59, 4.53, 8.92, 8.06, 5.29, 10.32, 10.65]
+
+yolo2_decoder = decoder.Yolo2(len(labels), anchors)
+yolo2_decoder.run(bytes([0]*10))
+
+...
+
+out = m.forwar(img, layout=&quot;hwc&quot;)
+boxes, probs = yolo2_decoder.run(out, thres=0.5, nms=0.3, img_size=(img.width, img.height))
+for i, box in enumerate(boxes):
+    class_id = probs[i][0]
+    prob = probs[i][1][class_id]
+    disp_str = &quot;{}:{:.2f}%&quot;.format(labels[class_id], prob*100)
+    print(&quot;final box: {}, {}&quot;.format(box, disp_str))
+
+</code></pre>
+<h4 id="maix.nn.decoder.Yolo2.%3Cstrong%3Einit%3C/strong%3E%28%29">maix.nn.decoder.Yolo2.<strong>init</strong>()</h4>
+<p>构造对象时会自动调用</p>
+<h5 id="%E5%8F%82%E6%95%B0">参数</h5>
+<ul>
+<li><code>class_num</code>: 类别数量</li>
+<li><code>anchors</code>: 预选框, <code>list</code> 类型, 数量为偶数, 必须要和训练时使用的<code>anchors</code> 相同, 也就是说跟模型绑定的参数, 如果你不知道, 请找提供模型的人提供</li>
+<li><code>net_in_size</code>: 网络输入层分辨率</li>
+<li><code>net_out_size</code>: 网络输出层分辨率</li>
+</ul>
+<h4 id="maix.nn.decoder.Yolo2.run%28%29">maix.nn.decoder.Yolo2.run()</h4>
+<p>执行解码(后处理), 只能对象进行调用, 不能类直接调用</p>
+<h5 id="%E5%8F%82%E6%95%B0">参数</h5>
+<ul>
+<li><code>fmap</code>: 网路输出的特征图, 一般是<code>forward</code> 函数的结果</li>
+<li><code>nms</code>: 非极大值抑制(Non-Maximum Suppression), 用来去掉重复的框, <code>IOU</code>(两个框的重叠区域)大于这个值就只取概率大的一个, 取值范围:<code>[0, 1]</code>, 默认值为 <code>0.3</code></li>
+<li><code>threshold</code>: 置信度阈值, 大于这个值才认为物体有效, 取值范围:<code>[0, 1]</code>, 默认 <code>0.5</code></li>
+<li><code>img_size</code>: 源图像大小, <code>tuple</code>类型, 比如<code>(320, 240)</code>, 这会使返回值的<code>box</code> 坐标自动计算为相对于源图的坐标, 并且类型为整型, 默认<code>None</code> 则不会计算, <code>box</code> 返回相对值(百分比), 浮点类型, 范围:<code>[0, 1]</code></li>
+</ul>
+<h5 id="%E8%BF%94%E5%9B%9E%E5%80%BC">返回值</h5>
+<p><code>[boxes, probs]</code>, <code>list</code> 类型, 可以参考上面的使用例子, 其中:</p>
+<ul>
+<li><code>boxes</code>: <code>list</code> 类型, 每个元素也是一个<code>list</code>, 包含<code>[x, y, w, h]</code>, 分别代表了框左上角坐标, 以及框的宽高</li>
+<li><code>probs</code>: <code>list</code> 类型, 每个元素也是一个<code>list</code>, 包含<code>[max_prob_idx, all_classes_probs]</code><ul>
+<li><code>all_classes_probs</code>: <code>list</code> 类型, 包含了该框所有类别的置信度</li>
+<li><code>max_prob_idx</code>: 整型, 代表了<code>all_classes_probs</code>中最大值的下标, 取值范围: <code>[0, classes_num - 1]</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="%E6%A8%A1%E5%9D%97-maix.nn.app">模块 maix.nn.app</h2>
+<p>应用模块， 包含了一些有意思的应用模块</p>
+<h3 id="%E6%A8%A1%E5%9D%97-maix.nn.app.classifier">模块 maix.nn.app.classifier</h3>
+<p>自学习分类器（视觉）， 无需训练模型， 只使用特征提取模型， 在运行时学习多个物体特征，然后即可对物体进行分类识别。 适用于简单的分类场景。</p>
+<p><code>maix.nn.app.classifier</code>的<code>python</code>伪代码:</p>
+
+<pre class="language-python"><code class="language-python">class Classifier:
+    def __init__(self, model, class_num, sample_num, feature_len, input_w, input_h):
+        pass
+
+    def add_class_img(self, img):
+        return idx
+
+    def add_sample_img(self, img):
+        return idx
+
+    def train(self):
+        pass
+
+    def predict(self, img):
+        return idx, min_dist
+
+    def save(self, path):
+        pass
+
+def load(model, path):
+    return Classifier()
+
+</code></pre>
+<h4 id="%E7%B1%BB-Classifier">类 Classifier</h4>
+<p>使用时需要指定类别数量，通过<code>add_class_img</code>函数传入物体图像来获得物体的特征值， 然后通过<code>add_sample_img</code>获取这几个类别的图像，用以对开始采集的图像特征值进行优化， <code>sample</code>的图像和开始采集的类别图像可以有一定的差异， 但是不要相差太大， 采集的顺序无所谓；<br />
+然后调用<code>train</code>方法进行训练(其实就是<code>kmeans</code> 聚类)， 就可以得到使用<code>sample</code>图像特征值优化过后的几个分类的特征值；<br />
+最后使用<code>predict</code>就可以对输入图像的类别进行识别</p>
+<h5 id="%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95%EF%BC%9A-%3Cstrong%3Einit%3C/strong%3E%28self%2C-model%2C-class_num%2C-sample_num%2C-feature_len%2C-input_w%2C-input_h%29">构造方法： <strong>init</strong>(self, model, class_num, sample_num, feature_len, input_w, input_h)</h5>
+<ul>
+<li>参数：<ul>
+<li><code>model</code>: <code>maix.nn.Model</code>对象， 用于获得图片的特征值</li>
+<li><code>class_num</code>: 要学习的物体类别数量， 比如 <code>3</code></li>
+<li><code>sample_num</code>: 用以学习特征的物体数量， 比如<code>3*5 =&gt; 15</code></li>
+<li><code>feature_len</code>: 特征值的长度， 取决于特征提取模型的输出形状， 比如例程使用<code>resnet18 1000 分类</code>模型， 倒数第二层输出长度是<code>512</code></li>
+<li><code>input_w</code>: 输入的图像的宽度</li>
+<li><code>input_h</code>: 输入的图像的高度</li>
+</ul>
+</li>
+</ul>
+<h5 id="%E6%96%B9%E6%B3%95%3A-add_class_img%28self%2C-img%29">方法: add_class_img(self, img)</h5>
+<p>添加分类图片， 会自动调用模型推理获取图片的特征值</p>
+<ul>
+<li><p>参数：</p>
+<ul>
+<li><code>img</code>: 输入图像， 可以是<code>Pillow</code>的<code>Image</code>对象, 也可以是<code>HWC</code>排列的<code>bytes</code>对象</li>
+</ul>
+</li>
+<li><p>返回值： <code>int</code> 类型, 代表返回成功添加第几个类别的特征值， 取值∈<code>[0, class_num)</code></p>
+</li>
+<li><p>抛出错误： 如果出现错误， 比如添加图片超过类别数量等， 会抛出错误信息</p>
+</li>
+</ul>
+<h5 id="%E6%96%B9%E6%B3%95%3A-add_sample_img%28self%2C-img%29">方法: add_sample_img(self, img)</h5>
+<p>添加样本图片， 会自动调用模型推理获取图片的特征值</p>
+<ul>
+<li><p>参数：</p>
+<ul>
+<li><code>img</code>: 输入图像， 可以是<code>Pillow</code>的<code>Image</code>对象, 也可以是<code>HWC</code>排列的<code>bytes</code>对象</li>
+</ul>
+</li>
+<li><p>返回值： <code>int</code> 类型, 代表返回成功添加第几个样本图片的特征值， 取值∈<code>[0, sample_num)</code></p>
+</li>
+<li><p>抛出错误： 如果出现错误， 比如添加图片超过设置的样本数量等， 会抛出错误信息</p>
+</li>
+</ul>
+<h5 id="%E6%96%B9%E6%B3%95%3A-train%28self%29">方法: train(self)</h5>
+<p>训练样本（本质上是聚类分类）， 需要在<code>add_class_img</code>和<code>add_sample_img</code>完成后才能调用，否则会出现误差</p>
+<ul>
+<li>抛出错误： 如果出现错误， 比如类别或者样本采集未完成， 会抛出错误信息</li>
+</ul>
+<h5 id="%E6%96%B9%E6%B3%95%EF%BC%9A-predict%28self%2C-img%29">方法： predict(self, img)</h5>
+<p>预测给定的图片所属的类别</p>
+<ul>
+<li><p>参数：</p>
+<ul>
+<li><code>img</code>: 输入图像， 可以是<code>Pillow</code>的<code>Image</code>对象, 也可以是<code>HWC</code>排列的<code>bytes</code>对象</li>
+</ul>
+</li>
+<li><p>返回值：</p>
+<ul>
+<li><code>idx</code>: <code>int</code> 类型, 代表给定的图片的特征和这个分类最接近， 取值∈<code>[0, sample_num)</code></li>
+<li><code>min_dist</code>: 图片的特征和<code>idx</code>类别的特征的距离， 距离越小则代表和该类越相似</li>
+</ul>
+</li>
+<li><p>抛出错误： 如果出现错误， 比如参数错误等， 会抛出错误</p>
+</li>
+</ul>
+<h5 id="%E6%96%B9%E6%B3%95%EF%BC%9A-save%28self%2C-path%29">方法： save(self, path)</h5>
+<p>保存当前的特征值参数到文件， 方便断电保存并下次加载使用</p>
+<ul>
+<li><p>参数：</p>
+<ul>
+<li><code>path</code>: 保存的路径， 字符串</li>
+</ul>
+</li>
+<li><p>抛出错误： 保存出错， 会抛出错误信息</p>
+</li>
+</ul>
+<h4 id="%E6%96%B9%E6%B3%95-load%28model%2C-path%29">方法 load(model, path)</h4>
+<p>加载保存的特征值参数文件， 获得<a href="#%E7%B1%BB-Classifier"  >类 Classifier</a>的对象， 加载完成后可直接使用<code>predict</code>函数</p>
+<ul>
+<li><p>参数：</p>
+<ul>
+<li><code>model</code>: <code>maix.nn.Model</code>对象， 用于获得图片的特征值， 需要和保存的时候使用的模型相同</li>
+<li><code>path</code>: 保存参数的路径</li>
+</ul>
+</li>
+<li><p>返回值： 获得<a href="#%E7%B1%BB-Classifier"  >类 Classifier</a>的对象</p>
+</li>
+</ul>
+<h3 id="%E6%A8%A1%E5%9D%97-maix.nn.app.face">模块 maix.nn.app.face</h3>
+<p>人脸识别模块， <a href="https://github.com/sipeed/MaixPy3/blob/main/ext_modules/_maix_nn/example/face_recognize.py"  target="_blank">这里</a>有一个<code>Face_Recognizer</code>类提供了人脸识别的简单封装， 推荐使用</p>
+<h4 id="%E7%B1%BB-FaceRecognize">类 FaceRecognize</h4>
+<p>伪代码：</p>
+
+<pre class="language-python"><code class="language-python">class FaceRecognize:
+  def __init__(self, model_detect, model_fea, fea_len, input_shape, threshold, nms, max_face_num)
+    pass
+
+  def get_faces(self, img, std_img = False):
+    return [ prob, [x,y,w,h], [[x,y], [x,y], [x,y], [x,y], [x,y]], feature ]
+
+  def compare(self, feature_a, feature_b):
+    return score
+</code></pre>
+<p><a href="https://github.com/sipeed/MaixPy3/blob/main/ext_modules/_maix_nn/example/face_recognize.py"  target="_blank">这里</a>有一个<code>Face_Recognizer</code>类提供了人脸识别的简单封装， 推荐使用</p>
+<p>使用的模型可以到<a href="https://maixhub.com/model/zoo/59"  target="_blank">这里下载</a></p>
+<h5 id="%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95%3A-%3Cstrong%3Einit%3C/strong%3E%28self%2C-model_detect%2C-model_fea%2C-fea_len%2C-input_shape%2C-threshold%2C-nms%2C-max_face_num%29">构造方法: <strong>init</strong>(self, model_detect, model_fea, fea_len, input_shape, threshold, nms, max_face_num)</h5>
+<ul>
+<li>参数<ul>
+<li><code>model_detect</code>: 检测模型， <a href="#%E7%B1%BB-maix.nn.Model"  >maix.nn.Model</a> 对象</li>
+<li><code>model_fea</code>: 特征提取模型， <a href="#%E7%B1%BB-maix.nn.Model"  >maix.nn.Model</a> 对象</li>
+<li><code>fea_len</code>: 人脸特征的长度，比如 <code>256</code></li>
+<li><code>input_shape</code>: 输入图像的形状，<code>(w, h, c)</code>格式， 比如<code>(224, 224, 3)</code></li>
+<li><code>threshold</code>: 人脸检测阈值， 默认<code>0.5</code></li>
+<li><code>nms</code>: 人脸检测非极大值抑制值，即用来防止重复框一个人脸， 默认<code>0.3</code></li>
+<li><code>max_face_num</code>: 支持的同时框的人脸数量，取<code>1</code>或者更多</li>
+</ul>
+</li>
+</ul>
+<h5 id="%E8%8E%B7%E5%8F%96%E4%BA%BA%E8%84%B8%E4%BF%A1%E6%81%AF%3A-get_faces%28self%2C-img%2C-std_img-%3D-False%29">获取人脸信息: get_faces(self, img, std_img = False)</h5>
+<p>获取人脸信息， 包括位置和特征值等</p>
+<ul>
+<li><p>参数</p>
+<ul>
+<li><code>img</code>: 输入图像， 分辨率需要和检测模型的输入相同，  比如<code>224 x 224</code>， 可以是<code>PIL.Image.Image</code>对象， 或者<code>bytes</code>对象</li>
+<li><code>std_img</code>: 取值<code>True</code>或者<code>False</code>, 选择是否返回纠正过的标准人脸图片</li>
+</ul>
+</li>
+<li><p>返回值: 返回一个 <code>list</code> 对象，<code>[ prob, box, landmarks, feature, std_img ]</code>，其中<code>std_img</code>根据构造函数的参数<code>std_img</code>决定是否存在</p>
+<ul>
+<li><code>prob</code>: 检测到人脸的概率， 比设置的<code>threshold</code>大</li>
+<li><code>box</code>: 人脸框， 值为<code>[x,y,w,h]</code> ， 分别代表左上角坐标和框的宽高</li>
+<li><code>landmarks</code>: 人脸关键点， 共<code>5</code>个点, 格式<code>[[x,y], [x,y], [x,y], [x,y], [x,y]]</code>，分别代表了左眼、右眼、鼻子、左嘴角、右嘴角的坐标</li>
+<li><code>feature</code>: 人物脸的特征值， 一个<code>list</code>，<code>list</code>中的项目值类型为<code>float</code>（未来有可能会有<code>feature</code>为<code>bytes</code>的可选项）</li>
+<li><code>std_img</code>: 人脸图像，<code>PIL.Image.Image</code>对象， 只有当构造函数的参数<code>std_img</code>为<code>True</code>时才会有这个返回值</li>
+</ul>
+</li>
+</ul>
+<h5 id="%E5%AF%B9%E6%AF%94%E4%BA%BA%E8%84%B8%E7%89%B9%E5%BE%81%3A-compare%28self%2C-feature_a%2C-feature_b%29">对比人脸特征: compare(self, feature_a, feature_b)</h5>
+<p>对比两个人脸特征值相似度，并返回相似度百分比</p>
+<ul>
+<li><p>参数</p>
+<ul>
+<li><code>feature_a</code>: <code>get_faces</code>函数的返回值, 一个<code>list</code>对象或者<code>bytes</code>对象</li>
+<li><code>feature_b</code>: <code>get_faces</code>函数的返回值, 一个<code>list</code>对象或者<code>bytes</code>对象</li>
+</ul>
+</li>
+<li><p>返回值： 返回两个人脸特征值的对比相似度分数（百分比），取值范围 <code>∈</code> <code>[0.0, 100.0]</code></p>
+</li>
+</ul>
+<h2 id="MUD%E6%96%87%E4%BB%B6">MUD文件</h2>
+<p>MUD 文件是模型统一描述文件，全称 model universal description file ；mud 文件可以简化模型运行 Python 代码，还可以使得不同平台的模型文件使用同一份代码运行</p>
+<h3 id="%E6%96%87%E4%BB%B6%E5%BD%A2%E5%BC%8F">文件形式</h3>
+<p>文件以 .mud 为后缀，严格按照 INI 的格式进行解析</p>
+<h3 id="%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9">文件内容</h3>
+<p>MUD 文件是按照既定顺序和内容进行解读。不同的 MUD 文件之间结构都非常类似，由若干段落（section）组成，在每个带括号的标题下面，是若干个以单个单词开头的关键词（keyword）和一个等号，等号右边的就是关键字对应的值（value); section部分通常用<code>[]</code>进行声明，例如：</p>
+
+<pre class="language-bash"><code class="language-bash">[basic]
+type = awnn
+param =/root/models/awnn_retinaface.param
+bin =/root/models/awnn_retinaface.bin
+
+[inputs]
+input0 = 224,224,3,127.5, 127.5, 127.5,0.0078125, 0.0078125, 0.0078125
+
+[outputs]
+output0 = 1,4,2058
+output1 = 1,2,2058
+output2 = 1,10,2058
+
+[extra]
+outputs_scale =
+inputs_scale =
+</code></pre>
+<h4 id="section-%26amp%3B-keywords">section &amp; keywords</h4>
+<ul>
+<li><ul>
+<li>type：不同目标平台的标识，如R329称为aipu，V831代称为awnn</li>
+<li>bin：V831，R329 平台模型的参数二进制文件</li>
+<li>param：V831的模型结构文件，R329融合了模型参数和模型结构故此项置为空</li>
+</ul>
+</li>
+<li><p>[inputs] :输入信息段</p>
+<p>input ：输入节点名称，输入个数随模型而定，其前三个参数定义为 H,W,C ，后两个的参数以此是mean，norm</p>
+<blockquote class="spoiler warning">
+<p> H != 1 &amp;&amp; W != 1 &amp;&amp; C == 3 的时候，输入为三通道图像，依次按照mean_R , mean_G ，mean_B ，norm_R ，norm_G ，norm_B 的顺序往后排列<br />
+ H != 1 &amp;&amp; W != 1 &amp;&amp; C == 1 的时候，输入为灰度图， mean_gray , norm_gray ，按顺序两个值，进行排列<br />
+ H ==  1 &amp;&amp; W == 1 &amp;&amp; C != 1 ，输入为三维向量， mean_v , norm_v ，按顺序两个值，进行排列</p>
+</blockquote>
+</li>
+<li><p>[outputs] :输出信息段</p>
+<p>output ：输出节点名称，输出节点个数根据模型而定，其参数定义为 H,W,C</p>
+</li>
+<li><ul>
+<li>inputs_scale：输入层在量化后的scale值，按照输入顺序排列 ，如inputs_scale = input0_scale , input1_scale, input2_scale ……</li>
+<li>outputs_scale：输出层在量化后的scale值，按照输出顺序排列，如outputs_scale = ouput0_scale , output1_scale , output2_scale …… （目前仅R329需要）</li>
+</ul>
+</li>
+</ul>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                        <a href="/soft/maixpy3/zh/api/maix/camera.html">
+                            <span class="icon"></span>
+                            <span class="label">camera</span>
+                        </a>
+                        
+                    </div>
+                    <div id="next">
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>相关链接</a><ul><li><a target="_blank" href="https://www.sipeed.com">Sipeed 官网</a></li>
+<li><a target="_blank" href="https://maixhub.com/">MaixHub</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">Sipeed 淘宝</a></li>
+<li><a  href="/sitemap.xml">网站地图</a></li>
+<li><a target="_blank" href="https://github.com/teedoc/teedoc">网站使用 teedoc 生成</a></li>
+</ul>
+</li>
+<li><a>源码</a><ul><li><a target="_blank" href="https://github.com/sipeed/sipeed_wiki">Wiki 源码</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">开源项目</a></li>
+</ul>
+</li>
+<li><a>关注我们</a><ul><li><a target="_blank" href="https://twitter.com/SipeedIO">twitter</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">淘宝</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">github</a></li>
+<li><a><a>微信公众号</a><img src='/static/image/wechat.png'></a>
+</li>
+</ul>
+</li>
+<li><a>联系我们</a><ul><li><a>电话: +86 0755-27808509</a>
+</li>
+<li><a>商业支持: support@sipeed.com</a>
+</li>
+<li><a>地址: 深圳市宝安区新湖路4008号蘅芳科技办公大厦A座-2101C</a>
+</li>
+<li><a  href="/join_us.html">加入我们</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://www.sipeed.com">©2018-2023 深圳矽速科技有限公司</a></li>
+<li><a target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index">粤ICP备19015433号</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/js/prism.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <link rel="stylesheet" href="/static/js/add_hint/style.css" type="text/css"/>
+    
+        <script src="/static/js/add_hint/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+        <script src="/static/js/thumbs_up/main.js"></script>
+    
+</body>
+
+</html>

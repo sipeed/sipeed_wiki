@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+
+<html lang="zh"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="">
+    
+    
+    <meta name="description" content="">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+        
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/prism.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?9cb07365544a53067c56c346c838181a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119047820-5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-119047820-5');
+    </script>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/js/thumbs_up/style.css" type="text/css"/>
+        
+    
+    
+    <title>数字识别 - Sipeed Wiki</title>
+    
+    <script type="text/javascript">js_vars = {"teedoc-plugin-ad-hint": {"type": "hint", "label": "NEW", "content": "全新 Maix 系列产品 <a href='https://wiki.sipeed.com/maixcam'>MaixCAM</a> 已上线, 全新 <a href='https://wiki.sipeed.com/maixpy/'>MaixPy</a> 功能更丰富，性能更强大，软件更易用，文档更全面！", "show_times": 2, "show_after_s": 432000, "date": "2022-06-01 14:00", "color": "#a0421d", "link_color": "#e53935", "link_bg_color": "#e6ae5c", "bg_color": "#ffcf89", "color_hover": "white", "bg_color_hover": "#f57c00", "close_color": "#eab971"}, "teedoc-plugin-thumbs-up": {"label_up": "有帮助", "label_down": "待改进", "icon": "/static/images/thumbs_up/up.svg", "icon_clicked": "/static/images/thumbs_up/upped.svg", "url": "https://thumbs-up.sipeed.com", "show_up_count": true, "show_down_count": false, "msg_already_voted": "您已经投过票了", "msg_thanks": "感谢您的反馈", "msg_down_prompt": "感谢反馈，请告诉我们可以改进什么地方?（最少 10 个字）", "msg_down_prompt_error": "消息最少需要 10 个字， 最多 256 个字", "msg_error": "请求服务器出现错误!"}}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": null, "update": [], "ts": 0, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/">
+                
+                    <img class="site_logo" src="/static/image/logo.svg" alt="sipeed wiki logo">
+                
+                
+                    <h2>wiki</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class=""><a  href="/">产品</a></li>
+<li class="sub_items "><a >开源软件</a><ul><li class=""><a  href="/maixpy/">MaixPy</a></li>
+<li class=""><a  href="/soft/maixpy/zh/index.html">MaixPy_v1</a></li>
+<li class=""><a  href="/soft/Lichee/zh/index.html">Lichee</a></li>
+<li class=""><a  href="/ai/zh/index.html">AI 指南</a></li>
+</ul>
+</li>
+<li class=""><a target="_blank" href="https://maixhub.com">MaixHub</a></li>
+<li class=""><a  href="/news/">动态</a></li>
+<li class=""><a  href="/faq.html">FAQ 汇总</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class=""><a  href="/store.html"><img src='/static/image/shop.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+<li class=""><a target="_blank" href="https://github.com/sipeed"><img src='/static/image/github.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">输入关键词，多关键词空格隔开</span>
+                                <span id="search_loading_hint">正在加载，请稍候。。。</span>
+                                <span id="search_download_err_hint">下载文件失败，请刷新重试或检查网络</span>
+                                <span id="search_other_docs_result_hint">来自其它文档的结果</span>
+                                <span id="search_curr_doc_result_hint">当前文档搜索结果</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/index.html"><span class="label">MaixPy3 是什么？能做什么？</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/install/install.html"><span class="label">如何获取、安装、使用？</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/tools/MaixPy3_IDE.html"><span class="label">安装或配置 IDE 开发工具</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/tools/0.MaixII-Dock.html"><span class="label">基于 USB 开发 MaixII-Dock</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/tools/maixsense.html"><span class="label">基于 WIFI 开发 MaixSense</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active  with_link"><a href="/news/MaixPy3/v831_usage/v831_usage.html" ><span class="label">M2DOCK (V831)上手视觉指南</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">遇到问题怎么办？</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/origin/helper.html"><span class="label">如何正确反馈问题！</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/question/maixpy3_faq.html"><span class="label">常见问题与解决方法</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">相关的基础知识</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active  with_link"><a href="/news/MaixPy3/difference.html" ><span class="label">MaixPy 和 MaixPy3 的区别</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/origin/video.html"><span class="label">收录一些国内 Python 基础教程</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/origin/hello_world.html"><span class="label">大佬鼠の嵌入式 Python 入门教程 [1]</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/origin/loop_python.html"><span class="label">大佬鼠の嵌入式 Python 入门教程 [2]</span><span class=""></span></a></li>
+<li class="not_active  with_link"><a href="https://bing.com/search?q=v831+m2dock" ><span class="label">使用必应搜索 V831 M2DOCK 的内容</span><span class=""></span></a></li>
+<li class="not_active  with_link"><a href="https://bbs.sipeed.com/user/909" ><span class="label">咸鱼菌の MaixII-Dock 上手系列教程</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/origin/xiaoxu.html"><span class="label">喏呐の【攻城狮成长记】</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/develop/index.html"><span class="label">开发者更新日志</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/others/framework.html"><span class="label">【项目开发基础】项目架构介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/others/develop.html"><span class="label">【底层开发基础】编译安装测试</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/others/platform.html"><span class="label">【移植适配实例】开发新的平台</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/develop/opmv_cv.html"><span class="label">【图像处理开发】传统视觉算法</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">基础功能模块</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active no_link"><a><span class="label">图像处理</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/vision/back-information.html"><span class="label">背景知识</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/vision/maixpy3-example.html"><span class="label">基础用法</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/vision/image_example.html"><span class="label">传统视觉</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">硬件外设</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/hardware/GPIO.html"><span class="label">GPIO  (点灯)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/hardware/I2C.html"><span class="label">I2C  (pylibi2c)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/hardware/PWM.html"><span class="label">PWM  (脉冲宽度调制)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/hardware/UART.html"><span class="label">UART  (pyserial)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/hardware/SPI.html"><span class="label">SPI  (spidev)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/hardware/event.html"><span class="label">EVENT  (evdev)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/hardware/ADC.html"><span class="label">ADC*  (模/数转换器)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/hardware/watchdog.html"><span class="label">WATCHDOG*  (看门狗定时器)</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/net.html"><span class="label">网络功能</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">媒体功能</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/Audio/play_mp4.html"><span class="label">视频播放 (pyav)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/Audio/audio.html"><span class="label">录音与播放 (pyaudio)</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="active_parent no_link"><a><span class="label">获取 AI 算法</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/AI_net/Edge_detection.html"><span class="label">边缘检测 (sobel)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/AI_net/resnet.html"><span class="label">物品分类 (resnet)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/AI_net/yolo.html"><span class="label">物体检测 (yolov2)</span><span class=""></span></a></li>
+<li class="active with_link"><a href="/soft/maixpy3/zh/usage/AI_net/number_recognize.html"><span class="label">数字识别</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/AI_net/face_recognize.html"><span class="label">人脸识别</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/AI_net/self_learn.html"><span class="label">自学习分类</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/AI_net/car_registration_plate_recognition.html"><span class="label">车牌识别</span><span class=""></span></a></li>
+<li class="not_active  with_link"><a href="https://maixhub.com" ><span class="label">在线训练 AI 模型</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">本地训练 AI 模型</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/train_AI/information.html"><span class="label">深度神经网络基础知识 (必看)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/train_AI/ready.html"><span class="label">本地训练环境搭建</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/train_AI/v831_sobel.html"><span class="label">边缘检测模型搭建过程</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/train_AI/data.html"><span class="label">如何制作数据集</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/train_AI/train_resnet.html"><span class="label">训练物体分类模型</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/train_AI/train_yolov2.html"><span class="label">训练物体检测模型</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">核心 API 手册</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/api/maix/image.html"><span class="label">image</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/api/maix/display.html"><span class="label">display</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/api/maix/camera.html"><span class="label">camera</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/api/maix/nn.html"><span class="label">nn</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>数字识别</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                                <span class="article_date" title="最后修改日期： 2023-04-20">
+                                    2023-04-20
+                                </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/sipeed/sipeed_wiki/blob/main/docs/soft/maixpy3/zh/usage/AI_net/number_recognize.ipynb" target="_blank">
+                                    <span id='editPage'>编辑本页</span>
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<table>
+<thead>
+<tr>
+<th>更新时间</th>
+<th>负责人</th>
+<th>内容</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2022年1月4日</td>
+<td>Rui</td>
+<td>初次编写文档</td>
+<td>----</td>
+</tr>
+<tr>
+<td>2022年1月18日</td>
+<td>dianjixz</td>
+<td>修改文档的编写方式</td>
+<td>使用 Jupyter notebook 进行编写文档</td>
+</tr>
+<tr>
+<td>2022年1月19日</td>
+<td>Rui</td>
+<td>修改文档，增加效果图</td>
+<td>通过测试的平台有 MaixII-Dock，使用的是 MaixPy3 0.4.0</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>内容参考至 Neutree 的博客 <a href="https://neucrack.com/p/384">使用 V831 AI检测数字卡片</a></p>
+</blockquote>
+<h2 id="%E8%83%8C%E6%99%AF">背景<a class="anchor-link" href="#%E8%83%8C%E6%99%AF"> </a></h2><p>数字识别是 2021年 电赛 F 题 <strong>智能送药小车</strong>，节选题目部分内容</p>
+<p><img alt="" src="./../asserts/number_1.jpg"/></p>
+<p><strong>识别的数字</strong>为：</p>
+<p><img alt="" src="./../asserts/number.jpg"/></p>
+<h2 id="%E8%BF%90%E8%A1%8C%E6%95%88%E6%9E%9C">运行效果<a class="anchor-link" href="#%E8%BF%90%E8%A1%8C%E6%95%88%E6%9E%9C"> </a></h2><p align="center">
+<iframe allowfullscreen="true" border="0" frameborder="no" framespacing="0" scrolling="no" src="//player.bilibili.com/player.html?aid=258696230&amp;bvid=BV1Wa411D7DL&amp;cid=779040049&amp;page=1" style="max-width:640px; max-height:480px;"> </iframe>
+</p>
+<h2 id="%E5%87%86%E5%A4%87">准备<a class="anchor-link" href="#%E5%87%86%E5%A4%87"> </a></h2><ul>
+<li>在 <a href="https://maix.sipeed.com/model/zoo/66">MaixHub</a> 上获取模型文件，并将模型文件存放到 U 盘中</li>
+<li>确认 MaixPy3 版本为 0.4.0 以上</li>
+<li>使用的硬件为 MaixII-Dock</li>
+<li>内存卡内是最新版本的镜像系统</li>
+<li>插卡启动硬件</li>
+</ul>
+<h2 id="%E6%95%B0%E5%AD%97%E8%AF%86%E5%88%AB">数字识别<a class="anchor-link" href="#%E6%95%B0%E5%AD%97%E8%AF%86%E5%88%AB"> </a></h2><p>将模型读取到python环境中！</p>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<pre><code class="python language-python">
+class Number_recognition:
+    labels = ["1", "2", "3", "4", "5", "6", "7", "8"]
+    anchors = [2.44, 2.25, 5.03, 4.91, 3.5 , 3.53, 4.16, 3.94, 2.97, 2.84]
+    model = {
+        "param": "/root/number_awnn.param",
+        "bin": "/root/number_awnn.bin"
+    }
+    options = {
+        "model_type":  "awnn",
+        "inputs": {
+            "input0": (224, 224, 3)
+        },
+        "outputs": {
+            "output0": (7, 7, (1+4+len(labels))*5)
+        },
+        "mean": [127.5, 127.5, 127.5],
+        "norm": [0.0078125, 0.0078125, 0.0078125],
+    }
+    w = options["inputs"]["input0"][1]
+    h = options["inputs"]["input0"][0]
+    def __init__(self):
+        from maix import nn
+        from maix.nn import decoder
+        self.m = nn.load(self.model, opt=self.options)
+        self.yolo2_decoder = decoder.Yolo2(len(self.labels), self.anchors, net_in_size=(self.w, self.h), net_out_size=(7, 7))
+    def map_face(self, box):                           #将224*224空间的位置转换到240*240空间内
+        def tran(x):
+            return int(x/224*240)
+        box = list(map(tran, box))
+        return box
+print(Number_recognition)</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre><code>[ rpyc-kernel ]( running at Wed Jan 19 19:32:13 2022 )
+init over
+</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>开始数字识别</p>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<pre><code class="python language-python">from maix import camera, display, image
+number_recognition = Number_recognition()
+while True:
+    img = camera.capture()
+    AI_img = img.copy().resize(224, 224)
+    out = number_recognition.m.forward(AI_img.tobytes(), quantize=True, layout="hwc")
+    boxes, probs = number_recognition.yolo2_decoder.run(out, nms=0.3, threshold=0.5, img_size=(240, 240))
+    for i, box in enumerate(boxes):
+        class_id = probs[i][0]
+        prob = probs[i][1][class_id]
+        disp_str = "{}:{:.2f}%".format(number_recognition.labels[class_id], prob*100)
+        font_wh = image.get_string_size(disp_str)
+        box = number_recognition.map_face(box)
+        img.draw_rectangle(box[0], box[1], box[0] + box[2], box[1] + box[3], color = (255, 0, 0), thickness=2)
+        img.draw_rectangle(box[0], box[1] - font_wh[1], box[0] + font_wh[0], box[1], color= (255, 0, 0))
+        img.draw_string(box[0], box[1] - font_wh[1], disp_str, color= (255, 0, 0))
+    display.show(img)
+</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedImage jp-OutputArea-output">
+<img alt="No description has been provided for this image" src="data:image/jpeg;base64,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"/>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[1]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>
+Traceback (most recent call last):
+  File "&lt;string&gt;", line unknown, in &lt;module&gt;
+Remote.KeyboardInterrupt
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="%E8%84%B1%E6%9C%BA%E8%BF%90%E8%A1%8C">脱机运行<a class="anchor-link" href="#%E8%84%B1%E6%9C%BA%E8%BF%90%E8%A1%8C"> </a></h2><p>对于 M2Dock，前面说过开机启动代码顺序是 <code>/root/app/main.py</code> &gt; <code>/root/main.py</code> ，所以在保存的时候自己注意下保存位置</p>
+</div>
+</div>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                        <a href="/soft/maixpy3/zh/usage/AI_net/yolo.html">
+                            <span class="icon"></span>
+                            <span class="label">物体检测 (yolov2)</span>
+                        </a>
+                        
+                    </div>
+                    <div id="next">
+                        
+                        <a href="/soft/maixpy3/zh/usage/AI_net/face_recognize.html">
+                            <span class="label">人脸识别</span>
+                            <span class="icon"></span>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>相关链接</a><ul><li><a target="_blank" href="https://www.sipeed.com">Sipeed 官网</a></li>
+<li><a target="_blank" href="https://maixhub.com/">MaixHub</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">Sipeed 淘宝</a></li>
+<li><a  href="/sitemap.xml">网站地图</a></li>
+<li><a target="_blank" href="https://github.com/teedoc/teedoc">网站使用 teedoc 生成</a></li>
+</ul>
+</li>
+<li><a>源码</a><ul><li><a target="_blank" href="https://github.com/sipeed/sipeed_wiki">Wiki 源码</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">开源项目</a></li>
+</ul>
+</li>
+<li><a>关注我们</a><ul><li><a target="_blank" href="https://twitter.com/SipeedIO">twitter</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">淘宝</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">github</a></li>
+<li><a><a>微信公众号</a><img src='/static/image/wechat.png'></a>
+</li>
+</ul>
+</li>
+<li><a>联系我们</a><ul><li><a>电话: +86 0755-27808509</a>
+</li>
+<li><a>商业支持: support@sipeed.com</a>
+</li>
+<li><a>地址: 深圳市宝安区新湖路4008号蘅芳科技办公大厦A座-2101C</a>
+</li>
+<li><a  href="/join_us.html">加入我们</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://www.sipeed.com">©2018-2023 深圳矽速科技有限公司</a></li>
+<li><a target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index">粤ICP备19015433号</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/js/prism.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <link rel="stylesheet" href="/static/js/add_hint/style.css" type="text/css"/>
+    
+        <script src="/static/js/add_hint/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+        <script src="/static/js/thumbs_up/main.js"></script>
+    
+</body>
+
+</html>

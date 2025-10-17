@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+
+<html lang="zh"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="K210 使用指南，避坑, 上手">
+    
+    
+    <meta name="description" content="">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+        
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/prism.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?9cb07365544a53067c56c346c838181a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119047820-5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-119047820-5');
+    </script>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/js/thumbs_up/style.css" type="text/css"/>
+        
+    
+    
+    <title>K210 上手（避坑）指南 - Sipeed Wiki</title>
+    
+    <script type="text/javascript">js_vars = {"teedoc-plugin-ad-hint": {"type": "hint", "label": "NEW", "content": "全新 Maix 系列产品 <a href='https://wiki.sipeed.com/maixcam'>MaixCAM</a> 已上线, 全新 <a href='https://wiki.sipeed.com/maixpy/'>MaixPy</a> 功能更丰富，性能更强大，软件更易用，文档更全面！", "show_times": 2, "show_after_s": 432000, "date": "2022-06-01 14:00", "color": "#a0421d", "link_color": "#e53935", "link_bg_color": "#e6ae5c", "bg_color": "#ffcf89", "color_hover": "white", "bg_color_hover": "#f57c00", "close_color": "#eab971"}, "teedoc-plugin-thumbs-up": {"label_up": "有帮助", "label_down": "待改进", "icon": "/static/images/thumbs_up/up.svg", "icon_clicked": "/static/images/thumbs_up/upped.svg", "url": "https://thumbs-up.sipeed.com", "show_up_count": true, "show_down_count": false, "msg_already_voted": "您已经投过票了", "msg_thanks": "感谢您的反馈", "msg_down_prompt": "感谢反馈，请告诉我们可以改进什么地方?（最少 10 个字）", "msg_down_prompt_error": "消息最少需要 10 个字， 最多 256 个字", "msg_error": "请求服务器出现错误!"}}</script>
+    <script type="text/javascript">metadata = {"tags": ["K210", "避坑指南", "上手指南"], "date": "2023-03-03", "update": [{"date": "2023-03-03", "version": "v0.3", "author": "lyx", "content": ["补充应用案例以及细节"]}, {"date": "2023-02-03", "version": "v0.2", "author": "lyx", "content": ["整理框架 补充内容"]}, {"date": "2022-12-30", "version": "v0.1", "author": "lyx", "content": ["初次编写文档"]}], "ts": 1677801600, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/">
+                
+                    <img class="site_logo" src="/static/image/logo.svg" alt="sipeed wiki logo">
+                
+                
+                    <h2>wiki</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class=""><a  href="/">产品</a></li>
+<li class="sub_items "><a >开源软件</a><ul><li class=""><a  href="/maixpy/">MaixPy</a></li>
+<li class=""><a  href="/soft/maixpy/zh/index.html">MaixPy_v1</a></li>
+<li class=""><a  href="/soft/Lichee/zh/index.html">Lichee</a></li>
+<li class=""><a  href="/ai/zh/index.html">AI 指南</a></li>
+</ul>
+</li>
+<li class=""><a target="_blank" href="https://maixhub.com">MaixHub</a></li>
+<li class="active"><a  href="/news/">动态</a></li>
+<li class=""><a  href="/faq.html">FAQ 汇总</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class=""><a  href="/store.html"><img src='/static/image/shop.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+<li class=""><a target="_blank" href="https://github.com/sipeed"><img src='/static/image/github.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">输入关键词，多关键词空格隔开</span>
+                                <span id="search_loading_hint">正在加载，请稍候。。。</span>
+                                <span id="search_download_err_hint">下载文件失败，请刷新重试或检查网络</span>
+                                <span id="search_other_docs_result_hint">来自其它文档的结果</span>
+                                <span id="search_curr_doc_result_hint">当前文档搜索结果</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="">
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>K210 上手（避坑）指南</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                                <li>K210</li>
+                            
+                                <li>避坑指南</li>
+                            
+                                <li>上手指南</li>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                                <span class="article_date" title="最后修改日期： 2023-03-03">
+                                    2023-03-03
+                                </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/sipeed/sipeed_wiki/blob/main/news/MaixPy/K210_usage.md" target="_blank">
+                                    <span id='editPage'>编辑本页</span>
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                        
+                        <details open>
+                        
+                            <summary>更新历史</summary>
+                            <div>
+                                <table>
+                                        <thead>
+                                            <tr>
+                                                <th>日期</th>
+                                                <th>版本</th>
+                                                <th>作者</th>
+                                                <th>更新内容</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            
+                                                <tr>
+                                                    <td>2023-03-03</td>
+                                                    <td>v0.3</td>
+                                                    <td>lyx</td>
+                                                    <td>
+                                                    
+                                                        <ul>
+                                                        
+                                                            <li>补充应用案例以及细节</li>
+                                                        
+                                                        </ul>
+                                                    
+                                                    </td>
+                                                </tr>
+                                            
+                                                <tr>
+                                                    <td>2023-02-03</td>
+                                                    <td>v0.2</td>
+                                                    <td>lyx</td>
+                                                    <td>
+                                                    
+                                                        <ul>
+                                                        
+                                                            <li>整理框架 补充内容</li>
+                                                        
+                                                        </ul>
+                                                    
+                                                    </td>
+                                                </tr>
+                                            
+                                                <tr>
+                                                    <td>2022-12-30</td>
+                                                    <td>v0.1</td>
+                                                    <td>lyx</td>
+                                                    <td>
+                                                    
+                                                        <ul>
+                                                        
+                                                            <li>初次编写文档</li>
+                                                        
+                                                        </ul>
+                                                    
+                                                    </td>
+                                                </tr>
+                                            
+                                        </tbody>
+                                </table>
+                            </div>
+                        </details>
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <span id="blog_start"></span><div style="font-size: 1.2em;border: 2px solid green; border-color:#c33d45;padding:1em; text-align:center; background: #c33d45; color: white">
+    <div>
+    <span>新版 MaixPy (v4) 已经上线， 完整 Python3 支持，功能更强大， 请看:</span>
+    <a target="_blank" style="color: #ffe0e0" href="https://wiki.sipeed.com/maixpy">
+        wiki.sipeed.com/maixpy
+    </a>
+    <br>
+    <div style="height:0.4em"></div>
+    <span>全新硬件产品 MaixCAM，性能大升级，请看:</span>
+    <a target="_blank" style="color: #ffe0e0" href="https://wiki.sipeed.com/maixcam">
+        https://wiki.sipeed.com/maixcam
+    </a>
+    </div>
+    <div style="padding: 1em 0 0 0">
+      <a style="color: white; font-size: 0.9em; border-radius: 0.3em; padding: 0.5em; background-color: #a80202" href="https://item.taobao.com/item.htm?id=784724795837">淘宝</a>
+      <a style="color: white; font-size: 0.9em; border-radius: 0.3em; padding: 0.5em; background-color: #a80202" href="https://www.aliexpress.com/store/911876460">速卖通</a>
+    </div>
+</div>
+<p><strong>Maix-I K210 系列正在被逐渐淘汰，如果你正准备购买 K210, 请立刻选择 MaixCAM;</strong><br />
+<strong>也欢迎 K210 用户升级到 MaixCAM</strong></p>
+<h2 id="%E5%89%8D%E8%A8%80">前言</h2>
+<blockquote>
+<p>在 22 年的最后两天终于有时间开始整理填坑了，顶鸽逃跑（不是故意的）看见很多新手小白还是在文档海里扑腾找不到 K210 的资料文档，那就由这篇 K210 的避坑指南让小白的使用之路更顺利一点吧！</p>
+</blockquote>
+<p><strong>这篇文档以 SIPEED <code>MaixDuino</code> 的使用为示例说明，并且大部分内容通用于 K210 系列开发板，可供购入 K210 系列顾客参考使用，<code>MaixDuino</code> 相关介绍参数<a href="https://wiki.sipeed.com/hardware/zh/maix/maixpy_develop_kit_board/maix_duino.html"  target="_blank"> 点击 </a>查询，选购开发板指南可参考<a href="https://wiki.sipeed.com/soft/maixpy/zh/develop_kit_board/get_hardware.html"  target="_blank">选购指南。</a></strong></p>
+<p><img src="./mixly_application/accets/k210_usage/maixduino_0.jpg" alt="maixduino_0" /></p>
+<blockquote>
+<p>以下为 MaixDuino 全引脚标注图</p>
+</blockquote>
+<p><img src="./mixly_application/accets/k210_usage/pin.png" alt="pin" /></p>
+<h2 id="%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86">基础知识</h2>
+<p>在使用板子上手之前，我们需要先掌握一些基础知识<strong>（有基础的小伙伴可跳过）</strong>由于 <code>MaixPy</code> 是基于 <code>MicroPython</code> 之上进行开发构建的，提供给用户最终的接口是 <code>Micropython</code>，所以在使用 <code>MaixPy</code> 之初我们需要熟悉下 <code>MicroPython</code> 的基础知识与语法以及常用的 <code>Git</code> 与 <code>Github</code>。</p>
+<p><strong>MaixPy 语法基础知识：</strong><a href="https://wiki.sipeed.com/soft/maixpy/zh/get_started/knowledge_micropython.html"  target="_blank">点击查看</a><br />
+<strong>Git 和 Github 介绍：</strong><a href="https://wiki.sipeed.com/soft/maixpy/zh/get_started/knowledge_git_github.html"  target="_blank">点击查看</a></p>
+<p>以下是图像及音频的背景知识，有需要或感兴趣的小伙伴可以查看。</p>
+<p><strong>图像处理背景知识：</strong><a href="https://wiki.sipeed.com/soft/maixpy/zh/get_started/knowledge_image.html"  target="_blank">点击查看</a><br />
+<strong>音频处理背景知识：</strong><a href="https://wiki.sipeed.com/soft/maixpy/zh/get_started/knowledge_audio.html"  target="_blank">点击查看</a></p>
+<h2 id="%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C">准备工作</h2>
+<p>无论是新手小白还是开发者在踏入 <code>K210 系列开发板</code> 学习之路前，做好充足的准备工作在一定程度上可以在使用途中避免踩坑。这篇文档是以一份避坑上手步骤的指南为核心来构写的，所以切记！！新手小白千万不可以跳着看，下图是示例硬件 <code>MaixDuino</code> 开发板、摄像头、屏幕、以及 USB Type-c 数据线。</p>
+<p><img src="./mixly_application/accets/k210_usage/maixduino.jpg" alt="maixduino" /></p>
+<h3 id="%E4%B8%8A%E6%89%8B%E6%B5%81%E7%A8%8B%E5%9B%BE">上手流程图</h3>
+<p>避坑指南可以搭配上手流程图一起使用更佳~</p>
+<p><img src="./mixly_application/accets/k210_usage/steps.jpg" alt="steps" /></p>
+<h3 id="%E7%A1%AC%E4%BB%B6%E6%8E%A5%E7%BA%BF">硬件接线</h3>
+<ul>
+<li><strong>USB Type-C 数据线</strong></li>
+</ul>
+<p>自行准备质量可靠或者是手机附赠的数据线，质量差的数据线会因电压问题造成开发板处于非正常工作状态导致后续影响使用，有些 Type-C 线只能供电。</p>
+<p><img src="./mixly_application/accets/k210_usage/type_c.jpg" alt="type-c" /></p>
+<ul>
+<li><strong>Micro SD/TF 卡（可选）</strong></li>
+</ul>
+<p>在 K210 开发板上不使用 Micro SD 卡也可操作文件, 我们在内部 Flash 上保留了一部分作为文件系统, 只是 Flash 速度很慢，为了操作方便的话可以选购 Micro SD/TF 卡，以下图例为 SD 卡安装卡槽。</p>
+<p><strong>如何选购 SD/TF 卡传送门：</strong><a href="eed.com/soft/maixpy/zh/develop_kit_board/get_hardware.html#Micro-SD-%E5%8D%A1-%28TF-%E5%8D%A1%29-%28%E5%8F%AF%E9%80%89%29"  >点击前往</a></p>
+<p><img src="./mixly_application/accets/k210_usage/sd.jpg" alt="sd" /></p>
+<blockquote>
+<p><strong>注意：MaixPy 不支持挂载文件系统到电脑！！！K210 芯片没有 USB 功能无法模拟 U 盘设备！！！</strong><br />
+<strong>不要再问为什么没有 U 盘或者是显示 SD 卡了！那不是 K210 那是 M2dock 跟 openmv!</strong></p>
+</blockquote>
+<ul>
+<li><strong>屏幕及摄像头接线</strong></li>
+</ul>
+<p>当我们收到开发板后，首先对硬件进行检查是否有外表损坏，接着再根据屏幕以及摄像头的排线丝印安装到开发板上，即排线上的数字 <strong>“1”</strong> 和板子卡座边上引脚丝印 <strong>“1”</strong> 方位对应接上。</p>
+<html>
+      <img src="./mixly_application/accets/k210_usage/lcd.jpg" width=45%>
+      <img src="./mixly_application/accets/k210_usage/sensor.jpg" width=45%>
+</html>
+<h3 id="%E5%AE%89%E8%A3%85-MaixPy-IDE">安装 MaixPy IDE</h3>
+<p>因 MaixPy IDE 需要一定的下载时间，我们可以提前先挂在后台下载节约小伙伴们的时间。<br />
+首先要清楚明白 MaixPy 使用 Micropython 脚本语法，所以不像 <code>C 语言</code> 一样需要编译，我们可以在电脑上进行实时的编辑、运行、保存、观看摄像头效果的操作，故而对新手小白比较友好。</p>
+<p><strong>MaixPy IDE 下载传送门：</strong><a href="https://dl.sipeed.com/MAIX/MaixPy/ide/"  target="_blank">点击前往</a><br />
+<strong>MaixPy IDE 安装与使用例程：</strong><a href="https://wiki.sipeed.com/soft/maixpy/zh/get_started/env_maixpyide.html"  target="_blank">点击前往</a></p>
+<p><img src="./mixly_application/accets/k210_usage/maixpy_logo.jpg" alt="maixpy_logo" /></p>
+<blockquote>
+<p><strong>MaixPy IDE 支持 Linux、Windows、Macos 等系统如出现安装报错现象请前往 <a href="https://wiki.sipeed.com/soft/maixpy/zh/others/maixpy_faq.html?highlight=SD#Micro-SD-%E5%8D%A1%E8%AF%BB%E5%8F%96%E4%B8%8D%E5%88%B0"  target="_blank">MaixPy 常见问题 FAQ</a> 或 <a href="https://bbs.sipeed.com/thread/489"  target="_blank">BBS【超实用】常见问题汇总贴</a> 排查问题。</strong></p>
+</blockquote>
+<h3 id="%E7%BB%99%E6%9D%BF%E5%AD%90%E9%80%9A%E7%94%B5">给板子通电</h3>
+<p>先使用准备的 USB type-c 数据线两端分别接入板子及电脑端进行上电操作，方便后续更新固件等使用。<br />
+<strong>如果是新购买出厂的开发板的话，上电后会显示红色屏幕。</strong></p>
+<p><img src="./mixly_application/accets/k210_usage/red_lcd.jpg" alt="red_lcd" /></p>
+<blockquote>
+<p><strong>上电后出现白屏、黄屏、绿屏、蓝屏、闪屏等更多报错现象请前往 <a href="https://wiki.sipeed.com/soft/maixpy/zh/others/maixpy_faq.html?highlight=SD#Micro-SD-%E5%8D%A1%E8%AF%BB%E5%8F%96%E4%B8%8D%E5%88%B0"  target="_blank">MaixPy 常见问题 FAQ</a> 或 <a href="https://bbs.sipeed.com/thread/489"  target="_blank">BBS【超实用】常见问题汇总贴</a> 排查问题。</strong></p>
+</blockquote>
+<h3 id="%E5%AE%89%E8%A3%85%E9%A9%B1%E5%8A%A8">安装驱动</h3>
+<p>因 K210 没有 USB 硬件支持功能需通过 USB 转串口与电脑连接，所以用户需安装串口搭建板子与电脑的连接桥梁，点击文档链接根据板子的型号下载相对应的驱动，安装成功后设备管理器会显示（COMx）端口。</p>
+<p><strong>串口驱动下载传送门：</strong><a href="https://wiki.sipeed.com/soft/maixpy/zh/get_started/env_install_driver.html"  target="_blank">点击前往</a></p>
+<p><img src="./mixly_application/accets/k210_usage/com.jpg" alt="com" /></p>
+<p>如果出现安装失败、安装后设备接入 <code>PC</code> 端的设备管理器不显示 <code>COM</code> 端口的现象，需要检查系统是不是正版或更新下（Win7 Win8）系统，部分盗版系统会导致驱动安装失败或是安装后不显示。</p>
+<p><strong>更多的不显示 <code>COM</code> 端口参考解决方法：</strong><a href="https://wiki.sipeed.com/soft/maixpy/zh/get_started/env_install_driver.html#%E5%85%B3%E4%BA%8E-USB-%E4%B8%B2%E5%8F%A3%E7%9A%84%E7%96%91%E9%9A%BE%E6%9D%82%E7%97%87%E6%8E%92%E6%9F%A5"  target="_blank">点击前往</a></p>
+<h2 id="%E5%A6%82%E4%BD%95%E5%8D%87%E7%BA%A7%E5%9B%BA%E4%BB%B6%EF%BC%88%E5%BF%85%E7%9C%8B%EF%BC%89">如何升级固件（必看）</h2>
+<blockquote>
+<p>升级固件对 K210 系列板子来说至关重要，快速避免掉用户在使用中无限踩雷影响体验感，例如常见的 MaxiPy IDE 连接失败、屏幕白屏/黄屏等现象，所以板子到手后更新固件成了必不可少的一件事情。</p>
+</blockquote>
+<ul>
+<li><strong>怎么去判定自己需要的什么固件？</strong></li>
+</ul>
+<p><strong>如果是第一次使用 k210 系列版更新固件，请无脑看图选标准固件（序号：15）！</strong><br />
+<strong>如果是因为应用需要特殊固件，看应用文档需要什么下载什么！其余一律看功能尾缀！功能尾缀！选择固件。</strong><br />
+<strong>K210 Amigo 开发板固件与以上不通用，固件请在（序号 3-6）里选择下载。</strong></p>
+<p><img src="./mixly_application/accets/k210_usage/bin.png" alt="bin" /></p>
+<p>参考上方描述选择（<strong>日期最新</strong>）所需的固件并下载到本地，使用 <code>kflash_gui</code> 烧录工具对板子进行升级固件。</p>
+<p><img src="./mixly_application/accets/k210_usage/bin_two.png" alt="bin_two" /></p>
+<p>如何正确烧录固件示例可参考：<a href="https://wiki.sipeed.com/soft/maixpy/zh/get_started/upgrade_maixpy_firmware.html"  target="_blank">升级固件示例文档</a> 可搭配<a href="https://wiki.sipeed.com/soft/maixpy/zh/get_started/get_started_fs.html"  target="_blank"> MaixPy 存储系统</a>一起食用更佳。</p>
+<blockquote>
+<p>注意：因 MaixPy 系列的开发板中 MaixDuino 板载了一块 ESP32 WIFI SOC，一般情况下不推荐更新板载的 ESP32 模块，如在使用途中出现 bug 可以参考<a href="https://wiki.sipeed.com/soft/maixpy/zh/get_started/upgrade_esp32_firmware.html"  target="_blank">更新板载 ESP32 固件</a>进行更新固件</p>
+</blockquote>
+<h2 id="%E4%B8%8A%E6%89%8B%E8%BF%90%E8%A1%8C%E7%A8%8B%E5%BA%8F">上手运行程序</h2>
+<blockquote>
+<p>使用 MaixPy IDE 进行调试操作的话，板子需烧录固件而且版本必须是 <code>v0.3.1</code> 以上, 否则 MaixPy IDE 会出现连接不上的现象。</p>
+</blockquote>
+<h3 id="%E4%BD%BF%E7%94%A8-MaixPy-IDE-%E8%BF%90%E8%A1%8C%E7%A8%8B%E5%BA%8F%EF%BC%88%E5%90%AB%E6%B5%8B%E8%AF%95%E7%A8%8B%E5%BA%8F%EF%BC%89">使用 MaixPy IDE 运行程序（含测试程序）</h3>
+<p>根据下图将 K210 开发板连接 <code>MaixPy IDE</code> 软件，连接成功后步骤 3 的图标会变成红色，接下来运行 <code>helloworld.py</code> 测试摄像头及屏幕是否可用，运行后开发板屏幕以及软件会显示摄像头画面。</p>
+<p><img src="./mixly_application/accets/k210_usage/maixpyide.jpg" alt="maixpyide" /></p>
+<p><strong>MaixPy 软件使用例程：</strong><a href="https://wiki.sipeed.com/soft/maixpy/zh/get_started/env_maixpyide.html#%E6%B5%8B%E8%AF%95%E8%BF%90%E8%A1%8C"  target="_blank">点击前往</a> / <strong>测试屏幕及摄像头源码：</strong><a href="https://wiki.sipeed.com/soft/maixpy/zh/get_started/get_started_cam_lcd.html"  target="_blank">点击前往</a><br />
+如出现软件无画面的话，请参考步骤 5 是否被缩放了，更详细的连接过程请参考下文链接，测完后可在文件里<code>新建文件夹</code>编辑自己的代码并运行。</p>
+<p><img src="./mixly_application/accets/k210_usage/maixpy_run.jpg" alt="maixpy_run" /></p>
+<h3 id="%E4%BD%BF%E7%94%A8%E4%B8%B2%E5%8F%A3%E7%BB%88%E7%AB%AF%E8%BF%90%E8%A1%8C%E7%A8%8B%E5%BA%8F">使用串口终端运行程序</h3>
+<blockquote>
+<p>如果是有基础的用户较推荐使用终端来调试，<code>MaixPy IDE</code> 虽然运行报错会显示但信息可能不完整，而终端会输出更详细的报错信息方便排错。如果出现串口连接终端失败的现象，看看串口是否被占用。</p>
+</blockquote>
+<p>使用前可以先点击了解 <a href="https://wiki.sipeed.com/soft/maixpy/zh/get_started/uart.html"  target="_blank">串口定义是什么？</a> 方便我们理解后续使用更方便。文档提供了多种串口连接工具供用户使用，有 <code>MaixPy IDE 终端工具</code>、<code>Mobaxterm</code>、<code>mpfshell-lite</code> 等在 <code>Windows</code> 环境下的工具，以及 <code>Linux</code> 下的使用方法。</p>
+<ul>
+<li><strong>这里我们更推荐使用 MaixPy IDE 串口终端，以下时连接以及运行示例。</strong></li>
+</ul>
+<p>点击 MaixPy IDE 软件页面上方的 <code>工具</code>-&gt;<code>打开终端</code>-&gt;<code>新终端</code>-&gt;<code>连接到串口</code>-&gt;<code>确定默认串口号</code>-&gt;<code>波特率：115200</code> 确定自动连接，连接后按复位即可正常编辑。</p>
+<p><img src="./mixly_application/accets/k210_usage/maixpy_tty.png" alt="maixpy_tty" /><br />
+<img src="./mixly_application/accets/k210_usage/tty_usage.jpg" alt="tty_usage" /></p>
+<ul>
+<li>运行 <code>hello maixpy</code> 终端会输出打印结果，更详细的资料以及更多连接串口方式请点击下文链接查看。</li>
+</ul>
+
+<pre class="language-python"><code class="language-python">print(&quot;hello maixpy&quot;) #命令
+#hello maixpy  #终端打印结果
+</code></pre>
+<p><img src="./mixly_application/accets/k210_usage/adb.jpg" alt="adb" /></p>
+<p><strong>MobaXterm 下载及使用方法：</strong><a href="https://wiki.sipeed.com/soft/maixpy/zh/get_started/env_serial_tools.html#Mobaxterm"  target="_blank">点击前往</a><br />
+<strong>MaixPy IDE 终端使用方法：</strong><a href="https://wiki.sipeed.com/soft/maixpy/zh/get_started/env_serial_tools.html#MaixPy-IDE%E7%BB%88%E7%AB%AF%E5%B7%A5%E5%85%B7"  target="_blank">点击前往</a><br />
+<strong>mpfshell-lite 工具介绍及用法：</strong><a href="https://wiki.sipeed.com/soft/maixpy/zh/get_started/mpfshell-lite/mpfshell-lite.html"  target="_blank">点击前往</a><br />
+<strong>mpfshell-lite 使用手册：</strong><a href="https://wiki.sipeed.com/soft/maixpy/zh/get_started/mpfshell-lite/mpfshell-lite-help.html"  target="_blank">点击前往</a></p>
+<h3 id="%E5%A6%82%E4%BD%95%E7%BC%96%E8%BE%91%E4%BB%A3%E7%A0%81%E5%B9%B6%E8%BF%90%E8%A1%8C">如何编辑代码并运行</h3>
+<p>上文我们简单介绍了在 MaixPy IDE 上如何运行代码以及使用串口终端，但实际这些运行都是一次性并不保存到设备里，我们更希望代码保存在文件系统，这样不需要再次敲代码可直接运行程序更为便利快捷，小伙伴们可以参考以下的示例方法进行操作。</p>
+<p><strong>如何编辑并保存文件请参考以下示例：</strong></p>
+<p><a href="https://wiki.sipeed.com/soft/maixpy/zh/get_started/get_started_edit_file.html#%E6%96%B9%E6%B3%95%E4%B8%80%EF%BC%9A-%E4%BD%BF%E7%94%A8%E5%86%85%E7%BD%AE%E7%BC%96%E8%BE%91%E5%99%A8-%3Ca-href%3D%22https%3A//github.com/robert-hh/Micropython-Editor%22--target%3D%22_blank%22%3EMicropython-Editor%28pye%29%3C/a%3E"  target="_blank">方法一： 使用内置编辑器 Micropython Editor(pye)</a><br />
+<a href="https://wiki.sipeed.com/soft/maixpy/zh/get_started/get_started_edit_file.html#%E6%96%B9%E6%B3%95%E4%BA%8C%EF%BC%9A-%E4%BD%BF%E7%94%A8-MaixPy-IDE"  target="_blank">方法二： 使用 MaixPy IDE</a><br />
+<a href="https://wiki.sipeed.com/soft/maixpy/zh/get_started/get_started_edit_file.html#%E6%96%B9%E6%B3%95%E4%B8%89%EF%BC%9A-%E4%BD%BF%E7%94%A8%E5%B7%A5%E5%85%B7-%3Ca-href%3D%22https%3A//github.com/BetaRavener/uPyLoader%22--target%3D%22_blank%22%3EuPyLoader%3C/a%3E-%E8%AF%BB%E5%8F%96%E5%88%B0-PC%EF%BC%88%E7%94%B5%E8%84%91%29%E4%B8%8A%E7%BC%96%E8%BE%91%E5%90%8E%E5%86%8D%E4%BF%9D%E5%AD%98%E5%88%B0%E5%BC%80%E5%8F%91%E6%9D%BF"  target="_blank">方法三： 使用工具 uPyLoader 读取到 PC（电脑)上编辑后再保存到开发板</a><br />
+<a href="https://wiki.sipeed.com/soft/maixpy/zh/get_started/get_started_edit_file.html#%E6%96%B9%E6%B3%95%E5%9B%9B%EF%BC%9A-%E4%BD%BF%E7%94%A8%E5%B7%A5%E5%85%B7-%3Ca-href%3D%22https%3A//github.com/dhylands/rshell%22--target%3D%22_blank%22%3Ershell%3C/a%3E-%E8%AF%BB%E5%8F%96%E5%88%B0-PC%EF%BC%88%E7%94%B5%E8%84%91%29%E4%B8%8A%E7%BC%96%E8%BE%91%E5%90%8E%E5%86%8D%E4%BF%9D%E5%AD%98%E5%88%B0%E5%BC%80%E5%8F%91%E6%9D%BF"  target="_blank">方法四： 使用工具 rshell 读取到 PC（电脑)上编辑后再保存到开发板</a></p>
+<p><strong>如何执行文件请参考以下示例：</strong></p>
+<p><a href="https://wiki.sipeed.com/soft/maixpy/zh/get_started/get_started_edit_file.html#%E6%96%B9%E6%B3%95%E4%B8%80%EF%BC%9A-%3Ccode%3Eimport%3C/code%3E"  target="_blank">方法一： 使用 import 执行</a><br />
+<a href="https://wiki.sipeed.com/soft/maixpy/zh/get_started/get_started_edit_file.html#%E6%96%B9%E6%B3%95%E4%BA%8C%EF%BC%9A-%3Ccode%3Eexec%28%29%3C/code%3E"  target="_blank">方法二： 使用 exec() 函数来执行</a><br />
+<a href="https://wiki.sipeed.com/soft/maixpy/zh/get_started/get_started_edit_file.html#%E6%96%B9%E6%B3%95%E4%B8%89%EF%BC%9A-%E4%BD%BF%E7%94%A8-%3Cstrong%3EMaixPy-IDE%3C/strong%3E-%E6%9D%A5%E6%89%A7%E8%A1%8C"  target="_blank">方法三： 使用 MaixPy IDE 来执行</a><br />
+<strong>方法四： 使用 uPyLoader 来执行：连接好后选中文件, 点击 excute 按钮来执行文件</strong><br />
+<strong>方法五： 使用 ampy 来直接运行电脑上的文件：执行命令 ampy run file_in_PC.py 来执行位于电脑上的文件（文件不会保存到开发板）</strong></p>
+<h3 id="%E5%A6%82%E4%BD%95%E4%B8%8A%E4%BC%A0%E4%BB%A3%E7%A0%81%E5%88%B0%E5%BC%80%E5%8F%91%E6%9D%BF">如何上传代码到开发板</h3>
+<p>我们可以通过多种方式打开编辑器来直接编辑文件系统中的文件，但如果出现代码量庞大或需要高亮支持的情况就不适用了，这时可以在电脑上写完代码放入开发板的文件系统内。</p>
+<p><strong>可参考以下几种方法示例进行操作：</strong></p>
+<p><a href="https://wiki.sipeed.com/soft/maixpy/zh/get_started/get_started_upload_script.html#%E4%BD%BF%E7%94%A8%E5%9B%BE%E5%BD%A2%E5%B7%A5%E5%85%B7-uPyLoader-%E4%B8%8A%E4%BC%A0%E3%80%81%E8%BF%90%E8%A1%8C%E8%84%9A%E6%9C%AC"  target="_blank">方法一：使用图形工具 uPyLoader 上传、运行脚本</a><br />
+<a href="https://wiki.sipeed.com/soft/maixpy/zh/get_started/get_started_upload_script.html#%E4%BD%BF%E7%94%A8%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7"  target="_blank">方法二：使用命令行工具运行脚本</a><br />
+<strong>方法三：SD（TF） 直接运行：拷贝到 SD 卡后， 在终端中执行 <code>import</code> 文件名 或者 <code>exec()</code> 来运行脚本</strong><br />
+<a href="https://wiki.sipeed.com/soft/maixpy/zh/get_started/get_started_upload_script.html#SD-%E5%8D%A1%E8%87%AA%E5%8A%A8%E6%8B%B7%E8%B4%9D%E5%88%B0-Flash-%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F"  target="_blank">方法四：SD 卡自动拷贝到 Flash 文件系统</a></p>
+<h3 id="%E5%A6%82%E4%BD%95%E5%BC%80%E6%9C%BA%E8%87%AA%E5%8A%A8%E8%BF%90%E8%A1%8C%E4%BB%A3%E7%A0%81">如何开机自动运行代码</h3>
+<p><strong>如何配置开机自启动脚本相关：</strong><a href="https://wiki.sipeed.com/soft/maixpy/zh/get_started/get_started_boot.html"  target="_blank">点击查看</a></p>
+<h3 id="%E5%AE%9A%E5%88%B6%E4%B8%93%E5%B1%9E%E5%9B%BA%E4%BB%B6">定制专属固件</h3>
+<p>出于满足部分小伙伴对内存的需求，可通过源码编译所需固件。</p>
+<p><a href="https://wiki.sipeed.com/soft/maixpy/zh/firmware/why_customize_firware.html"  target="_blank">为何需要固件定制</a><br />
+<a href="https://wiki.sipeed.com/soft/maixpy/zh/firmware/compile.html"  target="_blank">源码编译</a></p>
+<h2 id="%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F%E4%BB%8B%E7%BB%8D">存储系统介绍</h2>
+<p>MaixPy 中的存储介质主要由 <code>Flash</code>、<code>SD</code> 卡组成，并分为三块区域分别是 <code>MaixPy.bin 固件区</code>、<code>xxx.kmodel 模型区</code>、<code>文件系统区：Flash 上为 spiffs（SPI Flash File System）、SD 卡为 Fatfs（FAT file system)</code> 后续方便小伙伴们使用模型或烧写固件时参考，注意烧写时的不同区域防止报错或烧写失败。</p>
+<p><strong>存储系统介绍：</strong><a href="https://wiki.sipeed.com/soft/maixpy/zh/get_started/get_started_fs.html"  target="_blank">点击查看</a></p>
+<h2 id="%E6%9B%B4%E5%A4%9A%E5%8A%9F%E8%83%BD%E5%BA%94%E7%94%A8">更多功能应用</h2>
+<blockquote>
+<p>这篇文档完全是按新手小白的使用步骤一步一步来写的，在【更多功能应用】里编写的是 MaixPy 的应用案例以及使用方式，如果是没有接触过 <code>Python 以及 MicroPython</code> 的小伙伴们一定要先学会基础的语法知识，切记！没有基础的小伙伴不可以跳过上文！！！更多功能应用是基于上文的基础下写的，可以搭配 <a href="https://wiki.sipeed.com/soft/maixpy/zh/api_reference/standard/index.html"  target="_blank">API 文档</a>和<a href="https://github.com/sipeed/MaixPy-v1_scripts"  target="_blank">MaixPy 例程仓库</a>一同学习。</p>
+</blockquote>
+<p>【更多功能应用】分为五大部分：<code>系统基础功能</code>、<code>外设模块拓展</code>、<code>图像处理基础（image）</code>、<code>传统算法应用</code>、<code>神经网络应用（AI）</code>因示例较多，这里列举几种常用的可点击可前往<a href="https://wiki.sipeed.com/soft/maixpy/zh/course/index.html"  target="_blank">更多功能应用</a>目录下查看所需要的示例。</p>
+<ul>
+<li><strong>系统基础功能：</strong></li>
+</ul>
+<p>包含了 <a href="https://wiki.sipeed.com/soft/maixpy/zh/course/others/system.html"  target="_blank">CPU &amp; RAM</a>、<a href="https://wiki.sipeed.com/soft/maixpy/zh/course/image/image_draw_font/image_draw_font.html"  target="_blank">GUI 支持</a>、<a href="https://wiki.sipeed.com/soft/maixpy/zh/course/network/network_config.html"  target="_blank">网络支持</a>、<a href="https://wiki.sipeed.com/soft/maixpy/zh/course/media/audio.html"  target="_blank">媒体功能</a>、<a href="https://wiki.sipeed.com/soft/maixpy/zh/api_reference/media/nes.html"  target="_blank">游戏模拟</a>。</p>
+<ul>
+<li><strong>外设模块拓展：</strong></li>
+</ul>
+<p>包含了<a href="https://wiki.sipeed.com/soft/maixpy/zh/modules/on_chip/gpio.html"  target="_blank">片上外设</a>、<a href="https://wiki.sipeed.com/soft/maixpy/zh/modules/sp_mod/sp_bt.html"  target="_blank">SP-MOD</a>、<a href="https://wiki.sipeed.com/soft/maixpy/zh/modules/grove/grove_ultrasonic_ranger.html"  target="_blank">Grove</a>、<a href="https://wiki.sipeed.com/soft/maixpy/zh/develop_kit_board/module_microphone.html"  target="_blank">其他外设</a>。</p>
+<ul>
+<li><strong>图像处理基础（image）</strong></li>
+</ul>
+<p>包含了<a href="https://wiki.sipeed.com/soft/maixpy/zh/course/image/basic/get_images.html"  target="_blank">获取图像</a>、<a href="https://wiki.sipeed.com/soft/maixpy/zh/course/image/basic/display_images.html"  target="_blank">显示图像</a>、<a href="https://wiki.sipeed.com/soft/maixpy/zh/course/image/basic/vary.html"  target="_blank">图像处理基础</a>、<a href="https://wiki.sipeed.com/soft/maixpy/zh/course/image/basic/draw.html"  target="_blank">如何在图像上写字</a>、<a href="https://wiki.sipeed.com/soft/maixpy/zh/course/image/basic/acc_image_deal.html"  target="_blank">硬件加速图像模块</a>。</p>
+<ul>
+<li><strong>传统算法应用</strong></li>
+</ul>
+<p>传统算法应用里包含了<a href="https://wiki.sipeed.com/soft/maixpy/zh/course/image/find_color_blob.html"  target="_blank">图像处理</a>、<a href="https://wiki.sipeed.com/soft/maixpy/zh/course/speech/fft_waterfall.html"  target="_blank">音频处理</a>。</p>
+<ul>
+<li><strong>神经网络应用（AI）</strong></li>
+</ul>
+<p>包含了<a href="https://wiki.sipeed.com/soft/maixpy/zh/course/ai/basic/dnn_basic.html"  target="_blank">深度神经网络基础</a>、<a href="https://wiki.sipeed.com/soft/maixpy/zh/course/ai/basic/maixpy_hardware_ai_basic.html"  target="_blank">KPU 硬件加速介绍</a>、<a href="https://wiki.sipeed.com/soft/maixpy/zh/course/ai/image/face_detect.html"  target="_blank">AI 图像处理</a>、<a href="https://wiki.sipeed.com/soft/maixpy/zh/course/speech/recognizer_cnn.html"  target="_blank">AI 音频处理</a>、<a href="https://wiki.sipeed.com/soft/maixpy/zh/course/ai/train/maixhub.html"  target="_blank">如何训练模型</a>。</p>
+<h3 id="%E5%A6%82%E4%BD%95%E6%AD%A3%E5%B8%B8%E4%BD%BF%E7%94%A8-SD-%E5%8D%A1">如何正常使用 SD 卡</h3>
+<p>在【更多功能应用】里的部分示例里需要用到 SD 卡存储模型或固件等，很多小伙伴会遇见 SD 卡文件读取不到，先判断路径是否正确，再判断是否挂载成功了。</p>
+<ul>
+<li>查询是否挂载成功的方法如下：</li>
+</ul>
+
+<pre class="language-python"><code class="language-python">import os
+print(os.listdir(&quot;/&quot;))
+&gt;&gt;['flash'] # 没有挂载 SD 卡
+
+&gt;&gt;['flash', 'sd'] # 挂载 SD 卡成功
+</code></pre>
+<p>如果挂载不成功的话请根据 <a href="https://wiki.sipeed.com/soft/maixpy/zh/others/maixpy_faq.html?highlight=SD#Micro-SD-%E5%8D%A1%E8%AF%BB%E5%8F%96%E4%B8%8D%E5%88%B0"  target="_blank">MaixPy 常见问题 FAQ</a> 排查相关错误再进行再次挂载尝试使用。</p>
+<h3 id="%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E9%85%8D%E7%BD%AE%E5%BC%80%E5%8F%91%E6%9D%BF">如何进行配置开发板</h3>
+<p>在使用 <code>外设模块拓展</code> 的示例时，K210 系列板子因硬件引脚的不同需要进行不同的配置写入，可参考 <a href="https://wiki.sipeed.com/soft/maixpy/zh/api_reference/builtin_py/board_info.html"  target="_blank">Board</a>文档进行配置。</p>
+<h3 id="%E5%A6%82%E4%BD%95%E8%BF%9E%E6%8E%A5%E9%BA%A6%E5%85%8B%E9%A3%8E%E9%98%B5%E5%88%97">如何连接麦克风阵列</h3>
+<p><a href="https://wiki.sipeed.com/hardware/zh/modules/micarray.html"  target="_blank">麦克风阵列例程</a></p>
+<p><strong>K210 系列板卡连接麦克风阵列有以下两种方式供参考：</strong></p>
+<ol>
+<li><strong>推荐：使用杜邦线连接板子与麦克风阵列的引脚，在使用例程提供的代码实现声源定位。</strong></li>
+<li>使用麦克风阵列标配排线搭配转接板连接板子</li>
+</ol>
+<h3 id="%E5%A6%82%E4%BD%95%E8%8E%B7%E5%8F%96%E5%BC%80%E5%8F%91%E6%9D%BF%EF%BC%88%E6%9C%BA%E5%99%A8%E7%A0%81%EF%BC%89">如何获取开发板（机器码）</h3>
+<blockquote>
+<p>在【更多功能应用】里的 <code>神经网络应用（AI）</code> 讲述了如何获取并运行 AI 模型的，但在获取模型的操作中有一步是需要机器码才能下载相关的模型，机器码是一机一码的一种加密方式，用于模型文件的加密。如果使用别的机器码去加密或者下载以 <code>smodel</code> 为文件后缀的模型文件，开发板是无法使用该模型文件的。</p>
+</blockquote>
+<ul>
+<li><strong>参考以下示例步骤获取机器码：</strong></li>
+</ul>
+<ol>
+<li>将 key_gen.bin 这个固件通过 Kflash 烧录到开发板上。烧录这个机器码固件之后，开发板是处于一个不能使用的状态，上电屏幕只会变成一个白屏。</li>
+<li>这时将开发板通过 USB 连接到电脑上，利用【串口连接】中的方式来连接开发板。注：IDE 中的串口终端和 IDE 的连接方式相对独立的，而且串口不能通过多种方式进行连接</li>
+<li>利用串口软件连接上开发板，这时按下开发板上的 reset 的按键，就会出现一串字符在终端窗口上，这就机器码。</li>
+</ol>
+<p><a href="https://dl.sipeed.com/shareURL/MaixHub_Tools"  target="_blank">机器码固件：key_gen-v1.2.bin</a></p>
+<p><img src="./mixly_application/accets/k210_usage/key.png" alt="key" /></p>
+<blockquote>
+<p>注意：烧录过 key_gen.bin 之后的开发板将永久禁用 K210 的 JTAG 调试功能。</p>
+</blockquote>
+<h3 id="%E5%A6%82%E4%BD%95%E8%8E%B7%E5%8F%96-AI-%E6%A8%A1%E5%9E%8B">如何获取 AI 模型</h3>
+<p>除了在示例文档中给出的模型，用户还可在 <a href="https://maixhub.com/model/zoo"  target="_blank">MaixHub</a> 模型库中查找标签为 <code>nncase</code> 相关的 AI 模型供 k210 系列板子使用。</p>
+<h3 id="%E5%A6%82%E4%BD%95%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B%E5%8F%8A%E6%95%B0%E6%8D%AE%E9%9B%86">如何训练模型及数据集</h3>
+<p>云端训练以及相关文档介绍：<a href="https://maixhub.com"  target="_blank">MaixHub</a></p>
+<p><a href="https://wiki.sipeed.com/ai/zh/basic/what_is_ai.html"  target="_blank">什么是人工智能(AI)和机器学习</a><br />
+<a href="https://wiki.sipeed.com/ai/zh/basic/code_frameworks.html"  target="_blank">常见代码框架和工具</a><br />
+<a href="https://wiki.sipeed.com/ai/zh/deploy/k210.html"  target="_blank">部署模型到 Maix-I(M1) K210 系列开发板</a><br />
+<a href="https://wiki.sipeed.com/ai/zh/maixhub/train_best.html"  target="_blank">MaixHub 训练调优方法</a></p>
+<p><code>MaixHub</code> 提供模型训练功能和模型分享功能以及视频教学，用户不需要搭建训练环境以及代码，只需要准备好需要训练的数据集上传训练数据即可快速训练出模型，方便快速制作你的 AI 应用。</p>
+<p>本地训练：<a href="https://wiki.sipeed.com/soft/maixpy/zh/course/ai/train/local_windows_1.html"  target="_blank">Windows - 环境配置</a>、<a href="https://wiki.sipeed.com/soft/maixpy/zh/course/ai/train/local_windows_2.html"  target="_blank">Windows - 使用教程</a>、<a href="https://wiki.sipeed.com/soft/maixpy/zh/course/ai/train/local.html"  target="_blank">Linux - 使用教程</a>。<br />
+如果是没有任何开发基础的同学们请谨慎使用本地训练，出现问题请自行解决。</p>
+<h2 id="%E5%BA%93%E5%87%BD%E6%95%B0-API-%E6%89%8B%E5%86%8C">库函数 API 手册</h2>
+<p>API 手册只罗列几种分类出来，如有需要更详细的请点击前往各分类查看下一级目录，可搭配上文【更多功能应用】使用更佳!</p>
+<p><a href="https://wiki.sipeed.com/soft/maixpy/zh/api_reference/standard/index.html"  target="_blank">库函数 API 手册 - 标准库</a><br />
+<a href="https://wiki.sipeed.com/soft/maixpy/zh/api_reference/machine/i2c.html"  target="_blank">库函数 API 手册 - machine</a><br />
+<a href="https://wiki.sipeed.com/soft/maixpy/zh/api_reference/Maix/fpioa.html"  target="_blank">库函数 API 手册 - Maix</a><br />
+<a href="https://wiki.sipeed.com/soft/maixpy/zh/api_reference/builtin_py/index.html"  target="_blank">库函数 API 手册 - helper</a><br />
+<a href="https://wiki.sipeed.com/soft/maixpy/zh/api_reference/machine_vision/index.html"  target="_blank">库函数 API 手册 - media</a><br />
+<a href="https://wiki.sipeed.com/soft/maixpy/zh/api_reference/extend/index.html"  target="_blank">库函数 API 手册 - extend</a></p>
+<h2 id="%E5%A6%82%E4%BD%95%E7%BC%96%E8%AF%91%E4%B8%8E%E5%BC%80%E5%8F%91">如何编译与开发</h2>
+<p><strong>对于想尝试开发 K210 的用户们我们也准备了相对应的文档供大家参考：</strong></p>
+<p><a href="https://wiki.sipeed.com/soft/maixpy/zh/course/advance/project_framework.html"  target="_blank">代码框架结构</a><br />
+<a href="https://wiki.sipeed.com/soft/maixpy/zh/course/advance/compile.html"  target="_blank">如何编译 MaixPy 工程</a><br />
+<a href="https://wiki.sipeed.com/soft/maixpy/zh/course/advance/add_c_module.html"  target="_blank">如何用 C 添加一个 MaixPy 模块</a><br />
+<a href="https://wiki.sipeed.com/soft/maixpy/zh/course/advance/pack_fs.html"  target="_blank">打包文件系统</a></p>
+<p><strong>MaixPy 源码：<a href="https://github.com/sipeed/MaixPy"  target="_blank">点击查看</a></strong><br />
+<strong>相关原厂 K210 SDK：<a href="https://www.canaan-creative.com/developer"  target="_blank">点击查看</a></strong></p>
+<p><strong>以下是裸机开发可参考文章：</strong></p>
+<p><a href="https://blog.csdn.net/hgf_fgh/article/details/122402940#:~:text=%E6%89%93%E5%BC%80PlatformIO%E4%B8%BB%E9%A1%B5%EF%BC%8C%E5%9C%A8Boards%E9%A1%B5%E9%9D%A2%E6%90%9C%E7%B4%A2K210%EF%BC%8C%E5%9C%A8platform%E5%88%97%E6%89%BE%E5%88%B0kendryte,k210%E5%B9%B6%E7%82%B9%E8%BF%9B%E5%8E%BB%EF%BC%8C%E7%82%B9%E5%87%BBinstall%E5%AE%89%E8%A3%85%E7%AD%89%E5%BE%85%E5%8D%B3%E5%8F%AF%EF%BC%9B"  target="_blank">K210裸机开发（〇）简介及准备</a></p>
+<h2 id="%E5%AD%A6%E4%BC%9A%E4%BD%BF%E7%94%A8%E6%96%87%E6%A1%A3%EF%BC%88%E8%B5%84%E6%BA%90%EF%BC%89">学会使用文档（资源）</h2>
+<p>为什么会写 <strong><code>学会使用文档</code></strong> 呢，众所周知 <code>K210</code> 系列的板卡已经是 <code>2019</code> 年的产物了，各方面的文档也好例程也好早已经是成熟的了，该踩的坑基本都在前几年就被踩完了，现在更多的新手小白踩坑可能都是因为性能上的不足或者是自身使用环境的乱导致出问题。这篇文档的初衷是想要让大家在使用的过程中避坑，但我们还是要学会把文档资源利用起来。</p>
+<ol>
+<li>学会搜索并利用官方的<code>文档社区</code>以及 <code>github issue</code> 资源，会让新手小白少走很多弯路雷坑。</li>
+<li>文档资源在 <code>常见问题 FAQ</code> 中基本涵盖了所有的坑，使用途中报错可以先查看这篇文档排错。</li>
+<li>在使用途中出现故障但无法自行判断（代码/硬件）问题，可以先运行测试程序测试屏幕及摄像头。</li>
+<li>想要实现更多的功能示例或需要更多的脚本源码，可前往 <code>MaixPy</code> 的源码例程仓库查找。</li>
+</ol>
+<p><strong>文档搜索例程：</strong><a href="https://wiki.sipeed.com/soft/maixpy/zh/how_to_read.html"  target="_blank">点击查看</a><br />
+<strong>BBS 社区教程贴：</strong><a href="https://bbs.sipeed.com/thread/492"  target="_blank">点击前往</a><br />
+<strong>MaixPy 源码仓库：</strong><a href="https://github.com/sipeed/maixpy"  target="_blank">点击前往</a><br />
+<strong>MaixPy 例程仓库：</strong><a href="https://github.com/sipeed/MaixPy-v1_scripts"  target="_blank">点击前往</a><br />
+<strong>MaixPy issue：</strong><a href="https://github.com/sipeed/MaixPy-v1issues?page=5&amp;q=is%3Aissue+is%3Aopen"  target="_blank">点击前往</a><br />
+<strong>MaixPy 常见问题 FAQ：</strong><a href="https://wiki.sipeed.com/soft/maixpy/zh/others/maixpy_faq.html"  target="_blank">点击查看</a><br />
+<strong>BBS 社区常见问题汇总贴：</strong><a href="https://bbs.sipeed.com/thread/489"  target="_blank">点击查看</a></p>
+<h2 id="Mind%2B-%E7%A7%AF%E6%9C%A8%E7%BC%96%E7%A8%8B">Mind+ 积木编程</h2>
+<p><strong>MaixDuino K210 实现积木编程例程：</strong><a href="https://wiki.sipeed.com/news/MaixPy/mind_application/mind_application.html"  target="_blank">点击查看</a></p>
+<p>Mind+ 从1.6.6 版本开始支持基于 K210 主控的 Maixduino 开发板，可满足对于 K210 开发有兴趣的用户。</p>
+<h2 id="%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98-FAQ">常见问题 FAQ</h2>
+<h3 id="%E5%87%BA%E7%8E%B0-MaixPy-%E8%BD%AF%E4%BB%B6%E5%8C%85%E5%A4%B1%E8%B4%A5%E7%8E%B0%E8%B1%A1">出现 MaixPy 软件包失败现象</h3>
+<p>卸载干净之前下的软件安装包，重新下载并换磁盘安装。</p>
+<p><img src="./mixly_application/accets/k210_usage/maixpy.jpg" alt="maixpy" /></p>
+<h3 id="%E7%83%A7%E5%BD%95%E5%9B%BA%E4%BB%B6%E9%80%94%E4%B8%AD%E5%87%BA%E7%8E%B0%E6%8F%A1%E6%89%8B%E5%A4%B1%E8%B4%A5%E7%AD%89%E6%8A%A5%E9%94%99%E4%BF%A1%E6%81%AF">烧录固件途中出现握手失败等报错信息</h3>
+<p><img src="./mixly_application/accets/k210_usage/kflash_gui.jpg" alt="kflash_gui" /></p>
+<p>一般出现这个问题，先从以下几个方面判断问题（因使用环境不同造就的设备握手失败）</p>
+<ol>
+<li>先判断板子上电后设备管理器是否有 <code>COM</code> 端口出现，如果没有端口出现返回安装驱动的步骤或者进行更换线材。</li>
+<li>设备管理器出现 <code>COM</code> 端口，查看是否被别的软件（串口根据、手机助手、蓝牙、外设）占用了串口，查询不出再次更换线材或重启设备也可以。</li>
+<li>查看 kflash_gui 的版本（是不是太低）下载页面的配置不要改动并调小波特率。</li>
+<li>烧录前按硬件的 BOOT 键后按复位，再松开 BOOT 键尝试能不能烧录。</li>
+<li>尝试过以上的方法都不行的话请更换电脑设备尝试，还是不行的话请联系淘宝官方客服。</li>
+</ol>
+<h3 id="%E6%9D%BF%E5%AD%90%E9%80%9A%E7%94%B5%E5%90%8E%E6%98%BE%E7%A4%BA%E7%99%BD%E5%B1%8F%E3%80%81%E9%BB%84%E5%B1%8F%E3%80%81%E7%BA%A2%E8%93%9D%E9%97%AA%E5%B1%8F%E7%AD%89%E7%8E%B0%E8%B1%A1">板子通电后显示白屏、黄屏、红蓝闪屏等现象</h3>
+<p><img src="./mixly_application/accets/k210_usage/yellow_lcd.png" alt="yellow_lcd" /></p>
+<ol>
+<li>白屏黄屏请参考 <a href="https://wiki.sipeed.com/soft/maixpy/zh/others/maixpy_faq.html?highlight=%E7%99%BD%E5%B1%8F#%E7%83%A7%E5%BD%95-MaixPy-%E4%B9%8B%E5%90%8E%EF%BC%8CMaixPy-%E5%87%BA%E7%8E%B0%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8"  target="_blank">MaixPy 常见问题 FAQ </a>解决。</li>
+<li>出现红蓝闪屏，请重新烧录固件后然后接稳摄像头运行<a href="https://wiki.sipeed.com/soft/maixpy/zh/get_started/get_started_cam_lcd.html"  target="_blank">测试程序</a>判断摄像头是否能用，有可能是摄像头或摄像头接口出现问题导致。</li>
+</ol>
+<h3 id="%E6%91%84%E5%83%8F%E5%A4%B4%E5%87%BA%E7%8E%B0%E9%BB%91%E6%96%91%E7%8E%B0%E8%B1%A1">摄像头出现黑斑现象</h3>
+<p><img src="./mixly_application/accets/k210_usage/sensor_error.png" alt="sensor_error" /></p>
+<p>显示黑斑但是有正常画面就是摄像头内片不干净，可以把摄像头拆出来擦一擦。</p>
+<h3 id="%E8%BF%90%E8%A1%8C%E6%91%84%E5%83%8F%E5%A4%B4%E7%A8%8B%E5%BA%8F%E6%98%BE%E7%A4%BA%EF%BC%9ARuntimeError%EF%BC%9ASensor-timeout%21">运行摄像头程序显示：RuntimeError：Sensor timeout!</h3>
+<p>摄像头连接超时，重新连接下或者是换摄像头。</p>
+<h3 id="%E7%83%A7%E5%BD%95%E5%9B%BA%E4%BB%B6%E5%90%8E%E7%94%BB%E9%9D%A2%E5%8F%8D%E8%89%B2">烧录固件后画面反色</h3>
+<p>重新擦除烧录，使用代码反色回来<a href="https://wiki.sipeed.com/soft/maixpy/zh/course/image/basic/display_images.html?highlight=%E5%8F%8D%E8%89%B2"  target="_blank">点击</a>查看。</p>
+<p><strong>更多报错信息请前往 <a href="https://wiki.sipeed.com/soft/maixpy/zh/others/maixpy_faq.html?highlight=SD#Micro-SD-%E5%8D%A1%E8%AF%BB%E5%8F%96%E4%B8%8D%E5%88%B0"  target="_blank">MaixPy 常见问题 FAQ</a> 或 <a href="https://bbs.sipeed.com/thread/489"  target="_blank">BBS【超实用】常见问题汇总贴</a> 排查问题。</strong></p>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                    </div>
+                    <div id="next">
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>相关链接</a><ul><li><a target="_blank" href="https://www.sipeed.com">Sipeed 官网</a></li>
+<li><a target="_blank" href="https://maixhub.com/">MaixHub</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">Sipeed 淘宝</a></li>
+<li><a  href="/sitemap.xml">网站地图</a></li>
+<li><a target="_blank" href="https://github.com/teedoc/teedoc">网站使用 teedoc 生成</a></li>
+</ul>
+</li>
+<li><a>源码</a><ul><li><a target="_blank" href="https://github.com/sipeed/sipeed_wiki">Wiki 源码</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">开源项目</a></li>
+</ul>
+</li>
+<li><a>关注我们</a><ul><li><a target="_blank" href="https://twitter.com/SipeedIO">twitter</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">淘宝</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">github</a></li>
+<li><a><a>微信公众号</a><img src='/static/image/wechat.png'></a>
+</li>
+</ul>
+</li>
+<li><a>联系我们</a><ul><li><a>电话: +86 0755-27808509</a>
+</li>
+<li><a>商业支持: support@sipeed.com</a>
+</li>
+<li><a>地址: 深圳市宝安区新湖路4008号蘅芳科技办公大厦A座-2101C</a>
+</li>
+<li><a  href="/join_us.html">加入我们</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://www.sipeed.com">©2018-2023 深圳矽速科技有限公司</a></li>
+<li><a target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index">粤ICP备19015433号</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/js/prism.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <link rel="stylesheet" href="/static/js/add_hint/style.css" type="text/css"/>
+    
+        <script src="/static/js/add_hint/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+        <script src="/static/js/thumbs_up/main.js"></script>
+    
+</body>
+
+</html>
