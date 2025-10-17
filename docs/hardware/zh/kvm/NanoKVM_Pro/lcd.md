@@ -7,6 +7,11 @@ update:
     author: zepan
     content:
       - initial docs
+  - date: 2025-10-18
+    version: v0.2
+    author: bugu
+    content:
+      - improve docs
 ---
 
 ## 简介
@@ -55,7 +60,11 @@ NanoKVM-Pro工作时就是虚拟为显示器，所以可以采集HDMI图像并�
 
 
 ## 自定义显示
-NanoKVM-Pro的小屏使用标准FB驱动，用户可以使用/dev/fb0来实现自定义的屏幕显示操作。
+
+> 注：此功能需要 NanoKVM-Desk 更新至 `1.1.5` 以及以上的应用版本
+
+NanoKVM Desk 在`1.1.5` 版本中新增了用户自定义APP功能，通过长按屏幕/旋钮，切换到第四页面，可以看到所有的APP，默认预装三个Demo：`coin`、`conway`、`hello`
+
 [hello.py](../../../assets/NanoKVM/pro/lcd/hello.py)
 [conway.py](../../../assets/NanoKVM/pro/lcd/conway.py)
 [coin.py](../../../assets/NanoKVM/pro/lcd/coin.py)
@@ -70,4 +79,13 @@ NanoKVM-Pro的小屏使用标准FB驱动，用户可以使用/dev/fb0来实现�
   <video playsinline controls muted preload src="../../../assets/NanoKVM/pro/lcd/coin.mp4"></video>
 </div>
 
+### 如何构建自己的应用
+
+NanoKVM Desk 会在系统 `/userapp` 目录下查找所有的文件夹，并将文件夹名称作为APP名称，建议文件夹名小于8个字符
+
+`User APP` 界面下点击用户自定义用户程序后将会尝试启动文件夹内名为 `main.py` 的 Python 应用
+
+此时小屏使用标准FB驱动，用户可以使用 `/dev/fb0` 来实现自定义的屏幕显示操作。
+
+点击屏幕或按下旋钮将退出应用
 

@@ -193,20 +193,22 @@ curl -L -o nanokvm_pro_1.0.10.tar.gz https://cdn.sipeed.com/nanokvm/pro/pikvm_1.
 sudo apt install ./*1.0.10*
 ```
 
-## How to Use Serial Ports
+## How to Use the Serial Port
 
-NanoKVM Pro provides two available serial ports, UART1/UART2 (the ATX version does not expose them due to bracket specifications, retaining only internal pads).
+NanoKVM Pro provides two sets of available serial ports: UART1/UART2. (Note: The ATX version, limited by the standard bracket size, does not have these ports externally exposed; only the internal solder pads are retained.)
 
-* Connect to other serial terminal devices:
+The interface definition diagram for the Desk version is as follows:
+![](./../../../assets/NanoKVM/pro/extended/UART.png)
 
-```shell
-# Use UART1 at 115200 baud rate on the web terminal, exit with Ctrl+A+Q
-picocom -b 115200 /dev/ttyS1
-# Use UART2 at 115200 baud rate on the web terminal, exit with Ctrl+A+Q
-# picocom -b 115200 /dev/ttyS2
-```
+- Using the Serial Terminal via the Web Interface
 
-* Send serial commands only:
+**Requires firmware version 1.1.5 or higher**
+
+Navigate to: Web Menu Bar -> Terminal -> Serial Terminal. Here, you can configure the serial port number, baud rate, and other options.
+
+![](./../../../assets/NanoKVM/pro/extended/UART-2.png)
+
+- Send serial commands only:
 
 ```shell
 # Set ttyS1 to 115200 baud rate
