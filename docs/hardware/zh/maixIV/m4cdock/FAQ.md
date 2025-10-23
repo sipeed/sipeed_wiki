@@ -36,13 +36,18 @@ root@ax650:~# grep -oP 'root=\K\S+' /proc/cmdline
 ```bash
 parted /dev/mmcblkX resizepart 2 100%
 resize2fs /dev/mmcblkXp2
+fsck -y /dev/mmcblkXp2
 sync
 ```
 
 ## Q：更新到 1.45 版本，根文件系统大小仅剩 8G，如何扩容？
 
-A：首次烧录会出现该现象，实际EMMC该分区大小已预先设置最大可用，请运行一次`resize2fs /dev/mmcblk0p10`更新文件系统元数据。之后应为28G：执行完记得`sync`再断电或重启设备否则会造成不开机**（切记！！！切记！！！）**。
+A：首次烧录会出现该现象，实际EMMC该分区大小已预先设置最大可用，请运行以下命令更新文件系统元数据。之后应为28G：**！切记！**执行完`sync`再断电或重启设备否则会造成不开机。
 ```bash
+resize2fs /dev/mmcblk0p10
+fsck -y /dev/mmcblk0p10
+sync
+
 root@maixbox:~# df -h
 Filesystem      Size  Used Avail Use% Mounted on
 /dev/root        28G  6.0G   21G  23% /

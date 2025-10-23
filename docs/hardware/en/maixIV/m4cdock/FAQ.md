@@ -37,6 +37,7 @@ Steps:
     ```bash
     parted /dev/mmcblkX resizepart 2 100%
     resize2fs /dev/mmcblkXp2
+    fsck -y /dev/mmcblkXp2
     sync
     ```
 
@@ -46,6 +47,7 @@ A: This occurs when booting after the first flash. The eMMC partition is pre-con
 
 ```bash
 resize2fs /dev/mmcblk0p10  
+fsck -y /dev/mmcblkXp10
 sync  # Critical! Prevents boot failure after power cycle.  
 ```
 

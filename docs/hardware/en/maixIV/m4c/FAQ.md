@@ -25,6 +25,7 @@ systemctl restart sshd
 # /dev/mmcblkXp2 is the second partition, which is the root filesystem partition. 
 parted /dev/mmcblkX resizepart 2 100%
 resize2fs /dev/mmcblkXp2
+fsck -y /dev/mmcblkXp2
 sync
 ```
 

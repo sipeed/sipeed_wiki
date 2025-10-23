@@ -25,6 +25,7 @@ systemctl restart sshd
 # /dev/mmcblkXp2 为第二分区，也是根文件系统分区。 
 parted /dev/mmcblkX resizepart 2 100%
 resize2fs /dev/mmcblkXp2
+fsck -y /dev/mmcblkXp2
 sync
 ```
 
