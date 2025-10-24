@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+
+<html lang="zh"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="MaixII, SSH">
+    
+    
+    <meta name="description" content="">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+        
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/prism.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?9cb07365544a53067c56c346c838181a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119047820-5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-119047820-5');
+    </script>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/js/thumbs_up/style.css" type="text/css"/>
+        
+    
+    
+    <title>使用 SSH 来连接 M2Dock - Sipeed Wiki</title>
+    
+    <script type="text/javascript">js_vars = {"teedoc-plugin-ad-hint": {"type": "hint", "label": "NEW", "content": "全新 Maix 系列产品 <a href='https://wiki.sipeed.com/maixcam'>MaixCAM</a> 已上线, 全新 <a href='https://wiki.sipeed.com/maixpy/'>MaixPy</a> 功能更丰富，性能更强大，软件更易用，文档更全面！", "show_times": 2, "show_after_s": 432000, "date": "2022-06-01 14:00", "color": "#a0421d", "link_color": "#e53935", "link_bg_color": "#e6ae5c", "bg_color": "#ffcf89", "color_hover": "white", "bg_color_hover": "#f57c00", "close_color": "#eab971"}, "teedoc-plugin-thumbs-up": {"label_up": "有帮助", "label_down": "待改进", "icon": "/static/images/thumbs_up/up.svg", "icon_clicked": "/static/images/thumbs_up/upped.svg", "url": "https://thumbs-up.sipeed.com", "show_up_count": true, "show_down_count": false, "msg_already_voted": "您已经投过票了", "msg_thanks": "感谢您的反馈", "msg_down_prompt": "感谢反馈，请告诉我们可以改进什么地方?（最少 10 个字）", "msg_down_prompt_error": "消息最少需要 10 个字， 最多 256 个字", "msg_error": "请求服务器出现错误!"}}</script>
+    <script type="text/javascript">metadata = {"tags": ["MaixII", "ssh", "adb"], "date": "2022-07-19", "update": [], "ts": 1658188800, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/">
+                
+                    <img class="site_logo" src="/static/image/logo.svg" alt="sipeed wiki logo">
+                
+                
+                    <h2>wiki</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class=""><a  href="/">产品</a></li>
+<li class="sub_items "><a >开源软件</a><ul><li class=""><a  href="/maixpy/">MaixPy</a></li>
+<li class=""><a  href="/soft/maixpy/zh/index.html">MaixPy_v1</a></li>
+<li class=""><a  href="/soft/Lichee/zh/index.html">Lichee</a></li>
+<li class=""><a  href="/ai/zh/index.html">AI 指南</a></li>
+</ul>
+</li>
+<li class=""><a target="_blank" href="https://maixhub.com">MaixHub</a></li>
+<li class="active"><a  href="/news/">动态</a></li>
+<li class=""><a  href="/faq.html">FAQ 汇总</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class=""><a  href="/store.html"><img src='/static/image/shop.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+<li class=""><a target="_blank" href="https://github.com/sipeed"><img src='/static/image/github.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">输入关键词，多关键词空格隔开</span>
+                                <span id="search_loading_hint">正在加载，请稍候。。。</span>
+                                <span id="search_download_err_hint">下载文件失败，请刷新重试或检查网络</span>
+                                <span id="search_other_docs_result_hint">来自其它文档的结果</span>
+                                <span id="search_curr_doc_result_hint">当前文档搜索结果</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="">
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>使用 SSH 来连接 M2Dock</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                                <li>MaixII</li>
+                            
+                                <li>ssh</li>
+                            
+                                <li>adb</li>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                                <span class="article_date" title="最后修改日期： 2022-07-19">
+                                    2022-07-19
+                                </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/sipeed/sipeed_wiki/blob/main/news/others/831_ssh/831_ssh.md" target="_blank">
+                                    <span id='editPage'>编辑本页</span>
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <span id="blog_start"></span><p>Linux 系统可以使用 ssh 远程被操作，但是对于 M2Dock 还有另一种用法</p>
+<!-- more -->
+<p>内容较多，对新手很有帮助</p>
+<h2 id="SSH-%E7%AE%80%E4%BB%8B">SSH 简介</h2>
+<p>SSH 为 Secure Shell 的缩写，是建立在应用层基础上的安全协议，可以有效防止远程管理过程中的信息泄露问题。<br />
+因为其易用且安全，所以被广泛使用。</p>
+<h2 id="%E8%BD%AF%E4%BB%B6%E5%87%86%E5%A4%87">软件准备</h2>
+<h3 id="MobaXterm">MobaXterm</h3>
+<p>这里使用 <a href="https://mobaxterm.mobatek.net/"  target="_blank">MobaXterm</a> 来作为主要软件进行示例。<br />
+因为它免费且易用，所以就用它了。<br />
+当然这里主要是使用它的 SSH 功能，其他诸多强大功能各位可以自行尝试</p>
+<h4 id="%E4%B8%8B%E8%BD%BD-MobaXterm">下载 MobaXterm</h4>
+<p>点击这个链接 <a href="https://mobaxterm.mobatek.net/download-home-edition.html"  target="_blank">https://mobaxterm.mobatek.net/download-home-edition.html</a> 可以跳转到下载界面。<br />
+这里我们选择 <a href="https://download.mobatek.net/2212022060563542/MobaXterm_Portable_v22.1.zip"  target="_blank">Portable edition</a> （携带版（下载后解压就可以用））</p>
+<details>
+  <summary><font color=#4F84FF>点开查看下载页面截图</font></summary>
+  <img src="./assets/mobaxterm_protable_edition.png" alt="Portable edition">
+</details>
+下载解压后文件夹里是这样的:
+<details>
+  <summary><font color=#4F84FF>点开查看解压后文件夹</font></summary>
+  <img src="./assets/mobaxterm_snapshot.png" alt="mobaxterm_snapshot">
+</details>
+<p>里面只有一个可执行的 mobaxterm 本体文件与一个插件文件</p>
+<h3 id="ADB">ADB</h3>
+<p>M2Dock 带有 adb 功能。</p>
+<p>可以进行端口转发然后通过 USB 数据线与电脑进行 SSH 连接，比使用无线 SSH 连接更加稳定。</p>
+<p>如果曾经自行配置过 adb 那可以直接看<a href="#%E6%93%8D%E4%BD%9C%E6%AD%A5%E9%AA%A4"  >操作步骤</a></p>
+<h3 id="%E4%B8%8B%E8%BD%BD-adb">下载 adb</h3>
+<h4 id="Linux-%E5%AE%89%E8%A3%85-adb">Linux 安装 adb</h4>
+<p>Ubuntu 用户可以直接使用包管理器来安装。</p>
+<p>在命令行终端执行 <code>sudo apt-get install android-tools-adb</code> 来安装 adb。</p>
+<p>且安装后能直接通过命令行调用 adb 程序。</p>
+<h4 id="Windows-%E9%85%8D%E7%BD%AE-adb">Windows 配置 adb</h4>
+<p>Windows 用户可以在 <a href="https://developer.android.google.cn/studio/releases/platform-tools?hl=zh-cn"  target="_blank">这里</a> 下载 adb。</p>
+<p><img src="./assets/download_adb.png" alt="下载adb" /></p>
+<p>然后自行选择合适的地方解压文件，并把其文件路径复制一下：<br />
+比如我这里是直接把可执行文件(adb.exe)所在的路径全都复制了，因此<strong>我</strong>此次所用路径为 <code>Y:\platform-tools_r33.0.2-windows\platform-tools</code> (仅举例用)<br />
+<img src="./assets/copy_path.png" alt="copy_path" /></p>
+<p>但是为了能够随时在命令行终端里使用 adb 命令我们需要把它添加到系统路径：</p>
+<ul>
+<li>Windows10 和 Windows11 用户可以直接在任务栏的搜索里面输入 <code>path</code> 来打开系统属性</li>
+<li>其他版本可以通过点开下面的箭头来查看系统属性的方法：<details><summary><font color=#4F84FF>点开查看打开系统属性方法</font></summary>
+右键此电脑然后选择最下面的属性选项 （鼠标右键 ① 处，然后鼠标左键点击弹出菜单的最下面的 ② 处的属性）
+<img src="./assets/right_click.png" alt="open system properties">
+</li>
+</ul>
+</details>
+<p>然后在弹出的系统属性窗口中依次点击 ① 和 ② 处来打开环境变量<br />
+<img src="./assets/system_properties.png" alt="system properties" /></p>
+<p>在弹出的窗口中上面的一栏中双击名为 Path 的变量来对其进行编辑<br />
+<img src="./assets/path.png" alt="path" /></p>
+<p>双击空白处相当于添加一个条目，这里我们把之前复制的 adb 路径存入其中，<br />
+比如对于我之前复制的路径为 <code>Y:\platform-tools_r33.0.2-windows\platform-tools</code>，因此在下面所所添加的内容就是 <code>Y:\platform-tools_r33.0.2-windows\platform-tools</code>，具体内容应当根据每个人的情况而定(不会有人和我一样的)<br />
+<img src="./assets/add_path.png" alt="adb_path" /></p>
+<p>接着单击所有已打开窗口的 OK 来保存配置。</p>
+<blockquote>
+<p>如果进行了错误的操作那就点击取消然后从头再来，系统环境是很危险的配置，不要随意删除</p>
+</blockquote>
+<p>然后就可以在命令行终端中执行一次 adb 来检查一下是否正确配置了</p>
+<ul>
+<li>需要保存环境变量配置和系统属性后在进行这一步</li>
+<li>环境变量配置和系统属性保存需要新打开一个命令行终端来执行 adb 指令</li>
+</ul>
+<p><img src="./assets/adb.png" alt="adb_command" /><br />
+下面那一大堆就是相关的说明。但是在这里我们不太需要用，只要有对应的输出就行。</p>
+<h2 id="%E6%93%8D%E4%BD%9C%E6%AD%A5%E9%AA%A4">操作步骤</h2>
+<ol>
+<li>将 M2Dock 通过 otg接口与电脑相连且已弹出 U盘</li>
+<li>在命令行中执行 <code>adb forward tcp:22 tcp:22</code> 来进行端口映射<br />
+<img src="./assets/adb_forward.png" alt="adb_forward" /></li>
+<li>运行 MobaXterm ，可按照下面的 gif 或者图文进行创建 ssh 会话操作</li>
+</ol>
+<details>
+  <summary><font color=#4F84FF>点开查看创建 ssh 会话的 gif 操作</font></summary>
+  <img src="./assets/create_ssh.gif" alt="create_ssh">
+</details>
+<details>
+  <summary><font color=#4F84FF>点开查看创建 ssh 会话的图文版操作</font></summary>
+  单机左上角的 session 来创建会话
+  <img src="./assets/click_session.png" alt="click_session">
+  在弹出的窗口中选择 SSH
+  <img src="./assets/click_ssh.png" alt="click_ssh">
+  因为前面执行过 adb forward 指令，因此在 Remote host 输入 127.0.0.1 
+  <img src="./assets/remote_host.png" alt="remote_host">
+  点击下方 OK 就完成了 SSH 会话的创建，接着会要求我们输入用户名和密码，均为 root，自行输入即可
+  输入密码的时候是没有输入显示的，但是错误就会提示。因此个人多试几次就行
+  <img src="./assets/login.png" alt="login">
+  紧接着就成功登陆进来了
+  <img src="./assets/succeed_login.png" alt="succeed_login">  
+  点一下左下角的 Remote monitoring ，就能监视设备运行状态了
+  <img src="./assets/monitor.png" alt="monitor">
+</details>
+<p>在成功使用 SSH 在 MobaXterm 软件中连上 M2Dock 后，可以看到在会话栏中看到设备里的文件。默认所查看的文件路径为当前用户的根目录。</p>
+<img src="./assets/monitor.png" alt="monitor">
+<p>我们可以手动拖入或者拖出文件或者文件夹来进行电脑与板子互传文件的操作<br />
+当然也可以双击文件然后对其进行文本编辑:<br />
+<img src="./assets/edit_file.gif" alt="Edit_file" /></p>
+<h2 id="%E5%85%B6%E4%BB%96">其他</h2>
+<h3 id="%E5%BC%80%E5%90%AF%E8%87%AA%E5%8A%A8%E4%BF%9D%E5%AD%98">开启自动保存</h3>
+<p>需要注意的是点击保存后还要选择一下确认保存到文件才行<br />
+比如出现下图的情况的话点击一次 Autosave 就可以让它以后不再弹出<br />
+<img src="./assets/autosave.png" alt="autosave" /></p>
+<h3 id="%E5%85%B3%E9%97%AD-MaixPy3-IDE">关闭 MaixPy3 IDE</h3>
+<p>使用 USB 数据线使电脑与板子进行 SSH 通信时，最好关闭电脑端的 MaixPy3 IDE，这样可以避免一些麻烦</p>
+<h3 id="%E4%BD%BF%E7%94%A8%E6%97%A0%E7%BA%BF%E8%BF%9E%E6%8E%A5">使用无线连接</h3>
+<p>将板子联网之后可以通过命令行来得到其 IP。</p>
+<p>然后可以在新建 SSH 会话的时候把板子的 IP 填入到 Remote host 中。<br />
+就可以通过无线网来使电脑与板子使用 SSH 进行通信</p>
+<p><img src="./assets/ifconfig.png" alt="ifconfig" /></p>
+<p>板子没能成功连接到无线网就不会被分配 IP</p>
+<h3 id="adb-forward">adb forward</h3>
+<p>adb forward 的功能是建立一个端口转发，比如 <code>adb forward tcp:11111 tcp:22222</code> 的是将 PC 端的11111 端口收到的数据，转发给到 adb 设备的 22222 端口。</p>
+<p>SSH 默认的端口为 22 ，因此使用 <code>adb forward tcp:22 tcp:22</code> 是将电脑端的 22 端口转发到 adb 设备的 22 端口。<br />
+例如使用  <code>adb forward tcp:1145 tcp:22</code> 命令的话，需要把配置 IP 处的端口修改一下:<br />
+<img src="./assets/port.png" alt="port" /></p>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                    </div>
+                    <div id="next">
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>相关链接</a><ul><li><a target="_blank" href="https://www.sipeed.com">Sipeed 官网</a></li>
+<li><a target="_blank" href="https://maixhub.com/">MaixHub</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">Sipeed 淘宝</a></li>
+<li><a  href="/sitemap.xml">网站地图</a></li>
+<li><a target="_blank" href="https://github.com/teedoc/teedoc">网站使用 teedoc 生成</a></li>
+</ul>
+</li>
+<li><a>源码</a><ul><li><a target="_blank" href="https://github.com/sipeed/sipeed_wiki">Wiki 源码</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">开源项目</a></li>
+</ul>
+</li>
+<li><a>关注我们</a><ul><li><a target="_blank" href="https://twitter.com/SipeedIO">twitter</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">淘宝</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">github</a></li>
+<li><a><a>微信公众号</a><img src='/static/image/wechat.png'></a>
+</li>
+</ul>
+</li>
+<li><a>联系我们</a><ul><li><a>电话: +86 0755-27808509</a>
+</li>
+<li><a>商业支持: support@sipeed.com</a>
+</li>
+<li><a>地址: 深圳市宝安区新湖路4008号蘅芳科技办公大厦A座-2101C</a>
+</li>
+<li><a  href="/join_us.html">加入我们</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://www.sipeed.com">©2018-2023 深圳矽速科技有限公司</a></li>
+<li><a target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index">粤ICP备19015433号</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/js/prism.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <link rel="stylesheet" href="/static/js/add_hint/style.css" type="text/css"/>
+    
+        <script src="/static/js/add_hint/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+        <script src="/static/js/thumbs_up/main.js"></script>
+    
+</body>
+
+</html>

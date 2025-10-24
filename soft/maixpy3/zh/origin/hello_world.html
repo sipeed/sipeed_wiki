@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+
+<html lang="zh"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="Hello World, MaixPy3, Python, Python3">
+    
+    
+    <meta name="description" content="maixpy  Hello World">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+        
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/prism.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?9cb07365544a53067c56c346c838181a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119047820-5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-119047820-5');
+    </script>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/js/thumbs_up/style.css" type="text/css"/>
+        
+    
+    
+    <title>Hello World - Sipeed Wiki</title>
+    
+    <script type="text/javascript">js_vars = {"teedoc-plugin-ad-hint": {"type": "hint", "label": "NEW", "content": "全新 Maix 系列产品 <a href='https://wiki.sipeed.com/maixcam'>MaixCAM</a> 已上线, 全新 <a href='https://wiki.sipeed.com/maixpy/'>MaixPy</a> 功能更丰富，性能更强大，软件更易用，文档更全面！", "show_times": 2, "show_after_s": 432000, "date": "2022-06-01 14:00", "color": "#a0421d", "link_color": "#e53935", "link_bg_color": "#e6ae5c", "bg_color": "#ffcf89", "color_hover": "white", "bg_color_hover": "#f57c00", "close_color": "#eab971"}, "teedoc-plugin-thumbs-up": {"label_up": "有帮助", "label_down": "待改进", "icon": "/static/images/thumbs_up/up.svg", "icon_clicked": "/static/images/thumbs_up/upped.svg", "url": "https://thumbs-up.sipeed.com", "show_up_count": true, "show_down_count": false, "msg_already_voted": "您已经投过票了", "msg_thanks": "感谢您的反馈", "msg_down_prompt": "感谢反馈，请告诉我们可以改进什么地方?（最少 10 个字）", "msg_down_prompt_error": "消息最少需要 10 个字， 最多 256 个字", "msg_error": "请求服务器出现错误!"}}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": false, "update": [], "ts": 0, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/">
+                
+                    <img class="site_logo" src="/static/image/logo.svg" alt="sipeed wiki logo">
+                
+                
+                    <h2>wiki</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class=""><a  href="/">产品</a></li>
+<li class="sub_items "><a >开源软件</a><ul><li class=""><a  href="/maixpy/">MaixPy</a></li>
+<li class=""><a  href="/soft/maixpy/zh/index.html">MaixPy_v1</a></li>
+<li class=""><a  href="/soft/Lichee/zh/index.html">Lichee</a></li>
+<li class=""><a  href="/ai/zh/index.html">AI 指南</a></li>
+</ul>
+</li>
+<li class=""><a target="_blank" href="https://maixhub.com">MaixHub</a></li>
+<li class=""><a  href="/news/">动态</a></li>
+<li class=""><a  href="/faq.html">FAQ 汇总</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class=""><a  href="/store.html"><img src='/static/image/shop.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+<li class=""><a target="_blank" href="https://github.com/sipeed"><img src='/static/image/github.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">输入关键词，多关键词空格隔开</span>
+                                <span id="search_loading_hint">正在加载，请稍候。。。</span>
+                                <span id="search_download_err_hint">下载文件失败，请刷新重试或检查网络</span>
+                                <span id="search_other_docs_result_hint">来自其它文档的结果</span>
+                                <span id="search_curr_doc_result_hint">当前文档搜索结果</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="active_parent with_link"><a href="/soft/maixpy3/zh/index.html"><span class="label">MaixPy3 是什么？能做什么？</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/install/install.html"><span class="label">如何获取、安装、使用？</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/tools/MaixPy3_IDE.html"><span class="label">安装或配置 IDE 开发工具</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/tools/0.MaixII-Dock.html"><span class="label">基于 USB 开发 MaixII-Dock</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/tools/maixsense.html"><span class="label">基于 WIFI 开发 MaixSense</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active  with_link"><a href="/news/MaixPy3/v831_usage/v831_usage.html" ><span class="label">M2DOCK (V831)上手视觉指南</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">遇到问题怎么办？</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/origin/helper.html"><span class="label">如何正确反馈问题！</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/question/maixpy3_faq.html"><span class="label">常见问题与解决方法</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="active_parent no_link"><a><span class="label">相关的基础知识</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active  with_link"><a href="/news/MaixPy3/difference.html" ><span class="label">MaixPy 和 MaixPy3 的区别</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/origin/video.html"><span class="label">收录一些国内 Python 基础教程</span><span class=""></span></a></li>
+<li class="active with_link"><a href="/soft/maixpy3/zh/origin/hello_world.html"><span class="label">大佬鼠の嵌入式 Python 入门教程 [1]</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/origin/loop_python.html"><span class="label">大佬鼠の嵌入式 Python 入门教程 [2]</span><span class=""></span></a></li>
+<li class="not_active  with_link"><a href="https://bing.com/search?q=v831+m2dock" ><span class="label">使用必应搜索 V831 M2DOCK 的内容</span><span class=""></span></a></li>
+<li class="not_active  with_link"><a href="https://bbs.sipeed.com/user/909" ><span class="label">咸鱼菌の MaixII-Dock 上手系列教程</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/origin/xiaoxu.html"><span class="label">喏呐の【攻城狮成长记】</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/develop/index.html"><span class="label">开发者更新日志</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/others/framework.html"><span class="label">【项目开发基础】项目架构介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/others/develop.html"><span class="label">【底层开发基础】编译安装测试</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/others/platform.html"><span class="label">【移植适配实例】开发新的平台</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/develop/opmv_cv.html"><span class="label">【图像处理开发】传统视觉算法</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">基础功能模块</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active no_link"><a><span class="label">图像处理</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/vision/back-information.html"><span class="label">背景知识</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/vision/maixpy3-example.html"><span class="label">基础用法</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/vision/image_example.html"><span class="label">传统视觉</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">硬件外设</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/hardware/GPIO.html"><span class="label">GPIO  (点灯)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/hardware/I2C.html"><span class="label">I2C  (pylibi2c)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/hardware/PWM.html"><span class="label">PWM  (脉冲宽度调制)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/hardware/UART.html"><span class="label">UART  (pyserial)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/hardware/SPI.html"><span class="label">SPI  (spidev)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/hardware/event.html"><span class="label">EVENT  (evdev)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/hardware/ADC.html"><span class="label">ADC*  (模/数转换器)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/hardware/watchdog.html"><span class="label">WATCHDOG*  (看门狗定时器)</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/net.html"><span class="label">网络功能</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">媒体功能</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/Audio/play_mp4.html"><span class="label">视频播放 (pyav)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/Audio/audio.html"><span class="label">录音与播放 (pyaudio)</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">获取 AI 算法</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/AI_net/Edge_detection.html"><span class="label">边缘检测 (sobel)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/AI_net/resnet.html"><span class="label">物品分类 (resnet)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/AI_net/yolo.html"><span class="label">物体检测 (yolov2)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/AI_net/number_recognize.html"><span class="label">数字识别</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/AI_net/face_recognize.html"><span class="label">人脸识别</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/AI_net/self_learn.html"><span class="label">自学习分类</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/AI_net/car_registration_plate_recognition.html"><span class="label">车牌识别</span><span class=""></span></a></li>
+<li class="not_active  with_link"><a href="https://maixhub.com" ><span class="label">在线训练 AI 模型</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">本地训练 AI 模型</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/train_AI/information.html"><span class="label">深度神经网络基础知识 (必看)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/train_AI/ready.html"><span class="label">本地训练环境搭建</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/train_AI/v831_sobel.html"><span class="label">边缘检测模型搭建过程</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/train_AI/data.html"><span class="label">如何制作数据集</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/train_AI/train_resnet.html"><span class="label">训练物体分类模型</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/train_AI/train_yolov2.html"><span class="label">训练物体检测模型</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">核心 API 手册</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/api/maix/image.html"><span class="label">image</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/api/maix/display.html"><span class="label">display</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/api/maix/camera.html"><span class="label">camera</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/api/maix/nn.html"><span class="label">nn</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>Hello World</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/sipeed/sipeed_wiki/blob/main/docs/soft/maixpy3/zh/origin/hello_world.md" target="_blank">
+                                    <span id='editPage'>编辑本页</span>
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <blockquote>
+<p>本文是给有一点 Python 基础但还想进一步深入的同学，有经验的开发者建议跳过。</p>
+</blockquote>
+<h2 id="%E5%89%8D%E8%A8%80">前言</h2>
+<p>在写这篇案例系列的时候 <a href="https://github.com/junhuanchen"  target="_blank">junhuanchen</a> 期望能够引导用户如何成为专业的开发者，不是只会调用代码就好，所以在 MaixPy3 开源项目上期望为你带来值得学习和容易上手的开源项目，所以开篇会引导用户学习一些长期有利于编程工作上好的做法和观念，就先从最简单的认知项目开始吧。</p>
+<p>第一次接触需要编程的开源硬件项目，要做的第一件事就是先有一个好的开始，例如运行 Hello World 程序，意味着你必须能够先将这个事物跑起来才能够继续后续的内容，它可能是硬件、软件、工具等可编程的载体。</p>
+<blockquote>
+<p>但这里先不强调立刻开始运行程序，而是强调如何熟悉一个开源项目。</p>
+</blockquote>
+<p>要先找到它提供的开发文档（例如本文），先纵览全文，站在专业的角度来看，你需要先关注它提供了哪些资源，可以在哪里反馈你的问题，这样就有利于你后续开发过程中出现问题后，该如何迅速得到解决，避免自己之后在学习和开发过程中耽误时间。</p>
+<p><img src="https://opensource.com/sites/default/files/styles/image-full-size/public/lead-images/OSDC_Resource_Main_Page.png" alt="" /></p>
+<p>有哪些资源是值得关注的？</p>
+<ul>
+<li>学会搜索！！！！！</li>
+<li>找到它的开源项目（如：<a href="https://github.com/sipeed"  target="_blank">github.com/sipeed</a>），获取它所提供的一系列源码。</li>
+<li>找到它提供的用户手册、应用案例、数据手册等等一系列开发所需要的文档。</li>
+<li>找到它的开发、编译、烧录、量产等一系列配套工具链，为后续软件开发活动中做准备。</li>
+<li>找到它的公开交流的环境，如 bbs、github、twitter、facebook、qq、wechat 等社交平台。</li>
+</ul>
+<p>现在你可以放心的编程了，但你还需要遵守一些在开源软件上的规则，认知到开源协议的存在，不要随意地做出侵犯他人软件的行为，哪怕没有法律责任的问题。</p>
+<p>在开源软件的世界里，鼓励人们自由参与和贡献代码，而不是鼓励如何免费白嫖，自由不等于免费，免费不等于服务，将软件源码公开是为了让用户更好更具有针对性的提交和反馈项目中存在的问题，不是为了更好服务你，请不要以服务自己的产品为中心。</p>
+<p>请尊重所有在开源环境里工作的朋友们，尊重他们（或是未来的你）的劳动成果。</p>
+<p>最后在开源的世界里，学会技术，学会成长，学会参与项目，学会分享成果！</p>
+<h2 id="Hello-World">Hello World</h2>
+<blockquote>
+<p>关于本机怎样安装运行 Python 的基础知识，建议从其他网站教程得知。</p>
+</blockquote>
+<p>说了这么多，不如先来运行一段 Python3 代码吧。</p>
+
+<pre class="language-python"><code class="language-python">print(&quot;hello world&quot;)
+</code></pre>
+<blockquote>
+<p>点击下方的 run 按钮即可运行，如果有条件就在本机运行测试。</p>
+</blockquote>
+<div align="center" >
+    <iframe src="https://tool.lu/coderunner/embed/aEj.html" style="width:90%; height:320px;" frameborder="0" mozallowfullscreen webkitallowfullscreen allowfullscreen></iframe>
+</div>
+<blockquote>
+<p>在线 Python 编程 <a href="https://www.runoob.com/try/runcode.php?filename=HelloWorld&amp;type=python3"  target="_blank">runoob-python</a> <a href="https://colab.research.google.com"  target="_blank">google-colab</a> 备用地址。</p>
+</blockquote>
+<p>但这样的代码是不够的，稍微认真一点写。</p>
+
+<pre class="language-python"><code class="language-python"># encoding: utf-8
+
+def unit_test():
+    '''
+    this is unit_test
+    '''
+    print(&quot;hello world&quot;)
+    raise Exception('unit_test')
+
+if __name__ == &quot;__main__&quot;:
+    try:
+        unit_test()
+    except Exception as e:
+        import sys, traceback
+        exc_type, exc_value, exc_obj = sys.exc_info()
+        traceback.print_tb(exc_obj)
+        print('have a error:', e)
+
+</code></pre>
+<p>运行结果：</p>
+
+<pre class="language-bash"><code class="language-bash">PS C:\Users\dls\Documents\GitHub\MaixPy3&gt; &amp; C:/Users/dls/anaconda3/python.exe c:/Users/dls/Documents/GitHub/MaixPy3/test.py
+hello world
+  File &quot;c:/Users/dls/Documents/GitHub/MaixPy3/test.py&quot;, line 12, in &lt;module&gt;
+    unit_test()
+  File &quot;c:/Users/dls/Documents/GitHub/MaixPy3/test.py&quot;, line 8, in unit_test
+    raise Exception('unit_test')
+have a error: unit_test
+</code></pre>
+<p>代码瞬间就变得复杂了起来？其实不然，这么写必然有它的用意，那这么写都考虑到了哪些情况呢？</p>
+<h3 id="%E6%B3%A8%E6%84%8F%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81%E5%92%8C%E4%BB%A3%E7%A0%81%E7%BC%A9%E8%BF%9B%E6%A0%BC%E5%BC%8F">注意字符编码和代码缩进格式</h3>
+<p>初学者经常会出现缩进不对齐的语法问题，代码的语法出现问题过于基础就不详谈，检查代码的小技巧就是 <code>CTAL + A</code> 全选代码，按 TAB 键右缩进，再配合 SHIFT + TAB 左缩进来发现哪段代码存在问题。</p>
+<p>首行的 <code># encoding: utf-8</code> 是为了避免在代码中存在中文或其他语言的字符编码导致的运行出错的问题。</p>
+<blockquote>
+<p>在 python3 的字符串类型中 str 与 bytes 是一对欢喜冤家，例如 print(b'123') 打印出来的是 b'123' ，而实际上就是 '123' 的 bytes 字符串，前缀 b 只是为了和 str 区分，因为用途不同，在不同的接口对数据类型的需求不对，例如传递 str 字符串时候是不允许输入 '\xFF' (0xFF) 字符的（会在转换过程中丢失），但 bytes 可以存储和表达。</p>
+</blockquote>
+<h3 id="%E7%BB%99%E4%BB%A3%E7%A0%81%E5%8A%A0%E5%85%A5%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E5%92%8C%E5%BC%82%E5%B8%B8%E6%8D%95%E8%8E%B7">给代码加入单元测试和异常捕获</h3>
+<p>想要写出一套稳定可用的代码，需要围绕接口可重入可测试的设计来编写封装，任何人写的代码都可能存在缺陷，在不能确定是哪里产生的问题之前，要能够恢复现场也要能够定位具体位置，以求问题能够最快得到反馈。</p>
+<p>所以在代码功能还没写之前，先把测试和异常的模板写好，再开始写功能，边写边测，确保最终交付的软件代码就算出问题也可以随时被测试（定位）出来。</p>
+
+<pre class="language-python"><code class="language-python">
+def unit_test():
+    '''
+    this is unit_test
+    '''
+    print(&quot;hello world&quot;)
+
+if __name__ == &quot;__main__&quot;:
+    unit_test()
+</code></pre>
+<p>这样的代码可以保证任何人在任何时候运行该代码的时候都可以复现当时写下的场合所做的内容，然后 <code>if __name__ == &quot;__main__&quot;:</code> 意味着该代码被其他模块包含的时候，不会在 import 该 Python 模块（可取名成 <code>hello</code> ）模块时调用，而是根据自己的代码需要执行相应的单元测试进行测试。</p>
+
+<pre class="language-python"><code class="language-python">import hello
+hello.unit_test() # print(&quot;hello world&quot;)
+</code></pre>
+<p>接着加入异常机制（try: except Exception as e:）保护代码段，表示该段代码出错的时候，能够不停下代码继续运行，像硬件资源访问的代码常常会发生超时、找不到、无响应的错误状态，这种情况下，一个跑起来的系统程序通常不需要停下来，出错了也可以继续运行下一件事，然后把当时的错误记录下来，通过 print 或 logging 日志模块记录下来，拿着错误结果（日志）反馈给开发者，这样开发者就可以分析、定位和解决问题，这其中也包括你自己。</p>
+
+<pre class="language-python"><code class="language-python">try:
+    raise Exception('unit_test')
+except Exception as e:
+    import sys, traceback
+    exc_type, exc_value, exc_obj = sys.exc_info()
+    traceback.print_tb(exc_obj)
+    print('have a error:', e)
+</code></pre>
+<p>单元测试是每个程序都尽可能保持的基本原则，虽然人会偷懒，但最起码的代码格式还是要有的。</p>
+<blockquote>
+<p>注：traceback 可以抓取最后一次运行出现的错误而不停止运行，但该模块不存在 MicroPython(MaixPy) 中，它有类似的替代方法。</p>
+</blockquote>
+<h2 id="%E5%B0%81%E8%A3%85%E4%BB%A3%E7%A0%81%E6%8E%A5%E5%8F%A3%E6%88%90%E9%80%9A%E7%94%A8%E6%A8%A1%E5%9D%97%E7%9A%84%E6%96%B9%E6%B3%95">封装代码接口成通用模块的方法</h2>
+<p>世上本没有路，走的人多了，也便成了路。</p>
+<p>这里说的路实际上就是一种封装和参考，它意味着你写的代码成为一种事实上的通用操作。</p>
+<p>在 Python 上有很多封装参考，主要是为了形成抽象的函数模块。</p>
+<p>所以出现了一些经典的编程思想，如面向过程、面向对象、面向切面、面向函数等编程方法，哪一种更好就不比较和讨论了。</p>
+<p>这里就简单叙述一下这些编程方法的逐渐发展与变化的过程，可以如何做出选择。</p>
+<h3 id="%E9%9D%A2%E5%90%91%E8%BF%87%E7%A8%8B">面向过程</h3>
+<p>用面向过程的思维写代码，强调的是这份代码做的这件事需要分几步完成，例如最开始写代码都是这样的。</p>
+
+<pre class="language-python"><code class="language-python">one = 1
+two = 2
+three = one + two
+print(three)
+</code></pre>
+<p>这是用人类直觉的过程来写代码，后来意识到可以这样写成通用功能，这是最初的代码封装成某个函数。</p>
+
+<pre class="language-python"><code class="language-python">def sum(num1, num2):
+    return num1 + num2
+one, two = 1, 2
+print(sum(one, two)) # 1 + 2 = 3
+</code></pre>
+<p>于是你多写了个类似的乘法操作。</p>
+
+<pre class="language-python"><code class="language-python">def mul(num1, num2):
+    return num1 * num2
+one, two = 1, 2
+print(mul(one, two)) # 1 * 2 = 2
+</code></pre>
+<p>这时的代码是按照每一个代码操作流程来描述功能的。</p>
+<h3 id="%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1">面向对象</h3>
+<p>面向对象是相对于面向过程来讲的，把相关的数据和方法组织为一个整体来看待，从更高的层次来进行系统建模，更贴近事物的自然运行模式，一切事物皆对象，通过面向对象的方式，将现实世界的事物抽象成对象，现实世界中的关系抽象成类、<a href="https://baike.baidu.com/item/%E7%BB%A7%E6%89%BF"  target="_blank">继承</a>，帮助人们实现对现实世界的<a href="https://baike.baidu.com/item/%E6%8A%BD%E8%B1%A1"  target="_blank">抽象</a>与数字建模。</p>
+<p>在看了一些面向对象的描述后，你会意识到上节面向过程的函数操作可能很通用，应该不只适用于一种变量类型，所以可以通过面向对象（class）的方法来封装它，于是可以试着这样写。</p>
+
+<pre class="language-python"><code class="language-python">class object:
+    def sum(self, a, b):
+        return a + b
+    def mul(self, a, b):
+        return a * b
+obj = object()
+print(obj.sum(1, 2)) # 1 + 2 = 3
+print(obj.mul(1, 2)) # 1 * 2 = 2
+</code></pre>
+<p>这样会意识到似乎还不只是数字能用，感觉字符串也能用。</p>
+
+<pre class="language-python"><code class="language-python">class object:
+    def sum(self, a, b):
+        return a + b
+    def mul(self, a, b):
+        return a * b
+obj = object()
+print(obj.sum('1', '2')) # 1 + 2 = 3
+print(obj.mul('1', '2')) # 1 * 2 = 2
+</code></pre>
+<p>但这么写会出问题的，字符串相加的时候可以，但相乘的时候会报错误，因为是字符串这个类型的变量是不能相乘的。</p>
+
+<pre class="language-bash"><code class="language-bash">12
+Traceback (most recent call last):
+  File &quot;c:/Users/dls/Documents/GitHub/MaixPy3/test.py&quot;, line 8, in &lt;module&gt;
+    print(obj.mul('1', '2')) # 1 * 2 = 2
+  File &quot;c:/Users/dls/Documents/GitHub/MaixPy3/test.py&quot;, line 5, in mul
+    return a * b
+TypeError: can't multiply sequence by non-int of type 'str'
+</code></pre>
+<p>显然这样写代码就不合理了，但这时运用的面向对象的思想是可行的，只是实现的方式不够好而已，所以重新设计类结构，例如可以写成下面的类结构。</p>
+
+<pre class="language-python"><code class="language-python">class obj:
+    def __init__(self, value):
+        self.value = value
+    def __add__(self, obj):
+        return self.value + obj
+    def __mul__(self, obj):
+        return self.value * obj
+
+print(obj(1) + 2) # 3
+print(obj(1) * 2) # 2
+</code></pre>
+<p>其中 <code>__add__</code> 和 <code>__mul__</code> 是可重载运算符函数，意味着这个类实例化的对象在做 + 和 * 运算操作的时候，会调用类（class）重载函数，接着可以提升可以运算的对象类型，进一步继承对象拓展功能（<code>class number(obj):</code>）和访问超类的函数（<code>super().__add__(obj)</code>），其中 <code>if type(obj) is __class__:</code> 用于判断传入的参数对象是否可以进一步处理。</p>
+
+<pre class="language-python"><code class="language-python">
+class number(obj):
+    def __add__(self, obj):
+        if type(obj) is __class__:
+            return self.value + obj.value
+        return super().__add__(obj)
+    def __mul__(self, obj):
+        if type(obj) is __class__:
+            return self.value * obj.value
+        return super().__mul__(obj)
+
+print(number(1) + 2)
+print(number(1) * 2)
+print(number(1) + number(2))
+print(number(1) * number(2))
+
+</code></pre>
+<p>这时候会发现可以进一步改写成字符串数值运算。</p>
+
+<pre class="language-python"><code class="language-python">
+class str_number(obj):
+    def __init__(self, value):
+        self.value = int(value)
+    def __add__(self, obj):
+        if type(obj) is __class__:
+            return str(self.value + int(obj.value))
+        return str(super().__add__(int(obj)))
+    def __mul__(self, obj):
+        if type(obj) is __class__:
+            return str(self.value * int(obj.value))
+        return str(super().__mul__(int(obj)))
+
+print(str_number('1') + '2')
+print(str_number('1') * '2')
+print(str_number('1') + str_number('2'))
+print(str_number('1') * str_number('2'))
+</code></pre>
+<p>现在就可以解决了最初的同类操作适用不同的数据类型，把最初的一段操作通用到数值和字符串了，可以受此启发，它不仅仅只是加法或乘法，还有可能是其他操作，关于面向对象的内容就说到这里，感兴趣的可以查阅相关资料深入学习，本节只讲述可以怎样使用面向对象的思维写代码，而不是单纯把 Class 当 Struct 来使用。</p>
+<blockquote>
+<p>像最初写的代码，如果不通过对象继承分解函数，最终将会形成一个巨大的 Struct 结构。</p>
+</blockquote>
+<h3 id="%E9%9D%A2%E5%90%91%E5%88%87%E9%9D%A2">面向切面</h3>
+<p>现在到了选择更多编程思维方式了，关于面向切面编程方法的场景是这样提出的，有一些函数，它在产品调试的时候会需要，但在产品上线的时候是不需要的，那这样的函数应该如何实现比较好？接下来不妨直接看代码，以日志输出的代码为例来说说面向切面，介绍一下如何使用装饰器进行编程的方法。</p>
+
+<pre class="language-python"><code class="language-python">
+def log(param):
+    # simple
+    if callable(param):
+        def wrapper(*args, **kw):
+            print('%s function()' % (param.__name__,))
+            param(*args, **kw)
+        return wrapper
+    # complex
+    def decorator(func):
+        import functools
+        @functools.wraps(func)
+        def wrapper(*args, **kw):
+            print('%s %s():' % (param, func.__name__))
+            return func(*args, **kw)
+        return wrapper
+    return decorator
+
+def now():
+    print(&quot;2019&quot;)
+
+@log
+def now1():
+    print(&quot;2020&quot;)
+
+@log(&quot;Is this year?&quot;)
+def now2():
+    print(&quot;2021&quot;)
+
+now()
+now1()
+now2()
+
+</code></pre>
+<p>运行结果：</p>
+
+<pre class="language-bash"><code class="language-bash">PS C:\Users\dls\Documents\GitHub\MaixPy3&gt; &amp; C:/Users/dls/anaconda3/python.exe c:/Users/dls/Documents/GitHub/MaixPy3/test.py
+2019
+now1 function()
+2020
+Is this year? now2():
+2021
+PS C:\Users\dls\Documents\GitHub\MaixPy3&gt;
+</code></pre>
+<p>对于产品上线时不需要的函数，注释掉就可以了，更进一步还可以重新设计某些函数满足于某些条件后再运行。</p>
+<ul>
+<li>在执行某段操作前，先打印当前的系统状态记录下来，确保出错时可以追溯到出错的地方。</li>
+<li>在发送网络数据前，要先检查网络通路是否存在，网卡是否还在工作。</li>
+<li>在运行操作前，先检查内存够不够，是否需要释放内存再继续操作。</li>
+</ul>
+<p>可以看到，当想要不改变某些现成库代码的条件下拓展系统的功能，就不免需要面向切面的设计方法。</p>
+<blockquote>
+<p>注意！面向切面提出的是编程思想，实现的方法不一定是装饰函数，可以是回调函数，也可以是重载函数。</p>
+</blockquote>
+<h3 id="%E9%9D%A2%E5%90%91%E5%87%BD%E6%95%B0">面向函数</h3>
+<p>关于面向函数的场景是由于有些问题是被数学公式提出的，所以对于一些数学问题，并不一定要按过程化的思维来写，如实现阶乘函数（factorial），它的功能就是返回一个数的阶乘，即<code>1*2*3*...*</code>该数。</p>
+
+<pre class="language-python"><code class="language-python">def fact(n):
+    if n == 3:
+        return 3*2*1
+    if n == 2:
+        return 2*1
+    if n == 1:
+        return 1
+print(fact(3))
+print(fact(2))
+print(fact(1))
+</code></pre>
+<p>不难看出用最初的面向过程来写是写不下去的，不可能去定义所有的可能性，所以要找出规律，可以通过递归的方式实现。</p>
+
+<pre class="language-python"><code class="language-python">def fact(n):
+    return 1 if n == 1 else n * fact(n - 1)
+print(fact(1))
+print(fact(5))
+print(fact(100))
+</code></pre>
+<p>这样功能就完整了，简单来说函数式编程是让编程思维追求程序中存在的公式。</p>
+<h2 id="%E8%AF%95%E8%AF%95%E5%BF%AB%E9%80%9F%E8%BF%AD%E4%BB%A3%E7%9A%84%E6%95%8F%E6%8D%B7%E5%BC%80%E5%8F%91%EF%BC%9F">试试快速迭代的敏捷开发？</h2>
+<p>现代开源软件在经历了产测、内测、公测等环节后，直至更新到用户的手里，从前到后的过程通常在一周内就可以完成，所以在设计程序接口的时候，可以接受当下接口设计的不完美，等到未来有一个更好的替代功能接口的时候，就可以将其迭代替换下来，这意味着可以不用设计好整体的软件系统再开始工作，而是边做边改进，这套理论适用于初期需要频繁更新业务逻辑的开源软件。</p>
+<p>这里简单引用一段小故事来说明这个现象。</p>
+<p>快速迭代，不是说一定要产品做好了，才能上线，半成品也能上线。</p>
+<p>在没有上线之前，你怎么知道哪好那不好。所以半成品也是可以出门的，一定不要吝惜在家，丑媳妇才需要尽早见公婆。尽早的让用户去评判你的想法，你的设计是否可以赢得用户的喜爱。快速发出，紧盯用户反馈。百度完成了第一版的搜索引擎，也是让用户去做的选择。用百度 CEO 李彦宏（Robin）的话来说“你怎么知道如何把这个产品设计成最好的呢？只有让用户尽快去用它。既然大家对这版产品有信心，在基本的产品功能上我们有竞争优势，就应该抓住时机尽快将产品推向市场，真正完善它的人将是用户。他们会告诉你喜欢哪里不喜欢哪里，知道了他们的想法，我们就迅速改，改了一百次之后，肯定就是一个非常好的产品了。”</p>
+<h2 id="%E5%87%86%E5%A4%87%E4%B8%80%E4%B8%AA%E5%A5%BD%E7%9A%84%E5%BC%80%E5%A7%8B">准备一个好的开始</h2>
+<p>看到这里的你，可能会困惑，可能会看不懂，会觉得很复杂，这是认知上的偏差，实际上本文所讲述的都是编程思想上的基础，如果想专业起来，不认真是不行的。</p>
+<p>不妨自己动手试试看吧。</p>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                        <a href="/soft/maixpy3/zh/origin/video.html">
+                            <span class="icon"></span>
+                            <span class="label">收录一些国内 Python 基础教程</span>
+                        </a>
+                        
+                    </div>
+                    <div id="next">
+                        
+                        <a href="/soft/maixpy3/zh/origin/loop_python.html">
+                            <span class="label">大佬鼠の嵌入式 Python 入门教程 [2]</span>
+                            <span class="icon"></span>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>相关链接</a><ul><li><a target="_blank" href="https://www.sipeed.com">Sipeed 官网</a></li>
+<li><a target="_blank" href="https://maixhub.com/">MaixHub</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">Sipeed 淘宝</a></li>
+<li><a  href="/sitemap.xml">网站地图</a></li>
+<li><a target="_blank" href="https://github.com/teedoc/teedoc">网站使用 teedoc 生成</a></li>
+</ul>
+</li>
+<li><a>源码</a><ul><li><a target="_blank" href="https://github.com/sipeed/sipeed_wiki">Wiki 源码</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">开源项目</a></li>
+</ul>
+</li>
+<li><a>关注我们</a><ul><li><a target="_blank" href="https://twitter.com/SipeedIO">twitter</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">淘宝</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">github</a></li>
+<li><a><a>微信公众号</a><img src='/static/image/wechat.png'></a>
+</li>
+</ul>
+</li>
+<li><a>联系我们</a><ul><li><a>电话: +86 0755-27808509</a>
+</li>
+<li><a>商业支持: support@sipeed.com</a>
+</li>
+<li><a>地址: 深圳市宝安区新湖路4008号蘅芳科技办公大厦A座-2101C</a>
+</li>
+<li><a  href="/join_us.html">加入我们</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://www.sipeed.com">©2018-2023 深圳矽速科技有限公司</a></li>
+<li><a target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index">粤ICP备19015433号</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/js/prism.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <link rel="stylesheet" href="/static/js/add_hint/style.css" type="text/css"/>
+    
+        <script src="/static/js/add_hint/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+        <script src="/static/js/thumbs_up/main.js"></script>
+    
+</body>
+
+</html>
