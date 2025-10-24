@@ -133,6 +133,15 @@ AXDL is an official burning tool provided by Aixin, designed for burning AXP for
    - The burning process will start automatically, wait for the progress bar to complete.
    - Wait until the prompt indicates that burning was successful; the entire process is complete.
 
-## LCD not light up
-It may cause by LCD FPC cable loose during transportation.
-You can try follow this article to fix it: wiki.sipeed.com/nanokvmpro-lcd
+## Desk Version LCD Not Lighting Up
+
+This may be caused by a loose FPC cable connection of the LCD during transportation.  
+Click [here](https://wiki.sipeed.com/nanokvmpro-lcd) to view the issue and repair details.
+
+## Appearance Issues
+
+### "Missing" Bottom Screw
+
+In the first batch of NanoKVM-Desk units, the screw in the top-left position (shown below) was found to affect WiFi connection stability due to structural design considerations. This screw hole is intentionally left empty in later assemblies.
+
+![](./../../../assets/NanoKVM/pro/faq/screw.jpg)

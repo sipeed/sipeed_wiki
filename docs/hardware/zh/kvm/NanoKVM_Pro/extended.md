@@ -131,14 +131,53 @@ NanoKVM Pro 会不定时推送新版本的应用，包含新功能和bug修复�
 您也可以下载特定的版本，并手动安装
 
 ```shell
-# 以下载 1.0.10 版本为例
+# 以下载 1.1.6 版本为例
 # 下载文件
-curl -L -o nanokvm_pro_1.0.10.tar.gz https://cdn.sipeed.com/nanokvm/pro/kvmcomm_1.0.10_arm64.deb
-curl -L -o nanokvm_pro_1.0.10.tar.gz https://cdn.sipeed.com/nanokvm/pro/nanokvmpro_1.0.10_arm64.deb
-curl -L -o nanokvm_pro_1.0.10.tar.gz https://cdn.sipeed.com/nanokvm/pro/pikvm_1.0.10_arm64.deb
+sudo curl -L https://cdn.sipeed.com/nanokvm/preview/nanokvm_pro_1.1.6.tar.gz | sudo tar -xz
 
-sudo apt install ./*1.0.10*
+# 进入文件夹
+cd nanokvm_pro_1.1.6
+
+# 安装deb包
+sudo apt install ./*.deb
 ```
+
+> 1.1.5 及后续软件进行过一次架构调整，较低版本的NanoKVM-Pro只能拉取到 1.1.5 ，更新后可再次拉取到最新的版本
+
+## 如何使用TF卡扩展存储
+
+NanoKVM-Desk 版后面板设计有TF卡槽，插入TF卡后可以扩展存储空间，并带来`虚拟U盘`的功能。
+
+TF卡默认挂载与 NanoKVM 系统 `/sdcard` 目录下，当开启`虚拟U盘`后TF卡被同时挂载到USB复合出的大容量存储设备，可以借此功能向被控主机传递文件
+
+> 注意：
+> ATX版本因挡板尺寸要求，无法暴露TF卡槽
+> 首批Desk版本TF卡无法热拔插，请在关机状态下插入TF卡
+> 虚拟U盘和镜像挂载功能不可同时开启
+
+## 如何设置静态IP
+
+NanoKVM-Pro 在`1.1.6`及以上版本中加入了以太网卡的静态IP设置功能，通过配置`/boot/eth.nodhcp`文件来主动赋予IP，详细设置方法如下：
+
+在 NanoKVM-Pro 中创建文件 `/boot/eth.nodhcp` ，然后按照以下规则进行编辑：
+
+- 一行就是一个自定义 IP，格式为 `addr/netid gw[optional]` ；
+- 可以分多行来预设多个静态 IP。
+
+简化的步骤如下：
+
+``` shell
+# 以下操作在 NanoKVM-Pro 的网页终端或ssh终端完成
+# 创建 /boot/eth.nodhcp 文件并写入配置
+echo "192.168.2.2/22" > /boot/eth.nodhcp
+```
+
+> 系统启动时，会读取 `/boot/eth.nodhcp` 文件中的静态 IP 地址列表。设置流程如下：
+> 1.  **顺序检测**：系统将按行读取文件中的 IP，并依次检测其是否已被网络中的其他设备占用。
+> 2.  **检测机制**：优先使用 `arping` 进行检测；若系统中未安装 `arping`，则自动降级使用 `ping` 命令。
+> 3.  **设置可用 IP**：一旦发现首个未被占用的 IP，系统立即将其设置为本机静态地址，流程终止。
+> 4.  **后备方案**：若列表中所有 IP 均被占用，系统将转而尝试通过 DHCP 自动获取 IP。
+> 5.  **保底地址**：如果 DHCP 也无法分配地址（例如，网络中无 DHCP 服务器），系统将使用固定的保底地址 `192.168.90.1`。
 
 ## 如何使用串口
 
