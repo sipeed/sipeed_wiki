@@ -184,16 +184,55 @@ Enabling the preview update feature will allow you to access the latest experime
 You can also download specific versions and install them manually.
 
 ```shell
-# Example of downloading version 1.0.10
-# Download files
-curl -L -o nanokvm_pro_1.0.10.tar.gz https://cdn.sipeed.com/nanokvm/pro/kvmcomm_1.0.10_arm64.deb
-curl -L -o nanokvm_pro_1.0.10.tar.gz https://cdn.sipeed.com/nanokvm/pro/nanokvmpro_1.0.10_arm64.deb
-curl -L -o nanokvm_pro_1.0.10.tar.gz https://cdn.sipeed.com/nanokvm/pro/pikvm_1.0.10_arm64.deb
+# Taking download of version 1.1.6 as an example
+# Download file
+sudo curl -L https://cdn.sipeed.com/nanokvm/preview/nanokvm_pro_1.1.6.tar.gz | sudo tar -xz
 
-sudo apt install ./*1.0.10*
+# Enter folder
+cd nanokvm_pro_1.1.6
+
+# Install deb packages
+sudo apt install ./*.deb
 ```
 
-## How to Use the Serial Port
+> Software version 1.1.5 and later underwent an architectural adjustment. Older NanoKVM-Pro units can only fetch up to version 1.1.5 initially; after updating, they will be able to retrieve the latest versions.
+
+## How to Use TF Card for Storage Expansion
+
+The NanoKVM-Desk version features a TF card slot on the rear panel. Inserting a TF card expands the storage capacity and enables the `Virtual U Disk` function.
+
+The TF card is mounted by default under the NanoKVM system's `/sdcard` directory. When `Virtual U Disk` is enabled, the TF card is simultaneously mounted as a mass storage device through the USB composite interface, allowing file transfer to the controlled host via this feature.
+
+> Note:
+> The ATX version cannot expose the TF card slot due to bracket size constraints.
+> The first batch of Desk versions does not support TF card hot-plugging. Please insert the TF card when the device is powered off.
+> The Virtual U Disk and image mounting functions cannot be enabled simultaneously.
+
+## How to Set a Static IP
+
+NanoKVM-Pro introduced static IP configuration for Ethernet cards in version `1.1.6` and above. You can assign a static IP by configuring the `/boot/eth.nodhcp` file. The detailed setup method is as follows:
+
+Create a file named `/boot/eth.nodhcp` in NanoKVM-Pro, then edit it according to the following rules:
+
+- Each line represents a custom IP in the format: `addr/netid gw[optional]`;
+- Multiple static IPs can be preset across multiple lines.
+
+Simplified steps:
+
+```shell
+# Perform the following operations in the NanoKVM-Pro web terminal or SSH terminal
+# Create the /boot/eth.nodhcp file and write the configuration
+echo "192.168.2.2/22" > /boot/eth.nodhcp
+```
+
+> During system startup, the static IP address list in the `/boot/eth.nodhcp` file will be read. The setup process is as follows:
+> 1. **Sequential detection**: The system reads the IPs in the file line by line and checks whether each one is already in use by another device on the network.
+> 2. **Detection mechanism**: `arping` is used for detection first; if `arping` is not installed in the system, it automatically falls back to using the `ping` command.
+> 3. **Set available IP**: Once the first available (unused) IP is found, the system immediately sets it as the static address for the device, and the process terminates.
+> 4. **Fallback option**: If all IPs in the list are occupied, the system will attempt to obtain an IP automatically via DHCP.
+> 5. **Guaranteed address**: If DHCP also fails to assign an address (for example, if there is no DHCP server on the network), the system will use the fixed guaranteed address `192.168.90.1`.
+
+## How to Use Serial Port
 
 NanoKVM Pro provides two sets of available serial ports: UART1/UART2. (Note: The ATX version, limited by the standard bracket size, does not have these ports externally exposed; only the internal solder pads are retained.)
 

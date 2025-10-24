@@ -132,7 +132,15 @@ AXDL 是爱芯官方推出的镜像烧录工具，可以烧录 AXP 格式的系�
    - 烧录将自动开始，等待进度条完成
    - 直到提示烧录成功，整个过程完成
 
-## LCD不亮
-这可能是由于运输过程中LCD的FPC排线松动导致。
-可以查看这篇文章来尝试修复：wiki.sipeed.com/nanokvmpro-lcd
+## Desk版本LCD不亮
 
+这可能是由于运输过程中LCD的FPC排线松动导致。
+点击 [此处](https://wiki.sipeed.com/nanokvmpro-lcd) 查看问题和修复细节
+
+## 外观问题
+
+### 底部螺丝“缺失”
+
+首批NanoKVM-Desk因结构设计原因，下图左上角螺丝会影响WiFi连接的稳定性，在后期组装时该孔位留空
+
+![](./../../../assets/NanoKVM/pro/faq/screw.jpg)

@@ -54,6 +54,7 @@ To meet different user needs, NanoKVM Pro offers optional features such as WiFi,
 | Ethernet      | 1000M          | 100M         | 1000M       | 100M        |
 | Internal Form Factor | Optional ATX version | Optional PCIe version | ×           | ×           |
 | WiFi          | Optional WiFi6  | Optional WiFi6 | ×           | ×           |
+| MicroSD Expansion | √              | ×            | ×           | ×           |
 | ATX Power Control | √          | √            | +15$        | +10$        |
 | Display       | 1.47-inch 320x172 LCD<br>0.96-inch 128x64 OLED | 0.96-inch 128x64 OLED | None | 1.66-inch 280x240 |
 | Additional Features | Synchronized LED effects, Smart Assistant | –        | –           | –           |
