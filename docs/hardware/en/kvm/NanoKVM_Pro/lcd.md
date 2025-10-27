@@ -53,6 +53,24 @@ Currently, the USB secondary screen feature only supports Windows systems.
 
 5. Right-click the device → `Update Driver` → `Browse my computer for drivers` → `Browse` → Select the USB secondary screen driver folder → `Next` → Follow the prompts to complete installation.
 
+   > If you encounter errors like "Windows found drivers for your device but encountered an error while attempting to install them" during driver installation, you can use the following methods to resolve this:
+   >
+   > **Method 1: Temporarily Disable Driver Signature Enforcement**
+   > 1. Hold down the `Shift` key, click `Start Menu` → `Restart`
+   > 2. After entering Advanced Startup Options, select `Troubleshoot` → `Advanced options` → `Startup Settings` → `Restart`
+   > 3. After restart, press `F7` or `7` to select `Disable driver signature enforcement`
+   > 4. Reinstall the driver after the system starts
+   > 5. Note that this method may not work on newer Windows 11 versions
+   >
+   > **Method 2: Enable Test Mode (Requires Secure Boot to be Disabled)**
+   > 1. Enter the BIOS setup and disable Secure Boot following your motherboard's instructions
+   > 2. Open `Command Prompt` or `PowerShell` as Administrator
+   > 3. Execute the command: `bcdedit /set testsigning on`
+   > 4. Restart your computer, then you can install unsigned drivers
+   > 5. To disable test mode, execute: `bcdedit /set testsigning off` and restart
+   >
+   > **Note**: In test mode, a "Test Mode" watermark will appear in the bottom-right corner of the desktop. This is normal behavior.
+
 6. After driver installation is complete, a new NanoKVM graphics device will appear in the `Display adapters` section.
 
 7. On the Desk, navigate to the secondary screen page from the screen and select USB to use the Desk as a USB secondary screen.
