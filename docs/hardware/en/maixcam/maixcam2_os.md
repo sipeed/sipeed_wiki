@@ -105,8 +105,8 @@ This is similar to USB flashing but often faster (depending on TF card speed, e.
 * Format the TF card as `exFAT` or `ext4` (not `FAT32`). Make sure to partition the TF card.
 * Extract the `xxx.img.xz` file to `xxx.img` and be sure to copy it to the first partition of the TF card. If other, img files were previously copied, delete the old image files.
 * Safely eject the card to ensure data is fully written.
-* Power off the MaixCAM2.
-* Insert the TF card and power on.
+* Power off the MaixCAM2, then insert the TF card into the MaixCAM2.
+* Power on the MaixCAM2, and within `1 second`, press and hold the `boot/Func` button.
 * The board will auto-detect and flash the system. Blue LED flashes `0.5s on / 0.5s off`.
   > If it doesn’t, check previous steps.
 * When complete, the LED stays solid on. Fast flashing (`0.3s on / 0.3s off`) indicates failure. Do not power off—use Method 2 (USB) to recover. If powered off and still failing, use AXDL to restore the boot partition.
