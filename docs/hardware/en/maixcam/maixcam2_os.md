@@ -87,7 +87,7 @@ If problems persist, or the system won’t boot after flashing, try `rufus` or `
   * Method 1: Plug one end of USB into the PC, then within `1 second` of connecting to the board, press and hold `boot/Func`. Release after `3 seconds`.
   * Method 2: Power off, connect USB, power on, then within `1 second` press and hold `boot/Func`. Release after `3 seconds`.
 
-  > Don’t hold the button before power-on—this enters AXDL mode, which takes at least 5 seconds. Too slow.
+  > Don’t hold the button before power-on—this enters AXDL mode, which takes at least 10 seconds. Too slow.
 * After a few seconds, you’ll see a virtual U-disk appear. The blue LED flashes in a `off-on-on` pattern.
 * Click the software’s “Flash” button to begin. The blue LED flashes `0.5s on / 0.5s off`.
 * If Windows prompts to format the new drive—**do not format it**! Just close the window.
@@ -102,13 +102,12 @@ This is similar to USB flashing but often faster (depending on TF card speed, e.
 ### Preparing a TF Upgrade Card
 
 * Insert the TF card into your PC using a card reader.
-* Format the TF card as `exFAT` or `ext4` (not `FAT32`).
-* Decompress `xxx.img.xz` to `xxx.img` and copy it to the TF card.
+* Format the TF card as `exFAT` or `ext4` (not `FAT32`). Make sure to partition the TF card.
+* Extract the `xxx.img.xz` file to `xxx.img` and be sure to copy it to the first partition of the TF card. If other, img files were previously copied, delete the old image files.
 * Safely eject the card to ensure data is fully written.
 * Power off the MaixCAM2.
 * Insert the TF card and power on.
 * The board will auto-detect and flash the system. Blue LED flashes `0.5s on / 0.5s off`.
-
   > If it doesn’t, check previous steps.
 * When complete, the LED stays solid on. Fast flashing (`0.3s on / 0.3s off`) indicates failure. Do not power off—use Method 2 (USB) to recover. If powered off and still failing, use AXDL to restore the boot partition.
 * Reboot to enter the new system. As before, wait for the first boot to finish before shutting down.
