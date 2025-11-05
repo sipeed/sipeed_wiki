@@ -20,7 +20,8 @@ title: MaixCAM2 – Camera and Lens Selection & Usage
 | Operating Temp    | -30°C \~ 85°C<br>Optimal -20°C \~ 60°C                                                          | -30°C \~ 85°C<br>Optimal -20°C \~ 60°C | -30°C \~ 85°C                                              |
 | Application       | Lower resolution, lower heat, good image quality, suitable for general AI detection/recognition | High resolution & clarity, higher heat | High-quality imaging, color night vision, HDR, higher heat |
 
-> `-` = not listed in datasheet or not tested.
+> In terms of night vision performance, the pixel area of the OS04A10 is twice that of the SC850SL, and the SC850SL’s lens aperture allows roughly twice as much light as the OS04D10. Therefore, the ranking is OS04A10 > SC850SL > OS04D10.
+> However, a larger aperture results in a shallower depth of field — approximately 8 cm at a distance of 50 cm, and 60 cm at a distance of 200 cm.
 
 More sensor datasheets can be found on the [download site](https://dl.sipeed.com/shareURL/MaixCAM/MaixCAM2/Hardware/sensors).
 

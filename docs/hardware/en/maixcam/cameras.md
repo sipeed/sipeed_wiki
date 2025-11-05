@@ -9,11 +9,16 @@ title: Sensor Introduction
 | **Resolution**    | 2560x1440         | 2688x1520         | 640x480          |
 | **Size**          | 1/3"              | **1/1.79"**       | 1/6"             |
 | **Pixel Size**    | 2.0um             | 2.9um             | 3.744um          |
-| **Shutter Type**  | Rolling Shutter   | Rolling Shutter   | **Global Shutter** |
-| **Frame Rate**    | 30fps@2K, 60fps@720P | 30fps@2K      | 180fps@VGA       |
+| **Shutter Type**  | Rolling Shutter   | Rolling Shutter   | **Global Shutter**|
+| **Frame Rate**    | 30fps@2K, 60fps@720P| 30fps@2  K      | 180fps@VGA       |
 | **Max Exposure**  | 0.5s              | 45s               | TBD              |
 | **Sensitivity**   | 2.4V/Lux.s        | 32000e/Lux.s      | 6.5V/Lux.s       |
 | **Dynamic Range** | 81dB              | 120dB             | 60dB             |
+| **Lens Focal**    | 3.05mm            | 4.9mm             | --             |
+| **Lens Aperture** | F2.5              | F1.65             | --             |
+| **Lens distortion**  | 5%              | 25%             | --             |
+
+> Note: The OS04A10 sensor has large pixels and the lens has a large aperture, providing excellent night vision performance. However, due to the large aperture, its depth of field is quite shallow — approximately 8 cm at a distance of 50 cm, and 60 cm at a distance of 200 cm.
 
 * [Sensor Manual Download](https://dl.sipeed.com/shareURL/MaixCAM/Sensors)
 
