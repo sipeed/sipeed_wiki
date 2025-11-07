@@ -1,5 +1,5 @@
 ---
-title: Customize Auxiliary Screen
+title: NanoKVM Desk mini UI
 keywords: NanoKVM, Auxiliary Screen
 update:
   - date: 2025-10-10

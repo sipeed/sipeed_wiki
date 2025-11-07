@@ -1,5 +1,5 @@
 ---
-title: 自定义副屏
+title: NanoKVM Desk 迷你UI
 keywords: NanoKVM,  Auxiliary Screen
 update:
   - date: 2025-10-10

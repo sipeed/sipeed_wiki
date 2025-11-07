@@ -570,8 +570,10 @@ items:
             file: kvm/NanoKVM_Pro/desk_start.md
         -   label: 高级应用
             file: kvm/NanoKVM_Pro/extended.md
-        -   label: 迷你副屏显示
+        -   label: 迷你UI
             file: kvm/NanoKVM_Pro/lcd.md
+        -   label: DIY 应用
+            file: kvm/NanoKVM_Pro/app_diy.md
         -   label: 屏幕色彩扩展灯带
             file: kvm/NanoKVM_Pro/ledstrip.md
         -   label: 实验性AI Agent
