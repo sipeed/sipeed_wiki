@@ -145,7 +145,7 @@ title: MaixCAM2 -- Rapid Deployment of AI Vision and Audio Applications
 
 ### **Key Features**:
 
-1. **Outstanding hardware performance**: Dual-core `A53` + `12.8Tops@INT4 / 3.2Tops@INT8` + `4GB LPDDR4` + multiple hardware codecs. At `640x640` resolution, `YOLO11n` reaches up to `113FPS`, and `YOLO11s` up to `62FPS`.
+1. **Outstanding hardware performance**: Dual-core `A53` + `12.8Tops@INT4 / 3.2Tops@INT8` + `4GB LPDDR4` + multiple hardware codecs. Only run the model on `640x640` resolution, `YOLO11n` reaches up to `113FPS`, and `YOLO11s` up to `62FPS`.
     Here are some SOC run YOLO11n's benchmark:
     ![](../../assets/maixcam/maixcam2_benchmark.jpg)
 2. **Integrated hardware package**: Supports up to `4K 1/1.8"` camera, `640x480` high-definition touchscreen, dual microphones, `WiFi6` + `BLE5.4`, and more. No complex hardware adaptation required, ready to use out of the box.
