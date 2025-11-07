@@ -10,7 +10,19 @@ NanoKVM Pro will periodically update applications, and some issues may have been
 
 The green LED serves as the power indicator for NanoKVM Pro. If a power source with insufficient capacity is connected, the green LED may blink due to voltage instability and fail to start up. Please disconnect all power connections and replace the power adapter.
 
-## Video-Related Issues
+## Video Related Issues
+
+### NanoKVM-Pro Cannot Display BIOS and Login Screen
+
+When the host has multiple displays, it generally prioritizes the built-in screen or DP interface screen for displaying BIOS and login interface by default. Please refer to your motherboard manual to adjust the display priority, or use the loop-out interface to connect your display.
+
+### DP Adapter Compatibility Issues
+
+DP adapters come in two types: passive and active. Passive DP adapters are low-cost but may pose compatibility risks, manifesting as resolution lists not matching EDID, host wake-up failing to activate the screen, etc. Using the reset HDMI function can wake up the screen.
+
+### Missing Resolution List, Inconsistent with EDID
+
+The resolution list in the host display settings is determined by the host, EDID, (potentially existing) loop-out screen, and video adapter collectively. You can switch between different EDIDs on the web page to achieve the most reasonable compatibility.
 
 ### HDMI Icon Lit on NanoKVM Screen but No Video Displayed in Web Interface
 
