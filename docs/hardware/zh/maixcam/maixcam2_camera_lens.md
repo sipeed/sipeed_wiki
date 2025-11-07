@@ -15,6 +15,7 @@ title: MaixCAM2 摄像头和镜头的选择和使用
 | 输出格式        | 10bit RAW RGB                   |  12/10/8bit RAW RGB   | 16/12/10bit RAW RGB |
 | 快门类型        | 卷帘快门                        | 卷帘快门              | 卷帘快门  |
 | CRA            | 12°                             | 9°                    | 9° |
+| FOV            | D90° H81° V51°                 |  D100° H87° V49°         | D100° H87° V49°     |
 | 最长曝光        | 0.5s                            | -                     | 45s       |
 | 动态范围        | -                               | 线性模式75dB<br>宽动态模式 > 100dB | >120dB(2x/3x staggered HDR) |
 | 信噪比          | -                               | 39dB | - |
@@ -23,7 +24,8 @@ title: MaixCAM2 摄像头和镜头的选择和使用
 | 适用范围        | 分辨率更低，发热更低，画质优良，能满足一般 AI 检测识别应用 |需要分辨率高，画质清晰，发热大一点 | 需要高清画质，彩光夜视，HDR等，发热比较大|
 
 
-> 
+> 夜视效果而言，OS04A10相元面积是SC850SL的两倍，SC850SL镜头光圈导致的进光量差异是OS04D10的两倍，所以 OS04A10 > SC850SL > OS04D10
+> 但是大光圈会造成景深较小，50cm处景深约8cm，200cm处景深约60cm
 
 更多摄像头传感器数据手册见[下载站](https://dl.sipeed.com/shareURL/MaixCAM/MaixCAM2/Hardware/sensors)
 

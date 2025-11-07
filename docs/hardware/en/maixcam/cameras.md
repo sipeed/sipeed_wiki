@@ -17,6 +17,7 @@ title: Sensor Introduction
 | **Lens Focal**    | 3.05mm            | 4.9mm             | --             |
 | **Lens Aperture** | F2.5              | F1.65             | --             |
 | **Lens distortion**  | 5%              | 25%             | --             |
+| **FOV**  | D90° H81° V51°   |  D100° H87° V49°  | --             |
 
 > Note: The OS04A10 sensor has large pixels and the lens has a large aperture, providing excellent night vision performance. However, due to the large aperture, its depth of field is quite shallow — approximately 8 cm at a distance of 50 cm, and 60 cm at a distance of 200 cm.
 
