@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+
+<html lang="zh"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="">
+    
+    
+    <meta name="description" content="">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+        
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/prism.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?9cb07365544a53067c56c346c838181a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119047820-5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-119047820-5');
+    </script>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/js/thumbs_up/style.css" type="text/css"/>
+        
+    
+    
+    <title>将模型部署到 V831 - Sipeed Wiki</title>
+    
+    <script type="text/javascript">js_vars = {"teedoc-plugin-ad-hint": {"type": "hint", "label": "NEW", "content": "全新 Maix 系列产品 <a href='https://wiki.sipeed.com/maixcam'>MaixCAM</a> 已上线, 全新 <a href='https://wiki.sipeed.com/maixpy/'>MaixPy</a> 功能更丰富，性能更强大，软件更易用，文档更全面！", "show_times": 2, "show_after_s": 432000, "date": "2022-06-01 14:00", "color": "#a0421d", "link_color": "#e53935", "link_bg_color": "#e6ae5c", "bg_color": "#ffcf89", "color_hover": "white", "bg_color_hover": "#f57c00", "close_color": "#eab971"}, "teedoc-plugin-thumbs-up": {"label_up": "有帮助", "label_down": "待改进", "icon": "/static/images/thumbs_up/up.svg", "icon_clicked": "/static/images/thumbs_up/upped.svg", "url": "https://thumbs-up.sipeed.com", "show_up_count": true, "show_down_count": false, "msg_already_voted": "您已经投过票了", "msg_thanks": "感谢您的反馈", "msg_down_prompt": "感谢反馈，请告诉我们可以改进什么地方?（最少 10 个字）", "msg_down_prompt_error": "消息最少需要 10 个字， 最多 256 个字", "msg_error": "请求服务器出现错误!"}}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": "2022-09-15", "update": [], "ts": 1663200000, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/">
+                
+                    <img class="site_logo" src="/static/image/logo.svg" alt="sipeed wiki logo">
+                
+                
+                    <h2>wiki</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class=""><a  href="/">产品</a></li>
+<li class="sub_items active_parent"><a >开源软件</a><ul><li class=""><a  href="/maixpy/">MaixPy</a></li>
+<li class=""><a  href="/soft/maixpy/zh/index.html">MaixPy_v1</a></li>
+<li class=""><a  href="/soft/Lichee/zh/index.html">Lichee</a></li>
+<li class="active"><a  href="/ai/zh/index.html">AI 指南</a></li>
+</ul>
+</li>
+<li class=""><a target="_blank" href="https://maixhub.com">MaixHub</a></li>
+<li class=""><a  href="/news/">动态</a></li>
+<li class=""><a  href="/faq.html">FAQ 汇总</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class=""><a  href="/store.html"><img src='/static/image/shop.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+<li class=""><a target="_blank" href="https://github.com/sipeed"><img src='/static/image/github.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+<li class="sub_items "><a  ><img src='/static/image/language.svg' style='height: 1.5em;vertical-align: middle;'>&nbsp;中文</a><ul><li class=""><a  href="/ai/en/deploy/v831.html">English</a></li>
+<li class="active"><a  href="/ai/zh/deploy/v831.html">中文</a></li>
+</ul></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">输入关键词，多关键词空格隔开</span>
+                                <span id="search_loading_hint">正在加载，请稍候。。。</span>
+                                <span id="search_download_err_hint">下载文件失败，请刷新重试或检查网络</span>
+                                <span id="search_other_docs_result_hint">来自其它文档的结果</span>
+                                <span id="search_curr_doc_result_hint">当前文档搜索结果</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="not_active with_link"><a href="/ai/zh/index.html"><span class="label">文档简介</span><span class=""></span></a></li>
+<li class="not_active no_link sidebar_category"><span class="label">AI 基础</span></li>
+<li class="not_active with_link"><a href="/ai/zh/basic/what_is_ai.html"><span class="label">什么是 AI ?</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/ai/zh/basic/dnn_basic.html"><span class="label">深度神经网络通俗理解</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/ai/zh/basic/code_frameworks.html"><span class="label">常见代码框架和工具</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/ai/zh/basic/courses.html"><span class="label">教程汇总</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">常见神经网络模型</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/ai/zh/nn_models/mobilenet.html"><span class="label">Mobilenet 分类模型</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/ai/zh/nn_models/yolov2.html"><span class="label">YOLO v2 检测模型</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/ai/zh/nn_models/fomo.html"><span class="label">FOMO 轻量检测模型</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link sidebar_category"><span class="label">部署到边缘设备</span></li>
+<li class="not_active with_link"><a href="/ai/zh/deploy/index.html"><span class="label">部署方法汇总</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/ai/zh/deploy/k210.html"><span class="label">Maix-I 之 K210 模型部署</span><span class=""></span></a></li>
+<li class="active with_link"><a href="/ai/zh/deploy/v831.html"><span class="label">Maix-II 之 V831 模型部署</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/ai/zh/deploy/ax-pi.html"><span class="label">Maix-III 之 AX-Pi 模型部署</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/ai/zh/deploy/tinymaix.html"><span class="label">TinyMaix 模型部署</span><span class=""></span></a></li>
+<li class="not_active no_link sidebar_category"><span class="label">MaixHub</span></li>
+<li class="not_active with_link"><a href="/ai/zh/maixhub/index.html"><span class="label">MaixHub 简介</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/ai/zh/maixhub/train_best.html"><span class="label">MaixHub 在线训练调优</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/ai/zh/maixhub/faq.html"><span class="label">MaixHub FAQ 汇总</span><span class=""></span></a></li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>将模型部署到 V831</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                                <span class="article_date" title="最后修改日期： 2022-09-15">
+                                    2022-09-15
+                                </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/sipeed/sipeed_wiki/blob/main/docs/soft/ai/zh/deploy/v831.md" target="_blank">
+                                    <span id='editPage'>编辑本页</span>
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <div id="title_card">
+    <div class="card">
+        <img src="/hardware/assets/maixII/m2dock.jpg" alt="V831 模型转换和部署">
+        <div class="card_info card_blue">
+            <div class="title">Maix-II 系列 v831</div>
+            <div class="brief">
+                <div>高性价比带硬件 AI 加速，支持 Linux</div>
+                <div>0.2Tops@INT8，有限算子加速</div>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+#title_card {
+    width:100%;
+    text-align:center;
+    background-color: white;
+    margin-bottom: 1em;
+}
+#title_card img {
+  max-height: 20em;
+}
+.card_blue {
+    background-color: #90caf9;
+    color: #105aa9;
+}
+.dark .card_blue {
+    background-color: #003c6c;
+    color: #ffffffba;
+}
+.title {
+    font-size: 1.5em;
+    font-weight: 800;
+    padding: 0.8em;
+}
+</style>
+<h2 id="%E5%88%B6%E4%BD%9C%E6%B5%AE%E7%82%B9%E6%A8%A1%E5%9E%8B">制作浮点模型</h2>
+<p>对于 V831， 强烈推荐使用<code>Pytorch</code>训练模型，因为模型转换工具对其支持较好。</p>
+<p>这里直接使用 pytorch hub 的预训练模型为例。</p>
+<p>这里省略了模型定义和训练过程， 直接使用 pytorch hub 的 resnet18 预训练模型进行简单介绍：<br />
+<a href="https://pytorch.org/hub/pytorch_vision_resnet/"  target="_blank">https://pytorch.org/hub/pytorch_vision_resnet/</a></p>
+<p>注意 V831 支持的算子有限，具体请在 <a href="https://maixhub.com/"  target="_blank">MaixHub</a> 点击<code>工具箱-&gt;模型转换-&gt;v831</code>中的文档查看。</p>
+<h2 id="%E5%9C%A8-PC-%E7%AB%AF%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B%E6%8E%A8%E7%90%86">在 PC 端测试模型推理</h2>
+<p>根据上面链接的使用说明， 使用如下代码可以运行模型</p>
+<p>其中， label 下载： <a href="https://raw.githubusercontent.com/pytorch/hub/master/imagenet_classes.txt"  target="_blank">https://raw.githubusercontent.com/pytorch/hub/master/imagenet_classes.txt</a></p>
+
+<pre class="language-python"><code class="language-python">import os
+import torch
+from torchsummary import summary
+
+
+## model
+model = torch.hub.load('pytorch/vision:v0.6.0', 'resnet18', pretrained=True)
+
+model.eval()
+
+input_shape = (3, 224, 224)
+summary(model, input_shape, device=&quot;cpu&quot;)
+
+## test image
+filename = &quot;out/dog.jpg&quot;
+if not os.path.exists(filename):
+    if not os.path.exists(&quot;out&quot;):
+        os.makedirs(&quot;out&quot;)
+    import urllib
+    url, filename = (&quot;https://github.com/pytorch/hub/raw/master/images/dog.jpg&quot;, filename)
+    try: urllib.URLopener().retrieve(url, filename)
+    except: urllib.request.urlretrieve(url, filename)
+
+print(&quot;test image:&quot;, filename)
+
+## preparing input data
+from PIL import Image
+import numpy as np
+from torchvision import transforms
+input_image = Image.open(filename)
+# input_image.show()
+preprocess = transforms.Compose([
+    transforms.Resize(max(input_shape[1:3])),
+    transforms.CenterCrop(input_shape[1:3]),
+    transforms.ToTensor(),
+    transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
+])
+input_tensor = preprocess(input_image)
+
+print(&quot;input data max value: {}, min value: {}&quot;.format(torch.max(input_tensor), torch.min(input_tensor)))
+
+input_batch = input_tensor.unsqueeze(0) # create a mini-batch as expected by the model
+
+## forward model
+# move the input and model to GPU for speed if available
+if torch.cuda.is_available():
+    input_batch = input_batch.to('cuda')
+    model.to('cuda')
+
+with torch.no_grad():
+    output = model(input_batch)
+
+## result    
+# Tensor of shape 1000, with confidence scores over Imagenet's 1000 classes
+# print(output[0])
+# The output has unnormalized scores. To get probabilities, you can run a softmax on it.
+max_1000 = torch.nn.functional.softmax(output[0], dim=0)
+max_idx = int(torch.argmax(max_1000))
+with open(&quot;imagenet_classes.txt&quot;) as f:
+    labels = f.read().split(&quot;\n&quot;)
+print(&quot;result: idx:{}, name:{}&quot;.format(max_idx, labels[max_idx]))
+</code></pre>
+<p>运行后 结果：</p>
+
+<pre class="language-none"><code class="language-none">Using cache found in /home/neucrack/.cache/torch/hub/pytorch_vision_v0.6.0
+----------------------------------------------------------------
+        Layer (type)               Output Shape         Param #
+================================================================
+            Conv2d-1         [-1, 64, 112, 112]           9,408
+       BatchNorm2d-2         [-1, 64, 112, 112]             128
+              ReLU-3         [-1, 64, 112, 112]               0
+         MaxPool2d-4           [-1, 64, 56, 56]               0
+            Conv2d-5           [-1, 64, 56, 56]          36,864
+       BatchNorm2d-6           [-1, 64, 56, 56]             128
+              ReLU-7           [-1, 64, 56, 56]               0
+            Conv2d-8           [-1, 64, 56, 56]          36,864
+       BatchNorm2d-9           [-1, 64, 56, 56]             128
+             ReLU-10           [-1, 64, 56, 56]               0
+       BasicBlock-11           [-1, 64, 56, 56]               0
+           Conv2d-12           [-1, 64, 56, 56]          36,864
+      BatchNorm2d-13           [-1, 64, 56, 56]             128
+             ReLU-14           [-1, 64, 56, 56]               0
+           Conv2d-15           [-1, 64, 56, 56]          36,864
+      BatchNorm2d-16           [-1, 64, 56, 56]             128
+             ReLU-17           [-1, 64, 56, 56]               0
+       BasicBlock-18           [-1, 64, 56, 56]               0
+           Conv2d-19          [-1, 128, 28, 28]          73,728
+      BatchNorm2d-20          [-1, 128, 28, 28]             256
+             ReLU-21          [-1, 128, 28, 28]               0
+           Conv2d-22          [-1, 128, 28, 28]         147,456
+      BatchNorm2d-23          [-1, 128, 28, 28]             256
+           Conv2d-24          [-1, 128, 28, 28]           8,192
+      BatchNorm2d-25          [-1, 128, 28, 28]             256
+             ReLU-26          [-1, 128, 28, 28]               0
+       BasicBlock-27          [-1, 128, 28, 28]               0
+           Conv2d-28          [-1, 128, 28, 28]         147,456
+      BatchNorm2d-29          [-1, 128, 28, 28]             256
+             ReLU-30          [-1, 128, 28, 28]               0
+           Conv2d-31          [-1, 128, 28, 28]         147,456
+      BatchNorm2d-32          [-1, 128, 28, 28]             256
+             ReLU-33          [-1, 128, 28, 28]               0
+       BasicBlock-34          [-1, 128, 28, 28]               0
+           Conv2d-35          [-1, 256, 14, 14]         294,912
+      BatchNorm2d-36          [-1, 256, 14, 14]             512
+             ReLU-37          [-1, 256, 14, 14]               0
+           Conv2d-38          [-1, 256, 14, 14]         589,824
+      BatchNorm2d-39          [-1, 256, 14, 14]             512
+           Conv2d-40          [-1, 256, 14, 14]          32,768
+      BatchNorm2d-41          [-1, 256, 14, 14]             512
+             ReLU-42          [-1, 256, 14, 14]               0
+       BasicBlock-43          [-1, 256, 14, 14]               0
+           Conv2d-44          [-1, 256, 14, 14]         589,824
+      BatchNorm2d-45          [-1, 256, 14, 14]             512
+             ReLU-46          [-1, 256, 14, 14]               0
+           Conv2d-47          [-1, 256, 14, 14]         589,824
+      BatchNorm2d-48          [-1, 256, 14, 14]             512
+             ReLU-49          [-1, 256, 14, 14]               0
+       BasicBlock-50          [-1, 256, 14, 14]               0
+           Conv2d-51            [-1, 512, 7, 7]       1,179,648
+      BatchNorm2d-52            [-1, 512, 7, 7]           1,024
+             ReLU-53            [-1, 512, 7, 7]               0
+           Conv2d-54            [-1, 512, 7, 7]       2,359,296
+      BatchNorm2d-55            [-1, 512, 7, 7]           1,024
+           Conv2d-56            [-1, 512, 7, 7]         131,072
+      BatchNorm2d-57            [-1, 512, 7, 7]           1,024
+             ReLU-58            [-1, 512, 7, 7]               0
+       BasicBlock-59            [-1, 512, 7, 7]               0
+           Conv2d-60            [-1, 512, 7, 7]       2,359,296
+      BatchNorm2d-61            [-1, 512, 7, 7]           1,024
+             ReLU-62            [-1, 512, 7, 7]               0
+           Conv2d-63            [-1, 512, 7, 7]       2,359,296
+      BatchNorm2d-64            [-1, 512, 7, 7]           1,024
+             ReLU-65            [-1, 512, 7, 7]               0
+       BasicBlock-66            [-1, 512, 7, 7]               0
+AdaptiveAvgPool2d-67            [-1, 512, 1, 1]               0
+           Linear-68                 [-1, 1000]         513,000
+================================================================
+Total params: 11,689,512
+Trainable params: 11,689,512
+Non-trainable params: 0
+----------------------------------------------------------------
+Input size (MB): 0.57
+Forward/backward pass size (MB): 62.79
+Params size (MB): 44.59
+Estimated Total Size (MB): 107.96
+----------------------------------------------------------------
+out/dog.jpg
+tensor(2.6400) tensor(-2.1008)
+idx:258, name:Samoyed, Samoyede
+</code></pre>
+<p>可以看到模型有 <code>11,689,512</code>的参数， 即 <code>11MiB</code>左右， 这个大小也就几乎是实际在 831 上运行的模型的大小了</p>
+<h2 id="%E5%B0%86%E6%A8%A1%E5%9E%8B%E8%BD%AC%E6%8D%A2%E4%B8%BA-V831-%E8%83%BD%E4%BD%BF%E7%94%A8%E7%9A%84%E6%A8%A1%E5%9E%8B%E6%96%87%E4%BB%B6">将模型转换为 V831 能使用的模型文件</h2>
+<p>转换过程如下：</p>
+<h3 id="%E4%BD%BF%E7%94%A8-Pytorch-%E5%B0%86%E6%A8%A1%E5%9E%8B%E5%AF%BC%E5%87%BA%E4%B8%BA-%3Ccode%3Eonnx%3C/code%3E%E6%A8%A1%E5%9E%8B%EF%BC%8C-%E5%BE%97%E5%88%B0%3Ccode%3Eonnx%3C/code%3E%E6%96%87%E4%BB%B6">使用 Pytorch 将模型导出为 <code>onnx</code>模型， 得到<code>onnx</code>文件</h3>
+
+<pre class="language-python"><code class="language-python">def torch_to_onnx(net, input_shape, out_name=&quot;out/model.onnx&quot;, input_names=[&quot;input0&quot;], output_names=[&quot;output0&quot;], device=&quot;cpu&quot;):
+    batch_size = 1
+    if len(input_shape) == 3:
+        x = torch.randn(batch_size, input_shape[0], input_shape[1], input_shape[2], dtype=torch.float32, requires_grad=True).to(device)
+    elif len(input_shape) == 1:
+        x = torch.randn(batch_size, input_shape[0], dtype=torch.float32, requires_grad=False).to(device)
+    else:
+        raise Exception(&quot;not support input shape&quot;)
+    print(&quot;input shape:&quot;, x.shape)
+    # torch.onnx._export(net, x, &quot;out/conv0.onnx&quot;, export_params=True)
+    torch.onnx.export(net, x, out_name, export_params=True, input_names = input_names, output_names=output_names)
+
+
+onnx_out=&quot;out/resnet_1000.onnx&quot;
+ncnn_out_param = &quot;out/resnet_1000.param&quot;
+ncnn_out_bin = &quot;out/resnet_1000.bin&quot;
+input_img = filename
+
+torch_to_onnx(model, input_shape, onnx_out, device=&quot;cuda:0&quot;)
+
+</code></pre>
+<p>如果你不是使用 pytorch 转换的, 而是使用了现成的 ncnn 模型, 不知道输出层的名字, 可以在 <a href="https://netron.app/"  target="_blank">https://netron.app/</a> 打开模型查看输出层的名字</p>
+<h2 id="%E4%BD%BF%E7%94%A8-%3Ccode%3Eonnx2ncnn%3C/code%3E-%E5%B7%A5%E5%85%B7%E5%B0%86%3Ccode%3Eonnx%3C/code%3E%E8%BD%AC%E6%88%90%3Ccode%3Encnn%3C/code%3E%E6%A8%A1%E5%9E%8B%EF%BC%8C%E5%BE%97%E5%88%B0%E4%B8%80%E4%B8%AA%3Ccode%3E.param%3C/code%3E%E6%96%87%E4%BB%B6%E5%92%8C%E4%B8%80%E4%B8%AA%3Ccode%3E.bin%3C/code%3E%E6%96%87%E4%BB%B6">使用 <code>onnx2ncnn</code> 工具将<code>onnx</code>转成<code>ncnn</code>模型，得到一个<code>.param</code>文件和一个<code>.bin</code>文件</h2>
+<blockquote class="spoiler warning">
+<p> 这一步可以跳过。</p>
+</blockquote>
+<blockquote>
+<p>按照<a href="https://github.com/Tencent/ncnn"  target="_blank">ncnn项目</a>的编译说明编译，在<code>build/tools/onnx</code>目录下得到<code>onnx2ncnn</code>可执行文件</p>
+</blockquote>
+
+<pre class="language-python"><code class="language-python">def onnx_to_ncnn(input_shape, onnx=&quot;out/model.onnx&quot;, ncnn_param=&quot;out/conv0.param&quot;, ncnn_bin = &quot;out/conv0.bin&quot;):
+    import os
+    # onnx2ncnn tool compiled from ncnn/tools/onnx, and in the buld dir
+    cmd = f&quot;onnx2ncnn {onnx} {ncnn_param} {ncnn_bin}&quot;
+    os.system(cmd)
+    with open(ncnn_param) as f:
+        content = f.read().split(&quot;\n&quot;)
+        if len(input_shape) == 1:
+            content[2] += &quot; 0={}&quot;.format(input_shape[0])
+        else:
+            content[2] += &quot; 0={} 1={} 2={}&quot;.format(input_shape[2], input_shape[1], input_shape[0])
+        content = &quot;\n&quot;.join(content)
+    with open(ncnn_param, &quot;w&quot;) as f:
+        f.write(content)
+
+onnx_to_ncnn(input_shape, onnx=onnx_out, ncnn_param=ncnn_out_param, ncnn_bin=ncnn_out_bin)
+</code></pre>
+<h2 id="%E4%BD%BF%E7%94%A8%E5%85%A8%E5%BF%97%E6%8F%90%E4%BE%9B%E7%9A%84%3Ccode%3Eawnn%3C/code%3E%E5%B7%A5%E5%85%B7%E5%B0%86%3Ccode%3Encnn%3C/code%3E%E6%A8%A1%E5%9E%8B%E8%BF%9B%E8%A1%8C%E9%87%8F%E5%8C%96%E5%88%B0%3Ccode%3Eint8%3C/code%3E%E6%A8%A1%E5%9E%8B">使用全志提供的<code>awnn</code>工具将<code>ncnn</code>模型进行量化到<code>int8</code>模型</h2>
+<p>在 <a href="https://maixhub.com/"  target="_blank">MaixHub</a> 点击<code>工具箱-&gt;模型转换-&gt;v831</code>进入模型转换页面， 将 ncnn 模型转换为 awnn 支持的 int8 模型 （网页在线转换很方便人为操作，另一个方面因为全志要求不开放 awnn 所以暂时只能这样做）</p>
+<p>在转换页面有更多的转换说明，可以获得更多详细的转换说明</p>
+<p>这里有几组参数：</p>
+<ul>
+<li>均值 和 归一化因子： 在 pytorch 中一般是 <code>(输入值 - mean ) / std</code>, <code>awnn</code>对输入的处理是 <code>(输入值 - mean ) * norm</code>, 总之，让你训练的时候的输入到第一层网络的值范围和给<code>awnn</code>量化工具经过<code>(输入值 - mean ) * norm</code> 计算后的值范围一致既可。 比如 这里打印了实际数据的输入范围是<code>[-2.1008, 2.6400]</code>， 是代码中<code>preprocess</code> 对象处理后得到的，即<code>x = (x - mean) / std</code> ==&gt; <code>(0-0.485)/0.229 = -2.1179</code>, 到<code>awnn</code>就是<code>x = (x - mean_2*255) * (1 / std * 255)</code> 即 <code>mean2 = mean * 255</code>, <code>norm = 1/(std * 255)</code>, 更多可以看<a href="https://github.com/Tencent/ncnn/wiki/FAQ-ncnn-produce-wrong-result#pre-process"  target="_blank">这里</a>。</li>
+</ul>
+<p>所以我们这里可以设置 均值为 <code>0.485 * 255 = 123.675</code>， 设置 归一化因子为<code>1/ (0.229 * 255) = 0.017125</code>， 另外两个通道同理，但是目前 awnn 只能支持三个通道值一样。。。所以填<code>123.675, 123.675, 123.675</code>，<code>0.017125, 0.017125, 0.017125</code> 即可，因为这里用了<code>pytorch hub</code>的预训练的参数，就这样吧， 如果自己训练，可以好好设置一下</p>
+<ul>
+<li>图片输入层尺寸（问不是图片怎么办？貌似 awnn 暂时只考虑到了图片。。）</li>
+<li>RGB 格式： 如果训练输入的图片是 RGB 就选 RGB</li>
+<li>量化图片， 选择一些和输入尺寸相同的图片，可以从测试集中拿一些，不一定要图片非常多，但尽量覆盖全场景（摊手</li>
+</ul>
+<p>自己写的其它模型转换如果失败，多半是啥算子不支持，需要在 使用说明里面看支持的 算子，比如之前的版本view、 flatten、reshape  都不支持所以写模型要相当小心， 现在的版本会支持 flatten reshape 等 CPU 算子</p>
+<p>如果不出意外， 终于得到了量化好的 awnn 能使用的模型， <code>*.param</code> 和 <code>*.bin</code></p>
+<h2 id="%E4%BD%BF%E7%94%A8%E6%A8%A1%E5%9E%8B%EF%BC%8C%E5%9C%A8v831%E4%B8%8A%E6%8E%A8%E7%90%86">使用模型，在v831上推理</h2>
+<p>可以使用 python 或者 C 写代码，以下两种方式</p>
+<h3 id="MaixPy3">MaixPy3</h3>
+<p>python 请看<a href="https://wiki.sipeed.com/soft/maixpy3/zh/"  target="_blank">MaixPy3</a></p>
+<p>不想看文档的话，就是在系统开机使用的基础上， 更新 MaixPy3 就可以了：</p>
+
+<pre class="language-none"><code class="language-none">pip install --upgrade maixpy3
+</code></pre>
+<p>然后在终端使用 python 运行脚本（可能需要根据你的文件名参数什么的改一下代码）：</p>
+<p><a href="https://github.com/sipeed/MaixPy3/blob/main/ext_modules/_maix_nn/example/load_forward_camera.py"  target="_blank">https://github.com/sipeed/MaixPy3/blob/main/ext_modules/_maix_nn/example/load_forward_camera.py</a></p>
+<p>label 在这里： <a href="https://github.com/sipeed/MaixPy3/blob/main/ext_modules/_maix_nn/example/classes_label.py"  target="_blank">https://github.com/sipeed/MaixPy3/blob/main/ext_modules/_maix_nn/example/classes_label.py</a></p>
+
+<pre class="language-python"><code class="language-python">from maix import nn
+from PIL import Image, ImageDraw
+from maix import camera, display
+
+test_jpg = &quot;/root/test_input/input.jpg&quot;
+model = {
+    &quot;param&quot;: &quot;/root/models/resnet_awnn.param&quot;,
+    &quot;bin&quot;: &quot;/root/models/resnet_awnn.bin&quot;
+}
+
+camera.config(size=(224, 224))
+
+options = {
+    &quot;model_type&quot;:  &quot;awnn&quot;,
+    &quot;inputs&quot;: {
+        &quot;input0&quot;: (224, 224, 3)
+    },
+    &quot;outputs&quot;: {
+        &quot;output0&quot;: (1, 1, 1000)
+    },
+    &quot;first_layer_conv_no_pad&quot;: False,
+    &quot;mean&quot;: [127.5, 127.5, 127.5],
+    &quot;norm&quot;: [0.00784313725490196, 0.00784313725490196, 0.00784313725490196],
+}
+print(&quot;-- load model:&quot;, model)
+m = nn.load(model, opt=options)
+print(&quot;-- load ok&quot;)
+
+print(&quot;-- read image&quot;)
+img = Image.open(test_jpg)
+print(&quot;-- read image ok&quot;)
+print(&quot;-- forward model with image as input&quot;)
+out = m.forward(img, quantize=True)
+print(&quot;-- read image ok&quot;)
+print(&quot;-- out:&quot;, out.shape)
+out = nn.F.softmax(out)
+print(out.max(), out.argmax())
+
+from classes_label import labels
+while 1:
+    img = camera.capture()
+    if not img:
+        time.sleep(0.02)
+        continue
+    out = m.forward(img, quantize=True)
+    out = nn.F.softmax(out)
+    msg = &quot;{:.2f}: {}&quot;.format(out.max(), labels[out.argmax()])
+    print(msg)
+    draw = ImageDraw.Draw(img)
+    draw.text((0, 0), msg, fill=(255, 0, 0))
+    display.show(img)
+</code></pre>
+<h3 id="C%E8%AF%AD%E8%A8%80-SDK%EF%BC%8C-libmaix">C语言 SDK， libmaix</h3>
+<p>访问这里，按照 <a href="https://github.com/sipeed/libmaix"  target="_blank">https://github.com/sipeed/libmaix</a> 的说明克隆仓库，并编译 <a href="https://github.com/sipeed/libmaix/tree/master/examples/nn_resnet"  target="_blank">https://github.com/sipeed/libmaix/tree/master/examples/nn_resnet</a></p>
+<p>上传编译成功后<code>dist</code>目录下的所有内容到 <code>v831</code>, 然后执行<code>./start_app.sh</code>即可</p>
+<h2 id="%E5%8F%82%E8%80%83">参考</h2>
+<ul>
+<li><a href="https://neucrack.com/p/358"  target="_blank">在V831上（awnn）跑 pytorch resnet18 模型</a></li>
+</ul>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                        <a href="/ai/zh/deploy/k210.html">
+                            <span class="icon"></span>
+                            <span class="label">Maix-I 之 K210 模型部署</span>
+                        </a>
+                        
+                    </div>
+                    <div id="next">
+                        
+                        <a href="/ai/zh/deploy/ax-pi.html">
+                            <span class="label">Maix-III 之 AX-Pi 模型部署</span>
+                            <span class="icon"></span>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>相关链接</a><ul><li><a target="_blank" href="https://www.sipeed.com">Sipeed 官网</a></li>
+<li><a target="_blank" href="https://maixhub.com/">MaixHub</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">Sipeed 淘宝</a></li>
+<li><a  href="/sitemap.xml">网站地图</a></li>
+<li><a target="_blank" href="https://github.com/teedoc/teedoc">网站使用 teedoc 生成</a></li>
+</ul>
+</li>
+<li><a>源码</a><ul><li><a target="_blank" href="https://github.com/sipeed/sipeed_wiki">Wiki 源码</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">开源项目</a></li>
+</ul>
+</li>
+<li><a>关注我们</a><ul><li><a target="_blank" href="https://twitter.com/SipeedIO">twitter</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">淘宝</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">github</a></li>
+<li><a><a>微信公众号</a><img src='/static/image/wechat.png'></a>
+</li>
+</ul>
+</li>
+<li><a>联系我们</a><ul><li><a>电话: +86 0755-27808509</a>
+</li>
+<li><a>商业支持: support@sipeed.com</a>
+</li>
+<li><a>地址: 深圳市宝安区新湖路4008号蘅芳科技办公大厦A座-2101C</a>
+</li>
+<li><a  href="/join_us.html">加入我们</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://www.sipeed.com">©2018-2023 深圳矽速科技有限公司</a></li>
+<li><a target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index">粤ICP备19015433号</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/js/prism.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <link rel="stylesheet" href="/static/js/add_hint/style.css" type="text/css"/>
+    
+        <script src="/static/js/add_hint/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+        <script src="/static/js/thumbs_up/main.js"></script>
+    
+</body>
+
+</html>

@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+
+<html lang="zh"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="MaixPy3，图像处理，图像算法，传统视觉, image API">
+    
+    
+    <meta name="description" content="MaixPy3 image 模块 API 文档, 以及使用说明">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+        
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/prism.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?9cb07365544a53067c56c346c838181a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119047820-5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-119047820-5');
+    </script>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/js/thumbs_up/style.css" type="text/css"/>
+        
+    
+    
+    <title>MaixPy3 image 模块 - Sipeed Wiki</title>
+    
+    <script type="text/javascript">js_vars = {"teedoc-plugin-ad-hint": {"type": "hint", "label": "NEW", "content": "全新 Maix 系列产品 <a href='https://wiki.sipeed.com/maixcam'>MaixCAM</a> 已上线, 全新 <a href='https://wiki.sipeed.com/maixpy/'>MaixPy</a> 功能更丰富，性能更强大，软件更易用，文档更全面！", "show_times": 2, "show_after_s": 432000, "date": "2022-06-01 14:00", "color": "#a0421d", "link_color": "#e53935", "link_bg_color": "#e6ae5c", "bg_color": "#ffcf89", "color_hover": "white", "bg_color_hover": "#f57c00", "close_color": "#eab971"}, "teedoc-plugin-thumbs-up": {"label_up": "有帮助", "label_down": "待改进", "icon": "/static/images/thumbs_up/up.svg", "icon_clicked": "/static/images/thumbs_up/upped.svg", "url": "https://thumbs-up.sipeed.com", "show_up_count": true, "show_down_count": false, "msg_already_voted": "您已经投过票了", "msg_thanks": "感谢您的反馈", "msg_down_prompt": "感谢反馈，请告诉我们可以改进什么地方?（最少 10 个字）", "msg_down_prompt_error": "消息最少需要 10 个字， 最多 256 个字", "msg_error": "请求服务器出现错误!"}}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": false, "update": [], "ts": 0, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/">
+                
+                    <img class="site_logo" src="/static/image/logo.svg" alt="sipeed wiki logo">
+                
+                
+                    <h2>wiki</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class=""><a  href="/">产品</a></li>
+<li class="sub_items "><a >开源软件</a><ul><li class=""><a  href="/maixpy/">MaixPy</a></li>
+<li class=""><a  href="/soft/maixpy/zh/index.html">MaixPy_v1</a></li>
+<li class=""><a  href="/soft/Lichee/zh/index.html">Lichee</a></li>
+<li class=""><a  href="/ai/zh/index.html">AI 指南</a></li>
+</ul>
+</li>
+<li class=""><a target="_blank" href="https://maixhub.com">MaixHub</a></li>
+<li class=""><a  href="/news/">动态</a></li>
+<li class=""><a  href="/faq.html">FAQ 汇总</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class=""><a  href="/store.html"><img src='/static/image/shop.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+<li class=""><a target="_blank" href="https://github.com/sipeed"><img src='/static/image/github.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">输入关键词，多关键词空格隔开</span>
+                                <span id="search_loading_hint">正在加载，请稍候。。。</span>
+                                <span id="search_download_err_hint">下载文件失败，请刷新重试或检查网络</span>
+                                <span id="search_other_docs_result_hint">来自其它文档的结果</span>
+                                <span id="search_curr_doc_result_hint">当前文档搜索结果</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/index.html"><span class="label">MaixPy3 是什么？能做什么？</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/install/install.html"><span class="label">如何获取、安装、使用？</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/tools/MaixPy3_IDE.html"><span class="label">安装或配置 IDE 开发工具</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/tools/0.MaixII-Dock.html"><span class="label">基于 USB 开发 MaixII-Dock</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/tools/maixsense.html"><span class="label">基于 WIFI 开发 MaixSense</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active  with_link"><a href="/news/MaixPy3/v831_usage/v831_usage.html" ><span class="label">M2DOCK (V831)上手视觉指南</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">遇到问题怎么办？</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/origin/helper.html"><span class="label">如何正确反馈问题！</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/question/maixpy3_faq.html"><span class="label">常见问题与解决方法</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">相关的基础知识</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active  with_link"><a href="/news/MaixPy3/difference.html" ><span class="label">MaixPy 和 MaixPy3 的区别</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/origin/video.html"><span class="label">收录一些国内 Python 基础教程</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/origin/hello_world.html"><span class="label">大佬鼠の嵌入式 Python 入门教程 [1]</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/origin/loop_python.html"><span class="label">大佬鼠の嵌入式 Python 入门教程 [2]</span><span class=""></span></a></li>
+<li class="not_active  with_link"><a href="https://bing.com/search?q=v831+m2dock" ><span class="label">使用必应搜索 V831 M2DOCK 的内容</span><span class=""></span></a></li>
+<li class="not_active  with_link"><a href="https://bbs.sipeed.com/user/909" ><span class="label">咸鱼菌の MaixII-Dock 上手系列教程</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/origin/xiaoxu.html"><span class="label">喏呐の【攻城狮成长记】</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/develop/index.html"><span class="label">开发者更新日志</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/others/framework.html"><span class="label">【项目开发基础】项目架构介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/others/develop.html"><span class="label">【底层开发基础】编译安装测试</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/others/platform.html"><span class="label">【移植适配实例】开发新的平台</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/develop/opmv_cv.html"><span class="label">【图像处理开发】传统视觉算法</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">基础功能模块</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active no_link"><a><span class="label">图像处理</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/vision/back-information.html"><span class="label">背景知识</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/vision/maixpy3-example.html"><span class="label">基础用法</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/vision/image_example.html"><span class="label">传统视觉</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">硬件外设</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/hardware/GPIO.html"><span class="label">GPIO  (点灯)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/hardware/I2C.html"><span class="label">I2C  (pylibi2c)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/hardware/PWM.html"><span class="label">PWM  (脉冲宽度调制)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/hardware/UART.html"><span class="label">UART  (pyserial)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/hardware/SPI.html"><span class="label">SPI  (spidev)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/hardware/event.html"><span class="label">EVENT  (evdev)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/hardware/ADC.html"><span class="label">ADC*  (模/数转换器)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/hardware/watchdog.html"><span class="label">WATCHDOG*  (看门狗定时器)</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/net.html"><span class="label">网络功能</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">媒体功能</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/Audio/play_mp4.html"><span class="label">视频播放 (pyav)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/Audio/audio.html"><span class="label">录音与播放 (pyaudio)</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">获取 AI 算法</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/AI_net/Edge_detection.html"><span class="label">边缘检测 (sobel)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/AI_net/resnet.html"><span class="label">物品分类 (resnet)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/AI_net/yolo.html"><span class="label">物体检测 (yolov2)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/AI_net/number_recognize.html"><span class="label">数字识别</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/AI_net/face_recognize.html"><span class="label">人脸识别</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/AI_net/self_learn.html"><span class="label">自学习分类</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/AI_net/car_registration_plate_recognition.html"><span class="label">车牌识别</span><span class=""></span></a></li>
+<li class="not_active  with_link"><a href="https://maixhub.com" ><span class="label">在线训练 AI 模型</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">本地训练 AI 模型</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/train_AI/information.html"><span class="label">深度神经网络基础知识 (必看)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/train_AI/ready.html"><span class="label">本地训练环境搭建</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/train_AI/v831_sobel.html"><span class="label">边缘检测模型搭建过程</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/train_AI/data.html"><span class="label">如何制作数据集</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/train_AI/train_resnet.html"><span class="label">训练物体分类模型</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/usage/train_AI/train_yolov2.html"><span class="label">训练物体检测模型</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="active_parent no_link"><a><span class="label">核心 API 手册</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="active with_link"><a href="/soft/maixpy3/zh/api/maix/image.html"><span class="label">image</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/api/maix/display.html"><span class="label">display</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/api/maix/camera.html"><span class="label">camera</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy3/zh/api/maix/nn.html"><span class="label">nn</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>MaixPy3 image 模块</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/sipeed/sipeed_wiki/blob/main/docs/soft/maixpy3/zh/api/maix/image.md" target="_blank">
+                                    <span id='editPage'>编辑本页</span>
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <blockquote class="spoiler warning">
+<p> API 仍处于非完全稳定状态, 可能在未来会有小幅改动。</p>
+</blockquote>
+<h2 id="%E5%AF%BC%E5%85%A5%E6%A8%A1%E5%9D%97">导入模块</h2>
+<p>Image 对象是机器视觉操作的基本对象。</p>
+
+<pre class="language-python"><code class="language-python">from maix import image
+</code></pre>
+<p>image(_maix_image) 模块采用 pybind11 c++ 语言进行开发。</p>
+
+<pre class="language-bash"><code class="language-bash">            any_image
+         |              |
+         V              V
+    maix_vision      other
+                | |
+                 T
+                 V
+            maix_image
+</code></pre>
+<h2 id="%E5%9B%BE%E5%83%8F%E6%A8%A1%E5%9D%97%E5%85%A8%E5%B1%80%E6%8E%A5%E5%8F%A3">图像模块全局接口</h2>
+<blockquote>
+<p>0.4.6 到 0.4.8 后才引入全局模块接口。</p>
+</blockquote>
+<ul>
+<li><p>image.new</p>
+<p>创建 Image 对象，对应下述的 Image.open 实现。</p>
+</li>
+<li><p>image.load</p>
+<p>加载图像数据，并创建 Image 对象，对应下述的 Image.load 实现。</p>
+</li>
+<li><p>image.open</p>
+<p>打开图像文件，并创建 Image 对象，对应下述的 Image.open 实现。</p>
+</li>
+<li><p>image.load_freetype(path=&quot;xxx.ttf&quot;)</p>
+<p>加载 freetype 字体,加载后执行 draw_string() 函数将会用该函数加载的字体.</p>
+</li>
+<li><p>image.get_string_size(str=&quot;hello&quot;, [scale=1.0])</p>
+<p>计算某个字符串的高度和长度，方便字符串确定显示的位置。<br />
+str 字符串， scale 对应 draw_string 的 scale 参数。</p>
+</li>
+<li><p>image.free_freetype()</p>
+<p>释放当前加载 freetype 字体。</p>
+</li>
+</ul>
+<h2 id="Image-%E5%AF%B9%E8%B1%A1%E5%B1%9E%E6%80%A7%E5%8F%98%E9%87%8F">Image 对象属性变量</h2>
+<ul>
+<li><p>Image.width</p>
+<p>返回以像素计的图像的宽度。</p>
+</li>
+<li><p>Image.height</p>
+<p>返回以像素计的图像的高度。</p>
+</li>
+<li><p>Image.mode</p>
+<p>返回图像的格式,目前支持&quot;RGB&quot;, &quot;RGBA&quot;, &quot;L&quot;, &quot;RGB16&quot;(RGB565)</p>
+</li>
+<li><p>Image.size</p>
+<p>返回以像素计的图像的大小，如相同 width height 但不同 mode 的 RGB 和 RGBA 不同缓冲区长度。</p>
+</li>
+</ul>
+<h2 id="Image-%E5%AF%B9%E8%B1%A1%E5%9F%BA%E7%A1%80%E6%8E%A5%E5%8F%A3">Image 对象基础接口</h2>
+<p>打开、关闭、加载、保存、转换、复制、清除、序列化。</p>
+<ul>
+<li><p>Image.new([size = (240, 240), [color = (0, 0, 0) , [mode = &quot;RGB&quot;]]])</p>
+<p>创建一张新的图片,size为图像尺寸,color为图像填充颜色,mode为图像格式.目前支持&quot;RGB&quot;, &quot;RGBA&quot;, &quot;L&quot;, &quot;RGB16&quot;(RGB565)<br />
+返回 Image 对象，以便您可以使用 . 表示法调用另一个方法。</p>
+</li>
+<li><p>Image.open(path)</p>
+<p>从二进制文件中打开一张图片,path为路径名,会统一转换成RGB模式.Image.open(&quot;./tmp.jpg&quot;)</p>
+</li>
+<li><p>Image.save(path)</p>
+<p>将Image 对象保存成二进制文件,Image.save(&quot;./tmp.jpg&quot;)</p>
+</li>
+<li><p>Image.load(data, [size = (240, 240) , [mode = &quot;RGB&quot;]])</p>
+<p>在 python 对象中加载出一张图像,会将 python 对象的数据 copy 到 Image 对象内部，如将 tobytes 的二进制数据重新恢复成 Image对象。<br />
+date可以是PIL对象, image.Image() 对象,bytes对象,numpy 对象.<br />
+当data为bytes,numpy对象时,需要提供size和mode参数.<br />
+返回 Image 对象，以便您可以使用 . 表示法调用另一个方法。</p>
+</li>
+<li><p>Image.copy([img = &quot;maix_image&quot;])</p>
+<p>返回一张img类的Image 对象,img可以是&quot;maix_image&quot;, &quot;PIL&quot;, &quot;numpy&quot;<br />
+返回 Image 对象，以便您可以使用 . 表示法调用另一个方法。</p>
+</li>
+<li><p>Image.clear()</p>
+<p>清除 image.Image 对象内部的图像数据，但不删除对象。</p>
+</li>
+<li><p>Image.delete()</p>
+<p>释放 image.Image 对象。</p>
+</li>
+<li><p>Image.tobytes()</p>
+<p>返回图像的 bytes 数据，用于序列化数据。</p>
+</li>
+<li><p>Image.resize(w, h, func = 1, padding = 1, size=(0, 0))</p>
+<p>将图像调整至(w, h)大小,func 可选,size 可选（和 w h 互斥），padding 默认会按比例缩放填充，而不是 CV 的拉伸图像变形。<br />
+  0     (INTER_NEAREST 最近邻插值)<br />
+  1     (INTER_LINEAR 双线性插值)（默认设置）<br />
+  2     (INTER_CUBIC 4x4像素邻域的双三次插值)<br />
+  3     (INTER_AREA 使用像素区域关系进行重采样)<br />
+  4     (INTER_LANCZOS4 8x8像素邻域的Lanczos插值)</p>
+<p>返回 Image 对象，以便您可以使用 . 表示法调用另一个方法。</p>
+</li>
+<li><p>Image.draw_line(x1, y1, x2, y2, [color = (127, 127, 127), [thickness = 1]])</p>
+<p>在图像上绘制一条从(x0，y0)到(x1，y1)的线。<br />
+color 是RGB888元组。默认为灰色。<br />
+thickness 控制线的粗细像素。<br />
+返回 Image 对象，以便您可以使用 . 表示法调用另一个方法。</p>
+</li>
+<li><p>Image.draw_cross(x1, y1, c, size, [color = (127, 127, 127), [thickness = 1]])</p>
+<p>还不确定实现接口，待测试和设计。</p>
+</li>
+<li><p>Image.draw_rectangle(x1, y1, x2, y2, [color = (127, 127, 127), [thickness = 1]])</p>
+<p>在图像上绘制一个矩形。<br />
+color 是RGB888元组。默认为灰色。<br />
+thickness 控制线的粗细像素。当thickness=-1时,将会用color颜色填充整个区域.<br />
+返回 Image 对象，以便您可以使用 . 表示法调用另一个方法。</p>
+</li>
+<li><p>Image.draw_circle(x, y, radius, [color = (127, 127, 127), [thickness = 1]])</p>
+<p>在图像上绘制一个圆形。x, y为圆的中心点坐标, radius为圆的半径<br />
+color 是RGB888元组。默认为灰色。<br />
+thickness 控制线的粗细像素。当thickness=-1时,将会用color颜色填充整个区域.<br />
+返回 Image 对象，以便您可以使用 . 表示法调用另一个方法。</p>
+</li>
+<li><p>Image.draw_ellipse(cx, xy, rx, ry, angle, startAngle, endAngle, [color = (127, 127, 127), [thickness = 1]])</p>
+<p>在图像上绘制椭圆。<br />
+cx, xy, rx, ry ,椭圆的中心坐标和长轴短轴.<br />
+angle 椭圆旋转角度(0~180)<br />
+startAngle椭圆的开始绘图角度(0~360),<br />
+endAngle椭圆的结束绘图角度(0~360),<br />
+color 是RGB888元组。默认为灰色。<br />
+thickness 控制线的粗细像素。当thickness=-1时,将会用color颜色填充整个区域.<br />
+返回 Image 对象，以便您可以使用 . 表示法调用另一个方法。</p>
+</li>
+<li><p>Image.draw_string(x, y, str, [scale = 1.0, [color = (127, 127, 127), [thickness = 1]]])</p>
+<p>从图像中的(x, y)位置开始绘制文本<br />
+scale 可以放大/缩小图像上文本的大小。您可以传递大于0的整数或浮点值。<br />
+color 是RGB888元组。默认为灰色。<br />
+thickness 控制线的粗细像素。您可以传递大于0的整数.<br />
+返回 Image 对象，以便您可以使用 . 表示法调用另一个方法。</p>
+</li>
+<li><p>Image.rotate(rotate = 1.0)</p>
+<p>旋转图像到固定的角度,保持图像的尺寸不变<br />
+rotate旋转角度.您可以传递大于0的浮点值.<br />
+返回 Image 对象，以便您可以使用 . 表示法调用另一个方法。</p>
+</li>
+<li><p>Image.flip(flip = 1)</p>
+<p>沿着 x 或 y 轴进行翻转图像，保持图像的尺寸不变，参数 -1 horizontal &amp; vertical, 1 horizontal, 0 vertical 。</p>
+</li>
+<li><p>Image.convert(mode = &quot;RGB&quot;)</p>
+<p>转换图像的格式.<br />
+mode为图像格式.目前支持&quot;RGB&quot;, &quot;RGBA&quot;, &quot;L&quot;, &quot;RGB16&quot;(RGB565)<br />
+返回 Image 对象，以便您可以使用 . 表示法调用另一个方法。</p>
+</li>
+<li><p>Image.crop(x, y, w, h)</p>
+<p>别名为 cut 函数接口。<br />
+裁剪图片返回一张全新的图片<br />
+x, y, w, h裁剪图像的位置和大小<br />
+返回 Image 对象，以便您可以使用 . 表示法调用另一个方法。</p>
+</li>
+<li><p>Image.draw_image(img, x, y)</p>
+<p>将传递的img图像画在 image.Image() 对象内部的图像上<br />
+img只能传递 image.Image() 对象的图像.<br />
+返回 Image 对象，以便您可以使用 . 表示法调用另一个方法。</p>
+</li>
+<li><p>Image.get_pixel(x, y)</p>
+<p>得到图像x,y位置的像素值,返回是一个四元组对象,(r, g, b, a),如果为灰度,那只有r有效</p>
+</li>
+</ul>
+<h2 id="Image-%E5%AF%B9%E8%B1%A1%E8%A7%86%E8%A7%89%E6%93%8D%E4%BD%9C">Image 对象视觉操作</h2>
+<p>maix_vision 类是对于图像的一系列操作方法的集合</p>
+<ul>
+<li><p>maix_vision.get_blob_color(roi = (0, 0, 0, 0), critical = 0, co = 0)</p>
+<p>统计函数,得到图像感兴趣区域的最大颜色值.<br />
+roi 是感兴趣区域的矩形元组(x，y，w，h)。如果未指定，ROI即整个图像的图像矩形。 操作范围仅限于 roi 区域内的像素。尽量选取较小的区域,区域较大时统计效果比较差.<br />
+critical为返回值区域范围,简单将统计到的最大颜色值和critical相加或相减,当为0时,返回原来的色值.<br />
+co为返回的颜色空间模型.可选为<br />
+0       rgb<br />
+1       lab<br />
+2       hsv<br />
+返回值:<br />
+当co为0时返回[r, g, b]<br />
+当co为1时返回[L - critical, A - critical, B - critical, L + critical, A + critical, B + critical]<br />
+当co为2时同1</p>
+</li>
+<li><p>maix_vision.find_blobs(thresholds, roi = (0,0,0,0), x_stride = 2, y_stride = 2, invert = 0, area_threshold = 10, pixels_threshold = 10, merge = 0, margin = 0, tilt = 0, co = 1)</p>
+<p>查找图像中所有色块，并返回一个包括每个色块的色块对象的列表。<br />
+thresholds 必须是元组列表. [(minL, minA, minB, maxL, maxA, maxB)]<br />
+roi 是感兴趣区域的矩形元组(x，y，w，h)。如果未指定，ROI即整个图像的图像矩形。 操作范围仅限于 roi 区域内的像素。<br />
+x_stride 是查找某色块时需要跳过的x像素的数量。找到色块后，直线填充算法将精确像素。 若已知色块较大，可增加 x_stride 来提高查找色块的速度。<br />
+y_stride 是查找某色块时需要跳过的y像素的数量。找到色块后，直线填充算法将精确像素。 若已知色块较大，可增加 y_stride 来提高查找色块的速度。<br />
+invert 反转阈值操作，像素在已知颜色范围之外进行匹配，而非在已知颜色范围内。<br />
+若一个色块的边界框区域小于 area_threshold ，则会被过滤掉。<br />
+若一个色块的像素数小于 pixels_threshold ，则会被过滤掉。<br />
+merge 若为True，则合并所有没有被过滤掉的色块，这些色块的边界矩形互相交错重叠。<br />
+margin 可在相交测试中用来增大或减小色块边界矩形的大小。例如：边缘为1、相互间边界矩形为1的色块将被合并。<br />
+tilt设置是否查找最小斜矩形框,为0则不查找.<br />
+co为返回的颜色空间模型.可选为,如果不是特殊需要,请保持默认<br />
+0       rgb<br />
+1       lab<br />
+2       hsv<br />
+3       灰度<br />
+返回值:[{'x': 140, 'y': 88, 'w': 15, 'h': 7, 'pixels': 43, 'cx': 147, 'cy': 91}]<br />
+(x, y, w, h)色块的外框,pixels,色块的像素大小,(cx, cy)色块的中心点.</p>
+</li>
+<li><p>maix_vision.find_ball_color(thresholds, co = 1)</p>
+<p>该函数是在maix_vision.find_blobs的基础上通过基尔霍夫圆拟合,并返回拟合的圆.<br />
+thresholds 必须是元组列表. [(minL, minA, minB, maxL, maxA, maxB)]<br />
+co为返回的颜色空间模型.可选为,如果不是特殊需要,请保持默认<br />
+0       rgb<br />
+1       lab<br />
+2       hsv<br />
+返回值:</p>
+</li>
+<li><p>maix_vision.find_line()</p>
+<p>该函数是内置的寻线函数.通过自适应的图像操作,将图像中的黑线选出来,然后返回黑线的矩形区域,可以作为小车的寻线函数.<br />
+返回值:<br />
+{'rect': [9, 229, 9, 9, 145, 9, 145, 229], 'pixels': 12959, 'cx': 77, 'cy': 119, 'rotation': -1.570796251296997}<br />
+rect为线的框,<br />
+pixels为线的像素大小<br />
+(cx, cy)框的中心点<br />
+rotation为框的偏转角度(弧度制)</p>
+</li>
+</ul>
+<blockquote>
+<p>下述函数可用，但暂时没写说明。</p>
+</blockquote>
+<ul>
+<li><p>get_statistics</p>
+</li>
+<li><p>rotation_corr</p>
+</li>
+<li><p>gamma_corr</p>
+</li>
+<li><p>lens_corr</p>
+</li>
+<li><p>mean</p>
+</li>
+<li><p>find_rects</p>
+</li>
+<li><p>find_lines</p>
+</li>
+<li><p>find_circles</p>
+</li>
+<li><p>find_line_segments</p>
+</li>
+<li><p>find_apriltags</p>
+</li>
+<li><p>find_qrcodes</p>
+</li>
+<li><p>find_barcodes</p>
+</li>
+</ul>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                        <a href="/soft/maixpy3/zh/usage/train_AI/train_yolov2.html">
+                            <span class="icon"></span>
+                            <span class="label">训练物体检测模型</span>
+                        </a>
+                        
+                    </div>
+                    <div id="next">
+                        
+                        <a href="/soft/maixpy3/zh/api/maix/display.html">
+                            <span class="label">display</span>
+                            <span class="icon"></span>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>相关链接</a><ul><li><a target="_blank" href="https://www.sipeed.com">Sipeed 官网</a></li>
+<li><a target="_blank" href="https://maixhub.com/">MaixHub</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">Sipeed 淘宝</a></li>
+<li><a  href="/sitemap.xml">网站地图</a></li>
+<li><a target="_blank" href="https://github.com/teedoc/teedoc">网站使用 teedoc 生成</a></li>
+</ul>
+</li>
+<li><a>源码</a><ul><li><a target="_blank" href="https://github.com/sipeed/sipeed_wiki">Wiki 源码</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">开源项目</a></li>
+</ul>
+</li>
+<li><a>关注我们</a><ul><li><a target="_blank" href="https://twitter.com/SipeedIO">twitter</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">淘宝</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">github</a></li>
+<li><a><a>微信公众号</a><img src='/static/image/wechat.png'></a>
+</li>
+</ul>
+</li>
+<li><a>联系我们</a><ul><li><a>电话: +86 0755-27808509</a>
+</li>
+<li><a>商业支持: support@sipeed.com</a>
+</li>
+<li><a>地址: 深圳市宝安区新湖路4008号蘅芳科技办公大厦A座-2101C</a>
+</li>
+<li><a  href="/join_us.html">加入我们</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://www.sipeed.com">©2018-2023 深圳矽速科技有限公司</a></li>
+<li><a target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index">粤ICP备19015433号</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/js/prism.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <link rel="stylesheet" href="/static/js/add_hint/style.css" type="text/css"/>
+    
+        <script src="/static/js/add_hint/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+        <script src="/static/js/thumbs_up/main.js"></script>
+    
+</body>
+
+</html>

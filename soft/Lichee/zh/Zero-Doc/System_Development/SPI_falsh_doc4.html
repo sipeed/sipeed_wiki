@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+
+<html lang="zh"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="">
+    
+    
+    <meta name="description" content="">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+        
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/prism.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?9cb07365544a53067c56c346c838181a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119047820-5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-119047820-5');
+    </script>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/js/thumbs_up/style.css" type="text/css"/>
+        
+    
+    
+    <title>JFFS2文件系统简介 - Sipeed Wiki</title>
+    
+    <script type="text/javascript">js_vars = {"teedoc-plugin-ad-hint": {"type": "hint", "label": "NEW", "content": "全新 Maix 系列产品 <a href='https://wiki.sipeed.com/maixcam'>MaixCAM</a> 已上线, 全新 <a href='https://wiki.sipeed.com/maixpy/'>MaixPy</a> 功能更丰富，性能更强大，软件更易用，文档更全面！", "show_times": 2, "show_after_s": 432000, "date": "2022-06-01 14:00", "color": "#a0421d", "link_color": "#e53935", "link_bg_color": "#e6ae5c", "bg_color": "#ffcf89", "color_hover": "white", "bg_color_hover": "#f57c00", "close_color": "#eab971"}, "teedoc-plugin-thumbs-up": {"label_up": "有帮助", "label_down": "待改进", "icon": "/static/images/thumbs_up/up.svg", "icon_clicked": "/static/images/thumbs_up/upped.svg", "url": "https://thumbs-up.sipeed.com", "show_up_count": true, "show_down_count": false, "msg_already_voted": "您已经投过票了", "msg_thanks": "感谢您的反馈", "msg_down_prompt": "感谢反馈，请告诉我们可以改进什么地方?（最少 10 个字）", "msg_down_prompt_error": "消息最少需要 10 个字， 最多 256 个字", "msg_error": "请求服务器出现错误!"}}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": false, "update": [], "ts": 0, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/">
+                
+                    <img class="site_logo" src="/static/image/logo.svg" alt="sipeed wiki logo">
+                
+                
+                    <h2>wiki</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class=""><a  href="/">产品</a></li>
+<li class="sub_items active_parent"><a >开源软件</a><ul><li class=""><a  href="/maixpy/">MaixPy</a></li>
+<li class=""><a  href="/soft/maixpy/zh/index.html">MaixPy_v1</a></li>
+<li class="active"><a  href="/soft/Lichee/zh/index.html">Lichee</a></li>
+<li class=""><a  href="/ai/zh/index.html">AI 指南</a></li>
+</ul>
+</li>
+<li class=""><a target="_blank" href="https://maixhub.com">MaixHub</a></li>
+<li class=""><a  href="/news/">动态</a></li>
+<li class=""><a  href="/faq.html">FAQ 汇总</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class=""><a  href="/store.html"><img src='/static/image/shop.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+<li class=""><a target="_blank" href="https://github.com/sipeed"><img src='/static/image/github.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">输入关键词，多关键词空格隔开</span>
+                                <span id="search_loading_hint">正在加载，请稍候。。。</span>
+                                <span id="search_download_err_hint">下载文件失败，请刷新重试或检查网络</span>
+                                <span id="search_other_docs_result_hint">来自其它文档的结果</span>
+                                <span id="search_curr_doc_result_hint">当前文档搜索结果</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="not_active with_link"><a href="/soft/Lichee/zh/linux/start/introduction.html"><span class="label">Linux 简介</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">bootloader(施工中)</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Kernel(施工中)</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">rootfs(施工中)</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">application(施工中)</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="active_parent with_link"><a href="/soft/Lichee/zh/Zero-Doc/Start/board_intro.html"><span class="label">LicheePI Zero</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active no_link"><a><span class="label">初来乍到</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Zero-Doc/Start/intro_cn.html"><span class="label">荔枝派与创作者的自我介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Zero-Doc/Start/tips.html"><span class="label">Linux使用小贴士</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">上手使用</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Zero系统烧录</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Zero-Doc/System_Development/download_onekey.html"><span class="label">Windows下镜像烧录</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Zero-Doc/System_Development/download_dd.html"><span class="label">Linux下镜像烧录</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Zero-Doc/System_Development/download_SPI.html"><span class="label">SPI Flash系统烧录</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Zero-Doc/Start/docker_index.html"><span class="label">Docker环境简明教程</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Zero-Doc/Start/docker_env.html"><span class="label">Docker开发环境</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Zero-Doc/Start/docker_command.html"><span class="label">Docker命令速查</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Zero-Doc/Start/docker_ubuntu.html"><span class="label">基础ubuntu系统配置</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="active_parent no_link"><a><span class="label">系统开发</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Zero-Doc/System_Development/type.html"><span class="label">Zero的开发环境分类</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">主线Uboot</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Zero-Doc/System_Development/uboot_build.html"><span class="label">Uboot 编译</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Zero-Doc/System_Development/uboot_conf.html"><span class="label">Uboot 配置</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Zero-Doc/System_Development/uboot_logo.html"><span class="label">开机logo替换</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">主线Kernel</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Zero-Doc/System_Development/kernel_build.html"><span class="label">主线Kernel基础编译</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Zero-Doc/System_Development/kernel_printk.html"><span class="label">内核printk等级设置</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">BSP内核编译</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Zero-Doc/System_Development/bsp_build.html"><span class="label">BSP源码下载与编译</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Zero-Doc/System_Development/bsp_review.html"><span class="label"> BSP内核构建走读</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Zero-Doc/System_Development/bsp_cam.html"><span class="label">BSP内核的摄像头使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Zero-Doc/System_Development/bsp_mem.html"><span class="label">bsp内核中的保留内存</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">根文件系统编译</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Zero-Doc/System_Development/buildroot.html"><span class="label">buildroot根文件系统</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Zero-Doc/System_Development/emdebian.html"><span class="label">emdebian根文件系统</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="active_parent no_link"><a><span class="label">SPI系统介绍</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Zero-Doc/System_Development/SPI_flash_build.html"><span class="label">SPI-Flash系统编译</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Zero-Doc/System_Development/SPI_falsh_doc1.html"><span class="label">sunxi-fel增加对16M以上Flash的支持</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Zero-Doc/System_Development/SPI_falsh_doc2.html"><span class="label">overlayfs的使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Zero-Doc/System_Development/SPI_falsh_doc3.html"><span class="label">jffs2文件系统挂载不上的常见原因</span><span class=""></span></a></li>
+<li class="active with_link"><a href="/soft/Lichee/zh/Zero-Doc/System_Development/SPI_falsh_doc4.html"><span class="label">JFFS2文件系统简介</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Zero-Doc/System_Development/SPI_falsh_doc5.html"><span class="label">uboot 对SPI flash 的识别</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Zero-Doc/System_Development/SPI_falsh_doc6.html"><span class="label">关于系统reboot</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Zero-Doc/System_Development/Imager.html"><span class="label">Zero Imager</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">驱动开发</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Zero-Doc/Drive/Device_Tree_Intro.html"><span class="label">设备树简介</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">外设适配</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">GPIO操作</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Zero-Doc/Drive/GPIO_file.html"><span class="label">文件IO方式操作</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Zero-Doc/Drive/GPIO_mmap.html"><span class="label">C语言方式(mmap)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Zero-Doc/Drive/GPIO_libgpiod.html"><span class="label">C语言方式(libgpiod)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Zero-Doc/Drive/GPIO_py.html"><span class="label">Python 操作GPIO</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Zero-Doc/Drive/uboot_GPIO.html"><span class="label">uboot下gpio操作</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Zero-Doc/Drive/UART.html"><span class="label"> UART操作</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Zero-Doc/Drive/I2C.html"><span class="label">I2C操作</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Zero-Doc/Drive/PWM.html"><span class="label">PWM输出</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Zero-Doc/Drive/CODEC.html"><span class="label">CODEC的使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Zero-Doc/Drive/Ethernet.html"><span class="label">以太网使用指南</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">设备驱动</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Zero-Doc/Drive/GPUandDRM.html"><span class="label">GPU/DRM驱动</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Zero-Doc/Drive/atmel_touch.html"><span class="label">atmel触摸屏驱动分析</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Zero-Doc/Drive/atmel_inter.html"><span class="label">atmel触摸屏中断改轮询</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Zero-Doc/Drive/watchdog.html"><span class="label">看门狗的使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Zero-Doc/Drive/RGB_LCD.html"><span class="label">点屏之RGB屏</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Zero-Doc/Drive/SPI_LCD.html"><span class="label">点屏之SPI屏</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">应用开发</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Zero-Doc/application/autorun.html"><span class="label">开机自启动</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Zero-Doc/application/debug.html"><span class="label">Segment Fault调试</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Zero-Doc/application/otg2PC.html"><span class="label">Zero通过otg与PC共享网络</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Zero-Doc/application/USB_cam.html"><span class="label">USB摄像头使用</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">基于QT的GUI开发</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Zero-Doc/application/QT_doc1.html"><span class="label">移植tslib</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Zero-Doc/application/QT_doc2.html"><span class="label">移植QT5.9.1</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Zero-Doc/application/QT_doc3.html"><span class="label">移植QT4.8.7</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Zero-Doc/application/QT_doc4.html"><span class="label">QtCreator使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Zero-Doc/application/QT_doc5.html"><span class="label">Qt5.x移植到Qt4.8</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Zero-Doc/application/QT_doc6.html"><span class="label">Qt字体相关</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Zero-Doc/application/QT_doc7.html"><span class="label">Qt移植总结</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Zero-Doc/application/QT_doc8.html"><span class="label">Qt裁剪</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Zero-Doc/application/QT_doc9.html"><span class="label">Qt去除鼠标指针显示</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">贡献投稿</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">投稿文章精选</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Zero-Doc/Contribution/article_1.html"><span class="label">荔枝派zero开箱指南</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Zero-Doc/Contribution/article_2.html"><span class="label">Zero i2c oled使用指南</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Zero-Doc/Contribution/article_3.html"><span class="label">Lichee Pi zero SPI LCD使用指南</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Zero-Doc/Contribution/article_4.html"><span class="label">Zero u-boot编译和使用指南</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Zero-Doc/Contribution/article_5.html"><span class="label">TF WiFi使用方法</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Zero-Doc/Contribution/article_6.html"><span class="label">Licheepi Zero Ethernet适配指南</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Zero-Doc/Contribution/article_7.html"><span class="label">Qt5 移植到 licheepi zero</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Zero-Doc/Contribution/article_8.html"><span class="label">Zero Spi Nor Flash启动系统制作指南</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Zero-Doc/Contribution/article_10.html"><span class="label">lichee 编译踩坑记录(ilichee ZERO)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Zero-Doc/Contribution/article_12.html"><span class="label">TF WIFI 小白编</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Nano-Doc-Backup/index.html"><span class="label">LicheePI Nano</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">上手体验</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Nano-Doc-Backup/get_started/first_eye.html"><span class="label">初见</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Nano-Doc-Backup/get_started/first_eat.html"><span class="label">前言</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">系统适配篇</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Nano-Doc-Backup/build_sys/build_index.html"><span class="label">总述</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Nano-Doc-Backup/build_sys/onekey.html"><span class="label">镜像包一键烧录</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Nano-Doc-Backup/build_sys/docker.html"><span class="label">docker快速搭建环境</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Nano-Doc-Backup/build_sys/bootargs.html"><span class="label">uboot传递参数</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Nano-Doc-Backup/build_sys/kernel.html"><span class="label">主线linux编译</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Nano-Doc-Backup/build_sys/devicetree.html"><span class="label">设备树添加节点</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Nano-Doc-Backup/build_sys/rootfs.html"><span class="label">根文件系统编译</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Nano-Doc-Backup/build_sys/build_flash_copy.html"><span class="label">SPI-Flash系统编译</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">驱动开发</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Nano-Doc-Backup/driver/touchscreen.html"><span class="label">电容触摸屏适配</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">从挖坑到填坑</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Nano-Doc-Backup/step_by_step/one_openbox.html"><span class="label">开箱介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Nano-Doc-Backup/step_by_step/two_sunxi-tools.html"><span class="label">编译使用sunxi-tools</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Nano-Doc-Backup/step_by_step/three_uboot.html"><span class="label">编译测试uboot</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Nano-Doc-Backup/step_by_step/four_linux.html"><span class="label">编译测试linux</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">应用开发</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Nano-Doc-Backup/application/littlevgl.html"><span class="label">littlevGL的使用</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">MaixSense</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/Lichee/zh/MaixSense/contribution/Build_R329.html"><span class="label">R329主线armbian内核 系统 驱动开发方法</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/Lichee/zh/MaixSense/contribution/Tina_R329_swupdate_OTA.html"><span class="label">Tina R329 swupdate OTA 步骤 </span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/Lichee/zh/MaixSense/application/Speech_usage_zh.html"><span class="label">Maix-Speech 的相关使用</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Lichee RV</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Lichee-RV/build_sys/Buildroot.html"><span class="label">使用Buildroot</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Lichee-RV/contribution/Dual_screen_display/Dual_screen_display.html"><span class="label">86 Panel RGB 与 SPI 双屏显示</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/Lichee/zh/Lichee-RV/contribution/D1_Kubernetes.html"><span class="label">D1上Kubernetes相关软件编译</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">V83x</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/Lichee/zh/MaixII/V83X/contribution/v83x_sdk_compile/V83x_sdk_kernel_compile.html"><span class="label">V83X sdk开发方法</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>JFFS2文件系统简介</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/sipeed/sipeed_wiki/blob/main/docs/soft/Lichee/zh/Zero-Doc/System_Development/SPI_falsh_doc4.md" target="_blank">
+                                    <span id='editPage'>编辑本页</span>
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <p>JFFS2 是一个日志结构(log-structured)的文件系统，包含数据 和<br />
+原数据(meta-data)的节点在闪存上顺序的存储。</p>
+<p>JFFS2 之所以选择日志结构的存储方式，是因为对闪存的更新应该是<br />
+out-of-place 的更新方式，而不是对磁盘的 in-place 的更新方式。在闪存上<br />
+in-place 更新方式的问题我们已经在闪存转换层一节描述过了。</p>
+<h2 id="JFFS2%E4%BB%8B%E7%BB%8D">JFFS2介绍</h2>
+<h3 id="%E8%8A%82%E7%82%B9%E5%A4%B4%E9%83%A8%E5%AE%9A%E4%B9%89%E5%92%8C%E5%85%BC%E5%AE%B9%E6%80%A7">节点头部定义和兼容性</h3>
+<p>JFFS2<br />
+将文件系统的数据和原数据以节点的形式存储在闪存上，具体来说节点头部的定义如下：</p>
+<p><img src="./../static/System_Development/uboot_conf_9.gif" alt="这个图不见了！！！！" /></p>
+<ul>
+<li><p>幻数屏蔽位：0x1985 用来标识 JFFS2 文件系统。</p>
+</li>
+<li><p>节点类型：JFFS2<br />
+自身定义了三种节点类型，但是考虑到文件系统可扩展性和兼容性，JFFS2 从 ext2 借鉴了经验，节点类型的最高两位被用来定义节点的兼容属性，具体来说有下面几种兼容属性：</p>
+<ul>
+<li><p>JFFS2_FEATURE_INCOMPAT：当 JFFS2 发现了一个不能识别的节点类型，并且它的兼容属性是</p>
+</li>
+<li><p>JFFS2_FEATURE_INCOMPAT，那么 JFFS2 必须拒绝挂载(mount)文件系统。</p>
+</li>
+<li><p>JFFS2_FEATURE_ROCOMPAT：当 JFFS2 发现了一个不能识别的节点类型，并且它的兼容属性是 JFFS2_FEATURE_ROCOMPAT，那么 JFFS2 必须以只读的方式挂载文件系统。</p>
+</li>
+<li><p>JFFS2_FEATURE_RWCOMPAT_DELETE：当 JFFS2发现了一个不能识别的节点类型，并且它的兼容属性是 JFFS2_FEATURE_RWCOMPAT_DELETE，那么在垃圾回收的时候，这个节点可以被删除。</p>
+</li>
+<li><p>JFFS2_FEATURE_RWCOMPAT_COPY：当 JFFS2 发现了一个不能识别的节点类型，并且它的兼容属性是 JFFS2_FEATURE_RWCOMPAT_COPY，那么在垃圾回收的时候，这个节点要被拷贝到新的位置。</p>
+</li>
+<li><p>节点总长度：包括节点头和数据的长度。</p>
+</li>
+<li><p>节点头部 CRC 校验：包含节点头部的校验码，为文件系统的可靠性提供了支持。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="%E8%8A%82%E7%82%B9%E7%B1%BB%E5%9E%8B">节点类型</h3>
+<p>JFFS2 定义了三种节点类型：</p>
+<p>JFFS2_NODETYPE_INODE： INODE<br />
+节点包含了i-节点的原数据(i节点号，文件的组 ID, 属主 id,<br />
+访问时间，偏移，长度等)，文件数据被附在 INODE 节点之后。除此之外，每个<br />
+INODE 节点还有一个版本号，它被用来维护属于一个i-节点的所有 INODE<br />
+节点的全序关系。下面举例来说明这个全序关系在 JFFS2 的使用：</p>
+<p><img src="http://www.ibm.com/developerworks/cn/linux/l-jffs2/images/image003.gif" alt="这个图不见了！！！！" /></p>
+<p>因此，当文件系统从闪存上读节点信息后，会生成下面的映射信息：</p>
+<p><img src="http://www.ibm.com/developerworks/cn/linux/l-jffs2/images/image004.gif" alt="" /></p>
+<p>根据这个映射信息表，文件系统就知道到相应的 INODE 节点去读取相应的文件内容。最后要说明的是，JFFS2 支持文件数据的压缩存储，因此在 INODE 节点中还包含了所使用的压缩算法，在读取数据的时候选择相应的压缩算法来解压缩。 JFFS2_NODETYPE_DIRENT：DIRENT 节点就是把文件名与 i 节点对应起来。在 DIRENT节点中也有一个版本号，这个版本号的作用主要是用来删除一个 dentry。具体来说，当我们要从一个目录中删除一个 dentry 时，我们要写一个 DIRENT 节点，节点中的文件名与被删除的 dentry 中的文件名相同，i 节点号置为 0，同时设置一个更高的版本号。 JFFS2_NODETYPE_CLEANMARKER：当一个擦写块被擦写完毕后，CLEANMARKER 节点会被写在 NOR flash 的开头，或 NAND flash 的 OOB(Out-Of-Band) 区域来表明这是一个干净，可写的擦写块。在 JFFS v1 中，如果扫描到开头的 1K 都是 0xFF 就认为这个擦写块是干净的。但是在实际的测试中发现，如果在擦写的过程中突然掉电，擦写块上也可能会有大块连续 0xFF，但是这并不表明这个擦写块是干净的。于是我们需要 CLEANMARKER 节点来确切的标识一个干净的擦写块。</p>
+<h3 id="JFFS2%E8%8A%82%E7%82%B9%EF%BC%8C%E6%93%A6%E5%86%99%E5%9D%97%E5%9C%A8%E5%86%85%E5%AD%98%E4%B8%AD%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E6%93%8D%E4%BD%9C">JFFS2节点，擦写块在内存中的表示和操作</h3>
+<p>JFFS2 维护了几个链表来管理擦写块，根据擦写块上的内容，一个擦写块会在不同的链表上。具体来说，当一个擦写块上都是合法(valid)的节点时，它会在clean_list 上；当一个擦写块包含至少一个过时(obsolete)的节点时，它会在dirty_list 上；当一个擦写块被擦写完毕，并被写入 CLEANMARKER节点后，它会在 free_list 上。</p>
+<p>通常情况下，JFFS2 顺序的在擦写块上写入不同的节点，直到一个擦写块被写满。此时 JFFS2 从 free_list 上取下一个擦写块，继续从擦写块的开头开始写入节点。当 free_list 上擦写块的数量逐渐减少到一个预先设定的阀值的时候，垃圾回收就被触发了，为文件系统清理出更多的可用擦写块。为了减少对内存的占用，JFFS2 并没有把 i 节点所有的信息都保留在内存中，而只是把那些在请求到来时不能很快获得的信息保留在内存中。具体来说，对于在闪存上的每个 i 节点，在内存里都有一个 struct jffs2_inode_cache 与之对应，这个结构里保存了 i 节点号，指向 i 节点的连接数，以及一个指向属于这个 i 节点的物理节点链表的指针。所有的 struct jffs2_inode_cache 存储在一个哈希表中。闪存上的每个节点在内存中由一个 struct jffs2_raw_node_ref 表示，这个结构里保存了此节点的物理偏移，总长度，以及两个指向 struct jffs2_raw_node_ref 的指针。一个指针指向此节点在物理擦写块上的下一个节点，另一个指针指向属于同一个 i-节点的物理节点链表的下一个节点。</p>
+<p><img src="http://www.ibm.com/developerworks/cn/linux/l-jffs2/images/image006.gif" alt="这个图不见了！！！！" /></p>
+<p>在闪存上的节点的起始偏移都是 4 字节对齐的，所以 struct jffs2_inode_cache 中flash_offset 的最低两位没有被用到。JFFS2 正好利用最低位作为此节点是否过时的标记。</p>
+<p>下面举一例来说明 JFFS2 是如何使用这些数据结构的。VFS 调用 iget() 来得到一个 i 节点的信息，当这个 i 节点不在缓存中的时候，VFS 就会调用 JFFS2 的 read_inode() 回调函数来得到 i 节点信息。传给 read_inode() 的参数是 i 节点号，JFFS2 用这个 i 节点号从哈希表中查找相应的 struct jffs2_inode_cache，然后利用属于这个 i 节点的节点链表从闪存上读入节点信息，建立类似于表三的映射信息。</p>
+<h3 id="JFFS2-%E6%8C%82%E8%BD%BD%E8%BF%87%E7%A8%8B">JFFS2 挂载过程</h3>
+<p>JFFS2 的挂载过程分为四个阶段：</p>
+<ol>
+<li>JFFS2 扫描闪存介质，检查每个节点 CRC 校验码的合法性，同时分配了<br />
+struct jffs2_inode_cache 和 struct jffs2_raw_node_ref</li>
+<li>扫描每个 i 节点的物理节点链表，标识出过时的物理节点；对每一个合法的<br />
+dentry 节点，将相应的 jffs2_inode_cache 中的 nlink 加一。</li>
+<li>找出 nlink 为 0 的 jffs2_inode_cache，释放相应的节点。</li>
+<li>释放在扫描过程中使用的临时信息。</li>
+</ol>
+<h3 id="JFFS2-%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6">JFFS2 垃圾回收机制</h3>
+<p>当 free_list 上的擦写块数太少了，垃圾回收就会被触发。垃圾回收主要的任务就是回收那些已经过时的节点，但是除此之外它还要考虑磨损平衡的问题。因为如果一味的从 dirty_list上选取擦写块进行垃圾回收，那么 dirty_list 上的擦写块将先于 clean_list 上的擦写块被磨损坏。JFFS2 的处理方式是以 99% 的概率从 dirty_list，1% 的概率从 clean_list 上取一个擦写块下来。由此可以看出 JFFS2 的设计思想是偏向于性能，同时兼顾磨损平衡。对这个块上每一个没有过时的节点执行相同的操作：</p>
+<ol>
+<li>找出这个节点所属的 i 节点号(见图五)。</li>
+<li>调用 iget()，建立这个 i 节点的文件映射表。</li>
+<li>找出这个节点上没有过时的数据内容，并且如果合法的数据太少，JFFS2<br />
+还会合并相邻的节点。</li>
+<li>将数据读入倒缓存里，然后将它拷贝到新的擦写块上。</li>
+<li>将回收的节点置为过时。</li>
+</ol>
+<p>当擦写块上所有的节点都被置为过时，就可以擦写这个擦写块，回收使用它。</p>
+<h2 id="JFFS2-%E7%9A%84%E4%B8%8D%E8%B6%B3%E4%B9%8B%E5%A4%84">JFFS2 的不足之处</h2>
+<h3 id="%E6%8C%82%E8%BD%BD%E6%97%B6%E9%97%B4%E8%BF%87%E9%95%BF">挂载时间过长</h3>
+<p>JFFS2 的挂载过程需要对闪存从头到尾的扫描，这个过程是很慢的，我们在测试中发现，挂载一个 16M 的闪存有时需要半分钟以上的时间。</p>
+<h3 id="%E7%A3%A8%E6%8D%9F%E5%B9%B3%E8%A1%A1%E7%9A%84%E9%9A%8F%E6%84%8F%E6%80%A7%28random-nature%29">磨损平衡的随意性(random nature)</h3>
+<p>JFFS2<br />
+对磨损平衡是用概率的方法来解决的，这很难保证磨损平衡的确定性。在某些情况下，可能造成对擦写块不必要的擦写操作；在某些情况下，又会引起对磨损平衡调整的不及时。</p>
+<h3 id="%E5%BE%88%E5%B7%AE%E7%9A%84%E6%89%A9%E5%B1%95%E6%80%A7">很差的扩展性</h3>
+<p>JFFS2 中有两个地方的处理是 O(N) 的，这使得它的扩展性很差。</p>
+<p>首先，挂载时间同闪存的大小，闪存上节点数目成正比。</p>
+<p>其次，虽然 JFFS2 尽可能的减少内存的占用，但通过上面对 JFFS2 的介绍我们可以知道实际上它对内存的占用量是同 i 节点数和闪存上的节点数成正比的。</p>
+<p>因此在实际应用中，JFFS2 最大能用在 128M 的闪存上。</p>
+<h2 id="JFFS2-%E7%9A%84%E6%96%B0%E7%89%B9%E6%80%A7">JFFS2 的新特性</h2>
+<p>最近加入到 JFFS2 中的两个补丁程序分别解决了上面提到的挂载时间过长和磨损平衡随意性的问题。</p>
+<h3 id="%E7%A3%A8%E6%8D%9F%E5%9D%97%E5%B0%8F%E7%BB%93%E8%A1%A5%E4%B8%81%E7%A8%8B%E5%BA%8F%28erase-block-summary-patch%29">磨损块小结补丁程序(erase block summary patch)</h3>
+<p>这个补丁程序最基本的思想就是用空间来换时间。具体来说，就是将每个擦写块每个节点的原数据信息写在这个擦写块的最后，当 JFFS2 挂载的时候，对每个擦写块只需要读一次来读取这个小结节点，因此大大减少了挂载时间。使用了磨损块小结补丁程序，一个擦写块的结构就像下面这样：</p>
+<p><img src="http://www.ibm.com/developerworks/cn/linux/l-jffs2/images/image007.gif" alt="这个图不见了！！！！" /></p>
+<p>根据我们的测试，使用磨损块小结补丁程序，挂载一个 12M 的闪存需要 2~3秒，挂载一个 16M 的闪存需要 3~4 秒。</p>
+<h3 id="%E6%94%B9%E8%BF%9B%E7%9A%84%E7%A3%A8%E6%8D%9F%E5%B9%B3%E8%A1%A1%E8%A1%A5%E4%B8%81%E7%A8%8B%E5%BA%8F">改进的磨损平衡补丁程序</h3>
+<p>这个补丁程序的基本思想是，记录每个擦写块的擦写次数，当闪存上各个擦写块的擦写次数的差距超过某个预定的阀值，开始进行磨损平衡的调整。调整的策略是，在垃圾回收时将擦写次数小的擦写块上的数据迁移到擦写次数大的擦写块上。这样一来我们提高了磨损平衡的确定性，我们可以知道什么时候开始磨损平衡的调整，也可以知道选取哪些擦写块进行磨损平衡的调整。</p>
+<h3 id="%E6%93%A6%E5%86%99%E5%9D%97%E5%A4%B4%E9%83%A8%E8%A1%A5%E4%B8%81%E7%A8%8B%E5%BA%8F">擦写块头部补丁程序</h3>
+<p>在写改进的磨损平衡补丁程序的过程之中，我们需要记录每个擦写块的擦写次数，这个信息需要记录在各自的擦写块上。可是我们发现 JFFS2 中缺少一种灵活的对每个擦写块的信息进行扩展的机制。于是我们为每个擦写块引入了擦写块头部(header)，这个头部负责纪录每个擦写块的信息(比如说擦写次数)，并且它提供了灵活的扩展机制，将来如果有新的信息需要记录，可以很容易的加入到头部之中。</p>
+<h2 id="JFFS3-%E7%AE%80%E4%BB%8B">JFFS3 简介</h2>
+<p>虽然不断有新的补丁程序来提高 JFFS2 的性能，但是不可扩展性是它最大的问题，但是这是它自身设计的先天缺陷，是没有办法靠后天来弥补的。因此我们需要一个全新的文件系统，而 JFFS3 就是这样的一个文件系统，JFFS3 的设计目标是支持大容量闪存(&gt;1TB)的文件系统。JFFS3 与 JFFS2 在设计上根本的区别在于，JFFS3 将索引信息存放在闪存上，而 JFFS2将索引信息保存在内存中。比如说，由给定的文件内的偏移定位到存储介质上的物理偏移地址所需的信息，查找某个目录下所有的目录项所需的信息都是索引信息的一种。 JFFS3 现在还处于设计阶段，文件系统的基本结构借鉴了 Reiser4 的设计思想，整个文件系统就是一个 B+ 树。JFFS3 的发起者正工作于垃圾回收机制的设计，这是 JFFS3 中最复杂，也是最富有挑战性的部分。JFFS3 的设计文档可以在<a href="http://www.linux-mtd.infradead.org/doc/jffs3.html"  target="_blank">http://www.linux-mtd.infradead.org/doc/jffs3.html</a> 得到，有兴趣的读者可以积极参与到 JFFS3 的设计中，发表自己的见解，参与讨论。</p>
+<blockquote>
+<p>节选自：<a href="http://blog.csdn.net/harhy/article/details/50637488"  target="_blank">http://blog.csdn.net/harhy/article/details/50637488</a></p>
+</blockquote>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                        <a href="/soft/Lichee/zh/Zero-Doc/System_Development/SPI_falsh_doc3.html">
+                            <span class="icon"></span>
+                            <span class="label">jffs2文件系统挂载不上的常见原因</span>
+                        </a>
+                        
+                    </div>
+                    <div id="next">
+                        
+                        <a href="/soft/Lichee/zh/Zero-Doc/System_Development/SPI_falsh_doc5.html">
+                            <span class="label">uboot 对SPI flash 的识别</span>
+                            <span class="icon"></span>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>相关链接</a><ul><li><a target="_blank" href="https://www.sipeed.com">Sipeed 官网</a></li>
+<li><a target="_blank" href="https://maixhub.com/">MaixHub</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">Sipeed 淘宝</a></li>
+<li><a  href="/sitemap.xml">网站地图</a></li>
+<li><a target="_blank" href="https://github.com/teedoc/teedoc">网站使用 teedoc 生成</a></li>
+</ul>
+</li>
+<li><a>源码</a><ul><li><a target="_blank" href="https://github.com/sipeed/sipeed_wiki">Wiki 源码</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">开源项目</a></li>
+</ul>
+</li>
+<li><a>关注我们</a><ul><li><a target="_blank" href="https://twitter.com/SipeedIO">twitter</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">淘宝</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">github</a></li>
+<li><a><a>微信公众号</a><img src='/static/image/wechat.png'></a>
+</li>
+</ul>
+</li>
+<li><a>联系我们</a><ul><li><a>电话: +86 0755-27808509</a>
+</li>
+<li><a>商业支持: support@sipeed.com</a>
+</li>
+<li><a>地址: 深圳市宝安区新湖路4008号蘅芳科技办公大厦A座-2101C</a>
+</li>
+<li><a  href="/join_us.html">加入我们</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://www.sipeed.com">©2018-2023 深圳矽速科技有限公司</a></li>
+<li><a target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index">粤ICP备19015433号</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/js/prism.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <link rel="stylesheet" href="/static/js/add_hint/style.css" type="text/css"/>
+    
+        <script src="/static/js/add_hint/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+        <script src="/static/js/thumbs_up/main.js"></script>
+    
+</body>
+
+</html>

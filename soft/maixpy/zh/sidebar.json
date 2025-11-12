@@ -1,0 +1,826 @@
+{
+    "items": [
+        {
+            "label": "MaixPy-v1 是什么？",
+            "file": "README.md"
+        },
+        {
+            "label": "MaixPy-v1 能做哪些事？",
+            "file": "what_maix_do.md"
+        },
+        {
+            "label": "MaixPy 发展历程",
+            "file": "maixpy_history.md"
+        },
+        {
+            "label": "入门必看指南",
+            "items": [
+                {
+                    "label": "如何阅读本文档（重要）",
+                    "file": "how_to_read.md"
+                },
+                {
+                    "label": "如何正确的提问（重要）",
+                    "file": "how_to_ask.md"
+                },
+                {
+                    "label": "开发板选购指南(对比)",
+                    "file": "develop_kit_board/get_hardware.md"
+                },
+                {
+                    "label": "K210 上手避坑指南（必看）",
+                    "url": "https://wiki.sipeed.com/news/MaixPy/K210_usage.html",
+                    "target": "_blank"
+                },
+                {
+                    "label": "准备你的开发环境",
+                    "items": [
+                        {
+                            "label": "在电脑上安装开发板驱动",
+                            "file": "get_started/env_install_driver.md",
+                            "items": [
+                                {
+                                    "label": "Maix Dock",
+                                    "file": "get_started/install_driver/dock.md"
+                                },
+                                {
+                                    "label": "Maix Bit",
+                                    "file": "get_started/install_driver/bit.md"
+                                },
+                                {
+                                    "label": "Maix Amigo",
+                                    "file": "get_started/install_driver/amigo.md"
+                                },
+                                {
+                                    "label": "Maix Cube",
+                                    "file": "get_started/install_driver/cube.md"
+                                },
+                                {
+                                    "label": "Maix Go",
+                                    "file": "get_started/install_driver/go.md"
+                                },
+                                {
+                                    "label": "Maix Nano",
+                                    "file": "get_started/install_driver/nano.md"
+                                },
+                                {
+                                    "label": "Grove AI HAT",
+                                    "file": "get_started/install_driver/ai_hat.md"
+                                },
+                                {
+                                    "label": "Maix Duino",
+                                    "file": "get_started/install_driver/duino.md"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "如何更新 MaixPy 固件",
+                            "file": "get_started/upgrade_maixpy_firmware.md"
+                        },
+                        {
+                            "label": "MaixPy IDE 安装使用",
+                            "file": "get_started/env_maixpyide.md"
+                        },
+                        {
+                            "label": "如何连接串口?",
+                            "file": "get_started/uart.md",
+                            "items": [
+                                {
+                                    "label": "串口连接工具介绍",
+                                    "file": "get_started/env_serial_tools.md"
+                                },
+                                {
+                                    "label": "mpfshell-lite工具介绍",
+                                    "file": "get_started/mpfshell-lite/mpfshell-lite.md"
+                                },
+                                {
+                                    "label": "Mpfshell-lite 使用手册",
+                                    "file": "get_started/mpfshell-lite/mpfshell-lite-help.md"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "更新 WIFI 模块固件",
+                            "items": [
+                                {
+                                    "label": "更新板载 ESP32 固件",
+                                    "file": "get_started/upgrade_esp32_firmware.md"
+                                },
+                                {
+                                    "label": "更新板载 ESP8285 固件",
+                                    "file": "get_started/upgrade_esp8285_firmware.md"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "label": "准备上手运行程序",
+                    "items": [
+                        {
+                            "label": "给板子通上电开机",
+                            "file": "get_started/get_started_power_on.md"
+                        },
+                        {
+                            "label": "第一个程序: 使用屏幕和摄像头",
+                            "file": "get_started/get_started_cam_lcd.md"
+                        },
+                        {
+                            "label": "第二个程序: 点亮 LED 灯",
+                            "file": "get_started/get_started_led_blink.md"
+                        },
+                        {
+                            "label": "编程基础知识",
+                            "items": [
+                                {
+                                    "label": "MaixPy 语法基础知识",
+                                    "file": "get_started/knowledge_micropython.md"
+                                },
+                                {
+                                    "label": "什么是 git 和 github",
+                                    "file": "get_started/knowledge_git_github.md"
+                                },
+                                {
+                                    "label": "MaixPy 图像基础知识",
+                                    "file": "get_started/knowledge_image.md"
+                                },
+                                {
+                                    "label": "MaixPy 音频基础知识",
+                                    "file": "get_started/knowledge_audio.md"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "存储系统介绍",
+                            "file": "get_started/get_started_fs.md"
+                        },
+                        {
+                            "label": "编辑代码并运行",
+                            "file": "get_started/get_started_edit_file.md"
+                        },
+                        {
+                            "label": "上传代码到开发板",
+                            "file": "get_started/get_started_upload_script.md"
+                        },
+                        {
+                            "label": "开机自动运行代码",
+                            "file": "get_started/get_started_boot.md"
+                        },
+                        {
+                            "label": "开发板配置文件",
+                            "file": "get_started/board_info.md"
+                        },
+                        {
+                            "label": "上手视频教程",
+                            "file": "get_started/maixpy_get_started_video.md"
+                        }
+                    ]
+                },
+                {
+                    "label": "定制你的专属固件",
+                    "items": [
+                        {
+                            "label": "为什么需要定制固件",
+                            "file": "firmware/why_customize_firware.md"
+                        },
+                        {
+                            "label": "在线编译",
+                            "file": "firmware/online_compile.md"
+                        },
+                        {
+                            "label": "源码编译",
+                            "file": "firmware/compile.md"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "更多功能应用",
+            "file": "course/readme.md",
+            "items": [
+                {
+                    "label": "系统基础功能",
+                    "items": [
+                        {
+                            "label": "CPU & RAM",
+                            "items": [
+                                {
+                                    "label": "主频、复位等",
+                                    "file": "course/others/system.md"
+                                },
+                                {
+                                    "label": "内存配置与查看",
+                                    "file": "course/others/mem.md"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "GUI 支持",
+                            "items": [
+                                {
+                                    "label": "中文等多国语言支持",
+                                    "file": "course/image/image_draw_font/image_draw_font.md"
+                                },
+                                {
+                                    "label": "Maix UI",
+                                    "file": "course/others/maixui.md"
+                                },
+                                {
+                                    "label": "Lvgl UI",
+                                    "file": "course/others/lvgl.md"
+                                },
+                                {
+                                    "label": "pye 编辑器 ",
+                                    "file": "course/others/pye.md"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "网络支持",
+                            "items": [
+                                {
+                                    "label": "配置 network 网卡",
+                                    "file": "course/network/network_config.md"
+                                },
+                                {
+                                    "label": "使用 socket 通信",
+                                    "file": "course/network/socket_usage.md"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "媒体功能",
+                            "items": [
+                                {
+                                    "label": "录音与播放（audio）",
+                                    "file": "course/media/audio.md"
+                                },
+                                {
+                                    "label": "播放视频（video）",
+                                    "file": "course/media/video.md"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "游戏模拟",
+                            "items": [
+                                {
+                                    "label": "NES 游戏机",
+                                    "file": "api_reference/media/nes.md"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "label": "外设模块拓展",
+                    "items": [
+                        {
+                            "label": "片上外设",
+                            "items": [
+                                {
+                                    "label": "GPIO",
+                                    "file": "modules/on_chip/gpio.md"
+                                },
+                                {
+                                    "label": "I2C",
+                                    "file": "modules/on_chip/i2c.md"
+                                },
+                                {
+                                    "label": "PWM",
+                                    "file": "modules/on_chip/pwm.md"
+                                },
+                                {
+                                    "label": "SPI",
+                                    "file": "modules/on_chip/spi.md"
+                                },
+                                {
+                                    "label": "Timer",
+                                    "file": "modules/on_chip/timer.md"
+                                },
+                                {
+                                    "label": "UART",
+                                    "file": "modules/on_chip/uart.md"
+                                },
+                                {
+                                    "label": "I2S",
+                                    "file": "modules/on_chip/i2s.md"
+                                },
+                                {
+                                    "label": "WDT",
+                                    "file": "modules/on_chip/wdt.md"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "SP-MOD",
+                            "items": [
+                                {
+                                    "label": "BT 蓝牙透传",
+                                    "file": "modules/sp_mod/sp_bt.md"
+                                },
+                                {
+                                    "label": "LoRa 无线通信",
+                                    "file": "modules/sp_mod/sp_lora.md"
+                                },
+                                {
+                                    "label": "RFID 射频识别",
+                                    "file": "modules/sp_mod/sp_rfid.md"
+                                },
+                                {
+                                    "label": "TOF 测距",
+                                    "file": "modules/sp_mod/sp_tof.md"
+                                },
+                                {
+                                    "label": "Eink 电子墨水屏",
+                                    "file": "modules/sp_mod/sp_eink.md"
+                                },
+                                {
+                                    "label": "Lcd1.14 IPS屏",
+                                    "file": "modules/sp_mod/sp_lcd1.14.md"
+                                },
+                                {
+                                    "label": "Weather 气象模块",
+                                    "file": "modules/sp_mod/sp_weather.md"
+                                },
+                                {
+                                    "label": "Ethernet 有线网口",
+                                    "file": "modules/sp_mod/sp_ethernet.md"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "Grove",
+                            "items": [
+                                {
+                                    "label": "Ultrasonic Ranger 测距",
+                                    "file": "modules/grove/grove_ultrasonic_ranger.md"
+                                },
+                                {
+                                    "label": "Chainable RGB LED 灯",
+                                    "file": "modules/grove/grove_chainable_rgb_led.md"
+                                },
+                                {
+                                    "label": "RGB LED Ring 灯条",
+                                    "file": "modules/grove/grove_rgb_led_ring.md"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "其他外设",
+                            "items": [
+                                {
+                                    "label": "Sipeed 麦克风阵列",
+                                    "file": "develop_kit_board/module_microphone.md"
+                                },
+                                {
+                                    "label": "双摄模块",
+                                    "file": "modules/others/binocular_camera.md"
+                                },
+                                {
+                                    "label": "MLX90640 串口红外镜头",
+                                    "file": "modules/others/mlx90640.md"
+                                },
+                                {
+                                    "label": "PWM 舵机",
+                                    "file": "modules/others/servo.md"
+                                },
+                                {
+                                    "label": "ESP32 ADC",
+                                    "file": "modules/others/esp32_read_adc.md"
+                                },
+                                {
+                                    "label": "onewire 单总线",
+                                    "file": "modules/others/onewire.md"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "label": "图像处理基础（Image）",
+                    "items": [
+                        {
+                            "label": "获取一张图像",
+                            "file": "course/image/basic/get_images.md"
+                        },
+                        {
+                            "label": "显示一张图像",
+                            "file": "course/image/basic/display_images.md"
+                        },
+                        {
+                            "label": "图像处理基础",
+                            "file": "course/image/basic/vary.md"
+                        },
+                        {
+                            "label": "如何在图像上写字",
+                            "file": "course/image/basic/draw.md"
+                        },
+                        {
+                            "label": "硬件加速图像模块",
+                            "file": "course/image/basic/acc_image_deal.md"
+                        }
+                    ]
+                },
+                {
+                    "label": "传统算法应用",
+                    "items": [
+                        {
+                            "label": "图像处理",
+                            "items": [
+                                {
+                                    "label": "寻找色块",
+                                    "file": "course/image/find_color_blob.md"
+                                },
+                                {
+                                    "label": "二维码识别",
+                                    "file": "course/image/find_qrcodes.md"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "音频处理",
+                            "items": [
+                                {
+                                    "label": "FFT 瀑布图",
+                                    "file": "course/speech/fft_waterfall.md"
+                                },
+                                {
+                                    "label": "关键词识别",
+                                    "file": "course/speech/recognizer_mfcc.md"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "label": "神经网络应用（AI）",
+                    "items": [
+                        {
+                            "label": "深度神经网络基础",
+                            "file": "course/ai/basic/dnn_basic.md"
+                        },
+                        {
+                            "label": "KPU 硬件加速介绍",
+                            "file": "course/ai/basic/maixpy_hardware_ai_basic.md"
+                        },
+                        {
+                            "label": "AI 图像处理",
+                            "items": [
+                                {
+                                    "label": "人脸检测",
+                                    "file": "course/ai/image/face_detect.md"
+                                },
+                                {
+                                    "label": "1000 种物体分类",
+                                    "file": "course/ai/image/1000_type_classifier.md"
+                                },
+                                {
+                                    "label": "人脸识别",
+                                    "file": "course/ai/image/face_recognization.md"
+                                },
+                                {
+                                    "label": "自学习分类",
+                                    "file": "course/ai/image/self_learn_classifier.md"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "AI 音频处理",
+                            "items": [
+                                {
+                                    "label": "语音识别",
+                                    "file": "course/speech/recognizer_cnn.md"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "如何训练模型",
+                            "items": [
+                                {
+                                    "label": "训练自己的分类和检测模型",
+                                    "items": [
+                                        {
+                                            "label": "MaixHub 云端训练",
+                                            "file": "course/ai/train/maixhub.md"
+                                        },
+                                        {
+                                            "label": "本地训练——Linux",
+                                            "file": "course/ai/train/local.md"
+                                        },
+                                        {
+                                            "label": "本地训练Windows环境配置",
+                                            "file": "course/ai/train/local_windows_1.md"
+                                        },
+                                        {
+                                            "label": "本地训练Windows使用教程",
+                                            "file": "course/ai/train/local_windows_2.md"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "库函数 API 手册",
+            "items": [
+                {
+                    "label": "标准库",
+                    "file": "api_reference/standard/README.md",
+                    "items": [
+                        {
+                            "label": "cmath",
+                            "file": "api_reference/standard/cmath.md"
+                        },
+                        {
+                            "label": "gc",
+                            "file": "api_reference/standard/gc.md"
+                        },
+                        {
+                            "label": "math",
+                            "file": "api_reference/standard/math.md"
+                        },
+                        {
+                            "label": "sys",
+                            "file": "api_reference/standard/sys.md"
+                        },
+                        {
+                            "label": "ubinascii",
+                            "file": "api_reference/standard/ubinascii.md"
+                        },
+                        {
+                            "label": "ucollections",
+                            "file": "api_reference/standard/ucollections.md"
+                        },
+                        {
+                            "label": "uctypes",
+                            "file": "api_reference/standard/uctypes.md"
+                        },
+                        {
+                            "label": "uerrno",
+                            "file": "api_reference/standard/uerrno.md"
+                        },
+                        {
+                            "label": "uhashlib",
+                            "file": "api_reference/standard/uhashlib.md"
+                        },
+                        {
+                            "label": "uheapq",
+                            "file": "api_reference/standard/uheapq.md"
+                        },
+                        {
+                            "label": "ujson",
+                            "file": "api_reference/standard/ujson.md"
+                        },
+                        {
+                            "label": "uos",
+                            "file": "api_reference/standard/uos.md"
+                        },
+                        {
+                            "label": "ure",
+                            "file": "api_reference/standard/ure.md"
+                        },
+                        {
+                            "label": "usocket",
+                            "file": "api_reference/standard/usocket.md"
+                        },
+                        {
+                            "label": "ustruct",
+                            "file": "api_reference/standard/ustruct.md"
+                        },
+                        {
+                            "label": "utime",
+                            "file": "api_reference/standard/utime.md"
+                        },
+                        {
+                            "label": "uzlib",
+                            "file": "api_reference/standard/uzlib.md"
+                        }
+                    ]
+                },
+                {
+                    "label": "machine",
+                    "file": "api_reference/machine/README.md",
+                    "items": [
+                        {
+                            "label": "I2C",
+                            "file": "api_reference/machine/i2c.md"
+                        },
+                        {
+                            "label": "PWM",
+                            "file": "api_reference/machine/pwm.md"
+                        },
+                        {
+                            "label": "SPI",
+                            "file": "api_reference/machine/spi.md"
+                        },
+                        {
+                            "label": "Timer",
+                            "file": "api_reference/machine/timer.md"
+                        },
+                        {
+                            "label": "UART",
+                            "file": "api_reference/machine/uart.md"
+                        },
+                        {
+                            "label": "network",
+                            "file": "api_reference/machine/network.md"
+                        },
+                        {
+                            "label": "WDT",
+                            "file": "api_reference/machine/wdt.md"
+                        }
+                    ]
+                },
+                {
+                    "label": "Maix",
+                    "items": [
+                        {
+                            "label": "FPIOA",
+                            "file": "api_reference/Maix/fpioa.md"
+                        },
+                        {
+                            "label": "GPIO",
+                            "file": "api_reference/Maix/gpio.md"
+                        },
+                        {
+                            "label": "KPU",
+                            "file": "api_reference/Maix/kpu.md"
+                        },
+                        {
+                            "label": "FFT",
+                            "file": "api_reference/Maix/fft.md"
+                        },
+                        {
+                            "label": "I2S",
+                            "file": "api_reference/Maix/i2s.md"
+                        },
+                        {
+                            "label": "freq",
+                            "file": "api_reference/Maix/freq.md"
+                        },
+                        {
+                            "label": "utils",
+                            "file": "api_reference/Maix/utils.md"
+                        }
+                    ]
+                },
+                {
+                    "label": "helper",
+                    "file": "api_reference/builtin_py/README.md",
+                    "items": [
+                        {
+                            "label": "fpioa_manager",
+                            "file": "api_reference/builtin_py/fm.md"
+                        },
+                        {
+                            "label": "board_info",
+                            "file": "api_reference/builtin_py/board_info.md"
+                        },
+                        {
+                            "label": "Micropython Editor",
+                            "file": "api_reference/builtin_py/pye.md"
+                        }
+                    ]
+                },
+                {
+                    "label": "media",
+                    "file": "api_reference/machine_vision/README.md",
+                    "items": [
+                        {
+                            "label": "lcd",
+                            "file": "api_reference/machine_vision/lcd.md"
+                        },
+                        {
+                            "label": "sensor",
+                            "file": "api_reference/machine_vision/sensor.md"
+                        },
+                        {
+                            "label": "image",
+                            "file": "api_reference/machine_vision/image/image.md"
+                        },
+                        {
+                            "label": "video",
+                            "file": "api_reference/media/video.md"
+                        },
+                        {
+                            "label": "audio",
+                            "file": "api_reference/media/audio.md"
+                        },
+                        {
+                            "label": "nes",
+                            "file": "api_reference/media/nes.md"
+                        },
+                        {
+                            "label": "isolated_word",
+                            "file": "api_reference/machine_vision/isolated_word.md"
+                        },
+                        {
+                            "label": "maix_asr",
+                            "file": "api_reference/machine_vision/maix_asr.md"
+                        }
+                    ]
+                },
+                {
+                    "label": "extend",
+                    "file": "api_reference/extend/README.md",
+                    "items": [
+                        {
+                            "label": "touchscreen",
+                            "file": "api_reference/extend/touchscreen.md"
+                        },
+                        {
+                            "label": "modules.ultrasonic",
+                            "file": "api_reference/extend/ultrasonic.md"
+                        },
+                        {
+                            "label": "modules.ws2812",
+                            "file": "api_reference/extend/ws2812.md"
+                        },
+                        {
+                            "label": "modules.htpa",
+                            "file": "api_reference/extend/htpa.md"
+                        },
+                        {
+                            "label": "modules.onewire",
+                            "file": "api_reference/extend/onewire.md"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "常见问题 FAQ",
+            "file": "others/maixpy_faq.md"
+        },
+        {
+            "label": "开发与贡献",
+            "items": [
+                {
+                    "label": "如何编译开发",
+                    "items": [
+                        {
+                            "label": "源码目录结构",
+                            "file": "course/advance/project_framework.md"
+                        },
+                        {
+                            "label": "如何编译 MaixPy 工程",
+                            "file": "course/advance/compile.md"
+                        },
+                        {
+                            "label": "如何用 C 添加一个 MaixPy 模块",
+                            "file": "course/advance/add_c_module.md"
+                        },
+                        {
+                            "label": "打包文件系统",
+                            "file": "course/advance/pack_fs.md"
+                        }
+                    ]
+                },
+                {
+                    "label": "如何贡献代码",
+                    "items": [
+                        {
+                            "label": "参与文档编写（规范）",
+                            "file": "contribute/doc_convention.md"
+                        },
+                        {
+                            "label": "代码编写规范",
+                            "file": "contribute/code_convention.md"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "来自社区和用户分享",
+            "items": [
+                {
+                    "label": "精选文章",
+                    "file": "share/recommend_articles.md"
+                },
+                {
+                    "label": "开源项目",
+                    "file": "share/open_projects.md"
+                },
+                {
+                    "label": "大家的经验分享",
+                    "items": [
+                        {
+                            "label": "参与经验分享/分享模板",
+                            "file": "share/my_share/README.md"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "开源项目致谢",
+            "file": "thanks.md"
+        }
+    ]
+}
