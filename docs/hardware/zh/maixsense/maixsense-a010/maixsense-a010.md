@@ -138,6 +138,7 @@ COMTOOL 上位机的配置控件说明
 ## 二次开发：串口协议
 
 可参考上方的案例：**MS-A010 外接 K210 bit**
+**Host USB 源码传送门**：[点击查看](./code#tof_main_hostpy)
 **MaixSense-A010 串口协议传送门**：[点击查看](http://wiki.sipeed.com/hardware/zh/maixsense/maixsense-a010/at_command.html)
 
 ## 二次开发：接入 ROS

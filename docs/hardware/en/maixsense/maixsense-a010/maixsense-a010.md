@@ -131,6 +131,8 @@ Realize super cool keyboard light follow,track the position of the hand in real 
 
 Please refer to the above case:  **MS-A010 external K210 bit**
 
+[Host USB source code acquisition](../../../zh/maixsense/maixsense-a010/code#tof_main_hostpy)
+
 MS-A010 Secondary Development Manual:[Click to view](./at_command_en.md)
 
 ## Secondary development:Access ROS
