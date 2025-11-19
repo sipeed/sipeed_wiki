@@ -35,7 +35,7 @@ Indepth specifications of the tang nano 9k.
 | Block SRAM BSRAM(bits) | 468K                                                                                                                                                                     |
 | Number of B-SRAM       | 26                                                                                                                                                                       |
 | User flash(bits)       | 608K                                                                                                                                                                     |
-| SDR SDRAM(bits)        | 64M                                                                                                                                                                      |
+| PSRAM(bits)            | 64M                                                                                                                                                                      |
 | 18 x 18 Multiplier     | 20                                                                                                                                                                       |
 | SPI FLASH              | 32M-bit                                                                                                                                                                  |
 | Number of PLL          | 2                                                                                                                                                                        |
