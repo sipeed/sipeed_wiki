@@ -32,7 +32,7 @@ SLogic Combo 8 具备高速CK-Link功能，且速率远超CK-Link Lite，接近C
 
 CKLink模式下可以同时支持一路CKLink和一路UART
 
-- 上图左侧的引脚（TXD、RXD）可以作为串口使用
+- 上图左侧的引脚（TXD、RXD）可以作为串口使用（注：DTR、RTS 保留未使用）
 - 上图右侧的引脚（TCK、TDI、TDO、TMS）作为CKLink调试使用
 
 ### 使用方法

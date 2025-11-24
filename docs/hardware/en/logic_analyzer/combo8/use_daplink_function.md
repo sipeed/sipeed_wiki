@@ -32,7 +32,7 @@ Here's a step-by-step guide on using the STM32F103C8T6 chip with Windows MDK IDE
 
 In DAPLink mode, it can simultaneously support one DAPLink interface and one UART interface.
 
-The pins on the left side of the diagram (TXD, RXD) can be used as a UART interface.
+The pins on the left side of the diagram (TXD, RXD) can be used as a UART interface. (note: DTR and RTS are reserved.)
 
 The pins on the right side of the diagram (TCK, TDI, TDO, TMS) are used for DAPLink debugging.
 
