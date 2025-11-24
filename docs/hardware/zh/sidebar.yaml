@@ -508,6 +508,8 @@ items:
                 file: kvm/NanoKVM/network/frp.md
             -   label: 静态 IP
                 file: kvm/NanoKVM/network/static_ip.md
+            -   label: Cloudflare
+                file: kvm/NanoKVM/network/cloudflared.md
         -   label: 系统
             items:
             -   label: 系统介绍
@@ -570,7 +572,7 @@ items:
             file: kvm/NanoKVM_Pro/desk_start.md
         -   label: 高级应用
             file: kvm/NanoKVM_Pro/extended.md
-        -   label: 迷你UI
+        -   label: 触摸屏&旋钮
             file: kvm/NanoKVM_Pro/lcd.md
         -   label: DIY 应用
             file: kvm/NanoKVM_Pro/app_diy.md

@@ -1,4 +1,14 @@
-# 使用 Cloudflare Tunnel（cloudflared）让 NanoKVM 安全远程访问
+
+---
+title: 使用 Cloudflare Tunnel（cloudflared）让 NanoKVM 安全远程访问
+keywords: NanoKVM, Remote desktop, Lichee, PiKVM, RISCV, tool
+update:
+  - date: 2025-11-16
+    version: v0.1
+    author: Johnnybyzhang
+    content:
+      - Release docs
+---
 
 Cloudflare Tunnel 能让 NanoKVM 通过 **仅出站连接** 安全地接入 Cloudflare，无需公网 IP、端口转发或开放入站防火墙规则。PiKVM 文档主要介绍 systemd 方案，而 NanoKVM 基于 BusyBox `init`，服务管理方式不同。
 

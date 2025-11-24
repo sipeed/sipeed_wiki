@@ -208,6 +208,25 @@ The TF card is mounted by default under the NanoKVM system's `/sdcard` directory
 > The first batch of Desk versions does not support TF card hot-plugging. Please insert the TF card when the device is powered off.
 > The Virtual U Disk and image mounting functions cannot be enabled simultaneously.
 
+## How to Perform Remote OS Installation
+
++ In addition to simulating keyboard and mouse devices, the USB-C port of NanoKVM Pro also emulates a USB drive device. This can be used to mount specified ISO files for tasks like OS installation. ISO files can be uploaded to the NanoKVM-Pro, which offers approximately 21GB of available space.
+
++ Unlike a regular USB drive, NanoKVM's virtual USB drive can store multiple ISO files simultaneously. Before powering on the target host, you can select which system ISO to mount via the options on the web interface.
+
+After connecting the remote host and Nano KVM as described in the previous steps, log into the system via your browser. Click the CD-ROM icon and select the target system ISO to mount it.
+
+![](./../../../assets/NanoKVM/guide/imgsl.png)
+
+Next, begin the OS installation process. Click `Power On (Short Press)`, then quickly press the F11 key (the key may vary for different hosts; please refer to your host's manual). Select the corresponding bootable ISO to start and complete the installation.
+
+![](./../../../assets/NanoKVM/guide/install.png)
+
+Note:
+
++ All uploaded ISO files are stored in the `/data` directory of the NanoKVM-Pro. Users can directly read and write this partition from within the NanoKVM terminal.
++ If you encounter issues mounting the ISO, try ejecting the ISO from the host first, then click to mount it again.
+
 ## How to Set a Static IP
 
 NanoKVM-Pro introduced static IP configuration for Ethernet cards in version `1.1.6` and above. You can assign a static IP by configuring the `/boot/eth.nodhcp` file. The detailed setup method is as follows:

@@ -1,5 +1,5 @@
 ---
-title: NanoKVM Desk 迷你UI
+title: NanoKVM Desk 触摸屏&旋钮
 keywords: NanoKVM,  Auxiliary Screen
 update:
   - date: 2025-10-10
