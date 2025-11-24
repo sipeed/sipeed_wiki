@@ -32,7 +32,7 @@ SLogic Combo 8 具备高速DAP-Link功能，适用于各种常规芯片，尤其
 
 DAPLink模式下可以同时支持一路DAPLink和一路UART
 
-- 上图左侧的引脚（TXD、RXD、DTR、RTS）可以作为串口使用
+- 上图左侧的引脚（TXD、RXD）可以作为串口使用
 
 - 上图右侧的引脚（TCK(SWCLK)、TDI、TDO、TMS(SWDIO)）作为DAPLink调试使用
 
