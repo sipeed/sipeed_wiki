@@ -32,7 +32,7 @@ Press the toggle button to switch the indicator light to yellow.
 
 In CKLink mode, it can simultaneously support one CKLink interface and one UART interface.
 
-The pins on the left side of the diagram (TXD, RXD, DTR, RTS) can be used as a UART interface.
+The pins on the left side of the diagram (TXD, RXD) can be used as a UART interface. (note: DTR and RTS are reserved.)
 
 The pins on the right side of the diagram (TCK, TDI, TDO, TMS) are used for CKLink debugging.
 
