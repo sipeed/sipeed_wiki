@@ -538,6 +538,8 @@ items:
                 file: kvm/NanoKVM/network/frp.md
             -   label: Static IP
                 file: kvm/NanoKVM/network/static_ip.md
+            -   label: Cloudflare
+                file: kvm/NanoKVM/network/cloudflared.md
         -   label: System
             items:
             -   label: System Introduction
@@ -572,7 +574,7 @@ items:
             file: kvm/NanoKVM_Pro/desk_start.md
         -   label: Advanced Applications
             file: kvm/NanoKVM_Pro/extended.md
-        -   label: Mini UI
+        -   label: Screen & Knob
             file: kvm/NanoKVM_Pro/lcd.md
         -   label: DIY Applications
             file: kvm/NanoKVM_Pro/app_diy.md

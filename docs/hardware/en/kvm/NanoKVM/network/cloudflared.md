@@ -1,4 +1,13 @@
-# Access NanoKVM over the Internet with Cloudflare Tunnel (`cloudflared`)
+---
+title: Access NanoKVM over the Internet with Cloudflare Tunnel (`cloudflared`)
+keywords: NanoKVM, Remote desktop, Lichee, PiKVM, RISCV, tool
+update:
+  - date: 2025-11-16
+    version: v0.1
+    author: Johnnybyzhang
+    content:
+      - Release docs
+---
 
 Cloudflare Tunnel lets NanoKVM establish a secure **outbound‑only** connection to Cloudflare, so you don’t need public IPs, port‑forwarding, or inbound firewall holes. PiKVM documents a systemd flow; NanoKVM uses BusyBox `init`, so service setup differs.
 
