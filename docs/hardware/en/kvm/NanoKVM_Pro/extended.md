@@ -14,34 +14,89 @@ update:
       - Add new feature description
 ---
 
-## Switching to PiKVM
+## System Framework Switching
 
-In addition to running the NanoKVM framework, NanoKVM Pro is also compatible with the PiKVM software framework. You can switch between them as needed.
+In addition to running the NanoKVM framework, NanoKVM Pro is fully compatible with the PiKVM software framework. You can flexibly switch between them based on your usage requirements.
 
-### Switching to PiKVM
+### Switching from NanoKVM to PiKVM
 
-By default, the NanoKVM Pro uses the NanoKVM framework. You can switch to PiKVM in `Settings` -> `About` -> `Switch Device`.
+NanoKVM Pro ships with the NanoKVM framework by default. Follow these steps to switch:
 
-![](./../../../assets/NanoKVM/pro/extended/SwitchtoPiKVM.png)
+1. Navigate to `Settings` → `About` → `Switch Device`
 
-After clicking, the system will automatically restart and boot into the PiKVM framework. This process takes about 30 seconds. If it does not switch automatically for a long time, please refresh the webpage manually.
+   ![](./../../../assets/NanoKVM/pro/extended/SwitchtoPiKVM.png)
 
-![](./../../../assets/NanoKVM/pro/extended/PiKVMLogin.png)
+2. After clicking the switch button, the system will automatically restart and boot into the PiKVM framework (takes approximately 30 seconds). If it doesn't switch automatically after a long time, please manually refresh the webpage
 
-The default username and password for the PiKVM framework are also `admin`, `admin`. However, the two platforms use their own usernames and passwords, which are not unified. It is strongly recommended to change them after logging in.
+   ![](./../../../assets/NanoKVM/pro/extended/PiKVMLogin.png)
 
-![](./../../../assets/NanoKVM/pro/extended/PiKVM-Setting.png)
+3. The default account and password under the PiKVM framework are also `admin` / `admin`
 
-> Some functions in the PiKVM framework require the use of a web terminal, such as Wi-Fi configuration and Tailscale setup.  
-> When updating NanoKVM, the PiKVM framework will be updated simultaneously.
+   ![](./../../../assets/NanoKVM/pro/extended/PiKVM-Setting.png)
 
-### Switching to NanoKVM
+**Important Notes:**
+> - The two platforms manage accounts and passwords independently and do not synchronize. It is strongly recommended to change the default password immediately after logging in
+> - Some features under the PiKVM framework need to be implemented through the web terminal, such as WiFi configuration, Tailscale configuration, etc.
+> - When the NanoKVM system updates, the PiKVM framework will also be updated synchronously
 
-Switching back from the PiKVM system to NanoKVM is equally simple. Just go to `Options` -> `Switch to NanoKVM` and click `Switch Now`.
+### PiKVM Password Management
 
-![](./../../../assets/NanoKVM/pro/extended/SwitchtoNanoKVM.png)
+PiKVM currently does not support password modification through the web UI. You need to execute the following commands via SSH or the web terminal:
 
-After clicking, the system will automatically restart and boot into the NanoKVM framework. This process takes about 30 seconds. If it does not switch automatically for a long time, please refresh the webpage manually.
+```shell
+# Change Linux system user password
+passwd root
+
+# Change KVM login password
+kvmd-htpasswd set admin
+
+# User management commands
+kvmd-htpasswd add <user>  # Add new user and set password
+kvmd-htpasswd list        # Display user list
+kvmd-htpasswd del <user>  # Delete user
+```
+
+For more usage methods, please refer to [PiKVM Official Documentation - Authentication](https://docs.pikvm.org/auth/).
+
+### Configuring WiFi Network
+
+PiKVM currently does not support WiFi configuration through the web UI and LCD screen. You can choose one of the following methods:
+
+**Method 1: Switch to NanoKVM Framework for Configuration (Recommended)**
+- After switching to the NanoKVM framework, use the web interface or LCD screen to configure WiFi, then switch back to the PiKVM framework
+
+**Method 2: Command Line Configuration**
+- Execute the following commands via SSH or web terminal:
+
+```shell
+# Connect to open network (no password)
+/kvmcomm/scripts/wifi.sh connect_start <SSID>
+
+# Connect to encrypted network (requires password)
+/kvmcomm/scripts/wifi.sh connect_start <SSID> <PASSWORD>
+
+# Disconnect WiFi connection
+/kvmcomm/scripts/wifi.sh connect_stop
+```
+
+### Configuring Tailscale Network
+
+PiKVM currently does not support Tailscale configuration through the web UI. Please use the NanoKVM framework to configure Tailscale, then switch back to the PiKVM framework.
+
+### Switching from PiKVM Back to NanoKVM
+
+Switching from the PiKVM system back to NanoKVM is equally simple:
+
+1. Navigate to `Options` → `Switch to NanoKVM`
+2. Click the `Switch Now` button
+
+   ![](./../../../assets/NanoKVM/pro/extended/SwitchtoNanoKVM.png)
+
+3. The system will automatically restart and boot into the NanoKVM framework (takes approximately 30 seconds). If it doesn't switch automatically after a long time, please manually refresh the webpage
+
+### More Features
+
+For more features, please refer to the [PiKVM Official Documentation](https://docs.pikvm.org/).
 
 ## SSH & mDNS
 
@@ -114,9 +169,9 @@ Since NanoKVM-Pro can emulate a display, capture screen content, and features a 
 In the UI, simply select **HDMI** as the video output source to display the captured video feed on the small screen.
 
 When used as a desktop accessory, this feature can serve as a:
-- Mini secondary monitor  
-- System performance monitor  
-- Video thumbnail player  
+- Mini secondary monitor
+- System performance monitor
+- Video thumbnail player
 and more.
 
 ![](./../../../assets/NanoKVM/pro/extended/hdmi.jpg)

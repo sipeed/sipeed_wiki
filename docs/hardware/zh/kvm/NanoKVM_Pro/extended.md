@@ -14,34 +14,89 @@ update:
       - Add new feature description
 ---
 
-## 切换至PiKVM
+## 系统框架切换
 
-NanoKVM Pro除运行 NanoKVM 框架外还适配了PiKVM软件框架。您可以根据需求切换使用
+NanoKVM Pro 除运行 NanoKVM 框架外，还完全适配了 PiKVM 软件框架。您可以根据使用需求灵活切换。
 
-### 切换至PiKVM
+### 从 NanoKVM 切换至 PiKVM
 
-NanoKVM Pro 出厂默认使用 NanoKVM 框架，可以在`设置`->`关于`->`切换设备`
+NanoKVM Pro 出厂默认运行 NanoKVM 框架。切换步骤如下：
 
-![](./../../../assets/NanoKVM/pro/extended/SwitchtoPiKVM.png)
+1. 进入 `设置` → `关于` → `切换设备`
 
-点击后系统将自动重启，并启动为PiKVM框架。此过程约30s，如果长时间不自动切换，请手动刷新网页。
+   ![](./../../../assets/NanoKVM/pro/extended/SwitchtoPiKVM.png)
 
-![](./../../../assets/NanoKVM/pro/extended/PiKVMLogin.png)
+2. 点击切换按钮后，系统将自动重启并启动 PiKVM 框架（约需 30 秒）。如长时间未自动切换，请手动刷新网页
 
-PiKVM框架下默认帐号密码也是`admin`，`admin`，但两个平台下使用各自的帐号与密码，并不统一，强烈建议登陆后修改。
+   ![](./../../../assets/NanoKVM/pro/extended/PiKVMLogin.png)
 
-![](./../../../assets/NanoKVM/pro/extended/PiKVM-Setting.png)
+3. PiKVM 框架下的默认账号密码同样为 `admin` / `admin`
 
-> PiKVM框架下部分功能需要借助网页终端实现：如WiFi配网、Tailscale配置
-> NanoKVM更新时，PiKVM框架将同步更新
+   ![](./../../../assets/NanoKVM/pro/extended/PiKVM-Setting.png)
 
-### 切换至NanoKVM
+**注意事项：**
+> - 两个平台各自独立管理账号与密码，互不同步，强烈建议登录后立即修改默认密码
+> - PiKVM 框架下的部分功能需要通过网页终端实现，如 WiFi 配网、Tailscale 配置等
+> - NanoKVM 系统更新时，PiKVM 框架会同步更新
 
-从PiKVM系统切换回NanoKVM同样简单，只需在`Options`->`Switch to NanoKVM`点击`Switch Now`即可
+### PiKVM 密码管理
 
-![](./../../../assets/NanoKVM/pro/extended/SwitchtoNanoKVM.png)
+PiKVM 目前不支持通过网页端 WebUI 修改密码，需要通过 SSH 或网页终端执行以下命令：
 
-点击后系统将自动重启，并启动为NanoKVM框架。此过程约30s，如果长时间不自动切换，请手动刷新网页
+```shell
+# 修改 Linux 系统用户密码
+passwd root
+
+# 修改 KVM 登录密码
+kvmd-htpasswd set admin
+
+# 用户管理命令
+kvmd-htpasswd add <user>  # 添加新用户并设置密码
+kvmd-htpasswd list        # 显示用户列表
+kvmd-htpasswd del <user>  # 删除用户
+```
+
+更多使用方法请参考 [PiKVM 官方文档 - 认证管理](https://docs.pikvm.org/auth/)。
+
+### 配置 WiFi 网络
+
+PiKVM 目前不支持通过网页端 WebUI 和 LCD 屏幕配置 WiFi。您可以选择以下任一方式：
+
+**方式一：切换到 NanoKVM 框架配置（推荐）**
+- 切换至 NanoKVM 框架后使用网页端或 LCD 屏幕配置 WiFi，再切换回 PiKVM 框架
+
+**方式二：使用命令行配置**
+- 通过 SSH 或网页终端执行以下命令：
+
+```shell
+# 连接到开放网络（无密码）
+/kvmcomm/scripts/wifi.sh connect_start <SSID>
+
+# 连接到加密网络（需要密码）
+/kvmcomm/scripts/wifi.sh connect_start <SSID> <PASSWORD>
+
+# 断开 WiFi 连接
+/kvmcomm/scripts/wifi.sh connect_stop
+```
+
+### 配置 Tailscale 网络
+
+PiKVM 目前不支持通过网页端 WebUI 配置 Tailscale。请使用 NanoKVM 框架配置 Tailscale，再切换回 PiKVM 框架。
+
+### 从 PiKVM 切换回 NanoKVM
+
+从 PiKVM 系统切换回 NanoKVM 同样简单：
+
+1. 进入 `Options` → `Switch to NanoKVM`
+2. 点击 `Switch Now` 按钮
+
+   ![](./../../../assets/NanoKVM/pro/extended/SwitchtoNanoKVM.png)
+
+3. 系统将自动重启并启动 NanoKVM 框架（约需 30 秒）。如长时间未自动切换，请手动刷新网页
+
+### 更多功能
+
+更多功能请参考 [PiKVM 官方文档](https://docs.pikvm.org/)。
 
 ## SSH & mDNS
 
@@ -271,9 +326,9 @@ NanoKVM-Pro针对延迟进行了较大改进，任意分辨率下端到端延迟
 > 实测表明选择不同帧率，对端到端的延迟影响不大，也就是说，1080P120和1080P30的延迟几乎一致。
 | 视频模式      | 端到端延迟 |
 |--------------|---------|
-| Direct H264  | 100ms   | 
-| WebRTC H264  | 100ms   | 
-| MJPEG        | 100~150ms| 
+| Direct H264  | 100ms   |
+| WebRTC H264  | 100ms   |
+| MJPEG        | 100~150ms|
 
 注意，我们使用"端到端"延迟来体现用户实际感知的延迟：
 从用户在本地浏览器窗口移动鼠标，到 浏览器中远程桌面鼠标开始移动的延迟。

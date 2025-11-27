@@ -144,6 +144,25 @@ AXDL 是爱芯官方推出的镜像烧录工具，可以烧录 AXP 格式的系�
    - 烧录将自动开始，等待进度条完成
    - 直到提示烧录成功，整个过程完成
 
+### SD 卡烧录
+
+NanoKVM Pro Desk 支持通过 SD 卡将镜像写入内置 eMMC 来恢复或更新系统。注意：目前仅支持将镜像从 SD 卡烧录到内置 eMMC，设备不能直接从 SD 卡启动。
+
+#### 准备工作
+- 准备一张容量至少 8 GB 的 SD 卡。
+- 下载最新的 [NanoKVM Pro SD 镜像](https://github.com/sipeed/NanoKVM-Pro/releases)（通常为 zip 压缩包），解压后取出其中的 `img` 文件。
+- 准备烧录工具（如 `balenaEtcher`、`Rufus` 或使用命令行的 `dd`）。
+- 准备一个 USB 读卡器以连接 SD 卡。
+
+#### 烧录步骤
+1. 使用 `balenaEtcher` 或 `dd` 将 `img` 镜像写入 SD 卡（具体写入方法参照上文“USB 烧录”部分）。
+2. 将写好镜像的 SD 卡插入 NanoKVM Pro 的 SD 卡槽。
+3. 断开 NanoKVM Pro Desk 的电源。
+4. 按住 NanoKVM Pro Desk 的 `User` 按键，同时接通电源。
+5. 当橙色 LED 开始匀速闪烁时，表示开始将 SD 卡中的镜像烧录到内置 eMMC。
+6. 烧录完成后，橙色 LED 由闪烁变为常亮，表示烧录成功。
+7. 断开电源并取出 SD 卡，重新接通电源后设备将从内置 eMMC 自动启动新系统。
+
 ## Desk版本LCD不亮
 
 这可能是由于运输过程中LCD的FPC排线松动导致。
