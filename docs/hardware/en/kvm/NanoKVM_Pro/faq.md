@@ -26,7 +26,7 @@ The resolution list in the host display settings is determined by the host, EDID
 
 ### HDMI Icon Lit on NanoKVM Screen but No Video Displayed in Web Interface
 
-NanoKVM-Pro supports video capture and loop-out functions. When only capturing video, it reports a maximum resolution of 4K30FPS to the host by default. When a loop-out display is connected, it reports a common resolution list.  
+NanoKVM-Pro supports video capture and loop-out functions. When only capturing video, it reports a maximum resolution of 4K30FPS to the host by default. When a loop-out display is connected, it reports a common resolution list.
 For the default resolution and frame rate list, please refer to [here](https://wiki.sipeed.com/hardware/en/kvm/NanoKVM_Pro/extended.html#How-to-Modify-EDID).
 
 When connected through video adapters or docking stations, the reported capabilities may change (e.g., reporting 4K60FPS capture support, which may cause capture failure). In such cases, adjust the display settings in the host system:
@@ -145,9 +145,28 @@ AXDL is an official burning tool provided by Aixin, designed for burning AXP for
    - The burning process will start automatically, wait for the progress bar to complete.
    - Wait until the prompt indicates that burning was successful; the entire process is complete.
 
+### SD Card Flashing
+
+The NanoKVM Pro Desk supports writing an image from an SD card to the internal eMMC to restore or update the system. Note: this only supports flashing an image from an SD card to the internal eMMC; the device cannot boot directly from the SD card.
+
+#### Preparation
+- Prepare an SD card with at least 8 GB capacity.
+- Download the latest NanoKVM Pro SD image from the [NanoKVM Pro Releases](https://github.com/sipeed/NanoKVM-Pro/releases) page (the image is usually provided in a zip archive). Extract the archive and locate the `img` file.
+- Prepare a flashing tool such as `balenaEtcher`, `Rufus`, or use the command-line `dd`.
+- Prepare a USB card reader to connect the SD card.
+
+#### Flashing Steps
+1. Use `balenaEtcher` or `dd` to write the `img` file to the SD card (see the "USB Burning" section above for details on writing images).
+2. Insert the flashed SD card into the NanoKVM Pro's SD card slot.
+3. Disconnect power from the NanoKVM Pro Desk.
+4. Press and hold the NanoKVM Pro Desk `User` button, then connect power.
+5. When the orange LED starts flashing steadily, the device is writing the image from the SD card to the internal eMMC.
+6. After flashing completes, the orange LED will stay solid, indicating success.
+7. Disconnect power, remove the SD card, and reconnect power. The device will boot the new system from internal eMMC.
+
 ## Desk Version LCD Not Lighting Up
 
-This may be caused by a loose FPC cable connection of the LCD during transportation.  
+This may be caused by a loose FPC cable connection of the LCD during transportation.
 Click [here](https://wiki.sipeed.com/nanokvmpro-lcd) to view the issue and repair details.
 
 ## Appearance Issues
