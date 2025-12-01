@@ -174,6 +174,7 @@ Total packet length = 16 + 256 = 272 bytes. The header is used for frame alignme
 | Command | Input (Lower/Uppercase: Off/On) | Default | Remarks | Input Source |
 | ------- | ------------------------------ | ------- | ------- | ------------ |
 | Set UAC CH6 beam direction | 0..9, A, B | 0 | angle = value × 30° (0..B → 0°,30°,…330°). Corresponds to the clockwise direction starting from microphone 0 as per the [microphone array](./micarray.md). | Any (serial/CDC) |
+| Adjust source localization activation threshold | t/T | 650 | t: decrease by 50; T: increase by 50; adjustable range: 0–2000 | Any (serial/CDC) |
 | UART sound-map pseudocolor toggle | c/C | c | Requires ASCII 16×16 printing enabled | UART only |
 | UART internal debug info toggle | d/D | d | Enables/disables debug output | UART only |
 | LED indicator toggle | e/E | E | E = on, e = off | Any |
