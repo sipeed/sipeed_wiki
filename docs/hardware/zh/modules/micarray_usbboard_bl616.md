@@ -143,7 +143,7 @@ SUBSYSTEM=="tty", ATTRS{idVendor}=="359F", MODE="0666", GROUP="plugdev"
 - UART 串口乱码或无法显示：请确认波特率为 `2000000 bps`，且使用 `picocom -b 2000000`、`minicom -b 2000000` 等工具；在 Windows 下需要安装正确的 USB 串口驱动（CH340/CH341/CH552 等）。
 
 ## 固件升级
-下载 [固件](../../assets/modules/micarray_usbboard_bl616/firmware/MA-USB8-250822.bin) 并参考 [固件刷写教程](../logic_analyzer/combo8/update_firmware.html#Burn-firmware) 进行升级。
+下载 [固件](../../assets/modules/micarray_usbboard_bl616/firmware/MA-USB8-251201.bin) 并参考 [固件刷写教程](../logic_analyzer/combo8/update_firmware.html#Burn-firmware) 进行升级。
 
 ---
 ## 开发者参考（协议、代码示例、完整指令表）
@@ -167,6 +167,7 @@ SUBSYSTEM=="tty", ATTRS{idVendor}=="359F", MODE="0666", GROUP="plugdev"
 | 指令 | 输入(小/大写: 关/开) | 默认值 | 作用 | 输入源 |
 | - | - | - | - | - |
 | 设置 UAC CH6 波束成型方向角度 | 0,1,..9,A,B | 0 | 将波束指向以 30° 步进的方向（实际角度 = 输入 × 30）；CH6 会输出合成后的音频 | 任意（串口/CDC） |
+| 修改声源定位激活阈值(t,T) | t, T | 650 | t: -50, T: +50, 阈值可调范围: 0~2000 | 任意（串口/CDC） |
 | UART 声源定位图伪彩映射开关 (c/C) | c, C | c | 打开/关闭热力图伪彩（color map），需要先开启 16×16 打印 | 仅 UART |
 | UART 打印内部调试信息 (d/D) | d, D | d | 启用/禁用调试信息输出 | 仅 UART |
 | LED 指示灯开关 (e/E) | e, E | E | 启用/禁用 LED 实时指示显示 | 任意 |
