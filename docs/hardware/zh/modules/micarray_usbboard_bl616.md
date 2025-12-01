@@ -143,7 +143,7 @@ SUBSYSTEM=="tty", ATTRS{idVendor}=="359F", MODE="0666", GROUP="plugdev"
 - UART 串口乱码或无法显示：请确认波特率为 `2000000 bps`，且使用 `picocom -b 2000000`、`minicom -b 2000000` 等工具；在 Windows 下需要安装正确的 USB 串口驱动（CH340/CH341/CH552 等）。
 
 ## 固件升级
-下载 [固件](../../assets/modules/micarray_usbboard_bl616/firmware/MA-USB8-250822.bin) 并参考 [固件刷写教程](../logic_analyzer/combo8/update_firmware.html#Burn-firmware) 进行升级。
+下载 [固件](../../assets/modules/micarray_usbboard_bl616/firmware/MA-USB8-251201.bin) 并参考 [固件刷写教程](../logic_analyzer/combo8/update_firmware.html#Burn-firmware) 进行升级。
 
 ---
 ## 开发者参考（协议、代码示例、完整指令表）

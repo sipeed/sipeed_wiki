@@ -155,10 +155,7 @@ sudo usermod -a -G plugdev $USER
 
 ## Firmware
 
-Download the firmware from the assets and follow the combo8 firmware update guide:
-
-- Firmware: `../../assets/modules/micarray_usbboard_bl616/firmware/MA-USB8-250822.bin`
-- Burn instructions: `../logic_analyzer/combo8/update_firmware.html#Burn-firmware`
+Download the [firmware](../../assets/modules/micarray_usbboard_bl616/firmware/MA-USB8-251201.bin) from the assets and follow the combo8 firmware update [guide](../logic_analyzer/combo8/update_firmware.html#Burn-firmware):
 
 ---
 ## Developer Reference (protocol, code examples, full command list)
