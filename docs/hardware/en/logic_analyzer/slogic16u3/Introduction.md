@@ -89,8 +89,8 @@ chmod +x Pulseview.appimage
 ---
 
 ## Related links
-- Buy (Taobao): http://addme
-- Buy (AliExpress): http://addme
+- Buy (Taobao): https://item.taobao.com/item.htm?id=994512536278
+- Buy (AliExpress): https://www.aliexpress.com/item/1005010321792670.html
 - MaixHub: [maixhub.com](https://maixhub.com/discussion/slogic)
 - Support email: support@sipeed.com
 - GitHub (libsigrok slogic-dev): https://github.com/sipeed/libsigrok/tree/slogic-dev
