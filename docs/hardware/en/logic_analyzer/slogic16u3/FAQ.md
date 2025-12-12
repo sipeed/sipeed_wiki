@@ -39,7 +39,7 @@ LABEL="sipeed_rules_end"
 EOF
 ```
 
-ArchOS user use `GROUP="uucp"` instead.
+ArchOS users use `GROUP="uucp"` instead.
 
 Reload udev rules and trigger:
 
