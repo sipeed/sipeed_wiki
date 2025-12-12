@@ -33,11 +33,13 @@ sudo ./Pulseview.appimage
 sudo tee /etc/udev/rules.d/60-sipeed.rules <<EOF
 SUBSYSTEM!="usb|usb_device", GOTO="sipeed_rules_end"
 ACTION!="add", GOTO="sipeed_rules_end"
-ATTRS{idVendor}=="359f", MODE="0666", GROUP="plug_dev", TAG+="uaccess"
+ATTRS{idVendor}=="359f", MODE="0666", GROUP="plugdev", TAG+="uaccess"
 ENV{ID_MM_DEVICE_IGNORE}="1"
 LABEL="sipeed_rules_end"
 EOF
 ```
+
+Arch 系统用户请使用 `GROUP="uucp"` 做替代。
 
 重新加载 udev 规则并触发：
 

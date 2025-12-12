@@ -17,7 +17,7 @@ Troubleshooting checklist:
 - Confirm device power/LED indicators are on.
 - Unplug and replug the device, then reopen the Connect dialog or relaunch the app.
 - On Linux, check permissions (use sudo for quick testing or install udev rules; see FAQ).
-- See: [Why can't I find the SLogic16U3 device?](./FAQ.html#why-cant-i-find-the-slogic16u3-device)
+- See: [Why can't I find the SLogic16U3 device?](./FAQ.html#Why-can't-I-find-the-SLogic16U3-device%3F)
 
 ![](./assets/Screenshots/SLogic_Connect_1.png)
 

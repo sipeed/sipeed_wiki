@@ -54,6 +54,7 @@ The SLogic16U3 is a next‑generation USB3 logic analyzer. In a compact 40×40×
     <img src="../../../en/logic_analyzer/slogic16u3/assets/Screenshots/Screenshot_2025-09-27_11-05-12.png">
   </details>
 - Linux (x86_64)
+  - **Necessary preparation:** [How do I set up udev rules for Linux?](./FAQ.html#How-do-I-set-up-udev-rules-for-Linux%3F)
 - macOS (Apple Silicon M4)
 
 ### Downloads

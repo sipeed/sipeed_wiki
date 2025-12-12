@@ -17,7 +17,7 @@
 - 确认设备电源/LED 指示正常。
 - 拔插设备后重新打开连接对话框或重启应用。
 - 在 Linux 上检查权限（可用 sudo 进行快速测试或安装 udev 规则；参见 FAQ）。
-- 参见: [Why can't I find the SLogic16U3 device?](./FAQ.html#why-cant-i-find-the-slogic16u3-device)
+- 参见: [Why can't I find the SLogic16U3 device?](./FAQ.html#为什么找不到-SLogic16U3-设备？)
 
 ![](../../../en/logic_analyzer/slogic16u3/assets/Screenshots/SLogic_Connect_1.png)
 

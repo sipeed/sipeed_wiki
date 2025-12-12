@@ -56,6 +56,7 @@ SLogic16U3 是新一代 USB3 逻辑分析仪。它在紧凑的 40×40×10 mm 超
     <img src="../../../en/logic_analyzer/slogic16u3/assets/Screenshots/Screenshot_2025-09-27_11-05-12.png">
   </details>
 - Linux (x86_64)
+  - **必须：额外配置解决权限问题：**[如何为 Linux 设置 udev 规则？](./FAQ.html#如何为-Linux-设置-udev-规则？)
 - macOS (Apple Silicon M4)
 
 ### 下载
