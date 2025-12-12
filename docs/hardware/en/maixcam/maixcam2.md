@@ -222,6 +222,7 @@ We don’t just provide hardware — MaixCAM2 comes with a complete software eco
 * [Hardware Resource Downloads](https://dl.sipeed.com/shareURL/MaixCAM/MaixCAM2)
 * Enclosure and Mounts: Open-source 3D model files for enclosures, mounts, etc. are available on [makerworld.com](https://makerworld.com/) (recommended) or [makerworld.com.cn](https://makerworld.com.cn). Search for `MaixCAM` / `MaixCAM2`.
 * Pinout Diagram:
+> Note: To prevent incorrect insertion of PMOD or other modules that could cause damage, the `A2` pin is intentionally blocked by default as a fool-proof design.
   ![maixcam2\_pins](../../assets/maixcam/maixcam2_pins.jpg)
 
 ### Chip Resources

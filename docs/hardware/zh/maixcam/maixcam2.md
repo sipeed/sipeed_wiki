@@ -225,6 +225,7 @@ title: MaixCAM2 -- 快速落地 AI 视觉、听觉应用
 * [核心板资料](https://dl.sipeed.com/shareURL/MaixCAM/MaixCAM2)
 * 外壳和支架：开源了 外壳、支架等 3D 模型文件，请到[makerworld.com](https://makerworld.com/)（推荐） 或[makerworld.com.cn](https://makerworld.com.cn) 搜索 `MaixCAM`/`MaixCAM2`。
 * 引脚映射图：
+> 注意: 为了防止插入PMOD等模块时插错位置导致模块烧毁, 默认将 `A2` 引脚堵住作为防呆设计
 ![maixcam2_pins](../../assets/maixcam/maixcam2_pins.jpg)
 
 
