@@ -49,3 +49,16 @@ NanoKVM now comes with Tailscale built-in, and you can start using it with just 
 4. Execute `tailscale login` and wait for the login link to be generated, then visit the generated link in your browser.
 5. Click `Connect` in the browser to add NanoKVM to your Tailscale account.
 6. You're all set! You can now access NanoKVM via Tailscale.
+
+## Updating Tailscale
+
+*Note: Only proceed if you have physical access to the device to avoid locking yourself out.*
+
+1. Enter the IP address of NanoKVM in your browser and access it.
+2. Click on Settings - Tailscale.
+3. Press the tree dots and click on `Uninstall Tailscale`.
+4. Confirm the uninstall with `Yes`.
+5. Refresh the page.
+6. Click on Settings - Tailscale.
+7. Click `Install` and wait for the installation to complete.
+8. Your Tailscale is updated.
