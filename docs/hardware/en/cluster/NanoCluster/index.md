@@ -183,10 +183,10 @@ The M4N SOM connects to a dedicated adapter board through a BTB connector, which
 
 ### Adapter Boards
 
-The CM4 / CM5 adapter board features a BTB connector on the front side, supporting CM4 and CM5 SOMs. It also includes a Boot button and a Type-C port for flashing.  
+The CM4 / CM5 adapter board features a BTB connector on the front side, supporting CM4 and CM5 SOMs. It also includes a Boot button and a Type-C port for flashing.
 The back side includes an SD card slot, an M.2 NVMe SSD connector (compatible with 2242 or 2230 size), and a reserved USB pad for optional CM5 USB 3.0 support.
 
-The M4N adapter board features a BTB connector for Sipeed M4N SOMs, a Boot button, and a Type-C flashing port on the front side.  
+The M4N adapter board features a BTB connector for Sipeed M4N SOMs, a Boot button, and a Type-C flashing port on the front side.
 The back side includes an M.2 NVMe SSD connector (2242 or 2230), and a reserved USB pad for optional USB 3.0 support.
 
 <table>
@@ -233,7 +233,9 @@ Hardware documentation can be accessed here: [Click to view](https://dl.sipeed.c
 
 ## Purchase Information
 
-[Pre-order Portal](https://sipeed.com/nanocluster)
+[Taobao Store](https://item.taobao.com/item.htm?id=977609765104)
+
+[AliExpress Store](https://www.aliexpress.com/item/1005009393696842.html)
 
 ## Feedback & Support
 
