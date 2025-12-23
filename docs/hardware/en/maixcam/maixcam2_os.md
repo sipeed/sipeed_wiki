@@ -38,7 +38,9 @@ As mentioned earlier, there are three flashing methods. Here we’ll cover the f
 
 ### Launch AXDL Software
 
-Download [AXDL](https://dl.sipeed.com/shareURL/MaixCAM/MaixCAM2/Software/Tools).(Only have Windows version)
+Download [AXDL](https://dl.sipeed.com/fileList/MaixCAM/MaixCAM2/Software/Tools/AXDL_V1.24.22.1.7z).(Only have Windows version)
+Download [AXDL Driver](https://dl.sipeed.com/fileList/MaixCAM/MaixCAM2/Software/Tools/Driver_V1.20.46.1.7z), Run `DriverSetup.exe` after decompression to install the driver.
+
 Open the AXDL software interface.
 
 ### Preparing the System
