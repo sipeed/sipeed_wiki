@@ -6,6 +6,17 @@ title: MaixCAM2 System Flashing
 
 ## Downloading the System
 
+At present, only images in the `.img.xz` format are provided.
+[Download image (Baidu Netdisk)](https://pan.baidu.com/s/1r4ECNlaTVxhWIafNBZOztg) Extraction code: `vjex`.
+[Download image (MEGA)](https://mega.nz/folder/01IEDZQb#3ktByGkFMn_x6jDxMLbK4w)
+
+Image file directory description:
+1. `boot_parts_maixcam2-xxxx-xx-xx-maixpy-x.x.x.axp`:This file is a minimal boot image. Normally, it does not need to be flashed. Only when the board cannot be flashed via TF card or USB, refer to the method described below for flashing .axp files. After flashing this file, the TF card and USB flashing functions can be restored.
+2. `maixcam2-xxxx-xx-xx-maixpy-x.x.x.img.7z.00x`:The image is split into multiple files using multi-volume compression. You may see files such as `maixcam2-2025-12-22-maixpy-v4.12.4.img.7z.001` and `maixcam2-2025-12-22-maixpy-v4.12.4.img.7z.002`. All volume files must be downloaded before extraction.
+    > Extraction instructions:
+    > - `On Linux`: use `7z` to extract. Place all volume files in the same directory, then run: '`7z x maixcam2-2025-12-22-maixpy-v4.12.4.img.7z.001`'
+    > - `On Windows`: place all volume files in the same folder, then right-click the first file (`.7z.001` or `.7z`) and select 7-Zip -> Extract Files or Extract Here.The software will automatically merge and extract the files. Make sure all volumes are complete and correctly named.
+
 For MaixCAM2, there are two types of systems and flashing methods:
 
 * **Method 1**: The original chip manufacturer’s flashing format (`.axp`). Requires [AXDL](https://dl.sipeed.com/shareURL/MaixCAM/MaixCAM2/Software/Tools) to flash.

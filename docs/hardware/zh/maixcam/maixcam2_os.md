@@ -5,11 +5,23 @@ title: MaixCAM2 系统烧录
 
 ## 获取系统文件
 
+目前只提供了`.img.xz`格式的镜像.
+[下载镜像(百度网盘)](https://pan.baidu.com/s/1r4ECNlaTVxhWIafNBZOztg) 提取码:`vjex`
+[下载镜像(MEGA)](https://mega.nz/folder/01IEDZQb#3ktByGkFMn_x6jDxMLbK4w)
+
+镜像文件目录说明:
+1. `boot_parts_maixcam2-xxxx-xx-xx-maixpy-x.x.x.axp`: 该文件是一个最小启动镜像, 一般不需要烧录, 只有当板子无法通过TF卡或USB烧录时, 参考下文烧录`.axp`格式的方法烧录这个文件后, 即可恢复TF卡和USB烧录的功能.
+2. `maixcam2-xxxx-xx-xx-maixpy-x.x.x.img.7z.00x`: 我们通过分卷压缩的方式将镜像分割成多个文件, 你可以能会看到例如`maixcam2-2025-12-22-maixpy-v4.12.4.img.7z.001`和`maixcam2-2025-12-22-maixpy-v4.12.4.img.7z.002`文件等, 需要下载所有的分卷文件后才能解压.
+    > 解压方法说明:
+    > - 如果是`linux`系统, 可以使用`7z`进行解压, 将所有分卷文件放到同一个文件夹下后, 执行'`7z x maixcam2-2025-12-22-maixpy-v4.12.4.img.7z.001`'
+    > - 如果是`windows`系统, 将所有分卷文件放在同一个文件夹，然后对第一个文件（`.7z.001`或者`.7z`）右键，选择 7-Zip -> 解压文件或提取到“指定文件夹”，软件会自动合并并解压，注意所有分卷必须完整且命名无误
+
+
 对于 MaixCAM2, 有三种系统文件和烧录方法:
 * **方法一**：芯片原厂烧录`.axp`格式。需要使用[AXDL](https://dl.sipeed.com/shareURL/MaixCAM/MaixCAM2/Software/Tools) 进行烧录。
   * 优点：无论 EMMC 内是否有启动分区和系统都能成功烧录。
   * 缺点：只支持Windows，烧录速度慢。
-* **方法二**: USB 卡烧录`.img.xz`格式的系统，包含了完整的系统，使用通用工具比如`etcher / rufus / win32diskimager / imageUSB`等即可烧录。
+* **方法二**: USB 烧录`.img.xz`格式的系统，包含了完整的系统，使用通用工具比如`etcher / rufus / win32diskimager / imageUSB`等即可烧录。
   * 优点：烧录简单，不受烧录系统和软件限制，速度快（TF > USB2.0 > AXDL）。
   * 缺点：只有在 EMMC 已经烧录过**启动分区**时才能正常使用。如果没有启动分区或者损坏，则需要用方法一烧录一次 `*.axp` 系统才能使用方法二。
 * **方法三**: TF 卡烧录`.img.xz`格式的系统，包含了完整的系统。
