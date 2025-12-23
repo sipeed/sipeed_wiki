@@ -231,7 +231,9 @@ M4N 转接板正面配有 BTB 连接器，用于连接 Sipeed M4N 核心板，�
 
 ## 购买入口
 
-[预售入口](https://sipeed.com/nanocluster)
+[淘宝](https://item.taobao.com/item.htm?id=977609765104)
+
+[速卖通](https://www.aliexpress.com/item/1005009393696842.html)
 
 ## 产品反馈
 
