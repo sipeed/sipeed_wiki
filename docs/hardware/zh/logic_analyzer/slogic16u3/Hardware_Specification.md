@@ -360,20 +360,20 @@ update:
 
 > 理论上，OTA操作只会更新SLogic固件，无法影响 **DFU** 功能。因此即使OTA失败也不要紧，装置会锁定在 **DFU** 模式，直到SLogic固件更新成功。
 
-固件更新通过 Python / PyQt GUI 工具提供。
+固件更新通过 命令行 工具提供。
 
-- [固件更新工具仓库](https://github.com/sipeed/slogic16u3-tools)
+- [固件更新工具仓库](https://github.com/sipeed/slogic16u3-tools/tree/main/ota/src/dist)
+- [最新固件下载地址](https://dl.sipeed.com/shareURL/SLogic/SLogic16U3/4_Firmware)
 
 ### **更新步骤：**
-1. 运行 GUI 工具。
-2. 按下设备上的 **mode** 按钮。GUI 应显示 "SLogic16U3 OTA"。
-3. 在 GUI 中选择固件文件。
-4. 点击 **OTA** 开始更新。
-5. 等待完成并按界面指引操作。
+1. 下载更新工具。
+2. 按下设备上的 **mode** 按钮。内核日志(Linux)或设备管理器(Win)应显示名为 "SLogic DFU" 的新设备。
+3. 下载固件文件。
+4. 打开命令行输入 `spi_flash_xxx 固件路径` 开始更新。
+5. 等待完成并查看更新结果。
 
-> **注意：** 将很快发布该更新工具的绿色便携版本。
-
-![](../../../en/logic_analyzer/slogic16u3/assets/Screenshots/Screenshot_2025-09-25_15-34-06.png)
+![](../../../en/logic_analyzer/slogic16u3/assets/Screenshots/Screenshot_2025-12-25_16-28.png)
+![](../../../en/logic_analyzer/slogic16u3/assets/Screenshots/Screenshot_2025-12-25_16-18.png)
 
 
 ## 安全 & 注意事項
