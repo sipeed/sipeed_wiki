@@ -366,20 +366,20 @@ Detailed instructions for the DFU tool are provided below.
 > In principle, OTA operations only update the SLogic firmware and do not affect the **DFU** function.  
 > Even if OTA fails, the device will remain locked in **DFU** mode until the SLogic firmware is successfully updated.
 
-Firmware updates are provided via a Python/PyQt GUI tool.
+Firmware updates are provided via a CLI tool.
 
-- [Firmware update tool repository](https://github.com/sipeed/slogic16u3-tools)
+- [Firmware update tool repository]((https://github.com/sipeed/slogic16u3-tools/tree/main/ota/src/dist))
+- [Latest Firmware Download Link](https://dl.sipeed.com/shareURL/SLogic/SLogic16U3/4_Firmware)
 
 ### **Update steps:**
-1. Run the GUI tool:
-2. Press the **mode** button on the device. The GUI should display "SLogic16U3 OTA".
-3. Select the firmware file in the GUI.
-4. Click **OTA** to start the update.
-5. Wait for completion and follow on-screen instructions.
+1. Download the update tool.
+2. Press the **Mode** button on the device. A new device named "SLogic DFU" should appear in the kernel logs (Linux) or Device Manager (Windows).
+3. Download the firmware file.
+4. Open a command prompt and run `spi_flash_xxx <firmware_path>` to start the update.
+5. Wait for the process to complete and check the update result.
 
-> **Note:** A binary version of the update tool will be released soon.
-
-![](../../../en/logic_analyzer/slogic16u3/assets/Screenshots/Screenshot_2025-09-25_15-34-06.png)
+![](../../../en/logic_analyzer/slogic16u3/assets/Screenshots/Screenshot_2025-12-25_16-28.png)
+![](../../../en/logic_analyzer/slogic16u3/assets/Screenshots/Screenshot_2025-12-25_16-18.png)
 
 
 ---
