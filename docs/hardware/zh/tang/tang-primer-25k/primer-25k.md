@@ -54,7 +54,7 @@ Tang Primer 25K 是基于 [GW5A-LV25MG121](http://www.gowinsemi.com.cn/prod_view
 					</tr>
 					<tr>
 						<td>分布式静态随机存储器S-SRAM(bits)</td>
-						<td>180K</td>
+						<td>Version A: 0K </br>Version B: 180K </td>
 					</tr>
 					<tr>
 						<td>块状静态随机存储器B-SRAM(bits)</td>

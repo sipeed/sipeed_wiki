@@ -73,7 +73,7 @@ msgstr ""
 msgid "/static/home/banner_nanokvm_usb.jpg"
 msgstr ""
 
-#: home.html:187 others.html:43 slogic.html:42 slogic.html:59
+#: home.html:187 others.html:43 slogic.html:42
 msgid "https://item.taobao.com/item.htm?id=737788586308"
 msgstr ""
 
@@ -409,6 +409,10 @@ msgstr ""
 
 #: slogic.html:51
 msgid "16通道高速USB3逻辑分析仪"
+msgstr ""
+
+#: slogic.html:59
+msgid "https://item.taobao.com/item.htm?id=994512536278"
 msgstr ""
 
 #: tang.html:4

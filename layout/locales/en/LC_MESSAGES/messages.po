@@ -74,7 +74,7 @@ msgstr "/static/home/banner_nanokvm_pcie_en.jpg"
 msgid "/static/home/banner_nanokvm_usb.jpg"
 msgstr "/static/home/banner_nanokvm_usb_en.jpg"
 
-#: home.html:187 others.html:43 slogic.html:42 slogic.html:59
+#: home.html:187 others.html:43 slogic.html:42
 msgid "https://item.taobao.com/item.htm?id=737788586308"
 msgstr "https://www.aliexpress.com/item/1005006022974163.html"
 
@@ -432,6 +432,11 @@ msgstr "SLogic Logic Analyzer"
 #: slogic.html:51
 msgid "16通道高速USB3逻辑分析仪"
 msgstr "16CH highspeed USB3 LogicAnalyzer"
+
+#: slogic.html:59
+#, fuzzy
+msgid "https://item.taobao.com/item.htm?id=994512536278"
+msgstr "https://www.aliexpress.com/item/1005006080116482.html"
 
 #: tang.html:4
 msgid "Tang FPGA 系列"

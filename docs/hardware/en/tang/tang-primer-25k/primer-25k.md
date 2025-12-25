@@ -44,7 +44,7 @@ Purchase link: [ALIEXPRESS](https://www.aliexpress.us/item/3256806038278266.html
           </tr>
           <tr>
             <td>Distributed Static Random Access Memory S-SRAM (bits)</td>
-            <td>180K</td>
+            <td>Version A: 0K </br>Version B: 180K </td>
           </tr>
           <tr>
             <td>Block Static Random Access Memory B-SRAM (bits)</td>
