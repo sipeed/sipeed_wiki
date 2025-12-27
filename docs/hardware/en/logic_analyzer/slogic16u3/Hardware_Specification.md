@@ -368,7 +368,7 @@ Detailed instructions for the DFU tool are provided below.
 
 Firmware updates are provided via a CLI tool.
 
-- [Firmware update tool repository]((https://github.com/sipeed/slogic16u3-tools/tree/main/ota/src/dist))
+- [Firmware update tool repository](https://github.com/sipeed/slogic16u3-tools/tree/main/ota/src/dist)
 - [Latest Firmware Download Link](https://dl.sipeed.com/shareURL/SLogic/SLogic16U3/4_Firmware)
 
 ### **Update steps:**
