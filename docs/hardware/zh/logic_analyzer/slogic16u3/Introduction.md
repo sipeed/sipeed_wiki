@@ -99,4 +99,4 @@ chmod +x Pulseview.appimage
 - GitHub（libsigrok slogic-dev）：https://github.com/sipeed/libsigrok/tree/slogic-dev
 - Sipeed GitHub: https://github.com/sipeed
 - GitHub（SLogic16U3 Tools）：https://github.com/sipeed/slogic16u3-tools
-- 社区（Discord）：https://discord.com/channels/1359800784375644291/1359802057569206323
+- 社区（Discord）：discord.gg/V4sAZ9XWpN
