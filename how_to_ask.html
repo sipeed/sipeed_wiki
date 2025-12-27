@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+
+<html lang="zh"  class=" md_page ">
+
+<head>
+     
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="keywords" content="">
+        <meta name="description" content="">
+        <meta name="generator" content="teedoc">
+        <meta name="theme" content="teedoc-plugin-theme-default">
+    
+     
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser"><script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script><script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser"><meta name="blog-generator" content="teedoc-plugin-blog"><script src="/static/js/theme_default/pre_main.js"></script><link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/><link rel="stylesheet" href="/static/css/prism.css" type="text/css"/><link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/><link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/><script src="/static/js/theme_default/jquery.min.js"></script><script src="/static/js/theme_default/split.js"></script><link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/><script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?9cb07365544a53067c56c346c838181a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119047820-5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-119047820-5');
+    </script><link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/><link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/><link rel="stylesheet" href="/static/css/custom.css" type="text/css"/><link rel="stylesheet" href="/static/js/thumbs_up/style.css" type="text/css"/>
+    
+    
+        <title>如何优雅提问 - Sipeed Wiki</title>
+    
+    
+    
+    <script type="text/javascript">js_vars = {"teedoc-plugin-ad-hint": {"type": "hint", "label": "NEW", "content": "全新 Maix 系列产品 <a href='https://wiki.sipeed.com/maixcam'>MaixCAM</a> 已上线, 全新 <a href='https://wiki.sipeed.com/maixpy/'>MaixPy</a> 功能更丰富，性能更强大，软件更易用，文档更全面！", "show_times": 2, "show_after_s": 432000, "date": "2022-06-01 14:00", "color": "#a0421d", "link_color": "#e53935", "link_bg_color": "#e6ae5c", "bg_color": "#ffcf89", "color_hover": "white", "bg_color_hover": "#f57c00", "close_color": "#eab971"}, "teedoc-plugin-thumbs-up": {"label_up": "有帮助", "label_down": "待改进", "icon": "/static/images/thumbs_up/up.svg", "icon_clicked": "/static/images/thumbs_up/upped.svg", "url": "https://thumbs-up.sipeed.com", "show_up_count": true, "show_down_count": false, "msg_already_voted": "您已经投过票了", "msg_thanks": "感谢您的反馈", "msg_down_prompt": "感谢反馈，请告诉我们可以改进什么地方?（最少 10 个字）", "msg_down_prompt_error": "消息最少需要 10 个字， 最多 256 个字", "msg_error": "请求服务器出现错误!"}}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": false, "update": [], "ts": 0, "author": "", "brief": "", "cover": ""}</script>
+</head>
+<body class="type_page">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/">
+                
+                    <img class="site_logo" src="/static/image/logo.svg" alt="sipeed wiki logo">
+                
+                
+                    <h2>wiki</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class=""><a  href="/">产品</a></li>
+<li class="sub_items "><a >开源软件</a><ul><li class=""><a  href="/maixpy/">MaixPy</a></li>
+<li class=""><a  href="/soft/maixpy/zh/index.html">MaixPy_v1</a></li>
+<li class=""><a  href="/soft/Lichee/zh/index.html">Lichee</a></li>
+<li class=""><a  href="/ai/zh/index.html">AI 指南</a></li>
+</ul>
+</li>
+<li class=""><a target="_blank" href="https://maixhub.com">MaixHub</a></li>
+<li class=""><a  href="/news/">动态</a></li>
+<li class=""><a  href="/faq.html">FAQ 汇总</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class=""><a  href="/store.html"><img src='/static/image/shop.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+<li class=""><a target="_blank" href="https://github.com/sipeed"><img src='/static/image/github.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+<li class="sub_items "><a  ><img src='/static/image/language.svg' style='height: 1.5em;vertical-align: middle;'>&nbsp;中文</a><ul><li class=""><a  href="/en/how_to_ask.html">English</a></li>
+<li class="active"><a  href="/how_to_ask.html">中文</a></li>
+</ul></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">输入关键词，多关键词空格隔开</span>
+                                <span id="search_loading_hint">正在加载，请稍候。。。</span>
+                                <span id="search_download_err_hint">下载文件失败，请刷新重试或检查网络</span>
+                                <span id="search_other_docs_result_hint">来自其它文档的结果</span>
+                                <span id="search_curr_doc_result_hint">当前文档搜索结果</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="page_wrapper">
+        <div id="page_content">
+            <div>
+                
+                <h2 id="%E5%9C%A8%E5%90%84%E4%B8%AA%E5%9C%B0%E6%96%B9%E6%8F%90%E9%97%AE%E6%97%B6%EF%BC%8C-%E5%A4%A7%E5%AE%B6%E4%BC%9A%E5%8F%91%E7%8E%B0%E6%9C%89%E5%87%A0%E4%B8%AA%E7%8E%B0%E8%B1%A1%EF%BC%9A">在各个地方提问时， 大家会发现有几个现象：</h2>
+<ul>
+<li>提问题后没人回答，甚至没人理睬</li>
+<li>提的问题过了很久才有人回答</li>
+<li>对方老是嫌弃自己太菜</li>
+</ul>
+<h2 id="%E9%97%AE%E9%97%AE%E9%A2%98%E5%89%8D%EF%BC%8C%E7%A1%AE%E8%AE%A4%E8%87%AA%E5%B7%B1%E5%B7%B2%E7%BB%8F%E5%AD%A6%E4%B9%A0%E4%BA%86%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%EF%BC%8C%E5%B9%B6%E4%B8%94%E6%90%9C%E7%B4%A2%E4%BA%86%E6%96%87%E6%A1%A3%E5%92%8C%E7%A4%BE%E5%8C%BA%EF%BC%8C-%E4%BB%8D%E7%84%B6%E6%97%A0%E6%B3%95%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98%EF%BC%8C%E6%89%8D%E9%9C%80%E8%A6%81%E6%8F%90%E9%97%AE">问问题前，确认自己已经学习了基础知识，并且搜索了文档和社区， 仍然无法解决问题，才需要提问</h2>
+<p>很多问题会在这个过程中解决， 切忌一开始就到 QQ群、论坛 、issue， 或者邮件随便提问。<br />
+这些问题一般不会得到回答和响应（因为大家每天都在看到问重复的已经解答过的问题）：</p>
+<ul>
+<li>在文档中一开始就说明了的简单问题，大家一看你就没好好读文档，当然懒得理你。</li>
+<li>在 <a href="./faq.html"  >FAQ</a> 已经整理过的问题。</li>
+<li>提问语句不通顺，一个句子连基础的 主谓宾 都没有，谁也不想和难沟通的人说话。</li>
+<li>没有前因后果，没有你想要什么目标，你做了什么，现象是什么，要理解大家时间都有限，没人想一点一点来问你想要做什么，做了什么，问题是什么。</li>
+<li>日志截图不全，总是截了一小块，大家也看不到关键信息，尽量截图大一点，信息全面一点。</li>
+<li>态度趾高气昂，比如在店里买了开发板，到社区来叫嚣需要技术支持服务，不好好提问，大家肯定懒得理你。</li>
+<li>不好好看代码，连代码都没有阅读过一遍，就到处问，大家一看就知道你没看代码，懒得理你。</li>
+<li>不好好看日志或者日志不往上翻阅，明明日志上写了错误原因甚至解决方法，大家只会觉得你太懒了，交流起来一定很吃力，懒得理你。</li>
+<li>。。。可能还有其它明显的问题，希望自己提问前想想，你作为回答者，你会愿意回答这样的问题吗？</li>
+</ul>
+<h2 id="%E6%8F%90%E9%97%AE%E6%97%B6%EF%BC%8C%E5%B0%BD%E9%87%8F%E5%81%9A%E5%88%B0%E4%BB%A5%E4%B8%8B%E5%87%A0%E7%82%B9%EF%BC%8C%E4%BC%9A%E5%A4%A7%E5%A4%A7%E6%8F%90%E9%AB%98%E9%97%AE%E9%A2%98%E8%A2%AB%E5%BF%AB%E9%80%9F%E8%A7%A3%E5%86%B3%E7%9A%84%E5%87%A0%E7%8E%87%EF%BC%9A">提问时，尽量做到以下几点，会大大提高问题被快速解决的几率：</h2>
+<h3 id="%E6%97%B6%E5%88%BB%E7%AB%99%E5%9C%A8%E5%9B%9E%E7%AD%94%E8%80%85%E7%9A%84%E8%A7%92%E5%BA%A6%E6%80%9D%E8%80%83%E9%97%AE%E9%A2%98">时刻站在回答者的角度思考问题</h3>
+<p>每次提问，都要站在解答者的角度思考：</p>
+<ul>
+<li>假设解答者都是大佬，他们时间宝贵。</li>
+<li>如何让大家在一瞥之间就能看懂我的提问，最好是不要让回答者来追问我做了什么，目的是什么等基础问题。</li>
+<li>如果让大家愿意回答我的问题，比如是有技术讨论深度，还是说能让回答者感受到至高无上的被崇敬的感觉，还是说我能直接打钱。</li>
+<li>不要让回答者觉得我懒，没有看文档，没有看代码，没有看日志，没有搜索过，没有思考过，没有尝试过，没有做过任何努力，就直接来问问题。</li>
+</ul>
+<h3 id="%E7%BC%95%E6%B8%85%E9%97%AE%E9%A2%98%EF%BC%8C-%E5%BC%84%E6%B8%85%E6%A5%9A%E5%88%B0%E5%BA%95%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88%EF%BC%8C%E4%BB%A5%E5%8F%8A%E6%88%91%E5%81%9A%E4%BA%86%E4%BB%80%E4%B9%88%EF%BC%8C%E5%8C%85%E6%8B%AC%EF%BC%9A">缕清问题， 弄清楚到底发生了什么，以及我做了什么，包括：</h3>
+<ul>
+<li><p>我想实现什么效果，什么功能？</p>
+</li>
+<li><p>为了实现这个效果，我是怎么做的， 详细的过程是什么？</p>
+</li>
+<li><p>实施的过程中， 什么错误发生了， 现象是什么（比如报错了， 报了什么错，<strong>完整</strong>的错误内容是什么？切忌只看最后几行，尽量往前多看看日志）</p>
+</li>
+<li><p>我是否认真看了报错的信息， 报错信息中是否有提示了错误的原因和解决的方法？</p>
+</li>
+<li><p>根据这些报错信息， 仔细思考， 是否能解决问题？</p>
+</li>
+<li><p>搜索 文档、 FAQ， issue， 以及用搜索引擎能不能搜索到问题的解决方法</p>
+</li>
+</ul>
+<h3 id="%E5%A6%82%E6%9E%9C%E9%97%AE%E9%A2%98%E8%87%AA%E5%B7%B1%E5%AE%9E%E5%9C%A8%E4%B8%8D%E8%83%BD%E8%A7%A3%E5%86%B3%EF%BC%8C-%E9%9C%80%E8%A6%81%E8%AF%B7%E6%95%99%E4%BA%8E%E4%BA%BA%EF%BC%8C-%E9%9C%80%E8%A6%81%E8%80%83%E8%99%91%EF%BC%9A">如果问题自己实在不能解决， 需要请教于人， 需要考虑：</h3>
+<ul>
+<li><p>请教谁，在哪里请教， 谁会更有几率回答我的问题？以及实时性如何？</p>
+</li>
+<li><p>我应该给他提供什么数据和现象他才能愿意快速帮我解决问题？</p>
+<ul>
+<li>提供我的目的 （方便让回答者知道你在做什么事情）</li>
+<li>提供完整的实施过程， 以及过程中出现的现象 （方便回答者跟着你的流程去做一遍， 即问题复现）</li>
+<li>给出错误的地方， 指明哪里出现的现象或结果和自己预期的不一样！ （让回答者知道，哪里没达到预期）</li>
+<li>提供出现的错误信息， 需要完整， 尽可能更多地截图， 更多的日志，千万别小气地截一张小图，或者之给出日志的一部分（ 因为回答者可能很久没做这件事情了，忘记了一些细节，需要靠截图和完整日志来快速回忆起来; 而且根据详细的日志可以快速定位到问题处在哪里）</li>
+</ul>
+</li>
+<li><p>怎么提问态度显得比较诚恳，就算我再小白，大家也愿意回答</p>
+</li>
+</ul>
+<h3 id="%E6%8F%90%E9%97%AE%E6%A8%A1%E6%9D%BF">提问模板</h3>
+<p>提问尽量做到提问优雅，不需要添加多余的语气词，抱怨的词汇，斟酌每一个词和标点符号，站在回答人的角度思考问题，如何让回答的人快速帮助自己解决问题， 字数太少描述不清楚， 字数太多则让人没有耐心</p>
+<h4 id="%E6%A0%87%E9%A2%98">标题</h4>
+<p>无论在哪里提问（包括<code>QQ群</code>）， 给自己的问题拟定一个<code>30</code>个字左右标题， 阐明问题的中心思想，包括：</p>
+<ul>
+<li>问题类别， 是问题请教，还是 BUG提交，还是经验分享等等。让大家在满是文字的屏幕上可以立马定位到你想做什么</li>
+<li>一句话阐明问题的中心你思想，比如遇到 <code>运行摄像头示例程序，报错 reset fail， 可能是硬件问题吗</code></li>
+</ul>
+<p>所以综合后标题可以是这样：</p>
+<ul>
+<li><code>【MaixPy 提问】 运行摄像头示例程序，报错 reset fail， 可能是硬件问题吗</code></li>
+</ul>
+<p>这样的标题一定<strong>不能</strong>出现:</p>
+<ul>
+<li><code>啊啊啊啊啊为什么我的板子又不行了</code>（我咋知道，又不是我的板子）</li>
+<li><code>为什么我的代码不能运行了</code>（我咋知道，又不是我的代码）</li>
+<li><code>为什么我的屏幕黑屏了</code> （可能没电了吧也许大概，可能性太多了）</li>
+<li><code>reset fail 是什么错啊</code> （reset fail是什么）</li>
+<li><code>【MaixPy 提问】 收到了开发板，开发板屏幕是红的，一行小字，为什么呢？</code> （没读文档，一来开问）</li>
+<li><code>我运行xxx程序，出了问题</code> （什么问题呢）</li>
+<li><code>为什么当我将开机启动脚本注释掉然后改成我的脚本文件然后重启之后屏幕没有任何显示，一直黑屏，我的脚本文件是可以运行成功的</code> (你得用现象证明你的脚本运行成功了，不然别人可能就是认为你在瞎说懒得理你)</li>
+</ul>
+<p>可以这样问：</p>
+<ul>
+<li><code>【MaixPy 提问】我的板子在我接反电源后，现在板子无法启动，怎么判断板子哪里烧毁了，如果可以，怎么救活呢</code></li>
+<li><code>【MaixPy BUG】image.pix_to_ai 没有对最后一个像素进行转换</code></li>
+</ul>
+<h4 id="%E5%86%85%E5%AE%B9">内容</h4>
+<p>首先站在回答者的角度， 如果被问问题:</p>
+<ul>
+<li>首先要知道对方要做什么，实现什么目标</li>
+<li>为了实现这个目标，他是参考了哪里的步骤做的</li>
+<li>实际上采用了哪些具体的步骤，然后在那一步出现了问题， 方便我照着他的步骤去尝试复现一下现象。如果这个问题看起来不好解决，又没有复现的步骤，那可能要花很多时间去复现，先放一放先解决其它问题吧</li>
+<li>具体出现的问题是什么，如果他只说出了问题，我怎么知道他出了什么问题，也许是身体不适？所以这很重要，需要让他说明出问题时的现象，并指明与预期有什么不同，不然我还得去猜去对比和预期有什么不同，解决问题的时长又增加了</li>
+<li>出问题了，我可能需要他的日志文件，方便我根据日志去看源码等进行分析，不然可能会很难解决问题，那这个问题可以放到后面慢慢看吧</li>
+</ul>
+<p>综上， 可以这么提问：</p>
+<ul>
+<li>详细阐明自己的目标，想做什么事情， 现象应该是什么样的</li>
+<li>我有没有参考哪里的文档、代码或者教学</li>
+<li>如何复现错误：具体怎么做的， 每一个步骤写详细，直到问题出现</li>
+<li>详细阐述错误出现时的现象，以及和期望的相比哪里不一样，需要证明问题确实出现了</li>
+<li>附带日志文件，以及截图，甚至是视频，日志和截图一定要完整，不要只截取一小部分，回答者可能会从你的完整日志和截图中发现一些你没注意到的问题，这很重要！</li>
+<li>另外，粘贴代码注意格式，别粘贴后显示很乱，无法入目，尽量能复制后 直接能运行</li>
+<li>最后，对解答问题的社区朋友们表达感谢，或者是在提问时就表达感觉（无论是口头还是实际的金钱感谢都可）</li>
+</ul>
+
+                
+            </div>
+        </div>
+        <a id="to_top" href="#"></a>
+        <div id="page_footer">
+            <div id="footer">
+                
+                <div id="footer_top">
+                    <ul>
+<li><a>相关链接</a><ul><li><a target="_blank" href="https://www.sipeed.com">Sipeed 官网</a></li>
+<li><a target="_blank" href="https://maixhub.com/">MaixHub</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">Sipeed 淘宝</a></li>
+<li><a  href="/sitemap.xml">网站地图</a></li>
+<li><a target="_blank" href="https://github.com/teedoc/teedoc">网站使用 teedoc 生成</a></li>
+</ul>
+</li>
+<li><a>源码</a><ul><li><a target="_blank" href="https://github.com/sipeed/sipeed_wiki">Wiki 源码</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">开源项目</a></li>
+</ul>
+</li>
+<li><a>关注我们</a><ul><li><a target="_blank" href="https://twitter.com/SipeedIO">twitter</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">淘宝</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">github</a></li>
+<li><a><a>微信公众号</a><img src='/static/image/wechat.png'></a>
+</li>
+</ul>
+</li>
+<li><a>联系我们</a><ul><li><a>电话: +86 0755-27808509</a>
+</li>
+<li><a>商业支持: support@sipeed.com</a>
+</li>
+<li><a>地址: 深圳市宝安区新湖路4008号蘅芳科技办公大厦A座-2101C</a>
+</li>
+<li><a  href="/join_us.html">加入我们</a></li>
+</ul>
+</li>
+</ul>
+
+                </div>
+                <div id="footer_bottom">
+                    <ul>
+<li><a target="_blank" href="https://www.sipeed.com">©2018-2023 深圳矽速科技有限公司</a></li>
+<li><a target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index">粤ICP备19015433号</a></li>
+</ul>
+
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/js/prism.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <link rel="stylesheet" href="/static/js/add_hint/style.css" type="text/css"/>
+    
+        <script src="/static/js/add_hint/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+        <script src="/static/js/thumbs_up/main.js"></script>
+    
+    
+</body>
+</html>

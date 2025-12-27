@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+
+<html lang="en"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="maixpy, k210, AIOT, edge computing">
+    
+    
+    <meta name="description" content="maixpy  uctypes-access to binary data in a structured way">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+        
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/prism.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?9cb07365544a53067c56c346c838181a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119047820-5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-119047820-5');
+    </script>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/js/thumbs_up/style.css" type="text/css"/>
+        
+    
+    
+    <title>uctypes-access to binary data in a structured way - Sipeed Wiki</title>
+    
+    <script type="text/javascript">js_vars = {"teedoc-plugin-ad-hint": {"type": "hint", "label": "NEW", "content": "New Maix series products <a href='https://wiki.sipeed.com/maixcam'>MaixCAM</a> online now, and new <a href='https://wiki.sipeed.com/maixpy/'>MaixPy</a>,feature richer functionalities, enhanced performance, and user-friendly software, with comprehensive documentation", "show_times": 2, "show_after_s": 432000, "date": "2022-06-01 14:00", "color": "#a0421d", "link_color": "#e53935", "link_bg_color": "#e6ae5c", "bg_color": "#ffcf89", "color_hover": "white", "bg_color_hover": "#f57c00", "close_color": "#eab971"}, "teedoc-plugin-thumbs-up": {"label_up": "Helpful", "label_down": "Not Helpful", "icon": "/static/images/thumbs_up/up.svg", "icon_clicked": "/static/images/thumbs_up/upped.svg", "url": "https://thumbs-up.sipeed.com", "show_up_count": true, "show_down_count": false, "msg_already_voted": "You have already voted", "msg_thanks": "Thanks for your vote", "msg_down_prompt": "Thanks to tell us where we can improve?(At least 10 characters)", "msg_down_prompt_error": "Message should be at least 10 characters and less than 256 characters", "msg_error": "Request server failed!"}}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": false, "update": [], "ts": 0, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/en/">
+                
+                    <img class="site_logo" src="/static/image/logo.svg" alt="sipeed wiki logo">
+                
+                
+                    <h2>wiki</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class=""><a  href="/en/">Products</a></li>
+<li class="sub_items "><a >Software Docs</a><ul><li class=""><a  href="/maixpy/en/">MaixPy</a></li>
+<li class=""><a  href="/soft/maixpy/zh/index.html">MaixPy_v1</a></li>
+<li class=""><a  href="/soft/Lichee/zh/index.html">Lichee</a></li>
+<li class=""><a  href="/ai/en/index.html">AI Guide</a></li>
+</ul>
+</li>
+<li class=""><a target="_blank" href="https://maixhub.com">MaixHub</a></li>
+<li class=""><a  href="/news/">News</a></li>
+<li class=""><a  href="/en/faq.html">FAQ</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class=""><a  href="/en/store.html"><img src='/static/image/shop.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+<li class=""><a target="_blank" href="https://github.com/sipeed"><img src='/static/image/github.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+<li class="sub_items "><a  ><img src='/static/image/language.svg' style='height: 1.5em;vertical-align: middle;'>&nbsp;English</a><ul><li class="active"><a  href="/soft/maixpy/en/api_reference/standard/uctypes.html">English</a></li>
+<li class=""><a  href="/soft/maixpy/zh/api_reference/standard/uctypes.html">中文</a></li>
+</ul></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">Search</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">Input keyword. Using Space to separate multiple keywords</span>
+                                <span id="search_loading_hint">Loading, please wait</span>
+                                <span id="search_download_err_hint">Fail download, Please retry or check network</span>
+                                <span id="search_other_docs_result_hint">Results form other doc</span>
+                                <span id="search_curr_doc_result_hint">Result form current doc</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="not_active with_link"><a href="/soft/maixpy/en/index.html"><span class="label">What is MaixPy-v1?</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/what_maix_do.html"><span class="label">What can MaixPy-v1 do?</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/maixpy_history.html"><span class="label">MaixPy Development History</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Getting started(Important)</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/how_to_read.html"><span class="label">How to read documents (Important!!!)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/how_to_ask.html"><span class="label">How to ask correctly (Important!!!)</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Development Boards</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/develop_kit_board/get_hardware.html"><span class="label">Boards Comparison</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Boards introduction</span><span class=""></span></a></li>
+<ul class="show">
+<li class="not_active with_link"><a href="/soft/maixpy/en/develop_kit_board/maix_dock.html"><span class="label">Maix Dock</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/develop_kit_board/maix_bit.html"><span class="label">Maix Bit</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/develop_kit_board/maix_amigo.html"><span class="label">Maix Amigo</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/develop_kit_board/maix_duino.html"><span class="label">Maix Duino</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/develop_kit_board/maix_cube.html"><span class="label">Maix Cube</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/develop_kit_board/maix_go.html"><span class="label">Maix Go</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/develop_kit_board/maix_nano.html"><span class="label">Maix Nano</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/develop_kit_board/grove_ai_hat.html"><span class="label">Grove AI HAT</span><span class=""></span></a></li>
+</ul>
+<li class="not_active no_link"><a><span class="label">Related peripheral Modules (Accessories)</span><span class=""></span></a></li>
+<ul class="show">
+<li class="not_active with_link"><a href="/soft/maixpy/en/modules/sp_mod/index.html"><span class="label">SP-MOD</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/modules/grove/index.html"><span class="label">Grove</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/modules/others/index.html"><span class="label">Other</span><span class=""></span></a></li>
+</ul>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Setup Environment</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/get_started/env_install_driver.html"><span class="label">Install driver for development board</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/get_started/install_driver/dock.html"><span class="label">Maix Dock</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/get_started/install_driver/bit.html"><span class="label">Maix Bit</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/no_translate.html?ref=/soft/maixpy/zh/get_started/install_driver/amigo.html&from=/soft/maixpy/en/get_started/install_driver/amigo.html"><span class="label">Maix Amigo</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/no_translate.html?ref=/soft/maixpy/zh/get_started/install_driver/cube.html&from=/soft/maixpy/en/get_started/install_driver/cube.html"><span class="label">Maix Cube</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/get_started/install_driver/go.html"><span class="label">Maix Go</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/get_started/install_driver/nano.html"><span class="label">Maix Nano</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/no_translate.html?ref=/soft/maixpy/zh/get_started/install_driver/ai_hat.html&from=/soft/maixpy/en/get_started/install_driver/ai_hat.html"><span class="label">Grove AI HAT</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/get_started/install_driver/duino.html"><span class="label">Maix Duino</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/get_started/upgrade_maixpy_firmware.html"><span class="label">How to update MaixPy firmware</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/get_started/env_maixpyide.html"><span class="label">Install and use MaixPy IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/get_started/env_serial_tools.html"><span class="label">How to use serial terminal tool</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/no_translate.html?ref=/soft/maixpy/zh/get_started/mpfshell-lite/mpfshell-lite.html&from=/soft/maixpy/en/get_started/mpfshell-lite/mpfshell-lite.html"><span class="label">mpfshell-lite工具介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/no_translate.html?ref=/soft/maixpy/zh/get_started/mpfshell-lite/mpfshell-lite-help.html&from=/soft/maixpy/en/get_started/mpfshell-lite/mpfshell-lite-help.html"><span class="label">Mpfshell-lite 使用手册</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/get_started/env_maixpyide.html"><span class="label">MaixPy IDE Instructions</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Update WIFI module firmware</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/get_started/upgrade_esp32_firmware.html"><span class="label">Update onboard ESP32 firmware</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/get_started/upgrade_esp8285_firmware.html"><span class="label">Update onboard ESP8285 firmware</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Start to run program</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/get_started/get_started_power_on.html"><span class="label">Power up your board</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/get_started/get_started_cam_lcd.html"><span class="label">First program: screen and camera</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/get_started/get_started_led_blink.html"><span class="label">Second program: LED</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Basic programming knowledge</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/get_started/knowledge_micropython.html"><span class="label">MaixPy Programming</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/get_started/knowledge_git_github.html"><span class="label">What is git and github?</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/get_started/knowledge_image.html"><span class="label">MaixPy Image Basics</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/get_started/knowledge_audio.html"><span class="label">MaixPy audio basics</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/get_started/get_started_fs.html"><span class="label">Introduction of Storage System</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/get_started/get_started_edit_file.html"><span class="label">Edit and run scripts code</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/get_started/get_started_upload_script.html"><span class="label">Upload scripts code to board</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/get_started/get_started_boot.html"><span class="label">Run scripts code when booting</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/get_started/board_info.html"><span class="label">Board configuration file</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/get_started/maixpy_get_started_video.html"><span class="label">Video tutorial</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Custome your own firmware</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/firmware/why_customize_firware.html"><span class="label">Why customizing firmware</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/firmware/online_compile.html"><span class="label">Online Compile</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/firmware/compile.html"><span class="label">Compile from source code</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/index.html"><span class="label">More usages</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Basic Usage</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">CPU & RAM</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/others/system.html"><span class="label">Frequency and reset</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/others/mem.html"><span class="label">Memory configuration</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">GUI support</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/image/image_draw_font/image_draw_font.html"><span class="label">Chinese and other multi-language support</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/others/maixui.html"><span class="label">Maix UI</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/others/lvgl.html"><span class="label">Lvgl UI</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/others/pye.html"><span class="label">pye Editor </span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Network</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/network/network_config.html"><span class="label">Configure network</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/network/socket_usage.html"><span class="label">Socket communication</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Multimedia</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/media/audio.html"><span class="label">audio</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/media/video.html"><span class="label">video</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Game simulator</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/media/nes.html"><span class="label">NES game console</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Peripheral module expansion</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">On-chip peripherals</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/modules/on_chip/gpio.html"><span class="label">GPIO</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/modules/on_chip/i2c.html"><span class="label">I2C</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/modules/on_chip/pwm.html"><span class="label">PWM</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/modules/on_chip/spi.html"><span class="label">SPI</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/modules/on_chip/timer.html"><span class="label">Timer</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/modules/on_chip/uart.html"><span class="label">UART</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/modules/on_chip/i2s.html"><span class="label">I2S</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/modules/on_chip/wdt.html"><span class="label">WDT</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">SP-MOD</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/modules/sp_mod/sp_bt.html"><span class="label">BT Bluetooth transparent transmission</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/modules/sp_mod/sp_lora.html"><span class="label">LoRa Wireless Communication</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/modules/sp_mod/sp_rfid.html"><span class="label">RFID Radio Frequency Identification</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/modules/sp_mod/sp_tof.html"><span class="label">TOF Ranging</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/modules/sp_mod/sp_eink.html"><span class="label">Eink Electronic Ink Screen</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/modules/sp_mod/sp_lcd1.14.html"><span class="label">Lcd1.14 IPS screen</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/modules/sp_mod/sp_weather.html"><span class="label">Weather Module</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/modules/sp_mod/sp_ethernet.html"><span class="label">Ethernet wired network port</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Grove</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/modules/grove/grove_ultrasonic_ranger.html"><span class="label">Ultrasonic Ranger ranging</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/modules/grove/grove_chainable_rgb_led.html"><span class="label">Chainable RGB LED light</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/modules/grove/grove_rgb_led_ring.html"><span class="label">RGB LED Ring Strip</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Other peripherals</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/develop_kit_board/module_microphone.html"><span class="label">Sipeed Microphone Array</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/modules/others/binocular_camera.html"><span class="label">Dual camera module</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/modules/others/mlx90640.html"><span class="label">MLX90640 serial infrared lens</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/modules/others/servo.html"><span class="label">Pwm servo</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/modules/others/esp32_read_adc.html"><span class="label">ESP32 ADC</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/modules/others/onewire.html"><span class="label">onewire single bus</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Basic Image Processing</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/image/basic/get_images.html"><span class="label">Get image</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/image/basic/display_images.html"><span class="label">Display image</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/image/basic/vary.html"><span class="label">MaixPy common images operations</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/image/basic/draw.html"><span class="label">Basic drawing and writing</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/image/basic/acc_image_deal.html"><span class="label">Hardware accelerated image processing</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Traditional Algorithm</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Image Processing</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/image/find_color_blob.html"><span class="label">Look for color blocks</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/image/find_qrcodes.html"><span class="label">QR code recognition</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Audio Processing</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/speech/fft_waterfall.html"><span class="label">FFT waterfall chart</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/speech/recognizer_mfcc.html"><span class="label">Keyword Identification</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Neural Network Applications</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/ai/basic/dnn_basic.html"><span class="label">Basic knowledge of deep neural networks</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/ai/basic/maixpy_hardware_ai_basic.html"><span class="label">MaixPy AI hardware acceleration basic knowledge</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Image Processing</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/ai/image/face_detect.html"><span class="label">Face Detection</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/ai/image/1000_type_classifier.html"><span class="label">1000 object classification</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/ai/image/face_recognization.html"><span class="label">Face Recognition</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/ai/image/self_learn_classifier.html"><span class="label">Self-learning classification</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Audio Processing</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/speech/recognizer_cnn.html"><span class="label">Voice Recognition</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">How to tarin models</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Train your own classification and detection model</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/ai/train/maixhub.html"><span class="label">MaixHub Cloud Training</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/ai/train/local.html"><span class="label">Local Training</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/no_translate.html?ref=/soft/maixpy/zh/course/ai/train/local_windows_1.html&from=/soft/maixpy/en/course/ai/train/local_windows_1.html"><span class="label">Setup Windows local training envrioument</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/no_translate.html?ref=/soft/maixpy/zh/course/ai/train/local_windows_2.html&from=/soft/maixpy/en/course/ai/train/local_windows_2.html"><span class="label">Tutorial of Windows local training</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="active_parent no_link"><a><span class="label">API reference</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="active_parent with_link"><a href="/soft/maixpy/en/api_reference/standard/index.html"><span class="label">Standard Library</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/standard/cmath.html"><span class="label">cmath</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/standard/gc.html"><span class="label">gc</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/standard/math.html"><span class="label">math</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/standard/sys.html"><span class="label">sys</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/standard/ubinascii.html"><span class="label">ubinascii</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/standard/ucollections.html"><span class="label">ucollections</span><span class=""></span></a></li>
+<li class="active with_link"><a href="/soft/maixpy/en/api_reference/standard/uctypes.html"><span class="label">uctypes</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/standard/uerrno.html"><span class="label">uerrno</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/standard/uhashlib.html"><span class="label">uhashlib</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/standard/uheapq.html"><span class="label">uheapq</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/standard/ujson.html"><span class="label">ujson</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/standard/uos.html"><span class="label">uos</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/standard/ure.html"><span class="label">ure</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/standard/usocket.html"><span class="label">usocket</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/standard/ustruct.html"><span class="label">ustruct</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/standard/utime.html"><span class="label">utime</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/standard/uzlib.html"><span class="label">uzlib</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/machine/index.html"><span class="label">machinie</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/machine/i2c.html"><span class="label">I2C</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/machine/pwm.html"><span class="label">PWM</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/machine/spi.html"><span class="label">SPI</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/machine/timer.html"><span class="label">Timer</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/machine/uart.html"><span class="label">UART</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/machine/network.html"><span class="label">network</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/machine/wdt.html"><span class="label">WDT</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Maix</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/Maix/fpioa.html"><span class="label">FPIOA</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/Maix/gpio.html"><span class="label">GPIO</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/Maix/kpu.html"><span class="label">KPU</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/Maix/fft.html"><span class="label">FFT</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/Maix/i2s.html"><span class="label">I2S</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/Maix/freq.html"><span class="label">freq</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/Maix/utils.html"><span class="label">utils</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/builtin_py/index.html"><span class="label">helper</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/builtin_py/fm.html"><span class="label">fpioa_manager</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/builtin_py/board_info.html"><span class="label">board_info</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/builtin_py/pye.html"><span class="label">Micropython Editor</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/machine_vision/index.html"><span class="label">media</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/machine_vision/lcd.html"><span class="label">lcd</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/machine_vision/sensor.html"><span class="label">sensor</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/machine_vision/image/image.html"><span class="label">image</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/media/video.html"><span class="label">video</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/media/audio.html"><span class="label">audio</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/media/nes.html"><span class="label">nes</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/machine_vision/isolated_word.html"><span class="label">isolated_word</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/machine_vision/maix_asr.html"><span class="label">maix_asr</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/extend/index.html"><span class="label">extend</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/extend/touchscreen.html"><span class="label">touchscreen</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/extend/ultrasonic.html"><span class="label">modules.ultrasonic</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/extend/ws2812.html"><span class="label">modules.ws2812</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/extend/htpa.html"><span class="label">modules.htpa</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/api_reference/extend/onewire.html"><span class="label">modules.onewire</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/others/maixpy_faq.html"><span class="label">FAQ</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Advanced</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Advanced Development</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/advance/project_framework.html"><span class="label">Source code Structure</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/advance/compile.html"><span class="label">How to compile MaixPy project</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/advance/add_c_module.html"><span class="label">How to add a MaixPy module in C</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/course/advance/pack_fs.html"><span class="label">Package File System</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Participate in Contribution</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/contribute/doc_convention.html"><span class="label">Participate in document writing (standard)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/contribute/code_convention.html"><span class="label">Code Writing Specification</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Sharing from Community & Users</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/share/recommend_articles.html"><span class="label">Featured Articles</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/share/open_projects.html"><span class="label">Open Source Project</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Everyone's experience sharing</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/soft/maixpy/en/share/my_share/index.html"><span class="label">Participate in experience sharing/sharing template</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/soft/maixpy/en/thanks.html"><span class="label">Open source thanks</span><span class=""></span></a></li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>uctypes-access to binary data in a structured way</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/sipeed/sipeed_wiki/blob/main/docs/soft/maixpy/en/api_reference/standard/uctypes.md" target="_blank">
+                                    <span id='editPage'>Edit this page</span>
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <p>This module implements &quot;external data interface&quot; for MicroPython. The idea behind it is similar to CPython's <code>ctypes</code> module, but the actual API is different, streamlined and optimized for small size. The basic idea of ​​this module is to define a data structure layout with data roughly the same as the functions allowed by the C language, and then use the familiar dot syntax to access it to reference subfields.</p>
+<blockquote>
+<p><strong>Warning</strong></p>
+<p>The uctypes module allows access to any memory address of the machine (including I/O and control registers). Using it carelessly may cause crashes, data loss, and even hardware failure.</p>
+</blockquote>
+<blockquote>
+<p><strong>Also refer to</strong></p>
+<p><strong><a href="ustruct.html"  >ustruct</a> module</strong></p>
+<p>Standard Python methods for accessing binary data structures (does not scale well to large and complex structures).</p>
+</blockquote>
+<p>Routine:</p>
+
+<pre class="language-python"><code class="language-python">import uctypes
+
+# Example 1: Subset of ELF file header
+# https://wikipedia.org/wiki/Executable_and_Linkable_Format#File_header
+ELF_HEADER = {
+    &quot;EI_MAG&quot;: (0x0 | uctypes.ARRAY, 4 | uctypes.UINT8),
+    &quot;EI_DATA&quot;: 0x5 | uctypes.UINT8,
+    &quot;e_machine&quot;: 0x12 | uctypes.UINT16,
+}
+
+# &quot;f&quot; is an ELF file opened in binary mode
+buf = f.read(uctypes.sizeof(ELF_HEADER, uctypes.LITTLE_ENDIAN))
+header = uctypes.struct(uctypes.addressof(buf), ELF_HEADER, uctypes.LITTLE_ENDIAN)
+assert header.EI_MAG == b&quot;\x7fELF&quot;
+assert header.EI_DATA == 1, &quot;Oops, wrong endianness. Could retry with uctypes.BIG_ENDIAN.&quot;
+print(&quot;machine:&quot;, hex(header.e_machine))
+
+
+# Example 2: In-memory data structure, with pointers
+COORD = {
+    &quot;x&quot;: 0 | uctypes.FLOAT32,
+    &quot;y&quot;: 4 | uctypes.FLOAT32,
+}
+
+STRUCT1 = {
+    &quot;data1&quot;: 0 | uctypes.UINT8,
+    &quot;data2&quot;: 4 | uctypes.UINT32,
+    &quot;ptr&quot;: (8 | uctypes.PTR, COORD),
+}
+
+# Suppose you have address of a structure of type STRUCT1 in &quot;addr&quot;
+# uctypes.NATIVE is optional (used by default)
+struct1 = uctypes.struct(addr, STRUCT1, uctypes.NATIVE)
+print(&quot;x:&quot;, struct1.ptr[0].x)
+
+
+# Example 3: Access to CPU registers. Subset of STM32F4xx WWDG block
+WWDG_LAYOUT = {
+    &quot;WWDG_CR&quot;: (0, {
+        # BFUINT32 here means size of the WWDG_CR register
+        &quot;WDGA&quot;: 7 &lt;&lt; uctypes.BF_POS | 1 &lt;&lt; uctypes.BF_LEN | uctypes.BFUINT32,
+        &quot;T&quot;: 0 &lt;&lt; uctypes.BF_POS | 7 &lt;&lt; uctypes.BF_LEN | uctypes.BFUINT32,
+    }),
+    &quot;WWDG_CFR&quot;: (4, {
+        &quot;EWI&quot;: 9 &lt;&lt; uctypes.BF_POS | 1 &lt;&lt; uctypes.BF_LEN | uctypes.BFUINT32,
+        &quot;WDGTB&quot;: 7 &lt;&lt; uctypes.BF_POS | 2 &lt;&lt; uctypes.BF_LEN | uctypes.BFUINT32,
+        &quot;W&quot;: 0 &lt;&lt; uctypes.BF_POS | 7 &lt;&lt; uctypes.BF_LEN | uctypes.BFUINT32,
+    }),
+}
+
+WWDG = uctypes.struct(0x40002c00, WWDG_LAYOUT)
+
+WWDG.WWDG_CFR.WDGTB = 0b10
+WWDG.WWDG_CR.WDGA = 1
+print(&quot;Current counter:&quot;, WWDG.WWDG_CR.T)
+</code></pre>
+<h2 id="Define-the-structure-layout">Define the structure layout</h2>
+<p>The structure layout is defined by a &quot;descriptor&quot;-a Python dictionary that encodes field names as keys and other attributes needed to access them as associated values:</p>
+
+<pre class="language-python"><code class="language-python">{
+    &quot;field1&quot;: &lt;properties&gt;,
+    &quot;field2&quot;: &lt;properties&gt;,
+    ...
+}
+</code></pre>
+<p>Currently, <code>uctypes</code> needs to specify the offset of each field. The offset is given in bytes from the beginning of the structure.</p>
+<p>The following are coding examples for various field types:</p>
+<ul>
+<li>Scalar type:</li>
+</ul>
+
+<pre class="language-python"><code class="language-python">&quot;field_name&quot;: offset | uctypes.UINT32
+</code></pre>
+<p>In other words, the value is a scalar type identifier and is ORed with the field offset (in bytes) at the beginning of the structure.</p>
+<ul>
+<li>Recursive structure:</li>
+</ul>
+
+<pre class="language-python"><code class="language-python">&quot;sub&quot;: (offset, {
+    &quot;b0&quot;: 0 | uctypes.UINT8,
+    &quot;b1&quot;: 1 | uctypes.UINT8,
+})
+</code></pre>
+<p>That is, the value is a 2-tuple, the first element is the offset, and the second is the structure descriptor dictionary (note: the offset in the recursive descriptor is related to the structure it defines). Of course, the recursive structure can be specified not only through the literal dictionary, but also by referring to the structure descriptor dictionary (defined above) by name.</p>
+<ul>
+<li>Array of primitive type:</li>
+</ul>
+
+<pre class="language-python"><code class="language-python">&quot;arr&quot;: (offset | uctypes.ARRAY, size | uctypes.UINT8),
+</code></pre>
+<p>That is, the value is a 2-tuple, the first element is the ARRAY flag and the offset are ORed, and the second is the number of elements in the scalar element type ORed array.</p>
+<p>*Aggregate type array:</p>
+
+<pre class="language-python"><code class="language-python">&quot;arr2&quot;: (offset | uctypes.ARRAY, size, {&quot;b&quot;: 0 | uctypes.UINT8}),
+</code></pre>
+<p>That is, the value is a 3-tuple, the first element of which is the ARRAY flag, which is related to the offset, the second is the number of elements in the array, and the third is the element type descriptor.</p>
+<p>*Pointers to primitive types:</p>
+
+<pre class="language-python"><code class="language-python">&quot;ptr&quot;: (offset | uctypes.PTR, uctypes.UINT8),
+</code></pre>
+<p>That is, the value is a 2-tuple, the first element is the PTR flag and the offset is ORed, and the second element is the scalar element type.</p>
+<p>*Pointer to aggregate type:</p>
+
+<pre class="language-python"><code class="language-python">&quot;ptr2&quot;: (offset | uctypes.PTR, {&quot;b&quot;: 0 | uctypes.UINT8}),
+</code></pre>
+<p>That is, the value is a 2-tuple, the first element of which is the OR operation of the PTR flag and the offset, and the second element is the descriptor of the pointed type.</p>
+<p>*Bitfield:</p>
+
+<pre class="language-python"><code class="language-python">&quot;bitf0&quot;: offset | uctypes.BFUINT16 | lsbit &lt;&lt; uctypes.BF_POS | bitsize &lt;&lt; uctypes.BF_LEN,
+</code></pre>
+<p>That is, value is a scalar value that contains a given positioning field (the type name is similar to a scalar type, but the prefix is ​​&quot;BF&quot;), which is ORed with the offset of the scalar value containing the bit field, and further compared with the bit position And the value of bit length is &quot;OR&quot; operation. The bit fields within the scalar value are shifted by BF_POS and BF_LEN bits respectively. The bit field position counts from the least significant bit (position with 0) of the scalar, and is the number of rightmost bits of the field (in other words, it is the number of bits that the scalar needs to be shifted to the right to extract the bit field).</p>
+<p>In the above example, first extract the UINT16 value at offset 0 (this detail may be important when accessing hardware registers, requiring specific access size and alignment), and then the rightmost bit is the lsbit bit of this UINT16 The bit field, and length is bitsize bits, will be extracted. For example, if lsbit is 0 and bitsize is 8, then it will effectively access the least significant byte of UINT16.</p>
+<p>Note that bit field operations are independent of the target byte order, especially the above example will access the least significant byte of UINT16 in little-endian and big-endian structures. But it depends on the least significant bit being numbered as 0. Some targets may use a different number in their native ABI, but &quot;uctypes&quot; always uses the standardized number described above.</p>
+<h2 id="Module-content">Module content</h2>
+<h3 id="class-uctypes.struct%28addr%2C-descriptor%2C-layout_type%3DNATIVE%29">class uctypes.struct(addr, descriptor, layout_type=NATIVE)</h3>
+<p>Instantiate the &quot;external data structure&quot; object based on the address of the structure in memory, the descriptor (encoded as a dictionary) and the layout type (see below).</p>
+<h3 id="uctypes.LITTLE_ENDIAN">uctypes.LITTLE_ENDIAN</h3>
+<p>The layout type of the little-endian compression structure. (Packing means that each field occupies the number of bytes defined in the descriptor, that is, the alignment is 1).</p>
+<h3 id="uctypes.BIG_ENDIAN">uctypes.BIG_ENDIAN</h3>
+<p>The layout type of big-endian compression structure.</p>
+<h3 id="uctypes.NATIVE">uctypes.NATIVE</h3>
+<p>The layout type of the native structure-data byte order and alignment conform to the ABI of the system running MicroPython.</p>
+<h3 id="uctypes.sizeof%28struct%2C-layout_type%3DNATIVE%29">uctypes.sizeof(struct, layout_type=NATIVE)</h3>
+<p>Returns the size of the data structure in bytes. The struct parameter can be a structure class or a specific instantiated structure object (or its aggregate field).</p>
+<h3 id="uctypes.addressof%28obj%29">uctypes.addressof(obj)</h3>
+<p>Returns the address of the object. The parameters should be bytes, byte arrays or other objects that support the buffer protocol (the address of the buffer is actually returned).</p>
+<h3 id="uctypes.bytes_at%28addr%2C-size%29">uctypes.bytes_at(addr, size)</h3>
+<p>Capture memory as bytes object with given address and size. Since the bytes object is immutable, the memory is actually copied and copied into the bytes object, so if the memory content changes later, the created object will retain the original value.</p>
+<h3 id="uctypes.bytearray_at%28addr%2C-size%29">uctypes.bytearray_at(addr, size)</h3>
+<p>Capture the memory of the given address and size as a bytearray object. Unlike the bytes_at() function above, the memory is captured by reference, so it can also be written, and you will access the current value at the given memory address.</p>
+<h3 id="uctypes.UINT8-uctypes.INT8-uctypes.UINT16-uctypes.INT16-uctypes.UINT32-uctypes.INT32-uctypes.UINT64-uctypes.INT64">uctypes.UINT8 uctypes.INT8 uctypes.UINT16 uctypes.INT16 uctypes.UINT32 uctypes.INT32 uctypes.UINT64 uctypes.INT64</h3>
+<p>The integer type of the structure descriptor. Provides 8, 16, 32, and 64-bit constants, including signed and unsigned.</p>
+<h3 id="uctypes.FLOAT32-uctypes.FLOAT64">uctypes.FLOAT32 uctypes.FLOAT64</h3>
+<p>The floating-point type of the structure descriptor.</p>
+<h3 id="uctypes.VOID">uctypes.VOID</h3>
+<p>VOID is an alias of UINT8, used to conveniently define the void pointer of C: (uctypes.PTR, uctypes.VOID).</p>
+<h3 id="uctypes.PTR-uctypes.ARRAY">uctypes.PTR uctypes.ARRAY</h3>
+<p>Enter constants for pointers and arrays. Please note that the structure has no explicit constants, it is implicit: the aggregation type without the PTR or ARRAY flag is a structure.</p>
+<h2 id="Structure-descriptors-and-instantiated-structure-objects">Structure descriptors and instantiated structure objects</h2>
+<p>Given a structure descriptor dictionary and its layout type, you can use the <code>uctypes.struct()</code> constructor to instantiate a specific structure instance at a given memory address. Memory addresses usually come from the following sources:</p>
+<p>*The predefined address when accessing the hardware registers on the bare metal system. Look up these addresses in the data sheet of the specific MCU/SoC.</p>
+<p>*As the return value of calling some FFI (foreign function interface) functions.</p>
+<p>*From uctypes.addressof(), when you want to pass parameters to the FFI function, or access certain data of I/O (for example, data read from a file or network socket).</p>
+<h2 id="Structure-Object">Structure Object</h2>
+<p>Structure objects allow access to a single field using standard dot notation: `my_struct.substruct1.field1. If the field is a scalar type, getting it will produce the original value (Python integer or floating point number) corresponding to the value contained in the field. Scalar fields can also be assigned to.</p>
+<p>If a field is an array, you can use the standard subscript operator [] to access its individual elements-read and assign at the same time.</p>
+<p>If a field is a pointer, it can be dereferenced using the [0] syntax (corresponds to the C * operator, although [0] also applies to C). It also supports subscribing to pointers with other integer values ​​(but 0), with the same semantics as in C.</p>
+<p>All in all, access to structure fields usually follows C syntax, except for pointer dereference, when you need to use the [0] operator instead of *.</p>
+<h2 id="Limit">Limit</h2>
+<ul>
+<li>Access to non-scalar fields will cause intermediate objects to be allocated to represent them. This means that special attention should be paid to the layout of structures that need to be accessed when memory allocation is disabled (for example from interrupts). suggestions below:<ul>
+<li>Avoid access to nested structures. For example, instead of mcu_registers.peripheral_a.register1, a separate layout descriptor is defined for each peripheral and accessed as peripheral_a.register1. Or just cache specific peripherals: peripheral_a = mcu_registers.peripheral_a. If the register consists of multiple bit fields, you need to cache the reference to a specific register: reg_a = mcu_registers.peripheral_a.reg_a.</li>
+<li>Avoid using other non-scalar data, such as arrays. For example, use peripheral_a.register0 instead of peripheral_a.register[0]. Similarly, another method is to cache intermediate values, such as register0 = peripheral_a.register [0].</li>
+</ul>
+</li>
+<li>The offset range supported by the <code>uctypes</code> module is limited. The exact range of support is considered an implementation detail, and the general recommendation is to split the structure definition into a maximum value from a few kilobytes to tens of kilobytes. In most cases, this is a natural situation. For example, it does not make sense to define all MCU registers in a structure (expanded to 32-bit address space), but to define peripheral blocks through peripheral blocks. In some extreme cases, you may need to manually divide the structure of several parts (for example, if you access a native data structure with a multi-megabyte array in the middle, although this will be a very synthetic situation). )</li>
+</ul>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                        <a href="/soft/maixpy/en/api_reference/standard/ucollections.html">
+                            <span class="icon"></span>
+                            <span class="label">ucollections</span>
+                        </a>
+                        
+                    </div>
+                    <div id="next">
+                        
+                        <a href="/soft/maixpy/en/api_reference/standard/uerrno.html">
+                            <span class="label">uerrno</span>
+                            <span class="icon"></span>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>links</a><ul><li><a target="_blank" href="https://www.sipeed.com">Sipeed</a></li>
+<li><a target="_blank" href="https://maixhub.com/">MaixHub</a></li>
+<li><a target="_blank" href="https://sipeed.aliexpress.com/store/911876460">Sipeed AliExpress</a></li>
+<li><a target="_blank" href="https://github.com/neutree/teedoc">Build by teedoc </a></li>
+</ul>
+</li>
+<li><a>Source Code</a><ul><li><a target="_blank" href="https://github.com/sipeed/sipeed_wiki">Wiki source</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">Open Source Projects</a></li>
+</ul>
+</li>
+<li><a>Follow us</a><ul><li><a target="_blank" href="https://twitter.com/SipeedIO">twitter</a></li>
+<li><a target="_blank" href="https://sipeed.aliexpress.com/store/911876460">AliExpress</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">github</a></li>
+<li><a><a>Wechat</a><img src='/static/image/wechat.png'></a>
+</li>
+</ul>
+</li>
+<li><a>Contact us</a><ul><li><a>Tel: +86 0755-27808509</a>
+</li>
+<li><a>Business support: support@sipeed.com</a>
+</li>
+<li><a>Address: 深圳市宝安区新湖路4008号蘅芳科技办公大厦A座-2101C</a>
+</li>
+<li><a  href="/join_us.html">Join us</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://www.sipeed.com">©2018-2023 深圳矽速科技有限公司</a></li>
+<li><a target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index">粤ICP备19015433号</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/js/prism.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <link rel="stylesheet" href="/static/js/add_hint/style.css" type="text/css"/>
+    
+        <script src="/static/js/add_hint/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+        <script src="/static/js/thumbs_up/main.js"></script>
+    
+</body>
+
+</html>
