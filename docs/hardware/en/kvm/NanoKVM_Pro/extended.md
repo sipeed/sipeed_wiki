@@ -35,6 +35,7 @@ NanoKVM Pro ships with the NanoKVM framework by default. Follow these steps to s
    ![](./../../../assets/NanoKVM/pro/extended/PiKVM-Setting.png)
 
 **Important Notes:**
+>
 > - The two platforms manage accounts and passwords independently and do not synchronize. It is strongly recommended to change the default password immediately after logging in
 > - Some features under the PiKVM framework need to be implemented through the web terminal, such as WiFi configuration, Tailscale configuration, etc.
 > - When the NanoKVM system updates, the PiKVM framework will also be updated synchronously
@@ -63,9 +64,11 @@ For more usage methods, please refer to [PiKVM Official Documentation - Authenti
 PiKVM currently does not support WiFi configuration through the web UI and LCD screen. You can choose one of the following methods:
 
 **Method 1: Switch to NanoKVM Framework for Configuration (Recommended)**
+
 - After switching to the NanoKVM framework, use the web interface or LCD screen to configure WiFi, then switch back to the PiKVM framework
 
 **Method 2: Command Line Configuration**
+
 - Execute the following commands via SSH or web terminal:
 
 ```shell
@@ -104,8 +107,8 @@ For more features, please refer to the [PiKVM Official Documentation](https://do
 
 By default, NanoKVM-Pro disables SSH to ensure system security. If you need to enable the SSH service or use it when previewing new versions, you can turn it on as follows:
 
-* **ATX/Desk**: From the web interface, go to `Settings` → `Device` → enable `SSH`
-* **Desk**: From the screen, tap `Settings` → `SSH` to enable `SSH`
+- **ATX/Desk**: From the web interface, go to `Settings` → `Device` → enable `SSH`
+- **Desk**: From the screen, tap `Settings` → `SSH` to enable `SSH`
 
 The default account is `root` with the password `sipeed`. If you change the web account password in the NanoKVM interface, the SSH password will be updated accordingly.
 
@@ -113,8 +116,8 @@ The default account is `root` with the password `sipeed`. If you change the web 
 
 To enable or disable mDNS, use the following methods:
 
-* **ATX/Desk**: From the web interface, go to `Settings` → `Device` → enable/disable `mDNS`
-* **Desk**: From the screen, tap `Settings` → `mDNS` to enable/disable `mDNS`
+- **ATX/Desk**: From the web interface, go to `Settings` → `Device` → enable/disable `mDNS`
+- **Desk**: From the screen, tap `Settings` → `mDNS` to enable/disable `mDNS`
 
 ## HDMI Input & Loop Out
 
@@ -125,8 +128,8 @@ If HDMI functionality is not required, you can disable it to reduce power consum
 
 On Desk: From the screen, tap `Settings` → `HDMI` to enter the HDMI configuration page, which has two options:
 
-* **INPUT**: When disabled, Desk stops capturing HDMI input signals.
-* **LOOP OUT**: When disabled, Desk stops outputting HDMI loop-out signals.
+- **INPUT**: When disabled, Desk stops capturing HDMI input signals.
+- **LOOP OUT**: When disabled, Desk stops outputting HDMI loop-out signals.
 
 ## Display Adjustment
 
@@ -134,33 +137,32 @@ On Desk: From the screen, tap `Settings` → `HDMI` to enter the HDMI configurat
 
 Currently, the OLED screen supports the following function:
 
-* Short press the `USR` button to toggle the OLED display on or off.
+- Short press the `USR` button to toggle the OLED display on or off.
 
 ### Desk
 
 The LCD screen supports the following functions (all configured from the screen):
 
-* Adjust backlight brightness: `Settings` → `Brightness`
-* Standby clock: `Settings` → `Auto Clock`
+- Adjust backlight brightness: `Settings` → `Brightness`
+- Standby clock: `Settings` → `Auto Clock`
 
-  * When disabled, the LCD remains always on.
-  * When enabled, the LCD switches to a clock display after a long period of inactivity.
+  - When disabled, the LCD remains always on.
+  - When enabled, the LCD switches to a clock display after a long period of inactivity.
 
 ## Factory Reset
 
 ### Quick Reset
 
-* **ATX**: Long press the `USR` button until the screen shows `Reset`, then release.
+- **ATX**: Long press the `USR` button until the screen shows `Reset`, then release.
 
   > Requires version ≥ `1.0.13`
-* **Desk**: From the screen, tap `Settings` → `Help` to enter the Help page. Repeatedly tap the reset button until `0` appears, and the device enters recovery mode.
+- **Desk**: From the screen, tap `Settings` → `Help` to enter the Help page. Repeatedly tap the reset button until `0` appears, and the device enters recovery mode.
 
 > **Note**: Do not perform any other operations until the device has fully restarted and refreshed the screen.
 
 ### Deep Reset
 
 For details, see the [FAQ](https://wiki.sipeed.com/hardware/en/kvm/NanoKVM_Pro/faq.html#Image-Burning-Methods) section on `Image Burning Methods`.
-
 
 ## HDMI Secondary Display
 
@@ -169,6 +171,7 @@ Since NanoKVM-Pro can emulate a display, capture screen content, and features a 
 In the UI, simply select **HDMI** as the video output source to display the captured video feed on the small screen.
 
 When used as a desktop accessory, this feature can serve as a:
+
 - Mini secondary monitor
 - System performance monitor
 - Video thumbnail player
@@ -184,8 +187,8 @@ and more.
 
 The NCM function allows the NanoKVM to simulate a USB network card, enabling users to log in directly via USB. To enable:
 
-* **ATX/Desk**: From the web interface, go to `Settings` → `Device` → enable `Virtual Network`
-* **Desk**: From the screen, tap `Settings` → `USB` → enable `NCM`
+- **ATX/Desk**: From the web interface, go to `Settings` → `Device` → enable `Virtual Network`
+- **Desk**: From the screen, tap `Settings` → `USB` → enable `NCM`
 
 ### USB Secondary Display
 
@@ -198,15 +201,15 @@ The NCM function allows the NanoKVM to simulate a USB network card, enabling use
 
 3. On the controlled PC:
 
-   * Open `Device Manager` → `Other devices`
+   - Open `Device Manager` → `Other devices`
 
-   * Find `NanoKVMPro` → right-click `Properties` → `Driver` → `Update driver`
+   - Find `NanoKVMPro` → right-click `Properties` → `Driver` → `Update driver`
 
-   * Choose `Browse my computer for drivers` → `Let me pick from a list of available drivers on my computer`
+   - Choose `Browse my computer for drivers` → `Let me pick from a list of available drivers on my computer`
 
-   * Double-click `Show all devices`
+   - Double-click `Show all devices`
 
-   * Under `Standard USB Host Controller` / `Standard system devices`, locate `USB Composite Device` → double-click to install
+   - Under `Standard USB Host Controller` / `Standard system devices`, locate `USB Composite Device` → double-click to install
 
    > **Note**: Driver locations may vary depending on Windows version. Please search carefully.
 
@@ -230,9 +233,9 @@ NanoKVM Pro will periodically push new application versions that include new fea
 
 After clicking download, the new application installation package will be automatically downloaded, which includes `kvmcomm_x.x.x_arm64.deb`, `nanokvmpro_x.x.x_arm64.deb`, and `pikvm_x.x.x_arm64.deb`:
 
-* `kvmcomm_x.x.x_arm64.deb` is responsible for driving the shared hardware in the NanoKVM and PiKVM frameworks;
-* `nanokvmpro_x.x.x_arm64.deb` is the NanoKVM application software;
-* `pikvm_x.x.x_arm64.deb` is the PiKVM application software.
+- `kvmcomm_x.x.x_arm64.deb` is responsible for driving the shared hardware in the NanoKVM and PiKVM frameworks;
+- `nanokvmpro_x.x.x_arm64.deb` is the NanoKVM application software;
+- `pikvm_x.x.x_arm64.deb` is the PiKVM application software.
 
 Enabling the preview update feature will allow you to access the latest experimental application, which usually includes updated features but may lack stability. It is recommended to enable SSH before downloading preview updates.
 
@@ -265,9 +268,9 @@ The TF card is mounted by default under the NanoKVM system's `/sdcard` directory
 
 ## How to Perform Remote OS Installation
 
-+ In addition to simulating keyboard and mouse devices, the USB-C port of NanoKVM Pro also emulates a USB drive device. This can be used to mount specified ISO files for tasks like OS installation. ISO files can be uploaded to the NanoKVM-Pro, which offers approximately 21GB of available space.
+- In addition to simulating keyboard and mouse devices, the USB-C port of NanoKVM Pro also emulates a USB drive device. This can be used to mount specified ISO files for tasks like OS installation. ISO files can be uploaded to the NanoKVM-Pro, which offers approximately 21GB of available space.
 
-+ Unlike a regular USB drive, NanoKVM's virtual USB drive can store multiple ISO files simultaneously. Before powering on the target host, you can select which system ISO to mount via the options on the web interface.
+- Unlike a regular USB drive, NanoKVM's virtual USB drive can store multiple ISO files simultaneously. Before powering on the target host, you can select which system ISO to mount via the options on the web interface.
 
 After connecting the remote host and Nano KVM as described in the previous steps, log into the system via your browser. Click the CD-ROM icon and select the target system ISO to mount it.
 
@@ -279,8 +282,8 @@ Next, begin the OS installation process. Click `Power On (Short Press)`, then qu
 
 Note:
 
-+ All uploaded ISO files are stored in the `/data` directory of the NanoKVM-Pro. Users can directly read and write this partition from within the NanoKVM terminal.
-+ If you encounter issues mounting the ISO, try ejecting the ISO from the host first, then click to mount it again.
+- All uploaded ISO files are stored in the `/data` directory of the NanoKVM-Pro. Users can directly read and write this partition from within the NanoKVM terminal.
+- If you encounter issues mounting the ISO, try ejecting the ISO from the host first, then click to mount it again.
 
 ## How to Set a Static IP
 
@@ -300,6 +303,7 @@ echo "192.168.2.2/22" > /boot/eth.nodhcp
 ```
 
 > During system startup, the static IP address list in the `/boot/eth.nodhcp` file will be read. The setup process is as follows:
+>
 > 1. **Sequential detection**: The system reads the IPs in the file line by line and checks whether each one is already in use by another device on the network.
 > 2. **Detection mechanism**: `arping` is used for detection first; if `arping` is not installed in the system, it automatically falls back to using the `ping` command.
 > 3. **Set available IP**: Once the first available (unused) IP is found, the system immediately sets it as the static address for the device, and the process terminates.
@@ -376,6 +380,124 @@ Version 1.2.0 comes with six built-in EDIDs. Below is the list of supported reso
 > Resolutions not listed in this table may experience display errors or fail to display.
 > Lower resolutions might have compatibility issues, resulting in no display or screen flickering.
 
+## How to Retrieve Display EDID
+
+- Windows
+
+    Follow the steps below to export EDID data from the Windows registry.
+
+    1. Press **Win + R** to open the *Run* dialog, type `regedit`, and press **Enter**.
+
+    2. In the Registry Editor, navigate to:
+
+    ```
+    HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Enum\DISPLAY
+    ```
+
+    3. Locate the EDID entry for your monitor. The typical path format is:
+
+    ```
+    <VendorID>_<Model>\<InstanceID>\Device Parameters\EDID
+    ```
+
+    Take note of the full path, especially `<VendorID>_<Model>` and `<InstanceID>`.
+
+    4. Create a new file named `edid.ps1` and paste the following content:
+
+    ```powershell
+    $regPath = "HKLM:\SYSTEM\CurrentControlSet\Enum\DISPLAY\<ID>\<InstanceID>\Device Parameters"
+    
+    $edid = (Get-ItemProperty -Path $regPath -Name EDID).EDID
+    [IO.File]::WriteAllBytes("C:\Users\Public\edid.bin", $edid)
+    Write-Host "EDID exported to C:\Users\Public\edid.bin"
+    ```
+
+    5. Replace `<ID>` and `<InstanceID>` with the actual values for your display.
+
+    6. Save the file, then right-click it and select **Run with PowerShell**.
+
+    If execution is blocked:
+
+  - Open PowerShell **as Administrator**.
+
+  - Run the following command and confirm:
+
+    ```powershell
+    Set-ExecutionPolicy RemoteSigned
+    ```
+
+    7. After successful execution, the EDID binary file will be available at:
+
+    ```
+    C:\Users\Public\edid.bin
+    ```
+
+- Linux
+    On Linux systems using DRM (Direct Rendering Manager), EDID can be read directly from sysfs.
+
+    ```bash
+    # Replace <card> with the actual DRM card name, such as card0 or card1
+    sudo cat /sys/class/drm/<card>/edid > ~/edid.bin
+    ```
+
+    If the file exists and the command completes successfully, `edid.bin` will be created in your home directory.
+
+- macOS
+    On macOS, EDID data can be retrieved from the I/O Registry.
+
+    1. Open **Terminal** and run:
+
+    ```sh
+    ioreg -lw0 | grep -i EDID
+    ```
+
+    2. Look for a line similar to:
+
+    ```sh
+    "EDID" = <00ffffffffffff00...>
+    ```
+
+    The hexadecimal string inside `< >` represents the EDID data.
+
+    3. **Copy the full hexadecimal string** inside the angle brackets (do not include the brackets themselves). Assume the copied string is `xxx`.
+
+    4. Convert the hexadecimal EDID string to a binary file:
+
+    ```sh
+    echo "xxx" | xxd -r -p > ~/edid.bin
+    ```
+
+    5. If the command succeeds, `edid.bin` will be created in your home directory.
+
+- PowerShell Failure Cases and Troubleshooting
+
+    If exporting EDID on Windows fails, check the following common issues:
+
+    1. **Insufficient permissions**
+    Ensure PowerShell is running with administrator privileges.
+
+    2. **Script execution policy restrictions**
+    Check the current policy with:
+
+    ```powershell
+    Get-ExecutionPolicy
+    ```
+
+    If needed, temporarily allow local scripts:
+
+    ```powershell
+    Set-ExecutionPolicy RemoteSigned
+    ```
+
+    3. **Incorrect registry path**
+    Verify that the subkeys under `DISPLAY` and the instance ID exactly match the path used in `$regPath`.
+
+    4. **Missing EDID property**
+    Some displays, virtual displays, or remote desktop sessions may not expose EDID. Perform the operation on a physical display connected locally.
+
+    5. **File write failure**
+    Ensure `C:\Users\Public\` is writable, or modify the script to use another writable directory.
+
 ## How to Modify USB Information
 
 Versions `1.2.0` and above support customizing USB information. The method is as follows:
@@ -394,6 +516,7 @@ echo "XXXX" > /boot/usb.product
 ```
 
 ## About Latency
+
 NanoKVM-Pro has made significant improvements in latency, with end-to-end latency controlled at around 100ms at any resolution.
 
 > The latency mentioned by other competitors is not end-to-end latency, but one-way latency. The actual end-to-end latency is much higher than what they claim.

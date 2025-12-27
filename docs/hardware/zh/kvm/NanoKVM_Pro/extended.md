@@ -35,6 +35,7 @@ NanoKVM Pro 出厂默认运行 NanoKVM 框架。切换步骤如下：
    ![](./../../../assets/NanoKVM/pro/extended/PiKVM-Setting.png)
 
 **注意事项：**
+>
 > - 两个平台各自独立管理账号与密码，互不同步，强烈建议登录后立即修改默认密码
 > - PiKVM 框架下的部分功能需要通过网页终端实现，如 WiFi 配网、Tailscale 配置等
 > - NanoKVM 系统更新时，PiKVM 框架会同步更新
@@ -63,9 +64,11 @@ kvmd-htpasswd del <user>  # 删除用户
 PiKVM 目前不支持通过网页端 WebUI 和 LCD 屏幕配置 WiFi。您可以选择以下任一方式：
 
 **方式一：切换到 NanoKVM 框架配置（推荐）**
+
 - 切换至 NanoKVM 框架后使用网页端或 LCD 屏幕配置 WiFi，再切换回 PiKVM 框架
 
 **方式二：使用命令行配置**
+
 - 通过 SSH 或网页终端执行以下命令：
 
 ```shell
@@ -159,7 +162,6 @@ Desk 从屏幕点击 `Settings` → `HDMI` 进入 HDMI 配置页面，有两个�
 
 详见 [FAQ](https://wiki.sipeed.com/hardware/zh/kvm/NanoKVM_Pro/faq.html#%E9%95%9C%E5%83%8F%E7%83%A7%E5%BD%95%E6%96%B9%E6%B3%95) 中 `镜像烧录方法` 章节。
 
-
 ## USB 扩展功能
 
 ### USB NCM
@@ -212,9 +214,9 @@ TF卡默认挂载与 NanoKVM 系统 `/sdcard` 目录下，当开启`虚拟U盘`�
 
 ## 如何远程装机
 
-+ NanoKVM Pro 的 USB-C 端口除模拟键鼠设备外，还模拟了一个U盘设备，可挂载指定的镜像，用于装机等需求，镜像可以上传至NanoKVM-Pro中，可用空间约21G。
+- NanoKVM Pro 的 USB-C 端口除模拟键鼠设备外，还模拟了一个U盘设备，可挂载指定的镜像，用于装机等需求，镜像可以上传至NanoKVM-Pro中，可用空间约21G。
 
-+ 与普通U盘不同，NanoKVM的虚拟U盘内可同时存放多个镜像，开机之前可以通过 web 页面的选项选择要安装的系统镜像进行挂载。
+- 与普通U盘不同，NanoKVM的虚拟U盘内可同时存放多个镜像，开机之前可以通过 web 页面的选项选择要安装的系统镜像进行挂载。
 
 按上述步骤连接远程主机与Nano KVM，在浏览器登录系统后，点击光盘图标，选中待安装的系统，即可实现ISO挂载
 
@@ -226,8 +228,8 @@ TF卡默认挂载与 NanoKVM 系统 `/sdcard` 目录下，当开启`虚拟U盘`�
 
 注：
 
-+ 所有上传的镜像将储存于NanoKVM-Pro的 `/data` 目录，用户可在 NanoKVM 终端内直接读写该分区
-+ 若挂载镜像出现问题，可以尝试在主机上弹出镜像后再点击挂载
+- 所有上传的镜像将储存于NanoKVM-Pro的 `/data` 目录，用户可在 NanoKVM 终端内直接读写该分区
+- 若挂载镜像出现问题，可以尝试在主机上弹出镜像后再点击挂载
 
 ## 如何设置静态IP
 
@@ -247,11 +249,12 @@ echo "192.168.2.2/22" > /boot/eth.nodhcp
 ```
 
 > 系统启动时，会读取 `/boot/eth.nodhcp` 文件中的静态 IP 地址列表。设置流程如下：
-> 1.  **顺序检测**：系统将按行读取文件中的 IP，并依次检测其是否已被网络中的其他设备占用。
-> 2.  **检测机制**：优先使用 `arping` 进行检测；若系统中未安装 `arping`，则自动降级使用 `ping` 命令。
-> 3.  **设置可用 IP**：一旦发现首个未被占用的 IP，系统立即将其设置为本机静态地址，流程终止。
-> 4.  **后备方案**：若列表中所有 IP 均被占用，系统将转而尝试通过 DHCP 自动获取 IP。
-> 5.  **保底地址**：如果 DHCP 也无法分配地址（例如，网络中无 DHCP 服务器），系统将使用固定的保底地址 `192.168.90.1`。
+>
+> 1. **顺序检测**：系统将按行读取文件中的 IP，并依次检测其是否已被网络中的其他设备占用。
+> 2. **检测机制**：优先使用 `arping` 进行检测；若系统中未安装 `arping`，则自动降级使用 `ping` 命令。
+> 3. **设置可用 IP**：一旦发现首个未被占用的 IP，系统立即将其设置为本机静态地址，流程终止。
+> 4. **后备方案**：若列表中所有 IP 均被占用，系统将转而尝试通过 DHCP 自动获取 IP。
+> 5. **保底地址**：如果 DHCP 也无法分配地址（例如，网络中无 DHCP 服务器），系统将使用固定的保底地址 `192.168.90.1`。
 
 ## 如何使用串口
 
@@ -323,9 +326,80 @@ cat /kvmcomm/edid/e18.bin > /proc/lt6911_info/edid
 > 不在此列表的分辨率可能会出现显示错误或无法显示的问题
 > 较低的分辨率可能会出现兼容性问题导致不显示或显示闪烁
 
+## 如何获取EDID
+
+- Windows
+
+  1. 按 `Win+R` 打开运行窗口，输入 `regedit` 并确认。
+
+  2. 在注册表中导航至 `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Enum\DISPLAY`。
+
+  3. 找到对应显示器的 EDID 项，路径类似 `<厂商ID>_<型号>\<实例ID>\Device Parameters\EDID`，记录完整路径。
+
+  4. 新建 `edid.ps1` 文件，输入以下内容：
+
+     ```powershell
+     $regPath = "HKLM:\SYSTEM\CurrentControlSet\Enum\DISPLAY\<ID>\<InstanceID>\Device Parameters"
+     
+     $edid = (Get-ItemProperty -Path $regPath -Name EDID).EDID
+     [IO.File]::WriteAllBytes("C:\Users\Public\edid.bin", $edid)
+     Write-Host "EDID exported to C:\Users\Public\edid.bin"
+     ```
+
+  5. 将 `<ID>` 和 `<InstanceID>` 替换为你的显示器信息。
+
+  6. 保存文件后右键选择“以 PowerShell 运行”。如果出现权限拒绝，可执行以下步骤：
+
+     - 以管理员身份打开 PowerShell。
+     - 执行 `Set-ExecutionPolicy RemoteSigned` 并确认。
+
+  7. 成功执行后，EDID 文件将位于 `C:\Users\Public\edid.bin`。
+
+- Linux
+
+  ```bash
+  # 将 <card> 替换为实际 DRM 卡名称，如 card0 或 card1
+  sudo cat /sys/class/drm/<card>/edid > ~/edid.bin
+  ```
+
+- MacOS
+
+  1. 打开“终端”，执行以下命令读取显示设备信息：
+
+     ```shell
+     ioreg -lw0 | grep -i EDID
+     ```
+
+  2. 在输出中找到形如以下内容的行：
+
+     ```shell
+     "EDID" = <00ffffffffffff00...>
+     ```
+
+     其中 `< >` 内部的十六进制字符串即为 EDID 数据。
+
+  3. **完整复制** `< >` 中的十六进制字符串（不包含尖括号本身），假设内容为 `xxx`。
+
+  4. 执行以下命令，将 EDID 字符串转换为二进制文件：
+
+     ```shell
+     echo "xxx" | xxd -r -p > ~/edid.bin
+     ```
+
+  5. 若命令执行成功，当前用户主目录下即可看到生成的 `edid.bin` 文件。
+
+- PowerShell 失败方法及排查
+
+  1. **权限不足**：确认以管理员身份运行 PowerShell。
+  2. **脚本执行策略限制**：执行 `Get-ExecutionPolicy` 查看当前策略，必要时使用 `Set-ExecutionPolicy RemoteSigned`。
+  3. **注册表路径错误**：确认 `DISPLAY` 下子项及实例 ID 与 `$regPath` 一致。
+  4. **EDID 属性不存在**：某些显示器或远程会话下可能无 EDID，建议直接在本机物理显示器上操作。
+  5. **文件写入失败**：确保 `C:\Users\Public\` 可写，或修改为其他可写路径。
+
 ## 如何修改USB信息
 
 `1.2.0`版本以上支持自定义USB信息，方式如下：
+
 ```shell
 # 修改PID
 echo "0xXXXX" > /boot/usb.pid
@@ -340,6 +414,7 @@ echo "XXXX" > /boot/usb.product
 ```
 
 ## 关于延迟
+
 NanoKVM-Pro针对延迟进行了较大改进，任意分辨率下端到端延迟控制在100ms左右。
 > 其它竞品表述的延迟非端到端延迟，而是单程延迟，实际端到端延迟远大于他们宣称的延迟。
 > 实测表明选择不同帧率，对端到端的延迟影响不大，也就是说，1080P120和1080P30的延迟几乎一致。
@@ -352,7 +427,6 @@ NanoKVM-Pro针对延迟进行了较大改进，任意分辨率下端到端延迟
 注意，我们使用"端到端"延迟来体现用户实际感知的延迟：
 从用户在本地浏览器窗口移动鼠标，到 浏览器中远程桌面鼠标开始移动的延迟。
 
-
 你可以使用[这个py脚本](../../../assets/NanoKVM/pro/extended/lat_mouse.py)实测"端到端"延迟，将浏览器窗口全屏或者放到左边，保持当前远程桌面的背景颜色与鼠标指针颜色反差最大（比如黑色指针，则使用白色背景；白色指针则使用黑色背景）
 
 ```
@@ -361,5 +435,3 @@ python lat_mouse.py TEST_CNT RECORD_NAME
 
 4K30 webrtc的延迟测试记录：
 ![](./../../../assets/NanoKVM/pro/extended/4K30_latency.png)
-
-
