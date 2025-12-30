@@ -219,6 +219,7 @@ title: MaixCAM2 -- 快速落地 AI 视觉、听觉应用
 * [MaixCAM2 官方文档](https://wiki.sipeed.com/maixcam2)（本文档）
 * [MaixPy 官方文档](https://wiki.sipeed.com/maixpy/)（Python SDK）（[MaixPy 源码](https://github.com/sipeed/MaixPy)）
 * [MaixCDK](https://github.com/sipeed/MaixCDK)（C/C++ SDK）（[MaixCDK 源码](https://github.com/sipeed/MaixCDK)）
+* [系统源码](https://github.com/sipeed/maix_ax620e_sdk)
 * [系统烧录](./maixcam2_os.md)
 * [摄像头和镜头](./maixcam2_camera_lens.md)
 * [硬件相关资料下载](https://dl.sipeed.com/shareURL/MaixCAM/MaixCAM2)

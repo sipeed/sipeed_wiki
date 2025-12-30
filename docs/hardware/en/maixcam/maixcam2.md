@@ -217,6 +217,7 @@ We don’t just provide hardware — MaixCAM2 comes with a complete software eco
 * [MaixCAM-Pro Official Docs](https://wiki.sipeed.com/maixcam2) (this documentation)
 * [MaixPy Official Docs](https://wiki.sipeed.com/maixpy/) (Python SDK) ([MaixPy Source Code](https://github.com/sipeed/MaixPy))
 * [MaixCDK](https://github.com/sipeed/MaixCDK) (C/C++ SDK) ([MaixCDK Source Code](https://github.com/sipeed/MaixCDK))
+* [System Source Code](https://github.com/sipeed/maix_ax620e_sdk)
 * [System Flashing Guide](./maixcam2_os.md)
 * [Camera and Lens](./maixcam2_camera_lens.md)
 * [Hardware Resource Downloads](https://dl.sipeed.com/shareURL/MaixCAM/MaixCAM2)

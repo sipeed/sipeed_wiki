@@ -6,13 +6,14 @@ title: MaixCAM2 System Flashing
 
 ## Downloading the System
 
-At present, only images in the `.img.xz` format are provided.
+At present, only images in the `.img` format are provided, and may be compressed to `.img.xz` or multi-volume compression to `.img.7z.00x`.
+
 [Download image (Baidu Netdisk)](https://pan.baidu.com/s/1r4ECNlaTVxhWIafNBZOztg) Extraction code: `vjex`.
 [Download image (MEGA)](https://mega.nz/folder/01IEDZQb#3ktByGkFMn_x6jDxMLbK4w)
 
 Image file directory description:
-1. `boot_parts_maixcam2-xxxx-xx-xx-maixpy-x.x.x.axp`:This file is a minimal boot image. Normally, it does not need to be flashed. Only when the board cannot be flashed via TF card or USB, refer to the method described below for flashing .axp files. After flashing this file, the TF card and USB flashing functions can be restored.
-2. `maixcam2-xxxx-xx-xx-maixpy-x.x.x.img.7z.00x`:The image is split into multiple files using multi-volume compression. You may see files such as `maixcam2-2025-12-22-maixpy-v4.12.4.img.7z.001` and `maixcam2-2025-12-22-maixpy-v4.12.4.img.7z.002`. All volume files must be downloaded before extraction.
+1. `boot_parts_maixcam2-xxx-maixpy-xxx.axp`:This file is a minimal boot image. Normally, it does not need to be flashed. Only when the board cannot be flashed via TF card or USB, refer to the method described below for flashing .axp files. After flashing this file, the TF card and USB flashing functions can be restored.
+2. `maixcam2-xxx-maixpy-xxx.img.7z.00x`:The image is split into multiple files using multi-volume compression. You may see files such as `maixcam2-2025-12-22-maixpy-v4.12.4.img.7z.001` and `maixcam2-2025-12-22-maixpy-v4.12.4.img.7z.002`. All volume files must be downloaded before extraction.
     > Extraction instructions:
     > - `On Linux`: use `7z` to extract. Place all volume files in the same directory, then run: '`7z x maixcam2-2025-12-22-maixpy-v4.12.4.img.7z.001`'
     > - `On Windows`: place all volume files in the same folder, then right-click the first file (`.7z.001` or `.7z`) and select 7-Zip -> Extract Files or Extract Here.The software will automatically merge and extract the files. Make sure all volumes are complete and correctly named.
@@ -22,10 +23,10 @@ For MaixCAM2, there are two types of systems and flashing methods:
 * **Method 1**: The original chip manufacturer’s flashing format (`.axp`). Requires [AXDL](https://dl.sipeed.com/shareURL/MaixCAM/MaixCAM2/Software/Tools) to flash.
   * Pros: Works regardless of whether the EMMC has a boot partition or system.
   * Cons: Only supported on Windows, flashing speed is slow.
-* **Method 2**: USB flashing (`.img.xz` format), which contains a complete system. You can flash it with general tools such as `etcher / rufus / win32diskimager / imageUSB`.
+* **Method 2**: USB flashing (`.img` format), which contains a complete system. You can flash it with general tools such as `etcher / rufus / win32diskimager / imageUSB`.
   * Pros: Simple, OS/software independent, faster (TF > USB2.0 > AXDL).
   * Cons: Only works if the EMMC already has a **boot partition**. If the boot partition is missing or corrupted, you must first flash a `*.axp` system using Method 1 before Method 2 can be used.
-* **Method 3**: TF card flashing (`.img.xz` format), which contains a complete system. 
+* **Method 3**: TF card flashing (`.img` format), which contains a complete system.
   * Pros: Simple, OS/software independent, no extra 3rd-parth PC software needed, faster (TF > USB2.0 > AXDL).
   * Cons: Need a TF card. Only works if the EMMC already has a **boot partition**. If the boot partition is missing or corrupted, you must first flash a `*.axp` system using Method 1 before Method 2 can be used.
 
@@ -92,9 +93,9 @@ If problems persist, or the system won’t boot after flashing, try `rufus` or `
 
 ### Load and Flash the System File
 
-* Load the system image you downloaded (e.g. `maixcam2-2025-09-01-maixpy-v4.11.9.img.xz`).
-    Most of software will automatically decompress `xz` to `img`, if not you must do it manually first.
-    `Etcher`may occurs `Missing partition table` `not a bootable image ...` warning, it's normall for `MaixCAM2`, just click `Continue` to continue.
+> `Etcher`may occurs `Missing partition table` `not a bootable image ...` warning, it's normall for `MaixCAM2`, just click `Continue` to continue.
+
+* Load the system image you downloaded and extract it. Make sure you’re loading the right one. It’s usually named `maixcam2-2025-09-01-maixpy-v4.11.9.img`.
 * Enter USB/TF upgrade mode:
 
   * Method 1: Plug one end of USB into the PC, then within `1 second` of connecting to the board, press and hold `boot/Func`. Release after `3 seconds`.
@@ -116,7 +117,7 @@ This is similar to USB flashing but often faster (depending on TF card speed, e.
 
 * Insert the TF card into your PC using a card reader.
 * Format the TF card as `exFAT` or `ext4` (not `FAT32`). Make sure to partition the TF card.
-* Extract the `xxx.img.xz` file to `xxx.img` and be sure to copy it to the first partition of the TF card. If other, img files were previously copied, delete the old image files.
+* Copy the xxx.img file to the first partition of the TF card. If you have previously copied other `.img` files, you need to delete the old image files.
 * Safely eject the card to ensure data is fully written.
 * Power off the MaixCAM2, then insert the TF card into the MaixCAM2.
 * Power on the MaixCAM2, and within `1 second`, press and hold the `boot/Func` button.
