@@ -28,10 +28,15 @@ keywords: NanoKVM-USB, Lichee, PiKVM, RISCV, tool
 + This may be caused by the USB composite device not being recognized correctly. Please reinstall the driver as follows:
     - Open `Device Manager` → `Other devices`
     - Find `NanoKVM-USB` → Right-click `Properties` → `Driver` → `Update Driver`
+    ![](./../../../assets/NanoKVM/usb/windows_usb_1.jpeg)
     - Select `Browse my computer for drivers` → `Let me pick from a list of available drivers on my computer`
+    ![](./../../../assets/NanoKVM/usb/windows_usb_2.jpeg)
     - Double-click `Show all devices`
+    ![](./../../../assets/NanoKVM/usb/windows_usb_3.jpeg)
     - In `Standard USB Host Controller` / `Standard system devices`, find `USB Composite Device` and double-click to install
-    <br>
+    ![](./../../../assets/NanoKVM/usb/windows_usb_4.jpeg)
+
+    ![](./../../../assets/NanoKVM/usb/windows_usb_5.jpeg)
 
     > **Note**: The driver location may vary depending on the Windows version. Please search patiently.
 
