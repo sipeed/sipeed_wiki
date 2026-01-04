@@ -9,13 +9,31 @@ keywords: NanoKVM-USB, Lichee, PiKVM, RISCV, tool
 
 + 可能缺少串口驱动导致,请按照以下方法重新安装CH34x驱动:
 
-1. 在WCH官网下载驱动(下载地址)[https://www.wch.cn/download/CH341SER_LINUX_ZIP.html]，解压后进入driver目录
-2. 执行`uname -r`查看操作系统发行版本，在(此处)[https://elixir.bootlin.com/linux/v6.2/source/drivers/usb/serial/ch341.c]找到对应的版本，将内容复制到`ch341.c`中
+1. 在WCH官网下载驱动([下载地址](https://www.wch.cn/downloads/CH341SER_LINUX_ZIP.html))，解压后进入driver目录
+2. 执行`uname -r`查看操作系统发行版本，在([此处](https://elixir.bootlin.com/linux/v6.2/source/drivers/usb/serial/ch341.c))找到对应的版本，将内容复制到`ch341.c`中
 3. 执行`make`命令编译驱动
 4. 执行`sudo make load`命令安装驱动
 5. 替换旧驱动:`cp ch341.ko /lib/modlues/$(uname -r)/kernel/drivers/usb/serial/ch341.ko`
 
 + 部分linux发行版内置了`brltty`,这是一款盲文阅读工具，但会占用/dev/ttyUSB0串口，导致网页检测不到，在确认不使用`brltty`后建议将其卸载`sudo apt remove brltty`
+
+### Windows 打开网页后无 USB Serial (COMx) 串口设备
+
++ 可能缺少串口驱动导致,请按照以下方法重新安装CH34x驱动:
+
+    - 在WCH官网下载驱动([下载地址](https://www.wch.cn/downloads/CH341SER_EXE.html))，下载后双击运行安装程序
+
+### Windows 被控端出现 NanoKVM-USB 设备驱动程序未被安装
+
++ 可能是 USB 复合设备未被正确识别导致，请按照以下方法重新安装驱动:
+    - 打开 `设备管理器` → `其他设备`
+    - 找到 `NanoKVM-USB` → 右键 `属性` → `驱动程序` → `更新驱动程序`
+    - 选择 `浏览我的电脑以查找驱动程序` → `让我从计算机上的可用驱动程序列表中选取`
+    - 双击 `显示所有设备`
+    - 在 `Standard USB Host Controller` / `标准 USB 主控制器` / `Standard system devices` / `标准系统设备` 中找到 `USB 复合设备 (USB Composite Device)` → 双击安装
+    <br>
+
+    > **注意**：不同版本 Windows 驱动位置可能有所差异，请耐心查找。
 
 ### 打开网页后 NanoKVM-USB 对应串口设备无法打开
 
@@ -29,7 +47,7 @@ keywords: NanoKVM-USB, Lichee, PiKVM, RISCV, tool
 ### 视频画质差
 
 + 首先检查是否使用了 USB2.0 的线缆/HOST接口，当分辨率较大时 USB2.0 不足以提供充足的传输带宽，会被动降低画质，建议选用 USB3.0的线缆
-+ 2K分辨率下首先于芯片编码能力，画质会下降，请切换为1080P使用
++ 2K分辨率下受限于芯片编码能力，画质会下降，请切换为1080P使用
 + 如果 Target 连接的是 Windws主机，请前往系统设置-显示设置-高级显示设置-列出所有模式中更改为 1080P60，并检查`桌面分辨率`和`活动信号分辨率是否一致`
 
 ### DP-HDMI转接器
