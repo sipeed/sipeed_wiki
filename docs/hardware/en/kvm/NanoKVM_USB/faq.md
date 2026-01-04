@@ -9,13 +9,31 @@ keywords: NanoKVM-USB, Lichee, PiKVM, RISCV, tool
 
 + This may be due to a missing serial driver. Please reinstall the CH34x driver using the following steps:
 
-1. Download the driver from the WCH official website (download link: [https://www.wch.cn/download/CH341SER_LINUX_ZIP.html](https://www.wch.cn/download/CH341SER_LINUX_ZIP.html)), extract it, and navigate to the `driver` directory.
-2. Run `uname -r` to check your operating system's release version. Find the corresponding version in (this link)[https://elixir.bootlin.com/linux/v6.2/source/drivers/usb/serial/ch341.c] and copy the content into `ch341.c`.
+1. Download the driver from the WCH official website ([download link](https://www.wch.cn/downloads/CH341SER_LINUX_ZIP.html)), extract it, and navigate to the `driver` directory.
+2. Run `uname -r` to check your operating system's release version. Find the corresponding version in ([this link](https://elixir.bootlin.com/linux/v6.2/source/drivers/usb/serial/ch341.c)) and copy the content into `ch341.c`.
 3. Execute the `make` command to compile the driver.
 4. Run `sudo make load` to install the driver.
 5. Replace the old driver: `cp ch341.ko /lib/modules/$(uname -r)/kernel/drivers/usb/serial/ch341.ko`.
 
 + Some Linux distributions come with `brltty`, a Braille display tool that occupies the `/dev/ttyUSB0` serial port, causing the webpage to be unable to detect it. If you are not using `brltty`, it is recommended to uninstall it with `sudo apt remove brltty`.
+
+### No USB Serial (COMx) Device After Opening Web Page on Windows
+
++ This may be caused by a missing serial driver. Please reinstall the CH34x driver as follows:
+
+    - Download the driver from the WCH official website ([download link](https://www.wch.cn/downloads/CH341SER_EXE.html)), then double-click the installer to run it.
+
+### NanoKVM-USB Device Driver Not Installed on Windows Controlled End
+
++ This may be caused by the USB composite device not being recognized correctly. Please reinstall the driver as follows:
+    - Open `Device Manager` → `Other devices`
+    - Find `NanoKVM-USB` → Right-click `Properties` → `Driver` → `Update Driver`
+    - Select `Browse my computer for drivers` → `Let me pick from a list of available drivers on my computer`
+    - Double-click `Show all devices`
+    - In `Standard USB Host Controller` / `Standard system devices`, find `USB Composite Device` and double-click to install
+    <br>
+
+    > **Note**: The driver location may vary depending on the Windows version. Please search patiently.
 
 ### Poor Video Quality
 
