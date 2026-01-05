@@ -51,7 +51,7 @@ title: MaixCAM2 系统烧录
 ### 下载 AXDL 软件
 
 下载 [AXDL](https://dl.sipeed.com/fileList/MaixCAM/MaixCAM2/Software/Tools/AXDL_V1.24.22.1.7z)。（只支持 Windows）。
-下载 [AXDL 驱动](https://dl.sipeed.com/fileList/MaixCAM/MaixCAM2/Software/Tools/Driver_V1.20.46.1.7z), 解压后运行`DriverSetup.exe`安装驱动.
+下载 [AXDL 驱动](https://dl.sipeed.com/fileList/MaixCAM/MaixCAM2/Software/Tools/Driver_V1.20.46.1.7z), 解压后运行`DriverSetup.exe`安装驱动，如果安装完驱动后还是不能识别，请尝试重启电脑
 
 打开 AXDL 软件界面
 
