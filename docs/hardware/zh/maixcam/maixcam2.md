@@ -210,6 +210,7 @@ title: MaixCAM2 -- 快速落地 AI 视觉、听觉应用
 | [MaixCDK](https://github.com/sipeed/MaixCDK) | MaixPy 的 C++版本，熟悉 C/C++ 的开发者立刻上手 | 请看[MaixCDK 主页](https://github.com/sipeed/MaixCDK) |
 | [应用商城](https://maixhub.com/app) | 提供各种应用和工具，无需开发直接下载使用，开发者也可以上传分享应用 | 请看 [MaixHub 应用商城](https://maixhub.com/app) |
 | [分享广场](https://maixhub.com/share) | 开发者分享经验和项目 | 请看 [MaixHub 分享广场](https://maixhub.com/share) |
+| [本地大模型](https://wiki.sipeed.com/maixpy/doc/zh/mllm/basic.html) | 本地运行离线大模型 | 请看[大模型使用说明](https://wiki.sipeed.com/maixpy/doc/zh/mllm/basic.html) |
 
 
 ## 资料汇总
