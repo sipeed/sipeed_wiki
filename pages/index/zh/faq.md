@@ -24,6 +24,10 @@ class: faq
 | Maix-III AXeraPi (AX620A) | [M3-AXeraPi](/m3axpi) | [AXeraPi FAQ](/hardware/zh/maixIII/ax-pi/faq_axpi.html) |
 | MaixHub | [maixhub.com](https://maixhub.com) | [MaixHub FAQ 汇总](/ai/zh/maixhub/faq.html) |
 | Tang FPGA | [Tang](/tang)  | [Tang FAQ 汇总](/hardware/zh/tang/Tang-Nano-Doc/questions.html) |
+| NanoKVM | [NanoKVM](/nanokvm) | [NanoKVM FAQ 汇总](/hardware/zh/kvm/NanoKVM/faq.html) | 
+| NanoKVM-PCIe | [NanoKVM-PCIe](/nanokvmpcie) | [NanoKVM PCIe FAQ 汇总](/hardware/zh/kvm/NanoKVM/faq.html) | 
+| NanoKVM-USB | [NanoKVM-USB](/nanokvmusb) | [NanoKVM USB FAQ 汇总](/hardware/zh/kvm/NanoKVM_USB/faq.html) | 
+| NanoKVM-Pro | [NanoKVM-Pro](/nanokvmpro) | [NanoKVM Pro FAQ 汇总](/hardware/zh/kvm/NanoKVM_Pro/faq.html) | 
 
 
 ## 交流社群
@@ -46,6 +50,7 @@ class: faq
 | TinyML - Mcu 交流QQ群<br>(BL616, BL618, BL702, GD32) | 816177882 |
 | Maixsense TOF 交流QQ群 | 566105455 |
 | 电赛 QQ 群 | 750799296 |
+| NanoKVM 群 | 703230713 |
 
 
 | Sipeed 国外社区 | 地址 |
