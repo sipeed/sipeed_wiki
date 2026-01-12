@@ -30,21 +30,21 @@ NanoKVM-USB 捕捉HDMI图像信号，通过USB3.0传输给HOST主机，与普通
 
 ## 参数对比
 
-|  | NanoKVM-USB | Mini-KVM | KIWI-KVM |
+|  | NanoKVM-USB 4K | NanoKVM-USB | Mini-KVM | 
 | --- | --- | --- | --- |
-| HDMI 输入 | 4K@30fps | 1080P@60fps | 4K@30fps |
-| HDMI 环出 | 4K@30fps | None | None |
-| USB 采集 | 2K@30fps | 1080P@60fps | 1080P@60fps |
-| USB 接口 | USB3.0 | USB2.0 | USB3.0 |
-| USB 切换器 | 有 | 有 | 无 |
-| 模拟键鼠 | 支持 | 支持 | 支持 |
+| HDMI 输入 | 4K@60fps | 4K@30fps | 1080P@60fps | 
+| HDMI 环出 | 4K@60fps | 4K@30fps | None | 
+| USB 采集 | 4K@60fps | 2K@30fps | 1080P@60fps | 
+| USB 接口 | USB3.0 | USB3.0 | USB2.0 | 
+| USB 切换器 | 有 | 有 | 有 | 
+| 模拟键鼠 | 支持 | 支持 | 支持 | 
 | 剪贴板 | 支持 | 支持 | 支持 |
-| 软件 | 无需安装，在 Chrome 中运行 | 需要安装 | 需要安装 |
-| 延迟 | 50-100ms | 50-100ms | 50-100ms |
-| 体积 | 57x25x23mm | 61x13.5x53mm | 80x80x10mm |
-| 外壳 | 铝合金 | 铝合金 | 塑料 |
-| 颜色 | 黑/蓝/红 | 黑 | 黑 |
-| 价格| `$39.9 / $49.9` | `$89 / $109` | `$69 / $99` |
+| 软件 | 无需安装，在 Chrome 中运行 | 无需安装，在 Chrome 中运行 | 需要安装 | 
+| 延迟 | 50-100ms | 50-100ms | 50-100ms | 
+| 体积 | 57x25x23mm | 57x25x23mm | 61x13.5x53mm | 
+| 外壳 | 铝合金 | 铝合金 | 铝合金 | 
+| 颜色 | 黑 | 黑/蓝/红 | 黑 | 
+| 价格| ~~$69~~ `$59` | `$39.9 / $49.9` | `$89 / $109` | 
 
 <div style="display: flex; padding: 30px 0 20px 0">
   <img src="./../../../assets/NanoKVM/usb/black.png" width="200" height="150" alt="Image 1" style="margin-right: 10px;">
@@ -54,8 +54,8 @@ NanoKVM-USB 捕捉HDMI图像信号，通过USB3.0传输给HOST主机，与普通
 
 ## 购买入口
 
-- [淘宝官方购买地址]() (待上架)
-- [速卖通购买地址]()(待上架)
+- [淘宝官方购买地址](https://item.taobao.com/item.htm?id=898108163819)
+- [速卖通购买地址](https://www.aliexpress.com/item/1005008473747668.html)
 - [预售页面](https://sipeed.com/nanokvm/usb)
 
 ## 产品反馈

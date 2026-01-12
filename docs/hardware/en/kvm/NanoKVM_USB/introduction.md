@@ -31,21 +31,21 @@ Notably, NanoKVM-USB comes with a USB-A port that supports switching between HOS
 
 ## Parameters
 
-| | NanoKVM-USB | Mini-KVM | KIWI-KVM |
+| |NanoKVM-USB 4K | NanoKVM-USB | Mini-KVM |
 | --- | :---: | :---: | :---: |
-| HDMI Input | 4K@30fps | 1080P@60fps | 4K@30fps |
-| HDMI Loopback | 4K@30fps | None | None |
-| USB Capture | 2K@30fps | 1080P@60fps | 1080P@60fps |
-| USB Interface | USB3.0 | USB2.0 | USB3.0 |
-| USB Switch | Y | Y | N |
+| HDMI Input | 4K@60fps | 4K@30fps | 1080P@60fps | 
+| HDMI Loopback | 4K@60fps | 4K@30fps | None | 
+| USB Capture | 4K@60fps | 2K@30fps | 1080P@60fps | 
+| USB Interface | USB3.0 | USB3.0 | USB2.0 | 
+| USB Switch | Y | Y | Y |
 | Keyboard&Mouse | Y | Y | Y |
 | Clipboard | Y | Y | Y |
-| Software | No setup needed, works in chrome | Host App install required | Host App install required |
-| Latency | 50-100ms | 50-100ms | 50-100ms |
-| Volume | 57x25x23mm | 61x13.5x53mm | 80x80x10mm |
-| Shell Material | Aluminum Alloy | Aluminum Alloy | Plastics |
-| Color | Black / Blue / Red | Black | Black |
-| Price | `$39.9 / $49.9` | `$89 / $109` | `$69 / $99` |
+| Software | No setup needed, works in chrome | No setup needed, works in chrome | Host App install required | 
+| Latency | 50-100ms | 50-100ms | 50-100ms | 
+| Volume | 57x25x23mm | 57x25x23mm | 61x13.5x53mm | 
+| Shell Material | Aluminum Alloy | Aluminum Alloy | Aluminum Alloy | 
+| Color | Black | Black / Blue / Red | Black | 
+| Price | ~~$69~~ `$59`  | `$39.9 / $49.9` | `$89 / $109` | 
 
 <div style="display: flex; padding: 30px 0 20px 0">
   <img src="./../../../assets/NanoKVM/usb/black.png" width="200" height="150" alt="black" style="margin-right: 10px;">
@@ -55,8 +55,8 @@ Notably, NanoKVM-USB comes with a USB-A port that supports switching between HOS
 
 ## Purchase Links
 
-- [Official Taobao Store]() (To be released)
-- [AliExpress Store]()(To be released)
+- [Official Taobao Store](https://item.taobao.com/item.htm?id=898108163819)
+- [AliExpress Store](https://www.aliexpress.com/item/1005008473747668.html)
 - [Pre-sale Page](https://sipeed.com/nanokvm/usb)
 
 ## Feedback
