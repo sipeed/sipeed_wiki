@@ -190,7 +190,7 @@ Bold items are upgrades compared to MaixCAM / MaixCAM-Pro (first generation).
 | Codec            | H.264 / H.265 / MJPEG hardware codec, supports **4K\@30fps encoding, 1080p\@60fps decoding**                                                                               |
 | Peripherals      | I2C / SPI / UART / ADC / PWM / WDT and other common peripherals                                                                                                            |
 | Power            | **Supports Li-ion battery charge/discharge management, with battery-equipped version available**                                                                           |
-| Enclosure        | **Protective case with 1/4-inch standard tripod mount**                                                                                                                    |
+| Enclosure        | **Protective case measures 65x49x20mm with 1/4-inch standard tripod mount**                                                                                                                    |
 | IMU              | **Onboard six-axis IMU (3-axis accelerometer + 3-axis gyroscope)**                                                                                                         |
 | RTC              | **Onboard BM8563EMA RTC chip + rechargeable coin battery, maintains time during power-off**                                                                                |
 | Core Board       | **Gold-finger core board containing only chip core circuit + DDR**, for easy custom hardware design                                                                        |
