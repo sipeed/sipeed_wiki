@@ -515,6 +515,28 @@ echo "XXXX" > /boot/usb.product
 /kvmapp/scripts/usbdev.sh restart
 ```
 
+## How to Use with the Host Application
+
+The NanoKVM-Pro host application needs to be installed and run on the controlled PC. It provides additional functionality and a smoother user experience.
+
+It is recommended to install the precompiled Release version directly. The host application is still under development, and the source code will be open-sourced later for manual compilation.
+
+[Download Link](https://github.com/sipeed/NanoKVM-Pro/releases/tag/v1.0.5)
+
+After installation, launch the application and enter the local network IP address of the NanoKVM Pro you want to pair with. The application runs in the background and can be closed via a right-click on the system tray icon.
+
+Key Features
+
+- Automatically hide the controlled PC cursor for better remote control experience
+
+  - When the host application is connected to NanoKVM Pro, the cursor on the controlled PC is hidden.
+
+  - After the host application disconnects from NanoKVM Pro for a while, the cursor will reappear.
+
+- Collect CPU and memory usage of the controlled PC and transmit it to NanoKVM Pro
+
+  - In the Desk version, you can view the controlled PC status in real-time via the Host Info page.
+
 ## About Latency
 
 NanoKVM-Pro has made significant improvements in latency, with end-to-end latency controlled at around 100ms at any resolution.
