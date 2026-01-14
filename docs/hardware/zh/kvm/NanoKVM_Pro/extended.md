@@ -413,6 +413,28 @@ echo "XXXX" > /boot/usb.product
 /kvmapp/scripts/usbdev.sh restart
 ```
 
+## 如何搭配上位机使用
+
+NanoKVM-Pro 的上位机应用程序，需要安装并运行在被控上位机中，为用户提供更多功能扩展与体验优化。
+
+推荐直接使用预编译好的 Release 版本 进行安装，目前上位机还在开发完善中，后续会开源源码以供自行编译。
+
+[下载地址](https://github.com/sipeed/NanoKVM-Pro/releases/tag/v1.0.5)
+
+安装完成后，启动应用程序，输入要配对的 NanoKVM Pro 的局域网 IP 地址进行确认即可。应用会在后台运行，可通过系统托盘图标右键关闭。
+
+主要功能
+
+- 自动隐藏被控机光标，提升远程控制体验
+
+  - 当上位机能连接到 NanoKVM Pro 时，会隐藏被控机光标
+
+  - 当上位机与 NanoKVM Pro 断开连接后一段时间后，光标会恢复显示
+
+- 采集被控机 CPU 与内存使用情况，并传输给 NanoKVM Pro
+
+  - 在 Desk 版本中，可通过 Host Info 页面实时查看被控机状态
+
 ## 关于延迟
 
 NanoKVM-Pro针对延迟进行了较大改进，任意分辨率下端到端延迟控制在100ms左右。
