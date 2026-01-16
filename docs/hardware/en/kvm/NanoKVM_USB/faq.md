@@ -40,18 +40,33 @@ keywords: NanoKVM-USB, Lichee, PiKVM, RISCV, tool
 
     > **Note**: The driver location may vary depending on the Windows version. Please search patiently.
 
-### Poor Video Quality
-
-+ First, check if you're using a USB 2.0 cable/HOST interface. When the resolution is high, USB 2.0 may not provide sufficient bandwidth, which can lower the video quality. It is recommended to use a USB 3.0 cable.
-+ At 2K resolution, the video quality may decrease due to the chip's encoding capability. Please switch to 1080P.
-+ If the target device is connected to a Windows host, go to System Settings > Display Settings > Advanced Display Settings, and change to 1080P60 in the "List all modes" section. Also, check if the "Desktop Resolution" and "Active Signal Resolution" are consistent.
-
 ### Unable to Open NanoKVM-USB Corresponding Serial Device After Opening Web Page
 
 + This may be due to other programs occupying the serial port. Please ensure it is not in use before trying again.
 + Linux may lack permissions to open the serial port. Execute `sudo chmod 777 /dev/ttyUSB*` in the terminal.
 + The Chrome browser may not have detected the serial port. Please refresh the webpage or restart Chrome.
 + Chrome may lack sufficient permissions. Please grant the necessary permissions.
+
+## Video Issues
+
+### Color Abnormalities in Loop-Out/Capture on Some Host BIOS
+
++ Early firmware versions of the NanoKVM-USB may cause the loop-out image to appear reddish and the captured image to appear greenish on certain BIOS. This issue can be resolved by flashing a new firmware. Please download the flashing tool and firmware first: [Firmware Download Link](https://dl.sipeed.com/fileList/KVM/NanoKVM_USB/MS2131_LIB_V2_0_27_Demo_GPIO0_PlugDetect_20251205_replaced_E158EDID.bin), [Flashing Tool Download Link](https://dl.sipeed.com/fileList/KVM/NanoKVM_USB/MS_USB3_0_UpgradeTool_V1_3_2.exe)
+
++ Flashing Steps:
+1. Open the flashing tool and select the downloaded firmware file.
+2. Connect the USB-C port on the NanoKVM-USB host side to your computer.
+3. Wait for the tool to detect the device, then click "Start Flashing" and wait for the process to complete.
+
+> **Do not disconnect the NanoKVM-USB during the flashing process, as this may brick the device.**
+> The flashing tool only supports Windows.  
+> Currently, flashing is not supported for the NanoKVM-USB (4K) version.  
+
+### Poor Video Quality
+
++ First, check if you're using a USB 2.0 cable/HOST interface. When the resolution is high, USB 2.0 may not provide sufficient bandwidth, which can lower the video quality. It is recommended to use a USB 3.0 cable.
++ At 2K resolution, the video quality may decrease due to the chip's encoding capability. Please switch to 1080P.
++ If the target device is connected to a Windows host, go to System Settings > Display Settings > Advanced Display Settings, and change to 1080P60 in the "List all modes" section. Also, check if the "Desktop Resolution" and "Active Signal Resolution" are consistent.
 
 ### DP-HDMI Adapter
 
@@ -66,7 +81,7 @@ keywords: NanoKVM-USB, Lichee, PiKVM, RISCV, tool
 + The NanoKVM-USB uses its own EDID (Extended Display Identification Data) before connecting to the loop-out display. After connecting to the loop-out display, it switches to the EDID of the loop-out display.
 + Since the EDID contains information about the display manufacturer and color settings, the resolution list in the Target system settings may appear different before and after connecting the loop-out display. Additionally, the color of the video captured via USB may vary before and after the connection.
 
-### Other
+## Other
 
 + If the above methods do not resolve the issue, please describe your purchased model and the encountered problem on the forum, GitHub, or QQ group, and we will respond patiently.
 

@@ -49,6 +49,19 @@ keywords: NanoKVM-USB, Lichee, PiKVM, RISCV, tool
 
 ## 视频问题
 
+### 部分主机BIOS下环出/采集颜色异常
+
++ NanoKVM-USB早期固件可能在部分BIOS下环出颜色偏红，采集颜色偏绿，可以通过烧录新固件解决，请先下载烧录软件和固件： [固件下载链接](https://dl.sipeed.com/fileList/KVM/NanoKVM_USB/MS2131_LIB_V2_0_27_Demo_GPIO0_PlugDetect_20251205_replaced_E158EDID.bin)、[烧录软件下载链接](https://dl.sipeed.com/fileList/KVM/NanoKVM_USB/MS_USB3_0_UpgradeTool_V1_3_2.exe)
+
++ 烧录步骤：
+    1. 打开软件，选择下载的固件
+    2. 将NanoKVM-USB Host端的USB-C插入电脑
+    3. 等待软件连接，点击开始烧录，等待完成
+
+> **请勿在烧录过程中拔出NanoKVM-USB，有变砖风险**
+> 烧录软件仅支持Windows
+> 目前不支持NanoKVM-USB(4K)版本的烧录
+
 ### 视频画质差
 
 + 首先检查是否使用了 USB2.0 的线缆/HOST接口，当分辨率较大时 USB2.0 不足以提供充足的传输带宽，会被动降低画质，建议选用 USB3.0的线缆
