@@ -406,7 +406,7 @@ Version 1.2.0 comes with six built-in EDIDs. Below is the list of supported reso
 
     ```powershell
     $regPath = "HKLM:\SYSTEM\CurrentControlSet\Enum\DISPLAY\<ID>\<InstanceID>\Device Parameters"
-    
+
     $edid = (Get-ItemProperty -Path $regPath -Name EDID).EDID
     [IO.File]::WriteAllBytes("C:\Users\Public\edid.bin", $edid)
     Write-Host "EDID exported to C:\Users\Public\edid.bin"
@@ -512,6 +512,30 @@ echo "XXXX" > /boot/usb.manufacturer
 # Modify Product Name
 echo "XXXX" > /boot/usb.product
 # Apply changes
+/kvmapp/scripts/usbdev.sh restart
+```
+
+## How to Share Network via USB Network Adapter
+
+Version `1.2.11` and above supports network sharing through USB network adapter, allowing the controlled host to access the network where NanoKVM-Pro is located via USB connection.
+
+```bash
+# Enable USB network adapter (choose one: NCM mode or RNDIS mode)
+touch /boot/usb.ncm
+# touch /boot/usb.rndis
+
+# Set network adapter IP address
+# (optional, defaults to a fixed IP generated using device ID)
+echo "10.10.10.1/24" > /boot/ncm.ipv4
+
+# Set DNS server address (optional, defaults to 8.8.8.8, 8.8.4.4)
+echo "8.8.8.8 8.8.4.4" > /boot/ncm.dns
+
+# Set traffic forwarding interface
+# (eth0 for wired network, wlan0 for wireless network)
+echo "eth0" > /boot/ncm.forward
+
+# Restart USB network adapter to apply changes
 /kvmapp/scripts/usbdev.sh restart
 ```
 
