@@ -340,7 +340,7 @@ cat /kvmcomm/edid/e18.bin > /proc/lt6911_info/edid
 
      ```powershell
      $regPath = "HKLM:\SYSTEM\CurrentControlSet\Enum\DISPLAY\<ID>\<InstanceID>\Device Parameters"
-     
+
      $edid = (Get-ItemProperty -Path $regPath -Name EDID).EDID
      [IO.File]::WriteAllBytes("C:\Users\Public\edid.bin", $edid)
      Write-Host "EDID exported to C:\Users\Public\edid.bin"
@@ -410,6 +410,28 @@ echo "XXXX" > /boot/usb.manufacturer
 # 修改产品名称
 echo "XXXX" > /boot/usb.product
 # 应用
+/kvmapp/scripts/usbdev.sh restart
+```
+
+## 如何通过 USB 网卡共享网络
+
+`1.2.11` 版本以上支持通过 USB 网卡共享网络，使被控主机能够通过 USB 连接访问 NanoKVM-Pro 所在网络。
+
+```bash
+# 开启 usb 网卡（ncm 模式和 rndis 模式二选一）
+touch /boot/usb.ncm
+# touch /boot/usb.rndis
+
+# 设置网卡 IP 地址（可选，默认使用设备 id 生成固定 IP）
+echo "10.10.10.1/24" > /boot/ncm.ipv4
+
+# 设置 DNS 服务器地址（可选，默认使用 8.8.8.8, 8.8.4.4）
+echo "8.8.8.8 8.8.4.4" > /boot/ncm.dns
+
+# 设置流量转发接口（eth0 为有线网卡，wlan0 为无线网卡）
+echo "eth0" > /boot/ncm.forward
+
+# 重启 USB 网卡生效
 /kvmapp/scripts/usbdev.sh restart
 ```
 
