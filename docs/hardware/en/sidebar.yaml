@@ -604,6 +604,8 @@ items:
                 file: cluster/NanoCluster/k3s.md
             -   label: distcc Deployment
                 file: cluster/NanoCluster/distcc.md
+            -   label: NanoCtl
+                file: cluster/NanoCluster/nanocctl.md
             -   label: Nomad Playbook
                 file: cluster/NanoCluster/nomad_playbook.md
         -   label: Switch Management

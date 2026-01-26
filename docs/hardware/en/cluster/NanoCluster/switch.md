@@ -25,6 +25,8 @@ NanoCluster is equipped with the JL6108 Gigabit switch chip, which is based on t
 
 The cluster backplane connects to each core board (SOM) via the JL6108 switch. The port allocation is as follows:
 
+![Port Allocation](../../../zh/cluster/NanoCluster/assets/switch_ports.jpeg)
+
 | Switch Port | Connected Device                    |
 |------------|--------------------------------------|
 | Port 1     | Slot 7                               |
@@ -40,21 +42,21 @@ The cluster backplane connects to each core board (SOM) via the JL6108 switch. T
 
 ### Logging into the Web Management Interface
 
-1. **Ensure Device Connection**  
+1. **Ensure Device Connection**
    Make sure the NanoCluster is powered on and connected to the management host via an Ethernet cable.
 
-2. **Configure IP Address**  
-   The switch's default IP address is **10.10.11.10/24**. Ensure the management host has an IP in the same subnet, e.g., **10.10.11.x** (where x is between 1-254 but not 10), with a subnet mask of **255.255.255.0**.  
+2. **Configure IP Address**
+   The switch's default IP address is **10.10.11.10/24**. Ensure the management host has an IP in the same subnet, e.g., **10.10.11.x** (where x is between 1-254 but not 10), with a subnet mask of **255.255.255.0**.
 
    ![IP Configuration](../../../zh/cluster/NanoCluster/assets/ip.jpeg)
 
-3. **Access the Management Interface**  
-   Open a browser and enter `http://10.10.11.10`, then press Enter to reach the login page.  
+3. **Access the Management Interface**
+   Open a browser and enter `http://10.10.11.10`, then press Enter to reach the login page.
 
    ![Login Page](../../../zh/cluster/NanoCluster/assets/login_en.jpeg)
 
-4. **Login to the Management System**  
-   Enter the **admin username and password** (both default to `admin`), then click **Login** to access the main interface.  
+4. **Login to the Management System**
+   Enter the **admin username and password** (both default to `admin`), then click **Login** to access the main interface.
 
    ![Management Homepage](../../../zh/cluster/NanoCluster/assets/homepage_en.jpeg)
 
@@ -62,9 +64,9 @@ The cluster backplane connects to each core board (SOM) via the JL6108 switch. T
 
 ### Port Management
 The JL6108 switch provides port status management, supporting **port enable/disable**, **speed configuration**, and **flow control**.
-- **Enable/Disable Ports**: Navigate to the **Port Management** page, select the desired port, and enable or disable it.  
-- **Modify Port Speed**: Supports 10Mbps / 100Mbps / 1000Mbps modes.  
-- **Flow Control**: Can be enabled to prevent packet loss.  
+- **Enable/Disable Ports**: Navigate to the **Port Management** page, select the desired port, and enable or disable it.
+- **Modify Port Speed**: Supports 10Mbps / 100Mbps / 1000Mbps modes.
+- **Flow Control**: Can be enabled to prevent packet loss.
 
 ![Port Management](../../../zh/cluster/NanoCluster/assets/portsetting_en.jpeg)
 
@@ -73,28 +75,28 @@ VLAN (Virtual Local Area Network) is used to segment different network areas, pr
 
 #### Configuring Port VLAN
 
-1. **Access the Port VLAN Page**  
+1. **Access the Port VLAN Page**
    Navigate to `VLAN` >> `Port VLAN` in the Web interface.
 
-2. **Enable Port VLAN**  
+2. **Enable Port VLAN**
    Check the **"Enable Port VLAN"** option and click **`Apply`**.
 
-3. **Create VLAN 2 and Assign Ports**  
-   - Enter **`2`** in the **VLAN ID** field  
-   - Select **Ports 2 to 4**  
-   - Click **`Apply`** to save the configuration  
+3. **Create VLAN 2 and Assign Ports**
+   - Enter **`2`** in the **VLAN ID** field
+   - Select **Ports 2 to 4**
+   - Click **`Apply`** to save the configuration
 
-4. **View the Port Member Table**  
-   After configuration, **Ports 2-4 will be automatically removed from VLAN 1** and assigned to VLAN 2.   
+4. **View the Port Member Table**
+   After configuration, **Ports 2-4 will be automatically removed from VLAN 1** and assigned to VLAN 2.
 
    ![Port VLAN Configuration](../../../zh/cluster/NanoCluster/assets/vlan_en.jpeg)
 
 ### QoS Configuration (Traffic Prioritization)
 QoS ensures stable performance for high-priority traffic such as video conferencing and VoIP:
-1. **Navigate to "QoS Settings"**  
-2. Select **Port-Based / 802.1P / DSCP** QoS strategy  
-3. Set **High / Medium / Low Priority Queues**  
-4. **Save the settings** to apply the QoS rules    
+1. **Navigate to "QoS Settings"**
+2. Select **Port-Based / 802.1P / DSCP** QoS strategy
+3. Set **High / Medium / Low Priority Queues**
+4. **Save the settings** to apply the QoS rules
 
 ![QoS Configuration](../../../zh/cluster/NanoCluster/assets/qos_en.jpeg)
 
