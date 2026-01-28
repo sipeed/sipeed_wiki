@@ -14,8 +14,12 @@ The PMOD_Thermal32 module is a low-cost thermal imaging module compliant with th
 | **Frame Rate**   | 1~30fps            |
 | **Interface**    | I2C                |
 
-PMOD_Thermal32 Installation Guide  
-![PMOD_Thermal32 Installation](../../assets/maixcam/pmod_thermal32.jpg)
+PMOD_Thermal32 Installation Guide
+
+| Platform                | Installation Guide  |
+| ------------------- | ------------------------------------------------------------ |
+| MaixCAM/MaixCAM Pro | <img src="../../assets/maixcam/pmod_thermal32.jpg" width="400" height="300"> |
+| MaixCAM2            | <img src="../../assets/maixcam/pmod_thermal32_maixcam2.jpg" width="400" height="300"> |
 
 Thermal Imaging with Pseudo-color Display  
 ![Pseudo-color Thermal Imaging](../../assets/maixcam/th32_1.jpg)
@@ -42,7 +46,11 @@ The PMOD_TOF100 module is a low-cost array ToF module compliant with the PMOD in
 | **Interface**     | SPI                |
 
 PMOD_TOF100 Installation Guide  
-![PMOD_TOF100 Installation](../../assets/maixcam/pmod_tof100.jpg)
+
+| Platform                | Installation Guide                                                      |
+| ------------------- | ------------------------------------------------------------ |
+| MaixCAM/MaixCAM Pro | <img src="../../assets/maixcam/pmod_tof100.jpg" width="400" height="300"> |
+| MaixCAM2            | <img src="../../assets/maixcam/pmod_tof100_maixcam2.jpg" width="400" height="300"> |
 
 Depth Imaging with Pseudo-color Display  
 ![Pseudo-color Depth Imaging](../../assets/maixcam/tof100_1.jpg)

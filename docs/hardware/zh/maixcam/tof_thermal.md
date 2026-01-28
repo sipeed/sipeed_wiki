@@ -15,8 +15,14 @@ PMOD_Thermal32 模块是符合PMOD接口标准的低成本热成像模块，可�
 |**帧率**   | 1~30fps|
 |**接口**   | I2C |
 
-PMOD_Thermal32安装方式  
-![PMOD_Thermal32安装方式](../../assets/maixcam/pmod_thermal32.jpg)
+PMOD_Thermal32安装方式
+
+| 平台                | 安装方法                                                     |
+| ------------------- | ------------------------------------------------------------ |
+| MaixCAM/MaixCAM Pro | <img src="../../assets/maixcam/pmod_thermal32.jpg" width="400" height="300"> |
+| MaixCAM2            | <img src="../../assets/maixcam/pmod_thermal32_maixcam2.jpg" width="400" height="300"> |
+
+
 
 单热成像伪彩显示   
 ![单热成像伪彩显示 ](../../assets/maixcam/th32_1.jpg)
@@ -42,8 +48,13 @@ PMOD_TOF100 模块是符合PMOD接口标准的低成本面阵TOF模块，可以�
 |**帧率**  |100x100 6fps, 50x50 22fps, 25x25 30fps|
 |**接口**   | SPI |
 
-PMOD_TOF100安装方式  
-![PMOD_TOF100安装方式](../../assets/maixcam/pmod_tof100.jpg)
+PMOD_TOF100安装方式
+
+| 平台                | 安装方法                                                     |
+| ------------------- | ------------------------------------------------------------ |
+| MaixCAM/MaixCAM Pro | <img src="../../assets/maixcam/pmod_tof100.jpg" width="400" height="300"> |
+| MaixCAM2            | <img src="../../assets/maixcam/pmod_tof100_maixcam2.jpg" width="400" height="300"> |
+
 
 单深度伪彩显示   
 ![单深度伪彩显示 ](../../assets/maixcam/tof100_1.jpg)
@@ -53,5 +64,4 @@ PMOD_TOF100安装方式
 
 参考使用代码：  
 https://github.com/sipeed/MaixPy/blob/main/examples/ext_dev/sensors/tof100/tof100_example.py
-
 
