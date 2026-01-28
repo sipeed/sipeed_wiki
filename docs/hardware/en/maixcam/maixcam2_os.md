@@ -3,36 +3,53 @@ title: MaixCAM2 System Flashing
 ---
 
 
+## Downloading the System Files
 
-## Downloading the System
+Currently, only images in `.img` format are provided. The compressed file may have the extension `.img.xz`. If the image size exceeds `2G`, it will be split into multiple volumes compressed as `.img.7z.00x`.
 
-At present, only images in the `.img` format are provided, and may be compressed to `.img.xz` or multi-volume compression to `.img.7z.00x`.
+[Download image (Baidu Netdisk)](https://pan.baidu.com/s/1nk60bNu5QhdNAsp7e_c-xw) Extraction code:`dshn`
+[Download Image (MEGA)](https://mega.nz/folder/1tolGbba#ki5_NgGIc_omAv0zRU19Lg)
 
-[Download image (Baidu Netdisk)](https://pan.baidu.com/s/1r4ECNlaTVxhWIafNBZOztg) Extraction code: `vjex`.
-[Download image (MEGA)](https://mega.nz/folder/01IEDZQb#3ktByGkFMn_x6jDxMLbK4w)
+**Image Selection Instructions**:
 
-Image file directory description:
-1. `boot_parts_maixcam2-xxx-maixpy-xxx.axp`:This file is a minimal boot image. Normally, it does not need to be flashed. Only when the board cannot be flashed via TF card or USB, refer to the method described below for flashing .axp files. After flashing this file, the TF card and USB flashing functions can be restored.
-2. `maixcam2-xxx-maixpy-xxx.img.7z.00x`:The image is split into multiple files using multi-volume compression. You may see files such as `maixcam2-2025-12-22-maixpy-v4.12.4.img.7z.001` and `maixcam2-2025-12-22-maixpy-v4.12.4.img.7z.002`. All volume files must be downloaded before extraction.
-    > Extraction instructions:
-    > - `On Linux`: use `7z` to extract. Place all volume files in the same directory, then run: '`7z x maixcam2-2025-12-22-maixpy-v4.12.4.img.7z.001`'
-    > - `On Windows`: place all volume files in the same folder, then right-click the first file (`.7z.001` or `.7z`) and select 7-Zip -> Extract Files or Extract Here.The software will automatically merge and extract the files. Make sure all volumes are complete and correctly named.
+Recommended choice: Normally, the boot partition has already been flashed once during factory production, so you can directly use Method 2 to flash the `.img` file. Only consider using Method 1 to flash if the boot partition is damaged.
 
-For MaixCAM2, there are two types of systems and flashing methods:
+1. `.axp` System Image
 
-* **Method 1**: The original chip manufacturer’s flashing format (`.axp`). Requires [AXDL](https://dl.sipeed.com/shareURL/MaixCAM/MaixCAM2/Software/Tools) to flash.
-  * Pros: Works regardless of whether the EMMC has a boot partition or system.
-  * Cons: Only supported on Windows, flashing speed is slow.
-* **Method 2**: USB flashing (`.img` format), which contains a complete system. You can flash it with general tools such as `etcher / rufus / win32diskimager / imageUSB`.
-  * Pros: Simple, OS/software independent, faster (TF > USB2.0 > AXDL).
-  * Cons: Only works if the EMMC already has a **boot partition**. If the boot partition is missing or corrupted, you must first flash a `*.axp` system using Method 1 before Method 2 can be used.
-* **Method 3**: TF card flashing (`.img` format), which contains a complete system.
-  * Pros: Simple, OS/software independent, no extra 3rd-parth PC software needed, faster (TF > USB2.0 > AXDL).
-  * Cons: Need a TF card. Only works if the EMMC already has a **boot partition**. If the boot partition is missing or corrupted, you must first flash a `*.axp` system using Method 1 before Method 2 can be used.
+   Contains the complete system.
 
-**Recommended**: Normally, devices are shipped with a boot partition already flashed, so Method 2 is sufficient. Only use Method 1 if the boot partition is damaged.
+   `Advantages`：Can be successfully flashed regardless of whether the boot partition and system exist in the EMMC. <br />`Disadvantages`：Only supports Windows, and the flashing speed is slow.
+|            Format          | <center>Description</center>       |
+| :--------------------------: | :------------------------------ |
+|           `maixcam2-xxx-maixpy-xxx.axp`            | 	`.axp` system image, contains the complete system. Can be flashed using [AXDL](https://dl.sipeed.com/shareURL/MaixCAM/MaixCAM2/Software/Tools) software. |
+|        `maixcam2-xxx-maixpy-xxx.axp.7z.00x`        | After extracting with `7z`, you get the `.axp` system image. Uses split-volume compression to divide the image into multiple files for easier uploading. All volume files must be downloaded before extraction. |
+2. `.img` System Image
 
-Follow the [MaixPy system flashing guide](https://wiki.sipeed.com/maixpy/doc/zh/basic/upgrade.html) to download the appropriate system image for your model, and remember to back up your data.
+   Contains the complete system.
+
+   `Advantages`：Supports USB flashing and TF card flashing. Not limited by flashing system or software. Fast speed (TF > USB2.0 > AXDL).<br />`Disadvantages`: Can only be used normally when the boot partition has already been flashed into the EMMC. If there is no boot partition or it is damaged, you need to flash a `*.axp` system once using Method 1 before you can use Method 2.
+|            Format          | <center>Description</center>       |
+| :--------------------------: | :------------------------------ |
+|      `maixcam2-2026-01-27-maixpy-v4.12.5.img`      | `.img` system image, contains the complete system. Can be flashed using generic tools like `etcher / rufus / win32diskimager / imageUSB, etc`. Can be flashed via `TF card` or `USB`. |
+|        `maixcam2-xxx-maixpy-xxx.img.7z.00x`        | After extracting with `.7z`, you get the `.img` system image. Uses split-volume compression to divide the image into multiple files for easier uploading. All volume files must be downloaded before extraction. |
+| `boot_parts_maixcam2-xxxx-xx-xx-maixpy-x.x.x.axp` | This file is a minimal boot image. Generally, no need to flash. Only needed when the board cannot be flashed via TF card or USB. After flashing this file using the method for `.axp` format, the TF card and USB flashing functionality can be restored.|
+
+3. TF Card System Image
+
+   Contains the complete system, but can only boot from the TF card. That is, the image is flashed onto the TF card, and the system loads from the TF card. Suitable for situations where the `EMMC` is not needed.
+
+   `Advantages`: Does not use the onboard EMMC; TF cards are inexpensive.
+
+   `Disadvantages`: Limited by TF card read/write speed; software read/write times may become slower.
+|            Format          | <center>Description</center>       |
+| :--------------------------: | :------------------------------ |
+|    `maixcam2-2026-01-27-maixpy-v4.12.5_sd.img`     | `.sd_img` system image, used when booting from a TF card is required.      |
+| `maixcam2-2026-01-27-maixpy-v4.12.5_sd.img.7z.00x` | After extracting with `7z`, you get the `.sd_img` system image. Uses split-volume compression to divide the image into multiple files for easier uploading. All volume files must be downloaded before extraction. |
+
+> `7z` Extraction Method Instructions::
+>
+> - `On Linux`: use `7z` to extract. Place all volume files in the same directory, then run: '`7z x maixcam2-2025-12-22-maixpy-v4.12.4.img.7z.001`'
+> - `On Windows`: place all volume files in the same folder, then right-click the first file (`.7z.001` or `.7z`) and select 7-Zip -> Extract Files or Extract Here.The software will automatically merge and extract the files. Make sure all volumes are complete and correctly named.
 
 ## System Boot Process (Overview)
 
@@ -42,20 +59,21 @@ To help you understand, here’s a simplified version of the boot process:
    If not pressed, it proceeds to normal boot.
 
 2. It then loads the **boot partition** firmware from internal EMMC storage (where the system and data are stored). This firmware also checks if `boot/Func` is pressed—if yes, it enters USB/TF upgrade mode; if not, it continues loading the system from EMMC.
+## Flashing Methods
 
 
-## Method 1: Flashing `.axp` System via USB to EMMC
+### Method 1: Flashing `.axp` System via USB to EMMC
 
 As mentioned earlier, there are three flashing methods. Here we’ll cover the first in detail.
 
-### Launch AXDL Software
+#### Launch AXDL Software
 
 Download [AXDL](https://dl.sipeed.com/fileList/MaixCAM/MaixCAM2/Software/Tools/AXDL_V1.24.22.1.7z).(Only have Windows version)
 Download [AXDL Driver](https://dl.sipeed.com/fileList/MaixCAM/MaixCAM2/Software/Tools/Driver_V1.20.46.1.7z), Run `DriverSetup.exe` after decompression to install the driver. If the driver can not be recognized, please try to restart the computer.
 
 Open the AXDL software interface.
 
-### Preparing the System
+#### Preparing the System
 
 You should already have downloaded the `.axp` format system. Usually, two types are provided, e.g.:
 
@@ -67,7 +85,7 @@ This means you can:
 * Use AXDL once to flash the complete system, then boot and run directly.
 * Or, if you prefer USB/TF flashing but your boot partition is damaged (“bricked”), quickly restore just the **boot partition** with `boot_parts_xxx.axp`, then use Method 2 to flash the full system.
 
-### Load and Flash the System File
+#### Load and Flash the System File
 
 * Click the “Load System File” button and select your `.axp` system file.
 * After loading, click “Start” to begin USB detection.
@@ -76,11 +94,11 @@ This means you can:
 * Do not touch the USB cable or board during flashing.
 * After completion, the board reboots into the system. The **first boot** may take longer—wait until it reaches the main interface before powering off.
 
-## Method 2 (Recommended): Flashing `.img` System via USB to EMMC
+### Method 2 (Recommended): Flashing `.img` System via USB to EMMC
 
 This method is faster and easier than flashing `.axp` files. It works on any OS and achieves higher speeds (\~40MiB/s).
 
-### Choosing the Right Flashing Software
+#### Choosing the Right Flashing Software
 
 
 We’ll use [Etcher](https://etcher.balena.io/)  as an example. Other software works similarly.
@@ -91,7 +109,7 @@ On Windows, you can also use [Win32DiskImager](https://sourceforge.net/projects/
 If you encounter errors like `Error spawning the child process`, it’s likely a permissions issue. Run as administrator.
 If problems persist, or the system won’t boot after flashing, try `rufus` or `win32diskimager`.
 
-### Load and Flash the System File
+#### Load and Flash the System File
 
 > `Etcher`may occurs `Missing partition table` `not a bootable image ...` warning, it's normall for `MaixCAM2`, just click `Continue` to continue.
 
@@ -109,11 +127,11 @@ If problems persist, or the system won’t boot after flashing, try `rufus` or `
 * Safely eject the drive.
 * Reboot to enter the new system. Again, wait for the first boot to reach the main interface before powering off.
 
-## Method 3: Flashing `.img` System via TF Card to EMMC
+### Method 3: Flashing `.img` System via TF Card to EMMC
 
 This is similar to USB flashing but often faster (depending on TF card speed, e.g. \~90MiB/s).
 
-### Preparing a TF Upgrade Card
+#### Preparing a TF Upgrade Card
 
 * Insert the TF card into your PC using a card reader.
 * Format the TF card as `exFAT` or `ext4` (not `FAT32`). Make sure to partition the TF card.
@@ -125,6 +143,31 @@ This is similar to USB flashing but often faster (depending on TF card speed, e.
   > If it doesn’t, check previous steps.
 * When complete, the LED stays solid on. Fast flashing (`0.3s on / 0.3s off`) indicates failure. Do not power off—use Method 2 (USB) to recover. If powered off and still failing, use AXDL to restore the boot partition.
 * Reboot to enter the new system. As before, wait for the first boot to finish before shutting down.
+
+## Booting System via TF Card
+
+If you don't want to use the `EMMC`, you can boot the system via a `TF card`. You need to download the `xxx_sd.img` format image.
+
+### Prepare Flashing Tools
+
+Download  [Etcher](https://etcher.balena.io/) (highly recommended), install, and open it.
+
+Windows can also use [Win32DiskImager](https://sourceforge.net/projects/win32diskimager/) or [Rufus](https://rufus.ie/). If Etcher fails, try these two.
+
+### Flash Image to TF Card
+Flash the image to the TF card using a card reader.
+
+- Prepare a `TF card` of 32GB or larger. Insert it into a card reader, then connect to the computer.
+
+- Open `Etcher`, select the `xxx_sd.img` format image file, select the `TF card`, and click Flash.
+
+- Wait for the flashing to complete. If the computer pops up a message like `You need to format the disk in drive G: before you can use it`, **do NOT click Format Disk**! Otherwise, the freshly flashed system will be formatted again! Close the window, right-click the disk, and select Eject `TF Card`.
+
+- Insert the TF card into the MaixCAM2, then power on and wait for the system to boot. The first boot may be slower, wait a moment.
+
+Note:
+
+> For MaixCAM2 with `EMMC`, you need to hold the `Func` button while powering on to load the image from the `TF card`.
 
 ## Power Supply Notes
 

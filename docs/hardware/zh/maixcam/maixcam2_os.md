@@ -5,33 +5,54 @@ title: MaixCAM2 系统烧录
 
 ## 获取系统文件
 
-目前只提供了`.img`格式的镜像, 可能压缩后的后缀为`.img.xz`， 也可能分卷压缩为`.img.7z.00x`
+目前只提供了`.img`格式的镜像, 可能压缩后的后缀为`.img.xz`， 如果镜像大小大于`2G`则会被分卷压缩为`.img.7z.00x`
 
-[下载镜像(百度网盘)](https://pan.baidu.com/s/1r4ECNlaTVxhWIafNBZOztg) 提取码:`vjex`
-[下载镜像(MEGA)](https://mega.nz/folder/01IEDZQb#3ktByGkFMn_x6jDxMLbK4w)
+[下载镜像(百度网盘)](https://pan.baidu.com/s/1nk60bNu5QhdNAsp7e_c-xw) 提取码:`dshn`
+[下载镜像(MEGA)](https://mega.nz/folder/1tolGbba#ki5_NgGIc_omAv0zRU19Lg)
 
-镜像文件目录说明:
-1. `boot_parts_maixcam2-xxxx-xx-xx-maixpy-x.x.x.axp`: 该文件是一个最小启动镜像, 一般不需要烧录, 只有当板子无法通过TF卡或USB烧录时, 参考下文烧录`.axp`格式的方法烧录这个文件后, 即可恢复TF卡和USB烧录的功能.
-2. `maixcam2-xxx-maixpy-xxx.img.7z.00x`: 我们通过分卷压缩的方式将镜像分割成多个文件, 你可以能会看到例如`maixcam2-2025-12-22-maixpy-v4.12.4.img.7z.001`和`maixcam2-2025-12-22-maixpy-v4.12.4.img.7z.002`文件等, 需要下载所有的分卷文件后才能解压.
-    > 解压方法说明:
-    > - 如果是`linux`系统, 可以使用`7z`进行解压, 将所有分卷文件放到同一个文件夹下后, 执行'`7z x maixcam2-2025-12-22-maixpy-v4.12.4.img.7z.001`'
-    > - 如果是`windows`系统, 将所有分卷文件放在同一个文件夹，然后对第一个文件（`.7z.001`或者`.7z`）右键，选择 7-Zip -> 解压文件或提取到“指定文件夹”，软件会自动合并并解压，注意所有分卷必须完整且命名无误
+**镜像选择说明**:
+
+推荐选择：正常情况下出厂已经烧录过一次启动分区，所以可以直接用方法二烧录`.img`文件，遇到启动分区损坏的情况再考虑用方法一烧录。
+
+1. `.axp`系统镜像
+
+   包含了完整的系统
+
+   `优点`：无论 EMMC 内是否有启动分区和系统都能成功烧录。<br />`缺点`：只支持Windows，烧录速度慢。
+|            格式          | <center>说明</center>       |
+| :--------------------------: | :------------------------------ |
+|           `maixcam2-xxx-maixpy-xxx.axp`            | `.axp`系统镜像, 包含了完整的系统，可以通过[AXDL](https://dl.sipeed.com/shareURL/MaixCAM/MaixCAM2/Software/Tools) 软件烧录 |
+|        `maixcam2-xxx-maixpy-xxx.axp.7z.00x`        | 通过`7z`解压后可以得到`.axp`系统镜像, 使用了分卷压缩将镜像分割成多个文件来方便上传, 需要下载所有的分卷文件后才能解压 |
+2. `.img`系统镜像
+
+   包含了完整的系统
+
+   `优点`：支持USB烧录和TF卡烧录，不受烧录系统和软件限制，速度快（TF > USB2.0 > AXDL）。<br />`缺点`: 只有在 EMMC 已经烧录过**启动分区**时才能正常使用。如果没有启动分区或者损坏，则需要用方法一烧录一次 `*.axp` 系统才能使用方法二。
+|            格式          | <center>说明</center>       |
+| :--------------------------: | :------------------------------ |
+|      `maixcam2-2026-01-27-maixpy-v4.12.5.img`      | `.img`系统镜像,包含了完整的系统，使用通用工具比如`etcher / rufus / win32diskimager / imageUSB`等即可烧录。可以通过`TF卡烧录`或`USB烧录` |
+|        `maixcam2-xxx-maixpy-xxx.img.7z.00x`        | 通过`7z`解压后可以得到`.img`系统镜像, 使用了分卷压缩将镜像分割成多个文件来方便上传, 需要下载所有的分卷文件后才能解压 |
+| `boot_parts_maixcam2-xxxx-xx-xx-maixpy-x.x.x.axp` | 该文件是一个最小启动镜像, **一般不需要烧录**, 只有当板子无法通过TF卡烧录或USB烧录时, 参考烧录`.axp`格式的方法烧录这个文件后, 即可恢复TF卡烧录和USB烧录的功能. |
 
 
-对于 MaixCAM2, 有三种系统文件和烧录方法:
-* **方法一**：芯片原厂烧录`.axp`格式。需要使用[AXDL](https://dl.sipeed.com/shareURL/MaixCAM/MaixCAM2/Software/Tools) 进行烧录。
-  * 优点：无论 EMMC 内是否有启动分区和系统都能成功烧录。
-  * 缺点：只支持Windows，烧录速度慢。
-* **方法二**: USB 烧录`.img`格式的系统，包含了完整的系统，使用通用工具比如`etcher / rufus / win32diskimager / imageUSB`等即可烧录。
-  * 优点：烧录简单，不受烧录系统和软件限制，速度快（TF > USB2.0 > AXDL）。
-  * 缺点：只有在 EMMC 已经烧录过**启动分区**时才能正常使用。如果没有启动分区或者损坏，则需要用方法一烧录一次 `*.axp` 系统才能使用方法二。
-* **方法三**: TF 卡烧录`.img`格式的系统，包含了完整的系统。
-  * 优点：烧录简单，无需三方软件，速度快（TF > USB2.0 > AXDL）。
-  * 缺点：需要一张 TF 卡；只有在 EMMC 已经烧录过**启动分区**时才能正常使用。如果没有启动分区或者损坏，则需要用方法一烧录一次 `*.axp` 系统才能使用方法三。
+3. TF卡系统镜像
 
-**推荐选择**：正常情况下出厂已经烧录过一次启动分区，所以可以直接用方法二烧录`.img`文件，遇到启动分区损坏的情况再考虑用方法一烧录。
+   包含了完整的系统, 但是只能从TF卡启动. 也就是把镜像烧录到TF卡上, 从TF卡加载系统. 适用于不需要`EMMC`的情况
 
-按照[MaixPy 系统烧录文档](https://wiki.sipeed.com/maixpy/doc/zh/basic/upgrade.html) 中的说明，下载对应型号的系统镜像文件 和 注意备份数据。
+   `优点`: 不使用板载EMMC, 价格便宜
+
+   `缺点`: 受限于`TF`读取速度, 软件的读写时间会变慢
+|            格式          | <center>说明</center>       |
+| :--------------------------: | :------------------------------ |
+|    `maixcam2-2026-01-27-maixpy-v4.12.5_sd.img`     | `.sd_img`系统镜像, 用于需要`TF卡`启动时烧录的镜像            |
+| `maixcam2-2026-01-27-maixpy-v4.12.5_sd.img.7z.00x` | 通过`7z`解压后可以得到`.sd_img`系统镜像, 使用了分卷压缩将镜像分割成多个文件来方便上传, 需要下载所有的分卷文件后才能解压 |
+
+> `7z`解压方法说明:
+>
+> - 如果是`linux`系统, 可以使用`7z`进行解压, 将所有分卷文件放到同一个文件夹下后, 执行'`7z x maixcam2-2025-12-22-maixpy-v4.12.4.img.7z.001`'
+> - 如果是`windows`系统, 将所有分卷文件放在同一个文件夹，然后对第一个文件（`.7z.001`或者`.7z`）右键，选择 7-Zip -> 解压文件或提取到“指定文件夹”，软件会自动合并并解压，注意所有分卷必须完整且命名无误
+
+
 
 
 ## 系统启动流程简介
@@ -43,19 +64,21 @@ title: MaixCAM2 系统烧录
 2. 加载内部 `EMMC` 储存（`启动分区、系统和资料放在这里`）中的**启动分区**的固件，这个固件也会判断`boot/Func` 按键是否按下，如果按下，进入 USB / TF 升级模式。
     没有按下则正常加载 `EMMC 中的系统`启动。
 
+## 烧录方法
 
-## 方法一： USB 烧录 .axp 系统到 EMMC
+
+###  方法1:  USB 烧录 .axp 系统到 EMMC
 
 如文章开头所说，烧录分为三种方法，各有其优点，这里先详细介绍第一种。
 
-### 下载 AXDL 软件
+#### 下载 AXDL 软件
 
 下载 [AXDL](https://dl.sipeed.com/fileList/MaixCAM/MaixCAM2/Software/Tools/AXDL_V1.24.22.1.7z)。（只支持 Windows）。
 下载 [AXDL 驱动](https://dl.sipeed.com/fileList/MaixCAM/MaixCAM2/Software/Tools/Driver_V1.20.46.1.7z), 解压后运行`DriverSetup.exe`安装驱动，如果安装完驱动后还是不能识别，请尝试重启电脑
 
 打开 AXDL 软件界面
 
-### 准备系统
+#### 准备系统
 
 前面下载的`.axp`格式的系统，注意，一般提供两种`.axp`系统文件，如:
 * `maixcam2-2025-09-01-maixpy-v4.11.9.axp`: **完整的** MaixCAM2 可以使用的`.axp` 文件，文件大小`8GB`左右。
@@ -66,7 +89,7 @@ title: MaixCAM2 系统烧录
 * 你更喜欢 USB / TF 卡烧录的方式，但是启动分区意外受损（“变砖”），只想快速恢复**启动分区**，则选择`boot_parts_xxx.axp`再用方法二烧录完整系统。
 
 
-### 加载和烧录系统文件
+#### 加载和烧录系统文件
 
 * 点击加载系统文件按钮，选择加载下载的`.axp`格式的系统。
 * 等待加载完毕后，点击开始按钮，就会开始自动检测 USB。
@@ -75,11 +98,11 @@ title: MaixCAM2 系统烧录
 * 下载过程中建议不要触碰 USB 线和板子，以免接触不良失败。
 * 下载完成后会自动重启进入系统，第一次启动请至少等到启动进入主界面后才能断电，防止第一次文件初始化丢失。
 
-## 方法二（推荐）： USB 烧录 .img 系统到 EMMC
+###  方法2:  USB 烧录 .img 系统到 EMMC
 
 相比烧录 `.axp`格式的文件，这种方式会更快更方便，任何操作系统都能烧录，而且速度更快（~=40MiB/s）。
 
-### 选择合适的烧录软件
+#### 选择合适的烧录软件
 
 这里以 [Etcher](https://etcher.balena.io/) 为例，其它软件使用方法类似。
 
@@ -90,7 +113,7 @@ Windows 也可以用 [Win32DiskImager](https://sourceforge.net/projects/win32dis
 如果仍然无法解决，或者烧录后无法启动，可以用`rufus`或者`win32diskimager`等其它软件烧录。
 
 
-### 加载和烧录系统文件
+#### 加载和烧录系统文件
 
 > 下载过程如果`Etcher`会报错`Missing partition table` `not a bootable image ...`即检测不到分区表，对于`MaixCAM2`是正常现象，点击`Continue`继续即可。
 
@@ -106,11 +129,11 @@ Windows 也可以用 [Win32DiskImager](https://sourceforge.net/projects/win32dis
 * 如果烧录软件不会自动弹出 U 盘，建议手动弹出 U盘保证数据都写入了。
 * 手动重启（重新上电）即可进入新系统，第一次进入系统注意至少要等到进入主界面后才能关机断电，防止初始化出错。
 
-## 方法三： TF 卡烧录 .img 系统到 EMMC
+### 方法3: TF 卡烧录 .img 系统到 EMMC
 
 方法和 USB 烧录 .img 类似，一般速度更快（取决于你的 TF卡速度，比如 `~=90MiB/s`）。
 
-### 制作 TF 升级卡
+#### 制作 TF 升级卡
 
 * 使用读卡器将 TF 卡插到电脑。
 * 格式化 TF 卡，至少创建一个主分区, 可以选择 `exFAT` 或者`ext4`格式（不要选择`FAT32`）, 一定要给TF分区。
@@ -124,7 +147,7 @@ Windows 也可以用 [Win32DiskImager](https://sourceforge.net/projects/win32dis
 * 手动重启（重新上电）即可进入新系统，第一次进入系统注意至少要等到进入主界面后才能关机断电，防止初始化出错。
 
 
-### 加载和烧录系统文件
+#### 加载和烧录系统文件
 
 * 加载前面下载并解压后的系统，注意不要弄混了文件，比如`MaixCAM2`的镜像文件是`maixcam2-2025-09-01-maixpy-v4.11.9.img`。
 * 上电进入 USB / TF 卡升级模式，两种方式：
@@ -135,6 +158,29 @@ Windows 也可以用 [Win32DiskImager](https://sourceforge.net/projects/win32dis
 * 点击软件的烧录(Flash)按钮，开始进行烧录（可能会需要管理员权限）。这时板子蓝色 LED开始`亮0.5s-灭0.s`闪烁。
 * 等待烧录完毕，蓝色 LED 会变成常亮表示烧录完毕，软件可能还没完成，比如软件会读取 EMMC 内容检验是否出错，可以等待其校验完成。
 * 手动重启（重新上电）即可进入新系统，第一次进入系统注意至少要等到进入主界面后才能关机断电，方式初始化出错。
+
+## 通过TF卡启动系统
+
+不想使用`EMMC`时, 可以通过`TF`卡来启动系统, 需要下载`xxx_sd.img`格式镜像
+
+### 准备烧录工具
+
+下载 [Etcher](https://etcher.balena.io/)（强烈推荐），安装并打开。
+
+Windows 也可以用 [Win32DiskImager](https://sourceforge.net/projects/win32diskimager/) 或 [Rufus](https://rufus.ie/)。 如果 Etcher 无法烧录可以试试这两个。
+
+### 烧录镜像到TF卡
+
+通过读卡器烧录镜像到TF卡
+
+- 准备一张 32G以上的TF 卡，插入读卡器，然后插入电脑。
+- 打开 Etcher，选择`xxx_sd.img`格式镜像文件，选择 TF 卡，点击`Flash`。
+- 等待烧录完成，如果电脑弹出`使用驱动器 G: 中的光盘之前需要将其格式化`这样的字符，**不要**点击格式化磁盘！不然刚烧录好的系统又被格式化了！ 关掉窗口， 右键磁盘，选择弹出 TF 卡即可。
+- 将 TF 卡插入 MaixCAM2，然后上电，等待系统启动，第一次启动会慢一点，等待一会即可。
+
+注意:
+
+> 带`EMMC`的MaixCAM2,需要按住`Func`按钮再上电才会从`TF`卡加载镜像
 
 
 
@@ -158,5 +204,4 @@ Windows 也可以用 [Win32DiskImager](https://sourceforge.net/projects/win32dis
 解决方法：
 * 尽量不直接断电或者按`reset`按键，使用上面说的软关机。
 * 保存重要的内容，可以手动调用强制写入内容到磁盘的 API，比如在 `Python` 里面可以用`os.sync()`来告诉系统把所有缓存的文件立即写入到磁盘，其它的方式比如写入指定文件，以及其它语言请自性搜索类似`Linux 刷新内容到磁盘`的关键词。
-
 
