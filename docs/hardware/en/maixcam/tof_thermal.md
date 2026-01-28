@@ -18,7 +18,7 @@ PMOD_Thermal32 Installation Guide
 
 | Platform                | Installation Guide  |
 | ------------------- | ------------------------------------------------------------ |
-| MaixCAM/MaixCAM Pro | <img src="../../assets/maixcam/pmod_thermal32.jpg" width="400" height="300"> |
+| MaixCAM Pro | <img src="../../assets/maixcam/pmod_thermal32.jpg" width="400" height="300"> |
 | MaixCAM2            | <img src="../../assets/maixcam/pmod_thermal32_maixcam2.jpg" width="400" height="300"> |
 
 Thermal Imaging with Pseudo-color Display  
@@ -49,7 +49,7 @@ PMOD_TOF100 Installation Guide
 
 | Platform                | Installation Guide                                                      |
 | ------------------- | ------------------------------------------------------------ |
-| MaixCAM/MaixCAM Pro | <img src="../../assets/maixcam/pmod_tof100.jpg" width="400" height="300"> |
+| MaixCAM Pro | <img src="../../assets/maixcam/pmod_tof100.jpg" width="400" height="300"> |
 | MaixCAM2            | <img src="../../assets/maixcam/pmod_tof100_maixcam2.jpg" width="400" height="300"> |
 
 Depth Imaging with Pseudo-color Display  

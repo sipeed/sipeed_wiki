@@ -19,7 +19,7 @@ PMOD_Thermal32安装方式
 
 | 平台                | 安装方法                                                     |
 | ------------------- | ------------------------------------------------------------ |
-| MaixCAM/MaixCAM Pro | <img src="../../assets/maixcam/pmod_thermal32.jpg" width="400" height="300"> |
+| MaixCAM Pro | <img src="../../assets/maixcam/pmod_thermal32.jpg" width="400" height="300"> |
 | MaixCAM2            | <img src="../../assets/maixcam/pmod_thermal32_maixcam2.jpg" width="400" height="300"> |
 
 
@@ -52,7 +52,7 @@ PMOD_TOF100安装方式
 
 | 平台                | 安装方法                                                     |
 | ------------------- | ------------------------------------------------------------ |
-| MaixCAM/MaixCAM Pro | <img src="../../assets/maixcam/pmod_tof100.jpg" width="400" height="300"> |
+| MaixCAM Pro | <img src="../../assets/maixcam/pmod_tof100.jpg" width="400" height="300"> |
 | MaixCAM2            | <img src="../../assets/maixcam/pmod_tof100_maixcam2.jpg" width="400" height="300"> |
 
 
