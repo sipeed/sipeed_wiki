@@ -32,6 +32,8 @@ NanoKVM-ATX包含：
 
 ## 接线
 
+> ❗请在功能测试正常后再装入机箱，装入机箱时确保装入PCIe卡槽后两个按键可以正常按下并抬起，否则可能导致NanoKVM无法启动或功能异常
+
 1. 连接电源，NanoKVM-Pro 对电源要求略高，部分主板的USB接口无法提供充足的电流，为保证 NanoKVM-Pro 正常工作，强烈建议外接5V1A及其以上的电源（实际运行功耗约3W）；
 
 ![](./../../../assets/NanoKVM/pro/start/01_Power.png)

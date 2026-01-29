@@ -39,6 +39,8 @@ Note: The USB-PWR-IN CC interface of the NanoKVM-PCIe has a 5.1K pull-down resis
 
 1. The wiring for NanoKVM-PCIe is similar to that of the Cube. Please install the NanoKVM-PCIe while the main unit is powered off and disconnected from power. Only after testing all functions as normal should you install it into the case.
 
+> ❗ Please ensure that the buttons of NanoKVM-PCIe can be pressed and released normally after installation into the PCIe slot; otherwise, it may prevent the NanoKVM from starting up or cause functional abnormalities.
+
 2. Use a USB C to A data cable to connect the remote host to the USB-HID interface of the NanoKVM (located below the HDMI interface)
 
 You can also connect directly to the nine-pin USB 2.0 inside the case, as shown in the diagram below.

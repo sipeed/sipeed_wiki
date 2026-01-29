@@ -12,6 +12,12 @@ NanoKVM Pro 会不定期更新应用，一些问题可能在新的应用中已�
 
 ## 网络相关问题
 
+### WiFi 版本 NanoKVM-Pro ATX/Desk 缺少WiFi配置界面
+
+请在设置->检查更新中更新至1.2.13或以上版本即可解决
+
+如果因网络问题无法在网页更新，可以尝试通过重烧镜像方式解决：先下载[1.0.13](https://github.com/sipeed/NanoKVM-Pro/releases/tag/v1.0.13)版本及以上的镜像,然后根据[操作步骤](https://wiki.sipeed.com/hardware/zh/kvm/NanoKVM_Pro/faq.html#%E9%95%9C%E5%83%8F%E7%83%A7%E5%BD%95%E6%96%B9%E6%B3%95)完成烧录
+
 ### NanoKVM-Pro ATX 无法通过 OLED 屏配网
 
 在较早的版本\[1\]中，WiFi 版本 ATX 长按 `USR` 按键 OLED 可能会停留在 `Starting` 页面无法进入配网页面。

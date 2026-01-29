@@ -32,6 +32,8 @@ The NanoKVM-ATX includes:
 
 ## Wiring
 
+> ❗ Please confirm that all functions are working properly before installing it into the chassis. During installation into the chassis, ensure that both buttons can be pressed and released normally after inserting the PCIe slot. Otherwise, this may cause the NanoKVM to fail to start or result in abnormal functionality.
+
 1. Connect the power. The NanoKVM-Pro has slightly higher power requirements, and some motherboard USB ports may not provide sufficient current. To ensure the proper operation of the NanoKVM-Pro, it is strongly recommended to use an external power supply of 5V 1A or higher (actual power consumption is about 3W).
 
 ![](./../../../assets/NanoKVM/pro/start/01_Power.png)
