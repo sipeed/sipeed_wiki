@@ -21,19 +21,19 @@ keywords: NanoKVM-USB, Lichee, PiKVM, RISCV, tool
 
 + This may be caused by a missing serial driver. Please reinstall the CH34x driver as follows:
 
-    - Download the driver from the WCH official website ([download link](https://www.wch.cn/downloads/CH341SER_EXE.html)), then double-click the installer to run it.
+  + Download the driver from the WCH official website ([download link](https://www.wch.cn/downloads/CH341SER_EXE.html)), then double-click the installer to run it.
 
 ### NanoKVM-USB Device Driver Not Installed on Windows Controlled End
 
 + This may be caused by the USB composite device not being recognized correctly. Please reinstall the driver as follows:
-    - Open `Device Manager` → `Other devices`
-    - Find `NanoKVM-USB` → Right-click `Properties` → `Driver` → `Update Driver`
+  + Open `Device Manager` → `Other devices`
+  + Find `NanoKVM-USB` → Right-click `Properties` → `Driver` → `Update Driver`
     ![](./../../../assets/NanoKVM/usb/windows_usb_1.jpeg)
-    - Select `Browse my computer for drivers` → `Let me pick from a list of available drivers on my computer`
+  + Select `Browse my computer for drivers` → `Let me pick from a list of available drivers on my computer`
     ![](./../../../assets/NanoKVM/usb/windows_usb_2.jpeg)
-    - Double-click `Show all devices`
+  + Double-click `Show all devices`
     ![](./../../../assets/NanoKVM/usb/windows_usb_3.jpeg)
-    - In `Standard USB Host Controller` / `Standard system devices`, find `USB Composite Device` and double-click to install
+  + In `Standard USB Host Controller` / `Standard system devices`, find `USB Composite Device` and double-click to install
     ![](./../../../assets/NanoKVM/usb/windows_usb_4.jpeg)
 
     ![](./../../../assets/NanoKVM/usb/windows_usb_5.jpeg)
@@ -47,6 +47,15 @@ keywords: NanoKVM-USB, Lichee, PiKVM, RISCV, tool
 + The Chrome browser may not have detected the serial port. Please refresh the webpage or restart Chrome.
 + Chrome may lack sufficient permissions. Please grant the necessary permissions.
 
+### The serial port device cannot be found after connecting the device on the Mac Mini (Apple Silicon)
+
+This is typically because the rear Thunderbolt ports and the front USB ports on newer Mac Minis use different controllers, resulting in varying compatibility with certain USB devices. The rear Thunderbolt ports may be more selective when handling legacy USB serial devices (CDC ACM), while the native USB-C ports on the front generally offer better compatibility.
+
+Recommended Solutions:
+
++ Use the front ports: Connect the device to the front USB-C port on the Mac Mini.
++ Use a USB Hub: If you must use the rear ports, try connecting through a USB Hub, which usually resolves the detection issue.
+
 ## Video Issues
 
 ### Color Abnormalities in Loop-Out/Capture on Some Host BIOS
@@ -54,13 +63,14 @@ keywords: NanoKVM-USB, Lichee, PiKVM, RISCV, tool
 + Early firmware versions of the NanoKVM-USB may cause the loop-out image to appear reddish and the captured image to appear greenish on certain BIOS. This issue can be resolved by flashing a new firmware. Please download the flashing tool and firmware first: [Firmware Download Link](https://dl.sipeed.com/fileList/KVM/NanoKVM_USB/MS2131_LIB_V2_0_27_Demo_GPIO0_PlugDetect_20251205_replaced_E158EDID.bin), [Flashing Tool Download Link](https://dl.sipeed.com/fileList/KVM/NanoKVM_USB/MS_USB3_0_UpgradeTool_V1_3_2.exe)
 
 + Flashing Steps:
+
 1. Open the flashing tool and select the downloaded firmware file.
 2. Connect the USB-C port on the NanoKVM-USB host side to your computer.
 3. Wait for the tool to detect the device, then click "Start Flashing" and wait for the process to complete.
 
 > **Do not disconnect the NanoKVM-USB during the flashing process, as this may brick the device.**
-> The flashing tool only supports Windows.  
-> Currently, flashing is not supported for the NanoKVM-USB (4K) version.  
+> The flashing tool only supports Windows.
+> Currently, flashing is not supported for the NanoKVM-USB (4K) version.
 
 ### Poor Video Quality
 
@@ -87,12 +97,12 @@ keywords: NanoKVM-USB, Lichee, PiKVM, RISCV, tool
 
 ## Known Issues
 
-### Latency:
+### Latency
 
 + The ARM version of macOS experiences increased latency when connected to a Raspberry Pi via NanoKVM-USB; other combinations are not affected.
 
 ## Feedback Methods
 
-- [GitHub Issues](https://github.com/sipeed/NanoKVM)
-- [MaixHub Forum](https://maixhub.com/discussion/nanokvm)
-- QQ Group: 703230713
++ [GitHub Issues](https://github.com/sipeed/NanoKVM)
++ [MaixHub Forum](https://maixhub.com/discussion/nanokvm)
++ QQ Group: 703230713

@@ -21,19 +21,19 @@ keywords: NanoKVM-USB, Lichee, PiKVM, RISCV, tool
 
 + 可能缺少串口驱动导致,请按照以下方法重新安装CH34x驱动:
 
-    - 在WCH官网下载驱动([下载地址](https://www.wch.cn/downloads/CH341SER_EXE.html))，下载后双击运行安装程序
+  + 在WCH官网下载驱动([下载地址](https://www.wch.cn/downloads/CH341SER_EXE.html))，下载后双击运行安装程序
 
 ### Windows 被控端出现 NanoKVM-USB 设备驱动程序未被安装
 
 + 可能是 USB 复合设备未被正确识别导致，请按照以下方法重新安装驱动:
-    - 打开 `设备管理器` → `其他设备`
-    - 找到 `NanoKVM-USB` → 右键 `属性` → `驱动程序` → `更新驱动程序`
+  + 打开 `设备管理器` → `其他设备`
+  + 找到 `NanoKVM-USB` → 右键 `属性` → `驱动程序` → `更新驱动程序`
     ![](./../../../assets/NanoKVM/usb/windows_usb_1.jpeg)
-    - 选择 `浏览我的电脑以查找驱动程序` → `让我从计算机上的可用驱动程序列表中选取`
+  + 选择 `浏览我的电脑以查找驱动程序` → `让我从计算机上的可用驱动程序列表中选取`
     ![](./../../../assets/NanoKVM/usb/windows_usb_2.jpeg)
-    - 双击 `显示所有设备`
+  + 双击 `显示所有设备`
     ![](./../../../assets/NanoKVM/usb/windows_usb_3.jpeg)
-    - 在 `Standard USB Host Controller` / `标准 USB 主控制器` / `Standard system devices` / `标准系统设备` 中找到 `USB 复合设备 (USB Composite Device)` → 双击安装
+  + 在 `Standard USB Host Controller` / `标准 USB 主控制器` / `Standard system devices` / `标准系统设备` 中找到 `USB 复合设备 (USB Composite Device)` → 双击安装
     ![](./../../../assets/NanoKVM/usb/windows_usb_4.jpeg)
 
     ![](./../../../assets/NanoKVM/usb/windows_usb_5.jpeg)
@@ -46,6 +46,15 @@ keywords: NanoKVM-USB, Lichee, PiKVM, RISCV, tool
 + Linux可能缺少权限，导致串口无法打开，在终端中执行`sudo chmod 777 /dev/ttyUSB*`
 + Chrome浏览器可能没有检测到该串口，请刷新网页或重启 Chrome
 + Chrome权限可能不足，请打开相应权限
+
+### Mac Mini (Apple Silicon) 上连接设备后找不到串口设备
+
+这通常是因为新款 Mac Mini 后置的雷雳 (Thunderbolt) 接口与前置 USB 接口采用了不同的控制器，导致对部分 USB 设备的兼容性表现不同。后置雷雳接口在兼容传统的 USB 串口设备 (CDC ACM) 时可能会更挑剔，而前置的原生 USB-C 接口兼容性通常更好。
+
+建议解决方案：
+
++ 更换接口：优先将设备连接到 Mac Mini 的前置 USB-C 接口。
++ 使用集线器：如果您必须使用后置接口，建议通过一个 USB 集线器 (Hub) 进行连接，通常可以解决识别问题。
 
 ## 视频问题
 
@@ -89,7 +98,7 @@ keywords: NanoKVM-USB, Lichee, PiKVM, RISCV, tool
 
 ## 已知问题
 
-### 延迟：
+### 延迟
 
 + ARM 版的 macOS 通过 NanoKVM-USB 连接树莓派时延迟会增大，其他组合则不受影响
 
@@ -97,6 +106,6 @@ keywords: NanoKVM-USB, Lichee, PiKVM, RISCV, tool
 
 + 若上述方法不能解决异常，请在论坛,GitHub或QQ群说明您购买的型号和遇到的问题，我们会耐心解答
 
-- [Github issues](https://github.com/sipeed/NanoKVM)
-- [MaixHub 论坛](https://maixhub.com/discussion/nanokvm)
-- QQ 交流群: 703230713
++ [Github issues](https://github.com/sipeed/NanoKVM)
++ [MaixHub 论坛](https://maixhub.com/discussion/nanokvm)
++ QQ 交流群: 703230713
