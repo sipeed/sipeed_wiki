@@ -12,6 +12,12 @@ The green LED serves as the power indicator for NanoKVM Pro. If a power source w
 
 ## Network-related Issue
 
+### WiFi Version NanoKVM-Pro ATX/Desk Missing WiFi Configuration Interface
+
+To resolve this issue, please update to version 1.2.13 or above via Settings -> Check for Updates.
+
+If you are unable to update via the web interface due to network issues, you can try resolving it by re-flashing the firmware: First download the firmware image for version [1.0.13](https://github.com/sipeed/NanoKVM-Pro/releases/tag/v1.0.13) or above, then follow the [operation steps](https://wiki.sipeed.com/hardware/en/kvm/NanoKVM_Pro/faq.html#Image-Burning-Methods) to complete the flashing process.
+
 ### NanoKVM-Pro ATX Unable to Configure Network via OLED Screen
 
 In earlier versions \[1\], on the Wi-Fi variant of the ATX, long-pressing the `USR` button may cause the OLED to remain stuck on the `Starting` screen and fail to enter the Wi-Fi configuration page.

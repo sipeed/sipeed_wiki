@@ -41,6 +41,8 @@ NanoKVM-PCIe 包装内包含主机, 半高 PCIe 挡板, 两条 USBA-C线缆, 一
 
 1. NanoKVM-PCIe 在接线上与 Cube 类似, 请在主机关机且断电的情况下安装 NanoKVM-PCIe, 测试功能全部正常后再装入机箱
 
+> ❗请确保装入PCIe卡槽后 NanoKVM-PCIe 的按键可以正常按下并抬起，否则可能导致NanoKVM无法启动或功能异常
+
 2. 使用一条 USB C to A 数据线连接远程主机和 NanoKVM 的 USB-HID 接口（位于 HDMI 接口下方）
 
 也可以参照下图方式, 直接连接机箱内部的九针USB2.0
