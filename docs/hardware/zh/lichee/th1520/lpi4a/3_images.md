@@ -2,6 +2,12 @@
 title: 镜像集合
 keywords: Linux, Lichee, TH1520, SBC, RISCV, image
 update:
+  - date: 2026-01-30
+    version: v1.2
+    author: Kevin.MX
+    content:
+      - Point RevyOS (Debian) images to docs.revyos.dev
+      - Remove/update outdated information
   - date: 2023-10-23
     version: v1.2
     author: ztd
@@ -21,44 +27,21 @@ update:
 
 ## 内核支持
 
-目前平头哥官方 SDK 使用 Linux5.10 内核： https://gitee.com/xuantie-linux
-主线 linux6.x 内核正在移植中，主要社区贡献者：`Jisheng Zhang `
+目前玄铁 SDK / RevyOS 使用 Linux 6.6 内核：https://github.com/revyos/th1520-linux-kernel
 
-## Sipeed官方镜像
+主线 Linux 内核正在移植中，主要社区贡献者：`Jisheng Zhang `
 
-LicheePi 4A 的镜像不定期更新中，初期的镜像可能不太稳定，或者无法发挥 TH1520 的完全性能，请关注本页面，获取最新镜像。
-Sipeed 官方镜像基于 Debian 系统修改适配。 
-
-默认镜像的帐号密码配置如下：
-账户：`debian`，密码： `debian`；
-账户： `sipeed`，密码：`licheepi`；
-root 账户默认没有设置密码。
-
-### 内存问题修复说明
-重要提示：2023.8.1 之前发出的 16GB 内存板存在错误图像，无法正确识别 16GB 内存（运行大型应用程序可能导致系统崩溃），请按照以下说明修复此错误。
-
-请使用下面的命令烧录新的 u-boot 到板子中，16G 内存使用的 u-boot 在[网盘链接](https://pan.baidu.com/s/1xH56ZlewB6UOMlke5BrKWQ)中，也能在[这个链接](https://dl.sipeed.com/shareURL/LICHEE/licheepi4a/07_Tools)中下载
-相关文件在 `20230803_tempfix.zip` 压缩包中。
-（0721及以后版本的镜像内存能正常使用，无需替换为此处的文件）
-
-```shell
-sudo ./fastboot flash ram ./images/u-boot-with-spl-lpi4a-16g.bin
-sudo ./fastboot reboot
-sleep 1
-sudo ./fastboot flash uboot ./images/u-boot-with-spl-lpi4a-16g.bin
-# 若自己使用的 boot.ext4 中没有 16G ddr 对应的设备树，则需要再烧录 16G ddr 对应的 boot.ext4
-sudo ./fastboot flash boot ./images/boot.ext4
-```
-
-### Debian
+## RevyOS
 
 ![debian](./assets/images/debian.png)  
-![debian_neofetch](./assets/images/debian_neofetch.png)  
+![debian_neofetch](./assets/images/revyos_fastfetch.png)  
 
 下载地址：
-百度网盘：[点我](https://pan.baidu.com/s/1xH56ZlewB6UOMlke5BrKWQ)
-Mega 云盘：[点我](https://mega.nz/folder/phoQlBTZ#cZeQ3qZ__pDvP94PT3_bGA)
-ISCAS 镜像站（内含测试镜像，普通用户请使用前面网盘中的镜像）：[点我](https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/)
+ISCAS 镜像站：[点我](https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/)
+百度网盘（≤20240602）：[点我](https://pan.baidu.com/s/1xH56ZlewB6UOMlke5BrKWQ)
+Mega 云盘（≤20240602）：[点我](https://mega.nz/folder/phoQlBTZ#cZeQ3qZ__pDvP94PT3_bGA)
+
+此文档关于 RevyOS 的信息可能不是最新，请访问 RevyOS 文档站获取最新消息：https://docs.revyos.dev/
 
 1. LPI4A_20240111_BASIC.zip
 
@@ -151,6 +134,32 @@ ISCAS 镜像站（内含测试镜像，普通用户请使用前面网盘中的�
          - u-boot 带 16g 后缀的为支持 16g 内存的u-boot，不带后缀的为支持 8g 内存的 u-boot
    - 已知问题：
 
+## Sipeed官方镜像
+
+LicheePi 4A 的镜像不定期更新中，初期的镜像可能不太稳定，或者无法发挥 TH1520 的完全性能，请关注本页面，获取最新镜像。
+Sipeed 官方镜像基于 Debian 系统修改适配。 
+
+默认镜像的帐号密码配置如下：
+账户：`debian`，密码： `debian`；
+账户：`sipeed`，密码：`licheepi`；
+root 账户默认没有设置密码。
+
+### 内存问题修复说明
+重要提示：2023.8.1 之前发出的 16GB 内存板存在错误图像，无法正确识别 16GB 内存（运行大型应用程序可能导致系统崩溃），请按照以下说明修复此错误。
+
+请使用下面的命令烧录新的 u-boot 到板子中，16G 内存使用的 u-boot 在[网盘链接](https://pan.baidu.com/s/1xH56ZlewB6UOMlke5BrKWQ)中，也能在[这个链接](https://dl.sipeed.com/shareURL/LICHEE/licheepi4a/07_Tools)中下载
+相关文件在 `20230803_tempfix.zip` 压缩包中。
+（0721及以后版本的镜像内存能正常使用，无需替换为此处的文件）
+
+```shell
+sudo ./fastboot flash ram ./images/u-boot-with-spl-lpi4a-16g.bin
+sudo ./fastboot reboot
+sleep 1
+sudo ./fastboot flash uboot ./images/u-boot-with-spl-lpi4a-16g.bin
+# 若自己使用的 boot.ext4 中没有 16G ddr 对应的设备树，则需要再烧录 16G ddr 对应的 boot.ext4
+sudo ./fastboot flash boot ./images/boot.ext4
+```
+
 ### OpenWRT
 
 ![openwrt](./assets/images/openwrt.png)
@@ -204,7 +213,7 @@ fastboot erase misc
 ![openEuler](./assets/images/openEuler.png)   
 ![openeuler_neofetch](./assets/images/openeuler_neofetch.png)  
 
-Download: [Click me](https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/preview/openEuler-23.09-V1-riscv64/lpi4a/)
+Download: [Click me](https://images.oerv.ac.cn/)
 Twitter: https://twitter.com/openEuler
 
 ### DeepinOS 深度
@@ -212,7 +221,7 @@ Twitter: https://twitter.com/openEuler
 ![deepin](./assets/images/deepin.jpg)   
 ![deepin_neofetch](./assets/images/deepin_neofetch.png)  
 
-Readme and image download link: [Click me](https://github.com/aiminickwong/licheepi4a-images)
+Readme and image download link: [Click me](https://deepin-community.github.io/sig-deepin-ports/images/riscv64)
 
 ### openKylin
 
@@ -236,7 +245,11 @@ Download and Infomations: [Click me](https://www.armbian.com/licheepi-4a/)
 
 Project address: [Click me](https://github.com/chainsx/armbian-riscv-build)
 
-### Fedora (unofficial)
+### Fedora (Fedora-V Force)
+
+Link: https://images.fedoravforce.org/LicheePi%204A
+
+### Fedora (chainsx)
 
 ![fedora](./assets/images/fedora.png)
 ![fedora_neofetch](./assets/images/fedora_neofetch.png)
@@ -250,7 +263,7 @@ Project address: [Click me](https://github.com/chainsx/fedora-riscv-builder)
 
 Project address: [Click me](https://github.com/chainsx/openwrt-th1520)
 
-### Ubuntu
+### Ubuntu (rootfs only)
 
 ![ubuntu](./assets/images/ubuntu.png)
 

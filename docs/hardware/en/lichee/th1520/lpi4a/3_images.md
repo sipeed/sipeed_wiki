@@ -2,6 +2,12 @@
 title: Collection of images
 keywords: Linux, Lichee, TH1520, SBC, RISCV, image
 update:
+  - date: 2026-01-30
+    version: v1.2
+    author: Kevin.MX
+    content:
+      - Point RevyOS (Debian) images to docs.revyos.dev
+      - Remove/update outdated information
   - date: 2023-10-23
     version: v1.2
     author: ztd
@@ -21,46 +27,21 @@ update:
 
 ## Supported kernels
 
-Currently T-Heads SDK uses Linux Kernel 5.10: https://gitee.com/thead-yocto
-Support is currently added to Linux 6.x, the main contributor of this is `Jisheng Zhang `
+Currently XuanTie SDK / RevyOS uses Linux Kernel 5.10: https://github.com/revyos/th1520-linux-kernel
 
-## Official Sipeed image
+Linux mainline support is currently WIP, the main contributor of this is `Jisheng Zhang `
 
-The image for the LicheePi 4A is updated irregularly. The initial image may not be stable, or it may not be able to fully utilize the performance of the TH1520. Please follow the steps below to get the latest image.
-The official Sipeed image is based on an adapted Debian.
-
-There may be problems with the memory identification of some 16G memory core boards, which may cause the system to crash when the memory usage is high.
-
-The default image's account and password configurations is:
-User: `debian`，password: `debian`;
-User: `sipeed`，password: `licheepi`;
-root has no password by default.
-
-### Memory Problem Repair Instructions
-IMPORTANT：16GB memory board sendout before 2023.8.1 have a buggy images that can't correctly recognize 16GB memory (occupy errors running big applications), please follow the next instructions to fix this error.
-
-Please use the following command to burn a new u-boot to the board. The u-boot used by 16G memory is in the [Mega Cloud Storage link]( https://mega.nz/folder/phoQlBTZ#cZeQ3qZ__pDvP94PT3_bGA), and can also be downloaded from [this link](https://dl.sipeed.com/shareURL/LICHEE/licheepi4a/07_Tools)
-The relevant files are in the `20230803_tempfix.zip` compressed package.
-(images of 0721 and later versions can be used normally, no need to replace it with the file here)
-
-```shell
-sudo ./fastboot flash ram ./images/u-boot-with-spl-lpi4a-16g.bin
-sudo ./fastboot reboot
-sleep 1
-sudo ./fastboot flash ram ./images/u-boot-with-spl-lpi4a-16g.bin
-# If there is no device tree corresponding to 16G ddr in the boot.ext4 you use, you need to burn the boot.ext4 corresponding to 16G ddr
-sudo ./fastboot flash boot ./images/boot.ext4
-```
-
-### Debian
+### RevyOS
 
 ![debian](./../../../../zh/lichee/th1520/lpi4a/assets/images/debian.png)
-![debian_neofetch](./../../../../zh/lichee/th1520/lpi4a/assets/images/debian_neofetch.png)
+![debian_neofetch](./../../../../zh/lichee/th1520/lpi4a/assets/images/revyos_fastfetch.png)
 
 Download Links:
 
-Mega Cloud Storage：[click me](https://mega.nz/folder/phoQlBTZ#cZeQ3qZ__pDvP94PT3_bGA)
-ISCAS mirror(including test mirror, ordinary users please use the mirror in the previous network disk): [click me](https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/)
+ISCAS mirror: [click me](https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/)
+Mega Cloud Storage (≤20240602): [click me](https://mega.nz/folder/phoQlBTZ#cZeQ3qZ__pDvP94PT3_bGA)
+
+The document here about RevyOS might not be up-to-date; please see RevyOS Docs for latest information: https://docs.revyos.dev/
 
 1. LPI4A_20240111_BASIC.zip
 
@@ -180,6 +161,36 @@ ISCAS mirror(including test mirror, ordinary users please use the mirror in the 
    6. Known issues:
       1. After installing the ibus input method, the GPU will be turned on, and the problem of GPU double-buffering (graphical interface) will be reproduced. -->
 
+
+## Official Sipeed image
+
+The image for the LicheePi 4A is updated irregularly. The initial image may not be stable, or it may not be able to fully utilize the performance of the TH1520. Please follow the steps below to get the latest image.
+The official Sipeed image is based on an adapted Debian.
+
+There may be problems with the memory identification of some 16G memory core boards, which may cause the system to crash when the memory usage is high.
+
+The default image's account and password configurations is:
+User: `debian`，password: `debian`;
+User: `sipeed`，password: `licheepi`;
+root has no password by default.
+
+### Memory Problem Repair Instructions
+IMPORTANT：16GB memory board sendout before 2023.8.1 have a buggy images that can't correctly recognize 16GB memory (occupy errors running big applications), please follow the next instructions to fix this error.
+
+Please use the following command to burn a new u-boot to the board. The u-boot used by 16G memory is in the [Mega Cloud Storage link]( https://mega.nz/folder/phoQlBTZ#cZeQ3qZ__pDvP94PT3_bGA), and can also be downloaded from [this link](https://dl.sipeed.com/shareURL/LICHEE/licheepi4a/07_Tools)
+The relevant files are in the `20230803_tempfix.zip` compressed package.
+(images of 0721 and later versions can be used normally, no need to replace it with the file here)
+
+```shell
+sudo ./fastboot flash ram ./images/u-boot-with-spl-lpi4a-16g.bin
+sudo ./fastboot reboot
+sleep 1
+sudo ./fastboot flash ram ./images/u-boot-with-spl-lpi4a-16g.bin
+# If there is no device tree corresponding to 16G ddr in the boot.ext4 you use, you need to burn the boot.ext4 corresponding to 16G ddr
+sudo ./fastboot flash boot ./images/boot.ext4
+```
+
+
 ### OpenWRT
 
 ![openwrt](./../../../../zh/lichee/th1520/lpi4a/assets/images/openwrt.png)
@@ -231,7 +242,7 @@ The images provided by third parties are listed here for informational purposes 
 
 ![openEuler](./../../../../zh/lichee/th1520/lpi4a/assets/images/openEuler.png)
 ![openeuler_neofetch](./../../../../zh/lichee/th1520/lpi4a/assets/images/openeuler_neofetch.png)
-Download: [Click me](https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/preview/openEuler-23.03-V1-riscv64/lpi4a/)   
+Download: [Click me](https://images.oerv.ac.cn/)
 Twitter: https://twitter.com/openEuler   
 
 ### DeepinOS
@@ -239,7 +250,7 @@ Twitter: https://twitter.com/openEuler
 ![deepin](./../../../../zh/lichee/th1520/lpi4a/assets/images/deepin.jpg) 
 ![deepin_neofetch](./../../../../zh/lichee/th1520/lpi4a/assets/images/deepin_neofetch.png)
 
-Readme and image download address: [Link](https://github.com/aiminickwong/licheepi4a-images)
+Readme and image download link: [Click me](https://deepin-community.github.io/sig-deepin-ports/images/riscv64)
 
 ### openKylin
 
@@ -254,13 +265,17 @@ Readme link: [Click me](https://github.com/aiminickwong/licheepi4a-images)
 ![armbian](https://cdn.armbian.com/wp-content/uploads/2018/03/logo2.png)     
 Project address: [Click me](https://github.com/chainsx/armbian-riscv-build)  
 
-### Fedora
+### Fedora (Fedora-V Force)
+
+Link: https://images.fedoravforce.org/LicheePi%204A
+
+### Fedora (chainsx)
 
 ![fedora](./../../../../zh/lichee/th1520/lpi4a/assets/images/fedora.png)
 
 Project address: [Click me](https://github.com/chainsx/fedora-riscv-builder)  
 
-### Ubuntu
+### Ubuntu (rootfs only)
 
 ![ubuntu](./../../../../zh/lichee/th1520/lpi4a/assets/images/ubuntu.png)
 
