@@ -61,7 +61,6 @@ To meet diverse user needs, the NanoKVM-PCIe offers two optional modules for WiF
 | Cooling              | Silent, fanless      | Silent, fanless        | Requires active cooling fan |
 | Dimensions           | 66x57x18mm (without panel) | 40x36x36mm              | 120x68x44mm          |
 
-
 ## NanoKVM-PCIe Information
 
 NanoKVM uses the same SOC as Sipeed [LicheeRV Nano](https://wiki.sipeed.com/hardware/zh/lichee/RV_Nano/1_intro.html). For those interested in secondary development, you can find more information [here](https://wiki.sipeed.com/hardware/zh/kvm/NanoKVM/development.html).
@@ -76,8 +75,8 @@ NanoKVM-Cube and NanoKVM-PCIe share the same image and applications, automatical
 
 ## Purchase Links
 
-[Official Taobao Store]()(To be updated)
-[AliExpress Store]()(To be updated)
+[AliExpress Store](https://www.aliexpress.com/item/1005008285472731.html)
+[Taobao Store](https://item.taobao.com/item.htm?id=902878081229)
 [Pre-sale Page](https://sipeed.com/nanokvm/pcie)
 
 ## Product Feedback
@@ -87,4 +86,3 @@ If you encounter any issues or have suggestions, please contact us through the f
 + [Github Issues](https://github.com/sipeed/NanoKVM)
 + [MaixHub Forum](https://maixhub.com/discussion/nanokvm)
 + QQ Group: 703230713
-

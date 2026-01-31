@@ -23,6 +23,7 @@ The NanoKVM is an IP-KVM product based on the LicheeRV Nano, inheriting its comp
 NanoKVM includes an HDMI input interface that can be recognized as a monitor by a computer, capturing the computer's screen. It has a USB 2.0 interface to connect to the computer host, recognized as HID devices like keyboard, mouse, and touchpad, and uses extra storage space on the Micro SD card, mounted as a USB flash drive. It comes with a 100 Mbps Ethernet port for video and control signal transmission. Additionally, the Full version features an ATX power control interface (USB-C form) for remote control and monitoring of the host's power status. Under the Full version's shell, there is an OLED display for showing the device's IP and KVM-related status.
 
 To meet different user needs, NanoKVM is available in two versions:
+
 - **NanoKVM Lite**: Basic version suitable for DIY enthusiasts and enterprises with bulk requirements.
 - **NanoKVM Full**: Complete version with a sleek shell and full accessories, including a pre-installed system image card, recommended for individual users.
 
@@ -75,20 +76,20 @@ The NanoKVM Cube/PCIe software is now fully open source: [KVM application open s
 > The NanoKVM image is built on the LicheeRV Nano SDK and MaixCDK, and it is compatible with materials that use the LicheeRV Nano. Conversely, the KVM software cannot be used with the LicheeRV Nano or other SG2002 products. If you would like to build HDMI input-related applications on the NanoKVM, please contact us for technical support.
 > NanoKVM-Cube hardware is built on the LicheeRV Nano platform. To coordinate production and maintain consistency with the LicheeRV Nano for the SMT project, the hardware retains the display, touch, MIC, and amplifier circuits. To address potential privacy concerns, versions 2.2.6 of the application and 1.4.1 of the firmware and above will remove the relevant drivers. We will also eliminate these components in future productions.
 
-+ [Schematics](https://cn.dl.sipeed.com/shareURL/KVM/nanoKVM/HDK/02_Schematic)
-+ [3D Structure](https://cn.dl.sipeed.com/shareURL/KVM/nanoKVM/HDK/04_3D_file)
-+ [NanoKVM Image Download](https://github.com/sipeed/NanoKVM/releases)
+- [Schematics](https://cn.dl.sipeed.com/shareURL/KVM/nanoKVM/HDK/02_Schematic)
+- [3D Structure](https://cn.dl.sipeed.com/shareURL/KVM/nanoKVM/HDK/04_3D_file)
+- [NanoKVM Image Download](https://github.com/sipeed/NanoKVM/releases)
 
 ## Purchase Links
 
-[Official Taobao Store](https://item.taobao.com/item.htm?id=811206560480)
 [AliExpress Store](https://www.aliexpress.com/item/1005007369816019.html)
+[Taobao Store](https://item.taobao.com/item.htm?id=811206560480)
 [Pre-sale Page](https://sipeed.com/nanokvm)
 
 ## Product Feedback
 
 If you encounter any issues or have suggestions, please contact us through the following channels:
 
-+ [Github Issues](https://github.com/sipeed/NanoKVM)
-+ [MaixHub Forum](https://maixhub.com/discussion/nanokvm)
-+ QQ Group: 703230713
+- [Github Issues](https://github.com/sipeed/NanoKVM)
+- [MaixHub Forum](https://maixhub.com/discussion/nanokvm)
+- QQ Group: 703230713

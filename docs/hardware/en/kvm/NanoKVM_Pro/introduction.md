@@ -34,7 +34,7 @@ To meet different user needs, NanoKVM Pro offers optional features such as WiFi,
 | Product       | NanoKVM-Pro    | NanoKVM      | GxxKVM      | JxxKVM      |
 |---------------|----------------|--------------|-------------|-------------|
 | Main Control  | AX630C         | SG2002       | RV1126      | RV1106      |
-| Core          | 2xA53@1.2G     | 1xC906@1.0G  | 4xA7@1.5G   | 1xA7@1.2G    |
+| Core          | <2xA53@1.2G>     | <1xC906@1.0G>  | <4xA7@1.5G>   | <1xA7@1.2G>    |
 | Memory        | 1G LPDDR4X     | 256M DDR3    | 1G DDR3     | 256M DDR3   |
 | Storage       | 32G eMMC       | 32G microSD  | 8G eMMC     | 16G eMMC    |
 | System        | NanoKVM+PIKVM  | NanoKVM      | GxxKVM      | JxxKVM      |
@@ -62,18 +62,18 @@ To meet different user needs, NanoKVM Pro offers optional features such as WiFi,
 | Power Input   | USB-C/PoE      | USB-C/PoE/PCIe | USB-C       | USB-C       |
 | Dimensions     | 65x65x28mm    | 40x36x36mm   | 80x60x7.5mm | 60x6x24-30mm |
 
-## NanoKVM-PCIe Information
+## Resources
 
-+ [NanoKVM Pro Image Download (To be updated)](https://github.com/sipeed/NanoKVM-Pro/releases/latest)
++ [NanoKVM Pro Image](https://github.com/sipeed/NanoKVM-Pro/releases/latest)
 + [ATX Getting Started Guide](https://wiki.sipeed.com/hardware/en/kvm/NanoKVM_Pro/atx_start.html)
 + [Advanced Applications](https://wiki.sipeed.com/hardware/en/kvm/NanoKVM_Pro/extended.html)
 + [FAQ](https://wiki.sipeed.com/hardware/en/kvm/NanoKVM_Pro/faq.html)
 
 ## Purchase Links
 
-[Pre-sale Page](https://sipeed.com/nanokvm/pro)  
-[Official Taobao Purchase Link (To be updated)]()  
-[AliExpress Purchase Link (To be updated)]()  
+[AliExpress](https://www.aliexpress.com/item/1005010048471263.html)
+[Taobao](https://item.taobao.com/item.htm?id=994419942411)
+[Pre-sale Page](https://sipeed.com/nanokvm/pro)
 
 ## Product Feedback
 
@@ -83,8 +83,8 @@ If you encounter any issues or have suggestions during use, please provide feedb
 + [MaixHub Forum](https://maixhub.com/discussion/nanokvm)
 + QQ Group: 703230713
 
-> [1] In scenarios with only loop-out, the capture function can be turned off to directly loop out 4K60 images; when loop-out and capture are running simultaneously, it can achieve 4K30FPS.  
-> [2] Latency may vary due to network bandwidth and nodes; the measured data comes from Sipeed Labs.  
-> [3] The USB-HID interface can be wired internally in the case or connected externally; choose one.  
-> [4] Due to 4K45FPS being a non-standard mode, the factory default uses 4K30+2K60; methods to unlock 4K45FPS/2K95FPS/1080P144FPS will be provided in future updates.  
+> [1] In scenarios with only loop-out, the capture function can be turned off to directly loop out 4K60 images; when loop-out and capture are running simultaneously, it can achieve 4K30FPS.
+> [2] Latency may vary due to network bandwidth and nodes; the measured data comes from Sipeed Labs.
+> [3] The USB-HID interface can be wired internally in the case or connected externally; choose one.
+> [4] Due to 4K45FPS being a non-standard mode, the factory default uses 4K30+2K60; methods to unlock 4K45FPS/2K95FPS/1080P144FPS will be provided in future updates.
 > [5] Currently, the factory supports H264/MJPEG modes; future updates will provide H265 support.

@@ -61,7 +61,6 @@ NanoKVM 系列产品包含一个 HDMI 输入接口，可以被电脑识别为显
 | 散热 | 静音无风扇 | 静音无风扇 | 需要风扇主动散热 |
 | 尺寸 | 66x57x18mm(不含挡板) | 40x36x36mm | 120x68x44mm |
 
-
 ## NanoKVM-PCIe 资料
 
 NanoKVM 与 Sipeed [LicheeRV Nano](https://wiki.sipeed.com/hardware/zh/lichee/RV_Nano/1_intro.html) 使用相同SOC，希望二次开发的小伙伴可在[这里](https://wiki.sipeed.com/hardware/zh/kvm/NanoKVM/development.html)查看更多资料
@@ -76,15 +75,14 @@ NanoKVM-Cube 和 NanoKVM-PCIe 共用同一套镜像和应用, 自动适配不同
 
 ## 购买入口
 
-[淘宝官方购买地址]() (待更新)
-[速卖通购买地址]()(待更新)
+[淘宝](https://item.taobao.com/item.htm?id=902878081229)
+[速卖通](https://www.aliexpress.com/item/1005008285472731.html)
 [预售页面](https://sipeed.com/nanokvm/pcie)
 
 ## 产品反馈
 
 如果您在使用过程中有任何问题或建议，请通过以下渠道和我们反馈：
 
-+ [Github issues](https://github.com/sipeed/NanoKVM) 
++ [Github issues](https://github.com/sipeed/NanoKVM)
 + [MaixHub 论坛](https://maixhub.com/discussion/nanokvm)
 + QQ 交流群: 703230713
-

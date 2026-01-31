@@ -29,13 +29,12 @@ IP-KVM系列产品是远程桌面的硬件外挂，通过HDMI捕捉画面，通�
 
 为满足用户不同需求，NanoKVM Pro 提供 WiFi、PoE、屏幕边缘同步灯带等可选项，相关配置和价格请以购买页面为准。
 
-
 ## 参数
 
 | 产品        | NanoKVM-Pro    | NanoKVM      | GxxKVM      | JxxKVM      |
 |-------------|----------------|--------------|-------------|-------------|
 | 主控        | AX630C         | SG2002       | RV1126      | RV1106      |
-| 核心        | 2xA53@1.2G     | 1xC906@1.0G  | 4xA7@1.5G   | 1xA7@1.2G    |
+| 核心        | <2xA53@1.2G>     | <1xC906@1.0G>  | <4xA7@1.5G>   | <1xA7@1.2G>    |
 | 内存        | 1G LPDDR4X     | 256M DDR3    | 1G DDR3     | 256M DDR3   |
 | 硬盘        | 32G eMMC       | 32G microSD  | 8G eMMC     | 16G eMMC    |
 | 系统        | NanoKVM+PIKVM  | NanoKVM      | GxxKVM      | JxxKVM      |
@@ -63,19 +62,18 @@ IP-KVM系列产品是远程桌面的硬件外挂，通过HDMI捕捉画面，通�
 | 电源输入    | USB-C/PoE     | USB-C/PoE/PCIe | USB-C       | USB-C       |
 | 尺寸        | 65x65x28mm     | 40x36x36mm   | 80x60x7.5mm | 60x6x24-30mm |
 
+## 相关资料
 
-## NanoKVM-PCIe 资料
-
-+ [NanoKVM Pro 镜像下载 (待更新)](https://github.com/sipeed/NanoKVM-Pro/releases/latest)
++ [NanoKVM Pro 镜像下载](https://github.com/sipeed/NanoKVM-Pro/releases/latest)
 + [ATX上手指南](https://wiki.sipeed.com/hardware/zh/kvm/NanoKVM_Pro/atx_start.html)
 + [高级应用](https://wiki.sipeed.com/hardware/zh/kvm/NanoKVM_Pro/extended.html)
 + [常见问题](https://wiki.sipeed.com/hardware/zh/kvm/NanoKVM_Pro/faq.html)
 
 ## 购买入口
 
+[淘宝](https://item.taobao.com/item.htm?id=994419942411)
+[速卖通](https://www.aliexpress.com/item/1005010048471263.html)
 [预售页面](https://sipeed.com/nanokvm/pro)
-[淘宝官方购买地址 (待更新)]() 
-[速卖通购买地址 (待更新)]()
 
 ## 产品反馈
 
