@@ -9,187 +9,186 @@
         "home_url": "/en/",
         "items": [
             {
-            "label": "Products",
-            "url": "/en/",
-            "position": "left"
+                "label": "Products",
+                "url": "/en/",
+                "position": "left"
+            },
+            {
+                "label": "Software Docs",
+                "desc": "software projects or general software documentation and tutorials",
+                "position": "left",
+                "type": "list",
+                "items": [
+                    {
+                        "url": "/maixpy/en/",
+                        "label": "MaixPy"
+                    },
+                    {
+                        "url": "/soft/maixpy/zh/index.html",
+                        "label": "MaixPy_v1"
+                    },
+                    {
+                        "url": "/soft/Lichee/zh/index.html",
+                        "label": "Lichee"
+                    },
+                    {
+                        "url": "/ai/en/index.html",
+                        "label": "AI Guide"
+                    }
+                ]
+            },
+            {
+                "label": "MaixHub",
+                "position": "left",
+                "url": "https://maixhub.com",
+                "target": "_blank"
+            },
+            {
+                "label": "News",
+                "url": "/news/",
+                "position": "left"
+            },
+            {
+                "label": "FAQ",
+                "url": "/en/faq.html",
+                "position": "left"
+            },
+            {
+                "label": "<img src='/static/image/shop.svg' style='height: 1.5em;vertical-align: middle;'>",
+                "url": "/en/store.html",
+                "position": "right"
+            },
+            {
+                "label": "<img src='/static/image/github.svg' style='height: 1.5em;vertical-align: middle;'>",
+                "position": "right",
+                "url": "https://github.com/sipeed",
+                "target": "_blank"
+            },
+            {
+                "id": "language",
+                "label": "<img src='/static/image/language.svg' style='height: 1.5em;vertical-align: middle;'>&nbsp;",
+                "position": "right",
+                "type": "language"
+            }
+        ]
+    },
+    "footer": {
+        "top": [
+            {
+                "label": "links",
+                "items": [
+                    {
+                        "label": "Sipeed",
+                        "url": "https://www.sipeed.com",
+                        "target": "_blank"
+                    },
+                    {
+                        "label": "MaixHub",
+                        "url": "https://maixhub.com/",
+                        "target": "_blank"
+                    },
+                    {
+                        "label": "Sipeed AliExpress",
+                        "url": "https://sipeed.aliexpress.com/store/911876460",
+                        "target": "_blank"
+                    },
+                    {
+                        "label": "Build by teedoc ",
+                        "url": "https://github.com/neutree/teedoc",
+                        "target": "_blank"
+                    }
+                ]
+            },
+            {
+                "label": "Source Code",
+                "items": [
+                    {
+                        "label": "Wiki source",
+                        "url": "https://github.com/sipeed/sipeed_wiki",
+                        "target": "_blank"
+                    },
+                    {
+                        "label": "Open Source Projects",
+                        "url": "https://github.com/sipeed",
+                        "target": "_blank"
+                    }
+                ]
+            },
+            {
+                "label": "Follow us",
+                "items": [
+                    {
+                        "label": "twitter",
+                        "url": "https://twitter.com/SipeedIO",
+                        "target": "_blank"
+                    },
+                    {
+                        "label": "AliExpress",
+                        "url": "https://sipeed.aliexpress.com/store/911876460",
+                        "target": "_blank"
+                    },
+                    {
+                        "label": "github",
+                        "url": "https://github.com/sipeed",
+                        "target": "_blank"
+                    },
+                    {
+                        "label": "<a>Wechat</a><img src='/static/image/wechat.png'>"
+                    }
+                ]
+            },
+            {
+                "label": "Contact us",
+                "items": [
+                    {
+                        "label": "Tel: +86 0755-27808509"
+                    },
+                    {
+                        "label": "Business support: support@sipeed.com"
+                    },
+                    {
+                        "label": "Address: 深圳市宝安区新湖路4008号蘅芳科技办公大厦A座-2101C"
+                    },
+                    {
+                        "label": "Join us",
+                        "url": "/join_us.html"
+                    }
+                ]
+            }
+        ],
+        "bottom": [
+            {
+                "label": "©2018-2023 深圳矽速科技有限公司",
+                "url": "https://www.sipeed.com",
+                "target": "_blank"
+            },
+            {
+                "label": "粤ICP备19015433号",
+                "url": "https://beian.miit.gov.cn/#/Integrated/index",
+                "target": "_blank"
+            }
+        ]
+    },
+    "plugins": {
+        "teedoc-plugin-search": {
+            "config": {
+                "search_hint": "Search",
+                "input_hint": "Input keyword. Using Space to separate multiple keywords",
+                "loading_hint": "Loading, please wait",
+                "download_err_hint": "Fail download, Please retry or check network",
+                "other_docs_result_hint": "Results form other doc",
+                "curr_doc_result_hint": "Result form current doc"
+            }
         },
-        {
-            "label": "Software Docs",
-            "desc": "software projects or general software documentation and tutorials",
-            "position": "left",
-            "type": "list",
-            "items": [
-                {
-                    "url": "/maixpy/en/",
-                    "label": "MaixPy"
-                },
-                {
-                    "url": "/soft/maixpy/zh/index.html",
-                    "label": "MaixPy_v1"
-                },
-                {
-                    "url": "/soft/Lichee/zh/index.html",
-                    "label": "Lichee"
-                },
-                {
-                    "url": "/ai/en/index.html",
-                    "label": "AI Guide"
-                }
-            ]
-        },
-
-        {
-            "label": "MaixHub",
-            "position": "left",
-            "url":"https://maixhub.com",
-            "target": "_blank"
-        },
-        {
-            "label":"News",
-            "url":"/news/",
-            "position":"left"
-        },
-        {
-            "label": "FAQ",
-            "url": "/en/faq.html",
-            "position": "left"
-        },
-        {
-            "label": "<img src='/static/image/shop.svg' style='height: 1.5em;vertical-align: middle;'>",
-            "url": "/en/store.html",
-            "position": "right"
-        },
-        {
-            "label": "<img src='/static/image/github.svg' style='height: 1.5em;vertical-align: middle;'>",
-            "position": "right",
-            "url": "https://github.com/sipeed",
-            "target": "_blank"
-        },
-        {
-            "id": "language",
-            "label": "<img src='/static/image/language.svg' style='height: 1.5em;vertical-align: middle;'>&nbsp;",
-            "position": "right",
-            "type": "language"
-        }
-    ]
-},
-"footer":{
-    "top":[
-        {
-            "label": "links",
-            "items": [
-                {
-                    "label": "Sipeed",
-                    "url": "https://www.sipeed.com",
-                    "target": "_blank"
-                },
-                {
-                    "label": "MaixHub",
-                    "url": "https://maixhub.com/",
-                    "target": "_blank"
-                },
-                {
-                    "label": "Sipeed AliExpress",
-                    "url": "https://sipeed.aliexpress.com/store/911876460",
-                    "target": "_blank"
-                },
-                {
-                    "label": "Build by teedoc ",
-                    "url": "https://github.com/neutree/teedoc",
-                    "target": "_blank"
-                }
-            ]
-        },
-        {
-            "label": "Source Code",
-            "items": [
-                {
-                    "label": "Wiki source",
-                    "url": "https://github.com/sipeed/sipeed_wiki",
-                    "target": "_blank"
-                },
-                {
-                    "label": "Open Source Projects",
-                    "url": "https://github.com/sipeed",
-                    "target": "_blank"
-                }
-            ]
-        },
-        {
-            "label": "Follow us",
-            "items": [
-                {
-                    "label": "twitter",
-                    "url": "https://twitter.com/SipeedIO",
-                    "target":"_blank"
-                },
-                {
-                    "label": "AliExpress",
-                    "url": "https://sipeed.aliexpress.com/store/911876460",
-                    "target":"_blank"
-                },
-                {
-                    "label": "github",
-                    "url": "https://github.com/sipeed",
-                    "target":"_blank"
-                },
-                {
-                    "label": "<a>Wechat</a><img src='/static/image/wechat.png'>"
-                }
-            ]
-        },
-        {
-            "label": "Contact us",
-            "items": [
-                {
-                    "label": "Tel: +86 0755-27808509"
-                },
-                {
-                    "label": "Business support: support@sipeed.com"
-                },
-                {
-                    "label": "Address: 深圳市宝安区新湖路4008号蘅芳科技办公大厦A座-2101C"
-                },
-                {
-                    "label": "Join us",
-                    "url": "/join_us.html"
-                }
-            ]
-        }
-    ],
-    "bottom": [
-        {
-            "label": "©2018-2023 深圳矽速科技有限公司",
-            "url": "https://www.sipeed.com",
-            "target": "_blank"
-        },
-        {
-            "label": "粤ICP备19015433号",
-            "url": "https://beian.miit.gov.cn/#/Integrated/index",
-            "target": "_blank"
-        }
-    ]
-},
-"plugins": {
-    "teedoc-plugin-search":{
-        "config": {
-            "search_hint": "Search",
-            "input_hint": "Input keyword. Using Space to separate multiple keywords",
-            "loading_hint": "Loading, please wait",
-            "download_err_hint": "Fail download, Please retry or check network",
-            "other_docs_result_hint": "Results form other doc",
-            "curr_doc_result_hint": "Result form current doc"
+        "teedoc-plugin-ad-hint": {
+            "config": {
+                "type": "hint",
+                "label": "NEW",
+                "content": "<a href='https://www.kickstarter.com/projects/zepan/maixcam2-build-your-next-gen-4k-ai-camera' target='_blank'>Next-Gen 4K AI Camera MaixCAM2 is now crowdfunding! 10X faster than K230 in yolo task! </a>",
+                "show_after_s": 432000,
+                "date": "2026-03-02 19:00"
+            }
         }
     },
-    "teedoc-plugin-ad-hint": {
-        "config": {
-            "type": "hint",
-            "label": "NEW",
-            "content": "New Maix series products <a href='https://wiki.sipeed.com/maixcam'>MaixCAM</a> online now, and new <a href='https://wiki.sipeed.com/maixpy/'>MaixPy</a>,feature richer functionalities, enhanced performance, and user-friendly software, with comprehensive documentation",
-            "show_after_s": 432000,
-            "date": "2022-06-01 14:00"
-        }
-    }
-},
-"show_source": "<span id='editPage'>Edit this page</span>"
+    "show_source": "<span id='editPage'>Edit this page</span>"
 }

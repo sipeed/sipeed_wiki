@@ -15,7 +15,7 @@
             "/soft/Tang/zh/": "docs/soft/Tang/zh",
             "/soft/maixpy/zh/": "docs/soft/maixpy/zh",
             "/soft/maixpy3/zh/": "docs/soft/maixpy3/zh",
-            "/soft/maixduino/zh/":"docs/soft/maixduino/zh",
+            "/soft/maixduino/zh/": "docs/soft/maixduino/zh",
             "/share_docs/zh/": "share_docs/zh",
             "/ai/zh/": "docs/soft/ai/zh"
         },
@@ -31,9 +31,9 @@
             "/soft/Tang/assets/": "docs/soft/Tang/assets",
             "/soft/maixpy/assets/": "docs/soft/maixpy/assets",
             "/soft/maixpy3/assets/": "docs/soft/maixpy3/assets",
-            "/soft/maixduino/assets/":"docs/soft/maixduino/assets",
-            "/share_docs/assets/":"share_docs/assets",
-            "/ai/assets/":"docs/soft/ai/assets"
+            "/soft/maixduino/assets/": "docs/soft/maixduino/assets",
+            "/share_docs/assets/": "share_docs/assets",
+            "/ai/assets/": "docs/soft/ai/assets"
         },
         "blog": {
             "/news/": "news"
@@ -47,34 +47,40 @@
                     "src": "docs/hardware/en"
                 }
             ],
-            "/soft/longan/zh/": [{
+            "/soft/longan/zh/": [
+                {
                     "url": "/soft/longan/en/",
                     "src": "docs/soft/longan/en"
                 }
             ],
-            "/hardware/maixface/zh/": [{
+            "/hardware/maixface/zh/": [
+                {
                     "url": "/hardware/maixface/en/",
                     "src": "docs/hardware/maixface/en"
                 }
             ],
-            "/soft/maixpy/zh/": [{
+            "/soft/maixpy/zh/": [
+                {
                     "url": "/soft/maixpy/en/",
-                    "src" : "docs/soft/maixpy/en"
+                    "src": "docs/soft/maixpy/en"
                 }
             ],
-            "/soft/Tang/zh/": [{
-                "url": "/soft/Tang/en/",
-                "src" : "docs/soft/Tang/en"
+            "/soft/Tang/zh/": [
+                {
+                    "url": "/soft/Tang/en/",
+                    "src": "docs/soft/Tang/en"
                 }
             ],
-            "/share_docs/zh/": [{
-                "url": "/share_docs/en/",
-                "src" : "share_docs/en"
+            "/share_docs/zh/": [
+                {
+                    "url": "/share_docs/en/",
+                    "src": "share_docs/en"
                 }
             ],
-            "/ai/zh/": [{
-                "url": "/ai/en/",
-                "src" : "docs/soft/ai/en"
+            "/ai/zh/": [
+                {
+                    "url": "/ai/en/",
+                    "src": "docs/soft/ai/en"
                 }
             ]
         },
@@ -92,7 +98,7 @@
         "pip": "pip3"
     },
     "plugins": {
-        "teedoc-plugin-markdown-parser":{
+        "teedoc-plugin-markdown-parser": {
             "from": "pypi",
             "config": {
                 "toc_depth": 4
@@ -100,49 +106,45 @@
         },
         "teedoc-plugin-jupyter-notebook-parser": {
             "from": "pypi",
-            "config": {
-
-            }
+            "config": {}
         },
         "teedoc-plugin-google-translate": {
             "from": "pypi",
-            "config": {
-            }
+            "config": {}
         },
         "teedoc-plugin-blog": {
             "from": "pypi",
-            "config": {
-            }
+            "config": {}
         },
-        "teedoc-plugin-theme-default":{
+        "teedoc-plugin-theme-default": {
             "from": "pypi",
             "config": {
                 "dark": true,
-                "env":{
+                "env": {
                     "main_color": "#c62828"
                 },
-                "code_highlight_css":  "/static/css/prism.css",
+                "code_highlight_css": "/static/css/prism.css",
                 "code_highlight_js": "/static/js/prism.js"
             }
         },
-        "teedoc-plugin-search":{
+        "teedoc-plugin-search": {
             "from": "pypi",
             "config": {
                 "search_hint": "Search",
-                "env":{
+                "env": {
                     "main_color": "#c62828",
                     "main_color_dark": "#923732",
                     "hint_shadow_color": "rgba(146, 55, 50, 0.38)"
                 }
             }
         },
-        "teedoc-plugin-baidu-tongji":{
+        "teedoc-plugin-baidu-tongji": {
             "from": "pypi",
             "config": {
                 "code": "9cb07365544a53067c56c346c838181a"
             }
         },
-        "teedoc-plugin-google-analytics":{
+        "teedoc-plugin-google-analytics": {
             "from": "pypi",
             "config": {
                 "id": "UA-119047820-5"
@@ -156,7 +158,10 @@
                     "clientSecret": "105f1bf3dee8f3b8c0cecfcfbdb1c273a3babb12",
                     "repo": "sipeed_wiki",
                     "owner": "sipeed",
-                    "admin": ["Neutree", "wonderfullook"],
+                    "admin": [
+                        "Neutree",
+                        "wonderfullook"
+                    ],
                     "main_color": "#c62828",
                     "second_color": "#e25d55",
                     "adminAutoCreate": false
@@ -168,9 +173,9 @@
             "config": {
                 "type": "hint",
                 "label": "NEW",
-                "content": "全新 Maix 系列产品 <a href='https://wiki.sipeed.com/maixcam'>MaixCAM</a> 已上线, 全新 <a href='https://wiki.sipeed.com/maixpy/'>MaixPy</a> 功能更丰富，性能更强大，软件更易用，文档更全面！",
+                "content": "<a href='https://sipeed.com/maixcam2' target='_blank'>新一代可本地运行多模态大模型的 MaixCAM2 正在预售中! YOLO 帧率可达 K230 10倍！</a>",
                 "show_after_s": 432000,
-                "date": "2022-06-01 14:00"
+                "date": "2026-03-02 19:00"
             }
         },
         "teedoc-plugin-assets": {
@@ -182,7 +187,7 @@
                 "footer_items": [
                     "/static/js/custom.js"
                 ],
-                "env":{
+                "env": {
                     "main_color": "#b71c1c",
                     "second_color": "#b71c1c"
                 }
@@ -198,12 +203,11 @@
         }
     },
     "rebuild_changes_delay": 1,
-    "robots":{
+    "robots": {
         "User-agent": "*"
     },
     "teedoc-plugin-google-translate": {
         "from": "pypi",
-        "config": {
-        }
+        "config": {}
     }
 }
