@@ -10,6 +10,12 @@ NanoKVM Pro will periodically update applications, and some issues may have been
 
 The green LED serves as the power indicator for NanoKVM Pro. If a power source with insufficient capacity is connected, the green LED may blink due to voltage instability and fail to start up. Please disconnect all power connections and replace the power adapter.
 
+### Malfunction After Switching to PiKVM
+
+Some devices running application version `1.2.9` may experience repeated PiKVM reboots after switching to PiKVM mode. Please update the application version to `1.2.10` or higher via the NanoKVM Web interface to resolve this issue.
+
+If you are unable to switch back to NanoKVM, please refer to [Image Burning Methods](#Image-Burning-Methods) to re-flash the NanoKVM-Pro image.
+
 ## Network-related Issue
 
 ### WiFi Version NanoKVM-Pro ATX/Desk Missing WiFi Configuration Interface
