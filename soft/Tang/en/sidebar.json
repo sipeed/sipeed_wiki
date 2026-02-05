@@ -1,0 +1,144 @@
+{
+    "items": [
+        {
+            "label": "Tang",
+            "file": "README.md",
+            "items": [
+                {
+                    "label": "Tang Nano",
+                    "items": [
+                        {
+                            "label": "INTRODUCTION",
+                            "items": [
+                                {
+                                    "label": "About Tang Nano",
+                                    "file": "Gowin/Tang_nano/README.md"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "REDAY",
+                            "items": [
+                                {
+                                    "label": "IDE installation",
+                                    "file": "Gowin/Tang_nano/get_started/install-the-ide.md"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "EXAMPLE",
+                            "items": [
+                                {
+                                    "label": "Lighting tutorial",
+                                    "file": "Gowin/Tang_nano/examples/1_led.md"
+                                },
+                                {
+                                    "label": "Point LCD tutorial",
+                                    "file": "Gowin/Tang_nano/examples/2_lcd.md"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "label": "Tang nano 1k",
+                    "file": "Gowin/Tang_nano_1k/Wait.md"
+                },
+                {
+                    "label": "Tang nano 4k",
+                    "file": "Gowin/Tang_nano_4k/Wait.md"
+                },
+                {
+                    "label": "Tang nano 9k",
+                    "file": "Gowin/Tang_nano_9k/Wait.md"
+                },
+                {
+                    "label": "Tang Primer",
+                    "items": [
+                        {
+                            "label": "Tang Primer",
+                            "file": "Analogic/Tang_primer/Readme.md"
+                        },
+                        {
+                            "label": "Hardware Overview",
+                            "items": [
+                                {
+                                    "label": "Tang Primer board",
+                                    "file": "Analogic/Tang_primer/hardware-overview/lichee-tang.md"
+                                },
+                                {
+                                    "label": "OV2640 Camera Module",
+                                    "file": "Analogic/Tang_primer/hardware-overview/OV2640-camera.md"
+                                },
+                                {
+                                    "label": "LCD Display module",
+                                    "file": "Analogic/Tang_primer/hardware-overview/LCD-display.md"
+                                },
+                                {
+                                    "label": "RV Debugger",
+                                    "file": "Analogic/Tang_primer/hardware-overview/rV-debugger.md"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "Getting Started",
+                            "items": [
+                                {
+                                    "label": "Requirements",
+                                    "file": "Analogic/Tang_primer/getting-started/requirements.md"
+                                },
+                                {
+                                    "label": "Installing Tang Dynasty IDE on Linux",
+                                    "file": "Analogic/Tang_primer/getting-started/installing-TD-IDE/linux.md"
+                                },
+                                {
+                                    "label": "Installing Tang Dynasty IDE on Windows",
+                                    "file": "Analogic/Tang_primer/getting-started/installing-TD-IDE/windows.md"
+                                },
+                                {
+                                    "label": "Installing USB Driver on Linux",
+                                    "file": "Analogic/Tang_primer/getting-started/installing-USB-Driver/linux.md"
+                                },
+                                {
+                                    "label": "Installing USB Driver on Windows",
+                                    "file": "Analogic/Tang_primer/getting-started/installing-USB-Driver/windows.md"
+                                },
+                                {
+                                    "label": "Getting to Blinky",
+                                    "file": "Analogic/Tang_primer/getting-started/Getting-to-Blinky/Getting-to-Blinky.md"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "Using Tang Perimer",
+                            "items": [
+                                {
+                                    "label": "Using Tang GPIO",
+                                    "file": "Analogic/Tang_primer/using-tang/using-gpio/using-gpio.md"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "Working with RISC-V",
+                            "items": [
+                                {
+                                    "label": "Hummingbrid Core",
+                                    "file": "Analogic/Tang_primer/risc-v-core/hummingbird/_index.en.md"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "Developer Guide",
+                            "items": [
+                                {
+                                    "label": "Using Yosys with Primer",
+                                    "file": "Analogic/Tang_primer/dev-guide/using-yosys/_index.en.md"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

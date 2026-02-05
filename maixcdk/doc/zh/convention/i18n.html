@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+
+<html lang="zh"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="">
+    
+    
+    <meta name="description" content="">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <script src="/maixcdk/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/maixcdk/static/css/theme_default/prism.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/maixcdk/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/maixcdk/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/maixcdk/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/maixcdk/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/maixcdk/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/maixcdk/static/css/search/style.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/maixcdk/static/css/custom.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?9cb07365544a53067c56c346c838181a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+        <link rel="stylesheet" href="/maixcdk/static/js/thumbs_up/style.css" type="text/css"/>
+        
+    
+    
+    <title>MaixCDK 国际化（i18n）与多语言支持 - MaixCDK</title>
+    
+    <script type="text/javascript">js_vars = {"teedoc-plugin-thumbs-up": {"label_up": "有帮助", "label_down": "待改进", "icon": "/static/images/thumbs_up/up.svg", "icon_clicked": "/static/images/thumbs_up/upped.svg", "url": "https://thumbs-up.sipeed.com", "show_up_count": true, "show_down_count": false, "msg_already_voted": "您已经投过票了", "msg_thanks": "感谢您的反馈", "msg_down_prompt": "感谢反馈，请告诉我们可以改进什么地方?（最少 10 个字）", "msg_down_prompt_error": "消息最少需要 10 个字， 最多 256 个字", "msg_error": "请求点赞服务器出现错误!"}}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": false, "update": [], "ts": 0, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/maixcdk/">
+                
+                
+                    <h2>MaixCDK</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class="active"><a  href="/maixcdk/doc/zh/">文档</a></li>
+<li class=""><a  href="/maixcdk/api/">API</a></li>
+<li class=""><a  href="/maixcdk/doc/zh/faq.html">FAQ</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class=""><a target="_blank" href="https://github.com/sipeed/MaixCDK"><img src='/maixcdk/static/image/github-fill.svg' style='height: 1.5em;vertical-align: middle;'>&nbsp;</a></li>
+<li class="sub_items "><a  ><img src='/maixcdk/static/image/language.svg' style='height: 1.5em;vertical-align: middle;'>&nbsp;中文</a><ul><li class="active"><a  href="/maixcdk/doc/zh/convention/i18n.html">中文</a></li>
+<li class=""><a  href="/maixcdk/doc/convention/i18n.html">English</a></li>
+</ul></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">输入关键词，多关键词空格隔开</span>
+                                <span id="search_loading_hint">正在加载，请稍候。。。</span>
+                                <span id="search_download_err_hint">下载文件失败，请刷新重试或检查网络</span>
+                                <span id="search_other_docs_result_hint">来自其它文档的结果</span>
+                                <span id="search_curr_doc_result_hint">当前文档搜索结果</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="not_active with_link"><a href="/maixcdk/doc/zh/index.html"><span class="label">快速开始</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/maixcdk/doc/zh/faq.html"><span class="label">FAQ 常见问题</span><span class=""></span></a></li>
+<li class="active_parent no_link"><a><span class="label">规范</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/maixcdk/doc/zh/convention/index.html"><span class="label">编码规范</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/maixcdk/doc/zh/convention/add_api.html"><span class="label">添加新 API</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/maixcdk/doc/zh/convention/app.html"><span class="label">APP 框架</span><span class=""></span></a></li>
+<li class="active with_link"><a href="/maixcdk/doc/zh/convention/i18n.html"><span class="label">I18N(国际化/多语言)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/maixcdk/doc/zh/convention/protocol.html"><span class="label">Maix 通信协议</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/maixcdk/doc/zh/convention/nn.html"><span class="label">NN AI 模型</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/maixcdk/doc/zh/convention/memcheck.html"><span class="label">内存泄漏检测</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/maixcdk/doc/zh/dev/docker/index.html"><span class="label">Docker 环境</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/maixcdk/doc/zh/more.html"><span class="label">更多文档</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">应用笔记</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/maixcdk/doc/zh/application/index.html"><span class="label">关于本笔记</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/maixcdk/doc/zh/application/ai/yolo11.html"><span class="label">YOLO11 开发笔记</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/maixcdk/doc/zh/application/ui/lvgl.html"><span class="label">LVGL</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>MaixCDK 国际化（i18n）与多语言支持</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/sipeed/MaixCDK/blob/main/docs/doc_zh/convention/i18n.md" target="_blank">
+                                    <span id='editPage'>编辑本页</span>
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <p>你可以使用任何喜欢的国际化库，例如 <a href="https://www.gnu.org/software/gettext/"  target="_blank">gettext</a>，它支持 Python 和 C++。</p>
+<p>此外，我们还提供了一个简单的 i18n 库，适用于简单的使用场景。</p>
+<h2 id="%E9%92%88%E5%AF%B9-MaixPy">针对 MaixPy</h2>
+<p>请参阅 <a href="https://wiki.sipeed.com/maixpy/doc/zh/gui/i18n.html"  target="_blank">MaixPy 国际化文档</a>。</p>
+<h2 id="%E9%92%88%E5%AF%B9-MaixCDK">针对 MaixCDK</h2>
+<p>与 MaixPy 相同，有两种方法可以使用：</p>
+<h3 id="%E7%AE%80%E5%8D%95%E7%9A%84%E7%BF%BB%E8%AF%91%E5%AD%97%E5%85%B8">简单的翻译字典</h3>
+<p>首先确保你的源文件编码为 <code>UTF-8</code>。</p>
+
+<pre class="language-cpp"><code class="language-cpp">#include &quot;maix_i18n.hpp&quot;
+
+const std::map&lt;string, string&gt; locale_zh_dict = {
+    {&quot;out&quot;, &quot;输出&quot;},
+    {&quot;hello&quot;, &quot;你好&quot;}
+};
+
+const std::map&lt;string, string&gt; locale_ja_dict = {
+    // {&quot;out&quot;, &quot;出力&quot;},
+    {&quot;hello&quot;, &quot;こんにちは&quot;}
+};
+
+const std::map&lt;string, const std::map&lt;string, string&gt;&gt; locales_dict = {
+    {&quot;zh&quot;, locale_zh_dict},
+    {&quot;ja&quot;, locale_ja_dict}
+};
+
+i18n::Trans trans(locales_dict);
+
+int main()
+{
+    log::info(&quot;系统语言: %s\n&quot;, i18n::get_locale().c_str());
+    log::info(&quot;%s: %s\n&quot;, trans.tr(&quot;out&quot;).c_str(), trans.tr(&quot;hello&quot;).c_str());
+
+    trans.set_locale(&quot;zh&quot;);
+    printf(&quot;%s: %s\n&quot;, trans.tr(&quot;out&quot;).c_str(), trans.tr(&quot;hello&quot;).c_str());
+
+    trans.set_locale(&quot;en&quot;);
+    printf(&quot;%s: %s\n&quot;, trans.tr(&quot;out&quot;).c_str(), trans.tr(&quot;hello&quot;).c_str());
+
+    trans.set_locale(&quot;ja&quot;);
+    printf(&quot;%s: %s\n&quot;, trans.tr(&quot;out&quot;).c_str(), trans.tr(&quot;hello&quot;).c_str());
+
+    return 0;
+}
+</code></pre>
+<h3 id="%E5%88%86%E7%A6%BB%E7%9A%84%E7%BF%BB%E8%AF%91%E6%96%87%E4%BB%B6">分离的翻译文件</h3>
+<p>上面的示例适用于少量翻译字符串。如果需要翻译大量字符串，推荐使用此方法：</p>
+<ul>
+<li>不需要修改源代码即可更换翻译内容，翻译字符串保存在独立的 yaml 文件中。</li>
+<li>更容易定位翻译字符串，支持自动扫描需要翻译的字符串，并自动生成 yaml 文件。</li>
+</ul>
+
+<pre class="language-cpp"><code class="language-cpp">err::Err e = trans.load(&quot;locales&quot;); // 从 locales 目录加载翻译文件
+err::check_raise(e, &quot;加载翻译 yaml 文件失败&quot;);
+
+log::info(&quot;系统语言: %s\n&quot;, i18n::get_locale().c_str());
+log::info(&quot;%s: %s, %s\n&quot;, i18n::get_locale().c_str(), trans.tr(&quot;out&quot;).c_str(), trans.tr(&quot;hello&quot;).c_str());
+
+trans.set_locale(&quot;zh&quot;);
+log::info(&quot;zh: %s, %s\n&quot;, trans.tr(&quot;out&quot;).c_str(), trans.tr(&quot;hello&quot;).c_str());
+
+trans.set_locale(&quot;en&quot;);
+log::info(&quot;en: %s, %s\n&quot;, trans.tr(&quot;out&quot;).c_str(), trans.tr(&quot;hello&quot;).c_str());
+
+trans.set_locale(&quot;ja&quot;);
+log::info(&quot;ja: %s, %s\n&quot;, trans.tr(&quot;out&quot;).c_str(), trans.tr(&quot;hello&quot;).c_str());
+</code></pre>
+<p>完整示例请参见 <a href="https://github.com/sipeed/MaixCDK/tree/main/examples/i18n"  target="_blank">examples/i18n</a>。</p>
+<p>然后执行 <code>maixtool i18n -d . r</code>，这将扫描所有使用 <code>tr()</code> 或 <code>_()</code> 的翻译字符串，生成 <code>locales</code> 目录和翻译文件。手动翻译 <code>locales</code> 中的 yaml 文件后，将其放置在程序旁边并运行。</p>
+<h2 id="%E5%9C%A8-LVGL-%E5%BA%94%E7%94%A8%E4%B8%AD%E6%98%BE%E7%A4%BA%E5%9B%BD%E9%99%85%E5%8C%96%E5%AD%97%E4%BD%93">在 LVGL 应用中显示国际化字体</h2>
+<p>查看如何显示自定义字体：<a href="https://neucrack.com/p/514"  target="_blank">https://neucrack.com/p/514</a>。</p>
+<p>使用以下代码：</p>
+
+<pre class="language-cpp"><code class="language-cpp">LV_FONT_DECLARE(zh_fonts);
+
+static const std::map&lt;string, void*&gt; fonts = {
+    {&quot;zh&quot;, (void*)&amp;zh_fonts}
+};
+
+const lv_font_t *get_font_by_locale(const string &amp;locale)
+{
+    const std::map&lt;string, void*&gt;::const_iterator iter = fonts.find(locale);
+    if (iter == fonts.end())
+    {
+        return &amp;zh_fonts;
+    }
+    return (lv_font_t *)iter-&gt;second;
+}
+</code></pre>
+<p>最后，使用国际化字体：</p>
+
+<pre class="language-cpp"><code class="language-cpp">std::string locale = i18n::get_locale();
+
+lv_obj_set_style_text_font(lv_scr_act(), get_font_by_locale(locale), LV_PART_MAIN);
+
+lv_obj_t *label = lv_label_create(lv_scr_act());
+lv_label_set_text(label, trans.tr(&quot;hello&quot;).c_str());
+</code></pre>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                        <a href="/maixcdk/doc/zh/convention/app.html">
+                            <span class="icon"></span>
+                            <span class="label">APP 框架</span>
+                        </a>
+                        
+                    </div>
+                    <div id="next">
+                        
+                        <a href="/maixcdk/doc/zh/convention/protocol.html">
+                            <span class="label">Maix 通信协议</span>
+                            <span class="icon"></span>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>相关链接</a><ul><li><a target="_blank" href="https://wiki.sipeed.com">Sipeed Wiki</a></li>
+<li><a target="_blank" href="https://www.sipeed.com">Sipeed 官网</a></li>
+<li><a target="_blank" href="https://maixhub.com/">MaixHub</a></li>
+<li><a  href="/maixcdk/sitemap.xml">网站地图</a></li>
+<li><a target="_blank" href="https://github.com/neutree/teedoc">网站使用 teedoc 生成</a></li>
+</ul>
+</li>
+<li><a>源码</a><ul><li><a target="_blank" href="https://github.com/sipeed/maixpy">MaixPy 源码</a></li>
+<li><a target="_blank" href="https://github.com/sipeed/MaixCDK">MaixCDK 源码</a></li>
+<li><a target="_blank" href="https://github.com/sipeed/sipeed_wiki">Wiki 源码</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">开源项目</a></li>
+</ul>
+</li>
+<li><a>关注我们</a><ul><li><a target="_blank" href="https://twitter.com/SipeedIO">twitter</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">淘宝</a></li>
+<li><a target="_blank" href="https://www.aliexpress.com/store/911876460">AliExpress</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">github</a></li>
+<li><a><a>微信公众号</a><img src='/maixpy/static/image/wechat.png'></a>
+</li>
+</ul>
+</li>
+<li><a>联系我们</a><ul><li><a>电话: +86 0755-27808509</a>
+</li>
+<li><a>商业支持: support@sipeed.com</a>
+</li>
+<li><a>地址: 深圳市宝安区新湖路4008号蘅芳科技办公大厦A座-2101C</a>
+</li>
+<li><a  href="https://wiki.sipeed.com/join_us.html">加入我们</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://www.sipeed.com">©2018-2023 深圳矽速科技有限公司</a></li>
+<li><a target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index">粤ICP备19015433号</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/maixcdk/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script src="/maixcdk/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/maixcdk/static/js/theme_default/main.js"></script>
+    
+        <script src="/maixcdk/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/maixcdk/static/css/theme_default/prism.min.js"></script>
+    
+        <script src="/maixcdk/static/js/search/search_main.js"></script>
+    
+        <script src="/maixcdk/static/js/custom.js"></script>
+    
+        <script src="/maixcdk/static/js/thumbs_up/main.js"></script>
+    
+</body>
+
+</html>

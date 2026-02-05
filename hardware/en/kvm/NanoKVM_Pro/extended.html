@@ -1,0 +1,1625 @@
+<!DOCTYPE html>
+
+<html lang="en"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="NanoKVM, Remote desktop, Lichee, PiKVM, RISCV, tool, PCIe">
+    
+    
+    <meta name="description" content="">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+        
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/prism.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?9cb07365544a53067c56c346c838181a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119047820-5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-119047820-5');
+    </script>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/js/thumbs_up/style.css" type="text/css"/>
+        
+    
+    
+    <title>Advanced Applications - Sipeed Wiki</title>
+    
+    <script type="text/javascript">js_vars = {"teedoc-plugin-ad-hint": {"type": "hint", "label": "NEW", "content": "<a href='https://www.kickstarter.com/projects/zepan/maixcam2-build-your-next-gen-4k-ai-camera' target='_blank'>Next-Gen 4K AI Camera MaixCAM2 is now crowdfunding! 10X faster than K230 in yolo task! </a>", "show_times": 2, "show_after_s": 432000, "date": "2026-03-02 19:00", "color": "#a0421d", "link_color": "#e53935", "link_bg_color": "#e6ae5c", "bg_color": "#ffcf89", "color_hover": "white", "bg_color_hover": "#f57c00", "close_color": "#eab971"}, "teedoc-plugin-thumbs-up": {"label_up": "Helpful", "label_down": "Not Helpful", "icon": "/static/images/thumbs_up/up.svg", "icon_clicked": "/static/images/thumbs_up/upped.svg", "url": "https://thumbs-up.sipeed.com", "show_up_count": true, "show_down_count": false, "msg_already_voted": "You have already voted", "msg_thanks": "Thanks for your vote", "msg_down_prompt": "Thanks to tell us where we can improve?(At least 10 characters)", "msg_down_prompt_error": "Message should be at least 10 characters and less than 256 characters", "msg_error": "Request server failed!"}}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": "2026-02-05", "update": [{"date": "2025-9-11", "version": "v0.2", "author": "iawak9lkm", "content": ["Add new feature description"]}, {"date": "2025-8-26", "version": "v0.1", "author": "BuGu", "content": ["Release docs"]}], "ts": 1770279761, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/en/">
+                
+                    <img class="site_logo" src="/static/image/logo.svg" alt="sipeed wiki logo">
+                
+                
+                    <h2>wiki</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class=""><a  href="/en/">Products</a></li>
+<li class="sub_items "><a >Software Docs</a><ul><li class=""><a  href="/maixpy/en/">MaixPy</a></li>
+<li class=""><a  href="/soft/maixpy/zh/index.html">MaixPy_v1</a></li>
+<li class=""><a  href="/soft/Lichee/zh/index.html">Lichee</a></li>
+<li class=""><a  href="/ai/en/index.html">AI Guide</a></li>
+</ul>
+</li>
+<li class=""><a target="_blank" href="https://maixhub.com">MaixHub</a></li>
+<li class=""><a  href="/news/">News</a></li>
+<li class=""><a  href="/en/faq.html">FAQ</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class=""><a  href="/en/store.html"><img src='/static/image/shop.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+<li class=""><a target="_blank" href="https://github.com/sipeed"><img src='/static/image/github.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+<li class="sub_items "><a  ><img src='/static/image/language.svg' style='height: 1.5em;vertical-align: middle;'>&nbsp;English</a><ul><li class="active"><a  href="/hardware/en/kvm/NanoKVM_Pro/extended.html">English</a></li>
+<li class=""><a  href="/hardware/zh/kvm/NanoKVM_Pro/extended.html">中文</a></li>
+</ul></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">Search</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">Input keyword. Using Space to separate multiple keywords</span>
+                                <span id="search_loading_hint">Loading, please wait</span>
+                                <span id="search_download_err_hint">Fail download, Please retry or check network</span>
+                                <span id="search_other_docs_result_hint">Results form other doc</span>
+                                <span id="search_curr_doc_result_hint">Result form current doc</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="not_active no_link"><a><span class="label">Maix Zero</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Maix M0</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/./maixzero/sense/maix_zero_sense.html"><span class="label">M0sense Board</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/./maixzero/sense/start.html"><span class="label">M0sense Guide</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Maix M0P</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">M0P</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">M0P Dock</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/./maixzero/m0s/m0s.html"><span class="label">Maix M0s</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Maix-I & Zero</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Maix M1</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">M1 Module</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/en/maix/core_module.html"><span class="label">M1/M1w</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maix/M1n.html"><span class="label">M1n</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">M1 Board</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maix/maixpy_develop_kit_board/Maix_dock.html"><span class="label">Maix Dock(M1/M1W)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maix/maixpy_develop_kit_board/maix_bit.html"><span class="label">Maix Bit</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maix/maixpy_develop_kit_board/maix_duino.html"><span class="label">Maix Duino</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maix/maixpy_develop_kit_board/maix_nano.html"><span class="label">Maix Nano</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maix/maixpy_develop_kit_board/maix_cube.html"><span class="label">Maix Cube</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maix/maixpy_develop_kit_board/maix_Amigo.html"><span class="label">Maix Amigo</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/no_translate.html?ref=/hardware/zh/maix/maixpy_develop_kit_board/maix_hat.html&from=/hardware/en/maix/maixpy_develop_kit_board/maix_hat.html"><span class="label">Maix HAT</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maix/maixpy_develop_kit_board/maix_go.html"><span class="label">Maix Go (Sold out)</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Maix M1s</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maix/m1s/m1s_module.html"><span class="label">M1s Module</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">M1s Dock</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maix/m1s/m1s_dock.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maix/m1s/other/start.html"><span class="label">Basic Usage</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maix/m1s/other/others.html"><span class="label">Others (Camera and Shell)</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Maix M1a</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/maixII/index.html"><span class="label">Maix-II</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maixII/M2/resources.html"><span class="label">MaixII-Dock</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maixII/M2/flash.html"><span class="label">Burn image</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixII/M2/usage.html"><span class="label">Basic usage</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixII/M2/other.html"><span class="label">Other notice</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/../../soft/maixpy3/zh/tools/0.MaixII-Dock.html"><span class="label">Using MaixPy3</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixII/M2/faq.html"><span class="label">FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/maixII/M2S/V833.html"><span class="label">M2S</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maixII/M2S/reources.html"><span class="label">Board introduction</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/maixII/M2A/maixsense.html"><span class="label">MaixSense</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maixII/M2A/flash_system.html"><span class="label">Burn image</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixII/M2A/config_system.html"><span class="label">Config system</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/no_translate.html?ref=/hardware/zh/maixII/M2A/first.html&from=/hardware/en/maixII/M2A/first.html"><span class="label">Test board</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/no_translate.html?ref=/hardware/zh/maixII/M2A/user.html&from=/hardware/en/maixII/M2A/user.html"><span class="label">Start to use</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/../../soft/maixpy3/zh/tools/maixsense.html"><span class="label">Using MaixPy3</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Maix-III</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maixIII/ax-pi/axpi.html"><span class="label">Maix-III AXera-Pi</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maixIII/ax-pi/flash_system.html"><span class="label">AXera-Pi manual</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixIII/ax-pi/python_api.html"><span class="label">Python programming</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixIII/ax-pi/dev_prepare.html"><span class="label">C/C++ programming</span><span class=""></span></a></li>
+<li class="not_active  with_link"><a href="/ai/en/deploy/ax-pi.html" ><span class="label">AI development guide</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixIII/ax-pi/faq_axpi.html"><span class="label">Questions (FAQ)</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Maix-IV</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">M4C SoM</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maixIV/m4c/system-update.html"><span class="label">Flashing OS Image</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixIV/m4c/axmodel-deploy.html"><span class="label">AI Models Deployment</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixIV/m4c/FAQ.html"><span class="label">FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">M4 Dock Carrier Board</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maixIV/m4cdock/intro.html"><span class="label">Intro</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixIV/m4c/system-update.html"><span class="label">Flashing OS Image</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixIV/m4cdock/quick-start.html"><span class="label">Quick Start</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixIV/m4cdock/FAQ.html"><span class="label">FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">M4 Hat Carrier Board</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maixIV/m4chat/intro.html"><span class="label">Intro</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixIV/m4c/system-update.html"><span class="label">Flashing OS Image</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixIV/m4chat/quick-start.html"><span class="label">Quick Start</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixIV/m4chat/pcie-slaveboard.html"><span class="label">RPI5 PCIe Card</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">MaixCAM</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maixcam/index.html"><span class="label">MaixCAM AI Series</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">MaixCAM / MaixCAM-Pro</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maixcam/maixcam.html"><span class="label">MaixCAM Intro & Data</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixcam/maixcam_pro.html"><span class="label">MaixCAM-Pro Intro & Data</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixcam/cameras.html"><span class="label">Cammeras & Lens</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixcam/assemble.html"><span class="label">MaixCAM Assembly</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixcam/os.html"><span class="label">System Upgrade</span><span class=""></span></a></li>
+<li class="not_active  with_link"><a href="https://wiki.sipeed.com/maixpy/" ><span class="label">Develop with MaixPy</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixcam/maixcdk.html"><span class="label">Develop with MaixCDK</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixcam/tof_thermal.html"><span class="label">ToF/Thermal PMOD</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixcam/microscope.html"><span class="label">MicroScope Kit</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixcam/faq.html"><span class="label">常见问题 FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">MaixCAM2</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maixcam/maixcam2.html"><span class="label">MaixCAM2 Intro & Data</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixcam/maixcam2_os.html"><span class="label">System Upgrade</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixcam/maixcam2_camera_lens.html"><span class="label">Cammeras & Lens</span><span class=""></span></a></li>
+<li class="not_active  with_link"><a href="https://wiki.sipeed.com/maixpy/" ><span class="label">Develop with MaixPy</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixcam/maixcdk.html"><span class="label">Develop with MaixCDK</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixcam/maixcam2_isp.html"><span class="label">Camera ISP Tuning</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixcam/microscope.html"><span class="label">MicroScope Kit</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixcam/maixcam2_faq.html"><span class="label">FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">LicheePI</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">LicheePI 4A</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lm4a.html"><span class="label">Lichee Module 4A</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lc4a/lc4a.html"><span class="label">Lichee Cluster 4A</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lbook4a/lbook4a.html"><span class="label">Lichee Console 4A</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lcon4a/setup_guide.html"><span class="label">setup_guide</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lcon4a/3_images.html"><span class="label">images</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lcon4a/4_burn_image.html"><span class="label">burn_image</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lbook4a/lbook4a.html"><span class="label">Lichee Book 4A</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lbook4a/4_burn_image.html"><span class="label">burn_image</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Lichee PI 4A</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/1_intro.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/2_unbox.html"><span class="label">Unbox guide</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/3_images.html"><span class="label">Image summary</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/4_burn_image.html"><span class="label">Burn image</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/5_desktop.html"><span class="label">Desktop usage</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/6_peripheral.html"><span class="label">Peripheral</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">System building</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/7_develop_revyos.html"><span class="label">revyos</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/7_develop_mainline.html"><span class="label">Linux Mainline (Work in Progress)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/7_develop_android.html"><span class="label">Android</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/7_develop_thead.html"><span class="label">THead Yocto</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">OpenHarmony (Work in Progress)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/7_develop_openwrt.html"><span class="label">OpenWRT</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/8_application.html"><span class="label">Application</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/9_benchmark.html"><span class="label">Benchmark</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/10_test_report.html"><span class="label">Hardware report</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/12_faq.html"><span class="label">FAQ</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/11_credits.html"><span class="label">Credits</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">LicheePI 3A</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/lichee/K1/lm3a.html"><span class="label">Lichee Module 3A</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/K1/lc3a/lc3a.html"><span class="label">Lichee Cluster 3A</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Lichee PI 3A</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/en/lichee/K1/lpi3a/1_intro.html"><span class="label">SBC Intro</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/K1/lpi3a/2_unbox.html"><span class="label">Unbox experience</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/K1/lpi3a/3_burn_image.html"><span class="label">Burn Images</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/K1/lpi3a/4_peripheral.html"><span class="label">Peripheral Usage</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/K1/lpi3a/5_develop.html"><span class="label">System develop</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/K1/lpi3a/6_application.html"><span class="label">Applications</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/K1/lpi3a/7_faq.html"><span class="label">FAQs</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/K1/lpi3a/8_credits.html"><span class="label">Credits</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Lichee RV</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active no_link"><a><span class="label">Board Introduction</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV/RV.html"><span class="label">Lichee RV</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV/86_panel.html"><span class="label">Lichee RV 86 Panel</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV/Dock.html"><span class="label">Lichee RV Dock</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV/flash.html"><span class="label">Burn System</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV/user.html"><span class="label">Basic usage</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV/problems.html"><span class="label">Questions&Answers</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV/ubuntu.html"><span class="label">Ubuntu Image</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">LicheeRV Nano</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV_Nano/1_intro.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV_Nano/2_unbox.html"><span class="label">Unboxing Experience</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV_Nano/3_images.html"><span class="label">Image Collection</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV_Nano/4_burn_image.html"><span class="label">Flashing the Image</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV_Nano/5_peripheral.html"><span class="label">peripheral</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV_Nano/6_develop_mainline.html"><span class="label">System Development</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV_Nano/7_test_report.html"><span class="label">test</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV_Nano/8_mmf_development_guide.html"><span class="label">MMF Development Guide</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/Zero/Zero.html"><span class="label">Lichee Zero</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/Nano/Nano.html"><span class="label">Lichee Nano</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/ZeroPlus/ZeroPlus.html"><span class="label">Lichee ZeroPlus</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang FPGA</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Tang Nano</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano/Nano.html"><span class="label">Tang Nano</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-1K/Nano-1k.html"><span class="label">Tang Nano 1K</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-4K/Nano-4K.html"><span class="label">Tang Nano 4k</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-9K/Nano-9K.html"><span class="label">Tang Nano 9K</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Tang Nano 20K</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/tang/tang-nano-20k/nano-20k.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/tang-nano-20k/example/unbox.html"><span class="label">Unbox</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/tang/common-doc/get_started/install-the-ide.html"><span class="label">Install IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/common-doc/examples.html"><span class="label">Tang Nano examples</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/common-doc/questions.html"><span class="label">Questions&Answers</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/common-doc/update_debugger.html"><span class="label">Update debugger</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Primer</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Tang Primer 20K</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/tang/tang-primer-20k/primer-20k.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/tang-primer-20k/start.html"><span class="label">Notice</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/common-doc/get_started/install-the-ide.html"><span class="label">Install IDE</span><span class=""></span></a></li>
+<li class="not_active  with_link"><a href="https://github.com/sipeed/TangPrimer-20K-example" ><span class="label">Examples(Github)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/common-doc/questions.html"><span class="label">Questions&Answers</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/common-doc/update_debugger.html"><span class="label">Update debugger</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Primer 25K</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/tang/tang-primer-25k/primer-25k.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/common-doc/get_started/install-the-ide.html"><span class="label">Install IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/common-doc/questions.html"><span class="label">Questions&Answers</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/common-doc/update_debugger.html"><span class="label">Update debugger</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Primer 15K</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/tang/tang-primer-15k/primer-15k.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/common-doc/get_started/install-the-ide.html"><span class="label">Install IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/common-doc/questions.html"><span class="label">Questions&Answers</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/common-doc/update_debugger.html"><span class="label">Update debugger</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-primer/Tang-primer.html"><span class="label">Tang Primer (Sold out)</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Install TD</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-primer/get_started/install_TD_win.html"><span class="label">In Windows</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-primer/get_started/install_linux.html"><span class="label">In Linux</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-primer/fpga/led.html"><span class="label">Blink by FPGA</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-primer/get_started/E203.html"><span class="label"> Prepare E203 environment</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-primer/get_started/fpga_download.html"><span class="label">Burn FPGA</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Mega</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Tang Mega 138K Pro</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/tang/tang-mega-138k/mega-138k-pro.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/common-doc/get_started/install-the-ide.html"><span class="label">Install IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/common-doc/questions.html"><span class="label">Questions&Answers</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/common-doc/update_debugger.html"><span class="label">Update debugger</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Mega 138K</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/tang/tang-mega-138k/mega-138k.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/common-doc/get_started/install-the-ide.html"><span class="label">Install IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/common-doc/questions.html"><span class="label">Questions&Answers</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/common-doc/update_debugger.html"><span class="label">Update debugger</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Mega 60K</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/tang/tang-mega-60k/mega-60k.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/common-doc/get_started/install-the-ide.html"><span class="label">Install IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/common-doc/questions.html"><span class="label">Questions&Answers</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/common-doc/update_debugger.html"><span class="label">Update debugger</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Console</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/tang/tang-console/retro-console.html"><span class="label">Retro Console</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/tang-console/mega-console.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/common-doc/get_started/install-the-ide.html"><span class="label">Install IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/common-doc/questions.html"><span class="label">Questions&Answers</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/common-doc/update_debugger.html"><span class="label">Update debugger</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/tang/tang-PMOD/FPGA_PMOD.html"><span class="label">Tang PMOD</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/maixsense/index.html"><span class="label">MaixSense</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maixsense/maixsense-a010/maixsense-a010.html"><span class="label">MaixSense-a010</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixsense/maixsense-a075v/maixsense-a075v.html"><span class="label">MaixSense-a075v</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">SLogic</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">SLogic Combo 8</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/logic_analyzer/combo8/index.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/logic_analyzer/combo8/basic_operation.html"><span class="label">Basic Operation</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/logic_analyzer/combo8/use_logic_function.html"><span class="label">Using as Logic Analyzer</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/logic_analyzer/combo8/use_cklink_function.html"><span class="label">Using as CKLink</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/logic_analyzer/combo8/use_daplink_function.html"><span class="label">Using as DAPLink</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/logic_analyzer/combo8/use_fouruart_function.html"><span class="label">Using as Serial Module</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/logic_analyzer/combo8/update_firmware.html"><span class="label">Update Firmware</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/logic_analyzer/combo8/faq.html"><span class="label">FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">SLogic16U3</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/logic_analyzer/slogic16u3/Introduction.html"><span class="label">Indroduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/logic_analyzer/slogic16u3/Hardware_Specification.html"><span class="label">Hardware Specification</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/logic_analyzer/slogic16u3/Software_User_Guide.html"><span class="label">Software User Guide</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/logic_analyzer/slogic16u3/FAQ.html"><span class="label">FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="active_parent no_link"><a><span class="label">KVM</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active no_link"><a><span class="label">NanoKVM Cube</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/introduction.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/quick_start.html"><span class="label">Quick start</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/user_guide.html"><span class="label">User Guide</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Network</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/network/tailscale.html"><span class="label">Tailscale</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/network/frp.html"><span class="label">frp</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/network/static_ip.html"><span class="label">Static IP</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">System</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/system/introduction.html"><span class="label">System Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/system/flashing.html"><span class="label">Flashing</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/system/updating.html"><span class="label">Updating</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/system/configuration.html"><span class="label">Configuration</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/ipmi.html"><span class="label">IPMI</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/faq.html"><span class="label">FAQ</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/development.html"><span class="label">Development</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">NanoKVM PCIe</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM_PCIe/introduction.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM_PCIe/quick_start.html"><span class="label">Quick start</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM_PCIe/user_guide.html"><span class="label">User Guide</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Network</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/network/tailscale.html"><span class="label">Tailscale</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/network/frp.html"><span class="label">frp</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/network/static_ip.html"><span class="label">Static IP</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/network/cloudflared.html"><span class="label">Cloudflare</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">System</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/system/introduction.html"><span class="label">System Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/system/flashing.html"><span class="label">Flashing</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/system/updating.html"><span class="label">Updating</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/system/configuration.html"><span class="label">Configuration</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/ipmi.html"><span class="label">IPMI</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/faq.html"><span class="label">FAQ</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/development.html"><span class="label">Development</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">NanoKVM USB</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM_USB/introduction.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM_USB/quick_start.html"><span class="label">Quick start</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM_USB/development.html"><span class="label">Development</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM_USB/faq.html"><span class="label">FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="active_parent no_link"><a><span class="label">NanoKVM Pro</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM_Pro/introduction.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM_Pro/atx_start.html"><span class="label">NanoKVM-ATX Quick Start</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM_Pro/desk_start.html"><span class="label">NanoKVM-Desk Quick Start</span><span class=""></span></a></li>
+<li class="active with_link"><a href="/hardware/en/kvm/NanoKVM_Pro/extended.html"><span class="label">Advanced Applications</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM_Pro/lcd.html"><span class="label">Screen & Knob</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM_Pro/app_diy.html"><span class="label">DIY Applications</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM_Pro/ledstrip.html"><span class="label">Screen Ambient Lighting</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM_Pro/cua.html"><span class="label">Experimental AI Agent</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM_Pro/kvm_admin.html"><span class="label">Batch Management</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM_Pro/faq.html"><span class="label">FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Cluster</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">NanoCluster</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/cluster/NanoCluster/index.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/cluster/NanoCluster/use.html"><span class="label">Quick Start</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Application Development</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/cluster/NanoCluster/k3s.html"><span class="label">k3s Deployment</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/cluster/NanoCluster/distcc.html"><span class="label">distcc Deployment</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/no_translate.html?ref=/hardware/zh/cluster/NanoCluster/nanocctl.html&from=/hardware/en/cluster/NanoCluster/nanocctl.html"><span class="label">NanoCtl</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/cluster/NanoCluster/nomad_playbook.html"><span class="label">Nomad Playbook</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/cluster/NanoCluster/switch.html"><span class="label">Switch Management</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Longon</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">LonganPI 3H</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/longan/h618/lpi3h/1_intro.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/longan/h618/lpi3h/3_images.html"><span class="label">Images</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/longan/h618/lpi3h/4_burn_image.html"><span class="label">Burn images</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/longan/h618/lpi3h/5_desktop.html"><span class="label">Desktop Usage</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/longan/h618/lpi3h/6_peripheral.html"><span class="label">Peripheral</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/longan/h618/lpi3h/7_develop_mainline.html"><span class="label">Development</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/longan/h618/lpi3h/8_test_report.html"><span class="label">Test report</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/longan/Nano/Longan_nano.html"><span class="label">Longon Nano</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/longan/Nano/pio.html"><span class="label">Setup environment</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/longan/Nano/blink.html"><span class="label">Blink test</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">MaixFace</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maixface/mf_ml_module/mf0_ml_module.html"><span class="label">MF0&&MF0 Dock</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixface/mf_ml_module/mf1_ml_module.html"><span class="label">MF1 && MF2</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixface/mf_ml_module/mf5_product.html"><span class="label">MF4 && MF5</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixface/mf_ml_module/mf_precautions.html"><span class="label">Maixface PCB Design</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixface/mf_ml_module/mf_update_firmwave.html"><span class="label">Maixface Update firmware</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Peripheral modules</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">SP-MOD Peripheral modules</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Adapter board</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_extender.html"><span class="label">SP-Extender</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_grove.html"><span class="label">SP-Grove</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_fpc.html"><span class="label">SP-FPC</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_micarray.html"><span class="label">SP-MicArray</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_joystick.html"><span class="label">SP-JotStick</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_servo.html"><span class="label">SP-Servo</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/.html"><span class="label">SP-TypeC</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Sensor</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_weather.html"><span class="label">SP-Weather</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_tof.html"><span class="label">SP-TOF-1P</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Communication</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_bt.html"><span class="label">SP-BT</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_lora.html"><span class="label">SP-LoRa</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_psram.html"><span class="label">SP-PSRAM</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_rfid.html"><span class="label">SP-RFID</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_ethernet.html"><span class="label">SP-Ethernet</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Display</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_lcd1.14.html"><span class="label">SP-LCD 1.14</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_eink.html"><span class="label">SP-Eink</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Module</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">camera</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">GC0328</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Dual cam module(GC0328)</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">OV7740</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">OV2640</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">OV2640-M12</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Dual cam module(OV2640)</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/modules/micarray.html"><span class="label">Mic array</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules/micarray_usbboard_bl616.html"><span class="label">MicArray UAC Drive Board (MA-USB8)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules/Gamepad.html"><span class="label">Sipeed Gamepad</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>Advanced Applications</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                                <span class="article_date" title="Last modify date: 2026-02-05">
+                                    2026-02-05
+                                </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/sipeed/sipeed_wiki/blob/main/docs/hardware/en/kvm/NanoKVM_Pro/extended.md" target="_blank">
+                                    <span id='editPage'>Edit this page</span>
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                        
+                        <details open>
+                        
+                            <summary>Update history</summary>
+                            <div>
+                                <table>
+                                        <thead>
+                                            <tr>
+                                                <th>Date</th>
+                                                <th>Version</th>
+                                                <th>Author</th>
+                                                <th>Update content</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            
+                                                <tr>
+                                                    <td>2025-9-11</td>
+                                                    <td>v0.2</td>
+                                                    <td>iawak9lkm</td>
+                                                    <td>
+                                                    
+                                                        <ul>
+                                                        
+                                                            <li>Add new feature description</li>
+                                                        
+                                                        </ul>
+                                                    
+                                                    </td>
+                                                </tr>
+                                            
+                                                <tr>
+                                                    <td>2025-8-26</td>
+                                                    <td>v0.1</td>
+                                                    <td>BuGu</td>
+                                                    <td>
+                                                    
+                                                        <ul>
+                                                        
+                                                            <li>Release docs</li>
+                                                        
+                                                        </ul>
+                                                    
+                                                    </td>
+                                                </tr>
+                                            
+                                        </tbody>
+                                </table>
+                            </div>
+                        </details>
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <h2 id="System-Framework-Switching">System Framework Switching</h2>
+<p>In addition to running the NanoKVM framework, NanoKVM Pro is fully compatible with the PiKVM software framework. You can flexibly switch between them based on your usage requirements.</p>
+<h3 id="Switching-from-NanoKVM-to-PiKVM">Switching from NanoKVM to PiKVM</h3>
+<p>NanoKVM Pro ships with the NanoKVM framework by default. Follow these steps to switch:</p>
+<ol>
+<li><p>Navigate to <code>Settings</code> → <code>About</code> → <code>Switch Device</code></p>
+<p><img src="./../../../assets/NanoKVM/pro/extended/SwitchtoPiKVM.png" alt="" /></p>
+</li>
+<li><p>After clicking the switch button, the system will automatically restart and boot into the PiKVM framework (takes approximately 30 seconds). If it doesn't switch automatically after a long time, please manually refresh the webpage</p>
+<p><img src="./../../../assets/NanoKVM/pro/extended/PiKVMLogin.png" alt="" /></p>
+</li>
+<li><p>The default account and password under the PiKVM framework are also <code>admin</code> / <code>admin</code></p>
+<p><img src="./../../../assets/NanoKVM/pro/extended/PiKVM-Setting.png" alt="" /></p>
+</li>
+</ol>
+<p><strong>Important Notes:</strong></p>
+<blockquote>
+<ul>
+<li>The two platforms manage accounts and passwords independently and do not synchronize. It is strongly recommended to change the default password immediately after logging in</li>
+<li>Some features under the PiKVM framework need to be implemented through the web terminal, such as WiFi configuration, Tailscale configuration, etc.</li>
+<li>When the NanoKVM system updates, the PiKVM framework will also be updated synchronously</li>
+</ul>
+</blockquote>
+<h3 id="PiKVM-Password-Management">PiKVM Password Management</h3>
+<p>PiKVM currently does not support password modification through the web UI. You need to execute the following commands via SSH or the web terminal:</p>
+
+<pre class="language-shell"><code class="language-shell"># Change Linux system user password
+passwd root
+
+# Change KVM login password
+kvmd-htpasswd set admin
+
+# User management commands
+kvmd-htpasswd add &lt;user&gt;  # Add new user and set password
+kvmd-htpasswd list        # Display user list
+kvmd-htpasswd del &lt;user&gt;  # Delete user
+</code></pre>
+<p>For more usage methods, please refer to <a href="https://docs.pikvm.org/auth/"  target="_blank">PiKVM Official Documentation - Authentication</a>.</p>
+<h3 id="Configuring-WiFi-Network">Configuring WiFi Network</h3>
+<p>PiKVM currently does not support WiFi configuration through the web UI and LCD screen. You can choose one of the following methods:</p>
+<p><strong>Method 1: Switch to NanoKVM Framework for Configuration (Recommended)</strong></p>
+<ul>
+<li>After switching to the NanoKVM framework, use the web interface or LCD screen to configure WiFi, then switch back to the PiKVM framework</li>
+</ul>
+<p><strong>Method 2: Command Line Configuration</strong></p>
+<ul>
+<li>Execute the following commands via SSH or web terminal:</li>
+</ul>
+
+<pre class="language-shell"><code class="language-shell"># Connect to open network (no password)
+/kvmcomm/scripts/wifi.sh connect_start &lt;SSID&gt;
+
+# Connect to encrypted network (requires password)
+/kvmcomm/scripts/wifi.sh connect_start &lt;SSID&gt; &lt;PASSWORD&gt;
+
+# Disconnect WiFi connection
+/kvmcomm/scripts/wifi.sh connect_stop
+</code></pre>
+<h3 id="Configuring-Tailscale-Network">Configuring Tailscale Network</h3>
+<p>PiKVM currently does not support Tailscale configuration through the web UI. Please use the NanoKVM framework to configure Tailscale, then switch back to the PiKVM framework.</p>
+<h3 id="Switching-from-PiKVM-Back-to-NanoKVM">Switching from PiKVM Back to NanoKVM</h3>
+<p>Switching from the PiKVM system back to NanoKVM is equally simple:</p>
+<ol>
+<li><p>Navigate to <code>Options</code> → <code>Switch to NanoKVM</code></p>
+</li>
+<li><p>Click the <code>Switch Now</code> button</p>
+<p><img src="./../../../assets/NanoKVM/pro/extended/SwitchtoNanoKVM.png" alt="" /></p>
+</li>
+<li><p>The system will automatically restart and boot into the NanoKVM framework (takes approximately 30 seconds). If it doesn't switch automatically after a long time, please manually refresh the webpage</p>
+</li>
+</ol>
+<h3 id="More-Features">More Features</h3>
+<p>For more features, please refer to the <a href="https://docs.pikvm.org/"  target="_blank">PiKVM Official Documentation</a>.</p>
+<h2 id="SSH-%26amp%3B-mDNS">SSH &amp; mDNS</h2>
+<h3 id="SSH">SSH</h3>
+<p>By default, NanoKVM-Pro disables SSH to ensure system security. If you need to enable the SSH service or use it when previewing new versions, you can turn it on as follows:</p>
+<ul>
+<li><strong>ATX/Desk</strong>: From the web interface, go to <code>Settings</code> → <code>Device</code> → enable <code>SSH</code></li>
+<li><strong>Desk</strong>: From the screen, tap <code>Settings</code> → <code>SSH</code> to enable <code>SSH</code></li>
+</ul>
+<p>The default account is <code>root</code> with the password <code>sipeed</code>. If you change the web account password in the NanoKVM interface, the SSH password will be updated accordingly.</p>
+<h3 id="mDNS">mDNS</h3>
+<p>To enable or disable mDNS, use the following methods:</p>
+<ul>
+<li><strong>ATX/Desk</strong>: From the web interface, go to <code>Settings</code> → <code>Device</code> → enable/disable <code>mDNS</code></li>
+<li><strong>Desk</strong>: From the screen, tap <code>Settings</code> → <code>mDNS</code> to enable/disable <code>mDNS</code></li>
+</ul>
+<h2 id="HDMI-Input-%26amp%3B-Loop-Out">HDMI Input &amp; Loop Out</h2>
+<blockquote>
+<p>Currently, configuration is only supported on the Desk version’s screen.<br />
+Support for ATX/Desk web interface will be added soon.</p>
+</blockquote>
+<p>If HDMI functionality is not required, you can disable it to reduce power consumption. Operation:</p>
+<p>On Desk: From the screen, tap <code>Settings</code> → <code>HDMI</code> to enter the HDMI configuration page, which has two options:</p>
+<ul>
+<li><strong>INPUT</strong>: When disabled, Desk stops capturing HDMI input signals.</li>
+<li><strong>LOOP OUT</strong>: When disabled, Desk stops outputting HDMI loop-out signals.</li>
+</ul>
+<h2 id="Display-Adjustment">Display Adjustment</h2>
+<h3 id="ATX">ATX</h3>
+<p>Currently, the OLED screen supports the following function:</p>
+<ul>
+<li>Short press the <code>USR</code> button to toggle the OLED display on or off.</li>
+</ul>
+<h3 id="Desk">Desk</h3>
+<p>The LCD screen supports the following functions (all configured from the screen):</p>
+<ul>
+<li><p>Adjust backlight brightness: <code>Settings</code> → <code>Brightness</code></p>
+</li>
+<li><p>Standby clock: <code>Settings</code> → <code>Auto Clock</code></p>
+<ul>
+<li>When disabled, the LCD remains always on.</li>
+<li>When enabled, the LCD switches to a clock display after a long period of inactivity.</li>
+</ul>
+</li>
+</ul>
+<h2 id="Factory-Reset">Factory Reset</h2>
+<h3 id="Quick-Reset">Quick Reset</h3>
+<ul>
+<li><p><strong>ATX</strong>: Long press the <code>USR</code> button until the screen shows <code>Reset</code>, then release.</p>
+<blockquote>
+<p>Requires version ≥ <code>1.0.13</code></p>
+</blockquote>
+</li>
+<li><p><strong>Desk</strong>: From the screen, tap <code>Settings</code> → <code>Help</code> to enter the Help page. Repeatedly tap the reset button until <code>0</code> appears, and the device enters recovery mode.</p>
+</li>
+</ul>
+<blockquote>
+<p><strong>Note</strong>: Do not perform any other operations until the device has fully restarted and refreshed the screen.</p>
+</blockquote>
+<h3 id="Deep-Reset">Deep Reset</h3>
+<p>For details, see the <a href="https://wiki.sipeed.com/hardware/en/kvm/NanoKVM_Pro/faq.html#Image-Burning-Methods"  target="_blank">FAQ</a> section on <code>Image Burning Methods</code>.</p>
+<h2 id="HDMI-Secondary-Display">HDMI Secondary Display</h2>
+<p>Since NanoKVM-Pro can emulate a display, capture screen content, and features a small built-in screen, it can function as an HDMI secondary display.</p>
+<p>In the UI, simply select <strong>HDMI</strong> as the video output source to display the captured video feed on the small screen.</p>
+<p>When used as a desktop accessory, this feature can serve as a:</p>
+<ul>
+<li>Mini secondary monitor</li>
+<li>System performance monitor</li>
+<li>Video thumbnail player</li>
+</ul>
+<p>and more.</p>
+<p><img src="./../../../assets/NanoKVM/pro/extended/hdmi.jpg" alt="" /><br />
+ <video playsinline controls muted preload src="../../../assets/NanoKVM/pro/extended/cat.mp4"></video><br />
+ <video playsinline controls muted preload src="../../../assets/NanoKVM/pro/extended/video.mp4"></video></p>
+<h2 id="USB-Expansion-Features">USB Expansion Features</h2>
+<h3 id="USB-NCM">USB NCM</h3>
+<p>The NCM function allows the NanoKVM to simulate a USB network card, enabling users to log in directly via USB. To enable:</p>
+<ul>
+<li><strong>ATX/Desk</strong>: From the web interface, go to <code>Settings</code> → <code>Device</code> → enable <code>Virtual Network</code></li>
+<li><strong>Desk</strong>: From the screen, tap <code>Settings</code> → <code>USB</code> → enable <code>NCM</code></li>
+</ul>
+<h3 id="USB-Secondary-Display">USB Secondary Display</h3>
+<blockquote>
+<p><strong>Supported only on NanoKVM-Desk</strong><br />
+Currently, the USB secondary display function is supported only on Windows systems.</p>
+</blockquote>
+<ol>
+<li><p>Download and extract the USB secondary display driver.</p>
+</li>
+<li><p>On Desk: From the screen, tap <code>Settings</code> → <code>USB</code> to enter the USB configuration page, then enable <code>Panel</code>.</p>
+</li>
+<li><p>On the controlled PC:</p>
+<ul>
+<li><p>Open <code>Device Manager</code> → <code>Other devices</code></p>
+</li>
+<li><p>Find <code>NanoKVMPro</code> → right-click <code>Properties</code> → <code>Driver</code> → <code>Update driver</code></p>
+</li>
+<li><p>Choose <code>Browse my computer for drivers</code> → <code>Let me pick from a list of available drivers on my computer</code></p>
+</li>
+<li><p>Double-click <code>Show all devices</code></p>
+</li>
+<li><p>Under <code>Standard USB Host Controller</code> / <code>Standard system devices</code>, locate <code>USB Composite Device</code> → double-click to install</p>
+</li>
+</ul>
+<blockquote>
+<p><strong>Note</strong>: Driver locations may vary depending on Windows version. Please search carefully.</p>
+</blockquote>
+</li>
+<li><p>After installation, a new <code>loop input to output</code> device will appear under <code>Other devices</code> in Device Manager.</p>
+</li>
+<li><p>Right-click this device → <code>Update driver</code> → <code>Browse my computer for drivers</code> → <code>Browse</code> → select the USB secondary display driver folder → <code>Next</code> → follow the prompts to complete installation.</p>
+</li>
+<li><p>Once installed, a new NanoKVM graphics device will appear under <code>Display adapters</code>.</p>
+</li>
+<li><p>On Desk, enter the secondary display page from the screen, select USB, and the Desk will function as a USB secondary display.</p>
+</li>
+<li><p>To disable, refer to step 2 to turn off <code>Panel</code>.</p>
+</li>
+<li><p>When re-enabling, some systems may require reinstalling the USB driver.</p>
+</li>
+</ol>
+<h2 id="Updates">Updates</h2>
+<p>NanoKVM Pro will periodically push new application versions that include new features and bug fixes. You can update the application version in <code>Settings</code> -&gt; <code>Check for Updates</code>.</p>
+<p><img src="./../../../assets/NanoKVM/pro/extended/Update.png" alt="" /></p>
+<p>After clicking download, the new application installation package will be automatically downloaded, which includes <code>kvmcomm_x.x.x_arm64.deb</code>, <code>nanokvmpro_x.x.x_arm64.deb</code>, and <code>pikvm_x.x.x_arm64.deb</code>:</p>
+<ul>
+<li><code>kvmcomm_x.x.x_arm64.deb</code> is responsible for driving the shared hardware in the NanoKVM and PiKVM frameworks;</li>
+<li><code>nanokvmpro_x.x.x_arm64.deb</code> is the NanoKVM application software;</li>
+<li><code>pikvm_x.x.x_arm64.deb</code> is the PiKVM application software.</li>
+</ul>
+<p>Enabling the preview update feature will allow you to access the latest experimental application, which usually includes updated features but may lack stability. It is recommended to enable SSH before downloading preview updates.</p>
+<p>You can also download specific versions and install them manually.</p>
+
+<pre class="language-shell"><code class="language-shell"># Taking download of version 1.1.6 as an example
+# Download file
+sudo curl -L https://cdn.sipeed.com/nanokvm/preview/nanokvm_pro_1.1.6.tar.gz | sudo tar -xz
+
+# Enter folder
+cd nanokvm_pro_1.1.6
+
+# Install deb packages
+sudo apt install ./*.deb
+</code></pre>
+<blockquote>
+<p>Software version 1.1.5 and later underwent an architectural adjustment. Older NanoKVM-Pro units can only fetch up to version 1.1.5 initially; after updating, they will be able to retrieve the latest versions.</p>
+</blockquote>
+<h2 id="How-to-Use-TF-Card-for-Storage-Expansion">How to Use TF Card for Storage Expansion</h2>
+<p>The NanoKVM-Desk version features a TF card slot on the rear panel. Inserting a TF card expands the storage capacity and enables the <code>Virtual U Disk</code> function.</p>
+<p>The TF card is mounted by default under the NanoKVM system's <code>/sdcard</code> directory. When <code>Virtual U Disk</code> is enabled, the TF card is simultaneously mounted as a mass storage device through the USB composite interface, allowing file transfer to the controlled host via this feature.</p>
+<blockquote>
+<p>Note:<br />
+The ATX version cannot expose the TF card slot due to bracket size constraints.<br />
+The first batch of Desk versions does not support TF card hot-plugging. Please insert the TF card when the device is powered off.<br />
+The Virtual U Disk and image mounting functions cannot be enabled simultaneously.</p>
+</blockquote>
+<h2 id="How-to-Perform-Remote-OS-Installation">How to Perform Remote OS Installation</h2>
+<ul>
+<li><p>In addition to simulating keyboard and mouse devices, the USB-C port of NanoKVM Pro also emulates a USB drive device. This can be used to mount specified ISO files for tasks like OS installation. ISO files can be uploaded to the NanoKVM-Pro, which offers approximately 21GB of available space.</p>
+</li>
+<li><p>Unlike a regular USB drive, NanoKVM's virtual USB drive can store multiple ISO files simultaneously. Before powering on the target host, you can select which system ISO to mount via the options on the web interface.</p>
+</li>
+</ul>
+<p>After connecting the remote host and Nano KVM as described in the previous steps, log into the system via your browser. Click the CD-ROM icon and select the target system ISO to mount it.</p>
+<p><img src="./../../../assets/NanoKVM/guide/imgsl.png" alt="" /></p>
+<p>Next, begin the OS installation process. Click <code>Power On (Short Press)</code>, then quickly press the F11 key (the key may vary for different hosts; please refer to your host's manual). Select the corresponding bootable ISO to start and complete the installation.</p>
+<p><img src="./../../../assets/NanoKVM/guide/install.png" alt="" /></p>
+<p>Note:</p>
+<ul>
+<li>All uploaded ISO files are stored in the <code>/data</code> directory of the NanoKVM-Pro. Users can directly read and write this partition from within the NanoKVM terminal.</li>
+<li>If you encounter issues mounting the ISO, try ejecting the ISO from the host first, then click to mount it again.</li>
+</ul>
+<h2 id="How-to-Set-a-Static-IP">How to Set a Static IP</h2>
+<p>NanoKVM-Pro introduced static IP configuration for Ethernet cards in version <code>1.1.6</code> and above. You can assign a static IP by configuring the <code>/boot/eth.nodhcp</code> file. The detailed setup method is as follows:</p>
+<p>Create a file named <code>/boot/eth.nodhcp</code> in NanoKVM-Pro, then edit it according to the following rules:</p>
+<ul>
+<li>Each line represents a custom IP in the format: <code>addr/netid gw[optional]</code>;</li>
+<li>Multiple static IPs can be preset across multiple lines.</li>
+</ul>
+<p>Simplified steps:</p>
+
+<pre class="language-shell"><code class="language-shell"># Perform the following operations in the NanoKVM-Pro web terminal or SSH terminal
+# Create the /boot/eth.nodhcp file and write the configuration
+echo &quot;192.168.2.2/22&quot; &gt; /boot/eth.nodhcp
+</code></pre>
+<blockquote>
+<p>During system startup, the static IP address list in the <code>/boot/eth.nodhcp</code> file will be read. The setup process is as follows:</p>
+<ol>
+<li><strong>Sequential detection</strong>: The system reads the IPs in the file line by line and checks whether each one is already in use by another device on the network.</li>
+<li><strong>Detection mechanism</strong>: <code>arping</code> is used for detection first; if <code>arping</code> is not installed in the system, it automatically falls back to using the <code>ping</code> command.</li>
+<li><strong>Set available IP</strong>: Once the first available (unused) IP is found, the system immediately sets it as the static address for the device, and the process terminates.</li>
+<li><strong>Fallback option</strong>: If all IPs in the list are occupied, the system will attempt to obtain an IP automatically via DHCP.</li>
+<li><strong>Guaranteed address</strong>: If DHCP also fails to assign an address (for example, if there is no DHCP server on the network), the system will use the fixed guaranteed address <code>192.168.90.1</code>.</li>
+</ol>
+</blockquote>
+<h2 id="How-to-Use-Serial-Port">How to Use Serial Port</h2>
+<p>NanoKVM Pro provides two sets of available serial ports: UART1/UART2. (Note: The ATX version, limited by the standard bracket size, does not have these ports externally exposed; only the internal solder pads are retained.)</p>
+<p>The interface definition diagram for the Desk version is as follows:<br />
+<img src="./../../../assets/NanoKVM/pro/extended/UART.png" alt="" /></p>
+<ul>
+<li>Using the Serial Terminal via the Web Interface</li>
+</ul>
+<p><strong>Requires firmware version 1.1.5 or higher</strong></p>
+<p>Navigate to: Web Menu Bar -&gt; Terminal -&gt; Serial Terminal. Here, you can configure the serial port number, baud rate, and other options.</p>
+<p><img src="./../../../assets/NanoKVM/pro/extended/UART-2.png" alt="" /></p>
+<ul>
+<li>Send serial commands only:</li>
+</ul>
+
+<pre class="language-shell"><code class="language-shell"># Set ttyS1 to 115200 baud rate
+stty -F /dev/ttyS1 115200
+
+# Send hexadecimal data 0x11, 0x22, 0x33
+echo -n -e '\x11\x22\x33' &gt; /dev/ttyS1
+</code></pre>
+<h2 id="How-to-Modify-EDID">How to Modify EDID</h2>
+<p>EDID (Extended Display Identification Data) is a set of data provided by a display device to the host, including device information, resolution and frame rate lists, color characteristics, audio capabilities, etc. The host adjusts the display settings based on the received EDID.</p>
+<p>NanoKVM Pro supports modifying the EDID exposed by the virtual display. You can clone the EDID from a monitor or write your own EDID to achieve specific screen ratios, refresh rates, or color characteristics.</p>
+<blockquote>
+<p>Modifying the EDID may risk improper display functionality. Please proceed with caution. If issues arise, restore the default EDID.</p>
+</blockquote>
+<p>Writing method:</p>
+
+<pre class="language-shell"><code class="language-shell"># 1. Prepare the EDID file, typically 256 bytes, and scp it to the system
+ls -l /root/customize.bin
+# -rw-r--r-- 1 1000 1000 256 Aug 19 14:44 /root/customize.bin
+# 2. Write the EDID
+cat /root/customize.bin &gt; /proc/lt6911_info/edid
+# 3. Restore the default EDID:
+cat /kvmcomm/edid/e18.bin &gt; /proc/lt6911_info/edid
+</code></pre>
+<p>Version 1.2.0 comes with six built-in EDIDs. Below is the list of supported resolutions and their maximum frame rates for each EDID:</p>
+<table>
+<thead>
+<tr>
+  <th>Resolution</th>
+  <th>Aspect Ratio</th>
+  <th>3840×2160@30Hz</th>
+  <th>3840×2160@39Hz</th>
+  <th>2560×1440@60Hz</th>
+  <th>1920×1080@60Hz</th>
+  <th>3840×2400@30Hz</th>
+  <th>3440×1440@60Hz</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>3840×2400</td>
+  <td>16:10</td>
+  <td>×</td>
+  <td>×</td>
+  <td>×</td>
+  <td>×</td>
+  <td>30 FPS</td>
+  <td>×</td>
+</tr>
+<tr>
+  <td>3840×2160</td>
+  <td>16:9</td>
+  <td>30 FPS</td>
+  <td>39 FPS</td>
+  <td>×</td>
+  <td>×</td>
+  <td>30 FPS</td>
+  <td>30 FPS</td>
+</tr>
+<tr>
+  <td>3840×1600</td>
+  <td>21:9</td>
+  <td>×</td>
+  <td>×</td>
+  <td>×</td>
+  <td>×</td>
+  <td>×</td>
+  <td>50 FPS</td>
+</tr>
+<tr>
+  <td>3440×1440</td>
+  <td>21:9</td>
+  <td>×</td>
+  <td>×</td>
+  <td>×</td>
+  <td>×</td>
+  <td>×</td>
+  <td>60 FPS</td>
+</tr>
+<tr>
+  <td>2560×1440</td>
+  <td>16:9</td>
+  <td>83 FPS</td>
+  <td>83 FPS</td>
+  <td>83 FPS</td>
+  <td>×</td>
+  <td>60 FPS</td>
+  <td>60 FPS</td>
+</tr>
+<tr>
+  <td>2560×1080</td>
+  <td>21:9</td>
+  <td>×</td>
+  <td>×</td>
+  <td>×</td>
+  <td>×</td>
+  <td>×</td>
+  <td>75 FPS</td>
+</tr>
+<tr>
+  <td>1920×1200</td>
+  <td>16:10</td>
+  <td>60 FPS</td>
+  <td>60 FPS</td>
+  <td>60 FPS</td>
+  <td>×</td>
+  <td>60 FPS</td>
+  <td>×</td>
+</tr>
+<tr>
+  <td>1920×1080</td>
+  <td>16:9</td>
+  <td>120 FPS</td>
+  <td>125 FPS</td>
+  <td>60 FPS</td>
+  <td>60 FPS</td>
+  <td>60 FPS</td>
+  <td>60 FPS</td>
+</tr>
+<tr>
+  <td>1680×1050</td>
+  <td>16:10</td>
+  <td>60 FPS</td>
+  <td>60 FPS</td>
+  <td>60 FPS</td>
+  <td>60 FPS</td>
+  <td>60 FPS</td>
+  <td>60 FPS</td>
+</tr>
+<tr>
+  <td>1440×900</td>
+  <td>16:10</td>
+  <td>60 FPS</td>
+  <td>60 FPS</td>
+  <td>60 FPS</td>
+  <td>60 FPS</td>
+  <td>60 FPS</td>
+  <td>60 FPS</td>
+</tr>
+<tr>
+  <td>1280×1024</td>
+  <td>5:4</td>
+  <td>60 FPS</td>
+  <td>60 FPS</td>
+  <td>60 FPS</td>
+  <td>60 FPS</td>
+  <td>60 FPS</td>
+  <td>60 FPS</td>
+</tr>
+<tr>
+  <td>1280×960</td>
+  <td>4:3</td>
+  <td>60 FPS</td>
+  <td>60 FPS</td>
+  <td>60 FPS</td>
+  <td>60 FPS</td>
+  <td>60 FPS</td>
+  <td>60 FPS</td>
+</tr>
+<tr>
+  <td>1280×800</td>
+  <td>16:10</td>
+  <td>60 FPS</td>
+  <td>60 FPS</td>
+  <td>60 FPS</td>
+  <td>60 FPS</td>
+  <td>60 FPS</td>
+  <td>60 FPS</td>
+</tr>
+<tr>
+  <td>1280×720</td>
+  <td>16:9</td>
+  <td>120 FPS</td>
+  <td>120 FPS</td>
+  <td>60 FPS</td>
+  <td>60 FPS</td>
+  <td>60 FPS</td>
+  <td>60 FPS</td>
+</tr>
+<tr>
+  <td>1152×864</td>
+  <td>4:3</td>
+  <td>60 FPS</td>
+  <td>60 FPS</td>
+  <td>60 FPS</td>
+  <td>60 FPS</td>
+  <td>60 FPS</td>
+  <td>60 FPS</td>
+</tr>
+<tr>
+  <td>1024×768</td>
+  <td>4:3</td>
+  <td>60 FPS</td>
+  <td>60 FPS</td>
+  <td>60 FPS</td>
+  <td>60 FPS</td>
+  <td>60 FPS</td>
+  <td>60 FPS</td>
+</tr>
+<tr>
+  <td>800×600</td>
+  <td>4:3</td>
+  <td>120 FPS</td>
+  <td>120 FPS</td>
+  <td>60 FPS</td>
+  <td>60 FPS</td>
+  <td>60 FPS</td>
+  <td>60 FPS</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Resolutions not listed in this table may experience display errors or fail to display.<br />
+Lower resolutions might have compatibility issues, resulting in no display or screen flickering.</p>
+</blockquote>
+<h2 id="How-to-Retrieve-Display-EDID">How to Retrieve Display EDID</h2>
+<ul>
+<li><p>Windows</p>
+<p>Follow the steps below to export EDID data from the Windows registry.</p>
+<ol>
+<li><p>Press <strong>Win + R</strong> to open the <em>Run</em> dialog, type <code>regedit</code>, and press <strong>Enter</strong>.</p>
+</li>
+<li><p>In the Registry Editor, navigate to:</p>
+</li>
+</ol>
+
+<pre class="language-none"><code class="language-none">HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Enum\DISPLAY
+</code></pre>
+<ol start="3">
+<li>Locate the EDID entry for your monitor. The typical path format is:</li>
+</ol>
+
+<pre class="language-none"><code class="language-none">&lt;VendorID&gt;_&lt;Model&gt;\&lt;InstanceID&gt;\Device Parameters\EDID
+</code></pre>
+<p>Take note of the full path, especially <code>&lt;VendorID&gt;_&lt;Model&gt;</code> and <code>&lt;InstanceID&gt;</code>.</p>
+<ol start="4">
+<li>Create a new file named <code>edid.ps1</code> and paste the following content:</li>
+</ol>
+
+<pre class="language-powershell"><code class="language-powershell">$regPath = &quot;HKLM:\SYSTEM\CurrentControlSet\Enum\DISPLAY\&lt;ID&gt;\&lt;InstanceID&gt;\Device Parameters&quot;
+
+$edid = (Get-ItemProperty -Path $regPath -Name EDID).EDID
+[IO.File]::WriteAllBytes(&quot;C:\Users\Public\edid.bin&quot;, $edid)
+Write-Host &quot;EDID exported to C:\Users\Public\edid.bin&quot;
+</code></pre>
+<ol start="5">
+<li><p>Replace <code>&lt;ID&gt;</code> and <code>&lt;InstanceID&gt;</code> with the actual values for your display.</p>
+</li>
+<li><p>Save the file, then right-click it and select <strong>Run with PowerShell</strong>.</p>
+</li>
+</ol>
+<p>If execution is blocked:</p>
+<ul>
+<li><p>Open PowerShell <strong>as Administrator</strong>.</p>
+</li>
+<li><p>Run the following command and confirm:</p>
+
+<pre class="language-powershell"><code class="language-powershell">Set-ExecutionPolicy RemoteSigned
+</code></pre>
+<ol start="7">
+<li>After successful execution, the EDID binary file will be available at:</li>
+</ol>
+
+<pre class="language-none"><code class="language-none">C:\Users\Public\edid.bin
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p>Linux<br />
+  On Linux systems using DRM (Direct Rendering Manager), EDID can be read directly from sysfs.</p>
+
+<pre class="language-bash"><code class="language-bash"># Replace &lt;card&gt; with the actual DRM card name, such as card0 or card1
+sudo cat /sys/class/drm/&lt;card&gt;/edid &gt; ~/edid.bin
+</code></pre>
+<p>If the file exists and the command completes successfully, <code>edid.bin</code> will be created in your home directory.</p>
+</li>
+<li><p>macOS<br />
+  On macOS, EDID data can be retrieved from the I/O Registry.</p>
+<ol>
+<li>Open <strong>Terminal</strong> and run:</li>
+</ol>
+
+<pre class="language-sh"><code class="language-sh">ioreg -lw0 | grep -i EDID
+</code></pre>
+<ol start="2">
+<li>Look for a line similar to:</li>
+</ol>
+
+<pre class="language-sh"><code class="language-sh">&quot;EDID&quot; = &lt;00ffffffffffff00...&gt;
+</code></pre>
+<p>The hexadecimal string inside <code>&lt; &gt;</code> represents the EDID data.</p>
+<ol start="3">
+<li><p><strong>Copy the full hexadecimal string</strong> inside the angle brackets (do not include the brackets themselves). Assume the copied string is <code>xxx</code>.</p>
+</li>
+<li><p>Convert the hexadecimal EDID string to a binary file:</p>
+</li>
+</ol>
+
+<pre class="language-sh"><code class="language-sh">echo &quot;xxx&quot; | xxd -r -p &gt; ~/edid.bin
+</code></pre>
+<ol start="5">
+<li>If the command succeeds, <code>edid.bin</code> will be created in your home directory.</li>
+</ol>
+</li>
+<li><p>PowerShell Failure Cases and Troubleshooting</p>
+<p>If exporting EDID on Windows fails, check the following common issues:</p>
+<ol>
+<li><strong>Insufficient permissions</strong></li>
+</ol>
+<p>Ensure PowerShell is running with administrator privileges.</p>
+<ol start="2">
+<li><strong>Script execution policy restrictions</strong></li>
+</ol>
+<p>Check the current policy with:</p>
+
+<pre class="language-powershell"><code class="language-powershell">Get-ExecutionPolicy
+</code></pre>
+<p>If needed, temporarily allow local scripts:</p>
+
+<pre class="language-powershell"><code class="language-powershell">Set-ExecutionPolicy RemoteSigned
+</code></pre>
+<ol start="3">
+<li><strong>Incorrect registry path</strong></li>
+</ol>
+<p>Verify that the subkeys under <code>DISPLAY</code> and the instance ID exactly match the path used in <code>$regPath</code>.</p>
+<ol start="4">
+<li><strong>Missing EDID property</strong></li>
+</ol>
+<p>Some displays, virtual displays, or remote desktop sessions may not expose EDID. Perform the operation on a physical display connected locally.</p>
+<ol start="5">
+<li><strong>File write failure</strong></li>
+</ol>
+<p>Ensure <code>C:\Users\Public\</code> is writable, or modify the script to use another writable directory.</p>
+</li>
+</ul>
+<h2 id="How-to-Modify-USB-Information">How to Modify USB Information</h2>
+<p>Versions <code>1.2.0</code> and above support customizing USB information. The method is as follows:</p>
+
+<pre class="language-shell"><code class="language-shell"># Modify PID
+echo &quot;0xXXXX&quot; &gt; /boot/usb.pid
+# Modify VID
+echo &quot;0xXXXX&quot; &gt; /boot/usb.vid
+# Modify Manufacturer
+echo &quot;XXXX&quot; &gt; /boot/usb.manufacturer
+# Modify Product Name
+echo &quot;XXXX&quot; &gt; /boot/usb.product
+# Apply changes
+/kvmapp/scripts/usbdev.sh restart
+</code></pre>
+<h2 id="How-to-Share-Network-via-USB-Network-Adapter">How to Share Network via USB Network Adapter</h2>
+<p>Version <code>1.2.11</code> and above supports network sharing through USB network adapter, allowing the controlled host to access the network where NanoKVM-Pro is located via USB connection.</p>
+
+<pre class="language-bash"><code class="language-bash"># Enable USB network adapter (choose one: NCM mode or RNDIS mode)
+touch /boot/usb.ncm
+# touch /boot/usb.rndis
+
+# Set network adapter IP address
+# (optional, defaults to a fixed IP generated using device ID)
+echo &quot;10.10.10.1/24&quot; &gt; /boot/ncm.ipv4
+
+# Set DNS server address (optional, defaults to 8.8.8.8, 8.8.4.4)
+echo &quot;8.8.8.8 8.8.4.4&quot; &gt; /boot/ncm.dns
+
+# Set traffic forwarding interface
+# (eth0 for wired network, wlan0 for wireless network)
+echo &quot;eth0&quot; &gt; /boot/ncm.forward
+
+# Restart USB network adapter to apply changes
+/kvmapp/scripts/usbdev.sh restart
+</code></pre>
+<h2 id="How-to-Use-with-the-Host-Application">How to Use with the Host Application</h2>
+<p>The NanoKVM-Pro host application needs to be installed and run on the controlled PC. It provides additional functionality and a smoother user experience.</p>
+<p>It is recommended to install the precompiled Release version directly. The host application is still under development, and the source code will be open-sourced later for manual compilation.</p>
+<p><a href="https://github.com/sipeed/NanoKVM-Pro/releases/tag/v1.0.5"  target="_blank">Download Link</a></p>
+<p>After installation, launch the application and enter the local network IP address of the NanoKVM Pro you want to pair with. The application runs in the background and can be closed via a right-click on the system tray icon.</p>
+<p>Key Features</p>
+<ul>
+<li><p>Automatically hide the controlled PC cursor for better remote control experience</p>
+<ul>
+<li><p>When the host application is connected to NanoKVM Pro, the cursor on the controlled PC is hidden.</p>
+</li>
+<li><p>After the host application disconnects from NanoKVM Pro for a while, the cursor will reappear.</p>
+</li>
+</ul>
+</li>
+<li><p>Collect CPU and memory usage of the controlled PC and transmit it to NanoKVM Pro</p>
+<ul>
+<li>In the Desk version, you can view the controlled PC status in real-time via the Host Info page.</li>
+</ul>
+</li>
+</ul>
+<h2 id="About-Latency">About Latency</h2>
+<p>NanoKVM-Pro has made significant improvements in latency, with end-to-end latency controlled at around 100ms at any resolution.</p>
+<blockquote>
+<p>The latency mentioned by other competitors is not end-to-end latency, but one-way latency. The actual end-to-end latency is much higher than what they claim.<br />
+Actual tests show that choosing different frame rates has little impact on end-to-end latency, meaning the latency for 1080P120 and 1080P30 is almost the same.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+  <th>Video Mode</th>
+  <th>End-to-End Latency</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Direct H264</td>
+  <td>100ms</td>
+</tr>
+<tr>
+  <td>WebRTC H264</td>
+  <td>100ms</td>
+</tr>
+<tr>
+  <td>MJPEG</td>
+  <td>100~150ms</td>
+</tr>
+</tbody>
+</table>
+<p>Note: We use &quot;end-to-end&quot; latency to reflect the actual latency perceived by users:<br />
+The delay from when a user moves the mouse in the local browser window to when the remote desktop mouse starts moving in the browser.</p>
+<p>You can use <a href="../../../assets/NanoKVM/pro/extended/lat_mouse.py"  >this Python script</a> to actually measure the &quot;end-to-end&quot; latency. Maximize the browser window or place it on the left side, ensuring the current remote desktop background color has maximum contrast with the mouse pointer color (for example, use a white background for a black pointer, or a black background for a white pointer).</p>
+
+<pre class="language-none"><code class="language-none">python lat_mouse.py TEST_CNT RECORD_NAME
+</code></pre>
+<p>4K30 webrtc end-to-end latency record:<br />
+<img src="./../../../assets/NanoKVM/pro/extended/4K30_latency.png" alt="" /></p>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                        <a href="/hardware/en/kvm/NanoKVM_Pro/desk_start.html">
+                            <span class="icon"></span>
+                            <span class="label">NanoKVM-Desk Quick Start</span>
+                        </a>
+                        
+                    </div>
+                    <div id="next">
+                        
+                        <a href="/hardware/en/kvm/NanoKVM_Pro/lcd.html">
+                            <span class="label">Screen & Knob</span>
+                            <span class="icon"></span>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>links</a><ul><li><a target="_blank" href="https://www.sipeed.com">Sipeed</a></li>
+<li><a target="_blank" href="https://maixhub.com/">MaixHub</a></li>
+<li><a target="_blank" href="https://sipeed.aliexpress.com/store/911876460">Sipeed AliExpress</a></li>
+<li><a target="_blank" href="https://github.com/neutree/teedoc">Build by teedoc </a></li>
+</ul>
+</li>
+<li><a>Source Code</a><ul><li><a target="_blank" href="https://github.com/sipeed/sipeed_wiki">Wiki source</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">Open Source Projects</a></li>
+</ul>
+</li>
+<li><a>Follow us</a><ul><li><a target="_blank" href="https://twitter.com/SipeedIO">twitter</a></li>
+<li><a target="_blank" href="https://sipeed.aliexpress.com/store/911876460">AliExpress</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">github</a></li>
+<li><a><a>Wechat</a><img src='/static/image/wechat.png'></a>
+</li>
+</ul>
+</li>
+<li><a>Contact us</a><ul><li><a>Tel: +86 0755-27808509</a>
+</li>
+<li><a>Business support: support@sipeed.com</a>
+</li>
+<li><a>Address: 深圳市宝安区新湖路4008号蘅芳科技办公大厦A座-2101C</a>
+</li>
+<li><a  href="/join_us.html">Join us</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://www.sipeed.com">©2018-2023 深圳矽速科技有限公司</a></li>
+<li><a target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index">粤ICP备19015433号</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/js/prism.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <link rel="stylesheet" href="/static/js/add_hint/style.css" type="text/css"/>
+    
+        <script src="/static/js/add_hint/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+        <script src="/static/js/thumbs_up/main.js"></script>
+    
+</body>
+
+</html>
