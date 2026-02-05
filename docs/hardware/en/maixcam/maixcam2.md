@@ -194,8 +194,7 @@ Bold items are upgrades compared to MaixCAM / MaixCAM-Pro (first generation).
 | IMU              | **Onboard six-axis IMU (3-axis accelerometer + 3-axis gyroscope)**                                                                                                         |
 | RTC              | **Onboard BM8563EMA RTC chip + rechargeable coin battery, maintains time during power-off**                                                                                |
 | Core Board       | **Gold-finger core board containing only chip core circuit + DDR**, for easy custom hardware design                                                                        |
-
-<!-- | Dimensions | **67x51x12mm (non-battery enclosure version)**  | -->
+| Dimensions | **66.5x50x21.2mm (Does not include lens)**  |
 
 ## MaixCAM2 Software Ecosystem
 
