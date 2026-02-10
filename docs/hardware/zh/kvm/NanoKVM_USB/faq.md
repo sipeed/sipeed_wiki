@@ -58,9 +58,11 @@ keywords: NanoKVM-USB, Lichee, PiKVM, RISCV, tool
 
 ## 视频问题
 
-### 部分主机BIOS下环出/采集颜色异常
+### 部分主机BIOS下环出/采集颜色异常，花屏
 
-+ NanoKVM-USB早期固件可能在部分BIOS下环出颜色偏红，采集颜色偏绿，可以通过烧录新固件解决，请先下载烧录软件和固件： [固件下载链接](https://dl.sipeed.com/fileList/KVM/NanoKVM_USB/MS2131_LIB_V2_0_27_Demo_GPIO0_PlugDetect_20251205_replaced_E158EDID.bin)、[烧录软件下载链接](https://dl.sipeed.com/fileList/KVM/NanoKVM_USB/MS_USB3_0_UpgradeTool_V1_3_2.exe)
++ NanoKVM-USB早期固件可能在部分BIOS下环出颜色偏红，采集颜色偏绿，或者花屏的问题，可以通过烧录新固件解决，请先下载烧录软件和固件： 
+标准版：[固件下载链接](https://dl.sipeed.com/fileList/KVM/NanoKVM_USB/MS2131_LIB_V2_0_27_Demo_GPIO0_PlugDetect_20251205_replaced_E158EDID.bin)、[烧录软件下载链接](https://dl.sipeed.com/fileList/KVM/NanoKVM_USB/MS_USB3_0_UpgradeTool_V1_3_2.exe)
+4K版：[固件下载链接](https://dl.sipeed.com/fileList/KVM/NanoKVM_USB/MS2131S_XSKJ001_20260205_1019.bin)、[烧录软件下载链接](https://dl.sipeed.com/shareURL/KVM/NanoKVM_USB) USBVideoDownloadTool_V1.9.15.77.exe
 
 + 烧录步骤：
     1. 打开软件，选择下载的固件
@@ -68,8 +70,8 @@ keywords: NanoKVM-USB, Lichee, PiKVM, RISCV, tool
     3. 等待软件连接，点击开始烧录，等待完成
 
 > **请勿在烧录过程中拔出NanoKVM-USB，有变砖风险**
+> 请严格区分标准版与4K版本，烧录软件和烧录固件都不相同
 > 烧录软件仅支持Windows
-> 目前不支持NanoKVM-USB(4K)版本的烧录
 
 ### 视频画质差
 

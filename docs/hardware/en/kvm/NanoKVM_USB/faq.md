@@ -58,19 +58,20 @@ Recommended Solutions:
 
 ## Video Issues
 
-### Color Abnormalities in Loop-Out/Capture on Some Host BIOS
+### Some Hosts Experience Abnormal Colors or Visual Artifacts in BIOS Display Output/Capture  
 
-+ Early firmware versions of the NanoKVM-USB may cause the loop-out image to appear reddish and the captured image to appear greenish on certain BIOS. This issue can be resolved by flashing a new firmware. Please download the flashing tool and firmware first: [Firmware Download Link](https://dl.sipeed.com/fileList/KVM/NanoKVM_USB/MS2131_LIB_V2_0_27_Demo_GPIO0_PlugDetect_20251205_replaced_E158EDID.bin), [Flashing Tool Download Link](https://dl.sipeed.com/fileList/KVM/NanoKVM_USB/MS_USB3_0_UpgradeTool_V1_3_2.exe)
++ Early firmware of NanoKVM-USB may cause issues on certain BIOS systems, such as reddish display output, greenish capture colors, or visual artifacts. These problems can be resolved by flashing the new firmware. Please download the flashing software and firmware first:  
+**Standard Edition:** [Firmware Download Link](https://dl.sipeed.com/fileList/KVM/NanoKVM_USB/MS2131_LIB_V2_0_27_Demo_GPIO0_PlugDetect_20251205_replaced_E158EDID.bin)、[Flashing Software Download Link](https://dl.sipeed.com/fileList/KVM/NanoKVM_USB/MS_USB3_0_UpgradeTool_V1_3_2.exe)  
+**4K Edition:** [Firmware Download Link](https://dl.sipeed.com/fileList/KVM/NanoKVM_USB/MS2131S_XSKJ001_20260205_1019.bin)、[Flashing Software Download Link](https://dl.sipeed.com/shareURL/KVM/NanoKVM_USB) USBVideoDownloadTool_V1.9.15.77.exe  
 
-+ Flashing Steps:
++ Flashing Steps:  
+    1. Open the software and select the downloaded firmware.  
+    2. Connect the USB-C port on the NanoKVM-USB Host end to your computer.  
+    3. Wait for the software to establish a connection, then click "Start Flashing" and wait for the process to complete.  
 
-1. Open the flashing tool and select the downloaded firmware file.
-2. Connect the USB-C port on the NanoKVM-USB host side to your computer.
-3. Wait for the tool to detect the device, then click "Start Flashing" and wait for the process to complete.
-
-> **Do not disconnect the NanoKVM-USB during the flashing process, as this may brick the device.**
-> The flashing tool only supports Windows.
-> Currently, flashing is not supported for the NanoKVM-USB (4K) version.
+> **Do not disconnect NanoKVM-USB during the flashing process, as it may brick the device.**  
+> Be sure to distinguish between the Standard Edition and the 4K Edition. The flashing software and firmware are different for each version.  
+> The flashing software is only compatible with Windows.
 
 ### Poor Video Quality
 
