@@ -10,6 +10,6 @@ The image is compressed using xz. After decompression, use tools like Rufus, Win
 
 [Download here](https://github.com/0x754C/sipeed-toolchain/releases)
 
-## Debian Sid Based image
+## Debian Sid Based Image
 
 [Image Information and Downloads](https://github.com/Fishwaldo/sophgo-sg200x-debian)

@@ -69,13 +69,15 @@ The LicheeRV Nano is available in four versions based on networking capabilities
 
   ●Securing the Standoffs
 
-  1. To avoid burns while soldering the standoffs, you can first screw them onto the Ethernet module.![](./../assets/RV_Nano/unbox/WE3.jpg)
+  1. To avoid burns while soldering the standoffs, you can first screw them onto the Ethernet module.
 
-  2.Insert the standoff into the fifth pad. It is advisable to apply solder paste to the pad beforehand to enhance the stability of the standoff after soldering.
+  ![](./../assets/RV_Nano/unbox/WE3.jpg)
+
+  2. Insert the standoff into the fifth pad. It is advisable to apply solder paste to the pad beforehand to enhance the stability of the standoff after soldering.
 
   ![](./../assets/RV_Nano/unbox/WE4.jpg)
 
-  3.Use a soldering iron from the bottom side to solder.
+  3. Use a soldering iron from the bottom side to solder.
 
   ![](./../assets/RV_Nano/unbox/WE5.jpg)
 
@@ -96,11 +98,11 @@ The LicheeRV Nano is available in four versions based on networking capabilities
 
 ![](./../assets/RV_Nano/unbox/CAM1.jpg)
 
-2.Insert the standoff into the fifth pad. To enhance the stability of the standoff after soldering, it is recommended to apply solder paste to the pad beforehand.
+2. Insert the standoff into the fifth pad. To enhance the stability of the standoff after soldering, it is recommended to apply solder paste to the pad beforehand.
 
 ![](./../assets/RV_Nano/unbox/CAM2.jpg)
 
-3.Solder from the bottom side using a soldering iron.
+3. Solder from the bottom side using a soldering iron.
 
 ![](./../assets/RV_Nano/unbox/CAM3.jpg)
 
@@ -110,6 +112,6 @@ The LicheeRV Nano is available in four versions based on networking capabilities
 
   ![](./../assets/RV_Nano/unbox/CAM4.jpg)
 
-  2.Secure with screws.
+  2. Secure with screws.
 
   ![](./../assets/RV_Nano/unbox/CAM5.jpg)
