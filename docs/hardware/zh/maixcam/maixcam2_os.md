@@ -136,7 +136,7 @@ Windows 也可以用 [Win32DiskImager](https://sourceforge.net/projects/win32dis
 #### 制作 TF 升级卡
 
 * 使用读卡器将 TF 卡插到电脑。
-* 格式化 TF 卡，至少创建一个主分区, 可以选择 `exFAT` 或者`ext4`格式（不要选择`FAT32`）, 一定要给TF分区。
+* 格式化 TF 卡, 分区文件系统可以选择 `exFAT` 或者`ext4`格式（不要选择`FAT32`）。
 * 将`xxx.img`文件拷贝到 TF 卡的第一个分区中。如果之前拷贝了其他`.img`文件, 需要删除旧的镜像文件
 * 拷贝完成后需要**点击弹出 U 盘**保证数据玩全写入后再拔出读卡器，防止数据未写入完成导致系统文件损坏。
 * 将 MaixCAM2 断电, 再将 TF 卡插入 MaixCAM2
