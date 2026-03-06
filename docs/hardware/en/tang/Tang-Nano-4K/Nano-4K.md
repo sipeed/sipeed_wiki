@@ -20,7 +20,6 @@ Tang Nano 4K is a development board designed based on [Gowin](https://www.gowins
 | Register            | 864                   | 3456           |
 | Hard processor      | none                  | ARM Cortex M3  |
 | Block SRAM(bits)    | 72K                   | 180K           |
-| User flash(bits)    | 96K                   | 256K           |
 | Number of PLL       | 1                     | 2              |
 | Number of I/O Bank  | 4                     | 4              |
 | Number of users I/O | 41                    | 44             |

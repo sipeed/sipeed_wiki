@@ -36,6 +36,7 @@ And there is another model called [MaixCAM-Pro](./maixcam_pro.md).
 
 | Component          | Description |
 |--------------------|-------------|
+| CPU                | SOPHGO SG2002 |
 | CPU Big Core       | 1GHz RISC-V C906 (plus an optional 1GHz ARM A53 for Linux) |
 | CPU Small Core     | 700MHz RISC-V C906 running RTOS |
 | Low-Power Core     | 25~300MHz 8051 for low-power applications |

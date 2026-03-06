@@ -173,6 +173,7 @@ Bold items are upgrades compared to MaixCAM / MaixCAM-Pro (first generation).
 
 | Component        | Description                                                                                                                                                                |
 | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| CPU (Big Cores)  |  Axera AX630C |
 | CPU (Big Cores)  | **1.2GHz A53 x2, runs Linux (Ubuntu)**                                                                                                                                     |
 | CPU (Small Core) | RISC-V 32bit E907, runs RTT                                                                                                                                                |
 | NPU              | **12.8Tops@INT4 / 3.2TOPS@INT8**, supports convolution and **Transformer models** such as YOLO/**LLM/VLM**, **YOLO11n 640x640 reaches up to 113FPS**                                      |
