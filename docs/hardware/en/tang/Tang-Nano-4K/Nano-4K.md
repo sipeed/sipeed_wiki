@@ -4,25 +4,27 @@
 
 ## Introduction
 
-Tang Nano 4K is a development board designed based on [Gowin](https://www.gowinsemi.com/en/) little-bee GW1NSR-LV4C FPGA chip. The board is equipped with camera interface and HDMI interface. There is also an onboard USG-JTAG debugger, which make it convenient for users to use. Its Cortex-M3 hardcore can help users study mcu.
+Tang Nano 4K is a development board designed based on [Gowin](https://www.gowinsemi.com/en/) little-bee GW1NSR-LV4CQN48PC6/I5 FPGA chip. The board is equipped with camera interface and HDMI interface. There is also an onboard USG-JTAG debugger, which make it convenient for users to use. Its Cortex-M3 hardcore can help users study mcu.
 
 ![Tang Nano 4K](./assets/4k-1.jpg)
 ![Tang Nano 4K](./assets/4k-2.jpg)
 
 ## Specs
 
+The GW1NSR-LV4CQN48PC6/I5 on the Tang Nano 4K development board is a System-in-Package (SiP) chip, which integrates a GW1NS series FPGA (Field Programmable Gate Array) and a PSRAM memory chip.
+
 - The sheet below shows difference with previous product
 
-| model               | Tang Nano             | Tang Nano 4K   |
+| model               | Tang Nano 1K          | Tang Nano 4K   |
 | ------------------- | --------------------- | -------------- |
-| FPGA chip           | GW1N-1-LV             | GW1NSR-LV4C    |
+| FPGA chip           | GW1NZ-LV1             | GW1NSR-LV4C    |
 | logic units         | 1152                  | 4608           |
 | Register            | 864                   | 3456           |
 | Hard processor      | none                  | ARM Cortex M3  |
 | Block SRAM(bits)    | 72K                   | 180K           |
 | Number of PLL       | 1                     | 2              |
 | Number of I/O Bank  | 4                     | 4              |
-| Number of users I/O | 41                    | 44             |
+| Number of users I/O | 48                    | 44             |
 | Screen interface    | 40P RGB LCD interface | HDMI interface |
 | camera interface    | None                  | DVP interface  |
 | Size                | 58.4mm\*21.3mm        | 60mm\*22.86mm  |

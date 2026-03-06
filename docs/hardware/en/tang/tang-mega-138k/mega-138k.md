@@ -27,7 +27,7 @@ update:
 
 ## Overview
 
-  Tang Mega 138K uses a 22nm process **GW5AST-LV138PG484A** FPGA chip, which has 138,240 lookup table units and nearly 300 DSP units. It contains eight high-speed transceivers with a speed range of 270Mbps ~ 8.0Gbps, suitable for transmitting data through high-speed ports such as PCIe. In addition, the chip contains a hard-core PCIe, which consumes better resources when using PCIe and achieves better performance. It is suitable for high-speed communication, protocol conversion, high-performance computing, and other occasions.
+  Tang Mega 138K uses a 22nm process **GW5AST-LV138PG484AC1/I0** FPGA chip, which has 138,240 lookup table units and nearly 300 DSP units. It contains eight high-speed transceivers with a speed range of 270Mbps ~ 8.0Gbps, suitable for transmitting data through high-speed ports such as PCIe. In addition, the chip contains a hard-core PCIe, which consumes better resources when using PCIe and achieves better performance. It is suitable for high-speed communication, protocol conversion, high-performance computing, and other occasions.
   
   Compared to the 138K Pro Dock, the 138K Dock has a smaller size and a lower price, and it replaces the SFP transceiver with USB3 SS(5Gbps). This not only effectively reduces the cost of high-speed communication but also brings better versatility.
 
