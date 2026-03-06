@@ -211,6 +211,9 @@ We don’t just provide hardware — MaixCAM2 comes with a complete software eco
 | [Sharing Hub](https://maixhub.com/share)                  | A community for developers to share experiences and projects | See [MaixHub Sharing Hub](https://maixhub.com/share)         |
 | [Local Large Models](https://wiki.sipeed.com/maixpy/doc/zh/mllm/basic.html) |     Running Offline Large Models Locally                   | See [Large Model User Guide](https://wiki.sipeed.com/maixpy/doc/zh/mllm/basic.html) |
 
+## Quick Start Guide
+- [Getting Started with MaixCAM2](https://wiki.sipeed.com/maixpy/doc/zh/README_MaixCAM2.html)
+
 ## Resources
 
 ### MaixCAM Exclusive Resources (Provided by Sipeed)
