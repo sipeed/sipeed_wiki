@@ -2,7 +2,7 @@
 
 ## Overview
 
-Tang Primer 25K is a minuscule core board (23x18mm) designed based on [GW5A-LV25MG121](http://www.gowinsemi.com.cn/prod_view.aspx?TypeId=74&FId=t3:10:3&Id=188), accompanied by a 25K Dock base board that exposes all pins (excluding MIPI high-speed pins).
+Tang Primer 25K is a minuscule core board (23x18mm) designed based on [GW5A-LV25MG121C1/l0](http://www.gowinsemi.com.cn/prod_view.aspx?TypeId=74&FId=t3:10:3&Id=188), accompanied by a 25K Dock base board that exposes all pins (excluding MIPI high-speed pins).
 
 The ultra-small core board size can be applied in any volume-restricted scenarios.
 The simple base board can connect a USB joystick, plug in a 40Pin SDRAM module, and three PMOD interfaces can connect to an HDMI display, PS2 joystick to form a typical RetroGame console configuration.
@@ -30,7 +30,7 @@ Purchase link: [ALIEXPRESS](https://www.aliexpress.us/item/3256806038278266.html
     <tr>
       <td style="text-align:left">FPGA Chip</td>
       <td style="text-align:left">
-        <a href="http://www.gowinsemi.com.cn/prod_view.aspx?TypeId=74&FId=t3:10:3&Id=188">GW5A-LV25MG121C1/l0</a>
+        <a href="http://www.gowinsemi.com.cn/prod_view.aspx?TypeId=74&FId=t3:10:3&Id=188">GW5A-LV25MG121</a>
       </td>
       <td style="text-align:left">
         <table>

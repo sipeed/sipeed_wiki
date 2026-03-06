@@ -10,6 +10,7 @@ Tang Nano 1K is a core board designed based on [Gowin](https://www.gowinsemi.com
 ![Nano-2](./assets/1k-2.jpg)
 
 ## Parameters
+The Tang Nano 1K development board is equipped with the GW1NZ-LV1QN48C6/I5 FPGA chip, a powerful and versatile device featuring rich logic resources and support for multiple I/O voltage standards. It integrates embedded Block SRAM (BSRAM), Phase-Locked Loops (PLLs), and Flash memory, making it a robust non-volatile FPGA solution. Furthermore, the on-board 27MHz active crystal oscillator provides a highly precise clock source for various FPGA timing operations.
 
 |        item        |     Specs      |
 | :----------------: | :------------: |

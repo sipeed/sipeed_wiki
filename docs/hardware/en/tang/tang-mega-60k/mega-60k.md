@@ -80,7 +80,7 @@ TBD
 	<tbody>
 		<tr>
 			<td style="text-align:left">FPGA Chip</td>
-			<td style="text-align:left"><a href="https://www.gowinsemi.com.cn/prod_view.aspx?TypeId=74&FId=t3:10:3&Id=188#GW5AT">GW5AT-LV60PG484A</a>
+			<td style="text-align:left"><a href="https://www.gowinsemi.com.cn/prod_view.aspx?TypeId=74&FId=t3:10:3&Id=188#GW5AT">GW5AT-LV60PG484AC1/I0</a>
 			</td>
 			<td style="text-align:left">
 				<table>
