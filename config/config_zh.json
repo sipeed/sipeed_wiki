@@ -40,13 +40,13 @@
             {
                 "label": "MaixHub",
                 "position": "left",
-                "url":"https://maixhub.com",
+                "url": "https://maixhub.com",
                 "target": "_blank"
             },
             {
-                "label":"动态",
-                "url":"/news/",
-                "position":"left"
+                "label": "动态",
+                "url": "/news/",
+                "position": "left"
             },
             {
                 "label": "FAQ 汇总",
@@ -72,8 +72,8 @@
             }
         ]
     },
-    "footer":{
-        "top":[
+    "footer": {
+        "top": [
             {
                 "label": "相关链接",
                 "items": [
@@ -124,17 +124,17 @@
                     {
                         "label": "twitter",
                         "url": "https://twitter.com/SipeedIO",
-                        "target":"_blank"
+                        "target": "_blank"
                     },
                     {
                         "label": "淘宝",
                         "url": "https://sipeed.taobao.com/",
-                        "target":"_blank"
+                        "target": "_blank"
                     },
                     {
                         "label": "github",
                         "url": "https://github.com/sipeed",
-                        "target":"_blank"
+                        "target": "_blank"
                     },
                     {
                         "label": "<a>微信公众号</a><img src='/static/image/wechat.png'>"
@@ -151,7 +151,7 @@
                         "label": "商业支持: support@sipeed.com"
                     },
                     {
-                        "label": "地址: 深圳市宝安区新湖路4008号蘅芳科技办公大厦A座-2101C"
+                        "label": "地址: 深圳市宝安区新湖路4008号蘅芳科技办公大厦A座-2101D"
                     },
                     {
                         "label": "加入我们",
@@ -174,7 +174,7 @@
         ]
     },
     "plugins": {
-        "teedoc-plugin-search":{
+        "teedoc-plugin-search": {
             "config": {
                 "search_hint": "搜索",
                 "input_hint": "输入关键词，多关键词空格隔开",
