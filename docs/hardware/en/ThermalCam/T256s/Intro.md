@@ -35,7 +35,7 @@ The design of the T256s centers on three core pillars: **Portability, Clarity, a
 
 ## Typical Application Scenarios
 
-- **Electronics R&D and Repair:** Precisely detect heat distribution on PCB solder joints and components to quickly locate hardware faults like short circuits or current leakage.
+- **Electronics R&D and Repair:** Perform high-precision inspections of PCB solder joints and electronic components using the standard-issue macro lens to rapidly locate hardware faults such as short circuits and current leakage.
 - **Industrial Maintenance:** Routine inspection of motors, power distribution cabinets, and transformers to identify overheating hazards.
 - **HVAC Inspection:** Detect building thermal leaks, underfloor heating pipe layouts, and insulation defects.
 - **Scientific Research & Maker Projects:** Utilize raw Y16 data for in-depth thermal analysis or secondary development using open-source tools.

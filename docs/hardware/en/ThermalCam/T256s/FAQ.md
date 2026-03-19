@@ -62,12 +62,12 @@ A: The conversion formula is: `$Celsius = (Y16\_Value / 64.0) - 273.15$`. Note t
 
 ### Q: Why is there a deviation between the measured value and the actual temperature?
 
-A: Infrared accuracy is affected by several physical factors:
-1. **Emissivity:** The most critical factor. Different materials radiate infrared energy differently. Shiny metal surfaces (e.g., aluminum foil, stainless steel) have extremely low emissivity; measuring them directly will result in incorrect reflected temperatures. Apply electrical tape or matte black paint to the metal surface before measuring.
-2. **Measurement Distance:** As distance increases, a single pixel covers a larger physical area, leading to the "Size-of-Source Effect." For precision, keep the distance between 0.2m and 1.0m. Use a dedicated macro lens for close-up analysis.
-3. **Environmental Reflection:** High-temperature objects nearby (e.g., sunlight, soldering irons) can reflect off the target surface into the sensor, causing inflated readings.
-4. **Atmospheric Correction:** For long-distance measurements, water vapor and $CO_2$ absorb infrared energy. While T256s is designed for near-field analysis where this is negligible, professional software may offer compensation settings.
-## Software & Firmware Updates
+A: Infrared temperature accuracy is subject to interference from several physical factors:
+1. **Macro Lens:** Direct impact. The addition of a macro lens introduces variable interference during infrared signal transmission and reception, leading to inherent measurement errors.
+2. **Emissivity:** A critical factor. Different materials have varying capacities to radiate infrared energy. Shiny metal surfaces (e.g., aluminum foil, stainless steel) have extremely low emissivity; measuring them directly will result in incorrect "reflected temperatures." It is recommended to apply electrical tape or matte black paint to the target metal surface before measurement.
+3. **Measurement Distance:** As distance increases, the physical area covered by a single pixel expands, leading to the **"Size-of-Source Effect" (SSE)**. For precision thermography, a range of 0.2m to 1.0m is recommended. For ultra-close-up shots, a dedicated macro lens must be used.
+4. **Environmental Reflection:** If high-temperature objects (e.g., sunlight, soldering irons) are nearby, their radiation may reflect off the target surface into the sensor, causing inflated temperature readings.
+5. **Atmospheric Compensation:** For long-distance measurements, water vapor and $CO_2$ in the air absorb infrared energy. While the T256s is primarily designed for near-field analysis (where atmospheric impact is minimal), compensation settings in professional software may be required for specialized use.
 
 ### Q: The software recognizes the device, but the video stream won't open.
 
