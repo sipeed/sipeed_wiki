@@ -85,4 +85,4 @@ A: Yes. The T256s integrates a high-performance AI processing chip which generat
 
 ### Q: Can I use it with Linux or Raspberry Pi?
 
-A: Yes. T256s follows the standard UVC protocol and supports Linux (V4L2). On Ubuntu or Raspberry Pi, it can be accessed directly using `cheese`, `guvcview`, or OpenCV. The VID/PID is typically `359f:ffff`.
+A: Yes. T256s follows the standard UVC protocol and supports Linux (V4L2). On Ubuntu or Raspberry Pi, it can be accessed directly using `cheese`, `guvcview`, or OpenCV. Please run this as the root user. The VID/PID is typically `359f:ffff`.
