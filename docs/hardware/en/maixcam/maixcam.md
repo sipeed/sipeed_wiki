@@ -69,6 +69,11 @@ MaixCAM offers more than just hardware. It comes with a complete software ecosys
 | [App Store](https://maixhub.com/app) | Download tools and applications, or upload your own | Refer to [App Store](https://maixhub.com/app) |
 | [Share Center](https://maixhub.com/share) | A space for developers to share projects and experiences | Refer to [Share center](https://maixhub.com/share) |
 
+## Quick Start Guide
+- [Quick Start MaixCAM](https://wiki.sipeed.com/maixpy/doc/en/README_MaixCAM.html)
+- [Quick Start MaixCAM(Screenless Version)](https://wiki.sipeed.com/maixpy/doc/en/README_no_screen.html)
+
+
 ## MaixCAM Documentation
 
 ### Official Resources (by Sipeed)

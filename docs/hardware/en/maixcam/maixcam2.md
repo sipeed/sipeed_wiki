@@ -212,7 +212,7 @@ We don’t just provide hardware — MaixCAM2 comes with a complete software eco
 | [Local Large Models](https://wiki.sipeed.com/maixpy/doc/zh/mllm/basic.html) |     Running Offline Large Models Locally                   | See [Large Model User Guide](https://wiki.sipeed.com/maixpy/doc/zh/mllm/basic.html) |
 
 ## Quick Start Guide
-- [Getting Started with MaixCAM2](https://wiki.sipeed.com/maixpy/doc/zh/README_MaixCAM2.html)
+- [Quick Start MaixCAM2](https://wiki.sipeed.com/maixpy/doc/en/README_MaixCAM2.html)
 
 ## Resources
 
