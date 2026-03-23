@@ -40,8 +40,6 @@ A: AI Super-Resolution (ISR) performance is affected by the environment and targ
 - **Warm-up:** Thermal sensitivity reaches its peak only after the device stabilizes. It is recommended to let it run for 2–5 minutes to reach thermal equilibrium.
 - **Contrast:** The smaller the temperature difference between the target and the background, the more apparent the noise will be.
 
----
-
 ## Super-Resolution (SR) Boundary Conditions
 
 ### Q: Why is the SR effect very obvious in some scenes but barely noticeable in others?
@@ -51,8 +49,6 @@ A: The AI Super-Resolution (ISR) algorithm is based on deep learning to enhance 
 - **Ideal Scenarios:** Objects with distinct edges, lines, or complex textures (e.g., PCB traces, electronic component outlines, mechanical parts, or text). In these cases, SR significantly sharpens edges and reduces pixelation.
 - **Limited Scenarios:** Large areas of uniform temperature lacking texture (e.g., flat white walls, smooth heat sinks, or the sky). Since there are no features to enhance, the visual improvement is minimal.
 - **Recommendation:** To evaluate SR performance, point the device at targets with rich temperature gradients or geometric structures.
-
----
 
 ## Temperature Accuracy
 

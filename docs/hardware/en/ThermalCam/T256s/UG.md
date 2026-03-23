@@ -40,9 +40,9 @@ The T256s is UVC-compliant and supports two primary video stream outputs. Choose
 - **Purpose:** Essential for precision thermography or developing custom host software. It contains the **raw 14-bit pixel data** from the sensor.
 - **Features:** Outputs a raw grayscale stream representing the infrared energy intensity captured by the detector. Each frame contains complete thermal information.
 - **Conversion Logic:** To map raw values to temperature, use the following formula. Ensure the device has reached **thermal equilibrium** (approx. 2 minutes) for accurate readings.
-- **Formula:** $Celsius = (raw\_value / 64.0) - 273.15$
-- **Example:** If the raw value is 22700, the temperature is $\approx 22700 / 64.0 - 273.15 = 81.53$ °C.
-- **Note:** Pixel values in the MJPEG stream are processed and **cannot** be used with this formula. Use the Y16 raw stream for any quantitative analysis.
+    - **Formula:** $Celsius = (raw\_value / 64.0) - 273.15$
+    - **Example:** If the raw value is 22700, the temperature is $\approx 22700 / 64.0 - 273.15 = 81.53$ °C.
+    - **Note:** Pixel values in the MJPEG stream are processed and **cannot** be used with this formula. Use the Y16 raw stream for any quantitative analysis.
 
 
 

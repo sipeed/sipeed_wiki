@@ -490,6 +490,18 @@ items:
             file: logic_analyzer/slogic16u3/Software_User_Guide.md
         -   label: FAQ
             file: logic_analyzer/slogic16u3/FAQ.md
+-   label: ThermalCam
+    items:
+    -   label: Sipeed T256s
+        items:
+        -   label: Introduction
+            file: ThermalCam/T256s/Intro.md
+        -   label: Quick Start
+            file: ThermalCam/T256s/QS.md
+        -   label: User Guide
+            file: ThermalCam/T256s/UG.md
+        -   label: FAQ
+            file: ThermalCam/T256s/FAQ.md
 -   label: KVM
     items:
     -   label: NanoKVM Cube
