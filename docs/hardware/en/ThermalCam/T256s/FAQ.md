@@ -30,7 +30,11 @@ A: This is the **Non-Uniformity Correction (NUC)** process, also known as "shutt
 
 A: Check the physical connection. If the connection is secure but there is still no image, the module may have failed to initialize or the driver is occupied. Try re-plugging the device. If the following prompt persists, please contact technical support:
 
+<<<<<<< HEAD
 ![占位图](../../../en/ThermalCam/T256s/assets/no-image-signal.jpg)
+=======
+![占位图](../../../zh/ThermalCam/T256s/assets/no-image-signal.jpg)
+>>>>>>> 4997d99764ef297257d85eb5bfb97dfecbb719a6
 
 ### Q: The image has noticeable noise, or the SR detail is not sharp enough.
 

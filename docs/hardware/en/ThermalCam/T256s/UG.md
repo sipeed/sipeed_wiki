@@ -3,7 +3,11 @@
 This guide introduces the hardware interfaces, local touch interactions, UVC data formats (MJPEG / Y16), and storage rules for the T256s. It is designed to help you quickly get started with the device for secondary development or thermal data analysis.
 
 ## Hardware Interface Description
+<<<<<<< HEAD
 ![占位图](../../../en/ThermalCam/T256s/assets/no-image-signal.jpg)
+=======
+![占位图](../../../zh/ThermalCam/T256s/assets/no-image-signal.jpg)
+>>>>>>> 4997d99764ef297257d85eb5bfb97dfecbb719a6
 
 - **Type-C Male (Device) Port:** Located at the bottom of the unit. Plug this directly into a smartphone for power and data transmission. If the phone does not recognize the device, ensure **OTG Power Supply** is enabled in the system settings.
 - **Type-C Female (Host/Power) Port:** Located at the top of the unit. Used for connecting to a PC, power bank, or external power cable. This is ideal for long-term monitoring or communicating with PC-side host software.
@@ -26,7 +30,11 @@ When not connected to a host computer, the T256s functions as a standalone therm
 TODO: Step-by-Step Visual Guide / Illustrations
 
 ## UVC Data Formats & Parsing Theory
+<<<<<<< HEAD
 ![占位图](../../../en/ThermalCam/T256s/assets/no-image-signal.jpg)
+=======
+![占位图](../../../zh/ThermalCam/T256s/assets/no-image-signal.jpg)
+>>>>>>> 4997d99764ef297257d85eb5bfb97dfecbb719a6
 
 The T256s is UVC-compliant and supports two primary video stream outputs. Choose the appropriate format based on your development needs.
 
@@ -47,7 +55,11 @@ The T256s is UVC-compliant and supports two primary video stream outputs. Choose
 
 
 ## Storage & File Access
+<<<<<<< HEAD
 ![占位图](../../../en/ThermalCam/T256s/assets/no-image-signal.jpg)
+=======
+![占位图](../../../zh/ThermalCam/T256s/assets/no-image-signal.jpg)
+>>>>>>> 4997d99764ef297257d85eb5bfb97dfecbb719a6
 
 The T256s features 32 MB of internal storage. When connected to a computer via a USB cable, the device mounts as a standard Mass Storage Class (MSC) device, allowing you to access it just like a typical flash drive. Image files are generally located in the `/DCIM/` or  `/Gallery/` directories. If the drive is not recognized, please try using a different data cable or USB port.
 
@@ -57,7 +69,11 @@ Photo Naming Conventions:
 
 
 ## Macro Lens Usage Tips
+<<<<<<< HEAD
 ![占位图](../../../en/ThermalCam/T256s/assets/no-image-signal.jpg)
+=======
+![占位图](../../../zh/ThermalCam/T256s/assets/no-image-signal.jpg)
+>>>>>>> 4997d99764ef297257d85eb5bfb97dfecbb719a6
 
 1. Gently attach the macro lens to the front of the infrared module. The module is high-precision and fragile; **do not apply excessive pressure** or scratch the lens.
 2. Maintain a subject distance of approximately **5cm**. Fine-tune the focus by slightly moving the device forward or backward. Note that macro lenses have a very shallow depth of field.

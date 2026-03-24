@@ -44,6 +44,7 @@ The design of the T256s centers on three core pillars: **Portability, Clarity, a
 
 
 
+<<<<<<< HEAD
 ![占位图](../../../en/ThermalCam/T256s/assets/no-image-signal.jpg)
 *Product Tri-view and Dimensions*
 
@@ -54,6 +55,18 @@ The design of the T256s centers on three core pillars: **Portability, Clarity, a
 *PCB-level Precision Macro Detection*
 
 ![占位图](../../../en/ThermalCam/T256s/assets/no-image-signal.jpg)
+=======
+![占位图](../../../zh/ThermalCam/T256s/assets/no-image-signal.jpg)
+*Product Tri-view and Dimensions*
+
+![占位图](../../../zh/ThermalCam/T256s/assets/no-image-signal.jpg)
+*AI Super-Resolution Comparison (Left: Native; Right: AI ISR Enhanced)*
+
+![占位图](../../../zh/ThermalCam/T256s/assets/no-image-signal.jpg)
+*PCB-level Precision Macro Detection*
+
+![占位图](../../../zh/ThermalCam/T256s/assets/no-image-signal.jpg)
+>>>>>>> 4997d99764ef297257d85eb5bfb97dfecbb719a6
 *Industrial Field Inspection Example*
 
 

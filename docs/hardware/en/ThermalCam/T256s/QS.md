@@ -20,7 +20,11 @@ Without connecting to a phone or computer, the T256s can function as an independ
 2. **System Loading (Approx. 3-5s):** The system automatically initializes and loads the basic UI framework.
 3. **Sensor Warm-up & Calibration (Approx. 5-10s):** The **infrared module** completes its initial calibration, and the screen begins displaying real-time thermal distribution images.
 
+<<<<<<< HEAD
 ![占位图](../../../en/ThermalCam/T256s/assets/no-image-signal.jpg)
+=======
+![占位图](../../../zh/ThermalCam/T256s/assets/no-image-signal.jpg)
+>>>>>>> 4997d99764ef297257d85eb5bfb97dfecbb719a6
 
 ## UVC Online Mode
 
@@ -31,7 +35,11 @@ Connect the T256s to your PC via a USB data cable.
 - **Device Recognition:** Open "Device Manager." Under the "Cameras" or "Imaging Devices" category, you should see a device named **"USB Camera"** or **"T256s Thermal Camera."**
 - **Image Preview:** You can use the built-in Windows "Camera" app or third-party software such as OBS Studio, VLC, or PotPlayer.
 
+<<<<<<< HEAD
 ![占位图](../../../en/ThermalCam/T256s/assets/no-image-signal.jpg)
+=======
+![占位图](../../../zh/ThermalCam/T256s/assets/no-image-signal.jpg)
+>>>>>>> 4997d99764ef297257d85eb5bfb97dfecbb719a6
 
 ### Linux / Raspberry Pi Recognition
 In a Linux environment, the T256s is typically mapped to a `/dev/videoX` device.
@@ -86,7 +94,11 @@ In a Linux environment, the T256s is typically mapped to a `/dev/videoX` device.
 - **Software:** We recommend using apps that support the UVC protocol, such as **"USB Camera."**
 - **Operation:** Upon insertion, the phone will typically prompt for permission. Tap "OK" to start the thermal image preview.
 
+<<<<<<< HEAD
 ![占位图](../../../en/ThermalCam/T256s/assets/no-image-signal.jpg)
+=======
+![占位图](../../../zh/ThermalCam/T256s/assets/no-image-signal.jpg)
+>>>>>>> 4997d99764ef297257d85eb5bfb97dfecbb719a6
 
 ## Macro Lens Installation
 
