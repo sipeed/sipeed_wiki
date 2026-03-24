@@ -114,11 +114,7 @@ If problems persist, or the system won’t boot after flashing, try `rufus` or `
 > `Etcher`may occurs `Missing partition table` `not a bootable image ...` warning, it's normall for `MaixCAM2`, just click `Continue` to continue.
 
 * Load the system image you downloaded and extract it. Make sure you’re loading the right one. It’s usually named `maixcam2-2025-09-01-maixpy-v4.11.9.img`.
-* Enter USB/TF upgrade mode:
-
-  * Method 1: Plug one end of USB into the PC, then within `1 second` of connecting to the board, press and hold `boot/Func`. Release after `3 seconds`.
-  * Method 2: Power off, connect USB, power on, then within `1 second` press and hold `boot/Func`. Release after `3 seconds`.
-
+* Enter USB/TF upgrade mode: First, Power off, connect USB, power on, then within `1 second` press and hold `boot/Func`. Release after `3 seconds`.
   > Don’t hold the button before power-on—this enters AXDL mode, which takes at least 10 seconds. Too slow.
 * After a few seconds, you’ll see a virtual U-disk appear. The blue LED flashes in a `off-on-on` pattern.
 * Click the software’s “Flash” button to begin. The blue LED flashes `0.5s on / 0.5s off`.
@@ -134,14 +130,14 @@ This is similar to USB flashing but often faster (depending on TF card speed, e.
 #### Preparing a TF Upgrade Card
 
 * Insert the TF card into your PC using a card reader.
-* Format the TF card as `exFAT` or `ext4` (not `FAT32`). Make sure to partition the TF card.
+* Format the TF card as `exFAT` or `ext4` (not `FAT32`). 
 * Copy the xxx.img file to the first partition of the TF card. If you have previously copied other `.img` files, you need to delete the old image files.
 * Safely eject the card to ensure data is fully written.
 * Power off the MaixCAM2, then insert the TF card into the MaixCAM2.
 * Power on the MaixCAM2, and within `1 second`, press and hold the `boot/Func` button.
 * The board will auto-detect and flash the system. Blue LED flashes `0.5s on / 0.5s off`.
   > If it doesn’t, check previous steps.
-* When complete, the LED stays solid on. Fast flashing (`0.3s on / 0.3s off`) indicates failure. Do not power off—use Method 2 (USB) to recover. If powered off and still failing, use AXDL to restore the boot partition.
+* Flashing takes ~3 mins. When complete, the LED stays solid on. Fast flashing (`0.3s on / 0.3s off`) indicates failure. Do not power off—use Method 2 (USB) to recover. If powered off and still failing, use AXDL to restore the boot partition.
 * Reboot to enter the new system. As before, wait for the first boot to finish before shutting down.
 
 ## Booting System via TF Card

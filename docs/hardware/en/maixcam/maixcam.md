@@ -36,6 +36,7 @@ And there is another model called [MaixCAM-Pro](./maixcam_pro.md).
 
 | Component          | Description |
 |--------------------|-------------|
+| CPU                | SOPHGO SG2002 |
 | CPU Big Core       | 1GHz RISC-V C906 (plus an optional 1GHz ARM A53 for Linux) |
 | CPU Small Core     | 700MHz RISC-V C906 running RTOS |
 | Low-Power Core     | 25~300MHz 8051 for low-power applications |
@@ -67,6 +68,11 @@ MaixCAM offers more than just hardware. It comes with a complete software ecosys
 | [MaixCDK](https://github.com/sipeed/MaixCDK) | C++ version of MaixPy for C/C++ developers | Refer to [MaixCDK](https://github.com/sipeed/MaixCDK) |
 | [App Store](https://maixhub.com/app) | Download tools and applications, or upload your own | Refer to [App Store](https://maixhub.com/app) |
 | [Share Center](https://maixhub.com/share) | A space for developers to share projects and experiences | Refer to [Share center](https://maixhub.com/share) |
+
+## Quick Start Guide
+- [Quick Start MaixCAM](https://wiki.sipeed.com/maixpy/doc/en/README_MaixCAM.html)
+- [Quick Start MaixCAM(Screenless Version)](https://wiki.sipeed.com/maixpy/doc/en/README_no_screen.html)
+
 
 ## MaixCAM Documentation
 

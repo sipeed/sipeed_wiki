@@ -174,6 +174,7 @@ title: MaixCAM2 -- 快速落地 AI 视觉、听觉应用
 
 | 组件 | 描述 |
 | --- | --- |
+| CPU  | 爱芯元智 AX630C |
 | CPU 大核 | **1.2GHz A53 x2, 运行 Linux(Ubuntu)** |
 | CPU 小核 | RISC-V 32bit E907， 跑 RTT |
 | NPU | **12.8Tops@INT4 / 3.2TOPS@INT8**， 支持卷积和**Transformer模型**，如 YOLO/**LLM/VLM** 等,  **YOLO11n 640x640 帧率高达 113FPS** |
@@ -212,6 +213,8 @@ title: MaixCAM2 -- 快速落地 AI 视觉、听觉应用
 | [分享广场](https://maixhub.com/share) | 开发者分享经验和项目 | 请看 [MaixHub 分享广场](https://maixhub.com/share) |
 | [本地大模型](https://wiki.sipeed.com/maixpy/doc/zh/mllm/basic.html) | 本地运行离线大模型 | 请看[大模型使用说明](https://wiki.sipeed.com/maixpy/doc/zh/mllm/basic.html) |
 
+## 快速上手
+- [快速开始MaixCAM2](https://wiki.sipeed.com/maixpy/doc/zh/README_MaixCAM2.html)
 
 ## 资料汇总
 
