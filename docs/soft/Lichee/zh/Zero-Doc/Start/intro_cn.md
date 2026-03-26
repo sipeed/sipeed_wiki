@@ -301,7 +301,7 @@ Zero开启debian桌面系统
 Zero畅玩经典游戏DOOM！
 ![](./../static/start/intro_33.jpg)
 
-荔枝派Zero还可以运行树莓派系统！原来你是披着树莓皮的的荔枝派！
+荔枝派Zero还可以运行树莓派系统！原来你是披着树莓皮的荔枝派！
 > 注：Zero由于内存限制，运行树莓派系统会较为卡顿。
 
 ![](./../static/start/intro_34.jpg)

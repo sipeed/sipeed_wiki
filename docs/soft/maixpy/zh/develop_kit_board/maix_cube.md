@@ -94,7 +94,7 @@ MaixCube  板载 I2C 传感器/IC
 1. 当我们的系统是 Win10 系统，系统则会帮我们自动安装驱动，而如果是旧版 Win7，win8 系统我们就需要自己手动安装:
     ![](../../assetcs/../assets/get_started/win_device_2.png)
 
-1. 打开上一节的的链接下载驱动
+1. 打开上一节的链接下载驱动
     ![](../../assetcs/../assets/get_started/win_device_3.png)
 1. 点击安装
     ![](../../assets/get_started/drives.gif)

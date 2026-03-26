@@ -123,7 +123,7 @@ You can manage the device remotely from any machine with an IPMI client (like `i
 - `-U`: Username (default: admin)
 - `-P`: Password (default: admin)
 - `-I`: Interface type (use `lanplus` for IPMI 2.0)
-- `-C`: Cipher Suite. **It it recommended to use `-C 3`** to skip the long protocol negotiation process.
+- `-C`: Cipher Suite. **It is recommended to use `-C 3`** to skip the long protocol negotiation process.
 
 ### Supported Command List
 

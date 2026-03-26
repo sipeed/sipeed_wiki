@@ -4,7 +4,7 @@
 
 ## 扩容系统
 
-使用不含有 MaxiPy3 的系统镜像启动后会会自动扩容，可以跳过 `扩容系统` 这一步。
+使用不含有 MaxiPy3 的系统镜像启动后会自动扩容，可以跳过 `扩容系统` 这一步。
 
 使用内置 MaxiPy3 的镜像系统不会自动扩充系统容量到最大值，因此需要执行一下 `/usr/lib/armbian/armbian-resize-filesystem start` 命令来扩容一下系统大小，会花费一下时间；执行时不要强行退出，执行完毕后会自动退回到终端
 
@@ -298,7 +298,7 @@ mplayer badapple_240_60fps.mp4 -vo fbdev2
 
 想要退出的话使用键盘上的 `Ctrl+C` 组合键来退出。
 
-也在在命令行后面加上`< /dev/null > /dev/null 2>1 &`以便在后台播放
+也可以在命令行后面加上`< /dev/null > /dev/null 2>1 &`以便在后台播放
 
 ```bash
 mplayer badapple_240_60fps.mp4 -vo fbdev2  < /dev/null > /dev/null 2>1 &
