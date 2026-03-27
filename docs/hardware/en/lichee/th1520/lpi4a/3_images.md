@@ -27,7 +27,7 @@ update:
 
 ## Supported kernels
 
-Currently XuanTie SDK / RevyOS uses Linux Kernel 5.10: https://github.com/revyos/th1520-linux-kernel
+Currently XuanTie SDK / RevyOS uses Linux Kernel 6.6: https://github.com/revyos/th1520-linux-kernel
 
 Linux mainline support is currently WIP, the main contributor of this is `Jisheng Zhang `
 
