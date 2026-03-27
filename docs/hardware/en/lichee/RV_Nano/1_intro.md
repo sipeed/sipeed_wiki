@@ -3,7 +3,7 @@ title: LicheeRV Nano
 keywords: riscv, licheerv,nano
 ---
 
-##  Introduction
+## Introduction
 
 The LicheeRV Nano is a mini-sized development board (measuring only 22.86*35.56mm), equipped with the SG2002 processor. It features a powerful core running at 1GHz (RISC-V/ARM options available) and a smaller core at 700MHz RISC-V, along with 256MB DDR3 memory, and an integrated 1Tops NPU. The board includes a wealth of interfaces such as MIPI-CSI, MIPI-DSI, SDIO, ETH, USB, SPI, UART, I2C, etc., allowing for the expansion of a wide variety of applications. Its through-hole/half-hole design facilitates easy mass production and soldering.
 
@@ -32,7 +32,7 @@ The LicheeRV Nano is a mini-sized development board (measuring only 22.86*35.56m
 
 ![](./../assets/RV_Nano/intro/RV_Nano_4.jpg)
 
-##  Version Comparison
+## Version Comparison
 
 |  **Specification**   | **Basic System** | **Microphone/Speaker** | **Ethernet** | **WiFi6/BT5** |
 | :------------------: | :--------------: | :--------------------: | :----------: | :-----------: |
@@ -68,10 +68,10 @@ Datasheets, schematic diagrams, dimension drawings, and more can be found here: 
 - [TPU SDK Development Resources Summary](https://developer.sophgo.com/thread/473.html)
 - [TDL SDK Development Guide: (Provides common AI model algorithms, application packaging based on TPU SDK)](https://doc.sophgo.com/cvitek-develop-docs/master/docs_latest_release/CV180x_CV181x/zh/01.software/TPU/TDL_SDK_Software_Development_Guide/build/TDLSDKSoftwareDevelopmentGuide_zh.pdf)
 - [TDL SDK Development Resources Summary](https://developer.sophgo.com/thread/473.html)
-- [SOPHGO Developer Resources](https://developer.sophgo.com/thread/556.html)
+- [TDL SDK Development Resources](https://developer.sophgo.com/thread/556.html)
 - Precautions
-  - The beta version hardware (70405) NPU only supports operation at 0.5T, running at 1.0T does not guarantee the stability of the board.
-  - The WIFI of the beta version hardware (70405) has not been fully optimized yet, resulting in lower speeds. We appreciate your understanding.
+  - The NPU on the beta version hardware (70405) only supports operation at 0.5T; running at 1.0T does not guarantee the stability of the board.
+  - The WiFi on the beta version hardware (70405) has not been fully optimized yet, resulting in lower speeds. We appreciate your understanding.
   - If purchasing a camera accessory or the WE version package, screws, soldering pillars, and a screwdriver are included in the package. To avoid burns during soldering, please refer to the [Camera & WE Ethernet Module Installation Guide](https://wiki.sipeed.com/hardware/zh/lichee/RV_Nano/2_unbox.html).
   - If purchasing 3-inch, 4-inch, or 10.1-inch screen accessories, a screen adapter board and ribbon cable are included in the package. Please refer to the [Screen Installation Guide](https://wiki.sipeed.com/hardware/zh/lichee/RV_Nano/2_unbox.html)
 
