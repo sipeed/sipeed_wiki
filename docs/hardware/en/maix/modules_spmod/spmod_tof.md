@@ -117,7 +117,7 @@ SPMOD_TOF(TOF module) uses VL53L0X .
       print(mm)
 
   ```
-## Runtime enviroments
+## Runtime environments
 
 | Language |  Boards  |      SDK/firmware version      |
 | :------: | :------: | :----------------------------: |

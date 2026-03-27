@@ -138,7 +138,7 @@ Community Documents:
 - [Deploy yolov8 on Axera-Pi](https://www.yuque.com/prophetmu/chenmumu/pd3sdkb8z4vvvgai)
 - [[m3axpi] YOLOv5 Train and deploy model](https://github.com/Abandon-ht/m3axpi_model/blob/main/yolov5/README_zh-CN.md)
 - [[m3axpi] YOLOv8 Train and deploy model](https://github.com/Abandon-ht/m3axpi_model/blob/main/yolov8/README_zh-CN.md)
-- [Prepare AX620A development enviroment on ubuntu22.04](https://blog.csdn.net/flamebox/article/details/127103964)
+- [Prepare AX620A development environment on ubuntu22.04](https://blog.csdn.net/flamebox/article/details/127103964)
 - [Train and deploy yolo5s on Axera-Pi](https://blog.csdn.net/flamebox/article/details/127249243)
 - [[AXPI] Use RNDIS on m1/m2 MAC](https://zhuanlan.zhihu.com/p/593627641)
 - [Kaldi - Real-time speech recognition on embedded device](https://mp.weixin.qq.com/s/r4nGu04o1sjdFZt_vYbUAA)

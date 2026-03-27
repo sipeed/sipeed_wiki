@@ -37,6 +37,7 @@ MaixCAM is a hardware product designed for the rapid implementation of AI vision
 
 | Component | Description |
 | --- | --- |
+| CPU                | SOPHGO SG2002 |
 | CPU Main Core | 1GHz RISC-V C906 processor (plus an optional 1GHz ARM A53 core), running Linux |
 | CPU Small Core | 700MHz RISC-V C906, running RTOS |
 | CPU Low Power Core | 25~300MHz 8051 processor for low-power applications |
@@ -74,6 +75,8 @@ We don't just provide hardware; MaixCAM comes with a complete software ecosystem
 | [App Store](https://maixhub.com/app) | Provides various applications and tools for direct download and use, allowing developers to share their apps | Visit [MaixHub App Store](https://maixhub.com/app) |
 | [Community Plaza](https://maixhub.com/share) | Developers share their projects and experiences | Visit [MaixHub Community Plaza](https://maixhub.com/share) |
 
+## Quick Start Guide
+- [Quick Start MaixCAM](https://wiki.sipeed.com/maixpy/doc/en/README_MaixCAM.html)
 
 ## Resource Summary
 

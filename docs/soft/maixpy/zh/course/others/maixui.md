@@ -123,7 +123,7 @@ class launcher:
 
 在这里， __class__ 类似于 实例类 中的 this 指针，可以通过它访问当前类的全局变量。
 
-该静态类拥有有 load / free / event 三个生命周期函数用以提供给 UI 容器维持该 UI 应用的持续运行。
+该静态类拥有 load / free / event 三个生命周期函数用以提供给 UI 容器维持该 UI 应用的持续运行。
 
 - load 只会执行一次，用于 UI 应用的初始化。
 - free 只会执行一次，用于 UI 应用的释放。

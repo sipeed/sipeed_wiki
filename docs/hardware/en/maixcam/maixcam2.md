@@ -173,6 +173,7 @@ Bold items are upgrades compared to MaixCAM / MaixCAM-Pro (first generation).
 
 | Component        | Description                                                                                                                                                                |
 | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| CPU (Big Cores)  |  Axera AX630C |
 | CPU (Big Cores)  | **1.2GHz A53 x2, runs Linux (Ubuntu)**                                                                                                                                     |
 | CPU (Small Core) | RISC-V 32bit E907, runs RTT                                                                                                                                                |
 | NPU              | **12.8Tops@INT4 / 3.2TOPS@INT8**, supports convolution and **Transformer models** such as YOLO/**LLM/VLM**, **YOLO11n 640x640 reaches up to 113FPS**                                      |
@@ -209,6 +210,9 @@ We don’t just provide hardware — MaixCAM2 comes with a complete software eco
 | [App Store](https://maixhub.com/app)                      | Various apps and tools available for download without development. Developers can also upload and share apps | See [MaixHub App Store](https://maixhub.com/app)             |
 | [Sharing Hub](https://maixhub.com/share)                  | A community for developers to share experiences and projects | See [MaixHub Sharing Hub](https://maixhub.com/share)         |
 | [Local Large Models](https://wiki.sipeed.com/maixpy/doc/zh/mllm/basic.html) |     Running Offline Large Models Locally                   | See [Large Model User Guide](https://wiki.sipeed.com/maixpy/doc/zh/mllm/basic.html) |
+
+## Quick Start Guide
+- [Quick Start MaixCAM2](https://wiki.sipeed.com/maixpy/doc/en/README_MaixCAM2.html)
 
 ## Resources
 
