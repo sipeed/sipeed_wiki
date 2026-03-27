@@ -67,7 +67,7 @@ Wait for the device to restart and enter fastboot mode:
 1. Run the flash all script and wait for the flashing to complete;
 2. When running flash all. sh on a Linux PC, be sure to grant executable permissions first; Run flash all. bat on Windows PC;
 3. After flashing the device, simply power it on again to enter the system.
-##Burn TF card
+## Burn TF card
 The firmware ending in img.zip is the sdcard firmware. After decompression, it can be written to the sdcard using the dd command or balenaEtcher. Please note that this firmware is not compatible with eMMC.
 **Steps**
 1. Write the firmware to the sdcard;

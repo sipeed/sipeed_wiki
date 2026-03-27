@@ -52,7 +52,7 @@ Datasheets, schematic diagrams, dimension drawings, and more can be found here: 
 - [3D Model Files](http://cn.dl.sipeed.com/shareURL/LICHEE/LicheeRV_Nano/06_3D_file)
 - [Core Board Packaging](http://cn.dl.sipeed.com/shareURL/LICHEE/LicheeRV_Nano/05_PCB_Lib)
 - [Board Chip Information](http://cn.dl.sipeed.com/shareURL/LICHEE/LicheeRV_Nano)
-- http://cn.dl.sipeed.com/shareURL/LICHEE/LicheeRV_Nano/07_Datasheet)
+- [Board Chip Datasheet](http://cn.dl.sipeed.com/shareURL/LICHEE/LicheeRV_Nano/07_Datasheet)
 
 ## Software Resources
 
@@ -68,7 +68,7 @@ Datasheets, schematic diagrams, dimension drawings, and more can be found here: 
 - [TPU SDK Development Resources Summary](https://developer.sophgo.com/thread/473.html)
 - [TDL SDK Development Guide: (Provides common AI model algorithms, application packaging based on TPU SDK)](https://doc.sophgo.com/cvitek-develop-docs/master/docs_latest_release/CV180x_CV181x/zh/01.software/TPU/TDL_SDK_Software_Development_Guide/build/TDLSDKSoftwareDevelopmentGuide_zh.pdf)
 - [TDL SDK Development Resources Summary](https://developer.sophgo.com/thread/473.html)
-- https://developer.sophgo.com/thread/556.html)
+- [SOPHGO Developer Resources](https://developer.sophgo.com/thread/556.html)
 - Precautions
   - The beta version hardware (70405) NPU only supports operation at 0.5T, running at 1.0T does not guarantee the stability of the board.
   - The WIFI of the beta version hardware (70405) has not been fully optimized yet, resulting in lower speeds. We appreciate your understanding.

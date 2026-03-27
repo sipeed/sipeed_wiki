@@ -258,7 +258,7 @@ sudo tar -vxf build/rootfs_debian_gui.tar -C /tmp/rootfs/
 sync
 sudo umount /tmp/rootfs
 sudo umount /tmp/kernel
-sudo losetup -d /dev/loop23 # 删除 kernel 分区对应的的循环设备
+sudo losetup -d /dev/loop23 # 删除 kernel 分区对应的循环设备
 sudo losetup -d /dev/loop24 # 删除 rootfs 分区对应的循环设备
 sudo losetup -d /dev/loop3 # 删除 img 文件对应的循环设备
 ```

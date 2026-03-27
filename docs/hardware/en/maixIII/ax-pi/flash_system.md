@@ -322,7 +322,7 @@ sudo apt install gcc gparted
 
 ### Reboot/Shutdown device
 
-For Linux we suggest rebooting or shutting down the device by command line instead of disconnecting the USB cable or clicking the reset key, which may destory the file system.
+For Linux we suggest rebooting or shutting down the device by command line instead of disconnecting the USB cable or clicking the reset key, which may destroy the file system.
 
 Run command `reboot` to restart device.
 

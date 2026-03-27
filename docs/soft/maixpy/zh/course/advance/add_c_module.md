@@ -120,7 +120,7 @@ typedef struct _mp_map_elem_t {
 * 第二个值是数值，类型是一个对象，可以是`str/function/int/float/tuple/list/dict`等， 方式如下：
   * `str`: 这里同样是定义了一个`str`类型的值为`my_lib`,即在`MaixPy`层面使用`my_lib.__name__`得到结果`my_lib`。
   * `其它常量对象`： 可以使用`mp_obj_new_xxx`,比如`int`变量`mp_obj_new_int(10)`， 函数在`obj.h`中搜索
-  * `函数`： 这里的`key``hello`对应的值为为`(mp_obj_t)&my_lib_func_hello_obj`，是一个函数对象，注意不是`C`函数，前面说了`python`中一切皆对象， 这里也是使用了一个函数对象，然后去地址强制转换成 `mp_obj_t`。这个函数对象使用了`MP_DEFINE_CONST_FUN_OBJ_0`宏定义将`my_lib_func_hello`这个`C`函数定义为`my_lib_func_hello_obj`这个对象，注意`hello`函数需要返回一个值`mp_const_none`,注意不能返回`NULL`， 因为`NULL`不是一个(`MaixPy`)对象， 这个返回值也就是`MaixPy`层面调用`hello()`函数时的返回值
+  * `函数`： 这里的`key``hello`对应的值为`(mp_obj_t)&my_lib_func_hello_obj`，是一个函数对象，注意不是`C`函数，前面说了`python`中一切皆对象， 这里也是使用了一个函数对象，然后去地址强制转换成 `mp_obj_t`。这个函数对象使用了`MP_DEFINE_CONST_FUN_OBJ_0`宏定义将`my_lib_func_hello`这个`C`函数定义为`my_lib_func_hello_obj`这个对象，注意`hello`函数需要返回一个值`mp_const_none`,注意不能返回`NULL`， 因为`NULL`不是一个(`MaixPy`)对象， 这个返回值也就是`MaixPy`层面调用`hello()`函数时的返回值
   > 除了`MP_DEFINE_CONST_FUN_OBJ_0`即没有参数之外，还有`1/2/3/n`个参数，以及带关键字参数，这些请翻阅源码举一反三学习
 
 

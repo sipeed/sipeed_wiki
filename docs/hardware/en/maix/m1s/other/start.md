@@ -900,7 +900,7 @@ Burn the compiled firmware into M1s Dock.
 
 ![udisk_burn](./../../../../zh/maix/m1s/other/assets/start/udisk_burn.gif)
 
-Form the source code of `main.c` in tom_and_jerry_classification_demo we can see that the ai model file is the the models folder in the Flash, and the ai model file name is `tj.blai`.
+Form the source code of `main.c` in tom_and_jerry_classification_demo we can see that the ai model file is the models folder in the Flash, and the ai model file name is `tj.blai`.
 
 ![tom_jerry_source_code](./../../../../zh/maix/m1s/other/assets/start/tom_jerry_source_code.jpg)
 
